@@ -1,0 +1,6 @@
+# Client
+client/static/*
+client/assets/styles/*
+/.idea/*
+*/node_modules/*
+client/dist/*

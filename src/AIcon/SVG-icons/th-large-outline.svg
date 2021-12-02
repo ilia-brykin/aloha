@@ -1,0 +1,45 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    id="svg3769"
+    viewBox="0 0 18 18"
+    height="18"
+    width="18"
+    version="1.1"
+>
+    <g
+        transform="matrix(0.01956703,0,0,0.01956703,0,-2.0366)"
+    >
+        <rect
+                style="fill:none;stroke:currentColor;stroke-width:40.0850296;"
+                width="439.91498"
+                height="439.91498"
+                x="20.042515"
+                y="564.04254"
+                ry="0"
+        />
+        <rect
+                style="fill:none;stroke:currentColor;stroke-width:40.0850296;"
+                width="439.91498"
+                height="439.91498"
+                x="459.95749"
+                y="564.04254"
+                ry="0"
+        />
+        <rect
+                style="fill:none;stroke:currentColor;stroke-width:40.0850296;"
+                width="439.91498"
+                height="439.91498"
+                x="20.042515"
+                y="124.12753"
+                ry="0"
+        />
+        <rect
+                style="fill:none;stroke:currentColor;stroke-width:40.0850296;"
+                width="439.91498"
+                height="439.91498"
+                x="459.95749"
+                y="124.12753"
+                ry="0"
+        />
+    </g>
+</svg>
