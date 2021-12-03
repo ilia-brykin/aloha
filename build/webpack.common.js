@@ -5,9 +5,9 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 // const TARGET = process.env.npm_lifecycle_event;
 
 module.exports = {
-  entry: "./src/AIcon.js",
+  entry: "./src/Temp/Temp.vue",
   output: {
-    filename: "AIcon.js",
+    filename: "Temp.js",
     path: path.resolve(__dirname, "../dist"),
   },
   plugins: [
