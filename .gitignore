@@ -3,3 +3,4 @@ client/static/*
 client/assets/styles/*
 /.idea/*
 /node_modules/*
+package-lock.json

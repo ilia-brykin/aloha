@@ -1,0 +1,17 @@
+tr
+  a-table-td(
+    v-for="(column, columnIndex) in columns"
+    :key="column.id"
+    :column="column"
+    :column-index="columnIndex"
+    :row="row"
+    :row-index="rowIndex"
+  )
+    template(
+      v-for="(_, slotName) in $slots"
+      v-slot:[slotName]="slotProps"
+    )
+      slot(
+        :name="slotName"
+        v-bind="slotProps"
+      )

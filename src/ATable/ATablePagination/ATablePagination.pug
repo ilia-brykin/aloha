@@ -1,0 +1,113 @@
+nav(
+  aria-label="Table navigation"
+)
+  ul.pagination
+    li.page-item
+      a.page-link(
+        href='#'
+        aria-label='Previous'
+      )
+        span(
+          aria-hidden='true'
+        ) «
+    li.page-item
+      a.page-link(
+        href='#'
+      ) 1
+    li.page-item
+      a.page-link(
+        href='#'
+      ) 2
+    li.page-item
+      a.page-link(
+        href='#'
+      ) 3
+    li.page-item
+      a.page-link(
+        href='#'
+        aria-label='Next'
+      )
+        span(
+          aria-hidden='true'
+        ) »
+
+//.row.align-items-center.m-0.py-2.table_counter
+//  .col-md-6.text-left
+//    pux-translate.mr-3(
+//      v-if="total"
+//      key="total"
+//      tag="span"
+//      :text="'_TXT_PAGINATION_FROM_TO_{{start}}_{{current}}_{{total}}_'"
+//      :extra="extraForTranslatePaginationFromTo"
+//    )
+//    pux-translate.mr-3(
+//      v-else
+//      key="not_total"
+//      tag="span"
+//      text="_TXT_PAGINATION_NO_DATA_"
+//    )
+//
+//    span
+//      pux-translate(
+//        tag="span"
+//        text="_TXT_PAGINATION_PER_PAGE_"
+//      )
+//      span.table-pagination-count(
+//        v-for="item in itemsPerPage"
+//        :key="item"
+//      )
+//        strong(
+//          v-if="limit === item"
+//          key="not_button"
+//        ) {{ item }}
+//        button.btn.btn-link.p-0.line_height_1.align-baseline(
+//          v-else
+//          key="button"
+//          :class="{ active: limit === item }"
+//          :disabled="disabled"
+//          v-translate="{ 'aria-label': '_TXT_PAGINATION_COUNT_PER_PAGE_{{count}}_', extra: { count: item } }"
+//          @click="updateLimit({ limit: item, disabled })"
+//        ) {{ item }}
+//
+//  pux-translate.col-md-6(
+//    v-if="total"
+//    tag="nav"
+//    aria-label="_TXT_PAGINATION_TABLE_NAVIGATION_"
+//  )
+//    ul.pagination.m-0.pl-0.float-right
+//      li.page-item(
+//        :class="{ disabled: currentItem === 1 }"
+//      )
+//        button.page-link(
+//          type="button"
+//          :aria-disabled="ariaDisabledButtonFirstPage"
+//          @click="updateOffsetFirstLocal"
+//          v-translate="{ 'aria-label': '_BTN_PAGINATION_TO_FIRST_PAGE_', title: '_BTN_PAGINATION_TO_FIRST_PAGE_' }"
+//        )
+//          pux-icon(
+//            icon="chevron-left"
+//          )
+//      li.page-item(
+//        v-for="(item, index) in paginationList"
+//        :key="index"
+//        :class="{ active: currentItem === item }"
+//      )
+//        button.page-link(
+//          type="button"
+//          :aria-disabled="disabled || currentItem === item ? 'true' : 'false'"
+//          :aria-current="currentItem === item ? 'true' : 'false'"
+//          @click="updateOffsetLocal(item)"
+//          v-translate="{ 'aria-label': '_BTN_PAGINATION_TO_PAGE_{{page}}_', title: '_BTN_PAGINATION_TO_PAGE_{{page}}_', extra: { page: item } }"
+//        ) {{ filterCurrency(item, "", 0) }}
+//      li.page-item(
+//        :class="{ disabled :  currentItem === maxItem }"
+//      )
+//        button.page-link(
+//          type="button"
+//          :aria-disabled="ariaDisabledButtonLastPage"
+//          @click="updateOffsetLastLocal"
+//          v-translate="{ 'aria-label': '_BTN_PAGINATION_TO_LAST_PAGE_', title: '_BTN_PAGINATION_TO_LAST_PAGE_' }"
+//        )
+//          pux-icon(
+//            icon="chevron-right"
+//          )

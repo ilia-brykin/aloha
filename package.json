@@ -5,10 +5,13 @@
   "author": "Ilia Brykin",
   "scripts": {
     "watch": "webpack --watch --mode=development --config build/webpack.dev.js",
-    "build-css": "npm rebuild node-sass && node-sass --include-path scss styles/base.scss assets/styles/styles.css",
+    "build-css": "node-sass --include-path scss docs/styles/base.scss docs/static/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --mode=development --config build/webpack.dev.js",
+    "dev": "webpack serve --history-api-fallback --mode=development --config build/webpack.dev.js",
     "build": "webpack --mode=production --config build/webpack.prod.js"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -18,14 +21,18 @@
     "@babel/preset-env": "^7.16.0",
     "@babel/runtime": "^7.16.0",
     "@babel/runtime-corejs3": "^7.16.0",
-    "@flockos/vue-components": "0.1.73",
     "@vue/compiler-sfc": "^3.2.21",
     "@webpack-cli/generators": "^2.4.1",
     "babel-loader": "^8.2.3",
+    "bootstrap": "^5.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.0.0",
     "core-js": "^3.19.1",
     "css-loader": "^6.5.1",
     "eslint": "^8.1.0",
     "eslint-webpack-plugin": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^6.0.1",
     "pug": "^3.0.2",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
@@ -34,6 +41,7 @@
     "vue-loader": "^16.8.3",
     "vue-pug-loader": "^1.1.26",
     "vue-router": "^4.0.12",
+    "vuex": "^4.0.2",
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0",

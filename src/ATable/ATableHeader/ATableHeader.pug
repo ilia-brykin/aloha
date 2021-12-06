@@ -1,0 +1,10 @@
+thead
+  tr
+    a-table-header-th(
+      v-for="column in columns"
+      :key="column.id"
+      :column="column"
+      :is-loading="isLoading"
+      :model-sort="modelSort"
+      @change-model-sort="$attrs.onChangeModelSort"
+    )

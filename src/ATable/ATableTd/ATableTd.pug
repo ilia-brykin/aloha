@@ -1,0 +1,14 @@
+td
+  slot(
+    v-if="isSlot"
+    key="slot"
+    :name="column.slot"
+    :column="column"
+    :column-index="columnIndex"
+    :row="row"
+    :row-index="rowIndex"
+  )
+  span(
+    v-else
+    key="text"
+  ) {{ text }}

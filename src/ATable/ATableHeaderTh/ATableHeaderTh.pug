@@ -1,0 +1,20 @@
+th(
+  scope="col"
+  v-bind="attributesForTh"
+)
+  component(
+    :is="componentLocal"
+    v-bind="attributesForButton"
+    v-on="eventsForButton"
+  ) {{ column.label }}
+    template(
+      v-if="isSortable"
+    )
+      a-icon(
+        v-if="!isSortAscending"
+        icon="ChevronUp"
+      )
+      a-icon(
+        v-if="!isSortDescending"
+        icon="ChevronDown"
+      )

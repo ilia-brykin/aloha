@@ -23,6 +23,10 @@ export default {
       default: "currentColor",
       required: false,
     },
+    ariLabel: {
+      type: String,
+      required: false,
+    },
   },
   data() {
     return {
@@ -37,6 +41,17 @@ export default {
   computed: {
     iconSvg() {
       return this.icons[this.icon];
+    },
+
+    attributes() {
+      if (this.ariLabel) {
+        return {
+          "aria-label": this.ariLabel,
+        };
+      }
+      return {
+        "aria-hidden": true,
+      };
     },
   },
 };

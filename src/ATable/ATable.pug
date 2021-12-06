@@ -1,0 +1,28 @@
+div
+  table
+    a-table-header(
+      :columns="columns"
+      :model-sort="modelSort"
+      :is-loading="isLoading"
+      @change-model-sort="changeModelSort"
+    )
+    tbody
+      a-table-tr(
+        v-for="(row, rowIndex) in rowsLocal"
+        :key="rowIndex"
+        :row="row"
+        :row-index="rowIndex"
+        :columns="columns"
+        :is-loading="isLoading"
+      )
+        template(
+          v-for="(_, slotName) in $slots"
+          v-slot:[slotName]="slotProps"
+        )
+          slot(
+            :name="slotName"
+            v-bind="slotProps"
+          )
+  a-table-pagination(
+
+  )
