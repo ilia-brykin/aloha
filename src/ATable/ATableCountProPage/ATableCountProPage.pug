@@ -1,0 +1,11 @@
+div
+  select(
+    :value="modelValue"
+    aria-label="Page Size"
+    @input="emitValue"
+  )
+    option(
+      v-for="count in countsPerPage"
+      :key="count"
+      :value="count"
+    ) {{ count }}

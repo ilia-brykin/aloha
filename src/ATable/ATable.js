@@ -1,8 +1,10 @@
+import ATableCountProPage from "./ATableCountProPage/ATableCountProPage.vue";
 import ATableHeader from "./ATableHeader/ATableHeader.vue";
 import ATablePagination from "./ATablePagination/ATablePagination.vue";
 import ATableTr from "./ATableTr/ATableTr.vue";
 
 import {
+  cloneDeep,
   orderBy,
   startsWith,
 } from "lodash-es";
@@ -10,6 +12,7 @@ import {
 export default {
   name: "ATable",
   components: {
+    ATableCountProPage,
     ATableHeader,
     ATablePagination,
     ATableTr,
@@ -31,14 +34,23 @@ export default {
       modelSort: undefined,
       isLoading: false,
       rows: [],
+      currentCountPerPage: "10",
     };
   },
   computed: {
     rowsLocal() {
       if (this.isDataParent) {
-        return this.dataSorted;
+        return this.dataPaginated;
       }
       return this.rows;
+    },
+
+    dataPaginated() {
+      if (this.currentCountPerPage) {
+        const DATA_SORTED = cloneDeep(this.dataSorted);
+        return DATA_SORTED.slice(0, +this.currentCountPerPage);
+      }
+      return this.dataSorted;
     },
 
     dataSorted() {
@@ -75,8 +87,6 @@ export default {
         this.modelSort = sortId;
       }
     },
-
-    // orderBy
   },
   mounted() {
 

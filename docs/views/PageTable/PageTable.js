@@ -2,6 +2,10 @@ import {
   ATable,
 } from "../../../dist";
 
+import {
+  times,
+} from "lodash-es";
+
 export default {
   name: "PageTable",
   components: {
@@ -29,36 +33,7 @@ export default {
           sortId: "obj.aloha",
         },
       ],
-      data: [
-        {
-          aloha: "aloha1",
-          hola: "hola1",
-          obj: {
-            aloha: "saddsa",
-          },
-        },
-        {
-          aloha: "aloha2",
-          hola: "hola2",
-          obj: {
-            aloha: "dfdfs",
-          },
-        },
-        {
-          aloha: "aloha3",
-          hola: "hola3",
-          obj: {
-            aloha: "dfsfds",
-          },
-        },
-        {
-          aloha: "aloha4",
-          hola: "hola4",
-          obj: {
-            aloha: "dfgfd",
-          },
-        },
-      ],
+      data: [],
     };
   },
   computed: {
@@ -68,9 +43,21 @@ export default {
 
   },
   created() {
-
+    this.setData();
   },
   methods: {
-
+    setData() {
+      const DATA = [];
+      times(100, item => {
+        DATA.push({
+          aloha: `aloha${ item }`,
+          hola: `hola ${ item }`,
+          obj: {
+            aloha: `ertet ${ 100 - item }`,
+          },
+        });
+      });
+      this.data = DATA;
+    },
   },
 };
