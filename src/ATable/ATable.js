@@ -34,7 +34,8 @@ export default {
       modelSort: undefined,
       isLoading: false,
       rows: [],
-      currentCountPerPage: "10",
+      limit: 10,
+      offset: 0,
     };
   },
   computed: {
@@ -46,9 +47,11 @@ export default {
     },
 
     dataPaginated() {
-      if (this.currentCountPerPage) {
+      if (this.limit) {
         const DATA_SORTED = cloneDeep(this.dataSorted);
-        return DATA_SORTED.slice(0, +this.currentCountPerPage);
+        const INDEX_START = this.offset;
+        const INDEX_END = INDEX_START + this.limit;
+        return DATA_SORTED.slice(INDEX_START, INDEX_END);
       }
       return this.dataSorted;
     },
@@ -77,6 +80,16 @@ export default {
 
     isDataParent() {
       return !!this.data;
+    },
+
+    totalRowsCountLocal() {
+      if (this.isDataParent) {
+        return this.totalRowsCount;
+      }
+    },
+
+    totalRowsCount() {
+      return this.data.length;
     },
   },
   methods: {

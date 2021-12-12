@@ -24,8 +24,12 @@ div
             v-bind="slotProps"
           )
   a-table-pagination(
-
+    v-model:offset="offset"
+    :limit="limit"
+    :total-rows-count="totalRowsCountLocal"
+    :is-loading="isLoading"
   )
   a-table-count-pro-page(
-    v-model="currentCountPerPage"
+    v-model:limit="limit"
+    :is-loading="isLoading"
   )

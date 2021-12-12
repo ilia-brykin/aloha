@@ -2,9 +2,6 @@ import AIcon from "../../AIcon/AIcon.vue";
 
 import {
   ceil,
-  indexOf,
-  isNil,
-  sortBy,
 } from "lodash-es";
 
 export default {
@@ -13,152 +10,124 @@ export default {
     AIcon,
   },
   props: {
-    current: {
-      type: Number
-    },
-    total: {
-      type: Number
+    totalRowsCount: {
+      type: Number,
+      required: true,
     },
     offset: {
-      // type: Number,
-      default: 0
+      type: Number,
+      required: true,
     },
     limit: {
       type: Number,
-      default: 10
+      required: true,
     },
-    disabled: {
+    isLoading: {
       type: Boolean,
-      required: false,
-      default: false,
-    },
-    updateLimit: {
-      type: Function,
-      required: false,
-    },
-    updateOffset: {
-      type: Function,
-      required: false,
+      required: true,
     },
   },
+  emits: [
+    "update:offset",
+  ],
   data() {
     return {
-      countMaxItems: 5,
-      currentItem: undefined,
+      countMaxItems: 5, // should odd be
       maxItem: undefined,
     };
   },
   computed: {
-    itemsPerPage() {
-      const ITEMS_PER_PAGE = [10, 25, 50, 100];
-      if (!isNil(this.limit) && indexOf(ITEMS_PER_PAGE, this.limit) === -1) {
-        ITEMS_PER_PAGE.push(this.limit);
-        return sortBy(ITEMS_PER_PAGE, el => el);
-      }
-      return ITEMS_PER_PAGE;
-    },
-
-    paginationList() {
-      if (!this.total) {
-        return [];
-      }
-      const pagList = [];
-      this.maxItem = ceil(this.total / this.limit);
-      this.currentItem = (this.offset / this.limit >> 0) + 1;
-      pagList.push(this.currentItem);
-
-      for (let i = this.currentItem - 1; i > this.currentItem - (this.countMaxItems - 2); i--) {
-        if (i > 0) {
-          pagList.unshift(i);
+    paginationItems() {
+      const PAGINATION_ITEMS = [];
+      let currentItemIndex = -1;
+      for (let i = this.countMaxItems - 1; i > -this.countMaxItems; i--) {
+        const NUMBER = this.currentItem - i;
+        if (NUMBER > 0 && NUMBER <= this.maxItems) {
+          PAGINATION_ITEMS.push(NUMBER);
+        }
+        if (i === 0) {
+          currentItemIndex = PAGINATION_ITEMS.length - 1;
         }
       }
 
-      for (let i = this.currentItem + 1; i < this.currentItem + this.countMaxItems; i++) {
-        if (i <= this.maxItem) {
-          pagList.push(i);
-          if (pagList.length === this.countMaxItems) {
-            break;
-          }
-        } else {
-          break;
-        }
-      }
-
-      if (pagList.length < this.countMaxItems) {
-        for (let i = this.currentItem - 3; i > this.currentItem - this.countMaxItems; i--) {
-          if (i > 0) {
-            pagList.unshift(i);
-            if (pagList.length === this.countMaxItems) {
-              break;
-            }
-          }
-        }
-      }
-      return pagList;
+      const {
+        indexStart,
+        indexEnd,
+      } = this.getIndexStartAndEndForPagination({
+        currentItemIndex,
+        paginationLength: PAGINATION_ITEMS.length
+      });
+      return PAGINATION_ITEMS.slice(indexStart, indexEnd);
     },
 
-    extraForTranslatePaginationFromTo() {
-      return {
-        start: this.startFormatted,
-        current: this.currentFormatted,
-        total: this.totalFormatted,
-      };
+    currentItem() {
+      return (this.offset / this.limit >> 0) + 1;
     },
 
-    startFormatted() {
-      return this.filterCurrency(+this.offset + 1, "", 0);
-    },
-
-    currentFormatted() {
-      return this.filterCurrency(+this.offset + this.current, "", 0);
-    },
-
-    totalFormatted() {
-      return this.filterCurrency(this.total, "", 0);
+    maxItems() {
+      return ceil(this.totalRowsCount / this.limit);
     },
 
     disabledButtonFirstPage() {
-      return this.disabled || this.currentItem === 1;
+      return this.isLoading || this.currentItem === 1;
     },
 
     disabledButtonLastPage() {
-      return this.disabled || this.currentItem === this.maxItem;
-    },
-
-    ariaDisabledButtonFirstPage() {
-      return `${ this.disabledButtonFirstPage }`;
-    },
-
-    ariaDisabledButtonLastPage() {
-      return `${ this.disabledButtonLastPage }`;
+      return this.isLoading || this.currentItem === this.maxItems;
     },
   },
   methods: {
-    updateOffsetFirstLocal() {
+    getIndexStartAndEndForPagination({ currentItemIndex, paginationLength }) {
+      let indexStart = -1;
+      let indexEnd = paginationLength + 1;
+      const MIN_INDEX = Math.floor(this.countMaxItems / 2);
+      const MAX_INDEX = (this.countMaxItems * 2 - 1);
+      if (currentItemIndex <= MIN_INDEX) {
+        indexStart = 0;
+        indexEnd = this.countMaxItems;
+      } else if (currentItemIndex >= (MAX_INDEX - (MIN_INDEX + 1))) {
+        indexStart = MAX_INDEX - this.countMaxItems;
+        indexEnd = MAX_INDEX;
+      } else {
+        indexStart = currentItemIndex - MIN_INDEX;
+        indexEnd = currentItemIndex + MIN_INDEX + 1;
+      }
+
+      if (indexEnd > paginationLength) {
+        const DIFF = indexEnd - paginationLength;
+        indexEnd = paginationLength + 1;
+        indexStart = indexStart - DIFF;
+        if (indexStart < 0) {
+          indexStart = 0;
+        }
+      }
+
+      return {
+        indexStart,
+        indexEnd,
+      };
+    },
+
+    updateOffset(item) {
+      if (this.isLoading || item === this.currentItem) {
+        return;
+      }
+      const OFFSET = (item - 1) * this.limit;
+      this.$emit("update:offset", OFFSET);
+    },
+
+    updateOffsetFirst() {
       if (this.disabledButtonFirstPage) {
         return;
       }
-      this.updateOffset({
-        offset: 0,
-      });
+      this.$emit("update:offset", 0);
     },
 
-    updateOffsetLastLocal() {
+    updateOffsetLast() {
       if (this.disabledButtonLastPage) {
         return;
       }
-      this.updateOffset({
-        offset: (this.maxItem - 1) * this.limit,
-      });
-    },
-
-    updateOffsetLocal(item) {
-      if (this.disabled || this.currentItem === item) {
-        return;
-      }
-      this.updateOffset({
-        offset: (item - 1) * this.limit,
-      });
+      this.$emit("update:offset", (this.maxItems - 1) * this.limit);
     },
   },
 };

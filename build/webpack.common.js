@@ -70,20 +70,6 @@ module.exports = {
         test: /\.pug$/,
         use: ["vue-pug-loader"],
       },
-      // {
-      //   test: /\.pug$/,
-      //   oneOf: [
-      //     // this applies to pug imports inside JavaScript
-      //     {
-      //       exclude: /\.vue$/,
-      //       use: ['raw-loader', 'pug-plain-loader']
-      //     },
-      //     // this applies to <template lang="pug"> in Vue components
-      //     {
-      //       use: ['vue-pug-loader']
-      //     }
-      //   ]
-      // }
     ],
   },
   // https://webpack.docschina.org/guides/caching/

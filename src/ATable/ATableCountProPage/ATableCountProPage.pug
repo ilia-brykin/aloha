@@ -1,7 +1,8 @@
 div
   select(
-    :value="modelValue"
+    :value="limit"
     aria-label="Page Size"
+    :disabled="isLoading"
     @input="emitValue"
   )
     option(
