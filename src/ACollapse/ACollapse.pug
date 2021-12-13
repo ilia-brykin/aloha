@@ -1,0 +1,25 @@
+component(
+  :is="tag"
+  :id="id"
+  :aria-expanded="ariaExpanded"
+  :aria-controls="idControl"
+  v-bind="attributesLocal"
+  @click="toggle($event)"
+)
+  slot(
+    name="label"
+    :is-open="isOpenLocal"
+  )
+  span(
+    v-if="label"
+  ) {{ label }}
+component.collapse(
+  :is="tagControl"
+  :id="idControl"
+  :class="{ show: isOpenLocal }"
+  v-bind="attributesControl"
+)
+  slot(
+    name="control"
+    :is-open="isOpenLocal"
+  )
