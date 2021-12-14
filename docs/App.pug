@@ -1,20 +1,7 @@
 div
-  h1 Aloha
-  div
-    router-link(
-      to="/"
-    ) Go to Home
-    router-link(
-      to="/about"
-    ) Go to About
-    router-link(
-      to="/table"
-    ) Go to PageTable
-    router-link(
-      to="/spinner"
-    ) Go to PageSpinner
-    router-link(
-      to="/collapse"
-    ) Go to PageCollapse
-  br
-  router-view
+  the-navbar
+  .d-flex
+    the-menu
+    router-view.d-inline-block.ps-4(
+      style="width: calc(100vw - 280px;)"
+    )

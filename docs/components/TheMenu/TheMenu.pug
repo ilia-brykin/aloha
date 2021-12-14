@@ -1,0 +1,11 @@
+.d-inline-block.p-3.text-white.bg-dark(
+  style="width: 280px; min-height: calc(100vh - 80px);"
+)
+  ul.nav.nav-pills.flex-column.mb-auto
+    li.nav-item(
+      v-for="item in menuItems"
+      :key="item.name"
+    )
+      router-link.nav-link.text-white(
+        :to="{ name: item.name }"
+      ) {{ item.label }}

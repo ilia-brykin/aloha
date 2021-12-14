@@ -1,3 +1,4 @@
+import Aloha from "./Icons/Aloha";
 import ChevronDown from "./Icons/ChevronDown";
 import ChevronLeft from "./Icons/ChevronLeft";
 import ChevronRight from "./Icons/ChevronRight";
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       icons: {
+        Aloha,
         ChevronDown,
         ChevronLeft,
         ChevronRight,
