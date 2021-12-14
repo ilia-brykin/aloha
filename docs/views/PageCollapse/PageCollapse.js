@@ -5,15 +5,4 @@ export default {
   components: {
     ACollapse,
   },
-  data() {
-    return {
-
-    };
-  },
-  computed: {
-
-  },
-  methods: {
-
-  },
 };

@@ -6,4 +6,17 @@ div
     template(
       v-slot:control
     )
-      span bla bla
+      span ACollapse
+
+  .py-3
+  a-collapse.btn.btn-default
+    template(
+      v-slot:label="vm"
+    )
+      span(
+        :class="{ 'text-danger': vm.isOpen }"
+      ) Click Me
+    template(
+      v-slot:control
+    )
+      span ACollapse
