@@ -1,0 +1,22 @@
+component(
+  :is="tag"
+  v-if="htmlLocal"
+  key="html"
+  v-bind="attributesLocal"
+  v-html="htmlLocal"
+)
+component(
+  :is="tag"
+  v-else-if="textLocal"
+  key="text"
+  v-bind="attributesLocal"
+) {{ textBefore }}{{ textLocal }}{{ textAfter }}
+  slot
+
+component(
+  :is="tag"
+  v-else
+  key="not_html_not_text"
+  v-bind="attributesLocal"
+)
+  slot

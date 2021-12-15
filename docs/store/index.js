@@ -2,6 +2,8 @@ import {
   createStore,
 } from "vuex";
 
+import i18n from "./i18n";
+
 export default createStore({
   state() {
     return {
@@ -12,5 +14,8 @@ export default createStore({
     increment(state) {
       state.count++;
     },
+  },
+  modules: {
+    i18n,
   },
 });

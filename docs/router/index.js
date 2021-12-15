@@ -11,8 +11,8 @@ const ROUTES = [
   },
   {
     path: "/",
-    name: "Start",
-    component: () => import(/* webpackChunkName: "start" */ "../views/Start.vue"),
+    name: "PageStart",
+    component: () => import(/* webpackChunkName: "start" */ "../views/PageStart/PageStart.vue"),
   },
   {
     path: "/about",

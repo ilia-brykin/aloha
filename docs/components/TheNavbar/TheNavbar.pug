@@ -12,3 +12,14 @@ nav.navbar.navbar-light.bg-light(
         height="50"
       )
       span.h1.mb-0.ms-4.align-bottom ALOHA
+
+    form
+      select.form-select(
+        v-model="modelLanguage"
+        @input="changeLanguage"
+      )
+        option(
+          v-for="language in languages"
+          :key="language.value"
+          :value="language.value"
+        ) {{ language.label }}
