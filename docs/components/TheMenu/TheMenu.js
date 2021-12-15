@@ -11,6 +11,10 @@ export default {
           name: "PageTable",
           label: "Table",
         },
+        {
+          name: "PageCollapse",
+          label: "Collapse",
+        },
       ],
     };
   },
