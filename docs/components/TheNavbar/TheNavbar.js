@@ -5,9 +5,4 @@ export default {
   components: {
     AIcon,
   },
-  data() {
-    return {
-
-    };
-  },
 };
