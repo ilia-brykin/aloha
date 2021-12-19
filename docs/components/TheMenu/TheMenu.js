@@ -15,6 +15,10 @@ export default {
           name: "PageCollapse",
           label: "Collapse",
         },
+        {
+          name: "PageCloak",
+          label: "Cloak",
+        },
       ],
     };
   },

@@ -1,6 +1,10 @@
-component(
+component.a_spinner(
   :is="tag"
-  :class="[typeClass, typeColorClass]"
+  :class="[typeClass, typeSizeClass, typeColorClass]"
   role="status"
 )
-  span.visually-hidden {{ text }}
+  a-translation.visually-hidden(
+    v-if="text"
+    tag="span"
+    :text="text"
+  )

@@ -1,8 +1,19 @@
+import ATranslation from "../ATranslation/ATranslation.vue";
+
 import colors from "../const/colors";
 
 export default {
   name: "ASpinner",
+  components: {
+    ATranslation,
+  },
   props: {
+    size: {
+      type: String,
+      required: false,
+      default: "1",
+      validator: size => ["1", "2", "3", "4", "5", "6"].indexOf(size) !== -1,
+    },
     tag: {
       type: String,
       required: false,
@@ -11,7 +22,7 @@ export default {
     text: {
       type: String,
       required: false,
-      default: "Loading...",
+      default: "_LOADING_",
     },
     type: {
       type: String,
@@ -33,6 +44,12 @@ export default {
     typeColorClass() {
       if (this.typeColor) {
         return `text-${ this.typeColor }`;
+      }
+    },
+
+    typeSizeClass() {
+      if (this.size) {
+        return `a_spinner_${ this.size }`;
       }
     },
   },

@@ -32,7 +32,12 @@ const ROUTES = [
   {
     path: "/collapse",
     name: "PageCollapse",
-    component: () => import(/* webpackChunkName: "PageTable" */ "../views/PageCollapse/PageCollapse.vue"),
+    component: () => import(/* webpackChunkName: "PageCollapse" */ "../views/PageCollapse/PageCollapse.vue"),
+  },
+  {
+    path: "/cloak",
+    name: "PageCloak",
+    component: () => import(/* webpackChunkName: "PageCloak" */ "../views/PageCloak/PageCloak.vue"),
   },
   {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
