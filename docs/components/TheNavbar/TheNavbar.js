@@ -29,6 +29,10 @@ export default {
           label: "Русский",
           value: "ru",
         },
+        {
+          label: "Hrvatski",
+          value: "hr",
+        }
       ],
     };
   },
