@@ -20,6 +20,10 @@ export default {
           label: "Cloak",
         },
         {
+          name: "PageInput",
+          label: "Input",
+        },
+        {
           name: "PageAccordion",
           label: "Accordion",
         },

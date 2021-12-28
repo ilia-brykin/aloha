@@ -40,6 +40,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageCloak" */ "../views/PageCloak/PageCloak.vue"),
   },
   {
+    path: "/input",
+    name: "PageInput",
+    component: () => import(/* webpackChunkName: "PageCloak" */ "../views/PageInput/PageInput.vue"),
+  },
+  {
     path: "/accordion",
     name: "PageAccordion",
     component: () => import(/* webpackChunkName: "PageAccordion" */ "../views/PageAccordion/PageAccordion.vue"),

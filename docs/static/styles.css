@@ -7809,9 +7809,9 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important; } }
 
-/**
- * Foundation for Sites
- * Version 6.7.4
- * https://get.foundation
- * Licensed under MIT Open Source
- */
+.absolute_all {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }

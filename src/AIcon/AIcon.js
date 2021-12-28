@@ -3,6 +3,8 @@ import ChevronDown from "./Icons/ChevronDown";
 import ChevronLeft from "./Icons/ChevronLeft";
 import ChevronRight from "./Icons/ChevronRight";
 import ChevronUp from "./Icons/ChevronUp";
+import Close from "./Icons/Close";
+import Cross from "./Icons/Cross";
 
 export default {
   name: "AIcon",
@@ -37,6 +39,8 @@ export default {
         ChevronLeft,
         ChevronRight,
         ChevronUp,
+        Close,
+        Cross,
       },
     };
   },
