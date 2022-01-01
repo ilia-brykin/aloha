@@ -1,15 +1,8 @@
 import {
-  createNamespacedHelpers,
-} from "vuex";
-import {
   isPlainObject,
   isString,
   get,
 } from "lodash-es";
-
-const {
-  mapGetters,
-} = createNamespacedHelpers("i18n");
 
 export default {
   name: "ATranslation",
@@ -54,6 +47,7 @@ export default {
       default: "",
     },
   },
+  inject: ["i18n"],
   computed: {
     htmlLocal() {
       if (this.isTranslateHtml) {
@@ -149,9 +143,9 @@ export default {
       return ATTRIBUTES;
     },
 
-    ...mapGetters([
-      "translation",
-    ]),
+    translation() {
+      return this.i18n[this.$root.$i18n.language];
+    },
   },
   methods: {
     isPlaceholderTranslate(text) {

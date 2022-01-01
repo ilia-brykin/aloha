@@ -1,13 +1,5 @@
 import AIcon from "../../../src/AIcon/AIcon.vue";
 
-import {
-  createNamespacedHelpers,
-} from "vuex";
-
-const {
-  mapMutations,
-} = createNamespacedHelpers("i18n");
-
 export default {
   name: "TheNavbar",
   components: {
@@ -42,12 +34,8 @@ export default {
   methods: {
     changeLanguage() {
       setTimeout(() => {
-        this.addTranslation(this.modelLanguage);
+        this.$root.$i18n.language = this.modelLanguage;
       });
     },
-
-    ...mapMutations([
-      "addTranslation",
-    ]),
   },
 };
