@@ -32,7 +32,7 @@ export default {
         {
           label: "Hrvatski",
           value: "hr",
-        }
+        },
       ],
     };
   },
