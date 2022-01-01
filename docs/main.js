@@ -22,4 +22,5 @@ const TRANSLATIONS = {
   ru: { ...ruGlobal, ...ru },
 };
 APP.use(i18nPlugin, TRANSLATIONS, "de");
+APP.config.unwrapInjectedRef = true;
 APP.use(store).use(router).mount("#app");

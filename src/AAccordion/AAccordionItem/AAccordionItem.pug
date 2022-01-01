@@ -1,0 +1,76 @@
+component.a_accordion__item(
+  :is="tagItem"
+  :class="classItemLocal"
+)
+  component.a_accordion__item__header(
+    :is="tagItemHeader"
+    :class="classItemHeaderLocal"
+  )
+    component.a_accordion__item__header_btn(
+      :is="tagItemHeaderButton"
+      :class="classItemHeaderButtonLocal"
+      :aria-expanded="ariaExpanded"
+      :aria-controls="idForCollapse"
+      @click="toggle"
+    )
+      slot(
+        name="button"
+        :item="item"
+        :item-index="itemIndex"
+        :parent-indexes="parentIndexes"
+      )
+      span(
+        v-if="labelLocal"
+      ) {{ labelLocal }}
+
+  component.a_accordion__box_collapse(
+    :is="tagBoxCollapse"
+    v-show="isOpen"
+    :id="idForCollapse"
+    :class="classBoxCollapseLocal"
+  )
+    component.a_accordion__box_collapse__body(
+      :is="tagBoxCollapseBody"
+      :class="classBoxCollapseBodyLocal"
+    )
+      slot(
+        name="content"
+        :item="item"
+        :item-index="itemIndex"
+        :parent-indexes="parentIndexes"
+      )
+      component.a_accordion__box_collapse__body__content(
+        :is="tagBoxCollapseBodyContent"
+        v-if="contentLocal"
+        :class="classBoxCollapseBodyContent"
+        v-html="contentLocal"
+      )
+      component.a_accordion(
+        :is="tag"
+        v-if="hasChildren"
+        :class="classMainLocal"
+      )
+        a-accordion-item(
+          v-for="(itemChild, itemChildIndex) in children"
+          :key="itemChildIndex"
+          :item="itemChild"
+          :item-index="itemChildIndex"
+          :is-parent-open="isOpen"
+          :parent-indexes="parentIndexesForChild"
+          @toggle="toggleFromChild"
+        )
+          template(
+            v-slot:button="slotProps"
+          )
+            slot(
+              name="button"
+              v-bind="slotProps"
+            )
+
+          template(
+            v-slot:content="slotProps"
+          )
+            slot(
+              name="content"
+              v-bind="slotProps"
+            )

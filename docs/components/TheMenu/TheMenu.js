@@ -19,6 +19,10 @@ export default {
           name: "PageCloak",
           label: "Cloak",
         },
+        {
+          name: "PageAccordion",
+          label: "Accordion",
+        },
       ],
     };
   },

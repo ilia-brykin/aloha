@@ -1,0 +1,30 @@
+div
+  h1 PageAccordion
+  h2 without alwaysOpen
+  a-accordion(
+    :items="items1"
+    framework="bootstrap"
+  )
+  h2 with alwaysOpen
+  a-accordion(
+    :items="items1"
+    framework="bootstrap"
+    :always-open="true"
+  )
+  h2 with Slots
+  a-accordion(
+    :items="items1"
+    framework="bootstrap"
+    key-label=""
+    key-content=""
+  )
+    template(
+      v-slot:button="{ item, itemIndex }"
+    )
+      span {{ item.label }}
+        strong index: {{ itemIndex }}
+
+    template(
+      v-slot:content="{ item, itemIndex }"
+    )
+      strong {{ item.content }}
