@@ -18,5 +18,9 @@ export default {
       type: String,
       required: false,
     },
+    modelColumnsMapping: {
+      type: Object,
+      required: true,
+    },
   },
 };

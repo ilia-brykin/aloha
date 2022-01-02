@@ -1,7 +1,13 @@
 div
-  table
+  a-table-top-panel(
+    :columns="columns"
+    :is-loading="isLoading"
+    v-model:model-columns="modelColumns"
+  )
+  table.table
     a-table-header(
       :columns="columns"
+      :model-columns-mapping="modelColumnsMapping"
       :model-sort="modelSort"
       :is-loading="isLoading"
       @change-model-sort="changeModelSort"
@@ -13,6 +19,7 @@ div
         :row="row"
         :row-index="rowIndex"
         :columns="columns"
+        :model-columns-mapping="modelColumnsMapping"
         :is-loading="isLoading"
       )
         template(

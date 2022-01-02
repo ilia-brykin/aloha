@@ -2,6 +2,7 @@ thead
   tr
     a-table-header-th(
       v-for="column in columns"
+      v-show="modelColumnsMapping[column.id]"
       :key="column.id"
       :column="column"
       :is-loading="isLoading"

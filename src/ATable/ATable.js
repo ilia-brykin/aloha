@@ -1,6 +1,7 @@
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage.vue";
 import ATableHeader from "./ATableHeader/ATableHeader.vue";
 import ATablePagination from "./ATablePagination/ATablePagination.vue";
+import ATableTopPanel from "./ATableTopPanel/ATableTopPanel.vue";
 import ATableTr from "./ATableTr/ATableTr.vue";
 
 import {
@@ -15,6 +16,7 @@ export default {
     ATableCountProPage,
     ATableHeader,
     ATablePagination,
+    ATableTopPanel,
     ATableTr,
   },
   props: {
@@ -36,6 +38,7 @@ export default {
       rows: [],
       limit: 10,
       offset: 0,
+      modelColumns: [],
     };
   },
   computed: {
@@ -91,8 +94,23 @@ export default {
     totalRowsCount() {
       return this.data.length;
     },
+
+    modelColumnsMapping() {
+      const MODEL_COLUMNS = {};
+      this.modelColumns.forEach(columnId => {
+        MODEL_COLUMNS[columnId] = true;
+      });
+      return MODEL_COLUMNS;
+    },
+  },
+  created() {
+    this.initModelColumns();
   },
   methods: {
+    initModelColumns() {
+      this.modelColumns = this.columns.map(column => column.id);
+    },
+
     changeModelSort({ sortId }) {
       if (this.modelSort === sortId) {
         this.modelSort = `-${ sortId }`;
@@ -100,8 +118,5 @@ export default {
         this.modelSort = sortId;
       }
     },
-  },
-  mounted() {
-
   },
 };

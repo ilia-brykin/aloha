@@ -1,6 +1,7 @@
 tr
   a-table-td(
     v-for="(column, columnIndex) in columns"
+    v-show="modelColumnsMapping[column.id]"
     :key="column.id"
     :column="column"
     :column-index="columnIndex"

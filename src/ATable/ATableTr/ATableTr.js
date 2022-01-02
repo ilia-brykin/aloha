@@ -10,6 +10,10 @@ export default {
       type: Array,
       required: true,
     },
+    modelColumnsMapping: {
+      type: Object,
+      required: true,
+    },
     isLoading: {
       type: Boolean,
       required: true,
