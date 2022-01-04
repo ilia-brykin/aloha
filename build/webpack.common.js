@@ -12,6 +12,7 @@ module.exports = {
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "../docs/dist"),
+    publicPath: "/",
   },
   // resolve: {
   //   extensions: ['.vue', '.ts', '.js', '.jsx', '.json'], //It means that the file suffix can not be written in the import file
@@ -49,12 +50,21 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
+        exclude: /\.lazy\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
           "style-loader",
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.lazy\.s[ac]ss$/i,
+        use: [
+          { loader: "style-loader", options: { injectType: "lazyStyleTag" } },
+          "css-loader",
           "sass-loader",
         ],
       },

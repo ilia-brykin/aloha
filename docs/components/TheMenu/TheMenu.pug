@@ -7,5 +7,5 @@
       :key="item.name"
     )
       router-link.nav-link.text-white(
-        :to="{ name: item.name }"
+        :to="{ name: item.name, params: item.params }"
       ) {{ item.label }}

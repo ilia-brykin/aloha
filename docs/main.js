@@ -3,6 +3,7 @@ import { createApp } from "vue";
 import store from "./store/index";
 import router from "./router/index";
 import i18nPlugin from "../src/plugins/i18nPlugin";
+// import alohaPlugin from "../src/plugins/alohaPlugin";
 
 import de from "./i18n/de.json";
 import en from "./i18n/en.json";
@@ -22,5 +23,8 @@ const TRANSLATIONS = {
   ru: { ...ruGlobal, ...ru },
 };
 APP.use(i18nPlugin, TRANSLATIONS, "de");
+// APP.use(alohaPlugin, {
+//   framework: "bootstrap",
+// });
 APP.config.unwrapInjectedRef = true;
 APP.use(store).use(router).mount("#app");

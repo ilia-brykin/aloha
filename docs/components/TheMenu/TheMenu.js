@@ -25,7 +25,17 @@ export default {
         },
         {
           name: "PageAccordion",
-          label: "Accordion",
+          label: "Accordion Bootstrap",
+          params: {
+            framework: "bootstrap",
+          },
+        },
+        {
+          name: "PageAccordion",
+          label: "Accordion Foundation",
+          params: {
+            framework: "foundation",
+          },
         },
       ],
     };

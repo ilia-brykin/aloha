@@ -3,6 +3,9 @@ import {
   createWebHistory,
 } from "vue-router";
 
+import bootstrapStyles from "../styles/bootstrap.lazy.scss";
+import foundationStyles from "../styles/foundation.lazy.scss";
+
 const ROUTES = [
   {
     path: "/404",
@@ -45,9 +48,9 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageCloak" */ "../views/PageInput/PageInput.vue"),
   },
   {
-    path: "/accordion",
+    path: "/accordion/:framework",
     name: "PageAccordion",
-    component: () => import(/* webpackChunkName: "PageAccordion" */ "../views/PageAccordion/PageAccordion.vue"),
+    component: () => import(/* webpackChunkName: "PageAccordionBootstrap" */ "../views/PageAccordion/PageAccordion.vue"),
   },
   {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
@@ -62,4 +65,22 @@ const ROUTER = createRouter({
   routes: ROUTES,
 });
 
+ROUTER.beforeEach(to => {
+  if (to.params && to.params.framework) {
+    addFrameworkStyles(to.params.framework);
+  }
+  return true;
+});
+
 export default ROUTER;
+
+function addFrameworkStyles(framework) {
+  // TODO: Ilia diese Funktion muss optimiert werden.
+  if (framework === "bootstrap") {
+    bootstrapStyles.use();
+    foundationStyles.unuse();
+  } else if (framework === "foundation") {
+    foundationStyles.use();
+    bootstrapStyles.unuse();
+  }
+}

@@ -3,11 +3,11 @@ component.a_accordion__item(
   :class="classItemLocal"
 )
   component.a_accordion__item__header(
-    :is="tagItemHeader"
+    :is="tagItemHeaderLocal"
     :class="classItemHeaderLocal"
   )
     component.a_accordion__item__header_btn(
-      :is="tagItemHeaderButton"
+      :is="tagItemHeaderButtonLocal"
       :class="classItemHeaderButtonLocal"
       :aria-expanded="ariaExpanded"
       :aria-controls="idForCollapse"
@@ -24,13 +24,13 @@ component.a_accordion__item(
       ) {{ labelLocal }}
 
   component.a_accordion__box_collapse(
-    :is="tagBoxCollapse"
-    v-show="isOpen"
+    :is="tagBoxCollapseLocal"
     :id="idForCollapse"
     :class="classBoxCollapseLocal"
+    :style="styleBoxCollapse"
   )
     component.a_accordion__box_collapse__body(
-      :is="tagBoxCollapseBody"
+      :is="tagBoxCollapseBodyLocal"
       :class="classBoxCollapseBodyLocal"
     )
       slot(

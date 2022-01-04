@@ -7,6 +7,7 @@ module.exports = merge(common, {
   devtool: "source-map",
   devServer: {
     static: "../docs/dist",
+    historyApiFallback: true,
     // hot: true,
   },
   // optimization: {

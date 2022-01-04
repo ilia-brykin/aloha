@@ -2,9 +2,13 @@ import AAccordionItem from "./AAccordionItem/AAccordionItem.vue";
 
 import {
   computed,
+  provide,
 } from "vue";
 
 import frameworks from "../const/frameworks";
+import {
+  frameworksApi,
+} from "../API/frameworksApi";
 import {
   cloneDeep,
   filter,
@@ -16,6 +20,29 @@ export default {
   name: "AAccordion",
   components: {
     AAccordionItem,
+  },
+  provide() {
+    return {
+      classMainLocal: computed(() => this.classMainLocal),
+      classItem: computed(() => this.classItem),
+      classItemHeaderLocal: computed(() => this.classItemHeaderLocal),
+      classItemHeaderButton: computed(() => this.classItemHeaderButton),
+      classBoxCollapse: computed(() => this.classBoxCollapse),
+      classBoxCollapseBodyLocal: computed(() => this.classBoxCollapseBodyLocal),
+      classBoxCollapseBodyContent: computed(() => this.classBoxCollapseBodyContent),
+      id: computed(() => this.id),
+      indexesForOpen: computed(() => this.indexesForOpen),
+      keyList: computed(() => this.keyList),
+      keyLabel: computed(() => this.keyLabel),
+      keyContent: computed(() => this.keyContent),
+      tag: computed(() => this.tag),
+      tagItem: computed(() => this.tagItem),
+      tagItemHeaderLocal: computed(() => this.tagItemHeaderLocal),
+      tagItemHeaderButtonLocal: computed(() => this.tagItemHeaderButtonLocal),
+      tagBoxCollapseLocal: computed(() => this.tagBoxCollapseLocal),
+      tagBoxCollapseBodyLocal: computed(() => this.tagBoxCollapseBodyLocal),
+      tagBoxCollapseBodyContent: computed(() => this.tagBoxCollapseBodyContent),
+    };
   },
   props: {
     alwaysOpen: {
@@ -98,22 +125,18 @@ export default {
     tagItemHeader: {
       type: String,
       required: false,
-      default: "div",
     },
     tagItemHeaderButton: {
       type: String,
       required: false,
-      default: "button",
     },
     tagBoxCollapse: {
       type: String,
       required: false,
-      default: "div",
     },
     tagBoxCollapseBody: {
       type: String,
       required: false,
-      default: "div",
     },
     tagBoxCollapseBodyContent: {
       type: String,
@@ -135,55 +158,31 @@ export default {
     },
   },
   emits: ["toggle"],
+  setup(props) {
+    const {
+      isBootstrap,
+      isFoundation,
+    } = frameworksApi(props);
+
+    provide("isBootstrap", isBootstrap);
+    provide("isFoundation", isFoundation);
+
+    return {
+      isBootstrap,
+      isFoundation,
+    };
+  },
   data() {
     return {
       indexesForOpen: [],
     };
   },
-  provide() {
-    return {
-      classMainLocal: computed(() => this.classMainLocal),
-      classItemLocal: computed(() => this.classItemLocal),
-      classItemHeaderLocal: computed(() => this.classItemHeaderLocal),
-      classItemHeaderButton: computed(() => this.classItemHeaderButton),
-      classBoxCollapse: computed(() => this.classBoxCollapse),
-      classBoxCollapseBodyLocal: computed(() => this.classBoxCollapseBodyLocal),
-      classBoxCollapseBodyContent: computed(() => this.classBoxCollapseBodyContent),
-      id: computed(() => this.id),
-      indexesForOpen: computed(() => this.indexesForOpen),
-      isBootstrap: computed(() => this.isBootstrap),
-      keyList: computed(() => this.keyList),
-      keyLabel: computed(() => this.keyLabel),
-      keyContent: computed(() => this.keyContent),
-      tag: computed(() => this.tag),
-      tagItem: computed(() => this.tagItem),
-      tagItemHeader: computed(() => this.tagItemHeader),
-      tagItemHeaderButton: computed(() => this.tagItemHeaderButton),
-      tagBoxCollapse: computed(() => this.tagBoxCollapse),
-      tagBoxCollapseBody: computed(() => this.tagBoxCollapseBody),
-      tagBoxCollapseBodyContent: computed(() => this.tagBoxCollapseBodyContent),
-    };
-  },
   computed: {
-    isBootstrap() {
-      return this.framework === "bootstrap";
-    },
-
     classMainLocal() {
-      if (this.isBootstrap) {
+      if (this.isBootstrap || this.isFoundation) {
         const CLASS_BOOTSTRAP = "accordion";
         if (this.classMain) {
           return `${ this.classMain } ${ CLASS_BOOTSTRAP }`;
-        }
-        return CLASS_BOOTSTRAP;
-      }
-    },
-
-    classItemLocal() {
-      if (this.isBootstrap) {
-        const CLASS_BOOTSTRAP = "accordion-item";
-        if (this.classItem) {
-          return `${ this.classItem } ${ CLASS_BOOTSTRAP }`;
         }
         return CLASS_BOOTSTRAP;
       }
@@ -206,6 +205,54 @@ export default {
           return `${ this.classBoxCollapseBody } ${ CLASS_BOOTSTRAP }`;
         }
         return CLASS_BOOTSTRAP;
+      }
+    },
+
+    tagItemHeaderLocal() {
+      if (this.tagItemHeader) {
+        return this.tagItemHeader;
+      }
+      if (this.isBootstrap) {
+        return "div";
+      }
+      if (this.isFoundation) {
+        return "a-slot";
+      }
+    },
+
+    tagItemHeaderButtonLocal() {
+      if (this.tagItemHeaderButton) {
+        return this.tagItemHeaderButton;
+      }
+      if (this.isBootstrap) {
+        return "button";
+      }
+      if (this.isFoundation) {
+        return "a";
+      }
+    },
+
+    tagBoxCollapseLocal() {
+      if (this.tagBoxCollapse) {
+        return this.tagBoxCollapse;
+      }
+      if (this.isBootstrap) {
+        return "div";
+      }
+      if (this.isFoundation) {
+        return "div";
+      }
+    },
+
+    tagBoxCollapseBodyLocal() {
+      if (this.tagBoxCollapseBody) {
+        return this.tagBoxCollapseBody;
+      }
+      if (this.isBootstrap) {
+        return "div";
+      }
+      if (this.isFoundation) {
+        return "a-slot";
       }
     },
   },
