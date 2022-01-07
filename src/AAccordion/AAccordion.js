@@ -91,9 +91,7 @@ const FRAMEWORKS_PARAMETERS = {
     },
     itemHeader: {
       tag: "template",
-      class: classProps => [
-        classProps,
-      ],
+      class: () => [],
     },
     itemHeaderButton: {
       tag: "a",
@@ -111,9 +109,50 @@ const FRAMEWORKS_PARAMETERS = {
     },
     boxCollapseBody: {
       tag: "template",
+      class: () => [],
+    },
+  },
+  uikit: {
+    main: {
+      tag: "ul",
       class: classProps => [
         classProps,
+        "uk-accordion",
       ],
+    },
+    item: {
+      tag: "li",
+      class: (classProps, isOpen) => [
+        classProps,
+        {
+          "uk-open": isOpen
+        },
+      ],
+    },
+    itemHeader: {
+      tag: "template",
+      class: () => [],
+    },
+    itemHeaderButton: {
+      tag: "a",
+      class: classProps => [
+        classProps,
+        "uk-accordion-title",
+      ],
+    },
+    boxCollapse: {
+      tag: "div",
+      class: (classProps, isOpen) => [
+        classProps,
+        "uk-accordion-content",
+        {
+          "uk-hidden": !isOpen,
+        },
+      ],
+    },
+    boxCollapseBody: {
+      tag: "template",
+      class: () => [],
     },
   },
 };

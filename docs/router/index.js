@@ -5,6 +5,14 @@ import {
 
 import bootstrapStyles from "../styles/bootstrap.lazy.scss";
 import foundationStyles from "../styles/foundation.lazy.scss";
+import uikitStyles from "../styles/uikit.lazy.scss";
+import frameworks from "../../src/const/frameworks";
+
+const STYLES = {
+  bootstrap: bootstrapStyles,
+  foundation: foundationStyles,
+  uikit: uikitStyles,
+};
 
 const ROUTES = [
   {
@@ -75,12 +83,11 @@ ROUTER.beforeEach(to => {
 export default ROUTER;
 
 function addFrameworkStyles(framework) {
-  // TODO: Ilia diese Funktion muss optimiert werden.
-  if (framework === "bootstrap") {
-    bootstrapStyles.use();
-    foundationStyles.unuse();
-  } else if (framework === "foundation") {
-    foundationStyles.use();
-    bootstrapStyles.unuse();
-  }
+  frameworks.forEach(_framework => {
+    if (_framework === framework) {
+      STYLES[_framework].use();
+    } else {
+      STYLES[_framework].unuse();
+    }
+  });
 }

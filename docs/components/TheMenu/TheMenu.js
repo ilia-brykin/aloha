@@ -37,6 +37,13 @@ export default {
             framework: "foundation",
           },
         },
+        {
+          name: "PageAccordion",
+          label: "Accordion Uikit",
+          params: {
+            framework: "uikit",
+          },
+        },
       ],
     };
   },
