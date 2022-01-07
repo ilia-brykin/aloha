@@ -12,6 +12,7 @@ export function frameworksApi(props) {
   const isFoundation = computed(() => frameworkLocal.value === "foundation");
 
   return {
+    frameworkLocal,
     isBootstrap,
     isFoundation,
   };

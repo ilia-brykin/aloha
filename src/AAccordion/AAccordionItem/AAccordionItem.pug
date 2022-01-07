@@ -1,13 +1,13 @@
 component.a_accordion__item(
-  :is="tagItem"
+  :is="tagsLocal.item"
   :class="classItemLocal"
 )
   component.a_accordion__item__header(
-    :is="tagItemHeaderLocal"
+    :is="tagsLocal.itemHeader"
     :class="classItemHeaderLocal"
   )
     component.a_accordion__item__header_btn(
-      :is="tagItemHeaderButtonLocal"
+      :is="tagsLocal.itemHeaderButton"
       :class="classItemHeaderButtonLocal"
       :aria-expanded="ariaExpanded"
       :aria-controls="idForCollapse"
@@ -24,13 +24,13 @@ component.a_accordion__item(
       ) {{ labelLocal }}
 
   component.a_accordion__box_collapse(
-    :is="tagBoxCollapseLocal"
+    :is="tagsLocal.boxCollapse"
     :id="idForCollapse"
     :class="classBoxCollapseLocal"
     :style="styleBoxCollapse"
   )
     component.a_accordion__box_collapse__body(
-      :is="tagBoxCollapseBodyLocal"
+      :is="tagsLocal.boxCollapseBody"
       :class="classBoxCollapseBodyLocal"
     )
       slot(
@@ -40,13 +40,13 @@ component.a_accordion__item(
         :parent-indexes="parentIndexes"
       )
       component.a_accordion__box_collapse__body__content(
-        :is="tagBoxCollapseBodyContent"
+        :is="tagsLocal.boxCollapseBodyContent"
         v-if="contentLocal"
         :class="classBoxCollapseBodyContent"
         v-html="contentLocal"
       )
       component.a_accordion(
-        :is="tag"
+        :is="tagsLocal.main"
         v-if="hasChildren"
         :class="classMainLocal"
       )

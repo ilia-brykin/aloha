@@ -7,3 +7,10 @@ export function getPropByPath(object, path, defaultValue) {
   }
   return object === undefined ? defaultValue : object;
 }
+
+export function replaceTextTemplateToASlot(text) {
+  if (text === "template") {
+    return "a-slot";
+  }
+  return text;
+}

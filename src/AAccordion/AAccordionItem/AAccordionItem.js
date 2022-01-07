@@ -1,6 +1,11 @@
 import ASlot from "../../ASlot/ASlot.vue";
 
 import {
+  computed,
+  inject,
+  toRefs,
+} from "vue";
+import {
   cloneDeep,
   get,
 } from "lodash-es";
@@ -31,28 +36,75 @@ export default {
   },
   emits: ["toggle"],
   inject: [
-    "classMainLocal",
-    "classItem",
-    "classItemHeaderLocal",
-    "classItemHeaderButton",
-    "classBoxCollapse",
-    "classBoxCollapseBodyLocal",
     "classBoxCollapseBodyContent",
     "id",
     "indexesForOpen",
-    "isBootstrap",
     "isFoundation",
     "keyList",
     "keyLabel",
     "keyContent",
-    "tag",
-    "tagItem",
-    "tagItemHeaderLocal",
-    "tagItemHeaderButtonLocal",
-    "tagBoxCollapseLocal",
-    "tagBoxCollapseBodyLocal",
-    "tagBoxCollapseBodyContent",
+    "tagsLocal",
   ],
+  setup(props) {
+    const {
+      isParentOpen,
+      itemIndex,
+      parentIndexes,
+    } = toRefs(props);
+    const classMainLocal = inject("classMainLocal");
+    const currentFrameworkOptions = inject("currentFrameworkOptions");
+    const classItem = inject("classItem");
+    const classItemHeader = inject("classItemHeader");
+    const classItemHeaderButton = inject("classItemHeaderButton");
+    const classBoxCollapse = inject("classBoxCollapse");
+    const classBoxCollapseBody = inject("classBoxCollapseBody");
+
+    const indexesForOpen = inject("indexesForOpen");
+    const parentIndexesString = computed(() => {
+      return parentIndexes.value.join(".");
+    });
+
+    const currentIndex = computed(() => {
+      if (parentIndexesString.value) {
+        return `${ parentIndexesString.value }.${ itemIndex.value }`;
+      }
+      return `${ itemIndex.value }`;
+    });
+
+    const isOpen = computed(() => {
+      if (!isParentOpen.value) {
+        return false;
+      }
+      return indexesForOpen.value.indexOf(currentIndex.value) !== -1;
+    });
+
+    const classItemLocal = computed(() => {
+      return currentFrameworkOptions.value.item.class(classItem.value, isOpen.value);
+    });
+    const classItemHeaderLocal = computed(() => {
+      return currentFrameworkOptions.value.itemHeader.class(classItemHeader.value, isOpen.value);
+    });
+    const classItemHeaderButtonLocal = computed(() => {
+      return currentFrameworkOptions.value.itemHeaderButton.class(classItemHeaderButton.value, isOpen.value);
+    });
+    const classBoxCollapseLocal = computed(() => {
+      return currentFrameworkOptions.value.boxCollapse.class(classBoxCollapse.value, isOpen.value);
+    });
+    const classBoxCollapseBodyLocal = computed(() => {
+      return currentFrameworkOptions.value.boxCollapseBody.class(classBoxCollapseBody.value, isOpen.value);
+    });
+
+    return {
+      classMainLocal,
+      classItemLocal,
+      classItemHeaderLocal,
+      classItemHeaderButtonLocal,
+      classBoxCollapseLocal,
+      classBoxCollapseBodyLocal,
+      currentIndex,
+      isOpen,
+    };
+  },
   computed: {
     hasChildren() {
       return this.children.length !== 0;
@@ -66,103 +118,6 @@ export default {
       const PARENT_INDEXES = cloneDeep(this.parentIndexes);
       PARENT_INDEXES.push(`${ this.currentIndex }`);
       return PARENT_INDEXES;
-    },
-
-    currentIndex() {
-      if (this.parentIndexesString) {
-        return `${ this.parentIndexesString }.${ this.itemIndex }`;
-      }
-      return `${ this.itemIndex }`;
-    },
-
-    parentIndexesString() {
-      return this.parentIndexes.join(".");
-    },
-
-    isOpen() {
-      if (!this.isParentOpen) {
-        return false;
-      }
-      return this.indexesForOpen.indexOf(this.currentIndex) !== -1;
-    },
-
-    classItemLocal() {
-      if (this.isBootstrap) {
-        return this.classItemBootstrap;
-      }
-      if (this.isFoundation) {
-        return this.classItemFoundation;
-      }
-    },
-
-    classItemBootstrap() {
-      const CLASS_BOOTSTRAP = "accordion-item";
-      if (this.classItem) {
-        return `${ this.classItem } ${ CLASS_BOOTSTRAP }`;
-      }
-      return CLASS_BOOTSTRAP;
-    },
-
-    classItemFoundation() {
-      return [
-        this.classItem,
-        "accordion-item",
-        {
-          "is-active": this.isOpen,
-        },
-      ];
-    },
-
-    classItemHeaderButtonLocal() {
-      if (this.isBootstrap) {
-        return this.classItemHeaderButtonBootstrap;
-      }
-      if (this.isFoundation) {
-        return this.classItemHeaderButtonFoundation;
-      }
-    },
-
-    classItemHeaderButtonBootstrap() {
-      return [
-        this.classItemHeaderButton,
-        "accordion-button",
-        {
-          collapsed: !this.isOpen,
-        },
-      ];
-    },
-
-    classItemHeaderButtonFoundation() {
-      return [
-        this.classItemHeaderButton,
-        "accordion-title"
-      ];
-    },
-
-    classBoxCollapseLocal() {
-      if (this.isBootstrap) {
-        return this.classBoxCollapseBootstrap;
-      }
-      if (this.isFoundation) {
-        return this.classBoxCollapseFoundation;
-      }
-    },
-
-    classBoxCollapseBootstrap() {
-      return [
-        this.classBoxCollapse,
-        "accordion-collapse collapse",
-        {
-          show: this.isOpen,
-        },
-      ];
-    },
-
-    classBoxCollapseFoundation() {
-      return [
-        this.classBoxCollapse,
-        "accordion-content",
-      ];
     },
 
     ariaExpanded() {

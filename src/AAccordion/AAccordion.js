@@ -3,6 +3,7 @@ import AAccordionItem from "./AAccordionItem/AAccordionItem.vue";
 import {
   computed,
   provide,
+  toRefs,
 } from "vue";
 
 import frameworks from "../const/frameworks";
@@ -10,11 +11,112 @@ import {
   frameworksApi,
 } from "../API/frameworksApi";
 import {
+  replaceTextTemplateToASlot,
+} from "../utils/utils";
+import {
   cloneDeep,
   filter,
   startsWith,
   uniqueId,
 } from "lodash-es";
+
+const FRAMEWORKS_PARAMETERS = {
+  bootstrap: {
+    main: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "accordion",
+      ],
+    },
+    item: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "accordion-item",
+      ],
+    },
+    itemHeader: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "accordion-header",
+      ],
+    },
+    itemHeaderButton: {
+      tag: "button",
+      class: (classProps, isOpen) => [
+        classProps,
+        "accordion-button",
+        {
+          collapsed: !isOpen,
+        },
+      ],
+    },
+    boxCollapse: {
+      tag: "div",
+      class: (classProps, isOpen) => [
+        classProps,
+        "accordion-collapse collapse",
+        {
+          show: isOpen,
+        },
+      ],
+    },
+    boxCollapseBody: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "accordion-body",
+      ],
+    },
+  },
+  foundation: {
+    main: {
+      tag: "ul",
+      class: classProps => [
+        classProps,
+        "accordion",
+      ],
+    },
+    item: {
+      tag: "li",
+      class: (classProps, isOpen) => [
+        classProps,
+        "accordion-item",
+        {
+          "is-active": isOpen,
+        },
+      ],
+    },
+    itemHeader: {
+      tag: "template",
+      class: classProps => [
+        classProps,
+      ],
+    },
+    itemHeaderButton: {
+      tag: "a",
+      class: classProps => [
+        classProps,
+        "accordion-title",
+      ],
+    },
+    boxCollapse: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "accordion-content",
+      ],
+    },
+    boxCollapseBody: {
+      tag: "template",
+      class: classProps => [
+        classProps,
+      ],
+    },
+  },
+};
 
 export default {
   name: "AAccordion",
@@ -23,25 +125,12 @@ export default {
   },
   provide() {
     return {
-      classMainLocal: computed(() => this.classMainLocal),
-      classItem: computed(() => this.classItem),
-      classItemHeaderLocal: computed(() => this.classItemHeaderLocal),
-      classItemHeaderButton: computed(() => this.classItemHeaderButton),
-      classBoxCollapse: computed(() => this.classBoxCollapse),
-      classBoxCollapseBodyLocal: computed(() => this.classBoxCollapseBodyLocal),
-      classBoxCollapseBodyContent: computed(() => this.classBoxCollapseBodyContent),
       id: computed(() => this.id),
       indexesForOpen: computed(() => this.indexesForOpen),
       keyList: computed(() => this.keyList),
       keyLabel: computed(() => this.keyLabel),
       keyContent: computed(() => this.keyContent),
-      tag: computed(() => this.tag),
-      tagItem: computed(() => this.tagItem),
-      tagItemHeaderLocal: computed(() => this.tagItemHeaderLocal),
-      tagItemHeaderButtonLocal: computed(() => this.tagItemHeaderButtonLocal),
-      tagBoxCollapseLocal: computed(() => this.tagBoxCollapseLocal),
-      tagBoxCollapseBodyLocal: computed(() => this.tagBoxCollapseBodyLocal),
-      tagBoxCollapseBodyContent: computed(() => this.tagBoxCollapseBodyContent),
+      classBoxCollapseBodyContent: computed(() => this.classBoxCollapseBodyContent),
     };
   },
   props: {
@@ -52,7 +141,7 @@ export default {
     id: {
       type: String,
       required: false,
-      default: uniqueId("collapse_"),
+      default: uniqueId("accordion_"),
     },
     items: {
       type: Array,
@@ -115,12 +204,10 @@ export default {
     tag: {
       type: String,
       required: false,
-      default: "div",
     },
     tagItem: {
       type: String,
       required: false,
-      default: "div",
     },
     tagItemHeader: {
       type: String,
@@ -160,6 +247,22 @@ export default {
   emits: ["toggle"],
   setup(props) {
     const {
+      classMain,
+      classItem,
+      classItemHeader,
+      classItemHeaderButton,
+      classBoxCollapse,
+      classBoxCollapseBody,
+      tag,
+      tagItem,
+      tagItemHeader,
+      tagItemHeaderButton,
+      tagBoxCollapse,
+      tagBoxCollapseBody,
+      tagBoxCollapseBodyContent,
+    } = toRefs(props);
+    const {
+      frameworkLocal,
       isBootstrap,
       isFoundation,
     } = frameworksApi(props);
@@ -167,94 +270,44 @@ export default {
     provide("isBootstrap", isBootstrap);
     provide("isFoundation", isFoundation);
 
+    const currentFrameworkOptions = computed(() => {
+      return FRAMEWORKS_PARAMETERS[frameworkLocal.value];
+    });
+
+    const tagsLocal = computed(() => {
+      return {
+        main: replaceTextTemplateToASlot(tag.value || currentFrameworkOptions.value.main.tag),
+        item: replaceTextTemplateToASlot(tagItem.value || currentFrameworkOptions.value.item.tag),
+        itemHeader: replaceTextTemplateToASlot(tagItemHeader.value || currentFrameworkOptions.value.itemHeader.tag),
+        itemHeaderButton: replaceTextTemplateToASlot(tagItemHeaderButton.value || currentFrameworkOptions.value.itemHeaderButton.tag),
+        boxCollapse: replaceTextTemplateToASlot(tagBoxCollapse.value || currentFrameworkOptions.value.boxCollapse.tag),
+        boxCollapseBody: replaceTextTemplateToASlot(tagBoxCollapseBody.value || currentFrameworkOptions.value.boxCollapseBody.tag),
+        boxCollapseBodyContent: replaceTextTemplateToASlot(tagBoxCollapseBodyContent.value),
+      };
+    });
+    provide("currentFrameworkOptions", currentFrameworkOptions);
+    provide("tagsLocal", tagsLocal);
+
+    const classMainLocal = computed(() => {
+      return currentFrameworkOptions.value.main.class(classMain.value);
+    });
+    provide("classMainLocal", classMainLocal);
+    provide("classItem", classItem);
+    provide("classItemHeader", classItemHeader);
+    provide("classItemHeaderButton", classItemHeaderButton);
+    provide("classBoxCollapse", classBoxCollapse);
+    provide("classBoxCollapseBody", classBoxCollapseBody);
     return {
+      classMainLocal,
       isBootstrap,
       isFoundation,
+      tagsLocal,
     };
   },
   data() {
     return {
       indexesForOpen: [],
     };
-  },
-  computed: {
-    classMainLocal() {
-      if (this.isBootstrap || this.isFoundation) {
-        const CLASS_BOOTSTRAP = "accordion";
-        if (this.classMain) {
-          return `${ this.classMain } ${ CLASS_BOOTSTRAP }`;
-        }
-        return CLASS_BOOTSTRAP;
-      }
-    },
-
-    classItemHeaderLocal() {
-      if (this.isBootstrap) {
-        const CLASS_BOOTSTRAP = "accordion-header";
-        if (this.classItemHeader) {
-          return `${ this.classItemHeader } ${ CLASS_BOOTSTRAP }`;
-        }
-        return CLASS_BOOTSTRAP;
-      }
-    },
-
-    classBoxCollapseBodyLocal() {
-      if (this.isBootstrap) {
-        const CLASS_BOOTSTRAP = "accordion-body";
-        if (this.classBoxCollapseBody) {
-          return `${ this.classBoxCollapseBody } ${ CLASS_BOOTSTRAP }`;
-        }
-        return CLASS_BOOTSTRAP;
-      }
-    },
-
-    tagItemHeaderLocal() {
-      if (this.tagItemHeader) {
-        return this.tagItemHeader;
-      }
-      if (this.isBootstrap) {
-        return "div";
-      }
-      if (this.isFoundation) {
-        return "a-slot";
-      }
-    },
-
-    tagItemHeaderButtonLocal() {
-      if (this.tagItemHeaderButton) {
-        return this.tagItemHeaderButton;
-      }
-      if (this.isBootstrap) {
-        return "button";
-      }
-      if (this.isFoundation) {
-        return "a";
-      }
-    },
-
-    tagBoxCollapseLocal() {
-      if (this.tagBoxCollapse) {
-        return this.tagBoxCollapse;
-      }
-      if (this.isBootstrap) {
-        return "div";
-      }
-      if (this.isFoundation) {
-        return "div";
-      }
-    },
-
-    tagBoxCollapseBodyLocal() {
-      if (this.tagBoxCollapseBody) {
-        return this.tagBoxCollapseBody;
-      }
-      if (this.isBootstrap) {
-        return "div";
-      }
-      if (this.isFoundation) {
-        return "a-slot";
-      }
-    },
   },
   methods: {
     toggle({ indexes, isOpen, $event }) {
