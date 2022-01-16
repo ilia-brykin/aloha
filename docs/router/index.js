@@ -4,12 +4,14 @@ import {
 } from "vue-router";
 
 import bootstrapStyles from "../styles/bootstrap.lazy.scss";
+import bulmaStyles from "../styles/bulma.lazy.scss";
 import foundationStyles from "../styles/foundation.lazy.scss";
 import uikitStyles from "../styles/uikit.lazy.scss";
 import frameworks from "../../src/const/frameworks";
 
 const STYLES = {
   bootstrap: bootstrapStyles,
+  bulma: bulmaStyles,
   foundation: foundationStyles,
   uikit: uikitStyles,
 };

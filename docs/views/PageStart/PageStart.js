@@ -24,7 +24,12 @@ export default {
           link: "https://getuikit.com/",
         },
         {
-          name: "Materialize",
+          name: "Bulma",
+          version: "0.9.3",
+          link: "https://bulma.io/",
+        },
+        {
+          name: "Materialize (noch nicht sicher)",
           version: "1.0.0",
           link: "https://materializecss.com/",
         },
