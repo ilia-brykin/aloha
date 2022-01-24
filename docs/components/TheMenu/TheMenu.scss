@@ -4,7 +4,6 @@
   width: 280px;
   min-height: calc(100vh - 80px);
 }
-
 .the_menu__ul {
   display: flex;
   flex-wrap: wrap;
@@ -13,7 +12,6 @@
   list-style: none;
   flex-direction: column;
 }
-
 .the_menu__link {
   display: block;
   padding: .5rem 1rem;
@@ -34,6 +32,8 @@
   border: none;
 }
 .the_menu__box_collapse {
-  padding-left: .5rem;
   background-color: lighten(#000, 20);
+}
+.the_menu__box_collapse__li > .the_menu__link {
+  padding-left: 1.5rem;
 }

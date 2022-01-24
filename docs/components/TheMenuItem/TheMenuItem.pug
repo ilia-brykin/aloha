@@ -14,7 +14,7 @@ li
     .the_menu__box_collapse(
       v-show="isOpen"
     )
-      the-menu-item(
+      the-menu-item.the_menu__box_collapse__li(
         v-for="item in data.children"
         :key="item.id"
         :data="item"
