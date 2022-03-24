@@ -1,4 +1,4 @@
-import AIcon from "../AIcon/AIcon.vue";
+import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 
 import {

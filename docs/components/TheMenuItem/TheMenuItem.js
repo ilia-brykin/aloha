@@ -1,4 +1,4 @@
-import AIcon from "../../../src/AIcon/AIcon.vue";
+import AIcon from "../../../src/AIcon/AIcon";
 
 export default {
   name: "TheMenuItem",

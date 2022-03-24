@@ -6,6 +6,10 @@ import ChevronUp from "./Icons/ChevronUp";
 import Close from "./Icons/Close";
 import Cross from "./Icons/Cross";
 
+import {
+  h,
+} from "vue";
+
 export default {
   name: "AIcon",
   props: {
@@ -49,15 +53,29 @@ export default {
       return this.icons[this.icon];
     },
 
-    attributes() {
-      if (this.ariLabel) {
-        return {
-          "aria-label": this.ariLabel,
-        };
-      }
-      return {
-        "aria-hidden": true,
+    attributesLocal() {
+      const ATTRIBUTES = {
+        viewBox: "0 0 18 18",
+        role: "presentation",
+        width: this.width,
+        height: this.height,
       };
+
+      if (this.ariLabel) {
+        ATTRIBUTES["aria-label"] = this.ariLabel;
+      } else {
+        ATTRIBUTES["aria-hidden"] = "true";
+      }
+
+      return ATTRIBUTES;
     },
+  },
+  render() {
+    return h("svg", this.attributesLocal, [
+      h("g", {
+        fill: this.iconColor,
+        innerHTML: this.iconSvg,
+      }),
+    ]);
   },
 };

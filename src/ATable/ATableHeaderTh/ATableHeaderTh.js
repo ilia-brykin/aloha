@@ -1,4 +1,4 @@
-import AIcon from "../../AIcon/AIcon.vue";
+import AIcon from "../../AIcon/AIcon";
 
 export default {
   name: "ATableHeaderTh",
