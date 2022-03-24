@@ -1,5 +1,9 @@
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 
+import {
+  h,
+} from "vue";
+
 export default {
   name: "ATableHeader",
   components: {
@@ -22,5 +26,20 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  render() {
+    return h("thead", null, [
+      h("tr", null, [
+        this.columns.map(column => {
+          return h(ATableHeaderTh, {
+            column: column,
+            "is-loading": this.isLoading,
+            "model-sort": this.modelSort,
+            "model-columns-mapping": this.modelColumnsMapping,
+            "onChange-model-sort": this.$attrs.onChangeModelSort,
+          });
+        }),
+      ]),
+    ]);
   },
 };

@@ -24,16 +24,29 @@ export default {
       type: String,
       required: false,
     },
+    modelColumnsMapping: {
+      type: Object,
+      required: true,
+    },
   },
   emits: [
     "change-model-sort",
   ],
   computed: {
+    isVisible() {
+      return this.modelColumnsMapping[this.column.id];
+    },
+
     attributesForTh() {
       const ATTRIBUTES = {
         ...this.ariaSort,
         scope: "col",
       };
+      if (!this.isVisible) {
+        ATTRIBUTES.style = {
+          display: "none",
+        };
+      }
       return ATTRIBUTES;
     },
 
