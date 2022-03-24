@@ -1,6 +1,10 @@
 import ASpinner from "../ASpinner/ASpinner.vue";
 import ATranslation from "../ATranslation/ATranslation.vue";
 
+import {
+  h,
+} from "vue";
+
 export default {
   name: "ACloak",
   components: {
@@ -37,10 +41,6 @@ export default {
       required: false,
       default: "border",
     },
-    spinnerTypeColor: {
-      type: String,
-      required: false,
-    },
     size: {
       type: String,
       required: false,
@@ -60,5 +60,57 @@ export default {
     classTextSize() {
       return `fs-${ this.size }`;
     },
+
+    boxChildren() {
+      const CHILDREN = [];
+      if (this.isTextLeft) {
+        CHILDREN.push(this.boxTextLeft);
+      }
+      CHILDREN.push(this.boxSpinner);
+      if (!this.isTextLeft) {
+        CHILDREN.push(this.boxTextRight);
+      }
+      return CHILDREN;
+    },
+
+    boxTextLeft() {
+      return h(ATranslation, {
+        class: ["a_cloak__text a_cloak__text_left", this.classTextSize],
+        text: this.text,
+        extra: this.extraTranslate,
+      });
+    },
+
+    boxTextRight() {
+      return h(ATranslation, {
+        class: ["a_cloak__text a_cloak__text_right", this.classTextSize],
+        text: this.text,
+        extra: this.extraTranslate,
+      });
+    },
+
+    boxSpinner() {
+      return h(ASpinner, {
+        class: ["a_cloak__spinner"],
+        type: this.spinnerType,
+        size: this.size,
+        text: "",
+        "aria-hidden": "true",
+      });
+    },
+  },
+  render() {
+    return h(
+      this.tag,
+      {
+        role: "status",
+        class: this.classAlign,
+      },
+      [
+        h("div", {
+          class: ["a_cloak__box", this.classForBox]
+        }, this.boxChildren),
+      ],
+    );
   },
 };

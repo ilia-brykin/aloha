@@ -155,6 +155,56 @@ const FRAMEWORKS_PARAMETERS = {
       class: () => [],
     },
   },
+  bulma: {
+    main: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "",
+      ],
+    },
+    item: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "card",
+      ],
+    },
+    itemHeader: {
+      tag: "header",
+      class: classProps => [
+        classProps,
+        "card-header",
+      ],
+    },
+    itemHeaderButton: {
+      tag: "div",
+      class: (classProps, isOpen) => [
+        classProps,
+        "card-header-title is-clickable",
+        {
+          collapsed: !isOpen,
+        },
+      ],
+    },
+    boxCollapse: {
+      tag: "div",
+      class: (classProps, isOpen) => [
+        classProps,
+        "card-content",
+        {
+          "is-hidden": !isOpen,
+        },
+      ],
+    },
+    boxCollapseBody: {
+      tag: "div",
+      class: classProps => [
+        classProps,
+        "content",
+      ],
+    },
+  },
 };
 
 export default {

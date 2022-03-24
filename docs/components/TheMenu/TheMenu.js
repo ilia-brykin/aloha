@@ -61,6 +61,14 @@ export default {
                 framework: "uikit",
               },
             },
+            {
+              id: "accordion_bulma",
+              name: "PageAccordion",
+              label: "Accordion Bulma",
+              params: {
+                framework: "bulma",
+              },
+            },
           ],
         },
       ],
