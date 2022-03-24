@@ -1,6 +1,9 @@
 import ATranslation from "../ATranslation/ATranslation";
 
 import colors from "../const/colors";
+import {
+  h,
+} from "vue";
 
 export default {
   name: "ASpinner",
@@ -52,5 +55,22 @@ export default {
         return `a_spinner_${ this.size }`;
       }
     },
+  },
+  render() {
+    return h(this.tag, {
+      class: [
+        "a_spinner",
+        this.typeClass,
+        this.typeSizeClass,
+        this.typeColorClass,
+      ],
+      role: "status",
+    }, [
+      this.text && h(ATranslation, {
+        class: "visually-hidden",
+        tag: "span",
+        text: this.text,
+      }),
+    ]);
   },
 };

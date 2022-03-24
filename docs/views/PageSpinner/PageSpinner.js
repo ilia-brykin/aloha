@@ -1,4 +1,4 @@
-import ASpinner from "../../../src/ASpinner/ASpinner.vue";
+import ASpinner from "../../../src/ASpinner/ASpinner.js";
 
 export default {
   name: "PageSpinner",

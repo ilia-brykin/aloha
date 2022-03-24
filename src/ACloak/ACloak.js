@@ -1,4 +1,4 @@
-import ASpinner from "../ASpinner/ASpinner.vue";
+import ASpinner from "../ASpinner/ASpinner.js";
 import ATranslation from "../ATranslation/ATranslation";
 
 import {
