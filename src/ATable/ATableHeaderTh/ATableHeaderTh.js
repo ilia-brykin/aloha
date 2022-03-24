@@ -1,9 +1,15 @@
 import AIcon from "../../AIcon/AIcon";
+import ATranslation from "../../ATranslation/ATranslation";
+
+import {
+  h,
+} from "vue";
 
 export default {
   name: "ATableHeaderTh",
   components: {
     AIcon,
+    ATranslation,
   },
   props: {
     column: {
@@ -25,7 +31,8 @@ export default {
   computed: {
     attributesForTh() {
       const ATTRIBUTES = {
-        ...this.ariaSort
+        ...this.ariaSort,
+        scope: "col",
       };
       return ATTRIBUTES;
     },
@@ -73,16 +80,34 @@ export default {
         return {
           type: "button",
           disabled: this.isLoading,
+          onClick: this.changeModelSortLocal,
         };
       }
     },
 
-    eventsForButton() {
+    iconsSortable() {
+      const ICONS = [];
       if (this.isSortable) {
-        return {
-          click: this.changeModelSortLocal,
-        };
+        if (!this.isSortAscending) {
+          ICONS.push(this.iconSortDescending);
+        }
+        if (!this.isSortDescending) {
+          ICONS.push(this.iconSortAscending);
+        }
       }
+      return ICONS;
+    },
+
+    iconSortDescending() {
+      return h(AIcon, {
+        icon: "ChevronUp",
+      });
+    },
+
+    iconSortAscending() {
+      return h(AIcon, {
+        icon: "ChevronDown",
+      });
     },
   },
   methods: {
@@ -94,5 +119,16 @@ export default {
         sortId: this.sortId,
       });
     },
+  },
+  render() {
+    return h("th", this.attributesForTh, [
+      h(this.componentLocal, this.attributesForButton, [
+        h(ATranslation, {
+          text: this.column.label,
+          tag: "span",
+        }),
+        ...this.iconsSortable,
+      ]),
+    ]);
   },
 };

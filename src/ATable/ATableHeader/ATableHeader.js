@@ -1,4 +1,4 @@
-import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh.vue";
+import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 
 export default {
   name: "ATableHeader",
