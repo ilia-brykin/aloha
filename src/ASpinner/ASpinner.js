@@ -1,4 +1,4 @@
-import ATranslation from "../ATranslation/ATranslation.vue";
+import ATranslation from "../ATranslation/ATranslation";
 
 import colors from "../const/colors";
 

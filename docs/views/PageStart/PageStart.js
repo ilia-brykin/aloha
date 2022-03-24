@@ -1,4 +1,4 @@
-import ATranslation from "../../../src/ATranslation/ATranslation.vue";
+import ATranslation from "../../../src/ATranslation/ATranslation";
 
 export default {
   name: "PageStart",

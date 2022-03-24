@@ -1,5 +1,5 @@
 import ASpinner from "../ASpinner/ASpinner.vue";
-import ATranslation from "../ATranslation/ATranslation.vue";
+import ATranslation from "../ATranslation/ATranslation";
 
 import {
   h,

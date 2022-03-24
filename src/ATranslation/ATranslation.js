@@ -1,4 +1,7 @@
 import {
+  h,
+} from "vue";
+import {
   isPlainObject,
   isString,
   get,
@@ -121,6 +124,7 @@ export default {
       }
       if (this.isTranslateHtml) {
         ATTRIBUTES["data-translate-html"] = this.html;
+        ATTRIBUTES.innerHTML = this.htmlLocal;
       }
       if (this.title) {
         ATTRIBUTES.title = this.titleLocal;
@@ -145,6 +149,10 @@ export default {
 
     translation() {
       return this.i18n[this.$root.$i18n.language];
+    },
+
+    textLocalWithBeforeAndAfter() {
+      return `${ this.textBefore }${ this.textLocal }${ this.textAfter }`;
     },
   },
   methods: {
@@ -201,5 +209,17 @@ export default {
       }
       return this.translation[placeholder];
     },
+  },
+  render() {
+    if (this.htmlLocal) {
+      return h(this.tag, this.attributesLocal);
+    }
+    if (this.textLocal) {
+      return h(this.tag, this.attributesLocal, [
+        this.textLocalWithBeforeAndAfter,
+        this.$slots.default && this.$slots.default(),
+      ]);
+    }
+    return h(this.tag, this.attributesLocal, this.$slots.default && this.$slots.default());
   },
 };
