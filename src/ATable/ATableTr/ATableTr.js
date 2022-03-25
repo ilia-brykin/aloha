@@ -1,4 +1,4 @@
-import ATableTd from "../ATableTd/ATableTd.vue";
+import ATableTd from "../ATableTd/ATableTd";
 
 export default {
   name: "ATableTr",

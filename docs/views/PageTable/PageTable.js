@@ -32,6 +32,11 @@ export default {
           path: "obj.aloha",
           sortId: "obj.aloha",
         },
+        {
+          label: "Slot",
+          id: "slot",
+          slot: "slot1",
+        },
       ],
       data: [],
     };

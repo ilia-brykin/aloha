@@ -1,4 +1,7 @@
 import {
+  h,
+} from "vue";
+import {
   get,
 } from "lodash-es";
 
@@ -34,5 +37,19 @@ export default {
     isSlot() {
       return !!this.column.slot;
     },
+  },
+  render() {
+    return h("td", null, this.isSlot ?
+      this.$slots[this.column.slot]({
+        column: this.column,
+        "column-index": this.columnIndex,
+        row: this.row,
+        "row-index": this.rowIndex,
+      }) :
+      [
+        h("span", null, [
+          this.text,
+        ])
+      ]);
   },
 };

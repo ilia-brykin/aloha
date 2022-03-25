@@ -4,3 +4,7 @@ div
     :columns="columns"
     :data="data"
   )
+    template(
+      v-slot:slot1="vm"
+    )
+      pre {{ vm.column }}
