@@ -1,5 +1,9 @@
 import AIcon from "../../AIcon/AIcon";
+import ATranslation from "../../ATranslation/ATranslation";
 
+import {
+  h,
+} from "vue";
 import {
   ceil,
 } from "lodash-es";
@@ -8,6 +12,7 @@ export default {
   name: "ATablePagination",
   components: {
     AIcon,
+    ATranslation,
   },
   props: {
     totalRowsCount: {
@@ -129,5 +134,75 @@ export default {
       }
       this.$emit("update:offset", (this.maxItems - 1) * this.limit);
     },
+  },
+  render() {
+    return h(ATranslation, {
+      tag: "nav",
+      role: "navigation",
+      "aria-label": "_PAGINATION_NAVIGATION_",
+    }, {
+      default: () => {
+        return [
+          h("ul", {
+            class: "pagination",
+          }, [
+            h("li", {
+              class: ["page-item", { disabled: this.disabledButtonFirstPage }]
+            }, [
+              h(ATranslation, {
+                tag: "a",
+                class: "page-link",
+                role: "button",
+                tabindex: 0,
+                "aria-label": "_PREVIOUS_",
+                onClick: this.updateOffsetFirst,
+              }, {
+                default: () => [
+                  h("span", {
+                    "aria-hidden": "true",
+                  }, [
+                    "«",
+                  ]),
+                ],
+              }),
+            ]),
+            this.paginationItems.map(item => {
+              return h("li", {
+                class: ["page-item", { active: item === this.currentItem }],
+              }, [
+                h("a", {
+                  class: "page-link",
+                  role: "button",
+                  tabindex: 0,
+                  onClick: () => this.updateOffset(item),
+                }, [
+                  item,
+                ]),
+              ]);
+            }),
+            h("li", {
+              class: ["page-item", { disabled: this.disabledButtonLastPage }]
+            }, [
+              h(ATranslation, {
+                tag: "a",
+                class: "page-link",
+                role: "button",
+                tabindex: 0,
+                "aria-label": "_NEXT_",
+                onClick: this.updateOffsetLast,
+              }, {
+                default: () => [
+                  h("span", {
+                    "aria-hidden": "true",
+                  }, [
+                    "»",
+                  ]),
+                ],
+              }),
+            ]),
+          ]),
+        ];
+      },
+    });
   },
 };

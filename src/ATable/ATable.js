@@ -1,6 +1,6 @@
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
 import ATableHeader from "./ATableHeader/ATableHeader";
-import ATablePagination from "./ATablePagination/ATablePagination.vue";
+import ATablePagination from "./ATablePagination/ATablePagination";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr.vue";
 

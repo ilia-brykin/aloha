@@ -1,5 +1,8 @@
 {
+  "_ITEMS_PER_PAGE_": "Stavke po stranici",
   "_LOADING_": "Učitavam",
+  "_NEXT_": "Sljedeći",
   "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
-  "_ITEMS_PER_PAGE_": "Stavke po stranici"
+  "_PAGINATION_NAVIGATION_": "Navigacija po stranicama",
+  "_PREVIOUS_": "Prethodni"
 }

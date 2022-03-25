@@ -1,5 +1,8 @@
 {
+  "_ITEMS_PER_PAGE_": "Items per page",
   "_LOADING_": "Loading",
+  "_NEXT_": "Next",
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
-  "_ITEMS_PER_PAGE_": "Items per page"
+  "_PAGINATION_NAVIGATION_": "Pagination Navigation",
+  "_PREVIOUS_": "Previous"
 }
