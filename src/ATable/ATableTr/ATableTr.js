@@ -1,5 +1,9 @@
 import ATableTd from "../ATableTd/ATableTd";
 
+import {
+  h,
+} from "vue";
+
 export default {
   name: "ATableTr",
   components: {
@@ -26,5 +30,16 @@ export default {
       type: Number,
       required: true,
     },
+  },
+  render() {
+    return h("tr", null, this.columns.map((column, columnIndex) => {
+      return h(ATableTd, {
+        column,
+        columnIndex,
+        row: this.row,
+        rowIndex: this.rowIndex,
+        modelColumnsMapping: this.modelColumnsMapping,
+      }, this.$slots);
+    }));
   },
 };

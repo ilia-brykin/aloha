@@ -24,6 +24,10 @@ export default {
       type: Number,
       required: true,
     },
+    modelColumnsMapping: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     text() {
@@ -37,9 +41,23 @@ export default {
     isSlot() {
       return !!this.column.slot;
     },
+
+    attributesForTd() {
+      const ATTRIBUTES = {};
+      if (!this.isVisible) {
+        ATTRIBUTES.style = {
+          display: "none",
+        };
+      }
+      return ATTRIBUTES;
+    },
+
+    isVisible() {
+      return this.modelColumnsMapping[this.column.id];
+    },
   },
   render() {
-    return h("td", null, this.isSlot ?
+    return h("td", this.attributesForTd, this.isSlot ?
       this.$slots[this.column.slot]({
         column: this.column,
         "column-index": this.columnIndex,
