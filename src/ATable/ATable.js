@@ -5,10 +5,14 @@ import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
 import {
+  h,
+} from "vue";
+import {
   cloneDeep,
   orderBy,
   startsWith,
 } from "lodash-es";
+
 
 export default {
   name: "ATable",
@@ -118,5 +122,59 @@ export default {
         this.modelSort = sortId;
       }
     },
+
+    changeModelColumns(value) {
+      this.modelColumns = value;
+    },
+
+    changeOffset(value) {
+      this.offset = value;
+    },
+
+    changeLimit(value) {
+      this.limit = value;
+    },
+  },
+  render() {
+    return h("div", null, [
+      h(ATableTopPanel, {
+        columns: this.columns,
+        isLoading: this.isLoading,
+        modelColumns: this.modelColumns,
+        "onUpdate:model-columns": this.changeModelColumns,
+      }),
+      h("table", {
+        class: "table",
+      }, [
+        h(ATableHeader, {
+          columns: this.columns,
+          modelColumnsMapping: this.modelColumnsMapping,
+          modelSort: this.modelSort,
+          isLoading: this.isLoading,
+          "onChange-model-sort": this.changeModelSort,
+        }),
+        h("tbody", null, this.rowsLocal.map((row, rowIndex) => {
+          return h(ATableTr, {
+            row,
+            rowIndex,
+            columns: this.columns,
+            modelColumnsMapping: this.modelColumnsMapping,
+            isLoading: this.isLoading,
+          }, this.$slots);
+        })),
+        h(ATablePagination, {
+          limit: this.limit,
+          totalRowsCount: this.totalRowsCountLocal,
+          isLoading: this.isLoading,
+          offset: this.offset,
+          "onUpdate:offset": this.changeOffset,
+        }),
+        h(ATableCountProPage, {
+          isLoading: this.isLoading,
+          limit: this.limit,
+          "onUpdate:limit": this.changeLimit,
+        }),
+      ]),
+    ]);
   },
 };

@@ -28,6 +28,7 @@ export default {
     },
   },
   render() {
+    console.log("this.$attrs", this.$attrs);
     return h("thead", null, [
       h("tr", null, [
         this.columns.map(column => {
@@ -36,7 +37,7 @@ export default {
             "is-loading": this.isLoading,
             "model-sort": this.modelSort,
             "model-columns-mapping": this.modelColumnsMapping,
-            "onChange-model-sort": this.$attrs.onChangeModelSort,
+            "onChange-model-sort": this.$attrs["onChange-model-sort"],
           });
         }),
       ]),
