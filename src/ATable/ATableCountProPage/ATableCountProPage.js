@@ -42,13 +42,15 @@ export default {
         "aria-label": "_ITEMS_PER_PAGE_",
         disabled: this.isLoading,
         onInput: this.emitValue,
-      }, () => this.countsPerPage.map(count => {
-        return h("option", {
-          value: count,
-        }, [
-          count,
-        ]);
-      })),
+      }, {
+        default: () => this.countsPerPage.map(count => {
+          return h("option", {
+            value: count,
+          }, [
+            count,
+          ]);
+        }),
+      }),
     ]);
   },
 };
