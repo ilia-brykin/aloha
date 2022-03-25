@@ -1,4 +1,4 @@
-import AInput from "../../../src/AInput/AInput.vue";
+import AInput from "../../../src/AInput/AInput";
 
 export default {
   name: "PageInput",

@@ -1,13 +1,19 @@
+import AFormElementBtnClear from "../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
 import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 
 import {
+  h,
+} from "vue";
+import {
   isUndefined,
 } from "lodash-es";
+
 
 export default {
   name: "AInput",
   components: {
+    AFormElementBtnClear,
     AIcon,
     ATranslation,
   },
@@ -21,12 +27,13 @@ export default {
       required: false,
     },
     id: {
-      type: Number,
-      required: false,
+      type: String,
+      required: true,
     },
     inputAttributes: {
       type: Object,
       required: false,
+      default: () => ({}),
     },
     inputClass: {
       required: false,
@@ -34,7 +41,7 @@ export default {
     isClearButton: {
       type: Boolean,
       required: false,
-      default: undefined,
+      default: true,
     },
     isError: {
       type: Boolean,
@@ -68,19 +75,19 @@ export default {
   ],
   computed: {
     disabledLocal() {
-      return this.disabled || this.options.disabled || false;
+      return this.disabled || false;
     },
 
     idLocal() {
-      return this.id || this.options.id;
+      return this.id;
     },
 
     maxlengthLocal() {
-      return this.maxlength || this.options.maxlength;
+      return this.maxlength;
     },
 
     typeLocal() {
-      return this.type || this.options.type || "text";
+      return this.type || "text";
     },
 
     typeForInput() {
@@ -94,9 +101,6 @@ export default {
       if (!isUndefined(this.isClearButton)) {
         return this.isClearButton;
       }
-      if (!isUndefined(this.options.isClearButton)) {
-        return this.options.isClearButton;
-      }
       return true;
     },
 
@@ -105,11 +109,11 @@ export default {
     },
 
     inputClassLocal() {
-      return this.inputClass || this.options.inputClass;
+      return this.inputClass;
     },
 
     requiredLocal() {
-      return this.required || this.options.required || false;
+      return this.required || false;
     },
 
     ariaRequired() {
@@ -124,16 +128,6 @@ export default {
 
     disabledClearButton() {
       return this.disabledLocal || !this.isModel;
-    },
-
-    inputAttributesLocal() {
-      return this.inputAttributes || this.options.inputAttributes;
-    },
-
-    clearButtonClassLocal() {
-      return this.clearButtonClass ||
-        this.options.clearButtonClass ||
-        "btn btn-outline-secondary";
     },
   },
   methods: {
@@ -166,5 +160,34 @@ export default {
         },
       });
     },
+  },
+  render() {
+    return h("div", {
+      class: "a_form_element",
+    }, [
+      h("input", {
+        id: "idLocal",
+        value: this.modelValue,
+        type: this.typeForInput,
+        class: [
+          "a_input form-control",
+          this.inputClassLocal,
+          {
+            a_form_element_with_btn_close: this.isClearButtonLocal,
+          },
+        ],
+        disabled: this.disabledLocal,
+        "aria-required": this.ariaRequired,
+        "aria-invalid": this.ariaInvalid,
+        maxlength: this.maxlengthLocal,
+        ...this.inputAttributes,
+        onInput: this.onInput,
+      }),
+      this.isClearButtonLocal && h(AFormElementBtnClear, {
+        disabled: this.disabledClearButton,
+        clearButtonClass: this.clearButtonClass,
+        onClear: this.clearModel,
+      }),
+    ]);
   },
 };
