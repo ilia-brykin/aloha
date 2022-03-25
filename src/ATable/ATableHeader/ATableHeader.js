@@ -28,7 +28,6 @@ export default {
     },
   },
   render() {
-    console.log("this.$attrs", this.$attrs);
     return h("thead", null, [
       h("tr", null, [
         this.columns.map(column => {
