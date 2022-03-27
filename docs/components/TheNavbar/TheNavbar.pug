@@ -1,25 +1,34 @@
-nav.navbar.navbar-light.bg-light(
+nav.a_d_flex.a_justify_content_between.a_align_items_center.a_px_2(
   style="height: 80px;"
 )
-  .container-fluid
-    router-link.navbar-brand(
-      to="/"
+  router-link.a_d_flex.a_align_items_center(
+    to="/"
+  )
+    a-icon(
+      aria-label="Startseite"
+      icon="Aloha"
+      width="50"
+      height="50"
     )
-      a-icon(
-        aria-label="Startseite"
-        icon="Aloha"
-        width="50"
-        height="50"
-      )
-      span.h1.mb-0.ms-4.align-bottom ALOHA
+    span.h1.mb-0.ms-4.align-bottom ALOHA
 
-    form
-      select.form-select(
-        v-model="modelLanguage"
-        @input="changeLanguage"
-      )
-        option(
-          v-for="language in languages"
-          :key="language.value"
-          :value="language.value"
-        ) {{ language.label }}
+  form.a_d_flex
+    select.a_mr_2(
+      v-model="modelFramework"
+      @input="changeFramework"
+    )
+      option(
+        v-for="framework in frameworks"
+        :key="framework"
+        :value="framework"
+      ) {{ framework }}
+
+    select(
+      v-model="modelLanguage"
+      @input="changeLanguage"
+    )
+      option(
+        v-for="language in languages"
+        :key="language.value"
+        :value="language.value"
+      ) {{ language.label }}

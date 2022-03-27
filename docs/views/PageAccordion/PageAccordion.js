@@ -1,9 +1,5 @@
 import AAccordion from "../../../src/AAccordion/AAccordion.vue";
 
-import {
-  get,
-} from "lodash-es";
-
 export default {
   name: "PageAccordion",
   components: {
@@ -68,10 +64,5 @@ export default {
         },
       ],
     };
-  },
-  computed: {
-    framework() {
-      return get(this.$route, "params.framework");
-    },
   },
 };

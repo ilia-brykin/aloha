@@ -1,8 +1,10 @@
 div
-  the-navbar
-  .d-flex
+  the-navbar(
+    @change-framework="changeFramework"
+  )
+  .a_d_flex
     the-menu
-    .d-inline-block.ps-4(
+    .a_d_inline_block.a_pl_4(
       style="width: calc(100vw - 280px);"
     )
       router-view

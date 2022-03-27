@@ -3,6 +3,11 @@ import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 
 import {
+  frameworksApi,
+} from "../API/frameworksApi";
+
+import frameworks from "../const/frameworks";
+import {
   h,
 } from "vue";
 import {
@@ -68,11 +73,24 @@ export default {
       type: [String, Number],
       required: false,
     },
+    framework: {
+      type: String,
+      required: false,
+      validator: framework => frameworks.indexOf(framework) !== -1,
+    },
   },
   emits: [
     "update:modelValue",
     "change",
   ],
+  setup(props) {
+    const {
+      frameworkLocal,
+    } = frameworksApi(props);
+    return {
+      frameworkLocal,
+    };
+  },
   computed: {
     disabledLocal() {
       return this.disabled || false;
@@ -109,7 +127,15 @@ export default {
     },
 
     inputClassLocal() {
-      return this.inputClass;
+      if (this.frameworkLocal) {
+        const INPUT_CLASS_FRAMEWORK = {
+          bootstrap: "form-control",
+          bulma: "",
+          foundation: "",
+          uikit: "uk-input",
+        };
+        return INPUT_CLASS_FRAMEWORK[this.frameworkLocal];
+      }
     },
 
     requiredLocal() {
@@ -170,7 +196,8 @@ export default {
         value: this.modelValue,
         type: this.typeForInput,
         class: [
-          "a_input form-control",
+          "a_input",
+          this.inputClass,
           this.inputClassLocal,
           {
             a_form_element_with_btn_close: this.isClearButtonLocal,

@@ -3,19 +3,6 @@ import {
   createWebHistory,
 } from "vue-router";
 
-import bootstrapStyles from "../styles/bootstrap.lazy.scss";
-import bulmaStyles from "../styles/bulma.lazy.scss";
-import foundationStyles from "../styles/foundation.lazy.scss";
-import uikitStyles from "../styles/uikit.lazy.scss";
-import frameworks from "../../src/const/frameworks";
-
-const STYLES = {
-  bootstrap: bootstrapStyles,
-  bulma: bulmaStyles,
-  foundation: foundationStyles,
-  uikit: uikitStyles,
-};
-
 const ROUTES = [
   {
     path: "/404",
@@ -55,10 +42,10 @@ const ROUTES = [
   {
     path: "/input",
     name: "PageInput",
-    component: () => import(/* webpackChunkName: "PageCloak" */ "../views/PageInput/PageInput.vue"),
+    component: () => import(/* webpackChunkName: "PageInput" */ "../views/PageInput/PageInput.vue"),
   },
   {
-    path: "/accordion/:framework",
+    path: "/accordion",
     name: "PageAccordion",
     component: () => import(/* webpackChunkName: "PageAccordionBootstrap" */ "../views/PageAccordion/PageAccordion.vue"),
   },
@@ -75,21 +62,4 @@ const ROUTER = createRouter({
   routes: ROUTES,
 });
 
-ROUTER.beforeEach(to => {
-  if (to.params && to.params.framework) {
-    addFrameworkStyles(to.params.framework);
-  }
-  return true;
-});
-
 export default ROUTER;
-
-function addFrameworkStyles(framework) {
-  frameworks.forEach(_framework => {
-    if (_framework === framework) {
-      STYLES[_framework].use();
-    } else {
-      STYLES[_framework].unuse();
-    }
-  });
-}

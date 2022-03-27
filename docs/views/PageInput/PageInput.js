@@ -1,5 +1,6 @@
 import AInput from "../../../src/AInput/AInput";
 
+
 export default {
   name: "PageInput",
   components: {

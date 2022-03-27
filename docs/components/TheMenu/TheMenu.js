@@ -29,6 +29,7 @@ export default {
           label: "Cloak",
         },
         {
+          id: "input",
           name: "PageInput",
           label: "Input",
         },
@@ -36,40 +37,6 @@ export default {
           id: "accordion",
           name: "PageAccordion",
           label: "Accordion",
-          children: [
-            {
-              id: "accordion_bootstrap",
-              name: "PageAccordion",
-              label: "Accordion Bootstrap",
-              params: {
-                framework: "bootstrap",
-              },
-            },
-            {
-              id: "accordion_foundation",
-              name: "PageAccordion",
-              label: "Accordion Foundation",
-              params: {
-                framework: "foundation",
-              },
-            },
-            {
-              id: "accordion_uikit",
-              name: "PageAccordion",
-              label: "Accordion Uikit",
-              params: {
-                framework: "uikit",
-              },
-            },
-            {
-              id: "accordion_bulma",
-              name: "PageAccordion",
-              label: "Accordion Bulma",
-              params: {
-                framework: "bulma",
-              },
-            },
-          ],
         },
       ],
     };
