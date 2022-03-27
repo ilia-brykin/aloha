@@ -7,7 +7,8 @@ import {
 export function frameworksApi(props) {
   const { framework } = toRefs(props);
   const $aloha = inject("$aloha", "{}");
-  const frameworkLocal = computed(() => framework.value || $aloha.framework || "bootstrap");
+  const frameworkInject = inject("framework", undefined) || {};
+  const frameworkLocal = computed(() => framework.value || frameworkInject.value || $aloha.framework || "bootstrap");
   const isBootstrap = computed(() => frameworkLocal.value === "bootstrap");
   const isFoundation = computed(() => frameworkLocal.value === "foundation");
 

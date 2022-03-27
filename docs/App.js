@@ -36,6 +36,7 @@ export default defineComponent({
   methods: {
     changeFramework({ framework }) {
       this.addFrameworkStyles(framework);
+      this.framework = framework;
     },
 
     addFrameworkStyles(framework) {
