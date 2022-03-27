@@ -130,7 +130,7 @@ export default {
       if (this.frameworkLocal) {
         const INPUT_CLASS_FRAMEWORK = {
           bootstrap: "form-control",
-          bulma: "",
+          bulma: "input",
           foundation: "",
           uikit: "uk-input",
         };
