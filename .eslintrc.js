@@ -24,6 +24,8 @@ module.exports = exports = {
     event: false,
     beforeEach: false,
     afterEach: false,
+    exports: false,
+    define: false,
     module: false,
     it: false,
     describe: false,

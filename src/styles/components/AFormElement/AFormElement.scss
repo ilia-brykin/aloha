@@ -1,9 +1,10 @@
 .a_form_element {
   position: relative;
+  .a_form_element_with_btn_close {
+    padding-right: 30px;
+  }
 }
-.a_form_element_with_btn_close {
-  padding-right: 30px;
-}
+
 .a_form_element__btn_close {
   position: absolute;
   top: 50%;

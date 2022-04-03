@@ -1,12 +1,25 @@
 div
-  h1 PageCloak
+  h1 Form element
+  h2 Input
   a-input(
     id="input1"
     v-model="model1"
     type="text"
-    label="Aloha"
-    required="true"
+    label="Input 1"
+    :required="true"
     @change="changeModel1"
   )
   div model1: {{ model1 }}
+  h2 Textarea
+  a-textarea(
+    id="textarea1"
+    v-model="model2"
+    type="text"
+    label="Textarea 1"
+    :required="true"
+    :is-scalable="true"
+  )
+  div model2:
+  pre {{ model2 }}
+
 
