@@ -34,6 +34,11 @@ export default {
           label: "Input",
         },
         {
+          id: "json",
+          name: "PageAJson",
+          label: "JSON",
+        },
+        {
           id: "accordion",
           name: "PageAccordion",
           label: "Accordion",

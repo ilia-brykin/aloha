@@ -45,6 +45,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageInput" */ "../views/PageInput/PageInput.vue"),
   },
   {
+    path: "/json",
+    name: "PageAJson",
+    component: () => import(/* webpackChunkName: "PageAJson" */ "../views/PageAJson/PageAJson.vue"),
+  },
+  {
     path: "/accordion",
     name: "PageAccordion",
     component: () => import(/* webpackChunkName: "PageAccordionBootstrap" */ "../views/PageAccordion/PageAccordion.vue"),
