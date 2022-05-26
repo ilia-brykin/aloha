@@ -1,48 +1,32 @@
+import {
+  computed,
+  h,
+  toRef,
+} from "vue";
+
 import AFormElementBtnClear from "../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import AIcon from "../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
 import ATranslation from "../ATranslation/ATranslation";
+
+import AInputMixin from "../FormElements/AInputMixin";
 
 import {
   frameworksApi,
 } from "../API/frameworksApi";
 
-import frameworks from "../const/frameworks";
-import {
-  h,
-} from "vue";
-import {
-  isUndefined,
-} from "lodash-es";
-
-
 export default {
   name: "AInput",
   components: {
     AFormElementBtnClear,
-    AIcon,
     ALabel,
     ATranslation,
   },
+  mixins: [
+    AInputMixin,
+  ],
   props: {
     clearButtonClass: {
       type: [String, Object],
-      required: false,
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    inputAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    inputClass: {
       required: false,
     },
     isClearButton: {
@@ -50,113 +34,76 @@ export default {
       required: false,
       default: true,
     },
-    isError: {
-      type: Boolean,
-      default: false,
-    },
-    label: {
-      type: String,
-      required: false,
-    },
-    labelClass: {
-      required: false,
-    },
     maxlength: {
       type: String,
       required: false,
-    },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    required: {
-      type: Boolean,
-      required: false,
-      default: false,
     },
     type: {
       type: String,
       required: true,
     },
-    modelValue: {
-      type: [String, Number],
-      required: false,
-    },
-    framework: {
-      type: String,
-      required: false,
-      validator: framework => frameworks.indexOf(framework) !== -1,
-    },
   },
-  emits: [
-    "update:modelValue",
-    "change",
-  ],
   setup(props) {
+    const disabled = toRef(props, "disabled");
+    const isError = toRef(props, "isError");
+    const modelValue = toRef(props, "modelValue");
+    const required = toRef(props, "required");
+    const type = toRef(props, "type");
+
+    const ariaInvalid = computed(() => {
+      if (isError.value) {
+        return "true";
+      }
+    });
+
+    const ariaRequired = computed(() => {
+      return `${ required.value }`;
+    });
+
+    const typeForInput = computed(() => {
+      if (type.value === "integer") {
+        return "text";
+      }
+      return type.value;
+    });
+
+    const isModel = computed(() => {
+      return !!(modelValue.value || modelValue.value === 0);
+    });
+
+    const disabledClearButton = computed(() => {
+      return disabled.value || !isModel.value;
+    });
+
     const {
       frameworkLocal,
     } = frameworksApi(props);
-    return {
-      frameworkLocal,
-    };
-  },
-  computed: {
-    disabledLocal() {
-      return this.disabled || false;
-    },
 
-    typeForInput() {
-      if (this.type === "integer") {
-        return "text";
-      }
-      return this.type;
-    },
-
-    isClearButtonLocal() {
-      if (!isUndefined(this.isClearButton)) {
-        return this.isClearButton;
-      }
-      return true;
-    },
-
-    isModel() {
-      return !!(this.modelValue || this.modelValue === 0);
-    },
-
-    inputClassLocal() {
-      if (this.frameworkLocal) {
+    const inputClassLocal = computed(() => {
+      if (frameworkLocal.value) {
         const INPUT_CLASS_FRAMEWORK = {
           bootstrap: "form-control",
           bulma: "input",
           foundation: "",
           uikit: "uk-input",
         };
-        return INPUT_CLASS_FRAMEWORK[this.frameworkLocal];
+        return INPUT_CLASS_FRAMEWORK[frameworkLocal.value];
       }
-    },
+    });
 
-    requiredLocal() {
-      return this.required || false;
-    },
-
-    ariaRequired() {
-      return `${ this.requiredLocal }`;
-    },
-
-    ariaInvalid() {
-      if (this.isError) {
-        return "true";
-      }
-    },
-
-    disabledClearButton() {
-      return this.disabledLocal || !this.isModel;
-    },
+    return {
+      ariaInvalid,
+      ariaRequired,
+      disabledClearButton,
+      frameworkLocal,
+      inputClassLocal,
+      isModel,
+      typeForInput,
+    };
   },
   methods: {
     onInput($event) {
-      if (this.disabledLocal) {
+      if (this.disabled) {
         return;
       }
       let value = $event.target.value;
@@ -201,6 +148,7 @@ export default {
       }, [
         h("input", {
           id: this.id,
+          ref: "input",
           value: this.modelValue,
           type: this.typeForInput,
           class: [
@@ -208,7 +156,7 @@ export default {
             this.inputClass,
             this.inputClassLocal,
             {
-              a_form_element_with_btn_close: this.isClearButtonLocal,
+              a_form_element_with_btn_close: this.isClearButton,
             },
           ],
           disabled: this.disabledLocal,
@@ -218,7 +166,7 @@ export default {
           ...this.inputAttributes,
           onInput: this.onInput,
         }),
-        this.isClearButtonLocal && h(AFormElementBtnClear, {
+        this.isClearButton && h(AFormElementBtnClear, {
           disabled: this.disabledClearButton,
           clearButtonClass: this.clearButtonClass,
           onClear: this.clearModel,

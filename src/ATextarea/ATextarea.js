@@ -3,16 +3,15 @@ import {
 } from "vue";
 
 import AFormElementBtnClear from "../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import AIcon from "../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
 import ATranslation from "../ATranslation/ATranslation";
 
-import autosize from "../utils/autosize";
-import frameworks from "../const/frameworks";
 import {
   frameworksApi,
 } from "../API/frameworksApi";
 
+import autosize from "../utils/autosize";
+import frameworks from "../const/frameworks";
 import {
   isUndefined,
 } from "lodash-es";
@@ -22,7 +21,6 @@ export default {
   name: "ATextarea",
   components: {
     AFormElementBtnClear,
-    AIcon,
     ALabel,
     ATranslation,
   },
