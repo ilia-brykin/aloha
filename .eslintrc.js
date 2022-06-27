@@ -1,8 +1,11 @@
 var OFF = 0, WARN = 1, ERROR = 2;
 
 module.exports = exports = {
-  parser: "@babel/eslint-parser",
+  parser: "vue-eslint-parser",
   parserOptions: {
+    parser: {
+      js: "@babel/eslint-parser",
+    },
     requireConfigFile: false,
     allowImportExportEverywhere: true,
     ecmaVersion: 8,
@@ -13,7 +16,10 @@ module.exports = exports = {
     },
   },
 
-  extends: "eslint:recommended",
+  extends: [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+  ],
 
   globals: {
     _: false,

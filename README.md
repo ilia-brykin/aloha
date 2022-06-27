@@ -1,4 +1,2 @@
-# aloha
+# aloha-vue
 aloha
-
-nvm use v16
