@@ -54,6 +54,7 @@ export default {
       if (isError.value) {
         return "true";
       }
+      return false;
     });
 
     const ariaRequired = computed(() => {
@@ -89,6 +90,7 @@ export default {
         };
         return INPUT_CLASS_FRAMEWORK[frameworkLocal.value];
       }
+      return {};
     });
 
     return {

@@ -1,6 +1,5 @@
 # Client
-client/static/*
-client/assets/styles/*
+docs/static/*
 /.idea/*
-/node_modules/*
+*/node_modules/*
 package-lock.json
