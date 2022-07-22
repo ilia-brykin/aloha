@@ -159,6 +159,11 @@ module.exports = (env, options) => {
     },
     devServer: {
       historyApiFallback: true,
+      static: {
+        directory: path.join(__dirname, 'public'),
+      },
+      compress: true,
+      port: 9000,
     },
     ignoreWarnings: [/Failed to parse source map/],
   };
