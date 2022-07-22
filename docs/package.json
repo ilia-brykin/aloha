@@ -8,7 +8,7 @@
     "watch": "webpack --watch --mode=development --devtool=eval",
     "watch-details": "webpack --watch --mode=development --devtool=eval-source-map",
     "build-production": "webpack --mode=production --devtool=source-map",
-    "build-css": "node sass_render script=build-css"
+    "build-css": "node-sass --include-path scss styles/styles.scss public/styles.css"
   },
   "dependencies": {
     "aloha-css": "1.0.3",

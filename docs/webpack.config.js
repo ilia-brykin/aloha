@@ -104,8 +104,8 @@ module.exports = (env, options) => {
     },
     entry: ["regenerator-runtime/runtime.js", "./src/main.js"],
     output: {
-      path: path.resolve(__dirname, "./static/"),
-      // publicPath: "/",
+      // path: path.resolve(__dirname, "./static/"),
+      // publicPath: "/public/",
       filename: "bundle.[id].[contenthash].js",
       chunkFilename: "chunk.[id].[contenthash].js",
       asyncChunks: true,
@@ -160,7 +160,8 @@ module.exports = (env, options) => {
     devServer: {
       historyApiFallback: true,
       static: {
-        directory: path.join(__dirname, 'public'),
+        directory: path.join(__dirname, "public"),
+        publicPath: "/public",
       },
       compress: true,
       port: 9000,
