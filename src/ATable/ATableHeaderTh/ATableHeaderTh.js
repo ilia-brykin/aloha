@@ -16,6 +16,10 @@ export default {
       type: Object,
       required: true,
     },
+    columnIndex: {
+      type: Number,
+      required: true,
+    },
     isLoading: {
       type: Boolean,
       required: true,
@@ -31,6 +35,10 @@ export default {
   },
   emits: [
     "change-model-sort",
+    "dragendParent",
+    "dragstartParent",
+    "dragenterParent",
+    "dragleaveParent",
   ],
   computed: {
     isVisible() {
@@ -41,7 +49,13 @@ export default {
       const ATTRIBUTES = {
         ...this.ariaSort,
         scope: "col",
-        class: "a_table__th a_table__cell"
+        class: "a_table__th a_table__cell",
+        draggable: "true",
+        onDragstart: this.dragstart,
+        onDragend: this.dragend,
+        onDragenter: this.dragenter,
+        onDragover: this.dragover,
+        onDragleave: this.dragleave,
       };
       if (!this.isVisible) {
         ATTRIBUTES.style = {
@@ -136,6 +150,41 @@ export default {
       this.$emit("change-model-sort", {
         sortId: this.sortId,
       });
+    },
+
+    dragstart($event) {
+      $event.target.style.opacity = "0.4";
+      $event.dataTransfer.effectAllowed = "move";
+      this.$emit("dragstartParent", {
+        columnIndex: this.columnIndex,
+      });
+    },
+
+    dragend($event) {
+      $event.target.style.opacity = "1";
+      $event.target.classList.remove("a_table__th_over");
+      this.$emit("dragendParent");
+    },
+
+    dragenter() {
+      this.$el.classList.add("a_table__th_over");
+      this.$emit("dragenterParent", {
+        columnIndex: this.columnIndex,
+      });
+    },
+
+    dragleave() {
+      this.$el.classList.remove("a_table__th_over");
+      this.$emit("dragleaveParent", {
+        columnIndex: this.columnIndex,
+      });
+    },
+
+    dragover($event) {
+      if ($event.preventDefault) {
+        $event.preventDefault();
+      }
+      return false;
     },
   },
   render() {

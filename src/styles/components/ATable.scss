@@ -32,7 +32,15 @@
   display: table-cell;
   background-color: #f1f4f7;
   border-bottom: 3px solid #d0c9c0;
+  cursor: move;
 }
+.a_table__th_over {
+  border-left: 10px solid #666;
+  > * {
+    pointer-events: none;
+  }
+}
+
 .a_table__td {
   display: table-cell;
 }

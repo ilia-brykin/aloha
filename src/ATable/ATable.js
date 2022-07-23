@@ -134,6 +134,15 @@ export default {
     changeLimit(value) {
       this.limit = value;
     },
+
+    changeColumnsOrdering({ columnIndexDraggable, columnIndexOver }) {
+      if (columnIndexDraggable === columnIndexOver) {
+        return;
+      }
+      const COLUMN_DRAGGABLE = cloneDeep(this.columns[columnIndexDraggable]);
+      this.columns.splice(columnIndexDraggable, 1);
+      this.columns.splice(columnIndexOver, 0, COLUMN_DRAGGABLE);
+    },
   },
   render() {
     return h("div", null, [
@@ -152,6 +161,7 @@ export default {
           modelSort: this.modelSort,
           isLoading: this.isLoading,
           "onChange-model-sort": this.changeModelSort,
+          onChangeColumnsOrdering: this.changeColumnsOrdering,
         }),
         h("div", {
           class: "a_table__body"
