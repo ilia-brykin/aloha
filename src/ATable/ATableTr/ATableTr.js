@@ -32,7 +32,9 @@ export default {
     },
   },
   render() {
-    return h("tr", null, this.columns.map((column, columnIndex) => {
+    return h("div", {
+      class: "a_table__row",
+    }, this.columns.map((column, columnIndex) => {
       return h(ATableTd, {
         column,
         columnIndex,

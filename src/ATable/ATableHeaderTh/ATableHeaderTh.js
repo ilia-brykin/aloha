@@ -41,6 +41,7 @@ export default {
       const ATTRIBUTES = {
         ...this.ariaSort,
         scope: "col",
+        class: "a_table__th a_table__cell"
       };
       if (!this.isVisible) {
         ATTRIBUTES.style = {
@@ -93,9 +94,11 @@ export default {
         return {
           type: "button",
           disabled: this.isLoading,
+          class: "a_table__th__sort",
           onClick: this.changeModelSortLocal,
         };
       }
+      return {};
     },
 
     iconsSortable() {
@@ -114,12 +117,14 @@ export default {
     iconSortDescending() {
       return h(AIcon, {
         icon: "ChevronUp",
+        class: "a_table__th__sort__icon a_table__th__sort__icon_up",
       });
     },
 
     iconSortAscending() {
       return h(AIcon, {
         icon: "ChevronDown",
+        class: "a_table__th__sort__icon a_table__th__sort__icon_down",
       });
     },
   },
@@ -134,13 +139,17 @@ export default {
     },
   },
   render() {
-    return h("th", this.attributesForTh, [
+    return h("div", this.attributesForTh, [
       h(this.componentLocal, this.attributesForButton, [
         h(ATranslation, {
           text: this.column.label,
           tag: "span",
         }),
-        ...this.iconsSortable,
+        h("span", {
+          class: "a_table__th__sort__icons",
+        }, [
+          ...this.iconsSortable,
+        ]),
       ]),
     ]);
   },

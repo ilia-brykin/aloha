@@ -28,8 +28,12 @@ export default {
     },
   },
   render() {
-    return h("thead", null, [
-      h("tr", null, [
+    return h("div", {
+      class: "a_table__head"
+    }, [
+      h("div", {
+        class: "a_table__row"
+      }, [
         this.columns.map(column => {
           return h(ATableHeaderTh, {
             column: column,

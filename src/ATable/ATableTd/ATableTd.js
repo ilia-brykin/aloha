@@ -43,7 +43,9 @@ export default {
     },
 
     attributesForTd() {
-      const ATTRIBUTES = {};
+      const ATTRIBUTES = {
+        class: "a_table__td a_table__cell"
+      };
       if (!this.isVisible) {
         ATTRIBUTES.style = {
           display: "none",
@@ -57,7 +59,7 @@ export default {
     },
   },
   render() {
-    return h("td", this.attributesForTd, this.isSlot ?
+    return h("div", this.attributesForTd, this.isSlot ?
       this.$slots[this.column.slot]({
         column: this.column,
         "column-index": this.columnIndex,

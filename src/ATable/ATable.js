@@ -143,8 +143,8 @@ export default {
         modelColumns: this.modelColumns,
         "onUpdate:model-columns": this.changeModelColumns,
       }),
-      h("table", {
-        class: "table",
+      h("div", {
+        class: "a_table",
       }, [
         h(ATableHeader, {
           columns: this.columns,
@@ -153,7 +153,9 @@ export default {
           isLoading: this.isLoading,
           "onChange-model-sort": this.changeModelSort,
         }),
-        h("tbody", null, this.rowsLocal.map((row, rowIndex) => {
+        h("div", {
+          class: "a_table__body"
+        }, this.rowsLocal.map((row, rowIndex) => {
           return h(ATableTr, {
             row,
             rowIndex,
