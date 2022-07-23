@@ -19,6 +19,7 @@ export default {
           id: "aloha",
           path: "aloha",
           sortId: "aloha",
+          draggable: false,
         },
         {
           label: "Hola",
@@ -39,18 +40,20 @@ export default {
         },
       ],
       data: [],
+      isLoadingDraggable: false,
     };
-  },
-  computed: {
-
-  },
-  watch: {
-
   },
   created() {
     this.setData();
   },
   methods: {
+    changeColumnsOrdering() {
+      this.isLoadingDraggable = true;
+      setTimeout(() => {
+        this.isLoadingDraggable = false;
+      }, 1000);
+    },
+
     setData() {
       const DATA = [];
       times(100, item => {

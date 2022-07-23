@@ -1,12 +1,14 @@
+import {
+  computed,
+  h,
+} from "vue";
+
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
 import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePagination from "./ATablePagination/ATablePagination";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
-import {
-  h,
-} from "vue";
 import {
   cloneDeep,
   orderBy,
@@ -29,9 +31,22 @@ export default {
       required: true,
     },
     data: {
-      type: Array,
+      type: [Array, Object, Promise],
       required: false,
     },
+    isLoadingDraggable: {
+      type: Boolean,
+      required: false,
+    },
+  },
+  emits: [
+    "update:columns",
+    "changeColumnsOrdering",
+  ],
+  provide() {
+    return {
+      isLoadingDraggable: computed(() => this.isLoadingDraggable),
+    };
   },
   data() {
     return {
@@ -139,9 +154,16 @@ export default {
       if (columnIndexDraggable === columnIndexOver) {
         return;
       }
-      const COLUMN_DRAGGABLE = cloneDeep(this.columns[columnIndexDraggable]);
-      this.columns.splice(columnIndexDraggable, 1);
-      this.columns.splice(columnIndexOver, 0, COLUMN_DRAGGABLE);
+      const COLUMNS = cloneDeep(this.columns);
+      const COLUMN_DRAGGABLE = cloneDeep(COLUMNS[columnIndexDraggable]);
+      COLUMNS.splice(columnIndexDraggable, 1);
+      COLUMNS.splice(columnIndexOver, 0, COLUMN_DRAGGABLE);
+      this.$emit("update:columns", COLUMNS);
+      this.$emit("changeColumnsOrdering", {
+        columns: COLUMNS,
+        columnIndexDraggable,
+        columnIndexOver,
+      });
     },
   },
   render() {

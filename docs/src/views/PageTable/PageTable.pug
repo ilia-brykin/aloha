@@ -1,8 +1,10 @@
 div
   h1 PageTable
   a-table(
-    :columns="columns"
+    v-model:columns="columns"
     :data="data"
+    :is-loading-draggable="isLoadingDraggable"
+    @change-columns-ordering="changeColumnsOrdering"
   )
     template(
       v-slot:slot1="vm"

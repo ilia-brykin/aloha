@@ -40,6 +40,9 @@ export default {
     "dragenterParent",
     "dragleaveParent",
   ],
+  inject: [
+    "isLoadingDraggable"
+  ],
   computed: {
     isVisible() {
       return this.modelColumnsMapping[this.column.id];
@@ -49,20 +52,35 @@ export default {
       const ATTRIBUTES = {
         ...this.ariaSort,
         scope: "col",
-        class: "a_table__th a_table__cell",
-        draggable: "true",
-        onDragstart: this.dragstart,
-        onDragend: this.dragend,
-        onDragenter: this.dragenter,
-        onDragover: this.dragover,
-        onDragleave: this.dragleave,
       };
+      if (this.isDraggable) {
+        ATTRIBUTES.draggable = !this.isLoadingDraggable;
+        ATTRIBUTES.onDragstart = this.dragstart;
+        ATTRIBUTES.onDragend = this.dragend;
+        ATTRIBUTES.onDragenter = this.dragenter;
+        ATTRIBUTES.onDragover = this.dragover;
+        ATTRIBUTES.onDragleave = this.dragleave;
+      }
       if (!this.isVisible) {
         ATTRIBUTES.style = {
           display: "none",
         };
       }
+      ATTRIBUTES.class = this.classForTh;
       return ATTRIBUTES;
+    },
+
+    classForTh() {
+      return [
+        "a_table__th a_table__cell",
+        {
+          a_table__th_draggable: this.isDraggable && !this.isLoadingDraggable,
+        }
+      ];
+    },
+
+    isDraggable() {
+      return this.column.draggable !== false;
     },
 
     ariaSort() {
