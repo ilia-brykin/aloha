@@ -4,6 +4,7 @@ import ChevronLeft from "./Icons/ChevronLeft";
 import ChevronRight from "./Icons/ChevronRight";
 import ChevronUp from "./Icons/ChevronUp";
 import Close from "./Icons/Close";
+import Cog from "./Icons/Cog";
 import Cross from "./Icons/Cross";
 
 import {
@@ -43,6 +44,7 @@ export default {
         ChevronLeft,
         ChevronRight,
         ChevronUp,
+        Cog,
         Close,
         Cross,
       },
