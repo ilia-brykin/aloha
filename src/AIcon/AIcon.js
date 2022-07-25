@@ -6,6 +6,10 @@ import ChevronUp from "./Icons/ChevronUp";
 import Close from "./Icons/Close";
 import Cog from "./Icons/Cog";
 import Cross from "./Icons/Cross";
+import Dnd from "./Icons/Dnd";
+import EyeClose from "./Icons/EyeClose";
+import EyeOpen from "./Icons/EyeOpen";
+import Ok from "./Icons/Ok";
 
 import {
   h,
@@ -47,6 +51,10 @@ export default {
         Cog,
         Close,
         Cross,
+        Dnd,
+        EyeClose,
+        EyeOpen,
+        Ok,
       },
     };
   },
