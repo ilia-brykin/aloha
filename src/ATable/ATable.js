@@ -10,9 +10,14 @@ import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
 import {
-  cloneDeep,
+  getModelColumnsOrderingDefault,
+  getModelColumnsVisibleDefault,
+} from "./utils/utils";
+import {
+  cloneDeep, forEach, keyBy,
   orderBy,
   startsWith,
+  uniqueId,
 } from "lodash-es";
 
 
@@ -26,6 +31,11 @@ export default {
     ATableTr,
   },
   props: {
+    id: {
+      type: String,
+      required: false,
+      default: () => uniqueId("a_table"),
+    },
     columns: {
       type: Array,
       required: true,
@@ -34,18 +44,43 @@ export default {
       type: [Array, Object, Promise],
       required: false,
     },
-    isLoadingDraggable: {
+    isLoadingTable: {
       type: Boolean,
       required: false,
     },
+    isLoadingOptions: {
+      type: Boolean,
+      required: false,
+    },
+    modelColumnsOrdering: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    modelColumnsVisible: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   emits: [
-    "update:columns",
+    "update:modelColumnsOrder",
+    "update:modelColumnsVisible",
     "changeColumnsOrdering",
+    "changeColumnsVisible",
   ],
   provide() {
     return {
-      isLoadingDraggable: computed(() => this.isLoadingDraggable),
+      changeColumnsOrdering: this.changeColumnsOrdering,
+      changeModelColumnsVisible: this.changeModelColumnsVisible,
+      changeModelSort: this.changeModelSort,
+      columns: computed(() => this.columns),
+      columnsOrdered: computed(() => this.columnsOrdered),
+      isLoadingOptions: computed(() => this.isLoadingOptions),
+      isLoadingTable: computed(() => this.isLoadingTable),
+      modelColumnsVisibleLocal: computed(() => this.modelColumnsVisibleLocal),
+      modelColumnsVisibleMapping: computed(() => this.modelColumnsVisibleMapping),
+      tableId: computed(() => this.id),
     };
   },
   data() {
@@ -57,7 +92,8 @@ export default {
       rows: [],
       limit: 10,
       offset: 0,
-      modelColumns: [],
+      modelColumnsOrderingLocal: [],
+      modelColumnsVisibleLocal: [],
     };
   },
   computed: {
@@ -114,20 +150,45 @@ export default {
       return this.data.length;
     },
 
-    modelColumnsMapping() {
+    modelColumnsVisibleMapping() {
       const MODEL_COLUMNS = {};
-      this.modelColumns.forEach(columnId => {
+      this.modelColumnsVisibleLocal.forEach(columnId => {
         MODEL_COLUMNS[columnId] = true;
       });
       return MODEL_COLUMNS;
     },
+
+    columnsOrdered() {
+      const COLUMNS = [];
+      forEach(this.modelColumnsOrderingLocal, columnId => {
+        COLUMNS.push(this.columnsKeyById[columnId]);
+      });
+      return COLUMNS;
+    },
+
+    columnsKeyById() {
+      return keyBy(this.columns, "id");
+    },
   },
   created() {
-    this.initModelColumns();
+    this.initModelColumnsOrderingLocal();
+    this.initModelColumnsVisibleLocal();
   },
   methods: {
-    initModelColumns() {
-      this.modelColumns = this.columns.map(column => column.id);
+    initModelColumnsOrderingLocal() {
+      if (this.modelColumnsOrdering.length) {
+        this.modelColumnsOrderingLocal = cloneDeep(this.modelColumnsOrdering);
+      } else {
+        this.modelColumnsOrderingLocal = getModelColumnsOrderingDefault(this.columns);
+      }
+    },
+
+    initModelColumnsVisibleLocal() {
+      if (this.modelColumnsVisible.length) {
+        this.modelColumnsVisibleLocal = cloneDeep(this.modelColumnsVisible);
+      } else {
+        this.modelColumnsVisibleLocal = getModelColumnsVisibleDefault(this.columns);
+      }
     },
 
     changeModelSort({ sortId }) {
@@ -138,8 +199,9 @@ export default {
       }
     },
 
-    changeModelColumns(value) {
-      this.modelColumns = value;
+    changeModelColumnsVisible(value) {
+      this.modelColumnsVisibleLocal = value;
+      this.$emit("update:modelColumnsVisible", cloneDeep(this.modelColumnsVisibleLocal));
     },
 
     changeOffset(value) {
@@ -150,40 +212,32 @@ export default {
       this.limit = value;
     },
 
-    changeColumnsOrdering({ columnIndexDraggable, columnIndexOver }) {
-      if (columnIndexDraggable === columnIndexOver) {
+    changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver }) {
+      if (columnIndexDraggable === columnIndexOver && !modelColumnsOrderingLocal) {
         return;
       }
-      const COLUMNS = cloneDeep(this.columns);
-      const COLUMN_DRAGGABLE = cloneDeep(COLUMNS[columnIndexDraggable]);
-      COLUMNS.splice(columnIndexDraggable, 1);
-      COLUMNS.splice(columnIndexOver, 0, COLUMN_DRAGGABLE);
-      this.$emit("update:columns", COLUMNS);
+      if (modelColumnsOrderingLocal) {
+        this.modelColumnsOrderingLocal = modelColumnsOrderingLocal;
+      } else {
+        const ID_DRAGGABLE = this.modelColumnsOrderingLocal[columnIndexDraggable];
+        this.modelColumnsOrderingLocal.splice(columnIndexDraggable, 1);
+        this.modelColumnsOrderingLocal.splice(columnIndexOver, 0, ID_DRAGGABLE);
+      }
       this.$emit("changeColumnsOrdering", {
-        columns: COLUMNS,
         columnIndexDraggable,
         columnIndexOver,
+        modelColumnsOrdering: this.modelColumnsOrderingLocal,
       });
     },
   },
   render() {
     return h("div", null, [
-      h(ATableTopPanel, {
-        columns: this.columns,
-        isLoading: this.isLoading,
-        modelColumns: this.modelColumns,
-        "onUpdate:model-columns": this.changeModelColumns,
-      }),
+      h(ATableTopPanel, {}),
       h("div", {
         class: "a_table",
       }, [
         h(ATableHeader, {
-          columns: this.columns,
-          modelColumnsMapping: this.modelColumnsMapping,
           modelSort: this.modelSort,
-          isLoading: this.isLoading,
-          "onChange-model-sort": this.changeModelSort,
-          onChangeColumnsOrdering: this.changeColumnsOrdering,
         }),
         h("div", {
           class: "a_table__body"
@@ -191,9 +245,6 @@ export default {
           return h(ATableTr, {
             row,
             rowIndex,
-            columns: this.columns,
-            modelColumnsMapping: this.modelColumnsMapping,
-            isLoading: this.isLoading,
           }, this.$slots);
         })),
         h(ATablePagination, {

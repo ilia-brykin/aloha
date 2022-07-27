@@ -1,3 +1,11 @@
+html {
+  box-sizing: border-box;
+}
+
+*, ::after, ::before {
+  box-sizing: inherit;
+}
+
 a, button {
   &:focus {
     box-shadow: inset green 0 0 1px 4px;
@@ -11,3 +19,4 @@ body {
 
 // @import "../src/styles/styles";
 @import "../src/styles/components/ATable";
+@import "../src/styles/components/ADropdown";

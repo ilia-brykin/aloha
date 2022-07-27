@@ -84,3 +84,25 @@
 .a_table__th__sort__icon_down {
 
 }
+
+.a_table__cell_action {
+  text-align: right;
+}
+.a_table {
+  .a_table__th__dropdown_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.a_table__th__dropdown_item__icon {
+  margin-right: .5rem;
+}
+.a_table__th__dropdown_item__icon_btn {
+  padding: 0;
+}
+
+.a_table__th__dropdown_item__icon_dnd {
+  margin-left: 1rem;
+  cursor: move;
+}

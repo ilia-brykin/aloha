@@ -20,32 +20,26 @@ export default {
       type: Number,
       required: true,
     },
-    isLoading: {
-      type: Boolean,
-      required: true,
-    },
     modelSort: {
       type: String,
       required: false,
     },
-    modelColumnsMapping: {
-      type: Object,
-      required: true,
-    },
   },
   emits: [
-    "change-model-sort",
     "dragendParent",
     "dragstartParent",
     "dragenterParent",
     "dragleaveParent",
   ],
   inject: [
-    "isLoadingDraggable"
+    "changeModelSort",
+    "isLoadingOptions",
+    "isLoadingTable",
+    "modelColumnsVisibleMapping",
   ],
   computed: {
     isVisible() {
-      return this.modelColumnsMapping[this.column.id];
+      return this.modelColumnsVisibleMapping[this.column.id];
     },
 
     attributesForTh() {
@@ -53,8 +47,8 @@ export default {
         ...this.ariaSort,
         scope: "col",
       };
-      if (this.isDraggable) {
-        ATTRIBUTES.draggable = !this.isLoadingDraggable;
+      if (this.isLocked) {
+        ATTRIBUTES.draggable = !this.isLoadingOptions;
         ATTRIBUTES.onDragstart = this.dragstart;
         ATTRIBUTES.onDragend = this.dragend;
         ATTRIBUTES.onDragenter = this.dragenter;
@@ -74,13 +68,13 @@ export default {
       return [
         "a_table__th a_table__cell",
         {
-          a_table__th_draggable: this.isDraggable && !this.isLoadingDraggable,
+          a_table__th_draggable: this.isLocked && !this.isLoadingOptions,
         }
       ];
     },
 
-    isDraggable() {
-      return this.column.draggable !== false;
+    isLocked() {
+      return !this.column.locked;
     },
 
     ariaSort() {
@@ -125,7 +119,7 @@ export default {
       if (this.isSortable) {
         return {
           type: "button",
-          disabled: this.isLoading,
+          disabled: this.isLoadingTable,
           class: "a_table__th__sort",
           onClick: this.changeModelSortLocal,
         };
@@ -162,10 +156,10 @@ export default {
   },
   methods: {
     changeModelSortLocal() {
-      if (this.isLoading) {
+      if (this.isLoadingTable) {
         return;
       }
-      this.$emit("change-model-sort", {
+      this.changeModelSort({
         sortId: this.sortId,
       });
     },

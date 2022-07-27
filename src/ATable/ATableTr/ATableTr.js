@@ -1,27 +1,17 @@
-import ATableTd from "../ATableTd/ATableTd";
-
 import {
   h,
 } from "vue";
+
+import ATableTd from "../ATableTd/ATableTd";
+import ATableTdAction from "../ATableTdAction/ATableTdAction";
 
 export default {
   name: "ATableTr",
   components: {
     ATableTd,
+    ATableTdAction,
   },
   props: {
-    columns: {
-      type: Array,
-      required: true,
-    },
-    modelColumnsMapping: {
-      type: Object,
-      required: true,
-    },
-    isLoading: {
-      type: Boolean,
-      required: true,
-    },
     row: {
       type: Object,
       required: true,
@@ -31,17 +21,25 @@ export default {
       required: true,
     },
   },
+  inject: [
+    "columnsOrdered",
+  ],
   render() {
     return h("div", {
       class: "a_table__row",
-    }, this.columns.map((column, columnIndex) => {
-      return h(ATableTd, {
-        column,
-        columnIndex,
+    }, [
+      this.columnsOrdered.map((column, columnIndex) => {
+        return h(ATableTd, {
+          column,
+          columnIndex,
+          row: this.row,
+          rowIndex: this.rowIndex,
+        }, this.$slots);
+      }),
+      h(ATableTdAction, {
         row: this.row,
         rowIndex: this.rowIndex,
-        modelColumnsMapping: this.modelColumnsMapping,
-      }, this.$slots);
-    }));
+      }),
+    ]);
   },
 };

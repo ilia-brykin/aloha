@@ -24,11 +24,10 @@ export default {
       type: Number,
       required: true,
     },
-    modelColumnsMapping: {
-      type: Object,
-      required: true,
-    },
   },
+  inject: [
+    "modelColumnsVisibleMapping",
+  ],
   computed: {
     text() {
       return get(this.row, this.column.path);
@@ -55,7 +54,7 @@ export default {
     },
 
     isVisible() {
-      return this.modelColumnsMapping[this.column.id];
+      return this.modelColumnsVisibleMapping[this.column.id];
     },
   },
   render() {

@@ -1,9 +1,9 @@
 div
   h1 PageTable
   a-table(
-    v-model:columns="columns"
+    :columns="columns"
     :data="data"
-    :is-loading-draggable="isLoadingDraggable"
+    :is-loading-options="isLoadingOptions"
     @change-columns-ordering="changeColumnsOrdering"
   )
     template(

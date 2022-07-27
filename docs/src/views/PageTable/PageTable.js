@@ -19,11 +19,23 @@ export default {
           id: "aloha",
           path: "aloha",
           sortId: "aloha",
-          draggable: false,
+          locked: true,
+        },
+        {
+          label: "Aloha frei",
+          id: "aloha1",
+          path: "aloha",
+          sortId: "aloha",
         },
         {
           label: "Hola",
           id: "hola",
+          path: "hola",
+          sortId: "hola",
+        },
+        {
+          label: "Hola2",
+          id: "hola2",
           path: "hola",
           sortId: "hola",
         },
@@ -37,10 +49,11 @@ export default {
           label: "Slot",
           id: "slot",
           slot: "slot1",
+          hide: true,
         },
       ],
       data: [],
-      isLoadingDraggable: false,
+      isLoadingOptions: false,
     };
   },
   created() {
@@ -48,9 +61,9 @@ export default {
   },
   methods: {
     changeColumnsOrdering() {
-      this.isLoadingDraggable = true;
+      this.isLoadingOptions = true;
       setTimeout(() => {
-        this.isLoadingDraggable = false;
+        this.isLoadingOptions = false;
       }, 1000);
     },
 

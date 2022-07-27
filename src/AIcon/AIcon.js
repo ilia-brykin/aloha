@@ -9,7 +9,9 @@ import Cross from "./Icons/Cross";
 import Dnd from "./Icons/Dnd";
 import EyeClose from "./Icons/EyeClose";
 import EyeOpen from "./Icons/EyeOpen";
+import Lock from "./Icons/Lock";
 import Ok from "./Icons/Ok";
+import Reset from "./Icons/Reset";
 
 import {
   h,
@@ -54,7 +56,9 @@ export default {
         Dnd,
         EyeClose,
         EyeOpen,
+        Lock,
         Ok,
+        Reset,
       },
     };
   },

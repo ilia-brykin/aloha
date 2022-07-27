@@ -1,4 +1,5 @@
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
+import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
 
 import {
   h,
@@ -8,27 +9,17 @@ export default {
   name: "ATableHeader",
   components: {
     ATableHeaderTh,
+    ATableHeaderThAction,
   },
   props: {
-    columns: {
-      type: Array,
-      required: true,
-    },
-    isLoading: {
-      type: Boolean,
-      required: true,
-    },
     modelSort: {
       type: String,
       required: false,
     },
-    modelColumnsMapping: {
-      type: Object,
-      required: true,
-    },
   },
-  emits: [
+  inject: [
     "changeColumnsOrdering",
+    "columnsOrdered",
   ],
   data() {
     return {
@@ -52,7 +43,7 @@ export default {
     },
 
     drop($event) {
-      this.$emit("changeColumnsOrdering", {
+      this.changeColumnsOrdering({
         columnIndexDraggable: this.columnIndexDraggable,
         columnIndexOver: this.columnIndexOver,
       });
@@ -80,21 +71,19 @@ export default {
         class: "a_table__row",
         onDrop: this.drop,
       }, [
-        this.columns.map((column, columnIndex) => {
+        this.columnsOrdered.map((column, columnIndex) => {
           return h(ATableHeaderTh, {
             ref: "th",
             column: column,
             columnIndex: columnIndex,
-            "is-loading": this.isLoading,
             "model-sort": this.modelSort,
-            "model-columns-mapping": this.modelColumnsMapping,
-            "onChange-model-sort": this.$attrs["onChange-model-sort"],
             onDragstartParent: this.dragstart,
             onDragenterParent: this.dragenter,
             onDragleaveParent: this.dragleave,
             onDragendParent: this.dragend,
           });
         }),
+        h(ATableHeaderThAction),
       ]),
     ]);
   },
