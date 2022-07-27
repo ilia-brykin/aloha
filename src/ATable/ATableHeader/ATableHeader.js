@@ -4,6 +4,7 @@ import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
 import {
   h,
 } from "vue";
+import { isNil } from "lodash-es";
 
 export default {
   name: "ATableHeader",
@@ -27,6 +28,11 @@ export default {
       columnIndexOver: undefined,
     };
   },
+  computed: {
+    isDragstart() {
+      return !isNil(this.columnIndexDraggable);
+    },
+  },
   methods: {
     dragstart({ columnIndex }) {
       this.columnIndexDraggable = columnIndex;
@@ -43,6 +49,9 @@ export default {
     },
 
     drop($event) {
+      if (isNil(this.columnIndexDraggable) || isNil(this.columnIndexOver)) {
+        return;
+      }
       this.changeColumnsOrdering({
         columnIndexDraggable: this.columnIndexDraggable,
         columnIndexOver: this.columnIndexOver,
@@ -65,7 +74,9 @@ export default {
   },
   render() {
     return h("div", {
-      class: "a_table__head"
+      class: ["a_table__head", {
+        a_table__head_dragstart: this.isDragstart,
+      }],
     }, [
       h("div", {
         class: "a_table__row",

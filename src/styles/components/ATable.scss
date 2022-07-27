@@ -25,6 +25,9 @@
   display: table-row-group;
   vertical-align: bottom;
 }
+.a_table__head_dragstart .a_table__th > * {
+  pointer-events: none;
+}
 .a_table__row {
   display: table-row;
 }
@@ -38,9 +41,6 @@
 }
 .a_table__th_over {
   border-left: 10px solid #666;
-  > * {
-    pointer-events: none;
-  }
 }
 
 .a_table__td {

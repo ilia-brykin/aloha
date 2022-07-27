@@ -47,7 +47,7 @@ export default {
         ...this.ariaSort,
         scope: "col",
       };
-      if (this.isLocked) {
+      if (!this.isLocked) {
         ATTRIBUTES.draggable = !this.isLoadingOptions;
         ATTRIBUTES.onDragstart = this.dragstart;
         ATTRIBUTES.onDragend = this.dragend;
@@ -68,13 +68,13 @@ export default {
       return [
         "a_table__th a_table__cell",
         {
-          a_table__th_draggable: this.isLocked && !this.isLoadingOptions,
+          a_table__th_draggable: !this.isLocked && !this.isLoadingOptions,
         }
       ];
     },
 
     isLocked() {
-      return !this.column.locked;
+      return this.column.locked;
     },
 
     ariaSort() {
