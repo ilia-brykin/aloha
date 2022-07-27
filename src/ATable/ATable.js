@@ -68,6 +68,7 @@ export default {
     "update:modelColumnsVisible",
     "changeColumnsOrdering",
     "changeColumnsVisible",
+    "changeSorting",
   ],
   provide() {
     return {
@@ -194,9 +195,14 @@ export default {
     changeModelSort({ sortId }) {
       if (this.modelSort === sortId) {
         this.modelSort = `-${ sortId }`;
+      } else if (this.modelSort === `-${ sortId }`) {
+        this.modelSort = undefined;
       } else {
         this.modelSort = sortId;
       }
+      this.$emit("changeSorting", {
+        modelSort: this.modelSort,
+      });
     },
 
     changeModelColumnsVisible(value) {
