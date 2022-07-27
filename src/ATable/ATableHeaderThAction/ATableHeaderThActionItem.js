@@ -5,6 +5,8 @@ import {
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
+
 import {
   setFocusToElement,
 } from "../../utils/utils";
@@ -28,6 +30,12 @@ export default {
       required: true,
     },
   },
+  emits: [
+    "dragendParent",
+    "dragstartParent",
+    "dragenterParent",
+    "dragleaveParent",
+  ],
   inject: [
     "changeColumnsOrdering",
     "changeModelColumnsVisible",
@@ -38,11 +46,22 @@ export default {
     "modelColumnsVisibleMapping",
     "tableId",
   ],
-  computed: {
-    isLocked() {
-      return !!this.column.locked;
-    },
+  setup(props, context) {
+    const {
+      attributesForRoot,
+      isLocked,
+      root,
+    } = DragAndDropChildAPI(props, context, {
+      classOver: "a_table__th__dropdown__li_over",
+    });
 
+    return {
+      attributesForRoot,
+      isLocked,
+      root,
+    };
+  },
+  computed: {
     tagIconParent() {
       return this.isLocked ?
         "span" :
@@ -69,12 +88,11 @@ export default {
     },
 
     attributesLi() {
-      if (!this.isLocked) {
-        return {
-          draggable: !this.isLoadingOptions,
-        };
-      }
-      return null;
+      const ATTRIBUTES = {
+        ...this.attributesForRoot,
+        class: "a_table__th__dropdown__li",
+      };
+      return ATTRIBUTES;
     },
 
     columnId() {
@@ -149,7 +167,6 @@ export default {
     },
 
     moveColumnUp($event) {
-      console.log("this.columnIndex", this.columnIndex);
       $event.stopPropagation();
       const columnIndexOver = this.columnIndex - 1;
       this.changeColumnsOrdering({
@@ -165,7 +182,6 @@ export default {
     },
 
     moveColumnDown($event) {
-      console.log("this.columnIndex", this.columnIndex);
       $event.stopPropagation();
       const columnIndexOver = this.columnIndex + 1;
       this.changeColumnsOrdering({

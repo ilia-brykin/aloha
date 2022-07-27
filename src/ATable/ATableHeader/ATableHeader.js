@@ -1,10 +1,11 @@
-import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
-import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
-
 import {
   h,
 } from "vue";
-import { isNil } from "lodash-es";
+
+import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
+import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
+
+import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
 
 export default {
   name: "ATableHeader",
@@ -22,58 +23,33 @@ export default {
     "changeColumnsOrdering",
     "columnsOrdered",
   ],
-  data() {
+  setup() {
+    const {
+      dragstart,
+      dragenter,
+      dragleave,
+      dragend,
+      drop,
+      isDragstart,
+      root,
+    } = DragAndDropParentAPI({
+      classOver: "a_table__th_over",
+      classOverParent: "a_table__th"
+    });
+
     return {
-      columnIndexDraggable: undefined,
-      columnIndexOver: undefined,
+      dragstart,
+      dragenter,
+      dragleave,
+      dragend,
+      drop,
+      isDragstart,
+      root,
     };
-  },
-  computed: {
-    isDragstart() {
-      return !isNil(this.columnIndexDraggable);
-    },
-  },
-  methods: {
-    dragstart({ columnIndex }) {
-      this.columnIndexDraggable = columnIndex;
-    },
-
-    dragenter({ columnIndex }) {
-      this.columnIndexOver = columnIndex;
-    },
-
-    dragleave({ columnIndex }) {
-      if (this.columnIndexOver === columnIndex) {
-        this.columnIndexOver = undefined;
-      }
-    },
-
-    drop($event) {
-      if (isNil(this.columnIndexDraggable) || isNil(this.columnIndexOver)) {
-        return;
-      }
-      this.changeColumnsOrdering({
-        columnIndexDraggable: this.columnIndexDraggable,
-        columnIndexOver: this.columnIndexOver,
-      });
-      $event.stopPropagation();
-      return false;
-    },
-
-    dragend() {
-      this.removeClassOverFromChildren();
-      this.columnIndexDraggable = undefined;
-    },
-
-    removeClassOverFromChildren() {
-      const CHILDREN = this.$el.querySelectorAll(".a_table__th");
-      CHILDREN.forEach(child => {
-        child.classList.remove("a_table__th_over");
-      });
-    },
   },
   render() {
     return h("div", {
+      ref: "root",
       class: ["a_table__head", {
         a_table__head_dragstart: this.isDragstart,
       }],

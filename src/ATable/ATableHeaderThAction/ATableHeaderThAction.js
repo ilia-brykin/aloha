@@ -7,6 +7,8 @@ import AIcon from "../../AIcon/AIcon";
 import ATableHeaderThActionItem from "./ATableHeaderThActionItem";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
+
 import {
   getModelColumnsOrderingDefault,
   getModelColumnsVisibleDefault,
@@ -20,12 +22,6 @@ export default {
     ATableHeaderThActionItem,
     ATranslation,
   },
-  emits: [
-    "dragendParent",
-    "dragstartParent",
-    "dragenterParent",
-    "dragleaveParent",
-  ],
   inject: [
     "changeColumnsOrdering",
     "changeModelColumnsVisible",
@@ -34,6 +30,30 @@ export default {
     "isLoadingOptions",
     "isLoadingTable",
   ],
+  setup() {
+    const {
+      dragstart,
+      dragenter,
+      dragleave,
+      dragend,
+      drop,
+      isDragstart,
+      root,
+    } = DragAndDropParentAPI({
+      classOver: "a_table__th__dropdown__li_over",
+      classOverParent: "a_table__th__dropdown__li",
+    });
+
+    return {
+      dragstart,
+      dragenter,
+      dragleave,
+      dragend,
+      drop,
+      isDragstart,
+      root,
+    };
+  },
   methods: {
     selectAllColumns() {
       this.changeModelColumnsVisible(this.columnsOrdered.map(column => column.id));
@@ -49,47 +69,61 @@ export default {
       class: "a_table__th a_table__cell a_table__cell_action",
       scope: "col",
     }, [
-      h(ADropdown, {}, {
+      h(ADropdown, {
+        dropdownTag: "div",
+      }, {
         button: () => h(AIcon, {
           icon: "Cog",
         }),
         dropdown: () => [
-          h("li", null, [
-            h("button", {
-              type: "button",
-              class: "a_dropdown__item",
-              onClick: this.selectAllColumns,
-            }, [
-              h(AIcon, {
-                icon: "Ok",
-                class: "a_table__th__dropdown_item__icon",
-              }),
-              h("span", null, "Alle auswählen"),
+          h("ul", {
+            class: ["a_table__th__dropdown__ul", {
+              a_table__th__dropdown__ul_dragstart: this.isDragstart,
+            }],
+            ref: "root",
+            onDrop: this.drop,
+          }, [
+            h("li", null, [
+              h("button", {
+                type: "button",
+                class: "a_dropdown__item",
+                onClick: this.selectAllColumns,
+              }, [
+                h(AIcon, {
+                  icon: "Ok",
+                  class: "a_table__th__dropdown_item__icon",
+                }),
+                h("span", null, "Alle auswählen"),
+              ]),
             ]),
-          ]),
-          h("li", null, [
-            h("button", {
-              type: "button",
-              class: "a_dropdown__item",
-              onClick: this.resetColumns,
-            }, [
-              h(AIcon, {
-                icon: "Reset",
-                class: "a_table__th__dropdown_item__icon",
-              }),
-              h("span", null, "Zurücksetzen"),
+            h("li", null, [
+              h("button", {
+                type: "button",
+                class: "a_dropdown__item",
+                onClick: this.resetColumns,
+              }, [
+                h(AIcon, {
+                  icon: "Reset",
+                  class: "a_table__th__dropdown_item__icon",
+                }),
+                h("span", null, "Zurücksetzen"),
+              ]),
             ]),
+            h("li", {
+              class: "a_dropdown__divider",
+              "aria-hidden": true,
+            }),
+            this.columnsOrdered.map((column, columnIndex) => {
+              return h(ATableHeaderThActionItem, {
+                column,
+                columnIndex,
+                onDragstartParent: this.dragstart,
+                onDragenterParent: this.dragenter,
+                onDragleaveParent: this.dragleave,
+                onDragendParent: this.dragend,
+              });
+            }),
           ]),
-          h("li", {
-            class: "a_dropdown__divider",
-            "aria-hidden": true,
-          }),
-          this.columnsOrdered.map((column, columnIndex) => {
-            return h(ATableHeaderThActionItem, {
-              column,
-              columnIndex,
-            });
-          }),
         ],
       }),
     ]);

@@ -95,6 +95,13 @@
     align-items: center;
   }
 }
+.a_table__th__dropdown__ul {
+  list-style: none;
+  margin: 0;
+}
+.a_table__th__dropdown__ul_dragstart .a_table__th__dropdown__li > * {
+  pointer-events: none;
+}
 .a_table__th__dropdown_item__icon {
   margin-right: .5rem;
 }
@@ -105,4 +112,7 @@
 .a_table__th__dropdown_item__icon_dnd {
   margin-left: 1rem;
   cursor: move;
+}
+.a_table__th__dropdown__li_over {
+  border-left: 10px solid red;
 }

@@ -1,9 +1,11 @@
-import AIcon from "../../AIcon/AIcon";
-import ATranslation from "../../ATranslation/ATranslation";
-
 import {
   h,
 } from "vue";
+
+import AIcon from "../../AIcon/AIcon";
+import ATranslation from "../../ATranslation/ATranslation";
+
+import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
 
 export default {
   name: "ATableHeaderTh",
@@ -37,6 +39,21 @@ export default {
     "isLoadingTable",
     "modelColumnsVisibleMapping",
   ],
+  setup(props, context) {
+    const {
+      attributesForRoot,
+      isLocked,
+      root,
+    } = DragAndDropChildAPI(props, context, {
+      classOver: "a_table__th_over",
+    });
+
+    return {
+      attributesForRoot,
+      isLocked,
+      root,
+    };
+  },
   computed: {
     isVisible() {
       return this.modelColumnsVisibleMapping[this.column.id];
@@ -45,16 +62,10 @@ export default {
     attributesForTh() {
       const ATTRIBUTES = {
         ...this.ariaSort,
+        ...this.attributesForRoot,
         scope: "col",
+        ref: "root",
       };
-      if (!this.isLocked) {
-        ATTRIBUTES.draggable = !this.isLoadingOptions;
-        ATTRIBUTES.onDragstart = this.dragstart;
-        ATTRIBUTES.onDragend = this.dragend;
-        ATTRIBUTES.onDragenter = this.dragenter;
-        ATTRIBUTES.onDragover = this.dragover;
-        ATTRIBUTES.onDragleave = this.dragleave;
-      }
       if (!this.isVisible) {
         ATTRIBUTES.style = {
           display: "none",
@@ -73,9 +84,6 @@ export default {
       ];
     },
 
-    isLocked() {
-      return this.column.locked;
-    },
 
     ariaSort() {
       if (this.isSortable) {
@@ -162,41 +170,6 @@ export default {
       this.changeModelSort({
         sortId: this.sortId,
       });
-    },
-
-    dragstart($event) {
-      $event.target.style.opacity = "0.4";
-      $event.dataTransfer.effectAllowed = "move";
-      this.$emit("dragstartParent", {
-        columnIndex: this.columnIndex,
-      });
-    },
-
-    dragend($event) {
-      $event.target.style.opacity = "1";
-      $event.target.classList.remove("a_table__th_over");
-      this.$emit("dragendParent");
-    },
-
-    dragenter() {
-      this.$el.classList.add("a_table__th_over");
-      this.$emit("dragenterParent", {
-        columnIndex: this.columnIndex,
-      });
-    },
-
-    dragleave() {
-      this.$el.classList.remove("a_table__th_over");
-      this.$emit("dragleaveParent", {
-        columnIndex: this.columnIndex,
-      });
-    },
-
-    dragover($event) {
-      if ($event.preventDefault) {
-        $event.preventDefault();
-      }
-      return false;
     },
   },
   render() {
