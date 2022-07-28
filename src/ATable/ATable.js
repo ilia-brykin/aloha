@@ -14,7 +14,7 @@ import {
   getModelColumnsVisibleDefault,
 } from "./utils/utils";
 import {
-  cloneDeep, forEach, keyBy,
+  cloneDeep, forEach, get, isArray, isNil, isPlainObject, keyBy,
   orderBy,
   startsWith,
   uniqueId,
@@ -40,6 +40,26 @@ export default {
       type: Array,
       required: true,
     },
+    countAllRows: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    limitsPerPage: {
+      type: Array,
+      required: false,
+      default: () => ["10", "25", "50", "100"],
+    },
+    limitStart: {
+      type: Number,
+      required: false,
+      default: 10,
+    },
+    offsetStart: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
     data: {
       type: [Array, Object, Promise],
       required: false,
@@ -51,6 +71,11 @@ export default {
     isLoadingOptions: {
       type: Boolean,
       required: false,
+    },
+    keyCountAllRowsInData: {
+      type: String,
+      required: false,
+      default: "count",
     },
     modelColumnsOrdering: {
       type: Array,
@@ -68,6 +93,8 @@ export default {
     "update:modelColumnsVisible",
     "changeColumnsOrdering",
     "changeColumnsVisible",
+    "changeLimit",
+    "changeOffset",
     "changeSorting",
   ],
   provide() {
@@ -89,10 +116,9 @@ export default {
       resolved: undefined,
       error: undefined,
       modelSort: undefined,
-      isLoading: false,
       rows: [],
-      limit: 10,
-      offset: 0,
+      limit: this.limitStart,
+      offset: this.offsetStart,
       modelColumnsOrderingLocal: [],
       modelColumnsVisibleLocal: [],
     };
@@ -170,6 +196,26 @@ export default {
     columnsKeyById() {
       return keyBy(this.columns, "id");
     },
+
+    countAllRowsLocal() {
+      if (!isNil(this.countAllRows)) {
+        return this.countAllRows;
+      }
+      if (this.isDataObject) {
+        return +get(this.data, this.keyCountAllRowsInData);
+      }
+      if (this.isDataArray) {
+        return this.data.length;
+      }
+    },
+
+    isDataObject() {
+      return isPlainObject(this.data);
+    },
+
+    isDataArray() {
+      return isArray(this.data);
+    },
   },
   created() {
     this.initModelColumnsOrderingLocal();
@@ -210,12 +256,18 @@ export default {
       this.$emit("update:modelColumnsVisible", cloneDeep(this.modelColumnsVisibleLocal));
     },
 
-    changeOffset(value) {
-      this.offset = value;
+    changeOffset(offset) {
+      this.offset = offset;
+      this.$emit("changeOffset", {
+        offset,
+      });
     },
 
-    changeLimit(value) {
-      this.limit = value;
+    changeLimit(limit) {
+      this.limit = limit;
+      this.$emit("changeLimit", {
+        limit,
+      });
     },
 
     changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver }) {
@@ -253,17 +305,25 @@ export default {
             rowIndex,
           }, this.$slots);
         })),
+      ]),
+      h("div", {
+        class: "a_pagination__parent"
+      }, [
+        h(ATableCountProPage, {
+          countAllRows: this.countAllRowsLocal,
+          limitsPerPage: this.limitsPerPage,
+          isLoadingTable: this.isLoadingTable,
+          limit: this.limit,
+          offset: this.offset,
+          rowsLength: this.rowsLocal.length,
+          "onUpdate:limit": this.changeLimit,
+        }),
         h(ATablePagination, {
           limit: this.limit,
           totalRowsCount: this.totalRowsCountLocal,
-          isLoading: this.isLoading,
+          isLoadingTable: this.isLoadingTable,
           offset: this.offset,
           "onUpdate:offset": this.changeOffset,
-        }),
-        h(ATableCountProPage, {
-          isLoading: this.isLoading,
-          limit: this.limit,
-          "onUpdate:limit": this.changeLimit,
         }),
       ]),
     ]);

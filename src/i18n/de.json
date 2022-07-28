@@ -4,5 +4,6 @@
   "_NEXT_": "Nächste",
   "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
   "_PAGINATION_NAVIGATION_": "Paginierungsnavigation",
-  "_PREVIOUS_": "Vorherige"
+  "_PREVIOUS_": "Vorherige",
+  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} von {{ count}}"
 }

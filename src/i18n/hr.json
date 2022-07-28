@@ -4,5 +4,6 @@
   "_NEXT_": "Sljedeći",
   "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
   "_PAGINATION_NAVIGATION_": "Navigacija po stranicama",
-  "_PREVIOUS_": "Prethodni"
+  "_PREVIOUS_": "Prethodni",
+  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} von {{ count}}"
 }

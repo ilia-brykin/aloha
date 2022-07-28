@@ -116,3 +116,29 @@
 .a_table__th__dropdown__li_over {
   border-left: 10px solid red;
 }
+
+// PAGINATION
+.a_pagination__parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f4f7;
+  padding: .5rem;
+}
+.a_pagination__count_from_to {
+  margin-right: 1rem;
+}
+.a_pagination__count {
+  display: flex;
+}
+.a_pagination__count__item {
+  border-right: 1px solid #000;
+  padding: 0 .25rem;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.a_pagination__count__button {
+  padding: 0;
+}

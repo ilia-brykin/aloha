@@ -28,7 +28,7 @@ export default {
       type: Number,
       required: true,
     },
-    isLoading: {
+    isLoadingTable: {
       type: Boolean,
       required: true,
     },
@@ -75,11 +75,11 @@ export default {
     },
 
     disabledButtonFirstPage() {
-      return this.isLoading || this.currentItem === 1;
+      return this.isLoadingTable || this.currentItem === 1;
     },
 
     disabledButtonLastPage() {
-      return this.isLoading || this.currentItem === this.maxItems;
+      return this.isLoadingTable || this.currentItem === this.maxItems;
     },
   },
   methods: {
@@ -115,7 +115,7 @@ export default {
     },
 
     updateOffset(item) {
-      if (this.isLoading || item === this.currentItem) {
+      if (this.isLoadingTable || item === this.currentItem) {
         return;
       }
       const OFFSET = (item - 1) * this.limit;
