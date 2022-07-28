@@ -69,7 +69,7 @@ export default {
 
     setData() {
       const DATA = [];
-      times(100, item => {
+      times(1001, item => {
         DATA.push({
           aloha: `aloha${ item }`,
           hola: `hola ${ item }`,

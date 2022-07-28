@@ -45,6 +45,16 @@ export default {
       required: false,
       default: undefined,
     },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: "",
+    },
+    labelTag: {
+      type: String,
+      required: false,
+      default: "h2",
+    },
     limitsPerPage: {
       type: Array,
       required: false,
@@ -290,7 +300,11 @@ export default {
   },
   render() {
     return h("div", null, [
-      h(ATableTopPanel, {}),
+      h(ATableTopPanel, {
+        countAllRows: this.countAllRowsLocal,
+        label: this.label,
+        labelTag: this.labelTag,
+      }),
       h("div", {
         class: "a_table",
       }, [

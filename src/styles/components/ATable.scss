@@ -117,6 +117,13 @@
   border-left: 10px solid red;
 }
 
+.a_table__top_panel__label {
+  font-weight: bolder;
+}
+.a_table__top_panel__label__count {
+  padding-left: .5rem;
+}
+
 // PAGINATION
 .a_pagination__parent {
   display: flex;
