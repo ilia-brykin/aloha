@@ -1,9 +1,10 @@
-import AIcon from "../../AIcon/AIcon";
-import ATranslation from "../../ATranslation/ATranslation";
-
 import {
   h,
 } from "vue";
+
+import AIcon from "../../AIcon/AIcon";
+import ATranslation from "../../ATranslation/ATranslation";
+
 import {
   ceil,
 } from "lodash-es";
@@ -144,14 +145,14 @@ export default {
       default: () => {
         return [
           h("ul", {
-            class: "pagination",
+            class: "a_pagination",
           }, [
             h("li", {
-              class: ["page-item", { disabled: this.disabledButtonFirstPage }]
+              class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
             }, [
               h(ATranslation, {
                 tag: "a",
-                class: "page-link",
+                class: "a_pagination__item__link",
                 role: "button",
                 tabindex: 0,
                 "aria-label": "_PREVIOUS_",
@@ -168,10 +169,10 @@ export default {
             ]),
             this.paginationItems.map(item => {
               return h("li", {
-                class: ["page-item", { active: item === this.currentItem }],
+                class: ["a_pagination__item", { active: item === this.currentItem }],
               }, [
                 h("a", {
-                  class: "page-link",
+                  class: "a_pagination__item__link",
                   role: "button",
                   tabindex: 0,
                   onClick: () => this.updateOffset(item),
@@ -181,11 +182,11 @@ export default {
               ]);
             }),
             h("li", {
-              class: ["page-item", { disabled: this.disabledButtonLastPage }]
+              class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
             }, [
               h(ATranslation, {
                 tag: "a",
-                class: "page-link",
+                class: "a_pagination__item__link",
                 role: "button",
                 tabindex: 0,
                 "aria-label": "_NEXT_",
