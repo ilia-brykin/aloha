@@ -4,13 +4,17 @@ import {
 
 import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
+import ATableTdActionItem from "../ATableTdActionItem/ATableTdActionItem";
 import ATableListItem from "../ATableListItem/ATableListItem";
+
+import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 
 export default {
   name: "ATableTdAction",
   components: {
     ADropdown,
     AIcon,
+    ATableTdActionItem,
     ATableListItem,
   },
   props: {
@@ -26,6 +30,17 @@ export default {
   inject: [
     "columnsScrollInvisible",
   ],
+  setup(props) {
+    const {
+      isRowActionsDropdownVisible,
+      rowActionsFiltered,
+    } = RowActionsAPI(props);
+
+    return {
+      isRowActionsDropdownVisible,
+      rowActionsFiltered,
+    };
+  },
   computed: {
     isColumnsScrollInvisibleDropdownVisible() {
       return this.countColumnsScrollInvisible > 0;
@@ -45,7 +60,8 @@ export default {
     }, [
       this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
         buttonClass: "a_btn a_btn_link",
-        dropdownClass: "a_p_0"
+        dropdownClass: "a_p_0",
+        dropdownTag: "div",
       }, {
         button: () => [
           h(AIcon, {
@@ -68,7 +84,25 @@ export default {
           ]),
         ],
       }),
-      h("span", null, "Aktionen"),
+      this.isRowActionsDropdownVisible && h(ADropdown, {
+        buttonClass: "a_btn a_btn_link",
+        dropdownClass: "a_p_0"
+      }, {
+        button: () => [
+          h(AIcon, {
+            icon: "Ok",
+          }),
+        ],
+        dropdown: () => [
+          this.rowActionsFiltered.map(rowAction => {
+            return h(ATableTdActionItem, {
+              row: this.row,
+              rowAction,
+              rowIndex: this.rowIndex,
+            }, this.$slots);
+          }),
+        ],
+      }),
     ]);
   },
 };

@@ -112,6 +112,11 @@ export default {
       required: false,
       default: () => [],
     },
+    rowActions: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   emits: [
     "update:modelColumnsOrder",
@@ -133,6 +138,7 @@ export default {
       columnWidthDefaultLocal: computed(() => this.columnWidthDefaultLocal),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
+      rowActions: this.rowActions,
       tableId: computed(() => this.id),
     };
   },

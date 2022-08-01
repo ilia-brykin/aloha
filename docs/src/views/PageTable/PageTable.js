@@ -84,6 +84,26 @@ export default {
       ],
       data: [],
       isLoadingOptions: false,
+      rowActions: [
+        {
+          label: "Click me",
+          title: "Click me title",
+          isHidden: false,
+          callback: this.clickMe,
+          class: "aloha",
+          disabled: false,
+        },
+        {
+          isDivider: true,
+        },
+        {
+          labelCallback: ({ row, rowIndex }) => `${ rowIndex } Click ${ row.aloha }`,
+          titleCallback: ({ row, rowIndex }) => `${ rowIndex } Click ${ row.aloha } title`,
+          isHiddenCallback: ({ row, rowIndex }) => !!(rowIndex > 2 && row.aloha),
+          disabledCallback: ({ row, rowIndex }) => !(rowIndex > 2 && row.aloha),
+          callback: this.clickMe,
+        },
+      ],
     };
   },
   created() {
@@ -110,6 +130,10 @@ export default {
         });
       });
       this.data = DATA;
+    },
+
+    clickMe({ row, rowIndex }) {
+      console.log("row, rowIndex", row, rowIndex);
     },
   },
 };
