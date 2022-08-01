@@ -23,6 +23,7 @@ export default {
     ATranslation,
   },
   inject: [
+    "columnActionsWidthLocal",
     "changeColumnsOrdering",
     "changeModelColumnsVisible",
     "columns",
@@ -54,6 +55,11 @@ export default {
       root,
     };
   },
+  computed: {
+    stylesThAction() {
+      return `width: ${ this.columnActionsWidthLocal }px; min-width: ${ this.columnActionsWidthLocal }px; max-width: ${ this.columnActionsWidthLocal }px;`;
+    },
+  },
   methods: {
     selectAllColumns() {
       this.changeModelColumnsVisible(this.columnsOrdered.map(column => column.id));
@@ -68,6 +74,7 @@ export default {
     return h("div", {
       class: "a_table__th a_table__cell a_table__cell_action",
       scope: "col",
+      style: this.stylesThAction,
     }, [
       h(ADropdown, {
         dropdownTag: "div",

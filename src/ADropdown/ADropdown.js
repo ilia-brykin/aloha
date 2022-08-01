@@ -126,6 +126,7 @@ export default {
       BUTTON_ATTRIBUTES.ref = "dropdown_button";
       BUTTON_ATTRIBUTES["aria-haspopup"] = "true";
       BUTTON_ATTRIBUTES["aria-expanded"] = this.ariaExpanded;
+      BUTTON_ATTRIBUTES.class = this.buttonClass;
       BUTTON_ATTRIBUTES.onClick = this.onToggle;
       BUTTON_ATTRIBUTES.onKeydown = this.onKeydown;
 
@@ -153,7 +154,7 @@ export default {
       const DROPDOWN_ATTRIBUTES = cloneDeep(this.dropdownAttributes);
       DROPDOWN_ATTRIBUTES.ref = "dropdown";
       DROPDOWN_ATTRIBUTES["aria-labelledby"] = this.idLocal;
-      DROPDOWN_ATTRIBUTES.class = ["a_dropdown__menu", {
+      DROPDOWN_ATTRIBUTES.class = ["a_dropdown__menu", this.dropdownClass, {
         a_dropdown__menu_show: this.statusExpanded,
       }];
       return DROPDOWN_ATTRIBUTES;

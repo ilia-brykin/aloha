@@ -1,6 +1,9 @@
 import {
   computed,
   h,
+  provide,
+  ref,
+  toRef,
 } from "vue";
 
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
@@ -8,6 +11,8 @@ import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePagination from "./ATablePagination/ATablePagination";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
+
+import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
 
 import {
   getModelColumnsOrderingDefault,
@@ -39,6 +44,16 @@ export default {
     columns: {
       type: Array,
       required: true,
+    },
+    columnWidthDefault: {
+      type: Number,
+      required: false,
+      default: 250,
+    },
+    columnActionsWidth: {
+      type: Number,
+      required: false,
+      default: 250,
     },
     countAllRows: {
       type: Number,
@@ -113,12 +128,64 @@ export default {
       changeModelColumnsVisible: this.changeModelColumnsVisible,
       changeModelSort: this.changeModelSort,
       columns: computed(() => this.columns),
+      columnActionsWidthLocal: this.columnActionsWidth,
       columnsOrdered: computed(() => this.columnsOrdered),
+      columnWidthDefaultLocal: computed(() => this.columnWidthDefaultLocal),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
-      modelColumnsVisibleLocal: computed(() => this.modelColumnsVisibleLocal),
-      modelColumnsVisibleMapping: computed(() => this.modelColumnsVisibleMapping),
       tableId: computed(() => this.id),
+    };
+  },
+  setup(props) {
+    const columns = toRef(props, "columns");
+
+    const modelColumnsOrderingLocal = ref([]);
+
+    const columnsKeyById = computed(() => {
+      return keyBy(columns.value, "id");
+    });
+    const columnsOrdered = computed(() => {
+      const COLUMNS = [];
+      forEach(modelColumnsOrderingLocal.value, columnId => {
+        COLUMNS.push(columnsKeyById.value[columnId]);
+      });
+      return COLUMNS;
+    });
+
+    const modelColumnsVisibleLocal = ref([]);
+    const modelColumnsVisibleMapping = computed(() => {
+      const MODEL_COLUMNS = {};
+      modelColumnsVisibleLocal.value.forEach(columnId => {
+        MODEL_COLUMNS[columnId] = true;
+      });
+      return MODEL_COLUMNS;
+    });
+
+    const {
+      aTableRef,
+      checkVisibleColumns,
+      columnsVisibleAdditionalSpaceForOneGrow,
+      columnsScrollInvisible,
+      indexFirstScrollInvisibleColumn,
+    } = ScrollControlAPI(props, {
+      columnsOrdered,
+      modelColumnsVisibleMapping,
+    });
+
+    provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
+    provide("columnsScrollInvisible", columnsScrollInvisible);
+    provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
+
+    provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
+    provide("modelColumnsVisibleMapping", modelColumnsVisibleMapping);
+
+
+    return {
+      aTableRef,
+      checkVisibleColumns,
+      columnsOrdered,
+      modelColumnsOrderingLocal,
+      modelColumnsVisibleLocal,
     };
   },
   data() {
@@ -129,8 +196,6 @@ export default {
       rows: [],
       limit: this.limitStart,
       offset: this.offsetStart,
-      modelColumnsOrderingLocal: [],
-      modelColumnsVisibleLocal: [],
     };
   },
   computed: {
@@ -187,26 +252,6 @@ export default {
       return this.data.length;
     },
 
-    modelColumnsVisibleMapping() {
-      const MODEL_COLUMNS = {};
-      this.modelColumnsVisibleLocal.forEach(columnId => {
-        MODEL_COLUMNS[columnId] = true;
-      });
-      return MODEL_COLUMNS;
-    },
-
-    columnsOrdered() {
-      const COLUMNS = [];
-      forEach(this.modelColumnsOrderingLocal, columnId => {
-        COLUMNS.push(this.columnsKeyById[columnId]);
-      });
-      return COLUMNS;
-    },
-
-    columnsKeyById() {
-      return keyBy(this.columns, "id");
-    },
-
     countAllRowsLocal() {
       if (!isNil(this.countAllRows)) {
         return this.countAllRows;
@@ -225,6 +270,10 @@ export default {
 
     isDataArray() {
       return isArray(this.data);
+    },
+
+    columnWidthDefaultLocal() {
+      return this.columnWidthDefault;
     },
   },
   created() {
@@ -264,6 +313,7 @@ export default {
     changeModelColumnsVisible(value) {
       this.modelColumnsVisibleLocal = value;
       this.$emit("update:modelColumnsVisible", cloneDeep(this.modelColumnsVisibleLocal));
+      this.checkVisibleColumns();
     },
 
     changeOffset(offset) {
@@ -296,10 +346,14 @@ export default {
         columnIndexOver,
         modelColumnsOrdering: this.modelColumnsOrderingLocal,
       });
+      this.checkVisibleColumns();
     },
   },
   render() {
-    return h("div", null, [
+    return h("div", {
+      ref: "aTableRef",
+      class: "a_table__parent",
+    }, [
       h(ATableTopPanel, {
         countAllRows: this.countAllRowsLocal,
         label: this.label,

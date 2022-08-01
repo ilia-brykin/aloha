@@ -5,6 +5,7 @@ import {
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import ColumnStylesAPI from "../compositionAPI/ColumnStylesAPI";
 import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
 
 export default {
@@ -41,6 +42,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      columnsStyles,
+    } = ColumnStylesAPI(props);
+
+    const {
       attributesForRoot,
       isLocked,
       root,
@@ -52,13 +57,10 @@ export default {
       attributesForRoot,
       isLocked,
       root,
+      columnsStyles,
     };
   },
   computed: {
-    isVisible() {
-      return this.modelColumnsVisibleMapping[this.column.id];
-    },
-
     attributesForTh() {
       const ATTRIBUTES = {
         ...this.ariaSort,
@@ -66,12 +68,8 @@ export default {
         scope: "col",
         ref: "root",
       };
-      if (!this.isVisible) {
-        ATTRIBUTES.style = {
-          display: "none",
-        };
-      }
       ATTRIBUTES.class = this.classForTh;
+      ATTRIBUTES.style = this.columnsStyles;
       return ATTRIBUTES;
     },
 

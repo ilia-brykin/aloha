@@ -39,7 +39,7 @@ export default {
       h(ATableTdAction, {
         row: this.row,
         rowIndex: this.rowIndex,
-      }),
+      }, this.$slots),
     ]);
   },
 };

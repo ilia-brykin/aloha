@@ -1,6 +1,9 @@
 import {
   h,
 } from "vue";
+
+import ColumnStylesAPI from "../compositionAPI/ColumnStylesAPI";
+
 import {
   get,
 } from "lodash-es";
@@ -28,6 +31,15 @@ export default {
   inject: [
     "modelColumnsVisibleMapping",
   ],
+  setup(props) {
+    const {
+      columnsStyles,
+    } = ColumnStylesAPI(props);
+
+    return {
+      columnsStyles,
+    };
+  },
   computed: {
     text() {
       return get(this.row, this.column.path);
@@ -43,18 +55,10 @@ export default {
 
     attributesForTd() {
       const ATTRIBUTES = {
-        class: "a_table__td a_table__cell"
+        class: "a_table__td a_table__cell",
+        style: this.columnsStyles,
       };
-      if (!this.isVisible) {
-        ATTRIBUTES.style = {
-          display: "none",
-        };
-      }
       return ATTRIBUTES;
-    },
-
-    isVisible() {
-      return this.modelColumnsVisibleMapping[this.column.id];
     },
   },
   render() {
