@@ -1,4 +1,8 @@
 import Aloha from "./Icons/Aloha";
+import AngleDown from "./Icons/AngleDown";
+import AngleLeft from "./Icons/AngleLeft";
+import AngleRight from "./Icons/AngleRight";
+import AngleUp from "./Icons/AngleUp";
 import ChevronDown from "./Icons/ChevronDown";
 import ChevronLeft from "./Icons/ChevronLeft";
 import ChevronRight from "./Icons/ChevronRight";
@@ -7,6 +11,10 @@ import Close from "./Icons/Close";
 import Cog from "./Icons/Cog";
 import Cross from "./Icons/Cross";
 import Dnd from "./Icons/Dnd";
+import DoubleAngleDown from "./Icons/DoubleAngleDown";
+import DoubleAngleLeft from "./Icons/DoubleAngleLeft";
+import DoubleAngleRight from "./Icons/DoubleAngleRight";
+import DoubleAngleUp from "./Icons/DoubleAngleUp";
 import EyeClose from "./Icons/EyeClose";
 import EyeOpen from "./Icons/EyeOpen";
 import Lock from "./Icons/Lock";
@@ -50,6 +58,10 @@ export default {
     return {
       icons: {
         Aloha,
+        AngleDown,
+        AngleLeft,
+        AngleRight,
+        AngleUp,
         ChevronDown,
         ChevronLeft,
         ChevronRight,
@@ -58,6 +70,10 @@ export default {
         Close,
         Cross,
         Dnd,
+        DoubleAngleDown,
+        DoubleAngleLeft,
+        DoubleAngleRight,
+        DoubleAngleUp,
         EyeClose,
         EyeOpen,
         Lock,
