@@ -10,7 +10,11 @@ import Dnd from "./Icons/Dnd";
 import EyeClose from "./Icons/EyeClose";
 import EyeOpen from "./Icons/EyeOpen";
 import Lock from "./Icons/Lock";
+import Minus from "./Icons/Minus";
 import Ok from "./Icons/Ok";
+import OptionHorizontal from "./Icons/OptionHorizontal";
+import OptionVertical from "./Icons/OptionVertical";
+import Plus from "./Icons/Plus";
 import Reset from "./Icons/Reset";
 
 import {
@@ -57,8 +61,12 @@ export default {
         EyeClose,
         EyeOpen,
         Lock,
+        Minus,
         Ok,
+        OptionHorizontal,
+        OptionVertical,
         Reset,
+        Plus,
       },
     };
   },
