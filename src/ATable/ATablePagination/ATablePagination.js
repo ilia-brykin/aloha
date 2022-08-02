@@ -129,11 +129,25 @@ export default {
       this.$emit("update:offset", 0);
     },
 
+    updateOffsetPrevious() {
+      if (this.disabledButtonFirstPage) {
+        return;
+      }
+      this.$emit("update:offset", this.offset - this.limit);
+    },
+
     updateOffsetLast() {
       if (this.disabledButtonLastPage) {
         return;
       }
       this.$emit("update:offset", (this.maxItems - 1) * this.limit);
+    },
+
+    updateOffsetNext() {
+      if (this.disabledButtonLastPage) {
+        return;
+      }
+      this.$emit("update:offset", this.offset + this.limit);
     },
   },
   render() {
@@ -155,7 +169,7 @@ export default {
                 class: "a_pagination__item__link",
                 role: "button",
                 tabindex: 0,
-                "aria-label": "_PREVIOUS_",
+                "aria-label": "_FIRST_PAGE_",
                 onClick: this.updateOffsetFirst,
               }, {
                 default: () => [
@@ -163,6 +177,26 @@ export default {
                     "aria-hidden": "true",
                   }, [
                     "«",
+                  ]),
+                ],
+              }),
+            ]),
+            h("li", {
+              class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
+            }, [
+              h(ATranslation, {
+                tag: "a",
+                class: "a_pagination__item__link",
+                role: "button",
+                tabindex: 0,
+                "aria-label": "_PREVIOUS_PAGE_",
+                onClick: this.updateOffsetPrevious,
+              }, {
+                default: () => [
+                  h("span", {
+                    "aria-hidden": "true",
+                  }, [
+                    "<",
                   ]),
                 ],
               }),
@@ -189,7 +223,27 @@ export default {
                 class: "a_pagination__item__link",
                 role: "button",
                 tabindex: 0,
-                "aria-label": "_NEXT_",
+                "aria-label": "_NEXT_PAGE_",
+                onClick: this.updateOffsetNext,
+              }, {
+                default: () => [
+                  h("span", {
+                    "aria-hidden": "true",
+                  }, [
+                    ">",
+                  ]),
+                ],
+              }),
+            ]),
+            h("li", {
+              class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
+            }, [
+              h(ATranslation, {
+                tag: "a",
+                class: "a_pagination__item__link",
+                role: "button",
+                tabindex: 0,
+                "aria-label": "_LAST_PAGE_",
                 onClick: this.updateOffsetLast,
               }, {
                 default: () => [
