@@ -11,10 +11,6 @@ import {
 
 export default {
   name: "ATablePagination",
-  components: {
-    AIcon,
-    ATranslation,
-  },
   props: {
     totalRowsCount: {
       type: Number,
@@ -173,11 +169,11 @@ export default {
                 onClick: this.updateOffsetFirst,
               }, {
                 default: () => [
-                  h("span", {
-                    "aria-hidden": "true",
-                  }, [
-                    "«",
-                  ]),
+                  h(AIcon, {
+                    icon: "DoubleAngleLeft",
+                    width: 12,
+                    height: 12,
+                  }),
                 ],
               }),
             ]),
@@ -193,11 +189,11 @@ export default {
                 onClick: this.updateOffsetPrevious,
               }, {
                 default: () => [
-                  h("span", {
-                    "aria-hidden": "true",
-                  }, [
-                    "<",
-                  ]),
+                  h(AIcon, {
+                    icon: "AngleLeft",
+                    width: 12,
+                    height: 12,
+                  }),
                 ],
               }),
             ]),
@@ -227,11 +223,11 @@ export default {
                 onClick: this.updateOffsetNext,
               }, {
                 default: () => [
-                  h("span", {
-                    "aria-hidden": "true",
-                  }, [
-                    ">",
-                  ]),
+                  h(AIcon, {
+                    icon: "AngleRight",
+                    width: 12,
+                    height: 12,
+                  }),
                 ],
               }),
             ]),
@@ -247,11 +243,11 @@ export default {
                 onClick: this.updateOffsetLast,
               }, {
                 default: () => [
-                  h("span", {
-                    "aria-hidden": "true",
-                  }, [
-                    "»",
-                  ]),
+                  h(AIcon, {
+                    icon: "DoubleAngleRight",
+                    width: 12,
+                    height: 12,
+                  }),
                 ],
               }),
             ]),
