@@ -13,6 +13,7 @@ import {
   getModelColumnsOrderingDefault,
   getModelColumnsVisibleDefault,
 } from "../utils/utils";
+import { forEach } from "lodash-es";
 
 export default {
   name: "ATableHeaderThAction",
@@ -65,6 +66,16 @@ export default {
       this.changeModelColumnsVisible(this.columnsOrdered.map(column => column.id));
     },
 
+    deselectAllColumns() {
+      const MODEL_COLUMNS_VISIBLE = [];
+      forEach(this.columnsOrdered, column => {
+        if (column.locked) {
+          MODEL_COLUMNS_VISIBLE.push(column.id);
+        }
+      });
+      this.changeModelColumnsVisible(MODEL_COLUMNS_VISIBLE);
+    },
+
     resetColumns() {
       this.changeModelColumnsVisible(getModelColumnsVisibleDefault(this.columnsOrdered));
       this.changeColumnsOrdering({ modelColumnsOrderingLocal: getModelColumnsOrderingDefault(this.columns) });
@@ -100,7 +111,20 @@ export default {
                   icon: "Ok",
                   class: "a_table__th__dropdown_item__icon",
                 }),
-                h("span", null, "Alle auswählen"),
+                h("span", null, "Alle einblenden"),
+              ]),
+            ]),
+            h("li", null, [
+              h("button", {
+                type: "button",
+                class: "a_dropdown__item",
+                onClick: this.deselectAllColumns,
+              }, [
+                h(AIcon, {
+                  icon: "Close",
+                  class: "a_table__th__dropdown_item__icon",
+                }),
+                h("span", null, "Alle ausblenden"),
               ]),
             ]),
             h("li", null, [
