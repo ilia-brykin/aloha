@@ -56,6 +56,11 @@ export default {
       required: false,
       default: "btn btn-default dropdown_button",
     },
+    buttonStyle: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     buttonAttributes: {
       type: Object,
       required: false,
@@ -126,7 +131,12 @@ export default {
       BUTTON_ATTRIBUTES.ref = "dropdown_button";
       BUTTON_ATTRIBUTES["aria-haspopup"] = "true";
       BUTTON_ATTRIBUTES["aria-expanded"] = this.ariaExpanded;
-      BUTTON_ATTRIBUTES.class = this.buttonClass;
+      if (this.buttonClass) {
+        BUTTON_ATTRIBUTES.class = this.buttonClass;
+      }
+      if (this.buttonStyle) {
+        BUTTON_ATTRIBUTES.style = this.buttonStyle;
+      }
       BUTTON_ATTRIBUTES.onClick = this.onToggle;
       BUTTON_ATTRIBUTES.onKeydown = this.onKeydown;
 

@@ -65,9 +65,14 @@ export default {
       }, {
         button: () => [
           h(AIcon, {
-            icon: "ChevronDown",
+            icon: "Plus",
+            width: 14,
+            height: 14,
+            class: "a_table__cell_action__additional_icon",
           }),
-          h("span", null, this.columnsScrollInvisibleText)
+          h("span", {
+            class: "a_table__cell_action__additional_text",
+          }, this.columnsScrollInvisibleText)
         ],
         dropdown: () => [
           h("dl", {
@@ -85,12 +90,12 @@ export default {
         ],
       }),
       this.isRowActionsDropdownVisible && h(ADropdown, {
-        buttonClass: "a_btn a_btn_link",
+        buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
         dropdownClass: "a_p_0"
       }, {
         button: () => [
           h(AIcon, {
-            icon: "Ok",
+            icon: "OptionVertical",
           }),
         ],
         dropdown: () => [

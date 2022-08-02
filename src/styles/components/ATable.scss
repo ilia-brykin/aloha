@@ -130,6 +130,14 @@
 .a_table__row_action {
   position: relative;
 }
+.a_table__cell_action__additional_icon {
+  margin-right: .25rem;
+}
+.a_table__cell_action__btn {
+  --a_btn_padding_x: 0.5rem;
+  --a_btn_padding_y: 0.375rem;
+  --a_btn_line_height: 1;
+}
 
 // PAGINATION
 .a_pagination__parent {
