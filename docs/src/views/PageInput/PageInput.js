@@ -1,4 +1,4 @@
-import AInput from "../../../../src/AInput/AInput";
+import AInput from "../../../../src/ui/AInput/AInput";
 import ATextarea from "../../../../src/ATextarea/ATextarea";
 
 

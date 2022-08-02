@@ -1,4 +1,6 @@
-import frameworks from "../const/frameworks";
+import {
+  uniqueId,
+} from "lodash-es";
 
 export default {
   props: {
@@ -8,7 +10,8 @@ export default {
     },
     id: {
       type: String,
-      required: true,
+      required: false,
+      default: () => uniqueId("a_ui_"),
     },
     inputAttributes: {
       type: Object,
@@ -38,10 +41,14 @@ export default {
       type: [String, Number],
       required: false,
     },
-    framework: {
-      type: String,
+    modelUndefined: {
       required: false,
-      validator: framework => frameworks.indexOf(framework) !== -1,
+      default: null,
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
   },
   emits: [
