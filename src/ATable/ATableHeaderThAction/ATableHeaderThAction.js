@@ -4,25 +4,22 @@ import {
 
 import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
+import AInput from "../../ui/AInput/AInput";
 import ATableHeaderThActionItem from "./ATableHeaderThActionItem";
-import ATranslation from "../../ATranslation/ATranslation";
 
+import ColumnSearchAPI from "../compositionAPI/ColumnSearchAPI";
 import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
 
 import {
   getModelColumnsOrderingDefault,
   getModelColumnsVisibleDefault,
 } from "../utils/utils";
-import { forEach } from "lodash-es";
+import {
+  forEach,
+} from "lodash-es";
 
 export default {
   name: "ATableHeaderThAction",
-  components: {
-    ADropdown,
-    AIcon,
-    ATableHeaderThActionItem,
-    ATranslation,
-  },
   inject: [
     "columnActionsWidthLocal",
     "changeColumnsOrdering",
@@ -46,6 +43,11 @@ export default {
       classOverParent: "a_table__th__dropdown__li",
     });
 
+    const {
+      searchColumnModel,
+      updateSearchColumnModel,
+    } = ColumnSearchAPI();
+
     return {
       dragstart,
       dragenter,
@@ -54,6 +56,9 @@ export default {
       drop,
       isDragstart,
       root,
+
+      searchColumnModel,
+      updateSearchColumnModel,
     };
   },
   computed: {
@@ -104,6 +109,19 @@ export default {
             onDrop: this.drop,
           }, [
             h("li", null, [
+              h(AInput, {
+                label: "Search",
+                modelValue: this.searchColumnModel,
+                isClearButton: false,
+                class: "a_dropdown__item",
+                "onUpdate:modelValue": this.updateSearchColumnModel,
+              }),
+            ]),
+            h("li", {
+              class: "a_dropdown__divider",
+              "aria-hidden": true,
+            }),
+            h("li", null, [
               h("button", {
                 type: "button",
                 class: "a_dropdown__item",
@@ -150,6 +168,7 @@ export default {
               return h(ATableHeaderThActionItem, {
                 column,
                 columnIndex,
+                searchColumnModel: this.searchColumnModel,
                 onDragstartParent: this.dragstart,
                 onDragenterParent: this.dragenter,
                 onDragleaveParent: this.dragleave,

@@ -6,6 +6,7 @@ import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
+import FiltersAPI from "../../compositionAPI/FiltersAPI";
 
 import {
   setFocusToElement,
@@ -27,6 +28,10 @@ export default {
     },
     columnIndex: {
       type: Number,
+      required: true,
+    },
+    searchColumnModel: {
+      type: String,
       required: true,
     },
   },
@@ -55,10 +60,16 @@ export default {
       classOver: "a_table__th__dropdown__li_over",
     });
 
+    const {
+      filterSearchHighlight,
+    } = FiltersAPI();
+
     return {
       attributesForRoot,
       isLocked,
       root,
+
+      filterSearchHighlight,
     };
   },
   computed: {
@@ -92,6 +103,9 @@ export default {
         ...this.attributesForRoot,
         class: "a_table__th__dropdown__li",
       };
+      if (!this.isComponentVisible) {
+        ATTRIBUTES.style = "display: none;";
+      }
       return ATTRIBUTES;
     },
 
@@ -151,6 +165,18 @@ export default {
         columnIndex: this.columnIndex,
         iconKey: "down",
       });
+    },
+
+    labelLocal() {
+      return this.filterSearchHighlight(this.column.label, this.searchColumnModel);
+    },
+
+    isComponentVisible() {
+      if (!this.searchColumnModel) {
+        return true;
+      }
+      const RE = new RegExp(this.searchColumnModel, "gi");
+      return `${ this.column.label }`.search(RE) !== -1;
     },
   },
   methods: {
@@ -213,7 +239,9 @@ export default {
               icon: this.icon,
             })
           ]),
-          h("span", null, this.column.label),
+          h("span", {
+            innerHTML: this.labelLocal,
+          }),
           ...this.arrowButtons,
         ]),
         !this.isLocked && h(AIcon, {

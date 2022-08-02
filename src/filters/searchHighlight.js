@@ -6,5 +6,5 @@ export default function(value, searchModel = "") {
     return value;
   }
   const RE = new RegExp(searchModel, "gi");
-  return value.replace(RE, val => `<span class="search_highlight">${ val }</span>`);
+  return value.replace(RE, val => `<span class="a_search_highlight">${ val }</span>`);
 }
