@@ -88,7 +88,9 @@ export default {
       style: this.stylesThAction,
     }, [
       h(ADropdown, {
+        buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
         dropdownTag: "div",
+        dropdownClass: "a_p_0"
       }, {
         button: () => h(AIcon, {
           icon: "Cog",
