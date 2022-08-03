@@ -364,7 +364,7 @@ export default {
         countAllRows: this.countAllRowsLocal,
         label: this.label,
         labelTag: this.labelTag,
-      }),
+      }, this.$slots),
       h("div", {
         class: "a_table",
       }, [

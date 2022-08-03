@@ -44,6 +44,9 @@ export default {
     return h("div", {
       class: "a_table__top_panel",
     }, [
+      this.$slots.tableLabel ? this.$slots.tableLabel({
+        countAllRows: this.countAllRows,
+      }) :
       h(this.labelTag, {
         class: "a_table__top_panel__label",
       }, [
