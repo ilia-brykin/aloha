@@ -44,6 +44,8 @@ export default {
       clearModel,
       disabledLocal,
       isModel,
+      onBlur,
+      onFocus,
       requiredLocal,
     } = UiAPI(props, context);
 
@@ -82,25 +84,6 @@ export default {
       return type.value;
     });
 
-    const inputClassLocal = computed(() => {
-      return {};
-    });
-
-    const isFocus = ref(false);
-    const onFocus = $event => {
-      isFocus.value = true;
-      context.emit("focus", {
-        event: $event,
-      });
-    };
-    const onBlur = $event => {
-      isFocus.value = false;
-      context.emit("blur", {
-        event: $event,
-      });
-    };
-
-
     const onInput = $event => {
       if (disabledLocal.value) {
         return;
@@ -129,7 +112,6 @@ export default {
       isClearButtonLocal,
 
       ariaInvalid,
-      inputClassLocal,
       onInput,
       typeForInput,
       typeLocal,
@@ -165,7 +147,6 @@ export default {
           class: [
             "a_form_control a_input",
             this.inputClass,
-            this.inputClassLocal,
             {
               a_form_element_with_btn_close: this.isClearButtonLocal,
             },

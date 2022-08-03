@@ -1,5 +1,6 @@
 import {
   computed,
+  ref,
   toRef,
 } from "vue";
 
@@ -50,12 +51,31 @@ export default function UiAPI(props, { emit }) {
     });
   };
 
+  const isFocus = ref(false);
+  const onFocus = $event => {
+    isFocus.value = true;
+    emit("focus", {
+      event: $event,
+      props,
+    });
+  };
+  const onBlur = $event => {
+    isFocus.value = false;
+    emit("blur", {
+      event: $event,
+      props,
+    });
+  };
+
   return {
     ariaRequired,
     changeModel,
     clearModel,
     disabledLocal,
+    isFocus,
     isModel,
+    onBlur,
+    onFocus,
     requiredLocal,
   };
 }
