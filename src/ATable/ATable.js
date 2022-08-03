@@ -85,6 +85,11 @@ export default {
       required: false,
       default: 0,
     },
+    sortingStart: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     data: {
       type: [Array, Object, Promise],
       required: false,
@@ -116,6 +121,14 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    isPaginationOutside: {
+      type: Boolean,
+      required: false,
+    },
+    isSortingOutside: {
+      type: Boolean,
+      required: false,
     },
   },
   emits: [
@@ -198,22 +211,18 @@ export default {
     return {
       resolved: undefined,
       error: undefined,
-      modelSort: undefined,
-      rows: [],
+      modelSort: this.sortingStart,
       limit: this.limitStart,
       offset: this.offsetStart,
     };
   },
   computed: {
     rowsLocal() {
-      if (this.isDataParent) {
-        return this.dataPaginated;
-      }
-      return this.rows;
+      return this.dataPaginated;
     },
 
     dataPaginated() {
-      if (this.limit) {
+      if (this.limit && !this.isPaginationOutside) {
         const DATA_SORTED = cloneDeep(this.dataSorted);
         const INDEX_START = this.offset;
         const INDEX_END = INDEX_START + this.limit;
@@ -223,7 +232,7 @@ export default {
     },
 
     dataSorted() {
-      if (this.modelSort) {
+      if (this.modelSort && !this.isSortingOutside) {
         return orderBy(this.data, [this.sortOptions.model], [this.sortOptions.direction]);
       }
       return this.data;
@@ -244,18 +253,12 @@ export default {
       }
     },
 
-    isDataParent() {
-      return !!this.data;
-    },
-
     totalRowsCountLocal() {
-      if (this.isDataParent) {
-        return this.totalRowsCount;
-      }
+      return this.totalRowsCount;
     },
 
     totalRowsCount() {
-      return this.data.length;
+      return !isNil(this.countAllRows) ? this.countAllRows : this.data.length;
     },
 
     countAllRowsLocal() {
@@ -291,7 +294,7 @@ export default {
       if (this.modelColumnsOrdering.length) {
         this.modelColumnsOrderingLocal = cloneDeep(this.modelColumnsOrdering);
       } else {
-        this.modelColumnsOrderingLocal = getModelColumnsOrderingDefault(this.columns);
+        this.changeColumnsOrdering({ modelColumnsOrderingLocal: getModelColumnsOrderingDefault(this.columns) });
       }
     },
 
@@ -299,7 +302,7 @@ export default {
       if (this.modelColumnsVisible.length) {
         this.modelColumnsVisibleLocal = cloneDeep(this.modelColumnsVisible);
       } else {
-        this.modelColumnsVisibleLocal = getModelColumnsVisibleDefault(this.columns);
+        this.changeModelColumnsVisible(getModelColumnsVisibleDefault(this.columns));
       }
     },
 
@@ -326,12 +329,15 @@ export default {
       this.offset = offset;
       this.$emit("changeOffset", {
         offset,
+        limit: this.limit,
       });
     },
 
     changeLimit(limit) {
       this.limit = limit;
+      this.offset = this.offsetStart;
       this.$emit("changeLimit", {
+        offset: this.offset,
         limit,
       });
     },
@@ -350,7 +356,7 @@ export default {
       this.$emit("changeColumnsOrdering", {
         columnIndexDraggable,
         columnIndexOver,
-        modelColumnsOrdering: this.modelColumnsOrderingLocal,
+        modelColumnsOrdering: cloneDeep(this.modelColumnsOrderingLocal),
       });
       this.checkVisibleColumns();
     },
