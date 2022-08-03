@@ -1,6 +1,7 @@
 import {
   computed,
   h,
+  ref,
   toRef,
 } from "vue";
 
@@ -53,6 +54,11 @@ export default {
       isModel,
     });
 
+    const isLabelFloat = toRef(props, "isLabelFloat");
+    const isLabelFloatLocal = computed(() => {
+      return isLabelFloat.value;
+    });
+
     const isError = toRef(props, "isError");
     const type = toRef(props, "type");
     const options = toRef(props, "options");
@@ -79,6 +85,20 @@ export default {
     const inputClassLocal = computed(() => {
       return {};
     });
+
+    const isFocus = ref(false);
+    const onFocus = $event => {
+      isFocus.value = true;
+      context.emit("focus", {
+        event: $event,
+      });
+    };
+    const onBlur = $event => {
+      isFocus.value = false;
+      context.emit("blur", {
+        event: $event,
+      });
+    };
 
 
     const onInput = $event => {
@@ -113,11 +133,18 @@ export default {
       onInput,
       typeForInput,
       typeLocal,
+
+      isLabelFloatLocal,
+      onFocus,
+      onBlur,
     };
   },
   render() {
     return h("div", {
-      class: "a_form_element__parent",
+      class: ["a_form_element__parent", {
+        a_form_element__parent_float: this.isLabelFloatLocal,
+        a_form_element__parent_not_empty: this.isModel,
+      }],
     }, [
       this.label && h(ALabel, {
         id: this.id,
@@ -125,6 +152,7 @@ export default {
         labelClass: this.labelClass,
         required: this.requiredLocal,
         type: this.typeLocal,
+        isLabelFloat: this.isLabelFloatLocal,
       }),
       h("div", {
         class: "a_form_element",
@@ -135,7 +163,7 @@ export default {
           value: this.modelValue,
           type: this.typeForInput,
           class: [
-            "a_input",
+            "a_form_control a_input",
             this.inputClass,
             this.inputClassLocal,
             {
@@ -148,6 +176,8 @@ export default {
           maxlength: this.maxlength,
           ...this.inputAttributes,
           onInput: this.onInput,
+          onFocus: this.onFocus,
+          onBlur: this.onBlur,
         }),
         this.isClearButtonLocal && h(AFormElementBtnClear, {
           disabled: this.disabledLocal,

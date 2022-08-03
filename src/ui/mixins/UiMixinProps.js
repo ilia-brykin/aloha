@@ -50,6 +50,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "update:modelValue",

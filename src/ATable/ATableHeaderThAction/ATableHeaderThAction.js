@@ -109,13 +109,16 @@ export default {
             onDrop: this.drop,
           }, [
             h("li", null, [
-              h(AInput, {
-                label: "Search",
-                modelValue: this.searchColumnModel,
-                isClearButton: false,
+              h("div", {
                 class: "a_dropdown__item",
-                "onUpdate:modelValue": this.updateSearchColumnModel,
-              }),
+              }, [
+                h(AInput, {
+                  label: "Search",
+                  modelValue: this.searchColumnModel,
+                  isClearButton: true,
+                  "onUpdate:modelValue": this.updateSearchColumnModel,
+                }),
+              ]),
             ]),
             h("li", {
               class: "a_dropdown__divider",

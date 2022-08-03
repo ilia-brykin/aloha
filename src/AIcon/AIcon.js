@@ -38,11 +38,11 @@ export default {
     },
     width: {
       type: [Number, String],
-      default: 18
+      default: 16,
     },
     height: {
       type: [Number, String],
-      default: 18
+      default: 16,
     },
     iconColor: {
       type: String,
@@ -91,29 +91,37 @@ export default {
       return this.icons[this.icon];
     },
 
-    attributesLocal() {
+    attributesSvgLocal() {
       const ATTRIBUTES = {
         viewBox: "0 0 18 18",
         role: "presentation",
         width: this.width,
         height: this.height,
+        class: "a_icon__svg",
       };
+      return ATTRIBUTES;
+    },
 
+    attributesLocal() {
+      const ATTRIBUTES = {
+        class: "a_icon",
+      };
       if (this.ariLabel) {
         ATTRIBUTES["aria-label"] = this.ariLabel;
       } else {
         ATTRIBUTES["aria-hidden"] = "true";
       }
-
       return ATTRIBUTES;
     },
   },
   render() {
-    return h("svg", this.attributesLocal, [
-      h("g", {
-        fill: this.iconColor,
-        innerHTML: this.iconSvg,
-      }),
+    return h("i", this.attributesLocal, [
+      h("svg", this.attributesSvgLocal, [
+        h("g", {
+          fill: this.iconColor,
+          innerHTML: this.iconSvg,
+        }),
+      ]),
     ]);
   },
 };

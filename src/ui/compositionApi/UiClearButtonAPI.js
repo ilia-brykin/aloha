@@ -18,7 +18,7 @@ export default function UiClearButtonAPI(props, {
       options.value.isClearButton :
       isClearButton.value;
 
-    return !!(IS_CLEAR_BUTTON_VISIBLE && isModel);
+    return !!(IS_CLEAR_BUTTON_VISIBLE && isModel.value);
   });
 
   const clearButtonClass = toRef(props, "clearButtonClass");
