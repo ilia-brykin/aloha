@@ -21,8 +21,4 @@ body {
 }
 @import "./node_modules/aloha-css/sass/aloha";
 
-// @import "../src/styles/styles";
-@import "../src/styles/components/AIcon";
-@import "../src/styles/components/ATable";
-@import "../src/styles/components/ADropdown";
-@import "../src/styles/components/ui/ui";
+@import "../src/styles/styles";
