@@ -1,7 +1,7 @@
 {
   "name": "aloha-vue",
   "description": "Project aloha",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Ilia Brykin",
   "dependencies": {
     "@popperjs/core": "2.11.5",
