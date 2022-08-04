@@ -6,9 +6,20 @@ div
     :is-loading-options="isLoadingOptions"
     label="Example table"
     :row-actions="rowActions"
+    preview="right"
     @change-columns-ordering="changeColumnsOrdering"
   )
     template(
       v-slot:slot1="vm"
     )
       pre {{ vm.column }}
+
+    template(
+      v-slot:tableDetailsLabel="vm"
+    )
+      span Details {{ vm.rowIndex }}
+
+    template(
+      v-slot:tableDetailsBody="vm"
+    )
+      pre {{ vm }}

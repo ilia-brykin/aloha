@@ -29,7 +29,9 @@ export default {
     },
   },
   inject: [
+    "hasPreview",
     "modelColumnsVisibleMapping",
+    "onTogglePreview",
   ],
   setup(props) {
     const {
@@ -58,6 +60,12 @@ export default {
         class: "a_table__td a_table__cell",
         style: this.columnsStyles,
       };
+      if (this.hasPreview) {
+        ATTRIBUTES.onClick = () => this.onTogglePreview({
+          row: this.row,
+          rowIndex: this.rowIndex,
+        });
+      }
       return ATTRIBUTES;
     },
   },

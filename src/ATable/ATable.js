@@ -9,9 +9,11 @@ import {
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
 import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePagination from "./ATablePagination/ATablePagination";
+import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
+import PreviewAPI from "./compositionAPI/PreviewAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
 
 import {
@@ -130,6 +132,17 @@ export default {
       type: Boolean,
       required: false,
     },
+    preview: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["right", "down"].indexOf(value) !== -1,
+    },
+    previewHeaderTag: {
+      type: String,
+      required: false,
+      default: "h2",
+    },
   },
   emits: [
     "update:modelColumnsOrder",
@@ -145,17 +158,27 @@ export default {
       changeColumnsOrdering: this.changeColumnsOrdering,
       changeModelColumnsVisible: this.changeModelColumnsVisible,
       changeModelSort: this.changeModelSort,
-      columns: computed(() => this.columns),
+      columns: this.columns,
       columnActionsWidthLocal: this.columnActionsWidth,
-      columnsOrdered: computed(() => this.columnsOrdered),
-      columnWidthDefaultLocal: computed(() => this.columnWidthDefaultLocal),
-      isLoadingOptions: computed(() => this.isLoadingOptions),
-      isLoadingTable: computed(() => this.isLoadingTable),
+      columnWidthDefaultLocal: this.columnWidthDefaultLocal,
+      isLoadingOptions: this.isLoadingOptions,
+      isLoadingTable: this.isLoadingTable,
       rowActions: this.rowActions,
-      tableId: computed(() => this.id),
+      tableId: this.id,
     };
   },
   setup(props) {
+    const {
+      closePreview,
+      closePreviewAll,
+      hasPreview,
+      isPreviewRightOpen,
+      onTogglePreview,
+      previewDownRowIndexes,
+      previewRightRowIndex,
+      previewRightRowIndexLast,
+    } = PreviewAPI(props);
+
     const columns = toRef(props, "columns");
 
     const modelColumnsOrderingLocal = ref([]);
@@ -191,15 +214,26 @@ export default {
       modelColumnsVisibleMapping,
     });
 
+    provide("columnsOrdered", columnsOrdered);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("columnsScrollInvisible", columnsScrollInvisible);
+    provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
+    provide("onTogglePreview", onTogglePreview);
+    provide("previewRightRowIndex", previewRightRowIndex);
+    provide("previewRightRowIndexLast", previewRightRowIndexLast);
 
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("modelColumnsVisibleMapping", modelColumnsVisibleMapping);
 
 
     return {
+      closePreview,
+      closePreviewAll,
+      isPreviewRightOpen,
+      previewDownRowIndexes,
+      previewRightRowIndex,
+
       aTableRef,
       checkVisibleColumns,
       columnsOrdered,
@@ -331,6 +365,7 @@ export default {
         offset,
         limit: this.limit,
       });
+      this.closePreviewAll();
     },
 
     changeLimit(limit) {
@@ -340,6 +375,7 @@ export default {
         offset: this.offset,
         limit,
       });
+      this.closePreviewAll();
     },
 
     changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver }) {
@@ -406,6 +442,12 @@ export default {
           "onUpdate:offset": this.changeOffset,
         }),
       ]),
+      this.isPreviewRightOpen && h(ATablePreviewRight, {
+        rowIndex: this.previewRightRowIndex,
+        rows: this.rowsLocal,
+        previewHeaderTag: this.previewHeaderTag,
+        onClosePreview: this.closePreview,
+      }, this.$slots),
     ]);
   },
 };

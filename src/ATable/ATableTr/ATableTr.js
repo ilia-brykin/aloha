@@ -23,11 +23,45 @@ export default {
   },
   inject: [
     "columnsOrdered",
+    "hasPreview",
+    "previewRightRowIndex",
+    "previewRightRowIndexLast",
+    "tableId",
   ],
+  computed: {
+    rowId() {
+      return `${ this.tableId }_${ this.rowIndex }`;
+    },
+
+    rowAttributes() {
+      const ATTRIBUTES = {
+        id: this.rowId,
+        class: this.rowClass,
+      };
+      if (this.hasPreview) {
+        ATTRIBUTES.tabindex = -1;
+      }
+      return ATTRIBUTES;
+    },
+
+    rowClass() {
+      return ["a_table__row", {
+        a_table__row_focus: this.isPreviewRightForCurrentRowOpen,
+        a_table__row_focus_was: this.isPreviewRightForCurrentRowWasOpen,
+      }];
+    },
+
+    isPreviewRightForCurrentRowOpen() {
+      return this.rowIndex === this.previewRightRowIndex;
+    },
+
+    isPreviewRightForCurrentRowWasOpen() {
+      return !this.isPreviewRightForCurrentRowOpen &&
+        this.rowIndex === this.previewRightRowIndexLast;
+    },
+  },
   render() {
-    return h("div", {
-      class: "a_table__row",
-    }, [
+    return h("div", this.rowAttributes, [
       this.columnsOrdered.map((column, columnIndex) => {
         return h(ATableTd, {
           column,

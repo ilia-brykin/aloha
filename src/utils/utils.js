@@ -17,7 +17,6 @@ export function replaceTextTemplateToASlot(text) {
 
 export function setFocusToElement(selector) {
   const ELEMENT = document.querySelector(selector);
-  console.log("ELEMENT", ELEMENT);
   if (ELEMENT) {
     ELEMENT.focus();
   }
