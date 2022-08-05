@@ -157,6 +157,7 @@ export default {
     "changeLimit",
     "changeOffset",
     "changeSorting",
+    "mouseupResizePreviewRight",
   ],
   provide() {
     return {

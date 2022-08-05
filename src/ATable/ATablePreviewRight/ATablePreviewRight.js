@@ -6,6 +6,10 @@ import {
 import AIcon from "../../AIcon/AIcon";
 import AResizer from "../../AResizer/AResizer";
 
+import {
+  get,
+} from "lodash-es";
+
 export default {
   name: "ATablePreviewRight",
   props: {
@@ -29,6 +33,9 @@ export default {
     "mouseupResizePreviewRight",
     "togglePreviewResize",
   ],
+  inject: [
+    "isLoadingOptions",
+  ],
   setup(props, { emit }) {
     const previewRef = ref(undefined);
     const mousedown = ({ clientWidth }) => {
@@ -46,7 +53,7 @@ export default {
 
     const mouseup = () => {
       emit("mouseupResizePreviewRight", {
-        previewRightWidth: previewRef.value.offsetWidth,
+        previewRightWidth: get(previewRef, "value.offsetWidth"),
       });
     };
 
@@ -87,6 +94,7 @@ export default {
       h(AResizer, {
         class: "a_table__preview_right__resizer",
         direction: "x",
+        disabled: this.isLoadingOptions,
         onMousedown: this.mousedown,
         onMousemove: this.mousemove,
         onMouseup: this.mouseup,

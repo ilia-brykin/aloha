@@ -53,3 +53,11 @@
   user-select: none;
   cursor: s-resize;
 }
+.a_resizer_disabled {
+  cursor: inherit;
+  &:hover {
+    .a_resizer__line {
+      background-color: var(--a_resizer_bg);
+    }
+  }
+}

@@ -12,6 +12,10 @@ export default {
       required: true,
       validator: value => ["x", "y"].indexOf(value) !== -1,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "mousedown",
@@ -58,6 +62,20 @@ export default {
 
     bodyClass() {
       return `a_resizer_${ this.direction }_active__body`;
+    },
+
+    attributesResizer() {
+      const ATTRIBUTES = {
+        class: ["a_resizer", this.directionClass, {
+          a_resizer_disabled: this.disabled,
+        }],
+        ariaHidden: true,
+      };
+      if (!this.disabled) {
+        ATTRIBUTES.onMousedown = this.mousedown;
+      }
+
+      return ATTRIBUTES;
     },
   },
   unmounted() {
@@ -114,9 +132,9 @@ export default {
     },
 
     removeMouseEventListeners() {
-      document.removeEventListener("mouseup", this.mouseup);
       document.removeEventListener("mousemove", this.mousemove);
-      document.removeEventListener("mouseout", this.mouseoutDocument);
+      document.removeEventListener("mouseup", this.mouseup);
+      document.removeEventListener("mouseleave", this.mouseoutDocument);
     },
 
     addClassToBody() {
@@ -128,11 +146,7 @@ export default {
     },
   },
   render() {
-    return h("div", {
-      class: ["a_resizer", this.directionClass],
-      ariaHidden: true,
-      onMousedown: this.mousedown,
-    }, [
+    return h("div", this.attributesResizer, [
       h("div", {
         class: "a_resizer__line",
       }),
