@@ -47,7 +47,9 @@ export default {
     },
 
     columnsScrollInvisibleText() {
-      return `${ this.countColumnsScrollInvisible } Felder`;
+      return this.countColumnsScrollInvisible === 1 ?
+        `${ this.countColumnsScrollInvisible } Feld` :
+        `${ this.countColumnsScrollInvisible } Felder`;
     },
 
     countColumnsScrollInvisible() {
