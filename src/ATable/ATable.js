@@ -172,7 +172,7 @@ export default {
       tableId: this.id,
     };
   },
-  setup(props) {
+  setup(props, context) {
     const columns = toRef(props, "columns");
 
     const modelColumnsOrderingLocal = ref([]);
@@ -216,11 +216,12 @@ export default {
       onTogglePreview,
       mousedownResizePreviewRight,
       mousemoveResizePreviewRight,
+      mouseupResizePreviewRight,
       previewDownRowIndexes,
       previewRightRowIndex,
       previewRightRowIndexLast,
       togglePreviewResize,
-    } = PreviewAPI(props, {
+    } = PreviewAPI(props, context, {
       aTableRef,
     });
 
@@ -249,6 +250,7 @@ export default {
       isPreviewRightOpen,
       mousedownResizePreviewRight,
       mousemoveResizePreviewRight,
+      mouseupResizePreviewRight,
       previewDownRowIndexes,
       previewRightRowIndex,
       togglePreviewResize,
@@ -462,6 +464,7 @@ export default {
         onClosePreview: this.closePreview,
         onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
         onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
+        onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
         onTogglePreviewResize: this.togglePreviewResize,
       }, this.$slots),
     ]);

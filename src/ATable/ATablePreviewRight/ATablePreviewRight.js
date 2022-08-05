@@ -26,6 +26,7 @@ export default {
     "closePreview",
     "mousedownResizePreviewRight",
     "mousemoveResizePreviewRight",
+    "mouseupResizePreviewRight",
     "togglePreviewResize",
   ],
   setup(props, { emit }) {
@@ -43,9 +44,16 @@ export default {
       });
     };
 
+    const mouseup = () => {
+      emit("mouseupResizePreviewRight", {
+        previewRightWidth: previewRef.value.offsetWidth,
+      });
+    };
+
     return {
       mousedown,
       mousemove,
+      mouseup,
       previewRef,
     };
   },
@@ -81,6 +89,8 @@ export default {
         direction: "x",
         onMousedown: this.mousedown,
         onMousemove: this.mousemove,
+        onMouseup: this.mouseup,
+        onMouseoutDocument: this.mouseup,
       }),
       h(this.previewHeaderTag, {
         class: "a_table__preview_right__header",

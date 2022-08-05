@@ -2,7 +2,7 @@ import {
   ref, toRef,
 } from "vue";
 
-export default function PreviewRightResizeAPI(props, {
+export default function PreviewRightResizeAPI(props, { emit }, {
   aTableRef = ref({}),
 }) {
   const previewBoxWidth = toRef(props, "previewBoxWidth");
@@ -60,10 +60,14 @@ export default function PreviewRightResizeAPI(props, {
     }
   };
 
+  const mouseupResizePreviewRight = ({ previewRightWidth }) => {
+    emit("mouseupResizePreviewRight", { previewRightWidth });
+  };
 
   return {
     mousedownResizePreviewRight,
     mousemoveResizePreviewRight,
+    mouseupResizePreviewRight,
     togglePreviewResize,
   };
 }

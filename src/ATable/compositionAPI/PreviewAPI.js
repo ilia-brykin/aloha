@@ -13,14 +13,15 @@ import {
   isNil,
 } from "lodash-es";
 
-export default function PreviewAPI(props, {
+export default function PreviewAPI(props, context, {
   aTableRef = ref({}),
 }) {
   const {
     mousedownResizePreviewRight,
     mousemoveResizePreviewRight,
+    mouseupResizePreviewRight,
     togglePreviewResize,
-  } = PreviewRightResizeAPI(props, {
+  } = PreviewRightResizeAPI(props, context, {
     aTableRef,
   });
 
@@ -117,6 +118,7 @@ export default function PreviewAPI(props, {
     isPreviewRightOpen,
     mousedownResizePreviewRight,
     mousemoveResizePreviewRight,
+    mouseupResizePreviewRight,
     onTogglePreview,
     previewDownRowIndexes,
     previewRightRowIndex,
