@@ -1,8 +1,10 @@
 import {
   h,
+  ref,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
+import AResizer from "../../AResizer/AResizer";
 
 export default {
   name: "ATablePreviewRight",
@@ -22,11 +24,47 @@ export default {
   },
   emits: [
     "closePreview",
+    "mousedownResizePreviewRight",
+    "mousemoveResizePreviewRight",
+    "togglePreviewResize",
   ],
+  setup(props, { emit }) {
+    const previewRef = ref(undefined);
+    const mousedown = ({ clientWidth }) => {
+      emit("mousedownResizePreviewRight", {
+        clientWidth,
+      });
+    };
+
+    const mousemove = ({ clientX }) => {
+      emit("mousemoveResizePreviewRight", {
+        clientX,
+        previewRef: previewRef.value,
+      });
+    };
+
+    return {
+      mousedown,
+      mousemove,
+      previewRef,
+    };
+  },
   computed: {
     currentRow() {
       return this.rows[this.rowIndex];
     },
+  },
+  mounted() {
+    this.$emit("togglePreviewResize", {
+      isOpen: true,
+      previewRef: this.previewRef,
+    });
+  },
+  beforeUnmount() {
+    this.$emit("togglePreviewResize", {
+      isOpen: false,
+      previewRef: this.previewRef,
+    });
   },
   methods: {
     onClosePreview() {
@@ -35,8 +73,15 @@ export default {
   },
   render() {
     return h("div", {
+      ref: "previewRef",
       class: "a_table__preview_right",
     }, [
+      h(AResizer, {
+        class: "a_table__preview_right__resizer",
+        direction: "x",
+        onMousedown: this.mousedown,
+        onMousemove: this.mousemove,
+      }),
       h(this.previewHeaderTag, {
         class: "a_table__preview_right__header",
       }, [

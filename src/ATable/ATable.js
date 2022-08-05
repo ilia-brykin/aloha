@@ -143,6 +143,11 @@ export default {
       required: false,
       default: "h2",
     },
+    previewBoxWidth: {
+      type: Number,
+      required: false,
+      default: 300,
+    },
   },
   emits: [
     "update:modelColumnsOrder",
@@ -168,17 +173,6 @@ export default {
     };
   },
   setup(props) {
-    const {
-      closePreview,
-      closePreviewAll,
-      hasPreview,
-      isPreviewRightOpen,
-      onTogglePreview,
-      previewDownRowIndexes,
-      previewRightRowIndex,
-      previewRightRowIndexLast,
-    } = PreviewAPI(props);
-
     const columns = toRef(props, "columns");
 
     const modelColumnsOrderingLocal = ref([]);
@@ -214,6 +208,22 @@ export default {
       modelColumnsVisibleMapping,
     });
 
+    const {
+      closePreview,
+      closePreviewAll,
+      hasPreview,
+      isPreviewRightOpen,
+      onTogglePreview,
+      mousedownResizePreviewRight,
+      mousemoveResizePreviewRight,
+      previewDownRowIndexes,
+      previewRightRowIndex,
+      previewRightRowIndexLast,
+      togglePreviewResize,
+    } = PreviewAPI(props, {
+      aTableRef,
+    });
+
     provide("columnsOrdered", columnsOrdered);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("columnsScrollInvisible", columnsScrollInvisible);
@@ -228,17 +238,20 @@ export default {
 
 
     return {
-      closePreview,
-      closePreviewAll,
-      isPreviewRightOpen,
-      previewDownRowIndexes,
-      previewRightRowIndex,
-
       aTableRef,
       checkVisibleColumns,
       columnsOrdered,
       modelColumnsOrderingLocal,
       modelColumnsVisibleLocal,
+
+      closePreview,
+      closePreviewAll,
+      isPreviewRightOpen,
+      mousedownResizePreviewRight,
+      mousemoveResizePreviewRight,
+      previewDownRowIndexes,
+      previewRightRowIndex,
+      togglePreviewResize,
     };
   },
   data() {
@@ -447,6 +460,9 @@ export default {
         rows: this.rowsLocal,
         previewHeaderTag: this.previewHeaderTag,
         onClosePreview: this.closePreview,
+        onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
+        onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
+        onTogglePreviewResize: this.togglePreviewResize,
       }, this.$slots),
     ]);
   },

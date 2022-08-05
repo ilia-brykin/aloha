@@ -4,6 +4,8 @@ import {
   toRef,
 } from "vue";
 
+import PreviewRightResizeAPI from "./PreviewRightResizeAPI";
+
 import {
   setFocusToElement,
 } from "../../utils/utils";
@@ -11,7 +13,17 @@ import {
   isNil,
 } from "lodash-es";
 
-export default function PreviewAPI(props) {
+export default function PreviewAPI(props, {
+  aTableRef = ref({}),
+}) {
+  const {
+    mousedownResizePreviewRight,
+    mousemoveResizePreviewRight,
+    togglePreviewResize,
+  } = PreviewRightResizeAPI(props, {
+    aTableRef,
+  });
+
   const preview = toRef(props, "preview");
   const tableId = toRef(props, "id");
   const hasPreview = computed(() => {
@@ -103,9 +115,12 @@ export default function PreviewAPI(props) {
     closePreviewAll,
     hasPreview,
     isPreviewRightOpen,
+    mousedownResizePreviewRight,
+    mousemoveResizePreviewRight,
     onTogglePreview,
     previewDownRowIndexes,
     previewRightRowIndex,
     previewRightRowIndexLast,
+    togglePreviewResize,
   };
 }

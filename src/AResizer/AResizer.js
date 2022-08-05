@@ -46,9 +46,23 @@ export default {
         return "OptionHorizontal";
       }
     },
+
+    cursor() {
+      if (this.direction === "x") {
+        return "w-resize";
+      }
+      if (this.direction === "y") {
+        return "s-resize";
+      }
+    },
+
+    bodyClass() {
+      return `a_resizer_${ this.direction }_active__body`;
+    },
   },
   unmounted() {
     this.removeMouseEventListeners();
+    this.removeClassFromBody();
   },
   methods: {
     mousedown($event) {
@@ -60,10 +74,11 @@ export default {
         clientHeight: this.clientHeight,
         clientWidth: this.clientWidth,
       });
+      this.addClassToBody();
     },
 
     mousemove($event) {
-      this.$emits("mousemove", {
+      this.$emit("mousemove", {
         $event,
         clientX: $event.clientX,
         clientY: $event.clientY,
@@ -79,6 +94,7 @@ export default {
         clientHeight: this.clientHeight,
         clientWidth: this.clientWidth,
       });
+      this.removeClassFromBody();
     },
 
     mouseoutDocument($event) {
@@ -88,6 +104,7 @@ export default {
         clientHeight: this.clientHeight,
         clientWidth: this.clientWidth,
       });
+      this.removeClassFromBody();
     },
 
     addMouseEventListeners() {
@@ -101,17 +118,26 @@ export default {
       document.removeEventListener("mousemove", this.mousemove);
       document.removeEventListener("mouseout", this.mouseoutDocument);
     },
+
+    addClassToBody() {
+      document.body.classList.add(this.bodyClass);
+    },
+
+    removeClassFromBody() {
+      document.body.classList.remove(this.bodyClass);
+    },
   },
   render() {
     return h("div", {
       class: ["a_resizer", this.directionClass],
       ariaHidden: true,
+      onMousedown: this.mousedown,
     }, [
       h("div", {
         class: "a_resizer__line",
-        onMousedown: this.mousedown,
       }),
       h(AIcon, {
+        class: "a_resizer__icon",
         icon: this.directionIcon,
       }),
     ]);
