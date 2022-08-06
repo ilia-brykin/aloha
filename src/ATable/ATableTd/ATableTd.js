@@ -57,7 +57,9 @@ export default {
 
     attributesForTd() {
       const ATTRIBUTES = {
-        class: "a_table__td a_table__cell",
+        class: ["a_table__td a_table__cell", {
+          a_table__cell_click: this.hasPreview,
+        }],
         style: this.columnsStyles,
       };
       if (this.hasPreview) {

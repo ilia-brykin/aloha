@@ -31,6 +31,9 @@
     background-color: rgba(192, 209, 117, 0.3);
   }
 }
+.a_table__cell_click {
+  cursor: pointer;
+}
 .a_table__head {
   display: table-row-group;
   vertical-align: bottom;

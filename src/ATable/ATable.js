@@ -367,6 +367,7 @@ export default {
       this.$emit("changeSorting", {
         modelSort: this.modelSort,
       });
+      this.closePreviewAll();
     },
 
     changeModelColumnsVisible(value) {
