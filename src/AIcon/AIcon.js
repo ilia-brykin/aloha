@@ -29,6 +29,7 @@ import OptionHorizontal from "./Icons/OptionHorizontal";
 import OptionVertical from "./Icons/OptionVertical";
 import Plus from "./Icons/Plus";
 import Reset from "./Icons/Reset";
+import Search from "./Icons/Search";
 
 import {
   assign,
@@ -74,8 +75,9 @@ export default {
       Ok,
       OptionHorizontal,
       OptionVertical,
-      Reset,
       Plus,
+      Reset,
+      Search,
     }, ICONS_PLUGIN);
 
     return {

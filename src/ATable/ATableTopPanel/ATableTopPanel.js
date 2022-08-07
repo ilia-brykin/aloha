@@ -2,17 +2,14 @@ import {
   h,
 } from "vue";
 
+import AInput from "../../ui/AInput/AInput";
 import ATableActionItem from "../ATableActionItem/ATableActionItem";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import FiltersAPI from "../../compositionAPI/FiltersAPI";
 import TableActionsAPI from "../compositionAPI/TableActionsAPI";
 
 export default {
   name: "ATableTopPanel",
-  components: {
-    ATranslation,
-  },
   props: {
     countAllRows: {
       type: Number,
@@ -31,7 +28,18 @@ export default {
       type: Array,
       required: true,
     },
+    isQuickSearch: {
+      type: Boolean,
+      required: false,
+    },
+    modelQuickSearch: {
+      type: String,
+      required: true,
+    },
   },
+  emits: [
+    "updateModelQuickSearch",
+  ],
   setup(props) {
     const {
       filterCurrency,
@@ -49,6 +57,11 @@ export default {
   computed: {
     countAllRowsFormatted() {
       return `(${ this.filterCurrency(this.countAllRows, "", 0) })`;
+    },
+  },
+  methods: {
+    updateModelQuickSearch(model) {
+      this.$emit("updateModelQuickSearch", model);
     },
   },
   render() {
@@ -76,6 +89,14 @@ export default {
           return h(ATableActionItem, {
             action,
           });
+        }),
+        h(AInput, {
+          label: "Schnellsuche",
+          class: "a_table__top_panel__actions__quick_search",
+          modelUndefined: "",
+          modelValue: this.modelQuickSearch,
+          iconPrepend: "Search",
+          "onUpdate:modelValue": this.updateModelQuickSearch,
         }),
       ]),
     ]);

@@ -8,6 +8,8 @@ div
     :row-actions="rowActions"
     :table-actions="tableActions"
     preview="right"
+    :is-quick-search="true"
+    v-model:modelQuickSearch="modelQuickSearch"
     @change-columns-ordering="changeColumnsOrdering"
   )
     template(
@@ -29,3 +31,5 @@ div
       v-slot:tableActions
     )
       button.a_btn.a_btn_primary Click me
+
+  span modelQuickSearch: {{ modelQuickSearch }}

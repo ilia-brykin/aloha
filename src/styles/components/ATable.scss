@@ -139,9 +139,15 @@
 }
 .a_table__top_panel__actions {
   float: right;
+  padding: .5rem 0;
   .a_table__action {
     margin-left: .5rem;
   }
+}
+.a_table__top_panel__actions__quick_search {
+  display: inline-block;
+  width: 250px;
+  margin-left: .5rem;
 }
 .a_table__action {
   position: relative;

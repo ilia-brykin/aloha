@@ -153,10 +153,20 @@ export default {
       required: false,
       default: 300,
     },
+    isQuickSearch: {
+      type: Boolean,
+      required: false,
+    },
+    modelQuickSearch: {
+      type: String,
+      required: false,
+      default: "",
+    },
   },
   emits: [
     "update:modelColumnsOrder",
     "update:modelColumnsVisible",
+    "update:modelQuickSearch",
     "changeColumnsOrdering",
     "changeColumnsVisible",
     "changeLimit",
@@ -418,6 +428,10 @@ export default {
       });
       this.checkVisibleColumns();
     },
+
+    updateModelQuickSearch(model) {
+      this.$emit("update:modelQuickSearch", model);
+    },
   },
   render() {
     return h("div", {
@@ -429,6 +443,9 @@ export default {
         label: this.label,
         labelTag: this.labelTag,
         tableActions: this.tableActions,
+        isQuickSearch: this.isQuickSearch,
+        modelQuickSearch: this.modelQuickSearch,
+        onUpdateModelQuickSearch: this.updateModelQuickSearch,
       }, this.$slots),
       h("div", {
         class: "a_table",

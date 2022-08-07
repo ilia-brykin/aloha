@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
+import AIcon from "../../AIcon/AIcon";
 import ALabel from "../../ALabel/ALabel";
 import ATranslation from "../../ATranslation/ATranslation";
 
@@ -34,6 +35,11 @@ export default {
       type: String,
       required: false,
       default: "text",
+    },
+    iconPrepend: {
+      type: String,
+      required: false,
+      default: undefined,
     },
   },
   setup(props, context) {
@@ -100,6 +106,13 @@ export default {
       });
     };
 
+    const iconPrepend = toRef(props, "iconPrepend");
+    const iconPrependLocal = computed(() => {
+      return "type" in options.value ?
+        options.value.iconPrepend :
+        iconPrepend.value;
+    });
+
     return {
       ariaRequired,
       clearModel,
@@ -111,6 +124,7 @@ export default {
       isClearButtonLocal,
 
       ariaInvalid,
+      iconPrependLocal,
       onInput,
       typeForInput,
       typeLocal,
@@ -125,6 +139,7 @@ export default {
       class: ["a_form_element__parent", {
         a_form_element__parent_float: this.isLabelFloatLocal,
         a_form_element__parent_not_empty: this.isModel,
+        a_form_element__parent_float_has_icon_prepend: this.iconPrependLocal,
       }],
     }, [
       this.label && h(ALabel, {
@@ -138,6 +153,10 @@ export default {
       h("div", {
         class: "a_form_element",
       }, [
+        this.iconPrependLocal && h(AIcon, {
+          icon: this.iconPrependLocal,
+          class: "a_input__icon_prepend",
+        }),
         h("input", {
           id: this.id,
           ref: "input",

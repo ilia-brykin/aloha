@@ -8,7 +8,7 @@
     color: #9f9185;
     font-size: 14px;
     background: #fff;
-    padding: 0 0.5rem;
+    padding: 0 0.2rem;
     z-index: 4;
     max-width: calc(100% - 40px);
     width: auto !important;
@@ -21,6 +21,14 @@
       color: #555;
       font-size: 12px;
     }
+  }
+}
+.a_form_element__parent_float_has_icon_prepend {
+  .a_form_element_label {
+    left: 1.5rem;
+  }
+  .a_form_control {
+    padding-left: 1.5rem;
   }
 }
 
@@ -97,4 +105,11 @@
   &:disabled {
     cursor: default;
   }
+}
+
+.a_input__icon_prepend {
+  position: absolute;
+  left: .4rem;
+  top: 50%;
+  transform: translateY(-50%);
 }

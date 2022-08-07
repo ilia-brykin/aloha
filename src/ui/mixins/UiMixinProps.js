@@ -59,5 +59,7 @@ export default {
   emits: [
     "update:modelValue",
     "change",
+    "focus",
+    "blur",
   ],
 };

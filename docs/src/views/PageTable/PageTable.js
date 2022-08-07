@@ -146,6 +146,7 @@ export default {
           ],
         },
       ],
+      modelQuickSearch: "",
     };
   },
   created() {
