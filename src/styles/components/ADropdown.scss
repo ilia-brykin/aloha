@@ -79,6 +79,11 @@
     background-color: transparent;
   }
 }
+.a_dropdown__item_text {
+  display: block;
+  padding: var(--a_dropdown_item_padding_y) var(--a_dropdown_item_padding_x);
+  color: var(--a_dropdown_link_color);
+}
 .a_dropdown__divider {
   height: 0;
   margin: var(--a_dropdown_divider_margin_y) 0;

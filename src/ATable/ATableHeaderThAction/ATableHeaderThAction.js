@@ -110,7 +110,7 @@ export default {
           }, [
             h("li", null, [
               h("div", {
-                class: "a_dropdown__item",
+                class: "a_dropdown__item_text",
               }, [
                 h(AInput, {
                   label: "Search",
