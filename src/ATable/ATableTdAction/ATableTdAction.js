@@ -29,6 +29,7 @@ export default {
   },
   inject: [
     "columnsScrollInvisible",
+    "modelIsTableWithoutScroll",
   ],
   setup(props) {
     const {
@@ -43,7 +44,10 @@ export default {
   },
   computed: {
     isColumnsScrollInvisibleDropdownVisible() {
-      return this.countColumnsScrollInvisible > 0;
+      if (this.modelIsTableWithoutScroll) {
+        return this.countColumnsScrollInvisible > 0;
+      }
+      return false;
     },
 
     columnsScrollInvisibleText() {

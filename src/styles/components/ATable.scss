@@ -2,6 +2,9 @@
   width: 100%;
   overflow-x: hidden;
 }
+.a_table__parent_scrollable {
+  overflow-x: auto;
+}
 .a_table {
   --a_table_bg: transparent;
   display: table;

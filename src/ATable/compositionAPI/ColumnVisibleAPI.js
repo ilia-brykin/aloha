@@ -13,6 +13,8 @@ export default function ColumnVisibleAPI(props) {
   const columnIndex = toRef(props, "columnIndex");
   const indexFirstScrollInvisibleColumn = inject("indexFirstScrollInvisibleColumn", undefined);
   const modelColumnsVisibleMapping = inject("modelColumnsVisibleMapping", {});
+  const modelIsTableWithoutScroll = inject("modelIsTableWithoutScroll");
+
 
   const isVisibleFromModel = computed(() => {
     return !!modelColumnsVisibleMapping.value[column.value.id];
@@ -26,7 +28,10 @@ export default function ColumnVisibleAPI(props) {
   });
 
   const isColumnVisible = computed(() => {
-    return isVisibleFromModel.value && isVisibleFromScroll.value;
+    if (modelIsTableWithoutScroll.value) {
+      return isVisibleFromModel.value && isVisibleFromScroll.value;
+    }
+    return isVisibleFromModel.value;
   });
 
   return {

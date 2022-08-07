@@ -9,7 +9,7 @@ import ColumnVisibleAPI from "./ColumnVisibleAPI";
 
 export default function ColumnStylesAPI(props) {
   const column = toRef(props, "column");
-  const columnWidthDefaultLocal = inject("columnWidthDefaultLocal");
+  const columnWidthDefault = inject("columnWidthDefault");
 
   const {
     isColumnVisible,
@@ -20,7 +20,7 @@ export default function ColumnStylesAPI(props) {
   } = ColumnAdditionalSpaceAPI(props);
 
   const columnWidth = computed(() => {
-    return column.value.width || columnWidthDefaultLocal.value;
+    return column.value.width || columnWidthDefault;
   });
 
   const columnWidthWithAdditionalSpace = computed(() => {

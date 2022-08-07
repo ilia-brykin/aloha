@@ -5,6 +5,7 @@ import {
 import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../../ui/AInput/AInput";
+import ASwitch from "../../ui/ASwitch/ASwitch";
 import ATableHeaderThActionItem from "./ATableHeaderThActionItem";
 
 import ColumnSearchAPI from "../compositionAPI/ColumnSearchAPI";
@@ -21,6 +22,7 @@ import {
 export default {
   name: "ATableHeaderThAction",
   inject: [
+    "changeModelIsTableWithoutScroll",
     "columnActionsWidthLocal",
     "changeColumnsOrdering",
     "changeModelColumnsVisible",
@@ -28,6 +30,7 @@ export default {
     "columnsOrdered",
     "isLoadingOptions",
     "isLoadingTable",
+    "modelIsTableWithoutScroll",
   ],
   setup() {
     const {
@@ -162,6 +165,15 @@ export default {
                 }),
                 h("span", null, "Zurücksetzen"),
               ]),
+            ]),
+            h("li", null, [
+              h(ASwitch, {
+                class: "a_dropdown__item",
+                modelValue: this.modelIsTableWithoutScroll,
+                trueLabel: "Kompakte Ansicht",
+                falseLabel: "Kompakte Ansicht",
+                "onUpdate:modelValue": this.changeModelIsTableWithoutScroll,
+              }),
             ]),
             h("li", {
               class: "a_dropdown__divider",

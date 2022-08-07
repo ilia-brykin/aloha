@@ -25,6 +25,12 @@ export default function ScrollControlAPI(props, {
   const indexFirstScrollInvisibleColumn = ref(undefined);
   const columnsScrollInvisible = ref([]);
 
+  const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
+  const modelIsTableWithoutScroll = ref(modelIsTableWithoutScrollStart.value);
+  const changeModelIsTableWithoutScroll = model => {
+    modelIsTableWithoutScroll.value = model;
+  };
+
   const setAdditionalSpaceColumnsForOneGrow = ({
     sumGrows = 0,
     freeSpaceWidth = 0,
@@ -53,7 +59,9 @@ export default function ScrollControlAPI(props, {
   };
 
   const checkVisibleColumns = () => {
-    console.log("checkVisibleColumns");
+    if (!modelIsTableWithoutScroll.value) {
+      return;
+    }
     const TABLE_WIDTH_WITHOUT_ACTIONS = tableWidth.value - columnActionsWidth.value;
 
     let columnsWidthInOrder = 0;
@@ -84,11 +92,13 @@ export default function ScrollControlAPI(props, {
 
 
   const resizeOb = new ResizeObserver(entries => {
+    if (!modelIsTableWithoutScroll.value) {
+      return;
+    }
     // since we are observing only a single element, so we access the first element in entries array
     const RECT = entries[0].contentRect;
 
     tableWidth.value = RECT.width;
-    console.log("Current Width : " + tableWidth.value);
     checkVisibleColumns();
   });
 
@@ -101,9 +111,11 @@ export default function ScrollControlAPI(props, {
 
   return {
     aTableRef,
+    changeModelIsTableWithoutScroll,
     checkVisibleColumns,
     columnsVisibleAdditionalSpaceForOneGrow,
     columnsScrollInvisible,
     indexFirstScrollInvisibleColumn,
+    modelIsTableWithoutScroll,
   };
 }

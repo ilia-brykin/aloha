@@ -1,0 +1,99 @@
+//$switch-bg:                                             $grey-6;
+//$switch-inactive-bg:                                    $grey-4;
+//$switch-active-bg:                                      $primary-color;
+//$switch-hover-focus-bg:                                 $green-50;
+//$switch-disabled-bg:                                    $grey-3;
+//$switch-disabled-inside-bg:                             $grey-2;
+
+$switch-bg:                                             #6e5e50;
+$switch-inactive-bg:                                    #b0a59b;
+$switch-active-bg:                                      #E3151A;
+$switch-hover-focus-bg:                                 #d0e3a4;
+$switch-disabled-bg:                                    #d0c9c0;
+$switch-disabled-inside-bg:                             #ece9e7;
+$border-radius:                                         4px;
+
+.switch_button {
+  margin-left: -5px;
+  position: relative;
+}
+.switch_button__input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  &:checked {
+    ~ .switch_button__label {
+      &::before {
+        background-color: $switch-active-bg;
+      }
+      &::after {
+        left: 23px;
+      }
+    }
+  }
+  &:not(:disabled) {
+    &:focus ~ .switch_button__label {
+      background-color: $switch-hover-focus-bg;
+    }
+    ~ .switch_button__label {
+      &:hover {
+        background-color: $switch-hover-focus-bg;
+      }
+    }
+  }
+  &:disabled {
+    ~ .switch_button__label {
+      &::before {
+        background-color: $switch-disabled-bg;
+      }
+      &::after {
+        background-color: $switch-disabled-inside-bg;
+      }
+    }
+  }
+}
+
+.switch_button__label {
+  padding-left: 55px;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: $border-radius;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    height: 25px;
+    width: 40px;
+    border-radius: $border-radius;
+    background-color: $switch-bg;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 8px;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: $border-radius;
+  }
+}
+
+.switch_button_undefined {
+  .switch_button__label {
+    &::before {
+      background-color: $switch-inactive-bg;
+    }
+    &::after {
+      left: 15px;
+    }
+  }
+}
+

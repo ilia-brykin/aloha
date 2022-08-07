@@ -92,6 +92,11 @@ export default {
       required: false,
       default: undefined,
     },
+    modelIsTableWithoutScrollStart: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     data: {
       type: [Array, Object, Promise],
       required: false,
@@ -181,7 +186,7 @@ export default {
       changeModelSort: this.changeModelSort,
       columns: this.columns,
       columnActionsWidthLocal: this.columnActionsWidth,
-      columnWidthDefaultLocal: this.columnWidthDefaultLocal,
+      columnWidthDefault: this.columnWidthDefault,
       isLoadingOptions: this.isLoadingOptions,
       isLoadingTable: this.isLoadingTable,
       rowActions: this.rowActions,
@@ -215,10 +220,12 @@ export default {
 
     const {
       aTableRef,
+      changeModelIsTableWithoutScroll,
       checkVisibleColumns,
       columnsVisibleAdditionalSpaceForOneGrow,
       columnsScrollInvisible,
       indexFirstScrollInvisibleColumn,
+      modelIsTableWithoutScroll,
     } = ScrollControlAPI(props, {
       columnsOrdered,
       modelColumnsVisibleMapping,
@@ -241,11 +248,13 @@ export default {
       aTableRef,
     });
 
+    provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("columnsOrdered", columnsOrdered);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("columnsScrollInvisible", columnsScrollInvisible);
     provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
+    provide("modelIsTableWithoutScroll", modelIsTableWithoutScroll);
     provide("onTogglePreview", onTogglePreview);
     provide("previewRightRowIndex", previewRightRowIndex);
     provide("previewRightRowIndexLast", previewRightRowIndexLast);
@@ -260,6 +269,7 @@ export default {
       columnsOrdered,
       modelColumnsOrderingLocal,
       modelColumnsVisibleLocal,
+      modelIsTableWithoutScroll,
 
       closePreview,
       closePreviewAll,
@@ -344,10 +354,6 @@ export default {
 
     isDataArray() {
       return isArray(this.data);
-    },
-
-    columnWidthDefaultLocal() {
-      return this.columnWidthDefault;
     },
   },
   created() {
@@ -436,7 +442,9 @@ export default {
   render() {
     return h("div", {
       ref: "aTableRef",
-      class: "a_table__parent",
+      class: ["a_table__parent", {
+        a_table__parent_scrollable: !this.modelIsTableWithoutScroll,
+      }],
     }, [
       h(ATableTopPanel, {
         countAllRows: this.countAllRowsLocal,
