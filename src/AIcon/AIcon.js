@@ -1,3 +1,8 @@
+import {
+  h,
+  inject,
+} from "vue";
+
 import Aloha from "./Icons/Aloha";
 import AngleDown from "./Icons/AngleDown";
 import AngleLeft from "./Icons/AngleLeft";
@@ -26,64 +31,55 @@ import Plus from "./Icons/Plus";
 import Reset from "./Icons/Reset";
 
 import {
-  h,
-} from "vue";
+  assign,
+} from "lodash-es";
 
 export default {
   name: "AIcon",
   props: {
     icon: {
       type: String,
-      required: false,
-    },
-    width: {
-      type: [Number, String],
-      default: 16,
-    },
-    height: {
-      type: [Number, String],
-      default: 16,
-    },
-    iconColor: {
-      type: String,
-      default: "currentColor",
-      required: false,
+      required: true,
     },
     ariLabel: {
       type: String,
       required: false,
+      default: undefined,
     },
   },
-  data() {
+  setup() {
+    const ICONS_PLUGIN = inject("icons", {});
+    const icons = assign({}, {
+      Aloha,
+      AngleDown,
+      AngleLeft,
+      AngleRight,
+      AngleUp,
+      ChevronDown,
+      ChevronLeft,
+      ChevronRight,
+      ChevronUp,
+      Cog,
+      Close,
+      Cross,
+      Dnd,
+      DoubleAngleDown,
+      DoubleAngleLeft,
+      DoubleAngleRight,
+      DoubleAngleUp,
+      EyeClose,
+      EyeOpen,
+      Lock,
+      Minus,
+      Ok,
+      OptionHorizontal,
+      OptionVertical,
+      Reset,
+      Plus,
+    }, ICONS_PLUGIN);
+
     return {
-      icons: {
-        Aloha,
-        AngleDown,
-        AngleLeft,
-        AngleRight,
-        AngleUp,
-        ChevronDown,
-        ChevronLeft,
-        ChevronRight,
-        ChevronUp,
-        Cog,
-        Close,
-        Cross,
-        Dnd,
-        DoubleAngleDown,
-        DoubleAngleLeft,
-        DoubleAngleRight,
-        DoubleAngleUp,
-        EyeClose,
-        EyeOpen,
-        Lock,
-        Minus,
-        Ok,
-        OptionHorizontal,
-        OptionVertical,
-        Reset,
-        Plus,
-      },
+      icons,
     };
   },
   computed: {
@@ -91,37 +87,20 @@ export default {
       return this.icons[this.icon];
     },
 
-    attributesSvgLocal() {
-      const ATTRIBUTES = {
-        viewBox: "0 0 18 18",
-        role: "presentation",
-        width: this.width,
-        height: this.height,
-        class: "a_icon__svg",
-      };
-      return ATTRIBUTES;
-    },
-
     attributesLocal() {
       const ATTRIBUTES = {
         class: "a_icon",
+        innerHTML: this.iconSvg,
       };
       if (this.ariLabel) {
         ATTRIBUTES["aria-label"] = this.ariLabel;
       } else {
-        ATTRIBUTES["aria-hidden"] = "true";
+        ATTRIBUTES.ariaHidden = true;
       }
       return ATTRIBUTES;
     },
   },
   render() {
-    return h("i", this.attributesLocal, [
-      h("svg", this.attributesSvgLocal, [
-        h("g", {
-          fill: this.iconColor,
-          innerHTML: this.iconSvg,
-        }),
-      ]),
-    ]);
+    return h("i", this.attributesLocal);
   },
 };

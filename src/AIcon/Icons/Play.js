@@ -1,3 +1,10 @@
-export default `<path
-    d="M 1.5,18 1.5,-1.3991345e-6 17.088458,8.999999 Z"
-/>`;
+export default `<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 18 18"
+  height="18"
+  width="18"
+>
+  <path
+      d="M 1.5,18 1.5,-1.3991345e-6 17.088458,8.999999 Z"
+  />
+</svg>`;
