@@ -119,6 +119,11 @@ export default {
       required: false,
       default: () => [],
     },
+    tableActions: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     rowActions: {
       type: Array,
       required: false,
@@ -423,6 +428,7 @@ export default {
         countAllRows: this.countAllRowsLocal,
         label: this.label,
         labelTag: this.labelTag,
+        tableActions: this.tableActions,
       }, this.$slots),
       h("div", {
         class: "a_table",

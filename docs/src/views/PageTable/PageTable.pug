@@ -6,6 +6,7 @@ div
     :is-loading-options="isLoadingOptions"
     label="Example table"
     :row-actions="rowActions"
+    :table-actions="tableActions"
     preview="right"
     @change-columns-ordering="changeColumnsOrdering"
   )
@@ -23,3 +24,8 @@ div
       v-slot:tableDetailsBody="vm"
     )
       pre {{ vm }}
+
+    template(
+      v-slot:tableActions
+    )
+      button.a_btn.a_btn_primary Click me

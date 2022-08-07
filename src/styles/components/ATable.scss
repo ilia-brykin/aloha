@@ -132,10 +132,25 @@
 
 .a_table__top_panel__label {
   font-weight: bolder;
+  display: inline-block;
 }
 .a_table__top_panel__label__count {
   padding-left: .5rem;
 }
+.a_table__top_panel__actions {
+  float: right;
+  .a_table__action {
+    margin-left: .5rem;
+  }
+}
+.a_table__action {
+  position: relative;
+  margin-left: .5rem;
+}
+.a_table__action__icon {
+  margin-right: .5rem;
+}
+
 .a_table__row_action {
   position: relative;
 }

@@ -104,6 +104,48 @@ export default {
           callback: this.clickMe,
         },
       ],
+      tableActions: [
+        {
+          label: "Aloha1",
+          title: "Aloha1 Title",
+          isHidden: false,
+          callback: this.clickMe,
+          disabled: true,
+          type: "button",
+          class: "a_btn a_btn_primary",
+          icon: "Plus",
+        },
+        {
+          label: "Aloha2",
+          title: "Aloha2 Title",
+          callback: this.clickMe,
+          disabled: false,
+          class: "a_btn a_btn_secondary",
+        },
+        {
+          label: "Aloha link",
+          title: "Aloha link Title",
+          disabled: false,
+          class: "a_btn a_btn_secondary",
+          type: "link",
+          to: "/spinner",
+        },
+        {
+          label: "Aloha3",
+          title: "Aloha3 Title",
+          disabled: false,
+          type: "dropdown",
+          class: "a_btn a_btn_secondary",
+          children: [
+            {
+              label: "Aloha4",
+              title: "Aloha4 Title",
+              callback: this.clickMe,
+              disabled: false,
+            },
+          ],
+        },
+      ],
     };
   },
   created() {
@@ -132,7 +174,7 @@ export default {
       this.data = DATA;
     },
 
-    clickMe({ row, rowIndex }) {
+    clickMe({ row, rowIndex } = {}) {
       console.log("row, rowIndex", row, rowIndex);
     },
   },
