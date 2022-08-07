@@ -29,6 +29,7 @@ export default {
     if (this.type === "button") {
       return h("button", {
         class: ["a_table__action", this.action.class],
+        disabled: this.action.disabled,
       }, [
         this.action.title && h("span", {
           class: "a_position_absolute_all",
@@ -48,6 +49,7 @@ export default {
       return h(resolveComponent("RouterLink"), {
         class: ["a_table__action", this.action.class],
         to: this.action.to,
+        disabled: this.action.disabled,
       }, () => [
         this.action.title && h("span", {
           class: "a_position_absolute_all",
