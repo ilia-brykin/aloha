@@ -3,7 +3,7 @@ import {
 } from "vue";
 
 import AFormElementBtnClear from "../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import ALabel from "../ALabel/ALabel";
+import ALabel from "../ui/ALabel/ALabel";
 import ATranslation from "../ATranslation/ATranslation";
 
 import {

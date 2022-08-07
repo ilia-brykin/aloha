@@ -21,10 +21,6 @@ export default {
     inputClass: {
       required: false,
     },
-    isError: {
-      type: Boolean,
-      default: false,
-    },
     label: {
       type: String,
       required: false,
@@ -54,6 +50,11 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    errors: {
+      type: [String, Array, Object],
+      required: false,
+      default: undefined,
     },
   },
   emits: [

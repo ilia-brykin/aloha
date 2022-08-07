@@ -4,6 +4,12 @@ import {
   toRef,
 } from "vue";
 
+import {
+  isObject,
+  isString,
+  size,
+} from "lodash-es";
+
 export default function UiAPI(props, { emit }) {
   const changeModel = ({ model }) => {
     emit("update:modelValue", model);
@@ -42,6 +48,27 @@ export default function UiAPI(props, { emit }) {
       modelUndefined.value;
   });
 
+  const label = toRef(props, "label");
+  const labelLocal = computed(() => {
+    return "label" in options.value ?
+      options.value.label :
+      label.value;
+  });
+
+  const errors = toRef(props, "errors");
+  const isError = computed(() => {
+    if (!errors.value) {
+      return false;
+    }
+    if (isString(errors.value)) {
+      return true;
+    }
+    if (isObject(errors.value)) {
+      return !!size(errors.value);
+    }
+    return false;
+  });
+
   const clearModel = () => {
     if (disabledLocal.value) {
       return;
@@ -72,8 +99,10 @@ export default function UiAPI(props, { emit }) {
     changeModel,
     clearModel,
     disabledLocal,
+    isError,
     isFocus,
     isModel,
+    labelLocal,
     onBlur,
     onFocus,
     requiredLocal,

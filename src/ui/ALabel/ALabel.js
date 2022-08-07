@@ -2,12 +2,12 @@ import {
   h,
 } from "vue";
 
-import ATranslation from "../ATranslation/ATranslation";
+import ATranslation from "../../ATranslation/ATranslation";
 
-import frameworks from "../const/frameworks";
+import frameworks from "../../const/frameworks";
 import {
   frameworksApi,
-} from "../API/frameworksApi";
+} from "../../API/frameworksApi";
 
 export default {
   name: "ALabel",

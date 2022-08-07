@@ -6,7 +6,7 @@ import {
 
 import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
 import AIcon from "../../AIcon/AIcon";
-import ALabel from "../../ALabel/ALabel";
+import ALabel from "../ALabel/ALabel";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
@@ -14,6 +14,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
 export default {
   name: "AInput",
@@ -48,7 +49,9 @@ export default {
       changeModel,
       clearModel,
       disabledLocal,
+      isError,
       isModel,
+      labelLocal,
       onBlur,
       onFocus,
       requiredLocal,
@@ -61,25 +64,16 @@ export default {
       isModel,
     });
 
-    const isLabelFloat = toRef(props, "isLabelFloat");
-    const isLabelFloatLocal = computed(() => {
-      return isLabelFloat.value;
-    });
+    const {
+      isLabelFloatLocal,
+    } = UiLabelFloatAPI(props);
 
-    const isError = toRef(props, "isError");
     const type = toRef(props, "type");
     const options = toRef(props, "options");
     const typeLocal = computed(() => {
       return "type" in options.value ?
         options.value.type :
         type.value;
-    });
-
-    const ariaInvalid = computed(() => {
-      if (isError.value) {
-        return "true";
-      }
-      return false;
     });
 
     const typeForInput = computed(() => {
@@ -117,13 +111,14 @@ export default {
       ariaRequired,
       clearModel,
       disabledLocal,
+      isError,
       isModel,
+      labelLocal,
       requiredLocal,
 
       clearButtonClassLocal,
       isClearButtonLocal,
 
-      ariaInvalid,
       iconPrependLocal,
       onInput,
       typeForInput,
@@ -142,7 +137,7 @@ export default {
         a_form_element__parent_float_has_icon_prepend: this.iconPrependLocal,
       }],
     }, [
-      this.label && h(ALabel, {
+      this.labelLocal && h(ALabel, {
         id: this.id,
         label: this.label,
         labelClass: this.labelClass,
@@ -171,7 +166,7 @@ export default {
           ],
           disabled: this.disabledLocal,
           ariaRequired: this.ariaRequired,
-          ariaInvalid: this.ariaInvalid,
+          ariaInvalid: this.isError,
           maxlength: this.maxlength,
           ...this.inputAttributes,
           onInput: this.onInput,
