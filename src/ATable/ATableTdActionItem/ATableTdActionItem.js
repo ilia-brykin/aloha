@@ -134,7 +134,7 @@ export default {
           class: ["a_dropdown__item a_table__row_action", this.classLocal],
           disabled: this.disabledLocal,
           to: this.toLocal,
-        }, [
+        }, () => [
           this.titleLocal && h("span", {
             class: "a_position_absolute_all",
             ariaHidden: true,

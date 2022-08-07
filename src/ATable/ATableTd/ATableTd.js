@@ -110,7 +110,11 @@ export default {
         h(resolveComponent("RouterLink"), {
           class: ["a_dropdown__item a_table__row_action", this.column.class],
           to: this.toLocal,
-        }),
+        }, () => [
+          h("span", {
+            innerHTML: this.text,
+          }),
+        ]),
       ] :
       [
         h("span", {
