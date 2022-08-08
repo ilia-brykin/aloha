@@ -1,5 +1,22 @@
 .a_table__parent {
+  --a_table_th_bg: #f1f4f7;
+  --a_table_th_border_width: 0 0 3px 0;
+  --a_table_th_border_color: #d0c9c0;
   --a_table_th_sorting_bg: #d0e3a4;
+  --a_table_cell_padding_x: .5rem;
+  --a_table_cell_padding_y: .5rem;
+  --a_table_row_hover_bg: #e1f2ff;
+  --a_table_row_preview_focus_bg: rgba(192, 209, 117, 0.75);
+  --a_table_row_preview_focus_was_bg: rgba(192, 209, 117, 0.3);
+  --a_table_quick_search_width: 250px;
+  --a_table_between_actions_margin: .5rem;
+  --a_table_preview_right_padding: .25rem .5rem;
+  --a_table_preview_right_width: 300px;
+  --a_table_preview_right_bg: #fff;
+  --a_table_preview_right_border_width: 0 0 0 1px;
+  --a_table_preview_right_border_color: #f1f4f7;
+  --a_table_preview_right_header_bg: #f1f4f7;
+  --a_table_preview_right_header_font_size: 1.5rem;
 
   width: 100%;
   overflow-x: hidden;
@@ -26,18 +43,23 @@
   border-width: 0;
 }
 .a_table__cell {
-  padding: 0.5rem 0.5rem;
+  padding: var(--a_table_cell_padding_x) var(--a_table_cell_padding_y);
   background-color: var(--a_table_bg);
   border-bottom-width: 1px;
-  .a_table__row_focus > & {
-     background-color: rgba(192,209,117,0.75);
+  .a_table__row_hover:hover &,
+  .a_table__row_hover:focus-within & {
+    background-color: var(--a_table_row_hover_bg);
   }
-  .a_table__row_focus_was > & {
-    background-color: rgba(192, 209, 117, 0.3);
+  .a_table__row.a_table__row_focus > & {
+     background-color: var(--a_table_row_preview_focus_bg);
+  }
+  .a_table__row.a_table__row_focus_was > & {
+    background-color: var(--a_table_row_preview_focus_was_bg);
   }
 }
+
 .a_table__empty_text {
-  padding: 0.5rem 0.5rem;
+  padding: var(--a_table_cell_padding_x) var(--a_table_cell_padding_y);
   background-color: var(--a_table_bg);
   border-bottom-width: 1px;
 }
@@ -54,10 +76,13 @@
 .a_table__row {
   display: table-row;
 }
+
 .a_table__th {
   display: table-cell;
-  background-color: #f1f4f7;
-  border-bottom: 3px solid #d0c9c0;
+  background-color: var(--a_table_th_bg);
+  border-style: solid;
+  border-width: var(--a_table_th_border_width);
+  border-color: var(--a_table_th_border_color);
 }
 .a_table__th_draggable {
   cursor: move;
@@ -98,14 +123,6 @@
   line-height: 0;
 }
 
-.a_table__th__sort__icon_up {
-
-}
-
-.a_table__th__sort__icon_down {
-
-}
-
 .a_table__cell_action {
   text-align: right;
 }
@@ -124,7 +141,7 @@
   pointer-events: none;
 }
 .a_table__th__dropdown_item__icon {
-  margin-right: .5rem;
+  margin-right: var(--a_table_between_actions_margin);
 }
 .a_table__th__dropdown_item__icon_btn {
   padding: 0;
@@ -143,26 +160,26 @@
   display: inline-block;
 }
 .a_table__top_panel__label__count {
-  padding-left: .5rem;
+  padding-left: var(--a_table_between_actions_margin);
 }
 .a_table__top_panel__actions {
   float: right;
-  padding: .5rem 0;
+  padding: var(--a_table_between_actions_margin) 0;
   .a_table__action {
-    margin-left: .5rem;
+    margin-left: var(--a_table_between_actions_margin);
   }
 }
 .a_table__top_panel__actions__quick_search {
   display: inline-block;
-  width: 250px;
-  margin-left: .5rem;
+  width: var(--a_table_quick_search_width);
+  margin-left: var(--a_table_between_actions_margin);
 }
 .a_table__action {
   position: relative;
-  margin-left: .5rem;
+  margin-left: var(--a_table_between_actions_margin);
 }
 .a_table__action__icon {
-  margin-right: .5rem;
+  margin-right: var(--a_table_between_actions_margin);
 }
 
 .a_table__row_action {
@@ -183,21 +200,24 @@
   right: 0;
   bottom: 0;
   z-index: 1000;
-  width: 300px;
+  width: var(--a_table_preview_right_width);
   overflow-y: auto;
-  background-color: #fff;
-  border-left: 1px solid #000;
+  background-color: var(--a_table_preview_right_bg);
+  border-width: var(--a_table_preview_right_border_width);
+  border-style: solid;
+  border-color: var(--a_table_preview_right_border_color);
 }
 .a_table__preview_right__header {
-  background-color: #f1f4f7;
+  background-color: var(--a_table_preview_right_header_bg);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  padding: .25rem .5rem;
+  padding: var(--a_table_preview_right_padding);
+  font-size: var(--a_table_preview_right_header_font_size);
 }
 .a_table__preview_right__body {
-  padding: .25rem .5rem;
+  padding: var(--a_table_preview_right_padding);
 }
 .a_table__preview_right__btn_close {
   padding: 0;

@@ -46,7 +46,7 @@ export default {
     },
 
     rowClass() {
-      return ["a_table__row", {
+      return ["a_table__row a_table__row_hover", {
         a_table__row_focus: this.isPreviewRightForCurrentRowOpen,
         a_table__row_focus_was: this.isPreviewRightForCurrentRowWasOpen,
       }];
