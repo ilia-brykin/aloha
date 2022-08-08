@@ -62,6 +62,7 @@
   white-space: nowrap;
   background-color: transparent;
   border: 0;
+  font-size: inherit;
   &:hover {
     color: var(--a_dropdown_link_hover_color);
     background-color: var(--a_dropdown_link_hover_bg);

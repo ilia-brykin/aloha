@@ -231,7 +231,7 @@ export default {
   render() {
     return h("li", this.attributesLi, [
       h("div", {
-        class: "a_dropdown__item a_table__th__dropdown_item",
+        class: "a_dropdown__item_text a_table__th__dropdown_item a_text_nowrap",
       }, [
         h("div", null, [
           h(this.tagIconParent, this.attributesIconParent, [

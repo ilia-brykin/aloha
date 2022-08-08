@@ -117,7 +117,7 @@ export default {
           }, [
             h("li", null, [
               h("div", {
-                class: "a_dropdown__item_text",
+                class: "a_dropdown__item_text a_table__th__dropdown__search",
               }, [
                 h(AInput, {
                   label: "Search",
@@ -172,7 +172,7 @@ export default {
             ]),
             h("li", null, [
               h(ASwitch, {
-                class: "a_dropdown__item",
+                class: "a_dropdown__item_text a_text_nowrap",
                 modelValue: this.modelIsTableWithoutScroll,
                 trueLabel: "Kompakte Ansicht",
                 falseLabel: "Kompakte Ansicht",
