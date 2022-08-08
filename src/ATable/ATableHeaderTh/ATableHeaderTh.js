@@ -128,7 +128,7 @@ export default {
         return {
           type: "button",
           disabled: this.isLoadingTable,
-          class: "a_table__th__sort",
+          class: "a_btn a_btn_link a_table__th__sort",
           onClick: this.changeModelSortLocal,
         };
       }

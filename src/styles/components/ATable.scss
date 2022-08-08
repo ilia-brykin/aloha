@@ -78,18 +78,12 @@
 }
 
 .a_table__th__sort {
+  padding: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:focus,
-  &:focus-visible {
-    outline: none;
-  }
 }
 
 .a_table__th__sort__icons {
@@ -101,6 +95,7 @@
 .a_table__th__sort__icon {
   width: 10px;
   height: 10px;
+  line-height: 0;
 }
 
 .a_table__th__sort__icon_up {
