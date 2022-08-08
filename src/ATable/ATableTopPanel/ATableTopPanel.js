@@ -84,7 +84,7 @@ export default {
       h("div", {
         class: "a_table__top_panel__actions",
       }, [
-        this.$slots.tableActions(),
+        this.$slots.tableActions && this.$slots.tableActions(),
         this.tableActionFiltered.map(action => {
           return h(ATableActionItem, {
             action,
