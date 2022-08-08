@@ -10,6 +10,8 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
 
+const KEY_CODE_SPACE = 32;
+
 export default {
   name: "ASwitch",
   mixins: [
@@ -177,6 +179,15 @@ export default {
       });
     };
 
+    const onKeydown = $event => {
+      if ($event.key === "Enter" ||
+        $event.keyCode === KEY_CODE_SPACE) {
+        onInput($event);
+        $event.stopPropagation();
+        $event.preventDefault();
+      }
+    };
+
     return {
       ariaRequired,
       clearModel,
@@ -192,6 +203,7 @@ export default {
       isModelDefault,
       labelValueLocal,
       onInput,
+      onKeydown,
     };
   },
   render() {
@@ -227,6 +239,7 @@ export default {
           ariaInvalid: this.isError,
           ...this.inputAttributes,
           onClick: this.onInput,
+          onKeydown: this.onKeydown,
           onFocus: this.onFocus,
           onBlur: this.onBlur,
         }),
