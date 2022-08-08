@@ -356,6 +356,10 @@ export default {
     isDataArray() {
       return isArray(this.data);
     },
+
+    hasRows() {
+      return !!this.rowsLocal.length;
+    },
   },
   created() {
     this.initModelColumnsOrderingLocal();
@@ -471,6 +475,9 @@ export default {
           }, this.$slots);
         })),
       ]),
+      !this.hasRows && h("div", {
+        class: "a_table__empty_text",
+      }, "Keine Einträge vorhanden."),
       h("div", {
         class: "a_pagination__parent"
       }, [
@@ -481,6 +488,7 @@ export default {
           limit: this.limit,
           offset: this.offset,
           rowsLength: this.rowsLocal.length,
+          hasRows: this.hasRows,
           "onUpdate:limit": this.changeLimit,
         }),
         h(ATablePagination, {
@@ -488,6 +496,7 @@ export default {
           totalRowsCount: this.totalRowsCountLocal,
           isLoadingTable: this.isLoadingTable,
           offset: this.offset,
+          hasRows: this.hasRows,
           "onUpdate:offset": this.changeOffset,
         }),
       ]),
