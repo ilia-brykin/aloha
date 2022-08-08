@@ -94,7 +94,11 @@ export default {
       class: "a_table__th a_table__cell a_table__cell_action",
       scope: "col",
       style: this.stylesThAction,
+      role: "columnheader",
     }, [
+      h("span", {
+        class: "a_sr_only"
+      }, "Aktionen"),
       h(ADropdown, {
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
         dropdownTag: "div",

@@ -50,12 +50,14 @@ export default {
   render() {
     return h("div", {
       ref: "root",
+      role: "rowgroup",
       class: ["a_table__head", {
         a_table__head_dragstart: this.isDragstart,
       }],
     }, [
       h("div", {
         class: "a_table__row",
+        role: "row",
         onDrop: this.drop,
       }, [
         this.columnsOrdered.map((column, columnIndex) => {

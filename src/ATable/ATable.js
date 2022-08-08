@@ -462,12 +462,14 @@ export default {
       }, this.$slots),
       h("div", {
         class: "a_table",
+        role: "table",
       }, [
         h(ATableHeader, {
           modelSort: this.modelSort,
         }),
         h("div", {
-          class: "a_table__body"
+          class: "a_table__body",
+          role: "rowgroup",
         }, this.rowsLocal.map((row, rowIndex) => {
           return h(ATableTr, {
             row,

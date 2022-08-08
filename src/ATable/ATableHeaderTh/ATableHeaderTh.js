@@ -67,6 +67,7 @@ export default {
         ...this.attributesForRoot,
         scope: "col",
         ref: "root",
+        role: "columnheader",
       };
       ATTRIBUTES.class = this.classForTh;
       ATTRIBUTES.style = this.columnsStyles;

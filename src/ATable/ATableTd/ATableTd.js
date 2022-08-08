@@ -63,6 +63,7 @@ export default {
 
     attributesForTd() {
       const ATTRIBUTES = {
+        role: "cell",
         class: ["a_table__td a_table__cell", {
           a_table__cell_click: this.hasPreview,
         }],
@@ -78,7 +79,7 @@ export default {
     },
 
     isLink() {
-      return !!this.row.to;
+      return !!this.column.to;
     },
 
     toLocal() {

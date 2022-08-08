@@ -37,6 +37,7 @@ export default {
       const ATTRIBUTES = {
         id: this.rowId,
         class: this.rowClass,
+        role: "row",
       };
       if (this.hasPreview) {
         ATTRIBUTES.tabindex = -1;
