@@ -178,6 +178,7 @@ export default {
     "changeOffset",
     "changeSorting",
     "mouseupResizePreviewRight",
+    "updateModelIsTableWithoutScroll",
   ],
   provide() {
     return {
@@ -226,7 +227,7 @@ export default {
       columnsScrollInvisible,
       indexFirstScrollInvisibleColumn,
       modelIsTableWithoutScroll,
-    } = ScrollControlAPI(props, {
+    } = ScrollControlAPI(props, context, {
       columnsOrdered,
       modelColumnsVisibleMapping,
     });

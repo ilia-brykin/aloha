@@ -30,6 +30,7 @@ import OptionVertical from "./Icons/OptionVertical";
 import Plus from "./Icons/Plus";
 import Reset from "./Icons/Reset";
 import Search from "./Icons/Search";
+import ThList from "./Icons/ThList";
 
 import {
   assign,
@@ -78,6 +79,7 @@ export default {
       Plus,
       Reset,
       Search,
+      ThList,
     }, ICONS_PLUGIN);
 
     return {

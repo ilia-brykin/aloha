@@ -71,16 +71,16 @@ export default {
       this.$slots.tableLabel ? this.$slots.tableLabel({
         countAllRows: this.countAllRows,
       }) :
-      h(this.labelTag, {
-        class: "a_table__top_panel__label",
-      }, [
-        h("span", {
-          class: "a_table__top_panel__label__text",
-        }, this.label),
-        h("span", {
-          class: "a_table__top_panel__label__count",
-        }, this.countAllRowsFormatted),
-      ]),
+        h(this.labelTag, {
+          class: "a_table__top_panel__label",
+        }, [
+          h("span", {
+            class: "a_table__top_panel__label__text",
+          }, this.label),
+          h("span", {
+            class: "a_table__top_panel__label__count",
+          }, this.countAllRowsFormatted),
+        ]),
       h("div", {
         class: "a_table__top_panel__actions",
       }, [
@@ -90,7 +90,7 @@ export default {
             action,
           });
         }),
-        h(AInput, {
+        this.isQuickSearch && h(AInput, {
           label: "Schnellsuche",
           class: "a_table__top_panel__actions__quick_search",
           modelUndefined: "",

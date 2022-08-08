@@ -28,6 +28,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    hasRows: {
+      type: Boolean,
+      required: true,
+    },
   },
   emits: [
     "update:offset",
@@ -147,113 +151,116 @@ export default {
     },
   },
   render() {
-    return h(ATranslation, {
-      tag: "nav",
-      role: "navigation",
-      "aria-label": "_PAGINATION_NAVIGATION_",
-    }, {
-      default: () => {
-        return [
-          h("ul", {
-            class: "a_pagination",
-          }, [
-            h("li", {
-              class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
+    if (this.hasRows) {
+      return h(ATranslation, {
+        tag: "nav",
+        role: "navigation",
+        "aria-label": "_PAGINATION_NAVIGATION_",
+      }, {
+        default: () => {
+          return [
+            h("ul", {
+              class: "a_pagination",
             }, [
-              h(ATranslation, {
-                tag: "a",
-                class: "a_pagination__item__link",
-                role: "button",
-                tabindex: 0,
-                "aria-label": "_FIRST_PAGE_",
-                onClick: this.updateOffsetFirst,
-              }, {
-                default: () => [
-                  h(AIcon, {
-                    icon: "DoubleAngleLeft",
-                    width: 12,
-                    height: 12,
-                  }),
-                ],
-              }),
-            ]),
-            h("li", {
-              class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
-            }, [
-              h(ATranslation, {
-                tag: "a",
-                class: "a_pagination__item__link",
-                role: "button",
-                tabindex: 0,
-                "aria-label": "_PREVIOUS_PAGE_",
-                onClick: this.updateOffsetPrevious,
-              }, {
-                default: () => [
-                  h(AIcon, {
-                    icon: "AngleLeft",
-                    width: 12,
-                    height: 12,
-                  }),
-                ],
-              }),
-            ]),
-            this.paginationItems.map(item => {
-              return h("li", {
-                class: ["a_pagination__item", { active: item === this.currentItem }],
+              h("li", {
+                class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
               }, [
-                h("a", {
+                h(ATranslation, {
+                  tag: "a",
                   class: "a_pagination__item__link",
                   role: "button",
                   tabindex: 0,
-                  onClick: () => this.updateOffset(item),
+                  "aria-label": "_FIRST_PAGE_",
+                  onClick: this.updateOffsetFirst,
+                }, {
+                  default: () => [
+                    h(AIcon, {
+                      icon: "DoubleAngleLeft",
+                      width: 12,
+                      height: 12,
+                    }),
+                  ],
+                }),
+              ]),
+              h("li", {
+                class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
+              }, [
+                h(ATranslation, {
+                  tag: "a",
+                  class: "a_pagination__item__link",
+                  role: "button",
+                  tabindex: 0,
+                  "aria-label": "_PREVIOUS_PAGE_",
+                  onClick: this.updateOffsetPrevious,
+                }, {
+                  default: () => [
+                    h(AIcon, {
+                      icon: "AngleLeft",
+                      width: 12,
+                      height: 12,
+                    }),
+                  ],
+                }),
+              ]),
+              this.paginationItems.map(item => {
+                return h("li", {
+                  class: ["a_pagination__item", { active: item === this.currentItem }],
                 }, [
-                  item,
-                ]),
-              ]);
-            }),
-            h("li", {
-              class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
-            }, [
-              h(ATranslation, {
-                tag: "a",
-                class: "a_pagination__item__link",
-                role: "button",
-                tabindex: 0,
-                "aria-label": "_NEXT_PAGE_",
-                onClick: this.updateOffsetNext,
-              }, {
-                default: () => [
-                  h(AIcon, {
-                    icon: "AngleRight",
-                    width: 12,
-                    height: 12,
-                  }),
-                ],
+                  h("a", {
+                    class: "a_pagination__item__link",
+                    role: "button",
+                    tabindex: 0,
+                    onClick: () => this.updateOffset(item),
+                  }, [
+                    item,
+                  ]),
+                ]);
               }),
+              h("li", {
+                class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
+              }, [
+                h(ATranslation, {
+                  tag: "a",
+                  class: "a_pagination__item__link",
+                  role: "button",
+                  tabindex: 0,
+                  "aria-label": "_NEXT_PAGE_",
+                  onClick: this.updateOffsetNext,
+                }, {
+                  default: () => [
+                    h(AIcon, {
+                      icon: "AngleRight",
+                      width: 12,
+                      height: 12,
+                    }),
+                  ],
+                }),
+              ]),
+              h("li", {
+                class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
+              }, [
+                h(ATranslation, {
+                  tag: "a",
+                  class: "a_pagination__item__link",
+                  role: "button",
+                  tabindex: 0,
+                  "aria-label": "_LAST_PAGE_",
+                  onClick: this.updateOffsetLast,
+                }, {
+                  default: () => [
+                    h(AIcon, {
+                      icon: "DoubleAngleRight",
+                      width: 12,
+                      height: 12,
+                    }),
+                  ],
+                }),
+              ]),
             ]),
-            h("li", {
-              class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
-            }, [
-              h(ATranslation, {
-                tag: "a",
-                class: "a_pagination__item__link",
-                role: "button",
-                tabindex: 0,
-                "aria-label": "_LAST_PAGE_",
-                onClick: this.updateOffsetLast,
-              }, {
-                default: () => [
-                  h(AIcon, {
-                    icon: "DoubleAngleRight",
-                    width: 12,
-                    height: 12,
-                  }),
-                ],
-              }),
-            ]),
-          ]),
-        ];
-      },
-    });
+          ];
+        },
+      });
+    }
+    return "";
   },
 };

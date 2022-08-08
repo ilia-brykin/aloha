@@ -37,6 +37,10 @@ export default {
       type: Number,
       required: true,
     },
+    hasRows: {
+      type: Boolean,
+      required: true,
+    },
   },
   emits: ["update:limit"],
   setup() {
@@ -82,31 +86,34 @@ export default {
     },
   },
   render() {
-    return h("div", {
-      class: "a_pagination__count",
-    }, [
-      h("span", {
-        class: "a_pagination__count_from_to"
-      }, this.countText),
-      h("span", {
-        class: "a_pagination__count__text"
-      }, "Pro Seite:"),
-      h("div", {
+    if (this.hasRows) {
+      return h("div", {
         class: "a_pagination__count",
       }, [
-        this.limitsPerPage.map(count => {
-          return h("div", {
-            class: "a_pagination__count__item",
-          }, [
-            h("button", {
-              type: "button",
-              class: "a_btn a_btn_link a_pagination__count__button",
-              disabled: +count === this.limit || this.isLoadingTable,
-              onClick: () => this.changeLimit(count),
-            }, count),
-          ]);
-        }),
-      ]),
-    ]);
+        h("span", {
+          class: "a_pagination__count_from_to"
+        }, this.countText),
+        h("span", {
+          class: "a_pagination__count__text"
+        }, "Pro Seite:"),
+        h("div", {
+          class: "a_pagination__count",
+        }, [
+          this.limitsPerPage.map(count => {
+            return h("div", {
+              class: "a_pagination__count__item",
+            }, [
+              h("button", {
+                type: "button",
+                class: "a_btn a_btn_link a_pagination__count__button",
+                disabled: +count === this.limit || this.isLoadingTable,
+                onClick: () => this.changeLimit(count),
+              }, count),
+            ]);
+          }),
+        ]),
+      ]);
+    }
+    return "";
   },
 };

@@ -89,7 +89,7 @@ export default {
         const TO = cloneDeep(this.column.to);
         const PARAMS = TO.params || {};
         if (this.column.to.paramsDynamic) {
-          forEach(this.column.to.paramsDynamic, (key, value) => {
+          forEach(this.column.to.paramsDynamic, (value, key) => {
             PARAMS[key] = get(this.row, value);
           });
         }
@@ -97,6 +97,10 @@ export default {
         return TO;
       }
       return undefined;
+    },
+
+    classForLink() {
+      return "a_btn a_btn_link a_p_0";
     },
   },
   render() {
@@ -108,7 +112,7 @@ export default {
         "row-index": this.rowIndex,
       }) : this.isLink ? [
         h(resolveComponent("RouterLink"), {
-          class: ["a_dropdown__item a_table__row_action", this.column.class],
+          class: [this.column.class, this.classForLink],
           to: this.toLocal,
         }, () => [
           h("span", {

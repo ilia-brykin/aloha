@@ -95,7 +95,7 @@ export default {
         const TO = cloneDeep(this.rowAction.to);
         const PARAMS = TO.params || {};
         if (this.rowAction.to.paramsDynamic) {
-          forEach(this.rowAction.to.paramsDynamic, (key, value) => {
+          forEach(this.rowAction.to.paramsDynamic, (value, key) => {
             PARAMS[key] = get(this.row, value);
           });
         }

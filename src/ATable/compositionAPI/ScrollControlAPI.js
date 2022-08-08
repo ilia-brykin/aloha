@@ -12,7 +12,7 @@ import {
   isNil,
 } from "lodash-es";
 
-export default function ScrollControlAPI(props, {
+export default function ScrollControlAPI(props, { emit }, {
   columnsOrdered = computed(() => []),
   modelColumnsVisibleMapping = computed(() => ({})),
 }) {
@@ -29,6 +29,7 @@ export default function ScrollControlAPI(props, {
   const modelIsTableWithoutScroll = ref(modelIsTableWithoutScrollStart.value);
   const changeModelIsTableWithoutScroll = model => {
     modelIsTableWithoutScroll.value = model;
+    emit("updateModelIsTableWithoutScroll", model);
   };
 
   const setAdditionalSpaceColumnsForOneGrow = ({

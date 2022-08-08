@@ -1,4 +1,6 @@
 .a_table__parent {
+  --a_table_th_sorting_bg: #d0e3a4;
+
   width: 100%;
   overflow-x: hidden;
 }
@@ -34,6 +36,11 @@
     background-color: rgba(192, 209, 117, 0.3);
   }
 }
+.a_table__empty_text {
+  padding: 0.5rem 0.5rem;
+  background-color: var(--a_table_bg);
+  border-bottom-width: 1px;
+}
 .a_table__cell_click {
   cursor: pointer;
 }
@@ -57,6 +64,9 @@
 }
 .a_table__th_over {
   border-left: 10px solid #666;
+}
+.a_table__th_sorting {
+  background-color: var(--a_table_th_sorting_bg);
 }
 
 .a_table__td {
@@ -208,6 +218,7 @@
   align-items: center;
   background-color: #f0f4f7;
   padding: .5rem;
+  min-height: 2rem;
 }
 .a_pagination__count_from_to {
   margin-right: 1rem;
@@ -225,40 +236,4 @@
 
 .a_pagination__count__button {
   padding: 0;
-}
-
-
-.a_list_dl {
-  --a_list_dl_first_column_width: 300px;
-  --a_list_dl_last_column_width: 300px;
-  --a_list_dl_item_padding_x: .5rem;
-  --a_list_dl_item_padding_y: .25rem;
-  --a_list_dl_bg: #fff;
-  --a_list_dl_first_column_bg: #f1f4f7;
-  --a_list_dl_last_column_bg: transparent;
-  --a_list_dl_first_column_border_width: 2px;
-  --a_list_dl_last_column_border_width: 2px;
-  --a_list_dl_first_column_border_color: #fff;
-  --a_list_dl_last_column_border_color: transparent;
-
-  display: flex;
-  flex-wrap: wrap;
-  width: calc(var(--a_list_dl_first_column_width) + var(--a_list_dl_last_column_width));
-  background-color: var(--a_list_dl_bg);
-  & > dt {
-    width: var(--a_list_dl_first_column_width);
-    padding: var(--a_list_dl_item_padding_y) var(--a_list_dl_item_padding_x);
-    background-color: var(--a_list_dl_first_column_bg);
-    &:not(:nth-last-child(2)) {
-      border-bottom: var(--a_list_dl_first_column_border_width) solid var(--a_list_dl_first_column_border_color);
-    }
-  }
-  & > dd {
-    width: var(--a_list_dl_last_column_width);
-    padding: var(--a_list_dl_item_padding_y) var(--a_list_dl_item_padding_x);
-    background-color: var(--a_list_dl_last_column_bg);
-    &:not(:nth-last-child(1)) {
-      border-bottom: var(--a_list_dl_last_column_border_width) solid var(--a_list_dl_last_column_border_color);
-    }
-  }
 }
