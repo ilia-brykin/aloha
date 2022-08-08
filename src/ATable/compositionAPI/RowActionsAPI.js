@@ -12,7 +12,7 @@ import {
 export default function RowActionsAPI(props) {
   const row = toRef(props, "row");
   const rowIndex = toRef(props, "rowIndex");
-  const rowActions = inject("rowActions", []);
+  const rowActions = inject("rowActions");
 
   const isRowActionVisible = ({ rowAction }) => {
     if (rowAction.isHidden) {
@@ -28,8 +28,7 @@ export default function RowActionsAPI(props) {
   };
 
   const rowActionsFiltered = computed(() => {
-    console.log("rowActions.length", rowActions.length);
-    return filter(rowActions, rowAction => isRowActionVisible({ rowAction }));
+    return filter(rowActions.value, rowAction => isRowActionVisible({ rowAction }));
   });
 
   const isRowActionsDropdownVisible = computed(() => {

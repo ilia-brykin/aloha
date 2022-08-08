@@ -28,7 +28,9 @@ export default function DragAndDropChildAPI(props, { emit }, { classOver = "" })
   };
 
   const dragenter = () => {
-    root.value.classList.add(classOver);
+    if (root.value && root.value) {
+      root.value.classList.add(classOver);
+    }
     emit("dragenterParent", {
       columnIndex: columnIndex.value,
     });
@@ -42,7 +44,9 @@ export default function DragAndDropChildAPI(props, { emit }, { classOver = "" })
   };
 
   const dragleave = () => {
-    root.value.classList.remove(classOver);
+    if (root.value && root.value) {
+      root.value.classList.remove(classOver);
+    }
     emit("dragleaveParent", {
       columnIndex: columnIndex.value,
     });
