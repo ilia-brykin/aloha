@@ -79,7 +79,7 @@ export default {
         "a_table__th a_table__cell",
         {
           a_table__th_draggable: !this.isLocked && !this.isLoadingOptions,
-          a_table__th_sorting: this.isSortAscending || this.isSortDescending,
+          a_table__th_sorting: this.isSorting,
         }
       ];
     },
@@ -102,6 +102,12 @@ export default {
 
     sortId() {
       return this.column.sortId;
+    },
+
+    isSorting() {
+      return this.isSortable &&
+        (this.isSortAscending ||
+          this.isSortDescending);
     },
 
     isSortAscending() {

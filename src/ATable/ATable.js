@@ -191,7 +191,7 @@ export default {
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
       rowActions: computed(() => this.rowActions),
-      tableId: computed(() => this.tableId),
+      tableId: computed(() => this.id),
     };
   },
   setup(props, context) {
