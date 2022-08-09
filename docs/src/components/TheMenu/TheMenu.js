@@ -43,6 +43,11 @@ export default {
           name: "PageAccordion",
           label: "Accordion",
         },
+        {
+          id: "alert",
+          name: "PageAlert",
+          label: "Alert",
+        },
       ],
     };
   },
