@@ -47,6 +47,8 @@ export default {
           id: "obj",
           path: "obj.aloha",
           sortId: "obj.aloha",
+          slot: "get",
+          filter: "boolean",
         },
         {
           label: "Obj2",

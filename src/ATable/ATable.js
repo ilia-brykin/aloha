@@ -6,6 +6,7 @@ import {
   toRef,
 } from "vue";
 
+import AGet from "../AGet/AGet";
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
 import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePagination from "./ATablePagination/ATablePagination";
@@ -21,7 +22,13 @@ import {
   getModelColumnsVisibleDefault,
 } from "./utils/utils";
 import {
-  cloneDeep, forEach, get, isArray, isNil, isPlainObject, keyBy,
+  cloneDeep,
+  forEach,
+  get,
+  isArray,
+  isNil,
+  isPlainObject,
+  keyBy,
   orderBy,
   startsWith,
   uniqueId,
@@ -474,7 +481,18 @@ export default {
           return h(ATableTr, {
             row,
             rowIndex,
-          }, this.$slots);
+          }, {
+            get: vm => [
+              h(AGet, {
+                data: vm.row,
+                path: vm.column.path,
+                filter: vm.column.filter,
+                filterParameters: vm.column.filterParameters,
+                defaultValue: vm.column.defaultValue,
+              }),
+            ],
+            ...this.$slots,
+          });
         })),
       ]),
       !this.hasRows && h("div", {
