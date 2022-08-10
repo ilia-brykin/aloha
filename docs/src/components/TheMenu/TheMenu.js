@@ -48,6 +48,16 @@ export default {
           name: "PageAlert",
           label: "Alert",
         },
+        {
+          id: "modal",
+          name: "PageModal",
+          label: "Modal",
+        },
+        {
+          id: "confirm",
+          name: "PageConfirm",
+          label: "Confirm",
+        },
       ],
     };
   },

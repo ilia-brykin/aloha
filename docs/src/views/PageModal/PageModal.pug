@@ -1,0 +1,11 @@
+div
+  h1 AModal
+  button(
+    type="button"
+    @click="openModal"
+  ) Open Modal
+
+  a-modal(
+    v-if="isModalOpen"
+    :close="closeModal"
+  )
