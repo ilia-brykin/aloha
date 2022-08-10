@@ -168,8 +168,19 @@ export default {
       return "";
     },
   },
+  watch: {
+    isModalHidden() {
+      if (this.isModalHidden) {
+        this.hideModal();
+      } else {
+        this.showModal();
+      }
+    },
+  },
   mounted() {
-    this.showModal();
+    if (!this.isModalHidden) {
+      this.showModal();
+    }
   },
   unmounted() {
     this.hideModal();
@@ -208,11 +219,7 @@ export default {
       if (this.withoutEscape) {
         return;
       }
-      if (this.confirmOptions && isFunction(this.confirmOptions.cancelCallback)) {
-        this.confirmOptions.cancelCallback();
-      } else {
-        this.onClose();
-      }
+      this.close();
     },
 
     trapFocus(EVENT) {
@@ -401,6 +408,9 @@ export default {
           ]),
         ]),
       ]),
+      !this.isModalHidden && h("div", {
+        class: "a_modal_backdrop a_modal_backdrop_show",
+      })
     ]);
   },
 };
