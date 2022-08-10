@@ -58,6 +58,11 @@ export default {
           name: "PageConfirm",
           label: "Confirm",
         },
+        {
+          id: "notification",
+          name: "PageNotification",
+          label: "Notification",
+        },
       ],
     };
   },

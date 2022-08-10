@@ -14,7 +14,6 @@ export default {
     } = ConfirmAPI();
 
     const save = () => {
-      console.log("Aloha");
       closeConfirm();
     };
 
