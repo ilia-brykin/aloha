@@ -48,6 +48,13 @@ export default function UiAPI(props, { emit }) {
       modelUndefined.value;
   });
 
+  const id = toRef(props, "id");
+  const idLocal = computed(() => {
+    return "id" in options.value ?
+      options.value.id :
+      id.value;
+  });
+
   const label = toRef(props, "label");
   const labelLocal = computed(() => {
     return "label" in options.value ?
@@ -99,6 +106,7 @@ export default function UiAPI(props, { emit }) {
     changeModel,
     clearModel,
     disabledLocal,
+    idLocal,
     isError,
     isFocus,
     isModel,
