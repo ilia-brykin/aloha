@@ -1,0 +1,68 @@
+div
+  h1 ACheckbox
+  a-one-checkbox(
+    v-model="model"
+    label="aloha one checkbox"
+  )
+  div model: {{ model }}
+  a-one-checkbox(
+    v-model="model1"
+    label="aloha one checkbox"
+    :is-width-auto="true"
+  )
+  div model1: {{ model1 }}
+  .a_custom_control.a_custom_checkbox
+    input.a_custom_control_input(
+      id="checkbox_0"
+      type="checkbox"
+      value="0"
+    )
+    label.a_custom_control_label(
+      for="checkbox_0"
+    ) Aloha
+
+  .a_custom_control.a_custom_checkbox
+    input.a_custom_control_input(
+      id="checkbox_1"
+      type="checkbox"
+      value="1"
+      :indeterminate="true"
+    )
+    label.a_custom_control_label(
+      for="checkbox_1"
+    ) Aloha indeterminate
+
+  .a_custom_control.a_custom_checkbox
+    input.a_custom_control_input(
+      id="checkbox_2"
+      type="checkbox"
+      value="1"
+      :disabled="true"
+    )
+    label.a_custom_control_label(
+      for="checkbox_2"
+    ) Aloha
+
+  .a_custom_control.a_custom_checkbox
+    input.a_custom_control_input(
+      id="checkbox_3"
+      type="checkbox"
+      value="1"
+      :checked="true"
+      :disabled="true"
+    )
+    label.a_custom_control_label(
+      for="checkbox_3"
+    ) Aloha
+
+  .a_custom_control.a_custom_checkbox
+    input.a_custom_control_input(
+      id="checkbox_4"
+      type="checkbox"
+      value="1"
+      :indeterminate="true"
+      :disabled="true"
+    )
+    label.a_custom_control_label(
+      for="checkbox_4"
+    ) Aloha

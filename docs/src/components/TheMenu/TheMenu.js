@@ -63,6 +63,16 @@ export default {
           name: "PageNotification",
           label: "Notification",
         },
+        {
+          id: "checkbox",
+          name: "PageCheckbox",
+          label: "Checkbox",
+        },
+        {
+          id: "radio",
+          name: "PageRadio",
+          label: "Radio",
+        },
       ],
     };
   },

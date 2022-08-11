@@ -75,6 +75,16 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageNotification" */ "../views/PageNotification/PageNotification.vue"),
   },
   {
+    path: "/checkbox",
+    name: "PageCheckbox",
+    component: () => import(/* webpackChunkName: "PageCheckbox" */ "../views/PageCheckbox/PageCheckbox.vue"),
+  },
+  {
+    path: "/radio",
+    name: "PageRadio",
+    component: () => import(/* webpackChunkName: "PageRadio" */ "../views/PageRadio/PageRadio.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom
