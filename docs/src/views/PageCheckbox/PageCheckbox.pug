@@ -11,6 +11,16 @@ div
     :is-width-auto="true"
   )
   div model1: {{ model1 }}
+  a-checkbox(
+    v-model="modelArr"
+    :data="data"
+    key-id="id"
+    key-label="label"
+    label="Test label"
+  )
+  div modelArr:
+    pre {{ modelArr }}
+
   .a_custom_control.a_custom_checkbox
     input.a_custom_control_input(
       id="checkbox_0"
