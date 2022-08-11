@@ -30,6 +30,7 @@ export default {
       ariaRequired,
       changeModel,
       disabledLocal,
+      idLocal,
       isError,
       labelLocal,
       onBlur,
@@ -67,6 +68,7 @@ export default {
     return {
       ariaRequired,
       disabledLocal,
+      idLocal,
       isError,
       labelLocal,
       requiredLocal,
@@ -89,7 +91,7 @@ export default {
           class: "a_custom_control a_custom_checkbox",
         }, [
           h("input", {
-            id: this.id,
+            id: this.idLocal,
             value: this.modelValue,
             type: "checkbox",
             checked: this.isChecked,
@@ -104,7 +106,7 @@ export default {
             onBlur: this.onBlur,
           }),
           h("label", {
-            for: this.id,
+            for: this.idLocal,
             class: ["a_custom_control_label", {
               a_custom_control_label_width_auto: this.isWidthAuto,
             }],
