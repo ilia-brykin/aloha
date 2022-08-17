@@ -7,7 +7,7 @@ import ACheckboxItem from "./ACheckboxItem";
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
-import UiCheckboxRadioAPI from "../compositionApi/UiCheckboxRadioAPI";
+import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiCheckboxRadioIsWidthAutoAPI from "../compositionApi/UiCheckboxRadioIsWidthAutoAPI";
 
 export default {
@@ -39,6 +39,10 @@ export default {
       required: false,
       default: "label",
     },
+    isDataSimpleArray: {
+      type: Boolean,
+      required: false,
+    },
   },
   setup(props, context) {
     const {
@@ -55,9 +59,7 @@ export default {
 
     const {
       dataLocal,
-      keyIdLocal,
-      keyLabelLocal,
-    } = UiCheckboxRadioAPI(props);
+    } = UiDataWithKeyIdAndLabelAPI(props);
 
     const {
       isWidthAutoLocal,
@@ -85,8 +87,6 @@ export default {
       requiredLocal,
 
       dataLocal,
-      keyIdLocal,
-      keyLabelLocal,
 
       isWidthAutoLocal,
 
@@ -117,8 +117,6 @@ export default {
               onChangeModelValue: this.onChangeModelValue,
               disabled: this.disabledLocal,
               isWidthAuto: this.isWidthAutoLocal,
-              keyId: this.keyIdLocal,
-              keyLabel: this.keyLabelLocal,
             });
           })
         ]),

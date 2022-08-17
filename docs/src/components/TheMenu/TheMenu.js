@@ -73,6 +73,11 @@ export default {
           name: "PageRadio",
           label: "Radio",
         },
+        {
+          id: "select",
+          name: "PageSelect",
+          label: "Select",
+        },
       ],
     };
   },

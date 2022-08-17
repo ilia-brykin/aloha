@@ -11,7 +11,8 @@
     "build-css": "node-sass --include-path scss styles/styles.scss public/styles.css"
   },
   "dependencies": {
-    "aloha-css": "1.0.15",
+    "@popperjs/core": "2.11.6",
+    "aloha-css": "1.0.16",
     "lodash-es": "^4.17.21",
     "vue": "3.2.31",
     "vue-router": "4.0.14",

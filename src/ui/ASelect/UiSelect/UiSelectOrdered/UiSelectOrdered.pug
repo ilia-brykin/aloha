@@ -1,0 +1,47 @@
+pux-cloak(
+  v-if="loading"
+)
+.list-group(
+  v-else
+)
+  template(
+    v-if="model && model.length"
+  )
+    ui-select-ordered-element(
+      v-for="(item, index) in model"
+      :key="item"
+      :index="index"
+      :current-model="item"
+      :first="index === 0"
+      :last="index === model.length - 1"
+      :options="options"
+      :disabled="isDisabled"
+      :move-up="moveUp"
+      :move-down="moveDown"
+      :delete-element="deleteElement"
+      :collection="getCollection"
+    )
+  .list-group-item(
+    v-else
+  )
+    p.form-control-static Keine Elemente ausgewählt
+  .list-group-item.bg-light
+    .d-flex.justify-content-center.align-items-end
+      .flex-grow-1
+        form-element.mb-0(
+          :options="selectOptions"
+          v-model="selectModel"
+          :not-load-list="true"
+          :disabled="isDisabled"
+        )
+      .ml-2
+        pux-button(
+          :id="idForButtonAdd"
+          :disabled="isDisabledButtonAdd"
+          :type="'submit'"
+          text="Hinzufügen"
+          type-class="primary"
+          test-class="test_add"
+          :prevent="true"
+          @click="orderedAdd"
+        )

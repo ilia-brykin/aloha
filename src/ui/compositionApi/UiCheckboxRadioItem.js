@@ -3,21 +3,18 @@ import {
   toRef,
 } from "vue";
 
-import {
-  get,
-} from "lodash-es";
+import AKeyId from "../const/AKeyId";
+import AKeyLabel from "../const/AKeyLabel";
 
 export default function UiCheckboxRadioItem(props) {
   const dataItem = toRef(props, "dataItem");
 
-  const keyId = toRef(props, "keyId");
   const valueLocal = computed(() => {
-    return get(dataItem.value, keyId.value);
+    return dataItem.value[AKeyId];
   });
 
-  const keyLabel = toRef(props, "keyLabel");
   const labelLocal = computed(() => {
-    return get(dataItem.value, keyLabel.value);
+    return dataItem.value[AKeyLabel];
   });
 
   const id = toRef(props, "id");

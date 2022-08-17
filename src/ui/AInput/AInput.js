@@ -49,6 +49,7 @@ export default {
       changeModel,
       clearModel,
       disabledLocal,
+      idLocal,
       isError,
       isModel,
       labelLocal,
@@ -111,6 +112,7 @@ export default {
       ariaRequired,
       clearModel,
       disabledLocal,
+      idLocal,
       isError,
       isModel,
       labelLocal,
@@ -139,7 +141,7 @@ export default {
     }, [
       this.labelLocal && h(ALabel, {
         id: this.id,
-        label: this.label,
+        label: this.labelLocal,
         labelClass: this.labelClass,
         required: this.requiredLocal,
         type: this.typeLocal,
@@ -153,7 +155,7 @@ export default {
           class: "a_input__icon_prepend",
         }),
         h("input", {
-          id: this.id,
+          id: this.idLocal,
           ref: "input",
           value: this.modelValue,
           type: this.typeForInput,

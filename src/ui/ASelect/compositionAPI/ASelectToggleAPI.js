@@ -1,0 +1,243 @@
+import {
+  computed,
+  onBeforeUnmount,
+  ref,
+  toRef,
+} from "vue";
+
+import AEventOutsideAPI from "../../../compositionAPI/AEventOutsideAPI";
+
+import {
+  createPopper,
+} from "@popperjs/core";
+import {
+  forEach, isFunction,
+} from "lodash-es";
+
+const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled])";
+const KEYS_CODE = {
+  tab: 9,
+  space: 32,
+  enter: 13,
+  arrowUp: 38,
+  arrowDown: 40,
+  escape: 27,
+};
+
+export default function ASelectToggleAPI(props, {
+  emit,
+}, {
+  disabledLocal = computed(() => false),
+}) {
+  const buttonRef = ref(undefined);
+  const menuParentRef = ref(undefined);
+  const menuRef = ref(undefined);
+  const isOpen = ref(false);
+  const popper = ref(undefined);
+  const statusEventPressArrows = ref(undefined);
+
+  const options = toRef(props, "options");
+
+  const elementsForClickOutside = computed(() => {
+    return [
+      buttonRef.value,
+      menuParentRef.value,
+    ];
+  });
+
+  const {
+    setEventClickOutside,
+    destroyEventClickOutside,
+  } = AEventOutsideAPI({
+    $elements: elementsForClickOutside,
+    clickOutsideCallback: closePopover,
+  });
+
+  const pressArrows = ({ isArrowDown }) => {
+    const ELEMENTS = menuRef.value.querySelectorAll(ELEMENTS_FOR_ARROWS);
+    console.log("ELEMENTS", ELEMENTS);
+    if (ELEMENTS.length === 0) {
+      return;
+    }
+    let isFocusInstalled = false;
+    forEach(ELEMENTS, (element, index) => {
+      if (element === document.activeElement) {
+        isFocusInstalled = true;
+        if (isArrowDown) {
+          if (index < ELEMENTS.length - 1) {
+            ELEMENTS[index + 1].focus();
+          }
+        } else {
+          if (index > 0) {
+            ELEMENTS[index - 1].focus();
+          }
+        }
+        return false;
+      }
+    });
+    if (!isFocusInstalled) {
+      ELEMENTS[0].focus();
+    }
+  };
+
+  const setFocusToButton = () => {
+    buttonRef.value.focus();
+  };
+
+  const pressButton = $event => {
+    const KEY_CODE = $event.keyCode;
+    const IS_ARROW_DOWN = KEY_CODE === KEYS_CODE.arrowDown;
+    if (IS_ARROW_DOWN ||
+      KEY_CODE === KEYS_CODE.arrowUp) {
+      pressArrows({ isArrowDown: IS_ARROW_DOWN });
+      $event.preventDefault();
+    } else if (KEY_CODE === KEYS_CODE.escape) {
+      closePopover();
+      setFocusToButton();
+    } else if (KEY_CODE === KEYS_CODE.tab) {
+      $event.preventDefault();
+    }
+  };
+
+  const destroyPopover = () => {
+    if (popper.value) {
+      popper.value.destroy();
+      popper.value = undefined;
+    }
+  };
+
+  const onOpen = () => {
+    if (isFunction(options.value.open)) {
+      options.value.open();
+    }
+    emit("open");
+  };
+
+  const isMenuWidthAsButton = toRef(props, "isMenuWidthAsButton");
+  const isMenuWidthAsButtonLocal = computed(() => {
+    return "isMenuWidthAsButton" in options.value ?
+      options.value.isMenuWidthAsButton :
+      isMenuWidthAsButton.value;
+  });
+  const setMenuWidth = () => {
+    if (isMenuWidthAsButtonLocal.value) {
+      const BUTTON_WIDTH = buttonRef.value.clientWidth;
+      const BUTTON_WIDTH_STRING = `${ BUTTON_WIDTH }px`;
+      menuRef.value.style.minWidth = BUTTON_WIDTH_STRING;
+      menuRef.value.style.maxWidth = BUTTON_WIDTH_STRING;
+    }
+  };
+
+  const setFocusForFirstElementInList = () => {
+    const ELEMENT = menuRef.value.querySelector(ELEMENTS_FOR_ARROWS);
+    if (ELEMENT) {
+      ELEMENT.focus();
+    }
+  };
+
+  const initEventPressArrows = () => {
+    if (statusEventPressArrows.value) { // Event ist schon installiert
+      return;
+    }
+    statusEventPressArrows.value = true;
+    document.addEventListener("keydown", pressButton);
+  };
+
+  const onShow = () => {
+    onOpen();
+    setMenuWidth();
+    setTimeout(() => {
+      setFocusForFirstElementInList();
+      initEventPressArrows();
+    });
+  };
+
+
+  const placement = toRef(props, "placement");
+  const placementLocal = computed(() => {
+    return "placement" in options.value ?
+      options.value.placement :
+      placement.value;
+  });
+  const openPopoverWithPopperjs = () => {
+    if (!popper.value) {
+      popper.value = createPopper(
+        buttonRef.value,
+        menuRef.value,
+        {
+          placement: placementLocal.value,
+          removeOnDestroy: true,
+          modifiers: [
+            {
+              name: "offset",
+              options: {
+                offset: [0, 0],
+              },
+            },
+          ],
+        },
+      );
+      onShow();
+    }
+  };
+
+  const openPopover = () => {
+    if (disabledLocal.value) {
+      return;
+    }
+    isOpen.value = true;
+    setEventClickOutside();
+    openPopoverWithPopperjs();
+  };
+
+  const togglePopover = () => {
+    if (isOpen.value) {
+      closePopover();
+      setFocusToButton();
+    } else {
+      openPopover();
+    }
+  };
+
+  const handleKeydown = $event => {
+    const KEY_CODE = $event.keyCode;
+    if (KEY_CODE === KEYS_CODE.enter ||
+      KEY_CODE === KEYS_CODE.space) {
+      togglePopover();
+      $event.preventDefault();
+    } else if (!isOpen.value &&
+      (KEY_CODE === KEYS_CODE.arrowUp ||
+        KEY_CODE === KEYS_CODE.arrowDown)) {
+      openPopover();
+      $event.preventDefault();
+    }
+  };
+
+
+  const destroyEventPressArrows = () => {
+    if (!statusEventPressArrows.value) { // Event ist schon zestört
+      return;
+    }
+    statusEventPressArrows.value = false;
+    document.removeEventListener("keydown", pressButton);
+  };
+
+
+  function closePopover() {
+    isOpen.value = false;
+    destroyPopover();
+    destroyEventClickOutside();
+    destroyEventPressArrows();
+  }
+
+  onBeforeUnmount(() => destroyEventPressArrows());
+
+  return {
+    buttonRef,
+    handleKeydown,
+    isOpen,
+    menuParentRef,
+    menuRef,
+    togglePopover,
+  };
+}

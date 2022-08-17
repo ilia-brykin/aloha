@@ -1,0 +1,21 @@
+pux-cloak(
+  v-if="isLoading"
+  :size="'xs'"
+  :msg="''"
+)
+ui-select-element(
+  v-else
+  :class="className"
+  :options="optionsLocal"
+  :isEmpty="isEmpty"
+  :element="getElement"
+)
+  template(
+    v-if="options.slot"
+    v-slot:[options.slot]="vm"
+  )
+    slot(
+      :name="options.slot"
+      :item="getElement"
+    )
+

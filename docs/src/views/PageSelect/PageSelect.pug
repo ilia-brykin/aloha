@@ -1,0 +1,33 @@
+div
+  h1 ASelect
+  a-select(
+    v-model="model"
+    :data="data"
+    key-id="id"
+    key-label="label"
+    label="Test label"
+    type="select"
+    :search="true"
+  )
+  div model: {{ model }}
+  a-select(
+    v-model="model"
+    :data="data"
+    key-id="id"
+    :key-label-callback="getLabel"
+    label="Test label callback"
+    type="select"
+    :search="true"
+  )
+
+  br
+  a-select(
+    v-model="modelArr"
+    :data="data"
+    key-id="id"
+    key-label="label"
+    label="Test label multiselect"
+    type="multiselect"
+    :search="true"
+  )
+  div modelArr: {{ modelArr }}

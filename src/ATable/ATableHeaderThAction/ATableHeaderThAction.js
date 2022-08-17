@@ -123,6 +123,7 @@ export default {
                   label: "Search",
                   modelValue: this.searchColumnModel,
                   isClearButton: true,
+                  modelUndefined: "",
                   "onUpdate:modelValue": this.updateSearchColumnModel,
                 }),
               ]),

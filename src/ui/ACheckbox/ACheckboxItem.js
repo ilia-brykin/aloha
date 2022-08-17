@@ -39,14 +39,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    keyId: {
-      type: String,
-      required: true,
-    },
-    keyLabel: {
-      type: String,
-      required: true,
-    },
   },
   emits: [
     "changeModelValue",
