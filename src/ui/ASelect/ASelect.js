@@ -97,11 +97,6 @@ export default {
       required: false,
       default: "Suche",
     },
-    orderByParameters: {
-      type: Array,
-      required: false,
-      default: undefined,
-    },
     isDeselect: {
       type: Boolean,
       required: false,
@@ -140,6 +135,11 @@ export default {
       type: String,
       required: false,
       default: "Alle abwählen",
+    },
+    sortOrder: {
+      type: String,
+      required: false,
+      validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
   },
   emits: [

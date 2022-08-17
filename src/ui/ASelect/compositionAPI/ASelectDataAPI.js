@@ -3,6 +3,7 @@ import {
   toRef,
 } from "vue";
 
+import AKeyLabel from "../../const/AKeyLabel";
 import {
   orderBy,
 } from "lodash-es";
@@ -10,17 +11,10 @@ import {
 export default function ASelectDataAPI(props, {
   dataLocal = computed(() => []),
 }) {
-  const options = toRef(props, "options");
-  const orderByParameters = toRef(props, "orderByParameters");
-  const orderByParametersLocal = computed(() => {
-    return "orderByParameters" in options.value ?
-      options.value.orderByParameters :
-      orderByParameters.value;
-  });
-
+  const sortOrder = toRef(props, "sortOrder");
   const dataSort = computed(() => {
-    if (orderByParametersLocal.value && orderByParametersLocal.value.length) {
-      return orderBy(dataLocal.value, ...orderByParametersLocal);
+    if (sortOrder.value) {
+      return orderBy(dataLocal.value, [AKeyLabel], [sortOrder.value]);
     }
     return dataLocal.value;
   });
