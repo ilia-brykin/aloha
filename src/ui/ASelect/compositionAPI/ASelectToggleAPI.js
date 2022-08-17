@@ -7,22 +7,16 @@ import {
 
 import AEventOutsideAPI from "../../../compositionAPI/AEventOutsideAPI";
 
+import AKeysCode from "../../../const/AKeysCode";
 import {
   createPopper,
 } from "@popperjs/core";
 import {
-  forEach, isFunction,
+  forEach,
+  isFunction,
 } from "lodash-es";
 
 const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled])";
-const KEYS_CODE = {
-  tab: 9,
-  space: 32,
-  enter: 13,
-  arrowUp: 38,
-  arrowDown: 40,
-  escape: 27,
-};
 
 export default function ASelectToggleAPI(props, {
   emit,
@@ -55,7 +49,6 @@ export default function ASelectToggleAPI(props, {
 
   const pressArrows = ({ isArrowDown }) => {
     const ELEMENTS = menuRef.value.querySelectorAll(ELEMENTS_FOR_ARROWS);
-    console.log("ELEMENTS", ELEMENTS);
     if (ELEMENTS.length === 0) {
       return;
     }
@@ -86,15 +79,15 @@ export default function ASelectToggleAPI(props, {
 
   const pressButton = $event => {
     const KEY_CODE = $event.keyCode;
-    const IS_ARROW_DOWN = KEY_CODE === KEYS_CODE.arrowDown;
+    const IS_ARROW_DOWN = KEY_CODE === AKeysCode.arrowDown;
     if (IS_ARROW_DOWN ||
-      KEY_CODE === KEYS_CODE.arrowUp) {
+      KEY_CODE === AKeysCode.arrowUp) {
       pressArrows({ isArrowDown: IS_ARROW_DOWN });
       $event.preventDefault();
-    } else if (KEY_CODE === KEYS_CODE.escape) {
+    } else if (KEY_CODE === AKeysCode.escape) {
       closePopover();
       setFocusToButton();
-    } else if (KEY_CODE === KEYS_CODE.tab) {
+    } else if (KEY_CODE === AKeysCode.tab) {
       $event.preventDefault();
     }
   };
@@ -201,13 +194,13 @@ export default function ASelectToggleAPI(props, {
 
   const handleKeydown = $event => {
     const KEY_CODE = $event.keyCode;
-    if (KEY_CODE === KEYS_CODE.enter ||
-      KEY_CODE === KEYS_CODE.space) {
+    if (KEY_CODE === AKeysCode.enter ||
+      KEY_CODE === AKeysCode.space) {
       togglePopover();
       $event.preventDefault();
     } else if (!isOpen.value &&
-      (KEY_CODE === KEYS_CODE.arrowUp ||
-        KEY_CODE === KEYS_CODE.arrowDown)) {
+      (KEY_CODE === AKeysCode.arrowUp ||
+        KEY_CODE === AKeysCode.arrowDown)) {
       openPopover();
       $event.preventDefault();
     }

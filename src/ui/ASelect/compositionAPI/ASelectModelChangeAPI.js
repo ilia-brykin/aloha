@@ -3,6 +3,8 @@ import {
   toRef,
 } from "vue";
 
+import AKeysCode from "../../../const/AKeysCode";
+import AKeyId from "../../const/AKeyId";
 import {
   cloneDeep,
 } from "lodash-es";
@@ -12,6 +14,7 @@ export default function ASelectModelChangeAPI(props, {
   changeModel = () => {},
   togglePopover = () => {},
   isCloseByClickLocal = computed(() => undefined),
+  dataLocal = computed(() => []),
 }) {
   const options = toRef(props, "options");
   const isDeselect = toRef(props, "isDeselect");
@@ -54,7 +57,42 @@ export default function ASelectModelChangeAPI(props, {
     }
   };
 
+  const onSelectAll = () => {
+    const MODEL = dataLocal.value.map(item => item[AKeyId]);
+    changeModel({
+      model: MODEL,
+    });
+  };
+
+  const onKeydownSelectAll = $event => {
+    const KEY_CODE = $event.keyCode;
+    if (KEY_CODE === AKeysCode.enter ||
+      KEY_CODE === AKeysCode.space) {
+      onSelectAll();
+      $event.preventDefault();
+    }
+  };
+
+  const onDeselectAll = () => {
+    changeModel({
+      model: [],
+    });
+  };
+
+  const onKeydownDeselectAll = $event => {
+    const KEY_CODE = $event.keyCode;
+    if (KEY_CODE === AKeysCode.enter ||
+      KEY_CODE === AKeysCode.space) {
+      onDeselectAll();
+      $event.preventDefault();
+    }
+  };
+
   return {
     onChangeModelValue,
+    onDeselectAll,
+    onKeydownDeselectAll,
+    onKeydownSelectAll,
+    onSelectAll,
   };
 }

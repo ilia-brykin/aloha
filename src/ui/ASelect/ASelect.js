@@ -123,6 +123,24 @@ export default {
       required: false,
       default: undefined,
     },
+    isSelectAll: {
+      type: Boolean,
+      required: false,
+    },
+    isDeselectAll: {
+      type: Boolean,
+      required: false,
+    },
+    textSelectAll: {
+      type: String,
+      required: false,
+      default: "Alle auswählen",
+    },
+    textDeselectAll: {
+      type: String,
+      required: false,
+      default: "Alle abwählen",
+    },
   },
   emits: [
     "onSearchOutside",
@@ -221,9 +239,6 @@ export default {
       return disabledLocal.value ? undefined : 0;
     });
 
-
-    const modelObj = {};
-
     const menuRightLocal = true;
 
     const {
@@ -245,11 +260,16 @@ export default {
     
     const {
       onChangeModelValue,
+      onDeselectAll,
+      onKeydownDeselectAll,
+      onKeydownSelectAll,
+      onSelectAll,
     } = ASelectModelChangeAPI(props, {
       isMultiselect,
       changeModel,
       isCloseByClickLocal,
       togglePopover,
+      dataLocal,
     });
 
     const {
@@ -268,6 +288,12 @@ export default {
     } = ASelectSearchAPI(props, context, {
       idLocal,
       dataLocal,
+    });
+
+    const isSelectAll = toRef(props, "isSelectAll");
+    const isDeselectAll = toRef(props, "isDeselectAll");
+    const isDividerSelectDeselectVisible = computed(() => {
+      return isMultiselect.value && (isSelectAll.value || isDeselectAll.value);
     });
 
     return {
@@ -295,9 +321,9 @@ export default {
       buttonClassLocal,
       ariaLabelledby,
       tabindex,
-      modelObj,
       idForList,
       menuRightLocal,
+      isDividerSelectDeselectVisible,
 
       dataFiltered,
 
@@ -313,7 +339,12 @@ export default {
       textSearchLocal,
       updateModelSearch,
       updateModelSearchOutside,
+
       onChangeModelValue,
+      onDeselectAll,
+      onKeydownDeselectAll,
+      onKeydownSelectAll,
+      onSelectAll,
 
       buttonRef,
       handleKeydown,
@@ -448,6 +479,43 @@ export default {
                     class: "a_select__divider",
                     ariaHidden: true,
                   }),
+                  (this.isMultiselect && this.isSelectAll) && h("div", {
+                    class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                    role: "option",
+                    tabindex: "-1",
+                    onClick: this.onSelectAll,
+                    onKeydown: this.onKeydownSelectAll,
+                  }, [
+                    h("span", {
+                      class: "a_select__menu__link__icon_box",
+                    }, [
+                      h(AIcon, {
+                        icon: "Ok",
+                      }),
+                    ]),
+                    h("span", null, this.textSelectAll),
+                  ]),
+                  (this.isMultiselect && this.isDeselectAll) && h("div", {
+                    class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                    role: "option",
+                    tabindex: "-1",
+                    onClick: this.onDeselectAll,
+                    onKeydown: this.onKeydownDeselectAll,
+                  }, [
+                    h("span", {
+                      class: "a_select__menu__link__icon_box",
+                    }, [
+                      h(AIcon, {
+                        icon: "Close",
+                      }),
+                    ]),
+                    h("span", null, this.textDeselectAll),
+                  ]),
+                  (this.isDividerSelectDeselectVisible) && h("div", {
+                    class: "a_select__divider",
+                    ariaHidden: true,
+                  }),
+
                   ...this.dataFiltered.map(item => {
                     return h(ASelectElement, {
                       data: item,
