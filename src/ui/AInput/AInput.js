@@ -1,6 +1,7 @@
 import {
   computed,
   h,
+  ref,
   toRef,
 } from "vue";
 
@@ -84,6 +85,7 @@ export default {
       return type.value;
     });
 
+    const inputRef = ref(undefined);
     const onInput = $event => {
       if (disabledLocal.value) {
         return;
@@ -94,7 +96,7 @@ export default {
         if (value !== "") {
           value = +value;
         }
-        // this.$refs.input.value = value;
+        inputRef.value.value = value;
       }
       changeModel({
         model: value,
@@ -126,6 +128,7 @@ export default {
       typeForInput,
       typeLocal,
 
+      inputRef,
       isLabelFloatLocal,
       onFocus,
       onBlur,
@@ -155,7 +158,7 @@ export default {
           class: "a_input__icon_prepend",
         }),
         h("input", {
-          ref: "input",
+          ref: "inputRef",
           id: this.idLocal,
           value: this.modelValue,
           type: this.typeForInput,
