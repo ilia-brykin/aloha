@@ -54,6 +54,7 @@ export default {
       h("button", {
         class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
         type: "button",
+        tabindex: -1,
         onClick: this.closeModel,
       }, [
         h(AIcon, {

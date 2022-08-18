@@ -385,6 +385,7 @@ export default {
         labelClass: this.labelClass,
         required: this.requiredLocal,
         isLabelFloat: this.isLabelFloatLocal,
+        type: this.type,
       }),
       h("div", {
         class: "a_form_element",

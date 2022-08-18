@@ -1,19 +1,17 @@
 import {
-  h,
+  computed,
+  h, toRef,
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
 
-import frameworks from "../../const/frameworks";
-import {
-  frameworksApi,
-} from "../../API/frameworksApi";
+const TYPES_FOR_FOCUS = {
+  select: true,
+  multiselect: true,
+};
 
 export default {
   name: "ALabel",
-  components: {
-    ATranslation,
-  },
   props: {
     id: {
       type: String,
@@ -35,41 +33,43 @@ export default {
       type: String,
       required: false,
     },
-    framework: {
-      type: String,
+    isLabelFloat: {
+      type: Boolean,
       required: false,
-      validator: framework => frameworks.indexOf(framework) !== -1,
     },
   },
   setup(props) {
-    const {
-      frameworkLocal,
-    } = frameworksApi(props);
+    const type = toRef(props, "type");
+    const id = toRef(props, "id");
+    const idLabel = computed(() => {
+      return `${ id.value }_label`;
+    });
+
+    const onClick = () => {
+      if (TYPES_FOR_FOCUS[type.value]) {
+        const ELEMENT = document.getElementById(id.value);
+        if (ELEMENT) {
+          ELEMENT.focus();
+        }
+      }
+    };
+
     return {
-      frameworkLocal,
+      idLabel,
+      onClick,
     };
   },
   computed: {
     textAfterLabel() {
       return this.required ? "*" : "";
     },
-
-    labelClassLocal() {
-      if (this.frameworkLocal) {
-        const LABEL_CLASS_FRAMEWORK = {
-          bootstrap: "form-label",
-          bulma: "label",
-          foundation: "",
-          uikit: "",
-        };
-        return LABEL_CLASS_FRAMEWORK[this.frameworkLocal];
-      }
-    },
   },
   render() {
     return h("label", {
+      id: this.idLabel,
       for: this.id,
-      class: ["a_form_element_label", this.labelClass, this.labelClassLocal],
+      class: ["a_form_element_label", this.labelClass],
+      onClick: this.onClick,
     }, [
       h(ATranslation, {
         tag: "span",
