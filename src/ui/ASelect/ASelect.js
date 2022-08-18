@@ -22,6 +22,7 @@ import ASelectSearchAPI from "./compositionAPI/ASelectSearchAPI";
 import ASelectToggleAPI from "./compositionAPI/ASelectToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
 import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
 import AKeyId from "../const/AKeyId";
@@ -163,6 +164,10 @@ export default {
     "open",
   ],
   setup(props, context) {
+    const {
+      componentStyleHideDependencies,
+    } = UiDependenciesAPI(props);
+
     const {
       ariaRequired,
       changeModel,
@@ -314,6 +319,8 @@ export default {
     });
 
     return {
+      componentStyleHideDependencies,
+
       ariaRequired,
       clearModel,
       disabledLocal,
@@ -373,7 +380,9 @@ export default {
     };
   },
   render() {
-    return h("div", null, [
+    return h("div", {
+      style: this.componentStyleHideDependencies,
+    }, [
       h("div", {
         class: ["a_form_element__parent", {
           a_form_element__parent_float: this.isLabelFloatLocal,

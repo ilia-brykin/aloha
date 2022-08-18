@@ -16,6 +16,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
 import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
 import autosize from "../../utils/autosize";
@@ -47,6 +48,10 @@ export default {
     },
   },
   setup(props, context) {
+    const {
+      componentStyleHideDependencies,
+    } = UiDependenciesAPI(props);
+
     const {
       ariaRequired,
       changeModel,
@@ -119,6 +124,8 @@ export default {
     });
 
     return {
+      componentStyleHideDependencies,
+
       ariaRequired,
       changeModel,
       clearModel,
