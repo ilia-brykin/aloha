@@ -90,6 +90,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageSelect" */ "../views/PageSelect/PageSelect.vue"),
   },
   {
+    path: "/form",
+    name: "PageForm",
+    component: () => import(/* webpackChunkName: "PageForm" */ "../views/PageForm/PageForm.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

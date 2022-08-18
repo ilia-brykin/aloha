@@ -158,49 +158,51 @@ export default {
     // },
   },
   render() {
-    return h("div", {
-      class: ["a_form_element__parent", {
-        a_form_element__parent_float: this.isLabelFloatLocal,
-        a_form_element__parent_not_empty: this.isModel,
-      }],
-    }, [
-      this.labelLocal && h(ALabel, {
-        id: this.idLocal,
-        label: this.labelLocal,
-        labelClass: this.labelClass,
-        required: this.requiredLocal,
-        isLabelFloat: this.isLabelFloatLocal,
-      }),
+    return h("div", null, [
       h("div", {
-        class: "a_form_element",
+        class: ["a_form_element__parent", {
+          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_not_empty: this.isModel,
+        }],
       }, [
-        h("textarea", {
-          ref: "textareaRef",
+        this.labelLocal && h(ALabel, {
           id: this.idLocal,
-          value: this.modelValue,
-          rows: this.rowsLocal,
-          class: [
-            "a_form_control a_textarea",
-            this.inputClass,
-            {
-              a_textarea_scalable: this.isScalable,
-              a_form_element_with_btn_close: this.isClearButtonLocal,
-            },
-          ],
-          disabled: this.disabledLocal,
-          ariaRequired: this.ariaRequired,
-          ariaInvalid: this.isError,
-          maxlength: this.maxlength,
-          ...this.inputAttributes,
-          onInput: this.onInput,
-          onFocus: this.onFocus,
-          onBlur: this.onBlur,
+          label: this.labelLocal,
+          labelClass: this.labelClass,
+          required: this.requiredLocal,
+          isLabelFloat: this.isLabelFloatLocal,
         }),
-        this.isClearButtonLocal && h(AFormElementBtnClear, {
-          disabled: this.disabledLocal,
-          clearButtonClass: this.clearButtonClassLocal,
-          onClear: this.clearModel,
-        }),
+        h("div", {
+          class: "a_form_element",
+        }, [
+          h("textarea", {
+            ref: "textareaRef",
+            id: this.idLocal,
+            value: this.modelValue,
+            rows: this.rowsLocal,
+            class: [
+              "a_form_control a_textarea",
+              this.inputClass,
+              {
+                a_textarea_scalable: this.isScalable,
+                a_form_element_with_btn_close: this.isClearButtonLocal,
+              },
+            ],
+            disabled: this.disabledLocal,
+            ariaRequired: this.ariaRequired,
+            ariaInvalid: this.isError,
+            maxlength: this.maxlength,
+            ...this.inputAttributes,
+            onInput: this.onInput,
+            onFocus: this.onFocus,
+            onBlur: this.onBlur,
+          }),
+          this.isClearButtonLocal && h(AFormElementBtnClear, {
+            disabled: this.disabledLocal,
+            clearButtonClass: this.clearButtonClassLocal,
+            onClear: this.clearModel,
+          }),
+        ]),
       ]),
     ]);
   },

@@ -207,47 +207,49 @@ export default {
     };
   },
   render() {
-    return h("div", {
-      class: ["a_form_element__parent", {
-        a_form_element__parent_not_empty: this.isModel,
-      }],
-    }, [
-      this.labelLocal && h(ALabel, {
-        id: this.id,
-        label: this.label,
-        labelClass: this.labelClass,
-        required: this.requiredLocal,
-        type: this.typeLocal,
-        isLabelFloat: this.isLabelFloatLocal,
-      }),
+    return h("div", null, [
       h("div", {
-        class: ["switch_button", {
-          switch_button_undefined: this.isModelDefault,
+        class: ["a_form_element__parent", {
+          a_form_element__parent_not_empty: this.isModel,
         }],
       }, [
-        h("input", {
+        this.labelLocal && h(ALabel, {
           id: this.id,
-          ref: "input",
-          checked: this.isChecked,
-          type: "checkbox",
-          class: [
-            "switch_button__input",
-            this.inputClass,
-          ],
-          disabled: this.disabledLocal,
-          ariaRequired: this.ariaRequired,
-          ariaInvalid: this.isError,
-          ...this.inputAttributes,
-          onClick: this.onInput,
-          onKeydown: this.onKeydown,
-          onFocus: this.onFocus,
-          onBlur: this.onBlur,
+          label: this.label,
+          labelClass: this.labelClass,
+          required: this.requiredLocal,
+          type: this.typeLocal,
+          isLabelFloat: this.isLabelFloatLocal,
         }),
-        h("label", {
-          class: "switch_button__label",
-          for: this.id,
-          innerHTML: this.labelValueLocal
-        }),
+        h("div", {
+          class: ["switch_button", {
+            switch_button_undefined: this.isModelDefault,
+          }],
+        }, [
+          h("input", {
+            id: this.id,
+            ref: "input",
+            checked: this.isChecked,
+            type: "checkbox",
+            class: [
+              "switch_button__input",
+              this.inputClass,
+            ],
+            disabled: this.disabledLocal,
+            ariaRequired: this.ariaRequired,
+            ariaInvalid: this.isError,
+            ...this.inputAttributes,
+            onClick: this.onInput,
+            onKeydown: this.onKeydown,
+            onFocus: this.onFocus,
+            onBlur: this.onBlur,
+          }),
+          h("label", {
+            class: "switch_button__label",
+            for: this.id,
+            innerHTML: this.labelValueLocal
+          }),
+        ]),
       ]),
     ]);
   },

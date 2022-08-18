@@ -78,6 +78,11 @@ export default {
           name: "PageSelect",
           label: "Select",
         },
+        {
+          id: "form",
+          name: "PageForm",
+          label: "Form",
+        },
       ],
     };
   },

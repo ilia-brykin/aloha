@@ -81,39 +81,41 @@ export default {
     };
   },
   render() {
-    return h("div", {
-      class: ["a_form_element__parent"],
-    }, [
+    return h("div", null, [
       h("div", {
-        class: "a_form_element",
+        class: ["a_form_element__parent"],
       }, [
         h("div", {
-          class: "a_custom_control a_custom_checkbox",
+          class: "a_form_element",
         }, [
-          h("input", {
-            id: this.idLocal,
-            value: this.modelValue,
-            type: "checkbox",
-            checked: this.isChecked,
-            class: "a_custom_control_input",
-            disabled: this.disabledLocal,
-            ariaRequired: this.ariaRequired,
-            ariaInvalid: this.isError,
-            ...this.inputAttributes,
-            onClick: this.onClick,
-            onKeydown: this.onKeydown,
-            onFocus: this.onFocus,
-            onBlur: this.onBlur,
-          }),
-          h("label", {
-            for: this.idLocal,
-            class: ["a_custom_control_label", {
-              a_custom_control_label_width_auto: this.isWidthAuto,
-            }],
+          h("div", {
+            class: "a_custom_control a_custom_checkbox",
           }, [
-            h("span", {
-              innerHTML: this.labelLocal,
+            h("input", {
+              id: this.idLocal,
+              value: this.modelValue,
+              type: "checkbox",
+              checked: this.isChecked,
+              class: "a_custom_control_input",
+              disabled: this.disabledLocal,
+              ariaRequired: this.ariaRequired,
+              ariaInvalid: this.isError,
+              ...this.inputAttributes,
+              onClick: this.onClick,
+              onKeydown: this.onKeydown,
+              onFocus: this.onFocus,
+              onBlur: this.onBlur,
             }),
+            h("label", {
+              for: this.idLocal,
+              class: ["a_custom_control_label", {
+                a_custom_control_label_width_auto: this.isWidthAuto,
+              }],
+            }, [
+              h("span", {
+                innerHTML: this.labelLocal,
+              }),
+            ]),
           ]),
         ]),
       ]),

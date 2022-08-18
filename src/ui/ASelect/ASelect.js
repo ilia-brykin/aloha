@@ -373,227 +373,229 @@ export default {
     };
   },
   render() {
-    return h("div", {
-      class: ["a_form_element__parent", {
-        a_form_element__parent_float: this.isLabelFloatLocal,
-        a_form_element__parent_not_empty: this.isModelValue || this.isOpen,
-      }],
-    }, [
-      this.labelLocal && h(ALabel, {
-        id: this.id,
-        label: this.labelLocal,
-        labelClass: this.labelClass,
-        required: this.requiredLocal,
-        isLabelFloat: this.isLabelFloatLocal,
-        type: this.type,
-      }),
+    return h("div", null, [
       h("div", {
-        class: "a_form_element",
+        class: ["a_form_element__parent", {
+          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_not_empty: this.isModelValue || this.isOpen,
+        }],
       }, [
+        this.labelLocal && h(ALabel, {
+          id: this.id,
+          label: this.labelLocal,
+          labelClass: this.labelClass,
+          required: this.requiredLocal,
+          isLabelFloat: this.isLabelFloatLocal,
+          type: this.type,
+        }),
         h("div", {
-          id: this.containerId,
-          ref: "ui_select",
-          class: "ui_select",
-          role: "application",
+          class: "a_form_element",
         }, [
           h("div", {
-            ref: "buttonRef",
-            id: this.idLocal,
-            class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClassLocal, {
-              disabled: this.disabledLocal,
-              a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
-            }],
-            ariaLabelledby: this.ariaLabelledby,
-            role: "combobox",
-            tabindex: this.tabindex,
-            ariaHaspopup: "listbox",
-            ariaExpanded: this.isOpen,
-            ariaRequired: this.ariaRequired,
-            ariaDisabled: this.disabledLocal,
-            disabled: this.disabledLocal,
-            onClick: this.togglePopover,
-            onKeydown: this.handleKeydown,
-            onFocus: this.onFocus,
-            onBlur: this.onBlur,
+            id: this.containerId,
+            ref: "ui_select",
+            class: "ui_select",
+            role: "application",
           }, [
-            this.isModelValue ?
-              this.isMultiselect ?
-                this.isSelectionCloseable ?
-                  h("ul", {
-                    class: "a_select__ul_closeable",
-                  }, [
-                    this.modelValue.map((item, index) => {
-                      return h(ASelectValueCloseable, {
-                        key: index,
-                        data: this.dataKeyByKeyIdLocal[item],
-                        onChangeModelValue: this.onChangeModelValue,
-                      });
-                    }),
-                  ]) :
-                  h("span", {
-                    class: "a_select__value__label",
-                  }, [
-                    this.isModelLengthLimitExceeded ?
-                      h("span", null, `${ this.modelValueLength } ausgewählt`) :
+            h("div", {
+              ref: "buttonRef",
+              id: this.idLocal,
+              class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClassLocal, {
+                disabled: this.disabledLocal,
+                a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
+              }],
+              ariaLabelledby: this.ariaLabelledby,
+              role: "combobox",
+              tabindex: this.tabindex,
+              ariaHaspopup: "listbox",
+              ariaExpanded: this.isOpen,
+              ariaRequired: this.ariaRequired,
+              ariaDisabled: this.disabledLocal,
+              disabled: this.disabledLocal,
+              onClick: this.togglePopover,
+              onKeydown: this.handleKeydown,
+              onFocus: this.onFocus,
+              onBlur: this.onBlur,
+            }, [
+              this.isModelValue ?
+                this.isMultiselect ?
+                  this.isSelectionCloseable ?
+                    h("ul", {
+                      class: "a_select__ul_closeable",
+                    }, [
                       this.modelValue.map((item, index) => {
-                        return h("span", {
+                        return h(ASelectValueCloseable, {
                           key: index,
-                        }, [
-                          h("span", null, index !== 0 ? ", " : ""),
-                          h(ASelectLabelElement, {
-                            data: this.dataKeyByKeyIdLocal[item],
-                          }),
-                        ]);
+                          data: this.dataKeyByKeyIdLocal[item],
+                          onChangeModelValue: this.onChangeModelValue,
+                        });
                       }),
-                  ]) :
+                    ]) :
+                    h("span", {
+                      class: "a_select__value__label",
+                    }, [
+                      this.isModelLengthLimitExceeded ?
+                        h("span", null, `${ this.modelValueLength } ausgewählt`) :
+                        this.modelValue.map((item, index) => {
+                          return h("span", {
+                            key: index,
+                          }, [
+                            h("span", null, index !== 0 ? ", " : ""),
+                            h(ASelectLabelElement, {
+                              data: this.dataKeyByKeyIdLocal[item],
+                            }),
+                          ]);
+                        }),
+                    ]) :
                   h(ASelectLabelElement, {
                     data: this.dataKeyByKeyIdLocal[this.modelValue],
                     class: "a_select__value__label",
                   })
                 : "",
-            h(Teleport, {
-              to: "body",
-            }, [
-              h("div", {
-                ref: "menuParentRef",
-                id: this.idForList,
-                style: !this.isOpen ? "display: none;" : "",
-                role: "application",
+              h(Teleport, {
+                to: "body",
               }, [
                 h("div", {
-                  ref: "menuRef",
-                  class: ["a_select_menu", {
-                    a_select_menu_right: this.menuRightLocal,
-                  }],
-                  role: "listbox",
-                  ariaLabelledby: this.idLocal,
+                  ref: "menuParentRef",
+                  id: this.idForList,
+                  style: !this.isOpen ? "display: none;" : "",
+                  role: "application",
                 }, [
-                  this.searchOutsideLocal && h("div", {
-                    class: "a_select_search",
+                  h("div", {
+                    ref: "menuRef",
+                    class: ["a_select_menu", {
+                      a_select_menu_right: this.menuRightLocal,
+                    }],
+                    role: "listbox",
+                    ariaLabelledby: this.idLocal,
                   }, [
-                    h("form", {
-                      onSubmit: this.onSearchOutside,
+                    this.searchOutsideLocal && h("div", {
+                      class: "a_select_search",
                     }, [
-                      h("div", {
-                        class: "input-group",
+                      h("form", {
+                        onSubmit: this.onSearchOutside,
                       }, [
-                        h(AInput, {
-                          label: this.textSearchLocal,
-                          inputClass: "a_select__element_clickable",
-                          modelValue: this.modelSearchOutside,
-                          modelUndefined: "",
-                          "onUpdate:modelValue": this.updateModelSearchOutside,
-                        }),
-                        h("button", {
-                          disabled: this.disabledLocal,
-                          class: "a_btn a_btn_primary a_select__element_clickable",
-                          type: "submit",
+                        h("div", {
+                          class: "input-group",
                         }, [
-                          h(AIcon, {
-                            icon: "Search",
+                          h(AInput, {
+                            label: this.textSearchLocal,
+                            inputClass: "a_select__element_clickable",
+                            modelValue: this.modelSearchOutside,
+                            modelUndefined: "",
+                            "onUpdate:modelValue": this.updateModelSearchOutside,
                           }),
+                          h("button", {
+                            disabled: this.disabledLocal,
+                            class: "a_btn a_btn_primary a_select__element_clickable",
+                            type: "submit",
+                          }, [
+                            h(AIcon, {
+                              icon: "Search",
+                            }),
+                          ]),
                         ]),
                       ]),
                     ]),
-                  ]),
-                  this.searchLocal && h("div", {
-                    class: "a_select__search",
-                  }, [
-                    h(AInput, {
-                      label: this.textSearchLocal,
-                      inputClass: "a_select__element_clickable",
-                      modelValue: this.modelSearch,
-                      modelUndefined: "",
-                      "onUpdate:modelValue": this.updateModelSearch,
+                    this.searchLocal && h("div", {
+                      class: "a_select__search",
+                    }, [
+                      h(AInput, {
+                        label: this.textSearchLocal,
+                        inputClass: "a_select__element_clickable",
+                        modelValue: this.modelSearch,
+                        modelUndefined: "",
+                        "onUpdate:modelValue": this.updateModelSearch,
+                      }),
+                    ]),
+                    (this.searchOutsideLocal || this.searchLocal) && h("div", {
+                      class: "a_select__divider",
+                      ariaHidden: true,
                     }),
-                  ]),
-                  (this.searchOutsideLocal || this.searchLocal) && h("div", {
-                    class: "a_select__divider",
-                    ariaHidden: true,
-                  }),
-                  (this.isMultiselect && this.isSelectAll) && h("div", {
-                    class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
-                    role: "option",
-                    tabindex: "-1",
-                    onClick: this.onSelectAll,
-                    onKeydown: this.onKeydownSelectAll,
-                  }, [
-                    h("span", {
-                      class: "a_select__menu__link__icon_box",
+                    (this.isMultiselect && this.isSelectAll) && h("div", {
+                      class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                      role: "option",
+                      tabindex: "-1",
+                      onClick: this.onSelectAll,
+                      onKeydown: this.onKeydownSelectAll,
                     }, [
-                      h(AIcon, {
-                        icon: "Ok",
-                      }),
+                      h("span", {
+                        class: "a_select__menu__link__icon_box",
+                      }, [
+                        h(AIcon, {
+                          icon: "Ok",
+                        }),
+                      ]),
+                      h("span", null, this.textSelectAll),
                     ]),
-                    h("span", null, this.textSelectAll),
-                  ]),
-                  (this.isMultiselect && this.isDeselectAll) && h("div", {
-                    class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
-                    role: "option",
-                    tabindex: "-1",
-                    onClick: this.onDeselectAll,
-                    onKeydown: this.onKeydownDeselectAll,
-                  }, [
-                    h("span", {
-                      class: "a_select__menu__link__icon_box",
+                    (this.isMultiselect && this.isDeselectAll) && h("div", {
+                      class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                      role: "option",
+                      tabindex: "-1",
+                      onClick: this.onDeselectAll,
+                      onKeydown: this.onKeydownDeselectAll,
                     }, [
-                      h(AIcon, {
-                        icon: "Close",
-                      }),
+                      h("span", {
+                        class: "a_select__menu__link__icon_box",
+                      }, [
+                        h(AIcon, {
+                          icon: "Close",
+                        }),
+                      ]),
+                      h("span", null, this.textDeselectAll),
                     ]),
-                    h("span", null, this.textDeselectAll),
-                  ]),
-                  (this.isDividerSelectDeselectVisible) && h("div", {
-                    class: "a_select__divider",
-                    ariaHidden: true,
-                  }),
+                    (this.isDividerSelectDeselectVisible) && h("div", {
+                      class: "a_select__divider",
+                      ariaHidden: true,
+                    }),
 
-                  this.keyGroup && h(ASlot, null, () => [
-                    ...this.dataGrouped.dataKeyByGroup._not_grouped.map(item => {
-                      return h(ASelectElement, {
-                        data: item,
-                        modelValue: this.modelValue,
-                        modelSearch: this.modelSearch,
-                        isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
-                        isSelected: false,
-                        isMultiselect: this.isMultiselect,
-                        disabled: this.disabledLocal,
-                        onChangeModelValue: this.onChangeModelValue,
-                      });
-                    }),
-                    ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
-                      return h(ASelectGroup, {
-                        id: this.idLocal,
-                        groupElements: this.dataGrouped.dataKeyByGroup[groupItem.groupKey],
-                        groupLabel: groupItem.groupLabel,
-                        groupIndex: groupIndex,
-                        modelValue: this.modelValue,
-                        modelSearch: this.modelSearch,
-                        elementsHiddenWithSearch: this.elementsHiddenWithSearch,
-                        isSelected: false,
-                        isMultiselect: this.isMultiselect,
-                        disabled: this.disabledLocal,
-                        onChangeModelValue: this.onChangeModelValue,
-                      });
-                    }),
+                    this.keyGroup && h(ASlot, null, () => [
+                      ...this.dataGrouped.dataKeyByGroup._not_grouped.map(item => {
+                        return h(ASelectElement, {
+                          data: item,
+                          modelValue: this.modelValue,
+                          modelSearch: this.modelSearch,
+                          isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
+                          isSelected: false,
+                          isMultiselect: this.isMultiselect,
+                          disabled: this.disabledLocal,
+                          onChangeModelValue: this.onChangeModelValue,
+                        });
+                      }),
+                      ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
+                        return h(ASelectGroup, {
+                          id: this.idLocal,
+                          groupElements: this.dataGrouped.dataKeyByGroup[groupItem.groupKey],
+                          groupLabel: groupItem.groupLabel,
+                          groupIndex: groupIndex,
+                          modelValue: this.modelValue,
+                          modelSearch: this.modelSearch,
+                          elementsHiddenWithSearch: this.elementsHiddenWithSearch,
+                          isSelected: false,
+                          isMultiselect: this.isMultiselect,
+                          disabled: this.disabledLocal,
+                          onChangeModelValue: this.onChangeModelValue,
+                        });
+                      }),
+                    ]),
+                    !this.keyGroup && h(ASlot, null, () => [
+                      ...this.dataFiltered.map(item => {
+                        return h(ASelectElement, {
+                          data: item,
+                          modelValue: this.modelValue,
+                          modelSearch: this.modelSearch,
+                          isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
+                          isSelected: false,
+                          isMultiselect: this.isMultiselect,
+                          disabled: this.disabledLocal,
+                          onChangeModelValue: this.onChangeModelValue,
+                        });
+                      }),
+                    ]),
+                    this.isAllElementsHidden && h("span", {
+                      class: "a_select_not_items",
+                    }, "[Keine Auswahl]"),
                   ]),
-                  !this.keyGroup && h(ASlot, null, () => [
-                    ...this.dataFiltered.map(item => {
-                      return h(ASelectElement, {
-                        data: item,
-                        modelValue: this.modelValue,
-                        modelSearch: this.modelSearch,
-                        isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
-                        isSelected: false,
-                        isMultiselect: this.isMultiselect,
-                        disabled: this.disabledLocal,
-                        onChangeModelValue: this.onChangeModelValue,
-                      });
-                    }),
-                  ]),
-                  this.isAllElementsHidden && h("span", {
-                    class: "a_select_not_items",
-                  }, "[Keine Auswahl]"),
                 ]),
               ]),
             ]),

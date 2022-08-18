@@ -96,29 +96,31 @@ export default {
     };
   },
   render() {
-    return h("div", {
-      class: ["a_form_element__parent"],
-    }, [
+    return h("div", null, [
       h("div", {
-        class: "a_form_element",
+        class: ["a_form_element__parent"],
       }, [
-        h("fieldset", {}, [
-          this.labelLocal && h("legend", {
-            innerHTML: this.labelLocal,
-          }),
-          ...this.dataLocal.map((item, itemIndex) => {
-            return h(ACheckboxItem, {
-              id: this.idLocal,
-              key: itemIndex,
-              dataItem: item,
-              itemIndex,
-              options: this.options,
-              modelValue: this.modelValue,
-              onChangeModelValue: this.onChangeModelValue,
-              disabled: this.disabledLocal,
-              isWidthAuto: this.isWidthAutoLocal,
-            });
-          })
+        h("div", {
+          class: "a_form_element",
+        }, [
+          h("fieldset", {}, [
+            this.labelLocal && h("legend", {
+              innerHTML: this.labelLocal,
+            }),
+            ...this.dataLocal.map((item, itemIndex) => {
+              return h(ACheckboxItem, {
+                id: this.idLocal,
+                key: itemIndex,
+                dataItem: item,
+                itemIndex,
+                options: this.options,
+                modelValue: this.modelValue,
+                onChangeModelValue: this.onChangeModelValue,
+                disabled: this.disabledLocal,
+                isWidthAuto: this.isWidthAutoLocal,
+              });
+            })
+          ]),
         ]),
       ]),
     ]);

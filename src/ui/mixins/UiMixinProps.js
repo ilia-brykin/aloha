@@ -56,6 +56,11 @@ export default {
       required: false,
       default: undefined,
     },
+    classColumn: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "update:modelValue",
