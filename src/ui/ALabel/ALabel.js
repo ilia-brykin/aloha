@@ -4,11 +4,8 @@ import {
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
+import { isFunction } from "lodash-es";
 
-const TYPES_FOR_FOCUS = {
-  select: true,
-  multiselect: true,
-};
 
 export default {
   name: "ALabel",
@@ -37,20 +34,24 @@ export default {
       type: Boolean,
       required: false,
     },
+    clickLabel: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
   },
   setup(props) {
-    const type = toRef(props, "type");
     const id = toRef(props, "id");
     const idLabel = computed(() => {
       return `${ id.value }_label`;
     });
 
-    const onClick = () => {
-      if (TYPES_FOR_FOCUS[type.value]) {
-        const ELEMENT = document.getElementById(id.value);
-        if (ELEMENT) {
-          ELEMENT.focus();
-        }
+    const clickLabel = toRef(props, "clickLabel");
+    const onClick = $event => {
+      if (isFunction(clickLabel.value)) {
+        clickLabel.value();
+        $event.stopPropagation();
+        $event.preventDefault();
       }
     };
 

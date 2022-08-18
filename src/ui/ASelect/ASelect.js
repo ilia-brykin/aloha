@@ -387,6 +387,7 @@ export default {
           required: this.requiredLocal,
           isLabelFloat: this.isLabelFloatLocal,
           type: this.type,
+          clickLabel: this.togglePopover,
         }),
         h("div", {
           class: "a_form_element",
