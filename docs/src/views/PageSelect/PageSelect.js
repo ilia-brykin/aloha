@@ -9,6 +9,7 @@ export default {
     return {
       model: undefined,
       modelArr: undefined,
+      modelArr2: undefined,
       data: [
         {
           label: "Aloha 1",
@@ -34,17 +35,17 @@ export default {
           group: "group 2",
         },
         {
-          label: "Aloha 6",
+          label: "AlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAloha 6",
           id: "aloha_6",
           group: "group 2",
         },
         {
-          label: "Aloha 7",
+          label: "AlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAloha 7",
           id: "aloha_7",
           group: "group 2",
         },
         {
-          label: "Aloha 8",
+          label: "AlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAlohaAloha 8",
           id: "aloha_8",
         },
       ],

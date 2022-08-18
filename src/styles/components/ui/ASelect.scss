@@ -3,6 +3,7 @@
   --a_select_close_hover_color: --a_color_primary;
   --a_select_placeholder_color: --a_color_gray_600;
   --a_select_min_width: 200px;
+  --a_select_closeable_item_bg: var(--a_color_gray_200);
 
   position: relative;
 }
@@ -12,6 +13,9 @@
   min-width: 200px;
   text-align: left;
 }
+.a_select_toggle_closeable {
+  padding: 0;
+}
 
 .a_select_toggle_caret {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
@@ -19,7 +23,7 @@
   background-position: right 0.75rem center;
   background-size: 16px 12px;
   min-height: calc(26px + 0.375rem * 2);
-  padding-right: 17px;
+  padding-right: 26px;
 }
 
 .a_select__search {
@@ -112,4 +116,23 @@
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.a_select__ul_closeable {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: unset;
+}
+
+.a_select__ul_closeable__item {
+  display: flex;
+  margin: .25rem .375rem;
+  background-color: var(--a_select_closeable_item_bg);
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-radius: var(--a_select_border_radius);
+}
+
+.a_select__ul_closeable__item__btn {
+  padding: 0 0 0 .25rem;
 }

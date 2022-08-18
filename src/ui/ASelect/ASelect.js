@@ -5,15 +5,14 @@ import {
   toRef,
 } from "vue";
 
-import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
 import ALabel from "../ALabel/ALabel";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../AInput/AInput";
 import ASelectGroup from "./ASelectGroup";
 import ASelectElement from "./ASelectElement";
 import ASelectLabelElement from "./ASelectLabelElement";
+import ASelectValueCloseable from "./ASelectValueCloseable";
 import ASlot from "../../ASlot/ASlot";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -33,11 +32,6 @@ import {
 
 export default {
   name: "ASelect",
-  components: {
-    AFormElementBtnClear,
-    ALabel,
-    ATranslation,
-  },
   mixins: [
     UiMixinProps,
   ],
@@ -157,6 +151,11 @@ export default {
       type: String,
       required: false,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
+    },
+    isSelectionCloseable: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
   emits: [
@@ -401,6 +400,7 @@ export default {
             id: this.idLocal,
             class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClassLocal, {
               disabled: this.disabledLocal,
+              a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
             }],
             ariaLabelledby: this.ariaLabelledby,
             role: "combobox",
@@ -417,27 +417,39 @@ export default {
           }, [
             this.isModelValue ?
               this.isMultiselect ?
-                h("span", {
-                  class: "a_select__value__label",
-                }, [
-                  this.isModelLengthLimitExceeded ?
-                    h("span", null, `${ this.modelValueLength } ausgewählt`) :
+                this.isSelectionCloseable ?
+                  h("ul", {
+                    class: "a_select__ul_closeable",
+                  }, [
                     this.modelValue.map((item, index) => {
-                      return h("span", {
+                      return h(ASelectValueCloseable, {
                         key: index,
-                      }, [
-                        h("span", null, index !== 0 ? ", " : ""),
-                        h(ASelectLabelElement, {
-                          data: this.dataKeyByKeyIdLocal[item],
-                        }),
-                      ]);
+                        data: this.dataKeyByKeyIdLocal[item],
+                        onChangeModelValue: this.onChangeModelValue,
+                      });
                     }),
-                ]) :
-                h(ASelectLabelElement, {
-                  data: this.dataKeyByKeyIdLocal[this.modelValue],
-                  class: "a_select__value__label",
-                })
-              : "",
+                  ]) :
+                  h("span", {
+                    class: "a_select__value__label",
+                  }, [
+                    this.isModelLengthLimitExceeded ?
+                      h("span", null, `${ this.modelValueLength } ausgewählt`) :
+                      this.modelValue.map((item, index) => {
+                        return h("span", {
+                          key: index,
+                        }, [
+                          h("span", null, index !== 0 ? ", " : ""),
+                          h(ASelectLabelElement, {
+                            data: this.dataKeyByKeyIdLocal[item],
+                          }),
+                        ]);
+                      }),
+                  ]) :
+                  h(ASelectLabelElement, {
+                    data: this.dataKeyByKeyIdLocal[this.modelValue],
+                    class: "a_select__value__label",
+                  })
+                : "",
             h(Teleport, {
               to: "body",
             }, [
