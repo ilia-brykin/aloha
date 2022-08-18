@@ -15,6 +15,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
 import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
 export default {
@@ -45,6 +46,10 @@ export default {
     },
   },
   setup(props, context) {
+    const {
+      componentStyleHideDependencies,
+    } = UiDependenciesAPI(props);
+
     const {
       ariaRequired,
       changeModel,
@@ -111,6 +116,8 @@ export default {
     });
 
     return {
+      componentStyleHideDependencies,
+
       ariaRequired,
       clearModel,
       disabledLocal,
@@ -135,7 +142,9 @@ export default {
     };
   },
   render() {
-    return h("div", null, [
+    return h("div", {
+      style: this.componentStyleHideDependencies,
+    }, [
       h("div", {
         class: ["a_form_element__parent", {
           a_form_element__parent_float: this.isLabelFloatLocal,

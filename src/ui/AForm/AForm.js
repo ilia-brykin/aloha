@@ -76,16 +76,14 @@ export default {
         class: "a_columns a_columns_count_12 a_columns_gab_2",
       }, [
         ...this.data.map((item, itemIndex) => {
-          return h("div", {
+          return h(this.componentTypesMapping[item.type], {
+            key: itemIndex,
+            modelValue: this.modelValueLocal[item.id],
+            modelDependencies: this.modelValueLocal,
             class: ["a_column", item.classColumn || "a_column_12"],
-          }, [
-            h(this.componentTypesMapping[item.type], {
-              key: itemIndex,
-              modelValue: this.modelValueLocal[item.id],
-              "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
-              ...item,
-            })
-          ]);
+            "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+            ...item,
+          });
         }),
       ]),
     ]);

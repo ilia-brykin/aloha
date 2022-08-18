@@ -65,12 +65,6 @@ export default {
           classColumn: "a_column_4",
         },
         {
-          type: "text",
-          label: "Aloha 12",
-          id: "aloha12",
-          classColumn: "a_column_4",
-        },
-        {
           type: "select",
           label: "Aloha select",
           id: "aloha_select",
@@ -80,6 +74,28 @@ export default {
           search: true,
           keyGroup: "group",
           data: this.selectData,
+        },
+        {
+          type: "text",
+          label: "Aloha 12",
+          id: "aloha12",
+          classColumn: "a_column_4",
+          dependencies: [
+            {
+              id: "aloha_select",
+              value: "aloha_1",
+            },
+          ],
+        },
+        {
+          type: "text",
+          label: "Aloha 13",
+          id: "aloha13",
+          classColumn: "a_column_4",
+          dependencies: {
+            id: "aloha_select",
+            value: "aloha_2",
+          },
         },
       ];
     },
