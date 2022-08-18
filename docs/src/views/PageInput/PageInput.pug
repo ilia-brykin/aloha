@@ -22,4 +22,15 @@ div
   div model2:
   pre {{ model2 }}
 
+  h2 Textarea 2
+    a-textarea(
+      id="textarea3"
+      v-model="model3"
+      type="text"
+      label="Textarea 2"
+      :required="true"
+    )
+    div model3:
+    pre {{ model3 }}
+
 

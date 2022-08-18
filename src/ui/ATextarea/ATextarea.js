@@ -1,11 +1,13 @@
 import {
   computed,
   h,
+  onBeforeUnmount,
+  onMounted,
+  ref,
   toRef,
 } from "vue";
 
 import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
 import ATranslation from "../../ATranslation/ATranslation";
 
@@ -16,8 +18,11 @@ import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
+import autosize from "../../utils/autosize";
+
+
 export default {
-  name: "AInput",
+  name: "ATextarea",
   components: {
     AFormElementBtnClear,
     ALabel,
@@ -32,15 +37,13 @@ export default {
       type: String,
       required: false,
     },
-    type: {
-      type: String,
+    isScalable: {
+      type: Boolean,
       required: false,
-      default: "text",
     },
-    iconPrepend: {
-      type: String,
+    rows: {
+      type: [String, Number],
       required: false,
-      default: undefined,
     },
   },
   setup(props, context) {
@@ -69,74 +72,96 @@ export default {
       isLabelFloatLocal,
     } = UiLabelFloatAPI(props);
 
-    const type = toRef(props, "type");
-    const options = toRef(props, "options");
-    const typeLocal = computed(() => {
-      return "type" in options.value ?
-        options.value.type :
-        type.value;
+    const isAutosizeStarted = ref(undefined);
+
+    const rows = toRef(props, "rows");
+    const isScalable = toRef(props, "isScalable");
+    const rowsLocal = computed(() => {
+      if (rows.value) {
+        return rows.value;
+      }
+      if (isScalable.value) {
+        return 1;
+      }
+      return undefined;
     });
 
-    const typeForInput = computed(() => {
-      if (typeLocal.value === "integer") {
-        return "text";
+    const textareaRef = ref(undefined);
+    const initAutosize = () => {
+      if (isScalable.value) {
+        autosize(textareaRef.value);
+        isAutosizeStarted.value = true;
       }
-      return type.value;
-    });
+    };
+
+    const destroyAutosize = () => {
+      if (isAutosizeStarted.value) {
+        autosize.destroy(textareaRef.value);
+      }
+    };
 
     const onInput = $event => {
       if (disabledLocal.value) {
         return;
       }
-      let value = $event.target.value;
-      if (typeLocal.value === "integer") {
-        value = value.replace(/\D/g, "");
-        if (value !== "") {
-          value = +value;
-        }
-        // this.$refs.input.value = value;
-      }
+      const value = $event.target.value;
       changeModel({
         model: value,
       });
     };
 
-    const iconPrepend = toRef(props, "iconPrepend");
-    const iconPrependLocal = computed(() => {
-      return "type" in options.value ?
-        options.value.iconPrepend :
-        iconPrepend.value;
+    onMounted(() => {
+      initAutosize();
+    });
+
+    onBeforeUnmount(() => {
+      destroyAutosize();
     });
 
     return {
       ariaRequired,
+      changeModel,
       clearModel,
       disabledLocal,
       idLocal,
       isError,
       isModel,
       labelLocal,
+      onBlur,
+      onFocus,
       requiredLocal,
 
       clearButtonClassLocal,
       isClearButtonLocal,
 
-      iconPrependLocal,
-      onInput,
-      typeForInput,
-      typeLocal,
-
       isLabelFloatLocal,
-      onFocus,
-      onBlur,
+
+      isAutosizeStarted,
+      onInput,
+      rowsLocal,
+      textareaRef,
     };
+  },
+  methods: {
+    // clearModel() {
+    //   if (this.disabledClearButton) {
+    //     return;
+    //   }
+    //   this.onInput({
+    //     target: {
+    //       value: "",
+    //     },
+    //   });
+    //   setTimeout(() => {
+    //     autosize.update(this.$refs.textarea);
+    //   });
+    // },
   },
   render() {
     return h("div", {
       class: ["a_form_element__parent", {
         a_form_element__parent_float: this.isLabelFloatLocal,
         a_form_element__parent_not_empty: this.isModel,
-        a_form_element__parent_float_has_icon_prepend: this.iconPrependLocal,
       }],
     }, [
       this.labelLocal && h(ALabel, {
@@ -144,25 +169,21 @@ export default {
         label: this.labelLocal,
         labelClass: this.labelClass,
         required: this.requiredLocal,
-        type: this.typeLocal,
         isLabelFloat: this.isLabelFloatLocal,
       }),
       h("div", {
         class: "a_form_element",
       }, [
-        this.iconPrependLocal && h(AIcon, {
-          icon: this.iconPrependLocal,
-          class: "a_input__icon_prepend",
-        }),
-        h("input", {
-          ref: "input",
+        h("textarea", {
+          ref: "textareaRef",
           id: this.idLocal,
           value: this.modelValue,
-          type: this.typeForInput,
+          rows: this.rowsLocal,
           class: [
-            "a_form_control a_input",
+            "a_form_control a_textarea",
             this.inputClass,
             {
+              a_textarea_scalable: this.isScalable,
               a_form_element_with_btn_close: this.isClearButtonLocal,
             },
           ],

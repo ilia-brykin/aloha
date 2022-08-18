@@ -1,5 +1,5 @@
 import AInput from "../../../../src/ui/AInput/AInput";
-import ATextarea from "../../../../src/ATextarea/ATextarea";
+import ATextarea from "../../../../src/ui/ATextarea/ATextarea";
 
 
 export default {
@@ -12,6 +12,7 @@ export default {
     return {
       model1: "aloha",
       model2: "hola",
+      model3: "",
     };
   },
   methods: {
