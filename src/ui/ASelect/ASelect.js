@@ -9,8 +9,10 @@ import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormE
 import ALabel from "../ALabel/ALabel";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../AInput/AInput";
+import ASelectGroup from "./ASelectGroup";
 import ASelectElement from "./ASelectElement";
 import ASelectLabelElement from "./ASelectLabelElement";
+import ASlot from "../../ASlot/ASlot";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -69,6 +71,21 @@ export default {
       type: Function,
       required: false,
       default: undefined,
+    },
+    keyGroup: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    keyGroupCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
+    sortOrderGroup: {
+      type: String,
+      required: false,
+      validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     isDataSimpleArray: {
       type: Boolean,
@@ -243,6 +260,7 @@ export default {
 
     const {
       dataFiltered,
+      dataGrouped,
     } = ASelectDataAPI(props, {
       dataLocal,
     });
@@ -326,6 +344,7 @@ export default {
       isDividerSelectDeselectVisible,
 
       dataFiltered,
+      dataGrouped,
 
       elementsHiddenWithSearch,
       idForButtonSearchOutside,
@@ -516,18 +535,49 @@ export default {
                     ariaHidden: true,
                   }),
 
-                  ...this.dataFiltered.map(item => {
-                    return h(ASelectElement, {
-                      data: item,
-                      modelValue: this.modelValue,
-                      modelSearch: this.modelSearch,
-                      isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
-                      isSelected: false,
-                      isMultiselect: this.isMultiselect,
-                      disabled: this.disabledLocal,
-                      onChangeModelValue: this.onChangeModelValue,
-                    });
-                  }),
+                  this.keyGroup && h(ASlot, null, () => [
+                    ...this.dataGrouped.dataKeyByGroup._not_grouped.map(item => {
+                      return h(ASelectElement, {
+                        data: item,
+                        modelValue: this.modelValue,
+                        modelSearch: this.modelSearch,
+                        isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
+                        isSelected: false,
+                        isMultiselect: this.isMultiselect,
+                        disabled: this.disabledLocal,
+                        onChangeModelValue: this.onChangeModelValue,
+                      });
+                    }),
+                    ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
+                      return h(ASelectGroup, {
+                        id: this.idLocal,
+                        groupElements: this.dataGrouped.dataKeyByGroup[groupItem.groupKey],
+                        groupLabel: groupItem.groupLabel,
+                        groupIndex: groupIndex,
+                        modelValue: this.modelValue,
+                        modelSearch: this.modelSearch,
+                        elementsHiddenWithSearch: this.elementsHiddenWithSearch,
+                        isSelected: false,
+                        isMultiselect: this.isMultiselect,
+                        disabled: this.disabledLocal,
+                        onChangeModelValue: this.onChangeModelValue,
+                      });
+                    }),
+                  ]),
+                  !this.keyGroup && h(ASlot, null, () => [
+                    ...this.dataFiltered.map(item => {
+                      return h(ASelectElement, {
+                        data: item,
+                        modelValue: this.modelValue,
+                        modelSearch: this.modelSearch,
+                        isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
+                        isSelected: false,
+                        isMultiselect: this.isMultiselect,
+                        disabled: this.disabledLocal,
+                        onChangeModelValue: this.onChangeModelValue,
+                      });
+                    }),
+                  ]),
                   this.isAllElementsHidden && h("span", {
                     class: "a_select_not_items",
                   }, "[Keine Auswahl]"),
