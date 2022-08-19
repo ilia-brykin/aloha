@@ -167,8 +167,10 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
+      ariaDescribedbyLocal,
       changeModel,
       clearModel,
+      helpTextId,
       idLocal,
       isError,
       onBlur,
@@ -282,10 +284,20 @@ export default {
       return isMultiselect.value && (isSelectAll.value || isDeselectAll.value);
     });
 
+    const attributesDisabled = computed(() => {
+      const ATTRIBUTES = {};
+      if (disabled.value) {
+        ATTRIBUTES.disabled = true;
+      }
+      return ATTRIBUTES;
+    });
+
     return {
       componentStyleHideDependencies,
 
+      ariaDescribedbyLocal,
       clearModel,
+      helpTextId,
       idLocal,
       isError,
 
@@ -294,6 +306,7 @@ export default {
 
       onInput,
 
+      attributesDisabled,
       isModelValue,
       modelValueLength,
       isModelLengthLimitExceeded,
@@ -376,11 +389,12 @@ export default {
               ariaExpanded: this.isOpen,
               ariaRequired: this.required,
               ariaDisabled: this.disabled,
-              disabled: this.disabled,
+              "aria-describedby": this.ariaDescribedbyLocal,
               onClick: this.togglePopover,
               onKeydown: this.handleKeydown,
               onFocus: this.onFocus,
               onBlur: this.onBlur,
+              ...this.attributesDisabled,
             }, [
               this.isModelValue ?
                 this.isMultiselect ?
@@ -566,6 +580,11 @@ export default {
             ]),
           ]),
         ]),
+        this.helpText && h("div", {
+          id: this.helpTextId,
+          class: "a_form_element__help_text",
+          innerHTML: this.helpText,
+        }),
       ]),
     ]);
   },

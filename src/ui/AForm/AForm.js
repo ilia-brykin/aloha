@@ -47,7 +47,7 @@ export default {
       multiselect: ASelect,
       oneCheckbox: AOneCheckbox,
       checkbox: ACheckbox,
-      radia: ARadio,
+      radio: ARadio,
       switch: ASwitch,
     };
 

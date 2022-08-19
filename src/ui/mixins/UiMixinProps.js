@@ -66,6 +66,14 @@ export default {
       required: false,
       default: undefined,
     },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    type: {
+      type: String,
+      required: false,
+    },
   },
   emits: [
     "update:modelValue",

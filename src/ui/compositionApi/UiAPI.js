@@ -54,6 +54,19 @@ export default function UiAPI(props, { emit }) {
     });
   };
 
+  const helpTextId = computed(() => {
+    return `${ idLocal.value }_help_text`;
+  });
+
+  const helpText = toRef(props, "helpText");
+  const ariaDescribedbyLocal = computed(() => {
+    let ariaDescribedby = "";
+    if (helpText.value) {
+      ariaDescribedby += helpTextId.value;
+    }
+    return ariaDescribedby;
+  });
+
   const isFocus = ref(false);
   const onFocus = $event => {
     isFocus.value = true;
@@ -71,8 +84,10 @@ export default function UiAPI(props, { emit }) {
   };
 
   return {
+    ariaDescribedbyLocal,
     changeModel,
     clearModel,
+    helpTextId,
     idLocal,
     isError,
     isFocus,

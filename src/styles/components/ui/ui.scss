@@ -114,6 +114,12 @@
   transform: translateY(-50%);
 }
 
+.a_form_element__help_text {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: .875em;
+}
+
 @import "AForm";
 @import "ASwitch";
 @import "ASelect";

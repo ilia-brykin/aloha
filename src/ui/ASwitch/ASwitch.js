@@ -66,8 +66,10 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
+      ariaDescribedbyLocal,
       changeModel,
       clearModel,
+      helpTextId,
       isError,
       isModel,
       onBlur,
@@ -156,7 +158,9 @@ export default {
     return {
       componentStyleHideDependencies,
 
+      ariaDescribedbyLocal,
       clearModel,
+      helpTextId,
       isError,
       isModel,
       onFocus,
@@ -201,8 +205,9 @@ export default {
               this.inputClass,
             ],
             disabled: this.disabled,
-            ariaRequired: this.ariaRequired,
+            ariaRequired: this.required,
             ariaInvalid: this.isError,
+            "aria-describedby": this.ariaDescribedbyLocal,
             ...this.inputAttributes,
             onClick: this.onInput,
             onKeydown: this.onKeydown,
@@ -215,6 +220,11 @@ export default {
             innerHTML: this.labelValueLocal
           }),
         ]),
+        this.helpText && h("div", {
+          id: this.helpTextId,
+          class: "a_form_element__help_text",
+          innerHTML: this.helpText,
+        }),
       ]),
     ]);
   },

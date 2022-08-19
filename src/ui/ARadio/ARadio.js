@@ -55,7 +55,9 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
+      ariaDescribedbyLocal,
       changeModel,
+      helpTextId,
       idLocal,
       isError,
       onBlur,
@@ -82,6 +84,8 @@ export default {
     return {
       componentStyleHideDependencies,
 
+      ariaDescribedbyLocal,
+      helpTextId,
       idLocal,
       isError,
 
@@ -102,7 +106,9 @@ export default {
         h("div", {
           class: "a_form_element",
         }, [
-          h("fieldset", {}, [
+          h("fieldset", {
+            "aria-describedby": this.ariaDescribedbyLocal,
+          }, [
             this.label && h("legend", {
               innerHTML: this.label,
             }),
@@ -120,6 +126,11 @@ export default {
             })
           ]),
         ]),
+        this.helpText && h("div", {
+          id: this.helpTextId,
+          class: "a_form_element__help_text",
+          innerHTML: this.helpText,
+        }),
       ]),
     ]);
   },
