@@ -2,6 +2,7 @@ import {
   h, toRef,
 } from "vue";
 
+import AErrorsText from "../AErrorsText/AErrorsText";
 import ARadioItem from "./ARadioItem";
 
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -57,9 +58,10 @@ export default {
     const {
       ariaDescribedbyLocal,
       changeModel,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -85,9 +87,10 @@ export default {
       componentStyleHideDependencies,
 
       ariaDescribedbyLocal,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
 
       dataLocal,
 
@@ -107,9 +110,15 @@ export default {
           class: "a_form_element",
         }, [
           h("fieldset", {
+            class: ["a_fieldset", {
+              a_fieldset_invalid: this.isErrors,
+            }],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
             this.label && h("legend", {
+              class: ["a_legend", {
+                a_legend_invalid: this.isErrors,
+              }],
               innerHTML: this.label,
             }),
             ...this.dataLocal.map((item, itemIndex) => {
@@ -122,6 +131,7 @@ export default {
                 onChangeModelValue: this.onChangeModelValue,
                 disabled: this.disabled,
                 isWidthAuto: this.isWidthAuto,
+                isErrors: this.isErrors,
               });
             })
           ]),
@@ -130,6 +140,10 @@ export default {
           id: this.helpTextId,
           class: "a_form_element__help_text",
           innerHTML: this.helpText,
+        }),
+        this.isErrors && h(AErrorsText, {
+          id: this.errorsId,
+          errors: this.errors,
         }),
       ]),
     ]);

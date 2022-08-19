@@ -4,6 +4,8 @@ import {
   toRef,
 } from "vue";
 
+import AErrorsText from "../AErrorsText/AErrorsText";
+
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
@@ -34,9 +36,10 @@ export default {
     const {
       ariaDescribedbyLocal,
       changeModel,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -73,9 +76,10 @@ export default {
       componentStyleHideDependencies,
 
       ariaDescribedbyLocal,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
 
       isChecked,
       onClick,
@@ -95,7 +99,9 @@ export default {
           class: "a_form_element",
         }, [
           h("div", {
-            class: "a_custom_control a_custom_checkbox",
+            class: ["a_custom_control a_custom_checkbox", {
+              a_custom_control_invalid: this.isErrors,
+            }],
           }, [
             h("input", {
               id: this.idLocal,
@@ -105,7 +111,7 @@ export default {
               class: "a_custom_control_input",
               disabled: this.disabled,
               ariaRequired: this.required,
-              ariaInvalid: this.isError,
+              ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
               ...this.inputAttributes,
               onClick: this.onClick,
@@ -129,6 +135,10 @@ export default {
           id: this.helpTextId,
           class: "a_form_element__help_text",
           innerHTML: this.helpText,
+        }),
+        this.isErrors && h(AErrorsText, {
+          id: this.errorsId,
+          errors: this.errors,
         }),
       ]),
     ]);

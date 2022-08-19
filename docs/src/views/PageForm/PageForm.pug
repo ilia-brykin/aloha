@@ -1,9 +1,18 @@
 div
   h1 AForm
 
+  button.a_btn.a_btn_primary(
+    type="button"
+    @click="validate"
+  ) Validation
+  button.a_btn.a_btn_secondary.a_ml_2(
+    type="button"
+    @click="reset"
+  ) Reset
   a-form(
-    :data="data"
     v-model="model"
+    :data="data"
+    :errors="errors"
   )
 
   br

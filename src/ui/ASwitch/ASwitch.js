@@ -4,6 +4,7 @@ import {
   toRef,
 } from "vue";
 
+import AErrorsText from "../AErrorsText/AErrorsText";
 import ALabel from "../ALabel/ALabel";
 
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -69,8 +70,9 @@ export default {
       ariaDescribedbyLocal,
       changeModel,
       clearModel,
+      errorsId,
       helpTextId,
-      isError,
+      isErrors,
       isModel,
       onBlur,
       onFocus,
@@ -160,8 +162,9 @@ export default {
 
       ariaDescribedbyLocal,
       clearModel,
+      errorsId,
       helpTextId,
-      isError,
+      isErrors,
       isModel,
       onFocus,
       onBlur,
@@ -193,6 +196,7 @@ export default {
         h("div", {
           class: ["switch_button", {
             switch_button_undefined: this.isModelDefault,
+            switch_button_invalid: this.isErrors,
           }],
         }, [
           h("input", {
@@ -206,7 +210,7 @@ export default {
             ],
             disabled: this.disabled,
             ariaRequired: this.required,
-            ariaInvalid: this.isError,
+            ariaInvalid: this.isErrors,
             "aria-describedby": this.ariaDescribedbyLocal,
             ...this.inputAttributes,
             onClick: this.onInput,
@@ -224,6 +228,10 @@ export default {
           id: this.helpTextId,
           class: "a_form_element__help_text",
           innerHTML: this.helpText,
+        }),
+        this.isErrors && h(AErrorsText, {
+          id: this.errorsId,
+          errors: this.errors,
         }),
       ]),
     ]);

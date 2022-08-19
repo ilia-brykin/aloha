@@ -4,13 +4,21 @@ import {
   toRef,
 } from "vue";
 
-import {
-  isObject,
-  isString,
-  size,
-} from "lodash-es";
+import UiErrorsAPI from "./UiErrorsAPI";
 
 export default function UiAPI(props, { emit }) {
+  const id = toRef(props, "id");
+  const idLocal = computed(() => {
+    return id.value;
+  });
+
+  const {
+    errorsId,
+    isErrors,
+  } = UiErrorsAPI(props, {
+    idLocal,
+  });
+
   const changeModel = ({ model }) => {
     emit("update:modelValue", model);
     emit("change", {
@@ -22,25 +30,6 @@ export default function UiAPI(props, { emit }) {
   const modelValue = toRef(props, "modelValue");
   const isModel = computed(() => {
     return !!(modelValue.value || modelValue.value === 0);
-  });
-
-  const id = toRef(props, "id");
-  const idLocal = computed(() => {
-    return id.value;
-  });
-
-  const errors = toRef(props, "errors");
-  const isError = computed(() => {
-    if (!errors.value) {
-      return false;
-    }
-    if (isString(errors.value)) {
-      return true;
-    }
-    if (isObject(errors.value)) {
-      return !!size(errors.value);
-    }
-    return false;
   });
 
   const disabled = toRef(props, "disabled");
@@ -62,6 +51,12 @@ export default function UiAPI(props, { emit }) {
   const ariaDescribedbyLocal = computed(() => {
     let ariaDescribedby = "";
     if (helpText.value) {
+      ariaDescribedby += helpTextId.value;
+    }
+    if (isErrors.value) {
+      if (ariaDescribedby) {
+        ariaDescribedby += " ";
+      }
       ariaDescribedby += helpTextId.value;
     }
     return ariaDescribedby;
@@ -87,9 +82,10 @@ export default function UiAPI(props, { emit }) {
     ariaDescribedbyLocal,
     changeModel,
     clearModel,
+    errorsId,
     helpTextId,
     idLocal,
-    isError,
+    isErrors,
     isFocus,
     isModel,
     onBlur,

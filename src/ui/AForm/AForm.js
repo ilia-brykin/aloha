@@ -29,6 +29,11 @@ export default {
       required: false,
       default: undefined,
     },
+    errors: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   emits: [
     "update:modelValue",
@@ -81,6 +86,7 @@ export default {
             modelValue: this.modelValueLocal[item.id],
             modelDependencies: this.modelValueLocal,
             class: ["a_column", item.classColumn || "a_column_12"],
+            errors: this.errors[item.id],
             "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
             ...item,
           });

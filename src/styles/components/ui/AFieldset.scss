@@ -1,0 +1,27 @@
+.a_fieldset {
+  --a_fieldset_padding_x: .5rem;
+  --a_fieldset_padding_y: .5rem;
+  --a_fieldset_border_radius: var(--a_border_radius);
+  --a_fieldset_border_color: var(--a_border_color);
+  --a_fieldset_border_width: var(--a_border_width);
+  --a_fieldset_invalid_color: var(--a_color_danger);
+
+  padding: var(--a_fieldset_padding_y) var(--a_fieldset_padding_x);
+  border-radius: var(--a_fieldset_border_radius);
+  border: var(--a_fieldset_border_width) solid var(--a_fieldset_border_color);
+}
+.a_fieldset_invalid {
+  --fieldset_border_color: var(--a_fieldset_invalid_color);
+}
+
+.a_legend {
+  --a_legend_padding_x: .5rem;
+  --a_legend_color: inherit;
+  --a_flegend_invalid_color: var(--a_color_danger);
+
+  padding: 0 var(--a_legend_padding_x);
+  color: var(--a_legend_color);
+}
+.a_legend_invalid {
+  --a_legend_color: var(--a_flegend_invalid_color);
+}

@@ -34,6 +34,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isErrors: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "changeModelValue",
@@ -86,7 +90,9 @@ export default {
   },
   render() {
     return h("div", {
-      class: "a_custom_control a_custom_radio",
+      class: ["a_custom_control a_custom_radio", {
+        a_custom_control_invalid: this.isErrors,
+      }],
     }, [
       h("input", {
         id: this.idLocal,

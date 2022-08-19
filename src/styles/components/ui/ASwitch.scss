@@ -1,22 +1,22 @@
-//$switch-bg:                                             $grey-6;
-//$switch-inactive-bg:                                    $grey-4;
-//$switch-active-bg:                                      $primary-color;
-//$switch-hover-focus-bg:                                 $green-50;
 //$switch-disabled-bg:                                    $grey-3;
 //$switch-disabled-inside-bg:                             $grey-2;
 
-$switch-bg:                                             #6e5e50;
-$switch-inactive-bg:                                    #b0a59b;
-$switch-active-bg:                                      #E3151A;
-$switch-hover-focus-bg:                                 #d0e3a4;
 $switch-disabled-bg:                                    #d0c9c0;
 $switch-disabled-inside-bg:                             #ece9e7;
-$border-radius:                                         4px;
 
 .switch_button {
+  --a_switch_button_border_radius: var(--a_border_radius);
+  --a_switch_button_bg: var(--a_color_gray_700);
+  --a_switch_button_inner_bg: var(--a_color_white);
+  --a_switch_button_active_bg: var(--a_color_primary);
+  --a_switch_button_inactive_bg: var(--a_color_gray_400);
+  --a_switch_hover_focus_bg: var(--a_color_success_50);
+  --a_switch_button_border_color: var(--a_switch_button_bg);
+  --a_switch_button_invalid_color: var(--a_color_danger);
   margin-left: -5px;
   position: relative;
 }
+
 .switch_button__input {
   position: absolute;
   z-index: -1;
@@ -24,7 +24,8 @@ $border-radius:                                         4px;
   &:checked {
     ~ .switch_button__label {
       &::before {
-        background-color: $switch-active-bg;
+        --a_switch_button_bg: var(--a_switch_button_active_bg);
+        --a_switch_button_border_color: var(--a_switch_button_active_bg);
       }
       &::after {
         left: 23px;
@@ -33,18 +34,18 @@ $border-radius:                                         4px;
   }
   &:not(:disabled) {
     &:focus ~ .switch_button__label {
-      background-color: $switch-hover-focus-bg;
+      background-color: var(--a_switch_hover_focus_bg);
     }
     ~ .switch_button__label {
       &:hover {
-        background-color: $switch-hover-focus-bg;
+        background-color: var(--a_switch_hover_focus_bg);
       }
     }
   }
   &:disabled {
     ~ .switch_button__label {
       &::before {
-        background-color: $switch-disabled-bg;
+        --a_switch_button_bg: $switch-disabled-bg;
       }
       &::after {
         background-color: $switch-disabled-inside-bg;
@@ -61,7 +62,7 @@ $border-radius:                                         4px;
   display: flex;
   align-items: center;
   width: 100%;
-  border-radius: $border-radius;
+  border-radius: var(--a_switch_button_border_radius);
   &::before {
     content: "";
     position: absolute;
@@ -70,8 +71,9 @@ $border-radius:                                         4px;
     left: 5px;
     height: 25px;
     width: 40px;
-    border-radius: $border-radius;
-    background-color: $switch-bg;
+    border-radius: var(--a_switch_button_border_radius);
+    background-color: var(--a_switch_button_bg);
+    border: 1px solid var(--a_switch_button_border_color);
   }
   &::after {
     content: "";
@@ -81,15 +83,33 @@ $border-radius:                                         4px;
     left: 8px;
     height: 20px;
     width: 20px;
-    background-color: #fff;
-    border-radius: $border-radius;
+    background-color: var(--a_switch_button_inner_bg);
+    border-radius: var(--a_switch_button_border_radius);
+  }
+}
+
+.switch_button_invalid {
+  .switch_button__label{
+    &::before {
+      --a_switch_button_border_color: var(--a_switch_button_invalid_color);
+    }
+    &::after {
+      --a_switch_button_inner_bg: var(--a_switch_button_invalid_color);
+    }
+  }
+  .switch_button__input:checked ~ .switch_button__label::before {
+    --a_switch_button_border_color: var(--a_switch_button_invalid_color);
+  }
+  &.switch_button_undefined .switch_button__label::before {
+    --a_switch_button_border_color: var(--a_switch_button_invalid_color);
   }
 }
 
 .switch_button_undefined {
   .switch_button__label {
     &::before {
-      background-color: $switch-inactive-bg;
+      --a_switch_button_bg: var(--a_switch_button_inactive_bg);
+      --a_switch_button_border_color: var(--a_switch_button_inactive_bg);
     }
     &::after {
       left: 15px;

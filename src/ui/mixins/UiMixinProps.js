@@ -47,7 +47,7 @@ export default {
       default: true,
     },
     errors: {
-      type: [String, Array, Object],
+      type: [String, Array],
       required: false,
       default: undefined,
     },

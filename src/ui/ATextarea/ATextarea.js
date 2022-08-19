@@ -7,6 +7,7 @@ import {
   toRef,
 } from "vue";
 
+import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
 import ALabel from "../ALabel/ALabel";
 import ATranslation from "../../ATranslation/ATranslation";
@@ -58,9 +59,10 @@ export default {
     const {
       ariaDescribedbyLocal,
       changeModel,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
       isModel,
       onBlur,
       onFocus,
@@ -137,9 +139,10 @@ export default {
 
       ariaDescribedbyLocal,
       changeModel,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
       isModel,
       onBlur,
       onFocus,
@@ -182,11 +185,12 @@ export default {
               {
                 a_textarea_scalable: this.isScalable,
                 a_form_element_with_btn_close: this.isClearButton,
+                a_form_control_invalid: this.isErrors,
               },
             ],
             disabled: this.disabled,
             ariaRequired: this.required,
-            ariaInvalid: this.isError,
+            ariaInvalid: this.isErrors,
             "aria-describedby": this.ariaDescribedbyLocal,
             maxlength: this.maxlength,
             ...this.inputAttributes,
@@ -204,6 +208,10 @@ export default {
           id: this.helpTextId,
           class: "a_form_element__help_text",
           innerHTML: this.helpText,
+        }),
+        this.isErrors && h(AErrorsText, {
+          id: this.errorsId,
+          errors: this.errors,
         }),
       ]),
     ]);

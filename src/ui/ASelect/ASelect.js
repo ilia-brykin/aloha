@@ -5,6 +5,7 @@ import {
   toRef,
 } from "vue";
 
+import AErrorsText from "../AErrorsText/AErrorsText";
 import ALabel from "../ALabel/ALabel";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../AInput/AInput";
@@ -170,9 +171,10 @@ export default {
       ariaDescribedbyLocal,
       changeModel,
       clearModel,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -297,9 +299,10 @@ export default {
 
       ariaDescribedbyLocal,
       clearModel,
+      errorsId,
       helpTextId,
       idLocal,
-      isError,
+      isErrors,
 
       dataKeyByKeyIdLocal,
       dataLocal,
@@ -381,6 +384,7 @@ export default {
               class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClass, {
                 disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
+                a_form_control_invalid: this.isErrors,
               }],
               ariaLabelledby: this.ariaLabelledby,
               role: "combobox",
@@ -389,6 +393,7 @@ export default {
               ariaExpanded: this.isOpen,
               ariaRequired: this.required,
               ariaDisabled: this.disabled,
+              ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
               onClick: this.togglePopover,
               onKeydown: this.handleKeydown,
@@ -584,6 +589,10 @@ export default {
           id: this.helpTextId,
           class: "a_form_element__help_text",
           innerHTML: this.helpText,
+        }),
+        this.isErrors && h(AErrorsText, {
+          id: this.errorsId,
+          errors: this.errors,
         }),
       ]),
     ]);

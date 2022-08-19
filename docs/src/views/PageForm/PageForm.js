@@ -47,6 +47,8 @@ export default {
           id: "aloha_8",
         },
       ],
+
+      errors: undefined,
     };
   },
   computed: {
@@ -141,6 +143,27 @@ export default {
           helpText: "ALOHA help!!!",
         },
       ];
+    },
+  },
+  methods: {
+    validate() {
+      const TEXT_INVALID = "Example invalid text";
+      this.errors = {
+        aloha1: [TEXT_INVALID, TEXT_INVALID],
+        aloha2: [TEXT_INVALID],
+        aloha3: [TEXT_INVALID],
+        aloha4: [TEXT_INVALID],
+        aloha5: [TEXT_INVALID],
+        aloha6: [TEXT_INVALID],
+        aloha7: [TEXT_INVALID],
+        aloha8: [TEXT_INVALID],
+        aloha9: [TEXT_INVALID],
+        aloha10: [TEXT_INVALID],
+      };
+    },
+
+    reset() {
+      this.errors = undefined;
     },
   },
 };
