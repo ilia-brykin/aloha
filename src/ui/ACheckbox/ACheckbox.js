@@ -105,6 +105,8 @@ export default {
           class: "a_form_element",
         }, [
           h("fieldset", {
+            id: this.idLocal,
+            tabindex: -1,
             class: ["a_fieldset", {
               a_fieldset_invalid: this.isErrors,
             }],

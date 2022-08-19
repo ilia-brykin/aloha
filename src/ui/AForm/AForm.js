@@ -4,6 +4,7 @@ import {
   toRef,
 } from "vue";
 
+import AErrors from "../AErrors/AErrors";
 
 import ACheckbox from "../ACheckbox/ACheckbox";
 import AInput from "../AInput/AInput";
@@ -77,6 +78,11 @@ export default {
     return h("form", {
       class: "a_form",
     }, [
+      h(AErrors, {
+        errors: this.errors,
+        isDismissible: false,
+        optionsList: this.data,
+      }),
       h("div", {
         class: "a_columns a_columns_count_12 a_columns_gab_2",
       }, [
