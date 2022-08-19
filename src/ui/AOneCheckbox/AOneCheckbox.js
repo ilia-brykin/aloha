@@ -32,15 +32,11 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
-      ariaRequired,
       changeModel,
-      disabledLocal,
       idLocal,
       isError,
-      labelLocal,
       onBlur,
       onFocus,
-      requiredLocal,
     } = UiAPI(props, context);
 
 
@@ -49,8 +45,9 @@ export default {
       return modelValue.value === true;
     });
 
+    const disabled = toRef(props, "disabled");
     const onClick = $event => {
-      if (disabledLocal.value) {
+      if (disabled.value) {
         return;
       }
       setTimeout(() => {
@@ -73,12 +70,8 @@ export default {
     return {
       componentStyleHideDependencies,
 
-      ariaRequired,
-      disabledLocal,
       idLocal,
       isError,
-      labelLocal,
-      requiredLocal,
 
       isChecked,
       onClick,
@@ -106,8 +99,8 @@ export default {
               type: "checkbox",
               checked: this.isChecked,
               class: "a_custom_control_input",
-              disabled: this.disabledLocal,
-              ariaRequired: this.ariaRequired,
+              disabled: this.disabled,
+              ariaRequired: this.required,
               ariaInvalid: this.isError,
               ...this.inputAttributes,
               onClick: this.onClick,
@@ -122,7 +115,7 @@ export default {
               }],
             }, [
               h("span", {
-                innerHTML: this.labelLocal,
+                innerHTML: this.label,
               }),
             ]),
           ]),

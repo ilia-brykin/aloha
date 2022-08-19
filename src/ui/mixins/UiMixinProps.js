@@ -41,11 +41,6 @@ export default {
       required: false,
       default: null,
     },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     isLabelFloat: {
       type: Boolean,
       required: false,

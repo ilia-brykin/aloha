@@ -13,16 +13,10 @@ export default function ASelectModelChangeAPI(props, {
   isMultiselect = computed(() => false),
   changeModel = () => {},
   togglePopover = () => {},
-  isCloseByClickLocal = computed(() => undefined),
   dataLocal = computed(() => []),
 }) {
-  const options = toRef(props, "options");
+  const isCloseByClick = toRef(props, "isCloseByClick");
   const isDeselect = toRef(props, "isDeselect");
-  const isDeselectLocal = computed(() => {
-    return "isDeselect" in options.value ?
-      options.value.isDeselect :
-      isDeselect.value;
-  });
 
   const modelValue = toRef(props, "modelValue");
 
@@ -38,7 +32,7 @@ export default function ASelectModelChangeAPI(props, {
       }
     } else {
       if (isSelected) {
-        if (isDeselectLocal.value) {
+        if (isDeselect.value) {
           modelValueLocal = undefined;
         } else {
           return;
@@ -52,7 +46,7 @@ export default function ASelectModelChangeAPI(props, {
       $event,
     });
 
-    if (isCloseByClickLocal.value) {
+    if (isCloseByClick.value) {
       togglePopover();
     }
   };

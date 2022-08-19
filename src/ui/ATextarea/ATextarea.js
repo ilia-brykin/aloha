@@ -17,7 +17,6 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
-import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
 import autosize from "../../utils/autosize";
 
@@ -46,6 +45,10 @@ export default {
       type: [String, Number],
       required: false,
     },
+    modelUndefined: {
+      required: false,
+      default: "",
+    },
   },
   setup(props, context) {
     const {
@@ -53,29 +56,19 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
-      ariaRequired,
       changeModel,
-      clearModel,
-      disabledLocal,
       idLocal,
       isError,
       isModel,
-      labelLocal,
       onBlur,
       onFocus,
-      requiredLocal,
     } = UiAPI(props, context);
 
     const {
-      clearButtonClassLocal,
       isClearButtonLocal,
     } = UiClearButtonAPI(props, {
       isModel,
     });
-
-    const {
-      isLabelFloatLocal,
-    } = UiLabelFloatAPI(props);
 
     const isAutosizeStarted = ref(undefined);
 
@@ -105,13 +98,27 @@ export default {
       }
     };
 
+    const disabled = toRef(props, "disabled");
     const onInput = $event => {
-      if (disabledLocal.value) {
+      if (disabled.value) {
         return;
       }
       const value = $event.target.value;
       changeModel({
         model: value,
+      });
+    };
+
+    const modelUndefined = toRef(props, "modelUndefined");
+    const clearModel = () => {
+      if (disabled.value) {
+        return;
+      }
+      changeModel({
+        model: modelUndefined.value,
+      });
+      setTimeout(() => {
+        autosize.update(textareaRef.value);
       });
     };
 
@@ -126,58 +133,36 @@ export default {
     return {
       componentStyleHideDependencies,
 
-      ariaRequired,
       changeModel,
-      clearModel,
-      disabledLocal,
       idLocal,
       isError,
       isModel,
-      labelLocal,
       onBlur,
       onFocus,
-      requiredLocal,
 
-      clearButtonClassLocal,
       isClearButtonLocal,
 
-      isLabelFloatLocal,
-
+      clearModel,
       isAutosizeStarted,
       onInput,
       rowsLocal,
       textareaRef,
     };
   },
-  methods: {
-    // clearModel() {
-    //   if (this.disabledClearButton) {
-    //     return;
-    //   }
-    //   this.onInput({
-    //     target: {
-    //       value: "",
-    //     },
-    //   });
-    //   setTimeout(() => {
-    //     autosize.update(this.$refs.textarea);
-    //   });
-    // },
-  },
   render() {
     return h("div", null, [
       h("div", {
         class: ["a_form_element__parent", {
-          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_float: this.isLabelFloat,
           a_form_element__parent_not_empty: this.isModel,
         }],
       }, [
-        this.labelLocal && h(ALabel, {
+        this.label && h(ALabel, {
           id: this.idLocal,
-          label: this.labelLocal,
+          label: this.label,
           labelClass: this.labelClass,
-          required: this.requiredLocal,
-          isLabelFloat: this.isLabelFloatLocal,
+          required: this.required,
+          isLabelFloat: this.isLabelFloat,
         }),
         h("div", {
           class: "a_form_element",
@@ -192,11 +177,11 @@ export default {
               this.inputClass,
               {
                 a_textarea_scalable: this.isScalable,
-                a_form_element_with_btn_close: this.isClearButtonLocal,
+                a_form_element_with_btn_close: this.isClearButton,
               },
             ],
-            disabled: this.disabledLocal,
-            ariaRequired: this.ariaRequired,
+            disabled: this.disabled,
+            ariaRequired: this.required,
             ariaInvalid: this.isError,
             maxlength: this.maxlength,
             ...this.inputAttributes,
@@ -205,8 +190,8 @@ export default {
             onBlur: this.onBlur,
           }),
           this.isClearButtonLocal && h(AFormElementBtnClear, {
-            disabled: this.disabledLocal,
-            clearButtonClass: this.clearButtonClassLocal,
+            disabled: this.disabled,
+            clearButtonClass: this.clearButtonClass,
             onClear: this.clearModel,
           }),
         ]),

@@ -16,7 +16,6 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
-import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
 export default {
   name: "AInput",
@@ -44,6 +43,10 @@ export default {
       required: false,
       default: undefined,
     },
+    modelUndefined: {
+      required: false,
+      default: "",
+    },
   },
   setup(props, context) {
     const {
@@ -51,52 +54,37 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
-      ariaRequired,
       changeModel,
       clearModel,
-      disabledLocal,
       idLocal,
       isError,
       isModel,
-      labelLocal,
       onBlur,
       onFocus,
-      requiredLocal,
     } = UiAPI(props, context);
 
     const {
-      clearButtonClassLocal,
       isClearButtonLocal,
     } = UiClearButtonAPI(props, {
       isModel,
     });
 
-    const {
-      isLabelFloatLocal,
-    } = UiLabelFloatAPI(props);
-
     const type = toRef(props, "type");
-    const options = toRef(props, "options");
-    const typeLocal = computed(() => {
-      return "type" in options.value ?
-        options.value.type :
-        type.value;
-    });
-
     const typeForInput = computed(() => {
-      if (typeLocal.value === "integer") {
+      if (type.value === "integer") {
         return "text";
       }
       return type.value;
     });
 
     const inputRef = ref(undefined);
+    const disabled = toRef(props, "disabled");
     const onInput = $event => {
-      if (disabledLocal.value) {
+      if (disabled.value) {
         return;
       }
       let value = $event.target.value;
-      if (typeLocal.value === "integer") {
+      if (type.value === "integer") {
         value = value.replace(/\D/g, "");
         if (value !== "") {
           value = +value;
@@ -108,35 +96,20 @@ export default {
       });
     };
 
-    const iconPrepend = toRef(props, "iconPrepend");
-    const iconPrependLocal = computed(() => {
-      return "type" in options.value ?
-        options.value.iconPrepend :
-        iconPrepend.value;
-    });
-
     return {
       componentStyleHideDependencies,
 
-      ariaRequired,
       clearModel,
-      disabledLocal,
       idLocal,
       isError,
       isModel,
-      labelLocal,
-      requiredLocal,
 
-      clearButtonClassLocal,
       isClearButtonLocal,
 
-      iconPrependLocal,
       onInput,
       typeForInput,
-      typeLocal,
 
       inputRef,
-      isLabelFloatLocal,
       onFocus,
       onBlur,
     };
@@ -147,24 +120,24 @@ export default {
     }, [
       h("div", {
         class: ["a_form_element__parent", {
-          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_float: this.isLabelFloat,
           a_form_element__parent_not_empty: this.isModel,
-          a_form_element__parent_float_has_icon_prepend: this.iconPrependLocal,
+          a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
         }],
       }, [
-        this.labelLocal && h(ALabel, {
+        this.label && h(ALabel, {
           id: this.idLocal,
-          label: this.labelLocal,
+          label: this.label,
           labelClass: this.labelClass,
-          required: this.requiredLocal,
-          type: this.typeLocal,
-          isLabelFloat: this.isLabelFloatLocal,
+          required: this.required,
+          type: this.type,
+          isLabelFloat: this.isLabelFloat,
         }),
         h("div", {
           class: "a_form_element",
         }, [
-          this.iconPrependLocal && h(AIcon, {
-            icon: this.iconPrependLocal,
+          this.iconPrepend && h(AIcon, {
+            icon: this.iconPrepend,
             class: "a_input__icon_prepend",
           }),
           h("input", {
@@ -179,8 +152,8 @@ export default {
                 a_form_element_with_btn_close: this.isClearButtonLocal,
               },
             ],
-            disabled: this.disabledLocal,
-            ariaRequired: this.ariaRequired,
+            disabled: this.disabled,
+            ariaRequired: this.required,
             ariaInvalid: this.isError,
             maxlength: this.maxlength,
             ...this.inputAttributes,
@@ -189,8 +162,8 @@ export default {
             onBlur: this.onBlur,
           }),
           this.isClearButtonLocal && h(AFormElementBtnClear, {
-            disabled: this.disabledLocal,
-            clearButtonClass: this.clearButtonClassLocal,
+            disabled: this.disabled,
+            clearButtonClass: this.clearButtonClass,
             onClear: this.clearModel,
           }),
         ]),

@@ -23,12 +23,10 @@ import ASelectToggleAPI from "./compositionAPI/ASelectToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
-import UiLabelFloatAPI from "../compositionApi/UiLabelFloatAPI";
 
 import AKeyId from "../const/AKeyId";
 import {
   isNil,
-  isUndefined,
 } from "lodash-es";
 
 export default {
@@ -169,16 +167,12 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
-      ariaRequired,
       changeModel,
       clearModel,
-      disabledLocal,
       idLocal,
       isError,
-      labelLocal,
       onBlur,
       onFocus,
-      requiredLocal,
     } = UiAPI(props, context);
 
     const {
@@ -186,13 +180,9 @@ export default {
       dataLocal,
     } = UiDataWithKeyIdAndLabelAPI(props);
 
-    const {
-      isLabelFloatLocal,
-    } = UiLabelFloatAPI(props);
-
-
+    const disabled = toRef(props, "disabled");
     const onInput = $event => {
-      if (disabledLocal.value) {
+      if (disabled.value) {
         return;
       }
 
@@ -205,7 +195,7 @@ export default {
     const isMultiselect = computed(() => {
       return type.value === "multiselect";
     });
-    const options = toRef(props, "options");
+
     const modelValue = toRef(props, "modelValue");
     const isModelValue = computed(() => {
       if (isMultiselect.value) {
@@ -219,23 +209,10 @@ export default {
         0;
     });
     const countMultiselect = toRef(props, "countMultiselect");
-    const countMultiselectLocal = computed(() => {
-      return "countMultiselect" in options.value ?
-        options.value.countMultiselect :
-        countMultiselect.value;
-    });
+
     const isModelLengthLimitExceeded = computed(() => {
-      return modelValueLength.value > countMultiselectLocal.value;
+      return modelValueLength.value > countMultiselect.value;
     });
-
-    const isCloseByClick = toRef(props, "isCloseByClick");
-    const isCloseByClickLocal = computed(() => {
-      if (!isUndefined(isCloseByClick.value)) {
-        return isCloseByClick.value;
-      }
-      return !isMultiselect.value;
-    });
-
 
     const containerId = computed(() => {
       return `${ idLocal.value }_container`;
@@ -245,19 +222,12 @@ export default {
       return `${ idLocal.value }_list`;
     });
 
-    const buttonClass = toRef(props, "buttonClass");
-    const buttonClassLocal = computed(() => {
-      return "buttonClass" in options.value ?
-        options.value.buttonClass :
-        buttonClass.value;
-    });
-
     const ariaLabelledby = computed(() => {
       return `${ idLocal.value }_label`;
     });
 
     const tabindex = computed(() => {
-      return disabledLocal.value ? undefined : 0;
+      return disabled.value ? undefined : 0;
     });
 
     const menuRightLocal = true;
@@ -276,9 +246,7 @@ export default {
       menuParentRef,
       menuRef,
       togglePopover,
-    } = ASelectToggleAPI(props, context, {
-      disabledLocal,
-    });
+    } = ASelectToggleAPI(props, context);
     
     const {
       onChangeModelValue,
@@ -289,7 +257,6 @@ export default {
     } = ASelectModelChangeAPI(props, {
       isMultiselect,
       changeModel,
-      isCloseByClickLocal,
       togglePopover,
       dataLocal,
     });
@@ -301,10 +268,7 @@ export default {
       modelSearch,
       modelSearchOutside,
       onSearchOutside,
-      searchLocal,
-      searchOutsideLocal,
       searchOutsideRef,
-      textSearchLocal,
       updateModelSearch,
       updateModelSearchOutside,
     } = ASelectSearchAPI(props, context, {
@@ -321,13 +285,9 @@ export default {
     return {
       componentStyleHideDependencies,
 
-      ariaRequired,
       clearModel,
-      disabledLocal,
       idLocal,
       isError,
-      labelLocal,
-      requiredLocal,
 
       dataKeyByKeyIdLocal,
       dataLocal,
@@ -336,13 +296,11 @@ export default {
 
       isModelValue,
       modelValueLength,
-      isLabelFloatLocal,
       isModelLengthLimitExceeded,
       onFocus,
       onBlur,
       isMultiselect,
       containerId,
-      buttonClassLocal,
       ariaLabelledby,
       tabindex,
       idForList,
@@ -358,10 +316,7 @@ export default {
       modelSearch,
       modelSearchOutside,
       onSearchOutside,
-      searchLocal,
-      searchOutsideLocal,
       searchOutsideRef,
-      textSearchLocal,
       updateModelSearch,
       updateModelSearchOutside,
 
@@ -385,16 +340,16 @@ export default {
     }, [
       h("div", {
         class: ["a_form_element__parent", {
-          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_float: this.isLabelFloat,
           a_form_element__parent_not_empty: this.isModelValue || this.isOpen,
         }],
       }, [
-        this.labelLocal && h(ALabel, {
+        this.label && h(ALabel, {
           id: this.id,
-          label: this.labelLocal,
+          label: this.label,
           labelClass: this.labelClass,
-          required: this.requiredLocal,
-          isLabelFloat: this.isLabelFloatLocal,
+          required: this.required,
+          isLabelFloat: this.isLabelFloat,
           type: this.type,
           clickLabel: this.togglePopover,
         }),
@@ -410,8 +365,8 @@ export default {
             h("div", {
               ref: "buttonRef",
               id: this.idLocal,
-              class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClassLocal, {
-                disabled: this.disabledLocal,
+              class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClass, {
+                disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
               }],
               ariaLabelledby: this.ariaLabelledby,
@@ -419,9 +374,9 @@ export default {
               tabindex: this.tabindex,
               ariaHaspopup: "listbox",
               ariaExpanded: this.isOpen,
-              ariaRequired: this.ariaRequired,
-              ariaDisabled: this.disabledLocal,
-              disabled: this.disabledLocal,
+              ariaRequired: this.required,
+              ariaDisabled: this.disabled,
+              disabled: this.disabled,
               onClick: this.togglePopover,
               onKeydown: this.handleKeydown,
               onFocus: this.onFocus,
@@ -479,7 +434,7 @@ export default {
                     role: "listbox",
                     ariaLabelledby: this.idLocal,
                   }, [
-                    this.searchOutsideLocal && h("div", {
+                    this.searchOutside && h("div", {
                       class: "a_select_search",
                     }, [
                       h("form", {
@@ -489,14 +444,14 @@ export default {
                           class: "input-group",
                         }, [
                           h(AInput, {
-                            label: this.textSearchLocal,
+                            label: this.textSearch,
                             inputClass: "a_select__element_clickable",
                             modelValue: this.modelSearchOutside,
                             modelUndefined: "",
                             "onUpdate:modelValue": this.updateModelSearchOutside,
                           }),
                           h("button", {
-                            disabled: this.disabledLocal,
+                            disabled: this.disabled,
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",
                           }, [
@@ -507,18 +462,18 @@ export default {
                         ]),
                       ]),
                     ]),
-                    this.searchLocal && h("div", {
+                    this.search && h("div", {
                       class: "a_select__search",
                     }, [
                       h(AInput, {
-                        label: this.textSearchLocal,
+                        label: this.textSearch,
                         inputClass: "a_select__element_clickable",
                         modelValue: this.modelSearch,
                         modelUndefined: "",
                         "onUpdate:modelValue": this.updateModelSearch,
                       }),
                     ]),
-                    (this.searchOutsideLocal || this.searchLocal) && h("div", {
+                    (this.searchOutside || this.search) && h("div", {
                       class: "a_select__divider",
                       ariaHidden: true,
                     }),
@@ -568,7 +523,7 @@ export default {
                           isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
                           isSelected: false,
                           isMultiselect: this.isMultiselect,
-                          disabled: this.disabledLocal,
+                          disabled: this.disabled,
                           onChangeModelValue: this.onChangeModelValue,
                         });
                       }),
@@ -583,7 +538,7 @@ export default {
                           elementsHiddenWithSearch: this.elementsHiddenWithSearch,
                           isSelected: false,
                           isMultiselect: this.isMultiselect,
-                          disabled: this.disabledLocal,
+                          disabled: this.disabled,
                           onChangeModelValue: this.onChangeModelValue,
                         });
                       }),
@@ -597,7 +552,7 @@ export default {
                           isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
                           isSelected: false,
                           isMultiselect: this.isMultiselect,
-                          disabled: this.disabledLocal,
+                          disabled: this.disabled,
                           onChangeModelValue: this.onChangeModelValue,
                         });
                       }),

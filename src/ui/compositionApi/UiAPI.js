@@ -19,47 +19,14 @@ export default function UiAPI(props, { emit }) {
     });
   };
 
-  const options = toRef(props, "options");
-
-  const disabled = toRef(props, "disabled");
-  const disabledLocal = computed(() => {
-    return !!(disabled.value || options.value.disabled);
-  });
-
   const modelValue = toRef(props, "modelValue");
   const isModel = computed(() => {
     return !!(modelValue.value || modelValue.value === 0);
   });
 
-  const required = toRef(props, "required");
-  const requiredLocal = computed(() => {
-    return "required" in options.value ?
-      options.value.required :
-      required.value;
-  });
-  const ariaRequired = computed(() => {
-    return `${ requiredLocal.value }`;
-  });
-
-  const modelUndefined = toRef(props, "modelUndefined");
-  const modelUndefinedLocal = computed(() => {
-    return "modelUndefined" in options.value ?
-      options.value.modelUndefined :
-      modelUndefined.value;
-  });
-
   const id = toRef(props, "id");
   const idLocal = computed(() => {
-    return "id" in options.value ?
-      options.value.id :
-      id.value;
-  });
-
-  const label = toRef(props, "label");
-  const labelLocal = computed(() => {
-    return "label" in options.value ?
-      options.value.label :
-      label.value;
+    return id.value;
   });
 
   const errors = toRef(props, "errors");
@@ -76,12 +43,14 @@ export default function UiAPI(props, { emit }) {
     return false;
   });
 
+  const disabled = toRef(props, "disabled");
+  const modelUndefined = toRef(props, "modelUndefined");
   const clearModel = () => {
-    if (disabledLocal.value) {
+    if (disabled.value) {
       return;
     }
     changeModel({
-      model: modelUndefinedLocal.value,
+      model: modelUndefined.value,
     });
   };
 
@@ -102,17 +71,13 @@ export default function UiAPI(props, { emit }) {
   };
 
   return {
-    ariaRequired,
     changeModel,
     clearModel,
-    disabledLocal,
     idLocal,
     isError,
     isFocus,
     isModel,
-    labelLocal,
     onBlur,
     onFocus,
-    requiredLocal,
   };
 }

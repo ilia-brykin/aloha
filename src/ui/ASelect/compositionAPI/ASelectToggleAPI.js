@@ -13,24 +13,21 @@ import {
 } from "@popperjs/core";
 import {
   forEach,
-  isFunction,
 } from "lodash-es";
 
 const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled])";
 
 export default function ASelectToggleAPI(props, {
   emit,
-}, {
-  disabledLocal = computed(() => false),
 }) {
+  const disabled = toRef(props, "disabled");
+
   const buttonRef = ref(undefined);
   const menuParentRef = ref(undefined);
   const menuRef = ref(undefined);
   const isOpen = ref(false);
   const popper = ref(undefined);
   const statusEventPressArrows = ref(undefined);
-
-  const options = toRef(props, "options");
 
   const elementsForClickOutside = computed(() => {
     return [
@@ -100,20 +97,12 @@ export default function ASelectToggleAPI(props, {
   };
 
   const onOpen = () => {
-    if (isFunction(options.value.open)) {
-      options.value.open();
-    }
     emit("open");
   };
 
   const isMenuWidthAsButton = toRef(props, "isMenuWidthAsButton");
-  const isMenuWidthAsButtonLocal = computed(() => {
-    return "isMenuWidthAsButton" in options.value ?
-      options.value.isMenuWidthAsButton :
-      isMenuWidthAsButton.value;
-  });
   const setMenuWidth = () => {
-    if (isMenuWidthAsButtonLocal.value) {
+    if (isMenuWidthAsButton.value) {
       const BUTTON_WIDTH = buttonRef.value.clientWidth;
       const BUTTON_WIDTH_STRING = `${ BUTTON_WIDTH }px`;
       menuRef.value.style.minWidth = BUTTON_WIDTH_STRING;
@@ -147,18 +136,13 @@ export default function ASelectToggleAPI(props, {
 
 
   const placement = toRef(props, "placement");
-  const placementLocal = computed(() => {
-    return "placement" in options.value ?
-      options.value.placement :
-      placement.value;
-  });
   const openPopoverWithPopperjs = () => {
     if (!popper.value) {
       popper.value = createPopper(
         buttonRef.value,
         menuRef.value,
         {
-          placement: placementLocal.value,
+          placement: placement.value,
           removeOnDestroy: true,
           modifiers: [
             {
@@ -175,7 +159,7 @@ export default function ASelectToggleAPI(props, {
   };
 
   const openPopover = () => {
-    if (disabledLocal.value) {
+    if (disabled.value) {
       return;
     }
     isOpen.value = true;

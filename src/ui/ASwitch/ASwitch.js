@@ -66,71 +66,35 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
-      ariaRequired,
       changeModel,
       clearModel,
-      disabledLocal,
       isError,
       isModel,
-      labelLocal,
       onBlur,
       onFocus,
-      requiredLocal,
     } = UiAPI(props, context);
 
     const modelValue = toRef(props, "modelValue");
-    const options = toRef(props, "options");
 
     const trueLabel = toRef(props, "trueLabel");
-    const trueLabelLocal = computed(() => {
-      return "trueLabel" in options.value ?
-        options.value.trueLabel :
-        trueLabel.value;
-    });
 
     const falseLabel = toRef(props, "falseLabel");
-    const falseLabelLocal = computed(() => {
-      return "falseLabel" in options.value ?
-        options.value.falseLabel :
-        falseLabel.value;
-    });
 
     const defaultLabel = toRef(props, "defaultLabel");
-    const defaultLabelLocal = computed(() => {
-      return "defaultLabel" in options.value ?
-        options.value.defaultLabel :
-        defaultLabel.value;
-    });
-
 
     const trueValue = toRef(props, "trueValue");
-    const trueValueLocal = computed(() => {
-      return "trueValue" in options.value ?
-        options.value.trueValue :
-        trueValue.value;
-    });
 
     const falseValue = toRef(props, "falseValue");
-    const falseValueLocal = computed(() => {
-      return "falseValue" in options.value ?
-        options.value.falseValue :
-        falseValue.value;
-    });
 
     const defaultValue = toRef(props, "defaultValue");
-    const defaultValueLocal = computed(() => {
-      return "defaultValue" in options.value ?
-        options.value.defaultValue :
-        defaultValue.value;
-    });
 
     const isModelTrue = computed(() => {
-      return modelValue.value === trueValueLocal.value ||
+      return modelValue.value === trueValue.value ||
         modelValue.value === "true";
     });
 
     const isModelFalse = computed(() => {
-      return modelValue.value === falseValueLocal.value ||
+      return modelValue.value === falseValue.value ||
         modelValue.value === "false";
     });
 
@@ -140,20 +104,15 @@ export default {
 
     const labelValueLocal = computed(() => {
       if (isModelTrue.value) {
-        return trueLabelLocal.value;
+        return trueLabel.value;
       }
       if (isModelFalse.value) {
-        return falseLabelLocal.value;
+        return falseLabel.value;
       }
-      return defaultLabelLocal.value;
+      return defaultLabel.value;
     });
 
     const isThreeState = toRef(props, "isThreeState");
-    const isThreeStateLocal = computed(() => {
-      return "isThreeState" in options.value ?
-        options.value.isThreeState :
-        isThreeState.value;
-    });
 
     const isChecked = computed(() => {
       if (isModelTrue.value) {
@@ -165,17 +124,18 @@ export default {
       return undefined;
     });
 
+    const disabled = toRef(props, "disabled");
     const onInput = $event => {
-      if (disabledLocal.value) {
+      if (disabled.value) {
         return;
       }
       let model;
       if (isModelTrue.value) {
-        model = falseValueLocal.value;
-      } else if (isThreeStateLocal.value && isModelFalse.value) {
-        model = defaultValueLocal.value;
+        model = falseValue.value;
+      } else if (isThreeState.value && isModelFalse.value) {
+        model = defaultValue.value;
       } else {
-        model = trueValueLocal.value;
+        model = trueValue.value;
       }
 
       changeModel({
@@ -196,13 +156,9 @@ export default {
     return {
       componentStyleHideDependencies,
 
-      ariaRequired,
       clearModel,
-      disabledLocal,
       isError,
       isModel,
-      labelLocal,
-      requiredLocal,
       onFocus,
       onBlur,
 
@@ -222,13 +178,13 @@ export default {
           a_form_element__parent_not_empty: this.isModel,
         }],
       }, [
-        this.labelLocal && h(ALabel, {
+        this.label && h(ALabel, {
           id: this.id,
           label: this.label,
           labelClass: this.labelClass,
-          required: this.requiredLocal,
-          type: this.typeLocal,
-          isLabelFloat: this.isLabelFloatLocal,
+          required: this.required,
+          type: this.type,
+          isLabelFloat: this.isLabelFloat,
         }),
         h("div", {
           class: ["switch_button", {
@@ -244,7 +200,7 @@ export default {
               "switch_button__input",
               this.inputClass,
             ],
-            disabled: this.disabledLocal,
+            disabled: this.disabled,
             ariaRequired: this.ariaRequired,
             ariaInvalid: this.isError,
             ...this.inputAttributes,

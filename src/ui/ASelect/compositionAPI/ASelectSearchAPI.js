@@ -1,14 +1,12 @@
 import {
   computed,
   ref,
-  toRef,
 } from "vue";
 
 import AKeyId from "../../const/AKeyId";
 import AKeyLabel from "../../const/AKeyLabel";
 import {
   forEach,
-  isFunction,
   size,
 } from "lodash-es";
 
@@ -22,30 +20,6 @@ export default function ASelectSearchAPI(props, {
   const modelSearchOutside = ref("");
   const searchOutsideRef = ref(undefined);
 
-  const options = toRef(props, "options");
-
-
-  const searchOutside = toRef(props, "searchOutside");
-  const searchOutsideLocal = computed(() => {
-    return "searchOutside" in options.value ?
-      options.value.searchOutside :
-      searchOutside.value;
-  });
-
-  const search = toRef(props, "search");
-  const searchLocal = computed(() => {
-    return "search" in options.value ?
-      options.value.search :
-      search.value;
-  });
-
-  const textSearch = toRef(props, "textSearch");
-  const textSearchLocal = computed(() => {
-    return "textSearch" in options.value ?
-      options.value.textSearch :
-      textSearch.value;
-  });
-
   const idForButtonSearchOutside = computed(() => {
     return `${ idLocal.value }_search_global`;
   });
@@ -54,15 +28,9 @@ export default function ASelectSearchAPI(props, {
     if ($event) {
       $event.preventDefault();
     }
-    if (isFunction(options.value.onSearchOutside)) {
-      options.value.onSearchOutside({
-        model: modelSearchOutside.value,
-      });
-    } else {
-      emit("onSearchOutside", {
-        model: modelSearchOutside.value,
-      });
-    }
+    emit("onSearchOutside", {
+      model: modelSearchOutside.value,
+    });
   };
 
   const updateModelSearchOutside = model => {
@@ -105,10 +73,7 @@ export default function ASelectSearchAPI(props, {
     modelSearch,
     modelSearchOutside,
     onSearchOutside,
-    searchLocal,
-    searchOutsideLocal,
     searchOutsideRef,
-    textSearchLocal,
     updateModelSearch,
     updateModelSearchOutside,
   };

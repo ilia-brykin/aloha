@@ -1,5 +1,5 @@
 import {
-  h,
+  h, toRef,
 } from "vue";
 
 import ACheckboxItem from "./ACheckboxItem";
@@ -7,7 +7,6 @@ import ACheckboxItem from "./ACheckboxItem";
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
-import UiCheckboxRadioIsWidthAutoAPI from "../compositionApi/UiCheckboxRadioIsWidthAutoAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
 
@@ -51,28 +50,20 @@ export default {
     } = UiDependenciesAPI(props);
 
     const {
-      ariaRequired,
       changeModel,
-      disabledLocal,
       idLocal,
       isError,
-      labelLocal,
       onBlur,
       onFocus,
-      requiredLocal,
     } = UiAPI(props, context);
 
     const {
       dataLocal,
     } = UiDataWithKeyIdAndLabelAPI(props);
 
-    const {
-      isWidthAutoLocal,
-    } = UiCheckboxRadioIsWidthAutoAPI(props);
-
-
+    const disabled = toRef(props, "disabled");
     const onChangeModelValue = ({ model, $event }) => {
-      if (disabledLocal.value) {
+      if (disabled.value) {
         return;
       }
       setTimeout(() => {
@@ -86,16 +77,10 @@ export default {
     return {
       componentStyleHideDependencies,
 
-      ariaRequired,
-      disabledLocal,
       idLocal,
       isError,
-      labelLocal,
-      requiredLocal,
 
       dataLocal,
-
-      isWidthAutoLocal,
 
       onChangeModelValue,
       onFocus,
@@ -113,8 +98,8 @@ export default {
           class: "a_form_element",
         }, [
           h("fieldset", {}, [
-            this.labelLocal && h("legend", {
-              innerHTML: this.labelLocal,
+            this.label && h("legend", {
+              innerHTML: this.label,
             }),
             ...this.dataLocal.map((item, itemIndex) => {
               return h(ACheckboxItem, {
@@ -122,11 +107,10 @@ export default {
                 key: itemIndex,
                 dataItem: item,
                 itemIndex,
-                options: this.options,
                 modelValue: this.modelValue,
                 onChangeModelValue: this.onChangeModelValue,
-                disabled: this.disabledLocal,
-                isWidthAuto: this.isWidthAutoLocal,
+                disabled: this.disabled,
+                isWidthAuto: this.isWidthAuto,
               });
             })
           ]),
