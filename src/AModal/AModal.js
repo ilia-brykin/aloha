@@ -5,6 +5,10 @@ import {
 
 import AForm from "../ui/AForm/AForm";
 
+import AKeysCode from "../const/AKeysCode";
+import {
+  focusableSelector
+} from "../const/AFocusableElements";
 import {
   filter,
   isString,
@@ -12,10 +16,6 @@ import {
   isFunction,
   get,
 } from "lodash-es";
-
-const TAB_ELEMENTS = `a[href]:not([disabled]) a[role="button"]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])`;
-const KEY_CODE_TAB = 9;
-const KEY_CODE_ESCAPE = 27;
 
 // @vue/component
 export default {
@@ -251,9 +251,9 @@ export default {
 
     pressButton($event) {
       const EVENT = $event || window.$event;
-      if (EVENT.key === "Escape" || EVENT.keyCode === KEY_CODE_ESCAPE) { // Escape
+      if (EVENT.key === "Escape" || EVENT.keyCode === AKeysCode.escape) {
         this.pressEscape();
-      } else if (EVENT.key === "Tab" || EVENT.keyCode === KEY_CODE_TAB) { // Tab
+      } else if (EVENT.key === "Tab" || EVENT.keyCode === AKeysCode.tab) {
         this.trapFocus(EVENT);
       }
     },
@@ -266,7 +266,7 @@ export default {
     },
 
     trapFocus(EVENT) {
-      const FOCUSABLE_ELEMENTS = this.$refs.modal_parent.querySelectorAll(TAB_ELEMENTS);
+      const FOCUSABLE_ELEMENTS = this.$refs.modal_parent.querySelectorAll(focusableSelector);
       if (FOCUSABLE_ELEMENTS.length === 0) {
         EVENT.preventDefault();
         return;
