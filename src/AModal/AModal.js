@@ -3,6 +3,8 @@ import {
   Teleport,
 } from "vue";
 
+import AForm from "../ui/AForm/AForm";
+
 import {
   filter,
   isString,
@@ -91,6 +93,47 @@ export default {
       required: false,
       default: "",
     },
+    dataForm: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    modelValue: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    errors: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    textRequired: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    isRequired: {
+      type: Boolean,
+      required: false,
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+  },
+  emits: [
+    "update:modelValue",
+  ],
+  setup(props, { emit }) {
+    const updateModelLocal = model => {
+      emit("update:modelValue", model);
+    };
+
+    return {
+      updateModelLocal,
+    };
   },
   data() {
     return {
@@ -378,6 +421,15 @@ export default {
                 class: "a_modal_body",
               }, [
                 this.$slots.body && this.$slots.body(),
+                this.dataForm.length && h(AForm, {
+                  modelValue: this.modelValue,
+                  data: this.dataForm,
+                  errors: this.errors,
+                  idPrefix: this.idPrefix,
+                  isRequired: this.isRequired,
+                  textRequired: this.textRequired,
+                  "onUpdate:modelValue": this.updateModelLocal,
+                }, this.$slots),
                 this.bodyHtml && h("div", {
                   innerHTML: this.bodyHtml,
                 }),
