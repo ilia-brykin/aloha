@@ -6,7 +6,7 @@ import {
 import AKeysCode from "../../../const/AKeysCode";
 import AKeyId from "../../const/AKeyId";
 import {
-  cloneDeep,
+  cloneDeep, isUndefined,
 } from "lodash-es";
 
 export default function ASelectModelChangeAPI(props, {
@@ -16,6 +16,12 @@ export default function ASelectModelChangeAPI(props, {
   dataLocal = computed(() => []),
 }) {
   const isCloseByClick = toRef(props, "isCloseByClick");
+  const isCloseByClickLocal = computed(() => {
+    if (!isUndefined(isCloseByClick.value)) {
+      return isCloseByClick.value;
+    }
+    return !isMultiselect.value;
+  });
   const isDeselect = toRef(props, "isDeselect");
 
   const modelValue = toRef(props, "modelValue");
@@ -46,7 +52,7 @@ export default function ASelectModelChangeAPI(props, {
       $event,
     });
 
-    if (isCloseByClick.value) {
+    if (isCloseByClickLocal.value) {
       togglePopover();
     }
   };

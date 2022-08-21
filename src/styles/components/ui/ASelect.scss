@@ -36,7 +36,8 @@
   --a_select_border_radius: var(--a_border_radius);
   --a_select_menu_link_color: var(--a_color_text);
   --a_select_menu_link_hover_color: var(--a_color_text);
-  --a_select_menu_link_hover_bg: #f5f5f5;
+  --a_select_menu_link_hover_bg: var(--a_color_gray_200);
+  --a_select_menu_link_focus_color: var(--a_color_focus);
 
   display: block;
   position: relative;
@@ -87,6 +88,10 @@
     background-color: var(--a_select_menu_link_hover_bg);
     color: var(--a_select_menu_link_hover_color);
   }
+  &:focus {
+    box-shadow: inset 0 0 1px 3px var(--a_select_menu_link_focus_color);
+    outline: none;
+  }
 }
 
 .a_select__menu__link__icon_box {
@@ -94,7 +99,7 @@
   width: 1.2rem;
   height: 1.2rem;
   display: block;
-  background-color: #fff;
+  background-color: inherit;
   position: absolute;
   top: 5px;
   left: 5px;

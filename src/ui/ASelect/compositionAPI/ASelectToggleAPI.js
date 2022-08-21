@@ -85,7 +85,8 @@ export default function ASelectToggleAPI(props, {
       closePopover();
       setFocusToButton();
     } else if (KEY_CODE === AKeysCode.tab) {
-      $event.preventDefault();
+      closePopover();
+      setFocusToButton();
     }
   };
 
