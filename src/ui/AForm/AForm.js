@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import AErrors from "../AErrors/AErrors";
+import ARequired from "../ARequired/ARequired";
 
 import ACheckbox from "../ACheckbox/ACheckbox";
 import AInput from "../AInput/AInput";
@@ -15,7 +16,7 @@ import ASwitch from "../ASwitch/ASwitch";
 import ATextarea from "../ATextarea/ATextarea";
 
 import {
-  cloneDeep,
+  cloneDeep, forEach,
 } from "lodash-es";
 
 export default {
@@ -34,6 +35,15 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    textRequired: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    isRequired: {
+      type: Boolean,
+      required: false,
     },
   },
   emits: [
@@ -68,8 +78,25 @@ export default {
       emit("update:modelValue", MODEL_VALUE);
     };
 
+    const isRequired = toRef(props, "isRequired");
+    const data = toRef(props, "data");
+    const isRequiredLocal = computed(() => {
+      if (isRequired.value) {
+        return true;
+      }
+      let isRequiredInData = false;
+      forEach(data.value, item => {
+        if (item.required) {
+          isRequiredInData = true;
+          return false;
+        }
+      });
+      return isRequiredInData;
+    });
+
     return {
       componentTypesMapping,
+      isRequiredLocal,
       modelValueLocal,
       onUpdateModelLocal,
     };
@@ -78,6 +105,9 @@ export default {
     return h("form", {
       class: "a_form",
     }, [
+      this.isRequiredLocal && h(ARequired, {
+        text: this.textRequired,
+      }),
       h(AErrors, {
         errors: this.errors,
         isDismissible: false,

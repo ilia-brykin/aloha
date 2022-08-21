@@ -59,6 +59,7 @@ export default {
           label: "Aloha 1",
           id: "aloha1",
           classColumn: "a_column_8",
+          required: true,
         },
         {
           type: "text",
