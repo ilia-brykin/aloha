@@ -95,6 +95,7 @@ export default {
     return h("form", {
       class: "a_form",
     }, [
+      this.$slots.formPrepend && this.$slots.formPrepend(),
       this.isRequiredLocal && h(ARequired, {
         text: this.textRequired,
       }),
@@ -107,6 +108,7 @@ export default {
       h("div", {
         class: "a_columns a_columns_count_12 a_columns_gab_2",
       }, [
+        this.$slots.formDataPrepend && this.$slots.formDataPrepend(),
         ...this.data.map((item, itemIndex) => {
           const IS_FIELDSET = item.type === "fieldset";
           return h(this.componentTypesMapping[item.type], {
@@ -121,7 +123,9 @@ export default {
             ...item,
           }, this.$slots);
         }),
+        this.$slots.formDataAppend && this.$slots.formDataAppend(),
       ]),
+      this.$slots.formAppend && this.$slots.formAppend(),
     ]);
   },
 };

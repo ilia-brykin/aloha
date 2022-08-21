@@ -15,6 +15,17 @@ div
     :errors="errors"
     id-prefix="test_"
   )
+    template(
+      v-slot:formPrepend
+    )
+      div
+        strong SLOT "formPrepend"
+
+    template(
+      v-slot:formAppend
+    )
+      div
+        strong SLOT "formAppend"
 
   br
   pre {{ model }}
