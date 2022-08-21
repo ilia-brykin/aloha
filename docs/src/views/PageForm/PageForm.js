@@ -143,6 +143,27 @@ export default {
           data: this.selectData,
           helpText: "ALOHA help!!!",
         },
+        {
+          type: "fieldset",
+          label: "Aloha 11",
+          id: "aloha11",
+          classColumn: "a_column_8",
+          helpText: "ALOHA help!!!",
+          children: [
+            {
+              type: "text",
+              label: "Aloha 12",
+              id: "aloha12",
+              classColumn: "a_column_4",
+            },
+            {
+              type: "text",
+              label: "Aloha 13",
+              id: "aloha13",
+              classColumn: "a_column_8",
+            },
+          ],
+        },
       ];
     },
   },
@@ -160,6 +181,9 @@ export default {
         aloha8: [TEXT_INVALID],
         aloha9: [TEXT_INVALID],
         aloha10: [TEXT_INVALID],
+        aloha11: [TEXT_INVALID],
+        aloha12: [TEXT_INVALID],
+        aloha13: [TEXT_INVALID],
       };
     },
 

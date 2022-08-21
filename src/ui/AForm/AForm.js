@@ -4,19 +4,15 @@ import {
   toRef,
 } from "vue";
 
+import AFieldset from "../AFieldset/AFieldset";
 import AErrors from "../AErrors/AErrors";
 import ARequired from "../ARequired/ARequired";
 
-import ACheckbox from "../ACheckbox/ACheckbox";
-import AInput from "../AInput/AInput";
-import AOneCheckbox from "../AOneCheckbox/AOneCheckbox";
-import ARadio from "../ARadio/ARadio";
-import ASelect from "../ASelect/ASelect";
-import ASwitch from "../ASwitch/ASwitch";
-import ATextarea from "../ATextarea/ATextarea";
+import AUiComponents from "../AUiComponents";
 
 import {
-  cloneDeep, forEach,
+  cloneDeep,
+  forEach,
 } from "lodash-es";
 
 export default {
@@ -57,19 +53,8 @@ export default {
   ],
   setup(props, { emit }) {
     const componentTypesMapping = {
-      text: AInput,
-      integer: AInput,
-      number: AInput,
-      natural: AInput,
-      password: AInput,
-      email: AInput,
-      textarea: ATextarea,
-      select: ASelect,
-      multiselect: ASelect,
-      oneCheckbox: AOneCheckbox,
-      checkbox: ACheckbox,
-      radio: ARadio,
-      switch: ASwitch,
+      fieldset: AFieldset,
+      ...AUiComponents,
     };
 
     const modelValue = toRef(props, "modelValue");
@@ -123,12 +108,14 @@ export default {
         class: "a_columns a_columns_count_12 a_columns_gab_2",
       }, [
         ...this.data.map((item, itemIndex) => {
+          const IS_FIELDSET = item.type === "fieldset";
           return h(this.componentTypesMapping[item.type], {
             key: itemIndex,
-            modelValue: this.modelValueLocal[item.id],
+            modelValue: IS_FIELDSET ? this.modelValueLocal : this.modelValueLocal[item.id],
             modelDependencies: this.modelValueLocal,
             class: ["a_column", item.classColumn || "a_column_12"],
             errors: this.errors[item.id],
+            errorsAll: this.errors,
             idPrefix: this.idPrefix,
             "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
             ...item,

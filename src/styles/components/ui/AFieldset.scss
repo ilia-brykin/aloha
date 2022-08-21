@@ -11,7 +11,7 @@
   border: var(--a_fieldset_border_width) solid var(--a_fieldset_border_color);
 }
 .a_fieldset_invalid {
-  --fieldset_border_color: var(--a_fieldset_invalid_color);
+  --a_fieldset_border_color: var(--a_fieldset_invalid_color);
 }
 
 .a_legend {

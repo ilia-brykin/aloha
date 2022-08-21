@@ -1,10 +1,14 @@
 import {
   computed,
-  h, toRef,
+  h,
+  toRef,
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
-import { isFunction } from "lodash-es";
+
+import {
+  isFunction,
+} from "lodash-es";
 
 
 export default {

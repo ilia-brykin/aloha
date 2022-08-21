@@ -34,9 +34,11 @@ export default {
     label: {
       type: String,
       required: false,
+      default: undefined,
     },
     labelClass: {
       required: false,
+      default: undefined,
     },
     required: {
       type: Boolean,
@@ -60,6 +62,11 @@ export default {
       type: [String, Array],
       required: false,
       default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     classColumn: {
       type: String,
