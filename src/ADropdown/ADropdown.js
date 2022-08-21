@@ -1,9 +1,15 @@
 import {
   h,
+  Teleport,
 } from "vue";
 
+import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 
+import AKeysCode from "../const/AKeysCode";
+import {
+  createPopper,
+} from "@popperjs/core";
 import {
   cloneDeep,
   forEach,
@@ -11,7 +17,6 @@ import {
 } from "lodash-es";
 
 const ELEMENTS_FOR_ARROWS = `button:not([disabled]), input:not([disabled]), a`;
-const KEY_CODE_ESCAPE = 27;
 const AVAILABLE_POSITIONS = [
   "auto",
   "auto-start",
@@ -54,7 +59,7 @@ export default {
     buttonClass: {
       type: String,
       required: false,
-      default: "btn btn-default dropdown_button",
+      default: "a_btn a_btn_secondary dropdown_button",
     },
     buttonStyle: {
       type: [String, Object],
@@ -96,13 +101,28 @@ export default {
     classForTooltipInner: {
       type: [String, Object],
       required: false,
-      default: "position-relative p-0 font_family_inherit",
+      default: "a_position_relative p-0 font_family_inherit",
     },
     placement: {
       type: String,
       required: false,
-      default: "bottom",
+      default: "bottom-start",
       validator: placement => AVAILABLE_POSITIONS.indexOf(placement) !== -1,
+    },
+    isCaret: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isCloseByClickInside: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    menuWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
     },
   },
   data() {
@@ -110,6 +130,7 @@ export default {
       statusExpanded: false,
       statusEventPressArrows: false,
       buttonWidth: undefined,
+      popper: undefined,
     };
   },
   computed: {
@@ -167,20 +188,26 @@ export default {
       DROPDOWN_ATTRIBUTES.class = ["a_dropdown__menu", this.dropdownClass, {
         a_dropdown__menu_show: this.statusExpanded,
       }];
+      if (this.menuWidth) {
+        DROPDOWN_ATTRIBUTES.style = `width: ${ this.menuWidth }px`;
+      }
       return DROPDOWN_ATTRIBUTES;
     },
   },
   beforeUnmount() {
-    this.destroyEventClickOutside();
+    this.destroyEventCloseClick();
     this.destroyEventPressArrows();
+    this.destroyPopover();
   },
   methods: {
     onKeydown($event) {
-      if ($event.key !== "Enter" ||
-        $event.key !== "Space" ||
-        $event.key !== "Up" ||
-        $event.key !== "Down") {
+      if ($event.keyCode === AKeysCode.enter ||
+        $event.keyCode === AKeysCode.space ||
+        $event.keyCode === AKeysCode.arrowUp ||
+        $event.keyCode === AKeysCode.arrowDown) {
         this.onToggle();
+        $event.stopPropagation();
+        $event.preventDefault();
       }
     },
 
@@ -188,18 +215,22 @@ export default {
       if (this.disabled) {
         return;
       }
-      this.statusExpanded = !this.statusExpanded;
       if (this.statusExpanded) {
-        this.setButtonWidth();
-        this.initEventPressArrows();
-        setTimeout(() => {
-          this.setEventClickOutside();
-          this.setFocusToFirstElement();
-        });
+        this.onClose();
       } else {
-        this.destroyEventClickOutside();
-        this.destroyEventPressArrows();
+        this.onOpen();
       }
+    },
+
+    onOpen() {
+      this.setButtonWidth();
+      this.initEventPressArrows();
+      setTimeout(() => {
+        this.openPopoverWithPopperjs();
+        this.setEventCloseClick();
+        this.setFocusToFirstElement();
+      });
+      this.statusExpanded = true;
     },
 
     setButtonWidth() {
@@ -208,26 +239,30 @@ export default {
       }
     },
 
-    setEventClickOutside() {
-      document.addEventListener("click", this.clickOutsideEvent);
+    setEventCloseClick() {
+      document.addEventListener("click", this.onClickEvent);
     },
 
-    destroyEventClickOutside() {
-      document.removeEventListener("click", this.clickOutsideEvent);
+    destroyEventCloseClick() {
+      document.removeEventListener("click", this.onClickEvent);
     },
 
-    clickOutsideEvent($event) {
-      // here I check that click was outside the el and his children
-      // if (!(this.$el === $event.target || this.$el.contains($event.target))) {
-      if (!(this.$el === $event.target || this.$el.contains($event.target))) {
-        // and if it did, call method provided in attribute value
+    onClickEvent($event) {
+      if (this.$refs.dropdown.contains($event.target)) {
+        if (this.isCloseByClickInside) {
+          this.onClose();
+          this.setFocusToButton();
+        }
+      } else {
         this.onClose();
       }
     },
 
     onClose() {
+      this.destroyEventCloseClick();
+      this.destroyEventPressArrows();
+      this.destroyPopover();
       this.statusExpanded = false;
-      this.destroyEventClickOutside();
     },
 
     initEventPressArrows() {
@@ -246,18 +281,26 @@ export default {
       document.body.removeEventListener("keydown", this.pressButton);
     },
 
+    setFocusToButton() {
+      this.$refs.dropdown_button.focus();
+    },
+
     pressButton($event) {
       const EVENT = $event || window.$event;
-      if (EVENT.keyCode === 40 || EVENT.keyCode === 38) { // arrow down or up
-        const DOWN = EVENT.keyCode === 40;
+      if (EVENT.keyCode === AKeysCode.arrowDown ||
+        EVENT.keyCode === AKeysCode.arrowUp) { // arrow down or up
+        const DOWN = EVENT.keyCode === AKeysCode.arrowDown;
         this.pressArrows({ down: DOWN });
         $event.preventDefault();
         $event.stopPropagation();
-      } else if (EVENT.keyCode === KEY_CODE_ESCAPE) {
+      } else if (EVENT.keyCode === AKeysCode.escape) {
         this.onClose();
-        this.$refs.dropdown_button.focus();
+        this.setFocusToButton();
         $event.preventDefault();
         $event.stopPropagation();
+      } else if (EVENT.keyCode === AKeysCode.tab) {
+        this.onClose();
+        this.setFocusToButton();
       }
     },
 
@@ -283,11 +326,42 @@ export default {
     },
 
     setFocusToFirstElement() {
+      if (!this.$refs.dropdown) {
+        return;
+      }
       const ELEMENTS = this.$refs.dropdown.querySelectorAll(ELEMENTS_FOR_ARROWS);
       if (ELEMENTS.length === 0) {
         return;
       }
       ELEMENTS[0].focus();
+    },
+
+    openPopoverWithPopperjs() {
+      if (!this.popper) {
+        this.popper = createPopper(
+          this.$refs.dropdown_button,
+          this.$refs.dropdown,
+          {
+            placement: this.placement,
+            removeOnDestroy: true,
+            modifiers: [
+              {
+                name: "offset",
+                options: {
+                  offset: [0, 0],
+                },
+              },
+            ],
+          },
+        );
+      }
+    },
+
+    destroyPopover() {
+      if (this.popper) {
+        this.popper.destroy();
+        this.popper = undefined;
+      }
     },
   },
   render() {
@@ -297,20 +371,26 @@ export default {
         class: "a_dropdown",
       },
       [
-        h(
-          this.buttonTag,
-          this.buttonAttributesLocal, 
-          [
-            this.$slots.button && this.$slots.button(),
-          ]
-        ),
-        h(
-          this.dropdownTag,
-          this.dropdownAttributesLocal,
-          [
-            this.$slots.dropdown && this.$slots.dropdown(),
-          ]
-        ),
+        h(this.buttonTag, this.buttonAttributesLocal, [
+          this.$slots.button && this.$slots.button(),
+          this.isCaret && h(AIcon, {
+            class: "a_dropdown__caret",
+            icon: "ChevronDown",
+          }),
+        ]),
+        h(Teleport, {
+          to: "body",
+        }, [
+          this.statusExpanded && h("div", null, [
+            h(
+              this.dropdownTag,
+              this.dropdownAttributesLocal,
+              [
+                this.$slots.dropdown && this.$slots.dropdown(),
+              ],
+            ),
+          ]),
+        ]),
       ],
     );
   },

@@ -83,6 +83,11 @@ export default {
           name: "PageForm",
           label: "Form",
         },
+        {
+          id: "dropdown",
+          name: "PageDropdown",
+          label: "Dropdown",
+        },
       ],
     };
   },

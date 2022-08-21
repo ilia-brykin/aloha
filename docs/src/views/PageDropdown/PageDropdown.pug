@@ -1,0 +1,29 @@
+div
+  h1 ADropdown
+
+  a-dropdown(
+    button-class: "a_btn a_btn_link",
+  )
+    template(
+      v-slot:button
+    )
+      span Click me
+
+    template(
+      v-slot:dropdown
+    )
+      li
+        button.a_dropdown__item(
+          type="button"
+        ) Item 1
+      li.a_dropdown__divider
+      li
+        button.a_dropdown__item(
+          type="button"
+        ) Item 2
+      li
+        a.a_dropdown__item(
+          href="#"
+        ) Item 3
+
+  button.a_btn.a_btn_primary.a_ml_2 Test

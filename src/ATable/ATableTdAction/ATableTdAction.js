@@ -69,6 +69,9 @@ export default {
         buttonClass: "a_btn a_btn_link",
         dropdownClass: "a_p_0",
         dropdownTag: "div",
+        isCaret: false,
+        placement: "bottom-end",
+        menuWidth: 600,
       }, {
         button: () => [
           h(AIcon, {
@@ -98,7 +101,9 @@ export default {
       }),
       this.isRowActionsDropdownVisible && h(ADropdown, {
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-        dropdownClass: "a_p_0"
+        dropdownClass: "a_p_0",
+        isCaret: false,
+        placement: "bottom-end",
       }, {
         button: () => [
           h(AIcon, {

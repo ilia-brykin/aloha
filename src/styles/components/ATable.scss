@@ -126,13 +126,23 @@
 .a_table__cell_action {
   text-align: right;
 }
-.a_table {
-  .a_table__th__dropdown_item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.a_table__th__dropdown_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+.a_table__th__dropdown_item__child {
+  position: relative;
+  flex-grow: 1;
+  padding-right: 25px;
+}
+.a_table__th__dropdown_item__btn_arrow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
 .a_table__th__dropdown__ul {
   list-style: none;
   margin: 0;
@@ -141,7 +151,7 @@
   pointer-events: none;
 }
 .a_table__th__dropdown_item__icon {
-  margin-right: var(--a_table_between_actions_margin);
+  margin-right: var(--a_table_between_actions_margin, .5rem);
 }
 .a_table__th__dropdown_item__icon_btn {
   padding: 0;

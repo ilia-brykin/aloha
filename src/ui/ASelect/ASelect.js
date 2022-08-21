@@ -381,7 +381,7 @@ export default {
             h("div", {
               ref: "buttonRef",
               id: this.htmlIdLocal,
-              class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClass, {
+              class: ["a_form_control a_select_toggle a_caret", this.buttonClass, {
                 disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
                 a_form_control_invalid: this.isErrors,

@@ -102,7 +102,10 @@ export default {
       h(ADropdown, {
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
         dropdownTag: "div",
-        dropdownClass: "a_p_0"
+        dropdownClass: "a_p_0",
+        isCaret: false,
+        isCloseByClickInside: false,
+        placement: "bottom-end",
       }, {
         button: () => h(AIcon, {
           icon: "Cog",

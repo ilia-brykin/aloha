@@ -122,7 +122,7 @@ export default {
         return [
           this.isButtonArrowUpVisible && h("button", {
             id: this.idButtonArrowUp,
-            class: "a_sr_only_focusable",
+            class: "a_sr_only_focusable a_btn a_btn_link a_p_0 a_table__th__dropdown_item__btn_arrow",
             type: "button",
             onClick: this.moveColumnUp,
           }, [
@@ -132,7 +132,7 @@ export default {
           ]),
           this.isButtonArrowDownVisible && h("button", {
             id: this.idButtonArrowDown,
-            class: "a_sr_only_focusable",
+            class: "a_sr_only_focusable a_btn a_btn_link a_p_0 a_table__th__dropdown_item__btn_arrow",
             type: "button",
             onClick: this.moveColumnDown,
           }, [
@@ -233,7 +233,9 @@ export default {
       h("div", {
         class: "a_dropdown__item_text a_table__th__dropdown_item a_text_nowrap",
       }, [
-        h("div", null, [
+        h("div", {
+          class: "a_table__th__dropdown_item__child",
+        }, [
           h(this.tagIconParent, this.attributesIconParent, [
             h(AIcon, {
               icon: this.icon,

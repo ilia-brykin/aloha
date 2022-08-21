@@ -6,12 +6,6 @@ html {
   box-sizing: inherit;
 }
 
-a, button {
-  &:focus {
-    box-shadow: inset green 0 0 1px 4px;
-  }
-}
-
 body {
   margin: 0;
 }
