@@ -61,7 +61,7 @@ export default {
       changeModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
       isModel,
       onBlur,
@@ -141,7 +141,7 @@ export default {
       changeModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
       isModel,
       onBlur,
@@ -165,7 +165,7 @@ export default {
         }],
       }, [
         this.label && h(ALabel, {
-          id: this.idLocal,
+          id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
           required: this.required,
@@ -176,7 +176,7 @@ export default {
         }, [
           h("textarea", {
             ref: "textareaRef",
-            id: this.idLocal,
+            id: this.htmlIdLocal,
             value: this.modelValue,
             rows: this.rowsLocal,
             class: [

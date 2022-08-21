@@ -60,7 +60,7 @@ export default {
       clearModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
       isModel,
       onBlur,
@@ -107,7 +107,7 @@ export default {
       clearModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
       isModel,
 
@@ -133,7 +133,7 @@ export default {
         }],
       }, [
         this.label && h(ALabel, {
-          id: this.idLocal,
+          id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
           required: this.required,
@@ -149,7 +149,7 @@ export default {
           }),
           h("input", {
             ref: "inputRef",
-            id: this.idLocal,
+            id: this.htmlIdLocal,
             value: this.modelValue,
             type: this.typeForInput,
             class: [

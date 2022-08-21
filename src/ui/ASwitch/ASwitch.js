@@ -72,6 +72,7 @@ export default {
       clearModel,
       errorsId,
       helpTextId,
+      htmlIdLocal,
       isErrors,
       isModel,
       onBlur,
@@ -164,6 +165,7 @@ export default {
       clearModel,
       errorsId,
       helpTextId,
+      htmlIdLocal,
       isErrors,
       isModel,
       onFocus,
@@ -186,7 +188,7 @@ export default {
         }],
       }, [
         this.label && h(ALabel, {
-          id: this.id,
+          id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
           required: this.required,
@@ -200,7 +202,7 @@ export default {
           }],
         }, [
           h("input", {
-            id: this.id,
+            id: this.htmlIdLocal,
             ref: "input",
             checked: this.isChecked,
             type: "checkbox",
@@ -220,7 +222,7 @@ export default {
           }),
           h("label", {
             class: "switch_button__label",
-            for: this.id,
+            for: this.htmlIdLocal,
             innerHTML: this.labelValueLocal
           }),
         ]),

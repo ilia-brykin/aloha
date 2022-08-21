@@ -11,6 +11,9 @@ import AAlert from "../../AAlert/AAlert";
 import AErrorsElement from "./AErrorsElement";
 
 import {
+  getHtmlId
+} from "../compositionApi/UiAPI";
+import {
   isEmpty,
   isUndefined,
 } from "lodash-es";
@@ -53,6 +56,11 @@ export default {
       required: false,
       default: true,
     },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "onDismiss",
@@ -68,13 +76,18 @@ export default {
     };
 
     const optionsList = toRef(props, "optionsList");
+    const idPrefix = toRef(props, "idPrefix");
     const labelsLocal = computed(() => {
       const LABELS_FROM_OPTIONS_LIST = {};
       optionsList.value.forEach(options => {
         LABELS_FROM_OPTIONS_LIST[options.id] = {
           label: options.label,
           link: !isUndefined(options.isErrorLink) ? options.isErrorLink : true,
-          id: options.htmlId || options.id,
+          id: getHtmlId({
+            id: options.id,
+            idPrefix: options.idPrefix || idPrefix.value,
+            htmlId: options.htmlId,
+          }),
         };
       });
       return LABELS_FROM_OPTIONS_LIST;

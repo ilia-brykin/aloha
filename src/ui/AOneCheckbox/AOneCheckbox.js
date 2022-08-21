@@ -38,7 +38,7 @@ export default {
       changeModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
       onBlur,
       onFocus,
@@ -78,7 +78,7 @@ export default {
       ariaDescribedbyLocal,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
 
       isChecked,
@@ -104,7 +104,7 @@ export default {
             }],
           }, [
             h("input", {
-              id: this.idLocal,
+              id: this.htmlIdLocal,
               value: this.modelValue,
               type: "checkbox",
               checked: this.isChecked,
@@ -120,7 +120,7 @@ export default {
               onBlur: this.onBlur,
             }),
             h("label", {
-              for: this.idLocal,
+              for: this.htmlIdLocal,
               class: ["a_custom_control_label", {
                 a_custom_control_label_width_auto: this.isWidthAuto,
               }],

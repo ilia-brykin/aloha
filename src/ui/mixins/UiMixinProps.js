@@ -13,6 +13,16 @@ export default {
       required: false,
       default: () => uniqueId("a_ui_"),
     },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     inputAttributes: {
       type: Object,
       required: false,

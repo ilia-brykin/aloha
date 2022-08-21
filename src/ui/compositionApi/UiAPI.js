@@ -8,15 +8,21 @@ import UiErrorsAPI from "./UiErrorsAPI";
 
 export default function UiAPI(props, { emit }) {
   const id = toRef(props, "id");
-  const idLocal = computed(() => {
-    return id.value;
+  const idPrefix = toRef(props, "idPrefix");
+  const htmlId = toRef(props, "htmlId");
+  const htmlIdLocal = computed(() => {
+    return getHtmlId({
+      id: id.value,
+      idPrefix: idPrefix.value,
+      htmlId: htmlId.value,
+    });
   });
 
   const {
     errorsId,
     isErrors,
   } = UiErrorsAPI(props, {
-    idLocal,
+    htmlIdLocal,
   });
 
   const changeModel = ({ model }) => {
@@ -44,7 +50,7 @@ export default function UiAPI(props, { emit }) {
   };
 
   const helpTextId = computed(() => {
-    return `${ idLocal.value }_help_text`;
+    return `${ htmlIdLocal.value }_help_text`;
   });
 
   const helpText = toRef(props, "helpText");
@@ -84,11 +90,18 @@ export default function UiAPI(props, { emit }) {
     clearModel,
     errorsId,
     helpTextId,
-    idLocal,
+    htmlIdLocal,
     isErrors,
     isFocus,
     isModel,
     onBlur,
     onFocus,
   };
+}
+
+export function getHtmlId({ id, idPrefix, htmlId }) {
+  if (htmlId) {
+    return htmlId;
+  }
+  return `${ idPrefix || "" }${ id }`;
 }

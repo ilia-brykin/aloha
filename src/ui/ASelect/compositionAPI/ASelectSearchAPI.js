@@ -13,7 +13,7 @@ import {
 export default function ASelectSearchAPI(props, {
   emit,
 }, {
-  idLocal = computed(() => ""),
+  htmlIdLocal = computed(() => ""),
   dataLocal = computed(() => []),
 }) {
   const modelSearch = ref("");
@@ -21,7 +21,7 @@ export default function ASelectSearchAPI(props, {
   const searchOutsideRef = ref(undefined);
 
   const idForButtonSearchOutside = computed(() => {
-    return `${ idLocal.value }_search_global`;
+    return `${ htmlIdLocal.value }_search_global`;
   });
 
   const onSearchOutside = $event => {

@@ -22,6 +22,11 @@ import {
 export default {
   name: "AForm",
   props: {
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     data: {
       type: Array,
       required: true,
@@ -112,6 +117,7 @@ export default {
         errors: this.errors,
         isDismissible: false,
         optionsList: this.data,
+        idPrefix: this.idPrefix,
       }),
       h("div", {
         class: "a_columns a_columns_count_12 a_columns_gab_2",
@@ -123,6 +129,7 @@ export default {
             modelDependencies: this.modelValueLocal,
             class: ["a_column", item.classColumn || "a_column_12"],
             errors: this.errors[item.id],
+            idPrefix: this.idPrefix,
             "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
             ...item,
           });

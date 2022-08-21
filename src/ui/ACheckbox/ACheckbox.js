@@ -55,7 +55,7 @@ export default {
       changeModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
       onBlur,
       onFocus,
@@ -84,7 +84,7 @@ export default {
       ariaDescribedbyLocal,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
 
       dataLocal,
@@ -105,7 +105,7 @@ export default {
           class: "a_form_element",
         }, [
           h("fieldset", {
-            id: this.idLocal,
+            id: this.htmlIdLocal,
             tabindex: -1,
             class: ["a_fieldset", {
               a_fieldset_invalid: this.isErrors,
@@ -120,7 +120,7 @@ export default {
             }),
             ...this.dataLocal.map((item, itemIndex) => {
               return h(ACheckboxItem, {
-                id: this.idLocal,
+                id: this.htmlIdLocal,
                 key: itemIndex,
                 dataItem: item,
                 itemIndex,

@@ -10,7 +10,7 @@ import {
 } from "lodash-es";
 
 export default function UiErrorsAPI(props, {
-  idLocal = computed(() => ""),
+  htmlIdLocal = computed(() => ""),
 }) {
   const errors = toRef(props, "errors");
   const isErrors = computed(() => {
@@ -27,7 +27,7 @@ export default function UiErrorsAPI(props, {
   });
 
   const errorsId = computed(() => {
-    return `${ idLocal.value }_errors_text`;
+    return `${ htmlIdLocal.value }_errors_text`;
   });
 
   return {

@@ -173,7 +173,7 @@ export default {
       clearModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
       onBlur,
       onFocus,
@@ -219,15 +219,15 @@ export default {
     });
 
     const containerId = computed(() => {
-      return `${ idLocal.value }_container`;
+      return `${ htmlIdLocal.value }_container`;
     });
 
     const idForList = computed(() => {
-      return `${ idLocal.value }_list`;
+      return `${ htmlIdLocal.value }_list`;
     });
 
     const ariaLabelledby = computed(() => {
-      return `${ idLocal.value }_label`;
+      return `${ htmlIdLocal.value }_label`;
     });
 
     const tabindex = computed(() => {
@@ -276,7 +276,7 @@ export default {
       updateModelSearch,
       updateModelSearchOutside,
     } = ASelectSearchAPI(props, context, {
-      idLocal,
+      htmlIdLocal,
       dataLocal,
     });
 
@@ -301,7 +301,7 @@ export default {
       clearModel,
       errorsId,
       helpTextId,
-      idLocal,
+      htmlIdLocal,
       isErrors,
 
       dataKeyByKeyIdLocal,
@@ -380,7 +380,7 @@ export default {
           }, [
             h("div", {
               ref: "buttonRef",
-              id: this.idLocal,
+              id: this.htmlIdLocal,
               class: ["a_form_control a_select_toggle a_select_toggle_caret", this.buttonClass, {
                 disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
@@ -451,7 +451,7 @@ export default {
                       a_select_menu_right: this.menuRightLocal,
                     }],
                     role: "listbox",
-                    ariaLabelledby: this.idLocal,
+                    ariaLabelledby: this.htmlIdLocal,
                   }, [
                     this.searchOutside && h("div", {
                       class: "a_select_search",
@@ -548,7 +548,7 @@ export default {
                       }),
                       ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
                         return h(ASelectGroup, {
-                          id: this.idLocal,
+                          id: this.htmlIdLocal,
                           groupElements: this.dataGrouped.dataKeyByGroup[groupItem.groupKey],
                           groupLabel: groupItem.groupLabel,
                           groupIndex: groupIndex,
