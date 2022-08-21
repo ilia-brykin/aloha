@@ -164,6 +164,12 @@ export default {
             },
           ],
         },
+        {
+          type: "template",
+          id: "aloha14",
+          classColumn: "a_column_8",
+          html: "<strong>TEMPLATE</strong>",
+        },
       ];
     },
   },

@@ -98,7 +98,7 @@ export default {
               idPrefix: this.idPrefix,
               "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
               ...item,
-            });
+            }, this.$slots);
           }),
         ]),
       ]),

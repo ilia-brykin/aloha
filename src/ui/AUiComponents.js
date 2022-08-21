@@ -4,6 +4,7 @@ import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
 import ASelect from "./ASelect/ASelect";
 import ASwitch from "./ASwitch/ASwitch";
+import ATemplate from "./ATemplate/ATemplate";
 import ATextarea from "./ATextarea/ATextarea";
 
 export default {
@@ -20,4 +21,5 @@ export default {
   checkbox: ACheckbox,
   radio: ARadio,
   switch: ASwitch,
+  template: ATemplate,
 };
