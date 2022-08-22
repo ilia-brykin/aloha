@@ -1,6 +1,6 @@
 import AModal from "../../../../src/AModal/AModal";
 
-import ConfirmAPI from "../../../../src/compositionAPI/ConfirmAPI";
+import AConfirmAPI from "../../../../src/compositionAPI/AConfirmAPI";
 
 export default {
   name: "PageConfirm",
@@ -11,7 +11,7 @@ export default {
     const {
       closeConfirm,
       openConfirm,
-    } = ConfirmAPI();
+    } = AConfirmAPI();
 
     const save = () => {
       closeConfirm();

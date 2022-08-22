@@ -5,7 +5,7 @@ import {
 
 import AModal from "../AModal/AModal";
 
-import ConfirmAPI from "../compositionAPI/ConfirmAPI";
+import AConfirmAPI from "../compositionAPI/AConfirmAPI";
 
 // @vue/component
 export default {
@@ -15,7 +15,7 @@ export default {
       closeConfirm,
       confirmOptions,
       isModalHidden,
-    } = ConfirmAPI();
+    } = AConfirmAPI();
 
     const modalProps = computed(() => {
       return {

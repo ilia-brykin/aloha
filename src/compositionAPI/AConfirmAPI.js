@@ -21,7 +21,7 @@ const confirmOptions = ref({});
 // selectorClose
 // size
 
-export default function ConfirmAPI() {
+export default function AConfirmAPI() {
   const changeConfirmOptions = (args = {}) => {
     forEach(args, (argumentValue, argumentKey) => {
       confirmOptions.value[argumentKey] = argumentValue;
