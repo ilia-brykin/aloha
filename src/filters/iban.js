@@ -3,7 +3,7 @@ import {
   isString,
 } from "lodash-es";
 
-export default function(input, plain) {
+export default function(input, { plain } = {}) {
   if (!input || !isString(input)) {
     return;
   }

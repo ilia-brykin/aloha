@@ -3,7 +3,7 @@ import {
   toString,
 } from "lodash-es";
 
-export default (value, statusNotHtml) => {
+export default (value, { statusNotHtml } = {}) => {
   const FORMAT = store.getters["syConfigs/GET_VALUE"]("antragsnummerformat");
   return setStrInFormat({ format: FORMAT, value, statusNotHtml });
 };

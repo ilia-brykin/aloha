@@ -1,4 +1,4 @@
-export default function(value, searchModel = "") {
+export default function(value, { searchModel = "" }) {
   if (!value) {
     return "";
   }

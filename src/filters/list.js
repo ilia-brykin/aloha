@@ -3,7 +3,7 @@ import {
   forEach,
 } from "lodash-es";
 
-export default function(value, isHtml = true, listClass = "list-unstyled") {
+export default function(value, { isHtml = true, listClass = "list-unstyled" } = {}) {
   if (!isArray(value)) {
     return value;
   }

@@ -12,57 +12,57 @@ import Link from "../filters/Link";
 import list from "../filters/list";
 import searchHighlight from "../filters/searchHighlight";
 
-export default function FiltersAPI() {
+export default function AFiltersAPI() {
   const filterBoolean = (value, { trueValue = "Ja", falseValue = "Nein", isNilUsed = true } = {}) => {
     return boolean(value, { trueValue, falseValue, isNilUsed });
   };
 
-  const filterCurrency = (value, param = "€", digits = 2, digitGrouping = true) => {
-    return currency(value, param, digits, digitGrouping);
+  const filterCurrency = (value, { suffix = "€", digits = 2, digitGrouping = true } = {}) => {
+    return currency(value, { suffix, digits, digitGrouping });
   };
 
   const filterDate = (value, param) => {
     return date(value, param);
   };
 
-  const filterDefaultForEmpty = (value, emptyValue = "-") => {
-    return DefaultForEmpty(value, emptyValue);
+  const filterDefaultForEmpty = (value, { emptyValue = "-" } = {}) => {
+    return DefaultForEmpty(value, { emptyValue });
   };
 
   const filterEmail = value => {
     return Email(value);
   };
 
-  const filterFileSize = (value, units) => {
-    return FileSize(value, units);
+  const filterFileSize = (value, { units } = {}) => {
+    return FileSize(value, { units });
   };
 
-  const filterIban = (value, plain) => {
-    return iban(value, plain);
+  const filterIban = (value, { plain } = {}) => {
+    return iban(value, { plain });
   };
 
-  const filterJson = (value, parameter = 2) => {
-    return json(value, parameter);
+  const filterJson = (value, { parameter = 2 } = {}) => {
+    return json(value, { parameter });
   };
 
   const filterKeyValue = value => {
     return KeyValue(value);
   };
 
-  const filterLimitTo = (value, param = 30) => {
-    return limitTo(value, param);
+  const filterLimitTo = (value, { param = 30 } = {}) => {
+    return limitTo(value, { param });
   };
 
-  const filterLink = (value, param = "http://", target = "_blank") => {
-    return Link(value, param, target);
+  const filterLink = (value, { param = "http://", target = "_blank" } = {}) => {
+    return Link(value, { param, target });
   };
 
-  const filterList = (value, isHtml = true, listClass = "list-unstyled") => {
-    return list(value, isHtml, listClass);
+  const filterList = (value, { isHtml = true, listClass = "list-unstyled" } = {}) => {
+    return list(value, { isHtml, listClass });
   };
 
-  const filterSearchHighlight = (value, searchModel = "") => {
-    return searchHighlight(value, searchModel);
+  const filterSearchHighlight = (value, { searchModel = "" } = {}) => {
+    return searchHighlight(value, { searchModel });
   };
 
   return {

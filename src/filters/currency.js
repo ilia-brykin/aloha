@@ -10,7 +10,7 @@ import {
   size,
 } from "lodash-es";
 
-export default function(value, param = "€", digits = 2, digitGrouping = true) {
+export default function(value, { suffix = "€", digits = 2, digitGrouping = true } = {}) {
   if (isNil(value)) {
     return "";
   }
@@ -23,10 +23,10 @@ export default function(value, param = "€", digits = 2, digitGrouping = true) 
   valString = valString.replace(",", ".").replace(/[.](?=.*[.])/g, "");
   let valNumber = toNumber(valString);
   if (valNumber === 0) {
-    return `0${ digits > 0 ? "," : "" }${ repeat("0", digits) }${ param ? ` ${ param }` : "" }`;
+    return `0${ digits > 0 ? "," : "" }${ repeat("0", digits) }${ suffix ? ` ${ suffix }` : "" }`;
   }
   if (!valNumber) {
-    return `${ value }${ param ? ` ${ param }` : "" }`;
+    return `${ value }${ suffix ? ` ${ suffix }` : "" }`;
   }
   valNumber = round(valNumber, digits);
   valString = toString(valNumber);
@@ -56,5 +56,5 @@ export default function(value, param = "€", digits = 2, digitGrouping = true) 
     count++;
     antwort += val;
   });
-  return `${ negative ? "-" : "" }${ antwort.split("").reverse().join("") }${ size(fractVal) > 0 ? "," : "" }${ fractVal }${ param ? ` ${ param }` : "" }`;
+  return `${ negative ? "-" : "" }${ antwort.split("").reverse().join("") }${ size(fractVal) > 0 ? "," : "" }${ fractVal }${ suffix ? ` ${ suffix }` : "" }`;
 }

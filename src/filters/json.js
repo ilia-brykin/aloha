@@ -2,7 +2,7 @@ import {
   isNil,
 } from "lodash-es";
 
-export default function(value, parameter = 2) {
+export default function(value, { parameter = 2 } = {}) {
   if (isNil(value)) {
     return "";
   }

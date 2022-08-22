@@ -3,7 +3,7 @@ import {
   h,
 } from "vue";
 
-import FiltersAPI from "../compositionAPI/FiltersAPI";
+import AFiltersAPI from "../compositionAPI/AFiltersAPI";
 
 import {
   forEach,
@@ -45,9 +45,9 @@ export default {
       default: undefined,
     },
     filterParameters: {
-      type: Array,
+      type: Object,
       required: false,
-      default: () => [],
+      default: () => {},
     },
     replacedWithDefault: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
@@ -71,7 +71,7 @@ export default {
       filterLink,
       filterList,
       filterSearchHighlight,
-    } = FiltersAPI();
+    } = AFiltersAPI();
 
     return {
       filterBoolean,
@@ -98,7 +98,7 @@ export default {
       if (this.filter) {
         const FILTER_FUNCTION_NAME = `filter${ capitalize(this.filter) }`;
         if (isFunction(this[FILTER_FUNCTION_NAME])) {
-          return this[FILTER_FUNCTION_NAME](VALUE, ...this.filterParameters);
+          return this[FILTER_FUNCTION_NAME](VALUE, this.filterParameters);
         } 
         console.warn(`filter "${ FILTER_FUNCTION_NAME }" ist not defined`);
       }

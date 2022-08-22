@@ -6,7 +6,7 @@ import {
 
 import AIcon from "../../AIcon/AIcon";
 
-import FiltersAPI from "../../compositionAPI/FiltersAPI";
+import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 
 import AKeyId from "../const/AKeyId";
 import AKeyLabel from "../const/AKeyLabel";
@@ -51,7 +51,7 @@ export default {
   setup(props, { emit }) {
     const {
       filterSearchHighlight,
-    } = FiltersAPI();
+    } = AFiltersAPI();
 
     const data = toRef(props, "data");
     const modelSearch = toRef(props, "modelSearch");
@@ -65,7 +65,7 @@ export default {
     });
 
     const currentLabelFiltered = computed(() => {
-      return filterSearchHighlight(currentLabel.value, modelSearch.value);
+      return filterSearchHighlight(currentLabel.value, { searchModel: modelSearch.value });
     });
 
     const isMultiselect = toRef(props, "isMultiselect");

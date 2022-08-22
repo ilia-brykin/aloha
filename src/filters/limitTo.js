@@ -3,7 +3,7 @@ import {
   toString,
 } from "lodash-es";
 
-export default function(value, param = 30) {
+export default function(value, { param = 30 } = {}) {
   if (isNil(value)) {
     return "";
   }

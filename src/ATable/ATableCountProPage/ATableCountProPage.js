@@ -4,7 +4,7 @@ import {
 
 import ATranslation from "../../ATranslation/ATranslation";
 
-import FiltersAPI from "../../compositionAPI/FiltersAPI";
+import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 
 
 export default {
@@ -46,7 +46,7 @@ export default {
   setup() {
     const {
       filterCurrency,
-    } = FiltersAPI();
+    } = AFiltersAPI();
 
     return {
       filterCurrency,
@@ -62,15 +62,15 @@ export default {
     },
 
     startFormatted() {
-      return this.filterCurrency(+this.offset + 1, "", 0);
+      return this.filterCurrency(+this.offset + 1, { suffix: "", digits: 0 });
     },
 
     currentFormatted() {
-      return this.filterCurrency(+this.offset + this.rowsLength, "", 0);
+      return this.filterCurrency(+this.offset + this.rowsLength, { suffix: "", digits: 0 });
     },
 
     countFormatted() {
-      return this.filterCurrency(this.countAllRows, "", 0);
+      return this.filterCurrency(this.countAllRows, { suffix: "", digits: 0 });
     },
 
     countText() {

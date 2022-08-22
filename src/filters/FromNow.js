@@ -9,7 +9,7 @@ import {
   toInteger,
 } from "lodash-es";
 
-export default function(value, format = "days") {
+export default function(value, { format = "days" } = {}) {
   if (isNil(value) || value === "") {
     return "";
   }

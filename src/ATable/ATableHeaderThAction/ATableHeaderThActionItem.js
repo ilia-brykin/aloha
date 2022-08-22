@@ -6,7 +6,7 @@ import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
-import FiltersAPI from "../../compositionAPI/FiltersAPI";
+import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 
 import {
   setFocusToElement,
@@ -62,7 +62,7 @@ export default {
 
     const {
       filterSearchHighlight,
-    } = FiltersAPI();
+    } = AFiltersAPI();
 
     return {
       attributesForRoot,
@@ -168,7 +168,7 @@ export default {
     },
 
     labelLocal() {
-      return this.filterSearchHighlight(this.column.label, this.searchColumnModel);
+      return this.filterSearchHighlight(this.column.label, { searchModel: this.searchColumnModel });
     },
 
     isComponentVisible() {

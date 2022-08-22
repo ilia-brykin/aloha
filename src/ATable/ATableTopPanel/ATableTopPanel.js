@@ -5,7 +5,7 @@ import {
 import AInput from "../../ui/AInput/AInput";
 import ATableActionItem from "../ATableActionItem/ATableActionItem";
 
-import FiltersAPI from "../../compositionAPI/FiltersAPI";
+import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 import TableActionsAPI from "../compositionAPI/TableActionsAPI";
 
 export default {
@@ -43,7 +43,7 @@ export default {
   setup(props) {
     const {
       filterCurrency,
-    } = FiltersAPI();
+    } = AFiltersAPI();
 
     const {
       tableActionFiltered,
@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     countAllRowsFormatted() {
-      return `(${ this.filterCurrency(this.countAllRows, "", 0) })`;
+      return `(${ this.filterCurrency(this.countAllRows, { suffix: "", digits: 0 }) })`;
     },
   },
   methods: {

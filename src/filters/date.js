@@ -13,7 +13,7 @@ const DATE_FORMAT = {
   timeWithSeconds: () => "HH:mm:ss",
 };
 
-export default function(value, param = "date") {
+export default function(value, { param = "date" } = {}) {
   if (isNil(value) || value === "") {
     return "";
   }

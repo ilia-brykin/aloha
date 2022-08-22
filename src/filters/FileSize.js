@@ -8,7 +8,7 @@ const UNITS_MAPPING = {
   MB: 1024 * 1024,
 };
 
-export default function(value, units = "KB") {
+export default function(value, { units = "KB" } = {}) {
   let valueLocal = value;
   if (!isNumber(value)) {
     valueLocal = 0;

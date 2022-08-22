@@ -2,7 +2,7 @@ import {
   isNil,
 } from "lodash-es";
 
-export default function(value, param = "http://", target = "_blank") {
+export default function(value, { param = "http://", target = "_blank" } = {}) {
   if (isNil(value)) {
     return "";
   }
