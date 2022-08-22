@@ -157,6 +157,10 @@ export default {
       required: false,
       default: true,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "onSearchOutside",

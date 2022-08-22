@@ -26,6 +26,10 @@ export default {
       required: false,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+    },
     selectorClose: {
       type: [String, Array],
       required: false,
@@ -209,6 +213,10 @@ export default {
         return `a_modal_${ this.size }`;
       }
       return "";
+    },
+
+    disabledLocal() {
+      return this.disabled || this.loading;
     },
   },
   watch: {
@@ -412,7 +420,7 @@ export default {
                   type: "button",
                   class: "a_btn_close",
                   ariaLabel: "Close",
-                  disabled: this.disabled,
+                  disabled: this.disabledLocal,
                   onClick: this.close,
                 })
               ]),
@@ -442,7 +450,7 @@ export default {
                 this.save && h("button", {
                   type: "button",
                   class: this.saveButtonClass,
-                  disabled: this.disabled,
+                  disabled: this.disabledLocal,
                   onClick: this.save,
                 }, [
                   h("span", null, this.saveButtonText),
@@ -450,7 +458,7 @@ export default {
                 !this.isCloseButtonHidden && h("button", {
                   type: "button",
                   class: this.closeButtonClass,
-                  disabled: this.disabled,
+                  disabled: this.disabledLocal,
                   onClick: this.close,
                 }, [
                   h("span", null, this.closeButtonText),

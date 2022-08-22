@@ -28,6 +28,7 @@ export default {
   render() {
     if (this.type === "button") {
       return h("button", {
+        id: this.action.id,
         class: ["a_table__action", this.action.class],
         disabled: this.action.disabled,
       }, [
@@ -47,6 +48,7 @@ export default {
     }
     if (this.type === "link") {
       return h(resolveComponent("RouterLink"), {
+        id: this.action.id,
         class: ["a_table__action", this.action.class],
         to: this.action.to,
         disabled: this.action.disabled,

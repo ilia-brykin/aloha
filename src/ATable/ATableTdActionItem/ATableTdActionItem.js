@@ -104,6 +104,13 @@ export default {
       }
       return undefined;
     },
+
+    idLocal() {
+      if (this.rowAction.id) {
+        return `${ this.rowAction.id }_${ this.rowIndex }`;
+      }
+      return undefined;
+    },
   },
   methods: {
     onClick() {
@@ -111,6 +118,7 @@ export default {
         row: this.row,
         rowIndex: this.rowIndex,
         rowAction: this.rowAction,
+        id: this.idLocal,
       });
     },
   },
@@ -126,11 +134,13 @@ export default {
         row: this.row,
         rowIndex: this.rowIndex,
         rowAction: this.rowAction,
+        id: this.idLocal,
       });
     }
     if (this.rowAction.type === "link") {
       return h("li", null, [
         h(resolveComponent("RouterLink"), {
+          id: this.idLocal,
           class: ["a_dropdown__item a_table__row_action", this.classLocal],
           disabled: this.disabledLocal,
           to: this.toLocal,
@@ -152,6 +162,7 @@ export default {
     }
     return h("li", null, [
       h("button", {
+        id: this.idLocal,
         type: "button",
         class: ["a_dropdown__item a_table__row_action", this.classLocal],
         disabled: this.disabledLocal,
