@@ -1,11 +1,11 @@
 {
   "name": "aloha-vue",
   "description": "Project aloha",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "author": "Ilia Brykin",
   "dependencies": {
     "@popperjs/core": "2.11.5",
-    "aloha-css": "1.0.10",
+    "aloha-css": "1.0.25",
     "lodash-es": "^4.17.21",
     "vue": "3.2.37"
   }
