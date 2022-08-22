@@ -35,7 +35,7 @@ export default {
   ],
   props: {
     maxlength: {
-      type: String,
+      type: [String, Number],
       required: false,
     },
     isScalable: {

@@ -31,6 +31,7 @@ import Plus from "./Icons/Plus";
 import Reset from "./Icons/Reset";
 import Search from "./Icons/Search";
 import ThList from "./Icons/ThList";
+import Trash from "./Icons/Trash";
 
 import {
   assign,
@@ -80,6 +81,7 @@ export default {
       Reset,
       Search,
       ThList,
+      Trash,
     }, ICONS_PLUGIN);
 
     return {
