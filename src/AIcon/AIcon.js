@@ -27,6 +27,7 @@ import Minus from "./Icons/Minus";
 import Ok from "./Icons/Ok";
 import OptionHorizontal from "./Icons/OptionHorizontal";
 import OptionVertical from "./Icons/OptionVertical";
+import Pencil from "./Icons/Pencil";
 import Plus from "./Icons/Plus";
 import Reset from "./Icons/Reset";
 import Search from "./Icons/Search";
@@ -77,6 +78,7 @@ export default {
       Ok,
       OptionHorizontal,
       OptionVertical,
+      Pencil,
       Plus,
       Reset,
       Search,

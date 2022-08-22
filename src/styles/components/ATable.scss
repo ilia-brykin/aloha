@@ -192,7 +192,7 @@
   margin-left: var(--a_table_between_actions_margin);
 }
 .a_table__action__icon {
-  margin-right: var(--a_table_between_actions_margin);
+  margin-right: var(--a_table_between_actions_margin, .5rem);
 }
 
 .a_table__row_action {
