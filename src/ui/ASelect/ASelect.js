@@ -430,13 +430,13 @@ export default {
                           }, [
                             h("span", null, index !== 0 ? ", " : ""),
                             h(ASelectLabelElement, {
-                              data: this.dataKeyByKeyIdLocal[item],
+                              data: this.dataKeyByKeyIdLocal[item] || {},
                             }),
                           ]);
                         }),
                     ]) :
                   h(ASelectLabelElement, {
-                    data: this.dataKeyByKeyIdLocal[this.modelValue],
+                    data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
                     class: "a_select__value__label",
                   })
                 : "",
