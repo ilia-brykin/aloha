@@ -218,6 +218,10 @@ export default {
     disabledLocal() {
       return this.disabled || this.loading;
     },
+
+    isDataForm() {
+      return this.dataForm.length > 0;
+    },
   },
   watch: {
     isModalHidden() {
@@ -429,7 +433,7 @@ export default {
                 class: "a_modal_body",
               }, [
                 this.$slots.body && this.$slots.body(),
-                this.dataForm.length && h(AForm, {
+                this.isDataForm && h(AForm, {
                   modelValue: this.modelValue,
                   data: this.dataForm,
                   errors: this.errors,
