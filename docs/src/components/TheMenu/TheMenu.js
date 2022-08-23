@@ -88,6 +88,11 @@ export default {
           name: "PageDropdown",
           label: "Dropdown",
         },
+        {
+          id: "tabs",
+          name: "PageTabs",
+          label: "Tabs",
+        },
       ],
     };
   },
