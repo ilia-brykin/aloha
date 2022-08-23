@@ -1,18 +1,3 @@
-html {
-  box-sizing: border-box;
-}
-
-*, ::after, ::before {
-  box-sizing: inherit;
-}
-
-body {
-  margin: 0;
-}
-
-.a_search_highlight {
-  color: red;
-}
 @import "./node_modules/aloha-css/sass/aloha";
 
 @import "../src/styles/styles";
