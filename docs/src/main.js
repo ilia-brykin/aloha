@@ -2,7 +2,7 @@ import App from "./App/App.vue";
 import { createApp } from "vue";
 import store from "./store/index";
 import router from "./router/index";
-import i18nPlugin from "../../src/plugins/i18nPlugin";
+import AI18nPlugin from "../../src/plugins/AI18nPlugin";
 // import alohaPlugin from "../src/plugins/alohaPlugin";
 import AIconPlugin from "../../src/plugins/AIconPlugin";
 
@@ -23,7 +23,7 @@ const TRANSLATIONS = {
   hr: { ...hrGlobal, ...hr },
   ru: { ...ruGlobal, ...ru },
 };
-APP.use(i18nPlugin, TRANSLATIONS, "de");
+APP.use(AI18nPlugin, TRANSLATIONS, "de");
 APP.use(AIconPlugin, {
   Plus2: `<svg
     xmlns="http://www.w3.org/2000/svg"
