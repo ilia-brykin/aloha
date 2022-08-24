@@ -22,6 +22,7 @@ import DoubleAngleRight from "./Icons/DoubleAngleRight";
 import DoubleAngleUp from "./Icons/DoubleAngleUp";
 import EyeClose from "./Icons/EyeClose";
 import EyeOpen from "./Icons/EyeOpen";
+import Home from "./Icons/Home";
 import Lock from "./Icons/Lock";
 import Minus from "./Icons/Minus";
 import Ok from "./Icons/Ok";
@@ -73,6 +74,7 @@ export default {
       DoubleAngleUp,
       EyeClose,
       EyeOpen,
+      Home,
       Lock,
       Minus,
       Ok,
