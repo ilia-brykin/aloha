@@ -20,6 +20,7 @@ export default {
     },
   },
   inject: [
+    "isActionColumnVisible",
     "changeColumnsOrdering",
     "columnsOrdered",
   ],
@@ -72,7 +73,7 @@ export default {
             onDragendParent: this.dragend,
           });
         }),
-        h(ATableHeaderThAction),
+        this.isActionColumnVisible && h(ATableHeaderThAction),
       ]),
     ]);
   },

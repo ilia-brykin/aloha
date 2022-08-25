@@ -45,6 +45,7 @@ export default {
     "changeColumnsOrdering",
     "changeModelColumnsVisible",
     "columnsOrdered",
+    "isColumnsDnd",
     "isLoadingOptions",
     "isLoadingTable",
     "modelColumnsVisibleLocal",
@@ -118,7 +119,7 @@ export default {
     },
 
     arrowButtons() {
-      if (!this.isLocked) {
+      if (!this.isLocked && this.isColumnsDnd) {
         return [
           this.isButtonArrowUpVisible && h("button", {
             id: this.idButtonArrowUp,
@@ -246,7 +247,7 @@ export default {
           }),
           ...this.arrowButtons,
         ]),
-        !this.isLocked && h(AIcon, {
+        (!this.isLocked && this.isColumnsDnd) && h(AIcon, {
           icon: "Dnd",
           class: "a_table__th__dropdown_item__icon_dnd"
         }),

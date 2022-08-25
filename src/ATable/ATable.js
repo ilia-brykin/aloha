@@ -174,6 +174,16 @@ export default {
       required: false,
       default: "",
     },
+    isActionColumnVisible: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isColumnsDnd: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "update:modelColumnsOrder",
@@ -195,6 +205,8 @@ export default {
       columns: computed(() => this.columns),
       columnActionsWidthLocal: computed(() => this.columnActionsWidth),
       columnWidthDefault: computed(() => this.columnWidthDefault),
+      isActionColumnVisible: computed(() => this.isActionColumnVisible),
+      isColumnsDnd: computed(() => this.isColumnsDnd),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
       rowActions: computed(() => this.rowActions),

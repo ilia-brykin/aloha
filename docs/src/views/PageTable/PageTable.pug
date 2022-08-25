@@ -9,6 +9,8 @@ div
     :table-actions="tableActions"
     preview="right"
     :is-quick-search="true"
+    :is-action-column-visible="true"
+    :is-columns-dnd="false"
     v-model:modelQuickSearch="modelQuickSearch"
     @change-columns-ordering="changeColumnsOrdering"
   )

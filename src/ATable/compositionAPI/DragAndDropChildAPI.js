@@ -10,6 +10,7 @@ export default function DragAndDropChildAPI(props, { emit }, { classOver = "" })
   const columnIndex = toRef(props, "columnIndex");
 
   const isLoadingOptions = inject("isLoadingOptions");
+  const isColumnsDnd = inject("isColumnsDnd");
 
   const root = ref(null);
 
@@ -60,7 +61,7 @@ export default function DragAndDropChildAPI(props, { emit }, { classOver = "" })
     const ATTRIBUTES = {
       ref: "root",
     };
-    if (!isLocked.value) {
+    if (!isLocked.value && isColumnsDnd.value) {
       ATTRIBUTES.draggable = !isLoadingOptions.value;
       ATTRIBUTES.onDragstart = dragstart;
       ATTRIBUTES.onDragend = dragend;

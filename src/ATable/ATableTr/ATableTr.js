@@ -24,6 +24,7 @@ export default {
   inject: [
     "columnsOrdered",
     "hasPreview",
+    "isActionColumnVisible",
     "previewRightRowIndex",
     "previewRightRowIndexLast",
     "tableId",
@@ -71,7 +72,7 @@ export default {
           rowIndex: this.rowIndex,
         }, this.$slots);
       }),
-      h(ATableTdAction, {
+      this.isActionColumnVisible && h(ATableTdAction, {
         row: this.row,
         rowIndex: this.rowIndex,
       }, this.$slots),

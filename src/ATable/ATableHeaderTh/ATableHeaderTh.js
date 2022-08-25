@@ -36,6 +36,7 @@ export default {
   ],
   inject: [
     "changeModelSort",
+    "isColumnsDnd",
     "isLoadingOptions",
     "isLoadingTable",
     "modelColumnsVisibleMapping",
@@ -79,7 +80,7 @@ export default {
         "a_table__th a_table__cell",
         this.column.class,
         {
-          a_table__th_draggable: !this.isLocked && !this.isLoadingOptions,
+          a_table__th_draggable: !this.isLocked && !this.isLoadingOptions && this.isColumnsDnd,
           a_table__th_sorting: this.isSorting,
         }
       ];
