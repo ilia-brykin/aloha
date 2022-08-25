@@ -64,9 +64,13 @@ export default {
     attributesForTd() {
       const ATTRIBUTES = {
         role: "cell",
-        class: ["a_table__td a_table__cell", {
-          a_table__cell_click: this.hasPreview,
-        }],
+        class: [
+          "a_table__td a_table__cell",
+          this.column.class,
+          {
+            a_table__cell_click: this.hasPreview,
+          },
+        ],
         style: this.columnsStyles,
       };
       if (this.hasPreview) {
