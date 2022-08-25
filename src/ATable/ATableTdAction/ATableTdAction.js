@@ -28,6 +28,7 @@ export default {
     },
   },
   inject: [
+    "columnActionsWidthLocal",
     "columnsScrollInvisible",
     "modelIsTableWithoutScroll",
   ],
@@ -59,11 +60,16 @@ export default {
     countColumnsScrollInvisible() {
       return this.columnsScrollInvisible.length;
     },
+
+    stylesTdAction() {
+      return `width: ${ this.columnActionsWidthLocal }px; min-width: ${ this.columnActionsWidthLocal }px; max-width: ${ this.columnActionsWidthLocal }px;`;
+    },
   },
   render() {
     return h("div", {
       role: "cell",
       class: "a_table__td a_table__cell a_table__cell_action",
+      style: this.stylesTdAction,
     }, [
       this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
         buttonClass: "a_btn a_btn_link",

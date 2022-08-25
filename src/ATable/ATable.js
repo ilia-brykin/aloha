@@ -62,7 +62,7 @@ export default {
     columnActionsWidth: {
       type: Number,
       required: false,
-      default: 250,
+      default: 170,
     },
     countAllRows: {
       type: Number,

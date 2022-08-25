@@ -20,7 +20,7 @@ export default function ColumnStylesAPI(props) {
   } = ColumnAdditionalSpaceAPI(props);
 
   const columnWidth = computed(() => {
-    return column.value.width || columnWidthDefault;
+    return column.value.width || columnWidthDefault.value;
   });
 
   const columnWidthWithAdditionalSpace = computed(() => {
