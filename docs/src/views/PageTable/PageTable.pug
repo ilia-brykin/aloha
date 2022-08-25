@@ -10,7 +10,8 @@ div
     preview="right"
     :is-quick-search="true"
     :is-action-column-visible="true"
-    :is-columns-dnd="false"
+    :is-columns-dnd="true"
+    :is-pagination="true"
     v-model:modelQuickSearch="modelQuickSearch"
     @change-columns-ordering="changeColumnsOrdering"
   )

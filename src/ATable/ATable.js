@@ -141,6 +141,11 @@ export default {
       required: false,
       default: () => [],
     },
+    isPagination: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isPaginationOutside: {
       type: Boolean,
       required: false,
@@ -317,7 +322,7 @@ export default {
     },
 
     dataPaginated() {
-      if (this.limit && !this.isPaginationOutside) {
+      if (this.limit && !this.isPaginationOutside && this.isPagination) {
         const DATA_SORTED = cloneDeep(this.dataSorted);
         const INDEX_START = this.offset;
         const INDEX_END = INDEX_START + this.limit;
@@ -510,7 +515,7 @@ export default {
       !this.hasRows && h("div", {
         class: "a_table__empty_text",
       }, "Keine Einträge vorhanden."),
-      h("div", {
+      this.isPagination && h("div", {
         class: "a_pagination__parent"
       }, [
         h(ATableCountProPage, {
