@@ -372,6 +372,7 @@ export default {
           isLabelFloat: this.isLabelFloat,
           type: this.type,
           clickLabel: this.togglePopover,
+          loading: this.loading,
         }),
         h("div", {
           class: "a_form_element",

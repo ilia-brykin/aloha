@@ -4,6 +4,7 @@ import {
   toRef,
 } from "vue";
 
+import ASpinner from "../../ASpinner/ASpinner";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import {
@@ -43,6 +44,10 @@ export default {
       required: false,
       default: undefined,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+    },
   },
   setup(props) {
     const id = toRef(props, "id");
@@ -80,6 +85,9 @@ export default {
         tag: "span",
         text: this.label,
         textAfter: this.textAfterLabel,
+      }),
+      this.loading && h(ASpinner, {
+        class: "a_spinner_small a_form_element_label__spinner",
       }),
     ]);
   },
