@@ -4,7 +4,7 @@
   "version": "1.0.32",
   "author": "Ilia Brykin",
   "scripts": {
-    "build-icons-bootstrap": "node scriptsNode/iconsSvgToJs.js bootstrap"
+    "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1"
   },
   "dependencies": {
     "@popperjs/core": "2.11.5",
