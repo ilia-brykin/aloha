@@ -3,11 +3,17 @@
   "description": "Project aloha",
   "version": "1.0.31",
   "author": "Ilia Brykin",
+  "scripts": {
+    "build-icons-bootstrap": "node scriptsNode/iconsSvgToJs.js bootstrap"
+  },
   "dependencies": {
     "@popperjs/core": "2.11.5",
     "aloha-css": "1.0.35",
     "axios": "^0.27.2",
     "lodash-es": "^4.17.21",
     "vue": "3.2.37"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21"
   }
 }

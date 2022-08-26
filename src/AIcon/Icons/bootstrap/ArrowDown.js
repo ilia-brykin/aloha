@@ -1,0 +1,4 @@
+export default `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1024 1024">
+    <path d="M893.44 512l-383.147 512-379.733-512h252.587v-512h256v512h254.293z"></path>
+</svg>
+`;
