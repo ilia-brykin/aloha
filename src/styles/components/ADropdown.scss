@@ -71,10 +71,12 @@
   &:hover {
     color: var(--a_dropdown_link_hover_color);
     background-color: var(--a_dropdown_link_hover_bg);
+    text-decoration: none;
   }
   &:focus {
     box-shadow: inset 0 0 1px 4px var(--a_select_menu_link_focus_color);
     outline: none;
+    text-decoration: none;
   }
   &.active,
   &:active {
