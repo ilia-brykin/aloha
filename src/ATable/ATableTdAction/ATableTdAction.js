@@ -64,6 +64,10 @@ export default {
     stylesTdAction() {
       return `width: ${ this.columnActionsWidthLocal }px; min-width: ${ this.columnActionsWidthLocal }px; max-width: ${ this.columnActionsWidthLocal }px;`;
     },
+
+    buttonActionsId() {
+      return `a_table_dropdown_btn_${ this.rowIndex }`;
+    },
   },
   render() {
     return h("div", {
@@ -106,6 +110,7 @@ export default {
         ],
       }),
       this.isRowActionsDropdownVisible && h(ADropdown, {
+        id: this.buttonActionsId,
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
         dropdownClass: "a_p_0",
         isCaret: false,
@@ -122,6 +127,7 @@ export default {
               row: this.row,
               rowAction,
               rowIndex: this.rowIndex,
+              buttonActionsId: this.buttonActionsId,
             }, this.$slots);
           }),
         ],

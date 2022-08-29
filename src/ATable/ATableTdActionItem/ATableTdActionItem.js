@@ -25,6 +25,10 @@ export default {
       type: Number,
       required: true,
     },
+    buttonActionsId: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
     isDivider() {
@@ -119,6 +123,7 @@ export default {
         rowIndex: this.rowIndex,
         rowAction: this.rowAction,
         id: this.idLocal,
+        buttonActionsId: this.buttonActionsId,
       });
     },
   },
@@ -135,6 +140,7 @@ export default {
         rowIndex: this.rowIndex,
         rowAction: this.rowAction,
         id: this.idLocal,
+        buttonActionsId: this.buttonActionsId,
       });
     }
     if (this.rowAction.type === "link") {
