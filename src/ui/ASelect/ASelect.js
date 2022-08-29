@@ -415,7 +415,7 @@ export default {
                       this.modelValue.map((item, index) => {
                         return h(ASelectValueCloseable, {
                           key: index,
-                          data: this.dataKeyByKeyIdLocal[item],
+                          data: this.dataKeyByKeyIdLocal[item] || {},
                           onChangeModelValue: this.onChangeModelValue,
                         });
                       }),
