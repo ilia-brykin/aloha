@@ -371,7 +371,7 @@ export default {
 
     onFocusByDestroyForSelector({ selector }) {
       const ELEMENT = document.querySelector(selector);
-      if (ELEMENT.length > 0) {
+      if (ELEMENT) {
         ELEMENT.focus();
         return true;
       }
