@@ -16,8 +16,10 @@ export default {
   name: "AAccordion",
   provide() {
     return {
+      disabled: computed(() => this.disabled),
       id: computed(() => this.id),
       indexesForOpen: computed(() => this.indexesForOpen),
+      isCaret: computed(() => this.isCaret),
       keyList: computed(() => this.keyList),
       keyLabel: computed(() => this.keyLabel),
       keyContent: computed(() => this.keyContent),
@@ -55,6 +57,11 @@ export default {
       type: String,
       required: false,
       default: "content",
+    },
+    isCaret: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     stop: {
       type: Boolean,

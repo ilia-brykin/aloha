@@ -25,3 +25,10 @@ div
       v-slot:content="{ item, itemIndex }"
     )
       strong {{ item.content }}
+
+  h2 disabled
+    a-accordion(
+      :items="items"
+      :disabled="true"
+      :is-caret="false"
+    )

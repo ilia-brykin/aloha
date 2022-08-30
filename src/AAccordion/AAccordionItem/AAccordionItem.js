@@ -34,8 +34,10 @@ export default {
   },
   emits: ["toggle"],
   inject: [
+    "disabled",
     "id",
     "indexesForOpen",
+    "isCaret",
     "keyList",
     "keyLabel",
     "keyContent",
@@ -125,10 +127,12 @@ export default {
         h("button", {
           class: ["a_accordion__button", {
             a_accordion__button_collapsed: !this.isOpen,
+            a_accordion__button_has_not_caret: !this.isCaret,
           }],
           ariaExpanded: this.isOpen,
           "aria-controls": this.idForCollapse,
           type: "button",
+          disabled: this.disabled,
           onClick: this.toggle,
         }, [
           this.$slots.button && this.$slots.button({
