@@ -1,10 +1,11 @@
-import ASlot from "../../ASlot/ASlot.vue";
-
 import {
   computed,
+  h,
   inject,
+  resolveComponent,
   toRefs,
 } from "vue";
+
 import {
   cloneDeep,
   get,
@@ -12,9 +13,6 @@ import {
 
 export default {
   name: "AAccordionItem",
-  components: {
-    ASlot,
-  },
   props: {
     item: {
       type: Object,
@@ -36,14 +34,11 @@ export default {
   },
   emits: ["toggle"],
   inject: [
-    "classBoxCollapseBodyContent",
     "id",
     "indexesForOpen",
-    "isFoundation",
     "keyList",
     "keyLabel",
     "keyContent",
-    "tagsLocal",
   ],
   setup(props) {
     const {
@@ -51,13 +46,6 @@ export default {
       itemIndex,
       parentIndexes,
     } = toRefs(props);
-    const classMainLocal = inject("classMainLocal");
-    const currentFrameworkOptions = inject("currentFrameworkOptions");
-    const classItem = inject("classItem");
-    const classItemHeader = inject("classItemHeader");
-    const classItemHeaderButton = inject("classItemHeaderButton");
-    const classBoxCollapse = inject("classBoxCollapse");
-    const classBoxCollapseBody = inject("classBoxCollapseBody");
 
     const indexesForOpen = inject("indexesForOpen");
     const parentIndexesString = computed(() => {
@@ -78,29 +66,7 @@ export default {
       return indexesForOpen.value.indexOf(currentIndex.value) !== -1;
     });
 
-    const classItemLocal = computed(() => {
-      return currentFrameworkOptions.value.item.class(classItem.value, isOpen.value);
-    });
-    const classItemHeaderLocal = computed(() => {
-      return currentFrameworkOptions.value.itemHeader.class(classItemHeader.value, isOpen.value);
-    });
-    const classItemHeaderButtonLocal = computed(() => {
-      return currentFrameworkOptions.value.itemHeaderButton.class(classItemHeaderButton.value, isOpen.value);
-    });
-    const classBoxCollapseLocal = computed(() => {
-      return currentFrameworkOptions.value.boxCollapse.class(classBoxCollapse.value, isOpen.value);
-    });
-    const classBoxCollapseBodyLocal = computed(() => {
-      return currentFrameworkOptions.value.boxCollapseBody.class(classBoxCollapseBody.value, isOpen.value);
-    });
-
     return {
-      classMainLocal,
-      classItemLocal,
-      classItemHeaderLocal,
-      classItemHeaderButtonLocal,
-      classBoxCollapseLocal,
-      classBoxCollapseBodyLocal,
       currentIndex,
       isOpen,
     };
@@ -120,10 +86,6 @@ export default {
       return PARENT_INDEXES;
     },
 
-    ariaExpanded() {
-      return `${ this.isOpen }`;
-    },
-
     idForCollapse() {
       return `${ this.id }_${ this.currentIndex.replace(/\./g, "_") }`;
     },
@@ -139,12 +101,6 @@ export default {
         return get(this.item, this.keyContent);
       }
     },
-
-    styleBoxCollapse() {
-      if (this.isFoundation && this.isOpen) {
-        return "display: block;";
-      }
-    },
   },
   methods: {
     toggle($event) {
@@ -158,5 +114,64 @@ export default {
     toggleFromChild(arg) {
       this.$emit("toggle", arg);
     },
+  },
+  render() {
+    return h("div", {
+      class: "a_accordion__item",
+    }, [
+      h("div", {
+        class: "a_accordion__header",
+      }, [
+        h("button", {
+          class: ["a_accordion__button", {
+            a_accordion__button_collapsed: !this.isOpen,
+          }],
+          ariaExpanded: this.isOpen,
+          "aria-controls": this.idForCollapse,
+          type: "button",
+          onClick: this.toggle,
+        }, [
+          this.$slots.button && this.$slots.button({
+            item: this.item,
+            itemIndex: this.itemIndex,
+            parentIndexes: this.parentIndexes,
+          }),
+          this.labelLocal && h("span", null, this.labelLocal),
+        ]),
+      ]),
+      h("div", {
+        id: this.idForCollapse,
+        class: ["a_accordion__collapse_box", {
+          a_accordion__collapse_box_show: this.isOpen,
+        }],
+      }, [
+        h("div", {
+          class: "a_accordion__body",
+        }, [
+          this.$slots.content && this.$slots.content({
+            item: this.item,
+            itemIndex: this.itemIndex,
+            parentIndexes: this.parentIndexes,
+          }),
+          this.contentLocal && h("div", {
+            innerHTML: this.contentLocal,
+          }),
+          this.hasChildren && h("div", {
+            class: "a_accordion",
+          }, [
+            this.children.map((itemChild, itemChildIndex) => {
+              return h(resolveComponent("AAccordionItem"), {
+                key: itemChildIndex,
+                item: itemChild,
+                itemIndex: itemChildIndex,
+                isParentOpen: this.isOpen,
+                parentIndexes: this.parentIndexesForChild,
+                onToggle: this.toggleFromChild,
+              }, this.$slots);
+            }),
+          ]),
+        ]),
+      ])
+    ]);
   },
 };
