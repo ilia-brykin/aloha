@@ -136,7 +136,9 @@ export default {
             itemIndex: this.itemIndex,
             parentIndexes: this.parentIndexes,
           }),
-          this.labelLocal && h("span", null, this.labelLocal),
+          this.labelLocal && h("span", {
+            innerHTML: this.labelLocal,
+          }),
         ]),
       ]),
       h("div", {
