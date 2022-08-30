@@ -355,11 +355,12 @@ export default {
       if (!this.selectorClose) {
         return;
       }
+      const SELECTOR_CLOSE = this.selectorClose;
       setTimeout(() => {
-        if (isString(this.selectorClose)) {
-          this.onFocusByDestroyForSelector({ selector: this.selectorClose });
+        if (isString(SELECTOR_CLOSE)) {
+          this.onFocusByDestroyForSelector({ selector: SELECTOR_CLOSE });
         } else {
-          forEach(this.selectorClose, selector => {
+          forEach(SELECTOR_CLOSE, selector => {
             const STATUS_SUCCESS = this.onFocusByDestroyForSelector({ selector });
             if (STATUS_SUCCESS) {
               return false;

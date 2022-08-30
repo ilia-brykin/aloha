@@ -38,8 +38,10 @@ export default function AConfirmAPI() {
     if (isFunction(confirmOptions.value.close)) {
       confirmOptions.value.close();
     }
-    confirmOptions.value = {};
     isModalHidden.value = true;
+    setTimeout(() => {
+      confirmOptions.value = {};
+    });
   };
 
   return {

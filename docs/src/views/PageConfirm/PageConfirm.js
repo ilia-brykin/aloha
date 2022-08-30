@@ -22,6 +22,7 @@ export default {
         headerText: "Aloha",
         bodyHtml: "<div>Aloha <strong>Hola</strong></div>",
         save: save,
+        selectorClose: "#btn_confirm",
       });
     };
 
