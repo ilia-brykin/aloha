@@ -34,6 +34,7 @@
   --a_select_divider_margin_y: 0.5rem;
   --a_select_divider_bg: var(--a_color_gray_300);
   --a_select_border_radius: var(--a_border_radius);
+  --a_select_menu_max_height: 250px;
   --a_select_menu_link_color: var(--a_color_text);
   --a_select_menu_link_hover_color: var(--a_color_text);
   --a_select_menu_link_hover_bg: var(--a_color_gray_200);
@@ -47,7 +48,6 @@
   background-color: #fff;
   border: 1px solid grey;
   padding: 10px;
-  overflow: auto;
   border-radius: var(--a_select_border_radius);
   &[data-popper-reference-hidden] {
     visibility: hidden !important;
@@ -57,6 +57,10 @@
 .a_select_menu_right {
   right: 0;
   left: auto;
+}
+.a_select_menu__child {
+  max-height: var(--a_select_menu_max_height);
+  overflow: auto;
 }
 
 .a_select_list {
@@ -80,10 +84,12 @@
   text-align: left;
   padding: 2px 4px 2px 25px;
   border: none;
-  white-space: nowrap;
   cursor: pointer;
   background-color: transparent;
   color: var(--a_select_menu_link_color);
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
   &:hover {
     background-color: var(--a_select_menu_link_hover_bg);
     color: var(--a_select_menu_link_hover_color);
@@ -101,7 +107,8 @@
   display: block;
   background-color: inherit;
   position: absolute;
-  top: 5px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 5px;
   > .a_icon {
     vertical-align: inherit;
@@ -136,6 +143,9 @@
   padding-left: .5rem;
   padding-right: .5rem;
   border-radius: var(--a_select_border_radius);
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .a_select__ul_closeable__item__btn {

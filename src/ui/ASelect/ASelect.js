@@ -501,89 +501,92 @@ export default {
                       class: "a_select__divider",
                       ariaHidden: true,
                     }),
-                    (this.isMultiselect && this.isSelectAll) && h("div", {
-                      class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
-                      role: "option",
-                      tabindex: "-1",
-                      onClick: this.onSelectAll,
-                      onKeydown: this.onKeydownSelectAll,
+                    h("div", {
+                      class: "a_select_menu__child",
                     }, [
-                      h("span", {
-                        class: "a_select__menu__link__icon_box",
+                      (this.isMultiselect && this.isSelectAll) && h("div", {
+                        class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        role: "option",
+                        tabindex: "-1",
+                        onClick: this.onSelectAll,
+                        onKeydown: this.onKeydownSelectAll,
                       }, [
-                        h(AIcon, {
-                          icon: "Ok",
+                        h("span", {
+                          class: "a_select__menu__link__icon_box",
+                        }, [
+                          h(AIcon, {
+                            icon: "Ok",
+                          }),
+                        ]),
+                        h("span", null, this.textSelectAll),
+                      ]),
+                      (this.isMultiselect && this.isDeselectAll) && h("div", {
+                        class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        role: "option",
+                        tabindex: "-1",
+                        onClick: this.onDeselectAll,
+                        onKeydown: this.onKeydownDeselectAll,
+                      }, [
+                        h("span", {
+                          class: "a_select__menu__link__icon_box",
+                        }, [
+                          h(AIcon, {
+                            icon: "Close",
+                          }),
+                        ]),
+                        h("span", null, this.textDeselectAll),
+                      ]),
+                      (this.isDividerSelectDeselectVisible) && h("div", {
+                        class: "a_select__divider",
+                        ariaHidden: true,
+                      }),
+                      this.keyGroup && h(ASlot, null, () => [
+                        ...this.dataGrouped.dataKeyByGroup._not_grouped.map(item => {
+                          return h(ASelectElement, {
+                            data: item,
+                            modelValue: this.modelValue,
+                            modelSearch: this.modelSearch,
+                            isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
+                            isSelected: false,
+                            isMultiselect: this.isMultiselect,
+                            disabled: this.disabled,
+                            onChangeModelValue: this.onChangeModelValue,
+                          });
+                        }),
+                        ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
+                          return h(ASelectGroup, {
+                            id: this.htmlIdLocal,
+                            groupElements: this.dataGrouped.dataKeyByGroup[groupItem.groupKey],
+                            groupLabel: groupItem.groupLabel,
+                            groupIndex: groupIndex,
+                            modelValue: this.modelValue,
+                            modelSearch: this.modelSearch,
+                            elementsHiddenWithSearch: this.elementsHiddenWithSearch,
+                            isSelected: false,
+                            isMultiselect: this.isMultiselect,
+                            disabled: this.disabled,
+                            onChangeModelValue: this.onChangeModelValue,
+                          });
                         }),
                       ]),
-                      h("span", null, this.textSelectAll),
-                    ]),
-                    (this.isMultiselect && this.isDeselectAll) && h("div", {
-                      class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
-                      role: "option",
-                      tabindex: "-1",
-                      onClick: this.onDeselectAll,
-                      onKeydown: this.onKeydownDeselectAll,
-                    }, [
-                      h("span", {
-                        class: "a_select__menu__link__icon_box",
-                      }, [
-                        h(AIcon, {
-                          icon: "Close",
+                      !this.keyGroup && h(ASlot, null, () => [
+                        ...this.dataFiltered.map(item => {
+                          return h(ASelectElement, {
+                            data: item,
+                            modelValue: this.modelValue,
+                            modelSearch: this.modelSearch,
+                            isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
+                            isSelected: false,
+                            isMultiselect: this.isMultiselect,
+                            disabled: this.disabled,
+                            onChangeModelValue: this.onChangeModelValue,
+                          });
                         }),
                       ]),
-                      h("span", null, this.textDeselectAll),
+                      this.isAllElementsHidden && h("span", {
+                        class: "a_select_not_items",
+                      }, "[Keine Auswahl]"),
                     ]),
-                    (this.isDividerSelectDeselectVisible) && h("div", {
-                      class: "a_select__divider",
-                      ariaHidden: true,
-                    }),
-
-                    this.keyGroup && h(ASlot, null, () => [
-                      ...this.dataGrouped.dataKeyByGroup._not_grouped.map(item => {
-                        return h(ASelectElement, {
-                          data: item,
-                          modelValue: this.modelValue,
-                          modelSearch: this.modelSearch,
-                          isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
-                          isSelected: false,
-                          isMultiselect: this.isMultiselect,
-                          disabled: this.disabled,
-                          onChangeModelValue: this.onChangeModelValue,
-                        });
-                      }),
-                      ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
-                        return h(ASelectGroup, {
-                          id: this.htmlIdLocal,
-                          groupElements: this.dataGrouped.dataKeyByGroup[groupItem.groupKey],
-                          groupLabel: groupItem.groupLabel,
-                          groupIndex: groupIndex,
-                          modelValue: this.modelValue,
-                          modelSearch: this.modelSearch,
-                          elementsHiddenWithSearch: this.elementsHiddenWithSearch,
-                          isSelected: false,
-                          isMultiselect: this.isMultiselect,
-                          disabled: this.disabled,
-                          onChangeModelValue: this.onChangeModelValue,
-                        });
-                      }),
-                    ]),
-                    !this.keyGroup && h(ASlot, null, () => [
-                      ...this.dataFiltered.map(item => {
-                        return h(ASelectElement, {
-                          data: item,
-                          modelValue: this.modelValue,
-                          modelSearch: this.modelSearch,
-                          isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
-                          isSelected: false,
-                          isMultiselect: this.isMultiselect,
-                          disabled: this.disabled,
-                          onChangeModelValue: this.onChangeModelValue,
-                        });
-                      }),
-                    ]),
-                    this.isAllElementsHidden && h("span", {
-                      class: "a_select_not_items",
-                    }, "[Keine Auswahl]"),
                   ]),
                 ]),
               ]),
