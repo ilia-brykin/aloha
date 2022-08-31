@@ -34,6 +34,7 @@ export default {
   },
   emits: ["toggle"],
   inject: [
+    "classButton",
     "disabled",
     "id",
     "indexesForOpen",
@@ -111,7 +112,7 @@ export default {
 
     buttonAttributes() {
       const ATTRIBUTES = {
-        class: ["a_accordion__button", {
+        class: ["a_accordion__button", this.classButton, {
           a_accordion__button_collapsed: !this.isOpen,
           a_accordion__button_has_not_caret: !this.isCaret,
         }],

@@ -3,7 +3,7 @@ import {
   h,
 } from "vue";
 
-import AAccordionItem from "./AAccordionItem/AAccordionItem";
+import AAccordionItem from "./AAccordionItem";
 
 import {
   cloneDeep,
@@ -16,6 +16,7 @@ export default {
   name: "AAccordion",
   provide() {
     return {
+      classButton: computed(() => this.classButton),
       disabled: computed(() => this.disabled),
       id: computed(() => this.id),
       indexesForOpen: computed(() => this.indexesForOpen),
@@ -75,6 +76,11 @@ export default {
     prevent: {
       type: Boolean,
       required: false,
+    },
+    classButton: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
   },
   emits: ["toggle"],
