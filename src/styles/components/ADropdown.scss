@@ -1,7 +1,3 @@
-:root {
-
-}
-
 .a_dropdown {
   display: inline-block;
   position: relative;
@@ -51,9 +47,9 @@
   border: var(--a_dropdown_border_width) solid var(--a_dropdown_border_color);
   border-radius: var(--a_dropdown_border_radius);
   overflow-x: auto;
-}
-.a_dropdown__menu_show {
-  // display: block;
+  &:not([data-popper-placement]) {
+    display: none;
+  }
 }
 .a_dropdown__item {
   display: block;

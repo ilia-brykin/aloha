@@ -124,6 +124,11 @@ export default {
       required: false,
       default: undefined,
     },
+    isRenderDefault: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -192,6 +197,10 @@ export default {
         DROPDOWN_ATTRIBUTES.style = `width: ${ this.menuWidth }px`;
       }
       return DROPDOWN_ATTRIBUTES;
+    },
+
+    isMenuRendered() {
+      return this.isRenderDefault || this.statusExpanded;
     },
   },
   beforeUnmount() {
@@ -381,7 +390,7 @@ export default {
         h(Teleport, {
           to: "body",
         }, [
-          this.statusExpanded && h("div", null, [
+          this.isMenuRendered && h("div", null, [
             h(
               this.dropdownTag,
               this.dropdownAttributesLocal,
