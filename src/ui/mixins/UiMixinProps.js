@@ -95,10 +95,14 @@ export default {
       type: Boolean,
       required: false,
     },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
   },
   emits: [
     "update:modelValue",
-    "change",
     "focus",
     "blur",
   ],

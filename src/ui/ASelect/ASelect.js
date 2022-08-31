@@ -267,6 +267,7 @@ export default {
       changeModel,
       togglePopover,
       dataLocal,
+      dataKeyByKeyIdLocal,
     });
 
     const {

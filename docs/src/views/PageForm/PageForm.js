@@ -80,6 +80,7 @@ export default {
           keyGroup: "group",
           data: this.selectData,
           helpText: "ALOHA help!!!",
+          change: this.changeAloha,
         },
         {
           type: "text",
@@ -196,6 +197,10 @@ export default {
 
     reset() {
       this.errors = undefined;
+    },
+
+    changeAloha(arg) {
+      console.log("arg", arg);
     },
   },
 };

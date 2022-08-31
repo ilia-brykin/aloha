@@ -14,6 +14,7 @@ export default function ASelectModelChangeAPI(props, {
   changeModel = () => {},
   togglePopover = () => {},
   dataLocal = computed(() => []),
+  dataKeyByKeyIdLocal = computed(() => ({})),
 }) {
   const isCloseByClick = toRef(props, "isCloseByClick");
   const isCloseByClickLocal = computed(() => {
@@ -50,6 +51,8 @@ export default function ASelectModelChangeAPI(props, {
     changeModel({
       model: modelValueLocal,
       $event,
+      currentModel: currentValue,
+      item: dataKeyByKeyIdLocal.value[currentValue],
     });
 
     if (isCloseByClickLocal.value) {

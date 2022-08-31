@@ -25,11 +25,14 @@ export default function UiAPI(props, { emit }) {
     htmlIdLocal,
   });
 
-  const changeModel = ({ model }) => {
+  const change = toRef(props, "change");
+  const changeModel = ({ model, currentModel, item }) => {
     emit("update:modelValue", model);
-    emit("change", {
+    change.value({
       model,
       props,
+      currentModel,
+      item,
     });
   };
 
