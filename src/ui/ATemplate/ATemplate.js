@@ -38,7 +38,7 @@ export default {
     };
   },
   render() {
-    return h("div", {
+    return !this.isHide && h("div", {
       class: "a_template",
       ...this.attributesWithHtml,
     }, this.$slots[this.slotName] &&

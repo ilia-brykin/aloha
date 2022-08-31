@@ -60,6 +60,7 @@ export default {
           id: "aloha1",
           classColumn: "a_column_8",
           required: true,
+          isHide: true,
         },
         {
           type: "text",

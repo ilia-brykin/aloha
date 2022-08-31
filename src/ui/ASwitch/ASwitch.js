@@ -179,7 +179,7 @@ export default {
     };
   },
   render() {
-    return h("div", {
+    return !this.isHide && h("div", {
       style: this.componentStyleHideDependencies,
     }, [
       h("div", {

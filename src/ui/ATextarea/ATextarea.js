@@ -157,7 +157,7 @@ export default {
     };
   },
   render() {
-    return h("div", null, [
+    return !this.isHide && h("div", null, [
       h("div", {
         class: ["a_form_element__parent", {
           a_form_element__parent_float: this.isLabelFloat,

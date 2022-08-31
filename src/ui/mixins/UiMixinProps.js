@@ -91,6 +91,10 @@ export default {
       type: String,
       required: false,
     },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "update:modelValue",
