@@ -26,9 +26,9 @@ div
     )
       strong {{ item.content }}
 
-  h2 disabled
-    a-accordion(
-      :items="items"
-      :disabled="true"
-      :is-caret="false"
-    )
+  h2 readonly
+  a-accordion(
+    :items="items"
+    :readonly="true"
+    :is-caret="false"
+  )

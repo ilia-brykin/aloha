@@ -41,6 +41,7 @@ export default {
     "keyList",
     "keyLabel",
     "keyContent",
+    "readonly",
   ],
   setup(props) {
     const {
@@ -103,6 +104,29 @@ export default {
         return get(this.item, this.keyContent);
       }
     },
+
+    buttonTag() {
+      return this.readonly ? "div" : "button";
+    },
+
+    buttonAttributes() {
+      const ATTRIBUTES = {
+        class: ["a_accordion__button", {
+          a_accordion__button_collapsed: !this.isOpen,
+          a_accordion__button_has_not_caret: !this.isCaret,
+        }],
+      };
+
+      if (!this.readonly) {
+        ATTRIBUTES.ariaExpanded = this.isOpen;
+        ATTRIBUTES["aria-controls"] = this.idForCollapse;
+        ATTRIBUTES.type = "button";
+        ATTRIBUTES.disabled = this.disabled;
+        ATTRIBUTES.onClick = this.toggle;
+      }
+
+      return ATTRIBUTES;
+    },
   },
   methods: {
     toggle($event) {
@@ -124,17 +148,7 @@ export default {
       h("div", {
         class: "a_accordion__header",
       }, [
-        h("button", {
-          class: ["a_accordion__button", {
-            a_accordion__button_collapsed: !this.isOpen,
-            a_accordion__button_has_not_caret: !this.isCaret,
-          }],
-          ariaExpanded: this.isOpen,
-          "aria-controls": this.idForCollapse,
-          type: "button",
-          disabled: this.disabled,
-          onClick: this.toggle,
-        }, [
+        h(this.buttonTag, this.buttonAttributes, [
           this.$slots.button && this.$slots.button({
             item: this.item,
             itemIndex: this.itemIndex,

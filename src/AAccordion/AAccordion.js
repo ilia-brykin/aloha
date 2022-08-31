@@ -23,6 +23,7 @@ export default {
       keyList: computed(() => this.keyList),
       keyLabel: computed(() => this.keyLabel),
       keyContent: computed(() => this.keyContent),
+      readonly: computed(() => this.readonly),
     };
   },
   props: {
@@ -40,6 +41,10 @@ export default {
       required: true,
     },
     disabled: {
+      type: Boolean,
+      required: false,
+    },
+    readonly: {
       type: Boolean,
       required: false,
     },
