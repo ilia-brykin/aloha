@@ -415,7 +415,7 @@ export default {
                 ref: "modal_header",
                 class: "a_modal_header",
               }, [
-                this.$slots.header && this.$slots.header(),
+                this.$slots.modalHeader && this.$slots.modalHeader(),
                 this.headerText && h(this.headerTag, {
                   class: "a_modal_title",
                 }, [
@@ -433,7 +433,7 @@ export default {
                 ref: "modal_body",
                 class: "a_modal_body",
               }, [
-                this.$slots.body && this.$slots.body(),
+                this.$slots.modalBodyPrepend && this.$slots.modalBodyPrepend(),
                 this.isDataForm && h(AForm, {
                   modelValue: this.modelValue,
                   data: this.dataForm,
@@ -446,12 +446,13 @@ export default {
                 this.bodyHtml && h("div", {
                   innerHTML: this.bodyHtml,
                 }),
+                this.$slots.modalBodyAppend && this.$slots.modalBodyAppend(),
               ]),
               h("div", {
                 ref: "modal_footer",
                 class: "a_modal_footer",
               }, [
-                this.$slots.footer && this.$slots.footer(),
+                this.$slots.modalFooter && this.$slots.modalFooter(),
                 this.save && h("button", {
                   type: "button",
                   class: this.saveButtonClass,
