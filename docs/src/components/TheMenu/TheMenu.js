@@ -93,6 +93,11 @@ export default {
           name: "PageTabs",
           label: "Tabs",
         },
+        {
+          id: "progress",
+          name: "PageProgress",
+          label: "Progress",
+        },
       ],
     };
   },

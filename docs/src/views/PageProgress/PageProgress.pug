@@ -1,0 +1,34 @@
+div
+  h1 PageProgress
+  a-progress(
+    :value="50"
+    :is-integer="true"
+  )
+  a-progress.a_mt_4(
+    :value="50"
+    :is-value-visible="false"
+  )
+
+  a-progress.a_mt_4(
+    :value="20.2"
+    :is-integer="false"
+    class-progress-bar="a_bg_success"
+  )
+  h2 Small
+  a-progress.a_mt_4.a_progress_small(
+    :value="20.2"
+    :is-integer="false"
+    class-progress-bar="a_bg_success"
+  )
+  h2 Medium
+  a-progress.a_mt_4.a_progress_medium(
+    :value="20.2"
+    :is-integer="false"
+    class-progress-bar="a_bg_success"
+  )
+  h2 Large
+  a-progress.a_mt_4.a_progress_large(
+    :value="20.2"
+    :is-integer="false"
+    class-progress-bar="a_bg_success"
+  )
