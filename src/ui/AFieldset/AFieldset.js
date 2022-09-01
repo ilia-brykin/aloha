@@ -9,7 +9,7 @@ import AUiComponents from "../AUiComponents";
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
-import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import { cloneDeep } from "lodash-es";
 
 export default {
@@ -32,8 +32,8 @@ export default {
     const componentTypesMapping = AUiComponents;
 
     const {
-      componentStyleHideDependencies,
-    } = UiDependenciesAPI(props);
+      componentStyleHide,
+    } = UiStyleHideAPI(props);
 
     const {
       ariaDescribedbyLocal,
@@ -56,7 +56,7 @@ export default {
       componentTypesMapping,
       onUpdateModelLocal,
 
-      componentStyleHideDependencies,
+      componentStyleHide,
 
       ariaDescribedbyLocal,
       changeModel,
@@ -68,8 +68,8 @@ export default {
     };
   },
   render() {
-    return !this.isHide && h("div", {
-      style: this.componentStyleHideDependencies,
+    return this.isRender && h("div", {
+      style: this.componentStyleHide,
     }, [
       h("fieldset", {
         id: this.htmlIdLocal,

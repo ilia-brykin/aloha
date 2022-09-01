@@ -23,7 +23,7 @@ import ASelectSearchAPI from "./compositionAPI/ASelectSearchAPI";
 import ASelectToggleAPI from "./compositionAPI/ASelectToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
-import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AKeyId from "../const/AKeyId";
 import {
@@ -168,8 +168,8 @@ export default {
   ],
   setup(props, context) {
     const {
-      componentStyleHideDependencies,
-    } = UiDependenciesAPI(props);
+      componentStyleHide,
+    } = UiStyleHideAPI(props);
 
     const {
       ariaDescribedbyLocal,
@@ -300,7 +300,7 @@ export default {
     });
 
     return {
-      componentStyleHideDependencies,
+      componentStyleHide,
 
       ariaDescribedbyLocal,
       clearModel,
@@ -356,8 +356,8 @@ export default {
     };
   },
   render() {
-    return !this.isHide && h("div", {
-      style: this.componentStyleHideDependencies,
+    return this.isRender && h("div", {
+      style: this.componentStyleHide,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

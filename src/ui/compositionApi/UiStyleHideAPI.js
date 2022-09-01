@@ -9,8 +9,9 @@ import {
   isPlainObject,
 } from "lodash-es";
 
-export default function UiDependenciesAPI(props) {
+export default function UiStyleHideAPI(props) {
   const dependencies = toRef(props, "dependencies");
+  const isHide = toRef(props, "isHide");
   const modelDependencies = toRef(props, "modelDependencies");
 
   const isComponentVisibleWithDependence = ({ id, value }) => {
@@ -37,11 +38,11 @@ export default function UiDependenciesAPI(props) {
     return false;
   });
 
-  const componentStyleHideDependencies = computed(() => {
-    return isComponentHideDependencies.value ? "display: none;" : "";
+  const componentStyleHide = computed(() => {
+    return isHide.value || isComponentHideDependencies.value ? "display: none;" : "";
   });
 
   return {
-    componentStyleHideDependencies,
+    componentStyleHide,
   };
 }

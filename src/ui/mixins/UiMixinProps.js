@@ -95,6 +95,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     change: {
       type: Function,
       required: false,

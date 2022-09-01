@@ -10,7 +10,7 @@ import ALabel from "../ALabel/ALabel";
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
-import UiDependenciesAPI from "../compositionApi/UiDependenciesAPI";
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 const KEY_CODE_SPACE = 32;
 
@@ -63,8 +63,8 @@ export default {
   },
   setup(props, context) {
     const {
-      componentStyleHideDependencies,
-    } = UiDependenciesAPI(props);
+      componentStyleHide,
+    } = UiStyleHideAPI(props);
 
     const {
       ariaDescribedbyLocal,
@@ -159,7 +159,7 @@ export default {
     };
 
     return {
-      componentStyleHideDependencies,
+      componentStyleHide,
 
       ariaDescribedbyLocal,
       clearModel,
@@ -179,8 +179,8 @@ export default {
     };
   },
   render() {
-    return !this.isHide && h("div", {
-      style: this.componentStyleHideDependencies,
+    return this.isRender && h("div", {
+      style: this.componentStyleHide,
     }, [
       h("div", {
         class: ["a_form_element__parent", {
