@@ -450,8 +450,8 @@ export default {
                   idPrefix: this.idPrefix,
                   isRequired: this.isRequired,
                   textRequired: this.textRequired,
-                  isDataFormHide: this.isDataFormHide,
-                  isDataFormRender: this.isDataFormRender,
+                  isHide: this.isDataFormHide,
+                  isRender: this.isDataFormRender,
                   "onUpdate:modelValue": this.updateModelLocal,
                 }, this.$slots),
                 this.bodyHtml && h("div", {
