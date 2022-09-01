@@ -57,10 +57,11 @@ export default {
   },
   emits: [
     "updateModelQuickSearch",
-    "toggleMultipleActionsActive"
+    "toggleMultipleActionsActive",
   ],
   inject: [
     "isMultipleActionsActive",
+    "tableId",
   ],
   setup(props, context) {
     const {
@@ -68,6 +69,7 @@ export default {
     } = AFiltersAPI();
 
     const {
+      buttonMultipleId,
       currentMultipleActions,
       isMultipleActionsFiltered,
       multipleActionsFiltered,
@@ -78,6 +80,7 @@ export default {
     } = TableActionsAPI(props, context);
 
     return {
+      buttonMultipleId,
       currentMultipleActions,
       filterCurrency,
       isMultipleActionsFiltered,
@@ -137,6 +140,7 @@ export default {
           });
         }),
         this.isMultipleActionsFiltered && h(ADropdown, {
+          id: this.buttonMultipleId,
           buttonClass: "a_btn a_btn_secondary a_table__action",
           placement: "bottom-end",
         }, {

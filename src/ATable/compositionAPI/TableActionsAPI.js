@@ -1,5 +1,5 @@
 import {
-  computed,
+  computed, inject,
   ref,
   toRef,
 } from "vue";
@@ -19,6 +19,10 @@ export default function TableActionsAPI(props, { emit }) {
   } = AConfirmAPI();
 
   const tableActions = toRef(props, "tableActions");
+  const tableId = inject("tableId");
+  const buttonMultipleId = computed(() => {
+    return `${ tableId.value }_btn_multiple`;
+  });
 
   const tableActionFiltered = computed(() => {
     const TABLE_ACTIONS = [];
@@ -69,7 +73,7 @@ export default function TableActionsAPI(props, { emit }) {
   const selectedRows = toRef(props, "selectedRows");
 
   const onStartModalMultipleActions = async() => {
-    await currentMultipleActions.value.callback({ rows: selectedRows.value });
+    await currentMultipleActions.value.callback({ rows: selectedRows.value, id: buttonMultipleId.value });
     closeConfirm();
     onCancelMultipleActions();
   };
@@ -82,11 +86,12 @@ export default function TableActionsAPI(props, { emit }) {
         save: onStartModalMultipleActions,
       });
     } else {
-      currentMultipleActions.value.callback({ close: closeMultipleActionsActive.value, rows: selectedRows.value });
+      currentMultipleActions.value.callback({ close: closeMultipleActionsActive.value, rows: selectedRows.value, id: buttonMultipleId.value });
     }
   };
 
   return {
+    buttonMultipleId,
     currentMultipleActions,
     isMultipleActionsFiltered,
     multipleActionsFiltered,
