@@ -19,7 +19,7 @@ import {
 
 // @vue/component
 export default {
-  name: "Modal",
+  name: "AModal",
   props: {
     disabled: {
       type: Boolean,
@@ -101,6 +101,15 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    isDataFormHide: {
+      type: Boolean,
+      required: false,
+    },
+    isDataFormRender: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     modelValue: {
       type: Object,
@@ -441,6 +450,8 @@ export default {
                   idPrefix: this.idPrefix,
                   isRequired: this.isRequired,
                   textRequired: this.textRequired,
+                  isDataFormHide: this.isDataFormHide,
+                  isDataFormRender: this.isDataFormRender,
                   "onUpdate:modelValue": this.updateModelLocal,
                 }, this.$slots),
                 this.bodyHtml && h("div", {
