@@ -64,6 +64,10 @@ export default {
       required: false,
       default: "a_btn a_btn_primary",
     },
+    isSaveButtonHide: {
+      type: Boolean,
+      required: false,
+    },
     close: {
       type: Function,
       required: true,
@@ -78,7 +82,7 @@ export default {
       required: false,
       default: "a_btn a_btn_secondary",
     },
-    isCloseButtonHidden: {
+    isCloseButtonHide: {
       type: Boolean,
       required: false,
     },
@@ -435,6 +439,7 @@ export default {
                   class: "a_btn_close",
                   ariaLabel: "Close",
                   disabled: this.disabledLocal,
+                  title: this.closeButtonText,
                   onClick: this.close,
                 })
               ]),
@@ -464,7 +469,7 @@ export default {
                 class: "a_modal_footer",
               }, [
                 this.$slots.modalFooter && this.$slots.modalFooter(),
-                this.save && h("button", {
+                (!this.isSaveButtonHide && this.save) && h("button", {
                   type: "button",
                   class: this.saveButtonClass,
                   disabled: this.disabledLocal,
@@ -472,7 +477,7 @@ export default {
                 }, [
                   h("span", null, this.saveButtonText),
                 ]),
-                !this.isCloseButtonHidden && h("button", {
+                !this.isCloseButtonHide && h("button", {
                   type: "button",
                   class: this.closeButtonClass,
                   disabled: this.disabledLocal,
