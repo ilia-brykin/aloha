@@ -145,8 +145,12 @@ export default {
           ],
           dropdown: () => [
             this.multipleActionsFiltered.map((action, actionIndex) => {
-              return h("li", {}, [
-                h("button", {
+              return h("li", {
+                class: {
+                  a_dropdown__divider: action.isDivider,
+                },
+              }, [
+                !action.isDivider && h("button", {
                   key: actionIndex,
                   class: "a_dropdown__item",
                   type: "button",

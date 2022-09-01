@@ -237,7 +237,9 @@ export default {
       setTimeout(() => {
         this.openPopoverWithPopperjs();
         this.setEventCloseClick();
-        this.setFocusToFirstElement();
+        setTimeout(() => {
+          this.setFocusToFirstElement();
+        });
       });
       this.statusExpanded = true;
     },

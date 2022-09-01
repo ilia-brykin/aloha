@@ -117,6 +117,13 @@ export default {
           isConfirm: true,
         },
         {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
+          isHidden: true,
+        },
+        {
           label: "Aloha1 modal",
           title: "Aloha1 Title",
           isHidden: false,
