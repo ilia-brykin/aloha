@@ -106,6 +106,25 @@ export default {
           callback: this.clickMe,
         },
       ],
+      multipleActions: [
+        {
+          label: "Aloha1",
+          title: "Aloha1 Title",
+          isHidden: false,
+          callback: this.clickMe,
+          disabled: true,
+          icon: "Plus",
+          isConfirm: true,
+        },
+        {
+          label: "Aloha1 modal",
+          title: "Aloha1 Title",
+          isHidden: false,
+          callback: this.clickMeModal,
+          disabled: true,
+          icon: "Plus",
+        },
+      ],
       tableActions: [
         {
           label: "Aloha1",
@@ -179,6 +198,13 @@ export default {
 
     clickMe({ row, rowIndex } = {}) {
       console.log("row, rowIndex", row, rowIndex);
+    },
+
+    clickMeModal({ rows, close }) {
+      console.log("rows", rows,);
+      setTimeout(() => {
+        close();
+      }, 5000);
     },
   },
 };

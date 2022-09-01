@@ -4,13 +4,10 @@ import {
 
 import ATableTd from "../ATableTd/ATableTd";
 import ATableTdAction from "../ATableTdAction/ATableTdAction";
+import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 
 export default {
   name: "ATableTr",
-  components: {
-    ATableTd,
-    ATableTdAction,
-  },
   props: {
     row: {
       type: Object,
@@ -20,11 +17,19 @@ export default {
       type: Number,
       required: true,
     },
+    selectedRowsIndexes: {
+      type: Object,
+      required: true,
+    },
   },
+  emits: [
+    "setSelectedRowsIndexes",
+  ],
   inject: [
     "columnsOrdered",
     "hasPreview",
     "isActionColumnVisible",
+    "isMultipleActionsActive",
     "previewRightRowIndex",
     "previewRightRowIndexLast",
     "tableId",
@@ -61,9 +66,28 @@ export default {
       return !this.isPreviewRightForCurrentRowOpen &&
         this.rowIndex === this.previewRightRowIndexLast;
     },
+
+    isRowSelected() {
+      return !!this.selectedRowsIndexes[this.rowIndex];
+    },
+  },
+  methods: {
+    toggleCheckbox() {
+      this.$emit("setSelectedRowsIndexes", { rowIndex: this.rowIndex });
+    },
   },
   render() {
     return h("div", this.rowAttributes, [
+      this.isMultipleActionsActive && h("div", {
+        scope: "row",
+        class: "a_table__td a_table__cell a_table__cell_checkbox",
+        style: `width: 50px; min-width: 50px; max-width: 50px;`,
+      }, [
+        h(AOneCheckbox, {
+          modelValue: this.isRowSelected,
+          "onUpdate:modelValue": this.toggleCheckbox,
+        }),
+      ]),
       this.columnsOrdered.map((column, columnIndex) => {
         return h(ATableTd, {
           column,

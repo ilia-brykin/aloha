@@ -14,10 +14,15 @@ import {
 
 export default function ScrollControlAPI(props, { emit }, {
   columnsOrdered = computed(() => []),
+  isMultipleActionsActive = ref(undefined),
   modelColumnsVisibleMapping = computed(() => ({})),
 }) {
   const columnWidthDefault = toRef(props, "columnWidthDefault");
   const columnActionsWidth = toRef(props, "columnActionsWidth");
+  const columnsSpecialWidth = computed(() => {
+    const columnMultipleActionsWidth = isMultipleActionsActive.value ? 50 : 0;
+    return columnMultipleActionsWidth + columnActionsWidth.value;
+  });
 
   const tableWidth = ref(undefined);
   const aTableRef = ref(undefined);
@@ -63,7 +68,7 @@ export default function ScrollControlAPI(props, { emit }, {
     if (!modelIsTableWithoutScroll.value) {
       return;
     }
-    const TABLE_WIDTH_WITHOUT_ACTIONS = tableWidth.value - columnActionsWidth.value;
+    const TABLE_WIDTH_WITHOUT_ACTIONS = tableWidth.value - columnsSpecialWidth.value;
 
     let columnsWidthInOrder = 0;
     let indexFirstScrollInvisibleColumnLocal = 0;

@@ -112,7 +112,6 @@ export default {
       this.isRowActionsDropdownVisible && h(ADropdown, {
         id: this.buttonActionsId,
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-        dropdownClass: "a_p_0",
         isCaret: false,
         placement: "bottom-end",
       }, {

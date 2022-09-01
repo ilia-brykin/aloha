@@ -27,6 +27,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    indeterminate: {
+      type: Boolean,
+      required: false,
+    },
   },
   setup(props, context) {
     const {
@@ -61,14 +65,14 @@ export default {
           $event,
         });
       });
+      $event.stopPropagation();
+      $event.preventDefault();
     };
 
     const onKeydown = $event => {
       if ($event.key === "Enter" ||
         $event.keyCode === KEY_CODE_SPACE) {
         onClick($event);
-        $event.stopPropagation();
-        $event.preventDefault();
       }
     };
 
@@ -113,6 +117,7 @@ export default {
               ariaRequired: this.required,
               ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
+              indeterminate: this.indeterminate,
               ...this.inputAttributes,
               onClick: this.onClick,
               onKeydown: this.onKeydown,

@@ -14,7 +14,9 @@ import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
+import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
+import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
 
 import {
@@ -29,21 +31,12 @@ import {
   isNil,
   isPlainObject,
   keyBy,
-  orderBy,
-  startsWith,
   uniqueId,
 } from "lodash-es";
 
 
 export default {
   name: "ATable",
-  components: {
-    ATableCountProPage,
-    ATableHeader,
-    ATablePagination,
-    ATableTopPanel,
-    ATableTr,
-  },
   props: {
     id: {
       type: String,
@@ -137,6 +130,11 @@ export default {
       default: () => [],
     },
     rowActions: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    multipleActions: {
       type: Array,
       required: false,
       default: () => [],
@@ -244,6 +242,30 @@ export default {
     });
 
     const {
+      hasRows,
+      limit,
+      modelSort,
+      offset,
+      rowsLocal,
+      rowsLocalLength,
+    } = RowsAPI(props);
+
+    const {
+      areAllRowsSelected,
+      areSomeRowsSelected,
+      closeMultipleActionsActive,
+      isMultipleActionsActive,
+      selectedRows,
+      selectedRowsIndexes,
+      setEmptySelectedRowsIndexes,
+      setSelectedRowsIndexes,
+      toggleMultipleActionsActive,
+    } = MultipleActionAPI({
+      rowsLocal,
+      rowsLocalLength,
+    });
+
+    const {
       aTableRef,
       changeModelIsTableWithoutScroll,
       checkVisibleColumns,
@@ -253,6 +275,7 @@ export default {
       modelIsTableWithoutScroll,
     } = ScrollControlAPI(props, context, {
       columnsOrdered,
+      isMultipleActionsActive,
       modelColumnsVisibleMapping,
     });
 
@@ -279,6 +302,7 @@ export default {
     provide("columnsScrollInvisible", columnsScrollInvisible);
     provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
+    provide("isMultipleActionsActive", isMultipleActionsActive);
     provide("modelIsTableWithoutScroll", modelIsTableWithoutScroll);
     provide("onTogglePreview", onTogglePreview);
     provide("previewRightRowIndex", previewRightRowIndex);
@@ -305,54 +329,32 @@ export default {
       previewDownRowIndexes,
       previewRightRowIndex,
       togglePreviewResize,
+
+      hasRows,
+      limit,
+      modelSort,
+      offset,
+      rowsLocal,
+      rowsLocalLength,
+
+      areAllRowsSelected,
+      areSomeRowsSelected,
+      closeMultipleActionsActive,
+      isMultipleActionsActive,
+      selectedRows,
+      selectedRowsIndexes,
+      setEmptySelectedRowsIndexes,
+      setSelectedRowsIndexes,
+      toggleMultipleActionsActive,
     };
   },
   data() {
     return {
       resolved: undefined,
       error: undefined,
-      modelSort: this.sortingStart,
-      limit: this.limitStart,
-      offset: this.offsetStart,
     };
   },
   computed: {
-    rowsLocal() {
-      return this.dataPaginated;
-    },
-
-    dataPaginated() {
-      if (this.limit && !this.isPaginationOutside && this.isPagination) {
-        const DATA_SORTED = cloneDeep(this.dataSorted);
-        const INDEX_START = this.offset;
-        const INDEX_END = INDEX_START + this.limit;
-        return DATA_SORTED.slice(INDEX_START, INDEX_END);
-      }
-      return this.dataSorted;
-    },
-
-    dataSorted() {
-      if (this.modelSort && !this.isSortingOutside) {
-        return orderBy(this.data, [this.sortOptions.model], [this.sortOptions.direction]);
-      }
-      return this.data;
-    },
-
-    sortOptions() {
-      if (this.modelSort) {
-        let directionSort = "asc";
-        let modelSort = this.modelSort;
-        if (startsWith(this.modelSort, "-")) {
-          directionSort = "desc";
-          modelSort = this.modelSort.slice(1);
-        }
-        return {
-          direction: directionSort,
-          model: modelSort,
-        };
-      }
-    },
-
     totalRowsCountLocal() {
       return this.totalRowsCount;
     },
@@ -379,10 +381,6 @@ export default {
 
     isDataArray() {
       return isArray(this.data);
-    },
-
-    hasRows() {
-      return !!this.rowsLocal.length;
     },
   },
   created() {
@@ -417,6 +415,7 @@ export default {
       this.$emit("changeSorting", {
         modelSort: this.modelSort,
       });
+      this.setEmptySelectedRowsIndexes();
       this.closePreviewAll();
     },
 
@@ -432,6 +431,7 @@ export default {
         offset,
         limit: this.limit,
       });
+      this.setEmptySelectedRowsIndexes();
       this.closePreviewAll();
     },
 
@@ -442,6 +442,7 @@ export default {
         offset: this.offset,
         limit,
       });
+      this.setEmptySelectedRowsIndexes();
       this.closePreviewAll();
     },
 
@@ -476,20 +477,28 @@ export default {
       }],
     }, [
       h(ATableTopPanel, {
+        areSomeRowsSelected: this.areSomeRowsSelected,
+        closeMultipleActionsActive: this.closeMultipleActionsActive,
         countAllRows: this.countAllRowsLocal,
         label: this.label,
         labelTag: this.labelTag,
         tableActions: this.tableActions,
+        multipleActions: this.multipleActions,
         isQuickSearch: this.isQuickSearch,
         modelQuickSearch: this.modelQuickSearch,
+        selectedRows: this.selectedRows,
         onUpdateModelQuickSearch: this.updateModelQuickSearch,
+        onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
       }, this.$slots),
       h("div", {
         class: "a_table",
         role: "table",
       }, [
         h(ATableHeader, {
+          areAllRowsSelected: this.areAllRowsSelected,
+          areSomeRowsSelected: this.areSomeRowsSelected,
           modelSort: this.modelSort,
+          onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
         }),
         h("div", {
           class: "a_table__body",
@@ -498,6 +507,8 @@ export default {
           return h(ATableTr, {
             row,
             rowIndex,
+            selectedRowsIndexes: this.selectedRowsIndexes,
+            onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
           }, {
             get: vm => [
               h(AGet, {

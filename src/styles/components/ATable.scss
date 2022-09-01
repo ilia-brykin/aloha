@@ -43,7 +43,7 @@
   border-width: 0;
 }
 .a_table__cell {
-  padding: var(--a_table_cell_padding_x) var(--a_table_cell_padding_y);
+  padding: var(--a_table_cell_padding_y) var(--a_table_cell_padding_x) ;
   background-color: var(--a_table_bg);
   border-bottom-width: 1px;
   .a_table__row_hover:hover &,
@@ -56,6 +56,9 @@
   .a_table__row.a_table__row_focus_was > & {
     background-color: var(--a_table_row_preview_focus_was_bg);
   }
+}
+.a_table__cell_checkbox {
+  --a_table_cell_padding_x: 0;
 }
 
 .a_table__empty_text {

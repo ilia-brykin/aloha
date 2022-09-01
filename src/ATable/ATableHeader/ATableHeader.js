@@ -2,6 +2,7 @@ import {
   h,
 } from "vue";
 
+import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
 
@@ -14,17 +15,29 @@ export default {
     ATableHeaderThAction,
   },
   props: {
+    areAllRowsSelected: {
+      type: Boolean,
+      required: true,
+    },
+    areSomeRowsSelected: {
+      type: Boolean,
+      required: true,
+    },
     modelSort: {
       type: String,
       required: false,
     },
   },
+  emits: [
+    "setSelectedRowsIndexes",
+  ],
   inject: [
     "isActionColumnVisible",
     "changeColumnsOrdering",
     "columnsOrdered",
+    "isMultipleActionsActive",
   ],
-  setup() {
+  setup(props, { emit }) {
     const {
       dragstart,
       dragenter,
@@ -38,6 +51,10 @@ export default {
       classOverParent: "a_table__th"
     });
 
+    const toggleCheckbox = () => {
+      emit("setSelectedRowsIndexes", { isAll: true });
+    };
+
     return {
       dragstart,
       dragenter,
@@ -46,6 +63,8 @@ export default {
       drop,
       isDragstart,
       root,
+
+      toggleCheckbox,
     };
   },
   render() {
@@ -61,6 +80,18 @@ export default {
         role: "row",
         onDrop: this.drop,
       }, [
+        this.isMultipleActionsActive && h("div", {
+          scope: "col",
+          role: "columnheader",
+          class: "a_table__th a_table__cell a_table__cell_checkbox",
+          style: `width: 50px; min-width: 50px; max-width: 50px;`,
+        }, [
+          h(AOneCheckbox, {
+            modelValue: this.areAllRowsSelected,
+            indeterminate: this.areSomeRowsSelected && !this.areAllRowsSelected,
+            "onUpdate:modelValue": this.toggleCheckbox,
+          }),
+        ]),
         this.columnsOrdered.map((column, columnIndex) => {
           return h(ATableHeaderTh, {
             ref: "th",
