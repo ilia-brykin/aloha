@@ -46,6 +46,15 @@ export default {
       type: Boolean,
       required: false,
     },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "update:modelValue",
@@ -84,16 +93,23 @@ export default {
       return isRequiredInData;
     });
 
+    const isHide = toRef(props, "isHide");
+    const styleFormHide = computed(() => {
+      return isHide.value ? "display: none;" : "";
+    });
+
     return {
       componentTypesMapping,
       isRequiredLocal,
       modelValueLocal,
       onUpdateModelLocal,
+      styleFormHide,
     };
   },
   render() {
-    return h("form", {
+    return this.isRender && h("form", {
       class: "a_form",
+      style: this.styleFormHide,
     }, [
       this.$slots.formPrepend && this.$slots.formPrepend(),
       this.isRequiredLocal && h(ARequired, {
