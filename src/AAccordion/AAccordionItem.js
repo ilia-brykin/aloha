@@ -171,15 +171,22 @@ export default {
         h("div", {
           class: "a_accordion__body",
         }, [
-          this.$slots.accordionContent && this.$slots.accordionContent({
-            item: this.item,
-            itemIndex: this.itemIndex,
-            parentIndexes: this.parentIndexes,
-            id: this.id,
-          }),
-          this.contentLocal && h("div", {
-            innerHTML: this.contentLocal,
-          }),
+          (this.item.slotContent && this.$slots[this.item.slotContent]) ?
+            this.$slots[this.item.slotContent]({
+              item: this.item,
+              itemIndex: this.itemIndex,
+              parentIndexes: this.parentIndexes,
+              id: this.id,
+            }) : this.$slots.accordionContent ?
+              this.$slots.accordionContent({
+                item: this.item,
+                itemIndex: this.itemIndex,
+                parentIndexes: this.parentIndexes,
+                id: this.id,
+              }) :
+              this.contentLocal && h("div", {
+                innerHTML: this.contentLocal,
+              }),
           this.hasChildren && h("div", {
             class: ["a_accordion", {
               a_accordion__with_gap: this.withGap,

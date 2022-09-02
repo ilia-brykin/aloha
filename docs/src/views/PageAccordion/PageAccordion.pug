@@ -10,6 +10,10 @@ div
     :always-open="true"
     :with-gap="true"
   )
+    template(
+      v-slot:aloha="{ item }"
+    )
+      pre {{ item }}
   h2 with Slots
   a-accordion(
     :items="items"
