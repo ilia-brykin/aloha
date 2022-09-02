@@ -8,6 +8,7 @@ div
   a-accordion(
     :items="items"
     :always-open="true"
+    :with-gap="true"
   )
   h2 with Slots
   a-accordion(
@@ -16,13 +17,13 @@ div
     key-content=""
   )
     template(
-      v-slot:button="{ item, itemIndex }"
+      v-slot:accordionButton="{ item, itemIndex }"
     )
       span {{ item.label }}
         strong index: {{ itemIndex }}
 
     template(
-      v-slot:content="{ item, itemIndex }"
+      v-slot:accordionContent="{ item, itemIndex }"
     )
       strong {{ item.content }}
 

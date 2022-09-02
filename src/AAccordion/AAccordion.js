@@ -25,6 +25,7 @@ export default {
       keyLabel: computed(() => this.keyLabel),
       keyContent: computed(() => this.keyContent),
       readonly: computed(() => this.readonly),
+      withGap: computed(() => this.withGap),
     };
   },
   props: {
@@ -82,6 +83,10 @@ export default {
       required: false,
       default: undefined,
     },
+    withGap: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: ["toggle"],
   data() {
@@ -132,7 +137,9 @@ export default {
   },
   render() {
     return h("div", {
-      class: "a_accordion",
+      class: ["a_accordion", {
+        a_accordion__with_gap: this.withGap,
+      }],
     }, [
       this.items.map((item, itemIndex) => {
         return h(AAccordionItem, {

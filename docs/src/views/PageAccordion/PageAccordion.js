@@ -9,7 +9,7 @@ export default {
     return {
       items: [
         {
-          label: "label 1",
+          label: "label labellabe llabellabellabellab ellabellabel1 labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabelabellabellabellabellabellabe llabellabellabel",
           content: "content 1",
           items: [
             {

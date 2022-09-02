@@ -43,6 +43,7 @@ export default {
     "keyLabel",
     "keyContent",
     "readonly",
+    "withGap",
   ],
   setup(props) {
     const {
@@ -150,10 +151,11 @@ export default {
         class: "a_accordion__header",
       }, [
         h(this.buttonTag, this.buttonAttributes, [
-          this.$slots.button && this.$slots.button({
+          this.$slots.accordionButton && this.$slots.accordionButton({
             item: this.item,
             itemIndex: this.itemIndex,
             parentIndexes: this.parentIndexes,
+            id: this.id,
           }),
           this.labelLocal && h("span", {
             innerHTML: this.labelLocal,
@@ -169,16 +171,19 @@ export default {
         h("div", {
           class: "a_accordion__body",
         }, [
-          this.$slots.content && this.$slots.content({
+          this.$slots.accordionContent && this.$slots.accordionContent({
             item: this.item,
             itemIndex: this.itemIndex,
             parentIndexes: this.parentIndexes,
+            id: this.id,
           }),
           this.contentLocal && h("div", {
             innerHTML: this.contentLocal,
           }),
           this.hasChildren && h("div", {
-            class: "a_accordion",
+            class: ["a_accordion", {
+              a_accordion__with_gap: this.withGap,
+            }],
           }, [
             this.children.map((itemChild, itemChildIndex) => {
               return h(resolveComponent("AAccordionItem"), {
