@@ -123,11 +123,15 @@ export default {
         ATTRIBUTES.ariaExpanded = this.isOpen;
         ATTRIBUTES["aria-controls"] = this.idForCollapse;
         ATTRIBUTES.type = "button";
-        ATTRIBUTES.disabled = this.disabled;
+        ATTRIBUTES.disabled = this.disabledLocal;
         ATTRIBUTES.onClick = this.toggle;
       }
 
       return ATTRIBUTES;
+    },
+
+    disabledLocal() {
+      return !!(this.disabled || this.item.disabled);
     },
   },
   methods: {
@@ -136,6 +140,8 @@ export default {
         $event: $event,
         indexes: this.parentIndexesForChild,
         isOpen: this.isOpen,
+        item: this.item,
+        itemIndex: this.itemIndex,
       });
     },
 

@@ -87,15 +87,22 @@ export default {
       type: Boolean,
       required: false,
     },
+    indexesForOpenDefault: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
-  emits: ["toggle"],
+  emits: [
+    "toggle",
+  ],
   data() {
     return {
-      indexesForOpen: [],
+      indexesForOpen: cloneDeep(this.indexesForOpenDefault),
     };
   },
   methods: {
-    toggle({ indexes, isOpen, $event }) {
+    toggle({ indexes, isOpen, $event, item, itemIndex }) {
       if (this.disabled) {
         return;
       }
@@ -105,7 +112,7 @@ export default {
       } else {
         this.toggleWithoutAlwaysOpen({ indexes: INDEXES, isOpen });
       }
-      this.$emit("toggle");
+      this.$emit("toggle", { indexes, isOpen, $event, item, itemIndex });
 
       if (this.stop) {
         $event.stopPropagation();

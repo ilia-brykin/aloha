@@ -4,16 +4,19 @@ div
   a-accordion(
     :items="items"
   )
+
   h2 with alwaysOpen
   a-accordion(
     :items="items"
     :always-open="true"
     :with-gap="true"
+    :indexes-for-open-default="['0', '0.0', '1']"
   )
     template(
       v-slot:aloha="{ item }"
     )
       pre {{ item }}
+
   h2 with Slots
   a-accordion(
     :items="items"
