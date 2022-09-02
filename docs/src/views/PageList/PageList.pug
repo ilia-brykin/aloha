@@ -1,0 +1,23 @@
+div
+  h1 PageList
+  h2 without children
+  a-list(
+    :data="items"
+    key-label="label"
+  )
+  h2 with children
+  a-list(
+    :data="items"
+    key-label="label"
+    key-children="items"
+  )
+  h2 with slot
+  a-list(
+    :data="items"
+    key-children="items"
+  )
+    template(
+      v-slot:listItem="vm"
+    )
+      pre {{ vm.item.label }}
+
