@@ -8,7 +8,8 @@ import AFiltersAPI from "../compositionAPI/AFiltersAPI";
 import {
   forEach,
   get,
-  isArray, isFunction,
+  isArray,
+  isFunction,
   isUndefined,
 } from "lodash-es";
 
@@ -45,7 +46,7 @@ export default {
       default: undefined,
     },
     filterParameters: {
-      type: Object,
+      type: [Object, String, Number],
       required: false,
       default: () => {},
     },
