@@ -30,6 +30,11 @@ export default {
       type: String,
       required: true,
     },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     tableActions: {
       type: Array,
       required: true,
@@ -109,7 +114,7 @@ export default {
         countAllRows: this.countAllRows,
       }) :
         h(this.labelTag, {
-          class: "a_table__top_panel__label",
+          class: ["a_table__top_panel__label", this.labelClass],
         }, [
           h("span", {
             class: "a_table__top_panel__label__text",

@@ -72,6 +72,11 @@ export default {
       required: false,
       default: "h2",
     },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     limitsPerPage: {
       type: Array,
       required: false,
@@ -482,6 +487,7 @@ export default {
         countAllRows: this.countAllRowsLocal,
         label: this.label,
         labelTag: this.labelTag,
+        labelClass: this.labelClass,
         tableActions: this.tableActions,
         multipleActions: this.multipleActions,
         isQuickSearch: this.isQuickSearch,
