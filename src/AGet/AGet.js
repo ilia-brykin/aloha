@@ -10,6 +10,7 @@ import {
   get,
   isArray,
   isFunction,
+  isNil,
   isUndefined,
 } from "lodash-es";
 
@@ -92,18 +93,21 @@ export default {
   },
   computed: {
     valueLocal() {
-      const VALUE = get(this.data, this.pathLocal, this.defaultValue);
-      if (this.isValueEqualsWithValueThenDefaultValue(VALUE)) {
+      let value = get(this.data, this.pathLocal);
+      if (isNil(value)) {
+        value = this.defaultValue;
+      }
+      if (this.isValueEqualsWithValueThenDefaultValue(value)) {
         return this.defaultValue;
       }
       if (this.filter) {
         const FILTER_FUNCTION_NAME = `filter${ capitalize(this.filter) }`;
         if (isFunction(this[FILTER_FUNCTION_NAME])) {
-          return this[FILTER_FUNCTION_NAME](VALUE, this.filterParameters);
-        } 
+          return this[FILTER_FUNCTION_NAME](value, this.filterParameters);
+        }
         console.warn(`filter "${ FILTER_FUNCTION_NAME }" ist not defined`);
       }
-      return VALUE;
+      return value;
     },
 
     pathLocal() {
