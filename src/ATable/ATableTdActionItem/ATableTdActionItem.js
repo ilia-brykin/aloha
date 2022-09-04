@@ -122,8 +122,7 @@ export default {
         row: this.row,
         rowIndex: this.rowIndex,
         rowAction: this.rowAction,
-        id: this.idLocal,
-        buttonActionsId: this.buttonActionsId,
+        id: this.buttonActionsId,
       });
     },
   },
@@ -139,8 +138,7 @@ export default {
         row: this.row,
         rowIndex: this.rowIndex,
         rowAction: this.rowAction,
-        id: this.idLocal,
-        buttonActionsId: this.buttonActionsId,
+        id: this.buttonActionsId,
       });
     }
     if (this.rowAction.type === "link") {
