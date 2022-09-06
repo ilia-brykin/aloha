@@ -10,7 +10,7 @@ import {
   forEach,
   get,
   isPlainObject,
-  isString,
+  isString, isUndefined,
 } from "lodash-es";
 
 
@@ -35,9 +35,11 @@ export default {
     },
   },
   inject: [
+    "columnsDefaultValue",
     "hasPreview",
     "modelColumnsVisibleMapping",
     "onTogglePreview",
+    "valuesForColumnDefault",
   ],
   setup(props) {
     const {
@@ -50,7 +52,28 @@ export default {
   },
   computed: {
     text() {
-      return get(this.row, this.column.path);
+      const TEXT = get(this.row, this.column.path);
+      let isTextInValuesForColumnDefault = false;
+      forEach(this.valuesForColumnDefault, item => {
+        if (TEXT === item) {
+          isTextInValuesForColumnDefault = true;
+          return false;
+        }
+      });
+      if (isTextInValuesForColumnDefault) {
+        return this.defaultValue;
+      }
+      return TEXT;
+    },
+
+    defaultValue() {
+      if ("defaultValue" in this.column) {
+        return this.column.defaultValue;
+      }
+      if (!isUndefined(this.columnsDefaultValue)) {
+        return this.columnsDefaultValue;
+      }
+      return "";
     },
 
     path() {

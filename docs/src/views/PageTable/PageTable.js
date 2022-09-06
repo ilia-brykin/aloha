@@ -36,6 +36,12 @@ export default {
           sortId: "hola",
         },
         {
+          label: "Default",
+          id: "default",
+          path: "default",
+          defaultValue: "-",
+        },
+        {
           label: "Hola2",
           id: "hola2",
           path: "hola",

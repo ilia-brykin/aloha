@@ -192,6 +192,16 @@ export default {
       required: false,
       default: true,
     },
+    columnsDefaultValue: {
+      type: [String, Number],
+      required: false,
+      default: "",
+    },
+    valuesForColumnDefault: {
+      type: Array,
+      required: false,
+      default: () => [null, undefined, ""],
+    },
   },
   emits: [
     "update:modelColumnsOrder",
@@ -211,6 +221,7 @@ export default {
       changeModelColumnsVisible: this.changeModelColumnsVisible,
       changeModelSort: this.changeModelSort,
       columns: computed(() => this.columns),
+      columnsDefaultValue: computed(() => this.columnsDefaultValue),
       columnActionsWidthLocal: computed(() => this.columnActionsWidth),
       columnWidthDefault: computed(() => this.columnWidthDefault),
       isActionColumnVisible: computed(() => this.isActionColumnVisible),
@@ -219,6 +230,7 @@ export default {
       isLoadingTable: computed(() => this.isLoadingTable),
       rowActions: computed(() => this.rowActions),
       tableId: computed(() => this.id),
+      valuesForColumnDefault: computed(() => this.valuesForColumnDefault),
     };
   },
   setup(props, context) {
