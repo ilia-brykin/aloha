@@ -1,8 +1,4 @@
-import {
-  computed,
-  h,
-  toRef,
-} from "vue";
+import { computed, h, toRef, } from "vue";
 
 import AFieldset from "../AFieldset/AFieldset";
 import AErrors from "../AErrors/AErrors";
@@ -18,33 +14,19 @@ import {
 export default {
   name: "AForm",
   props: {
-    idPrefix: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     data: {
       type: Array,
       required: true,
-    },
-    modelValue: {
-      type: Object,
-      required: false,
-      default: undefined,
     },
     errors: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    textRequired: {
+    idPrefix: {
       type: String,
       required: false,
       default: undefined,
-    },
-    isRequired: {
-      type: Boolean,
-      required: false,
     },
     isHide: {
       type: Boolean,
@@ -54,6 +36,25 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    isRequired: {
+      type: Boolean,
+      required: false,
+    },
+    modelValue: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    tag: {
+      type: String,
+      required: false,
+      default: "form",
+    },
+    textRequired: {
+      type: String,
+      required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -107,7 +108,7 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("form", {
+    return this.isRender && h(this.tag, {
       class: "a_form",
       style: this.styleFormHide,
     }, [

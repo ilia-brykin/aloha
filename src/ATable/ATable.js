@@ -18,6 +18,7 @@ import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
+import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
 
 import {
   getModelColumnsOrderingDefault,
@@ -33,154 +34,49 @@ import {
   keyBy,
   uniqueId,
 } from "lodash-es";
+import ATableFiltersTop from "./ATableFiltersTop/ATableFiltersTop";
 
 
 export default {
   name: "ATable",
   props: {
-    id: {
-      type: String,
+    columnActionsWidth: {
+      type: Number,
       required: false,
-      default: () => uniqueId("a_table"),
+      default: 170,
     },
     columns: {
       type: Array,
       required: true,
+    },
+    columnsDefaultValue: {
+      type: [String, Number],
+      required: false,
+      default: "",
     },
     columnWidthDefault: {
       type: Number,
       required: false,
       default: 250,
     },
-    columnActionsWidth: {
-      type: Number,
-      required: false,
-      default: 170,
-    },
     countAllRows: {
       type: Number,
       required: false,
       default: undefined,
     },
-    label: {
-      type: [String, Number],
-      required: false,
-      default: "",
-    },
-    labelTag: {
-      type: String,
-      required: false,
-      default: "h2",
-    },
-    labelClass: {
-      type: [String, Object],
-      required: false,
-      default: undefined,
-    },
-    limitsPerPage: {
-      type: Array,
-      required: false,
-      default: () => ["10", "25", "50", "100"],
-    },
-    limitStart: {
-      type: Number,
-      required: false,
-      default: 10,
-    },
-    offsetStart: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    sortingStart: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    modelIsTableWithoutScrollStart: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
     data: {
       type: [Array, Object, Promise],
       required: false,
     },
-    isLoadingTable: {
-      type: Boolean,
+    filters: {
+      type: Array,
       required: false,
+      default: () => [],
     },
-    isLoadingOptions: {
-      type: Boolean,
-      required: false,
-    },
-    keyCountAllRowsInData: {
+    id: {
       type: String,
       required: false,
-      default: "count",
-    },
-    modelColumnsOrdering: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    modelColumnsVisible: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    tableActions: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    rowActions: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    multipleActions: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    isPagination: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    isPaginationOutside: {
-      type: Boolean,
-      required: false,
-    },
-    isSortingOutside: {
-      type: Boolean,
-      required: false,
-    },
-    preview: {
-      type: String,
-      required: false,
-      default: undefined,
-      validator: value => ["right", "down"].indexOf(value) !== -1,
-    },
-    previewHeaderTag: {
-      type: String,
-      required: false,
-      default: "h2",
-    },
-    previewBoxWidth: {
-      type: Number,
-      required: false,
-      default: 300,
-    },
-    isQuickSearch: {
-      type: Boolean,
-      required: false,
-    },
-    modelQuickSearch: {
-      type: String,
-      required: false,
-      default: "",
+      default: () => uniqueId("a_table"),
     },
     isActionColumnVisible: {
       type: Boolean,
@@ -192,10 +88,126 @@ export default {
       required: false,
       default: true,
     },
-    columnsDefaultValue: {
+    isLoadingOptions: {
+      type: Boolean,
+      required: false,
+    },
+    isLoadingTable: {
+      type: Boolean,
+      required: false,
+    },
+    isPagination: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isPaginationOutside: {
+      type: Boolean,
+      required: false,
+    },
+    isQuickSearch: {
+      type: Boolean,
+      required: false,
+    },
+    isSortingOutside: {
+      type: Boolean,
+      required: false,
+    },
+    keyCountAllRowsInData: {
+      type: String,
+      required: false,
+      default: "count",
+    },
+    label: {
       type: [String, Number],
       required: false,
       default: "",
+    },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelTag: {
+      type: String,
+      required: false,
+      default: "h2",
+    },
+    limitsPerPage: {
+      type: Array,
+      required: false,
+      default: () => ["10", "25", "50", "100"],
+    },
+    limitStart: {
+      type: Number,
+      required: false,
+      default: 10,
+    },
+    modelColumnsOrdering: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    modelColumnsVisible: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    modelFilters: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    modelIsTableWithoutScrollStart: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    modelQuickSearch: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    multipleActions: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    offsetStart: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    preview: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["right", "down"].indexOf(value) !== -1,
+    },
+    previewBoxWidth: {
+      type: Number,
+      required: false,
+      default: 300,
+    },
+    previewHeaderTag: {
+      type: String,
+      required: false,
+      default: "h2",
+    },
+    rowActions: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    sortingStart: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    tableActions: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     valuesForColumnDefault: {
       type: Array,
@@ -204,15 +216,16 @@ export default {
     },
   },
   emits: [
-    "update:modelColumnsOrder",
-    "update:modelColumnsVisible",
-    "update:modelQuickSearch",
     "changeColumnsOrdering",
     "changeColumnsVisible",
     "changeLimit",
     "changeOffset",
     "changeSorting",
     "mouseupResizePreviewRight",
+    "update:modelColumnsOrder",
+    "update:modelColumnsVisible",
+    "update:modelFilters",
+    "update:modelQuickSearch",
     "updateModelIsTableWithoutScroll",
   ],
   provide() {
@@ -257,6 +270,7 @@ export default {
       });
       return MODEL_COLUMNS;
     });
+
 
     const {
       hasRows,
@@ -312,6 +326,13 @@ export default {
     } = PreviewAPI(props, context, {
       aTableRef,
     });
+    
+    const {
+      filtersKeyById,
+      modelFiltersLocal,
+      onUpdateModelFilters,
+      startSearch,
+    } = TableFiltersAPI(props, context);
 
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("columnsOrdered", columnsOrdered);
@@ -327,6 +348,7 @@ export default {
 
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("modelColumnsVisibleMapping", modelColumnsVisibleMapping);
+    provide("onUpdateModelFilters", onUpdateModelFilters);
 
 
     return {
@@ -363,6 +385,10 @@ export default {
       setEmptySelectedRowsIndexes,
       setSelectedRowsIndexes,
       toggleMultipleActionsActive,
+
+      filtersKeyById,
+      modelFiltersLocal,
+      startSearch,
     };
   },
   data() {
@@ -487,95 +513,103 @@ export default {
     },
   },
   render() {
-    return h("div", {
-      ref: "aTableRef",
-      class: ["a_table__parent", {
-        a_table__parent_scrollable: !this.modelIsTableWithoutScroll,
-      }],
-    }, [
-      h(ATableTopPanel, {
-        areSomeRowsSelected: this.areSomeRowsSelected,
-        closeMultipleActionsActive: this.closeMultipleActionsActive,
-        countAllRows: this.countAllRowsLocal,
-        label: this.label,
-        labelTag: this.labelTag,
-        labelClass: this.labelClass,
-        tableActions: this.tableActions,
-        multipleActions: this.multipleActions,
-        isQuickSearch: this.isQuickSearch,
-        modelQuickSearch: this.modelQuickSearch,
-        selectedRows: this.selectedRows,
-        onUpdateModelQuickSearch: this.updateModelQuickSearch,
-        onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
+    return h("div", {}, [
+      h(ATableFiltersTop, {
+        filters: this.filters,
+        filtersKeyById: this.filtersKeyById,
+        modelFilters: this.modelFiltersLocal,
+        onStartSearch: this.startSearch,
       }, this.$slots),
       h("div", {
-        class: "a_table",
-        role: "table",
+        ref: "aTableRef",
+        class: ["a_table__parent", {
+          a_table__parent_scrollable: !this.modelIsTableWithoutScroll,
+        }],
       }, [
-        h(ATableHeader, {
-          areAllRowsSelected: this.areAllRowsSelected,
+        h(ATableTopPanel, {
           areSomeRowsSelected: this.areSomeRowsSelected,
-          modelSort: this.modelSort,
-          onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-        }),
-        h("div", {
-          class: "a_table__body",
-          role: "rowgroup",
-        }, this.rowsLocal.map((row, rowIndex) => {
-          return h(ATableTr, {
-            row,
-            rowIndex,
-            selectedRowsIndexes: this.selectedRowsIndexes,
-            onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-          }, {
-            get: vm => [
-              h(AGet, {
-                data: vm.row,
-                path: vm.column.path,
-                filter: vm.column.filter,
-                filterParameters: vm.column.filterParameters,
-                defaultValue: vm.column.defaultValue,
-              }),
-            ],
-            ...this.$slots,
-          });
-        })),
-      ]),
-      !this.hasRows && h("div", {
-        class: "a_table__empty_text",
-      }, "Keine Einträge vorhanden."),
-      this.isPagination && h("div", {
-        class: "a_pagination__parent"
-      }, [
-        h(ATableCountProPage, {
+          closeMultipleActionsActive: this.closeMultipleActionsActive,
           countAllRows: this.countAllRowsLocal,
-          limitsPerPage: this.limitsPerPage,
-          isLoadingTable: this.isLoadingTable,
-          limit: this.limit,
-          offset: this.offset,
-          rowsLength: this.rowsLocal.length,
-          hasRows: this.hasRows,
-          "onUpdate:limit": this.changeLimit,
-        }),
-        h(ATablePagination, {
-          limit: this.limit,
-          totalRowsCount: this.totalRowsCountLocal,
-          isLoadingTable: this.isLoadingTable,
-          offset: this.offset,
-          hasRows: this.hasRows,
-          "onUpdate:offset": this.changeOffset,
-        }),
+          label: this.label,
+          labelTag: this.labelTag,
+          labelClass: this.labelClass,
+          tableActions: this.tableActions,
+          multipleActions: this.multipleActions,
+          isQuickSearch: this.isQuickSearch,
+          modelQuickSearch: this.modelQuickSearch,
+          selectedRows: this.selectedRows,
+          onUpdateModelQuickSearch: this.updateModelQuickSearch,
+          onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
+        }, this.$slots),
+        h("div", {
+          class: "a_table",
+          role: "table",
+        }, [
+          h(ATableHeader, {
+            areAllRowsSelected: this.areAllRowsSelected,
+            areSomeRowsSelected: this.areSomeRowsSelected,
+            modelSort: this.modelSort,
+            onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+          }),
+          h("div", {
+            class: "a_table__body",
+            role: "rowgroup",
+          }, this.rowsLocal.map((row, rowIndex) => {
+            return h(ATableTr, {
+              row,
+              rowIndex,
+              selectedRowsIndexes: this.selectedRowsIndexes,
+              onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+            }, {
+              get: vm => [
+                h(AGet, {
+                  data: vm.row,
+                  path: vm.column.path,
+                  filter: vm.column.filter,
+                  filterParameters: vm.column.filterParameters,
+                  defaultValue: vm.column.defaultValue,
+                }),
+              ],
+              ...this.$slots,
+            });
+          })),
+        ]),
+        !this.hasRows && h("div", {
+          class: "a_table__empty_text",
+        }, "Keine Einträge vorhanden."),
+        this.isPagination && h("div", {
+          class: "a_pagination__parent"
+        }, [
+          h(ATableCountProPage, {
+            countAllRows: this.countAllRowsLocal,
+            limitsPerPage: this.limitsPerPage,
+            isLoadingTable: this.isLoadingTable,
+            limit: this.limit,
+            offset: this.offset,
+            rowsLength: this.rowsLocal.length,
+            hasRows: this.hasRows,
+            "onUpdate:limit": this.changeLimit,
+          }),
+          h(ATablePagination, {
+            limit: this.limit,
+            totalRowsCount: this.totalRowsCountLocal,
+            isLoadingTable: this.isLoadingTable,
+            offset: this.offset,
+            hasRows: this.hasRows,
+            "onUpdate:offset": this.changeOffset,
+          }),
+        ]),
+        this.isPreviewRightOpen && h(ATablePreviewRight, {
+          rowIndex: this.previewRightRowIndex,
+          rows: this.rowsLocal,
+          previewHeaderTag: this.previewHeaderTag,
+          onClosePreview: this.closePreview,
+          onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
+          onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
+          onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
+          onTogglePreviewResize: this.togglePreviewResize,
+        }, this.$slots),
       ]),
-      this.isPreviewRightOpen && h(ATablePreviewRight, {
-        rowIndex: this.previewRightRowIndex,
-        rows: this.rowsLocal,
-        previewHeaderTag: this.previewHeaderTag,
-        onClosePreview: this.closePreview,
-        onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
-        onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
-        onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
-        onTogglePreviewResize: this.togglePreviewResize,
-      }, this.$slots),
     ]);
   },
 };

@@ -13,7 +13,9 @@ div
     :is-action-column-visible="true"
     :is-columns-dnd="true"
     :is-pagination="true"
+    :filters="filters"
     v-model:modelQuickSearch="modelQuickSearch"
+    v-model:modelFilters="modelFilters"
     @change-columns-ordering="changeColumnsOrdering"
   )
     template(
@@ -37,3 +39,5 @@ div
       button.a_btn.a_btn_primary Click me
 
   span modelQuickSearch: {{ modelQuickSearch }}
+  div modelFilters:
+  pre {{ modelFilters }}

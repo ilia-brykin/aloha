@@ -243,6 +243,15 @@
 .a_table__preview_right__resizer {
   left: 0;
 }
+.a_table__filters_top {
+  --a_table_filters_top_padding: 1rem;
+  --a_table_filters_top_always_visible_padding_left: 2rem;
+  padding: var(--a_table_filters_top_padding);
+}
+
+.a_table__filters_top__always_visible {
+  padding-left: var(--a_table_filters_top_always_visible_padding_left);
+}
 
 // PAGINATION
 .a_pagination__parent {

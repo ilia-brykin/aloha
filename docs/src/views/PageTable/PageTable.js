@@ -181,6 +181,56 @@ export default {
         },
       ],
       modelQuickSearch: "",
+      modelFilters: {},
+      filters: [
+        {
+          type: "text",
+          id: "suche",
+          label: "Suche",
+          main: true,
+        },
+        {
+          type: "text",
+          id: "au_kbezbeobachter",
+          label: "Beobachter",
+        },
+        {
+          type: "switch",
+          id: "au_termin_sichtbar",
+          label: "Sichtbar",
+          alwaysVisible: true,
+        },
+        {
+          type: "oneCheckbox",
+          id: "au_ende",
+          label: "Bearbeitungsende",
+          alwaysVisible: true,
+        },
+        {
+          type: "multiselect",
+          id: "terminberechnung",
+          label: "Termin",
+          data: [
+            {
+              id: "1",
+              bek: "Aloha 1",
+            },
+            {
+              id: "2",
+              bek: "Aloha 2",
+            },
+            {
+              id: "3",
+              bek: "Aloha 3",
+            },
+          ],
+          // url: "katalog/?fields=id&fields=bez&key=syterminberechnung",
+          keyLabel: "bez",
+          keyId: "id",
+          search: true,
+          alwaysVisible: true,
+        },
+      ],
     };
   },
   created() {
