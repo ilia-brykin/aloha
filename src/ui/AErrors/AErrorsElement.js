@@ -116,7 +116,7 @@ export default {
     };
 
     const labelHtml = computed(() => {
-      return h("strong", null, [
+      return currentLabel.value && h("strong", null, [
         h("span", {
           innerHTML: currentLabel.value,
         }),
