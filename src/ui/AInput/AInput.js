@@ -1,6 +1,8 @@
 import {
   computed,
   h,
+  onBeforeUnmount,
+  onMounted,
   ref,
   toRef,
 } from "vue";
@@ -100,6 +102,30 @@ export default {
       });
     };
 
+    const isAutofill = ref(undefined);
+    const onAutoFillStart = () => {
+      isAutofill.value = true;
+    };
+
+    const onAutoFillCancel = () => {
+      isAutofill.value = false;
+    };
+
+    onMounted(() => {
+      inputRef.value && inputRef.value.addEventListener("animationstart", $event => {
+        switch ($event.animationName) {
+        case "onAutoFillStart":
+          return onAutoFillStart();
+        case "onAutoFillCancel":
+          return onAutoFillCancel();
+        }
+      });
+    });
+
+    onBeforeUnmount(() => {
+      inputRef.value && inputRef.value.removeEventListener("animationstart");
+    });
+
     return {
       componentStyleHide,
 
@@ -117,6 +143,7 @@ export default {
       typeForInput,
 
       inputRef,
+      isAutofill,
       onFocus,
       onBlur,
     };
@@ -128,7 +155,7 @@ export default {
       h("div", {
         class: ["a_form_element__parent", {
           a_form_element__parent_float: this.isLabelFloat,
-          a_form_element__parent_not_empty: this.isModel,
+          a_form_element__parent_not_empty: this.isModel || this.isAutofill,
           a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
         }],
       }, [

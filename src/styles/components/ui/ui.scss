@@ -145,3 +145,29 @@
 @import "ASwitch";
 @import "ASelect";
 @import "AErrors";
+
+// fix für autofill
+input:-webkit-autofill {
+  // Expose a hook for JavaScript when auto fill is shown.
+  // JavaScript can capture 'animationstart' events
+  animation-name: onAutoFillStart;
+
+  // Make the background color become yellow _really slowly_
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+input:not(:-webkit-autofill) {
+  // Expose a hook for JS onAutoFillCancel
+  // JavaScript can capture 'animationstart' events
+  animation-name: onAutoFillCancel;
+}
+
+@keyframes onAutoFillStart {
+  from {/**/}
+  to {/**/}
+}
+
+@keyframes onAutoFillCancel {
+  from {/**/}
+  to {/**/}
+}
