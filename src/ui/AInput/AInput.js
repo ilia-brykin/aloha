@@ -111,19 +111,23 @@ export default {
       isAutofill.value = false;
     };
 
+    const onAnimationstart = $event => {
+      switch ($event.animationName) {
+      case "onAutoFillStart":
+        return onAutoFillStart();
+      case "onAutoFillCancel":
+        return onAutoFillCancel();
+      }
+    };
+
     onMounted(() => {
-      inputRef.value && inputRef.value.addEventListener("animationstart", $event => {
-        switch ($event.animationName) {
-        case "onAutoFillStart":
-          return onAutoFillStart();
-        case "onAutoFillCancel":
-          return onAutoFillCancel();
-        }
-      });
+      inputRef.value && inputRef.value.addEventListener("animationstart", onAnimationstart);
     });
 
     onBeforeUnmount(() => {
-      inputRef.value && inputRef.value.removeEventListener("animationstart");
+      inputRef.value &&
+      inputRef.value.removeEventListener &&
+      inputRef.value.removeEventListener("animationstart", onAnimationstart);
     });
 
     return {
