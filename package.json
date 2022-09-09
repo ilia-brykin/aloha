@@ -1,14 +1,14 @@
 {
   "name": "aloha-vue",
   "description": "Project aloha",
-  "version": "1.0.67",
+  "version": "1.0.68",
   "author": "Ilia Brykin",
   "scripts": {
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1"
   },
   "dependencies": {
     "@popperjs/core": "2.11.5",
-    "aloha-css": "1.0.35",
+    "aloha-css": "1.0.47",
     "axios": "^0.27.2",
     "lodash-es": "^4.17.21",
     "tiny-emitter": "2.1.0",
