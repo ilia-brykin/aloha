@@ -9,6 +9,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 export default {
@@ -50,6 +51,9 @@ export default {
       required: false,
     },
   },
+  emits: [
+    "updateData",
+  ],
   setup(props, context) {
     const {
       componentStyleHide,
@@ -68,7 +72,12 @@ export default {
 
     const {
       dataLocal,
+      dataKeyByKeyIdLocal,
     } = UiDataWithKeyIdAndLabelAPI(props);
+
+    UiDataWatchEmitAPI(props, context, {
+      dataKeyByKeyIdLocal,
+    });
 
     const disabled = toRef(props, "disabled");
     const onChangeModelValue = ({ model, $event }) => {

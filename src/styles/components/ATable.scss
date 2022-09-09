@@ -246,11 +246,30 @@
 .a_table__filters_top {
   --a_table_filters_top_padding: 1rem;
   --a_table_filters_top_always_visible_padding_left: 2rem;
+
   padding: var(--a_table_filters_top_padding);
 }
 
 .a_table__filters_top__always_visible {
   padding-left: var(--a_table_filters_top_always_visible_padding_left);
+}
+
+.a_table__filters_center {
+  --a_table_filters_center_padding: 1rem;
+
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--a_table_filters_center_padding);
+}
+.a_table__filters_center__item {
+  margin-top: .5rem;
+  margin-left: .5rem;
+}
+.a_table__filters_center__item__label {
+  margin-right: .25rem;
 }
 
 // PAGINATION

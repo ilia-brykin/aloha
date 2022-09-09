@@ -31,6 +31,7 @@ export default {
   inject: [
     "tableId",
     "onUpdateModelFilters",
+    "updateDataKeyByIdFromFilter",
   ],
   setup(props) {
     const filter = toRef(props, "filter");
@@ -48,7 +49,25 @@ export default {
       onUpdateModelFilters({ model: MODEL_FILTERS });
     };
 
+    const updateDataKeyByIdFromFilter = inject("updateDataKeyByIdFromFilter");
+    const updateDataLocal = ({ dataKeyByKeyId }) => {
+      updateDataKeyByIdFromFilter({
+        filterId: filter.value.id,
+        dataKeyByKeyId,
+      });
+    };
+
+    const typesWithData = ["select", "multiselect", "radio", "checkbox"];
+    const emitForComponentsWithData = computed(() => {
+      const EMITS = {};
+      if (typesWithData.indexOf(filter.value.type) !== -1) {
+        EMITS.onUpdateData = updateDataLocal;
+      }
+      return EMITS;
+    });
+
     return {
+      emitForComponentsWithData,
       idPrefix,
       onUpdateModelFiltersLocal,
     };
@@ -60,6 +79,7 @@ export default {
       "onUpdate:modelValue": this.onUpdateModelFiltersLocal,
       ...this.filter,
       label: this.isLabelVisible ? this.filter.label : undefined,
+      ...this.emitForComponentsWithData,
     });
   },
 };

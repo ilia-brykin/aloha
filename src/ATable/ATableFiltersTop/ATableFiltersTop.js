@@ -1,28 +1,27 @@
 import {
   computed,
-  h,
+  h, inject, onBeforeUnmount,
   ref,
-  toRef,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter";
 import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 
-import {
-  cloneDeep,
-  forEach,
-} from "lodash-es";
+import EventBus from "../../utils/EventBus";
 
 export default {
   name: "ATableFiltersTop",
+  inject: [
+    "isLoadingTable",
+  ],
   props: {
-    filters: {
-      type: Array,
+    filtersGroup: {
+      type: Object,
       required: true,
     },
-    filtersKeyById: {
-      type: Object,
+    filtersVisible: {
+      type: Array,
       required: true,
     },
     modelFilters: {
@@ -34,36 +33,7 @@ export default {
     "startSearch",
   ],
   setup(props, { emit }) {
-    const filtersVisible = ref([]);
     const isOpen = ref(false);
-
-    const filters = toRef(props, "filters");
-    const isFilters = computed(() => {
-      return filters.value.length > 0;
-    });
-
-    const filterGroup = computed(() => {
-      const FILTER_GROUP = {
-        main: undefined,
-        alwaysVisible: [],
-        filters: [],
-      };
-      forEach(cloneDeep(filters.value), filter => {
-        if (filter.main) {
-          if (!FILTER_GROUP.main) {
-            FILTER_GROUP.main = filter;
-          } else {
-            FILTER_GROUP.alwaysVisible.push(filter);
-          }
-        } else if (filter.alwaysVisible) {
-          FILTER_GROUP.alwaysVisible.push(filter);
-        } else {
-          FILTER_GROUP.filters.push(filter);
-        }
-      });
-
-      return FILTER_GROUP;
-    });
 
     const iconToggle = computed(() => {
       return isOpen.value ? "ChevronUp" : "ChevronDown";
@@ -96,14 +66,26 @@ export default {
     const onSearch = () => {
       onClose();
       emit("startSearch");
-      console.log("onSearch");
     };
 
+    const tableId = inject("tableId");
+    const eventName = `eventATableFilterTopOnOpen_${ tableId.value }`;
+    const initEventBus = () => {
+      EventBus.$on(eventName, onOpen);
+    };
+
+    const destroyEventBus = () => {
+      EventBus.$off(eventName, onOpen);
+    };
+
+    initEventBus();
+
+    onBeforeUnmount(() => {
+      destroyEventBus();
+    });
+
     return {
-      filterGroup,
-      filtersVisible,
       iconToggle,
-      isFilters,
       isOpen,
       onSearch,
       onToggle,
@@ -115,6 +97,7 @@ export default {
     const BUTTON_SEARCH = h("button", {
       class: "a_btn a_btn_primary a_text_nowrap",
       type: "button",
+      disabled: this.isLoadingTable,
       onClick: this.onSearch,
     }, [
       h(AIcon, {
@@ -124,7 +107,7 @@ export default {
       h("span", {}, "Suche starten"),
     ]);
 
-    return this.isFilters && h("div", {
+    return h("div", {
       class: "a_table__filters_top",
     }, [
       h("form", null, [
@@ -134,8 +117,8 @@ export default {
           h("div", {
             class: "a_column a_column_12_mobile a_column_12_tablet a_column_4_desktop a_column_4_widescreen a_column_4_fullhd a_d_flex",
           }, [
-            this.filterGroup.main && h(ATableFiltersTopFilterUi, {
-              filter: this.filterGroup.main,
+            this.filtersGroup.main && h(ATableFiltersTopFilterUi, {
+              filter: this.filtersGroup.main,
               modelFilters: this.modelFilters,
               isLabelVisible: true,
               class: ["a_width_100", {
@@ -165,17 +148,17 @@ export default {
           class: "a_table__filters_top__always_visible",
           style: this.styleToggle,
         }, [
-          this.filterGroup.alwaysVisible.map(filter => {
+          this.filtersGroup.alwaysVisible.map(filter => {
             return h(ATableFiltersTopFilter, {
               key: filter.id,
               filter,
               modelFilters: this.modelFilters,
             });
           }),
-          this.filtersVisible.map(filterId => {
+          this.filtersVisible.map(filter => {
             return h(ATableFiltersTopFilter, {
-              key: filterId,
-              filter: this.filtersKeyById[filterId],
+              key: filter.id,
+              filter: filter,
               modelFilters: this.modelFilters,
             });
           }),

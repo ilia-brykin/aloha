@@ -12,8 +12,9 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "aloha-css": "1.0.46",
+    "aloha-css": "1.0.47",
     "lodash-es": "^4.17.21",
+    "tiny-emitter": "2.1.0",
     "vue": "3.2.31",
     "vue-router": "4.0.14",
     "vuex": "4.0.2"

@@ -45,7 +45,7 @@ export default {
       return getHtmlId({
         id: filter.value.id,
         idPrefix: idPrefix.value,
-        htmlId: filter.value.id.htmlId,
+        htmlId: filter.value.htmlId,
       });
     });
 

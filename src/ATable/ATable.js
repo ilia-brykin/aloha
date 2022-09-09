@@ -8,6 +8,7 @@ import {
 
 import AGet from "../AGet/AGet";
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
+import ATableFilterCenter from "./ATableFilterCenter/ATableFilterCenter";
 import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePagination from "./ATablePagination/ATablePagination";
 import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
@@ -328,10 +329,17 @@ export default {
     });
     
     const {
+      closeFilterValue,
+      dataKeyByKeyIdPerFilter,
+      filtersGroup,
       filtersKeyById,
+      filtersVisible,
+      filtersVisibleAll,
+      hasFilters,
       modelFiltersLocal,
-      onUpdateModelFilters,
       startSearch,
+      onUpdateModelFilters,
+      updateDataKeyByIdFromFilter,
     } = TableFiltersAPI(props, context);
 
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
@@ -349,6 +357,7 @@ export default {
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("modelColumnsVisibleMapping", modelColumnsVisibleMapping);
     provide("onUpdateModelFilters", onUpdateModelFilters);
+    provide("updateDataKeyByIdFromFilter", updateDataKeyByIdFromFilter);
 
 
     return {
@@ -386,7 +395,13 @@ export default {
       setSelectedRowsIndexes,
       toggleMultipleActionsActive,
 
+      closeFilterValue,
+      dataKeyByKeyIdPerFilter,
+      filtersGroup,
       filtersKeyById,
+      filtersVisible,
+      filtersVisibleAll,
+      hasFilters,
       modelFiltersLocal,
       startSearch,
     };
@@ -514,12 +529,19 @@ export default {
   },
   render() {
     return h("div", {}, [
-      h(ATableFiltersTop, {
-        filters: this.filters,
-        filtersKeyById: this.filtersKeyById,
+      this.hasFilters && h(ATableFiltersTop, {
+        filtersGroup: this.filtersGroup,
+        filtersVisible: this.filtersVisible,
         modelFilters: this.modelFiltersLocal,
         onStartSearch: this.startSearch,
       }, this.$slots),
+      this.hasFilters && h(ATableFilterCenter, {
+        closeFilterValue: this.closeFilterValue,
+        dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
+        filtersKeyById: this.filtersKeyById,
+        filtersVisibleAll: this.filtersVisibleAll,
+        modelFilters: this.modelFilters,
+      }),
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {

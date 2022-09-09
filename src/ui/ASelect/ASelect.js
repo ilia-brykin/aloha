@@ -23,6 +23,7 @@ import ASelectSearchAPI from "./compositionAPI/ASelectSearchAPI";
 import ASelectToggleAPI from "./compositionAPI/ASelectToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AKeyId from "../const/AKeyId";
@@ -165,6 +166,7 @@ export default {
   emits: [
     "onSearchOutside",
     "open",
+    "updateData",
   ],
   setup(props, context) {
     const {
@@ -187,6 +189,10 @@ export default {
       dataKeyByKeyIdLocal,
       dataLocal,
     } = UiDataWithKeyIdAndLabelAPI(props);
+
+    UiDataWatchEmitAPI(props, context, {
+      dataKeyByKeyIdLocal,
+    });
 
     const disabled = toRef(props, "disabled");
     const onInput = $event => {

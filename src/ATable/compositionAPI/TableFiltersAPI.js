@@ -4,17 +4,85 @@ import {
   toRef,
 } from "vue";
 
+import AUiTypesModelArray from "../../ui/const/AUiTypesModelArray";
 import {
-  cloneDeep, keyBy,
+  cloneDeep,
+  forEach,
+  keyBy,
 } from "lodash-es";
 
 export default function TableFiltersAPI(props, { emit }) {
   const modelFilters = toRef(props, "modelFilters");
   const modelFiltersLocal = ref(cloneDeep(modelFilters.value));
+  const filtersVisibleIds = ref([]);
+  const dataKeyByKeyIdPerFilter = ref({});
+
+  const toggleFiltersVisible = ({ isAdd = true, filterId }) => {
+    if (isAdd) {
+      filtersVisibleIds.value.push(filterId);
+    } else {
+      const INDEX = filtersVisibleIds.value.indexOf(filterId);
+      if (INDEX !== -1) {
+        filtersVisibleIds.value.splice(INDEX, 1);
+      }
+    }
+  };
 
   const filters = toRef(props, "filters");
+  const filtersDataKeyById = ref({});
+
+  const hasFilters = computed(() => {
+    return filters.value.length > 0;
+  });
   const filtersKeyById = computed(() => {
     return keyBy(filters.value, "id");
+  });
+
+  const filtersGroup = computed(() => {
+    const FILTER_GROUP = {
+      main: undefined,
+      alwaysVisible: [],
+      filters: [],
+    };
+    forEach(cloneDeep(filters.value), filter => {
+      if (filter.main) {
+        if (!FILTER_GROUP.main) {
+          FILTER_GROUP.main = filter;
+        } else {
+          FILTER_GROUP.alwaysVisible.push(filter);
+        }
+      } else if (filter.alwaysVisible) {
+        FILTER_GROUP.alwaysVisible.push(filter);
+      } else {
+        FILTER_GROUP.filters.push(filter);
+      }
+    });
+
+    return FILTER_GROUP;
+  });
+
+  const filtersVisible = computed(() => {
+    const FILTERS = [];
+    forEach(filtersVisibleIds.value, filterId => {
+      if (filtersKeyById.value[filterId]) {
+        FILTERS.push(filtersKeyById.value[filterId]);
+      }
+    });
+    return FILTERS;
+  });
+
+  const filtersVisibleAll = computed(() => {
+    const FILTERS = [];
+    if (filtersGroup.value.main) {
+      FILTERS.push(filtersGroup.value.main);
+    }
+    if (filtersGroup.value.alwaysVisible.length) {
+      FILTERS.push(...filtersGroup.value.alwaysVisible);
+    }
+    if (filtersVisible.value.length) {
+      FILTERS.push(...filtersVisible.value);
+    }
+    return FILTERS;
   });
 
   const onUpdateModelFilters = ({ model }) => {
@@ -25,10 +93,47 @@ export default function TableFiltersAPI(props, { emit }) {
     emit("update:modelFilters", modelFiltersLocal.value);
   };
 
+  const closeFilterValue = ({ filter, currentModel }) => {
+    const MODEL_FILTERS = cloneDeep(modelFilters.value);
+    if (AUiTypesModelArray[filter.type]) {
+      if (MODEL_FILTERS[filter.id] &&
+        MODEL_FILTERS[filter.id].length) {
+        const INDEX_IN_MODEL = MODEL_FILTERS[filter.id].indexOf(currentModel);
+        if (INDEX_IN_MODEL !== -1) {
+          MODEL_FILTERS[filter.id].splice(INDEX_IN_MODEL, 1);
+        }
+      }
+      if (modelFiltersLocal.value[filter.id] &&
+        modelFiltersLocal.value[filter.id].length) {
+        const INDEX_IN_MODEL = modelFiltersLocal.value[filter.id].indexOf(currentModel);
+        if (INDEX_IN_MODEL !== -1) {
+          modelFiltersLocal.value[filter.id].splice(INDEX_IN_MODEL, 1);
+        }
+      }
+    } else {
+      modelFiltersLocal.value[filter.id] = undefined;
+      MODEL_FILTERS[filter.id] = undefined;
+    }
+    emit("update:modelFilters", MODEL_FILTERS);
+  };
+
+  const updateDataKeyByIdFromFilter = ({ dataKeyByKeyId, filterId, }) => {
+    dataKeyByKeyIdPerFilter.value[filterId] = cloneDeep(dataKeyByKeyId);
+  };
+
   return {
+    closeFilterValue,
+    dataKeyByKeyIdPerFilter,
+    filtersDataKeyById,
+    filtersGroup,
     filtersKeyById,
+    filtersVisible,
+    filtersVisibleAll,
+    hasFilters,
     modelFiltersLocal,
     startSearch,
     onUpdateModelFilters,
+    toggleFiltersVisible,
+    updateDataKeyByIdFromFilter,
   };
 }

@@ -213,15 +213,15 @@ export default {
           data: [
             {
               id: "1",
-              bek: "Aloha 1",
+              bez: "Aloha 1",
             },
             {
               id: "2",
-              bek: "Aloha 2",
+              bez: "Aloha 2",
             },
             {
               id: "3",
-              bek: "Aloha 3",
+              bez: "Aloha 3",
             },
           ],
           // url: "katalog/?fields=id&fields=bez&key=syterminberechnung",
