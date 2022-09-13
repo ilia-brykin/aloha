@@ -110,7 +110,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
@@ -175,7 +175,7 @@
 .a_table__top_panel__label {
   font-weight: bolder;
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .a_table__top_panel__label__count {
   padding-left: var(--a_table_between_actions_margin);
