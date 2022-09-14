@@ -1,11 +1,16 @@
-import { computed, h, toRef, } from "vue";
+import {
+  computed,
+  h,
+  toRef,
+} from "vue";
 
-import AFieldset from "../AFieldset/AFieldset";
 import AErrors from "../AErrors/AErrors";
 import ARequired from "../ARequired/ARequired";
 
 import AUiComponents from "../AUiComponents";
+import AUiContainerComponents from "../AUiContainerComponents";
 
+import AUiTypesContainer from "../const/AUiTypesContainer";
 import {
   cloneDeep,
   forEach,
@@ -63,8 +68,8 @@ export default {
   ],
   setup(props, { emit }) {
     const componentTypesMapping = {
-      fieldset: AFieldset,
       ...AUiComponents,
+      ...AUiContainerComponents,
     };
 
     const modelValue = toRef(props, "modelValue");
@@ -73,9 +78,13 @@ export default {
     });
 
     const onUpdateModelLocal = ({ item, model }) => {
-      const MODEL_VALUE = cloneDeep(modelValueLocal.value);
-      MODEL_VALUE[item.id] = cloneDeep(model);
-      emit("update:modelValue", MODEL_VALUE);
+      if (AUiTypesContainer[item.type]) {
+        emit("update:modelValue", model);
+      } else {
+        const MODEL_VALUE = cloneDeep(modelValueLocal.value);
+        MODEL_VALUE[item.id] = cloneDeep(model);
+        emit("update:modelValue", MODEL_VALUE);
+      }
     };
 
     const isRequired = toRef(props, "isRequired");

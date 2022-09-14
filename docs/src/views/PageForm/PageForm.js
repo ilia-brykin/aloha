@@ -164,6 +164,27 @@ export default {
               id: "aloha13",
               classColumn: "a_column_8",
             },
+            {
+              type: "fieldset",
+              label: "Aloha fieldset",
+              id: "aloha111",
+              classColumn: "a_column_8",
+              helpText: "ALOHA help!!!",
+              children: [
+                {
+                  type: "text",
+                  label: "Aloha 12",
+                  id: "aloha122",
+                  classColumn: "a_column_4",
+                },
+                {
+                  type: "text",
+                  label: "Aloha 13",
+                  id: "aloha132",
+                  classColumn: "a_column_8",
+                },
+              ],
+            },
           ],
         },
         {

@@ -1,5 +1,5 @@
 import {
-  h,
+  h, resolveComponent,
   toRef,
 } from "vue";
 
@@ -10,7 +10,11 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-import { cloneDeep } from "lodash-es";
+
+import AUiTypesContainer from "../const/AUiTypesContainer";
+import {
+  cloneDeep,
+} from "lodash-es";
 
 export default {
   name: "AFieldset",
@@ -29,7 +33,10 @@ export default {
     },
   },
   setup(props, context) {
-    const componentTypesMapping = AUiComponents;
+    const componentTypesMapping = {
+      fieldset: resolveComponent("AFieldset"),
+      ...AUiComponents
+    };
 
     const {
       componentStyleHide,
@@ -47,9 +54,13 @@ export default {
 
     const modelValue = toRef(props, "modelValue");
     const onUpdateModelLocal = ({ item, model }) => {
-      const MODEL_VALUE = cloneDeep(modelValue.value);
-      MODEL_VALUE[item.id] = cloneDeep(model);
-      context.emit("update:modelValue", MODEL_VALUE);
+      if (AUiTypesContainer[item.type]) {
+        context.emit("update:modelValue", model);
+      } else {
+        const MODEL_VALUE = cloneDeep(modelValue.value);
+        MODEL_VALUE[item.id] = cloneDeep(model);
+        context.emit("update:modelValue", MODEL_VALUE);
+      }
     };
 
     return {
@@ -89,9 +100,10 @@ export default {
           class: "a_columns a_columns_count_12 a_columns_gab_2",
         }, [
           this.children.map((item, itemIndex) => {
+            const IS_FIELDSET = item.type === "fieldset";
             return h(this.componentTypesMapping[item.type], {
               key: itemIndex,
-              modelValue: this.modelValue[item.id],
+              modelValue: IS_FIELDSET ? this.modelValue : this.modelValue[item.id],
               modelDependencies: this.modelValue,
               class: ["a_column", item.classColumn || "a_column_12"],
               errors: this.errorsAll[item.id],
