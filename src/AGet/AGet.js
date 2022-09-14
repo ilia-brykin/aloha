@@ -59,37 +59,9 @@ export default {
     },
   },
   setup() {
-    const {
-      filterBoolean,
-      filterCurrency,
-      filterDate,
-      filterDefaultForEmpty,
-      filterEmail,
-      filterFileSize,
-      filterIban,
-      filterJson,
-      filterKeyValue,
-      filterLimitTo,
-      filterLink,
-      filterList,
-      filterSearchHighlight,
-    } = AFiltersAPI();
+    const filters = AFiltersAPI();
 
-    return {
-      filterBoolean,
-      filterCurrency,
-      filterDate,
-      filterDefaultForEmpty,
-      filterEmail,
-      filterFileSize,
-      filterIban,
-      filterJson,
-      filterKeyValue,
-      filterLimitTo,
-      filterLink,
-      filterList,
-      filterSearchHighlight,
-    };
+    return filters;
   },
   computed: {
     valueLocal() {
