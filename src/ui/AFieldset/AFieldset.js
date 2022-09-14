@@ -106,10 +106,10 @@ export default {
           class: "a_columns a_columns_count_12 a_columns_gab_2",
         }, [
           this.children.map((item, itemIndex) => {
-            const IS_FIELDSET = item.type === "fieldset";
+            const IS_CONTAINER = AUiTypesContainer[item.type];
             return h(this.componentTypesMapping[item.type], {
               key: itemIndex,
-              modelValue: IS_FIELDSET ? this.modelValue : this.modelValue[item.id],
+              modelValue: IS_CONTAINER ? this.modelValue : this.modelValue[item.id],
               modelDependencies: this.modelValue,
               class: ["a_column", item.classColumn || "a_column_12"],
               errors: this.errorsAll[item.id],
