@@ -210,6 +210,28 @@ export default {
           ],
         },
         {
+          type: "group",
+          id: "group1",
+          helpText: "group text",
+          children: [
+            {
+              type: "text",
+              label: "Group text",
+              labelClass: "a_column_4 a_text_right",
+              id: "group_text",
+              classColumn: "a_column_4",
+            },
+            {
+              type: "switch",
+              label: "Group switch",
+              id: "group_switch",
+              classColumn: "a_column_4",
+              labelClass: "a_sr_only",
+              helpText: "ALOHA help!!!",
+            },
+          ],
+        },
+        {
           type: "template",
           id: "aloha14",
           classColumn: "a_column_8",
