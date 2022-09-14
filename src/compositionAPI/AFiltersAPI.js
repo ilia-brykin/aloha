@@ -10,6 +10,7 @@ import KeyValue from "../filters/KeyValue";
 import limitTo from "../filters/limitTo";
 import Link from "../filters/Link";
 import list from "../filters/list";
+import propertyByValue from "../filters/propertyByValue";
 import searchHighlight from "../filters/searchHighlight";
 
 export default function AFiltersAPI() {
@@ -61,6 +62,10 @@ export default function AFiltersAPI() {
     return list(value, { isHtml, listClass });
   };
 
+  const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {
+    return propertyByValue(value, { mapping, defaultValue });
+  };
+
   const filterSearchHighlight = (value, { searchModel = "" } = {}) => {
     return searchHighlight(value, { searchModel });
   };
@@ -78,6 +83,7 @@ export default function AFiltersAPI() {
     filterLimitTo,
     filterLink,
     filterList,
+    filterPropertyByValue,
     filterSearchHighlight,
   };
 }
