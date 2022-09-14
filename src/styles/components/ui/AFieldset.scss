@@ -10,9 +10,13 @@
   border-radius: var(--a_fieldset_border_radius);
   border: var(--a_fieldset_border_width) solid var(--a_fieldset_border_color);
 }
+.a_fieldset_no_border {
+  --a_fieldset_border_color: transparent;
+}
 .a_fieldset_invalid {
   --a_fieldset_border_color: var(--a_fieldset_invalid_color);
 }
+
 
 .a_legend {
   --a_legend_padding_x: .5rem;

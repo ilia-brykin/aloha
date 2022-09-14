@@ -188,6 +188,28 @@ export default {
           ],
         },
         {
+          type: "fieldset",
+          id: "aloha112",
+          classColumn: "a_column_8",
+          inputClass: "a_p_0",
+          helpText: "fieldset without border",
+          hasBorder: false,
+          children: [
+            {
+              type: "text",
+              label: "Aloha 12",
+              id: "aloha122",
+              classColumn: "a_column_4",
+            },
+            {
+              type: "text",
+              label: "Aloha 13",
+              id: "aloha132",
+              classColumn: "a_column_8",
+            },
+          ],
+        },
+        {
           type: "template",
           id: "aloha14",
           classColumn: "a_column_8",

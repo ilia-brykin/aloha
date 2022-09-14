@@ -31,6 +31,11 @@ export default {
       required: false,
       default: () => [],
     },
+    hasBorder: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props, context) {
     const componentTypesMapping = {
@@ -85,8 +90,9 @@ export default {
       h("fieldset", {
         id: this.htmlIdLocal,
         tabindex: -1,
-        class: ["a_fieldset", {
+        class: ["a_fieldset", this.inputClass, {
           a_fieldset_invalid: this.isErrors,
+          a_fieldset_no_border: !this.hasBorder,
         }],
         "aria-describedby": this.ariaDescribedbyLocal,
       }, [
