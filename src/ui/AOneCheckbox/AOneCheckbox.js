@@ -130,7 +130,8 @@ export default {
                 a_custom_control_label_width_auto: this.isWidthAuto,
               }],
             }, [
-              h("span", {
+              this.label && h("span", {
+                class: "a_custom_control_label__text",
                 innerHTML: this.label,
               }),
             ]),

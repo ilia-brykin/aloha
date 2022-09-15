@@ -87,6 +87,7 @@ export default {
           style: `width: 50px; min-width: 50px; max-width: 50px;`,
         }, [
           h(AOneCheckbox, {
+            isWidthAuto: true,
             modelValue: this.areAllRowsSelected,
             indeterminate: this.areSomeRowsSelected && !this.areAllRowsSelected,
             "onUpdate:modelValue": this.toggleCheckbox,
