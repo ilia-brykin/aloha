@@ -135,9 +135,9 @@ export default {
     return h("div", this.attributesForTd, this.isSlot ?
       this.$slots[this.column.slot]({
         column: this.column,
-        "column-index": this.columnIndex,
+        columnIndex: this.columnIndex,
         row: this.row,
-        "row-index": this.rowIndex,
+        rowIndex: this.rowIndex,
       }) : this.isLink ? [
         h(resolveComponent("RouterLink"), {
           class: [this.column.class, this.classForLink],
