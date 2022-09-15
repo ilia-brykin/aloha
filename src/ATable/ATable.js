@@ -74,6 +74,10 @@ export default {
       required: false,
       default: () => [],
     },
+    hideLabel: {
+      type: Boolean,
+      required: false,
+    },
     id: {
       type: String,
       required: false,
@@ -552,6 +556,7 @@ export default {
           areSomeRowsSelected: this.areSomeRowsSelected,
           closeMultipleActionsActive: this.closeMultipleActionsActive,
           countAllRows: this.countAllRowsLocal,
+          hideLabel: this.hideLabel,
           label: this.label,
           labelTag: this.labelTag,
           labelClass: this.labelClass,

@@ -21,6 +21,10 @@ export default {
       type: Number,
       required: true,
     },
+    hideLabel: {
+      type: Boolean,
+      required: false,
+    },
     label: {
       type: [String, Number],
       required: false,
@@ -110,19 +114,21 @@ export default {
     return h("div", {
       class: "a_table__top_panel",
     }, [
-      this.$slots.tableLabel ? this.$slots.tableLabel({
-        countAllRows: this.countAllRows,
-      }) :
-        h(this.labelTag, {
-          class: ["a_table__top_panel__label", this.labelClass],
-        }, [
-          h("span", {
-            class: "a_table__top_panel__label__text",
-          }, this.label),
-          h("span", {
-            class: "a_table__top_panel__label__count",
-          }, this.countAllRowsFormatted),
-        ]),
+      !this.hideLabel ?
+        this.$slots.tableLabel ? this.$slots.tableLabel({
+          countAllRows: this.countAllRows,
+        }) :
+          h(this.labelTag, {
+            class: ["a_table__top_panel__label", this.labelClass],
+          }, [
+            h("span", {
+              class: "a_table__top_panel__label__text",
+            }, this.label),
+            h("span", {
+              class: "a_table__top_panel__label__count",
+            }, this.countAllRowsFormatted),
+          ]) :
+        "",
       h("div", {
         class: "a_table__top_panel__actions",
       }, this.isMultipleActionsActive ? [
