@@ -82,7 +82,8 @@
 }
 
 .a_table__th {
-  display: block;
+  display: flex;
+  align-items: center;
   background-color: var(--a_table_th_bg);
   border-style: solid;
   border-width: var(--a_table_th_border_width);
@@ -99,7 +100,8 @@
 }
 
 .a_table__td {
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 .a_table__body,
@@ -134,7 +136,7 @@
 }
 
 .a_table__cell_action {
-  text-align: right;
+  justify-content: flex-end;
 }
 .a_table__th__dropdown_item {
   display: flex;

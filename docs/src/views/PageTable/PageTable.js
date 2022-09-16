@@ -22,6 +22,7 @@ export default {
           locked: true,
           grow: 2,
           footerSlot: "footerAloha",
+          class: "a_justify_content_end",
         },
         {
           label: "Aloha frei",
@@ -30,6 +31,7 @@ export default {
           sortId: "aloha",
           grow: 0,
           footerPath: "aloha",
+          class: "a_justify_content_end",
         },
         {
           label: "Hola",
