@@ -114,7 +114,7 @@ export default {
     return h("div", {
       class: "a_table__top_panel",
     }, [
-      !this.isLabelVisible ?
+      this.isLabelVisible ?
         this.$slots.tableLabel ? this.$slots.tableLabel({
           countAllRows: this.countAllRows,
         }) :
