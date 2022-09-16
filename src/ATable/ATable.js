@@ -606,6 +606,7 @@ export default {
                   filter: vm.column.filter,
                   filterParameters: vm.column.filterParameters,
                   defaultValue: vm.column.defaultValue,
+                  tag: vm.column.filterTag || "div",
                 }),
               ],
               ...this.$slots,
