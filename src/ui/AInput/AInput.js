@@ -97,6 +97,11 @@ export default {
         }
         inputRef.value.value = value;
       }
+      if (type.value === "number") {
+        if (value !== "") {
+          value = +value;
+        }
+      }
       changeModel({
         model: value,
       });
