@@ -74,10 +74,6 @@ export default {
       required: false,
       default: () => [],
     },
-    hideLabel: {
-      type: Boolean,
-      required: false,
-    },
     id: {
       type: String,
       required: false,
@@ -89,6 +85,11 @@ export default {
       default: true,
     },
     isColumnsDnd: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isLabelVisible: {
       type: Boolean,
       required: false,
       default: true,
@@ -200,6 +201,11 @@ export default {
       default: "h2",
     },
     rowActions: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    rowsFooter: {
       type: Array,
       required: false,
       default: () => [],
@@ -358,6 +364,7 @@ export default {
     provide("previewRightRowIndex", previewRightRowIndex);
     provide("previewRightRowIndexLast", previewRightRowIndexLast);
 
+    provide("rowsLocal", rowsLocal);
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("modelColumnsVisibleMapping", modelColumnsVisibleMapping);
     provide("onUpdateModelFilters", onUpdateModelFilters);
@@ -443,6 +450,10 @@ export default {
 
     isDataArray() {
       return isArray(this.data);
+    },
+
+    hasRowsFooter() {
+      return this.rowsFooter.length > 0;
     },
   },
   created() {
@@ -556,7 +567,7 @@ export default {
           areSomeRowsSelected: this.areSomeRowsSelected,
           closeMultipleActionsActive: this.closeMultipleActionsActive,
           countAllRows: this.countAllRowsLocal,
-          hideLabel: this.hideLabel,
+          isLabelVisible: this.isLabelVisible,
           label: this.label,
           labelTag: this.labelTag,
           labelClass: this.labelClass,
@@ -595,6 +606,29 @@ export default {
                   filter: vm.column.filter,
                   filterParameters: vm.column.filterParameters,
                   defaultValue: vm.column.defaultValue,
+                }),
+              ],
+              ...this.$slots,
+            });
+          })),
+          (this.hasRows && this.hasRowsFooter) && h("div", {
+            class: "a_table__footer",
+            role: "rowgroup",
+          }, this.rowsFooter.map((row, rowIndex) => {
+            return h(ATableTr, {
+              row,
+              rowIndex,
+              selectedRowsIndexes: this.selectedRowsIndexes,
+              onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+              isFooter: true,
+            }, {
+              get: vm => [
+                h(AGet, {
+                  data: vm.row,
+                  path: vm.column.footerPath,
+                  filter: vm.column.footerFilter,
+                  filterParameters: vm.column.footerFilterParameters,
+                  defaultValue: vm.column.footerDefaultValue,
                 }),
               ],
               ...this.$slots,

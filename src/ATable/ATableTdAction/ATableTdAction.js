@@ -26,6 +26,10 @@ export default {
       type: Number,
       required: true,
     },
+    isFooter: {
+      type: Boolean,
+      required: false,
+    },
   },
   inject: [
     "columnActionsWidthLocal",
@@ -86,8 +90,6 @@ export default {
         button: () => [
           h(AIcon, {
             icon: "Plus",
-            width: 14,
-            height: 14,
             class: "a_table__cell_action__additional_icon",
           }),
           h("span", {
@@ -104,6 +106,7 @@ export default {
                 columnIndex,
                 row: this.row,
                 rowIndex: this.rowIndex,
+                isFooter: this.isFooter,
               }, this.$slots);
             }),
           ]),

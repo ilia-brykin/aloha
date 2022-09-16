@@ -33,12 +33,17 @@ export default {
       type: Number,
       required: true,
     },
+    isFooter: {
+      type: Boolean,
+      required: false,
+    },
   },
   inject: [
     "columnsDefaultValue",
     "hasPreview",
     "modelColumnsVisibleMapping",
     "onTogglePreview",
+    "rowsLocal",
     "valuesForColumnDefault",
   ],
   setup(props) {
@@ -52,10 +57,16 @@ export default {
   },
   computed: {
     text() {
-      const TEXT = get(this.row, this.column.path);
+      let text;
+      if (this.isFooter) {
+        text = get(this.row, this.column.footerPath);
+      } else {
+        text = get(this.row, this.column.path);
+      }
+
       let isTextInValuesForColumnDefault = false;
       forEach(this.valuesForColumnDefault, item => {
-        if (TEXT === item) {
+        if (text === item) {
           isTextInValuesForColumnDefault = true;
           return false;
         }
@@ -63,10 +74,13 @@ export default {
       if (isTextInValuesForColumnDefault) {
         return this.defaultValue;
       }
-      return TEXT;
+      return text;
     },
 
     defaultValue() {
+      if (this.isFooter && "footerDefaultValue" in this.column) {
+        return this.column.footerDefaultValue;
+      }
       if ("defaultValue" in this.column) {
         return this.column.defaultValue;
       }
@@ -77,11 +91,14 @@ export default {
     },
 
     path() {
+      if (this.isFooter) {
+        return this.column.footerPath;
+      }
       return this.column.path;
     },
 
     isSlot() {
-      return !!this.column.slot;
+      return !!this.slot;
     },
 
     attributesForTd() {
@@ -91,12 +108,12 @@ export default {
           "a_table__td a_table__cell",
           this.column.class,
           {
-            a_table__cell_click: this.hasPreview,
+            a_table__cell_click: this.hasPreview && !this.isFooter,
           },
         ],
         style: this.columnsStyles,
       };
-      if (this.hasPreview) {
+      if (this.hasPreview && !this.isFooter) {
         ATTRIBUTES.onClick = () => this.onTogglePreview({
           row: this.row,
           rowIndex: this.rowIndex,
@@ -130,28 +147,40 @@ export default {
     classForLink() {
       return "a_btn a_btn_link a_p_0";
     },
+
+    slot() {
+      if (this.isFooter) {
+        return this.column.footerSlot;
+      }
+      return this.column.slot;
+    },
   },
   render() {
-    return h("div", this.attributesForTd, this.isSlot ?
-      this.$slots[this.column.slot]({
-        column: this.column,
-        columnIndex: this.columnIndex,
-        row: this.row,
-        rowIndex: this.rowIndex,
-      }) : this.isLink ? [
-        h(resolveComponent("RouterLink"), {
-          class: [this.column.class, this.classForLink],
-          to: this.toLocal,
-        }, () => [
+    return h(
+      "div", 
+      this.attributesForTd,
+      (this.isSlot && this.$slots[this.slot]) ?
+        this.$slots[this.slot]({
+          column: this.column,
+          columnIndex: this.columnIndex,
+          row: this.row,
+          rowIndex: this.rowIndex,
+          rows: this.rowsLocal,
+        }) : this.isLink ? [
+          h(resolveComponent("RouterLink"), {
+            class: [this.column.class, this.classForLink],
+            to: this.toLocal,
+          }, () => [
+            h("span", {
+              innerHTML: this.text,
+            }),
+          ]),
+        ] :
+        [
           h("span", {
             innerHTML: this.text,
           }),
-        ]),
-      ] :
-      [
-        h("span", {
-          innerHTML: this.text,
-        }),
-      ]);
+        ]
+    );
   },
 };

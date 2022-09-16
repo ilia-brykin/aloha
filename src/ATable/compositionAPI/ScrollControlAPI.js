@@ -19,9 +19,17 @@ export default function ScrollControlAPI(props, { emit }, {
 }) {
   const columnWidthDefault = toRef(props, "columnWidthDefault");
   const columnActionsWidth = toRef(props, "columnActionsWidth");
+  const isActionColumnVisible = toRef(props, "isActionColumnVisible");
+
+  const columnActionsWidthLocal = computed(() => {
+    if (isActionColumnVisible.value) {
+      return columnActionsWidth.value;
+    }
+    return 0;
+  });
   const columnsSpecialWidth = computed(() => {
     const columnMultipleActionsWidth = isMultipleActionsActive.value ? 50 : 0;
-    return columnMultipleActionsWidth + columnActionsWidth.value;
+    return columnMultipleActionsWidth + columnActionsWidthLocal.value;
   });
 
   const tableWidth = ref(undefined);
@@ -65,9 +73,6 @@ export default function ScrollControlAPI(props, { emit }, {
   };
 
   const checkVisibleColumns = () => {
-    if (!modelIsTableWithoutScroll.value) {
-      return;
-    }
     const TABLE_WIDTH_WITHOUT_ACTIONS = tableWidth.value - columnsSpecialWidth.value;
 
     let columnsWidthInOrder = 0;
@@ -86,21 +91,23 @@ export default function ScrollControlAPI(props, { emit }, {
       indexFirstScrollInvisibleColumnLocal++;
       sumGrows += isNil(column.grow) ? 1 : column.grow;
     });
-    const FREE_SPACE_WIDTH = TABLE_WIDTH_WITHOUT_ACTIONS - columnsWidthInOrder;
+    let freeSpaceWidth = 0;
+    if (modelIsTableWithoutScroll.value) {
+      freeSpaceWidth = TABLE_WIDTH_WITHOUT_ACTIONS - columnsWidthInOrder;
+    } else if (indexFirstScrollInvisibleColumnLocal === columnsOrdered.value.length) {
+      freeSpaceWidth = TABLE_WIDTH_WITHOUT_ACTIONS - columnsWidthInOrder;
+    }
     indexFirstScrollInvisibleColumn.value = indexFirstScrollInvisibleColumnLocal;
 
     setAdditionalSpaceColumnsForOneGrow({
       sumGrows,
-      freeSpaceWidth: FREE_SPACE_WIDTH,
+      freeSpaceWidth,
     });
     setColumnsScrollInvisible();
   };
 
 
   const resizeOb = new ResizeObserver(entries => {
-    if (!modelIsTableWithoutScroll.value) {
-      return;
-    }
     // since we are observing only a single element, so we access the first element in entries array
     const RECT = entries[0].contentRect;
 

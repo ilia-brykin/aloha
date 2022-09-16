@@ -21,6 +21,7 @@ export default {
           sortId: "aloha",
           locked: true,
           grow: 2,
+          footerSlot: "footerAloha",
         },
         {
           label: "Aloha frei",
@@ -28,18 +29,22 @@ export default {
           path: "aloha",
           sortId: "aloha",
           grow: 0,
+          footerPath: "aloha",
         },
         {
           label: "Hola",
           id: "hola",
           path: "hola",
           sortId: "hola",
+          footerPath: "hola",
         },
         {
           label: "Default",
           id: "default",
           path: "default",
           defaultValue: "-",
+          footerPath: "default",
+          footerDefaultValue: "-",
         },
         {
           label: "Hola2",
@@ -47,6 +52,7 @@ export default {
           path: "hola",
           sortId: "hola",
           hide: true,
+          footerPath: "hola",
         },
         {
           label: "Obj",
@@ -55,27 +61,32 @@ export default {
           sortId: "obj.aloha",
           slot: "get",
           filter: "boolean",
+          footerPath: "obj.aloha",
         },
         {
           label: "Obj2",
           id: "obj2",
           path: "obj.aloha",
           sortId: "obj.aloha",
+          footerPath: "obj.aloha",
         },
         {
           label: "Obj3",
           id: "obj3",
           path: "obj.aloha",
+          footerPath: "obj.aloha",
         },
         {
           label: "Obj4",
           id: "obj4",
           path: "obj.aloha",
+          footerPath: "obj.aloha",
         },
         {
           label: "Geld",
           id: "geld",
           path: "geld",
+          footerPath: "geld",
         },
         {
           label: "Slot",
@@ -88,6 +99,14 @@ export default {
           id: "slot2",
           slot: "slot1",
           hide: true,
+        },
+      ],
+      rowsFooter: [
+        {
+          index: 1,
+        },
+        {
+          index: 2,
         },
       ],
       data: [],

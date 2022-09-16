@@ -8,6 +8,9 @@ import { get } from "lodash-es";
 
 export default {
   name: "ATableListItem",
+  inject: [
+    "rowsLocal",
+  ],
   props: {
     column: {
       type: Object,
@@ -25,13 +28,27 @@ export default {
       type: Number,
       required: true,
     },
+    isFooter: {
+      type: Boolean,
+      required: false,
+    },
   },
   computed: {
     isSlot() {
-      return !!this.column.slot;
+      return !!this.slot;
+    },
+
+    slot() {
+      if (this.isFooter) {
+        return this.column.footerSlot;
+      }
+      return this.column.slot;
     },
 
     text() {
+      if (this.isFooter) {
+        return get(this.row, this.column.footerPath);
+      }
       return get(this.row, this.column.path);
     },
   },
@@ -45,9 +62,10 @@ export default {
         this.isSlot ?
           this.$slots[this.column.slot]({
             column: this.column,
-            "column-index": this.columnIndex,
+            columnIndex: this.columnIndex,
             row: this.row,
-            "row-index": this.rowIndex,
+            rowIndex: this.rowIndex,
+            rows: this.rowsLocal,
           }) :
           h("span", null, [
             this.text,

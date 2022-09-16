@@ -14,6 +14,7 @@ div
     :is-columns-dnd="true"
     :is-pagination="true"
     :filters="filters"
+    :rows-footer="rowsFooter"
     v-model:modelQuickSearch="modelQuickSearch"
     v-model:modelFilters="modelFilters"
     @change-columns-ordering="changeColumnsOrdering"
@@ -37,6 +38,11 @@ div
       v-slot:tableActions
     )
       button.a_btn.a_btn_primary Click me
+
+    template(
+      v-slot:footerAloha="{ row, rows }"
+    )
+      strong {{ rows.length }}
 
   span modelQuickSearch: {{ modelQuickSearch }}
   div modelFilters:

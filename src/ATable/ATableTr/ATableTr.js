@@ -21,6 +21,10 @@ export default {
       type: Object,
       required: true,
     },
+    isFooter: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "setSelectedRowsIndexes",
@@ -83,7 +87,7 @@ export default {
         class: "a_table__td a_table__cell a_table__cell_checkbox",
         style: `width: 50px; min-width: 50px; max-width: 50px;`,
       }, [
-        h(AOneCheckbox, {
+        !this.isFooter && h(AOneCheckbox, {
           isWidthAuto: true,
           modelValue: this.isRowSelected,
           "onUpdate:modelValue": this.toggleCheckbox,
@@ -95,11 +99,13 @@ export default {
           columnIndex,
           row: this.row,
           rowIndex: this.rowIndex,
+          isFooter: this.isFooter,
         }, this.$slots);
       }),
       this.isActionColumnVisible && h(ATableTdAction, {
         row: this.row,
         rowIndex: this.rowIndex,
+        isFooter: this.isFooter,
       }, this.$slots),
     ]);
   },
