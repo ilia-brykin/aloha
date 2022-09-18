@@ -1,107 +1,189 @@
+import AMenu from "../../../../src/AMenu/AMenu";
+
 import TheMenuItem from "../TheMenuItem/TheMenuItem.vue";
 
 export default {
   name: "TheMenu",
   components: {
+    AMenu,
     TheMenuItem,
   },
   data() {
     return {
       menuItems: [
         {
+          group: "Aloha",
           id: "spinner",
-          name: "PageSpinner",
           label: "Spinner",
+          to: {
+            name: "PageSpinner",
+          },
+          icon: "Duplicate",
         },
         {
+          group: "Aloha",
           id: "table",
-          name: "PageTable",
           label: "Table",
+          to: {
+            name: "PageTable",
+          },
+          icon: "Envelope",
         },
         {
+          group: "Hola",
           id: "collapse",
-          name: "PageCollapse",
           label: "Collapse",
+          to: {
+            name: "PageCollapse",
+          },
+          icon: "Export",
         },
         {
+          group: "Hola",
           id: "cloak",
-          name: "PageCloak",
           label: "Cloak",
+          to: {
+            name: "PageCloak",
+          },
+          icon: "EyeOpen",
+        },
+        {
+          id: "ui",
+          label: "ui",
+          icon: "Export",
+        },
+        {
+          id: "ui-child",
+          label: "Child",
+          parent: "ui",
         },
         {
           id: "input",
-          name: "PageInput",
+          to: {
+            name: "PageInput",
+          },
           label: "Input",
+          parent: "ui-child",
+        },
+        {
+          id: "input",
+          to: {
+            name: "PageInput",
+          },
+          label: "Input",
+          parent: "ui",
         },
         {
           id: "json",
-          name: "PageAJson",
           label: "JSON",
+          to: {
+            name: "PageAJson",
+          },
+          parent: "ui",
         },
         {
           id: "accordion",
-          name: "PageAccordion",
           label: "Accordion",
+          to: {
+            name: "PageAccordion",
+          },
+          icon: "Duplicate",
         },
         {
           id: "alert",
-          name: "PageAlert",
           label: "Alert",
+          to: {
+            name: "PageAlert",
+          },
+          icon: "Home",
         },
         {
           id: "modal",
-          name: "PageModal",
           label: "Modal",
+          to: {
+            name: "PageModal",
+          },
+          icon: "Lock",
         },
         {
           id: "confirm",
-          name: "PageConfirm",
           label: "Confirm",
+          to: {
+            name: "PageConfirm",
+          },
+          icon: "Minus",
         },
         {
           id: "notification",
-          name: "PageNotification",
           label: "Notification",
+          to: {
+            name: "PageNotification",
+          },
+          icon: "Duplicate",
         },
         {
           id: "checkbox",
-          name: "PageCheckbox",
           label: "Checkbox",
+          to: {
+            name: "PageCheckbox",
+          },
+          parent: "ui",
         },
         {
           id: "radio",
-          name: "PageRadio",
           label: "Radio",
+          to: {
+            name: "PageRadio",
+          },
+          parent: "ui",
         },
         {
           id: "select",
-          name: "PageSelect",
           label: "Select",
+          to: {
+            name: "PageSelect",
+          },
+          parent: "ui",
         },
         {
           id: "form",
-          name: "PageForm",
           label: "Form",
+          to: {
+            name: "PageForm",
+          },
+          parent: "ui",
         },
         {
           id: "dropdown",
-          name: "PageDropdown",
           label: "Dropdown",
+          to: {
+            name: "PageDropdown",
+          },
+          icon: "Cog",
         },
         {
           id: "tabs",
-          name: "PageTabs",
           label: "Tabs",
+          to: {
+            name: "PageTabs",
+          },
+          icon: "Cross",
         },
         {
           id: "progress",
-          name: "PageProgress",
           label: "Progress",
+          to: {
+            name: "PageProgress",
+          },
+          icon: "Dnd",
         },
         {
           id: "list",
-          name: "PageList",
           label: "List",
+          to: {
+            name: "PageList",
+          },
+          icon: "EyeClose",
         },
       ],
     };

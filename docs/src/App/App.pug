@@ -1,13 +1,10 @@
 div
-  the-navbar(
-    @change-framework="changeFramework"
-  )
-  .a_d_flex
-    the-menu
-    .a_d_inline_block.a_pl_4(
-      style="width: calc(100vw - 280px);"
+  the-menu
+  .a_menu__page
+    the-navbar(
+      @change-framework="changeFramework"
     )
-      router-view
+    router-view
 
   a-modal-confirm
   a-notification

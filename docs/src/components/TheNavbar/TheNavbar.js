@@ -1,6 +1,5 @@
-import {
-  AIcon,
-} from "../../../../dist";
+import AIcon from "../../../../src/AIcon/AIcon";
+import AMenuButtonToggle from "../../../../src/AMenu/AMenuButtonToggle";
 
 import frameworks from "../../../../src/const/frameworks";
 
@@ -8,6 +7,7 @@ export default {
   name: "TheNavbar",
   components: {
     AIcon,
+    AMenuButtonToggle,
   },
   emits: [
     "change-framework",
