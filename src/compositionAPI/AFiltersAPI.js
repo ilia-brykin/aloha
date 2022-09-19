@@ -22,8 +22,8 @@ export default function AFiltersAPI() {
     return currency(value, { suffix, digits, digitGrouping });
   };
 
-  const filterDate = (value, param) => {
-    return date(value, param);
+  const filterDate = (value, { parameter = "date" } = {}) => {
+    return date(value, { parameter });
   };
 
   const filterDefaultForEmpty = (value, { emptyValue = "-" } = {}) => {
