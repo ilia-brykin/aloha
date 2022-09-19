@@ -89,6 +89,19 @@ export default {
             htmlId: options.htmlId,
           }),
         };
+        if (options.children && options.children.length) {
+          options.children.forEach(childOptions => {
+            LABELS_FROM_OPTIONS_LIST[childOptions.id] = {
+              label: childOptions.label,
+              link: !isUndefined(childOptions.isErrorLink) ? childOptions.isErrorLink : true,
+              id: getHtmlId({
+                id: childOptions.id,
+                idPrefix: childOptions.idPrefix || childOptions.value,
+                htmlId: childOptions.htmlId,
+              }),
+            };
+          });
+        }
       });
       return LABELS_FROM_OPTIONS_LIST;
     });
