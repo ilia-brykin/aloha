@@ -133,7 +133,7 @@ export default {
     targetObject() {
       const TARGET_OBJECT = {};
       if (this.rowAction.target) {
-        return TARGET_OBJECT.target = this.rowAction.target;
+        TARGET_OBJECT.target = this.rowAction.target;
       }
       return TARGET_OBJECT;
     },

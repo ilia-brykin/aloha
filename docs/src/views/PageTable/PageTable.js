@@ -132,6 +132,13 @@ export default {
           disabledCallback: ({ row, rowIndex }) => !(rowIndex > 2 && row.aloha),
           callback: this.clickMe,
         },
+        {
+          icon: "Export",
+          type: "link",
+          hrefCallback: ({ row }) => `dokumente/${ row.pk }/download/`,
+          label: "Dokument herunterladen",
+          target: "_blank",
+        },
       ],
       multipleActions: [
         {
