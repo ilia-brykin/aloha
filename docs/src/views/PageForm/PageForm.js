@@ -63,6 +63,21 @@ export default {
           isHide: true,
         },
         {
+          type: "file",
+          label: "Aloha File",
+          id: "alohaFile",
+          classColumn: "a_column_8",
+          required: true,
+        },
+        {
+          type: "file",
+          label: "Aloha File Multiple",
+          id: "alohaFileMultiple",
+          classColumn: "a_column_8",
+          required: true,
+          isMultiple: true,
+        },
+        {
           type: "text",
           label: "Aloha 2",
           id: "aloha2",

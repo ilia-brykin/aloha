@@ -9,6 +9,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import {
   isFunction,
+  isNil,
 } from "lodash-es";
 
 
@@ -20,8 +21,9 @@ export default {
       required: true,
     },
     label: {
-      type: String,
-      required: true,
+      type: [String, Number],
+      required: false,
+      default: undefined,
     },
     labelClass: {
       required: false,
@@ -73,6 +75,10 @@ export default {
     textAfterLabel() {
       return this.required ? "*" : "";
     },
+
+    isLabel() {
+      return !isNil(this.label);
+    },
   },
   render() {
     return h("label", {
@@ -81,7 +87,7 @@ export default {
       class: ["a_form_element_label", this.labelClass],
       onClick: this.onClick,
     }, [
-      h(ATranslation, {
+      this.isLabel && h(ATranslation, {
         tag: "span",
         text: this.label,
         textAfter: this.textAfterLabel,

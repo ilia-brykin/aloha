@@ -1,5 +1,6 @@
 import ACheckbox from "./ACheckbox/ACheckbox";
 import AInput from "./AInput/AInput";
+import AInputFile from "./AInputFile/AInputFile";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
 import ASelect from "./ASelect/ASelect";
@@ -8,18 +9,19 @@ import ATemplate from "./ATemplate/ATemplate";
 import ATextarea from "./ATextarea/ATextarea";
 
 export default {
-  text: AInput,
-  integer: AInput,
-  number: AInput,
-  natural: AInput,
-  password: AInput,
-  email: AInput,
-  textarea: ATextarea,
-  select: ASelect,
-  multiselect: ASelect,
-  oneCheckbox: AOneCheckbox,
   checkbox: ACheckbox,
+  email: AInput,
+  file: AInputFile,
+  integer: AInput,
+  multiselect: ASelect,
+  natural: AInput,
+  number: AInput,
+  oneCheckbox: AOneCheckbox,
+  password: AInput,
   radio: ARadio,
+  select: ASelect,
   switch: ASwitch,
   template: ATemplate,
+  text: AInput,
+  textarea: ATextarea,
 };

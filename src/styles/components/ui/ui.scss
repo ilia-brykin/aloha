@@ -63,7 +63,8 @@
   appearance: none;
   border-radius: 0.375rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  &:focus {
+  &:focus,
+  &.a_file__label:focus-within {
     color: #212529;
     background-color: #fff;
     border-color: #86b7fe;
@@ -145,6 +146,7 @@
 @import "ASwitch";
 @import "ASelect";
 @import "AErrors";
+@import "AInputFile";
 
 // fix für autofill
 input:-webkit-autofill {

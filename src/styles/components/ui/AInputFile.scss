@@ -1,0 +1,15 @@
+.a_file__label {
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+.a_file__input {
+  overflow: hidden;
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  z-index: -1;
+  opacity: 0;
+}
