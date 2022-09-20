@@ -50,6 +50,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    isIdVisible: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props) {
     const id = toRef(props, "id");
@@ -79,13 +84,21 @@ export default {
     isLabel() {
       return !isNil(this.label);
     },
+
+    idObject() {
+      const ID_OBJECT = {};
+      if (this.isIdVisible) {
+        ID_OBJECT.id = this.idLabel;
+      }
+      return ID_OBJECT;
+    },
   },
   render() {
     return h("label", {
-      id: this.idLabel,
       for: this.id,
       class: ["a_form_element_label", this.labelClass],
       onClick: this.onClick,
+      ...this.idObject,
     }, [
       this.isLabel && h(ATranslation, {
         tag: "span",

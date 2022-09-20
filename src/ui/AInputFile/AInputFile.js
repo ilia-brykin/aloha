@@ -6,6 +6,7 @@ import {
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
+import ALabel from "../ALabel/ALabel";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -41,6 +42,11 @@ export default {
     modelValue: {
       type: [String, Number, Object, Array],
       required: false,
+    },
+    text: {
+      type: String,
+      required: false,
+      default: "Dateien auswählen",
     },
   },
   setup(props, context) {
@@ -135,42 +141,49 @@ export default {
       style: this.componentStyleHide,
     }, [
       h("div", {
-        class: "a_form_element__parent a_file",
+        class: "a_form_element__parent",
       }, [
-        h("label", {
-          for: this.htmlIdLocal,
-          class: ["a_file__label a_form_control", this.labelClass, {
-            disabled: this.disabled,
-          }],
+        this.label && h(ALabel, {
+          id: this.htmlIdLocal,
+          label: this.label,
+          labelClass: this.labelClass,
           required: this.required,
+          isIdVisible: false,
           type: this.type,
-        }, [
-          h("input", {
-            ref: "inputRef",
-            id: this.htmlIdLocal,
-            type: "file",
-            multiple: this.isMultiple,
-            class: [
-              "a_file__input",
-              this.inputClass,
-              {
-                a_form_control_invalid: this.isErrors,
-              },
-            ],
-            disabled: this.disabled,
-            ariaRequired: this.required,
-            ariaInvalid: this.isErrors,
-            "aria-describedby": this.ariaDescribedbyLocal,
-            ...this.inputAttributes,
-            onInput: this.onInput,
-            onFocus: this.onFocus,
-            onBlur: this.onBlur,
-          }),
-          h("span", {
-            class: "a_file__label"
+        }),
+        h("div", {}, [
+          h("label", {
+            for: this.htmlIdLocal,
+            class: ["a_file__label a_form_control", this.labelClass, {
+              disabled: this.disabled,
+            }],
+            required: this.required,
+            type: this.type,
           }, [
-            this.label,
-            this.textAfterLabel,
+            h("input", {
+              ref: "inputRef",
+              id: this.htmlIdLocal,
+              type: "file",
+              multiple: this.isMultiple,
+              class: [
+                "a_file__input",
+                this.inputClass,
+                {
+                  a_form_control_invalid: this.isErrors,
+                },
+              ],
+              disabled: this.disabled,
+              ariaRequired: this.required,
+              ariaInvalid: this.isErrors,
+              "aria-describedby": this.ariaDescribedbyLocal,
+              ...this.inputAttributes,
+              onInput: this.onInput,
+              onFocus: this.onFocus,
+              onBlur: this.onBlur,
+            }),
+            h("span", {
+              class: "a_file__label"
+            }, this.text),
           ]),
         ]),
         this.isModel && h("ul", {}, [
