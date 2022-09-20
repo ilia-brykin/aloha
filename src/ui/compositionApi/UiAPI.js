@@ -27,7 +27,6 @@ export default function UiAPI(props, { emit }) {
 
   const change = toRef(props, "change");
   const changeModel = ({ model, currentModel, item }) => {
-    console.log("model", model);
     emit("update:modelValue", model);
     change.value({
       model,

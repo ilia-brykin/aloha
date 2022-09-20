@@ -115,6 +115,20 @@ export default {
       }
       return undefined;
     },
+
+    hrefLocal() {
+      if (this.rowAction.href) {
+        return this.rowAction.href;
+      }
+      if (isFunction(this.rowAction.hrefCallback)) {
+        return this.rowAction.hrefCallback({
+          row: this.row,
+          rowIndex: this.rowIndex,
+          rowAction: this.rowAction,
+        });
+      }
+      return "#";
+    },
   },
   methods: {
     onClick() {
@@ -127,6 +141,21 @@ export default {
     },
   },
   render() {
+    const CONTENT = [
+      this.titleLocal && h("span", {
+        class: "a_position_absolute_all",
+        ariaHidden: true,
+        title: this.titleLocal,
+      }),
+      this.rowAction.icon && h(AIcon, {
+        class: "a_table__action__icon",
+        icon: this.rowAction.icon,
+      }),
+      h("span", {
+        innerHTML: this.labelLocal,
+      }),
+    ];
+
     if (this.rowAction.isDivider) {
       return h("li", {
         class: ["a_dropdown__divider", this.classLocal],
@@ -143,25 +172,19 @@ export default {
     }
     if (this.rowAction.type === "link") {
       return h("li", null, [
-        h(resolveComponent("RouterLink"), {
-          id: this.idLocal,
-          class: ["a_dropdown__item a_table__row_action", this.classLocal],
-          disabled: this.disabledLocal,
-          to: this.toLocal,
-        }, () => [
-          this.titleLocal && h("span", {
-            class: "a_position_absolute_all",
-            ariaHidden: true,
-            title: this.titleLocal,
-          }),
-          this.rowAction.icon && h(AIcon, {
-            class: "a_table__action__icon",
-            icon: this.rowAction.icon,
-          }),
-          h("span", {
-            innerHTML: this.labelLocal,
-          }),
-        ]),
+        this.rowAction.to ?
+          h(resolveComponent("RouterLink"), {
+            id: this.idLocal,
+            class: ["a_dropdown__item a_table__row_action", this.classLocal],
+            disabled: this.disabledLocal,
+            to: this.toLocal,
+          }, () => CONTENT) :
+          h("a", {
+            id: this.idLocal,
+            class: ["a_dropdown__item a_table__row_action", this.classLocal],
+            disabled: this.disabledLocal,
+            href: this.hrefLocal,
+          }, () => CONTENT),
       ]);
     }
     return h("li", null, [
@@ -171,20 +194,7 @@ export default {
         class: ["a_dropdown__item a_table__row_action", this.classLocal],
         disabled: this.disabledLocal,
         onClick: this.onClick,
-      }, [
-        this.titleLocal && h("span", {
-          class: "a_position_absolute_all",
-          ariaHidden: true,
-          title: this.titleLocal,
-        }),
-        this.rowAction.icon && h(AIcon, {
-          class: "a_table__action__icon",
-          icon: this.rowAction.icon,
-        }),
-        h("span", {
-          innerHTML: this.labelLocal,
-        }),
-      ]),
+      }, CONTENT),
     ]);
   },
 };
