@@ -129,6 +129,14 @@ export default {
       }
       return "#";
     },
+
+    targetObject() {
+      const TARGET_OBJECT = {};
+      if (this.rowAction.target) {
+        return TARGET_OBJECT.target = this.rowAction.target;
+      }
+      return TARGET_OBJECT;
+    },
   },
   methods: {
     onClick() {
@@ -176,15 +184,15 @@ export default {
           h(resolveComponent("RouterLink"), {
             id: this.idLocal,
             class: ["a_dropdown__item a_table__row_action", this.classLocal],
-            disabled: this.disabledLocal,
             to: this.toLocal,
+            ...this.targetObject,
           }, () => CONTENT) :
           h("a", {
             id: this.idLocal,
             class: ["a_dropdown__item a_table__row_action", this.classLocal],
-            disabled: this.disabledLocal,
             href: this.hrefLocal,
-          }, () => CONTENT),
+            ...this.targetObject,
+          }, CONTENT),
       ]);
     }
     return h("li", null, [
