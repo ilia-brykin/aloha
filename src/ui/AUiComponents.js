@@ -1,4 +1,5 @@
 import ACheckbox from "./ACheckbox/ACheckbox";
+import ADatepicker from "./ADatepicker/ADatepicker";
 import AInput from "./AInput/AInput";
 import AInputFile from "./AInputFile/AInputFile";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
@@ -10,6 +11,8 @@ import ATextarea from "./ATextarea/ATextarea";
 
 export default {
   checkbox: ACheckbox,
+  date: ADatepicker,
+  datetime: ADatepicker,
   email: AInput,
   file: AInputFile,
   integer: AInput,

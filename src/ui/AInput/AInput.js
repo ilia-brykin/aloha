@@ -1,8 +1,6 @@
 import {
   computed,
   h,
-  onBeforeUnmount,
-  onMounted,
   ref,
   toRef,
 } from "vue";
@@ -17,6 +15,7 @@ import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
+import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -107,33 +106,9 @@ export default {
       });
     };
 
-    const isAutofill = ref(undefined);
-    const onAutoFillStart = () => {
-      isAutofill.value = true;
-    };
-
-    const onAutoFillCancel = () => {
-      isAutofill.value = false;
-    };
-
-    const onAnimationstart = $event => {
-      switch ($event.animationName) {
-      case "onAutoFillStart":
-        return onAutoFillStart();
-      case "onAutoFillCancel":
-        return onAutoFillCancel();
-      }
-    };
-
-    onMounted(() => {
-      inputRef.value && inputRef.value.addEventListener("animationstart", onAnimationstart);
-    });
-
-    onBeforeUnmount(() => {
-      inputRef.value &&
-      inputRef.value.removeEventListener &&
-      inputRef.value.removeEventListener("animationstart", onAnimationstart);
-    });
+    const {
+      isAutofill,
+    } = UiInputAutofillAPI({ inputRef });
 
     return {
       componentStyleHide,

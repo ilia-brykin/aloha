@@ -1,0 +1,345 @@
+$dp-default-color: #73879c;
+$dp-primary-color: #1284e7;
+
+.pux_datepicker {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  color: $dp-default-color;
+  font-size: 14px;
+  // font: 14px/1.5 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei', sans-serif;
+  * {
+    box-sizing: border-box;
+  }
+}
+.pux_datepicker_range {
+  width: 320px;
+}
+
+.pux_datepicker__popup {
+  position: absolute;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  z-index: 1060;
+}
+
+.pux_datepicker__input_wrapper {
+  position: relative;
+  &:hover {
+    .pux_datepicker__input_wrapper__clear_wrapper {
+      display: block;
+    }
+    .pux_datepicker__input_wrapper__clear_wrapper + .pux_datepicker__input_wrapper__append {
+      display: none;
+    }
+  }
+}
+.pux_datepicker__input {
+  padding-right: 27px;
+}
+.pux_datepicker__input_wrapper__clear_wrapper {
+  display: none;
+}
+
+.pux_datepicker__input {
+  display: inline-block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 30px;
+  padding-left: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  &:focus {
+    outline: none;
+  }
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+.pux_datepicker__input_wrapper__append {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  padding: 6px;
+}
+
+.pux_datepicker__input__icon {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-style: normal;
+  color: #555;
+  text-align: center;
+  cursor: pointer;
+}
+
+.a_datepicker__calendar_icon {
+  width: 100%;
+  height: 100%;
+  max-height: 25px;
+  color: #555;
+  stroke-width: 8px;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.pux_datepicker__input__clear_icon {
+  &::before {
+    display: inline-block;
+    content: '\2716';
+    vertical-align: middle;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.pux_datepicker__range_wrapper {
+  width: 248px * 2;
+  overflow: hidden;
+}
+
+.pux_datepicker__shortcuts_wrapper {
+  text-align: left;
+  padding: 0 12px;
+  line-height: 34px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  .pux_datepicker__shortcuts_wrapper__shortcuts {
+    background: none;
+    outline: none;
+    border: 0;
+    color: #48576a;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    cursor: pointer;
+    &:hover {
+      color: mix(#fff, $dp-primary-color, 20%);
+    }
+    &:after {
+      content: '|';
+      margin: 0 10px;
+      color: #48576a;
+    }
+    &:last-child::after {
+      display: none;
+    }
+  }
+}
+
+.pux_datepicker__footer {
+  padding: 4px;
+  clear: both;
+  text-align: right;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.pux_datepicker__footer__btn {
+  font-size: 12px;
+  line-height: 1;
+  padding: 7px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+.pux_datepicker__footer__btn_confirm {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #73879c;
+  &:hover {
+    color: #1284e7;
+    border-color: #1284e7;
+  }
+}
+
+.pux_datepicker__calendar {
+  float: left;
+  color: $dp-default-color;
+  padding: 6px 12px;
+  font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, sans-serif;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.pux_datepicker__calendar__header {
+  padding: 0 4px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  button {
+    color: inherit;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    &:hover {
+      color: mix(#fff, $dp-primary-color, 20%);
+    }
+  }
+  @at-root {
+    .pux_datepicker__icon_last_month,
+    .pux_datepicker__icon_next_month {
+      padding: 0 6px;
+      font-size: 20px;
+      line-height: 30px;
+      user-select: none;
+    }
+    .pux_datepicker__icon_last_year {
+      @extend .pux_datepicker__icon_last_month;
+    }
+    .pux_datepicker__icon_next_year {
+      @extend .pux_datepicker__icon_next_month;
+    }
+  }
+}
+
+.pux_datepicker__calendar__content {
+  width: 32px * 7;
+  height: 32px * 7;
+  .cell {
+    vertical-align: middle;
+    cursor: pointer;
+    &:hover {
+      background-color: #eaf8fe;
+    }
+    &.actived {
+      color: #fff;
+      background-color: $dp-primary-color;
+    }
+    &.inrange {
+      background-color: #eaf8fe;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      color: #ccc;
+      background-color: #f3f3f3;
+    }
+  }
+}
+
+.pux_datepicker__panel {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.pux_datepicker__panel_date {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  td,
+  th {
+    font-size: 12px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  td {
+    &.today {
+      color: mix(#fff, $dp-primary-color, 10%);
+    }
+    &.last-month,
+    &.next-month {
+      color: #ddd;
+    }
+  }
+}
+
+.pux_datepicker__panel_year {
+  padding: 7px 0;
+  .cell {
+    display: inline-block;
+    width: 40%;
+    margin: 1px 5%;
+    line-height: 40px;
+  }
+}
+
+.pux_datepicker__panel_month {
+  .cell {
+    display: inline-block;
+    width: 30%;
+    line-height: 40px;
+    margin: 8px 1.5%;
+  }
+}
+.pux_datepicker__panel__list {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.pux_datepicker__time_list {
+  position: relative; // offsetParent
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  .pux_datepicker__time_list__item {
+    display: block;
+    text-align: left;
+    padding-left: 10px;
+  }
+  &:first-child {
+    border-left: 0;
+  }
+  .cell {
+    width: 100%;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.pux_datepicker__panel__button {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pux_datepicker__current_month,
+.pux_datepicker__current_year {
+  padding: 0 2px;
+}

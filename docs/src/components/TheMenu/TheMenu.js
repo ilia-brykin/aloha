@@ -138,6 +138,14 @@ export default {
           parent: "ui",
         },
         {
+          id: "datepicker",
+          label: "Datepicker",
+          to: {
+            name: "PageDatepicker",
+          },
+          parent: "ui",
+        },
+        {
           id: "select",
           label: "Select",
           to: {
