@@ -107,17 +107,20 @@ export default function ScrollControlAPI(props, { emit }, {
     setColumnsScrollInvisible();
   };
 
-  const resizeWindow = () => {
-    tableWidth.value = aTableRef.value.offsetWidth;
-    checkVisibleColumns();
-  };
+  const resizeOb = new ResizeObserver(entries => {
+    // since we are observing only a single element, so we access the first element in entries array
+    const RECT = entries[0].contentRect;
+    if (tableWidth.value !== RECT.width) {
+      tableWidth.value = RECT.width;
+      checkVisibleColumns();
+    }
+  });
 
   onMounted(() => {
-    window.addEventListener("resize", resizeWindow);
-    resizeWindow();
+    resizeOb.observe(aTableRef.value);
   });
   onBeforeUnmount(() => {
-    window.removeEventListener("resize", resizeWindow);
+    resizeOb.unobserve(aTableRef.value);
   });
 
 
