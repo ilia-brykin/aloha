@@ -77,7 +77,7 @@ export default {
     return h("div", {
       role: "cell",
       class: "a_table__td a_table__cell a_table__cell_action",
-      style: this.stylesTdAction,
+      // style: this.stylesTdAction,
     }, [
       this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
         buttonClass: "a_btn a_btn_link",

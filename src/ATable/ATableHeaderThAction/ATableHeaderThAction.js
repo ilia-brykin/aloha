@@ -93,7 +93,7 @@ export default {
     return h("div", {
       class: "a_table__th a_table__cell a_table__cell_action",
       scope: "col",
-      style: this.stylesThAction,
+      // style: this.stylesThAction,
       role: "columnheader",
     }, [
       h("span", {

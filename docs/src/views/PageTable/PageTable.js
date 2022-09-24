@@ -64,6 +64,14 @@ export default {
           slot: "get",
           filter: "boolean",
           footerPath: "obj.aloha",
+          width: 220,
+        },
+        {
+          label: "Test",
+          id: "test",
+          path: "test",
+          sortId: "test",
+          width: 200,
         },
         {
           label: "Obj2",
@@ -274,7 +282,7 @@ export default {
 
     setData() {
       const DATA = [];
-      times(1001, item => {
+      times(3, item => {
         DATA.push({
           aloha: `aloha${ item }`,
           hola: `hola ${ item }`,
@@ -282,6 +290,7 @@ export default {
           obj: {
             aloha: `ertet ${ 100 - item }`,
           },
+          test: "<div>aloha</div><div>aloha</div><div>aloha</div><div>aloha</div><div>aloha</div><div>aloha</div><div>aloha</div>",
         });
       });
       this.data = DATA;

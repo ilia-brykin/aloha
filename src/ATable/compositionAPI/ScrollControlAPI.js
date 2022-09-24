@@ -29,7 +29,8 @@ export default function ScrollControlAPI(props, { emit }, {
   });
   const columnsSpecialWidth = computed(() => {
     const columnMultipleActionsWidth = isMultipleActionsActive.value ? 50 : 0;
-    return columnMultipleActionsWidth + columnActionsWidthLocal.value;
+    const scrollBarWidth = 10;
+    return columnMultipleActionsWidth + columnActionsWidthLocal.value + scrollBarWidth;
   });
 
   const tableWidth = ref(undefined);
@@ -106,21 +107,19 @@ export default function ScrollControlAPI(props, { emit }, {
     setColumnsScrollInvisible();
   };
 
-
-  const resizeOb = new ResizeObserver(entries => {
-    // since we are observing only a single element, so we access the first element in entries array
-    const RECT = entries[0].contentRect;
-
-    tableWidth.value = RECT.width;
+  const resizeWindow = () => {
+    tableWidth.value = aTableRef.value.offsetWidth;
     checkVisibleColumns();
-  });
+  };
 
   onMounted(() => {
-    resizeOb.observe(aTableRef.value);
+    window.addEventListener("resize", resizeWindow);
+    resizeWindow();
   });
   onBeforeUnmount(() => {
-    resizeOb.unobserve(aTableRef.value);
+    window.removeEventListener("resize", resizeWindow);
   });
+
 
   return {
     aTableRef,
