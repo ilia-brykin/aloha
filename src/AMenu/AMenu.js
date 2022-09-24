@@ -16,7 +16,7 @@ import AMenuToggleAPI from "./compositionAPI/AMenuToggleAPI";
 import {
   forEach,
   get,
-  isNil,
+  isNil, keyBy,
 } from "lodash-es";
 
 export default {
@@ -71,6 +71,11 @@ export default {
   setup(props) {
     const items = toRef(props, "items");
     const keyParent = toRef(props, "keyParent");
+    const keyId = toRef(props, "keyId");
+
+    const itemsKeyById = computed(() => {
+      return keyBy(items.value, keyId.value);
+    });
 
     const itemsProParent = computed(() => {
       const MAIN = [];
@@ -102,16 +107,23 @@ export default {
     } = AMenuSearchAPI();
 
     const {
+      clickMenuLink,
       panelParentsOpen,
       togglePanel,
-    } = AMenuPanelsAPI();
+    } = AMenuPanelsAPI(props, {
+      itemsProParent,
+      itemsKeyById,
+    });
 
+    provide("clickMenuLink", clickMenuLink);
     provide("togglePanel", togglePanel);
 
     const isOpenDefault = toRef(props, "isOpenDefault");
+
     initMenuOpenOrClose(isOpenDefault.value);
 
     return {
+      itemsKeyById,
       itemsProParent,
       panelParentsOpen,
 
@@ -140,9 +152,8 @@ export default {
           "onUpdate:modelValue": this.updateModelSearch,
         }),
         h(AMenuBreadcrumbs, {
-          items: this.items,
+          itemsKeyById: this.itemsKeyById,
           isBreadcrumbsAll: this.isBreadcrumbsAll,
-          keyId: this.keyId,
           keyLabel: this.keyLabel,
           panelParentsOpen: this.panelParentsOpen,
         }),

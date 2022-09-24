@@ -81,7 +81,13 @@ export default {
       }
     };
 
+    const clickMenuLink = inject("clickMenuLink");
+    const clickLink = () => {
+      clickMenuLink();
+    };
+
     return {
+      clickLink,
       icon,
       label,
       onKeydown,
@@ -114,6 +120,7 @@ export default {
           class: "a_menu__link",
           to: this.item.to,
           tabindex: this.isPanelOpen ? 0 : -1,
+          onClick: this.clickLink,
         }, () => ICON_AND_TEXT) :
         h("a", {
           class: "a_menu__link a_menu__link_btn",

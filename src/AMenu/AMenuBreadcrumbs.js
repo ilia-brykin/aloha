@@ -9,23 +9,18 @@ import AMenuBreadcrumbsItem from "./AMenuBreadcrumbsItem";
 import {
   forEach,
   get,
-  keyBy,
 } from "lodash-es";
 
 
 export default {
   name: "AMenuBreadcrumbs",
   props: {
-    items: {
-      type: Array,
+    itemsKeyById: {
+      type: Object,
       required: true,
     },
     isBreadcrumbsAll: {
       type: Boolean,
-      required: true,
-    },
-    keyId: {
-      type: String,
       required: true,
     },
     keyLabel: {
@@ -38,12 +33,8 @@ export default {
     },
   },
   setup(props) {
-    const keyId = toRef(props, "keyId");
     const keyLabel = toRef(props, "keyLabel");
-    const items = toRef(props, "items");
-    const itemsKeyById = computed(() => {
-      return keyBy(items.value, keyId.value);
-    });
+    const itemsKeyById = toRef(props, "itemsKeyById");
 
     const panelParentsOpen = toRef(props, "panelParentsOpen");
     const isBreadcrumbsAll = toRef(props, "isBreadcrumbsAll");
@@ -72,7 +63,6 @@ export default {
 
     return {
       breadcrumbsItems,
-      itemsKeyById,
     };
   },
   render() {
