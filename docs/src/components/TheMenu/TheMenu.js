@@ -191,7 +191,7 @@ export default {
           to: {
             name: "PageList",
           },
-          icon: "EyeClose",
+          icon: "Bla",
         },
       ],
     };

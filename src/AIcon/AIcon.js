@@ -34,6 +34,7 @@ import Reset from "./Icons/Reset";
 import Search from "./Icons/Search";
 import ThList from "./Icons/ThList";
 import Trash from "./Icons/Trash";
+import _NoImage from "./Icons/_NoImage";
 
 import {
   assign,
@@ -86,6 +87,7 @@ export default {
       Search,
       ThList,
       Trash,
+      _NoImage,
     }, ICONS_PLUGIN);
 
     return {
@@ -94,7 +96,11 @@ export default {
   },
   computed: {
     iconSvg() {
-      return this.icons[this.icon];
+      const ICON_SVG = this.icons[this.icon];
+      if (ICON_SVG) {
+        return ICON_SVG;
+      }
+      return this.icons._NoImage;
     },
 
     attributesLocal() {
