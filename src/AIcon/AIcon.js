@@ -47,6 +47,11 @@ export default {
       type: String,
       required: true,
     },
+    iconTag: {
+      type: String,
+      required: false,
+      default: "i",
+    },
     ariLabel: {
       type: String,
       required: false,
@@ -117,6 +122,6 @@ export default {
     },
   },
   render() {
-    return h("i", this.attributesLocal);
+    return h(this.iconTag, this.attributesLocal, this.$slots.default && this.$slots.default());
   },
 };
