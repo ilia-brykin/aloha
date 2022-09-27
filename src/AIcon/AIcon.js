@@ -108,9 +108,13 @@ export default {
       return this.icons._NoImage;
     },
 
+    iconClass() {
+      return `.a_icon_${ this.icon || "_NoImage" }`;
+    },
+
     attributesLocal() {
       const ATTRIBUTES = {
-        class: "a_icon",
+        class: ["a_icon", this.iconClass],
         innerHTML: this.iconSvg,
       };
       if (this.ariLabel) {
