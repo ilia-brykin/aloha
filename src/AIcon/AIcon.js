@@ -109,7 +109,7 @@ export default {
     },
 
     iconClass() {
-      return `.a_icon_${ this.icon || "_NoImage" }`;
+      return `a_icon_${ this.icon || "_NoImage" }`;
     },
 
     attributesLocal() {
