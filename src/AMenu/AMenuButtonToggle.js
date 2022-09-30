@@ -13,6 +13,12 @@ export default {
       required: false,
       default: "a_btn a_btn_secondary",
     },
+    buttonToggleVisible: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["always", "mobile", "desktop"].indexOf(value) !== -1,
+    },
   },
   setup() {
     const {
@@ -36,6 +42,8 @@ export default {
     return h("button", {
       class: ["a_menu__btn_toggle", this.class, {
         a_menu__btn_toggle_open: this.isMenuOpen,
+        a_menu__btn_toggle_mobile_only: this.buttonToggleVisible === "mobile",
+        a_menu__btn_toggle_desktop_only: this.buttonToggleVisible === "desktop",
       }],
       type: "button",
       onClick: this.toggleMenu,

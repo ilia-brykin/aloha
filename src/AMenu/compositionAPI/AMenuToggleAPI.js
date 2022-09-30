@@ -2,6 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  isUndefined,
+} from "lodash-es";
+
 const isMenuOpen = ref(undefined);
 
 export default function AMenuToggleAPI() {
@@ -18,15 +22,13 @@ export default function AMenuToggleAPI() {
   };
 
   const toggleMenu = ({ isOpen } = {}) => {
-    if (isMenuOpen.value && !isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  };
-
-  const initMenuOpenOrClose = isOpen => {
-    if (isOpen) {
+    if (isUndefined(isOpen)) {
+      if (isMenuOpen.value) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    } else if (isOpen) {
       openMenu();
     } else {
       closeMenu();
@@ -34,7 +36,6 @@ export default function AMenuToggleAPI() {
   };
 
   return {
-    initMenuOpenOrClose,
     isMenuOpen,
     toggleMenu,
   };

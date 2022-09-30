@@ -255,7 +255,7 @@ export default {
   },
   methods: {
     showModal() {
-      document.body.classList.add("modal-open");
+      document.body.classList.add("a_modal_open");
       this.setFocusToModal();
       this.setListenerForPressButtons();
       setTimeout(() => {
@@ -264,7 +264,7 @@ export default {
     },
 
     hideModal() {
-      document.body.classList.remove("modal-open");
+      document.body.classList.remove("a_modal_open");
       this.onFocusByDestroy();
       this.removeMouseEventListeners();
       this.removeListenerForPressButtons();
@@ -491,7 +491,7 @@ export default {
         ]),
       ]),
       !this.isModalHidden && h("div", {
-        class: "a_modal_backdrop a_modal_backdrop_show",
+        class: "a_backdrop a_backdrop_fade a_backdrop_show",
       })
     ]);
   },
