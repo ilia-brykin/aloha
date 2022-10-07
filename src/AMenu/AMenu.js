@@ -11,6 +11,7 @@ import AMenuBreadcrumbs from "./AMenuBreadcrumbs";
 import AMenuButtonToggle from "./AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel";
 
+import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
 import AMenuPanelsAPI from "./compositionAPI/AMenuPanelsAPI";
 import AMenuResizeAPI from "./compositionAPI/AMenuResizeAPI";
 import AMenuSearchAPI from "./compositionAPI/AMenuSearchAPI";
@@ -25,7 +26,37 @@ import {
 export default {
   name: "AMenu",
   props: {
+    breakpointMobile: {
+      type: Number,
+      required: false,
+      default: 991,
+    },
+    buttonToggleVisible: {
+      type: String,
+      required: false,
+      default: "always",
+      validator: value => ["always", "mobile", "desktop"].indexOf(value) !== -1,
+    },
+    isBackdrop: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isBlockerClickable: {
+      type: Boolean,
+      required: false,
+    },
+    isBreadcrumbsAll: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isOpenDefault: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isSearch: {
       type: Boolean,
       required: false,
       default: true,
@@ -59,32 +90,6 @@ export default {
       type: String,
       required: false,
       default: "parent",
-    },
-    isBreadcrumbsAll: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    isSearch: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    isBackdrop: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    buttonToggleVisible: {
-      type: String,
-      required: false,
-      default: "always",
-      validator: value => ["always", "mobile", "desktop"].indexOf(value) !== -1,
-    },
-    breakpointMobile: {
-      type: Number,
-      required: false,
-      default: 991,
     },
   },
   setup(props) {
@@ -132,6 +137,7 @@ export default {
 
     const {
       clickMenuLink,
+      closeAllPanels,
       panelParentsOpen,
       togglePanel,
     } = AMenuPanelsAPI(props, {
@@ -145,12 +151,19 @@ export default {
       toggleMenu,
     });
 
+    const {
+      attributesBlockerClick,
+    } = AMenuBlockerClickAPI(props, {
+      closeAllPanels,
+    });
+
     provide("clickMenuLink", clickMenuLink);
     provide("togglePanel", togglePanel);
 
     initMenuOpenOrClose();
 
     return {
+      attributesBlockerClick,
       isButtonToggleVisible,
       itemsKeyById,
       itemsProParent,
@@ -199,6 +212,7 @@ export default {
             keyLabel: this.keyLabel,
             panelItems: this.itemsProParent.main,
             panelParentsOpen: this.panelParentsOpen,
+            attributesBlockerClick: this.attributesBlockerClick,
           }),
           Object.keys(this.itemsProParent.children).map(key => {
             return h(AMenuPanel, {
@@ -210,6 +224,7 @@ export default {
               parentId: key,
               panelItems: this.itemsProParent.children[key],
               panelParentsOpen: this.panelParentsOpen,
+              attributesBlockerClick: {},
             });
           }),
         ]),

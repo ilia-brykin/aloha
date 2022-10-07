@@ -34,6 +34,10 @@ export default function AMenuPanelsAPI(props, {
     }
   };
 
+  const closeAllPanels = () => {
+    panelParentsOpen.value = [];
+  };
+
   const setPanelParentsOpen = ({ route = {}, panelParentsOpenLocal = [] }) => {
     const PARENT_ID = get(route, keyParent.value);
     if (PARENT_ID) {
@@ -90,6 +94,7 @@ export default function AMenuPanelsAPI(props, {
 
   return {
     clickMenuLink,
+    closeAllPanels,
     panelParentsOpen,
     togglePanel
   };

@@ -48,6 +48,10 @@ export default {
       type: String,
       required: true,
     },
+    attributesBlockerClick: {
+      type: Object,
+      required: true,
+    },
   },
   setup(props) {
     const panelItems = toRef(props, "panelItems");
@@ -122,6 +126,7 @@ export default {
       h("div", {
         class: "a_menu__blocker",
         ariaHidden: true,
+        ...this.attributesBlockerClick,
       }),
       h("dl", {
         class: "a_menu__listview",

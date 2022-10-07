@@ -227,6 +227,10 @@ $a_menu_breakpoint_mobile: 991px;
   background: var(--a_menu_background);
 }
 
+.a_menu__blocker_clickable {
+  cursor: pointer;
+}
+
 .a_menu__navbar_top {
   border-bottom: 1px solid var(--a_menu_border_color);
   flex-shrink: 0;
