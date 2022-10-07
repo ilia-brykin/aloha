@@ -15,21 +15,16 @@ import {
 export default {
   name: "AMenuPanel",
   props: {
+    attributesBlockerClick: {
+      type: Object,
+      required: true,
+    },
     isFirst: {
       type: Boolean,
       required: false,
     },
-    panelParentsOpen: {
-      type: Array,
-      required: true,
-    },
-    parentId: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    panelItems: {
-      type: Array,
+    isSearchActive: {
+      type: Boolean,
       required: true,
     },
     keyGroup: {
@@ -48,9 +43,18 @@ export default {
       type: String,
       required: true,
     },
-    attributesBlockerClick: {
-      type: Object,
+    panelItems: {
+      type: Array,
       required: true,
+    },
+    panelParentsOpen: {
+      type: Array,
+      required: true,
+    },
+    parentId: {
+      type: String,
+      required: false,
+      default: undefined,
     },
   },
   setup(props) {
@@ -118,9 +122,9 @@ export default {
     return h("div", {
       id: this.panelId,
       class: ["a_menu__panel", {
-        a_menu__panel_first: this.isFirst,
-        a_menu__panel_opened: this.isPanelOpen,
-        a_menu__panel_parent: this.isChildPanelOpen,
+        a_menu__panel_first: !this.isSearchActive && this.isFirst,
+        a_menu__panel_opened: !this.isSearchActive && this.isPanelOpen,
+        a_menu__panel_parent: !this.isSearchActive && this.isChildPanelOpen,
       }],
     }, [
       h("div", {

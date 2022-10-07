@@ -15,12 +15,16 @@ import {
 export default {
   name: "AMenuBreadcrumbs",
   props: {
-    itemsKeyById: {
-      type: Object,
-      required: true,
-    },
     isBreadcrumbsAll: {
       type: Boolean,
+      required: true,
+    },
+    isSearchActive: {
+      type: Boolean,
+      required: true,
+    },
+    itemsKeyById: {
+      type: Object,
       required: true,
     },
     keyLabel: {
@@ -66,6 +70,9 @@ export default {
     };
   },
   render() {
+    if (this.isSearchActive) {
+      return "";
+    }
     return h("div", {
       class: "a_menu__breadcrumbs"
     }, [

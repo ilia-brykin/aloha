@@ -17,6 +17,7 @@ export default function AMenuPanelsAPI(props, {
     children: {},
   })),
   itemsKeyById = computed(() => ({})),
+  resetSearch = () => {},
 }) {
   const keyParent = toRef(props, "keyParent");
   const APP = getCurrentInstance();
@@ -32,10 +33,12 @@ export default function AMenuPanelsAPI(props, {
     } else {
       panelParentsOpen.value.splice(INDEX, panelParentsOpen.value.length);
     }
+    resetSearch();
   };
 
   const closeAllPanels = () => {
     panelParentsOpen.value = [];
+    resetSearch();
   };
 
   const setPanelParentsOpen = ({ route = {}, panelParentsOpenLocal = [] }) => {
@@ -80,6 +83,7 @@ export default function AMenuPanelsAPI(props, {
 
   const clickMenuLink = () => {
     isMenuLinkClicked.value = true;
+    resetSearch();
   };
 
   watch($router.currentRoute, () => {

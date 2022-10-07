@@ -3,7 +3,7 @@ import {
   h,
   provide,
   Teleport,
-  toRef,
+  toRef, watch,
 } from "vue";
 
 import AInput from "../ui/AInput/AInput";
@@ -126,14 +126,16 @@ export default {
     });
 
     const {
-      isMenuOpen,
-      toggleMenu,
-    } = AMenuToggleAPI(props);
-
-    const {
+      isSearchActive,
       modelSearch,
+      resetSearch,
       updateModelSearch,
     } = AMenuSearchAPI();
+
+    const {
+      isMenuOpen,
+      toggleMenu,
+    } = AMenuToggleAPI();
 
     const {
       clickMenuLink,
@@ -143,6 +145,7 @@ export default {
     } = AMenuPanelsAPI(props, {
       itemsProParent,
       itemsKeyById,
+      resetSearch,
     });
 
     const {
@@ -155,6 +158,12 @@ export default {
       attributesBlockerClick,
     } = AMenuBlockerClickAPI(props, {
       closeAllPanels,
+    });
+
+    watch(isMenuOpen, (newValue, altValue) => {
+      if (!newValue && altValue) {
+        resetSearch();
+      }
     });
 
     provide("clickMenuLink", clickMenuLink);
@@ -171,6 +180,7 @@ export default {
 
       isMenuOpen,
 
+      isSearchActive,
       modelSearch,
       updateModelSearch,
     };
@@ -191,7 +201,7 @@ export default {
             id: "a_menu_search",
             class: "a_menu__navbar_top__search",
             modelValue: this.modelSearch,
-            label: "Suche",
+            label: "Menüsuche",
             "onUpdate:modelValue": this.updateModelSearch,
           }),
           h(AMenuBreadcrumbs, {
@@ -199,6 +209,7 @@ export default {
             isBreadcrumbsAll: this.isBreadcrumbsAll,
             keyLabel: this.keyLabel,
             panelParentsOpen: this.panelParentsOpen,
+            isSearchActive: this.isSearchActive,
           }),
         ]),
         h("div", {
@@ -213,6 +224,7 @@ export default {
             panelItems: this.itemsProParent.main,
             panelParentsOpen: this.panelParentsOpen,
             attributesBlockerClick: this.attributesBlockerClick,
+            isSearchActive: this.isSearchActive,
           }),
           Object.keys(this.itemsProParent.children).map(key => {
             return h(AMenuPanel, {
@@ -225,6 +237,7 @@ export default {
               panelItems: this.itemsProParent.children[key],
               panelParentsOpen: this.panelParentsOpen,
               attributesBlockerClick: {},
+              isSearchActive: this.isSearchActive,
             });
           }),
         ]),
