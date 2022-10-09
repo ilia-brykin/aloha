@@ -7,6 +7,10 @@ import AMenuPanelLink from "./AMenuPanelLink";
 export default {
   name: "AMenuPanelGroup",
   props: {
+    dataProParentChildren: {
+      type: Object,
+      required: true,
+    },
     groupItems: {
       type: Array,
       required: true,
@@ -37,6 +41,7 @@ export default {
         return h(AMenuPanelLink, {
           key: itemIndex,
           item,
+          dataProParentChildren: this.dataProParentChildren,
           isPanelOpen: this.isPanelOpen,
           keyIcon: this.keyIcon,
         });

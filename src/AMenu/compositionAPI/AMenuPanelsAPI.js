@@ -24,12 +24,26 @@ export default function AMenuPanelsAPI(props, {
   const panelParentsOpen = ref([]);
   const isMenuLinkClicked = ref(false);
 
-  const togglePanel = ({ parentId }) => {
-    const INDEX = panelParentsOpen.value.indexOf(parentId);
-    if (INDEX === -1) {
-      panelParentsOpen.value.push(parentId);
+  const openPanelFromSearch = ({ parentId, panelParentsOpenLocal }) => {
+    if (parentId) {
+      panelParentsOpenLocal.unshift(parentId);
+      const PARENT_ID = dataKeyById.value[parentId][AKeyParent];
+      return openPanelFromSearch({ parentId: PARENT_ID, panelParentsOpenLocal });
+    }
+    return panelParentsOpenLocal;
+  };
+
+  const togglePanel = ({ parentId, isLinkInSearchPanel }) => {
+    if (isLinkInSearchPanel) {
+      const PANEL_PARENTS_OPEN = [];
+      panelParentsOpen.value = openPanelFromSearch({ parentId, panelParentsOpenLocal: PANEL_PARENTS_OPEN });
     } else {
-      panelParentsOpen.value.splice(INDEX, panelParentsOpen.value.length);
+      const INDEX = panelParentsOpen.value.indexOf(parentId);
+      if (INDEX === -1) {
+        panelParentsOpen.value.push(parentId);
+      } else {
+        panelParentsOpen.value.splice(INDEX, panelParentsOpen.value.length);
+      }
     }
     resetSearch();
   };

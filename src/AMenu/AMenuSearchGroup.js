@@ -19,6 +19,10 @@ export default {
       type: Object,
       required: true,
     },
+    dataProParentChildren: {
+      type: Object,
+      required: true,
+    },
     groupIndex: {
       type: Number,
       required: true,
@@ -69,6 +73,7 @@ export default {
         this.items.map(item => {
           return h(AMenuPanelLink, {
             item,
+            dataProParentChildren: this.dataProParentChildren,
             isLinkInSearchPanel: true,
             modelSearch: this.modelSearch,
             idsSearchVisible: this.idsSearchVisible,

@@ -11,6 +11,10 @@ export default {
       type: Object,
       required: true,
     },
+    dataProParentChildren: {
+      type: Object,
+      required: true,
+    },
     dataProParentList: {
       type: Array,
       required: true,
@@ -41,6 +45,7 @@ export default {
               key: groupIndex,
               groupIndex,
               dataKeyById: this.dataKeyById,
+              dataProParentChildren: this.dataProParentChildren,
               idsSearchVisible: this.idsSearchVisible,
               modelSearch: this.modelSearch,
             });

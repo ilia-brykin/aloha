@@ -1,6 +1,7 @@
 import {
   computed,
-  h, inject,
+  h,
+  inject,
   resolveComponent,
   toRef,
 } from "vue";
@@ -15,11 +16,16 @@ import AKeyId from "../ui/const/AKeyId";
 import {
   get,
 } from "lodash-es";
+import AKeyParent from "../ui/const/AKeyParent";
 
 
 export default {
   name: "AMenuPanelLink",
   props: {
+    dataProParentChildren: {
+      type: Object,
+      required: true,
+    },
     isPanelOpen: {
       type: Boolean,
       required: false,
@@ -54,6 +60,7 @@ export default {
     const modelSearch = toRef(props, "modelSearch");
     const item = toRef(props, "item");
     const idsSearchVisible = toRef(props, "idsSearchVisible");
+    const dataProParentChildren = toRef(props, "dataProParentChildren");
 
     const togglePanel = inject("togglePanel");
 
@@ -91,8 +98,15 @@ export default {
       return get(item.value, keyIcon.value);
     });
 
+    const countChildren = computed(() => {
+      if (item.value.to) {
+        return 0;
+      }
+      return dataProParentChildren.value[id.value] && dataProParentChildren.value[id.value].length;
+    });
+
     const openSubMenu = () => {
-      togglePanel({ parentId: id.value });
+      togglePanel({ parentId: id.value, isLinkInSearchPanel: isLinkInSearchPanel.value });
       const PANEL_ID = `#a_menu_panel_${ id.value || "" }`;
       const PANEL_LINKS_SELECTOR = `${ PANEL_ID } a`;
       setTimeout(() => {
@@ -114,11 +128,15 @@ export default {
 
     const clickMenuLink = inject("clickMenuLink");
     const clickLink = () => {
+      if (isLinkInSearchPanel.value) {
+        togglePanel({ parentId: item.value[AKeyParent], isLinkInSearchPanel: isLinkInSearchPanel.value });
+      }
       clickMenuLink();
     };
 
     return {
       clickLink,
+      countChildren,
       icon,
       isLinkVisible,
       label,
@@ -172,8 +190,8 @@ export default {
             class: "a_menu__link__counter",
           }, [
             h("span", {
-              ariaHidden: true,
-            }, "5"),
+              ariaHidden: true, // TODO: ariaLabel
+            }, this.countChildren),
             h(AIcon, {
               class: "a_menu__link__counter__icon",
               icon: "ChevronRight",

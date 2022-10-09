@@ -19,6 +19,10 @@ export default {
       type: Object,
       required: true,
     },
+    dataProParentChildren: {
+      type: Object,
+      required: true,
+    },
     isFirst: {
       type: Boolean,
       required: false,
@@ -128,6 +132,7 @@ export default {
         class: "a_menu__listview",
       }, [
         this.isItemsWithoutGroup && h(AMenuPanelGroup, {
+          dataProParentChildren: this.dataProParentChildren,
           groupItems: this.itemsGroup.withoutGroup,
           isPanelOpen: this.isPanelOpen,
           keyIcon: this.keyIcon,
@@ -135,6 +140,7 @@ export default {
         Object.keys(this.itemsGroup.withGroup).map(key => {
           return h(AMenuPanelGroup, {
             key,
+            dataProParentChildren: this.dataProParentChildren,
             groupItems: this.itemsGroup.withGroup[key],
             groupLabel: key,
             isPanelOpen: this.isPanelOpen,

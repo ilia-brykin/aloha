@@ -198,28 +198,31 @@ export default {
           class: "a_menu__panels",
         }, [
           h(AMenuPanel, {
+            attributesBlockerClick: this.attributesBlockerClick,
+            dataProParentChildren: this.dataProParent.children,
             isFirst: true,
+            isSearchActive: this.isSearchActive,
             keyGroup: this.keyGroup,
             keyIcon: this.keyIcon,
             panelItems: this.dataProParent.main,
             panelParentsOpen: this.panelParentsOpen,
-            attributesBlockerClick: this.attributesBlockerClick,
-            isSearchActive: this.isSearchActive,
           }),
           Object.keys(this.dataProParent.children).map(key => {
             return h(AMenuPanel, {
               key,
+              attributesBlockerClick: {},
+              dataProParentChildren: this.dataProParent.children,
+              isSearchActive: this.isSearchActive,
               keyGroup: this.keyGroup,
               keyIcon: this.keyIcon,
-              parentId: key,
               panelItems: this.dataProParent.children[key],
               panelParentsOpen: this.panelParentsOpen,
-              attributesBlockerClick: {},
-              isSearchActive: this.isSearchActive,
+              parentId: key,
             });
           }),
           h(AMenuSearchPanel, {
             dataKeyById: this.dataKeyById,
+            dataProParentChildren: this.dataProParent.children,
             dataProParentList: this.dataProParentList,
             idsSearchVisible: this.idsSearchVisible,
             isSearchActive: this.isSearchActive,
