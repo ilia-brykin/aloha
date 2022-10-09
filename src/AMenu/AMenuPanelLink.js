@@ -7,10 +7,15 @@ import {
 
 import AIcon from "../AIcon/AIcon";
 
+import AFiltersAPI from "../compositionAPI/AFiltersAPI";
+
+import AKeysCode from "../const/AKeysCode";
+import AKeyLabel from "../ui/const/AKeyLabel";
+import AKeyId from "../ui/const/AKeyId";
 import {
   get,
 } from "lodash-es";
-import AKeysCode from "../const/AKeysCode";
+
 
 export default {
   name: "AMenuPanelLink",
@@ -25,38 +30,64 @@ export default {
     },
     keyIcon: {
       type: String,
-      required: true,
+      required: false,
+      default: undefined,
     },
-    keyId: {
-      type: String,
-      required: true,
+    isLinkInSearchPanel: {
+      type: Boolean,
+      required: false,
     },
-    keyLabel: {
+    modelSearch: {
       type: String,
-      required: true,
+      required: false,
+      default: undefined,
     },
-    parentId: {
-      type: String,
+    idsSearchVisible: {
+      type: Object,
       required: false,
       default: undefined,
     },
   },
   setup(props) {
     const keyIcon = toRef(props, "keyIcon");
-    const keyId = toRef(props, "keyId");
-    const keyLabel = toRef(props, "keyLabel");
+    const isLinkInSearchPanel = toRef(props, "isLinkInSearchPanel");
+    const modelSearch = toRef(props, "modelSearch");
     const item = toRef(props, "item");
+    const idsSearchVisible = toRef(props, "idsSearchVisible");
+
     const togglePanel = inject("togglePanel");
 
+    const isLinkVisible = computed(() => {
+      if (isLinkInSearchPanel.value) {
+        return !!idsSearchVisible.value.rest[item.value[AKeyId]];
+      }
+      return true;
+    });
+
+    const {
+      filterSearchHighlight,
+    } = AFiltersAPI();
+
+    const labelWithoutFilter = computed(() => {
+      return item.value[AKeyLabel];
+    });
+
     const label = computed(() => {
-      return get(item.value, keyLabel.value);
+      const LABEL = labelWithoutFilter.value;
+      if (isLinkInSearchPanel.value && isLinkVisible.value) {
+        return filterSearchHighlight(LABEL, { searchModel: modelSearch.value });
+      }
+      return LABEL;
     });
 
     const id = computed(() => {
-      return get(item.value, keyId.value);
+      return item.value[AKeyId];
     });
 
     const icon = computed(() => {
+      if (isLinkInSearchPanel.value) {
+        return undefined;
+      }
       return get(item.value, keyIcon.value);
     });
 
@@ -89,12 +120,17 @@ export default {
     return {
       clickLink,
       icon,
+      isLinkVisible,
       label,
+      labelWithoutFilter,
       onKeydown,
       openSubMenu,
     };
   },
   render() {
+    if (!this.isLinkVisible) {
+      return "";
+    }
     const ICON_AND_TEXT = [
       this.icon && h(AIcon, {
         class: "a_menu__link__icon",
@@ -105,10 +141,12 @@ export default {
       }, [
         h("span", {
           class: "a_position_absolute_all",
-          title: this.label,
+          title: this.labelWithoutFilter,
           ariaHidden: true,
         }),
-        this.label,
+        h("span", {
+          innerHTML: this.label,
+        }),
       ]),
     ];
 

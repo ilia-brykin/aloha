@@ -10,18 +10,14 @@ import AInput from "../ui/AInput/AInput";
 import AMenuBreadcrumbs from "./AMenuBreadcrumbs";
 import AMenuButtonToggle from "./AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel";
+import AMenuSearchPanel from "./AMenuSearchPanel";
 
 import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
+import AMenuDataAPI from "./compositionAPI/AMenuDataAPI";
 import AMenuPanelsAPI from "./compositionAPI/AMenuPanelsAPI";
 import AMenuResizeAPI from "./compositionAPI/AMenuResizeAPI";
 import AMenuSearchAPI from "./compositionAPI/AMenuSearchAPI";
 import AMenuToggleAPI from "./compositionAPI/AMenuToggleAPI";
-
-import {
-  forEach,
-  get,
-  isNil, keyBy,
-} from "lodash-es";
 
 export default {
   name: "AMenu",
@@ -36,6 +32,11 @@ export default {
       required: false,
       default: "always",
       validator: value => ["always", "mobile", "desktop"].indexOf(value) !== -1,
+    },
+    data: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     isBackdrop: {
       type: Boolean,
@@ -61,11 +62,6 @@ export default {
       required: false,
       default: true,
     },
-    items: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
     keyGroup: {
       type: String,
       required: false,
@@ -86,6 +82,11 @@ export default {
       required: false,
       default: "label",
     },
+    keyLabelCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     keyParent: {
       type: String,
       required: false,
@@ -93,44 +94,26 @@ export default {
     },
   },
   setup(props) {
-    const items = toRef(props, "items");
-    const keyParent = toRef(props, "keyParent");
-    const keyId = toRef(props, "keyId");
-
-    const itemsKeyById = computed(() => {
-      return keyBy(items.value, keyId.value);
-    });
+    const {
+      dataKeyById,
+      dataProParent,
+    } = AMenuDataAPI(props);
 
     const buttonToggleVisible = toRef(props, "buttonToggleVisible");
     const isButtonToggleVisible = computed(() => {
       return !!buttonToggleVisible.value;
     });
 
-    const itemsProParent = computed(() => {
-      const MAIN = [];
-      const ITEMS_PRO_PARENT = {};
-      forEach(items.value, item => {
-        const PARENT = get(item, keyParent.value);
-        if (isNil(PARENT)) {
-          MAIN.push(item);
-        } else {
-          ITEMS_PRO_PARENT[PARENT] = ITEMS_PRO_PARENT[PARENT] || [];
-          ITEMS_PRO_PARENT[PARENT].push(item);
-        }
-      });
-
-      return {
-        main: MAIN,
-        children: ITEMS_PRO_PARENT,
-      };
-    });
-
     const {
+      idsSearchVisible,
       isSearchActive,
+      dataProParentList,
       modelSearch,
       resetSearch,
       updateModelSearch,
-    } = AMenuSearchAPI();
+    } = AMenuSearchAPI(props, {
+      dataProParent,
+    });
 
     const {
       isMenuOpen,
@@ -143,8 +126,8 @@ export default {
       panelParentsOpen,
       togglePanel,
     } = AMenuPanelsAPI(props, {
-      itemsProParent,
-      itemsKeyById,
+      dataProParent,
+      dataKeyById,
       resetSearch,
     });
 
@@ -173,15 +156,15 @@ export default {
 
     return {
       attributesBlockerClick,
+      idsSearchVisible,
       isButtonToggleVisible,
-      itemsKeyById,
-      itemsProParent,
-      panelParentsOpen,
-
       isMenuOpen,
-
       isSearchActive,
+      dataKeyById,
+      dataProParent,
+      dataProParentList,
       modelSearch,
+      panelParentsOpen,
       updateModelSearch,
     };
   },
@@ -205,9 +188,8 @@ export default {
             "onUpdate:modelValue": this.updateModelSearch,
           }),
           h(AMenuBreadcrumbs, {
-            itemsKeyById: this.itemsKeyById,
+            dataKeyById: this.dataKeyById,
             isBreadcrumbsAll: this.isBreadcrumbsAll,
-            keyLabel: this.keyLabel,
             panelParentsOpen: this.panelParentsOpen,
             isSearchActive: this.isSearchActive,
           }),
@@ -219,26 +201,29 @@ export default {
             isFirst: true,
             keyGroup: this.keyGroup,
             keyIcon: this.keyIcon,
-            keyId: this.keyId,
-            keyLabel: this.keyLabel,
-            panelItems: this.itemsProParent.main,
+            panelItems: this.dataProParent.main,
             panelParentsOpen: this.panelParentsOpen,
             attributesBlockerClick: this.attributesBlockerClick,
             isSearchActive: this.isSearchActive,
           }),
-          Object.keys(this.itemsProParent.children).map(key => {
+          Object.keys(this.dataProParent.children).map(key => {
             return h(AMenuPanel, {
               key,
               keyGroup: this.keyGroup,
               keyIcon: this.keyIcon,
-              keyId: this.keyId,
-              keyLabel: this.keyLabel,
               parentId: key,
-              panelItems: this.itemsProParent.children[key],
+              panelItems: this.dataProParent.children[key],
               panelParentsOpen: this.panelParentsOpen,
               attributesBlockerClick: {},
               isSearchActive: this.isSearchActive,
             });
+          }),
+          h(AMenuSearchPanel, {
+            dataKeyById: this.dataKeyById,
+            dataProParentList: this.dataProParentList,
+            idsSearchVisible: this.idsSearchVisible,
+            isSearchActive: this.isSearchActive,
+            modelSearch: this.modelSearch,
           }),
         ]),
         this.isBackdrop && h(Teleport, {

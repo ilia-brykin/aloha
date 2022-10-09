@@ -35,14 +35,6 @@ export default {
       type: String,
       required: true,
     },
-    keyId: {
-      type: String,
-      required: true,
-    },
-    keyLabel: {
-      type: String,
-      required: true,
-    },
     panelItems: {
       type: Array,
       required: true,
@@ -139,9 +131,6 @@ export default {
           groupItems: this.itemsGroup.withoutGroup,
           isPanelOpen: this.isPanelOpen,
           keyIcon: this.keyIcon,
-          keyId: this.keyId,
-          keyLabel: this.keyLabel,
-          parentId: this.parentId,
         }),
         Object.keys(this.itemsGroup.withGroup).map(key => {
           return h(AMenuPanelGroup, {
@@ -150,9 +139,6 @@ export default {
             groupLabel: key,
             isPanelOpen: this.isPanelOpen,
             keyIcon: this.keyIcon,
-            keyId: this.keyId,
-            keyLabel: this.keyLabel,
-            parentId: this.parentId,
           });
         }),
       ]),

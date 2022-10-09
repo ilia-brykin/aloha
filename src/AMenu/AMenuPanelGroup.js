@@ -24,19 +24,6 @@ export default {
       type: String,
       required: true,
     },
-    keyId: {
-      type: String,
-      required: true,
-    },
-    keyLabel: {
-      type: String,
-      required: true,
-    },
-    parentId: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
   },
   render() {
     return [
@@ -52,9 +39,6 @@ export default {
           item,
           isPanelOpen: this.isPanelOpen,
           keyIcon: this.keyIcon,
-          keyId: this.keyId,
-          keyLabel: this.keyLabel,
-          parentId: this.parentId,
         });
       }),
     ];

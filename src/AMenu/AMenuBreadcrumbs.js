@@ -6,6 +6,7 @@ import {
 
 import AMenuBreadcrumbsItem from "./AMenuBreadcrumbsItem";
 
+import AKeyLabel from "../ui/const/AKeyLabel";
 import {
   forEach,
   get,
@@ -23,12 +24,8 @@ export default {
       type: Boolean,
       required: true,
     },
-    itemsKeyById: {
+    dataKeyById: {
       type: Object,
-      required: true,
-    },
-    keyLabel: {
-      type: String,
       required: true,
     },
     panelParentsOpen: {
@@ -37,15 +34,14 @@ export default {
     },
   },
   setup(props) {
-    const keyLabel = toRef(props, "keyLabel");
-    const itemsKeyById = toRef(props, "itemsKeyById");
+    const dataKeyById = toRef(props, "dataKeyById");
 
     const panelParentsOpen = toRef(props, "panelParentsOpen");
     const isBreadcrumbsAll = toRef(props, "isBreadcrumbsAll");
 
     const setBreadcrumbsItem = panelParentId => {
       return {
-        label: get(itemsKeyById.value, `${ panelParentId }.${ keyLabel.value }`),
+        label: get(dataKeyById.value, `${ panelParentId }.${ AKeyLabel }`),
         panelParentId,
       };
     };

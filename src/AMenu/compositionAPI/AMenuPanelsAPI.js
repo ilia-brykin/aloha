@@ -2,24 +2,22 @@ import {
   computed,
   getCurrentInstance,
   ref,
-  toRef,
   watch,
 } from "vue";
 
+import AKeyParent from "../../ui/const/AKeyParent";
 import {
   forEach,
-  get,
 } from "lodash-es";
 
 export default function AMenuPanelsAPI(props, {
-  itemsProParent = computed(() => ({
+  dataProParent = computed(() => ({
     main: [],
     children: {},
   })),
-  itemsKeyById = computed(() => ({})),
+  dataKeyById = computed(() => ({})),
   resetSearch = () => {},
 }) {
-  const keyParent = toRef(props, "keyParent");
   const APP = getCurrentInstance();
   const $router = APP.appContext.config.globalProperties.$router;
 
@@ -42,10 +40,10 @@ export default function AMenuPanelsAPI(props, {
   };
 
   const setPanelParentsOpen = ({ route = {}, panelParentsOpenLocal = [] }) => {
-    const PARENT_ID = get(route, keyParent.value);
+    const PARENT_ID = route[AKeyParent];
     if (PARENT_ID) {
       panelParentsOpenLocal.unshift(PARENT_ID);
-      setPanelParentsOpen({ route: itemsKeyById.value[PARENT_ID], panelParentsOpenLocal });
+      setPanelParentsOpen({ route: dataKeyById.value[PARENT_ID], panelParentsOpenLocal });
     }
     return panelParentsOpenLocal;
   };
@@ -69,11 +67,11 @@ export default function AMenuPanelsAPI(props, {
   const checkAllRoutes = () => {
     const FULL_PATH = $router.currentRoute.value.fullPath;
     let isRouteFound = false;
-    isRouteFound = checkRouteInPanel({ routes: itemsProParent.value.main, currentFullPath: FULL_PATH });
+    isRouteFound = checkRouteInPanel({ routes: dataProParent.value.main, currentFullPath: FULL_PATH });
     if (isRouteFound) {
       return;
     }
-    forEach(itemsProParent.value.children, panelRoutes => {
+    forEach(dataProParent.value.children, panelRoutes => {
       isRouteFound = checkRouteInPanel({ routes: panelRoutes, currentFullPath: FULL_PATH });
       if (isRouteFound) {
         return false;
