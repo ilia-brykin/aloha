@@ -33,6 +33,11 @@ export default {
       default: "always",
       validator: value => ["always", "mobile", "desktop"].indexOf(value) !== -1,
     },
+    buttonToggleClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
     data: {
       type: Array,
       required: false,
@@ -239,6 +244,7 @@ export default {
       ]),
       this.isButtonToggleVisible && h(AMenuButtonToggle, {
         buttonToggleVisible: this.buttonToggleVisible,
+        class: this.buttonToggleClass,
       }),
     ];
   },

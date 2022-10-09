@@ -44,6 +44,7 @@ export default {
         a_menu__btn_toggle_open: this.isMenuOpen,
         a_menu__btn_toggle_mobile_only: this.buttonToggleVisible === "mobile",
         a_menu__btn_toggle_desktop_only: this.buttonToggleVisible === "desktop",
+        a_menu__btn_toggle_always: this.buttonToggleVisible === "always",
       }],
       type: "button",
       onClick: this.toggleMenu,
