@@ -185,6 +185,7 @@ export default {
         h("div", {
           class: "a_menu__navbar_top",
         }, [
+          this.$slots.aMenuHeader && this.$slots.aMenuHeader(),
           this.isSearch && h(AInput, {
             id: "a_menu_search",
             class: "a_menu__navbar_top__search",
