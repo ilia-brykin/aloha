@@ -51,6 +51,7 @@ export default function ATinymceAPI(props, context, {
   const plugins = toRef(props, "plugins");
   const promotion = toRef(props, "promotion");
   const toolbar = toRef(props, "toolbar");
+  const toolbarMode = toRef(props, "toolbarMode");
 
   let vueEditor = null;
 
@@ -59,6 +60,7 @@ export default function ATinymceAPI(props, context, {
       selector: `#${ htmlIdLocal.value }`,
       plugins: plugins.value,
       toolbar: toolbar.value,
+      toolbar_mode: toolbarMode.value,
       skin: false,
       content_css: false,
       content_style: `${ contentUiSkinCss.toString() }\n${ contentCss.toString() }`,

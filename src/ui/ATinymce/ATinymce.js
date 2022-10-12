@@ -45,6 +45,21 @@ export default {
       type: [String, Number],
       required: false,
     },
+    menu: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    menubar: {
+      type: [String, Boolean],
+      required: false,
+      default: false,
+    },
+    plugins: {
+      type: String,
+      required: false,
+      default: "advlist code emoticons link lists table help",
+    },
     promotion: {
       type: Boolean,
       required: false,
@@ -62,26 +77,17 @@ export default {
         { name: "Ausrichtung", items: ["alignleft", "aligncenter", "alignright", "alignjustify"] },
         { name: "Liste", items: ["bullist", "numlist"] },
         { name: "Einrücken", items: ["indent", "outdent"] },
-        { name: "Historie", items: ["undo", "redo"] },
         { name: "Sprache", items: ["language"] },
         { name: "Link", items: ["link", "unlink"] },
+        { name: "Historie", items: ["undo", "redo"] },
         { name: "Hilfe", items: ["help"] },
       ]),
     },
-    menu: {
-      type: Object,
-      required: false,
-      default: undefined,
-    },
-    menubar: {
-      type: [String, Boolean],
-      required: false,
-      default: false,
-    },
-    plugins: {
+    toolbarMode: {
       type: String,
       required: false,
-      default: "advlist code emoticons link lists table help",
+      default: "wrap",
+      validator: value => ["floating", "sliding", "scrolling", "wrap"].indexOf(value) !== -1,
     },
     type: {
       type: String,
