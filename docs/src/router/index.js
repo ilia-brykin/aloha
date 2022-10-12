@@ -120,6 +120,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageDatepicker" */ "../views/PageDatepicker/PageDatepicker.vue"),
   },
   {
+    path: "/tinymce",
+    name: "PageTinyMce",
+    component: () => import(/* webpackChunkName: "PageTinyMce" */ "../views/PageTinyMce/PageTinyMce.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

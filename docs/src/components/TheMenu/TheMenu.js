@@ -82,6 +82,14 @@ export default {
           parent: "ui",
         },
         {
+          id: "tinyMce",
+          label: "TinyMce",
+          to: {
+            name: "PageTinyMce",
+          },
+          parent: "ui",
+        },
+        {
           id: "accordion",
           label: "Accordion",
           to: {

@@ -55,6 +55,13 @@ export default {
     data() {
       return [
         {
+          type: "tinymce",
+          label: "Aloha tiny",
+          id: "aloha_tiny",
+          classColumn: "a_column_8",
+          required: true,
+        },
+        {
           type: "text",
           label: "Aloha 1",
           id: "aloha1",
@@ -259,6 +266,7 @@ export default {
     validate() {
       const TEXT_INVALID = "Example invalid text";
       this.errors = {
+        aloha_tiny: [TEXT_INVALID],
         aloha1: [TEXT_INVALID, TEXT_INVALID],
         aloha2: [TEXT_INVALID],
         aloha3: [TEXT_INVALID],

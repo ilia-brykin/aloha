@@ -78,6 +78,18 @@ function getRules(mode) {
           },
         },
       ],
+      exclude: [
+        /tinymce\/skins\/content\/default\/content\.css$/,
+        /tinymce\/skins\/ui\/oxide\/content\.css$/,
+      ],
+    },
+    {
+      test: /tinymce\/skins\/ui\/oxide\/content\.css$/i,
+      use: ["css-loader"],
+    },
+    {
+      test: /tinymce\/skins\/content\/default\/content\.css$/i,
+      use: ["css-loader"],
     },
     {
       test: /\.(png|jpg)$/,
