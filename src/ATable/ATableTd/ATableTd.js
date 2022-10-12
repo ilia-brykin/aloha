@@ -145,7 +145,7 @@ export default {
     },
 
     classForLink() {
-      return "a_btn a_btn_link a_p_0";
+      return "a_btn a_btn_link a_p_0 a_text_left";
     },
 
     slot() {
