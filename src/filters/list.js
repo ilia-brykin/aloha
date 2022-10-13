@@ -4,7 +4,9 @@ import {
   get,
 } from "lodash-es";
 
-export default function(value, { isHtml = true, listClass = "a_list_without_styles", keyLabel = "" } = {}) {
+export default filterList;
+
+function filterList(value, { isHtml = true, listClass = "a_list_without_styles", keyLabel = "", isListTree = false } = {}) {
   if (!isArray(value)) {
     return value;
   }
@@ -21,7 +23,11 @@ export default function(value, { isHtml = true, listClass = "a_list_without_styl
   }
   forEach(value, item => {
     const ITEM_TEXT = keyLabel ? get(item, keyLabel) : item;
-    result += `<li>${ ITEM_TEXT }</li>`;
+    if (isListTree && isArray(ITEM_TEXT)) {
+      result += `<li>${ ITEM_TEXT }${ filterList(ITEM_TEXT, { isHtml, listClass, keyLabel, isListTree }) }</li>`;
+    } else {
+      result += `<li>${ ITEM_TEXT }</li>`;
+    }
   });
   return `<ul${ listClass ? ` class="${ listClass }"` : "" }>${ result }</ul>`;
 }
