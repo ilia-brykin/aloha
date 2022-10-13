@@ -3,7 +3,7 @@ import {
   h,
   inject,
   resolveComponent,
-  toRefs,
+  toRef,
 } from "vue";
 
 import {
@@ -34,6 +34,7 @@ export default {
   },
   emits: ["toggle"],
   inject: [
+    "classBody",
     "classButton",
     "disabled",
     "id",
@@ -46,11 +47,19 @@ export default {
     "withGap",
   ],
   setup(props) {
-    const {
-      isParentOpen,
-      itemIndex,
-      parentIndexes,
-    } = toRefs(props);
+    const item = toRef(props, "item");
+    const isParentOpen = toRef(props, "isParentOpen");
+    const itemIndex = toRef(props, "itemIndex");
+    const parentIndexes = toRef(props, "parentIndexes");
+
+    const keyClassBody = inject("keyClassBody");
+
+    const classBodyLocal = computed(() => {
+      if (keyClassBody.value) {
+        return get(item.value, keyClassBody.value);
+      }
+      return undefined;
+    });
 
     const indexesForOpen = inject("indexesForOpen");
     const parentIndexesString = computed(() => {
@@ -72,6 +81,7 @@ export default {
     });
 
     return {
+      classBodyLocal,
       currentIndex,
       isOpen,
     };
@@ -175,7 +185,7 @@ export default {
         }],
       }, [
         h("div", {
-          class: "a_accordion__body",
+          class: ["a_accordion__body", this.classBody, this.classBodyLocal],
         }, [
           (this.item.slotContent && this.$slots[this.item.slotContent]) ?
             this.$slots[this.item.slotContent]({

@@ -16,6 +16,7 @@ export default {
   name: "AAccordion",
   provide() {
     return {
+      classBody: computed(() => this.classBody),
       classButton: computed(() => this.classButton),
       disabled: computed(() => this.disabled),
       id: computed(() => this.id),
@@ -24,6 +25,7 @@ export default {
       keyList: computed(() => this.keyList),
       keyLabel: computed(() => this.keyLabel),
       keyContent: computed(() => this.keyContent),
+      keyClassBody: computed(() => this.keyClassBody),
       readonly: computed(() => this.readonly),
       withGap: computed(() => this.withGap),
     };
@@ -65,6 +67,11 @@ export default {
       required: false,
       default: "content",
     },
+    keyClassBody: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     isCaret: {
       type: Boolean,
       required: false,
@@ -82,6 +89,11 @@ export default {
       type: [String, Object],
       required: false,
       default: undefined,
+    },
+    classBody: {
+      type: [String, Object],
+      required: false,
+      default: "",
     },
     withGap: {
       type: Boolean,
