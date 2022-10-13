@@ -22,11 +22,21 @@ function filterList(value, { isHtml = true, listClass = "a_list_without_styles",
     return result;
   }
   forEach(value, item => {
-    const ITEM_TEXT = keyLabel ? get(item, keyLabel) : item;
-    if (isListTree && isArray(ITEM_TEXT)) {
-      result += `<li>${ ITEM_TEXT }${ filterList(ITEM_TEXT, { isHtml, listClass, keyLabel, isListTree }) }</li>`;
+    const ITEM = keyLabel ? get(item, keyLabel) : item;
+    if (isListTree && isArray(ITEM)) {
+      if (ITEM.length) {
+        result += `<li>`;
+        forEach(ITEM, itemChild => {
+          if (isArray(itemChild)) {
+            result += filterList(itemChild, { isHtml, listClass, keyLabel, isListTree });
+          } else {
+            result += itemChild;
+          }
+        });
+        result += `</li>`;
+      }
     } else {
-      result += `<li>${ ITEM_TEXT }</li>`;
+      result += `<li>${ ITEM }</li>`;
     }
   });
   return `<ul${ listClass ? ` class="${ listClass }"` : "" }>${ result }</ul>`;

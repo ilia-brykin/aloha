@@ -58,8 +58,8 @@ export default function AFiltersAPI() {
     return Link(value, { param, target });
   };
 
-  const filterList = (value, { isHtml = true, listClass = "a_list_without_styles", keyLabel = "" } = {}) => {
-    return list(value, { isHtml, listClass, keyLabel });
+  const filterList = (value, { isHtml = true, listClass = "a_list_without_styles", keyLabel = "", isListTree = false } = {}) => {
+    return list(value, { isHtml, listClass, keyLabel, isListTree });
   };
 
   const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {
