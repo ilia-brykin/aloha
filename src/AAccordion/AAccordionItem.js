@@ -53,6 +53,7 @@ export default {
     const parentIndexes = toRef(props, "parentIndexes");
 
     const keyClassBody = inject("keyClassBody");
+    const keyIsRender = inject("keyIsRender");
 
     const classBodyLocal = computed(() => {
       if (keyClassBody.value) {
@@ -80,10 +81,18 @@ export default {
       return indexesForOpen.value.indexOf(currentIndex.value) !== -1;
     });
 
+    const isRender = computed(() => {
+      if (keyIsRender.value) {
+        return get(item.value, keyIsRender.value);
+      }
+      return true;
+    });
+
     return {
       classBodyLocal,
       currentIndex,
       isOpen,
+      isRender,
     };
   },
   computed: {
@@ -160,7 +169,7 @@ export default {
     },
   },
   render() {
-    return h("div", {
+    return this.isRender && h("div", {
       class: "a_accordion__item",
     }, [
       h("div", {

@@ -26,6 +26,7 @@ export default {
       keyLabel: computed(() => this.keyLabel),
       keyContent: computed(() => this.keyContent),
       keyClassBody: computed(() => this.keyClassBody),
+      keyIsRender: computed(() => this.keyIsRender),
       readonly: computed(() => this.readonly),
       withGap: computed(() => this.withGap),
     };
@@ -68,6 +69,11 @@ export default {
       default: "content",
     },
     keyClassBody: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyIsRender: {
       type: String,
       required: false,
       default: undefined,
