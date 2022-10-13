@@ -83,7 +83,7 @@ export default {
 
     const isRender = computed(() => {
       if (keyIsRender.value) {
-        return get(item.value, keyIsRender.value);
+        return !!get(item.value, keyIsRender.value, true);
       }
       return true;
     });
