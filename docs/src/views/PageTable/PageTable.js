@@ -306,5 +306,9 @@ export default {
         close();
       }, 5000);
     },
+
+    updateModelFiltersLocal(model) {
+      console.log("modelFiltersLocal", model);
+    },
   },
 };

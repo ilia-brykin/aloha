@@ -87,6 +87,7 @@ export default function TableFiltersAPI(props, { emit }) {
 
   const onUpdateModelFilters = ({ model }) => {
     modelFiltersLocal.value = model;
+    emit("updateModelFiltersLocal", modelFiltersLocal.value);
   };
 
   const startSearch = () => {

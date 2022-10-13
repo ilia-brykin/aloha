@@ -238,6 +238,7 @@ export default {
     "update:modelFilters",
     "update:modelQuickSearch",
     "updateModelIsTableWithoutScroll",
+    "updateModelFiltersLocal",
   ],
   provide() {
     return {
