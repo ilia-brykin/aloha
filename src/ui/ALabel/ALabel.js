@@ -104,7 +104,7 @@ export default {
         tag: "span",
         text: this.label,
         textAfter: this.textAfterLabel,
-      }, [
+      }, () => [
         this.isLabelFloat && h(ATranslation, {
           class: "a_position_absolute_all",
           ariaHidden: true,
