@@ -233,6 +233,7 @@ export default {
     "changeOffset",
     "changeSorting",
     "mouseupResizePreviewRight",
+    "togglePreview",
     "update:modelColumnsOrder",
     "update:modelColumnsVisible",
     "update:modelFilters",
@@ -337,6 +338,7 @@ export default {
       togglePreviewResize,
     } = PreviewAPI(props, context, {
       aTableRef,
+      rowsLocal,
     });
     
     const {

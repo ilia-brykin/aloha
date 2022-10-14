@@ -310,5 +310,11 @@ export default {
     updateModelFiltersLocal(model) {
       console.log("modelFiltersLocal", model);
     },
+
+    togglePreview({ row, rowIndex, typeToggle }) {
+      console.log("row: ", row);
+      console.log("rowIndex: ", rowIndex);
+      console.log("typeToggle: ", typeToggle);
+    },
   },
 };

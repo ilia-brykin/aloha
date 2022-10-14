@@ -15,6 +15,7 @@ import {
 
 export default function PreviewAPI(props, context, {
   aTableRef = ref({}),
+  rowsLocal = computed(() => []),
 }) {
   const {
     mousedownResizePreviewRight,
@@ -24,6 +25,7 @@ export default function PreviewAPI(props, context, {
   } = PreviewRightResizeAPI(props, context, {
     aTableRef,
   });
+  const emit = context.emit;
 
   const preview = toRef(props, "preview");
   const tableId = toRef(props, "id");
@@ -50,10 +52,20 @@ export default function PreviewAPI(props, context, {
     setFocusToRow({
       rowIndex: previewRightRowIndex.value,
     });
+    emit("togglePreview", {
+      row: rowsLocal.value[previewRightRowIndex.value],
+      rowIndex: previewRightRowIndex.value,
+      typeToggle: "close",
+    });
     previewRightRowIndexLast.value = previewRightRowIndex.value;
     previewRightRowIndex.value = undefined;
   };
   const closePreviewRightAll = () => {
+    emit("togglePreview", {
+      row: rowsLocal.value[previewRightRowIndex.value],
+      rowIndex: previewRightRowIndex.value,
+      typeToggle: "close",
+    });
     previewRightRowIndexLast.value = undefined;
     previewRightRowIndex.value = undefined;
   };
@@ -90,6 +102,11 @@ export default function PreviewAPI(props, context, {
     if (previewRightRowIndex.value === rowIndex) {
       closePreviewRight();
     } else {
+      emit("togglePreview", {
+        row: rowsLocal.value[rowIndex],
+        rowIndex: rowIndex,
+        typeToggle: "open",
+      });
       previewRightRowIndex.value = rowIndex;
       previewRightRowIndexLast.value = undefined;
     }
