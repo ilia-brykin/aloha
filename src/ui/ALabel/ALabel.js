@@ -104,7 +104,14 @@ export default {
         tag: "span",
         text: this.label,
         textAfter: this.textAfterLabel,
-      }),
+      }, [
+        this.isLabelFloat && h(ATranslation, {
+          class: "a_position_absolute_all",
+          ariaHidden: true,
+          tag: "span",
+          title: this.label,
+        })
+      ]),
       this.loading && h(ASpinner, {
         class: "a_spinner_small a_form_element_label__spinner",
       }),
