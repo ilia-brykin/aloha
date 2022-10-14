@@ -10,7 +10,7 @@
   --a_table_row_preview_focus_was_bg: rgba(192, 209, 117, 0.3);
   --a_table_quick_search_width: 250px;
   --a_table_between_actions_margin: .5rem;
-  --a_table_preview_right_padding: .25rem .5rem;
+  --a_table_preview_right_padding: .25rem .8rem;
   --a_table_preview_right_width: 300px;
   --a_table_preview_right_bg: #fff;
   --a_table_preview_right_border_width: 0 0 0 1px;
@@ -226,9 +226,9 @@
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   z-index: 1000;
   width: var(--a_table_preview_right_width);
+  height: 100vh;
   overflow-y: auto;
   background-color: var(--a_table_preview_right_bg);
   border-width: var(--a_table_preview_right_border_width);

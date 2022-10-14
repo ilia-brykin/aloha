@@ -16,7 +16,7 @@ $a_menu_breakpoint_mobile: 991px;
 .a_menu__wrapper_open {
   .a_menu__page {
     width: calc(100% - var(--a_menu_width_expanded));
-    transform: translate3d(var(--a_menu_width_expanded), 0, 0);
+    margin-left: var(--a_menu_width_expanded);
   }
   .a_menu__btn_toggle_always {
     left: var(--a_menu_width_expanded);
@@ -26,7 +26,7 @@ $a_menu_breakpoint_mobile: 991px;
 .a_menu__wrapper_close {
   .a_menu__page {
     width: calc(100% - var(--a_menu_width_collapsed));
-    transform: translate3d(var(--a_menu_width_collapsed), 0, 0);
+    margin-left: var(--a_menu_width_collapsed);
   }
   .a_menu__blocker {
     bottom: 0;
@@ -319,7 +319,7 @@ $a_menu_breakpoint_mobile: 991px;
     padding-right: 15px;
     .a_menu__page {
       width: 100%;
-      transform: translate3d(0, 0, 0);
+      margin-left: 0;
     }
     .a_menu {
       z-index: var(--a_menu_mobile_z_index);
@@ -335,7 +335,7 @@ $a_menu_breakpoint_mobile: 991px;
   .a_menu__wrapper_close {
     .a_menu__page {
       width: 100%;
-      transform: translate3d(0, 0, 0);
+      margin-left: 0;
     }
     .a_menu__btn_toggle {
       left: 0;
