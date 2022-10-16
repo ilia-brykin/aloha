@@ -7,6 +7,7 @@ import {
 } from "vue";
 
 import AGet from "../AGet/AGet";
+import ALoading from "../ALoading/ALoading";
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
 import ATableFilterCenter from "./ATableFilterCenter/ATableFilterCenter";
 import ATableHeader from "./ATableHeader/ATableHeader";
@@ -566,114 +567,118 @@ export default {
           a_table__parent_scrollable: !this.modelIsTableWithoutScroll,
         }],
       }, [
-        h(ATableTopPanel, {
-          areSomeRowsSelected: this.areSomeRowsSelected,
-          closeMultipleActionsActive: this.closeMultipleActionsActive,
-          countAllRows: this.countAllRowsLocal,
-          isLabelVisible: this.isLabelVisible,
-          label: this.label,
-          labelTag: this.labelTag,
-          labelClass: this.labelClass,
-          tableActions: this.tableActions,
-          multipleActions: this.multipleActions,
-          isQuickSearch: this.isQuickSearch,
-          modelQuickSearch: this.modelQuickSearch,
-          selectedRows: this.selectedRows,
-          onUpdateModelQuickSearch: this.updateModelQuickSearch,
-          onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
-        }, this.$slots),
-        h("div", {
-          class: "a_table",
-          role: "table",
-        }, [
-          h(ATableHeader, {
-            areAllRowsSelected: this.areAllRowsSelected,
+        h(ALoading, {
+          isLoading: this.isLoadingTable,
+        }, () => [
+          h(ATableTopPanel, {
             areSomeRowsSelected: this.areSomeRowsSelected,
-            modelSort: this.modelSort,
-            onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-          }),
-          h("div", {
-            class: "a_table__body",
-            role: "rowgroup",
-          }, this.rowsLocal.map((row, rowIndex) => {
-            return h(ATableTr, {
-              row,
-              rowIndex,
-              selectedRowsIndexes: this.selectedRowsIndexes,
-              onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-            }, {
-              get: vm => [
-                h(AGet, {
-                  data: vm.row,
-                  path: vm.column.path,
-                  filter: vm.column.filter,
-                  filterParameters: vm.column.filterParameters,
-                  defaultValue: vm.column.defaultValue,
-                  tag: vm.column.filterTag || "div",
-                }),
-              ],
-              ...this.$slots,
-            });
-          })),
-          (this.hasRows && this.hasRowsFooter) && h("div", {
-            class: "a_table__footer",
-            role: "rowgroup",
-          }, this.rowsFooter.map((row, rowIndex) => {
-            return h(ATableTr, {
-              row,
-              rowIndex,
-              selectedRowsIndexes: this.selectedRowsIndexes,
-              onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-              isFooter: true,
-            }, {
-              get: vm => [
-                h(AGet, {
-                  data: vm.row,
-                  path: vm.column.footerPath,
-                  filter: vm.column.footerFilter,
-                  filterParameters: vm.column.footerFilterParameters,
-                  defaultValue: vm.column.footerDefaultValue,
-                }),
-              ],
-              ...this.$slots,
-            });
-          })),
-        ]),
-        !this.hasRows && h("div", {
-          class: "a_table__empty_text",
-        }, "Keine Einträge vorhanden."),
-        this.isPagination && h("div", {
-          class: "a_pagination__parent"
-        }, [
-          h(ATableCountProPage, {
+            closeMultipleActionsActive: this.closeMultipleActionsActive,
             countAllRows: this.countAllRowsLocal,
-            limitsPerPage: this.limitsPerPage,
-            isLoadingTable: this.isLoadingTable,
-            limit: this.limit,
-            offset: this.offset,
-            rowsLength: this.rowsLocal.length,
-            hasRows: this.hasRows,
-            "onUpdate:limit": this.changeLimit,
-          }),
-          h(ATablePagination, {
-            limit: this.limit,
-            totalRowsCount: this.totalRowsCountLocal,
-            isLoadingTable: this.isLoadingTable,
-            offset: this.offset,
-            hasRows: this.hasRows,
-            "onUpdate:offset": this.changeOffset,
-          }),
+            isLabelVisible: this.isLabelVisible,
+            label: this.label,
+            labelTag: this.labelTag,
+            labelClass: this.labelClass,
+            tableActions: this.tableActions,
+            multipleActions: this.multipleActions,
+            isQuickSearch: this.isQuickSearch,
+            modelQuickSearch: this.modelQuickSearch,
+            selectedRows: this.selectedRows,
+            onUpdateModelQuickSearch: this.updateModelQuickSearch,
+            onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
+          }, this.$slots),
+          h("div", {
+            class: "a_table",
+            role: "table",
+          }, [
+            h(ATableHeader, {
+              areAllRowsSelected: this.areAllRowsSelected,
+              areSomeRowsSelected: this.areSomeRowsSelected,
+              modelSort: this.modelSort,
+              onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+            }),
+            h("div", {
+              class: "a_table__body",
+              role: "rowgroup",
+            }, this.rowsLocal.map((row, rowIndex) => {
+              return h(ATableTr, {
+                row,
+                rowIndex,
+                selectedRowsIndexes: this.selectedRowsIndexes,
+                onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+              }, {
+                get: vm => [
+                  h(AGet, {
+                    data: vm.row,
+                    path: vm.column.path,
+                    filter: vm.column.filter,
+                    filterParameters: vm.column.filterParameters,
+                    defaultValue: vm.column.defaultValue,
+                    tag: vm.column.filterTag || "div",
+                  }),
+                ],
+                ...this.$slots,
+              });
+            })),
+            (this.hasRows && this.hasRowsFooter) && h("div", {
+              class: "a_table__footer",
+              role: "rowgroup",
+            }, this.rowsFooter.map((row, rowIndex) => {
+              return h(ATableTr, {
+                row,
+                rowIndex,
+                selectedRowsIndexes: this.selectedRowsIndexes,
+                onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+                isFooter: true,
+              }, {
+                get: vm => [
+                  h(AGet, {
+                    data: vm.row,
+                    path: vm.column.footerPath,
+                    filter: vm.column.footerFilter,
+                    filterParameters: vm.column.footerFilterParameters,
+                    defaultValue: vm.column.footerDefaultValue,
+                  }),
+                ],
+                ...this.$slots,
+              });
+            })),
+          ]),
+          !this.hasRows && h("div", {
+            class: "a_table__empty_text",
+          }, "Keine Einträge vorhanden."),
+          this.isPagination && h("div", {
+            class: "a_pagination__parent"
+          }, [
+            h(ATableCountProPage, {
+              countAllRows: this.countAllRowsLocal,
+              limitsPerPage: this.limitsPerPage,
+              isLoadingTable: this.isLoadingTable,
+              limit: this.limit,
+              offset: this.offset,
+              rowsLength: this.rowsLocal.length,
+              hasRows: this.hasRows,
+              "onUpdate:limit": this.changeLimit,
+            }),
+            h(ATablePagination, {
+              limit: this.limit,
+              totalRowsCount: this.totalRowsCountLocal,
+              isLoadingTable: this.isLoadingTable,
+              offset: this.offset,
+              hasRows: this.hasRows,
+              "onUpdate:offset": this.changeOffset,
+            }),
+          ]),
+          this.isPreviewRightOpen && h(ATablePreviewRight, {
+            rowIndex: this.previewRightRowIndex,
+            rows: this.rowsLocal,
+            previewHeaderTag: this.previewHeaderTag,
+            onClosePreview: this.closePreview,
+            onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
+            onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
+            onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
+            onTogglePreviewResize: this.togglePreviewResize,
+          }, this.$slots),
         ]),
-        this.isPreviewRightOpen && h(ATablePreviewRight, {
-          rowIndex: this.previewRightRowIndex,
-          rows: this.rowsLocal,
-          previewHeaderTag: this.previewHeaderTag,
-          onClosePreview: this.closePreview,
-          onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
-          onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
-          onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
-          onTogglePreviewResize: this.togglePreviewResize,
-        }, this.$slots),
       ]),
     ]);
   },

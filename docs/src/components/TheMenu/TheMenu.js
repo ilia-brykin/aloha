@@ -48,6 +48,15 @@ export default {
           icon: "EyeOpen",
         },
         {
+          group: "Hola",
+          id: "loading",
+          label: "Loading",
+          to: {
+            name: "PageLoading",
+          },
+          icon: "EyeOpen",
+        },
+        {
           id: "ui",
           label: "ui",
           icon: "Export",
