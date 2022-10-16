@@ -123,7 +123,7 @@ export default {
                 class: "a_dropdown__item_text a_table__th__dropdown__search",
               }, [
                 h(AInput, {
-                  label: "Search",
+                  label: "Suchen",
                   modelValue: this.searchColumnModel,
                   isClearButton: true,
                   modelUndefined: "",
