@@ -235,7 +235,7 @@ export default {
         class: "a_dropdown__item_text a_table__th__dropdown_item a_text_nowrap",
       }, [
         h("div", {
-          class: "a_table__th__dropdown_item__child",
+          class: "a_table__th__dropdown_item__child a_text_wrap",
         }, [
           h(this.tagIconParent, this.attributesIconParent, [
             h(AIcon, {

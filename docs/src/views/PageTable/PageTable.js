@@ -25,7 +25,7 @@ export default {
           class: "a_justify_content_end",
         },
         {
-          label: "Aloha frei",
+          label: "Aloha frei dsfdsfdsf sdfdsfdsfdsfsd",
           id: "aloha1",
           path: "aloha",
           sortId: "aloha",
