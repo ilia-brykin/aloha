@@ -42,15 +42,15 @@ export default {
       default: "border",
     },
     size: {
-      type: String,
+      type: [String, Number],
       required: false,
-      default: "1",
-      validator: size => ["1", "2", "3", "4", "5", "6"].indexOf(size) !== -1,
+      default: 6,
+      validator: size => ["1", "2", "3", "4", "5", "6", "7"].indexOf(`${ size }`) !== -1,
     },
   },
   computed: {
     classAlign() {
-      return `text-${ this.align }`;
+      return `a_text_${ this.align }`;
     },
 
     classForBox() {
@@ -58,7 +58,7 @@ export default {
     },
 
     classTextSize() {
-      return `fs-${ this.size }`;
+      return `a_fs_${ this.size }`;
     },
 
     boxChildren() {
@@ -75,6 +75,7 @@ export default {
 
     boxTextLeft() {
       return h(ATranslation, {
+        tag: "span",
         class: ["a_cloak__text a_cloak__text_left", this.classTextSize],
         text: this.text,
         extra: this.extraTranslate,
@@ -83,6 +84,7 @@ export default {
 
     boxTextRight() {
       return h(ATranslation, {
+        tag: "span",
         class: ["a_cloak__text a_cloak__text_right", this.classTextSize],
         text: this.text,
         extra: this.extraTranslate,

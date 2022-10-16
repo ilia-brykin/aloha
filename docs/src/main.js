@@ -12,10 +12,10 @@ import en from "./i18n/en.json";
 import hr from "./i18n/hr.json";
 import ru from "./i18n/ru.json";
 
-import deGlobal from "../src/i18n/de.json";
-import enGlobal from "../src/i18n/en.json";
-import hrGlobal from "../src/i18n/hr.json";
-import ruGlobal from "../src/i18n/ru.json";
+import deGlobal from "../../src/i18n/de.json";
+import enGlobal from "../../src/i18n/en.json";
+import hrGlobal from "../../src/i18n/hr.json";
+import ruGlobal from "../../src/i18n/ru.json";
 
 const APP = createApp(App);
 const TRANSLATIONS = {
