@@ -81,7 +81,7 @@ export default {
     }, [
       this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
         buttonClass: "a_btn a_btn_link",
-        dropdownClass: "a_p_0",
+        dropdownClass: "a_p_0 a_overflow_x_hidden",
         dropdownTag: "div",
         isCaret: false,
         placement: "bottom-end",
@@ -98,7 +98,7 @@ export default {
         ],
         dropdown: () => [
           h("dl", {
-            class: "a_list_dl",
+            class: "a_list_dl a_list_dl_dt_right",
           }, [
             this.columnsScrollInvisible.map((column, columnIndex) => {
               return h(ATableListItem, {
