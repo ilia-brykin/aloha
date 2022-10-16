@@ -3,6 +3,7 @@ import {
   toRef,
 } from "vue";
 
+import AKeyChildren from "../../ui/const/AKeyChildren";
 import AKeyId from "../../ui/const/AKeyId";
 import AKeyLabel from "../../ui/const/AKeyLabel";
 import AKeyParent from "../../ui/const/AKeyParent";
@@ -10,7 +11,8 @@ import {
   cloneDeep,
   forEach,
   get,
-  isNil, keyBy,
+  isNil,
+  keyBy,
 } from "lodash-es";
 
 
@@ -18,27 +20,42 @@ export default function AMenuDataAPI(props) {
   const data = toRef(props, "data");
 
   const keyId = toRef(props, "keyId");
+  const keyChildren = toRef(props, "keyChildren");
   const keyParent = toRef(props, "keyParent");
 
   const keyLabel = toRef(props, "keyLabel");
   const keyLabelCallback = toRef(props, "keyLabelCallback");
 
+  const changeData = ({ dataClone, dataFlat = [], parentId }) => {
+    forEach(dataClone, item => {
+      item[AKeyId] = get(item, keyId.value);
+      item[AKeyParent] = parentId || get(item, keyParent.value);
+      if (keyLabelCallback.value) {
+        item[AKeyLabel] = keyLabelCallback.value({ item });
+      } else {
+        item[AKeyLabel] = get(item, keyLabel.value);
+      }
+      if (keyChildren.value) {
+        const CHILDREN = get(item, keyChildren.value);
+        if (CHILDREN && CHILDREN.length) {
+          changeData({
+            dataClone: CHILDREN,
+            parentId: item[AKeyId],
+            dataFlat,
+          });
+          item[AKeyChildren] = CHILDREN;
+        }
+      }
+      dataFlat.push(item);
+    });
+    return dataFlat;
+  };
+
   const dataLocal = computed(() => {
     const DATA = cloneDeep(data.value);
-    if (keyLabelCallback.value) {
-      forEach(DATA, item => {
-        item[AKeyId] = get(item, keyId.value);
-        item[AKeyParent] = get(item, keyParent.value);
-        item[AKeyLabel] = keyLabelCallback.value({ item });
-      });
-    } else {
-      forEach(DATA, item => {
-        item[AKeyId] = get(item, keyId.value);
-        item[AKeyParent] = get(item, keyParent.value);
-        item[AKeyLabel] = get(item, keyLabel.value);
-      });
-    }
-    return DATA;
+    let dataFlat = [];
+    dataFlat = changeData({ dataClone: DATA, dataFlat });
+    return dataFlat;
   });
 
   const dataProParent = computed(() => {

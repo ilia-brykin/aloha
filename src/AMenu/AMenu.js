@@ -77,6 +77,11 @@ export default {
       required: false,
       default: "icon",
     },
+    keyChildren: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     keyId: {
       type: String,
       required: false,

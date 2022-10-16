@@ -60,43 +60,77 @@ export default {
           id: "ui",
           label: "ui",
           icon: "Export",
-        },
-        {
-          id: "ui-child",
-          label: "Child",
-          parent: "ui",
-        },
-        {
-          id: "input",
-          to: {
-            name: "PageInput",
-          },
-          label: "Input",
-          parent: "ui-child",
-        },
-        {
-          id: "input",
-          to: {
-            name: "PageInput",
-          },
-          label: "Input",
-          parent: "ui",
-        },
-        {
-          id: "json",
-          label: "JSON",
-          to: {
-            name: "PageAJson",
-          },
-          parent: "ui",
-        },
-        {
-          id: "tinyMce",
-          label: "TinyMce",
-          to: {
-            name: "PageTinyMce",
-          },
-          parent: "ui",
+          children: [
+            {
+              id: "ui-child",
+              label: "Child",
+              children: [
+                {
+                  id: "input",
+                  to: {
+                    name: "PageInput",
+                  },
+                  label: "Input",
+                },
+              ],
+            },
+            {
+              id: "input",
+              to: {
+                name: "PageInput",
+              },
+              label: "Input",
+            },
+            {
+              id: "json",
+              label: "JSON",
+              to: {
+                name: "PageAJson",
+              },
+            },
+            {
+              id: "tinyMce",
+              label: "TinyMce",
+              to: {
+                name: "PageTinyMce",
+              },
+            },
+            {
+              id: "checkbox",
+              label: "Checkbox",
+              to: {
+                name: "PageCheckbox",
+              },
+            },
+            {
+              id: "radio",
+              label: "Radio",
+              to: {
+                name: "PageRadio",
+              },
+            },
+            {
+              id: "datepicker",
+              label: "Datepicker",
+              to: {
+                name: "PageDatepicker",
+              },
+            },
+            {
+              id: "select",
+              label: "Select",
+              to: {
+                name: "PageSelect",
+              },
+            },
+            {
+              id: "form",
+              label: "Form",
+              to: {
+                name: "PageForm",
+              },
+            },
+          ],
         },
         {
           id: "accordion",
@@ -137,46 +171,6 @@ export default {
             name: "PageNotification",
           },
           icon: "Duplicate",
-        },
-        {
-          id: "checkbox",
-          label: "Checkbox",
-          to: {
-            name: "PageCheckbox",
-          },
-          parent: "ui",
-        },
-        {
-          id: "radio",
-          label: "Radio",
-          to: {
-            name: "PageRadio",
-          },
-          parent: "ui",
-        },
-        {
-          id: "datepicker",
-          label: "Datepicker",
-          to: {
-            name: "PageDatepicker",
-          },
-          parent: "ui",
-        },
-        {
-          id: "select",
-          label: "Select",
-          to: {
-            name: "PageSelect",
-          },
-          parent: "ui",
-        },
-        {
-          id: "form",
-          label: "Form",
-          to: {
-            name: "PageForm",
-          },
-          parent: "ui",
         },
         {
           id: "dropdown",
