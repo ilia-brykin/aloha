@@ -35,6 +35,7 @@ export default {
   emits: ["toggle"],
   inject: [
     "classBody",
+    "classHeader",
     "classButton",
     "disabled",
     "id",
@@ -53,11 +54,19 @@ export default {
     const parentIndexes = toRef(props, "parentIndexes");
 
     const keyClassBody = inject("keyClassBody");
+    const keyClassHeader = inject("keyClassHeader");
     const keyIsRender = inject("keyIsRender");
 
     const classBodyLocal = computed(() => {
       if (keyClassBody.value) {
         return get(item.value, keyClassBody.value);
+      }
+      return undefined;
+    });
+
+    const classHeaderLocal = computed(() => {
+      if (keyClassHeader.value) {
+        return get(item.value, keyClassHeader.value);
       }
       return undefined;
     });
@@ -90,6 +99,7 @@ export default {
 
     return {
       classBodyLocal,
+      classHeaderLocal,
       currentIndex,
       isOpen,
       isRender,
@@ -173,7 +183,7 @@ export default {
       class: "a_accordion__item",
     }, [
       h("div", {
-        class: "a_accordion__header",
+        class: ["a_accordion__header", this.classHeader, this.classHeaderLocal],
       }, [
         h(this.buttonTag, this.buttonAttributes, [
           this.$slots.accordionButton && this.$slots.accordionButton({

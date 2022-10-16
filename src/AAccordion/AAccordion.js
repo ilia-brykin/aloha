@@ -17,6 +17,7 @@ export default {
   provide() {
     return {
       classBody: computed(() => this.classBody),
+      classHeader: computed(() => this.classHeader),
       classButton: computed(() => this.classButton),
       disabled: computed(() => this.disabled),
       id: computed(() => this.id),
@@ -26,6 +27,7 @@ export default {
       keyLabel: computed(() => this.keyLabel),
       keyContent: computed(() => this.keyContent),
       keyClassBody: computed(() => this.keyClassBody),
+      keyClassHeader: computed(() => this.keyClassHeader),
       keyIsRender: computed(() => this.keyIsRender),
       readonly: computed(() => this.readonly),
       withGap: computed(() => this.withGap),
@@ -73,6 +75,11 @@ export default {
       required: false,
       default: undefined,
     },
+    keyClassHeader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     keyIsRender: {
       type: String,
       required: false,
@@ -97,6 +104,11 @@ export default {
       default: undefined,
     },
     classBody: {
+      type: [String, Object],
+      required: false,
+      default: "",
+    },
+    classHeader: {
       type: [String, Object],
       required: false,
       default: "",
