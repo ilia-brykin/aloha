@@ -6,11 +6,15 @@ import {
 import ColumnStylesAPI from "../compositionAPI/ColumnStylesAPI";
 
 import {
+  isClickOnLinkOrButton
+} from "../utils/utils";
+import {
   cloneDeep,
   forEach,
   get,
   isPlainObject,
-  isString, isUndefined,
+  isString,
+  isUndefined,
 } from "lodash-es";
 
 
@@ -114,10 +118,15 @@ export default {
         style: this.columnsStyles,
       };
       if (this.hasPreview && !this.isFooter) {
-        ATTRIBUTES.onClick = () => this.onTogglePreview({
-          row: this.row,
-          rowIndex: this.rowIndex,
-        });
+        ATTRIBUTES.onClick = $event => {
+          if (isClickOnLinkOrButton($event)) {
+            return;
+          }
+          this.onTogglePreview({
+            row: this.row,
+            rowIndex: this.rowIndex,
+          });
+        };
       }
       return ATTRIBUTES;
     },

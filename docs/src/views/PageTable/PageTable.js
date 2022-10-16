@@ -57,6 +57,12 @@ export default {
           footerPath: "hola",
         },
         {
+          label: "Slot",
+          id: "slot",
+          slot: "slot1",
+          // hide: true,
+        },
+        {
           label: "Obj",
           id: "obj",
           path: "obj.aloha",
@@ -98,12 +104,7 @@ export default {
           path: "geld",
           footerPath: "geld",
         },
-        {
-          label: "Slot",
-          id: "slot",
-          slot: "slot1",
-          // hide: true,
-        },
+
         {
           label: "Slot2",
           id: "slot2",

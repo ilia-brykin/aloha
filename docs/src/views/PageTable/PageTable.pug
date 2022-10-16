@@ -24,7 +24,9 @@ div
     template(
       v-slot:slot1="vm"
     )
-      pre {{ vm.column }}
+      router-link(
+        :to="{ name: 'PageTabs' }"
+      ) Tabs
 
     template(
       v-slot:tableDetailsLabel="vm"
