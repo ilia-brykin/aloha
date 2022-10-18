@@ -1,6 +1,11 @@
 import {
-  ref, toRef,
+  ref,
+  toRef,
 } from "vue";
+
+import {
+  get,
+} from "lodash-es";
 
 export default function PreviewRightResizeAPI(props, { emit }, {
   aTableRef = ref({}),
@@ -39,10 +44,10 @@ export default function PreviewRightResizeAPI(props, { emit }, {
   };
 
   const closePreviewResize = ({ previewRef }) => {
-    if (previewRef) {
+    if (get(previewRef, "style.removeProperty")) {
       previewRef.style.removeProperty("width");
     }
-    if (aTableRef) {
+    if (get(aTableRef, "style.removeProperty")) {
       aTableRef.value.style.removeProperty("width");
     }
   };
