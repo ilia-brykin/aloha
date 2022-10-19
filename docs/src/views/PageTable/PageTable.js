@@ -285,7 +285,7 @@ export default {
       const DATA = [];
       times(3, item => {
         DATA.push({
-          aloha: `aloha${ item }`,
+          aloha: `aloha1111dfdsfdsfdsfaasasadadsadasdsadsa1111111${ item }`,
           hola: `hola ${ item }`,
           geld: `${ item } €`,
           obj: {

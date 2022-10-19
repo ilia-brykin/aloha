@@ -48,6 +48,9 @@
   padding: var(--a_table_cell_padding_y) var(--a_table_cell_padding_x) ;
   background-color: var(--a_table_bg);
   border-bottom-width: 1px;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
   .a_table__row_hover:hover &,
   .a_table__row_hover:focus-within & {
     background-color: var(--a_table_row_hover_bg);
