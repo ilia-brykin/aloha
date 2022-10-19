@@ -283,7 +283,7 @@ export default {
 
     setData() {
       const DATA = [];
-      times(3, item => {
+      times(1001, item => {
         DATA.push({
           aloha: `aloha1111dfdsfdsfdsfaasasadadsadasdsadsa1111111${ item }`,
           hola: `hola ${ item }`,

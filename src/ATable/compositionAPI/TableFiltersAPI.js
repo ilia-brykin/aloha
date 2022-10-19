@@ -11,8 +11,12 @@ import {
   keyBy,
 } from "lodash-es";
 
-export default function TableFiltersAPI(props, { emit }) {
+export default function TableFiltersAPI(props, { emit }, {
+  closePreviewAll = () => {},
+  offset = ref(0),
+}) {
   const modelFilters = toRef(props, "modelFilters");
+  const offsetStart = toRef(props, "offsetStart");
   const modelFiltersLocal = ref(cloneDeep(modelFilters.value));
   const filtersVisibleIds = ref([]);
   const dataKeyByKeyIdPerFilter = ref({});
@@ -91,7 +95,9 @@ export default function TableFiltersAPI(props, { emit }) {
   };
 
   const startSearch = () => {
+    offset.value = offsetStart.value;
     emit("update:modelFilters", modelFiltersLocal.value);
+    closePreviewAll();
   };
 
   const closeFilterValue = ({ filter, currentModel }) => {

@@ -16,6 +16,7 @@ import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
+import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
 import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
@@ -341,6 +342,16 @@ export default {
       aTableRef,
       rowsLocal,
     });
+
+    const {
+      changeOffset,
+      changeLimit,
+    } = LimitOffsetAPI(props, context, {
+      offset,
+      limit,
+      closePreviewAll,
+      setEmptySelectedRowsIndexes,
+    });
     
     const {
       closeFilterValue,
@@ -354,7 +365,10 @@ export default {
       startSearch,
       onUpdateModelFilters,
       updateDataKeyByIdFromFilter,
-    } = TableFiltersAPI(props, context);
+    } = TableFiltersAPI(props, context, {
+      closePreviewAll,
+      offset,
+    });
 
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("columnsOrdered", columnsOrdered);
@@ -409,6 +423,9 @@ export default {
       setEmptySelectedRowsIndexes,
       setSelectedRowsIndexes,
       toggleMultipleActionsActive,
+
+      changeOffset,
+      changeLimit,
 
       closeFilterValue,
       dataKeyByKeyIdPerFilter,
@@ -500,27 +517,6 @@ export default {
       this.modelColumnsVisibleLocal = value;
       this.$emit("update:modelColumnsVisible", cloneDeep(this.modelColumnsVisibleLocal));
       this.checkVisibleColumns();
-    },
-
-    changeOffset(offset) {
-      this.offset = offset;
-      this.$emit("changeOffset", {
-        offset,
-        limit: this.limit,
-      });
-      this.setEmptySelectedRowsIndexes();
-      this.closePreviewAll();
-    },
-
-    changeLimit(limit) {
-      this.limit = limit;
-      this.offset = this.offsetStart;
-      this.$emit("changeLimit", {
-        offset: this.offset,
-        limit,
-      });
-      this.setEmptySelectedRowsIndexes();
-      this.closePreviewAll();
     },
 
     changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver }) {
