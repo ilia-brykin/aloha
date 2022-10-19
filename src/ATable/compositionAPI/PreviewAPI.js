@@ -16,6 +16,7 @@ import {
 
 export default function PreviewAPI(props, context, {
   aTableRef = ref({}),
+  tableGrandparentRef = ref({}),
   rowsLocal = computed(() => []),
 }) {
   const {
@@ -27,6 +28,7 @@ export default function PreviewAPI(props, context, {
     togglePreviewResize,
   } = PreviewRightResizeAPI(props, context, {
     aTableRef,
+    tableGrandparentRef,
   });
   const emit = context.emit;
 

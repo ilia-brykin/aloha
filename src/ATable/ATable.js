@@ -264,6 +264,7 @@ export default {
   setup(props, context) {
     const columns = toRef(props, "columns");
 
+    const tableGrandparentRef = ref(undefined);
     const modelColumnsOrderingLocal = ref([]);
 
     const columnsKeyById = computed(() => {
@@ -285,7 +286,6 @@ export default {
       });
       return MODEL_COLUMNS;
     });
-
 
     const {
       hasRows,
@@ -340,6 +340,7 @@ export default {
       togglePreviewResize,
     } = PreviewAPI(props, context, {
       aTableRef,
+      tableGrandparentRef,
       rowsLocal,
     });
 
@@ -370,6 +371,7 @@ export default {
       offset,
     });
 
+
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("columnsOrdered", columnsOrdered);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
@@ -391,6 +393,7 @@ export default {
 
     return {
       aTableRef,
+      tableGrandparentRef,
       checkVisibleColumns,
       columnsOrdered,
       modelColumnsOrderingLocal,
@@ -543,7 +546,10 @@ export default {
     },
   },
   render() {
-    return h("div", {}, [
+    return h("div", {
+      ref: "tableGrandparentRef",
+      class: "a_table__grandparent",
+    }, [
       this.hasFilters && h(ATableFiltersTop, {
         filtersGroup: this.filtersGroup,
         filtersVisible: this.filtersVisible,

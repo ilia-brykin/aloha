@@ -1,5 +1,5 @@
 import {
-  onUnmounted,
+  onBeforeUnmount,
   ref,
   toRef,
 } from "vue";
@@ -12,6 +12,7 @@ import {
 
 export default function PreviewRightResizeAPI(props, { emit }, {
   aTableRef = ref({}),
+  tableGrandparentRef = ref({}),
 }) {
   const {
     previewRef,
@@ -24,6 +25,7 @@ export default function PreviewRightResizeAPI(props, { emit }, {
   let previewBoxMaxWidthPx = undefined;
   let clientWidthLocal = 0;
   let clientXTableParent = 0;
+  let tableGrandparentWidth = 0;
 
   const setClientXTableParent = () => {
     const rectTableParent = aTableRef.value.getBoundingClientRect();
@@ -62,6 +64,7 @@ export default function PreviewRightResizeAPI(props, { emit }, {
 
   const openPreviewResize = ({ previewRef }) => {
     clientWidthLocal = document.documentElement.clientWidth;
+    tableGrandparentWidth = get(tableGrandparentRef, "value.offsetWidth", 0);
     setClientXTableParent();
     mousemoveResizePreviewRight({
       previewRef,
@@ -87,15 +90,24 @@ export default function PreviewRightResizeAPI(props, { emit }, {
     });
   };
 
+  const resizeOb = new ResizeObserver(entries => {
+    // since we are observing only a single element, so we access the first element in entries array
+    const RECT = entries[0].contentRect;
+    if (tableGrandparentWidth !== RECT.width) {
+      tableGrandparentWidth = RECT.width;
+      correctTableUndPreviewWidth();
+    }
+  });
+
   const addEventListenerWindowResize = () => {
-    window.addEventListener("resize", correctTableUndPreviewWidth);
+    resizeOb.observe(tableGrandparentRef.value);
   };
 
   const removeEventListenerWindowResize = () => {
-    window.removeEventListener("resize", correctTableUndPreviewWidth);
+    resizeOb.unobserve(tableGrandparentRef.value);
   };
 
-  onUnmounted(() => {
+  onBeforeUnmount(() => {
     removePreviewRef();
     removeEventListenerWindowResize();
   });
