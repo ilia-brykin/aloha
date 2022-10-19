@@ -47,7 +47,7 @@ export default function PreviewRightResizeAPI(props, { emit }, {
     if (get(previewRef, "style.removeProperty")) {
       previewRef.style.removeProperty("width");
     }
-    if (get(aTableRef, "style.removeProperty")) {
+    if (get(aTableRef, "value.style.removeProperty")) {
       aTableRef.value.style.removeProperty("width");
     }
   };
