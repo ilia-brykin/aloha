@@ -1,10 +1,11 @@
 import {
   h,
-  ref,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
 import AResizer from "../../AResizer/AResizer";
+
+import PreviewRightRewAPI from "../compositionAPI/PreviewRightRewAPI";
 
 import {
   get,
@@ -37,7 +38,10 @@ export default {
     "isLoadingOptions",
   ],
   setup(props, { emit }) {
-    const previewRef = ref(undefined);
+    const {
+      previewRef,
+    } = PreviewRightRewAPI();
+
     const mousedown = ({ clientWidth }) => {
       emit("mousedownResizePreviewRight", {
         clientWidth,

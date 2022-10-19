@@ -11,6 +11,7 @@ import {
 } from "../../utils/utils";
 import {
   isNil,
+  isUndefined,
 } from "lodash-es";
 
 export default function PreviewAPI(props, context, {
@@ -18,9 +19,11 @@ export default function PreviewAPI(props, context, {
   rowsLocal = computed(() => []),
 }) {
   const {
+    addEventListenerWindowResize,
     mousedownResizePreviewRight,
     mousemoveResizePreviewRight,
     mouseupResizePreviewRight,
+    removeEventListenerWindowResize,
     togglePreviewResize,
   } = PreviewRightResizeAPI(props, context, {
     aTableRef,
@@ -59,6 +62,7 @@ export default function PreviewAPI(props, context, {
     });
     previewRightRowIndexLast.value = previewRightRowIndex.value;
     previewRightRowIndex.value = undefined;
+    removeEventListenerWindowResize();
   };
   const closePreviewRightAll = () => {
     emit("togglePreview", {
@@ -68,6 +72,7 @@ export default function PreviewAPI(props, context, {
     });
     previewRightRowIndexLast.value = undefined;
     previewRightRowIndex.value = undefined;
+    removeEventListenerWindowResize();
   };
 
   const isPreviewDown = computed(() => {
@@ -98,17 +103,25 @@ export default function PreviewAPI(props, context, {
       closePreviewDown({ rowIndex });
     }
   };
+
+  const openPreviewRight = ({ rowIndex }) => {
+    if (isUndefined(previewRightRowIndex.value)) {
+      addEventListenerWindowResize();
+    }
+    emit("togglePreview", {
+      row: rowsLocal.value[rowIndex],
+      rowIndex: rowIndex,
+      typeToggle: "open",
+    });
+    previewRightRowIndex.value = rowIndex;
+    previewRightRowIndexLast.value = undefined;
+  };
+
   const onTogglePreviewRight = ({ rowIndex }) => {
     if (previewRightRowIndex.value === rowIndex) {
       closePreviewRight();
     } else {
-      emit("togglePreview", {
-        row: rowsLocal.value[rowIndex],
-        rowIndex: rowIndex,
-        typeToggle: "open",
-      });
-      previewRightRowIndex.value = rowIndex;
-      previewRightRowIndexLast.value = undefined;
+      openPreviewRight({ rowIndex });
     }
   };
   const onTogglePreviewDown = ({ rowIndex }) => {

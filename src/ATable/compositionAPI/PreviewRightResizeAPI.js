@@ -1,7 +1,10 @@
 import {
+  onUnmounted,
   ref,
   toRef,
 } from "vue";
+
+import PreviewRightRewAPI from "./PreviewRightRewAPI";
 
 import {
   get,
@@ -10,6 +13,11 @@ import {
 export default function PreviewRightResizeAPI(props, { emit }, {
   aTableRef = ref({}),
 }) {
+  const {
+    previewRef,
+    removePreviewRef,
+  } = PreviewRightRewAPI();
+
   const previewBoxWidth = toRef(props, "previewBoxWidth");
   const PREVIEW_BOX_MIN_WIDTH_PX = 200;
   const PREVIEW_BOX_MAX_WIDTH_PERCENT = 50;
@@ -52,14 +60,18 @@ export default function PreviewRightResizeAPI(props, { emit }, {
     }
   };
 
+  const openPreviewResize = ({ previewRef }) => {
+    clientWidthLocal = document.documentElement.clientWidth;
+    setClientXTableParent();
+    mousemoveResizePreviewRight({
+      previewRef,
+      previewBoxWidth: previewBoxWidth.value,
+    });
+  };
+
   const togglePreviewResize = ({ previewRef, isOpen }) => {
     if (isOpen) {
-      clientWidthLocal = document.documentElement.clientWidth;
-      setClientXTableParent();
-      mousemoveResizePreviewRight({
-        previewRef,
-        previewBoxWidth: previewBoxWidth.value,
-      });
+      openPreviewResize({ previewRef });
     } else {
       closePreviewResize({ previewRef });
     }
@@ -69,10 +81,31 @@ export default function PreviewRightResizeAPI(props, { emit }, {
     emit("mouseupResizePreviewRight", { previewRightWidth });
   };
 
+  const correctTableUndPreviewWidth = () => {
+    openPreviewResize({
+      previewRef: previewRef.value,
+    });
+  };
+
+  const addEventListenerWindowResize = () => {
+    window.addEventListener("resize", correctTableUndPreviewWidth);
+  };
+
+  const removeEventListenerWindowResize = () => {
+    window.removeEventListener("resize", correctTableUndPreviewWidth);
+  };
+
+  onUnmounted(() => {
+    removePreviewRef();
+    removeEventListenerWindowResize();
+  });
+
   return {
+    addEventListenerWindowResize,
     mousedownResizePreviewRight,
     mousemoveResizePreviewRight,
     mouseupResizePreviewRight,
+    removeEventListenerWindowResize,
     togglePreviewResize,
   };
 }
