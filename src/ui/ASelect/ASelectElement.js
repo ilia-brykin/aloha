@@ -44,6 +44,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "changeModelValue",
@@ -115,6 +120,7 @@ export default {
 
     return {
       attributesDisabled,
+      currentLabel,
       currentLabelFiltered,
       currentValue,
       isSelectedLocal,
@@ -143,9 +149,15 @@ export default {
           icon: "Ok",
         }),
       ]),
-      h("span", {
-        innerHTML: this.currentLabelFiltered,
-      }),
+      this.slotName && this.$slots[this.slotName] ?
+        this.$slots[this.slotName]({
+          item: this.data,
+          label: this.currentLabel,
+          labelFiltered: this.currentLabelFiltered,
+        }) :
+        h("span", {
+          innerHTML: this.currentLabelFiltered,
+        }),
     ]);
   },
 };

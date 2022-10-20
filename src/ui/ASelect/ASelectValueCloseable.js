@@ -15,6 +15,11 @@ export default {
       type: Object,
       required: true,
     },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "changeModelValue",
@@ -50,7 +55,12 @@ export default {
     return h("li", {
       class: "a_select__ul_closeable__item",
     }, [
-      h("span", {}, this.currentLabel),
+      this.slotName && this.$slots[this.slotName] ?
+        this.$slots[this.slotName]({
+          item: this.data,
+          label: this.currentLabel,
+        }) :
+        h("span", {}, this.currentLabel),
       h("button", {
         class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
         type: "button",

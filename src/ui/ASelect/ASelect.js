@@ -37,20 +37,62 @@ export default {
     UiMixinProps,
   ],
   props: {
-    modelValue: {
-      type: [String, Number, Array],
-      required: false,
-    },
-    type: {
+    buttonClass: {
       type: String,
       required: false,
-      default: "select",
-      validator: value => ["select", "multiselect"].indexOf(value) !== -1,
+      default: undefined,
+    },
+    countMultiselect: {
+      type: Number,
+      required: false,
+      default: 4,
     },
     data: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    isCloseByClick: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    isDataSimpleArray: {
+      type: Boolean,
+      required: false,
+    },
+    isDeselect: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isDeselectAll: {
+      type: Boolean,
+      required: false,
+    },
+    isMenuWidthAsButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isSelectAll: {
+      type: Boolean,
+      required: false,
+    },
+    isSelectionCloseable: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    keyGroup: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    keyGroupCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
     },
     keyId: {
       type: String,
@@ -67,34 +109,19 @@ export default {
       required: false,
       default: undefined,
     },
-    keyGroup: {
-      type: [String, Number],
-      required: false,
-      default: undefined,
-    },
-    keyGroupCallback: {
-      type: Function,
-      required: false,
-      default: undefined,
-    },
-    sortOrderGroup: {
-      type: String,
-      required: false,
-      validator: value => ["asc", "desc"].indexOf(value) !== -1,
-    },
-    isDataSimpleArray: {
+    loading: {
       type: Boolean,
       required: false,
     },
-    countMultiselect: {
-      type: Number,
+    modelValue: {
+      type: [String, Number, Array],
       required: false,
-      default: 4,
     },
-    buttonClass: {
+    placement: {
       type: String,
       required: false,
-      default: undefined,
+      default: "bottom-end",
+      // bottom-start, top-start, top-end, left, right
     },
     search: {
       type: Boolean,
@@ -104,63 +131,41 @@ export default {
       type: Boolean,
       required: false,
     },
-    textSearch: {
+    slotName: {
       type: String,
-      required: false,
-      default: "Suche",
-    },
-    isDeselect: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    placement: {
-      type: String,
-      required: false,
-      default: "bottom-end",
-      // bottom-start, top-start, top-end, left, right
-    },
-    isMenuWidthAsButton: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    isCloseByClick: {
-      type: Boolean,
       required: false,
       default: undefined,
-    },
-    isSelectAll: {
-      type: Boolean,
-      required: false,
-    },
-    isDeselectAll: {
-      type: Boolean,
-      required: false,
-    },
-    textSelectAll: {
-      type: String,
-      required: false,
-      default: "Alle auswählen",
-    },
-    textDeselectAll: {
-      type: String,
-      required: false,
-      default: "Alle abwählen",
     },
     sortOrder: {
       type: String,
       required: false,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
-    isSelectionCloseable: {
-      type: Boolean,
+    sortOrderGroup: {
+      type: String,
       required: false,
-      default: true,
+      validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
-    loading: {
-      type: Boolean,
+    textDeselectAll: {
+      type: String,
       required: false,
+      default: "Alle abwählen",
+    },
+    textSearch: {
+      type: String,
+      required: false,
+      default: "Suche",
+    },
+    textSelectAll: {
+      type: String,
+      required: false,
+      default: "Alle auswählen",
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "select",
+      validator: value => ["select", "multiselect"].indexOf(value) !== -1,
     },
   },
   emits: [
@@ -423,8 +428,9 @@ export default {
                         return h(ASelectValueCloseable, {
                           key: index,
                           data: this.dataKeyByKeyIdLocal[item] || {},
+                          slotName: this.slotName,
                           onChangeModelValue: this.onChangeModelValue,
-                        });
+                        }, this.$slots);
                       }),
                     ]) :
                     h("span", {
@@ -439,14 +445,16 @@ export default {
                             h("span", null, index !== 0 ? ", " : ""),
                             h(ASelectLabelElement, {
                               data: this.dataKeyByKeyIdLocal[item] || {},
-                            }),
+                              slotName: this.slotName,
+                            }, this.$slots),
                           ]);
                         }),
                     ]) :
                   h(ASelectLabelElement, {
                     data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
                     class: "a_select__value__label",
-                  })
+                    slotName: this.slotName,
+                  }, this.$slots)
                 : "",
               h(Teleport, {
                 to: "body",
@@ -557,8 +565,9 @@ export default {
                             isSelected: false,
                             isMultiselect: this.isMultiselect,
                             disabled: this.disabled,
+                            slotName: this.slotName,
                             onChangeModelValue: this.onChangeModelValue,
-                          });
+                          }, this.$slots);
                         }),
                         ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
                           return h(ASelectGroup, {
@@ -572,8 +581,9 @@ export default {
                             isSelected: false,
                             isMultiselect: this.isMultiselect,
                             disabled: this.disabled,
+                            slotName: this.slotName,
                             onChangeModelValue: this.onChangeModelValue,
-                          });
+                          }, this.$slots);
                         }),
                       ]),
                       !this.keyGroup && h(ASlot, null, () => [
@@ -586,8 +596,9 @@ export default {
                             isSelected: false,
                             isMultiselect: this.isMultiselect,
                             disabled: this.disabled,
+                            slotName: this.slotName,
                             onChangeModelValue: this.onChangeModelValue,
-                          });
+                          }, this.$slots);
                         }),
                       ]),
                       this.isAllElementsHidden && h("span", {

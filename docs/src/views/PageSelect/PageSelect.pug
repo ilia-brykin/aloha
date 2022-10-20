@@ -35,7 +35,22 @@ div
     :search="true"
     :is-select-all="true"
     :is-deselect-all="true"
+    slot-name="test"
   )
+    template(
+      v-slot:test="{ label, labelFiltered }"
+    )
+      a-icon.a_mr_1(
+        icon="Cog"
+      )
+      span(
+        v-if="labelFiltered"
+        v-html="labelFiltered"
+      )
+      span(
+        v-else
+        v-html="label"
+      )
   div modelArr: {{ modelArr }}
 
   br
@@ -50,5 +65,20 @@ div
     :is-select-all="true"
     :is-deselect-all="true"
     :is-selection-closeable="false"
+    slot-name="aloha"
   )
+    template(
+      v-slot:aloha="{ label, labelFiltered }"
+    )
+      a-icon.a_mr_1(
+        icon="Cog"
+      )
+      span(
+        v-if="labelFiltered"
+        v-html="labelFiltered"
+      )
+      span(
+        v-else
+        v-html="label"
+      )
   div modelArr2: {{ modelArr2 }}

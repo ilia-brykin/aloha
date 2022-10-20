@@ -14,6 +14,11 @@ export default {
       type: Object,
       required: true,
     },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   setup(props) {
     const data = toRef(props, "data");
@@ -29,9 +34,14 @@ export default {
     return h("span", {
 
     }, [
-      h("span", {
-        innerHTML: this.currentLabel,
-      }),
+      this.slotName && this.$slots[this.slotName] ?
+        this.$slots[this.slotName]({
+          item: this.data,
+          label: this.currentLabel,
+        }) :
+        h("span", {
+          innerHTML: this.currentLabel,
+        }),
     ]);
   },
 };

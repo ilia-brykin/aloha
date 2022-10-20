@@ -11,45 +11,50 @@ import { forEach } from "lodash-es";
 export default {
   name: "ASelectGroup",
   props: {
-    id: {
-      type: String,
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    elementsHiddenWithSearch: {
+      type: Object,
       required: true,
     },
     groupElements: {
       type: Array,
       required: true,
     },
-    groupLabel: {
-      type: String,
-      required: true,
-    },
     groupIndex: {
       type: Number,
       required: true,
     },
-    modelValue: {
-      type: [String, Number, Array],
-      required: false,
-    },
-    modelSearch: {
+    groupLabel: {
       type: String,
       required: true,
     },
-    elementsHiddenWithSearch: {
-      type: Object,
+    id: {
+      type: String,
       required: true,
     },
     isMultiselect: {
       type: Boolean,
       required: true,
     },
-    disabled: {
-      type: Boolean,
-      required: false,
-    },
     isSelected: {
       type: Boolean,
       required: true,
+    },
+    modelSearch: {
+      type: String,
+      required: true,
+    },
+    modelValue: {
+      type: [String, Number, Array],
+      required: false,
+    },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -112,8 +117,9 @@ export default {
           isSelected: false,
           isMultiselect: this.isMultiselect,
           disabled: this.disabled,
+          slotName: this.slotName,
           onChangeModelValue: this.onChangeModelValue,
-        });
+        }, this.$slots);
       }),
     ]);
   },
