@@ -124,6 +124,8 @@ export default {
       }
       if (this.isTranslateHtml) {
         ATTRIBUTES["data-translate-html"] = this.html;
+      }
+      if (this.html) {
         ATTRIBUTES.innerHTML = this.htmlLocal;
       }
       if (this.title) {
