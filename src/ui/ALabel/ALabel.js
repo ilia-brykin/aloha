@@ -102,7 +102,7 @@ export default {
     }, [
       this.isLabel && h(ATranslation, {
         tag: "span",
-        text: this.label,
+        html: this.label,
         textAfter: this.textAfterLabel,
       }, () => [
         this.isLabelFloat && h(ATranslation, {
