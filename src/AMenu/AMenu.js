@@ -21,6 +21,11 @@ import AMenuToggleAPI from "./compositionAPI/AMenuToggleAPI";
 
 export default {
   name: "AMenu",
+  provide() {
+    return {
+      keySlot: computed(() => this.keySlot),
+    };
+  },
   props: {
     breakpointMobile: {
       type: Number,
@@ -101,6 +106,11 @@ export default {
       type: String,
       required: false,
       default: "parent",
+    },
+    keySlot: {
+      type: String,
+      required: false,
+      default: undefined,
     },
   },
   setup(props) {
@@ -217,7 +227,7 @@ export default {
             keyIcon: this.keyIcon,
             panelItems: this.dataProParent.main,
             panelParentsOpen: this.panelParentsOpen,
-          }),
+          }, this.$slots),
           Object.keys(this.dataProParent.children).map(key => {
             return h(AMenuPanel, {
               key,
@@ -229,7 +239,7 @@ export default {
               panelItems: this.dataProParent.children[key],
               panelParentsOpen: this.panelParentsOpen,
               parentId: key,
-            });
+            }, this.$slots);
           }),
           h(AMenuSearchPanel, {
             dataKeyById: this.dataKeyById,
@@ -238,7 +248,7 @@ export default {
             idsSearchVisible: this.idsSearchVisible,
             isSearchActive: this.isSearchActive,
             modelSearch: this.modelSearch,
-          }),
+          }, this.$slots),
         ]),
         this.isBackdrop && h(Teleport, {
           to: "body",

@@ -103,6 +103,14 @@ export default {
               },
             },
             {
+              id: "slotItem",
+              label: "Slot",
+              slot: "slotItem",
+              to: {
+                name: "PageRadio",
+              },
+            },
+            {
               id: "radio",
               label: "Radio",
               to: {

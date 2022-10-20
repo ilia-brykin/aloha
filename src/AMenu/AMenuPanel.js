@@ -136,7 +136,7 @@ export default {
           groupItems: this.itemsGroup.withoutGroup,
           isPanelOpen: this.isPanelOpen,
           keyIcon: this.keyIcon,
-        }),
+        }, this.$slots),
         Object.keys(this.itemsGroup.withGroup).map(key => {
           return h(AMenuPanelGroup, {
             key,
@@ -145,7 +145,7 @@ export default {
             groupLabel: key,
             isPanelOpen: this.isPanelOpen,
             keyIcon: this.keyIcon,
-          });
+          }, this.$slots);
         }),
       ]),
     ]);

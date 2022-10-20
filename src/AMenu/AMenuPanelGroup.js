@@ -44,7 +44,7 @@ export default {
           dataProParentChildren: this.dataProParentChildren,
           isPanelOpen: this.isPanelOpen,
           keyIcon: this.keyIcon,
-        });
+        }, this.$slots);
       }),
     ];
   },

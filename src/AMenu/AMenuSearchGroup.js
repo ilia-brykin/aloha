@@ -77,7 +77,7 @@ export default {
             isLinkInSearchPanel: true,
             modelSearch: this.modelSearch,
             idsSearchVisible: this.idsSearchVisible,
-          });
+          }, this.$slots);
         }),
       ];
     }

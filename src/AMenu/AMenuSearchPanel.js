@@ -73,7 +73,7 @@ export default {
                 dataProParentChildren: this.dataProParentChildren,
                 idsSearchVisible: this.idsSearchVisible,
                 modelSearch: this.modelSearch,
-              });
+              }, this.$slots);
             }),
           ]),
       ]);

@@ -63,6 +63,14 @@ export default {
     const dataProParentChildren = toRef(props, "dataProParentChildren");
 
     const togglePanel = inject("togglePanel");
+    const keySlot = inject("keySlot");
+
+    const currentSlot = computed(() => {
+      if (keySlot.value) {
+        return get(item.value, keySlot.value);
+      }
+      return undefined;
+    });
 
     const isLinkVisible = computed(() => {
       if (isLinkInSearchPanel.value) {
@@ -137,6 +145,7 @@ export default {
     return {
       clickLink,
       countChildren,
+      currentSlot,
       icon,
       isLinkVisible,
       label,
@@ -171,34 +180,44 @@ export default {
     return h("dd", {
       class: "a_menu__listitem",
     }, [
-      this.item.to ?
-        h(resolveComponent("RouterLink"), {
-          class: "a_menu__link",
-          to: this.item.to,
-          tabindex: this.isPanelOpen ? 0 : -1,
-          onClick: this.clickLink,
-        }, () => ICON_AND_TEXT) :
-        h("a", {
-          class: "a_menu__link a_menu__link_btn",
-          ariaLabel: "Untermenü öffnen",
-          role: "button",
-          tabindex: this.isPanelOpen ? 0 : -1,
-          onClick: this.openSubMenu,
-          onKeydown: this.onKeydown,
-        }, [
-          h("span", {
-            class: "a_menu__link__counter",
+      this.currentSlot && this.$slots[this.currentSlot] ?
+        this.$slots[this.currentSlot]({
+          item: this.item,
+          isPanelOpen: this.isPanelOpen,
+          clickLink: this.clickLink,
+          openSubMenu: this.openSubMenu,
+          countChildren: this.countChildren,
+          label: this.label,
+          labelWithoutFilter: this.labelWithoutFilter,
+        }) :
+        this.item.to ?
+          h(resolveComponent("RouterLink"), {
+            class: "a_menu__link",
+            to: this.item.to,
+            tabindex: this.isPanelOpen ? 0 : -1,
+            onClick: this.clickLink,
+          }, () => ICON_AND_TEXT) :
+          h("a", {
+            class: "a_menu__link a_menu__link_btn",
+            ariaLabel: "Untermenü öffnen",
+            role: "button",
+            tabindex: this.isPanelOpen ? 0 : -1,
+            onClick: this.openSubMenu,
+            onKeydown: this.onKeydown,
           }, [
             h("span", {
-              ariaHidden: true, // TODO: ariaLabel
-            }, this.countChildren),
-            h(AIcon, {
-              class: "a_menu__link__counter__icon",
-              icon: "ChevronRight",
-            })
+              class: "a_menu__link__counter",
+            }, [
+              h("span", {
+                ariaHidden: true, // TODO: ariaLabel
+              }, this.countChildren),
+              h(AIcon, {
+                class: "a_menu__link__counter__icon",
+                icon: "ChevronRight",
+              })
+            ]),
+            ...ICON_AND_TEXT,
           ]),
-          ...ICON_AND_TEXT,
-        ]),
     ]);
   },
 };
