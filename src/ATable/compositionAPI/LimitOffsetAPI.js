@@ -26,7 +26,7 @@ export default function LimitOffsetAPI(props, { emit }, {
     offset.value = offsetStart.value;
     emit("changeLimit", {
       offset: offset.value,
-      limit,
+      limit: limitLocal,
     });
     setEmptySelectedRowsIndexes();
     closePreviewAll();
