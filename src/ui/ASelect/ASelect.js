@@ -20,6 +20,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import ASelectDataAPI from "./compositionAPI/ASelectDataAPI";
 import ASelectModelChangeAPI from "./compositionAPI/ASelectModelChangeAPI";
 import ASelectSearchAPI from "./compositionAPI/ASelectSearchAPI";
+import ASelectSelectedTitleAPI from "./compositionAPI/ASelectSelectedTitleAPI";
 import ASelectToggleAPI from "./compositionAPI/ASelectToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
@@ -296,6 +297,18 @@ export default {
       dataLocal,
     });
 
+    const {
+      hasSelectedTitle,
+      selectedTitle,
+    } = ASelectSelectedTitleAPI(props, {
+      isModelValue,
+      isMultiselect,
+      isModelLengthLimitExceeded,
+      modelValue,
+      modelValueLength,
+      dataKeyByKeyIdLocal,
+    });
+
     const isSelectAll = toRef(props, "isSelectAll");
     const isDeselectAll = toRef(props, "isDeselectAll");
     const isDividerSelectDeselectVisible = computed(() => {
@@ -358,6 +371,9 @@ export default {
       onKeydownSelectAll,
       onSelectAll,
 
+      hasSelectedTitle,
+      selectedTitle,
+
       buttonRef,
       handleKeydown,
       isOpen,
@@ -418,6 +434,11 @@ export default {
               onBlur: this.onBlur,
               ...this.attributesDisabled,
             }, [
+              this.hasSelectedTitle && h("span", {
+                class: "a_position_absolute_all",
+                ariaHidden: true,
+                title: this.selectedTitle,
+              }),
               this.isModelValue ?
                 this.isMultiselect ?
                   this.isSelectionCloseable ?
