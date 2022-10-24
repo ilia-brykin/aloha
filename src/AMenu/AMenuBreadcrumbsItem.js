@@ -55,6 +55,11 @@ export default {
       h("span", {
         ariaHidden: true,
       }, this.label),
+      h("span", {
+        class: "a_position_absolute_all",
+        ariaHidden: true,
+        title: this.label
+      }),
     ]);
   },
 };

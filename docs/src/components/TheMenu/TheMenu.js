@@ -149,6 +149,20 @@ export default {
           icon: "Duplicate",
         },
         {
+          id: "accordion2",
+          label: "Accordion seeeeeehr lange name",
+          icon: "Duplicate",
+          children: [
+            {
+              id: "accordion3",
+              label: "Accordion",
+              to: {
+                name: "PageAccordion",
+              },
+            },
+          ],
+        },
+        {
           id: "alert",
           label: "Alert",
           to: {
