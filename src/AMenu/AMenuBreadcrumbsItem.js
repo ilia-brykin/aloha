@@ -13,6 +13,10 @@ export default {
       type: [String, Number],
       required: true,
     },
+    isBreadcrumbsLinkTruncated: {
+      type: Boolean,
+      required: true,
+    },
     panelParentId: {
       type: [String, Number],
       required: true,
@@ -53,13 +57,19 @@ export default {
         class: "a_mr_2",
       }),
       h("span", {
-        ariaHidden: true,
-      }, this.label),
-      h("span", {
-        class: "a_position_absolute_all",
-        ariaHidden: true,
-        title: this.label
-      }),
+        class: {
+          a_menu__link__text_truncated: this.isBreadcrumbsLinkTruncated,
+        },
+      }, [
+        h("span", {
+          ariaHidden: true,
+        }, this.label),
+        h("span", {
+          class: "a_position_absolute_all",
+          ariaHidden: true,
+          title: this.label
+        }),
+      ]),
     ]);
   },
 };

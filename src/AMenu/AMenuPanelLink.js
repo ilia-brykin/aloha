@@ -63,6 +63,7 @@ export default {
     const dataProParentChildren = toRef(props, "dataProParentChildren");
 
     const togglePanel = inject("togglePanel");
+    const isLinkTruncated = inject("isLinkTruncated");
     const keySlot = inject("keySlot");
 
     const currentSlot = computed(() => {
@@ -147,6 +148,7 @@ export default {
       countChildren,
       currentSlot,
       icon,
+      isLinkTruncated,
       isLinkVisible,
       label,
       labelWithoutFilter,
@@ -192,13 +194,13 @@ export default {
         }) :
         this.item.to ?
           h(resolveComponent("RouterLink"), {
-            class: "a_menu__link",
+            class: "a_menu__link a_menu__link__text_truncated",
             to: this.item.to,
             tabindex: this.isPanelOpen ? 0 : -1,
             onClick: this.clickLink,
           }, () => ICON_AND_TEXT) :
           h("a", {
-            class: "a_menu__link a_menu__link_btn",
+            class: "a_menu__link a_menu__link_btn a_menu__link__text_truncated",
             ariaLabel: "Untermenü öffnen",
             role: "button",
             tabindex: this.isPanelOpen ? 0 : -1,

@@ -155,7 +155,7 @@ export default {
           children: [
             {
               id: "accordion3",
-              label: "Accordion",
+              label: "Accordion seeeeeehr lange name",
               to: {
                 name: "PageAccordion",
               },

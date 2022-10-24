@@ -32,16 +32,16 @@ export default {
       required: false,
       default: 991,
     },
+    buttonToggleClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
     buttonToggleVisible: {
       type: String,
       required: false,
       default: "always",
       validator: value => ["always", "mobile", "desktop"].indexOf(value) !== -1,
-    },
-    buttonToggleClass: {
-      type: [String, Object],
-      required: false,
-      default: "a_btn a_btn_secondary",
     },
     data: {
       type: Array,
@@ -62,6 +62,16 @@ export default {
       required: false,
       default: true,
     },
+    isBreadcrumbsLinkTruncated: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isLinkTruncated: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isOpenDefault: {
       type: Boolean,
       required: false,
@@ -72,6 +82,11 @@ export default {
       required: false,
       default: true,
     },
+    keyChildren: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     keyGroup: {
       type: String,
       required: false,
@@ -81,11 +96,6 @@ export default {
       type: String,
       required: false,
       default: "icon",
-    },
-    keyChildren: {
-      type: String,
-      required: false,
-      default: undefined,
     },
     keyId: {
       type: String,
@@ -114,6 +124,8 @@ export default {
     },
   },
   setup(props) {
+    const isLinkTruncated = toRef(props, "isLinkTruncated");
+
     const {
       dataKeyById,
       dataProParent,
@@ -169,6 +181,7 @@ export default {
       }
     });
 
+    provide("isLinkTruncated", computed(() => isLinkTruncated.value));
     provide("clickMenuLink", clickMenuLink);
     provide("togglePanel", togglePanel);
 
@@ -213,6 +226,7 @@ export default {
             isBreadcrumbsAll: this.isBreadcrumbsAll,
             panelParentsOpen: this.panelParentsOpen,
             isSearchActive: this.isSearchActive,
+            isBreadcrumbsLinkTruncated: this.isBreadcrumbsLinkTruncated,
           }),
         ]),
         h("div", {

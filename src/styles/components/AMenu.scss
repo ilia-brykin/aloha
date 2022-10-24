@@ -175,9 +175,6 @@ $a_menu_breakpoint_mobile: 991px;
   flex-basis: 10%;
   display: block;
   padding: var(--a_menu_link_padding_y) var(--a_menu_link_padding_x);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   cursor: pointer;
   &,
   &:active,
@@ -195,6 +192,11 @@ $a_menu_breakpoint_mobile: 991px;
     outline: 0;
     box-shadow: inset 0 0 1px 4px var(--a_menu_icon_focus_shadow_color);
   }
+}
+.a_menu__link__text_truncated {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .a_menu__link_selected {
   background-color: var(--a_menu_link_selected_bg);
@@ -356,4 +358,6 @@ $a_menu_breakpoint_mobile: 991px;
 }
 .a_menu__breadcrumbs__item {
   position: relative;
+  display: flex;
+  align-items: center;
 }

@@ -20,6 +20,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    isBreadcrumbsLinkTruncated: {
+      type: Boolean,
+      required: true,
+    },
     isSearchActive: {
       type: Boolean,
       required: true,
@@ -76,6 +80,7 @@ export default {
         return h(AMenuBreadcrumbsItem, {
           label: breadcrumbsItem.label,
           panelParentId: breadcrumbsItem.panelParentId,
+          isBreadcrumbsLinkTruncated: this.isBreadcrumbsLinkTruncated,
         });
       }),
     ]);

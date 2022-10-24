@@ -2,6 +2,7 @@ a-menu(
   :data="menuItems"
   button-toggle-visible="always"
   :is-blocker-clickable="true"
+  :is-breadcrumbs-link-truncated="false"
   key-children="children"
   key-slot="slot"
 )
@@ -11,11 +12,3 @@ a-menu(
     span(
       v-html="label"
     )
-
-//.the_menu
-//  ul.the_menu__ul
-//    the-menu-item(
-//      v-for="item in menuItems"
-//      :key="item.id"
-//      :data="item"
-//    )
