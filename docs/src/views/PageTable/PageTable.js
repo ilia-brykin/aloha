@@ -23,6 +23,7 @@ export default {
           grow: 2,
           footerSlot: "footerAloha",
           class: "a_justify_content_end",
+          isRender: false,
         },
         {
           label: "Aloha frei dsfdsfdsf sdfdsfdsfdsfsd",

@@ -3,13 +3,13 @@ import {
   h,
   provide,
   ref,
-  toRef,
 } from "vue";
 
 import AGet from "../AGet/AGet";
 import ALoading from "../ALoading/ALoading";
 import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
 import ATableFilterCenter from "./ATableFilterCenter/ATableFilterCenter";
+import ATableFiltersTop from "./ATableFiltersTop/ATableFiltersTop";
 import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePagination from "./ATablePagination/ATablePagination";
 import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
@@ -21,6 +21,7 @@ import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
+import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
 import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
 
 import {
@@ -29,15 +30,12 @@ import {
 } from "./utils/utils";
 import {
   cloneDeep,
-  forEach,
   get,
   isArray,
   isNil,
   isPlainObject,
-  keyBy,
   uniqueId,
 } from "lodash-es";
-import ATableFiltersTop from "./ATableFiltersTop/ATableFiltersTop";
 
 
 export default {
@@ -262,21 +260,12 @@ export default {
     };
   },
   setup(props, context) {
-    const columns = toRef(props, "columns");
-
     const tableGrandparentRef = ref(undefined);
-    const modelColumnsOrderingLocal = ref([]);
 
-    const columnsKeyById = computed(() => {
-      return keyBy(columns.value, "id");
-    });
-    const columnsOrdered = computed(() => {
-      const COLUMNS = [];
-      forEach(modelColumnsOrderingLocal.value, columnId => {
-        COLUMNS.push(columnsKeyById.value[columnId]);
-      });
-      return COLUMNS;
-    });
+    const {
+      columnsOrdered,
+      modelColumnsOrderingLocal,
+    } = TableColumnsAPI(props);
 
     const modelColumnsVisibleLocal = ref([]);
     const modelColumnsVisibleMapping = computed(() => {
