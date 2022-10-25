@@ -45,7 +45,6 @@ export default {
   inject: [
     "columnsDefaultValue",
     "hasPreview",
-    "modelColumnsVisibleMapping",
     "onTogglePreview",
     "rowsLocal",
     "valuesForColumnDefault",

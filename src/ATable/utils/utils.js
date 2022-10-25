@@ -3,11 +3,9 @@ import {
 } from "lodash-es";
 
 export function getModelColumnsVisibleDefault(columns) {
-  const MODEL_COLUMNS_VISIBLE = [];
+  const MODEL_COLUMNS_VISIBLE = {};
   columns.forEach(column => {
-    if (!column.hide) {
-      MODEL_COLUMNS_VISIBLE.push(column.id);
-    }
+    MODEL_COLUMNS_VISIBLE[column.id] = !column.hide;
   });
   return MODEL_COLUMNS_VISIBLE;
 }

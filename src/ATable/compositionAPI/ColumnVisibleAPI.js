@@ -12,12 +12,15 @@ export default function ColumnVisibleAPI(props) {
   const column = toRef(props, "column");
   const columnIndex = toRef(props, "columnIndex");
   const indexFirstScrollInvisibleColumn = inject("indexFirstScrollInvisibleColumn", undefined);
-  const modelColumnsVisibleMapping = inject("modelColumnsVisibleMapping", {});
+  const modelColumnsVisibleLocal = inject("modelColumnsVisibleLocal", {});
   const modelIsTableWithoutScroll = inject("modelIsTableWithoutScroll");
 
 
   const isVisibleFromModel = computed(() => {
-    return !!modelColumnsVisibleMapping.value[column.value.id];
+    if (column.value.id in modelColumnsVisibleLocal.value) {
+      return !!modelColumnsVisibleLocal.value[column.value.id];
+    }
+    return !column.value.hide;
   });
 
   const isVisibleFromScroll = computed(() => {

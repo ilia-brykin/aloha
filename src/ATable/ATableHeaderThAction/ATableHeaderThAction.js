@@ -71,15 +71,17 @@ export default {
   },
   methods: {
     selectAllColumns() {
-      this.changeModelColumnsVisible(this.columnsOrdered.map(column => column.id));
+      const MODEL_COLUMNS_VISIBLE = {};
+      forEach(this.columnsOrdered, column => {
+        MODEL_COLUMNS_VISIBLE[column.id] = true;
+      });
+      this.changeModelColumnsVisible(MODEL_COLUMNS_VISIBLE);
     },
 
     deselectAllColumns() {
-      const MODEL_COLUMNS_VISIBLE = [];
+      const MODEL_COLUMNS_VISIBLE = {};
       forEach(this.columnsOrdered, column => {
-        if (column.locked) {
-          MODEL_COLUMNS_VISIBLE.push(column.id);
-        }
+        MODEL_COLUMNS_VISIBLE[column.id] = !!column.locked;
       });
       this.changeModelColumnsVisible(MODEL_COLUMNS_VISIBLE);
     },

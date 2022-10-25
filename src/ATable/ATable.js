@@ -22,11 +22,12 @@ import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
 import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
+import TableColumnsVisibleAPI from "./compositionAPI/TableColumnsVisibleAPI";
 import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
+import TableColumnsVisibleFunctionAPI from "./compositionAPI/TableColumnsVisibleFunctionAPI";
 
 import {
   getModelColumnsOrderingDefault,
-  getModelColumnsVisibleDefault,
 } from "./utils/utils";
 import {
   cloneDeep,
@@ -155,9 +156,9 @@ export default {
       default: () => [],
     },
     modelColumnsVisible: {
-      type: Array,
+      type: Object,
       required: false,
-      default: () => [],
+      default: () => ({}),
     },
     modelFilters: {
       type: Object,
@@ -267,14 +268,9 @@ export default {
       modelColumnsOrderingLocal,
     } = TableColumnsAPI(props);
 
-    const modelColumnsVisibleLocal = ref([]);
-    const modelColumnsVisibleMapping = computed(() => {
-      const MODEL_COLUMNS = {};
-      modelColumnsVisibleLocal.value.forEach(columnId => {
-        MODEL_COLUMNS[columnId] = true;
-      });
-      return MODEL_COLUMNS;
-    });
+    const {
+      modelColumnsVisibleLocal,
+    } = TableColumnsVisibleAPI();
 
     const {
       hasRows,
@@ -311,7 +307,15 @@ export default {
     } = ScrollControlAPI(props, context, {
       columnsOrdered,
       isMultipleActionsActive,
-      modelColumnsVisibleMapping,
+      modelColumnsVisibleLocal,
+    });
+
+    const {
+      changeModelColumnsVisible,
+      initModelColumnsVisibleLocal,
+    } = TableColumnsVisibleFunctionAPI(props, context, {
+      modelColumnsVisibleLocal,
+      checkVisibleColumns,
     });
 
     const {
@@ -360,7 +364,6 @@ export default {
       offset,
     });
 
-
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("columnsOrdered", columnsOrdered);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
@@ -375,7 +378,6 @@ export default {
 
     provide("rowsLocal", rowsLocal);
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
-    provide("modelColumnsVisibleMapping", modelColumnsVisibleMapping);
     provide("onUpdateModelFilters", onUpdateModelFilters);
     provide("updateDataKeyByIdFromFilter", updateDataKeyByIdFromFilter);
 
@@ -388,6 +390,8 @@ export default {
       modelColumnsOrderingLocal,
       modelColumnsVisibleLocal,
       modelIsTableWithoutScroll,
+      initModelColumnsVisibleLocal,
+      changeModelColumnsVisible,
 
       closePreview,
       closePreviewAll,
@@ -482,14 +486,6 @@ export default {
       }
     },
 
-    initModelColumnsVisibleLocal() {
-      if (this.modelColumnsVisible.length) {
-        this.modelColumnsVisibleLocal = cloneDeep(this.modelColumnsVisible);
-      } else {
-        this.changeModelColumnsVisible(getModelColumnsVisibleDefault(this.columns));
-      }
-    },
-
     changeModelSort({ sortId }) {
       if (this.modelSort === sortId) {
         this.modelSort = `-${ sortId }`;
@@ -503,12 +499,6 @@ export default {
       });
       this.setEmptySelectedRowsIndexes();
       this.closePreviewAll();
-    },
-
-    changeModelColumnsVisible(value) {
-      this.modelColumnsVisibleLocal = value;
-      this.$emit("update:modelColumnsVisible", cloneDeep(this.modelColumnsVisibleLocal));
-      this.checkVisibleColumns();
     },
 
     changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver }) {

@@ -39,7 +39,6 @@ export default {
     "isColumnsDnd",
     "isLoadingOptions",
     "isLoadingTable",
-    "modelColumnsVisibleMapping",
   ],
   setup(props, context) {
     const {

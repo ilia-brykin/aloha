@@ -15,11 +15,22 @@ import {
 export default function ScrollControlAPI(props, { emit }, {
   columnsOrdered = computed(() => []),
   isMultipleActionsActive = ref(undefined),
-  modelColumnsVisibleMapping = computed(() => ({})),
+  modelColumnsVisibleLocal = ref({}),
 }) {
   const columnWidthDefault = toRef(props, "columnWidthDefault");
   const columnActionsWidth = toRef(props, "columnActionsWidth");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
+
+  const isColumnVisible = ({ column }) => {
+    if (column.isRender === false) {
+      return false;
+    }
+    const COLUMN_ID = column.id;
+    if (COLUMN_ID in modelColumnsVisibleLocal.value) {
+      return !!modelColumnsVisibleLocal.value[COLUMN_ID];
+    }
+    return !column.hide;
+  };
 
   const columnActionsWidthLocal = computed(() => {
     if (isActionColumnVisible.value) {
@@ -65,7 +76,7 @@ export default function ScrollControlAPI(props, { emit }, {
       const COLUMNS_SCROLL_VISIBLE = [];
       for (let i = indexFirstScrollInvisibleColumn.value; i < columnsOrdered.value.length; i++) {
         const COLUMN = columnsOrdered.value[i];
-        if (modelColumnsVisibleMapping.value[COLUMN.id] && COLUMN.isRender !== false) {
+        if (isColumnVisible({ column: COLUMN })) {
           COLUMNS_SCROLL_VISIBLE.push(cloneDeep(COLUMN));
         }
       }
@@ -80,11 +91,7 @@ export default function ScrollControlAPI(props, { emit }, {
     let indexFirstScrollInvisibleColumnLocal = 0;
     let sumGrows = 0;
     forEach(columnsOrdered.value, column => {
-      if (column.isRender === false) {
-        indexFirstScrollInvisibleColumnLocal++;
-        return;
-      }
-      if (!modelColumnsVisibleMapping.value[column.id]) {
+      if (!isColumnVisible({ column })) {
         indexFirstScrollInvisibleColumnLocal++;
         return;
       }

@@ -49,7 +49,6 @@ export default {
     "isLoadingOptions",
     "isLoadingTable",
     "modelColumnsVisibleLocal",
-    "modelColumnsVisibleMapping",
     "tableId",
   ],
   setup(props, context) {
@@ -115,7 +114,7 @@ export default {
     },
 
     isColumnVisible() {
-      return this.modelColumnsVisibleMapping[this.columnId];
+      return this.modelColumnsVisibleLocal[this.columnId];
     },
 
     arrowButtons() {
@@ -184,12 +183,7 @@ export default {
     toggleColumnVisible($event) {
       $event.stopPropagation();
       const MODEL_COLUMNS = cloneDeep(this.modelColumnsVisibleLocal);
-      const INDEX = MODEL_COLUMNS.indexOf(this.columnId);
-      if (INDEX !== -1) {
-        MODEL_COLUMNS.splice(INDEX, 1);
-      } else {
-        MODEL_COLUMNS.push(this.columnId);
-      }
+      MODEL_COLUMNS[this.columnId] = !MODEL_COLUMNS[this.columnId];
       this.changeModelColumnsVisible(MODEL_COLUMNS);
     },
 
@@ -220,7 +214,6 @@ export default {
           columnIndex: columnIndexOver,
           iconKey: "down",
         }) }`;
-        console.log("NEW_ID", NEW_ID);
         setFocusToElement(NEW_ID);
       });
     },
