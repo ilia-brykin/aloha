@@ -54,7 +54,7 @@ export default function TableColumnsAPI(props) {
 
     forEach(MODEL_COLUMNS_ORDERING_LOCAL, columnId => {
       if (COLUMNS_KEY_BY_ID[columnId]) {
-        COLUMNS.push(columnsKeyById.value[columnId]);
+        COLUMNS.push(COLUMNS_KEY_BY_ID[columnId]);
         delete COLUMNS_KEY_BY_ID[columnId];
       }
     });
