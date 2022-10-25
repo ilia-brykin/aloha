@@ -230,6 +230,9 @@ export default {
     },
   },
   render() {
+    if (this.column.isRender === false) {
+      return "";
+    }
     return h("li", this.attributesLi, [
       h("div", {
         class: "a_dropdown__item_text a_table__th__dropdown_item a_text_nowrap",
