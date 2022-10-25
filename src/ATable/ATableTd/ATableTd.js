@@ -142,9 +142,18 @@ export default {
         const TO = cloneDeep(this.column.to);
         const PARAMS = TO.params || {};
         if (this.column.to.paramsDynamic) {
+          let hasParamsDynamicError = false;
           forEach(this.column.to.paramsDynamic, (value, key) => {
-            PARAMS[key] = get(this.row, value);
+            const PARAMS_VALUE = get(this.row, value);
+            if (isUndefined(PARAMS_VALUE)) {
+              hasParamsDynamicError = true;
+              return false;
+            }
+            PARAMS[key] = PARAMS_VALUE;
           });
+          if (hasParamsDynamicError) {
+            return undefined;
+          }
         }
         TO.params = PARAMS;
         return TO;
@@ -177,7 +186,7 @@ export default {
           row: this.row,
           rowIndex: this.rowIndex,
           rows: this.rowsLocal,
-        }) : this.isLink ? [
+        }) : (this.isLink && this.toLocal) ? [
           h(resolveComponent("RouterLink"), {
             class: [this.column.class, this.classForLink],
             to: this.toLocal,

@@ -7,7 +7,7 @@ import AIcon from "../../AIcon/AIcon";
 import {
   cloneDeep,
   forEach, get,
-  isFunction, isPlainObject, isString,
+  isFunction, isPlainObject, isString, isUndefined,
 } from "lodash-es";
 
 export default {
@@ -99,9 +99,18 @@ export default {
         const TO = cloneDeep(this.rowAction.to);
         const PARAMS = TO.params || {};
         if (this.rowAction.to.paramsDynamic) {
+          let hasParamsDynamicError = false;
           forEach(this.rowAction.to.paramsDynamic, (value, key) => {
-            PARAMS[key] = get(this.row, value);
+            const PARAMS_VALUE = get(this.row, value);
+            if (isUndefined(PARAMS_VALUE)) {
+              hasParamsDynamicError = true;
+              return false;
+            }
+            PARAMS[key] = PARAMS_VALUE;
           });
+          if (hasParamsDynamicError) {
+            return undefined;
+          }
         }
         TO.params = PARAMS;
         return TO;
@@ -181,12 +190,14 @@ export default {
     if (this.rowAction.type === "link") {
       return h("li", null, [
         this.rowAction.to ?
-          h(resolveComponent("RouterLink"), {
-            id: this.idLocal,
-            class: ["a_dropdown__item a_table__row_action", this.classLocal],
-            to: this.toLocal,
-            ...this.targetObject,
-          }, () => CONTENT) :
+          this.toLocal ?
+            h(resolveComponent("RouterLink"), {
+              id: this.idLocal,
+              class: ["a_dropdown__item a_table__row_action", this.classLocal],
+              to: this.toLocal,
+              ...this.targetObject,
+            }, () => CONTENT) :
+            "" :
           h("a", {
             id: this.idLocal,
             class: ["a_dropdown__item a_table__row_action", this.classLocal],
