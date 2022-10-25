@@ -482,7 +482,10 @@ export default {
       if (this.modelColumnsOrdering.length) {
         this.modelColumnsOrderingLocal = cloneDeep(this.modelColumnsOrdering);
       } else {
-        this.changeColumnsOrdering({ modelColumnsOrderingLocal: getModelColumnsOrderingDefault(this.columns) });
+        this.changeColumnsOrdering({
+          modelColumnsOrderingLocal: getModelColumnsOrderingDefault(this.columns),
+          isFirst: true,
+        });
       }
     },
 
@@ -501,7 +504,7 @@ export default {
       this.closePreviewAll();
     },
 
-    changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver }) {
+    changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver, isFirst }) {
       if (columnIndexDraggable === columnIndexOver && !modelColumnsOrderingLocal) {
         return;
       }
@@ -516,6 +519,7 @@ export default {
         columnIndexDraggable,
         columnIndexOver,
         modelColumnsOrdering: cloneDeep(this.modelColumnsOrderingLocal),
+        isFirst,
       });
       this.checkVisibleColumns();
     },
