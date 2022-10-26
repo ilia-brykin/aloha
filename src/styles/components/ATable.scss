@@ -147,12 +147,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  white-space: nowrap;
 }
 .a_table__th__dropdown_item__child {
   position: relative;
   flex-grow: 1;
   padding-right: 25px;
   display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  white-space: normal;
 }
 .a_table__th__dropdown_item__btn_arrow {
   position: absolute;

@@ -26,7 +26,7 @@ export default {
           isRender: true,
         },
         {
-          label: "Aloha frei dsfdsfdsf sdfdsfdsfdsfsd",
+          label: "Alohafreidsfdsfdsfsdfdsfdsfdsfsd",
           id: "aloha1",
           path: "aloha",
           sortId: "aloha",

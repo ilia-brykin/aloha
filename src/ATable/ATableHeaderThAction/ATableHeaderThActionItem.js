@@ -228,10 +228,10 @@ export default {
     }
     return h("li", this.attributesLi, [
       h("div", {
-        class: "a_dropdown__item_text a_table__th__dropdown_item a_text_nowrap",
+        class: "a_dropdown__item_text a_table__th__dropdown_item",
       }, [
         h("div", {
-          class: "a_table__th__dropdown_item__child a_text_wrap",
+          class: "a_table__th__dropdown_item__child",
         }, [
           h(this.tagIconParent, this.attributesIconParent, [
             h(AIcon, {
