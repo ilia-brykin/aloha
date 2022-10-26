@@ -104,6 +104,7 @@ export default {
             MODEL_VALUES.push({
               label: filterDataKey.value[modelItem][AKeyLabel],
               value: modelItem,
+              item: filterDataKey.value[modelItem],
             });
           }
         });
@@ -161,7 +162,7 @@ export default {
             }, this.filterLabel),
             this.filter.slotName && this.$slots[this.filter.slotName] ?
               this.$slots[this.filter.slotName]({
-                item: this.filter,
+                item: modelValue.item,
                 label: modelValue.label,
               }) :
               h("span", {}, modelValue.label),
