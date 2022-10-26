@@ -159,7 +159,12 @@ export default {
             h("strong", {
               class: "a_table__filters_center__item__label",
             }, this.filterLabel),
-            h("span", {}, modelValue.label),
+            this.filter.slotName && this.$slots[this.filter.slotName] ?
+              this.$slots[this.filter.slotName]({
+                item: this.filter,
+                label: modelValue.label,
+              }) :
+              h("span", {}, modelValue.label),
           ]),
           h("button", {
             class: "a_btn a_btn_secondary",

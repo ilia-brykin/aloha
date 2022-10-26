@@ -153,14 +153,14 @@ export default {
               key: filter.id,
               filter,
               modelFilters: this.modelFilters,
-            });
+            }, this.$slots);
           }),
           this.filtersVisible.map(filter => {
             return h(ATableFiltersTopFilter, {
               key: filter.id,
               filter: filter,
               modelFilters: this.modelFilters,
-            });
+            }, this.$slots);
           }),
           h("div", {}, [
             BUTTON_SEARCH,

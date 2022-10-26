@@ -91,7 +91,7 @@ export default {
         filter: this.filter,
         modelFilters: this.modelFilters,
         isLabelVisible: this.isLabelInComponentVisible,
-      }),
+      }, this.$slots),
     ]);
   },
 };

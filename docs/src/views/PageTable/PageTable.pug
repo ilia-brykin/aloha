@@ -49,6 +49,22 @@ div
     )
       strong {{ rows.length }}
 
+
+    template(
+      v-slot:termin="{ label, labelFiltered }"
+    )
+      a-icon.a_mr_1(
+        icon="Cog"
+      )
+      span(
+        v-if="labelFiltered"
+        v-html="labelFiltered"
+      )
+      span(
+        v-else
+        v-html="label"
+      )
+
   span modelQuickSearch: {{ modelQuickSearch }}
   div modelFilters:
   pre {{ modelFilters }}

@@ -1,6 +1,5 @@
-import {
-  ATable,
-} from "../../../../dist";
+import AIcon from "../../../../src/AIcon/AIcon";
+import ATable from "../../../../src/ATable/ATable";
 
 import {
   times,
@@ -9,6 +8,7 @@ import {
 export default {
   name: "PageTable",
   components: {
+    AIcon,
     ATable,
   },
   data() {
@@ -267,6 +267,7 @@ export default {
           keyId: "id",
           search: true,
           alwaysVisible: true,
+          slotName: "termin",
         },
       ],
     };

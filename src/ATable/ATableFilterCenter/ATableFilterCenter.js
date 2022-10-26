@@ -86,7 +86,7 @@ export default {
           closeFilterValue: this.closeFilterValue,
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
           model: this.modelFilters[filter.id],
-        });
+        }, this.$slots);
       }),
     ]);
   },

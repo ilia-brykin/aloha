@@ -545,7 +545,7 @@ export default {
         filtersKeyById: this.filtersKeyById,
         filtersVisibleAll: this.filtersVisibleAll,
         modelFilters: this.modelFilters,
-      }),
+      }, this.$slots),
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {

@@ -80,6 +80,6 @@ export default {
       ...this.filter,
       label: this.isLabelVisible ? this.filter.label : undefined,
       ...this.emitForComponentsWithData,
-    });
+    }, this.$slots);
   },
 };
