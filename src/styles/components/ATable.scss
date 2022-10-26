@@ -142,6 +142,7 @@
 .a_table__cell_action {
   justify-content: flex-end;
   flex-grow: 1;
+  min-width: 50px;
 }
 .a_table__th__dropdown_item {
   display: flex;
