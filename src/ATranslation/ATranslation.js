@@ -52,13 +52,23 @@ export default {
   },
   inject: ["i18n"],
   computed: {
+    textBeforeHtml() {
+      return this.textBefore ? `<span>${ this.textBefore }</span>` : "";
+    },
+
+    textAfterHtml() {
+      return this.textAfter ? `<span>${ this.textAfter }</span>` : "";
+    },
+
     htmlLocal() {
+      let html = this.html;
+
       if (this.isTranslateHtml) {
-        return this.getTranslatedText({
+        html = this.getTranslatedText({
           placeholder: this.html,
         });
       }
-      return this.html;
+      return `${ this.textBeforeHtml }${ html }${ this.textAfterHtml }`;
     },
 
     isTranslateHtml() {
