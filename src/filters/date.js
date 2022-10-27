@@ -4,6 +4,8 @@ import {
   isNil,
 } from "lodash-es";
 
+moment.suppressDeprecationWarnings = true;
+
 // TODO: Hier können wir die andere Formate für andere Sprachen definieren.
 const DATE_FORMAT = {
   date: () => "DD.MM.YYYY",
@@ -17,8 +19,12 @@ export default function(value, { parameter = "date" } = {}) {
   if (isNil(value) || value === "") {
     return "";
   }
+  const DATE = moment(String(value));
+  if (!DATE.isValid()) {
+    return value;
+  }
   if (isFunction(DATE_FORMAT[parameter])) {
     parameter = DATE_FORMAT[parameter]();
   }
-  return moment(String(value)).format(parameter);
+  return DATE.format(parameter);
 }
