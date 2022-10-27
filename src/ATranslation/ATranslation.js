@@ -61,6 +61,9 @@ export default {
     },
 
     htmlLocal() {
+      if (!this.html) {
+        return undefined;
+      }
       let html = this.html;
 
       if (this.isTranslateHtml) {
