@@ -26,6 +26,11 @@ export default {
       required: false,
       default: false,
     },
+    disabledSave: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     loading: {
       type: Boolean,
       required: false,
@@ -472,7 +477,7 @@ export default {
                 (!this.isSaveButtonHide && this.save) && h("button", {
                   type: "button",
                   class: this.saveButtonClass,
-                  disabled: this.disabledLocal,
+                  disabled: this.disabledLocal || this.disabledSave,
                   onClick: this.save,
                 }, [
                   h("span", null, this.saveButtonText),
