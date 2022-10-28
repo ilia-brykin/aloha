@@ -31,8 +31,22 @@ export default {
       type: Boolean,
       required: false,
     },
+    trueValue: {
+      type: [Boolean, String, Number],
+      required: false,
+      default: true,
+    },
+    falseValue: {
+      type: [Boolean, String, Number],
+      required: false,
+      default: undefined,
+    },
   },
   setup(props, context) {
+    const modelValue = toRef(props, "modelValue");
+    const trueValue = toRef(props, "trueValue");
+    const falseValue = toRef(props, "falseValue");
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -49,9 +63,8 @@ export default {
     } = UiAPI(props, context);
 
 
-    const modelValue = toRef(props, "modelValue");
     const isChecked = computed(() => {
-      return modelValue.value === true;
+      return modelValue.value === trueValue.value;
     });
 
     const disabled = toRef(props, "disabled");
@@ -60,8 +73,9 @@ export default {
         return;
       }
       setTimeout(() => {
+        const MODEL = isChecked.value ? falseValue.value : trueValue.value;
         changeModel({
-          model: !isChecked.value,
+          model: MODEL,
           $event,
         });
       });

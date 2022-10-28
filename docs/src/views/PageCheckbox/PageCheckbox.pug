@@ -3,12 +3,15 @@ div
   a-one-checkbox(
     v-model="model"
     label="aloha one checkbox"
+    true-value="aloha"
+    :false-value="undefined"
   )
   div model: {{ model }}
   a-one-checkbox(
     v-model="model1"
     label="aloha one checkbox"
     :is-width-auto="true"
+    :false-value="false"
   )
   div model1: {{ model1 }}
   a-checkbox(
