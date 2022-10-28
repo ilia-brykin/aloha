@@ -78,6 +78,12 @@ export default {
       EventBus.$off(eventName, onOpen);
     };
 
+    const submit = $event => {
+      console.log("$event", $event);
+      onSearch();
+      $event.preventDefault();
+    };
+
     initEventBus();
 
     onBeforeUnmount(() => {
@@ -90,6 +96,7 @@ export default {
       onSearch,
       onToggle,
       styleToggle,
+      submit,
       textToggle,
     };
   },
@@ -110,7 +117,9 @@ export default {
     return h("div", {
       class: "a_table__filters_top",
     }, [
-      h("form", null, [
+      h("form", {
+        onSubmit: this.submit,
+      }, [
         h("div", {
           class: "a_columns a_columns_count_12 a_columns_gab_2 a_align_items_center",
         }, [
