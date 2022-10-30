@@ -62,6 +62,9 @@
     background-color: var(--a_table_row_preview_focus_was_bg);
   }
 }
+.a_table__cell__child {
+  width: 100%;
+}
 .a_table__cell_checkbox {
   --a_table_cell_padding_x: 0;
 }

@@ -77,7 +77,6 @@ export default {
     classForTh() {
       return [
         "a_table__th a_table__cell",
-        this.column.class,
         {
           a_table__th_draggable: !this.isLocked && !this.isLoadingOptions && this.isColumnsDnd,
           a_table__th_sorting: this.isSorting,
@@ -184,15 +183,22 @@ export default {
       return "";
     }
     return h("div", this.attributesForTh, [
-      h(this.componentLocal, this.attributesForButton, [
-        h(ATranslation, {
-          text: this.column.label,
-          tag: "span",
-        }),
-        h("span", {
-          class: "a_table__th__sort__icons",
-        }, [
-          ...this.iconsSortable,
+      h("div", {
+        class: [
+          "a_table__cell__child",
+          this.column.class,
+        ],
+      }, [
+        h(this.componentLocal, this.attributesForButton, [
+          h(ATranslation, {
+            text: this.column.label,
+            tag: "span",
+          }),
+          h("span", {
+            class: "a_table__th__sort__icons",
+          }, [
+            ...this.iconsSortable,
+          ]),
         ]),
       ]),
     ]);

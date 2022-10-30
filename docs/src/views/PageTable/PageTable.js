@@ -22,7 +22,7 @@ export default {
           locked: true,
           grow: 2,
           footerSlot: "footerAloha",
-          class: "a_justify_content_end",
+          class: "a_text_right",
           isRender: true,
         },
         {

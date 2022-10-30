@@ -109,7 +109,6 @@ export default {
         role: "cell",
         class: [
           "a_table__td a_table__cell",
-          this.column.class,
           {
             a_table__cell_click: this.hasPreview && !this.isFooter,
           },
@@ -178,29 +177,38 @@ export default {
     }
     return h(
       "div", 
-      this.attributesForTd,
-      (this.isSlot && this.$slots[this.slot]) ?
-        this.$slots[this.slot]({
-          column: this.column,
-          columnIndex: this.columnIndex,
-          row: this.row,
-          rowIndex: this.rowIndex,
-          rows: this.rowsLocal,
-        }) : (this.isLink && this.toLocal) ? [
-          h(resolveComponent("RouterLink"), {
-            class: [this.column.class, this.classForLink],
-            to: this.toLocal,
-          }, () => [
-            h("span", {
-              innerHTML: this.text,
-            }),
-          ]),
-        ] :
-        [
-          h("span", {
-            innerHTML: this.text,
-          }),
-        ]
+      this.attributesForTd, 
+      [
+        h("div", {
+          class: [
+            "a_table__cell__child",
+            this.column.class,
+          ],
+        }, (this.isSlot && this.$slots[this.slot]) ?
+          this.$slots[this.slot]({
+            column: this.column,
+            columnIndex: this.columnIndex,
+            row: this.row,
+            rowIndex: this.rowIndex,
+            rows: this.rowsLocal,
+          }) :
+          (this.isLink && this.toLocal) ?
+            [
+              h(resolveComponent("RouterLink"), {
+                class: [this.column.class, this.classForLink],
+                to: this.toLocal,
+              }, () => [
+                h("span", {
+                  innerHTML: this.text,
+                }),
+              ]),
+            ] :
+            [
+              h("span", {
+                innerHTML: this.text,
+              }),
+            ])
+      ]
     );
   },
 };
