@@ -285,6 +285,7 @@ export default {
       areAllRowsSelected,
       areSomeRowsSelected,
       closeMultipleActionsActive,
+      currentMultipleActions,
       isMultipleActionsActive,
       selectedRows,
       selectedRowsIndexes,
@@ -368,6 +369,7 @@ export default {
     provide("columnsOrdered", columnsOrdered);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("columnsScrollInvisible", columnsScrollInvisible);
+    provide("currentMultipleActions", currentMultipleActions);
     provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
     provide("isMultipleActionsActive", isMultipleActionsActive);

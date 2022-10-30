@@ -170,10 +170,11 @@ export default {
         {
           label: "Aloha1 modal",
           title: "Aloha1 Title",
-          isHidden: false,
           callback: this.clickMeModal,
-          disabled: true,
+          disabled: false,
           icon: "Plus",
+          isHidden: false,
+          isHiddenCallback: this.isHiddenMultiple,
         },
       ],
       tableActions: [
@@ -287,6 +288,7 @@ export default {
       const DATA = [];
       times(1001, item => {
         DATA.push({
+          number: +item,
           aloha: `aloha1111dfdsfdsfdsfaasasadadsadasdsadsa1111111${ item }`,
           hola: `hola ${ item }`,
           geld: `${ item } €`,
@@ -318,6 +320,10 @@ export default {
       console.log("row: ", row);
       console.log("rowIndex: ", rowIndex);
       console.log("typeToggle: ", typeToggle);
+    },
+
+    isHiddenMultiple({ row }) {
+      return row.number % 2 === 0;
     },
   },
 };

@@ -5,6 +5,8 @@ import {
 
 import {
   filter,
+  get,
+  isFunction,
   size,
   times,
 } from "lodash-es";
@@ -14,7 +16,13 @@ export default function MultipleActionAPI({
   rowsLocalLength = computed(() => 0),
 }) {
   const isMultipleActionsActive = ref(undefined);
+  const currentMultipleActions = ref(undefined);
   const selectedRowsIndexes = ref({});
+
+  const hasCurrentMultipleActionsIsHiddenCallback = computed(() => {
+    return isFunction(get(currentMultipleActions.value, "isHiddenCallback"));
+  });
+
   const selectedRows = computed(() => {
     return filter(rowsLocal.value, (row, index) => {
       return selectedRowsIndexes.value[index];
@@ -27,10 +35,17 @@ export default function MultipleActionAPI({
 
   const closeMultipleActionsActive = () => {
     isMultipleActionsActive.value = false;
+    currentMultipleActions.value = undefined;
     setEmptySelectedRowsIndexes();
   };
 
-  const toggleMultipleActionsActive = () => {
+  const toggleMultipleActionsActive = ({ isActive, action } = {}) => {
+    if (isActive) {
+      isMultipleActionsActive.value = true;
+      currentMultipleActions.value = action;
+      return;
+    }
+
     if (isMultipleActionsActive.value) {
       closeMultipleActionsActive();
     } else {
@@ -56,9 +71,20 @@ export default function MultipleActionAPI({
         setEmptySelectedRowsIndexes();
       } else {
         const SELECTED_ROWS_INDEXES = {};
-        times(rowsLocalLength.value, index => {
-          SELECTED_ROWS_INDEXES[index] = true;
-        });
+        if (hasCurrentMultipleActionsIsHiddenCallback.value) {
+          times(rowsLocalLength.value, index => {
+            if (!currentMultipleActions.value.isHiddenCallback({
+              row: rowsLocal.value[index],
+              rowIndex: index,
+            })) {
+              SELECTED_ROWS_INDEXES[index] = true;
+            }
+          });
+        } else {
+          times(rowsLocalLength.value, index => {
+            SELECTED_ROWS_INDEXES[index] = true;
+          });
+        }
         selectedRowsIndexes.value = SELECTED_ROWS_INDEXES;
       }
       return;
@@ -74,6 +100,7 @@ export default function MultipleActionAPI({
     areAllRowsSelected,
     areSomeRowsSelected,
     closeMultipleActionsActive,
+    currentMultipleActions,
     isMultipleActionsActive,
     selectedRows,
     selectedRowsIndexes,

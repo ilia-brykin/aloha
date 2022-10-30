@@ -1,6 +1,6 @@
 import {
-  computed, inject,
-  ref,
+  computed,
+  inject,
   toRef,
 } from "vue";
 
@@ -20,6 +20,7 @@ export default function TableActionsAPI(props, { emit }) {
 
   const tableActions = toRef(props, "tableActions");
   const tableId = inject("tableId");
+  const currentMultipleActions = inject("currentMultipleActions");
   const buttonMultipleId = computed(() => {
     return `${ tableId.value }_btn_multiple`;
   });
@@ -57,16 +58,12 @@ export default function TableActionsAPI(props, { emit }) {
     return multipleActionsFiltered.value.length > 0;
   });
 
-  const currentMultipleActions = ref(undefined);
-
   const onClickMultipleActions = ({ action }) => {
-    emit("toggleMultipleActionsActive");
-    currentMultipleActions.value = action;
+    emit("toggleMultipleActionsActive", { isActive: true, action });
   };
 
   const onCancelMultipleActions = () => {
     emit("toggleMultipleActionsActive");
-    currentMultipleActions.value = undefined;
   };
 
   const closeMultipleActionsActive = toRef(props, "closeMultipleActionsActive");

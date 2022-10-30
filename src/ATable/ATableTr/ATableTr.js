@@ -1,10 +1,17 @@
 import {
+  computed,
   h,
+  inject, toRef,
 } from "vue";
 
 import ATableTd from "../ATableTd/ATableTd";
 import ATableTdAction from "../ATableTdAction/ATableTdAction";
 import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
+
+import {
+  get,
+  isFunction,
+} from "lodash-es";
 
 export default {
   name: "ATableTr",
@@ -29,11 +36,33 @@ export default {
   emits: [
     "setSelectedRowsIndexes",
   ],
+  setup(props) {
+    const row = toRef(props, "row");
+    const rowIndex = toRef(props, "rowIndex");
+    const currentMultipleActions = inject("currentMultipleActions");
+    const isMultipleActionsActive = inject("isMultipleActionsActive");
+
+    const isCheckboxDisabled = computed(() => {
+      if (isMultipleActionsActive.value) {
+        if (isFunction(get(currentMultipleActions.value, "isHiddenCallback"))) {
+          return currentMultipleActions.value.isHiddenCallback({
+            row: row.value,
+            rowIndex: rowIndex.value,
+          });
+        }
+      }
+      return false;
+    });
+
+    return {
+      isCheckboxDisabled,
+      isMultipleActionsActive,
+    };
+  },
   inject: [
     "columnsOrdered",
     "hasPreview",
     "isActionColumnVisible",
-    "isMultipleActionsActive",
     "previewRightRowIndex",
     "previewRightRowIndexLast",
     "tableId",
@@ -90,6 +119,7 @@ export default {
         !this.isFooter && h(AOneCheckbox, {
           isWidthAuto: true,
           modelValue: this.isRowSelected,
+          disabled: this.isCheckboxDisabled,
           "onUpdate:modelValue": this.toggleCheckbox,
         }),
       ]),
