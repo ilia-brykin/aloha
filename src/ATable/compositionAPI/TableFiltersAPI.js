@@ -131,6 +131,10 @@ export default function TableFiltersAPI(props, { emit }, {
       MODEL_FILTERS[filter.id] = undefined;
     }
     emit("update:modelFilters", MODEL_FILTERS);
+
+    setTimeout(() => {
+      onUpdateModelFilters({ model: modelFilters.value });
+    });
   };
 
   const updateDataKeyByIdFromFilter = ({ dataKeyByKeyId, filterId, }) => {
