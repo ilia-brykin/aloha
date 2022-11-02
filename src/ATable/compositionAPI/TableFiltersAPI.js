@@ -7,7 +7,7 @@ import {
 import AUiTypesModelArray from "../../ui/const/AUiTypesModelArray";
 import {
   cloneDeep,
-  forEach,
+  forEach, isFunction,
   keyBy,
 } from "lodash-es";
 
@@ -17,6 +17,8 @@ export default function TableFiltersAPI(props, { emit }, {
 }) {
   const modelFilters = toRef(props, "modelFilters");
   const offsetStart = toRef(props, "offsetStart");
+  const updateModelFiltersLocal = toRef(props, "updateModelFiltersLocal");
+
   const modelFiltersLocal = ref(cloneDeep(modelFilters.value));
   const filtersVisibleIds = ref([]);
   const dataKeyByKeyIdPerFilter = ref({});
@@ -90,14 +92,21 @@ export default function TableFiltersAPI(props, { emit }, {
   });
 
   const onUpdateModelFilters = ({ model }) => {
-    modelFiltersLocal.value = model;
-    emit("updateModelFiltersLocal", modelFiltersLocal.value);
+    if (isFunction(updateModelFiltersLocal.value)) {
+      modelFiltersLocal.value = updateModelFiltersLocal.value({ model });
+    } else {
+      modelFiltersLocal.value = model;
+    }
   };
 
   const startSearch = () => {
     offset.value = offsetStart.value;
     emit("update:modelFilters", modelFiltersLocal.value);
     closePreviewAll();
+
+    setTimeout(() => {
+      onUpdateModelFilters({ model: modelFilters.value });
+    });
   };
 
   const closeFilterValue = ({ filter, currentModel }) => {

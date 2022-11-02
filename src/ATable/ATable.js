@@ -226,6 +226,11 @@ export default {
       required: false,
       default: () => [null, undefined, ""],
     },
+    updateModelFiltersLocal: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "changeColumnsOrdering",
@@ -240,7 +245,6 @@ export default {
     "update:modelFilters",
     "update:modelQuickSearch",
     "updateModelIsTableWithoutScroll",
-    "updateModelFiltersLocal",
   ],
   provide() {
     return {

@@ -312,8 +312,9 @@ export default {
       }, 5000);
     },
 
-    updateModelFiltersLocal(model) {
+    updateModelFiltersLocal({ model }) {
       console.log("modelFiltersLocal", model);
+      return model;
     },
 
     togglePreview({ row, rowIndex, typeToggle }) {
