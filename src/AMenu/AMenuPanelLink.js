@@ -188,6 +188,7 @@ export default {
           isPanelOpen: this.isPanelOpen,
           clickLink: this.clickLink,
           openSubMenu: this.openSubMenu,
+          onKeydown: this.onKeydown,
           countChildren: this.countChildren,
           label: this.label,
           labelWithoutFilter: this.labelWithoutFilter,
