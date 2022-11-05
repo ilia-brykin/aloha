@@ -1,6 +1,7 @@
 import {
   computed,
-  h, inject,
+  h,
+  inject,
   toRef,
 } from "vue";
 
@@ -19,6 +20,7 @@ import {
 } from "../../utils/utils";
 import {
   forEach,
+  get,
   isArray,
   isNil,
 } from "lodash-es";
@@ -93,9 +95,13 @@ export default {
       }
       if (filter.value.type === "select" ||
         filter.value.type === "radio") {
-        return [{
-          label: filterDataKey.value[model.value][AKeyLabel],
-        }];
+        const LABEL = get(filterDataKey.value, `${ model.value }.${ AKeyLabel }`);
+        if (LABEL) {
+          return [{
+            label: LABEL,
+          }];
+        }
+        return [];
       }
       if (AUiTypesModelArray[filter.value.type]) {
         const MODEL_VALUES = [];
