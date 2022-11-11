@@ -5,14 +5,24 @@ import {
   toRef,
 } from "vue";
 
-export default function DragAndDropChildAPI(props, { emit }, { classOver = "" }) {
+export default function DragAndDropChildAPI(props, { emit }, {
+  classOverString = "",
+}) {
   const column = toRef(props, "column");
   const columnIndex = toRef(props, "columnIndex");
+  const columnIndexDraggable = toRef(props, "columnIndexDraggable");
 
   const isLoadingOptions = inject("isLoadingOptions");
   const isColumnsDnd = inject("isColumnsDnd");
 
   const root = ref(null);
+
+  const classOver = computed(() => {
+    if (columnIndexDraggable.value > columnIndex.value) {
+      return classOverString;
+    }
+    return `${ classOverString }_right`;
+  });
 
   const dragstart = $event => {
     $event.target.style.opacity = "0.4";
@@ -24,13 +34,13 @@ export default function DragAndDropChildAPI(props, { emit }, { classOver = "" })
 
   const dragend = $event => {
     $event.target.style.opacity = "1";
-    $event.target.classList.remove(classOver);
+    $event.target.classList.remove(classOver.value);
     emit("dragendParent");
   };
 
   const dragenter = () => {
-    if (root.value && root.value) {
-      root.value.classList.add(classOver);
+    if (root.value && root.value.classList) {
+      root.value.classList.add(classOver.value);
     }
     emit("dragenterParent", {
       columnIndex: columnIndex.value,
@@ -46,7 +56,7 @@ export default function DragAndDropChildAPI(props, { emit }, { classOver = "" })
 
   const dragleave = () => {
     if (root.value && root.value) {
-      root.value.classList.remove(classOver);
+      root.value.classList.remove(classOver.value);
     }
     emit("dragleaveParent", {
       columnIndex: columnIndex.value,

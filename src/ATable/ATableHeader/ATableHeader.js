@@ -39,6 +39,7 @@ export default {
   ],
   setup(props, { emit }) {
     const {
+      columnIndexDraggable,
       dragstart,
       dragenter,
       dragleave,
@@ -48,6 +49,7 @@ export default {
       root,
     } = DragAndDropParentAPI({
       classOver: "a_table__th_over",
+      classOverRight: "a_table__th_over_right",
       classOverParent: "a_table__th"
     });
 
@@ -56,6 +58,7 @@ export default {
     };
 
     return {
+      columnIndexDraggable,
       dragstart,
       dragenter,
       dragleave,
@@ -98,6 +101,7 @@ export default {
             ref: "th",
             column: column,
             columnIndex: columnIndex,
+            columnIndexDraggable: this.columnIndexDraggable,
             "model-sort": this.modelSort,
             onDragstartParent: this.dragstart,
             onDragenterParent: this.dragenter,

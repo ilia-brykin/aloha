@@ -23,6 +23,11 @@ export default {
       type: Number,
       required: true,
     },
+    columnIndexDraggable: {
+      type: Number,
+      required: false,
+      default: -1,
+    },
     modelSort: {
       type: String,
       required: false,
@@ -50,7 +55,7 @@ export default {
       isLocked,
       root,
     } = DragAndDropChildAPI(props, context, {
-      classOver: "a_table__th_over",
+      classOverString: "a_table__th_over",
     });
 
     return {

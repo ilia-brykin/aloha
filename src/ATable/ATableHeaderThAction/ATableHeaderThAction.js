@@ -34,15 +34,17 @@ export default {
   ],
   setup() {
     const {
-      dragstart,
+      columnIndexDraggable,
+      dragend,
       dragenter,
       dragleave,
-      dragend,
+      dragstart,
       drop,
       isDragstart,
       root,
     } = DragAndDropParentAPI({
       classOver: "a_table__th__dropdown__li_over",
+      classOverRight: "a_table__th__dropdown__li_over_right",
       classOverParent: "a_table__th__dropdown__li",
     });
 
@@ -52,6 +54,7 @@ export default {
     } = ColumnSearchAPI();
 
     return {
+      columnIndexDraggable,
       dragstart,
       dragenter,
       dragleave,
@@ -193,6 +196,7 @@ export default {
               return h(ATableHeaderThActionItem, {
                 column,
                 columnIndex,
+                columnIndexDraggable: this.columnIndexDraggable,
                 searchColumnModel: this.searchColumnModel,
                 onDragstartParent: this.dragstart,
                 onDragenterParent: this.dragenter,

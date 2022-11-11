@@ -11,6 +11,7 @@ import {
 
 export default function DragAndDropParentAPI({
   classOver = "",
+  classOverRight = "",
   classOverParent = "",
 }) {
   const root = ref(undefined);
@@ -53,6 +54,7 @@ export default function DragAndDropParentAPI({
     const CHILDREN = root.value.querySelectorAll(`.${ classOverParent }`);
     CHILDREN.forEach(child => {
       child.classList.remove(classOver);
+      child.classList.remove(classOverRight);
     });
   };
 
@@ -63,6 +65,7 @@ export default function DragAndDropParentAPI({
 
 
   return {
+    columnIndexDraggable,
     dragstart,
     dragenter,
     dragleave,

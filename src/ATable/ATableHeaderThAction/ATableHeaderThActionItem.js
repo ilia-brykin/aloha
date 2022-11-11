@@ -30,6 +30,11 @@ export default {
       type: Number,
       required: true,
     },
+    columnIndexDraggable: {
+      type: Number,
+      required: false,
+      default: -1,
+    },
     searchColumnModel: {
       type: String,
       required: true,
@@ -57,7 +62,7 @@ export default {
       isLocked,
       root,
     } = DragAndDropChildAPI(props, context, {
-      classOver: "a_table__th__dropdown__li_over",
+      classOverString: "a_table__th__dropdown__li_over",
     });
 
     const {
