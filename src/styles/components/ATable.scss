@@ -19,6 +19,7 @@
   --a_table_preview_right_header_font_size: 1.5rem;
   --a_table_footer_border_top: 2px solid var(--a_color_gray_800);
   --a_table_draggable_color: var(--a_color_primary);
+  --a_table_mobile_dt_dd_border_bottom: 1px solid var(--a_color_gray_200);
 
   width: 100%;
   overflow-x: hidden;
@@ -52,15 +53,19 @@
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
-  .a_table__row_hover:hover &,
-  .a_table__row_hover:focus-within & {
-    background-color: var(--a_table_row_hover_bg);
-  }
-  .a_table__row.a_table__row_focus > & {
-     background-color: var(--a_table_row_preview_focus_bg);
-  }
-  .a_table__row.a_table__row_focus_was > & {
-    background-color: var(--a_table_row_preview_focus_was_bg);
+}
+.a_table__grandparent:not(.a_table_mobile) {
+  .a_table__cell {
+    .a_table__row_hover:hover &,
+    .a_table__row_hover:focus-within & {
+      background-color: var(--a_table_row_hover_bg);
+    }
+    .a_table__row.a_table__row_focus > & {
+      background-color: var(--a_table_row_preview_focus_bg);
+    }
+    .a_table__row.a_table__row_focus_was > & {
+      background-color: var(--a_table_row_preview_focus_was_bg);
+    }
   }
 }
 .a_table__cell__child {
@@ -394,5 +399,48 @@
 }
 
 .a_pagination__count__button {
+  padding: 0;
+}
+
+.a_table_mobile {
+  .a_table__row {
+    flex-direction: column;
+    border-top: 1px solid;
+    border-top-color: inherit;
+  }
+  .a_table__td {
+    border-bottom: none;
+  }
+}
+
+.a_table_mobile__dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  dt, dd {
+    width: 50%;
+    border-bottom: var(--a_table_mobile_dt_dd_border_bottom);
+    display: flex;
+    align-items: center;
+  }
+  dt {
+    font-weight: bolder;
+    padding-right: 1rem;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .a_table__td {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+.a_table_mobile__actions_parent {
+  display: flex;
+  align-items: center;
+}
+.a_table_mobile__columns_btn_toggle {
   padding: 0;
 }

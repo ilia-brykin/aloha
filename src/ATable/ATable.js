@@ -17,14 +17,17 @@ import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
+import MobileAPI from "./compositionAPI/MobileAPI";
+import MobileColumnsAPI from "./compositionAPI/MobileColumnsAPI";
 import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
+import TableAttributesAPI from "./compositionAPI/TableAttributesAPI";
 import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
 import TableColumnsVisibleAPI from "./compositionAPI/TableColumnsVisibleAPI";
-import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
 import TableColumnsVisibleFunctionAPI from "./compositionAPI/TableColumnsVisibleFunctionAPI";
+import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
 
 import {
   getModelColumnsOrderingDefault,
@@ -65,6 +68,12 @@ export default {
       type: Number,
       required: false,
       default: undefined,
+    },
+    countVisibleMobileColumns: {
+      type: Number,
+      required: false,
+      default: 4,
+      validator: value => value > 0,
     },
     data: {
       type: [Array, Object, Promise],
@@ -149,6 +158,12 @@ export default {
       type: Number,
       required: false,
       default: 10,
+    },
+    mobileWidth: {
+      type: Number,
+      required: false,
+      default: 768,
+      validator: value => value >= 0,
     },
     modelColumnsOrdering: {
       type: Array,
@@ -277,6 +292,10 @@ export default {
     } = TableColumnsVisibleAPI();
 
     const {
+      isMobile,
+    } = MobileAPI(props);
+
+    const {
       hasRows,
       limit,
       modelSort,
@@ -311,6 +330,7 @@ export default {
       modelIsTableWithoutScroll,
     } = ScrollControlAPI(props, context, {
       columnsOrdered,
+      isMobile,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
     });
@@ -369,13 +389,29 @@ export default {
       offset,
     });
 
+    const {
+      tableChildRole,
+      tableRoleAttributes,
+    } = TableAttributesAPI({
+      isMobile,
+    });
+
+    const {
+      allVisibleMobileColumns,
+    } = MobileColumnsAPI({
+      columnsOrdered,
+      isMobile,
+      modelColumnsVisibleLocal,
+    });
+
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("columnsOrdered", columnsOrdered);
-    provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("columnsScrollInvisible", columnsScrollInvisible);
+    provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("currentMultipleActions", currentMultipleActions);
     provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
+    provide("isMobile", isMobile);
     provide("isMultipleActionsActive", isMultipleActionsActive);
     provide("modelIsTableWithoutScroll", modelIsTableWithoutScroll);
     provide("onTogglePreview", onTogglePreview);
@@ -389,6 +425,10 @@ export default {
 
 
     return {
+      allVisibleMobileColumns,
+      isMobile,
+      tableRoleAttributes,
+      tableChildRole,
       aTableRef,
       tableGrandparentRef,
       checkVisibleColumns,
@@ -537,7 +577,9 @@ export default {
   render() {
     return h("div", {
       ref: "tableGrandparentRef",
-      class: "a_table__grandparent",
+      class: ["a_table__grandparent", {
+        a_table_mobile: this.isMobile,
+      }],
     }, [
       this.hasFilters && h(ATableFiltersTop, {
         filtersGroup: this.filtersGroup,
@@ -579,7 +621,7 @@ export default {
           }, this.$slots),
           h("div", {
             class: "a_table",
-            role: "table",
+            ...this.tableRoleAttributes,
           }, [
             h(ATableHeader, {
               areAllRowsSelected: this.areAllRowsSelected,
@@ -589,9 +631,11 @@ export default {
             }),
             h("div", {
               class: "a_table__body",
-              role: "rowgroup",
+              role: this.tableChildRole,
             }, this.rowsLocal.map((row, rowIndex) => {
               return h(ATableTr, {
+                allVisibleMobileColumns: this.allVisibleMobileColumns,
+                countVisibleMobileColumns: this.countVisibleMobileColumns,
                 row,
                 rowIndex,
                 selectedRowsIndexes: this.selectedRowsIndexes,
@@ -612,9 +656,11 @@ export default {
             })),
             (this.hasRows && this.hasRowsFooter) && h("div", {
               class: "a_table__footer",
-              role: "rowgroup",
+              role: this.tableChildRole,
             }, this.rowsFooter.map((row, rowIndex) => {
               return h(ATableTr, {
+                allVisibleMobileColumns: this.allVisibleMobileColumns,
+                countVisibleMobileColumns: this.countVisibleMobileColumns,
                 row,
                 rowIndex,
                 selectedRowsIndexes: this.selectedRowsIndexes,

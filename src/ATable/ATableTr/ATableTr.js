@@ -8,7 +8,11 @@ import ATableTd from "../ATableTd/ATableTd";
 import ATableTdAction from "../ATableTdAction/ATableTdAction";
 import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
+import MobileAPI from "./compositionAPI/MobileAPI";
+
 import {
+  forEach,
   get,
   isFunction,
 } from "lodash-es";
@@ -16,6 +20,14 @@ import {
 export default {
   name: "ATableTr",
   props: {
+    allVisibleMobileColumns: {
+      type: Array,
+      required: true,
+    },
+    countVisibleMobileColumns: {
+      type: Number,
+      required: true,
+    },
     row: {
       type: Object,
       required: true,
@@ -54,52 +66,33 @@ export default {
       return false;
     });
 
+    const {
+      rowAttributes,
+    } = AttributesAPI(props);
+
+    const {
+      isAllColumnsVisibleMobile,
+      isBtnToggleAllColumnsVisible,
+      textBtnToggleAllColumns,
+      toggleAllColumnsVisibleMobile,
+    } = MobileAPI(props);
+
     return {
+      isAllColumnsVisibleMobile,
+      isBtnToggleAllColumnsVisible,
       isCheckboxDisabled,
       isMultipleActionsActive,
+      rowAttributes,
+      textBtnToggleAllColumns,
+      toggleAllColumnsVisibleMobile,
     };
   },
   inject: [
     "columnsOrdered",
-    "hasPreview",
     "isActionColumnVisible",
-    "previewRightRowIndex",
-    "previewRightRowIndexLast",
-    "tableId",
+    "isMobile",
   ],
   computed: {
-    rowId() {
-      return `${ this.tableId }_${ this.rowIndex }`;
-    },
-
-    rowAttributes() {
-      const ATTRIBUTES = {
-        id: this.rowId,
-        class: this.rowClass,
-        role: "row",
-      };
-      if (this.hasPreview) {
-        ATTRIBUTES.tabindex = -1;
-      }
-      return ATTRIBUTES;
-    },
-
-    rowClass() {
-      return ["a_table__row a_table__row_hover", {
-        a_table__row_focus: this.isPreviewRightForCurrentRowOpen,
-        a_table__row_focus_was: this.isPreviewRightForCurrentRowWasOpen,
-      }];
-    },
-
-    isPreviewRightForCurrentRowOpen() {
-      return this.rowIndex === this.previewRightRowIndex;
-    },
-
-    isPreviewRightForCurrentRowWasOpen() {
-      return !this.isPreviewRightForCurrentRowOpen &&
-        this.rowIndex === this.previewRightRowIndexLast;
-    },
-
     isRowSelected() {
       return !!this.selectedRowsIndexes[this.rowIndex];
     },
@@ -110,6 +103,47 @@ export default {
     },
   },
   render() {
+    let tds = [];
+    if (this.isMobile && !this.isAllColumnsVisibleMobile) {
+      forEach(this.allVisibleMobileColumns, (column, columnIndex) => {
+        if (columnIndex + 1 > this.countVisibleMobileColumns) {
+          return false;
+        }
+        tds.push(
+          h(ATableTd, {
+            column,
+            columnIndex,
+            row: this.row,
+            rowIndex: this.rowIndex,
+            isFooter: this.isFooter,
+          }, this.$slots)
+        );
+      });
+    } else {
+      tds = this.columnsOrdered.map((column, columnIndex) => {
+        return h(ATableTd, {
+          column,
+          columnIndex,
+          row: this.row,
+          rowIndex: this.rowIndex,
+          isFooter: this.isFooter,
+        }, this.$slots);
+      });
+    }
+
+    const ACTIONS = this.isActionColumnVisible &&
+      h(ATableTdAction, {
+        row: this.row,
+        rowIndex: this.rowIndex,
+        isFooter: this.isFooter,
+      }, this.$slots);
+
+    const CHILDREN = this.isMobile ?
+      h("dl", {
+        class: "a_table_mobile__dl",
+      }, tds) :
+      tds;
+
     return h("div", this.rowAttributes, [
       this.isMultipleActionsActive && h("div", {
         scope: "row",
@@ -123,20 +157,18 @@ export default {
           "onUpdate:modelValue": this.toggleCheckbox,
         }),
       ]),
-      this.columnsOrdered.map((column, columnIndex) => {
-        return h(ATableTd, {
-          column,
-          columnIndex,
-          row: this.row,
-          rowIndex: this.rowIndex,
-          isFooter: this.isFooter,
-        }, this.$slots);
-      }),
-      this.isActionColumnVisible && h(ATableTdAction, {
-        row: this.row,
-        rowIndex: this.rowIndex,
-        isFooter: this.isFooter,
-      }, this.$slots),
+      CHILDREN,
+      this.isMobile ?
+        h("div", {
+          class: "a_table_mobile__actions_parent",
+        }, [
+          this.isBtnToggleAllColumnsVisible && h("button", {
+            class: "a_btn a_btn_link a_table_mobile__columns_btn_toggle",
+            onClick: this.toggleAllColumnsVisibleMobile,
+          }, this.textBtnToggleAllColumns),
+          ACTIONS,
+        ]) :
+        ACTIONS,
     ]);
   },
 };

@@ -32,9 +32,10 @@ export default {
     "setSelectedRowsIndexes",
   ],
   inject: [
-    "isActionColumnVisible",
     "changeColumnsOrdering",
     "columnsOrdered",
+    "isActionColumnVisible",
+    "isMobile",
     "isMultipleActionsActive",
   ],
   setup(props, { emit }) {
@@ -71,6 +72,9 @@ export default {
     };
   },
   render() {
+    if (this.isMobile) {
+      return "";
+    }
     return h("div", {
       ref: "root",
       role: "rowgroup",

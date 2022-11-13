@@ -3,7 +3,7 @@ import {
   onBeforeUnmount,
   onMounted,
   ref,
-  toRef,
+  toRef, watch,
 } from "vue";
 
 import {
@@ -14,6 +14,7 @@ import {
 
 export default function ScrollControlAPI(props, { emit }, {
   columnsOrdered = computed(() => []),
+  isMobile = ref(false),
   isMultipleActionsActive = ref(undefined),
   modelColumnsVisibleLocal = ref({}),
 }) {
@@ -84,7 +85,17 @@ export default function ScrollControlAPI(props, { emit }, {
     }
   };
 
+  const setAllDefaultForMobile = () => {
+    columnsScrollInvisible.value = [];
+    columnsVisibleAdditionalSpaceForOneGrow.value = 0;
+    indexFirstScrollInvisibleColumn.value = 1000;
+  };
+
   const checkVisibleColumns = () => {
+    if (isMobile.value) {
+      setAllDefaultForMobile();
+      return;
+    }
     const TABLE_WIDTH_WITHOUT_ACTIONS = tableWidth.value - columnsSpecialWidth.value;
 
     let columnsWidthInOrder = 0;
@@ -127,8 +138,19 @@ export default function ScrollControlAPI(props, { emit }, {
     }
   });
 
+  watch(isMobile, newValue => {
+    if (newValue) {
+      resizeOb.unobserve(aTableRef.value);
+      setAllDefaultForMobile();
+    } else {
+      resizeOb.observe(aTableRef.value);
+    }
+  });
+
   onMounted(() => {
-    resizeOb.observe(aTableRef.value);
+    if (!isMobile.value) {
+      resizeOb.observe(aTableRef.value);
+    }
   });
   onBeforeUnmount(() => {
     resizeOb.unobserve(aTableRef.value);

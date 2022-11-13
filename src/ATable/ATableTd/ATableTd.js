@@ -3,11 +3,10 @@ import {
   resolveComponent,
 } from "vue";
 
-import ColumnStylesAPI from "../compositionAPI/ColumnStylesAPI";
+import ATranslation from "../../ATranslation/ATranslation";
 
-import {
-  isClickOnLinkOrButton
-} from "../utils/utils";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
+
 import {
   cloneDeep,
   forEach,
@@ -45,17 +44,18 @@ export default {
   inject: [
     "columnsDefaultValue",
     "hasPreview",
+    "isMobile",
     "onTogglePreview",
     "rowsLocal",
     "valuesForColumnDefault",
   ],
   setup(props) {
     const {
-      columnsStyles,
-    } = ColumnStylesAPI(props);
+      attributesForTd,
+    } = AttributesAPI(props);
 
     return {
-      columnsStyles,
+      attributesForTd,
     };
   },
   computed: {
@@ -104,31 +104,6 @@ export default {
       return !!this.slot;
     },
 
-    attributesForTd() {
-      const ATTRIBUTES = {
-        role: "cell",
-        class: [
-          "a_table__td a_table__cell",
-          {
-            a_table__cell_click: this.hasPreview && !this.isFooter,
-          },
-        ],
-        style: this.columnsStyles,
-      };
-      if (this.hasPreview && !this.isFooter) {
-        ATTRIBUTES.onClick = $event => {
-          if (isClickOnLinkOrButton($event)) {
-            return;
-          }
-          this.onTogglePreview({
-            row: this.row,
-            rowIndex: this.rowIndex,
-          });
-        };
-      }
-      return ATTRIBUTES;
-    },
-
     isLink() {
       return !!this.column.to;
     },
@@ -175,9 +150,9 @@ export default {
     if (this.column.isRender === false) {
       return "";
     }
-    return h(
-      "div", 
-      this.attributesForTd, 
+    const TD = h(
+      "div",
+      this.attributesForTd,
       [
         h("div", {
           class: [
@@ -210,5 +185,18 @@ export default {
             ])
       ]
     );
+
+    if (!this.isMobile) {
+      return TD;
+    }
+    return [
+      h(ATranslation, {
+        text: this.column.label,
+        tag: "dt",
+      }),
+      h("dd", {}, [
+        TD,
+      ]),
+    ];
   },
 };
