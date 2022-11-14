@@ -2,8 +2,9 @@ import {
   computed,
   h,
   inject,
+  ref,
   resolveComponent,
-  toRef,
+  toRef, watch,
 } from "vue";
 
 import {
@@ -56,6 +57,23 @@ export default {
     const keyClassBody = inject("keyClassBody");
     const keyClassHeader = inject("keyClassHeader");
     const keyIsRender = inject("keyIsRender");
+    const keyIsRenderBodyByFirstOpen = inject("keyIsRenderBodyByFirstOpen");
+
+    const isOpenFirst = ref(false);
+
+    const isRenderBodyByFirstOpen = computed(() => {
+      if (keyIsRenderBodyByFirstOpen.value) {
+        return get(item.value, keyIsRenderBodyByFirstOpen.value);
+      }
+      return undefined;
+    });
+
+    const isBodyVisible = computed(() => {
+      if (isRenderBodyByFirstOpen.value) {
+        return isOpenFirst.value;
+      }
+      return true;
+    });
 
     const classBodyLocal = computed(() => {
       if (keyClassBody.value) {
@@ -97,10 +115,19 @@ export default {
       return true;
     });
 
+    watch(isOpen, newValue => {
+      if (newValue && !isOpenFirst.value) {
+        isOpenFirst.value = true;
+      }
+    }, {
+      immediate: true,
+    });
+
     return {
       classBodyLocal,
       classHeaderLocal,
       currentIndex,
+      isBodyVisible,
       isOpen,
       isRender,
     };
@@ -179,6 +206,45 @@ export default {
     },
   },
   render() {
+    let body = [];
+    if (this.isBodyVisible) {
+      body = [
+        (this.item.slotContent && this.$slots[this.item.slotContent]) ?
+          this.$slots[this.item.slotContent]({
+            item: this.item,
+            itemIndex: this.itemIndex,
+            parentIndexes: this.parentIndexes,
+            id: this.id,
+          }) : this.$slots.accordionContent ?
+            this.$slots.accordionContent({
+              item: this.item,
+              itemIndex: this.itemIndex,
+              parentIndexes: this.parentIndexes,
+              id: this.id,
+            }) :
+            this.contentLocal && h("div", {
+              innerHTML: this.contentLocal,
+            }),
+        this.hasChildren && h("div", {
+          class: ["a_accordion", {
+            a_accordion__with_gap: this.withGap,
+          }],
+        }, [
+          this.children.map((itemChild, itemChildIndex) => {
+            return h(resolveComponent("AAccordionItem"), {
+              key: itemChildIndex,
+              item: itemChild,
+              itemIndex: itemChildIndex,
+              isParentOpen: this.isOpen,
+              parentIndexes: this.parentIndexesForChild,
+              onToggle: this.toggleFromChild,
+            }, this.$slots);
+          }),
+        ]),
+      ];
+    }
+
+
     return this.isRender && h("div", {
       class: "a_accordion__item",
     }, [
@@ -205,40 +271,7 @@ export default {
       }, [
         h("div", {
           class: ["a_accordion__body", this.classBody, this.classBodyLocal],
-        }, [
-          (this.item.slotContent && this.$slots[this.item.slotContent]) ?
-            this.$slots[this.item.slotContent]({
-              item: this.item,
-              itemIndex: this.itemIndex,
-              parentIndexes: this.parentIndexes,
-              id: this.id,
-            }) : this.$slots.accordionContent ?
-              this.$slots.accordionContent({
-                item: this.item,
-                itemIndex: this.itemIndex,
-                parentIndexes: this.parentIndexes,
-                id: this.id,
-              }) :
-              this.contentLocal && h("div", {
-                innerHTML: this.contentLocal,
-              }),
-          this.hasChildren && h("div", {
-            class: ["a_accordion", {
-              a_accordion__with_gap: this.withGap,
-            }],
-          }, [
-            this.children.map((itemChild, itemChildIndex) => {
-              return h(resolveComponent("AAccordionItem"), {
-                key: itemChildIndex,
-                item: itemChild,
-                itemIndex: itemChildIndex,
-                isParentOpen: this.isOpen,
-                parentIndexes: this.parentIndexesForChild,
-                onToggle: this.toggleFromChild,
-              }, this.$slots);
-            }),
-          ]),
-        ]),
+        }, body),
       ])
     ]);
   },

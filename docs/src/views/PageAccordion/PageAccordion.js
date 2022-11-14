@@ -12,10 +12,12 @@ export default {
           label: "label labellabe llabellabellabellab ellabellabel1 labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabe labellabellabellabellabellabelabellabellabellabellabellabe llabellabellabel",
           content: "content 1",
           slotContent: "aloha",
+          keyIsRenderBodyByFirstOpen: true,
           items: [
             {
               label: "label 1.1",
               content: "content 1.1",
+              keyIsRenderBodyByFirstOpen: true,
               items: [
                 {
                   label: "label 1.1.1",

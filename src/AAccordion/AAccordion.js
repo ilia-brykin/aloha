@@ -29,6 +29,7 @@ export default {
       keyClassBody: computed(() => this.keyClassBody),
       keyClassHeader: computed(() => this.keyClassHeader),
       keyIsRender: computed(() => this.keyIsRender),
+      keyIsRenderBodyByFirstOpen: computed(() => this.keyIsRenderBodyByFirstOpen),
       readonly: computed(() => this.readonly),
       withGap: computed(() => this.withGap),
     };
@@ -81,6 +82,11 @@ export default {
       default: undefined,
     },
     keyIsRender: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyIsRenderBodyByFirstOpen: {
       type: String,
       required: false,
       default: undefined,
