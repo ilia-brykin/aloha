@@ -1,6 +1,10 @@
 import AIcon from "../../../../src/AIcon/AIcon";
 import AMenuButtonToggle from "../../../../src/AMenu/AMenuButtonToggle";
 
+import {
+  setLanguage,
+} from "../../../../src/ATranslation/compositionAPI/ATranslationAPI";
+
 export default {
   name: "TheNavbar",
   components: {
@@ -30,13 +34,10 @@ export default {
       ],
     };
   },
-  created() {
-    this.changeLanguage();
-  },
   methods: {
     changeLanguage() {
       setTimeout(() => {
-        this.$root.$i18n.language = this.modelLanguage;
+        setLanguage(this.modelLanguage);
       });
     },
   },

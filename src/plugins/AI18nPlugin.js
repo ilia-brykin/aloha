@@ -1,10 +1,11 @@
 import {
-  reactive,
-} from "vue";
+  setI18n,
+  setLanguage,
+} from "../ATranslation/compositionAPI/ATranslationAPI";
 
 export default {
   install: (app, options, language) => {
-    app.config.globalProperties.$i18n = reactive({ language: language });
-    app.provide("i18n", options);
+    setI18n(options);
+    setLanguage(language);
   },
 };
