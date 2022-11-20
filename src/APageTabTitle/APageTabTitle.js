@@ -1,7 +1,3 @@
-import {
-  toRef,
-} from "vue";
-
 import APageTabTitleAPI from "../compositionAPI/APageTabTitleAPI";
 
 // @vue/component
@@ -12,11 +8,13 @@ export default {
       type: String,
       required: true,
     },
+    extra: {
+      type: Object,
+      required: false,
+    },
   },
   setup(props) {
-    APageTabTitleAPI({
-      title: toRef(props, "title"),
-    });
+    APageTabTitleAPI(props);
   },
   render() {
     return "";
