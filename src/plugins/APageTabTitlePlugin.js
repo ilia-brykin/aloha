@@ -4,6 +4,6 @@ import {
 
 export default {
   install: (app, baseTitle = "") => {
-    setBaseTitle({ baseTitle });
+    setBaseTitle(baseTitle);
   },
 };

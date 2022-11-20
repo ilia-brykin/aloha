@@ -2,15 +2,20 @@ import {
   ref, watch,
 } from "vue";
 
-const BASE_TITLE = ref("");
+const baseTitle = ref("");
 
 export default function APageTabTitleAPI({
   title = ref(""),
 }) {
   const setPageTabTitle = () => {
-    let pageTitle = BASE_TITLE.value;
+    let pageTitle = "";
     if (title.value) {
-      pageTitle = `${ title.value } - ${ pageTitle }`;
+      pageTitle = title.value;
+      if (baseTitle.value) {
+        pageTitle += ` - ${ baseTitle.value }`;
+      }
+    } else if (baseTitle.value) {
+      pageTitle = baseTitle.value;
     }
     document.title = pageTitle;
   };
@@ -22,6 +27,6 @@ export default function APageTabTitleAPI({
   });
 }
 
-export function setBaseTitle({ baseTitle = "" }) {
-  BASE_TITLE.value = baseTitle;
+export function setBaseTitle(baseTitleArg = "") {
+  baseTitle.value = baseTitleArg;
 }
