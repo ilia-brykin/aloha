@@ -46,6 +46,7 @@ export default function HtmlAPI(props, {
         translationObj: translation.value,
         extra: extra.value
       });
+      console.log("htmlString", htmlString);
     }
     return `${ textBeforeHtml.value }${ htmlString }${ textAfterHtml.value }`;
   });

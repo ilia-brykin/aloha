@@ -20,13 +20,14 @@ export function isPlaceholderTranslate(text = "") {
 }
 
 export function getTranslatedText({ placeholder, translationObj, extra }) {
+  const TEXT_FROM_TRANSLATION = translationObj[placeholder] || placeholder;
   if (extra) {
     return replaceText({
-      text: translationObj[placeholder],
+      text: TEXT_FROM_TRANSLATION,
       object: extra,
     });
   }
-  return translationObj[placeholder];
+  return TEXT_FROM_TRANSLATION;
 }
 
 function replaceText({ text = "", object }) {
