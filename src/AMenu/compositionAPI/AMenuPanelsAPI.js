@@ -33,8 +33,10 @@ export default function AMenuPanelsAPI(props, {
     return panelParentsOpenLocal;
   };
 
-  const togglePanel = ({ parentId, isLinkInSearchPanel }) => {
-    if (isLinkInSearchPanel) {
+  const togglePanel = ({ parentIds, parentId, isLinkInSearchPanel }) => {
+    if (parentIds) {
+      panelParentsOpen.value = parentIds;
+    } else if (isLinkInSearchPanel) {
       const PANEL_PARENTS_OPEN = [];
       panelParentsOpen.value = openPanelFromSearch({ parentId, panelParentsOpenLocal: PANEL_PARENTS_OPEN });
     } else {

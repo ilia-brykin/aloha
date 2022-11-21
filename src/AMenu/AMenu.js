@@ -189,15 +189,17 @@ export default {
 
     return {
       attributesBlockerClick,
+      dataKeyById,
+      dataProParent,
+      dataProParentList,
       idsSearchVisible,
       isButtonToggleVisible,
       isMenuOpen,
       isSearchActive,
-      dataKeyById,
-      dataProParent,
-      dataProParentList,
       modelSearch,
       panelParentsOpen,
+      toggleMenu,
+      togglePanel,
       updateModelSearch,
     };
   },

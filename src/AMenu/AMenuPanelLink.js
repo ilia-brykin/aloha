@@ -10,13 +10,16 @@ import AIcon from "../AIcon/AIcon";
 
 import AFiltersAPI from "../compositionAPI/AFiltersAPI";
 
-import AKeysCode from "../const/AKeysCode";
-import AKeyLabel from "../ui/const/AKeyLabel";
 import AKeyId from "../ui/const/AKeyId";
+import AKeyLabel from "../ui/const/AKeyLabel";
+import AKeyParent from "../ui/const/AKeyParent";
+import AKeysCode from "../const/AKeysCode";
+import {
+  setFocusToFirstLinkInPanel
+} from "./utils/utils";
 import {
   get,
 } from "lodash-es";
-import AKeyParent from "../ui/const/AKeyParent";
 
 
 export default {
@@ -116,14 +119,7 @@ export default {
 
     const openSubMenu = () => {
       togglePanel({ parentId: id.value, isLinkInSearchPanel: isLinkInSearchPanel.value });
-      const PANEL_ID = `#a_menu_panel_${ id.value || "" }`;
-      const PANEL_LINKS_SELECTOR = `${ PANEL_ID } a`;
-      setTimeout(() => {
-        const EL_LINK = document.querySelector(PANEL_LINKS_SELECTOR);
-        if (EL_LINK) {
-          EL_LINK.focus();
-        }
-      });
+      setFocusToFirstLinkInPanel(id.value);
     };
 
     const onKeydown = $event => {
