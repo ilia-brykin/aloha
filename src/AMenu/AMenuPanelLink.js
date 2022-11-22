@@ -117,6 +117,10 @@ export default {
       return dataProParentChildren.value[id.value] && dataProParentChildren.value[id.value].length;
     });
 
+    const title = computed(() => {
+      return item.value.title || labelWithoutFilter.value;
+    });
+
     const openSubMenu = () => {
       togglePanel({ parentId: id.value, isLinkInSearchPanel: isLinkInSearchPanel.value });
       setFocusToFirstLinkInPanel(id.value);
@@ -150,6 +154,7 @@ export default {
       labelWithoutFilter,
       onKeydown,
       openSubMenu,
+      title,
     };
   },
   render() {
@@ -158,7 +163,7 @@ export default {
     }
     const ICON_AND_TEXT = [
       this.icon && h(AIcon, {
-        class: "a_menu__link__icon",
+        class: ["a_menu__link__icon", this.item.iconClass],
         icon: this.icon,
       }),
       h("span", {
@@ -166,7 +171,7 @@ export default {
       }, [
         h("span", {
           class: "a_position_absolute_all",
-          title: this.labelWithoutFilter,
+          title: this.title,
           ariaHidden: true,
         }),
         h("span", {
