@@ -114,6 +114,12 @@ export default {
       type: Boolean,
       required: false,
     },
+    maxCountMultiselect: {
+      type: Number,
+      required: false,
+      default: undefined,
+      validator: value => value > 0,
+    },
     modelValue: {
       type: [String, Number, Array],
       required: false,

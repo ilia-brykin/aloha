@@ -6,7 +6,9 @@ import {
 import AKeysCode from "../../../const/AKeysCode";
 import AKeyId from "../../const/AKeyId";
 import {
-  cloneDeep, isUndefined,
+  cloneDeep,
+  get,
+  isUndefined,
 } from "lodash-es";
 
 export default function ASelectModelChangeAPI(props, {
@@ -17,15 +19,24 @@ export default function ASelectModelChangeAPI(props, {
   dataKeyByKeyIdLocal = computed(() => ({})),
 }) {
   const isCloseByClick = toRef(props, "isCloseByClick");
+  const isDeselect = toRef(props, "isDeselect");
+  const maxCountMultiselect = toRef(props, "maxCountMultiselect");
+  const modelValue = toRef(props, "modelValue");
+
+  const isMaxSelected = computed(() => {
+    if (!isMultiselect.value || !maxCountMultiselect.value) {
+      return false;
+    }
+    const MODEL_LENGTH = get(modelValue.value, "length");
+    return MODEL_LENGTH >= maxCountMultiselect.value;
+  });
+
   const isCloseByClickLocal = computed(() => {
     if (!isUndefined(isCloseByClick.value)) {
       return isCloseByClick.value;
     }
     return !isMultiselect.value;
   });
-  const isDeselect = toRef(props, "isDeselect");
-
-  const modelValue = toRef(props, "modelValue");
 
   const onChangeModelValue = ({ currentValue, $event, isSelected }) => {
     let modelValueLocal;
@@ -35,6 +46,9 @@ export default function ASelectModelChangeAPI(props, {
         const INDEX = modelValueLocal.indexOf(currentValue);
         modelValueLocal.splice(INDEX, 1);
       } else {
+        if (isMaxSelected.value) {
+          return;
+        }
         modelValueLocal.push(currentValue);
       }
     } else {
