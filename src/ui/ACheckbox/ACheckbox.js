@@ -41,6 +41,11 @@ export default {
       required: false,
       default: "label",
     },
+    keyLabelCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     isDataSimpleArray: {
       type: Boolean,
       required: false,
