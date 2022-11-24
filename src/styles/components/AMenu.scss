@@ -193,6 +193,10 @@ $a_menu_breakpoint_mobile: 991px;
     box-shadow: inset 0 0 1px 4px var(--a_menu_icon_focus_shadow_color);
   }
 }
+.a_menu__link_disabled {
+  opacity: .8;
+  cursor: not-allowed;
+}
 .a_menu__link__text_truncated {
   text-overflow: ellipsis;
   white-space: nowrap;

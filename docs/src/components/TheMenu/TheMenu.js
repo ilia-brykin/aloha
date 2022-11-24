@@ -49,6 +49,16 @@ export default {
         },
         {
           group: "Hola",
+          id: "cloak2",
+          label: "Cloak disabled",
+          to: {
+            name: "PageCloak",
+          },
+          icon: "EyeOpen",
+          disabled: true,
+        },
+        {
+          group: "Hola",
           id: "loading",
           label: "Loading",
           to: {

@@ -76,6 +76,10 @@ export default {
       return undefined;
     });
 
+    const isLinkDisabled = computed(() => {
+      return !!item.value.disabled;
+    });
+
     const isLinkVisible = computed(() => {
       if (isLinkInSearchPanel.value) {
         return !!idsSearchVisible.value.rest[item.value[AKeyId]];
@@ -121,6 +125,13 @@ export default {
       return item.value.title || labelWithoutFilter.value;
     });
 
+    const toLocal = computed(() => {
+      if (isLinkDisabled.value) {
+        return "#";
+      }
+      return item.value.to;
+    });
+
     const openSubMenu = () => {
       togglePanel({ parentId: id.value, isLinkInSearchPanel: isLinkInSearchPanel.value });
       setFocusToFirstLinkInPanel(id.value);
@@ -148,6 +159,7 @@ export default {
       countChildren,
       currentSlot,
       icon,
+      isLinkDisabled,
       isLinkTruncated,
       isLinkVisible,
       label,
@@ -155,6 +167,7 @@ export default {
       onKeydown,
       openSubMenu,
       title,
+      toLocal,
     };
   },
   render() {
@@ -196,8 +209,10 @@ export default {
         }) :
         this.item.to ?
           h(resolveComponent("RouterLink"), {
-            class: "a_menu__link a_menu__link__text_truncated",
-            to: this.item.to,
+            class: ["a_menu__link a_menu__link__text_truncated", {
+              a_menu__link_disabled: this.isLinkDisabled,
+            }],
+            to: this.toLocal,
             tabindex: this.isPanelOpen ? 0 : -1,
             onClick: this.clickLink,
           }, () => ICON_AND_TEXT) :
