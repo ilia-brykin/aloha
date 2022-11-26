@@ -21,6 +21,30 @@ import {
 export default {
   name: "AModal",
   props: {
+    bodyHtml: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    close: {
+      type: Function,
+      required: true,
+    },
+    closeButtonClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
+    closeButtonText: {
+      type: String,
+      required: false,
+      default: "Abbrechen",
+    },
+    dataForm: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -31,85 +55,33 @@ export default {
       required: false,
       default: false,
     },
-    loading: {
-      type: Boolean,
+    errors: {
+      type: Object,
       required: false,
-    },
-    selectorClose: {
-      type: [String, Array],
-      required: false,
-      default: undefined,
-    },
-    withoutEscape: {
-      type: Boolean,
-      required: false,
-    },
-    size: {
-      type: String,
-      validator: value => ["small", "large", "xl", "fullscreen"].indexOf(value) !== -1,
-      default: undefined,
-    },
-    isModalHidden: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    save: {
-      type: Function,
-      required: false,
-      default: undefined,
-    },
-    saveButtonText: {
-      type: String,
-      required: false,
-      default: "Speichern",
-    },
-    saveButtonClass: {
-      type: [String, Array, Object],
-      required: false,
-      default: "a_btn a_btn_primary",
-    },
-    isSaveButtonHide: {
-      type: Boolean,
-      required: false,
-    },
-    close: {
-      type: Function,
-      required: true,
-    },
-    closeButtonText: {
-      type: String,
-      required: false,
-      default: "Abbrechen",
-    },
-    closeButtonClass: {
-      type: [String, Array, Object],
-      required: false,
-      default: "a_btn a_btn_secondary",
-    },
-    isCloseButtonHide: {
-      type: Boolean,
-      required: false,
-    },
-    headerText: {
-      type: String,
-      required: false,
-      default: undefined,
+      default: () => ({}),
     },
     headerTag: {
       type: String,
       required: false,
       default: "h2",
     },
-    bodyHtml: {
+    headerText: {
       type: String,
       required: false,
-      default: "",
+      default: undefined,
     },
-    dataForm: {
-      type: Array,
+    idPrefix: {
+      type: String,
       required: false,
-      default: () => [],
+      default: undefined,
+    },
+    isCloseButtonHide: {
+      type: Boolean,
+      required: false,
+    },
+    isConfirm: {
+      type: Boolean,
+      required: false,
     },
     isDataFormHide: {
       type: Boolean,
@@ -120,29 +92,66 @@ export default {
       required: false,
       default: true,
     },
+    isModalHidden: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isRequired: {
+      type: Boolean,
+      required: false,
+    },
+    isSaveButtonHide: {
+      type: Boolean,
+      required: false,
+    },
+    loading: {
+      type: Boolean,
+      required: false,
+    },
+    modalClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     modelValue: {
       type: Object,
       required: false,
       default: undefined,
     },
-    errors: {
-      type: Object,
+    save: {
+      type: Function,
       required: false,
-      default: () => ({}),
+      default: undefined,
+    },
+    saveButtonClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: "a_btn a_btn_primary",
+    },
+    saveButtonText: {
+      type: String,
+      required: false,
+      default: "Speichern",
+    },
+    selectorClose: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    size: {
+      type: String,
+      validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
+      default: undefined,
     },
     textRequired: {
       type: String,
       required: false,
       default: undefined,
     },
-    isRequired: {
+    withoutEscape: {
       type: Boolean,
       required: false,
-    },
-    idPrefix: {
-      type: String,
-      required: false,
-      default: undefined,
     },
   },
   emits: [
@@ -184,36 +193,6 @@ export default {
 
     autocomplete() {
       return this.options.autocomplete || "on";
-    },
-
-    classSize() {
-      return `modal-${ this.size }`;
-    },
-
-    backdropStyle() {
-      if (this.modalInModalCount) {
-        return `z-index: ${ 1045 + (this.modalInModalCount * 10) };`;
-      }
-      return "";
-    },
-
-    modalStyle() {
-      if (this.modalInModalCount) {
-        return `z-index: ${ 1050 + (this.modalInModalCount * 10) };`;
-      }
-      return "";
-    },
-
-    htmlIdModalChild() {
-      return `modal_child_${ this.modalInModalCount }`;
-    },
-
-    htmlIdModal() {
-      return `modal_${ this.modalInModalCount }`;
-    },
-
-    htmlIdHeader() {
-      return `modal_header_${ this.modalInModalCount }`;
     },
 
     dependencyValues() {
@@ -416,7 +395,8 @@ export default {
       }, [
         h("div", {
           ref: "modal",
-          class: ["a_modal", {
+          class: ["a_modal", this.modalClass, {
+            a_modal_confirm: this.isConfirm,
             a_modal_show: !this.isModalHidden
           }],
           tabindex: -1,
@@ -496,7 +476,12 @@ export default {
         ]),
       ]),
       !this.isModalHidden && h("div", {
-        class: "a_backdrop a_backdrop_fade a_backdrop_show",
+        class: [
+          "a_backdrop a_backdrop_fade a_backdrop_show",
+          {
+            a_backdrop_confirm: this.isConfirm,
+          },
+        ],
       })
     ]);
   },
