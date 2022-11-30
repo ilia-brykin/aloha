@@ -438,6 +438,7 @@ export default {
       modelIsTableWithoutScroll,
       initModelColumnsVisibleLocal,
       changeModelColumnsVisible,
+      onUpdateModelFilters,
 
       closePreview,
       closePreviewAll,
