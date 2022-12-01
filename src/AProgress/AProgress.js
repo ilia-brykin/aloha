@@ -8,22 +8,16 @@ import AFiltersAPI from "../compositionAPI/AFiltersAPI";
 export default {
   name: "AProgress",
   props: {
-    min: {
-      type: Number,
+    classProgressBar: {
+      type: [String, Object],
       required: false,
-      default: 0,
-    },
-    max: {
-      type: Number,
-      required: false,
-      default: 100,
-    },
-    value: {
-      type: Number,
-      required: false,
-      default: 0,
+      default: undefined,
     },
     isInteger: {
+      type: Boolean,
+      required: false,
+    },
+    isRevers: {
       type: Boolean,
       required: false,
     },
@@ -32,10 +26,20 @@ export default {
       required: false,
       default: true,
     },
-    classProgressBar: {
-      type: [String, Object],
+    max: {
+      type: Number,
       required: false,
-      default: undefined,
+      default: 100,
+    },
+    min: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    value: {
+      type: Number,
+      required: false,
+      default: 0,
     },
   },
   setup(props) {
@@ -64,7 +68,9 @@ export default {
   },
   render() {
     return h("div", {
-      class: "a_progress",
+      class: ["a_progress", {
+        a_progress_revers: this.isRevers,
+      }],
     }, [
       h("div", {
         class: ["a_progress__bar", this.classProgressBar],
