@@ -1,8 +1,10 @@
 div
   h1 PageProgress
   a-progress(
-    :value="50"
+    :value="-50"
     :is-integer="true"
+    :min="-100"
+    :max="0"
   )
   a-progress.a_mt_4(
     :value="50"

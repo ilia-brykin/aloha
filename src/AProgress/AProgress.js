@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import AFiltersAPI from "../compositionAPI/AFiltersAPI";
+import WidthAPI from "./compositionAPI/WidthAPI";
 
 export default {
   name: "AProgress",
@@ -48,15 +49,19 @@ export default {
     } = AFiltersAPI();
 
     const isInteger = toRef(props, "isInteger");
-    const value = toRef(props, "value");
+
+    const {
+      widthPercent,
+    } = WidthAPI(props);
+
     const valuePercent = computed(() => {
       if (isInteger.value) {
-        return filterCurrency(value.value, {
+        return filterCurrency(widthPercent.value, {
           suffix: "%",
           digits: 0,
         });
       }
-      return filterCurrency(value.value, {
+      return filterCurrency(widthPercent.value, {
         suffix: "%",
         digits: 2,
       });
@@ -64,6 +69,7 @@ export default {
 
     return {
       valuePercent,
+      widthPercent,
     };
   },
   render() {
@@ -79,7 +85,7 @@ export default {
         "aria-valuemin": this.min,
         "aria-valuemax": this.max,
         style: {
-          width: `${ this.value }%`,
+          width: `${ this.widthPercent }%`,
         },
       }, [
         this.isValueVisible && h("span", {
