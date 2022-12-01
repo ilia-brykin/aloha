@@ -13,7 +13,7 @@ export default function WidthAPI(props) {
   });
 
   const widthPercent = computed(() => {
-    return Math.abs(diffMinMax.value / 100 * value.value);
+    return Math.abs(value.value * 100 / diffMinMax.value);
   });
 
   return {
