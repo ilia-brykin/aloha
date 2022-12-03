@@ -146,8 +146,12 @@ export default {
             }, [
               this.label && h("span", {
                 class: "a_custom_control_label__text",
-                innerHTML: this.label,
-              }),
+              }, [
+                h("span", {
+                  innerHTML: this.label,
+                }),
+                this.required && h("span", null, "*"),
+              ]),
             ]),
           ]),
         ]),
