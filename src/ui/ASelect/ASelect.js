@@ -434,17 +434,18 @@ export default {
               ariaDisabled: this.disabled,
               ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
+              title: this.hasSelectedTitle ? this.selectedTitle : undefined, // TODO: title
               onClick: this.togglePopover,
               onKeydown: this.handleKeydown,
               onFocus: this.onFocus,
               onBlur: this.onBlur,
               ...this.attributesDisabled,
             }, [
-              this.hasSelectedTitle && h("span", {
-                class: "a_position_absolute_all",
-                ariaHidden: true,
-                title: this.selectedTitle,
-              }),
+              // this.hasSelectedTitle && h("span", {
+              //   class: "a_position_absolute_all",
+              //   ariaHidden: true,
+              //   title: this.selectedTitle,
+              // }),
               this.isModelValue ?
                 this.isMultiselect ?
                   this.isSelectionCloseable ?
