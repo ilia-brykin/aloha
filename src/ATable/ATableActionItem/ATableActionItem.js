@@ -21,7 +21,16 @@ export default {
       return action.value.type || "button";
     });
 
+
+    const callbackLocal = () => {
+      action.value.callback({
+        id: action.value.id,
+        action: action.value,
+      });
+    };
+
     return {
+      callbackLocal,
       type,
     };
   },
@@ -31,7 +40,7 @@ export default {
         id: this.action.id,
         class: ["a_table__action", this.action.class],
         disabled: this.action.disabled,
-        onClick: this.action.callback,
+        onClick: this.callbackLocal,
       }, [
         this.action.title && h("span", {
           class: "a_position_absolute_all",

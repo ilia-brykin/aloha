@@ -187,6 +187,7 @@ export default {
           type: "button",
           class: "a_btn a_btn_primary",
           icon: "Plus",
+          id: "aloha_1"
         },
         {
           label: "Aloha2",
@@ -194,6 +195,7 @@ export default {
           callback: this.clickMe,
           disabled: false,
           class: "a_btn a_btn_secondary",
+          id: "aloha_2"
         },
         {
           label: "Aloha link",
@@ -301,8 +303,8 @@ export default {
       this.data = DATA;
     },
 
-    clickMe({ row, rowIndex } = {}) {
-      console.log("row, rowIndex", row, rowIndex);
+    clickMe(arg) {
+      console.log("arg", arg);
     },
 
     clickMeModal({ rows, close }) {
