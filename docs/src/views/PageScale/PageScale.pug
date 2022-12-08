@@ -1,0 +1,14 @@
+div
+  h1 PageScale
+  div
+    a-input(
+      id="input1"
+      v-model="model"
+      type="number"
+      label="Scale"
+    )
+  a-scale(
+    :value="+model"
+    class-negative="a_color_danger"
+    class-positive="a_color_success"
+  )

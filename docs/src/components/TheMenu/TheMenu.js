@@ -236,6 +236,14 @@ export default {
           },
           icon: "Bla",
         },
+        {
+          id: "scale",
+          label: "Scale",
+          to: {
+            name: "PageScale",
+          },
+          icon: "Dnd",
+        },
       ],
     };
   },
