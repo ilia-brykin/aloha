@@ -58,8 +58,6 @@ export default {
     return h("polygon", {
       points: this.pointsLocal,
       style: this.styleLocal,
-    }, [
-      this.$slots.default && this.$slots.default(),
-    ]);
+    });
   },
 };

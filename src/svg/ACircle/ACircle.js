@@ -56,8 +56,6 @@ export default {
       cy: this.cy,
       r: this.r,
       style: this.styleLocal,
-    }, [
-      this.$slots.default && this.$slots.default(),
-    ]);
+    });
   },
 };

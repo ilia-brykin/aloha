@@ -46,8 +46,6 @@ export default {
       rx: this.rx,
       ry: this.ry,
       style: this.style,
-    }, [
-      this.$slots.default && this.$slots.default(),
-    ]);
+    });
   },
 };
