@@ -2,6 +2,8 @@ import {
   h,
 } from "vue";
 
+import FillStrokeAPI from "../compositionAPI/FillStrokeAPI";
+
 export default {
   name: "ARect",
   props: {
@@ -31,11 +33,35 @@ export default {
       required: false,
       default: 0,
     },
-    style: {
-      type: [String, Object, Array],
+    fill: {
+      type: String,
       required: false,
-      default: "fill:currentColor;",
+      default: "currentColor",
     },
+    stroke: {
+      type: String,
+      required: false,
+      default: "currentColor",
+    },
+    strokeWidth: {
+      type: [Number, String],
+      required: false,
+      default: 0,
+    },
+    style: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+  },
+  setup(props) {
+    const {
+      styleLocal,
+    } = FillStrokeAPI(props);
+
+    return {
+      styleLocal,
+    };
   },
   render() {
     return h("rect", {
@@ -45,7 +71,7 @@ export default {
       y: this.y,
       rx: this.rx,
       ry: this.ry,
-      style: this.style,
+      style: this.styleLocal,
     });
   },
 };

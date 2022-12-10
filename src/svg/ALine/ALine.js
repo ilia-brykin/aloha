@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import StyleAPI from "./compositionAPI/StyleAPI";
+import StrokeAPI from "../compositionAPI/StrokeAPI";
 
 export default {
   name: "ALine",
@@ -46,7 +46,7 @@ export default {
   setup(props) {
     const {
       styleLocal,
-    } = StyleAPI(props);
+    } = StrokeAPI(props);
 
     return {
       styleLocal,

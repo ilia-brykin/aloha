@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import StyleAPI from "../ACircle/compositionAPI/StyleAPI";
+import FillStrokeAPI from "../compositionAPI/FillStrokeAPI";
 
 export default {
   name: "AEllipse",
@@ -49,7 +49,7 @@ export default {
   setup(props) {
     const {
       styleLocal,
-    } = StyleAPI(props);
+    } = FillStrokeAPI(props);
 
     return {
       styleLocal,

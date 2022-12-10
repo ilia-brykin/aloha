@@ -3,9 +3,8 @@ import {
   toRef,
 } from "vue";
 
-export default function StyleAPI(props) {
+export default function StrokeAPI(props) {
   const style = toRef(props, "style");
-  const fill = toRef(props, "fill");
   const stroke = toRef(props, "stroke");
   const strokeWidth = toRef(props, "strokeWidth");
 
@@ -13,7 +12,6 @@ export default function StyleAPI(props) {
     return [
       style.value,
       {
-        fill: fill.value,
         stroke: stroke.value,
         strokeWidth: strokeWidth.value,
       },

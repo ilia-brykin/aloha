@@ -2,28 +2,16 @@ import {
   h,
 } from "vue";
 
-import FillStrokeAPI from "../compositionAPI/FillStrokeAPI";
+import PointsAPI from "../compositionAPI/PointsAPI";
+import StrokeAPI from "../compositionAPI/StrokeAPI";
 
 export default {
-  name: "ACircle",
+  name: "APolyline",
   props: {
-    cx: {
-      type: [Number, String],
+    points: {
+      type: [Array, String],
       required: true,
-    },
-    cy: {
-      type: [Number, String],
-      required: true,
-    },
-    r: {
-      type: [Number, String],
-      required: false,
-      default: 0,
-    },
-    fill: {
-      type: String,
-      required: false,
-      default: "none",
+      default: [],
     },
     stroke: {
       type: String,
@@ -44,17 +32,20 @@ export default {
   setup(props) {
     const {
       styleLocal,
-    } = FillStrokeAPI(props);
+    } = StrokeAPI(props);
+
+    const {
+      pointsLocal,
+    } = PointsAPI(props);
 
     return {
+      pointsLocal,
       styleLocal,
     };
   },
   render() {
-    return h("circle", {
-      cx: this.cx,
-      cy: this.cy,
-      r: this.r,
+    return h("polyline", {
+      points: this.pointsLocal,
       style: this.styleLocal,
     });
   },

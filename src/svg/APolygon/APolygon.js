@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import PointsAPI from "./compositionAPI/PointsAPI";
+import PointsAPI from "../compositionAPI/PointsAPI";
 import StyleAPI from "./compositionAPI/StyleAPI";
 
 export default {
