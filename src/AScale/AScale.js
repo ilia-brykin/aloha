@@ -62,12 +62,12 @@ export default {
         xmlns: "http://www.w3.org/2000/svg",
       }, [
         h(AScaleBowlClipPath),
+        h(AScaleBalance, {
+          degree: this.degree,
+        }),
         h("g", {
           transform: "translate(57.965221,7.3840961)",
         }, [
-          h(AScaleBalance, {
-            degree: this.degree,
-          }),
           h(AScaleBowl, {
             direction: "left",
             degree: this.degree,
@@ -76,8 +76,8 @@ export default {
             direction: "right",
             degree: this.degree,
           }),
-          h(AScaleStand),
         ]),
+        h(AScaleStand),
       ]),
     ]);
   },
