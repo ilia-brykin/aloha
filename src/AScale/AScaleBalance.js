@@ -42,6 +42,7 @@ export default {
         y: 8.88,
         rx: 1.3,
         ry: 1.3,
+        fill: "currentColor",
       }),
       h(ARect, {
         width: 25,
@@ -50,6 +51,7 @@ export default {
         y: 16.38,
         rx: 1.3,
         ry: 1.3,
+        fill: "currentColor",
       }),
       h(ARect, {
         width: 25,
@@ -58,6 +60,7 @@ export default {
         y: 16.38,
         rx: 1.3,
         ry: 1.3,
+        fill: "currentColor",
       }),
       h(ACircle, {
         cx: this.centerX,

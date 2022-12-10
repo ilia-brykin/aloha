@@ -2,8 +2,6 @@ import {
   h,
 } from "vue";
 
-import FillStrokeAPI from "../compositionAPI/FillStrokeAPI";
-
 export default {
   name: "ACircle",
   props: {
@@ -23,39 +21,27 @@ export default {
     fill: {
       type: String,
       required: false,
-      default: "none",
+      default: undefined,
     },
     stroke: {
       type: String,
       required: false,
-      default: "currentColor",
+      default: undefined,
     },
     strokeWidth: {
       type: [Number, String],
       required: false,
-      default: 1,
-    },
-    style: {
-      type: [String, Object],
-      required: false,
       default: undefined,
     },
-  },
-  setup(props) {
-    const {
-      styleLocal,
-    } = FillStrokeAPI(props);
-
-    return {
-      styleLocal,
-    };
   },
   render() {
     return h("circle", {
       cx: this.cx,
       cy: this.cy,
       r: this.r,
-      style: this.styleLocal,
+      fill: this.fill,
+      stroke: this.stroke,
+      "stroke-width": this.strokeWidth,
     });
   },
 };

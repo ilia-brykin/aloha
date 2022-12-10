@@ -2,8 +2,6 @@ import {
   h,
 } from "vue";
 
-import FillStrokeAPI from "../compositionAPI/FillStrokeAPI";
-
 export default {
   name: "AEllipse",
   props: {
@@ -28,32 +26,18 @@ export default {
     fill: {
       type: String,
       required: false,
-      default: "none",
+      default: undefined,
     },
     stroke: {
       type: String,
       required: false,
-      default: "currentColor",
+      default: undefined,
     },
     strokeWidth: {
       type: [Number, String],
       required: false,
-      default: 1,
-    },
-    style: {
-      type: [String, Object],
-      required: false,
       default: undefined,
     },
-  },
-  setup(props) {
-    const {
-      styleLocal,
-    } = FillStrokeAPI(props);
-
-    return {
-      styleLocal,
-    };
   },
   render() {
     return h("ellipse", {
@@ -61,7 +45,9 @@ export default {
       cy: this.cy,
       rx: this.rx,
       ry: this.ry,
-      style: this.styleLocal,
+      fill: this.fill,
+      stroke: this.stroke,
+      strokeWidth: this.strokeWidth,
     });
   },
 };

@@ -15,6 +15,7 @@ export default {
         y: 20.88,
         rx: 1.3,
         ry: 1.3,
+        fill: "currentColor",
       }),
       h(ARect, {
         width: 70,
@@ -23,6 +24,7 @@ export default {
         y: 65.88,
         rx: 1.3,
         ry: 1.3,
+        fill: "currentColor",
       }),
     ]);
   },

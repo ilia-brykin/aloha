@@ -3,7 +3,6 @@ import {
 } from "vue";
 
 import PointsAPI from "../compositionAPI/PointsAPI";
-import StrokeAPI from "../compositionAPI/StrokeAPI";
 
 export default {
   name: "APolyline",
@@ -23,30 +22,21 @@ export default {
       required: false,
       default: 1,
     },
-    style: {
-      type: [String, Object],
-      required: false,
-      default: undefined,
-    },
   },
   setup(props) {
-    const {
-      styleLocal,
-    } = StrokeAPI(props);
-
     const {
       pointsLocal,
     } = PointsAPI(props);
 
     return {
       pointsLocal,
-      styleLocal,
     };
   },
   render() {
     return h("polyline", {
       points: this.pointsLocal,
-      style: this.styleLocal,
+      stroke: this.stroke,
+      strokeWidth: this.strokeWidth,
     });
   },
 };

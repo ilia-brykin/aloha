@@ -3,7 +3,6 @@ import {
 } from "vue";
 
 import PointsAPI from "../compositionAPI/PointsAPI";
-import StyleAPI from "./compositionAPI/StyleAPI";
 
 export default {
   name: "APolygon",
@@ -34,30 +33,23 @@ export default {
       required: false,
       default: 1,
     },
-    style: {
-      type: [String, Object],
-      required: false,
-      default: undefined,
-    },
   },
   setup(props) {
-    const {
-      styleLocal,
-    } = StyleAPI(props);
-
     const {
       pointsLocal,
     } = PointsAPI(props);
 
     return {
       pointsLocal,
-      styleLocal,
     };
   },
   render() {
     return h("polygon", {
       points: this.pointsLocal,
-      style: this.styleLocal,
+      fill: this.fill,
+      fillRule: this.fillRule,
+      stroke: this.stroke,
+      strokeWidth: this.strokeWidth,
     });
   },
 };
