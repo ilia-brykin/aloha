@@ -12,6 +12,11 @@ export default {
       required: true,
       default: [],
     },
+    fill: {
+      type: String,
+      required: false,
+      default: "none",
+    },
     stroke: {
       type: String,
       required: false,
@@ -20,7 +25,7 @@ export default {
     strokeWidth: {
       type: [Number, String],
       required: false,
-      default: 1,
+      default: undefined,
     },
   },
   setup(props) {
@@ -35,8 +40,9 @@ export default {
   render() {
     return h("polyline", {
       points: this.pointsLocal,
+      fill: this.fill,
       stroke: this.stroke,
-      strokeWidth: this.strokeWidth,
+      "stroke-width": this.strokeWidth,
     });
   },
 };

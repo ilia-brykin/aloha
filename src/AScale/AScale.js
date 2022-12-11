@@ -3,9 +3,9 @@ import {
 } from "vue";
 
 import AScaleBalance from "./AScaleBalance";
-import AScaleBowl from "./AScaleBowl";
-import AScaleBowlClipPath from "./AScaleBowlClipPath";
 import AScaleStand from "./AScaleStand";
+import AScaleBowlDefs from "./AScaleBowlDefs";
+import AScaleBowlNew from "./AScaleBowlNew";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
 import DegreeAPI from "./compositionAPI/DegreeAPI";
@@ -57,27 +57,23 @@ export default {
       h("svg", {
         width: "294.09344",
         height: "231.42137",
-        viewBox: "0 0 94.040211 74",
+        viewBox: "0 0 94 74",
         version: "1.1",
         xmlns: "http://www.w3.org/2000/svg",
       }, [
-        h(AScaleBowlClipPath),
+        h(AScaleBowlDefs),
         h(AScaleBalance, {
           degree: this.degree,
         }),
-        h("g", {
-          transform: "translate(57.965221,7.3840961)",
-        }, [
-          h(AScaleBowl, {
-            direction: "left",
-            degree: this.degree,
-          }),
-          h(AScaleBowl, {
-            direction: "right",
-            degree: this.degree,
-          }),
-        ]),
         h(AScaleStand),
+        h(AScaleBowlNew, {
+          direction: "left",
+          degree: this.degree,
+        }),
+        h(AScaleBowlNew, {
+          direction: "right",
+          degree: this.degree,
+        }),
       ]),
     ]);
   },

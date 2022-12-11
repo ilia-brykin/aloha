@@ -2,15 +2,13 @@ import {
   h,
 } from "vue";
 
-import PointsAPI from "../compositionAPI/PointsAPI";
-
 export default {
-  name: "APolygon",
+  name: "APath",
   props: {
-    points: {
-      type: [Array, String],
+    d: {
+      type: String,
       required: true,
-      default: [],
+      default: "",
     },
     fill: {
       type: String,
@@ -34,18 +32,9 @@ export default {
       default: undefined,
     },
   },
-  setup(props) {
-    const {
-      pointsLocal,
-    } = PointsAPI(props);
-
-    return {
-      pointsLocal,
-    };
-  },
   render() {
-    return h("polygon", {
-      points: this.pointsLocal,
+    return h("path", {
+      d: this.d,
       fill: this.fill,
       fillRule: this.fillRule,
       stroke: this.stroke,
