@@ -376,13 +376,20 @@
 }
 
 // PAGINATION
+.a_pagination {
+  margin-bottom: 0;
+}
 .a_pagination__parent {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-color: #f0f4f7;
-  padding: .5rem;
+  padding: .5rem .5rem 0 .5rem;
   min-height: 2rem;
+  > * {
+    margin-bottom: .5rem;
+  }
 }
 .a_pagination__count_from_to {
   margin-right: 1rem;

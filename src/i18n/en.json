@@ -5,5 +5,6 @@
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
   "_PAGINATION_NAVIGATION_": "Pagination Navigation",
   "_PREVIOUS_": "Previous",
-  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} from {{ count}}"
+  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} from {{ count}}",
+  "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} of {{ allPages }}"
 }

@@ -12,7 +12,19 @@ import {
 export default {
   name: "ATablePagination",
   props: {
-    totalRowsCount: {
+    hasRows: {
+      type: Boolean,
+      required: true,
+    },
+    isLoadingTable: {
+      type: Boolean,
+      required: true,
+    },
+    isMobile: {
+      type: Boolean,
+      required: false,
+    },
+    limit: {
       type: Number,
       required: true,
     },
@@ -20,16 +32,8 @@ export default {
       type: Number,
       required: true,
     },
-    limit: {
+    totalRowsCount: {
       type: Number,
-      required: true,
-    },
-    isLoadingTable: {
-      type: Boolean,
-      required: true,
-    },
-    hasRows: {
-      type: Boolean,
       required: true,
     },
   },
@@ -202,20 +206,33 @@ export default {
                   ],
                 }),
               ]),
-              this.paginationItems.map(item => {
-                return h("li", {
-                  class: ["a_pagination__item", { active: item === this.currentItem }],
+              this.isMobile ?
+                h("li", {
+                  class: "a_pagination__item",
                 }, [
-                  h("a", {
-                    class: "a_pagination__item__link",
-                    role: "button",
-                    tabindex: 0,
-                    onClick: () => this.updateOffset(item),
+                  h(ATranslation, {
+                    class: "a_pagination__item__link disabled",
+                    html: "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
+                    extra: {
+                      currentPage: this.currentItem,
+                      allPages: this.maxItems,
+                    },
+                  }),
+                ]) :
+                this.paginationItems.map(item => {
+                  return h("li", {
+                    class: ["a_pagination__item", { active: item === this.currentItem }],
                   }, [
-                    item,
-                  ]),
-                ]);
-              }),
+                    h("a", {
+                      class: "a_pagination__item__link",
+                      role: "button",
+                      tabindex: 0,
+                      onClick: () => this.updateOffset(item),
+                    }, [
+                      item,
+                    ]),
+                  ]);
+                }),
               h("li", {
                 class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
               }, [

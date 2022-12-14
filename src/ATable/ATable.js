@@ -703,6 +703,7 @@ export default {
               isLoadingTable: this.isLoadingTable,
               offset: this.offset,
               hasRows: this.hasRows,
+              isMobile: this.isMobile,
               "onUpdate:offset": this.changeOffset,
             }),
           ]),
