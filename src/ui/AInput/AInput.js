@@ -49,6 +49,11 @@ export default {
       required: false,
       default: "",
     },
+    step: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
   },
   setup(props, context) {
     const {
@@ -176,6 +181,7 @@ export default {
             ariaInvalid: this.isErrors,
             "aria-describedby": this.ariaDescribedbyLocal,
             maxlength: this.maxlength,
+            step: this.step,
             ...this.inputAttributes,
             onInput: this.onInput,
             onFocus: this.onFocus,

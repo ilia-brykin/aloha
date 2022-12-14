@@ -70,6 +70,14 @@ export default {
           isHide: true,
         },
         {
+          type: "number",
+          label: "Aloha 1",
+          id: "aloha1_number",
+          classColumn: "a_column_3",
+          step: 0.01,
+          required: true,
+        },
+        {
           type: "file",
           label: "Aloha File",
           id: "alohaFile",
