@@ -10,7 +10,9 @@ import {
 } from "@popperjs/core";
 
 export default function PopperAPI(props) {
+  const id = toRef(props, "id");
   const placement = toRef(props, "placement");
+  const timeClose = toRef(props, "timeClose");
 
   const popper = ref(undefined);
   const timerTitleClose = ref(undefined);
@@ -51,7 +53,7 @@ export default function PopperAPI(props) {
   const closeTitleWithTimer = () => {
     timerTitleClose.value = setTimeout(() => {
       closeTitle();
-    }, 300);
+    }, timeClose.value);
   };
 
   const showTitle = () => {
@@ -62,11 +64,12 @@ export default function PopperAPI(props) {
     isTitleVisible.value = true;
     setTimeout(() => {
       if (!popper.value) {
+        const ELEMENT = document.getElementById(id.value);
         if (!titleRef.value) {
           return;
         }
         popper.value = createPopper(
-          componentRef.value,
+          ELEMENT,
           titleRef.value,
           popperOptions.value,
         );

@@ -3,7 +3,9 @@ import {
   Teleport,
 } from "vue";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import PopperAPI from "./compositionAPI/PopperAPI";
+import TagAPI from "./compositionAPI/TagAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import placements from "../const/placements";
@@ -34,6 +36,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    timeClose: {
+      type: Number,
+      required: false,
+      default: 300,
+    },
   },
   setup(props) {
     const {
@@ -60,7 +67,16 @@ export default {
       closeTitleWithTimer,
     });
 
+    const {
+      tagLocal,
+    } = TagAPI(props);
+
+    const {
+      ariaDescribedby,
+    } = AttributesAPI(props);
+
     return {
+      ariaDescribedby,
       closeTitle,
       componentRef,
       isTitleVisible,
@@ -71,37 +87,50 @@ export default {
       onMouseenter,
       onMouseleave,
       showTitle,
+      tagLocal,
       titleRef,
       updateTitle,
       updateTitleOptions,
     };
   },
   render() {
-    return h(this.tag, {
+    return h(this.tagLocal, {
       ref: "componentRef",
       id: this.id,
+      "aria-describedby": this.ariaDescribedby,
       onFocus: this.onFocus,
       onBlur: this.onBlur,
       onMouseenter: this.onMouseenter,
       onMouseleave: this.onMouseleave,
-    }, [
-      this.$slots.default && this.$slots.default(),
-      this.isTitleVisible && h(Teleport, {
-        to: "body",
-      }, [
-        h("div", {
-          ref: "titleRef",
-          class: "a_tooltip__container",
-          onMouseenter: this.mouseEnterTooltip,
-          onMouseleave: this.mouseLeaveTooltip,
+    }, {
+      default: () => [
+        this.$slots.default && this.$slots.default(),
+        !this.isHide && h(Teleport, {
+          to: "body",
         }, [
-          this.$slots.title && this.$slots.title(),
           h("div", {
-            "data-popper-arrow": true,
-            class: "a_tooltip__arrow",
-          }),
+            ariaHidden: true,
+          }, [
+            h("div", {
+              id: this.ariaDescribedby
+            }, [
+              this.$slots.title && this.$slots.title(),
+            ]),
+            this.isTitleVisible && h("div", {
+              ref: "titleRef",
+              class: "a_tooltip__container",
+              onMouseenter: this.mouseEnterTooltip,
+              onMouseleave: this.mouseLeaveTooltip,
+            }, [
+              this.$slots.title && this.$slots.title(),
+              h("div", {
+                "data-popper-arrow": true,
+                class: "a_tooltip__arrow",
+              }),
+            ]),
+          ]),
         ]),
-      ]),
-    ]);
+      ],
+    });
   },
 };

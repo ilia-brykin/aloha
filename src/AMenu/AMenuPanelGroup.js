@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import AMenuPanelLink from "./AMenuPanelLink";
+import AMenuPanelLink from "./AMenuPanelLink/AMenuPanelLink";
 
 export default {
   name: "AMenuPanelGroup",

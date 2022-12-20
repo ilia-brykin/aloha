@@ -3,7 +3,7 @@ import {
   h, toRef,
 } from "vue";
 
-import AMenuPanelLink from "./AMenuPanelLink";
+import AMenuPanelLink from "./AMenuPanelLink/AMenuPanelLink";
 
 import AKeyParent from "../ui/const/AKeyParent";
 import AKeyLabel from "../ui/const/AKeyLabel";

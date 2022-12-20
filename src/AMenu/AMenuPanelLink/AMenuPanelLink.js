@@ -2,21 +2,22 @@ import {
   computed,
   h,
   inject,
-  resolveComponent,
   toRef,
 } from "vue";
 
-import AIcon from "../AIcon/AIcon";
+import AIcon from "../../AIcon/AIcon";
+import ATooltip from "../../ATooltip/ATooltip";
 
-import AFiltersAPI from "../compositionAPI/AFiltersAPI";
+import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
+import TitleAPI from "./compositionAPI/TitleAPI";
 
-import AKeyId from "../ui/const/AKeyId";
-import AKeyLabel from "../ui/const/AKeyLabel";
-import AKeyParent from "../ui/const/AKeyParent";
-import AKeysCode from "../const/AKeysCode";
+import AKeyId from "../../ui/const/AKeyId";
+import AKeyLabel from "../../ui/const/AKeyLabel";
+import AKeyParent from "../../ui/const/AKeyParent";
+import AKeysCode from "../../const/AKeysCode";
 import {
   setFocusToFirstLinkInPanel
-} from "./utils/utils";
+} from "../utils/utils";
 import {
   get,
 } from "lodash-es";
@@ -121,10 +122,6 @@ export default {
       return dataProParentChildren.value[id.value] && dataProParentChildren.value[id.value].length;
     });
 
-    const title = computed(() => {
-      return item.value.title || labelWithoutFilter.value;
-    });
-
     const toLocal = computed(() => {
       if (isLinkDisabled.value) {
         return "#";
@@ -154,6 +151,13 @@ export default {
       clickMenuLink();
     };
 
+    const {
+      isTitleHtml,
+      title,
+    } = TitleAPI(props, {
+      labelWithoutFilter,
+    });
+
     return {
       clickLink,
       countChildren,
@@ -162,6 +166,7 @@ export default {
       isLinkDisabled,
       isLinkTruncated,
       isLinkVisible,
+      isTitleHtml,
       label,
       labelWithoutFilter,
       onKeydown,
@@ -182,7 +187,7 @@ export default {
       h("span", {
         class: "a_menu__link__text",
       }, [
-        h("span", {
+        this.title && h("span", {
           class: "a_position_absolute_all",
           title: this.title,
           ariaHidden: true,
@@ -208,14 +213,22 @@ export default {
           labelWithoutFilter: this.labelWithoutFilter,
         }) :
         this.item.to ?
-          h(resolveComponent("RouterLink"), {
+          h(ATooltip, {
+            tag: "RouterLink",
+            placement: "right",
+            isHide: !this.isTitleHtml,
             class: ["a_menu__link a_menu__link__text_truncated", {
               a_menu__link_disabled: this.isLinkDisabled,
             }],
             to: this.toLocal,
             tabindex: this.isPanelOpen ? 0 : -1,
             onClick: this.clickLink,
-          }, () => ICON_AND_TEXT) :
+          }, {
+            default: () => ICON_AND_TEXT,
+            title: () => h("div", {
+              innerHTML: this.item.titleHtml,
+            })
+          }) :
           h("a", {
             class: "a_menu__link a_menu__link_btn a_menu__link__text_truncated",
             ariaLabel: "Untermenü öffnen",
