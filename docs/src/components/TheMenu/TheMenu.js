@@ -244,6 +244,14 @@ export default {
           },
           icon: "Dnd",
         },
+        {
+          id: "title",
+          label: "Title",
+          to: {
+            name: "PageTitle",
+          },
+          icon: "Dnd",
+        },
       ],
     };
   },

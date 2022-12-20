@@ -7,6 +7,7 @@ import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 
 import AKeysCode from "../const/AKeysCode";
+import placements from "../const/placements";
 import {
   createPopper,
 } from "@popperjs/core";
@@ -17,23 +18,6 @@ import {
 } from "lodash-es";
 
 const ELEMENTS_FOR_ARROWS = `button:not([disabled]), input:not([disabled]), a`;
-const AVAILABLE_POSITIONS = [
-  "auto",
-  "auto-start",
-  "auto-end",
-  "top",
-  "top-start",
-  "top-end",
-  "right",
-  "right-start",
-  "right-end",
-  "bottom",
-  "bottom-start",
-  "bottom-end",
-  "left",
-  "left-start",
-  "left-end",
-];
 
 export default {
   name: "ADropdown",
@@ -107,7 +91,7 @@ export default {
       type: String,
       required: false,
       default: "bottom-start",
-      validator: placement => AVAILABLE_POSITIONS.indexOf(placement) !== -1,
+      validator: placement => placements.indexOf(placement) !== -1,
     },
     isCaret: {
       type: Boolean,
