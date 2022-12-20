@@ -41,6 +41,11 @@ export default {
       required: false,
       default: 300,
     },
+    maxWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
   },
   setup(props) {
     const {
@@ -73,6 +78,7 @@ export default {
 
     const {
       ariaDescribedby,
+      tooltipStyles,
     } = AttributesAPI(props);
 
     return {
@@ -89,6 +95,7 @@ export default {
       showTitle,
       tagLocal,
       titleRef,
+      tooltipStyles,
       updateTitle,
       updateTitleOptions,
     };
@@ -119,6 +126,7 @@ export default {
             this.isTitleVisible && h("div", {
               ref: "titleRef",
               class: "a_tooltip__container",
+              style: this.tooltipStyles,
               onMouseenter: this.mouseEnterTooltip,
               onMouseleave: this.mouseLeaveTooltip,
             }, [
