@@ -6,7 +6,7 @@ import AI18nPlugin from "../../src/plugins/AI18nPlugin";
 // import alohaPlugin from "../src/plugins/alohaPlugin";
 import AIconPlugin from "../../src/plugins/AIconPlugin";
 import mainIcons from "./mainIcons";
-import ASaveHtml from "../../src/directives/ASaveHtml";
+import ASafeHtml from "../../src/directives/ASafeHtml";
 
 import de from "./i18n/de.json";
 import en from "./i18n/en.json";
@@ -31,5 +31,5 @@ APP.use(AIconPlugin, mainIcons);
 //   framework: "bootstrap",
 // });
 APP.config.unwrapInjectedRef = true;
-APP.directive("SaveHtml", ASaveHtml);
+APP.directive("SafeHtml", ASafeHtml);
 APP.use(store).use(router).mount("#app");
