@@ -119,7 +119,8 @@ export default {
             ariaHidden: true,
           }, [
             h("div", {
-              id: this.ariaDescribedby
+              id: this.ariaDescribedby,
+              class: "a_sr_only",
             }, [
               this.$slots.title && this.$slots.title(),
             ]),

@@ -251,7 +251,7 @@ export default {
             name: "PageTitle",
           },
           icon: "Dnd",
-          titleHtml: "PageTitle",
+          titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
         },
       ],
     };
