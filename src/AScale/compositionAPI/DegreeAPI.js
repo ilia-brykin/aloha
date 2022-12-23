@@ -3,12 +3,12 @@ import {
   toRef,
 } from "vue";
 
-const MAX_DEGREE = 30;
 export default function DegreeAPI(props) {
   const value = toRef(props, "value");
+  const maxDegree = toRef(props, "maxDegree");
 
   const degree = computed(() => {
-    return MAX_DEGREE * value.value / 100;
+    return maxDegree.value * value.value / 100;
     // 30 - 100
     // x - value
   });

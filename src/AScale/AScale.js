@@ -75,6 +75,11 @@ export default {
       required: false,
       default: undefined,
     },
+    maxDegree: {
+      type: Number,
+      required: false,
+      default: 30,
+    },
     pipesWidth: {
       type: Number,
       required: false,
