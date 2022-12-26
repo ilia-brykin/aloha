@@ -253,6 +253,14 @@ export default {
           icon: "Dnd",
           titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
         },
+        {
+          id: "svg",
+          label: "Svg",
+          to: {
+            name: "PageSvg",
+          },
+          icon: "Dnd",
+        },
       ],
     };
   },

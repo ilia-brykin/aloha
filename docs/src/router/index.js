@@ -140,6 +140,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageTitle" */ "../views/PageTitle/PageTitle.vue"),
   },
   {
+    path: "/svg",
+    name: "PageSvg",
+    component: () => import(/* webpackChunkName: "PageSvg" */ "../views/PageSvg/PageSvg.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom
