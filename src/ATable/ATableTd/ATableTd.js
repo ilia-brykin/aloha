@@ -62,9 +62,9 @@ export default {
     text() {
       let text;
       if (this.isFooter) {
-        text = get(this.row, this.column.footerPath);
+        text = get(this.row, this.column.footerKeyLabel);
       } else {
-        text = get(this.row, this.column.path);
+        text = get(this.row, this.column.keyLabel);
       }
 
       let isTextInValuesForColumnDefault = false;
@@ -95,9 +95,9 @@ export default {
 
     path() {
       if (this.isFooter) {
-        return this.column.footerPath;
+        return this.column.footerKeyLabel;
       }
-      return this.column.path;
+      return this.column.keyLabel;
     },
 
     isSlot() {

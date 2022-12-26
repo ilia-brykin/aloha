@@ -47,9 +47,9 @@ export default {
 
     text() {
       if (this.isFooter) {
-        return get(this.row, this.column.footerPath);
+        return get(this.row, this.column.footerKeyLabel);
       }
-      return get(this.row, this.column.path);
+      return get(this.row, this.column.keyLabel);
     },
   },
   render() {
