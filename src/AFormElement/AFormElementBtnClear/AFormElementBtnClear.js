@@ -35,11 +35,13 @@ export default {
     return h("button", {
       class: ["a_form_element__btn_close", this.clearButtonClass],
       type: "button",
+      tabindex: -1,
+      ariaHidden: true,
       disabled: this.disabled,
       onClick: this.clearLocal,
     }, [
       h(ATranslation, {
-        class: "a_absolute_all",
+        class: "a_position_absolute_all",
         tag: "span",
         title: "_REMOVE_FIELD_CONTENT_",
         "aria-hidden": "true",
