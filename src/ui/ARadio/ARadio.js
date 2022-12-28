@@ -1,9 +1,13 @@
 import {
-  h, toRef,
+  h,
+  toRef,
+  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
 import ARadioItem from "./ARadioItem";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -126,12 +130,13 @@ export default {
             }],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
-            this.label && h("legend", {
+            this.label && withDirectives(h("legend", {
               class: ["a_legend", {
                 a_legend_invalid: this.isErrors,
               }],
-              innerHTML: this.label,
-            }),
+            }), [
+              [ASafeHtml, this.label],
+            ]),
             ...this.dataLocal.map((item, itemIndex) => {
               return h(ARadioItem, {
                 id: this.htmlIdLocal,
@@ -147,11 +152,12 @@ export default {
             })
           ]),
         ]),
-        this.helpText && h("div", {
+        this.helpText && withDirectives(h("div", {
           id: this.helpTextId,
           class: "a_form_element__help_text",
-          innerHTML: this.helpText,
-        }),
+        }), [
+          [ASafeHtml, this.helpText],
+        ]),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

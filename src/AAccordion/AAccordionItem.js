@@ -4,8 +4,12 @@ import {
   inject,
   ref,
   resolveComponent,
-  toRef, watch,
+  toRef,
+  watch,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import {
   cloneDeep,
@@ -222,9 +226,9 @@ export default {
               parentIndexes: this.parentIndexes,
               id: this.id,
             }) :
-            this.contentLocal && h("div", {
-              innerHTML: this.contentLocal,
-            }),
+            this.contentLocal && withDirectives(h("div"), [
+              [ASafeHtml, this.contentLocal],
+            ]),
         this.hasChildren && h("div", {
           class: ["a_accordion", {
             a_accordion__with_gap: this.withGap,
@@ -258,9 +262,9 @@ export default {
             parentIndexes: this.parentIndexes,
             id: this.id,
           }),
-          this.labelLocal && h("span", {
-            innerHTML: this.labelLocal,
-          }),
+          this.labelLocal && withDirectives(h("span"), [
+            [ASafeHtml, this.labelLocal],
+          ]),
         ]),
       ]),
       h("div", {

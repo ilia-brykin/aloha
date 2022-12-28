@@ -1,6 +1,9 @@
 import {
   h,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import ATabAPI from "./compositionAPI/ATabAPI";
 
@@ -54,9 +57,9 @@ export default {
         this.$slots[this.tab.slotContent] &&
           this.$slots[this.tab.slotContent]({ tab: this.tab }) :
         this.tab.content &&
-          h("div", {
-            innerHTML: this.tab.content,
-          }),
+          withDirectives(h("div"), [
+            [ASafeHtml, this.tab.content],
+          ]),
     ]);
   },
 };

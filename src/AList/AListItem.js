@@ -3,7 +3,10 @@ import {
   h,
   resolveComponent,
   toRef,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import {
   get,
@@ -102,9 +105,9 @@ export default {
     }, [
       this.$slots.listItem ?
         this.$slots.listItem({ item: this.item, itemIndex: this.itemIndex }) :
-        h(this.labelTag, {
-          innerHTML: this.label,
-        }),
+        withDirectives(h(this.labelTag), [
+          [ASafeHtml, this.label]
+        ]),
       this.hasChildren && h(this.tag, {
         class: this.classMain,
       }, [

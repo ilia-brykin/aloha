@@ -2,9 +2,12 @@ import {
   computed,
   h,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -147,19 +150,20 @@ export default {
               this.label && h("span", {
                 class: "a_custom_control_label__text",
               }, [
-                h("span", {
-                  innerHTML: this.label,
-                }),
+                withDirectives(h("span"), [
+                  [ASafeHtml, this.label],
+                ]),
                 this.required && h("span", null, "*"),
               ]),
             ]),
           ]),
         ]),
-        this.helpText && h("div", {
+        this.helpText && withDirectives(h("div", {
           id: this.helpTextId,
           class: "a_form_element__help_text",
-          innerHTML: this.helpText,
-        }),
+        }), [
+          [ASafeHtml, this.helpText],
+        ]),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

@@ -2,9 +2,12 @@ import {
   computed,
   h,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 
@@ -155,9 +158,9 @@ export default {
           label: this.currentLabel,
           labelFiltered: this.currentLabelFiltered,
         }) :
-        h("span", {
-          innerHTML: this.currentLabelFiltered,
-        }),
+        withDirectives(h("span"), [
+          [ASafeHtml, this.currentLabelFiltered],
+        ]),
     ]);
   },
 };

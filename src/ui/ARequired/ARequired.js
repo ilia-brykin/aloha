@@ -2,6 +2,8 @@ import {
   h,
 } from "vue";
 
+import ATranslation from "../../ATranslation/ATranslation";
+
 export default {
   name: "ARequired",
   props: {
@@ -12,9 +14,9 @@ export default {
     },
   },
   render() {
-    return h("div", {
+    return h(ATranslation, {
       class: "a_required",
-      innerHTML: this.text,
+      html: this.text,
     });
   },
 };

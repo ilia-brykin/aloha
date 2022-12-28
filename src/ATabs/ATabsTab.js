@@ -2,7 +2,10 @@ import {
   computed,
   h,
   toRef,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import ATabAPI from "./compositionAPI/ATabAPI";
 
@@ -95,9 +98,9 @@ export default {
           title: this.tab.title,
           ariaHidden: true,
         }),
-        h("span", {
-          innerHTML: this.tab.label,
-        })
+        withDirectives(h("span"), [
+          [ASafeHtml, this.tab.label],
+        ]),
       ]),
     ]);
   },

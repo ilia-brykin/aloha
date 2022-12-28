@@ -1,9 +1,12 @@
 import {
   h,
+  withDirectives,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
@@ -243,9 +246,9 @@ export default {
               icon: this.icon,
             })
           ]),
-          h("span", {
-            innerHTML: this.labelLocal,
-          }),
+          withDirectives(h("span"), [
+            [ASafeHtml, this.labelLocal],
+          ]),
           ...this.arrowButtons,
         ]),
         (!this.isLocked && this.isColumnsDnd) && h(AIcon, {

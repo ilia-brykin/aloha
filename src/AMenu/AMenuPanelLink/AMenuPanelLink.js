@@ -3,10 +3,13 @@ import {
   h,
   inject,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
 import ATooltip from "../../ATooltip/ATooltip";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
@@ -192,9 +195,9 @@ export default {
           title: this.title,
           ariaHidden: true,
         }),
-        h("span", {
-          innerHTML: this.label,
-        }),
+        withDirectives(h("span"), [
+          [ASafeHtml, this.label],
+        ]),
       ]),
     ];
 
@@ -226,9 +229,9 @@ export default {
             onClick: this.clickLink,
           }, {
             default: () => ICON_AND_TEXT,
-            title: () => h("div", {
-              innerHTML: this.item.titleHtml,
-            })
+            title: () => withDirectives(h("div"), [
+              [ASafeHtml, this.item.titleHtml],
+            ])
           }) :
           h("a", {
             class: "a_menu__link a_menu__link_btn a_menu__link__text_truncated",

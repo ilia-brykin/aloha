@@ -1,13 +1,21 @@
 import {
-  h, resolveComponent,
+  h,
+  resolveComponent,
+  withDirectives,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
 
+import ASafeHtml from "../../directives/ASafeHtml";
+
 import {
   cloneDeep,
-  forEach, get,
-  isFunction, isPlainObject, isString, isUndefined,
+  forEach,
+  get,
+  isFunction,
+  isPlainObject,
+  isString,
+  isUndefined,
 } from "lodash-es";
 
 export default {
@@ -168,9 +176,9 @@ export default {
         class: "a_table__action__icon",
         icon: this.rowAction.icon,
       }),
-      h("span", {
-        innerHTML: this.labelLocal,
-      }),
+      withDirectives(h("span"), [
+        [ASafeHtml, this.labelLocal],
+      ]),
     ];
 
     if (this.rowAction.isDivider) {

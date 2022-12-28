@@ -1,10 +1,17 @@
 import {
   computed,
-  h, toRef,
+  h,
+  toRef,
+  withDirectives,
 } from "vue";
 
 import UiCheckboxRadioItem from "../compositionApi/UiCheckboxRadioItem";
-import { cloneDeep } from "lodash-es";
+
+import ASafeHtml from "../../directives/ASafeHtml";
+
+import {
+  cloneDeep,
+} from "lodash-es";
 
 const KEY_CODE_SPACE = 32;
 
@@ -120,10 +127,11 @@ export default {
           a_custom_control_label_width_auto: this.isWidthAuto,
         }],
       }, [
-        this.labelLocal && h("span", {
+        this.labelLocal && withDirectives(h("span", {
           class: "a_custom_control_label__text",
-          innerHTML: this.labelLocal,
-        }),
+        }), [
+          [ASafeHtml, this.labelLocal],
+        ]),
       ]),
     ]);
   },

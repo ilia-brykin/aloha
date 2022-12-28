@@ -3,9 +3,12 @@ import {
   h,
   resolveComponent,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AIcon from "../../AIcon/AIcon";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 export default {
   name: "ATableActionItem",
@@ -51,9 +54,9 @@ export default {
           class: "a_table__action__icon",
           icon: this.action.icon,
         }),
-        h("span", {
-          innerHTML: this.action.label,
-        }),
+        withDirectives(h("span"), [
+          [ASafeHtml, this.action.label],
+        ]),
       ]);
     }
     if (this.type === "link") {
@@ -72,9 +75,9 @@ export default {
           class: "a_table__action__icon",
           icon: this.action.icon,
         }),
-        h("span", {
-          innerHTML: this.action.label,
-        }),
+        withDirectives(h("span"), [
+          [ASafeHtml, this.action.label],
+        ]),
       ]);
     }
     if (this.type === "dropdown") {

@@ -3,10 +3,13 @@ import {
   h,
   ref,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
 import ALabel from "../ALabel/ALabel";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -191,11 +194,12 @@ export default {
             return h("li", { }, model.name);
           }),
         ]),
-        this.helpText && h("div", {
+        this.helpText && withDirectives(h("div", {
           id: this.helpTextId,
           class: "a_form_element__help_text",
-          innerHTML: this.helpText,
-        }),
+        }), [
+          [ASafeHtml, this.helpText],
+        ]),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

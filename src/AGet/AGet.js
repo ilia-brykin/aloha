@@ -1,11 +1,14 @@
 import {
-  capitalize,
   h,
+  withDirectives,
 } from "vue";
 
 import AFiltersAPI from "../compositionAPI/AFiltersAPI";
 
+import ASafeHtml from "../directives/ASafeHtml";
+
 import {
+  capitalize,
   forEach,
   get,
   isArray,
@@ -13,6 +16,7 @@ import {
   isNil,
   isUndefined,
 } from "lodash-es";
+
 
 // @vue/component
 export default {
@@ -109,8 +113,8 @@ export default {
     },
   },
   render() {
-    return h(this.tag, {
-      innerHTML: this.valueLocal,
-    });
+    return withDirectives(h(this.tag), [
+      [ASafeHtml, this.valueLocal],
+    ]);
   },
 };

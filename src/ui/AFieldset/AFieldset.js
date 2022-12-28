@@ -1,10 +1,14 @@
 import {
-  h, resolveComponent,
+  h,
+  resolveComponent,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AUiComponents from "../AUiComponents";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -96,12 +100,13 @@ export default {
         }],
         "aria-describedby": this.ariaDescribedbyLocal,
       }, [
-        this.label && h("legend", {
+        this.label && withDirectives(h("legend", {
           class: ["a_legend", {
             a_legend_invalid: this.isErrors,
           }],
-          innerHTML: this.label,
-        }),
+        }), [
+          [ASafeHtml, this.label],
+        ]),
         h("div", {
           class: "a_columns a_columns_count_12 a_columns_gab_2",
         }, [
@@ -120,11 +125,12 @@ export default {
           }),
         ]),
       ]),
-      this.helpText && h("div", {
+      this.helpText && withDirectives(h("div", {
         id: this.helpTextId,
         class: "a_form_element__help_text",
-        innerHTML: this.helpText,
-      }),
+      }), [
+        [ASafeHtml, this.helpText],
+      ]),
       this.isErrors && h(AErrorsText, {
         id: this.errorsId,
         errors: this.errors,

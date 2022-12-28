@@ -2,7 +2,10 @@ import {
   computed,
   h,
   toRef,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import AKeyLabel from "../const/AKeyLabel";
 
@@ -39,9 +42,9 @@ export default {
           item: this.data,
           label: this.currentLabel,
         }) :
-        h("span", {
-          innerHTML: this.currentLabel,
-        }),
+        withDirectives(h("span"), [
+          [ASafeHtml, this.currentLabel],
+        ]),
     ]);
   },
 };

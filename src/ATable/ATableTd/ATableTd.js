@@ -1,9 +1,12 @@
 import {
   h,
   resolveComponent,
+  withDirectives,
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 
@@ -173,15 +176,15 @@ export default {
                 class: [this.column.class, this.classForLink],
                 to: this.toLocal,
               }, () => [
-                h("span", {
-                  innerHTML: this.text,
-                }),
+                withDirectives(h("span"), [
+                  [ASafeHtml, this.text],
+                ]),
               ]),
             ] :
             [
-              h("span", {
-                innerHTML: this.text,
-              }),
+              withDirectives(h("span"), [
+                [ASafeHtml, this.text],
+              ]),
             ])
       ]
     );

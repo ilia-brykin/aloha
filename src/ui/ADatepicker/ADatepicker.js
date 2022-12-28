@@ -1,5 +1,7 @@
 import {
-  h, ref,
+  h,
+  ref,
+  withDirectives,
 } from "vue";
 
 import ADatepickerCalendarPanel from "./ADatepickerCalendarPanel/ADatepickerCalendarPanel";
@@ -7,7 +9,13 @@ import ADatepickerIcon from "./ADatepickerIcon/ADatepickerIcon";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import ALabel from "../ALabel/ALabel";
 
+import ASafeHtml from "../../directives/ASafeHtml";
+
 import UiMixinProps from "../mixins/UiMixinProps";
+
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+import UiAPI from "../compositionApi/UiAPI";
+import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 
 import AKeysCode from "../../const/AKeysCode";
 import Languages from "./locale/languages";
@@ -24,9 +32,7 @@ import {
   transformDate,
 } from "./utils/transform";
 import moment from "moment";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
+
 
 // @vue/component
 export default {
@@ -859,11 +865,12 @@ export default {
           //   onClear: this.clearModel,
           // }),
         ]),
-        this.helpText && h("div", {
+        this.helpText && withDirectives(h("div", {
           id: this.helpTextId,
           class: "a_form_element__help_text",
-          innerHTML: this.helpText,
-        }),
+        }), [
+          [ASafeHtml, this.helpText],
+        ]),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

@@ -1,7 +1,10 @@
 import {
   h,
   inject,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import Aloha from "./Icons/Aloha";
 import AngleDown from "./Icons/AngleDown";
@@ -115,7 +118,6 @@ export default {
     attributesLocal() {
       const ATTRIBUTES = {
         class: ["a_icon", this.iconClass],
-        innerHTML: this.iconSvg,
       };
       if (this.ariLabel) {
         ATTRIBUTES["aria-label"] = this.ariLabel;
@@ -126,6 +128,8 @@ export default {
     },
   },
   render() {
-    return h(this.iconTag, this.attributesLocal, this.$slots.default && this.$slots.default());
+    return withDirectives(h(this.iconTag, this.attributesLocal, this.$slots.default && this.$slots.default()), [
+      [ASafeHtml, this.iconSvg],
+    ]);
   },
 };

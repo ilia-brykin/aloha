@@ -1,9 +1,13 @@
 import {
   computed,
-  h, toRef,
+  h,
+  toRef,
+  withDirectives,
 } from "vue";
 
 import AMenuPanelLink from "./AMenuPanelLink/AMenuPanelLink";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import AKeyParent from "../ui/const/AKeyParent";
 import AKeyLabel from "../ui/const/AKeyLabel";
@@ -65,10 +69,11 @@ export default {
     if (this.isGroupVisible) {
       return [
         h("dt", null, [
-          this.labelGroup && h("div", {
+          this.labelGroup && withDirectives(h("div", {
             class: "a_menu__list_header",
-            innerHTML: this.labelGroup,
-          })
+          }), [
+            [ASafeHtml, this.labelGroup],
+          ]),
         ]),
         this.items.map(item => {
           return h(AMenuPanelLink, {

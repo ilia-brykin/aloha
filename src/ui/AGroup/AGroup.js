@@ -2,11 +2,14 @@ import {
   computed,
   h,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
 import ALabel from "../ALabel/ALabel";
 import AUiComponents from "../AUiComponents";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -137,11 +140,12 @@ export default {
           }),
         ]),
       ]),
-      this.helpText && h("div", {
+      this.helpText && withDirectives(h("div", {
         id: this.helpTextId,
         class: "a_form_element__help_text",
-        innerHTML: this.helpText,
-      }),
+      }), [
+        [ASafeHtml, this.helpText],
+      ]),
       this.isErrors && h(AErrorsText, {
         id: this.errorsId,
         errors: this.errors,

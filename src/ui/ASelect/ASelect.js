@@ -3,6 +3,7 @@ import {
   h,
   Teleport,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -14,6 +15,8 @@ import ASelectElement from "./ASelectElement";
 import ASelectLabelElement from "./ASelectLabelElement";
 import ASelectValueCloseable from "./ASelectValueCloseable";
 import ASlot from "../../ASlot/ASlot";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -639,11 +642,12 @@ export default {
             ]),
           ]),
         ]),
-        this.helpText && h("div", {
+        this.helpText && withDirectives(h("div", {
           id: this.helpTextId,
           class: "a_form_element__help_text",
-          innerHTML: this.helpText,
-        }),
+        }), [
+          [ASafeHtml, this.helpText],
+        ]),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

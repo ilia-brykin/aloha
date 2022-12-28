@@ -3,6 +3,7 @@ import {
   h,
   ref,
   toRef,
+  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -10,6 +11,8 @@ import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormE
 import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
 import ATranslation from "../../ATranslation/ATranslation";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -193,11 +196,12 @@ export default {
             onClear: this.clearModel,
           }),
         ]),
-        this.helpText && h("div", {
+        this.helpText && withDirectives(h("div", {
           id: this.helpTextId,
           class: "a_form_element__help_text",
-          innerHTML: this.helpText,
-        }),
+        }), [
+          [ASafeHtml, this.helpText],
+        ]),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

@@ -3,7 +3,10 @@ import {
   h,
   resolveComponent,
   toRef,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 import AKeysCode from "../../const/AKeysCode";
 import {
@@ -125,9 +128,9 @@ export default {
 
     const labelHtml = computed(() => {
       return currentLabel.value && h("strong", null, [
-        h("span", {
-          innerHTML: currentLabel.value,
-        }),
+        withDirectives(h("span"), [
+          [ASafeHtml, currentLabel.value],
+        ]),
         h("span", null, ":"),
       ]);
     });

@@ -1,9 +1,12 @@
 import {
   h,
   Teleport,
+  withDirectives,
 } from "vue";
 
 import AForm from "../ui/AForm/AForm";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import AKeysCode from "../const/AKeysCode";
 import {
@@ -444,9 +447,9 @@ export default {
                   isRender: this.isDataFormRender,
                   "onUpdate:modelValue": this.updateModelLocal,
                 }, this.$slots),
-                this.bodyHtml && h("div", {
-                  innerHTML: this.bodyHtml,
-                }),
+                this.bodyHtml && withDirectives(h("div"), [
+                  [ASafeHtml, this.bodyHtml],
+                ]),
                 this.$slots.modalBodyAppend && this.$slots.modalBodyAppend(),
               ]),
               h("div", {
