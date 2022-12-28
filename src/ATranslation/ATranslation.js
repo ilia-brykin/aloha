@@ -1,6 +1,9 @@
 import {
   h,
+  withDirectives,
 } from "vue";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ATranslationAPI from "./compositionAPI/ATranslationAPI";
@@ -98,7 +101,6 @@ export default {
       attributesLocal,
     } = AttributesAPI(props, {
       ariaLabelLocal,
-      htmlLocal,
       isTranslateAriaLabel,
       isTranslateHtml,
       isTranslatePlaceholder,
@@ -117,7 +119,9 @@ export default {
   },
   render() {
     if (this.htmlLocal) {
-      return h(this.tag, this.attributesLocal);
+      return withDirectives(h(this.tag, this.attributesLocal), [
+        [ASafeHtml, this.htmlLocal],
+      ]);
     }
     if (this.textLocal) {
       return h(this.tag, this.attributesLocal, [

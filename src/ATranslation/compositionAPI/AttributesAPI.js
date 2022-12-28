@@ -5,7 +5,6 @@ import {
 
 export default function AttributesAPI(props, {
   ariaLabelLocal = computed(() => ""),
-  htmlLocal = computed(() => ""),
   isTranslateAriaLabel = computed(() => false),
   isTranslateHtml = computed(() => false),
   isTranslatePlaceholder = computed(() => false),
@@ -27,9 +26,6 @@ export default function AttributesAPI(props, {
     }
     if (isTranslateHtml.value) {
       ATTRIBUTES["data-translate-html"] = html.value;
-    }
-    if (html.value) {
-      ATTRIBUTES.innerHTML = htmlLocal.value;
     }
     if (title.value) {
       ATTRIBUTES.title = titleLocal.value;
