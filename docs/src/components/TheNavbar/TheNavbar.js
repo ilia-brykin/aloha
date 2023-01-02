@@ -31,6 +31,14 @@ export default {
           label: "Hrvatski",
           value: "hr",
         },
+        {
+          label: "Francais",
+          value: "fr",
+        },
+        {
+          label: "arabisch",
+          value: "ar",
+        },
       ],
     };
   },

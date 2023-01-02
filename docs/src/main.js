@@ -14,11 +14,15 @@ import de from "./i18n/de.json";
 import en from "./i18n/en.json";
 import hr from "./i18n/hr.json";
 import ru from "./i18n/ru.json";
+import ar from "./i18n/ar.json";
+import fr from "./i18n/fr.json";
 
-import deGlobal from "../../src/i18n/de.json";
-import enGlobal from "../../src/i18n/en.json";
-import hrGlobal from "../../src/i18n/hr.json";
-import ruGlobal from "../../src/i18n/ru.json";
+import deGlobal from "../src/i18n/de.json";
+import enGlobal from "../src/i18n/en.json";
+import hrGlobal from "../src/i18n/hr.json";
+import ruGlobal from "../src/i18n/ru.json";
+import arGlobal from "../src/i18n/ar.json";
+import frGlobal from "../src/i18n/fr.json";
 
 const APP = createApp(App);
 const TRANSLATIONS = {
@@ -26,6 +30,8 @@ const TRANSLATIONS = {
   en: { ...enGlobal, ...en },
   hr: { ...hrGlobal, ...hr },
   ru: { ...ruGlobal, ...ru },
+  fr: { ...frGlobal, ...fr },
+  ar: { ...arGlobal, ...ar },
 };
 APP.use(AI18nPlugin, TRANSLATIONS, "de");
 APP.use(AIconPlugin, mainIcons);
