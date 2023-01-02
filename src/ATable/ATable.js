@@ -645,7 +645,7 @@ export default {
                 get: vm => [
                   h(AGet, {
                     data: vm.row,
-                    path: vm.column.keyLabel,
+                    keyLabel: vm.column.keyLabel,
                     filter: vm.column.filter,
                     filterParameters: vm.column.filterParameters,
                     defaultValue: vm.column.defaultValue,
@@ -671,7 +671,7 @@ export default {
                 get: vm => [
                   h(AGet, {
                     data: vm.row,
-                    path: vm.column.footerPath,
+                    keyLabel: vm.column.footerPath,
                     filter: vm.column.footerFilter,
                     filterParameters: vm.column.footerFilterParameters,
                     defaultValue: vm.column.footerDefaultValue,

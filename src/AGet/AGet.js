@@ -22,7 +22,7 @@ import {
 export default {
   name: "AGet",
   props: {
-    path: {
+    keyLabel: {
       type: [String, Array],
       required: true,
       info: "Weg zu Informationen. Z.B.('a[0].b.c', 'vertrag.antrag_obj.pk', ['vertrag', aloha, 'pk'])",
@@ -69,7 +69,7 @@ export default {
   },
   computed: {
     valueLocal() {
-      let value = get(this.data, this.pathLocal);
+      let value = get(this.data, this.keyLabelLocal);
       if (isNil(value)) {
         value = this.defaultValue;
       }
@@ -86,11 +86,11 @@ export default {
       return value;
     },
 
-    pathLocal() {
-      if (isArray(this.path)) {
-        return this.path.join(".");
+    keyLabelLocal() {
+      if (isArray(this.keyLabel)) {
+        return this.keyLabel.join(".");
       }
-      return this.path;
+      return this.keyLabel;
     },
   },
   methods: {
