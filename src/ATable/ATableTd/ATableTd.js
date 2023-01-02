@@ -1,5 +1,6 @@
 import {
-  h,
+  computed,
+  h, inject,
   resolveComponent,
   withDirectives,
 } from "vue";
@@ -9,6 +10,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 import ASafeHtml from "../../directives/ASafeHtml";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import ColumnVisibleAPI from "../compositionAPI/ColumnVisibleAPI";
 
 import {
   cloneDeep,
@@ -53,11 +55,25 @@ export default {
     "valuesForColumnDefault",
   ],
   setup(props) {
+    const isMobile = inject("isMobile");
+
     const {
       attributesForTd,
     } = AttributesAPI(props);
 
+    const {
+      isColumnVisible,
+    } = ColumnVisibleAPI(props);
+
+    const styleMobile = computed(() => {
+      if (isMobile.value) {
+        return !isColumnVisible.value ? "display: none;" : "";
+      }
+      return "";
+    });
+
     return {
+      styleMobile,
       attributesForTd,
     };
   },
@@ -196,8 +212,11 @@ export default {
       h(ATranslation, {
         text: this.column.label,
         tag: "dt",
+        style: this.styleMobile,
       }),
-      h("dd", {}, [
+      h("dd", {
+        style: this.styleMobile,
+      }, [
         TD,
       ]),
     ];
