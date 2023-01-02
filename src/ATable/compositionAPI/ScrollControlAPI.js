@@ -33,16 +33,16 @@ export default function ScrollControlAPI(props, { emit }, {
     return !column.hide;
   };
 
-  const columnActionsWidthLocal = computed(() => {
+  const columnActionsWidthMinLocal = computed(() => {
     if (isActionColumnVisible.value) {
-      return columnActionsWidth.value;
+      return 50;
     }
     return 0;
   });
   const columnsSpecialWidth = computed(() => {
     const columnMultipleActionsWidth = isMultipleActionsActive.value ? 50 : 0;
     const scrollBarWidth = 10;
-    return columnMultipleActionsWidth + columnActionsWidthLocal.value + scrollBarWidth;
+    return columnMultipleActionsWidth + scrollBarWidth;
   });
 
   const tableWidth = ref(undefined);
@@ -96,18 +96,21 @@ export default function ScrollControlAPI(props, { emit }, {
       setAllDefaultForMobile();
       return;
     }
-    const TABLE_WIDTH_WITHOUT_ACTIONS = tableWidth.value - columnsSpecialWidth.value;
+    const TABLE_WIDTH_WITHOUT_ACTIONS_MIN = tableWidth.value - columnsSpecialWidth.value - columnActionsWidthMinLocal.value;
+    const TABLE_WIDTH_WITHOUT_ACTIONS_MAX = tableWidth.value - columnsSpecialWidth.value - columnActionsWidth.value;
 
     let columnsWidthInOrder = 0;
     let indexFirstScrollInvisibleColumnLocal = 0;
     let sumGrows = 0;
+    let isMinOneColumnHide = false;
     forEach(columnsOrdered.value, column => {
       if (!isColumnVisible({ column })) {
         indexFirstScrollInvisibleColumnLocal++;
         return;
       }
       const COLUMN_WIDTH = +column.width || columnWidthDefault.value;
-      if (columnsWidthInOrder + COLUMN_WIDTH > TABLE_WIDTH_WITHOUT_ACTIONS) {
+      if (columnsWidthInOrder + COLUMN_WIDTH > TABLE_WIDTH_WITHOUT_ACTIONS_MIN) {
+        isMinOneColumnHide = true;
         return false;
       }
       columnsWidthInOrder += COLUMN_WIDTH;
@@ -115,10 +118,11 @@ export default function ScrollControlAPI(props, { emit }, {
       sumGrows += isNil(column.grow) ? 1 : column.grow;
     });
     let freeSpaceWidth = 0;
+    const TABLE_WIDTH = isMinOneColumnHide ? TABLE_WIDTH_WITHOUT_ACTIONS_MAX : TABLE_WIDTH_WITHOUT_ACTIONS_MIN;
     if (modelIsTableWithoutScroll.value) {
-      freeSpaceWidth = TABLE_WIDTH_WITHOUT_ACTIONS - columnsWidthInOrder;
+      freeSpaceWidth = TABLE_WIDTH - columnsWidthInOrder;
     } else if (indexFirstScrollInvisibleColumnLocal === columnsOrdered.value.length) {
-      freeSpaceWidth = TABLE_WIDTH_WITHOUT_ACTIONS - columnsWidthInOrder;
+      freeSpaceWidth = TABLE_WIDTH - columnsWidthInOrder;
     }
     indexFirstScrollInvisibleColumn.value = indexFirstScrollInvisibleColumnLocal;
 
