@@ -159,6 +159,15 @@ export default {
           role: "group",
           class: "a_table__filters_center__item a_btn_group a_btn_group_small",
         }, [
+          this.filter.hasNotClose && h("button", {
+            class: "a_btn a_btn_secondary",
+            ariaHidden: true,
+            tabindex: -1,
+          }, [
+            h(AIcon, {
+              icon: "PinFill",
+            }),
+          ]),
           h("button", {
             class: "a_btn a_btn_secondary",
             onClick: this.goToFilter,
@@ -173,7 +182,7 @@ export default {
               }) :
               h("span", {}, modelValue.label),
           ]),
-          h("button", {
+          !this.filter.hasNotClose && h("button", {
             class: "a_btn a_btn_secondary",
             disabled: this.isLoadingTable,
             onClick: () => this.closeCurrentFilterValue({ currentModel: modelValue.value }),

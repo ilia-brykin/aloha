@@ -38,6 +38,7 @@ import Search from "./Icons/Search";
 import ThList from "./Icons/ThList";
 import Trash from "./Icons/Trash";
 import _NoImage from "./Icons/_NoImage";
+import PinFill from "./Icons/bootstrap-1-9-1/PinFill";
 
 import {
   assign,
@@ -90,6 +91,7 @@ export default {
       OptionHorizontal,
       OptionVertical,
       Pencil,
+      PinFill,
       Plus,
       Reset,
       Search,

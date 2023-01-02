@@ -265,6 +265,7 @@ export default {
               bez: "Aloha 3",
             },
           ],
+          hasNotClose: true,
           // url: "katalog/?fields=id&fields=bez&key=syterminberechnung",
           keyLabel: "bez",
           keyId: "id",
