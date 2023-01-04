@@ -7,8 +7,9 @@ import AWizardTab from "./AWizardTab/AWizardTab";
 import AWizardToolbar from "./AWizardToolbar/AWizardToolbar";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
-import LocalAPI from "./compositionAPI/LocalAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import FocusAPI from "./compositionAPI/FocusAPI";
+import LocalAPI from "./compositionAPI/LocalAPI";
 
 export default {
   name: "AWizard",
@@ -173,6 +174,12 @@ export default {
       stepsVisitedLocal,
     });
 
+    const {
+      tabContentRef,
+    } = FocusAPI({
+      stepActiveComputed,
+    });
+
     return {
       classWizard,
       goOneStepBack,
@@ -180,6 +187,7 @@ export default {
       onStepClick,
       stepActiveComputed,
       stepsVisitedComputed,
+      tabContentRef,
     };
   },
   render() {
@@ -230,7 +238,9 @@ export default {
       ]),
       this.isToolbarTop && TOOLBAR,
       h("div", {
+        ref: "tabContentRef",
         class: "a_wizard__tab_content",
+        tabindex: -1,
       }, [
         this.steps.map((step, stepIndex) => {
           return h(AWizardTab, {
