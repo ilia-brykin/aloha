@@ -5,6 +5,7 @@ import {
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import LinkClassAPI from "./compositionAPI/LinkClassAPI";
@@ -73,7 +74,14 @@ export default {
 
     const {
       onClick,
+      onKeydown,
     } = EventsAPI(props, context, {
+      isStepDisabled,
+    });
+
+    const {
+      tabindex,
+    } = AttributesAPI({
       isStepDisabled,
     });
 
@@ -81,8 +89,10 @@ export default {
       isStepDisabled,
       linkClass,
       onClick,
+      onKeydown,
       stepNumber,
       stepNumberText,
+      tabindex,
     };
   },
   render() {
@@ -100,9 +110,10 @@ export default {
           h("a", {
             class: this.linkClass,
             role: "button",
-            tabindex: 0,
+            tabindex: this.tabindex,
             ariaDisabled: this.isStepDisabled,
             onClick: this.onClick,
+            onKeydown: this.onKeydown,
           }, [
             this.isStepNumberVisible && h("span", {
               class: "a_wizard__step__number",

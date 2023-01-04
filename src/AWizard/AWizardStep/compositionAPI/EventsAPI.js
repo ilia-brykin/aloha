@@ -3,6 +3,8 @@ import {
   toRef,
 } from "vue";
 
+import AKeysCode from "../../../const/AKeysCode";
+
 export default function EventsAPI(props, { emit }, {
   isStepDisabled = computed(() => false),
 }) {
@@ -18,7 +20,17 @@ export default function EventsAPI(props, { emit }, {
     });
   };
 
+  const onKeydown = $event => {
+    if ($event.keyCode === AKeysCode.enter ||
+      $event.keyCode === AKeysCode.space) {
+      onClick($event);
+      $event.preventDefault();
+      $event.stopPropagation();
+    }
+  };
+
   return {
     onClick,
+    onKeydown,
   };
 }
