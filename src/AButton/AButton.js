@@ -63,7 +63,7 @@ export default {
     loadingClass: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: "a_spinner_small",
     },
     loadingAlign: {
       type: String,
@@ -128,6 +128,7 @@ export default {
     extraTranslate: {
       type: Object,
       required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -204,6 +205,7 @@ export default {
       }),
       this.$slots.default && this.$slots.default(),
       this.isTextVisible && h(ATranslation, {
+        tag: "span",
         class: this.textClass,
         html: this.text,
         extra: this.extraTranslate,
@@ -211,6 +213,7 @@ export default {
       }),
       this.isTextScreenReaderVisible && h(ATranslation, {
         class: "a_sr_only",
+        tag: "span",
         html: this.text,
         extra: this.extraTranslate,
       }),

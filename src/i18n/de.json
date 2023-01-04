@@ -2,9 +2,11 @@
   "_ITEMS_PER_PAGE_": "Objekte pro Seite",
   "_LOADING_": "Wird geladen",
   "_NEXT_": "Nächste",
-  "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
+  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} von {{ count}}",
+  "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} von {{ allPages }}",
   "_PAGINATION_NAVIGATION_": "Paginierungsnavigation",
   "_PREVIOUS_": "Vorherige",
-  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} von {{ count}}",
-  "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} von {{ allPages }}"
+  "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
+  "_WIZARD_NEXT_": "Nächste",
+  "_WIZARD_PREVIOUS_": "Vorherige"
 }

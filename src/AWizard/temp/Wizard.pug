@@ -1,0 +1,120 @@
+div
+  actions-page-main
+    div.wizard__steps.d-flex.justify-content-between
+      div
+        pux-button.wizard__button.wizard__steps__button(
+          v-for="(step, stepIndex) in steps"
+          :id="'step_back_' + step.slotId"
+          :key="step.slotId"
+          test-class="test_go_step_back"
+          :class="getClassForStepButton(stepIndex)"
+          :tooltip="step.title"
+          :disabled="!booleanProps.buttonStepNeverDisabled && isButtonStepDisabledLocal(stepIndex)"
+          @click="onGoStepBack({ getStepActive, stepIndex })"
+        )
+          .wizard__steps__button__number {{ stepIndex + 1 }}.&nbsp;
+          pux-translate.wizard__steps__button__text(
+            :text="step.label"
+          )
+      div.text-nowrap
+        pux-button.wizard__button(
+          v-if="isButtonStepBack"
+          id="go_one_step_back"
+          :loading="booleanProps.buttonsLoading"
+          test-class="test_go_one_step_back"
+          type-class="primary"
+          tooltip="_BTN_WIZARD_PREVIOUS_"
+          icon="chevron-left"
+          icon-class="m-0"
+          :disabled="isButtonStepBackDisabled"
+          @click="onGoOneStepBack"
+        )
+        pux-button.wizard__button(
+          v-if="isButtonStepForward"
+          id="go_one_step_forward"
+          :loading="booleanProps.buttonsLoading"
+          test-class="test_go_one_step_forward"
+          type-class="primary"
+          tooltip="_BTN_WIZARD_NEXT_"
+          icon="chevron-right"
+          icon-class="m-0"
+          :disabled="isButtonStepForwardDisabled"
+          @click="onGoOneStepForward"
+        )
+        pux-button.wizard__button(
+          v-if="isCloseWizardButton"
+          id="close_wizard_button"
+          test-class="test_close"
+          type-class="default"
+          icon="close"
+          icon-class="m-0"
+          :tooltip="getCloseButtonTitle"
+          @click="close"
+        )
+
+  .page_main__body
+    ul.list-unstyled
+      template(
+        v-for="(step, stepIndex) in steps"
+      )
+        context-panel(
+          v-if="getStepsVisited[stepIndex]"
+          v-show="getStepActive === stepIndex"
+          :id="'context_panel' + stepIndex"
+          :key="step.slotId"
+          :options="getContextPanelOptions({ step, stepIndex })"
+        )
+          template(
+            v-slot:body
+          )
+            slot(
+              :name="step.slotId"
+              :step-active="getStepActive"
+            )
+
+    div.text-right.mt-3
+      button.btn.btn-primary(
+        v-if="isButtonStepBack"
+        @click="onGoOneStepBack"
+        type="button"
+        :disabled="isButtonStepBackDisabled"
+      )
+        pux-translate(
+          tag="span"
+          text="_BTN_WIZARD_PREVIOUS_"
+        )
+        span(
+          v-if="options.backStepButtonSuffix"
+        ) {{ options.backStepButtonSuffix }}
+        spinner(
+          v-if="booleanProps.buttonsLoading"
+        )
+
+      button.btn.btn-primary.margin-left-xs(
+        v-if="isButtonStepForward"
+        @click="onGoOneStepForward"
+        type="button"
+        :disabled="isButtonStepForwardDisabled"
+      )
+        pux-translate(
+          tag="span"
+          text="_BTN_WIZARD_NEXT_"
+        )
+        span(
+          v-if="options.forwardStepButtonSuffix"
+        ) {{ options.forwardStepButtonSuffix }}
+        spinner(
+          v-if="booleanProps.buttonsLoading"
+        )
+
+      slot(
+        :name="'buttonBottom'"
+      )
+      pux-button.margin-left-xs(
+        v-if="isCloseWizardButtonBottom"
+        id="close_wizard_button_main_body"
+        test-class="test_close"
+        type-class="default"
+        :text="getCloseButtonLabel"
+        @click="close"
+      )

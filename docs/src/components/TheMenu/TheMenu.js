@@ -261,6 +261,14 @@ export default {
           },
           icon: "Dnd",
         },
+        {
+          id: "wizard",
+          label: "Wizard",
+          to: {
+            name: "PageWizard",
+          },
+          icon: "Dnd",
+        },
       ],
     };
   },

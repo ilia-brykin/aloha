@@ -2,9 +2,11 @@
   "_ITEMS_PER_PAGE_": "Stavke po stranici",
   "_LOADING_": "Učitavam",
   "_NEXT_": "Sljedeći",
-  "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
+  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} iz {{ count}}",
+  "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} iz {{ allPages }}",
   "_PAGINATION_NAVIGATION_": "Navigacija po stranicama",
   "_PREVIOUS_": "Prethodni",
-  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} iz {{ count}}",
-  "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} iz {{ allPages }}"
+  "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
+  "_WIZARD_NEXT_": "Sljedeći",
+  "_WIZARD_PREVIOUS_": "Prethodno"
 }
