@@ -252,6 +252,20 @@ $breakpoint-phone:                  768px;
   .a_wizard__steps {
     position: relative;
     margin-bottom: 10px;
+    @media screen and (max-width: $breakpoint-phone) {
+      &:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        border-radius: 8px;
+        z-index: -1;
+        border: 3px dashed var(--a_wizard_border_color);
+        margin-left: 33px;
+      }
+    }
   }
   .a_wizard__step {
     flex: 1 1 auto;
@@ -265,6 +279,9 @@ $breakpoint-phone:                  768px;
       z-index: -1;
       border: 3px dashed var(--a_wizard_border_color);
       margin-top: 25px;
+      @media screen and (max-width: $breakpoint-phone) {
+        content: none;
+      }
     }
   }
   .a_wizard__step__link {
@@ -280,13 +297,18 @@ $breakpoint-phone:                  768px;
       z-index: 0;
       border: 3px solid var(--a_wizard_anchor_active_primary_color);
       margin-top: 17px;
+      @media screen and (max-width: $breakpoint-phone) {
+        margin-top: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        margin-left: 33px;
+      }
     }
 
     @media screen and (max-width: $breakpoint-phone) {
-      margin-top: unset;
-      margin-bottom: 20px;
-      padding-left: 55px;
-      text-align: left !important;
+      flex-direction: row;
+      align-items: center
     }
 
     & > .a_wizard__step__number {
@@ -304,10 +326,7 @@ $breakpoint-phone:                  768px;
       z-index: 1;
 
       @media screen and (max-width: $breakpoint-phone) {
-        top: 0;
-        right: unset;
-        width: 40px;
-        padding-top: 3px;
+        margin: 0 .5rem 0 0;
       }
     }
 
