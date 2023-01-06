@@ -1,55 +1,20 @@
-$breakpoint-phone:                  640px;
-
-$colors: (
-  // Wizard border color
-  "border-color":                   #eeeeee,
-  // Toolbar button color
-  "toolbar-btn-color":              #ffffff,
-  "toolbar-btn-background-color":   #009EF7,
-  // Anchor colors
-  "anchor-default-primary-color":   #f8f9fa,
-  "anchor-default-secondary-color": #b0b0b1,
-  "anchor-active-primary-color":    #009EF7,
-  "anchor-active-secondary-color":  #ffffff,
-  "anchor-done-primary-color":      #90d4fa,
-  "anchor-done-secondary-color":    #fefefe,
-  "anchor-disabled-primary-color":  #f8f9fa,
-  "anchor-disabled-secondary-color":#dbe0e5,
-  "anchor-error-primary-color":     #dc3545,
-  "anchor-error-secondary-color":   #ffffff,
-  "anchor-warning-primary-color":   #ffc107,
-  "anchor-warning-secondary-color": #ffffff,
-  // Progressbar color
-  "progress-color":                 #009EF7,
-  "progress-background-color":      #f8f9fa,
-  // Loading animation color
-  "loader-color":                   #009EF7,
-  "loader-background-color":        #f8f9fa,
-  "loader-background-wrapper-color":rgba(255,255,255,.7),
-) !default;
+$breakpoint-phone:                  768px;
 
 .a_wizard {
-  --a_wizard_border_color: #eeeeee;
+  --a_wizard_border_color: var(--a_color_gray_200, #eeeeee);
   --a_wizard_border_width: 1px;
-  --a_wizard_toolbar_btn_color: #ffffff;
-  --a_wizard_toolbar_btn_background_color: #009EF7;
-  --a_wizard_anchor_default_primary_color: #f8f9fa;
-  --a_wizard_anchor_default_secondary_color: #b0b0b1;
-  --a_wizard_anchor_active_primary_color: #009EF7;
-  --a_wizard_anchor_active_secondary_color: #ffffff;
-  --a_wizard_anchor_done_primary_color: #90d4fa;
+  --a_wizard_anchor_default_primary_color: var(--a_color_gray_200, #f8f9fa);
+  --a_wizard_anchor_default_secondary_color: var(--a_color_gray_500, #b0b0b1);
+  --a_wizard_anchor_active_primary_color: var(--a_color_primary, #009EF7);
+  --a_wizard_anchor_active_secondary_color: var(--a_color_white, #ffffff);
+  --a_wizard_anchor_done_primary_color: var(--a_color_primary_50, #90d4fa);
   --a_wizard_anchor_done_secondary_color: #fefefe;
   --a_wizard_anchor_disabled_primary_color: #f8f9fa;
   --a_wizard_anchor_disabled_secondary_color: #dbe0e5;
-  --a_wizard_anchor_error_primary_color: #dc3545;
-  --a_wizard_anchor_error_secondary_color: #ffffff;
-  --a_wizard_anchor_warning_primary_color: #ffc107;
-  --a_wizard_anchor_warning_secondary_color: #ffffff;
-  --a_wizard_progress_color: #009EF7;
-  --a_wizard_progress_background_color: #f8f9fa;
-  --a_wizard_loader_color: #009EF7;
-  --a_wizard_loader_background_color: #f8f9fa;
-  --a_wizard_loader_background_wrapper_color: rgba(255, 255, 255, 0.7);
+  --a_wizard_anchor_error_primary_color: var(--a_color_danger, #dc3545);
+  --a_wizard_anchor_error_secondary_color: var(--a_color_white, #ffffff);
+  --a_wizard_anchor_warning_primary_color: var(--a_color_warning, #ffc107);
+  --a_wizard_anchor_warning_secondary_color: var(--a_color_white, #ffffff);
   --a_wizard_step_focus_shadow_rgb: var(--a_color_primary_rgb);
   --a_wizard_step_focus_box_shadow: 0 0 0 0.25rem rgba(var(--a_wizard_step_focus_shadow_rgb), .5);
 
@@ -190,6 +155,9 @@ $colors: (
         width: calc(100% - 2px);
         height: 100%;
         clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
+        @media screen and (max-width: $breakpoint-phone) {
+          width: 100%;
+        }
       }
 
       &.default {
@@ -536,117 +504,5 @@ $colors: (
   > button {
     margin-left: .2rem;
     margin-right: .2rem;
-  }
-}
-
-// Core classes
-.sw {
-  // Toolbar style
-  & .toolbar {
-    & > .sw-btn {
-      display: inline-block;
-      text-decoration: none;
-      text-align: center;
-      text-transform: none;
-      vertical-align: middle;
-      user-select: none;
-      margin-left: .2rem;
-      margin-right: .2rem;
-      cursor: pointer;
-      padding: .375rem .75rem;
-      border-radius: .25rem;
-      font-weight: 400;
-      color: var(--a_wizard_toolbar_btn_color);
-      background-color: var(--a_wizard_toolbar_btn_background_color);
-      border: 1px solid var(--a_wizard_toolbar_btn_background_color);
-
-      &.disabled, &:disabled {
-        opacity: .65;
-      }
-    }
-
-  }
-
-  // RTL Style
-  &[dir="rtl"] > .toolbar {
-    text-align: left;
-  }
-
-  // Navigation style
-
-  // RTL Style
-  &[dir="rtl"] > .nav {
-    .nav-link {
-      & > .a_wizard__step__number {
-        float: right;
-      }
-    }
-  }
-
-  // Progressbar Style
-  & > .progress {
-    padding: 0;
-    margin:0;
-    border:0;
-    width: 100%;
-    height: 5px;
-    background: var(--a_wizard_progress_background_color);
-    overflow: hidden;
-
-    & > .progress-bar {
-      height: 5px;
-      width: 0%;
-      background-color: var(--a_wizard_progress_color);
-      transition: width 0.5s ease-in-out;
-    }
-  }
-
-  // Justified navigation style
-  &.sw-justified {
-    & > .nav {
-      & > li, .nav-link {
-        flex-basis: 0;
-        flex-grow: 1;
-        text-align: center;
-      }
-    }
-  }
-
-  // Loading animation
-  &.sw-loading {
-    user-select: none;
-
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      opacity: 1;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: var(--a_wizard_loader_background_wrapper_color);
-      z-index: 2;
-    }
-
-    &::before {
-      content: '';
-      display: inline-block;
-      position: absolute;
-      top: 45%;
-      left: 45%;
-      width: 2rem;
-      height: 2rem;
-      border: 10px solid var(--a_wizard_loader_color);
-      border-top: 10px solid var(--a_wizard_loader_background_color);
-      border-radius: 50%;
-      z-index: 10;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
   }
 }
