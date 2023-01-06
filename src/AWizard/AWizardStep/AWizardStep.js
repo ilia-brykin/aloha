@@ -124,6 +124,10 @@ export default {
               class: "a_wizard__step__text",
             }),
           ]),
+        h("span", {
+          class: "a_wizard__step__divider",
+          ariaHidden: true,
+        })
       ],
     );
   },

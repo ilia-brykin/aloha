@@ -14,7 +14,7 @@ export default {
   },
   setup() {
     const model = ref({
-      type: "basic",
+      type: "arrows",
       isForwardStepButtonDisabled: true,
       isBackStepButtonDisabled: false,
       isStepNumberVisible: true,
@@ -135,8 +135,13 @@ export default {
       },
       {
         slot: "step6",
-        label: "Schritt 6",
+        label: "Schritt langeeeeeeeeeeeeeeeeeeeeeeee text 6",
         title: "Schritt 6",
+      },
+      {
+        slot: "step7",
+        label: "Schritt 7",
+        title: "Schritt 7",
       },
     ];
 

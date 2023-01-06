@@ -29,29 +29,31 @@ $colors: (
 ) !default;
 
 .a_wizard {
-  --sw-border-color: #eeeeee;
-  --sw-border-width: 1px;
-  --sw-toolbar-btn-color: #ffffff;
-  --sw-toolbar-btn-background-color: #009EF7;
-  --sw-anchor-default-primary-color: #f8f9fa;
-  --sw-anchor-default-secondary-color: #b0b0b1;
-  --sw-anchor-active-primary-color: #009EF7;
-  --sw-anchor-active-secondary-color: #ffffff;
-  --sw-anchor-done-primary-color: #90d4fa;
-  --sw-anchor-done-secondary-color: #fefefe;
-  --sw-anchor-disabled-primary-color: #f8f9fa;
-  --sw-anchor-disabled-secondary-color: #dbe0e5;
-  --sw-anchor-error-primary-color: #dc3545;
-  --sw-anchor-error-secondary-color: #ffffff;
-  --sw-anchor-warning-primary-color: #ffc107;
-  --sw-anchor-warning-secondary-color: #ffffff;
-  --sw-progress-color: #009EF7;
-  --sw-progress-background-color: #f8f9fa;
-  --sw-loader-color: #009EF7;
-  --sw-loader-background-color: #f8f9fa;
-  --sw-loader-background-wrapper-color: rgba(255, 255, 255, 0.7);
+  --a_wizard_border_color: #eeeeee;
+  --a_wizard_border_width: 1px;
+  --a_wizard_toolbar_btn_color: #ffffff;
+  --a_wizard_toolbar_btn_background_color: #009EF7;
+  --a_wizard_anchor_default_primary_color: #f8f9fa;
+  --a_wizard_anchor_default_secondary_color: #b0b0b1;
+  --a_wizard_anchor_active_primary_color: #009EF7;
+  --a_wizard_anchor_active_secondary_color: #ffffff;
+  --a_wizard_anchor_done_primary_color: #90d4fa;
+  --a_wizard_anchor_done_secondary_color: #fefefe;
+  --a_wizard_anchor_disabled_primary_color: #f8f9fa;
+  --a_wizard_anchor_disabled_secondary_color: #dbe0e5;
+  --a_wizard_anchor_error_primary_color: #dc3545;
+  --a_wizard_anchor_error_secondary_color: #ffffff;
+  --a_wizard_anchor_warning_primary_color: #ffc107;
+  --a_wizard_anchor_warning_secondary_color: #ffffff;
+  --a_wizard_progress_color: #009EF7;
+  --a_wizard_progress_background_color: #f8f9fa;
+  --a_wizard_loader_color: #009EF7;
+  --a_wizard_loader_background_color: #f8f9fa;
+  --a_wizard_loader_background_wrapper_color: rgba(255, 255, 255, 0.7);
+  --a_wizard_step_focus_shadow_rgb: var(--a_color_primary_rgb);
+  --a_wizard_step_focus_box_shadow: 0 0 0 0.25rem rgba(var(--a_wizard_step_focus_shadow_rgb), .5);
 
-  border: var(--sw-border-width) solid var(--sw-border-color);
+  border: var(--a_wizard_border_width) solid var(--a_wizard_border_color);
   position: relative;
 
   *,
@@ -80,48 +82,48 @@ $colors: (
         width: 100%;
       }
       &.default {
-        color: var(--sw-anchor-default-secondary-color);
+        color: var(--a_wizard_anchor_default_secondary_color);
         cursor: not-allowed;
         &::after {
-          background-color: var(--sw-anchor-default-secondary-color);
+          background-color: var(--a_wizard_anchor_default_secondary_color);
         }
       }
       &.done {
-        color: var(--sw-anchor-done-primary-color);
+        color: var(--a_wizard_anchor_done_primary_color);
         cursor: pointer;
         &::after {
-          background: var(--sw-anchor-done-primary-color);
+          background: var(--a_wizard_anchor_done_primary_color);
         }
       }
       &.active {
-        color: var(--sw-anchor-active-primary-color);
+        color: var(--a_wizard_anchor_active_primary_color);
         cursor: pointer;
         &::after {
-          background: var(--sw-anchor-active-primary-color);
+          background: var(--a_wizard_anchor_active_primary_color);
         }
       }
 
       &.disabled {
-        color: var(--sw-anchor-disabled-primary-color) !important;
+        color: var(--a_wizard_anchor_disabled_primary_color) !important;
 
         &::after {
-          background: var(--sw-anchor-disabled-primary-color);
+          background: var(--a_wizard_anchor_disabled_primary_color);
         }
       }
 
       &.error {
-        color: var(--sw-anchor-error-primary-color) !important;
+        color: var(--a_wizard_anchor_error_primary_color) !important;
 
         &::after {
-          background: var(--sw-anchor-error-primary-color) !important;
+          background: var(--a_wizard_anchor_error_primary_color) !important;
         }
       }
 
       &.warning {
-        color: var(--sw-anchor-warning-primary-color) !important;
+        color: var(--a_wizard_anchor_warning_primary_color) !important;
 
         &::after {
-          background: var(--sw-anchor-warning-primary-color) !important;
+          background: var(--a_wizard_anchor_warning_primary_color) !important;
         }
       }
     }
@@ -129,26 +131,47 @@ $colors: (
 }
 .a_wizard_arrows {
   > .a_wizard__steps {
+    margin-left: 60px;
     .a_wizard__step {
       position: relative;
     }
     .a_wizard__step:first-child .a_wizard__step__link {
       @media screen and (min-width: $breakpoint-phone) {
-        padding-left: 10px;
-        margin-left: 0;
+        // margin-left: 0;
       }
     }
-    .a_wizard__step:last-child .a_wizard__step__link {
-      margin-right: 0;
+    .a_wizard__step__divider {
+      position: absolute;
+      display: none;
+      left: -68px;
+      top: -3px;
+      width: calc(100% + 42px);
+      height: calc(100% + 6px);
+      clip-path: polygon(0 0, calc(100% - 33px) 0, 100% 50%, calc(100% - 33px) 100%, 0 100%, 33px 50%);
+      z-index: 3;
+      background-color: rgba(var(--a_wizard_step_focus_shadow_rgb), .5);
+      @media screen and (max-width: $breakpoint-phone) {
+        width: calc(100% + 72px);
+      }
     }
     .a_wizard__step__link {
       position: relative;
       height: 100%;
-      padding: 10px;
+      padding: 10px 50px 10px 30px;
       margin-right: 30px;
-      margin-left: -30px;
-      padding-left: 50px;
-      transition: all 0.5s ease-in-out;
+      margin-left: -60px;
+      clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
+      z-index: 2;
+      &:focus {
+        box-shadow: none;
+        z-index: 4;
+        & + .a_wizard__step__divider {
+          display: block;
+        }
+        &:after {
+          width: 100%;
+        }
+      }
 
       @media screen and (max-width: $breakpoint-phone) {
         overflow: hidden;
@@ -156,129 +179,102 @@ $colors: (
         text-align: left !important;
       }
 
-      &::after, &::before {
+      &:after {
         content: "";
-        pointer-events: none;
         position: absolute;
         display: block;
-        left: 100%;
-        top: 50%;
-        height: 0;
-        width: 0;
-        margin-top: -50px;
-        border: 50px solid transparent;
-        border-left-width: 40px;
-        transition: all 0.5s ease-in-out;
-      }
-
-      &::after {
-        z-index: 2;
-      }
-      &::before {
-        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: transparent;
+        z-index: -1;
+        width: calc(100% - 2px);
+        height: 100%;
+        clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
       }
 
       &.default {
-        color: var(--sw-anchor-default-secondary-color);
-        background-color: var(--sw-anchor-default-primary-color);
+        color: var(--a_wizard_anchor_default_secondary_color);
+        background-color: var(--a_wizard_anchor_default_secondary_color);
         cursor: not-allowed;
 
         @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--sw-anchor-default-primary-color);
+          border-bottom: 1px solid var(--a_wizard_anchor_default_primary_color);
         }
 
-        &::after {
-          border-left-color: var(--sw-anchor-default-primary-color);
-        }
-        &::before {
-          border-left-color: var(--sw-anchor-default-secondary-color);
+        &:after {
+          background-color: var(--a_wizard_anchor_default_primary_color);
         }
       }
 
       &.active {
-        color: var(--sw-anchor-active-secondary-color) !important;
-        border-color: var(--sw-anchor-active-primary-color);
-        background-color: var(--sw-anchor-active-primary-color);
+        color: var(--a_wizard_anchor_active_secondary_color) !important;
+        border-color: var(--a_wizard_anchor_active_primary_color);
+        background-color: var(--a_wizard_anchor_active_secondary_color);
         cursor: pointer;
 
         @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--sw-anchor-active-secondary-color);
+          border-bottom: 1px solid var(--a_wizard_anchor_active_secondary_color);
         }
 
-        &::after {
-          border-left-color: var(--sw-anchor-active-primary-color);
-        }
-        &::before {
-          border-left-color: var(--sw-anchor-active-secondary-color);
+        &:after {
+          background-color: var(--a_wizard_anchor_active_primary_color);
         }
       }
 
       &.done {
-        color: var(--sw-anchor-done-secondary-color);
-        border-color: var(--sw-anchor-done-primary-color);
-        background-color: var(--sw-anchor-done-primary-color);
+        color: var(--a_wizard_anchor_done_secondary_color);
+        border-color: var(--a_wizard_anchor_done_primary_color);
+        background-color: var(--a_wizard_anchor_done_secondary_color);
         cursor: pointer;
 
         @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--sw-anchor-done-secondary-color);
+          border-bottom: 1px solid var(--a_wizard_anchor_done_secondary_color);
         }
 
-        &::after {
-          border-left-color: var(--sw-anchor-done-primary-color);
-        }
-        &::before {
-          border-left-color: var(--sw-anchor-done-secondary-color);
+        &:after {
+          background-color: var(--a_wizard_anchor_done_primary_color);
         }
       }
 
       &.disabled {
-        color: var(--sw-anchor-disabled-secondary-color);
-        border-color: var(--sw-anchor-disabled-primary-color);
-        background-color: var(--sw-anchor-disabled-primary-color);
+        color: var(--a_wizard_anchor_disabled_secondary_color);
+        border-color: var(--a_wizard_anchor_disabled_primary_color);
+        background-color: var(--a_wizard_anchor_disabled_secondary_color);
 
         @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--sw-anchor-disabled-secondary-color);
+          border-bottom: 1px solid var(--a_wizard_anchor_disabled_secondary_color);
         }
 
-        &::after {
-          border-left-color: var(--sw-anchor-disabled-primary-color);
-        }
-        &::before {
-          border-left-color: var(--sw-anchor-disabled-secondary-color);
+        &:after {
+          background-color: var(--a_wizard_anchor_disabled_primary_color);
         }
       }
 
       &.error {
-        color: var(--sw-anchor-error-secondary-color);
-        border-color: var(--sw-anchor-error-primary-color);
-        background-color: var(--sw-anchor-error-primary-color);
+        color: var(--a_wizard_anchor_error_secondary_color);
+        border-color: var(--a_wizard_anchor_error_primary_color);
+        background-color: var(--a_wizard_anchor_error_secondary_color);
 
         @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--sw-anchor-error-secondary-color);
+          border-bottom: 1px solid var(--a_wizard_anchor_error_secondary_color);
         }
 
-        &::after {
-          border-left-color: var(--sw-anchor-error-primary-color);
-        }
-        &::before {
-          border-left-color: var(--sw-anchor-error-secondary-color);
+        &:after {
+          background-color: var(--a_wizard_anchor_error_primary_color);
         }
       }
 
       &.warning {
-        color: var(--sw-anchor-warning-secondary-color);
-        border-color: var(--sw-anchor-warning-primary-color);
-        background-color: var(--sw-anchor-warning-primary-color);
+        color: var(--a_wizard_anchor_warning_secondary_color);
+        border-color: var(--a_wizard_anchor_warning_primary_color);
+        background-color: var(--a_wizard_anchor_warning_secondary_color);
 
         @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--sw-anchor-warning-secondary-color);
+          border-bottom: 1px solid var(--a_wizard_anchor_warning_secondary_color);
         }
 
-        &::after {
-          border-left-color: var(--sw-anchor-warning-primary-color);
-        }
-        &::before {
-          border-left-color: var(--sw-anchor-warning-secondary-color);
+        &:after {
+          background-color: var(--a_wizard_anchor_warning_primary_color);
         }
       }
     }
@@ -296,7 +292,7 @@ $colors: (
       width: 100%;
       border-radius: 8px;
       z-index: 1;
-      border: 3px dashed var(--sw-border-color);
+      border: 3px dashed var(--a_wizard_border_color);
 
       @media screen and (max-width: $breakpoint-phone) {
         top: 0;
@@ -330,7 +326,7 @@ $colors: (
       width: 40px;
       height: 40px;
       border: none;
-      background: var(--sw-border-color);
+      background: var(--a_wizard_border_color);
       text-decoration: none;
       z-index: 98;
       transition: all 0.5s ease-in-out;
@@ -361,60 +357,60 @@ $colors: (
     }
 
     &.default {
-      color: var(--sw-anchor-default-secondary-color);
+      color: var(--a_wizard_anchor_default_secondary_color);
       cursor: not-allowed;
 
       &::after {
-        background-color: var(--sw-anchor-default-secondary-color);
+        background-color: var(--a_wizard_anchor_default_secondary_color);
       }
     }
 
     &.active {
-      color: var(--sw-anchor-active-primary-color) !important;
+      color: var(--a_wizard_anchor_active_primary_color) !important;
       cursor: pointer;
 
       & > .a_wizard__step__number {
-        color: var(--sw-anchor-active-secondary-color) !important;
+        color: var(--a_wizard_anchor_active_secondary_color) !important;
       }
       &::before {
-        background-color: var(--sw-anchor-active-primary-color) !important;
+        background-color: var(--a_wizard_anchor_active_primary_color) !important;
         box-shadow: 0 1px 7px 1px rgba(0, 0, 0, .3);
       }
     }
 
     &.done {
-      color: var(--sw-anchor-done-primary-color);
+      color: var(--a_wizard_anchor_done_primary_color);
       cursor: pointer;
 
       & > .a_wizard__step__number {
-        color: var(--sw-anchor-done-secondary-color) !important;
+        color: var(--a_wizard_anchor_done_secondary_color) !important;
       }
       &::before {
-        background-color: var(--sw-anchor-done-primary-color) !important;
+        background-color: var(--a_wizard_anchor_done_primary_color) !important;
       }
     }
 
     &.disabled {
-      color: var(--sw-anchor-disabled-primary-color);
+      color: var(--a_wizard_anchor_disabled_primary_color);
 
       &::after {
-        background-color: var(--sw-anchor-disabled-primary-color);
+        background-color: var(--a_wizard_anchor_disabled_primary_color);
       }
     }
 
     &.error {
-      color: var(--sw-anchor-error-primary-color) !important;
+      color: var(--a_wizard_anchor_error_primary_color) !important;
 
       &::after {
-        background-color: var(--sw-anchor-error-primary-color) !important;
+        background-color: var(--a_wizard_anchor_error_primary_color) !important;
       }
     }
 
     &.warning {
-      color: var(--sw-anchor-warning-primary-color) !important;
+      color: var(--a_wizard_anchor_warning_primary_color) !important;
 
       &::after {
-        background-color: var(--sw-anchor-warning-primary-color) !important;
+        background-color: var(--a_wizard_anchor_warning_primary_color) !important;
       }
     }
   }
@@ -434,37 +430,37 @@ $colors: (
     }
 
     &.default {
-      background-color: var(--sw-anchor-default-primary-color);
-      color: var(--sw-anchor-default-secondary-color);
+      background-color: var(--a_wizard_anchor_default_primary_color);
+      color: var(--a_wizard_anchor_default_secondary_color);
       cursor: not-allowed;
     }
 
     &.active {
-      background-color: var(--sw-anchor-active-primary-color);
-      color: var(--sw-anchor-active-secondary-color) !important;
+      background-color: var(--a_wizard_anchor_active_primary_color);
+      color: var(--a_wizard_anchor_active_secondary_color) !important;
       box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, .3);
       cursor: pointer;
     }
 
     &.done {
-      background-color: var(--sw-anchor-done-primary-color);
-      color: var(--sw-anchor-done-secondary-color);
+      background-color: var(--a_wizard_anchor_done_primary_color);
+      color: var(--a_wizard_anchor_done_secondary_color);
       cursor: pointer;
     }
 
     &.disabled {
-      background-color: var(--sw-anchor-disabled-primary-color);
-      color: var(--sw-anchor-disabled-secondary-color) !important;
+      background-color: var(--a_wizard_anchor_disabled_primary_color);
+      color: var(--a_wizard_anchor_disabled_secondary_color) !important;
     }
 
     &.error {
-      background-color: var(--sw-anchor-error-primary-color);
-      color: var(--sw-anchor-error-secondary-color) !important;
+      background-color: var(--a_wizard_anchor_error_primary_color);
+      color: var(--a_wizard_anchor_error_secondary_color) !important;
     }
 
     &.warning {
-      background-color: var(--sw-anchor-warning-primary-color);
-      color: var(--sw-anchor-warning-secondary-color) !important;
+      background-color: var(--a_wizard_anchor_warning_primary_color);
+      color: var(--a_wizard_anchor_warning_secondary_color) !important;
     }
 
   }
@@ -491,6 +487,10 @@ $colors: (
   &:active,
   &:focus {
     text-decoration: none;
+  }
+  &:focus {
+    box-shadow: var(--a_wizard_step_focus_box_shadow);
+    outline: 0;
   }
   &::-moz-focus-inner {
     border: 0;
@@ -556,9 +556,9 @@ $colors: (
       padding: .375rem .75rem;
       border-radius: .25rem;
       font-weight: 400;
-      color: var(--sw-toolbar-btn-color);
-      background-color: var(--sw-toolbar-btn-background-color);
-      border: 1px solid var(--sw-toolbar-btn-background-color);
+      color: var(--a_wizard_toolbar_btn_color);
+      background-color: var(--a_wizard_toolbar_btn_background_color);
+      border: 1px solid var(--a_wizard_toolbar_btn_background_color);
 
       &.disabled, &:disabled {
         opacity: .65;
@@ -590,13 +590,13 @@ $colors: (
     border:0;
     width: 100%;
     height: 5px;
-    background: var(--sw-progress-background-color);
+    background: var(--a_wizard_progress_background_color);
     overflow: hidden;
 
     & > .progress-bar {
       height: 5px;
       width: 0%;
-      background-color: var(--sw-progress-color);
+      background-color: var(--a_wizard_progress_color);
       transition: width 0.5s ease-in-out;
     }
   }
@@ -625,7 +625,7 @@ $colors: (
       left: 0;
       height: 100%;
       width: 100%;
-      background: var(--sw-loader-background-wrapper-color);
+      background: var(--a_wizard_loader_background_wrapper_color);
       z-index: 2;
     }
 
@@ -637,8 +637,8 @@ $colors: (
       left: 45%;
       width: 2rem;
       height: 2rem;
-      border: 10px solid var(--sw-loader-color);
-      border-top: 10px solid var(--sw-loader-background-color);
+      border: 10px solid var(--a_wizard_loader_color);
+      border-top: 10px solid var(--a_wizard_loader_background_color);
       border-radius: 50%;
       z-index: 10;
       animation: spin 1s linear infinite;
