@@ -14,7 +14,7 @@ export default {
   },
   setup() {
     const model = ref({
-      type: "arrows",
+      type: "square",
       isForwardStepButtonDisabled: true,
       isBackStepButtonDisabled: false,
       isStepNumberVisible: true,

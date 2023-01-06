@@ -252,27 +252,35 @@ $breakpoint-phone:                  768px;
   .a_wizard__steps {
     position: relative;
     margin-bottom: 10px;
-    &::before {
+  }
+  .a_wizard__step {
+    flex: 1 1 auto;
+    text-align: center;
+    &:before {
       content: " ";
       position: absolute;
-      top: 18px;
       left: 0;
       width: 100%;
       border-radius: 8px;
-      z-index: 1;
+      z-index: -1;
       border: 3px dashed var(--a_wizard_border_color);
-
-      @media screen and (max-width: $breakpoint-phone) {
-        top: 0;
-        left: 17px;
-        width: 6px;
-        height: 100%;
-      }
+      margin-top: 25px;
     }
   }
   .a_wizard__step__link {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    margin-top: 40px;
+    &:before {
+      content: " ";
+      display: none;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      z-index: 0;
+      border: 3px solid var(--a_wizard_anchor_active_primary_color);
+      margin-top: 17px;
+    }
 
     @media screen and (max-width: $breakpoint-phone) {
       margin-top: unset;
@@ -281,40 +289,19 @@ $breakpoint-phone:                  768px;
       text-align: left !important;
     }
 
-    &::before {
-      content: " ";
-      position: absolute;
+    & > .a_wizard__step__number {
       display: block;
-      left: 0;
-      right: 0;
       margin-left: auto;
       margin-right: auto;
-      border-radius: 0.475rem;
-      top: -40px;
+      margin-bottom: .5rem;
+      transition: all 0.5s ease-in-out;
       width: 40px;
       height: 40px;
-      border: none;
+      text-align: center;
       background: var(--a_wizard_border_color);
-      text-decoration: none;
-      z-index: 98;
-      transition: all 0.5s ease-in-out;
-
-      @media screen and (max-width: $breakpoint-phone) {
-        top: 0;
-        right: unset;
-      }
-    }
-
-    & > .a_wizard__step__number {
-      position: absolute;
-      display: block;
-      left: 0;
-      right: 0;
-      top: -38px;
-      margin-left: auto;
-      margin-right: auto;
-      z-index: 100;
-      transition: all 0.5s ease-in-out;
+      border-radius: var(--a_border_radius, .5rem);
+      padding-top: 0.2rem;
+      z-index: 1;
 
       @media screen and (max-width: $breakpoint-phone) {
         top: 0;
@@ -328,19 +315,20 @@ $breakpoint-phone:                  768px;
       color: var(--a_wizard_anchor_default_secondary_color);
       cursor: not-allowed;
 
-      &::after {
-        background-color: var(--a_wizard_anchor_default_secondary_color);
+      & > .a_wizard__step__number {
+        background-color: var(--a_wizard_anchor_default_primary_color);
       }
     }
 
     &.active {
       color: var(--a_wizard_anchor_active_primary_color) !important;
       cursor: pointer;
+      &:before {
+        display: block;
+      }
 
       & > .a_wizard__step__number {
         color: var(--a_wizard_anchor_active_secondary_color) !important;
-      }
-      &::before {
         background-color: var(--a_wizard_anchor_active_primary_color) !important;
         box-shadow: 0 1px 7px 1px rgba(0, 0, 0, .3);
       }
@@ -352,8 +340,6 @@ $breakpoint-phone:                  768px;
 
       & > .a_wizard__step__number {
         color: var(--a_wizard_anchor_done_secondary_color) !important;
-      }
-      &::before {
         background-color: var(--a_wizard_anchor_done_primary_color) !important;
       }
     }
@@ -361,7 +347,7 @@ $breakpoint-phone:                  768px;
     &.disabled {
       color: var(--a_wizard_anchor_disabled_primary_color);
 
-      &::after {
+      & > .a_wizard__step__number {
         background-color: var(--a_wizard_anchor_disabled_primary_color);
       }
     }
@@ -369,7 +355,8 @@ $breakpoint-phone:                  768px;
     &.error {
       color: var(--a_wizard_anchor_error_primary_color) !important;
 
-      &::after {
+      & > .a_wizard__step__number {
+        color: var(--a_wizard_anchor_error_secondary_color) !important;
         background-color: var(--a_wizard_anchor_error_primary_color) !important;
       }
     }
@@ -377,8 +364,14 @@ $breakpoint-phone:                  768px;
     &.warning {
       color: var(--a_wizard_anchor_warning_primary_color) !important;
 
-      &::after {
+      & > .a_wizard__step__number {
+        color: var(--a_wizard_anchor_warning_secondary_color) !important;
         background-color: var(--a_wizard_anchor_warning_primary_color) !important;
+      }
+    }
+    &.before_active {
+      &:before {
+        display: block;
       }
     }
   }
