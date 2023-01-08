@@ -12,10 +12,11 @@ import {
 } from "lodash-es";
 
 export default function MultipleActionAPI({
+  checkVisibleColumns = () => {},
+  isMultipleActionsActive = ref(undefined),
   rowsLocal = computed(() => []),
   rowsLocalLength = computed(() => 0),
 }) {
-  const isMultipleActionsActive = ref(undefined);
   const currentMultipleActions = ref(undefined);
   const selectedRowsIndexes = ref({});
   const areAllRowsSelected = ref(false);
@@ -45,6 +46,9 @@ export default function MultipleActionAPI({
     if (isActive) {
       isMultipleActionsActive.value = true;
       currentMultipleActions.value = action;
+      setTimeout(() => {
+        checkVisibleColumns();
+      });
       return;
     }
 
@@ -53,6 +57,9 @@ export default function MultipleActionAPI({
     } else {
       isMultipleActionsActive.value = true;
     }
+    setTimeout(() => {
+      checkVisibleColumns();
+    });
   };
 
   const selectedRowsIndexesLength = computed(() => {

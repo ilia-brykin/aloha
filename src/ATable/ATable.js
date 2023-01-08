@@ -281,6 +281,7 @@ export default {
   },
   setup(props, context) {
     const tableGrandparentRef = ref(undefined);
+    const isMultipleActionsActive = ref(undefined);
 
     const {
       columnsOrdered,
@@ -305,24 +306,6 @@ export default {
     } = RowsAPI(props);
 
     const {
-      areAllRowsSelected,
-      areAllVisibleRowsSelected,
-      areSomeRowsSelected,
-      closeMultipleActionsActive,
-      currentMultipleActions,
-      isMultipleActionsActive,
-      selectedRows,
-      selectedRowsIndexes,
-      setEmptySelectedRowsIndexes,
-      setSelectedRowsIndexes,
-      toggleBtnAllRows,
-      toggleMultipleActionsActive,
-    } = MultipleActionAPI({
-      rowsLocal,
-      rowsLocalLength,
-    });
-
-    const {
       aTableRef,
       changeModelIsTableWithoutScroll,
       checkVisibleColumns,
@@ -335,6 +318,25 @@ export default {
       isMobile,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
+    });
+
+    const {
+      areAllRowsSelected,
+      areAllVisibleRowsSelected,
+      areSomeRowsSelected,
+      closeMultipleActionsActive,
+      currentMultipleActions,
+      selectedRows,
+      selectedRowsIndexes,
+      setEmptySelectedRowsIndexes,
+      setSelectedRowsIndexes,
+      toggleBtnAllRows,
+      toggleMultipleActionsActive,
+    } = MultipleActionAPI({
+      checkVisibleColumns,
+      isMultipleActionsActive,
+      rowsLocal,
+      rowsLocalLength,
     });
 
     const {
