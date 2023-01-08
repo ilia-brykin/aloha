@@ -19,6 +19,8 @@ export default function ActionsAPI(props, { emit }) {
   } = AConfirmAPI();
 
   const tableActions = toRef(props, "tableActions");
+  const areAllRowsSelected = toRef(props, "areAllRowsSelected");
+
   const tableId = inject("tableId");
   const currentMultipleActions = inject("currentMultipleActions");
   const buttonMultipleId = computed(() => {
@@ -70,7 +72,11 @@ export default function ActionsAPI(props, { emit }) {
   const selectedRows = toRef(props, "selectedRows");
 
   const onStartModalMultipleActions = async() => {
-    await currentMultipleActions.value.callback({ rows: selectedRows.value, id: buttonMultipleId.value });
+    await currentMultipleActions.value.callback({
+      rows: selectedRows.value,
+      id: buttonMultipleId.value,
+      areAllRowsSelected: areAllRowsSelected.value,
+    });
     closeConfirm();
     onCancelMultipleActions();
   };
@@ -83,7 +89,12 @@ export default function ActionsAPI(props, { emit }) {
         save: onStartModalMultipleActions,
       });
     } else {
-      currentMultipleActions.value.callback({ close: closeMultipleActionsActive.value, rows: selectedRows.value, id: buttonMultipleId.value });
+      currentMultipleActions.value.callback({
+        close: closeMultipleActionsActive.value,
+        rows: selectedRows.value,
+        id: buttonMultipleId.value,
+        areAllRowsSelected: areAllRowsSelected.value,
+      });
     }
   };
 

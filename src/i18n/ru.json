@@ -7,6 +7,8 @@
   "_PAGINATION_NAVIGATION_": "Навигация по страницам",
   "_PREVIOUS_": "Предыдущий",
   "_REMOVE_FIELD_CONTENT_": "Удалить содержимое поля",
+  "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Отменить выбор всех строк ({{ countAllRows }})",
+  "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Выделить все строки  ({{ countAllRows }})",
   "_TABLE_MULTIPLE_CANCEL_": "Отменить",
   "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "выбрано {{ countSelectedRows }} из {{ countAllRows }}",
   "_WIZARD_NEXT_": "Следующий",

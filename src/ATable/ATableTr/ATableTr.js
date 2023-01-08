@@ -24,6 +24,10 @@ export default {
       type: Array,
       required: true,
     },
+    areAllRowsSelected: {
+      type: Boolean,
+      required: true,
+    },
     countVisibleMobileColumns: {
       type: Number,
       required: true,
@@ -51,6 +55,7 @@ export default {
   setup(props) {
     const row = toRef(props, "row");
     const rowIndex = toRef(props, "rowIndex");
+    const areAllRowsSelected = toRef(props, "areAllRowsSelected");
     const currentMultipleActions = inject("currentMultipleActions");
     const isMultipleActionsActive = inject("isMultipleActionsActive");
 
@@ -61,6 +66,9 @@ export default {
             row: row.value,
             rowIndex: rowIndex.value,
           });
+        }
+        if (areAllRowsSelected.value) {
+          return true;
         }
       }
       return false;
@@ -94,7 +102,7 @@ export default {
   ],
   computed: {
     isRowSelected() {
-      return !!this.selectedRowsIndexes[this.rowIndex];
+      return !!this.selectedRowsIndexes[this.rowIndex] || this.areAllRowsSelected;
     },
   },
   methods: {

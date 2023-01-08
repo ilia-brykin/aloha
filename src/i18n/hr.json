@@ -7,6 +7,8 @@
   "_PAGINATION_NAVIGATION_": "Navigacija po stranicama",
   "_PREVIOUS_": "Prethodni",
   "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
+  "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Poništite odabir svih redaka ({{ countAllRows }})",
+  "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Odaberite svih redaka ({{ countAllRows }})",
   "_TABLE_MULTIPLE_CANCEL_": "Otkaži višestruku radnju",
   "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} od {{ countAllRows }} odabrana",
   "_WIZARD_NEXT_": "Sljedeći",

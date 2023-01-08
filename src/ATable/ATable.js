@@ -306,6 +306,7 @@ export default {
 
     const {
       areAllRowsSelected,
+      areAllVisibleRowsSelected,
       areSomeRowsSelected,
       closeMultipleActionsActive,
       currentMultipleActions,
@@ -314,6 +315,7 @@ export default {
       selectedRowsIndexes,
       setEmptySelectedRowsIndexes,
       setSelectedRowsIndexes,
+      toggleBtnAllRows,
       toggleMultipleActionsActive,
     } = MultipleActionAPI({
       rowsLocal,
@@ -458,6 +460,7 @@ export default {
       rowsLocalLength,
 
       areAllRowsSelected,
+      areAllVisibleRowsSelected,
       areSomeRowsSelected,
       closeMultipleActionsActive,
       isMultipleActionsActive,
@@ -465,6 +468,7 @@ export default {
       selectedRowsIndexes,
       setEmptySelectedRowsIndexes,
       setSelectedRowsIndexes,
+      toggleBtnAllRows,
       toggleMultipleActionsActive,
 
       changeOffset,
@@ -605,6 +609,7 @@ export default {
           isLoading: this.isLoadingTable,
         }, () => [
           h(ATableTopPanel, {
+            areAllRowsSelected: this.areAllRowsSelected,
             areSomeRowsSelected: this.areSomeRowsSelected,
             closeMultipleActionsActive: this.closeMultipleActionsActive,
             countAllRows: this.countAllRowsLocal,
@@ -619,6 +624,7 @@ export default {
             selectedRows: this.selectedRows,
             onUpdateModelQuickSearch: this.updateModelQuickSearch,
             onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
+            onToggleBtnAllRows: this.toggleBtnAllRows,
           }, this.$slots),
           h("div", {
             class: "a_table",
@@ -626,6 +632,7 @@ export default {
           }, [
             h(ATableHeader, {
               areAllRowsSelected: this.areAllRowsSelected,
+              areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
               areSomeRowsSelected: this.areSomeRowsSelected,
               modelSort: this.modelSort,
               onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
@@ -636,6 +643,7 @@ export default {
             }, this.rowsLocal.map((row, rowIndex) => {
               return h(ATableTr, {
                 allVisibleMobileColumns: this.allVisibleMobileColumns,
+                areAllRowsSelected: this.areAllRowsSelected,
                 countVisibleMobileColumns: this.countVisibleMobileColumns,
                 row,
                 rowIndex,
@@ -661,6 +669,7 @@ export default {
             }, this.rowsFooter.map((row, rowIndex) => {
               return h(ATableTr, {
                 allVisibleMobileColumns: this.allVisibleMobileColumns,
+                areAllRowsSelected: this.areAllRowsSelected,
                 countVisibleMobileColumns: this.countVisibleMobileColumns,
                 row,
                 rowIndex,

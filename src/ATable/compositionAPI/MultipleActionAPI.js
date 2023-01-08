@@ -18,6 +18,7 @@ export default function MultipleActionAPI({
   const isMultipleActionsActive = ref(undefined);
   const currentMultipleActions = ref(undefined);
   const selectedRowsIndexes = ref({});
+  const areAllRowsSelected = ref(false);
 
   const hasCurrentMultipleActionsIsHiddenCallback = computed(() => {
     return isFunction(get(currentMultipleActions.value, "isHiddenCallback"));
@@ -36,6 +37,7 @@ export default function MultipleActionAPI({
   const closeMultipleActionsActive = () => {
     isMultipleActionsActive.value = false;
     currentMultipleActions.value = undefined;
+    areAllRowsSelected.value = false;
     setEmptySelectedRowsIndexes();
   };
 
@@ -57,7 +59,7 @@ export default function MultipleActionAPI({
     return size(selectedRowsIndexes.value);
   });
 
-  const areAllRowsSelected = computed(() => {
+  const areAllVisibleRowsSelected = computed(() => {
     return rowsLocalLength.value === selectedRowsIndexesLength.value;
   });
 
@@ -96,8 +98,16 @@ export default function MultipleActionAPI({
     }
   };
 
+  const toggleBtnAllRows = () => {
+    areAllRowsSelected.value = !areAllRowsSelected.value;
+    if (areAllRowsSelected.value) {
+      setEmptySelectedRowsIndexes();
+    }
+  };
+
   return {
     areAllRowsSelected,
+    areAllVisibleRowsSelected,
     areSomeRowsSelected,
     closeMultipleActionsActive,
     currentMultipleActions,
@@ -106,6 +116,7 @@ export default function MultipleActionAPI({
     selectedRowsIndexes,
     setEmptySelectedRowsIndexes,
     setSelectedRowsIndexes,
+    toggleBtnAllRows,
     toggleMultipleActionsActive,
   };
 }

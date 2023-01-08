@@ -19,6 +19,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    areAllVisibleRowsSelected: {
+      type: Boolean,
+      required: true,
+    },
     areSomeRowsSelected: {
       type: Boolean,
       required: true,
@@ -95,8 +99,9 @@ export default {
         }, [
           h(AOneCheckbox, {
             isWidthAuto: true,
-            modelValue: this.areAllRowsSelected,
-            indeterminate: this.areSomeRowsSelected && !this.areAllRowsSelected,
+            modelValue: this.areAllVisibleRowsSelected || this.areAllRowsSelected,
+            indeterminate: this.areSomeRowsSelected && !(this.areAllVisibleRowsSelected || this.areAllRowsSelected),
+            disabled: this.areAllRowsSelected,
             "onUpdate:modelValue": this.toggleCheckbox,
           }),
         ]),

@@ -16,6 +16,10 @@ import MultipleAPI from "./compositionAPI/MultipleAPI";
 export default {
   name: "ATableTopPanel",
   props: {
+    areAllRowsSelected: {
+      type: Boolean,
+      required: true,
+    },
     areSomeRowsSelected: {
       type: Boolean,
       required: true,
@@ -68,8 +72,9 @@ export default {
     },
   },
   emits: [
-    "updateModelQuickSearch",
+    "toggleBtnAllRows",
     "toggleMultipleActionsActive",
+    "updateModelQuickSearch",
   ],
   inject: [
     "isMultipleActionsActive",
@@ -92,20 +97,26 @@ export default {
     } = ActionsAPI(props, context);
 
     const {
+      isBtnMultipleActionDisabled,
+      textMultipleBtnAllRowsTranslate,
       textMultipleSelectedTranslateExtra,
-    } = MultipleAPI(props);
+      toggleBtnAllRows,
+    } = MultipleAPI(props, context);
 
     return {
       buttonMultipleId,
       currentMultipleActions,
       filterCurrency,
+      isBtnMultipleActionDisabled,
       isMultipleActionsFiltered,
       multipleActionsFiltered,
       onCancelMultipleActions,
       onClickMultipleActions,
       onOpenModalMultipleActions,
       tableActionFiltered,
+      textMultipleBtnAllRowsTranslate,
       textMultipleSelectedTranslateExtra,
+      toggleBtnAllRows,
     };
   },
   computed: {
@@ -202,12 +213,25 @@ export default {
             tag: "strong",
             text: "Mehrfachaktionen",
           }),
-          h(ATranslation, {
-            class: "a_table__multiple_panel__items_selected",
-            tag: "span",
-            text: "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_",
-            extra: this.textMultipleSelectedTranslateExtra,
-          }),
+          h("div", {
+            class: "a_table__multiple_panel__items",
+          }, [
+            h(ATranslation, {
+              class: "a_table__multiple_panel__items__selected",
+              tag: "span",
+              text: "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_",
+              extra: this.textMultipleSelectedTranslateExtra,
+            }),
+            this.currentMultipleActions.isAllRowsSelected && h(AButton, {
+              class: "a_btn a_btn_secondary a_table__multiple_panel__btn_all_rows",
+              type: "button",
+              text: this.textMultipleBtnAllRowsTranslate,
+              extraTranslate: {
+                countAllRows: this.countAllRows,
+              },
+              onClick: this.toggleBtnAllRows,
+            }),
+          ]),
         ]),
         h("div", {
           class: "a_table__multiple_panel__actions",
@@ -215,7 +239,7 @@ export default {
           h(AButton, {
             class: "a_btn a_btn_primary a_table__action",
             type: "button",
-            disabled: !this.areSomeRowsSelected,
+            disabled: this.isBtnMultipleActionDisabled,
             text: this.currentMultipleActions.label,
             onClick: this.onOpenModalMultipleActions,
           }),

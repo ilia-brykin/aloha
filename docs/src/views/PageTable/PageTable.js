@@ -159,6 +159,7 @@ export default {
           disabled: true,
           icon: "Plus",
           isConfirm: true,
+          isAllRowsSelected: true,
         },
         {
           isDivider: true,
