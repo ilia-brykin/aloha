@@ -47,6 +47,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    extraTranslate: {
+      type: Object,
+      required: true,
+    },
   },
   emits: [
     "onStepClick",
@@ -80,12 +84,16 @@ export default {
     });
 
     const {
+      ariaCurrentAttributes,
       tabindex,
     } = AttributesAPI({
       isStepDisabled,
+      isStepActive,
     });
 
     return {
+      ariaCurrentAttributes,
+      isStepActive,
       isStepDisabled,
       linkClass,
       onClick,
@@ -102,19 +110,21 @@ export default {
         class: "a_wizard__step",
       },
       [
-        this.step.slotLabel && this.$slots[this.step.slotLabel] ?
+        h("a", {
+          class: this.linkClass,
+          role: "button",
+          tabindex: this.tabindex,
+          ariaDisabled: this.isStepDisabled,
+          onClick: this.onClick,
+          onKeydown: this.onKeydown,
+          ...this.ariaCurrentAttributes,
+        }, this.step.slotLabel && this.$slots[this.step.slotLabel] ?
           this.$slots[this.step.slotLabel]({
             step: this.step,
             stepNumber: this.stepNumber,
-          }) :
-          h("a", {
-            class: this.linkClass,
-            role: "button",
-            tabindex: this.tabindex,
-            ariaDisabled: this.isStepDisabled,
-            onClick: this.onClick,
-            onKeydown: this.onKeydown,
-          }, [
+            isStepDisabled: this.isStepDisabled,
+            isStepActive: this.isStepActive,
+          }) : [
             this.isStepNumberVisible && h("span", {
               class: "a_wizard__step__number",
             }, this.stepNumberText),
@@ -122,12 +132,13 @@ export default {
               tag: "span",
               html: this.step.label,
               class: "a_wizard__step__text",
+              extra: this.extraTranslate,
             }),
           ]),
         h("span", {
           class: "a_wizard__step__divider",
           ariaHidden: true,
-        })
+        }),
       ],
     );
   },

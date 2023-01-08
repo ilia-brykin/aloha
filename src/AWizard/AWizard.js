@@ -10,6 +10,7 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import LocalAPI from "./compositionAPI/LocalAPI";
+import StepsAPI from "./compositionAPI/StepsAPI";
 
 export default {
   name: "AWizard",
@@ -115,7 +116,7 @@ export default {
     extraTranslate: {
       type: Object,
       required: false,
-      default: undefined,
+      default: () => ({}),
     },
     isForwardButtonHide: {
       type: Boolean,
@@ -146,6 +147,11 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    stepsProgressbarText: {
+      type: String,
+      required: false,
+      default: "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_",
     },
   },
   emits: [
@@ -180,12 +186,23 @@ export default {
       stepActiveComputed,
     });
 
+    const {
+      stepActiveNumber,
+      stepsCount,
+      stepsProgressbarTextTranslated,
+    } = StepsAPI(props, {
+      stepActiveComputed,
+    });
+
     return {
       classWizard,
       goOneStepBack,
       goOneStepForward,
       onStepClick,
       stepActiveComputed,
+      stepActiveNumber,
+      stepsCount,
+      stepsProgressbarTextTranslated,
       stepsVisitedComputed,
       tabContentRef,
     };
@@ -221,6 +238,12 @@ export default {
     }, [
       h("ul", {
         class: "a_wizard__steps",
+        tabindex: 0,
+        role: "progressbar",
+        "aria-valuemin": 1,
+        "aria-valuemax": this.stepsCount,
+        "aria-valuenow": this.stepActiveNumber,
+        "aria-valuetext": this.stepsProgressbarTextTranslated,
       }, [
         this.steps.map((step, stepIndex) => {
           return h(AWizardStep, {
@@ -232,6 +255,7 @@ export default {
             isBackStepButtonDisabled: this.isBackStepButtonDisabled,
             isForwardButtonDisabled: this.isForwardButtonDisabled,
             isBackButtonDisabled: this.isBackButtonDisabled,
+            extraTranslate: this.extraTranslate,
             onOnStepClick: this.onStepClick,
           }, this.$slots);
         }),

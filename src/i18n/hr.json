@@ -8,5 +8,6 @@
   "_PREVIOUS_": "Prethodni",
   "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
   "_WIZARD_NEXT_": "Sljedeći",
-  "_WIZARD_PREVIOUS_": "Prethodno"
+  "_WIZARD_PREVIOUS_": "Prethodno",
+  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Korak {{ stepActive }} od {{ stepsCount }}: {{ stepActiveLabel }}"
 }

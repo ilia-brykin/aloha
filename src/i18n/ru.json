@@ -8,5 +8,6 @@
   "_PREVIOUS_": "Предыдущий",
   "_REMOVE_FIELD_CONTENT_": "Удалить содержимое поля",
   "_WIZARD_NEXT_": "Следующий",
-  "_WIZARD_PREVIOUS_": "Предыдущий"
+  "_WIZARD_PREVIOUS_": "Предыдущий",
+  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Шаг {{ stepActive }} из {{ stepsCount }}: {{ stepActiveLabel }}"
 }

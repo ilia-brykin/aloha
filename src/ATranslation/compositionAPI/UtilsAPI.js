@@ -4,6 +4,10 @@ import {
   isString,
 } from "lodash-es";
 
+import {
+  translation,
+} from "./ATranslationAPI";
+
 export default function UtilsAPI() {
   return {
     getTranslatedText,
@@ -19,7 +23,7 @@ export function isPlaceholderTranslate(text = "") {
     text[text.length - 1] !== "_");
 }
 
-export function getTranslatedText({ placeholder, translationObj, extra }) {
+export function getTranslatedText({ placeholder, translationObj = translation.value, extra }) {
   const TEXT_FROM_TRANSLATION = translationObj[placeholder] || placeholder;
   if (extra) {
     return replaceText({

@@ -8,5 +8,6 @@
   "_PREVIOUS_": "Previous",
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
   "_WIZARD_NEXT_": "Next",
-  "_WIZARD_PREVIOUS_": "Previous"
+  "_WIZARD_PREVIOUS_": "Previous",
+  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Step {{ stepActive }} of {{ stepsCount }}: {{ stepActiveLabel }}"
 }

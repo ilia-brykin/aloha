@@ -6,12 +6,11 @@ import {
 
 const language = ref("de");
 const i18n = ref({});
+export const translation = computed(() => {
+  return i18n.value[language.value];
+});
 
 export default function ATranslationAPI() {
-  const translation = computed(() => {
-    return i18n.value[language.value];
-  });
-
   return {
     i18n,
     language,
