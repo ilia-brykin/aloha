@@ -1,22 +1,38 @@
-$breakpoint-phone:                  768px;
+$a-wizard-breakpoint-phone:                  768px !default;
+$a-wizard-border_color:                      var(--a_color_gray_200, #eeeeee) !default; 
+$a-wizard-border-width:                      1px !default;
+$a-wizard-step-default-primary-color:      var(--a_color_gray_200, #f8f9fa) !default;
+$a-wizard-step-default-secondary-color:    var(--a_color_gray_500, #b0b0b1) !default;
+$a-wizard-step-active-primary-color:       var(--a_color_primary, #009EF7) !default;
+$a-wizard-step-active-secondary-color:     var(--a_color_white, #ffffff) !default;
+$a-wizard-step-done-primary-color:         var(--a_color_primary_50, #90d4fa) !default;
+$a-wizard-step-done-secondary-color:       #fefefe !default;
+$a-wizard-step-disabled-primary-color:     #f8f9fa !default;
+$a-wizard-step-disabled-secondary-color:   #dbe0e5 !default;
+$a-wizard-step-error-primary-color:        var(--a_color_danger, #dc3545) !default;
+$a-wizard-step-error-secondary-color:      var(--a_color_white, #ffffff) !default;
+$a-wizard-step-warning-primary-color:      var(--a_color_warning, #ffc107) !default;
+$a-wizard-step-warning-secondary-color:    var(--a_color_white, #ffffff) !default;
+$a-wizard-step-focus-shadow-rgb:             var(--a_color_primary_rgb) !default;
+$a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_step_focus_shadow_rgb), .5) !default;
 
 .a_wizard {
-  --a_wizard_border_color: var(--a_color_gray_200, #eeeeee);
-  --a_wizard_border_width: 1px;
-  --a_wizard_anchor_default_primary_color: var(--a_color_gray_200, #f8f9fa);
-  --a_wizard_anchor_default_secondary_color: var(--a_color_gray_500, #b0b0b1);
-  --a_wizard_anchor_active_primary_color: var(--a_color_primary, #009EF7);
-  --a_wizard_anchor_active_secondary_color: var(--a_color_white, #ffffff);
-  --a_wizard_anchor_done_primary_color: var(--a_color_primary_50, #90d4fa);
-  --a_wizard_anchor_done_secondary_color: #fefefe;
-  --a_wizard_anchor_disabled_primary_color: #f8f9fa;
-  --a_wizard_anchor_disabled_secondary_color: #dbe0e5;
-  --a_wizard_anchor_error_primary_color: var(--a_color_danger, #dc3545);
-  --a_wizard_anchor_error_secondary_color: var(--a_color_white, #ffffff);
-  --a_wizard_anchor_warning_primary_color: var(--a_color_warning, #ffc107);
-  --a_wizard_anchor_warning_secondary_color: var(--a_color_white, #ffffff);
-  --a_wizard_step_focus_shadow_rgb: var(--a_color_primary_rgb);
-  --a_wizard_step_focus_box_shadow: 0 0 0 0.25rem rgba(var(--a_wizard_step_focus_shadow_rgb), .5);
+  --a_wizard_border_color: #{$a-wizard-border_color};
+  --a_wizard_border_width: #{$a-wizard-border-width};
+  --a_wizard_step_default_primary_color: #{$a-wizard-step-default-primary-color};
+  --a_wizard_step_default_secondary_color: #{$a-wizard-step-default-secondary-color};
+  --a_wizard_step_active_primary_color: #{$a-wizard-step-active-primary-color};
+  --a_wizard_step_active_secondary_color: #{$a-wizard-step-active-secondary-color};
+  --a_wizard_step_done_primary_color: #{$a-wizard-step-done-primary-color};
+  --a_wizard_step_done_secondary_color: #{$a-wizard-step-done-secondary-color};
+  --a_wizard_step_disabled_primary_color: #{$a-wizard-step-disabled-primary-color};
+  --a_wizard_step_disabled_secondary_color: #{$a-wizard-step-disabled-secondary-color};
+  --a_wizard_step_error_primary_color: #{$a-wizard-step-error-primary-color};
+  --a_wizard_step_error_secondary_color: #{$a-wizard-step-error-secondary-color};
+  --a_wizard_step_warning_primary_color: #{$a-wizard-step-warning-primary-color};
+  --a_wizard_step_warning_secondary_color: #{$a-wizard-step-warning-secondary-color};
+  --a_wizard_step_focus_shadow_rgb: #{$a-wizard-step-focus-shadow-rgb};
+  --a_wizard_step_focus_box_shadow: #{$a-wizard-step-focus-box-shadow};
 
   border: var(--a_wizard_border_width) solid var(--a_wizard_border_color);
   position: relative;
@@ -47,48 +63,48 @@ $breakpoint-phone:                  768px;
         width: 100%;
       }
       &.default {
-        color: var(--a_wizard_anchor_default_secondary_color);
+        color: var(--a_wizard_step_default_secondary_color);
         cursor: not-allowed;
         &::after {
-          background-color: var(--a_wizard_anchor_default_secondary_color);
+          background-color: var(--a_wizard_step_default_secondary_color);
         }
       }
       &.done {
-        color: var(--a_wizard_anchor_done_primary_color);
+        color: var(--a_wizard_step_done_primary_color);
         cursor: pointer;
         &::after {
-          background: var(--a_wizard_anchor_done_primary_color);
+          background: var(--a_wizard_step_done_primary_color);
         }
       }
       &.active {
-        color: var(--a_wizard_anchor_active_primary_color);
+        color: var(--a_wizard_step_active_primary_color);
         cursor: pointer;
         &::after {
-          background: var(--a_wizard_anchor_active_primary_color);
+          background: var(--a_wizard_step_active_primary_color);
         }
       }
 
       &.disabled {
-        color: var(--a_wizard_anchor_disabled_primary_color) !important;
+        color: var(--a_wizard_step_disabled_primary_color) !important;
 
         &::after {
-          background: var(--a_wizard_anchor_disabled_primary_color);
+          background: var(--a_wizard_step_disabled_primary_color);
         }
       }
 
       &.error {
-        color: var(--a_wizard_anchor_error_primary_color) !important;
+        color: var(--a_wizard_step_error_primary_color) !important;
 
         &::after {
-          background: var(--a_wizard_anchor_error_primary_color) !important;
+          background: var(--a_wizard_step_error_primary_color) !important;
         }
       }
 
       &.warning {
-        color: var(--a_wizard_anchor_warning_primary_color) !important;
+        color: var(--a_wizard_step_warning_primary_color) !important;
 
         &::after {
-          background: var(--a_wizard_anchor_warning_primary_color) !important;
+          background: var(--a_wizard_step_warning_primary_color) !important;
         }
       }
     }
@@ -100,11 +116,7 @@ $breakpoint-phone:                  768px;
     .a_wizard__step {
       position: relative;
     }
-    .a_wizard__step:first-child .a_wizard__step__link {
-      @media screen and (min-width: $breakpoint-phone) {
-        // margin-left: 0;
-      }
-    }
+
     .a_wizard__step__divider {
       position: absolute;
       display: none;
@@ -115,7 +127,7 @@ $breakpoint-phone:                  768px;
       clip-path: polygon(0 0, calc(100% - 33px) 0, 100% 50%, calc(100% - 33px) 100%, 0 100%, 33px 50%);
       z-index: 3;
       background-color: rgba(var(--a_wizard_step_focus_shadow_rgb), .5);
-      @media screen and (max-width: $breakpoint-phone) {
+      @media screen and (max-width: $a-wizard-breakpoint-phone) {
         width: calc(100% + 72px);
       }
     }
@@ -138,7 +150,7 @@ $breakpoint-phone:                  768px;
         }
       }
 
-      @media screen and (max-width: $breakpoint-phone) {
+      @media screen and (max-width: $a-wizard-breakpoint-phone) {
         overflow: hidden;
         margin-right: unset;
         text-align: left !important;
@@ -155,94 +167,94 @@ $breakpoint-phone:                  768px;
         width: calc(100% - 2px);
         height: 100%;
         clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
-        @media screen and (max-width: $breakpoint-phone) {
+        @media screen and (max-width: $a-wizard-breakpoint-phone) {
           width: 100%;
         }
       }
 
       &.default {
-        color: var(--a_wizard_anchor_default_secondary_color);
-        background-color: var(--a_wizard_anchor_default_secondary_color);
+        color: var(--a_wizard_step_default_secondary_color);
+        background-color: var(--a_wizard_step_default_secondary_color);
         cursor: not-allowed;
 
-        @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--a_wizard_anchor_default_primary_color);
+        @media screen and (max-width: $a-wizard-breakpoint-phone) {
+          border-bottom: 1px solid var(--a_wizard_step_default_primary_color);
         }
 
         &:after {
-          background-color: var(--a_wizard_anchor_default_primary_color);
+          background-color: var(--a_wizard_step_default_primary_color);
         }
       }
 
       &.active {
-        color: var(--a_wizard_anchor_active_secondary_color) !important;
-        border-color: var(--a_wizard_anchor_active_primary_color);
-        background-color: var(--a_wizard_anchor_active_secondary_color);
+        color: var(--a_wizard_step_active_secondary_color) !important;
+        border-color: var(--a_wizard_step_active_primary_color);
+        background-color: var(--a_wizard_step_active_secondary_color);
         cursor: pointer;
 
-        @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--a_wizard_anchor_active_secondary_color);
+        @media screen and (max-width: $a-wizard-breakpoint-phone) {
+          border-bottom: 1px solid var(--a_wizard_step_active_secondary_color);
         }
 
         &:after {
-          background-color: var(--a_wizard_anchor_active_primary_color);
+          background-color: var(--a_wizard_step_active_primary_color);
         }
       }
 
       &.done {
-        color: var(--a_wizard_anchor_done_secondary_color);
-        border-color: var(--a_wizard_anchor_done_primary_color);
-        background-color: var(--a_wizard_anchor_done_secondary_color);
+        color: var(--a_wizard_step_done_secondary_color);
+        border-color: var(--a_wizard_step_done_primary_color);
+        background-color: var(--a_wizard_step_done_secondary_color);
         cursor: pointer;
 
-        @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--a_wizard_anchor_done_secondary_color);
+        @media screen and (max-width: $a-wizard-breakpoint-phone) {
+          border-bottom: 1px solid var(--a_wizard_step_done_secondary_color);
         }
 
         &:after {
-          background-color: var(--a_wizard_anchor_done_primary_color);
+          background-color: var(--a_wizard_step_done_primary_color);
         }
       }
 
       &.disabled {
-        color: var(--a_wizard_anchor_disabled_secondary_color);
-        border-color: var(--a_wizard_anchor_disabled_primary_color);
-        background-color: var(--a_wizard_anchor_disabled_secondary_color);
+        color: var(--a_wizard_step_disabled_secondary_color);
+        border-color: var(--a_wizard_step_disabled_primary_color);
+        background-color: var(--a_wizard_step_disabled_secondary_color);
 
-        @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--a_wizard_anchor_disabled_secondary_color);
+        @media screen and (max-width: $a-wizard-breakpoint-phone) {
+          border-bottom: 1px solid var(--a_wizard_step_disabled_secondary_color);
         }
 
         &:after {
-          background-color: var(--a_wizard_anchor_disabled_primary_color);
+          background-color: var(--a_wizard_step_disabled_primary_color);
         }
       }
 
       &.error {
-        color: var(--a_wizard_anchor_error_secondary_color);
-        border-color: var(--a_wizard_anchor_error_primary_color);
-        background-color: var(--a_wizard_anchor_error_secondary_color);
+        color: var(--a_wizard_step_error_secondary_color);
+        border-color: var(--a_wizard_step_error_primary_color);
+        background-color: var(--a_wizard_step_error_secondary_color);
 
-        @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--a_wizard_anchor_error_secondary_color);
+        @media screen and (max-width: $a-wizard-breakpoint-phone) {
+          border-bottom: 1px solid var(--a_wizard_step_error_secondary_color);
         }
 
         &:after {
-          background-color: var(--a_wizard_anchor_error_primary_color);
+          background-color: var(--a_wizard_step_error_primary_color);
         }
       }
 
       &.warning {
-        color: var(--a_wizard_anchor_warning_secondary_color);
-        border-color: var(--a_wizard_anchor_warning_primary_color);
-        background-color: var(--a_wizard_anchor_warning_secondary_color);
+        color: var(--a_wizard_step_warning_secondary_color);
+        border-color: var(--a_wizard_step_warning_primary_color);
+        background-color: var(--a_wizard_step_warning_secondary_color);
 
-        @media screen and (max-width: $breakpoint-phone) {
-          border-bottom: 1px solid var(--a_wizard_anchor_warning_secondary_color);
+        @media screen and (max-width: $a-wizard-breakpoint-phone) {
+          border-bottom: 1px solid var(--a_wizard_step_warning_secondary_color);
         }
 
         &:after {
-          background-color: var(--a_wizard_anchor_warning_primary_color);
+          background-color: var(--a_wizard_step_warning_primary_color);
         }
       }
     }
@@ -252,7 +264,7 @@ $breakpoint-phone:                  768px;
   .a_wizard__steps {
     position: relative;
     margin-bottom: 10px;
-    @media screen and (max-width: $breakpoint-phone) {
+    @media screen and (max-width: $a-wizard-breakpoint-phone) {
       &:before {
         content: " ";
         position: absolute;
@@ -279,7 +291,7 @@ $breakpoint-phone:                  768px;
       z-index: -1;
       border: 3px dashed var(--a_wizard_border_color);
       margin-top: 25px;
-      @media screen and (max-width: $breakpoint-phone) {
+      @media screen and (max-width: $a-wizard-breakpoint-phone) {
         content: none;
       }
     }
@@ -295,9 +307,9 @@ $breakpoint-phone:                  768px;
       left: 0;
       width: 100%;
       z-index: 0;
-      border: 3px solid var(--a_wizard_anchor_active_primary_color);
+      border: 3px solid var(--a_wizard_step_active_primary_color);
       margin-top: 17px;
-      @media screen and (max-width: $breakpoint-phone) {
+      @media screen and (max-width: $a-wizard-breakpoint-phone) {
         margin-top: 0;
         top: 0;
         width: 0;
@@ -306,7 +318,7 @@ $breakpoint-phone:                  768px;
       }
     }
 
-    @media screen and (max-width: $breakpoint-phone) {
+    @media screen and (max-width: $a-wizard-breakpoint-phone) {
       flex-direction: row;
       align-items: center
     }
@@ -325,67 +337,67 @@ $breakpoint-phone:                  768px;
       padding-top: 0.2rem;
       z-index: 1;
 
-      @media screen and (max-width: $breakpoint-phone) {
+      @media screen and (max-width: $a-wizard-breakpoint-phone) {
         margin: 0 .5rem 0 0;
       }
     }
 
     &.default {
-      color: var(--a_wizard_anchor_default_secondary_color);
+      color: var(--a_wizard_step_default_secondary_color);
       cursor: not-allowed;
 
       & > .a_wizard__step__number {
-        background-color: var(--a_wizard_anchor_default_primary_color);
+        background-color: var(--a_wizard_step_default_primary_color);
       }
     }
 
     &.active {
-      color: var(--a_wizard_anchor_active_primary_color) !important;
+      color: var(--a_wizard_step_active_primary_color) !important;
       cursor: pointer;
       &:before {
         display: block;
       }
 
       & > .a_wizard__step__number {
-        color: var(--a_wizard_anchor_active_secondary_color) !important;
-        background-color: var(--a_wizard_anchor_active_primary_color) !important;
+        color: var(--a_wizard_step_active_secondary_color) !important;
+        background-color: var(--a_wizard_step_active_primary_color) !important;
         box-shadow: 0 1px 7px 1px rgba(0, 0, 0, .3);
       }
     }
 
     &.done {
-      color: var(--a_wizard_anchor_done_primary_color);
+      color: var(--a_wizard_step_done_primary_color);
       cursor: pointer;
 
       & > .a_wizard__step__number {
-        color: var(--a_wizard_anchor_done_secondary_color) !important;
-        background-color: var(--a_wizard_anchor_done_primary_color) !important;
+        color: var(--a_wizard_step_done_secondary_color) !important;
+        background-color: var(--a_wizard_step_done_primary_color) !important;
       }
     }
 
     &.disabled {
-      color: var(--a_wizard_anchor_disabled_primary_color);
+      color: var(--a_wizard_step_disabled_primary_color);
 
       & > .a_wizard__step__number {
-        background-color: var(--a_wizard_anchor_disabled_primary_color);
+        background-color: var(--a_wizard_step_disabled_primary_color);
       }
     }
 
     &.error {
-      color: var(--a_wizard_anchor_error_primary_color) !important;
+      color: var(--a_wizard_step_error_primary_color) !important;
 
       & > .a_wizard__step__number {
-        color: var(--a_wizard_anchor_error_secondary_color) !important;
-        background-color: var(--a_wizard_anchor_error_primary_color) !important;
+        color: var(--a_wizard_step_error_secondary_color) !important;
+        background-color: var(--a_wizard_step_error_primary_color) !important;
       }
     }
 
     &.warning {
-      color: var(--a_wizard_anchor_warning_primary_color) !important;
+      color: var(--a_wizard_step_warning_primary_color) !important;
 
       & > .a_wizard__step__number {
-        color: var(--a_wizard_anchor_warning_secondary_color) !important;
-        background-color: var(--a_wizard_anchor_warning_primary_color) !important;
+        color: var(--a_wizard_step_warning_secondary_color) !important;
+        background-color: var(--a_wizard_step_warning_primary_color) !important;
       }
     }
     &.before_active {
@@ -404,43 +416,43 @@ $breakpoint-phone:                  768px;
     margin-right: 4px;
     transition: all 0.5s ease-in-out;
 
-    @media screen and (max-width: $breakpoint-phone) {
+    @media screen and (max-width: $a-wizard-breakpoint-phone) {
       margin-right: unset;
       text-align: left !important;
     }
 
     &.default {
-      background-color: var(--a_wizard_anchor_default_primary_color);
-      color: var(--a_wizard_anchor_default_secondary_color);
+      background-color: var(--a_wizard_step_default_primary_color);
+      color: var(--a_wizard_step_default_secondary_color);
       cursor: not-allowed;
     }
 
     &.active {
-      background-color: var(--a_wizard_anchor_active_primary_color);
-      color: var(--a_wizard_anchor_active_secondary_color) !important;
-      box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, .3);
+      background-color: var(--a_wizard_step_active_primary_color);
+      color: var(--a_wizard_step_active_secondary_color) !important;
+      box-shadow: 0 1px 7px 1px rgba(0, 0, 0, .3);
       cursor: pointer;
     }
 
     &.done {
-      background-color: var(--a_wizard_anchor_done_primary_color);
-      color: var(--a_wizard_anchor_done_secondary_color);
+      background-color: var(--a_wizard_step_done_primary_color);
+      color: var(--a_wizard_step_done_secondary_color);
       cursor: pointer;
     }
 
     &.disabled {
-      background-color: var(--a_wizard_anchor_disabled_primary_color);
-      color: var(--a_wizard_anchor_disabled_secondary_color) !important;
+      background-color: var(--a_wizard_step_disabled_primary_color);
+      color: var(--a_wizard_step_disabled_secondary_color) !important;
     }
 
     &.error {
-      background-color: var(--a_wizard_anchor_error_primary_color);
-      color: var(--a_wizard_anchor_error_secondary_color) !important;
+      background-color: var(--a_wizard_step_error_primary_color);
+      color: var(--a_wizard_step_error_secondary_color) !important;
     }
 
     &.warning {
-      background-color: var(--a_wizard_anchor_warning_primary_color);
-      color: var(--a_wizard_anchor_warning_secondary_color) !important;
+      background-color: var(--a_wizard_step_warning_primary_color);
+      color: var(--a_wizard_step_warning_secondary_color) !important;
     }
 
   }
@@ -453,7 +465,7 @@ $breakpoint-phone:                  768px;
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
-  @media screen and (max-width: $breakpoint-phone) {
+  @media screen and (max-width: $a-wizard-breakpoint-phone) {
     flex-direction: column!important;
     flex: 1 auto;
   }
@@ -475,7 +487,8 @@ $breakpoint-phone:                  768px;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.disabled {
+  &.disabled,
+  &.default {
     pointer-events: none;
     cursor: not-allowed;
   }
