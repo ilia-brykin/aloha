@@ -5,9 +5,14 @@ import {
 
 export default function ClassAPI(props) {
   const type = toRef(props, "type");
+  const isStepsJustified = toRef(props, "isStepsJustified");
 
   const classWizard = computed(() => {
-    return `a_wizard a_wizard_${ type.value }`;
+    let classWizardLocal = `a_wizard a_wizard_${ type.value }`;
+    if (isStepsJustified.value) {
+      classWizardLocal += " a_wizard_justified";
+    }
+    return classWizardLocal;
   });
 
   return {

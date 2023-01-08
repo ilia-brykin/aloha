@@ -280,7 +280,6 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
     }
   }
   .a_wizard__step {
-    flex: 1 1 auto;
     text-align: center;
     &:before {
       content: " ";
@@ -466,7 +465,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
   margin-top: 0;
   margin-bottom: 0;
   @media screen and (max-width: $a-wizard-breakpoint-phone) {
-    flex-direction: column!important;
+    flex-direction: column !important;
     flex: 1 auto;
   }
 }
@@ -529,5 +528,10 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
   > button {
     margin-left: .2rem;
     margin-right: .2rem;
+  }
+}
+.a_wizard_justified {
+  .a_wizard__step {
+    flex: 1 1 auto;
   }
 }

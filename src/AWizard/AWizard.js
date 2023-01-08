@@ -15,68 +15,10 @@ import StepsAPI from "./compositionAPI/StepsAPI";
 export default {
   name: "AWizard",
   props: {
-    steps: {
-      type: Array,
-      default: () => [],
-    },
-    type: {
-      type: String,
-      required: false,
-      default: "basic",
-      validator: value => ["arrows", "square", "round", "basic"].indexOf(value) !== -1,
-    },
-    isStepNumberVisible: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    isControlOutside: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    stepActive: {
-      type: Number,
-      default: undefined,
-    },
-    stepsVisited: {
-      type: Object,
-      default: undefined,
-    },
-    isForwardStepButtonDisabled: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    isForwardButtonDisabled: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    isBackStepButtonDisabled: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    isBackButtonDisabled: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     backButtonClass: {
       type: [String, Array, Object],
       required: false,
       default: "a_btn a_btn_secondary"
-    },
-    backButtonText: {
-      type: String,
-      required: false,
-      default: "_WIZARD_PREVIOUS_",
-    },
-    backButtonTitle: {
-      type: String,
-      required: false,
-      default: undefined,
     },
     backButtonIcon: {
       type: String,
@@ -88,20 +30,25 @@ export default {
       required: false,
       default: undefined,
     },
+    backButtonText: {
+      type: String,
+      required: false,
+      default: "_WIZARD_PREVIOUS_",
+    },
+    backButtonTitle: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    extraTranslate: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     forwardButtonClass: {
       type: [String, Array, Object],
       required: false,
       default: "a_btn a_btn_secondary"
-    },
-    forwardButtonText: {
-      type: String,
-      required: false,
-      default: "_WIZARD_NEXT_",
-    },
-    forwardButtonTitle: {
-      type: String,
-      required: false,
-      default: undefined,
     },
     forwardButtonIcon: {
       type: String,
@@ -113,20 +60,22 @@ export default {
       required: false,
       default: undefined,
     },
-    extraTranslate: {
-      type: Object,
+    forwardButtonText: {
+      type: String,
       required: false,
-      default: () => ({}),
+      default: "_WIZARD_NEXT_",
     },
-    isForwardButtonHide: {
+    forwardButtonTitle: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    isBackButtonDisabled: {
       type: Boolean,
       required: false,
+      default: false,
     },
     isBackButtonHide: {
-      type: Boolean,
-      required: false,
-    },
-    isForwardLastButtonHide: {
       type: Boolean,
       required: false,
     },
@@ -134,24 +83,80 @@ export default {
       type: Boolean,
       required: false,
     },
+    isBackStepButtonDisabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isButtonsLoading: {
       type: Boolean,
       required: false,
     },
-    isToolbarTop: {
+    isControlOutside: {
       type: Boolean,
       required: false,
       default: false,
+    },
+    isForwardButtonDisabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isForwardButtonHide: {
+      type: Boolean,
+      required: false,
+    },
+    isForwardLastButtonHide: {
+      type: Boolean,
+      required: false,
+    },
+    isForwardStepButtonDisabled: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isStepNumberVisible: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isStepsJustified: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     isToolbarBottom: {
       type: Boolean,
       required: false,
       default: true,
     },
+    isToolbarTop: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    stepActive: {
+      type: Number,
+      default: undefined,
+    },
+    steps: {
+      type: Array,
+      default: () => [],
+    },
     stepsProgressbarText: {
       type: String,
       required: false,
       default: "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_",
+    },
+    stepsVisited: {
+      type: Object,
+      default: undefined,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "basic",
+      validator: value => ["arrows", "square", "round", "basic"].indexOf(value) !== -1,
     },
   },
   emits: [
