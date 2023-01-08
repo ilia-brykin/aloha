@@ -17,6 +17,10 @@ export default {
       type: Object,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
   },
   setup(props) {
     const action = toRef(props, "action");
@@ -42,7 +46,7 @@ export default {
       return h("button", {
         id: this.action.id,
         class: ["a_table__action", this.action.class],
-        disabled: this.action.disabled,
+        disabled: this.action.disabled || this.disabled,
         onClick: this.callbackLocal,
       }, [
         this.action.title && h("span", {

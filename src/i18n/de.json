@@ -7,6 +7,8 @@
   "_PAGINATION_NAVIGATION_": "Paginierungsnavigation",
   "_PREVIOUS_": "Vorherige",
   "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
+  "_TABLE_MULTIPLE_CANCEL_": "Mehrfachaktion abbrechen",
+  "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} von {{ countAllRows }} ausgewählt",
   "_WIZARD_NEXT_": "Nächste",
   "_WIZARD_PREVIOUS_": "Vorherige",
   "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Schritt {{ stepActive }} von {{ stepsCount }}: {{ stepActiveLabel }}"

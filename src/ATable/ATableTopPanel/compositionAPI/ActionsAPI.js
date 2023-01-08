@@ -4,7 +4,7 @@ import {
   toRef,
 } from "vue";
 
-import AConfirmAPI from "../../compositionAPI/AConfirmAPI";
+import AConfirmAPI from "../../../compositionAPI/AConfirmAPI";
 
 import {
   cloneDeep,
@@ -12,7 +12,7 @@ import {
   forEach,
 } from "lodash-es";
 
-export default function TableActionsAPI(props, { emit }) {
+export default function ActionsAPI(props, { emit }) {
   const {
     closeConfirm,
     openConfirm,

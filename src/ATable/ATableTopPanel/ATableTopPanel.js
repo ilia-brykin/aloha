@@ -2,13 +2,16 @@ import {
   h,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../../ui/AInput/AInput";
 import ATableActionItem from "../ATableActionItem/ATableActionItem";
+import ATranslation from "../../ATranslation/ATranslation";
 
+import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
-import TableActionsAPI from "../compositionAPI/TableActionsAPI";
+import MultipleAPI from "./compositionAPI/MultipleAPI";
 
 export default {
   name: "ATableTopPanel",
@@ -86,7 +89,11 @@ export default {
       onClickMultipleActions,
       onOpenModalMultipleActions,
       tableActionFiltered,
-    } = TableActionsAPI(props, context);
+    } = ActionsAPI(props, context);
+
+    const {
+      textMultipleSelectedTranslateExtra,
+    } = MultipleAPI(props);
 
     return {
       buttonMultipleId,
@@ -98,6 +105,7 @@ export default {
       onClickMultipleActions,
       onOpenModalMultipleActions,
       tableActionFiltered,
+      textMultipleSelectedTranslateExtra,
     };
   },
   computed: {
@@ -111,86 +119,114 @@ export default {
     },
   },
   render() {
-    return h("div", {
-      class: "a_table__top_panel",
-    }, [
-      this.isLabelVisible ?
-        this.$slots.tableLabel ? this.$slots.tableLabel({
-          countAllRows: this.countAllRows,
-        }) :
-          h(this.labelTag, {
-            class: ["a_table__top_panel__label", this.labelClass],
-          }, [
-            h("span", {
-              class: "a_table__top_panel__label__text",
-            }, this.label),
-            h("span", {
-              class: "a_table__top_panel__label__count",
-            }, this.countAllRowsFormatted),
-          ]) :
-        "",
+    return [
       h("div", {
-        class: "a_table__top_panel__actions",
-      }, this.isMultipleActionsActive ? [
-        h("button", {
-          class: "a_btn a_btn_primary a_table__action",
-          type: "button",
-          disabled: !this.areSomeRowsSelected,
-          onClick: this.onOpenModalMultipleActions,
-        }, this.currentMultipleActions.label),
-        h("button", {
-          class: "a_btn a_btn_secondary a_table__action",
-          type: "button",
-          onClick: this.onCancelMultipleActions,
-        }, "Mehrfachaktion abbrechen"),
-      ] : [
-        this.$slots.tableActions && this.$slots.tableActions(),
-        this.tableActionFiltered.map(action => {
-          return h(ATableActionItem, {
-            action,
-          });
-        }),
-        this.isMultipleActionsFiltered && h(ADropdown, {
-          id: this.buttonMultipleId,
-          buttonClass: "a_btn a_btn_secondary a_table__action",
-          placement: "bottom-end",
-        }, {
-          button: () => [
-            h("span", null, "Mehrfachaktionen"),
-          ],
-          dropdown: () => [
-            this.multipleActionsFiltered.map((action, actionIndex) => {
-              return h("li", {
-                class: {
-                  a_dropdown__divider: action.isDivider,
-                },
-              }, [
-                !action.isDivider && h("button", {
-                  key: actionIndex,
-                  class: "a_dropdown__item",
-                  type: "button",
-                  title: action.title,
-                  onClick: () => this.onClickMultipleActions({ action }),
+        class: "a_table__top_panel",
+      }, [
+        this.isLabelVisible ?
+          this.$slots.tableLabel ? this.$slots.tableLabel({
+            countAllRows: this.countAllRows,
+          }) :
+            h(this.labelTag, {
+              class: ["a_table__top_panel__label", this.labelClass],
+            }, [
+              h("span", {
+                class: "a_table__top_panel__label__text",
+              }, this.label),
+              h("span", {
+                class: "a_table__top_panel__label__count",
+              }, this.countAllRowsFormatted),
+            ]) :
+          "",
+        h("div", {
+          class: "a_table__top_panel__actions",
+        }, [
+          this.$slots.tableActions && this.$slots.tableActions(),
+          this.tableActionFiltered.map(action => {
+            return h(ATableActionItem, {
+              action,
+              disabled: this.isMultipleActionsActive,
+            });
+          }),
+          this.isMultipleActionsFiltered && h(ADropdown, {
+            id: this.buttonMultipleId,
+            buttonClass: "a_btn a_btn_secondary a_table__action",
+            placement: "bottom-end",
+            disabled: this.isMultipleActionsActive,
+          }, {
+            button: () => [
+              h("span", null, "Mehrfachaktionen"),
+            ],
+            dropdown: () => [
+              this.multipleActionsFiltered.map((action, actionIndex) => {
+                return h("li", {
+                  class: {
+                    a_dropdown__divider: action.isDivider,
+                  },
                 }, [
-                  action.icon && h(AIcon, {
-                    class: "a_mr_2",
-                    icon: action.icon,
-                  }),
-                  action.label,
-                ]),
-              ]);
-            }),
-          ],
-        }),
-        this.isQuickSearch && h(AInput, {
-          label: "Schnellsuche",
-          class: "a_table__top_panel__actions__quick_search",
-          modelUndefined: "",
-          modelValue: this.modelQuickSearch,
-          iconPrepend: "Search",
-          "onUpdate:modelValue": this.updateModelQuickSearch,
-        }),
+                  !action.isDivider && h("button", {
+                    key: actionIndex,
+                    class: "a_dropdown__item",
+                    type: "button",
+                    title: action.title,
+                    onClick: () => this.onClickMultipleActions({ action }),
+                  }, [
+                    action.icon && h(AIcon, {
+                      class: "a_mr_2",
+                      icon: action.icon,
+                    }),
+                    action.label,
+                  ]),
+                ]);
+              }),
+            ],
+          }),
+          this.isQuickSearch && h(AInput, {
+            label: "Schnellsuche",
+            class: "a_table__top_panel__actions__quick_search",
+            modelUndefined: "",
+            modelValue: this.modelQuickSearch,
+            iconPrepend: "Search",
+            "onUpdate:modelValue": this.updateModelQuickSearch,
+          }),
+        ]),
       ]),
-    ]);
+      this.isMultipleActionsActive && h("div", {
+        class: "a_table__multiple_panel",
+      }, [
+        h("div", {
+          class: "a_table__multiple_panel__header",
+        }, [
+          h(ATranslation, {
+            class: "a_table__multiple_panel__header__text",
+            tag: "strong",
+            text: "Mehrfachaktionen",
+          }),
+          h(ATranslation, {
+            class: "a_table__multiple_panel__items_selected",
+            tag: "span",
+            text: "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_",
+            extra: this.textMultipleSelectedTranslateExtra,
+          }),
+        ]),
+        h("div", {
+          class: "a_table__multiple_panel__actions",
+        }, [
+          h(AButton, {
+            class: "a_btn a_btn_primary a_table__action",
+            type: "button",
+            disabled: !this.areSomeRowsSelected,
+            text: this.currentMultipleActions.label,
+            onClick: this.onOpenModalMultipleActions,
+          }),
+          h(AButton, {
+            class: "a_btn a_btn_secondary a_table__action",
+            type: "button",
+            text: "_TABLE_MULTIPLE_CANCEL_",
+            onClick: this.onCancelMultipleActions,
+          }),
+        ]),
+      ]),
+    ];
   },
 };
