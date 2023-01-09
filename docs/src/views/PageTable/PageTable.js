@@ -27,11 +27,11 @@ export default {
         },
         {
           label: "Alohafreidsfdsfdsfsdfdsfdsfdsfsd",
-          id: "aloha1",
-          keyLabel: "aloha",
-          sortId: "aloha",
+          id: "number",
+          keyLabel: "number",
+          sortId: "number",
           grow: 0,
-          footerKeyLabel: "aloha",
+          footerKeyLabel: "number",
           class: "a_justify_content_end",
         },
         {
