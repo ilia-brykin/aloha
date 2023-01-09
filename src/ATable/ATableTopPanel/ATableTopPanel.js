@@ -46,6 +46,10 @@ export default {
       required: false,
       default: undefined,
     },
+    modelFilters: {
+      type: Object,
+      required: true,
+    },
     tableActions: {
       type: Array,
       required: true,

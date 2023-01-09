@@ -621,6 +621,7 @@ export default {
             labelClass: this.labelClass,
             tableActions: this.tableActions,
             multipleActions: this.multipleActions,
+            modelFilters: this.modelFilters,
             isQuickSearch: this.isQuickSearch,
             modelQuickSearch: this.modelQuickSearch,
             selectedRows: this.selectedRows,

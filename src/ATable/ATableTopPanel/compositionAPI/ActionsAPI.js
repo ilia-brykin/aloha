@@ -20,6 +20,7 @@ export default function ActionsAPI(props, { emit }) {
 
   const tableActions = toRef(props, "tableActions");
   const areAllRowsSelected = toRef(props, "areAllRowsSelected");
+  const modelFilters = toRef(props, "modelFilters");
 
   const tableId = inject("tableId");
   const currentMultipleActions = inject("currentMultipleActions");
@@ -76,6 +77,7 @@ export default function ActionsAPI(props, { emit }) {
       rows: selectedRows.value,
       id: buttonMultipleId.value,
       areAllRowsSelected: areAllRowsSelected.value,
+      modelFilters: modelFilters.value,
     });
     closeConfirm();
     onCancelMultipleActions();
@@ -94,6 +96,7 @@ export default function ActionsAPI(props, { emit }) {
         rows: selectedRows.value,
         id: buttonMultipleId.value,
         areAllRowsSelected: areAllRowsSelected.value,
+        modelFilters: modelFilters.value,
       });
     }
   };
