@@ -764,7 +764,7 @@ export default {
             }, [
               h("input", {
                 ref: "inputRef",
-                id: this.id,
+                id: this.htmlIdLocal,
                 class: ["a_form_control pux_datepicker__input", this.inputClass],
                 name: this.inputName,
                 type: "text",

@@ -243,6 +243,12 @@ export default {
           alwaysVisible: true,
         },
         {
+          type: "date",
+          id: "datum",
+          label: "Datum",
+          alwaysVisible: true,
+        },
+        {
           type: "oneCheckbox",
           id: "au_ende",
           label: "Bearbeitungsende",

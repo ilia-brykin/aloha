@@ -81,6 +81,7 @@ export default {
 
     const {
       filterBoolean,
+      filterDate,
     } = AFiltersAPI();
 
     const modelValuesForCurrentFilter = computed(() => {
@@ -91,6 +92,11 @@ export default {
         filter.value.type === "oneCheckbox") {
         return [{
           label: filterBoolean(model.value),
+        }];
+      }
+      if (filter.value.type === "date") {
+        return [{
+          label: filterDate(model.value),
         }];
       }
       if (filter.value.type === "select" ||
