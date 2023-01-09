@@ -8,13 +8,13 @@ import AFiltersAPI from "../compositionAPI/AFiltersAPI";
 import ASafeHtml from "../directives/ASafeHtml";
 
 import {
-  capitalize,
   forEach,
   get,
   isArray,
   isFunction,
   isNil,
   isUndefined,
+  upperFirst,
 } from "lodash-es";
 
 
@@ -77,7 +77,7 @@ export default {
         return this.defaultValue;
       }
       if (this.filter) {
-        const FILTER_FUNCTION_NAME = `filter${ capitalize(this.filter) }`;
+        const FILTER_FUNCTION_NAME = `filter${ upperFirst(this.filter) }`;
         if (isFunction(this[FILTER_FUNCTION_NAME])) {
           return this[FILTER_FUNCTION_NAME](value, this.filterParameters);
         }
