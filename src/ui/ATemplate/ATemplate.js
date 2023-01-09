@@ -39,12 +39,15 @@ export default {
     return this.isRender && h("div", {
       style: this.componentStyleHide,
     }, [
-      withDirectives(h("div", {
-        class: "a_template",
-      }, this.$slots[this.slotName] &&
-        this.$slots[this.slotName]()), [
-        this.html ? [ASafeHtml, this.html] : [],
-      ]),
+      this.$slots[this.slotName] ?
+        h("div", {
+          class: "a_template",
+        }, this.$slots[this.slotName]()) :
+        withDirectives(h("div", {
+          class: "a_template",
+        }), [
+          this.html ? [ASafeHtml, this.html] : [],
+        ]),
     ]);
   },
 };
