@@ -1,4 +1,5 @@
-import fecha from "fecha";
+// import fecha from "fecha";
+import moment from "moment";
 
 export function isPlainObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";
@@ -59,15 +60,16 @@ export function formatDate(date, format) {
     return "";
   }
   try {
-    return fecha.format(new Date(date), format);
+    return moment(date).format(format);
+    // return fecha.format(new Date(date), format);
   } catch (e) {
     return "";
   }
 }
 
-export function parseDate(value, format) {
+export function parseDate(value, format, formatSave) {
   try {
-    return fecha.parse(value, format) || null;
+    return moment(value, formatSave).format(format) || null;
   } catch (e) {
     return null;
   }

@@ -7,7 +7,9 @@ export default {
   },
   data() {
     return {
-      model: undefined,
+      model: {
+        alohadate: "2023-01-10",
+      },
       selectData: [
         {
           label: "Aloha 1",
@@ -75,6 +77,13 @@ export default {
           id: "aloha1_number",
           classColumn: "a_column_3",
           step: 0.01,
+          required: true,
+        },
+        {
+          type: "date",
+          label: "Aloha date",
+          id: "alohadate",
+          classColumn: "a_column_8",
           required: true,
         },
         {

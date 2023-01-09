@@ -46,7 +46,7 @@ export default {
       default: undefined,
     },
     valueType: {
-      default: "date",
+      default: "format",
       validator: function(value) {
         return ["timestamp", "format", "date"].indexOf(value) !== -1 || isPlainObject(value);
       },
@@ -142,6 +142,11 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    formatSave: {
+      type: String,
+      required: false,
+      default: "YYYY-MM-DD",
     },
   },
   emits: [
@@ -259,8 +264,8 @@ export default {
         value2date,
       } = this.transform;
       if (!this.range) {
-        return this.isValidValue(this.modelValue)
-          ? this.stringify(value2date(this.modelValue))
+        return this.isValidValueText(this.modelValue)
+          ? this.stringify(this.value2dateText(this.modelValue))
           : "";
       }
       return this.isValidRangeValue(this.modelValue)
@@ -446,7 +451,7 @@ export default {
     parse(value) {
       return (isPlainObject(this.format) && typeof this.format.parse === "function")
         ? this.format.parse(value)
-        : parseDate(value, this.format);
+        : parseDate(value, this.format, this.formatSave);
     },
 
     isValidValue(value) {
@@ -516,7 +521,7 @@ export default {
       const { date2value } = this.transform;
       const value = this.range
         ? this.currentValue.map(date2value)
-        : date2value(this.currentValue);
+        : formatDate(this.currentValue, this.formatSave);
       this.changeModel({
         model: value,
       });
@@ -704,6 +709,23 @@ export default {
 
     setCloseFocus() {
       this.$refs.focusByClose && this.$refs.focusByClose.focus();
+    },
+
+    isValidValueText(value) {
+      return !!parseDate(value, this.format, this.formatSave);
+    },
+
+    value2dateText(value) {
+      let dateValue = null;
+      try {
+        dateValue = moment(value, this.formatSave) || null;
+      } catch (e) {
+
+      }
+      if (dateValue && dateValue.isValid && !dateValue.isValid()) {
+        dateValue = null;
+      }
+      return dateValue;
     },
   },
   render() {
