@@ -219,6 +219,8 @@ export default {
           h(ATooltip, {
             tag: "RouterLink",
             placement: "right",
+            minWidth: this.item.titleHtmlMinWidth,
+            width: this.item.titleHtmlWidth,
             maxWidth: this.item.titleHtmlMaxWidth,
             isHide: !this.isTitleHtml,
             class: ["a_menu__link a_menu__link__text_truncated", {
