@@ -7,13 +7,17 @@ import {
 
 import AErrorsText from "../AErrorsText/AErrorsText";
 import ALabel from "../ALabel/ALabel";
+import ATooltip from "../../ATooltip/ATooltip";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
+import TitleAPI from "./compositionAPI/TitleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+
+import placements from "../../const/placements";
 
 const KEY_CODE_SPACE = 32;
 
@@ -63,6 +67,32 @@ export default {
       required: false,
       default: false,
     },
+    titlePlacement: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: placement => placements.indexOf(placement) !== -1,
+    },
+    title: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    titleMinWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    titleWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    titleMaxWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
   },
   setup(props, context) {
     const {
@@ -81,6 +111,10 @@ export default {
       onBlur,
       onFocus,
     } = UiAPI(props, context);
+
+    const {
+      hasTitle,
+    } = TitleAPI(props);
 
     const modelValue = toRef(props, "modelValue");
 
@@ -167,12 +201,13 @@ export default {
       ariaDescribedbyLocal,
       clearModel,
       errorsId,
+      hasTitle,
       helpTextId,
       htmlIdLocal,
       isErrors,
       isModel,
-      onFocus,
       onBlur,
+      onFocus,
 
       isChecked,
       isModelDefault,
@@ -198,38 +233,49 @@ export default {
           type: this.type,
           isLabelFloat: this.isLabelFloat,
         }),
-        h("div", {
+        h(ATooltip, {
+          tag: "div",
+          placement: this.titlePlacement,
+          isHide: !this.hasTitle,
           class: ["switch_button", {
             switch_button_undefined: this.isModelDefault,
             switch_button_invalid: this.isErrors,
           }],
-        }, [
-          h("input", {
-            id: this.htmlIdLocal,
-            ref: "input",
-            checked: this.isChecked,
-            type: "checkbox",
-            class: [
-              "switch_button__input",
-              this.inputClass,
-            ],
-            disabled: this.disabled,
-            ariaRequired: this.required,
-            ariaInvalid: this.isErrors,
-            "aria-describedby": this.ariaDescribedbyLocal,
-            ...this.inputAttributes,
-            onClick: this.onInput,
-            onKeydown: this.onKeydown,
-            onFocus: this.onFocus,
-            onBlur: this.onBlur,
-          }),
-          withDirectives(h("label", {
-            class: "switch_button__label",
-            for: this.htmlIdLocal,
-          }), [
-            [ASafeHtml, this.labelValueLocal],
-          ]),
-        ]),
+          minWidth: this.titleMinWidth,
+          width: this.titleWidth,
+          maxWidth: this.titleMaxWidth,
+        }, {
+          default: () => [
+            h("input", {
+              id: this.htmlIdLocal,
+              ref: "input",
+              checked: this.isChecked,
+              type: "checkbox",
+              class: [
+                "switch_button__input",
+                this.inputClass,
+              ],
+              disabled: this.disabled,
+              ariaRequired: this.required,
+              ariaInvalid: this.isErrors,
+              "aria-describedby": this.ariaDescribedbyLocal,
+              ...this.inputAttributes,
+              onClick: this.onInput,
+              onKeydown: this.onKeydown,
+              onFocus: this.onFocus,
+              onBlur: this.onBlur,
+            }),
+            withDirectives(h("label", {
+              class: "switch_button__label",
+              for: this.htmlIdLocal,
+            }), [
+              [ASafeHtml, this.labelValueLocal],
+            ]),
+          ],
+          title: () => withDirectives(h("div"), [
+            [ASafeHtml, this.title],
+          ])
+        }),
         this.helpText && withDirectives(h("div", {
           id: this.helpTextId,
           class: "a_form_element__help_text",

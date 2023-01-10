@@ -275,6 +275,9 @@ export default {
               classColumn: "a_ml_2",
               labelClass: "a_sr_only",
               hideFilterCenter: true,
+              trueLabel: "Eins",
+              falseLabel: "Alle",
+              title: "Alohadsfdsfdsf sdfsdfdsffds"
             },
           ],
         },
