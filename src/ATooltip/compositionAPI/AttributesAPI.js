@@ -3,8 +3,14 @@ import {
   toRef,
 } from "vue";
 
+import {
+  isNil,
+} from "lodash-es";
+
 export default function AttributesAPI(props) {
   const id = toRef(props, "id");
+  const minWidth = toRef(props, "minWidth");
+  const width = toRef(props, "width");
   const maxWidth = toRef(props, "maxWidth");
 
   const ariaDescribedby = computed(() => {
@@ -12,10 +18,18 @@ export default function AttributesAPI(props) {
   });
 
   const tooltipStyles = computed(() => {
-    if (maxWidth.value) {
-      return `max-width: ${ maxWidth.value }px`;
+    const STYLES_OBJ = {};
+    if (!isNil(minWidth.value)) {
+      STYLES_OBJ["min-width"] = `${ minWidth.value }px`;
     }
-    return undefined;
+    if (!isNil(width.value)) {
+      STYLES_OBJ.width = `${ width.value }px`;
+    }
+    if (!isNil(maxWidth.value)) {
+      STYLES_OBJ["max-width"] = `${ maxWidth.value }px`;
+    }
+
+    return STYLES_OBJ;
   });
 
   return {

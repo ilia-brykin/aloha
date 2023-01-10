@@ -5,6 +5,7 @@ import {
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import PopperAPI from "./compositionAPI/PopperAPI";
+import PopperContainerAPI from "./compositionAPI/PopperContainerAPI";
 import TagAPI from "./compositionAPI/TagAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
@@ -40,6 +41,16 @@ export default {
       type: Number,
       required: false,
       default: 300,
+    },
+    minWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    width: {
+      type: Number,
+      required: false,
+      default: undefined,
     },
     maxWidth: {
       type: Number,
@@ -81,6 +92,12 @@ export default {
       tooltipStyles,
     } = AttributesAPI(props);
 
+    const {
+      addPopperContainerInBody,
+    } = PopperContainerAPI();
+
+    addPopperContainerInBody();
+
     return {
       ariaDescribedby,
       closeTitle,
@@ -113,30 +130,26 @@ export default {
       default: () => [
         this.$slots.default && this.$slots.default(),
         !this.isHide && h(Teleport, {
-          to: "body",
+          to: "#a_tooltip_container",
         }, [
           h("div", {
-            ariaHidden: true,
+            id: this.ariaDescribedby,
+            class: "a_sr_only",
           }, [
+            this.$slots.title && this.$slots.title(),
+          ]),
+          this.isTitleVisible && h("div", {
+            ref: "titleRef",
+            class: "a_tooltip__container",
+            style: this.tooltipStyles,
+            onMouseenter: this.mouseEnterTooltip,
+            onMouseleave: this.mouseLeaveTooltip,
+          }, [
+            this.$slots.title && this.$slots.title(),
             h("div", {
-              id: this.ariaDescribedby,
-              class: "a_sr_only",
-            }, [
-              this.$slots.title && this.$slots.title(),
-            ]),
-            this.isTitleVisible && h("div", {
-              ref: "titleRef",
-              class: "a_tooltip__container",
-              style: this.tooltipStyles,
-              onMouseenter: this.mouseEnterTooltip,
-              onMouseleave: this.mouseLeaveTooltip,
-            }, [
-              this.$slots.title && this.$slots.title(),
-              h("div", {
-                "data-popper-arrow": true,
-                class: "a_tooltip__arrow",
-              }),
-            ]),
+              "data-popper-arrow": true,
+              class: "a_tooltip__arrow",
+            }),
           ]),
         ]),
       ],

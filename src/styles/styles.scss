@@ -1,6 +1,12 @@
 .a_search_highlight {
   color: red;
 }
+.a_popup_container {
+  position: fixed;
+  width: 0;
+  height: 0;
+  z-index: 1900;
+}
 
 @import "components/AIcon";
 @import "components/AResizer";
