@@ -46,6 +46,9 @@ export default {
       default: "a_columns a_columns_count_12 a_columns_gab_2",
     },
   },
+  emits: [
+    "updateData",
+  ],
   setup(props, context) {
     const componentTypesMapping = {
       fieldset: resolveComponent("AFieldset"),
@@ -77,9 +80,14 @@ export default {
       }
     };
 
+    const onUpdateDataLocal = ({ item, dataKeyByKeyId }) => {
+      context.emit("updateData", { item, dataKeyByKeyId });
+    };
+
     return {
       componentTypesMapping,
       onUpdateModelLocal,
+      onUpdateDataLocal,
 
       componentStyleHide,
 
@@ -131,6 +139,7 @@ export default {
               errors: this.errorsAll[item.id],
               idPrefix: this.idPrefix,
               "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+              onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
               ...item,
             }, this.$slots);
           }),

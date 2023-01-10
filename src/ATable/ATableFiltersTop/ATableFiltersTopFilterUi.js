@@ -66,14 +66,18 @@ export default {
     };
 
     const updateDataKeyByIdFromFilter = inject("updateDataKeyByIdFromFilter");
-    const updateDataLocal = ({ dataKeyByKeyId }) => {
+    const updateDataLocal = ({ dataKeyByKeyId, item }) => {
+      let filterId = filter.value.id;
+      if (item) {
+        filterId = item.id;
+      }
       updateDataKeyByIdFromFilter({
-        filterId: filter.value.id,
+        filterId: filterId,
         dataKeyByKeyId,
       });
     };
 
-    const typesWithData = ["select", "multiselect", "radio", "checkbox"];
+    const typesWithData = ["select", "multiselect", "radio", "checkbox", "group", "fieldset"];
     const emitForComponentsWithData = computed(() => {
       const EMITS = {};
       if (typesWithData.indexOf(filter.value.type) !== -1) {

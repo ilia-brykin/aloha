@@ -262,11 +262,30 @@ export default {
           classColumns: "a_d_flex a_flex_wrap",
           children: [
             {
-              type: "text",
-              id: "groupText",
+              type: "multiselect",
+              id: "dsdsfs",
               classColumn: "a_flex_fill",
-              label: "Text",
+              label: "Group",
               labelClass: "a_sr_only",
+              data: [
+                {
+                  id: "1",
+                  bez: "Aloha 1",
+                },
+                {
+                  id: "2",
+                  bez: "Aloha 2",
+                },
+                {
+                  id: "3",
+                  bez: "Aloha 3",
+                },
+              ],
+              keyLabel: "bez",
+              keyId: "id",
+              search: true,
+              alwaysVisible: true,
+              slotName: "termin",
             },
             {
               type: "switch",

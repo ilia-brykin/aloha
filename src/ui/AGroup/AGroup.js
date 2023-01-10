@@ -42,6 +42,9 @@ export default {
       default: "a_columns a_columns_count_12 a_columns_gab_2",
     },
   },
+  emits: [
+    "updateData",
+  ],
   setup(props, context) {
     const componentTypesMapping = {
       ...AUiComponents
@@ -69,6 +72,10 @@ export default {
       context.emit("update:modelValue", MODEL_VALUE);
     };
 
+    const onUpdateDataLocal = ({ item, dataKeyByKeyId }) => {
+      context.emit("updateData", { item, dataKeyByKeyId });
+    };
+
     const children = toRef(props, "children");
     const idPrefix = toRef(props, "idPrefix");
 
@@ -89,6 +96,7 @@ export default {
       firstChild,
       htmlIdFirstChild,
       onUpdateModelLocal,
+      onUpdateDataLocal,
 
       componentStyleHide,
 
@@ -140,6 +148,7 @@ export default {
               errors: this.errorsAll[item.id],
               idPrefix: item.idPrefix || this.idPrefix,
               "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+              onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
               ...item,
               label: itemIndex === 0 ? undefined : item.label,
             }, this.$slots);
