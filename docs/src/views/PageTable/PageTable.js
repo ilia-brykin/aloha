@@ -255,6 +255,30 @@ export default {
           alwaysVisible: true,
         },
         {
+          type: "group",
+          id: "group1",
+          label: "Group",
+          alwaysVisible: true,
+          classColumns: "a_d_flex a_flex_wrap",
+          children: [
+            {
+              type: "text",
+              id: "groupText",
+              classColumn: "a_flex_fill",
+              label: "Text",
+              labelClass: "a_sr_only",
+            },
+            {
+              type: "switch",
+              label: "Group switch",
+              id: "group_switch",
+              classColumn: "a_ml_2",
+              labelClass: "a_sr_only",
+              hideFilterCenter: true,
+            },
+          ],
+        },
+        {
           type: "multiselect",
           id: "terminberechnung",
           label: "Termin",

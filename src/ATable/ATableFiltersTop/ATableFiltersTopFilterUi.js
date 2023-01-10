@@ -6,10 +6,12 @@ import {
 } from "vue";
 
 import AUiComponents from "../../ui/AUiComponents";
+import AUiTypesContainer from "../../ui/const/AUiTypesContainer";
 
 import {
   cloneDeep,
 } from "lodash-es";
+import AUiContainerComponents from "../../ui/AUiContainerComponents";
 
 export default {
   name: "ATableFiltersTopFilterUi",
@@ -37,6 +39,16 @@ export default {
     const filter = toRef(props, "filter");
 
     const tableId = inject("tableId");
+
+    const isContainer = computed(() => {
+      return !!AUiTypesContainer[filter.value.type];
+    });
+
+    const componentTypesMapping = {
+      ...AUiComponents,
+      ...AUiContainerComponents,
+    };
+
     const idPrefix = computed(() => {
       return `${ tableId.value }_`;
     });
@@ -44,9 +56,13 @@ export default {
     const onUpdateModelFilters = inject("onUpdateModelFilters");
     const modelFilters = toRef(props, "modelFilters");
     const onUpdateModelFiltersLocal = model => {
-      const MODEL_FILTERS = cloneDeep(modelFilters.value);
-      MODEL_FILTERS[filter.value.id] = cloneDeep(model);
-      onUpdateModelFilters({ model: MODEL_FILTERS });
+      if (isContainer.value) {
+        onUpdateModelFilters({ model });
+      } else {
+        const MODEL_FILTERS = cloneDeep(modelFilters.value);
+        MODEL_FILTERS[filter.value.id] = cloneDeep(model);
+        onUpdateModelFilters({ model: MODEL_FILTERS });
+      }
     };
 
     const updateDataKeyByIdFromFilter = inject("updateDataKeyByIdFromFilter");
@@ -67,15 +83,17 @@ export default {
     });
 
     return {
+      componentTypesMapping,
       emitForComponentsWithData,
       idPrefix,
+      isContainer,
       onUpdateModelFiltersLocal,
     };
   },
   render() {
-    return h(AUiComponents[this.filter.type], {
+    return h(this.componentTypesMapping[this.filter.type], {
       idPrefix: this.idPrefix,
-      modelValue: this.modelFilters[this.filter.id],
+      modelValue: this.isContainer ? this.modelFilters : this.modelFilters[this.filter.id],
       "onUpdate:modelValue": this.onUpdateModelFiltersLocal,
       ...this.filter,
       label: this.isLabelVisible ? this.filter.label : undefined,

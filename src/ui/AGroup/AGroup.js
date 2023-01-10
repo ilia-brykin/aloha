@@ -17,7 +17,7 @@ import UiAPI, { getHtmlId } from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
-  cloneDeep,
+  cloneDeep, isNil,
 } from "lodash-es";
 
 export default {
@@ -39,7 +39,7 @@ export default {
     classColumns: {
       type: [String, Object],
       required: false,
-      default: "a_columns_count_12 a_columns_gab_2",
+      default: "a_columns a_columns_count_12 a_columns_gab_2",
     },
   },
   setup(props, context) {
@@ -115,22 +115,28 @@ export default {
         "aria-describedby": this.ariaDescribedbyLocal,
       }, [
         h("div", {
-          class: ["a_columns", this.classColumns],
+          class: this.classColumns,
         }, [
           this.firstChild.label && h(ALabel, {
             id: this.htmlIdFirstChild,
             label: this.firstChild.label,
-            labelClass: ["a_column", this.firstChild.labelClass],
+            labelClass: this.firstChild.labelClass,
             required: this.firstChild.required,
             type: this.firstChild.type,
             isLabelFloat: false,
           }),
           this.children.map((item, itemIndex) => {
+            let classColumn;
+            if (isNil(item.classColumn)) {
+              classColumn = "a_column a_column_12";
+            } else if (item.classColumn) {
+              classColumn = item.classColumn;
+            }
             return h(this.componentTypesMapping[item.type], {
               key: itemIndex,
               modelValue: this.modelValue[item.id],
               modelDependencies: this.modelValue,
-              class: ["a_column", item.classColumn || "a_column_2"],
+              class: classColumn,
               errors: this.errorsAll[item.id],
               idPrefix: item.idPrefix || this.idPrefix,
               "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),

@@ -56,6 +56,7 @@ export default {
     const model = toRef(props, "model");
     const hasCurrentFilter = computed(() => {
       if (!filter.value ||
+        filter.value.hideFilterCenter ||
         isNil(model.value) ||
         model.value === "" ||
         (isArray(model.value) && !model.value.length)) {

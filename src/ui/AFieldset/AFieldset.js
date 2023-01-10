@@ -17,7 +17,7 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AUiTypesContainer from "../const/AUiTypesContainer";
 import {
-  cloneDeep,
+  cloneDeep, isNil,
 } from "lodash-es";
 
 export default {
@@ -39,6 +39,11 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    classColumns: {
+      type: [String, Object],
+      required: false,
+      default: "a_columns a_columns_count_12 a_columns_gab_2",
     },
   },
   setup(props, context) {
@@ -108,15 +113,21 @@ export default {
           [ASafeHtml, this.label],
         ]),
         h("div", {
-          class: "a_columns a_columns_count_12 a_columns_gab_2",
+          class: this.classColumns,
         }, [
           this.children.map((item, itemIndex) => {
             const IS_CONTAINER = AUiTypesContainer[item.type];
+            let classColumn;
+            if (isNil(item.classColumn)) {
+              classColumn = "a_column a_column_12";
+            } else if (item.classColumn) {
+              classColumn = item.classColumn;
+            }
             return h(this.componentTypesMapping[item.type], {
               key: itemIndex,
               modelValue: IS_CONTAINER ? this.modelValue : this.modelValue[item.id],
               modelDependencies: this.modelValue,
-              class: ["a_column", item.classColumn || "a_column_12"],
+              class: classColumn,
               errors: this.errorsAll[item.id],
               idPrefix: this.idPrefix,
               "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),

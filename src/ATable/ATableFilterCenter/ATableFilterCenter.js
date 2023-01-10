@@ -39,6 +39,7 @@ export default {
   setup(props) {
     const modelFilters = toRef(props, "modelFilters");
     const filtersKeyById = toRef(props, "filtersKeyById");
+
     const hasMinimumOneModel = computed(() => {
       let hasModel = false;
       forEach(modelFilters.value, (model, filterId) => {

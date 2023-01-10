@@ -5,10 +5,11 @@ import {
 } from "vue";
 
 import AUiTypesModelArray from "../../ui/const/AUiTypesModelArray";
+import AUiTypesContainer from "../../ui/const/AUiTypesContainer";
 import {
   cloneDeep,
-  forEach, isFunction,
-  keyBy,
+  forEach,
+  isFunction,
 } from "lodash-es";
 
 export default function TableFiltersAPI(props, { emit }, {
@@ -41,7 +42,18 @@ export default function TableFiltersAPI(props, { emit }, {
     return filters.value.length > 0;
   });
   const filtersKeyById = computed(() => {
-    return keyBy(filters.value, "id");
+    const FILTERS = {};
+    forEach(cloneDeep(filters.value), filter => {
+      FILTERS[filter.id] = filter;
+      if (AUiTypesContainer[filter.type] &&
+        filter.children &&
+        filter.children.length) {
+        forEach(filter.children, filterChild => {
+          FILTERS[filterChild.id] = filterChild;
+        });
+      }
+    });
+    return FILTERS;
   });
 
   const filtersGroup = computed(() => {
@@ -88,7 +100,18 @@ export default function TableFiltersAPI(props, { emit }, {
     if (filtersVisible.value.length) {
       FILTERS.push(...filtersVisible.value);
     }
-    return FILTERS;
+    const FILERS_NEW = [];
+    forEach(FILTERS, filter => {
+      FILERS_NEW.push(filter);
+      if (AUiTypesContainer[filter.type] &&
+        filter.children &&
+        filter.children.length) {
+        forEach(filter.children, filterChild => {
+          FILERS_NEW.push(filterChild);
+        });
+      }
+    });
+    return FILERS_NEW;
   });
 
   const onUpdateModelFilters = ({ model }) => {

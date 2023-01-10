@@ -14,6 +14,7 @@ import AUiTypesContainer from "../const/AUiTypesContainer";
 import {
   cloneDeep,
   forEach,
+  isNil,
 } from "lodash-es";
 
 export default {
@@ -137,11 +138,17 @@ export default {
         this.$slots.formDataPrepend && this.$slots.formDataPrepend(),
         ...this.data.map((item, itemIndex) => {
           const IS_CONTAINER = AUiTypesContainer[item.type];
+          let classColumn;
+          if (isNil(item.classColumn)) {
+            classColumn = "a_column a_column_12";
+          } else if (item.classColumn) {
+            classColumn = item.classColumn;
+          }
           return h(this.componentTypesMapping[item.type], {
             key: itemIndex,
             modelValue: IS_CONTAINER ? this.modelValueLocal : this.modelValueLocal[item.id],
             modelDependencies: this.modelValueLocal,
-            class: ["a_column", item.classColumn || "a_column_12"],
+            class: classColumn,
             errors: this.errors[item.id],
             errorsAll: this.errors,
             idPrefix: this.idPrefix,
