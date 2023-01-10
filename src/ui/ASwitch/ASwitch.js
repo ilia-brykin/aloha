@@ -28,7 +28,7 @@ export default {
   ],
   props: {
     modelValue: {
-      type: Boolean,
+      type: [Boolean, String, Number],
       required: false,
       default: undefined,
     },
