@@ -235,7 +235,7 @@ export default {
         },
         {
           id: "aloha2",
-          type: "onlyHeader",
+          type: "map",
           label: "Karte",
           icon: "GlobeEuropeAfrica",
         },

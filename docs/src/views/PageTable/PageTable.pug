@@ -27,6 +27,11 @@ div
     @update-view="updateView"
   )
     template(
+      v-slot:map="{ rows }"
+    )
+      pre {{ rows }}
+
+    template(
       v-slot:slot1="vm"
     )
       router-link(

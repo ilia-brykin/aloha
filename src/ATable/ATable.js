@@ -726,6 +726,10 @@ export default {
               });
             })),
           ]),
+          (!this.isViewTableVisible && this.viewCurrent && this.$slots[this.viewCurrent.type]) &&
+          this.$slots[this.viewCurrent.type]({
+            rows: this.rowsLocal,
+          }),
           (this.isViewTableVisible && !this.hasRows) && h("div", {
             class: "a_table__empty_text",
           }, "Keine Einträge vorhanden."),

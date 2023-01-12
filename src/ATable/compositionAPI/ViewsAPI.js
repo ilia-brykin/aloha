@@ -43,8 +43,9 @@ export default function ViewsAPI(props, { emit }, {
       view: viewCurrent.value,
       modelFilters: modelFilters.value,
     });
-
-    startSearch();
+    setTimeout(() => {
+      startSearch();
+    });
   };
 
   const isViewTableVisible = computed(() => {
