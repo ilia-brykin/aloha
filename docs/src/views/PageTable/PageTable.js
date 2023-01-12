@@ -224,6 +224,18 @@ export default {
       ],
       modelQuickSearch: "",
       modelFilters: {},
+      views: [
+        {
+          type: "table",
+          label: "Tabelle",
+          icon: "Table",
+        },
+        {
+          type: "map",
+          label: "Karte",
+          icon: "GlobeEuropeAfrica",
+        },
+      ],
       filters: [
         {
           type: "text",
