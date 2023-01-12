@@ -79,7 +79,6 @@ export default {
     };
 
     const submit = $event => {
-      console.log("$event", $event);
       onSearch();
       $event.preventDefault();
     };

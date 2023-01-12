@@ -2,6 +2,7 @@ import AIcon from "../../../../src/AIcon/AIcon";
 import ATable from "../../../../src/ATable/ATable";
 
 import {
+  cloneDeep,
   times,
 } from "lodash-es";
 
@@ -13,6 +14,7 @@ export default {
   },
   data() {
     return {
+      modelView: undefined,
       columns: [
         {
           label: "Aloha",
@@ -395,6 +397,14 @@ export default {
 
     isHiddenMultiple({ row }) {
       return row.number % 2 === 0;
+    },
+
+    updateModelFilters({ modelFilters } = {}) {
+      this.modelFilters = cloneDeep(modelFilters);
+    },
+
+    updateView({ modelView }) {
+      this.modelView = modelView;
     },
   },
 };

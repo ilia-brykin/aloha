@@ -17,11 +17,14 @@ div
     :rows-footer="rowsFooter"
     :is-loading-table="false"
     :views="views"
+    :model-view="modelView"
     v-model:modelQuickSearch="modelQuickSearch"
-    v-model:modelFilters="modelFilters"
+    :modelFilters="modelFilters"
     @change-columns-ordering="changeColumnsOrdering"
     :update-model-filters-local="updateModelFiltersLocal"
     @toggle-preview="togglePreview"
+    @update-model-filters="updateModelFilters"
+    @update-view="updateView"
   )
     template(
       v-slot:slot1="vm"

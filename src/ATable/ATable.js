@@ -252,6 +252,11 @@ export default {
       required: false,
       default: () => [],
     },
+    modelView: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "changeColumnsOrdering",
@@ -263,7 +268,7 @@ export default {
     "togglePreview",
     "update:modelColumnsOrder",
     "update:modelColumnsVisible",
-    "update:modelFilters",
+    "updateModelFilters",
     "update:modelQuickSearch",
     "updateModelIsTableWithoutScroll",
     "updateView",
@@ -374,17 +379,6 @@ export default {
     });
 
     const {
-      hasViews,
-      initViewCurrent,
-      isViewTableVisible,
-      modelView,
-      updateViewCurrent,
-      viewCurrent,
-    } = ViewsAPI(props, context, {
-      closePreviewAll,
-    });
-
-    const {
       changeOffset,
       changeLimit,
     } = LimitOffsetAPI(props, context, {
@@ -409,6 +403,17 @@ export default {
     } = TableFiltersAPI(props, context, {
       closePreviewAll,
       offset,
+    });
+
+    const {
+      hasViews,
+      initViewCurrent,
+      isViewTableVisible,
+      updateViewCurrent,
+      viewCurrent,
+    } = ViewsAPI(props, context, {
+      closePreviewAll,
+      startSearch,
     });
 
     const {
@@ -460,7 +465,6 @@ export default {
       modelColumnsOrderingLocal,
       modelColumnsVisibleLocal,
       modelIsTableWithoutScroll,
-      modelView,
       onUpdateModelFilters,
       tableChildRole,
       tableGrandparentRef,

@@ -1,6 +1,5 @@
 import {
   computed,
-  ref,
   toRef,
 } from "vue";
 
@@ -9,12 +8,11 @@ import {
 } from "lodash-es";
 
 export default function ViewsAPI(props, { emit }, {
-  closePreviewAll = () => {},
+  startSearch = () => {},
 }) {
   const views = toRef(props, "views");
   const modelFilters = toRef(props, "modelFilters");
-
-  const modelView = ref(undefined);
+  const modelView = toRef(props, "modelView");
 
   const viewKeyById = computed(() => {
     return keyBy(views.value, "id");
@@ -30,17 +28,23 @@ export default function ViewsAPI(props, { emit }, {
 
   const initViewCurrent = () => {
     if (hasViews.value) {
-      modelView.value = views.value[0].id;
+      const MODEL_VIEW = views.value[0].id;
+      emit("updateView", {
+        modelView: MODEL_VIEW,
+        view: viewKeyById.value[MODEL_VIEW],
+        modelFilters: modelFilters.value,
+      });
     }
   };
 
   const updateViewCurrent = model => {
-    modelView.value = model;
-    closePreviewAll();
     emit("updateView", {
+      modelView: model,
       view: viewCurrent.value,
       modelFilters: modelFilters.value,
     });
+
+    startSearch();
   };
 
   const isViewTableVisible = computed(() => {
@@ -51,7 +55,6 @@ export default function ViewsAPI(props, { emit }, {
     hasViews,
     initViewCurrent,
     isViewTableVisible,
-    modelView,
     updateViewCurrent,
     viewCurrent,
   };
