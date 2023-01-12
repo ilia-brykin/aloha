@@ -28,6 +28,7 @@ import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
 import TableColumnsVisibleAPI from "./compositionAPI/TableColumnsVisibleAPI";
 import TableColumnsVisibleFunctionAPI from "./compositionAPI/TableColumnsVisibleFunctionAPI";
 import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
+import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 import {
   getModelColumnsOrderingDefault,
@@ -246,6 +247,11 @@ export default {
       required: false,
       default: undefined,
     },
+    views: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   emits: [
     "changeColumnsOrdering",
@@ -260,6 +266,7 @@ export default {
     "update:modelFilters",
     "update:modelQuickSearch",
     "updateModelIsTableWithoutScroll",
+    "updateView",
   ],
   provide() {
     return {
@@ -367,6 +374,17 @@ export default {
     });
 
     const {
+      hasViews,
+      initViewCurrent,
+      isViewTableVisible,
+      modelView,
+      updateViewCurrent,
+      viewCurrent,
+    } = ViewsAPI(props, context, {
+      closePreviewAll,
+    });
+
+    const {
       changeOffset,
       changeLimit,
     } = LimitOffsetAPI(props, context, {
@@ -427,22 +445,28 @@ export default {
     provide("onUpdateModelFilters", onUpdateModelFilters);
     provide("updateDataKeyByIdFromFilter", updateDataKeyByIdFromFilter);
 
+    initViewCurrent();
 
     return {
       allVisibleMobileColumns,
-      isMobile,
-      tableRoleAttributes,
-      tableChildRole,
       aTableRef,
-      tableGrandparentRef,
+      changeModelColumnsVisible,
       checkVisibleColumns,
       columnsOrdered,
+      hasViews,
+      initModelColumnsVisibleLocal,
+      isMobile,
+      isViewTableVisible,
       modelColumnsOrderingLocal,
       modelColumnsVisibleLocal,
       modelIsTableWithoutScroll,
-      initModelColumnsVisibleLocal,
-      changeModelColumnsVisible,
+      modelView,
       onUpdateModelFilters,
+      tableChildRole,
+      tableGrandparentRef,
+      tableRoleAttributes,
+      updateViewCurrent,
+      viewCurrent,
 
       closePreview,
       closePreviewAll,
@@ -625,11 +649,16 @@ export default {
             isQuickSearch: this.isQuickSearch,
             modelQuickSearch: this.modelQuickSearch,
             selectedRows: this.selectedRows,
+            views: this.views,
+            hasViews: this.hasViews,
+            viewCurrent: this.viewCurrent,
+            modelView: this.modelView,
+            onUpdateViewCurrent: this.updateViewCurrent,
             onUpdateModelQuickSearch: this.updateModelQuickSearch,
             onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
             onToggleBtnAllRows: this.toggleBtnAllRows,
           }, this.$slots),
-          h("div", {
+          this.isViewTableVisible && h("div", {
             class: "a_table",
             ...this.tableRoleAttributes,
           }, [
@@ -693,10 +722,10 @@ export default {
               });
             })),
           ]),
-          !this.hasRows && h("div", {
+          (this.isViewTableVisible && !this.hasRows) && h("div", {
             class: "a_table__empty_text",
           }, "Keine Einträge vorhanden."),
-          this.isPagination && h("div", {
+          (this.isViewTableVisible && this.isPagination) && h("div", {
             class: "a_pagination__parent"
           }, [
             h(ATableCountProPage, {

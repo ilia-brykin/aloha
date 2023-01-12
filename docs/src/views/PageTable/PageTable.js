@@ -226,12 +226,14 @@ export default {
       modelFilters: {},
       views: [
         {
+          id: "aloha1",
           type: "table",
           label: "Tabelle",
           icon: "Table",
         },
         {
-          type: "map",
+          id: "aloha2",
+          type: "onlyHeader",
           label: "Karte",
           icon: "GlobeEuropeAfrica",
         },

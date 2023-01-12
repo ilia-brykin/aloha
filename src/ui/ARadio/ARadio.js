@@ -63,6 +63,16 @@ export default {
       required: false,
       default: "a_btn a_btn_outline_primary",
     },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    hasBorder: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "updateData",
@@ -135,6 +145,7 @@ export default {
             id: this.htmlIdLocal,
             tabindex: -1,
             class: ["a_fieldset", {
+              a_fieldset_no_border: !this.hasBorder,
               a_fieldset_invalid: this.isErrors,
             }],
             "aria-describedby": this.ariaDescribedbyLocal,
@@ -164,7 +175,8 @@ export default {
                   isErrors: this.isErrors,
                   isButtonGroup: this.isButtonGroup,
                   classButtonGroupDefault: this.classButtonGroupDefault,
-                });
+                  slotName: this.slotName,
+                }, this.$slots);
               })
             ]),
           ]),

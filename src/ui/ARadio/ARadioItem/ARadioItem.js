@@ -52,6 +52,11 @@ export default {
       required: false,
       default: undefined,
     },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "changeModelValue",
@@ -125,9 +130,15 @@ export default {
           for: this.idLocal,
           class: this.classButton,
         }, [
-          this.labelLocal && withDirectives(h("span", {}), [
-            [ASafeHtml, this.labelLocal],
-          ]),
+          this.slotName && this.$slots[this.slotName] ?
+            this.$slots[this.slotName]({
+              id: this.id,
+              item: this.dataItem,
+              itemIndex: this.itemIndex,
+            }) :
+            this.labelLocal && withDirectives(h("span", {}), [
+              [ASafeHtml, this.labelLocal],
+            ]),
         ]),
       ];
     }
@@ -153,11 +164,17 @@ export default {
           a_custom_control_label_width_auto: this.isWidthAuto,
         }],
       }, [
-        this.labelLocal && withDirectives(h("span", {
-          class: "a_custom_control_label__text",
-        }), [
-          [ASafeHtml, this.labelLocal],
-        ]),
+        this.slotName && this.$slots[this.slotName] ?
+          this.$slots[this.slotName]({
+            id: this.id,
+            item: this.dataItem,
+            itemIndex: this.itemIndex,
+          }) :
+          this.labelLocal && withDirectives(h("span", {
+            class: "a_custom_control_label__text",
+          }), [
+            [ASafeHtml, this.labelLocal],
+          ]),
       ]),
     ]);
   },

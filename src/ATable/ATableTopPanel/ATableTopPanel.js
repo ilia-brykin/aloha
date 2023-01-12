@@ -6,12 +6,14 @@ import AButton from "../../AButton/AButton";
 import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../../ui/AInput/AInput";
+import ARadio from "../../ui/ARadio/ARadio";
 import ATableActionItem from "../ATableActionItem/ATableActionItem";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 import MultipleAPI from "./compositionAPI/MultipleAPI";
+import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 export default {
   name: "ATableTopPanel",
@@ -74,11 +76,30 @@ export default {
       type: Array,
       required: true,
     },
+    views: {
+      type: Array,
+      required: true,
+    },
+    hasViews: {
+      type: Boolean,
+      required: true,
+    },
+    viewCurrent: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    modelView: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "toggleBtnAllRows",
     "toggleMultipleActionsActive",
     "updateModelQuickSearch",
+    "updateViewCurrent",
   ],
   inject: [
     "isMultipleActionsActive",
@@ -107,6 +128,10 @@ export default {
       toggleBtnAllRows,
     } = MultipleAPI(props, context);
 
+    const {
+      updateViewCurrentLocal,
+    } = ViewsAPI(props, context);
+
     return {
       buttonMultipleId,
       currentMultipleActions,
@@ -121,6 +146,7 @@ export default {
       textMultipleBtnAllRowsTranslate,
       textMultipleSelectedTranslateExtra,
       toggleBtnAllRows,
+      updateViewCurrentLocal,
     };
   },
   computed: {
@@ -203,6 +229,21 @@ export default {
             modelValue: this.modelQuickSearch,
             iconPrepend: "Search",
             "onUpdate:modelValue": this.updateModelQuickSearch,
+          }),
+          this.hasViews && h(ARadio, {
+            modelValue: this.modelView,
+            class: "a_d_inline_block",
+            isButtonGroup: true,
+            slotName: undefined, // TODO: "buttonGroup" AIcon
+            data: this.views,
+            keyId: "id",
+            keyLabel: "label",
+            hasBorder: false,
+            "onUpdate:modelValue": this.updateViewCurrentLocal,
+          }, {
+            buttonGroup: () => [ // TODO: AIcon
+              h("span", "aloha"),
+            ],
           }),
         ]),
       ]),
