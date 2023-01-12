@@ -5,9 +5,10 @@ import {
   withDirectives,
 } from "vue";
 
-import UiCheckboxRadioItem from "../compositionApi/UiCheckboxRadioItem";
+import UiCheckboxRadioItem from "../../compositionApi/UiCheckboxRadioItem";
+import ButtonGroupAPI from "./compositionAPI/ButtonGroupAPI";
 
-import ASafeHtml from "../../directives/ASafeHtml";
+import ASafeHtml from "../../../directives/ASafeHtml";
 
 import {
   cloneDeep,
@@ -46,6 +47,15 @@ export default {
       type: Boolean,
       required: false,
     },
+    isButtonGroup: {
+      type: Boolean,
+      required: false,
+    },
+    classButtonGroupDefault: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "changeModelValue",
@@ -56,6 +66,10 @@ export default {
       labelLocal,
       valueLocal,
     } = UiCheckboxRadioItem(props);
+
+    const {
+      classButton,
+    } = ButtonGroupAPI(props);
 
     const modelValue = toRef(props, "modelValue");
     const isChecked = computed(() => {
@@ -95,6 +109,7 @@ export default {
     };
 
     return {
+      classButton,
       idLocal,
       labelLocal,
       valueLocal,
@@ -105,6 +120,29 @@ export default {
     };
   },
   render() {
+    if (this.isButtonGroup) {
+      return [
+        h("input", {
+          id: this.idLocal,
+          name: this.id,
+          value: this.valueLocal,
+          type: "checkbox",
+          checked: this.isChecked,
+          class: "a_btn_check",
+          disabled: this.disabled,
+          onClick: this.onClick,
+          onKeydown: this.onKeydown,
+        }),
+        h("label", {
+          for: this.idLocal,
+          class: this.classButton,
+        }, [
+          this.labelLocal && withDirectives(h("span", {}), [
+            [ASafeHtml, this.labelLocal],
+          ]),
+        ]),
+      ];
+    }
     return h("div", {
       class: ["a_custom_control a_custom_checkbox", {
         a_custom_control_invalid: this.isErrors,

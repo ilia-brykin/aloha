@@ -21,6 +21,7 @@ div
     key-id="id"
     key-label="label"
     label="Test label"
+    :is-button-group="true"
   )
   div modelArr:
     pre {{ modelArr }}
@@ -79,4 +80,14 @@ div
     )
     label.a_custom_control_label(
       for="checkbox_4"
+    ) Aloha
+
+  div
+    input.a_btn_check(
+      id="checkbox_button_1"
+      type="checkbox"
+      autocomplete="off"
+    )
+    label.a_btn.a_btn_outline_primary(
+      for="checkbox_button_1"
     ) Aloha

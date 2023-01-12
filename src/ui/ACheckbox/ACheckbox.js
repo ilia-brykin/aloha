@@ -4,7 +4,7 @@ import {
   withDirectives,
 } from "vue";
 
-import ACheckboxItem from "./ACheckboxItem";
+import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
 import AErrorsText from "../AErrorsText/AErrorsText";
 
 import ASafeHtml from "../../directives/ASafeHtml";
@@ -53,6 +53,15 @@ export default {
     isDataSimpleArray: {
       type: Boolean,
       required: false,
+    },
+    isButtonGroup: {
+      type: Boolean,
+      required: false,
+    },
+    classButtonGroupDefault: {
+      type: [String, Object, Array],
+      required: false,
+      default: "a_btn a_btn_outline_primary",
     },
   },
   emits: [
@@ -137,19 +146,27 @@ export default {
             }), [
               [ASafeHtml, this.label],
             ]),
-            ...this.dataLocal.map((item, itemIndex) => {
-              return h(ACheckboxItem, {
-                id: this.htmlIdLocal,
-                key: itemIndex,
-                dataItem: item,
-                itemIndex,
-                modelValue: this.modelValue,
-                onChangeModelValue: this.onChangeModelValue,
-                disabled: this.disabled,
-                isWidthAuto: this.isWidthAuto,
-                isErrors: this.isErrors,
-              });
-            })
+            h("div", {
+              class: {
+                a_btn_group: this.isButtonGroup,
+              },
+            }, [
+              ...this.dataLocal.map((item, itemIndex) => {
+                return h(ACheckboxItem, {
+                  id: this.htmlIdLocal,
+                  key: itemIndex,
+                  dataItem: item,
+                  itemIndex,
+                  modelValue: this.modelValue,
+                  onChangeModelValue: this.onChangeModelValue,
+                  disabled: this.disabled,
+                  isWidthAuto: this.isWidthAuto,
+                  isErrors: this.isErrors,
+                  isButtonGroup: this.isButtonGroup,
+                  classButtonGroupDefault: this.classButtonGroupDefault,
+                });
+              })
+            ]),
           ]),
         ]),
         this.helpText && withDirectives(h("div", {

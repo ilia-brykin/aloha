@@ -1,7 +1,5 @@
 import {
-  computed,
   h,
-  toRef,
   withDirectives,
 } from "vue";
 
@@ -11,10 +9,10 @@ import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
+import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-const KEY_CODE_SPACE = 32;
 
 export default {
   name: "AOneCheckbox",
@@ -23,7 +21,7 @@ export default {
   ],
   props: {
     modelValue: {
-      type: Boolean,
+      type: [Boolean, String, Number],
       required: false,
     },
     isWidthAuto: {
@@ -46,10 +44,6 @@ export default {
     },
   },
   setup(props, context) {
-    const modelValue = toRef(props, "modelValue");
-    const trueValue = toRef(props, "trueValue");
-    const falseValue = toRef(props, "falseValue");
-
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -65,33 +59,13 @@ export default {
       onFocus,
     } = UiAPI(props, context);
 
-
-    const isChecked = computed(() => {
-      return modelValue.value === trueValue.value;
+    const {
+      isChecked,
+      onClick,
+      onKeydown,
+    } = TrueFalseValueAPI(props, {
+      changeModel,
     });
-
-    const disabled = toRef(props, "disabled");
-    const onClick = $event => {
-      if (disabled.value) {
-        return;
-      }
-      setTimeout(() => {
-        const MODEL = isChecked.value ? falseValue.value : trueValue.value;
-        changeModel({
-          model: MODEL,
-          $event,
-        });
-      });
-      $event.stopPropagation();
-      $event.preventDefault();
-    };
-
-    const onKeydown = $event => {
-      if ($event.key === "Enter" ||
-        $event.keyCode === KEY_CODE_SPACE) {
-        onClick($event);
-      }
-    };
 
     return {
       componentStyleHide,
