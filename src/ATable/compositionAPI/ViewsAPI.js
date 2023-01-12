@@ -12,6 +12,7 @@ export default function ViewsAPI(props, { emit }, {
   closePreviewAll = () => {},
 }) {
   const views = toRef(props, "views");
+  const modelFilters = toRef(props, "modelFilters");
 
   const modelView = ref(undefined);
 
@@ -38,6 +39,7 @@ export default function ViewsAPI(props, { emit }, {
     closePreviewAll();
     emit("updateView", {
       view: viewCurrent.value,
+      modelFilters: modelFilters.value,
     });
   };
 
