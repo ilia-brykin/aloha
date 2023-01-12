@@ -40,12 +40,10 @@ export default function ViewsAPI(props, { emit }, {
   const updateViewCurrent = model => {
     emit("updateView", {
       _modelView: model,
-      view: viewCurrent.value,
+      view: viewKeyById.value[model],
       modelFilters: modelFilters.value,
     });
-    setTimeout(() => {
-      startSearch();
-    });
+    startSearch();
   };
 
   const isViewTableVisible = computed(() => {
