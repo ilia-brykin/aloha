@@ -30,7 +30,7 @@ export default function ViewsAPI(props, { emit }, {
     if (hasViews.value) {
       const MODEL_VIEW = views.value[0].id;
       emit("updateView", {
-        modelView: MODEL_VIEW,
+        _modelView: MODEL_VIEW,
         view: viewKeyById.value[MODEL_VIEW],
         modelFilters: modelFilters.value,
       });
@@ -39,7 +39,7 @@ export default function ViewsAPI(props, { emit }, {
 
   const updateViewCurrent = model => {
     emit("updateView", {
-      modelView: model,
+      _modelView: model,
       view: viewCurrent.value,
       modelFilters: modelFilters.value,
     });

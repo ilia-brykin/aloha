@@ -399,12 +399,12 @@ export default {
       return row.number % 2 === 0;
     },
 
-    updateModelFilters({ modelFilters } = {}) {
-      this.modelFilters = cloneDeep(modelFilters);
+    updateModelFilters({ _modelFilters } = {}) {
+      this.modelFilters = cloneDeep(_modelFilters);
     },
 
-    updateView({ modelView }) {
-      this.modelView = modelView;
+    updateView({ _modelView }) {
+      this.modelView = _modelView;
     },
   },
 };
