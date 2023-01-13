@@ -1,3 +1,8 @@
+import DOMPurify from "dompurify";
+
+export const sanitize = DOMPurify.sanitize;
+export const dompurify = DOMPurify;
+
 export function getPropByPath(object, path, defaultValue) {
   const _path = Array.isArray(path)
     ? path
