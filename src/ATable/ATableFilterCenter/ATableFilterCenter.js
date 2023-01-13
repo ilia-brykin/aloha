@@ -44,7 +44,7 @@ export default {
       let hasModel = false;
       forEach(modelFilters.value, (model, filterId) => {
         const CURRENT_FILTER = filtersKeyById.value[filterId];
-        if (!CURRENT_FILTER) {
+        if (!CURRENT_FILTER || CURRENT_FILTER.hideFilterCenter) {
           return;
         }
         const TYPE = CURRENT_FILTER.type;

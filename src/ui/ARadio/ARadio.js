@@ -73,6 +73,11 @@ export default {
       required: false,
       default: true,
     },
+    classFieldset: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "updateData",
@@ -144,10 +149,14 @@ export default {
           h("fieldset", {
             id: this.htmlIdLocal,
             tabindex: -1,
-            class: ["a_fieldset", {
-              a_fieldset_no_border: !this.hasBorder,
-              a_fieldset_invalid: this.isErrors,
-            }],
+            class: [
+              "a_fieldset",
+              this.classFieldset,
+              {
+                a_fieldset_no_border: !this.hasBorder,
+                a_fieldset_invalid: this.isErrors,
+              }
+            ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
             this.label && withDirectives(h("legend", {

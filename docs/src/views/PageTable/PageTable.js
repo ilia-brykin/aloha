@@ -225,7 +225,9 @@ export default {
         },
       ],
       modelQuickSearch: "",
-      modelFilters: {},
+      modelFilters: {
+        group_switch: true,
+      },
       views: [
         {
           id: "aloha1",
@@ -403,8 +405,9 @@ export default {
       this.modelFilters = cloneDeep(_modelFilters);
     },
 
-    updateView({ _modelView }) {
+    updateView({ _modelView, view }) {
       this.modelView = _modelView;
+      console.log("view", view);
     },
   },
 };

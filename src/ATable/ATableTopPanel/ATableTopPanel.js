@@ -239,6 +239,7 @@ export default {
             keyId: "id",
             keyLabel: "label",
             hasBorder: false,
+            classFieldset: "a_p_0",
             "onUpdate:modelValue": this.updateViewCurrentLocal,
           }, {
             buttonGroup: () => [ // TODO: AIcon
