@@ -28,6 +28,12 @@ export default {
           isRender: true,
         },
         {
+          label: "Slot",
+          id: "slot",
+          slot: "slot1",
+          // hide: true,
+        },
+        {
           label: "Alohafreidsfdsfdsfsdfdsfdsfdsfsd",
           id: "number",
           keyLabel: "number",
@@ -58,12 +64,6 @@ export default {
           sortId: "hola",
           hide: true,
           footerKeyLabel: "hola",
-        },
-        {
-          label: "Slot",
-          id: "slot",
-          slot: "slot1",
-          // hide: true,
         },
         {
           label: "Obj",

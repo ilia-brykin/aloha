@@ -7,7 +7,7 @@ import {
 import ColumnStylesAPI from "../../compositionAPI/ColumnStylesAPI";
 
 import {
-  isClickOnLinkOrButton,
+  isClickTags,
 } from "../../utils/utils";
 
 export default function AttributesAPI(props) {
@@ -38,7 +38,14 @@ export default function AttributesAPI(props) {
     }
     if (hasPreview.value && !isFooter.value) {
       ATTRIBUTES.onClick = $event => {
-        if (isClickOnLinkOrButton($event)) {
+        if (isClickTags({
+          $event,
+          tagsName: [
+            "A",
+            "BUTTON",
+          ],
+          classStop: "a_table__td",
+        })) {
           return;
         }
         onTogglePreview({
