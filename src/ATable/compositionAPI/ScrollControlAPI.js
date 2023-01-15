@@ -117,6 +117,25 @@ export default function ScrollControlAPI(props, { emit }, {
       indexFirstScrollInvisibleColumnLocal++;
       sumGrows += isNil(column.grow) ? 1 : column.grow;
     });
+
+    if (isMinOneColumnHide && columnsWidthInOrder > TABLE_WIDTH_WITHOUT_ACTIONS_MAX) {
+      for (indexFirstScrollInvisibleColumnLocal; indexFirstScrollInvisibleColumnLocal >= 0; indexFirstScrollInvisibleColumnLocal--) {
+        const COLUMN = columnsOrdered.value[indexFirstScrollInvisibleColumnLocal];
+        if (!isColumnVisible({ column: COLUMN })) {
+          continue;
+        }
+        const COLUMN_WIDTH = +COLUMN.width || columnWidthDefault.value;
+
+        columnsWidthInOrder -= COLUMN_WIDTH;
+        sumGrows -= isNil(COLUMN.grow) ? 1 : COLUMN.grow;
+
+        if (columnsWidthInOrder <= TABLE_WIDTH_WITHOUT_ACTIONS_MAX) {
+          indexFirstScrollInvisibleColumnLocal--;
+          break;
+        }
+      }
+    }
+
     let freeSpaceWidth = 0;
     const TABLE_WIDTH = isMinOneColumnHide ? TABLE_WIDTH_WITHOUT_ACTIONS_MAX : TABLE_WIDTH_WITHOUT_ACTIONS_MIN;
     if (modelIsTableWithoutScroll.value) {
