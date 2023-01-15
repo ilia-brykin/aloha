@@ -7,9 +7,7 @@ import {
   keyBy,
 } from "lodash-es";
 
-export default function ViewsAPI(props, { emit }, {
-  startSearch = () => {},
-}) {
+export default function ViewsAPI(props, { emit }) {
   const views = toRef(props, "views");
   const modelFilters = toRef(props, "modelFilters");
   const modelView = toRef(props, "modelView");
