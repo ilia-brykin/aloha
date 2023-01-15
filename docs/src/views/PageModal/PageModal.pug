@@ -1,6 +1,7 @@
 div
   h1 AModal
-  button(
+  button.a_btn.a_btn_primary(
+    id="btn_modal"
     type="button"
     @click="openModal"
   ) Open Modal
@@ -9,6 +10,7 @@ div
     v-if="isModalOpen"
     size="xxl"
     :close="closeModal"
+    selector-close="#btn_modal"
   )
     template(
       v-slot:modalBodyPrepend
