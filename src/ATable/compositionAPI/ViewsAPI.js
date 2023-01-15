@@ -33,6 +33,7 @@ export default function ViewsAPI(props, { emit }, {
         _modelView: MODEL_VIEW,
         view: viewKeyById.value[MODEL_VIEW],
         modelFilters: modelFilters.value,
+        init: true,
       });
     }
   };
@@ -43,7 +44,6 @@ export default function ViewsAPI(props, { emit }, {
       view: viewKeyById.value[model],
       modelFilters: modelFilters.value,
     });
-    startSearch();
   };
 
   const isViewTableVisible = computed(() => {
