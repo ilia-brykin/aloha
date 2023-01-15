@@ -92,7 +92,8 @@ export default function ScrollControlAPI(props, { emit }, {
   };
 
   const checkVisibleColumns = () => {
-    if (isMobile.value) {
+    if (isMobile.value ||
+      tableWidth.value === 0) {
       setAllDefaultForMobile();
       return;
     }
@@ -117,9 +118,9 @@ export default function ScrollControlAPI(props, { emit }, {
       indexFirstScrollInvisibleColumnLocal++;
       sumGrows += isNil(column.grow) ? 1 : column.grow;
     });
-
     if (isMinOneColumnHide && columnsWidthInOrder > TABLE_WIDTH_WITHOUT_ACTIONS_MAX) {
-      for (indexFirstScrollInvisibleColumnLocal; indexFirstScrollInvisibleColumnLocal >= 0; indexFirstScrollInvisibleColumnLocal--) {
+      for (let i = indexFirstScrollInvisibleColumnLocal - 1; i >= 0; i--) {
+        indexFirstScrollInvisibleColumnLocal--;
         const COLUMN = columnsOrdered.value[indexFirstScrollInvisibleColumnLocal];
         if (!isColumnVisible({ column: COLUMN })) {
           continue;
@@ -130,7 +131,6 @@ export default function ScrollControlAPI(props, { emit }, {
         sumGrows -= isNil(COLUMN.grow) ? 1 : COLUMN.grow;
 
         if (columnsWidthInOrder <= TABLE_WIDTH_WITHOUT_ACTIONS_MAX) {
-          indexFirstScrollInvisibleColumnLocal--;
           break;
         }
       }
