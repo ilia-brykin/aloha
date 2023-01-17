@@ -12,6 +12,7 @@ import ATinymce from "./ATinymce/ATinymce";
 
 export default {
   checkbox: ACheckbox,
+  color: AInput,
   date: ADatepicker,
   datetime: ADatepicker,
   email: AInput,

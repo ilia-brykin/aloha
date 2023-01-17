@@ -64,6 +64,13 @@ export default {
           required: true,
         },
         {
+          type: "color",
+          label: "Aloha Color",
+          id: "alohaColor",
+          classColumn: "a_column_8",
+          required: true,
+        },
+        {
           type: "text",
           label: "Aloha 1",
           id: "aloha1",
