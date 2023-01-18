@@ -79,7 +79,7 @@ export default {
     iconAlign: {
       type: String,
       required: false,
-      default: "right",
+      default: "left",
       validator: value => ["right", "left"].indexOf(value) !== -1,
     },
     iconClass: {
@@ -217,7 +217,7 @@ export default {
         html: this.text,
         extra: this.extraTranslate,
       }),
-      this.isIconLeft && h(AIcon, {
+      this.isIconRight && h(AIcon, {
         icon: this.icon,
         iconTag: this.iconTag,
         class: [
