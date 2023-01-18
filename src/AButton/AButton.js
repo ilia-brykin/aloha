@@ -22,7 +22,7 @@ export default {
     id: {
       type: String,
       required: false,
-      default: () => uniqueId("a_ui_"),
+      default: () => uniqueId("a_btn_"),
     },
     type: {
       type: String,
@@ -216,7 +216,7 @@ export default {
       this.isTextScreenReaderVisible && h(ATranslation, {
         class: "a_sr_only",
         tag: "span",
-        html: this.text,
+        html: this.textScreenReader,
         extra: this.extraTranslate,
       }),
       this.isIconRight && h(AIcon, {
