@@ -198,8 +198,10 @@ export default {
         icon: this.icon,
         iconTag: this.iconTag,
         class: [
-          "aloha_btn__icon_left",
           this.iconClass,
+          {
+            aloha_btn__icon_left: this.isTextVisible || this.$slots.default,
+          },
         ],
         ...this.iconAttributes,
       }),
@@ -223,6 +225,9 @@ export default {
         class: [
           "aloha_btn__icon_right",
           this.iconClass,
+          {
+            aloha_btn__icon_right: this.isTextVisible || this.$slots.default,
+          },
         ],
         ...this.iconAttributes,
       }),
