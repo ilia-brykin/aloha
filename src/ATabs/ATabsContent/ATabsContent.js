@@ -3,9 +3,9 @@ import {
   withDirectives,
 } from "vue";
 
-import ASafeHtml from "../directives/ASafeHtml";
+import ASafeHtml from "../../directives/ASafeHtml";
 
-import ATabAPI from "./compositionAPI/ATabAPI";
+import ATabAPI from "../compositionAPI/ATabAPI";
 
 export default {
   name: "ATabsContent",
@@ -22,12 +22,8 @@ export default {
       type: Number,
       required: true,
     },
-    idForActiveTab: {
-      type: [String, Number],
-      required: true,
-    },
-    keyId: {
-      type: String,
+    indexActiveTabLocal: {
+      type: Number,
       required: true,
     },
   },

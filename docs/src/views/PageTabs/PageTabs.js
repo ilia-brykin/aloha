@@ -12,6 +12,7 @@ export default {
           label: "Tab 1",
           id: "tab_1",
           content: "CONTENT 1",
+          title: "ALoha sdfdsfds sdfsdfdsf",
         },
         {
           label: "Tab 2",

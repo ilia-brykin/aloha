@@ -1,18 +1,14 @@
 import {
   h,
-  ref,
-  toRef,
-  watch,
 } from "vue";
 
-import ATabsContent from "./ATabsContent";
-import ATabsTab from "./ATabsTab";
+import ATabsContent from "./ATabsContent/ATabsContent";
+import ATabsTab from "./ATabsTab/ATabsTab";
 
+import ActiveAPI from "./compositionAPI/ActiveAPI";
+
+import placements from "../const/placements";
 import {
-  forEach,
-  get,
-  isNil,
-  isUndefined,
   uniqueId,
 } from "lodash-es";
 
@@ -28,15 +24,10 @@ export default {
       type: Array,
       required: true,
     },
-    idForActiveTab: {
-      type: [String, Number],
+    indexActiveTab: {
+      type: Number,
       required: false,
       default: undefined,
-    },
-    keyId: {
-      type: String,
-      required: false,
-      default: "id",
     },
     isChangeOutside: {
       type: Boolean,
@@ -46,56 +37,32 @@ export default {
       type: Boolean,
       required: false,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    titlePlacement: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: placement => placements.indexOf(placement) !== -1,
+    },
   },
   emits: [
     "change",
   ],
-  setup(props, { emit }) {
-    const idForActiveTabLocal = ref(undefined);
+  setup(props, context) {
+    const {
+      changeTab,
+      indexActiveTabLocal,
+      initTabActiveIndex,
+    } = ActiveAPI(props, context);
 
-    const idForActiveTab = toRef(props, "idForActiveTab");
-    const data = toRef(props, "data");
-    const keyId = toRef(props, "keyId");
-    const initTabActiveId = () => {
-      if (!isNil(idForActiveTab.value)) {
-        idForActiveTabLocal.value = idForActiveTab.value;
-        return;
-      }
-
-      forEach(data.value, item => {
-        if (item.active) {
-          idForActiveTabLocal.value = item.id;
-          return false;
-        }
-      });
-      if (isUndefined(idForActiveTabLocal.value)) {
-        idForActiveTabLocal.value = get(data.value[0], keyId.value);
-      }
-    };
-
-    const isChangeOutside = toRef(props, "isChangeOutside");
-    const onChangeTab = ({ $event, tab }) => {
-      const TAB_ID = get(tab, keyId.value);
-      if (idForActiveTabLocal.value === TAB_ID) {
-        return;
-      }
-      if (!isChangeOutside.value) {
-        idForActiveTabLocal.value = TAB_ID;
-      }
-      emit("change", { $event, tab });
-    };
-
-    watch(idForActiveTab, () => {
-      if (idForActiveTab.value) {
-        idForActiveTabLocal.value = idForActiveTab.value;
-      }
-    });
-
-    initTabActiveId();
+    initTabActiveIndex();
 
     return {
-      idForActiveTabLocal,
-      onChangeTab,
+      indexActiveTabLocal,
+      changeTab,
     };
   },
   render() {
@@ -118,9 +85,10 @@ export default {
               tab,
               index: tabIndex,
               parentId: this.id,
-              idForActiveTab: this.idForActiveTabLocal,
-              keyId: this.keyId,
-              onChangeTab: this.onChangeTab,
+              indexActiveTabLocal: this.indexActiveTabLocal,
+              disabled: this.disabled,
+              titlePlacement: this.titlePlacement,
+              onChangeTab: this.changeTab,
             });
           }),
         ]),
@@ -134,8 +102,7 @@ export default {
             tab,
             index: tabIndex,
             parentId: this.id,
-            keyId: this.keyId,
-            idForActiveTab: this.idForActiveTabLocal,
+            indexActiveTabLocal: this.indexActiveTabLocal,
           }, this.$slots);
         }),
       ]),
