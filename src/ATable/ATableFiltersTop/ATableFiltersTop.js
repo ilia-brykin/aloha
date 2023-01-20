@@ -8,6 +8,8 @@ import AIcon from "../../AIcon/AIcon";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter";
 import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 
+import VisibleAPI from "./compositionAPI/VisibleAPI";
+
 import EventBus from "../../utils/EventBus";
 
 export default {
@@ -83,6 +85,10 @@ export default {
       $event.preventDefault();
     };
 
+    const {
+      isBtnToggleVisible,
+    } = VisibleAPI(props);
+
     initEventBus();
 
     onBeforeUnmount(() => {
@@ -91,6 +97,7 @@ export default {
 
     return {
       iconToggle,
+      isBtnToggleVisible,
       isOpen,
       onSearch,
       onToggle,
@@ -135,10 +142,9 @@ export default {
             }),
             !this.isOpen && BUTTON_SEARCH,
           ]),
-          h("div", {
+          this.isBtnToggleVisible && h("div", {
             class: "a_column",
           }, [
-
             h("button", {
               class: "a_btn a_btn_link a_text_nowrap",
               type: "button",

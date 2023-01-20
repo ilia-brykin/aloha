@@ -139,7 +139,9 @@ export default {
     const tableId = inject("tableId");
     const eventName = `eventATableFilterTopOnOpen_${ tableId.value }`;
     const goToFilter = () => {
-      EventBus.$emit(eventName);
+      if (!filter.value.main) {
+        EventBus.$emit(eventName);
+      }
 
       const FILTER_HTML_ID = getHtmlId({
         id: filter.value.id,
