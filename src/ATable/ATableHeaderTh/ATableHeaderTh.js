@@ -192,6 +192,7 @@ export default {
         class: [
           "a_table__cell__child",
           this.column.class,
+          this.column.classHeader,
         ],
       }, [
         h(this.componentLocal, this.attributesForButton, [

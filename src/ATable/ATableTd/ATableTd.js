@@ -177,6 +177,7 @@ export default {
           class: [
             "a_table__cell__child",
             this.column.class,
+            this.column.classRow,
           ],
         }, (this.isSlot && this.$slots[this.slot]) ?
           this.$slots[this.slot]({
@@ -189,7 +190,11 @@ export default {
           (this.isLink && this.toLocal) ?
             [
               h(resolveComponent("RouterLink"), {
-                class: [this.column.class, this.classForLink],
+                class: [
+                  this.column.class,
+                  this.classForLink,
+                  this.column.classRow,
+                ],
                 to: this.toLocal,
               }, () => [
                 withDirectives(h("span"), [
