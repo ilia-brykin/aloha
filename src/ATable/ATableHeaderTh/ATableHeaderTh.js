@@ -196,7 +196,7 @@ export default {
       }, [
         h(this.componentLocal, this.attributesForButton, [
           h(ATranslation, {
-            text: this.column.label,
+            html: this.column.label,
             tag: "span",
           }),
           h("span", {
