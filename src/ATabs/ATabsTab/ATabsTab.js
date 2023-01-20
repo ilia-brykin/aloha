@@ -99,14 +99,19 @@ export default {
           onClick: this.changeTabLocal,
           onKeydown: this.keydownTab,
         }, [
-          this.tab.title && h("span", {
-            class: "a_position_absolute_all",
-            title: this.tab.title,
-            ariaHidden: true,
-          }),
-          withDirectives(h("span"), [
-            [ASafeHtml, this.tab.label],
-          ]),
+          this.tab.slotTab && this.$slots[this.tab.slotTab] ?
+            this.$slots[this.tab.slotTab]({
+              tab: this.tab,
+              tabIndex: this.index,
+              isActive: this.isActive,
+              isDisabled: this.isDisabled,
+              indexActiveTab: this.indexActiveTabLocal,
+              tabId: this.idLocal,
+              parentId: this.parentId,
+            }) :
+            withDirectives(h("span"), [
+              [ASafeHtml, this.tab.label],
+            ]),
         ]),
       ],
       title: () => withDirectives(h("div"), [

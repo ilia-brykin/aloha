@@ -51,7 +51,14 @@ export default {
     }, [
       this.tab.slotContent ?
         this.$slots[this.tab.slotContent] &&
-          this.$slots[this.tab.slotContent]({ tab: this.tab }) :
+          this.$slots[this.tab.slotContent]({
+            tab: this.tab,
+            tabIndex: this.index,
+            isActive: this.isActive,
+            indexActiveTab: this.indexActiveTabLocal,
+            contentId: this.idForContent,
+            parentId: this.parentId,
+          }) :
         this.tab.content &&
           withDirectives(h("div"), [
             [ASafeHtml, this.tab.content],
