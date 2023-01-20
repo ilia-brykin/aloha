@@ -89,7 +89,7 @@ export default {
               disabled: this.disabled,
               titlePlacement: this.titlePlacement,
               onChangeTab: this.changeTab,
-            });
+            }, this.$slots);
           }),
         ]),
       ]),
