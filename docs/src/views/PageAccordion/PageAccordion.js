@@ -30,6 +30,8 @@ export default {
                 {
                   label: "label 1.1.3",
                   content: "content 1.1.3",
+                  readonly: true,
+                  isCaret: false,
                 },
               ],
             },

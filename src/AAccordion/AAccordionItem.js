@@ -13,7 +13,7 @@ import ASafeHtml from "../directives/ASafeHtml";
 
 import {
   cloneDeep,
-  get,
+  get, isUndefined,
 } from "lodash-es";
 
 export default {
@@ -167,19 +167,30 @@ export default {
       }
     },
 
+    readonlyLocal() {
+      return this.readonly || this.item.readonly;
+    },
+
+    isCaretLocal() {
+      if (!isUndefined(this.item.isCaret)) {
+        return this.item.isCaret;
+      }
+      return this.isCaret;
+    },
+
     buttonTag() {
-      return this.readonly ? "div" : "button";
+      return this.readonlyLocal ? "div" : "button";
     },
 
     buttonAttributes() {
       const ATTRIBUTES = {
         class: ["a_accordion__button", this.classButton, {
           a_accordion__button_collapsed: !this.isOpen,
-          a_accordion__button_has_not_caret: !this.isCaret,
+          a_accordion__button_has_not_caret: !this.isCaretLocal,
         }],
       };
 
-      if (!this.readonly) {
+      if (!this.readonlyLocal) {
         ATTRIBUTES.ariaExpanded = this.isOpen;
         ATTRIBUTES["aria-controls"] = this.idForCollapse;
         ATTRIBUTES.type = "button";
