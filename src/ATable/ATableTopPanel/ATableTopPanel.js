@@ -182,7 +182,10 @@ export default {
         h("div", {
           class: "a_table__top_panel__actions",
         }, [
-          this.$slots.tableActions && this.$slots.tableActions(),
+          this.$slots.tableActionsStart && this.$slots.tableActionsStart({
+            isMultipleActionsActive: this.isMultipleActionsActive,
+            modelView: this.modelView,
+          }),
           this.tableActionFiltered.map(action => {
             return h(ATableActionItem, {
               action,
@@ -279,6 +282,10 @@ export default {
             }),
           ]),
         ]),
+        this.$slots.tableActionsEnd && this.$slots.tableActionsEnd({
+          isMultipleActionsActive: this.isMultipleActionsActive,
+          modelView: this.modelView,
+        }),
         h("div", {
           class: "a_table__multiple_panel__actions",
         }, [
