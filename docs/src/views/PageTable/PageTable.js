@@ -218,6 +218,14 @@ export default {
           icon: "Plus",
         },
         {
+          title: "Aloha link Title",
+          disabled: false,
+          class: "a_btn a_btn_secondary",
+          type: "link",
+          href: "/spinner",
+          icon: "Plus",
+        },
+        {
           label: "Aloha3",
           title: "Aloha3 Title",
           disabled: false,

@@ -52,7 +52,9 @@ export default {
         class: "a_table__action__icon",
         icon: this.action.icon,
       }),
-      withDirectives(h("span"), [
+      this.action.label && withDirectives(h("span", {
+        class: "a_table__action__text",
+      }), [
         [ASafeHtml, this.action.label],
       ]),
     ];
