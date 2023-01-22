@@ -42,52 +42,54 @@ export default {
     };
   },
   render() {
+    const CHILDREN = [
+      this.action.title && h("span", {
+        class: "a_position_absolute_all",
+        title: this.action.title,
+        ariaHidden: true,
+      }),
+      this.action.icon && h(AIcon, {
+        class: "a_table__action__icon",
+        icon: this.action.icon,
+      }),
+      withDirectives(h("span"), [
+        [ASafeHtml, this.action.label],
+      ]),
+    ];
+
     if (this.type === "button") {
       return h("button", {
         id: this.action.id,
         class: ["a_table__action", this.action.class],
         disabled: this.action.disabled || this.disabled,
         onClick: this.callbackLocal,
-      }, [
-        this.action.title && h("span", {
-          class: "a_position_absolute_all",
-          title: this.action.title,
-          ariaHidden: true,
-        }),
-        this.action.icon && h(AIcon, {
-          class: "a_table__action__icon",
-          icon: this.action.icon,
-        }),
-        withDirectives(h("span"), [
-          [ASafeHtml, this.action.label],
-        ]),
-      ]);
+      }, CHILDREN);
     }
     if (this.type === "link") {
-      const LINK_TAG = this.action.to ?
-        resolveComponent("RouterLink") :
-        "a";
-
-      return h(LINK_TAG, {
+      if (this.action.to) {
+        return h(resolveComponent("RouterLink"), {
+          id: this.action.id,
+          class: [
+            "a_table__action",
+            this.action.class,
+            {
+              disabled: this.action.disabled,
+            },
+          ],
+          to: this.action.to,
+        }, () => CHILDREN);
+      }
+      return h("a", {
         id: this.action.id,
-        class: ["a_table__action", this.action.class],
-        to: this.action.to,
+        class: [
+          "a_table__action",
+          this.action.class,
+          {
+            disabled: this.action.disabled,
+          },
+        ],
         href: this.action.href,
-        disabled: this.action.disabled,
-      }, () => [
-        this.action.title && h("span", {
-          class: "a_position_absolute_all",
-          title: this.action.title,
-          ariaHidden: true,
-        }),
-        this.action.icon && h(AIcon, {
-          class: "a_table__action__icon",
-          icon: this.action.icon,
-        }),
-        withDirectives(h("span"), [
-          [ASafeHtml, this.action.label],
-        ]),
-      ]);
+      }, CHILDREN);
     }
     if (this.type === "dropdown") {
       return h("span", "muster dropdown");

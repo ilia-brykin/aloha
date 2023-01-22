@@ -201,12 +201,21 @@ export default {
           id: "aloha_2"
         },
         {
-          label: "Aloha link",
+          label: "Aloha link to",
           title: "Aloha link Title",
           disabled: false,
           class: "a_btn a_btn_secondary",
           type: "link",
           to: "/spinner",
+        },
+        {
+          label: "Aloha link href",
+          title: "Aloha link Title",
+          disabled: false,
+          class: "a_btn a_btn_secondary",
+          type: "link",
+          href: "/spinner",
+          icon: "Plus",
         },
         {
           label: "Aloha3",
