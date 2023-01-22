@@ -64,10 +64,15 @@ export default {
       ]);
     }
     if (this.type === "link") {
-      return h(resolveComponent("RouterLink"), {
+      const LINK_TAG = this.action.to ?
+        resolveComponent("RouterLink") :
+        "a";
+
+      return h(LINK_TAG, {
         id: this.action.id,
         class: ["a_table__action", this.action.class],
         to: this.action.to,
+        href: this.action.href,
         disabled: this.action.disabled,
       }, () => [
         this.action.title && h("span", {
