@@ -1,7 +1,22 @@
 import DOMPurify from "dompurify";
 
-export const sanitize = DOMPurify.sanitize;
+import {
+  isNumber,
+  toString,
+} from "lodash-es";
+
 export const dompurify = DOMPurify;
+export const sanitize = DOMPurify.sanitize;
+export function sanitizeLocal(value) {
+  return DOMPurify.sanitize(toCorrectFormat(value), { ADD_ATTR: ["target"] });
+}
+
+function toCorrectFormat(value) {
+  if (isNumber(value)) {
+    return toString(value);
+  }
+  return value;
+}
 
 export function getPropByPath(object, path, defaultValue) {
   const _path = Array.isArray(path)
