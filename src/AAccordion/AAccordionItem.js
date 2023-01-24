@@ -188,6 +188,7 @@ export default {
           a_accordion__button_collapsed: !this.isOpen,
           a_accordion__button_has_not_caret: !this.isCaretLocal,
         }],
+        id: this.item.id,
       };
 
       if (!this.readonlyLocal) {

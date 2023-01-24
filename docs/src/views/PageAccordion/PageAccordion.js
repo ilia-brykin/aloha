@@ -13,6 +13,7 @@ export default {
           content: "content 1",
           slotContent: "aloha",
           keyIsRenderBodyByFirstOpen: true,
+          id: "aloha_1",
           items: [
             {
               label: "label 1.1",
