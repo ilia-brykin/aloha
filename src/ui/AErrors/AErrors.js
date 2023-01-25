@@ -96,7 +96,7 @@ export default {
               link: !isUndefined(childOptions.isErrorLink) ? childOptions.isErrorLink : true,
               id: getHtmlId({
                 id: childOptions.id,
-                idPrefix: childOptions.idPrefix || childOptions.value,
+                idPrefix: childOptions.idPrefix || idPrefix.value,
                 htmlId: childOptions.htmlId,
               }),
             };
