@@ -273,7 +273,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
         width: 0;
         height: 100%;
         border-radius: 8px;
-        z-index: -1;
+        z-index: 0;
         border: 3px dashed var(--a_wizard_border_color);
         margin-left: 33px;
       }
@@ -287,7 +287,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
       left: 0;
       width: 100%;
       border-radius: 8px;
-      z-index: -1;
+      z-index: 0;
       border: 3px dashed var(--a_wizard_border_color);
       margin-top: 25px;
       @media screen and (max-width: $a-wizard-breakpoint-phone) {
@@ -305,7 +305,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
       position: absolute;
       left: 0;
       width: 100%;
-      z-index: 0;
+      z-index: 1;
       border: 3px solid var(--a_wizard_step_active_primary_color);
       margin-top: 17px;
       @media screen and (max-width: $a-wizard-breakpoint-phone) {
