@@ -176,7 +176,9 @@ export default {
         class: "a_table__action__icon",
         icon: this.rowAction.icon,
       }),
-      withDirectives(h("span"), [
+      withDirectives(h("span", {
+        class: "a_table__action__text",
+      }), [
         [ASafeHtml, this.labelLocal],
       ]),
     ];
