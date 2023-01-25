@@ -9,7 +9,7 @@ export default {
       required: false,
     },
     id: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: () => uniqueId("a_ui_"),
     },
