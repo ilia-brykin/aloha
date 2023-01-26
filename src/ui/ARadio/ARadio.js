@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   toRef,
   withDirectives,
@@ -15,6 +16,7 @@ import UiAPI from "../compositionApi/UiAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+import ATranslation from "../../ATranslation/ATranslation";
 
 export default {
   name: "ARadio",
@@ -83,6 +85,8 @@ export default {
     "updateData",
   ],
   setup(props, context) {
+    const required = toRef(props, "required");
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -107,6 +111,10 @@ export default {
       dataKeyByKeyIdLocal,
     });
 
+    const textAfterLabel = computed(() => {
+      return required.value ? "*" : "";
+    });
+
     const disabled = toRef(props, "disabled");
     const onChangeModelValue = ({ model, $event }) => {
       if (disabled.value) {
@@ -128,6 +136,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      textAfterLabel,
 
       dataLocal,
 
@@ -159,13 +168,14 @@ export default {
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
-            this.label && withDirectives(h("legend", {
+            this.label && h(ATranslation, {
+              tag: "legend",
               class: ["a_legend", {
                 a_legend_invalid: this.isErrors,
               }],
-            }), [
-              [ASafeHtml, this.label],
-            ]),
+              html: this.label,
+              textAfter: this.textAfterLabel,
+            }),
             h("div", {
               class: {
                 a_btn_group: this.isButtonGroup,
