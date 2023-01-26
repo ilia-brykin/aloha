@@ -105,6 +105,7 @@
   align-items: center;
   background-color: var(--a_table_th_bg);
   border-bottom: var(--a_table_th_border_bottom_width) solid var(--a_table_th_border_bottom_color);
+  position: relative;
 }
 .a_table__th_draggable {
   cursor: move;
@@ -204,6 +205,10 @@
 
 .a_table__footer {
   border-top: var(--a_table_footer_border_top);
+}
+
+.a_table__th__icon + .a_table__th__text {
+  margin-left: var(--a_table_between_actions_margin, .5rem);
 }
 
 .a_table__th__sort {

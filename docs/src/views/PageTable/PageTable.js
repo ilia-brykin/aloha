@@ -25,7 +25,9 @@ export default {
           grow: 2,
           footerSlot: "footerAloha",
           class: "a_text_right",
+          icon: "Close",
           isRender: true,
+          title: "Aloha",
         },
         {
           label: "Slot",

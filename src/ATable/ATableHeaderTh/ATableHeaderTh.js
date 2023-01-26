@@ -196,9 +196,25 @@ export default {
         ],
       }, [
         h(this.componentLocal, this.attributesForButton, [
-          h(ATranslation, {
+          this.column.icon && h(AIcon, {
+            icon: this.column.icon,
+            class: "a_table__th__icon",
+          }),
+          this.column.label && h(ATranslation, {
             html: this.column.label,
             tag: "span",
+            class: "a_table__th__text",
+          }),
+          this.column.title && h(ATranslation, {
+            title: this.column.title,
+            ariaHidden: true,
+            tag: "span",
+            class: "a_position_absolute_all",
+          }),
+          this.column.title && h(ATranslation, {
+            text: this.column.title,
+            tag: "span",
+            class: "a_sr_only",
           }),
           h("span", {
             class: "a_table__th__sort__icons",
