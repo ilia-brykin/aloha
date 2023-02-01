@@ -180,9 +180,7 @@ export default {
   },
   render() {
     return h("div", {
-      class: ["a_accordion", {
-        a_accordion__with_gap: this.withGap,
-      }],
+      class: ["a_accordion"],
     }, [
       this.items.map((item, itemIndex) => {
         return h(AAccordionItem, {

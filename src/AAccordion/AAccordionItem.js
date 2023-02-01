@@ -187,6 +187,7 @@ export default {
         class: ["a_accordion__button", this.classButton, {
           a_accordion__button_collapsed: !this.isOpen,
           a_accordion__button_has_not_caret: !this.isCaretLocal,
+          a_accordion__button_with_gap: this.withGap,
         }],
         id: this.item.id,
       };
@@ -242,9 +243,7 @@ export default {
               [ASafeHtml, this.contentLocal],
             ]),
         this.hasChildren && h("div", {
-          class: ["a_accordion", {
-            a_accordion__with_gap: this.withGap,
-          }],
+          class: ["a_accordion"],
         }, [
           this.children.map((itemChild, itemChildIndex) => {
             return h(resolveComponent("AAccordionItem"), {
@@ -262,7 +261,12 @@ export default {
 
 
     return this.isRender && h("div", {
-      class: "a_accordion__item",
+      class: [
+        "a_accordion__item",
+        {
+          a_accordion__item_with_gap: this.withGap,
+        },
+      ],
     }, [
       h("div", {
         class: ["a_accordion__header", this.classHeader, this.classHeaderLocal],
