@@ -17,7 +17,8 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AUiTypesContainer from "../const/AUiTypesContainer";
 import {
-  cloneDeep, isNil,
+  cloneDeep,
+  isNil,
 } from "lodash-es";
 
 export default {
@@ -137,6 +138,7 @@ export default {
               modelDependencies: this.modelValue,
               class: classColumn,
               errors: this.errorsAll[item.id],
+              errorsAll: this.errorsAll,
               idPrefix: this.idPrefix,
               "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
               onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
