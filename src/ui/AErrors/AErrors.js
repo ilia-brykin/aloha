@@ -83,7 +83,7 @@ export default {
       let labelsFromChildren = {};
       forEach(children, childOptions => {
         labelsFromChildren[childOptions.id] = {
-          label: childOptions.label || childOptions.errorLabel,
+          label: childOptions.labelError || childOptions.label,
           link: !isUndefined(childOptions.isErrorLink) ? childOptions.isErrorLink : true,
           id: getHtmlId({
             id: childOptions.id,
@@ -106,7 +106,7 @@ export default {
       let labelsFromOptionsList = {};
       optionsList.value.forEach(options => {
         labelsFromOptionsList[options.id] = {
-          label: options.label || options.errorLabel,
+          label: options.labelError || options.label,
           link: !isUndefined(options.isErrorLink) ? options.isErrorLink : true,
           id: getHtmlId({
             id: options.id,
