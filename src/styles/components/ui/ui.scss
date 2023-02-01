@@ -1,5 +1,3 @@
-@import "ADatepicker";
-
 .a_form_element__parent {
   --a_form_element_error_color: var(--a_color_danger);
 }
@@ -151,6 +149,7 @@
 @import "ASelect";
 @import "AErrors";
 @import "AInputFile";
+@import "ADatepicker";
 @import "ATinymce";
 
 // fix für autofill
