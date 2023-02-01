@@ -765,7 +765,13 @@ export default {
               h("input", {
                 ref: "inputRef",
                 id: this.htmlIdLocal,
-                class: ["a_form_control pux_datepicker__input", this.inputClass],
+                class: [
+                  "a_form_control pux_datepicker__input",
+                  this.inputClass,
+                  {
+                    a_form_control_invalid: this.isErrors,
+                  },
+                ],
                 name: this.inputName,
                 type: "text",
                 autocomplete: "off",
