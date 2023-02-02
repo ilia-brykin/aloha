@@ -38,6 +38,11 @@ export default {
       required: false,
       default: "a_btn a_btn_secondary",
     },
+    closeButtonId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     closeButtonText: {
       type: String,
       required: false,
@@ -131,6 +136,11 @@ export default {
       type: [String, Array, Object],
       required: false,
       default: "a_btn a_btn_primary",
+    },
+    saveButtonId: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     saveButtonText: {
       type: String,
@@ -465,6 +475,7 @@ export default {
                   close: this.close,
                 }),
                 (!this.isSaveButtonHide && this.save) && h("button", {
+                  id: this.saveButtonId,
                   type: "button",
                   class: this.saveButtonClass,
                   disabled: this.disabledLocal || this.disabledSave,
@@ -473,6 +484,7 @@ export default {
                   h("span", null, this.saveButtonText),
                 ]),
                 !this.isCloseButtonHide && h("button", {
+                  id: this.closeButtonId,
                   type: "button",
                   class: this.closeButtonClass,
                   disabled: this.disabledLocal,
