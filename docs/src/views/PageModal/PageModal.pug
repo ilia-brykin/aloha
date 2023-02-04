@@ -9,13 +9,13 @@ div
   a-modal(
     v-if="isModalOpen"
     size="xxl"
-    :close="closeModal"
     selector-close="#btn_modal"
+    :close="closeModal"
   )
-    template(
-      v-slot:modalBodyPrepend
-    )
-      button.a_btn.a_btn_secondary(
-        type="button"
-        @click="openConfirmLocal"
-      ) Open confirm
+    //template(
+    //  v-slot:modalBodyPrepend
+    //)
+    //  button.a_btn.a_btn_secondary(
+    //    type="button"
+    //    @click="openConfirmLocal"
+    //  ) Open confirm

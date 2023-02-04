@@ -8,6 +8,9 @@ import AForm from "../ui/AForm/AForm";
 
 import ASafeHtml from "../directives/ASafeHtml";
 
+import {
+  modalPluginOptions,
+} from "../plugins/AModalPlugin";
 import AKeysCode from "../const/AKeysCode";
 import {
   focusableSelector
@@ -36,7 +39,7 @@ export default {
     closeButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: "a_btn a_btn_secondary",
+      default: () => modalPluginOptions.value.propsDefault.closeButtonClass,
     },
     closeButtonId: {
       type: String,
@@ -46,7 +49,7 @@ export default {
     closeButtonText: {
       type: String,
       required: false,
-      default: "Abbrechen",
+      default: () => modalPluginOptions.value.propsDefault.closeButtonText,
     },
     dataForm: {
       type: Array,
@@ -71,7 +74,7 @@ export default {
     headerTag: {
       type: String,
       required: false,
-      default: "h2",
+      default: () => modalPluginOptions.value.propsDefault.headerTag,
     },
     headerText: {
       type: String,
@@ -81,11 +84,12 @@ export default {
     idPrefix: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => modalPluginOptions.value.propsDefault.idPrefix,
     },
     isCloseButtonHide: {
       type: Boolean,
       required: false,
+      default: () => modalPluginOptions.value.propsDefault.isCloseButtonHide,
     },
     isConfirm: {
       type: Boolean,
@@ -94,11 +98,12 @@ export default {
     isDataFormHide: {
       type: Boolean,
       required: false,
+      default: modalPluginOptions.value.propsDefault.isDataFormHide,
     },
     isDataFormRender: {
       type: Boolean,
       required: false,
-      default: true,
+      default: () => modalPluginOptions.value.propsDefault.isDataFormRender,
     },
     isModalHidden: {
       type: Boolean,
@@ -108,10 +113,12 @@ export default {
     isRequired: {
       type: Boolean,
       required: false,
+      default: modalPluginOptions.value.propsDefault.isRequired,
     },
     isSaveButtonHide: {
       type: Boolean,
       required: false,
+      default: () => modalPluginOptions.value.propsDefault.isSaveButtonHide,
     },
     loading: {
       type: Boolean,
@@ -120,7 +127,7 @@ export default {
     modalClass: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: () => modalPluginOptions.value.propsDefault.modalClass,
     },
     modelValue: {
       type: Object,
@@ -135,7 +142,7 @@ export default {
     saveButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: "a_btn a_btn_primary",
+      default: () => modalPluginOptions.value.propsDefault.saveButtonClass,
     },
     saveButtonId: {
       type: String,
@@ -145,26 +152,27 @@ export default {
     saveButtonText: {
       type: String,
       required: false,
-      default: "Speichern",
+      default: () => modalPluginOptions.value.propsDefault.saveButtonText,
     },
     selectorClose: {
       type: [String, Array],
       required: false,
-      default: undefined,
+      default: () => modalPluginOptions.value.propsDefault.selectorClose,
     },
     size: {
       type: String,
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
-      default: undefined,
+      default: () => modalPluginOptions.value.propsDefault.size,
     },
     textRequired: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => modalPluginOptions.value.propsDefault.textRequired,
     },
     withoutEscape: {
       type: Boolean,
       required: false,
+      default: () => modalPluginOptions.value.propsDefault.withoutEscape,
     },
   },
   emits: [

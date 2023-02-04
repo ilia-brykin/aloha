@@ -5,6 +5,7 @@ import router from "./router/index";
 import AI18nPlugin from "../../src/plugins/AI18nPlugin";
 // import alohaPlugin from "../src/plugins/alohaPlugin";
 import AIconPlugin from "../../src/plugins/AIconPlugin";
+import AModalPlugin from "../../src/plugins/AModalPlugin";
 import mainIcons from "./mainIcons";
 import ASafeHtml from "../../src/directives/ASafeHtml";
 
@@ -27,6 +28,11 @@ const TRANSLATIONS = {
 };
 APP.use(AI18nPlugin, TRANSLATIONS, "de");
 APP.use(AIconPlugin, mainIcons);
+APP.use(AModalPlugin, {
+  propsDefault: {
+    closeButtonClass: "a_btn a_btn_link",
+  },
+});
 // APP.use(alohaPlugin, {
 //   framework: "bootstrap",
 // });
