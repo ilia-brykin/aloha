@@ -5,18 +5,24 @@ import {
   withDirectives,
 } from "vue";
 
+import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import ARadioItem from "./ARadioItem/ARadioItem";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
-import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
+import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-import ATranslation from "../../ATranslation/ATranslation";
+
+import {
+  uniqueId,
+} from "lodash-es";
 
 export default {
   name: "ARadio",
@@ -24,18 +30,52 @@ export default {
     UiMixinProps,
   ],
   props: {
-    modelValue: {
+    classButtonGroupDefault: {
+      type: [String, Object, Array],
+      required: false,
+      default: "a_btn a_btn_outline_primary",
+    },
+    classFieldset: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    data: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    hasBorder: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    id: {
       type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_radio_"),
+    },
+    isButtonGroup: {
+      type: Boolean,
+      required: false,
+    },
+    isDataSimpleArray: {
+      type: Boolean,
       required: false,
     },
     isWidthAuto: {
       type: Boolean,
       required: false,
     },
-    data: {
-      type: Array,
+    keyGroup: {
+      type: [String, Array],
       required: false,
-      default: () => [],
+      default: undefined,
+    },
+    keyGroupCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
     },
     keyId: {
       type: String,
@@ -52,33 +92,26 @@ export default {
       required: false,
       default: undefined,
     },
-    isDataSimpleArray: {
-      type: Boolean,
+    modelValue: {
+      type: [String, Number],
       required: false,
-    },
-    isButtonGroup: {
-      type: Boolean,
-      required: false,
-    },
-    classButtonGroupDefault: {
-      type: [String, Object, Array],
-      required: false,
-      default: "a_btn a_btn_outline_primary",
     },
     slotName: {
       type: String,
       required: false,
       default: undefined,
     },
-    hasBorder: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    classFieldset: {
-      type: [String, Object],
+    sortOrder: {
+      type: String,
       required: false,
       default: undefined,
+      validator: value => ["asc", "desc"].indexOf(value) !== -1,
+    },
+    sortOrderGroup: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
   },
   emits: [
@@ -115,6 +148,14 @@ export default {
       return required.value ? "*" : "";
     });
 
+    const {
+      dataGrouped,
+      groupsForLever,
+      hasKeyGroup,
+    } = UIDataGroupAPI(props, {
+      data: dataLocal,
+    });
+
     const disabled = toRef(props, "disabled");
     const onChangeModelValue = ({ model, $event }) => {
       if (disabled.value) {
@@ -129,20 +170,20 @@ export default {
     };
 
     return {
-      componentStyleHide,
-
       ariaDescribedbyLocal,
+      componentStyleHide,
+      dataGrouped,
+      dataLocal,
       errorsId,
+      groupsForLever,
+      hasKeyGroup,
       helpTextId,
       htmlIdLocal,
       isErrors,
-      textAfterLabel,
-
-      dataLocal,
-
+      onBlur,
       onChangeModelValue,
       onFocus,
-      onBlur,
+      textAfterLabel,
     };
   },
   render() {
@@ -180,24 +221,40 @@ export default {
               class: {
                 a_btn_group: this.isButtonGroup,
               },
-            }, [
-              ...this.dataLocal.map((item, itemIndex) => {
-                return h(ARadioItem, {
-                  id: this.htmlIdLocal,
-                  key: itemIndex,
-                  dataItem: item,
-                  itemIndex,
-                  modelValue: this.modelValue,
-                  onChangeModelValue: this.onChangeModelValue,
+            }, this.hasKeyGroup ?
+              [
+                h(ACheckboxRadioGroup, {
+                  id: `${ this.htmlIdLocal }_lev_0`,
+                  dataGrouped: this.dataGrouped,
                   disabled: this.disabled,
-                  isWidthAuto: this.isWidthAuto,
+                  groupsForLever: this.groupsForLever,
                   isErrors: this.isErrors,
-                  isButtonGroup: this.isButtonGroup,
-                  classButtonGroupDefault: this.classButtonGroupDefault,
+                  isWidthAuto: this.isWidthAuto,
+                  levelIndex: 0,
+                  modelValue: this.modelValue,
                   slotName: this.slotName,
-                }, this.$slots);
-              })
-            ]),
+                  type: "radio",
+                  onChangeModelValue: this.onChangeModelValue,
+                }, this.$slots),
+              ] :
+              [
+                ...this.dataLocal.map((item, itemIndex) => {
+                  return h(ARadioItem, {
+                    id: this.htmlIdLocal,
+                    key: itemIndex,
+                    dataItem: item,
+                    itemIndex,
+                    modelValue: this.modelValue,
+                    onChangeModelValue: this.onChangeModelValue,
+                    disabled: this.disabled,
+                    isWidthAuto: this.isWidthAuto,
+                    isErrors: this.isErrors,
+                    isButtonGroup: this.isButtonGroup,
+                    classButtonGroupDefault: this.classButtonGroupDefault,
+                    slotName: this.slotName,
+                  }, this.$slots);
+                })
+              ]),
           ]),
         ]),
         this.helpText && withDirectives(h("div", {
