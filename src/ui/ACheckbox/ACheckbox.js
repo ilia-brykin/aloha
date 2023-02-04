@@ -16,6 +16,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
+import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
@@ -149,11 +150,17 @@ export default {
     });
 
     const {
+      dataSort,
+    } = UiDataSortAPI(props, {
+      data: dataLocal,
+    });
+
+    const {
       dataGrouped,
       groupsForLever,
       hasKeyGroup,
     } = UIDataGroupAPI(props, {
-      data: dataLocal,
+      data: dataSort,
     });
 
     const disabled = toRef(props, "disabled");
@@ -173,7 +180,7 @@ export default {
       ariaDescribedbyLocal,
       componentStyleHide,
       dataGrouped,
-      dataLocal,
+      dataSort,
       errorsId,
       groupsForLever,
       hasKeyGroup,
@@ -237,7 +244,7 @@ export default {
                   onChangeModelValue: this.onChangeModelValue,
                 }, this.$slots),
               ] :
-              [...this.dataLocal.map((item, itemIndex) => {
+              [...this.dataSort.map((item, itemIndex) => {
                 return h(ACheckboxItem, {
                   id: this.htmlIdLocal,
                   key: itemIndex,

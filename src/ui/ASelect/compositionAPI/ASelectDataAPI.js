@@ -3,21 +3,23 @@ import {
   toRef,
 } from "vue";
 
-import AKeyLabel from "../../const/AKeyLabel";
+import UiDataSortAPI from "../../compositionApi/UiDataSortAPI";
+
 import {
-  forEach, get, isFunction, isNil,
+  forEach,
+  get,
+  isFunction,
+  isNil,
   orderBy,
 } from "lodash-es";
 
 export default function ASelectDataAPI(props, {
   dataLocal = computed(() => []),
 }) {
-  const sortOrder = toRef(props, "sortOrder");
-  const dataSort = computed(() => {
-    if (sortOrder.value) {
-      return orderBy(dataLocal.value, [AKeyLabel], [sortOrder.value]);
-    }
-    return dataLocal.value;
+  const {
+    dataSort,
+  } = UiDataSortAPI(props, {
+    data: dataLocal,
   });
 
   const keyGroup = toRef(props, "keyGroup");
