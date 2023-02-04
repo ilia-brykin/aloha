@@ -26,11 +26,9 @@ export default {
   install: (app, {
     propsDefault = {},
   } = {}) => {
-    console.log("propsDefault", propsDefault);
     modalPluginOptions.value.propsDefault = {
       ...modalPluginOptions.value.propsDefault,
       ...propsDefault,
     };
-    console.log("modalPluginOptions.value.propsDefault", modalPluginOptions.value.propsDefault);
   },
 };
