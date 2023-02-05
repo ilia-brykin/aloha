@@ -246,8 +246,29 @@ export default {
               icon: this.icon,
             })
           ]),
-          withDirectives(h("span"), [
-            [ASafeHtml, this.labelLocal],
+          h("span", {
+            class: "a_position_relative"
+          }, [
+            this.column.icon && h(AIcon, {
+              icon: this.column.icon,
+              class: "a_table__th__icon",
+            }),
+            withDirectives(h("span", {
+              class: "a_table__th__text",
+            }), [
+              [ASafeHtml, this.labelLocal],
+            ]),
+            this.column.title && h(ATranslation, {
+              title: this.column.title,
+              ariaHidden: true,
+              tag: "span",
+              class: "a_position_absolute_all",
+            }),
+            this.column.title && h(ATranslation, {
+              text: this.column.title,
+              tag: "span",
+              class: "a_sr_only",
+            }),
           ]),
           ...this.arrowButtons,
         ]),

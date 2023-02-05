@@ -33,6 +33,7 @@ export default {
           label: "Slot",
           id: "slot",
           slot: "slot1",
+          title: "bbbbbbbbbb",
           // hide: true,
         },
         {
