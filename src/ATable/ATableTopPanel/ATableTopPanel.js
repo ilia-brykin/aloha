@@ -64,6 +64,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isLoadingMultipleActions: {
+      type: Boolean,
+      required: false,
+    },
     modelQuickSearch: {
       type: String,
       required: true,
@@ -278,6 +282,8 @@ export default {
               extraTranslate: {
                 countAllRows: this.countAllRows,
               },
+              disabled: this.isLoadingMultipleActions,
+              loading: this.isLoadingMultipleActions,
               onClick: this.toggleBtnAllRows,
             }),
           ]),
@@ -292,8 +298,10 @@ export default {
           h(AButton, {
             class: "a_btn a_btn_primary a_table__action",
             type: "button",
-            disabled: this.isBtnMultipleActionDisabled,
+            disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions,
             text: this.currentMultipleActions.label,
+            loading: this.isLoadingMultipleActions,
+            loadingAlign: "left",
             onClick: this.onOpenModalMultipleActions,
           }),
           h(AButton, {

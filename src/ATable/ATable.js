@@ -113,6 +113,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isLoadingMultipleActions: {
+      type: Boolean,
+      required: false,
+    },
     isPagination: {
       type: Boolean,
       required: false,
@@ -651,6 +655,7 @@ export default {
             multipleActions: this.multipleActions,
             modelFilters: this.modelFilters,
             isQuickSearch: this.isQuickSearch,
+            isLoadingMultipleActions: this.isLoadingMultipleActions,
             modelQuickSearch: this.modelQuickSearch,
             selectedRows: this.selectedRows,
             views: this.views,
