@@ -78,6 +78,7 @@ export default function ActionsAPI(props, { emit }) {
       id: buttonMultipleId.value,
       areAllRowsSelected: areAllRowsSelected.value,
       modelFilters: modelFilters.value,
+      action: currentMultipleActions.value,
     });
     closeConfirm();
     onCancelMultipleActions();
@@ -97,6 +98,7 @@ export default function ActionsAPI(props, { emit }) {
         id: buttonMultipleId.value,
         areAllRowsSelected: areAllRowsSelected.value,
         modelFilters: modelFilters.value,
+        action: currentMultipleActions.value,
       });
     }
   };
