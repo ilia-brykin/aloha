@@ -124,7 +124,7 @@ export default function TableFiltersAPI(props, { emit }, {
 
   const startSearch = () => {
     offset.value = offsetStart.value;
-    emit("updateModelFilters", { _modelFilters: modelFiltersLocal.value });
+    emit("updateModelFilters", { model: modelFiltersLocal.value });
     closePreviewAll();
 
     setTimeout(() => {
@@ -153,7 +153,7 @@ export default function TableFiltersAPI(props, { emit }, {
       modelFiltersLocal.value[filter.id] = undefined;
       MODEL_FILTERS[filter.id] = undefined;
     }
-    emit("updateModelFilters", { _modelFilters: MODEL_FILTERS });
+    emit("updateModelFilters", { model: MODEL_FILTERS });
 
     setTimeout(() => {
       onUpdateModelFilters({ model: modelFilters.value });
