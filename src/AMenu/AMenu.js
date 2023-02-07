@@ -12,6 +12,7 @@ import AMenuButtonToggle from "./AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel";
 import AMenuSearchPanel from "./AMenuSearchPanel";
 
+import MenuAttributesAPI from "./compositionAPI/MenuAttributesAPI";
 import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
 import AMenuDataAPI from "./compositionAPI/AMenuDataAPI";
 import AMenuPanelsAPI from "./compositionAPI/AMenuPanelsAPI";
@@ -122,6 +123,11 @@ export default {
       required: false,
       default: undefined,
     },
+    isBodyFocusAfterClick: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props) {
     const isLinkTruncated = toRef(props, "isLinkTruncated");
@@ -153,6 +159,20 @@ export default {
     } = AMenuToggleAPI();
 
     const {
+      attributesMenuClick,
+    } = MenuAttributesAPI(props, {
+      isMenuOpen,
+      toggleMenu,
+    });
+
+    const {
+      initMenuOpenOrClose,
+      isMenuMobile,
+    } = AMenuResizeAPI(props, {
+      toggleMenu,
+    });
+
+    const {
       clickMenuLink,
       closeAllPanels,
       panelParentsOpen,
@@ -161,11 +181,7 @@ export default {
       dataProParent,
       dataKeyById,
       resetSearch,
-    });
-
-    const {
-      initMenuOpenOrClose,
-    } = AMenuResizeAPI(props, {
+      isMenuMobile,
       toggleMenu,
     });
 
@@ -182,6 +198,7 @@ export default {
     });
 
     provide("isLinkTruncated", computed(() => isLinkTruncated.value));
+    provide("isMenuOpen", computed(() => isMenuOpen.value));
     provide("clickMenuLink", clickMenuLink);
     provide("togglePanel", togglePanel);
 
@@ -189,12 +206,14 @@ export default {
 
     return {
       attributesBlockerClick,
+      attributesMenuClick,
       dataKeyById,
       dataProParent,
       dataProParentList,
       idsSearchVisible,
       isButtonToggleVisible,
       isMenuOpen,
+      isMenuMobile,
       isSearchActive,
       modelSearch,
       panelParentsOpen,
@@ -206,7 +225,8 @@ export default {
   render() {
     return [
       h("nav", {
-        class: "a_menu"
+        class: "a_menu",
+        ...this.attributesMenuClick,
       }, [
         h("div", {
           class: "a_menu__blocker",

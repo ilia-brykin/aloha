@@ -11,6 +11,7 @@ $a_menu_breakpoint_mobile: 991px;
   --a_menu_mobile_btn_toggle_margin_left: 0.5rem;
   --a_menu_mobile_btn_toggle_margin_top: 0.5rem;
   --a_menu_mobile_z_index: 1051;
+  --a_menu_close_opacity: .3;
 }
 
 .a_menu__wrapper_open {
@@ -30,6 +31,7 @@ $a_menu_breakpoint_mobile: 991px;
   }
   .a_menu__blocker {
     bottom: 0;
+    opacity: var(--a_menu_close_opacity);
   }
   .a_menu__navbar_top {
     opacity: 0;
@@ -242,7 +244,7 @@ $a_menu_breakpoint_mobile: 991px;
   background: var(--a_menu_background);
 }
 
-.a_menu__blocker_clickable {
+.a_menu_clickable {
   cursor: pointer;
 }
 

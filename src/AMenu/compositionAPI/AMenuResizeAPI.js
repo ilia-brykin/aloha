@@ -1,6 +1,6 @@
 import {
   toRef,
-  onBeforeUnmount,
+  onBeforeUnmount, ref,
 } from "vue";
 
 export default function AMenuResizeAPI(props, {
@@ -8,16 +8,20 @@ export default function AMenuResizeAPI(props, {
 }) {
   const breakpointMobile = toRef(props, "breakpointMobile");
   const isOpenDefault = toRef(props, "isOpenDefault");
+
   let windowWidth = window.innerWidth;
+  const isMenuMobile = ref(windowWidth <= breakpointMobile.value);
 
   const resizeWindow = () => {
     if (windowWidth > breakpointMobile.value) {
       if (window.innerWidth <= breakpointMobile.value) {
         toggleMenu({ isOpen: false });
+        isMenuMobile.value = true;
       }
     } else {
       if (window.innerWidth > breakpointMobile.value) {
         toggleMenu({ isOpen: true });
+        isMenuMobile.value = false;
       }
     }
     windowWidth = window.innerWidth;
@@ -47,5 +51,6 @@ export default function AMenuResizeAPI(props, {
 
   return {
     initMenuOpenOrClose,
+    isMenuMobile,
   };
 }

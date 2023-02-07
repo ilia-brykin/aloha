@@ -12,6 +12,7 @@ import ATooltip from "../../ATooltip/ATooltip";
 import ASafeHtml from "../../directives/ASafeHtml";
 
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 
 import AKeyId from "../../ui/const/AKeyId";
@@ -95,6 +96,10 @@ export default {
       filterSearchHighlight,
     } = AFiltersAPI();
 
+    const {
+      tabindex,
+    } = AttributesAPI(props);
+
     const labelWithoutFilter = computed(() => {
       return item.value[AKeyLabel];
     });
@@ -174,6 +179,7 @@ export default {
       labelWithoutFilter,
       onKeydown,
       openSubMenu,
+      tabindex,
       title,
       toLocal,
     };
@@ -214,6 +220,7 @@ export default {
           countChildren: this.countChildren,
           label: this.label,
           labelWithoutFilter: this.labelWithoutFilter,
+          tabindex: this.tabindex,
         }) :
         this.item.to ?
           h(ATooltip, {
@@ -227,7 +234,7 @@ export default {
               a_menu__link_disabled: this.isLinkDisabled,
             }],
             to: this.toLocal,
-            tabindex: this.isPanelOpen ? 0 : -1,
+            tabindex: this.tabindex,
             onClick: this.clickLink,
           }, {
             default: () => ICON_AND_TEXT,
@@ -239,7 +246,7 @@ export default {
             class: "a_menu__link a_menu__link_btn a_menu__link__text_truncated",
             ariaLabel: "Untermenü öffnen",
             role: "button",
-            tabindex: this.isPanelOpen ? 0 : -1,
+            tabindex: this.tabindex,
             onClick: this.openSubMenu,
             onKeydown: this.onKeydown,
           }, [

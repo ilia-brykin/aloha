@@ -2,6 +2,7 @@ import {
   computed,
   getCurrentInstance,
   ref,
+  toRef,
   watch,
 } from "vue";
 
@@ -17,7 +18,11 @@ export default function AMenuPanelsAPI(props, {
   })),
   dataKeyById = computed(() => ({})),
   resetSearch = () => {},
+  isMenuMobile = ref(false),
+  toggleMenu = () => {},
 }) {
+  const isBodyFocusAfterClick = toRef(props, "isBodyFocusAfterClick");
+
   const APP = getCurrentInstance();
   const $router = APP.appContext.config.globalProperties.$router;
 
@@ -95,9 +100,25 @@ export default function AMenuPanelsAPI(props, {
     });
   };
 
+  const setFocusToBody = () => {
+    if (isBodyFocusAfterClick.value) {
+      if (!document.body.hasAttribute("tabindex")) {
+        document.body.setAttribute("tabindex", "-1");
+        document.body.focus();
+        document.body.removeAttribute("tabindex");
+      } else {
+        document.body.focus();
+      }
+    }
+  };
+
   const clickMenuLink = () => {
     isMenuLinkClicked.value = true;
     resetSearch();
+    setFocusToBody();
+    if (isMenuMobile.value) {
+      toggleMenu({ isOpen: false });
+    }
   };
 
   watch($router.currentRoute, () => {
