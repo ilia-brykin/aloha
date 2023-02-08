@@ -10,6 +10,7 @@ import {
   cloneDeep,
   filter,
   forEach,
+  last,
 } from "lodash-es";
 
 export default function ActionsAPI(props, { emit }) {
@@ -52,9 +53,24 @@ export default function ActionsAPI(props, { emit }) {
 
   const multipleActions = toRef(props, "multipleActions");
   const multipleActionsFiltered = computed(() => {
-    return filter(multipleActions.value, action => {
+    const ACTIONS_FILTERED = filter(multipleActions.value, action => {
       return !action.isHidden;
     });
+
+    const ACTIONS_DIVIDER_FILTERED = [];
+    forEach(ACTIONS_FILTERED, action => {
+      if (!action.isDivider ||
+            (ACTIONS_DIVIDER_FILTERED.length > 0 &&
+              !last(ACTIONS_DIVIDER_FILTERED).isDivider)) {
+        ACTIONS_DIVIDER_FILTERED.push(action);
+      }
+    });
+
+    if (last(ACTIONS_DIVIDER_FILTERED).isDivider) {
+      ACTIONS_DIVIDER_FILTERED.pop();
+    }
+
+    return ACTIONS_DIVIDER_FILTERED;
   });
 
   const isMultipleActionsFiltered = computed(() => {

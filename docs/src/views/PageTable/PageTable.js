@@ -130,12 +130,27 @@ export default {
       isLoadingOptions: false,
       rowActions: [
         {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
+        },
+        {
           label: "Click me",
           title: "Click me title",
           isHidden: false,
           callback: this.clickMe,
           class: "aloha",
           disabled: false,
+        },
+        {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
         },
         {
           isDivider: true,
@@ -154,8 +169,20 @@ export default {
           label: "Dokument herunterladen",
           target: "_blank",
         },
+        {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
+        },
       ],
       multipleActions: [
+        {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
+        },
         {
           label: "Aloha1",
           title: "Aloha1 Title",
@@ -171,7 +198,12 @@ export default {
         },
         {
           isDivider: true,
-          isHidden: true,
+        },
+        {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
         },
         {
           label: "Aloha1 modal",
@@ -181,6 +213,12 @@ export default {
           icon: "Plus",
           isHidden: false,
           isHiddenCallback: this.isHiddenMultiple,
+        },
+        {
+          isDivider: true,
+        },
+        {
+          isDivider: true,
         },
       ],
       tableActions: [

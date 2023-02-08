@@ -6,7 +6,9 @@ import {
 
 import {
   filter,
+  forEach,
   isFunction,
+  last,
 } from "lodash-es";
 
 export default function RowActionsAPI(props) {
@@ -30,7 +32,22 @@ export default function RowActionsAPI(props) {
   };
 
   const rowActionsFiltered = computed(() => {
-    return filter(rowActions.value, rowAction => isRowActionVisible({ rowAction }));
+    const ROW_ACTIONS_FILTERED = filter(rowActions.value, rowAction => isRowActionVisible({ rowAction }));
+
+    const ROW_ACTIONS_DIVIDER_FILTERED = [];
+    forEach(ROW_ACTIONS_FILTERED, action => {
+      if (!action.isDivider ||
+        (ROW_ACTIONS_DIVIDER_FILTERED.length > 0 &&
+          !last(ROW_ACTIONS_DIVIDER_FILTERED).isDivider)) {
+        ROW_ACTIONS_DIVIDER_FILTERED.push(action);
+      }
+    });
+
+    if (last(ROW_ACTIONS_DIVIDER_FILTERED).isDivider) {
+      ROW_ACTIONS_DIVIDER_FILTERED.pop();
+    }
+
+    return ROW_ACTIONS_DIVIDER_FILTERED;
   });
 
   const isRowActionsDropdownVisible = computed(() => {
