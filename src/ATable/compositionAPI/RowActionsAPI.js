@@ -43,7 +43,8 @@ export default function RowActionsAPI(props) {
       }
     });
 
-    if (last(ROW_ACTIONS_DIVIDER_FILTERED).isDivider) {
+    const LAST_ACTION = last(ROW_ACTIONS_DIVIDER_FILTERED);
+    if (LAST_ACTION && LAST_ACTION.isDivider) {
       ROW_ACTIONS_DIVIDER_FILTERED.pop();
     }
 

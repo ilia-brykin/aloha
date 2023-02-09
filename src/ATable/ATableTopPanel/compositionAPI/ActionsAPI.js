@@ -65,8 +65,8 @@ export default function ActionsAPI(props, { emit }) {
         ACTIONS_DIVIDER_FILTERED.push(action);
       }
     });
-
-    if (last(ACTIONS_DIVIDER_FILTERED).isDivider) {
+    const LAST_ACTION = last(ACTIONS_DIVIDER_FILTERED);
+    if (LAST_ACTION && LAST_ACTION.isDivider) {
       ACTIONS_DIVIDER_FILTERED.pop();
     }
 
