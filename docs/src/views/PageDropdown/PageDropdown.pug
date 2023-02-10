@@ -27,4 +27,22 @@ div
           href="#"
         ) Item 3
 
-  button.a_btn.a_btn_primary.a_ml_2 Test
+  a-dropdown.ml_3(
+    button-class="a_btn a_btn_primary"
+    :is-render-default="true"
+    :actions="dropdownActions"
+  )
+    template(
+      v-slot:button
+    )
+      span Weitere Aktionen
+
+  a-dropdown.ml_3(
+    button-class="a_btn a_btn_primary"
+    :is-render-default="true"
+  )
+    template(
+      v-slot:button
+    )
+      span Weitere Aktionen2
+
