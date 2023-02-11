@@ -250,6 +250,7 @@ export default {
           this.loadingClass,
         ],
       }),
+      this.$slots.buttonAppend && this.$slots.buttonAppend(),
     ]);
   },
 };

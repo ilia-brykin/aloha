@@ -1,8 +1,10 @@
 import {
-  h, onBeforeUnmount,
+  h,
+  onBeforeUnmount,
   Teleport,
 } from "vue";
 
+import AButton from "../AButton/AButton";
 import ADropdownAction from "./ADropdownAction/ADropdownAction";
 import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
@@ -22,6 +24,7 @@ import {
 
 export default {
   name: "ADropdown",
+  inheritAttrs: false,
   components: {
     ATranslation,
   },
@@ -41,6 +44,26 @@ export default {
       required: false,
       default: () => ({}),
     },
+    buttonText: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    buttonTextScreenReader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonTextAriaHidden: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    buttonTextClass: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     buttonClass: {
       type: [String, Object],
       required: false,
@@ -50,6 +73,76 @@ export default {
       type: String,
       required: false,
       default: "button",
+    },
+    buttonTitle: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonIsTitleHtml: {
+      type: Boolean,
+      required: false,
+    },
+    buttonTitlePlacement: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
+    },
+    buttonLoading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    buttonLoadingClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_spinner_small",
+    },
+    buttonLoadingAlign: {
+      type: String,
+      required: false,
+      default: "right",
+      validator: value => ["right", "left"].indexOf(value) !== -1,
+    },
+    buttonIcon: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonIconAlign: {
+      type: String,
+      required: false,
+      default: "left",
+      validator: value => ["right", "left"].indexOf(value) !== -1,
+    },
+    buttonIconClass: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonIconAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    buttonIconTag: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonPrevent: {
+      type: Boolean,
+      required: false,
+    },
+    buttonStop: {
+      type: Boolean,
+      required: false,
+    },
+    extraTranslate: {
+      type: Object,
+      required: false,
+      default: undefined,
     },
     classForTooltipInner: {
       type: [String, Object],
@@ -161,6 +254,8 @@ export default {
     });
 
     const {
+      idLocal,
+      buttonAttributesDisabled,
       buttonAttributesLocal,
       dropdownAttributesLocal,
       isMenuRendered,
@@ -183,13 +278,18 @@ export default {
 
     return {
       actionsFiltered,
+      buttonAttributesDisabled,
       buttonAttributesLocal,
       buttonWidth,
       dropdownAttributesLocal,
       dropdownButtonRef,
       dropdownRef,
       hasActions,
+      idLocal,
       isMenuRendered,
+      onToggle,
+      onKeydown,
+      statusExpanded,
     };
   },
   render() {
@@ -198,39 +298,65 @@ export default {
       !this.$slots.dropdown) {
       return "";
     }
-    return h(
-      this.tag,
-      {
-        class: "a_dropdown",
-      },
-      [
-        h(this.buttonTag, this.buttonAttributesLocal, [
-          this.$slots.button && this.$slots.button(),
-          this.isCaret && h(AIcon, {
+    return [
+      h(AButton, {
+        ref: "dropdownButtonRef",
+        ...this.$attrs,
+        id: this.idLocal,
+        tag: this.buttonTag,
+        class: this.buttonClass,
+        text: this.buttonText,
+        textScreenReader: this.buttonTextScreenReader,
+        textAriaHidden: this.buttonTextAriaHidden,
+        textClass: this.buttonTextClass,
+        title: this.buttonTitle,
+        isTitleHtml: this.buttonIsTitleHtml,
+        titlePlacement: this.buttonTitlePlacement,
+        loading: this.buttonLoading,
+        loadingClass: this.buttonLoadingClass,
+        loadingAlign: this.buttonLoadingAlign,
+        icon: this.buttonIcon,
+        iconAlign: this.buttonIconAlign,
+        iconClass: this.buttonIconClass,
+        iconAttributes: this.buttonIconAttributes,
+        iconTag: this.buttonIconTag,
+        prevent: this.buttonPrevent,
+        stop: this.buttonStop,
+        extraTranslate: this.extraTranslate,
+        attributes: this.buttonAttributesLocal,
+        ...this.buttonAttributesDisabled,
+        onClick: this.onToggle,
+        onKeydown: this.onKeydown,
+      }, {
+        default: () => {
+          return this.$slots.button && this.$slots.button();
+        },
+        buttonAppend: () => {
+          return this.isCaret && h(AIcon, {
             class: "a_dropdown__caret",
             icon: "ChevronDown",
-          }),
+          });
+        },
+      }),
+      h(Teleport, {
+        to: "body",
+      }, [
+        this.isMenuRendered && h("div", null, [
+          h(
+            this.dropdownTag,
+            this.dropdownAttributesLocal,
+            [
+              this.$slots.dropdown && this.$slots.dropdown(),
+              this.hasActions && this.actionsFiltered.map((action, actionIndex) => {
+                return h(ADropdownAction, {
+                  key: actionIndex,
+                  action,
+                }, this.$slots);
+              }),
+            ],
+          ),
         ]),
-        h(Teleport, {
-          to: "body",
-        }, [
-          this.isMenuRendered && h("div", null, [
-            h(
-              this.dropdownTag,
-              this.dropdownAttributesLocal,
-              [
-                this.$slots.dropdown && this.$slots.dropdown(),
-                this.hasActions && this.actionsFiltered.map((action, actionIndex) => {
-                  return h(ADropdownAction, {
-                    key: actionIndex,
-                    action,
-                  }, this.$slots);
-                }),
-              ],
-            ),
-          ]),
-        ]),
-      ],
-    );
+      ]),
+    ];
   },
 };
