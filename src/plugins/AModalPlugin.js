@@ -17,6 +17,7 @@ export const modalPluginOptions = ref({
     saveButtonClass: "a_btn a_btn_primary",
     saveButtonText: "Speichern",
     selectorClose: undefined,
+    selectorCloseIds: undefined,
     size: undefined,
     textRequired: undefined,
     withoutEscape: false,

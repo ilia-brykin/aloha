@@ -17,6 +17,7 @@ import {
 } from "../const/AFocusableElements";
 import {
   filter,
+  isArray,
   isString,
   forEach,
   isFunction,
@@ -159,6 +160,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.selectorClose,
     },
+    selectorCloseIds: {
+      type: [String, Array],
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.selectorCloseIds,
+    },
     size: {
       type: String,
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
@@ -240,6 +246,28 @@ export default {
     isDataForm() {
       return this.dataForm.length > 0;
     },
+
+    selectorsCloseAll() {
+      const ALL_SELECTORS = [];
+      if (this.selectorCloseIds) {
+        if (isString(this.selectorCloseIds)) {
+          ALL_SELECTORS.push(`#${ this.selectorCloseIds }`);
+        } else if (isArray(this.selectorCloseIds)) {
+          forEach(this.selectorCloseIds, selectorCloseId => {
+            ALL_SELECTORS.push(`#${ selectorCloseId }`);
+          });
+        }
+      }
+      if (this.selectorClose) {
+        if (isString(this.selectorClose)) {
+          ALL_SELECTORS.push(this.selectorClose);
+        } else if (isArray(this.selectorClose)) {
+          ALL_SELECTORS.push(...this.selectorClose);
+        }
+      }
+
+      return ALL_SELECTORS;
+    }
   },
   watch: {
     isModalHidden() {
@@ -370,21 +398,18 @@ export default {
     },
 
     onFocusByDestroy() {
-      if (!this.selectorClose) {
+      if (!this.selectorsCloseAll.length) {
         return;
       }
-      const SELECTOR_CLOSE = this.selectorClose;
+
+
       setTimeout(() => {
-        if (isString(SELECTOR_CLOSE)) {
-          this.onFocusByDestroyForSelector({ selector: SELECTOR_CLOSE });
-        } else {
-          forEach(SELECTOR_CLOSE, selector => {
-            const STATUS_SUCCESS = this.onFocusByDestroyForSelector({ selector });
-            if (STATUS_SUCCESS) {
-              return false;
-            }
-          });
-        }
+        forEach(this.selectorsCloseAll, selector => {
+          const STATUS_SUCCESS = this.onFocusByDestroyForSelector({ selector });
+          if (STATUS_SUCCESS) {
+            return false;
+          }
+        });
       }, 300);
     },
 
