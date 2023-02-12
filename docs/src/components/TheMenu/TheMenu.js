@@ -213,6 +213,14 @@ export default {
           icon: "Cog",
         },
         {
+          id: "GroupButtonDropdown",
+          label: "GroupButtonDropdown",
+          to: {
+            name: "PageGroupButtonDropdown",
+          },
+          icon: "Cog",
+        },
+        {
           id: "tabs",
           label: "Tabs",
           to: {

@@ -3,7 +3,8 @@ import { createApp } from "vue";
 import store from "./store/index";
 import router from "./router/index";
 import AI18nPlugin from "../../src/plugins/AI18nPlugin";
-// import alohaPlugin from "../src/plugins/alohaPlugin";
+import AMobilePlugin from "../../src/plugins/AMobilePlugin";
+import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
 import AIconPlugin from "../../src/plugins/AIconPlugin";
 import AModalPlugin from "../../src/plugins/AModalPlugin";
 import mainIcons from "./mainIcons";
@@ -28,14 +29,21 @@ const TRANSLATIONS = {
 };
 APP.use(AI18nPlugin, TRANSLATIONS, "de");
 APP.use(AIconPlugin, mainIcons);
+APP.use(AMobilePlugin, {
+  breakpoint: 991,
+});
 APP.use(AModalPlugin, {
   propsDefault: {
     closeButtonClass: "a_btn a_btn_link",
   },
 });
-// APP.use(alohaPlugin, {
-//   framework: "bootstrap",
-// });
+APP.use(AGroupButtonDropdownPlugin, {
+  propsDefault: {
+    dropdownAttributes: {
+      buttonText: "Weitere Aktionen",
+    },
+  },
+});
 APP.config.unwrapInjectedRef = true;
 APP.directive("SafeHtml", ASafeHtml);
 APP.use(store).use(router).mount("#app");

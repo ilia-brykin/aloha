@@ -19,3 +19,11 @@
 @import "components/AButton";
 @import "components/ALink";
 @import "components/AWizard";
+@import "components/AGroupButtonDropdown";
+
+.a_dropdown__caret {
+  margin: 0;
+}
+* + .a_dropdown__caret {
+  margin-left: 0.5rem;
+}
