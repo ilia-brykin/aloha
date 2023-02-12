@@ -1,3 +1,4 @@
+import AButton from "../../../../src/AButton/AButton";
 import AModal from "../../../../src/AModal/AModal";
 
 import AConfirmAPI from "../../../../src/compositionAPI/AConfirmAPI";
@@ -5,6 +6,7 @@ import AConfirmAPI from "../../../../src/compositionAPI/AConfirmAPI";
 export default {
   name: "PageModal",
   components: {
+    AButton,
     AModal,
   },
   setup() {

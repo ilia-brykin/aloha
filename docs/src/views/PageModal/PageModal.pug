@@ -1,10 +1,13 @@
 div
   h1 AModal
-  button.a_btn.a_btn_primary(
+  a-button.a_btn.a_btn_primary(
     id="btn_modal"
     type="button"
+    text="Open Modal"
+    icon="Cog"
+    :loading="true"
     @click="openModal"
-  ) Open Modal
+  )
 
   a-modal(
     v-if="isModalOpen"

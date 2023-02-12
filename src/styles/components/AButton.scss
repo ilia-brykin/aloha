@@ -1,11 +1,6 @@
 .aloha_btn {
   position: relative;
-}
-.aloha_btn__spinner_left,
-.aloha_btn__icon_left {
-  margin-right: .5rem;
-}
-.aloha_btn__spinner_right,
-.aloha_btn__icon_right {
-  margin-left: .5rem;
+  & > * + * {
+    margin-left: .5rem;
+  }
 }
