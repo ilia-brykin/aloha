@@ -16,12 +16,13 @@ import {
   focusableSelector
 } from "../const/AFocusableElements";
 import {
+  cloneDeep,
   filter,
-  isArray,
-  isString,
   forEach,
-  isFunction,
   get,
+  isArray,
+  isFunction,
+  isString,
 } from "lodash-es";
 
 // @vue/component
@@ -401,10 +402,10 @@ export default {
       if (!this.selectorsCloseAll.length) {
         return;
       }
-
+      const SELECTOR_CLOSE_ALL = cloneDeep(this.selectorsCloseAll);
 
       setTimeout(() => {
-        forEach(this.selectorsCloseAll, selector => {
+        forEach(SELECTOR_CLOSE_ALL, selector => {
           const STATUS_SUCCESS = this.onFocusByDestroyForSelector({ selector });
           if (STATUS_SUCCESS) {
             return false;
