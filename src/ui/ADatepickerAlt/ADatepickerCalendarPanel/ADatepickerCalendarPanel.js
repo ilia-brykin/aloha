@@ -435,10 +435,10 @@ export default {
 
     getSibling() {
       const PANELS = [
-        this.$parent.$refs.calendarPanelRef,
+        this.$parent.$refs.calendarPanel,
       ];
-      if (this.$parent.$refs.calendarPanel2Ref) {
-        PANELS.push(this.$parent.$refs.calendarPanel2Ref);
+      if (this.$parent.$refs.calendarPanel2) {
+        PANELS.push(this.$parent.$refs.calendarPanel2);
       }
       const calendars = PANELS.filter(
         v => v.$options.name === this.$options.name

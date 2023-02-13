@@ -74,3 +74,25 @@ export function parseDate(value, format, formatSave) {
     return null;
   }
 }
+
+export function throttle(action, delay) {
+  let lastRun = 0;
+  let timeout = null;
+  return function() {
+    if (timeout) {
+      return;
+    }
+    const args = arguments;
+    const elapsed = Date.now() - lastRun;
+    const callBack = () => {
+      lastRun = Date.now();
+      timeout = null;
+      action.apply(this, args);
+    };
+    if (elapsed >= delay) {
+      callBack();
+    } else {
+      timeout = setTimeout(callBack, delay);
+    }
+  };
+}

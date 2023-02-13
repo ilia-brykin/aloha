@@ -20,12 +20,6 @@ export default {
         disabled: false,
       },
       {
-        type: "divider",
-      },
-      {
-        type: "divider",
-      },
-      {
         text: "Actions 2",
         type: "button",
         callback: () => {},
@@ -34,6 +28,7 @@ export default {
         type: "link",
         text: "Link 1",
         href: "#",
+        isHidden: true,
       },
       {
         type: "divider",
@@ -42,6 +37,10 @@ export default {
         type: "link",
         text: "Link 2",
         href: "#",
+        isHidden: true,
+      },
+      {
+        type: "divider",
       },
     ];
 
