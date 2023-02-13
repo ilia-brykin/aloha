@@ -18,6 +18,7 @@ import ASafeHtml from "../../directives/ASafeHtml";
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
 
+import ResizeClass from "./compositionAPI/ResizeClass";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
@@ -53,6 +54,12 @@ export default {
       required: false,
       default: "",
     },
+    resize: {
+      type: String,
+      required: false,
+      default: "v",
+      validator: value => ["v", "h", "none", "auto"].indexOf(value) !== -1,
+    },
   },
   setup(props, context) {
     const {
@@ -76,6 +83,10 @@ export default {
     } = UiClearButtonAPI(props, {
       isModel,
     });
+
+    const {
+      resizeClass,
+    } = ResizeClass(props);
 
     const isAutosizeStarted = ref(undefined);
 
@@ -138,23 +149,21 @@ export default {
     });
 
     return {
-      componentStyleHide,
-
       ariaDescribedbyLocal,
       changeModel,
+      clearModel,
+      componentStyleHide,
       errorsId,
       helpTextId,
       htmlIdLocal,
+      isAutosizeStarted,
+      isClearButtonLocal,
       isErrors,
       isModel,
       onBlur,
       onFocus,
-
-      isClearButtonLocal,
-
-      clearModel,
-      isAutosizeStarted,
       onInput,
+      resizeClass,
       rowsLocal,
       textareaRef,
     };
@@ -192,6 +201,7 @@ export default {
                 a_form_element_with_btn_close: this.isClearButton,
                 a_form_control_invalid: this.isErrors,
               },
+              this.resizeClass,
             ],
             disabled: this.disabled,
             ariaRequired: this.required,
