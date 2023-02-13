@@ -1,6 +1,6 @@
 .aloha_btn {
   position: relative;
-  & > * + * {
+  & > :not(.aloha_btn__hidden) + * {
     margin-left: .5rem;
   }
 }

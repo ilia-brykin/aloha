@@ -198,8 +198,14 @@ export default {
     }, [
       this.isTitleVisible && h("span", {
         ariaHidden: true,
-        class: "a_position_absolute_all",
+        class: "a_position_absolute_all aloha_btn__hidden",
         title: this.title,
+      }),
+      this.isTextScreenReaderVisible && h(ATranslation, {
+        class: "a_sr_only aloha_btn__hidden",
+        tag: "span",
+        html: this.textScreenReader,
+        extra: this.extraTranslate,
       }),
       this.isLoadingLeft && h(ASpinner, {
         class: [
@@ -211,10 +217,8 @@ export default {
         icon: this.icon,
         iconTag: this.iconTag,
         class: [
+          "aloha_btn__icon_left",
           this.iconClass,
-          {
-            aloha_btn__icon_left: this.isTextVisible || this.$slots.default,
-          },
         ],
         ...this.iconAttributes,
       }),
@@ -226,21 +230,12 @@ export default {
         extra: this.extraTranslate,
         ariaHidden: this.textAriaHidden,
       }),
-      this.isTextScreenReaderVisible && h(ATranslation, {
-        class: "a_sr_only",
-        tag: "span",
-        html: this.textScreenReader,
-        extra: this.extraTranslate,
-      }),
       this.isIconRight && h(AIcon, {
         icon: this.icon,
         iconTag: this.iconTag,
         class: [
           "aloha_btn__icon_right",
           this.iconClass,
-          {
-            aloha_btn__icon_right: this.isTextVisible || this.$slots.default,
-          },
         ],
         ...this.iconAttributes,
       }),
