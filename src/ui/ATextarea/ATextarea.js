@@ -186,7 +186,7 @@ export default {
           isLabelFloat: this.isLabelFloat,
         }),
         h("div", {
-          class: "a_form_element",
+          class: "a_form_element a_form_element_textarea",
         }, [
           h("textarea", {
             ref: "textareaRef",

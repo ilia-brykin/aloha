@@ -57,6 +57,13 @@ export default {
     data() {
       return [
         {
+          type: "textarea",
+          label: "Aloha tiny",
+          id: "aloha_textarea",
+          classColumn: "a_column a_column_8",
+          required: true,
+        },
+        {
           type: "tinymce",
           label: "Aloha tiny",
           id: "aloha_tiny",
