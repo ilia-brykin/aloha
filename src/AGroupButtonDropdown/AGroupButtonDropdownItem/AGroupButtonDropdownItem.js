@@ -65,7 +65,10 @@ export default {
             });
           }
           if (action.type === "link") {
-            return h(ALink, action);
+            return h(ALink, {
+              class: this.actionsClasses[action.actionNotDividerIndex],
+              ...action
+            });
           }
           if (action.type === "template" &&
             action.slotName &&

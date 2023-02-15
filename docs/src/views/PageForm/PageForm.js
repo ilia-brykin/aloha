@@ -9,6 +9,7 @@ export default {
     return {
       model: {
         alohadate: "2023-01-10",
+        aloha_textarea: "dsffd",
       },
       selectData: [
         {
@@ -62,6 +63,7 @@ export default {
           id: "aloha_textarea",
           classColumn: "a_column a_column_8",
           required: true,
+          disabled: true,
         },
         {
           type: "tinymce",
