@@ -10,6 +10,8 @@ export const groupButtonDropdownPluginOptions = ref({
     indexFirstDropdownAction: 1,
     indexFirstDropdownActionMobile: 0,
     minDropdownActions: 2,
+    useActionClass: true,
+    useDropdownActionClass: false,
   },
 });
 export default {

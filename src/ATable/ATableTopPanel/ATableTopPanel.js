@@ -4,10 +4,10 @@ import {
 
 import AButton from "../../AButton/AButton";
 import ADropdown from "../../ADropdown/ADropdown";
+import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdown";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../../ui/AInput/AInput";
 import ARadio from "../../ui/ARadio/ARadio";
-import ATableActionItem from "../ATableActionItem/ATableActionItem";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ActionsAPI from "./compositionAPI/ActionsAPI";
@@ -55,6 +55,16 @@ export default {
     tableActions: {
       type: Array,
       required: true,
+    },
+    tableActionsIndexFirstDropdownAction: {
+      type: Number,
+      required: false,
+      default: -1,
+    },
+    tableActionsIndexFirstDropdownActionMobile: {
+      type: Number,
+      required: false,
+      default: 0,
     },
     multipleActions: {
       type: Array,
@@ -122,7 +132,7 @@ export default {
       onCancelMultipleActions,
       onClickMultipleActions,
       onOpenModalMultipleActions,
-      tableActionFiltered,
+      tableActionsFiltered,
     } = ActionsAPI(props, context);
 
     const {
@@ -146,7 +156,7 @@ export default {
       onCancelMultipleActions,
       onClickMultipleActions,
       onOpenModalMultipleActions,
-      tableActionFiltered,
+      tableActionsFiltered,
       textMultipleBtnAllRowsTranslate,
       textMultipleSelectedTranslateExtra,
       toggleBtnAllRows,
@@ -186,15 +196,18 @@ export default {
         h("div", {
           class: "a_table__top_panel__actions",
         }, [
-          this.$slots.tableActionsStart && this.$slots.tableActionsStart({
+          this.$slots.tableActionsPrepend && this.$slots.tableActionsPrepend({
             isMultipleActionsActive: this.isMultipleActionsActive,
             modelView: this.modelView,
           }),
-          this.tableActionFiltered.map(action => {
-            return h(ATableActionItem, {
-              action,
-              disabled: this.isMultipleActionsActive,
-            });
+          h(AGroupButtonDropdown, {
+            actions: this.tableActionsFiltered,
+            useActionClass: true,
+            useDropdownActionClass: false,
+            actionsClasses: [],
+            disabled: this.isMultipleActionsActive,
+            indexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
+            indexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
           }),
           this.isMultipleActionsFiltered && h(ADropdown, {
             id: this.buttonMultipleId,
@@ -288,7 +301,7 @@ export default {
             }),
           ]),
         ]),
-        this.$slots.tableActionsEnd && this.$slots.tableActionsEnd({
+        this.$slots.tableActionsAppend && this.$slots.tableActionsAppend({
           isMultipleActionsActive: this.isMultipleActionsActive,
           modelView: this.modelView,
         }),

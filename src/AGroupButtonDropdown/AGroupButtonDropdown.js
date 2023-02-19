@@ -22,6 +22,10 @@ export default {
       required: false,
       default: () => groupButtonDropdownPluginOptions.value.propsDefault.actionsClasses,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
     dropdownAttributes: {
       type: Object,
       required: false,
@@ -36,19 +40,29 @@ export default {
       type: Number,
       required: false,
       default: () => groupButtonDropdownPluginOptions.value.propsDefault.indexFirstDropdownAction,
-      validator: value => value > -1,
+      validator: value => value >= -1,
     },
     indexFirstDropdownActionMobile: {
       type: Number,
       required: false,
       default: () => groupButtonDropdownPluginOptions.value.propsDefault.indexFirstDropdownActionMobile,
-      validator: value => value > -1,
+      validator: value => value >= -1,
     },
     minDropdownActions: {
       type: Number,
       required: false,
       default: () => groupButtonDropdownPluginOptions.value.propsDefault.minDropdownActions,
     },
+    useActionClass: {
+      type: Boolean,
+      required: false,
+      default: () => groupButtonDropdownPluginOptions.value.propsDefault.useActionClass,
+    },
+    useDropdownActionClass: {
+      type: Boolean,
+      required: false,
+      default: () => groupButtonDropdownPluginOptions.value.propsDefault.useDropdownActionClass,
+    }
   },
   setup(props) {
     const {
@@ -71,12 +85,15 @@ export default {
         ...this.actionsGrouped.buttons.map((item, itemIndex) => {
           return h(AGroupButtonDropdownItem, {
             data: item,
+            disabled: this.disabled,
             actionsDropdown: this.actionsGrouped.dropdown,
             hasDropdownActions: this.hasDropdownActions,
             dropdownAttributes: this.dropdownAttributes,
             actionsClasses: this.actionsClasses,
             isLast: itemIndex === this.actionsGrouped.buttons.length - 1,
             hasDividerBeforeDropdown: this.hasDividerBeforeDropdown,
+            useActionClass: this.useActionClass,
+            useDropdownActionClass: this.useDropdownActionClass,
           }, this.$slots);
         }),
       ]);

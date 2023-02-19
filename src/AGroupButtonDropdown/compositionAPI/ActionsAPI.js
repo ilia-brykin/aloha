@@ -86,6 +86,7 @@ export default function ActionsAPI(props) {
         } else {
           last(ACTIONS_GROUPED.buttons).children.push(action);
         }
+        isPreviousActionDivider = false;
       } else {
         isPreviousActionDivider = true;
       }

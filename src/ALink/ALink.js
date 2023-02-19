@@ -241,7 +241,7 @@ export default {
           },
         ],
         ariaDisabled: this.disabled,
-      }, CHILDREN);
+      }, () => CHILDREN);
     }
   },
 };

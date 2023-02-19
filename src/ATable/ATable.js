@@ -261,6 +261,16 @@ export default {
       required: false,
       default: undefined,
     },
+    tableActionsIndexFirstDropdownAction: {
+      type: Number,
+      required: false,
+      default: -1,
+    },
+    tableActionsIndexFirstDropdownActionMobile: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
   },
   emits: [
     "changeColumnsOrdering",
@@ -662,6 +672,8 @@ export default {
             hasViews: this.hasViews,
             viewCurrent: this.viewCurrent,
             modelView: this.modelView,
+            tableActionsIndexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
+            tableActionsIndexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
             onUpdateViewCurrent: this.updateViewCurrent,
             onUpdateModelQuickSearch: this.updateModelQuickSearch,
             onToggleMultipleActionsActive: this.toggleMultipleActionsActive,

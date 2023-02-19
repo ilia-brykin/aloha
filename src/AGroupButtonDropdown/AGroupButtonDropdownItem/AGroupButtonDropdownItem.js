@@ -11,33 +11,45 @@ import DropdownAPI from "./compositionAPI/DropdownAPI";
 export default {
   name: "AGroupButtonDropdownItem",
   props: {
-    data: {
-      type: Object,
+    actionsClasses: {
+      type: Array,
       required: true,
     },
     actionsDropdown: {
       type: Array,
       required: true,
     },
-    hasDropdownActions: {
-      type: Boolean,
+    data: {
+      type: Object,
       required: true,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
     },
     dropdownAttributes: {
       type: Object,
+      required: true,
+    },
+    hasDividerBeforeDropdown: {
+      type: Boolean,
+      required: true,
+    },
+    hasDropdownActions: {
+      type: Boolean,
       required: true,
     },
     isLast: {
       type: Boolean,
       required: true,
     },
-    actionsClasses: {
-      type: Array,
-      required: true,
-    },
-    hasDividerBeforeDropdown: {
+    useActionClass: {
       type: Boolean,
-      required: true,
+      required: false,
+    },
+    useDropdownActionClass: {
+      type: Boolean,
+      required: false,
     },
   },
   setup(props) {
@@ -57,23 +69,28 @@ export default {
         class: "a_btn_group",
       }, [
         ...this.data.children.map(action => {
+          const CLASS = this.useActionClass && action.class ? action.class : this.actionsClasses[action.actionNotDividerIndex];
+          const DISABLED = this.disabled || action.disabled;
           if (action.type === "button") {
             return h(AButton, {
-              class: this.actionsClasses[action.actionNotDividerIndex],
               ...action,
+              class: CLASS,
+              disabled: DISABLED,
               onClick: action.callback,
             });
           }
           if (action.type === "link") {
             return h(ALink, {
-              class: this.actionsClasses[action.actionNotDividerIndex],
-              ...action
+              ...action,
+              disabled: DISABLED,
+              class: CLASS,
             });
           }
           if (action.type === "template" &&
             action.slotName &&
             this.$slots[action.slotName]) {
             return this.$slots[action.slotName]({
+              class: CLASS,
               action: action,
             });
           }
@@ -81,12 +98,14 @@ export default {
         this.isDropdownActionsInGroup && h(ADropdown, {
           isHideWithoutActionAndSlot: true,
           actions: this.actionsDropdown,
+          useActionClass: this.useDropdownActionClass,
           ...this.dropdownAttributes,
         }, this.$slots),
       ]),
       this.isDropdownActionsAfterGroup && h(ADropdown, {
         isHideWithoutActionAndSlot: true,
         actions: this.actionsDropdown,
+        useActionClass: this.useDropdownActionClass,
         ...this.dropdownAttributes,
       }, this.$slots),
     ];

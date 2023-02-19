@@ -29,21 +29,18 @@ export default function ActionsAPI(props, { emit }) {
     return `${ tableId.value }_btn_multiple`;
   });
 
-  const tableActionFiltered = computed(() => {
+  const tableActionsFiltered = computed(() => {
     const TABLE_ACTIONS = [];
     forEach(cloneDeep(tableActions.value), action => {
       if (action.isHidden) {
         return;
       }
-      if (action.type === "dropdown") {
-        if (!action.children || !action.children.length) {
-          return;
-        }
-        const CHILDREN = filter(action.children, item => !item.isHidden);
-        if (!CHILDREN.length) {
-          return;
-        }
-        action.children = CHILDREN;
+      if (action.type === "button") {
+        const CALLBACK_DEFAULT = action.callback;
+        action.callback = () => CALLBACK_DEFAULT({
+          id: action.id,
+          action,
+        });
       }
       TABLE_ACTIONS.push(action);
     });
@@ -127,6 +124,6 @@ export default function ActionsAPI(props, { emit }) {
     onCancelMultipleActions,
     onClickMultipleActions,
     onOpenModalMultipleActions,
-    tableActionFiltered,
+    tableActionsFiltered,
   };
 }

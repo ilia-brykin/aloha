@@ -5,6 +5,8 @@ import {
 import AButton from "../../AButton/AButton";
 import ALink from "../../ALink/ALink";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
+
 export default {
   name: "ADropdownAction",
   props: {
@@ -12,6 +14,19 @@ export default {
       type: Object,
       required: true,
     },
+    useActionClass: {
+      type: Boolean,
+      required: false,
+    },
+  },
+  setup(props) {
+    const {
+      attributesAction,
+    } = AttributesAPI(props);
+
+    return {
+      attributesAction,
+    };
   },
   render() {
     if (this.action.type === "button") {
@@ -19,8 +34,7 @@ export default {
         class: this.action.liClass,
       }, [
         h(AButton, {
-          class: "a_dropdown__item",
-          ...this.action,
+          ...this.attributesAction,
           onClick: this.action.callback,
         }),
       ]);
@@ -37,10 +51,7 @@ export default {
       return h("li", {
         class: this.action.liClass,
       }, [
-        h(ALink, {
-          class: "a_dropdown__item",
-          ...this.action,
-        })
+        h(ALink, this.attributesAction),
       ]);
     }
     if (this.action.type === "template" &&

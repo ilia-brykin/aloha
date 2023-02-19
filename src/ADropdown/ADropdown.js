@@ -217,6 +217,11 @@ export default {
       required: false,
       default: "div",
     },
+    useActionClass: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   setup(props) {
     const {
@@ -351,6 +356,7 @@ export default {
                 return h(ADropdownAction, {
                   key: actionIndex,
                   action,
+                  useActionClass: this.useActionClass,
                 }, this.$slots);
               }),
             ],
