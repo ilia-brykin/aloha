@@ -7,7 +7,6 @@ import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ClickAPI from "./comositionAPI/ClickAPI";
-import IconAPI from "./comositionAPI/IconAPI";
 import LoadingAPI from "./comositionAPI/LoadingAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
@@ -82,16 +81,15 @@ export default {
       default: "right",
       validator: value => ["right", "left"].indexOf(value) !== -1,
     },
-    icon: {
+    iconLeft: {
       type: String,
       required: false,
       default: undefined,
     },
-    iconAlign: {
+    iconRight: {
       type: String,
       required: false,
-      default: "left",
-      validator: value => ["right", "left"].indexOf(value) !== -1,
+      default: undefined,
     },
     iconClass: {
       type: String,
@@ -156,11 +154,6 @@ export default {
     } = LoadingAPI(props);
 
     const {
-      isIconLeft,
-      isIconRight,
-    } = IconAPI(props);
-
-    const {
       isTextScreenReaderVisible,
       isTextVisible,
     } = TextAPI(props);
@@ -170,8 +163,6 @@ export default {
     } = ClickAPI(props, context);
 
     return {
-      isIconLeft,
-      isIconRight,
       isLoadingLeft,
       isLoadingRight,
       isTextScreenReaderVisible,
@@ -213,8 +204,8 @@ export default {
           this.loadingClass,
         ],
       }),
-      this.isIconLeft && h(AIcon, {
-        icon: this.icon,
+      this.iconLeft && h(AIcon, {
+        icon: this.iconLeft,
         iconTag: this.iconTag,
         class: [
           "aloha_btn__icon_left",
@@ -230,8 +221,8 @@ export default {
         extra: this.extraTranslate,
         ariaHidden: this.textAriaHidden,
       }),
-      this.isIconRight && h(AIcon, {
-        icon: this.icon,
+      this.iconRight && h(AIcon, {
+        icon: this.iconRight,
         iconTag: this.iconTag,
         class: [
           "aloha_btn__icon_right",
