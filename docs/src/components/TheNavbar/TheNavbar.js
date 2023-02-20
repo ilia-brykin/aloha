@@ -32,12 +32,20 @@ export default {
           value: "hr",
         },
         {
-          label: "Francais",
+          label: "Français",
           value: "fr",
         },
         {
-          label: "arabisch",
+          label: "عربي",
           value: "ar",
+        },
+        {
+          label: "español",
+          value: "es",
+        },
+        {
+          label: "Italiano",
+          value: "it",
         },
       ],
     };

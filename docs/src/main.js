@@ -16,6 +16,8 @@ import hr from "./i18n/hr.json";
 import ru from "./i18n/ru.json";
 import ar from "./i18n/ar.json";
 import fr from "./i18n/fr.json";
+import es from "./i18n/es.json";
+import it from "./i18n/it.json";
 
 import deGlobal from "../src/i18n/de.json";
 import enGlobal from "../src/i18n/en.json";
@@ -23,6 +25,8 @@ import hrGlobal from "../src/i18n/hr.json";
 import ruGlobal from "../src/i18n/ru.json";
 import arGlobal from "../src/i18n/ar.json";
 import frGlobal from "../src/i18n/fr.json";
+import esGlobal from "../src/i18n/es.json";
+import itGlobal from "../src/i18n/it.json";
 
 const APP = createApp(App);
 const TRANSLATIONS = {
@@ -32,6 +36,8 @@ const TRANSLATIONS = {
   ru: { ...ruGlobal, ...ru },
   fr: { ...frGlobal, ...fr },
   ar: { ...arGlobal, ...ar },
+  es: { ...esGlobal, ...es },
+  it: { ...itGlobal, ...it },
 };
 APP.use(AI18nPlugin, TRANSLATIONS, "de");
 APP.use(AIconPlugin, mainIcons);
