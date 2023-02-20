@@ -17,6 +17,7 @@ const BASE_URL = ref("/api/");
 const API = ref(axios.create());
 const API_SAVED = ref({});
 const ERROR_CALLBACKS = ref({});
+const HEADER_PARAMS = ref({});
 
 export function create({ axiosCreateOptions = {} }) {
   API.value = axios.create(axiosCreateOptions);
@@ -28,6 +29,10 @@ export function setBaseUrl({ baseUrl = "" }) {
 
 export function setErrorCallbacks({ errorCallbacks = {} }) {
   ERROR_CALLBACKS.value = errorCallbacks;
+}
+
+export function setHeaderParams({ headerParams = {} } = {}) {
+  HEADER_PARAMS.value = headerParams;
 }
 
 export default function AHttpAPI() {
@@ -205,7 +210,7 @@ export function callHttpRequestAndCheckSavedApi({
   url,
   urlParams,
   data,
-  headerParams,
+  headerParams = {},
   responseType = "json",
   apiSaveId,
   keyId,
@@ -240,11 +245,15 @@ export function callHttpRequestAndCheckSavedApi({
     const URL_NEW = setUrlWithParams({ url, params: urlParams });
     let url_full = `${ BASE_URL.value }${ URL_NEW }`;
     url_full = url_full.replace(/\/\//g, "/");
+    const HEADER_PARAMS_LOCAL = {
+      ...HEADER_PARAMS,
+      ...headerParams,
+    };
     API.value({
       method: methodHttp,
       url: url_full,
       data,
-      headers: headerParams,
+      headers: HEADER_PARAMS_LOCAL,
       responseType,
     }).then(
       response => {
