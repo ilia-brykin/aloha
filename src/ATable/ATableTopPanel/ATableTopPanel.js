@@ -202,6 +202,7 @@ export default {
             disabled: this.isMultipleActionsActive,
             indexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
             indexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
+            minDropdownActions: 0,
             dropdownAttributes: {
               buttonText: "Aktionen",
               buttonClass: "a_btn a_btn_secondary a_table__action",
@@ -216,6 +217,7 @@ export default {
             disabled: this.isMultipleActionsActive,
             indexFirstDropdownAction: 0,
             indexFirstDropdownActionMobile: 0,
+            minDropdownActions: 0,
             dropdownAttributes: {
               id: this.buttonMultipleId,
               buttonText: "Mehrfachaktionen",
