@@ -246,7 +246,7 @@ export function callHttpRequestAndCheckSavedApi({
     let url_full = `${ BASE_URL.value }${ URL_NEW }`;
     url_full = url_full.replace(/\/\//g, "/");
     const HEADER_PARAMS_LOCAL = {
-      ...HEADER_PARAMS,
+      ...HEADER_PARAMS.value,
       ...headerParams,
     };
     API.value({
