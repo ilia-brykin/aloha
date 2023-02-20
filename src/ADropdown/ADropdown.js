@@ -105,16 +105,15 @@ export default {
       default: "right",
       validator: value => ["right", "left"].indexOf(value) !== -1,
     },
-    buttonIcon: {
+    buttonIconLeft: {
       type: String,
       required: false,
       default: undefined,
     },
-    buttonIconAlign: {
+    buttonIconRight: {
       type: String,
       required: false,
-      default: "left",
-      validator: value => ["right", "left"].indexOf(value) !== -1,
+      default: undefined,
     },
     buttonIconClass: {
       type: String,
@@ -320,8 +319,8 @@ export default {
         loading: this.buttonLoading,
         loadingClass: this.buttonLoadingClass,
         loadingAlign: this.buttonLoadingAlign,
-        icon: this.buttonIcon,
-        iconAlign: this.buttonIconAlign,
+        iconLeft: this.buttonIconLeft,
+        iconRight: this.buttonIconRight,
         iconClass: this.buttonIconClass,
         iconAttributes: this.buttonIconAttributes,
         iconTag: this.buttonIconTag,

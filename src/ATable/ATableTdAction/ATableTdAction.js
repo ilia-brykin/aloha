@@ -4,8 +4,8 @@ import {
 
 import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
-import ATableTdActionItem from "../ATableTdActionItem/ATableTdActionItem";
 import ATableListItem from "../ATableListItem/ATableListItem";
+import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdown";
 
 import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 
@@ -14,7 +14,6 @@ export default {
   components: {
     ADropdown,
     AIcon,
-    ATableTdActionItem,
     ATableListItem,
   },
   props: {
@@ -38,11 +37,13 @@ export default {
   ],
   setup(props) {
     const {
+      buttonActionsId,
       isRowActionsDropdownVisible,
       rowActionsFiltered,
     } = RowActionsAPI(props);
 
     return {
+      buttonActionsId,
       isRowActionsDropdownVisible,
       rowActionsFiltered,
     };
@@ -67,10 +68,6 @@ export default {
 
     stylesTdAction() {
       return `width: ${ this.columnActionsWidthLocal }px; min-width: ${ this.columnActionsWidthLocal }px; max-width: ${ this.columnActionsWidthLocal }px;`;
-    },
-
-    buttonActionsId() {
-      return `a_table_dropdown_btn_${ this.rowIndex }`;
     },
   },
   render() {
@@ -112,28 +109,20 @@ export default {
           ]),
         ],
       }),
-      this.isRowActionsDropdownVisible && h(ADropdown, {
-        id: this.buttonActionsId,
-        buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-        isCaret: false,
-        placement: "bottom-end",
-      }, {
-        button: () => [
-          h(AIcon, {
-            icon: "OptionVertical",
-          }),
-        ],
-        dropdown: () => [
-          this.rowActionsFiltered.map(rowAction => {
-            return h(ATableTdActionItem, {
-              row: this.row,
-              rowAction,
-              rowIndex: this.rowIndex,
-              buttonActionsId: this.buttonActionsId,
-            }, this.$slots);
-          }),
-        ],
-      }),
+      this.isRowActionsDropdownVisible && h(AGroupButtonDropdown, {
+        actions: this.rowActionsFiltered,
+        useDropdownActionClass: true,
+        indexFirstDropdownAction: 0,
+        indexFirstDropdownActionMobile: 0,
+        minDropdownActions: 0,
+        dropdownAttributes: {
+          id: this.buttonActionsId,
+          buttonIconLeft: "OptionVertical",
+          buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
+          placement: "bottom-end",
+          isCaret: false,
+        },
+      }, this.$slots),
     ]);
   },
 };

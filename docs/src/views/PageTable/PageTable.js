@@ -130,50 +130,52 @@ export default {
       isLoadingOptions: false,
       rowActions: [
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          label: "Click me",
+          type: "button",
+          text: "Click me",
           title: "Click me title",
           isHidden: false,
           callback: this.clickMe,
-          class: "aloha",
+          class: "aloha a_dropdown__item",
           disabled: false,
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          labelCallback: ({ row, rowIndex }) => `${ rowIndex } Click ${ row.aloha }`,
+          type: "button",
+          textCallback: ({ row, rowIndex }) => `${ rowIndex } Click ${ row.aloha }`,
           titleCallback: ({ row, rowIndex }) => `${ rowIndex } Click ${ row.aloha } title`,
           isHiddenCallback: ({ row, rowIndex }) => !!(rowIndex > 2 && row.aloha),
           disabledCallback: ({ row, rowIndex }) => !(rowIndex > 2 && row.aloha),
           callback: this.clickMe,
         },
         {
-          icon: "Export",
+          iconLeft: "Export",
           type: "link",
-          hrefCallback: ({ row }) => `dokumente/${ row.pk }/download/`,
-          label: "Dokument herunterladen",
+          hrefCallback: ({ row }) => `dokumente/${ row.number }/download/`,
+          text: "Dokument herunterladen",
           target: "_blank",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
       ],
       multipleActions: [

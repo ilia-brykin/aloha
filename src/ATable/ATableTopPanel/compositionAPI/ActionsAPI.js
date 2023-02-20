@@ -10,6 +10,7 @@ import {
   cloneDeep,
   filter,
   forEach,
+  isFunction,
   last,
 } from "lodash-es";
 
@@ -35,7 +36,7 @@ export default function ActionsAPI(props, { emit }) {
       if (action.isHidden) {
         return;
       }
-      if (action.type === "button") {
+      if (isFunction(action.callback)) {
         const CALLBACK_DEFAULT = action.callback;
         action.callback = () => CALLBACK_DEFAULT({
           id: action.id,

@@ -5,10 +5,13 @@ import {
 } from "vue";
 
 import {
-  filter,
+  cloneDeep,
   forEach,
+  get,
   isFunction,
-  last,
+  isPlainObject,
+  isString,
+  isUndefined,
 } from "lodash-es";
 
 export default function RowActionsAPI(props) {
@@ -17,6 +20,9 @@ export default function RowActionsAPI(props) {
   const isFooter = toRef(props, "isFooter");
   const rowActions = inject("rowActions");
 
+  const buttonActionsId = computed(() => {
+    return `a_table_dropdown_btn_${ rowIndex.value }`;
+  });
 
   const isRowActionVisible = ({ rowAction }) => {
     if (rowAction.isHidden) {
@@ -31,24 +37,148 @@ export default function RowActionsAPI(props) {
     return true;
   };
 
-  const rowActionsFiltered = computed(() => {
-    const ROW_ACTIONS_FILTERED = filter(rowActions.value, rowAction => isRowActionVisible({ rowAction }));
+  const getRowActionText = ({ rowAction }) => {
+    if (rowAction.text) {
+      return rowAction.text;
+    }
+    if (isFunction(rowAction.textCallback)) {
+      return rowAction.textCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return undefined;
+  };
 
-    const ROW_ACTIONS_DIVIDER_FILTERED = [];
-    forEach(ROW_ACTIONS_FILTERED, action => {
-      if (!action.isDivider ||
-        (ROW_ACTIONS_DIVIDER_FILTERED.length > 0 &&
-          !last(ROW_ACTIONS_DIVIDER_FILTERED).isDivider)) {
-        ROW_ACTIONS_DIVIDER_FILTERED.push(action);
+  const getRowActionTitle = ({ rowAction }) => {
+    if (rowAction.title) {
+      return rowAction.title;
+    }
+    if (isFunction(rowAction.titleCallback)) {
+      return rowAction.titleCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return undefined;
+  };
+
+  const getRowActionDisabled = ({ rowAction }) => {
+    if (rowAction.disabled) {
+      return rowAction.disabled;
+    }
+    if (isFunction(rowAction.disabledCallback)) {
+      return rowAction.disabledCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return false;
+  };
+
+  const getRowActionClass = ({ rowAction }) => {
+    if (rowAction.class) {
+      return rowAction.class;
+    }
+    if (isFunction(rowAction.classCallback)) {
+      return rowAction.classCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return "";
+  };
+
+  const getRowActionTo = ({ rowAction }) => {
+    if (isString(rowAction.to)) {
+      return rowAction.to;
+    }
+    if (isPlainObject(rowAction.to)) {
+      const TO = cloneDeep(rowAction.to);
+      const PARAMS = TO.params || {};
+      if (rowAction.to.paramsDynamic) {
+        let hasParamsDynamicError = false;
+        forEach(rowAction.to.paramsDynamic, (value, key) => {
+          const PARAMS_VALUE = get(row.value, value);
+          if (isUndefined(PARAMS_VALUE)) {
+            hasParamsDynamicError = true;
+            return false;
+          }
+          PARAMS[key] = PARAMS_VALUE;
+        });
+        if (hasParamsDynamicError) {
+          return undefined;
+        }
+      }
+      TO.params = PARAMS;
+      return TO;
+    }
+    return undefined;
+  };
+
+  const getRowActionHref = ({ rowAction }) => {
+    if (rowAction.href) {
+      return rowAction.href;
+    }
+    if (isFunction(rowAction.hrefCallback)) {
+      return rowAction.hrefCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return false;
+  };
+
+  const rowActionsFiltered = computed(() => {
+    const ROW_ACTIONS = [];
+    forEach(cloneDeep(rowActions.value), rowAction => {
+      if (isRowActionVisible({ rowAction })) {
+        if (rowAction.type !== "divider") {
+          const TEXT = getRowActionText({ rowAction });
+          if (TEXT) {
+            rowAction.text = TEXT;
+          }
+          const TITLE = getRowActionTitle({ rowAction });
+          if (TITLE) {
+            rowAction.title = TITLE;
+          }
+          const DISABLED = getRowActionDisabled({ rowAction });
+          if (DISABLED) {
+            rowAction.disabled = DISABLED;
+          }
+          const CLASS = getRowActionClass({ rowAction });
+          if (CLASS) {
+            rowAction.class = CLASS;
+          }
+          if (rowAction.type === "link") {
+            const TO = getRowActionTo({ rowAction });
+            if (TO) {
+              rowAction.to = TO;
+            } else {
+              rowAction.href = getRowActionHref({ rowAction });
+            }
+          }
+          if (isFunction(rowAction.callback)) {
+            const CALLBACK_DEFAULT = rowAction.callback;
+            rowAction.callback = () => CALLBACK_DEFAULT({
+              row: row.value,
+              rowIndex: rowIndex.value,
+              id: buttonActionsId.value,
+              rowAction,
+            });
+          }
+        }
+
+        ROW_ACTIONS.push(rowAction);
       }
     });
 
-    const LAST_ACTION = last(ROW_ACTIONS_DIVIDER_FILTERED);
-    if (LAST_ACTION && LAST_ACTION.isDivider) {
-      ROW_ACTIONS_DIVIDER_FILTERED.pop();
-    }
-
-    return ROW_ACTIONS_DIVIDER_FILTERED;
+    return ROW_ACTIONS;
   });
 
   const isRowActionsDropdownVisible = computed(() => {
@@ -56,6 +186,7 @@ export default function RowActionsAPI(props) {
   });
 
   return {
+    buttonActionsId,
     isRowActionsDropdownVisible,
     rowActionsFiltered,
   };
