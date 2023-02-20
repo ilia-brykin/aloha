@@ -202,6 +202,11 @@ export default {
             disabled: this.isMultipleActionsActive,
             indexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
             indexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
+            dropdownAttributes: {
+              buttonText: "Aktionen",
+              buttonClass: "a_btn a_btn_secondary a_table__action",
+              placement: "bottom-end",
+            },
           }),
           h(AGroupButtonDropdown, {
             actions: this.multipleActionsFiltered,
@@ -218,40 +223,6 @@ export default {
               placement: "bottom-end",
             },
           }),
-
-          // this.isMultipleActionsFiltered && h(ADropdown, {
-          //   id: this.buttonMultipleId,
-          //   buttonClass: "a_btn a_btn_secondary a_table__action",
-          //   placement: "bottom-end",
-          //   disabled: this.isMultipleActionsActive,
-          // }, {
-          //   button: () => [
-          //     h("span", null, "Mehrfachaktionen"),
-          //   ],
-          //   dropdown: () => [
-          //     this.multipleActionsFiltered.map((action, actionIndex) => {
-          //       return h("li", {
-          //         class: {
-          //           a_dropdown__divider: action.isDivider,
-          //         },
-          //       }, [
-          //         !action.isDivider && h("button", {
-          //           key: actionIndex,
-          //           class: "a_dropdown__item",
-          //           type: "button",
-          //           title: action.title,
-          //           onClick: () => this.onClickMultipleActions({ action }),
-          //         }, [
-          //           action.icon && h(AIcon, {
-          //             class: "a_mr_2",
-          //             icon: action.icon,
-          //           }),
-          //           action.label,
-          //         ]),
-          //       ]);
-          //     }),
-          //   ],
-          // }),
           this.isQuickSearch && h(AInput, {
             label: "Schnellsuche",
             class: "a_table__top_panel__actions__quick_search",
