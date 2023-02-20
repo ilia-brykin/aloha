@@ -1,0 +1,16 @@
+div(
+  v-if="!isCloseLocal"
+  role="alert"
+)
+  .alert(
+    v-if="isVisible"
+    :class="alertClass"
+  )
+    ASlot
+    button.btn.btn-icon.absolute-top-right.mt-3.mr-2(
+      type="button"
+      @click="close"
+    )
+      pux-icon(
+        icon="close"
+      )

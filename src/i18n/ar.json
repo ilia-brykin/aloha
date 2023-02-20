@@ -1,0 +1,9 @@
+{
+  "_ITEMS_PER_PAGE_": "Objekte pro Seite",
+  "_LOADING_": "Wird geladen",
+  "_NEXT_": "Nächste",
+  "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
+  "_PAGINATION_NAVIGATION_": "Paginierungsnavigation",
+  "_PREVIOUS_": "Vorherige",
+  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} von {{ count}}"
+}

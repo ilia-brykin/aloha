@@ -1,62 +1,47 @@
-import {
-  h,
-} from "vue";
+import AIcon from "../AIcon/AIcon.vue";
+import ASlot from "../ASlot/ASlot.vue";
 
 export default {
   name: "AAlert",
+  components: {
+    AIcon,
+    ASlot,
+  },
   props: {
     isVisible: {
       type: Boolean,
       required: false,
+      default: true,
     },
     type: {
       type: String,
       required: false,
       default: "danger",
-    },
-    isDismissible: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    alertClass: {
-      type: [String, Object],
-      required: false,
-      default: undefined,
+      validator: type => [
+        "primary",
+        "secondary",
+        "success",
+        "danger",
+        "warning",
+        "info",
+        "light",
+        "dark",
+      ].indexOf(type) !== -1,
     },
   },
-  emits: [
-    "onDismiss",
-  ],
+  data() {
+    return {
+      isCloseLocal: false,
+    };
+  },
   computed: {
-    alertClassLocal() {
-      let alertClass = `a_alert a_alert_${ this.type }`;
-      if (this.isDismissible) {
-        alertClass += " a_alert_dismissible";
-      }
-      return alertClass;
+    alertClass() {
+      return `alert-${ this.type }`;
     },
   },
   methods: {
-    onDismissLocal() {
-      this.$emit("onDismiss");
-    },
-  },
-  render() {
-    return h("div", {
-      role: "alert",
-    }, [
-      this.isVisible && h("div", {
-        class: [this.alertClass, this.alertClassLocal],
-      }, [
-        this.$slots.default && this.$slots.default(),
-        this.isDismissible && h("button", {
-          type: "button",
-          class: "a_btn_close",
-          ariaLabel: "Close",
-          onClick: this.onDismissLocal,
-        })
-      ]),
-    ]);
+    close() {
+      this.isCloseLocal = true;
+    }
   },
 };
