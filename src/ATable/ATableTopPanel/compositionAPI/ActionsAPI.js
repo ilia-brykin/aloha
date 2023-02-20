@@ -8,24 +8,26 @@ import AConfirmAPI from "../../../compositionAPI/AConfirmAPI";
 
 import {
   cloneDeep,
-  filter,
   forEach,
   isFunction,
-  last,
 } from "lodash-es";
 
 export default function ActionsAPI(props, { emit }) {
+  const areAllRowsSelected = toRef(props, "areAllRowsSelected");
+  const closeMultipleActionsActive = toRef(props, "closeMultipleActionsActive");
+  const modelFilters = toRef(props, "modelFilters");
+  const multipleActions = toRef(props, "multipleActions");
+  const selectedRows = toRef(props, "selectedRows");
+  const tableActions = toRef(props, "tableActions");
+
+  const tableId = inject("tableId");
+  const currentMultipleActions = inject("currentMultipleActions");
+
   const {
     closeConfirm,
     openConfirm,
   } = AConfirmAPI();
 
-  const tableActions = toRef(props, "tableActions");
-  const areAllRowsSelected = toRef(props, "areAllRowsSelected");
-  const modelFilters = toRef(props, "modelFilters");
-
-  const tableId = inject("tableId");
-  const currentMultipleActions = inject("currentMultipleActions");
   const buttonMultipleId = computed(() => {
     return `${ tableId.value }_btn_multiple`;
   });
@@ -49,42 +51,26 @@ export default function ActionsAPI(props, { emit }) {
     return TABLE_ACTIONS;
   });
 
-  const multipleActions = toRef(props, "multipleActions");
-  const multipleActionsFiltered = computed(() => {
-    const ACTIONS_FILTERED = filter(multipleActions.value, action => {
-      return !action.isHidden;
-    });
-
-    const ACTIONS_DIVIDER_FILTERED = [];
-    forEach(ACTIONS_FILTERED, action => {
-      if (!action.isDivider ||
-            (ACTIONS_DIVIDER_FILTERED.length > 0 &&
-              !last(ACTIONS_DIVIDER_FILTERED).isDivider)) {
-        ACTIONS_DIVIDER_FILTERED.push(action);
-      }
-    });
-    const LAST_ACTION = last(ACTIONS_DIVIDER_FILTERED);
-    if (LAST_ACTION && LAST_ACTION.isDivider) {
-      ACTIONS_DIVIDER_FILTERED.pop();
-    }
-
-    return ACTIONS_DIVIDER_FILTERED;
-  });
-
-  const isMultipleActionsFiltered = computed(() => {
-    return multipleActionsFiltered.value.length > 0;
-  });
-
-  const onClickMultipleActions = ({ action }) => {
-    emit("toggleMultipleActionsActive", { isActive: true, action });
+  const onClickMultipleActions = ({ action, callbackDefault }) => {
+    const ACTION = cloneDeep(action);
+    ACTION.callback = callbackDefault;
+    emit("toggleMultipleActionsActive", { isActive: true, action: ACTION });
   };
 
   const onCancelMultipleActions = () => {
     emit("toggleMultipleActionsActive");
   };
 
-  const closeMultipleActionsActive = toRef(props, "closeMultipleActionsActive");
-  const selectedRows = toRef(props, "selectedRows");
+  const multipleActionsFiltered = computed(() => {
+    const ACTIONS = cloneDeep(multipleActions.value);
+    forEach(ACTIONS, action => {
+      if (isFunction(action.callback)) {
+        const CALLBACK_DEFAULT = action.callback;
+        action.callback = () => onClickMultipleActions({ action, callbackDefault: CALLBACK_DEFAULT });
+      }
+    });
+    return ACTIONS;
+  });
 
   const onStartModalMultipleActions = async() => {
     await currentMultipleActions.value.callback({
@@ -120,10 +106,8 @@ export default function ActionsAPI(props, { emit }) {
   return {
     buttonMultipleId,
     currentMultipleActions,
-    isMultipleActionsFiltered,
     multipleActionsFiltered,
     onCancelMultipleActions,
-    onClickMultipleActions,
     onOpenModalMultipleActions,
     tableActionsFiltered,
   };

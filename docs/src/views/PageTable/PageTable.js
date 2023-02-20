@@ -180,13 +180,14 @@ export default {
       ],
       multipleActions: [
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          label: "Aloha1",
+          type: "button",
+          text: "Aloha1",
           title: "Aloha1 Title",
           isHidden: false,
           callback: this.clickMe,
@@ -196,19 +197,20 @@ export default {
           isAllRowsSelected: true,
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          label: "Aloha1 modal",
+          type: "button",
+          text: "Aloha1 modal",
           title: "Aloha1 Title",
           callback: this.clickMeModal,
           disabled: false,
@@ -217,10 +219,10 @@ export default {
           isHiddenCallback: this.isHiddenMultiple,
         },
         {
-          isDivider: true,
+          type: "divider",
         },
         {
-          isDivider: true,
+          type: "divider",
         },
       ],
       tableActions: [
