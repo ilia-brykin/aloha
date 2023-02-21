@@ -78,59 +78,63 @@ export default {
   render() {
     return h("div", {
       role: "cell",
-      class: [
-        "a_table__td a_table__cell a_table__cell_action",
-        this.rowActionsClass,
-      ],
+      class: "a_table__td a_table__cell a_table__cell_action",
       // style: this.stylesTdAction,
     }, [
-      this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
-        buttonClass: "a_btn a_btn_link",
-        dropdownClass: "a_p_0 a_overflow_x_hidden",
-        dropdownTag: "div",
-        isCaret: false,
-        placement: "bottom-end",
-        menuWidth: 600,
-      }, {
-        button: () => [
-          h(AIcon, {
-            icon: "Plus",
-            class: "a_table__cell_action__additional_icon",
-          }),
-          h("span", {
-            class: "a_table__cell_action__additional_text",
-          }, this.columnsScrollInvisibleText)
+      h("div", {
+        class: [
+          "a_table__cell__child",
+          this.rowActionsClass,
         ],
-        dropdown: () => [
-          h("dl", {
-            class: "a_list_dl a_list_dl_dt_right",
-          }, [
-            this.columnsScrollInvisible.map((column, columnIndex) => {
-              return h(ATableListItem, {
-                column,
-                columnIndex,
-                row: this.row,
-                rowIndex: this.rowIndex,
-                isFooter: this.isFooter,
-              }, this.$slots);
-            }),
-          ]),
-        ],
-      }),
-      this.isRowActionsDropdownVisible && h(AGroupButtonDropdown, {
-        actions: this.rowActionsFiltered,
-        useDropdownActionClass: true,
-        indexFirstDropdownAction: 0,
-        indexFirstDropdownActionMobile: 0,
-        minDropdownActions: 0,
-        dropdownAttributes: {
-          id: this.buttonActionsId,
-          buttonIconLeft: "OptionVertical",
-          buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-          placement: "bottom-end",
+      }, [
+        this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
+          buttonClass: "a_btn a_btn_link",
+          dropdownClass: "a_p_0 a_overflow_x_hidden",
+          dropdownTag: "div",
           isCaret: false,
-        },
-      }, this.$slots),
+          placement: "bottom-end",
+          menuWidth: 600,
+        }, {
+          button: () => [
+            h(AIcon, {
+              icon: "Plus",
+              class: "a_table__cell_action__additional_icon",
+            }),
+            h("span", {
+              class: "a_table__cell_action__additional_text",
+            }, this.columnsScrollInvisibleText)
+          ],
+          dropdown: () => [
+            h("dl", {
+              class: "a_list_dl a_list_dl_dt_right",
+            }, [
+              this.columnsScrollInvisible.map((column, columnIndex) => {
+                return h(ATableListItem, {
+                  column,
+                  columnIndex,
+                  row: this.row,
+                  rowIndex: this.rowIndex,
+                  isFooter: this.isFooter,
+                }, this.$slots);
+              }),
+            ]),
+          ],
+        }),
+        this.isRowActionsDropdownVisible && h(AGroupButtonDropdown, {
+          actions: this.rowActionsFiltered,
+          useDropdownActionClass: true,
+          indexFirstDropdownAction: 0,
+          indexFirstDropdownActionMobile: 0,
+          minDropdownActions: 0,
+          dropdownAttributes: {
+            id: this.buttonActionsId,
+            buttonIconLeft: "OptionVertical",
+            buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
+            placement: "bottom-end",
+            isCaret: false,
+          },
+        }, this.$slots),
+      ]),
     ]);
   },
 };
