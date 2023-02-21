@@ -48,6 +48,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    rowActionsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "setSelectedRowsIndexes",
@@ -144,6 +149,7 @@ export default {
         row: this.row,
         rowIndex: this.rowIndex,
         isFooter: this.isFooter,
+        rowActionsClass: this.rowActionsClass,
       }, this.$slots);
 
     const CHILDREN = this.isMobile ?

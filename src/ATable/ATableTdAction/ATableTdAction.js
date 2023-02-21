@@ -29,6 +29,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    rowActionsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
   },
   inject: [
     "columnActionsWidthLocal",
@@ -73,7 +78,10 @@ export default {
   render() {
     return h("div", {
       role: "cell",
-      class: "a_table__td a_table__cell a_table__cell_action",
+      class: [
+        "a_table__td a_table__cell a_table__cell_action",
+        this.rowActionsClass,
+      ],
       // style: this.stylesTdAction,
     }, [
       this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {

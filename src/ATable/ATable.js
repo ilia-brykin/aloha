@@ -226,6 +226,11 @@ export default {
       required: false,
       default: () => [],
     },
+    rowActionsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     rowsFooter: {
       type: Array,
       required: false,
@@ -701,6 +706,7 @@ export default {
                 row,
                 rowIndex,
                 selectedRowsIndexes: this.selectedRowsIndexes,
+                rowActionsClass: this.rowActionsClass,
                 onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
               }, {
                 get: vm => [
@@ -726,6 +732,7 @@ export default {
                 countVisibleMobileColumns: this.countVisibleMobileColumns,
                 row,
                 rowIndex,
+                rowActionsClass: this.rowActionsClass,
                 selectedRowsIndexes: this.selectedRowsIndexes,
                 onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
                 isFooter: true,
