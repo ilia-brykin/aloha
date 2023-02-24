@@ -49,6 +49,7 @@ export default function AHttpAPI() {
 
 export function getHttp({
   url,
+  urlBase,
   data,
   urlParams = {},
   headerParams,
@@ -61,6 +62,7 @@ export function getHttp({
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "get",
     url,
+    urlBase,
     urlParams,
     data,
     headerParams,
@@ -74,6 +76,7 @@ export function getHttp({
 
 export function getListHttp({
   url,
+  urlBase,
   data,
   urlParams = {},
   headerParams,
@@ -86,6 +89,7 @@ export function getListHttp({
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "get",
     url,
+    urlBase,
     urlParams,
     data,
     headerParams,
@@ -100,6 +104,7 @@ export function getListHttp({
 
 export function getOptionsHttp({
   url,
+  urlBase,
   data,
   urlParams = {},
   headerParams,
@@ -111,6 +116,7 @@ export function getOptionsHttp({
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "options",
     url,
+    urlBase,
     urlParams,
     data,
     headerParams,
@@ -144,6 +150,7 @@ export function postHttp({
 
 export function putHttp({
   url,
+  urlBase,
   data,
   urlParams = {},
   headerParams,
@@ -154,6 +161,7 @@ export function putHttp({
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "put",
     url,
+    urlBase,
     urlParams,
     data,
     headerParams,
@@ -165,6 +173,7 @@ export function putHttp({
 
 export function patchHttp({
   url,
+  urlBase,
   data,
   urlParams = {},
   headerParams,
@@ -175,6 +184,7 @@ export function patchHttp({
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "patch",
     url,
+    urlBase,
     urlParams,
     data,
     headerParams,
@@ -186,6 +196,7 @@ export function patchHttp({
 
 export function deleteHttp({
   url,
+  urlBase,
   data,
   urlParams = {},
   headerParams,
@@ -196,6 +207,7 @@ export function deleteHttp({
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "delete",
     url,
+    urlBase,
     urlParams,
     data,
     headerParams,
@@ -208,6 +220,7 @@ export function deleteHttp({
 export function callHttpRequestAndCheckSavedApi({
   methodHttp,
   url,
+  urlBase,
   urlParams,
   data,
   headerParams = {},
@@ -216,7 +229,7 @@ export function callHttpRequestAndCheckSavedApi({
   keyId,
   fullResponse,
   showError = false,
-  expectedList
+  expectedList,
 }) {
   let apiSavedData = undefined;
   if (apiSaveId) {
@@ -243,7 +256,7 @@ export function callHttpRequestAndCheckSavedApi({
       }
     }
     const URL_NEW = setUrlWithParams({ url, params: urlParams });
-    let url_full = `${ BASE_URL.value }${ URL_NEW }`;
+    let url_full = `${ isNil(urlBase) ? BASE_URL.value : urlBase }${ URL_NEW }`;
     url_full = url_full.replace(/\/\//g, "/");
     const HEADER_PARAMS_LOCAL = {
       ...HEADER_PARAMS.value,
