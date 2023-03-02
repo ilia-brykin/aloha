@@ -83,6 +83,11 @@ export default {
       required: false,
       default: true,
     },
+    isSearchBreadcrumbsAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     keyChildren: {
       type: String,
       required: false,
@@ -283,6 +288,7 @@ export default {
             dataProParentList: this.dataProParentList,
             idsSearchVisible: this.idsSearchVisible,
             isSearchActive: this.isSearchActive,
+            isSearchBreadcrumbsAll: this.isSearchBreadcrumbsAll,
             modelSearch: this.modelSearch,
           }, this.$slots),
         ]),

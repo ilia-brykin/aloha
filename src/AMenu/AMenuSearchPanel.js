@@ -33,6 +33,11 @@ export default {
       type: Boolean,
       required: true,
     },
+    isSearchBreadcrumbsAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     modelSearch: {
       type: String,
       required: false,
@@ -72,6 +77,7 @@ export default {
                 dataKeyById: this.dataKeyById,
                 dataProParentChildren: this.dataProParentChildren,
                 idsSearchVisible: this.idsSearchVisible,
+                isSearchBreadcrumbsAll: this.isSearchBreadcrumbsAll,
                 modelSearch: this.modelSearch,
               }, this.$slots);
             }),

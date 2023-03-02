@@ -172,6 +172,10 @@ $a_menu_breakpoint_mobile: 991px;
   padding-top: .5rem;
   padding-bottom: .5rem;
 }
+.a_menu__list_header_search {
+  padding-left: var(--a_menu_link_padding_x);
+  padding-right: var(--a_menu_link_padding_x);
+}
 .a_menu__link {
   flex-grow: 1;
   flex-basis: 10%;

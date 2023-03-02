@@ -59,12 +59,16 @@ export default {
     const isFirst = toRef(props, "isFirst");
     const panelParentsOpen = toRef(props, "panelParentsOpen");
     const parentId = toRef(props, "parentId");
+    const isSearchActive = toRef(props, "isSearchActive");
 
     const panelId = computed(() => {
       return `a_menu_panel_${ parentId.value || "" }`;
     });
 
     const isPanelOpen = computed(() => {
+      if (isSearchActive.value) {
+        return false;
+      }
       if (isFirst.value) {
         return panelParentsOpen.value.length === 0;
       }

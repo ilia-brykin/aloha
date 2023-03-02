@@ -13,7 +13,7 @@ import AKeyParent from "../ui/const/AKeyParent";
 import AKeyLabel from "../ui/const/AKeyLabel";
 
 import {
-  get,
+  get, isNil,
 } from "lodash-es";
 
 export default {
@@ -39,6 +39,11 @@ export default {
       type: Array,
       required: true,
     },
+    isSearchBreadcrumbsAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     modelSearch: {
       type: String,
       required: false,
@@ -50,31 +55,62 @@ export default {
     const idsSearchVisible = toRef(props, "idsSearchVisible");
     const items = toRef(props, "items");
     const dataKeyById = toRef(props, "dataKeyById");
+    const isSearchBreadcrumbsAll = toRef(props, "isSearchBreadcrumbsAll");
 
     const isGroupVisible = computed(() => {
       return !!idsSearchVisible.value.main[groupIndex.value];
     });
 
-    const labelGroup = computed(() => {
+    const getParentLabels = ({ labels = [], item }) => {
+      if (item[AKeyParent]) {
+        const PARENT = dataKeyById.value[item[AKeyParent]];
+        const LABEL = get(PARENT, AKeyLabel);
+        if (!isNil(LABEL)) {
+          labels.push(LABEL);
+        }
+        return getParentLabels({ labels, item: PARENT });
+      } 
+      return labels;
+    };
+
+    const labelsGroup = computed(() => {
+      let labels = [];
       const itemFirst = items.value[0] || {};
-      return get(dataKeyById.value, `${ itemFirst[AKeyParent] }.${ AKeyLabel }`);
+      if (isSearchBreadcrumbsAll.value) {
+        labels = getParentLabels({ labels, item: itemFirst });
+      } else {
+        const LABEL = get(dataKeyById.value, `${ itemFirst[AKeyParent] }.${ AKeyLabel }`);
+        if (!isNil(LABEL)) {
+          labels.push(LABEL);
+        }
+      }
+      return labels;
+    });
+
+    const hasLabelsGroup = computed(() => {
+      return labelsGroup.value.length > 0;
     });
 
     return {
+      hasLabelsGroup,
       isGroupVisible,
-      labelGroup,
+      labelsGroup,
     };
   },
   render() {
     if (this.isGroupVisible) {
       return [
-        h("dt", null, [
-          this.labelGroup && withDirectives(h("div", {
-            class: "a_menu__list_header",
-          }), [
-            [ASafeHtml, this.labelGroup],
-          ]),
-        ]),
+        this.hasLabelsGroup ?
+          this.labelsGroup.map(label => {
+            return h("dt", null, [
+              withDirectives(h("div", {
+                class: "a_menu__list_header a_menu__list_header_search",
+              }), [
+                [ASafeHtml, label],
+              ]),
+            ]);
+          }) :
+          h("dt"),
         this.items.map(item => {
           return h(AMenuPanelLink, {
             item,
