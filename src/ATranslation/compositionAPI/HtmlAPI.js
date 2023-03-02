@@ -35,7 +35,8 @@ export default function HtmlAPI(props, {
   });
 
   const htmlLocal = computed(() => {
-    if (!html.value) {
+    if (!html.value &&
+      html.value !== 0) {
       return undefined;
     }
     let htmlString = html.value;

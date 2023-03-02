@@ -17,19 +17,19 @@ export default {
   name: "ATranslation",
   props: {
     text: {
-      type: String,
+      type: [String, Number],
       required: false,
     },
     html: {
-      type: String,
+      type: [String, Number],
       required: false,
     },
     title: {
-      type: String,
+      type: [String, Number],
       required: false,
     },
     placeholder: {
-      type: String,
+      type: [String, Number],
       required: false,
     },
     ariaLabel: {
@@ -46,12 +46,12 @@ export default {
       required: false,
     },
     textBefore: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: "",
     },
     textAfter: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: "",
     },
