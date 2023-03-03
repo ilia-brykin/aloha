@@ -191,7 +191,7 @@ export default {
           title: "Aloha1 Title",
           isHidden: false,
           callback: this.clickMe,
-          disabled: true,
+          disabled: false,
           icon: "Plus",
           isConfirm: true,
           isAllRowsSelected: true,
