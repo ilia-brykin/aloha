@@ -62,6 +62,11 @@ export default {
       required: false,
       default: undefined,
     },
+    textErrorHeader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "update:modelValue",
@@ -131,6 +136,7 @@ export default {
         isDismissible: false,
         optionsList: this.data,
         idPrefix: this.idPrefix,
+        textErrorHeader: this.textErrorHeader,
       }),
       h("div", {
         class: "a_columns a_columns_count_12 a_columns_gab_2",

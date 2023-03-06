@@ -47,7 +47,7 @@ export default {
       required: false,
       default: true,
     },
-    textError: {
+    textErrorHeader: {
       type: String,
       required: false,
       default: "Bitte überprüfen Sie Ihre Eingaben.",
@@ -165,7 +165,7 @@ export default {
         h("div", {
           class: "a_errors__header"
         }, [
-          h("strong", null, this.textError),
+          h("strong", null, this.textErrorHeader),
         ]),
         h("div", {
           class: "a_errors__list",

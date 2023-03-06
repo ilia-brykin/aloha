@@ -171,6 +171,11 @@ export default {
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
       default: () => modalPluginOptions.value.propsDefault.size,
     },
+    textErrorHeader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     textRequired: {
       type: String,
       required: false,
@@ -487,6 +492,7 @@ export default {
                   idPrefix: this.idPrefix,
                   isRequired: this.isRequired,
                   textRequired: this.textRequired,
+                  textErrorHeader: this.textErrorHeader,
                   isHide: this.isDataFormHide,
                   isRender: this.isDataFormRender,
                   "onUpdate:modelValue": this.updateModelLocal,
