@@ -1,6 +1,6 @@
 import {
   computed,
-  h,
+  h, onBeforeUnmount,
   provide,
   Teleport,
   toRef, watch,
@@ -12,13 +12,14 @@ import AMenuButtonToggle from "./AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel";
 import AMenuSearchPanel from "./AMenuSearchPanel";
 
-import MenuAttributesAPI from "./compositionAPI/MenuAttributesAPI";
 import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
 import AMenuDataAPI from "./compositionAPI/AMenuDataAPI";
 import AMenuPanelsAPI from "./compositionAPI/AMenuPanelsAPI";
 import AMenuResizeAPI from "./compositionAPI/AMenuResizeAPI";
 import AMenuSearchAPI from "./compositionAPI/AMenuSearchAPI";
 import AMenuToggleAPI from "./compositionAPI/AMenuToggleAPI";
+import DestroyAPI from "./compositionAPI/DestroyAPI";
+import MenuAttributesAPI from "./compositionAPI/MenuAttributesAPI";
 
 export default {
   name: "AMenu",
@@ -138,6 +139,10 @@ export default {
     const isLinkTruncated = toRef(props, "isLinkTruncated");
 
     const {
+      removeBodyClasses,
+    } = DestroyAPI();
+
+    const {
       dataKeyById,
       dataProParent,
     } = AMenuDataAPI(props);
@@ -209,6 +214,10 @@ export default {
 
     initMenuOpenOrClose();
 
+    onBeforeUnmount(() => {
+      removeBodyClasses();
+    });
+
     return {
       attributesBlockerClick,
       attributesMenuClick,
@@ -222,6 +231,7 @@ export default {
       isSearchActive,
       modelSearch,
       panelParentsOpen,
+      removeBodyClasses,
       toggleMenu,
       togglePanel,
       updateModelSearch,
