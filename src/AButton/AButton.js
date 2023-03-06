@@ -179,7 +179,7 @@ export default {
         "aloha_btn",
         this.class,
         {
-          disabled: this.ariaDisabled,
+          inactive: this.ariaDisabled,
         },
       ],
       type: this.type,
