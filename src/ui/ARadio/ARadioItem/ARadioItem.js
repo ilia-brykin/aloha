@@ -28,7 +28,7 @@ export default {
       required: true,
     },
     modelValue: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       required: false,
     },
     isWidthAuto: {

@@ -42,7 +42,7 @@ export default {
       required: true,
     },
     modelValue: {
-      type: [String, Number, Array],
+      type: [String, Number, Boolean, Array],
       required: false,
     },
     slotName: {
