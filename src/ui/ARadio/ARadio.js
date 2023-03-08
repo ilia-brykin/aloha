@@ -94,7 +94,7 @@ export default {
       default: undefined,
     },
     modelValue: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       required: false,
     },
     slotName: {

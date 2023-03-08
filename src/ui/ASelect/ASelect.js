@@ -124,7 +124,7 @@ export default {
       validator: value => value > 0,
     },
     modelValue: {
-      type: [String, Number, Array],
+      type: [String, Number, Boolean, Array],
       required: false,
     },
     placement: {
