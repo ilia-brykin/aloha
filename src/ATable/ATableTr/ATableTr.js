@@ -1,7 +1,5 @@
 import {
-  computed,
   h,
-  inject, toRef,
 } from "vue";
 
 import ATableTd from "../ATableTd/ATableTd";
@@ -9,12 +7,11 @@ import ATableTdAction from "../ATableTdAction/ATableTdAction";
 import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import CheckboxAPI from "./compositionAPI/CheckboxAPI";
 import MobileAPI from "./compositionAPI/MobileAPI";
 
 import {
   forEach,
-  get,
-  isFunction,
 } from "lodash-es";
 
 export default {
@@ -61,28 +58,7 @@ export default {
   emits: [
     "setSelectedRowsIndexes",
   ],
-  setup(props) {
-    const row = toRef(props, "row");
-    const rowIndex = toRef(props, "rowIndex");
-    const areAllRowsSelected = toRef(props, "areAllRowsSelected");
-    const currentMultipleActions = inject("currentMultipleActions");
-    const isMultipleActionsActive = inject("isMultipleActionsActive");
-
-    const isCheckboxDisabled = computed(() => {
-      if (isMultipleActionsActive.value) {
-        if (isFunction(get(currentMultipleActions.value, "isHiddenCallback"))) {
-          return currentMultipleActions.value.isHiddenCallback({
-            row: row.value,
-            rowIndex: rowIndex.value,
-          });
-        }
-        if (areAllRowsSelected.value) {
-          return true;
-        }
-      }
-      return false;
-    });
-
+  setup(props, context) {
     const {
       rowAttributes,
     } = AttributesAPI(props);
@@ -94,31 +70,29 @@ export default {
       toggleAllColumnsVisibleMobile,
     } = MobileAPI(props);
 
+    const {
+      isCheckboxDisabled,
+      isRowSelected,
+      toggleCheckbox,
+    } = CheckboxAPI(props, context);
+
     return {
       isAllColumnsVisibleMobile,
       isBtnToggleAllColumnsVisible,
       isCheckboxDisabled,
-      isMultipleActionsActive,
+      isRowSelected,
       rowAttributes,
       textBtnToggleAllColumns,
       toggleAllColumnsVisibleMobile,
+      toggleCheckbox,
     };
   },
   inject: [
     "columnsOrdered",
     "isActionColumnVisible",
+    "isMultipleActionsActive",
     "isMobile",
   ],
-  computed: {
-    isRowSelected() {
-      return !!this.selectedRowsIndexes[this.rowIndex] || this.areAllRowsSelected;
-    },
-  },
-  methods: {
-    toggleCheckbox() {
-      this.$emit("setSelectedRowsIndexes", { rowIndex: this.rowIndex });
-    },
-  },
   render() {
     let tds = [];
     if (this.isMobile && !this.isAllColumnsVisibleMobile) {

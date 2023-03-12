@@ -1,6 +1,7 @@
 import {
   computed,
-  h, inject,
+  h,
+  inject,
   resolveComponent,
   withDirectives,
 } from "vue";
