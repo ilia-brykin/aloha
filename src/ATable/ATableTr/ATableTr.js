@@ -44,6 +44,10 @@ export default {
       type: Object,
       required: true,
     },
+    isRowActionsStickyLocal: {
+      type: Boolean,
+      required: true,
+    },
     isFooter: {
       type: Boolean,
       required: false,
@@ -150,6 +154,7 @@ export default {
         rowIndex: this.rowIndex,
         isFooter: this.isFooter,
         rowActionsClass: this.rowActionsClass,
+        isRowActionsStickyLocal: this.isRowActionsStickyLocal,
       }, this.$slots);
 
     const CHILDREN = this.isMobile ?

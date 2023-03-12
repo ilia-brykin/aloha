@@ -29,6 +29,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isRowActionsStickyLocal: {
+      type: Boolean,
+      required: true,
+    },
     rowActionsClass: {
       type: [String, Object],
       required: false,
@@ -70,16 +74,16 @@ export default {
     countColumnsScrollInvisible() {
       return this.columnsScrollInvisible.length;
     },
-
-    stylesTdAction() {
-      return `width: ${ this.columnActionsWidthLocal }px; min-width: ${ this.columnActionsWidthLocal }px; max-width: ${ this.columnActionsWidthLocal }px;`;
-    },
   },
   render() {
     return h("div", {
       role: "cell",
-      class: "a_table__td a_table__cell a_table__cell_action",
-      // style: this.stylesTdAction,
+      class: [
+        "a_table__td a_table__cell a_table__cell_action",
+        {
+          a_table__cell_action_sticky: this.isRowActionsStickyLocal,
+        },
+      ],
     }, [
       h("div", {
         class: [

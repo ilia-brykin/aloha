@@ -27,6 +27,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    isRowActionsStickyLocal: {
+      type: Boolean,
+      required: true,
+    },
     modelSort: {
       type: String,
       required: false,
@@ -118,7 +122,9 @@ export default {
             onDragendParent: this.dragend,
           });
         }),
-        this.isActionColumnVisible && h(ATableHeaderThAction),
+        this.isActionColumnVisible && h(ATableHeaderThAction, {
+          isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+        }),
       ]),
     ]);
   },

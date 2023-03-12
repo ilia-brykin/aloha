@@ -35,7 +35,7 @@
   overflow-x: auto;
 }
 .a_table {
-  --a_table_bg: transparent;
+  --a_table_bg: var(--a_color_white);
   display: block;
   width: 100%;
   caption-side: bottom;
@@ -240,6 +240,10 @@
     display: flex;
     justify-content: flex-end;
   }
+}
+.a_table__cell_action_sticky {
+  position: sticky;
+  right: 0;
 }
 .a_table__th__dropdown_item {
   display: flex;

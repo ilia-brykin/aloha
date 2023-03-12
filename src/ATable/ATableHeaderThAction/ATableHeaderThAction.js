@@ -32,6 +32,12 @@ export default {
     "isLoadingTable",
     "modelIsTableWithoutScroll",
   ],
+  props: {
+    isRowActionsStickyLocal: {
+      type: Boolean,
+      required: true,
+    },
+  },
   setup() {
     const {
       columnIndexDraggable,
@@ -67,11 +73,6 @@ export default {
       updateSearchColumnModel,
     };
   },
-  computed: {
-    stylesThAction() {
-      return `width: ${ this.columnActionsWidthLocal }px; min-width: ${ this.columnActionsWidthLocal }px; max-width: ${ this.columnActionsWidthLocal }px;`;
-    },
-  },
   methods: {
     selectAllColumns() {
       const MODEL_COLUMNS_VISIBLE = {};
@@ -96,9 +97,13 @@ export default {
   },
   render() {
     return h("div", {
-      class: "a_table__th a_table__cell a_table__cell_action",
+      class: [
+        "a_table__th a_table__cell a_table__cell_action",
+        {
+          a_table__cell_action_sticky: this.isRowActionsStickyLocal,
+        },
+      ],
       scope: "col",
-      // style: this.stylesThAction,
       role: "columnheader",
     }, [
       h("span", {

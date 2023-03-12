@@ -16,13 +16,14 @@ import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
+import AMobileAPI from "../compositionAPI/AMobileAPI";
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
-import MobileAPI from "./compositionAPI/MobileAPI";
 import MobileColumnsAPI from "./compositionAPI/MobileColumnsAPI";
 import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
+import StickyAPI from "./compositionAPI/StickyAPI";
 import TableAttributesAPI from "./compositionAPI/TableAttributesAPI";
 import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
 import TableColumnsVisibleAPI from "./compositionAPI/TableColumnsVisibleAPI";
@@ -164,12 +165,6 @@ export default {
       required: false,
       default: 10,
     },
-    mobileWidth: {
-      type: Number,
-      required: false,
-      default: 768,
-      validator: value => value >= 0,
-    },
     modelColumnsOrdering: {
       type: Array,
       required: false,
@@ -225,6 +220,11 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    rowActionsSticky: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     rowActionsClass: {
       type: [String, Object],
@@ -325,7 +325,7 @@ export default {
 
     const {
       isMobile,
-    } = MobileAPI(props);
+    } = AMobileAPI();
 
     const {
       hasRows,
@@ -349,6 +349,13 @@ export default {
       isMobile,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
+    });
+
+    const {
+      isRowActionsStickyLocal,
+    } = StickyAPI(props, {
+      isMobile,
+      modelIsTableWithoutScroll,
     });
 
     const {
@@ -473,65 +480,61 @@ export default {
 
     return {
       allVisibleMobileColumns,
-      aTableRef,
-      changeModelColumnsVisible,
-      checkVisibleColumns,
-      columnsOrdered,
-      hasViews,
-      initModelColumnsVisibleLocal,
-      isMobile,
-      isViewTableVisible,
-      modelColumnsOrderingLocal,
-      modelColumnsVisibleLocal,
-      modelIsTableWithoutScroll,
-      onUpdateModelFilters,
-      tableChildRole,
-      tableGrandparentRef,
-      tableRoleAttributes,
-      updateViewCurrent,
-      viewCurrent,
-
-      closePreview,
-      closePreviewAll,
-      isPreviewRightOpen,
-      mousedownResizePreviewRight,
-      mousemoveResizePreviewRight,
-      mouseupResizePreviewRight,
-      previewDownRowIndexes,
-      previewRightRowIndex,
-      togglePreviewResize,
-
-      hasRows,
-      limit,
-      modelSort,
-      offset,
-      rowsLocal,
-      rowsLocalLength,
-
       areAllRowsSelected,
       areAllVisibleRowsSelected,
       areSomeRowsSelected,
-      closeMultipleActionsActive,
-      isMultipleActionsActive,
-      selectedRows,
-      selectedRowsIndexes,
-      setEmptySelectedRowsIndexes,
-      setSelectedRowsIndexes,
-      toggleBtnAllRows,
-      toggleMultipleActionsActive,
-
-      changeOffset,
+      aTableRef,
       changeLimit,
-
+      changeModelColumnsVisible,
+      changeOffset,
+      checkVisibleColumns,
       closeFilterValue,
+      closeMultipleActionsActive,
+      closePreview,
+      closePreviewAll,
+      columnsOrdered,
       dataKeyByKeyIdPerFilter,
       filtersGroup,
       filtersKeyById,
       filtersVisible,
       filtersVisibleAll,
       hasFilters,
+      hasRows,
+      hasViews,
+      initModelColumnsVisibleLocal,
+      isMobile,
+      isMultipleActionsActive,
+      isPreviewRightOpen,
+      isRowActionsStickyLocal,
+      isViewTableVisible,
+      limit,
+      modelColumnsOrderingLocal,
+      modelColumnsVisibleLocal,
       modelFiltersLocal,
+      modelIsTableWithoutScroll,
+      modelSort,
+      mousedownResizePreviewRight,
+      mousemoveResizePreviewRight,
+      mouseupResizePreviewRight,
+      offset,
+      onUpdateModelFilters,
+      previewDownRowIndexes,
+      previewRightRowIndex,
+      rowsLocal,
+      rowsLocalLength,
+      selectedRows,
+      selectedRowsIndexes,
+      setEmptySelectedRowsIndexes,
+      setSelectedRowsIndexes,
       startSearch,
+      tableChildRole,
+      tableGrandparentRef,
+      tableRoleAttributes,
+      toggleBtnAllRows,
+      toggleMultipleActionsActive,
+      togglePreviewResize,
+      updateViewCurrent,
+      viewCurrent,
     };
   },
   data() {
@@ -692,6 +695,7 @@ export default {
               areAllRowsSelected: this.areAllRowsSelected,
               areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
               areSomeRowsSelected: this.areSomeRowsSelected,
+              isRowActionsStickyLocal: this.isRowActionsStickyLocal,
               modelSort: this.modelSort,
               onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
             }),
@@ -705,6 +709,7 @@ export default {
                 countVisibleMobileColumns: this.countVisibleMobileColumns,
                 row,
                 rowIndex,
+                isRowActionsStickyLocal: this.isRowActionsStickyLocal,
                 selectedRowsIndexes: this.selectedRowsIndexes,
                 rowActionsClass: this.rowActionsClass,
                 onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
@@ -732,6 +737,7 @@ export default {
                 countVisibleMobileColumns: this.countVisibleMobileColumns,
                 row,
                 rowIndex,
+                isRowActionsStickyLocal: this.isRowActionsStickyLocal,
                 rowActionsClass: this.rowActionsClass,
                 selectedRowsIndexes: this.selectedRowsIndexes,
                 onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
