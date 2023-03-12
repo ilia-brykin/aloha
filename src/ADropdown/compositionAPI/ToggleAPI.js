@@ -3,6 +3,8 @@ import {
   toRef,
 } from "vue";
 
+import ADropdownGlobalAPI from "../../compositionAPI/ADropdownGlobalAPI";
+
 import AKeysCode from "../../const/AKeysCode";
 import {
   forEach,
@@ -23,6 +25,11 @@ export default function ToggleAPI(props, {
   const statusExpanded = ref(false);
   const buttonWidth = ref(undefined);
   const statusEventPressArrows = ref(false);
+
+  const {
+    closeDropdownGlobal,
+    openDropdownGlobal,
+  } = ADropdownGlobalAPI();
 
   const pressArrows = ({ down }) => {
     const ELEMENTS = dropdownRef.value.querySelectorAll(elementsForArrows.value);
@@ -108,6 +115,7 @@ export default function ToggleAPI(props, {
       setTimeout(() => {
         setFocusToFirstElement();
       });
+      openDropdownGlobal();
     });
     statusExpanded.value = true;
   };
@@ -139,6 +147,7 @@ export default function ToggleAPI(props, {
     destroyEventPressArrows();
     destroyPopover();
     statusExpanded.value = false;
+    closeDropdownGlobal();
   }
 
   function onClickEvent($event) {

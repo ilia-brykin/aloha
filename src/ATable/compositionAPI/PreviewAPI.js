@@ -4,6 +4,7 @@ import {
   toRef,
 } from "vue";
 
+import ADropdownGlobalAPI from "../../compositionAPI/ADropdownGlobalAPI";
 import PreviewRightResizeAPI from "./PreviewRightResizeAPI";
 
 import {
@@ -19,6 +20,10 @@ export default function PreviewAPI(props, context, {
   tableGrandparentRef = ref({}),
   rowsLocal = computed(() => []),
 }) {
+  const {
+    isDropdownGlobalOpen,
+  } = ADropdownGlobalAPI();
+
   const {
     addEventListenerWindowResize,
     mousedownResizePreviewRight,
@@ -135,6 +140,10 @@ export default function PreviewAPI(props, context, {
   };
 
   const onTogglePreview = ({ rowIndex }) => {
+    console.log("isDropdownGlobalOpen", isDropdownGlobalOpen.value);
+    if (isDropdownGlobalOpen.value) {
+      return;
+    }
     if (isPreviewRight.value) {
       onTogglePreviewRight({ rowIndex });
     }
