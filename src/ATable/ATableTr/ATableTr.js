@@ -173,6 +173,8 @@ export default {
           isWidthAuto: true,
           modelValue: this.isRowSelected,
           disabled: this.isCheckboxDisabled,
+          label: "_TABLE_SELECT_THIS_ROW_",
+          labelClass: "a_sr_only",
           "onUpdate:modelValue": this.toggleCheckbox,
         }),
       ]),

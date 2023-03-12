@@ -32,7 +32,7 @@ export default {
       required: false,
     },
     label: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: undefined,
     },

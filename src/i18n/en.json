@@ -8,9 +8,11 @@
   "_PREVIOUS_": "Previous",
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
   "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Deselect all rows ({{ countAllRows }})",
-  "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Select all rows ({{ countAllRows }})",
   "_TABLE_MULTIPLE_CANCEL_": "Cancel multiple action",
   "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} of {{ countAllRows }} selected",
+  "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Select all rows ({{ countAllRows }})",
+  "_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Select all visible, possible rows",
+  "_TABLE_SELECT_THIS_ROW_": "Select this row",
   "_WIZARD_NEXT_": "Next",
   "_WIZARD_PREVIOUS_": "Previous",
   "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Step {{ stepActive }} of {{ stepsCount }}: {{ stepActiveLabel }}"

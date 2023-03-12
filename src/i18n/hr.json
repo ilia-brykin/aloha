@@ -8,9 +8,11 @@
   "_PREVIOUS_": "Prethodni",
   "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
   "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Poništite odabir svih redaka ({{ countAllRows }})",
-  "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Odaberite svih redaka ({{ countAllRows }})",
   "_TABLE_MULTIPLE_CANCEL_": "Otkaži višestruku radnju",
   "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} od {{ countAllRows }} odabrana",
+  "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Odaberite svih redaka ({{ countAllRows }})",
+  "_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Odaberite sve vidljive, moguće retke",
+  "_TABLE_SELECT_THIS_ROW_": "Odaberite ovu liniju",
   "_WIZARD_NEXT_": "Sljedeći",
   "_WIZARD_PREVIOUS_": "Prethodno",
   "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Korak {{ stepActive }} od {{ stepsCount }}: {{ stepActiveLabel }}"

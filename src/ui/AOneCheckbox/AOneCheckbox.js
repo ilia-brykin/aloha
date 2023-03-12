@@ -1,14 +1,13 @@
 import {
   h,
-  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
-
-import ASafeHtml from "../../directives/ASafeHtml";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
+import LabelAPI from "./compositionAPI/LabelAPI";
 import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
@@ -20,27 +19,31 @@ export default {
     UiMixinProps,
   ],
   props: {
-    modelValue: {
+    falseValue: {
       type: [Boolean, String, Number],
+      required: false,
+      default: undefined,
+    },
+    indeterminate: {
+      type: Boolean,
+      required: false,
+    },
+    isLabelTitle: {
+      type: Boolean,
       required: false,
     },
     isWidthAuto: {
       type: Boolean,
       required: false,
     },
-    indeterminate: {
-      type: Boolean,
+    modelValue: {
+      type: [Boolean, String, Number],
       required: false,
     },
     trueValue: {
       type: [Boolean, String, Number],
       required: false,
       default: true,
-    },
-    falseValue: {
-      type: [Boolean, String, Number],
-      required: false,
-      default: undefined,
     },
   },
   setup(props, context) {
@@ -67,20 +70,23 @@ export default {
       changeModel,
     });
 
-    return {
-      componentStyleHide,
+    const {
+      hasLabel,
+    } = LabelAPI(props);
 
+    return {
       ariaDescribedbyLocal,
+      componentStyleHide,
       errorsId,
+      hasLabel,
       helpTextId,
       htmlIdLocal,
-      isErrors,
-
       isChecked,
+      isErrors,
+      onBlur,
       onClick,
       onFocus,
       onKeydown,
-      onBlur,
     };
   },
   render() {
@@ -117,27 +123,39 @@ export default {
             }),
             h("label", {
               for: this.htmlIdLocal,
-              class: ["a_custom_control_label", {
-                a_custom_control_label_width_auto: this.isWidthAuto,
-              }],
+              class: [
+                "a_custom_control_label",
+                {
+                  a_custom_control_label_width_auto: this.isWidthAuto,
+                },
+              ],
             }, [
-              this.label && h("span", {
-                class: "a_custom_control_label__text",
+              this.hasLabel && h("span", {
+                class: [
+                  "a_custom_control_label__text",
+                  this.labelClass,
+                ],
               }, [
-                withDirectives(h("span"), [
-                  [ASafeHtml, this.label],
-                ]),
+                h(ATranslation, {
+                  tag: "span",
+                  html: this.label,
+                }),
                 this.required && h("span", null, "*"),
               ]),
+              (this.isLabelTitle && this.hasLabel) && h(ATranslation, {
+                class: "a_position_absolute_all",
+                ariaHidden: true,
+                tag: "span",
+                title: this.label,
+              }),
             ]),
           ]),
         ]),
-        this.helpText && withDirectives(h("div", {
-          id: this.helpTextId,
+        this.helpText && h(ATranslation, {
+          tag: "div",
           class: "a_form_element__help_text",
-        }), [
-          [ASafeHtml, this.helpText],
-        ]),
+          html: this.helpText,
+        }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,
