@@ -149,6 +149,7 @@ export default {
           disabled: this.isCheckboxDisabled,
           label: "_TABLE_SELECT_THIS_ROW_",
           labelClass: "a_sr_only",
+          isLabelTitle: true,
           "onUpdate:modelValue": this.toggleCheckbox,
         }),
       ]),
