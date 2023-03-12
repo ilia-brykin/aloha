@@ -133,6 +133,7 @@ export default {
 
     const {
       isBtnMultipleActionDisabled,
+      isBtnSelectAllRowsDisabled,
       textMultipleBtnAllRowsTranslate,
       textMultipleSelectedTranslateExtra,
       toggleBtnAllRows,
@@ -147,6 +148,7 @@ export default {
       currentMultipleActions,
       filterCurrency,
       isBtnMultipleActionDisabled,
+      isBtnSelectAllRowsDisabled,
       multipleActionsFiltered,
       onCancelMultipleActions,
       onOpenModalMultipleActions,
@@ -271,14 +273,15 @@ export default {
               text: "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_",
               extra: this.textMultipleSelectedTranslateExtra,
             }),
-            this.currentMultipleActions.isAllRowsSelected && h(AButton, {
+            this.currentMultipleActions.isAllRowsSelected &&
+            h(AButton, {
               class: "a_btn a_btn_secondary a_table__multiple_panel__btn_all_rows",
               type: "button",
               text: this.textMultipleBtnAllRowsTranslate,
               extraTranslate: {
                 countAllRows: this.countAllRows,
               },
-              disabled: this.isLoadingMultipleActions,
+              disabled: this.isBtnSelectAllRowsDisabled,
               loading: this.isLoadingMultipleActions,
               onClick: this.toggleBtnAllRows,
             }),

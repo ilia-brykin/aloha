@@ -67,7 +67,8 @@ export default function MultipleActionAPI({
   });
 
   const areAllVisibleRowsSelected = computed(() => {
-    return rowsLocalLength.value === selectedRowsIndexesLength.value;
+    return rowsLocalLength.value > 0 && 
+      rowsLocalLength.value === selectedRowsIndexesLength.value;
   });
 
   const areSomeRowsSelected = computed(() => {

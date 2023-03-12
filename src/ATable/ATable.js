@@ -696,6 +696,7 @@ export default {
               areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
               areSomeRowsSelected: this.areSomeRowsSelected,
               isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+              rowsLocalLength: this.rowsLocalLength,
               modelSort: this.modelSort,
               onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
             }),

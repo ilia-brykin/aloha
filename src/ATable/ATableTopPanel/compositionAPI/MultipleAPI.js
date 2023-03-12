@@ -4,10 +4,11 @@ import {
 } from "vue";
 
 export default function MultipleAPI(props, { emit }) {
-  const selectedRows = toRef(props, "selectedRows");
-  const countAllRows = toRef(props, "countAllRows");
-  const areSomeRowsSelected = toRef(props, "areSomeRowsSelected");
   const areAllRowsSelected = toRef(props, "areAllRowsSelected");
+  const areSomeRowsSelected = toRef(props, "areSomeRowsSelected");
+  const countAllRows = toRef(props, "countAllRows");
+  const isLoadingMultipleActions = toRef(props, "isLoadingMultipleActions");
+  const selectedRows = toRef(props, "selectedRows");
 
   const countSelectedRows = computed(() => {
     return areAllRowsSelected.value ?
@@ -28,7 +29,15 @@ export default function MultipleAPI(props, { emit }) {
       "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_";
   });
 
+  const isBtnSelectAllRowsDisabled = computed(() => {
+    return !!(isLoadingMultipleActions.value ||
+      countAllRows.value === 0);
+  });
+
   const toggleBtnAllRows = () => {
+    if (isBtnSelectAllRowsDisabled.value) {
+      return;
+    }
     emit("toggleBtnAllRows");
   };
 
@@ -38,8 +47,9 @@ export default function MultipleAPI(props, { emit }) {
 
   return {
     isBtnMultipleActionDisabled,
-    textMultipleSelectedTranslateExtra,
+    isBtnSelectAllRowsDisabled,
     textMultipleBtnAllRowsTranslate,
+    textMultipleSelectedTranslateExtra,
     toggleBtnAllRows,
   };
 }

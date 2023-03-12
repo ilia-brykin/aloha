@@ -6,6 +6,7 @@ import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
 
+import CheckboxAPI from "./compositionAPI/CheckboxAPI";
 import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
 
 export default {
@@ -35,6 +36,10 @@ export default {
       type: String,
       required: false,
     },
+    rowsLocalLength: {
+      type: Number,
+      required: true,
+    },
   },
   emits: [
     "setSelectedRowsIndexes",
@@ -46,7 +51,7 @@ export default {
     "isMobile",
     "isMultipleActionsActive",
   ],
-  setup(props, { emit }) {
+  setup(props, context) {
     const {
       columnIndexDraggable,
       dragstart,
@@ -62,20 +67,25 @@ export default {
       classOverParent: "a_table__th"
     });
 
-    const toggleCheckbox = () => {
-      emit("setSelectedRowsIndexes", { isAll: true });
-    };
+    const {
+      isCheckboxDisabled,
+      isCheckboxIndeterminate,
+      modelValueCheckboxLocal,
+      toggleCheckbox,
+    } = CheckboxAPI(props, context);
 
     return {
       columnIndexDraggable,
-      dragstart,
+      dragend,
       dragenter,
       dragleave,
-      dragend,
+      dragstart,
       drop,
+      isCheckboxDisabled,
+      isCheckboxIndeterminate,
       isDragstart,
+      modelValueCheckboxLocal,
       root,
-
       toggleCheckbox,
     };
   },
@@ -103,9 +113,9 @@ export default {
         }, [
           h(AOneCheckbox, {
             isWidthAuto: true,
-            modelValue: this.areAllVisibleRowsSelected || this.areAllRowsSelected,
-            indeterminate: this.areSomeRowsSelected && !(this.areAllVisibleRowsSelected || this.areAllRowsSelected),
-            disabled: this.areAllRowsSelected,
+            modelValue: this.modelValueCheckboxLocal,
+            indeterminate: this.isCheckboxIndeterminate,
+            disabled: this.isCheckboxDisabled,
             "onUpdate:modelValue": this.toggleCheckbox,
           }),
         ]),
