@@ -70,6 +70,7 @@ export default {
     const {
       isCheckboxDisabled,
       isCheckboxIndeterminate,
+      labelCheckbox,
       modelValueCheckboxLocal,
       toggleCheckbox,
     } = CheckboxAPI(props, context);
@@ -84,6 +85,7 @@ export default {
       isCheckboxDisabled,
       isCheckboxIndeterminate,
       isDragstart,
+      labelCheckbox,
       modelValueCheckboxLocal,
       root,
       toggleCheckbox,
@@ -116,7 +118,7 @@ export default {
             modelValue: this.modelValueCheckboxLocal,
             indeterminate: this.isCheckboxIndeterminate,
             disabled: this.isCheckboxDisabled,
-            label: "_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_",
+            label: this.labelCheckbox,
             labelClass: "a_sr_only",
             isLabelTitle: true,
             "onUpdate:modelValue": this.toggleCheckbox,

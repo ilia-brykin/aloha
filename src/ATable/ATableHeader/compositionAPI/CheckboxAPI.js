@@ -25,6 +25,11 @@ export default function CheckboxAPI(props, { emit }) {
       areAllRowsSelected.value;
   });
 
+  const labelCheckbox = computed(() => {
+    return isCheckboxIndeterminate.value || modelValueCheckboxLocal.value ?
+      "_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_" : "_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_";
+  });
+
   const toggleCheckbox = () => {
     if (isCheckboxDisabled.value) {
       return;
@@ -35,6 +40,7 @@ export default function CheckboxAPI(props, { emit }) {
   return {
     isCheckboxDisabled,
     isCheckboxIndeterminate,
+    labelCheckbox,
     modelValueCheckboxLocal,
     toggleCheckbox,
   };

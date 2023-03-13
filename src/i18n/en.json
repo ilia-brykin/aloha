@@ -9,6 +9,8 @@
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
   "_SELECT_TEXT_EMPTY_": "[No selection]",
   "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Deselect all rows ({{ countAllRows }})",
+  "_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Deselect all selected rows",
+  "_TABLE_DESELECT_THIS_ROW_": "Deselect row",
   "_TABLE_MULTIPLE_CANCEL_": "Cancel multiple action",
   "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} of {{ countAllRows }} selected",
   "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Select all rows ({{ countAllRows }})",

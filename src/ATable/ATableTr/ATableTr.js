@@ -73,6 +73,7 @@ export default {
     const {
       isCheckboxDisabled,
       isRowSelected,
+      labelCheckbox,
       toggleCheckbox,
     } = CheckboxAPI(props, context);
 
@@ -81,6 +82,7 @@ export default {
       isBtnToggleAllColumnsVisible,
       isCheckboxDisabled,
       isRowSelected,
+      labelCheckbox,
       rowAttributes,
       textBtnToggleAllColumns,
       toggleAllColumnsVisibleMobile,
@@ -147,7 +149,7 @@ export default {
           isWidthAuto: true,
           modelValue: this.isRowSelected,
           disabled: this.isCheckboxDisabled,
-          label: "_TABLE_SELECT_THIS_ROW_",
+          label: this.labelCheckbox,
           labelClass: "a_sr_only",
           isLabelTitle: true,
           "onUpdate:modelValue": this.toggleCheckbox,
