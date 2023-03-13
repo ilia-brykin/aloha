@@ -15,6 +15,7 @@ import ASelectElement from "./ASelectElement";
 import ASelectLabelElement from "./ASelectLabelElement";
 import ASelectValueCloseable from "./ASelectValueCloseable";
 import ASlot from "../../ASlot/ASlot";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
@@ -160,6 +161,11 @@ export default {
       type: String,
       required: false,
       default: "Alle abwählen",
+    },
+    textEmpty: {
+      type: String,
+      required: false,
+      default: "_SELECT_TEXT_EMPTY_",
     },
     textSearch: {
       type: String,
@@ -632,9 +638,11 @@ export default {
                           }, this.$slots);
                         }),
                       ]),
-                      this.isAllElementsHidden && h("span", {
+                      this.isAllElementsHidden && h(ATranslation, {
+                        tag: "span",
+                        html: this.textEmpty,
                         class: "a_select_not_items",
-                      }, "[Keine Auswahl]"),
+                      }),
                     ]),
                   ]),
                 ]),

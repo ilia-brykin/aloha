@@ -7,6 +7,7 @@
   "_PAGINATION_NAVIGATION_": "Paginierungsnavigation",
   "_PREVIOUS_": "Vorherige",
   "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
+  "_SELECT_TEXT_EMPTY_": "[Keine Auswahl]",
   "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Alle Zeilen abwählen ({{ countAllRows }})",
   "_TABLE_MULTIPLE_CANCEL_": "Mehrfachaktion abbrechen",
   "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} von {{ countAllRows }} ausgewählt",
