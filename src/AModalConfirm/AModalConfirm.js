@@ -31,6 +31,6 @@ export default {
     };
   },
   render() {
-    return h(AModal, this.modalProps);
+    return h(AModal, this.modalProps, this.$slots);
   },
 };
