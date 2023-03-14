@@ -28,6 +28,7 @@ import {
 // @vue/component
 export default {
   name: "AModal",
+  inheritAttrs: false,
   props: {
     bodyHtml: {
       type: String,
