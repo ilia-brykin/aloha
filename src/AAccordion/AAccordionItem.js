@@ -137,6 +137,7 @@ export default {
 
     return {
       classBodyLocal,
+      classButtonLocal,
       classHeaderLocal,
       currentIndex,
       isBodyVisible,
@@ -192,7 +193,7 @@ export default {
 
     buttonAttributes() {
       const ATTRIBUTES = {
-        class: ["a_accordion__button", this.classButton, {
+        class: ["a_accordion__button", this.classButton, this.classButtonLocal, {
           a_accordion__button_collapsed: !this.isOpen,
           a_accordion__button_has_not_caret: !this.isCaretLocal,
           a_accordion__button_with_gap: this.withGap,
