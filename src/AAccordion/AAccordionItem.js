@@ -62,6 +62,7 @@ export default {
     const keyClassHeader = inject("keyClassHeader");
     const keyIsRender = inject("keyIsRender");
     const keyIsRenderBodyByFirstOpen = inject("keyIsRenderBodyByFirstOpen");
+    const keyClassButton = inject("keyClassButton");
 
     const isOpenFirst = ref(false);
 
@@ -89,6 +90,13 @@ export default {
     const classHeaderLocal = computed(() => {
       if (keyClassHeader.value) {
         return get(item.value, keyClassHeader.value);
+      }
+      return undefined;
+    });
+
+    const classButtonLocal = computed(() => {
+      if (keyClassButton.value) {
+        return get(item.value, keyClassButton.value);
       }
       return undefined;
     });

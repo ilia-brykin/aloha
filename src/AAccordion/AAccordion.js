@@ -29,6 +29,7 @@ export default {
       keyClassBody: computed(() => this.keyClassBody),
       keyClassHeader: computed(() => this.keyClassHeader),
       keyIsRender: computed(() => this.keyIsRender),
+      keyClassButton: computed(() => this.keyClassButton),
       keyIsRenderBodyByFirstOpen: computed(() => this.keyIsRenderBodyByFirstOpen),
       readonly: computed(() => this.readonly),
       withGap: computed(() => this.withGap),
@@ -74,22 +75,27 @@ export default {
     keyClassBody: {
       type: String,
       required: false,
-      default: undefined,
+      default: "classBody",
     },
     keyClassHeader: {
       type: String,
       required: false,
-      default: undefined,
+      default: "classHeader",
+    },
+    keyClassButton: {
+      type: String,
+      required: false,
+      default: "classButton",
     },
     keyIsRender: {
       type: String,
       required: false,
-      default: undefined,
+      default: "isRender",
     },
     keyIsRenderBodyByFirstOpen: {
       type: String,
       required: false,
-      default: undefined,
+      default: "isRenderBodyByFirstOpen",
     },
     isCaret: {
       type: Boolean,
