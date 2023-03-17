@@ -1,5 +1,6 @@
 import {
-  h, watch,
+  h,
+  watch,
 } from "vue";
 
 import AGroupButtonDropdownItem from "./AGroupButtonDropdownItem/AGroupButtonDropdownItem";
@@ -81,6 +82,8 @@ export default {
 
     watch(hasActionsAllFiltered, newValue => {
       emit("update:innerFlagHasActions", newValue);
+    }, {
+      immediate: true,
     });
 
     return {
