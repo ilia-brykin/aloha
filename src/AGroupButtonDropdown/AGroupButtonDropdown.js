@@ -1,5 +1,5 @@
 import {
-  h,
+  h, watch,
 } from "vue";
 
 import AGroupButtonDropdownItem from "./AGroupButtonDropdownItem/AGroupButtonDropdownItem";
@@ -62,23 +62,36 @@ export default {
       type: Boolean,
       required: false,
       default: () => groupButtonDropdownPluginOptions.value.propsDefault.useDropdownActionClass,
-    }
+    },
+    innerFlagHasActions: {
+      type: Boolean,
+      required: false,
+    },
   },
-  setup(props) {
+  emits: [
+    "update:innerFlagHasActions",
+  ],
+  setup(props, { emit }) {
     const {
       actionsAllFiltered,
       actionsGrouped,
+      hasActionsAllFiltered,
       hasDropdownActions,
     } = ActionsAPI(props);
+
+    watch(hasActionsAllFiltered, newValue => {
+      emit("update:innerFlagHasActions", newValue);
+    });
 
     return {
       actionsAllFiltered,
       actionsGrouped,
+      hasActionsAllFiltered,
       hasDropdownActions,
     };
   },
   render() {
-    if (this.actionsAllFiltered.length) {
+    if (this.hasActionsAllFiltered) {
       return h("div", {
         class: "aloha_group_btn_dropdown",
       }, [

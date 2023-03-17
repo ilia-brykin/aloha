@@ -99,9 +99,14 @@ export default function ActionsAPI(props) {
     return actionsGrouped.value.dropdown.length > 0;
   });
 
+  const hasActionsAllFiltered = computed(() => {
+    return actionsAllFiltered.value.length > 0;
+  });
+
   return {
     actionsAllFiltered,
     actionsGrouped,
+    hasActionsAllFiltered,
     hasDropdownActions,
   };
 }
