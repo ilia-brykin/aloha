@@ -1,6 +1,6 @@
 import {
   computed,
-  inject,
+  inject, toRef,
 } from "vue";
 
 export default function AttributesAPI(props, {
@@ -9,7 +9,10 @@ export default function AttributesAPI(props, {
   columnsStyles = computed(() => ""),
   isLocked = computed(() => false),
   isSorting = computed(() => false),
+  titlesSort = computed(() => []),
 }) {
+  const column = toRef(props, "column");
+
   const isColumnsDnd = inject("isLoadingOptions");
   const isLoadingOptions = inject("isLoadingOptions");
 
@@ -36,7 +39,18 @@ export default function AttributesAPI(props, {
     return ATTRIBUTES;
   });
 
+  const titlesLocal = computed(() => {
+    const TITLES = [];
+    if (column.value.title ||
+      column.value.title === 0) {
+      TITLES.push(column.value.title);
+    }
+    TITLES.push(...titlesSort.value);
+    return TITLES;
+  });
+
   return {
     attributesForTh,
+    titlesLocal,
   };
 }

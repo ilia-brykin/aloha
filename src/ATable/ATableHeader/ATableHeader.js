@@ -44,6 +44,10 @@ export default {
       type: [String, Object],
       required: false,
     },
+    isSortingMultiColumn: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "setSelectedRowsIndexes",
@@ -136,6 +140,7 @@ export default {
             columnIndexDraggable: this.columnIndexDraggable,
             modelSort: this.modelSort,
             sortingSequenceNumberClass: this.sortingSequenceNumberClass,
+            isSortingMultiColumn: this.isSortingMultiColumn,
             onDragstartParent: this.dragstart,
             onDragenterParent: this.dragenter,
             onDragleaveParent: this.dragleave,

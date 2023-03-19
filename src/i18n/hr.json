@@ -16,6 +16,8 @@
   "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Odaberite svih redaka ({{ countAllRows }})",
   "_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Odaberite sve vidljive, moguće retke",
   "_TABLE_SELECT_THIS_ROW_": "Odaberite ovu liniju",
+  "_TABLE_SORT_TITLE_": "Kliknite ovdje za prebacivanje između uzlaznog, silaznog i bez sortiranja.",
+  "_TABLE_SORT_TITLE_MULTI_COLUMN_": "Držite Shift dok klikate kako biste kombinirali sortiranje više stupaca.",
   "_WIZARD_NEXT_": "Sljedeći",
   "_WIZARD_PREVIOUS_": "Prethodno",
   "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Korak {{ stepActive }} od {{ stepsCount }}: {{ stepActiveLabel }}"

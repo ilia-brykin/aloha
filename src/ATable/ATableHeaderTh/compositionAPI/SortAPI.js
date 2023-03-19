@@ -129,8 +129,16 @@ export default function SortAPI(props) {
     return undefined;
   });
 
-  // Klicken Sie hier, um zwischen aufsteigender, absteigender und keiner Sortierung zu wechseln.
-  // Halten Sie die Umschalttaste beim Klicken gedrückt, um die Sortierung mehrerer Spalten zu kombinieren.
+  const titlesSort = computed(() => {
+    const TITLES = [];
+    if (isSortable.value) {
+      TITLES.push("_TABLE_SORT_TITLE_");
+      if (isSortingMultiColumn.value) {
+        TITLES.push("_TABLE_SORT_TITLE_MULTI_COLUMN_");
+      }
+    }
+    return TITLES;
+  });
 
   return {
     ariaSort,
@@ -140,5 +148,6 @@ export default function SortAPI(props) {
     isSortable,
     isSorting,
     sequenceNumberSort,
+    titlesSort,
   };
 }

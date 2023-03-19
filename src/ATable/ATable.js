@@ -716,6 +716,7 @@ export default {
               isRowActionsStickyLocal: this.isRowActionsStickyLocal,
               rowsLocalLength: this.rowsLocalLength,
               modelSort: this.modelSortLocal,
+              isSortingMultiColumn: this.isSortingMultiColumn,
               sortingSequenceNumberClass: this.sortingSequenceNumberClass,
               onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
             }),

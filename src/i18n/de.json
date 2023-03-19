@@ -16,6 +16,8 @@
   "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Alle Zeilen auswählen ({{ countAllRows }})",
   "_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Alle sichtbaren, relevanten Zeilen auswählen",
   "_TABLE_SELECT_THIS_ROW_": "Die Zeile auswählen",
+  "_TABLE_SORT_TITLE_": "Klicken Sie hier, um zwischen aufsteigender, absteigender und keiner Sortierung zu wechseln.",
+  "_TABLE_SORT_TITLE_MULTI_COLUMN_": "Halten Sie die Umschalttaste beim Klicken gedrückt, um die Sortierung mehrerer Spalten zu kombinieren.",
   "_WIZARD_NEXT_": "Nächste",
   "_WIZARD_PREVIOUS_": "Vorherige",
   "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Schritt {{ stepActive }} von {{ stepsCount }}: {{ stepActiveLabel }}"

@@ -38,6 +38,10 @@ export default {
       type: [String, Object],
       required: false,
     },
+    isSortingMultiColumn: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "dragendParent",
@@ -72,16 +76,19 @@ export default {
       isSortable,
       isSorting,
       sequenceNumberSort,
+      titlesSort,
     } = SortAPI(props);
 
     const {
       attributesForTh,
+      titlesLocal,
     } = AttributesAPI(props, {
       ariaSort,
       attributesForRoot,
       columnsStyles,
       isLocked,
       isSorting,
+      titlesSort,
     });
 
     return {
@@ -93,6 +100,8 @@ export default {
       isSortable,
       root,
       sequenceNumberSort,
+      titlesLocal,
+      titlesSort,
     };
   },
   render() {
@@ -118,16 +127,23 @@ export default {
             class: "a_table__th__text",
             ariaHidden: this.column.textAriaHidden,
           }),
-          this.column.title && h(ATranslation, {
-            title: this.column.title,
+          this.titlesLocal.length && h(ATranslation, {
+            title: this.titlesLocal,
             ariaHidden: true,
             tag: "span",
             class: "a_position_absolute_all",
           }),
           this.column.textScreenReader && h(ATranslation, {
-            text: this.column.textScreenReader,
+            html: this.column.textScreenReader,
             tag: "span",
             class: "a_sr_only",
+          }),
+          this.titlesSort.map(titleSort => {
+            return h(ATranslation, {
+              html: titleSort,
+              tag: "span",
+              class: "a_sr_only",
+            });
           }),
           this.isSortable && h("span", {
             class: "a_table__th__sort__box",
