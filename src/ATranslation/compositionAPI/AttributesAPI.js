@@ -9,15 +9,13 @@ export default function AttributesAPI(props, {
   isTranslateHtml = computed(() => false),
   isTranslatePlaceholder = computed(() => false),
   isTranslateText = computed(() => false),
-  isTranslateTitle = computed(() => false),
   placeholderLocal = computed(() => ""),
-  titleLocal = computed(() => ""),
+  titleLocalOptions = computed(() => ({})),
 }) {
   const ariaLabel = toRef(props, "ariaLabel");
   const html = toRef(props, "html");
   const placeholder = toRef(props, "placeholder");
   const text = toRef(props, "text");
-  const title = toRef(props, "title");
 
   const attributesLocal = computed(() => {
     const ATTRIBUTES = {};
@@ -27,11 +25,11 @@ export default function AttributesAPI(props, {
     if (isTranslateHtml.value) {
       ATTRIBUTES["data-translate-html"] = html.value;
     }
-    if (title.value) {
-      ATTRIBUTES.title = titleLocal.value;
+    if (titleLocalOptions.value.title) {
+      ATTRIBUTES.title = titleLocalOptions.value.title;
     }
-    if (isTranslateTitle.value) {
-      ATTRIBUTES["data-translate-title"] = title.value;
+    if (titleLocalOptions.value.dataTranslateTitle) {
+      ATTRIBUTES["data-translate-title"] = titleLocalOptions.value.dataTranslateTitle;
     }
     if (placeholder.value) {
       ATTRIBUTES.placeholder = placeholderLocal.value;

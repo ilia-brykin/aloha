@@ -116,6 +116,7 @@ export default {
             html: this.column.label,
             tag: "span",
             class: "a_table__th__text",
+            ariaHidden: this.column.textAriaHidden,
           }),
           this.column.title && h(ATranslation, {
             title: this.column.title,
@@ -123,8 +124,8 @@ export default {
             tag: "span",
             class: "a_position_absolute_all",
           }),
-          this.column.title && h(ATranslation, {
-            text: this.column.title,
+          this.column.textScreenReader && h(ATranslation, {
+            text: this.column.textScreenReader,
             tag: "span",
             class: "a_sr_only",
           }),

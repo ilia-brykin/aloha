@@ -25,7 +25,7 @@ export default {
       required: false,
     },
     title: {
-      type: [String, Number],
+      type: [String, Number, Array],
       required: false,
     },
     placeholder: {
@@ -77,8 +77,7 @@ export default {
     });
 
     const {
-      isTranslateTitle,
-      titleLocal,
+      titleLocalOptions,
     } = TitleAPI(props, {
       translation,
     });
@@ -105,9 +104,8 @@ export default {
       isTranslateHtml,
       isTranslatePlaceholder,
       isTranslateText,
-      isTranslateTitle,
       placeholderLocal,
-      titleLocal,
+      titleLocalOptions,
     });
 
     return {
