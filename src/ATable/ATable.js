@@ -23,6 +23,8 @@ import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
+import SortAPI from "./compositionAPI/SortAPI";
+import SortChangeAPI from "./compositionAPI/SortChangeAPI";
 import StickyAPI from "./compositionAPI/StickyAPI";
 import TableAttributesAPI from "./compositionAPI/TableAttributesAPI";
 import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
@@ -42,7 +44,6 @@ import {
   isPlainObject,
   uniqueId,
 } from "lodash-es";
-
 
 export default {
   name: "ATable",
@@ -134,6 +135,22 @@ export default {
     isSortingOutside: {
       type: Boolean,
       required: false,
+    },
+    isSortingMultiColumn: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    sortingSequenceNumberClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_badge a_pill_rounded",
+    },
+    sortingMultiColumnKey: {
+      type: String,
+      required: false,
+      default: "shift",
+      validator: value => ["shift", "ctrl", "alt"].indexOf(value) !== -1,
     },
     keyCountAllRowsInData: {
       type: String,
@@ -236,8 +253,8 @@ export default {
       required: false,
       default: () => [],
     },
-    sortingStart: {
-      type: String,
+    modelSort: {
+      type: [String, Array],
       required: false,
       default: undefined,
     },
@@ -296,7 +313,6 @@ export default {
     return {
       changeColumnsOrdering: this.changeColumnsOrdering,
       changeModelColumnsVisible: this.changeModelColumnsVisible,
-      changeModelSort: this.changeModelSort,
       columns: computed(() => this.columns),
       columnsDefaultValue: computed(() => this.columnsDefaultValue),
       columnActionsWidthLocal: computed(() => this.columnActionsWidth),
@@ -328,13 +344,20 @@ export default {
     } = AMobileAPI();
 
     const {
+      dataSorted,
+      initModelSort,
+      modelSortLocal,
+    } = SortAPI(props);
+
+    const {
       hasRows,
       limit,
-      modelSort,
       offset,
       rowsLocal,
       rowsLocalLength,
-    } = RowsAPI(props);
+    } = RowsAPI(props, {
+      dataSorted,
+    });
 
     const {
       aTableRef,
@@ -457,7 +480,16 @@ export default {
       modelColumnsVisibleLocal,
     });
 
+    const {
+      changeModelSort,
+    } = SortChangeAPI(props, context, {
+      modelSortLocal,
+      setEmptySelectedRowsIndexes,
+      closePreviewAll,
+    });
+
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
+    provide("changeModelSort", changeModelSort);
     provide("columnsOrdered", columnsOrdered);
     provide("columnsScrollInvisible", columnsScrollInvisible);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
@@ -477,6 +509,7 @@ export default {
     provide("updateDataKeyByIdFromFilter", updateDataKeyByIdFromFilter);
 
     initViewCurrent();
+    initModelSort();
 
     return {
       allVisibleMobileColumns,
@@ -512,7 +545,7 @@ export default {
       modelColumnsVisibleLocal,
       modelFiltersLocal,
       modelIsTableWithoutScroll,
-      modelSort,
+      modelSortLocal,
       mousedownResizePreviewRight,
       mousemoveResizePreviewRight,
       mouseupResizePreviewRight,
@@ -590,21 +623,6 @@ export default {
           isFirst: true,
         });
       }
-    },
-
-    changeModelSort({ sortId }) {
-      if (this.modelSort === sortId) {
-        this.modelSort = `-${ sortId }`;
-      } else if (this.modelSort === `-${ sortId }`) {
-        this.modelSort = undefined;
-      } else {
-        this.modelSort = sortId;
-      }
-      this.$emit("changeSorting", {
-        modelSort: this.modelSort,
-      });
-      this.setEmptySelectedRowsIndexes();
-      this.closePreviewAll();
     },
 
     changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver, isFirst }) {
@@ -697,7 +715,8 @@ export default {
               areSomeRowsSelected: this.areSomeRowsSelected,
               isRowActionsStickyLocal: this.isRowActionsStickyLocal,
               rowsLocalLength: this.rowsLocalLength,
-              modelSort: this.modelSort,
+              modelSort: this.modelSortLocal,
+              sortingSequenceNumberClass: this.sortingSequenceNumberClass,
               onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
             }),
             h("div", {

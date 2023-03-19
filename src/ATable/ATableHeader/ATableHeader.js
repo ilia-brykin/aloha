@@ -33,12 +33,16 @@ export default {
       required: true,
     },
     modelSort: {
-      type: String,
-      required: false,
+      type: Array,
+      required: true,
     },
     rowsLocalLength: {
       type: Number,
       required: true,
+    },
+    sortingSequenceNumberClass: {
+      type: [String, Object],
+      required: false,
     },
   },
   emits: [
@@ -130,7 +134,8 @@ export default {
             column: column,
             columnIndex: columnIndex,
             columnIndexDraggable: this.columnIndexDraggable,
-            "model-sort": this.modelSort,
+            modelSort: this.modelSort,
+            sortingSequenceNumberClass: this.sortingSequenceNumberClass,
             onDragstartParent: this.dragstart,
             onDragenterParent: this.dragenter,
             onDragleaveParent: this.dragleave,

@@ -26,6 +26,8 @@
   --a_table_multiple_header_text_font_size: 1rem;
   --a_table_multiple_items_selected_border: 1px solid var(-a_table_row_preview_focus_bg);
   --a_table_multiple_items_selected_bg: var(--a_table_row_preview_focus_was_bg);
+  --a_table_sort_sequence_num_bg: var(--a_color_primary);
+  --a_table_sort_sequence_num_color: var(--a_color_white);
 
   width: 100%;
   overflow-x: hidden;
@@ -220,8 +222,18 @@
   align-items: center;
 }
 
-.a_table__th__sort__icons {
+.a_table__th__sort__box {
   padding-left: .2rem;
+  display: flex;
+}
+
+.a_table__th__sort__sequence_num {
+  margin-right: .2rem;
+  background-color: var(--a_table_sort_sequence_num_bg);
+  color: var(--a_table_sort_sequence_num_color);
+}
+
+.a_table__th__sort__icons {
   display: flex;
   flex-direction: column;
 }

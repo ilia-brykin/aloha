@@ -5,8 +5,10 @@ import {
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ColumnStylesAPI from "../compositionAPI/ColumnStylesAPI";
 import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
+import SortAPI from "./compositionAPI/SortAPI";
 
 export default {
   name: "ATableHeaderTh",
@@ -29,7 +31,11 @@ export default {
       default: -1,
     },
     modelSort: {
-      type: String,
+      type: Array,
+      required: false,
+    },
+    sortingSequenceNumberClass: {
+      type: [String, Object],
       required: false,
     },
   },
@@ -58,130 +64,36 @@ export default {
       classOverString: "a_table__th_over",
     });
 
-    return {
+    const {
+      ariaSort,
+      attributesForButtonSort,
+      componentSortLocal,
+      iconsSortable,
+      isSortable,
+      isSorting,
+      sequenceNumberSort,
+    } = SortAPI(props);
+
+    const {
+      attributesForTh,
+    } = AttributesAPI(props, {
+      ariaSort,
       attributesForRoot,
-      isLocked,
-      root,
       columnsStyles,
+      isLocked,
+      isSorting,
+    });
+
+    return {
+      attributesForButtonSort,
+      attributesForTh,
+      columnsStyles,
+      componentSortLocal,
+      iconsSortable,
+      isSortable,
+      root,
+      sequenceNumberSort,
     };
-  },
-  computed: {
-    attributesForTh() {
-      const ATTRIBUTES = {
-        ...this.ariaSort,
-        ...this.attributesForRoot,
-        scope: "col",
-        ref: "root",
-        role: "columnheader",
-      };
-      ATTRIBUTES.class = this.classForTh;
-      ATTRIBUTES.style = this.columnsStyles;
-      return ATTRIBUTES;
-    },
-
-    classForTh() {
-      return [
-        "a_table__th a_table__cell",
-        {
-          a_table__th_draggable: !this.isLocked && !this.isLoadingOptions && this.isColumnsDnd,
-          a_table__th_sorting: this.isSorting,
-        }
-      ];
-    },
-
-
-    ariaSort() {
-      if (this.isSortable) {
-        let ariaSort = "none";
-        if (this.isSortAscending) {
-          ariaSort = "ascending";
-        } else if (this.isSortDescending) {
-          ariaSort = "descending";
-        }
-        return {
-          "aria-sort": ariaSort,
-        };
-      }
-      return {};
-    },
-
-    sortId() {
-      return this.column.sortId;
-    },
-
-    isSorting() {
-      return this.isSortable &&
-        (this.isSortAscending ||
-          this.isSortDescending);
-    },
-
-    isSortAscending() {
-      return this.modelSort === this.sortId;
-    },
-
-    isSortDescending() {
-      return this.modelSort === `-${ this.sortId }`;
-    },
-
-    componentLocal() {
-      if (this.isSortable) {
-        return "button";
-      }
-      return "span";
-    },
-
-    isSortable() {
-      return !!this.sortId;
-    },
-
-    attributesForButton() {
-      if (this.isSortable) {
-        return {
-          type: "button",
-          disabled: this.isLoadingTable,
-          class: "a_btn a_btn_link a_table__th__sort",
-          onClick: this.changeModelSortLocal,
-        };
-      }
-      return {};
-    },
-
-    iconsSortable() {
-      const ICONS = [];
-      if (this.isSortable) {
-        if (!this.isSortAscending) {
-          ICONS.push(this.iconSortDescending);
-        }
-        if (!this.isSortDescending) {
-          ICONS.push(this.iconSortAscending);
-        }
-      }
-      return ICONS;
-    },
-
-    iconSortDescending() {
-      return h(AIcon, {
-        icon: "ChevronUp",
-        class: "a_table__th__sort__icon a_table__th__sort__icon_up",
-      });
-    },
-
-    iconSortAscending() {
-      return h(AIcon, {
-        icon: "ChevronDown",
-        class: "a_table__th__sort__icon a_table__th__sort__icon_down",
-      });
-    },
-  },
-  methods: {
-    changeModelSortLocal() {
-      if (this.isLoadingTable) {
-        return;
-      }
-      this.changeModelSort({
-        sortId: this.sortId,
-      });
-    },
   },
   render() {
     if (this.column.isRender === false) {
@@ -195,7 +107,7 @@ export default {
           this.column.classHeader,
         ],
       }, [
-        h(this.componentLocal, this.attributesForButton, [
+        h(this.componentSortLocal, this.attributesForButtonSort, [
           this.column.icon && h(AIcon, {
             icon: this.column.icon,
             class: "a_table__th__icon",
@@ -216,10 +128,20 @@ export default {
             tag: "span",
             class: "a_sr_only",
           }),
-          h("span", {
-            class: "a_table__th__sort__icons",
+          this.isSortable && h("span", {
+            class: "a_table__th__sort__box",
           }, [
-            ...this.iconsSortable,
+            this.sequenceNumberSort && h("span", {
+              class: [
+                "a_table__th__sort__sequence_num",
+                this.sortingSequenceNumberClass,
+              ],
+            }, this.sequenceNumberSort),
+            h("span", {
+              class: "a_table__th__sort__icons",
+            }, [
+              ...this.iconsSortable,
+            ]),
           ]),
         ]),
       ]),
