@@ -127,7 +127,7 @@ export default {
             class: "a_table__th__text",
             ariaHidden: this.column.textAriaHidden,
           }),
-          this.titlesLocal.length && h(ATranslation, {
+          this.titlesLocal.length > 0 && h(ATranslation, {
             title: this.titlesLocal,
             ariaHidden: true,
             tag: "span",
