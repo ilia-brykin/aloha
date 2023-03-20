@@ -93,6 +93,34 @@ export default function RowActionsAPI(props) {
     return "";
   };
 
+  const getRowActionLinkLeft = ({ rowAction }) => {
+    if (rowAction.linkLeft) {
+      return rowAction.linkLeft;
+    }
+    if (isFunction(rowAction.linkLeftCallback)) {
+      return rowAction.linkLeftCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return undefined;
+  };
+
+  const getRowActionLinkRight = ({ rowAction }) => {
+    if (rowAction.linkRight) {
+      return rowAction.linkRight;
+    }
+    if (isFunction(rowAction.linkRightCallback)) {
+      return rowAction.linkRightCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return undefined;
+  };
+
   const getRowActionTo = ({ rowAction }) => {
     if (isString(rowAction.to)) {
       return rowAction.to;
@@ -154,6 +182,14 @@ export default function RowActionsAPI(props) {
           const CLASS = getRowActionClass({ rowAction });
           if (CLASS) {
             rowAction.class = CLASS;
+          }
+          const LINK_LEFT = getRowActionLinkLeft({ rowAction });
+          if (LINK_LEFT) {
+            rowAction.linkLeft = LINK_LEFT;
+          }
+          const LINK_RIGHT = getRowActionLinkRight({ rowAction });
+          if (LINK_RIGHT) {
+            rowAction.linkRight = LINK_RIGHT;
           }
           if (rowAction.type === "link") {
             const TO = getRowActionTo({ rowAction });
