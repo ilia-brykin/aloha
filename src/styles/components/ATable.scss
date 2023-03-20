@@ -225,12 +225,17 @@
 .a_table__th__sort__box {
   padding-left: .2rem;
   display: flex;
+  align-items: center;
 }
 
 .a_table__th__sort__sequence_num {
   margin-right: .2rem;
   background-color: var(--a_table_sort_sequence_num_bg);
   color: var(--a_table_sort_sequence_num_color);
+  text-underline: none;
+  &:hover {
+    text-underline: none;
+  }
 }
 
 .a_table__th__sort__icons {
@@ -239,8 +244,8 @@
 }
 
 .a_table__th__sort__icon {
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
   line-height: 0;
 }
 
