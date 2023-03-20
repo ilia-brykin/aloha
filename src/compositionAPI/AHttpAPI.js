@@ -350,7 +350,7 @@ export function setUrlForArray({ array, url, id }) {
     return url;
   }
   let URL = url || "";
-  if (id === "fields") {
+  if (id === "fields" || id === "ordering") { // TODO: soll in plugin sein.
     if (URL) {
       URL += "&";
     }
