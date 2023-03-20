@@ -93,12 +93,12 @@ export default function RowActionsAPI(props) {
     return "";
   };
 
-  const getRowActionLinkLeft = ({ rowAction }) => {
-    if (rowAction.linkLeft) {
-      return rowAction.linkLeft;
+  const getRowActionIconLeft = ({ rowAction }) => {
+    if (rowAction.iconLeft) {
+      return rowAction.iconLeft;
     }
-    if (isFunction(rowAction.linkLeftCallback)) {
-      return rowAction.linkLeftCallback({
+    if (isFunction(rowAction.iconLeftCallback)) {
+      return rowAction.iconLeftCallback({
         row: row.value,
         rowIndex: rowIndex.value,
         rowAction,
@@ -107,12 +107,12 @@ export default function RowActionsAPI(props) {
     return undefined;
   };
 
-  const getRowActionLinkRight = ({ rowAction }) => {
-    if (rowAction.linkRight) {
-      return rowAction.linkRight;
+  const getRowActionIconRight = ({ rowAction }) => {
+    if (rowAction.iconRight) {
+      return rowAction.iconRight;
     }
-    if (isFunction(rowAction.linkRightCallback)) {
-      return rowAction.linkRightCallback({
+    if (isFunction(rowAction.iconRightCallback)) {
+      return rowAction.iconRightCallback({
         row: row.value,
         rowIndex: rowIndex.value,
         rowAction,
@@ -183,13 +183,13 @@ export default function RowActionsAPI(props) {
           if (CLASS) {
             rowAction.class = CLASS;
           }
-          const LINK_LEFT = getRowActionLinkLeft({ rowAction });
-          if (LINK_LEFT) {
-            rowAction.linkLeft = LINK_LEFT;
+          const ICON_LEFT = getRowActionIconLeft({ rowAction });
+          if (ICON_LEFT) {
+            rowAction.iconLeft = ICON_LEFT;
           }
-          const LINK_RIGHT = getRowActionLinkRight({ rowAction });
-          if (LINK_RIGHT) {
-            rowAction.linkRight = LINK_RIGHT;
+          const ICON_RIGHT = getRowActionIconRight({ rowAction });
+          if (ICON_RIGHT) {
+            rowAction.iconRight = ICON_RIGHT;
           }
           if (rowAction.type === "link") {
             const TO = getRowActionTo({ rowAction });
