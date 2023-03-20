@@ -307,7 +307,7 @@ function checkErrorStatus({ error, showError, client, resolve, reject }) {
     return true;
   }
   const ERROR_CALLBACK = () => {
-    const CALLBACK = ERROR_CALLBACKS[error.status];
+    const CALLBACK = ERROR_CALLBACKS.value[error.status];
     if (isFunction(CALLBACK)) {
       return CALLBACK({ error, showError, client, resolve, reject });
     }
