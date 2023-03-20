@@ -13,6 +13,7 @@ import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
+import PopperContainerAPI from "../ATooltip/compositionAPI/PopperContainerAPI";
 import RefsAPI from "./compositionAPI/RefsAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
@@ -221,6 +222,11 @@ export default {
       required: false,
       default: false,
     },
+    popperContainerId: {
+      type: String,
+      required: false,
+      default: "a_tooltip_container",
+    },
   },
   setup(props) {
     const {
@@ -274,6 +280,13 @@ export default {
       hasActions,
     } = ActionsAPI(props);
 
+    const {
+      addPopperContainerInBody,
+      popperContainerIdSelector,
+    } = PopperContainerAPI(props);
+
+    addPopperContainerInBody();
+
     onBeforeUnmount(() => {
       destroyEventCloseClick();
       destroyEventPressArrows();
@@ -291,8 +304,9 @@ export default {
       hasActions,
       idLocal,
       isMenuRendered,
-      onToggle,
       onKeydown,
+      onToggle,
+      popperContainerIdSelector,
       statusExpanded,
     };
   },
@@ -343,24 +357,22 @@ export default {
         },
       }),
       h(Teleport, {
-        to: "body",
+        to: this.popperContainerIdSelector,
       }, [
-        this.isMenuRendered && h("div", null, [
-          h(
-            this.dropdownTag,
-            this.dropdownAttributesLocal,
-            [
-              this.$slots.dropdown && this.$slots.dropdown(),
-              this.hasActions && this.actionsFiltered.map((action, actionIndex) => {
-                return h(ADropdownAction, {
-                  key: actionIndex,
-                  action,
-                  useActionClass: this.useActionClass,
-                }, this.$slots);
-              }),
-            ],
-          ),
-        ]),
+        this.isMenuRendered && h(
+          this.dropdownTag,
+          this.dropdownAttributesLocal,
+          [
+            this.$slots.dropdown && this.$slots.dropdown(),
+            this.hasActions && this.actionsFiltered.map((action, actionIndex) => {
+              return h(ADropdownAction, {
+                key: actionIndex,
+                action,
+                useActionClass: this.useActionClass,
+              }, this.$slots);
+            }),
+          ],
+        ),
       ]),
     ];
   },

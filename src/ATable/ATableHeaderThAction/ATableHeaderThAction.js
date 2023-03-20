@@ -116,6 +116,7 @@ export default {
         isCaret: false,
         isCloseByClickInside: false,
         placement: "bottom-end",
+        menuWidth: 320,
       }, {
         button: () => h(AIcon, {
           icon: "Cog",

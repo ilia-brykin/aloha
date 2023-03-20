@@ -57,6 +57,11 @@ export default {
       required: false,
       default: undefined,
     },
+    popperContainerId: {
+      type: String,
+      required: false,
+      default: "a_tooltip_container",
+    },
   },
   setup(props) {
     const {
@@ -94,7 +99,8 @@ export default {
 
     const {
       addPopperContainerInBody,
-    } = PopperContainerAPI();
+      popperContainerIdSelector,
+    } = PopperContainerAPI(props);
 
     addPopperContainerInBody();
 
@@ -110,6 +116,7 @@ export default {
       onMouseenter,
       onMouseleave,
       showTitle,
+      popperContainerIdSelector,
       tagLocal,
       titleRef,
       tooltipStyles,
@@ -130,7 +137,7 @@ export default {
       default: () => [
         this.$slots.default && this.$slots.default(),
         !this.isHide && h(Teleport, {
-          to: "#a_tooltip_container",
+          to: this.popperContainerIdSelector,
         }, [
           h("div", {
             id: this.ariaDescribedby,

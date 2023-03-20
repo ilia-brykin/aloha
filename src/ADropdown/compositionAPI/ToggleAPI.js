@@ -109,6 +109,7 @@ export default function ToggleAPI(props, {
   const onOpen = () => {
     setButtonWidth();
     initEventPressArrows();
+    statusExpanded.value = true;
     setTimeout(() => {
       openPopoverWithPopperjs();
       setEventCloseClick();
@@ -117,7 +118,6 @@ export default function ToggleAPI(props, {
       });
       openDropdownGlobal();
     });
-    statusExpanded.value = true;
   };
 
   const onToggle = () => {
