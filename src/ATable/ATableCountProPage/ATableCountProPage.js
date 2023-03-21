@@ -88,7 +88,7 @@ export default {
   render() {
     if (this.hasRows) {
       return h("div", {
-        class: "a_pagination__count",
+        class: "a_pagination__counts",
       }, [
         h("span", {
           class: "a_pagination__count_from_to"

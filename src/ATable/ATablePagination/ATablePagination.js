@@ -159,6 +159,7 @@ export default {
       return h(ATranslation, {
         tag: "nav",
         role: "navigation",
+        class: "a_pagination__nav",
         "aria-label": "_PAGINATION_NAVIGATION_",
       }, {
         default: () => {

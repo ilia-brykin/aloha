@@ -420,6 +420,9 @@
 }
 
 // PAGINATION
+.a_pagination__nav {
+  flex: 1;
+}
 .a_pagination {
   margin-bottom: 0;
 }
@@ -435,11 +438,20 @@
     margin-bottom: .5rem;
   }
 }
+.a_pagination__counts {
+  display: flex;
+  flex: 20;
+}
 .a_pagination__count_from_to {
   margin-right: 1rem;
+  white-space: nowrap;
+}
+.a_pagination__count__text {
+  white-space: nowrap;
 }
 .a_pagination__count {
   display: flex;
+  white-space: nowrap;
 }
 .a_pagination__count__item {
   border-right: 1px solid #000;
