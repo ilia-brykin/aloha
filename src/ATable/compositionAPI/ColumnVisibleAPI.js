@@ -24,7 +24,7 @@ export default function ColumnVisibleAPI(props) {
   });
 
   const isVisibleFromScroll = computed(() => {
-    if (isNil(indexFirstScrollInvisibleColumn)) {
+    if (isNil(indexFirstScrollInvisibleColumn.value)) {
       return true;
     }
     return columnIndex.value < indexFirstScrollInvisibleColumn.value;
