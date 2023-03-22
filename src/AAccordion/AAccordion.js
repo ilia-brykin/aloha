@@ -134,6 +134,11 @@ export default {
       required: false,
       default: () => [],
     },
+    keyRender: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "toggle",
@@ -190,10 +195,11 @@ export default {
     }, [
       this.items.map((item, itemIndex) => {
         return h(AAccordionItem, {
-          key: itemIndex,
+          key: this.keyRender || itemIndex,
           item,
           itemIndex,
           isParentOpen: true,
+          keyRender: this.keyRender,
           onToggle: this.toggle,
         }, this.$slots);
       }),

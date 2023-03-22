@@ -19,6 +19,10 @@ import {
 export default {
   name: "AAccordionItem",
   props: {
+    isParentOpen: {
+      type: Boolean,
+      required: true,
+    },
     item: {
       type: Object,
       required: true,
@@ -27,9 +31,10 @@ export default {
       type: Number,
       required: true,
     },
-    isParentOpen: {
-      type: Boolean,
-      required: true,
+    keyRender: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     parentIndexes: {
       type: Array,
@@ -256,7 +261,7 @@ export default {
         }, [
           this.children.map((itemChild, itemChildIndex) => {
             return h(resolveComponent("AAccordionItem"), {
-              key: itemChildIndex,
+              key: this.keyRender || itemChildIndex,
               item: itemChild,
               itemIndex: itemChildIndex,
               isParentOpen: this.isOpen,
