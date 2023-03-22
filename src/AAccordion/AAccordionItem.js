@@ -266,6 +266,7 @@ export default {
               itemIndex: itemChildIndex,
               isParentOpen: this.isOpen,
               parentIndexes: this.parentIndexesForChild,
+              keyRender: this.keyRender,
               onToggle: this.toggleFromChild,
             }, this.$slots);
           }),
