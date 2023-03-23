@@ -3,12 +3,14 @@ import {
   h,
 } from "vue";
 
-import AAccordionItem from "./AAccordionItem";
+import AAccordionItem from "./AAccordionItem/AAccordionItem";
 
+import DataAPI from "./compositionAPI/DataAPI";
+import IndexesForOpenAPI from "./compositionAPI/IndexesForOpenAPI";
+import ToggleAPI from "./compositionAPI/ToggleAPI";
+
+import AKeyId from "../ui/const/AKeyId";
 import {
-  cloneDeep,
-  filter,
-  startsWith,
   uniqueId,
 } from "lodash-es";
 
@@ -17,26 +19,46 @@ export default {
   provide() {
     return {
       classBody: computed(() => this.classBody),
-      classHeader: computed(() => this.classHeader),
       classButton: computed(() => this.classButton),
+      classHeader: computed(() => this.classHeader),
       disabled: computed(() => this.disabled),
       id: computed(() => this.id),
-      indexesForOpen: computed(() => this.indexesForOpen),
+      idsForOpen: computed(() => this.idsForOpen),
       isCaret: computed(() => this.isCaret),
-      keyList: computed(() => this.keyList),
-      keyLabel: computed(() => this.keyLabel),
-      keyContent: computed(() => this.keyContent),
+      keyChildren: computed(() => this.keyChildren),
       keyClassBody: computed(() => this.keyClassBody),
-      keyClassHeader: computed(() => this.keyClassHeader),
-      keyIsRender: computed(() => this.keyIsRender),
       keyClassButton: computed(() => this.keyClassButton),
+      keyClassHeader: computed(() => this.keyClassHeader),
+      keyContent: computed(() => this.keyContent),
+      keyIsRender: computed(() => this.keyIsRender),
       keyIsRenderBodyByFirstOpen: computed(() => this.keyIsRenderBodyByFirstOpen),
+      keyLabel: computed(() => this.keyLabel),
       readonly: computed(() => this.readonly),
       withGap: computed(() => this.withGap),
+      toggle: this.toggleLocal,
     };
   },
   props: {
     alwaysOpen: {
+      type: Boolean,
+      required: false,
+    },
+    classBody: {
+      type: [String, Object],
+      required: false,
+      default: "",
+    },
+    classButton: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    classHeader: {
+      type: [String, Object],
+      required: false,
+      default: "",
+    },
+    disabled: {
       type: Boolean,
       required: false,
     },
@@ -45,47 +67,44 @@ export default {
       required: false,
       default: uniqueId("accordion_"),
     },
-    items: {
+    idsForOpenDefault: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    isCaret: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    data: {
       type: Array,
       required: true,
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
-    },
-    readonly: {
-      type: Boolean,
-      required: false,
-    },
-    keyList: {
-      type: String,
-      required: false,
-      default: "items",
-    },
-    keyLabel: {
-      type: String,
-      required: false,
-      default: "label",
-    },
-    keyContent: {
-      type: String,
-      required: false,
-      default: "content",
     },
     keyClassBody: {
       type: String,
       required: false,
       default: "classBody",
     },
+    keyClassButton: {
+      type: String,
+      required: false,
+      default: "classButton",
+    },
     keyClassHeader: {
       type: String,
       required: false,
       default: "classHeader",
     },
-    keyClassButton: {
+    keyContent: {
       type: String,
       required: false,
-      default: "classButton",
+      default: "content",
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     keyIsRender: {
       type: String,
@@ -97,110 +116,77 @@ export default {
       required: false,
       default: "isRenderBodyByFirstOpen",
     },
-    isCaret: {
-      type: Boolean,
+    keyLabel: {
+      type: String,
       required: false,
-      default: true,
+      default: "label",
     },
-    stop: {
-      type: Boolean,
+    keyChildren: {
+      type: String,
       required: false,
+      default: "children",
     },
     prevent: {
       type: Boolean,
       required: false,
     },
-    classButton: {
-      type: [String, Object],
+    readonly: {
+      type: Boolean,
       required: false,
-      default: undefined,
     },
-    classBody: {
-      type: [String, Object],
+    stop: {
+      type: Boolean,
       required: false,
-      default: "",
-    },
-    classHeader: {
-      type: [String, Object],
-      required: false,
-      default: "",
     },
     withGap: {
       type: Boolean,
       required: false,
     },
-    indexesForOpenDefault: {
+    indexesForOpen: {
       type: Array,
       required: false,
       default: () => [],
-    },
-    keyRender: {
-      type: String,
-      required: false,
-      default: undefined,
     },
   },
   emits: [
     "toggle",
   ],
-  data() {
+  setup(props, context) {
+    const {
+      idsForOpen,
+      toggleLocal,
+    } = ToggleAPI(props, context);
+
+    const {
+      dataWithIds,
+    } = DataAPI(props);
+
+    const {
+      initIdsFromIndexesForOpen,
+    } = IndexesForOpenAPI(props, {
+      idsForOpen,
+      dataWithIds,
+    });
+
+    initIdsFromIndexesForOpen();
+
     return {
-      indexesForOpen: cloneDeep(this.indexesForOpenDefault),
+      dataWithIds,
+      idsForOpen,
+      toggleLocal,
     };
-  },
-  methods: {
-    toggle({ indexes, isOpen, $event, item, itemIndex }) {
-      if (this.disabled) {
-        return;
-      }
-      const INDEXES = cloneDeep(indexes);
-      if (this.alwaysOpen) {
-        this.toggleWithAlwaysOpen({ indexes: INDEXES, isOpen });
-      } else {
-        this.toggleWithoutAlwaysOpen({ indexes: INDEXES, isOpen });
-      }
-      this.$emit("toggle", { indexes, isOpen, $event, item, itemIndex });
-
-      if (this.stop) {
-        $event.stopPropagation();
-      }
-      if (this.prevent) {
-        $event.preventDefault();
-      }
-    },
-
-    toggleWithAlwaysOpen({ indexes, isOpen }) {
-      const CURRENT_INDEX = indexes.pop();
-      if (isOpen) {
-        this.indexesForOpen = filter(this.indexesForOpen, index => {
-          return !startsWith(index, CURRENT_INDEX);
-        });
-      } else {
-        this.indexesForOpen.push(CURRENT_INDEX);
-      }
-    },
-
-    toggleWithoutAlwaysOpen({ indexes, isOpen }) {
-      if (isOpen) {
-        indexes.pop();
-        this.indexesForOpen = indexes;
-      } else {
-        this.indexesForOpen = indexes;
-      }
-    },
   },
   render() {
     return h("div", {
       class: ["a_accordion"],
     }, [
-      this.items.map((item, itemIndex) => {
+      this.dataWithIds.map((item, itemIndex) => {
         return h(AAccordionItem, {
-          key: this.keyRender || itemIndex,
+          key: item[AKeyId],
           item,
           itemIndex,
           isParentOpen: true,
-          keyRender: this.keyRender,
-          onToggle: this.toggle,
+          keyId: this.keyId,
         }, this.$slots);
       }),
     ]);

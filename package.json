@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.5",
-    "aloha-css": "1.0.86",
+    "aloha-css": "1.0.87",
     "axios": "^0.27.2",
     "dompurify": "2.4.1",
     "fecha": "^4.2.3",

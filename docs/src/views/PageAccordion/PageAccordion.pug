@@ -2,16 +2,20 @@ div
   h1 PageAccordion
   h2 without alwaysOpen
   a-accordion(
-    :items="items"
+    :data="items"
     key-is-render-body-by-first-open="keyIsRenderBodyByFirstOpen"
+    key-id="id"
   )
 
   h2 with alwaysOpen
   a-accordion(
-    :items="items"
+    ref="aloha"
+    :data="items"
     :always-open="true"
     :with-gap="true"
-    :indexes-for-open-default="['0', '0.0', '1']"
+    :indexes-for-open="indexesForOpenDefault"
+    key-id="id"
+    @toggle="toggleAccordion"
   )
     template(
       v-slot:aloha="{ item }"
@@ -20,7 +24,7 @@ div
 
   h2 with Slots
   a-accordion(
-    :items="items"
+    :data="items"
     key-label=""
     key-content=""
   )
@@ -37,7 +41,7 @@ div
 
   h2 readonly
   a-accordion(
-    :items="items"
+    :data="items"
     :readonly="true"
     :is-caret="false"
     class-button="a_color_link"
