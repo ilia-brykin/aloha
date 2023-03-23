@@ -39,6 +39,11 @@ export default {
       required: false,
       default: () => [],
     },
+    parentIndexes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   inject: [
     "classBody",
@@ -51,6 +56,7 @@ export default {
       closeItemIfOpen,
       currentId,
       isOpen,
+      parentIndexesForChild,
       parentsIdsForChild,
       toggleLocal,
     } = ToggleAPI(props);
@@ -112,6 +118,7 @@ export default {
       isOpen,
       isRender,
       labelLocal,
+      parentIndexesForChild,
       parentsIdsForChild,
     };
   },
@@ -124,6 +131,7 @@ export default {
             item: this.item,
             itemIndex: this.itemIndex,
             parentsIds: this.parentsIds,
+            parentIndexes: this.parentIndexes,
             id: this.id,
             currentId: this.currentId,
           }) : this.$slots.accordionContent ?
@@ -131,6 +139,7 @@ export default {
               item: this.item,
               itemIndex: this.itemIndex,
               parentsIds: this.parentsIds,
+              parentIndexes: this.parentIndexes,
               id: this.id,
               currentId: this.currentId,
             }) :
@@ -147,6 +156,7 @@ export default {
               itemIndex: itemChildIndex,
               isParentOpen: this.isOpen,
               parentsIds: this.parentsIdsForChild,
+              parentIndexes: this.parentIndexesForChild,
               keyId: this.keyId,
             }, this.$slots);
           }),
@@ -171,6 +181,7 @@ export default {
             item: this.item,
             itemIndex: this.itemIndex,
             parentsIds: this.parentsIds,
+            parentIndexes: this.parentIndexes,
             id: this.id,
             currentId: this.currentId,
           }),
