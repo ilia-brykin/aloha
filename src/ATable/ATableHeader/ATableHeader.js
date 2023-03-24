@@ -32,6 +32,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    isSortingMultiColumn: {
+      type: Boolean,
+      required: false,
+    },
     modelSort: {
       type: Array,
       required: true,
@@ -40,12 +44,12 @@ export default {
       type: Number,
       required: true,
     },
-    sortingSequenceNumberClass: {
-      type: [String, Object],
+    showFirstSortingSequenceNumber: {
+      type: Boolean,
       required: false,
     },
-    isSortingMultiColumn: {
-      type: Boolean,
+    sortingSequenceNumberClass: {
+      type: [String, Object],
       required: false,
     },
   },
@@ -141,6 +145,7 @@ export default {
             modelSort: this.modelSort,
             sortingSequenceNumberClass: this.sortingSequenceNumberClass,
             isSortingMultiColumn: this.isSortingMultiColumn,
+            showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
             onDragstartParent: this.dragstart,
             onDragenterParent: this.dragenter,
             onDragleaveParent: this.dragleave,

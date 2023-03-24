@@ -30,16 +30,20 @@ export default {
       required: false,
       default: -1,
     },
+    isSortingMultiColumn: {
+      type: Boolean,
+      required: false,
+    },
     modelSort: {
       type: Array,
       required: false,
     },
-    sortingSequenceNumberClass: {
-      type: [String, Object],
+    showFirstSortingSequenceNumber: {
+      type: Boolean,
       required: false,
     },
-    isSortingMultiColumn: {
-      type: Boolean,
+    sortingSequenceNumberClass: {
+      type: [String, Object],
       required: false,
     },
   },

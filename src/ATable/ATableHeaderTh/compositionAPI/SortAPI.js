@@ -10,6 +10,7 @@ export default function SortAPI(props) {
   const column = toRef(props, "column");
   const isSortingMultiColumn = toRef(props, "isSortingMultiColumn");
   const modelSort = toRef(props, "modelSort");
+  const showFirstSortingSequenceNumber = toRef(props, "showFirstSortingSequenceNumber");
 
   const changeModelSort = inject("changeModelSort");
   const isLoadingTable = inject("isLoadingTable");
@@ -118,6 +119,10 @@ export default function SortAPI(props) {
   const sequenceNumberSort = computed(() => {
     if (!isSortingMultiColumn.value &&
       !isSorting.value) {
+      return undefined;
+    }
+    if (modelSort.value.length <= 1 &&
+      !showFirstSortingSequenceNumber.value) {
       return undefined;
     }
     if (modelSortIndexAscending.value !== -1) {

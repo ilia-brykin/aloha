@@ -146,6 +146,11 @@ export default {
       required: false,
       default: "a_badge",
     },
+    showFirstSortingSequenceNumber: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     sortingMultiColumnKey: {
       type: String,
       required: false,
@@ -726,6 +731,7 @@ export default {
               modelSort: this.modelSortLocal,
               isSortingMultiColumn: this.isSortingMultiColumn,
               sortingSequenceNumberClass: this.sortingSequenceNumberClass,
+              showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
               onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
             }),
             h("div", {
