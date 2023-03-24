@@ -2,38 +2,18 @@ import {
   h,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
+import ASelect from "../../ui/ASelect/ASelect";
 import ATranslation from "../../ATranslation/ATranslation";
 
-import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
-
+import LimitAPI from "./compositionAPI/LimitAPI";
+import MainAPI from "./compositionAPI/MainAPI";
+import ViewAPI from "./compositionAPI/ViewAPI";
 
 export default {
   name: "ATableCountProPage",
-  components: {
-    ATranslation,
-  },
   props: {
     countAllRows: {
-      type: Number,
-      required: true,
-    },
-    limitsPerPage: {
-      type: Array,
-      required: true,
-    },
-    limit: {
-      type: Number,
-      required: true,
-    },
-    isLoadingTable: {
-      type: Boolean,
-      required: true,
-    },
-    offset: {
-      type: Number,
-      required: true,
-    },
-    rowsLength: {
       type: Number,
       required: true,
     },
@@ -41,78 +21,108 @@ export default {
       type: Boolean,
       required: true,
     },
+    isLoadingTable: {
+      type: Boolean,
+      required: true,
+    },
+    isMobile: {
+      type: Boolean,
+      required: false,
+    },
+    limit: {
+      type: Number,
+      required: true,
+    },
+    limitsPerPage: {
+      type: Array,
+      required: true,
+    },
+    offset: {
+      type: Number,
+      required: true,
+    },
+    perPageView: {
+      type: Object,
+      required: true,
+    },
+    rowsLength: {
+      type: Number,
+      required: true,
+    },
   },
   emits: ["update:limit"],
-  setup() {
+  setup(props, context) {
     const {
-      filterCurrency,
-    } = AFiltersAPI();
+      changeLimit,
+      changeLimitFromSelect,
+      limitString,
+    } = LimitAPI(props, context);
+
+    const {
+      extraForTranslate,
+    } = MainAPI(props);
+
+    const {
+      currentView,
+    } = ViewAPI(props);
 
     return {
-      filterCurrency,
+      changeLimit,
+      changeLimitFromSelect,
+      currentView,
+      extraForTranslate,
+      limitString,
     };
-  },
-  computed: {
-    extraForTranslate() {
-      return {
-        start: this.startFormatted,
-        current: this.currentFormatted,
-        count: this.countFormatted,
-      };
-    },
-
-    startFormatted() {
-      return this.filterCurrency(+this.offset + 1, { suffix: "", digits: 0 });
-    },
-
-    currentFormatted() {
-      return this.filterCurrency(+this.offset + this.rowsLength, { suffix: "", digits: 0 });
-    },
-
-    countFormatted() {
-      return this.filterCurrency(this.countAllRows, { suffix: "", digits: 0 });
-    },
-
-    countText() {
-      return `${ this.startFormatted } - ${ this.currentFormatted } von ${ this.countFormatted }`;
-    },
-  },
-  methods: {
-    changeLimit(limit) {
-      if (this.isLoadingTable) {
-        return;
-      }
-      this.$emit("update:limit", +limit);
-    },
   },
   render() {
     if (this.hasRows) {
       return h("div", {
         class: "a_pagination__counts",
-      }, [
-        h("span", {
-          class: "a_pagination__count_from_to"
-        }, this.countText),
-        h("span", {
-          class: "a_pagination__count__text"
-        }, "Pro Seite:"),
-        h("div", {
-          class: "a_pagination__count",
-        }, [
-          this.limitsPerPage.map(count => {
-            return h("div", {
-              class: "a_pagination__count__item",
-            }, [
-              h("button", {
-                type: "button",
-                class: "a_btn a_btn_link a_pagination__count__button",
-                disabled: +count === this.limit || this.isLoadingTable,
-                onClick: () => this.changeLimit(count),
-              }, count),
-            ]);
+      }, this.currentView === "inline" ?
+        [
+          h(ATranslation, {
+            class: "a_pagination__count_from_to",
+            html: "_TABLE_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+            extra: this.extraForTranslate,
           }),
-        ]),
-      ]);
+          h(ATranslation, {
+            tag: "span",
+            class: "a_pagination__count__text",
+            html: "_TABLE_PER_PAGE_",
+          }),
+          h("div", {
+            class: "a_pagination__count",
+          }, [
+            this.limitsPerPage.map(count => {
+              return h("div", {
+                class: "a_pagination__count__item",
+              }, [
+                h(AButton, {
+                  type: "button",
+                  class: "a_btn a_btn_link a_pagination__count__button",
+                  disabled: +count === this.limit || this.isLoadingTable,
+                  text: count,
+                  onClick: () => this.changeLimit(count),
+                }),
+              ]);
+            }),
+          ]),
+        ] :
+        [
+          h(ATranslation, {
+            class: "a_pagination__count_from_to",
+            html: "_TABLE_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+            extra: this.extraForTranslate,
+          }),
+          h(ASelect, {
+            label: "_TABLE_PER_PAGE_",
+            data: this.limitsPerPage,
+            isDataSimpleArray: true,
+            isDeselect: false,
+            modelValue: this.limitString,
+            change: this.changeLimitFromSelect
+          }),
+        ]);
     }
     return "";
   },

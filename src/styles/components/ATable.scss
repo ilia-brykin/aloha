@@ -441,6 +441,10 @@
 .a_pagination__counts {
   display: flex;
   flex: 20;
+  align-items: center;
+  .ui_select {
+    --a_select_min_width: 100px;
+  }
 }
 .a_pagination__count_from_to {
   margin-right: 1rem;

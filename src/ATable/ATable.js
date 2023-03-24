@@ -144,7 +144,7 @@ export default {
     sortingSequenceNumberClass: {
       type: [String, Object],
       required: false,
-      default: "a_badge a_pill_rounded",
+      default: "a_badge",
     },
     sortingMultiColumnKey: {
       type: String,
@@ -292,6 +292,14 @@ export default {
       type: Number,
       required: false,
       default: 0,
+    },
+    perPageView: {
+      type: Object,
+      required: false,
+      default: () => ({
+        desktop: "inline",
+        mobile: "select",
+      }),
     },
   },
   emits: [
@@ -795,6 +803,8 @@ export default {
               offset: this.offset,
               rowsLength: this.rowsLocal.length,
               hasRows: this.hasRows,
+              perPageView: this.perPageView,
+              isMobile: this.isMobile,
               "onUpdate:limit": this.changeLimit,
             }),
             h(ATablePagination, {

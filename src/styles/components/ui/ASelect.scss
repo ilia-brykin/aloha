@@ -10,7 +10,7 @@
 
 .a_select_toggle {
   position: relative;
-  min-width: 200px;
+  min-width: var(--a_select_min_width);
   text-align: left;
 }
 .a_select_toggle_closeable {
