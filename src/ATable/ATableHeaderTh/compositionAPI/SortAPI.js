@@ -77,10 +77,10 @@ export default function SortAPI(props) {
   const iconsSortable = computed(() => {
     const ICONS = [];
     if (isSortable.value) {
-      if (!isSortAscending.value) {
+      if (!isSortDescending.value) {
         ICONS.push(iconSortDescending.value);
       }
-      if (!isSortDescending.value) {
+      if (!isSortAscending.value) {
         ICONS.push(iconSortAscending.value);
       }
     }
