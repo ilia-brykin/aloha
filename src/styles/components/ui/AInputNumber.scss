@@ -21,6 +21,12 @@
   }
 }
 
+.a_form_element__parent_invalid {
+  .a_form_element_number_controls .a_btn_group > .aloha_btn {
+    --a_btn_border_color: var(--a_form_element_error_color);
+  }
+}
+
 .a_input_number {
   height: 100%;
   -webkit-appearance: none;

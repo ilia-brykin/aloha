@@ -217,6 +217,7 @@ export default {
           a_form_element__parent_float: this.isLabelFloat,
           a_form_element__parent_not_empty: this.isModel || this.isAutofill,
           a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
+          a_form_element__parent_invalid: this.isErrors,
         }],
       }, [
         this.label && h(ALabel, {
