@@ -177,14 +177,23 @@ export default {
         class: ["a_accordion__header", this.classHeader, this.classHeaderLocal],
       }, [
         h(this.buttonTag, this.buttonAttributes, [
-          this.$slots.accordionButton && this.$slots.accordionButton({
-            item: this.item,
-            itemIndex: this.itemIndex,
-            parentsIds: this.parentsIds,
-            parentIndexes: this.parentIndexes,
-            id: this.id,
-            currentId: this.currentId,
-          }),
+          this.item.slotButton && this.$slots[this.item.slotButton] ?
+            this.$slots[this.item.slotButton]({
+              item: this.item,
+              itemIndex: this.itemIndex,
+              parentsIds: this.parentsIds,
+              parentIndexes: this.parentIndexes,
+              id: this.id,
+              currentId: this.currentId,
+            }) :
+            this.$slots.accordionButton && this.$slots.accordionButton({
+              item: this.item,
+              itemIndex: this.itemIndex,
+              parentsIds: this.parentsIds,
+              parentIndexes: this.parentIndexes,
+              id: this.id,
+              currentId: this.currentId,
+            }),
           this.labelLocal && withDirectives(h("span"), [
             [ASafeHtml, this.labelLocal],
           ]),
