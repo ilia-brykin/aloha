@@ -16,6 +16,7 @@ export default function InputEventsAPI(props, {
   onBlur = () => {},
   setCurrentValue = () => {},
   userInput = ref(null),
+  currentValue = ref(undefined),
   displayValue = computed(() => ""),
 }) {
   const eAllowed = toRef(props, "eAllowed");
@@ -58,7 +59,6 @@ export default function InputEventsAPI(props, {
 
   const handleInput = $event => {
     const value = $event.target.value;
-    console.log("value", value);
     userInput.value = value;
     const newVal = value === "" ? null : Number(value);
     setCurrentValue(newVal, false);
@@ -102,8 +102,10 @@ export default function InputEventsAPI(props, {
   };
 
   const onBlurNumber = $event => {
-    console.log("onBlurNumber");
-    if (!modelValue.value && modelValue.value !== 0) {
+    if (userInput.value !== null ||
+      (!modelValue.value && modelValue.value !== 0)) {
+      userInput.value = null;
+      currentValue.value = modelValue.value;
       inputRef.value.value = displayValue.value;
     }
     onBlur($event);

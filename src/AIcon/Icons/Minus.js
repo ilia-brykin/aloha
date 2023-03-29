@@ -1,14 +1,3 @@
-export default `<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="18"
-  height="18"
-  viewBox="0 0 18 18"
->
-  <g
-    transform="matrix(0.01757812,0,0,0.01757812,-1.7577055e-5,7.5671054e-6)"
-  >
-    <path
-      d="m 56.889,341.333 h 910.224 q 23.893,0 40.391,16.497 16.498,16.497 16.497,40.391 v 227.556 q 0,23.893 -16.497,40.391 -16.497,16.498 -40.391,16.497 H 56.889 q -23.893,0 -40.391,-16.497 Q 0,649.671 0.001,625.777 V 398.221 q 0,-23.893 16.497,-40.391 16.497,-16.498 40.391,-16.497 z"
-    />
-  </g>
+export default `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
 </svg>`;
