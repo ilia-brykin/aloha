@@ -1,0 +1,41 @@
+div
+  h1 Form element
+  h2 Input number
+  a-input-number(
+    id="input1"
+    v-model="model1"
+    type="number"
+    label="Input 1"
+    :required="true"
+    :step="0.1"
+  )
+  div model1: {{ model1 }}
+
+  input(
+    type="number"
+  )
+  //h2 Textarea
+  //a-textarea(
+  //  id="textarea1"
+  //  v-model="model2"
+  //  type="text"
+  //  label="Textarea 1"
+  //  :required="true"
+  //  :is-scalable="true"
+  //)
+  //div model2:
+  //pre {{ model2 }}
+  //
+  //h2 Textarea 2
+  //  a-textarea(
+  //    id="textarea3"
+  //    v-model="model3"
+  //    type="text"
+  //    label="Textarea 2"
+  //    :required="true"
+  //  )
+  //  div model3:
+  //  pre {{ model3 }}
+  button.a_btn.a_btn_primary() Temp
+
+

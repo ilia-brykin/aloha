@@ -2,6 +2,7 @@ import ACheckbox from "./ACheckbox/ACheckbox";
 import ADatepicker from "./ADatepicker/ADatepicker";
 import AInput from "./AInput/AInput";
 import AInputFile from "./AInputFile/AInputFile";
+import AInputNumber from "./AInputNumber/AInputNumber";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
 import ASelect from "./ASelect/ASelect";
@@ -17,10 +18,10 @@ export default {
   datetime: ADatepicker,
   email: AInput,
   file: AInputFile,
-  integer: AInput,
+  integer: AInputNumber,
   multiselect: ASelect,
   natural: AInput,
-  number: AInput,
+  number: AInputNumber,
   oneCheckbox: AOneCheckbox,
   password: AInput,
   radio: ARadio,

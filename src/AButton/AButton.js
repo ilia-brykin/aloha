@@ -139,6 +139,16 @@ export default {
       required: false,
       default: undefined,
     },
+    tag: {
+      type: String,
+      required: false,
+      default: "button",
+    },
+    tabindex: {
+      type: [Number, String],
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "click",
@@ -172,7 +182,7 @@ export default {
     };
   },
   render() {
-    return h("button", {
+    return h(this.tag, {
       ...this.attributes,
       id: this.id,
       class: [
@@ -183,6 +193,7 @@ export default {
         },
       ],
       type: this.type,
+      tabindex: this.tabindex,
       disabled: this.disabled,
       ariaDisabled: this.ariaDisabled,
       onClick: this.onClick,

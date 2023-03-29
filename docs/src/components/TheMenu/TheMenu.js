@@ -92,6 +92,13 @@ export default {
               label: "Input",
             },
             {
+              id: "input-number",
+              to: {
+                name: "PageInputNumber",
+              },
+              label: "Input number",
+            },
+            {
               id: "json",
               label: "JSON",
               to: {

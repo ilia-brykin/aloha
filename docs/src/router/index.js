@@ -150,6 +150,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageWizard" */ "../views/PageWizard/PageWizard.vue"),
   },
   {
+    path: "/input-number",
+    name: "PageInputNumber",
+    component: () => import(/* webpackChunkName: "PageInputNumber" */ "../views/PageInputNumber/PageInputNumber.vue"),
+  },
+  {
     path: "/group-button-dropdown",
     name: "PageGroupButtonDropdown",
     component: () => import(/* webpackChunkName: "PageGroupButtonDropdown" */ "../views/PageGroupButtonDropdown/PageGroupButtonDropdown.vue"),
