@@ -86,6 +86,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    inputWidth: {
+      type: Number,
+      required: false,
+      default: 250,
+    },
   },
   setup(props, context) {
     const {
@@ -238,6 +243,9 @@ export default {
         }, [
           h("div", {
             class: "a_form_element",
+            style: {
+              width: this.inputWidth ? `${ this.inputWidth }px` : undefined,
+            },
           }, [
             this.iconPrepend && h(AIcon, {
               icon: this.iconPrepend,
