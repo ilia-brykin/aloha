@@ -41,7 +41,7 @@ export default function ASelectDataAPI(props, {
           DATA_GROUPED[GROUP] = [];
           groups.push({
             groupKey: GROUP,
-            groupLabel: isFunction(keyGroupCallback.value) ? keyGroupCallback.value({ group: GROUP }) : GROUP,
+            groupLabel: isFunction(keyGroupCallback.value) ? keyGroupCallback.value({ group: GROUP, item }) : GROUP,
           });
         }
         DATA_GROUPED[GROUP].push(item);

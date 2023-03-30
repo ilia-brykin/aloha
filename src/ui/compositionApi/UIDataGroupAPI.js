@@ -59,7 +59,7 @@ export default function UIDataGroupAPI(props, {
         if (!GROUPS_FOR_LEVER[leverIndex][allGroupKeys]) {
           GROUPS_FOR_LEVER[leverIndex][allGroupKeys] = {
             groupKey: group,
-            groupLabel: isFunction(keyGroupCallback.value) ? keyGroupCallback.value({ group: group }) : group,
+            groupLabel: isFunction(keyGroupCallback.value) ? keyGroupCallback.value({ group: group, item }) : group,
             groupParentKey: groupParentKey,
             allGroupKeys: allGroupKeys,
           };
