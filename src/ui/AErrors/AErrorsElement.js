@@ -6,6 +6,8 @@ import {
   withDirectives,
 } from "vue";
 
+import ATranslation from "../../ATranslation/ATranslation";
+
 import ASafeHtml from "../../directives/ASafeHtml";
 
 import AKeysCode from "../../const/AKeysCode";
@@ -184,7 +186,12 @@ export default {
           class: "a_errors__errors",
         },
         this.isErrorString ?
-          [h("span", null, this.error)] :
+          [
+            h(ATranslation, {
+              tag: "span",
+              html: this.error,
+            })
+          ] :
           this.isErrorArray ? [...this.error.map((error, erIndex) => {
             return h(resolveComponent("AErrorsElement"), {
               key: erIndex,
