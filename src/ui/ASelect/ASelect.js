@@ -466,6 +466,7 @@ export default {
                           key: index,
                           data: this.dataKeyByKeyIdLocal[item] || {},
                           slotName: this.slotName,
+                          disabled: this.disabled,
                           onChangeModelValue: this.onChangeModelValue,
                         }, this.$slots);
                       }),

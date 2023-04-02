@@ -20,6 +20,10 @@ export default {
       required: false,
       default: undefined,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: [
     "changeModelValue",
@@ -65,6 +69,7 @@ export default {
         class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
         type: "button",
         tabindex: -1,
+        disabled: this.disabled,
         onClick: this.closeModel,
       }, [
         h(AIcon, {
