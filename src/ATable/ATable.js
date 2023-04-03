@@ -17,6 +17,8 @@ import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
 import AMobileAPI from "../compositionAPI/AMobileAPI";
+import ColumnsIdsAPI from "./compositionAPI/ColumnsIdsAPI";
+import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
 import MobileColumnsAPI from "./compositionAPI/MobileColumnsAPI";
 import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
@@ -34,10 +36,6 @@ import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 import {
-  getModelColumnsOrderingDefault,
-} from "./utils/utils";
-import {
-  cloneDeep,
   get,
   isArray,
   isNil,
@@ -324,7 +322,6 @@ export default {
   ],
   provide() {
     return {
-      changeColumnsOrdering: this.changeColumnsOrdering,
       changeModelColumnsVisible: this.changeModelColumnsVisible,
       columns: computed(() => this.columns),
       columnsDefaultValue: computed(() => this.columnsDefaultValue),
@@ -344,9 +341,16 @@ export default {
     const isMultipleActionsActive = ref(undefined);
 
     const {
+      columnsKeyById,
+      columnIdsGroupByLocked,
+    } = ColumnsIdsAPI(props);
+
+    const {
       columnsOrdered,
-      modelColumnsOrderingLocal,
-    } = TableColumnsAPI(props);
+    } = TableColumnsAPI(props, {
+      columnsKeyById,
+      columnIdsGroupByLocked,
+    });
 
     const {
       modelColumnsVisibleLocal,
@@ -385,6 +389,14 @@ export default {
       isMobile,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
+    });
+
+    const {
+      changeColumnsOrdering,
+      checkColumnsOrdering,
+    } = ColumnsOrderingAPI(props, context, {
+      checkVisibleColumns,
+      columnIdsGroupByLocked,
     });
 
     const {
@@ -520,9 +532,12 @@ export default {
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("onUpdateModelFilters", onUpdateModelFilters);
     provide("updateDataKeyByIdFromFilter", updateDataKeyByIdFromFilter);
+    provide("changeColumnsOrdering", changeColumnsOrdering);
 
     initViewCurrent();
     initModelSort();
+    initModelColumnsVisibleLocal();
+    checkColumnsOrdering();
 
     return {
       allVisibleMobileColumns,
@@ -554,7 +569,6 @@ export default {
       isRowActionsStickyLocal,
       isViewTableVisible,
       limit,
-      modelColumnsOrderingLocal,
       modelColumnsVisibleLocal,
       modelFiltersLocal,
       modelIsTableWithoutScroll,
@@ -622,42 +636,7 @@ export default {
       return this.rowsFooter.length > 0;
     },
   },
-  created() {
-    this.initModelColumnsOrderingLocal();
-    this.initModelColumnsVisibleLocal();
-  },
   methods: {
-    initModelColumnsOrderingLocal() {
-      if (this.modelColumnsOrdering.length) {
-        this.modelColumnsOrderingLocal = cloneDeep(this.modelColumnsOrdering);
-      } else {
-        this.changeColumnsOrdering({
-          modelColumnsOrderingLocal: getModelColumnsOrderingDefault(this.columns),
-          isFirst: true,
-        });
-      }
-    },
-
-    changeColumnsOrdering({ modelColumnsOrderingLocal, columnIndexDraggable, columnIndexOver, isFirst }) {
-      if (columnIndexDraggable === columnIndexOver && !modelColumnsOrderingLocal) {
-        return;
-      }
-      if (modelColumnsOrderingLocal) {
-        this.modelColumnsOrderingLocal = modelColumnsOrderingLocal;
-      } else {
-        const ID_DRAGGABLE = this.modelColumnsOrderingLocal[columnIndexDraggable];
-        this.modelColumnsOrderingLocal.splice(columnIndexDraggable, 1);
-        this.modelColumnsOrderingLocal.splice(columnIndexOver, 0, ID_DRAGGABLE);
-      }
-      this.$emit("changeColumnsOrdering", {
-        columnIndexDraggable,
-        columnIndexOver,
-        modelColumnsOrdering: cloneDeep(this.modelColumnsOrderingLocal),
-        isFirst,
-      });
-      this.checkVisibleColumns();
-    },
-
     updateModelQuickSearch(model) {
       this.$emit("update:modelQuickSearch", model);
     },

@@ -1,44 +1,44 @@
 import {
   computed,
-  ref,
   toRef,
 } from "vue";
 
 import {
   cloneDeep,
   forEach,
-  keyBy,
 } from "lodash-es";
 
-export default function TableColumnsAPI(props) {
+export default function TableColumnsAPI(props, {
+  columnIdsGroupByLocked = computed(() => ({
+    true: [],
+    false: [],
+    trueObject: {},
+    falseObject: {},
+  })),
+  columnsKeyById = computed(() => ({})),
+}) {
   const columns = toRef(props, "columns");
-
-  const modelColumnsOrderingLocal = ref([]);
-
-  const columnsKeyById = computed(() => {
-    return keyBy(columns.value, "id");
-  });
-
-  const columnIdsGroupByLocked = computed(() => {
-    const COLUMNS_GROUP_BY_LOCKED = {
-      true: [],
-      false: [],
-    };
-    forEach(columns.value, column => {
-      const COLUMN_ID = column.id;
-      if (column.locked) {
-        COLUMNS_GROUP_BY_LOCKED.true.push(COLUMN_ID);
-      } else {
-        COLUMNS_GROUP_BY_LOCKED.false.push(COLUMN_ID);
-      }
-    });
-    return COLUMNS_GROUP_BY_LOCKED;
-  });
+  const modelColumnsOrdering = toRef(props, "modelColumnsOrdering");
 
   const columnsOrdered = computed(() => {
+    if (!modelColumnsOrdering.value.length) {
+      return columns.value;
+    }
     const COLUMNS = [];
     const COLUMNS_KEY_BY_ID = cloneDeep(columnsKeyById.value);
-    const MODEL_COLUMNS_ORDERING_LOCAL = cloneDeep(modelColumnsOrderingLocal.value);
+    forEach(modelColumnsOrdering.value, columnId => {
+      if (COLUMNS_KEY_BY_ID[columnId]) {
+        COLUMNS.push(COLUMNS_KEY_BY_ID[columnId]);
+      }
+    });
+
+    return COLUMNS;
+  });
+
+  const columnsOrderedAlt = computed(() => {
+    const COLUMNS = [];
+    const COLUMNS_KEY_BY_ID = cloneDeep(columnsKeyById.value);
+    const MODEL_COLUMNS_ORDERING_LOCAL = cloneDeep(modelColumnsOrdering.value);
 
     forEach(columnIdsGroupByLocked.value.true, columnId => {
       if (COLUMNS_KEY_BY_ID[columnId]) {
@@ -69,6 +69,6 @@ export default function TableColumnsAPI(props) {
   return {
     columnsKeyById,
     columnsOrdered,
-    modelColumnsOrderingLocal,
+    columnsOrderedAlt,
   };
 }

@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       modelView: undefined,
+      modelColumnsOrdering: ["sdf", "ddsadsa", "aloha"],
       columns: [
         {
           label: "Aloha",
@@ -408,7 +409,8 @@ export default {
     this.setData();
   },
   methods: {
-    changeColumnsOrdering() {
+    changeColumnsOrdering({ modelColumnsOrdering }) {
+      this.modelColumnsOrdering = modelColumnsOrdering;
       this.isLoadingOptions = true;
       setTimeout(() => {
         this.isLoadingOptions = false;
