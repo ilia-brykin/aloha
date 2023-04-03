@@ -536,8 +536,8 @@ export default {
 
     initViewCurrent();
     initModelSort();
-    initModelColumnsVisibleLocal();
     checkColumnsOrdering();
+    initModelColumnsVisibleLocal();
 
     return {
       allVisibleMobileColumns,
