@@ -152,7 +152,9 @@ export default {
             onMouseenter: this.mouseEnterTooltip,
             onMouseleave: this.mouseLeaveTooltip,
           }, [
-            this.$slots.title && this.$slots.title(),
+            h("div", {
+              class: "a_tooltip__wrapper",
+            }, this.$slots.title && this.$slots.title()),
             h("div", {
               "data-popper-arrow": true,
               class: "a_tooltip__arrow",
