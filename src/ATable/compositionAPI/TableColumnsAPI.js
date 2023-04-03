@@ -14,15 +14,16 @@ export default function TableColumnsAPI(props, {
     false: [],
     trueObject: {},
     falseObject: {},
+    trueColumns: [],
+    falseColumns: [],
   })),
   columnsKeyById = computed(() => ({})),
 }) {
-  const columns = toRef(props, "columns");
   const modelColumnsOrdering = toRef(props, "modelColumnsOrdering");
 
   const columnsOrdered = computed(() => {
     if (!modelColumnsOrdering.value.length) {
-      return columns.value;
+      return [...columnIdsGroupByLocked.value.trueColumns, ...columnIdsGroupByLocked.value.falseColumns];
     }
     const COLUMNS = [];
     const COLUMNS_KEY_BY_ID = cloneDeep(columnsKeyById.value);

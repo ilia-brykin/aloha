@@ -15,6 +15,9 @@ export default {
   data() {
     return {
       modelView: undefined,
+      modelColumnsVisible: {
+        aloha: true,
+      },
       modelColumnsOrdering: ["sdf", "ddsadsa", "aloha"],
       columns: [
         {
@@ -467,6 +470,10 @@ export default {
     updateView({ _modelView, view }) {
       this.modelView = _modelView;
       console.log("view", view);
+    },
+
+    changeModelColumnsVisible(model) {
+      this.modelColumnsVisible = model;
     },
   },
 };

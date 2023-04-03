@@ -23,11 +23,13 @@ div
     v-model:modelQuickSearch="modelQuickSearch"
     :modelFilters="modelFilters"
     :model-columns-ordering="modelColumnsOrdering"
+    :model-columns-visible="modelColumnsVisible"
     @change-columns-ordering="changeColumnsOrdering"
     :update-model-filters-local="updateModelFiltersLocal"
     @toggle-preview="togglePreview"
     @update-model-filters="updateModelFilters"
     @update-view="updateView"
+    @update:model-columns-visible="changeModelColumnsVisible"
   )
     template(
       v-slot:map="{ rows }"

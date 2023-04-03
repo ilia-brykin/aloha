@@ -122,7 +122,10 @@ export default {
     },
 
     isColumnVisible() {
-      return this.modelColumnsVisibleLocal[this.columnId];
+      if (this.columnId in this.modelColumnsVisibleLocal) {
+        return !!this.modelColumnsVisibleLocal[this.columnId];
+      }
+      return !this.column.hide;
     },
 
     arrowButtons() {
@@ -191,7 +194,7 @@ export default {
     toggleColumnVisible($event) {
       $event.stopPropagation();
       const MODEL_COLUMNS = cloneDeep(this.modelColumnsVisibleLocal);
-      MODEL_COLUMNS[this.columnId] = !MODEL_COLUMNS[this.columnId];
+      MODEL_COLUMNS[this.columnId] = !this.isColumnVisible;
       this.changeModelColumnsVisible(MODEL_COLUMNS);
     },
 

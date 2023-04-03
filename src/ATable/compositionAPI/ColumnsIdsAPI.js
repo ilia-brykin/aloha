@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import {
+  cloneDeep,
   forEach,
   keyBy,
 } from "lodash-es";
@@ -21,14 +22,18 @@ export default function ColumnsIdsAPI(props) {
       false: [],
       trueObject: {},
       falseObject: {},
+      trueColumns: [],
+      falseColumns: [],
     };
-    forEach(columns.value, column => {
+    forEach(cloneDeep(columns.value), column => {
       const COLUMN_ID = column.id;
       if (column.locked) {
         COLUMNS_GROUP_BY_LOCKED.true.push(COLUMN_ID);
+        COLUMNS_GROUP_BY_LOCKED.trueColumns.push(column);
         COLUMNS_GROUP_BY_LOCKED.trueObject[COLUMN_ID] = true;
       } else {
         COLUMNS_GROUP_BY_LOCKED.false.push(COLUMN_ID);
+        COLUMNS_GROUP_BY_LOCKED.falseColumns.push(column);
         COLUMNS_GROUP_BY_LOCKED.falseObject[COLUMN_ID] = true;
       }
     });
