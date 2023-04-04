@@ -17,24 +17,31 @@ export default function ColumnsOrderingAPI(props, { emit }, {
     false: [],
     trueObject: {},
     falseObject: {},
+    trueColumns: [],
+    falseColumns: [],
   })),
 }) {
   const columns = toRef(props, "columns");
   const modelColumnsOrdering = toRef(props, "modelColumnsOrdering");
 
-  const changeColumnsOrdering = ({ columnIndexDraggable, columnIndexOver }) => {
-    if (columnIndexDraggable === columnIndexOver) {
+  const changeColumnsOrdering = ({ columnIndexDraggable, columnIndexOver, reset }) => {
+    if (columnIndexDraggable === columnIndexOver && !reset) {
       return;
     }
-    const MODEL_COLUMNS_ORDERING = cloneDeep(modelColumnsOrdering.value);
-    const ID_DRAGGABLE = MODEL_COLUMNS_ORDERING[columnIndexDraggable];
-    MODEL_COLUMNS_ORDERING.splice(columnIndexDraggable, 1);
-    MODEL_COLUMNS_ORDERING.splice(columnIndexOver, 0, ID_DRAGGABLE);
+    let modelColumnsOrderingLocal = [];
+    if (reset) {
+      modelColumnsOrderingLocal = [...columnIdsGroupByLocked.value.true, ...columnIdsGroupByLocked.value.false];
+    } else {
+      modelColumnsOrderingLocal = cloneDeep(modelColumnsOrdering.value);
+      const ID_DRAGGABLE = modelColumnsOrderingLocal[columnIndexDraggable];
+      modelColumnsOrderingLocal.splice(columnIndexDraggable, 1);
+      modelColumnsOrderingLocal.splice(columnIndexOver, 0, ID_DRAGGABLE);
+    }
 
     emit("changeColumnsOrdering", {
       columnIndexDraggable,
       columnIndexOver,
-      modelColumnsOrdering: MODEL_COLUMNS_ORDERING,
+      modelColumnsOrdering: modelColumnsOrderingLocal,
     });
     checkVisibleColumns();
   };

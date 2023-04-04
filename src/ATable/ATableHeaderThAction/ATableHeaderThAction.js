@@ -12,7 +12,6 @@ import ColumnSearchAPI from "../compositionAPI/ColumnSearchAPI";
 import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
 
 import {
-  getModelColumnsOrderingDefault,
   getModelColumnsVisibleDefault,
 } from "../utils/utils";
 import {
@@ -92,7 +91,7 @@ export default {
 
     resetColumns() {
       this.changeModelColumnsVisible(getModelColumnsVisibleDefault(this.columnsOrdered));
-      this.changeColumnsOrdering({ modelColumnsOrderingLocal: getModelColumnsOrderingDefault(this.columns) });
+      this.changeColumnsOrdering({ reset: true });
     },
   },
   render() {
