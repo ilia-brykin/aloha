@@ -51,7 +51,6 @@ export default function ColumnsOrderingAPI(props, { emit }, {
     let shouldFixColumns = false;
     if (!modelColumnsOrdering.value.length) {
       modelColumnsOrderingLocal = [...columnIdsGroupByLocked.value.true, ...columnIdsGroupByLocked.value.false];
-      shouldFixColumns = true;
     } else {
       modelColumnsOrderingLocal = [...columnIdsGroupByLocked.value.true];
       const COLUMNS_NOT_LOCKED_IDS = cloneDeep(columnIdsGroupByLocked.value.falseObject);
