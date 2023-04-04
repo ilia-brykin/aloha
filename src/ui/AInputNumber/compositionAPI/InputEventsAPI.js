@@ -18,7 +18,9 @@ export default function InputEventsAPI(props, {
   userInput = ref(null),
   currentValue = ref(undefined),
   displayValue = computed(() => ""),
+  isTypeNumber = computed(() => true),
 }) {
+  const type = toRef(props, "type");
   const eAllowed = toRef(props, "eAllowed");
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
@@ -58,22 +60,34 @@ export default function InputEventsAPI(props, {
   // };
 
   const handleInput = $event => {
-    const value = $event.target.value;
-    userInput.value = value;
-    const newVal = value === "" ? null : Number(value);
-    setCurrentValue(newVal, false);
-
-    // if (isTextValid({ text: value, re: reWithPointSymbol.value })) {
-    //   userInput.value = value;
-    //   const newVal = value === "" ? null : Number(value);
-    //   setCurrentValue(newVal, false);
-    // } else {
-    //   setCurrentValue(modelValue.value, false);
-    //
-    //   $event.stopPropagation();
-    // }
+    if (isTypeNumber.value) {
+      const value = $event.target.value;
+      userInput.value = value;
+      const newVal = value === "" ? null : Number(value);
+      setCurrentValue(newVal, false);
+      return;
+    }
+    let newValue = $event.target.value.trim();
+    if (type.value === "integer-non-negative") {
+      // Extract all digits from the input value
+      const matches = newValue.match(/\d+/g);
+      let extractedValue = 0;
+      if (matches !== null) {
+        extractedValue = parseInt(matches.join(""), 10);
+        extractedValue = Math.max(extractedValue, 0);
+        newValue = extractedValue;
+      } else {
+        newValue = null;
+      }
+      setCurrentValue(newValue);
+      inputRef.value.value = newValue;
+      // TODO: cursor position
+    }
   };
   const handleInputChange = $event => {
+    if (!isTypeNumber.value) {
+      return;
+    }
     const value = $event.target.value;
     const newVal = value !== "" ? Number(value) : "";
     if ((isNumber(newVal) && !Number.isNaN(newVal)) || value === "") {

@@ -16,14 +16,17 @@ import ASafeHtml from "../../directives/ASafeHtml";
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
 
-import UiAPI from "../compositionApi/UiAPI";
-import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
-import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-import ModelAPI from "./compositionAPI/ModelAPI";
 import IncreaseDecreaseAPI from "./compositionAPI/IncreaseDecreaseAPI";
-import VerifyAPI from "./compositionAPI/VerifyAPI";
 import InputEventsAPI from "./compositionAPI/InputEventsAPI";
+import MinAPI from "./compositionAPI/MinAPI";
+import ModelAPI from "./compositionAPI/ModelAPI";
+import NumberAttributesAPI from "./compositionAPI/NumberAttributesAPI";
+import UiAPI from "../compositionApi/UiAPI";
+import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+import VerifyAPI from "./compositionAPI/VerifyAPI";
+
 import { isNumber } from "lodash-es";
 
 export default {
@@ -47,7 +50,8 @@ export default {
       type: String,
       required: false,
       default: "number",
-      validator: value => ["number", "float", "integer", "float-positiv", "integer-positiv"].indexOf(value) !== -1,
+      validator: value => ["number", "integer-non-negative"].indexOf(value) !== -1,
+      // TODO: "integer", "integer-positive",  "float", "float-positiv", "float-non-negative"
     },
     iconPrepend: {
       type: String,
@@ -116,6 +120,16 @@ export default {
       isModel,
     });
 
+    const {
+      minLocal,
+    } = MinAPI(props);
+
+    const {
+      inputType,
+      isTypeNumber,
+      numberAttributes,
+    } = NumberAttributesAPI(props);
+
     const inputRef = ref(undefined);
     const disabled = toRef(props, "disabled");
     const onInput = $event => {
@@ -137,6 +151,7 @@ export default {
       verifyValue,
     } = VerifyAPI(props, {
       changeModel,
+      minLocal,
     });
 
     const {
@@ -157,6 +172,7 @@ export default {
       displayValue,
       ensurePrecision,
       setCurrentValue,
+      minLocal,
     });
 
     const {
@@ -173,6 +189,7 @@ export default {
       onBlur,
       setCurrentValue,
       userInput,
+      isTypeNumber,
     });
 
     watch(
@@ -189,6 +206,8 @@ export default {
     );
 
     return {
+      inputType,
+      numberAttributes,
       currentValue,
       handleInput,
       handleInputChange,
@@ -255,7 +274,7 @@ export default {
               ref: "inputRef",
               id: this.htmlIdLocal,
               value: this.displayValue,
-              type: "number",
+              type: this.inputType,
               class: [
                 "a_form_control a_input a_input_number",
                 this.inputClass,
@@ -264,13 +283,11 @@ export default {
                   a_form_control_invalid: this.isErrors,
                 },
               ],
-              min: this.min,
-              max: this.max,
-              step: this.step,
               disabled: this.disabled,
               ariaRequired: this.required,
               ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
+              ...this.numberAttributes,
               ...this.inputAttributes,
               onInput: this.handleInput,
               onChange: this.handleInputChange,

@@ -1,5 +1,6 @@
 import {
-  computed, ref,
+  computed,
+  ref,
   toRef,
 } from "vue";
 
@@ -12,15 +13,15 @@ export default function IncreaseDecreaseAPI(props, {
   displayValue = computed(() => ""),
   ensurePrecision = () => {},
   setCurrentValue = () => {},
+  minLocal = computed(() => undefined),
 }) {
   const disabled = toRef(props, "disabled");
   const modelValue = toRef(props, "modelValue");
   const max = toRef(props, "max");
-  const min = toRef(props, "min");
   const readonly = toRef(props, "readonly");
 
   const minDisabled = computed(() => {
-    return isNumber(modelValue.value) && modelValue.value <= min.value;
+    return isNumber(modelValue.value) && modelValue.value <= minLocal.value;
   });
 
   const maxDisabled = computed(() => {

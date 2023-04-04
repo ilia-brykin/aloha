@@ -11,13 +11,13 @@ import {
 
 export default function VerifyAPI(props, {
   changeModel = () => {},
+  minLocal = computed(() => undefined),
 }) {
   const modelUndefined = toRef(props, "modelUndefined");
   const stepStrictly = toRef(props, "stepStrictly");
   const step = toRef(props, "step");
   const precision = toRef(props, "precision");
   const max = toRef(props, "max");
-  const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
 
   const getPrecision = value => {
@@ -90,8 +90,8 @@ export default function VerifyAPI(props, {
     if (newValue > max.value) {
       newValue = max.value;
       update && changeModel({ model: newValue });
-    } else if (newValue < min.value) {
-      newValue = min.value;
+    } else if (newValue < minLocal.value) {
+      newValue = minLocal.value;
       update && changeModel({ model: newValue });
     }
     return newValue;

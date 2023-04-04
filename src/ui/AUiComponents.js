@@ -18,7 +18,7 @@ export default {
   datetime: ADatepicker,
   email: AInput,
   file: AInputFile,
-  integer: AInputNumber,
+  "integer-non-negative": AInputNumber,
   multiselect: ASelect,
   natural: AInput,
   number: AInputNumber,
