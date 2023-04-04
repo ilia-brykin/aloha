@@ -536,7 +536,8 @@ export default {
 
     initViewCurrent();
     initModelSort();
-    checkColumnsOrdering();
+
+    checkColumnsOrdering({ isFirst: true });
     initModelColumnsVisibleLocal();
 
     return {
