@@ -1,12 +1,12 @@
 import {
   isArray,
   forEach,
-  get,
+  get, isFunction,
 } from "lodash-es";
 
 export default filterList;
 
-function filterList(value, { isHtml = true, listClass = "a_list_without_styles", keyLabel = "", isListTree = false } = {}) {
+function filterList(value, { isHtml = true, listClass = "a_list_without_styles", keyLabel = "", keyLabelCallback, isListTree = false } = {}) {
   if (!isArray(value)) {
     return value;
   }
@@ -16,19 +16,29 @@ function filterList(value, { isHtml = true, listClass = "a_list_without_styles",
   let result = "";
   if (isHtml === false || isHtml === "false") {
     forEach(value, (item, index) => {
-      const ITEM_TEXT = keyLabel ? get(item, keyLabel) : item;
-      result += `${ index !== 0 ? ", " : "" }${ ITEM_TEXT }`;
+      let itemText = "";
+      if (isFunction(keyLabelCallback)) {
+        itemText = keyLabelCallback({ item, itemIndex: index });
+      } else {
+        itemText = keyLabel ? get(item, keyLabel) : item;
+      }
+      result += `${ index !== 0 ? ", " : "" }${ itemText }`;
     });
     return result;
   }
-  forEach(value, item => {
-    const ITEM = keyLabel ? get(item, keyLabel) : item;
-    if (isListTree && isArray(ITEM)) {
-      if (ITEM.length) {
+  forEach(value, (item, index) => {
+    let itemLocal;
+    if (isFunction(keyLabelCallback)) {
+      itemLocal = keyLabelCallback({ item, itemIndex: index });
+    } else {
+      itemLocal = keyLabel ? get(item, keyLabel) : item;
+    }
+    if (isListTree && isArray(itemLocal)) {
+      if (itemLocal.length) {
         result += `<li>`;
-        forEach(ITEM, itemChild => {
+        forEach(itemLocal, itemChild => {
           if (isArray(itemChild)) {
-            result += filterList(itemChild, { isHtml, listClass, keyLabel, isListTree });
+            result += filterList(itemChild, { isHtml, listClass, keyLabel, keyLabelCallback, isListTree });
           } else {
             result += itemChild;
           }
@@ -36,7 +46,7 @@ function filterList(value, { isHtml = true, listClass = "a_list_without_styles",
         result += `</li>`;
       }
     } else {
-      result += `<li>${ ITEM }</li>`;
+      result += `<li>${ itemLocal }</li>`;
     }
   });
   return `<ul${ listClass ? ` class="${ listClass }"` : "" }>${ result }</ul>`;
