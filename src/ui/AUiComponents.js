@@ -19,6 +19,8 @@ export default {
   email: AInput,
   file: AInputFile,
   "integer-non-negative": AInputNumber,
+  "integer-positive": AInputNumber,
+  integer: AInputNumber,
   multiselect: ASelect,
   natural: AInput,
   number: AInputNumber,
