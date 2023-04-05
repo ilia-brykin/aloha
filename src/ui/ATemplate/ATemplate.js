@@ -42,7 +42,9 @@ export default {
       this.$slots[this.slotName] ?
         h("div", {
           class: "a_template",
-        }, this.$slots[this.slotName]()) :
+        }, this.$slots[this.slotName]({
+          options: this.options,
+        })) :
         withDirectives(h("div", {
           class: "a_template",
         }), [

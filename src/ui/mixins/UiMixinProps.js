@@ -100,6 +100,11 @@ export default {
       required: false,
       default: true,
     },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     change: {
       type: Function,
       required: false,
