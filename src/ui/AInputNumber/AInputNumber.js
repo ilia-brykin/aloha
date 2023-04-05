@@ -311,6 +311,7 @@ export default {
               attributes: {
                 role: "button",
               },
+              disabled: this.disabled,
               onClick: this.decrease,
             }),
             h(AButton, {
@@ -320,6 +321,7 @@ export default {
               attributes: {
                 role: "button",
               },
+              disabled: this.disabled,
               onClick: this.increase,
             }),
           ]),
