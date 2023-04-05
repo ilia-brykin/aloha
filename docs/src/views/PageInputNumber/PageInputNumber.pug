@@ -32,6 +32,16 @@ div
     :step="3"
   )
   div model3: {{ model3 }}
+  h2 type "integer"
+  a-input-number(
+    id="input4"
+    v-model="model4"
+    type="integer"
+    label="Input 4"
+    :required="true"
+    :step="4"
+  )
+  div model4: {{ model4 }}
   input(
     type="number"
   )

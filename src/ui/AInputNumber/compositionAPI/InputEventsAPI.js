@@ -99,6 +99,25 @@ export default function InputEventsAPI(props, {
 
       setCurrentValue(newValue);
       inputRef.value.value = newValue;
+    } else if (type.value === "integer") {
+      const matches = newValue.match(/\d+/g);
+      let extractedValue = 0;
+      if (matches !== null) {
+        extractedValue = parseInt(matches.join(""), 10);
+        if (newValue.indexOf("-") !== -1) {
+          extractedValue = -extractedValue;
+        }
+        newValue = extractedValue;
+        setCurrentValue(newValue);
+        inputRef.value.value = newValue;
+      } else if (newValue === "-") {
+        newValue = "-";
+        inputRef.value.value = newValue;
+      } else {
+        newValue = null;
+        setCurrentValue(newValue);
+        inputRef.value.value = newValue;
+      }
     }
   };
   const handleInputChange = $event => {
