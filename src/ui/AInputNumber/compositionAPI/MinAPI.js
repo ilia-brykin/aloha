@@ -12,15 +12,16 @@ export default function MinAPI(props) {
   const min = toRef(props, "min");
 
   const minLocal = computed(() => {
+    let minComputed;
     if (type.value === "integer-non-negative") {
-      if (isNil(min.value)) {
-        return 0;
-      }
-      if (min.value > 0) {
-        return min.value;
-      }
+      minComputed = 0;
+    } else if (type.value === "integer-positive") {
+      minComputed = 1;
     }
-    return undefined;
+    if (!isNil(min.value) && min.value > minComputed) {
+      minComputed = min.value;
+    }
+    return minComputed;
   });
 
   return {

@@ -82,6 +82,23 @@ export default function InputEventsAPI(props, {
       setCurrentValue(newValue);
       inputRef.value.value = newValue;
       // TODO: cursor position
+    } else if (type.value === "integer-positive") {
+      if (newValue === "0") {
+        newValue = null;
+      } else {
+        const matches = newValue.match(/\d+/g);
+        let extractedValue = 0;
+        if (matches !== null) {
+          extractedValue = parseInt(matches.join(""), 10);
+          extractedValue = Math.max(extractedValue, 1);
+          newValue = extractedValue;
+        } else {
+          newValue = null;
+        }
+      }
+
+      setCurrentValue(newValue);
+      inputRef.value.value = newValue;
     }
   };
   const handleInputChange = $event => {

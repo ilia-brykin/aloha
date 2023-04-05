@@ -8,8 +8,8 @@ export default {
   data() {
     return {
       model1: 10,
-      model2: 11.2,
-      model3: undefined,
+      model2: 123,
+      model3: 321,
     };
   },
   methods: {

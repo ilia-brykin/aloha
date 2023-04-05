@@ -50,8 +50,8 @@ export default {
       type: String,
       required: false,
       default: "number",
-      validator: value => ["number", "integer-non-negative"].indexOf(value) !== -1,
-      // TODO: "integer", "integer-positive",  "float", "float-positiv", "float-non-negative"
+      validator: value => ["number", "integer-non-negative", "integer-positive"].indexOf(value) !== -1,
+      // TODO: "integer", "float", "float-positiv", "float-non-negative"
     },
     iconPrepend: {
       type: String,
