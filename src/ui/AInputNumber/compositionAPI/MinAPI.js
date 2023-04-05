@@ -5,6 +5,7 @@ import {
 
 import {
   isNil,
+  isUndefined,
 } from "lodash-es";
 
 export default function MinAPI(props) {
@@ -18,7 +19,8 @@ export default function MinAPI(props) {
     } else if (type.value === "integer-positive") {
       minComputed = 1;
     }
-    if (!isNil(min.value) && min.value > minComputed) {
+    if (isUndefined(minComputed) ||
+      !isNil(min.value) && min.value > minComputed) {
       minComputed = min.value;
     }
     return minComputed;
