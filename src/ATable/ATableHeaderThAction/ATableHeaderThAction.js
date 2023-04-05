@@ -152,7 +152,7 @@ export default {
                 onClick: this.selectAllColumns,
               }, [
                 h(AIcon, {
-                  icon: "Ok",
+                  icon: "CheckLg",
                   class: "a_table__th__dropdown_item__icon",
                 }),
                 h("span", null, "Alle einblenden"),

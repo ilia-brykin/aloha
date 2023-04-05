@@ -6,11 +6,13 @@ import {
 
 import ASafeHtml from "../directives/ASafeHtml";
 
+import _NoImage from "./Icons/_NoImage";
 import Aloha from "./Icons/Aloha";
 import AngleDown from "./Icons/AngleDown";
 import AngleLeft from "./Icons/AngleLeft";
 import AngleRight from "./Icons/AngleRight";
 import AngleUp from "./Icons/AngleUp";
+import CheckLg from "./Icons/CheckLg";
 import ChevronDown from "./Icons/ChevronDown";
 import ChevronLeft from "./Icons/ChevronLeft";
 import ChevronRight from "./Icons/ChevronRight";
@@ -32,13 +34,12 @@ import Ok from "./Icons/Ok";
 import OptionHorizontal from "./Icons/OptionHorizontal";
 import OptionVertical from "./Icons/OptionVertical";
 import Pencil from "./Icons/Pencil";
+import PinFill from "./Icons/bootstrap-1-9-1/PinFill";
 import Plus from "./Icons/Plus";
 import Reset from "./Icons/Reset";
 import Search from "./Icons/Search";
 import ThList from "./Icons/ThList";
 import Trash from "./Icons/Trash";
-import _NoImage from "./Icons/_NoImage";
-import PinFill from "./Icons/bootstrap-1-9-1/PinFill";
 
 import {
   assign,
@@ -70,6 +71,7 @@ export default {
       AngleLeft,
       AngleRight,
       AngleUp,
+      CheckLg,
       ChevronDown,
       ChevronLeft,
       ChevronRight,

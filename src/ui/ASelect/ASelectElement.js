@@ -149,7 +149,7 @@ export default {
         class: "a_select__menu__link__icon_box",
       }, [
         this.isSelectedLocal && h(AIcon, {
-          icon: "Ok",
+          icon: "CheckLg",
         }),
       ]),
       this.slotName && this.$slots[this.slotName] ?

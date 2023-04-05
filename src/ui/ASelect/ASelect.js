@@ -568,7 +568,7 @@ export default {
                           class: "a_select__menu__link__icon_box",
                         }, [
                           h(AIcon, {
-                            icon: "Ok",
+                            icon: "CheckLg",
                           }),
                         ]),
                         h("span", null, this.textSelectAll),
