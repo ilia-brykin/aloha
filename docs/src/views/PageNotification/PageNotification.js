@@ -1,7 +1,12 @@
+import AButton from "../../../../src/AButton/AButton";
+
 import ANotificationAPI from "../../../../src/compositionAPI/ANotificationAPI";
 
 export default {
   name: "PageNotification",
+  components: {
+    AButton,
+  },
   setup() {
     const {
       addNotification,

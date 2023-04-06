@@ -14,6 +14,7 @@ import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import EventBus from "../../utils/EventBus";
+import ATranslation from "../../ATranslation/ATranslation";
 
 export default {
   name: "ATableFiltersTop",
@@ -45,7 +46,7 @@ export default {
     });
 
     const textToggle = computed(() => {
-      return isOpen.value ? "Erweiterte Suche schließen" : "Erweiterte Suche öffnen";
+      return isOpen.value ? "_ERWEITERE_SUCHE_SCHLIESSEN_" : "_ERWEITERE_SUCHE_OEFFNEN_";
     });
 
     const styleToggle = computed(() => {
@@ -108,7 +109,7 @@ export default {
       class: "a_btn a_btn_primary a_text_nowrap",
       iconLeft: "Search",
       type: "submit",
-      text: "Suche starten",
+      text: "_SUCHE_STARTEN_",
       prevent: true,
       stop: true,
       disabled: this.isLoadingTable,

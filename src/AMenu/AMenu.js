@@ -257,7 +257,7 @@ export default {
             id: "a_menu_search",
             class: "a_menu__navbar_top__search",
             modelValue: this.modelSearch,
-            label: "Menüsuche",
+            label: "_MENUESUCHE_",
             "onUpdate:modelValue": this.updateModelSearch,
           }),
           h(AMenuBreadcrumbs, {

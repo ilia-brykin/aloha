@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import AMenuToggleAPI from "./compositionAPI/AMenuToggleAPI";
+import ATranslation from "../ATranslation/ATranslation";
 
 export default {
   name: "AMenuButtonToggle",
@@ -28,8 +29,8 @@ export default {
 
     const btnToggleTitle = computed(() => {
       return isMenuOpen.value ?
-        "Menü schließen" :
-        "Menü öffnen";
+        "_MENUE_SCHLIESSEN_" :
+        "_MENUE_OEFFNEN_";
     });
 
     return {
@@ -63,9 +64,11 @@ export default {
         title: this.btnToggleTitle,
         ariaHidden: true,
       }),
-      h("span", {
+      h(ATranslation, {
+        tag: "span",
         class: "a_sr_only",
-      }, this.btnToggleTitle),
+        text: this.btnToggleTitle,
+      }),
     ]);
   },
 };

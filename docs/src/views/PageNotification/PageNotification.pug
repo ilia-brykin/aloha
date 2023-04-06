@@ -1,9 +1,12 @@
 div
   h1 ANotification
-  button.a_btn.a_mr_2(
+  a-button.a_btn.a_mr_2(
     v-for="type in types"
     :key="type"
     :class="'a_btn_' + type"
     type="button"
+    :text="'_ADD_NOTIFICATION_{{type}}_'"
+    :extra="{type: type}"
     @click="addNotificationLocal(type)"
-  ) Add Notification {{ type }}
+    text="Open Modal"
+  )

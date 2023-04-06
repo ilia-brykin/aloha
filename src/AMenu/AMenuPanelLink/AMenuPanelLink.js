@@ -8,6 +8,7 @@ import {
 
 import AIcon from "../../AIcon/AIcon";
 import ATooltip from "../../ATooltip/ATooltip";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
@@ -242,9 +243,10 @@ export default {
               [ASafeHtml, this.item.titleHtml],
             ])
           }) :
-          h("a", {
+          h(ATranslation, {
+            tag: "a",
             class: "a_menu__link a_menu__link_btn a_menu__link__text_truncated",
-            ariaLabel: "Untermenü öffnen",
+            ariaLabel: "_UNTERMENUE_OEFFNEN_",
             role: "button",
             tabindex: this.tabindex,
             onClick: this.openSubMenu,

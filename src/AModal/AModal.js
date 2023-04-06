@@ -24,6 +24,7 @@ import {
   isFunction,
   isString,
 } from "lodash-es";
+import ATranslation from "../ATranslation/ATranslation";
 
 // @vue/component
 export default {
@@ -522,7 +523,10 @@ export default {
                   disabled: this.disabledLocal || this.disabledSave,
                   onClick: this.save,
                 }, [
-                  h("span", null, this.saveButtonText),
+                  h(ATranslation, {
+                    tag: "span",
+                    text: this.saveButtonText,
+                  }),
                 ]),
                 !this.isCloseButtonHide && h("button", {
                   id: this.closeButtonId,
@@ -531,7 +535,10 @@ export default {
                   disabled: this.disabledLocal,
                   onClick: this.close,
                 }, [
-                  h("span", null, this.closeButtonText),
+                  h(ATranslation, {
+                    tag: "span",
+                    text: this.closeButtonText,
+                  }),
                 ]),
                 this.$slots.modalFooterAppend && this.$slots.modalFooterAppend({
                   saveButtonClass: this.saveButtonClass,

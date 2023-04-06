@@ -31,24 +31,24 @@ export default {
       {
         id: "type",
         type: "select",
-        label: "Type",
+        label: "_TYPE_",
         keyId: "value",
         keyLabel: "label",
         data: [
           {
-            label: "basic",
+            label: "_BASIC_",
             value: "basic",
           },
           {
-            label: "arrows",
+            label: "_ARROWS_",
             value: "arrows",
           },
           {
-            label: "square",
+            label: "_SQUARE_",
             value: "square",
           },
           {
-            label: "round",
+            label: "_ROUND_",
             value: "round",
           },
         ],

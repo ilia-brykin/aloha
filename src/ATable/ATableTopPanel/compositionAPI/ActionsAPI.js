@@ -89,7 +89,7 @@ export default function ActionsAPI(props, { emit }) {
   const onOpenModalMultipleActions = () => {
     if (currentMultipleActions.value.isConfirm) {
       openConfirm({
-        headerText: "Mehrfachaktion durchführen?",
+        headerText: "_MEHRFACHAKTION_DURCHFUEHREN_",
         bodyHtml: `<div>Möchten Sie die Aktion <strong>${ currentMultipleActions.value.label }</strong> auf <strong>${ selectedRows.value.length }</strong> Objekten durchführen?</div>`,
         save: onStartModalMultipleActions,
       });
