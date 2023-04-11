@@ -7,6 +7,7 @@ import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
+import ClickAPI from "./compositionAPI/ClickAPI";
 import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
 import TextAPI from "../AButton/comositionAPI/TextAPI";
 import TitleAPI from "../AButton/comositionAPI/TitleAPI";
@@ -136,7 +137,10 @@ export default {
       default: undefined,
     },
   },
-  setup(props) {
+  emits: [
+    "click",
+  ],
+  setup(props, context) {
     const {
       isTitleVisible,
     } = TitleAPI(props);
@@ -150,6 +154,10 @@ export default {
       isTextScreenReaderVisible,
       isTextVisible,
     } = TextAPI(props);
+
+    const {
+      onClick,
+    } = ClickAPI(props, context);
 
     return {
       isLoadingLeft,
@@ -226,6 +234,7 @@ export default {
           },
         ],
         ariaDisabled: this.disabled,
+        onClick: this.onClick,
       }, CHILDREN);
     }
     if (this.to) {
@@ -241,6 +250,7 @@ export default {
           },
         ],
         ariaDisabled: this.disabled,
+        onClick: this.onClick,
       }, () => CHILDREN);
     }
   },
