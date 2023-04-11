@@ -121,6 +121,11 @@ export default function AMenuPanelsAPI(props, {
     }
   };
 
+  const setDefaultMenu = () => {
+    resetSearch();
+    panelParentsOpen.value = [];
+  };
+
   watch($router.currentRoute, () => {
     if (isMenuLinkClicked.value) {
       isMenuLinkClicked.value = false;
@@ -135,6 +140,7 @@ export default function AMenuPanelsAPI(props, {
     clickMenuLink,
     closeAllPanels,
     panelParentsOpen,
+    setDefaultMenu,
     togglePanel
   };
 }

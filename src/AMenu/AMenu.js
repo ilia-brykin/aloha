@@ -186,6 +186,7 @@ export default {
       clickMenuLink,
       closeAllPanels,
       panelParentsOpen,
+      setDefaultMenu,
       togglePanel,
     } = AMenuPanelsAPI(props, {
       dataProParent,
@@ -232,6 +233,7 @@ export default {
       modelSearch,
       panelParentsOpen,
       removeBodyClasses,
+      setDefaultMenu,
       toggleMenu,
       togglePanel,
       updateModelSearch,
