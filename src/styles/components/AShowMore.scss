@@ -1,0 +1,9 @@
+.a_show_more {
+  --a_show_more_btn_margin_top: .5rem;
+}
+.a_show_more__wrapper {
+  overflow: hidden;
+}
+.a_show_more__button {
+  margin-top: var(--a_show_more_btn_margin_top);
+}

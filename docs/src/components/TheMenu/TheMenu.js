@@ -284,6 +284,14 @@ export default {
           },
           icon: "Dnd",
         },
+        {
+          id: "ShowMore",
+          label: "Show more",
+          to: {
+            name: "PageShowMore",
+          },
+          icon: "Dnd",
+        },
       ],
     };
   },
