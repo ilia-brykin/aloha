@@ -251,7 +251,7 @@ export default {
             tabindex: this.tabindex,
             onClick: this.openSubMenu,
             onKeydown: this.onKeydown,
-          }, [
+          }, () => [
             h("span", {
               class: "a_menu__link__counter",
             }, [
