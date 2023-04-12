@@ -18,7 +18,7 @@ export default {
           to: {
             name: "PageSpinner",
           },
-          icon: "Duplicate",
+          icon: "HourglassSplit",
         },
         {
           group: "Aloha",
@@ -27,7 +27,7 @@ export default {
           to: {
             name: "PageTable",
           },
-          icon: "Envelope",
+          icon: "Table",
         },
         {
           group: "Hola",
@@ -36,7 +36,7 @@ export default {
           to: {
             name: "PageCollapse",
           },
-          icon: "Export",
+          icon: "ArrowsCollapse",
         },
         {
           group: "Hola",
@@ -45,7 +45,7 @@ export default {
           to: {
             name: "PageCloak",
           },
-          icon: "EyeOpen",
+          icon: "HourglassSplit",
         },
         {
           group: "Hola",
@@ -54,7 +54,7 @@ export default {
           to: {
             name: "PageCloak",
           },
-          icon: "EyeOpen",
+          icon: "HourglassSplit",
           disabled: true,
         },
         {
@@ -64,12 +64,12 @@ export default {
           to: {
             name: "PageLoading",
           },
-          icon: "EyeOpen",
+          icon: "HourglassSplit",
         },
         {
           id: "ui",
           label: "ui",
-          icon: "Export",
+          icon: "InputCursor",
           children: [
             {
               id: "ui-child",
@@ -163,12 +163,12 @@ export default {
           to: {
             name: "PageAccordion",
           },
-          icon: "Duplicate",
+          icon: "ListNested",
         },
         {
           id: "accordion2",
           label: "Accordion seeeeeehr lange name",
-          icon: "Duplicate",
+          icon: "ListNested",
           children: [
             {
               id: "accordion3",
@@ -185,7 +185,7 @@ export default {
           to: {
             name: "PageAlert",
           },
-          icon: "Home",
+          icon: "ExclamationTriangle",
         },
         {
           id: "modal",
@@ -201,7 +201,7 @@ export default {
           to: {
             name: "PageConfirm",
           },
-          icon: "Minus",
+          icon: "CheckLg",
         },
         {
           id: "notification",
@@ -209,7 +209,7 @@ export default {
           to: {
             name: "PageNotification",
           },
-          icon: "Duplicate",
+          icon: "Bell",
         },
         {
           id: "dropdown",
@@ -217,7 +217,7 @@ export default {
           to: {
             name: "PageDropdown",
           },
-          icon: "Cog",
+          icon: "MenuDown",
         },
         {
           id: "GroupButtonDropdown",
@@ -225,7 +225,7 @@ export default {
           to: {
             name: "PageGroupButtonDropdown",
           },
-          icon: "Cog",
+          icon: "MenuDown",
         },
         {
           id: "tabs",
@@ -233,7 +233,7 @@ export default {
           to: {
             name: "PageTabs",
           },
-          icon: "Cross",
+          icon: "SegmentedNav",
         },
         {
           id: "progress",
@@ -241,7 +241,7 @@ export default {
           to: {
             name: "PageProgress",
           },
-          icon: "Dnd",
+          icon: "Reception2",
         },
         {
           id: "list",
@@ -249,7 +249,7 @@ export default {
           to: {
             name: "PageList",
           },
-          icon: "Bla",
+          icon: "ListUl",
         },
         {
           id: "scale",
@@ -274,7 +274,7 @@ export default {
           to: {
             name: "PageSvg",
           },
-          icon: "Dnd",
+          icon: "FiletypeSvg",
         },
         {
           id: "wizard",

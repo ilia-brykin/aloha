@@ -77,6 +77,8 @@ export default {
               class: CLASS,
               disabled: DISABLED,
               onClick: action.callback,
+              callback: undefined,
+              actionnotdividerindex: undefined,
             });
           }
           if (action.type === "link") {

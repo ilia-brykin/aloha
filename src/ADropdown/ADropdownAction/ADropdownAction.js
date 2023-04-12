@@ -35,6 +35,8 @@ export default {
       }, [
         h(AButton, {
           ...this.attributesAction,
+          isHidden: undefined,
+          callback: undefined,
           onClick: this.action.callback,
         }),
       ]);
@@ -51,7 +53,10 @@ export default {
       return h("li", {
         class: this.action.liClass,
       }, [
-        h(ALink, this.attributesAction),
+        h(ALink, {
+          ...this.attributesAction,
+          isHidden: undefined,
+        }),
       ]);
     }
     if (this.action.type === "template" &&

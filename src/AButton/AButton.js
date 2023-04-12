@@ -183,6 +183,7 @@ export default {
   },
   render() {
     return h(this.tag, {
+      ...this.$attrs,
       ...this.attributes,
       id: this.id,
       class: [
@@ -196,6 +197,9 @@ export default {
       tabindex: this.tabindex,
       disabled: this.disabled,
       ariaDisabled: this.ariaDisabled,
+      // TODO: ATable
+      isHiddenCallback: undefined,
+      isAllRowsSelected: undefined,
       onClick: this.onClick,
     }, [
       this.isTitleVisible && h("span", {

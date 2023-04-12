@@ -6,6 +6,7 @@ import {
 
 import {
   cloneDeep,
+  endsWith,
   forEach,
   get,
   isFunction,
@@ -162,6 +163,14 @@ export default function RowActionsAPI(props) {
     return false;
   };
 
+  const replacePropertiesByRowAction = rowAction => {
+    forEach(rowAction, (_, key) => {
+      if (endsWith(key, "Callback")) {
+        rowAction[key] = undefined;
+      }
+    });
+  };
+
   const rowActionsFiltered = computed(() => {
     const ROW_ACTIONS = [];
     forEach(cloneDeep(rowActions.value), rowAction => {
@@ -208,6 +217,7 @@ export default function RowActionsAPI(props) {
               rowAction,
             });
           }
+          replacePropertiesByRowAction(rowAction);
         }
 
         ROW_ACTIONS.push(rowAction);

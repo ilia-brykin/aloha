@@ -7,7 +7,6 @@ import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
-import ClickAPI from "./compositionAPI/ClickAPI";
 import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
 import TextAPI from "../AButton/comositionAPI/TextAPI";
 import TitleAPI from "../AButton/comositionAPI/TitleAPI";
@@ -137,10 +136,7 @@ export default {
       default: undefined,
     },
   },
-  emits: [
-    "click",
-  ],
-  setup(props, context) {
+  setup(props) {
     const {
       isTitleVisible,
     } = TitleAPI(props);
@@ -154,10 +150,6 @@ export default {
       isTextScreenReaderVisible,
       isTextVisible,
     } = TextAPI(props);
-
-    const {
-      onClick,
-    } = ClickAPI(props, context);
 
     return {
       isLoadingLeft,
@@ -222,6 +214,7 @@ export default {
 
     if (this.href) {
       return h("a", {
+        ...this.$attrs,
         ...this.attributes,
         href: this.href,
         target: this.target,
@@ -234,11 +227,12 @@ export default {
           },
         ],
         ariaDisabled: this.disabled,
-        onClick: this.onClick,
+        type: undefined,
       }, CHILDREN);
     }
     if (this.to) {
       return h(resolveComponent("RouterLink"), {
+        ...this.$attrs,
         ...this.attributes,
         to: this.to,
         id: this.id,
@@ -250,7 +244,7 @@ export default {
           },
         ],
         ariaDisabled: this.disabled,
-        onClick: this.onClick,
+        type: undefined,
       }, () => CHILDREN);
     }
   },
