@@ -98,6 +98,7 @@ export default {
           isCaret: false,
           placement: "bottom-end",
           menuWidth: 600,
+          isCloseByClickInside: false,
         }, {
           button: () => [
             h(AIcon, {
