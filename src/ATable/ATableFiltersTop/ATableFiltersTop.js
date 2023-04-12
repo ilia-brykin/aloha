@@ -14,7 +14,6 @@ import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import EventBus from "../../utils/EventBus";
-import ATranslation from "../../ATranslation/ATranslation";
 
 export default {
   name: "ATableFiltersTop",
