@@ -76,7 +76,7 @@ export default {
       default: undefined,
     },
     firstDayOfWeek: {
-      default: 7,
+      default: 1,
       type: Number,
       validator: val => val >= 1 && val <= 7,
     },
