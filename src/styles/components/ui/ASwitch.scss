@@ -55,13 +55,10 @@ $switch-disabled-inside-bg:                             #ece9e7;
 }
 
 .switch_button__label {
-  padding-left: 55px;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding: .5rem .5rem .5rem 55px;
   margin-bottom: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  width: 100%;
   border-radius: var(--a_switch_button_border_radius);
   &::before {
     content: "";
@@ -86,6 +83,10 @@ $switch-disabled-inside-bg:                             #ece9e7;
     background-color: var(--a_switch_button_inner_bg);
     border-radius: var(--a_switch_button_border_radius);
   }
+}
+.switch_button__label_full {
+  display: flex;
+  width: 100%;
 }
 
 .switch_button_invalid {

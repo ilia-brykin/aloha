@@ -93,6 +93,10 @@ export default {
       required: false,
       default: undefined,
     },
+    fullWidth: {
+      type: Boolean,
+      required: false,
+    },
   },
   setup(props, context) {
     const {
@@ -266,7 +270,12 @@ export default {
               onBlur: this.onBlur,
             }),
             withDirectives(h("label", {
-              class: "switch_button__label",
+              class: [
+                "switch_button__label",
+                {
+                  switch_button__label_full: this.fullWidth,
+                },
+              ],
               for: this.htmlIdLocal,
             }), [
               [ASafeHtml, this.labelValueLocal],
