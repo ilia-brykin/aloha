@@ -38,7 +38,6 @@ export default function SizesAPI(props) {
     if (direction.value === "left") {
       return centerX.value - xCenterDiffLeft.value + radius.value;
     }
-    // console.log("xDefault", 70 - radius.value);
     return centerX.value + xCenterDiffRight.value - radius.value;
   });
 

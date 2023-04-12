@@ -140,7 +140,6 @@ export default function PreviewAPI(props, context, {
   };
 
   const onTogglePreview = ({ rowIndex }) => {
-    console.log("isDropdownGlobalOpen", isDropdownGlobalOpen.value);
     if (isDropdownGlobalOpen.value) {
       return;
     }
