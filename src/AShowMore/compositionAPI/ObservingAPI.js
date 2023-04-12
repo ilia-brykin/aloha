@@ -12,14 +12,14 @@ export default function ObservingAPI(props) {
 
   const containerRef = ref(undefined);
   const observer = ref(undefined);
-  const isMoreButtonVisible = ref(undefined);
+  const isMoreButtonObservingVisible = ref(undefined);
 
   const checkHeight = () => {
     const CONTAINER_HEIGHT = get(containerRef.value, "offsetHeight") || 0;
     if (CONTAINER_HEIGHT > height.value) {
-      isMoreButtonVisible.value = true;
+      isMoreButtonObservingVisible.value = true;
     } else {
-      isMoreButtonVisible.value = false;
+      isMoreButtonObservingVisible.value = false;
     }
   };
 
@@ -39,7 +39,7 @@ export default function ObservingAPI(props) {
   return {
     checkHeight,
     containerRef,
-    isMoreButtonVisible,
+    isMoreButtonObservingVisible,
     startObservingMutation,
     stopObservingMutation,
   };

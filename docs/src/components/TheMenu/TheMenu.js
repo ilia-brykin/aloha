@@ -290,7 +290,7 @@ export default {
           to: {
             name: "PageShowMore",
           },
-          icon: "Dnd",
+          icon: "ChevronDown",
         },
       ],
     };

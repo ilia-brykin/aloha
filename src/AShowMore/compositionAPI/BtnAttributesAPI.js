@@ -6,6 +6,7 @@ import {
 
 export default function BtnAttributesAPI(props, {
   isOpen = ref(false),
+  isMoreButtonObservingVisible = ref(false),
 }) {
   const btnIconLeftLess = toRef(props, "btnIconLeftLess");
   const btnIconLeftMore = toRef(props, "btnIconLeftMore");
@@ -13,6 +14,7 @@ export default function BtnAttributesAPI(props, {
   const btnIconRightMore = toRef(props, "btnIconRightMore");
   const btnTextLess = toRef(props, "btnTextLess");
   const btnTextMore = toRef(props, "btnTextMore");
+  const showLess = toRef(props, "showLess");
 
   const btnText = computed(() => {
     return isOpen.value ?
@@ -32,9 +34,20 @@ export default function BtnAttributesAPI(props, {
       btnIconRightMore.value;
   });
 
+  const isButtonVisible = computed(() => {
+    if (!isMoreButtonObservingVisible.value) {
+      return false;
+    }
+    if (showLess.value) {
+      return true;
+    }
+    return !isOpen.value;
+  });
+
   return {
     btnIconLeft,
     btnIconRight,
     btnText,
+    isButtonVisible,
   };
 }

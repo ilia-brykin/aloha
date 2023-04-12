@@ -19,12 +19,6 @@ export default {
   name: "AShowMore",
   inheritAttrs: true,
   props: {
-    align: {
-      type: String,
-      required: false,
-      default: "center",
-      validator: value => ["center", "left", "right"].indexOf(value) !== -1,
-    },
     btnClass: {
       type: [String, Object],
       required: false,
@@ -50,6 +44,11 @@ export default {
       required: false,
       default: undefined,
     },
+    btnId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     btnParentClass: {
       type: String,
       required: false,
@@ -58,22 +57,47 @@ export default {
     btnTextLess: {
       type: String,
       required: false,
-      default: "Weniger anzeigen",
+      default: "_SHOW_LESS_",
     },
     btnTextMore: {
       type: String,
       required: false,
-      default: "Mehr anzeigen",
+      default: "_SHOW_MORE_",
+    },
+    btnTitle: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    btnTitlePlacement: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     height: {
       type: Number,
       required: false,
       default: 200,
+      validator: value => value >= 0,
     },
     html: {
       type: String,
       required: false,
       default: undefined,
+    },
+    showLess: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isBtnTitleHtml: {
+      type: Boolean,
+      required: false,
     },
     isOpenDefault: {
       type: Boolean,
@@ -81,27 +105,34 @@ export default {
       default: false,
     },
   },
-  setup(props) {
+  emits: [
+    "toggle",
+  ],
+  setup(props, context) {
+    const {
+      checkHeight,
+      containerRef,
+      isMoreButtonObservingVisible,
+      startObservingMutation,
+      stopObservingMutation,
+    } = ObservingAPI(props);
+
     const {
       isOpen,
       toggleBtn,
-    } = ToggleAPI(props);
+    } = ToggleAPI(props, context, {
+      stopObservingMutation,
+    });
 
     const {
       btnIconLeft,
       btnIconRight,
       btnText,
+      isButtonVisible,
     } = BtnAttributesAPI(props, {
       isOpen,
+      isMoreButtonObservingVisible,
     });
-
-    const {
-      checkHeight,
-      containerRef,
-      isMoreButtonVisible,
-      startObservingMutation,
-      stopObservingMutation,
-    } = ObservingAPI(props);
 
     const {
       maxHeightStyle,
@@ -123,7 +154,7 @@ export default {
       btnIconRight,
       btnText,
       containerRef,
-      isMoreButtonVisible,
+      isButtonVisible,
       isOpen,
       maxHeightStyle,
       toggleBtn,
@@ -152,10 +183,11 @@ export default {
           this.$slots.default && this.$slots.default(),
         ]),
       ]),
-      this.isMoreButtonVisible && h("div", {
+      this.isButtonVisible && h("div", {
         class: this.btnParentClass,
       }, [
         h(AButton, {
+          id: this.btnId,
           class: [
             "a_show_more__button",
             this.btnClass,
@@ -163,6 +195,10 @@ export default {
           iconLeft: this.btnIconLeft,
           iconRight: this.btnIconRight,
           text: this.btnText,
+          title: this.btnTitle,
+          isTitleHtml: this.isBtnTitleHtml,
+          titlePlacement: this.btnTitlePlacement,
+          disabled: this.disabled,
           onClick: this.toggleBtn,
         }),
       ]),
