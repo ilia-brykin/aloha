@@ -475,5 +475,10 @@ export default {
     changeModelColumnsVisible(model) {
       this.modelColumnsVisible = model;
     },
+
+    initTable({ columnsOrdering = {}, columnsVisible = {} } = {}) {
+      this.modelColumnsOrdering = columnsOrdering.model;
+      this.modelColumnsVisible = columnsVisible.model;
+    },
   },
 };

@@ -46,7 +46,7 @@ export default function ColumnsOrderingAPI(props, { emit }, {
     checkVisibleColumns();
   };
 
-  const checkColumnsOrdering = ({ isFirst } = {}) => {
+  const checkColumnsOrdering = () => {
     let modelColumnsOrderingLocal = [];
     let shouldFixColumns = false;
     if (!modelColumnsOrdering.value.length) {
@@ -69,17 +69,28 @@ export default function ColumnsOrderingAPI(props, { emit }, {
         shouldFixColumns = true;
       }
     }
+    return {
+      shouldFixColumns,
+      modelColumnsOrderingLocal,
+    };
+  };
+
+  const checkColumnsOrderingWithEmit = () => {
+    const {
+      shouldFixColumns,
+      modelColumnsOrderingLocal,
+    } = checkColumnsOrdering();
+
     if (shouldFixColumns) {
       emit("changeColumnsOrdering", {
         modelColumnsOrdering: modelColumnsOrderingLocal,
-        isFirst,
         shouldFixColumns,
       });
     }
   };
 
   watch(columns, () => {
-    checkColumnsOrdering();
+    checkColumnsOrderingWithEmit();
   }, {
     deep: true,
   });

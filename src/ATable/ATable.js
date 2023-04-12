@@ -19,6 +19,7 @@ import ATableTr from "./ATableTr/ATableTr";
 import AMobileAPI from "../compositionAPI/AMobileAPI";
 import ColumnsIdsAPI from "./compositionAPI/ColumnsIdsAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
+import InitAPI from "./compositionAPI/InitAPI";
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
 import MobileColumnsAPI from "./compositionAPI/MobileColumnsAPI";
 import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
@@ -312,6 +313,7 @@ export default {
     "changeOffset",
     "changeSorting",
     "mouseupResizePreviewRight",
+    "initTable",
     "togglePreview",
     "update:modelColumnsOrder",
     "update:modelColumnsVisible",
@@ -427,7 +429,6 @@ export default {
 
     const {
       changeModelColumnsVisible,
-      initModelColumnsVisibleLocal,
     } = TableColumnsVisibleFunctionAPI(props, context, {
       modelColumnsVisibleLocal,
       checkVisibleColumns,
@@ -513,6 +514,14 @@ export default {
       closePreviewAll,
     });
 
+    const {
+      initTable,
+    } = InitAPI(props, context, {
+      checkColumnsOrdering,
+      checkVisibleColumns,
+      modelColumnsVisibleLocal,
+    });
+
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("changeModelSort", changeModelSort);
     provide("columnsOrdered", columnsOrdered);
@@ -534,11 +543,10 @@ export default {
     provide("updateDataKeyByIdFromFilter", updateDataKeyByIdFromFilter);
     provide("changeColumnsOrdering", changeColumnsOrdering);
 
+    initTable();
+
     initViewCurrent();
     initModelSort();
-
-    checkColumnsOrdering({ isFirst: true });
-    initModelColumnsVisibleLocal();
 
     return {
       allVisibleMobileColumns,
@@ -563,7 +571,6 @@ export default {
       hasFilters,
       hasRows,
       hasViews,
-      initModelColumnsVisibleLocal,
       isMobile,
       isMultipleActionsActive,
       isPreviewRightOpen,
