@@ -1,9 +1,12 @@
 import {
   computed,
-  h, inject, onBeforeUnmount,
+  h,
+  inject,
+  onBeforeUnmount,
   ref,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import AIcon from "../../AIcon/AIcon";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter";
 import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
@@ -80,11 +83,6 @@ export default {
       EventBus.$off(eventName, onOpen);
     };
 
-    const submit = $event => {
-      onSearch();
-      $event.preventDefault();
-    };
-
     const {
       isBtnToggleVisible,
     } = VisibleAPI(props);
@@ -102,30 +100,25 @@ export default {
       onSearch,
       onToggle,
       styleToggle,
-      submit,
       textToggle,
     };
   },
   render() {
-    const BUTTON_SEARCH = h("button", {
+    const BUTTON_SEARCH = h(AButton, {
       class: "a_btn a_btn_primary a_text_nowrap",
-      type: "button",
+      iconLeft: "Search",
+      type: "submit",
+      text: "Suche starten",
+      prevent: true,
+      stop: true,
       disabled: this.isLoadingTable,
       onClick: this.onSearch,
-    }, [
-      h(AIcon, {
-        class: "a_mr_2",
-        icon: "Search",
-      }),
-      h("span", {}, "Suche starten"),
-    ]);
+    });
 
     return h("div", {
       class: "a_table__filters_top",
     }, [
-      h("form", {
-        onSubmit: this.submit,
-      }, [
+      h("form", {}, [
         h("div", {
           class: "a_columns a_columns_count_12 a_columns_gab_2 a_align_items_center",
         }, [
