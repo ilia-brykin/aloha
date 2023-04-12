@@ -11,31 +11,28 @@ export default function ObservingAPI(props) {
   const height = toRef(props, "height");
 
   const containerRef = ref(undefined);
-  const mutationObserver = ref(undefined);
+  const observer = ref(undefined);
   const isMoreButtonVisible = ref(undefined);
 
   const checkHeight = () => {
     const CONTAINER_HEIGHT = get(containerRef.value, "offsetHeight") || 0;
-    console.log("CONTAINER_HEIGHT", CONTAINER_HEIGHT);
     if (CONTAINER_HEIGHT > height.value) {
       isMoreButtonVisible.value = true;
+    } else {
+      isMoreButtonVisible.value = false;
     }
   };
 
   const startObservingMutation = () => {
-    mutationObserver.value = new MutationObserver(() => {
+    observer.value = new ResizeObserver(() => {
       checkHeight();
     });
-    mutationObserver.value.observe(containerRef.value, {
-      subtree: true,
-      characterData: true,
-      childList: true,
-    });
+    observer.value.observe(containerRef.value);
   };
 
   const stopObservingMutation = () => {
-    if (mutationObserver.value) {
-      mutationObserver.value.disconnect();
+    if (observer.value) {
+      observer.value.unobserve(containerRef.value);
     }
   };
 

@@ -17,6 +17,7 @@ import ToggleAPI from "./compositionAPI/ToggleAPI";
 // @vue/component
 export default {
   name: "AShowMore",
+  inheritAttrs: true,
   props: {
     align: {
       type: String,
