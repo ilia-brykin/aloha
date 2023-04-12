@@ -19,14 +19,14 @@ import fr from "./i18n/fr.json";
 import es from "./i18n/es.json";
 import it from "./i18n/it.json";
 
-import deGlobal from "../src/i18n/de.json";
-import enGlobal from "../src/i18n/en.json";
-import hrGlobal from "../src/i18n/hr.json";
-import ruGlobal from "../src/i18n/ru.json";
-import arGlobal from "../src/i18n/ar.json";
-import frGlobal from "../src/i18n/fr.json";
-import esGlobal from "../src/i18n/es.json";
-import itGlobal from "../src/i18n/it.json";
+import deGlobal from "../../src/i18n/de.json";
+import enGlobal from "../../src/i18n/en.json";
+import hrGlobal from "../../src/i18n/hr.json";
+import ruGlobal from "../../src/i18n/ru.json";
+import arGlobal from "../../src/i18n/ar.json";
+import frGlobal from "../../src/i18n/fr.json";
+import esGlobal from "../../src/i18n/es.json";
+import itGlobal from "../../src/i18n/it.json";
 
 const APP = createApp(App);
 const TRANSLATIONS = {
