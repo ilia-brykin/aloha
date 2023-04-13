@@ -33,7 +33,7 @@ export default {
   setup(props) {
     const filter = toRef(props, "filter");
     const isFilter = computed(() => {
-      return !!filter.value;
+      return !!(filter.value && filter.value.isRender !== false);
     });
 
     const tableId = inject("tableId");
