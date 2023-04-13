@@ -7,7 +7,6 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
-import AIcon from "../../AIcon/AIcon";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter";
 import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 
@@ -138,17 +137,13 @@ export default {
           this.isBtnToggleVisible && h("div", {
             class: "a_column",
           }, [
-            h("button", {
+            h(AButton, {
               class: "a_btn a_btn_link a_text_nowrap",
               type: "button",
+              text: this.textToggle,
+              iconRight: this.iconToggle,
               onClick: this.onToggle,
-            }, [
-              h("span", {}, this.textToggle),
-              h(AIcon, {
-                class: "a_ml_2",
-                icon: this.iconToggle,
-              }),
-            ]),
+            }),
           ]),
         ]),
         h("div", {

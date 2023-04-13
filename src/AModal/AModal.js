@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import AForm from "../ui/AForm/AForm";
+import ATranslation from "../ATranslation/ATranslation";
 
 import ASafeHtml from "../directives/ASafeHtml";
 
@@ -24,7 +25,6 @@ import {
   isFunction,
   isString,
 } from "lodash-es";
-import ATranslation from "../ATranslation/ATranslation";
 
 // @vue/component
 export default {
@@ -471,7 +471,10 @@ export default {
                 this.headerText && h(this.headerTag, {
                   class: "a_modal_title",
                 }, [
-                  h("span", null, this.headerText),
+                  h(ATranslation, {
+                    tag: "span",
+                    html: this.headerText,
+                  }),
                 ]),
                 h("button", {
                   type: "button",
