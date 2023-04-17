@@ -37,6 +37,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isVertical: {
+      type: Boolean,
+      required: false,
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -70,6 +74,7 @@ export default {
       id: this.id,
       class: ["a_tabs", {
         a_tabs_boxed: this.isBoxed,
+        a_tabs_vertical: this.isVertical,
       }],
     }, [
       h("div", {
