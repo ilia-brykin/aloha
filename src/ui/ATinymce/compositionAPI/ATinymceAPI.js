@@ -52,6 +52,7 @@ export default function ATinymceAPI(props, context, {
   const promotion = toRef(props, "promotion");
   const toolbar = toRef(props, "toolbar");
   const toolbarMode = toRef(props, "toolbarMode");
+  const modelValue = toRef(props, "modelValue");
 
   let vueEditor = null;
 
@@ -90,6 +91,10 @@ export default function ATinymceAPI(props, context, {
     } else {
       tinymce.get(htmlIdLocal.value).mode.set("design");
     }
+  });
+
+  watch(modelValue, newValue => {
+    tinymce.get(htmlIdLocal.value).setContent(newValue);
   });
 
   onBeforeUnmount(() => {
