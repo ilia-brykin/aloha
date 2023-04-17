@@ -35,6 +35,7 @@
   --a_select_divider_bg: var(--a_color_gray_300);
   --a_select_border_radius: var(--a_border_radius);
   --a_select_menu_max_height: 250px;
+  --a_select_menu_max_width: 400px;
   --a_select_menu_link_color: var(--a_color_text);
   --a_select_menu_link_hover_color: var(--a_color_text);
   --a_select_menu_link_hover_bg: var(--a_color_gray_200);
@@ -43,7 +44,7 @@
   display: block;
   position: relative;
   min-width: 200px;
-  max-width: 400px;
+  max-width: var(--a_select_menu_max_width);
   z-index: 1055;
   background-color: #fff;
   border: 1px solid grey;
@@ -52,6 +53,12 @@
   &[data-popper-reference-hidden] {
     visibility: hidden !important;
     pointer-events: none !important;
+  }
+}
+.a_select_menu_by_content {
+  --a_select_menu_max_width: 100vw;
+  .a_select__menu__link {
+    white-space: nowrap;
   }
 }
 .a_select_menu_right {
@@ -79,8 +86,7 @@
 
 .a_select__menu__link {
   position: relative;
-  min-width: 100%;
-  display: inline-block;
+  display: block;
   text-align: left;
   padding: 2px 4px 2px 25px;
   border: none;

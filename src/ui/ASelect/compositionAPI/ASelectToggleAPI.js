@@ -103,9 +103,9 @@ export default function ASelectToggleAPI(props, {
     emit("open");
   };
 
-  const isMenuWidthAsButton = toRef(props, "isMenuWidthAsButton");
+  const menuWidthType = toRef(props, "menuWidthType");
   const setMenuWidth = () => {
-    if (isMenuWidthAsButton.value) {
+    if (menuWidthType.value === "as_button") {
       const BUTTON_WIDTH = buttonRef.value.clientWidth;
       const BUTTON_WIDTH_STRING = `${ BUTTON_WIDTH }px`;
       menuRef.value.style.minWidth = BUTTON_WIDTH_STRING;
@@ -141,23 +141,25 @@ export default function ASelectToggleAPI(props, {
   const placement = toRef(props, "placement");
   const openPopoverWithPopperjs = () => {
     if (!popper.value) {
-      popper.value = createPopper(
-        buttonRef.value,
-        menuRef.value,
-        {
-          placement: placement.value,
-          removeOnDestroy: true,
-          modifiers: [
-            {
-              name: "offset",
-              options: {
-                offset: [0, 0],
+      setTimeout(() => {
+        popper.value = createPopper(
+          buttonRef.value,
+          menuRef.value,
+          {
+            placement: placement.value,
+            removeOnDestroy: true,
+            modifiers: [
+              {
+                name: "offset",
+                options: {
+                  offset: [0, 0],
+                },
               },
-            },
-          ],
-        },
-      );
-      onShow();
+            ],
+          },
+        );
+        onShow();
+      });
     }
   };
 

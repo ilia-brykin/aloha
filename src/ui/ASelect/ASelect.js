@@ -26,9 +26,10 @@ import ASelectModelChangeAPI from "./compositionAPI/ASelectModelChangeAPI";
 import ASelectSearchAPI from "./compositionAPI/ASelectSearchAPI";
 import ASelectSelectedTitleAPI from "./compositionAPI/ASelectSelectedTitleAPI";
 import ASelectToggleAPI from "./compositionAPI/ASelectToggleAPI";
+import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
 import UiAPI from "../compositionApi/UiAPI";
-import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
+import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AKeyId from "../const/AKeyId";
@@ -75,11 +76,7 @@ export default {
       type: Boolean,
       required: false,
     },
-    isMenuWidthAsButton: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
+
     isSelectAll: {
       type: Boolean,
       required: false,
@@ -183,6 +180,17 @@ export default {
       default: "select",
       validator: value => ["select", "multiselect"].indexOf(value) !== -1,
     },
+    popperContainerId: {
+      type: String,
+      required: false,
+      default: "a_select_container",
+    },
+    menuWidthType: {
+      type: String,
+      required: false,
+      default: "as_button",
+      validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
+    },
   },
   emits: [
     "onSearchOutside",
@@ -210,6 +218,11 @@ export default {
       dataKeyByKeyIdLocal,
       dataLocal,
     } = UiDataWithKeyIdAndLabelAPI(props);
+
+    const {
+      addPopperContainerInBody,
+      popperContainerIdSelector,
+    } = PopperContainerAPI(props);
 
     UiDataWatchEmitAPI(props, context, {
       dataKeyByKeyIdLocal,
@@ -338,7 +351,10 @@ export default {
       return ATTRIBUTES;
     });
 
+    addPopperContainerInBody();
+
     return {
+      popperContainerIdSelector,
       componentStyleHide,
 
       ariaDescribedbyLocal,
@@ -495,7 +511,7 @@ export default {
                   }, this.$slots)
                 : "",
               h(Teleport, {
-                to: "body",
+                to: this.popperContainerIdSelector,
               }, [
                 h("div", {
                   ref: "menuParentRef",
@@ -507,6 +523,7 @@ export default {
                     ref: "menuRef",
                     class: ["a_select_menu", {
                       a_select_menu_right: this.menuRightLocal,
+                      a_select_menu_by_content: this.menuWidthType === "by_content",
                     }],
                     role: "listbox",
                     ariaLabelledby: this.htmlIdLocal,

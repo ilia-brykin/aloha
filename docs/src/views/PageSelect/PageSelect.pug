@@ -1,18 +1,21 @@
 div
   h1 ASelect
-  a-select(
-    v-model="model"
-    :data="data"
-    key-id="id"
-    key-label="label"
-    label="Test label"
-    type="select"
-    :search="true"
-    key-group="group"
-    sort-order-group="desc"
-    :loading="true"
-  )
-  div model: {{ model }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6
+      a-select(
+        v-model="model"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Test label"
+        type="select"
+        :search="true"
+        key-group="group"
+        sort-order-group="desc"
+        :is-menu-width-as-button="false"
+        menu-width-type="by_content"
+      )
+      div model: {{ model }}
   a-select(
     v-model="model"
     :data="data"
