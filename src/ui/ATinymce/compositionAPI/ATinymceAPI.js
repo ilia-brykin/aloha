@@ -55,8 +55,15 @@ export default function ATinymceAPI(props, context, {
   const modelValue = toRef(props, "modelValue");
 
   let vueEditor = null;
+  let modelValueLocal = undefined;
+
+  const changeModelLocal = ({ model }) => {
+    modelValueLocal = model;
+    changeModel({ model });
+  };
 
   const render = () => {
+    modelValueLocal = modelValue.value;
     tinymce.init({
       selector: `#${ htmlIdLocal.value }`,
       plugins: plugins.value,
@@ -75,7 +82,7 @@ export default function ATinymceAPI(props, context, {
       setup: editor => {
         vueEditor = editor;
         editor.on("change input undo redo", () => {
-          changeModel({ model: editor.getContent({ format: "html" }) });
+          changeModelLocal({ model: editor.getContent({ format: "html" }) });
         });
       },
     });
@@ -94,7 +101,10 @@ export default function ATinymceAPI(props, context, {
   });
 
   watch(modelValue, newValue => {
-    tinymce.get(htmlIdLocal.value).setContent(newValue);
+    if (newValue !== modelValueLocal) {
+      tinymce.get(htmlIdLocal.value).setContent(newValue);
+      modelValueLocal = newValue;
+    }
   });
 
   onBeforeUnmount(() => {
