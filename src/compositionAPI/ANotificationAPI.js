@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import {
+  isNil,
   values,
 } from "lodash-es";
 
@@ -28,7 +29,7 @@ export default function ANotificationAPI() {
 }
 
 export function addNotification({ text, type = "success", timeout }) {
-  const TIMEOUT_LOCAL = timeout || notificationTimeout;
+  const TIMEOUT_LOCAL = isNil(timeout) ? notificationTimeout : timeout;
   const CURRENT_INDEX = notificationsCount;
   notificationsObj.value[CURRENT_INDEX] = {
     text,

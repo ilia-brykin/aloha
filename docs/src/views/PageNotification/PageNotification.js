@@ -16,6 +16,7 @@ export default {
       addNotification({
         text: type,
         type,
+        timeout: 0,
       });
     };
 
