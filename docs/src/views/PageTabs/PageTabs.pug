@@ -35,3 +35,17 @@ div
     :is-boxed="true"
     :is-vertical="true"
   )
+  h2 With Slots
+  a-tabs(
+    :data="dataTabs2"
+    :is-boxed="true"
+  )
+    template(
+      v-slot:tab="{ tab }"
+    )
+      span {{ tab }}
+
+    template(
+      v-slot:content="{ tab }"
+    )
+      span {{ tab }}

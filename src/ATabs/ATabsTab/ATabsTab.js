@@ -75,6 +75,31 @@ export default {
     };
   },
   render() {
+    let tab = "";
+    if (this.tab.slotTab && this.$slots[this.tab.slotTab]) {
+      tab = this.$slots[this.tab.slotTab]({
+        tab: this.tab,
+        tabIndex: this.index,
+        isActive: this.isActive,
+        indexActiveTab: this.indexActiveTabLocal,
+        contentId: this.idForContent,
+        parentId: this.parentId,
+      });
+    } else if (this.$slots.tab) {
+      tab = this.$slots.tab({
+        tab: this.tab,
+        tabIndex: this.index,
+        isActive: this.isActive,
+        indexActiveTab: this.indexActiveTabLocal,
+        contentId: this.idForContent,
+        parentId: this.parentId,
+      });
+    } else if (this.tab.label) {
+      tab = withDirectives(h("div"), [
+        [ASafeHtml, this.tab.label],
+      ]);
+    }
+
     return h(ATooltip, {
       tag: "li",
       placement: this.titlePlacement,
@@ -99,19 +124,7 @@ export default {
           onClick: this.changeTabLocal,
           onKeydown: this.keydownTab,
         }, [
-          this.tab.slotTab && this.$slots[this.tab.slotTab] ?
-            this.$slots[this.tab.slotTab]({
-              tab: this.tab,
-              tabIndex: this.index,
-              isActive: this.isActive,
-              isDisabled: this.isDisabled,
-              indexActiveTab: this.indexActiveTabLocal,
-              tabId: this.idLocal,
-              parentId: this.parentId,
-            }) :
-            withDirectives(h("span"), [
-              [ASafeHtml, this.tab.label],
-            ]),
+          tab,
         ]),
       ],
       title: () => withDirectives(h("div"), [

@@ -26,6 +26,17 @@ export default {
           disabled: true,
         },
       ],
+      dataTabs2: [
+        {
+          id: "tab_1",
+        },
+        {
+          id: "tab_2",
+        },
+        {
+          id: "tab_3",
+        },
+      ],
     };
   },
 };

@@ -41,6 +41,31 @@ export default {
     };
   },
   render() {
+    let content = "";
+    if (this.tab.slotContent && this.$slots[this.tab.slotContent]) {
+      content = this.$slots[this.tab.slotContent]({
+        tab: this.tab,
+        tabIndex: this.index,
+        isActive: this.isActive,
+        indexActiveTab: this.indexActiveTabLocal,
+        contentId: this.idForContent,
+        parentId: this.parentId,
+      });
+    } else if (this.$slots.content) {
+      content = this.$slots.content({
+        tab: this.tab,
+        tabIndex: this.index,
+        isActive: this.isActive,
+        indexActiveTab: this.indexActiveTabLocal,
+        contentId: this.idForContent,
+        parentId: this.parentId,
+      });
+    } else if (this.tab.content) {
+      content = withDirectives(h("div"), [
+        [ASafeHtml, this.tab.content],
+      ]);
+    }
+
     return h("div", {
       id: this.idForContent,
       role: "tabpanel",
@@ -49,20 +74,7 @@ export default {
       }],
       ariaLabelledby: this.idLocal,
     }, [
-      this.tab.slotContent ?
-        this.$slots[this.tab.slotContent] &&
-          this.$slots[this.tab.slotContent]({
-            tab: this.tab,
-            tabIndex: this.index,
-            isActive: this.isActive,
-            indexActiveTab: this.indexActiveTabLocal,
-            contentId: this.idForContent,
-            parentId: this.parentId,
-          }) :
-        this.tab.content &&
-          withDirectives(h("div"), [
-            [ASafeHtml, this.tab.content],
-          ]),
+      content,
     ]);
   },
 };
