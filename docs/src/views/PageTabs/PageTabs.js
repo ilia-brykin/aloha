@@ -37,6 +37,23 @@ export default {
           id: "tab_3",
         },
       ],
+      dataTabs3: [
+        {
+          id: "tab_1",
+          slotContent: "content1",
+          slotTab: "tab1",
+        },
+        {
+          id: "tab_2",
+          slotContent: "content2",
+          slotTab: "tab2",
+        },
+        {
+          id: "tab_3",
+          slotContent: "content3",
+          slotTab: "tab3",
+        },
+      ],
     };
   },
 };
