@@ -1,41 +1,47 @@
-div
-  h1 AShowMore
-  h2 Default
-  .a_columns.a_columns_count_12
-    .a_column.a_column_4.a_column_12_tablet
-      a-show-more
-        div
-          ul
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
+aloha-page(
+  page-title="ShowMore"
+)
+  template(
+    v-slot:body
+  )
+    p Die Komponente "AShowMore" ermöglicht es, einen Teil des Inhalts einer Webseite zu verstecken und bei Bedarf anzuzeigen.
 
-  h2 showLess = false
-  .a_columns.a_columns_count_12
-    .a_column.a_column_4.a_column_12_tablet
-      a-show-more(
-        :show-less="false"
-      )
-        div
-          ul
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
-            li sfdsf
+    h2 Basic usage
+    .a_columns.a_columns_count_12
+      .a_column.a_column_4.a_column_12_tablet
+        a-show-more
+          div
+            ul
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+
+    h2 showLess = false
+    .a_columns.a_columns_count_12
+      .a_column.a_column_4.a_column_12_tablet
+        a-show-more(
+          :show-less="false"
+        )
+          div
+            ul
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
+              li sfdsf
