@@ -7,6 +7,7 @@ import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
+import IconsAPI from "../AButton/comositionAPI/IconsAPI";
 import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
 import TextAPI from "../AButton/comositionAPI/TextAPI";
 import TitleAPI from "../AButton/comositionAPI/TitleAPI";
@@ -147,16 +148,27 @@ export default {
     } = LoadingAPI(props);
 
     const {
+      iconLeftCurrentDevice,
+      iconRightCurrentDevice,
+    } = IconsAPI(props);
+
+    const {
       isTextScreenReaderVisible,
       isTextVisible,
+      textForCurrentDevice,
+      textScreenReaderForCurrentDevice,
     } = TextAPI(props);
 
     return {
+      iconLeftCurrentDevice,
+      iconRightCurrentDevice,
       isLoadingLeft,
       isLoadingRight,
       isTextScreenReaderVisible,
       isTextVisible,
       isTitleVisible,
+      textForCurrentDevice,
+      textScreenReaderForCurrentDevice,
     };
   },
   render() {
@@ -169,7 +181,7 @@ export default {
       this.isTextScreenReaderVisible && h(ATranslation, {
         class: "a_sr_only aloha_link__hidden",
         tag: "span",
-        html: this.textScreenReader,
+        html: this.textScreenReaderForCurrentDevice,
         extra: this.extraTranslate,
       }),
       this.isLoadingLeft && h(ASpinner, {
@@ -178,8 +190,8 @@ export default {
           this.loadingClass,
         ],
       }),
-      this.iconLeft && h(AIcon, {
-        icon: this.iconLeft,
+      this.iconLeftCurrentDevice && h(AIcon, {
+        icon: this.iconLeftCurrentDevice,
         iconTag: this.iconTag,
         class: [
           "aloha_link__icon_left",
@@ -191,12 +203,12 @@ export default {
       this.isTextVisible && h(ATranslation, {
         tag: "span",
         class: this.textClass,
-        html: this.text,
+        html: this.textForCurrentDevice,
         extra: this.extraTranslate,
         ariaHidden: this.textAriaHidden,
       }),
-      this.iconRight && h(AIcon, {
-        icon: this.iconRight,
+      this.iconRightCurrentDevice && h(AIcon, {
+        icon: this.iconRightCurrentDevice,
         iconTag: this.iconTag,
         class: [
           "aloha_link__icon_right",

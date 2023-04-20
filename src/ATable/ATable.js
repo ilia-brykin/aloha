@@ -359,7 +359,7 @@ export default {
     } = TableColumnsVisibleAPI();
 
     const {
-      isMobile,
+      isMobileWidth: isMobile,
     } = AMobileAPI();
 
     const {

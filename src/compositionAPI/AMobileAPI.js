@@ -2,15 +2,15 @@ import {
   ref,
 } from "vue";
 
-export const isMobile = ref(undefined);
+export const isMobileWidth = ref(undefined);
 
-export function setIsMobile(isMobileLocal) {
-  isMobile.value = isMobileLocal;
+export function setIsMobileWidth(isMobileWidthLocal) {
+  isMobileWidth.value = isMobileWidthLocal;
 }
 
 export default function AMobileAPI() {
   return {
-    isMobile,
-    setIsMobile,
+    isMobileWidth,
+    setIsMobileWidth,
   };
 }

@@ -107,7 +107,12 @@ export default {
       class: "a_btn a_btn_primary a_text_nowrap",
       iconLeft: "Search",
       type: "submit",
-      text: "_SUCHE_STARTEN_",
+      text: {
+        desktop: "_SUCHE_STARTEN_",
+      },
+      textScreenReader: {
+        mobile: "_SUCHE_STARTEN_",
+      },
       prevent: true,
       stop: true,
       disabled: this.isLoadingTable,

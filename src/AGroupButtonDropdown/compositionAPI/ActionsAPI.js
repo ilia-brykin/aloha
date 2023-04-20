@@ -10,7 +10,8 @@ import {
 } from "../../utils/actions";
 import {
   cloneDeep,
-  forEach, last,
+  forEach,
+  last,
 } from "lodash-es";
 
 export default function ActionsAPI(props) {
@@ -20,7 +21,7 @@ export default function ActionsAPI(props) {
   const minDropdownActions = toRef(props, "minDropdownActions");
 
   const {
-    isMobile,
+    isMobileWidth,
   } = AMobileAPI();
 
   const actionsAllFiltered = computed(() => {
@@ -30,7 +31,7 @@ export default function ActionsAPI(props) {
   });
 
   const currentIndexFirstDropdownAction = computed(() => {
-    return isMobile.value ? indexFirstDropdownActionMobile.value : indexFirstDropdownAction.value;
+    return isMobileWidth.value ? indexFirstDropdownActionMobile.value : indexFirstDropdownAction.value;
   });
 
   const hasMoreEqualActionsThenParameter = ({ actions = [], minCountActions = 0 }) => {

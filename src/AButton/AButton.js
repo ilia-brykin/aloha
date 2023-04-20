@@ -7,6 +7,7 @@ import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ClickAPI from "./comositionAPI/ClickAPI";
+import IconsAPI from "./comositionAPI/IconsAPI";
 import LoadingAPI from "./comositionAPI/LoadingAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
@@ -82,12 +83,12 @@ export default {
       validator: value => ["right", "left"].indexOf(value) !== -1,
     },
     iconLeft: {
-      type: String,
+      type: [String, Object],
       required: false,
       default: undefined,
     },
     iconRight: {
-      type: String,
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -107,12 +108,12 @@ export default {
       default: undefined,
     },
     text: {
-      type: [String, Number],
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
     textScreenReader: {
-      type: String,
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
@@ -164,8 +165,15 @@ export default {
     } = LoadingAPI(props);
 
     const {
+      iconLeftCurrentDevice,
+      iconRightCurrentDevice,
+    } = IconsAPI(props);
+
+    const {
       isTextScreenReaderVisible,
       isTextVisible,
+      textForCurrentDevice,
+      textScreenReaderForCurrentDevice,
     } = TextAPI(props);
 
     const {
@@ -173,12 +181,16 @@ export default {
     } = ClickAPI(props, context);
 
     return {
+      iconLeftCurrentDevice,
+      iconRightCurrentDevice,
       isLoadingLeft,
       isLoadingRight,
       isTextScreenReaderVisible,
       isTextVisible,
       isTitleVisible,
       onClick,
+      textForCurrentDevice,
+      textScreenReaderForCurrentDevice,
     };
   },
   render() {
@@ -210,7 +222,7 @@ export default {
       this.isTextScreenReaderVisible && h(ATranslation, {
         class: "a_sr_only aloha_btn__hidden",
         tag: "span",
-        html: this.textScreenReader,
+        html: this.textScreenReaderForCurrentDevice,
         extra: this.extraTranslate,
       }),
       this.isLoadingLeft && h(ASpinner, {
@@ -219,8 +231,8 @@ export default {
           this.loadingClass,
         ],
       }),
-      this.iconLeft && h(AIcon, {
-        icon: this.iconLeft,
+      this.iconLeftCurrentDevice && h(AIcon, {
+        icon: this.iconLeftCurrentDevice,
         iconTag: this.iconTag,
         class: [
           "aloha_btn__icon_left",
@@ -232,12 +244,12 @@ export default {
       this.isTextVisible && h(ATranslation, {
         tag: "span",
         class: this.textClass,
-        html: this.text,
+        html: this.textForCurrentDevice,
         extra: this.extraTranslate,
         ariaHidden: this.textAriaHidden,
       }),
-      this.iconRight && h(AIcon, {
-        icon: this.iconRight,
+      this.iconRightCurrentDevice && h(AIcon, {
+        icon: this.iconRightCurrentDevice,
         iconTag: this.iconTag,
         class: [
           "aloha_btn__icon_right",
