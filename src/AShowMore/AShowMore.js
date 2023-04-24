@@ -64,7 +64,12 @@ export default {
       required: false,
       default: "_SHOW_MORE_",
     },
-    btnTitle: {
+    btnTitleLess: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    btnTitleMore: {
       type: String,
       required: false,
       default: undefined,
@@ -90,11 +95,6 @@ export default {
       required: false,
       default: undefined,
     },
-    showLess: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
     isBtnTitleHtml: {
       type: Boolean,
       required: false,
@@ -103,6 +103,11 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    showLess: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
   emits: [
@@ -128,6 +133,7 @@ export default {
       btnIconLeft,
       btnIconRight,
       btnText,
+      btnTitle,
       isButtonVisible,
     } = BtnAttributesAPI(props, {
       isOpen,
@@ -153,6 +159,7 @@ export default {
       btnIconLeft,
       btnIconRight,
       btnText,
+      btnTitle,
       containerRef,
       isButtonVisible,
       isOpen,

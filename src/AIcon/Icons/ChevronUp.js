@@ -1,10 +1,3 @@
-export default `<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 18 18"
-  height="18"
-  width="18"
->
-  <path
-    d="M 17.986481,14.773554 14.757239,17.986512 9.0000154,12.245611 3.2427918,17.986512 0.01353176,14.773554 9.0163185,5.770767 Z"
-  />
+export default `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
 </svg>`;

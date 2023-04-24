@@ -11,6 +11,7 @@ export default {
     extra: {
       type: Object,
       required: false,
+      default: undefined,
     },
   },
   setup(props) {

@@ -14,12 +14,20 @@ export default function BtnAttributesAPI(props, {
   const btnIconRightMore = toRef(props, "btnIconRightMore");
   const btnTextLess = toRef(props, "btnTextLess");
   const btnTextMore = toRef(props, "btnTextMore");
+  const btnTitleLess = toRef(props, "btnTitleLess");
+  const btnTitleMore = toRef(props, "btnTitleMore");
   const showLess = toRef(props, "showLess");
 
   const btnText = computed(() => {
     return isOpen.value ?
       btnTextLess.value :
       btnTextMore.value;
+  });
+
+  const btnTitle = computed(() => {
+    return isOpen.value ?
+      btnTitleLess.value :
+      btnTitleMore.value;
   });
 
   const btnIconLeft = computed(() => {
@@ -48,6 +56,7 @@ export default function BtnAttributesAPI(props, {
     btnIconLeft,
     btnIconRight,
     btnText,
+    btnTitle,
     isButtonVisible,
   };
 }
