@@ -1,60 +1,27 @@
 import AIcon from "../../../../src/AIcon/AIcon";
 import AMenuButtonToggle from "../../../../src/AMenu/AMenuButtonToggle";
+import ASelect from "../../../../src/ui/ASelect/ASelect";
 
-import {
-  setLanguage,
-} from "../../../../src/ATranslation/compositionAPI/ATranslationAPI";
+import LanguagesAPI from "./compositionAPI/LanguagesAPI";
 
 export default {
   name: "TheNavbar",
   components: {
     AIcon,
     AMenuButtonToggle,
+    ASelect,
   },
-  data() {
+  setup() {
+    const {
+      changeLanguage,
+      languages,
+      modelLanguage,
+    } = LanguagesAPI();
+
     return {
-      modelLanguage: "de",
-      languages: [
-        {
-          label: "Deutsch",
-          value: "de",
-        },
-        {
-          label: "English",
-          value: "en",
-        },
-        {
-          label: "Русский",
-          value: "ru",
-        },
-        {
-          label: "Hrvatski",
-          value: "hr",
-        },
-        {
-          label: "Français",
-          value: "fr",
-        },
-        {
-          label: "عربي",
-          value: "ar",
-        },
-        {
-          label: "español",
-          value: "es",
-        },
-        {
-          label: "Italiano",
-          value: "it",
-        },
-      ],
+      changeLanguage,
+      languages,
+      modelLanguage,
     };
-  },
-  methods: {
-    changeLanguage() {
-      setTimeout(() => {
-        setLanguage(this.modelLanguage);
-      });
-    },
   },
 };
