@@ -15,6 +15,7 @@
   "_MENUE_SCHLIESSEN_": "chiudi menù",
   "_MENUESUCHE_": "Menù di ricerca",
   "_NEXT_": "Prossimo",
+  "_NO_": "[ALOHA]",
   "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} da {{ count}}",
   "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} Di {{ allPages }}",
   "_PAGINATION_NAVIGATION_": "Navigazione dell'impaginazione",
@@ -36,5 +37,6 @@
   "_WEITERE_AKTIONEN_": "Ulteriori azioni",
   "_WIZARD_NEXT_": "Prossimo",
   "_WIZARD_PREVIOUS_": "Precedente",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "palcoscenico {{ stepActive }} Di {{ stepsCount }}: {{ stepActiveLabel }}"
+  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "palcoscenico {{ stepActive }} Di {{ stepsCount }}: {{ stepActiveLabel }}",
+  "_YES_": "[ALOHA]"
 }

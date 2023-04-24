@@ -15,6 +15,7 @@
   "_MENUE_SCHLIESSEN_": "zatvorite izbornik",
   "_MENUESUCHE_": "pretraživanje izbornika",
   "_NEXT_": "Sljedeći",
+  "_NO_": "[ALOHA]",
   "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} iz {{ count}}",
   "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} iz {{ allPages }}",
   "_PAGINATION_NAVIGATION_": "Navigacija po stranicama",
@@ -45,5 +46,6 @@
   "_WEITERE_AKTIONEN_": "Daljnje akcije",
   "_WIZARD_NEXT_": "Sljedeći",
   "_WIZARD_PREVIOUS_": "Prethodno",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Korak {{ stepActive }} od {{ stepsCount }}: {{ stepActiveLabel }}"
+  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Korak {{ stepActive }} od {{ stepsCount }}: {{ stepActiveLabel }}",
+  "_YES_": "[ALOHA]"
 }

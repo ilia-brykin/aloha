@@ -15,6 +15,7 @@
   "_MENUE_SCHLIESSEN_": "закрыть меню",
   "_MENUESUCHE_": "поиск в меню",
   "_NEXT_": "Следующий",
+  "_NO_": "Нет",
   "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} из {{ count}}",
   "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} из {{ allPages }}",
   "_PAGINATION_NAVIGATION_": "Навигация по страницам",
@@ -45,5 +46,6 @@
   "_WEITERE_AKTIONEN_": "Дальнейшие действия",
   "_WIZARD_NEXT_": "Следующий",
   "_WIZARD_PREVIOUS_": "Предыдущий",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Шаг {{ stepActive }} из {{ stepsCount }}: {{ stepActiveLabel }}"
+  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Шаг {{ stepActive }} из {{ stepsCount }}: {{ stepActiveLabel }}",
+  "_YES_": "Да"
 }

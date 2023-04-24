@@ -14,7 +14,7 @@ import propertyByValue from "../filters/propertyByValue";
 import searchHighlight from "../filters/searchHighlight";
 
 export default function AFiltersAPI() {
-  const filterBoolean = (value, { trueValue = "Ja", falseValue = "Nein", isNilUsed = true } = {}) => {
+  const filterBoolean = (value, { trueValue = "_YES_", falseValue = "_NO_", isNilUsed = true } = {}) => {
     return boolean(value, { trueValue, falseValue, isNilUsed });
   };
 

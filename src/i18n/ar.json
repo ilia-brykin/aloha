@@ -15,6 +15,7 @@
   "_MENUE_SCHLIESSEN_": "إغلاق القائمة",
   "_MENUESUCHE_": "قائمة البحث",
   "_NEXT_": "التالي",
+  "_NO_": "[ALOHA]",
   "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ count}} من {{ current }} - {{ start }}",
   "_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ allPages }}ل {{ currentPage }}",
   "_PAGINATION_NAVIGATION_": "التنقل بين الصفحات",
@@ -36,5 +37,6 @@
   "_WEITERE_AKTIONEN_": "مزيد من الإجراءات",
   "_WIZARD_NEXT_": "التالي",
   "_WIZARD_PREVIOUS_": "سابق",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "{{ stepActiveLabel }}: {{ stepsCount }} من {{ stepActive }} خطوة"
+  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "{{ stepActiveLabel }}: {{ stepsCount }} من {{ stepActive }} خطوة",
+  "_YES_": "[ALOHA]"
 }
