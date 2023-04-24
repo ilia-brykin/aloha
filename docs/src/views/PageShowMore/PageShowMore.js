@@ -3,6 +3,7 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import AShowMore from "../../../../src/AShowMore/AShowMore";
 
 import PropsAPI from "./compositionAPI/PropsAPI";
+import SlotsAPI from "./compositionAPI/SlotsAPI";
 
 export default {
   name: "PageShowMore",
@@ -16,8 +17,13 @@ export default {
       dataProps,
     } = PropsAPI();
 
+    const {
+      dataSlots,
+    } = SlotsAPI();
+
     return {
       dataProps,
+      dataSlots,
     };
   },
 };

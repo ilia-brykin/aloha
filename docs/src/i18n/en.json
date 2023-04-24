@@ -17,6 +17,8 @@
   "_A_SHOW_MORE_IS_BTN_TITLE_HTML_DESCRIPTION_": "Is the title HTML",
   "_A_SHOW_MORE_IS_OPEN_DEFAULT_DESCRIPTION_": "All text is shown by default",
   "_A_SHOW_MORE_SHOW_LESS_DESCRIPTION_": "Is button 'Show less' visible",
+  "_A_SHOW_MORE_SLOT_BUTTON_DESCRIPTION_": "Content displayed inside the button",
+  "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Content to be displayed within the component",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Default",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Description",
   "_ALOHA_TABLE_COLUMN_NAME_": "Name",

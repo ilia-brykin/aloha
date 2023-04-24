@@ -17,6 +17,8 @@
   "_A_SHOW_MORE_IS_BTN_TITLE_HTML_DESCRIPTION_": "Является ли 'title' HTML-ом",
   "_A_SHOW_MORE_IS_OPEN_DEFAULT_DESCRIPTION_": "Весь текст показан по умолчанию",
   "_A_SHOW_MORE_SHOW_LESS_DESCRIPTION_": "Видна ли кнопка 'Показать меньше'",
+  "_A_SHOW_MORE_SLOT_BUTTON_DESCRIPTION_": "Содержимое, отображаемое внутри кнопки",
+  "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Содержимое, отображаемое внутри компонента",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "По умолчанию",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Описание",
   "_ALOHA_TABLE_COLUMN_NAME_": "Имя",

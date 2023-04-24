@@ -207,7 +207,7 @@ export default {
           titlePlacement: this.btnTitlePlacement,
           disabled: this.disabled,
           onClick: this.toggleBtn,
-        }),
+        }, this.$slots.button && this.$slots.button()),
       ]),
     ]);
   },
