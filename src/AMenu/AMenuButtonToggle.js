@@ -59,7 +59,8 @@ export default {
       h("span", {
         class: "a_menu__btn_toggle__bar",
       }),
-      h("span", {
+      h(ATranslation, {
+        tag: "span",
         class: "a_position_absolute_all",
         title: this.btnToggleTitle,
         ariaHidden: true,
