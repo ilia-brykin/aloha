@@ -19,6 +19,7 @@
   "_A_SHOW_MORE_SHOW_LESS_DESCRIPTION_": "Видна ли кнопка 'Показать меньше'",
   "_A_SHOW_MORE_SLOT_BUTTON_DESCRIPTION_": "Содержимое, отображаемое внутри кнопки",
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Содержимое, отображаемое внутри компонента",
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Срабатывает при нажатии кнопки, ({ isOpen }) => {}",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "По умолчанию",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Описание",
   "_ALOHA_TABLE_COLUMN_NAME_": "Имя",

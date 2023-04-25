@@ -19,6 +19,7 @@
   "_A_SHOW_MORE_SHOW_LESS_DESCRIPTION_": "Ist die Schaltfläche 'Weniger anzeigen' sichtbar",
   "_A_SHOW_MORE_SLOT_BUTTON_DESCRIPTION_": "Inhalt, der innerhalb der Schaltfläche angezeigt wird",
   "_A_SHOW_MORE_SLOT_DEFAULT_DESCRIPTION_": "Inhalt, der innerhalb der Komponente angezeigt werden soll",
+  "_A_SHOW_MORE_TOGGLE_DESCRIPTION_": "Wird ausgelöst, wenn eine Taste gedrückt wird, ({ isOpen }) => {}",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Default",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Beschreibung",
   "_ALOHA_TABLE_COLUMN_NAME_": "Name",
