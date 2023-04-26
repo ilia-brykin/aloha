@@ -1,12 +1,10 @@
 import {
   h,
   Teleport,
-  withDirectives,
 } from "vue";
 
 import AAlert from "../AAlert/AAlert";
-
-import ASafeHtml from "../directives/ASafeHtml";
+import ATranslation from "../ATranslation/ATranslation";
 
 import ANotificationAPI from "../compositionAPI/ANotificationAPI";
 
@@ -39,9 +37,9 @@ export default {
           alertClass: "a_notification",
           onOnDismiss: () => this.removeNotification(notification.index),
         }, () => [
-          withDirectives(h("div"), [
-            [ASafeHtml, notification.text],
-          ]),
+          h(ATranslation, {
+            html: notification.text,
+          }),
         ]);
       })),
     ]);

@@ -27,6 +27,11 @@
   "_ALOHA_TABLE_COLUMN_NAME_": "Name",
   "_ALOHA_TABLE_COLUMN_REQUIRED_": "Required",
   "_ALOHA_TABLE_COLUMN_TYPE_": "Type",
+  "_COPIED_TO_CLIPBOARD_": "Copied to clipboard",
+  "_COPY_CODE_HTML_": "Copy code HTML",
+  "_COPY_CODE_JS_": "Copy code JS",
+  "_HIDE_SOURCE_": "Hide source",
   "_SUPPORT_FRAMEWORKS_": "We support the following CSS-frameworks",
+  "_VIEW_SOURCE_": "View source",
   "_WELCOME_": "Welcome"
 }

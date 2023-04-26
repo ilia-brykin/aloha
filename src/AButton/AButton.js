@@ -214,7 +214,8 @@ export default {
       isAllRowsSelected: undefined,
       onClick: this.onClick,
     }, [
-      this.isTitleVisible && h("span", {
+      this.isTitleVisible && h(ATranslation, {
+        tag: "span",
         ariaHidden: true,
         class: "a_position_absolute_all aloha_btn__hidden",
         title: this.title,

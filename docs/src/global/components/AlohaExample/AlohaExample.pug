@@ -1,0 +1,43 @@
+div
+  a-translation(
+    tag="h2"
+    :html="header"
+  )
+
+  a-translation(
+    v-if="description"
+    tag="p"
+    :html="description"
+  )
+
+  .a_m_3
+    slot
+
+  .a_m_3.a_bg_gray_200
+    .a_btn_group
+      a-button.a_btn.a_btn_outline_secondary(
+        icon-left="FiletypeJs"
+        title="_COPY_CODE_JS_"
+        @click="copyJsToClipboard"
+      )
+      a-button.a_btn.a_btn_outline_secondary(
+        icon-left="FiletypeHtml"
+        title="_COPY_CODE_HTML_"
+        @click="copyHtmlToClipboard"
+      )
+      a-button.a_btn.a_btn_outline_secondary(
+        icon-left="ChevronExpand"
+        :title="btnToggleCodeTitle"
+        @click="toggleCode"
+      )
+
+  .a_m_3(
+    v-if="isCodeVisible"
+  )
+    h3 HTML
+    pre
+      code {{ codeHtml }}
+
+    h3 JS
+    pre
+      code {{ codeJs }}
