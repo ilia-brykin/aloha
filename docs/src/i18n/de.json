@@ -1,4 +1,5 @@
 {
+  "_A_BASIC_USAGE_": "Grundlegende Verwendung",
   "_A_SHOW_MORE_BTN_CLASS_DESCRIPTION_": "CSS-Klasse für die Schaltfläche",
   "_A_SHOW_MORE_BTN_ICON_LEFT_LESS_DESCRIPTION_": "Icon auf der linken Seite für die Schaltfläche 'Weniger anzeigen'",
   "_A_SHOW_MORE_BTN_ICON_LEFT_MORE_DESCRIPTION_": "Icon auf der linken Seite für die Schaltfläche 'Mehr anzeigen'",
@@ -11,6 +12,8 @@
   "_A_SHOW_MORE_BTN_TITLE_LESS_DESCRIPTION_": "Titel für die Schaltfläche 'Weniger anzeigen'",
   "_A_SHOW_MORE_BTN_TITLE_MORE_DESCRIPTION_": "Titel für die Schaltfläche 'Mehr anzeigen'",
   "_A_SHOW_MORE_BTN_TITLE_PLACEMENT_DESCRIPTION_": "Titel-Platzierung für die Schaltfläche, funktioniert nur, wenn is-btn-title-html true ist",
+  "_A_SHOW_MORE_COMPONENT_DESCRIPTION_": "Die Komponente 'AShowMore' ermöglicht es, einen Teil des Inhalts einer Webseite zu verstecken und bei Bedarf anzuzeigen.",
+  "_A_SHOW_MORE_COMPONENT_NAME_": "Mehr anzeigen",
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Ob die Schaltfläche deaktiviert ist",
   "_A_SHOW_MORE_HEIGHT_DESCRIPTION_": "Die Höhe des HTML-Blocks, wenn diese Höhe überschritten wird, wird eine Schaltfläche angezeigt",
   "_A_SHOW_MORE_HTML_DESCRIPTION_": "HTML, das innerhalb der Komponente angezeigt werden soll",

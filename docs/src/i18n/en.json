@@ -1,4 +1,5 @@
 {
+  "_A_BASIC_USAGE_": "Basic usage",
   "_A_SHOW_MORE_BTN_CLASS_DESCRIPTION_": "CSS class for the button",
   "_A_SHOW_MORE_BTN_ICON_LEFT_LESS_DESCRIPTION_": "Left side icon for 'Show less' button",
   "_A_SHOW_MORE_BTN_ICON_LEFT_MORE_DESCRIPTION_": "Left side icon for 'Show more' button",
@@ -11,6 +12,7 @@
   "_A_SHOW_MORE_BTN_TITLE_LESS_DESCRIPTION_": "Title for 'Show less' button",
   "_A_SHOW_MORE_BTN_TITLE_MORE_DESCRIPTION_": "Title for 'Show more' button",
   "_A_SHOW_MORE_BTN_TITLE_PLACEMENT_DESCRIPTION_": "Title placement for the button, only works when is-btn-title-html is true",
+  "_A_SHOW_MORE_COMPONENT_NAME_": "The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.",
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Whether button is disabled",
   "_A_SHOW_MORE_HEIGHT_DESCRIPTION_": "The height of the HTML block, if this height is exceeded, a button will be shown",
   "_A_SHOW_MORE_HTML_DESCRIPTION_": "HTML to be shown inside the component",

@@ -1,4 +1,5 @@
 {
+  "_A_BASIC_USAGE_": "Основное использование",
   "_A_SHOW_MORE_BTN_CLASS_DESCRIPTION_": "CSS-класс для кнопки",
   "_A_SHOW_MORE_BTN_ICON_LEFT_LESS_DESCRIPTION_": "Иконка, расположенная слева, для кнопки 'Показать меньше'",
   "_A_SHOW_MORE_BTN_ICON_LEFT_MORE_DESCRIPTION_": "Иконка, расположенная слева, для кнопки 'Показать больше'",
@@ -11,6 +12,8 @@
   "_A_SHOW_MORE_BTN_TITLE_LESS_DESCRIPTION_": "Атрибут 'title' для кнопки 'Показать меньше'",
   "_A_SHOW_MORE_BTN_TITLE_MORE_DESCRIPTION_": "Атрибут 'title' для кнопки 'Показать больше'",
   "_A_SHOW_MORE_BTN_TITLE_PLACEMENT_DESCRIPTION_": "Расположение атрибута 'title' для кнопки, работает только тогда, когда is-btn-title-html имеет значение true",
+  "_A_SHOW_MORE_COMPONENT_DESCRIPTION_": "Компонент 'AShowMore' позволяет скрыть часть содержимого веб-страницы и показать его при необходимости.",
+  "_A_SHOW_MORE_COMPONENT_NAME_": "Показать больше",
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Отключена ли кнопка",
   "_A_SHOW_MORE_HEIGHT_DESCRIPTION_": "Высота HTML блока, если эта высота будет  превышена, то будет показана кнопка ",
   "_A_SHOW_MORE_HTML_DESCRIPTION_": "HTML, который будет показан внутри компонента",
