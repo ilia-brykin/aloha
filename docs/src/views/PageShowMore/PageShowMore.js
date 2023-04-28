@@ -3,6 +3,11 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import AShowMore from "../../../../src/AShowMore/AShowMore";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageShowMoreBasic from "./PageShowMoreBasic/PageShowMoreBasic.vue";
+import PageShowMoreBtnClass from "./PageShowMoreBtnClass/PageShowMoreBtnClass.vue";
+import PageShowMoreBtnIcons from "./PageShowMoreBtnIcons/PageShowMoreBtnIcons.vue";
+import PageShowMoreDisabled from "./PageShowMoreDisabled/PageShowMoreDisabled.vue";
+import PageShowMoreHtml from "./PageShowMoreHtml/PageShowMoreHtml.vue";
+import PageShowMoreNotLess from "./PageShowMoreNotLess/PageShowMoreNotLess.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -17,6 +22,11 @@ export default {
     AShowMore,
     ATranslation,
     PageShowMoreBasic,
+    PageShowMoreBtnClass,
+    PageShowMoreBtnIcons,
+    PageShowMoreDisabled,
+    PageShowMoreHtml,
+    PageShowMoreNotLess,
   },
   setup() {
     const {

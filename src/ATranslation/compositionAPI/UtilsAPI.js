@@ -1,12 +1,13 @@
 import {
+  translation,
+} from "./ATranslationAPI";
+
+import {
   get,
+  isNil,
   isPlainObject,
   isString,
 } from "lodash-es";
-
-import {
-  translation,
-} from "./ATranslationAPI";
 
 export default function UtilsAPI() {
   return {
@@ -24,7 +25,8 @@ export function isPlaceholderTranslate(text = "") {
 }
 
 export function getTranslatedText({ placeholder, translationObj = translation.value, extra }) {
-  const TEXT_FROM_TRANSLATION = translationObj[placeholder] || placeholder;
+  const TEXT_FROM_TRANSLATION = isNil(translationObj[placeholder]) ? placeholder : translationObj[placeholder];
+
   if (extra) {
     return replaceText({
       text: TEXT_FROM_TRANSLATION,

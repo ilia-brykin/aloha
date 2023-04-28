@@ -1,5 +1,5 @@
-div
-  a-translation(
+.aloha_example
+  a-translation.aloha_example__h2(
     tag="h2"
     :html="header"
   )
@@ -10,34 +10,34 @@ div
     :html="description"
   )
 
-  .a_m_3
+  .aloha_example__body
     slot
 
-  .a_m_3.a_bg_gray_200
+  .aloha_example__actions
     .a_btn_group
-      a-button.a_btn.a_btn_outline_secondary(
+      a-button.a_btn.a_btn_secondary(
         icon-left="FiletypeJs"
         title="_COPY_CODE_JS_"
         @click="copyJsToClipboard"
       )
-      a-button.a_btn.a_btn_outline_secondary(
+      a-button.a_btn.a_btn_secondary(
         icon-left="FiletypeHtml"
         title="_COPY_CODE_HTML_"
         @click="copyHtmlToClipboard"
       )
-      a-button.a_btn.a_btn_outline_secondary(
+      a-button.a_btn.a_btn_secondary(
         icon-left="ChevronExpand"
         :title="btnToggleCodeTitle"
         @click="toggleCode"
       )
 
-  .a_m_3(
+  .aloha_example__code(
     v-if="isCodeVisible"
   )
-    h3 HTML
+    h3.aloha_example__h3 HTML
     pre
       code {{ codeHtml }}
 
-    h3 JS
+    h3.aloha_example__h3.a_mt_3 JS
     pre
       code {{ codeJs }}

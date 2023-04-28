@@ -1,0 +1,38 @@
+.aloha_example {
+  --a_example_border_color: var(--a_color_gray_500);
+  --a_example_padding_x: 1rem;
+  --a_example_padding_y: .5rem;
+  --a_example_bg: var(--a_color_white);
+  --a_example_actions_bg: var(--a_color_gray_100);
+  --a_example_code_bg: var(--a_color_gray_200);
+
+  margin: 1.5rem 0;
+}
+
+.aloha_example__h2 {
+  margin-bottom: .5rem;
+}
+.aloha_example__h3 {
+  margin-bottom: .3rem;
+}
+
+.aloha_example__body {
+  border: 1px solid var(--a_example_border_color);
+  padding: var(--a_example_padding_y) var(--a_example_padding_x);
+  background-color: var(--a_example_bg);
+}
+.aloha_example__actions {
+  border: solid var(--a_example_border_color);
+  background-color: var(--a_example_actions_bg);
+  border-width: 0 1px 1px 1px;
+  .a_btn_group,
+  .a_btn {
+    border-radius: 0;
+  }
+}
+.aloha_example__code {
+  background-color: var(--a_example_code_bg);
+  border: solid var(--a_example_border_color);
+  border-width: 0 1px 1px 1px;
+  padding: var(--a_example_padding_y) var(--a_example_padding_x);
+}
