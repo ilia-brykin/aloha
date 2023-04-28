@@ -1,4 +1,12 @@
 {
+  "_A_SHOW_MORE_GROUP_HEIGHT_HEADER_": "Die Höhe des HTML-Blocks",
+  "_A_SHOW_MORE_GROUP_HEIGHT_DESCRIPTION_": "<p>Parameter: <strong>height</strong></p><p>Wenn diese Höhe überschritten wird, wird eine Schaltfläche angezeigt</p>",
+  "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slots",
+  "_A_SHOW_MORE_GROUP_SLOTS_DESCRIPTION_": "<p><strong>default</strong>, <strong>button</strong></p><p>Sie können Slots mit Parametern verwenden: <strong>isButtonVisible</strong>, <strong>isOpen</strong></p>",
+  "_A_SHOW_MORE_GROUP_OPEN_DEFAULT_HEADER_": "Der gesamte Text wird standardmäßig angezeigt",
+  "_A_SHOW_MORE_GROUP_OPEN_DEFAULT_DESCRIPTION_": "<p>Parameter: <strong>:is-open-default=\"true\"</strong>",
+  "_A_SHOW_MORE_GROUP_BTN_TEXTS_HEADER_": "Texte für die Schaltfläche",
+  "_A_SHOW_MORE_GROUP_BTN_TEXT_DESCRIPTION_": "<p>Parameter: <strong>btn-text-more</strong>, <strong>btn-text-less</strong></p><p>Sie können die Texte für die Schaltfläche anpassen</p>",
   "_A_SHOW_MORE_GROUP_BTN_ICONS_HEADER_": "Icons für die Schaltfläche",
   "_A_SHOW_MORE_GROUP_BTN_ICONS_DESCRIPTION_": "<p>Parameter: <strong>btn-icon-left-less</strong>, <strong>btn-icon-right-less</strong>, <strong>btn-icon-left-more</strong>, <strong>btn-icon-right-more</strong></p><p>Sie können die Icons für die Schaltfläche anpassen</p>",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_HEADER_": "CSS für die Schaltfläche",

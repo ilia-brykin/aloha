@@ -1,4 +1,12 @@
 {
+  "_A_SHOW_MORE_GROUP_HEIGHT_HEADER_": "The height of the HTML block",
+  "_A_SHOW_MORE_GROUP_HEIGHT_DESCRIPTION_": "<p>Parameter: <strong>height</strong></p><p>If this height is exceeded, a button will be shown</p>",
+  "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slots",
+  "_A_SHOW_MORE_GROUP_SLOTS_DESCRIPTION_": "<p><strong>default</strong>, <strong>button</strong></p><p>You can use slots with parameters: <strong>isButtonVisible</strong>, <strong>isOpen</strong></p>",
+  "_A_SHOW_MORE_GROUP_OPEN_DEFAULT_HEADER_": "All text is displayed by default",
+  "_A_SHOW_MORE_GROUP_OPEN_DEFAULT_DESCRIPTION_": "<p>Parameter: <strong>:is-open-default=\"true\"</strong>",
+  "_A_SHOW_MORE_GROUP_BTN_TEXTS_HEADER_": "Texts for button",
+  "_A_SHOW_MORE_GROUP_BTN_TEXT_DESCRIPTION_": "<p>Parameters: <strong>btn-text-more</strong>, <strong>btn-text-less</strong></p><p>It is possible to customize texts for the button</p>",
   "_A_SHOW_MORE_GROUP_BTN_ICONS_HEADER_": "Icons for button",
   "_A_SHOW_MORE_GROUP_BTN_ICONS_DESCRIPTION_": "<p>Parameters: <strong>btn-icon-left-less</strong>, <strong>btn-icon-right-less</strong>, <strong>btn-icon-left-more</strong>, <strong>btn-icon-right-more</strong></p><p>You can customize the icons for the button</p>",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_HEADER_": "CSS for button",

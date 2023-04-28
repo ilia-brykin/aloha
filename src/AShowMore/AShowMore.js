@@ -187,7 +187,10 @@ export default {
           this.html && withDirectives(h("div", {}), [
             [ASafeHtml, this.html],
           ]),
-          this.$slots.default && this.$slots.default(),
+          this.$slots.default && this.$slots.default({
+            isButtonVisible: this.isButtonVisible,
+            isOpen: this.isOpen,
+          }),
         ]),
       ]),
       this.isButtonVisible && h("div", {
@@ -207,7 +210,10 @@ export default {
           titlePlacement: this.btnTitlePlacement,
           disabled: this.disabled,
           onClick: this.toggleBtn,
-        }, this.$slots.button && this.$slots.button()),
+        }, this.$slots.button && this.$slots.button({
+          isButtonVisible: this.isButtonVisible,
+          isOpen: this.isOpen,
+        })),
       ]),
     ]);
   },

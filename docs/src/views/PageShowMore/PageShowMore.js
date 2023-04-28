@@ -6,8 +6,12 @@ import PageShowMoreBasic from "./PageShowMoreBasic/PageShowMoreBasic.vue";
 import PageShowMoreBtnClass from "./PageShowMoreBtnClass/PageShowMoreBtnClass.vue";
 import PageShowMoreBtnIcons from "./PageShowMoreBtnIcons/PageShowMoreBtnIcons.vue";
 import PageShowMoreDisabled from "./PageShowMoreDisabled/PageShowMoreDisabled.vue";
+import PageShowMoreHeight from "./PageShowMoreHeight/PageShowMoreHeight.vue";
 import PageShowMoreHtml from "./PageShowMoreHtml/PageShowMoreHtml.vue";
 import PageShowMoreNotLess from "./PageShowMoreNotLess/PageShowMoreNotLess.vue";
+import PageShowMoreOpenDefault from "./PageShowMoreOpenDefault/PageShowMoreOpenDefault.vue";
+import PageShowMoreSlots from "./PageShowMoreSlots/PageShowMoreSlots.vue";
+import PageShowMoreTexts from "./PageShowMoreTexts/PageShowMoreTexts.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -25,8 +29,12 @@ export default {
     PageShowMoreBtnClass,
     PageShowMoreBtnIcons,
     PageShowMoreDisabled,
+    PageShowMoreHeight,
     PageShowMoreHtml,
     PageShowMoreNotLess,
+    PageShowMoreOpenDefault,
+    PageShowMoreSlots,
+    PageShowMoreTexts,
   },
   setup() {
     const {
