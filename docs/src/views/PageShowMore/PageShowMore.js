@@ -6,6 +6,7 @@ import PageShowMoreBasic from "./PageShowMoreBasic/PageShowMoreBasic.vue";
 import PageShowMoreBtnClass from "./PageShowMoreBtnClass/PageShowMoreBtnClass.vue";
 import PageShowMoreBtnIcons from "./PageShowMoreBtnIcons/PageShowMoreBtnIcons.vue";
 import PageShowMoreDisabled from "./PageShowMoreDisabled/PageShowMoreDisabled.vue";
+import PageShowMoreEvents from "./PageShowMoreEvents/PageShowMoreEvents.vue";
 import PageShowMoreHeight from "./PageShowMoreHeight/PageShowMoreHeight.vue";
 import PageShowMoreHtml from "./PageShowMoreHtml/PageShowMoreHtml.vue";
 import PageShowMoreNotLess from "./PageShowMoreNotLess/PageShowMoreNotLess.vue";
@@ -29,6 +30,7 @@ export default {
     PageShowMoreBtnClass,
     PageShowMoreBtnIcons,
     PageShowMoreDisabled,
+    PageShowMoreEvents,
     PageShowMoreHeight,
     PageShowMoreHtml,
     PageShowMoreNotLess,

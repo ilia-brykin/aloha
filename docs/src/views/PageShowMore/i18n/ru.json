@@ -22,6 +22,8 @@
   "_A_SHOW_MORE_GROUP_BTN_TEXTS_HEADER_": "Тексты для кнопки",
   "_A_SHOW_MORE_GROUP_DISABLED_DESCRIPTION_": "<p>Параметр: <strong>disabled</strong>.</p><p>Неактивное состояние AShowMore</p>",
   "_A_SHOW_MORE_GROUP_DISABLED_HEADER_": "Неактивен",
+  "_A_SHOW_MORE_GROUP_EVENTS_DESCRIPTION_": "Событие: <strong>toggle</strong>",
+  "_A_SHOW_MORE_GROUP_EVENTS_HEADER_": "События (Events)",
   "_A_SHOW_MORE_GROUP_HEIGHT_DESCRIPTION_": "<p>Параметр: <strong>height</strong></p><p>Если эта высота будет  превышена, то будет показана кнопка</p>",
   "_A_SHOW_MORE_GROUP_HEIGHT_HEADER_": "Высота HTML блока",
   "_A_SHOW_MORE_GROUP_HTML_DESCRIPTION_": "Параметр: <strong>html</strong>",

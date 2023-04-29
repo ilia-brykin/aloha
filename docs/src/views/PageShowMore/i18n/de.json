@@ -22,6 +22,8 @@
   "_A_SHOW_MORE_GROUP_BTN_TEXTS_HEADER_": "Texte für die Schaltfläche",
   "_A_SHOW_MORE_GROUP_DISABLED_DESCRIPTION_": "<p>Parameter: <strong>disabled</strong>.</p><p>Deaktivierter Zustand von AShowMore</p>",
   "_A_SHOW_MORE_GROUP_DISABLED_HEADER_": "Deaktiviert",
+  "_A_SHOW_MORE_GROUP_EVENTS_DESCRIPTION_": "Event: <strong>toggle</strong>",
+  "_A_SHOW_MORE_GROUP_EVENTS_HEADER_": "Events",
   "_A_SHOW_MORE_GROUP_HEIGHT_DESCRIPTION_": "<p>Parameter: <strong>height</strong></p><p>Wenn diese Höhe überschritten wird, wird eine Schaltfläche angezeigt</p>",
   "_A_SHOW_MORE_GROUP_HEIGHT_HEADER_": "Die Höhe des HTML-Blocks",
   "_A_SHOW_MORE_GROUP_HTML_DESCRIPTION_": "Parameter <strong>html</strong>",

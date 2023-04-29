@@ -22,6 +22,8 @@
   "_A_SHOW_MORE_GROUP_BTN_TEXTS_HEADER_": "Texts for button",
   "_A_SHOW_MORE_GROUP_DISABLED_DESCRIPTION_": "<p>Parameter: <strong>disabled</strong>.</p><p>Disabled state of AShowMore</p>",
   "_A_SHOW_MORE_GROUP_DISABLED_HEADER_": "Disabled",
+  "_A_SHOW_MORE_GROUP_EVENTS_DESCRIPTION_": "Event: <strong>toggle</strong>",
+  "_A_SHOW_MORE_GROUP_EVENTS_HEADER_": "Events",
   "_A_SHOW_MORE_GROUP_HEIGHT_DESCRIPTION_": "<p>Parameter: <strong>height</strong></p><p>If this height is exceeded, a button will be shown</p>",
   "_A_SHOW_MORE_GROUP_HEIGHT_HEADER_": "The height of the HTML block",
   "_A_SHOW_MORE_GROUP_HTML_DESCRIPTION_": "Parameter: <strong>html</strong>",
