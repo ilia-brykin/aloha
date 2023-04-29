@@ -210,7 +210,7 @@ export default {
           titlePlacement: this.btnTitlePlacement,
           disabled: this.disabled,
           onClick: this.toggleBtn,
-        }, this.$slots.button && this.$slots.button({
+        }, () => this.$slots.button && this.$slots.button({
           isButtonVisible: this.isButtonVisible,
           isOpen: this.isOpen,
         })),
