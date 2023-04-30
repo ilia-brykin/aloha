@@ -127,7 +127,7 @@ export default {
           h("legend", {
             class: "a_legend",
           }, group.groupLabel),
-          h("div", {
+          !!(this.dataGrouped[group.allGroupKeys] || []).length && h("div", {
             class: {
               a_btn_group: this.isButtonGroup,
             },
