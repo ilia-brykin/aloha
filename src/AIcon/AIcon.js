@@ -8,6 +8,10 @@ import ASafeHtml from "../directives/ASafeHtml";
 
 import _NoImage from "./Icons/_NoImage";
 import Aloha from "./Icons/Aloha";
+import AlertDanger from "./Icons/AlertDanger";
+import AlertSuccess from "./Icons/AlertSuccess";
+import AlertInfo from "./Icons/AlertInfo";
+import AlertWarning from "./Icons/AlertWarning";
 import AngleDown from "./Icons/AngleDown";
 import AngleLeft from "./Icons/AngleLeft";
 import AngleRight from "./Icons/AngleRight";
@@ -67,6 +71,10 @@ export default {
     const ICONS_PLUGIN = inject("icons", {});
     const icons = assign({}, {
       Aloha,
+      AlertDanger,
+      AlertSuccess,
+      AlertInfo,
+      AlertWarning,
       AngleDown,
       AngleLeft,
       AngleRight,
