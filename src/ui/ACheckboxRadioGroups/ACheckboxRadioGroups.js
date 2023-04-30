@@ -9,36 +9,48 @@ import ChangeModelAPI from "./compostionAPI/ChangeModelAPI";
 export default {
   name: "ACheckboxRadioGroups",
   props: {
-    type: {
-      type: String,
-      required: true,
-      validator: type => ["radio", "checkbox"].indexOf(type) !== -1,
-    },
-    disabled: {
-      type: Boolean,
+    classButtonGroupDefault: {
+      type: [String, Object, Array],
       required: false,
+      default: "a_btn a_btn_outline_primary",
     },
     dataGrouped: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    groupsForLever: {
-      type: Object,
+    disabled: {
+      type: Boolean,
       required: false,
-      default: () => ({}),
     },
     groupParentKey: {
       type: [String, Number],
       required: false,
       default: undefined,
     },
-    levelIndex: {
-      type: Number,
-      required: true,
+    groupsForLever: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     id: {
       type: String,
+      required: true,
+    },
+    isButtonGroup: {
+      type: Boolean,
+      required: false,
+    },
+    isErrors: {
+      type: Boolean,
+      required: false,
+    },
+    isWidthAuto: {
+      type: Boolean,
+      required: false,
+    },
+    levelIndex: {
+      type: Number,
       required: true,
     },
     modelValue: {
@@ -50,13 +62,10 @@ export default {
       required: false,
       default: undefined,
     },
-    isWidthAuto: {
-      type: Boolean,
-      required: false,
-    },
-    isErrors: {
-      type: Boolean,
-      required: false,
+    type: {
+      type: String,
+      required: true,
+      validator: type => ["radio", "checkbox"].indexOf(type) !== -1,
     },
   },
   emits: [
@@ -90,7 +99,11 @@ export default {
     return [
       ...this.currentGroups.map((group, groupIndex) => {
         if (group.groupKey === "_not_grouped") {
-          return h("div", null, [
+          return h("div", {
+            class: {
+              a_btn_group: this.isButtonGroup,
+            },
+          }, [
             ...this.dataGrouped[group.allGroupKeys].map((item, itemIndex) => {
               return h(this.currentComponent, {
                 id: `${ this.id }`,
@@ -101,6 +114,8 @@ export default {
                 slotName: this.slotName,
                 isErrors: this.isErrors,
                 isWidthAuto: this.isWidthAuto,
+                isButtonGroup: this.isButtonGroup,
+                classButtonGroupDefault: this.classButtonGroupDefault,
                 onChangeModelValue: this.onChangeModelValue,
               }, this.$slots);
             }),
@@ -112,19 +127,28 @@ export default {
           h("legend", {
             class: "a_legend",
           }, group.groupLabel),
-          ...(this.dataGrouped[group.allGroupKeys] || []).map((item, itemIndex) => {
-            return h(this.currentComponent, {
-              id: `${ this.id }_gr_${ groupIndex }`,
-              itemIndex,
-              dataItem: item,
-              modelValue: this.modelValue,
-              disabled: this.disabled,
-              slotName: this.slotName,
-              isErrors: this.isErrors,
-              isWidthAuto: this.isWidthAuto,
-              onChangeModelValue: this.onChangeModelValue,
-            }, this.$slots);
-          }),
+          h("div", {
+            class: {
+              a_btn_group: this.isButtonGroup,
+            },
+          }, [
+            ...(this.dataGrouped[group.allGroupKeys] || []).map((item, itemIndex) => {
+              return h(this.currentComponent, {
+                id: `${ this.id }_gr_${ groupIndex }`,
+                itemIndex,
+                dataItem: item,
+                modelValue: this.modelValue,
+                disabled: this.disabled,
+                slotName: this.slotName,
+                isErrors: this.isErrors,
+                isWidthAuto: this.isWidthAuto,
+                isButtonGroup: this.isButtonGroup,
+                classButtonGroupDefault: this.classButtonGroupDefault,
+                onChangeModelValue: this.onChangeModelValue,
+              }, this.$slots);
+            }),
+          ]),
+
           h(resolveComponent("ACheckboxRadioGroups"), {
             id: `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }`,
             dataGrouped: this.dataGrouped,
@@ -135,35 +159,14 @@ export default {
             isWidthAuto: this.isWidthAuto,
             levelIndex: this.levelIndex + 1,
             modelValue: this.modelValue,
+            isButtonGroup: this.isButtonGroup,
             slotName: this.slotName,
             type: this.type,
+            classButtonGroupDefault: this.classButtonGroupDefault,
             onChangeModelValue: this.onChangeModelValue,
           }, this.$slots)
         ]);
       }),
     ];
-    // return h("fieldset", {
-    //   id: this.groupId,
-    //   class: [
-    //     "a_fieldset",
-    //   ],
-    // }, [
-    //   h("legend", {
-    //     class: "a_legend",
-    //   }, this.groupLabel),
-    //   ...this.groupElements.map((item, itemIndex) => {
-    //     return h(this.currentComponent, {
-    //       id: this.groupId,
-    //       itemIndex,
-    //       dataItem: item,
-    //       modelValue: this.modelValue,
-    //       disabled: this.disabled,
-    //       slotName: this.slotName,
-    //       isErrors: this.isErrors,
-    //       isWidthAuto: this.isWidthAuto,
-    //       onChangeModelValue: this.onChangeModelValue,
-    //     }, this.$slots);
-    //   }),
-    // ]);
   },
 };

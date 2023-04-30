@@ -224,11 +224,7 @@ export default {
               html: this.label,
               textAfter: this.textAfterLabel,
             }),
-            h("div", {
-              class: {
-                a_btn_group: this.isButtonGroup,
-              },
-            }, this.hasKeyGroup ?
+            h("div", {}, this.hasKeyGroup ?
               [
                 h(ACheckboxRadioGroup, {
                   id: `${ this.htmlIdLocal }_lev_0`,
@@ -240,27 +236,36 @@ export default {
                   levelIndex: 0,
                   modelValue: this.modelValue,
                   slotName: this.slotName,
+                  isButtonGroup: this.isButtonGroup,
+                  classButtonGroupDefault: this.classButtonGroupDefault,
                   type: "radio",
                   onChangeModelValue: this.onChangeModelValue,
                 }, this.$slots),
               ] :
               [
-                ...this.dataSort.map((item, itemIndex) => {
-                  return h(ARadioItem, {
-                    id: this.htmlIdLocal,
-                    key: itemIndex,
-                    dataItem: item,
-                    itemIndex,
-                    modelValue: this.modelValue,
-                    onChangeModelValue: this.onChangeModelValue,
-                    disabled: this.disabled,
-                    isWidthAuto: this.isWidthAuto,
-                    isErrors: this.isErrors,
-                    isButtonGroup: this.isButtonGroup,
-                    classButtonGroupDefault: this.classButtonGroupDefault,
-                    slotName: this.slotName,
-                  }, this.$slots);
-                })
+                h("div", {
+                  class: {
+                    a_btn_group: this.isButtonGroup,
+                  },
+                }, [
+                  ...this.dataSort.map((item, itemIndex) => {
+                    return h(ARadioItem, {
+                      id: this.htmlIdLocal,
+                      key: itemIndex,
+                      dataItem: item,
+                      itemIndex,
+                      modelValue: this.modelValue,
+                      onChangeModelValue: this.onChangeModelValue,
+                      disabled: this.disabled,
+                      isWidthAuto: this.isWidthAuto,
+                      isErrors: this.isErrors,
+                      isButtonGroup: this.isButtonGroup,
+                      classButtonGroupDefault: this.classButtonGroupDefault,
+                      slotName: this.slotName,
+                    }, this.$slots);
+                  })
+                ]),
+
               ]),
           ]),
         ]),

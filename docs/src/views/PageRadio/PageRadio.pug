@@ -14,6 +14,15 @@ div
     key-id="id"
     key-label="label"
     label="Test label"
+    :is-button-group="true"
+    :key-group="['alohaBR', 'aloha']"
+  )
+  a-radio(
+    v-model="model"
+    :data="data"
+    key-id="id"
+    key-label="label"
+    label="Test label"
     :is-button-group="false"
     :key-group="['alohaBR', 'aloha']"
   )
