@@ -115,6 +115,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      expose,
+    } = context;
+
+    const {
       checkHeight,
       containerRef,
       isMoreButtonObservingVisible,
@@ -124,7 +128,7 @@ export default {
 
     const {
       isOpen,
-      toggleBtn,
+      toggleButton,
     } = ToggleAPI(props, context, {
       stopObservingMutation,
     });
@@ -134,6 +138,7 @@ export default {
       btnIconRight,
       btnText,
       btnTitle,
+      buttonRef,
       isButtonVisible,
     } = BtnAttributesAPI(props, {
       isOpen,
@@ -144,6 +149,14 @@ export default {
       maxHeightStyle,
     } = HeightAPI(props, {
       isOpen,
+    });
+
+    expose({
+      buttonRef,
+      containerRef,
+      isButtonVisible,
+      isOpen,
+      toggleButton,
     });
 
     onMounted(() => {
@@ -160,11 +173,12 @@ export default {
       btnIconRight,
       btnText,
       btnTitle,
+      buttonRef,
       containerRef,
       isButtonVisible,
       isOpen,
       maxHeightStyle,
-      toggleBtn,
+      toggleButton,
     };
   },
   render() {
@@ -197,6 +211,7 @@ export default {
         class: this.btnParentClass,
       }, [
         h(AButton, {
+          ref: "buttonRef",
           id: this.btnId,
           class: [
             "a_show_more__button",
@@ -209,7 +224,7 @@ export default {
           isTitleHtml: this.isBtnTitleHtml,
           titlePlacement: this.btnTitlePlacement,
           disabled: this.disabled,
-          onClick: this.toggleBtn,
+          onClick: this.toggleButton,
         }, () => this.$slots.button && this.$slots.button({
           isButtonVisible: this.isButtonVisible,
           isOpen: this.isOpen,

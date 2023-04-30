@@ -1,7 +1,7 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-show-more 
+  ref="showMoreRef"
   :html="html"
-  @toggle="onToggle"
 >
 </a-show-more>`;
 

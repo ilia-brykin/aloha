@@ -18,6 +18,8 @@ export default function BtnAttributesAPI(props, {
   const btnTitleMore = toRef(props, "btnTitleMore");
   const showLess = toRef(props, "showLess");
 
+  const buttonRef = ref(undefined);
+
   const btnText = computed(() => {
     return isOpen.value ?
       btnTextLess.value :
@@ -57,6 +59,7 @@ export default function BtnAttributesAPI(props, {
     btnIconRight,
     btnText,
     btnTitle,
+    buttonRef,
     isButtonVisible,
   };
 }

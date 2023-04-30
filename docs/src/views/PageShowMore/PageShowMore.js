@@ -7,6 +7,7 @@ import PageShowMoreBtnClass from "./PageShowMoreBtnClass/PageShowMoreBtnClass.vu
 import PageShowMoreBtnIcons from "./PageShowMoreBtnIcons/PageShowMoreBtnIcons.vue";
 import PageShowMoreDisabled from "./PageShowMoreDisabled/PageShowMoreDisabled.vue";
 import PageShowMoreEvents from "./PageShowMoreEvents/PageShowMoreEvents.vue";
+import PageShowMoreExposes from "./PageShowMoreExposes/PageShowMoreExposes.vue";
 import PageShowMoreHeight from "./PageShowMoreHeight/PageShowMoreHeight.vue";
 import PageShowMoreHtml from "./PageShowMoreHtml/PageShowMoreHtml.vue";
 import PageShowMoreNotLess from "./PageShowMoreNotLess/PageShowMoreNotLess.vue";
@@ -15,6 +16,7 @@ import PageShowMoreSlots from "./PageShowMoreSlots/PageShowMoreSlots.vue";
 import PageShowMoreTexts from "./PageShowMoreTexts/PageShowMoreTexts.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
+import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
@@ -31,6 +33,7 @@ export default {
     PageShowMoreBtnIcons,
     PageShowMoreDisabled,
     PageShowMoreEvents,
+    PageShowMoreExposes,
     PageShowMoreHeight,
     PageShowMoreHtml,
     PageShowMoreNotLess,
@@ -55,8 +58,13 @@ export default {
       dataEvents,
     } = EventsAPI();
 
+    const {
+      dataExposes,
+    } = ExposesAPI();
+
     return {
       dataEvents,
+      dataExposes,
       dataProps,
       dataSlots,
       pageTitle,

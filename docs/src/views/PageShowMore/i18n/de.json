@@ -1,4 +1,5 @@
 {
+  "_A_SHOW_MORE_GROUP_EXPOSES_HEADER_": "Exposes: Öffentliche Eigenschaften",
   "_A_SHOW_MORE_BTN_CLASS_DESCRIPTION_": "CSS-Klasse für die Schaltfläche",
   "_A_SHOW_MORE_BTN_ICON_LEFT_LESS_DESCRIPTION_": "Icon auf der linken Seite für die Schaltfläche 'Weniger anzeigen'",
   "_A_SHOW_MORE_BTN_ICON_LEFT_MORE_DESCRIPTION_": "Icon auf der linken Seite für die Schaltfläche 'Mehr anzeigen'",
@@ -14,6 +15,11 @@
   "_A_SHOW_MORE_COMPONENT_DESCRIPTION_": "Die Komponente 'AShowMore' ermöglicht es, einen Teil des Inhalts einer Webseite zu verstecken und bei Bedarf anzuzeigen.",
   "_A_SHOW_MORE_COMPONENT_NAME_": "Mehr anzeigen",
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Ob die Schaltfläche deaktiviert ist",
+  "_A_SHOW_MORE_EXPOSES_BUTTON_REF_DESCRIPTION_": "Schaltfläche 'Mehr anzeigen' ref",
+  "_A_SHOW_MORE_EXPOSES_CONTAINER_REF_DESCRIPTION_": "HTML-Container ref",
+  "_A_SHOW_MORE_EXPOSES_IS_BUTTON_VISIBLE_DESCRIPTION_": "Ist die Schaltfläche sichtbar?",
+  "_A_SHOW_MORE_EXPOSES_IS_OPEN_DESCRIPTION_": "Wenn auf die Schaltfläche „Mehr anzeigen“ geklickt wird, und der gesamte HTML-Code sichtbar ist",
+  "_A_SHOW_MORE_EXPOSES_TOGGLE_BUTTON_DESCRIPTION_": "Funktion: mehr oder weniger anzeigen",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_DESCRIPTION_": "<p>Parameter: <strong>btn-class</strong>, <strong>btn-parent-class</strong></p><p>Sie können das CSS für die Schaltfläche und ihr übergeordnetes Element anpassen.</p>",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_HEADER_": "CSS für die Schaltfläche",
   "_A_SHOW_MORE_GROUP_BTN_ICONS_DESCRIPTION_": "<p>Parameter: <strong>btn-icon-left-less</strong>, <strong>btn-icon-right-less</strong>, <strong>btn-icon-left-more</strong>, <strong>btn-icon-right-more</strong></p><p>Sie können die Icons für die Schaltfläche anpassen</p>",

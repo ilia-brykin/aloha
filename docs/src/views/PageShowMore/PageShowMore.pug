@@ -31,6 +31,8 @@ aloha-page(
 
     page-show-more-events
 
+    page-show-more-exposes
+
     aloha-table-props(
       :data="dataProps"
     )
@@ -44,5 +46,11 @@ aloha-page(
     aloha-table-props(
       table-label="Events"
       :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Exposes"
+      :data="dataExposes"
       :columns="['name', 'type', 'description']"
     )

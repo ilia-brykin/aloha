@@ -11,7 +11,7 @@ export default function ToggleAPI(props, { emit }, {
 
   const isOpen = ref(isOpenDefault.value);
 
-  const toggleBtn = () => {
+  const toggleButton = () => {
     isOpen.value = !isOpen.value;
     if (isOpen.value && !showLess.value) {
       stopObservingMutation();
@@ -21,6 +21,6 @@ export default function ToggleAPI(props, { emit }, {
 
   return {
     isOpen,
-    toggleBtn,
+    toggleButton,
   };
 }

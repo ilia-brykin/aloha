@@ -1,4 +1,5 @@
 {
+  "_A_SHOW_MORE_GROUP_EXPOSES_HEADER_": "Exposes: Публичные свойства",
   "_A_SHOW_MORE_BTN_CLASS_DESCRIPTION_": "CSS-класс для кнопки",
   "_A_SHOW_MORE_BTN_ICON_LEFT_LESS_DESCRIPTION_": "Иконка, расположенная слева, для кнопки 'Показать меньше'",
   "_A_SHOW_MORE_BTN_ICON_LEFT_MORE_DESCRIPTION_": "Иконка, расположенная слева, для кнопки 'Показать больше'",
@@ -14,6 +15,11 @@
   "_A_SHOW_MORE_COMPONENT_DESCRIPTION_": "Компонент 'AShowMore' позволяет скрыть часть содержимого веб-страницы и показать его при необходимости.",
   "_A_SHOW_MORE_COMPONENT_NAME_": "Показать больше",
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Отключена ли кнопка",
+  "_A_SHOW_MORE_EXPOSES_BUTTON_REF_DESCRIPTION_": "Кнопка 'Показать больше' ref",
+  "_A_SHOW_MORE_EXPOSES_CONTAINER_REF_DESCRIPTION_": "HTML-контейнер ref",
+  "_A_SHOW_MORE_EXPOSES_IS_BUTTON_VISIBLE_DESCRIPTION_": "Видна ли кнопка?",
+  "_A_SHOW_MORE_EXPOSES_IS_OPEN_DESCRIPTION_": "Если нажата кнопка 'Показать больше', и виден весь HTML",
+  "_A_SHOW_MORE_EXPOSES_TOGGLE_BUTTON_DESCRIPTION_": "Функция: показать больше или меньше",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_DESCRIPTION_": "<p>Параметры: <strong>btn-class</strong>, <strong>btn-parent-class</strong></p><p>Можно настроить CSS для кнопки и ее родителя.</p>",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_HEADER_": "CSS для кнопки",
   "_A_SHOW_MORE_GROUP_BTN_ICONS_DESCRIPTION_": "<p>Параметры: <strong>btn-icon-left-less</strong>, <strong>btn-icon-right-less</strong>, <strong>btn-icon-left-more</strong>, <strong>btn-icon-right-more</strong></p><p>Можно настроить иконки для кнопки</p>",
