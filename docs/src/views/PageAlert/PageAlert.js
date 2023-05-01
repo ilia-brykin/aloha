@@ -70,4 +70,12 @@ export default {
       pageTitle,
     };
   },
+  methods: {
+    handleValueChange(newValue) {
+      this.value = newValue;
+    },
+    closeAlert(alert) {
+      this.isAlertsHidden[alert] = true;
+    },
+  },
 };
