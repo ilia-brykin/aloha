@@ -50,15 +50,3 @@ aloha-page(
       :data="dataExposes"
       :columns="['name', 'type', 'description']"
     )
-
-    div
-      a-alert(
-        v-for="alert in alerts"
-        :key="alert"
-        :type="alert"
-        :is-visible="!isAlertsHidden[alert]"
-        :is-dismissible="true"
-        :has-icon="true"
-        @on-dismiss="closeAlert(alert)"
-      )
-        div Alert {{ alert }}

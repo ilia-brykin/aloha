@@ -1,4 +1,3 @@
-import AAlert from "../../../../src/AAlert/AAlert";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
@@ -22,7 +21,6 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageAlert",
   components: {
-    AAlert,
     AlohaPage,
     AlohaTableProps,
     ATranslation,
@@ -65,24 +63,5 @@ export default {
       dataSlots,
       pageTitle,
     };
-  },
-  data() {
-    return {
-      alerts: [
-        "primary",
-        "secondary",
-        "success",
-        "danger",
-        "warning",
-        "info",
-        "dark",
-      ],
-      isAlertsHidden: {},
-    };
-  },
-  methods: {
-    closeAlert(alert) {
-      this.isAlertsHidden[alert] = true;
-    },
   },
 };
