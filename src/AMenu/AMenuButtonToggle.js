@@ -29,8 +29,8 @@ export default {
 
     const btnToggleTitle = computed(() => {
       return isMenuOpen.value ?
-        "_MENUE_SCHLIESSEN_" :
-        "_MENUE_OEFFNEN_";
+        "_CLOSE_MENU_" :
+        "_OPEN_MENU_";
     });
 
     return {

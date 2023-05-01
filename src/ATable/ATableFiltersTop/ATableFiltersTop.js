@@ -44,7 +44,7 @@ export default {
     });
 
     const textToggle = computed(() => {
-      return isOpen.value ? "_ERWEITERE_SUCHE_SCHLIESSEN_" : "_ERWEITERE_SUCHE_OEFFNEN_";
+      return isOpen.value ? "_CLOSE_ADVANCED_SEARCH_" : "_OPEN_ADVANCED_SEARCH_";
     });
 
     const styleToggle = computed(() => {
@@ -108,10 +108,10 @@ export default {
       iconLeft: "Search",
       type: "submit",
       text: {
-        desktop: "_SUCHE_STARTEN_",
+        desktop: "_START_SEARCH_",
       },
       textScreenReader: {
-        mobile: "_SUCHE_STARTEN_",
+        mobile: "_START_SEARCH_",
       },
       prevent: true,
       stop: true,

@@ -246,7 +246,7 @@ export default {
           h(ATranslation, {
             tag: "a",
             class: "a_menu__link a_menu__link_btn a_menu__link__text_truncated",
-            ariaLabel: "_UNTERMENUE_OEFFNEN_",
+            ariaLabel: "_OPEN_SUBMENU_",
             role: "button",
             tabindex: this.tabindex,
             onClick: this.openSubMenu,

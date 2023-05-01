@@ -228,7 +228,7 @@ export default {
             },
           }),
           this.isQuickSearch && h(AInput, {
-            label: "_SCHNELLSUCHE_",
+            label: "_QUICK_SEARCH_",
             class: "a_table__top_panel__actions__quick_search",
             modelUndefined: "",
             modelValue: this.modelQuickSearch,
@@ -262,7 +262,7 @@ export default {
           h(ATranslation, {
             class: "a_table__multiple_panel__header__text",
             tag: "strong",
-            text: "_MEHRFACHAKTIONEN_",
+            text: "_MULTIPLE_ACTIONS_",
           }),
           h("div", {
             class: "a_table__multiple_panel__items",

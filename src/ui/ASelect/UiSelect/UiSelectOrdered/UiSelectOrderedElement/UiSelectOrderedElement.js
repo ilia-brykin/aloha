@@ -79,9 +79,9 @@ export default {
     openConfirmDelete() {
       this.confirmOptions = {
         okClass: "btn btn-primary",
-        title: "_AUSWAHL_ENTFERNEN_",
+        title: "_REMOVE_SELECTION_",
         msg: `<p>Sind Sie sicher, dass sie die ${ this.index + 1 }. Auswahl entfernen wollen?</p>`,
-        okLabel: "_FORTFAHREN_",
+        okLabel: "_CONTINUE_",
         okCallback: () => {
           this.deleteElement({ index: this.index });
           this.closeConfirm();
