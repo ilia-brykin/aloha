@@ -4,13 +4,13 @@ import {
 } from "vue";
 
 export default function ClassAPI(props) {
-  const isDismissible = toRef(props, "isDismissible");
+  const closable = toRef(props, "closable");
   const type = toRef(props, "type");
 
   const alertClassLocal = computed(() => {
     let alertClass = `a_alert a_alert_${ type.value }`;
-    if (isDismissible.value) {
-      alertClass += " a_alert_dismissible";
+    if (closable.value) {
+      alertClass += " a_alert_closable";
     }
     return alertClass;
   });

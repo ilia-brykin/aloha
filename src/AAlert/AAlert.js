@@ -7,7 +7,7 @@ import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
-import DismissAPI from "./compositionAPI/DismissAPI";
+import CloseAPI from "./compositionAPI/CloseAPI";
 import IconAPI from "./compositionAPI/IconAPI";
 
 import {
@@ -21,6 +21,21 @@ export default {
       type: [String, Object],
       required: false,
       default: () => alertPluginOptions.value.propsDefault.alertClass,
+    },
+    alertContentClass: {
+      type: [String, Object],
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.alertContentClass,
+    },
+    closable: {
+      type: Boolean,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.closable,
+    },
+    closableFromOutside: {
+      type: Boolean,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.closableFromOutside,
     },
     hasIcon: {
       type: Boolean,
@@ -42,11 +57,6 @@ export default {
       required: false,
       default: () => alertPluginOptions.value.propsDefault.iconClass,
     },
-    isDismissible: {
-      type: Boolean,
-      required: false,
-      default: () => alertPluginOptions.value.propsDefault.isDismissible,
-    },
     isVisible: {
       type: Boolean,
       required: false,
@@ -64,7 +74,7 @@ export default {
     },
   },
   emits: [
-    "onDismiss",
+    "close",
   ],
   setup(props, context) {
     const {
@@ -76,24 +86,30 @@ export default {
     } = ClassAPI(props);
 
     const {
-      onDismiss,
-    } = DismissAPI(context);
+      close,
+      isHidden,
+    } = CloseAPI(props, context);
 
     const {
       iconLocal,
     } = IconAPI(props);
 
     expose({
-      onDismiss,
+      close,
+      isHidden,
     });
 
     return {
       alertClassLocal,
+      close,
       iconLocal,
-      onDismiss,
+      isHidden,
     };
   },
   render() {
+    if (this.isHidden) {
+      return "";
+    }
     return h("div", {
       role: "alert",
     }, [
@@ -108,19 +124,22 @@ export default {
           ],
         }),
         h("div", {
-          class: "a_alert_content",
+          class: [
+            "a_alert__content",
+            this.alertContentClass,
+          ],
         }, [
           this.html && h(ATranslation, {
             html: this.html,
           }),
           this.$slots.default && this.$slots.default(),
-          this.isDismissible && h(AButton, {
-            type: "button",
-            class: "a_btn_close",
-            textScreenReader: this.textClose,
-            onClick: this.onDismiss,
-          })
         ]),
+        this.closable && h(AButton, {
+          type: "button",
+          class: "a_btn_close",
+          textScreenReader: this.textClose,
+          onClick: this.close,
+        })
       ]),
     ]);
   },

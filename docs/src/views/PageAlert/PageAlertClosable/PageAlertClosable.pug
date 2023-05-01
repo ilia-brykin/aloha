@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ALERT_GROUP_CLOSABLE_HEADER_"
+  description="_A_ALERT_GROUP_CLOSABLE_DESCRIPTION_"
+)
+  a-alert(
+    html="Alert success"
+    :is-visible="true"
+    type="success"
+    :closable="true"
+  )
+  a-alert(
+    html="Alert danger"
+    :is-visible="true"
+    type="danger"
+    :closable="true"
+  )
+

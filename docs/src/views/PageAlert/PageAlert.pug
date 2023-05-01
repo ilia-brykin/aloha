@@ -1,11 +1,64 @@
-div
-  a-alert(
-    v-for="alert in alerts"
-    :key="alert"
-    :type="alert"
-    :is-visible="!isAlertsHidden[alert]"
-    :is-dismissible="true"
-    :has-icon="true"
-    @on-dismiss="closeAlert(alert)"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
-    div Alert {{ alert }}
+    a-translation(
+      tag="p"
+      html="_A_ALERT_COMPONENT_DESCRIPTION_"
+    )
+
+    page-alert-basic
+
+    page-alert-types
+
+    page-alert-icons-default
+
+    page-alert-icons-custom
+
+    page-alert-css
+
+    page-alert-closable
+
+    page-alert-closable-from-outside
+
+    page-alert-html
+
+    page-alert-slot
+
+    page-alert-exposes
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Exposes"
+      :data="dataExposes"
+      :columns="['name', 'type', 'description']"
+    )
+
+    div
+      a-alert(
+        v-for="alert in alerts"
+        :key="alert"
+        :type="alert"
+        :is-visible="!isAlertsHidden[alert]"
+        :is-dismissible="true"
+        :has-icon="true"
+        @on-dismiss="closeAlert(alert)"
+      )
+        div Alert {{ alert }}

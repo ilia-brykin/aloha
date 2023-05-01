@@ -32,10 +32,10 @@ export default {
         return h(AAlert, {
           key: notification.index,
           isVisible: true,
-          isDismissible: true,
+          closable: true,
           type: notification.type,
           alertClass: "a_notification",
-          onOnDismiss: () => this.removeNotification(notification.index),
+          onClose: () => this.removeNotification(notification.index),
         }, () => [
           h(ATranslation, {
             html: notification.text,

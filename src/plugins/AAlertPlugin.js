@@ -5,11 +5,13 @@ import {
 export const alertPluginOptions = ref({
   propsDefault: {
     alertClass: undefined,
+    alertContentClass: undefined,
     hasIcon: false,
     html: undefined,
     icon: undefined,
     iconClass: undefined,
-    isDismissible: undefined,
+    closable: false,
+    closableFromOutside: false,
     isVisible: false,
     textClose: "_ALERT_CLOSE_",
     type: "danger",

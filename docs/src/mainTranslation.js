@@ -16,47 +16,56 @@ import hr from "./i18n/hr.json";
 import it from "./i18n/it.json";
 import ru from "./i18n/ru.json";
 
+import PageAAlertI18n from "./views/PageAlert/i18n/PageAAlertI18n";
 import PageShowMoreI18n from "./views/PageShowMore/i18n/PageShowMoreI18n";
 
 export const mainTranslation = {
   ar: {
     ...arGlobal,
     ...ar,
+    ...PageAAlertI18n.ar,
     ...PageShowMoreI18n.ar,
   },
   de: {
     ...deGlobal,
     ...de,
+    ...PageAAlertI18n.de,
     ...PageShowMoreI18n.de,
   },
   en: {
     ...enGlobal,
     ...en,
+    ...PageAAlertI18n.en,
     ...PageShowMoreI18n.en,
   },
   es: {
     ...esGlobal,
     ...es,
+    ...PageAAlertI18n.es,
     ...PageShowMoreI18n.es,
   },
   fr: {
     ...frGlobal,
     ...fr,
+    ...PageAAlertI18n.fr,
     ...PageShowMoreI18n.fr,
   },
   hr: {
     ...hrGlobal,
     ...hr,
+    ...PageAAlertI18n.hr,
     ...PageShowMoreI18n.hr,
   },
   it: {
     ...itGlobal,
     ...it,
+    ...PageAAlertI18n.it,
     ...PageShowMoreI18n.it,
   },
   ru: {
     ...ruGlobal,
     ...ru,
+    ...PageAAlertI18n.ru,
     ...PageShowMoreI18n.ru,
   },
 };

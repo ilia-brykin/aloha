@@ -27,7 +27,7 @@ export default {
       required: false,
       default: () => ({}),
     },
-    isDismissible: {
+    closable: {
       type: Boolean,
       required: false,
       default: true,
@@ -64,7 +64,7 @@ export default {
     },
   },
   emits: [
-    "onDismiss",
+    "close",
   ],
   setup(props, { emit }) {
     const errors = toRef(props, "errors");
@@ -72,8 +72,8 @@ export default {
       return !isEmpty(errors.value);
     });
 
-    const onDismissLocal = () => {
-      emit("onDismiss");
+    const close = () => {
+      emit("close");
     };
 
     const optionsList = toRef(props, "optionsList");
@@ -143,10 +143,10 @@ export default {
     });
 
     return {
+      close,
       elRef,
       isErrors,
       labelsLocal,
-      onDismissLocal,
     };
   },
   render() {
@@ -156,8 +156,8 @@ export default {
       role: "alert",
       "aria-atomic": true,
       isVisible: this.isErrors,
-      isDismissible: this.isDismissible,
-      onOnDismiss: this.onDismissLocal,
+      closable: this.closable,
+      onClose: this.close,
     }, () => [
       this.isErrors && h("div", {
         class: "a_errors",
