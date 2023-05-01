@@ -10,57 +10,67 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 import DismissAPI from "./compositionAPI/DismissAPI";
 import IconAPI from "./compositionAPI/IconAPI";
 
+import {
+  alertPluginOptions,
+} from "../plugins/AAlertPlugin";
+
 export default {
   name: "AAlert",
   props: {
     alertClass: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: () => alertPluginOptions.value.propsDefault.alertClass,
     },
     hasIcon: {
       type: Boolean,
       required: false,
+      default: () => alertPluginOptions.value.propsDefault.hasIcon,
     },
     html: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => alertPluginOptions.value.propsDefault.html,
     },
     icon: {
       type: String,
       required: false,
-      default: undefined,
-    },
-    isDismissible: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    isVisible: {
-      type: Boolean,
-      required: false,
-    },
-    textClose: {
-      type: String,
-      required: false,
-      default: "_ALERT_CLOSE_",
-    },
-    type: {
-      type: String,
-      required: false,
-      default: "danger",
+      default: () => alertPluginOptions.value.propsDefault.icon,
     },
     iconClass: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => alertPluginOptions.value.propsDefault.iconClass,
+    },
+    isDismissible: {
+      type: Boolean,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.isDismissible,
+    },
+    isVisible: {
+      type: Boolean,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.isVisible,
+    },
+    textClose: {
+      type: String,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.textClose,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.type,
     },
   },
   emits: [
     "onDismiss",
   ],
   setup(props, context) {
+    const {
+      expose,
+    } = context;
+
     const {
       alertClassLocal,
     } = ClassAPI(props);
@@ -72,6 +82,10 @@ export default {
     const {
       iconLocal,
     } = IconAPI(props);
+
+    expose({
+      onDismiss,
+    });
 
     return {
       alertClassLocal,

@@ -3,12 +3,9 @@ import {
   toRef,
 } from "vue";
 
-const ICONS_TYPE_MAPPING = {
-  success: "AlertSuccess",
-  danger: "AlertDanger",
-  info: "AlertInfo",
-  warning: "AlertWarning",
-};
+import {
+  alertPluginOptions,
+} from "../../plugins/AAlertPlugin";
 
 export default function IconAPI(props) {
   const icon = toRef(props, "icon");
@@ -22,7 +19,7 @@ export default function IconAPI(props) {
     if (icon.value) {
       return icon.value;
     }
-    return ICONS_TYPE_MAPPING[type.value];
+    return alertPluginOptions.value.icons[type.value];
   });
 
   return {
