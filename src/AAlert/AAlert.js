@@ -111,37 +111,46 @@ export default {
       return "";
     }
     return h("div", {
-      role: "alert",
-      ariaAtomic: true,
+      class: [
+        "a_alert__parent",
+        {
+          a_alert__parent_closable: this.closable,
+        },
+      ],
     }, [
-      this.isVisible && h("div", {
-        class: [this.alertClass, this.alertClassLocal],
+      h("div", {
+        role: "alert",
+        ariaAtomic: true,
       }, [
-        this.iconLocal && h(AIcon, {
-          icon: this.iconLocal,
-          class: [
-            "a_alert__icon",
-            this.iconClass,
-          ],
-        }),
-        h("div", {
-          class: [
-            "a_alert__content",
-            this.alertContentClass,
-          ],
+        this.isVisible && h("div", {
+          class: [this.alertClass, this.alertClassLocal],
         }, [
-          this.html && h(ATranslation, {
-            html: this.html,
+          this.iconLocal && h(AIcon, {
+            icon: this.iconLocal,
+            class: [
+              "a_alert__icon",
+              this.iconClass,
+            ],
           }),
-          this.$slots.default && this.$slots.default(),
+          h("div", {
+            class: [
+              "a_alert__content",
+              this.alertContentClass,
+            ],
+          }, [
+            this.html && h(ATranslation, {
+              html: this.html,
+            }),
+            this.$slots.default && this.$slots.default(),
+          ]),
         ]),
-        this.closable && h(AButton, {
-          type: "button",
-          class: "a_btn_close",
-          textScreenReader: this.textClose,
-          onClick: this.close,
-        })
       ]),
+      (this.isVisible && this.closable) && h(AButton, {
+        type: "button",
+        class: "a_btn_close",
+        textScreenReader: this.textClose,
+        onClick: this.close,
+      }),
     ]);
   },
 };
