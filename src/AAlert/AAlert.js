@@ -112,6 +112,7 @@ export default {
     }
     return h("div", {
       role: "alert",
+      ariaAtomic: true,
     }, [
       this.isVisible && h("div", {
         class: [this.alertClass, this.alertClassLocal],
