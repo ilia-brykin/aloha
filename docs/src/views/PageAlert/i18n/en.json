@@ -1,6 +1,6 @@
 {
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Displays important alert messages.",
-  "_A_ALERT_COMPONENT_NAME_": "",
+  "_A_ALERT_COMPONENT_NAME_": "warning",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Trigger when alert is closed",
   "_A_ALERT_EXPOSES_CLOSE_DESCRIPTION_": "Function: close alert",
   "_A_ALERT_EXPOSES_IS_HIDDEN_DESCRIPTION_": "Is the alert closed?",
