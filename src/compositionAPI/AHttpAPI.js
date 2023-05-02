@@ -35,6 +35,10 @@ export function setHeaderParams({ headerParams = {} } = {}) {
   HEADER_PARAMS.value = headerParams;
 }
 
+export function clearAllApiSaved() {
+  API_SAVED.value = {};
+}
+
 export default function AHttpAPI() {
   return {
     deleteHttp,
