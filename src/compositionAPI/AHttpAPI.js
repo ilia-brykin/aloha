@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import axios from "axios";
+
 import {
   forEach,
   isArray,
@@ -62,6 +63,7 @@ export function getHttp({
   keyId,
   fullResponse,
   showError,
+  ignoreErrorHandler,
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "get",
@@ -75,6 +77,7 @@ export function getHttp({
     keyId,
     fullResponse,
     showError,
+    ignoreErrorHandler,
   });
 }
 
@@ -89,6 +92,7 @@ export function getListHttp({
   keyId,
   fullResponse,
   showError,
+  ignoreErrorHandler,
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "get",
@@ -102,6 +106,7 @@ export function getListHttp({
     keyId,
     fullResponse,
     showError,
+    ignoreErrorHandler,
     expectedList: true,
   });
 }
@@ -116,6 +121,7 @@ export function getOptionsHttp({
   keyId,
   fullResponse,
   showError,
+  ignoreErrorHandler,
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "options",
@@ -128,6 +134,7 @@ export function getOptionsHttp({
     keyId,
     fullResponse,
     showError,
+    ignoreErrorHandler,
   });
 }
 
@@ -139,6 +146,7 @@ export function postHttp({
   responseType,
   fullResponse,
   showError,
+  ignoreErrorHandler,
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "post",
@@ -149,6 +157,7 @@ export function postHttp({
     responseType,
     fullResponse,
     showError,
+    ignoreErrorHandler,
   });
 }
 
@@ -161,6 +170,7 @@ export function putHttp({
   responseType,
   fullResponse,
   showError,
+  ignoreErrorHandler,
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "put",
@@ -172,6 +182,7 @@ export function putHttp({
     responseType,
     fullResponse,
     showError,
+    ignoreErrorHandler,
   });
 }
 
@@ -184,6 +195,7 @@ export function patchHttp({
   responseType,
   fullResponse,
   showError,
+  ignoreErrorHandler,
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "patch",
@@ -195,6 +207,7 @@ export function patchHttp({
     responseType,
     fullResponse,
     showError,
+    ignoreErrorHandler,
   });
 }
 
@@ -207,6 +220,7 @@ export function deleteHttp({
   responseType,
   fullResponse,
   showError,
+  ignoreErrorHandler,
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "delete",
@@ -218,6 +232,7 @@ export function deleteHttp({
     responseType,
     fullResponse,
     showError,
+    ignoreErrorHandler,
   });
 }
 
@@ -233,6 +248,7 @@ export function callHttpRequestAndCheckSavedApi({
   keyId,
   fullResponse,
   showError = false,
+  ignoreErrorHandler,
   expectedList,
 }) {
   let apiSavedData = undefined;
@@ -290,7 +306,7 @@ export function callHttpRequestAndCheckSavedApi({
         return resolve(DATA);
       },
       error => {
-        if (checkErrorStatus({ error: error.response, showError, client: API, reject, resolve })) {
+        if (ignoreErrorHandler || checkErrorStatus({ error: error.response, showError, client: API, reject, resolve })) {
           return reject(error.response);
         }
       }
