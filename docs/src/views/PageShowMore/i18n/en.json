@@ -13,7 +13,7 @@
   "_A_SHOW_MORE_BTN_TITLE_MORE_DESCRIPTION_": "Title for 'Show more' button",
   "_A_SHOW_MORE_BTN_TITLE_PLACEMENT_DESCRIPTION_": "Title placement for the button, only works when is-btn-title-html is true",
   "_A_SHOW_MORE_COMPONENT_DESCRIPTION_": "The 'AShowMore' component makes it possible to hide part of the content of a web page and show it when needed.",
-  "_A_SHOW_MORE_COMPONENT_NAME_": "",
+  "_A_SHOW_MORE_COMPONENT_NAME_": "Show more",
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Whether button is disabled",
   "_A_SHOW_MORE_EXPOSES_BUTTON_REF_DESCRIPTION_": "Button 'Show more' ref",
   "_A_SHOW_MORE_EXPOSES_CONTAINER_REF_DESCRIPTION_": "HTML-container ref",
