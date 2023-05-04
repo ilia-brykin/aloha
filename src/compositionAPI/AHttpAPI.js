@@ -9,7 +9,7 @@ import {
   isArray,
   isFunction,
   isNil,
-  isPlainObject,
+  isPlainObject, isString,
   keyBy,
 } from "lodash-es";
 
@@ -19,6 +19,9 @@ const API = ref(axios.create());
 const API_SAVED = ref({});
 const ERROR_CALLBACKS = ref({});
 const HEADER_PARAMS = ref({});
+const abortGroupController = {
+  _global: new AbortController(),
+};
 
 export function create({ axiosCreateOptions = {} }) {
   API.value = axios.create(axiosCreateOptions);
@@ -36,12 +39,42 @@ export function setHeaderParams({ headerParams = {} } = {}) {
   HEADER_PARAMS.value = headerParams;
 }
 
+export function abortHttp({
+  all = false,
+  abortGroup,
+}) {
+  if (all) {
+    forEach(abortGroupController, (abortController, abortKey) => {
+      abortController.abort();
+      if (abortKey !== "_global") {
+        delete abortGroupController[abortKey];
+      }
+    });
+  } else if (abortGroup) {
+    let abortGroupList = [];
+    if (isString(abortGroup)) {
+      abortGroupList.push(abortGroup);
+    } else if (isArray(abortGroup)) {
+      abortGroupList = abortGroup;
+    }
+    forEach(abortGroupList, abortKey => {
+      if (abortGroupController[abortKey]) {
+        abortGroupController[abortKey].abort();
+        if (abortKey !== "_global") {
+          delete abortGroupController[abortKey];
+        }
+      }
+    });
+  }
+}
+
 export function clearAllApiSaved() {
   API_SAVED.value = {};
 }
 
 export default function AHttpAPI() {
   return {
+    abortHttp,
     deleteHttp,
     getHttp,
     getListHttp,
@@ -64,6 +97,8 @@ export function getHttp({
   fullResponse,
   showError,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "get",
@@ -78,6 +113,8 @@ export function getHttp({
     fullResponse,
     showError,
     ignoreErrorHandler,
+    abortable,
+    abortGroup,
   });
 }
 
@@ -93,6 +130,8 @@ export function getListHttp({
   fullResponse,
   showError,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "get",
@@ -107,6 +146,8 @@ export function getListHttp({
     fullResponse,
     showError,
     ignoreErrorHandler,
+    abortable,
+    abortGroup,
     expectedList: true,
   });
 }
@@ -122,6 +163,8 @@ export function getOptionsHttp({
   fullResponse,
   showError,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "options",
@@ -134,6 +177,8 @@ export function getOptionsHttp({
     keyId,
     fullResponse,
     showError,
+    abortable,
+    abortGroup,
     ignoreErrorHandler,
   });
 }
@@ -147,6 +192,8 @@ export function postHttp({
   fullResponse,
   showError,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "post",
@@ -157,6 +204,8 @@ export function postHttp({
     responseType,
     fullResponse,
     showError,
+    abortable,
+    abortGroup,
     ignoreErrorHandler,
   });
 }
@@ -171,6 +220,8 @@ export function putHttp({
   fullResponse,
   showError,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "put",
@@ -182,6 +233,8 @@ export function putHttp({
     responseType,
     fullResponse,
     showError,
+    abortable,
+    abortGroup,
     ignoreErrorHandler,
   });
 }
@@ -196,6 +249,8 @@ export function patchHttp({
   fullResponse,
   showError,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "patch",
@@ -207,6 +262,8 @@ export function patchHttp({
     responseType,
     fullResponse,
     showError,
+    abortable,
+    abortGroup,
     ignoreErrorHandler,
   });
 }
@@ -221,6 +278,8 @@ export function deleteHttp({
   fullResponse,
   showError,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
 }) {
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "delete",
@@ -232,6 +291,8 @@ export function deleteHttp({
     responseType,
     fullResponse,
     showError,
+    abortable,
+    abortGroup,
     ignoreErrorHandler,
   });
 }
@@ -249,6 +310,8 @@ export function callHttpRequestAndCheckSavedApi({
   fullResponse,
   showError = false,
   ignoreErrorHandler,
+  abortable = true,
+  abortGroup = "",
   expectedList,
 }) {
   let apiSavedData = undefined;
@@ -282,12 +345,20 @@ export function callHttpRequestAndCheckSavedApi({
       ...HEADER_PARAMS.value,
       ...headerParams,
     };
+
+    const signal = getAbortGroupSignal({ abortGroup, abortable });
+    // if (abortable) {
+    //   signal = getAbortGroupSignal({ abortGroup })
+    //   signal = _abortController ? _abortController.signal : abortController.signal;
+    // }
+
     API.value({
       method: methodHttp,
       url: url_full,
       data,
       headers: HEADER_PARAMS_LOCAL,
       responseType,
+      signal,
     }).then(
       response => {
         if (fullResponse) {
@@ -402,4 +473,15 @@ function checkedExpectedList({ expectedList, response }) {
     return response.data.results ? response.data.results : [];
   }
   return response.data;
+}
+
+function getAbortGroupSignal({ abortGroup, abortable } = {}) {
+  if (!abortable) {
+    return undefined;
+  }
+  if (abortGroup) {
+    abortGroupController[abortGroup] = abortGroupController[abortGroup] || new AbortController();
+    return abortGroupController[abortGroup].signal;
+  }
+  return abortGroupController._global.signal;
 }
