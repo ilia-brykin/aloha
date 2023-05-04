@@ -42,9 +42,15 @@ export function setHeaderParams({ headerParams = {} } = {}) {
 export function abortHttp({
   all = false,
   abortGroup,
+  excludeAbortGroup,
 }) {
+  const EXCLUDE_ABORT_GROUP_OBJ = getExcludeAbortGroup({ excludeAbortGroup });
+
   if (all) {
     forEach(abortGroupController, (abortController, abortKey) => {
+      if (EXCLUDE_ABORT_GROUP_OBJ[abortKey]) {
+        return;
+      }
       abortController.abort();
       if (abortKey !== "_global") {
         delete abortGroupController[abortKey];
@@ -58,6 +64,9 @@ export function abortHttp({
       abortGroupList = abortGroup;
     }
     forEach(abortGroupList, abortKey => {
+      if (EXCLUDE_ABORT_GROUP_OBJ[abortKey]) {
+        return;
+      }
       if (abortGroupController[abortKey]) {
         abortGroupController[abortKey].abort();
         if (abortKey !== "_global") {
@@ -484,4 +493,18 @@ function getAbortGroupSignal({ abortGroup, abortable } = {}) {
     return abortGroupController[abortGroup].signal;
   }
   return abortGroupController._global.signal;
+}
+
+function getExcludeAbortGroup({ excludeAbortGroup }) {
+  const EXCLUDE_ABORT_GROUP_OBJ = {};
+  if (excludeAbortGroup) {
+    if (isString(excludeAbortGroup)) {
+      EXCLUDE_ABORT_GROUP_OBJ[excludeAbortGroup] = true;
+    } else if (isArray(excludeAbortGroup)) {
+      forEach(excludeAbortGroup, abortGroupkey => {
+        EXCLUDE_ABORT_GROUP_OBJ[abortGroupkey] = true;
+      });
+    }
+  }
+  return EXCLUDE_ABORT_GROUP_OBJ;
 }
