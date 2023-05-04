@@ -22,6 +22,7 @@ const HEADER_PARAMS = ref({});
 const abortGroupController = {
   _global: new AbortController(),
 };
+const abortGroupPending = {};
 
 export function create({ axiosCreateOptions = {} }) {
   API.value = axios.create(axiosCreateOptions);
@@ -54,6 +55,9 @@ export function abortHttp({
       abortController.abort();
       if (abortKey !== "_global") {
         delete abortGroupController[abortKey];
+        if (abortGroupPending[abortGroup]) {
+          delete abortGroupPending[abortGroup];
+        }
       }
     });
   } else if (abortGroup) {
@@ -71,6 +75,9 @@ export function abortHttp({
         abortGroupController[abortKey].abort();
         if (abortKey !== "_global") {
           delete abortGroupController[abortKey];
+          if (abortGroupPending[abortGroup]) {
+            delete abortGroupPending[abortGroup];
+          }
         }
       }
     });
@@ -356,10 +363,7 @@ export function callHttpRequestAndCheckSavedApi({
     };
 
     const signal = getAbortGroupSignal({ abortGroup, abortable });
-    // if (abortable) {
-    //   signal = getAbortGroupSignal({ abortGroup })
-    //   signal = _abortController ? _abortController.signal : abortController.signal;
-    // }
+    setAbortGroupPendingCurrent({ abortGroup, abortable });
 
     API.value({
       method: methodHttp,
@@ -389,6 +393,10 @@ export function callHttpRequestAndCheckSavedApi({
         if (ignoreErrorHandler || checkErrorStatus({ error: error.response, showError, client: API, reject, resolve })) {
           return reject(error.response);
         }
+      }
+    ).finally(
+      () => {
+        removeAbortGroupCurrent({ abortGroup, abortable });
       }
     );
   });
@@ -507,4 +515,28 @@ function getExcludeAbortGroup({ excludeAbortGroup }) {
     }
   }
   return EXCLUDE_ABORT_GROUP_OBJ;
+}
+
+function setAbortGroupPendingCurrent({ abortGroup, abortable }) {
+  if (!abortable || !abortGroup) {
+    return;
+  }
+  if (abortGroupPending[abortGroup]) {
+    abortGroupPending[abortGroup]++;
+  } else {
+    abortGroupPending[abortGroup] = 1;
+  }
+}
+
+function removeAbortGroupCurrent({ abortGroup, abortable }) {
+  if (!abortable || !abortGroup) {
+    return;
+  }
+  if (abortGroupPending[abortGroup]) {
+    abortGroupPending[abortGroup]--;
+  }
+  if (abortGroupPending[abortGroup] === 0 && abortGroupController[abortGroup]) {
+    delete abortGroupPending[abortGroup];
+    delete abortGroupController[abortGroup];
+  }
 }
