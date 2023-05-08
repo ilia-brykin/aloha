@@ -39,6 +39,7 @@ import ViewsAPI from "./compositionAPI/ViewsAPI";
 import {
   get,
   isArray,
+  isInteger,
   isNil,
   isPlainObject,
   uniqueId,
@@ -251,6 +252,12 @@ export default {
       type: [String, Object],
       required: false,
       default: undefined,
+    },
+    rowsCountRenderPerTick: {
+      type: Number,
+      required: false,
+      default: 20,
+      validator: value => isInteger(value) && value > 0,
     },
     rowsFooter: {
       type: Array,
