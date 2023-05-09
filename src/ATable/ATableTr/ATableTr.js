@@ -104,6 +104,7 @@ export default {
         }
         tds.push(
           h(ATableTd, {
+            key: column.id,
             column,
             columnIndex,
             row: this.row,
@@ -115,6 +116,7 @@ export default {
     } else {
       tds = this.columnsOrdered.map((column, columnIndex) => {
         return h(ATableTd, {
+          key: column.id,
           column,
           columnIndex,
           row: this.row,
