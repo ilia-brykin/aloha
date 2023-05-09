@@ -22,7 +22,7 @@ export default function ActionsAPI(props, { emit }) {
 
   const tableId = inject("tableId");
   const currentMultipleActions = inject("currentMultipleActions");
-  const rowsLocal = inject("rowsLocal");
+  const rowsLocalAll = inject("rowsLocalAll");
 
   const {
     closeConfirm,
@@ -76,7 +76,7 @@ export default function ActionsAPI(props, { emit }) {
   const onStartModalMultipleActions = async() => {
     await currentMultipleActions.value.callback({
       rows: selectedRows.value,
-      rowsVisible: rowsLocal.value,
+      rowsVisible: rowsLocalAll.value,
       id: buttonMultipleId.value,
       areAllRowsSelected: areAllRowsSelected.value,
       modelFilters: modelFilters.value,
@@ -97,7 +97,7 @@ export default function ActionsAPI(props, { emit }) {
       currentMultipleActions.value.callback({
         close: closeMultipleActionsActive.value,
         rows: selectedRows.value,
-        rowsVisible: rowsLocal.value,
+        rowsVisible: rowsLocalAll.value,
         id: buttonMultipleId.value,
         areAllRowsSelected: areAllRowsSelected.value,
         modelFilters: modelFilters.value,

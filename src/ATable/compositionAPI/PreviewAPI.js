@@ -17,8 +17,8 @@ import {
 
 export default function PreviewAPI(props, context, {
   aTableRef = ref({}),
+  rowsLocalAll = computed(() => []),
   tableGrandparentRef = ref({}),
-  rowsLocal = computed(() => []),
 }) {
   const {
     isDropdownGlobalOpen,
@@ -63,7 +63,7 @@ export default function PreviewAPI(props, context, {
       rowIndex: previewRightRowIndex.value,
     });
     emit("togglePreview", {
-      row: rowsLocal.value[previewRightRowIndex.value],
+      row: rowsLocalAll.value[previewRightRowIndex.value],
       rowIndex: previewRightRowIndex.value,
       typeToggle: "close",
     });
@@ -73,7 +73,7 @@ export default function PreviewAPI(props, context, {
   };
   const closePreviewRightAll = () => {
     emit("togglePreview", {
-      row: rowsLocal.value[previewRightRowIndex.value],
+      row: rowsLocalAll.value[previewRightRowIndex.value],
       rowIndex: previewRightRowIndex.value,
       typeToggle: "close",
     });
@@ -116,7 +116,7 @@ export default function PreviewAPI(props, context, {
       addEventListenerWindowResize();
     }
     emit("togglePreview", {
-      row: rowsLocal.value[rowIndex],
+      row: rowsLocalAll.value[rowIndex],
       rowIndex: rowIndex,
       typeToggle: "open",
     });

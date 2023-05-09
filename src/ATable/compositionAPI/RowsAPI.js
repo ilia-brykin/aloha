@@ -15,12 +15,12 @@ export default function RowsAPI(props, {
   const isPaginationOutside = toRef(props, "isPaginationOutside");
   const limitStart = toRef(props, "limitStart");
   const offsetStart = toRef(props, "offsetStart");
+  const rowsCountRenderPerTick = toRef(props, "rowsCountRenderPerTick");
 
   const limit = ref(limitStart.value);
   const offset = ref(offsetStart.value);
   const rowsLocal = ref([]);
   let rowsLocalIndex = 0;
-  const rowsCount = 20;
   let rowsLocalInterval = undefined;
 
   const dataPaginated = computed(() => {
@@ -33,37 +33,41 @@ export default function RowsAPI(props, {
     return dataSorted.value;
   });
 
+  const rowsLocalAll = computed(() => {
+    return dataPaginated.value;
+  });
+
   const rowsLocalLength = computed(() => {
-    return dataPaginated.value.length;
+    return rowsLocalAll.value.length;
   });
 
   const hasRows = computed(() => {
     return !!rowsLocalLength.value;
   });
 
-  const addRowsPartToRowsLocal = ({ rows }) => {
-    const INDEX_START = rowsLocalIndex * rowsCount;
-    const INDEX_END = INDEX_START + rowsCount;
-    rowsLocal.value.push(...rows.slice(INDEX_START, INDEX_END));
+  const addRowsPartToRowsLocal = () => {
+    const INDEX_START = rowsLocalIndex * rowsCountRenderPerTick.value;
+    const INDEX_END = INDEX_START + rowsCountRenderPerTick.value;
+    rowsLocal.value.push(...dataPaginated.value.slice(INDEX_START, INDEX_END));
     rowsLocalIndex++;
   };
 
-  const addAllRowsToRowsLocal = ({ rows }) => {
+  const addAllRowsToRowsLocal = () => {
     rowsLocalInterval = setInterval(() => {
-      if (rowsLocalIndex * rowsCount >= rows.length) {
+      if (rowsLocalIndex * rowsCountRenderPerTick.value >= dataPaginated.value.length) {
         clearInterval(rowsLocalInterval);
       } else {
-        addRowsPartToRowsLocal({ rows });
+        addRowsPartToRowsLocal();
       }
     });
   };
 
-  watch(dataPaginated, rows => {
+  watch(dataPaginated, () => {
     rowsLocal.value = [];
     rowsLocalIndex = 0;
     clearInterval(rowsLocalInterval);
-    addRowsPartToRowsLocal({ rows });
-    addAllRowsToRowsLocal({ rows });
+    addRowsPartToRowsLocal();
+    addAllRowsToRowsLocal();
   }, {
     immediate: true,
   });
@@ -73,6 +77,7 @@ export default function RowsAPI(props, {
     limit,
     offset,
     rowsLocal,
+    rowsLocalAll,
     rowsLocalLength,
   };
 }

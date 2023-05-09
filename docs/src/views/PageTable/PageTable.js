@@ -85,7 +85,7 @@ export default {
         {
           label: "Test",
           id: "test",
-          keyLabel: "test",
+          keyLabelSafeHtml: "test",
           sortId: "test",
           width: 200,
         },
@@ -120,6 +120,20 @@ export default {
           id: "slot2",
           slot: "slot1",
           hide: true,
+        },
+        {
+          label: "safeHtml",
+          id: "safeHtml",
+          keyLabelSafeHtml: "test",
+          sortId: "test",
+          width: 200,
+        },
+        {
+          label: "html",
+          id: "html",
+          keyLabelHtml: "test",
+          sortId: "test",
+          width: 200,
         },
       ],
       rowsFooter: [
@@ -424,6 +438,7 @@ export default {
       const DATA = [];
       times(1001, item => {
         DATA.push({
+          id: item,
           number: +item,
           aloha: `aloha1111dfdsfdsfdsfaasasadadsadasdsadsa1111111${ item }`,
           hola: `hola ${ item }`,

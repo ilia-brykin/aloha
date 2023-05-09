@@ -67,6 +67,11 @@ export default {
       required: false,
       default: 250,
     },
+    keyId: {
+      type: String,
+      required: false,
+      default: "id",
+    },
     countAllRows: {
       type: Number,
       required: false,
@@ -256,7 +261,7 @@ export default {
     rowsCountRenderPerTick: {
       type: Number,
       required: false,
-      default: 20,
+      default: 25,
       validator: value => isInteger(value) && value > 0,
     },
     rowsFooter: {
@@ -380,6 +385,7 @@ export default {
       limit,
       offset,
       rowsLocal,
+      rowsLocalAll,
       rowsLocalLength,
     } = RowsAPI(props, {
       dataSorted,
@@ -430,7 +436,7 @@ export default {
     } = MultipleActionAPI({
       checkVisibleColumns,
       isMultipleActionsActive,
-      rowsLocal,
+      rowsLocalAll,
       rowsLocalLength,
     });
 
@@ -456,8 +462,8 @@ export default {
       togglePreviewResize,
     } = PreviewAPI(props, context, {
       aTableRef,
+      rowsLocalAll,
       tableGrandparentRef,
-      rowsLocal,
     });
 
     const {
@@ -544,7 +550,7 @@ export default {
     provide("previewRightRowIndex", previewRightRowIndex);
     provide("previewRightRowIndexLast", previewRightRowIndexLast);
 
-    provide("rowsLocal", rowsLocal);
+    provide("rowsLocalAll", rowsLocalAll);
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("onUpdateModelFilters", onUpdateModelFilters);
     provide("updateDataKeyByIdFromFilter", updateDataKeyByIdFromFilter);
@@ -596,6 +602,7 @@ export default {
       previewDownRowIndexes,
       previewRightRowIndex,
       rowsLocal,
+      rowsLocalAll,
       rowsLocalLength,
       selectedRows,
       selectedRowsIndexes,
@@ -731,31 +738,34 @@ export default {
             h("div", {
               class: "a_table__body",
               role: this.tableChildRole,
-            }, this.rowsLocal.map((row, rowIndex) => {
-              return h(ATableTr, {
-                allVisibleMobileColumns: this.allVisibleMobileColumns,
-                areAllRowsSelected: this.areAllRowsSelected,
-                countVisibleMobileColumns: this.countVisibleMobileColumns,
-                row,
-                rowIndex,
-                isRowActionsStickyLocal: this.isRowActionsStickyLocal,
-                selectedRowsIndexes: this.selectedRowsIndexes,
-                rowActionsClass: this.rowActionsClass,
-                onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-              }, {
-                get: vm => [
-                  h(AGet, {
-                    data: vm.row,
-                    keyLabel: vm.column.keyLabel,
-                    filter: vm.column.filter,
-                    filterParameters: vm.column.filterParameters,
-                    defaultValue: vm.column.defaultValue,
-                    tag: vm.column.filterTag || "div",
-                  }),
-                ],
-                ...this.$slots,
-              });
-            })),
+            }, {
+              default: () => this.rowsLocal.map((row, rowIndex) => {
+                return h(ATableTr, {
+                  key: row[this.keyId] || rowIndex,
+                  allVisibleMobileColumns: this.allVisibleMobileColumns,
+                  areAllRowsSelected: this.areAllRowsSelected,
+                  countVisibleMobileColumns: this.countVisibleMobileColumns,
+                  row,
+                  rowIndex,
+                  isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+                  selectedRowsIndexes: this.selectedRowsIndexes,
+                  rowActionsClass: this.rowActionsClass,
+                  onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+                }, {
+                  get: vm => [
+                    h(AGet, {
+                      data: vm.row,
+                      keyLabel: vm.column.keyLabel,
+                      filter: vm.column.filter,
+                      filterParameters: vm.column.filterParameters,
+                      defaultValue: vm.column.defaultValue,
+                      tag: vm.column.filterTag || "div",
+                    }),
+                  ],
+                  ...this.$slots,
+                });
+              })
+            }),
             (this.hasRows && this.hasRowsFooter) && h("div", {
               class: "a_table__footer",
               role: this.tableChildRole,
@@ -787,7 +797,7 @@ export default {
           ]),
           (!this.isViewTableVisible && this.viewCurrent && this.$slots[this.viewCurrent.type]) &&
           this.$slots[this.viewCurrent.type]({
-            rows: this.rowsLocal,
+            rows: this.rowsLocalAll,
           }),
           (this.isViewTableVisible && !this.hasRows) && h("div", {
             class: "a_table__empty_text",
@@ -801,7 +811,7 @@ export default {
               isLoadingTable: this.isLoadingTable,
               limit: this.limit,
               offset: this.offset,
-              rowsLength: this.rowsLocal.length,
+              rowsLength: this.rowsLocalLength,
               hasRows: this.hasRows,
               perPageView: this.perPageView,
               isMobile: this.isMobile,
@@ -819,7 +829,7 @@ export default {
           ]),
           this.isPreviewRightOpen && h(ATablePreviewRight, {
             rowIndex: this.previewRightRowIndex,
-            rows: this.rowsLocal,
+            rows: this.rowsLocalAll,
             previewHeaderTag: this.previewHeaderTag,
             onClosePreview: this.closePreview,
             onMousedownResizePreviewRight: this.mousedownResizePreviewRight,

@@ -14,7 +14,7 @@ import {
 export default function MultipleActionAPI({
   checkVisibleColumns = () => {},
   isMultipleActionsActive = ref(undefined),
-  rowsLocal = computed(() => []),
+  rowsLocalAll = computed(() => []),
   rowsLocalLength = computed(() => 0),
 }) {
   const currentMultipleActions = ref(undefined);
@@ -26,7 +26,7 @@ export default function MultipleActionAPI({
   });
 
   const selectedRows = computed(() => {
-    return filter(rowsLocal.value, (row, index) => {
+    return filter(rowsLocalAll.value, (row, index) => {
       return selectedRowsIndexes.value[index];
     });
   });
@@ -84,7 +84,7 @@ export default function MultipleActionAPI({
         if (hasCurrentMultipleActionsIsHiddenCallback.value) {
           times(rowsLocalLength.value, index => {
             if (!currentMultipleActions.value.isHiddenCallback({
-              row: rowsLocal.value[index],
+              row: rowsLocalAll.value[index],
               rowIndex: index,
             })) {
               SELECTED_ROWS_INDEXES[index] = true;

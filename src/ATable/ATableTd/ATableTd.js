@@ -1,27 +1,16 @@
 import {
-  computed,
   h,
-  inject,
   resolveComponent,
-  withDirectives,
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ColumnVisibleAPI from "../compositionAPI/ColumnVisibleAPI";
-
-import {
-  cloneDeep,
-  forEach,
-  get,
-  isPlainObject,
-  isString,
-  isUndefined,
-} from "lodash-es";
-
+import LinkAPI from "./compositionAPI/LinkAPI";
+import MobileAPI from "./compositionAPI/MobileAPI";
+import SlotAPI from "./compositionAPI/SlotAPI";
+import TextAPI from "./compositionAPI/TextAPI";
 
 export default {
   name: "ATableTd",
@@ -48,16 +37,10 @@ export default {
     },
   },
   inject: [
-    "columnsDefaultValue",
-    "hasPreview",
     "isMobile",
-    "onTogglePreview",
-    "rowsLocal",
-    "valuesForColumnDefault",
+    "rowsLocalAll",
   ],
   setup(props) {
-    const isMobile = inject("isMobile");
-
     const {
       attributesForTd,
     } = AttributesAPI(props);
@@ -66,110 +49,43 @@ export default {
       isColumnVisible,
     } = ColumnVisibleAPI(props);
 
-    const styleMobile = computed(() => {
-      if (isMobile.value) {
-        return !isColumnVisible.value ? "display: none;" : "";
-      }
-      return "";
+    const {
+      classForLink,
+      isLink,
+      toLocal,
+    } = LinkAPI(props);
+
+    const {
+      hasSlot,
+      slotName,
+    } = SlotAPI(props);
+
+    const {
+      textOrHtmlRender,
+    } = TextAPI(props);
+
+    const {
+      styleMobile,
+    } = MobileAPI({
+      isColumnVisible,
     });
 
     return {
-      styleMobile,
       attributesForTd,
+      classForLink,
+      hasSlot,
+      isLink,
+      slotName,
+      styleMobile,
+      textOrHtmlRender,
+      toLocal,
     };
-  },
-  computed: {
-    text() {
-      let text;
-      if (this.isFooter) {
-        text = get(this.row, this.column.footerKeyLabel);
-      } else {
-        text = get(this.row, this.column.keyLabel);
-      }
-
-      let isTextInValuesForColumnDefault = false;
-      forEach(this.valuesForColumnDefault, item => {
-        if (text === item) {
-          isTextInValuesForColumnDefault = true;
-          return false;
-        }
-      });
-      if (isTextInValuesForColumnDefault) {
-        return this.defaultValue;
-      }
-      return text;
-    },
-
-    defaultValue() {
-      if (this.isFooter && "footerDefaultValue" in this.column) {
-        return this.column.footerDefaultValue;
-      }
-      if ("defaultValue" in this.column) {
-        return this.column.defaultValue;
-      }
-      if (!isUndefined(this.columnsDefaultValue)) {
-        return this.columnsDefaultValue;
-      }
-      return "";
-    },
-
-    path() {
-      if (this.isFooter) {
-        return this.column.footerKeyLabel;
-      }
-      return this.column.keyLabel;
-    },
-
-    isSlot() {
-      return !!this.slot;
-    },
-
-    isLink() {
-      return !!this.column.to;
-    },
-
-    toLocal() {
-      if (isString(this.column.to)) {
-        return this.column.to;
-      }
-      if (isPlainObject(this.column.to)) {
-        const TO = cloneDeep(this.column.to);
-        const PARAMS = TO.params || {};
-        if (this.column.to.paramsDynamic) {
-          let hasParamsDynamicError = false;
-          forEach(this.column.to.paramsDynamic, (value, key) => {
-            const PARAMS_VALUE = get(this.row, value);
-            if (isUndefined(PARAMS_VALUE)) {
-              hasParamsDynamicError = true;
-              return false;
-            }
-            PARAMS[key] = PARAMS_VALUE;
-          });
-          if (hasParamsDynamicError) {
-            return undefined;
-          }
-        }
-        TO.params = PARAMS;
-        return TO;
-      }
-      return undefined;
-    },
-
-    classForLink() {
-      return "a_btn a_btn_link a_p_0 a_text_left";
-    },
-
-    slot() {
-      if (this.isFooter) {
-        return this.column.footerSlot;
-      }
-      return this.column.slot;
-    },
   },
   render() {
     if (this.column.isRender === false) {
       return "";
     }
+
     const TD = h(
       "div",
       this.attributesForTd,
@@ -180,13 +96,13 @@ export default {
             this.column.class,
             this.column.classRow,
           ],
-        }, (this.isSlot && this.$slots[this.slot]) ?
-          this.$slots[this.slot]({
+        }, (this.hasSlot && this.$slots[this.slotName]) ?
+          this.$slots[this.slotName]({
             column: this.column,
             columnIndex: this.columnIndex,
             row: this.row,
             rowIndex: this.rowIndex,
-            rows: this.rowsLocal,
+            rows: this.rowsLocalAll,
           }) :
           (this.isLink && this.toLocal) ?
             [
@@ -198,15 +114,11 @@ export default {
                 ],
                 to: this.toLocal,
               }, () => [
-                withDirectives(h("span"), [
-                  [ASafeHtml, this.text],
-                ]),
+                this.textOrHtmlRender,
               ]),
             ] :
             [
-              withDirectives(h("span"), [
-                [ASafeHtml, this.text],
-              ]),
+              this.textOrHtmlRender,
             ])
       ]
     );

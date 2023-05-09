@@ -1,15 +1,17 @@
 import {
-  h,
+  h, resolveComponent,
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
 
-import { get } from "lodash-es";
+import TextAPI from "../ATableTd/compositionAPI/TextAPI";
+import SlotAPI from "../ATableTd/compositionAPI/SlotAPI";
+import LinkAPI from "../ATableTd/compositionAPI/LinkAPI";
 
 export default {
   name: "ATableListItem",
   inject: [
-    "rowsLocal",
+    "rowsLocalAll",
   ],
   props: {
     column: {
@@ -33,24 +35,30 @@ export default {
       required: false,
     },
   },
-  computed: {
-    isSlot() {
-      return !!this.slot;
-    },
+  setup(props) {
+    const {
+      classForLink,
+      isLink,
+      toLocal,
+    } = LinkAPI(props);
 
-    slot() {
-      if (this.isFooter) {
-        return this.column.footerSlot;
-      }
-      return this.column.slot;
-    },
+    const {
+      hasSlot,
+      slotName,
+    } = SlotAPI(props);
 
-    text() {
-      if (this.isFooter) {
-        return get(this.row, this.column.footerKeyLabel);
-      }
-      return get(this.row, this.column.keyLabel);
-    },
+    const {
+      textOrHtmlRender,
+    } = TextAPI(props);
+
+    return {
+      classForLink,
+      hasSlot,
+      isLink,
+      slotName,
+      textOrHtmlRender,
+      toLocal,
+    };
   },
   render() {
     return [
@@ -58,19 +66,30 @@ export default {
         text: this.column.label,
         tag: "dt",
       }),
-      h("dd", null, [
-        this.isSlot ?
-          this.$slots[this.column.slot]({
-            column: this.column,
-            columnIndex: this.columnIndex,
-            row: this.row,
-            rowIndex: this.rowIndex,
-            rows: this.rowsLocal,
-          }) :
-          h("span", null, [
-            this.text,
+      h("dd", null, (this.hasSlot && this.$slots[this.slotName]) ?
+        this.$slots[this.slotName]({
+          column: this.column,
+          columnIndex: this.columnIndex,
+          row: this.row,
+          rowIndex: this.rowIndex,
+          rows: this.rowsLocalAll,
+        }) :
+        (this.isLink && this.toLocal) ?
+          [
+            h(resolveComponent("RouterLink"), {
+              class: [
+                this.column.class,
+                this.classForLink,
+                this.column.classRow,
+              ],
+              to: this.toLocal,
+            }, () => [
+              this.textOrHtmlRender,
+            ]),
+          ] :
+          [
+            this.textOrHtmlRender,
           ])
-      ]),
     ];
   },
 };

@@ -1,6 +1,5 @@
 import App from "./App/App.vue";
 import { createApp } from "vue";
-import store from "./store/index";
 import router from "./router/index";
 import AI18nPlugin from "../../src/plugins/AI18nPlugin";
 import AMobilePlugin from "../../src/plugins/AMobilePlugin";
@@ -36,4 +35,4 @@ APP.use(AGroupButtonDropdownPlugin, {
 });
 APP.config.unwrapInjectedRef = true;
 APP.directive("SafeHtml", ASafeHtml);
-APP.use(store).use(router).mount("#app");
+APP.use(router).mount("#app");
