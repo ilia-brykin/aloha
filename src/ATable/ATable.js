@@ -352,6 +352,7 @@ export default {
   },
   setup(props, context) {
     const tableGrandparentRef = ref(undefined);
+    const tableRef = ref(undefined);
     const isMultipleActionsActive = ref(undefined);
 
     const {
@@ -474,6 +475,7 @@ export default {
       limit,
       closePreviewAll,
       setEmptySelectedRowsIndexes,
+      tableRef,
     });
     
     const {
@@ -611,6 +613,7 @@ export default {
       startSearch,
       tableChildRole,
       tableGrandparentRef,
+      tableRef,
       tableRoleAttributes,
       toggleBtnAllRows,
       toggleMultipleActionsActive,
@@ -720,6 +723,7 @@ export default {
             onToggleBtnAllRows: this.toggleBtnAllRows,
           }, this.$slots),
           this.isViewTableVisible && h("div", {
+            ref: "tableRef",
             class: "a_table",
             ...this.tableRoleAttributes,
           }, [
