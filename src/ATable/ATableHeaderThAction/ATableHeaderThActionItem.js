@@ -193,6 +193,7 @@ export default {
   methods: {
     toggleColumnVisible($event) {
       $event.stopPropagation();
+      $event.preventDefault();
       const MODEL_COLUMNS = cloneDeep(this.modelColumnsVisibleLocal);
       MODEL_COLUMNS[this.columnId] = !this.isColumnVisible;
       this.changeModelColumnsVisible(MODEL_COLUMNS);
