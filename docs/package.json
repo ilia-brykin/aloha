@@ -11,7 +11,7 @@
     "build-css": "node-sass --include-path scss styles/styles.scss public/styles.css"
   },
   "dependencies": {
-    "@popperjs/core": "2.11.6",
+    "@popperjs/core": "2.11.7",
     "aloha-css": "1.0.97",
     "dompurify": "2.4.1",
     "fecha": "^4.2.3",

@@ -17,7 +17,7 @@ export default function PopperContainerAPI(props) {
       POPPER_CONTAINER.id = popperContainerId.value;
       POPPER_CONTAINER.className = "a_popup_container";
       POPPER_CONTAINER.setAttribute("aria-hidden", "true");
-      document.body.appendChild(POPPER_CONTAINER);
+      document.body.prepend(POPPER_CONTAINER);
     }
   };
 
