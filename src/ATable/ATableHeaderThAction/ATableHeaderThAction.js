@@ -27,11 +27,13 @@ export default {
     "changeModelColumnsVisible",
     "columns",
     "columnsOrdered",
-    "isLoadingOptions",
-    "isLoadingTable",
     "modelIsTableWithoutScroll",
   ],
   props: {
+    disabledOptions: {
+      type: Boolean,
+      required: false,
+    },
     isRowActionsStickyLocal: {
       type: Boolean,
       required: true,
@@ -114,6 +116,7 @@ export default {
         dropdownClass: "a_p_0",
         isCaret: false,
         isCloseByClickInside: false,
+        disabled: this.disabledOptions,
         placement: "bottom-end",
         menuWidth: 320,
       }, {
@@ -149,6 +152,7 @@ export default {
               h("button", {
                 type: "button",
                 class: "a_dropdown__item",
+                disabled: this.disabledOptions,
                 onClick: this.selectAllColumns,
               }, [
                 h(AIcon, {
@@ -162,6 +166,7 @@ export default {
               h("button", {
                 type: "button",
                 class: "a_dropdown__item",
+                disabled: this.disabledOptions,
                 onClick: this.deselectAllColumns,
               }, [
                 h(AIcon, {
@@ -175,6 +180,7 @@ export default {
               h("button", {
                 type: "button",
                 class: "a_dropdown__item",
+                disabled: this.disabledOptions,
                 onClick: this.resetColumns,
               }, [
                 h(AIcon, {
@@ -187,6 +193,7 @@ export default {
             h("li", null, [
               h(ASwitch, {
                 class: "a_dropdown__item_text a_text_nowrap",
+                disabled: this.disabledOptions,
                 modelValue: this.modelIsTableWithoutScroll,
                 trueLabel: "Kompakte Ansicht",
                 falseLabel: "Kompakte Ansicht",
@@ -202,6 +209,7 @@ export default {
                 column,
                 columnIndex,
                 columnIndexDraggable: this.columnIndexDraggable,
+                disabledOptions: this.disabledOptions,
                 searchColumnModel: this.searchColumnModel,
                 onDragstartParent: this.dragstart,
                 onDragenterParent: this.dragenter,

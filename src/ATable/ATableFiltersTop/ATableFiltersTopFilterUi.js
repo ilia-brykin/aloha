@@ -21,12 +21,12 @@ export default {
       required: false,
       default: undefined,
     },
-    modelFilters: {
-      type: Object,
-      required: true,
-    },
     isLabelVisible: {
       type: Boolean,
+      required: true,
+    },
+    modelFilters: {
+      type: Object,
       required: true,
     },
   },

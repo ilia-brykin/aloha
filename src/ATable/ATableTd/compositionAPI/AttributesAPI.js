@@ -11,6 +11,7 @@ import {
 } from "../../utils/utils";
 
 export default function AttributesAPI(props) {
+  const disabledPreview = toRef(props, "disabledPreview");
   const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
   const rowIndex = toRef(props, "rowIndex");
@@ -38,6 +39,9 @@ export default function AttributesAPI(props) {
     }
     if (hasPreview.value && !isFooter.value) {
       ATTRIBUTES.onClick = $event => {
+        if (disabledPreview.value) {
+          return;
+        }
         if (isClickTags({
           $event,
           tagsName: [

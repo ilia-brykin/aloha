@@ -5,19 +5,20 @@ import {
   toRef,
 } from "vue";
 
-import AIcon from "../../AIcon/AIcon";
+import AIcon from "../../../AIcon/AIcon";
 
-import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
+import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
+import CloseFilterValueAPI from "./compositionAPI/CloseFilterValueAPI";
 
-import AKeyLabel from "../../ui/const/AKeyLabel";
-import AUiTypesModelArray from "../../ui/const/AUiTypesModelArray";
-import EventBus from "../../utils/EventBus";
+import AKeyLabel from "../../../ui/const/AKeyLabel";
+import AUiTypesModelArray from "../../../ui/const/AUiTypesModelArray";
+import EventBus from "../../../utils/EventBus";
 import {
   getHtmlId,
-} from "../../ui/compositionApi/UiAPI";
+} from "../../../ui/compositionApi/UiAPI";
 import {
   setFocusToElement,
-} from "../../utils/utils";
+} from "../../../utils/utils";
 import {
   forEach,
   get,
@@ -28,9 +29,6 @@ import {
 
 export default {
   name: "ATableFilterCenterItem",
-  inject: [
-    "isLoadingTable",
-  ],
   props: {
     closeFilterValue: {
       type: Function,
@@ -40,13 +38,17 @@ export default {
       type: Object,
       required: true,
     },
-    model: {
-      type: [String, Number, Object, Array, Boolean],
+    disabledFilters: {
+      type: Boolean,
       required: false,
-      default: undefined,
     },
     filter: {
       type: Object,
+      required: false,
+      default: undefined,
+    },
+    model: {
+      type: [String, Number, Object, Array, Boolean],
       required: false,
       default: undefined,
     },
@@ -128,14 +130,6 @@ export default {
       }];
     });
 
-    const closeFilterValue = toRef(props, "closeFilterValue");
-    const closeCurrentFilterValue = ({ currentModel }) => {
-      closeFilterValue.value({
-        filter: filter.value,
-        currentModel: currentModel,
-      });
-    };
-
     const tableId = inject("tableId");
     const eventName = `eventATableFilterTopOnOpen_${ tableId.value }`;
     const goToFilter = () => {
@@ -152,6 +146,10 @@ export default {
         setFocusToElement(`#${ FILTER_HTML_ID }`);
       });
     };
+
+    const {
+      closeCurrentFilterValue,
+    } = CloseFilterValueAPI(props);
 
     return {
       closeCurrentFilterValue,
@@ -193,7 +191,7 @@ export default {
           ]),
           !this.filter.hasNotClose && h("button", {
             class: "a_btn a_btn_secondary",
-            disabled: this.isLoadingTable,
+            disabled: this.disabledFilters,
             onClick: () => this.closeCurrentFilterValue({ currentModel: modelValue.value }),
           }, [
             h(AIcon, {

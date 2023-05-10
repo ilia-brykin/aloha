@@ -24,11 +24,39 @@ export default {
       type: Boolean,
       required: true,
     },
+    closeMultipleActionsActive: {
+      type: Function,
+      required: true,
+    },
     countAllRows: {
       type: Number,
       required: true,
     },
+    disabledActions: {
+      type: Boolean,
+      required: true,
+    },
+    disabledMultipleActions: {
+      type: Boolean,
+      required: true,
+    },
+    disabledViews: {
+      type: Boolean,
+      required: true,
+    },
+    hasViews: {
+      type: Boolean,
+      required: true,
+    },
     isLabelVisible: {
+      type: Boolean,
+      required: false,
+    },
+    isLoadingMultipleActions: {
+      type: Boolean,
+      required: false,
+    },
+    isQuickSearch: {
       type: Boolean,
       required: false,
     },
@@ -37,17 +65,34 @@ export default {
       required: false,
       default: "",
     },
-    labelTag: {
-      type: String,
-      required: true,
-    },
     labelClass: {
       type: [String, Object],
       required: false,
       default: undefined,
     },
+    labelTag: {
+      type: String,
+      required: true,
+    },
     modelFilters: {
       type: Object,
+      required: true,
+    },
+    modelQuickSearch: {
+      type: String,
+      required: true,
+    },
+    modelView: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    multipleActions: {
+      type: Array,
+      required: true,
+    },
+    selectedRows: {
+      type: Array,
       required: true,
     },
     tableActions: {
@@ -64,47 +109,14 @@ export default {
       required: false,
       default: 0,
     },
-    multipleActions: {
-      type: Array,
-      required: true,
-    },
-    isQuickSearch: {
-      type: Boolean,
-      required: false,
-    },
-    isLoadingMultipleActions: {
-      type: Boolean,
-      required: false,
-    },
-    modelQuickSearch: {
-      type: String,
-      required: true,
-    },
-    closeMultipleActionsActive: {
-      type: Function,
-      required: true,
-    },
-    selectedRows: {
-      type: Array,
-      required: true,
-    },
-    views: {
-      type: Array,
-      required: true,
-    },
-    hasViews: {
-      type: Boolean,
-      required: true,
-    },
     viewCurrent: {
       type: Object,
       required: false,
       default: undefined,
     },
-    modelView: {
-      type: String,
-      required: false,
-      default: undefined,
+    views: {
+      type: Array,
+      required: true,
     },
   },
   emits: [
@@ -201,7 +213,7 @@ export default {
             useActionClass: true,
             useDropdownActionClass: false,
             actionsClasses: [],
-            disabled: this.isMultipleActionsActive,
+            disabled: this.isMultipleActionsActive || this.disabledActions,
             indexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
             indexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
             minDropdownActions: 0,
@@ -216,7 +228,7 @@ export default {
             useActionClass: true,
             useDropdownActionClass: true,
             actionsClasses: [],
-            disabled: this.isMultipleActionsActive,
+            disabled: this.isMultipleActionsActive || this.disabledMultipleActions,
             indexFirstDropdownAction: 0,
             indexFirstDropdownActionMobile: 0,
             minDropdownActions: 0,
@@ -239,6 +251,7 @@ export default {
             modelValue: this.modelView,
             class: "a_d_inline_block",
             isButtonGroup: true,
+            disabled: this.disabledViews,
             slotName: undefined, // TODO: "buttonGroup" AIcon
             data: this.views,
             keyId: "id",
@@ -281,7 +294,7 @@ export default {
               extraTranslate: {
                 countAllRows: this.countAllRows,
               },
-              disabled: this.isBtnSelectAllRowsDisabled,
+              disabled: this.isBtnSelectAllRowsDisabled || this.disabledMultipleActions,
               loading: this.isLoadingMultipleActions,
               onClick: this.toggleBtnAllRows,
             }),
@@ -297,7 +310,7 @@ export default {
           h(AButton, {
             class: "a_btn a_btn_primary a_table__action",
             type: "button",
-            disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions,
+            disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
             text: this.currentMultipleActions.text,
             loading: this.isLoadingMultipleActions,
             loadingAlign: "left",

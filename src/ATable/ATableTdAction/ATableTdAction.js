@@ -17,13 +17,9 @@ export default {
     ATableListItem,
   },
   props: {
-    row: {
-      type: Object,
-      required: true,
-    },
-    rowIndex: {
-      type: Number,
-      required: true,
+    disabledRowActions: {
+      type: Boolean,
+      required: false,
     },
     isFooter: {
       type: Boolean,
@@ -33,10 +29,18 @@ export default {
       type: Boolean,
       required: true,
     },
+    row: {
+      type: Object,
+      required: true,
+    },
     rowActionsClass: {
       type: [String, Object],
       required: false,
       default: undefined,
+    },
+    rowIndex: {
+      type: Number,
+      required: true,
     },
   },
   inject: [
@@ -131,6 +135,7 @@ export default {
           indexFirstDropdownAction: 0,
           indexFirstDropdownActionMobile: 0,
           minDropdownActions: 0,
+          disabled: this.disabledRowActions,
           dropdownAttributes: {
             id: this.buttonActionsId,
             buttonIconLeft: "OptionVertical",

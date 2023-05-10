@@ -28,6 +28,14 @@ export default {
       type: Boolean,
       required: true,
     },
+    disabledOptions: {
+      type: Boolean,
+      required: false,
+    },
+    disabledSort: {
+      type: Boolean,
+      required: false,
+    },
     isRowActionsStickyLocal: {
       type: Boolean,
       required: true,
@@ -142,6 +150,7 @@ export default {
             column: column,
             columnIndex: columnIndex,
             columnIndexDraggable: this.columnIndexDraggable,
+            disabledSort: this.disabledSort,
             modelSort: this.modelSort,
             sortingSequenceNumberClass: this.sortingSequenceNumberClass,
             isSortingMultiColumn: this.isSortingMultiColumn,
@@ -153,6 +162,7 @@ export default {
           });
         }),
         this.isActionColumnVisible && h(ATableHeaderThAction, {
+          disabledOptions: this.disabledOptions,
           isRowActionsStickyLocal: this.isRowActionsStickyLocal,
         }),
       ]),

@@ -30,6 +30,10 @@ export default {
       required: false,
       default: -1,
     },
+    disabledSort: {
+      type: Boolean,
+      required: false,
+    },
     isSortingMultiColumn: {
       type: Boolean,
       required: false,

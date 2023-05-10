@@ -17,11 +17,11 @@ export default {
       type: Number,
       required: true,
     },
-    hasRows: {
+    disabledPagination: {
       type: Boolean,
-      required: true,
+      required: false,
     },
-    isLoadingTable: {
+    hasRows: {
       type: Boolean,
       required: true,
     },
@@ -100,7 +100,7 @@ export default {
                 h(AButton, {
                   type: "button",
                   class: "a_btn a_btn_link a_pagination__count__button",
-                  disabled: +count === this.limit || this.isLoadingTable,
+                  disabled: +count === this.limit || this.disabledPagination,
                   text: count,
                   onClick: () => this.changeLimit(count),
                 }),
@@ -120,7 +120,8 @@ export default {
             isDataSimpleArray: true,
             isDeselect: false,
             modelValue: this.limitString,
-            change: this.changeLimitFromSelect
+            disabled: this.disabledPagination,
+            change: this.changeLimitFromSelect,
           }),
         ]);
     }

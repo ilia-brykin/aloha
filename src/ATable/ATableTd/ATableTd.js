@@ -23,6 +23,14 @@ export default {
       type: Number,
       required: true,
     },
+    disabledPreview: {
+      type: Boolean,
+      required: false,
+    },
+    isFooter: {
+      type: Boolean,
+      required: false,
+    },
     row: {
       type: Object,
       required: true,
@@ -30,10 +38,6 @@ export default {
     rowIndex: {
       type: Number,
       required: true,
-    },
-    isFooter: {
-      type: Boolean,
-      required: false,
     },
   },
   inject: [

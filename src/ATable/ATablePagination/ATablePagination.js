@@ -12,11 +12,11 @@ import {
 export default {
   name: "ATablePagination",
   props: {
-    hasRows: {
+    disabledPagination: {
       type: Boolean,
-      required: true,
+      required: false,
     },
-    isLoadingTable: {
+    hasRows: {
       type: Boolean,
       required: true,
     },
@@ -79,11 +79,11 @@ export default {
     },
 
     disabledButtonFirstPage() {
-      return this.isLoadingTable || this.currentItem === 1;
+      return this.disabledPagination || this.currentItem === 1;
     },
 
     disabledButtonLastPage() {
-      return this.isLoadingTable || this.currentItem === this.maxItems;
+      return this.disabledPagination || this.currentItem === this.maxItems;
     },
   },
   methods: {
@@ -119,7 +119,7 @@ export default {
     },
 
     updateOffset(item) {
-      if (this.isLoadingTable || item === this.currentItem) {
+      if (this.disabledPagination || item === this.currentItem) {
         return;
       }
       const OFFSET = (item - 1) * this.limit;

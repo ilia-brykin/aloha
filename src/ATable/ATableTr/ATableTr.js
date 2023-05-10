@@ -29,9 +29,30 @@ export default {
       type: Number,
       required: true,
     },
+    disabledPreview: {
+      type: Boolean,
+      required: false,
+    },
+    disabledRowActions: {
+      type: Boolean,
+      required: false,
+    },
+    isFooter: {
+      type: Boolean,
+      required: false,
+    },
+    isRowActionsStickyLocal: {
+      type: Boolean,
+      required: true,
+    },
     row: {
       type: Object,
       required: true,
+    },
+    rowActionsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     rowIndex: {
       type: Number,
@@ -40,19 +61,6 @@ export default {
     selectedRowsIndexes: {
       type: Object,
       required: true,
-    },
-    isRowActionsStickyLocal: {
-      type: Boolean,
-      required: true,
-    },
-    isFooter: {
-      type: Boolean,
-      required: false,
-    },
-    rowActionsClass: {
-      type: [String, Object],
-      required: false,
-      default: undefined,
     },
   },
   emits: [
@@ -107,6 +115,7 @@ export default {
             key: column.id,
             column,
             columnIndex,
+            disabledPreview: this.disabledPreview,
             row: this.row,
             rowIndex: this.rowIndex,
             isFooter: this.isFooter,
@@ -119,6 +128,7 @@ export default {
           key: column.id,
           column,
           columnIndex,
+          disabledPreview: this.disabledPreview,
           row: this.row,
           rowIndex: this.rowIndex,
           isFooter: this.isFooter,
@@ -128,6 +138,7 @@ export default {
 
     const ACTIONS = this.isActionColumnVisible &&
       h(ATableTdAction, {
+        disabledRowActions: this.disabledRowActions,
         row: this.row,
         rowIndex: this.rowIndex,
         isFooter: this.isFooter,

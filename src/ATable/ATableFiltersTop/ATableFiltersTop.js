@@ -1,25 +1,24 @@
 import {
-  computed,
   h,
-  inject,
   onBeforeUnmount,
-  ref,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter";
 import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 
+import EventBusAPI from "./compositionAPI/EventBusAPI";
+import SearchAPI from "./compositionAPI/SearchAPI";
+import ToggleAPI from "./compositionAPI/ToggleAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
-
-import EventBus from "../../utils/EventBus";
 
 export default {
   name: "ATableFiltersTop",
-  inject: [
-    "isLoadingTable",
-  ],
   props: {
+    disabledFilters: {
+      type: Boolean,
+      required: false,
+    },
     filtersGroup: {
       type: Object,
       required: true,
@@ -36,55 +35,33 @@ export default {
   emits: [
     "startSearch",
   ],
-  setup(props, { emit }) {
-    const isOpen = ref(false);
+  setup(props, context) {
+    const {
+      iconToggle,
+      isOpen,
+      onClose,
+      onOpen,
+      onToggle,
+      styleToggle,
+      textToggle,
+    } = ToggleAPI();
 
-    const iconToggle = computed(() => {
-      return isOpen.value ? "ChevronUp" : "ChevronDown";
+    const {
+      onSearch,
+    } = SearchAPI(props, context, {
+      onClose,
     });
-
-    const textToggle = computed(() => {
-      return isOpen.value ? "_CLOSE_ADVANCED_SEARCH_" : "_OPEN_ADVANCED_SEARCH_";
-    });
-
-    const styleToggle = computed(() => {
-      return isOpen.value ? "" : "display: none;";
-    });
-
-    const onOpen = () => {
-      isOpen.value = true;
-    };
-
-    const onClose = () => {
-      isOpen.value = false;
-    };
-
-    const onToggle = () => {
-      if (isOpen.value) {
-        onClose();
-      } else {
-        onOpen();
-      }
-    };
-
-    const onSearch = () => {
-      onClose();
-      emit("startSearch");
-    };
-
-    const tableId = inject("tableId");
-    const eventName = `eventATableFilterTopOnOpen_${ tableId.value }`;
-    const initEventBus = () => {
-      EventBus.$on(eventName, onOpen);
-    };
-
-    const destroyEventBus = () => {
-      EventBus.$off(eventName, onOpen);
-    };
 
     const {
       isBtnToggleVisible,
     } = VisibleAPI(props);
+
+    const {
+      destroyEventBus,
+      initEventBus,
+    } = EventBusAPI({
+      onOpen,
+    });
 
     initEventBus();
 
@@ -115,7 +92,7 @@ export default {
       },
       prevent: true,
       stop: true,
-      disabled: this.isLoadingTable,
+      disabled: this.disabledFilters,
       onClick: this.onSearch,
     });
 

@@ -68,11 +68,6 @@ export default {
       required: false,
       default: 250,
     },
-    keyId: {
-      type: String,
-      required: false,
-      default: "id",
-    },
     countAllRows: {
       type: Number,
       required: false,
@@ -86,6 +81,42 @@ export default {
     },
     data: {
       type: [Array, Object, Promise],
+      required: false,
+    },
+    disabledActions: {
+      type: Boolean,
+      required: false,
+    },
+    disabledFilters: {
+      type: Boolean,
+      required: false,
+    },
+    disabledMultipleActions: {
+      type: Boolean,
+      required: false,
+    },
+    disabledOptions: {
+      type: Boolean,
+      required: false,
+    },
+    disabledPagination: {
+      type: Boolean,
+      required: false,
+    },
+    disabledPreview: {
+      type: Boolean,
+      required: false,
+    },
+    disabledRowActions: {
+      type: Boolean,
+      required: false,
+    },
+    disabledSort: {
+      type: Boolean,
+      required: false,
+    },
+    disabledViews: {
+      type: Boolean,
       required: false,
     },
     filters: {
@@ -113,15 +144,15 @@ export default {
       required: false,
       default: true,
     },
+    isLoadingMultipleActions: {
+      type: Boolean,
+      required: false,
+    },
     isLoadingOptions: {
       type: Boolean,
       required: false,
     },
     isLoadingTable: {
-      type: Boolean,
-      required: false,
-    },
-    isLoadingMultipleActions: {
       type: Boolean,
       required: false,
     },
@@ -138,35 +169,24 @@ export default {
       type: Boolean,
       required: false,
     },
-    isSortingOutside: {
-      type: Boolean,
-      required: false,
-    },
     isSortingMultiColumn: {
       type: Boolean,
       required: false,
       default: true,
     },
-    sortingSequenceNumberClass: {
-      type: [String, Object],
-      required: false,
-      default: "a_badge",
-    },
-    showFirstSortingSequenceNumber: {
+    isSortingOutside: {
       type: Boolean,
       required: false,
-      default: true,
-    },
-    sortingMultiColumnKey: {
-      type: String,
-      required: false,
-      default: "shift",
-      validator: value => ["shift", "ctrl", "alt"].indexOf(value) !== -1,
     },
     keyCountAllRowsInData: {
       type: String,
       required: false,
       default: "count",
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: "id",
     },
     label: {
       type: [String, Number],
@@ -218,6 +238,16 @@ export default {
       required: false,
       default: "",
     },
+    modelSort: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    modelView: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     multipleActions: {
       type: Array,
       required: false,
@@ -227,6 +257,14 @@ export default {
       type: Number,
       required: false,
       default: 0,
+    },
+    perPageView: {
+      type: Object,
+      required: false,
+      default: () => ({
+        desktop: "inline",
+        mobile: "select",
+      }),
     },
     preview: {
       type: String,
@@ -249,15 +287,15 @@ export default {
       required: false,
       default: () => [],
     },
-    rowActionsSticky: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
     rowActionsClass: {
       type: [String, Object],
       required: false,
       default: undefined,
+    },
+    rowActionsSticky: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     rowsCountRenderPerTick: {
       type: Number,
@@ -270,35 +308,26 @@ export default {
       required: false,
       default: () => [],
     },
-    modelSort: {
-      type: [String, Array],
+    showFirstSortingSequenceNumber: {
+      type: Boolean,
       required: false,
-      default: undefined,
+      default: true,
+    },
+    sortingMultiColumnKey: {
+      type: String,
+      required: false,
+      default: "shift",
+      validator: value => ["shift", "ctrl", "alt"].indexOf(value) !== -1,
+    },
+    sortingSequenceNumberClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_badge",
     },
     tableActions: {
       type: Array,
       required: false,
       default: () => [],
-    },
-    valuesForColumnDefault: {
-      type: Array,
-      required: false,
-      default: () => [null, undefined, ""],
-    },
-    updateModelFiltersLocal: {
-      type: Function,
-      required: false,
-      default: undefined,
-    },
-    views: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    modelView: {
-      type: [String, Number],
-      required: false,
-      default: undefined,
     },
     tableActionsIndexFirstDropdownAction: {
       type: Number,
@@ -310,13 +339,20 @@ export default {
       required: false,
       default: 0,
     },
-    perPageView: {
-      type: Object,
+    updateModelFiltersLocal: {
+      type: Function,
       required: false,
-      default: () => ({
-        desktop: "inline",
-        mobile: "select",
-      }),
+      default: undefined,
+    },
+    valuesForColumnDefault: {
+      type: Array,
+      required: false,
+      default: () => [null, undefined, ""],
+    },
+    views: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
   },
   emits: [
@@ -683,12 +719,14 @@ export default {
       }],
     }, [
       this.hasFilters && h(ATableFiltersTop, {
+        disabledFilters: this.disabledFilters,
         filtersGroup: this.filtersGroup,
         filtersVisible: this.filtersVisible,
         modelFilters: this.modelFiltersLocal,
         onStartSearch: this.startSearch,
       }, this.$slots),
       this.hasFilters && h(ATableFilterCenter, {
+        disabledFilters: this.disabledFilters,
         closeFilterValue: this.closeFilterValue,
         dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
         filtersKeyById: this.filtersKeyById,
@@ -709,6 +747,9 @@ export default {
             areSomeRowsSelected: this.areSomeRowsSelected,
             closeMultipleActionsActive: this.closeMultipleActionsActive,
             countAllRows: this.countAllRowsLocal,
+            disabledActions: this.disabledActions,
+            disabledMultipleActions: this.disabledMultipleActions,
+            disabledViews: this.disabledViews,
             isLabelVisible: this.isLabelVisible,
             label: this.label,
             labelTag: this.labelTag,
@@ -740,6 +781,8 @@ export default {
               areAllRowsSelected: this.areAllRowsSelected,
               areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
               areSomeRowsSelected: this.areSomeRowsSelected,
+              disabledOptions: this.disabledOptions,
+              disabledSort: this.disabledSort,
               isRowActionsStickyLocal: this.isRowActionsStickyLocal,
               rowsLocalLength: this.rowsLocalLength,
               modelSort: this.modelSortLocal,
@@ -758,6 +801,8 @@ export default {
                   allVisibleMobileColumns: this.allVisibleMobileColumns,
                   areAllRowsSelected: this.areAllRowsSelected,
                   countVisibleMobileColumns: this.countVisibleMobileColumns,
+                  disabledPreview: this.disabledPreview,
+                  disabledRowActions: this.disabledRowActions,
                   row,
                   rowIndex,
                   isRowActionsStickyLocal: this.isRowActionsStickyLocal,
@@ -787,6 +832,8 @@ export default {
                 allVisibleMobileColumns: this.allVisibleMobileColumns,
                 areAllRowsSelected: this.areAllRowsSelected,
                 countVisibleMobileColumns: this.countVisibleMobileColumns,
+                disabledPreview: this.disabledPreview,
+                disabledRowActions: this.disabledRowActions,
                 row,
                 rowIndex,
                 isRowActionsStickyLocal: this.isRowActionsStickyLocal,
@@ -820,8 +867,8 @@ export default {
           }, [
             h(ATableCountProPage, {
               countAllRows: this.countAllRowsLocal,
+              disabledPagination: this.disabledPagination,
               limitsPerPage: this.limitsPerPage,
-              isLoadingTable: this.isLoadingTable,
               limit: this.limit,
               offset: this.offset,
               rowsLength: this.rowsLocalLength,
@@ -832,8 +879,8 @@ export default {
             }),
             h(ATablePagination, {
               limit: this.limit,
+              disabledPagination: this.disabledPagination,
               totalRowsCount: this.totalRowsCountLocal,
-              isLoadingTable: this.isLoadingTable,
               offset: this.offset,
               hasRows: this.hasRows,
               isMobile: this.isMobile,

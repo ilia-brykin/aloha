@@ -38,6 +38,10 @@ export default {
       required: false,
       default: -1,
     },
+    disabledOptions: {
+      type: Boolean,
+      required: false,
+    },
     searchColumnModel: {
       type: String,
       required: true,
@@ -95,6 +99,9 @@ export default {
         ATTRIBUTES.type = "button";
         ATTRIBUTES.class += " a_table__th__dropdown_item__icon_btn a_btn a_btn_link";
         ATTRIBUTES.onClick = this.toggleColumnVisible;
+        if (this.disabledOptions) {
+          ATTRIBUTES.disabled = true;
+        }
       }
       return ATTRIBUTES;
     },
@@ -134,6 +141,7 @@ export default {
           this.isButtonArrowUpVisible && h("button", {
             id: this.idButtonArrowUp,
             class: "a_sr_only_focusable a_btn a_btn_link a_p_0 a_table__th__dropdown_item__btn_arrow",
+            disabled: this.disabledOptions,
             type: "button",
             onClick: this.moveColumnUp,
           }, [
@@ -144,6 +152,7 @@ export default {
           this.isButtonArrowDownVisible && h("button", {
             id: this.idButtonArrowDown,
             class: "a_sr_only_focusable a_btn a_btn_link a_p_0 a_table__th__dropdown_item__btn_arrow",
+            disabled: this.disabledOptions,
             type: "button",
             onClick: this.moveColumnDown,
           }, [

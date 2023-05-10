@@ -8,12 +8,12 @@ import AIcon from "../../../AIcon/AIcon";
 
 export default function SortAPI(props) {
   const column = toRef(props, "column");
+  const disabledSort = toRef(props, "disabledSort");
   const isSortingMultiColumn = toRef(props, "isSortingMultiColumn");
   const modelSort = toRef(props, "modelSort");
   const showFirstSortingSequenceNumber = toRef(props, "showFirstSortingSequenceNumber");
 
   const changeModelSort = inject("changeModelSort");
-  const isLoadingTable = inject("isLoadingTable");
 
   const sortId = computed(() => {
     return column.value.sortId;
@@ -95,7 +95,7 @@ export default function SortAPI(props) {
   });
 
   const changeModelSortLocal = $event => {
-    if (isLoadingTable.value) {
+    if (disabledSort.value) {
       return;
     }
     changeModelSort({
@@ -108,7 +108,7 @@ export default function SortAPI(props) {
     if (isSortable.value) {
       return {
         type: "button",
-        disabled: isLoadingTable.value,
+        disabled: disabledSort.value,
         class: "a_btn a_btn_link a_table__th__sort",
         onClick: changeModelSortLocal,
       };

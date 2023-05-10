@@ -1,16 +1,10 @@
 import {
-  computed,
   h,
-  toRef,
 } from "vue";
 
-import ATableFilterCenterItem from "./ATableFilterCenterItem";
+import ATableFilterCenterItem from "./ATableFilterCenterItem/ATableFilterCenterItem";
 
-import {
-  forEach,
-  isNil,
-} from "lodash-es";
-
+import HideAPI from "./compositionAPI/HideAPI";
 
 export default {
   name: "ATableFilterCenter",
@@ -22,6 +16,10 @@ export default {
     dataKeyByKeyIdPerFilter: {
       type: Object,
       required: true,
+    },
+    disabledFilters: {
+      type: Boolean,
+      required: false,
     },
     filtersKeyById: {
       type: Object,
@@ -37,36 +35,9 @@ export default {
     },
   },
   setup(props) {
-    const modelFilters = toRef(props, "modelFilters");
-    const filtersKeyById = toRef(props, "filtersKeyById");
-
-    const hasMinimumOneModel = computed(() => {
-      let hasModel = false;
-      forEach(modelFilters.value, (model, filterId) => {
-        const CURRENT_FILTER = filtersKeyById.value[filterId];
-        if (!CURRENT_FILTER || CURRENT_FILTER.hideFilterCenter) {
-          return;
-        }
-        const TYPE = CURRENT_FILTER.type;
-        if (TYPE === "multiselect" && TYPE === "checkbox") {
-          if (model && model.length) {
-            hasModel = true;
-            return false;
-          }
-        } else {
-          // TODO: model object
-          if (!isNil(model) && model !== "") {
-            hasModel = true;
-            return false;
-          }
-        }
-      });
-      return hasModel;
-    });
-
-    const styleHide = computed(() => {
-      return hasMinimumOneModel.value ? undefined : "display: none;";
-    });
+    const {
+      styleHide,
+    } = HideAPI(props);
 
     return {
       styleHide,
@@ -83,6 +54,7 @@ export default {
       this.filtersVisibleAll.map(filter => {
         return h(ATableFilterCenterItem, {
           key: filter.id,
+          disabledFilters: this.disabledFilters,
           filter,
           closeFilterValue: this.closeFilterValue,
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
