@@ -741,65 +741,99 @@ export default {
           a_table__parent_scrollable: !this.modelIsTableWithoutScroll,
         }],
       }, [
-        h(ALoading, {
-          isLoading: this.isLoadingTable,
-        }, () => [
-          h(ATableTopPanel, {
+        h(ATableTopPanel, {
+          areAllRowsSelected: this.areAllRowsSelected,
+          areSomeRowsSelected: this.areSomeRowsSelected,
+          closeMultipleActionsActive: this.closeMultipleActionsActive,
+          countAllRows: this.countAllRowsLocal,
+          disabledActions: this.disabledActions,
+          disabledMultipleActions: this.disabledMultipleActions,
+          disabledViews: this.disabledViews,
+          isLabelVisible: this.isLabelVisible,
+          label: this.label,
+          labelTag: this.labelTag,
+          labelClass: this.labelClass,
+          tableActions: this.tableActions,
+          multipleActions: this.multipleActions,
+          modelFilters: this.modelFilters,
+          isQuickSearch: this.isQuickSearch,
+          isLoadingMultipleActions: this.isLoadingMultipleActions,
+          modelQuickSearch: this.modelQuickSearch,
+          selectedRows: this.selectedRows,
+          views: this.views,
+          hasViews: this.hasViews,
+          viewCurrent: this.viewCurrent,
+          modelView: this.modelView,
+          tableActionsIndexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
+          tableActionsIndexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
+          onUpdateViewCurrent: this.updateViewCurrent,
+          onUpdateModelQuickSearch: this.updateModelQuickSearch,
+          onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
+          onToggleBtnAllRows: this.toggleBtnAllRows,
+        }, this.$slots),
+        this.isViewTableVisible && h("div", {
+          ref: "tableRef",
+          class: "a_table",
+          ...this.tableRoleAttributes,
+        }, [
+          h(ATableHeader, {
             areAllRowsSelected: this.areAllRowsSelected,
+            areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
             areSomeRowsSelected: this.areSomeRowsSelected,
-            closeMultipleActionsActive: this.closeMultipleActionsActive,
-            countAllRows: this.countAllRowsLocal,
-            disabledActions: this.disabledActions,
-            disabledMultipleActions: this.disabledMultipleActions,
-            disabledViews: this.disabledViews,
-            isLabelVisible: this.isLabelVisible,
-            label: this.label,
-            labelTag: this.labelTag,
-            labelClass: this.labelClass,
-            tableActions: this.tableActions,
-            multipleActions: this.multipleActions,
-            modelFilters: this.modelFilters,
-            isQuickSearch: this.isQuickSearch,
-            isLoadingMultipleActions: this.isLoadingMultipleActions,
-            modelQuickSearch: this.modelQuickSearch,
-            selectedRows: this.selectedRows,
-            views: this.views,
-            hasViews: this.hasViews,
-            viewCurrent: this.viewCurrent,
-            modelView: this.modelView,
-            tableActionsIndexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
-            tableActionsIndexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
-            onUpdateViewCurrent: this.updateViewCurrent,
-            onUpdateModelQuickSearch: this.updateModelQuickSearch,
-            onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
-            onToggleBtnAllRows: this.toggleBtnAllRows,
-          }, this.$slots),
-          this.isViewTableVisible && h("div", {
-            ref: "tableRef",
-            class: "a_table",
-            ...this.tableRoleAttributes,
+            disabledOptions: this.disabledOptions,
+            disabledSort: this.disabledSort,
+            isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+            rowsLocalLength: this.rowsLocalLength,
+            modelSort: this.modelSortLocal,
+            isSortingMultiColumn: this.isSortingMultiColumn,
+            sortingSequenceNumberClass: this.sortingSequenceNumberClass,
+            showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
+            onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+          }),
+          h("div", {
+            class: "a_table__loading",
           }, [
-            h(ATableHeader, {
-              areAllRowsSelected: this.areAllRowsSelected,
-              areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
-              areSomeRowsSelected: this.areSomeRowsSelected,
-              disabledOptions: this.disabledOptions,
-              disabledSort: this.disabledSort,
-              isRowActionsStickyLocal: this.isRowActionsStickyLocal,
-              rowsLocalLength: this.rowsLocalLength,
-              modelSort: this.modelSortLocal,
-              isSortingMultiColumn: this.isSortingMultiColumn,
-              sortingSequenceNumberClass: this.sortingSequenceNumberClass,
-              showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
-              onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-            }),
-            h("div", {
-              class: "a_table__body",
-              role: this.tableChildRole,
-            }, {
-              default: () => this.rowsLocal.map((row, rowIndex) => {
+            h(ALoading, {
+              isLoading: this.isLoadingTable,
+            }, () => [
+              h("div", {
+                class: "a_table__body",
+                role: this.tableChildRole,
+              }, {
+                default: () => this.rowsLocal.map((row, rowIndex) => {
+                  return h(ATableTr, {
+                    key: row[this.keyId] || rowIndex,
+                    allVisibleMobileColumns: this.allVisibleMobileColumns,
+                    areAllRowsSelected: this.areAllRowsSelected,
+                    countVisibleMobileColumns: this.countVisibleMobileColumns,
+                    disabledPreview: this.disabledPreview,
+                    disabledRowActions: this.disabledRowActions,
+                    row,
+                    rowIndex,
+                    isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+                    selectedRowsIndexes: this.selectedRowsIndexes,
+                    rowActionsClass: this.rowActionsClass,
+                    onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+                  }, {
+                    get: vm => [
+                      h(AGet, {
+                        data: vm.row,
+                        keyLabel: vm.column.keyLabel,
+                        filter: vm.column.filter,
+                        filterParameters: vm.column.filterParameters,
+                        defaultValue: vm.column.defaultValue,
+                        tag: vm.column.filterTag || "div",
+                      }),
+                    ],
+                    ...this.$slots,
+                  });
+                })
+              }),
+              (this.hasRows && this.hasRowsFooter) && h("div", {
+                class: "a_table__footer",
+                role: this.tableChildRole,
+              }, this.rowsFooter.map((row, rowIndex) => {
                 return h(ATableTr, {
-                  key: row[this.keyId] || rowIndex,
                   allVisibleMobileColumns: this.allVisibleMobileColumns,
                   areAllRowsSelected: this.areAllRowsSelected,
                   countVisibleMobileColumns: this.countVisibleMobileColumns,
@@ -808,98 +842,69 @@ export default {
                   row,
                   rowIndex,
                   isRowActionsStickyLocal: this.isRowActionsStickyLocal,
-                  selectedRowsIndexes: this.selectedRowsIndexes,
                   rowActionsClass: this.rowActionsClass,
+                  selectedRowsIndexes: this.selectedRowsIndexes,
                   onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+                  isFooter: true,
                 }, {
                   get: vm => [
                     h(AGet, {
                       data: vm.row,
-                      keyLabel: vm.column.keyLabel,
-                      filter: vm.column.filter,
-                      filterParameters: vm.column.filterParameters,
-                      defaultValue: vm.column.defaultValue,
-                      tag: vm.column.filterTag || "div",
+                      keyLabel: vm.column.footerPath,
+                      filter: vm.column.footerFilter,
+                      filterParameters: vm.column.footerFilterParameters,
+                      defaultValue: vm.column.footerDefaultValue,
                     }),
                   ],
                   ...this.$slots,
                 });
-              })
-            }),
-            (this.hasRows && this.hasRowsFooter) && h("div", {
-              class: "a_table__footer",
-              role: this.tableChildRole,
-            }, this.rowsFooter.map((row, rowIndex) => {
-              return h(ATableTr, {
-                allVisibleMobileColumns: this.allVisibleMobileColumns,
-                areAllRowsSelected: this.areAllRowsSelected,
-                countVisibleMobileColumns: this.countVisibleMobileColumns,
-                disabledPreview: this.disabledPreview,
-                disabledRowActions: this.disabledRowActions,
-                row,
-                rowIndex,
-                isRowActionsStickyLocal: this.isRowActionsStickyLocal,
-                rowActionsClass: this.rowActionsClass,
-                selectedRowsIndexes: this.selectedRowsIndexes,
-                onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-                isFooter: true,
-              }, {
-                get: vm => [
-                  h(AGet, {
-                    data: vm.row,
-                    keyLabel: vm.column.footerPath,
-                    filter: vm.column.footerFilter,
-                    filterParameters: vm.column.footerFilterParameters,
-                    defaultValue: vm.column.footerDefaultValue,
-                  }),
-                ],
-                ...this.$slots,
-              });
-            })),
+              })),
+            ]),
           ]),
-          (!this.isViewTableVisible && this.viewCurrent && this.$slots[this.viewCurrent.type]) &&
-          this.$slots[this.viewCurrent.type]({
-            rows: this.rowsLocalAll,
-          }),
-          (this.isViewTableVisible && !this.hasRows) && h("div", {
-            class: "a_table__empty_text",
-          }, "Keine Einträge vorhanden."),
-          (this.isViewTableVisible && this.isPagination) && h("div", {
-            class: "a_pagination__parent"
-          }, [
-            h(ATableCountProPage, {
-              countAllRows: this.countAllRowsLocal,
-              disabledPagination: this.disabledPagination,
-              limitsPerPage: this.limitsPerPage,
-              limit: this.limit,
-              offset: this.offset,
-              rowsLength: this.rowsLocalLength,
-              hasRows: this.hasRows,
-              perPageView: this.perPageView,
-              isMobile: this.isMobile,
-              "onUpdate:limit": this.changeLimit,
-            }),
-            h(ATablePagination, {
-              limit: this.limit,
-              disabledPagination: this.disabledPagination,
-              totalRowsCount: this.totalRowsCountLocal,
-              offset: this.offset,
-              hasRows: this.hasRows,
-              isMobile: this.isMobile,
-              "onUpdate:offset": this.changeOffset,
-            }),
-          ]),
-          this.isPreviewRightOpen && h(ATablePreviewRight, {
-            rowIndex: this.previewRightRowIndex,
-            rows: this.rowsLocalAll,
-            previewHeaderTag: this.previewHeaderTag,
-            onClosePreview: this.closePreview,
-            onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
-            onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
-            onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
-            onTogglePreviewResize: this.togglePreviewResize,
-          }, this.$slots),
+
         ]),
+        (!this.isViewTableVisible && this.viewCurrent && this.$slots[this.viewCurrent.type]) &&
+        this.$slots[this.viewCurrent.type]({
+          rows: this.rowsLocalAll,
+        }),
+        (this.isViewTableVisible && !this.hasRows) && h("div", {
+          class: "a_table__empty_text",
+        }, "Keine Einträge vorhanden."),
+        (this.isViewTableVisible && this.isPagination) && h("div", {
+          class: "a_pagination__parent"
+        }, [
+          h(ATableCountProPage, {
+            countAllRows: this.countAllRowsLocal,
+            disabledPagination: this.disabledPagination,
+            limitsPerPage: this.limitsPerPage,
+            limit: this.limit,
+            offset: this.offset,
+            rowsLength: this.rowsLocalLength,
+            hasRows: this.hasRows,
+            perPageView: this.perPageView,
+            isMobile: this.isMobile,
+            "onUpdate:limit": this.changeLimit,
+          }),
+          h(ATablePagination, {
+            limit: this.limit,
+            disabledPagination: this.disabledPagination,
+            totalRowsCount: this.totalRowsCountLocal,
+            offset: this.offset,
+            hasRows: this.hasRows,
+            isMobile: this.isMobile,
+            "onUpdate:offset": this.changeOffset,
+          }),
+        ]),
+        this.isPreviewRightOpen && h(ATablePreviewRight, {
+          rowIndex: this.previewRightRowIndex,
+          rows: this.rowsLocalAll,
+          previewHeaderTag: this.previewHeaderTag,
+          onClosePreview: this.closePreview,
+          onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
+          onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
+          onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
+          onTogglePreviewResize: this.togglePreviewResize,
+        }, this.$slots),
       ]),
     ]);
   },

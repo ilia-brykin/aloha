@@ -110,6 +110,8 @@ export default function SortAPI(props) {
         type: "button",
         disabled: disabledSort.value,
         class: "a_btn a_btn_link a_table__th__sort",
+        // ariaLabel: "Bla bla", // TODO: Barrierefreiheit
+        // "aria-describedby": "alohaTest",
         onClick: changeModelSortLocal,
       };
     }
