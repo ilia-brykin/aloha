@@ -6,17 +6,17 @@ import {
   withDirectives,
 } from "vue";
 
-import ATranslation from "../../ATranslation/ATranslation";
+import ATranslation from "../../../ATranslation/ATranslation";
 
-import ASafeHtml from "../../directives/ASafeHtml";
+import ASafeHtml from "../../../directives/ASafeHtml";
 
-import AKeysCode from "../../const/AKeysCode";
+import AKeysCode from "../../../const/AKeysCode";
 import {
   setFocusToTinymce
-} from "../ATinymce/compositionAPI/ATinymceAPI";
+} from "../../ATinymce/compositionAPI/ATinymceAPI";
 import {
   scrollToElement,
-} from "../../utils/utilsDOM";
+} from "../../../utils/utilsDOM";
 import {
   get,
   isArray,

@@ -1,23 +1,16 @@
 import {
-  computed,
   h,
   onMounted,
-  ref,
-  toRef,
   watch,
 } from "vue";
 
 import AAlert from "../../AAlert/AAlert";
-import AErrorsElement from "./AErrorsElement";
+import AErrorsElement from "./AErrorsElement/AErrorsElement";
 
-import {
-  getHtmlId
-} from "../compositionApi/UiAPI";
-import {
-  forEach,
-  isEmpty,
-  isUndefined,
-} from "lodash-es";
+import CloseAPI from "./compositionAPI/CloseAPI";
+import ErrorsAPI from "./compositionAPI/ErrorsAPI";
+import FocusAPI from "./compositionAPI/FocusAPI";
+import LabelsAPI from "./compositionAPI/LabelsAPI";
 
 export default {
   name: "AErrors",
@@ -66,75 +59,27 @@ export default {
   emits: [
     "close",
   ],
-  setup(props, { emit }) {
-    const errors = toRef(props, "errors");
-    const isErrors = computed(() => {
-      return !isEmpty(errors.value);
+  setup(props, context) {
+    const {
+      hasErrors,
+    } = ErrorsAPI(props);
+
+    const {
+      elRef,
+      setFocusToElement,
+    } = FocusAPI(props, {
+      hasErrors,
     });
 
-    const close = () => {
-      emit("close");
-    };
+    const {
+      labelsLocal,
+    } = LabelsAPI(props);
 
-    const optionsList = toRef(props, "optionsList");
-    const idPrefix = toRef(props, "idPrefix");
+    const {
+      close,
+    } = CloseAPI(context);
 
-    const getLabelsFromChildren = children => {
-      let labelsFromChildren = {};
-      forEach(children, childOptions => {
-        labelsFromChildren[childOptions.id] = {
-          label: childOptions.labelError || childOptions.label,
-          link: !isUndefined(childOptions.isErrorLink) ? childOptions.isErrorLink : true,
-          id: getHtmlId({
-            id: childOptions.id,
-            idPrefix: childOptions.idPrefix || idPrefix.value,
-            htmlId: childOptions.htmlId,
-          }),
-        };
-        if (childOptions.children && childOptions.children.length) {
-          labelsFromChildren = {
-            ...labelsFromChildren,
-            ...getLabelsFromChildren(childOptions.children),
-          };
-        }
-      });
-
-      return labelsFromChildren;
-    };
-
-    const labelsLocal = computed(() => {
-      let labelsFromOptionsList = {};
-      optionsList.value.forEach(options => {
-        labelsFromOptionsList[options.id] = {
-          label: options.labelError || options.label,
-          link: !isUndefined(options.isErrorLink) ? options.isErrorLink : true,
-          id: getHtmlId({
-            id: options.id,
-            idPrefix: options.idPrefix || idPrefix.value,
-            htmlId: options.htmlId,
-          }),
-        };
-        if (options.children && options.children.length) {
-          labelsFromOptionsList = {
-            ...labelsFromOptionsList,
-            ...getLabelsFromChildren(options.children),
-          };
-        }
-      });
-      return labelsFromOptionsList;
-    });
-
-    const elRef = ref(undefined);
-    const autoFocus = toRef(props, "autoFocus");
-    const setFocusToElement = () => {
-      if (autoFocus.value && isErrors.value) {
-        setTimeout(() => {
-          elRef.value.$el.focus();
-        });
-      }
-    };
-
-    watch(isErrors, () => {
+    watch(hasErrors, () => {
       setFocusToElement();
     });
 
@@ -145,7 +90,7 @@ export default {
     return {
       close,
       elRef,
-      isErrors,
+      hasErrors,
       labelsLocal,
     };
   },
@@ -155,12 +100,12 @@ export default {
       tabindex: -1,
       role: "alert",
       "aria-atomic": true,
-      isVisible: this.isErrors,
+      isVisible: this.hasErrors,
       closable: this.closable,
       closableFromOutside: true,
       onClose: this.close,
     }, () => [
-      this.isErrors && h("div", {
+      this.hasErrors && h("div", {
         class: "a_errors",
       }, [
         h("div", {
