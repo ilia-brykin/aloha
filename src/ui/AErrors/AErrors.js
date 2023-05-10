@@ -157,6 +157,7 @@ export default {
       "aria-atomic": true,
       isVisible: this.isErrors,
       closable: this.closable,
+      closableFromOutside: true,
       onClose: this.close,
     }, () => [
       this.isErrors && h("div", {
