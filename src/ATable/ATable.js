@@ -433,6 +433,7 @@ export default {
       rowsLocalAll,
       rowsLocalLength,
       stopRenderRows,
+      updateRow,
     } = RowsAPI(props, {
       dataSorted,
     });
@@ -665,6 +666,7 @@ export default {
       toggleBtnAllRows,
       toggleMultipleActionsActive,
       togglePreviewResize,
+      updateRow,
       updateViewCurrent,
       viewCurrent,
     };
@@ -859,6 +861,9 @@ export default {
                   ...this.$slots,
                 });
               })),
+              (this.isViewTableVisible && !this.hasRows) && h("div", {
+                class: "a_table__empty_text",
+              }, "Keine Einträge vorhanden."),
             ]),
           ]),
 
@@ -867,9 +872,6 @@ export default {
         this.$slots[this.viewCurrent.type]({
           rows: this.rowsLocalAll,
         }),
-        (this.isViewTableVisible && !this.hasRows) && h("div", {
-          class: "a_table__empty_text",
-        }, "Keine Einträge vorhanden."),
         (this.isViewTableVisible && this.isPagination) && h("div", {
           class: "a_pagination__parent"
         }, [

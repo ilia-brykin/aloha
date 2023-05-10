@@ -424,6 +424,19 @@ export default {
   },
   created() {
     this.setData();
+    setTimeout(() => {
+      this.$refs.aloha.updateRow({ row: {
+        id: 1,
+        number: 1,
+        aloha: `test`,
+        hola: `hola test`,
+        geld: undefined,
+        obj: {
+          aloha: "dffdg",
+        },
+        test: "<div>aloha123</div>",
+      }, rowIndex: 1 });
+    }, 1000);
   },
   methods: {
     changeColumnsOrdering({ modelColumnsOrdering }) {
