@@ -432,6 +432,7 @@ export default {
       rowsLocal,
       rowsLocalAll,
       rowsLocalLength,
+      stopRenderRows,
     } = RowsAPI(props, {
       dataSorted,
     });
@@ -656,6 +657,7 @@ export default {
       setEmptySelectedRowsIndexes,
       setSelectedRowsIndexes,
       startSearch,
+      stopRenderRows,
       tableChildRole,
       tableGrandparentRef,
       tableRef,

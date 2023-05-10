@@ -62,10 +62,14 @@ export default function RowsAPI(props, {
     });
   };
 
+  const stopRenderRows = () => {
+    clearInterval(rowsLocalInterval);
+  };
+
   watch(dataPaginated, () => {
     rowsLocal.value = [];
     rowsLocalIndex = 0;
-    clearInterval(rowsLocalInterval);
+    stopRenderRows();
     addRowsPartToRowsLocal();
     addAllRowsToRowsLocal();
   }, {
@@ -79,5 +83,6 @@ export default function RowsAPI(props, {
     rowsLocal,
     rowsLocalAll,
     rowsLocalLength,
+    stopRenderRows,
   };
 }
