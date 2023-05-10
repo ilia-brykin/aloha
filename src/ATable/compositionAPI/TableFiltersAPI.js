@@ -15,6 +15,7 @@ import {
 export default function TableFiltersAPI(props, { emit }, {
   closePreviewAll = () => {},
   offset = ref(0),
+  setFocusToTable = () => {},
 }) {
   const modelFilters = toRef(props, "modelFilters");
   const offsetStart = toRef(props, "offsetStart");
@@ -126,6 +127,7 @@ export default function TableFiltersAPI(props, { emit }, {
     offset.value = offsetStart.value;
     emit("updateModelFilters", { model: modelFiltersLocal.value });
     closePreviewAll();
+    setFocusToTable();
 
     setTimeout(() => {
       onUpdateModelFilters({ model: modelFilters.value });
@@ -154,6 +156,7 @@ export default function TableFiltersAPI(props, { emit }, {
       MODEL_FILTERS[filter.id] = undefined;
     }
     emit("updateModelFilters", { model: MODEL_FILTERS });
+    setFocusToTable();
 
     setTimeout(() => {
       onUpdateModelFilters({ model: modelFilters.value });

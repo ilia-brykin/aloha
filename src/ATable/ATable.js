@@ -19,6 +19,7 @@ import ATableTr from "./ATableTr/ATableTr";
 import AMobileAPI from "../compositionAPI/AMobileAPI";
 import ColumnsIdsAPI from "./compositionAPI/ColumnsIdsAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
+import FocusTableAPI from "./compositionAPI/FocusTableAPI";
 import InitAPI from "./compositionAPI/InitAPI";
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
 import MobileColumnsAPI from "./compositionAPI/MobileColumnsAPI";
@@ -356,6 +357,13 @@ export default {
     const isMultipleActionsActive = ref(undefined);
 
     const {
+      scrollToTable,
+      setFocusToTable,
+    } = FocusTableAPI({
+      tableRef,
+    });
+
+    const {
       columnsKeyById,
       columnIdsGroupByLocked,
     } = ColumnsIdsAPI(props);
@@ -471,11 +479,12 @@ export default {
       changeOffset,
       changeLimit,
     } = LimitOffsetAPI(props, context, {
-      offset,
-      limit,
       closePreviewAll,
+      limit,
+      offset,
+      scrollToTable,
       setEmptySelectedRowsIndexes,
-      tableRef,
+      setFocusToTable,
     });
     
     const {
