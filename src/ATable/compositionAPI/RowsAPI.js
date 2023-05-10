@@ -1,11 +1,13 @@
 import {
   computed,
   ref,
-  toRef, watch,
+  toRef,
+  watch,
 } from "vue";
 
 import {
   cloneDeep,
+  map,
 } from "lodash-es";
 
 export default function RowsAPI(props, {
@@ -48,7 +50,7 @@ export default function RowsAPI(props, {
   const addRowsPartToRowsLocal = () => {
     const INDEX_START = rowsLocalIndex * rowsCountRenderPerTick.value;
     const INDEX_END = INDEX_START + rowsCountRenderPerTick.value;
-    rowsLocal.value.push(...dataPaginated.value.slice(INDEX_START, INDEX_END));
+    map(dataPaginated.value.slice(INDEX_START, INDEX_END), item => rowsLocal.value.push(item));
     rowsLocalIndex++;
   };
 
