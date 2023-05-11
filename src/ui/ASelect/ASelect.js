@@ -34,6 +34,9 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AKeyId from "../const/AKeyId";
 import {
+  selectPluginOptions,
+} from "../../plugins/ASelectPlugin";
+import {
   isNil,
 } from "lodash-es";
 
@@ -46,50 +49,52 @@ export default {
     buttonClass: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => selectPluginOptions.value.propsDefault.buttonClass,
     },
     countMultiselect: {
       type: Number,
       required: false,
-      default: 4,
+      default: () => selectPluginOptions.value.propsDefault.countMultiselect,
     },
     data: {
       type: Array,
       required: false,
-      default: () => [],
+      default: () => selectPluginOptions.value.propsDefault.data,
     },
     isCloseByClick: {
       type: Boolean,
       required: false,
-      default: undefined,
+      default: () => selectPluginOptions.value.propsDefault.isCloseByClick,
     },
     isDataSimpleArray: {
       type: Boolean,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.isDataSimpleArray,
     },
     isDeselect: {
       type: Boolean,
       required: false,
-      default: true,
+      default: () => selectPluginOptions.value.propsDefault.isDeselect,
     },
     isDeselectAll: {
       type: Boolean,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.isDeselectAll,
     },
-
     isSelectAll: {
       type: Boolean,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.isSelectAll,
     },
     isSelectionCloseable: {
       type: Boolean,
       required: false,
-      default: true,
+      default: () => selectPluginOptions.value.propsDefault.isSelectionCloseable,
     },
     keyGroup: {
       type: [String, Number],
       required: false,
-      default: undefined,
+      default: () => selectPluginOptions.value.propsDefault.keyGroup,
     },
     keyGroupCallback: {
       type: Function,
@@ -99,12 +104,12 @@ export default {
     keyId: {
       type: String,
       required: false,
-      default: "value",
+      default: () => selectPluginOptions.value.propsDefault.keyId,
     },
     keyLabel: {
       type: String,
       required: false,
-      default: "label",
+      default: () => selectPluginOptions.value.propsDefault.keyLabel,
     },
     keyLabelCallback: {
       type: Function,
@@ -114,82 +119,88 @@ export default {
     loading: {
       type: Boolean,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.loading,
     },
     maxCountMultiselect: {
       type: Number,
       required: false,
-      default: undefined,
+      default: () => selectPluginOptions.value.propsDefault.maxCountMultiselect,
       validator: value => value > 0,
+    },
+    menuWidthType: {
+      type: String,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.menuWidthType,
+      validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.modelValue,
     },
     placement: {
       type: String,
       required: false,
-      default: "bottom-end",
+      default: () => selectPluginOptions.value.propsDefault.placement,
       // bottom-start, top-start, top-end, left, right
+    },
+    popperContainerId: {
+      type: String,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.popperContainerId,
     },
     search: {
       type: Boolean,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.search,
     },
     searchOutside: {
       type: Boolean,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.searchOutside,
     },
     slotName: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => selectPluginOptions.value.propsDefault.slotName,
     },
     sortOrder: {
       type: String,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.sortOrder,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     sortOrderGroup: {
       type: String,
       required: false,
+      default: () => selectPluginOptions.value.propsDefault.sortOrderGroup,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     textDeselectAll: {
       type: String,
       required: false,
-      default: "Alle abwählen",
+      default: () => selectPluginOptions.value.propsDefault.textDeselectAll,
     },
     textEmpty: {
       type: String,
       required: false,
-      default: "_SELECT_TEXT_EMPTY_",
+      default: () => selectPluginOptions.value.propsDefault.textEmpty,
     },
     textSearch: {
       type: String,
       required: false,
-      default: "Suche",
+      default: () => selectPluginOptions.value.propsDefault.textSearch,
     },
     textSelectAll: {
       type: String,
       required: false,
-      default: "Alle auswählen",
+      default: () => selectPluginOptions.value.propsDefault.textSelectAll,
     },
     type: {
       type: String,
       required: false,
-      default: "select",
+      default: () => selectPluginOptions.value.propsDefault.type,
       validator: value => ["select", "multiselect"].indexOf(value) !== -1,
-    },
-    popperContainerId: {
-      type: String,
-      required: false,
-      default: "a_select_container",
-    },
-    menuWidthType: {
-      type: String,
-      required: false,
-      default: "as_button",
-      validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
   },
   emits: [
