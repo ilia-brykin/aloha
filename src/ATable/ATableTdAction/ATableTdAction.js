@@ -5,7 +5,6 @@ import {
 import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
 import ATableListItem from "../ATableListItem/ATableListItem";
-import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdown";
 
 import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 
@@ -129,20 +128,14 @@ export default {
             ]),
           ],
         }),
-        this.isRowActionsDropdownVisible && h(AGroupButtonDropdown, {
+        this.isRowActionsDropdownVisible && h(ADropdown, {
+          id: this.buttonActionsId,
           actions: this.rowActionsFiltered,
-          useDropdownActionClass: true,
-          indexFirstDropdownAction: 0,
-          indexFirstDropdownActionMobile: 0,
-          minDropdownActions: 0,
+          buttonIconLeft: "OptionVertical",
+          buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
+          placement: "bottom-end",
+          isCaret: false,
           disabled: this.disabledRowActions,
-          dropdownAttributes: {
-            id: this.buttonActionsId,
-            buttonIconLeft: "OptionVertical",
-            buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-            placement: "bottom-end",
-            isCaret: false,
-          },
         }, this.$slots),
       ]),
     ]);
