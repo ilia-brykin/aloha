@@ -1,7 +1,8 @@
 import {
   h,
   ref,
-  toRef, watch,
+  toRef,
+  watch,
   withDirectives,
 } from "vue";
 
@@ -94,6 +95,11 @@ export default {
       type: Number,
       required: false,
       default: 250,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   setup(props, context) {
