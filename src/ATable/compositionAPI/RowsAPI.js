@@ -79,8 +79,12 @@ export default function RowsAPI(props, {
     rowsLocal.value = [];
     rowsLocalIndex = 0;
     stopRenderRows();
-    addRowsPartToRowsLocal();
-    addAllRowsToRowsLocal();
+    if (rowsCountRenderPerTick.value > 0) {
+      addRowsPartToRowsLocal();
+      addAllRowsToRowsLocal();
+    } else {
+      rowsLocal.value = dataPaginated.value;
+    }
   }, {
     immediate: true,
   });

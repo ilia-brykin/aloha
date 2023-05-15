@@ -301,7 +301,7 @@ export default {
       type: Number,
       required: false,
       default: 25,
-      validator: value => isInteger(value) && value > 0,
+      validator: value => isInteger(value) && value >= 0,
     },
     rowsFooter: {
       type: Array,
