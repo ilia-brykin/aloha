@@ -170,6 +170,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageApi" */ "../views/PageApi/PageApi.vue"),
   },
   {
+    path: "/translation",
+    name: "PageTranslation",
+    component: () => import(/* webpackChunkName: "PageTranslation" */ "../views/PageTranslation/PageTranslation.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

@@ -1,0 +1,56 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_TRANSLATION_COMPONENT_DESCRIPTION_"
+    )
+
+    page-translation-basic
+
+    page-translation-text-after
+
+    page-translation-text-before
+
+    page-translation-text-after-before
+
+    page-translation-text-object
+
+    page-translation-safe-html
+
+    page-translation-html
+
+    page-translation-html-after-before
+
+    page-translation-placeholder
+
+    page-translation-aria-label
+
+    page-translation-title
+
+    page-translation-title-object
+
+    page-translation-title-array
+
+    page-translation-extra
+
+    page-translation-slot-default
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    //-aloha-table-props( TODO: Exposes
+    //-  table-label="Exposes"
+    //-  :data="dataExposes"
+    //-  :columns="['name', 'type', 'description']"
+    //-)

@@ -292,6 +292,14 @@ export default {
           },
           icon: "ChevronDown",
         },
+        {
+          id: "Translation",
+          label: "Translation",
+          to: {
+            name: "PageTranslation",
+          },
+          icon: "Translate",
+        },
       ],
     };
   },

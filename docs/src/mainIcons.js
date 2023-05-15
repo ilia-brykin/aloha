@@ -21,6 +21,7 @@ import MenuDown from "../../src/AIcon/Icons/bootstrap-1-9-1/MenuDown";
 import Reception2 from "../../src/AIcon/Icons/bootstrap-1-9-1/Reception2";
 import SegmentedNav from "../../src/AIcon/Icons/bootstrap-1-9-1/SegmentedNav";
 import Table from "../../src/AIcon/Icons/bootstrap-1-9-1/Table";
+import Translate from "../../src/AIcon/Icons/bootstrap-1-9-1/Translate";
 
 export default {
   ArrowsCollapse,
@@ -46,4 +47,5 @@ export default {
   Reception2,
   SegmentedNav,
   Table,
+  Translate,
 };

@@ -3,43 +3,65 @@ import {
   toRef,
 } from "vue";
 
+import AMobileAPI from "../../compositionAPI/AMobileAPI";
 import UtilsAPI from "./UtilsAPI";
+
+import {
+  isPlainObject,
+  isUndefined,
+} from "lodash-es";
 
 export default function TextAPI(props, {
   translation = computed(() => ({})),
 }) {
   const extra = toRef(props, "extra");
   const text = toRef(props, "text");
-  const textAfter = toRef(props, "textAfter");
-  const textBefore = toRef(props, "textBefore");
 
   const {
     isPlaceholderTranslate,
     getTranslatedText,
   } = UtilsAPI();
 
+  const {
+    isMobileWidth,
+  } = AMobileAPI();
+
+  const textForCurrentDevice = computed(() => {
+    if (isPlainObject(text.value)) {
+      if (isMobileWidth.value) {
+        return text.value.mobile;
+      }
+      return text.value.desktop;
+    }
+    return text.value;
+  });
+
+  const hasText = computed(() => {
+    return !isUndefined(textForCurrentDevice.value);
+  });
+
   const isTranslateText = computed(() => {
-    return !(!text.value || !isPlaceholderTranslate(text.value));
+    return !(!hasText.value || !isPlaceholderTranslate(textForCurrentDevice.value));
   });
 
   const textLocal = computed(() => {
     if (isTranslateText.value) {
       return getTranslatedText({
-        placeholder: text.value,
+        placeholder: textForCurrentDevice.value,
         translationObj: translation.value,
         extra: extra.value
       });
     }
-    return text.value;
-  });
-
-  const textLocalWithBeforeAndAfter = computed(() => {
-    return `${ textBefore.value }${ textLocal.value }${ textAfter.value }`;
+    if (hasText.value) {
+      return textForCurrentDevice.value;
+    }
+    return "";
   });
 
   return {
+    hasText,
     isTranslateText,
+    textForCurrentDevice,
     textLocal,
-    textLocalWithBeforeAndAfter,
   };
 }

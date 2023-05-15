@@ -3,10 +3,14 @@ import {
   toRef,
 } from "vue";
 
+import AMobileAPI from "../../compositionAPI/AMobileAPI";
 import UtilsAPI from "./UtilsAPI";
+
 import {
   forEach,
-  isArray, isNil,
+  isArray,
+  isNil,
+  isPlainObject,
 } from "lodash-es";
 
 export default function TitleAPI(props, {
@@ -20,6 +24,20 @@ export default function TitleAPI(props, {
     getTranslatedText,
   } = UtilsAPI();
 
+  const {
+    isMobileWidth,
+  } = AMobileAPI();
+
+  const titleForCurrentDevice = computed(() => {
+    if (isPlainObject(title.value)) {
+      if (isMobileWidth.value) {
+        return title.value.mobile;
+      }
+      return title.value.desktop;
+    }
+    return title.value;
+  });
+
   const isTitleArray = computed(() => {
     return isArray(title.value);
   });
@@ -28,7 +46,7 @@ export default function TitleAPI(props, {
     if (isTitleArray.value) {
       return title.value.length > 0;
     }
-    return !(isNil(title.value) || title.value === "");
+    return !(isNil(titleForCurrentDevice.value) || titleForCurrentDevice.value === "");
   });
 
   const titleLocalOptions = computed(() => {
@@ -41,7 +59,7 @@ export default function TitleAPI(props, {
     }
     const TITLE_LIST = isTitleArray.value ?
       title.value :
-      [title.value];
+      [titleForCurrentDevice.value];
     let titleCombined = "";
     let dataTranslateTitle = "";
     forEach(TITLE_LIST, titleEl => {
