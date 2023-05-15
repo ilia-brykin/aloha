@@ -71,6 +71,7 @@ export default function ATinymceAPI(props, context, {
       toolbar_mode: toolbarMode.value,
       skin: false,
       content_css: false,
+      entity_encoding: "raw",
       content_style: `${ contentUiSkinCss.toString() }\n${ contentCss.toString() }`,
       branding: branding.value,
       promotion: promotion.value,
