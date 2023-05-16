@@ -2,8 +2,7 @@
   color: red;
 }
 .a_popup_container {
-  position: fixed;
-  width: 0;
+  position: relative;
   height: 0;
   z-index: 1900;
   top: 100%;

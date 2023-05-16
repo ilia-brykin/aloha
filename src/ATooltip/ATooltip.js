@@ -45,7 +45,7 @@ export default {
     minWidth: {
       type: Number,
       required: false,
-      default: 200,
+      default: undefined,
     },
     width: {
       type: Number,

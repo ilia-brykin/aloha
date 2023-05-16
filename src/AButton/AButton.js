@@ -7,11 +7,14 @@ import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ClickAPI from "./comositionAPI/ClickAPI";
+import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
+import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
 import IconsAPI from "./comositionAPI/IconsAPI";
 import LoadingAPI from "./comositionAPI/LoadingAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
 
+import placements from "../const/placements";
 import {
   uniqueId,
 } from "lodash-es";
@@ -180,7 +183,7 @@ export default {
       type: String,
       required: false,
       default: "top",
-      validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
+      validator: placement => placements.indexOf(placement) !== -1,
     },
     type: {
       type: String,
@@ -216,7 +219,17 @@ export default {
       onClick,
     } = ClickAPI(props, context);
 
+    const {
+      componentLocal,
+    } = ComponentLocalAPI(props);
+
+    const {
+      htmlTitleAttributes,
+    } = HtmlTitleAPI(props);
+
     return {
+      componentLocal,
+      htmlTitleAttributes,
       iconLeftCurrentDevice,
       iconRightCurrentDevice,
       isLoadingLeft,
@@ -228,9 +241,10 @@ export default {
     };
   },
   render() {
-    return h(this.tag, {
+    return h(this.componentLocal, {
       ...this.$attrs,
       ...this.attributes,
+      ...this.htmlTitleAttributes,
       id: this.id,
       class: [
         "aloha_btn",
@@ -247,65 +261,76 @@ export default {
       isHiddenCallback: undefined,
       isAllRowsSelected: undefined,
       onClick: this.onClick,
-    }, [
-      this.isTitleVisible && h(ATranslation, {
-        tag: "span",
-        ariaHidden: true,
-        class: "a_position_absolute_all aloha_btn__hidden",
-        title: this.title,
-      }),
-      this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
-        class: "a_sr_only aloha_btn__hidden",
-        tag: "span",
-        text: this.textScreenReader,
-        html: this.htmlScreenReader,
-        safeHtml: this.safeHtmlScreenReader,
-        extra: this.extra,
-      }),
-      this.isLoadingLeft && h(ASpinner, {
-        class: [
-          "aloha_btn__spinner_left",
-          this.loadingClass,
-        ],
-      }),
-      this.iconLeftCurrentDevice && h(AIcon, {
-        icon: this.iconLeftCurrentDevice,
-        iconTag: this.iconTag,
-        class: [
-          "aloha_btn__icon_left",
-          this.iconClass,
-        ],
-        ...this.iconAttributes,
-      }),
-      this.$slots.default && this.$slots.default(),
-      this.isTextOrHtmlVisible && h(ATranslation, {
-        ariaHidden: this.textAriaHidden,
-        ariaLabel: this.ariaLabel,
-        class: this.textClass,
-        extra: this.extra,
-        html: this.html,
-        safeHtml: this.safeHtml,
-        tag: "span",
-        text: this.text,
-        textAfter: this.textAfter,
-        textBefore: this.textBefore,
-      }),
-      this.iconRightCurrentDevice && h(AIcon, {
-        icon: this.iconRightCurrentDevice,
-        iconTag: this.iconTag,
-        class: [
-          "aloha_btn__icon_right",
-          this.iconClass,
-        ],
-        ...this.iconAttributes,
-      }),
-      this.isLoadingRight && h(ASpinner, {
-        class: [
-          "aloha_btn__spinner_right",
-          this.loadingClass,
-        ],
-      }),
-      this.$slots.buttonAppend && this.$slots.buttonAppend(),
-    ]);
+    }, {
+      default: () => [
+        this.isTitleVisible && h(ATranslation, {
+          tag: "span",
+          ariaHidden: true,
+          class: "a_position_absolute_all aloha_btn__hidden",
+          title: this.title,
+        }),
+        this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
+          class: "a_sr_only aloha_btn__hidden",
+          tag: "span",
+          text: this.textScreenReader,
+          html: this.htmlScreenReader,
+          safeHtml: this.safeHtmlScreenReader,
+          extra: this.extra,
+        }),
+        this.isLoadingLeft && h(ASpinner, {
+          class: [
+            "aloha_btn__spinner_left",
+            this.loadingClass,
+          ],
+        }),
+        this.iconLeftCurrentDevice && h(AIcon, {
+          icon: this.iconLeftCurrentDevice,
+          iconTag: this.iconTag,
+          class: [
+            "aloha_btn__icon_left",
+            this.iconClass,
+          ],
+          ...this.iconAttributes,
+        }),
+        this.$slots.default && this.$slots.default(),
+        this.isTextOrHtmlVisible && h(ATranslation, {
+          ariaHidden: this.textAriaHidden,
+          ariaLabel: this.ariaLabel,
+          class: this.textClass,
+          extra: this.extra,
+          html: this.html,
+          safeHtml: this.safeHtml,
+          tag: "span",
+          text: this.text,
+          textAfter: this.textAfter,
+          textBefore: this.textBefore,
+        }),
+        this.iconRightCurrentDevice && h(AIcon, {
+          icon: this.iconRightCurrentDevice,
+          iconTag: this.iconTag,
+          class: [
+            "aloha_btn__icon_right",
+            this.iconClass,
+          ],
+          ...this.iconAttributes,
+        }),
+        this.isLoadingRight && h(ASpinner, {
+          class: [
+            "aloha_btn__spinner_right",
+            this.loadingClass,
+          ],
+        }),
+        this.$slots.buttonAppend && this.$slots.buttonAppend(),
+      ],
+      title: () => {
+        if (!this.isTitleHtml) {
+          return;
+        }
+        return h(ATranslation, {
+          html: this.title,
+          tag: "span",
+        });
+      },
+    });
   },
 };
