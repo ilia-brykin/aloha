@@ -263,7 +263,7 @@ export default {
       onClick: this.onClick,
     }, {
       default: () => [
-        this.isTitleVisible && h(ATranslation, {
+        (this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
           tag: "span",
           ariaHidden: true,
           class: "a_position_absolute_all aloha_btn__hidden",
@@ -277,6 +277,7 @@ export default {
           safeHtml: this.safeHtmlScreenReader,
           extra: this.extra,
         }),
+        this.$slots.buttonPrepend && this.$slots.buttonPrepend(),
         this.isLoadingLeft && h(ASpinner, {
           class: [
             "aloha_btn__spinner_left",
@@ -326,10 +327,13 @@ export default {
         if (!this.isTitleHtml) {
           return;
         }
-        return h(ATranslation, {
-          html: this.title,
-          tag: "span",
-        });
+        return [
+          this.isTitleVisible && h(ATranslation, {
+            html: this.title,
+            tag: "span",
+          }),
+          this.$slots.buttonTitle && this.$slots.buttonTitle(),
+        ];
       },
     });
   },

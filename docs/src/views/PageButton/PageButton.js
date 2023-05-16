@@ -20,6 +20,9 @@ import PageButtonTextAfterBefore from "./PageButtonTextAfterBefore/PageButtonTex
 import PageButtonTextObject from "./PageButtonTextObject/PageButtonTextObject.vue";
 import PageButtonTitleArray from "./PageButtonTitleArray/PageButtonTitleArray.vue";
 import PageButtonTitleHtml from "./PageButtonTitleHtml/PageButtonTitleHtml.vue";
+import PageButtonSlotPrepend from "./PageButtonSlotPrepend/PageButtonSlotPrepend.vue";
+import PageButtonSlotAppend from "./PageButtonSlotAppend/PageButtonSlotAppend.vue";
+import PageButtonSlotTitle from "./PageButtonSlotTitle/PageButtonSlotTitle.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -52,6 +55,9 @@ export default {
     PageButtonTextObject,
     PageButtonTitleArray,
     PageButtonTitleHtml,
+    PageButtonSlotPrepend,
+    PageButtonSlotAppend,
+    PageButtonSlotTitle,
   },
   setup() {
     const {
