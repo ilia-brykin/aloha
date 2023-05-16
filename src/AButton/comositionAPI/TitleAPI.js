@@ -15,7 +15,7 @@ export default function TitleAPI(props) {
   const isTitleHtml = toRef(props, "isTitleHtml");
 
   const isTitleVisible = computed(() => {
-    if (!isTitleHtml.value) {
+    if (isTitleHtml.value) {
       return false;
     }
     if (isArray(title.value) && title.value.length > 0) {
