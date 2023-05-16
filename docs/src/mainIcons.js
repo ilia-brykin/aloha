@@ -5,6 +5,7 @@ import ChevronDown from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronDown";
 import ChevronExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronExpand";
 import ChevronRight from "../../src/AIcon/Icons/bootstrap3/ChevronRight";
 import Duplicate from "../../src/AIcon/Icons/bootstrap3/Duplicate";
+import EjectFill from "../../src/AIcon/Icons/bootstrap-1-9-1/EjectFill";
 import Envelope from "../../src/AIcon/Icons/bootstrap3/Envelope";
 import ExclamationTriangle from "../../src/AIcon/Icons/bootstrap-1-9-1/ExclamationTriangle";
 import Export from "../../src/AIcon/Icons/bootstrap3/Export";
@@ -31,6 +32,7 @@ export default {
   ChevronExpand,
   ChevronRight,
   Duplicate,
+  EjectFill,
   Envelope,
   ExclamationTriangle,
   Export,

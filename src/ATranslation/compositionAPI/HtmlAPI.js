@@ -102,7 +102,7 @@ export default function HtmlAPI(props, {
           extra: extra.value
         }));
       }
-      return htmlForCurrentDevice.value;
+      return sanitizeLocal(htmlForCurrentDevice.value);
     }
     return undefined;
   });

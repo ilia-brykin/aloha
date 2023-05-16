@@ -4,6 +4,9 @@ import {
 } from "vue";
 
 import {
+  isArray,
+  isEmpty,
+  isPlainObject,
   isUndefined,
 } from "lodash-es";
 
@@ -12,7 +15,16 @@ export default function TitleAPI(props) {
   const isTitleHtml = toRef(props, "isTitleHtml");
 
   const isTitleVisible = computed(() => {
-    return !isUndefined(title.value) && !isTitleHtml.value;
+    if (!isTitleHtml.value) {
+      return false;
+    }
+    if (isArray(title.value) && title.value.length > 0) {
+      return true;
+    }
+    if (isPlainObject(title.value)) {
+      return !isEmpty(title.value);
+    }
+    return !isUndefined(title.value);
   });
 
   return {

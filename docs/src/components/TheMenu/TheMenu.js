@@ -300,6 +300,14 @@ export default {
           },
           icon: "Translate",
         },
+        {
+          id: "Button",
+          label: "Button",
+          to: {
+            name: "PageButton",
+          },
+          icon: "EjectFill",
+        },
       ],
     };
   },

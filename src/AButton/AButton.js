@@ -20,13 +20,13 @@ export default {
   name: "AButton",
   inheritAttrs: false,
   props: {
-    id: {
-      type: String,
+    ariaDisabled: {
+      type: Boolean,
       required: false,
-      default: () => uniqueId("a_btn_"),
+      default: undefined,
     },
-    class: {
-      type: [String, Object],
+    ariaLabel: {
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
@@ -35,52 +35,40 @@ export default {
       required: false,
       default: () => ({}),
     },
-    type: {
-      type: String,
-      required: false,
-      default: "button",
-      validator: value => ["button", "submit", "reset"].indexOf(value) !== -1,
-    },
-    title: {
-      type: String,
+    class: {
+      type: [String, Object],
       required: false,
       default: undefined,
-    },
-    isTitleHtml: {
-      type: Boolean,
-      required: false,
-    },
-    titlePlacement: {
-      type: String,
-      required: false,
-      default: "top",
-      validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
     },
     disabled: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
-    ariaDisabled: {
-      type: Boolean,
+    extra: {
+      type: Object,
       required: false,
-      default: false,
+      default: undefined,
     },
-    loading: {
-      type: Boolean,
+    html: {
+      type: [String, Number, Object],
       required: false,
-      default: false,
+      default: undefined,
     },
-    loadingClass: {
-      type: [String, Object],
+    htmlScreenReader: {
+      type: [String, Number, Object],
       required: false,
-      default: "a_spinner_small",
+      default: undefined,
     },
-    loadingAlign: {
+    iconAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    iconClass: {
       type: String,
       required: false,
-      default: "right",
-      validator: value => ["right", "left"].indexOf(value) !== -1,
+      default: undefined,
     },
     iconLeft: {
       type: [String, Object],
@@ -92,51 +80,59 @@ export default {
       required: false,
       default: undefined,
     },
-    iconClass: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    iconAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     iconTag: {
       type: String,
       required: false,
       default: undefined,
     },
-    text: {
-      type: [String, Number, Object],
+    id: {
+      type: String,
+      required: false,
+      default: () => uniqueId("a_btn_"),
+    },
+    isTitleHtml: {
+      type: Boolean,
       required: false,
       default: undefined,
     },
-    textScreenReader: {
-      type: [String, Number, Object],
-      required: false,
-      default: undefined,
-    },
-    textAriaHidden: {
+    loading: {
       type: Boolean,
       required: false,
       default: false,
     },
-    textClass: {
+    loadingAlign: {
       type: String,
       required: false,
-      default: undefined,
+      default: "right",
+      validator: value => ["right", "left"].indexOf(value) !== -1,
+    },
+    loadingClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_spinner_small",
     },
     prevent: {
       type: Boolean,
       required: false,
+      default: undefined,
+    },
+    safeHtml: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
+    safeHtmlScreenReader: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
     },
     stop: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
-    extraTranslate: {
-      type: Object,
+    tabindex: {
+      type: [Number, String],
       required: false,
       default: undefined,
     },
@@ -145,10 +141,52 @@ export default {
       required: false,
       default: "button",
     },
-    tabindex: {
-      type: [Number, String],
+    text: {
+      type: [String, Number, Object],
       required: false,
       default: undefined,
+    },
+    textAfter: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
+    textAriaHidden: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    textBefore: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
+    textClass: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    textScreenReader: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
+    title: {
+      type: [String, Number, Object, Array],
+      required: false,
+      default: undefined,
+    },
+    titlePlacement: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "button",
+      validator: value => ["button", "submit", "reset"].indexOf(value) !== -1,
     },
   },
   emits: [
@@ -170,10 +208,8 @@ export default {
     } = IconsAPI(props);
 
     const {
-      isTextScreenReaderVisible,
-      isTextVisible,
-      textForCurrentDevice,
-      textScreenReaderForCurrentDevice,
+      isTextOrHtmlVisible,
+      isTextOrHtmlScreenReaderVisible,
     } = TextAPI(props);
 
     const {
@@ -185,12 +221,10 @@ export default {
       iconRightCurrentDevice,
       isLoadingLeft,
       isLoadingRight,
-      isTextScreenReaderVisible,
-      isTextVisible,
+      isTextOrHtmlVisible,
+      isTextOrHtmlScreenReaderVisible,
       isTitleVisible,
       onClick,
-      textForCurrentDevice,
-      textScreenReaderForCurrentDevice,
     };
   },
   render() {
@@ -220,11 +254,13 @@ export default {
         class: "a_position_absolute_all aloha_btn__hidden",
         title: this.title,
       }),
-      this.isTextScreenReaderVisible && h(ATranslation, {
+      this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
         class: "a_sr_only aloha_btn__hidden",
         tag: "span",
-        html: this.textScreenReaderForCurrentDevice,
-        extra: this.extraTranslate,
+        text: this.textScreenReader,
+        html: this.htmlScreenReader,
+        safeHtml: this.safeHtmlScreenReader,
+        extra: this.extra,
       }),
       this.isLoadingLeft && h(ASpinner, {
         class: [
@@ -242,12 +278,17 @@ export default {
         ...this.iconAttributes,
       }),
       this.$slots.default && this.$slots.default(),
-      this.isTextVisible && h(ATranslation, {
-        tag: "span",
-        class: this.textClass,
-        html: this.textForCurrentDevice,
-        extra: this.extraTranslate,
+      this.isTextOrHtmlVisible && h(ATranslation, {
         ariaHidden: this.textAriaHidden,
+        ariaLabel: this.ariaLabel,
+        class: this.textClass,
+        extra: this.extra,
+        html: this.html,
+        safeHtml: this.safeHtml,
+        tag: "span",
+        text: this.text,
+        textAfter: this.textAfter,
+        textBefore: this.textBefore,
       }),
       this.iconRightCurrentDevice && h(AIcon, {
         icon: this.iconRightCurrentDevice,
