@@ -20,6 +20,7 @@ import PageAAlertI18n from "./views/PageAlert/i18n/PageAAlertI18n";
 import PageShowMoreI18n from "./views/PageShowMore/i18n/PageShowMoreI18n";
 import PageTranslationI18n from "./views/PageTranslation/i18n/PageTranslationI18n";
 import PageButtonI18n from "./views/PageButton/i18n/PageButtonI18n";
+import PageLinkI18n from "./views/PageLink/i18n/PageLinkI18n";
 
 export const mainTranslation = {
   ar: {
@@ -29,6 +30,7 @@ export const mainTranslation = {
     ...PageShowMoreI18n.ar,
     ...PageTranslationI18n.ar,
     ...PageButtonI18n.ar,
+    ...PageLinkI18n.ar,
   },
   de: {
     ...deGlobal,
@@ -37,6 +39,7 @@ export const mainTranslation = {
     ...PageShowMoreI18n.de,
     ...PageTranslationI18n.de,
     ...PageButtonI18n.de,
+    ...PageLinkI18n.de,
   },
   en: {
     ...enGlobal,
@@ -45,6 +48,7 @@ export const mainTranslation = {
     ...PageShowMoreI18n.en,
     ...PageTranslationI18n.en,
     ...PageButtonI18n.en,
+    ...PageLinkI18n.en,
   },
   es: {
     ...esGlobal,
@@ -53,6 +57,7 @@ export const mainTranslation = {
     ...PageShowMoreI18n.es,
     ...PageTranslationI18n.es,
     ...PageButtonI18n.es,
+    ...PageLinkI18n.es,
   },
   fr: {
     ...frGlobal,
@@ -61,6 +66,7 @@ export const mainTranslation = {
     ...PageShowMoreI18n.fr,
     ...PageTranslationI18n.fr,
     ...PageButtonI18n.fr,
+    ...PageLinkI18n.fr,
   },
   hr: {
     ...hrGlobal,
@@ -69,6 +75,7 @@ export const mainTranslation = {
     ...PageShowMoreI18n.hr,
     ...PageTranslationI18n.hr,
     ...PageButtonI18n.hr,
+    ...PageLinkI18n.hr,
   },
   it: {
     ...itGlobal,
@@ -77,6 +84,7 @@ export const mainTranslation = {
     ...PageShowMoreI18n.it,
     ...PageTranslationI18n.it,
     ...PageButtonI18n.it,
+    ...PageLinkI18n.it,
   },
   ru: {
     ...ruGlobal,
@@ -85,5 +93,6 @@ export const mainTranslation = {
     ...PageShowMoreI18n.ru,
     ...PageTranslationI18n.ru,
     ...PageButtonI18n.ru,
+    ...PageLinkI18n.ru,
   },
 };

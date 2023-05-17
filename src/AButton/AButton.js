@@ -255,11 +255,12 @@ export default {
       onClick: this.onClick,
     }, {
       default: () => [
-        (this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
+        (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
           tag: "span",
           ariaHidden: true,
           class: "a_position_absolute_all aloha_btn__hidden",
           title: this.title,
+          extra: this.extra,
         }),
         this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
           class: "a_sr_only aloha_btn__hidden",

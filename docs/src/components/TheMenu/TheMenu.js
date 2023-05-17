@@ -308,6 +308,14 @@ export default {
           },
           icon: "EjectFill",
         },
+        {
+          id: "Link",
+          label: "Link",
+          to: {
+            name: "PageLink",
+          },
+          icon: "BoxArrowUpRight",
+        },
       ],
     };
   },

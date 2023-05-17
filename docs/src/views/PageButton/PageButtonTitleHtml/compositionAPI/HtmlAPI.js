@@ -1,6 +1,6 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-button
-  class="a_btn a_btn_success"
+  class="a_btn a_btn_success a_mt_2"
   title="_A_BUTTON_EXAMPLE_BIG_TITLE_"
   text="placement: top"
   :is-title-html="true"

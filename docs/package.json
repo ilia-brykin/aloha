@@ -18,8 +18,8 @@
     "lodash-es": "^4.17.21",
     "tiny-emitter": "2.1.0",
     "tinymce": "6.2.0",
-    "vue": "3.2.47",
-    "vue-router": "4.1.6"
+    "vue": "^3.3.2",
+    "vue-router": "4.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.17.10",

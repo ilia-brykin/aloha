@@ -1,16 +1,19 @@
 import {
   h,
-  resolveComponent,
 } from "vue";
 
 import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
+import ComponentLocalAPI from "./compositionAPI/ComponentLocalAPI";
+import HtmlTitleAPI from "./compositionAPI/HtmlTitleAPI";
 import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
 import TextAPI from "../AButton/comositionAPI/TextAPI";
 import TitleAPI from "../AButton/comositionAPI/TitleAPI";
+import ToHrefAPI from "./compositionAPI/ToHrefAPI";
 
+import placements from "../const/placements";
 import {
   uniqueId,
 } from "lodash-es";
@@ -32,9 +35,9 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
-    extraTranslate: {
+    extra: {
       type: Object,
       required: false,
       default: undefined,
@@ -44,13 +47,13 @@ export default {
       required: false,
       default: undefined,
     },
-    iconLeft: {
-      type: String,
+    html: {
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
-    iconRight: {
-      type: String,
+    htmlScreenReader: {
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
@@ -61,6 +64,16 @@ export default {
     },
     iconClass: {
       type: String,
+      required: false,
+      default: undefined,
+    },
+    iconLeft: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    iconRight: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -77,6 +90,7 @@ export default {
     isTitleHtml: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     loading: {
       type: Boolean,
@@ -94,20 +108,40 @@ export default {
       required: false,
       default: "a_spinner_small",
     },
+    safeHtml: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
+    safeHtmlScreenReader: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
     target: {
       type: String,
       required: false,
       default: undefined,
     },
     text: {
-      type: [String, Number],
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
+    textAfter: {
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
     textAriaHidden: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
+    },
+    textBefore: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
     },
     textClass: {
       type: String,
@@ -115,12 +149,12 @@ export default {
       default: undefined,
     },
     textScreenReader: {
-      type: String,
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
     title: {
-      type: String,
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -128,7 +162,7 @@ export default {
       type: String,
       required: false,
       default: "top",
-      validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
+      validator: placement => placements.indexOf(placement) !== -1,
     },
     to: {
       type: [Object, String],
@@ -147,109 +181,133 @@ export default {
     } = LoadingAPI(props);
 
     const {
-      isTextScreenReaderVisible,
-      isTextVisible,
-      textForCurrentDevice,
-      textScreenReaderForCurrentDevice,
+      isTextOrHtmlVisible,
+      isTextOrHtmlScreenReaderVisible,
     } = TextAPI(props);
 
+    const {
+      componentLocal,
+      isRouterLink,
+      tagLocal,
+    } = ComponentLocalAPI(props);
+
+    const {
+      htmlTitleAttributes,
+    } = HtmlTitleAPI(props, {
+      tagLocal,
+    });
+
+    const {
+      toHrefAttributes,
+    } = ToHrefAPI(props, {
+      isRouterLink,
+    });
+
     return {
+      componentLocal,
       isLoadingLeft,
+      htmlTitleAttributes,
       isLoadingRight,
-      isTextScreenReaderVisible,
-      isTextVisible,
+      isTextOrHtmlVisible,
+      isTextOrHtmlScreenReaderVisible,
       isTitleVisible,
-      textForCurrentDevice,
-      textScreenReaderForCurrentDevice,
+      toHrefAttributes,
     };
   },
   render() {
-    const CHILDREN = [
-      this.isTitleVisible && h("span", {
-        ariaHidden: true,
-        class: "a_position_absolute_all aloha_link__hidden",
-        title: this.title,
-      }),
-      this.isTextScreenReaderVisible && h(ATranslation, {
-        class: "a_sr_only aloha_link__hidden",
-        tag: "span",
-        html: this.textScreenReaderForCurrentDevice,
-        extra: this.extraTranslate,
-      }),
-      this.isLoadingLeft && h(ASpinner, {
-        class: [
-          "aloha_link__spinner_left",
-          this.loadingClass,
-        ],
-      }),
-      h(AIcon, {
-        icon: this.iconLeft,
-        iconTag: this.iconTag,
-        class: [
-          "aloha_link__icon_left",
-          this.iconClass,
-        ],
-        ...this.iconAttributes,
-      }),
-      this.$slots.default && this.$slots.default(),
-      this.isTextVisible && h(ATranslation, {
-        tag: "span",
-        class: this.textClass,
-        html: this.textForCurrentDevice,
-        extra: this.extraTranslate,
-        ariaHidden: this.textAriaHidden,
-      }),
-      h(AIcon, {
-        icon: this.iconRight,
-        iconTag: this.iconTag,
-        class: [
-          "aloha_link__icon_right",
-          this.iconClass,
-        ],
-        ...this.iconAttributes,
-      }),
-      this.isLoadingRight && h(ASpinner, {
-        class: [
-          "aloha_link__spinner_right",
-          this.loadingClass,
-        ],
-      }),
-    ];
-
-    if (this.href) {
-      return h("a", {
-        ...this.$attrs,
-        ...this.attributes,
-        href: this.href,
-        target: this.target,
-        id: this.id,
-        class: [
-          "aloha_link",
-          this.class,
-          {
-            inactive: this.disabled,
-          },
-        ],
-        ariaDisabled: this.disabled,
-        type: undefined,
-      }, CHILDREN);
-    }
-    if (this.to) {
-      return h(resolveComponent("RouterLink"), {
-        ...this.$attrs,
-        ...this.attributes,
-        to: this.to,
-        id: this.id,
-        class: [
-          "aloha_link",
-          this.class,
-          {
-            inactive: this.disabled,
-          },
-        ],
-        ariaDisabled: this.disabled,
-        type: undefined,
-      }, () => CHILDREN);
-    }
+    return h(this.componentLocal, {
+      ...this.$attrs,
+      ...this.attributes,
+      ...this.htmlTitleAttributes,
+      ...this.toHrefAttributes,
+      id: this.id,
+      target: this.target,
+      class: [
+        "aloha_link",
+        this.class,
+        {
+          inactive: this.disabled,
+        },
+      ],
+      ariaDisabled: this.disabled,
+      // TODO: ATable
+      isHiddenCallback: undefined,
+      type: undefined,
+    }, {
+      default: () => [
+        (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
+          tag: "span",
+          ariaHidden: true,
+          class: "a_position_absolute_all aloha_link__hidden",
+          title: this.title,
+          extra: this.extra,
+        }),
+        this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
+          class: "a_sr_only aloha_link__hidden",
+          tag: "span",
+          text: this.textScreenReader,
+          html: this.htmlScreenReader,
+          safeHtml: this.safeHtmlScreenReader,
+          extra: this.extra,
+        }),
+        this.$slots.linkPrepend && this.$slots.linkPrepend(),
+        this.isLoadingLeft && h(ASpinner, {
+          class: [
+            "aloha_link__spinner_left",
+            this.loadingClass,
+          ],
+        }),
+        h(AIcon, {
+          icon: this.iconLeft,
+          iconTag: this.iconTag,
+          class: [
+            "aloha_link__icon_left",
+            this.iconClass,
+          ],
+          ...this.iconAttributes,
+        }),
+        this.$slots.default && this.$slots.default(),
+        this.isTextOrHtmlVisible && h(ATranslation, {
+          ariaHidden: this.textAriaHidden,
+          ariaLabel: this.ariaLabel,
+          class: this.textClass,
+          extra: this.extra,
+          html: this.html,
+          safeHtml: this.safeHtml,
+          tag: "span",
+          text: this.text,
+          textAfter: this.textAfter,
+          textBefore: this.textBefore,
+        }),
+        h(AIcon, {
+          icon: this.iconRight,
+          iconTag: this.iconTag,
+          class: [
+            "aloha_link__icon_right",
+            this.iconClass,
+          ],
+          ...this.iconAttributes,
+        }),
+        this.isLoadingRight && h(ASpinner, {
+          class: [
+            "aloha_link__spinner_right",
+            this.loadingClass,
+          ],
+        }),
+        this.$slots.linkAppend && this.$slots.linkAppend(),
+      ],
+      title: () => {
+        if (!this.isTitleHtml) {
+          return;
+        }
+        return [
+          this.isTitleVisible && h(ATranslation, {
+            html: this.title,
+            tag: "span",
+          }),
+          this.$slots.linkTitle && this.$slots.linkTitle(),
+        ];
+      },
+    });
   },
 };

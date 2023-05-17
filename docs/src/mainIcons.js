@@ -1,5 +1,6 @@
 import ArrowsCollapse from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowsCollapse";
 import Bell from "../../src/AIcon/Icons/bootstrap-1-9-1/Bell";
+import BoxArrowUpRight from "../../src/AIcon/Icons/bootstrap-1-9-1/BoxArrowUpRight";
 import CheckLg from "../../src/AIcon/Icons/bootstrap-1-9-1/CheckLg";
 import ChevronDown from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronDown";
 import ChevronExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronExpand";
@@ -27,6 +28,7 @@ import Translate from "../../src/AIcon/Icons/bootstrap-1-9-1/Translate";
 export default {
   ArrowsCollapse,
   Bell,
+  BoxArrowUpRight,
   CheckLg,
   ChevronDown,
   ChevronExpand,
