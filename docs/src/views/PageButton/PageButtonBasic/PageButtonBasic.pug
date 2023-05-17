@@ -7,7 +7,12 @@ aloha-example(
   .a_columns.a_columns_count_12
     .a_column.a_column_4.a_column_12_tablet
       a-button(
-        class="a_btn a_btn_primary"
+        class="a_btn a_btn_link"
+        text="link"
+        @click="onAlert('link')"
+      )
+      a-button(
+        class="a_btn a_btn_primary a_ml_2"
         text="primary"
         @click="onAlert('primary')"
       )

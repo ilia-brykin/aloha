@@ -1,6 +1,12 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-button
-  class="a_btn a_btn_primary"
+  class="a_btn a_btn_link"
+  text="link"
+  @click="onAlert('link')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_primary a_ml_2"
   text="primary"
   @click="onAlert('primary')"
 >
