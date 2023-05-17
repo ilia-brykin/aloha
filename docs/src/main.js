@@ -17,7 +17,9 @@ import {
 const APP = createApp(App);
 
 APP.use(AI18nPlugin, mainTranslation, "de");
-APP.use(AIconPlugin, mainIcons);
+APP.use(AIconPlugin, {
+  icons: mainIcons,
+});
 APP.use(AMobilePlugin, {
   breakpoint: 991,
 });

@@ -9,7 +9,6 @@ import ATranslation from "../ATranslation/ATranslation";
 import ClickAPI from "./comositionAPI/ClickAPI";
 import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
 import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
-import IconsAPI from "./comositionAPI/IconsAPI";
 import LoadingAPI from "./comositionAPI/LoadingAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
@@ -206,11 +205,6 @@ export default {
     } = LoadingAPI(props);
 
     const {
-      iconLeftCurrentDevice,
-      iconRightCurrentDevice,
-    } = IconsAPI(props);
-
-    const {
       isTextOrHtmlVisible,
       isTextOrHtmlScreenReaderVisible,
     } = TextAPI(props);
@@ -230,8 +224,6 @@ export default {
     return {
       componentLocal,
       htmlTitleAttributes,
-      iconLeftCurrentDevice,
-      iconRightCurrentDevice,
       isLoadingLeft,
       isLoadingRight,
       isTextOrHtmlVisible,
@@ -284,8 +276,8 @@ export default {
             this.loadingClass,
           ],
         }),
-        this.iconLeftCurrentDevice && h(AIcon, {
-          icon: this.iconLeftCurrentDevice,
+        h(AIcon, {
+          icon: this.iconLeft,
           iconTag: this.iconTag,
           class: [
             "aloha_btn__icon_left",
@@ -306,8 +298,8 @@ export default {
           textAfter: this.textAfter,
           textBefore: this.textBefore,
         }),
-        this.iconRightCurrentDevice && h(AIcon, {
-          icon: this.iconRightCurrentDevice,
+        h(AIcon, {
+          icon: this.iconRight,
           iconTag: this.iconTag,
           class: [
             "aloha_btn__icon_right",

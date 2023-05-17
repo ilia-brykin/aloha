@@ -7,7 +7,6 @@ import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
-import IconsAPI from "../AButton/comositionAPI/IconsAPI";
 import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
 import TextAPI from "../AButton/comositionAPI/TextAPI";
 import TitleAPI from "../AButton/comositionAPI/TitleAPI";
@@ -148,11 +147,6 @@ export default {
     } = LoadingAPI(props);
 
     const {
-      iconLeftCurrentDevice,
-      iconRightCurrentDevice,
-    } = IconsAPI(props);
-
-    const {
       isTextScreenReaderVisible,
       isTextVisible,
       textForCurrentDevice,
@@ -160,8 +154,6 @@ export default {
     } = TextAPI(props);
 
     return {
-      iconLeftCurrentDevice,
-      iconRightCurrentDevice,
       isLoadingLeft,
       isLoadingRight,
       isTextScreenReaderVisible,
@@ -190,8 +182,8 @@ export default {
           this.loadingClass,
         ],
       }),
-      this.iconLeftCurrentDevice && h(AIcon, {
-        icon: this.iconLeftCurrentDevice,
+      h(AIcon, {
+        icon: this.iconLeft,
         iconTag: this.iconTag,
         class: [
           "aloha_link__icon_left",
@@ -207,8 +199,8 @@ export default {
         extra: this.extraTranslate,
         ariaHidden: this.textAriaHidden,
       }),
-      this.iconRightCurrentDevice && h(AIcon, {
-        icon: this.iconRightCurrentDevice,
+      h(AIcon, {
+        icon: this.iconRight,
         iconTag: this.iconTag,
         class: [
           "aloha_link__icon_right",
