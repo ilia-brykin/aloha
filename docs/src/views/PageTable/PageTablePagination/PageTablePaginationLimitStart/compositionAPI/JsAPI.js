@@ -6,7 +6,7 @@ export default function JsAPI() {
 import ATable from "aloha-vue/src/ATable/ATable";
     
 export default {
-  name: "PageTableSimpleExample",
+  name: "PageTablePaginationLimitStart",
   components: {
     ATable,
   },
@@ -43,7 +43,7 @@ export default {
 
     const setData = () => {
       const DATA = [];
-      times(20, item => {
+      times(1001, item => {
         DATA.push({
           id: item,
           aloha: \`aloha \${ item }\`,

@@ -6,6 +6,9 @@ import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import {
+  isOdd,
+} from "../../utils/utilsMath";
+import {
   ceil,
 } from "lodash-es";
 
@@ -32,6 +35,12 @@ export default {
       type: Number,
       required: true,
     },
+    paginationMaxItems: {
+      type: Number,
+      required: false,
+      default: 5,
+      validator: value => isOdd(value) && value > 0,
+    },
     totalRowsCount: {
       type: Number,
       required: true,
@@ -40,17 +49,11 @@ export default {
   emits: [
     "update:offset",
   ],
-  data() {
-    return {
-      countMaxItems: 5, // should odd be
-      maxItem: undefined,
-    };
-  },
   computed: {
     paginationItems() {
       const PAGINATION_ITEMS = [];
       let currentItemIndex = -1;
-      for (let i = this.countMaxItems - 1; i > -this.countMaxItems; i--) {
+      for (let i = this.paginationMaxItems - 1; i > -this.paginationMaxItems; i--) {
         const NUMBER = this.currentItem - i;
         if (NUMBER > 0 && NUMBER <= this.maxItems) {
           PAGINATION_ITEMS.push(NUMBER);
@@ -90,13 +93,13 @@ export default {
     getIndexStartAndEndForPagination({ currentItemIndex, paginationLength }) {
       let indexStart = -1;
       let indexEnd = paginationLength + 1;
-      const MIN_INDEX = Math.floor(this.countMaxItems / 2);
-      const MAX_INDEX = (this.countMaxItems * 2 - 1);
+      const MIN_INDEX = Math.floor(this.paginationMaxItems / 2);
+      const MAX_INDEX = (this.paginationMaxItems * 2 - 1);
       if (currentItemIndex <= MIN_INDEX) {
         indexStart = 0;
-        indexEnd = this.countMaxItems;
+        indexEnd = this.paginationMaxItems;
       } else if (currentItemIndex >= (MAX_INDEX - (MIN_INDEX + 1))) {
-        indexStart = MAX_INDEX - this.countMaxItems;
+        indexStart = MAX_INDEX - this.paginationMaxItems;
         indexEnd = MAX_INDEX;
       } else {
         indexStart = currentItemIndex - MIN_INDEX;

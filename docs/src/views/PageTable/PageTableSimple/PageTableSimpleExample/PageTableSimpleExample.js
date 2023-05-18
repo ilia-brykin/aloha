@@ -31,27 +31,27 @@ export default {
       {
         id: "column1",
         keyLabel: "id",
-        label: "_A_TABLE_GROUP_SIMPLE_COLUMN_1_",
+        label: "_A_TABLE_COLUMN_1_",
       },
       {
         id: "column2",
         keyLabel: "aloha",
-        label: "_A_TABLE_GROUP_SIMPLE_COLUMN_2_",
+        label: "_A_TABLE_COLUMN_2_",
       },
       {
         id: "column3",
         keyLabel: "aloha",
-        label: "_A_TABLE_GROUP_SIMPLE_COLUMN_3_",
+        label: "_A_TABLE_COLUMN_3_",
       },
       {
         id: "column4",
         keyLabel: "aloha",
-        label: "_A_TABLE_GROUP_SIMPLE_COLUMN_4_",
+        label: "_A_TABLE_COLUMN_4_",
       },
       {
         id: "column5",
         keyLabel: "aloha",
-        label: "_A_TABLE_GROUP_SIMPLE_COLUMN_5_",
+        label: "_A_TABLE_COLUMN_5_",
       },
     ];
 

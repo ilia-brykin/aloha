@@ -30,6 +30,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageTableSimple" */ "../views/PageTable/PageTableSimple/PageTableSimple.vue"),
   },
   {
+    path: "/table-pagination",
+    name: "PageTablePagination",
+    component: () => import(/* webpackChunkName: "PageTablePagination" */ "../views/PageTable/PageTablePagination/PageTablePagination.vue"),
+  },
+  {
     path: "/spinner",
     name: "PageSpinner",
     component: () => import(/* webpackChunkName: "PageSpinner" */ "../views/PageSpinner/PageSpinner.vue"),

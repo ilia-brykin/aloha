@@ -33,6 +33,13 @@ export default {
               },
             },
             {
+              id: "PageTablePagination",
+              label: "Table pagination",
+              to: {
+                name: "PageTablePagination",
+              },
+            },
+            {
               id: "PageTableComplex",
               label: "Table complex",
               to: {

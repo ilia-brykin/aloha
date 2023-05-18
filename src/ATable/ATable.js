@@ -38,6 +38,9 @@ import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 import {
+  isOdd,
+} from "../utils/utilsMath";
+import {
   get,
   isArray,
   isInteger,
@@ -156,7 +159,7 @@ export default {
       type: Boolean,
       required: false,
     },
-    isPagination: {
+    hasPagination: {
       type: Boolean,
       required: false,
       default: false,
@@ -212,6 +215,7 @@ export default {
       type: Number,
       required: false,
       default: 10,
+      validator: value => value > 0 && isInteger(value),
     },
     modelColumnsOrdering: {
       type: Array,
@@ -323,6 +327,12 @@ export default {
       type: [String, Object],
       required: false,
       default: "a_badge",
+    },
+    paginationMaxItems: {
+      type: Number,
+      required: false,
+      default: 5,
+      validator: value => isOdd(value) && value > 0,
     },
     tableActions: {
       type: Array,
@@ -872,7 +882,7 @@ export default {
         this.$slots[this.viewCurrent.type]({
           rows: this.rowsLocalAll,
         }),
-        (this.isViewTableVisible && this.isPagination) && h("div", {
+        (this.isViewTableVisible && this.hasPagination) && h("div", {
           class: "a_pagination__parent"
         }, [
           h(ATableCountProPage, {
@@ -894,6 +904,7 @@ export default {
             offset: this.offset,
             hasRows: this.hasRows,
             isMobile: this.isMobile,
+            paginationMaxItems: this.paginationMaxItems,
             "onUpdate:offset": this.changeOffset,
           }),
         ]),

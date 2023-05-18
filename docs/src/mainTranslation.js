@@ -21,7 +21,9 @@ import PageShowMoreI18n from "./views/PageShowMore/i18n/PageShowMoreI18n";
 import PageTranslationI18n from "./views/PageTranslation/i18n/PageTranslationI18n";
 import PageButtonI18n from "./views/PageButton/i18n/PageButtonI18n";
 import PageLinkI18n from "./views/PageLink/i18n/PageLinkI18n";
+import PageTableI18n from "./views/PageTable/i18n/PageTableI18n";
 import PageTableSimpleI18n from "./views/PageTable/PageTableSimple/i18n/PageTableSimpleI18n";
+import PageTablePaginationI18n from "./views/PageTable/PageTablePagination/i18n/PageTablePaginationI18n";
 
 export const mainTranslation = {
   ar: {
@@ -32,7 +34,9 @@ export const mainTranslation = {
     ...PageTranslationI18n.ar,
     ...PageButtonI18n.ar,
     ...PageLinkI18n.ar,
+    ...PageTableI18n.ar,
     ...PageTableSimpleI18n.ar,
+    ...PageTablePaginationI18n.ar,
   },
   de: {
     ...deGlobal,
@@ -42,7 +46,9 @@ export const mainTranslation = {
     ...PageTranslationI18n.de,
     ...PageButtonI18n.de,
     ...PageLinkI18n.de,
+    ...PageTableI18n.de,
     ...PageTableSimpleI18n.de,
+    ...PageTablePaginationI18n.de,
   },
   en: {
     ...enGlobal,
@@ -52,7 +58,9 @@ export const mainTranslation = {
     ...PageTranslationI18n.en,
     ...PageButtonI18n.en,
     ...PageLinkI18n.en,
+    ...PageTableI18n.en,
     ...PageTableSimpleI18n.en,
+    ...PageTablePaginationI18n.en,
   },
   es: {
     ...esGlobal,
@@ -62,7 +70,9 @@ export const mainTranslation = {
     ...PageTranslationI18n.es,
     ...PageButtonI18n.es,
     ...PageLinkI18n.es,
+    ...PageTableI18n.es,
     ...PageTableSimpleI18n.es,
+    ...PageTablePaginationI18n.es,
   },
   fr: {
     ...frGlobal,
@@ -72,7 +82,9 @@ export const mainTranslation = {
     ...PageTranslationI18n.fr,
     ...PageButtonI18n.fr,
     ...PageLinkI18n.fr,
+    ...PageTableI18n.fr,
     ...PageTableSimpleI18n.fr,
+    ...PageTablePaginationI18n.fr,
   },
   hr: {
     ...hrGlobal,
@@ -82,7 +94,9 @@ export const mainTranslation = {
     ...PageTranslationI18n.hr,
     ...PageButtonI18n.hr,
     ...PageLinkI18n.hr,
+    ...PageTableI18n.hr,
     ...PageTableSimpleI18n.hr,
+    ...PageTablePaginationI18n.hr,
   },
   it: {
     ...itGlobal,
@@ -92,7 +106,9 @@ export const mainTranslation = {
     ...PageTranslationI18n.it,
     ...PageButtonI18n.it,
     ...PageLinkI18n.it,
+    ...PageTableI18n.it,
     ...PageTableSimpleI18n.it,
+    ...PageTablePaginationI18n.it,
   },
   ru: {
     ...ruGlobal,
@@ -102,6 +118,8 @@ export const mainTranslation = {
     ...PageTranslationI18n.ru,
     ...PageButtonI18n.ru,
     ...PageLinkI18n.ru,
+    ...PageTableI18n.ru,
     ...PageTableSimpleI18n.ru,
+    ...PageTablePaginationI18n.ru,
   },
 };

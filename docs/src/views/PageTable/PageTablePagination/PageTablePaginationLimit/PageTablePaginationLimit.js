@@ -1,17 +1,33 @@
-export default function JsAPI() {
-  const codeJs = `import {
+import {
   ref,
 } from "vue";
 
-import ATable from "aloha-vue/src/ATable/ATable";
-    
+import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
+import ATable from "../../../../../../src/ATable/ATable";
+
+import HtmlAPI from "./compositionAPI/HtmlAPI";
+import JsAPI from "./compositionAPI/JsAPI";
+
+import {
+  times,
+} from "lodash-es";
+
 export default {
-  name: "PageTableSimpleExample",
+  name: "PageTablePaginationLimit",
   components: {
+    AlohaExample,
     ATable,
   },
   setup() {
-     const columns = [
+    const {
+      codeHtml,
+    } = HtmlAPI();
+
+    const {
+      codeJs,
+    } = JsAPI();
+
+    const columns = [
       {
         id: "column1",
         keyLabel: "id",
@@ -43,25 +59,22 @@ export default {
 
     const setData = () => {
       const DATA = [];
-      times(20, item => {
+      times(1001, item => {
         DATA.push({
           id: item,
-          aloha: \`aloha \${ item }\`,
+          aloha: `aloha ${ item }`,
         });
       });
       data.value = DATA;
     };
 
     setData();
-    
+
     return {
+      codeHtml,
+      codeJs,
       columns,
       data,
     };
   },
-};`;
-
-  return {
-    codeJs,
-  };
-}
+};
