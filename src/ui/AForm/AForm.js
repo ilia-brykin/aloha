@@ -133,7 +133,7 @@ export default {
       }),
       h(AErrors, {
         errors: this.errors,
-        isDismissible: false,
+        closable: false,
         optionsList: this.data,
         idPrefix: this.idPrefix,
         textErrorHeader: this.textErrorHeader,
