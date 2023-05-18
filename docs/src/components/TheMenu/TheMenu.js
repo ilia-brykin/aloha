@@ -21,13 +21,25 @@ export default {
           icon: "HourglassSplit",
         },
         {
-          group: "Aloha",
-          id: "table",
-          label: "Table",
-          to: {
-            name: "PageTable",
-          },
+          id: "Table",
+          label: "Tables",
           icon: "Table",
+          children: [
+            {
+              id: "PageTableSimple",
+              label: "Table simple",
+              to: {
+                name: "PageTableSimple",
+              },
+            },
+            {
+              id: "PageTableComplex",
+              label: "Table complex",
+              to: {
+                name: "PageTableComplex",
+              },
+            },
+          ],
         },
         {
           group: "Hola",

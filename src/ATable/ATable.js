@@ -132,12 +132,12 @@ export default {
     isActionColumnVisible: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     isColumnsDnd: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     isLabelVisible: {
       type: Boolean,
@@ -159,7 +159,7 @@ export default {
     isPagination: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     isPaginationOutside: {
       type: Boolean,
@@ -231,7 +231,7 @@ export default {
     modelIsTableWithoutScrollStart: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     modelQuickSearch: {
       type: String,

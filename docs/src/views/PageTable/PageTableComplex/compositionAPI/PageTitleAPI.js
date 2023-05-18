@@ -4,7 +4,7 @@ import {
 
 import {
   getTranslatedText,
-} from "../../../../../src/ATranslation/compositionAPI/UtilsAPI";
+} from "../../../../../../src/ATranslation/compositionAPI/UtilsAPI";
 
 
 export default function PageTitleAPI() {

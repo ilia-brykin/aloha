@@ -193,9 +193,11 @@ export default {
             h(this.labelTag, {
               class: ["a_table__top_panel__label", this.labelClass],
             }, [
-              h("span", {
+              h(ATranslation, {
+                tag: "span",
                 class: "a_table__top_panel__label__text",
-              }, this.label),
+                text: this.label,
+              }),
               h("span", {
                 class: "a_table__top_panel__label__count",
               }, this.countAllRowsFormatted),

@@ -1,19 +1,16 @@
 import {
   h,
-  withDirectives,
 } from "vue";
 
-import AIcon from "../../AIcon/AIcon";
-import ATranslation from "../../ATranslation/ATranslation";
+import AIcon from "../../../AIcon/AIcon";
+import ATranslation from "../../../ATranslation/ATranslation";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
-import DragAndDropChildAPI from "../compositionAPI/DragAndDropChildAPI";
-import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
+import DragAndDropChildAPI from "../../compositionAPI/DragAndDropChildAPI";
+import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
 
 import {
   setFocusToElement,
-} from "../../utils/utils";
+} from "../../../utils/utils";
 import {
   cloneDeep,
 } from "lodash-es";
@@ -266,11 +263,11 @@ export default {
               icon: this.column.icon,
               class: "a_table__th__icon",
             }),
-            withDirectives(h("span", {
+            h(ATranslation, {
+              tag: "span",
               class: "a_table__th__text",
-            }), [
-              [ASafeHtml, this.labelLocal],
-            ]),
+              text: this.labelLocal,
+            }),
             this.column.title && h(ATranslation, {
               title: this.column.title,
               ariaHidden: true,

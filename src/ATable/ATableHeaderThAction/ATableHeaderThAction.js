@@ -6,7 +6,7 @@ import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../../ui/AInput/AInput";
 import ASwitch from "../../ui/ASwitch/ASwitch";
-import ATableHeaderThActionItem from "./ATableHeaderThActionItem";
+import ATableHeaderThActionItem from "./ATableHeaderThActionItem/ATableHeaderThActionItem";
 
 import ColumnSearchAPI from "../compositionAPI/ColumnSearchAPI";
 import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";

@@ -20,9 +20,14 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: "/table",
-    name: "PageTable",
-    component: () => import(/* webpackChunkName: "PageTable" */ "../views/PageTable/PageTable.vue"),
+    path: "/table-complex",
+    name: "PageTableComplex",
+    component: () => import(/* webpackChunkName: "PageTableComplex" */ "../views/PageTable/PageTableComplex/PageTableComplex.vue"),
+  },
+  {
+    path: "/table-simple",
+    name: "PageTableSimple",
+    component: () => import(/* webpackChunkName: "PageTableSimple" */ "../views/PageTable/PageTableSimple/PageTableSimple.vue"),
   },
   {
     path: "/spinner",
