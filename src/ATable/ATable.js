@@ -899,7 +899,7 @@ export default {
           }),
           h(ATablePagination, {
             limit: this.limit,
-            disabledPagination: this.disabledPagination,
+            disabled: this.disabledPagination,
             totalRowsCount: this.totalRowsCountLocal,
             offset: this.offset,
             hasRows: this.hasRows,
