@@ -49,7 +49,7 @@ export default {
       const DATA = [];
       times(COUNT, item => {
         DATA.push({
-          id: item,
+          id: item + 1,
           aloha: \`aloha \${ item }\`,
         });
       });
