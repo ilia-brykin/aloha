@@ -11,5 +11,8 @@
   "_HIDE_SOURCE_": "Quelltext ausblenden",
   "_SUPPORT_FRAMEWORKS_": "Wir unterstützen die folgenden CSS-Frameworks",
   "_VIEW_SOURCE_": "Quelltext anzeigen",
+  "_ALOHA_TABLE_TRANSLATE_LABEL_": "Übersetzungen",
+  "_ALOHA_TABLE_COLUMN_TRANSLATE_PLACEHOLDER_": "Platzhalter",
+  "_ALOHA_TABLE_COLUMN_TRANSLATE_": "Übersetzung",
   "_WELCOME_": "Willkommen"
 }
