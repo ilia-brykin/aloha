@@ -4,6 +4,7 @@ import PageTableSortStart from "./PageTableSortStart/PageTableSortStart.vue";
 import PageTableSortMultiColumn from "./PageTableSortMultiColumn/PageTableSortMultiColumn.vue";
 import PageTableSortDisabled from "./PageTableSortDisabled/PageTableSortDisabled.vue";
 import PageTableSortMultiColumnFirstNumber from "./PageTableSortMultiColumnFirstNumber/PageTableSortMultiColumnFirstNumber.vue";
+import PageTableSortMultiColumnKey from "./PageTableSortMultiColumnKey/PageTableSortMultiColumnKey.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import TranslateAPI from "./compositionAPI/TranslateAPI";
@@ -17,6 +18,7 @@ export default {
     PageTableSortMultiColumn,
     PageTableSortDisabled,
     PageTableSortMultiColumnFirstNumber,
+    PageTableSortMultiColumnKey,
   },
   setup() {
     const {

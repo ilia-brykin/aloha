@@ -1,0 +1,33 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_GROUP_SORT_MULTI_COLUMN_KEY_HEADER_"
+  description="_A_TABLE_GROUP_SORT_MULTI_COLUMN_KEY_DESCRIPTION_"
+)
+  div
+    a-table(
+      :columns="columns"
+      :data="data"
+      label="_A_TABLE_GROUP_SORT_MULTI_COLUMN_KEY_SHIFT_LABEL_"
+      key-id="id"
+      :is-sorting-multi-column="true"
+      sorting-multi-column-key="shift"
+    )
+
+    a-table(
+      :columns="columns"
+      :data="data"
+      label="_A_TABLE_GROUP_SORT_MULTI_COLUMN_KEY_CTRL_LABEL_"
+      key-id="id"
+      :is-sorting-multi-column="true"
+      sorting-multi-column-key="ctrl"
+    )
+
+    a-table(
+      :columns="columns"
+      :data="data"
+      label="_A_TABLE_GROUP_SORT_MULTI_COLUMN_KEY_ALT_LABEL_"
+      key-id="id"
+      :is-sorting-multi-column="true"
+      sorting-multi-column-key="alt"
+    )
