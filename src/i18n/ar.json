@@ -1,4 +1,7 @@
 {
+  "_A_COUNT_PER_PAGE_": "[ALOHA]",
+  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "[ALOHA]",
+  "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "[ALOHA]",
   "_A_PAGINATION_FIRST_PAGE_": "[ALOHA]",
   "_A_PAGINATION_LAST_PAGE_": "[ALOHA]",
   "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ allPages }}ل {{ currentPage }}",

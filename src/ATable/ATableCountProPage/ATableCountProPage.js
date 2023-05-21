@@ -17,7 +17,7 @@ export default {
       type: Number,
       required: true,
     },
-    disabledPagination: {
+    disabled: {
       type: Boolean,
       required: false,
     },
@@ -82,13 +82,13 @@ export default {
         [
           h(ATranslation, {
             class: "a_pagination__count_from_to",
-            html: "_TABLE_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+            html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
             extra: this.extraForTranslate,
           }),
           h(ATranslation, {
             tag: "span",
             class: "a_pagination__count__text",
-            html: "_TABLE_PER_PAGE_",
+            html: "_A_COUNT_PER_PAGE_",
           }),
           h("div", {
             class: "a_pagination__count",
@@ -100,8 +100,13 @@ export default {
                 h(AButton, {
                   type: "button",
                   class: "a_btn a_btn_link a_pagination__count__button",
-                  disabled: +count === this.limit || this.disabledPagination,
+                  disabled: +count === this.limit || this.disabled,
                   text: count,
+                  textAriaHidden: true,
+                  textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  extra: {
+                    count,
+                  },
                   onClick: () => this.changeLimit(count),
                 }),
               ]);
@@ -111,16 +116,16 @@ export default {
         [
           h(ATranslation, {
             class: "a_pagination__count_from_to",
-            html: "_TABLE_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+            html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
             extra: this.extraForTranslate,
           }),
           h(ASelect, {
-            label: "_TABLE_PER_PAGE_",
+            label: "_A_COUNT_PER_PAGE_",
             data: this.limitsPerPage,
             isDataSimpleArray: true,
             isDeselect: false,
             modelValue: this.limitString,
-            disabled: this.disabledPagination,
+            disabled: this.disabled,
             change: this.changeLimitFromSelect,
           }),
         ]);

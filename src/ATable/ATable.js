@@ -887,7 +887,7 @@ export default {
         }, [
           h(ATableCountProPage, {
             countAllRows: this.countAllRowsLocal,
-            disabledPagination: this.disabledPagination,
+            disabled: this.disabledPagination,
             limitsPerPage: this.limitsPerPage,
             limit: this.limit,
             offset: this.offset,
