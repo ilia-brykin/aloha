@@ -147,13 +147,16 @@ export default {
                 ]) :
                 this.paginationItems.map(item => {
                   return h("li", {
-                    class: ["a_pagination__item", { active: item === this.currentItem }],
+                    class: ["a_pagination__item", {
+                      active: item === this.currentItem,
+                      disabled: this.disabled,
+                    }],
                   }, [
                     h(AButton, {
                       tag: "a",
                       class: "a_pagination__item__link",
                       role: "button",
-                      tabindex: item === this.currentItem ? -1 : 0,
+                      tabindex: item === this.currentItem || this.disabled ? -1 : 0,
                       textScreenReader: "_A_PAGINATION_TO_PAGE_{{page}}_",
                       text: item,
                       textAriaHidden: true,

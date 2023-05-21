@@ -1,5 +1,6 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
+import PageTablePaginationDisabled from "./PageTablePaginationDisabled/PageTablePaginationDisabled.vue";
 import PageTablePaginationExample from "./PageTablePaginationExample/PageTablePaginationExample.vue";
 import PageTablePaginationLimit from "./PageTablePaginationLimit/PageTablePaginationLimit.vue";
 import PageTablePaginationLimitStart from "./PageTablePaginationLimitStart/PageTablePaginationLimitStart.vue";
@@ -14,6 +15,7 @@ export default {
   components: {
     AlohaPage,
     AlohaTableTranslate,
+    PageTablePaginationDisabled,
     PageTablePaginationExample,
     PageTablePaginationLimit,
     PageTablePaginationLimitStart,
