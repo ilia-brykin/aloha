@@ -4,6 +4,10 @@ import {
   toRef,
 } from "vue";
 
+import {
+  cloneDeep,
+} from "lodash-es";
+
 export default function SortChangeAPI(props, { emit }, {
   modelSortLocal = ref([]),
   setEmptySelectedRowsIndexes = () => {},
@@ -56,7 +60,7 @@ export default function SortChangeAPI(props, { emit }, {
       changeModelSortSingleColumn({ sortId });
     }
     emit("changeSorting", {
-      modelSort: modelSortLocal.value,
+      modelSort: cloneDeep(modelSortLocal.value),
     });
     setEmptySelectedRowsIndexes();
     closePreviewAll();
