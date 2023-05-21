@@ -24,6 +24,7 @@ import PageLinkI18n from "./views/PageLink/i18n/PageLinkI18n";
 import PageTableI18n from "./views/PageTable/i18n/PageTableI18n";
 import PageTableSimpleI18n from "./views/PageTable/PageTableSimple/i18n/PageTableSimpleI18n";
 import PageTablePaginationI18n from "./views/PageTable/PageTablePagination/i18n/PageTablePaginationI18n";
+import PageTableSortI18n from "./views/PageTable/PageTableSort/i18n/PageTableSortI18n";
 
 export const mainTranslation = {
   ar: {
@@ -37,6 +38,7 @@ export const mainTranslation = {
     ...PageTableI18n.ar,
     ...PageTableSimpleI18n.ar,
     ...PageTablePaginationI18n.ar,
+    ...PageTableSortI18n.ar,
   },
   de: {
     ...deGlobal,
@@ -49,6 +51,7 @@ export const mainTranslation = {
     ...PageTableI18n.de,
     ...PageTableSimpleI18n.de,
     ...PageTablePaginationI18n.de,
+    ...PageTableSortI18n.de,
   },
   en: {
     ...enGlobal,
@@ -61,6 +64,7 @@ export const mainTranslation = {
     ...PageTableI18n.en,
     ...PageTableSimpleI18n.en,
     ...PageTablePaginationI18n.en,
+    ...PageTableSortI18n.en,
   },
   es: {
     ...esGlobal,
@@ -73,6 +77,7 @@ export const mainTranslation = {
     ...PageTableI18n.es,
     ...PageTableSimpleI18n.es,
     ...PageTablePaginationI18n.es,
+    ...PageTableSortI18n.es,
   },
   fr: {
     ...frGlobal,
@@ -85,6 +90,7 @@ export const mainTranslation = {
     ...PageTableI18n.fr,
     ...PageTableSimpleI18n.fr,
     ...PageTablePaginationI18n.fr,
+    ...PageTableSortI18n.fr,
   },
   hr: {
     ...hrGlobal,
@@ -97,6 +103,7 @@ export const mainTranslation = {
     ...PageTableI18n.hr,
     ...PageTableSimpleI18n.hr,
     ...PageTablePaginationI18n.hr,
+    ...PageTableSortI18n.hr,
   },
   it: {
     ...itGlobal,
@@ -109,6 +116,7 @@ export const mainTranslation = {
     ...PageTableI18n.it,
     ...PageTableSimpleI18n.it,
     ...PageTablePaginationI18n.it,
+    ...PageTableSortI18n.it,
   },
   ru: {
     ...ruGlobal,
@@ -121,5 +129,6 @@ export const mainTranslation = {
     ...PageTableI18n.ru,
     ...PageTableSimpleI18n.ru,
     ...PageTablePaginationI18n.ru,
+    ...PageTableSortI18n.ru,
   },
 };

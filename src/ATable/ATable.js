@@ -175,7 +175,7 @@ export default {
     isSortingMultiColumn: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     isSortingOutside: {
       type: Boolean,
@@ -315,7 +315,7 @@ export default {
     showFirstSortingSequenceNumber: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     sortingMultiColumnKey: {
       type: String,

@@ -40,6 +40,13 @@ export default {
               },
             },
             {
+              id: "PageTableSort",
+              label: "Table sort",
+              to: {
+                name: "PageTableSort",
+              },
+            },
+            {
               id: "PageTableComplex",
               label: "Table complex",
               to: {
