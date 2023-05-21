@@ -5,6 +5,7 @@ import PageTableSortMultiColumn from "./PageTableSortMultiColumn/PageTableSortMu
 import PageTableSortDisabled from "./PageTableSortDisabled/PageTableSortDisabled.vue";
 import PageTableSortMultiColumnFirstNumber from "./PageTableSortMultiColumnFirstNumber/PageTableSortMultiColumnFirstNumber.vue";
 import PageTableSortMultiColumnKey from "./PageTableSortMultiColumnKey/PageTableSortMultiColumnKey.vue";
+import PageTableSortSequenceNumberClass from "./PageTableSortSequenceNumberClass/PageTableSortSequenceNumberClass.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import TranslateAPI from "./compositionAPI/TranslateAPI";
@@ -19,6 +20,7 @@ export default {
     PageTableSortDisabled,
     PageTableSortMultiColumnFirstNumber,
     PageTableSortMultiColumnKey,
+    PageTableSortSequenceNumberClass,
   },
   setup() {
     const {
