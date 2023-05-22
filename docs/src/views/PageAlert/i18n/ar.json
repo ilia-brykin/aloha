@@ -9,7 +9,7 @@
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_HEADER_": "عنصر الإغلاق مع التحكم الخارجي",
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_SHOW_ALERT_": "عرض المكون",
   "_A_ALERT_GROUP_CLOSABLE_HEADER_": "قابل للإغلاق",
-  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p> المعلمات: <strong> alert-class </strong> ، <strong> alert-content-class </strong> ، <strong> icon-class </strong> </p> <p> تغير عرض العناصر الفردية في المكون </p>",
+  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p> تغير عرض العناصر الفردية في المكون </p>",
   "_A_ALERT_GROUP_CSS_HEADER_": "فئات CSS إضافية",
   "_A_ALERT_GROUP_EXPOSES_HEADER_": "المعروضات: الملكيات العامة",
   "_A_ALERT_GROUP_HTML_DESCRIPTION_": "المعلمة: <strong> html </strong> تسمح لك بعرض HTML",

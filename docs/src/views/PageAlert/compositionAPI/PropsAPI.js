@@ -22,14 +22,7 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "closableFromOutside",
-      description: "_A_ALERT_PROPS_CLOSABLE_FROM_OUTSIDE_DESCRIPTION_",
-      type: "Boolean",
-      default: false,
-      required: false,
-    },
-    {
-      name: "has-icon",
+      name: "show-icon",
       description: "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_",
       type: "Boolean",
       default: false,
@@ -61,6 +54,27 @@ export default function PropsAPI() {
       description: "_A_ALERT_PROPS_IS_VISIBLE_DESCRIPTION_",
       type: "Boolean",
       default: false,
+      required: false,
+    },
+    {
+      name: "removeAlertOnClose",
+      description: "_A_ALERT_PROPS_REMOVE_ALERT_ON_CLOSE_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
+      name: "safe-html",
+      description: "_A_ALERT_PROPS_SAFE_HTML_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "text",
+      description: "_A_ALERT_PROPS_TEXT_DESCRIPTION_",
+      type: "String",
+      default: undefined,
       required: false,
     },
     {

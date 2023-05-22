@@ -4,23 +4,28 @@ export default function JsAPI() {
 } from "vue";
 
 import AAlert from "aloha-vue/src/AAlert/AAlert";
+import AButton from "aloha-vue/src/AButton/AButton";
     
 export default {
   name: "PageAlertExposes",
   components: {
     AAlert,
+    AButton,
   },
   setup() {
     const alertRef = ref(undefined);
-    
-    setTimeout(() => {
-      console.log("alertRef.value", alertRef.value);
-      console.log("alertRef.value.close", alertRef.value.close);
-      console.log("alertRef.value.isHidden", alertRef.value.isHidden);
-    }, 300);
+
+    const closeAlert = () => {
+      alertRef.value.close();
+    };
+
+    const showAlert = () => {
+      alertRef.value.isHidden = false;
+    };
     
     return {
-      alertRef,
+      closeAlert,
+      showAlert,
     };
   },
 };`;

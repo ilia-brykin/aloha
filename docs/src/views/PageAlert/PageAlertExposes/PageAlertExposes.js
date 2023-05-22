@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AAlert from "../../../../../src/AAlert/AAlert";
+import AButton from "../../../../../src/AButton/AButton";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -12,6 +13,7 @@ export default {
   name: "PageAlertExposes",
   components: {
     AAlert,
+    AButton,
     AlohaExample,
   },
   setup() {
@@ -25,16 +27,20 @@ export default {
 
     const alertRef = ref(undefined);
 
-    setTimeout(() => {
-      console.log("alertRef.value", alertRef.value);
-      console.log("alertRef.value.close", alertRef.value.close);
-      console.log("alertRef.value.isHidden", alertRef.value.isHidden);
-    }, 300);
+    const closeAlert = () => {
+      alertRef.value.close();
+    };
+
+    const showAlert = () => {
+      alertRef.value.isHidden = false;
+    };
 
     return {
       alertRef,
+      closeAlert,
       codeHtml,
       codeJs,
+      showAlert,
     };
   },
 };

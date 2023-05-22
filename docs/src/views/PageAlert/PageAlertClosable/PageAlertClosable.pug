@@ -3,17 +3,20 @@ aloha-example(
   :code-js="codeJs"
   header="_A_ALERT_GROUP_CLOSABLE_HEADER_"
   description="_A_ALERT_GROUP_CLOSABLE_DESCRIPTION_"
+  props="closable"
+  emits="close"
 )
+  div
+    a-button.a_btn.a_btn_primary(
+      v-if="!isAlertVisible"
+      text="_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_SHOW_ALERT_"
+      @click="showAlert"
+    )
   a-alert(
     html="Alert success"
-    :is-visible="true"
+    :is-visible="isAlertVisible"
     type="success"
     :closable="true"
-  )
-  a-alert(
-    html="Alert danger"
-    :is-visible="true"
-    type="danger"
-    :closable="true"
+    @close="hideAlert"
   )
 

@@ -1,25 +1,13 @@
-import AAlert from "../../../../../src/AAlert/AAlert";
-import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-
-import HtmlAPI from "./compositionAPI/HtmlAPI";
-import JsAPI from "./compositionAPI/JsAPI";
-
+export default function JsAPI() {
+  const codeJs = `import AAlert from "aloha-vue/src/AAlert/AAlert";
+    
 export default {
-  name: "PageAlertHtml",
+  name: "PageAlertSafeHtml",
   components: {
     AAlert,
-    AlohaExample,
   },
   setup() {
-    const {
-      codeHtml,
-    } = HtmlAPI();
-
-    const {
-      codeJs,
-    } = JsAPI();
-
-    const html = `<p onclick="alert('Aloha')">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, 
+    const html = \`<p onclick="alert('Aloha')">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, 
       pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. 
       Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, 
       in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent
@@ -29,12 +17,15 @@ export default {
       faucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. 
       Phasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. 
       Cras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, 
-      non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.</p>`;
-
+      non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.</p>\`;
+      
     return {
-      codeHtml,
-      codeJs,
       html,
-    };
+    };  
   },
-};
+};`;
+
+  return {
+    codeJs,
+  };
+}

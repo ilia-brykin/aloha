@@ -5,7 +5,7 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageAlertHtml",
+  name: "PageAlertSafeHtml",
   components: {
     AAlert,
     AlohaExample,

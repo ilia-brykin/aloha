@@ -9,7 +9,7 @@
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_HEADER_": "Закрывающийся компонент с контролем снаружи",
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_SHOW_ALERT_": "Показать компонент",
   "_A_ALERT_GROUP_CLOSABLE_HEADER_": "Закрывающийся",
-  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p>Параметры: <strong>alert-class</strong>, <strong>alert-content-class</strong>, <strong>icon-class</strong></p><p>Меняют отображение отдельных элементов в компоненте</p>",
+  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p>Можно поменять отображение отдельных элементов в компоненте</p>",
   "_A_ALERT_GROUP_CSS_HEADER_": "Дополнительные CSS-классы",
   "_A_ALERT_GROUP_EXPOSES_HEADER_": "Exposes: Публичные свойства",
   "_A_ALERT_GROUP_HTML_DESCRIPTION_": "Параметр: <strong>html</strong> позволяет отобразить HTML",

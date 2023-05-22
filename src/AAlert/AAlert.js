@@ -32,20 +32,25 @@ export default {
       required: false,
       default: () => alertPluginOptions.value.propsDefault.closable,
     },
-    closableFromOutside: {
+    showIcon: {
       type: Boolean,
       required: false,
-      default: () => alertPluginOptions.value.propsDefault.closableFromOutside,
-    },
-    hasIcon: {
-      type: Boolean,
-      required: false,
-      default: () => alertPluginOptions.value.propsDefault.hasIcon,
+      default: () => alertPluginOptions.value.propsDefault.showIcon,
     },
     html: {
       type: String,
       required: false,
       default: () => alertPluginOptions.value.propsDefault.html,
+    },
+    text: {
+      type: String,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.text,
+    },
+    safeHtml: {
+      type: String,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.safeHtml,
     },
     icon: {
       type: String,
@@ -61,6 +66,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => alertPluginOptions.value.propsDefault.isVisible,
+    },
+    removeAlertOnClose: {
+      type: Boolean,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.removeAlertOnClose,
     },
     textClose: {
       type: String,
@@ -138,8 +148,10 @@ export default {
               this.alertContentClass,
             ],
           }, [
-            this.html && h(ATranslation, {
+            (this.html || this.text || this.safeHtml) && h(ATranslation, {
               html: this.html,
+              safeHtml: this.safeHtml,
+              text: this.text,
             }),
             this.$slots.default && this.$slots.default(),
           ]),

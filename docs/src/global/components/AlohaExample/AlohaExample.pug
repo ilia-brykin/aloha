@@ -1,8 +1,52 @@
 .aloha_example
   a-translation.aloha_example__h2(
+    v-if="header"
     tag="h2"
     :html="header"
   )
+  dl(
+    v-if="hasAtLeastOneProperty"
+  )
+    template(
+      v-if="hasProps"
+    )
+      dt.a_fs_4 Props:
+      dd(
+        v-for="property in propsLocal"
+        :key="property"
+      )
+        strong {{ property }}
+
+    template(
+      v-if="hasEmits"
+    )
+      dt.a_fs_4 Emits:
+      dd(
+        v-for="emit in emitsLocal"
+        :key="emit"
+      )
+        strong {{ emit }}
+
+    template(
+      v-if="hasSlots"
+    )
+      dt.a_fs_4 Slots:
+      dd(
+        v-for="slot in slotsLocal"
+        :key="slot"
+      )
+        strong {{ slot }}
+
+    template(
+      v-if="hasExposes"
+    )
+      dt.a_fs_4 Exposes:
+      dd(
+        v-for="expose in exposesLocal"
+        :key="expose"
+      )
+        strong {{ expose }}
+
 
   a-translation(
     v-if="description"

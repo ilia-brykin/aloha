@@ -9,11 +9,11 @@ import {
 
 export default function IconAPI(props) {
   const icon = toRef(props, "icon");
-  const hasIcon = toRef(props, "hasIcon");
+  const showIcon = toRef(props, "showIcon");
   const type = toRef(props, "type");
 
   const iconLocal = computed(() => {
-    if (!hasIcon.value) {
+    if (!showIcon.value) {
       return undefined;
     }
     if (icon.value) {

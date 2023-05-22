@@ -3,6 +3,7 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 
 import ClipboardAPI from "./compositionAPI/ClipboardAPI";
 import CodeToggleAPI from "./compositionAPI/CodeToggleAPI";
+import ParametersAPI from "./compositionAPI/ParametersAPI";
 
 export default {
   name: "AlohaExample",
@@ -11,7 +12,11 @@ export default {
     ATranslation,
   },
   props: {
-    header: {
+    codeHtml: {
+      type: String,
+      required: true,
+    },
+    codeJs: {
       type: String,
       required: true,
     },
@@ -20,13 +25,30 @@ export default {
       required: false,
       default: undefined,
     },
-    codeHtml: {
-      type: String,
-      required: true,
+    emits: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
     },
-    codeJs: {
+    exposes: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    header: {
       type: String,
-      required: true,
+      required: false,
+      default: undefined,
+    },
+    props: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    slots: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
     },
   },
   setup(props) {
@@ -41,11 +63,32 @@ export default {
       copyJsToClipboard,
     } = ClipboardAPI(props);
 
+    const {
+      emitsLocal,
+      exposesLocal,
+      hasAtLeastOneProperty,
+      hasEmits,
+      hasExposes,
+      hasProps,
+      hasSlots,
+      propsLocal,
+      slotsLocal,
+    } = ParametersAPI(props);
+
     return {
       btnToggleCodeTitle,
       copyHtmlToClipboard,
       copyJsToClipboard,
+      emitsLocal,
+      exposesLocal,
+      hasAtLeastOneProperty,
+      hasEmits,
+      hasExposes,
+      hasProps,
+      hasSlots,
       isCodeVisible,
+      propsLocal,
+      slotsLocal,
       toggleCode,
     };
   },

@@ -9,7 +9,7 @@
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_HEADER_": "Chiudi componente con controllo esterno",
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_SHOW_ALERT_": "Mostra componente",
   "_A_ALERT_GROUP_CLOSABLE_HEADER_": "Chiudibile",
-  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p>Parametri: <strong>alert-class</strong>, <strong>alert-content-class</strong>, <strong>icon-class</strong></p><p>Modificare la visualizzazione dei singoli elementi nel componente</p>",
+  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p>Modificare la visualizzazione dei singoli elementi nel componente</p>",
   "_A_ALERT_GROUP_CSS_HEADER_": "Classi CSS aggiuntive",
   "_A_ALERT_GROUP_EXPOSES_HEADER_": "Espone: proprietà pubbliche",
   "_A_ALERT_GROUP_HTML_DESCRIPTION_": "Parametro: <strong>html</strong> consente di visualizzare HTML",

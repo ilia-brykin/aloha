@@ -3,10 +3,15 @@ export default function HtmlAPI() {
   html="Alert success"
   :is-visible="true"
   type="success"
-  :show-icon="true"
-  icon-class="a_width_6 a_height_6"
-  alert-class="a_p_5"
-  alert-content-class="a_text_center"
+  :closable="true"
+>
+</a-alert>
+<a-alert 
+  html="Alert danger"
+  :is-visible="true"
+  type="danger"
+  :closable="true"
+  :remove-alert-on-close="true"
 >
 </a-alert>`;
 

@@ -9,7 +9,7 @@
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_HEADER_": "Fermer le composant avec commande externe",
   "_A_ALERT_GROUP_CLOSABLE_FROM_OUTSIDE_SHOW_ALERT_": "Afficher le composant",
   "_A_ALERT_GROUP_CLOSABLE_HEADER_": "Fermable",
-  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p>Paramètres: <strong>alert-class</strong>, <strong>alert-content-class</strong>, <strong>icon-class</strong></p><p>Modifier l'affichage d'éléments individuels dans le composant</p>",
+  "_A_ALERT_GROUP_CSS_DESCRIPTION_": "<p>Modifier l'affichage d'éléments individuels dans le composant</p>",
   "_A_ALERT_GROUP_CSS_HEADER_": "Classes CSS supplémentaires",
   "_A_ALERT_GROUP_EXPOSES_HEADER_": "Expose: propriétés publiques",
   "_A_ALERT_GROUP_HTML_DESCRIPTION_": "Paramètre: <strong>html</strong> permet d'afficher du HTML",

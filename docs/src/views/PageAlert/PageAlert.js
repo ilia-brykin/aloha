@@ -3,13 +3,15 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageAlertBasic from "./PageAlertBasic/PageAlertBasic.vue";
 import PageAlertClosable from "./PageAlertClosable/PageAlertClosable.vue";
-import PageAlertClosableFromOutside from "./PageAlertClosableFromOutside/PageAlertClosableFromOutside.vue";
 import PageAlertCss from "./PageAlertCss/PageAlertCss.vue";
 import PageAlertExposes from "./PageAlertExposes/PageAlertExposes.vue";
 import PageAlertHtml from "./PageAlertHtml/PageAlertHtml.vue";
 import PageAlertIconsCustom from "./PageAlertIconsCustom/PageAlertIconsCustom.vue";
 import PageAlertIconsDefault from "./PageAlertIconsDefault/PageAlertIconsDefault.vue";
+import PageAlertRemoveOnClose from "./PageAlertRemoveOnClose/PageAlertRemoveOnClose.vue";
+import PageAlertSafeHtml from "./PageAlertSafeHtml/PageAlertSafeHtml.vue";
 import PageAlertSlot from "./PageAlertSlot/PageAlertSlot.vue";
+import PageAlertText from "./PageAlertText/PageAlertText.vue";
 import PageAlertTypes from "./PageAlertTypes/PageAlertTypes.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -26,13 +28,15 @@ export default {
     ATranslation,
     PageAlertBasic,
     PageAlertClosable,
-    PageAlertClosableFromOutside,
     PageAlertCss,
     PageAlertExposes,
     PageAlertHtml,
     PageAlertIconsCustom,
     PageAlertIconsDefault,
+    PageAlertRemoveOnClose,
+    PageAlertSafeHtml,
     PageAlertSlot,
+    PageAlertText,
     PageAlertTypes,
   },
   setup() {
