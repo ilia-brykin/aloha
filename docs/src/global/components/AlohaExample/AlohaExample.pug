@@ -79,9 +79,13 @@
     v-if="isCodeVisible"
   )
     h3.aloha_example__h3 HTML
-    pre
-      code {{ codeHtml }}
+    aloha-highlightjs(
+      :code="codeHtml"
+      language="html"
+    )
 
     h3.aloha_example__h3.a_mt_3 JS
-    pre
-      code {{ codeJs }}
+    aloha-highlightjs(
+      :code="codeJs"
+      language="javascript"
+    )

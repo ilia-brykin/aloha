@@ -1,4 +1,5 @@
 import AButton from "../../../../../src/AButton/AButton";
+import AlohaHighlightjs from "../AlohaHighlightjs/AlohaHighlightjs";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 
 import ClipboardAPI from "./compositionAPI/ClipboardAPI";
@@ -9,6 +10,7 @@ export default {
   name: "AlohaExample",
   components: {
     AButton,
+    AlohaHighlightjs,
     ATranslation,
   },
   props: {
