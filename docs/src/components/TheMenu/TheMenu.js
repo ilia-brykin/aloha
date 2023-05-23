@@ -12,57 +12,42 @@ export default {
     return {
       menuItems: [
         {
-          group: "Aloha",
-          id: "spinner",
-          label: "Spinner",
+          id: "accordion",
+          label: "Accordion",
           to: {
-            name: "PageSpinner",
+            name: "PageAccordion",
           },
-          icon: "HourglassSplit",
+          icon: "ListNested",
         },
         {
-          id: "Table",
-          label: "Tables",
-          icon: "Table",
+          id: "accordion2",
+          label: "Accordion seeeeeehr lange name",
+          icon: "ListNested",
           children: [
             {
-              id: "PageTableSimple",
-              label: "Table simple",
+              id: "accordion3",
+              label: "Accordion seeeeeehr lange name",
               to: {
-                name: "PageTableSimple",
-              },
-            },
-            {
-              id: "PageTablePagination",
-              label: "Table pagination",
-              to: {
-                name: "PageTablePagination",
-              },
-            },
-            {
-              id: "PageTableSort",
-              label: "Table sort",
-              to: {
-                name: "PageTableSort",
-              },
-            },
-            {
-              id: "PageTableComplex",
-              label: "Table complex",
-              to: {
-                name: "PageTableComplex",
-              },
-            },
-          ],
+                name: "PageAccordion",
+              }
+            }
+          ]
         },
         {
-          group: "Hola",
-          id: "collapse",
-          label: "Collapse",
+          id: "alert",
+          label: "Alert",
           to: {
-            name: "PageCollapse",
+            name: "PageAlert",
           },
-          icon: "ArrowsCollapse",
+          icon: "ExclamationTriangle",
+        },
+        {
+          id: "Button",
+          label: "Button",
+          to: {
+            name: "PageButton",
+          },
+          icon: "EjectFill",
         },
         {
           group: "Hola",
@@ -85,6 +70,55 @@ export default {
         },
         {
           group: "Hola",
+          id: "collapse",
+          label: "Collapse",
+          to: {
+            name: "PageCollapse",
+          },
+          icon: "ArrowsCollapse",
+        },
+        {
+          id: "confirm",
+          label: "Confirm",
+          to: {
+            name: "PageConfirm",
+          },
+          icon: "CheckLg",
+        },
+        {
+          id: "dropdown",
+          label: "Dropdown",
+          to: {
+            name: "PageDropdown",
+          },
+          icon: "MenuDown",
+        },
+        {
+          id: "GroupButtonDropdown",
+          label: "GroupButtonDropdown",
+          to: {
+            name: "PageGroupButtonDropdown",
+          },
+          icon: "MenuDown",
+        },
+        {
+          id: "Link",
+          label: "Link",
+          to: {
+            name: "PageLink",
+          },
+          icon: "BoxArrowUpRight",
+        },
+        {
+          id: "list",
+          label: "List",
+          to: {
+            name: "PageList",
+          },
+          icon: "ListUl",
+        },
+        {
+          group: "Hola",
           id: "loading",
           label: "Loading",
           to: {
@@ -93,10 +127,142 @@ export default {
           icon: "HourglassSplit",
         },
         {
+          id: "modal",
+          label: "Modal",
+          to: {
+            name: "PageModal",
+          },
+          icon: "Lock",
+        },
+        {
+          id: "notification",
+          label: "Notification",
+          to: {
+            name: "PageNotification",
+          },
+          icon: "Bell",
+        },
+        {
+          id: "progress",
+          label: "Progress",
+          to: {
+            name: "PageProgress",
+          },
+          icon: "Reception2",
+        },
+        {
+          id: "scale",
+          label: "Scale",
+          to: {
+            name: "PageScale",
+          },
+          icon: "Dnd",
+        },
+        {
+          id: "ShowMore",
+          label: "Show more",
+          to: {
+            name: "PageShowMore",
+          },
+          icon: "ChevronDown",
+        },
+        {
+          group: "Aloha",
+          id: "spinner",
+          label: "Spinner",
+          to: {
+            name: "PageSpinner",
+          },
+          icon: "HourglassSplit",
+        },
+        {
+          id: "svg",
+          label: "Svg",
+          to: {
+            name: "PageSvg",
+          },
+          icon: "FiletypeSvg",
+        },
+        {
+          id: "Table",
+          label: "Tables",
+          icon: "Table",
+          children: [
+            {
+              id: "PageTableComplex",
+              label: "Table complex",
+              to: {
+                name: "PageTableComplex",
+              }
+            },
+            {
+              id: "PageTablePagination",
+              label: "Table pagination",
+              to: {
+                name: "PageTablePagination",
+              }
+            },
+            {
+              id: "PageTableSimple",
+              label: "Table simple",
+              to: {
+                name: "PageTableSimple",
+              }
+            },
+            {
+              id: "PageTableSort",
+              label: "Table sort",
+              to: {
+                name: "PageTableSort",
+              }
+            }
+          ]
+        },
+        {
+          id: "tabs",
+          label: "Tabs",
+          to: {
+            name: "PageTabs",
+          },
+          icon: "SegmentedNav",
+        },
+        {
+          id: "title",
+          label: "Title",
+          to: {
+            name: "PageTitle",
+          },
+          icon: "Dnd",
+          titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
+        },
+        {
+          id: "Translation",
+          label: "Translation",
+          to: {
+            name: "PageTranslation",
+          },
+          icon: "Translate",
+        },
+        {
+          id: "wizard",
+          label: "Wizard",
+          to: {
+            name: "PageWizard",
+          },
+          icon: "Dnd",
+        },
+        {
           id: "ui",
           label: "ui",
           icon: "InputCursor",
           children: [
+            {
+              id: "checkbox",
+              label: "Checkbox",
+              to: {
+                name: "PageCheckbox",
+              }
+            },
             {
               id: "ui-child",
               label: "Child",
@@ -107,8 +273,22 @@ export default {
                     name: "PageInput",
                   },
                   label: "Input",
-                },
-              ],
+                }
+              ]
+            },
+            {
+              id: "datepicker",
+              label: "Datepicker",
+              to: {
+                name: "PageDatepicker",
+              }
+            },
+            {
+              id: "form",
+              label: "Form",
+              to: {
+                name: "PageForm",
+              }
             },
             {
               id: "input",
@@ -129,7 +309,29 @@ export default {
               label: "JSON",
               to: {
                 name: "PageAJson",
-              },
+              }
+            },
+            {
+              id: "radio",
+              label: "Radio",
+              to: {
+                name: "PageRadio",
+              }
+            },
+            {
+              id: "select",
+              label: "Select",
+              to: {
+                name: "PageSelect",
+              }
+            },
+            {
+              id: "slotItem",
+              label: "Slot",
+              slot: "slotItem",
+              to: {
+                name: "PageRadio",
+              }
             },
             {
               id: "tinyMce",
@@ -138,209 +340,7 @@ export default {
                 name: "PageTinyMce",
               },
             },
-            {
-              id: "checkbox",
-              label: "Checkbox",
-              to: {
-                name: "PageCheckbox",
-              },
-            },
-            {
-              id: "slotItem",
-              label: "Slot",
-              slot: "slotItem",
-              to: {
-                name: "PageRadio",
-              },
-            },
-            {
-              id: "radio",
-              label: "Radio",
-              to: {
-                name: "PageRadio",
-              },
-            },
-            {
-              id: "datepicker",
-              label: "Datepicker",
-              to: {
-                name: "PageDatepicker",
-              },
-            },
-            {
-              id: "select",
-              label: "Select",
-              to: {
-                name: "PageSelect",
-              },
-            },
-            {
-              id: "form",
-              label: "Form",
-              to: {
-                name: "PageForm",
-              },
-            },
           ],
-        },
-        {
-          id: "accordion",
-          label: "Accordion",
-          to: {
-            name: "PageAccordion",
-          },
-          icon: "ListNested",
-        },
-        {
-          id: "accordion2",
-          label: "Accordion seeeeeehr lange name",
-          icon: "ListNested",
-          children: [
-            {
-              id: "accordion3",
-              label: "Accordion seeeeeehr lange name",
-              to: {
-                name: "PageAccordion",
-              },
-            },
-          ],
-        },
-        {
-          id: "alert",
-          label: "Alert",
-          to: {
-            name: "PageAlert",
-          },
-          icon: "ExclamationTriangle",
-        },
-        {
-          id: "modal",
-          label: "Modal",
-          to: {
-            name: "PageModal",
-          },
-          icon: "Lock",
-        },
-        {
-          id: "confirm",
-          label: "Confirm",
-          to: {
-            name: "PageConfirm",
-          },
-          icon: "CheckLg",
-        },
-        {
-          id: "notification",
-          label: "Notification",
-          to: {
-            name: "PageNotification",
-          },
-          icon: "Bell",
-        },
-        {
-          id: "dropdown",
-          label: "Dropdown",
-          to: {
-            name: "PageDropdown",
-          },
-          icon: "MenuDown",
-        },
-        {
-          id: "GroupButtonDropdown",
-          label: "GroupButtonDropdown",
-          to: {
-            name: "PageGroupButtonDropdown",
-          },
-          icon: "MenuDown",
-        },
-        {
-          id: "tabs",
-          label: "Tabs",
-          to: {
-            name: "PageTabs",
-          },
-          icon: "SegmentedNav",
-        },
-        {
-          id: "progress",
-          label: "Progress",
-          to: {
-            name: "PageProgress",
-          },
-          icon: "Reception2",
-        },
-        {
-          id: "list",
-          label: "List",
-          to: {
-            name: "PageList",
-          },
-          icon: "ListUl",
-        },
-        {
-          id: "scale",
-          label: "Scale",
-          to: {
-            name: "PageScale",
-          },
-          icon: "Dnd",
-        },
-        {
-          id: "title",
-          label: "Title",
-          to: {
-            name: "PageTitle",
-          },
-          icon: "Dnd",
-          titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
-        },
-        {
-          id: "svg",
-          label: "Svg",
-          to: {
-            name: "PageSvg",
-          },
-          icon: "FiletypeSvg",
-        },
-        {
-          id: "wizard",
-          label: "Wizard",
-          to: {
-            name: "PageWizard",
-          },
-          icon: "Dnd",
-        },
-        {
-          id: "ShowMore",
-          label: "Show more",
-          to: {
-            name: "PageShowMore",
-          },
-          icon: "ChevronDown",
-        },
-        {
-          id: "Translation",
-          label: "Translation",
-          to: {
-            name: "PageTranslation",
-          },
-          icon: "Translate",
-        },
-        {
-          id: "Button",
-          label: "Button",
-          to: {
-            name: "PageButton",
-          },
-          icon: "EjectFill",
-        },
-        {
-          id: "Link",
-          label: "Link",
-          to: {
-            name: "PageLink",
-          },
-          icon: "BoxArrowUpRight",
         },
       ],
     };
