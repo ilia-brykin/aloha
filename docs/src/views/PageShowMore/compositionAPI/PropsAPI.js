@@ -120,10 +120,31 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "safe-html",
+      description: "_A_SHOW_MORE_PROPS_SAFE_HTML_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "show-less",
       description: "_A_SHOW_MORE_SHOW_LESS_DESCRIPTION_",
       type: "Boolean",
       default: true,
+      required: false,
+    },
+    {
+      name: "text",
+      description: "_A_SHOW_MORE_PROPS_TEXT_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "text-length",
+      description: "_A_SHOW_MORE_PROPS_TEXT_LENGTH_DESCRIPTION_",
+      type: "String",
+      default: undefined,
       required: false,
     },
   ];

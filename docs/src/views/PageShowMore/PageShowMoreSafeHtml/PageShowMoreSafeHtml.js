@@ -5,7 +5,7 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageShowMoreTexts",
+  name: "PageShowMoreSafeHtml",
   components: {
     AlohaExample,
     AShowMore,
@@ -19,7 +19,7 @@ export default {
       codeJs,
     } = JsAPI();
 
-    const html = `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, 
+    const html = `<p onclick="alert('Aloha')">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, 
 pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. 
 Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, 
 in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent

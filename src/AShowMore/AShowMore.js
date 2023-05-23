@@ -2,16 +2,17 @@ import {
   h,
   onBeforeUnmount,
   onMounted,
-  withDirectives,
 } from "vue";
 
 import AButton from "../AButton/AButton";
-
-import ASafeHtml from "../directives/ASafeHtml";
+import ATranslation from "../ATranslation/ATranslation";
 
 import BtnAttributesAPI from "./compositionAPI/BtnAttributesAPI";
 import HeightAPI from "./compositionAPI/HeightAPI";
+import IsOpenAPI from "./compositionAPI/IsOpenAPI";
 import ObservingAPI from "./compositionAPI/ObservingAPI";
+import TextLengthAPI from "./compositionAPI/TextLengthAPI";
+import TextOrHtmlAPI from "./compositionAPI/TextOrHtmlAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 // @vue/component
@@ -104,10 +105,26 @@ export default {
       required: false,
       default: false,
     },
+    safeHtml: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     showLess: {
       type: Boolean,
       required: false,
       default: true,
+    },
+    text: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    textLength: {
+      type: Number,
+      required: false,
+      default: undefined,
+      validator: value => value > 0,
     },
   },
   emits: [
@@ -119,17 +136,38 @@ export default {
     } = context;
 
     const {
+      isOpen,
+    } = IsOpenAPI(props);
+
+    const {
+      hasTextAndLength,
+      isBtnHiddenDependentOnTextLength,
+      isTextShorterThanTextLength,
+      textLocal,
+    } = TextLengthAPI(props, {
+      isOpen,
+    });
+
+    const {
+      isTextOrHtmlVisible,
+    } = TextOrHtmlAPI(props, {
+      textLocal,
+    });
+
+    const {
       checkHeight,
       containerRef,
       isMoreButtonObservingVisible,
       startObservingMutation,
       stopObservingMutation,
-    } = ObservingAPI(props);
+    } = ObservingAPI(props, {
+      isBtnHiddenDependentOnTextLength,
+    });
 
     const {
-      isOpen,
       toggleButton,
     } = ToggleAPI(props, context, {
+      isOpen,
       stopObservingMutation,
     });
 
@@ -141,13 +179,16 @@ export default {
       buttonRef,
       isButtonVisible,
     } = BtnAttributesAPI(props, {
-      isOpen,
+      hasTextAndLength,
       isMoreButtonObservingVisible,
+      isOpen,
+      isTextShorterThanTextLength,
     });
 
     const {
       maxHeightStyle,
     } = HeightAPI(props, {
+      hasTextAndLength,
       isOpen,
     });
 
@@ -177,7 +218,9 @@ export default {
       containerRef,
       isButtonVisible,
       isOpen,
+      isTextOrHtmlVisible,
       maxHeightStyle,
+      textLocal,
       toggleButton,
     };
   },
@@ -198,9 +241,12 @@ export default {
           ref: "containerRef",
           ...this.$attrs,
         }, [
-          this.html && withDirectives(h("div", {}), [
-            [ASafeHtml, this.html],
-          ]),
+          this.isTextOrHtmlVisible && h(ATranslation, {
+            tag: "div",
+            text: this.textLocal,
+            html: this.html,
+            safeHtml: this.safeHtml,
+          }),
           this.$slots.default && this.$slots.default({
             isButtonVisible: this.isButtonVisible,
             isOpen: this.isOpen,

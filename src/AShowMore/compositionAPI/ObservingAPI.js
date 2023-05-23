@@ -1,4 +1,5 @@
 import {
+  computed,
   ref,
   toRef,
 } from "vue";
@@ -7,7 +8,9 @@ import {
   get,
 } from "lodash-es";
 
-export default function ObservingAPI(props) {
+export default function ObservingAPI(props, {
+  isBtnHiddenDependentOnTextLength = computed(() => false),
+}) {
   const height = toRef(props, "height");
 
   const containerRef = ref(undefined);
@@ -15,6 +18,9 @@ export default function ObservingAPI(props) {
   const isMoreButtonObservingVisible = ref(undefined);
 
   const checkHeight = () => {
+    if (isBtnHiddenDependentOnTextLength.value) {
+      return;
+    }
     const CONTAINER_HEIGHT = get(containerRef.value, "offsetHeight") || 0;
     if (CONTAINER_HEIGHT > height.value) {
       isMoreButtonObservingVisible.value = true;
@@ -24,6 +30,9 @@ export default function ObservingAPI(props) {
   };
 
   const startObservingMutation = () => {
+    if (isBtnHiddenDependentOnTextLength.value) {
+      return;
+    }
     observer.value = new ResizeObserver(() => {
       checkHeight();
     });
@@ -31,6 +40,9 @@ export default function ObservingAPI(props) {
   };
 
   const stopObservingMutation = () => {
+    if (isBtnHiddenDependentOnTextLength.value) {
+      return;
+    }
     if (observer.value) {
       observer.value.unobserve(containerRef.value);
     }

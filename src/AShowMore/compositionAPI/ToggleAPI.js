@@ -4,12 +4,10 @@ import {
 } from "vue";
 
 export default function ToggleAPI(props, { emit }, {
+  isOpen = ref(false),
   stopObservingMutation = () => {}
 }) {
-  const isOpenDefault = toRef(props, "isOpenDefault");
   const showLess = toRef(props, "showLess");
-
-  const isOpen = ref(isOpenDefault.value);
 
   const toggleButton = () => {
     isOpen.value = !isOpen.value;

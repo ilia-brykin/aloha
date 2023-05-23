@@ -5,8 +5,10 @@ import {
 } from "vue";
 
 export default function BtnAttributesAPI(props, {
-  isOpen = ref(false),
+  hasTextAndLength = ref(false),
   isMoreButtonObservingVisible = ref(false),
+  isOpen = ref(false),
+  isTextShorterThanTextLength = ref(false),
 }) {
   const btnIconLeftLess = toRef(props, "btnIconLeftLess");
   const btnIconLeftMore = toRef(props, "btnIconLeftMore");
@@ -45,6 +47,15 @@ export default function BtnAttributesAPI(props, {
   });
 
   const isButtonVisible = computed(() => {
+    if (hasTextAndLength.value) {
+      if (isTextShorterThanTextLength.value) {
+        return false;
+      }
+      if (showLess.value) {
+        return true;
+      }
+      return !isOpen.value;
+    }
     if (!isMoreButtonObservingVisible.value) {
       return false;
     }
