@@ -218,10 +218,12 @@ export default {
     } = ComponentLocalAPI(props);
 
     const {
+      buttonRef,
       htmlTitleAttributes,
     } = HtmlTitleAPI(props);
 
     return {
+      buttonRef,
       componentLocal,
       htmlTitleAttributes,
       isLoadingLeft,
@@ -237,6 +239,7 @@ export default {
       ...this.$attrs,
       ...this.attributes,
       ...this.htmlTitleAttributes,
+      ref: "buttonRef",
       id: this.id,
       class: [
         "aloha_btn",
