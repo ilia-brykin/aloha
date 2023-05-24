@@ -1,5 +1,6 @@
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import AShowMore from "../../../../src/AShowMore/AShowMore";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageShowMoreBasic from "./PageShowMoreBasic/PageShowMoreBasic.vue";
@@ -23,12 +24,14 @@ import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageShowMore",
   components: {
     AlohaPage,
     AlohaTableProps,
+    AlohaTableTranslate,
     AShowMore,
     ATranslation,
     PageShowMoreBasic,
@@ -68,11 +71,16 @@ export default {
       dataExposes,
     } = ExposesAPI();
 
+    const {
+      dataTranslate,
+    } = TranslateAPI();
+
     return {
       dataEvents,
       dataExposes,
       dataProps,
       dataSlots,
+      dataTranslate,
       pageTitle,
     };
   },

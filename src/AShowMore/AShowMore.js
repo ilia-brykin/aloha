@@ -11,6 +11,7 @@ import BtnAttributesAPI from "./compositionAPI/BtnAttributesAPI";
 import HeightAPI from "./compositionAPI/HeightAPI";
 import IsOpenAPI from "./compositionAPI/IsOpenAPI";
 import ObservingAPI from "./compositionAPI/ObservingAPI";
+import ScreenReaderAPI from "./compositionAPI/ScreenReaderAPI";
 import TextLengthAPI from "./compositionAPI/TextLengthAPI";
 import TextOrHtmlAPI from "./compositionAPI/TextOrHtmlAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
@@ -58,12 +59,12 @@ export default {
     btnTextLess: {
       type: String,
       required: false,
-      default: "_SHOW_LESS_",
+      default: "_A_SHOW_MORE_LESS_",
     },
     btnTextMore: {
       type: String,
       required: false,
-      default: "_SHOW_MORE_",
+      default: "_A_SHOW_MORE_MORE_",
     },
     btnTitleLess: {
       type: String,
@@ -192,6 +193,13 @@ export default {
       isOpen,
     });
 
+    const {
+      textScreenReaderLocal,
+    } = ScreenReaderAPI({
+      hasTextAndLength,
+      isOpen,
+    });
+
     expose({
       buttonRef,
       containerRef,
@@ -216,11 +224,13 @@ export default {
       btnTitle,
       buttonRef,
       containerRef,
+      hasTextAndLength,
       isButtonVisible,
       isOpen,
       isTextOrHtmlVisible,
       maxHeightStyle,
       textLocal,
+      textScreenReaderLocal,
       toggleButton,
     };
   },
@@ -266,6 +276,8 @@ export default {
           iconLeft: this.btnIconLeft,
           iconRight: this.btnIconRight,
           text: this.btnText,
+          textAriaHidden: !this.hasTextAndLength,
+          textScreenReader: this.textScreenReaderLocal,
           title: this.btnTitle,
           isTitleHtml: this.isBtnTitleHtml,
           titlePlacement: this.btnTitlePlacement,

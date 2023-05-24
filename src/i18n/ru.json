@@ -36,8 +36,6 @@
   "_SCHNELLSUCHE_": "Быстрый поиск",
   "_SEARCH_MENU_": "поиск в меню",
   "_SELECT_TEXT_EMPTY_": "[Нет элементов]",
-  "_SHOW_LESS_": "Показать меньше",
-  "_SHOW_MORE_": "Показать больше",
   "_SQUARE_": "квадрат",
   "_START_SEARCH_": "начать поиск",
   "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Отменить выбор всех строк ({{ countAllRows }})",

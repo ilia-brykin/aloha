@@ -1,11 +1,4 @@
-import arGlobal from "../../src/i18n/ar.json";
-import deGlobal from "../../src/i18n/de.json";
-import enGlobal from "../../src/i18n/en.json";
-import esGlobal from "../../src/i18n/es.json";
-import frGlobal from "../../src/i18n/fr.json";
-import hrGlobal from "../../src/i18n/hr.json";
-import itGlobal from "../../src/i18n/it.json";
-import ruGlobal from "../../src/i18n/ru.json";
+import allLanguages from "../../src/i18n/allLanguages";
 
 import ar from "./i18n/ar.json";
 import de from "./i18n/de.json";
@@ -28,7 +21,7 @@ import PageTableSortI18n from "./views/PageTable/PageTableSort/i18n/PageTableSor
 
 export const mainTranslation = {
   ar: {
-    ...arGlobal,
+    ...allLanguages.ar,
     ...ar,
     ...PageAAlertI18n.ar,
     ...PageShowMoreI18n.ar,
@@ -41,7 +34,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.ar,
   },
   de: {
-    ...deGlobal,
+    ...allLanguages.de,
     ...de,
     ...PageAAlertI18n.de,
     ...PageShowMoreI18n.de,
@@ -54,7 +47,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.de,
   },
   en: {
-    ...enGlobal,
+    ...allLanguages.en,
     ...en,
     ...PageAAlertI18n.en,
     ...PageShowMoreI18n.en,
@@ -67,7 +60,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.en,
   },
   es: {
-    ...esGlobal,
+    ...allLanguages.es,
     ...es,
     ...PageAAlertI18n.es,
     ...PageShowMoreI18n.es,
@@ -80,7 +73,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.es,
   },
   fr: {
-    ...frGlobal,
+    ...allLanguages.fr,
     ...fr,
     ...PageAAlertI18n.fr,
     ...PageShowMoreI18n.fr,
@@ -93,7 +86,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.fr,
   },
   hr: {
-    ...hrGlobal,
+    ...allLanguages.hr,
     ...hr,
     ...PageAAlertI18n.hr,
     ...PageShowMoreI18n.hr,
@@ -106,7 +99,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.hr,
   },
   it: {
-    ...itGlobal,
+    ...allLanguages.it,
     ...it,
     ...PageAAlertI18n.it,
     ...PageShowMoreI18n.it,
@@ -119,7 +112,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.it,
   },
   ru: {
-    ...ruGlobal,
+    ...allLanguages.ru,
     ...ru,
     ...PageAAlertI18n.ru,
     ...PageShowMoreI18n.ru,
