@@ -1,7 +1,7 @@
 {
   "name": "aloha-vue",
   "description": "Project aloha",
-  "version": "1.0.334",
+  "version": "1.0.335",
   "author": "Ilia Brykin",
   "scripts": {
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1"
