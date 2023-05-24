@@ -25,6 +25,9 @@ export function isPlaceholderTranslate(text = "") {
 }
 
 export function getTranslatedText({ placeholder, translationObj = translation.value, extra }) {
+  if (!translationObj) {
+    return undefined;
+  }
   const TEXT_FROM_TRANSLATION = isNil(translationObj[placeholder]) ? placeholder : translationObj[placeholder];
 
   if (extra) {
