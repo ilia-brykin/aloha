@@ -1,21 +1,21 @@
 {
   "name": "aloha-vue",
   "description": "Project aloha",
-  "version": "1.0.333",
+  "version": "1.0.334",
   "author": "Ilia Brykin",
   "scripts": {
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1"
   },
   "dependencies": {
-    "@popperjs/core": "2.11.7",
-    "aloha-css": "1.0.97",
-    "axios": "1.4.0",
-    "dompurify": "2.4.1",
+    "@popperjs/core": "^2.11.7",
+    "aloha-css": "1.0.98",
+    "axios": "^1.4.0",
+    "dompurify": "^2.4.1",
     "fecha": "^4.2.3",
     "lodash-es": "^4.17.21",
-    "tiny-emitter": "2.1.0",
-    "tinymce": "6.2.0",
-    "vue": "^3.2.47"
+    "tiny-emitter": "^2.1.0",
+    "tinymce": "^6.4.2",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "lodash": "^4.17.21"
