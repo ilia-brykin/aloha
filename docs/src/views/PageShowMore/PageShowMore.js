@@ -6,6 +6,8 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageShowMoreBasic from "./PageShowMoreBasic/PageShowMoreBasic.vue";
 import PageShowMoreBtnClass from "./PageShowMoreBtnClass/PageShowMoreBtnClass.vue";
 import PageShowMoreBtnIcons from "./PageShowMoreBtnIcons/PageShowMoreBtnIcons.vue";
+import PageShowMoreBtnTitle from "./PageShowMoreBtnTitle/PageShowMoreBtnTitle.vue";
+import PageShowMoreBtnTitleHtml from "./PageShowMoreBtnTitleHtml/PageShowMoreBtnTitleHtml.vue";
 import PageShowMoreDisabled from "./PageShowMoreDisabled/PageShowMoreDisabled.vue";
 import PageShowMoreEvents from "./PageShowMoreEvents/PageShowMoreEvents.vue";
 import PageShowMoreExposes from "./PageShowMoreExposes/PageShowMoreExposes.vue";
@@ -18,7 +20,6 @@ import PageShowMoreSlots from "./PageShowMoreSlots/PageShowMoreSlots.vue";
 import PageShowMoreText from "./PageShowMoreText/PageShowMoreText.vue";
 import PageShowMoreTextLength from "./PageShowMoreTextLength/PageShowMoreTextLength.vue";
 import PageShowMoreTexts from "./PageShowMoreTexts/PageShowMoreTexts.vue";
-import PageShowMoreBtnTitle from "./PageShowMoreBtnTitle/PageShowMoreBtnTitle.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";
@@ -38,6 +39,8 @@ export default {
     PageShowMoreBasic,
     PageShowMoreBtnClass,
     PageShowMoreBtnIcons,
+    PageShowMoreBtnTitle,
+    PageShowMoreBtnTitleHtml,
     PageShowMoreDisabled,
     PageShowMoreEvents,
     PageShowMoreExposes,
@@ -50,7 +53,6 @@ export default {
     PageShowMoreText,
     PageShowMoreTextLength,
     PageShowMoreTexts,
-    PageShowMoreBtnTitle,
   },
   setup() {
     const {
