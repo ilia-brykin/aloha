@@ -1,74 +1,110 @@
-import { ref, onUnmounted, h, toRef } from "vue";
+import { ref, h, toRefs } from "vue";
 
 export default {
   name: "ABlock",
   props: {
-    maxValue: {
+    width: {
       type: Number,
-      default: 100
-    },
-    normalValue: {
-      type: Number,
-      default: 20
+      default: 200
     },
     height: {
       type: Number,
-      default: 10
+      default: 50
+    },
+    normalValue: {
+      type: Number,
+      default: 100
     },
     readonly: {
       type: Boolean,
       default: false
-    }
+    },
+    showValue: {
+      type: Boolean,
+      default: false
+    },
+    color: {
+      type: String,
+      default: "#FFD700"
+    },
   },
   emits: [
-    "onChange",
+    "update:normalValue",
   ],
   setup(props, { emit }) {
-    const blockRef = ref(null);
-    const colorRef = ref("gray");
-    const widthRef = ref(0);
-    const maxValue = toRef(props, "maxValue");
-    const normalValue = toRef(props, "normalValue");
-    const height = toRef(props, "height");
-    const readonly = toRef(props, "readonly");
+    const { width, height, normalValue, readonly, showValue, color } = toRefs(props);
 
-    const handleMouseMove = ({ event }) => {
+    const tempNormalValue = ref(normalValue.value);
+    let isClicked = false;
+    let isHovered = false;
+
+    const handleMouseMove = event => {
       if (readonly.value) {
         return;
       }
-      const rect = blockRef.value.getBoundingClientRect();
-      const percent = (event.clientX - rect.left) / rect.width;
-      const newValue = Math.round(percent * maxValue.value);
-      if (newValue <= normalValue.value) {
-        colorRef.value = "green";
-      } else {
-        colorRef.value = "red";
+      const rect = event.currentTarget.getBoundingClientRect();
+      const newValue = ((event.clientX - rect.left) / rect.width) * 100;
+      tempNormalValue.value = Math.min(newValue, 100);
+      isHovered = true;
+      isClicked = false;
+    };
+
+    const handleMouseLeave = () => {
+      if (readonly.value) {
+        return;
       }
-      widthRef.value = newValue;
+      tempNormalValue.value = normalValue.value;
+      isHovered = false;
     };
 
     const handleClick = () => {
       if (readonly.value) {
         return;
       }
-      emit("onChange", widthRef.value);
+      normalValue.value = tempNormalValue.value;
+      emit("update:normalValue", normalValue.value);
+      isClicked = true;
     };
 
-    onUnmounted(() => {
-      blockRef.value.removeEventListener("mousemove", handleMouseMove);
-      blockRef.value.removeEventListener("click", handleClick);
-    });
-
-    return () => h("div", {
-      ref: blockRef.value,
-      style: {
-        width: `${ widthRef.value }%`,
-        height: `${ height.value }px`,
-        backgroundColor: colorRef.value,
-        cursor: readonly.value ? "default" : "pointer"
-      }
-    }, [
-      h("span", { style: { display: "inline-block", marginLeft: "5px" } }, `${ widthRef.value }%`)
-    ]);
-  }
+    return () => h(
+      "div",
+      {
+        style: {
+          position: "relative",
+          width: `${ width.value }px`,
+          height: `${ height.value }px`,
+          border: "1px solid black",
+          cursor: readonly.value ? "default" : "pointer",
+        },
+        onMousemove: handleMouseMove,
+        onMouseleave: handleMouseLeave,
+        onClick: handleClick,
+      },
+      [
+        h("div", {
+          style: {
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: "100%",
+            width: `${ tempNormalValue.value }%`,
+            backgroundColor: (isHovered && !isClicked) ? "gray" : color.value,
+          },
+        }),
+        showValue.value &&
+        h(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              right: "5px",
+              top: "5px",
+              fontSize: "0.8em",
+            },
+          },
+          `${ Math.round(tempNormalValue.value) }%`
+        )
+      ]
+    );
+  },
 };

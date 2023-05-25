@@ -1,13 +1,16 @@
-import { h, ref } from "vue";
+import { h, toRefs, computed } from "vue";
 
 import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
-
-import UpdateAPI from "./comositionAPI/updateAPI";
-import MouseAPI from "./comositionAPI/mouseAPI";
+import ABlock from "../ABlock/ABlock";
 
 export default {
   name: "ARate",
+  components: {
+    AIcon,
+    ATranslation,
+    ABlock,
+  },
   props: {
     text: {
       type: String,
@@ -19,11 +22,10 @@ export default {
     },
     rating: {
       type: Number,
-      required: false,
+      default: 5,
     },
     icon: {
       type: String,
-      required: false,
       default: "Star",
     },
     disabled: {
@@ -34,84 +36,74 @@ export default {
       type: Boolean,
       default: false,
     },
-    scoreTemplate: {
-      type: String,
-      default: "{value}",
+    showText: {
+      type: Boolean,
+      default: false,
+    },
+    normalValue: {
+      type: Number,
+      default: 50,
     },
   },
   setup(props) {
-    const {
-      updateRatingPercentage,
-      ratingPercentage,
-      setRating,
-    } = UpdateAPI(props);
-    const {
-      handleMouseEnter,
-      handleMouseLeave,
-      handleIconClick
-    } = MouseAPI(props, {
-      setRating,
-    });
-    const hoveredRating = ref(null);
+    const { rating, normalValue, showScore, showText, disabled, icon, text, extra } = toRefs(props);
 
-    return {
-      updateRatingPercentage,
-      ratingPercentage,
-      hoveredRating,
-      handleMouseEnter,
-      handleMouseLeave,
-      handleIconClick,
+    const scoreTemplate = {
+      0: "Oops",
+      20: "Disappointed",
+      40: "Normal",
+      60: "Good",
+      80: "Great",
+      100: "Exceptional"
     };
+
+    const displayText = computed(() => {
+      const segments = Object.keys(scoreTemplate).sort((a, b) => a - b);
+      for (let i = 0; i < segments.length; i++) {
+        if (normalValue.value < segments[i]) {
+          return scoreTemplate[segments[i - 1]];
+        }
+      }
+      return scoreTemplate[100];
+    });
+
+    const displayScore = computed(() => (rating.value * normalValue.value / 100).toFixed(1));
+
+    return { rating, normalValue, showScore, showText, disabled, icon, text, extra, displayText, displayScore };
   },
   render() {
-    const maxRating = 5;
-
-    return h(
-      "div",
-      {
-        class: "a_rate_container",
-        disabled: this.disabled,
-      },
-      Array.from({ length: maxRating }, (_, index) => {
-        const ratingValue = index + 1;
-        const filledPercentage = ratingValue * 20;
-        const isFilled = this.ratingPercentage >= filledPercentage;
-        const isHalfFilled = this.ratingPercentage >= ratingValue * 20 - 10 && this.ratingPercentage < filledPercentage;
-        const isQuarterFilled = this.ratingPercentage >= filledPercentage - 15 && this.ratingPercentage < filledPercentage - 5;
-        const isThreeQuarterFilled = this.ratingPercentage >= filledPercentage - 5 && this.ratingPercentage < filledPercentage;
-        const isHovered = ratingValue <= this.hoveredRating;
-
-        return h(AIcon, {
-          class: [
-            "a_rate_icon",
-            {
-              filled: isFilled,
-              half: isHalfFilled,
-              quarter: isQuarterFilled,
-              threeQuarter: isThreeQuarterFilled,
-              disabled: this.disabled,
-              hovered: isHovered,
-            },
-          ],
-          icon: this.icon,
-          onMouseenter: () => this.handleMouseEnter(ratingValue),
-          onMouseleave: this.handleMouseLeave,
-          onClick: () => this.handleIconClick(ratingValue),
-        });
-      }),
-      this.showScore &&
-      h(
-        "span",
-        {
-          class: "a_rate_score",
+    return h("div", {
+      class: "a_rate_container",
+      disabled: this.disabled,
+    }, [
+      ...Array.from({ length: this.rating }, (_, index) => h(AIcon, {
+        class: "a_rate_icon",
+        icon: this.icon,
+        key: index
+      })),
+      h(ABlock, {
+        width: 100,
+        height: 20,
+        normalValue: this.normalValue,
+        readonly: this.disabled,
+        showValue: this.showScore,
+        on: {
+          "update:normalValue": newValue => {
+            this.normalValue = newValue;
+          }
         },
-        this.scoreTemplate.replace("{value}", this.rating)
-      ),
+      }),
+      this.showScore && h("span", {
+        class: "a_rate_score",
+      }, this.displayScore),
+      this.showText && h("span", {
+        class: "a_rate_text",
+      }, this.displayText),
       h(ATranslation, {
         class: "a_rate_label",
         text: this.text,
         extra: this.extra,
       })
-    );
+    ]);
   },
 };
