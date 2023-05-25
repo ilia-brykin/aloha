@@ -1,6 +1,6 @@
 {
-  "_A_SHOW_MORE_LESS_": "Muestra menos",
+  "_A_SHOW_MORE_LESS_": "Mostrar menos",
   "_A_SHOW_MORE_MORE_": "Mostrar más",
-  "_A_SHOW_MORE_LESS_SCREEN_READER_": "[ALOHA]",
-  "_A_SHOW_MORE_MORE_SCREEN_READER_": "[ALOHA]"
+  "_A_SHOW_MORE_LESS_SCREEN_READER_": "Mostrar menos - El botón se puede ignorar ya que todo el contenido ya es legible para los lectores de pantalla",
+  "_A_SHOW_MORE_MORE_SCREEN_READER_": "Mostrar más - El botón se puede ignorar ya que todo el contenido ya es legible para los lectores de pantalla"
 }
