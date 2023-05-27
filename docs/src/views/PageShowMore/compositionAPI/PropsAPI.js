@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "btn-attributes",
+      description: "_A_SHOW_MORE_PROPS_BTN_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "{}",
+      required: false,
+    },
+    {
       name: "btn-class",
       description: "_A_SHOW_MORE_BTN_CLASS_DESCRIPTION_",
       type: "String / Object",
@@ -101,6 +108,13 @@ export default function PropsAPI() {
     {
       name: "html",
       description: "_A_SHOW_MORE_HTML_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "id",
+      description: "_A_SHOW_MORE_PROPS_ID_DESCRIPTION_",
       type: "String",
       default: undefined,
       required: false,

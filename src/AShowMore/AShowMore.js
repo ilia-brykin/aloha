@@ -26,6 +26,11 @@ export default {
   name: "AShowMore",
   inheritAttrs: true,
   props: {
+    btnAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     btnClass: {
       type: [String, Object],
       required: false,
@@ -222,7 +227,6 @@ export default {
     expose({
       buttonRef,
       containerRef,
-      isButtonVisible,
       isOpen,
       toggleButton,
     });
@@ -305,6 +309,7 @@ export default {
           textScreenReader: this.textScreenReaderLocal,
           title: this.btnTitle,
           titlePlacement: this.btnTitlePlacement,
+          ...this.btnAttributes,
           onClick: this.toggleButton,
         }, () => this.$slots.button && this.$slots.button({
           isButtonVisible: this.isButtonVisible,

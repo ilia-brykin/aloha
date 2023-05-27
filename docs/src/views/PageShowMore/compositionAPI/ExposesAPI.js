@@ -11,11 +11,6 @@ export default function ExposesAPI() {
       type: "Object",
     },
     {
-      name: "isButtonVisible",
-      description: "_A_SHOW_MORE_EXPOSES_IS_BUTTON_VISIBLE_DESCRIPTION_",
-      type: "Boolean",
-    },
-    {
       name: "isOpen",
       description: "_A_SHOW_MORE_EXPOSES_IS_OPEN_DESCRIPTION_",
       type: "Boolean",

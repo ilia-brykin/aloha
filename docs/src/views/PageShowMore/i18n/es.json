@@ -17,7 +17,6 @@
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Si el botón está deshabilitado",
   "_A_SHOW_MORE_EXPOSES_BUTTON_REF_DESCRIPTION_": "Botón 'Mostrar más' ref",
   "_A_SHOW_MORE_EXPOSES_CONTAINER_REF_DESCRIPTION_": "HTML-container ref",
-  "_A_SHOW_MORE_EXPOSES_IS_BUTTON_VISIBLE_DESCRIPTION_": "Se ve el botón?",
   "_A_SHOW_MORE_EXPOSES_IS_OPEN_DESCRIPTION_": "Si se hace clic en el botón 'Mostrar más' y se ve todo el HTML",
   "_A_SHOW_MORE_EXPOSES_TOGGLE_BUTTON_DESCRIPTION_": "Función: mostrar más o menos",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_DESCRIPTION_": "<p>Parámetros: <strong>btn-class</strong>, <strong>btn-parent-class</strong></p><p>Es posible personalizar CSS para el botón y su padre.</p>",

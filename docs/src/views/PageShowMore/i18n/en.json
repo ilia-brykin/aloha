@@ -17,7 +17,6 @@
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Whether button is disabled",
   "_A_SHOW_MORE_EXPOSES_BUTTON_REF_DESCRIPTION_": "Button 'Show more' ref",
   "_A_SHOW_MORE_EXPOSES_CONTAINER_REF_DESCRIPTION_": "HTML-container ref",
-  "_A_SHOW_MORE_EXPOSES_IS_BUTTON_VISIBLE_DESCRIPTION_": "Is the button visible?",
   "_A_SHOW_MORE_EXPOSES_IS_OPEN_DESCRIPTION_": "If the 'Show more' button is clicked, and the entire HTML is visible",
   "_A_SHOW_MORE_EXPOSES_TOGGLE_BUTTON_DESCRIPTION_": "Function: show more or less",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_DESCRIPTION_": "<p>It is possible to customize CSS for the button and its parent.</p>",

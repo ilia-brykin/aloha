@@ -17,7 +17,6 @@
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "ما إذا كان الزر معطلاً" ,
   "_A_SHOW_MORE_EXPOSES_BUTTON_REF_DESCRIPTION_": "زر 'إظهار المزيد' المرجع",
   "_A_SHOW_MORE_EXPOSES_CONTAINER_REF_DESCRIPTION_": "مرجع حاوية HTML" ,
-  "_A_SHOW_MORE_EXPOSES_IS_BUTTON_VISIBLE_DESCRIPTION_": "هل الزر مرئي؟" ,
   "_A_SHOW_MORE_EXPOSES_IS_OPEN_DESCRIPTION_": "إذا تم النقر فوق الزر' إظهار المزيد' , وكان HTML مرئيًا بالكامل" ,
   "_A_SHOW_MORE_EXPOSES_TOGGLE_BUTTON_DESCRIPTION_": "الوظيفة: إظهار أكثر أو أقل" ,
   "_A_SHOW_MORE_GROUP_BTN_CLASS_DESCRIPTION_": "<p> المعلمات: <strong> btn-class </strong> , <strong> btn-parent-class </strong> </p> <p> من الممكن تخصيص CSS للزر و والدته. </ p> ",

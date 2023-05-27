@@ -17,7 +17,6 @@
   "_A_SHOW_MORE_DISABLED_DESCRIPTION_": "Ob die Schaltfläche deaktiviert ist",
   "_A_SHOW_MORE_EXPOSES_BUTTON_REF_DESCRIPTION_": "Schaltfläche 'Mehr anzeigen' ref",
   "_A_SHOW_MORE_EXPOSES_CONTAINER_REF_DESCRIPTION_": "HTML-Container ref",
-  "_A_SHOW_MORE_EXPOSES_IS_BUTTON_VISIBLE_DESCRIPTION_": "Ist die Schaltfläche sichtbar?",
   "_A_SHOW_MORE_EXPOSES_IS_OPEN_DESCRIPTION_": "Wenn auf die Schaltfläche „Mehr anzeigen“ geklickt wird, und der gesamte HTML-Code sichtbar ist",
   "_A_SHOW_MORE_EXPOSES_TOGGLE_BUTTON_DESCRIPTION_": "Funktion: mehr oder weniger anzeigen",
   "_A_SHOW_MORE_GROUP_BTN_CLASS_DESCRIPTION_": "<p>Sie können das CSS für die Schaltfläche und ihr übergeordnetes Element anpassen.</p>",

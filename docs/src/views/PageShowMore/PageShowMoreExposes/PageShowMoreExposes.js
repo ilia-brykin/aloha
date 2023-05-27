@@ -1,7 +1,10 @@
 import {
+  nextTick,
+  onMounted,
   ref,
 } from "vue";
 
+import AButton from "../../../../../src/AButton/AButton";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 import AShowMore from "../../../../../src/AShowMore/AShowMore";
 
@@ -11,6 +14,7 @@ import JsAPI from "./compositionAPI/JsAPI";
 export default {
   name: "PageShowMoreExposes",
   components: {
+    AButton,
     AlohaExample,
     AShowMore,
   },
@@ -48,20 +52,30 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.</p>`
 
     const showMoreRef = ref(undefined);
 
-    setTimeout(() => {
-      console.log("showMoreRef.value", showMoreRef.value);
-      console.log("showMoreRef.value.buttonRef", showMoreRef.value.buttonRef);
-      console.log("showMoreRef.value.containerRef", showMoreRef.value.containerRef);
-      console.log("showMoreRef.value.isButtonVisible", showMoreRef.value.isButtonVisible);
-      console.log("showMoreRef.value.isOpen", showMoreRef.value.isOpen);
-      console.log("showMoreRef.value.toggleButton", showMoreRef.value.toggleButton);
-    }, 300);
+    const toggleShowWithIsOpen = () => {
+      showMoreRef.value.isOpen = !showMoreRef.value.isOpen;
+    };
+
+    const toggleShowWithToggleButton = () => {
+      showMoreRef.value.toggleButton();
+    };
+
+    onMounted(() => {
+      showMoreRef.value.containerRef.setAttribute("class", "a_bg_gray_200");
+      nextTick().then(
+        () => {
+          showMoreRef.value.buttonRef.$el.setAttribute("class", "a_btn a_btn_primary");
+        }
+      );
+    });
 
     return {
       codeHtml,
       codeJs,
       html,
       showMoreRef,
+      toggleShowWithIsOpen,
+      toggleShowWithToggleButton,
     };
   },
 };
