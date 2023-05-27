@@ -9,7 +9,7 @@ import PreviewRightResizeAPI from "./PreviewRightResizeAPI";
 
 import {
   setFocusToElement,
-} from "../../utils/utils";
+} from "../../utils/utilsDOM";
 import {
   isNil,
   isUndefined,
@@ -46,7 +46,7 @@ export default function PreviewAPI(props, context, {
   const setFocusToRow = ({ rowIndex }) => {
     setTimeout(() => {
       const ROW_ID = `#${ tableId.value }_${ rowIndex }`;
-      setFocusToElement(ROW_ID);
+      setFocusToElement({ selector: ROW_ID });
     });
   };
 

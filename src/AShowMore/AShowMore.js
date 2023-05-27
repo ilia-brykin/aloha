@@ -15,6 +15,7 @@ import ScreenReaderAPI from "./compositionAPI/ScreenReaderAPI";
 import TextLengthAPI from "./compositionAPI/TextLengthAPI";
 import TextOrHtmlAPI from "./compositionAPI/TextOrHtmlAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
+import { uniqueId } from "lodash-es";
 
 // @vue/component
 export default {
@@ -97,6 +98,11 @@ export default {
       required: false,
       default: undefined,
     },
+    id: {
+      type: String,
+      required: false,
+      default: () => uniqueId("a_show_more_"),
+    },
     isBtnTitleHtml: {
       type: Boolean,
       required: false,
@@ -168,6 +174,8 @@ export default {
     const {
       toggleButton,
     } = ToggleAPI(props, context, {
+      containerRef,
+      hasTextAndLength,
       isOpen,
       stopObservingMutation,
     });
@@ -249,6 +257,7 @@ export default {
       }, [
         h("div", {
           ref: "containerRef",
+          id: this.id,
           ...this.$attrs,
         }, [
           this.isTextOrHtmlVisible && h(ATranslation, {
@@ -269,19 +278,20 @@ export default {
         h(AButton, {
           ref: "buttonRef",
           id: this.btnId,
+          "aria-controls": this.id,
           class: [
             "a_show_more__button",
             this.btnClass,
           ],
+          disabled: this.disabled,
           iconLeft: this.btnIconLeft,
           iconRight: this.btnIconRight,
+          isTitleHtml: this.isBtnTitleHtml,
           text: this.btnText,
           textAriaHidden: !this.hasTextAndLength,
           textScreenReader: this.textScreenReaderLocal,
           title: this.btnTitle,
-          isTitleHtml: this.isBtnTitleHtml,
           titlePlacement: this.btnTitlePlacement,
-          disabled: this.disabled,
           onClick: this.toggleButton,
         }, () => this.$slots.button && this.$slots.button({
           isButtonVisible: this.isButtonVisible,

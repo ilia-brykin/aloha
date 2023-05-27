@@ -18,7 +18,7 @@ import {
 } from "../../../ui/compositionApi/UiAPI";
 import {
   setFocusToElement,
-} from "../../../utils/utils";
+} from "../../../utils/utilsDOM";
 import {
   forEach,
   get,
@@ -143,7 +143,7 @@ export default {
         htmlId: filter.value.htmlId,
       });
       setTimeout(() => {
-        setFocusToElement(`#${ FILTER_HTML_ID }`);
+        setFocusToElement({ selector: `#${ FILTER_HTML_ID }` });
       });
     };
 

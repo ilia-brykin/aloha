@@ -10,7 +10,7 @@ import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
 
 import {
   setFocusToElement,
-} from "../../../utils/utils";
+} from "../../../utils/utilsDOM";
 import {
   cloneDeep,
 } from "lodash-es";
@@ -213,10 +213,12 @@ export default {
         columnIndexOver: columnIndexOver,
       });
       setTimeout(() => {
-        setFocusToElement(`#${ this.getArrowButtonId({
-          columnIndex: columnIndexOver,
-          iconKey: "up",
-        }) }`);
+        setFocusToElement({
+          selector: `#${ this.getArrowButtonId({
+            columnIndex: columnIndexOver,
+            iconKey: "up",
+          }) }`
+        });
       });
     },
 
@@ -232,7 +234,9 @@ export default {
           columnIndex: columnIndexOver,
           iconKey: "down",
         }) }`;
-        setFocusToElement(NEW_ID);
+        setFocusToElement({
+          selector: NEW_ID,
+        });
       });
     },
 

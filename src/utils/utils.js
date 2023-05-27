@@ -34,10 +34,3 @@ export function replaceTextTemplateToASlot(text) {
   }
   return text;
 }
-
-export function setFocusToElement(selector) {
-  const ELEMENT = document.querySelector(selector);
-  if (ELEMENT) {
-    ELEMENT.focus();
-  }
-}

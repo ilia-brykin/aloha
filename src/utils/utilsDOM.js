@@ -8,3 +8,16 @@ export function scrollToElement({ element, isMiddleOfScreen = true, behavior = "
     element.scrollIntoView();
   }
 }
+
+export function setFocusToElement({ element, selector }) {
+  const ELEMENT = element ? element : document.querySelector(selector);
+  if (ELEMENT) {
+    if (!ELEMENT.hasAttribute("tabindex")) {
+      ELEMENT.setAttribute("tabindex", "-1");
+      ELEMENT.focus();
+      ELEMENT.removeAttribute("tabindex");
+    } else {
+      ELEMENT.focus();
+    }
+  }
+}
