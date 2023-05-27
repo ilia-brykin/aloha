@@ -5,6 +5,7 @@ import CheckLg from "../../src/AIcon/Icons/bootstrap-1-9-1/CheckLg";
 import ChevronDown from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronDown";
 import ChevronExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronExpand";
 import ChevronRight from "../../src/AIcon/Icons/bootstrap3/ChevronRight";
+import CodeSquare from "../../src/AIcon/Icons/bootstrap-1-9-1/CodeSquare";
 import Duplicate from "../../src/AIcon/Icons/bootstrap3/Duplicate";
 import EjectFill from "../../src/AIcon/Icons/bootstrap-1-9-1/EjectFill";
 import Envelope from "../../src/AIcon/Icons/bootstrap3/Envelope";
@@ -33,6 +34,7 @@ export default {
   ChevronDown,
   ChevronExpand,
   ChevronRight,
+  CodeSquare,
   Duplicate,
   EjectFill,
   Envelope,

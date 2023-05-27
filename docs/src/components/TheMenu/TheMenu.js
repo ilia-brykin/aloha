@@ -86,6 +86,20 @@ export default {
           icon: "CheckLg",
         },
         {
+          id: "directives",
+          label: "Directives",
+          icon: "CodeSquare",
+          children: [
+            {
+              id: "OnHooks",
+              label: "OnHooks",
+              to: {
+                name: "PageOnHooks",
+              }
+            },
+          ],
+        },
+        {
           id: "dropdown",
           label: "Dropdown",
           to: {
