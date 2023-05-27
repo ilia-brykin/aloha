@@ -8,6 +8,7 @@ import AButton from "../AButton/AButton";
 import ATranslation from "../ATranslation/ATranslation";
 
 import BtnAttributesAPI from "./compositionAPI/BtnAttributesAPI";
+import ExpandedAPI from "./compositionAPI/ExpandedAPI";
 import HeightAPI from "./compositionAPI/HeightAPI";
 import IsOpenAPI from "./compositionAPI/IsOpenAPI";
 import ObservingAPI from "./compositionAPI/ObservingAPI";
@@ -15,7 +16,10 @@ import ScreenReaderAPI from "./compositionAPI/ScreenReaderAPI";
 import TextLengthAPI from "./compositionAPI/TextLengthAPI";
 import TextOrHtmlAPI from "./compositionAPI/TextOrHtmlAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
-import { uniqueId } from "lodash-es";
+
+import {
+  uniqueId,
+} from "lodash-es";
 
 // @vue/component
 export default {
@@ -208,6 +212,13 @@ export default {
       isOpen,
     });
 
+    const {
+      ariaExpanded,
+    } = ExpandedAPI({
+      hasTextAndLength,
+      isOpen,
+    });
+
     expose({
       buttonRef,
       containerRef,
@@ -226,6 +237,7 @@ export default {
     });
 
     return {
+      ariaExpanded,
       btnIconLeft,
       btnIconRight,
       btnText,
@@ -258,6 +270,7 @@ export default {
         h("div", {
           ref: "containerRef",
           id: this.id,
+          ariaExpanded: this.ariaExpanded,
           ...this.$attrs,
         }, [
           this.isTextOrHtmlVisible && h(ATranslation, {
