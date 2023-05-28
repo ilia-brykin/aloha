@@ -1,8 +1,8 @@
 aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
-  header="_A_SHOW_MORE_GROUP_EXPOSES_HEADER_"
-  description="_A_SHOW_MORE_GROUP_EXPOSES_DESCRIPTION_"
+  header="_A_DISCLOSURE_GROUP_DISABLED_HEADER_"
+  description="_A_DISCLOSURE_GROUP_DISABLED_DESCRIPTION_"
   :exposes="['buttonRef', 'containerRef', 'isOpen', 'toggleButton']"
 )
   .a_columns.a_columns_count_12
@@ -10,15 +10,16 @@ aloha-example(
       div.a_btn_group
         a-button(
           class="a_btn a_btn_outline_primary"
-          text="_A_SHOW_MORE_TEXT_TOGGLE_WITH_IS_OPEN_"
+          text="_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_"
           @click="toggleShowWithIsOpen"
         )
         a-button(
           class="a_btn a_btn_outline_primary"
-          text="_A_SHOW_MORE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_"
+          text="_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_"
           @click="toggleShowWithToggleButton"
         )
-      a-show-more(
-        ref="showMoreRef"
-        :html="html"
+      a-disclosure(
+        ref="disclosureRef"
+        :text-less="textLess"
+        :text-more="textMore"
       )

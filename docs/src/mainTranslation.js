@@ -19,6 +19,7 @@ import PageTableSimpleI18n from "./views/PageTable/PageTableSimple/i18n/PageTabl
 import PageTablePaginationI18n from "./views/PageTable/PageTablePagination/i18n/PageTablePaginationI18n";
 import PageTableSortI18n from "./views/PageTable/PageTableSort/i18n/PageTableSortI18n";
 import PageAOnHooksI18n from "./views/PageDirectives/PageOnHooks/i18n/PageAOnHooksI18n";
+import PageDisclosureI18n from "./views/PageDisclosure/i18n/PageDisclosureI18n";
 
 export const mainTranslation = {
   ar: {
@@ -34,6 +35,7 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.ar,
     ...PageTableSortI18n.ar,
     ...PageAOnHooksI18n.ar,
+    ...PageDisclosureI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -48,6 +50,7 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.de,
     ...PageTableSortI18n.de,
     ...PageAOnHooksI18n.de,
+    ...PageDisclosureI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -62,6 +65,7 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.en,
     ...PageTableSortI18n.en,
     ...PageAOnHooksI18n.en,
+    ...PageDisclosureI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -76,6 +80,7 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.es,
     ...PageTableSortI18n.es,
     ...PageAOnHooksI18n.es,
+    ...PageDisclosureI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -90,6 +95,7 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.fr,
     ...PageTableSortI18n.fr,
     ...PageAOnHooksI18n.fr,
+    ...PageDisclosureI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -104,6 +110,7 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.hr,
     ...PageTableSortI18n.hr,
     ...PageAOnHooksI18n.hr,
+    ...PageDisclosureI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -118,6 +125,7 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.it,
     ...PageTableSortI18n.it,
     ...PageAOnHooksI18n.it,
+    ...PageDisclosureI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -132,5 +140,6 @@ export const mainTranslation = {
     ...PageTablePaginationI18n.ru,
     ...PageTableSortI18n.ru,
     ...PageAOnHooksI18n.ru,
+    ...PageDisclosureI18n.ru,
   },
 };

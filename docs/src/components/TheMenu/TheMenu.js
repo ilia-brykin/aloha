@@ -100,6 +100,14 @@ export default {
           ],
         },
         {
+          id: "disclosure",
+          label: "Disclosure",
+          to: {
+            name: "PageDisclosure",
+          },
+          icon: "ChevronBarExpand",
+        },
+        {
           id: "dropdown",
           label: "Dropdown",
           to: {
@@ -146,7 +154,7 @@ export default {
           to: {
             name: "PageModal",
           },
-          icon: "Lock",
+          icon: "Window",
         },
         {
           id: "notification",
@@ -178,7 +186,7 @@ export default {
           to: {
             name: "PageShowMore",
           },
-          icon: "ChevronDown",
+          icon: "ChevronBarExpand",
         },
         {
           group: "Aloha",
@@ -263,7 +271,7 @@ export default {
           to: {
             name: "PageWizard",
           },
-          icon: "Dnd",
+          icon: "ArrowRightCircleFill",
         },
         {
           id: "ui",

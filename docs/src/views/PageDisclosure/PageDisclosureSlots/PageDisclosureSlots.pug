@@ -1,0 +1,41 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DISCLOSURE_GROUP_SLOTS_HEADER_"
+  description="_A_DISCLOSURE_GROUP_SLOTS_DESCRIPTION_"
+  :slots="['button', 'less', 'more']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_4.a_column_12_tablet
+      a-disclosure(
+        btn-text-less=""
+        btn-text-more=""
+      )
+        template(
+          v-slot:button="{ isButtonVisible, isOpen }"
+        )
+          span {{ isOpen ? "Show less" : "Show more" }}
+
+        template(
+          v-slot:less="{ isButtonVisible, isOpen }"
+        )
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.
+
+        template(
+          v-slot:more="{ isButtonVisible, isOpen }"
+        )
+          p isButtonVisible: {{ isButtonVisible }}
+          p isOpen: {{ isOpen }}
+          ul
+            li 1 aloha
+            li 2 aloha
+            li 3 aloha
+            li 4 aloha
+            li 5 aloha
+            li 6 aloha
+            li 7 aloha
+            li 8 aloha
+            li 9 aloha
+            li 10 aloha
+            li 11 aloha
+            li 12 aloha

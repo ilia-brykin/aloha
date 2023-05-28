@@ -1,7 +1,9 @@
+import ArrowRightCircleFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRightCircleFill";
 import ArrowsCollapse from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowsCollapse";
 import Bell from "../../src/AIcon/Icons/bootstrap-1-9-1/Bell";
 import BoxArrowUpRight from "../../src/AIcon/Icons/bootstrap-1-9-1/BoxArrowUpRight";
 import CheckLg from "../../src/AIcon/Icons/bootstrap-1-9-1/CheckLg";
+import ChevronBarExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronBarExpand";
 import ChevronDown from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronDown";
 import ChevronExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronExpand";
 import ChevronRight from "../../src/AIcon/Icons/bootstrap3/ChevronRight";
@@ -25,12 +27,15 @@ import Reception2 from "../../src/AIcon/Icons/bootstrap-1-9-1/Reception2";
 import SegmentedNav from "../../src/AIcon/Icons/bootstrap-1-9-1/SegmentedNav";
 import Table from "../../src/AIcon/Icons/bootstrap-1-9-1/Table";
 import Translate from "../../src/AIcon/Icons/bootstrap-1-9-1/Translate";
+import Window from "../../src/AIcon/Icons/bootstrap-1-9-1/Window";
 
 export default {
+  ArrowRightCircleFill,
   ArrowsCollapse,
   Bell,
   BoxArrowUpRight,
   CheckLg,
+  ChevronBarExpand,
   ChevronDown,
   ChevronExpand,
   ChevronRight,
@@ -54,4 +59,5 @@ export default {
   SegmentedNav,
   Table,
   Translate,
+  Window,
 };
