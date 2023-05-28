@@ -13,7 +13,6 @@ import {
 export default function ToggleAPI(props, {
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
-  openPopoverWithPopperjs = () => {},
   destroyPopover = () => {},
   setFocusToFirstElement = () => {},
 }) {
@@ -111,7 +110,6 @@ export default function ToggleAPI(props, {
     initEventPressArrows();
     statusExpanded.value = true;
     setTimeout(() => {
-      openPopoverWithPopperjs();
       setEventCloseClick();
       setTimeout(() => {
         setFocusToFirstElement();

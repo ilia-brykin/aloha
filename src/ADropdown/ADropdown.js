@@ -2,12 +2,15 @@ import {
   h,
   onBeforeUnmount,
   Teleport,
+  withDirectives,
 } from "vue";
 
 import AButton from "../AButton/AButton";
 import ADropdownAction from "./ADropdownAction/ADropdownAction";
 import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
+
+import AOnHooks from "../directives/AOnHooks";
 
 import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
@@ -196,11 +199,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    isRenderDefault: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     menuWidth: {
       type: Number,
       required: false,
@@ -242,7 +240,7 @@ export default {
 
     const {
       destroyPopover,
-      openPopoverWithPopperjs,
+      startPopper,
     } = PopoverAPI(props, {
       dropdownButtonRef,
       dropdownRef,
@@ -258,7 +256,6 @@ export default {
     } = ToggleAPI(props, {
       dropdownButtonRef,
       dropdownRef,
-      openPopoverWithPopperjs,
       destroyPopover,
       setFocusToFirstElement,
     });
@@ -307,6 +304,7 @@ export default {
       onKeydown,
       onToggle,
       popperContainerIdSelector,
+      startPopper,
       statusExpanded,
     };
   },
@@ -359,7 +357,7 @@ export default {
       h(Teleport, {
         to: this.popperContainerIdSelector,
       }, [
-        this.isMenuRendered && h(
+        this.isMenuRendered && withDirectives(h(
           this.dropdownTag,
           this.dropdownAttributesLocal,
           [
@@ -372,7 +370,11 @@ export default {
               }, this.$slots);
             }),
           ],
-        ),
+        ), [
+          [AOnHooks, {
+            mounted: this.startPopper,
+          }],
+        ]),
       ]),
     ];
   },

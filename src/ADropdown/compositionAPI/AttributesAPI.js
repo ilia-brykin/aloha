@@ -17,7 +17,6 @@ export default function AttributesAPI(props, {
   const dropdownAttributes = toRef(props, "dropdownAttributes");
   const dropdownClass = toRef(props, "dropdownClass");
   const id = toRef(props, "id");
-  const isRenderDefault = toRef(props, "isRenderDefault");
   const menuWidth = toRef(props, "menuWidth");
 
   const idLocal = computed(() => {
@@ -61,7 +60,7 @@ export default function AttributesAPI(props, {
   });
 
   const isMenuRendered = computed(() => {
-    return isRenderDefault.value || statusExpanded.value;
+    return statusExpanded.value;
   });
 
   return {

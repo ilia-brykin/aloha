@@ -14,7 +14,7 @@ export default function PopoverAPI(props, {
   const placement = toRef(props, "placement");
 
   const popper = ref(undefined);
-  const openPopoverWithPopperjs = () => {
+  const startPopper = () => {
     if (!popper.value) {
       popper.value = createPopper(
         dropdownButtonRef.value.$el,
@@ -44,6 +44,6 @@ export default function PopoverAPI(props, {
 
   return {
     destroyPopover,
-    openPopoverWithPopperjs,
+    startPopper,
   };
 }
