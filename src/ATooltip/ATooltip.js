@@ -1,7 +1,10 @@
 import {
   h,
   Teleport,
+  withDirectives,
 } from "vue";
+
+import AOnHooks from "../directives/AOnHooks";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import PopperAPI from "./compositionAPI/PopperAPI";
@@ -72,6 +75,7 @@ export default {
       mouseEnterTooltip,
       mouseLeaveTooltip,
       showTitle,
+      startPopper,
       titleRef,
       updateTitle,
       updateTitleOptions,
@@ -117,6 +121,7 @@ export default {
       onMouseleave,
       showTitle,
       popperContainerIdSelector,
+      startPopper,
       tagLocal,
       titleRef,
       tooltipStyles,
@@ -145,7 +150,7 @@ export default {
           }, [
             this.$slots.title && this.$slots.title(),
           ]),
-          this.isTitleVisible && h("div", {
+          this.isTitleVisible && withDirectives(h("div", {
             ref: "titleRef",
             class: "a_tooltip__container",
             style: this.tooltipStyles,
@@ -159,6 +164,10 @@ export default {
               "data-popper-arrow": true,
               class: "a_tooltip__arrow",
             }),
+          ]), [
+            [AOnHooks, {
+              mounted: this.startPopper,
+            }],
           ]),
         ]),
       ],

@@ -62,21 +62,22 @@ export default function PopperAPI(props) {
       return;
     }
     isTitleVisible.value = true;
-    setTimeout(() => {
-      if (!popper.value) {
-        const ELEMENT = document.getElementById(id.value);
-        if (!titleRef.value) {
-          return;
-        }
-        popper.value = createPopper(
-          ELEMENT,
-          titleRef.value,
-          popperOptions.value,
-        );
+  };
+
+  const startPopper = () => {
+    if (!popper.value) {
+      const ELEMENT = document.getElementById(id.value);
+      if (!titleRef.value) {
+        return;
       }
-      EventBus.$emit("closeHtmlTitle");
-      setEventBusCloseTitle();
-    });
+      popper.value = createPopper(
+        ELEMENT,
+        titleRef.value,
+        popperOptions.value,
+      );
+    }
+    EventBus.$emit("closeHtmlTitle");
+    setEventBusCloseTitle();
   };
 
   const mouseEnterTooltip = () => {
@@ -116,6 +117,7 @@ export default function PopperAPI(props) {
     mouseEnterTooltip,
     mouseLeaveTooltip,
     showTitle,
+    startPopper,
     titleRef,
     updateTitle,
     updateTitleOptions,
