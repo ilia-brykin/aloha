@@ -1,6 +1,11 @@
+![npm (scoped)](https://img.shields.io/npm/v/aloha-vue?label=NPM)
+![NPM](https://img.shields.io/npm/l/aloha-vue?label=License)
+![npm](https://img.shields.io/npm/dt/aloha-vue?label=Downloads)
 
-![Aloha Framework logo](./static/aloha_logo.png)
-# aloha-vue 
+# aloha-vue
+
+![Aloha Framework logo](.images/aloha_logo.png)
+
 v1.0.337
 
 ---
@@ -31,6 +36,9 @@ The documentation can be found in the docs/ directory. Each component has a dedi
 
 Aloha documentation is available in English, German, Spanish, French, Arabic, Italian, Russian and Croatian.
 
+## Sponsor / Support
+
+[PROUNIX](https://prounix.de/)
 
 ## License
 aloha-vue is released under [MIT](https://github.com/ilia-brykin/aloha/blob/master/LICENSE) license.

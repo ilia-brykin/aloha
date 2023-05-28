@@ -1,8 +1,41 @@
 {
   "name": "aloha-vue",
-  "description": "Project aloha",
+  "description": "Aloha-vue is a JavaScript library that provides a wide range of accessible components and directives for Vue.js. Accessibility is of paramount importance to us, and we have designed all our components to meet accessibility compliance criteria. This library is a valuable tool for frontend developers and has already been used in three projects, including two large-scale ones",
+  "keywords": [
+    "accessibility compliance criteria",
+    "accessible",
+    "Aloha-vue",
+    "components",
+    "directives",
+    "frontend developers",
+    "JavaScript library",
+    "large-scale projects",
+    "utility",
+    "Vue.js"
+  ],
+  "homepage": "https://github.com/ilia-brykin/aloha/#README.md",
   "version": "1.0.337",
-  "author": "Ilia Brykin",
+  "author": {
+    "name": "Ilia Brykin",
+    "email": "brykin.ilia@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Emilija Zdilar"
+    },
+    {
+      "name": "Hafedh Souissi"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/ilia-brykin/aloha/issues",
+    "email": "aloha.vue@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilia-brykin/aloha.git"
+  },
   "scripts": {
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1"
   },
