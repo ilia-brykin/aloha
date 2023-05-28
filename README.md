@@ -6,8 +6,6 @@
 
 ![Aloha Framework logo](.images/aloha_logo.png)
 
-v1.0.337
-
 ---
 
 Aloha is a Vue.js-based, highly customizable, internationalized framework for helping developers write code faster and more efficient, with an especial focus on accessibility.
