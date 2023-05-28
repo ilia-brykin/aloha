@@ -1,7 +1,7 @@
 
 ![Aloha Framework logo](./static/aloha_logo.png)
 # aloha-vue 
-v1.0.333
+v1.0.337
 
 ---
 
@@ -10,7 +10,7 @@ Aloha is a Vue.js-based, highly customizable, internationalized framework for he
 
 ## Installation
 ``` bash
-$npm install aloha-vue
+$ npm install aloha-vue
 ```
 ## Usage
 
