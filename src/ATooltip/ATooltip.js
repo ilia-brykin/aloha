@@ -20,6 +20,11 @@ import {
 export default {
   name: "ATooltip",
   props: {
+    arrowPadding: {
+      type: [Number, Function],
+      required: false,
+      default: undefined,
+    },
     id: {
       type: String,
       required: false,

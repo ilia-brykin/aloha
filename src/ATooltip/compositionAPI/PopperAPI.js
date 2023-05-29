@@ -8,8 +8,10 @@ import EventBus from "../../utils/EventBus";
 import {
   createPopper,
 } from "@popperjs/core";
+import { isFunction, isNumber } from "lodash-es";
 
 export default function PopperAPI(props) {
+  const arrowPadding = toRef(props, "arrowPadding");
   const id = toRef(props, "id");
   const offsetDistance = toRef(props, "offsetDistance");
   const offsetSkidding = toRef(props, "offsetSkidding");
@@ -22,18 +24,40 @@ export default function PopperAPI(props) {
   const titleRef = ref(undefined);
   const componentRef = ref(undefined);
 
+  const popperModifiers = computed(() => {
+    const MODIFIERS = [
+      {
+        name: "offset",
+        options: {
+          offset: [offsetSkidding.value || 0, offsetDistance.value || 0],
+        },
+      },
+    ];
+
+    if (isNumber(arrowPadding.value)) {
+      MODIFIERS.push({
+        name: "arrow",
+        options: {
+          padding: arrowPadding.value,
+        },
+      });
+    } else if (isFunction(arrowPadding.value)) {
+      MODIFIERS.push({
+        name: "arrow",
+        options: {
+          padding: arrowPadding.value, // popper, reference, placement: popper.width / reference.width
+        },
+      });
+    }
+
+    return MODIFIERS;
+  });
+
   const popperOptions = computed(() => {
     return {
       placement: placement.value,
       removeOnDestroy: true,
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [offsetSkidding.value || 0, offsetDistance.value || 0],
-          },
-        },
-      ],
+      modifiers: popperModifiers.value,
     };
   });
 

@@ -9,6 +9,8 @@ import PageTooltipTimeClose from "./PageTooltipTimeClose/PageTooltipTimeClose.vu
 import PageTooltipHideArrow from "./PageTooltipHideArrow/PageTooltipHideArrow.vue";
 import PageTooltipOffsetSkidding from "./PageTooltipOffsetSkidding/PageTooltipOffsetSkidding.vue";
 import PageTooltipOffsetDistance from "./PageTooltipOffsetDistance/PageTooltipOffsetDistance.vue";
+import PageTooltipArrowPadding from "./PageTooltipArrowPadding/PageTooltipArrowPadding.vue";
+import PageTooltipArrowPaddingFunction from "./PageTooltipArrowPaddingFunction/PageTooltipArrowPaddingFunction.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -29,6 +31,8 @@ export default {
     PageTooltipHideArrow,
     PageTooltipOffsetSkidding,
     PageTooltipOffsetDistance,
+    PageTooltipArrowPadding,
+    PageTooltipArrowPaddingFunction,
   },
   setup() {
     const {
