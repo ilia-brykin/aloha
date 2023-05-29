@@ -121,7 +121,9 @@ export default {
     const {
       ariaDescribedby,
       tooltipStyles,
-    } = AttributesAPI(props);
+    } = AttributesAPI(props, {
+      isTitleVisible,
+    });
 
     const {
       addPopperContainerInBody,
@@ -170,12 +172,12 @@ export default {
         !this.isHide && h(Teleport, {
           to: this.popperContainerIdSelector,
         }, [
-          h("div", {
-            id: this.ariaDescribedby,
-            class: "a_sr_only",
-          }, [
-            this.$slots.title && this.$slots.title(),
-          ]),
+          // h("div", {
+          //   id: this.ariaDescribedby,
+          //   class: "a_sr_only",
+          // }, [
+          //   this.$slots.title && this.$slots.title(),
+          // ]),
           this.isTitleVisible && withDirectives(h("div", {
             ref: "titleRef",
             class: "a_tooltip__container",
@@ -184,6 +186,7 @@ export default {
             onMouseleave: this.mouseLeaveTooltip,
           }, [
             h("div", {
+              id: this.ariaDescribedby,
               class: "a_tooltip__wrapper",
             }, this.$slots.title && this.$slots.title()),
             this.showArrow && h("div", {
