@@ -1,5 +1,6 @@
 import {
   h,
+  onBeforeUnmount,
   Teleport,
   withDirectives,
 } from "vue";
@@ -128,6 +129,10 @@ export default {
     } = PopperContainerAPI(props);
 
     addPopperContainerInBody();
+
+    onBeforeUnmount(() => {
+      closeTitle();
+    });
 
     return {
       ariaDescribedby,

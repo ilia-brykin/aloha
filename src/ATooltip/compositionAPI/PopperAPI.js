@@ -4,11 +4,15 @@ import {
   toRef,
 } from "vue";
 
+import AKeysCode from "../../const/AKeysCode";
 import EventBus from "../../utils/EventBus";
 import {
   createPopper,
 } from "@popperjs/core";
-import { isFunction, isNumber } from "lodash-es";
+import {
+  isFunction,
+  isNumber,
+} from "lodash-es";
 
 export default function PopperAPI(props) {
   const arrowPadding = toRef(props, "arrowPadding");
@@ -61,6 +65,21 @@ export default function PopperAPI(props) {
     };
   });
 
+  const pressEscapeButton = $event => {
+    if ($event.keyCode === AKeysCode.escape) {
+      closeTitle();
+    }
+  };
+
+  const setListenerForPressEscapeButton = () => {
+    document.addEventListener("keydown", pressEscapeButton);
+  };
+
+
+  const removeListenerForPressEscapeButton = () => {
+    document.removeEventListener("keydown", pressEscapeButton);
+  };
+
   const setEventBusCloseTitle = () => {
     EventBus.$on("closeHtmlTitle", closeTitle);
   };
@@ -104,6 +123,7 @@ export default function PopperAPI(props) {
     }
     EventBus.$emit("closeHtmlTitle");
     setEventBusCloseTitle();
+    setListenerForPressEscapeButton();
   };
 
   const mouseEnterTooltip = () => {
@@ -132,6 +152,7 @@ export default function PopperAPI(props) {
     clearTimeout(timerTitleClose.value);
     destroyPopper();
     destroyEventBusCloseTitle();
+    removeListenerForPressEscapeButton();
     isTitleVisible.value = false;
   }
 
