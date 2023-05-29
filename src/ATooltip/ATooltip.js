@@ -78,7 +78,7 @@ export default {
     timeClose: {
       type: Number,
       required: false,
-      default: 300,
+      default: 100,
       validator: value => value >= 0,
     },
     width: {
