@@ -59,6 +59,7 @@ export default {
       type: Number,
       required: false,
       default: 300,
+      validator: value => value >= 0,
     },
     width: {
       type: Number,

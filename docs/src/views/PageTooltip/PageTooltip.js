@@ -5,6 +5,7 @@ import PageTooltipBasic from "./PageTooltipBasic/PageTooltipBasic.vue";
 import PageTooltipTag from "./PageTooltipTag/PageTooltipTag.vue";
 import PageTooltipMaxWidth from "./PageTooltipMaxWidth/PageTooltipMaxWidth.vue";
 import PageTooltipWidth from "./PageTooltipWidth/PageTooltipWidth.vue";
+import PageTooltipTimeClose from "./PageTooltipTimeClose/PageTooltipTimeClose.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -21,6 +22,7 @@ export default {
     PageTooltipTag,
     PageTooltipMaxWidth,
     PageTooltipWidth,
+    PageTooltipTimeClose,
   },
   setup() {
     const {
