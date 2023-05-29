@@ -11,6 +11,8 @@ import {
 
 export default function PopperAPI(props) {
   const id = toRef(props, "id");
+  const offsetDistance = toRef(props, "offsetDistance");
+  const offsetSkidding = toRef(props, "offsetSkidding");
   const placement = toRef(props, "placement");
   const timeClose = toRef(props, "timeClose");
 
@@ -28,7 +30,7 @@ export default function PopperAPI(props) {
         {
           name: "offset",
           options: {
-            offset: [0, 6],
+            offset: [offsetSkidding.value || 0, offsetDistance.value || 0],
           },
         },
       ],

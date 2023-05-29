@@ -1,0 +1,54 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_"
+  description="_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_"
+  props="offset-distance"
+)
+  a-tooltip(
+    class="a_btn a_btn_secondary"
+    tag="button"
+    :offset-distance="30"
+  )
+    span :offset-distance="30"
+
+    template(
+      v-slot:title
+    )
+      div :offset-distance="30"
+
+  a-tooltip(
+    class="a_btn a_btn_secondary a_ml_3"
+    tag="button"
+    :offset-distance="6"
+  )
+    span :offset-distance="6"
+
+    template(
+      v-slot:title
+    )
+      div :offset-distance="6"
+
+  a-tooltip(
+    class="a_btn a_btn_secondary a_ml_3"
+    tag="button"
+    :offset-distance="0"
+  )
+    span :offset-distance="0"
+
+    template(
+      v-slot:title
+    )
+      div :offset-distance="0"
+
+  a-tooltip(
+    class="a_btn a_btn_secondary a_ml_3"
+    tag="button"
+    :offset-distance="-10"
+  )
+    span :offset-distance="-10"
+
+    template(
+      v-slot:title
+    )
+      div :offset-distance="-10"

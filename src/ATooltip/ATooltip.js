@@ -39,6 +39,16 @@ export default {
       required: false,
       default: undefined,
     },
+    offsetDistance: {
+      type: Number,
+      required: false,
+      default: 6,
+    },
+    offsetSkidding: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
     placement: {
       type: String,
       required: false,
