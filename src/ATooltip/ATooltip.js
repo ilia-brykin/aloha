@@ -50,6 +50,11 @@ export default {
       required: false,
       default: "a_tooltip_container",
     },
+    showArrow: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     tag: {
       type: String,
       required: false,
@@ -161,7 +166,7 @@ export default {
             h("div", {
               class: "a_tooltip__wrapper",
             }, this.$slots.title && this.$slots.title()),
-            h("div", {
+            this.showArrow && h("div", {
               "data-popper-arrow": true,
               class: "a_tooltip__arrow",
             }),
