@@ -20,6 +20,7 @@ import PageTablePaginationI18n from "./views/PageTable/PageTablePagination/i18n/
 import PageTableSortI18n from "./views/PageTable/PageTableSort/i18n/PageTableSortI18n";
 import PageAOnHooksI18n from "./views/PageDirectives/PageOnHooks/i18n/PageAOnHooksI18n";
 import PageDisclosureI18n from "./views/PageDisclosure/i18n/PageDisclosureI18n";
+import PageTooltipI18n from "./views/PageTooltip/i18n/PageTooltipI18n";
 
 export const mainTranslation = {
   ar: {
@@ -36,6 +37,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.ar,
     ...PageAOnHooksI18n.ar,
     ...PageDisclosureI18n.ar,
+    ...PageTooltipI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -51,6 +53,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.de,
     ...PageAOnHooksI18n.de,
     ...PageDisclosureI18n.de,
+    ...PageTooltipI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -66,6 +69,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.en,
     ...PageAOnHooksI18n.en,
     ...PageDisclosureI18n.en,
+    ...PageTooltipI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -81,6 +85,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.es,
     ...PageAOnHooksI18n.es,
     ...PageDisclosureI18n.es,
+    ...PageTooltipI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -96,6 +101,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.fr,
     ...PageAOnHooksI18n.fr,
     ...PageDisclosureI18n.fr,
+    ...PageTooltipI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -111,6 +117,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.hr,
     ...PageAOnHooksI18n.hr,
     ...PageDisclosureI18n.hr,
+    ...PageTooltipI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -126,6 +133,7 @@ export const mainTranslation = {
     ...PageTableSortI18n.it,
     ...PageAOnHooksI18n.it,
     ...PageDisclosureI18n.it,
+    ...PageTooltipI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -141,5 +149,6 @@ export const mainTranslation = {
     ...PageTableSortI18n.ru,
     ...PageAOnHooksI18n.ru,
     ...PageDisclosureI18n.ru,
+    ...PageTooltipI18n.ru,
   },
 };

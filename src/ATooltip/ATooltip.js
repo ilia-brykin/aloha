@@ -23,47 +23,47 @@ export default {
     id: {
       type: String,
       required: false,
-      default: () => uniqueId("a_tooltip"),
-    },
-    placement: {
-      type: String,
-      required: false,
-      default: "bottom-start",
-      validator: placement => placements.indexOf(placement) !== -1,
-    },
-    tag: {
-      type: String,
-      required: false,
-      default: "span",
+      default: () => uniqueId("a_tooltip_"),
     },
     isHide: {
       type: Boolean,
       required: false,
-    },
-    timeClose: {
-      type: Number,
-      required: false,
-      default: 300,
-    },
-    minWidth: {
-      type: Number,
-      required: false,
-      default: undefined,
-    },
-    width: {
-      type: Number,
-      required: false,
-      default: undefined,
     },
     maxWidth: {
       type: Number,
       required: false,
       default: undefined,
     },
+    minWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    placement: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: placement => placements.indexOf(placement) !== -1,
+    },
     popperContainerId: {
       type: String,
       required: false,
       default: "a_tooltip_container",
+    },
+    tag: {
+      type: String,
+      required: false,
+      default: "span",
+    },
+    timeClose: {
+      type: Number,
+      required: false,
+      default: 300,
+    },
+    width: {
+      type: Number,
+      required: false,
+      default: undefined,
     },
   },
   setup(props) {

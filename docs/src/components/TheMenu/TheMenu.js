@@ -249,12 +249,12 @@ export default {
           icon: "SegmentedNav",
         },
         {
-          id: "title",
-          label: "Title",
+          id: "tooltip",
+          label: "Tooltip",
           to: {
             name: "PageTitle",
           },
-          icon: "Dnd",
+          icon: "ChatSquareTextFill",
           titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
         },
         {

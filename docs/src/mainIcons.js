@@ -2,6 +2,7 @@ import ArrowRightCircleFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRig
 import ArrowsCollapse from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowsCollapse";
 import Bell from "../../src/AIcon/Icons/bootstrap-1-9-1/Bell";
 import BoxArrowUpRight from "../../src/AIcon/Icons/bootstrap-1-9-1/BoxArrowUpRight";
+import ChatSquareTextFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ChatSquareTextFill";
 import CheckLg from "../../src/AIcon/Icons/bootstrap-1-9-1/CheckLg";
 import ChevronBarExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronBarExpand";
 import ChevronDown from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronDown";
@@ -34,6 +35,7 @@ export default {
   ArrowsCollapse,
   Bell,
   BoxArrowUpRight,
+  ChatSquareTextFill,
   CheckLg,
   ChevronBarExpand,
   ChevronDown,

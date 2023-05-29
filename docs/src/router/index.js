@@ -152,7 +152,7 @@ const ROUTES = [
   {
     path: "/title",
     name: "PageTitle",
-    component: () => import(/* webpackChunkName: "PageTitle" */ "../views/PageTitle/PageTitle.vue"),
+    component: () => import(/* webpackChunkName: "PageTitle" */ "../views/PageTooltip/PageTooltip.vue"),
   },
   {
     path: "/svg",
