@@ -16,10 +16,6 @@ const notifications = computed(() => {
 let notificationsCount = 0;
 
 export default function ANotificationAPI() {
-  const setNotificationTimeout = timeout => {
-    notificationTimeout = timeout;
-  };
-
   return {
     addNotification,
     removeNotification,
@@ -28,12 +24,18 @@ export default function ANotificationAPI() {
   };
 }
 
+export function setNotificationTimeout(timeout) {
+  notificationTimeout = timeout;
+}
+
 export function addNotification({ text, type = "success", timeout }) {
   const TIMEOUT_LOCAL = isNil(timeout) ? notificationTimeout : timeout;
   const CURRENT_INDEX = notificationsCount;
+  const TYPE = type === "error" ? "danger" : type;
+
   notificationsObj.value[CURRENT_INDEX] = {
     text,
-    type,
+    type: TYPE,
     index: CURRENT_INDEX,
   };
   notificationsCount++;
