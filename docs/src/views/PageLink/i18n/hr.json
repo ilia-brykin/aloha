@@ -73,7 +73,7 @@
   "_A_LINK_PROPS_TEXT_DESCRIPTION_": "Tekst poveznice koji će se prikazati.",
   "_A_LINK_PROPS_TEXT_SCREEN_READER_DESCRIPTION_": "Tekst poveznice za čitač zaslona.",
   "_A_LINK_PROPS_TITLE_DESCRIPTION_": "Jedna ili više dodatnih informacija koja će se prikazati kad se mišem prijeđe preko poveznice.",
-  "_A_LINK_PROPS_TITLE_PLACEMENT_DESCRIPTION_": "Položaj u odnosu na poveznicu u kojem će se prikazati oblačić.",
+  "_A_LINK_PROPS_TITLE_PLACEMENT_DESCRIPTION_": "Položaj u odnosu na poveznicu u kojem će se prikazati oblačić. Funkcionira samo ako is-title-html ima vrijednost true.",
   "_A_LINK_PROPS_TO_DESCRIPTION_": "Interna poveznica s drugom komponentom pomoću Vue Routera.",
   "_A_LINK_SLOT_DEFAULT_DESCRIPTION_": "Koristi se za definiranje prilagođenog sadržaja poveznice.",
   "_A_LINK_SLOT_LINK_APPEND_DESCRIPTION_": "Dodaje prilagođeni sadržaj nakon teksta poveznice.",

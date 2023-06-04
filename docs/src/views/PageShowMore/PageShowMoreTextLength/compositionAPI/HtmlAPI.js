@@ -6,7 +6,7 @@ export default function HtmlAPI() {
 </a-show-more>
 <a-show-more 
   class="a_mt_2"
-  :text="tex2"
+  :text="text2"
   :text-length="200"
 >
 </a-show-more>`;

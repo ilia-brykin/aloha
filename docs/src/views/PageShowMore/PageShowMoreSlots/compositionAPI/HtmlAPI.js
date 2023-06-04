@@ -6,7 +6,7 @@ export default function HtmlAPI() {
   <template
     v-slot:button="{ isButtonVisible, isOpen }"
   >
-    <spa>{{ isOpen ? "Show less" : "Show more" }}</spa>
+    <span>{{ isOpen ? "Show less" : "Show more" }}</span>
   </template>
   
   <template
