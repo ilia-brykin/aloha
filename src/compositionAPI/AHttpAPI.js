@@ -19,9 +19,7 @@ const API = ref(axios.create());
 const API_SAVED = ref({});
 const ERROR_CALLBACKS = ref({});
 const HEADER_PARAMS = ref({});
-const abortGroupController = {
-  _global: new AbortController(),
-};
+const abortGroupController = {};
 const abortGroupPending = {};
 
 export function create({ axiosCreateOptions = {} }) {
@@ -53,11 +51,9 @@ export function abortHttp({
         return;
       }
       abortController.abort();
-      if (abortKey !== "_global") {
-        delete abortGroupController[abortKey];
-        if (abortGroupPending[abortGroup]) {
-          delete abortGroupPending[abortGroup];
-        }
+      delete abortGroupController[abortKey];
+      if (abortGroupPending[abortGroup]) {
+        delete abortGroupPending[abortGroup];
       }
     });
   } else if (abortGroup) {
@@ -73,11 +69,9 @@ export function abortHttp({
       }
       if (abortGroupController[abortKey]) {
         abortGroupController[abortKey].abort();
-        if (abortKey !== "_global") {
-          delete abortGroupController[abortKey];
-          if (abortGroupPending[abortGroup]) {
-            delete abortGroupPending[abortGroup];
-          }
+        delete abortGroupController[abortKey];
+        if (abortGroupPending[abortGroup]) {
+          delete abortGroupPending[abortGroup];
         }
       }
     });
@@ -419,6 +413,9 @@ function checkErrorStatus({ error, showError, client, resolve, reject }) {
     if (isFunction(CALLBACK)) {
       return CALLBACK({ error, showError, client, resolve, reject });
     }
+    if (isFunction(ERROR_CALLBACKS.value.all)) {
+      return ERROR_CALLBACKS.value.all({ error, showError, client, resolve, reject });
+    }
   };
 
   ERROR_CALLBACK();
@@ -492,15 +489,12 @@ function checkedExpectedList({ expectedList, response }) {
   return response.data;
 }
 
-function getAbortGroupSignal({ abortGroup, abortable } = {}) {
+function getAbortGroupSignal({ abortGroup = "_global", abortable } = {}) {
   if (!abortable) {
     return undefined;
   }
-  if (abortGroup) {
-    abortGroupController[abortGroup] = abortGroupController[abortGroup] || new AbortController();
-    return abortGroupController[abortGroup].signal;
-  }
-  return abortGroupController._global.signal;
+  abortGroupController[abortGroup] = abortGroupController[abortGroup] || new AbortController();
+  return abortGroupController[abortGroup].signal;
 }
 
 function getExcludeAbortGroup({ excludeAbortGroup }) {
