@@ -13,7 +13,7 @@ import {
 export default function RowsAPI(props, {
   dataSorted = computed(() => []),
 }) {
-  const hasPagination = toRef(props, "hasPagination");
+  const usePagination = toRef(props, "usePagination");
   const isPaginationOutside = toRef(props, "isPaginationOutside");
   const limitStart = toRef(props, "limitStart");
   const offsetStart = toRef(props, "offsetStart");
@@ -26,7 +26,7 @@ export default function RowsAPI(props, {
   let rowsLocalInterval = undefined;
 
   const dataPaginated = computed(() => {
-    if (limit.value && !isPaginationOutside.value && hasPagination.value) {
+    if (limit.value && !isPaginationOutside.value && usePagination.value) {
       const DATA_SORTED = cloneDeep(dataSorted.value);
       const INDEX_START = offset.value;
       const INDEX_END = INDEX_START + limit.value;

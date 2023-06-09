@@ -159,11 +159,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    hasPagination: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     isPaginationOutside: {
       type: Boolean,
       required: false,
@@ -262,6 +257,12 @@ export default {
       required: false,
       default: 0,
     },
+    paginationMaxItems: {
+      type: Number,
+      required: false,
+      default: 5,
+      validator: value => isOdd(value) && value > 0,
+    },
     perPageView: {
       type: Object,
       required: false,
@@ -328,12 +329,6 @@ export default {
       required: false,
       default: "a_badge",
     },
-    paginationMaxItems: {
-      type: Number,
-      required: false,
-      default: 5,
-      validator: value => isOdd(value) && value > 0,
-    },
     tableActions: {
       type: Array,
       required: false,
@@ -353,6 +348,11 @@ export default {
       type: Function,
       required: false,
       default: undefined,
+    },
+    usePagination: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     valuesForColumnDefault: {
       type: Array,
@@ -882,7 +882,7 @@ export default {
         this.$slots[this.viewCurrent.type]({
           rows: this.rowsLocalAll,
         }),
-        (this.isViewTableVisible && this.hasPagination) && h("div", {
+        (this.isViewTableVisible && this.usePagination) && h("div", {
           class: "a_pagination__parent"
         }, [
           h(ATableCountProPage, {
