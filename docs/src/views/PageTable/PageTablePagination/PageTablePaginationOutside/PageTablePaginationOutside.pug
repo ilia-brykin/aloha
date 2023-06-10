@@ -3,6 +3,8 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_"
   description="_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_"
+  :props="['is-pagination-outside', 'count-all-rows']"
+  :emits="['change-limit', 'change-offset']"
 )
   div
     a-table(
