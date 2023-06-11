@@ -4,14 +4,21 @@ import {
 } from "vue";
 
 import {
+  isEven,
+} from "../../../utils/utilsMath";
+import {
   ceil,
 } from "lodash-es";
 
 export default function PaginationItemsAPI(props) {
-  const paginationMaxItems = toRef(props, "paginationMaxItems");
+  const paginationMaxItems = toRef(props, "paginationMaxItems"); // 7
   const offset = toRef(props, "offset");
   const limit = toRef(props, "limit");
   const totalRowsCount = toRef(props, "totalRowsCount");
+
+  const isPaginationMaxItemsEven = computed(() => {
+    return isEven(paginationMaxItems.value);
+  });
 
   const currentItem = computed(() => {
     return (offset.value / limit.value >> 0) + 1;
@@ -21,17 +28,28 @@ export default function PaginationItemsAPI(props) {
     return ceil(totalRowsCount.value / limit.value);
   });
 
+  const paginationMinIndex = computed(() => {
+    return Math.floor(paginationMaxItems.value / 2);
+  });
+
+  const paginationMaxIndex = computed(() => {
+    return paginationMaxItems.value * 2 - 1;
+  });
+
   const getIndexStartAndEndForPagination = ({ currentItemIndex, paginationLength }) => {
     let indexStart = -1;
     let indexEnd = paginationLength + 1;
-    const MIN_INDEX = Math.floor(paginationMaxItems.value / 2);
-    const MAX_INDEX = (paginationMaxItems.value * 2 - 1);
+    const MIN_INDEX = paginationMinIndex.value;
+    const MAX_INDEX = paginationMaxIndex.value;
     if (currentItemIndex <= MIN_INDEX) {
       indexStart = 0;
       indexEnd = paginationMaxItems.value;
     } else if (currentItemIndex >= (MAX_INDEX - (MIN_INDEX + 1))) {
       indexStart = MAX_INDEX - paginationMaxItems.value;
       indexEnd = MAX_INDEX;
+    } else if (isPaginationMaxItemsEven.value) {
+      indexStart = currentItemIndex - MIN_INDEX + 1;
+      indexEnd = currentItemIndex + MIN_INDEX + 1;
     } else {
       indexStart = currentItemIndex - MIN_INDEX;
       indexEnd = currentItemIndex + MIN_INDEX + 1;

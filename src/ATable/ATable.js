@@ -38,9 +38,6 @@ import TableFiltersAPI from "./compositionAPI/TableFiltersAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 import {
-  isOdd,
-} from "../utils/utilsMath";
-import {
   get,
   isArray,
   isInteger,
@@ -261,7 +258,7 @@ export default {
       type: Number,
       required: false,
       default: 5,
-      validator: value => isOdd(value) && value > 0,
+      validator: value => isInteger(value) && value > 0,
     },
     perPageView: {
       type: Object,

@@ -10,8 +10,8 @@ import PaginationItemsAPI from "./compositionAPI/PaginationItemsAPI";
 import UpdateOffsetAPI from "./compositionAPI/UpdateOffsetAPI";
 
 import {
-  isOdd,
-} from "../../utils/utilsMath";
+  isInteger,
+} from "lodash-es";
 
 export default {
   name: "ATablePagination",
@@ -40,7 +40,7 @@ export default {
       type: Number,
       required: false,
       default: 5,
-      validator: value => isOdd(value) && value > 0,
+      validator: value => isInteger(value) && value > 0,
     },
     totalRowsCount: {
       type: Number,
