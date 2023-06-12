@@ -4,6 +4,12 @@ import {
 
 import ATranslation from "../ATranslation/ATranslation";
 
+import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+
+import {
+  spinnerPluginOptions,
+} from "../plugins/ASpinnerPlugin";
+
 
 export default {
   name: "ASpinner",
@@ -11,35 +17,37 @@ export default {
     ATranslation,
   },
   props: {
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: () => spinnerPluginOptions.value.propsDefault.ariaLabel,
+    },
+    safeHtml: {
+      type: String,
+      required: false,
+      default: () => spinnerPluginOptions.value.propsDefault.safeHtml,
+    },
     tag: {
       type: String,
       required: false,
-      default: "span",
+      default: () => spinnerPluginOptions.value.propsDefault.tag,
     },
-    class: {
-      type: [String, Object],
-      required: false,
-      default: "",
-    },
-    text: {
-      type: String,
-      required: false,
-      default: "_LOADING_",
-    },
+  },
+  setup(props) {
+    const {
+      ariaLabelTranslated,
+    } = AriaLabelAPI(props);
+
+    return {
+      ariaLabelTranslated,
+    };
   },
   render() {
     return h(this.tag, {
-      class: [
-        "a_spinner",
-        this.class,
-      ],
+      ariaLabel: this.ariaLabelTranslated,
+      class: spinnerPluginOptions.value.propsDefault.class,
       role: "status",
-    }, [
-      this.text && h(ATranslation, {
-        class: "a_sr_only",
-        tag: "span",
-        text: this.text,
-      }),
-    ]);
+      innerHTML: this.safeHtml,
+    });
   },
 };
