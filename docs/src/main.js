@@ -35,6 +35,5 @@ APP.use(AGroupButtonDropdownPlugin, {
     },
   },
 });
-APP.config.unwrapInjectedRef = true;
 APP.directive("SafeHtml", ASafeHtml);
 APP.use(router).mount("#app");

@@ -4,8 +4,7 @@ export default function HtmlAPI() {
   :data="data"
   label="_A_TABLE_GROUP_PAGINATION_DISABLED_LABEL_"
   key-id="id"
-  :use-pagination="true"
-  :disabled-pagination="true"
+  :pagination="{ use: true, disabled: true }"
 >
 </a-table>`;
 

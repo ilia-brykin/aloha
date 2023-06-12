@@ -3,7 +3,7 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_GROUP_PAGINATION_DISABLED_HEADER_"
   description="_A_TABLE_GROUP_PAGINATION_DISABLED_DESCRIPTION_"
-  props="disabled-pagination"
+  props="pagination.disabled"
 )
   div
     a-table(
@@ -11,6 +11,5 @@ aloha-example(
       :data="data"
       label="_A_TABLE_GROUP_PAGINATION_DISABLED_LABEL_"
       key-id="id"
-      :use-pagination="true"
-      :disabled-pagination="true"
+      :pagination="{ use: true, disabled: true }"
     )

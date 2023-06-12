@@ -35,7 +35,8 @@ export default {
     },
     limitsPerPage: {
       type: Array,
-      required: true,
+      required: false,
+      default: () => ["10", "25", "50", "100"],
     },
     offset: {
       type: Number,

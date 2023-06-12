@@ -3,7 +3,7 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_"
   description="_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_"
-  :props="['is-pagination-outside', 'count-all-rows']"
+  :props="['pagination.isOutside', 'count-all-rows']"
   :emits="['change-limit', 'change-offset']"
 )
   div
@@ -12,8 +12,7 @@ aloha-example(
       :data="dataPaginated"
       label="_A_TABLE_GROUP_PAGINATION_OUTSIDE_LABEL_"
       key-id="id"
-      :use-pagination="true"
-      :is-pagination-outside="true"
+      :pagination="{ use: true, isOutside: true }"
       :count-all-rows="data.length"
       @change-limit="changeLimit"
       @change-offset="changeOffset"

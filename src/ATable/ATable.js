@@ -99,10 +99,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    disabledPagination: {
-      type: Boolean,
-      required: false,
-    },
     disabledPreview: {
       type: Boolean,
       required: false,
@@ -156,10 +152,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    isPaginationOutside: {
-      type: Boolean,
-      required: false,
-    },
     isQuickSearch: {
       type: Boolean,
       required: false,
@@ -197,17 +189,6 @@ export default {
       type: String,
       required: false,
       default: "h2",
-    },
-    limitsPerPage: {
-      type: Array,
-      required: false,
-      default: () => ["10", "25", "50", "100"],
-    },
-    limitStart: {
-      type: Number,
-      required: false,
-      default: 10,
-      validator: value => value > 0 && isInteger(value),
     },
     modelColumnsOrdering: {
       type: Array,
@@ -254,11 +235,38 @@ export default {
       required: false,
       default: 0,
     },
-    paginationMaxItems: {
-      type: Number,
+    pagination: {
+      type: Object,
       required: false,
-      default: 5,
-      validator: value => isInteger(value) && value > 0,
+      default: () => ({
+        use: false,
+        maxPages: 5,
+        limitsPerPage: [],
+        limitStart: 10,
+        disabled: false,
+        isOutside: false,
+        outside: false,
+        modes: {
+          // perPage: inline / select
+          // pagination: normal / short / loadMore
+          desktop: [
+            {
+              component: "pagination",
+              mode: "normal",
+            },
+            {
+              component: "perPage",
+              mode: "inline",
+            },
+          ],
+          mobile: [
+            {
+              component: "pagination",
+              mode: "loadMore",
+            },
+          ],
+        },
+      }),
     },
     perPageView: {
       type: Object,
@@ -345,11 +353,6 @@ export default {
       type: Function,
       required: false,
       default: undefined,
-    },
-    usePagination: {
-      type: Boolean,
-      required: false,
-      default: false,
     },
     valuesForColumnDefault: {
       type: Array,
@@ -879,13 +882,13 @@ export default {
         this.$slots[this.viewCurrent.type]({
           rows: this.rowsLocalAll,
         }),
-        (this.isViewTableVisible && this.usePagination) && h("div", {
+        (this.isViewTableVisible && this.pagination.use) && h("div", {
           class: "a_pagination__parent"
         }, [
           h(ATableCountProPage, {
             countAllRows: this.countAllRowsLocal,
-            disabled: this.disabledPagination,
-            limitsPerPage: this.limitsPerPage,
+            disabled: this.pagination.disabled,
+            limitsPerPage: this.pagination.limitsPerPage,
             limit: this.limit,
             offset: this.offset,
             rowsLength: this.rowsLocalLength,
@@ -896,12 +899,12 @@ export default {
           }),
           h(ATablePagination, {
             limit: this.limit,
-            disabled: this.disabledPagination,
+            disabled: this.pagination.disabled,
             totalRowsCount: this.totalRowsCountLocal,
             offset: this.offset,
             hasRows: this.hasRows,
             isMobile: this.isMobile,
-            paginationMaxItems: this.paginationMaxItems,
+            paginationMaxItems: this.pagination.maxPages,
             "onUpdate:offset": this.changeOffset,
           }),
         ]),

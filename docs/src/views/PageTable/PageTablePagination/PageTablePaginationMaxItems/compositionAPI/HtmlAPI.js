@@ -4,8 +4,7 @@ export default function HtmlAPI() {
   :data="data"
   label="_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_LABEL_"
   key-id="id"
-  :use-pagination="true"
-  :pagination-max-items="7"
+  :pagination="{ use: true, maxPages: 7 }"
 >
 </a-table>`;
 
