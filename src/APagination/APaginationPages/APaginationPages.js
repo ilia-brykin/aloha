@@ -14,23 +14,21 @@ import {
 } from "lodash-es";
 
 export default {
-  name: "ATablePagination",
+  name: "APaginationPages",
   props: {
     disabled: {
-      type: Boolean,
-      required: false,
-    },
-    hasRows: {
-      type: Boolean,
-      required: true,
-    },
-    isMobile: {
       type: Boolean,
       required: false,
     },
     limit: {
       type: Number,
       required: true,
+    },
+    mode: {
+      type: String,
+      required: false,
+      default: "normal",
+      validator: value => ["normal", "short", "loadMore"].indexOf(value) !== -1,
     },
     offset: {
       type: Number,
@@ -91,48 +89,51 @@ export default {
       updateOffsetPrevious,
     };
   },
-  methods: {
-  },
   render() {
-    if (this.hasRows) {
-      return h(ATranslation, {
-        tag: "nav",
-        role: "navigation",
-        class: "a_pagination__nav",
-        "aria-label": "_A_PAGINATION_NAVIGATION_",
-      }, {
-        default: () => {
-          return [
-            h("ul", {
-              class: "a_pagination",
+    return h(ATranslation, {
+      tag: "nav",
+      role: "navigation",
+      class: "a_pagination__nav",
+      "aria-label": "_A_PAGINATION_NAVIGATION_",
+    }, {
+      default: () => {
+        if (this.mode === "loadMore") {
+          return h(AButton, {
+            class: "a_btn a_btn_primary",
+            text: "Load more",
+          });
+        }
+        return [
+          h("ul", {
+            class: "a_pagination",
+          }, [
+            h("li", {
+              class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
             }, [
-              h("li", {
-                class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
-              }, [
-                h(AButton, {
-                  tag: "a",
-                  class: "a_pagination__item__link",
-                  role: "button",
-                  tabindex: this.disabledButtonFirstPage ? -1 : 0,
-                  textScreenReader: "_A_PAGINATION_FIRST_PAGE_",
-                  iconLeft: "DoubleAngleLeft",
-                  onClick: this.updateOffsetFirst,
-                }),
-              ]),
-              h("li", {
-                class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
-              }, [
-                h(AButton, {
-                  tag: "a",
-                  class: "a_pagination__item__link",
-                  role: "button",
-                  tabindex: this.disabledButtonFirstPage ? -1 : 0,
-                  textScreenReader: "_A_PAGINATION_PREVIOUS_PAGE_",
-                  iconLeft: "AngleLeft",
-                  onClick: this.updateOffsetPrevious,
-                }),
-              ]),
-              this.isMobile ?
+              h(AButton, {
+                tag: "a",
+                class: "a_pagination__item__link",
+                role: "button",
+                tabindex: this.disabledButtonFirstPage ? -1 : 0,
+                textScreenReader: "_A_PAGINATION_FIRST_PAGE_",
+                iconLeft: "DoubleAngleLeft",
+                onClick: this.updateOffsetFirst,
+              }),
+            ]),
+            h("li", {
+              class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
+            }, [
+              h(AButton, {
+                tag: "a",
+                class: "a_pagination__item__link",
+                role: "button",
+                tabindex: this.disabledButtonFirstPage ? -1 : 0,
+                textScreenReader: "_A_PAGINATION_PREVIOUS_PAGE_",
+                iconLeft: "AngleLeft",
+                onClick: this.updateOffsetPrevious,
+              }),
+            ]),
+              this.mode === "short" ?
                 h("li", {
                   class: "a_pagination__item",
                 }, [
@@ -167,37 +168,35 @@ export default {
                     }),
                   ]);
                 }),
-              h("li", {
-                class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
-              }, [
-                h(AButton, {
-                  tag: "a",
-                  class: "a_pagination__item__link",
-                  role: "button",
-                  tabindex: this.disabledButtonLastPage ? -1 : 0,
-                  textScreenReader: "_A_PAGINATION_NEXT_PAGE_",
-                  iconLeft: "AngleRight",
-                  onClick: this.updateOffsetNext,
-                }),
-              ]),
-              h("li", {
-                class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
-              }, [
-                h(AButton, {
-                  tag: "a",
-                  class: "a_pagination__item__link",
-                  role: "button",
-                  tabindex: this.disabledButtonLastPage ? -1 : 0,
-                  textScreenReader: "_A_PAGINATION_LAST_PAGE_",
-                  iconLeft: "DoubleAngleRight",
-                  onClick: this.updateOffsetLast,
-                }),
-              ]),
+            h("li", {
+              class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
+            }, [
+              h(AButton, {
+                tag: "a",
+                class: "a_pagination__item__link",
+                role: "button",
+                tabindex: this.disabledButtonLastPage ? -1 : 0,
+                textScreenReader: "_A_PAGINATION_NEXT_PAGE_",
+                iconLeft: "AngleRight",
+                onClick: this.updateOffsetNext,
+              }),
             ]),
-          ];
-        },
-      });
-    }
-    return "";
+            h("li", {
+              class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
+            }, [
+              h(AButton, {
+                tag: "a",
+                class: "a_pagination__item__link",
+                role: "button",
+                tabindex: this.disabledButtonLastPage ? -1 : 0,
+                textScreenReader: "_A_PAGINATION_LAST_PAGE_",
+                iconLeft: "DoubleAngleRight",
+                onClick: this.updateOffsetLast,
+              }),
+            ]),
+          ]),
+        ];
+      },
+    });
   },
 };

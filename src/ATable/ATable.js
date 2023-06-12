@@ -7,11 +7,10 @@ import {
 
 import AGet from "../AGet/AGet";
 import ALoading from "../ALoading/ALoading";
-import ATableCountProPage from "./ATableCountProPage/ATableCountProPage";
+import APagination from "../APagination/APagination";
 import ATableFilterCenter from "./ATableFilterCenter/ATableFilterCenter";
 import ATableFiltersTop from "./ATableFiltersTop/ATableFiltersTop";
 import ATableHeader from "./ATableHeader/ATableHeader";
-import ATablePagination from "./ATablePagination/ATablePagination";
 import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
@@ -249,31 +248,22 @@ export default {
         modes: {
           // perPage: inline / select
           // pagination: normal / short / loadMore
-          desktop: [
-            {
-              component: "pagination",
+          desktop: {
+            pagination: {
               mode: "normal",
+              position: 0,
             },
-            {
-              component: "perPage",
+            perPage: {
               mode: "inline",
+              position: 1,
             },
-          ],
-          mobile: [
-            {
-              component: "pagination",
+          },
+          mobile: {
+            pagination: {
               mode: "loadMore",
             },
-          ],
+          },
         },
-      }),
-    },
-    perPageView: {
-      type: Object,
-      required: false,
-      default: () => ({
-        desktop: "inline",
-        mobile: "select",
       }),
     },
     preview: {
@@ -882,32 +872,20 @@ export default {
         this.$slots[this.viewCurrent.type]({
           rows: this.rowsLocalAll,
         }),
-        (this.isViewTableVisible && this.pagination.use) && h("div", {
-          class: "a_pagination__parent"
-        }, [
-          h(ATableCountProPage, {
-            countAllRows: this.countAllRowsLocal,
-            disabled: this.pagination.disabled,
-            limitsPerPage: this.pagination.limitsPerPage,
-            limit: this.limit,
-            offset: this.offset,
-            rowsLength: this.rowsLocalLength,
-            hasRows: this.hasRows,
-            perPageView: this.perPageView,
-            isMobile: this.isMobile,
-            "onUpdate:limit": this.changeLimit,
-          }),
-          h(ATablePagination, {
-            limit: this.limit,
-            disabled: this.pagination.disabled,
-            totalRowsCount: this.totalRowsCountLocal,
-            offset: this.offset,
-            hasRows: this.hasRows,
-            isMobile: this.isMobile,
-            paginationMaxItems: this.pagination.maxPages,
-            "onUpdate:offset": this.changeOffset,
-          }),
-        ]),
+        (this.isViewTableVisible && this.pagination.use) &&
+        h(APagination, {
+          countAllRows: this.countAllRowsLocal,
+          disabled: this.pagination.disabled,
+          hasRows: this.hasRows,
+          limit: this.limit,
+          limitsPerPage: this.pagination.limitsPerPage,
+          maxPages: this.pagination.maxPages,
+          offset: this.offset,
+          rowsLength: this.rowsLocalLength,
+          totalRowsCount: this.totalRowsCountLocal,
+          "onUpdate:limit": this.changeLimit,
+          "onUpdate:offset": this.changeOffset,
+        }),
         this.isPreviewRightOpen && h(ATablePreviewRight, {
           rowIndex: this.previewRightRowIndex,
           rows: this.rowsLocalAll,
