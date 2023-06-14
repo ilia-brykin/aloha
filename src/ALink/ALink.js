@@ -230,9 +230,6 @@ export default {
         },
       ],
       ariaDisabled: this.disabled,
-      // TODO: ATable
-      isHiddenCallback: undefined,
-      type: undefined,
     }, {
       default: () => [
         (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {

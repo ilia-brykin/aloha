@@ -253,7 +253,6 @@ export default {
       disabled: this.disabled,
       ariaDisabled: this.ariaDisabled,
       // TODO: ATable
-      isHiddenCallback: undefined,
       isAllRowsSelected: undefined,
       onClick: this.onClick,
     }, {

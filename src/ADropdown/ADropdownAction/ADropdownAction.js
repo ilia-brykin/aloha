@@ -14,10 +14,6 @@ export default {
       type: Object,
       required: true,
     },
-    useActionClass: {
-      type: Boolean,
-      required: false,
-    },
   },
   setup(props) {
     const {

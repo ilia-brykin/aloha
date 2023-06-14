@@ -215,11 +215,6 @@ export default {
       required: false,
       default: "div",
     },
-    useActionClass: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     popperContainerId: {
       type: String,
       required: false,
@@ -366,7 +361,6 @@ export default {
               return h(ADropdownAction, {
                 key: actionIndex,
                 action,
-                useActionClass: this.useActionClass,
               }, this.$slots);
             }),
           ],
