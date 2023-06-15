@@ -4,6 +4,7 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageGroupButtonDropdownActionsClasses from "./PageGroupButtonDropdownActionsClasses/PageGroupButtonDropdownActionsClasses.vue";
 import PageGroupButtonDropdownBasic from "./PageGroupButtonDropdownBasic/PageGroupButtonDropdownBasic.vue";
 import PageGroupButtonDropdownDisabled from "./PageGroupButtonDropdownDisabled/PageGroupButtonDropdownDisabled.vue";
+import PageGroupButtonDropdownDropdownAttributes from "./PageGroupButtonDropdownDropdownAttributes/PageGroupButtonDropdownDropdownAttributes.vue";
 import PageGroupButtonDropdownHasDividerBeforeDropdown from "./PageGroupButtonDropdownHasDividerBeforeDropdown/PageGroupButtonDropdownHasDividerBeforeDropdown.vue";
 import PageGroupButtonDropdownIndexFirstDropdownAction from "./PageGroupButtonDropdownIndexFirstDropdownAction/PageGroupButtonDropdownIndexFirstDropdownAction.vue";
 import PageGroupButtonDropdownIndexFirstDropdownActionOne from "./PageGroupButtonDropdownIndexFirstDropdownActionOne/PageGroupButtonDropdownIndexFirstDropdownActionOne.vue";
@@ -23,6 +24,7 @@ export default {
     PageGroupButtonDropdownActionsClasses,
     PageGroupButtonDropdownBasic,
     PageGroupButtonDropdownDisabled,
+    PageGroupButtonDropdownDropdownAttributes,
     PageGroupButtonDropdownHasDividerBeforeDropdown,
     PageGroupButtonDropdownIndexFirstDropdownAction,
     PageGroupButtonDropdownIndexFirstDropdownActionOne,

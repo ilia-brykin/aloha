@@ -11,5 +11,8 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_HEADER_": "Schaltflächenklassen",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "Sie können die Schaltflächenklassen in einer bestimmten Reihenfolge festlegen. Beispielsweise ist die erste Schaltfläche immer <strong>primary</strong>, die zweite immer <strong>secondary</strong> und so weiter.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_HEADER_": "Inaktiv",
-  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Man kann alle Schaltflächen und Dropdown-Liste deaktivieren."
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Man kann alle Schaltflächen und Dropdown-Liste deaktivieren.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Konfiguration der Dropdown-Schaltfläche",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Man kann die Dropdown-Schaltfläche konfigurieren. Alle Props von <strong>ADropdown</strong> können im Objekt <strong>dropdown-attributes</strong> verwendet werden.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Weitere Aktionen"
 }
