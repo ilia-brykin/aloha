@@ -5,6 +5,7 @@ import PageGroupButtonDropdownBasic from "./PageGroupButtonDropdownBasic/PageGro
 import PageGroupButtonDropdownIndexFirstDropdownAction from "./PageGroupButtonDropdownIndexFirstDropdownAction/PageGroupButtonDropdownIndexFirstDropdownAction.vue";
 import PageGroupButtonDropdownIndexFirstDropdownActionOne from "./PageGroupButtonDropdownIndexFirstDropdownActionOne/PageGroupButtonDropdownIndexFirstDropdownActionOne.vue";
 import PageGroupButtonDropdownHasDividerBeforeDropdown from "./PageGroupButtonDropdownHasDividerBeforeDropdown/PageGroupButtonDropdownHasDividerBeforeDropdown.vue";
+import PageGroupButtonDropdownActionsClasses from "./PageGroupButtonDropdownActionsClasses/PageGroupButtonDropdownActionsClasses.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -22,6 +23,7 @@ export default {
     PageGroupButtonDropdownIndexFirstDropdownAction,
     PageGroupButtonDropdownIndexFirstDropdownActionOne,
     PageGroupButtonDropdownHasDividerBeforeDropdown,
+    PageGroupButtonDropdownActionsClasses,
   },
   setup() {
     const {
