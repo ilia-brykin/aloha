@@ -6,6 +6,7 @@ import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
+import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
 import ClickAPI from "./comositionAPI/ClickAPI";
 import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
 import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
@@ -222,7 +223,12 @@ export default {
       htmlTitleAttributes,
     } = HtmlTitleAPI(props);
 
+    const {
+      ariaLabelAttributes,
+    } = AriaLabelAPI(props);
+
     return {
+      ariaLabelAttributes,
       buttonRef,
       componentLocal,
       htmlTitleAttributes,
@@ -239,6 +245,7 @@ export default {
       ...this.$attrs,
       ...this.attributes,
       ...this.htmlTitleAttributes,
+      ...this.ariaLabelAttributes,
       ref: "buttonRef",
       id: this.id,
       class: [
@@ -291,7 +298,6 @@ export default {
         this.$slots.default && this.$slots.default(),
         this.isTextOrHtmlVisible && h(ATranslation, {
           ariaHidden: this.textAriaHidden,
-          ariaLabel: this.ariaLabel,
           class: this.textClass,
           extra: this.extra,
           html: this.html,

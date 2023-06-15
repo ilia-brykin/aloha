@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
+import ATranslationAPI from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -11,11 +12,13 @@ import {
   isUndefined,
 } from "lodash-es";
 
-export default function AriaLabelAPI(props, {
-  translation = computed(() => ({})),
-}) {
+export default function AriaLabelAPI(props) {
   const ariaLabel = toRef(props, "ariaLabel");
   const extra = toRef(props, "extra");
+
+  const {
+    translation,
+  } = ATranslationAPI();
 
   const {
     isPlaceholderTranslate,
@@ -55,10 +58,18 @@ export default function AriaLabelAPI(props, {
     return ariaLabelForCurrentDevice.value;
   });
 
+  const ariaLabelAttributes = computed(() => {
+    const ATTRIBUTES = {};
+    if (hasAriaLabel.value) {
+      ATTRIBUTES["aria-label"] = ariaLabelLocal.value;
+      if (isTranslateAriaLabel.value) {
+        ATTRIBUTES["data-translate-aria-label"] = ariaLabelForCurrentDevice.value;
+      }
+    }
+    return ATTRIBUTES;
+  });
+
   return {
-    ariaLabelForCurrentDevice,
-    ariaLabelLocal,
-    hasAriaLabel,
-    isTranslateAriaLabel,
+    ariaLabelAttributes,
   };
 }

@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
+import ATranslationAPI from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -11,11 +12,13 @@ import {
   isUndefined,
 } from "lodash-es";
 
-export default function PlaceholderAPI(props, {
-  translation = computed(() => ({})),
-}) {
+export default function PlaceholderAPI(props) {
   const extra = toRef(props, "extra");
   const placeholder = toRef(props, "placeholder");
+
+  const {
+    translation,
+  } = ATranslationAPI();
 
   const {
     isPlaceholderTranslate,
@@ -55,10 +58,18 @@ export default function PlaceholderAPI(props, {
     return placeholderForCurrentDevice.value;
   });
 
+  const placeholderAttributes = computed(() => {
+    const ATTRIBUTES = {};
+    if (hasPlaceholder.value) {
+      ATTRIBUTES.placeholder = placeholderLocal.value;
+      if (isTranslatePlaceholder.value) {
+        ATTRIBUTES["data-translate-placeholder"] = placeholderForCurrentDevice.value;
+      }
+    }
+    return ATTRIBUTES;
+  });
+
   return {
-    hasPlaceholder,
-    isTranslatePlaceholder,
-    placeholderForCurrentDevice,
-    placeholderLocal,
+    placeholderAttributes,
   };
 }

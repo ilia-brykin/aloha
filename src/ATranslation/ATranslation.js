@@ -109,19 +109,13 @@ export default {
     });
 
     const {
-      hasPlaceholder,
-      isTranslatePlaceholder,
-      placeholderForCurrentDevice,
-      placeholderLocal,
+      placeholderAttributes,
     } = PlaceholderAPI(props, {
       translation,
     });
 
     const {
-      ariaLabelForCurrentDevice,
-      ariaLabelLocal,
-      hasAriaLabel,
-      isTranslateAriaLabel,
+      ariaLabelAttributes,
     } = AriaLabelAPI(props, {
       translation,
     });
@@ -129,24 +123,17 @@ export default {
     const {
       attributesLocal,
     } = AttributesAPI({
-      ariaLabelForCurrentDevice,
-      ariaLabelLocal,
-      hasAriaLabel,
-      hasPlaceholder,
       htmlForCurrentDevice,
-      isTranslateAriaLabel,
       isTranslateHtml,
-      isTranslatePlaceholder,
       isTranslateSafeHtml,
       isTranslateText,
-      placeholderForCurrentDevice,
-      placeholderLocal,
       safeHtmlForCurrentDevice,
       textForCurrentDevice,
       titleLocalOptions,
     });
 
     return {
+      ariaLabelAttributes,
       attributesLocal,
       hasText,
       hasTextAfter,
@@ -154,6 +141,7 @@ export default {
       hasHtml,
       hasSafeHtml,
       htmlLocalWithBeforeAndAfter,
+      placeholderAttributes,
       textAfterForCurrentDevice,
       textBeforeForCurrentDevice,
       textLocal,
@@ -162,7 +150,11 @@ export default {
   },
   render() {
     if (this.hasText) {
-      return h(this.tag, this.attributesLocal, [
+      return h(this.tag, {
+        ...this.attributesLocal,
+        ...this.ariaLabelAttributes,
+        ...this.placeholderAttributes,
+      }, [
         this.textBeforeForCurrentDevice,
         this.textLocal,
         this.$slots.default && this.$slots.default(),
@@ -173,11 +165,17 @@ export default {
     if (this.hasSafeHtml || this.hasHtml) {
       return h(this.tag, {
         ...this.attributesLocal,
+        ...this.ariaLabelAttributes,
+        ...this.placeholderAttributes,
         innerHTML: this.htmlLocalWithBeforeAndAfter,
       });
     }
 
-    return h(this.tag, this.attributesLocal, [
+    return h(this.tag, {
+      ...this.attributesLocal,
+      ...this.ariaLabelAttributes,
+      ...this.placeholderAttributes,
+    }, [
       this.textBeforeForCurrentDevice,
       this.$slots.default && this.$slots.default(),
       this.textAfterForCurrentDevice,

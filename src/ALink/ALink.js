@@ -6,6 +6,7 @@ import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
+import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
 import ComponentLocalAPI from "./compositionAPI/ComponentLocalAPI";
 import HtmlTitleAPI from "./compositionAPI/HtmlTitleAPI";
 import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
@@ -22,6 +23,11 @@ export default {
   name: "ALink",
   inheritAttrs: false,
   props: {
+    ariaLabel: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
     attributes: {
       type: Object,
       required: false,
@@ -203,7 +209,12 @@ export default {
       isRouterLink,
     });
 
+    const {
+      ariaLabelAttributes,
+    } = AriaLabelAPI(props);
+
     return {
+      ariaLabelAttributes,
       componentLocal,
       isLoadingLeft,
       htmlTitleAttributes,
@@ -220,6 +231,7 @@ export default {
       ...this.attributes,
       ...this.htmlTitleAttributes,
       ...this.toHrefAttributes,
+      ...this.ariaLabelAttributes,
       id: this.id,
       target: this.target,
       class: [
@@ -266,7 +278,6 @@ export default {
         this.$slots.default && this.$slots.default(),
         this.isTextOrHtmlVisible && h(ATranslation, {
           ariaHidden: this.textAriaHidden,
-          ariaLabel: this.ariaLabel,
           class: this.textClass,
           extra: this.extra,
           html: this.html,
