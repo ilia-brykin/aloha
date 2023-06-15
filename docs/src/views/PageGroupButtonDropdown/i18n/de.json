@@ -9,5 +9,7 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_HEADER_": "Abstand zwischen Schaltfläche und Dropdown",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Man kann der Dropdown-Liste mit oder ohne Abstand zu den Schaltflächen anzeigen.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_HEADER_": "Schaltflächenklassen",
-  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "Sie können die Schaltflächenklassen in einer bestimmten Reihenfolge festlegen. Beispielsweise ist die erste Schaltfläche immer <strong>primary</strong>, die zweite immer <strong>secondary</strong> und so weiter."
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "Sie können die Schaltflächenklassen in einer bestimmten Reihenfolge festlegen. Beispielsweise ist die erste Schaltfläche immer <strong>primary</strong>, die zweite immer <strong>secondary</strong> und so weiter.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_HEADER_": "Inaktiv",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Man kann alle Schaltflächen und Dropdown-Liste deaktivieren."
 }

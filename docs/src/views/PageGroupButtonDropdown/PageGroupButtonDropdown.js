@@ -1,11 +1,12 @@
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
+import PageGroupButtonDropdownActionsClasses from "./PageGroupButtonDropdownActionsClasses/PageGroupButtonDropdownActionsClasses.vue";
 import PageGroupButtonDropdownBasic from "./PageGroupButtonDropdownBasic/PageGroupButtonDropdownBasic.vue";
+import PageGroupButtonDropdownDisabled from "./PageGroupButtonDropdownDisabled/PageGroupButtonDropdownDisabled.vue";
+import PageGroupButtonDropdownHasDividerBeforeDropdown from "./PageGroupButtonDropdownHasDividerBeforeDropdown/PageGroupButtonDropdownHasDividerBeforeDropdown.vue";
 import PageGroupButtonDropdownIndexFirstDropdownAction from "./PageGroupButtonDropdownIndexFirstDropdownAction/PageGroupButtonDropdownIndexFirstDropdownAction.vue";
 import PageGroupButtonDropdownIndexFirstDropdownActionOne from "./PageGroupButtonDropdownIndexFirstDropdownActionOne/PageGroupButtonDropdownIndexFirstDropdownActionOne.vue";
-import PageGroupButtonDropdownHasDividerBeforeDropdown from "./PageGroupButtonDropdownHasDividerBeforeDropdown/PageGroupButtonDropdownHasDividerBeforeDropdown.vue";
-import PageGroupButtonDropdownActionsClasses from "./PageGroupButtonDropdownActionsClasses/PageGroupButtonDropdownActionsClasses.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -19,11 +20,12 @@ export default {
     AlohaPage,
     AlohaTableProps,
     ATranslation,
+    PageGroupButtonDropdownActionsClasses,
     PageGroupButtonDropdownBasic,
+    PageGroupButtonDropdownDisabled,
+    PageGroupButtonDropdownHasDividerBeforeDropdown,
     PageGroupButtonDropdownIndexFirstDropdownAction,
     PageGroupButtonDropdownIndexFirstDropdownActionOne,
-    PageGroupButtonDropdownHasDividerBeforeDropdown,
-    PageGroupButtonDropdownActionsClasses,
   },
   setup() {
     const {
