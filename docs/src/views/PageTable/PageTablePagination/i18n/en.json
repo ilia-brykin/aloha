@@ -1,3 +1,21 @@
 {
-
+  "_A_TABLE_GROUP_PAGINATION_DESCRIPTION_": "The pagination can be configured with <strong>:pagination=\"{ use: true }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_DESCRIPTION_": "The pagination can be disabled with <strong>:pagination=\"{ use: true, disabled: true }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_HEADER_": "Disabling pagination",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_LABEL_": "Table pagination",
+  "_A_TABLE_GROUP_PAGINATION_HEADER_": "Simple pagination",
+  "_A_TABLE_GROUP_PAGINATION_LABEL_": "Table with pagination",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_DESCRIPTION_": "The number of items per page can be set by using <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'] }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_HEADER_": "Number of items per page",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_LABEL_": "Table with pagination",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_DESCRIPTION_": "The default number of items per page can be set by using <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'], limitStart: 5 }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_HEADER_": "Default number of items per page",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_LABEL_": "Table with pagination",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_DESCRIPTION_": "The maximum number of pages in the pagination can be set by using <strong>:pagination=\"{ use: true, maxPages: 7 }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_HEADER_": "Maximum number of pages in the pagination",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_LABEL_": "Table with pagination",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_": "The server-side pagination can be specified by using <strong>:pagination=\"{ use: true, isOutside: true }\"</strong>. The parameter <strong>:count-all-rows=\"999\"</strong> specifies the total number of items in a table. Emit <strong>change-limit</strong> is called when changing the number of items per page. Emit <strong>change-offset</strong> is called when changing the pagination.",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_": "Pagination outside of the component (server-side pagination)",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_LABEL_": "Table with pagination",
+  "_A_TABLE_PAGINATION_": "(Table with pagination)"
 }
