@@ -184,6 +184,7 @@ export default {
     inBody: {
       type: Boolean,
       required: false,
+      default: true,
     },
     isCaret: {
       type: Boolean,
@@ -203,6 +204,11 @@ export default {
       type: Number,
       required: false,
       default: undefined,
+    },
+    persist: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     placement: {
       type: String,
@@ -248,11 +254,13 @@ export default {
       onKeydown,
       onToggle,
       statusExpanded,
+      wasOpened,
     } = ToggleAPI(props, {
       dropdownButtonRef,
       dropdownRef,
       destroyPopover,
       setFocusToFirstElement,
+      startPopper,
     });
 
     const {
@@ -263,8 +271,7 @@ export default {
       isMenuRendered,
     } = AttributesAPI(props, {
       statusExpanded,
-      onToggle,
-      onKeydown,
+      wasOpened,
     });
 
     const {

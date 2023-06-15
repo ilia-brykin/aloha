@@ -10,6 +10,7 @@ import {
 
 export default function AttributesAPI(props, {
   statusExpanded = ref(false),
+  wasOpened = ref(false),
 }) {
   const buttonAttributes = toRef(props, "buttonAttributes");
   const buttonTag = toRef(props, "buttonTag");
@@ -18,6 +19,7 @@ export default function AttributesAPI(props, {
   const dropdownClass = toRef(props, "dropdownClass");
   const id = toRef(props, "id");
   const menuWidth = toRef(props, "menuWidth");
+  const persist = toRef(props, "persist");
 
   const idLocal = computed(() => {
     return buttonAttributes.value.id || id.value;
@@ -60,7 +62,7 @@ export default function AttributesAPI(props, {
   });
 
   const isMenuRendered = computed(() => {
-    return statusExpanded.value;
+    return statusExpanded.value || (persist.value && wasOpened.value);
   });
 
   return {

@@ -15,15 +15,18 @@ export default function ToggleAPI(props, {
   dropdownRef = ref(undefined),
   destroyPopover = () => {},
   setFocusToFirstElement = () => {},
+  startPopper = () => {},
 }) {
   const disabled = toRef(props, "disabled");
+  const elementsForArrows = toRef(props, "elementsForArrows");
   const isCloseByClickInside = toRef(props, "isCloseByClickInside");
   const isListWidthSameWithButton = toRef(props, "isListWidthSameWithButton");
-  const elementsForArrows = toRef(props, "elementsForArrows");
+  const persist = toRef(props, "persist");
 
-  const statusExpanded = ref(false);
   const buttonWidth = ref(undefined);
   const statusEventPressArrows = ref(false);
+  const statusExpanded = ref(false);
+  const wasOpened = ref(false);
 
   const {
     closeDropdownGlobal,
@@ -109,6 +112,11 @@ export default function ToggleAPI(props, {
     setButtonWidth();
     initEventPressArrows();
     statusExpanded.value = true;
+    if (persist.value &&
+      wasOpened.value) {
+      startPopper();
+    }
+    wasOpened.value = true;
     setTimeout(() => {
       setEventCloseClick();
       setTimeout(() => {
@@ -166,5 +174,6 @@ export default function ToggleAPI(props, {
     onKeydown,
     onToggle,
     statusExpanded,
+    wasOpened,
   };
 }
