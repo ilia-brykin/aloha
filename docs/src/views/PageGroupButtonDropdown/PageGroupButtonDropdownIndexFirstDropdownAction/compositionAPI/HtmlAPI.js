@@ -5,7 +5,7 @@ export default function HtmlAPI() {
   :index-first-dropdown-action-mobile="-1"
 ></a-group-button-dropdown>
 <a-group-button-dropdown
-    class="a_mt_3"
+  class="a_mt_3"
   :actions="actions"
   :index-first-dropdown-action="0"
   :index-first-dropdown-action-mobile="0"

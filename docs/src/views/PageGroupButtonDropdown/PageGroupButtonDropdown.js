@@ -2,9 +2,9 @@ import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageGroupButtonDropdownBasic from "./PageGroupButtonDropdownBasic/PageGroupButtonDropdownBasic.vue";
-import PageGroupButtonDropdownOnlyDropdown from "./PageGroupButtonDropdownOnlyDropdown/PageGroupButtonDropdownOnlyDropdown.vue";
 import PageGroupButtonDropdownIndexFirstDropdownAction from "./PageGroupButtonDropdownIndexFirstDropdownAction/PageGroupButtonDropdownIndexFirstDropdownAction.vue";
 import PageGroupButtonDropdownIndexFirstDropdownActionOne from "./PageGroupButtonDropdownIndexFirstDropdownActionOne/PageGroupButtonDropdownIndexFirstDropdownActionOne.vue";
+import PageGroupButtonDropdownHasDividerBeforeDropdown from "./PageGroupButtonDropdownHasDividerBeforeDropdown/PageGroupButtonDropdownHasDividerBeforeDropdown.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -19,9 +19,9 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageGroupButtonDropdownBasic,
-    PageGroupButtonDropdownOnlyDropdown,
     PageGroupButtonDropdownIndexFirstDropdownAction,
     PageGroupButtonDropdownIndexFirstDropdownActionOne,
+    PageGroupButtonDropdownHasDividerBeforeDropdown,
   },
   setup() {
     const {
