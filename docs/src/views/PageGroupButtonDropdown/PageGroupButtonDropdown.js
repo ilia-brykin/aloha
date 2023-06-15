@@ -1,51 +1,55 @@
-import AGroupButtonDropdown from "../../../../src/AGroupButtonDropdown/AGroupButtonDropdown";
+import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
+import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import ATranslation from "../../../../src/ATranslation/ATranslation";
+import PageGroupButtonDropdownBasic from "./PageGroupButtonDropdownBasic/PageGroupButtonDropdownBasic.vue";
+import PageGroupButtonDropdownOnlyDropdown from "./PageGroupButtonDropdownOnlyDropdown/PageGroupButtonDropdownOnlyDropdown.vue";
+import PageGroupButtonDropdownIndexFirstDropdownAction from "./PageGroupButtonDropdownIndexFirstDropdownAction/PageGroupButtonDropdownIndexFirstDropdownAction.vue";
+import PageGroupButtonDropdownIndexFirstDropdownActionOne from "./PageGroupButtonDropdownIndexFirstDropdownActionOne/PageGroupButtonDropdownIndexFirstDropdownActionOne.vue";
+
+import ExposesAPI from "./compositionAPI/ExposesAPI";
+import EventsAPI from "./compositionAPI/EventsAPI";
+import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+import PropsAPI from "./compositionAPI/PropsAPI";
+import SlotsAPI from "./compositionAPI/SlotsAPI";
 
 export default {
   name: "PageGroupButtonDropdown",
   components: {
-    AGroupButtonDropdown,
+    AlohaPage,
+    AlohaTableProps,
+    ATranslation,
+    PageGroupButtonDropdownBasic,
+    PageGroupButtonDropdownOnlyDropdown,
+    PageGroupButtonDropdownIndexFirstDropdownAction,
+    PageGroupButtonDropdownIndexFirstDropdownActionOne,
   },
   setup() {
-    const actions = [
-      {
-        text: "Actions 0",
-        type: "button",
-        callback: () => {},
-        isHidden: true,
-      },
-      {
-        text: "Actions 1",
-        type: "button",
-        callback: () => {},
-        disabled: false,
-      },
-      {
-        text: "Actions 2",
-        type: "button",
-        callback: () => {},
-      },
-      {
-        type: "link",
-        text: "Link 1",
-        href: "#",
-        isHidden: true,
-      },
-      {
-        type: "divider",
-      },
-      {
-        type: "link",
-        text: "Link 2",
-        href: "#",
-        isHidden: true,
-      },
-      {
-        type: "divider",
-      },
-    ];
+    const {
+      pageTitle,
+    } = PageTitleAPI();
+
+    const {
+      dataProps,
+    } = PropsAPI();
+
+    const {
+      dataSlots,
+    } = SlotsAPI();
+
+    const {
+      dataEvents,
+    } = EventsAPI();
+
+    const {
+      dataExposes,
+    } = ExposesAPI();
 
     return {
-      actions,
+      dataExposes,
+      dataEvents,
+      dataProps,
+      dataSlots,
+      pageTitle,
     };
   },
 };

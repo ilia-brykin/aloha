@@ -21,6 +21,7 @@ import PageTableSortI18n from "./views/PageTable/PageTableSort/i18n/PageTableSor
 import PageAOnHooksI18n from "./views/PageDirectives/PageOnHooks/i18n/PageAOnHooksI18n";
 import PageDisclosureI18n from "./views/PageDisclosure/i18n/PageDisclosureI18n";
 import PageTooltipI18n from "./views/PageTooltip/i18n/PageTooltipI18n";
+import PageGroupButtonDropdownI18n from "./views/PageGroupButtonDropdown/i18n/PageGroupButtonDropdownI18n";
 
 export const mainTranslation = {
   ar: {
@@ -38,6 +39,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.ar,
     ...PageDisclosureI18n.ar,
     ...PageTooltipI18n.ar,
+    ...PageGroupButtonDropdownI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -54,6 +56,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.de,
     ...PageDisclosureI18n.de,
     ...PageTooltipI18n.de,
+    ...PageGroupButtonDropdownI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -70,6 +73,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.en,
     ...PageDisclosureI18n.en,
     ...PageTooltipI18n.en,
+    ...PageGroupButtonDropdownI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -86,6 +90,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.es,
     ...PageDisclosureI18n.es,
     ...PageTooltipI18n.es,
+    ...PageGroupButtonDropdownI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -102,6 +107,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.fr,
     ...PageDisclosureI18n.fr,
     ...PageTooltipI18n.fr,
+    ...PageGroupButtonDropdownI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -118,6 +124,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.hr,
     ...PageDisclosureI18n.hr,
     ...PageTooltipI18n.hr,
+    ...PageGroupButtonDropdownI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -134,6 +141,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.it,
     ...PageDisclosureI18n.it,
     ...PageTooltipI18n.it,
+    ...PageGroupButtonDropdownI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -150,5 +158,6 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.ru,
     ...PageDisclosureI18n.ru,
     ...PageTooltipI18n.ru,
+    ...PageGroupButtonDropdownI18n.ru,
   },
 };

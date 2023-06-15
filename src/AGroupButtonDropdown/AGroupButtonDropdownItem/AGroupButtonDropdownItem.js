@@ -43,14 +43,6 @@ export default {
       type: Boolean,
       required: true,
     },
-    useActionClass: {
-      type: Boolean,
-      required: false,
-    },
-    useDropdownActionClass: {
-      type: Boolean,
-      required: false,
-    },
   },
   setup(props) {
     const {
@@ -65,11 +57,11 @@ export default {
   },
   render() {
     return [
-      h("div", {
+      !!this.data.children.length && h("div", {
         class: "a_btn_group",
       }, [
         ...this.data.children.map(action => {
-          const CLASS = this.useActionClass && action.class ? action.class : this.actionsClasses[action.actionNotDividerIndex];
+          const CLASS = action.classButton ? action.classButton : this.actionsClasses[action.actionNotDividerIndex];
           const DISABLED = this.disabled || action.disabled;
           if (action.type === "button") {
             return h(AButton, {

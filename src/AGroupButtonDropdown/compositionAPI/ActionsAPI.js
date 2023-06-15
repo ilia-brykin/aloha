@@ -9,6 +9,9 @@ import {
   filterActionsHiddenAndDivider,
 } from "../../utils/actions";
 import {
+  concatenateTwoStringsWithSpace,
+} from "../../utils/utils";
+import {
   cloneDeep,
   forEach,
   last,
@@ -30,6 +33,24 @@ export default function ActionsAPI(props) {
     });
   });
 
+  const actionsAllWithClassesFiltered = computed(() => {
+    const ACTIONS = cloneDeep(actionsAllFiltered.value);
+    forEach(ACTIONS, action => {
+      // only for inline buttons
+      action.classButton = concatenateTwoStringsWithSpace({
+        class1: action.classButton,
+        class2: action.class,
+      });
+      // only for dropdown
+      action.class = concatenateTwoStringsWithSpace({
+        class1: action.classDropdown,
+        class2: action.class,
+      });
+    });
+
+    return ACTIONS;
+  });
+
   const currentIndexFirstDropdownAction = computed(() => {
     return isMobileWidth.value ? indexFirstDropdownActionMobile.value : indexFirstDropdownAction.value;
   });
@@ -49,7 +70,7 @@ export default function ActionsAPI(props) {
   };
 
   const actionsGrouped = computed(() => {
-    const ACTIONS_ALL = cloneDeep(actionsAllFiltered.value);
+    const ACTIONS_ALL = cloneDeep(actionsAllWithClassesFiltered.value);
 
     const ACTIONS_GROUPED = {
       buttons: [],
@@ -101,11 +122,11 @@ export default function ActionsAPI(props) {
   });
 
   const hasActionsAllFiltered = computed(() => {
-    return actionsAllFiltered.value.length > 0;
+    return actionsAllWithClassesFiltered.value.length > 0;
   });
 
   return {
-    actionsAllFiltered,
+    actionsAllWithClassesFiltered,
     actionsGrouped,
     hasActionsAllFiltered,
     hasDropdownActions,

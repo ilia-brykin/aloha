@@ -34,3 +34,16 @@ export function replaceTextTemplateToASlot(text) {
   }
   return text;
 }
+
+export function concatenateTwoStringsWithSpace({ class1, class2, defaultValue = undefined }) {
+  if (class1) {
+    if (class2) {
+      return `${ class1 } ${ class2 }`;
+    }
+    return class1;
+  }
+  if (class2) {
+    return class2;
+  }
+  return defaultValue;
+}

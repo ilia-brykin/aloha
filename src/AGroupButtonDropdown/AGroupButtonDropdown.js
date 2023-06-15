@@ -54,16 +54,6 @@ export default {
       required: false,
       default: () => groupButtonDropdownPluginOptions.value.propsDefault.minDropdownActions,
     },
-    useActionClass: {
-      type: Boolean,
-      required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.useActionClass,
-    },
-    useDropdownActionClass: {
-      type: Boolean,
-      required: false,
-      default: () => groupButtonDropdownPluginOptions.value.propsDefault.useDropdownActionClass,
-    },
     innerFlagHasActions: {
       type: Boolean,
       required: false,
@@ -74,7 +64,7 @@ export default {
   ],
   setup(props, { emit }) {
     const {
-      actionsAllFiltered,
+      actionsAllWithClassesFiltered,
       actionsGrouped,
       hasActionsAllFiltered,
       hasDropdownActions,
@@ -87,7 +77,7 @@ export default {
     });
 
     return {
-      actionsAllFiltered,
+      actionsAllWithClassesFiltered,
       actionsGrouped,
       hasActionsAllFiltered,
       hasDropdownActions,
@@ -108,8 +98,6 @@ export default {
             actionsClasses: this.actionsClasses,
             isLast: itemIndex === this.actionsGrouped.buttons.length - 1,
             hasDividerBeforeDropdown: this.hasDividerBeforeDropdown,
-            useActionClass: this.useActionClass,
-            useDropdownActionClass: this.useDropdownActionClass,
           }, this.$slots);
         }),
       ]);

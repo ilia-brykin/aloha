@@ -3,7 +3,7 @@ import { createApp } from "vue";
 import router from "./router/index";
 import AI18nPlugin from "../../src/plugins/AI18nPlugin";
 import AMobilePlugin from "../../src/plugins/AMobilePlugin";
-import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
+// import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
 import AIconPlugin from "../../src/plugins/AIconPlugin";
 import AModalPlugin from "../../src/plugins/AModalPlugin";
 import mainIcons from "./mainIcons";
@@ -28,12 +28,12 @@ APP.use(AModalPlugin, {
     closeButtonClass: "a_btn a_btn_link",
   },
 });
-APP.use(AGroupButtonDropdownPlugin, {
-  propsDefault: {
-    dropdownAttributes: {
-      buttonText: "Weitere Aktionen",
-    },
-  },
-});
+// APP.use(AGroupButtonDropdownPlugin, {
+//   propsDefault: {
+//     dropdownAttributes: {
+//       buttonText: "Weitere Aktionen",
+//     },
+//   },
+// });
 APP.directive("SafeHtml", ASafeHtml);
 APP.use(router).mount("#app");

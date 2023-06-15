@@ -1,0 +1,11 @@
+{
+  "_A_BUTTON_DROPDOWN_COMPONENT_COMPONENT_NAME_": "Gruppierung von Schaltflächen und Links",
+  "_A_GROUP_BUTTON_DROPDOWN_COMPONENT_DESCRIPTION_": "Mit dieser Komponente kann man die Gruppierung von Schaltflächen und Links flexibel anpassen.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_BASIC_DESCRIPTION_": "Hier sind drei Schaltflächen ohne zusätzliche Einstellungen.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ONLY_DROPDOWN_HEADER_": "Dropdown-Liste",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ONLY_DROPDOWN_DESCRIPTION_": "Alle Schaltflächen können als Dropdown-Liste angezeigt werden.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_HEADER_": "Unterschiedliche Darstellungen",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Sie können die Schaltflächen auf unterschiedliche Weise anzeigen: einfach in einer Zeile, als Dropdown oder als Kombination aus Schaltflächen und Dropdown",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_HEADER_": "Ein oder zwei Schaltflächen",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_DESCRIPTION_": "Abhängig von der Anzahl der Aktionen wird die Komponente unterschiedlich gerendert"
+}
