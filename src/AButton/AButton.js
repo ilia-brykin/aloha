@@ -53,6 +53,11 @@ export default {
       required: false,
       default: undefined,
     },
+    extraData: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol, null, undefined],
+      required: false,
+      default: undefined,
+    },
     html: {
       type: [String, Number, Object],
       required: false,
@@ -295,7 +300,7 @@ export default {
           ],
           ...this.iconAttributes,
         }),
-        this.$slots.default && this.$slots.default(),
+        this.$slots.default && this.$slots.default({ extraData: this.extraData }),
         this.isTextOrHtmlVisible && h(ATranslation, {
           ariaHidden: this.textAriaHidden,
           class: this.textClass,
