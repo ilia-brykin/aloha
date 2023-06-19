@@ -92,7 +92,6 @@ export default {
         this.isDropdownActionsInGroup && h(ADropdown, {
           isHideWithoutActionAndSlot: true,
           actions: this.actionsDropdown,
-          useActionClass: this.useDropdownActionClass,
           disabled: this.disabled,
           ...this.dropdownAttributes,
         }, this.$slots),
@@ -101,7 +100,6 @@ export default {
         isHideWithoutActionAndSlot: true,
         actions: this.actionsDropdown,
         disabled: this.disabled,
-        useActionClass: this.useDropdownActionClass,
         ...this.dropdownAttributes,
       }, this.$slots),
     ];
