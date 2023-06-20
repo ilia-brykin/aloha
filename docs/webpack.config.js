@@ -177,7 +177,7 @@ module.exports = (env, options) => {
       },
       compress: true,
       port: 9000,
-      onBeforeSetupMiddleware: function (devServer) {
+      setupMiddlewares: function (middlewares, devServer) {
         if (!devServer) {
           throw new Error('webpack-dev-server is not defined');
         }
@@ -187,6 +187,8 @@ module.exports = (env, options) => {
             res.json({ custom: "response" });
           }, 3000);
         });
+
+        return middlewares;
       },
     },
     ignoreWarnings: [/Failed to parse source map/],
