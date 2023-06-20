@@ -18,6 +18,12 @@ export default function HtmlAPI() {
 >
 </a-button>
 <a-button
+  class="a_btn a_btn_tertiary a_ml_2"
+  text="tertiary"
+  @click="onAlert('tertiary')"
+>
+</a-button>
+<a-button
   class="a_btn a_btn_success a_ml_2"
   text="success"
   @click="onAlert('success')"

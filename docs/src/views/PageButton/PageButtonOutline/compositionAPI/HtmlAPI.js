@@ -12,6 +12,12 @@ export default function HtmlAPI() {
 >
 </a-button>
 <a-button
+  class="a_btn a_btn_outline_tertiary a_ml_2"
+  text="outline-tertiary"
+  @click="onAlert('outline-tertiary')"
+>
+</a-button>
+<a-button
   class="a_btn a_btn_outline_success a_ml_2"
   text="outline-success"
   @click="onAlert('outline-success')"

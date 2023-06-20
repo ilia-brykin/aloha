@@ -17,6 +17,12 @@ aloha-example(
     @click="onAlert('secondary')"
   )
   a-button(
+    class="a_btn a_btn_tertiary a_ml_2"
+    text="tertiary"
+    :aria-disabled="true"
+    @click="onAlert('tertiary')"
+  )
+  a-button(
     class="a_btn a_btn_success a_ml_2"
     text="success"
     :aria-disabled="true"
@@ -63,6 +69,12 @@ aloha-example(
     text="outline-secondary"
     :aria-disabled="true"
     @click="onAlert('outline-secondary')"
+  )
+  a-button(
+    class="a_btn a_btn_outline_tertiary a_ml_2"
+    text="outline-tertiary"
+    :aria-disabled="true"
+    @click="onAlert('outline-tertiary')"
   )
   a-button(
     class="a_btn a_btn_outline_success a_ml_2"

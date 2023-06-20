@@ -14,6 +14,13 @@ export default function HtmlAPI() {
 >
 </a-button>
 <a-button
+  class="a_btn a_btn_tertiary a_ml_2"
+  text="tertiary"
+  :disabled="true"
+  @click="onAlert('tertiary')"
+>
+</a-button>
+<a-button
   class="a_btn a_btn_success a_ml_2"
   text="success"
   :disabled="true"
@@ -67,6 +74,13 @@ export default function HtmlAPI() {
   text="outline-secondary"
   :disabled="true"
   @click="onAlert('outline-secondary')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_outline_tertiary a_ml_2"
+  text="outline-tertiary"
+  :disabled="true"
+  @click="onAlert('outline-tertiary')"
 >
 </a-button>
 <a-button
