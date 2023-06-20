@@ -36,6 +36,12 @@ export default function HtmlAPI() {
 >
 </a-alert>
 <a-alert 
+  html="Alert tertiary"
+  :is-visible="true"
+  type="tertiary"
+>
+</a-alert>
+<a-alert 
   html="Alert dark" 
   :is-visible="true" 
   type="dark"
