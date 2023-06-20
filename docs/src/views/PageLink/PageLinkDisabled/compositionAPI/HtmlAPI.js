@@ -21,6 +21,13 @@ export default function HtmlAPI() {
 >
 </a-link>
 <a-link
+  class="a_btn a_btn_tertiary a_ml_2"
+  text="tertiary"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
   class="a_btn a_btn_success a_ml_2"
   text="success"
   :disabled="true"
@@ -72,6 +79,13 @@ export default function HtmlAPI() {
 <a-link
   class="a_btn a_btn_outline_secondary a_ml_2"
   text="outline-secondary"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_outline_tertiary a_ml_2"
+  text="outline-tertiary"
   :disabled="true"
   href="https://github.com/"
 >

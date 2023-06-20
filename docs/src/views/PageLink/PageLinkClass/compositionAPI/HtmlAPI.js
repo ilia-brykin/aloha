@@ -18,6 +18,12 @@ export default function HtmlAPI() {
 >
 </a-link>
 <a-link
+  class="a_btn a_btn_tertiary a_ml_2"
+  text="tertiary"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
   class="a_btn a_btn_success a_ml_2"
   text="success"
   href="https://github.com/"
