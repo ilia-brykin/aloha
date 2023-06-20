@@ -177,6 +177,9 @@ module.exports = (env, options) => {
       },
       compress: true,
       port: 9000,
+      client: {
+        overlay: false
+      },
       setupMiddlewares: function (middlewares, devServer) {
         if (!devServer) {
           throw new Error('webpack-dev-server is not defined');

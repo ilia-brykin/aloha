@@ -22,6 +22,8 @@ export default function ScrollControlAPI(props, { emit }, {
   const columnActionsWidth = toRef(props, "columnActionsWidth");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
 
+  let changingTableWidth = false;
+
   const isColumnVisible = ({ column }) => {
     if (column.isRender === false) {
       return false;
@@ -156,8 +158,12 @@ export default function ScrollControlAPI(props, { emit }, {
     // since we are observing only a single element, so we access the first element in entries array
     const RECT = entries[0].contentRect;
     if (tableWidth.value !== RECT.width) {
-      tableWidth.value = RECT.width;
-      checkVisibleColumns();
+      if (!changingTableWidth) {
+        changingTableWidth = true;
+        tableWidth.value = RECT.width;
+        checkVisibleColumns();
+        changingTableWidth = false;
+      }
     }
   });
 
