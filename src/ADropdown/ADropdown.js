@@ -71,7 +71,7 @@ export default {
     buttonClass: {
       type: [String, Object],
       required: false,
-      default: "a_btn a_btn_secondary dropdown_button",
+      default: "a_btn a_btn_secondary",
     },
     buttonTag: {
       type: String,
