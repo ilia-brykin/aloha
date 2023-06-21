@@ -11,6 +11,7 @@ import ClickAPI from "./comositionAPI/ClickAPI";
 import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
 import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
 import LoadingAPI from "./comositionAPI/LoadingAPI";
+import SwitchAPI from "./comositionAPI/SwitchAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
 
@@ -98,6 +99,11 @@ export default {
       required: false,
       default: () => uniqueId("a_btn_"),
     },
+    isSwitch: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     isTitleHtml: {
       type: Boolean,
       required: false,
@@ -118,6 +124,11 @@ export default {
       type: [String, Object],
       required: false,
       default: "a_spinner_small",
+    },
+    modelSwitch: {
+      type: Boolean,
+      required: false,
+      default: undefined,
     },
     prevent: {
       type: Boolean,
@@ -232,6 +243,11 @@ export default {
       ariaLabelAttributes,
     } = AriaLabelAPI(props);
 
+    const {
+      isSwitchActive,
+      switchClass,
+    } = SwitchAPI(props);
+
     return {
       ariaLabelAttributes,
       buttonRef,
@@ -239,10 +255,12 @@ export default {
       htmlTitleAttributes,
       isLoadingLeft,
       isLoadingRight,
-      isTextOrHtmlVisible,
+      isSwitchActive,
       isTextOrHtmlScreenReaderVisible,
+      isTextOrHtmlVisible,
       isTitleVisible,
       onClick,
+      switchClass,
     };
   },
   render() {
@@ -255,6 +273,7 @@ export default {
       id: this.id,
       class: [
         "aloha_btn",
+        this.switchClass,
         this.class,
         {
           inactive: this.ariaDisabled,
@@ -264,6 +283,7 @@ export default {
       tabindex: this.tabindex,
       disabled: this.disabled,
       ariaDisabled: this.ariaDisabled,
+      "aria-pressed": this.isSwitchActive,
       // TODO: ATable
       isAllRowsSelected: undefined,
       onClick: this.onClick,

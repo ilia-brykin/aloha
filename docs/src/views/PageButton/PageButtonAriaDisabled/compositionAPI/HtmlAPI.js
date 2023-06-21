@@ -42,7 +42,7 @@ export default function HtmlAPI() {
 >
 </a-button>
 <a-button
-  class="a_btn a_btn__danger a_ml_2"
+  class="a_btn a_btn_danger a_ml_2"
   text="danger"
   :aria-disabled="true"
   @click="onAlert('danger')"
@@ -56,12 +56,24 @@ export default function HtmlAPI() {
 >
 </a-button>
 <a-button
-  class="a_btn a_btn__light a_ml_2"
+  class="a_btn a_btn_light a_ml_2"
   text="light"
   :aria-disabled="true"
   @click="onAlert('light')"
->
-</a-button>
+></a-button>
+<a-button
+  class="a_ml_2"
+  text="switch"
+  :is-switch="true"
+  :aria-disabled="true"
+></a-button>
+<a-button
+  class="a_ml_2"
+  text="switch active"
+  :is-switch="true"
+  :model-switch="true"
+  :aria-disabled="true"
+></a-button>
 <a-button
   class="a_btn a_btn_outline_primary a_ml_2"
   text="outline-primary"

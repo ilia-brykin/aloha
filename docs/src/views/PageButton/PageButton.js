@@ -15,14 +15,15 @@ import PageButtonLoading from "./PageButtonLoading/PageButtonLoading.vue";
 import PageButtonOutline from "./PageButtonOutline/PageButtonOutline.vue";
 import PageButtonSafeHtml from "./PageButtonSafeHtml/PageButtonSafeHtml.vue";
 import PageButtonSizes from "./PageButtonSizes/PageButtonSizes.vue";
+import PageButtonSlotAppend from "./PageButtonSlotAppend/PageButtonSlotAppend.vue";
 import PageButtonSlotDefault from "./PageButtonSlotDefault/PageButtonSlotDefault.vue";
+import PageButtonSlotPrepend from "./PageButtonSlotPrepend/PageButtonSlotPrepend.vue";
+import PageButtonSlotTitle from "./PageButtonSlotTitle/PageButtonSlotTitle.vue";
+import PageButtonSwitch from "./PageButtonSwitch/PageButtonSwitch.vue";
 import PageButtonTextAfterBefore from "./PageButtonTextAfterBefore/PageButtonTextAfterBefore.vue";
 import PageButtonTextObject from "./PageButtonTextObject/PageButtonTextObject.vue";
 import PageButtonTitleArray from "./PageButtonTitleArray/PageButtonTitleArray.vue";
 import PageButtonTitleHtml from "./PageButtonTitleHtml/PageButtonTitleHtml.vue";
-import PageButtonSlotPrepend from "./PageButtonSlotPrepend/PageButtonSlotPrepend.vue";
-import PageButtonSlotAppend from "./PageButtonSlotAppend/PageButtonSlotAppend.vue";
-import PageButtonSlotTitle from "./PageButtonSlotTitle/PageButtonSlotTitle.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -51,6 +52,7 @@ export default {
     PageButtonSafeHtml,
     PageButtonSizes,
     PageButtonSlotDefault,
+    PageButtonSwitch,
     PageButtonTextAfterBefore,
     PageButtonTextObject,
     PageButtonTitleArray,
