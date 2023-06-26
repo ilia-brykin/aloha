@@ -18,11 +18,12 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd docs/
+          npm install
 
       - name: Build documentation
         run: |
-          cd docs/
           npm run build-production
           npm run build-css
 
