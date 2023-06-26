@@ -116,8 +116,8 @@ module.exports = (env, options) => {
     },
     entry: ["regenerator-runtime/runtime.js", "./src/main.js"],
     output: {
-      // path: path.resolve(__dirname, "./static/"),
-      // publicPath: "/public/",
+      path: path.resolve(__dirname, "./dist/"),
+      publicPath: "/",
       filename: "bundle.[id].[contenthash].js",
       chunkFilename: "chunk.[id].[contenthash].js",
       asyncChunks: true,
@@ -140,7 +140,7 @@ module.exports = (env, options) => {
     plugins: [
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [],
-        cleanAfterEveryBuildPatterns: ["**/*", "!assets/**"],
+        cleanAfterEveryBuildPatterns: ["**/*", "!assets/**", "!styles/**"],
       }),
       new VueLoaderPlugin(),
       // new CopyWebpackPlugin({
@@ -172,8 +172,8 @@ module.exports = (env, options) => {
     devServer: {
       historyApiFallback: true,
       static: {
-        directory: path.join(__dirname, "public"),
-        publicPath: "/public",
+        directory: path.join(__dirname, "dist"),
+        publicPath: "/",
       },
       compress: true,
       port: 9000,
