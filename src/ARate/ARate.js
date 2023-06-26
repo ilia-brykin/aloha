@@ -1,15 +1,14 @@
-import { h, toRefs, computed } from "vue";
-
+import { h, toRefs, computed, ref } from "vue";
 import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
-import ABlock from "../ABlock/ABlock";
+import ARateIcon from "./ARateIcon/ARateIcon";
 
 export default {
   name: "ARate",
   components: {
     AIcon,
     ATranslation,
-    ABlock,
+    ARateIcon,
   },
   props: {
     text: {
@@ -28,7 +27,11 @@ export default {
       type: String,
       default: "Star",
     },
-    disabled: {
+    iconFill: {
+      type: String,
+      default: null,
+    },
+    readonly: {
       type: Boolean,
       default: false,
     },
@@ -36,69 +39,151 @@ export default {
       type: Boolean,
       default: false,
     },
-    showText: {
-      type: Boolean,
-      default: false,
-    },
-    normalValue: {
+    modelValue: {
       type: Number,
-      default: 50,
+      default: 0,
+    },
+    color: {
+      type: String,
+      default: "yellow",
+    },
+    hoveredColor: {
+      type: String,
+      default: "orange",
+    },
+    halfIcon: {
+      type: Boolean,
+      default: true,
+    },
+    size: {
+      type: String,
+      default: "medium",
+      validator: value => ["small", "medium", "big"].includes(value),
     },
   },
-  setup(props) {
-    const { rating, normalValue, showScore, showText, disabled, icon, text, extra } = toRefs(props);
+  emits: [
+    "update:modelValue",
+  ],
+  setup(props, { emit }) {
+    const {
+      text, rating, modelValue, showScore, readonly, icon, extra, color, hoveredColor, halfIcon, size
+    } = toRefs(props);
 
-    const scoreTemplate = {
-      0: "Oops",
-      20: "Disappointed",
-      40: "Normal",
-      60: "Good",
-      80: "Great",
-      100: "Exceptional"
-    };
+    const localValue = ref(modelValue.value);
+    const hoveredValue = ref(modelValue.value);
+    const hoveredIndex = ref(-1);
 
-    const displayText = computed(() => {
-      const segments = Object.keys(scoreTemplate).sort((a, b) => a - b);
-      for (let i = 0; i < segments.length; i++) {
-        if (normalValue.value < segments[i]) {
-          return scoreTemplate[segments[i - 1]];
-        }
-      }
-      return scoreTemplate[100];
+    const iconFillValue = computed(() => {
+      return props.iconFill ? props.iconFill : `${ props.icon }Fill`;
     });
 
-    const displayScore = computed(() => (rating.value * normalValue.value / 100).toFixed(1));
+    const onDoubleClickIcon = () => {
+      if (readonly.value) {
+        return;
+      }
 
-    return { rating, normalValue, showScore, showText, disabled, icon, text, extra, displayText, displayScore };
+      localValue.value = 0;
+      emit("update:modelValue", localValue.value);
+    };
+
+    const onMouseEnterIcon = (event, index) => {
+      if (readonly.value) {
+        return;
+      }
+
+      hoveredIndex.value = index;
+
+      let value = index + 1;
+
+      if (halfIcon.value) {
+        const rect = event.target.getBoundingClientRect();
+        const isLeftHalf = event.clientX - rect.left < rect.width / 2;
+
+        value = isLeftHalf ? index + 0.5 : index + 1;
+      }
+
+      hoveredValue.value = value;
+    };
+
+    const onMouseLeaveIcon = () => {
+      if (readonly.value) {
+        return;
+      }
+
+      hoveredIndex.value = -1;
+    };
+
+    const computedColor = computed(() => {
+      return Array(rating.value).fill(null).map((_, index) => {
+        if (index <= hoveredIndex.value) {
+          return hoveredColor.value;
+        }
+        return index < localValue.value ? color.value : null;
+      });
+    });
+
+    const onClickIcon = (event, index) => {
+      if (readonly.value) {
+        return;
+      }
+
+      let value = index + 1;
+
+      if (halfIcon.value) {
+        const rect = event.target.getBoundingClientRect();
+        const isLeftHalf = event.clientX - rect.left < rect.width / 2;
+
+        value = isLeftHalf ? index + 0.5 : index + 1;
+      }
+
+      emit("update:modelValue", value);
+      localValue.value = value;
+    };
+
+    const computedIconValues = computed(() => {
+      const value = hoveredIndex.value >= 0 ? hoveredValue.value : localValue.value;
+      const wholePart = Math.floor(value);
+      const fractionPart = value % 1;
+
+      const iconsValues = Array(rating.value).fill(0);
+
+      for (let i = 0; i < wholePart; i++) {
+        iconsValues[i] = 100;
+      }
+
+      if (fractionPart !== 0 && wholePart < rating.value) {
+        iconsValues[wholePart] = fractionPart * 100;
+      }
+
+      return iconsValues;
+    });
+
+    return {
+      rating, showScore, readonly, icon, iconFill: iconFillValue, text, extra, color, size,
+      onMouseEnterIcon, onMouseLeaveIcon, onClickIcon, onDoubleClickIcon,
+      modelValue: computed(() => localValue.value),
+      iconValues: computedIconValues,
+      computedColor
+    };
   },
   render() {
     return h("div", {
       class: "a_rate_container",
-      disabled: this.disabled,
     }, [
-      ...Array.from({ length: this.rating }, (_, index) => h(AIcon, {
+      ...Array.from({ length: this.rating }, (_, index) => h(ARateIcon, {
         class: "a_rate_icon",
         icon: this.icon,
+        iconFill: this.iconFill,
+        value: this.iconValues[index],
+        onClick: event => this.onClickIcon(event, index),
+        onDblclick: this.onDoubleClickIcon,
+        onMouseenter: event => this.onMouseEnterIcon(event, index),
+        onMouseleave: this.onMouseLeaveIcon,
+        color: this.computedColor[index],
+        size: this.size,
         key: index
       })),
-      h(ABlock, {
-        width: 100,
-        height: 20,
-        normalValue: this.normalValue,
-        readonly: this.disabled,
-        showValue: this.showScore,
-        on: {
-          "update:normalValue": newValue => {
-            this.normalValue = newValue;
-          }
-        },
-      }),
-      this.showScore && h("span", {
-        class: "a_rate_score",
-      }, this.displayScore),
-      this.showText && h("span", {
-        class: "a_rate_text",
-      }, this.displayText),
+      this.showScore && h("span", { class: "a_rate_score", }, this.modelValue.toString()),
       h(ATranslation, {
         class: "a_rate_label",
         text: this.text,

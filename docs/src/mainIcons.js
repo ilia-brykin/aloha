@@ -27,12 +27,16 @@ import ListUl from "../../src/AIcon/Icons/bootstrap-1-9-1/ListUl";
 import MenuDown from "../../src/AIcon/Icons/bootstrap-1-9-1/MenuDown";
 import Reception2 from "../../src/AIcon/Icons/bootstrap-1-9-1/Reception2";
 import SegmentedNav from "../../src/AIcon/Icons/bootstrap-1-9-1/SegmentedNav";
+import StarFill from "../../src/AIcon/Icons/bootstrap-1-9-1/StarFill";
+import Star from "../../src/AIcon/Icons/bootstrap3/StarEmpty";
 import Table from "../../src/AIcon/Icons/bootstrap-1-9-1/Table";
 import Translate from "../../src/AIcon/Icons/bootstrap-1-9-1/Translate";
 import Window from "../../src/AIcon/Icons/bootstrap-1-9-1/Window";
 
 export default {
   ArrowRightCircleFill,
+  StarFill,
+  Star,
   ArrowsCollapse,
   Bell,
   BoxArrowUpRight,
