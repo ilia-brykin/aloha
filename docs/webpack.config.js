@@ -25,6 +25,9 @@ function resolveAlias(mode)  {
     "get-contrast-ratio": path.resolve(__dirname, "node_modules/get-contrast-ratio"),
     popperjs: path.resolve(__dirname, "node_modules/@popperjs/core"),
     "tiny-emitter": path.resolve(__dirname, "node_modules/tiny-emitter"),
+    dompurify: path.resolve(__dirname, "node_modules/dompurify"),
+    tinymce: path.resolve(__dirname, "node_modules/tinymce"),
+    "@popperjs/core": path.resolve(__dirname, "node_modules/@popperjs/core"),
   };
 }
 
