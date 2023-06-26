@@ -219,6 +219,20 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-switch",
+      description: "_A_BUTTON_PROPS_IS_SWITCH_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "model-switch",
+      description: "_A_BUTTON_PROPS_MODEL_SWITCH_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "title-placement",
       description: "_A_BUTTON_PROPS_TITLE_PLACEMENT_DESCRIPTION_",
       type: "String",
