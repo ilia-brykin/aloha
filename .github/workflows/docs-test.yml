@@ -18,7 +18,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: test
+          publish_dir: ./test
         
 #      - name: Set up Node.js
 #        uses: actions/setup-node@v3
