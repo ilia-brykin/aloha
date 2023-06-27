@@ -3,7 +3,7 @@ name: Deploy to gh-pages
 on:
   push:
     branches:
-      - master # Ändern Sie den Branch-Namen entsprechend Ihren Anforderungen
+      - master
 
 jobs:
   deploy:
