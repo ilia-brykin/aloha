@@ -1,4 +1,10 @@
-import { h, toRefs, computed, ref } from "vue";
+import {
+  h,
+  toRefs,
+  computed,
+  ref,
+} from "vue";
+
 import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 import ARateIcon from "./ARateIcon/ARateIcon";
@@ -66,7 +72,17 @@ export default {
   ],
   setup(props, { emit }) {
     const {
-      text, rating, modelValue, showScore, readonly, icon, extra, color, hoveredColor, halfIcon, size
+      text,
+      rating,
+      modelValue,
+      showScore,
+      readonly,
+      icon,
+      extra,
+      color,
+      hoveredColor,
+      halfIcon,
+      size,
     } = toRefs(props);
 
     const localValue = ref(modelValue.value);
@@ -159,11 +175,22 @@ export default {
     });
 
     return {
-      rating, showScore, readonly, icon, iconFill: iconFillValue, text, extra, color, size,
-      onMouseEnterIcon, onMouseLeaveIcon, onClickIcon, onDoubleClickIcon,
+      rating,
+      showScore,
+      readonly,
+      icon,
+      iconFill: iconFillValue,
+      text,
+      extra,
+      color,
+      size,
+      onMouseEnterIcon,
+      onMouseLeaveIcon,
+      onClickIcon,
+      onDoubleClickIcon,
       modelValue: computed(() => localValue.value),
       iconValues: computedIconValues,
-      computedColor
+      computedColor,
     };
   },
   render() {

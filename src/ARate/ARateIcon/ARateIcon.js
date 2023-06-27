@@ -1,8 +1,11 @@
-import { h, defineComponent } from "vue";
+import {
+  h,
+} from "vue";
+
 import AIcon from "../../AIcon/AIcon";
 import ADecimalIcon from "./ADecimalIcon/ADecimalIcon";
 
-export default defineComponent({
+export default {
   name: "ARateIcon",
   components: {
     AIcon,
@@ -85,4 +88,4 @@ export default defineComponent({
       ]
     );
   },
-});
+};

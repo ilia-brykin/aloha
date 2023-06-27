@@ -1,7 +1,10 @@
-import { h, defineComponent } from "vue";
+import {
+  h,
+} from "vue";
+
 import AIcon from "../../../AIcon/AIcon";
 
-export default defineComponent({
+export default {
   name: "ADecimalIcon",
   components: {
     AIcon,
@@ -42,4 +45,4 @@ export default defineComponent({
       }),
     ]);
   },
-});
+};
