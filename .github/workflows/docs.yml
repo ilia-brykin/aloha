@@ -9,7 +9,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: $
+      url: https://ilia-brykin.github.io/aloha/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
