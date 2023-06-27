@@ -27,6 +27,7 @@ jobs:
 
       - name: Build documentation
         run: |
+          rm .gitignore
           cd docs/
           npm run build-production
           npm run build-css
