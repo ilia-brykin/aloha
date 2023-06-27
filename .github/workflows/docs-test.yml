@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir deploy
           cp -r ./test/* ./deploy
-          rm -rf ./deploy/.*
+          find ./deploy -name ".*" ! -name "." ! -name ".." -exec rm -rf {} \;
           touch ./deploy/.nojekyll
 
       - name: Deploy to gh-pages
