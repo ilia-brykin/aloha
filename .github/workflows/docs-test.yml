@@ -20,6 +20,8 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./test
           keep_files: true
+          clean: false
+          dotfiles: false
 
 #name: Deploy Docs
 #
