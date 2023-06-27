@@ -14,17 +14,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy to gh-pages
-        run: |
-          mkdir -p dist
-          cp -R ./test/* dist/
-          git config --global user.email "brykin.ilia@gmail.com"
-          git config --global user.name "Ilia Brykin"
-          git checkout gh-pages
-          rm -rf *
-          cp -R dist/* .
-          git add .
-          git commit -m "Deploy to gh-pages"
-          git push origin gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: aloha/test
 
 #name: Deploy Docs
 #
