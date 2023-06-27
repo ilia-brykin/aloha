@@ -13,22 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Prepare publishing assets
-        run: |
-          mkdir deploy
-          cp -r ./test/* ./deploy
-          find ./deploy -name ".*" ! -name "." ! -name ".." -exec rm -rf {} \;
-          touch ./deploy/.nojekyll
+#      - name: Prepare publishing assets
+#        run: |
+#          mkdir deploy
+#          cp -r ./test/* ./deploy
+#          find ./deploy -name ".*" ! -name "." ! -name ".." -exec rm -rf {} \;
+#          touch ./deploy/.nojekyll
 
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v2
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          entryPoint: 'deploy'
-          username: 'your-username'
-          useremail: 'your-email@example.com'
-          commitMessage: 'Deploy to gh-pages'
-          tagName: 'v1.0'
-          tagMessage: 'Release v1.0'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./docs/dist
+          publish_dir: ./test
+          keep_files: true
+          publish_branch: gh-pages
 
 #name: Deploy Docs
 #
