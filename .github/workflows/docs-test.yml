@@ -23,8 +23,12 @@ jobs:
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy
+          entryPoint: 'deploy'
+          username: 'your-username'
+          useremail: 'your-email@example.com'
+          commitMessage: 'Deploy to gh-pages'
+          tagName: 'v1.0'
+          tagMessage: 'Release v1.0'
 
 #name: Deploy Docs
 #
