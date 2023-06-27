@@ -1,24 +1,52 @@
-name: Deploy Docs
+name: Deploy to gh-pages
 
 on:
   push:
     branches:
-      - master
+      - main # Ändern Sie den Branch-Namen entsprechend Ihren Anforderungen
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
 
-      - name: Deploy to GH Pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to gh-pages
+        run: |
+          mkdir -p dist
+          cp -R aloha/test/* dist/
+          git config --global user.email "brykin.ilia@gmail.com"
+          git config --global user.name "Ilia Brykin"
+          git checkout gh-pages
+          rm -rf *
+          cp -R dist/* .
+          git add .
+          git commit -m "Deploy to gh-pages"
+          git push origin gh-pages
+
+#name: Deploy Docs
+#
+#on:
+#  push:
+#    branches:
+#      - master
+#
+#jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#        with:
+#          persist-credentials: false
+#
+#      - name: Deploy to GH Pages 🚀
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./test
         
 #      - name: Set up Node.js
 #        uses: actions/setup-node@v3
