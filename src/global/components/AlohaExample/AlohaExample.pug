@@ -1,0 +1,91 @@
+.aloha_example
+  a-translation.aloha_example__h2(
+    v-if="header"
+    tag="h2"
+    :html="header"
+  )
+  dl(
+    v-if="hasAtLeastOneProperty"
+  )
+    template(
+      v-if="hasProps"
+    )
+      dt.a_fs_4 Props:
+      dd(
+        v-for="property in propsLocal"
+        :key="property"
+      )
+        strong {{ property }}
+
+    template(
+      v-if="hasEmits"
+    )
+      dt.a_fs_4 Emits:
+      dd(
+        v-for="emit in emitsLocal"
+        :key="emit"
+      )
+        strong {{ emit }}
+
+    template(
+      v-if="hasSlots"
+    )
+      dt.a_fs_4 Slots:
+      dd(
+        v-for="slot in slotsLocal"
+        :key="slot"
+      )
+        strong {{ slot }}
+
+    template(
+      v-if="hasExposes"
+    )
+      dt.a_fs_4 Exposes:
+      dd(
+        v-for="expose in exposesLocal"
+        :key="expose"
+      )
+        strong {{ expose }}
+
+
+  a-translation(
+    v-if="description"
+    tag="p"
+    :html="description"
+  )
+
+  .aloha_example__body
+    slot
+
+  .aloha_example__actions
+    .a_btn_group
+      a-button.a_btn.a_btn_secondary(
+        icon-left="FiletypeJs"
+        title="_COPY_CODE_JS_"
+        @click="copyJsToClipboard"
+      )
+      a-button.a_btn.a_btn_secondary(
+        icon-left="FiletypeHtml"
+        title="_COPY_CODE_HTML_"
+        @click="copyHtmlToClipboard"
+      )
+      a-button.a_btn.a_btn_secondary(
+        icon-left="ChevronExpand"
+        :title="btnToggleCodeTitle"
+        @click="toggleCode"
+      )
+
+  .aloha_example__code(
+    v-if="isCodeVisible"
+  )
+    h3.aloha_example__h3 HTML
+    aloha-highlightjs(
+      :code="codeHtml"
+      language="html"
+    )
+
+    h3.aloha_example__h3.a_mt_3 JS
+    aloha-highlightjs(
+      :code="codeJs"
+      language="javascript"
+    )

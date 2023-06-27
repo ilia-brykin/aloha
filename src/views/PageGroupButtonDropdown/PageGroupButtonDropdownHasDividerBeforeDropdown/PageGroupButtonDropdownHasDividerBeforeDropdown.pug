@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_HEADER_"
+  description="_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_"
+  :props="['has-divider-before-dropdown']"
+)
+  a-group-button-dropdown(
+    :actions="actions"
+    :index-first-dropdown-action="1"
+    :index-first-dropdown-action-mobile="1"
+    :has-divider-before-dropdown="true"
+  )
+  a-group-button-dropdown(
+    class="a_mt_3"
+    :actions="actions"
+    :index-first-dropdown-action="1"
+    :index-first-dropdown-action-mobile="1"
+    :has-divider-before-dropdown="false"
+  )

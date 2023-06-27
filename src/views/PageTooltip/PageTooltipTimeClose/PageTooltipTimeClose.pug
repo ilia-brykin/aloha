@@ -1,0 +1,42 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_"
+  description="_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_"
+  props="time-close"
+)
+  a-tooltip(
+    class="a_btn a_btn_primary"
+    tag="button"
+    :time-close="0"
+  )
+    span 0
+
+    template(
+      v-slot:title
+    )
+      div 0
+
+  a-tooltip(
+    class="a_btn a_btn_primary a_ml_3"
+    tag="button"
+    :time-close="100"
+  )
+    span 100
+
+    template(
+      v-slot:title
+    )
+      div 100
+
+  a-tooltip(
+    class="a_btn a_btn_primary a_ml_3"
+    tag="button"
+    :time-close="1000"
+  )
+    span 1000
+
+    template(
+      v-slot:title
+    )
+      div 1000

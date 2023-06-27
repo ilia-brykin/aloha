@@ -1,0 +1,46 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_TOOLTIP_COMPONENT_DESCRIPTION_"
+    )
+
+    page-tooltip-basic
+
+    page-tooltip-tag
+
+    page-tooltip-max-width
+
+    page-tooltip-width
+
+    page-tooltip-time-close
+
+    page-tooltip-hide-arrow
+
+    page-tooltip-offset-skidding
+
+    page-tooltip-offset-distance
+
+    page-tooltip-arrow-padding
+
+    page-tooltip-arrow-padding-function
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Exposes"
+      :data="dataExposes"
+      :columns="['name', 'type', 'description']"
+    )

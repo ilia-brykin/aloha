@@ -1,0 +1,21 @@
+{
+  "_A_TABLE_GROUP_PAGINATION_DESCRIPTION_": "Man kann die Paginierung mit <strong>:pagination=\"{ use: true }\"</strong> anschalten",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_DESCRIPTION_": "Man kann die Paginierung mit <strong>:pagination=\"{ use: true, disabled: true }\"</strong> deaktivieren",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_HEADER_": "Die Paginierung ist inaktiv",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_LABEL_": "Tabelle mit Paginierung",
+  "_A_TABLE_GROUP_PAGINATION_HEADER_": "Einfache Paginierung",
+  "_A_TABLE_GROUP_PAGINATION_LABEL_": "Tabelle mit Paginierung",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_DESCRIPTION_": "Man kann die Anzahl der Zeilen pro Seite mit <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'] }\"</strong> ändern",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_HEADER_": "Anzahl der Zeilen pro Seite",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_LABEL_": "Tabelle mit Paginierung",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_DESCRIPTION_": "Man kann die standardmäßige Anzahl der Zeilen pro Seite mit <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'], limitStart: 5 }\"</strong> ändern",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_HEADER_": "Standardmäßige Anzahl der Zeilen pro Seite",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_LABEL_": "Tabelle mit Paginierung",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_DESCRIPTION_": "Man kann die maximale Anzahl von Seiten in der Paginierung mit <strong>:pagination=\"{ use: true, maxPages: 7 }\"</strong> ändern",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_HEADER_": "Maximale Anzahl von Seiten in der Paginierung",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_LABEL_": "Tabelle mit Paginierung",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_": "Man kann die Paginierung außerhalb der Komponente mit <strong>:pagination=\"{ use: true, isOutside: true }\"</strong> verwenden. Parameter <strong>:count-all-rows=\"999\"</strong> sagt, wie viel Zeilen hat die Tabelle. Wenn man die Anzahl pro Seite ändert, dann wird Emit <strong>change-limit</strong> aufgerufen. Wenn man die Paginierung ändert, dann wird Emit <strong>change-offset</strong> aufgerufen.",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_": "Paginierung außerhalb der Komponente (Serverseitige Paginierung)",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_LABEL_": "Tabelle mit Paginierung",
+  "_A_TABLE_PAGINATION_": "(Tabelle mit Paginierung)"
+}

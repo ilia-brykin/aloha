@@ -1,0 +1,85 @@
+@import "../utils/aloha_prefix";
+@import "../utils/breakpoint";
+
+$a_font_sizes: (
+        (
+                class: "1",
+                value: calc(1.375rem + 1.5vw),
+                value-desktop: 2.5,
+                is-tag: true,
+        ),
+        (
+                class: "2",
+                value: calc(1.325rem + .9vw),
+                value-desktop: 2,
+                is-tag: true,
+        ),
+        (
+                class: "3",
+                value: calc(1.3rem + .6vw),
+                value-desktop: 1.75,
+                is-tag: true,
+        ),
+        (
+                class: "4",
+                value: calc(1.275rem + .3vw),
+                value-desktop: 1.5,
+                is-tag: true,
+        ),
+        (
+                class: "5",
+                value: 1.25,
+                is-tag: true,
+        ),
+        (
+                class: "6",
+                value: 1,
+                is-tag: true,
+        ),
+        (
+                class: "7",
+                value: 0.75,
+        ),
+) !default;
+
+@each $font_size in $a_font_sizes {
+  $font_size_class: map-get($font_size, "class");
+  $font_size_value: map-get($font_size, "value");
+  $font_size_value_desktop: map-get($font_size, "value-desktop");
+  $font_size_is_tag: map-get($font_size, "is-tag");
+  $font_size_local: null;
+  @if $font_size_value {
+    @if str-index("" + $font_size_value, "calc") {
+      $font_size_local: #{ $font_size_value };
+    } @else {
+      $font_size_local: calc(var(--#{$aloha-prefix}body_font_size) * #{ $font_size_value });
+    }
+    .#{$aloha-prefix}fs_#{$font_size_class} {
+      font-size: #{ $font_size_local } !important;
+    }
+    @if $font_size_is_tag {
+      h#{$font_size_class} {
+        font-size: #{ $font_size_local };
+      }
+    }
+  }
+
+  @if $font_size_value_desktop {
+    @if str-index($font_size_value_desktop + "", "calc") {
+      $font_size_local: #{ $font_size_value_desktop };
+    } @else {
+      $font_size_local: calc(var(--#{$aloha-prefix}body_font_size) * #{ $font_size_value_desktop });
+    }
+    @media (min-width: #{$a_breakpoint_desktop_min}) {
+      .#{$aloha-prefix}fs_#{$font_size_class} {
+        font-size: #{ $font_size_local } !important;
+      }
+      @if $font_size_is_tag {
+        h#{$font_size_class} {
+          font-size: #{ $font_size_local };
+        }
+      }
+    }
+  }
+}
+

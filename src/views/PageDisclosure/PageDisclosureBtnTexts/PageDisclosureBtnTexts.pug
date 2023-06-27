@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DISCLOSURE_GROUP_BTN_TEXTS_HEADER_"
+  description="_A_DISCLOSURE_GROUP_BTN_TEXTS_DESCRIPTION_"
+  :props="['btn-text-less', 'btn-text-more']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_4.a_column_12_tablet
+      a-disclosure(
+        :text-less="textLess"
+        :text-more="textMore"
+        btn-text-less="Show less aloha"
+        btn-text-more="Show more aloha"
+      )

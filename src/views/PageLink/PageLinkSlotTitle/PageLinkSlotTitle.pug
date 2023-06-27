@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LINK_GROUP_SLOT_TITLE_HEADER_"
+  description="_A_LINK_GROUP_SLOT_TITLE_DESCRIPTION_"
+  slots="linkTitle"
+)
+  a-link(
+    class="a_btn a_btn_primary"
+    text="Aloha"
+    :is-title-html="true"
+    href="https://github.com/"
+  )
+    template(
+      v-slot:linkTitle
+    )
+      strong (***Aloha***)

@@ -1,0 +1,10 @@
+#aloha_page
+  a-page-tab-title(
+    v-if="pageTitle"
+    :title="pageTitle"
+  )
+  h1 {{ pageTitle }}
+
+  slot(
+    name="body"
+  )

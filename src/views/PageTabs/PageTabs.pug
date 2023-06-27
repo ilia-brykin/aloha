@@ -1,0 +1,78 @@
+div
+  h1 ATabs
+  a-tabs(
+    :data="dataTabs1"
+    :index-active-tab="1"
+  )
+  br
+  a-tabs(
+    :data="dataTabs1"
+    :is-boxed="true"
+  )
+  br
+  a-tabs.a_tabs_small(
+    :data="dataTabs1"
+    :is-boxed="true"
+  )
+  br
+  a-tabs.a_tabs_medium(
+    :data="dataTabs1"
+    :is-boxed="true"
+  )
+  br
+  a-tabs.a_tabs_large(
+    :data="dataTabs1"
+    :is-boxed="true"
+  )
+  h2 Vertical
+  a-tabs.a_tabs_large(
+    :data="dataTabs1"
+    :is-boxed="false"
+    :is-vertical="true"
+  )
+  a-tabs.a_tabs_large(
+    :data="dataTabs1"
+    :is-boxed="true"
+    :is-vertical="true"
+  )
+  h2 With Slots
+  a-tabs(
+    :data="dataTabs2"
+    :is-boxed="true"
+  )
+    template(
+      v-slot:tab="{ tab }"
+    )
+      span {{ tab }}
+
+    template(
+      v-slot:content="{ tab }"
+    )
+      span {{ tab }}
+
+  a-tabs(
+    :data="dataTabs3"
+    :is-boxed="true"
+  )
+    template(
+      v-slot:content1
+    )
+      span content1
+
+    template(
+      v-slot:content2
+    )
+      span content2
+
+    template(
+      v-slot:tab1
+    )
+      span tab1
+    template(
+      v-slot:tab2
+    )
+      span tab2
+    template(
+      v-slot:tab3
+    )
+      span tab3

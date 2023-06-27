@@ -1,0 +1,70 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_SHOW_MORE_COMPONENT_DESCRIPTION_"
+    )
+
+    page-show-more-basic
+
+    page-show-more-disabled
+
+    page-show-more-html
+
+    page-show-more-safe-html
+
+    page-show-more-text
+
+    page-show-more-text-length
+
+    page-show-more-height
+
+    page-show-more-not-less
+
+    page-show-more-btn-class
+
+    page-show-more-btn-icons
+
+    page-show-more-btn-title
+
+    page-show-more-btn-title-html
+
+    page-show-more-texts
+
+    page-show-more-open-default
+
+    page-show-more-slots
+
+    page-show-more-events
+
+    page-show-more-exposes
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Exposes"
+      :data="dataExposes"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

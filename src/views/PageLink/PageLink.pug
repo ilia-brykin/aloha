@@ -1,0 +1,70 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_LINK_COMPONENT_DESCRIPTION_"
+    )
+
+    page-link-basic
+
+    page-link-class
+
+    page-link-outline
+
+    page-link-sizes
+
+    page-link-group
+
+    page-link-group-vertical
+
+    page-link-group-horizontal-vertical
+
+    page-link-group-sizes
+
+    page-link-icons
+
+    page-link-disabled
+
+    page-link-loading
+
+    page-link-text-after-before
+
+    page-link-safe-html
+
+    page-link-html
+
+    page-link-text-object
+
+    page-link-title-array
+
+    page-link-title-html
+
+    page-link-slot-default
+
+    page-link-slot-prepend
+
+    page-link-slot-append
+
+    page-link-slot-title
+
+    page-link-complex
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    //-aloha-table-props( TODO: Exposes
+    //-  table-label="Exposes"
+    //-  :data="dataExposes"
+    //-  :columns="['name', 'type', 'description']"
+    //-)

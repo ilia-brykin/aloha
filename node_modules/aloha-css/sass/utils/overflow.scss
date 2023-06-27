@@ -1,0 +1,40 @@
+@import "../utils/aloha_prefix";
+
+.#{$aloha-prefix}overflow_auto {
+  overflow: auto !important;
+}
+.#{$aloha-prefix}overflow_hidden {
+  overflow: hidden !important;
+}
+.#{$aloha-prefix}overflow_visible {
+  overflow: visible !important;
+}
+.#{$aloha-prefix}overflow_scroll {
+  overflow: scroll !important;
+}
+
+.#{$aloha-prefix}overflow_x_auto {
+  overflow-x: auto !important;
+}
+.#{$aloha-prefix}overflow_x_hidden {
+  overflow-x: hidden !important;
+}
+.#{$aloha-prefix}overflow_x_visible {
+  overflow-x: visible !important;
+}
+.#{$aloha-prefix}overflow_x_scroll {
+  overflow-x: scroll !important;
+}
+
+.#{$aloha-prefix}overflow_y_auto {
+  overflow-y: auto !important;
+}
+.#{$aloha-prefix}overflow_y_hidden {
+  overflow-y: hidden !important;
+}
+.#{$aloha-prefix}overflow_y_visible {
+  overflow-y: visible !important;
+}
+.#{$aloha-prefix}overflow_y_scroll {
+  overflow-y: scroll !important;
+}

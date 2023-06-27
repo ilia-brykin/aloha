@@ -1,0 +1,21 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    page-table-pagination-example
+
+    page-table-pagination-limit
+
+    page-table-pagination-limit-start
+
+    page-table-pagination-max-items
+
+    page-table-pagination-disabled
+
+    page-table-pagination-outside
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

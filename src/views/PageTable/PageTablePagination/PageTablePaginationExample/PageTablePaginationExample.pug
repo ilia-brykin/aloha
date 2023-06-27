@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_GROUP_PAGINATION_HEADER_"
+  description="_A_TABLE_GROUP_PAGINATION_DESCRIPTION_"
+  props="pagination.use"
+)
+  div
+    a-table(
+      :columns="columns"
+      :data="data"
+      label="_A_TABLE_GROUP_PAGINATION_LABEL_"
+      key-id="id"
+      :pagination="{ use: true }"
+    )

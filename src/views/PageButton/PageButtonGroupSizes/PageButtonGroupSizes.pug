@@ -1,0 +1,49 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BUTTON_GROUP_GROUP_SIZES_HEADER_"
+  description="_A_BUTTON_GROUP_GROUP_SIZES_DESCRIPTION_"
+  props="class"
+)
+  .a_btn_group.a_btn_group_large
+    a-button(
+      class="a_btn a_btn_primary"
+      text="primary"
+      @click="onAlert('primary')"
+    )
+    a-button(
+      class="a_btn a_btn_secondary"
+      text="secondary"
+      @click="onAlert('secondary')"
+    )
+    a-button(
+      class="a_btn a_btn_success"
+      text="success"
+      @click="onAlert('success')"
+    )
+    a-button(
+      class="a_btn a_btn_info"
+      text="info"
+      @click="onAlert('info')"
+    )
+  .a_btn_group.a_btn_group_small.a_ml_3
+    a-button(
+      class="a_btn a_btn_outline_primary"
+      text="outline-primary"
+      @click="onAlert('outline-primary')"
+    )
+    a-button(
+      class="a_btn a_btn_outline_secondary"
+      text="outline-secondary"
+      @click="onAlert('outline-secondary')"
+    )
+    a-button(
+      class="a_btn a_btn_outline_success"
+      text="outline-success"
+      @click="onAlert('outline-success')"
+    )
+    a-button(
+      class="a_btn a_btn_outline_info"
+      text="outline-info"
+      @click="onAlert('outline-info')"
+    )

@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DISCLOSURE_GROUP_SAFE_HTML_HEADER_"
+  description="_A_DISCLOSURE_GROUP_SAFE_HTML_DESCRIPTION_"
+  :props="['safe-html-less', 'safe-html-more']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_4.a_column_12_tablet
+      a-disclosure(
+        :safe-html-less="htmlLess"
+        :safe-html-more="htmlMore"
+      )

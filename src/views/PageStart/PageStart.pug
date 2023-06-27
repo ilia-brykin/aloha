@@ -1,0 +1,19 @@
+div
+  a-translation(
+    tag="h1"
+    text="_WELCOME_"
+  )
+  a-translation(
+    tag="h2"
+    text="_SUPPORT_FRAMEWORKS_"
+    text-after=":"
+  )
+  ul
+    li(
+      v-for="framework in frameworks"
+      :key="framework.name"
+    )
+      a(
+        :href="framework.link"
+        target="_blank"
+      ) {{ framework.name }} {{ framework.version }}
