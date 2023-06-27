@@ -16,7 +16,7 @@ jobs:
       - name: Deploy to gh-pages
         run: |
           mkdir -p dist
-          cp -R aloha/test/* dist/
+          cp -R ./test/* dist/
           git config --global user.email "brykin.ilia@gmail.com"
           git config --global user.name "Ilia Brykin"
           git checkout gh-pages
