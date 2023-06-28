@@ -48,7 +48,9 @@ export default function HtmlTitleAPI(props) {
 
   watch(watchHtmlTitleProperties, () => {
     if (isTitleHtml.value) {
-      buttonRef.value?.updateTitle();
+      setTimeout(() => {
+        buttonRef.value?.updateTitle();
+      });
     }
   });
 
