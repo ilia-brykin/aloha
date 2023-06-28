@@ -120,7 +120,7 @@ module.exports = (env, options) => {
     entry: ["regenerator-runtime/runtime.js", "./src/main.js"],
     output: {
       path: path.resolve(__dirname, "./dist/"),
-      publicPath: "/",
+      publicPath: "./",
       filename: "bundle.[id].[contenthash].js",
       chunkFilename: "chunk.[id].[contenthash].js",
       asyncChunks: true,

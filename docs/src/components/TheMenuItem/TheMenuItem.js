@@ -1,6 +1,4 @@
-import {
-  AIcon,
-} from "../../../../dist";
+import AIcon from "../../../../src/AIcon/AIcon";
 
 export default {
   name: "TheMenuItem",
