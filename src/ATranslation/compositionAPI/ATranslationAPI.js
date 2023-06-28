@@ -38,7 +38,7 @@ export function setLanguage(languageLocal = "") {
 }
 
 export function toggleTranslate(isTranslateLocal) {
-  if (isUndefined(isTranslate)) {
+  if (isUndefined(isTranslateLocal)) {
     isTranslate.value = !isTranslate.value;
   }
   isTranslate.value = !!isTranslateLocal;
