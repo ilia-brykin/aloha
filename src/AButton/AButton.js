@@ -357,6 +357,7 @@ export default {
           this.isTitleVisible && h(ATranslation, {
             html: this.title,
             tag: "span",
+            extra: this.extra,
           }),
           this.$slots.buttonTitle && this.$slots.buttonTitle(),
         ];
