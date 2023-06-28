@@ -17,6 +17,12 @@ nav.a_d_flex.a_justify_content_between.a_align_items_center.a_px_2(
     span.h1.mb-0.ms-4.align-bottom ALOHA
 
   form.a_d_flex
+    a-button.a_mr_2(
+      :is-switch="true"
+      :model-switch="isTranslate"
+      icon-left="Translate"
+      @click="() => toggleTranslate()"
+    )
     a-select(
       v-model="modelLanguage"
       :data="languages"

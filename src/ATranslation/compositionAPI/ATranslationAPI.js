@@ -9,7 +9,7 @@ import {
 
 const language = ref("de");
 const i18n = ref({});
-const isTranslate = ref(true);
+export const isTranslate = ref(true);
 
 export const translation = computed(() => {
   if (isTranslate.value) {
@@ -21,6 +21,7 @@ export const translation = computed(() => {
 export default function ATranslationAPI() {
   return {
     i18n,
+    isTranslate,
     language,
     setI18n,
     setLanguage,
@@ -40,6 +41,7 @@ export function setLanguage(languageLocal = "") {
 export function toggleTranslate(isTranslateLocal) {
   if (isUndefined(isTranslateLocal)) {
     isTranslate.value = !isTranslate.value;
+  } else {
+    isTranslate.value = !!isTranslateLocal;
   }
-  isTranslate.value = !!isTranslateLocal;
 }
