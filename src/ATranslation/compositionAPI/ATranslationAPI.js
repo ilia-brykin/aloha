@@ -3,11 +3,19 @@ import {
   ref,
 } from "vue";
 
+import {
+  isUndefined,
+} from "lodash-es";
 
 const language = ref("de");
 const i18n = ref({});
+const isTranslate = ref(true);
+
 export const translation = computed(() => {
-  return i18n.value[language.value];
+  if (isTranslate.value) {
+    return i18n.value[language.value];
+  }
+  return {};
 });
 
 export default function ATranslationAPI() {
@@ -16,6 +24,7 @@ export default function ATranslationAPI() {
     language,
     setI18n,
     setLanguage,
+    toggleTranslate,
     translation,
   };
 }
@@ -26,4 +35,11 @@ export function setI18n(i18nLocal = {}) {
 
 export function setLanguage(languageLocal = "") {
   language.value = languageLocal;
+}
+
+export function toggleTranslate(isTranslateLocal) {
+  if (isUndefined(isTranslate)) {
+    isTranslate.value = !isTranslate.value;
+  }
+  isTranslate.value = !!isTranslateLocal;
 }
