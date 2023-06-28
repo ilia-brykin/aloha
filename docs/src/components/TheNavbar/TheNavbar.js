@@ -1,3 +1,4 @@
+import ALink from "../../../../src/ALink/ALink";
 import AButton from "../../../../src/AButton/AButton";
 import AIcon from "../../../../src/AIcon/AIcon";
 import AMenuButtonToggle from "../../../../src/AMenu/AMenuButtonToggle";
@@ -13,6 +14,7 @@ export default {
     AIcon,
     AMenuButtonToggle,
     ASelect,
+    ALink,
   },
   setup() {
     const {

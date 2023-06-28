@@ -1,6 +1,7 @@
 # Client
 docs/dist/*
 !docs/dist/.nojekyll
+!docs/dist/assets/*
 docs/public/*
 /.idea/*
 **/node_modules/*
