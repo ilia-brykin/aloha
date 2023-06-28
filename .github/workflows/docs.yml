@@ -11,22 +11,30 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-#      - name: Prepare publishing assets
-#        run: |
-#          mkdir deploy
-#          cp -r ./test/* ./deploy
-#          find ./deploy -name ".*" ! -name "." ! -name ".." -exec rm -rf {} \;
-#          touch ./deploy/.nojekyll
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          cd docs/
+          npm install
+
+      - name: Build documentation
+        run: |
+          cd docs/
+          npm run build-production
+          npm run build-css        
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-#          publish_dir: ./docs/dist
-          publish_dir: ./test
-          keep_files: true
+          publish_dir: ./docs/dist
+#          keep_files: true
           publish_branch: gh-pages
 
 #name: Deploy Docs
