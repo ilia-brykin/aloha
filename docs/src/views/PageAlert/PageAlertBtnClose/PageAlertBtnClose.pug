@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ALERT_GROUP_BTN_CLOSE_HEADER_"
+  description="_A_ALERT_GROUP_BTN_CLOSE_DESCRIPTION_"
+  :props="['btn-close-attributes', 'closable']"
+)
+  a-alert(
+    text="Aloha"
+    :is-visible="true"
+    type="success"
+    :btn-close-attributes="{ class: 'a_btn_close a_fs_3' }"
+    :closable="true"
+  )

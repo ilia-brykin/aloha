@@ -2,6 +2,7 @@ import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageAlertBasic from "./PageAlertBasic/PageAlertBasic.vue";
+import PageAlertBtnClose from "./PageAlertBtnClose/PageAlertBtnClose.vue";
 import PageAlertClosable from "./PageAlertClosable/PageAlertClosable.vue";
 import PageAlertCss from "./PageAlertCss/PageAlertCss.vue";
 import PageAlertExposes from "./PageAlertExposes/PageAlertExposes.vue";
@@ -27,6 +28,7 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageAlertBasic,
+    PageAlertBtnClose,
     PageAlertClosable,
     PageAlertCss,
     PageAlertExposes,

@@ -15,6 +15,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "btn-close-attributes",
+      description: "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "{}",
+      required: false,
+    },
+    {
       name: "closable",
       description: "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_",
       type: "Boolean",

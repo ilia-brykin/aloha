@@ -27,30 +27,20 @@ export default {
       required: false,
       default: () => alertPluginOptions.value.propsDefault.alertContentClass,
     },
+    btnCloseAttributes: {
+      type: Object,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.btnCloseAttributes,
+    },
     closable: {
       type: Boolean,
       required: false,
       default: () => alertPluginOptions.value.propsDefault.closable,
     },
-    showIcon: {
-      type: Boolean,
-      required: false,
-      default: () => alertPluginOptions.value.propsDefault.showIcon,
-    },
     html: {
       type: String,
       required: false,
       default: () => alertPluginOptions.value.propsDefault.html,
-    },
-    text: {
-      type: String,
-      required: false,
-      default: () => alertPluginOptions.value.propsDefault.text,
-    },
-    safeHtml: {
-      type: String,
-      required: false,
-      default: () => alertPluginOptions.value.propsDefault.safeHtml,
     },
     icon: {
       type: String,
@@ -71,6 +61,21 @@ export default {
       type: Boolean,
       required: false,
       default: () => alertPluginOptions.value.propsDefault.removeAlertOnClose,
+    },
+    safeHtml: {
+      type: String,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.safeHtml,
+    },
+    showIcon: {
+      type: Boolean,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.showIcon,
+    },
+    text: {
+      type: String,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.text,
     },
     textClose: {
       type: String,
@@ -161,6 +166,7 @@ export default {
         type: "button",
         class: "a_btn_close",
         textScreenReader: this.textClose,
+        ...this.btnCloseAttributes,
         onClick: this.close,
       }),
     ]);
