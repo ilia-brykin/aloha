@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BUTTON_GROUP_STOP_HEADER_"
+  description="_A_BUTTON_GROUP_STOP_DESCRIPTION_"
+  props="stop"
+)
+  div(
+    @click="showAlert"
+  )
+    a-button(
+      class="a_btn a_btn_primary"
+      text="stopPropagation: :stop=\"true\""
+      :stop="true"
+    )
+
+  div(
+    class="a_mt_4"
+    @click="showAlert"
+  )
+    a-button(
+      class="a_btn a_btn_primary"
+      text="stopPropagation: :stop=\"false\""
+      :stop="false"
+    )

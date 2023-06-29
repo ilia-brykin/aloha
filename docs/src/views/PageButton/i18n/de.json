@@ -39,6 +39,8 @@
   "_A_BUTTON_GROUP_SLOT_PREPEND_HEADER_": "Verwendung des Slots \"buttonPrepend\"",
   "_A_BUTTON_GROUP_SLOT_TITLE_DESCRIPTION_": "Die AButton-Komponente ermöglicht es Ihnen, benutzerdefinierten HTML-Inhalt für den Titel des Buttons zu definieren, indem Sie den Slot \"buttonTitle\" zusammen mit der Prop \":is-title-html\" verwenden. Der Inhalt, der im Slot platziert wird, wird als HTML-Titel für den Button verwendet.",
   "_A_BUTTON_GROUP_SLOT_TITLE_HEADER_": "Verwendung des Slots \"buttonTitle\" für HTML-Titel",
+  "_A_BUTTON_GROUP_STOP_DESCRIPTION_": "Durch das Setzen der \"stop\"-Prop auf einen booleschen Wert kann gesteuert werden, ob das Event propagiert werden soll oder nicht. Das Beispiel zeigt zwei verschiedene Szenarien: einmal mit \"stop\" auf \"true\" gesetzt und einmal auf \"false\".",
+  "_A_BUTTON_GROUP_STOP_HEADER_": "Verwendung der \"stop\"-Prop zum Stoppen der Event-Weitergabe",
   "_A_BUTTON_GROUP_SWITCH_DESCRIPTION_": "Die AButton-Komponente ermöglicht es Ihnen, den Button als Button-Switch zu verwenden, mit zwei Zuständen (aktiv/inaktiv). Durch Verwendung der Props \":is-switch\" und \":model-switch\" können Sie den Button-Switch aktivieren und den Zustand steuern. Der Button wird als \"button\"-Element mit dem Attribut \"aria-pressed\" gerendert, um den Zustand anzugeben.",
   "_A_BUTTON_GROUP_SWITCH_HEADER_": "Verwendung des Button-Switch-Modus",
   "_A_BUTTON_GROUP_TEXT_AFTER_BEFORE_DESCRIPTION_": "Die AButton-Komponente ermöglicht es Ihnen, zusätzlichen Text innerhalb des Buttons anzuzeigen. Dies kann nützlich sein, um vordefinierten Text vor oder nach dem eigentlichen Button-Text hinzuzufügen.",

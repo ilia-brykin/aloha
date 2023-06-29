@@ -19,6 +19,7 @@ import PageButtonSlotAppend from "./PageButtonSlotAppend/PageButtonSlotAppend.vu
 import PageButtonSlotDefault from "./PageButtonSlotDefault/PageButtonSlotDefault.vue";
 import PageButtonSlotPrepend from "./PageButtonSlotPrepend/PageButtonSlotPrepend.vue";
 import PageButtonSlotTitle from "./PageButtonSlotTitle/PageButtonSlotTitle.vue";
+import PageButtonStop from "./PageButtonStop/PageButtonStop.vue";
 import PageButtonSwitch from "./PageButtonSwitch/PageButtonSwitch.vue";
 import PageButtonTextAfterBefore from "./PageButtonTextAfterBefore/PageButtonTextAfterBefore.vue";
 import PageButtonTextObject from "./PageButtonTextObject/PageButtonTextObject.vue";
@@ -52,15 +53,16 @@ export default {
     PageButtonOutline,
     PageButtonSafeHtml,
     PageButtonSizes,
+    PageButtonSlotAppend,
     PageButtonSlotDefault,
+    PageButtonSlotPrepend,
+    PageButtonSlotTitle,
+    PageButtonStop,
     PageButtonSwitch,
     PageButtonTextAfterBefore,
     PageButtonTextObject,
     PageButtonTitleArray,
     PageButtonTitleHtml,
-    PageButtonSlotPrepend,
-    PageButtonSlotAppend,
-    PageButtonSlotTitle,
     PageButtonTitleHtmlExtra,
   },
   setup() {

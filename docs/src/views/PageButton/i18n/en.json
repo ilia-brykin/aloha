@@ -39,6 +39,8 @@
   "_A_BUTTON_GROUP_SLOT_PREPEND_HEADER_": "Using the \"buttonPrepend\" Slot",
   "_A_BUTTON_GROUP_SLOT_TITLE_DESCRIPTION_": "The AButton component allows you to define custom HTML content for the button's title by using the \"buttonTitle\" slot along with the \":is-title-html\" prop. The content placed in the slot will be used as an HTML title for the button.",
   "_A_BUTTON_GROUP_SLOT_TITLE_HEADER_": "Using the \"buttonTitle\" Slot for HTML Title",
+  "_A_BUTTON_GROUP_STOP_DESCRIPTION_": "Setting the \"stop\" prop to a boolean value can be used to control whether the event should be propagated or not. The example shows two different scenarios: one with \"stop\" set to \"true\" and one set to \"false\".",
+  "_A_BUTTON_GROUP_STOP_HEADER_": "Using the \"stop\" prop to stop event propagation",
   "_A_BUTTON_GROUP_SWITCH_DESCRIPTION_": "The AButton component allows you to use the button as a button switch, with two states (active/inactive). By using the \":is-switch\" and \":model-switch\" props, you can enable the button switch and control the state. The button is rendered as a \"button\" element with the \"aria-pressed\" attribute to indicate the state.",
   "_A_BUTTON_GROUP_SWITCH_HEADER_": "Using Button Switch Mode",
   "_A_BUTTON_GROUP_TEXT_AFTER_BEFORE_DESCRIPTION_": "The AButton component allows you to display additional text inside the button. This can be useful for adding predefined text before or after the actual button text.",
