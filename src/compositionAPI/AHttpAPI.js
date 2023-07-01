@@ -22,6 +22,10 @@ const HEADER_PARAMS = ref({});
 const abortGroupController = {};
 const abortGroupPending = {};
 
+export const API_CONFIG = ref({
+  setUrlForArray: setUrlForArray,
+});
+
 export function create({ axiosCreateOptions = {} }) {
   API.value = axios.create(axiosCreateOptions);
 }
@@ -428,7 +432,7 @@ export function setUrlWithParams({ url, params }) {
   let urlParams = "";
   forEach(params, (value, key) => {
     if (isArray(value)) {
-      urlParams = setUrlForArray({ id: key, array: value, url: urlParams });
+      urlParams = API_CONFIG.value.setUrlForArray({ id: key, array: value, url: urlParams });
     } else if (isPlainObject(value)) {
       forEach(value, (v, k) => {
         if (v) {
