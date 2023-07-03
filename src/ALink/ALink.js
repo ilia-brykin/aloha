@@ -159,6 +159,11 @@ export default {
       required: false,
       default: undefined,
     },
+    textTag: {
+      type: String,
+      required: false,
+      default: "span",
+    },
     title: {
       type: [String, Number, Object, Array],
       required: false,
@@ -282,7 +287,7 @@ export default {
           extra: this.extra,
           html: this.html,
           safeHtml: this.safeHtml,
-          tag: "span",
+          tag: this.textTag,
           text: this.text,
           textAfter: this.textAfter,
           textBefore: this.textBefore,
