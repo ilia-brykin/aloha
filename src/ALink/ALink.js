@@ -7,6 +7,7 @@ import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
 import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
+import ClickAPI from "./compositionAPI/ClickAPI";
 import ComponentLocalAPI from "./compositionAPI/ComponentLocalAPI";
 import HtmlTitleAPI from "./compositionAPI/HtmlTitleAPI";
 import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
@@ -124,6 +125,11 @@ export default {
       required: false,
       default: undefined,
     },
+    stop: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     target: {
       type: String,
       required: false,
@@ -181,7 +187,10 @@ export default {
       default: undefined,
     },
   },
-  setup(props) {
+  emits: [
+    "click",
+  ],
+  setup(props, context) {
     const {
       isTitleVisible,
     } = TitleAPI(props);
@@ -218,15 +227,20 @@ export default {
       ariaLabelAttributes,
     } = AriaLabelAPI(props);
 
+    const {
+      onClick,
+    } = ClickAPI(props, context);
+
     return {
       ariaLabelAttributes,
       componentLocal,
-      isLoadingLeft,
       htmlTitleAttributes,
+      isLoadingLeft,
       isLoadingRight,
-      isTextOrHtmlVisible,
       isTextOrHtmlScreenReaderVisible,
+      isTextOrHtmlVisible,
       isTitleVisible,
+      onClick,
       toHrefAttributes,
     };
   },
@@ -247,6 +261,7 @@ export default {
         },
       ],
       ariaDisabled: this.disabled,
+      onClick: this.onClick,
     }, {
       default: () => [
         (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
