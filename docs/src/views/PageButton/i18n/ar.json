@@ -53,7 +53,7 @@
   "_A_BUTTON_GROUP_TITLE_HTML_EXTRA_DESCRIPTION_": "عرض العناوين HTML مع الترجمة والمعلمات",
   "_A_BUTTON_GROUP_TITLE_HTML_EXTRA_HEADER_": "في المثال أدناه ، يتم عرض العنوان كنص مترجم بمعلمة. يتم تمرير المعلمة الرقمية عن طريق السمة extra.",
   "_A_BUTTON_GROUP_TITLE_HTML_HEADER_": "عرض العنوان كـ HTML وتوجيه العنوان",
-  "_A_BUTTON_PROPS_ARIA_DISABLED_DESCRIPTION_": "يحدد ما إذا كان يجب وضع علامة على الزر كمعطل. عند التعيين على true ، يتم عرض الزر كمعطل ويتم إضافة خاصية الوصولية \"aria-disabled\"",.,
+  "_A_BUTTON_PROPS_ARIA_DISABLED_DESCRIPTION_": "يحدد ما إذا كان يجب وضع علامة على الزر كمعطل. عند التعيين على true ، يتم عرض الزر كمعطل ويتم إضافة خاصية الوصولية \"aria-disabled\"",
   "_A_BUTTON_PROPS_ARIA_LABEL_DESCRIPTION_": "يحدد تسمية ARIA للزر. يمكنك استخدام سلسلة أو رقم أو كائن كقيمة لتعيين التسمية المطلوبة.",
   "_A_BUTTON_PROPS_ATTRIBUTES_DESCRIPTION_": "يحدد سمات إضافية للزر. يمكنك استخدام كائن لتعيين السمات المطلوبة وقيمها.",
   "_A_BUTTON_PROPS_CLASS_DESCRIPTION_": "فئة CSS",
