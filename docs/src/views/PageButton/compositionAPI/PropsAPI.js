@@ -212,6 +212,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "text-tag",
+      description: "_A_BUTTON_PROPS_TEXT_TAG_DESCRIPTION_",
+      type: "String",
+      default: "span",
+      required: false,
+    },
+    {
       name: "title",
       description: "_A_BUTTON_PROPS_TITLE_DESCRIPTION_",
       type: "String / Number / Object / Array",

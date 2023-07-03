@@ -23,6 +23,7 @@ import PageButtonStop from "./PageButtonStop/PageButtonStop.vue";
 import PageButtonSwitch from "./PageButtonSwitch/PageButtonSwitch.vue";
 import PageButtonTextAfterBefore from "./PageButtonTextAfterBefore/PageButtonTextAfterBefore.vue";
 import PageButtonTextObject from "./PageButtonTextObject/PageButtonTextObject.vue";
+import PageButtonTextTag from "./PageButtonTextTag/PageButtonTextTag.vue";
 import PageButtonTitleArray from "./PageButtonTitleArray/PageButtonTitleArray.vue";
 import PageButtonTitleHtml from "./PageButtonTitleHtml/PageButtonTitleHtml.vue";
 import PageButtonTitleHtmlExtra from "./PageButtonTitleHtmlExtra/PageButtonTitleHtmlExtra.vue";
@@ -61,6 +62,7 @@ export default {
     PageButtonSwitch,
     PageButtonTextAfterBefore,
     PageButtonTextObject,
+    PageButtonTextTag,
     PageButtonTitleArray,
     PageButtonTitleHtml,
     PageButtonTitleHtmlExtra,
