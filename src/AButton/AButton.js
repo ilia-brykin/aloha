@@ -271,7 +271,6 @@ export default {
   render() {
     return h(this.componentLocal, {
       ...this.$attrs,
-      ...this.attributes,
       ...this.htmlTitleAttributes,
       ...this.ariaLabelAttributes,
       ref: "buttonRef",
@@ -292,6 +291,7 @@ export default {
       // TODO: ATable
       isAllRowsSelected: undefined,
       onClick: this.onClick,
+      ...this.attributes,
     }, {
       default: () => [
         (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
