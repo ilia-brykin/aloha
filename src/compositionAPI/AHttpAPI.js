@@ -110,7 +110,7 @@ export function getHttp({
   keyId,
   fullResponse,
   showError,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
 }) {
@@ -143,7 +143,7 @@ export function getListHttp({
   keyId,
   fullResponse,
   showError,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
 }) {
@@ -176,7 +176,7 @@ export function getOptionsHttp({
   keyId,
   fullResponse,
   showError,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
 }) {
@@ -205,7 +205,7 @@ export function postHttp({
   responseType,
   fullResponse,
   showError,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
 }) {
@@ -233,7 +233,7 @@ export function putHttp({
   responseType,
   fullResponse,
   showError,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
 }) {
@@ -262,7 +262,7 @@ export function patchHttp({
   responseType,
   fullResponse,
   showError,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
 }) {
@@ -291,7 +291,7 @@ export function deleteHttp({
   responseType,
   fullResponse,
   showError,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
 }) {
@@ -323,7 +323,7 @@ export function callHttpRequestAndCheckSavedApi({
   keyId,
   fullResponse,
   showError = false,
-  ignoreErrorHandler,
+  ignoreErrorHandler = false,
   abortable = true,
   abortGroup = "",
   expectedList,
