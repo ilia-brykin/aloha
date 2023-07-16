@@ -119,6 +119,7 @@ export default {
         disabled: this.disabledOptions,
         placement: "bottom-end",
         menuWidth: 320,
+        inBody: true,
       }, {
         button: () => h(AIcon, {
           icon: "Cog",

@@ -99,6 +99,7 @@ export default {
           dropdownClass: "a_p_0 a_overflow_x_hidden",
           dropdownTag: "div",
           isCaret: false,
+          inBody: true,
           placement: "bottom-end",
           menuWidth: 600,
           isCloseByClickInside: false,
@@ -131,11 +132,11 @@ export default {
         this.isRowActionsDropdownVisible && h(ADropdown, {
           id: this.buttonActionsId,
           actions: this.rowActionsFiltered,
-          buttonIconLeft: "OptionVertical",
           buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
           placement: "bottom-end",
-          isCaret: false,
+          caretIcon: "OptionVertical",
           disabled: this.disabledRowActions,
+          inBody: true,
         }, this.$slots),
       ]),
     ]);
