@@ -140,6 +140,11 @@ export default {
       default: "top",
       validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
     },
+    caretIcon: {
+      type: String,
+      required: false,
+      default: "ChevronDown",
+    },
     class: {
       type: [String, Object],
       required: false,
@@ -381,7 +386,7 @@ export default {
         buttonAppend: () => {
           return this.isCaret && h(AIcon, {
             class: "a_dropdown__caret",
-            icon: "ChevronDown",
+            icon: this.caretIcon,
           });
         },
       }),

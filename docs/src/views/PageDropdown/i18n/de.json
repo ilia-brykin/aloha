@@ -1,5 +1,11 @@
 {
   "_A_DROPDOWN_COMPONENT_NAME_": "Dropdown",
+  "_A_DROPDOWN_GROUP_CARET_ICON_HEADER_": "Anpassbares Caret-Icon",
+  "_A_DROPDOWN_GROUP_CARET_ICON_DESCRIPTION_": "Das Caret-Icon des Dropdowns kann angepasst werden.",
+  "_A_DROPDOWN_PROPS_CARET_ICON_": "Die Prop ermöglicht es Ihnen, das Caret-Icon des Dropdowns anzupassen.",
+  "_A_DROPDOWN_GROUP_TRIGGERS_HEADER_": "Anpassbare Auslöser für das Dropdown",
+  "_A_DROPDOWN_GROUP_TRIGGERS_DESCRIPTION_": "Die ADropdown-Komponente für Vue.js bietet die Möglichkeit, die Auslöser für das Dropdown anzupassen. In dieser Dokumentation wird die Props triggers beschrieben, die das Array der Auslöser definiert.",
+  "_A_DROPDOWN_PROPS_TRIGGERS_": "Die Prop ermöglicht es Ihnen, die Auslöser festzulegen, die das Dropdown anzeigen.",
   "_A_DROPDOWN_GROUP_BUTTON_TEXT_HEADER_": "Anpassbarer Button-Text",
   "_A_DROPDOWN_GROUP_BUTTON_TEXT_DESCRIPTION_": "Hier wird die Prop <strong>button-text</strong> beschrieben, die es ermöglicht, den Text des Dropdown-Buttons anzupassen.",
   "_A_DROPDOWN_GROUP_IN_BODY_HEADER_": "Dropdown-Inhalt in Body oder direkt nach Dropdown-Button",

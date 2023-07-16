@@ -18,6 +18,7 @@ import Files from "../../src/AIcon/Icons/bootstrap-1-9-1/Files";
 import FiletypeHtml from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeHtml";
 import FiletypeJs from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeJs";
 import FiletypeSvg from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeSvg";
+import Gear from "../../src/AIcon/Icons/bootstrap-1-9-1/Gear";
 import GlobeEuropeAfrica from "../../src/AIcon/Icons/bootstrap-1-9-1/GlobeEuropeAfrica";
 import HourglassSplit from "../../src/AIcon/Icons/bootstrap-1-9-1/HourglassSplit";
 import InputCursor from "../../src/AIcon/Icons/bootstrap-1-9-1/InputCursor";
@@ -51,6 +52,7 @@ export default {
   FiletypeHtml,
   FiletypeJs,
   FiletypeSvg,
+  Gear,
   GlobeEuropeAfrica,
   HourglassSplit,
   InputCursor,

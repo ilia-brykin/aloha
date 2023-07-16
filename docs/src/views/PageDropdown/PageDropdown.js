@@ -6,6 +6,7 @@ import PageDropdownBasic from "./PageDropdownBasic/PageDropdownBasic.vue";
 import PageDropdownButtonText from "./PageDropdownButtonText/PageDropdownButtonText.vue";
 import PageDropdownInBody from "./PageDropdownInBody/PageDropdownInBody.vue";
 import PageDropdownTriggers from "./PageDropdownTriggers/PageDropdownTriggers.vue";
+import PageDropdownCaretIcon from "./PageDropdownCaretIcon/PageDropdownCaretIcon.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";
@@ -24,6 +25,7 @@ export default {
     PageDropdownButtonText,
     PageDropdownInBody,
     PageDropdownTriggers,
+    PageDropdownCaretIcon,
   },
   setup() {
     const {
