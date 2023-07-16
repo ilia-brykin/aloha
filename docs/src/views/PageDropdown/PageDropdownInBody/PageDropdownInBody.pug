@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_IN_BODY_HEADER_"
+  description="_A_DROPDOWN_GROUP_IN_BODY_DESCRIPTION_"
+  props="in-body"
+)
+  a-dropdown(
+    :actions="dropdownActions"
+    :in-body="true"
+    button-text="in-body='true'"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    :in-body="false"
+    button-text="in-body='false'"
+  )

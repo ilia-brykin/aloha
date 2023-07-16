@@ -1,0 +1,10 @@
+{
+  "_A_DROPDOWN_COMPONENT_NAME_": "Dropdown",
+  "_A_DROPDOWN_GROUP_BUTTON_TEXT_HEADER_": "Anpassbarer Button-Text",
+  "_A_DROPDOWN_GROUP_BUTTON_TEXT_DESCRIPTION_": "Hier wird die Prop <strong>button-text</strong> beschrieben, die es ermöglicht, den Text des Dropdown-Buttons anzupassen.",
+  "_A_DROPDOWN_GROUP_IN_BODY_HEADER_": "Dropdown-Inhalt in Body oder direkt nach Dropdown-Button",
+  "_A_DROPDOWN_GROUP_IN_BODY_DESCRIPTION_": "Die Prop inBody steuert, ob der Dropdown-Inhalt im Body oder direkt nach dem Dropdown-Button gerendert werden soll.",
+  "_A_DROPDOWN_COMPONENT_DESCRIPTION_": "Die ADropdown-Komponente ist eine Dropdown-Komponente für Vue.js, die es ermöglicht, eine Liste von Aktionen in einem Dropdown-Menü anzuzeigen. Diese Dokumentation enthält Informationen zur Verwendung der Komponente und beschreibt die verfügbaren Props.",
+  "_A_DROPDOWN_PROPS_IN_BODY_": "Die Prop ermöglicht die Kontrolle darüber, ob der Dropdown-Inhalt im Body oder direkt nach dem Dropdown-Button gerendert werden soll.",
+  "_A_DROPDOWN_PROPS_BUTTON_TEXT_": "Die Prop ermöglicht es Ihnen, den Text des Dropdown-Buttons anzupassen. "
+}

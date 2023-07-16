@@ -5,10 +5,12 @@ import {
 } from "vue";
 
 import {
+  assign,
   cloneDeep,
 } from "lodash-es";
 
 export default function AttributesAPI(props, {
+  eventsMenu = computed(() => ({})),
   statusExpanded = ref(false),
   wasOpened = ref(false),
 }) {
@@ -58,7 +60,7 @@ export default function AttributesAPI(props, {
     if (menuWidth.value) {
       DROPDOWN_ATTRIBUTES.style = `width: ${ menuWidth.value }px`;
     }
-    return DROPDOWN_ATTRIBUTES;
+    return assign({}, DROPDOWN_ATTRIBUTES, eventsMenu.value);
   });
 
   const isMenuRendered = computed(() => {

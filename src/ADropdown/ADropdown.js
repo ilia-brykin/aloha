@@ -14,6 +14,8 @@ import AOnHooks from "../directives/AOnHooks";
 
 import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import ClassAPI from "./compositionAPI/ClassAPI";
+import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
 import PopperContainerAPI from "../ATooltip/compositionAPI/PopperContainerAPI";
@@ -22,6 +24,7 @@ import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import placements from "../const/placements";
 import {
+  difference,
   uniqueId,
 } from "lodash-es";
 
@@ -38,23 +41,76 @@ export default {
       required: false,
       default: () => [],
     },
-    isHideWithoutActionAndSlot: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
     buttonAttributes: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    buttonText: {
-      type: [String, Number],
+    buttonClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
+    buttonIconAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    buttonIconClass: {
+      type: String,
       required: false,
       default: undefined,
     },
-    buttonTextScreenReader: {
+    buttonIconLeft: {
       type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonIconRight: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonIconTag: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    buttonIsTitleHtml: {
+      type: Boolean,
+      required: false,
+    },
+    buttonLoading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    buttonLoadingAlign: {
+      type: String,
+      required: false,
+      default: "right",
+      validator: value => ["right", "left"].indexOf(value) !== -1,
+    },
+    buttonLoadingClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_spinner_small",
+    },
+    buttonPrevent: {
+      type: Boolean,
+      required: false,
+    },
+    buttonStop: {
+      type: Boolean,
+      required: false,
+    },
+    buttonTag: {
+      type: String,
+      required: false,
+      default: "button",
+    },
+    buttonText: {
+      type: [String, Number],
       required: false,
       default: undefined,
     },
@@ -68,24 +124,15 @@ export default {
       required: false,
       default: undefined,
     },
-    buttonClass: {
-      type: [String, Object],
-      required: false,
-      default: "a_btn a_btn_secondary",
-    },
-    buttonTag: {
+    buttonTextScreenReader: {
       type: String,
       required: false,
-      default: "button",
+      default: undefined,
     },
     buttonTitle: {
       type: String,
       required: false,
       default: undefined,
-    },
-    buttonIsTitleHtml: {
-      type: Boolean,
-      required: false,
     },
     buttonTitlePlacement: {
       type: String,
@@ -93,57 +140,8 @@ export default {
       default: "top",
       validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
     },
-    buttonLoading: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    buttonLoadingClass: {
+    class: {
       type: [String, Object],
-      required: false,
-      default: "a_spinner_small",
-    },
-    buttonLoadingAlign: {
-      type: String,
-      required: false,
-      default: "right",
-      validator: value => ["right", "left"].indexOf(value) !== -1,
-    },
-    buttonIconLeft: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    buttonIconRight: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    buttonIconClass: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    buttonIconAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    buttonIconTag: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    buttonPrevent: {
-      type: Boolean,
-      required: false,
-    },
-    buttonStop: {
-      type: Boolean,
-      required: false,
-    },
-    extraTranslate: {
-      type: Object,
       required: false,
       default: undefined,
     },
@@ -176,6 +174,11 @@ export default {
       required: false,
       default: "button:not([disabled]), input:not([disabled]), a",
     },
+    extraTranslate: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     id: {
       type: String,
       required: false,
@@ -184,7 +187,7 @@ export default {
     inBody: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     isCaret: {
       type: Boolean,
@@ -192,6 +195,11 @@ export default {
       default: true,
     },
     isCloseByClickInside: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isHideWithoutActionAndSlot: {
       type: Boolean,
       required: false,
       default: true,
@@ -216,15 +224,16 @@ export default {
       default: "bottom-start",
       validator: placement => placements.indexOf(placement) !== -1,
     },
-    tag: {
-      type: String,
-      required: false,
-      default: "div",
-    },
     popperContainerId: {
       type: String,
       required: false,
       default: "a_tooltip_container",
+    },
+    triggers: {
+      type: Array,
+      required: false,
+      default: () => ["click"],
+      validator: value => difference(value, ["click", "hover", "focus"]).length === 0,
     },
   },
   setup(props) {
@@ -251,9 +260,13 @@ export default {
       buttonWidth,
       destroyEventCloseClick,
       destroyEventPressArrows,
+      onClose,
       onKeydown,
+      onOpen,
       onToggle,
       statusExpanded,
+      timerCloseHover,
+      triggerOpen,
       wasOpened,
     } = ToggleAPI(props, {
       dropdownButtonRef,
@@ -264,12 +277,25 @@ export default {
     });
 
     const {
+      eventsLocal,
+      eventsMenu,
+    } = EventsAPI(props, {
+      onToggle,
+      onKeydown,
+      onOpen,
+      onClose,
+      timerCloseHover,
+      triggerOpen,
+    });
+
+    const {
       idLocal,
       buttonAttributesDisabled,
       buttonAttributesLocal,
       dropdownAttributesLocal,
       isMenuRendered,
     } = AttributesAPI(props, {
+      eventsMenu,
       statusExpanded,
       wasOpened,
     });
@@ -284,6 +310,10 @@ export default {
       popperContainerIdSelector,
     } = PopperContainerAPI(props);
 
+    const {
+      buttonClassLocal,
+    } = ClassAPI(props);
+
     addPopperContainerInBody();
 
     onBeforeUnmount(() => {
@@ -296,15 +326,15 @@ export default {
       actionsFiltered,
       buttonAttributesDisabled,
       buttonAttributesLocal,
+      buttonClassLocal,
       buttonWidth,
       dropdownAttributesLocal,
       dropdownButtonRef,
       dropdownRef,
+      eventsLocal,
       hasActions,
       idLocal,
       isMenuRendered,
-      onKeydown,
-      onToggle,
       popperContainerIdSelector,
       startPopper,
       statusExpanded,
@@ -322,7 +352,7 @@ export default {
         ...this.$attrs,
         id: this.idLocal,
         tag: this.buttonTag,
-        class: this.buttonClass,
+        class: this.buttonClassLocal,
         text: this.buttonText,
         textScreenReader: this.buttonTextScreenReader,
         textAriaHidden: this.buttonTextAriaHidden,
@@ -343,8 +373,7 @@ export default {
         extraTranslate: this.extraTranslate,
         attributes: this.buttonAttributesLocal,
         ...this.buttonAttributesDisabled,
-        onClick: this.onToggle,
-        onKeydown: this.onKeydown,
+        ...this.eventsLocal,
       }, {
         default: () => {
           return this.$slots.button && this.$slots.button();
@@ -358,6 +387,7 @@ export default {
       }),
       h(Teleport, {
         to: this.popperContainerIdSelector,
+        disabled: !this.inBody,
       }, [
         this.isMenuRendered && withDirectives(h(
           this.dropdownTag,

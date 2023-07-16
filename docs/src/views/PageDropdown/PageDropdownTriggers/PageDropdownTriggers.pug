@@ -1,0 +1,48 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_TRIGGERS_HEADER_"
+  description="_A_DROPDOWN_GROUP_TRIGGERS_DESCRIPTION_"
+  props="triggers"
+)
+  a-dropdown(
+    :actions="dropdownActions"
+    button-text="click"
+    :triggers="['click']"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="focus"
+    :triggers="['focus']"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="hover"
+    :triggers="['hover']"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="click / focus"
+    :triggers="['click', 'focus']"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="click / hover"
+    :triggers="['click', 'hover']"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="focus / hover"
+    :triggers="['focus', 'hover']"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="click / focus / hover"
+    :triggers="['click', 'focus', 'hover']"
+  )

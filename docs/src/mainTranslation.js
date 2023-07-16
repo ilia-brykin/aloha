@@ -22,6 +22,7 @@ import PageAOnHooksI18n from "./views/PageDirectives/PageOnHooks/i18n/PageAOnHoo
 import PageDisclosureI18n from "./views/PageDisclosure/i18n/PageDisclosureI18n";
 import PageTooltipI18n from "./views/PageTooltip/i18n/PageTooltipI18n";
 import PageGroupButtonDropdownI18n from "./views/PageGroupButtonDropdown/i18n/PageGroupButtonDropdownI18n";
+import PageDropdownI18n from "./views/PageDropdown/i18n/PageDropdownI18n";
 
 export const mainTranslation = {
   ar: {
@@ -40,6 +41,7 @@ export const mainTranslation = {
     ...PageDisclosureI18n.ar,
     ...PageTooltipI18n.ar,
     ...PageGroupButtonDropdownI18n.ar,
+    ...PageDropdownI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -57,6 +59,7 @@ export const mainTranslation = {
     ...PageDisclosureI18n.de,
     ...PageTooltipI18n.de,
     ...PageGroupButtonDropdownI18n.de,
+    ...PageDropdownI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -74,6 +77,7 @@ export const mainTranslation = {
     ...PageDisclosureI18n.en,
     ...PageTooltipI18n.en,
     ...PageGroupButtonDropdownI18n.en,
+    ...PageDropdownI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -91,6 +95,7 @@ export const mainTranslation = {
     ...PageDisclosureI18n.es,
     ...PageTooltipI18n.es,
     ...PageGroupButtonDropdownI18n.es,
+    ...PageDropdownI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -108,6 +113,7 @@ export const mainTranslation = {
     ...PageDisclosureI18n.fr,
     ...PageTooltipI18n.fr,
     ...PageGroupButtonDropdownI18n.fr,
+    ...PageDropdownI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -125,6 +131,7 @@ export const mainTranslation = {
     ...PageDisclosureI18n.hr,
     ...PageTooltipI18n.hr,
     ...PageGroupButtonDropdownI18n.hr,
+    ...PageDropdownI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -142,6 +149,7 @@ export const mainTranslation = {
     ...PageDisclosureI18n.it,
     ...PageTooltipI18n.it,
     ...PageGroupButtonDropdownI18n.it,
+    ...PageDropdownI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -159,5 +167,6 @@ export const mainTranslation = {
     ...PageDisclosureI18n.ru,
     ...PageTooltipI18n.ru,
     ...PageGroupButtonDropdownI18n.ru,
+    ...PageDropdownI18n.ru,
   },
 };

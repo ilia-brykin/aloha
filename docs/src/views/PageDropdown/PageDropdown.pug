@@ -1,5 +1,44 @@
-div
-  h1 ADropdown
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_DROPDOWN_COMPONENT_DESCRIPTION_"
+    )
+
+    page-dropdown-basic
+
+    page-dropdown-button-text
+
+    page-dropdown-in-body
+
+    page-dropdown-triggers
+
+    //aloha-table-props(
+    //  :data="dataProps"
+    //)
+    //
+    //aloha-table-props(
+    //  table-label="Slots"
+    //  :data="dataSlots"
+    //  :columns="['name', 'description']"
+    //)
+    //
+    //aloha-table-props(
+    //  table-label="Events"
+    //  :data="dataEvents"
+    //  :columns="['name', 'type', 'description']"
+    //)
+    //
+    //aloha-table-props(
+    //  table-label="Exposes"
+    //  :data="dataExposes"
+    //  :columns="['name', 'type', 'description']"
+    //)
+
 
   a-dropdown(
     button-class="a_btn a_btn_link"
