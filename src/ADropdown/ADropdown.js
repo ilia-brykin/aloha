@@ -62,12 +62,12 @@ export default {
       default: undefined,
     },
     buttonIconLeft: {
-      type: String,
+      type: [String, Object],
       required: false,
       default: undefined,
     },
     buttonIconRight: {
-      type: String,
+      type: [String, Object],
       required: false,
       default: undefined,
     },

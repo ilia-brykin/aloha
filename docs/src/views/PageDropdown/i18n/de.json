@@ -1,5 +1,9 @@
 {
   "_A_DROPDOWN_COMPONENT_NAME_": "Dropdown",
+  "_A_DROPDOWN_GROUP_BUTTON_ICONS_HEADER_": "Anpassbare Button-Icons",
+  "_A_DROPDOWN_GROUP_BUTTON_ICONS_DESCRIPTION_": "Icons vor und nach dem Text des Dropdown-Buttons können mit den Props <strong>button-icon-left</strong> und <strong>button-icon-right</strong> angepasst werden.",
+  "_A_DROPDOWN_PROPS_BUTTON_ICON_LEFT_": "Die Props ermöglichen es Ihnen, den Icon vor dem Text des Dropdown-Buttons anzuzeigen.",
+  "_A_DROPDOWN_PROPS_BUTTON_ICON_RIGHT_": "Die Props ermöglichen es Ihnen, den Icon nach dem Text des Dropdown-Buttons anzuzeigen.",
   "_A_DROPDOWN_GROUP_BUTTON_CLASS_HEADER_": "Anpassbare Button-Klasse",
   "_A_DROPDOWN_GROUP_BUTTON_CLASS_DESCRIPTION_": "Die Klasse des Dropdown-Buttons kann mit der Prop <strong>button-class</strong> angepasst werden.",
   "_A_DROPDOWN_PROPS_BUTTON_CLASS_": "Die Prop ermöglicht es Ihnen, die Klasse des Dropdown-Buttons anzupassen.",
