@@ -110,7 +110,7 @@ export default {
       default: "button",
     },
     buttonText: {
-      type: [String, Number],
+      type: [String, Number, Object],
       required: false,
       default: undefined,
     },
