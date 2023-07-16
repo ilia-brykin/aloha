@@ -179,7 +179,7 @@ export default {
       required: false,
       default: "button:not([disabled]), input:not([disabled]), a",
     },
-    extraTranslate: {
+    extra: {
       type: Object,
       required: false,
       default: undefined,
@@ -375,7 +375,7 @@ export default {
         iconTag: this.buttonIconTag,
         prevent: this.buttonPrevent,
         stop: this.buttonStop,
-        extraTranslate: this.extraTranslate,
+        extra: this.extra,
         attributes: this.buttonAttributesLocal,
         ...this.buttonAttributesDisabled,
         ...this.eventsLocal,
