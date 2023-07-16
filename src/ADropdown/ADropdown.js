@@ -153,7 +153,7 @@ export default {
     classForTooltipInner: {
       type: [String, Object],
       required: false,
-      default: "a_position_relative p-0 font_family_inherit",
+      default: "a_position_relative a_p_0 font_family_inherit",
     },
     disabled: {
       type: Boolean,
