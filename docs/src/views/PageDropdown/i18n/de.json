@@ -1,5 +1,8 @@
 {
   "_A_DROPDOWN_COMPONENT_NAME_": "Dropdown",
+  "_A_DROPDOWN_GROUP_BUTTON_CLASS_HEADER_": "Anpassbare Button-Klasse",
+  "_A_DROPDOWN_GROUP_BUTTON_CLASS_DESCRIPTION_": "Die Klasse des Dropdown-Buttons kann mit der Prop <strong>button-class</strong> angepasst werden.",
+  "_A_DROPDOWN_PROPS_BUTTON_CLASS_": "Die Prop ermöglicht es Ihnen, die Klasse des Dropdown-Buttons anzupassen.",
   "_A_DROPDOWN_GROUP_HAS_CARET_HEADER_": "Anpassbare Anzeige des Caret-Icons",
   "_A_DROPDOWN_GROUP_HAS_CARET_DESCRIPTION_": "Die ADropdown-Komponente für Vue.js ermöglicht es, die Anzeige des Caret-Icons anzupassen. In dieser Dokumentation wird die Prop <strong>has-caret</strong> beschrieben, die steuert, ob das Caret-Icon angezeigt wird oder nicht.",
   "_A_DROPDOWN_PROPS_HAS_CARET_": "Die Prop ermöglicht es Ihnen, festzulegen, ob das Caret-Icon in der Dropdown-Komponente angezeigt wird.",

@@ -3,6 +3,7 @@ import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageDropdownBasic from "./PageDropdownBasic/PageDropdownBasic.vue";
+import PageDropdownButtonClass from "./PageDropdownButtonClass/PageDropdownButtonClass.vue";
 import PageDropdownButtonText from "./PageDropdownButtonText/PageDropdownButtonText.vue";
 import PageDropdownCaretIcon from "./PageDropdownCaretIcon/PageDropdownCaretIcon.vue";
 import PageDropdownHasCaret from "./PageDropdownHasCaret/PageDropdownHasCaret.vue";
@@ -23,6 +24,7 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageDropdownBasic,
+    PageDropdownButtonClass,
     PageDropdownButtonText,
     PageDropdownCaretIcon,
     PageDropdownHasCaret,
