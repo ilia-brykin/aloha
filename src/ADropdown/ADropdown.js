@@ -184,6 +184,11 @@ export default {
       required: false,
       default: undefined,
     },
+    hasCaret: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     id: {
       type: String,
       required: false,
@@ -193,11 +198,6 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    },
-    isCaret: {
-      type: Boolean,
-      required: false,
-      default: true,
     },
     isCloseByClickInside: {
       type: Boolean,
@@ -384,7 +384,7 @@ export default {
           return this.$slots.button && this.$slots.button();
         },
         buttonAppend: () => {
-          return this.isCaret && h(AIcon, {
+          return this.hasCaret && h(AIcon, {
             class: "a_dropdown__caret",
             icon: this.caretIcon,
           });

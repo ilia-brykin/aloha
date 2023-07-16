@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_HAS_CARET_HEADER_"
+  description="_A_DROPDOWN_GROUP_HAS_CARET_DESCRIPTION_"
+  props="has-caret"
+)
+  a-dropdown(
+    :actions="dropdownActions"
+    :has-caret="true"
+    button-text="Aloha"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    :has-caret="false"
+    button-text="Aloha"
+  )

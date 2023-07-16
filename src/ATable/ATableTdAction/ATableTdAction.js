@@ -98,7 +98,7 @@ export default {
           buttonClass: "a_btn a_btn_link",
           dropdownClass: "a_p_0 a_overflow_x_hidden",
           dropdownTag: "div",
-          isCaret: false,
+          hasCaret: false,
           inBody: true,
           placement: "bottom-end",
           menuWidth: 600,

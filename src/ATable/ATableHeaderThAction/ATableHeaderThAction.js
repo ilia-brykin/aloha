@@ -114,7 +114,7 @@ export default {
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
         dropdownTag: "div",
         dropdownClass: "a_p_0",
-        isCaret: false,
+        hasCaret: false,
         isCloseByClickInside: false,
         disabled: this.disabledOptions,
         placement: "bottom-end",
