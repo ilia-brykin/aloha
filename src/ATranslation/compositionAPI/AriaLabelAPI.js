@@ -4,7 +4,9 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
-import ATranslationAPI from "./ATranslationAPI";
+import ATranslationAPI, {
+  translation,
+} from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -17,7 +19,7 @@ export default function AriaLabelAPI(props) {
   const extra = toRef(props, "extra");
 
   const {
-    translation,
+    translationChanges,
   } = ATranslationAPI();
 
   const {
@@ -48,10 +50,13 @@ export default function AriaLabelAPI(props) {
   });
 
   const ariaLabelLocal = computed(() => {
+    if (!translationChanges.value) {
+      return undefined;
+    }
     if (isTranslateAriaLabel.value) {
       return getTranslatedText({
         placeholder: ariaLabelForCurrentDevice.value,
-        translationObj: translation.value,
+        translationObj: translation,
         extra: extra.value,
       });
     }

@@ -4,12 +4,14 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
+import ATranslationAPI, {
+  translation,
+} from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
   sanitizeLocal,
 } from "../../utils/utils";
-
 import {
   isPlainObject,
   isUndefined,
@@ -20,7 +22,6 @@ export default function HtmlAPI(props, {
   hasTextBefore = computed(() => false),
   textAfterForCurrentDevice = computed(() => ""),
   textBeforeForCurrentDevice = computed(() => ""),
-  translation = computed(() => ({})),
 }) {
   const extra = toRef(props, "extra");
   const html = toRef(props, "html");
@@ -34,6 +35,10 @@ export default function HtmlAPI(props, {
   const {
     isMobileWidth,
   } = AMobileAPI();
+
+  const {
+    translationChanges,
+  } = ATranslationAPI();
 
   const safeHtmlForCurrentDevice = computed(() => {
     if (isPlainObject(safeHtml.value)) {
@@ -84,11 +89,14 @@ export default function HtmlAPI(props, {
   });
 
   const htmlLocal = computed(() => {
+    if (!translationChanges.value) {
+      return undefined;
+    }
     if (hasSafeHtml.value) {
       if (isTranslateSafeHtml.value) {
         return getTranslatedText({
           placeholder: safeHtmlForCurrentDevice.value,
-          translationObj: translation.value,
+          translationObj: translation,
           extra: extra.value
         });
       }
@@ -98,7 +106,7 @@ export default function HtmlAPI(props, {
       if (isTranslateHtml.value) {
         return sanitizeLocal(getTranslatedText({
           placeholder: htmlForCurrentDevice.value,
-          translationObj: translation.value,
+          translationObj: translation,
           extra: extra.value
         }));
       }

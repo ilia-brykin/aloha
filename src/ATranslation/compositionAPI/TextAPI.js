@@ -4,6 +4,9 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
+import ATranslationAPI, {
+  translation,
+} from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -11,9 +14,7 @@ import {
   isUndefined,
 } from "lodash-es";
 
-export default function TextAPI(props, {
-  translation = computed(() => ({})),
-}) {
+export default function TextAPI(props) {
   const extra = toRef(props, "extra");
   const text = toRef(props, "text");
 
@@ -25,6 +26,10 @@ export default function TextAPI(props, {
   const {
     isMobileWidth,
   } = AMobileAPI();
+
+  const {
+    translationChanges,
+  } = ATranslationAPI();
 
   const textForCurrentDevice = computed(() => {
     if (isPlainObject(text.value)) {
@@ -45,10 +50,13 @@ export default function TextAPI(props, {
   });
 
   const textLocal = computed(() => {
+    if (!translationChanges.value) {
+      return undefined;
+    }
     if (isTranslateText.value) {
       return getTranslatedText({
         placeholder: textForCurrentDevice.value,
-        translationObj: translation.value,
+        translationObj: translation,
         extra: extra.value
       });
     }

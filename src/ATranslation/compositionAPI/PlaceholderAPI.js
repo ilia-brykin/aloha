@@ -4,7 +4,9 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
-import ATranslationAPI from "./ATranslationAPI";
+import ATranslationAPI, {
+  translation,
+} from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -17,7 +19,7 @@ export default function PlaceholderAPI(props) {
   const placeholder = toRef(props, "placeholder");
 
   const {
-    translation,
+    translationChanges,
   } = ATranslationAPI();
 
   const {
@@ -48,10 +50,13 @@ export default function PlaceholderAPI(props) {
   });
 
   const placeholderLocal = computed(() => {
+    if (!translationChanges.value) {
+      return undefined;
+    }
     if (isTranslatePlaceholder.value) {
       return getTranslatedText({
         placeholder: placeholderForCurrentDevice.value,
-        translationObj: translation.value,
+        translationObj: translation,
         extra: extra.value,
       });
     }

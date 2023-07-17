@@ -3,7 +3,6 @@ import {
 } from "vue";
 
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
-import ATranslationAPI from "./compositionAPI/ATranslationAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import PlaceholderAPI from "./compositionAPI/PlaceholderAPI";
@@ -67,10 +66,6 @@ export default {
   },
   setup(props) {
     const {
-      translation,
-    } = ATranslationAPI();
-
-    const {
       hasTextAfter,
       hasTextBefore,
       textAfterForCurrentDevice,
@@ -82,9 +77,7 @@ export default {
       isTranslateText,
       textForCurrentDevice,
       textLocal,
-    } = TextAPI(props, {
-      translation,
-    });
+    } = TextAPI(props);
 
     const {
       hasHtml,
@@ -99,26 +92,19 @@ export default {
       hasTextBefore,
       textAfterForCurrentDevice,
       textBeforeForCurrentDevice,
-      translation,
     });
 
     const {
       titleLocalOptions,
-    } = TitleAPI(props, {
-      translation,
-    });
+    } = TitleAPI(props);
 
     const {
       placeholderAttributes,
-    } = PlaceholderAPI(props, {
-      translation,
-    });
+    } = PlaceholderAPI(props);
 
     const {
       ariaLabelAttributes,
-    } = AriaLabelAPI(props, {
-      translation,
-    });
+    } = AriaLabelAPI(props);
 
     const {
       attributesLocal,
@@ -145,7 +131,6 @@ export default {
       textAfterForCurrentDevice,
       textBeforeForCurrentDevice,
       textLocal,
-      translation,
     };
   },
   render() {

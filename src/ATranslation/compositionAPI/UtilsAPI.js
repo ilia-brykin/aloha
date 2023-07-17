@@ -1,4 +1,5 @@
 import {
+  timeTranslationLastChanged,
   translation,
 } from "./ATranslationAPI";
 
@@ -24,8 +25,8 @@ export function isPlaceholderTranslate(text = "") {
     text[text.length - 1] !== "_");
 }
 
-export function getTranslatedText({ placeholder, translationObj = translation.value, extra }) {
-  if (!translationObj) {
+export function getTranslatedText({ placeholder, translationObj = translation, extra }) {
+  if (!translationObj || !timeTranslationLastChanged.value) {
     return undefined;
   }
   const TEXT_FROM_TRANSLATION = isNil(translationObj[placeholder]) ? placeholder : translationObj[placeholder];

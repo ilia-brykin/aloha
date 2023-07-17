@@ -1,6 +1,7 @@
 import {
   computed,
   ref,
+  watch,
 } from "vue";
 
 import {
@@ -8,25 +9,35 @@ import {
 } from "lodash-es";
 
 const language = ref("de");
-let i18n = {};
+export let i18n = {};
+const timeTranslation = ref(new Date());
+export const timeTranslationLastChanged = ref(new Date());
+export let translation = {};
 export const isTranslate = ref(true);
 
-export const translation = computed(() => {
-  if (isTranslate.value) {
-    return i18n[language.value];
-  }
-  return {};
+export const watchList = computed(() => {
+  return [
+    language.value,
+    timeTranslation.value,
+    isTranslate.value,
+  ];
+});
+
+watch(watchList, () => {
+  _updateTranslation();
+}, {
+  immediate: true,
 });
 
 export default function ATranslationAPI() {
   return {
-    i18n,
     isTranslate,
     language,
     setI18n,
     setLanguage,
     toggleTranslate,
-    translation,
+    translationChanges: timeTranslationLastChanged,
+    updateTranslation,
   };
 }
 
@@ -44,4 +55,17 @@ export function toggleTranslate(isTranslateLocal) {
   } else {
     isTranslate.value = !!isTranslateLocal;
   }
+}
+
+function _updateTranslation() {
+  if (isTranslate.value) {
+    translation = i18n[language.value];
+  } else {
+    translation = {};
+  }
+  timeTranslationLastChanged.value = new Date();
+}
+
+export function updateTranslation() {
+  timeTranslation.value = new Date();
 }

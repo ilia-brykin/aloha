@@ -4,6 +4,9 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
+import ATranslationAPI, {
+  translation,
+} from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -13,9 +16,7 @@ import {
   isPlainObject,
 } from "lodash-es";
 
-export default function TitleAPI(props, {
-  translation = computed(() => ({})),
-}) {
+export default function TitleAPI(props) {
   const extra = toRef(props, "extra");
   const title = toRef(props, "title");
 
@@ -27,6 +28,10 @@ export default function TitleAPI(props, {
   const {
     isMobileWidth,
   } = AMobileAPI();
+
+  const {
+    translationChanges,
+  } = ATranslationAPI();
 
   const titleForCurrentDevice = computed(() => {
     if (isPlainObject(title.value)) {
@@ -50,6 +55,9 @@ export default function TitleAPI(props, {
   });
 
   const titleLocalOptions = computed(() => {
+    if (!translationChanges.value) {
+      return undefined;
+    }
     const TITLE_LOCAL_OPTIONS = {
       title: undefined,
       dataTranslateTitle: undefined,
@@ -73,7 +81,7 @@ export default function TitleAPI(props, {
       if (isPlaceholderTranslate(titleEl)) {
         titleCombined += getTranslatedText({
           placeholder: titleEl,
-          translationObj: translation.value,
+          translationObj: translation,
           extra: extra.value,
         });
         dataTranslateTitle += titleEl;
