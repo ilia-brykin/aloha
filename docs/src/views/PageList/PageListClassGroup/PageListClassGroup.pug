@@ -1,0 +1,27 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LIST_GROUP_CLASS_GROUP_HEADER_"
+  description="_A_LIST_GROUP_CLASS_GROUP_DESCRIPTION_"
+  :props="['class-main', 'class-item']"
+)
+  a-list(
+    :data="items"
+    key-label="label"
+    class-main="a_list_group"
+    class-item="a_list_group__item"
+  )
+
+  a-list.a_mt_5(
+    :data="items"
+    key-label="label"
+    class-main="a_list_group a_list_group_gap"
+    class-item="a_list_group__item"
+  )
+
+  a-list.a_mt_5(
+    :data="items"
+    key-label="label"
+    class-main="a_list_group a_list_group_edge"
+    class-item="a_list_group__item"
+  )
