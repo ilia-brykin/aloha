@@ -210,36 +210,6 @@ export default {
     };
   },
   computed: {
-    listFiltered() {
-      return filter(this.options.list, item => !item.readonly);
-    },
-
-    confirmOkLabel() {
-      return this.confirmOptions.okLabel || "_BTN_SAVE_";
-    },
-
-    confirmCancelLabel() {
-      return this.confirmOptions.cancelLabel || "_BTN_CANCEL_";
-    },
-
-    cancelLabel() {
-      return this.options.cancelLabel || "_BTN_CANCEL_";
-    },
-
-    autocomplete() {
-      return this.options.autocomplete || "on";
-    },
-
-    dependencyValues() {
-      const DEPS = {};
-      forEach(this.listFiltered, item => {
-        if (item.dependency) {
-          DEPS[item.id] = get(this.model, item.dependency);
-        }
-      });
-      return DEPS;
-    },
-
     modalClassSize() {
       if (this.size) {
         return `a_modal_${ this.size }`;
