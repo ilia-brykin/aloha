@@ -8,12 +8,12 @@ import {
 } from "lodash-es";
 
 const language = ref("de");
-const i18n = ref({});
+let i18n = {};
 export const isTranslate = ref(true);
 
 export const translation = computed(() => {
   if (isTranslate.value) {
-    return i18n.value[language.value];
+    return i18n[language.value];
   }
   return {};
 });
@@ -31,7 +31,7 @@ export default function ATranslationAPI() {
 }
 
 export function setI18n(i18nLocal = {}) {
-  i18n.value = i18nLocal;
+  i18n = i18nLocal;
 }
 
 export function setLanguage(languageLocal = "") {
