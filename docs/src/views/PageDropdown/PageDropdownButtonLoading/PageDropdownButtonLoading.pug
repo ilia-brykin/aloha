@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_BUTTON_LOADING_HEADER_"
+  description="_A_DROPDOWN_GROUP_BUTTON_LOADING_DESCRIPTION_"
+  :props="['button-loading', 'button-loading-align']"
+)
+  a-dropdown(
+    :actions="dropdownActions"
+    button-text="aloha"
+    :button-loading="true"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="aloha"
+    :button-loading="true"
+    button-loading-align="left"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    button-text="aloha"
+    :button-loading="true"
+    button-loading-align="right"
+  )

@@ -1,5 +1,9 @@
 {
   "_A_DROPDOWN_COMPONENT_NAME_": "Dropdown",
+  "_A_DROPDOWN_GROUP_BUTTON_LOADING_HEADER_": "Ladezustand des Dropdown-Buttons",
+  "_A_DROPDOWN_GROUP_BUTTON_LOADING_DESCRIPTION_": "Der Ladezustand des Dropdown-Buttons kann mit den Props <strong>button-loading</strong> und <strong>button-loading-align</strong> angepasst werden .",
+  "_A_DROPDOWN_PROPS_BUTTON_LOADING_": "Die Prop ermöglicht es Ihnen, den Ladezustand des Dropdown-Buttons zu steuern.",
+  "_A_DROPDOWN_PROPS_BUTTON_LOADING_ALIGN_": "Die Prop ermöglicht es Ihnen, die Position des Ladezustands im Button anzupassen.",
   "_A_DROPDOWN_GROUP_BUTTON_ICONS_HEADER_": "Anpassbare Button-Icons",
   "_A_DROPDOWN_GROUP_BUTTON_ICONS_DESCRIPTION_": "Icons vor und nach dem Text des Dropdown-Buttons können mit den Props <strong>button-icon-left</strong> und <strong>button-icon-right</strong> angepasst werden.",
   "_A_DROPDOWN_PROPS_BUTTON_ICON_LEFT_": "Die Props ermöglichen es Ihnen, den Icon vor dem Text des Dropdown-Buttons anzuzeigen.",
