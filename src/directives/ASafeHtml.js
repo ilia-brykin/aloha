@@ -7,9 +7,9 @@ import {
 
 export default {
   beforeMount(el, binding) {
-    el.innerHTML = sanitizeLocal(isNil(binding.value) ? "" : binding.value);
+    el.innerHTML = isNil(binding.value) || binding.value === "" ? "" : sanitizeLocal(binding.value);
   },
   updated(el, binding) {
-    el.innerHTML = sanitizeLocal(isNil(binding.value) ? "" : binding.value);
+    el.innerHTML = isNil(binding.value) || binding.value === "" ? "" : sanitizeLocal(binding.value);
   },
 };
