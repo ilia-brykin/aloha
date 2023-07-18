@@ -420,11 +420,10 @@ function checkErrorStatus({ error, showError, client, resolve, reject }) {
     if (isFunction(ERROR_CALLBACKS.value.all)) {
       return ERROR_CALLBACKS.value.all({ error, showError, client, resolve, reject });
     }
+    return true;
   };
 
-  ERROR_CALLBACK();
-  // Let the promise handle the error
-  return true;
+  return ERROR_CALLBACK();
 }
 
 export function setUrlWithParams({ url, params }) {
