@@ -17,6 +17,8 @@ import ToHrefAPI from "./compositionAPI/ToHrefAPI";
 
 import placements from "../const/placements";
 import {
+  isInteger,
+  isString,
   uniqueId,
 } from "lodash-es";
 
@@ -186,6 +188,17 @@ export default {
       required: false,
       default: undefined,
     },
+    zIndexForTitle: {
+      type: [Number, String],
+      required: false,
+      default: "auto",
+      validator: value => {
+        if (isString(value)) {
+          return value === "auto";
+        }
+        return isInteger(value);
+      },
+    },
   },
   emits: [
     "click",
@@ -270,6 +283,9 @@ export default {
           class: "a_position_absolute_all aloha_link__hidden",
           title: this.title,
           extra: this.extra,
+          style: {
+            zIndex: this.zIndexForTitle,
+          },
         }),
         this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
           class: "a_sr_only aloha_link__hidden",
