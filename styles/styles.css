@@ -3488,6 +3488,150 @@ h6 {
   --a_btn_disabled_border_color: #212529;
   --a_gradient: none; }
 
+.a_btn_transparent_primary {
+  --a_btn_color: #0d6efd;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #0d6efd;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 13, 110, 253;
+  --a_btn_active_color: #0d6efd;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #0d6efd;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_secondary {
+  --a_btn_color: #6c757d;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #6c757d;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 108, 117, 125;
+  --a_btn_active_color: #6c757d;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #6c757d;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_tertiary {
+  --a_btn_color: #da6c8e;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #da6c8e;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 218, 108, 142;
+  --a_btn_active_color: #da6c8e;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #da6c8e;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_success {
+  --a_btn_color: #198754;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #198754;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 25, 135, 84;
+  --a_btn_active_color: #198754;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #198754;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_info {
+  --a_btn_color: #0DCAF0FF;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #0DCAF0FF;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 13, 202, 240;
+  --a_btn_active_color: #0DCAF0FF;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #0DCAF0FF;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_warning {
+  --a_btn_color: #FFC107FF;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #FFC107FF;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 255, 193, 7;
+  --a_btn_active_color: #FFC107FF;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #FFC107FF;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_danger {
+  --a_btn_color: #DC3545FF;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #DC3545FF;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 220, 53, 69;
+  --a_btn_active_color: #DC3545FF;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #DC3545FF;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_light {
+  --a_btn_color: #f8f9fa;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #f8f9fa;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 248, 249, 250;
+  --a_btn_active_color: #f8f9fa;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #f8f9fa;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
+.a_btn_transparent_dark {
+  --a_btn_color: #212529;
+  --a_btn_border_color: transparent;
+  --a_btn_bg: transparent;
+  --a_btn_hover_color: #212529;
+  --a_btn_hover_bg: #eceff1;
+  --a_btn_hover_border_color: #eceff1;
+  --a_btn_focus_shadow_rgb: 33, 37, 41;
+  --a_btn_active_color: #212529;
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_active_shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --a_btn_disabled_color: #212529;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_disabled_bg: transparent; }
+
 .a_btn_link {
   --a_btn_font_weight: 400;
   --a_btn_color: var(--a_color_link);
