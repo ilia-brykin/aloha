@@ -24,6 +24,7 @@ import PageLinkTextObject from "./PageLinkTextObject/PageLinkTextObject.vue";
 import PageLinkTextTag from "./PageLinkTextTag/PageLinkTextTag.vue";
 import PageLinkTitleArray from "./PageLinkTitleArray/PageLinkTitleArray.vue";
 import PageLinkTitleHtml from "./PageLinkTitleHtml/PageLinkTitleHtml.vue";
+import PageLinkTransparent from "./PageLinkTransparent/PageLinkTransparent.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -59,6 +60,7 @@ export default {
     PageLinkTextTag,
     PageLinkTitleArray,
     PageLinkTitleHtml,
+    PageLinkTransparent,
   },
   setup() {
     const {

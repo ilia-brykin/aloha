@@ -49,7 +49,7 @@ export default function HtmlAPI() {
 >
 </a-link>
 <a-link
-  class="a_btn a_btn__danger a_ml_2"
+  class="a_btn a_btn_danger a_ml_2"
   text="danger"
   :disabled="true"
   href="https://github.com/"
@@ -63,7 +63,7 @@ export default function HtmlAPI() {
 >
 </a-link>
 <a-link
-  class="a_btn a_btn__light a_ml_2"
+  class="a_btn a_btn_light a_ml_2"
   text="light"
   :disabled="true"
   href="https://github.com/"
@@ -128,6 +128,69 @@ export default function HtmlAPI() {
 <a-link
   class="a_btn a_btn_outline_light a_ml_2"
   text="outline-light"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_primary a_ml_2"
+  text="transparent-primary"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_secondary a_ml_2"
+  text="transparent-secondary"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_tertiary a_ml_2"
+  text="transparent-tertiary"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_success a_ml_2"
+  text="transparent-success"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_info a_ml_2"
+  text="transparent-info"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_warning a_ml_2"
+  text="transparent-warning"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_danger a_ml_2"
+  text="transparent-danger"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_dark a_ml_2"
+  text="transparent-dark"
+  :disabled="true"
+  href="https://github.com/"
+>
+</a-link>
+<a-link
+  class="a_btn a_btn_transparent_light a_ml_2"
+  text="transparent-light"
   :disabled="true"
   href="https://github.com/"
 >
