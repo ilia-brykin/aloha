@@ -136,6 +136,69 @@ export default function HtmlAPI() {
   :aria-disabled="true"
   @click="onAlert('outline-light')"
 >
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_primary a_ml_2"
+  text="transparent-primary"
+  :aria-disabled="true"
+  @click="onAlert('transparent-primary')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_secondary a_ml_2"
+  text="transparent-secondary"
+  :aria-disabled="true"
+  @click="onAlert('transparent-secondary')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_tertiary a_ml_2"
+  text="transparent-tertiary"
+  :aria-disabled="true"
+  @click="onAlert('transparent-tertiary')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_success a_ml_2"
+  text="transparent-success"
+  :aria-disabled="true"
+  @click="onAlert('transparent-success')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_info a_ml_2"
+  text="transparent-info"
+  :aria-disabled="true"
+  @click="onAlert('transparent-info')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_warning a_ml_2"
+  text="transparent-warning"
+  :aria-disabled="true"
+  @click="onAlert('transparent-warning')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_danger a_ml_2"
+  text="transparent-danger"
+  :aria-disabled="true"
+  @click="onAlert('transparent-danger')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_dark a_ml_2"
+  text="transparent-dark"
+  :aria-disabled="true"
+  @click="onAlert('transparent-dark')"
+>
+</a-button>
+<a-button
+  class="a_btn a_btn_transparent_light a_ml_2"
+  text="transparent-light"
+  :aria-disabled="true"
+  @click="onAlert('transparent-light')"
+>
 </a-button>`;
 
   return {

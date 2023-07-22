@@ -27,6 +27,7 @@ import PageButtonTextTag from "./PageButtonTextTag/PageButtonTextTag.vue";
 import PageButtonTitleArray from "./PageButtonTitleArray/PageButtonTitleArray.vue";
 import PageButtonTitleHtml from "./PageButtonTitleHtml/PageButtonTitleHtml.vue";
 import PageButtonTitleHtmlExtra from "./PageButtonTitleHtmlExtra/PageButtonTitleHtmlExtra.vue";
+import PageButtonTransparent from "./PageButtonTransparent/PageButtonTransparent.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -66,6 +67,7 @@ export default {
     PageButtonTitleArray,
     PageButtonTitleHtml,
     PageButtonTitleHtmlExtra,
+    PageButtonTransparent,
   },
   setup() {
     const {
