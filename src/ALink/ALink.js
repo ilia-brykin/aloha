@@ -177,18 +177,18 @@ export default {
       required: false,
       default: undefined,
     },
+    titleAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     titlePlacement: {
       type: String,
       required: false,
       default: "top",
       validator: placement => placements.indexOf(placement) !== -1,
     },
-    to: {
-      type: [Object, String],
-      required: false,
-      default: undefined,
-    },
-    zIndexForTitle: {
+    titleZIndex: {
       type: [Number, String],
       required: false,
       default: "auto",
@@ -198,6 +198,11 @@ export default {
         }
         return isInteger(value);
       },
+    },
+    to: {
+      type: [Object, String],
+      required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -284,8 +289,9 @@ export default {
           title: this.title,
           extra: this.extra,
           style: {
-            zIndex: this.zIndexForTitle,
+            zIndex: this.titleZIndex,
           },
+          ...this.titleAttributes,
         }),
         this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
           class: "a_sr_only aloha_link__hidden",

@@ -202,19 +202,18 @@ export default {
       required: false,
       default: undefined,
     },
+    titleAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     titlePlacement: {
       type: String,
       required: false,
       default: "top",
       validator: placement => placements.indexOf(placement) !== -1,
     },
-    type: {
-      type: String,
-      required: false,
-      default: "button",
-      validator: value => ["button", "submit", "reset"].indexOf(value) !== -1,
-    },
-    zIndexForTitle: {
+    titleZIndex: {
       type: [Number, String],
       required: false,
       default: "auto",
@@ -224,6 +223,12 @@ export default {
         }
         return isInteger(value);
       },
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "button",
+      validator: value => ["button", "submit", "reset"].indexOf(value) !== -1,
     },
   },
   emits: [
@@ -314,8 +319,9 @@ export default {
           title: this.title,
           extra: this.extra,
           style: {
-            zIndex: this.zIndexForTitle,
+            zIndex: this.titleZIndex,
           },
+          ...this.titleAttributes,
         }),
         this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
           class: "a_sr_only aloha_btn__hidden",

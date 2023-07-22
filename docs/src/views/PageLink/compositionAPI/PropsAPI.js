@@ -198,12 +198,26 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "title-attributes",
+      description: "_A_LINK_PROPS_TITLE_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "{}",
+      required: false,
+    },
+    {
       name: "title-placement",
       description: "_A_LINK_PROPS_TITLE_PLACEMENT_DESCRIPTION_",
       type: "String",
       default: "top",
       required: false,
       //  validator: value => ["top", "left", "bottom", "right"].indexOf(value) !== -1,
+    },
+    {
+      name: "title-z-index",
+      description: "_A_LINK_PROPS_TITLE_Z_INDEX_DESCRIPTION_",
+      type: "String / Number",
+      default: "auto",
+      required: false,
     },
     {
       name: "to",
