@@ -3,8 +3,7 @@ export default function HtmlAPI() {
   tag="button"
   class="a_btn a_btn_secondary"
   aria-label="_SHOW_MORE_"
->+
-</a-translation>`;
+>+</a-translation>`;
 
   return {
     codeHtml,
