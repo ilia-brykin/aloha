@@ -75,6 +75,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageAlert" */ "../views/PageAlert/PageAlert.vue"),
   },
   {
+    path: "/rate",
+    name: "PageRate",
+    component: () => import(/* webpackChunkName: "PageAlert" */ "../views/PageRate/PageRate.vue"),
+  },
+  {
     path: "/modal",
     name: "PageModal",
     component: () => import(/* webpackChunkName: "PageModal" */ "../views/PageModal/PageModal.vue"),

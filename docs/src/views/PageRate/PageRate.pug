@@ -1,0 +1,58 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="interaktive Bewertungen mit anpassbaren Icons, Farben und Größen einzubetten"
+    )
+
+    page-rate-basic
+
+    page-alert-types
+
+    page-alert-icons-default
+
+    page-alert-icons-custom
+
+    page-alert-css
+
+    page-alert-closable
+
+    page-alert-remove-on-close
+
+    page-alert-text
+
+    page-alert-html
+
+    page-alert-safe-html
+
+    page-alert-btn-close
+
+    page-alert-slot
+
+    page-alert-exposes
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Exposes"
+      :data="dataExposes"
+      :columns="['name', 'type', 'description']"
+    )

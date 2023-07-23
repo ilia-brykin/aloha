@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ALERT_GROUP_EXPOSES_HEADER_"
+  :exposes="['close', 'isHidden']"
+)
+  .a_btn_group
+    a-button.a_btn.a_btn_outline_primary(
+      text="_A_ALERT_GROUP_EXPOSES_BTN_CLOSE_"
+      @click="closeAlert"
+    )
+    a-button.a_btn.a_btn_outline_primary(
+      text="_A_ALERT_GROUP_EXPOSES_BTN_SHOW_"
+      @click="showAlert"
+    )
+  a-alert(
+    ref="alertRef"
+    alert-class="a_mt_3"
+    html="Alert success"
+    :is-visible="true"
+    type="success"
+    :closable="true"
+    :remove-alert-on-close="true"
+  )
+

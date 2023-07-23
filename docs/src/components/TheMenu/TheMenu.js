@@ -270,6 +270,14 @@ export default {
           icon: "Reception2",
         },
         {
+          id: "rate",
+          label: "Rate",
+          to: {
+            name: "PageRate",
+          },
+          icon: "StarFill",
+        },
+        {
           id: "scale",
           label: "Scale",
           to: {
