@@ -59,7 +59,7 @@ export default {
     },
     halfIcon: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     size: {
       type: String,

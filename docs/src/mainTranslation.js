@@ -10,6 +10,7 @@ import it from "./i18n/it.json";
 import ru from "./i18n/ru.json";
 
 import PageAAlertI18n from "./views/PageAlert/i18n/PageAAlertI18n";
+import PageARateI18n from "./views/PageRate/i18n/PageARateI18n";
 import PageShowMoreI18n from "./views/PageShowMore/i18n/PageShowMoreI18n";
 import PageTranslationI18n from "./views/PageTranslation/i18n/PageTranslationI18n";
 import PageButtonI18n from "./views/PageButton/i18n/PageButtonI18n";
@@ -31,6 +32,7 @@ export const mainTranslation = {
     ...allLanguages.ar,
     ...ar,
     ...PageAAlertI18n.ar,
+    ...PageARateI18n.ar,
     ...PageShowMoreI18n.ar,
     ...PageTranslationI18n.ar,
     ...PageButtonI18n.ar,
@@ -51,6 +53,7 @@ export const mainTranslation = {
     ...allLanguages.de,
     ...de,
     ...PageAAlertI18n.de,
+    ...PageARateI18n.de,
     ...PageShowMoreI18n.de,
     ...PageTranslationI18n.de,
     ...PageButtonI18n.de,
@@ -71,6 +74,7 @@ export const mainTranslation = {
     ...allLanguages.en,
     ...en,
     ...PageAAlertI18n.en,
+    ...PageARateI18n.en,
     ...PageShowMoreI18n.en,
     ...PageTranslationI18n.en,
     ...PageButtonI18n.en,
@@ -91,6 +95,7 @@ export const mainTranslation = {
     ...allLanguages.es,
     ...es,
     ...PageAAlertI18n.es,
+    ...PageARateI18n.es,
     ...PageShowMoreI18n.es,
     ...PageTranslationI18n.es,
     ...PageButtonI18n.es,
@@ -111,6 +116,7 @@ export const mainTranslation = {
     ...allLanguages.fr,
     ...fr,
     ...PageAAlertI18n.fr,
+    ...PageARateI18n.fr,
     ...PageShowMoreI18n.fr,
     ...PageTranslationI18n.fr,
     ...PageButtonI18n.fr,
@@ -131,6 +137,7 @@ export const mainTranslation = {
     ...allLanguages.hr,
     ...hr,
     ...PageAAlertI18n.hr,
+    ...PageARateI18n.hr,
     ...PageShowMoreI18n.hr,
     ...PageTranslationI18n.hr,
     ...PageButtonI18n.hr,
@@ -151,6 +158,7 @@ export const mainTranslation = {
     ...allLanguages.it,
     ...it,
     ...PageAAlertI18n.it,
+    ...PageARateI18n.it,
     ...PageShowMoreI18n.it,
     ...PageTranslationI18n.it,
     ...PageButtonI18n.it,
@@ -171,6 +179,7 @@ export const mainTranslation = {
     ...allLanguages.ru,
     ...ru,
     ...PageAAlertI18n.ru,
+    ...PageARateI18n.ru,
     ...PageShowMoreI18n.ru,
     ...PageTranslationI18n.ru,
     ...PageButtonI18n.ru,

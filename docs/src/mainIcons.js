@@ -1,7 +1,9 @@
+import ArrowRightCircle from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRightCircle";
 import ArrowRightCircleFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRightCircleFill";
 import ArrowsCollapse from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowsCollapse";
 import Bell from "../../src/AIcon/Icons/bootstrap-1-9-1/Bell";
 import BoxArrowUpRight from "../../src/AIcon/Icons/bootstrap-1-9-1/BoxArrowUpRight";
+import ChatSquareText from "../../src/AIcon/Icons/bootstrap-1-9-1/ChatSquareText";
 import ChatSquareTextFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ChatSquareTextFill";
 import CheckLg from "../../src/AIcon/Icons/bootstrap-1-9-1/CheckLg";
 import ChevronBarExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronBarExpand";
@@ -36,12 +38,14 @@ import Translate from "../../src/AIcon/Icons/bootstrap-1-9-1/Translate";
 import Window from "../../src/AIcon/Icons/bootstrap-1-9-1/Window";
 
 export default {
+  ArrowRightCircle,
   ArrowRightCircleFill,
   StarFill,
   Star,
   ArrowsCollapse,
   Bell,
   BoxArrowUpRight,
+  ChatSquareText,
   ChatSquareTextFill,
   CheckLg,
   ChevronBarExpand,

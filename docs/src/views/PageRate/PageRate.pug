@@ -1,58 +1,42 @@
 aloha-page(
-  :page-title="pageTitle"
+  page-title="Rate"
 )
   template(
     v-slot:body
   )
     a-translation(
       tag="p"
-      html="interaktive Bewertungen mit anpassbaren Icons, Farben und Größen einzubetten"
+      html="_A_RATE_DESCRIPTION_"
     )
 
-    page-rate-basic
+    page-rate-model-value
 
-    page-alert-types
+    page-rate-size
 
-    page-alert-icons-default
+    page-rate-half-icon
 
-    page-alert-icons-custom
+    page-rate-readonly
 
-    page-alert-css
+    page-rate-color
 
-    page-alert-closable
+    page-rate-hovered-color
 
-    page-alert-remove-on-close
+    page-rate-rating
 
-    page-alert-text
+    page-rate-icon
 
-    page-alert-html
+    page-rate-icon-fill
 
-    page-alert-safe-html
+    page-rate-show-score
 
-    page-alert-btn-close
-
-    page-alert-slot
-
-    page-alert-exposes
+    page-rate-text-extra
 
     aloha-table-props(
       :data="dataProps"
     )
 
     aloha-table-props(
-      table-label="Slots"
-      :data="dataSlots"
-      :columns="['name', 'description']"
-    )
-
-    aloha-table-props(
       table-label="Events"
       :data="dataEvents"
-      :columns="['name', 'type', 'description']"
-    )
-
-    aloha-table-props(
-      table-label="Exposes"
-      :data="dataExposes"
       :columns="['name', 'type', 'description']"
     )

@@ -1,73 +1,51 @@
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
-import PageRateBasic from "./PageRateBasic/PageRateBasic.vue";
-import PageAlertBtnClose from "./PageAlertBtnClose/PageAlertBtnClose.vue";
-import PageAlertClosable from "./PageAlertClosable/PageAlertClosable.vue";
-import PageAlertCss from "./PageAlertCss/PageAlertCss.vue";
-import PageAlertExposes from "./PageAlertExposes/PageAlertExposes.vue";
-import PageAlertHtml from "./PageAlertHtml/PageAlertHtml.vue";
-import PageAlertIconsCustom from "./PageAlertIconsCustom/PageAlertIconsCustom.vue";
-import PageAlertIconsDefault from "./PageAlertIconsDefault/PageAlertIconsDefault.vue";
-import PageAlertRemoveOnClose from "./PageAlertRemoveOnClose/PageAlertRemoveOnClose.vue";
-import PageAlertSafeHtml from "./PageAlertSafeHtml/PageAlertSafeHtml.vue";
-import PageAlertSlot from "./PageAlertSlot/PageAlertSlot.vue";
-import PageAlertText from "./PageAlertText/PageAlertText.vue";
-import PageAlertTypes from "./PageAlertTypes/PageAlertTypes.vue";
+import PageRateModelValue from "./PageRateModelValue/PageRateModelValue.vue";
+import PageRateReadonly from "./PageRateReadonly/PageRateReadonly.vue";
+import PageRateHalfIcon from "./PageRateHalfIcon/PageRateHalfIcon.vue";
+import PageRateSize from "./PageRateSize/PageRateSize.vue";
+import PageRateColor from "./PageRateColor/PageRateColor.vue";
+import PageRateHoveredColor from "./PageRateHoveredColor/PageRateHoveredColor.vue";
+import PageRateRating from "./PageRateRating/PageRateRating.vue";
+import PageRateIcon from "./PageRateIcon/PageRateIcon.vue";
+import PageRateIconFill from "./PageRateIconFill/PageRateIconFill.vue";
+import PageRateShowScore from "./PageRateShowScore/PageRateShowScore.vue";
+import PageRateTextExtra from "./PageRateTextExtra/PageRateTextExtra.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
-import ExposesAPI from "./compositionAPI/ExposesAPI";
-import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import SlotsAPI from "./compositionAPI/SlotsAPI";
 
 export default {
-  name: "PageAlert",
+  name: "PageRate",
   components: {
     AlohaPage,
     AlohaTableProps,
     ATranslation,
-    PageRateBasic,
-    PageAlertBtnClose,
-    PageAlertClosable,
-    PageAlertCss,
-    PageAlertExposes,
-    PageAlertHtml,
-    PageAlertIconsCustom,
-    PageAlertIconsDefault,
-    PageAlertRemoveOnClose,
-    PageAlertSafeHtml,
-    PageAlertSlot,
-    PageAlertText,
-    PageAlertTypes,
+    PageRateModelValue,
+    PageRateReadonly,
+    PageRateHalfIcon,
+    PageRateSize,
+    PageRateColor,
+    PageRateHoveredColor,
+    PageRateRating,
+    PageRateIcon,
+    PageRateIconFill,
+    PageRateShowScore,
+    PageRateTextExtra,
   },
   setup() {
-    const {
-      pageTitle,
-    } = PageTitleAPI();
-
     const {
       dataProps,
     } = PropsAPI();
 
     const {
-      dataSlots,
-    } = SlotsAPI();
-
-    const {
       dataEvents,
     } = EventsAPI();
 
-    const {
-      dataExposes,
-    } = ExposesAPI();
-
     return {
       dataEvents,
-      dataExposes,
       dataProps,
-      dataSlots,
-      pageTitle,
     };
   },
 };

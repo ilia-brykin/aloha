@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="ModelValue"
+  description="_A_RATE_DESCRIPTION_MODEL_VALUE_"
+  props="model-value"
+)
+  a-rate(
+    text="ARate"
+    :model-value="modelValue"
+    @update="handleModelValueChange"
+  )
