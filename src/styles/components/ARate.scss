@@ -29,12 +29,6 @@
   overflow: hidden;
 }
 
-.svg-align svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .el-icon {
   position: absolute;
   top: 0;
@@ -48,21 +42,6 @@
   left: 0;
 }
 
-.svg-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-
-.svg-icon-align {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 .el-icon svg {
   vertical-align: middle;
   line-height: 1;
@@ -73,29 +52,7 @@
   align-items: center;
 }
 
-.a_rate_icon {
-  margin-right: 5px;
-  color: #888;
-}
-
-.gray-icon {
-  color: gray;
-}
-
-.a_rate_icon--filled {
-  color: #ffa500;
-}
-
-.a_rate_icon {
-  color: inherit;
-}
-
 .a_rate_score {
-  margin-left: 10px;
-  font-size: 14px;
-}
-
-.a_rate_text {
   margin-left: 10px;
   font-size: 14px;
 }
@@ -114,10 +71,6 @@
 
 .a_rate_icon {
   margin-right: 4px;
-}
-
-.a_rate_filled {
-  color: #ff9800;
 }
 
 .a_rate_label {
