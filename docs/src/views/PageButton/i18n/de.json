@@ -55,6 +55,8 @@
   "_A_BUTTON_GROUP_TITLE_HTML_EXTRA_DESCRIPTION_": "Anzeige von HTML-Titel mit Übersetzung und Parameter",
   "_A_BUTTON_GROUP_TITLE_HTML_EXTRA_HEADER_": "Im folgenden Beispiel wird der Titel als übersetzter Text mit einem Parameter angezeigt. Dabei wird der Parameter number über das extra-Attribut übergeben.",
   "_A_BUTTON_GROUP_TITLE_HTML_HEADER_": "Anzeige von HTML-Titel und Titelplatzierung",
+  "_A_BUTTON_GROUP_TRANSPARENT_HEADER_": "Transparente Schaltflächen",
+  "_A_BUTTON_GROUP_TRANSPARENT_DESCRIPTION_": "Wenn Sie eine Schaltfläche benötigen, die mit dem Hintergrund verschmilzt, anstatt ihn zu verdecken, ersetzen Sie die Standardmodifikatorklassen durch die .a_btn_transparent*-Klassen.",
   "_A_BUTTON_PROPS_ARIA_DISABLED_DESCRIPTION_": "Gibt an, ob der Button als inaktiv markiert werden soll. Wenn der Wert auf true gesetzt ist, wird der Button als inaktiv dargestellt und die Accessibility-Eigenschaft \"aria-disabled\" wird hinzugefügt.",
   "_A_BUTTON_PROPS_ARIA_LABEL_DESCRIPTION_": " Gibt das ARIA-Label für den Button an. Sie können einen String, eine Zahl oder ein Objekt als Wert verwenden, um das gewünschte Label festzulegen.",
   "_A_BUTTON_PROPS_ATTRIBUTES_DESCRIPTION_": "Gibt zusätzliche Attribute für den Button an. Sie können ein Objekt verwenden, um die gewünschten Attribute und deren Werte festzulegen.",
