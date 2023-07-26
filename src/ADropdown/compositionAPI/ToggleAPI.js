@@ -206,7 +206,7 @@ export default function ToggleAPI(props, {
   }
 
   function onClose({ trigger } = {}) {
-    if (disabled.value || !statusExpanded.value) {
+    if (!statusExpanded.value) {
       return;
     }
 
