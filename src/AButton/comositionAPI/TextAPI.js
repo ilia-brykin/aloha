@@ -5,8 +5,8 @@ import {
 
 import {
   isEmpty,
+  isNil,
   isPlainObject,
-  isUndefined,
 } from "lodash-es";
 
 export default function TextAPI(props) {
@@ -21,21 +21,21 @@ export default function TextAPI(props) {
     if (isPlainObject(text.value)) {
       return !isEmpty(text.value);
     }
-    return !isUndefined(text.value);
+    return !isNil(text.value) && text.value !== "";
   });
 
   const isSafeHtmlVisible = computed(() => {
     if (isPlainObject(safeHtml.value)) {
       return !isEmpty(safeHtml.value);
     }
-    return !isUndefined(safeHtml.value);
+    return !isNil(safeHtml.value) && safeHtml.value !== "";
   });
 
   const isHtmlVisible = computed(() => {
     if (isPlainObject(html.value)) {
       return !isEmpty(html.value);
     }
-    return !isUndefined(html.value);
+    return !isNil(html.value) && html.value !== "";
   });
 
   const isTextOrHtmlVisible = computed(() => {
@@ -48,21 +48,21 @@ export default function TextAPI(props) {
     if (isPlainObject(textScreenReader.value)) {
       return !isEmpty(textScreenReader.value);
     }
-    return !isUndefined(textScreenReader.value);
+    return !isNil(textScreenReader.value) && textScreenReader.value !== "";
   });
 
   const isSafeHtmlScreenReaderVisible = computed(() => {
     if (isPlainObject(safeHtmlScreenReader.value)) {
       return !isEmpty(safeHtmlScreenReader.value);
     }
-    return !isUndefined(safeHtmlScreenReader.value);
+    return !isNil(safeHtmlScreenReader.value) && safeHtmlScreenReader.value !== "";
   });
 
   const isHtmlScreenReaderVisible = computed(() => {
     if (isPlainObject(htmlScreenReader.value)) {
       return !isEmpty(htmlScreenReader.value);
     }
-    return !isUndefined(htmlScreenReader.value);
+    return !isNil(htmlScreenReader.value) && htmlScreenReader.value !== "";
   });
 
   const isTextOrHtmlScreenReaderVisible = computed(() => {
