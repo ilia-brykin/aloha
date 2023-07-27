@@ -298,7 +298,7 @@ export default {
         this.switchClass,
         this.class,
         {
-          inactive: this.ariaDisabled,
+          disabled: this.ariaDisabled,
         },
       ],
       type: this.type,

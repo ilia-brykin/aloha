@@ -275,7 +275,7 @@ export default {
         "aloha_link",
         this.class,
         {
-          inactive: this.disabled,
+          disabled: this.disabled,
         },
       ],
       ariaDisabled: this.disabled,
