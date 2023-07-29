@@ -6377,6 +6377,70 @@ input:not(:-webkit-autofill) {
 .a_cloak__text_right {
   margin-left: 1rem; }
 
+.a_rate_container {
+  display: inline-block; }
+
+.el-rate__icon--small .el-icon {
+  width: 18px;
+  height: 18px; }
+
+.el-rate__icon--medium .el-icon {
+  width: 24px;
+  height: 24px; }
+
+.el-rate__icon--big .el-icon {
+  width: 36px;
+  height: 36px; }
+
+.el-icon.el-rate__icon {
+  position: relative;
+  color: grey; }
+
+.el-icon.el-rate__icon .el-icon.el-rate__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden; }
+
+.el-icon {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.el-rate__decimal {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.el-icon svg {
+  vertical-align: middle;
+  line-height: 1; }
+
+.a_rate_container {
+  display: flex;
+  align-items: center; }
+
+.a_rate_score {
+  margin-left: 10px;
+  font-size: 14px; }
+
+.a_rate_label {
+  margin-left: 10px;
+  font-size: 14px; }
+
+.icon-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; }
+
+.a_rate_icon {
+  margin-right: 4px; }
+
+.a_rate_label {
+  margin-top: 8px; }
+
 .a_loading {
   position: absolute;
   top: 0;
