@@ -14,6 +14,7 @@ import EjectFill from "../../src/AIcon/Icons/bootstrap-1-9-1/EjectFill";
 import Envelope from "../../src/AIcon/Icons/bootstrap3/Envelope";
 import ExclamationTriangle from "../../src/AIcon/Icons/bootstrap-1-9-1/ExclamationTriangle";
 import Export from "../../src/AIcon/Icons/bootstrap3/Export";
+import FileEarmarkText from "../../src/AIcon/Icons/bootstrap-1-9-1/FileEarmarkText";
 import Files from "../../src/AIcon/Icons/bootstrap-1-9-1/Files";
 import FiletypeCss from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeCss";
 import FiletypeHtml from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeHtml";
@@ -49,6 +50,7 @@ export default {
   Envelope,
   ExclamationTriangle,
   Export,
+  FileEarmarkText,
   Files,
   FiletypeCss,
   FiletypeHtml,

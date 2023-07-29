@@ -59,9 +59,9 @@ export default {
               label: "Columns",
               to: {
                 name: "PageColumns",
-              }
-            }
-          ]
+              },
+            },
+          ],
         },
         {
           group: "Hola",
@@ -128,6 +128,89 @@ export default {
             name: "PageDropdown",
           },
           icon: "MenuDown",
+        },
+        {
+          id: "form",
+          label: "Form",
+          icon: "FileEarmarkText",
+          children: [
+            {
+              id: "checkbox",
+              label: "Checkbox",
+              to: {
+                name: "PageCheckbox",
+              }
+            },
+            {
+              id: "ui-child",
+              label: "Child",
+              children: [
+                {
+                  id: "input",
+                  to: {
+                    name: "PageInput",
+                  },
+                  label: "Input",
+                }
+              ]
+            },
+            {
+              id: "datepicker",
+              label: "Datepicker",
+              to: {
+                name: "PageDatepicker",
+              }
+            },
+            {
+              id: "form",
+              label: "Form",
+              to: {
+                name: "PageForm",
+              }
+            },
+            {
+              id: "input",
+              to: {
+                name: "PageInput",
+              },
+              label: "Input",
+            },
+            {
+              id: "input-number",
+              to: {
+                name: "PageInputNumber",
+              },
+              label: "Input number",
+            },
+            {
+              id: "json",
+              label: "JSON",
+              to: {
+                name: "PageAJson",
+              }
+            },
+            {
+              id: "radio",
+              label: "Radio",
+              to: {
+                name: "PageRadio",
+              }
+            },
+            {
+              id: "select",
+              label: "Select",
+              to: {
+                name: "PageSelect",
+              }
+            },
+            {
+              id: "tinyMce",
+              label: "TinyMce",
+              to: {
+                name: "PageTinyMce",
+              },
+            },
+          ],
         },
         {
           id: "GroupButtonDropdown",
@@ -286,97 +369,6 @@ export default {
             name: "PageWizard",
           },
           icon: "ArrowRightCircleFill",
-        },
-        {
-          id: "ui",
-          label: "ui",
-          icon: "InputCursor",
-          children: [
-            {
-              id: "checkbox",
-              label: "Checkbox",
-              to: {
-                name: "PageCheckbox",
-              }
-            },
-            {
-              id: "ui-child",
-              label: "Child",
-              children: [
-                {
-                  id: "input",
-                  to: {
-                    name: "PageInput",
-                  },
-                  label: "Input",
-                }
-              ]
-            },
-            {
-              id: "datepicker",
-              label: "Datepicker",
-              to: {
-                name: "PageDatepicker",
-              }
-            },
-            {
-              id: "form",
-              label: "Form",
-              to: {
-                name: "PageForm",
-              }
-            },
-            {
-              id: "input",
-              to: {
-                name: "PageInput",
-              },
-              label: "Input",
-            },
-            {
-              id: "input-number",
-              to: {
-                name: "PageInputNumber",
-              },
-              label: "Input number",
-            },
-            {
-              id: "json",
-              label: "JSON",
-              to: {
-                name: "PageAJson",
-              }
-            },
-            {
-              id: "radio",
-              label: "Radio",
-              to: {
-                name: "PageRadio",
-              }
-            },
-            {
-              id: "select",
-              label: "Select",
-              to: {
-                name: "PageSelect",
-              }
-            },
-            {
-              id: "slotItem",
-              label: "Slot",
-              slot: "slotItem",
-              to: {
-                name: "PageRadio",
-              }
-            },
-            {
-              id: "tinyMce",
-              label: "TinyMce",
-              to: {
-                name: "PageTinyMce",
-              },
-            },
-          ],
         },
       ],
     };
