@@ -197,6 +197,13 @@ export default {
               }
             },
             {
+              id: "rate",
+              label: "Rate",
+              to: {
+                name: "PageRate",
+              },
+            },
+            {
               id: "select",
               label: "Select",
               to: {
@@ -268,14 +275,6 @@ export default {
             name: "PageProgress",
           },
           icon: "Reception2",
-        },
-        {
-          id: "rate",
-          label: "Rate",
-          to: {
-            name: "PageRate",
-          },
-          icon: "StarFill",
         },
         {
           id: "scale",
