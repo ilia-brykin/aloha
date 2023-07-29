@@ -1,5 +1,5 @@
-import AIcon from "../../../../src/AIcon/AIcon";
-import ASelect from "../../../../src/ui/ASelect/ASelect";
+import AIcon from "../../../../../src/AIcon/AIcon";
+import ASelect from "../../../../../src/ui/ASelect/ASelect";
 
 export default {
   name: "PageSelect",

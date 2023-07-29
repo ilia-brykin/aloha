@@ -1,4 +1,4 @@
-import ARadio from "../../../../src/ui/ARadio/ARadio";
+import ARadio from "../../../../../src/ui/ARadio/ARadio";
 
 export default {
   name: "PageRadio",

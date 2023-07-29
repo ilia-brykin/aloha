@@ -1,4 +1,4 @@
-import ADatepicker from "../../../../src/ui/ADatepicker/ADatepicker";
+import ADatepicker from "../../../../../src/ui/ADatepicker/ADatepicker";
 
 export default {
   name: "PageDatepicker",

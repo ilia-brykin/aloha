@@ -1,4 +1,4 @@
-import ATinymce from "../../../../src/ui/ATinymce/ATinymce";
+import ATinymce from "../../../../../src/ui/ATinymce/ATinymce";
 
 
 export default {

@@ -57,12 +57,12 @@ const ROUTES = [
   {
     path: "/input",
     name: "PageInput",
-    component: () => import(/* webpackChunkName: "PageInput" */ "../views/PageInput/PageInput.vue"),
+    component: () => import(/* webpackChunkName: "PageInput" */ "../views/Form/PageInput/PageInput.vue"),
   },
   {
     path: "/json",
     name: "PageAJson",
-    component: () => import(/* webpackChunkName: "PageAJson" */ "../views/PageAJson/PageAJson.vue"),
+    component: () => import(/* webpackChunkName: "PageAJson" */ "../views/Form/PageAJson/PageAJson.vue"),
   },
   {
     path: "/accordion",
@@ -92,22 +92,22 @@ const ROUTES = [
   {
     path: "/checkbox",
     name: "PageCheckbox",
-    component: () => import(/* webpackChunkName: "PageCheckbox" */ "../views/PageCheckbox/PageCheckbox.vue"),
+    component: () => import(/* webpackChunkName: "PageCheckbox" */ "../views/Form/PageCheckbox/PageCheckbox.vue"),
   },
   {
     path: "/radio",
     name: "PageRadio",
-    component: () => import(/* webpackChunkName: "PageRadio" */ "../views/PageRadio/PageRadio.vue"),
+    component: () => import(/* webpackChunkName: "PageRadio" */ "../views/Form/PageRadio/PageRadio.vue"),
   },
   {
     path: "/select",
     name: "PageSelect",
-    component: () => import(/* webpackChunkName: "PageSelect" */ "../views/PageSelect/PageSelect.vue"),
+    component: () => import(/* webpackChunkName: "PageSelect" */ "../views/Form/PageSelect/PageSelect.vue"),
   },
   {
     path: "/form",
     name: "PageForm",
-    component: () => import(/* webpackChunkName: "PageForm" */ "../views/PageForm/PageForm.vue"),
+    component: () => import(/* webpackChunkName: "PageForm" */ "../views/Form/PageForm/PageForm.vue"),
   },
   {
     path: "/dropdown",
@@ -132,12 +132,12 @@ const ROUTES = [
   {
     path: "/datepicker",
     name: "PageDatepicker",
-    component: () => import(/* webpackChunkName: "PageDatepicker" */ "../views/PageDatepicker/PageDatepicker.vue"),
+    component: () => import(/* webpackChunkName: "PageDatepicker" */ "../views/Form/PageDatepicker/PageDatepicker.vue"),
   },
   {
     path: "/tinymce",
     name: "PageTinyMce",
-    component: () => import(/* webpackChunkName: "PageTinyMce" */ "../views/PageTinyMce/PageTinyMce.vue"),
+    component: () => import(/* webpackChunkName: "PageTinyMce" */ "../views/Form/PageTinyMce/PageTinyMce.vue"),
   },
   {
     path: "/loading",
@@ -167,7 +167,7 @@ const ROUTES = [
   {
     path: "/input-number",
     name: "PageInputNumber",
-    component: () => import(/* webpackChunkName: "PageInputNumber" */ "../views/PageInputNumber/PageInputNumber.vue"),
+    component: () => import(/* webpackChunkName: "PageInputNumber" */ "../views/Form/PageInputNumber/PageInputNumber.vue"),
   },
   {
     path: "/group-button-dropdown",
@@ -212,7 +212,7 @@ const ROUTES = [
   {
     path: "/columns",
     name: "PageColumns",
-    component: () => import(/* webpackChunkName: "PageColumns" */ "../views/PageCSS/PageColumns/PageColumns.vue"),
+    component: () => import(/* webpackChunkName: "PageColumns" */ "../views/CSS/PageColumns/PageColumns.vue"),
   },
   {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'

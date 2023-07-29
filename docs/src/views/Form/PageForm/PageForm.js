@@ -1,4 +1,4 @@
-import AForm from "../../../../src/ui/AForm/AForm";
+import AForm from "../../../../../src/ui/AForm/AForm";
 
 export default {
   name: "PageForm",

@@ -1,5 +1,5 @@
-import ACheckbox from "../../../../src/ui/ACheckbox/ACheckbox";
-import AOneCheckbox from "../../../../src/ui/AOneCheckbox/AOneCheckbox";
+import ACheckbox from "../../../../../src/ui/ACheckbox/ACheckbox";
+import AOneCheckbox from "../../../../../src/ui/AOneCheckbox/AOneCheckbox";
 
 export default {
   name: "PageCheckbox",

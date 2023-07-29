@@ -1,4 +1,4 @@
-import AInputNumber from "../../../../src/ui/AInputNumber/AInputNumber";
+import AInputNumber from "../../../../../src/ui/AInputNumber/AInputNumber";
 
 export default {
   name: "PageInputNumber",

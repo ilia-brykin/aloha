@@ -1,5 +1,5 @@
-import AInput from "../../../../src/ui/AInput/AInput";
-import ATextarea from "../../../../src/ui/ATextarea/ATextarea";
+import AInput from "../../../../../src/ui/AInput/AInput";
+import ATextarea from "../../../../../src/ui/ATextarea/ATextarea";
 
 
 export default {

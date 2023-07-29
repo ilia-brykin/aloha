@@ -1,4 +1,4 @@
-import AJson from "../../../../src/AJson/AJson";
+import AJson from "../../../../../src/AJson/AJson";
 
 
 export default {
