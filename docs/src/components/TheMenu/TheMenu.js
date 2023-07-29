@@ -50,6 +50,20 @@ export default {
           icon: "EjectFill",
         },
         {
+          id: "css",
+          label: "CSS",
+          icon: "FiletypeCss",
+          children: [
+            {
+              id: "columns",
+              label: "Columns",
+              to: {
+                name: "PageColumns",
+              }
+            }
+          ]
+        },
+        {
           group: "Hola",
           id: "cloak",
           label: "Cloak",

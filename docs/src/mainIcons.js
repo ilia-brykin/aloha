@@ -15,6 +15,7 @@ import Envelope from "../../src/AIcon/Icons/bootstrap3/Envelope";
 import ExclamationTriangle from "../../src/AIcon/Icons/bootstrap-1-9-1/ExclamationTriangle";
 import Export from "../../src/AIcon/Icons/bootstrap3/Export";
 import Files from "../../src/AIcon/Icons/bootstrap-1-9-1/Files";
+import FiletypeCss from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeCss";
 import FiletypeHtml from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeHtml";
 import FiletypeJs from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeJs";
 import FiletypeSvg from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeSvg";
@@ -49,6 +50,7 @@ export default {
   ExclamationTriangle,
   Export,
   Files,
+  FiletypeCss,
   FiletypeHtml,
   FiletypeJs,
   FiletypeSvg,
