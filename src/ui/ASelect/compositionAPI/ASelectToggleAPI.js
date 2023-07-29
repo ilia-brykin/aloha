@@ -141,25 +141,23 @@ export default function ASelectToggleAPI(props, {
   const placement = toRef(props, "placement");
   const openPopoverWithPopperjs = () => {
     if (!popper.value) {
-      setTimeout(() => {
-        popper.value = createPopper(
-          buttonRef.value,
-          menuRef.value,
-          {
-            placement: placement.value,
-            removeOnDestroy: true,
-            modifiers: [
-              {
-                name: "offset",
-                options: {
-                  offset: [0, 0],
-                },
+      popper.value = createPopper(
+        buttonRef.value,
+        menuRef.value,
+        {
+          placement: placement.value,
+          removeOnDestroy: true,
+          modifiers: [
+            {
+              name: "offset",
+              options: {
+                offset: [0, 0],
               },
-            ],
-          },
-        );
-        onShow();
-      });
+            },
+          ],
+        },
+      );
+      onShow();
     }
   };
 

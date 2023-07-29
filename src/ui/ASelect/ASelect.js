@@ -61,6 +61,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.data,
     },
+    inBody: {
+      type: Boolean,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.inBody,
+    },
     isCloseByClick: {
       type: Boolean,
       required: false,
@@ -523,6 +528,7 @@ export default {
                 : "",
               h(Teleport, {
                 to: this.popperContainerIdSelector,
+                disabled: !this.inBody,
               }, [
                 h("div", {
                   ref: "menuParentRef",

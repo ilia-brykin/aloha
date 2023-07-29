@@ -24,6 +24,7 @@ import PageTooltipI18n from "./views/PageTooltip/i18n/PageTooltipI18n";
 import PageGroupButtonDropdownI18n from "./views/PageGroupButtonDropdown/i18n/PageGroupButtonDropdownI18n";
 import PageDropdownI18n from "./views/PageDropdown/i18n/PageDropdownI18n";
 import PageListI18n from "./views/PageList/i18n/PageListI18n";
+import PageSelectI18n from "./views/Form/PageSelect/i18n/PageSelectI18n";
 
 export const mainTranslation = {
   ar: {
@@ -44,6 +45,7 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.ar,
     ...PageDropdownI18n.ar,
     ...PageListI18n.ar,
+    ...PageSelectI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -63,6 +65,7 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.de,
     ...PageDropdownI18n.de,
     ...PageListI18n.de,
+    ...PageSelectI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -82,6 +85,7 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.en,
     ...PageDropdownI18n.en,
     ...PageListI18n.en,
+    ...PageSelectI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -101,6 +105,7 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.es,
     ...PageDropdownI18n.es,
     ...PageListI18n.es,
+    ...PageSelectI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -120,6 +125,7 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.fr,
     ...PageDropdownI18n.fr,
     ...PageListI18n.fr,
+    ...PageSelectI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -139,6 +145,7 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.hr,
     ...PageDropdownI18n.hr,
     ...PageListI18n.hr,
+    ...PageSelectI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -158,6 +165,7 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.it,
     ...PageDropdownI18n.it,
     ...PageListI18n.it,
+    ...PageSelectI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -177,5 +185,6 @@ export const mainTranslation = {
     ...PageGroupButtonDropdownI18n.ru,
     ...PageDropdownI18n.ru,
     ...PageListI18n.ru,
+    ...PageSelectI18n.ru,
   },
 };
