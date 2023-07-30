@@ -1,3 +1,27 @@
 {
-  "_A_LIST_COMPONENT_NAME_": "Liste"
+  "_A_LIST_COMPONENT_NAME_": "Liste",
+  "_A_LIST_COMPONENT_DESCRIPTION_": "Die AList-Komponente ist eine wiederverwendbare Listenkomponente, die ein Array von Daten akzeptieren und eine Liste mit einem bestimmten HTML-Tag erstellen kann. Sie ermöglicht auch benutzerdefinierte Konfigurationsoptionen, wie das Definieren der CSS-Klassen für die Liste und ihre Elemente, das Festlegen eines benutzerdefinierten Labels für Elemente und das Bereitstellen von Callback-Funktionen zur Definition der Anzeige des Labels.",
+  "_A_LIST_GROUP_CLASS_GROUP_HEADER_": "Liste und Element-Styling",
+  "_A_LIST_GROUP_CLASS_GROUP_DESCRIPTION_": "Geben Sie die CSS-Klasse für die Hauptliste oder das Element an",
+  "_A_LIST_CLASS_MAIN_PROP_DESCRIPTION_": "Auf den Hauptlistencontainer angewendete Klasse",
+  "_A_LIST_CLASS_ITEM_PROP_DESCRIPTION_": "Auf jedes Listenelement angewendete Klasse",
+  "_A_LIST_KEY_LABEL_PROP_DESCRIPTION_": "Eigenschaftsname im Datenobjekt, der für das Elementlabel verwendet wird",
+  "_A_LIST_KEY_LABEL_CALLBACK_PROP_DESCRIPTION_": "Funktion zur Anpassung der Labelanzeige",
+  "_A_LIST_KEY_CHILDREN_PROP_DESCRIPTION_": "Eigenschaftsname im Datenobjekt, der für Kinderelemente verwendet wird",
+  "_A_LIST_TAG_PROP_DESCRIPTION_": "HTML-Tag, das für die Liste verwendet wird",
+  "_A_LIST_LABEL_TAG_PROP_DESCRIPTION_": "HTML-Tag, das für das Elementlabel verwendet wird",
+  "_A_LIST_DATA_PROP_DESCRIPTION_": "Array von Datenobjekten, die als Liste angezeigt werden sollen",
+  "_A_LIST_SLOT_DESCRIPTION_": "Inhalt der Liste",
+  "_A_LIST_KEY_CHILDREN_HEADER_": "Hierarchische Datendarstellung",
+  "_A_LIST_KEY_CHILDREN_DESCRIPTION_": "Die Eigenschaft 'keyChildren' ermöglicht es, dass Elemente ihre eigenen Kinderelemente haben und ermöglicht so die Darstellung hierarchischer Daten.",
+  "_A_LIST_KEY_LABEL_CALLBACK_HEADER_": "Benutzerdefiniertes Format für Labels",
+  "_A_LIST_KEY_LABEL_CALLBACK_DESCRIPTION_": "Die Eigenschaft 'keyLabelCallback' ermöglicht eine benutzerdefinierte Transformation der Elementlabels.",
+  "_A_LIST_TAG_LABEL_TAG_HEADER_": "HTML-Tags anpassen",
+  "_A_LIST_TAG_LABEL_TAG_DESCRIPTION_": "Die Eigenschaften 'tag' und 'labelTag' passen die für die Listenstruktur und die Elementlabels verwendeten HTML-Tags an.",
+  "_A_LIST_WITH_CHILDREN_HEADER_": "AListe mit Kindern",
+  "_A_LIST_WITH_CHILDREN_DESCRIPTION_": "Eine Liste mit untergeordneten Elementen, die eine Hierarchie demonstriert.",
+  "_A_LIST_WITHOUT_CHILDREN_HEADER_": "AListe ohne Kinder",
+  "_A_LIST_WITHOUT_CHILDREN_DESCRIPTION_": "Eine einfache Liste ohne untergeordnete Elemente.",
+  "_A_LIST_WITH_SLOT_HEADER_": "AListe mit Slot",
+  "_A_LIST_WITH_SLOT_DESCRIPTION_": "Eine Liste mit benutzerdefiniertem Inhalt in den Elementen über den Slot."
 }

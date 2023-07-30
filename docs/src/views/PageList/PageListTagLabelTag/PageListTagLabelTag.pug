@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LIST_TAG_LABEL_TAG_HEADER_"
+  description="_A_LIST_TAG_LABEL_TAG_DESCRIPTION_"
+  :props="['tag', 'labelTag']"
+)
+  a-list(
+    :data="items"
+    key-label="label"
+    tag="div"
+    label-tag="span"
+  )

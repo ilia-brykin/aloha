@@ -1,3 +1,27 @@
 {
-
+  "_A_LIST_COMPONENT_NAME_": "Lista",
+  "_A_LIST_COMPONENT_DESCRIPTION_": "Il componente AList è un componente di lista riutilizzabile che può accettare un array di dati e generare una lista utilizzando un tag HTML specificato. Permette anche opzioni di configurazione personalizzate, come definire le classi CSS per la lista e i suoi elementi, impostare un'etichetta personalizzata per gli elementi e fornire funzioni di callback per definire come viene visualizzata l'etichetta.",
+  "_A_LIST_GROUP_CLASS_GROUP_HEADER_": "Stile della lista e dell'elemento",
+  "_A_LIST_GROUP_CLASS_GROUP_DESCRIPTION_": "Passa la classe CSS per la lista principale o per l'elemento",
+  "_A_LIST_CLASS_MAIN_PROP_DESCRIPTION_": "Classe applicata al contenitore principale della lista",
+  "_A_LIST_CLASS_ITEM_PROP_DESCRIPTION_": "Classe applicata a ogni elemento della lista",
+  "_A_LIST_KEY_LABEL_PROP_DESCRIPTION_": "Nome della proprietà nell'oggetto di dati utilizzato per l'etichetta dell'elemento",
+  "_A_LIST_KEY_LABEL_CALLBACK_PROP_DESCRIPTION_": "Funzione per personalizzare la visualizzazione dell'etichetta",
+  "_A_LIST_KEY_CHILDREN_PROP_DESCRIPTION_": "Nome della proprietà nell'oggetto di dati utilizzato per gli elementi figli",
+  "_A_LIST_TAG_PROP_DESCRIPTION_": "Tag HTML utilizzato per la lista",
+  "_A_LIST_LABEL_TAG_PROP_DESCRIPTION_": "Tag HTML utilizzato per l'etichetta dell'elemento",
+  "_A_LIST_DATA_PROP_DESCRIPTION_": "Array di oggetti di dati da visualizzare come una lista",
+  "_A_LIST_SLOT_DESCRIPTION_": "Contenuto della Lista",
+  "_A_LIST_KEY_CHILDREN_HEADER_": "Visualizzazione dei dati gerarchici",
+  "_A_LIST_KEY_CHILDREN_DESCRIPTION_": "La proprietà 'keyChildren' fornisce supporto per gli elementi per avere i propri elementi figli, consentendo la rappresentazione dei dati gerarchici.",
+  "_A_LIST_KEY_LABEL_CALLBACK_HEADER_": "Formattazione personalizzata dell'etichetta",
+  "_A_LIST_KEY_LABEL_CALLBACK_DESCRIPTION_": "La proprietà 'keyLabelCallback' consente una trasformazione personalizzata delle etichette degli elementi.",
+  "_A_LIST_TAG_LABEL_TAG_HEADER_": "Personalizzazione dei tag HTML",
+  "_A_LIST_TAG_LABEL_TAG_DESCRIPTION_": "Le proprietà 'tag' e 'labelTag' personalizzano i tag HTML utilizzati per la struttura della lista e le etichette degli elementi.",
+  "_A_LIST_WITH_CHILDREN_HEADER_": "ALista con figli",
+  "_A_LIST_WITH_CHILDREN_DESCRIPTION_": "Una lista con elementi nidificati, dimostrando gerarchia.",
+  "_A_LIST_WITHOUT_CHILDREN_HEADER_": "ALista senza figli",
+  "_A_LIST_WITHOUT_CHILDREN_DESCRIPTION_": "Una lista semplice senza elementi nidificati.",
+  "_A_LIST_WITH_SLOT_HEADER_": "ALista con slot",
+  "_A_LIST_WITH_SLOT_DESCRIPTION_": "Una lista con contenuto personalizzato negli elementi tramite slot."
 }

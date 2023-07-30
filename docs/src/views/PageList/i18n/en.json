@@ -1,3 +1,27 @@
 {
-
+  "_A_LIST_COMPONENT_NAME_": "List",
+  "_A_LIST_COMPONENT_DESCRIPTION_": "The AList component is a reusable list component that can accept an array of data and generate a list using a specified HTML tag. It also allows for custom configuration options, such as defining the CSS classes for the list and its items, setting custom label for items, and providing callback functions to define how the label is displayed.",
+  "_A_LIST_GROUP_CLASS_GROUP_HEADER_": "List and Item Styling",
+  "_A_LIST_GROUP_CLASS_GROUP_DESCRIPTION_": "pass the CSS class for the main list or for the element",
+  "_A_LIST_CLASS_MAIN_PROP_DESCRIPTION_": "Class applied to the main list container",
+  "_A_LIST_CLASS_ITEM_PROP_DESCRIPTION_": "Class applied to each list item",
+  "_A_LIST_KEY_LABEL_PROP_DESCRIPTION_": "Property name in data object used for item label",
+  "_A_LIST_KEY_LABEL_CALLBACK_PROP_DESCRIPTION_": "Function to customize label display",
+  "_A_LIST_KEY_CHILDREN_PROP_DESCRIPTION_": "Property name in data object used for child items",
+  "_A_LIST_TAG_PROP_DESCRIPTION_": "HTML tag used for the list",
+  "_A_LIST_LABEL_TAG_PROP_DESCRIPTION_": "HTML tag used for item label",
+  "_A_LIST_DATA_PROP_DESCRIPTION_": "Array of data objects to be displayed as a list",
+  "_A_LIST_SLOT_DESCRIPTION_": "Content of the List",
+  "_A_LIST_KEY_CHILDREN_HEADER_": "Hierarchical Data Display",
+  "_A_LIST_KEY_CHILDREN_DESCRIPTION_": "The 'keyChildren' prop provides support for items to have their own child items, enabling hierarchical data representation.",
+  "_A_LIST_KEY_LABEL_CALLBACK_HEADER_": "Custom Label Formatting",
+  "_A_LIST_KEY_LABEL_CALLBACK_DESCRIPTION_": "The 'keyLabelCallback' prop allows custom transformation of the item labels.",
+  "_A_LIST_TAG_LABEL_TAG_HEADER_": "HTML Tags Customization",
+  "_A_LIST_TAG_LABEL_TAG_DESCRIPTION_": "The 'tag' and 'labelTag' props customize the HTML tags used for the list structure and item labels.",
+  "_A_LIST_WITH_CHILDREN_HEADER_": "AList With Children",
+  "_A_LIST_WITH_CHILDREN_DESCRIPTION_": "A list with nested items, demonstrating hierarchy.",
+  "_A_LIST_WITHOUT_CHILDREN_HEADER_": "AList Without Children",
+  "_A_LIST_WITHOUT_CHILDREN_DESCRIPTION_": "A simple list without nested items.",
+  "_A_LIST_WITH_SLOT_HEADER_": "AList With Slot",
+  "_A_LIST_WITH_SLOT_DESCRIPTION_": "A list with custom content in the items via slot."
 }

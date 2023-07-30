@@ -3,9 +3,13 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import AList from "../../../../src/AList/AList";
 import PageListClassGroup from "./PageListClassGroup/PageListClassGroup.vue";
+import PageListKeyChildren from "./PageListKeyChildren/PageListKeyChildren.vue";
+import PageListKeyLabelCallback from "./PageListKeyLabelCallback/PageListKeyLabelCallback.vue";
+import PageListTagLabelTag from "./PageListTagLabelTag/PageListTagLabelTag.vue";
+import PageListWithSlot from "./PageListWithSlot/PageListWithSlot.vue";
+import PageListWithChildren from "./PageListWithChildren/PageListWithChildren.vue";
+import PageListWithoutChildren from "./PageListWithoutChildren/PageListWithoutChildren.vue";
 
-import EventsAPI from "./compositionAPI/EventsAPI";
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
@@ -18,6 +22,12 @@ export default {
     ATranslation,
     AList,
     PageListClassGroup,
+    PageListKeyChildren,
+    PageListKeyLabelCallback,
+    PageListTagLabelTag,
+    PageListWithSlot,
+    PageListWithChildren,
+    PageListWithoutChildren
   },
   setup() {
     const {
@@ -32,68 +42,10 @@ export default {
       dataSlots,
     } = SlotsAPI();
 
-    const {
-      dataEvents,
-    } = EventsAPI();
-
-    const {
-      dataExposes,
-    } = ExposesAPI();
-
     return {
-      dataEvents,
-      dataExposes,
       dataProps,
       dataSlots,
       pageTitle,
-    };
-  },
-  data() {
-    return {
-      items: [
-        {
-          label: "label 1",
-          items: [
-            {
-              label: "label 1.1",
-              items: [
-                {
-                  label: "label 1.1.1",
-                },
-                {
-                  label: "label 1.1.2",
-                },
-                {
-                  label: "label 1.1.3",
-                },
-              ],
-            },
-            {
-              label: "label 1.2",
-            },
-            {
-              label: "label 1.3",
-              items: [
-                {
-                  label: "label 1.3.1",
-                },
-                {
-                  label: "label 1.3.2",
-                },
-                {
-                  label: "label 1.3.3",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          label: "level 2",
-        },
-        {
-          label: "level 3",
-        },
-      ],
     };
   },
 };

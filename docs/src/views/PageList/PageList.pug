@@ -11,26 +11,24 @@ aloha-page(
 
     page-list-class-group
 
+    page-list-without-children
 
+    page-list-with-children
 
-    h2 without children
-    a-list(
-      :data="items"
-      key-label="label"
-    )
-    h2 with children
-    a-list(
-      :data="items"
-      key-label="label"
-      key-children="items"
-    )
-    h2 with slot
-    a-list(
-      :data="items"
-      key-children="items"
-    )
-      template(
-        v-slot:listItem="vm"
-      )
-        pre {{ vm.item.label }}
+    page-list-with-slot
 
+    page-list-key-children
+
+    page-list-key-label-callback
+
+    page-list-tag-label-tag
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )

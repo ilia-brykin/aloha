@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LIST_WITH_SLOT_HEADER_"
+  description="_A_LIST_WITH_SLOT_DESCRIPTION_"
+)
+  a-list(
+    :data="items"
+    key-children="items"
+  )
+    template(
+      v-slot:listItem="vm"
+    )
+      pre {{ vm.item.label }}
