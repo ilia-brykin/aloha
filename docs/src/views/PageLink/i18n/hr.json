@@ -46,6 +46,8 @@
   "_A_LINK_GROUP_TITLE_ARRAY_HEADER_": "Oblačić",
   "_A_LINK_GROUP_TITLE_HTML_DESCRIPTION_": "Informacije u više redaka u HTML formatu mogu se prikazati kad se mišem prijeđe preko poveznice.",
   "_A_LINK_GROUP_TITLE_HTML_HEADER_": "HTML oblačić",
+  "_A_LINK_GROUP_TRANSPARENT_DESCRIPTION_": "Pomoću CSS-a moguće je link učiniti transparentnim i na taj način uklopiti ga u pozadinu.",
+  "_A_LINK_GROUP_TRANSPARENT_HEADER_": "CSS klase za transparentnost",
   "_A_LINK_PROPS_ATTRIBUTES_DESCRIPTION_": "Atributi koji nisu definirani kao props.",
   "_A_LINK_PROPS_CLASS_DESCRIPTION_": "Dodatna css klasa.",
   "_A_LINK_PROPS_DISABLED_DESCRIPTION_": "Indikator onemogućenog stanja.",

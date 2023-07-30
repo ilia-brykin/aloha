@@ -47,6 +47,8 @@
   "_A_LINK_GROUP_TITLE_ARRAY_HEADER_": "Konkatenieren von Titeln in einer Prop",
   "_A_LINK_GROUP_TITLE_HTML_DESCRIPTION_": "Die ALink-Komponente ermöglicht es Ihnen, den Titel als HTML anzuzeigen und die Titelplatzierung zu steuern. Durch Verwendung der Props \":is-title-html\", \":title\" und \":title-placement\" können Sie HTML-Titel verwenden und die Positionierung des Titels festlegen.",
   "_A_LINK_GROUP_TITLE_HTML_HEADER_": "Anzeige von HTML-Titel und Titelplatzierung",
+  "_A_LINK_GROUP_TRANSPARENT_DESCRIPTION_": "Vordefinierte Klassen für Transparenz können verwendet werden, um Links in den Hintergrund einzublenden.",
+  "_A_LINK_GROUP_TRANSPARENT_HEADER_": "Transparent-Optionen",
   "_A_LINK_PROPS_ATTRIBUTES_DESCRIPTION_": "Gibt zusätzliche Attribute für den Link an. Sie können ein Objekt verwenden, um die gewünschten Attribute und deren Werte festzulegen.",
   "_A_LINK_PROPS_CLASS_DESCRIPTION_": "Diese Prop ermöglicht es Ihnen, benutzerdefinierte Klassen für die Link-Stile anzugeben.",
   "_A_LINK_PROPS_DISABLED_DESCRIPTION_": "Diese Prop ermöglicht es Ihnen, den Link zu deaktivieren. Wenn disabled auf true gesetzt ist, wird der Link ohne href-Attribut gerendert und die zusätzliche Klasse 'disabled' wird hinzugefügt",
