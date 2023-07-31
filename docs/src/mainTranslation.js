@@ -26,6 +26,7 @@ import PageGroupButtonDropdownI18n from "./views/PageGroupButtonDropdown/i18n/Pa
 import PageDropdownI18n from "./views/PageDropdown/i18n/PageDropdownI18n";
 import PageListI18n from "./views/PageList/i18n/PageListI18n";
 import PageSelectI18n from "./views/Form/PageSelect/i18n/PageSelectI18n";
+import PageProgressI18n from "./views/PageProgress/i18n/PageProgressI18n";
 
 export const mainTranslation = {
   ar: {
@@ -48,6 +49,7 @@ export const mainTranslation = {
     ...PageDropdownI18n.ar,
     ...PageListI18n.ar,
     ...PageSelectI18n.ar,
+    ...PageProgressI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -69,6 +71,7 @@ export const mainTranslation = {
     ...PageDropdownI18n.de,
     ...PageListI18n.de,
     ...PageSelectI18n.de,
+    ...PageProgressI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -90,6 +93,7 @@ export const mainTranslation = {
     ...PageDropdownI18n.en,
     ...PageListI18n.en,
     ...PageSelectI18n.en,
+    ...PageProgressI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -111,6 +115,7 @@ export const mainTranslation = {
     ...PageDropdownI18n.es,
     ...PageListI18n.es,
     ...PageSelectI18n.es,
+    ...PageProgressI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -132,6 +137,7 @@ export const mainTranslation = {
     ...PageDropdownI18n.fr,
     ...PageListI18n.fr,
     ...PageSelectI18n.fr,
+    ...PageProgressI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -153,6 +159,7 @@ export const mainTranslation = {
     ...PageDropdownI18n.hr,
     ...PageListI18n.hr,
     ...PageSelectI18n.hr,
+    ...PageProgressI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -174,6 +181,7 @@ export const mainTranslation = {
     ...PageDropdownI18n.it,
     ...PageListI18n.it,
     ...PageSelectI18n.it,
+    ...PageProgressI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -195,5 +203,6 @@ export const mainTranslation = {
     ...PageDropdownI18n.ru,
     ...PageListI18n.ru,
     ...PageSelectI18n.ru,
+    ...PageProgressI18n.ru,
   },
 };

@@ -8,12 +8,8 @@ export default function WidthAPI(props) {
   const max = toRef(props, "max");
   const value = toRef(props, "value");
 
-  const diffMinMax = computed(() => {
-    return max.value - min.value;
-  });
-
   const widthPercent = computed(() => {
-    return Math.abs(value.value * 100 / diffMinMax.value);
+    return ((value.value - min.value) / (max.value - min.value)) * 100;
   });
 
   return {

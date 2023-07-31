@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PROGRESS_GROUP_VALUE_HEADER_"
+  description="_A_PROGRESS_GROUP_VALUE_DESCRIPTION_"
+  props="value"
+)
+  a-input-number.a_mb_4(
+    v-model="model"
+    :min="0"
+    :max="100"
+    :step="5"
+    type="integer-non-negative"
+  )
+  a-progress(
+    :value="model"
+  )

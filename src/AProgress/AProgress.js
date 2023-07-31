@@ -1,9 +1,8 @@
 import {
-  computed,
-  h, toRef,
+  h,
 } from "vue";
 
-import AFiltersAPI from "../compositionAPI/AFiltersAPI";
+import ValuePercentAPI from "./compositionAPI/ValuePercentAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
 export default {
@@ -13,19 +12,6 @@ export default {
       type: [String, Object],
       required: false,
       default: undefined,
-    },
-    isInteger: {
-      type: Boolean,
-      required: false,
-    },
-    isRevers: {
-      type: Boolean,
-      required: false,
-    },
-    isValueVisible: {
-      type: Boolean,
-      required: false,
-      default: true,
     },
     max: {
       type: Number,
@@ -37,34 +23,36 @@ export default {
       required: false,
       default: 0,
     },
+    revers: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    showValue: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     value: {
       type: Number,
       required: false,
       default: 0,
     },
+    valueTextInteger: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   setup(props) {
-    const {
-      filterCurrency,
-    } = AFiltersAPI();
-
-    const isInteger = toRef(props, "isInteger");
-
     const {
       widthPercent,
     } = WidthAPI(props);
 
-    const valuePercent = computed(() => {
-      if (isInteger.value) {
-        return filterCurrency(widthPercent.value, {
-          suffix: "%",
-          digits: 0,
-        });
-      }
-      return filterCurrency(widthPercent.value, {
-        suffix: "%",
-        digits: 2,
-      });
+    const {
+      valuePercent,
+    } = ValuePercentAPI(props, {
+      widthPercent,
     });
 
     return {
@@ -75,7 +63,7 @@ export default {
   render() {
     return h("div", {
       class: ["a_progress", {
-        a_progress_revers: this.isRevers,
+        a_progress_revers: this.revers,
       }],
     }, [
       h("div", {
@@ -88,7 +76,7 @@ export default {
           width: `${ this.widthPercent }%`,
         },
       }, [
-        this.isValueVisible && h("span", {
+        this.showValue && h("span", {
           class: "a_progress__text",
         }, this.valuePercent),
       ]),

@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PROGRESS_GROUP_SHOW_VALUE_HEADER_"
+  description="_A_PROGRESS_GROUP_SHOW_VALUE_DESCRIPTION_"
+  props="show-value"
+)
+  a-progress(
+    :value="20"
+    :show-value="false"
+  )
+  a-progress(
+    class="a_mt_4"
+    :value="40"
+    :show-value="true"
+  )
