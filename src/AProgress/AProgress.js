@@ -34,6 +34,11 @@ export default {
       required: false,
       default: true,
     },
+    striped: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     value: {
       type: Number,
       required: false,
@@ -75,7 +80,13 @@ export default {
       }],
     }, [
       h("div", {
-        class: ["a_progress__bar", this.classProgressBarLocal],
+        class: [
+          "a_progress__bar",
+          {
+            a_progress__bar_striped: this.striped,
+          },
+          this.classProgressBarLocal,
+        ],
         role: "progressbar",
         "aria-valuenow": this.value,
         "aria-valuemin": this.min,
