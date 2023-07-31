@@ -4444,6 +4444,18 @@ h6 {
   background-color: var(--a_progress_bar_bg);
   transition: var(--a_progress_bar_transition); }
 
+.a_progress__bar_striped {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: var(--a_progress_height) var(--a_progress_height); }
+  .a_progress__bar_striped .a_progress__bar_striped_flow {
+    animation: 1s linear infinite a_progress_bar_flow; }
+
+@keyframes a_progress_bar_flow {
+  0% {
+    background-position: -100%; }
+  to {
+    background-position: 100%; } }
+
 .a_overflow_auto {
   overflow: auto !important; }
 
