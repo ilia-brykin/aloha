@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import ClassBarAPI from "./compositionAPI/ClassBarAPI";
+import DurationAPI from "./compositionAPI/DurationAPI";
 import ValuePercentAPI from "./compositionAPI/ValuePercentAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
@@ -13,6 +14,16 @@ export default {
       type: [String, Object, Function],
       required: false,
       default: undefined,
+    },
+    duration: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    indeterminate: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     max: {
       type: Number,
@@ -35,6 +46,11 @@ export default {
       default: true,
     },
     striped: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    stripedFlow: {
       type: Boolean,
       required: false,
       default: false,
@@ -67,8 +83,13 @@ export default {
       widthPercent,
     });
 
+    const {
+      durationLocal,
+    } = DurationAPI(props);
+
     return {
       classProgressBarLocal,
+      durationLocal,
       valuePercent,
       widthPercent,
     };
@@ -84,6 +105,8 @@ export default {
           "a_progress__bar",
           {
             a_progress__bar_striped: this.striped,
+            a_progress__bar_striped_flow: this.stripedFlow,
+            a_progress__bar_indeterminate: this.indeterminate,
           },
           this.classProgressBarLocal,
         ],
@@ -93,6 +116,7 @@ export default {
         "aria-valuemax": this.max,
         style: {
           width: `${ this.widthPercent }%`,
+          "animation-duration": this.durationLocal,
         },
       }, [
         this.showValue && h("span", {
