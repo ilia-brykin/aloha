@@ -10,6 +10,7 @@ import PageProgressShowValue from "./PageProgressShowValue/PageProgressShowValue
 import PageProgressSizes from "./PageProgressSizes/PageProgressSizes.vue";
 import PageProgressValue from "./PageProgressValue/PageProgressValue.vue";
 import PageProgressValueTextInteger from "./PageProgressValueTextInteger/PageProgressValueTextInteger.vue";
+import PageProgressClassProgressBarFunction from "./PageProgressClassProgressBarFunction/PageProgressClassProgressBarFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -32,6 +33,7 @@ export default {
     PageProgressSizes,
     PageProgressValue,
     PageProgressValueTextInteger,
+    PageProgressClassProgressBarFunction,
   },
   setup() {
     const {

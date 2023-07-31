@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PROGRESS_GROUP_CLASS_PROGRESS_BAR_FUNCTION_HEADER_"
+  description="_A_PROGRESS_GROUP_CLASS_PROGRESS_BAR_FUNCTION_DESCRIPTION_"
+  props="class-progress-bar (as Function)"
+)
+  a-input-number.a_mb_4(
+    v-model="model"
+    :min="0"
+    :max="100"
+    :step="5"
+    type="integer-non-negative"
+  )
+  a-progress(
+    :value="model"
+    :class-progress-bar="getClassProgressBar"
+  )
+

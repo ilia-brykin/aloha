@@ -2,6 +2,7 @@ import {
   h,
 } from "vue";
 
+import ClassBarAPI from "./compositionAPI/ClassBarAPI";
 import ValuePercentAPI from "./compositionAPI/ValuePercentAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
@@ -9,7 +10,7 @@ export default {
   name: "AProgress",
   props: {
     classProgressBar: {
-      type: [String, Object],
+      type: [String, Object, Function],
       required: false,
       default: undefined,
     },
@@ -55,7 +56,14 @@ export default {
       widthPercent,
     });
 
+    const {
+      classProgressBarLocal,
+    } = ClassBarAPI(props, {
+      widthPercent,
+    });
+
     return {
+      classProgressBarLocal,
       valuePercent,
       widthPercent,
     };
@@ -67,7 +75,7 @@ export default {
       }],
     }, [
       h("div", {
-        class: ["a_progress__bar", this.classProgressBar],
+        class: ["a_progress__bar", this.classProgressBarLocal],
         role: "progressbar",
         "aria-valuenow": this.value,
         "aria-valuemin": this.min,
