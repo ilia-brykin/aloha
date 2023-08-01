@@ -36,3 +36,30 @@ export function mixWhite(color, weight) {
 export function mixBlack(color, weight) {
   return mixColor("#000000", color, weight);
 }
+
+function colorToHex(color) {
+  const HEX = color.toString(16);
+  return HEX.length === 1 ? `0${ HEX }` : HEX;
+}
+
+export function rgbToHex(r, g, b) {
+  return `#${ colorToHex(r) }${ colorToHex(g) }${ colorToHex(b) }`;
+}
+
+export function hexToRgb(hex, formatString = false) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!result) {
+    return null;
+  }
+  const RED = parseInt(result[1], 16);
+  const GREEN = parseInt(result[2], 16);
+  const BLUE = parseInt(result[3], 16);
+  if (formatString) {
+    return `${ RED }, ${ GREEN }, ${ BLUE }`;
+  }
+  return {
+    r: RED,
+    g: GREEN,
+    b: BLUE,
+  };
+}
