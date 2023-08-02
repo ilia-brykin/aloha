@@ -3,6 +3,7 @@ import { createApp } from "vue";
 import router from "./router/index";
 import AI18nPlugin from "../../src/plugins/AI18nPlugin";
 import AMobilePlugin from "../../src/plugins/AMobilePlugin";
+import ASelectPlugin from "../../src/plugins/ASelectPlugin";
 // import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
 import AIconPlugin from "../../src/plugins/AIconPlugin";
 import AModalPlugin from "../../src/plugins/AModalPlugin";
@@ -26,6 +27,11 @@ APP.use(AMobilePlugin, {
 APP.use(AModalPlugin, {
   propsDefault: {
     closeButtonClass: "a_btn a_btn_link",
+  },
+});
+APP.use(ASelectPlugin, {
+  propsDefault: {
+    menuWidthType: "by_content",
   },
 });
 // APP.use(AGroupButtonDropdownPlugin, {

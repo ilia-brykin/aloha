@@ -294,8 +294,6 @@ export default {
       return disabled.value ? undefined : 0;
     });
 
-    const menuRightLocal = true;
-
     const {
       dataFiltered,
       dataGrouped,
@@ -396,7 +394,6 @@ export default {
       ariaLabelledby,
       tabindex,
       idForList,
-      menuRightLocal,
       isDividerSelectDeselectVisible,
 
       dataFiltered,
@@ -539,7 +536,6 @@ export default {
                   h("div", {
                     ref: "menuRef",
                     class: ["a_select_menu", {
-                      a_select_menu_right: this.menuRightLocal,
                       a_select_menu_by_content: this.menuWidthType === "by_content",
                     }],
                     role: "listbox",
