@@ -133,7 +133,11 @@ module.exports = (env, options) => {
             test: /[\\/]node_modules[\\/]/,
             name: "vendors",
             chunks: "all"
-          }
+          },
+          tinymceVendor: {
+            test: /[\\/]node_modules[\\/](tinymce)[\\/](.*js|.*skin.css)|[\\/]plugins[\\/]/,
+            name: "tinymce",
+          },
         }
       }
     },

@@ -47,7 +47,7 @@
     "fecha": "^4.2.3",
     "lodash-es": "^4.17.21",
     "tiny-emitter": "^2.1.0",
-    "tinymce": "^6.4.2",
+    "tinymce": "6.6.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {

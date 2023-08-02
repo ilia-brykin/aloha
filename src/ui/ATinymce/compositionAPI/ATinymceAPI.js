@@ -36,7 +36,9 @@ import contentCss from "tinymce/skins/content/default/content.css";
 
 /* lang */
 import "../langs/de";
-// import "tinymce/langs/de_DE";
+
+import "tinymce/plugins/help/js/i18n/keynav/en";
+import "tinymce/plugins/help/js/i18n/keynav/de";
 
 export default function ATinymceAPI(props, context, {
   changeModel = () => {},
