@@ -270,7 +270,7 @@ export default {
             h(ATranslation, {
               tag: "span",
               class: "a_table__th__text",
-              text: this.labelLocal,
+              safeHtml: this.labelLocal,
             }),
             this.column.title && h(ATranslation, {
               title: this.column.title,
