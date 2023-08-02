@@ -18,7 +18,7 @@ export default {
       default: "center",
       validator: value => ["start", "center", "end"].indexOf(value) !== -1,
     },
-    extraTranslate: {
+    extra: {
       type: Object,
       required: false,
     },
@@ -82,7 +82,7 @@ export default {
         tag: "span",
         class: ["a_cloak__text a_cloak__text_left", this.classTextSize],
         text: this.text,
-        extra: this.extraTranslate,
+        extra: this.extra,
       });
     },
 
@@ -91,7 +91,7 @@ export default {
         tag: "span",
         class: ["a_cloak__text a_cloak__text_right", this.classTextSize],
         text: this.text,
-        extra: this.extraTranslate,
+        extra: this.extra,
       });
     },
 

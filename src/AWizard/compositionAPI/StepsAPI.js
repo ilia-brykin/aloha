@@ -14,7 +14,7 @@ export default function StepsAPI(props, {
 }) {
   const steps = toRef(props, "steps");
   const stepsProgressbarText = toRef(props, "stepsProgressbarText");
-  const extraTranslate = toRef(props, "extraTranslate");
+  const extra = toRef(props, "extra");
 
   const {
     getTranslatedText,
@@ -31,7 +31,7 @@ export default function StepsAPI(props, {
   const stepActiveLabelTranslated = computed(() => {
     return getTranslatedText({
       placeholder: stepActiveLabel.value,
-      extra: extraTranslate.value,
+      extra: extra.value,
     });
   });
 
@@ -44,7 +44,7 @@ export default function StepsAPI(props, {
       stepActiveLabel: stepActiveLabelTranslated.value,
       stepsCount: stepsCount.value,
       stepActive: stepActiveNumber.value,
-      ...extraTranslate.value,
+      ...extra.value,
     };
   });
 

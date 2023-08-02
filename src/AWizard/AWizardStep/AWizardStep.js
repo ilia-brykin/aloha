@@ -47,7 +47,7 @@ export default {
       type: Boolean,
       required: true,
     },
-    extraTranslate: {
+    extra: {
       type: Object,
       required: true,
     },
@@ -132,7 +132,7 @@ export default {
               tag: "span",
               html: this.step.label,
               class: "a_wizard__step__text",
-              extra: this.extraTranslate,
+              extra: this.extra,
             }),
           ]),
         h("span", {

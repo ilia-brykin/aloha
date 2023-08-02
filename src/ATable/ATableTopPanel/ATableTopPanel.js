@@ -293,7 +293,7 @@ export default {
               class: "a_btn a_btn_secondary a_table__multiple_panel__btn_all_rows",
               type: "button",
               text: this.textMultipleBtnAllRowsTranslate,
-              extraTranslate: {
+              extra: {
                 countAllRows: this.countAllRows,
               },
               disabled: this.isBtnSelectAllRowsDisabled || this.disabledMultipleActions,

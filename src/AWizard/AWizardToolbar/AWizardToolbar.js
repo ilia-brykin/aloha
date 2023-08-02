@@ -69,7 +69,7 @@ export default {
       required: false,
       default: undefined,
     },
-    extraTranslate: {
+    extra: {
       type: Object,
       required: false,
       default: undefined,
@@ -158,7 +158,7 @@ export default {
           icon: this.backButtonIcon,
           iconAlign: this.backButtonIconAlign,
           title: this.backButtonTitle,
-          extraTranslate: this.extraTranslate,
+          extra: this.extra,
           disabled: this.isBackButtonDisabledLocal,
           loading: this.isButtonsLoading,
           onClick: this.goOneStepBack,
@@ -170,7 +170,7 @@ export default {
           icon: this.forwardButtonIcon,
           iconAlign: this.forwardButtonIconAlign,
           title: this.forwardButtonTitle,
-          extraTranslate: this.extraTranslate,
+          extra: this.extra,
           disabled: this.isForwardButtonDisabledLocal,
           loading: this.isButtonsLoading,
           onClick: this.goOneStepForward,

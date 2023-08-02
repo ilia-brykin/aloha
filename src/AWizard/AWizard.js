@@ -40,7 +40,7 @@ export default {
       required: false,
       default: undefined,
     },
-    extraTranslate: {
+    extra: {
       type: Object,
       required: false,
       default: () => ({}),
@@ -226,7 +226,7 @@ export default {
       forwardButtonTitle: this.forwardButtonTitle,
       forwardButtonIcon: this.forwardButtonIcon,
       forwardButtonIconAlign: this.forwardButtonIconAlign,
-      extraTranslate: this.extraTranslate,
+      extra: this.extra,
       isForwardButtonDisabled: this.isForwardButtonDisabled,
       isBackButtonDisabled: this.isBackButtonDisabled,
       isForwardButtonHide: this.isForwardButtonHide,
@@ -260,7 +260,7 @@ export default {
             isBackStepButtonDisabled: this.isBackStepButtonDisabled,
             isForwardButtonDisabled: this.isForwardButtonDisabled,
             isBackButtonDisabled: this.isBackButtonDisabled,
-            extraTranslate: this.extraTranslate,
+            extra: this.extra,
             onOnStepClick: this.onStepClick,
           }, this.$slots);
         }),
