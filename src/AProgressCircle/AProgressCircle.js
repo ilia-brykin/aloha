@@ -109,6 +109,21 @@ export default {
     };
   },
   render() {
+    let text = undefined;
+    if (this.$slots.progressText) {
+      text = h("span", {
+        class: ["a_progress_circle__text", this.valueTextClass],
+      }, [
+        this.$slots.progressText && this.$slots.progressText({
+          valuePercent: this.valuePercent,
+        }),
+      ]);
+    } else if (this.showValue) {
+      text = h("span", {
+        class: ["a_progress_circle__text", this.valueTextClass],
+      }, this.valuePercent);
+    }
+
     return h("div", {
       class: "a_progress_circle",
       style: this.sizesLocal,
@@ -137,14 +152,7 @@ export default {
           style: this.circleStyles,
         }),
       ]),
-      this.showValue && h("span", {
-        class: ["a_progress_circle__text", this.valueTextClass],
-      }, [
-        this.valuePercent,
-        this.$slots.progressText && this.$slots.progressText({
-          valuePercent: this.valuePercent,
-        }),
-      ]),
+      text,
     ]);
   },
 };
