@@ -1,8 +1,8 @@
 export default function SlotsAPI() {
   const dataSlots = [
     {
-      name: "default",
-      description: "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_",
+      name: "progressText",
+      description: "_A_PROGRESS_SLOT_PROGRESS_TEXT_",
     },
   ];
 

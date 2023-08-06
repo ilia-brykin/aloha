@@ -38,3 +38,13 @@ aloha-page(
     page-progress-duration
 
     page-progress-slot-text
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )

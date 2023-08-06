@@ -20,8 +20,6 @@ import PageProgressValueTextInteger from "./PageProgressValueTextInteger/PagePro
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
-import EventsAPI from "./compositionAPI/EventsAPI";
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 
 export default {
   name: "PageProgress",
@@ -58,17 +56,7 @@ export default {
       dataSlots,
     } = SlotsAPI();
 
-    const {
-      dataEvents,
-    } = EventsAPI();
-
-    const {
-      dataExposes,
-    } = ExposesAPI();
-
     return {
-      dataEvents,
-      dataExposes,
       dataProps,
       dataSlots,
       pageTitle,
