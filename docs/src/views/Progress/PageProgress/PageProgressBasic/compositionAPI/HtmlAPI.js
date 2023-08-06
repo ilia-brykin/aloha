@@ -1,7 +1,7 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-progress>
+  const codeHtml = `<a-progress
   :value="50"
-</a-progress>`;
+></a-progress>`;
 
   return {
     codeHtml,

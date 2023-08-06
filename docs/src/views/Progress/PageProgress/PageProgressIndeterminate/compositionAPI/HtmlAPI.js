@@ -1,52 +1,52 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-progress>
+  const codeHtml = `<a-progress
   :value="20"
   class-progress-bar="a_bg_primary"
   :indeterminate="true"
   :show-value="false"
-</a-progress>
-<a-progress>
+></a-progress>
+<a-progress
   class="a_mt_4"
   :value="30"
   class-progress-bar="a_bg_secondary"
   :indeterminate="true"
   :show-value="false"
-</a-progress>
-<a-progress>
+></a-progress>
+<a-progress
   class="a_mt_4"
   :value="40"
   class-progress-bar="a_bg_tertiary"
   :indeterminate="true"
   :show-value="false"
-</a-progress>
-<a-progress>
+></a-progress>
+<a-progress
   class="a_mt_4"
   :value="50"
   class-progress-bar="a_bg_success"
   :indeterminate="true"
   :show-value="false"
-</a-progress>
-<a-progress>
+></a-progress>
+<a-progress
   class="a_mt_4"
   :value="60"
   class-progress-bar="a_bg_warning"
   :indeterminate="true"
   :show-value="false"
-</a-progress>
-<a-progress>
+></a-progress>
+<a-progress
   class="a_mt_4"
   :value="70"
   class-progress-bar="a_bg_info"
   :indeterminate="true"
   :show-value="false"
-</a-progress>
-<a-progress>
+></a-progress>
+<a-progress
   class="a_mt_4"
   :value="80"
   class-progress-bar="a_bg_danger"
   :indeterminate="true"
   :show-value="false"
-</a-progress>`;
+></a-progress>`;
 
   return {
     codeHtml,
