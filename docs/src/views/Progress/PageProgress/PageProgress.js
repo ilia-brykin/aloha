@@ -11,6 +11,7 @@ import PageProgressMinMax from "./PageProgressMinMax/PageProgressMinMax.vue";
 import PageProgressRevers from "./PageProgressRevers/PageProgressRevers.vue";
 import PageProgressShowValue from "./PageProgressShowValue/PageProgressShowValue.vue";
 import PageProgressSizes from "./PageProgressSizes/PageProgressSizes.vue";
+import PageProgressSlotText from "./PageProgressSlotText/PageProgressSlotText.vue";
 import PageProgressStriped from "./PageProgressStriped/PageProgressStriped.vue";
 import PageProgressStripedFlow from "./PageProgressStripedFlow/PageProgressStripedFlow.vue";
 import PageProgressValue from "./PageProgressValue/PageProgressValue.vue";
@@ -38,6 +39,7 @@ export default {
     PageProgressRevers,
     PageProgressShowValue,
     PageProgressSizes,
+    PageProgressSlotText,
     PageProgressStriped,
     PageProgressStripedFlow,
     PageProgressValue,

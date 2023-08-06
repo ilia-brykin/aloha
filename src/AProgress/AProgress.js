@@ -95,6 +95,21 @@ export default {
     };
   },
   render() {
+    let text = undefined;
+    if (this.$slots.progressText) {
+      text = h("span", {
+        class: "a_progress__text",
+      }, [
+        this.$slots.progressText && this.$slots.progressText({
+          valuePercent: this.valuePercent,
+        }),
+      ]);
+    } else if (this.showValue) {
+      text = h("span", {
+        class: "a_progress__text",
+      }, this.valuePercent);
+    }
+
     return h("div", {
       class: ["a_progress", {
         a_progress_revers: this.revers,
@@ -119,14 +134,7 @@ export default {
           "animation-duration": this.durationLocal,
         },
       }, [
-        this.showValue && h("span", {
-          class: "a_progress__text",
-        }, [
-          this.valuePercent,
-          this.$slots.progressText && this.$slots.progressText({
-            valuePercent: this.valuePercent,
-          }),
-        ]),
+        text,
       ]),
     ]);
   },

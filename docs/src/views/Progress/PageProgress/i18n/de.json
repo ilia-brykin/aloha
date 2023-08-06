@@ -37,5 +37,8 @@
   "_A_PROGRESS_PROPS_INDETERMINATE_": "Diese Prop aktiviert die unbestimmte Darstellung des Fortschrittsbalkens. Wenn indeterminate auf true gesetzt ist, wird der Fortschrittsbalken animiert und zeigt eine kontinuierliche, unbestimmte Bewegung an.",
   "_A_PROGRESS_GROUP_DURATION_HEADER_": "Steuerung der Animationsdauer",
   "_A_PROGRESS_GROUP_DURATION_DESCRIPTION_": "Die AProgress-Komponente ermöglicht es Ihnen, die Animationsdauer für Fortschrittsbalken zu steuern. Durch die Verwendung der Prop <strong>duration</strong> können Sie die Geschwindigkeit der Animation festlegen, wodurch der Fortschrittsbalken langsamer oder schneller animiert wird. Die Dauer wird in Sekunden angegeben und beeinflusst die Geschwindigkeit, mit der sich der Fortschrittsbalken bei gestreifter oder unbestimmter Darstellung bewegt.",
-  "_A_PROGRESS_PROPS_DURATION_": "Diese Prop steuert die Animationsdauer für den Fortschrittsbalken."
+  "_A_PROGRESS_PROPS_DURATION_": "Diese Prop steuert die Animationsdauer für den Fortschrittsbalken.",
+  "_A_PROGRESS_GROUP_SLOT_PROGRESS_TEXT_HEADER_": "Benutzerdefinierte Anzeige für Fortschrittswert mit dem Slot <strong>progressText</strong>",
+  "_A_PROGRESS_GROUP_SLOT_PROGRESS_TEXT_DESCRIPTION_": "Die AProgress-Komponente bietet die Möglichkeit, den angezeigten Fortschrittswert individuell anzupassen, indem Sie den Slot <strong>progressText</strong> verwenden. Dieser Slot ermöglicht es Ihnen, eine benutzerdefinierte Darstellung des Fortschrittsbalkenwerts zu erstellen, die über die Standardwertanzeige hinausgeht.",
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Dieser Slot ermöglicht es Ihnen, die Darstellung des Fortschrittsbalkenwerts individuell anzupassen. Sie können auf die Variable valuePercent im Slot-Scope zugreifen, um den aktuellen prozentualen Fortschritt anzuzeigen."
 }
