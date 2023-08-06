@@ -139,7 +139,12 @@ export default {
       ]),
       this.showValue && h("span", {
         class: ["a_progress_circle__text", this.valueTextClass],
-      }, this.valuePercent),
+      }, [
+        this.valuePercent,
+        this.$slots.progressText && this.$slots.progressText({
+          valuePercent: this.valuePercent,
+        }),
+      ]),
     ]);
   },
 };

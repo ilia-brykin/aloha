@@ -121,7 +121,12 @@ export default {
       }, [
         this.showValue && h("span", {
           class: "a_progress__text",
-        }, this.valuePercent),
+        }, [
+          this.valuePercent,
+          this.$slots.progressText && this.$slots.progressText({
+            valuePercent: this.valuePercent,
+          }),
+        ]),
       ]),
     ]);
   },
