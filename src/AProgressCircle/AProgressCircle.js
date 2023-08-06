@@ -144,7 +144,9 @@ export default {
           "stroke-width": this.strokeWidth,
         }),
         h("circle", {
-          class: "a_progress_circle__scale",
+          class: ["a_progress_circle__scale", {
+            a_progress_circle__scale_indeterminate: this.indeterminate,
+          }],
           cx: this.cxCy,
           cy: this.cxCy,
           r: this.radius,

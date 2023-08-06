@@ -13,9 +13,13 @@
 }
 
 .a_progress_circle__scale {
+  stroke-dashoffset: 0;
   fill: none;
   stroke: currentColor;
   transition: stroke-dasharray 0.6s ease 0s, stroke 0.6s ease 0s, opacity 0.6s ease 0s;
+}
+.a_progress_circle__scale_indeterminate {
+  animation: 3s linear infinite a_progress_circle_indeterminate;
 }
 
 .a_progress_circle__text {
@@ -26,4 +30,14 @@
   text-align: center;
   transform: translate(0, -50%);
   color: var(--a_progress_circle_text_color);
+}
+
+@keyframes a_progress_circle_indeterminate {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -300%;
+  }
 }

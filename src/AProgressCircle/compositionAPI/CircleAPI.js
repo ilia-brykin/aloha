@@ -20,7 +20,7 @@ export default function CircleAPI(props, {
   });
 
   const circleStyles = computed(() => {
-    return `stroke-dasharray: ${ strokeDasharray.value }; stroke-dashoffset: 0px;`;
+    return `stroke-dasharray: ${ strokeDasharray.value };`;
   });
 
   const cxCy = computed(() => {
