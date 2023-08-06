@@ -6878,6 +6878,31 @@ input:not(:-webkit-autofill) {
 .a_show_more__button {
   margin-top: var(--a_show_more_btn_margin_top); }
 
+.a_progress_circle {
+  --a_progress_circle_color: var(--a_color_primary);
+  --a_progress_circle_base_color: var(--a_color_gray_300);
+  --a_progress_circle_text_color: var(--a_color_text);
+  color: var(--a_progress_circle_color);
+  position: relative; }
+
+.a_progress_circle__base {
+  fill: none;
+  stroke: var(--a_progress_circle_base_color); }
+
+.a_progress_circle__scale {
+  fill: none;
+  stroke: currentColor;
+  transition: stroke-dasharray 0.6s ease 0s, stroke 0.6s ease 0s, opacity 0.6s ease 0s; }
+
+.a_progress_circle__text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: translate(0, -50%);
+  color: var(--a_progress_circle_text_color); }
+
 .a_textarea_scalable {
   resize: none;
   overflow: hidden;
