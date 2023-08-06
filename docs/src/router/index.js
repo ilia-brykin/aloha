@@ -127,7 +127,12 @@ const ROUTES = [
   {
     path: "/progress",
     name: "PageProgress",
-    component: () => import(/* webpackChunkName: "PageProgress" */ "../views/PageProgress/PageProgress.vue"),
+    component: () => import(/* webpackChunkName: "PageProgress" */ "../views/Progress/PageProgress/PageProgress.vue"),
+  },
+  {
+    path: "/progress-circle",
+    name: "PageProgressCircle",
+    component: () => import(/* webpackChunkName: "PageProgressCircle" */ "../views/Progress/PageProgressCircle/PageProgressCircle.vue"),
   },
   {
     path: "/list",

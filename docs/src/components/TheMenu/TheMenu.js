@@ -271,10 +271,23 @@ export default {
         {
           id: "progress",
           label: "Progress",
-          to: {
-            name: "PageProgress",
-          },
           icon: "Reception2",
+          children: [
+            {
+              id: "progressBar",
+              label: "Progress bar",
+              to: {
+                name: "PageProgress",
+              },
+            },
+            {
+              id: "progressCircle",
+              label: "Progress circle",
+              to: {
+                name: "PageProgressCircle",
+              },
+            },
+          ],
         },
         {
           id: "scale",

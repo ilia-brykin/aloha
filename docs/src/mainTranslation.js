@@ -26,7 +26,8 @@ import PageGroupButtonDropdownI18n from "./views/PageGroupButtonDropdown/i18n/Pa
 import PageDropdownI18n from "./views/PageDropdown/i18n/PageDropdownI18n";
 import PageListI18n from "./views/PageList/i18n/PageListI18n";
 import PageSelectI18n from "./views/Form/PageSelect/i18n/PageSelectI18n";
-import PageProgressI18n from "./views/PageProgress/i18n/PageProgressI18n";
+import PageProgressI18n from "./views/Progress/PageProgress/i18n/PageProgressI18n";
+import PageProgressCircleI18n from "./views/Progress/PageProgressCircle/i18n/PageProgressCircleI18n";
 
 export const mainTranslation = {
   ar: {
@@ -50,6 +51,7 @@ export const mainTranslation = {
     ...PageListI18n.ar,
     ...PageSelectI18n.ar,
     ...PageProgressI18n.ar,
+    ...PageProgressCircleI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -72,6 +74,7 @@ export const mainTranslation = {
     ...PageListI18n.de,
     ...PageSelectI18n.de,
     ...PageProgressI18n.de,
+    ...PageProgressCircleI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -94,6 +97,7 @@ export const mainTranslation = {
     ...PageListI18n.en,
     ...PageSelectI18n.en,
     ...PageProgressI18n.en,
+    ...PageProgressCircleI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -116,6 +120,7 @@ export const mainTranslation = {
     ...PageListI18n.es,
     ...PageSelectI18n.es,
     ...PageProgressI18n.es,
+    ...PageProgressCircleI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -138,6 +143,7 @@ export const mainTranslation = {
     ...PageListI18n.fr,
     ...PageSelectI18n.fr,
     ...PageProgressI18n.fr,
+    ...PageProgressCircleI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -160,6 +166,7 @@ export const mainTranslation = {
     ...PageListI18n.hr,
     ...PageSelectI18n.hr,
     ...PageProgressI18n.hr,
+    ...PageProgressCircleI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -182,6 +189,7 @@ export const mainTranslation = {
     ...PageListI18n.it,
     ...PageSelectI18n.it,
     ...PageProgressI18n.it,
+    ...PageProgressCircleI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -204,5 +212,6 @@ export const mainTranslation = {
     ...PageListI18n.ru,
     ...PageSelectI18n.ru,
     ...PageProgressI18n.ru,
+    ...PageProgressCircleI18n.ru,
   },
 };
