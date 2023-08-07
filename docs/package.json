@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
-    "aloha-css": "1.0.118",
+    "aloha-css": "1.0.120",
     "axios": "1.4.0",
     "dompurify": "3.0.3",
     "fecha": "4.2.3",

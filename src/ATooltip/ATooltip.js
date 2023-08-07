@@ -185,14 +185,14 @@ export default {
             onMouseenter: this.mouseEnterTooltip,
             onMouseleave: this.mouseLeaveTooltip,
           }, [
-            h("div", {
-              id: this.ariaDescribedby,
-              class: "a_tooltip__wrapper",
-            }, this.$slots.title && this.$slots.title()),
             this.showArrow && h("div", {
               "data-popper-arrow": true,
               class: "a_tooltip__arrow",
             }),
+            h("div", {
+              id: this.ariaDescribedby,
+              class: "a_tooltip__wrapper",
+            }, this.$slots.title && this.$slots.title()),
           ]), [
             [AOnHooks, {
               mounted: this.startPopper,
