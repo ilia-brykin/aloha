@@ -292,6 +292,12 @@ export default {
           classColumn: "a_column_8",
           html: "<strong>TEMPLATE</strong>",
         },
+        {
+          type: "text",
+          label: "test.test.test",
+          id: "test.test.test",
+          required: true,
+        },
       ];
     },
   },

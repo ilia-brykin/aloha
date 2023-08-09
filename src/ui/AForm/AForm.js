@@ -14,7 +14,9 @@ import AUiTypesContainer from "../const/AUiTypesContainer";
 import {
   cloneDeep,
   forEach,
+  get,
   isNil,
+  set,
 } from "lodash-es";
 
 export default {
@@ -88,7 +90,7 @@ export default {
         emit("update:modelValue", model);
       } else {
         const MODEL_VALUE = cloneDeep(modelValueLocal.value);
-        MODEL_VALUE[item.id] = cloneDeep(model);
+        set(MODEL_VALUE, item.id, cloneDeep(model));
         emit("update:modelValue", MODEL_VALUE);
       }
     };
@@ -152,7 +154,7 @@ export default {
           }
           return h(this.componentTypesMapping[item.type], {
             key: itemIndex,
-            modelValue: IS_CONTAINER ? this.modelValueLocal : this.modelValueLocal[item.id],
+            modelValue: IS_CONTAINER ? this.modelValueLocal : get(this.modelValueLocal, item.id),
             modelDependencies: this.modelValueLocal,
             class: classColumn,
             errors: this.errors[item.id],

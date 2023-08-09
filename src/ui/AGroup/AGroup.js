@@ -17,7 +17,10 @@ import UiAPI, { getHtmlId } from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
-  cloneDeep, isNil,
+  cloneDeep,
+  get,
+  isNil,
+  set,
 } from "lodash-es";
 
 export default {
@@ -68,7 +71,7 @@ export default {
 
     const onUpdateModelLocal = ({ item, model }) => {
       const MODEL_VALUE = cloneDeep(modelValue.value);
-      MODEL_VALUE[item.id] = cloneDeep(model);
+      set(MODEL_VALUE, item.id, cloneDeep(model));
       context.emit("update:modelValue", MODEL_VALUE);
     };
 
@@ -142,7 +145,7 @@ export default {
             }
             return h(this.componentTypesMapping[item.type], {
               key: itemIndex,
-              modelValue: this.modelValue[item.id],
+              modelValue: get(this.modelValue, item.id),
               modelDependencies: this.modelValue,
               class: classColumn,
               errors: this.errorsAll[item.id],
