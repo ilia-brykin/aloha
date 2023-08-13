@@ -7,7 +7,6 @@ import PageListKeyChildren from "./PageListKeyChildren/PageListKeyChildren.vue";
 import PageListKeyLabelCallback from "./PageListKeyLabelCallback/PageListKeyLabelCallback.vue";
 import PageListTagLabelTag from "./PageListTagLabelTag/PageListTagLabelTag.vue";
 import PageListWithSlot from "./PageListWithSlot/PageListWithSlot.vue";
-import PageListWithChildren from "./PageListWithChildren/PageListWithChildren.vue";
 import PageListWithoutChildren from "./PageListWithoutChildren/PageListWithoutChildren.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -26,7 +25,6 @@ export default {
     PageListKeyLabelCallback,
     PageListTagLabelTag,
     PageListWithSlot,
-    PageListWithChildren,
     PageListWithoutChildren
   },
   setup() {
