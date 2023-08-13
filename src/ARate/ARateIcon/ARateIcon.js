@@ -38,7 +38,13 @@ export default {
       default: false,
     },
   },
-  emits: ["mouseenter", "mouseleave", "click", "dblclick"],
+  emits: [
+    "mouseenter",
+    "mouseleave",
+    "click",
+    "dblclick",
+    "mousemove"
+  ],
   setup(props, { emit }) {
     return {
       handleMouseEnter(event) {
@@ -53,13 +59,16 @@ export default {
       handleDblClick(event) {
         emit("dblclick", event);
       },
+      handleMouseMove(event) {
+        emit("mousemove", event);
+      },
     };
   },
   render() {
     return h(
       "span",
       {
-        class: `el-rate__item el-rate__icon--${ this.size }`,
+        class: `el-rate__item a_rate_icon_${ this.size }`,
         style: {
           position: "relative",
           display: "inline-flex",
@@ -70,12 +79,13 @@ export default {
         onDblclick: this.handleDblClick,
         onMouseenter: this.handleMouseEnter,
         onMouseleave: this.handleMouseLeave,
+        onMousemove: this.handleMouseMove,
       },
       [
-        h("div", { class: "icon-align" }, [
+        h("div", { class: "a_rate_icon_align" }, [
           h(AIcon, {
             icon: this.icon,
-            class: `el-icon el-rate__icon`,
+            class: `a_decimal_rate_icon a_rate_decimal`,
             color: this.color,
           }),
           h(ADecimalIcon, {

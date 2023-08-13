@@ -30,7 +30,7 @@ export default {
   },
   render() {
     const attrs = {
-      class: "el-icon el-rate__icon el-rate__decimal",
+      class: "a_decimal_rate_icon a_rate_icon_decimal",
       style: {
         position: "absolute",
         overflow: "hidden",
@@ -41,7 +41,7 @@ export default {
     return h("i", attrs, [
       h(AIcon, {
         icon: this.icon,
-        class: `el-icon el-rate__icon--${ this.size }`,
+        class: `a_decimal_rate_icon a_rate_icon_${ this.size }`,
       }),
     ]);
   },

@@ -67,9 +67,7 @@ export default {
       validator: value => ["small", "medium", "big"].includes(value),
     },
   },
-  emits: [
-    "update:modelValue",
-  ],
+  emits: ["update:modelValue"],
   setup(props, { emit }) {
     const {
       text,
@@ -174,6 +172,26 @@ export default {
       return iconsValues;
     });
 
+    const onMouseMoveIcon = (event, index) => {
+      if (readonly.value) {
+        return;
+      }
+
+      let value = index + 1;
+
+      if (halfIcon.value) {
+        const rect = event.target.getBoundingClientRect();
+        const isLeftHalf = event.clientX - rect.left < rect.width / 2;
+
+        value = isLeftHalf ? index + 0.5 : index + 1;
+      }
+
+      if (hoveredValue.value !== value) {
+        hoveredValue.value = value;
+        hoveredIndex.value = index;
+      }
+    };
+
     return {
       rating,
       showScore,
@@ -188,15 +206,14 @@ export default {
       onMouseLeaveIcon,
       onClickIcon,
       onDoubleClickIcon,
+      onMouseMoveIcon,
       modelValue: computed(() => localValue.value),
       iconValues: computedIconValues,
       computedColor,
     };
   },
   render() {
-    return h("div", {
-      class: "a_rate_container",
-    }, [
+    return h("div", { class: "a_rate_container" }, [
       ...Array.from({ length: this.rating }, (_, index) => h(ARateIcon, {
         class: "a_rate_icon",
         icon: this.icon,
@@ -206,11 +223,12 @@ export default {
         onDblclick: this.onDoubleClickIcon,
         onMouseenter: event => this.onMouseEnterIcon(event, index),
         onMouseleave: this.onMouseLeaveIcon,
+        onMousemove: event => this.onMouseMoveIcon(event, index),
         color: this.computedColor[index],
         size: this.size,
         key: index
       })),
-      this.showScore && h("span", { class: "a_rate_score", }, this.modelValue.toString()),
+      this.showScore && h("span", { class: "a_rate_score" }, this.modelValue.toString()),
       h(ATranslation, {
         class: "a_rate_label",
         text: this.text,
