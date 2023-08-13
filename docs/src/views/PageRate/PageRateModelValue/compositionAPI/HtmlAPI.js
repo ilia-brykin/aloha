@@ -1,8 +1,8 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-rate>
-  text="ARate"
+  const codeHtml = `<a-rate
+   text="ARate"
   :model-value="modelValue"
-  @modelValue="handleModelValueChange"
+  @modelValue="handleModelValueChange">
 </a-rate>`;
 
   return {

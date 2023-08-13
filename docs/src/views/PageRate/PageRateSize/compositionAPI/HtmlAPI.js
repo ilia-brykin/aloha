@@ -1,18 +1,15 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-rate 
   size="small"
-  text="small"
->
+  text="small">
 </a-rate>
 <a-rate 
   size="medium"
-  text="medium"
->
+  text="medium">
 </a-rate>
 <a-rate 
   size="big"
-  text="big"
->
+  text="big">
 </a-rate>
 `;
 
