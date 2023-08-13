@@ -6425,40 +6425,40 @@ input:not(:-webkit-autofill) {
 .a_rate_container {
   display: inline-block; }
 
-.el-rate__icon--small .el-icon {
+.a_rate_icon_small .a_decimal_rate_icon {
   width: 18px;
   height: 18px; }
 
-.el-rate__icon--medium .el-icon {
+.a_rate_icon_medium .a_decimal_rate_icon {
   width: 24px;
   height: 24px; }
 
-.el-rate__icon--big .el-icon {
+.a_rate_icon_big .a_decimal_rate_icon {
   width: 36px;
   height: 36px; }
 
-.el-icon.el-rate__icon {
+.a_decimal_rate_icon.a_rate_decimal {
   position: relative;
   color: grey; }
 
-.el-icon.el-rate__icon .el-icon.el-rate__icon {
+.a_decimal_rate_icon.a_rate_decimal .a_decimal_rate_icon.a_rate_decimal {
   position: absolute;
   top: 0;
   left: 0;
   overflow: hidden; }
 
-.el-icon {
+.a_decimal_rate_icon {
   position: absolute;
   top: 0;
   left: 0; }
 
-.el-rate__decimal {
+.a_rate_icon_decimal {
   overflow: hidden;
   position: absolute;
   top: 0;
   left: 0; }
 
-.el-icon svg {
+.a_decimal_rate_icon svg {
   vertical-align: middle;
   line-height: 1; }
 
@@ -6474,14 +6474,14 @@ input:not(:-webkit-autofill) {
   margin-left: 10px;
   font-size: 14px; }
 
-.icon-align {
+.a_rate_icon_align {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%; }
 
 .a_rate_icon {
-  margin-right: 4px; }
+  padding-right: 2px; }
 
 .a_rate_label {
   margin-top: 8px; }
