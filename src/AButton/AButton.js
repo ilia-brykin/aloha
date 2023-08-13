@@ -1,7 +1,9 @@
 import {
   h,
+  ref
 } from "vue";
 
+import AButtonConfirm from "./AButtonConfirm/AButtonConfirm";
 import AIcon from "../AIcon/AIcon";
 import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
@@ -230,6 +232,41 @@ export default {
       default: "button",
       validator: value => ["button", "submit", "reset"].indexOf(value) !== -1,
     },
+    confirm: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    confirmMessage: {
+      type: String,
+      default: "Are you sure?",
+    },
+    extraConfirmMessage: {
+      type: Object,
+      required: false,
+    },
+    yesAttributes: {
+      type: Object,
+      default: () => ({}),
+    },
+    noAttributes: {
+      type: Object,
+      default: () => ({}),
+    },
+    confirmTime: {
+      type: Number,
+      default: 5,
+    },
+    inProgressMessage: {
+      type: String,
+      default: "Processing...",
+    },
+    confirmPosition: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: value => ["top", "bottom", "left", "right"].indexOf(value) !== -1,
+    }
   },
   emits: [
     "click",
@@ -271,6 +308,17 @@ export default {
       switchClass,
     } = SwitchAPI(props);
 
+    const isConfirmVisible = ref(false);
+
+    const handleAction = () => {
+      isConfirmVisible.value = false;
+      onClick();
+    };
+
+    const handleCancel = () => {
+      isConfirmVisible.value = false;
+    };
+
     return {
       ariaLabelAttributes,
       buttonRef,
@@ -282,104 +330,108 @@ export default {
       isTextOrHtmlScreenReaderVisible,
       isTextOrHtmlVisible,
       isTitleVisible,
-      onClick,
+      onClick: props.confirm ? () => isConfirmVisible.value = true : onClick,
+      isConfirmVisible,
+      handleAction,
+      handleCancel,
       switchClass,
     };
   },
   render() {
-    return h(this.componentLocal, {
-      ...this.$attrs,
-      ...this.htmlTitleAttributes,
-      ...this.ariaLabelAttributes,
-      ref: "buttonRef",
-      id: this.id,
-      class: [
-        "aloha_btn",
-        this.switchClass,
-        this.class,
-        {
-          disabled: this.ariaDisabled,
-        },
-      ],
-      type: this.type,
-      tabindex: this.tabindex,
-      disabled: this.disabled,
-      ariaDisabled: this.ariaDisabled,
-      "aria-pressed": this.isSwitchActive,
-      // TODO: ATable
-      isAllRowsSelected: undefined,
-      onClick: this.onClick,
-      ...this.attributes,
-    }, {
-      default: () => [
-        (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
-          tag: "span",
-          ariaHidden: true,
-          class: "a_position_absolute_all aloha_btn__hidden",
-          title: this.title,
-          extra: this.extra,
-          style: {
-            zIndex: this.titleZIndex,
+    return h("div", { class: "aloha_btn_wrapper" }, [
+      h(this.componentLocal, {
+        ...this.$attrs,
+        ...this.htmlTitleAttributes,
+        ...this.ariaLabelAttributes,
+        ref: "buttonRef",
+        id: this.id,
+        class: [
+          "aloha_btn",
+          this.switchClass,
+          this.class,
+          {
+            disabled: this.ariaDisabled,
           },
-          ...this.titleAttributes,
-        }),
-        this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
-          class: "a_sr_only aloha_btn__hidden",
-          tag: "span",
-          text: this.textScreenReader,
-          html: this.htmlScreenReader,
-          safeHtml: this.safeHtmlScreenReader,
-          extra: this.extra,
-        }),
-        this.$slots.buttonPrepend && this.$slots.buttonPrepend(),
-        this.isLoadingLeft && h(ASpinner, {
-          class: [
-            "aloha_btn__spinner_left",
-            this.loadingClass,
-          ],
-        }),
-        h(AIcon, {
-          icon: this.iconLeft,
-          iconTag: this.iconTag,
-          class: [
-            "aloha_btn__icon_left",
-            this.iconClass,
-          ],
-          ...this.iconAttributes,
-        }),
-        this.$slots.default && this.$slots.default({ extraData: this.extraData }),
-        this.isTextOrHtmlVisible && h(ATranslation, {
-          ariaHidden: this.textAriaHidden,
-          class: this.textClass,
-          extra: this.extra,
-          html: this.html,
-          safeHtml: this.safeHtml,
-          tag: this.textTag,
-          text: this.text,
-          textAfter: this.textAfter,
-          textBefore: this.textBefore,
-        }),
-        h(AIcon, {
-          icon: this.iconRight,
-          iconTag: this.iconTag,
-          class: [
-            "aloha_btn__icon_right",
-            this.iconClass,
-          ],
-          ...this.iconAttributes,
-        }),
-        this.isLoadingRight && h(ASpinner, {
-          class: [
-            "aloha_btn__spinner_right",
-            this.loadingClass,
-          ],
-        }),
-        this.$slots.buttonAppend && this.$slots.buttonAppend(),
-      ],
-      title: !this.isTitleHtml ||
-        (!this.title && !this.$slots.buttonTitle) ?
-        undefined :
-        () => {
+        ],
+        type: this.type,
+        tabindex: this.tabindex,
+        disabled: this.disabled,
+        ariaDisabled: this.ariaDisabled,
+        "aria-pressed": this.isSwitchActive,
+        // TODO: ATable
+        isAllRowsSelected: undefined,
+        onClick: this.onClick,
+        ...this.attributes,
+      }, {
+        default: () => [
+          (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
+            tag: "span",
+            ariaHidden: true,
+            class: "a_position_absolute_all aloha_btn__hidden",
+            title: this.title,
+            extra: this.extra,
+            style: {
+              zIndex: this.titleZIndex,
+            },
+            ...this.titleAttributes,
+          }),
+          this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
+            class: "a_sr_only aloha_btn__hidden",
+            tag: "span",
+            text: this.textScreenReader,
+            html: this.htmlScreenReader,
+            safeHtml: this.safeHtmlScreenReader,
+            extra: this.extra,
+          }),
+          this.$slots.buttonPrepend && this.$slots.buttonPrepend(),
+          this.isLoadingLeft && h(ASpinner, {
+            class: [
+              "aloha_btn__spinner_left",
+              this.loadingClass,
+            ],
+          }),
+          h(AIcon, {
+            icon: this.iconLeft,
+            iconTag: this.iconTag,
+            class: [
+              "aloha_btn__icon_left",
+              this.iconClass,
+            ],
+            ...this.iconAttributes,
+          }),
+          this.$slots.default && this.$slots.default({ extraData: this.extraData }),
+          this.isTextOrHtmlVisible && h(ATranslation, {
+            ariaHidden: this.textAriaHidden,
+            class: this.textClass,
+            extra: this.extra,
+            html: this.html,
+            safeHtml: this.safeHtml,
+            tag: this.textTag,
+            text: this.text,
+            textAfter: this.textAfter,
+            textBefore: this.textBefore,
+          }),
+          h(AIcon, {
+            icon: this.iconRight,
+            iconTag: this.iconTag,
+            class: [
+              "aloha_btn__icon_right",
+              this.iconClass,
+            ],
+            ...this.iconAttributes,
+          }),
+          this.isLoadingRight && h(ASpinner, {
+            class: [
+              "aloha_btn__spinner_right",
+              this.loadingClass,
+            ],
+          }),
+          this.$slots.buttonAppend && this.$slots.buttonAppend(),
+        ],
+        title: !this.isTitleHtml ||
+          (!this.title && !this.$slots.buttonTitle) ?
+          undefined :
+          () => {
           return [
             this.isTitleVisible && h(ATranslation, {
               html: this.title,
@@ -389,6 +441,18 @@ export default {
             this.$slots.buttonTitle && this.$slots.buttonTitle(),
           ];
         },
-    });
+      }),
+      this.isConfirmVisible && h(AButtonConfirm, {
+        class: ["confirm_position", this.confirmPosition],
+        onAction: this.handleAction,
+        onCancel: this.handleCancel,
+        confirmMessage: this.confirmMessage,
+        yesAttributes: this.yesAttributes,
+        noAttributes: this.noAttributes,
+        confirmTime: this.confirmTime,
+        inProgressMessage: this.inProgressMessage,
+        extra: this.extra,
+      }),
+    ]);
   },
 };
