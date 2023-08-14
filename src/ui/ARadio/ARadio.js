@@ -12,8 +12,6 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
-import UiMixinProps from "../mixins/UiMixinProps";
-
 import UiAPI from "../compositionApi/UiAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
@@ -27,14 +25,21 @@ import {
 
 export default {
   name: "ARadio",
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
     classButtonGroupDefault: {
       type: [String, Object, Array],
       required: false,
       default: "a_btn a_btn_outline_primary",
+    },
+    classColumn: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     classFieldset: {
       type: [String, Object],
@@ -46,15 +51,56 @@ export default {
       required: false,
       default: () => [],
     },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     hasBorder: {
       type: Boolean,
       required: false,
       default: true,
     },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     id: {
       type: [String, Number],
       required: false,
       default: () => uniqueId("a_radio_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      required: false,
     },
     isButtonGroup: {
       type: Boolean,
@@ -63,6 +109,20 @@ export default {
     isDataSimpleArray: {
       type: Boolean,
       required: false,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     isWidthAuto: {
       type: Boolean,
@@ -93,9 +153,37 @@ export default {
       required: false,
       default: undefined,
     },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      required: false,
+      default: undefined,
+    },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    modelUndefined: {
+      required: false,
+      default: null,
+    },
     modelValue: {
       type: [String, Number, Boolean],
       required: false,
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     slotName: {
       type: String,
@@ -114,9 +202,14 @@ export default {
       default: undefined,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
+    type: {
+      type: String,
+      required: false,
+    },
   },
   emits: [
     "updateData",
+    "update:modelValue",
   ],
   setup(props, context) {
     const required = toRef(props, "required");

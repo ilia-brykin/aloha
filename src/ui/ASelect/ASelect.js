@@ -19,8 +19,6 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
-import UiMixinProps from "../mixins/UiMixinProps";
-
 import ASelectDataAPI from "./compositionAPI/ASelectDataAPI";
 import ASelectModelChangeAPI from "./compositionAPI/ASelectModelChangeAPI";
 import ASelectSearchAPI from "./compositionAPI/ASelectSearchAPI";
@@ -37,19 +35,26 @@ import {
   selectPluginOptions,
 } from "../../plugins/ASelectPlugin";
 import {
-  isNil,
+  isNil, uniqueId,
 } from "lodash-es";
 
 export default {
   name: "ASelect",
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
     buttonClass: {
       type: String,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.buttonClass,
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    classColumn: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     countMultiselect: {
       type: Number,
@@ -61,10 +66,56 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.data,
     },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_ui_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     inBody: {
       type: Boolean,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.inBody,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      required: false,
     },
     isCloseByClick: {
       type: Boolean,
@@ -85,6 +136,20 @@ export default {
       type: Boolean,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.isDeselectAll,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     isSelectAll: {
       type: Boolean,
@@ -121,6 +186,15 @@ export default {
       required: false,
       default: undefined,
     },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      required: false,
+      default: undefined,
+    },
     loading: {
       type: Boolean,
       required: false,
@@ -138,10 +212,24 @@ export default {
       default: () => selectPluginOptions.value.propsDefault.menuWidthType,
       validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    modelUndefined: {
+      required: false,
+      default: null,
+    },
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
       default: () => selectPluginOptions.value.propsDefault.modelValue,
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     placement: {
       type: String,
@@ -153,6 +241,11 @@ export default {
       type: String,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.popperContainerId,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     search: {
       type: Boolean,
@@ -211,6 +304,7 @@ export default {
   emits: [
     "onSearchOutside",
     "open",
+    "update:modelValue",
     "updateData",
   ],
   setup(props, context) {
