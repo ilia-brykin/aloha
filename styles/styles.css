@@ -7165,6 +7165,9 @@ input:not(:-webkit-autofill) {
     margin: 0;
     -webkit-appearance: none; }
 
+.a_form__not_elements {
+  margin: .5rem; }
+
 .a_dropdown__caret {
   margin: 0; }
 
