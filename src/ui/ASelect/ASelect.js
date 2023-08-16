@@ -1,42 +1,45 @@
 import {
-  computed,
   h,
   Teleport,
-  toRef,
   withDirectives,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
+import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
-import ALabel from "../ALabel/ALabel";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../AInput/AInput";
-import ASelectGroup from "./ASelectGroup";
-import ASelectElement from "./ASelectElement";
+import ALabel from "../ALabel/ALabel";
+import ASelectElement from "./ASelectElement/ASelectElement";
 import ASelectLabelElement from "./ASelectLabelElement";
 import ASelectValueCloseable from "./ASelectValueCloseable";
-import ASlot from "../../ASlot/ASlot";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
-import ASelectDataAPI from "./compositionAPI/ASelectDataAPI";
-import ASelectModelChangeAPI from "./compositionAPI/ASelectModelChangeAPI";
-import ASelectSearchAPI from "./compositionAPI/ASelectSearchAPI";
-import ASelectSelectedTitleAPI from "./compositionAPI/ASelectSelectedTitleAPI";
-import ASelectToggleAPI from "./compositionAPI/ASelectToggleAPI";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
+import DividerAPI from "./compositionAPI/DividerAPI";
+import ModelAPI from "./compositionAPI/ModelAPI";
+import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
+import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
+import ToggleAPI from "./compositionAPI/ToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
+import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import AKeyId from "../const/AKeyId";
 import {
   selectPluginOptions,
 } from "../../plugins/ASelectPlugin";
+import AKeyId from "../const/AKeyId";
 import {
-  isNil, uniqueId,
+  uniqueId,
 } from "lodash-es";
+
 
 export default {
   name: "ASelect",
@@ -162,7 +165,7 @@ export default {
       default: () => selectPluginOptions.value.propsDefault.isSelectionCloseable,
     },
     keyGroup: {
-      type: [String, Number],
+      type: [String, Number, Array],
       required: false,
       default: () => selectPluginOptions.value.propsDefault.keyGroup,
     },
@@ -257,6 +260,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.searchOutside,
     },
+    searchTimeout: {
+      type: Number,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.searchTimeout,
+    },
     slotName: {
       type: String,
       required: false,
@@ -279,16 +287,6 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.textDeselectAll,
     },
-    textEmpty: {
-      type: String,
-      required: false,
-      default: () => selectPluginOptions.value.propsDefault.textEmpty,
-    },
-    textSearch: {
-      type: String,
-      required: false,
-      default: () => selectPluginOptions.value.propsDefault.textSearch,
-    },
     textSelectAll: {
       type: String,
       required: false,
@@ -302,6 +300,8 @@ export default {
     },
   },
   emits: [
+    "blur",
+    "focus",
     "onSearchOutside",
     "open",
     "update:modelValue",
@@ -338,61 +338,54 @@ export default {
       dataKeyByKeyIdLocal,
     });
 
-    const disabled = toRef(props, "disabled");
-    const onInput = $event => {
-      if (disabled.value) {
-        return;
-      }
+    const {
+      isModelLengthLimitExceeded,
+      isModelValue,
+      isMultiselect,
+      modelValueLength,
+    } = ModelAPI(props);
 
-      changeModel({
-        model: $event,
-      });
-    };
-
-    const type = toRef(props, "type");
-    const isMultiselect = computed(() => {
-      return type.value === "multiselect";
-    });
-
-    const modelValue = toRef(props, "modelValue");
-    const isModelValue = computed(() => {
-      if (isMultiselect.value) {
-        return !!(modelValue.value && modelValue.value.length);
-      }
-      return !isNil(modelValue.value);
-    });
-    const modelValueLength = computed(() => {
-      return modelValue.value ?
-        modelValue.value.length :
-        0;
-    });
-    const countMultiselect = toRef(props, "countMultiselect");
-
-    const isModelLengthLimitExceeded = computed(() => {
-      return modelValueLength.value > countMultiselect.value;
-    });
-
-    const containerId = computed(() => {
-      return `${ htmlIdLocal.value }_container`;
-    });
-
-    const idForList = computed(() => {
-      return `${ htmlIdLocal.value }_list`;
-    });
-
-    const ariaLabelledby = computed(() => {
-      return `${ htmlIdLocal.value }_label`;
-    });
-
-    const tabindex = computed(() => {
-      return disabled.value ? undefined : 0;
+    const {
+      ariaLabelledby,
+      attributesDisabled,
+      containerId,
+      idForList,
+      tabindex,
+    } = AttributesAPI(props, {
+      htmlIdLocal,
     });
 
     const {
-      dataFiltered,
+      dataSort,
+    } = UiDataSortAPI(props, {
+      data: dataLocal,
+    });
+
+    const {
       dataGrouped,
-    } = ASelectDataAPI(props, {
-      dataLocal,
+      groupsForLever,
+      hasKeyGroup,
+      keyGroupArray,
+    } = UIDataGroupAPI(props, {
+      data: dataSort,
+    });
+
+    const {
+      elementsVisibleWithSearch,
+      hasNotElementsWithSearch,
+      idForButtonSearchOutside,
+      modelSearch,
+      modelSearchLowerCase,
+      modelSearchOutside,
+      onSearchOutside,
+      searchOutsideRef,
+      updateModelSearch,
+      updateModelSearchOutside,
+    } = UiSearchAPI(props, context, {
+      data: dataSort,
+      htmlIdLocal:
+      hasKeyGroup,
+      keyGroupArray,
     });
 
     const {
@@ -402,7 +395,7 @@ export default {
       menuParentRef,
       menuRef,
       togglePopover,
-    } = ASelectToggleAPI(props, context);
+    } = ToggleAPI(props, context);
     
     const {
       onChangeModelValue,
@@ -410,7 +403,7 @@ export default {
       onKeydownDeselectAll,
       onKeydownSelectAll,
       onSelectAll,
-    } = ASelectModelChangeAPI(props, {
+    } = ModelChangeAPI(props, {
       isMultiselect,
       changeModel,
       togglePopover,
@@ -419,105 +412,74 @@ export default {
     });
 
     const {
-      elementsHiddenWithSearch,
-      idForButtonSearchOutside,
-      isAllElementsHidden,
-      modelSearch,
-      modelSearchOutside,
-      onSearchOutside,
-      searchOutsideRef,
-      updateModelSearch,
-      updateModelSearchOutside,
-    } = ASelectSearchAPI(props, context, {
-      htmlIdLocal,
-      dataLocal,
-    });
-
-    const {
       hasSelectedTitle,
       selectedTitle,
-    } = ASelectSelectedTitleAPI(props, {
+    } = SelectedTitleAPI(props, {
       isModelValue,
       isMultiselect,
       isModelLengthLimitExceeded,
-      modelValue,
       modelValueLength,
       dataKeyByKeyIdLocal,
     });
 
-    const isSelectAll = toRef(props, "isSelectAll");
-    const isDeselectAll = toRef(props, "isDeselectAll");
-    const isDividerSelectDeselectVisible = computed(() => {
-      return isMultiselect.value && (isSelectAll.value || isDeselectAll.value);
-    });
-
-    const attributesDisabled = computed(() => {
-      const ATTRIBUTES = {};
-      if (disabled.value) {
-        ATTRIBUTES.disabled = true;
-      }
-      return ATTRIBUTES;
+    const {
+      isDividerSelectDeselectVisible,
+    } = DividerAPI(props, {
+      isMultiselect,
     });
 
     addPopperContainerInBody();
 
     return {
-      popperContainerIdSelector,
-      componentStyleHide,
-
       ariaDescribedbyLocal,
+      ariaLabelledby,
+      attributesDisabled,
+      buttonRef,
       clearModel,
-      errorsId,
-      helpTextId,
-      htmlIdLocal,
-      isErrors,
-
+      componentStyleHide,
+      containerId,
+      dataGrouped,
       dataKeyByKeyIdLocal,
       dataLocal,
-
-      onInput,
-
-      attributesDisabled,
-      isModelValue,
-      modelValueLength,
-      isModelLengthLimitExceeded,
-      onFocus,
-      onBlur,
-      isMultiselect,
-      containerId,
-      ariaLabelledby,
-      tabindex,
+      dataSort,
+      elementsVisibleWithSearch,
+      errorsId,
+      groupsForLever,
+      handleKeydown,
+      hasKeyGroup,
+      hasNotElementsWithSearch,
+      hasSelectedTitle,
+      helpTextId,
+      htmlIdLocal,
+      idForButtonSearchOutside,
       idForList,
       isDividerSelectDeselectVisible,
-
-      dataFiltered,
-      dataGrouped,
-
-      elementsHiddenWithSearch,
-      idForButtonSearchOutside,
-      isAllElementsHidden,
-      modelSearch,
-      modelSearchOutside,
-      onSearchOutside,
-      searchOutsideRef,
-      updateModelSearch,
-      updateModelSearchOutside,
-
-      onChangeModelValue,
-      onDeselectAll,
-      onKeydownDeselectAll,
-      onKeydownSelectAll,
-      onSelectAll,
-
-      hasSelectedTitle,
-      selectedTitle,
-
-      buttonRef,
-      handleKeydown,
+      isErrors,
+      isModelLengthLimitExceeded,
+      isModelValue,
+      isMultiselect,
       isOpen,
       menuParentRef,
       menuRef,
+      modelSearch,
+      modelSearchLowerCase,
+      modelSearchOutside,
+      modelValueLength,
+      onBlur,
+      onChangeModelValue,
+      onDeselectAll,
+      onFocus,
+      onKeydownDeselectAll,
+      onKeydownSelectAll,
+      onSearchOutside,
+      onSelectAll,
+      popperContainerIdSelector,
+      searchOutsideRef,
+      selectedTitle,
+      tabindex,
       togglePopover,
+      updateModelSearch,
+      updateModelSearchOutside,
     };
   },
   render() {
@@ -645,21 +607,18 @@ export default {
                           class: "input-group",
                         }, [
                           h(AInput, {
-                            label: this.textSearch,
+                            label: "_A_SELECT_SEARCH_",
                             inputClass: "a_select__element_clickable",
                             modelValue: this.modelSearchOutside,
                             modelUndefined: "",
                             "onUpdate:modelValue": this.updateModelSearchOutside,
                           }),
-                          h("button", {
+                          h(AButton, {
                             disabled: this.disabled,
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",
-                          }, [
-                            h(AIcon, {
-                              icon: "Search",
-                            }),
-                          ]),
+                            iconLeft: "Search",
+                          }),
                         ]),
                       ]),
                     ]),
@@ -667,7 +626,7 @@ export default {
                       class: "a_select__search",
                     }, [
                       h(AInput, {
-                        label: this.textSearch,
+                        label: "_A_SELECT_SEARCH_",
                         inputClass: "a_select__element_clickable",
                         modelValue: this.modelSearch,
                         modelUndefined: "",
@@ -717,56 +676,45 @@ export default {
                         class: "a_select__divider",
                         ariaHidden: true,
                       }),
-                      this.keyGroup && h(ASlot, null, () => [
-                        ...this.dataGrouped.dataKeyByGroup._not_grouped.map(item => {
-                          return h(ASelectElement, {
-                            data: item,
-                            modelValue: this.modelValue,
-                            modelSearch: this.modelSearch,
-                            isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
-                            isSelected: false,
-                            isMultiselect: this.isMultiselect,
+                      h("div", {}, this.hasKeyGroup ?
+                        [
+                          h(ACheckboxRadioGroup, {
+                            id: `${ this.htmlIdLocal }_lev_0`,
+                            dataGrouped: this.dataGrouped,
                             disabled: this.disabled,
-                            slotName: this.slotName,
-                            onChangeModelValue: this.onChangeModelValue,
-                          }, this.$slots);
-                        }),
-                        ...this.dataGrouped.groups.map((groupItem, groupIndex) => {
-                          return h(ASelectGroup, {
-                            id: this.htmlIdLocal,
-                            groupElements: this.dataGrouped.dataKeyByGroup[groupItem.groupKey],
-                            groupLabel: groupItem.groupLabel,
-                            groupIndex: groupIndex,
+                            elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                            groupsForLever: this.groupsForLever,
+                            isErrors: this.isErrors,
+                            levelIndex: 0,
+                            modelSearch: this.modelSearchLowerCase,
                             modelValue: this.modelValue,
-                            modelSearch: this.modelSearch,
-                            elementsHiddenWithSearch: this.elementsHiddenWithSearch,
-                            isSelected: false,
-                            isMultiselect: this.isMultiselect,
-                            disabled: this.disabled,
                             slotName: this.slotName,
+                            type: this.type,
                             onChangeModelValue: this.onChangeModelValue,
-                          }, this.$slots);
-                        }),
-                      ]),
-                      !this.keyGroup && h(ASlot, null, () => [
-                        ...this.dataFiltered.map(item => {
-                          return h(ASelectElement, {
-                            data: item,
-                            modelValue: this.modelValue,
-                            modelSearch: this.modelSearch,
-                            isElementHiddenWithSearch: this.elementsHiddenWithSearch[item[AKeyId]],
-                            isSelected: false,
-                            isMultiselect: this.isMultiselect,
-                            disabled: this.disabled,
-                            slotName: this.slotName,
-                            onChangeModelValue: this.onChangeModelValue,
-                          }, this.$slots);
-                        }),
-                      ]),
-                      this.isAllElementsHidden && h(ATranslation, {
-                        tag: "span",
-                        html: this.textEmpty,
-                        class: "a_select_not_items",
+                          }, this.$slots),
+                        ] :
+                        [
+                          h("div", {}, [
+                            ...this.dataSort.map((item, itemIndex) => {
+                              return h(ASelectElement, {
+                                key: item[AKeyId],
+                                id: this.htmlIdLocal,
+                                dataItem: item,
+                                disabled: this.disabled,
+                                elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                                itemIndex,
+                                modelSearch: this.modelSearchLowerCase,
+                                modelValue: this.modelValue,
+                                slotName: this.slotName,
+                                type: this.type,
+                                onChangeModelValue: this.onChangeModelValue,
+                              }, this.$slots);
+                            })
+                          ]),
+                        ]),
+                      this.hasNotElementsWithSearch && h(ATranslation, {
+                        class: "a_form__not_elements",
+                        text: "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_",
                       }),
                     ]),
                   ]),

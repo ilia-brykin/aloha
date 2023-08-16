@@ -11,7 +11,7 @@ import {
   isUndefined,
 } from "lodash-es";
 
-export default function ASelectModelChangeAPI(props, {
+export default function ModelChangeAPI(props, {
   isMultiselect = computed(() => false),
   changeModel = () => {},
   togglePopover = () => {},

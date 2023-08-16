@@ -4,6 +4,8 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import AIcon from "../../../../../src/AIcon/AIcon";
 import ASelect from "../../../../../src/ui/ASelect/ASelect";
 import PageSelectBasic from "./PageSelectBasic/PageSelectBasic.vue";
+import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
+import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -20,6 +22,8 @@ export default {
     AIcon,
     ASelect,
     PageSelectBasic,
+    PageSelectGroup,
+    PageSelectSearch,
   },
   setup() {
     const {

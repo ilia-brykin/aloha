@@ -1,5 +1,6 @@
 import {
-  h, resolveComponent,
+  h,
+  resolveComponent,
 } from "vue";
 
 import DataAPI from "./compostionAPI/DataAPI";
@@ -23,6 +24,14 @@ export default {
       type: Boolean,
       required: false,
     },
+    elementsVisibleWithSearch: {
+      type: Object,
+      required: true,
+    },
+    hideParentWithSearch: {
+      type: Boolean,
+      required: false,
+    },
     groupParentKey: {
       type: [String, Number],
       required: false,
@@ -41,6 +50,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isHiddenWithSearch: {
+      type: Boolean,
+      required: false,
+    },
     isErrors: {
       type: Boolean,
       required: false,
@@ -51,6 +64,10 @@ export default {
     },
     levelIndex: {
       type: Number,
+      required: true,
+    },
+    modelSearch: {
+      type: String,
       required: true,
     },
     modelValue: {
@@ -65,7 +82,7 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: type => ["radio", "checkbox"].indexOf(type) !== -1,
+      validator: type => ["radio", "checkbox", "select", "multiselect"].indexOf(type) !== -1,
     },
   },
   emits: [
@@ -78,6 +95,7 @@ export default {
 
     const {
       currentComponent,
+      isComponentSelect,
     } = ComponentAPI(props);
 
     const {
@@ -88,6 +106,7 @@ export default {
     return {
       currentComponent,
       currentGroups,
+      isComponentSelect,
       isComponentVisible,
       onChangeModelValue,
     };
@@ -98,24 +117,38 @@ export default {
     }
     return [
       ...this.currentGroups.map((group, groupIndex) => {
+        let styleWithSearch = undefined;
+        let isHiddenWithSearch = false;
+        if (this.elementsVisibleWithSearch.searching) {
+          const GROUP_KEY_ALL = `${ this.groupParentKey ? `${ this.groupParentKey }_` : "" }${ group.groupKey }`;
+          if (this.isHiddenWithSearch || !this.elementsVisibleWithSearch.groups[GROUP_KEY_ALL]) {
+            styleWithSearch = "display: none;";
+            isHiddenWithSearch = true;
+          }
+        }
         if (group.groupKey === "_not_grouped") {
           return h("div", {
             class: {
               a_btn_group: this.isButtonGroup,
             },
+            style: styleWithSearch,
           }, [
             ...this.dataGrouped[group.allGroupKeys].map((item, itemIndex) => {
               return h(this.currentComponent, {
                 id: `${ this.id }`,
-                itemIndex,
+                classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
                 dataItem: item,
-                modelValue: this.modelValue,
                 disabled: this.disabled,
+                elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                isButtonGroup: this.isComponentSelect ? undefined : this.isButtonGroup,
+                isErrors: this.isComponentSelect ? undefined : this.isErrors,
+                isHiddenWithSearch,
+                isWidthAuto: this.isComponentSelect ? undefined : this.isWidthAuto,
+                itemIndex,
+                modelSearch: this.modelSearch,
+                modelValue: this.modelValue,
                 slotName: this.slotName,
-                isErrors: this.isErrors,
-                isWidthAuto: this.isWidthAuto,
-                isButtonGroup: this.isButtonGroup,
-                classButtonGroupDefault: this.classButtonGroupDefault,
+                type: this.type,
                 onChangeModelValue: this.onChangeModelValue,
               }, this.$slots);
             }),
@@ -123,6 +156,7 @@ export default {
         }
         return h("fieldset", {
           class: "a_fieldset",
+          style: styleWithSearch,
         }, [
           h("legend", {
             class: "a_legend",
@@ -135,15 +169,19 @@ export default {
             ...(this.dataGrouped[group.allGroupKeys] || []).map((item, itemIndex) => {
               return h(this.currentComponent, {
                 id: `${ this.id }_gr_${ groupIndex }`,
-                itemIndex,
+                classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
                 dataItem: item,
-                modelValue: this.modelValue,
                 disabled: this.disabled,
+                elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                isButtonGroup: this.isComponentSelect ? undefined : this.isButtonGroup,
+                isErrors: this.isComponentSelect ? undefined : this.isErrors,
+                isHiddenWithSearch,
+                isWidthAuto: this.isComponentSelect ? undefined : this.isWidthAuto,
+                itemIndex,
+                modelSearch: this.modelSearch,
+                modelValue: this.modelValue,
                 slotName: this.slotName,
-                isErrors: this.isErrors,
-                isWidthAuto: this.isWidthAuto,
-                isButtonGroup: this.isButtonGroup,
-                classButtonGroupDefault: this.classButtonGroupDefault,
+                type: this.type,
                 onChangeModelValue: this.onChangeModelValue,
               }, this.$slots);
             }),
@@ -151,18 +189,21 @@ export default {
 
           h(resolveComponent("ACheckboxRadioGroups"), {
             id: `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }`,
+            classButtonGroupDefault: this.classButtonGroupDefault,
             dataGrouped: this.dataGrouped,
             disabled: this.disabled,
-            groupsForLever: this.groupsForLever,
+            elementsVisibleWithSearch: this.elementsVisibleWithSearch,
             groupParentKey: group.groupKey,
+            groupsForLever: this.groupsForLever,
+            isButtonGroup: this.isButtonGroup,
             isErrors: this.isErrors,
+            isHiddenWithSearch,
             isWidthAuto: this.isWidthAuto,
             levelIndex: this.levelIndex + 1,
+            modelSearch: this.modelSearch,
             modelValue: this.modelValue,
-            isButtonGroup: this.isButtonGroup,
             slotName: this.slotName,
             type: this.type,
-            classButtonGroupDefault: this.classButtonGroupDefault,
             onChangeModelValue: this.onChangeModelValue,
           }, this.$slots)
         ]);

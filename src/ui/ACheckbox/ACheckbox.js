@@ -1,22 +1,25 @@
 import {
-  computed,
   h,
-  toRef,
   withDirectives,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AInput from "../AInput/AInput";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
+import ChangeAPI from "./compositionAPI/ChangeAPI";
+import TextAfterLabelAPI from "./compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -129,7 +132,7 @@ export default {
       required: false,
     },
     keyGroup: {
-      type: [String, Array],
+      type: [String, Number, Array],
       required: false,
       default: undefined,
     },
@@ -185,6 +188,19 @@ export default {
       required: false,
       default: false,
     },
+    search: {
+      type: Boolean,
+      required: false,
+    },
+    searchOutside: {
+      type: Boolean,
+      required: false,
+    },
+    searchTimeout: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
     slotName: {
       type: String,
       required: false,
@@ -208,12 +224,11 @@ export default {
     },
   },
   emits: [
+    "onSearchOutside",
     "updateData",
     "update:modelValue",
   ],
   setup(props, context) {
-    const required = toRef(props, "required");
-
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -230,16 +245,16 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      textAfterLabel,
+    } = TextAfterLabelAPI(props);
+
+    const {
       dataLocal,
       dataKeyByKeyIdLocal,
     } = UiDataWithKeyIdAndLabelAPI(props);
 
     UiDataWatchEmitAPI(props, context, {
       dataKeyByKeyIdLocal,
-    });
-
-    const textAfterLabel = computed(() => {
-      return required.value ? "*" : "";
     });
 
     const {
@@ -252,38 +267,60 @@ export default {
       dataGrouped,
       groupsForLever,
       hasKeyGroup,
+      keyGroupArray,
     } = UIDataGroupAPI(props, {
       data: dataSort,
     });
 
-    const disabled = toRef(props, "disabled");
-    const onChangeModelValue = ({ model, $event }) => {
-      if (disabled.value) {
-        return;
-      }
-      setTimeout(() => {
-        changeModel({
-          model,
-          $event,
-        });
-      });
-    };
+    const {
+      elementsVisibleWithSearch,
+      hasNotElementsWithSearch,
+      idForButtonSearchOutside,
+      modelSearch,
+      modelSearchLowerCase,
+      modelSearchOutside,
+      onSearchOutside,
+      searchOutsideRef,
+      updateModelSearch,
+      updateModelSearchOutside,
+    } = UiSearchAPI(props, context, {
+      data: dataSort,
+      hasKeyGroup,
+      htmlIdLocal,
+      keyGroupArray,
+    });
+
+    const {
+      onChangeModelValue,
+    } = ChangeAPI(props, {
+      changeModel,
+    });
 
     return {
       ariaDescribedbyLocal,
       componentStyleHide,
       dataGrouped,
       dataSort,
+      elementsVisibleWithSearch,
       errorsId,
       groupsForLever,
       hasKeyGroup,
+      hasNotElementsWithSearch,
       helpTextId,
       htmlIdLocal,
+      idForButtonSearchOutside,
       isErrors,
+      modelSearch,
+      modelSearchLowerCase,
+      modelSearchOutside,
       onBlur,
       onChangeModelValue,
       onFocus,
+      onSearchOutside,
+      searchOutsideRef,
       textAfterLabel,
+      updateModelSearch,
+      updateModelSearchOutside,
     };
   },
   render() {
@@ -317,20 +354,53 @@ export default {
               html: this.label,
               textAfter: this.textAfterLabel,
             }),
+            this.searchOutside && h("div", {
+              class: "a_select_search",
+            }, [
+              h("form", {
+                onSubmit: this.onSearchOutside,
+              }, [
+                h("div", {
+                  class: "input-group",
+                }, [
+                  h(AInput, {
+                    label: "_A_SELECT_SEARCH_",
+                    inputClass: "a_select__element_clickable",
+                    modelValue: this.modelSearchOutside,
+                    modelUndefined: "",
+                    "onUpdate:modelValue": this.updateModelSearchOutside,
+                  }),
+                  h(AButton, {
+                    disabled: this.disabled,
+                    class: "a_btn a_btn_primary",
+                    type: "submit",
+                    iconLeft: "Search",
+                  }),
+                ]),
+              ]),
+            ]),
+            this.search && h(AInput, {
+              label: "_A_CHECKBOX_SEARCH_",
+              modelValue: this.modelSearch,
+              modelUndefined: "",
+              "onUpdate:modelValue": this.updateModelSearch,
+            }),
             h("div", {}, this.hasKeyGroup ?
               [
                 h(ACheckboxRadioGroup, {
                   id: `${ this.htmlIdLocal }_lev_0`,
+                  classButtonGroupDefault: this.classButtonGroupDefault,
                   dataGrouped: this.dataGrouped,
                   disabled: this.disabled,
+                  elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                   groupsForLever: this.groupsForLever,
+                  isButtonGroup: this.isButtonGroup,
                   isErrors: this.isErrors,
                   isWidthAuto: this.isWidthAuto,
                   levelIndex: 0,
+                  modelSearch: this.modelSearchLowerCase,
                   modelValue: this.modelValue,
                   slotName: this.slotName,
-                  isButtonGroup: this.isButtonGroup,
-                  classButtonGroupDefault: this.classButtonGroupDefault,
                   type: "checkbox",
                   onChangeModelValue: this.onChangeModelValue,
                 }, this.$slots),
@@ -343,22 +413,28 @@ export default {
                 }, [
                   ...this.dataSort.map((item, itemIndex) => {
                     return h(ACheckboxItem, {
-                      id: this.htmlIdLocal,
                       key: itemIndex,
-                      dataItem: item,
-                      itemIndex,
-                      modelValue: this.modelValue,
-                      onChangeModelValue: this.onChangeModelValue,
-                      disabled: this.disabled,
-                      isWidthAuto: this.isWidthAuto,
-                      isErrors: this.isErrors,
-                      isButtonGroup: this.isButtonGroup,
+                      id: this.htmlIdLocal,
                       classButtonGroupDefault: this.classButtonGroupDefault,
+                      dataItem: item,
+                      disabled: this.disabled,
+                      elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                      isButtonGroup: this.isButtonGroup,
+                      isErrors: this.isErrors,
+                      isWidthAuto: this.isWidthAuto,
+                      itemIndex,
+                      modelSearch: this.modelSearchLowerCase,
+                      modelValue: this.modelValue,
                       slotName: this.slotName,
+                      onChangeModelValue: this.onChangeModelValue,
                     }, this.$slots);
                   })
                 ]),
               ]),
+            this.hasNotElementsWithSearch && h(ATranslation, {
+              class: "a_form__not_elements",
+              text: "_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_",
+            }),
           ]),
         ]),
         this.helpText && withDirectives(h("div", {

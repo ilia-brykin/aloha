@@ -17,7 +17,7 @@ import {
 
 const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled])";
 
-export default function ASelectToggleAPI(props, {
+export default function ToggleAPI(props, {
   emit,
 }) {
   const disabled = toRef(props, "disabled");

@@ -43,9 +43,6 @@ export default function UIDataGroupAPI(props, {
     forEach(keyGroupArray.value, (_, index) => {
       GROUPS_FOR_LEVER[index] = {};
     });
-    forEach(keyGroupArray.value, (_, index) => {
-      GROUPS_FOR_LEVER[index] = {};
-    });
 
     forEach(data.value, item => {
       let groupParentKey = undefined;
@@ -108,5 +105,6 @@ export default function UIDataGroupAPI(props, {
     dataGrouped,
     groupsForLever,
     hasKeyGroup,
+    keyGroupArray,
   };
 }

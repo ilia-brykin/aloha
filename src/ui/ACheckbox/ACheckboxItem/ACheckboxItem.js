@@ -1,45 +1,42 @@
 import {
-  computed,
   h,
-  toRef,
   withDirectives,
 } from "vue";
 
-import UiCheckboxRadioItem from "../../compositionApi/UiCheckboxRadioItem";
-import ButtonGroupAPI from "./compositionAPI/ButtonGroupAPI";
+import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI";
 
 import ASafeHtml from "../../../directives/ASafeHtml";
 
-import {
-  cloneDeep,
-} from "lodash-es";
-
-const KEY_CODE_SPACE = 32;
+import ButtonGroupAPI from "./compositionAPI/ButtonGroupAPI";
+import CheckedAPI from "./compositionAPI/CheckedAPI";
+import EventsAPI from "./compositionAPI/EventsAPI";
+import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
 
 export default {
   name: "ACheckboxItem",
   props: {
-    id: {
-      type: String,
-      required: true,
+    classButtonGroupDefault: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
     },
     dataItem: {
       type: Object,
       required: true,
     },
-    itemIndex: {
-      type: Number,
-      required: true,
-    },
-    modelValue: {
-      type: Array,
-      required: false,
-    },
-    isWidthAuto: {
+    disabled: {
       type: Boolean,
       required: false,
     },
-    disabled: {
+    elementsVisibleWithSearch: {
+      type: Object,
+      required: true,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+    isButtonGroup: {
       type: Boolean,
       required: false,
     },
@@ -47,81 +44,82 @@ export default {
       type: Boolean,
       required: false,
     },
-    isButtonGroup: {
+    isHiddenWithSearch: {
       type: Boolean,
       required: false,
     },
-    classButtonGroupDefault: {
-      type: [String, Object, Array],
+    isWidthAuto: {
+      type: Boolean,
       required: false,
-      default: undefined,
+    },
+    itemIndex: {
+      type: Number,
+      required: true,
+    },
+    modelSearch: {
+      type: String,
+      required: true,
+    },
+    modelValue: {
+      type: Array,
+      required: false,
     },
     slotName: {
       type: String,
       required: false,
       default: undefined,
     },
+    type: {
+      type: String,
+      required: false,
+    },
   },
   emits: [
     "changeModelValue",
   ],
-  setup(props, { emit }) {
+  setup(props, context) {
     const {
       idLocal,
       labelLocal,
       valueLocal,
-    } = UiCheckboxRadioItem(props);
+    } = UiCheckboxRadioItemAPI(props);
 
     const {
       classButton,
     } = ButtonGroupAPI(props);
 
-    const modelValue = toRef(props, "modelValue");
-    const isChecked = computed(() => {
-      return modelValue.value && modelValue.value.indexOf(valueLocal.value) !== -1;
+    const {
+      isChecked,
+    } = CheckedAPI(props, {
+      valueLocal,
     });
 
-    const disabled = toRef(props, "disabled");
-    const onClick = $event => {
-      if (disabled.value) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        return;
-      }
-      const MODEL = cloneDeep(modelValue.value) || [];
-      if (isChecked.value) {
-        const INDEX = MODEL.indexOf(valueLocal.value);
-        MODEL.splice(INDEX, 1);
-      } else {
-        MODEL.push(valueLocal.value);
-      }
+    const {
+      onClick,
+      onKeydown,
+    } = EventsAPI(props, context, {
+      isChecked,
+      valueLocal,
+    });
 
-      emit("changeModelValue", {
-        model: MODEL,
-        $event,
-      });
-      $event.preventDefault();
-      $event.stopPropagation();
-    };
-
-    const onKeydown = $event => {
-      if ($event.key === "Enter" ||
-        $event.keyCode === KEY_CODE_SPACE) {
-        onClick($event);
-        $event.stopPropagation();
-        $event.preventDefault();
-      }
-    };
+    const {
+      currentLabelFiltered,
+      styleWithSearch,
+    } = UiVisibleElementWithSearchAPI(props, {
+      labelLocal,
+      valueLocal,
+    });
 
     return {
       classButton,
+      currentLabelFiltered,
       idLocal,
-      labelLocal,
-      valueLocal,
-
       isChecked,
+      labelLocal,
       onClick,
       onKeydown,
+      styleWithSearch,
+      valueLocal,
     };
   },
   render() {
@@ -129,12 +127,13 @@ export default {
       return [
         h("input", {
           id: this.idLocal,
-          name: this.id,
-          value: this.valueLocal,
-          type: "checkbox",
           checked: this.isChecked,
           class: "a_btn_check",
           disabled: this.disabled,
+          name: this.id,
+          style: this.styleWithSearch,
+          type: "checkbox",
+          value: this.valueLocal,
           onClick: this.onClick,
           onKeydown: this.onKeydown,
         }),
@@ -147,9 +146,11 @@ export default {
               id: this.id,
               item: this.dataItem,
               itemIndex: this.itemIndex,
+              label: this.labelLocal,
+              labelFiltered: this.currentLabelFiltered,
             }) :
             this.labelLocal && withDirectives(h("span", {}), [
-              [ASafeHtml, this.labelLocal],
+              [ASafeHtml, this.currentLabelFiltered],
             ]),
         ]),
       ];
@@ -158,15 +159,16 @@ export default {
       class: ["a_custom_control a_custom_checkbox", {
         a_custom_control_invalid: this.isErrors,
       }],
+      style: this.styleWithSearch,
     }, [
       h("input", {
         id: this.idLocal,
-        name: this.id,
-        value: this.valueLocal,
-        type: "checkbox",
         checked: this.isChecked,
         class: "a_custom_control_input",
         disabled: this.disabled,
+        name: this.id,
+        type: "checkbox",
+        value: this.valueLocal,
         onClick: this.onClick,
         onKeydown: this.onKeydown,
       }),
@@ -181,11 +183,13 @@ export default {
             id: this.id,
             item: this.dataItem,
             itemIndex: this.itemIndex,
+            label: this.labelLocal,
+            labelFiltered: this.currentLabelFiltered,
           }) :
           this.labelLocal && withDirectives(h("span", {
             class: "a_custom_control_label__text",
           }), [
-            [ASafeHtml, this.labelLocal],
+            [ASafeHtml, this.currentLabelFiltered],
           ]),
       ]),
     ]);

@@ -28,6 +28,8 @@ import PageListI18n from "./views/PageList/i18n/PageListI18n";
 import PageSelectI18n from "./views/Form/PageSelect/i18n/PageSelectI18n";
 import PageProgressI18n from "./views/Progress/PageProgress/i18n/PageProgressI18n";
 import PageProgressCircleI18n from "./views/Progress/PageProgressCircle/i18n/PageProgressCircleI18n";
+import PageRadioI18n from "./views/Form/PageRadio/i18n/PageRadioI18n";
+import PageCheckboxI18n from "./views/Form/PageCheckbox/i18n/PageCheckboxI18n";
 
 export const mainTranslation = {
   ar: {
@@ -52,6 +54,8 @@ export const mainTranslation = {
     ...PageSelectI18n.ar,
     ...PageProgressI18n.ar,
     ...PageProgressCircleI18n.ar,
+    ...PageRadioI18n.ar,
+    ...PageCheckboxI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -75,6 +79,8 @@ export const mainTranslation = {
     ...PageSelectI18n.de,
     ...PageProgressI18n.de,
     ...PageProgressCircleI18n.de,
+    ...PageRadioI18n.de,
+    ...PageCheckboxI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -98,6 +104,8 @@ export const mainTranslation = {
     ...PageSelectI18n.en,
     ...PageProgressI18n.en,
     ...PageProgressCircleI18n.en,
+    ...PageRadioI18n.en,
+    ...PageCheckboxI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -121,6 +129,8 @@ export const mainTranslation = {
     ...PageSelectI18n.es,
     ...PageProgressI18n.es,
     ...PageProgressCircleI18n.es,
+    ...PageRadioI18n.es,
+    ...PageCheckboxI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -144,6 +154,8 @@ export const mainTranslation = {
     ...PageSelectI18n.fr,
     ...PageProgressI18n.fr,
     ...PageProgressCircleI18n.fr,
+    ...PageRadioI18n.fr,
+    ...PageCheckboxI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -167,6 +179,8 @@ export const mainTranslation = {
     ...PageSelectI18n.hr,
     ...PageProgressI18n.hr,
     ...PageProgressCircleI18n.hr,
+    ...PageRadioI18n.hr,
+    ...PageCheckboxI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -190,6 +204,8 @@ export const mainTranslation = {
     ...PageSelectI18n.it,
     ...PageProgressI18n.it,
     ...PageProgressCircleI18n.it,
+    ...PageRadioI18n.it,
+    ...PageCheckboxI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -213,5 +229,7 @@ export const mainTranslation = {
     ...PageSelectI18n.ru,
     ...PageProgressI18n.ru,
     ...PageProgressCircleI18n.ru,
+    ...PageRadioI18n.ru,
+    ...PageCheckboxI18n.ru,
   },
 };

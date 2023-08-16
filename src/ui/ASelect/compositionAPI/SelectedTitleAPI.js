@@ -8,14 +8,14 @@ import {
   forEach,
 } from "lodash-es";
 
-export default function ASelectSelectedTitleAPI(props, {
+export default function SelectedTitleAPI(props, {
   isModelValue = computed(() => false),
   isMultiselect,
   isModelLengthLimitExceeded,
-  modelValue,
   modelValueLength,
   dataKeyByKeyIdLocal = computed(() => ({})),
 }) {
+  const modelValue = toRef(props, "modelValue");
   const isSelectionCloseable = toRef(props, "isSelectionCloseable");
 
   const selectedTitle = computed(() => {
