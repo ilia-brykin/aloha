@@ -5203,7 +5203,7 @@ h6 {
 .switch_button_undefined .switch_button__label::after {
   left: 15px; }
 
-.ui_select {
+.a_select {
   --a_select_border_radius: var(--a_border_radius);
   --a_select_close_hover_color: --a_color_primary;
   --a_select_placeholder_color: --a_color_gray_600;
@@ -5240,6 +5240,7 @@ h6 {
   --a_select_menu_link_hover_color: var(--a_color_text);
   --a_select_menu_link_hover_bg: var(--a_color_gray_200);
   --a_select_menu_link_focus_color: var(--a_color_focus);
+  --a_select_menu_link_disabled_color: var(--a_color_gray_500);
   display: block;
   position: relative;
   min-width: 200px;
@@ -5290,12 +5291,16 @@ h6 {
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto; }
-  .a_select__menu__link:hover {
+  .a_select__menu__link:not(.a_select__menu__link_disabled):hover {
     background-color: var(--a_select_menu_link_hover_bg);
     color: var(--a_select_menu_link_hover_color); }
-  .a_select__menu__link:focus {
+  .a_select__menu__link:not(.a_select__menu__link_disabled):focus {
     box-shadow: inset 0 0 1px 3px var(--a_select_menu_link_focus_color);
     outline: none; }
+
+.a_select__menu__link_disabled {
+  color: var(--a_select_menu_link_disabled_color);
+  cursor: not-allowed; }
 
 .a_select__menu__link__icon_box {
   width: 1.2rem;
