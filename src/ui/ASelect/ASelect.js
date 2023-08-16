@@ -40,7 +40,6 @@ import {
   uniqueId,
 } from "lodash-es";
 
-
 export default {
   name: "ASelect",
   props: {
@@ -163,6 +162,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.isSelectionCloseable,
+    },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.keyDisabled,
     },
     keyGroup: {
       type: [String, Number, Array],
@@ -508,7 +512,7 @@ export default {
           h("div", {
             id: this.containerId,
             ref: "ui_select",
-            class: "ui_select",
+            class: "a_select",
             role: "application",
           }, [
             h("div", {
@@ -685,6 +689,7 @@ export default {
                             elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                             groupsForLever: this.groupsForLever,
                             isErrors: this.isErrors,
+                            keyDisabled: this.keyDisabled,
                             levelIndex: 0,
                             modelSearch: this.modelSearchLowerCase,
                             modelValue: this.modelValue,
@@ -703,6 +708,7 @@ export default {
                                 disabled: this.disabled,
                                 elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                                 itemIndex,
+                                keyDisabled: this.keyDisabled,
                                 modelSearch: this.modelSearchLowerCase,
                                 modelValue: this.modelValue,
                                 slotName: this.slotName,

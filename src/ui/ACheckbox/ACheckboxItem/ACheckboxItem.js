@@ -11,6 +11,7 @@ import ButtonGroupAPI from "./compositionAPI/ButtonGroupAPI";
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
+import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
 
 export default {
   name: "ACheckboxItem",
@@ -56,6 +57,11 @@ export default {
       type: Number,
       required: true,
     },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     modelSearch: {
       type: String,
       required: true,
@@ -95,6 +101,10 @@ export default {
     });
 
     const {
+      disabledElement,
+    } = UiDisabledElementAPI(props);
+
+    const {
       onClick,
       onKeydown,
     } = EventsAPI(props, context, {
@@ -113,6 +123,7 @@ export default {
     return {
       classButton,
       currentLabelFiltered,
+      disabledElement,
       idLocal,
       isChecked,
       labelLocal,
@@ -129,7 +140,7 @@ export default {
           id: this.idLocal,
           checked: this.isChecked,
           class: "a_btn_check",
-          disabled: this.disabled,
+          disabled: this.disabledElement,
           name: this.id,
           style: this.styleWithSearch,
           type: "checkbox",
@@ -165,7 +176,7 @@ export default {
         id: this.idLocal,
         checked: this.isChecked,
         class: "a_custom_control_input",
-        disabled: this.disabled,
+        disabled: this.disabledElement,
         name: this.id,
         type: "checkbox",
         value: this.valueLocal,

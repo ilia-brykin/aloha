@@ -1,39 +1,49 @@
-export default function JsAPI() {
-  const codeJs = `import {
+import {
   ref,
 } from "vue";
 
-import ASelect from "aloha-vue/src/ui/ASelect/ASelect";
-    
+import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
+import ARadio from "../../../../../../src/ui/ARadio/ARadio";
+
+import HtmlAPI from "./compositionAPI/HtmlAPI";
+import JsAPI from "./compositionAPI/JsAPI";
+
 export default {
-  name: "PageSelectSearch",
+  name: "PageRadioKeyDisabled",
   components: {
-    ASelect,
+    AlohaExample,
+    ARadio,
   },
   setup() {
+    const {
+      codeHtml,
+    } = HtmlAPI();
+
+    const {
+      codeJs,
+    } = JsAPI();
+
     const data = [
-      {
-        label: "Aloha -1",
-        id: "aloha_-1",
-        aloha: "",
-      },
       {
         label: "Aloha 0",
         id: "aloha_0",
         aloha: "",
         alohaBR: "Köln",
+        disabled: true,
       },
       {
         label: "Aloha 1",
         id: "aloha_1",
         aloha: "Buba",
         alohaBR: "Köln",
+        disabled: true,
       },
       {
         label: "Aloha 2",
         id: "aloha_2",
         aloha: "Buba",
         alohaBR: "Köln",
+        disabled: true,
       },
       {
         label: "Aloha 3",
@@ -75,13 +85,10 @@ export default {
     const model = ref(undefined);
 
     return {
+      codeHtml,
+      codeJs,
       data,
       model,
     };
   },
-};`;
-
-  return {
-    codeJs,
-  };
-}
+};

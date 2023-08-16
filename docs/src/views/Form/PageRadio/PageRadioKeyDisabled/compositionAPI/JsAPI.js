@@ -3,37 +3,35 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ASelect from "aloha-vue/src/ui/ASelect/ASelect";
+import ARadio from "aloha-vue/src/ui/ARadio/ARadio";
     
 export default {
-  name: "PageSelectSearch",
+  name: "PageRadioKeyDisabled",
   components: {
-    ASelect,
+    ARadio,
   },
   setup() {
     const data = [
-      {
-        label: "Aloha -1",
-        id: "aloha_-1",
-        aloha: "",
-      },
       {
         label: "Aloha 0",
         id: "aloha_0",
         aloha: "",
         alohaBR: "Köln",
+        disabled: true,
       },
       {
         label: "Aloha 1",
         id: "aloha_1",
         aloha: "Buba",
         alohaBR: "Köln",
+        disabled: true,
       },
       {
         label: "Aloha 2",
         id: "aloha_2",
         aloha: "Buba",
         alohaBR: "Köln",
+        disabled: true,
       },
       {
         label: "Aloha 3",

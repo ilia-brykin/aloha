@@ -1,0 +1,28 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CHECKBOX_GROUP_KEY_DISABLED_HEADER_"
+  description="_A_CHECKBOX_GROUP_KEY_DISABLED_DESCRIPTION_"
+  props="key-disabled"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Aloha group"
+        key-disabled="disabled"
+      )
+      div model: {{ model }}
+      a-checkbox(
+        v-model="model"
+        class="a_mt_3"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        key-disabled="disabled"
+      )
+      div model: {{ model }}

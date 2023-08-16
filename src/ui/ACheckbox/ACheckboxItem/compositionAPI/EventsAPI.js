@@ -9,14 +9,14 @@ import {
 } from "lodash-es";
 
 export default function EventsAPI(props, { emit }, {
+  disabledElement = computed(() => undefined),
   isChecked = computed(() => false),
   valueLocal = computed(() => undefined),
 }) {
-  const disabled = toRef(props, "disabled");
   const modelValue = toRef(props, "modelValue");
 
   const onClick = $event => {
-    if (disabled.value) {
+    if (disabledElement.value) {
       $event.preventDefault();
       $event.stopPropagation();
       return;

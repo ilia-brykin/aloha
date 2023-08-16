@@ -10,6 +10,7 @@ import ASafeHtml from "../../../directives/ASafeHtml";
 import ButtonGroupAPI from "../../ACheckbox/ACheckboxItem/compositionAPI/ButtonGroupAPI";
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
 
 export default {
@@ -56,6 +57,11 @@ export default {
       type: Number,
       required: true,
     },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     modelSearch: {
       type: String,
       required: true,
@@ -95,9 +101,14 @@ export default {
     });
 
     const {
+      disabledElement,
+    } = UiDisabledElementAPI(props);
+
+    const {
       onClick,
       onKeydown,
     } = EventsAPI(props, context, {
+      disabledElement,
       isChecked,
       valueLocal,
     });
@@ -113,6 +124,7 @@ export default {
     return {
       classButton,
       currentLabelFiltered,
+      disabledElement,
       idLocal,
       isChecked,
       labelLocal,
@@ -129,7 +141,7 @@ export default {
           id: this.idLocal,
           checked: this.isChecked,
           class: "a_btn_check",
-          disabled: this.disabled,
+          disabled: this.disabledElement,
           name: this.id,
           style: this.styleWithSearch,
           type: "radio",
@@ -165,7 +177,7 @@ export default {
         id: this.idLocal,
         checked: this.isChecked,
         class: "a_custom_control_input",
-        disabled: this.disabled,
+        disabled: this.disabledElement,
         name: this.id,
         type: "radio",
         value: this.valueLocal,

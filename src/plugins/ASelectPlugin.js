@@ -14,6 +14,7 @@ export const selectPluginOptions = ref({
     isDeselectAll: false,
     isSelectAll: false,
     isSelectionCloseable: true,
+    keyDisabled: undefined,
     keyGroup: undefined,
     keyId: "value",
     keyLabel: "label",

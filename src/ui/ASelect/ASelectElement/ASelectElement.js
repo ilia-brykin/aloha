@@ -10,6 +10,7 @@ import ASafeHtml from "../../../directives/ASafeHtml";
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI";
+import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
 
 export default {
@@ -38,6 +39,11 @@ export default {
     itemIndex: {
       type: Number,
       required: true,
+    },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     modelSearch: {
       type: String,
@@ -75,9 +81,14 @@ export default {
     });
 
     const {
+      disabledElement,
+    } = UiDisabledElementAPI(props);
+
+    const {
       onClick,
       onKeydown,
     } = EventsAPI(props, context, {
+      disabledElement,
       isChecked,
       valueLocal,
     });
@@ -92,6 +103,7 @@ export default {
 
     return {
       currentLabelFiltered,
+      disabledElement,
       idLocal,
       isChecked,
       labelLocal,
@@ -104,9 +116,10 @@ export default {
     return h("div", {
       ariaSelected: this.isChecked,
       class: ["a_select__menu__link a_select__element_clickable", {
-        ui_select__menu__link_selected: this.isChecked,
+        a_select__menu__link_selected: this.isChecked,
+        a_select__menu__link_disabled: this.disabledElement,
       }],
-      disabled: this.disabled || undefined,
+      disabled: this.disabledElement,
       role: "option",
       style: this.styleWithSearch,
       tabindex: "-1",

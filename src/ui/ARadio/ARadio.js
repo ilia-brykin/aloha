@@ -132,6 +132,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     keyGroup: {
       type: [String, Number, Array],
       required: false,
@@ -398,6 +403,7 @@ export default {
                   isButtonGroup: this.isButtonGroup,
                   isErrors: this.isErrors,
                   isWidthAuto: this.isWidthAuto,
+                  keyDisabled: this.keyDisabled,
                   levelIndex: 0,
                   modelSearch: this.modelSearchLowerCase,
                   modelValue: this.modelValue,
@@ -424,6 +430,7 @@ export default {
                       isErrors: this.isErrors,
                       isWidthAuto: this.isWidthAuto,
                       itemIndex,
+                      keyDisabled: this.keyDisabled,
                       modelSearch: this.modelSearchLowerCase,
                       modelValue: this.modelValue,
                       slotName: this.slotName,

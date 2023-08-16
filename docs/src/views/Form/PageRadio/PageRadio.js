@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTab
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import ARadio from "../../../../../src/ui/ARadio/ARadio";
 import PageRadioSearch from "./PageRadioSearch/PageRadioSearch.vue";
+import PageRadioKeyDisabled from "./PageRadioKeyDisabled/PageRadioKeyDisabled.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -18,6 +19,7 @@ export default {
     ATranslation,
     ARadio,
     PageRadioSearch,
+    PageRadioKeyDisabled,
   },
   setup() {
     const {

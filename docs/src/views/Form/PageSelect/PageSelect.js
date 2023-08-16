@@ -6,6 +6,7 @@ import ASelect from "../../../../../src/ui/ASelect/ASelect";
 import PageSelectBasic from "./PageSelectBasic/PageSelectBasic.vue";
 import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
+import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -24,6 +25,7 @@ export default {
     PageSelectBasic,
     PageSelectGroup,
     PageSelectSearch,
+    PageSelectKeyDisabled,
   },
   setup() {
     const {
