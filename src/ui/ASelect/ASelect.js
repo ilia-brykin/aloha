@@ -32,10 +32,12 @@ import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabe
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+
+import AKeyId from "../const/AKeyId";
+import placements from "../../const/placements";
 import {
   selectPluginOptions,
 } from "../../plugins/ASelectPlugin";
-import AKeyId from "../const/AKeyId";
 import {
   uniqueId,
 } from "lodash-es";
@@ -242,7 +244,7 @@ export default {
       type: String,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.placement,
-      // bottom-start, top-start, top-end, left, right
+      validator: placement => placements.indexOf(placement) !== -1,
     },
     popperContainerId: {
       type: String,
