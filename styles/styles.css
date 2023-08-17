@@ -6014,6 +6014,8 @@ input:not(:-webkit-autofill) {
 .a_table__filters_center__item {
   margin-top: .5rem;
   margin-left: .5rem; }
+  .a_table__filters_center__item .aloha_btn .a_table__filters_center__item__value {
+    margin-left: 0; }
 
 .a_table__filters_center__item__label {
   margin-right: .25rem; }
