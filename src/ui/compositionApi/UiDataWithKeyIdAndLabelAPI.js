@@ -5,7 +5,10 @@ import {
 
 import AKeyId from "../const/AKeyId";
 import AKeyLabel from "../const/AKeyLabel";
-
+import {
+  getTranslatedText,
+  isPlaceholderTranslate,
+} from "../../ATranslation/compositionAPI/UtilsAPI";
 import {
   cloneDeep,
   forEach,
@@ -15,13 +18,11 @@ import {
 
 export default function UiDataWithKeyIdAndLabelAPI(props) {
   const data = toRef(props, "data");
-
   const isDataSimpleArray = toRef(props, "isDataSimpleArray");
-
   const keyId = toRef(props, "keyId");
-
   const keyLabel = toRef(props, "keyLabel");
   const keyLabelCallback = toRef(props, "keyLabelCallback");
+  const translateData = toRef(props, "translateData");
 
   const dataLocal = computed(() => {
     const DATA = cloneDeep(data.value);
@@ -29,31 +30,47 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
       if (isDataSimpleArray.value) {
         const DATA_LOCAL = [];
         forEach(DATA, item => {
+          let label = keyLabelCallback.value({ item });
+          if (translateData.value && isPlaceholderTranslate(label)) {
+            label = getTranslatedText({ placeholder: label });
+          }
           DATA_LOCAL.push({
             [AKeyId]: item,
-            [AKeyLabel]: keyLabelCallback.value({ item }),
+            [AKeyLabel]: label,
           });
         });
         return DATA_LOCAL;
       }
       forEach(DATA, item => {
+        let label = keyLabelCallback.value({ item });
+        if (translateData.value && isPlaceholderTranslate(label)) {
+          label = getTranslatedText({ placeholder: label });
+        }
         item[AKeyId] = get(item, keyId.value);
-        item[AKeyLabel] = keyLabelCallback.value({ item });
+        item[AKeyLabel] = label;
       });
     } else {
       if (isDataSimpleArray.value) {
         const DATA_LOCAL = [];
         forEach(DATA, item => {
+          let label = item;
+          if (translateData.value && isPlaceholderTranslate(label)) {
+            label = getTranslatedText({ placeholder: label });
+          }
           DATA_LOCAL.push({
             [AKeyId]: item,
-            [AKeyLabel]: item,
+            [AKeyLabel]: label,
           });
         });
         return DATA_LOCAL;
       }
       forEach(DATA, item => {
+        let label = get(item, keyLabel.value);
+        if (translateData.value && isPlaceholderTranslate(label)) {
+          label = getTranslatedText({ placeholder: label });
+        }
         item[AKeyId] = get(item, keyId.value);
-        item[AKeyLabel] = get(item, keyLabel.value);
+        item[AKeyLabel] = label;
       });
     }
     return DATA;

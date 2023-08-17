@@ -298,6 +298,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.textSelectAll,
     },
+    translateData: {
+      type: Boolean,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.translateData,
+    },
     type: {
       type: String,
       required: false,

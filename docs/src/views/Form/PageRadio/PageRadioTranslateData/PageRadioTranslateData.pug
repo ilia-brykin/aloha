@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RADIO_GROUP_TRANSLATE_DATA_HEADER_"
+  description="_A_RADIO_GROUP_TRANSLATE_DATA_DESCRIPTION_"
+  props="translate-data"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-radio(
+        v-model="model"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        :translate-data="true"
+        type="select"
+      )
+      div model: {{ model }}

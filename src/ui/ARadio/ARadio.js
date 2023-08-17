@@ -224,6 +224,10 @@ export default {
       default: undefined,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
+    translateData: {
+      type: Boolean,
+      required: false,
+    },
     type: {
       type: String,
       required: false,

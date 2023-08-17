@@ -32,6 +32,7 @@ export const selectPluginOptions = ref({
     sortOrderGroup: undefined,
     textDeselectAll: "Alle abwählen",
     textSelectAll: "Alle auswählen",
+    translateData: false,
     type: "select",
   },
 });

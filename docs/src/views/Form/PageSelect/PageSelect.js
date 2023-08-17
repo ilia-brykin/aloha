@@ -7,6 +7,7 @@ import PageSelectBasic from "./PageSelectBasic/PageSelectBasic.vue";
 import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
+import PageSelectTranslateData from "./PageSelectTranslateData/PageSelectTranslateData.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -26,6 +27,7 @@ export default {
     PageSelectGroup,
     PageSelectSearch,
     PageSelectKeyDisabled,
+    PageSelectTranslateData,
   },
   setup() {
     const {
