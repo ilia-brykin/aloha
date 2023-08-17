@@ -5,7 +5,8 @@ import {
   toRef,
 } from "vue";
 
-import AIcon from "../../../AIcon/AIcon";
+import AButton from "../../../AButton/AButton";
+import ATranslation from "../../../ATranslation/ATranslation";
 
 import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
 import CloseFilterValueAPI from "./compositionAPI/CloseFilterValueAPI";
@@ -25,7 +26,6 @@ import {
   isArray,
   isNil,
 } from "lodash-es";
-
 
 export default {
   name: "ATableFilterCenterItem",
@@ -69,7 +69,7 @@ export default {
 
     const filterLabel = computed(() => {
       if (hasCurrentFilter.value) {
-        return `${ filter.value.label }:`;
+        return filter.value.label;
       }
       return "";
     });
@@ -166,38 +166,37 @@ export default {
           role: "group",
           class: "a_table__filters_center__item a_btn_group a_btn_group_small",
         }, [
-          this.filter.hasNotClose && h("button", {
+          this.filter.hasNotClose && h(AButton, {
             class: "a_btn a_btn_secondary",
             ariaHidden: true,
             tabindex: -1,
-          }, [
-            h(AIcon, {
-              icon: "PinFill",
-            }),
-          ]),
-          h("button", {
+            iconLeft: "PinFill",
+          }),
+          h(AButton, {
             class: "a_btn a_btn_secondary",
             onClick: this.goToFilter,
-          }, [
-            h("strong", {
+          }, () => [
+            this.filterLabel && h(ATranslation, {
+              tag: "strong",
               class: "a_table__filters_center__item__label",
-            }, this.filterLabel),
+              html: this.filterLabel,
+              textAfter: ":",
+            }),
             this.filter.slotName && this.$slots[this.filter.slotName] ?
               this.$slots[this.filter.slotName]({
                 item: modelValue.item,
                 label: modelValue.label,
               }) :
-              h("span", {}, modelValue.label),
+              h("span", {
+                class: "a_table__filters_center__item__value",
+              }, modelValue.label),
           ]),
-          !this.filter.hasNotClose && h("button", {
+          !this.filter.hasNotClose && h(AButton, {
             class: "a_btn a_btn_secondary",
             disabled: this.disabledFilters,
+            iconLeft: "Close",
             onClick: () => this.closeCurrentFilterValue({ currentModel: modelValue.value }),
-          }, [
-            h(AIcon, {
-              icon: "Close",
-            }),
-          ])
+          }),
         ]);
       }),
     ];

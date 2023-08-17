@@ -418,10 +418,14 @@
 .a_table__filters_center__item {
   margin-top: .5rem;
   margin-left: .5rem;
+  .aloha_btn .a_table__filters_center__item__value {
+    margin-left: 0;
+  }
 }
 .a_table__filters_center__item__label {
   margin-right: .25rem;
 }
+
 
 // PAGINATION
 .a_pagination__nav {

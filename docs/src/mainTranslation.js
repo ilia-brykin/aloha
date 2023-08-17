@@ -19,6 +19,7 @@ import PageTableI18n from "./views/PageTable/i18n/PageTableI18n";
 import PageTableSimpleI18n from "./views/PageTable/PageTableSimple/i18n/PageTableSimpleI18n";
 import PageTablePaginationI18n from "./views/PageTable/PageTablePagination/i18n/PageTablePaginationI18n";
 import PageTableSortI18n from "./views/PageTable/PageTableSort/i18n/PageTableSortI18n";
+import PageTableFiltersI18n from "./views/PageTable/PageTableFilters/i18n/PageTableFiltersI18n";
 import PageAOnHooksI18n from "./views/PageDirectives/PageOnHooks/i18n/PageAOnHooksI18n";
 import PageDisclosureI18n from "./views/PageDisclosure/i18n/PageDisclosureI18n";
 import PageTooltipI18n from "./views/PageTooltip/i18n/PageTooltipI18n";
@@ -45,6 +46,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.ar,
     ...PageTablePaginationI18n.ar,
     ...PageTableSortI18n.ar,
+    ...PageTableFiltersI18n.ar,
     ...PageAOnHooksI18n.ar,
     ...PageDisclosureI18n.ar,
     ...PageTooltipI18n.ar,
@@ -70,6 +72,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.de,
     ...PageTablePaginationI18n.de,
     ...PageTableSortI18n.de,
+    ...PageTableFiltersI18n.de,
     ...PageAOnHooksI18n.de,
     ...PageDisclosureI18n.de,
     ...PageTooltipI18n.de,
@@ -95,6 +98,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.en,
     ...PageTablePaginationI18n.en,
     ...PageTableSortI18n.en,
+    ...PageTableFiltersI18n.en,
     ...PageAOnHooksI18n.en,
     ...PageDisclosureI18n.en,
     ...PageTooltipI18n.en,
@@ -120,6 +124,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.es,
     ...PageTablePaginationI18n.es,
     ...PageTableSortI18n.es,
+    ...PageTableFiltersI18n.es,
     ...PageAOnHooksI18n.es,
     ...PageDisclosureI18n.es,
     ...PageTooltipI18n.es,
@@ -145,6 +150,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.fr,
     ...PageTablePaginationI18n.fr,
     ...PageTableSortI18n.fr,
+    ...PageTableFiltersI18n.fr,
     ...PageAOnHooksI18n.fr,
     ...PageDisclosureI18n.fr,
     ...PageTooltipI18n.fr,
@@ -170,6 +176,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.hr,
     ...PageTablePaginationI18n.hr,
     ...PageTableSortI18n.hr,
+    ...PageTableFiltersI18n.hr,
     ...PageAOnHooksI18n.hr,
     ...PageDisclosureI18n.hr,
     ...PageTooltipI18n.hr,
@@ -195,6 +202,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.it,
     ...PageTablePaginationI18n.it,
     ...PageTableSortI18n.it,
+    ...PageTableFiltersI18n.it,
     ...PageAOnHooksI18n.it,
     ...PageDisclosureI18n.it,
     ...PageTooltipI18n.it,
@@ -220,6 +228,7 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.ru,
     ...PageTablePaginationI18n.ru,
     ...PageTableSortI18n.ru,
+    ...PageTableFiltersI18n.ru,
     ...PageAOnHooksI18n.ru,
     ...PageDisclosureI18n.ru,
     ...PageTooltipI18n.ru,

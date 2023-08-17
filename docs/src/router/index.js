@@ -40,6 +40,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageTableSort" */ "../views/PageTable/PageTableSort/PageTableSort.vue"),
   },
   {
+    path: "/table-filters",
+    name: "PageTableFilters",
+    component: () => import(/* webpackChunkName: "PageTableFilters" */ "../views/PageTable/PageTableFilters/PageTableFilters.vue"),
+  },
+  {
     path: "/spinner",
     name: "PageSpinner",
     component: () => import(/* webpackChunkName: "PageSpinner" */ "../views/PageSpinner/PageSpinner.vue"),

@@ -354,8 +354,15 @@ export default {
               to: {
                 name: "PageTableSort",
               }
-            }
-          ]
+            },
+            {
+              id: "PageTableFilters",
+              label: "Table filters",
+              to: {
+                name: "PageTableFilters",
+              }
+            },
+          ],
         },
         {
           id: "tabs",
