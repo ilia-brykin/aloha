@@ -35,7 +35,7 @@ export default {
       required: false,
       default: 0,
     },
-    revers: {
+    reverse: {
       type: Boolean,
       required: false,
       default: false,
@@ -112,7 +112,7 @@ export default {
 
     return h("div", {
       class: ["a_progress", {
-        a_progress_revers: this.revers,
+        a_progress_revers: this.reverse, // todo a_progress_reverse
       }],
     }, [
       h("div", {

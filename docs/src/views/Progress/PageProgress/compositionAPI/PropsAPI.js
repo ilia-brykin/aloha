@@ -36,8 +36,8 @@ export default function PropsAPI() {
       required: "false",
     },
     {
-      name: "revers",
-      description: "_A_PROGRESS_PROPS_REVERS_",
+      name: "reverse",
+      description: "_A_PROGRESS_PROPS_REVERSE_",
       type: "Boolean",
       default: "false",
       required: "false",

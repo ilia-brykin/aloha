@@ -8,7 +8,7 @@ import PageProgressClassProgressBarFunction from "./PageProgressClassProgressBar
 import PageProgressDuration from "./PageProgressDuration/PageProgressDuration.vue";
 import PageProgressIndeterminate from "./PageProgressIndeterminate/PageProgressIndeterminate.vue";
 import PageProgressMinMax from "./PageProgressMinMax/PageProgressMinMax.vue";
-import PageProgressRevers from "./PageProgressRevers/PageProgressRevers.vue";
+import PageProgressReverse from "./PageProgressReverse/PageProgressReverse.vue";
 import PageProgressShowValue from "./PageProgressShowValue/PageProgressShowValue.vue";
 import PageProgressSizes from "./PageProgressSizes/PageProgressSizes.vue";
 import PageProgressSlotText from "./PageProgressSlotText/PageProgressSlotText.vue";
@@ -34,7 +34,7 @@ export default {
     PageProgressDuration,
     PageProgressIndeterminate,
     PageProgressMinMax,
-    PageProgressRevers,
+    PageProgressReverse,
     PageProgressShowValue,
     PageProgressSizes,
     PageProgressSlotText,
