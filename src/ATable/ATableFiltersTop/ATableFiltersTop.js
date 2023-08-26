@@ -4,10 +4,12 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import ASelect from "../../ui/ASelect/ASelect";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter";
 import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 
 import EventBusAPI from "./compositionAPI/EventBusAPI";
+import FiltersHiddenAPI from "./compositionAPI/FiltersHiddenAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
@@ -22,6 +24,15 @@ export default {
     filtersGroup: {
       type: Object,
       required: true,
+      default: () => ({
+        main: undefined,
+        alwaysVisible: [],
+        filters: [],
+      }),
+    },
+    filtersKeyById: {
+      type: Object,
+      required: true,
     },
     filtersVisible: {
       type: Array,
@@ -34,6 +45,7 @@ export default {
   },
   emits: [
     "startSearch",
+    "toggleFiltersVisible",
   ],
   setup(props, context) {
     const {
@@ -63,6 +75,13 @@ export default {
       onOpen,
     });
 
+    const {
+      addFiltersVisible,
+      deleteFiltersVisible,
+      filtersHidden,
+      hasFiltersHiddenDefault,
+    } = FiltersHiddenAPI(props, context);
+
     initEventBus();
 
     onBeforeUnmount(() => {
@@ -70,6 +89,10 @@ export default {
     });
 
     return {
+      addFiltersVisible,
+      deleteFiltersVisible,
+      filtersHidden,
+      hasFiltersHiddenDefault,
       iconToggle,
       isBtnToggleVisible,
       isOpen,
@@ -135,6 +158,7 @@ export default {
           this.filtersGroup.alwaysVisible.map(filter => {
             return h(ATableFiltersTopFilter, {
               key: filter.id,
+              closable: false,
               filter,
               modelFilters: this.modelFilters,
             }, this.$slots);
@@ -142,11 +166,27 @@ export default {
           this.filtersVisible.map(filter => {
             return h(ATableFiltersTopFilter, {
               key: filter.id,
+              closable: true,
               filter: filter,
               modelFilters: this.modelFilters,
+              onDeleteFiltersVisible: this.deleteFiltersVisible,
             }, this.$slots);
           }),
-          h("div", {}, [
+          h("div", {
+            class: "a_table__filters_top__footer",
+          }, [
+            this.hasFiltersHiddenDefault && h(ASelect, {
+              class: "a_table__filters_top__footer__select",
+              type: "select",
+              data: this.filtersHidden,
+              keyLabel: "label",
+              keyId: "id",
+              label: "_A_TABLE_FILTER_ADD_",
+              translateData: true,
+              disabled: !this.filtersHidden.length,
+              search: true,
+              change: this.addFiltersVisible,
+            }),
             BUTTON_SEARCH,
           ]),
         ]),

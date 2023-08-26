@@ -52,5 +52,6 @@
   "_WIZARD_NEXT_": "Nächste",
   "_WIZARD_PREVIOUS_": "Vorherige",
   "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Schritt {{ stepActive }} von {{ stepsCount }}: {{ stepActiveLabel }}",
+  "_A_TABLE_FILTER_ADD_": "Filter hinzufügen",
   "_YES_": "Ja"
 }

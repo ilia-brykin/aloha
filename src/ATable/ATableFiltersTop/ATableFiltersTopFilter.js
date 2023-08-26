@@ -5,17 +5,24 @@ import {
   toRef,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import ALabel from "../../ui/ALabel/ALabel";
 import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
 
 import {
+  getHtmlId,
+} from "../../ui/compositionApi/UiAPI";
+import {
   cloneDeep,
 } from "lodash-es";
-import { getHtmlId } from "../../ui/compositionApi/UiAPI";
 
 export default {
   name: "ATableFiltersTopFilter",
   props: {
+    closable: {
+      type: Boolean,
+      required: false,
+    },
     filter: {
       type: Object,
       required: false,
@@ -26,6 +33,9 @@ export default {
       required: true,
     },
   },
+  emits: [
+    "deleteFiltersVisible",
+  ],
   inject: [
     "tableId",
     "onUpdateModelFilters",
@@ -92,6 +102,12 @@ export default {
         modelFilters: this.modelFilters,
         isLabelVisible: this.isLabelInComponentVisible,
       }, this.$slots),
+      this.closable && h(AButton, {
+        class: "a_btn_close",
+        title: "_A_TABLE_FILTER_TOP_CLOSE_",
+        iconLeft: "Close",
+        onClick: () => this.$emit("deleteFiltersVisible", { filter: this.filter }),
+      }),
     ]);
   },
 };

@@ -17,31 +17,20 @@ export default function TableFiltersAPI(props, { emit }, {
   offset = ref(0),
   setFocusToTable = () => {},
 }) {
+  const filters = toRef(props, "filters");
   const modelFilters = toRef(props, "modelFilters");
   const offsetStart = toRef(props, "offsetStart");
   const updateModelFiltersLocal = toRef(props, "updateModelFiltersLocal");
 
-  const modelFiltersLocal = ref(cloneDeep(modelFilters.value));
-  const filtersVisibleIds = ref([]);
   const dataKeyByKeyIdPerFilter = ref({});
-
-  const toggleFiltersVisible = ({ isAdd = true, filterId }) => {
-    if (isAdd) {
-      filtersVisibleIds.value.push(filterId);
-    } else {
-      const INDEX = filtersVisibleIds.value.indexOf(filterId);
-      if (INDEX !== -1) {
-        filtersVisibleIds.value.splice(INDEX, 1);
-      }
-    }
-  };
-
-  const filters = toRef(props, "filters");
   const filtersDataKeyById = ref({});
+  const filtersVisibleIds = ref([]);
+  const modelFiltersLocal = ref(cloneDeep(modelFilters.value));
 
   const hasFilters = computed(() => {
     return filters.value.length > 0;
   });
+
   const filtersKeyById = computed(() => {
     const FILTERS = {};
     forEach(cloneDeep(filters.value), filter => {
@@ -167,6 +156,20 @@ export default function TableFiltersAPI(props, { emit }, {
     dataKeyByKeyIdPerFilter.value[filterId] = cloneDeep(dataKeyByKeyId);
   };
 
+  const toggleFiltersVisible = ({ isAdd = true, filterId }) => {
+    if (isAdd) {
+      filtersVisibleIds.value.push(filterId);
+    } else {
+      const INDEX = filtersVisibleIds.value.indexOf(filterId);
+      if (INDEX !== -1) {
+        filtersVisibleIds.value.splice(INDEX, 1);
+      }
+      const MODEL_FILTERS_LOCAL = cloneDeep(modelFiltersLocal.value);
+      MODEL_FILTERS_LOCAL[filterId] = undefined;
+      onUpdateModelFilters({ model: MODEL_FILTERS_LOCAL });
+    }
+  };
+
   return {
     closeFilterValue,
     dataKeyByKeyIdPerFilter,
@@ -175,10 +178,11 @@ export default function TableFiltersAPI(props, { emit }, {
     filtersKeyById,
     filtersVisible,
     filtersVisibleAll,
+    filtersVisibleIds,
     hasFilters,
     modelFiltersLocal,
-    startSearch,
     onUpdateModelFilters,
+    startSearch,
     toggleFiltersVisible,
     updateDataKeyByIdFromFilter,
   };
