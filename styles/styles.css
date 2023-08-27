@@ -3117,6 +3117,46 @@ body {
   --a_list_group_active_bg: var(--a_color_dark_text_emphasis);
   --a_list_group_active_border_color: var(--a_color_dark_text_emphasis); }
 
+.a_list_columns > * {
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+  -webkit-column-break-inside: avoid;
+  overflow: hidden;
+  /* fix for firefox */
+  display: inline-grid;
+  /* fix for firefox */
+  width: 100%; }
+  @supports (break-inside: avoid-column) {
+    .a_list_columns > * {
+      overflow: visible; } }
+
+.a_list_columns_2 {
+  column-count: 2; }
+
+@media screen and (max-width: 768px) {
+  .a_list_columns_2_mobile {
+    column-count: 2; } }
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .a_list_columns_2_tablet {
+    column-count: 2; } }
+
+@media screen and (max-width: 1023px) {
+  .a_list_columns_2_touch {
+    column-count: 2; } }
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  .a_list_columns_2_desktop {
+    column-count: 2; } }
+
+@media screen and (min-width: 1216px) and (max-width: 1407px) {
+  .a_list_columns_2_widescreen {
+    column-count: 2; } }
+
+@media screen and (min-width: 1408px) {
+  .a_list_columns_2_fullhd {
+    column-count: 2; } }
+
 .a_dropdown {
   display: inline-block;
   position: relative; }
