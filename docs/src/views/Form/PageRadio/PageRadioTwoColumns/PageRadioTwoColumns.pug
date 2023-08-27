@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RADIO_GROUP_TWO_COLUMNS_HEADER_"
+  description="_A_RADIO_GROUP_TWO_COLUMNS_DESCRIPTION_"
+  props="class-data-parent"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-radio(
+        v-model="model"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        type="select"
+        class-data-parent="a_list_columns a_list_columns_2"
+      )
+      div model: {{ model }}
+      a-radio(
+        v-model="model"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="_A_RADIO_LABEL_WIDE_SCREEN_"
+        type="select"
+        class-data-parent="a_list_columns a_list_columns_2_desktop a_list_columns_2_widescreen a_list_columns_2_fullhd"
+      )
+      div model: {{ model }}

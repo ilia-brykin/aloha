@@ -5,6 +5,7 @@ import ARadio from "../../../../../src/ui/ARadio/ARadio";
 import PageRadioSearch from "./PageRadioSearch/PageRadioSearch.vue";
 import PageRadioKeyDisabled from "./PageRadioKeyDisabled/PageRadioKeyDisabled.vue";
 import PageRadioTranslateData from "./PageRadioTranslateData/PageRadioTranslateData.vue";
+import PageRadioTwoColumns from "./PageRadioTwoColumns/PageRadioTwoColumns.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -22,6 +23,7 @@ export default {
     PageRadioSearch,
     PageRadioKeyDisabled,
     PageRadioTranslateData,
+    PageRadioTwoColumns,
   },
   setup() {
     const {

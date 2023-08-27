@@ -44,6 +44,11 @@ export default {
       required: false,
       default: undefined,
     },
+    classDataParent: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     classFieldset: {
       type: [String, Object],
       required: false,
@@ -417,9 +422,12 @@ export default {
               ] :
               [
                 h("div", {
-                  class: {
-                    a_btn_group: this.isButtonGroup,
-                  },
+                  class: [
+                    {
+                      a_btn_group: this.isButtonGroup,
+                    },
+                    this.classDataParent,
+                  ],
                 }, [
                   ...this.dataSort.map((item, itemIndex) => {
                     return h(ACheckboxItem, {

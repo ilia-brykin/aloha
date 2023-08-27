@@ -6,6 +6,7 @@ import AOneCheckbox from "../../../../../src/ui/AOneCheckbox/AOneCheckbox";
 import PageCheckboxSearch from "./PageCheckboxSearch/PageCheckboxSearch.vue";
 import PageCheckboxKeyDisabled from "./PageCheckboxKeyDisabled/PageCheckboxKeyDisabled.vue";
 import PageCheckboxTranslateData from "./PageCheckboxTranslateData/PageCheckboxTranslateData.vue";
+import PageCheckboxTwoColumns from "./PageCheckboxTwoColumns/PageCheckboxTwoColumns.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -24,6 +25,7 @@ export default {
     PageCheckboxSearch,
     PageCheckboxKeyDisabled,
     PageCheckboxTranslateData,
+    PageCheckboxTwoColumns,
   },
   setup() {
     const {
