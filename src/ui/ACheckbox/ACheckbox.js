@@ -73,11 +73,6 @@ export default {
       required: false,
       default: undefined,
     },
-    errorsAll: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     hasBorder: {
       type: Boolean,
       required: false,
@@ -106,9 +101,6 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
-    },
-    inputClass: {
-      required: false,
     },
     isButtonGroup: {
       type: Boolean,
@@ -340,6 +332,7 @@ export default {
   render() {
     return this.isRender && h("div", {
       style: this.componentStyleHide,
+      errorsAll: undefined,
     }, [
       h("div", {
         class: ["a_form_element__parent"],
@@ -362,9 +355,13 @@ export default {
           }, [
             this.label && h(ATranslation, {
               tag: "legend",
-              class: ["a_legend", {
-                a_legend_invalid: this.isErrors,
-              }],
+              class: [
+                "a_legend",
+                {
+                  a_legend_invalid: this.isErrors,
+                },
+                this.labelClass,
+              ],
               html: this.label,
               textAfter: this.textAfterLabel,
             }),
