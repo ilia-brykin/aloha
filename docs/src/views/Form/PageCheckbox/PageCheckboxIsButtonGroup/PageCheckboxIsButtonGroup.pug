@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_HEADER_"
+  description="_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_DESCRIPTION_"
+  props="is-button-group"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :is-button-group="true"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        type="select"
+      )
+      div model: {{ model }}
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :is-button-group="true"
+        :key-group="['alohaBR', 'aloha']"
+        key-id="id"
+        key-label="label"
+        label="Aloha group"
+      )
+      div model: {{ model }}

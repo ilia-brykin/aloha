@@ -1,9 +1,9 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import ARadio from "../../../../../src/ui/ARadio/ARadio";
-import PageRadioSearch from "./PageRadioSearch/PageRadioSearch.vue";
+import PageRadioIsButtonGroup from "./PageRadioIsButtonGroup/PageRadioIsButtonGroup.vue";
 import PageRadioKeyDisabled from "./PageRadioKeyDisabled/PageRadioKeyDisabled.vue";
+import PageRadioSearch from "./PageRadioSearch/PageRadioSearch.vue";
 import PageRadioTranslateData from "./PageRadioTranslateData/PageRadioTranslateData.vue";
 import PageRadioTwoColumns from "./PageRadioTwoColumns/PageRadioTwoColumns.vue";
 
@@ -19,9 +19,9 @@ export default {
     AlohaPage,
     AlohaTableProps,
     ATranslation,
-    ARadio,
-    PageRadioSearch,
+    PageRadioIsButtonGroup,
     PageRadioKeyDisabled,
+    PageRadioSearch,
     PageRadioTranslateData,
     PageRadioTwoColumns,
   },
