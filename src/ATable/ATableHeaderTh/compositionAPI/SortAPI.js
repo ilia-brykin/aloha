@@ -139,9 +139,9 @@ export default function SortAPI(props) {
   const titlesSort = computed(() => {
     const TITLES = [];
     if (isSortable.value) {
-      TITLES.push("_TABLE_SORT_TITLE_");
+      TITLES.push("_A_TABLE_SORT_TITLE_");
       if (isSortingMultiColumn.value) {
-        TITLES.push("_TABLE_SORT_TITLE_MULTI_COLUMN_");
+        TITLES.push("_A_TABLE_SORT_TITLE_MULTI_COLUMN_");
       }
     }
     return TITLES;

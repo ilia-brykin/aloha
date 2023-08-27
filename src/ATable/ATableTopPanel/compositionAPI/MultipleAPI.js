@@ -25,8 +25,8 @@ export default function MultipleAPI(props, { emit }) {
 
   const textMultipleBtnAllRowsTranslate = computed(() => {
     return areAllRowsSelected.value ?
-      "_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_" :
-      "_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_";
+      "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_" :
+      "_A_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_";
   });
 
   const isBtnSelectAllRowsDisabled = computed(() => {

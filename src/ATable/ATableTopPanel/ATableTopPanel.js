@@ -242,7 +242,7 @@ export default {
             },
           }),
           this.isQuickSearch && h(AInput, {
-            label: "_QUICK_SEARCH_",
+            label: "_A_TABLE_QUICK_SEARCH_",
             class: "a_table__top_panel__actions__quick_search",
             modelUndefined: "",
             modelValue: this.modelQuickSearch,
@@ -277,7 +277,7 @@ export default {
           h(ATranslation, {
             class: "a_table__multiple_panel__header__text",
             tag: "strong",
-            text: "_MULTIPLE_ACTIONS_",
+            text: "_A_TABLE_MULTIPLE_ACTIONS_",
           }),
           h("div", {
             class: "a_table__multiple_panel__items",
@@ -285,7 +285,7 @@ export default {
             h(ATranslation, {
               class: "a_table__multiple_panel__items__selected",
               tag: "span",
-              text: "_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_",
+              text: "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_",
               extra: this.textMultipleSelectedTranslateExtra,
             }),
             this.currentMultipleActions.isAllRowsSelected &&
@@ -321,7 +321,7 @@ export default {
           h(AButton, {
             class: "a_btn a_btn_secondary a_table__action",
             type: "button",
-            text: "_TABLE_MULTIPLE_CANCEL_",
+            text: "_A_TABLE_MULTIPLE_CANCEL_",
             onClick: this.onCancelMultipleActions,
           }),
         ]),

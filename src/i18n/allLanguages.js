@@ -12,6 +12,7 @@ import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
 import ARadioI18n from "../ui/ARadio/i18n/ARadioI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
+import ATableI18n from "../ATable/i18n/ATableI18n";
 
 export default {
   ar: {
@@ -21,6 +22,7 @@ export default {
     ...ARadioI18n.ar,
     ...ACheckboxI18n.ar,
     ...ASelectI18n.ar,
+    ...ATableI18n.ar,
   },
   de: {
     ...de,
@@ -29,6 +31,7 @@ export default {
     ...ARadioI18n.de,
     ...ACheckboxI18n.de,
     ...ASelectI18n.de,
+    ...ATableI18n.de,
   },
   en: {
     ...en,
@@ -37,6 +40,7 @@ export default {
     ...ARadioI18n.en,
     ...ACheckboxI18n.en,
     ...ASelectI18n.en,
+    ...ATableI18n.en,
   },
   es: {
     ...es,
@@ -45,6 +49,7 @@ export default {
     ...ARadioI18n.es,
     ...ACheckboxI18n.es,
     ...ASelectI18n.es,
+    ...ATableI18n.es,
   },
   fr: {
     ...fr,
@@ -53,6 +58,7 @@ export default {
     ...ARadioI18n.fr,
     ...ACheckboxI18n.fr,
     ...ASelectI18n.fr,
+    ...ATableI18n.fr,
   },
   hr: {
     ...hr,
@@ -61,6 +67,7 @@ export default {
     ...ARadioI18n.hr,
     ...ACheckboxI18n.hr,
     ...ASelectI18n.hr,
+    ...ATableI18n.hr,
   },
   it: {
     ...it,
@@ -69,6 +76,7 @@ export default {
     ...ARadioI18n.it,
     ...ACheckboxI18n.it,
     ...ASelectI18n.it,
+    ...ATableI18n.it,
   },
   ru: {
     ...ru,
@@ -77,5 +85,6 @@ export default {
     ...ARadioI18n.ru,
     ...ACheckboxI18n.ru,
     ...ASelectI18n.ru,
+    ...ATableI18n.ru,
   },
 };

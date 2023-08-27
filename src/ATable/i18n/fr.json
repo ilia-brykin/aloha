@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_CLOSE_ADVANCED_SEARCH_": "Fermer la recherche avancée",
+  "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Désélectionner toutes les lignes ({{ countAllRows }})",
+  "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_",
+  "_A_TABLE_DESELECT_THIS_ROW_": "_A_TABLE_DESELECT_THIS_ROW_",
+  "_A_TABLE_EXECUTE_MULTIPLE_ACTION_": "Effectuer plusieurs actions ?",
+  "_A_TABLE_FILTER_ADD_": "_A_TABLE_FILTER_ADD_",
+  "_A_TABLE_FILTER_TOP_CLOSE_": "_A_TABLE_FILTER_TOP_CLOSE_",
+  "_A_TABLE_MULTIPLE_ACTIONS_": "actions multiples",
+  "_A_TABLE_MULTIPLE_CANCEL_": "Annuler plusieurs actions",
+  "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} de {{ countAllRows }} choisi",
+  "_A_TABLE_OPEN_ADVANCED_SEARCH_": "Ouvrir la recherche avancée",
+  "_A_TABLE_QUICK_SEARCH_": "recherche rapide",
+  "_A_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Sélectionner toutes les lignes ({{ countAllRows }})",
+  "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_",
+  "_A_TABLE_SELECT_THIS_ROW_": "_A_TABLE_SELECT_THIS_ROW_",
+  "_A_TABLE_SORT_TITLE_": "_A_TABLE_SORT_TITLE_",
+  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "_A_TABLE_SORT_TITLE_MULTI_COLUMN_",
+  "_A_TABLE_START_SEARCH_": "lancer la recherche"
+}

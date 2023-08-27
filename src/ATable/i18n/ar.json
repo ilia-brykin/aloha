@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_CLOSE_ADVANCED_SEARCH_": "إغلاق البحث المتقدم",
+  "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "قم بإلغاء تحديد كل الصفوف ({{ countAllRows }})",
+  "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_",
+  "_A_TABLE_DESELECT_THIS_ROW_": "_A_TABLE_DESELECT_THIS_ROW_",
+  "_A_TABLE_EXECUTE_MULTIPLE_ACTION_": "أداء عدة إجراءات؟",
+  "_A_TABLE_FILTER_ADD_": "_A_TABLE_FILTER_ADD_",
+  "_A_TABLE_FILTER_TOP_CLOSE_": "_A_TABLE_FILTER_TOP_CLOSE_",
+  "_A_TABLE_MULTIPLE_ACTIONS_": "إجراءات متعددة",
+  "_A_TABLE_MULTIPLE_CANCEL_": "إلغاء الإجراءات المتعددة",
+  "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "المحدد {{ countAllRows }} من {{ countSelectedRows }}",
+  "_A_TABLE_OPEN_ADVANCED_SEARCH_": "افتح البحث المتقدم",
+  "_A_TABLE_QUICK_SEARCH_": "بحث سريع",
+  "_A_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "حدد كل الصفوف ({{ countAllRows }})",
+  "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_",
+  "_A_TABLE_SELECT_THIS_ROW_": "_A_TABLE_SELECT_THIS_ROW_",
+  "_A_TABLE_SORT_TITLE_": "_A_TABLE_SORT_TITLE_",
+  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "_A_TABLE_SORT_TITLE_MULTI_COLUMN_",
+  "_A_TABLE_START_SEARCH_": "ابدأ البحث"
+}

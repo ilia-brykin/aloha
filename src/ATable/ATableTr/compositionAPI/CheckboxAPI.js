@@ -39,8 +39,8 @@ export default function CheckboxAPI(props, { emit }) {
 
   const labelCheckbox = computed(() => {
     return isRowSelected.value ?
-      "_TABLE_DESELECT_THIS_ROW_" :
-      "_TABLE_SELECT_THIS_ROW_";
+      "_A_TABLE_DESELECT_THIS_ROW_" :
+      "_A_TABLE_SELECT_THIS_ROW_";
   });
 
   const toggleCheckbox = () => {

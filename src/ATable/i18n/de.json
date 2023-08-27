@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_CLOSE_ADVANCED_SEARCH_": "Erweiterte Suche schließen",
+  "_A_TABLE_FILTER_TOP_CLOSE_": "Filter löschen",
+  "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Alle Zeilen abwählen ({{ countAllRows }})",
+  "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Alle ausgewählten Zeilen abwählen",
+  "_A_TABLE_DESELECT_THIS_ROW_": "Die Zeile abwählen",
+  "_A_TABLE_EXECUTE_MULTIPLE_ACTION_": "Mehrfachaktion durchführen?",
+  "_A_TABLE_FILTER_ADD_": "Filter hinzufügen",
+  "_A_TABLE_MULTIPLE_ACTIONS_": "Mehrfachaktionen",
+  "_A_TABLE_MULTIPLE_CANCEL_": "Mehrfachaktion abbrechen",
+  "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "{{ countSelectedRows }} von {{ countAllRows }} ausgewählt",
+  "_A_TABLE_OPEN_ADVANCED_SEARCH_": "Erweiterte Suche öffnen",
+  "_A_TABLE_QUICK_SEARCH_": "Schnellsuche",
+  "_A_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_": "Alle Zeilen auswählen ({{ countAllRows }})",
+  "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Alle sichtbaren, relevanten Zeilen auswählen",
+  "_A_TABLE_SELECT_THIS_ROW_": "Die Zeile auswählen",
+  "_A_TABLE_SORT_TITLE_": "Klicken Sie hier, um zwischen aufsteigender, absteigender und keiner Sortierung zu wechseln.",
+  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "Halten Sie die Umschalttaste beim Klicken gedrückt, um die Sortierung mehrerer Spalten zu kombinieren.",
+  "_A_TABLE_START_SEARCH_": "Suche starten"
+}

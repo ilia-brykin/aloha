@@ -27,7 +27,7 @@ export default function ToggleAPI() {
   });
 
   const textToggle = computed(() => {
-    return isOpen.value ? "_CLOSE_ADVANCED_SEARCH_" : "_OPEN_ADVANCED_SEARCH_";
+    return isOpen.value ? "_A_TABLE_CLOSE_ADVANCED_SEARCH_" : "_A_TABLE_OPEN_ADVANCED_SEARCH_";
   });
 
   const styleToggle = computed(() => {

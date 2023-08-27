@@ -108,10 +108,10 @@ export default {
       iconLeft: "Search",
       type: "submit",
       text: {
-        desktop: "_START_SEARCH_",
+        desktop: "_A_TABLE_START_SEARCH_",
       },
       textScreenReader: {
-        mobile: "_START_SEARCH_",
+        mobile: "_A_TABLE_START_SEARCH_",
       },
       prevent: true,
       stop: true,
