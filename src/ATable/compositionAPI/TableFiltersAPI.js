@@ -81,15 +81,16 @@ export default function TableFiltersAPI(props, { emit }, {
 
   const filtersVisibleAll = computed(() => {
     const FILTERS = [];
-    if (filtersGroup.value.main) {
-      FILTERS.push(filtersGroup.value.main);
-    }
-    if (filtersGroup.value.alwaysVisible.length) {
-      FILTERS.push(...filtersGroup.value.alwaysVisible);
-    }
-    if (filtersVisible.value.length) {
-      FILTERS.push(...filtersVisible.value);
-    }
+    FILTERS.push(...filters.value);
+    // if (filtersGroup.value.main) {
+    //   FILTERS.push(filtersGroup.value.main);
+    // }
+    // if (filtersGroup.value.alwaysVisible.length) {
+    //   FILTERS.push(...filtersGroup.value.alwaysVisible);
+    // }
+    // if (filtersVisible.value.length) {
+    //   FILTERS.push(...filtersVisible.value);
+    // }
     const FILERS_NEW = [];
     forEach(FILTERS, filter => {
       FILERS_NEW.push(filter);
