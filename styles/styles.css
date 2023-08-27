@@ -4613,7 +4613,7 @@ h6 {
   background-color: var(--a_progress_bg);
   border-radius: var(--a_progress_border_radius); }
 
-.a_progress_revers {
+.a_progress_reverse {
   flex-direction: row-reverse; }
 
 .a_progress_small {
