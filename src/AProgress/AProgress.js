@@ -112,7 +112,7 @@ export default {
 
     return h("div", {
       class: ["a_progress", {
-        a_progress_revers: this.reverse, // todo a_progress_reverse
+        a_progress_reverse: this.reverse,
       }],
     }, [
       h("div", {
