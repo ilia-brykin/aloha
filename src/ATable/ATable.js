@@ -533,6 +533,7 @@ export default {
       filtersVisible,
       filtersVisibleAll,
       hasFilters,
+      initModelFiltersLocal,
       modelFiltersLocal,
       onUpdateModelFilters,
       startSearch,
@@ -610,6 +611,7 @@ export default {
 
     initViewCurrent();
     initModelSort();
+    initModelFiltersLocal();
 
     return {
       allVisibleMobileColumns,

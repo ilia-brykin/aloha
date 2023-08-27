@@ -25,7 +25,7 @@ export default function TableFiltersAPI(props, { emit }, {
   const dataKeyByKeyIdPerFilter = ref({});
   const filtersDataKeyById = ref({});
   const filtersVisibleIds = ref([]);
-  const modelFiltersLocal = ref(cloneDeep(modelFilters.value));
+  const modelFiltersLocal = ref({});
 
   const hasFilters = computed(() => {
     return filters.value.length > 0;
@@ -171,6 +171,21 @@ export default function TableFiltersAPI(props, { emit }, {
     }
   };
 
+  const initFiltersVisibleIds = () => {
+    const FILTERS_VISIBLE_IDS = [];
+    forEach(filtersGroup.value.filters, filter => {
+      if (modelFiltersLocal.value[filter.id]) {
+        FILTERS_VISIBLE_IDS.push(filter.id);
+      }
+    });
+    filtersVisibleIds.value = FILTERS_VISIBLE_IDS;
+  };
+
+  const initModelFiltersLocal = () => {
+    modelFiltersLocal.value = cloneDeep(modelFilters.value);
+    initFiltersVisibleIds();
+  };
+
   return {
     closeFilterValue,
     dataKeyByKeyIdPerFilter,
@@ -181,6 +196,7 @@ export default function TableFiltersAPI(props, { emit }, {
     filtersVisibleAll,
     filtersVisibleIds,
     hasFilters,
+    initModelFiltersLocal,
     modelFiltersLocal,
     onUpdateModelFilters,
     startSearch,
