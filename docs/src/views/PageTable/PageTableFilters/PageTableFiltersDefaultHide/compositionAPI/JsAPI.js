@@ -38,8 +38,36 @@ export default {
         label: "_A_TABLE_COLUMN_5_",
       },
     ];
-
+    const filters = [
+      {
+        type: "text",
+        id: "search",
+        label: "_A_TABLE_FILTER_SEARCH_",
+        main: true,
+      },
+      {
+        type: "text",
+        id: "aloha",
+        label: "_A_TABLE_FILTER_TEXT_",
+        alwaysVisible: true,
+      },
+      {
+        type: "date",
+        id: "date",
+        label: "_A_TABLE_FILTER_DATE_",
+      },
+      {
+        type: "text",
+        id: "aloha1",
+        label: "_A_TABLE_FILTER_EXTRA_",
+      },
+    ];
     const data = ref([]);
+    const modelFilters = ref({});
+
+    const updateModelFilters = ({ model } = {}) => {
+      modelFilters.value = cloneDeep(model);
+    };
 
     const setData = () => {
       const DATA = [];
@@ -57,6 +85,9 @@ export default {
     return {
       columns,
       data,
+      modelFilters,
+      filters,
+      updateModelFilters,
     };
   },
 };`;
