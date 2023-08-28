@@ -1,0 +1,31 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_FIELDSET_GROUP_COLLAPSE_HEADER_"
+  description="_A_FIELDSET_GROUP_COLLAPSE_DESCRIPTION_"
+  :props="['collapse', 'is-collapsed']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-fieldset(
+        :collapse="true"
+        slot-name="fieldset"
+        class-columns=""
+        label="Aloha"
+      )
+        template(
+          v-slot:fieldset
+        )
+          div Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+
+      a-fieldset(
+        class="a_mt_5"
+        :collapse="true"
+        :is-collapsed="true"
+        slot-name="fieldset"
+        class-columns=""
+      )
+        template(
+          v-slot:fieldset
+        )
+          div Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum

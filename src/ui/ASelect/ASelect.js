@@ -609,7 +609,7 @@ export default {
                     ariaLabelledby: this.htmlIdLocal,
                   }, [
                     this.searchOutside && h("div", {
-                      class: "a_select_search",
+                      class: "a_select__search",
                     }, [
                       h("form", {
                         onSubmit: this.onSearchOutside,

@@ -15,6 +15,7 @@ import ASafeHtml from "../../directives/ASafeHtml";
 import ChangeAPI from "../ACheckbox/compositionAPI/ChangeAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
@@ -52,6 +53,11 @@ export default {
     },
     classFieldset: {
       type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    collapse: {
+      type: Boolean,
       required: false,
       default: undefined,
     },
@@ -106,6 +112,11 @@ export default {
     isButtonGroup: {
       type: Boolean,
       required: false,
+    },
+    isCollapsed: {
+      type: Boolean,
+      required: false,
+      default: undefined,
     },
     isDataSimpleArray: {
       type: Boolean,
@@ -232,6 +243,7 @@ export default {
   },
   emits: [
     "onSearchOutside",
+    "toggleCollapse",
     "updateData",
     "update:modelValue",
   ],
@@ -303,6 +315,16 @@ export default {
       changeModel,
     });
 
+    const {
+      iconCollapse,
+      initIsCollapsedLocal,
+      isCollapsedLocal,
+      titleCollapse,
+      toggleCollapse,
+    } = UiCollapseAPI(props, context);
+
+    initIsCollapsedLocal();
+
     return {
       ariaDescribedbyLocal,
       componentStyleHide,
@@ -315,7 +337,9 @@ export default {
       hasNotElementsWithSearch,
       helpTextId,
       htmlIdLocal,
+      iconCollapse,
       idForButtonSearchOutside,
+      isCollapsedLocal,
       isErrors,
       modelSearch,
       modelSearchLowerCase,
@@ -326,6 +350,8 @@ export default {
       onSearchOutside,
       searchOutsideRef,
       textAfterLabel,
+      titleCollapse,
+      toggleCollapse,
       updateModelSearch,
       updateModelSearchOutside,
     };
@@ -350,6 +376,7 @@ export default {
               {
                 a_fieldset_no_border: !this.hasBorder,
                 a_fieldset_invalid: this.isErrors,
+                a_fieldset_collapsed: this.isCollapsedLocal,
               }
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
@@ -366,92 +393,104 @@ export default {
               html: this.label,
               textAfter: this.textAfterLabel,
             }),
-            this.searchOutside && h("div", {
-              class: "a_select_search",
+            this.collapse && h(AButton, {
+              class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
+              iconLeft: this.iconCollapse,
+              title: this.titleCollapse,
+              textScreenReader: this.titleCollapse,
+              onClick: this.toggleCollapse,
+            }),
+            h("div", {
+              class: "a_fieldset__content",
             }, [
-              h("form", {
-                onSubmit: this.onSearchOutside,
+              this.searchOutside && h("div", {
+                class: "a_fieldset__search",
               }, [
-                h("div", {
-                  class: "input-group",
+                h("form", {
+                  onSubmit: this.onSearchOutside,
                 }, [
-                  h(AInput, {
-                    label: "_A_SELECT_SEARCH_",
-                    inputClass: "a_select__element_clickable",
-                    modelValue: this.modelSearchOutside,
-                    modelUndefined: "",
-                    "onUpdate:modelValue": this.updateModelSearchOutside,
-                  }),
-                  h(AButton, {
-                    disabled: this.disabled,
-                    class: "a_btn a_btn_primary",
-                    type: "submit",
-                    iconLeft: "Search",
-                  }),
-                ]),
-              ]),
-            ]),
-            this.search && h(AInput, {
-              label: "_A_RADIO_SEARCH_",
-              modelValue: this.modelSearch,
-              modelUndefined: "",
-              "onUpdate:modelValue": this.updateModelSearch,
-            }),
-            h("div", {}, this.hasKeyGroup ?
-              [
-                h(ACheckboxRadioGroup, {
-                  id: `${ this.htmlIdLocal }_lev_0`,
-                  classButtonGroupDefault: this.classButtonGroupDefault,
-                  dataGrouped: this.dataGrouped,
-                  disabled: this.disabled,
-                  elementsVisibleWithSearch: this.elementsVisibleWithSearch,
-                  groupsForLever: this.groupsForLever,
-                  isButtonGroup: this.isButtonGroup,
-                  isErrors: this.isErrors,
-                  isWidthAuto: this.isWidthAuto,
-                  keyDisabled: this.keyDisabled,
-                  levelIndex: 0,
-                  modelSearch: this.modelSearchLowerCase,
-                  modelValue: this.modelValue,
-                  slotName: this.slotName,
-                  type: "radio",
-                  onChangeModelValue: this.onChangeModelValue,
-                }, this.$slots),
-              ] :
-              [
-                h("div", {
-                  class: [
-                    {
-                      a_btn_group: this.isButtonGroup,
-                    },
-                    this.classDataParent,
-                  ],
-                }, [
-                  ...this.dataSort.map((item, itemIndex) => {
-                    return h(ARadioItem, {
-                      key: item[AKeyId],
-                      id: this.htmlIdLocal,
-                      classButtonGroupDefault: this.classButtonGroupDefault,
-                      dataItem: item,
+                  h("div", {
+                    class: "input-group",
+                  }, [
+                    h(AInput, {
+                      label: "_A_SELECT_SEARCH_",
+                      inputClass: "a_select__element_clickable",
+                      modelValue: this.modelSearchOutside,
+                      modelUndefined: "",
+                      "onUpdate:modelValue": this.updateModelSearchOutside,
+                    }),
+                    h(AButton, {
                       disabled: this.disabled,
-                      elementsVisibleWithSearch: this.elementsVisibleWithSearch,
-                      isButtonGroup: this.isButtonGroup,
-                      isErrors: this.isErrors,
-                      isWidthAuto: this.isWidthAuto,
-                      itemIndex,
-                      keyDisabled: this.keyDisabled,
-                      modelSearch: this.modelSearchLowerCase,
-                      modelValue: this.modelValue,
-                      slotName: this.slotName,
-                      onChangeModelValue: this.onChangeModelValue,
-                    }, this.$slots);
-                  })
+                      class: "a_btn a_btn_primary",
+                      type: "submit",
+                      iconLeft: "Search",
+                    }),
+                  ]),
                 ]),
               ]),
-            this.hasNotElementsWithSearch && h(ATranslation, {
-              class: "a_form__not_elements",
-              text: "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_",
-            }),
+              this.search && h(AInput, {
+                class: "a_fieldset__search",
+                label: "_A_RADIO_SEARCH_",
+                modelValue: this.modelSearch,
+                modelUndefined: "",
+                "onUpdate:modelValue": this.updateModelSearch,
+              }),
+              h("div", {}, this.hasKeyGroup ?
+                [
+                  h(ACheckboxRadioGroup, {
+                    id: `${ this.htmlIdLocal }_lev_0`,
+                    classButtonGroupDefault: this.classButtonGroupDefault,
+                    dataGrouped: this.dataGrouped,
+                    disabled: this.disabled,
+                    elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                    groupsForLever: this.groupsForLever,
+                    isButtonGroup: this.isButtonGroup,
+                    isErrors: this.isErrors,
+                    isWidthAuto: this.isWidthAuto,
+                    keyDisabled: this.keyDisabled,
+                    levelIndex: 0,
+                    modelSearch: this.modelSearchLowerCase,
+                    modelValue: this.modelValue,
+                    slotName: this.slotName,
+                    type: "radio",
+                    onChangeModelValue: this.onChangeModelValue,
+                  }, this.$slots),
+                ] :
+                [
+                  h("div", {
+                    class: [
+                      {
+                        a_btn_group: this.isButtonGroup,
+                      },
+                      this.classDataParent,
+                    ],
+                  }, [
+                    ...this.dataSort.map((item, itemIndex) => {
+                      return h(ARadioItem, {
+                        key: item[AKeyId],
+                        id: this.htmlIdLocal,
+                        classButtonGroupDefault: this.classButtonGroupDefault,
+                        dataItem: item,
+                        disabled: this.disabled,
+                        elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                        isButtonGroup: this.isButtonGroup,
+                        isErrors: this.isErrors,
+                        isWidthAuto: this.isWidthAuto,
+                        itemIndex,
+                        keyDisabled: this.keyDisabled,
+                        modelSearch: this.modelSearchLowerCase,
+                        modelValue: this.modelValue,
+                        slotName: this.slotName,
+                        onChangeModelValue: this.onChangeModelValue,
+                      }, this.$slots);
+                    })
+                  ]),
+                ]),
+              this.hasNotElementsWithSearch && h(ATranslation, {
+                class: "a_form__not_elements",
+                text: "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_",
+              }),
+            ]),
           ]),
         ]),
         this.helpText && withDirectives(h("div", {

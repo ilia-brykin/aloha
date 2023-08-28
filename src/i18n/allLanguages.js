@@ -13,6 +13,7 @@ import ARadioI18n from "../ui/ARadio/i18n/ARadioI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
+import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 
 export default {
   ar: {
@@ -23,6 +24,7 @@ export default {
     ...ACheckboxI18n.ar,
     ...ASelectI18n.ar,
     ...ATableI18n.ar,
+    ...AFieldsetI18n.ar,
   },
   de: {
     ...de,
@@ -32,6 +34,7 @@ export default {
     ...ACheckboxI18n.de,
     ...ASelectI18n.de,
     ...ATableI18n.de,
+    ...AFieldsetI18n.de,
   },
   en: {
     ...en,
@@ -41,6 +44,7 @@ export default {
     ...ACheckboxI18n.en,
     ...ASelectI18n.en,
     ...ATableI18n.en,
+    ...AFieldsetI18n.en,
   },
   es: {
     ...es,
@@ -50,6 +54,7 @@ export default {
     ...ACheckboxI18n.es,
     ...ASelectI18n.es,
     ...ATableI18n.es,
+    ...AFieldsetI18n.es,
   },
   fr: {
     ...fr,
@@ -59,6 +64,7 @@ export default {
     ...ACheckboxI18n.fr,
     ...ASelectI18n.fr,
     ...ATableI18n.fr,
+    ...AFieldsetI18n.fr,
   },
   hr: {
     ...hr,
@@ -68,6 +74,7 @@ export default {
     ...ACheckboxI18n.hr,
     ...ASelectI18n.hr,
     ...ATableI18n.hr,
+    ...AFieldsetI18n.hr,
   },
   it: {
     ...it,
@@ -77,6 +84,7 @@ export default {
     ...ACheckboxI18n.it,
     ...ASelectI18n.it,
     ...ATableI18n.it,
+    ...AFieldsetI18n.it,
   },
   ru: {
     ...ru,
@@ -86,5 +94,6 @@ export default {
     ...ACheckboxI18n.ru,
     ...ASelectI18n.ru,
     ...ATableI18n.ru,
+    ...AFieldsetI18n.ru,
   },
 };

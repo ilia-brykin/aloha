@@ -31,6 +31,7 @@ import PageProgressI18n from "./views/Progress/PageProgress/i18n/PageProgressI18
 import PageProgressCircleI18n from "./views/Progress/PageProgressCircle/i18n/PageProgressCircleI18n";
 import PageRadioI18n from "./views/Form/PageRadio/i18n/PageRadioI18n";
 import PageCheckboxI18n from "./views/Form/PageCheckbox/i18n/PageCheckboxI18n";
+import PageFieldsetI18n from "./views/Form/PageFieldset/i18n/PageFieldsetI18n";
 
 export const mainTranslation = {
   ar: {
@@ -58,6 +59,7 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.ar,
     ...PageRadioI18n.ar,
     ...PageCheckboxI18n.ar,
+    ...PageFieldsetI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -84,6 +86,7 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.de,
     ...PageRadioI18n.de,
     ...PageCheckboxI18n.de,
+    ...PageFieldsetI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -110,6 +113,7 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.en,
     ...PageRadioI18n.en,
     ...PageCheckboxI18n.en,
+    ...PageFieldsetI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -136,6 +140,7 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.es,
     ...PageRadioI18n.es,
     ...PageCheckboxI18n.es,
+    ...PageFieldsetI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -162,6 +167,7 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.fr,
     ...PageRadioI18n.fr,
     ...PageCheckboxI18n.fr,
+    ...PageFieldsetI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -188,6 +194,7 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.hr,
     ...PageRadioI18n.hr,
     ...PageCheckboxI18n.hr,
+    ...PageFieldsetI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -214,6 +221,7 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.it,
     ...PageRadioI18n.it,
     ...PageCheckboxI18n.it,
+    ...PageFieldsetI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -240,5 +248,6 @@ export const mainTranslation = {
     ...PageProgressCircleI18n.ru,
     ...PageRadioI18n.ru,
     ...PageCheckboxI18n.ru,
+    ...PageFieldsetI18n.ru,
   },
 };

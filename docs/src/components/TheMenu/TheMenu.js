@@ -142,6 +142,13 @@ export default {
               }
             },
             {
+              id: "fieldset",
+              label: "Fieldset",
+              to: {
+                name: "PageFieldset",
+              }
+            },
+            {
               id: "ui-child",
               label: "Child",
               children: [

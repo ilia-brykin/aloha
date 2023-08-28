@@ -5,6 +5,8 @@ import {
   withDirectives,
 } from "vue";
 
+import ATranslation from "../../ATranslation/ATranslation";
+import AButton from "../../AButton/AButton";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AUiComponents from "../AUiComponents";
 
@@ -12,7 +14,9 @@ import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
+import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AUiTypesContainer from "../const/AUiTypesContainer";
@@ -28,24 +32,40 @@ export default {
     UiMixinProps,
   ],
   props: {
-    modelValue: {
-      type: Object,
-      required: true,
-    },
     children: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    classColumns: {
+      type: [String, Object],
+      required: false,
+      default: "a_columns a_columns_count_12 a_columns_gab_2",
+    },
+    collapse: {
+      type: Boolean,
+      required: false,
+      default: undefined,
     },
     hasBorder: {
       type: Boolean,
       required: false,
       default: true,
     },
-    classColumns: {
-      type: [String, Object],
+    isCollapsed: {
+      type: Boolean,
       required: false,
-      default: "a_columns a_columns_count_12 a_columns_gab_2",
+      default: undefined,
+    },
+    modelValue: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -71,6 +91,10 @@ export default {
       isErrors,
     } = UiAPI(props, context);
 
+    const {
+      textAfterLabel,
+    } = TextAfterLabelAPI(props);
+
     const modelValue = toRef(props, "modelValue");
     const onUpdateModelLocal = ({ item, model }) => {
       if (AUiTypesContainer[item.type]) {
@@ -86,20 +110,33 @@ export default {
       context.emit("updateData", { item, dataKeyByKeyId });
     };
 
+    const {
+      iconCollapse,
+      initIsCollapsedLocal,
+      isCollapsedLocal,
+      titleCollapse,
+      toggleCollapse,
+    } = UiCollapseAPI(props, context);
+
+    initIsCollapsedLocal();
+
     return {
-      componentTypesMapping,
-      onUpdateModelLocal,
-      onUpdateDataLocal,
-
-      componentStyleHide,
-
       ariaDescribedbyLocal,
       changeModel,
       clearModel,
+      componentStyleHide,
+      componentTypesMapping,
       errorsId,
       helpTextId,
       htmlIdLocal,
+      iconCollapse,
+      isCollapsedLocal,
       isErrors,
+      onUpdateDataLocal,
+      onUpdateModelLocal,
+      textAfterLabel,
+      titleCollapse,
+      toggleCollapse,
     };
   },
   render() {
@@ -112,18 +149,34 @@ export default {
         class: ["a_fieldset", this.inputClass, {
           a_fieldset_invalid: this.isErrors,
           a_fieldset_no_border: !this.hasBorder,
+          a_fieldset_collapsed: this.isCollapsedLocal,
         }],
         "aria-describedby": this.ariaDescribedbyLocal,
       }, [
-        this.label && withDirectives(h("legend", {
-          class: ["a_legend", {
-            a_legend_invalid: this.isErrors,
-          }],
-        }), [
-          [ASafeHtml, this.label],
-        ]),
+        this.label && h(ATranslation, {
+          tag: "legend",
+          class: [
+            "a_legend",
+            {
+              a_legend_invalid: this.isErrors,
+            },
+            this.labelClass,
+          ],
+          html: this.label,
+          textAfter: this.textAfterLabel,
+        }),
+        this.collapse && h(AButton, {
+          class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
+          iconLeft: this.iconCollapse,
+          title: this.titleCollapse,
+          textScreenReader: this.titleCollapse,
+          onClick: this.toggleCollapse,
+        }),
         h("div", {
-          class: this.classColumns,
+          class: [
+            this.classColumns,
+            "a_fieldset__content",
+          ],
         }, [
           this.children.map((item, itemIndex) => {
             const IS_CONTAINER = AUiTypesContainer[item.type];
@@ -145,6 +198,11 @@ export default {
               onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
               ...item,
             }, this.$slots);
+          }),
+          this.slotName &&
+          this.$slots[this.slotName] &&
+          this.$slots[this.slotName]({
+            id: this.htmlIdLocal,
           }),
         ]),
       ]),

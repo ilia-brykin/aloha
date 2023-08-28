@@ -1,12 +1,13 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import AOneCheckbox from "../../../../../src/ui/AOneCheckbox/AOneCheckbox";
-import PageCheckboxSearch from "./PageCheckboxSearch/PageCheckboxSearch.vue";
+import ATranslation from "../../../../../src/ATranslation/ATranslation";
+import PageCheckboxCollapse from "./PageCheckboxCollapse/PageCheckboxCollapse.vue";
+import PageCheckboxIsButtonGroup from "./PageCheckboxIsButtonGroup/PageCheckboxIsButtonGroup.vue";
 import PageCheckboxKeyDisabled from "./PageCheckboxKeyDisabled/PageCheckboxKeyDisabled.vue";
+import PageCheckboxSearch from "./PageCheckboxSearch/PageCheckboxSearch.vue";
 import PageCheckboxTranslateData from "./PageCheckboxTranslateData/PageCheckboxTranslateData.vue";
 import PageCheckboxTwoColumns from "./PageCheckboxTwoColumns/PageCheckboxTwoColumns.vue";
-import PageCheckboxIsButtonGroup from "./PageCheckboxIsButtonGroup/PageCheckboxIsButtonGroup.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -21,6 +22,7 @@ export default {
     AlohaTableProps,
     ATranslation,
     AOneCheckbox,
+    PageCheckboxCollapse,
     PageCheckboxSearch,
     PageCheckboxKeyDisabled,
     PageCheckboxTranslateData,

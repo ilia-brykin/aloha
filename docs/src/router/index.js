@@ -110,6 +110,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageRadio" */ "../views/Form/PageRadio/PageRadio.vue"),
   },
   {
+    path: "/fieldset",
+    name: "PageFieldset",
+    component: () => import(/* webpackChunkName: "PageFieldset" */ "../views/Form/PageFieldset/PageFieldset.vue"),
+  },
+  {
     path: "/select",
     name: "PageSelect",
     component: () => import(/* webpackChunkName: "PageSelect" */ "../views/Form/PageSelect/PageSelect.vue"),

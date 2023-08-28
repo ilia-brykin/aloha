@@ -55,6 +55,9 @@
     visibility: hidden !important;
     pointer-events: none !important;
   }
+  .a_fieldset {
+    margin-top: 1rem;
+  }
 }
 .a_select_menu_by_content {
   --a_select_menu_max_width: 100vw;
