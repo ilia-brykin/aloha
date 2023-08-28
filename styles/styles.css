@@ -5133,14 +5133,34 @@ h6 {
 
 .a_fieldset {
   --a_fieldset_padding_x: .5rem;
-  --a_fieldset_padding_y: .5rem;
+  --a_fieldset_padding_top: 1rem;
+  --a_fieldset_padding_bottom: .5rem;
   --a_fieldset_border_radius: var(--a_border_radius);
   --a_fieldset_border_color: var(--a_border_color);
   --a_fieldset_border_width: var(--a_border_width);
   --a_fieldset_invalid_color: var(--a_color_danger);
-  padding: var(--a_fieldset_padding_y) var(--a_fieldset_padding_x);
+  margin-top: .5rem;
+  padding: var(--a_fieldset_padding_top) var(--a_fieldset_padding_x) var(--a_fieldset_padding_bottom) var(--a_fieldset_padding_x);
   border-radius: var(--a_fieldset_border_radius);
-  border: var(--a_fieldset_border_width) solid var(--a_fieldset_border_color); }
+  border: var(--a_fieldset_border_width) solid var(--a_fieldset_border_color);
+  position: relative; }
+  .a_fieldset .a_fieldset {
+    margin-top: 1rem; }
+  .a_fieldset .a_legend {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    background-color: #fff; }
+  .a_fieldset .a_fieldset__btn_collapse {
+    position: absolute;
+    top: 0;
+    right: var(--a_fieldset_padding_x);
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 0 .25rem; }
+    .a_fieldset .a_fieldset__btn_collapse .a_icon {
+      width: 1.8rem;
+      height: auto; }
 
 .a_fieldset_no_border {
   --a_fieldset_border_color: transparent; }
@@ -5148,12 +5168,19 @@ h6 {
 .a_fieldset_invalid {
   --a_fieldset_border_color: var(--a_fieldset_invalid_color); }
 
+.a_fieldset_collapsed .a_fieldset__content {
+  display: none; }
+
+.a_fieldset__search {
+  margin-bottom: 1rem; }
+
 .a_legend {
   --a_legend_padding_x: .5rem;
   --a_legend_color: inherit;
   --a_flegend_invalid_color: var(--a_color_danger);
   padding: 0 var(--a_legend_padding_x);
-  color: var(--a_legend_color); }
+  color: var(--a_legend_color);
+  width: auto; }
 
 .a_legend_invalid {
   --a_legend_color: var(--a_flegend_invalid_color); }
@@ -5293,6 +5320,8 @@ h6 {
   .a_select_menu[data-popper-reference-hidden] {
     visibility: hidden !important;
     pointer-events: none !important; }
+  .a_select_menu .a_fieldset {
+    margin-top: 1rem; }
 
 .a_select_menu_by_content {
   --a_select_menu_max_width: 100vw; }
