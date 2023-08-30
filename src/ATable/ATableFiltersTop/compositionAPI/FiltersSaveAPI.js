@@ -111,7 +111,21 @@ export default function FiltersSaveAPI(props, {
     });
   });
 
+  const buttonDeleteFiltersSavedComponent = computed(() => {
+    return canSave.value && h(AButton, {
+      class: "a_btn a_btn_secondary",
+      iconLeft: "Trash",
+      textScreenReader: "_A_TABLE_FILTER_DELETE_FILTER_SAVED_BTN_{{name}}_",
+      title: "_A_TABLE_FILTER_DELETE_FILTER_SAVED_BTN_{{name}}_",
+      extra: {
+        name: modelFiltersSaved.value,
+      },
+      ariaDisabled: !modelFiltersSaved.value,
+    });
+  });
+
   return {
+    buttonDeleteFiltersSavedComponent,
     buttonSaveComponentBottom,
     buttonSaveComponentTop,
     changeModelFiltersSaved,

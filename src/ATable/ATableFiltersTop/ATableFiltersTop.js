@@ -102,6 +102,7 @@ export default {
     } = FiltersHiddenAPI(props, context);
 
     const {
+      buttonDeleteFiltersSavedComponent,
       buttonSaveComponentBottom,
       buttonSaveComponentTop,
       changeModelFiltersSaved,
@@ -122,6 +123,7 @@ export default {
 
     return {
       addFiltersVisible,
+      buttonDeleteFiltersSavedComponent,
       buttonSaveComponentBottom,
       buttonSaveComponentTop,
       buttonSearchComponent,
@@ -150,6 +152,7 @@ export default {
           class: "a_table__filters_top__header",
         }, [
           this.selectFiltersSavedComponent,
+          this.buttonDeleteFiltersSavedComponent,
           this.filterMainComponent,
           this.buttonSearchComponent,
           this.buttonSaveComponentTop,
