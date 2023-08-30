@@ -17,23 +17,26 @@ export default function TableFiltersAPI(props, { emit }, {
   offset = ref(0),
   setFocusToTable = () => {},
 }) {
-  const filters = toRef(props, "filters");
+  const filter = toRef(props, "filter");
   const modelFilters = toRef(props, "modelFilters");
   const offsetStart = toRef(props, "offsetStart");
-  const updateModelFiltersLocal = toRef(props, "updateModelFiltersLocal");
 
   const dataKeyByKeyIdPerFilter = ref({});
   const filtersDataKeyById = ref({});
   const filtersVisibleIds = ref([]);
   const modelFiltersLocal = ref({});
 
+  const filtersLocal = computed(() => {
+    return filter.value.filters || [];
+  });
+
   const hasFilters = computed(() => {
-    return filters.value.length > 0;
+    return filtersLocal.value.length > 0;
   });
 
   const filtersKeyById = computed(() => {
     const FILTERS = {};
-    forEach(cloneDeep(filters.value), filter => {
+    forEach(cloneDeep(filtersLocal.value), filter => {
       FILTERS[filter.id] = filter;
       if (AUiTypesContainer[filter.type] &&
         filter.children &&
@@ -52,7 +55,7 @@ export default function TableFiltersAPI(props, { emit }, {
       alwaysVisible: [],
       filters: [],
     };
-    forEach(cloneDeep(filters.value), filter => {
+    forEach(cloneDeep(filtersLocal.value), filter => {
       if (filter.main) {
         if (!FILTER_GROUP.main) {
           FILTER_GROUP.main = filter;
@@ -81,7 +84,7 @@ export default function TableFiltersAPI(props, { emit }, {
 
   const filtersVisibleAll = computed(() => {
     const FILTERS = [];
-    FILTERS.push(...filters.value);
+    FILTERS.push(...filtersLocal.value);
     // if (filtersGroup.value.main) {
     //   FILTERS.push(filtersGroup.value.main);
     // }
@@ -105,11 +108,24 @@ export default function TableFiltersAPI(props, { emit }, {
     return FILERS_NEW;
   });
 
-  const onUpdateModelFilters = ({ model }) => {
-    if (isFunction(updateModelFiltersLocal.value)) {
-      modelFiltersLocal.value = updateModelFiltersLocal.value({ model });
+  const setFiltersVisibleIds = () => {
+    const FILTERS_VISIBLE_IDS = [];
+    forEach(filtersGroup.value.filters, filter => {
+      if (modelFiltersLocal.value[filter.id]) {
+        FILTERS_VISIBLE_IDS.push(filter.id);
+      }
+    });
+    filtersVisibleIds.value = FILTERS_VISIBLE_IDS;
+  };
+
+  const onUpdateModelFilters = ({ model, isUpdateFiltersVisible }) => {
+    if (isFunction(filter.value.updateModelFiltersLocal)) {
+      modelFiltersLocal.value = filter.value.updateModelFiltersLocal({ model });
     } else {
       modelFiltersLocal.value = model;
+    }
+    if (isUpdateFiltersVisible) {
+      setFiltersVisibleIds();
     }
   };
 
@@ -171,19 +187,8 @@ export default function TableFiltersAPI(props, { emit }, {
     }
   };
 
-  const initFiltersVisibleIds = () => {
-    const FILTERS_VISIBLE_IDS = [];
-    forEach(filtersGroup.value.filters, filter => {
-      if (modelFiltersLocal.value[filter.id]) {
-        FILTERS_VISIBLE_IDS.push(filter.id);
-      }
-    });
-    filtersVisibleIds.value = FILTERS_VISIBLE_IDS;
-  };
-
   const initModelFiltersLocal = () => {
     modelFiltersLocal.value = cloneDeep(modelFilters.value);
-    initFiltersVisibleIds();
   };
 
   return {
@@ -199,6 +204,7 @@ export default function TableFiltersAPI(props, { emit }, {
     initModelFiltersLocal,
     modelFiltersLocal,
     onUpdateModelFilters,
+    setFiltersVisibleIds,
     startSearch,
     toggleFiltersVisible,
     updateDataKeyByIdFromFilter,

@@ -112,7 +112,8 @@ export default {
     },
     extra: {
       type: Object,
-      required: undefined,
+      required: false,
+      default: undefined,
     },
   },
   emits: [

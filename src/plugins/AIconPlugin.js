@@ -27,6 +27,7 @@ import DoubleAngleRight from "../AIcon/Icons/DoubleAngleRight";
 import DoubleAngleUp from "../AIcon/Icons/DoubleAngleUp";
 import EyeClose from "../AIcon/Icons/EyeClose";
 import EyeOpen from "../AIcon/Icons/EyeOpen";
+import FloppyDisk from "../AIcon/Icons/bootstrap3/FloppyDisk";
 import Home from "../AIcon/Icons/Home";
 import Lock from "../AIcon/Icons/Lock";
 import Minus from "../AIcon/Icons/Minus";
@@ -67,6 +68,7 @@ export const iconPluginOptions = ref({
     DoubleAngleUp,
     EyeClose,
     EyeOpen,
+    FloppyDisk,
     Home,
     Lock,
     Minus,

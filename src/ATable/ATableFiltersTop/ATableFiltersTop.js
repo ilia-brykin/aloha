@@ -5,11 +5,13 @@ import {
 
 import AButton from "../../AButton/AButton";
 import ASelect from "../../ui/ASelect/ASelect";
-import ATableFiltersTopFilter from "./ATableFiltersTopFilter";
-import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi";
+import ATableFiltersSaveModal from "../ATableFiltersSaveModal/ATableFiltersSaveModal";
+import ATableFiltersTopFilter from "./ATableFiltersTopFilter/ATableFiltersTopFilter";
+import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi/ATableFiltersTopFilterUi";
 
 import EventBusAPI from "./compositionAPI/EventBusAPI";
 import FiltersHiddenAPI from "./compositionAPI/FiltersHiddenAPI";
+import FiltersSaveAPI from "./compositionAPI/FiltersSaveAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
@@ -17,6 +19,10 @@ import VisibleAPI from "./compositionAPI/VisibleAPI";
 export default {
   name: "ATableFiltersTop",
   props: {
+    canSave: {
+      type: Boolean,
+      required: false,
+    },
     disabledFilters: {
       type: Boolean,
       required: false,
@@ -34,12 +40,28 @@ export default {
       type: Object,
       required: true,
     },
+    filtersSaved: {
+      type: Array,
+      required: true,
+    },
     filtersVisible: {
       type: Array,
       required: true,
     },
     modelFilters: {
       type: Object,
+      required: true,
+    },
+    onUpdateModelFilters: {
+      type: Function,
+      required: true,
+    },
+    tableId: {
+      type: String,
+      required: true,
+    },
+    updateFiltersSaved: {
+      type: Function,
       required: true,
     },
   },
@@ -59,6 +81,7 @@ export default {
     } = ToggleAPI();
 
     const {
+      buttonSearchComponent,
       onSearch,
     } = SearchAPI(props, context, {
       onClose,
@@ -82,6 +105,18 @@ export default {
       hasFiltersHiddenDefault,
     } = FiltersHiddenAPI(props, context);
 
+    const {
+      buttonSaveComponentBottom,
+      buttonSaveComponentTop,
+      changeModelFiltersSaved,
+      closeModalSave,
+      isModalSaveVisible,
+      modelFiltersSaved,
+      selectorCloseIds,
+    } = FiltersSaveAPI(props, {
+      onOpen,
+    });
+
     initEventBus();
 
     onBeforeUnmount(() => {
@@ -90,12 +125,20 @@ export default {
 
     return {
       addFiltersVisible,
+      buttonSaveComponentBottom,
+      buttonSaveComponentTop,
+      buttonSearchComponent,
+      changeModelFiltersSaved,
+      closeModalSave,
       deleteFiltersVisible,
+      selectorCloseIds,
       filtersHidden,
       hasFiltersHiddenDefault,
+      isModalSaveVisible,
       iconToggle,
       isBtnToggleVisible,
       isOpen,
+      modelFiltersSaved,
       onSearch,
       onToggle,
       styleToggle,
@@ -103,42 +146,39 @@ export default {
     };
   },
   render() {
-    const BUTTON_SEARCH = h(AButton, {
-      class: "a_btn a_btn_primary a_text_nowrap",
-      iconLeft: "Search",
-      type: "submit",
-      text: {
-        desktop: "_A_TABLE_START_SEARCH_",
-      },
-      textScreenReader: {
-        mobile: "_A_TABLE_START_SEARCH_",
-      },
-      prevent: true,
-      stop: true,
-      disabled: this.disabledFilters,
-      onClick: this.onSearch,
-    });
-
     return h("div", {
       class: "a_table__filters_top",
     }, [
       h("form", {}, [
         h("div", {
-          class: "a_columns a_columns_count_12 a_columns_gab_2 a_align_items_center",
+          class: "a_table__filters_top__header",
         }, [
-          h("div", {
-            class: "a_column a_column_12_mobile a_column_12_tablet a_column_4_desktop a_column_4_widescreen a_column_4_fullhd a_d_flex",
-          }, [
-            this.filtersGroup.main && h(ATableFiltersTopFilterUi, {
-              filter: this.filtersGroup.main,
-              modelFilters: this.modelFilters,
-              isLabelVisible: true,
-              class: ["a_width_100", {
-                a_mr_2: !this.isOpen
-              }],
-            }),
-            !this.isOpen && BUTTON_SEARCH,
-          ]),
+          this.canSave && h(ASelect, {
+            modelValue: this.modelFiltersSaved,
+            class: "a_table__filters_top__save_select",
+            type: "select",
+            data: this.filtersSaved,
+            keyLabel: "label",
+            keyId: "label",
+            label: "_A_TABLE_FILTER_SAVE_SELECT_",
+            translateData: true,
+            disabled: !this.filtersSaved.length,
+            search: true,
+            deselect: true,
+            change: this.changeModelFiltersSaved,
+          }),
+          this.filtersGroup.main && h(ATableFiltersTopFilterUi, {
+            class: ["a_width_100", {
+              a_mr_2: !this.isOpen
+            }],
+            filter: this.filtersGroup.main,
+            isLabelVisible: true,
+            modelFilters: this.modelFilters,
+            onUpdateModelFilters: this.onUpdateModelFilters,
+            tableId: this.tableId,
+          }),
+          this.buttonSearchComponent,
+          this.buttonSaveComponentTop,
           this.isBtnToggleVisible && h("div", {
             class: "a_column",
           }, [
@@ -161,6 +201,8 @@ export default {
               closable: false,
               filter,
               modelFilters: this.modelFilters,
+              onUpdateModelFilters: this.onUpdateModelFilters,
+              tableId: this.tableId,
             }, this.$slots);
           }),
           this.filtersVisible.map(filter => {
@@ -169,6 +211,8 @@ export default {
               closable: true,
               filter: filter,
               modelFilters: this.modelFilters,
+              onUpdateModelFilters: this.onUpdateModelFilters,
+              tableId: this.tableId,
               onDeleteFiltersVisible: this.deleteFiltersVisible,
             }, this.$slots);
           }),
@@ -187,10 +231,18 @@ export default {
               search: true,
               change: this.addFiltersVisible,
             }),
-            BUTTON_SEARCH,
+            this.buttonSearchComponent,
           ]),
         ]),
       ]),
+      this.isModalSaveVisible && h(ATableFiltersSaveModal, {
+        changeModelFiltersSaved: this.changeModelFiltersSaved,
+        filtersSaved: this.filtersSaved,
+        modelFiltersSaved: this.modelFiltersSaved,
+        selectorCloseIds: this.selectorCloseIds,
+        updateFiltersSaved: this.updateFiltersSaved,
+        onClose: this.closeModalSave,
+      }),
     ]);
   },
 };

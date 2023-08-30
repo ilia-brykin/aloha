@@ -1,9 +1,9 @@
 aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
-  header="_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_HEADER_"
-  description="_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_DESCRIPTION_"
-  props="filter.filters"
+  header="_A_TABLE_GROUP_FILTERS_SAVE_HEADER_"
+  description="_A_TABLE_GROUP_FILTERS_SAVE_DESCRIPTION_"
+  :props="['filter.canSave']"
 )
   div
     a-table(
@@ -11,7 +11,7 @@ aloha-example(
       :data="data"
       label="_A_TABLE_GROUP_FILTERS_LABEL_"
       key-id="id"
-      :filter="{ filters }"
+      :filter="{ filters, canSave: true }"
       :model-filters="modelFilters"
       @update-model-filters="updateModelFilters"
     )

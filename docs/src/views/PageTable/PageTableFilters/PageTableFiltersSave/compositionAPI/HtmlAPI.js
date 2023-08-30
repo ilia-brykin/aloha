@@ -4,7 +4,7 @@ export default function HtmlAPI() {
   :data="data"
   label="_A_TABLE_GROUP_FILTERS_LABEL_"
   key-id="id"
-  :filter="{ filters }"
+  :filters="filters"
   :model-filters="modelFilters"
   @update-model-filters="updateModelFilters"
 >

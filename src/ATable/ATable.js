@@ -18,6 +18,7 @@ import ATableTr from "./ATableTr/ATableTr";
 import AMobileAPI from "../compositionAPI/AMobileAPI";
 import ColumnsIdsAPI from "./compositionAPI/ColumnsIdsAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
+import FiltersSaveAPI from "./compositionAPI/FiltersSaveAPI";
 import FocusTableAPI from "./compositionAPI/FocusTableAPI";
 import InitAPI from "./compositionAPI/InitAPI";
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
@@ -114,10 +115,16 @@ export default {
       type: Boolean,
       required: false,
     },
-    filters: {
-      type: Array,
+    filter: {
+      type: Object,
       required: false,
-      default: () => [],
+      default: () => ({
+        filters: [],
+        canSave: false,
+        filtersSaved: [],
+        updateModelFiltersLocal: undefined, // () => {}
+        updateFiltersSaved: undefined, // () => {}
+      }),
     },
     id: {
       type: String,
@@ -339,11 +346,6 @@ export default {
       required: false,
       default: 0,
     },
-    updateModelFiltersLocal: {
-      type: Function,
-      required: false,
-      default: undefined,
-    },
     valuesForColumnDefault: {
       type: Array,
       required: false,
@@ -536,12 +538,21 @@ export default {
       initModelFiltersLocal,
       modelFiltersLocal,
       onUpdateModelFilters,
+      setFiltersVisibleIds,
       startSearch,
       toggleFiltersVisible,
       updateDataKeyByIdFromFilter,
     } = TableFiltersAPI(props, context, {
       closePreviewAll,
       offset,
+    });
+
+    const {
+      filtersSaved,
+      initFiltersSaved,
+      updateFiltersSaved,
+    } = FiltersSaveAPI(props, {
+      modelFiltersLocal,
     });
 
     const {
@@ -612,6 +623,8 @@ export default {
     initViewCurrent();
     initModelSort();
     initModelFiltersLocal();
+    setFiltersVisibleIds();
+    initFiltersSaved();
 
     return {
       allVisibleMobileColumns,
@@ -631,6 +644,7 @@ export default {
       dataKeyByKeyIdPerFilter,
       filtersGroup,
       filtersKeyById,
+      filtersSaved,
       filtersVisible,
       filtersVisibleAll,
       hasFilters,
@@ -670,6 +684,7 @@ export default {
       toggleFiltersVisible,
       toggleMultipleActionsActive,
       togglePreviewResize,
+      updateFiltersSaved,
       updateRow,
       updateViewCurrent,
       viewCurrent,
@@ -727,11 +742,16 @@ export default {
       }],
     }, [
       this.hasFilters && h(ATableFiltersTop, {
+        canSave: this.filter.canSave,
         disabledFilters: this.disabledFilters,
         filtersGroup: this.filtersGroup,
-        filtersVisible: this.filtersVisible,
         filtersKeyById: this.filtersKeyById,
+        filtersSaved: this.filtersSaved,
+        filtersVisible: this.filtersVisible,
         modelFilters: this.modelFiltersLocal,
+        tableId: this.id,
+        updateFiltersSaved: this.updateFiltersSaved,
+        onUpdateModelFilters: this.onUpdateModelFilters,
         onStartSearch: this.startSearch,
         onToggleFiltersVisible: this.toggleFiltersVisible,
       }, this.$slots),

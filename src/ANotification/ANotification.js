@@ -39,6 +39,7 @@ export default {
         }, () => [
           h(ATranslation, {
             html: notification.text,
+            extra: notification.extra,
           }),
         ]);
       })),

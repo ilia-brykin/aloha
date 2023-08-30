@@ -1,6 +1,10 @@
 import {
+  computed,
+  h,
   toRef,
 } from "vue";
+
+import AButton from "../../../AButton/AButton";
 
 export default function SearchAPI(props, { emit }, {
   onClose = () => {},
@@ -16,7 +20,26 @@ export default function SearchAPI(props, { emit }, {
     emit("startSearch");
   };
 
+  const buttonSearchComponent = computed(() => {
+    return h(AButton, {
+      class: "a_btn a_btn_primary a_text_nowrap",
+      iconLeft: "Search",
+      type: "submit",
+      text: {
+        desktop: "_A_TABLE_START_SEARCH_",
+      },
+      textScreenReader: {
+        mobile: "_A_TABLE_START_SEARCH_",
+      },
+      prevent: true,
+      stop: true,
+      disabled: disabledFilters.value,
+      onClick: onSearch,
+    });
+  });
+
   return {
+    buttonSearchComponent,
     onSearch,
   };
 }

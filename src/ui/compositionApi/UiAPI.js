@@ -68,7 +68,7 @@ export default function UiAPI(props, { emit }) {
       }
       ariaDescribedby += helpTextId.value;
     }
-    return ariaDescribedby;
+    return ariaDescribedby || undefined;
   });
 
   const isFocus = ref(false);

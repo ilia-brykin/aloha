@@ -3,7 +3,7 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_HEADER_"
   description="_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_DESCRIPTION_"
-  :props="['filters', 'model-filters']"
+  :props="['filter.filters', 'model-filters']"
 )
   div
     a-table(
@@ -11,7 +11,7 @@ aloha-example(
       :data="data"
       label="_A_TABLE_GROUP_FILTERS_LABEL_"
       key-id="id"
-      :filters="filters"
+      :filter="{ filters }"
       :model-filters="modelFilters"
       @update-model-filters="updateModelFilters"
     )

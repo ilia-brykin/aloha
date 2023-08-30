@@ -28,7 +28,7 @@ export function setNotificationTimeout(timeout) {
   notificationTimeout = timeout;
 }
 
-export function addNotification({ text, type = "success", timeout }) {
+export function addNotification({ text, type = "success", timeout, extra }) {
   const TIMEOUT_LOCAL = isNil(timeout) ? notificationTimeout : timeout;
   const CURRENT_INDEX = notificationsCount;
   const TYPE = type === "error" ? "danger" : type;
@@ -37,6 +37,7 @@ export function addNotification({ text, type = "success", timeout }) {
     text,
     type: TYPE,
     index: CURRENT_INDEX,
+    extra,
   };
   notificationsCount++;
 
