@@ -1,9 +1,16 @@
 import {
   computed,
+  h,
   ref,
+  toRef,
 } from "vue";
 
-export default function ToggleAPI() {
+import AButton from "../../../AButton/AButton";
+
+export default function ToggleAPI(props) {
+  const filtersVisible = toRef(props, "filtersVisible");
+  const filtersGroup = toRef(props, "filtersGroup");
+
   const isOpen = ref(false);
 
   const onOpen = () => {
@@ -34,13 +41,25 @@ export default function ToggleAPI() {
     return isOpen.value ? "" : "display: none;";
   });
 
+  const isBtnToggleVisible = computed(() => {
+    return !!(filtersVisible.value.length || filtersGroup.value.alwaysVisible.length);
+  });
+
+  const buttonToggleComponent = computed(() => {
+    return isBtnToggleVisible.value && h(AButton, {
+      class: "a_btn a_btn_link a_text_nowrap",
+      type: "button",
+      text: textToggle,
+      iconRight: iconToggle,
+      onClick: onToggle,
+    });
+  });
+
   return {
-    iconToggle,
+    buttonToggleComponent,
     isOpen,
     onClose,
     onOpen,
-    onToggle,
     styleToggle,
-    textToggle,
   };
 }

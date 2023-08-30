@@ -1,14 +1,18 @@
 import {
-  computed, h,
+  computed,
+  h,
   ref,
   toRef,
 } from "vue";
+
 import AButton from "../../../AButton/AButton";
+import ASelect from "../../../ui/ASelect/ASelect";
 
 export default function FiltersSaveAPI(props, {
   onOpen = () => ({}),
 }) {
   const canSave = toRef(props, "canSave");
+  const filtersSaved = toRef(props, "filtersSaved");
   const onUpdateModelFilters = toRef(props, "onUpdateModelFilters");
   const tableId = toRef(props, "tableId");
 
@@ -90,6 +94,23 @@ export default function FiltersSaveAPI(props, {
     }
   };
 
+  const selectFiltersSavedComponent = computed(() => {
+    return canSave.value && h(ASelect, {
+      modelValue: modelFiltersSaved.value,
+      class: "a_table__filters_top__save_select",
+      type: "select",
+      data: filtersSaved.value,
+      keyLabel: "label",
+      keyId: "label",
+      label: "_A_TABLE_FILTER_SAVE_SELECT_",
+      translateData: true,
+      disabled: !filtersSaved.value.length,
+      search: true,
+      deselect: true,
+      change: changeModelFiltersSaved,
+    });
+  });
+
   return {
     buttonSaveComponentBottom,
     buttonSaveComponentTop,
@@ -97,6 +118,7 @@ export default function FiltersSaveAPI(props, {
     closeModalSave,
     isModalSaveVisible,
     modelFiltersSaved,
+    selectFiltersSavedComponent,
     selectorCloseIds,
   };
 }

@@ -3,18 +3,16 @@ import {
   onBeforeUnmount,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
 import ASelect from "../../ui/ASelect/ASelect";
 import ATableFiltersSaveModal from "../ATableFiltersSaveModal/ATableFiltersSaveModal";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter/ATableFiltersTopFilter";
-import ATableFiltersTopFilterUi from "./ATableFiltersTopFilterUi/ATableFiltersTopFilterUi";
 
 import EventBusAPI from "./compositionAPI/EventBusAPI";
+import FilterMainAPI from "./compositionAPI/FilterMainAPI";
 import FiltersHiddenAPI from "./compositionAPI/FiltersHiddenAPI";
 import FiltersSaveAPI from "./compositionAPI/FiltersSaveAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
-import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 export default {
   name: "ATableFiltersTop",
@@ -71,14 +69,16 @@ export default {
   ],
   setup(props, context) {
     const {
-      iconToggle,
+      buttonToggleComponent,
       isOpen,
       onClose,
       onOpen,
-      onToggle,
       styleToggle,
-      textToggle,
-    } = ToggleAPI();
+    } = ToggleAPI(props);
+
+    const {
+      filterMainComponent,
+    } = FilterMainAPI(props);
 
     const {
       buttonSearchComponent,
@@ -86,10 +86,6 @@ export default {
     } = SearchAPI(props, context, {
       onClose,
     });
-
-    const {
-      isBtnToggleVisible,
-    } = VisibleAPI(props);
 
     const {
       destroyEventBus,
@@ -112,6 +108,7 @@ export default {
       closeModalSave,
       isModalSaveVisible,
       modelFiltersSaved,
+      selectFiltersSavedComponent,
       selectorCloseIds,
     } = FiltersSaveAPI(props, {
       onOpen,
@@ -128,21 +125,20 @@ export default {
       buttonSaveComponentBottom,
       buttonSaveComponentTop,
       buttonSearchComponent,
+      buttonToggleComponent,
       changeModelFiltersSaved,
       closeModalSave,
       deleteFiltersVisible,
-      selectorCloseIds,
+      filterMainComponent,
       filtersHidden,
       hasFiltersHiddenDefault,
       isModalSaveVisible,
-      iconToggle,
-      isBtnToggleVisible,
       isOpen,
       modelFiltersSaved,
       onSearch,
-      onToggle,
+      selectFiltersSavedComponent,
+      selectorCloseIds,
       styleToggle,
-      textToggle,
     };
   },
   render() {
@@ -153,43 +149,11 @@ export default {
         h("div", {
           class: "a_table__filters_top__header",
         }, [
-          this.canSave && h(ASelect, {
-            modelValue: this.modelFiltersSaved,
-            class: "a_table__filters_top__save_select",
-            type: "select",
-            data: this.filtersSaved,
-            keyLabel: "label",
-            keyId: "label",
-            label: "_A_TABLE_FILTER_SAVE_SELECT_",
-            translateData: true,
-            disabled: !this.filtersSaved.length,
-            search: true,
-            deselect: true,
-            change: this.changeModelFiltersSaved,
-          }),
-          this.filtersGroup.main && h(ATableFiltersTopFilterUi, {
-            class: ["a_width_100", {
-              a_mr_2: !this.isOpen
-            }],
-            filter: this.filtersGroup.main,
-            isLabelVisible: true,
-            modelFilters: this.modelFilters,
-            onUpdateModelFilters: this.onUpdateModelFilters,
-            tableId: this.tableId,
-          }),
+          this.selectFiltersSavedComponent,
+          this.filterMainComponent,
           this.buttonSearchComponent,
           this.buttonSaveComponentTop,
-          this.isBtnToggleVisible && h("div", {
-            class: "a_column",
-          }, [
-            h(AButton, {
-              class: "a_btn a_btn_link a_text_nowrap",
-              type: "button",
-              text: this.textToggle,
-              iconRight: this.iconToggle,
-              onClick: this.onToggle,
-            }),
-          ]),
+          this.buttonToggleComponent,
         ]),
         h("div", {
           class: "a_table__filters_top__always_visible",
