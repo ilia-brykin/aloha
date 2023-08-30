@@ -6,6 +6,7 @@ import {
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 import ATooltip from "../../ATooltip/ATooltip";
 
@@ -285,12 +286,11 @@ export default {
             [ASafeHtml, this.title],
           ])
         }),
-        this.helpText && withDirectives(h("div", {
+        h(AFormHelpText, {
           id: this.helpTextId,
-          class: "a_form_element__help_text",
-        }), [
-          [ASafeHtml, this.helpText],
-        ]),
+          html: this.helpText,
+          extra: this.extra,
+        }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

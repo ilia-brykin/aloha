@@ -2,15 +2,13 @@ import {
   h,
   resolveComponent,
   toRef,
-  withDirectives,
 } from "vue";
 
-import ATranslation from "../../ATranslation/ATranslation";
 import AButton from "../../AButton/AButton";
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
+import ATranslation from "../../ATranslation/ATranslation";
 import AUiComponents from "../AUiComponents";
-
-import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -206,12 +204,11 @@ export default {
           }),
         ]),
       ]),
-      this.helpText && withDirectives(h("div", {
+      h(AFormHelpText, {
         id: this.helpTextId,
-        class: "a_form_element__help_text",
-      }), [
-        [ASafeHtml, this.helpText],
-      ]),
+        html: this.helpText,
+        extra: this.extra,
+      }),
       this.isErrors && h(AErrorsText, {
         id: this.errorsId,
         errors: this.errors,

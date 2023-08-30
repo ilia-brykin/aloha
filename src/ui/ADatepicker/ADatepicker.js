@@ -3,15 +3,13 @@ import {
   Teleport,
   toRef,
   watch,
-  withDirectives,
 } from "vue";
 
 import ADatepickerCalendarPanel from "./ADatepickerCalendarPanel/ADatepickerCalendarPanel";
 import ADatepickerIcon from "./ADatepickerIcon/ADatepickerIcon";
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
-
-import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -24,6 +22,7 @@ import RefsAPI from "./compositionAPI/RefsAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 
+import placements from "../../const/placements";
 import {
   isPlainObject,
   isValidDate,
@@ -31,8 +30,6 @@ import {
 import {
   transformDate,
 } from "./utils/transform";
-import placements from "../../const/placements";
-
 
 // @vue/component
 export default {
@@ -616,12 +613,11 @@ export default {
           //   onClear: this.clearModel,
           // }),
         ]),
-        this.helpText && withDirectives(h("div", {
+        h(AFormHelpText, {
           id: this.helpTextId,
-          class: "a_form_element__help_text",
-        }), [
-          [ASafeHtml, this.helpText],
-        ]),
+          html: this.helpText,
+          extra: this.extra,
+        }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

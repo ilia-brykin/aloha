@@ -1,12 +1,12 @@
 import {
   h,
   Teleport,
-  withDirectives,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../AInput/AInput";
 import ALabel from "../ALabel/ALabel";
@@ -14,8 +14,6 @@ import ASelectElement from "./ASelectElement/ASelectElement";
 import ASelectLabelElement from "./ASelectLabelElement";
 import ASelectValueCloseable from "./ASelectValueCloseable";
 import ATranslation from "../../ATranslation/ATranslation";
-
-import ASafeHtml from "../../directives/ASafeHtml";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DividerAPI from "./compositionAPI/DividerAPI";
@@ -88,6 +86,10 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    extra: {
+      type: Object,
+      required: undefined,
     },
     helpText: {
       type: String,
@@ -736,12 +738,11 @@ export default {
             ]),
           ]),
         ]),
-        this.helpText && withDirectives(h("div", {
+        h(AFormHelpText, {
           id: this.helpTextId,
-          class: "a_form_element__help_text",
-        }), [
-          [ASafeHtml, this.helpText],
-        ]),
+          html: this.helpText,
+          extra: this.extra,
+        }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

@@ -2,18 +2,18 @@ import {
   computed,
   h,
   toRef,
-  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 import AUiComponents from "../AUiComponents";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
 import UiMixinProps from "../mixins/UiMixinProps";
 
-import UiAPI, { getHtmlId } from "../compositionApi/UiAPI";
+import UiAPI, {
+  getHtmlId,
+} from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -158,12 +158,11 @@ export default {
           }),
         ]),
       ]),
-      this.helpText && withDirectives(h("div", {
+      h(AFormHelpText, {
         id: this.helpTextId,
-        class: "a_form_element__help_text",
-      }), [
-        [ASafeHtml, this.helpText],
-      ]),
+        html: this.helpText,
+        extra: this.extra,
+      }),
       this.isErrors && h(AErrorsText, {
         id: this.errorsId,
         errors: this.errors,

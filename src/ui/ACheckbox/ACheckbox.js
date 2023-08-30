@@ -1,16 +1,14 @@
 import {
   h,
-  withDirectives,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
 import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AInput from "../AInput/AInput";
 import ATranslation from "../../ATranslation/ATranslation";
-
-import ASafeHtml from "../../directives/ASafeHtml";
 
 import ChangeAPI from "./compositionAPI/ChangeAPI";
 import TextAfterLabelAPI from "./compositionAPI/TextAfterLabelAPI";
@@ -78,6 +76,10 @@ export default {
       type: [String, Array],
       required: false,
       default: undefined,
+    },
+    extra: {
+      type: Object,
+      required: undefined,
     },
     hasBorder: {
       type: Boolean,
@@ -491,12 +493,11 @@ export default {
             ]),
           ]),
         ]),
-        this.helpText && withDirectives(h("div", {
+        h(AFormHelpText, {
           id: this.helpTextId,
-          class: "a_form_element__help_text",
-        }), [
-          [ASafeHtml, this.helpText],
-        ]),
+          html: this.helpText,
+          extra: this.extra,
+        }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

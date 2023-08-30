@@ -3,13 +3,11 @@ import {
   onMounted,
   ref,
   toRef,
-  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
-
-import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -200,12 +198,11 @@ export default {
             onBlur: this.onBlur,
           }),
         ]),
-        this.helpText && withDirectives(h("div", {
+        h(AFormHelpText, {
           id: this.helpTextId,
-          class: "a_form_element__help_text",
-        }), [
-          [ASafeHtml, this.helpText],
-        ]),
+          html: this.helpText,
+          extra: this.extra,
+        }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,

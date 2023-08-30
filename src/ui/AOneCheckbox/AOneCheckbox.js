@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -11,7 +12,6 @@ import LabelAPI from "./compositionAPI/LabelAPI";
 import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-
 
 export default {
   name: "AOneCheckbox",
@@ -151,10 +151,10 @@ export default {
             ]),
           ]),
         ]),
-        this.helpText && h(ATranslation, {
-          tag: "div",
-          class: "a_form_element__help_text",
+        h(AFormHelpText, {
+          id: this.helpTextId,
           html: this.helpText,
+          extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,

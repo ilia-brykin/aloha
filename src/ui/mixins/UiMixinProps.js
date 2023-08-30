@@ -110,6 +110,10 @@ export default {
       required: false,
       default: () => {},
     },
+    extra: {
+      type: Object,
+      required: undefined,
+    },
   },
   emits: [
     "update:modelValue",

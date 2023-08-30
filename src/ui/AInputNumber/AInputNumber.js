@@ -3,16 +3,14 @@ import {
   ref,
   toRef,
   watch,
-  withDirectives,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
-
-import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -28,7 +26,9 @@ import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
 
-import { isNumber } from "lodash-es";
+import {
+  isNumber,
+} from "lodash-es";
 
 export default {
   name: "AInputNumber",
@@ -332,13 +332,11 @@ export default {
             }),
           ]),
         ]),
-
-        this.helpText && withDirectives(h("div", {
+        h(AFormHelpText, {
           id: this.helpTextId,
-          class: "a_form_element__help_text",
-        }), [
-          [ASafeHtml, this.helpText],
-        ]),
+          html: this.helpText,
+          extra: this.extra,
+        }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
           errors: this.errors,
