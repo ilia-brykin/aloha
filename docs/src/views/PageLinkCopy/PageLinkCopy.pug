@@ -1,0 +1,39 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_LINK_COPY_COMPONENT_DESCRIPTION_"
+    )
+
+    page-link-copy-basic
+
+    page-link-copy-class
+
+    page-link-copy-disabled
+
+    page-link-copy-text-copy
+
+    page-link-copy-button-options
+
+    page-link-copy-slot-link
+
+    page-link-copy-slot-button
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+

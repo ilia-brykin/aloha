@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LINK_COPY_GROUP_BUTTON_OPTIONS_HEADER_"
+  description="_A_LINK_COPY_GROUP_BUTTON_OPTIONS_DESCRIPTION_"
+  props="button-options"
+)
+  a-link-copy(
+    :button-options="{ class: 'a_btn a_btn_primary', text: 'copy' }"
+    :link-options="{ class: 'a_btn a_btn_primary', text: 'https://github.com/', href: 'https://github.com/' }"
+    text-copy="github"
+  )
+  a-link-copy(
+    class="a_ml_2"
+    :button-options="{ iconLeft: 'FloppyDisk' }"
+    :link-options="{ class: 'a_btn a_btn_secondary', text: 'https://github.com/', href: 'https://github.com/' }"
+  )

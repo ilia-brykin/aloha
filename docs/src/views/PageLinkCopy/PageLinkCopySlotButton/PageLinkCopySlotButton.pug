@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LINK_COPY_GROUP_SLOT_BUTTON_HEADER_"
+  description="_A_LINK_COPY_GROUP_SLOT_BUTTON_DESCRIPTION_"
+  props="disabled"
+)
+  a-link-copy(
+    :link-options="{ class: 'a_btn a_btn_secondary', text: 'https://github.com/', href: 'https://github.com/' }"
+  )
+    template(
+      v-slot:button
+    )
+      strong copy

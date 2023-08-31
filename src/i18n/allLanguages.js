@@ -14,6 +14,7 @@ import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
 import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
+import ALinkCopyI18n from "../ALinkCopy/i18n/ALinkCopyI18n";
 
 export default {
   ar: {
@@ -25,6 +26,7 @@ export default {
     ...ASelectI18n.ar,
     ...ATableI18n.ar,
     ...AFieldsetI18n.ar,
+    ...ALinkCopyI18n.ar,
   },
   de: {
     ...de,
@@ -35,6 +37,7 @@ export default {
     ...ASelectI18n.de,
     ...ATableI18n.de,
     ...AFieldsetI18n.de,
+    ...ALinkCopyI18n.de,
   },
   en: {
     ...en,
@@ -45,6 +48,7 @@ export default {
     ...ASelectI18n.en,
     ...ATableI18n.en,
     ...AFieldsetI18n.en,
+    ...ALinkCopyI18n.en,
   },
   es: {
     ...es,
@@ -55,6 +59,7 @@ export default {
     ...ASelectI18n.es,
     ...ATableI18n.es,
     ...AFieldsetI18n.es,
+    ...ALinkCopyI18n.es,
   },
   fr: {
     ...fr,
@@ -65,6 +70,7 @@ export default {
     ...ASelectI18n.fr,
     ...ATableI18n.fr,
     ...AFieldsetI18n.fr,
+    ...ALinkCopyI18n.fr,
   },
   hr: {
     ...hr,
@@ -75,6 +81,7 @@ export default {
     ...ASelectI18n.hr,
     ...ATableI18n.hr,
     ...AFieldsetI18n.hr,
+    ...ALinkCopyI18n.hr,
   },
   it: {
     ...it,
@@ -85,6 +92,7 @@ export default {
     ...ASelectI18n.it,
     ...ATableI18n.it,
     ...AFieldsetI18n.it,
+    ...ALinkCopyI18n.it,
   },
   ru: {
     ...ru,
@@ -95,5 +103,6 @@ export default {
     ...ASelectI18n.ru,
     ...ATableI18n.ru,
     ...AFieldsetI18n.ru,
+    ...ALinkCopyI18n.ru,
   },
 };

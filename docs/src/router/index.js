@@ -220,6 +220,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageLink" */ "../views/PageLink/PageLink.vue"),
   },
   {
+    path: "/link-copy",
+    name: "PageLinkCopy",
+    component: () => import(/* webpackChunkName: "PageLinkCopy" */ "../views/PageLinkCopy/PageLinkCopy.vue"),
+  },
+  {
     path: "/on-hooks",
     name: "PageOnHooks",
     component: () => import(/* webpackChunkName: "PageOnHooks" */ "../views/PageDirectives/PageOnHooks/PageOnHooks.vue"),

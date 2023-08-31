@@ -243,6 +243,14 @@ export default {
           icon: "BoxArrowUpRight",
         },
         {
+          id: "LinkCopy",
+          label: "Link copy",
+          to: {
+            name: "PageLinkCopy",
+          },
+          icon: "Files",
+        },
+        {
           id: "list",
           label: "List",
           to: {
