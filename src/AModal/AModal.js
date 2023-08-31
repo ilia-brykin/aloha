@@ -1,13 +1,11 @@
 import {
   h,
   Teleport,
-  withDirectives,
 } from "vue";
 
+import AButton from "../AButton/AButton";
 import AForm from "../ui/AForm/AForm";
 import ATranslation from "../ATranslation/ATranslation";
-
-import ASafeHtml from "../directives/ASafeHtml";
 
 import {
   modalPluginOptions,
@@ -72,6 +70,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
     },
     headerTag: {
       type: String,
@@ -442,6 +445,7 @@ export default {
                   h(ATranslation, {
                     tag: "span",
                     html: this.headerText,
+                    extra: this.extra,
                   }),
                 ]),
                 h("button", {
@@ -470,9 +474,10 @@ export default {
                   isRender: this.isDataFormRender,
                   "onUpdate:modelValue": this.updateModelLocal,
                 }, this.$slots),
-                this.bodyHtml && withDirectives(h("div"), [
-                  [ASafeHtml, this.bodyHtml],
-                ]),
+                this.bodyHtml && h(ATranslation, {
+                  html: this.bodyHtml,
+                  extra: this.extra,
+                }),
                 this.$slots.modalBodyAppend && this.$slots.modalBodyAppend(),
               ]),
               h("div", {
@@ -487,30 +492,24 @@ export default {
                   save: this.save,
                   close: this.close,
                 }),
-                (!this.isSaveButtonHide && this.save) && h("button", {
+                (!this.isSaveButtonHide && this.save) && h(AButton, {
                   id: this.saveButtonId,
-                  type: "button",
                   class: this.saveButtonClass,
                   disabled: this.disabledLocal || this.disabledSave,
+                  extra: this.extra,
+                  html: this.saveButtonText,
+                  type: "button",
                   onClick: this.save,
-                }, [
-                  h(ATranslation, {
-                    tag: "span",
-                    text: this.saveButtonText,
-                  }),
-                ]),
-                !this.isCloseButtonHide && h("button", {
+                }),
+                !this.isCloseButtonHide && h(AButton, {
                   id: this.closeButtonId,
                   type: "button",
                   class: this.closeButtonClass,
                   disabled: this.disabledLocal,
+                  html: this.closeButtonText,
+                  extra: this.extra,
                   onClick: this.close,
-                }, [
-                  h(ATranslation, {
-                    tag: "span",
-                    text: this.closeButtonText,
-                  }),
-                ]),
+                }),
                 this.$slots.modalFooterAppend && this.$slots.modalFooterAppend({
                   saveButtonClass: this.saveButtonClass,
                   closeButtonClass: this.closeButtonClass,

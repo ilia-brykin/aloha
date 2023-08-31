@@ -27,7 +27,7 @@ export default function FiltersSaveAPI(props, {
         data: cloneDeep(modelFiltersLocal.value),
       });
     } else {
-      const INDEX = findIndex(filtersSaved.value, ["label, label"]);
+      const INDEX = findIndex(filtersSaved.value, ["label", label]);
       if (INDEX !== -1) {
         if (action === "delete") {
           filtersSaved.value.splice(INDEX, 1);

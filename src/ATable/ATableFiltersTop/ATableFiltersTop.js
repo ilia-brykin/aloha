@@ -11,6 +11,8 @@ import EventBusAPI from "./compositionAPI/EventBusAPI";
 import FilterMainAPI from "./compositionAPI/FilterMainAPI";
 import FiltersHiddenAPI from "./compositionAPI/FiltersHiddenAPI";
 import FiltersSaveAPI from "./compositionAPI/FiltersSaveAPI";
+import FiltersSavedDeleteAPI from "./compositionAPI/FiltersSavedDeleteAPI";
+import IdAPI from "./compositionAPI/IdAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
@@ -69,6 +71,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      idFilterTop,
+    } = IdAPI(props);
+
+    const {
       buttonToggleComponent,
       isOpen,
       onClose,
@@ -102,7 +108,6 @@ export default {
     } = FiltersHiddenAPI(props, context);
 
     const {
-      buttonDeleteFiltersSavedComponent,
       buttonSaveComponentBottom,
       buttonSaveComponentTop,
       changeModelFiltersSaved,
@@ -113,6 +118,14 @@ export default {
       selectorCloseIds,
     } = FiltersSaveAPI(props, {
       onOpen,
+    });
+
+    const {
+      buttonDeleteFiltersSavedComponent,
+    } = FiltersSavedDeleteAPI(props, {
+      changeModelFiltersSaved,
+      idFilterTop,
+      modelFiltersSaved,
     });
 
     initEventBus();
@@ -134,6 +147,7 @@ export default {
       filterMainComponent,
       filtersHidden,
       hasFiltersHiddenDefault,
+      idFilterTop,
       isModalSaveVisible,
       isOpen,
       modelFiltersSaved,
@@ -145,6 +159,7 @@ export default {
   },
   render() {
     return h("div", {
+      id: this.idFilterTop,
       class: "a_table__filters_top",
     }, [
       h("form", {}, [
