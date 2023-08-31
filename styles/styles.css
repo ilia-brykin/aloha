@@ -6765,7 +6765,7 @@ input:not(:-webkit-autofill) {
 
 .aloha_btn {
   position: relative; }
-  .aloha_btn > :not(.aloha_btn__hidden) + * {
+  .aloha_btn > :not(.aloha_btn__hidden) + :not(.aloha_btn__ml_0) {
     margin-left: .5rem; }
 
 .aloha_link {
