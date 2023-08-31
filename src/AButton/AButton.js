@@ -62,12 +62,12 @@ export default {
       default: undefined,
     },
     html: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
     htmlScreenReader: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -138,12 +138,12 @@ export default {
       default: undefined,
     },
     safeHtml: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
     safeHtmlScreenReader: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -163,7 +163,7 @@ export default {
       default: "button",
     },
     text: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -188,7 +188,7 @@ export default {
       default: undefined,
     },
     textScreenReader: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },

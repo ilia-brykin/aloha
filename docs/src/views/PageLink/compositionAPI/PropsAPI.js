@@ -38,14 +38,14 @@ export default function PropsAPI() {
     {
       name: "html",
       description: "_A_LINK_PROPS_HTML_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },
     {
       name: "html-screen-reader",
       description: "_A_LINK_PROPS_HTML_SCREEN_READER_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },
@@ -123,14 +123,14 @@ export default function PropsAPI() {
     {
       name: "safe-html",
       description: "_A_LINK_PROPS_SAFE_HTML_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },
     {
       name: "safe-html-screen-reader",
       description: "_A_LINK_PROPS_SAFE_HTML_SCREEN_READER_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },
@@ -144,7 +144,7 @@ export default function PropsAPI() {
     {
       name: "text",
       description: "_A_LINK_PROPS_TEXT_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },
@@ -179,7 +179,7 @@ export default function PropsAPI() {
     {
       name: "text-screen-reader",
       description: "_A_LINK_PROPS_TEXT_SCREEN_READER_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },

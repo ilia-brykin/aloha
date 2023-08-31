@@ -57,12 +57,12 @@ export default {
       default: undefined,
     },
     html: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
     htmlScreenReader: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -118,12 +118,12 @@ export default {
       default: "a_spinner_small",
     },
     safeHtml: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
     safeHtmlScreenReader: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -138,7 +138,7 @@ export default {
       default: undefined,
     },
     text: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -163,7 +163,7 @@ export default {
       default: undefined,
     },
     textScreenReader: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
