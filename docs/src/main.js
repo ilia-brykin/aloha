@@ -9,6 +9,7 @@ import AIconPlugin from "../../src/plugins/AIconPlugin";
 import AModalPlugin from "../../src/plugins/AModalPlugin";
 import mainIcons from "./mainIcons";
 import ASafeHtml from "../../src/directives/ASafeHtml";
+import ATablePlugin from "../../src/plugins/ATablePlugin";
 
 import {
   mainTranslation,
@@ -32,6 +33,11 @@ APP.use(AModalPlugin, {
 APP.use(ASelectPlugin, {
   propsDefault: {
     menuWidthType: "by_content",
+  },
+});
+APP.use(ATablePlugin, {
+  config: {
+
   },
 });
 // APP.use(AGroupButtonDropdownPlugin, {

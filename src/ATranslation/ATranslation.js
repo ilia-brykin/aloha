@@ -24,7 +24,7 @@ export default {
       default: undefined,
     },
     html: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -34,7 +34,7 @@ export default {
       default: undefined,
     },
     safeHtml: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -82,11 +82,8 @@ export default {
     const {
       hasHtml,
       hasSafeHtml,
-      htmlForCurrentDevice,
+      htmlLocalOptions,
       htmlLocalWithBeforeAndAfter,
-      isTranslateHtml,
-      isTranslateSafeHtml,
-      safeHtmlForCurrentDevice,
     } = HtmlAPI(props, {
       hasTextAfter,
       hasTextBefore,
@@ -109,11 +106,8 @@ export default {
     const {
       attributesLocal,
     } = AttributesAPI({
-      htmlForCurrentDevice,
-      isTranslateHtml,
-      isTranslateSafeHtml,
+      htmlLocalOptions,
       isTranslateText,
-      safeHtmlForCurrentDevice,
       textForCurrentDevice,
       titleLocalOptions,
     });

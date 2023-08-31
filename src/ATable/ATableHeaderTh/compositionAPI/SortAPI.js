@@ -1,10 +1,15 @@
 import {
   computed,
-  h, inject,
+  h,
+  inject,
   toRef,
 } from "vue";
 
 import AIcon from "../../../AIcon/AIcon";
+
+import {
+  tablePluginOptions,
+} from "../../../plugins/ATablePlugin";
 
 export default function SortAPI(props) {
   const column = toRef(props, "column");
@@ -87,13 +92,6 @@ export default function SortAPI(props) {
     return ICONS;
   });
 
-  const componentSortLocal = computed(() => {
-    if (isSortable.value) {
-      return "button";
-    }
-    return "span";
-  });
-
   const changeModelSortLocal = $event => {
     if (disabledSort.value) {
       return;
@@ -110,12 +108,15 @@ export default function SortAPI(props) {
         type: "button",
         disabled: disabledSort.value,
         class: "a_btn a_btn_link a_table__th__sort",
+        isTitleHtml: tablePluginOptions.value.config?.isHtmlTitleSort || false,
         // ariaLabel: "Bla bla", // TODO: Barrierefreiheit
         // "aria-describedby": "alohaTest",
         onClick: changeModelSortLocal,
       };
     }
-    return {};
+    return {
+      tag: "span",
+    };
   });
 
   const sequenceNumberSort = computed(() => {
@@ -150,7 +151,6 @@ export default function SortAPI(props) {
   return {
     ariaSort,
     attributesForButtonSort,
-    componentSortLocal,
     iconsSortable,
     isSortable,
     isSorting,

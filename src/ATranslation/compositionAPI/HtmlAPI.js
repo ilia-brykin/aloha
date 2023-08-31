@@ -13,6 +13,8 @@ import {
   sanitizeLocal,
 } from "../../utils/utils";
 import {
+  forEach,
+  isArray,
   isPlainObject,
   isUndefined,
 } from "lodash-es";
@@ -60,20 +62,26 @@ export default function HtmlAPI(props, {
     return html.value;
   });
 
+  const isSafeHtmlArray = computed(() => {
+    return isArray(safeHtml.value);
+  });
+
+  const isHtmlArray = computed(() => {
+    return isArray(html.value);
+  });
+
   const hasSafeHtml = computed(() => {
+    if (isSafeHtmlArray.value) {
+      return safeHtml.value.length > 0;
+    }
     return !isUndefined(safeHtmlForCurrentDevice.value);
   });
 
   const hasHtml = computed(() => {
+    if (isHtmlArray.value) {
+      return html.value.length > 0;
+    }
     return !isUndefined(htmlForCurrentDevice.value);
-  });
-
-  const isTranslateSafeHtml = computed(() => {
-    return !(!hasSafeHtml.value || !isPlaceholderTranslate(safeHtml.value));
-  });
-
-  const isTranslateHtml = computed(() => {
-    return !(!hasHtml.value || !isPlaceholderTranslate(html.value));
   });
 
   const textBeforeHtml = computed(() => {
@@ -88,44 +96,85 @@ export default function HtmlAPI(props, {
       "";
   });
 
-  const htmlLocal = computed(() => {
+  const htmlLocalOptions = computed(() => {
     if (!translationChanges.value) {
       return undefined;
     }
+    const HTML_LOCAL_OPTIONS = {
+      safeHtml: undefined,
+      html: undefined,
+      dataTranslateHtml: undefined,
+      dataTranslateSafeHtml: undefined,
+    };
     if (hasSafeHtml.value) {
-      if (isTranslateSafeHtml.value) {
-        return getTranslatedText({
-          placeholder: safeHtmlForCurrentDevice.value,
-          translationObj: translation,
-          extra: extra.value
-        });
-      }
-      return safeHtmlForCurrentDevice.value;
+      const SAFE_HTML_LIST = isSafeHtmlArray.value ?
+        safeHtml.value :
+        [safeHtmlForCurrentDevice.value];
+      let safeHtmlCombined = "";
+      let dataTranslateSafeHtml = "";
+      forEach(SAFE_HTML_LIST, safeHtmlEl => {
+        if (!safeHtmlEl && safeHtmlEl !== 0) {
+          return;
+        }
+        if (safeHtmlCombined) {
+          safeHtmlCombined += " ";
+          dataTranslateSafeHtml += " ";
+        }
+        if (isPlaceholderTranslate(safeHtmlEl)) {
+          safeHtmlCombined += sanitizeLocal(getTranslatedText({
+            placeholder: safeHtmlEl,
+            translationObj: translation,
+            extra: extra.value,
+          }));
+          dataTranslateSafeHtml += safeHtmlEl;
+        } else {
+          safeHtmlCombined += sanitizeLocal(safeHtmlEl);
+        }
+      });
+
+      HTML_LOCAL_OPTIONS.safeHtml = safeHtmlCombined || undefined;
+      HTML_LOCAL_OPTIONS.dataTranslateSafeHtml = dataTranslateSafeHtml || undefined;
+    } else if (hasHtml.value) {
+      const HTML_LIST = isHtmlArray.value ?
+        html.value :
+        [htmlForCurrentDevice.value];
+      let htmlCombined = "";
+      let dataTranslateHtml = "";
+      forEach(HTML_LIST, htmlEl => {
+        if (!htmlEl && htmlEl !== 0) {
+          return;
+        }
+        if (htmlCombined) {
+          htmlCombined += " ";
+          dataTranslateHtml += " ";
+        }
+        if (isPlaceholderTranslate(htmlEl)) {
+          htmlCombined += sanitizeLocal(getTranslatedText({
+            placeholder: htmlEl,
+            translationObj: translation,
+            extra: extra.value,
+          }));
+          dataTranslateHtml += htmlEl;
+        } else {
+          htmlCombined += sanitizeLocal(htmlEl);
+        }
+      });
+
+      HTML_LOCAL_OPTIONS.html = htmlCombined || undefined;
+      HTML_LOCAL_OPTIONS.dataTranslateHtml = dataTranslateHtml || undefined;
     }
-    if (hasHtml.value) {
-      if (isTranslateHtml.value) {
-        return sanitizeLocal(getTranslatedText({
-          placeholder: htmlForCurrentDevice.value,
-          translationObj: translation,
-          extra: extra.value
-        }));
-      }
-      return sanitizeLocal(htmlForCurrentDevice.value);
-    }
-    return undefined;
+
+    return HTML_LOCAL_OPTIONS;
   });
 
   const htmlLocalWithBeforeAndAfter = computed(() => {
-    return `${ textBeforeHtml.value }${ htmlLocal.value }${ textAfterHtml.value }`;
+    return `${ textBeforeHtml.value }${ htmlLocalOptions.value.safeHtml || htmlLocalOptions.value.html }${ textAfterHtml.value }`;
   });
 
   return {
     hasHtml,
     hasSafeHtml,
-    htmlForCurrentDevice,
+    htmlLocalOptions,
     htmlLocalWithBeforeAndAfter,
-    isTranslateHtml,
-    isTranslateSafeHtml,
-    safeHtmlForCurrentDevice,
   };
 }

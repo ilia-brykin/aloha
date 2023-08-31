@@ -2,6 +2,7 @@ import {
   h,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
@@ -79,7 +80,6 @@ export default {
     const {
       ariaSort,
       attributesForButtonSort,
-      componentSortLocal,
       iconsSortable,
       isSortable,
       isSorting,
@@ -103,7 +103,6 @@ export default {
       attributesForButtonSort,
       attributesForTh,
       columnsStyles,
-      componentSortLocal,
       iconsSortable,
       isSortable,
       root,
@@ -124,28 +123,14 @@ export default {
           this.column.classHeader,
         ],
       }, [
-        h(this.componentSortLocal, this.attributesForButtonSort, [
-          this.column.icon && h(AIcon, {
-            icon: this.column.icon,
-            class: "a_table__th__icon",
-          }),
-          this.column.label && h(ATranslation, {
-            html: this.column.label,
-            tag: "span",
-            class: "a_table__th__text",
-            ariaHidden: this.column.textAriaHidden,
-          }),
-          this.titlesLocal.length > 0 && h(ATranslation, {
-            title: this.titlesLocal,
-            ariaHidden: true,
-            tag: "span",
-            class: "a_position_absolute_all",
-          }),
-          this.column.textScreenReader && h(ATranslation, {
-            html: this.column.textScreenReader,
-            tag: "span",
-            class: "a_sr_only",
-          }),
+        h(AButton, {
+          iconLeft: this.column.icon,
+          iconClass: "a_table__th__icon",
+          textAriaHidden: this.column.textAriaHidden,
+          title: this.titlesLocal,
+          htmlScreenReader: this.column.textScreenReader,
+          ...this.attributesForButtonSort
+        }, () => [
           this.titlesSort.map(titleSort => {
             return h(ATranslation, {
               html: titleSort,
@@ -153,8 +138,14 @@ export default {
               class: "a_sr_only",
             });
           }),
+          this.column.label && h(ATranslation, {
+            html: this.column.label,
+            tag: "span",
+            class: "a_table__th__text aloha_btn__ml_0",
+            ariaHidden: this.column.textAriaHidden,
+          }),
           this.isSortable && h("span", {
-            class: "a_table__th__sort__box",
+            class: "a_table__th__sort__box aloha_btn__ml_0",
           }, [
             this.sequenceNumberSort && h("span", {
               class: [

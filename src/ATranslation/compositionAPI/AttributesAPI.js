@@ -3,11 +3,8 @@ import {
 } from "vue";
 
 export default function AttributesAPI({
-  htmlForCurrentDevice = computed(() => ""),
-  isTranslateHtml = computed(() => false),
-  isTranslateSafeHtml = computed(() => false),
+  htmlLocalOptions = computed(() => undefined),
   isTranslateText = computed(() => false),
-  safeHtmlForCurrentDevice = computed(() => ""),
   textForCurrentDevice = computed(() => ({})),
   titleLocalOptions = computed(() => ({})),
 }) {
@@ -15,10 +12,10 @@ export default function AttributesAPI({
     const ATTRIBUTES = {};
     if (isTranslateText.value) {
       ATTRIBUTES["data-translate-text"] = textForCurrentDevice.value;
-    } else if (isTranslateSafeHtml.value) {
-      ATTRIBUTES["data-translate-safe-html"] = safeHtmlForCurrentDevice.value;
-    } else if (isTranslateHtml.value) {
-      ATTRIBUTES["data-translate-html"] = htmlForCurrentDevice.value;
+    } else if (htmlLocalOptions.value?.dataTranslateSafeHtml) {
+      ATTRIBUTES["data-translate-safe-html"] = htmlLocalOptions.value.dataTranslateSafeHtml;
+    } else if (htmlLocalOptions.value?.dataTranslateHtml) {
+      ATTRIBUTES["data-translate-html"] = htmlLocalOptions.value.dataTranslateHtml;
     }
     if (titleLocalOptions.value.title) {
       ATTRIBUTES.title = titleLocalOptions.value.title;
