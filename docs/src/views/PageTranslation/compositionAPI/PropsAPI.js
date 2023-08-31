@@ -17,7 +17,7 @@ export default function PropsAPI() {
     {
       name: "html",
       description: "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },
@@ -31,7 +31,7 @@ export default function PropsAPI() {
     {
       name: "safe-html",
       description: "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },
@@ -45,7 +45,7 @@ export default function PropsAPI() {
     {
       name: "text",
       description: "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_",
-      type: "String / Number / Object",
+      type: "String / Number / Object / Array",
       default: undefined,
       required: false,
     },

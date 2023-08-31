@@ -10,6 +10,8 @@ import ATranslationAPI, {
 import UtilsAPI from "./UtilsAPI";
 
 import {
+  forEach,
+  isArray,
   isPlainObject,
   isUndefined,
 } from "lodash-es";
@@ -41,35 +43,61 @@ export default function TextAPI(props) {
     return text.value;
   });
 
+  const isTextArray = computed(() => {
+    return isArray(text.value);
+  });
+
   const hasText = computed(() => {
+    if (isTextArray.value) {
+      return text.value.length > 0;
+    }
     return !isUndefined(textForCurrentDevice.value);
   });
 
-  const isTranslateText = computed(() => {
-    return !(!hasText.value || !isPlaceholderTranslate(textForCurrentDevice.value));
-  });
-
-  const textLocal = computed(() => {
+  const textLocalOptions = computed(() => {
+    const TEXT_LOCAL_OPTIONS = {
+      text: undefined,
+      dataTranslateText: undefined,
+    };
     if (!translationChanges.value) {
-      return undefined;
-    }
-    if (isTranslateText.value) {
-      return getTranslatedText({
-        placeholder: textForCurrentDevice.value,
-        translationObj: translation,
-        extra: extra.value
-      });
+      return TEXT_LOCAL_OPTIONS;
     }
     if (hasText.value) {
-      return textForCurrentDevice.value;
+      const TEXT_LIST = isTextArray.value ?
+        text.value :
+        [textForCurrentDevice.value];
+      let textCombined = "";
+      let dataTranslateText = "";
+      forEach(TEXT_LIST, textEl => {
+        if (!textEl && textEl !== 0) {
+          return;
+        }
+        if (textCombined) {
+          textCombined += " ";
+          dataTranslateText += " ";
+        }
+        if (isPlaceholderTranslate(textEl)) {
+          textCombined += getTranslatedText({
+            placeholder: textEl,
+            translationObj: translation,
+            extra: extra.value,
+          });
+          dataTranslateText += textEl;
+        } else {
+          textCombined += textEl;
+        }
+      });
+
+      TEXT_LOCAL_OPTIONS.text = textCombined || undefined;
+      TEXT_LOCAL_OPTIONS.dataTranslateText = dataTranslateText || undefined;
     }
-    return "";
+
+    return TEXT_LOCAL_OPTIONS;
   });
+
 
   return {
     hasText,
-    isTranslateText,
-    textForCurrentDevice,
-    textLocal,
+    textLocalOptions,
   };
 }

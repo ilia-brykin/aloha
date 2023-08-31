@@ -44,7 +44,7 @@ export default {
       default: "div",
     },
     text: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -74,9 +74,7 @@ export default {
 
     const {
       hasText,
-      isTranslateText,
-      textForCurrentDevice,
-      textLocal,
+      textLocalOptions,
     } = TextAPI(props);
 
     const {
@@ -107,8 +105,7 @@ export default {
       attributesLocal,
     } = AttributesAPI({
       htmlLocalOptions,
-      isTranslateText,
-      textForCurrentDevice,
+      textLocalOptions,
       titleLocalOptions,
     });
 
@@ -124,7 +121,7 @@ export default {
       placeholderAttributes,
       textAfterForCurrentDevice,
       textBeforeForCurrentDevice,
-      textLocal,
+      textLocalOptions,
     };
   },
   render() {
@@ -135,7 +132,7 @@ export default {
         ...this.placeholderAttributes,
       }, [
         this.textBeforeForCurrentDevice,
-        this.textLocal,
+        this.textLocalOptions.text,
         this.$slots.default && this.$slots.default(),
         this.textAfterForCurrentDevice,
       ]);

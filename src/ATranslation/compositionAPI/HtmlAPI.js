@@ -97,15 +97,15 @@ export default function HtmlAPI(props, {
   });
 
   const htmlLocalOptions = computed(() => {
-    if (!translationChanges.value) {
-      return undefined;
-    }
     const HTML_LOCAL_OPTIONS = {
       safeHtml: undefined,
       html: undefined,
       dataTranslateHtml: undefined,
       dataTranslateSafeHtml: undefined,
     };
+    if (!translationChanges.value) {
+      return HTML_LOCAL_OPTIONS;
+    }
     if (hasSafeHtml.value) {
       const SAFE_HTML_LIST = isSafeHtmlArray.value ?
         safeHtml.value :

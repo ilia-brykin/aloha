@@ -4,14 +4,13 @@ import {
 
 export default function AttributesAPI({
   htmlLocalOptions = computed(() => undefined),
-  isTranslateText = computed(() => false),
-  textForCurrentDevice = computed(() => ({})),
+  textLocalOptions = computed(() => ({})),
   titleLocalOptions = computed(() => ({})),
 }) {
   const attributesLocal = computed(() => {
     const ATTRIBUTES = {};
-    if (isTranslateText.value) {
-      ATTRIBUTES["data-translate-text"] = textForCurrentDevice.value;
+    if (textLocalOptions.value?.dataTranslateText) {
+      ATTRIBUTES["data-translate-text"] = textLocalOptions.value.dataTranslateText;
     } else if (htmlLocalOptions.value?.dataTranslateSafeHtml) {
       ATTRIBUTES["data-translate-safe-html"] = htmlLocalOptions.value.dataTranslateSafeHtml;
     } else if (htmlLocalOptions.value?.dataTranslateHtml) {
