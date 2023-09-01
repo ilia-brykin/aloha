@@ -7,6 +7,10 @@ import {
 
 import AButton from "../../../AButton/AButton";
 
+import {
+  tablePluginComponentsProps,
+} from "../../../plugins/ATablePlugin";
+
 export default function ToggleAPI(props) {
   const filtersVisible = toRef(props, "filtersVisible");
   const filtersGroup = toRef(props, "filtersGroup");
@@ -52,6 +56,7 @@ export default function ToggleAPI(props) {
       text: textToggle,
       iconRight: iconToggle,
       onClick: onToggle,
+      ...tablePluginComponentsProps.value.buttonToggle,
     });
   });
 

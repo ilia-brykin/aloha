@@ -3,7 +3,6 @@ import {
   onBeforeUnmount,
 } from "vue";
 
-import ASelect from "../../ui/ASelect/ASelect";
 import ATableFiltersSaveModal from "../ATableFiltersSaveModal/ATableFiltersSaveModal";
 import ATableFiltersTopFilter from "./ATableFiltersTopFilter/ATableFiltersTopFilter";
 
@@ -12,6 +11,7 @@ import FilterMainAPI from "./compositionAPI/FilterMainAPI";
 import FiltersHiddenAPI from "./compositionAPI/FiltersHiddenAPI";
 import FiltersSaveAPI from "./compositionAPI/FiltersSaveAPI";
 import FiltersSavedDeleteAPI from "./compositionAPI/FiltersSavedDeleteAPI";
+import FiltersLayoutAPI from "./compositionAPI/FiltersLayoutAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
@@ -101,6 +101,7 @@ export default {
     });
 
     const {
+      addFilterSelectComponent,
       addFiltersVisible,
       deleteFiltersVisible,
       filtersHidden,
@@ -109,7 +110,7 @@ export default {
 
     const {
       buttonSaveComponentBottom,
-      buttonSaveComponentTop,
+      buttonSaveTopComponent,
       changeModelFiltersSaved,
       closeModalSave,
       isModalSaveVisible,
@@ -128,6 +129,19 @@ export default {
       modelFiltersSaved,
     });
 
+    const {
+      filtersTopFooter,
+      filtersTopHeader,
+    } = FiltersLayoutAPI({
+      filterMainComponent,
+      buttonSearchComponent,
+      buttonToggleComponent,
+      selectFiltersSavedComponent,
+      buttonDeleteFiltersSavedComponent,
+      buttonSaveTopComponent,
+      addFilterSelectComponent,
+    });
+
     initEventBus();
 
     onBeforeUnmount(() => {
@@ -136,23 +150,20 @@ export default {
 
     return {
       addFiltersVisible,
-      buttonDeleteFiltersSavedComponent,
       buttonSaveComponentBottom,
-      buttonSaveComponentTop,
       buttonSearchComponent,
-      buttonToggleComponent,
       changeModelFiltersSaved,
       closeModalSave,
       deleteFiltersVisible,
-      filterMainComponent,
       filtersHidden,
+      filtersTopFooter,
+      filtersTopHeader,
       hasFiltersHiddenDefault,
       idFilterTop,
       isModalSaveVisible,
       isOpen,
       modelFiltersSaved,
       onSearch,
-      selectFiltersSavedComponent,
       selectorCloseIds,
       styleToggle,
     };
@@ -163,16 +174,7 @@ export default {
       class: "a_table__filters_top",
     }, [
       h("form", {}, [
-        h("div", {
-          class: "a_table__filters_top__header",
-        }, [
-          this.selectFiltersSavedComponent,
-          this.buttonDeleteFiltersSavedComponent,
-          this.filterMainComponent,
-          this.buttonSearchComponent,
-          this.buttonSaveComponentTop,
-          this.buttonToggleComponent,
-        ]),
+        this.filtersTopHeader,
         h("div", {
           class: "a_table__filters_top__always_visible",
           style: this.styleToggle,
@@ -198,23 +200,7 @@ export default {
               onDeleteFiltersVisible: this.deleteFiltersVisible,
             }, this.$slots);
           }),
-          h("div", {
-            class: "a_table__filters_top__footer",
-          }, [
-            this.hasFiltersHiddenDefault && h(ASelect, {
-              class: "a_table__filters_top__footer__select",
-              type: "select",
-              data: this.filtersHidden,
-              keyLabel: "label",
-              keyId: "id",
-              label: "_A_TABLE_FILTER_ADD_",
-              translateData: true,
-              disabled: !this.filtersHidden.length,
-              search: true,
-              change: this.addFiltersVisible,
-            }),
-            this.buttonSearchComponent,
-          ]),
+          this.filtersTopFooter,
         ]),
       ]),
       this.isModalSaveVisible && h(ATableFiltersSaveModal, {

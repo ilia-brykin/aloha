@@ -14,6 +14,7 @@ export default function FilterMainAPI(props) {
 
   const filterMainComponent = computed(() => {
     return filtersGroup.value.main && h(ATableFiltersTopFilterUi, {
+      class: "a_table__filters_top__filter_main",
       filter: filtersGroup.value.main,
       isLabelVisible: true,
       modelFilters: modelFilters.value,

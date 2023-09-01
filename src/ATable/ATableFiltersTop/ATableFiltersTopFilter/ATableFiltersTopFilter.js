@@ -74,7 +74,8 @@ export default {
         isLabelFloat: false,
       }),
       h(ATableFiltersTopFilterUi, {
-        class: "a_column a_column_12_mobile a_column_12_tablet a_column_8_desktop a_column_4_widescreen a_column_4_fullhd",
+        // class: "a_column a_column_12_mobile a_column_12_tablet a_column_8_desktop a_column_4_widescreen a_column_4_fullhd",
+        class: "a_table__filters_top__filter_ui",
         filter: this.filter,
         isLabelVisible: this.isLabelInComponentVisible,
         modelFilters: this.modelFilters,

@@ -1,7 +1,9 @@
 import {
-  computed,
+  computed, h,
   toRef,
 } from "vue";
+
+import ASelect from "../../../ui/ASelect/ASelect";
 
 import {
   filter,
@@ -45,7 +47,23 @@ export default function FiltersHiddenAPI(props, { emit }) {
     });
   });
 
+  const addFilterSelectComponent = computed(() => {
+    return hasFiltersHiddenDefault.value && h(ASelect, {
+      class: "a_table__filters_top__footer__select",
+      type: "select",
+      data: filtersHidden.value,
+      keyLabel: "label",
+      keyId: "id",
+      label: "_A_TABLE_FILTER_ADD_",
+      translateData: true,
+      disabled: !filtersHidden.value.length,
+      search: true,
+      change: addFiltersVisible,
+    });
+  });
+
   return {
+    addFilterSelectComponent,
     addFiltersVisible,
     deleteFiltersVisible,
     filtersHidden,

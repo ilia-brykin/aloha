@@ -10,6 +10,10 @@ import AButton from "../../../AButton/AButton";
 import AConfirmAPI from "../../../compositionAPI/AConfirmAPI";
 import ANotificationAPI from "../../../compositionAPI/ANotificationAPI";
 
+import {
+  tablePluginComponentsProps,
+} from "../../../plugins/ATablePlugin";
+
 export default function FiltersSavedDeleteAPI(props, {
   changeModelFiltersSaved = () => {},
   idFilterTop = computed(() => ""),
@@ -94,7 +98,7 @@ export default function FiltersSavedDeleteAPI(props, {
   const buttonDeleteFiltersSavedComponent = computed(() => {
     return canSave.value && h(AButton, {
       id: buttonDeleteComponentId.value,
-      class: "a_btn a_btn_secondary",
+      class: "a_btn a_btn_secondary a_table__filters_top__delete_filter_saved",
       iconLeft: "Trash",
       textScreenReader: titleButtonDeleteFiltersSaved.value,
       title: titleButtonDeleteFiltersSaved.value,
@@ -103,6 +107,7 @@ export default function FiltersSavedDeleteAPI(props, {
       },
       ariaDisabled: disabledButtonDeleteFiltersSaved.value,
       onClick: openDeleteConfirm,
+      ...tablePluginComponentsProps.value.buttonDeleteFiltersSaved,
     });
   });
 

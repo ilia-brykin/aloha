@@ -8,6 +8,10 @@ import {
 import AButton from "../../../AButton/AButton";
 import ASelect from "../../../ui/ASelect/ASelect";
 
+import {
+  tablePluginComponentsProps,
+} from "../../../plugins/ATablePlugin";
+
 export default function FiltersSaveAPI(props, {
   onOpen = () => ({}),
 }) {
@@ -44,7 +48,7 @@ export default function FiltersSaveAPI(props, {
 
   const buttonSaveComponentPropsDefault = computed(() => {
     return {
-      class: "a_btn a_btn_secondary a_text_nowrap",
+      class: "a_btn a_btn_secondary a_text_nowrap a_table__filters_top__delete_filter_saved",
       text: {
         desktop: "_A_TABLE_FILTER_SAVE_BTN_",
       },
@@ -57,11 +61,12 @@ export default function FiltersSaveAPI(props, {
     };
   });
 
-  const buttonSaveComponentTop = computed(() => {
+  const buttonSaveTopComponent = computed(() => {
     return canSave.value && h(AButton, {
-      ...buttonSaveComponentPropsDefault.value,
       id: buttonSaveComponentTopId.value,
       onClick: openModalSaveTop,
+      ...buttonSaveComponentPropsDefault.value,
+      ...tablePluginComponentsProps.value.buttonSaveTop,
     });
   });
 
@@ -108,12 +113,13 @@ export default function FiltersSaveAPI(props, {
       search: true,
       deselect: true,
       change: changeModelFiltersSaved,
+      ...tablePluginComponentsProps.value.selectFiltersSaved,
     });
   });
 
   return {
     buttonSaveComponentBottom,
-    buttonSaveComponentTop,
+    buttonSaveTopComponent,
     changeModelFiltersSaved,
     closeModalSave,
     isModalSaveVisible,

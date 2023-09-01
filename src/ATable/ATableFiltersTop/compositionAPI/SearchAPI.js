@@ -6,6 +6,10 @@ import {
 
 import AButton from "../../../AButton/AButton";
 
+import {
+  tablePluginComponentsProps,
+} from "../../../plugins/ATablePlugin";
+
 export default function SearchAPI(props, { emit }, {
   onClose = () => {},
 }) {
@@ -35,6 +39,7 @@ export default function SearchAPI(props, { emit }, {
       stop: true,
       disabled: disabledFilters.value,
       onClick: onSearch,
+      ...tablePluginComponentsProps.value.buttonSearch,
     });
   });
 
