@@ -57,6 +57,7 @@ export default {
         this.classDefault,
         this.class,
       ],
+      role: "group",
     }, [
       h(ALink, {
         ref: "linkRef",

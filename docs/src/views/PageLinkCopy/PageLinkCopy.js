@@ -2,11 +2,11 @@ import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
-import PageLinkCopyBasic from "./PageLinkCopyBasic/PageLinkCopyBasic.vue";
 import PageLinkCopyButtonOptions from "./PageLinkCopyButtonOptions/PageLinkCopyButtonOptions.vue";
 import PageLinkCopyClass from "./PageLinkCopyClass/PageLinkCopyClass.vue";
 import PageLinkCopyClassDefault from "./PageLinkCopyClassDefault/PageLinkCopyClassDefault.vue";
 import PageLinkCopyDisabled from "./PageLinkCopyDisabled/PageLinkCopyDisabled.vue";
+import PageLinkCopyLinkOptions from "./PageLinkCopyLinkOptions/PageLinkCopyLinkOptions.vue";
 import PageLinkCopySlotButton from "./PageLinkCopySlotButton/PageLinkCopySlotButton.vue";
 import PageLinkCopySlotLink from "./PageLinkCopySlotLink/PageLinkCopySlotLink.vue";
 import PageLinkCopyTextCopy from "./PageLinkCopyTextCopy/PageLinkCopyTextCopy.vue";
@@ -23,11 +23,11 @@ export default {
     AlohaTableProps,
     AlohaTableTranslate,
     ATranslation,
-    PageLinkCopyBasic,
     PageLinkCopyButtonOptions,
     PageLinkCopyClass,
     PageLinkCopyClassDefault,
     PageLinkCopyDisabled,
+    PageLinkCopyLinkOptions,
     PageLinkCopySlotButton,
     PageLinkCopySlotLink,
     PageLinkCopyTextCopy,

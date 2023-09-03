@@ -9,3 +9,9 @@
     :is-sorting-multi-column="false"
     :show-first-sorting-sequence-number="false"
   )
+    template(
+      v-slot:description="{ row }"
+    )
+      div(
+        v-html="row.description"
+      )

@@ -22,6 +22,7 @@ export default function ColumnsAPI(props) {
       label: "_ALOHA_TABLE_COLUMN_DESCRIPTION_",
       keyLabel: "description",
       sortId: "description",
+      slot: "description",
     },
     type: {
       label: "_ALOHA_TABLE_COLUMN_TYPE_",
