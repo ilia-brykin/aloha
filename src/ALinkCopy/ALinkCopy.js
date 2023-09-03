@@ -20,6 +20,11 @@ export default {
       required: false,
       default: undefined,
     },
+    classDefault: {
+      type: String,
+      required: false,
+      default: "a_btn_group",
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -49,7 +54,7 @@ export default {
   render() {
     return h("div", {
       class: [
-        "a_btn_group",
+        this.classDefault,
         this.class,
       ],
     }, [

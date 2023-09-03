@@ -15,6 +15,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "class-default",
+      description: "_A_LINK_COPY_PROPS_CLASS_DEFAULT_DESCRIPTION_",
+      type: "String",
+      default: "a_btn_group",
+      required: false,
+    },
+    {
       name: "disabled",
       description: "_A_LINK_COPY_PROPS_DISABLED_DESCRIPTION_",
       type: "Boolean",

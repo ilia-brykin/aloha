@@ -5,6 +5,7 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageLinkCopyBasic from "./PageLinkCopyBasic/PageLinkCopyBasic.vue";
 import PageLinkCopyButtonOptions from "./PageLinkCopyButtonOptions/PageLinkCopyButtonOptions.vue";
 import PageLinkCopyClass from "./PageLinkCopyClass/PageLinkCopyClass.vue";
+import PageLinkCopyClassDefault from "./PageLinkCopyClassDefault/PageLinkCopyClassDefault.vue";
 import PageLinkCopyDisabled from "./PageLinkCopyDisabled/PageLinkCopyDisabled.vue";
 import PageLinkCopySlotButton from "./PageLinkCopySlotButton/PageLinkCopySlotButton.vue";
 import PageLinkCopySlotLink from "./PageLinkCopySlotLink/PageLinkCopySlotLink.vue";
@@ -25,6 +26,7 @@ export default {
     PageLinkCopyBasic,
     PageLinkCopyButtonOptions,
     PageLinkCopyClass,
+    PageLinkCopyClassDefault,
     PageLinkCopyDisabled,
     PageLinkCopySlotButton,
     PageLinkCopySlotLink,
