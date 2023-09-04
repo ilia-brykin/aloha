@@ -1,15 +1,17 @@
 import App from "./App/App.vue";
 import { createApp } from "vue";
 import router from "./router/index";
-import AI18nPlugin from "../../src/plugins/AI18nPlugin";
-import AMobilePlugin from "../../src/plugins/AMobilePlugin";
-import ASelectPlugin from "../../src/plugins/ASelectPlugin";
 // import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
-import AIconPlugin from "../../src/plugins/AIconPlugin";
-import AModalPlugin from "../../src/plugins/AModalPlugin";
+import {
+  AIconPlugin,
+  AI18nPlugin,
+  AMobilePlugin,
+  AModalPlugin,
+  ASafeHtml,
+  ASelectPlugin,
+  ATablePlugin,
+} from "../../dist";
 import mainIcons from "./mainIcons";
-import ASafeHtml from "../../src/directives/ASafeHtml";
-import ATablePlugin from "../../src/plugins/ATablePlugin";
 
 import {
   mainTranslation,
