@@ -7,6 +7,7 @@ export default function HtmlTitleAPI(props, {
   tagLocal = computed(() => ""),
 }) {
   const isTitleHtml = toRef(props, "isTitleHtml");
+  const titleAttributes = toRef(props, "titleAttributes");
   const titlePlacement = toRef(props, "titlePlacement");
 
   const htmlTitleAttributes = computed(() => {
@@ -14,6 +15,7 @@ export default function HtmlTitleAPI(props, {
       return {
         tag: tagLocal.value,
         placement: titlePlacement.value,
+        ...titleAttributes.value,
       };
     }
     return {};
