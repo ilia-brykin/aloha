@@ -17,6 +17,7 @@ export default function HtmlTitleAPI(props) {
   const textAfter = toRef(props, "textAfter");
   const textBefore = toRef(props, "textBefore");
   const title = toRef(props, "title");
+  const titleAttributes = toRef(props, "titleAttributes");
   const titlePlacement = toRef(props, "titlePlacement");
 
   const buttonRef = ref(undefined);
@@ -26,6 +27,7 @@ export default function HtmlTitleAPI(props) {
       return {
         tag: tag.value,
         placement: titlePlacement.value,
+        ...titleAttributes.value,
       };
     }
     return {};
