@@ -26,7 +26,7 @@ export default function SearchAPI(props, { emit }, {
 
   const buttonSearchComponent = computed(() => {
     return h(AButton, {
-      class: "a_btn a_btn_primary a_text_nowrap",
+      class: "a_btn a_btn_primary a_text_nowrap a_table__filters_top__search",
       iconLeft: "Search",
       type: "submit",
       text: {

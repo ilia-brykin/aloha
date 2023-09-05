@@ -51,7 +51,7 @@ export default function ToggleAPI(props) {
 
   const buttonToggleComponent = computed(() => {
     return isBtnToggleVisible.value && h(AButton, {
-      class: "a_btn a_btn_link a_text_nowrap",
+      class: "a_btn a_btn_link a_text_nowrap a_table__filters_top__toggle_filter",
       type: "button",
       text: textToggle,
       iconRight: iconToggle,
