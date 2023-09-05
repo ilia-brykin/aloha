@@ -6,6 +6,7 @@ import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import PlaceholderAPI from "./compositionAPI/PlaceholderAPI";
+import RestAttributesAPI from "./compositionAPI/RestAttributesAPI";
 import TextAfterBeforeAPI from "./compositionAPI/TextAfterBeforeAPI";
 import TextAPI from "./compositionAPI/TextAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
@@ -94,19 +95,32 @@ export default {
     } = TitleAPI(props);
 
     const {
+      hasPlaceholder,
       placeholderAttributes,
     } = PlaceholderAPI(props);
 
     const {
       ariaLabelAttributes,
+      hasAriaLabel,
     } = AriaLabelAPI(props);
 
     const {
       attributesLocal,
+      hasAttributesLocal,
     } = AttributesAPI({
       htmlLocalOptions,
       textLocalOptions,
       titleLocalOptions,
+    });
+
+    const {
+      hasRestAttributes,
+    } = RestAttributesAPI({
+      hasAriaLabel,
+      hasAttributesLocal,
+      hasPlaceholder,
+      hasTextAfter,
+      hasTextBefore,
     });
 
     return {
@@ -116,6 +130,7 @@ export default {
       hasTextAfter,
       hasTextBefore,
       hasHtml,
+      hasRestAttributes,
       hasSafeHtml,
       htmlLocalWithBeforeAndAfter,
       placeholderAttributes,
@@ -147,7 +162,7 @@ export default {
       });
     }
 
-    return h(this.tag, {
+    return (this.hasRestAttributes || this.$slots.default) && h(this.tag, {
       ...this.attributesLocal,
       ...this.ariaLabelAttributes,
       ...this.placeholderAttributes,

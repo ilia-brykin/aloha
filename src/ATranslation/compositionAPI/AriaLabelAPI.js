@@ -76,5 +76,6 @@ export default function AriaLabelAPI(props) {
 
   return {
     ariaLabelAttributes,
+    hasAriaLabel,
   };
 }

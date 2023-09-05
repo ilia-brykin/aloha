@@ -7,6 +7,12 @@ export default function AttributesAPI({
   textLocalOptions = computed(() => ({})),
   titleLocalOptions = computed(() => ({})),
 }) {
+  const hasAttributesLocal = computed(() => {
+    return isTranslateText.value
+      || htmlLocalOptions.value?.dataTranslateSafeHtml
+      || htmlLocalOptions.value?.dataTranslateHtml
+      || titleLocalOptions.value?.title;
+  });
   const attributesLocal = computed(() => {
     const ATTRIBUTES = {};
     if (textLocalOptions.value?.dataTranslateText) {
@@ -28,5 +34,6 @@ export default function AttributesAPI({
 
   return {
     attributesLocal,
+    hasAttributesLocal,
   };
 }

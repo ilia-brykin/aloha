@@ -75,6 +75,7 @@ export default function PlaceholderAPI(props) {
   });
 
   return {
+    hasPlaceholder,
     placeholderAttributes,
   };
 }
