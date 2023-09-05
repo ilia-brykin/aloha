@@ -73,26 +73,24 @@ export default {
         type: this.filter.type,
         isLabelFloat: false,
       }),
-      h(
-        "div", {
-          class: "a_table__filters_top__filter_ui_subgroup",
-        }, [
-          h(ATableFiltersTopFilterUi, {
-            class: "a_table__filters_top__filter_ui",
-            filter: this.filter,
-            isLabelVisible: this.isLabelInComponentVisible,
-            modelFilters: this.modelFilters,
-            onUpdateModelFilters: this.onUpdateModelFilters,
-            tableId: this.tableId,
-          }, this.$slots),
-          this.closable && h(AButton, {
-            class: "a_btn a_btn_transparent_secondary a_table__filters_top__filter_ui_delete",
-            title: "_A_TABLE_FILTER_TOP_CLOSE_",
-            iconLeft: "Close",
-            onClick: () => this.$emit("deleteFiltersVisible", { filter: this.filter }),
-          }),
-        ]
-      )
+      h("div", {
+        class: "a_table__filters_top__filter_ui_subgroup",
+      }, [
+        h(ATableFiltersTopFilterUi, {
+          class: "a_table__filters_top__filter_ui",
+          filter: this.filter,
+          isLabelVisible: this.isLabelInComponentVisible,
+          modelFilters: this.modelFilters,
+          onUpdateModelFilters: this.onUpdateModelFilters,
+          tableId: this.tableId,
+        }, this.$slots),
+        this.closable && h(AButton, {
+          class: "a_btn a_btn_transparent_secondary a_table__filters_top__filter_ui_delete",
+          title: "_A_TABLE_FILTER_TOP_CLOSE_",
+          iconLeft: "Close",
+          onClick: () => this.$emit("deleteFiltersVisible", { filter: this.filter }),
+        }),
+      ])
     ]);
   },
 };
