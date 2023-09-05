@@ -118,6 +118,15 @@ export default function HtmlAPI() {
   :is-title-html="true"
   title-placement="left-end"
 >
+</a-button>
+<a-button
+  class="a_btn a_btn_success a_ml_2 a_mt_2"
+  title="_A_BUTTON_EXAMPLE_BIG_TITLE_"
+  text="placement: auto, html-title max-width 100"
+  :is-title-html="true"
+  title-placement="auto"
+  :title-attributes="{ maxWidth: 150 }"
+>
 </a-button>`;
 
   return {
