@@ -8,7 +8,7 @@ export default function AttributesAPI({
   titleLocalOptions = computed(() => ({})),
 }) {
   const hasAttributesLocal = computed(() => {
-    return isTranslateText.value
+    return textLocalOptions.value?.dataTranslateText
       || htmlLocalOptions.value?.dataTranslateSafeHtml
       || htmlLocalOptions.value?.dataTranslateHtml
       || titleLocalOptions.value?.title;
