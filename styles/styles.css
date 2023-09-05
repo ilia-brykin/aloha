@@ -6064,15 +6064,92 @@ input:not(:-webkit-autofill) {
   left: 0; }
 
 .a_table__filters_top {
-  --a_table_filters_top_padding: 1rem;
+  --a_table_filters_top_padding: 0.5rem;
   --a_table_filters_top_always_visible_padding_left: 2rem;
-  padding: var(--a_table_filters_top_padding); }
+  padding-top: var(--a_table_filters_top_padding); }
 
 .a_table__filters_top__header {
-  display: flex; }
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.a_table__filters_top__header__group {
+  display: flex;
+  flex-direction: row;
+  align-items: start; }
+
+.a_table__filters_top__footer__group {
+  display: flex;
+  flex-direction: row; }
+
+.a_table__filters_top__save_select {
+  margin-right: 0.5rem; }
+
+.a_table__filters_top__filter_main {
+  min-width: 200px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem; }
+
+.a_table__filters_top__delete_filter_saved {
+  margin-right: 0.5rem; }
+
+.a_table__filters_top__search {
+  margin-right: 0.5rem; }
 
 .a_table__filters_top__always_visible {
   padding-left: var(--a_table_filters_top_always_visible_padding_left); }
+
+.a_table__filters_top__filter_ui_label {
+  width: 16%;
+  margin-right: 0.5rem; }
+
+.a_table__filters_top__filter_ui_group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1rem; }
+
+.a_table__filters_top__filter_ui_subgroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 32%; }
+
+.a_table__filters_top__filter_ui {
+  width: 100%; }
+
+.a_table__filters_top__filter_ui_delete {
+  margin-left: 0.5rem; }
+
+.a_table__filters_top__toggle_filter {
+  margin-right: 0.5rem; }
+
+@media screen and (max-width: 1407px) {
+  .a_table__filters_top__filter_ui_subgroup {
+    width: 64%; }
+  .a_table__filters_top__filter_main {
+    margin-bottom: 0.5rem; } }
+
+@media screen and (max-width: 768px) {
+  .a_table__filters_top__header {
+    flex-direction: column; }
+  .a_table__filters_top__header__group {
+    flex-wrap: wrap; }
+  .a_table__filters_top__search {
+    margin-bottom: 0.5rem; }
+  .a_table__filters_top__toggle_filter {
+    margin-bottom: 0.5rem; }
+  .a_table__filters_top__save_select {
+    margin-bottom: 0.5rem; }
+  .a_table__filters_top__always_visible {
+    padding-left: 0; }
+  .a_table__filters_top__filter_ui_group {
+    flex-direction: column;
+    align-items: start; }
+  .a_table__filters_top__filter_ui_label {
+    width: 100%; }
+  .a_table__filters_top__filter_ui_subgroup {
+    width: 100%; } }
 
 .a_table__filters_top__footer {
   margin-top: 1rem;
