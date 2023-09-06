@@ -385,6 +385,12 @@
   padding: var(--a_table_preview_right_padding);
   font-size: var(--a_table_preview_right_header_font_size);
 }
+.a_table__preview_right__header__text {
+  margin-right: .5rem;
+}
+.a_table__preview_right__header__icons {
+  display: inline-block;
+}
 .a_table__preview_right__body {
   padding: var(--a_table_preview_right_padding);
 }

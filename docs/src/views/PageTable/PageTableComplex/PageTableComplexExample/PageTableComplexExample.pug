@@ -52,12 +52,7 @@ aloha-example(
         ) Tabs
 
       template(
-        v-slot:tableDetailsLabel="vm"
-      )
-        span Details {{ vm.rowIndex }}
-
-      template(
-        v-slot:tableDetailsBody="vm"
+        v-slot:previewRight="vm"
       )
         pre {{ vm }}
 

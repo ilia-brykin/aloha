@@ -1,30 +1,50 @@
 import {
   h,
+  onBeforeUnmount,
+  onMounted,
 } from "vue";
 
-import AIcon from "../../AIcon/AIcon";
+import AButton from "../../AButton/AButton";
 import AResizer from "../../AResizer/AResizer";
+import ATranslation from "../../ATranslation/ATranslation";
 
+import ArrowsAPI from "./compositionAPI/ArrowsAPI";
+import MouseEventsAPI from "./compositionAPI/MouseEventsAPI";
 import PreviewRightRewAPI from "../compositionAPI/PreviewRightRewAPI";
-
-import {
-  get,
-} from "lodash-es";
+import RowAPI from "./compositionAPI/RowAPI";
 
 export default {
   name: "ATablePreviewRight",
   props: {
-    rows: {
-      type: Array,
+    countAllRows: {
+      type: Number,
+      required: true,
+    },
+    limitPagination: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    offsetPagination: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    previewHeaderTag: {
+      type: String,
       required: true,
     },
     rowIndex: {
       type: Number,
       required: true,
     },
-    previewHeaderTag: {
-      type: String,
+    rows: {
+      type: Array,
       required: true,
+    },
+    usePagination: {
+      type: Boolean,
+      required: false,
     },
   },
   emits: [
@@ -33,62 +53,69 @@ export default {
     "mousemoveResizePreviewRight",
     "mouseupResizePreviewRight",
     "togglePreviewResize",
+    "togglePreview",
+    "update:offset",
   ],
   inject: [
     "isLoadingOptions",
   ],
-  setup(props, { emit }) {
+  setup(props, context) {
     const {
       previewRef,
     } = PreviewRightRewAPI();
 
-    const mousedown = ({ clientWidth }) => {
-      emit("mousedownResizePreviewRight", {
-        clientWidth,
-      });
-    };
+    const {
+      mousedown,
+      mousemove,
+      mouseup,
+    } = MouseEventsAPI(context, {
+      previewRef,
+    });
 
-    const mousemove = ({ clientX }) => {
-      emit("mousemoveResizePreviewRight", {
-        clientX,
+    const {
+      countAllRowsFormatted,
+      currentRow,
+      rowNumber,
+      rowNumberFormatted,
+    } = RowAPI(props);
+
+    const {
+      disabledBtnArrowLeft,
+      disabledBtnArrowRight,
+      toLastRow,
+      toNextRow,
+    } = ArrowsAPI(props, context, {
+      rowNumber,
+    });
+
+    onMounted(() => {
+      context.emit("togglePreviewResize", {
+        isOpen: true,
         previewRef: previewRef.value,
       });
-    };
+    });
 
-    const mouseup = () => {
-      emit("mouseupResizePreviewRight", {
-        previewRightWidth: get(previewRef, "value.offsetWidth"),
+    onBeforeUnmount(() => {
+      context.emit("togglePreviewResize", {
+        isOpen: false,
+        previewRef: previewRef.value,
       });
-    };
+    });
 
     return {
+      countAllRowsFormatted,
+      currentRow,
+      disabledBtnArrowLeft,
+      disabledBtnArrowRight,
       mousedown,
       mousemove,
       mouseup,
       previewRef,
+      rowNumber,
+      rowNumberFormatted,
+      toLastRow,
+      toNextRow,
     };
-  },
-  computed: {
-    currentRow() {
-      return this.rows[this.rowIndex];
-    },
-  },
-  mounted() {
-    this.$emit("togglePreviewResize", {
-      isOpen: true,
-      previewRef: this.previewRef,
-    });
-  },
-  beforeUnmount() {
-    this.$emit("togglePreviewResize", {
-      isOpen: false,
-      previewRef: this.previewRef,
-    });
-  },
-  methods: {
-    onClosePreview() {
-      this.$emit("closePreview");
-    },
   },
   render() {
     return h("div", {
@@ -107,32 +134,59 @@ export default {
       h(this.previewHeaderTag, {
         class: "a_table__preview_right__header",
       }, [
-        this.$slots.tableDetailsLabel ?
-          this.$slots.tableDetailsLabel({
-            row: this.currentRow,
-            rowIndex: this.rowIndex,
-          }) :
-          h("span", null, "Benutzen sie bitte slot: 'tableDetailsLabel'"),
-        h("button", {
-          class: "a_btn a_btn_link a_table__preview_right__btn_close",
-          type: "button",
-          onClick: this.onClosePreview,
-        }, [
-          h(AIcon, {
-            icon: "Close",
-            class: "a_table__preview_right__btn_close__icon",
+        h("div", {}, [
+          h(ATranslation, {
+            class: "a_table__preview_right__header__text",
+            tag: "span",
+            text: "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_",
+            extra: {
+              rowNumber: this.rowNumber,
+              rowNumberFormatted: this.rowNumberFormatted,
+              countAllRows: this.countAllRows,
+              countAllRowsFormatted: this.countAllRowsFormatted,
+            },
           }),
+          h("div", {
+            class: "a_table__preview_right__header__icons",
+          }, [
+            h(AButton, {
+              class: "a_btn a_btn_transparent_dark a_btn_small",
+              disabled: this.disabledBtnArrowLeft,
+              iconLeft: "ArrowLeft",
+              title: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
+              textScreenReader: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
+              onClick: this.toLastRow,
+            }),
+            h(AButton, {
+              class: "a_btn a_btn_transparent_dark a_btn_small",
+              disabled: this.disabledBtnArrowRight,
+              iconLeft: "ArrowRight",
+              title: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
+              textScreenReader: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
+              onClick: this.toNextRow,
+            }),
+          ]),
         ]),
+        h(AButton, {
+          class: "a_btn a_btn_transparent_dark a_table__preview_right__btn_close",
+          iconLeft: "Close",
+          iconClass: "a_table__preview_right__btn_close__icon",
+          title: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
+          textScreenReader: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
+          onClick: () => this.$emit("closePreview"),
+        }),
       ]),
       h("div", {
         class: "a_table__preview_right__body",
       }, [
-        this.$slots.tableDetailsBody ?
-          this.$slots.tableDetailsBody({
+        this.$slots.previewRight ?
+          this.$slots.previewRight({
             row: this.currentRow,
             rowIndex: this.rowIndex,
           }) :
-          h("span", null, "Benutzen sie bitte slot: 'tableDetailsBody'"),
+          h(ATranslation, {
+            text: "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_",
+          }),
       ]),
     ]);
   },

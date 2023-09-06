@@ -377,6 +377,13 @@ export default {
                 name: "PageTableFilters",
               }
             },
+            {
+              id: "PageTablePreview",
+              label: "Table preview",
+              to: {
+                name: "PageTablePreview",
+              }
+            },
           ],
         },
         {

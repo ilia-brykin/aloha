@@ -3,6 +3,10 @@ import {
   toRef,
 } from "vue";
 
+import {
+  isPlainObject,
+} from "lodash-es";
+
 export default function LimitOffsetAPI(props, { emit }, {
   closePreviewAll = () => {},
   limit = ref(0),
@@ -13,16 +17,29 @@ export default function LimitOffsetAPI(props, { emit }, {
 }) {
   const offsetStart = toRef(props, "offsetStart");
 
-  const changeOffset = offsetLocal => {
-    setFocusToTable();
-    scrollToTable();
+  const changeOffset = _offset => {
+    let offsetLocal;
+    let reloadLocal;
+    if (isPlainObject(_offset)) {
+      offsetLocal = _offset.offset;
+      reloadLocal = _offset.reload;
+    } else {
+      offsetLocal = _offset;
+      reloadLocal = true;
+    }
+    if (reloadLocal) {
+      setFocusToTable();
+      scrollToTable();
+    }
     offset.value = offsetLocal;
     emit("changeOffset", {
       offset: offsetLocal,
       limit: limit.value,
     });
     setEmptySelectedRowsIndexes();
-    closePreviewAll();
+    if (reloadLocal) {
+      closePreviewAll();
+    }
   };
 
   const changeLimit = limitLocal => {

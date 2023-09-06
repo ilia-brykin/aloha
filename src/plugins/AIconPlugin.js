@@ -12,6 +12,8 @@ import AngleDown from "../AIcon/Icons/AngleDown";
 import AngleLeft from "../AIcon/Icons/AngleLeft";
 import AngleRight from "../AIcon/Icons/AngleRight";
 import AngleUp from "../AIcon/Icons/AngleUp";
+import ArrowLeft from "../AIcon/Icons/bootstrap-1-9-1/ArrowLeft";
+import ArrowRight from "../AIcon/Icons/bootstrap-1-9-1/ArrowRight";
 import CheckLg from "../AIcon/Icons/CheckLg";
 import ChevronDown from "../AIcon/Icons/ChevronDown";
 import ChevronLeft from "../AIcon/Icons/ChevronLeft";
@@ -54,6 +56,8 @@ export const iconPluginOptions = ref({
     AngleLeft,
     AngleRight,
     AngleUp,
+    ArrowLeft,
+    ArrowRight,
     CheckLg,
     ChevronDown,
     ChevronLeft,
