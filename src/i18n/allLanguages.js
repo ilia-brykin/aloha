@@ -15,6 +15,7 @@ import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
 import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import ALinkCopyI18n from "../ALinkCopy/i18n/ALinkCopyI18n";
+import AInputNumberRangeI18n from "../ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
 
 export default {
   ar: {
@@ -27,6 +28,7 @@ export default {
     ...ATableI18n.ar,
     ...AFieldsetI18n.ar,
     ...ALinkCopyI18n.ar,
+    ...AInputNumberRangeI18n.ar,
   },
   de: {
     ...de,
@@ -38,6 +40,7 @@ export default {
     ...ATableI18n.de,
     ...AFieldsetI18n.de,
     ...ALinkCopyI18n.de,
+    ...AInputNumberRangeI18n.de,
   },
   en: {
     ...en,
@@ -49,6 +52,7 @@ export default {
     ...ATableI18n.en,
     ...AFieldsetI18n.en,
     ...ALinkCopyI18n.en,
+    ...AInputNumberRangeI18n.en,
   },
   es: {
     ...es,
@@ -60,6 +64,7 @@ export default {
     ...ATableI18n.es,
     ...AFieldsetI18n.es,
     ...ALinkCopyI18n.es,
+    ...AInputNumberRangeI18n.es,
   },
   fr: {
     ...fr,
@@ -71,6 +76,7 @@ export default {
     ...ATableI18n.fr,
     ...AFieldsetI18n.fr,
     ...ALinkCopyI18n.fr,
+    ...AInputNumberRangeI18n.fr,
   },
   hr: {
     ...hr,
@@ -82,6 +88,7 @@ export default {
     ...ATableI18n.hr,
     ...AFieldsetI18n.hr,
     ...ALinkCopyI18n.hr,
+    ...AInputNumberRangeI18n.hr,
   },
   it: {
     ...it,
@@ -93,6 +100,7 @@ export default {
     ...ATableI18n.it,
     ...AFieldsetI18n.it,
     ...ALinkCopyI18n.it,
+    ...AInputNumberRangeI18n.it,
   },
   ru: {
     ...ru,
@@ -104,5 +112,6 @@ export default {
     ...ATableI18n.ru,
     ...AFieldsetI18n.ru,
     ...ALinkCopyI18n.ru,
+    ...AInputNumberRangeI18n.ru,
   },
 };

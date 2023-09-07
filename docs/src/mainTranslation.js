@@ -34,6 +34,7 @@ import PageRadioI18n from "./views/Form/PageRadio/i18n/PageRadioI18n";
 import PageCheckboxI18n from "./views/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageFieldsetI18n from "./views/Form/PageFieldset/i18n/PageFieldsetI18n";
 import PageLinkCopyI18n from "./views/PageLinkCopy/i18n/PageLinkCopyI18n";
+import PageInputNumberRangeI18n from "./views/Form/PageInputNumberRange/i18n/PageInputNumberRangeI18n";
 
 export const mainTranslation = {
   ar: {
@@ -64,6 +65,7 @@ export const mainTranslation = {
     ...PageCheckboxI18n.ar,
     ...PageFieldsetI18n.ar,
     ...PageLinkCopyI18n.ar,
+    ...PageInputNumberRangeI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -93,6 +95,7 @@ export const mainTranslation = {
     ...PageCheckboxI18n.de,
     ...PageFieldsetI18n.de,
     ...PageLinkCopyI18n.de,
+    ...PageInputNumberRangeI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -122,6 +125,7 @@ export const mainTranslation = {
     ...PageCheckboxI18n.en,
     ...PageFieldsetI18n.en,
     ...PageLinkCopyI18n.en,
+    ...PageInputNumberRangeI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -151,6 +155,7 @@ export const mainTranslation = {
     ...PageCheckboxI18n.es,
     ...PageFieldsetI18n.es,
     ...PageLinkCopyI18n.es,
+    ...PageInputNumberRangeI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -180,6 +185,7 @@ export const mainTranslation = {
     ...PageCheckboxI18n.fr,
     ...PageFieldsetI18n.fr,
     ...PageLinkCopyI18n.fr,
+    ...PageInputNumberRangeI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -209,6 +215,7 @@ export const mainTranslation = {
     ...PageCheckboxI18n.hr,
     ...PageFieldsetI18n.hr,
     ...PageLinkCopyI18n.hr,
+    ...PageInputNumberRangeI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -238,6 +245,7 @@ export const mainTranslation = {
     ...PageCheckboxI18n.it,
     ...PageFieldsetI18n.it,
     ...PageLinkCopyI18n.it,
+    ...PageInputNumberRangeI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -267,5 +275,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.ru,
     ...PageFieldsetI18n.ru,
     ...PageLinkCopyI18n.ru,
+    ...PageInputNumberRangeI18n.ru,
   },
 };

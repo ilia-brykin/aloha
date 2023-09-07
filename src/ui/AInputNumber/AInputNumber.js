@@ -37,41 +37,6 @@ export default {
     UiMixinProps,
   ],
   props: {
-    max: {
-      type: Number,
-      required: false,
-      default: undefined,
-    },
-    min: {
-      type: Number,
-      required: false,
-      default: undefined,
-    },
-    type: {
-      type: String,
-      required: false,
-      default: "number",
-      validator: value => ["number", "integer-non-negative", "integer-positive", "integer"].indexOf(value) !== -1,
-      // TODO: "float", "float-positiv", "float-non-negative"
-    },
-    iconPrepend: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    modelUndefined: {
-      required: false,
-      default: undefined,
-    },
-    step: {
-      type: Number,
-      required: false,
-      default: 1,
-    },
-    precision: {
-      type: Number,
-      validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
-    },
     controlsType: {
       type: String,
       required: false,
@@ -79,17 +44,14 @@ export default {
       validator: value => ["plus-minus", "arrows"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
-    stepStrictly: {
-      type: Boolean,
-      required: false,
-    },
-    readonly: {
-      type: Boolean,
-      required: false,
-    },
     eAllowed: {
       type: Boolean,
       required: false,
+    },
+    iconPrepend: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     inputWidth: {
       type: Number,
@@ -100,6 +62,44 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    max: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    min: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    modelUndefined: {
+      required: false,
+      default: undefined,
+    },
+    precision: {
+      type: Number,
+      validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    step: {
+      type: Number,
+      required: false,
+      default: 1,
+    },
+    stepStrictly: {
+      type: Boolean,
+      required: false,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "number",
+      validator: value => ["number", "integer-non-negative", "integer-positive", "integer"].indexOf(value) !== -1,
+      // TODO: "float", "float-positiv", "float-non-negative"
     },
   },
   setup(props, context) {

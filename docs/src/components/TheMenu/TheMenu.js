@@ -190,6 +190,13 @@ export default {
               label: "Input number",
             },
             {
+              id: "input-number-range",
+              to: {
+                name: "PageInputNumberRange",
+              },
+              label: "Input number range",
+            },
+            {
               id: "json",
               label: "JSON",
               to: {
