@@ -55,9 +55,9 @@ export default {
       default: undefined,
     },
     inputWidth: {
-      type: Number,
+      type: [String, Number],
       required: false,
-      default: 250,
+      default: 200,
     },
     isLabelFloat: {
       type: Boolean,

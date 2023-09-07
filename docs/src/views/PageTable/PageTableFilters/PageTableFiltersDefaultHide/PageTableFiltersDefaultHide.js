@@ -70,6 +70,12 @@ export default {
         alwaysVisible: true,
       },
       {
+        type: "numberRange",
+        id: "numberRange",
+        label: "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_",
+        alwaysVisible: true,
+      },
+      {
         type: "date",
         id: "date",
         label: "_A_TABLE_FILTER_DATE_",
@@ -78,6 +84,11 @@ export default {
         type: "text",
         id: "aloha1",
         label: "_A_TABLE_FILTER_EXTRA_",
+      },
+      {
+        type: "integerRange",
+        id: "integerNumber",
+        label: "Integer range",
       },
     ];
 

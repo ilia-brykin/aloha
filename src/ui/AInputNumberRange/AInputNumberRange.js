@@ -14,6 +14,7 @@ import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import Types from "./utils/Types";
 import {
   uniqueId,
 } from "lodash-es";
@@ -137,7 +138,7 @@ export default {
     inputWidth: {
       type: Number,
       required: false,
-      default: 250,
+      default: 200,
     },
     max: {
       type: Number,
@@ -184,7 +185,7 @@ export default {
       type: String,
       required: false,
       default: "number",
-      validator: value => ["number", "integerNonNegative", "integerPositive", "integer"].indexOf(value) !== -1,
+      validator: value => Types.indexOf(value) !== -1,
       // TODO: "float", "floatPositiv", "floatNonNegative"
     },
   },

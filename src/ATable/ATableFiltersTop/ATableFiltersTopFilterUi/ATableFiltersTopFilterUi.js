@@ -5,6 +5,7 @@ import {
 import ComponentTypesAPI from "./compositionAPI/ComponentTypesAPI";
 import ContainerAPI from "./compositionAPI/ContainerAPI";
 import DataAPI from "./compositionAPI/DataAPI";
+import FilterSpecificTypeAPI from "./compositionAPI/FilterSpecificTypeAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 
@@ -59,9 +60,14 @@ export default {
       componentTypesMapping,
     } = ComponentTypesAPI();
 
+    const {
+      filterSpecificAttributes,
+    } = FilterSpecificTypeAPI(props);
+
     return {
       componentTypesMapping,
       emitForComponentsWithData,
+      filterSpecificAttributes,
       idPrefix,
       isContainer,
       onUpdateModelFiltersLocal,
@@ -73,6 +79,7 @@ export default {
       modelValue: this.isContainer ? this.modelFilters : this.modelFilters[this.filter.id],
       "onUpdate:modelValue": this.onUpdateModelFiltersLocal,
       ...this.filter,
+      ...this.filterSpecificAttributes,
       label: this.isLabelVisible ? this.filter.label : undefined,
       ...this.emitForComponentsWithData,
     }, this.$slots);
