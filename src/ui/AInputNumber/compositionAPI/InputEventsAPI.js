@@ -68,7 +68,7 @@ export default function InputEventsAPI(props, {
       return;
     }
     let newValue = $event.target.value.trim();
-    if (type.value === "integer-non-negative") {
+    if (type.value === "integerNonNegative") {
       // Extract all digits from the input value
       const matches = newValue.match(/\d+/g);
       let extractedValue = 0;
@@ -82,7 +82,7 @@ export default function InputEventsAPI(props, {
       setCurrentValue(newValue);
       inputRef.value.value = newValue;
       // TODO: cursor position
-    } else if (type.value === "integer-positive") {
+    } else if (type.value === "integerPositive") {
       if (newValue === "0") {
         newValue = null;
       } else {

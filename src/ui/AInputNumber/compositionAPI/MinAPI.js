@@ -14,9 +14,9 @@ export default function MinAPI(props) {
 
   const minLocal = computed(() => {
     let minComputed;
-    if (type.value === "integer-non-negative") {
+    if (type.value === "integerNonNegative") {
       minComputed = 0;
-    } else if (type.value === "integer-positive") {
+    } else if (type.value === "integerPositive") {
       minComputed = 1;
     }
     if (isUndefined(minComputed) ||

@@ -3,6 +3,7 @@ import ADatepicker from "./ADatepicker/ADatepicker";
 import AInput from "./AInput/AInput";
 import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
+import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
 import ASelect from "./ASelect/ASelect";
@@ -18,12 +19,16 @@ export default {
   datetime: ADatepicker,
   email: AInput,
   file: AInputFile,
-  "integer-non-negative": AInputNumber,
-  "integer-positive": AInputNumber,
   integer: AInputNumber,
+  integerNonNegative: AInputNumber,
+  integerNonNegativeRange: AInputNumberRange,
+  integerPositive: AInputNumber,
+  integerPositiveRange: AInputNumberRange,
+  integerRange: AInputNumberRange,
   multiselect: ASelect,
   natural: AInput,
   number: AInputNumber,
+  numberRange: AInputNumberRange,
   oneCheckbox: AOneCheckbox,
   password: AInput,
   radio: ARadio,

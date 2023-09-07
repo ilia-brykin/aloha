@@ -11,22 +11,22 @@ div
     errors="not valid"
   )
   div model1: {{ model1 }}
-  h2 type "integer-non-negative"
+  h2 type "integerNonNegative"
   a-input-number(
     id="input2"
     v-model="model2"
-    type="integer-non-negative"
+    type="integerNonNegative"
     label="Input 2"
     :required="true"
     :step="2"
     :disabled="true"
   )
   div model2: {{ model2 }}
-  h2 type "integer-positive"
+  h2 type "integerPositive"
   a-input-number(
     id="input3"
     v-model="model3"
-    type="integer-positive"
+    type="integerPositive"
     label="Input 3"
     :required="true"
     :step="3"

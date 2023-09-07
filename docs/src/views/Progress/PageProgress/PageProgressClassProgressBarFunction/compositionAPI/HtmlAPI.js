@@ -5,7 +5,7 @@ export default function HtmlAPI() {
   :min="0"
   :max="100"
   :step="5"
-  type="integer-non-negative"
+  type="integerNonNegative"
 ></a-input-number>
 <a-progress
   :value="model"

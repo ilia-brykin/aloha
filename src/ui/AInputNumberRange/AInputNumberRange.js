@@ -9,6 +9,7 @@ import ALabel from "../ALabel/ALabel";
 
 import IdAPI from "./compositionAPI/IdAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -162,8 +163,8 @@ export default {
       type: String,
       required: false,
       default: "number",
-      validator: value => ["number", "integer-non-negative", "integer-positive", "integer"].indexOf(value) !== -1,
-      // TODO: "float", "float-positiv", "float-non-negative"
+      validator: value => ["number", "integerNonNegative", "integerPositive", "integer"].indexOf(value) !== -1,
+      // TODO: "float", "floatPositiv", "floatNonNegative"
     },
   },
   emits: [
@@ -198,6 +199,10 @@ export default {
       htmlIdLocal,
     });
 
+    const {
+      typeLocal,
+    } = TypeAPI(props);
+
     return {
       changeModelMax,
       changeModelMin,
@@ -209,6 +214,7 @@ export default {
       isErrors,
       modelValueMax,
       modelValueMin,
+      typeLocal,
     };
   },
   render() {
@@ -251,7 +257,7 @@ export default {
             readonly: this.readonly,
             step: this.step,
             stepStrictly: this.stepStrictly,
-            type: this.type,
+            type: this.typeLocal,
             disabled: this.disabled,
             inputAttributes: this.inputAttributes,
             required: this.required,
@@ -277,7 +283,7 @@ export default {
             readonly: this.readonly,
             step: this.step,
             stepStrictly: this.stepStrictly,
-            type: this.type,
+            type: this.typeLocal,
             disabled: this.disabled,
             inputAttributes: this.inputAttributes,
             required: this.required,

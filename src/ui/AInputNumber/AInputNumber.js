@@ -98,8 +98,8 @@ export default {
       type: String,
       required: false,
       default: "number",
-      validator: value => ["number", "integer-non-negative", "integer-positive", "integer"].indexOf(value) !== -1,
-      // TODO: "float", "float-positiv", "float-non-negative"
+      validator: value => ["number", "integerNonNegative", "integerPositive", "integer"].indexOf(value) !== -1,
+      // TODO: "float", "floatPositiv", "floatNonNegative"
     },
   },
   setup(props, context) {

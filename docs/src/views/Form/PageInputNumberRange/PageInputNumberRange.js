@@ -2,6 +2,9 @@ import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageInputNumberRangeBasic from "./PageInputNumberRangeBasic/PageInputNumberRangeBasic.vue";
+import PageInputNumberRangeTypeInteger from "./PageInputNumberRangeTypeInteger/PageInputNumberRangeTypeInteger.vue";
+import PageInputNumberRangeTypeIntegerNonNegative from "./PageInputNumberRangeTypeIntegerNonNegative/PageInputNumberRangeTypeIntegerNonNegative.vue";
+import PageInputNumberRangeTypeIntegerPositive from "./PageInputNumberRangeTypeIntegerPositive/PageInputNumberRangeTypeIntegerPositive.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -16,6 +19,9 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageInputNumberRangeBasic,
+    PageInputNumberRangeTypeInteger,
+    PageInputNumberRangeTypeIntegerNonNegative,
+    PageInputNumberRangeTypeIntegerPositive,
   },
   setup() {
     const {
