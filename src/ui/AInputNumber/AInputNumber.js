@@ -20,6 +20,7 @@ import InputEventsAPI from "./compositionAPI/InputEventsAPI";
 import MinAPI from "./compositionAPI/MinAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import NumberAttributesAPI from "./compositionAPI/NumberAttributesAPI";
+import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
@@ -74,6 +75,11 @@ export default {
       default: undefined,
     },
     modelUndefined: {
+      required: false,
+      default: undefined,
+    },
+    placeholder: {
+      type: [String, Number],
       required: false,
       default: undefined,
     },
@@ -135,6 +141,10 @@ export default {
       isTypeNumber,
       numberAttributes,
     } = NumberAttributesAPI(props);
+
+    const {
+      placeholderAttributes,
+    } = PlaceholderAPI(props);
 
     const inputRef = ref(undefined);
     const disabled = toRef(props, "disabled");
@@ -212,29 +222,30 @@ export default {
     );
 
     return {
-      inputType,
-      numberAttributes,
-      currentValue,
-      handleInput,
-      handleInputChange,
-      handleKeydown,
       ariaDescribedbyLocal,
       clearModel,
       componentStyleHide,
+      currentValue,
+      decrease,
       displayValue,
       errorsId,
+      handleInput,
+      handleInputChange,
+      handleKeydown,
       helpTextId,
       htmlIdLocal,
+      increase,
       inputRef,
+      inputType,
       isAutofill,
       isClearButtonLocal,
       isErrors,
       isModel,
+      numberAttributes,
       onBlurNumber,
       onFocus,
       onInput,
-      increase,
-      decrease,
+      placeholderAttributes,
       userInput,
     };
   },
@@ -294,6 +305,7 @@ export default {
               ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
               ...this.numberAttributes,
+              ...this.placeholderAttributes,
               ...this.inputAttributes,
               onInput: this.handleInput,
               onChange: this.handleInputChange,

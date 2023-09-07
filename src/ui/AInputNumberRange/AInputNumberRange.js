@@ -8,6 +8,7 @@ import AInputNumber from "../AInputNumber/AInputNumber";
 import ALabel from "../ALabel/ALabel";
 
 import IdAPI from "./compositionAPI/IdAPI";
+import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
@@ -40,6 +41,16 @@ export default {
       default: undefined,
     },
     inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputAttributesMax: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputAttributesMin: {
       type: Object,
       required: false,
       default: () => ({}),
@@ -159,6 +170,16 @@ export default {
       type: Boolean,
       required: false,
     },
+    placeholderMin: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    placeholderMax: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     type: {
       type: String,
       required: false,
@@ -203,6 +224,11 @@ export default {
       typeLocal,
     } = TypeAPI(props);
 
+    const {
+      inputAttributesMaxLocal,
+      inputAttributesMinLocal,
+    } = InputAttributesAPI(props);
+
     return {
       changeModelMax,
       changeModelMin,
@@ -211,6 +237,8 @@ export default {
       helpTextId,
       idMax,
       idMin,
+      inputAttributesMaxLocal,
+      inputAttributesMinLocal,
       isErrors,
       modelValueMax,
       modelValueMin,
@@ -259,9 +287,10 @@ export default {
             stepStrictly: this.stepStrictly,
             type: this.typeLocal,
             disabled: this.disabled,
-            inputAttributes: this.inputAttributes,
+            inputAttributes: this.inputAttributesMinLocal,
             required: this.required,
             modelValue: this.modelValueMin,
+            placeholder: this.placeholderMin,
             change: this.changeModelMin,
           }),
           h(ALabel, {
@@ -285,9 +314,10 @@ export default {
             stepStrictly: this.stepStrictly,
             type: this.typeLocal,
             disabled: this.disabled,
-            inputAttributes: this.inputAttributes,
+            inputAttributes: this.inputAttributesMaxLocal,
             required: this.required,
             modelValue: this.modelValueMax,
+            placeholder: this.placeholderMax,
             change: this.changeModelMax,
           }),
         ]),
