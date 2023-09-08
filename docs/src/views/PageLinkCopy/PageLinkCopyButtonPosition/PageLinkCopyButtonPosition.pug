@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LINK_COPY_GROUP_BUTTON_POSITION_HEADER_"
+  description="_A_LINK_COPY_GROUP_BUTTON_POSITION_DESCRIPTION_"
+  props="button-position"
+)
+  a-link-copy(
+    button-position="left"
+    :link-options="{ class: 'a_btn a_btn_secondary', text: 'https://github.com/', href: 'https://github.com/' }"
+  )
+  a-link-copy(
+    class="a_ml_2"
+    button-position="right"
+    :link-options="{ class: 'a_btn a_btn_secondary', text: 'https://github.com/', href: 'https://github.com/' }"
+  )

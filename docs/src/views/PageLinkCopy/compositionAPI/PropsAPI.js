@@ -8,6 +8,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "button-position",
+      description: "_A_LINK_COPY_PROPS_BUTTON_POSITION_DESCRIPTION_",
+      type: "String",
+      default: "right",
+      required: false,
+    },
+    {
       name: "class",
       description: "_A_LINK_COPY_PROPS_CLASS_DESCRIPTION_",
       type: "String / Object",

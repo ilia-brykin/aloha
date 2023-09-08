@@ -3,6 +3,7 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageLinkCopyButtonOptions from "./PageLinkCopyButtonOptions/PageLinkCopyButtonOptions.vue";
+import PageLinkCopyButtonPosition from "./PageLinkCopyButtonPosition/PageLinkCopyButtonPosition.vue";
 import PageLinkCopyClass from "./PageLinkCopyClass/PageLinkCopyClass.vue";
 import PageLinkCopyClassDefault from "./PageLinkCopyClassDefault/PageLinkCopyClassDefault.vue";
 import PageLinkCopyDisabled from "./PageLinkCopyDisabled/PageLinkCopyDisabled.vue";
@@ -24,6 +25,7 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageLinkCopyButtonOptions,
+    PageLinkCopyButtonPosition,
     PageLinkCopyClass,
     PageLinkCopyClassDefault,
     PageLinkCopyDisabled,

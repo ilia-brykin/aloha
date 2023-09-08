@@ -15,6 +15,12 @@ export default {
       required: false,
       default: () => ({}),
     },
+    buttonPosition: {
+      type: String,
+      required: false,
+      default: "right",
+      validator: value => ["right", "left"].indexOf(value) !== -1,
+    },
     class: {
       type: [String, Object],
       required: false,
@@ -52,6 +58,16 @@ export default {
     };
   },
   render() {
+    const BUTTON = h(AButton, {
+      class: "a_btn a_btn_secondary",
+      disabled: this.disabled,
+      iconLeft: "Files",
+      textScreenReader: "_A_LINK_COPY_BTN_TITLE_",
+      title: "_A_LINK_COPY_BTN_TITLE_",
+      onClick: this.copyText,
+      ...this.buttonOptions,
+    }, this.$slots?.button);
+
     return h("div", {
       class: [
         this.classDefault,
@@ -59,20 +75,13 @@ export default {
       ],
       role: "group",
     }, [
+      this.buttonPosition === "left" && BUTTON,
       h(ALink, {
         ref: "linkRef",
         disabled: this.disabled,
         ...this.linkOptions,
       }, this.$slots?.link),
-      h(AButton, {
-        class: "a_btn a_btn_secondary",
-        disabled: this.disabled,
-        iconLeft: "Files",
-        textScreenReader: "_A_LINK_COPY_BTN_TITLE_",
-        title: "_A_LINK_COPY_BTN_TITLE_",
-        onClick: this.copyText,
-        ...this.buttonOptions,
-      }, this.$slots?.button),
+      this.buttonPosition === "right" && BUTTON,
     ]);
   },
 };
