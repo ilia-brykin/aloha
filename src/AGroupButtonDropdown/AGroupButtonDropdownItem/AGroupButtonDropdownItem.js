@@ -67,6 +67,7 @@ export default {
             return h(AButton, {
               ...action,
               class: CLASS,
+              classButton: undefined,
               disabled: DISABLED,
               onClick: action.callback,
               callback: undefined,
@@ -76,8 +77,10 @@ export default {
           if (action.type === "link") {
             return h(ALink, {
               ...action,
+              classButton: undefined,
               disabled: DISABLED,
               class: CLASS,
+              actionnotdividerindex: undefined,
             });
           }
           if (action.type === "template" &&
