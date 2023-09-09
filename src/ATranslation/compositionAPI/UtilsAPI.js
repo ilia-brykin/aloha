@@ -4,7 +4,10 @@ import {
 } from "./ATranslationAPI";
 
 import {
-  get,
+  translateConfig,
+} from "../../plugins/AI18nPlugin";
+import {
+  get, isFunction,
   isNil,
   isPlainObject,
   isString,
@@ -41,6 +44,9 @@ export function getTranslatedText({ placeholder, translationObj = translation, e
 }
 
 function replaceText({ text = "", object }) {
+  if (isFunction(translateConfig?.replaceText)) {
+    return translateConfig?.replaceText({ text, object });
+  }
   if (!isPlainObject(object)) {
     return text;
   }
