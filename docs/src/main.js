@@ -20,7 +20,7 @@ import {
 
 const APP = createApp(App);
 
-APP.use(AI18nPlugin, mainTranslation, "de");
+APP.use(AI18nPlugin, mainTranslation, "de", {});
 APP.use(AIconPlugin, {
   icons: mainIcons,
 });
