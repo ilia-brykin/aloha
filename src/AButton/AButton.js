@@ -376,19 +376,19 @@ export default {
         }),
         this.$slots.buttonAppend && this.$slots.buttonAppend(),
       ],
-      title: () => {
-        if (!this.isTitleHtml) {
-          return;
-        }
-        return [
-          this.isTitleVisible && h(ATranslation, {
-            html: this.title,
-            tag: "span",
-            extra: this.extra,
-          }),
-          this.$slots.buttonTitle && this.$slots.buttonTitle(),
-        ];
-      },
+      title: !this.isTitleHtml ||
+        (!this.title && !this.$slots.buttonTitle) ?
+        undefined :
+        () => {
+          return [
+            this.isTitleVisible && h(ATranslation, {
+              html: this.title,
+              tag: "span",
+              extra: this.extra,
+            }),
+            this.$slots.buttonTitle && this.$slots.buttonTitle(),
+          ];
+        },
     });
   },
 };

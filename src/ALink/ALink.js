@@ -346,18 +346,21 @@ export default {
         }),
         this.$slots.linkAppend && this.$slots.linkAppend(),
       ],
-      title: () => {
-        if (!this.isTitleHtml) {
-          return;
-        }
-        return [
-          this.isTitleVisible && h(ATranslation, {
-            html: this.title,
-            tag: "span",
-          }),
-          this.$slots.linkTitle && this.$slots.linkTitle(),
-        ];
-      },
+      title: !this.isTitleHtml ||
+      (!this.title && !this.$slots.linkTitle) ?
+        undefined :
+        () => {
+          if (!this.isTitleHtml) {
+            return;
+          }
+          return [
+            this.isTitleVisible && h(ATranslation, {
+              html: this.title,
+              tag: "span",
+            }),
+            this.$slots.linkTitle && this.$slots.linkTitle(),
+          ];
+        },
     });
   },
 };

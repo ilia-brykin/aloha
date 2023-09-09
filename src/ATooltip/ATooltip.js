@@ -178,7 +178,7 @@ export default {
           // }, [
           //   this.$slots.title && this.$slots.title(),
           // ]),
-          this.isTitleVisible && withDirectives(h("div", {
+          !!(this.$slots.title && this.isTitleVisible) && withDirectives(h("div", {
             ref: "titleRef",
             class: "a_tooltip__container",
             style: this.tooltipStyles,
