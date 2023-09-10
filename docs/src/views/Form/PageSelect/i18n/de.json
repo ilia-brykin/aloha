@@ -1,5 +1,6 @@
 {
-  "_A_SELECT_COMPONENT_NAME_": "Select",
+  "_A_SELECT_COMPONENT_DESCRIPTION_": "ASelect ist eine Komponente, die es Benutzern ermöglicht, eine oder mehrere Auswahlmöglichkeiten aus einer vordefinierten Liste von Optionen zu treffen.",
+  "_A_SELECT_COMPONENT_NAME_": "Auswahl",
   "_A_SELECT_ELEMENT_0_": "Element 0",
   "_A_SELECT_ELEMENT_1_": "Element 1",
   "_A_SELECT_ELEMENT_2_": "Element 2",
@@ -8,5 +9,13 @@
   "_A_SELECT_ELEMENT_5_": "Element 5",
   "_A_SELECT_ELEMENT_6_": "Element 6",
   "_A_SELECT_ELEMENT_7_": "Element 7",
-  "_A_SELECT_ELEMENT_8_": "Element 8"
+  "_A_SELECT_ELEMENT_8_": "Element 8",
+  "_A_SELECT_GROUP_GROUPS_DESCRIPTION_": "Auswahlmöglichkeiten in einem Dropdown können durch Gruppierung nach einem oder mehreren Schlüsseln angepasst werden.",
+  "_A_SELECT_GROUP_GROUPS_HEADER_": "Gruppierung",
+  "_A_SELECT_GROUP_KEY_DISABLED_DESCRIPTION_": "Werte von Auswahlmöglichkeiten in einem Dropdown können anhand des Objektschlüssels für jede Option deaktiviert werden.",
+  "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Deaktivierung nach Schlüssel",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Werte von Auswahlmöglichkeiten können basierend auf der Suchanfrage gefiltert werden. Dies ist nützlich für Komponenten mit einer langen Liste von Optionen, um Benutzern das Finden und Auswählen der benötigten Option zu erleichtern.",
+  "_A_SELECT_GROUP_SEARCH_HEADER_": "Suche",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Beschriftungsübersetzungen werden für Dropdown-Optionen unterstützt. Die Suche ist ebenfalls mit übersetzen Optionen möglich.",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisierung"
 }

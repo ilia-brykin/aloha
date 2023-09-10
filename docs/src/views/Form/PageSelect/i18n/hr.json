@@ -1,3 +1,21 @@
 {
-
+  "_A_SELECT_COMPONENT_DESCRIPTION_": "ASelect je komponenta koja omogućava korisnicima jednostruki ili višestruki izbor iz unaprijed definirane liste opcija.",
+  "_A_SELECT_COMPONENT_NAME_": "Izbor",
+  "_A_SELECT_ELEMENT_0_": "Element 0",
+  "_A_SELECT_ELEMENT_1_": "Element 1",
+  "_A_SELECT_ELEMENT_2_": "Element 2",
+  "_A_SELECT_ELEMENT_3_": "Element 3",
+  "_A_SELECT_ELEMENT_4_": "Element 4",
+  "_A_SELECT_ELEMENT_5_": "Element 5",
+  "_A_SELECT_ELEMENT_6_": "Element 6",
+  "_A_SELECT_ELEMENT_7_": "Element 7",
+  "_A_SELECT_ELEMENT_8_": "Element 8",
+  "_A_SELECT_GROUP_GROUPS_DESCRIPTION_": "Opcije u padajućem izborniku mogu se prilagoditi grupiranjem po jednom ili više ključeva.",
+  "_A_SELECT_GROUP_GROUPS_HEADER_": "Grupiranje",
+  "_A_SELECT_GROUP_KEY_DISABLED_DESCRIPTION_": "Izbor opcije u padajućem izborniku može se onemogućiti na temelju atributa svake od opcija.",
+  "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Onemogućavanje",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Vrijednosti opcija u padajućem izborniku mogu se filtrirati na temelju upita za pretragu. Ovo je korisno za komponente s dugim popisom opcija kako bi korisnicima olakšalo pronalaženje i odabir željene opcije.",
+  "_A_SELECT_GROUP_SEARCH_HEADER_": "Pretraga",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Podržana je prilagodba opcija padajućeg izbornika na druge izbore. Pretraga je također podržana s lokaliziranim opcijama.",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internacionalizacija"
 }

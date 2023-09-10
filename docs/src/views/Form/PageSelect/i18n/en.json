@@ -1,3 +1,21 @@
 {
-
+  "_A_SELECT_COMPONENT_DESCRIPTION_": "ASelect is a component that allows users to make one or more choices from a predefined list of options.",
+  "_A_SELECT_COMPONENT_NAME_": "Select",
+  "_A_SELECT_ELEMENT_0_": "Element 0",
+  "_A_SELECT_ELEMENT_1_": "Element 1",
+  "_A_SELECT_ELEMENT_2_": "Element 2",
+  "_A_SELECT_ELEMENT_3_": "Element 3",
+  "_A_SELECT_ELEMENT_4_": "Element 4",
+  "_A_SELECT_ELEMENT_5_": "Element 5",
+  "_A_SELECT_ELEMENT_6_": "Element 6",
+  "_A_SELECT_ELEMENT_7_": "Element 7",
+  "_A_SELECT_ELEMENT_8_": "Element 8",
+  "_A_SELECT_GROUP_GROUPS_DESCRIPTION_": "Select options in a dropdown can be customized by grouping them by one or multiple keys.",
+  "_A_SELECT_GROUP_GROUPS_HEADER_": "Grouping",
+  "_A_SELECT_GROUP_KEY_DISABLED_DESCRIPTION_": "Select option values in a dropdown can be disabled based on the object key for each option.",
+  "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Disabling by key",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Select options values can be filtered based on the search query. This is useful for components with a long list of options, makeing it easier for users for find and choose the needed option.",
+  "_A_SELECT_GROUP_SEARCH_HEADER_": "Search",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Translations of labels are supported for dropdown options. Search is also supported with localized, translated options.",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalization"
 }
