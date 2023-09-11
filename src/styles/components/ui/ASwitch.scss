@@ -1,9 +1,3 @@
-//$switch-disabled-bg:                                    $grey-3;
-//$switch-disabled-inside-bg:                             $grey-2;
-
-$switch-disabled-bg:                                    #d0c9c0;
-$switch-disabled-inside-bg:                             #ece9e7;
-
 .switch_button {
   --a_switch_button_border_radius: var(--a_border_radius);
   --a_switch_button_bg: var(--a_color_gray_700);
@@ -13,6 +7,9 @@ $switch-disabled-inside-bg:                             #ece9e7;
   --a_switch_hover_focus_bg: var(--a_color_focus);
   --a_switch_button_border_color: var(--a_switch_button_bg);
   --a_switch_button_invalid_color: var(--a_color_danger);
+  --a_switch_button_disabled_bg: var(--a_color_gray_500);
+  --a_switch_button_disabled_inner_bg: var(--a_color_gray_100);
+  --a_switch_button_disabled_border_color: var(--a_color_gray_500);
   margin-left: -5px;
   position: relative;
 }
@@ -45,10 +42,11 @@ $switch-disabled-inside-bg:                             #ece9e7;
   &:disabled {
     ~ .switch_button__label {
       &::before {
-        --a_switch_button_bg: $switch-disabled-bg;
+        --a_switch_button_bg: var(--a_switch_button_disabled_bg);
+        --a_switch_button_border_color: var(--a_switch_button_disabled_border_color);
       }
       &::after {
-        background-color: $switch-disabled-inside-bg;
+        --a_switch_button_inner_bg: var(--a_switch_button_disabled_inner_bg);
       }
     }
   }

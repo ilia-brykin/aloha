@@ -10,6 +10,8 @@ export default {
       model: {
         alohadate: "2023-01-10",
         aloha_textarea: "dsffd",
+        aloha71: true,
+        aloha72: false,
       },
       selectData: [
         {
@@ -172,6 +174,23 @@ export default {
           id: "aloha7",
           classColumn: "a_column_5",
           helpText: "ALOHA help!!!",
+          disabled: true,
+        },
+        {
+          type: "switch",
+          label: "Aloha 71",
+          id: "aloha71",
+          classColumn: "a_column_5",
+          helpText: "ALOHA help!!!",
+          disabled: true,
+        },
+        {
+          type: "switch",
+          label: "Aloha 72",
+          id: "aloha72",
+          classColumn: "a_column_5",
+          helpText: "ALOHA help!!!",
+          disabled: true,
         },
         {
           type: "oneCheckbox",
