@@ -1,3 +1,17 @@
 {
-
+  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "Potvrdni okvir je interaktivni element koji omogućuje korisnicima da prebacuju između dva stanja opcija, obično \"označeno\" i \"neoznačeno\". Često se koristi za odabir ili aktivaciju/deaktivaciju opcija u korisničkom sučelju.",
+  "_A_CHECKBOX_COMPONENT_NAME_": "Potvrdni okvir",
+  "_A_CHECKBOX_GROUP_COLLAPSE_DESCRIPTION_": "Omogućuje korisniku da na osnovu interakcije s grupom potvrdnih okvira sakrije i ponovo prikaže opcije.",
+  "_A_CHECKBOX_GROUP_COLLAPSE_HEADER_": "Grupa potvrdnih okvira: Sklopivi sadržaj",
+  "_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_DESCRIPTION_": "Omogućuje, umjesto tradicionalnog kvadratnog oblika, izgled potvrdnih okvira kao grupe standardnih gumba.",
+  "_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_HEADER_": "Grupa u stilu gumba",
+  "_A_CHECKBOX_GROUP_KEY_DISABLED_DESCRIPTION_": "Specifične opcije mogu biti onemogućene na osnovu atributa pripadajućeg objekta, s nazivom ključa proslijeđenim kao prop.",
+  "_A_CHECKBOX_GROUP_KEY_DISABLED_HEADER_": "Onemogućavanje opcija",
+  "_A_CHECKBOX_GROUP_SEARCH_DESCRIPTION_": "Pretraživanje omogućuje korisnicima da brzo pronađu i odaberu određenu opciju unosom pojma za pretraživanje. Ovo je posebno korisno za veliki broj opcija.",
+  "_A_CHECKBOX_GROUP_SEARCH_HEADER_": "Pretraživanje",
+  "_A_CHECKBOX_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Podržana je uporaba prevedivih oznaka za potvrdne okvire, što omogućuje prilagodbu komponente različitim jezicima i regijama.",
+  "_A_CHECKBOX_GROUP_TRANSLATE_DATA_HEADER_": "Internacionalizacija",
+  "_A_CHECKBOX_GROUP_TWO_COLUMNS_DESCRIPTION_": "Prikaz opcija u jednoj ili dvije kolone određen je na temelju proslijeđenog naziva klase.",
+  "_A_CHECKBOX_GROUP_TWO_COLUMNS_HEADER_": "Prikaz u dva stupca",
+  "_A_CHECKBOX_LABEL_WIDE_SCREEN_": "Širokozaslonski prikaz"
 }

@@ -1,3 +1,17 @@
 {
-
+  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "A checkbox is an interactive element that enables users to toggle between two states, typically \"checked\" and \"unchecked\", commonly used to make selections or activate/deactivate options in a user interface.",
+  "_A_CHECKBOX_COMPONENT_NAME_": "Checkbox",
+  "_A_CHECKBOX_GROUP_COLLAPSE_DESCRIPTION_": "Allows for a group of checkboxes to expand and collapse based on the user interaction.",
+  "_A_CHECKBOX_GROUP_COLLAPSE_HEADER_": "Checkbox Group: Collapsible Content",
+  "_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_DESCRIPTION_": "Allows for a switch between the traditional square appearance and a more button-like style.",
+  "_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_HEADER_": "Button-Style Group",
+  "_A_CHECKBOX_GROUP_KEY_DISABLED_DESCRIPTION_": "Specific options can be disabled based on a property in the associated object, with the key name passed as a prop.",
+  "_A_CHECKBOX_GROUP_KEY_DISABLED_HEADER_": "Option Disabling",
+  "_A_CHECKBOX_GROUP_SEARCH_DESCRIPTION_": "The search allows users to quickly find and select a specific checkbox by entering a search term. This improves usability for a large list of options.",
+  "_A_CHECKBOX_GROUP_SEARCH_HEADER_": "Search",
+  "_A_CHECKBOX_GROUP_TRANSLATE_DATA_DESCRIPTION_": "The use of translatable labels for options is supported, allowing the interface to adapt to different languages and regions.",
+  "_A_CHECKBOX_GROUP_TRANSLATE_DATA_HEADER_": "Internationalization",
+  "_A_CHECKBOX_GROUP_TWO_COLUMNS_DESCRIPTION_": "Passing a class name as a prop determines whether the options are displayed in one or two columns.",
+  "_A_CHECKBOX_GROUP_TWO_COLUMNS_HEADER_": "Two-Column Layout",
+  "_A_CHECKBOX_LABEL_WIDE_SCREEN_": "Wide Screen Layout"
 }
