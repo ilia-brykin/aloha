@@ -1,6 +1,6 @@
 {
-  "_A_TABLE_SIMPLE_": "[ALOHA]",
-  "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "[ALOHA]",
+  "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "Komponente für eine einfache Darstellung von Daten in tabellarischer Form, ohne den Einsatz erweiterter Funktionalitäten wie Sortierung, Filterung oder weiterer Aktionen.",
+  "_A_TABLE_GROUP_SIMPLE_HEADER_": "Einfache Tabelle",
   "_A_TABLE_GROUP_SIMPLE_LABEL_": "Einfache Tabelle",
-  "_A_TABLE_GROUP_SIMPLE_HEADER_": "[ALOHA]"
+  "_A_TABLE_SIMPLE_": "Tabelle"
 }
