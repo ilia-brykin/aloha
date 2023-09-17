@@ -8,5 +8,9 @@
   "_A_TABLE_COLUMN_7_": "Column 7",
   "_A_TABLE_COLUMN_8_": "Column 8",
   "_A_TABLE_COLUMN_9_": "Column 9",
-  "_A_TABLE_COLUMN_10_": "Column 10"
+  "_A_TABLE_COLUMN_10_": "Column 10",
+  "_A_TABLE_FILTER_SEARCH_": "Search",
+  "_A_TABLE_FILTER_TEXT_": "Text",
+  "_A_TABLE_FILTER_DATE_": "Date",
+  "_A_TABLE_FILTER_EXTRA_": "Additional Filter"
 }
