@@ -86,9 +86,17 @@ export function clearAllApiSaved() {
   API_SAVED.value = {};
 }
 
+export function clearApiSaved({ apiSaveId }) {
+  if (apiSaveId in API_SAVED.value) {
+    delete API_SAVED.value[apiSaveId];
+  }
+}
+
 export default function AHttpAPI() {
   return {
     abortHttp,
+    clearAllApiSaved,
+    clearApiSaved,
     deleteHttp,
     getHttp,
     getListHttp,
