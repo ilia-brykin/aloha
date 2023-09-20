@@ -43,8 +43,8 @@ export default function FiltersSavedDeleteAPI(props, {
 
   const titleButtonDeleteFiltersSaved = computed(() => {
     return disabledButtonDeleteFiltersSaved.value ?
-      "_A_TABLE_FILTER_DELETE_FILTER_SAVED_BTN_DISABLED_" :
-      "_A_TABLE_FILTER_DELETE_FILTER_SAVED_BTN_{{name}}_";
+      "_A_FILTERS_DELETE_FILTER_SAVED_BTN_DISABLED_" :
+      "_A_FILTERS_DELETE_FILTER_SAVED_BTN_{{name}}_";
   });
 
   const deleteFiltersSaved = async() => {
@@ -58,7 +58,7 @@ export default function FiltersSavedDeleteAPI(props, {
       });
     } catch (e) {
       addNotification({
-        text: "_A_TABLE_FILTER_DELETE_FILTER_MSG_ERROR_{{name}}_",
+        text: "_A_FILTERS_DELETE_FILTER_MSG_ERROR_{{name}}_",
         type: "danger",
         extra: {
           name: modelFiltersSaved.value,
@@ -70,7 +70,7 @@ export default function FiltersSavedDeleteAPI(props, {
       return;
     }
     addNotification({
-      text: "_A_TABLE_FILTER_DELETE_FILTER_MSG_SUCCESS_{{name}}_",
+      text: "_A_FILTERS_DELETE_FILTER_MSG_SUCCESS_{{name}}_",
       extra: {
         name: modelFiltersSaved.value,
       },
@@ -84,14 +84,14 @@ export default function FiltersSavedDeleteAPI(props, {
 
   const openDeleteConfirm = () => {
     openConfirm({
-      headerText: "_A_TABLE_FILTER_DELETE_FILTER_HEADER_{{name}}_",
-      bodyHtml: "_A_TABLE_FILTER_DELETE_FILTER_BODY_{{name}}_",
+      headerText: "_A_FILTERS_DELETE_FILTER_HEADER_{{name}}_",
+      bodyHtml: "_A_FILTERS_DELETE_FILTER_BODY_{{name}}_",
       extra: {
         name: modelFiltersSaved.value,
       },
       save: deleteFiltersSaved,
       selectorCloseIds: [buttonDeleteComponentId.value, idFilterTop.value],
-      saveButtonText: "_A_TABLE_FILTER_DELETE_FILTER_BTN_DELETE_",
+      saveButtonText: "_A_FILTERS_DELETE_FILTER_BTN_DELETE_",
     });
   };
 

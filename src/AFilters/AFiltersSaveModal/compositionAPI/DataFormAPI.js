@@ -27,7 +27,7 @@ export default function DataFormAPI(props, {
 
   const helpText = computed(() => {
     if (isUpdate.value) {
-      return "_A_TABLE_FILTER_SAVE_MODAL_NAME_HELP_TEXT_{{name}}_";
+      return "_A_FILTERS_SAVE_MODAL_NAME_HELP_TEXT_{{name}}_";
     }
     return undefined;
   });
@@ -36,7 +36,7 @@ export default function DataFormAPI(props, {
     return [
       {
         id: "name",
-        label: "_A_TABLE_FILTER_SAVE_LABEL_NAME_",
+        label: "_A_FILTERS_SAVE_LABEL_NAME_",
         type: "text",
         required: true,
         extra: {

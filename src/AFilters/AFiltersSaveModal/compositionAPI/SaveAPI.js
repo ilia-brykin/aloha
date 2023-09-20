@@ -37,7 +37,7 @@ export default function SaveAPI(props, { emit }, {
       });
     } catch (e) {
       addNotification({
-        text: "_A_TABLE_FILTER_SAVE_MSG_ERROR_",
+        text: "_A_FILTERS_SAVE_MSG_ERROR_",
         type: "danger",
       });
       loading.value = false;
@@ -45,8 +45,8 @@ export default function SaveAPI(props, { emit }, {
     }
     addNotification({
       text: isUpdateLocal ?
-        "_A_TABLE_FILTER_SAVE_MSG_SUCCESS_UPDATE_{{name}}_" :
-        "_A_TABLE_FILTER_SAVE_MSG_SUCCESS_CREATE_{{name}}_",
+        "_A_FILTERS_SAVE_MSG_SUCCESS_UPDATE_{{name}}_" :
+        "_A_FILTERS_SAVE_MSG_SUCCESS_CREATE_{{name}}_",
       extra: {
         name: model.value.name,
       },

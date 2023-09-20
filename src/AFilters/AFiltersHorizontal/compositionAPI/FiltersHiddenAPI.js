@@ -54,7 +54,7 @@ export default function FiltersHiddenAPI(props, { emit }) {
       data: filtersHidden.value,
       keyLabel: "label",
       keyId: "id",
-      label: "_A_TABLE_FILTER_ADD_",
+      label: "_A_FILTERS_ADD_FILTER_",
       translateData: true,
       disabled: !filtersHidden.value.length,
       search: true,

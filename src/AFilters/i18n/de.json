@@ -1,0 +1,23 @@
+{
+  "_A_FILTERS_ADD_FILTER_": "Filter hinzufügen",
+  "_A_FILTERS_CLOSE_ADVANCED_SEARCH_": "Erweiterte Suche schließen",
+  "_A_FILTERS_DELETE_FILTER_BODY_{{name}}_": "Sind Sie sicher, dass Sie diese gespeicherte Suche <strong>{{ name }}</strong> löschen wollen?",
+  "_A_FILTERS_DELETE_FILTER_BTN_DELETE_": "Löschen",
+  "_A_FILTERS_DELETE_FILTER_HEADER_{{name}}_": "Gespeicherte Suche löschen",
+  "_A_FILTERS_DELETE_FILTER_MSG_ERROR_{{name}}_": "Ausgewählte Suche <strong>{{ name }}</strong> könnte nicht entfernt werden.",
+  "_A_FILTERS_DELETE_FILTER_MSG_SUCCESS_{{name}}_": "Ausgewählte Suche <strong>{{ name }}</strong> wurde entfernt.",
+  "_A_FILTERS_DELETE_FILTER_SAVED_BTN_DISABLED_": "Ausgewählte Suche entfernen.",
+  "_A_FILTERS_DELETE_FILTER_SAVED_BTN_{{name}}_": "Ausgewählte Suche \"{{ name }}\" entfernen",
+  "_A_FILTERS_OPEN_ADVANCED_SEARCH_": "Erweiterte Suche öffnen",
+  "_A_FILTERS_SAVE_BTN_": "Suche speichern",
+  "_A_FILTERS_SAVE_LABEL_NAME_": "Name",
+  "_A_FILTERS_SAVE_MODAL_BODY_PREPEND_": "Bitte geben Sie einen Namen für Ihre zu speichernde Suche ein. Die Eingabe eines bestehenden Namens überschreibt die bestehende Suche. Bei Eingabe eines neuen Namens wird eine neue Suche gespeichert.",
+  "_A_FILTERS_SAVE_MODAL_HEADER_": "Suche speichern",
+  "_A_FILTERS_SAVE_MODAL_NAME_HELP_TEXT_{{name}}_": "Die Suche mit dem Namen <strong>\"{{ name }}\"</strong> wird beim Speichern aktualisiert.",
+  "_A_FILTERS_SAVE_MSG_ERROR_": "Suche könnte nicht gespeichert werden.",
+  "_A_FILTERS_SAVE_MSG_SUCCESS_CREATE_{{name}}_": "Neue Suche <strong>\"{{ name }}\"</strong> ist gespeichert.",
+  "_A_FILTERS_SAVE_MSG_SUCCESS_UPDATE_{{name}}_": "Suche <strong>\"{{ name }}\"</strong> ist aktualisiert.",
+  "_A_FILTERS_SAVE_SELECT_": "Meine gespeicherten Suchen",
+  "_A_FILTERS_START_SEARCH_": "Suche starten",
+  "_A_FILTERS_TOP_CLOSE_": "Filter löschen"
+}

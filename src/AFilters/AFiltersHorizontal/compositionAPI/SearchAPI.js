@@ -30,10 +30,10 @@ export default function SearchAPI(props, { emit }, {
       iconLeft: "Search",
       type: "submit",
       text: {
-        desktop: "_A_TABLE_START_SEARCH_",
+        desktop: "_A_FILTERS_START_SEARCH_",
       },
       textScreenReader: {
-        mobile: "_A_TABLE_START_SEARCH_",
+        mobile: "_A_FILTERS_START_SEARCH_",
       },
       prevent: true,
       stop: true,

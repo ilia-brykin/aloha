@@ -91,7 +91,7 @@ export default {
         }, this.$slots),
         this.closable && h(AButton, {
           class: "a_btn a_btn_transparent_secondary a_table__filters_top__filter_ui_delete",
-          title: "_A_TABLE_FILTER_TOP_CLOSE_",
+          title: "_A_FILTERS_TOP_CLOSE_",
           iconLeft: "Close",
           onClick: () => this.$emit("deleteFiltersVisible", { filter: this.filter }),
         }),

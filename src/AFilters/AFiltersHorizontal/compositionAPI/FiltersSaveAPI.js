@@ -50,13 +50,13 @@ export default function FiltersSaveAPI(props, {
     return {
       class: "a_btn a_btn_secondary a_text_nowrap a_table__filters_top__delete_filter_saved",
       text: {
-        desktop: "_A_TABLE_FILTER_SAVE_BTN_",
+        desktop: "_A_FILTERS_SAVE_BTN_",
       },
       iconLeft: {
         mobile: "FloppyDisk",
       },
       textScreenReader: {
-        mobile: "_A_TABLE_FILTER_SAVE_BTN_",
+        mobile: "_A_FILTERS_SAVE_BTN_",
       },
     };
   });
@@ -107,7 +107,7 @@ export default function FiltersSaveAPI(props, {
       data: filtersSaved.value,
       keyLabel: "label",
       keyId: "label",
-      label: "_A_TABLE_FILTER_SAVE_SELECT_",
+      label: "_A_FILTERS_SAVE_SELECT_",
       translateData: true,
       disabled: !filtersSaved.value.length,
       search: true,

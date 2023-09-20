@@ -79,7 +79,7 @@ export default {
       close: this.close,
       dataForm: this.dataForm,
       disabledSave: this.disabledBtnSave,
-      headerText: "_A_TABLE_FILTER_SAVE_MODAL_HEADER_",
+      headerText: "_A_FILTERS_SAVE_MODAL_HEADER_",
       modelValue: this.model,
       idPrefix: "modal_filter_top_",
       loading: this.loading,
@@ -92,7 +92,7 @@ export default {
         h(AAlert, {
           type: "info",
           isVisible: true,
-          safeHtml: "_A_TABLE_FILTER_SAVE_MODAL_BODY_PREPEND_",
+          safeHtml: "_A_FILTERS_SAVE_MODAL_BODY_PREPEND_",
         })
       ],
     });
