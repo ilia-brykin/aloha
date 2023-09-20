@@ -397,7 +397,7 @@ export default {
       updateModelSearchOutside,
     } = UiSearchAPI(props, context, {
       data: dataSort,
-      htmlIdLocal:
+      htmlIdLocal,
       hasKeyGroup,
       keyGroupArray,
     });
