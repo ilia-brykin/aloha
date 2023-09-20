@@ -5,6 +5,7 @@ export default function HtmlAPI() {
   key-id="id"
   key-label="label"
   label="Aloha"
+  :search="true"
   :translate-data="true"
   type="select"
 ></a-select>
