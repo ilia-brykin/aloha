@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGE_FILTERS_HEADER_"
+  description="_A_PAGE_FILTERS_DESCRIPTION_"
+  :props="['filters', 'v-model:applied-model', 'v-model:unapplied-model']"
+)
+  div
+    a-filters(
+      :filters="filters"
+      v-model:applied-model="appliedModel"
+      v-model:unapplied-model="unappliedModel"
+    )

@@ -40,11 +40,6 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageTableSort" */ "../views/PageTable/PageTableSort/PageTableSort.vue"),
   },
   {
-    path: "/table-filters",
-    name: "PageTableFilters",
-    component: () => import(/* webpackChunkName: "PageTableFilters" */ "../views/PageTable/PageTableFilters/PageTableFilters.vue"),
-  },
-  {
     path: "/table-preview",
     name: "PageTablePreview",
     component: () => import(/* webpackChunkName: "PageTablePreview" */ "../views/PageTable/PageTablePreview/PageTablePreview.vue"),
@@ -248,6 +243,11 @@ const ROUTES = [
     path: "/input-number-range",
     name: "PageInputNumberRange",
     component: () => import(/* webpackChunkName: "PageInputNumberRange" */ "../views/Form/PageInputNumberRange/PageInputNumberRange.vue"),
+  },
+  {
+    path: "/filters",
+    name: "PageFilters",
+    component: () => import(/* webpackChunkName: "PageFilters" */ "../views/PageFilters/PageFilters.vue"),
   },
   {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'

@@ -122,6 +122,14 @@ export default {
           icon: "ChevronBarExpand",
         },
         {
+          id: "filters",
+          label: "filters",
+          to: {
+            name: "PageFilters",
+          },
+          icon: "FilterCircleFill",
+        },
+        {
           id: "dropdown",
           label: "Dropdown",
           to: {
@@ -375,13 +383,6 @@ export default {
               label: "Table sort",
               to: {
                 name: "PageTableSort",
-              }
-            },
-            {
-              id: "PageTableFilters",
-              label: "Table filters",
-              to: {
-                name: "PageTableFilters",
               }
             },
             {

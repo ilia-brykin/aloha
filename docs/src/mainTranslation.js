@@ -19,7 +19,6 @@ import PageTableI18n from "./views/PageTable/i18n/PageTableI18n";
 import PageTableSimpleI18n from "./views/PageTable/PageTableSimple/i18n/PageTableSimpleI18n";
 import PageTablePaginationI18n from "./views/PageTable/PageTablePagination/i18n/PageTablePaginationI18n";
 import PageTableSortI18n from "./views/PageTable/PageTableSort/i18n/PageTableSortI18n";
-import PageTableFiltersI18n from "./views/PageTable/PageTableFilters/i18n/PageTableFiltersI18n";
 import PageTablePreviewI18n from "./views/PageTable/PageTablePreview/i18n/PageTablePreviewI18n";
 import PageAOnHooksI18n from "./views/PageDirectives/PageOnHooks/i18n/PageAOnHooksI18n";
 import PageDisclosureI18n from "./views/PageDisclosure/i18n/PageDisclosureI18n";
@@ -35,6 +34,7 @@ import PageCheckboxI18n from "./views/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageFieldsetI18n from "./views/Form/PageFieldset/i18n/PageFieldsetI18n";
 import PageLinkCopyI18n from "./views/PageLinkCopy/i18n/PageLinkCopyI18n";
 import PageInputNumberRangeI18n from "./views/Form/PageInputNumberRange/i18n/PageInputNumberRangeI18n";
+import PageFiltersI18n from "./views/PageFilters/i18n/PageFiltersI18n";
 
 export const mainTranslation = {
   ar: {
@@ -50,7 +50,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.ar,
     ...PageTablePaginationI18n.ar,
     ...PageTableSortI18n.ar,
-    ...PageTableFiltersI18n.ar,
     ...PageTablePreviewI18n.ar,
     ...PageAOnHooksI18n.ar,
     ...PageDisclosureI18n.ar,
@@ -66,6 +65,7 @@ export const mainTranslation = {
     ...PageFieldsetI18n.ar,
     ...PageLinkCopyI18n.ar,
     ...PageInputNumberRangeI18n.ar,
+    ...PageFiltersI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -80,7 +80,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.de,
     ...PageTablePaginationI18n.de,
     ...PageTableSortI18n.de,
-    ...PageTableFiltersI18n.de,
     ...PageTablePreviewI18n.de,
     ...PageAOnHooksI18n.de,
     ...PageDisclosureI18n.de,
@@ -96,6 +95,7 @@ export const mainTranslation = {
     ...PageFieldsetI18n.de,
     ...PageLinkCopyI18n.de,
     ...PageInputNumberRangeI18n.de,
+    ...PageFiltersI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -110,7 +110,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.en,
     ...PageTablePaginationI18n.en,
     ...PageTableSortI18n.en,
-    ...PageTableFiltersI18n.en,
     ...PageTablePreviewI18n.en,
     ...PageAOnHooksI18n.en,
     ...PageDisclosureI18n.en,
@@ -126,6 +125,7 @@ export const mainTranslation = {
     ...PageFieldsetI18n.en,
     ...PageLinkCopyI18n.en,
     ...PageInputNumberRangeI18n.en,
+    ...PageFiltersI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -140,7 +140,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.es,
     ...PageTablePaginationI18n.es,
     ...PageTableSortI18n.es,
-    ...PageTableFiltersI18n.es,
     ...PageTablePreviewI18n.es,
     ...PageAOnHooksI18n.es,
     ...PageDisclosureI18n.es,
@@ -156,6 +155,7 @@ export const mainTranslation = {
     ...PageFieldsetI18n.es,
     ...PageLinkCopyI18n.es,
     ...PageInputNumberRangeI18n.es,
+    ...PageFiltersI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -170,7 +170,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.fr,
     ...PageTablePaginationI18n.fr,
     ...PageTableSortI18n.fr,
-    ...PageTableFiltersI18n.fr,
     ...PageTablePreviewI18n.fr,
     ...PageAOnHooksI18n.fr,
     ...PageDisclosureI18n.fr,
@@ -186,6 +185,7 @@ export const mainTranslation = {
     ...PageFieldsetI18n.fr,
     ...PageLinkCopyI18n.fr,
     ...PageInputNumberRangeI18n.fr,
+    ...PageFiltersI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -200,7 +200,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.hr,
     ...PageTablePaginationI18n.hr,
     ...PageTableSortI18n.hr,
-    ...PageTableFiltersI18n.hr,
     ...PageTablePreviewI18n.hr,
     ...PageAOnHooksI18n.hr,
     ...PageDisclosureI18n.hr,
@@ -216,6 +215,7 @@ export const mainTranslation = {
     ...PageFieldsetI18n.hr,
     ...PageLinkCopyI18n.hr,
     ...PageInputNumberRangeI18n.hr,
+    ...PageFiltersI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -230,7 +230,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.it,
     ...PageTablePaginationI18n.it,
     ...PageTableSortI18n.it,
-    ...PageTableFiltersI18n.it,
     ...PageTablePreviewI18n.it,
     ...PageAOnHooksI18n.it,
     ...PageDisclosureI18n.it,
@@ -246,6 +245,7 @@ export const mainTranslation = {
     ...PageFieldsetI18n.it,
     ...PageLinkCopyI18n.it,
     ...PageInputNumberRangeI18n.it,
+    ...PageFiltersI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -260,7 +260,6 @@ export const mainTranslation = {
     ...PageTableSimpleI18n.ru,
     ...PageTablePaginationI18n.ru,
     ...PageTableSortI18n.ru,
-    ...PageTableFiltersI18n.ru,
     ...PageTablePreviewI18n.ru,
     ...PageAOnHooksI18n.ru,
     ...PageDisclosureI18n.ru,
@@ -276,5 +275,6 @@ export const mainTranslation = {
     ...PageFieldsetI18n.ru,
     ...PageLinkCopyI18n.ru,
     ...PageInputNumberRangeI18n.ru,
+    ...PageFiltersI18n.ru,
   },
 };

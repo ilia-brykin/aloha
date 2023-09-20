@@ -22,6 +22,7 @@ import FiletypeCss from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeCss";
 import FiletypeHtml from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeHtml";
 import FiletypeJs from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeJs";
 import FiletypeSvg from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeSvg";
+import FilterCircleFill from "../../src/AIcon/Icons/bootstrap-1-9-1/FilterCircleFill";
 import Gear from "../../src/AIcon/Icons/bootstrap-1-9-1/Gear";
 import GlobeEuropeAfrica from "../../src/AIcon/Icons/bootstrap-1-9-1/GlobeEuropeAfrica";
 import HourglassSplit from "../../src/AIcon/Icons/bootstrap-1-9-1/HourglassSplit";
@@ -64,6 +65,7 @@ export default {
   FiletypeHtml,
   FiletypeJs,
   FiletypeSvg,
+  FilterCircleFill,
   Gear,
   GlobeEuropeAfrica,
   HourglassSplit,

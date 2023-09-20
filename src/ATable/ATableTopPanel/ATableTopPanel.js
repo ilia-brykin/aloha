@@ -74,10 +74,6 @@ export default {
       type: String,
       required: true,
     },
-    modelFilters: {
-      type: Object,
-      required: true,
-    },
     modelQuickSearch: {
       type: String,
       required: true,
