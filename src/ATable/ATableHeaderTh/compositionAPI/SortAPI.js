@@ -92,7 +92,7 @@ export default function SortAPI(props) {
     return ICONS;
   });
 
-  const changeModelSortLocal = $event => {
+  const changeModelSortLocal = ({ $event }) => {
     if (disabledSort.value) {
       return;
     }
