@@ -34,11 +34,11 @@ function resolveAlias(mode)  {
 function getRules(mode) {
   const TARGET = process.env.npm_lifecycle_event;
   const RULES = [
-    {
-      test: /\.js$/,
-      enforce: "pre",
-      use: ["source-map-loader"],
-    },
+    // {
+    //   test: /\.js$/,
+    //   enforce: "pre",
+    //   use: ["source-map-loader"],
+    // },
     {
       test: /\.pug$/,
       use: ["vue-pug-loader"],
@@ -115,9 +115,9 @@ module.exports = (env, options) => {
   return {
     watchOptions: {
       ignored: /node_modules/,
-      // poll: 1000,
+      poll: 500,
     },
-    entry: ["regenerator-runtime/runtime.js", "./src/main.js"],
+    entry: ["./src/main.js"],
     output: {
       path: path.resolve(__dirname, "./dist/"),
       publicPath: options.mode !== "development" ? "./" : "/",
@@ -162,7 +162,7 @@ module.exports = (env, options) => {
       new ESLintPlugin({
         context: path.resolve(__dirname, "../"),
         overrideConfigFile: path.resolve(__dirname, ".eslintrc.js"),
-        cache: options.mode !== "development",
+        cache: options.mode === "development",
         extensions: [
           "vue",
           "js",
@@ -177,6 +177,8 @@ module.exports = (env, options) => {
       alias: resolveAlias(options.mode),
     },
     devServer: {
+      hot: false,
+      liveReload: false,
       historyApiFallback: true,
       static: {
         directory: path.join(__dirname, "dist"),
