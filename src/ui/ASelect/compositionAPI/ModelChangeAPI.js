@@ -19,7 +19,7 @@ export default function ModelChangeAPI(props, {
   dataKeyByKeyIdLocal = computed(() => ({})),
 }) {
   const isCloseByClick = toRef(props, "isCloseByClick");
-  const isDeselect = toRef(props, "isDeselect");
+  const deselectable = toRef(props, "deselectable");
   const maxCountMultiselect = toRef(props, "maxCountMultiselect");
   const modelValue = toRef(props, "modelValue");
 
@@ -53,7 +53,7 @@ export default function ModelChangeAPI(props, {
       }
     } else {
       if (isSelected) {
-        if (isDeselect.value) {
+        if (deselectable.value) {
           modelValueLocal = undefined;
         } else {
           return;

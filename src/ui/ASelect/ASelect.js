@@ -134,10 +134,10 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.isDataSimpleArray,
     },
-    isDeselect: {
+    deselectable: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.isDeselect,
+      default: () => selectPluginOptions.value.propsDefault.deselectable,
     },
     isDeselectAll: {
       type: Boolean,

@@ -113,7 +113,7 @@ export default {
           label: "_A_COUNT_PER_PAGE_",
           data: this.limitsPerPage,
           isDataSimpleArray: true,
-          isDeselect: false,
+          deselectable: false,
           modelValue: this.limitString,
           disabled: this.disabled,
           change: this.changeLimitFromSelect,

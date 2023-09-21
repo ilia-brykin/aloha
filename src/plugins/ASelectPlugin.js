@@ -10,7 +10,7 @@ export const selectPluginOptions = ref({
     inBody: true,
     isCloseByClick: undefined,
     isDataSimpleArray: false,
-    isDeselect: true,
+    deselectable: true,
     isDeselectAll: false,
     isSelectAll: false,
     isSelectionCloseable: true,
