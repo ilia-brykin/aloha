@@ -6,7 +6,7 @@ export default function HtmlAPI() {
   key-label="label"
   label="Aloha"
   type="select"
-  :collapse="true"
+  :collapsible="true"
 ></a-radio>
 <div>model: {{ model }}</div>
 <a-radio
@@ -16,7 +16,7 @@ export default function HtmlAPI() {
   key-label="label"
   label="Aloha"
   type="select"
-  :collapse="true"
+  :collapsible="true"
   :is-collapsed="true"
 ></a-radio>
 <div>model: {{ model }}</div>`;

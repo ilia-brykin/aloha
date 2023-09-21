@@ -6,7 +6,7 @@ import {
 } from "vue";
 
 export default function UiCollapseAPI(props, { emit }) {
-  const collapse = toRef(props, "collapse");
+  const collapsible = toRef(props, "collapsible");
   const isCollapsed = toRef(props, "isCollapsed");
 
   const isCollapsedLocal = ref(false);
@@ -29,7 +29,7 @@ export default function UiCollapseAPI(props, { emit }) {
   };
 
   const initIsCollapsedLocal = () => {
-    if (collapse.value) {
+    if (collapsible.value) {
       isCollapsedLocal.value = isCollapsed.value;
     } else {
       isCollapsedLocal.value = false;

@@ -6,7 +6,7 @@ export default function HtmlAPI() {
   key-label="label"
   label="Aloha"
   type="select"
-  :collapse="true"
+  :collapsible="true"
 ></a-checkbox>
 <div>model: {{ model }}</div>
 <a-checkbox
@@ -16,7 +16,7 @@ export default function HtmlAPI() {
   key-label="label"
   label="Aloha"
   type="select"
-  :collapse="true"
+  :collapsible="true"
   :is-collapsed="true"
 ></a-checkbox>
 <div>model: {{ model }}</div>`;

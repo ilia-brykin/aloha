@@ -1,6 +1,6 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-fieldset
-  :collapse="true"
+  :collapsible="true"
   slot-name="fieldset"
   class-columns=""
   label="Aloha"
@@ -13,7 +13,7 @@ export default function HtmlAPI() {
 </a-fieldset>
 <a-fieldset
   class="a_mt_5"
-  :collapse="true"
+  :collapsible="true"
   :is-collapsed="true"
   slot-name="fieldset"
   class-columns=""

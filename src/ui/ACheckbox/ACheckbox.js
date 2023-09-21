@@ -53,7 +53,7 @@ export default {
       required: false,
       default: undefined,
     },
-    collapse: {
+    collapsible: {
       type: Boolean,
       required: false,
       default: undefined,
@@ -394,7 +394,7 @@ export default {
               html: this.label,
               textAfter: this.textAfterLabel,
             }),
-            this.collapse && h(AButton, {
+            this.collapsible && h(AButton, {
               class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
               iconLeft: this.iconCollapse,
               title: this.titleCollapse,
