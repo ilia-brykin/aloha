@@ -19,7 +19,9 @@ export default function RowActionsAPI(props) {
   const row = toRef(props, "row");
   const rowIndex = toRef(props, "rowIndex");
   const isFooter = toRef(props, "isFooter");
+
   const rowActions = inject("rowActions");
+  const tableId = inject("tableId");
 
   const buttonActionsId = computed(() => {
     return `a_table_dropdown_btn_${ rowIndex.value }`;
@@ -214,6 +216,7 @@ export default function RowActionsAPI(props) {
               row: row.value,
               rowIndex: rowIndex.value,
               id: buttonActionsId.value,
+              ids: [buttonActionsId.value, tableId.value],
               rowAction,
             });
           }
