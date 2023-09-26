@@ -24,7 +24,7 @@ export default function RowActionsAPI(props) {
   const tableId = inject("tableId");
 
   const buttonActionsId = computed(() => {
-    return `${ tableId.value }_${ rowIndex.value }`;
+    return `${ tableId.value }_action_${ rowIndex.value }`;
   });
 
   const isRowActionVisible = ({ rowAction }) => {
