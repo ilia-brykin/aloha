@@ -11,6 +11,7 @@ import {
 } from "../../utils/utils";
 
 export default function AttributesAPI(props) {
+  const column = toRef(props, "column");
   const disabledPreview = toRef(props, "disabledPreview");
   const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
@@ -31,6 +32,7 @@ export default function AttributesAPI(props) {
         {
           a_table__cell_click: hasPreview.value && !isFooter.value,
         },
+        column.value.classRowParent,
       ],
       style: columnsStyles.value,
     };
