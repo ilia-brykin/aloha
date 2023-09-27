@@ -12,7 +12,6 @@ import {
 } from "../../../plugins/ATablePlugin";
 
 export default function ToggleAPI(props) {
-  const filtersVisible = toRef(props, "filtersVisible");
   const filtersGroup = toRef(props, "filtersGroup");
 
   const isOpen = ref(false);
@@ -46,7 +45,7 @@ export default function ToggleAPI(props) {
   });
 
   const isBtnToggleVisible = computed(() => {
-    return !!(filtersVisible.value.length || filtersGroup.value.alwaysVisible.length);
+    return !!(filtersGroup.value.alwaysVisible.length || filtersGroup.value.filters.length);
   });
 
   const buttonToggleComponent = computed(() => {
