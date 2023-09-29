@@ -4,7 +4,6 @@ import {
 } from "vue";
 
 import AButton from "../AButton/AButton";
-import AForm from "../ui/AForm/AForm";
 import ATranslation from "../ATranslation/ATranslation";
 
 import {
@@ -51,11 +50,6 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.closeButtonText,
     },
-    dataForm: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
     disabled: {
       type: Boolean,
       required: false,
@@ -65,11 +59,6 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    },
-    errors: {
-      type: Object,
-      required: false,
-      default: () => ({}),
     },
     extra: {
       type: Object,
@@ -86,11 +75,6 @@ export default {
       required: false,
       default: undefined,
     },
-    idPrefix: {
-      type: String,
-      required: false,
-      default: () => modalPluginOptions.value.propsDefault.idPrefix,
-    },
     isCloseButtonHide: {
       type: Boolean,
       required: false,
@@ -100,25 +84,10 @@ export default {
       type: Boolean,
       required: false,
     },
-    isDataFormHide: {
-      type: Boolean,
-      required: false,
-      default: modalPluginOptions.value.propsDefault.isDataFormHide,
-    },
-    isDataFormRender: {
-      type: Boolean,
-      required: false,
-      default: () => modalPluginOptions.value.propsDefault.isDataFormRender,
-    },
     isModalHidden: {
       type: Boolean,
       required: false,
       default: false,
-    },
-    isRequired: {
-      type: Boolean,
-      required: false,
-      default: modalPluginOptions.value.propsDefault.isRequired,
     },
     isSaveButtonHide: {
       type: Boolean,
@@ -133,11 +102,6 @@ export default {
       type: [String, Object],
       required: false,
       default: () => modalPluginOptions.value.propsDefault.modalClass,
-    },
-    modelValue: {
-      type: Object,
-      required: false,
-      default: undefined,
     },
     save: {
       type: Function,
@@ -174,33 +138,11 @@ export default {
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
       default: () => modalPluginOptions.value.propsDefault.size,
     },
-    textErrorHeader: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    textRequired: {
-      type: String,
-      required: false,
-      default: () => modalPluginOptions.value.propsDefault.textRequired,
-    },
     withoutEscape: {
       type: Boolean,
       required: false,
       default: () => modalPluginOptions.value.propsDefault.withoutEscape,
     },
-  },
-  emits: [
-    "update:modelValue",
-  ],
-  setup(props, { emit }) {
-    const updateModelLocal = model => {
-      emit("update:modelValue", model);
-    };
-
-    return {
-      updateModelLocal,
-    };
   },
   data() {
     return {
@@ -220,10 +162,6 @@ export default {
 
     disabledLocal() {
       return this.disabled || this.loading;
-    },
-
-    isDataForm() {
-      return this.dataForm.length > 0;
     },
 
     selectorsCloseAll() {
@@ -461,24 +399,11 @@ export default {
                 ref: "modal_body",
                 class: "a_modal_body",
               }, [
-                this.$slots.modalBodyPrepend && this.$slots.modalBodyPrepend(),
-                this.isDataForm && h(AForm, {
-                  modelValue: this.modelValue,
-                  data: this.dataForm,
-                  errors: this.errors,
-                  idPrefix: this.idPrefix,
-                  isRequired: this.isRequired,
-                  textRequired: this.textRequired,
-                  textErrorHeader: this.textErrorHeader,
-                  isHide: this.isDataFormHide,
-                  isRender: this.isDataFormRender,
-                  "onUpdate:modelValue": this.updateModelLocal,
-                }, this.$slots),
+                this.$slots.modalBody && this.$slots.modalBody(),
                 this.bodyHtml && h(ATranslation, {
                   html: this.bodyHtml,
                   extra: this.extra,
                 }),
-                this.$slots.modalBodyAppend && this.$slots.modalBodyAppend(),
               ]),
               h("div", {
                 ref: "modal_footer",
