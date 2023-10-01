@@ -1,0 +1,74 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_STEPS_ERRORS_HEADER_"
+  description="_A_WIZARD_GROUP_STEPS_ERRORS_DESCRIPTION_"
+  props="steps.error"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch.a_mb_5
+      a-select(
+        v-model="modelType"
+        label="_A_WIZARD_LABEL_TYPE_"
+        key-id="value"
+        key-label="label"
+        :data="types"
+        :deselectable="false"
+        :translate-data="true"
+      )
+      a-switch(
+        v-model="wizardSteps[0].error"
+        label="_A_WIZARD_STEP_1_"
+      )
+      a-switch(
+        v-model="wizardSteps[1].error"
+        label="_A_WIZARD_STEP_2_"
+      )
+      a-switch(
+        v-model="wizardSteps[2].error"
+        label="_A_WIZARD_STEP_3_"
+      )
+      a-switch(
+        v-model="wizardSteps[3].error"
+        label="_A_WIZARD_STEP_4_"
+      )
+
+  a-wizard(
+    :steps="wizardSteps"
+    :type="modelType"
+  )
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}
