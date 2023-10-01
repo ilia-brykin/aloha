@@ -39,66 +39,23 @@ aloha-page(
 
     page-wizard-slot
 
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
     aloha-table-translate(
       :data="dataTranslate"
     )
 
-    a-form(
-      v-model="model"
-      :data="formData"
-    )
-
-    a-wizard.a_mt_4(
-      :steps="wizardSteps"
-      :type="model.type"
-      :is-forward-step-button-disabled="model.isForwardStepButtonDisabled"
-      :is-back-step-button-disabled="model.isBackStepButtonDisabled"
-      :is-step-number-visible="model.isStepNumberVisible"
-      :is-forward-button-disabled="model.isForwardButtonDisabled"
-      :is-back-button-disabled="model.isBackButtonDisabled"
-      :is-forward-button-hide="model.isForwardButtonHide"
-      :is-back-button-hide="model.isBackButtonHide"
-      :is-forward-last-button-hide="model.isForwardLastButtonHide"
-      :is-back-first-button-hide="model.isBackFirstButtonHide"
-      :is-buttons-loading="model.isButtonsLoading"
-    )
-      template(
-        v-slot:toolbar
-      )
-        button.a_btn.a_btn_primary Slot-button
-
-      template(
-        v-slot:step1
-      )
-        h2 Schritt 1
-        p {{ text }}
-
-      template(
-        v-slot:step2
-      )
-        h2 Schritt 2
-        p {{ text }}
-
-      template(
-        v-slot:step3
-      )
-        h2 Schritt 3
-        p {{ text }}
-
-      template(
-        v-slot:step4
-      )
-        h2 Schritt 4
-        p {{ text }}
-
-      template(
-        v-slot:step5
-      )
-        h2 Schritt 5
-        p {{ text }}
-
-      template(
-        v-slot:step6
-      )
-        h2 Schritt 6
-        p {{ text }}
