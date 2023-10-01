@@ -1,0 +1,57 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_BUTTONS_HEADER_"
+  description="_A_WIZARD_GROUP_BUTTONS_DESCRIPTION_"
+  :props="['back-button-attributes', 'back-button-class', 'back-button-icon-left', 'back-button-icon-right', 'back-button-text', 'back-button-title', 'forward-button-attributes', 'forward-button-class', 'forward-button-icon-left', 'forward-button-icon-right', 'forward-button-text', 'forward-button-title']"
+)
+  a-wizard(
+    :steps="wizardSteps"
+    :back-button-attributes="{ stop: true }"
+    back-button-class="a_btn a_btn_warning"
+    back-button-icon-left="ChevronLeft"
+    back-button-icon-right="ChevronLeft"
+    back-button-text="_A_WIZARD_PAGE_BACK_BTN_TEXT_"
+    back-button-title="_A_WIZARD_PAGE_BACK_BTN_TEXT_"
+    :forward-button-attributes="{ stop: true }"
+    forward-button-class="a_btn a_btn_primary"
+    forward-button-icon-left="ChevronRight"
+    forward-button-icon-right="ChevronRight"
+    forward-button-text="_A_WIZARD_PAGE_FORWARD_BTN_TEXT_"
+    forward-button-title="_A_WIZARD_PAGE_FORWARD_BTN_TEXT_"
+  )
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}

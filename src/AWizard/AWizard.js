@@ -17,17 +17,22 @@ import TeleportAPI from "./compositionAPI/TeleportAPI";
 export default {
   name: "AWizard",
   props: {
+    backButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     backButtonClass: {
       type: [String, Array, Object],
       required: false,
       default: "a_btn a_btn_secondary"
     },
-    backButtonIcon: {
+    backButtonIconLeft: {
       type: String,
       required: false,
       default: undefined,
     },
-    backButtonIconAlign: {
+    backButtonIconRight: {
       type: String,
       required: false,
       default: undefined,
@@ -47,17 +52,22 @@ export default {
       required: false,
       default: () => ({}),
     },
+    forwardButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     forwardButtonClass: {
       type: [String, Array, Object],
       required: false,
       default: "a_btn a_btn_secondary"
     },
-    forwardButtonIcon: {
+    forwardButtonIconLeft: {
       type: String,
       required: false,
       default: undefined,
     },
-    forwardButtonIconAlign: {
+    forwardButtonIconRight: {
       type: String,
       required: false,
       default: undefined,
@@ -228,26 +238,28 @@ export default {
   },
   render() {
     const TOOLBAR = h(AWizardToolbar, {
-      steps: this.steps,
-      stepActiveComputed: this.stepActiveComputed,
+      backButtonAttributes: this.backButtonAttributes,
       backButtonClass: this.backButtonClass,
+      backButtonIconLeft: this.backButtonIconLeft,
+      backButtonIconRight: this.backButtonIconRight,
       backButtonText: this.backButtonText,
       backButtonTitle: this.backButtonTitle,
-      backButtonIcon: this.backButtonIcon,
-      backButtonIconAlign: this.backButtonIconAlign,
+      extra: this.extra,
+      forwardButtonAttributes: this.forwardButtonAttributes,
       forwardButtonClass: this.forwardButtonClass,
+      forwardButtonIconLeft: this.forwardButtonIconLeft,
+      forwardButtonIconRight: this.forwardButtonIconRight,
       forwardButtonText: this.forwardButtonText,
       forwardButtonTitle: this.forwardButtonTitle,
-      forwardButtonIcon: this.forwardButtonIcon,
-      forwardButtonIconAlign: this.forwardButtonIconAlign,
-      extra: this.extra,
-      isForwardButtonDisabled: this.isForwardButtonDisabled,
       isBackButtonDisabled: this.isBackButtonDisabled,
-      isForwardButtonHide: this.isForwardButtonHide,
       isBackButtonHide: this.isBackButtonHide,
-      isForwardLastButtonHide: this.isForwardLastButtonHide,
       isBackFirstButtonHide: this.isBackFirstButtonHide,
       isButtonsLoading: this.isButtonsLoading,
+      isForwardButtonDisabled: this.isForwardButtonDisabled,
+      isForwardButtonHide: this.isForwardButtonHide,
+      isForwardLastButtonHide: this.isForwardLastButtonHide,
+      stepActiveComputed: this.stepActiveComputed,
+      steps: this.steps,
       onGoOneStepBack: this.goOneStepBack,
       onGoOneStepForward: this.goOneStepForward,
     }, this.$slots);

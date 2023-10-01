@@ -1,40 +1,15 @@
 export default function JsAPI() {
-  const codeJs = `import {
-  ref,
-} from "vue";
-
-import ASelect from "aloha-vue/src/ui/ASelect/ASelect";
-import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
+  const codeJs = `import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
 import AWizard from "aloha-vue/src/AWizard/AWizard";
     
 export default {
-  name: "PageWizardType",
+  name: "PageWizardButtons",
   components: {
     ASelect,
     ATranslation,
     AWizard,
   },
-  setup() {
-    const modelType = ref("basic");
-    const types = [
-      {
-        label: "_A_WIZARD_TYPE_BASIC_",
-        value: "basic",
-      },
-      {
-        label: "_A_WIZARD_TYPE_ARROWS_",
-        value: "arrows",
-      },
-      {
-        label: "_A_WIZARD_TYPE_SQUARE_",
-        value: "square",
-      },
-      {
-        label: "_A_WIZARD_TYPE_ROUND_",
-        value: "round",
-      },
-    ];
-    
+  setup() {    
     const wizardSteps = [
       {
         slot: "step1",
@@ -63,9 +38,7 @@ export default {
         in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent\`;
 
     return {
-      modelType,
       text,
-      types,
       wizardSteps,
     };
   },

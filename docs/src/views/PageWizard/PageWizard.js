@@ -9,6 +9,7 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import AWizard from "../../../../src/AWizard/AWizard";
 import PageWizardBasic from "./PageWizardBasic/PageWizardBasic.vue";
 import PageWizardType from "./PageWizardType/PageWizardType.vue";
+import PageWizardButtons from "./PageWizardButtons/PageWizardButtons.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -25,6 +26,7 @@ export default {
     AWizard,
     PageWizardBasic,
     PageWizardType,
+    PageWizardButtons,
   },
   setup() {
     const {

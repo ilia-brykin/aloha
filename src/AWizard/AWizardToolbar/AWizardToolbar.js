@@ -12,18 +12,24 @@ import HideAPI from "./compositionAPI/HideAPI";
 export default {
   name: "AWizardToolbar",
   props: {
-    steps: {
-      type: Array,
-      required: true,
-    },
-    stepActiveComputed: {
-      type: Number,
+    backButtonAttributes: {
+      type: Object,
       required: false,
-      default: 0,
+      default: () => ({}),
     },
     backButtonClass: {
       type: [String, Array, Object],
       required: false,
+    },
+    backButtonIconLeft: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    backButtonIconRight: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     backButtonText: {
       type: String,
@@ -35,19 +41,29 @@ export default {
       required: false,
       default: undefined,
     },
-    backButtonIcon: {
-      type: String,
+    extra: {
+      type: Object,
       required: false,
       default: undefined,
     },
-    backButtonIconAlign: {
-      type: String,
+    forwardButtonAttributes: {
+      type: Object,
       required: false,
-      default: undefined,
+      default: () => ({}),
     },
     forwardButtonClass: {
       type: [String, Array, Object],
       required: false,
+    },
+    forwardButtonIconLeft: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    forwardButtonIconRight: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     forwardButtonText: {
       type: String,
@@ -59,38 +75,11 @@ export default {
       required: false,
       default: undefined,
     },
-    forwardButtonIcon: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    forwardButtonIconAlign: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    extra: {
-      type: Object,
-      required: false,
-      default: undefined,
-    },
-    isForwardButtonDisabled: {
-      type: Boolean,
-      required: true,
-    },
     isBackButtonDisabled: {
       type: Boolean,
       required: true,
     },
-    isForwardButtonHide: {
-      type: Boolean,
-      required: false,
-    },
     isBackButtonHide: {
-      type: Boolean,
-      required: false,
-    },
-    isForwardLastButtonHide: {
       type: Boolean,
       required: false,
     },
@@ -101,6 +90,27 @@ export default {
     isButtonsLoading: {
       type: Boolean,
       required: false,
+    },
+    isForwardButtonDisabled: {
+      type: Boolean,
+      required: true,
+    },
+    isForwardButtonHide: {
+      type: Boolean,
+      required: false,
+    },
+    isForwardLastButtonHide: {
+      type: Boolean,
+      required: false,
+    },
+    stepActiveComputed: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    steps: {
+      type: Array,
+      required: true,
     },
   },
   emits: [
@@ -155,25 +165,27 @@ export default {
           type: "button",
           class: this.backButtonClass,
           text: this.backButtonText,
-          icon: this.backButtonIcon,
-          iconAlign: this.backButtonIconAlign,
+          iconLeft: this.backButtonIconLeft,
+          iconRight: this.backButtonIconRight,
           title: this.backButtonTitle,
           extra: this.extra,
           disabled: this.isBackButtonDisabledLocal,
           loading: this.isButtonsLoading,
           onClick: this.goOneStepBack,
+          ...this.backButtonAttributes,
         }),
         !this.isForwardButtonHideLocal && h(AButton, {
           type: "button",
           class: this.forwardButtonClass,
           text: this.forwardButtonText,
-          icon: this.forwardButtonIcon,
-          iconAlign: this.forwardButtonIconAlign,
+          iconLeft: this.forwardButtonIconLeft,
+          iconRight: this.forwardButtonIconRight,
           title: this.forwardButtonTitle,
           extra: this.extra,
           disabled: this.isForwardButtonDisabledLocal,
           loading: this.isButtonsLoading,
           onClick: this.goOneStepForward,
+          ...this.forwardButtonAttributes,
         }),
         this.$slots.toolbar && this.$slots.toolbar(),
       ],
