@@ -21,6 +21,7 @@ import PageWizardStepsWarnings from "./PageWizardStepsWarnings/PageWizardStepsWa
 import PageWizardSlotToolbar from "./PageWizardSlotToolbar/PageWizardSlotToolbar.vue";
 import PageWizardIsStepNumberVisible from "./PageWizardIsStepNumberVisible/PageWizardIsStepNumberVisible.vue";
 import PageWizardSlotLabel from "./PageWizardSlotLabel/PageWizardSlotLabel.vue";
+import PageWizardSlot from "./PageWizardSlot/PageWizardSlot.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -50,6 +51,7 @@ export default {
     PageWizardSlotToolbar,
     PageWizardIsStepNumberVisible,
     PageWizardSlotLabel,
+    PageWizardSlot,
   },
   setup() {
     const {

@@ -6,7 +6,7 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageWizardSlotLabel",
+  name: "PageWizardSlot",
   components: {
     AlohaExample,
     ATranslation,
@@ -23,25 +23,21 @@ export default {
 
     const wizardSteps = [
       {
-        slot: "step1",
-        slotLabel: "stepLabel",
+        slot: "step",
         label: "_A_WIZARD_STEP_1_",
         title: "_A_WIZARD_STEP_1_",
       },
       {
-        slotLabel: "stepLabel",
-        slot: "step2",
+        slot: "step",
         label: "_A_WIZARD_STEP_2_",
         title: "_A_WIZARD_STEP_2_",
       },
       {
-        slotLabel: "stepLabel",
-        slot: "step3",
+        slot: "step",
         label: "_A_WIZARD_STEP_3_",
         title: "_A_WIZARD_STEP_3_",
       },
       {
-        slotLabel: "stepLabel4",
         slot: "step4",
         label: "_A_WIZARD_STEP_4_",
         title: "_A_WIZARD_STEP_4_",

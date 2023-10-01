@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_SLOT_HEADER_"
+  description="_A_WIZARD_GROUP_SLOT_DESCRIPTION_"
+  :slots="['slot']"
+  props="steps.slot"
+)
+  a-wizard(
+    :steps="wizardSteps"
+  )
+    template(
+      v-slot:step="{ step, stepIndex }"
+    )
+      a-translation(
+        tag="h2"
+        :text="step.label"
+      )
+      p {{ text }}
+
+
+    template(
+      v-slot:step4
+    )
+      h2 ALOHA
+      p {{ text }}

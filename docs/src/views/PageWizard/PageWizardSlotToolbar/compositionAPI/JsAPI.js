@@ -6,6 +6,7 @@ import AWizard from "aloha-vue/src/AWizard/AWizard";
 export default {
   name: "PageWizardSlotToolbar",
   components: {
+    AButton,
     ATranslation,
     AWizard,
   },
