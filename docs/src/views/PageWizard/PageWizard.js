@@ -12,6 +12,7 @@ import PageWizardType from "./PageWizardType/PageWizardType.vue";
 import PageWizardButtons from "./PageWizardButtons/PageWizardButtons.vue";
 import PageWizardButtonsDisabled from "./PageWizardButtonsDisabled/PageWizardButtonsDisabled.vue";
 import PageWizardButtonsHide from "./PageWizardButtonsHide/PageWizardButtonsHide.vue";
+import PageWizardIsStepsJustified from "./PageWizardIsStepsJustified/PageWizardIsStepsJustified.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -31,6 +32,7 @@ export default {
     PageWizardButtons,
     PageWizardButtonsDisabled,
     PageWizardButtonsHide,
+    PageWizardIsStepsJustified,
   },
   setup() {
     const {
