@@ -299,6 +299,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
     display: flex;
     flex-direction: column;
     position: relative;
+    z-index: 1;
     &:before {
       content: " ";
       display: none;
