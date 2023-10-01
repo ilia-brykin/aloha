@@ -1,0 +1,53 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_SLOT_TOOLBAR_HEADER_"
+  description="_A_WIZARD_GROUP_SLOT_TOOLBAR_DESCRIPTION_"
+  :slots="['toolbar']"
+)
+  a-wizard(
+    :steps="wizardSteps"
+  )
+    template(
+      v-slot:toolbar
+    )
+      a-button(
+        class="a_btn a_btn_primary"
+        text="aloha"
+      )
+
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}
