@@ -15,7 +15,8 @@ export default function HtmlAPI() {
       :translate-data="true"
     ></a-select>
   </div>
-</div><a-wizard
+</div>
+<a-wizard
   :steps="wizardSteps"
   :type="modelType"
 >

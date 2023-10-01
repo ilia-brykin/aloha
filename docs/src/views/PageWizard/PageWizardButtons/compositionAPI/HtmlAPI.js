@@ -1,23 +1,18 @@
 export default function HtmlAPI() {
-  const codeHtml = `<div
-  class="a_columns a_columns_count_12"
->
-  <div
-    class="a_column.a_column_6 a_columns_count_12_touch a_mb_5"
-  >
-    <a-select
-      v-model="modelType"
-      label="_A_WIZARD_LABEL_TYPE_"
-      key-id="value"
-      key-label="label"
-      :data="types"
-      :deselectable="false"
-      :translate-data="true"
-    ></a-select>
-  </div>
-</div><a-wizard
+  const codeHtml = `<a-wizard
   :steps="wizardSteps"
-  :type="modelType"
+  :back-button-attributes="{ stop: true }"
+  back-button-class="a_btn a_btn_warning"
+  back-button-icon-left="ChevronLeft"
+  back-button-icon-right="ChevronLeft"
+  back-button-text="_A_WIZARD_PAGE_BACK_BTN_TEXT_"
+  back-button-title="_A_WIZARD_PAGE_BACK_BTN_TEXT_"
+  :forward-button-attributes="{ stop: true }"
+  forward-button-class="a_btn a_btn_primary"
+  forward-button-icon-left="ChevronRight"
+  forward-button-icon-right="ChevronRight"
+  forward-button-text="_A_WIZARD_PAGE_FORWARD_BTN_TEXT_"
+  forward-button-title="_A_WIZARD_PAGE_FORWARD_BTN_TEXT_"
 >
   <template
     v-slot:step1
