@@ -1,0 +1,67 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_BUTTONS_HIDE_HEADER_"
+  description="_A_WIZARD_GROUP_BUTTONS_HIDE_DESCRIPTION_"
+  :props="['is-back-button-hide', 'is-back-first-button-hide', 'is-forward-button-hide', 'is-forward-last-button-hide']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch.a_mb_5
+      a-switch(
+        v-model="isBackButtonHide"
+        label="is-back-button-hide"
+      )
+      a-switch(
+        v-model="isBackFirstButtonHide"
+        label="is-back-first-button-hide"
+      )
+      a-switch(
+        v-model="isForwardButtonHide"
+        label="is-forward-button-hide"
+      )
+      a-switch(
+        v-model="isForwardLastButtonHide"
+        label="is-forward-last-button-hide"
+      )
+  a-wizard(
+    :steps="wizardSteps"
+    :is-back-button-hide="isBackButtonHide"
+    :is-back-first-button-hide="isBackFirstButtonHide"
+    :is-forward-button-hide="isForwardButtonHide"
+    :is-forward-last-button-hide="isForwardLastButtonHide"
+  )
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}
