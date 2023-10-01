@@ -8,6 +8,7 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import AWizard from "../../../../src/AWizard/AWizard";
 import PageWizardBasic from "./PageWizardBasic/PageWizardBasic.vue";
+import PageWizardType from "./PageWizardType/PageWizardType.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -23,6 +24,7 @@ export default {
     ATranslation,
     AWizard,
     PageWizardBasic,
+    PageWizardType,
   },
   setup() {
     const {

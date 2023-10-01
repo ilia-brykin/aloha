@@ -1,4 +1,9 @@
+import {
+  ref,
+} from "vue";
+
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
+import ASelect from "../../../../../src/ui/ASelect/ASelect";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import AWizard from "../../../../../src/AWizard/AWizard";
 
@@ -6,9 +11,10 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageWizardBasic",
+  name: "PageWizardType",
   components: {
     AlohaExample,
+    ASelect,
     ATranslation,
     AWizard,
   },
@@ -21,6 +27,25 @@ export default {
       codeJs,
     } = JsAPI();
 
+    const modelType = ref("basic");
+    const types = [
+      {
+        label: "_A_WIZARD_TYPE_BASIC_",
+        value: "basic",
+      },
+      {
+        label: "_A_WIZARD_TYPE_ARROWS_",
+        value: "arrows",
+      },
+      {
+        label: "_A_WIZARD_TYPE_SQUARE_",
+        value: "square",
+      },
+      {
+        label: "_A_WIZARD_TYPE_ROUND_",
+        value: "round",
+      },
+    ];
     const wizardSteps = [
       {
         slot: "step1",
@@ -51,7 +76,9 @@ export default {
     return {
       codeHtml,
       codeJs,
+      modelType,
       text,
+      types,
       wizardSteps,
     };
   },
