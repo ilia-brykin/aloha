@@ -7,19 +7,19 @@ export default function HtmlAPI() {
   >
     <a-switch
       v-model="isBackButtonDisabled"
-      label="isBackButtonDisabled"
+      label="is-back-button-disabled"
     ></a-switch>
     <a-switch
       v-model="isBackStepButtonDisabled"
-      label="isBackStepButtonDisabled"
+      label="is-back-step-button-disabled"
     ></a-switch>
     <a-switch
       v-model="isForwardButtonDisabled"
-      label="isForwardButtonDisabled"
+      label="is-forward-button-disabled"
     ></a-switch>
     <a-switch
       v-model="isForwardStepButtonDisabled"
-      label="isForwardStepButtonDisabled"
+      label="is-forward-step-button-disabled"
     ></a-switch>
   </div>
 </div>

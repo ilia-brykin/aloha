@@ -3,25 +3,25 @@ aloha-example(
   :code-js="codeJs"
   header="_A_WIZARD_GROUP_BUTTONS_DISABLED_HEADER_"
   description="_A_WIZARD_GROUP_BUTTONS_DISABLED_DESCRIPTION_"
-  :props="['isBackButtonDisabled', 'isBackStepButtonDisabled', 'isForwardButtonDisabled', 'isForwardStepButtonDisabled']"
+  :props="['is-back-button-disabled', 'is-back-step-button-disabled', 'is-forward-button-disabled', 'is-forward-step-button-disabled']"
 )
   .a_columns.a_columns_count_12
     .a_column.a_column_6.a_columns_count_12_touch.a_mb_5
       a-switch(
         v-model="isBackButtonDisabled"
-        label="isBackButtonDisabled"
+        label="is-back-button-disabled"
       )
       a-switch(
         v-model="isBackStepButtonDisabled"
-        label="isBackStepButtonDisabled"
+        label="is-back-step-button-disabled"
       )
       a-switch(
         v-model="isForwardButtonDisabled"
-        label="isForwardButtonDisabled"
+        label="is-forward-button-disabled"
       )
       a-switch(
         v-model="isForwardStepButtonDisabled"
-        label="isForwardStepButtonDisabled"
+        label="is-forward-step-button-disabled"
       )
   a-wizard(
     :steps="wizardSteps"
