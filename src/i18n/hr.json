@@ -11,8 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]",
   "_ADD_NOTIFICATION_{{type}}_": "Dodaj obavijest {{ type }}",
   "_ALERT_CLOSE_": "Zatvori",
-  "_ARROWS_": "Strelice",
-  "_BASIC_": "Osnovni",
   "_CANCEL_": "Prekinuti",
   "_CLOSE_MENU_": "Zatvorite izbornik",
   "_CONTINUE_": "Nastaviti",
@@ -27,14 +25,8 @@
   "_PREVIOUS_": "Prethodni",
   "_REMOVE_FIELD_CONTENT_": "Izbrišite sadržaj polja",
   "_REMOVE_SELECTION_": "Ukloniti odabir",
-  "_ROUND_": "Okrugli",
   "_SAVE_": "Spremi na računalo",
   "_SEARCH_MENU_": "Pretraživanje izbornika",
   "_SELECT_TEXT_EMPTY_": "[Bez odabira]",
-  "_SQUARE_": "Četvrtasti",
-  "_TYPE_": "Tip",
-  "_WIZARD_NEXT_": "Dalje",
-  "_WIZARD_PREVIOUS_": "Natrag",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Korak {{ stepActive }} od {{ stepsCount }}: {{ stepActiveLabel }}",
   "_YES_": "Da"
 }

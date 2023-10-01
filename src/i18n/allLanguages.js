@@ -17,6 +17,7 @@ import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import ALinkCopyI18n from "../ALinkCopy/i18n/ALinkCopyI18n";
 import AInputNumberRangeI18n from "../ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
 import AFiltersI18n from "../AFilters/i18n/AFiltersI18n";
+import AWizardI18n from "../AWizard/i18n/AWizardI18n";
 
 export default {
   ar: {
@@ -31,6 +32,7 @@ export default {
     ...ALinkCopyI18n.ar,
     ...AInputNumberRangeI18n.ar,
     ...AFiltersI18n.ar,
+    ...AWizardI18n.ar,
   },
   de: {
     ...de,
@@ -44,6 +46,7 @@ export default {
     ...ALinkCopyI18n.de,
     ...AInputNumberRangeI18n.de,
     ...AFiltersI18n.de,
+    ...AWizardI18n.de,
   },
   en: {
     ...en,
@@ -57,6 +60,7 @@ export default {
     ...ALinkCopyI18n.en,
     ...AInputNumberRangeI18n.en,
     ...AFiltersI18n.en,
+    ...AWizardI18n.en,
   },
   es: {
     ...es,
@@ -70,6 +74,7 @@ export default {
     ...ALinkCopyI18n.es,
     ...AInputNumberRangeI18n.es,
     ...AFiltersI18n.es,
+    ...AWizardI18n.es,
   },
   fr: {
     ...fr,
@@ -83,6 +88,7 @@ export default {
     ...ALinkCopyI18n.fr,
     ...AInputNumberRangeI18n.fr,
     ...AFiltersI18n.fr,
+    ...AWizardI18n.fr,
   },
   hr: {
     ...hr,
@@ -96,6 +102,7 @@ export default {
     ...ALinkCopyI18n.hr,
     ...AInputNumberRangeI18n.hr,
     ...AFiltersI18n.hr,
+    ...AWizardI18n.hr,
   },
   it: {
     ...it,
@@ -109,6 +116,7 @@ export default {
     ...ALinkCopyI18n.it,
     ...AInputNumberRangeI18n.it,
     ...AFiltersI18n.it,
+    ...AWizardI18n.it,
   },
   ru: {
     ...ru,
@@ -122,5 +130,6 @@ export default {
     ...ALinkCopyI18n.ru,
     ...AInputNumberRangeI18n.ru,
     ...AFiltersI18n.ru,
+    ...AWizardI18n.ru,
   },
 };

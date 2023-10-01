@@ -11,8 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]",
   "_ADD_NOTIFICATION_{{type}}_": "إضافة إشعار {{ type }}",
   "_ALERT_CLOSE_": "غلق",
-  "_ARROWS_": "سهام",
-  "_BASIC_": "أساسي",
   "_CANCEL_": "قطع",
   "_CLOSE_MENU_": "إغلاق القائمة",
   "_CONTINUE_": "يكمل",
@@ -27,13 +25,7 @@
   "_PREVIOUS_": "سابق",
   "_REMOVE_FIELD_CONTENT_": "إزالة المحتوى",
   "_REMOVE_SELECTION_": "إزالة التحديد",
-  "_ROUND_": "دائرة",
   "_SAVE_": "حفظ",
   "_SEARCH_MENU_": "قائمة البحث",
-  "_SQUARE_": "مربع",
-  "_TYPE_": "نوع",
-  "_WIZARD_NEXT_": "التالي",
-  "_WIZARD_PREVIOUS_": "سابق",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "{{ stepActiveLabel }}: {{ stepsCount }} من {{ stepActive }} خطوة",
   "_YES_": "نعم"
 }

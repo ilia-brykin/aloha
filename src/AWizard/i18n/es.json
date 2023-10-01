@@ -1,0 +1,5 @@
+{
+  "_A_WIZARD_NEXT_": "Próximo",
+  "_A_WIZARD_PREVIOUS_": "Previo",
+  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "escenario {{ stepActive }} de {{ stepsCount }}: {{ stepActiveLabel }}"
+}

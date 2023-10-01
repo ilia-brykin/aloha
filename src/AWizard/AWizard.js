@@ -40,7 +40,7 @@ export default {
     backButtonText: {
       type: String,
       required: false,
-      default: "_WIZARD_PREVIOUS_",
+      default: "_A_WIZARD_PREVIOUS_",
     },
     backButtonTitle: {
       type: String,
@@ -75,7 +75,7 @@ export default {
     forwardButtonText: {
       type: String,
       required: false,
-      default: "_WIZARD_NEXT_",
+      default: "_A_WIZARD_NEXT_",
     },
     forwardButtonTitle: {
       type: String,
@@ -160,7 +160,7 @@ export default {
     stepsProgressbarText: {
       type: String,
       required: false,
-      default: "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_",
+      default: "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_",
     },
     stepsVisited: {
       type: Object,

@@ -11,8 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]",
   "_ADD_NOTIFICATION_{{type}}_": "Aggiungi notifica {{ type }}",
   "_ALERT_CLOSE_": "Vicino",
-  "_ARROWS_": "frecce",
-  "_BASIC_": "di base",
   "_CANCEL_": "Interrompere",
   "_CLOSE_MENU_": "chiudi menù",
   "_CONTINUE_": "Continua",
@@ -27,13 +25,7 @@
   "_PREVIOUS_": "Precedente",
   "_REMOVE_FIELD_CONTENT_": "Rimuovi il contenuto del campo",
   "_REMOVE_SELECTION_": "rimuovere la selezione",
-  "_ROUND_": "girare",
   "_SAVE_": "Salva",
   "_SEARCH_MENU_": "Menù di ricerca",
-  "_SQUARE_": "piazza",
-  "_TYPE_": "Tipo",
-  "_WIZARD_NEXT_": "Prossimo",
-  "_WIZARD_PREVIOUS_": "Precedente",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "palcoscenico {{ stepActive }} Di {{ stepsCount }}: {{ stepActiveLabel }}",
   "_YES_": "Sì"
 }

@@ -5,6 +5,7 @@ import {
 import AForm from "../../../../src/ui/AForm/AForm";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import AWizard from "../../../../src/AWizard/AWizard";
 import PageWizardBasic from "./PageWizardBasic/PageWizardBasic.vue";
@@ -20,6 +21,7 @@ import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageWizard",
@@ -27,6 +29,7 @@ export default {
     AForm,
     AlohaPage,
     AlohaTableProps,
+    AlohaTableTranslate,
     ATranslation,
     AWizard,
     PageWizardBasic,
@@ -54,6 +57,10 @@ export default {
     const {
       dataExposes,
     } = ExposesAPI();
+
+    const {
+      dataTranslate,
+    } = TranslateAPI();
 
     const model = ref({
       type: "square",
@@ -196,6 +203,7 @@ export default {
       dataExposes,
       dataProps,
       dataSlots,
+      dataTranslate,
       pageTitle,
       formData,
       model,

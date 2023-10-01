@@ -11,8 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "Zur Seite Nummer {{ page }}",
   "_ADD_NOTIFICATION_{{type}}_": "Benachrichtigung hinzufügen {{ type }}",
   "_ALERT_CLOSE_": "Schließen",
-  "_ARROWS_": "Pfeile",
-  "_BASIC_": "Basic",
   "_CANCEL_": "Abbrechen",
   "_CLOSE_MENU_": "Menü schließen",
   "_CONTINUE_": "Fortfahren",
@@ -27,14 +25,8 @@
   "_PREVIOUS_": "Vorherige",
   "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
   "_REMOVE_SELECTION_": "Auswahl entfernen",
-  "_ROUND_": "runden",
   "_SAVE_": "Speichern",
   "_SEARCH_MENU_": "Menüsuche",
   "_SELECT_TEXT_EMPTY_": "[Keine Auswahl]",
-  "_SQUARE_": "Quadrat",
-  "_TYPE_": "Typ",
-  "_WIZARD_NEXT_": "Nächste",
-  "_WIZARD_PREVIOUS_": "Vorherige",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Schritt {{ stepActive }} von {{ stepsCount }}: {{ stepActiveLabel }}",
   "_YES_": "Ja"
 }

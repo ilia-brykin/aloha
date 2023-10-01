@@ -11,8 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]",
   "_ADD_NOTIFICATION_{{type}}_": "Agregar Notificación {{ type }}",
   "_ALERT_CLOSE_": "Cerrar",
-  "_ARROWS_": "flechas",
-  "_BASIC_": "básico",
   "_CANCEL_": "Interrumpir",
   "_CLOSE_MENU_": "menú cerrar",
   "_CONTINUE_": "Continuar",
@@ -27,13 +25,7 @@
   "_PREVIOUS_": "Previo",
   "_REMOVE_FIELD_CONTENT_": "Quitar el contenido del campo",
   "_REMOVE_SELECTION_": "eliminar selección",
-  "_ROUND_": "redondo",
   "_SAVE_": "Guardar",
   "_SEARCH_MENU_": "Menú de búsqueda",
-  "_SQUARE_": "cuadrado",
-  "_TYPE_": "Tipo",
-  "_WIZARD_NEXT_": "Próximo",
-  "_WIZARD_PREVIOUS_": "Previo",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "escenario {{ stepActive }} de {{ stepsCount }}: {{ stepActiveLabel }}",
   "_YES_": "Sí"
 }

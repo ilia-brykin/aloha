@@ -11,8 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "To page {{ page }}",
   "_ADD_NOTIFICATION_{{type}}_": "Add Notification {{ type }}",
   "_ALERT_CLOSE_": "Close",
-  "_ARROWS_": "arrows",
-  "_BASIC_": "basic",
   "_CANCEL_": "cancel",
   "_CLOSE_MENU_": "close menu",
   "_CONTINUE_": "Continue",
@@ -27,14 +25,8 @@
   "_PREVIOUS_": "Previous",
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
   "_REMOVE_SELECTION_": "remove selection",
-  "_ROUND_": "round",
   "_SAVE_": "save",
   "_SEARCH_MENU_": "Search menu",
   "_SELECT_TEXT_EMPTY_": "[No selection]",
-  "_SQUARE_": "square",
-  "_TYPE_": "Type",
-  "_WIZARD_NEXT_": "Next",
-  "_WIZARD_PREVIOUS_": "Previous",
-  "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "Step {{ stepActive }} of {{ stepsCount }}: {{ stepActiveLabel }}",
   "_YES_": "yes"
 }
