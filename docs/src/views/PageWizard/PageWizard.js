@@ -2,17 +2,45 @@ import {
   ref,
 } from "vue";
 
-
 import AForm from "../../../../src/ui/AForm/AForm";
+import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
+import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import ATranslation from "../../../../src/ATranslation/ATranslation";
 import AWizard from "../../../../src/AWizard/AWizard";
+import PageWizardBasic from "./PageWizardBasic/PageWizardBasic.vue";
+
+import ExposesAPI from "./compositionAPI/ExposesAPI";
+import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+import PropsAPI from "./compositionAPI/PropsAPI";
+import SlotsAPI from "./compositionAPI/SlotsAPI";
 
 export default {
   name: "PageWizard",
   components: {
     AForm,
+    AlohaPage,
+    AlohaTableProps,
+    ATranslation,
     AWizard,
+    PageWizardBasic,
   },
   setup() {
+    const {
+      pageTitle,
+    } = PageTitleAPI();
+
+    const {
+      dataProps,
+    } = PropsAPI();
+
+    const {
+      dataSlots,
+    } = SlotsAPI();
+
+    const {
+      dataExposes,
+    } = ExposesAPI();
+
     const model = ref({
       type: "square",
       isForwardStepButtonDisabled: true,
@@ -151,6 +179,10 @@ export default {
         in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent`;
 
     return {
+      dataExposes,
+      dataProps,
+      dataSlots,
+      pageTitle,
       formData,
       model,
       text,

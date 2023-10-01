@@ -1,0 +1,8 @@
+{
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Этот компонент представляет собой комбинацию модального окна (<a href='/#/modal'>AModal</a>) и мастера (<a href='/#/wizard'>AWizard</a>). Вы можете использовать почти все Props из <a href='/#/modal'>AModal</a> и <a href='/#/wizard'>AWizard</a>.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Мастер в модальном окне",
+  "_A_MODAL_WIZARD_STEP_1_": "Шаг 1",
+  "_A_MODAL_WIZARD_STEP_2_": "Шаг 2",
+  "_A_MODAL_WIZARD_STEP_3_": "Шаг 3",
+  "_A_MODAL_WIZARD_STEP_4_": "Шаг 4"
+}

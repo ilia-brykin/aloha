@@ -1,6 +1,5 @@
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import AShowMore from "../../../../src/AShowMore/AShowMore";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageModalWizardBasic from "./PageModalWizardBasic/PageModalWizardBasic.vue";
 
@@ -15,7 +14,6 @@ export default {
   components: {
     AlohaPage,
     AlohaTableProps,
-    AShowMore,
     ATranslation,
     PageModalWizardBasic,
   },

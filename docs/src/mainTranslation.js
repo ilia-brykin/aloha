@@ -36,6 +36,7 @@ import PageLinkCopyI18n from "./views/PageLinkCopy/i18n/PageLinkCopyI18n";
 import PageInputNumberRangeI18n from "./views/Form/PageInputNumberRange/i18n/PageInputNumberRangeI18n";
 import PageFiltersI18n from "./views/PageFilters/i18n/PageFiltersI18n";
 import PageModalWizardI18n from "./views/PageModalWizard/i18n/PageModalWizardI18n";
+import PageWizardI18n from "./views/PageWizard/i18n/PageWizardI18n";
 
 export const mainTranslation = {
   ar: {
@@ -68,6 +69,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.ar,
     ...PageFiltersI18n.ar,
     ...PageModalWizardI18n.ar,
+    ...PageWizardI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -99,6 +101,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.de,
     ...PageFiltersI18n.de,
     ...PageModalWizardI18n.de,
+    ...PageWizardI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -130,6 +133,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.en,
     ...PageFiltersI18n.en,
     ...PageModalWizardI18n.en,
+    ...PageWizardI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -161,6 +165,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.es,
     ...PageFiltersI18n.es,
     ...PageModalWizardI18n.es,
+    ...PageWizardI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -192,6 +197,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.fr,
     ...PageFiltersI18n.fr,
     ...PageModalWizardI18n.fr,
+    ...PageWizardI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -223,6 +229,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.hr,
     ...PageFiltersI18n.hr,
     ...PageModalWizardI18n.hr,
+    ...PageWizardI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -254,6 +261,7 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.it,
     ...PageFiltersI18n.it,
     ...PageModalWizardI18n.it,
+    ...PageWizardI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -285,5 +293,6 @@ export const mainTranslation = {
     ...PageInputNumberRangeI18n.ru,
     ...PageFiltersI18n.ru,
     ...PageModalWizardI18n.ru,
+    ...PageWizardI18n.ru,
   },
 };
