@@ -149,10 +149,12 @@ export default {
     },
     stepActive: {
       type: Number,
+      required: false,
       default: undefined,
     },
     steps: {
       type: Array,
+      required: false,
       default: () => [],
     },
     stepsProgressbarText: {
@@ -162,6 +164,7 @@ export default {
     },
     stepsVisited: {
       type: Object,
+      required: false,
       default: undefined,
     },
     toolbarBottomTeleportId: {
@@ -186,6 +189,7 @@ export default {
     } = ClassAPI(props);
 
     const {
+      initStepActive,
       stepActiveComputed,
       stepActiveLocal,
       stepsVisitedComputed,
@@ -220,6 +224,8 @@ export default {
       toolbarBottomTeleportSelector,
       useTeleportToolbarBottom,
     } = TeleportAPI(props);
+
+    initStepActive();
 
     return {
       classWizard,

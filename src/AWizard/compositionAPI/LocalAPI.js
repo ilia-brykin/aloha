@@ -4,6 +4,10 @@ import {
   toRef,
 } from "vue";
 
+import {
+  isNil,
+} from "lodash-es";
+
 export default function LocalAPI(props) {
   const stepActive = toRef(props, "stepActive");
   const stepsVisited = toRef(props, "stepsVisited");
@@ -22,7 +26,20 @@ export default function LocalAPI(props) {
     return isControlOutside.value ? stepsVisited.value : stepsVisitedLocal.value;
   });
 
+  const initStepActive = () => {
+    if (isControlOutside.value) {
+      return;
+    }
+    if (!isNil(stepActive.value)) {
+      stepActiveLocal.value = stepActive.value;
+      stepsVisitedLocal.value = {
+        [stepActive.value]: true,
+      };
+    }
+  };
+
   return {
+    initStepActive,
     stepActiveComputed,
     stepActiveLocal,
     stepsVisitedComputed,
