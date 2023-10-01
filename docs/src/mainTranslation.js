@@ -35,6 +35,7 @@ import PageFieldsetI18n from "./views/Form/PageFieldset/i18n/PageFieldsetI18n";
 import PageLinkCopyI18n from "./views/PageLinkCopy/i18n/PageLinkCopyI18n";
 import PageInputNumberRangeI18n from "./views/Form/PageInputNumberRange/i18n/PageInputNumberRangeI18n";
 import PageFiltersI18n from "./views/PageFilters/i18n/PageFiltersI18n";
+import PageModalWizardI18n from "./views/PageModalWizard/i18n/PageModalWizardI18n";
 
 export const mainTranslation = {
   ar: {
@@ -66,6 +67,7 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.ar,
     ...PageInputNumberRangeI18n.ar,
     ...PageFiltersI18n.ar,
+    ...PageModalWizardI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -96,6 +98,7 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.de,
     ...PageInputNumberRangeI18n.de,
     ...PageFiltersI18n.de,
+    ...PageModalWizardI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -126,6 +129,7 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.en,
     ...PageInputNumberRangeI18n.en,
     ...PageFiltersI18n.en,
+    ...PageModalWizardI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -156,6 +160,7 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.es,
     ...PageInputNumberRangeI18n.es,
     ...PageFiltersI18n.es,
+    ...PageModalWizardI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -186,6 +191,7 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.fr,
     ...PageInputNumberRangeI18n.fr,
     ...PageFiltersI18n.fr,
+    ...PageModalWizardI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -216,6 +222,7 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.hr,
     ...PageInputNumberRangeI18n.hr,
     ...PageFiltersI18n.hr,
+    ...PageModalWizardI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -246,6 +253,7 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.it,
     ...PageInputNumberRangeI18n.it,
     ...PageFiltersI18n.it,
+    ...PageModalWizardI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -276,5 +284,6 @@ export const mainTranslation = {
     ...PageLinkCopyI18n.ru,
     ...PageInputNumberRangeI18n.ru,
     ...PageFiltersI18n.ru,
+    ...PageModalWizardI18n.ru,
   },
 };

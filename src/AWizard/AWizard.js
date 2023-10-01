@@ -1,5 +1,6 @@
 import {
   h,
+  Teleport,
 } from "vue";
 
 import AWizardStep from "./AWizardStep/AWizardStep";
@@ -11,6 +12,7 @@ import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import LocalAPI from "./compositionAPI/LocalAPI";
 import StepsAPI from "./compositionAPI/StepsAPI";
+import TeleportAPI from "./compositionAPI/TeleportAPI";
 
 export default {
   name: "AWizard",
@@ -152,6 +154,11 @@ export default {
       type: Object,
       default: undefined,
     },
+    toolbarBottomTeleportId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     type: {
       type: String,
       required: false,
@@ -199,6 +206,11 @@ export default {
       stepActiveComputed,
     });
 
+    const {
+      toolbarBottomTeleportSelector,
+      useTeleportToolbarBottom,
+    } = TeleportAPI(props);
+
     return {
       classWizard,
       goOneStepBack,
@@ -210,6 +222,8 @@ export default {
       stepsProgressbarTextTranslated,
       stepsVisitedComputed,
       tabContentRef,
+      toolbarBottomTeleportSelector,
+      useTeleportToolbarBottom,
     };
   },
   render() {
@@ -280,7 +294,12 @@ export default {
           }, this.$slots);
         }),
       ]),
-      this.isToolbarBottom && TOOLBAR,
+      this.isToolbarBottom && h(Teleport, {
+        to: this.toolbarBottomTeleportSelector,
+        disabled: !this.useTeleportToolbarBottom,
+      }, [
+        TOOLBAR,
+      ]),
     ]);
   },
 };

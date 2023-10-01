@@ -12,6 +12,9 @@ import UpdateModalAPI from "./compositionAPI/UpdateModalAPI";
 import {
   modalPluginOptions,
 } from "../plugins/AModalPlugin";
+import {
+  uniqueId,
+} from "lodash-es";
 
 // @vue/component
 export default {
@@ -76,6 +79,11 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    id: {
+      type: String,
+      required: false,
+      default: () => uniqueId("a_modal_form_")
     },
     idPrefix: {
       type: String,
@@ -209,6 +217,7 @@ export default {
       extra: this.extra,
       headerTag: this.headerTag,
       headerText: this.headerText,
+      id: this.id,
       isCloseButtonHide: this.isCloseButtonHide,
       isConfirm: this.isConfirm,
       isModalHidden: this.isModalHidden,

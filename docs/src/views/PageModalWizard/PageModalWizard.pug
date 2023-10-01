@@ -1,0 +1,28 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_"
+    )
+
+    page-modal-wizard-basic
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    //-aloha-table-props( TODO: Exposes
+    //-  table-label="Exposes"
+    //-  :data="dataExposes"
+    //-  :columns="['name', 'type', 'description']"
+    //-)

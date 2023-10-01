@@ -422,10 +422,23 @@ export default {
         {
           id: "wizard",
           label: "Wizard",
-          to: {
-            name: "PageWizard",
-          },
           icon: "ArrowRightCircleFill",
+          children: [
+            {
+              id: "PageWizard",
+              label: "Normal",
+              to: {
+                name: "PageWizard",
+              },
+            },
+            {
+              id: "PageModalWizard",
+              label: "Modal Wizard",
+              to: {
+                name: "PageModalWizard",
+              },
+            },
+          ],
         },
       ],
     };

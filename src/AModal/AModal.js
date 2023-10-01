@@ -19,6 +19,7 @@ import {
   isArray,
   isFunction,
   isString,
+  uniqueId,
 } from "lodash-es";
 
 // @vue/component
@@ -74,6 +75,11 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    id: {
+      type: String,
+      required: false,
+      default: () => uniqueId("a_modal_")
     },
     isCloseButtonHide: {
       type: Boolean,
@@ -358,6 +364,7 @@ export default {
       }, [
         h("div", {
           ref: "modal",
+          id: this.id,
           class: ["a_modal", this.modalClass, {
             a_modal_confirm: this.isConfirm,
             a_modal_show: !this.isModalHidden

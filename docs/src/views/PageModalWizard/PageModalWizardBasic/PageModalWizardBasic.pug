@@ -1,0 +1,55 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  props="text"
+)
+  a-button.a_btn.a_btn_primary(
+    id="wizard_basic"
+    text="open"
+    @click="openModalWizard"
+  )
+
+  a-modal-wizard(
+    v-if="isModalWizardVisible"
+    size="xxl"
+    selector-close-ids="wizard_basic"
+    header-text="Wizard"
+    :close="closeModalWizard"
+    :steps="wizardSteps"
+  )
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_MODAL_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_MODAL_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_MODAL_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_MODAL_WIZARD_STEP_4_"
+      )
+      p {{ text }}
