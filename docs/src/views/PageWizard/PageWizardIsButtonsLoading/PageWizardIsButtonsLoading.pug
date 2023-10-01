@@ -1,0 +1,52 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_IS_BUTTONS_LOADING_HEADER_"
+  description="_A_WIZARD_GROUP_IS_BUTTONS_LOADING_DESCRIPTION_"
+  :props="['is-buttons-loading']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch.a_mb_5
+      a-switch(
+        v-model="isButtonsLoading"
+        label="is-buttons-loading"
+      )
+  a-wizard(
+    :steps="wizardSteps"
+    :is-buttons-loading="isButtonsLoading"
+  )
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}
