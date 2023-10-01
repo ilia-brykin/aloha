@@ -1,0 +1,59 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_SLOT_LABEL_HEADER_"
+  description="_A_WIZARD_GROUP_SLOT_LABEL_DESCRIPTION_"
+  :slots="['slotLabel']"
+  props="steps.slotLabel"
+)
+  a-wizard(
+    :steps="wizardSteps"
+  )
+    template(
+      v-slot:stepLabel="{ step, stepNumber, stepIndex, isStepDisabled, isStepActive }"
+    )
+      a-translation(
+        tag="span"
+        :text="step.label"
+      )
+
+    template(
+      v-slot:stepLabel4
+    )
+      span ALOHA
+
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}

@@ -122,6 +122,7 @@ export default {
           this.$slots[this.step.slotLabel]({
             step: this.step,
             stepNumber: this.stepNumber,
+            stepIndex: this.stepIndex,
             isStepDisabled: this.isStepDisabled,
             isStepActive: this.isStepActive,
           }) : [
