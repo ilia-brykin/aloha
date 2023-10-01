@@ -7070,7 +7070,8 @@ input:not(:-webkit-autofill) {
 .a_wizard_square .a_wizard__step__link {
   display: flex;
   flex-direction: column;
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   .a_wizard_square .a_wizard__step__link:before {
     content: " ";
     display: none;
