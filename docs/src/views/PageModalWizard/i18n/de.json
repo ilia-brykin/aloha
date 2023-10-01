@@ -1,11 +1,8 @@
 {
-  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_",
-  "_A_MODAL_WIZARD_COMPONENT_NAME_": "_A_MODAL_WIZARD_COMPONENT_NAME_",
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Diese Komponente ist eine Kombination aus einem modalen Fenster(<a href='/#/modal'>AModal</a>) und einem Wizard(<a href='/#/wizard'>AWizard</a>). Man kann fast alle Props von <a href='/#/modal'>AModal</a> und <a href='/#/wizard'>AWizard</a> verwenden.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Wizard im modalen Fenster",
   "_A_MODAL_WIZARD_STEP_1_": "Step 1",
   "_A_MODAL_WIZARD_STEP_2_": "Step 2",
   "_A_MODAL_WIZARD_STEP_3_": "Step 3",
-  "_A_MODAL_WIZARD_STEP_4_": "Step 4",
-  "_A_MODAL_WIZARD_STEP_5_": "Step 5",
-  "_A_MODAL_WIZARD_STEP_6_": "Step 6",
-  "_A_MODAL_WIZARD_STEP_7_": "Step 7"
+  "_A_MODAL_WIZARD_STEP_4_": "Step 4"
 }
