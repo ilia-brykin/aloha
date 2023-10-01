@@ -10,6 +10,7 @@ import AWizard from "../../../../src/AWizard/AWizard";
 import PageWizardBasic from "./PageWizardBasic/PageWizardBasic.vue";
 import PageWizardType from "./PageWizardType/PageWizardType.vue";
 import PageWizardButtons from "./PageWizardButtons/PageWizardButtons.vue";
+import PageWizardButtonsDisabled from "./PageWizardButtonsDisabled/PageWizardButtonsDisabled.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -27,6 +28,7 @@ export default {
     PageWizardBasic,
     PageWizardType,
     PageWizardButtons,
+    PageWizardButtonsDisabled,
   },
   setup() {
     const {
