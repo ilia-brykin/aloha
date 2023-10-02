@@ -396,13 +396,18 @@
 }
 .a_table__filters_top {
   --a_table_filters_top_padding: 1rem;
-  --a_table_filters_top_always_visible_padding_left: 2rem;
+  --a_table_filters_top_always_visible_padding_left: 1rem;
 
   padding: var(--a_table_filters_top_padding);
 }
 
 .a_table__filters_top__always_visible {
   padding-left: var(--a_table_filters_top_always_visible_padding_left);
+}
+
+.a_table__filters_top__always_visible__body {
+  //overflow-y: auto;
+  //max-height: 500px;
 }
 
 .a_table__filters_center {

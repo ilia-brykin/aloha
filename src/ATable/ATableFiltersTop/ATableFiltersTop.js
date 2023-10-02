@@ -110,11 +110,9 @@ export default {
               filter: this.filtersGroup.main,
               modelFilters: this.modelFilters,
               isLabelVisible: true,
-              class: ["a_width_100", {
-                a_mr_2: !this.isOpen
-              }],
+              class: ["a_width_100 a_mr_2"],
             }),
-            !this.isOpen && BUTTON_SEARCH,
+            BUTTON_SEARCH,
           ]),
           this.isBtnToggleVisible && h("div", {
             class: "a_column",
@@ -132,20 +130,24 @@ export default {
           class: "a_table__filters_top__always_visible",
           style: this.styleToggle,
         }, [
-          this.filtersGroup.alwaysVisible.map(filter => {
-            return h(ATableFiltersTopFilter, {
-              key: filter.id,
-              filter,
-              modelFilters: this.modelFilters,
-            }, this.$slots);
-          }),
-          this.filtersVisible.map(filter => {
-            return h(ATableFiltersTopFilter, {
-              key: filter.id,
-              filter: filter,
-              modelFilters: this.modelFilters,
-            }, this.$slots);
-          }),
+          h("div", {
+            class: "a_table__filters_top__always_visible__body",
+          }, [
+            this.filtersGroup.alwaysVisible.map(filter => {
+              return h(ATableFiltersTopFilter, {
+                key: filter.id,
+                filter,
+                modelFilters: this.modelFilters,
+              }, this.$slots);
+            }),
+            this.filtersVisible.map(filter => {
+              return h(ATableFiltersTopFilter, {
+                key: filter.id,
+                filter: filter,
+                modelFilters: this.modelFilters,
+              }, this.$slots);
+            }),
+          ]),
           h("div", {}, [
             BUTTON_SEARCH,
           ]),

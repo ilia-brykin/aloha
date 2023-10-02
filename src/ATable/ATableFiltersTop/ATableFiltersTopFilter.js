@@ -74,7 +74,7 @@ export default {
   },
   render() {
     return this.isFilter && h("div", {
-      class: "a_columns a_columns_count_12 a_columns_gab_2 a_align_items_center",
+      class: "a_columns a_columns_count_12 a_columns_gab_2 a_align_items_center a_ml_0 a_mr_0",
     }, [
       this.isLabelInComponentVisible ? h("span", {
         class: this.labelClass,
