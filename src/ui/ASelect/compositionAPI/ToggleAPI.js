@@ -5,12 +5,18 @@ import {
   toRef,
 } from "vue";
 
+import {
+  autoUpdate,
+  computePosition,
+  flip,
+  limitShift,
+  shift
+} from "@floating-ui/vue";
+
 import AEventOutsideAPI from "../../../compositionAPI/AEventOutsideAPI";
 
 import AKeysCode from "../../../const/AKeysCode";
-import {
-  createPopper,
-} from "@popperjs/core";
+
 import {
   forEach,
 } from "lodash-es";
@@ -21,12 +27,14 @@ export default function ToggleAPI(props, {
   emit,
 }) {
   const disabled = toRef(props, "disabled");
+  const menuWidthType = toRef(props, "menuWidthType");
 
   const buttonRef = ref(undefined);
+  const cleanupPopper = ref(undefined);
+  const isOpen = ref(false);
   const menuParentRef = ref(undefined);
   const menuRef = ref(undefined);
-  const isOpen = ref(false);
-  const popper = ref(undefined);
+  const placement = toRef(props, "placement");
   const statusEventPressArrows = ref(undefined);
 
   const elementsForClickOutside = computed(() => {
@@ -34,6 +42,13 @@ export default function ToggleAPI(props, {
       buttonRef.value,
       menuParentRef.value,
     ];
+  });
+
+  const menuWidth = computed(() => {
+    if (menuWidthType.value === "as_button") {
+      return buttonRef.value.clientWidth;
+    }
+    return undefined;
   });
 
   const {
@@ -93,24 +108,14 @@ export default function ToggleAPI(props, {
   };
 
   const destroyPopover = () => {
-    if (popper.value) {
-      popper.value.destroy();
-      popper.value = undefined;
+    if (cleanupPopper.value) {
+      cleanupPopper.value();
+      cleanupPopper.value = undefined;
     }
   };
 
   const onOpen = () => {
     emit("open");
-  };
-
-  const menuWidthType = toRef(props, "menuWidthType");
-  const setMenuWidth = () => {
-    if (menuWidthType.value === "as_button") {
-      const BUTTON_WIDTH = buttonRef.value.clientWidth;
-      const BUTTON_WIDTH_STRING = `${ BUTTON_WIDTH }px`;
-      menuRef.value.style.minWidth = BUTTON_WIDTH_STRING;
-      menuRef.value.style.maxWidth = BUTTON_WIDTH_STRING;
-    }
   };
 
   const setFocusForFirstElementInList = () => {
@@ -130,32 +135,40 @@ export default function ToggleAPI(props, {
 
   const onShow = () => {
     onOpen();
-    setMenuWidth();
     setTimeout(() => {
       setFocusForFirstElementInList();
       initEventPressArrows();
     });
   };
 
-
-  const placement = toRef(props, "placement");
-  const openPopoverWithPopperjs = () => {
-    if (!popper.value) {
-      popper.value = createPopper(
+  const openPopoverWithFloatingUi = () => {
+    if (!cleanupPopper.value) {
+      cleanupPopper.value = autoUpdate(
         buttonRef.value,
         menuRef.value,
-        {
-          placement: placement.value,
-          removeOnDestroy: true,
-          modifiers: [
+        () => {
+          computePosition(
+            buttonRef.value,
+            menuRef.value,
             {
-              name: "offset",
-              options: {
-                offset: [0, 0],
-              },
+              placement: placement.value,
+              middleware: [
+                flip(),
+                shift({ limiter: limitShift() }),
+              ]
             },
-          ],
-        },
+          ).then(({ x, y }) => {
+            const SOURCE = {
+              left: `${ x }px`,
+              top: `${ y }px`,
+            };
+            if (menuWidth.value) {
+              SOURCE.maxWidth = `${ menuWidth.value }px`;
+              SOURCE.minWidth = `${ menuWidth.value }px`;
+            }
+            Object.assign(menuRef.value.style, SOURCE);
+          });
+        }
       );
       onShow();
     }
@@ -167,7 +180,7 @@ export default function ToggleAPI(props, {
     }
     isOpen.value = true;
     setEventClickOutside();
-    openPopoverWithPopperjs();
+    openPopoverWithFloatingUi();
   };
 
   const togglePopover = () => {
@@ -193,7 +206,6 @@ export default function ToggleAPI(props, {
     }
   };
 
-
   const destroyEventPressArrows = () => {
     if (!statusEventPressArrows.value) { // Event ist schon zestört
       return;
@@ -201,7 +213,6 @@ export default function ToggleAPI(props, {
     statusEventPressArrows.value = false;
     document.removeEventListener("keydown", pressButton);
   };
-
 
   function closePopover() {
     isOpen.value = false;

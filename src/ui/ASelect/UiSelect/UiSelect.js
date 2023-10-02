@@ -13,8 +13,12 @@ import HttpMixin from "../../../mixins/HttpMixin";
 import UIComponentMixin from "../UIComponentMixin";
 
 import {
-  createPopper,
-} from "popperjs";
+  autoUpdate,
+  computePosition,
+  flip,
+  limitShift,
+  shift,
+} from "@floating-ui/vue";
 
 import {
   assign,
@@ -110,7 +114,7 @@ export default {
       },
       statusEventPressArrows: undefined,
       focusLocal: undefined,
-      popper: undefined,
+      cleanupPopper: undefined,
       isOpen: false,
     };
   },
@@ -966,26 +970,34 @@ export default {
       }
       this.isOpen = true;
       this.setEventClickOutside();
-      this.openPopoverWithPopperjs();
+      this.openPopoverWithFloatingUi();
     },
 
-    openPopoverWithPopperjs() {
-      if (!this.popper) {
-        this.popper = createPopper(
+    openPopoverWithFloatingUi() {
+      if (!this.cleanupPopper) {
+        this.cleanupPopper = autoUpdate(
           this.$refs.button,
           this.$refs.ui_select_menu,
-          {
-            placement: this.getPlacement,
-            removeOnDestroy: true,
-            modifiers: [
-              {
-                name: "offset",
-                options: {
-                  offset: [0, 0],
+          () => {
+            if (this.$refs.button && this.$refs.ui_select_menu) {
+              computePosition(
+                this.$refs.button,
+                this.$refs.ui_select_menu,
+                {
+                  placement: this.getPlacement,
+                  middleware: [
+                    flip(),
+                    shift({ limiter: limitShift() }),
+                  ]
                 },
-              },
-            ],
-          },
+              ).then(({ x, y }) => {
+                Object.assign(this.getPlacement.style, {
+                  left: `${ x }px`,
+                  top: `${ y }px`,
+                });
+              });
+            }
+          }
         );
         this.onShow();
       }
@@ -1084,9 +1096,9 @@ export default {
     },
 
     destroyPopover() {
-      if (this.popper) {
-        this.popper.destroy();
-        this.popper = undefined;
+      if (this.cleanupPopper) {
+        this.cleanupPopper();
+        this.cleanupPopper = undefined;
       }
     },
 
@@ -1106,14 +1118,6 @@ export default {
 
     clickOutsideCallback() {
       this.closePopover();
-    },
-
-    updatePopover() {
-      setTimeout(() => {
-        if (this.popper) {
-          this.popper.forceUpdate();
-        }
-      });
     },
   },
 };

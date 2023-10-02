@@ -4,8 +4,12 @@ import {
 } from "vue";
 
 import {
-  createPopper,
-} from "@popperjs/core";
+  autoUpdate,
+  computePosition,
+  flip,
+  limitShift,
+  shift
+} from "@floating-ui/vue";
 
 export default function PopoverAPI(props, {
   dropdownButtonRef = ref(undefined),
@@ -13,32 +17,39 @@ export default function PopoverAPI(props, {
 }) {
   const placement = toRef(props, "placement");
 
-  const popper = ref(undefined);
+  const cleanupPopper = ref(undefined);
+
   const startPopper = () => {
-    if (!popper.value) {
-      popper.value = createPopper(
+    if (!cleanupPopper.value) {
+      cleanupPopper.value = autoUpdate(
         dropdownButtonRef.value.$el,
         dropdownRef.value,
-        {
-          placement: placement.value,
-          removeOnDestroy: true,
-          modifiers: [
+        () => {
+          computePosition(
+            dropdownButtonRef.value.$el,
+            dropdownRef.value,
             {
-              name: "offset",
-              options: {
-                offset: [0, 0],
-              },
+              placement: placement.value,
+              middleware: [
+                flip(),
+                shift({ limiter: limitShift() }),
+              ]
             },
-          ],
-        },
+          ).then(({ x, y }) => {
+            Object.assign(dropdownRef.value.style, {
+              left: `${ x }px`,
+              top: `${ y }px`,
+            });
+          });
+        }
       );
     }
   };
 
   const destroyPopover = () => {
-    if (popper.value) {
-      popper.value.destroy();
-      popper.value = undefined;
+    if (cleanupPopper.value) {
+      cleanupPopper.value();
+      cleanupPopper.value = undefined;
     }
   };
 

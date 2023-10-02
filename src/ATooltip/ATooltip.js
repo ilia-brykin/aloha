@@ -98,9 +98,8 @@ export default {
       mouseLeaveTooltip,
       showTitle,
       startPopper,
+      titleArrowRef,
       titleRef,
-      updateTitle,
-      updateTitleOptions,
     } = PopperAPI(props);
 
     const {
@@ -151,10 +150,9 @@ export default {
       popperContainerIdSelector,
       startPopper,
       tagLocal,
+      titleArrowRef,
       titleRef,
       tooltipStyles,
-      updateTitle,
-      updateTitleOptions,
     };
   },
   render() {
@@ -186,6 +184,7 @@ export default {
             onMouseleave: this.mouseLeaveTooltip,
           }, [
             this.showArrow && h("div", {
+              ref: "titleArrowRef",
               "data-popper-arrow": true,
               class: "a_tooltip__arrow",
             }),
