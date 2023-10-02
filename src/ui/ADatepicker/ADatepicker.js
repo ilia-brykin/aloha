@@ -210,7 +210,7 @@ export default {
       closePopover,
       destroyPopover,
       initCalendar,
-      openPopoverWithPopperjs,
+      openPopoverWithFloatingUi,
       popupVisible,
       setCloseFocus,
     } = PopoverAPI(props, {
@@ -308,7 +308,7 @@ export default {
       isModel,
       onBlur,
       onFocus,
-      openPopoverWithPopperjs,
+      openPopoverWithFloatingUi,
       popupVisible,
       selectDate,
       selectEndDate,
@@ -436,7 +436,7 @@ export default {
     },
 
     handleFocus(event) {
-      this.openPopoverWithPopperjs();
+      this.openPopoverWithFloatingUi();
       this.$emit("focus", event);
     },
   },
@@ -467,8 +467,8 @@ export default {
               disabled: this.disabled,
             }],
             style: { width: this.widthLocal },
-            onMousedown: this.openPopoverWithPopperjs,
-            onTouchstart: this.openPopoverWithPopperjs,
+            onMousedown: this.openPopoverWithFloatingUi,
+            onTouchstart: this.openPopoverWithFloatingUi,
           }, [
             h("div", {
               class: "pux_datepicker__input_wrapper",
