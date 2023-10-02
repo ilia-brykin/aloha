@@ -29,6 +29,11 @@ export default {
     };
   },
   props: {
+    class: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     breakpointMobile: {
       type: Number,
       required: false,
@@ -248,7 +253,8 @@ export default {
           "a_menu",
           {
             a_menu_sub_open: this.isSubMenuOpen,
-          }
+          },
+          this.class,
         ],
         ...this.attributesMenuClick,
       }, [
