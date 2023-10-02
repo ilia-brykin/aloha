@@ -29,6 +29,10 @@ export default function AMenuPanelsAPI(props, {
   const panelParentsOpen = ref([]);
   const isMenuLinkClicked = ref(false);
 
+  const isSubMenuOpen = computed(() => {
+    return panelParentsOpen.value.length > 0;
+  });
+
   const openPanelFromSearch = ({ parentId, panelParentsOpenLocal }) => {
     if (parentId) {
       panelParentsOpenLocal.unshift(parentId);
@@ -139,6 +143,7 @@ export default function AMenuPanelsAPI(props, {
   return {
     clickMenuLink,
     closeAllPanels,
+    isSubMenuOpen,
     panelParentsOpen,
     setDefaultMenu,
     togglePanel

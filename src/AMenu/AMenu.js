@@ -185,6 +185,7 @@ export default {
     const {
       clickMenuLink,
       closeAllPanels,
+      isSubMenuOpen,
       panelParentsOpen,
       setDefaultMenu,
       togglePanel,
@@ -227,9 +228,10 @@ export default {
       dataProParentList,
       idsSearchVisible,
       isButtonToggleVisible,
-      isMenuOpen,
       isMenuMobile,
+      isMenuOpen,
       isSearchActive,
+      isSubMenuOpen,
       modelSearch,
       panelParentsOpen,
       removeBodyClasses,
@@ -242,7 +244,12 @@ export default {
   render() {
     return [
       h("nav", {
-        class: "a_menu",
+        class: [
+          "a_menu",
+          {
+            a_menu_sub_open: this.isSubMenuOpen,
+          }
+        ],
         ...this.attributesMenuClick,
       }, [
         h("div", {
