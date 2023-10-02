@@ -40,7 +40,7 @@
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.7",
+    "@floating-ui/vue": "^1.0.2",
     "aloha-css": "1.0.98",
     "axios": "^1.4.0",
     "dompurify": "^2.4.1",

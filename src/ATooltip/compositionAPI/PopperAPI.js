@@ -4,65 +4,60 @@ import {
   toRef,
 } from "vue";
 
+import {
+  arrow,
+  autoPlacement,
+  autoUpdate,
+  computePosition,
+  flip,
+  limitShift,
+  offset,
+  shift,
+} from "@floating-ui/vue";
+
 import AKeysCode from "../../const/AKeysCode";
 import EventBus from "../../utils/EventBus";
+
 import {
-  createPopper,
-} from "@popperjs/core";
-import {
-  isFunction,
-  isNumber,
+  isNil,
 } from "lodash-es";
 
 export default function PopperAPI(props) {
-  const arrowPadding = toRef(props, "arrowPadding");
   const id = toRef(props, "id");
   const offsetDistance = toRef(props, "offsetDistance");
   const offsetSkidding = toRef(props, "offsetSkidding");
   const placement = toRef(props, "placement");
   const timeClose = toRef(props, "timeClose");
 
-  const popper = ref(undefined);
-  const timerTitleClose = ref(undefined);
-  const isTitleVisible = ref(false);
-  const titleRef = ref(undefined);
+  const cleanupPopper = ref(undefined);
   const componentRef = ref(undefined);
+  const isTitleVisible = ref(false);
+  const timerTitleClose = ref(undefined);
+  const titleArrowRef = ref(undefined);
+  const titleRef = ref(undefined);
 
-  const popperModifiers = computed(() => {
-    const MODIFIERS = [
-      {
-        name: "offset",
-        options: {
-          offset: [offsetSkidding.value || 0, offsetDistance.value || 0],
-        },
-      },
-    ];
-
-    if (isNumber(arrowPadding.value)) {
-      MODIFIERS.push({
-        name: "arrow",
-        options: {
-          padding: arrowPadding.value,
-        },
-      });
-    } else if (isFunction(arrowPadding.value)) {
-      MODIFIERS.push({
-        name: "arrow",
-        options: {
-          padding: arrowPadding.value, // popper, reference, placement: popper.width / reference.width
-        },
-      });
-    }
-
-    return MODIFIERS;
+  const element = computed(() => {
+    return document.getElementById(id.value);
   });
 
-  const popperOptions = computed(() => {
-    return {
-      placement: placement.value,
-      removeOnDestroy: true,
-      modifiers: popperModifiers.value,
-    };
+  const isAutoPlacement = computed(() => {
+    return placement.value && placement.value.includes("auto") ;
+  });
+
+  const floatingUiMiddleware = computed(() => {
+    return [
+      offset({
+        mainAxis: offsetDistance.value || 0,
+        crossAxis: offsetSkidding.value || 0,
+        alignmentAxis: null,
+      }),
+      isAutoPlacement.value ? autoPlacement() : flip(),
+      shift({ limiter: limitShift() }),
+      titleArrowRef.value && arrow({
+        element: titleArrowRef.value,
+        padding: 5,
+      }),
+    ];
   });
 
   const pressEscapeButton = $event => {
@@ -89,9 +84,9 @@ export default function PopperAPI(props) {
   };
 
   const destroyPopper = () => {
-    if (popper.value) {
-      popper.value.destroy();
-      popper.value = undefined;
+    if (cleanupPopper.value) {
+      cleanupPopper.value();
+      cleanupPopper.value = undefined;
     }
   };
 
@@ -110,17 +105,41 @@ export default function PopperAPI(props) {
   };
 
   const startPopper = () => {
-    if (!popper.value) {
-      const ELEMENT = document.getElementById(id.value);
+    if (!cleanupPopper.value) {
       if (!titleRef.value) {
         return;
       }
-      popper.value = createPopper(
-        ELEMENT,
-        titleRef.value,
-        popperOptions.value,
-      );
     }
+    cleanupPopper.value = autoUpdate(element.value, titleRef.value, () => {
+      computePosition(
+        element.value,
+        titleRef.value,
+        {
+          placement: placement.value,
+          middleware: floatingUiMiddleware.value,
+        },
+      ).then(({ x, y, middlewareData, placement }) => {
+        Object.assign(titleRef.value.style, {
+          left: `${ x }px`,
+          top: `${ y }px`,
+        });
+        const side = placement.split("-")[0];
+        const staticSide = {
+          top: "bottom",
+          right: "left",
+          bottom: "top",
+          left: "right"
+        }[side];
+        if (middlewareData.arrow) {
+          const { x, y } = middlewareData.arrow;
+          Object.assign(titleArrowRef.value.style, {
+            left: !isNil(x) ? `${ x }px` : "",
+            top: !isNil(y) ? `${ y }px` : "",
+            [staticSide]: `${ -titleArrowRef.value.offsetWidth / 2 }px`,
+          });
+        }
+      });
+    });
     EventBus.$emit("closeHtmlTitle");
     setEventBusCloseTitle();
     setListenerForPressEscapeButton();
@@ -132,20 +151,6 @@ export default function PopperAPI(props) {
 
   const mouseLeaveTooltip = () => {
     closeTitleWithTimer();
-  };
-
-  const updateTitle = () => {
-    if (popper.value) {
-      popper.value.forceUpdate();
-      // this.setContentSymbolsLengthInTooltipContent();
-    }
-  };
-
-  const updateTitleOptions = () => {
-    if (popper.value) {
-      popper.value.setOptions(popperOptions.value);
-      // this.setContentSymbolsLengthInTooltipContent();
-    }
   };
 
   function closeTitle() {
@@ -165,8 +170,7 @@ export default function PopperAPI(props) {
     mouseLeaveTooltip,
     showTitle,
     startPopper,
+    titleArrowRef,
     titleRef,
-    updateTitle,
-    updateTitleOptions,
   };
 }

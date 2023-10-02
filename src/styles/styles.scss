@@ -1,3 +1,22 @@
+.floating {
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.a_tooltip__container, .a_dropdown__menu, .a_select_menu, .pux_datepicker__popup, .ui_select_menu {
+  /* Float on top of the UI */
+  position: absolute;
+
+  /* Avoid layout interference */
+  width: max-content;
+  top: 0;
+  left: 0;
+}
+.a_tooltip__arrow {
+  position: absolute;
+}
+
 .a_search_highlight {
   color: red;
 }

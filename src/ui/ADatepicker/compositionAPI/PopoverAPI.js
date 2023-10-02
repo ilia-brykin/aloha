@@ -5,8 +5,12 @@ import {
 } from "vue";
 
 import {
-  createPopper,
-} from "@popperjs/core";
+  autoUpdate,
+  computePosition,
+  flip,
+  limitShift,
+  shift
+} from "@floating-ui/vue";
 
 export default function PopoverAPI(props, {
   calendarRef = ref(undefined),
@@ -16,7 +20,7 @@ export default function PopoverAPI(props, {
   const placement = toRef(props, "placement");
   const disabled = toRef(props, "disabled");
 
-  const popper = ref(undefined);
+  const cleanupPopper = ref(undefined);
   const popupVisible = ref(undefined);
 
   const setEventCloseClick = () => {
@@ -27,26 +31,33 @@ export default function PopoverAPI(props, {
     document.removeEventListener("click", onClickEvent);
   };
 
-  const openPopoverWithPopperjs = () => {
-    if (!popper.value &&
-      !disabled.value) {
+  const openPopoverWithFloatingUi = () => {
+    if (!cleanupPopper.value && !disabled.value) {
       popupVisible.value = true;
       setTimeout(() => {
-        popper.value = createPopper(
+        cleanupPopper.value = autoUpdate(
           inputRef.value,
           calendarRef.value,
-          {
-            placement: placement.value,
-            removeOnDestroy: true,
-            modifiers: [
-              {
-                name: "offset",
-                options: {
-                  offset: [0, 0],
+          () => {
+            if (calendarRef.value && inputRef.value) {
+              computePosition(
+                inputRef.value,
+                calendarRef.value,
+                {
+                  placement: placement.value,
+                  middleware: [
+                    flip(),
+                    shift({ limiter: limitShift() }),
+                  ],
                 },
-              },
-            ],
-          },
+              ).then(({ x, y }) => {
+                Object.assign(calendarRef.value.style, {
+                  left: `${ x }px`,
+                  top: `${ y }px`,
+                });
+              });
+            }
+          }
         );
 
         setTimeout(() => {
@@ -63,16 +74,16 @@ export default function PopoverAPI(props, {
   };
 
   const destroyPopover = () => {
-    if (popper.value) {
-      popper.value.destroy();
-      popper.value = undefined;
+    if (cleanupPopper.value) {
+      cleanupPopper.value();
+      cleanupPopper.value = undefined;
     }
   };
 
   const closePopover = isSetFocusByClose => {
-    popupVisible.value = false;
-    destroyPopover();
     destroyEventCloseClick();
+    destroyPopover();
+    popupVisible.value = false;
     if (isSetFocusByClose) {
       setCloseFocus();
     }
@@ -80,7 +91,7 @@ export default function PopoverAPI(props, {
 
   const initCalendar = () => {
     // this.handleValueChange(this.modelValue);  TODO: prüfen
-    openPopoverWithPopperjs();
+    openPopoverWithFloatingUi();
   };
 
   function onClickEvent($event) {
@@ -98,7 +109,7 @@ export default function PopoverAPI(props, {
     closePopover,
     destroyPopover,
     initCalendar,
-    openPopoverWithPopperjs,
+    openPopoverWithFloatingUi,
     popupVisible,
     setCloseFocus,
   };
