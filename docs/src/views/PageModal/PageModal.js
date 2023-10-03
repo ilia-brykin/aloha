@@ -3,6 +3,7 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageModalBasic from "./PageModalBasic/PageModalBasic.vue";
+import PageModalBodyHtml from "./PageModalBodyHtml/PageModalBodyHtml.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -19,6 +20,7 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageModalBasic,
+    PageModalBodyHtml,
   },
   setup() {
     const {
