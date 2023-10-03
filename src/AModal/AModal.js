@@ -123,6 +123,11 @@ export default {
       required: false,
       default: undefined,
     },
+    saveButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     saveButtonClass: {
       type: [String, Array, Object],
       required: false,
@@ -308,6 +313,7 @@ export default {
                   extra: this.extra,
                   html: this.saveButtonText,
                   type: "button",
+                  ...this.saveButtonAttributes,
                   onClick: this.save,
                 }),
                 !this.isCloseButtonHide && h(AButton, {

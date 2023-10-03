@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_MODAL_GROUP_SAVE_BUTTON_HEADER_"
+  description="_A_MODAL_GROUP_SAVE_BUTTON_DESCRIPTION_"
+  :props="['save', 'save-button-attributes', 'save-button-class', 'save-button-id', 'save-button-text']"
+)
+  a-button(
+    class="a_btn a_btn_primary"
+    text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+    @click="openModal"
+  )
+
+  a-modal(
+    v-if="isModalVisible"
+    header-text="Aloha"
+    :close="closeModal"
+    :save="saveModal"
+    :save-button-attributes="{ textTag: 'strong' }"
+    save-button-class="a_btn a_btn_success"
+    save-button-id="btn_save"
+  )

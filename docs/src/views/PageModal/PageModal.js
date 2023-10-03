@@ -5,6 +5,7 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageModalBasic from "./PageModalBasic/PageModalBasic.vue";
 import PageModalBodyHtml from "./PageModalBodyHtml/PageModalBodyHtml.vue";
 import PageModalCloseButton from "./PageModalCloseButton/PageModalCloseButton.vue";
+import PageModalSaveButton from "./PageModalSaveButton/PageModalSaveButton.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -23,6 +24,7 @@ export default {
     PageModalBasic,
     PageModalBodyHtml,
     PageModalCloseButton,
+    PageModalSaveButton,
   },
   setup() {
     const {
