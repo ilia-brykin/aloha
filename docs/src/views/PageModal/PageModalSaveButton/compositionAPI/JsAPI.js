@@ -22,11 +22,17 @@ export default {
     const closeModal = () => {
       isModalVisible.value = false;
     };
+    
+    const saveModal = () => {
+      console.log("saveModal");
+      closeModal();
+    };
 
     return {
       closeModal,
       isModalVisible,
       openModal,
+      saveModal,
     };
   },
 };`;

@@ -9,10 +9,10 @@ export default function HtmlAPI() {
   v-if="isModalVisible"
   header-text="Aloha"
   :close="closeModal"
-  :close-button-attributes="{ textTag: 'strong' }"
-  close-button-class="a_btn a_btn_danger"
-  close-button-id="btn_close"
-  close-button-text="_A_MODAL_PAGE_BTN_CLOSE_"
+  :save="saveModal"
+  :save-button-attributes="{ textTag: 'strong' }"
+  save-button-class="a_btn a_btn_success"
+  save-button-id="btn_save"
 ></a-modal>`;
 
   return {
