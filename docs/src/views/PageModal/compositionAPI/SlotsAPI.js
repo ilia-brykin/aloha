@@ -1,16 +1,20 @@
 export default function SlotsAPI() {
   const dataSlots = [
     {
-      name: "toolbar",
-      description: "_A_WIZARD_SLOTS_TOOLBAR_DESCRIPTION_",
+      name: "modalHeader",
+      description: "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_",
     },
     {
-      name: "slot",
-      description: "_A_WIZARD_SLOTS_SLOT_DESCRIPTION_",
+      name: "modalBody",
+      description: "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_",
     },
     {
-      name: "slotLabel",
-      description: "_A_WIZARD_SLOTS_SLOT_LABEL_DESCRIPTION_",
+      name: "modalFooterPrepend",
+      description: "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_",
+    },
+    {
+      name: "modalFooterAppend",
+      description: "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_",
     },
   ];
 

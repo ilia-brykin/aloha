@@ -11,7 +11,6 @@ import PageModalSelectorCloseIds from "./PageModalSelectorCloseIds/PageModalSele
 import PageModalSize from "./PageModalSize/PageModalSize.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
-import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
@@ -50,16 +49,11 @@ export default {
     } = ExposesAPI();
 
     const {
-      dataEvents,
-    } = EventsAPI();
-
-    const {
       dataTranslate,
     } = TranslateAPI();
 
     return {
       dataExposes,
-      dataEvents,
       dataProps,
       dataSlots,
       dataTranslate,
