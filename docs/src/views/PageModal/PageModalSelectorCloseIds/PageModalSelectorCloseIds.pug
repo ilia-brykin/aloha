@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_MODAL_GROUP_SELECTOR_CLOSE_IDS_HEADER_"
+  description="_A_MODAL_GROUP_SELECTOR_CLOSE_IDS_DESCRIPTION_"
+  :props="['selector-close-ids']"
+)
+  a-button(
+    id="btn_open_modal_id"
+    class="a_btn a_btn_primary"
+    text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+    @click="openModal"
+  )
+
+  a-modal(
+    v-if="isModalVisible"
+    header-text="Aloha"
+    :close="closeModal"
+    :selector-close-ids="['btn_aloha', 'btn_open_modal_id']"
+  )
