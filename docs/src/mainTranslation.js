@@ -37,6 +37,7 @@ import PageInputNumberRangeI18n from "./views/Form/PageInputNumberRange/i18n/Pag
 import PageFiltersI18n from "./views/PageFilters/i18n/PageFiltersI18n";
 import PageModalWizardI18n from "./views/PageModalWizard/i18n/PageModalWizardI18n";
 import PageWizardI18n from "./views/PageWizard/i18n/PageWizardI18n";
+import PageModalI18n from "./views/PageModal/i18n/PageModalI18n";
 
 export const mainTranslation = {
   ar: {
@@ -70,6 +71,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.ar,
     ...PageModalWizardI18n.ar,
     ...PageWizardI18n.ar,
+    ...PageModalI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -102,6 +104,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.de,
     ...PageModalWizardI18n.de,
     ...PageWizardI18n.de,
+    ...PageModalI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -134,6 +137,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.en,
     ...PageModalWizardI18n.en,
     ...PageWizardI18n.en,
+    ...PageModalI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -166,6 +170,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.es,
     ...PageModalWizardI18n.es,
     ...PageWizardI18n.es,
+    ...PageModalI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -198,6 +203,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.fr,
     ...PageModalWizardI18n.fr,
     ...PageWizardI18n.fr,
+    ...PageModalI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -230,6 +236,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.hr,
     ...PageModalWizardI18n.hr,
     ...PageWizardI18n.hr,
+    ...PageModalI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -262,6 +269,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.it,
     ...PageModalWizardI18n.it,
     ...PageWizardI18n.it,
+    ...PageModalI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -294,5 +302,6 @@ export const mainTranslation = {
     ...PageFiltersI18n.ru,
     ...PageModalWizardI18n.ru,
     ...PageWizardI18n.ru,
+    ...PageModalI18n.ru,
   },
 };

@@ -1,27 +1,12 @@
-div
-  h1 AModal
-  a-button.a_btn.a_btn_primary(
-    id="btn_modal"
-    type="button"
-    text="Open Modal"
-    title="Open Modal"
-    text-screen-reader="Open Modal"
-    :text-aria-hidden="true"
-    icon="Cog"
-    :loading="true"
-    @click="openModal"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
+    a-translation(
+      tag="p"
+      html="_A_MODAL_COMPONENT_DESCRIPTION_"
+    )
 
-  a-modal(
-    v-if="isModalOpen"
-    size="xxl"
-    selector-close-ids="btn_modal"
-    :close="closeModal"
-  )
-    //template(
-    //  v-slot:modalBodyPrepend
-    //)
-    //  button.a_btn.a_btn_secondary(
-    //    type="button"
-    //    @click="openConfirmLocal"
-    //  ) Open confirm
+    page-modal-basic

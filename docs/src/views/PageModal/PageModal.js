@@ -1,49 +1,57 @@
-import AButton from "../../../../src/AButton/AButton";
-import AModal from "../../../../src/AModal/AModal";
+import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
+import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
+import ATranslation from "../../../../src/ATranslation/ATranslation";
+import PageModalBasic from "./PageModalBasic/PageModalBasic.vue";
 
-import AConfirmAPI from "../../../../src/compositionAPI/AConfirmAPI";
+import ExposesAPI from "./compositionAPI/ExposesAPI";
+import EventsAPI from "./compositionAPI/EventsAPI";
+import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+import PropsAPI from "./compositionAPI/PropsAPI";
+import SlotsAPI from "./compositionAPI/SlotsAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageModal",
   components: {
-    AButton,
-    AModal,
+    AlohaPage,
+    AlohaTableProps,
+    AlohaTableTranslate,
+    ATranslation,
+    PageModalBasic,
   },
   setup() {
     const {
-      closeConfirm,
-      openConfirm,
-    } = AConfirmAPI();
+      pageTitle,
+    } = PageTitleAPI();
 
-    const save = () => {
-      closeConfirm();
-    };
+    const {
+      dataProps,
+    } = PropsAPI();
 
-    const openConfirmLocal = () => {
-      openConfirm({
-        headerText: "Aloha",
-        bodyHtml: "<div>Aloha <strong>Hola</strong></div>",
-        save: save,
-        selectorClose: "#btn_confirm",
-      });
-    };
+    const {
+      dataSlots,
+    } = SlotsAPI();
+
+    const {
+      dataExposes,
+    } = ExposesAPI();
+
+    const {
+      dataEvents,
+    } = EventsAPI();
+
+    const {
+      dataTranslate,
+    } = TranslateAPI();
 
     return {
-      openConfirmLocal,
+      dataExposes,
+      dataEvents,
+      dataProps,
+      dataSlots,
+      dataTranslate,
+      pageTitle,
     };
-  },
-  data() {
-    return {
-      isModalOpen: false,
-    };
-  },
-  methods: {
-    openModal() {
-      this.isModalOpen = true;
-    },
-
-    closeModal() {
-      this.isModalOpen = false;
-    },
   },
 };
