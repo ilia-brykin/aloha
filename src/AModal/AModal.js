@@ -298,14 +298,7 @@ export default {
                 ref: "modal_footer",
                 class: "a_modal_footer",
               }, [
-                this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend({
-                  saveButtonClass: this.saveButtonClass,
-                  closeButtonClass: this.closeButtonClass,
-                  disabled: this.disabledLocal,
-                  disabledSave: this.disabledSave,
-                  save: this.save,
-                  close: this.close,
-                }),
+                this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend(),
                 (!this.isSaveButtonHide && this.save) && h(AButton, {
                   id: this.saveButtonId,
                   class: this.saveButtonClass,
@@ -326,14 +319,7 @@ export default {
                   ...this.closeButtonAttributes,
                   onClick: this.close,
                 }),
-                this.$slots.modalFooterAppend && this.$slots.modalFooterAppend({
-                  saveButtonClass: this.saveButtonClass,
-                  closeButtonClass: this.closeButtonClass,
-                  disabled: this.disabledLocal,
-                  disabledSave: this.disabledSave,
-                  save: this.save,
-                  close: this.close,
-                }),
+                this.$slots.modalFooterAppend && this.$slots.modalFooterAppend(),
               ]),
             ]),
           ]),
