@@ -5,7 +5,7 @@ import {
 export const modalPluginOptions = ref({
   propsDefault: {
     closeButtonClass: "a_btn a_btn_secondary",
-    closeButtonText: "_CANCEL_",
+    closeButtonText: "_A_MODAL_BTN_CANCEL_",
     headerTag: "h2",
     idPrefix: undefined,
     isCloseButtonHide: false,
@@ -15,7 +15,7 @@ export const modalPluginOptions = ref({
     isSaveButtonHide: false,
     modalClass: undefined,
     saveButtonClass: "a_btn a_btn_primary",
-    saveButtonText: "_SAVE_",
+    saveButtonText: "_A_MODAL_BTN_SAVE_",
     selectorClose: undefined,
     selectorCloseIds: undefined,
     size: undefined,

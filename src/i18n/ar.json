@@ -11,7 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]",
   "_ADD_NOTIFICATION_{{type}}_": "إضافة إشعار {{ type }}",
   "_ALERT_CLOSE_": "غلق",
-  "_CANCEL_": "قطع",
   "_CLOSE_MENU_": "إغلاق القائمة",
   "_CONTINUE_": "يكمل",
   "_ITEMS_PER_PAGE_": "مواد لكل صفحة",
@@ -25,7 +24,6 @@
   "_PREVIOUS_": "سابق",
   "_REMOVE_FIELD_CONTENT_": "إزالة المحتوى",
   "_REMOVE_SELECTION_": "إزالة التحديد",
-  "_SAVE_": "حفظ",
   "_SEARCH_MENU_": "قائمة البحث",
   "_YES_": "نعم"
 }

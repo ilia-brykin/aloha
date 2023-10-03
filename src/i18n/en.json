@@ -11,7 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "To page {{ page }}",
   "_ADD_NOTIFICATION_{{type}}_": "Add Notification {{ type }}",
   "_ALERT_CLOSE_": "Close",
-  "_CANCEL_": "cancel",
   "_CLOSE_MENU_": "close menu",
   "_CONTINUE_": "Continue",
   "_ITEMS_PER_PAGE_": "Items per page",
@@ -25,7 +24,6 @@
   "_PREVIOUS_": "Previous",
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
   "_REMOVE_SELECTION_": "remove selection",
-  "_SAVE_": "save",
   "_SEARCH_MENU_": "Search menu",
   "_SELECT_TEXT_EMPTY_": "[No selection]",
   "_YES_": "yes"

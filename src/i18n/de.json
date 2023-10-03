@@ -11,7 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "Zur Seite Nummer {{ page }}",
   "_ADD_NOTIFICATION_{{type}}_": "Benachrichtigung hinzufügen {{ type }}",
   "_ALERT_CLOSE_": "Schließen",
-  "_CANCEL_": "Abbrechen",
   "_CLOSE_MENU_": "Menü schließen",
   "_CONTINUE_": "Fortfahren",
   "_ITEMS_PER_PAGE_": "Objekte pro Seite",
@@ -25,7 +24,6 @@
   "_PREVIOUS_": "Vorherige",
   "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
   "_REMOVE_SELECTION_": "Auswahl entfernen",
-  "_SAVE_": "Speichern",
   "_SEARCH_MENU_": "Menüsuche",
   "_SELECT_TEXT_EMPTY_": "[Keine Auswahl]",
   "_YES_": "Ja"

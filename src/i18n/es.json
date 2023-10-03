@@ -11,7 +11,6 @@
   "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]",
   "_ADD_NOTIFICATION_{{type}}_": "Agregar Notificación {{ type }}",
   "_ALERT_CLOSE_": "Cerrar",
-  "_CANCEL_": "Interrumpir",
   "_CLOSE_MENU_": "menú cerrar",
   "_CONTINUE_": "Continuar",
   "_ITEMS_PER_PAGE_": "Artículos por página",
@@ -25,7 +24,6 @@
   "_PREVIOUS_": "Previo",
   "_REMOVE_FIELD_CONTENT_": "Quitar el contenido del campo",
   "_REMOVE_SELECTION_": "eliminar selección",
-  "_SAVE_": "Guardar",
   "_SEARCH_MENU_": "Menú de búsqueda",
   "_YES_": "Sí"
 }

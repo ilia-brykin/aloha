@@ -1,6 +1,10 @@
 import {
-  h, onMounted, onUnmounted,
-  Teleport, toRef, watch,
+  h,
+  onMounted,
+  onUnmounted,
+  Teleport,
+  toRef,
+  watch,
 } from "vue";
 
 import AButton from "../AButton/AButton";
@@ -262,11 +266,10 @@ export default {
                     extra: this.extra,
                   }),
                 ]),
-                h("button", {
-                  type: "button",
+                h(AButton, {
                   class: "a_btn_close",
-                  ariaLabel: "Close",
                   disabled: this.disabledLocal,
+                  textScreenReader: this.closeButtonText,
                   title: this.closeButtonText,
                   onClick: this.close,
                 })
