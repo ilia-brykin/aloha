@@ -40,6 +40,11 @@ export default {
       type: Function,
       required: true,
     },
+    closeButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     closeButtonClass: {
       type: [String, Array, Object],
       required: false,
@@ -312,6 +317,7 @@ export default {
                   disabled: this.disabledLocal,
                   html: this.closeButtonText,
                   extra: this.extra,
+                  ...this.closeButtonAttributes,
                   onClick: this.close,
                 }),
                 this.$slots.modalFooterAppend && this.$slots.modalFooterAppend({
