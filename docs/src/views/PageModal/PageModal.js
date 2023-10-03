@@ -8,6 +8,7 @@ import PageModalCloseButton from "./PageModalCloseButton/PageModalCloseButton.vu
 import PageModalSaveButton from "./PageModalSaveButton/PageModalSaveButton.vue";
 import PageModalSelectorClose from "./PageModalSelectorClose/PageModalSelectorClose.vue";
 import PageModalSelectorCloseIds from "./PageModalSelectorCloseIds/PageModalSelectorCloseIds.vue";
+import PageModalSize from "./PageModalSize/PageModalSize.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -29,6 +30,7 @@ export default {
     PageModalSaveButton,
     PageModalSelectorClose,
     PageModalSelectorCloseIds,
+    PageModalSize,
   },
   setup() {
     const {
