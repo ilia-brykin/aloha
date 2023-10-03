@@ -88,7 +88,7 @@ export default {
     id: {
       type: String,
       required: false,
-      default: () => uniqueId("a_modal_")
+      default: () => uniqueId("a_modal_"),
     },
     isCloseButtonHide: {
       type: Boolean,
