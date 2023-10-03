@@ -147,6 +147,11 @@ export default {
       required: false,
       default: false,
     },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     stepActive: {
       type: Number,
       required: false,
@@ -284,6 +289,7 @@ export default {
       }, [
         this.steps.map((step, stepIndex) => {
           return h(AWizardStep, {
+            key: this.keyId ? step[this.keyId] : stepIndex,
             step,
             stepIndex,
             stepActiveComputed: this.stepActiveComputed,
