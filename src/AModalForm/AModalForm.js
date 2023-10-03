@@ -183,10 +183,10 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.textRequired,
     },
-    withoutEscape: {
+    useEscape: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.withoutEscape,
+      default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
   },
   emits: [
@@ -231,7 +231,7 @@ export default {
       selectorClose: this.selectorClose,
       selectorCloseIds: this.selectorCloseIds,
       size: this.size,
-      withoutEscape: this.withoutEscape,
+      useEscape: this.useEscape,
     }, {
       ...this.$slots || {},
       modalBody: () => [

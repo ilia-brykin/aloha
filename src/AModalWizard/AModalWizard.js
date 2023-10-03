@@ -128,10 +128,10 @@ export default {
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
       default: () => modalPluginOptions.value.propsDefault.size,
     },
-    withoutEscape: {
+    useEscape: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.withoutEscape,
+      default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
     // WIZARD
     backButtonClass: {
@@ -321,7 +321,7 @@ export default {
       selectorClose: this.selectorClose,
       selectorCloseIds: this.selectorCloseIds,
       size: this.size,
-      withoutEscape: this.withoutEscape,
+      useEscape: this.useEscape,
     }, {
       ...this.$slots || {},
       modalBody: () => [

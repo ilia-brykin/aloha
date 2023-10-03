@@ -20,7 +20,7 @@ export const modalPluginOptions = ref({
     selectorCloseIds: undefined,
     size: undefined,
     textRequired: undefined,
-    withoutEscape: false,
+    useEscape: true,
   },
 });
 export default {

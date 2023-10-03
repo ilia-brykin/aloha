@@ -1,24 +1,24 @@
 import {
-  h,
-  Teleport,
+  h, onMounted, onUnmounted,
+  Teleport, toRef, watch,
 } from "vue";
 
 import AButton from "../AButton/AButton";
 import ATranslation from "../ATranslation/ATranslation";
 
+import DisabledAPI from "./compositionAPI/DisabledAPI";
+import EscapeAPI from "./compositionAPI/EscapeAPI";
+import FocusAPI from "./compositionAPI/FocusAPI";
+import FocusByDestroyAPI from "./compositionAPI/FocusByDestroyAPI";
+import HideModalAPI from "./compositionAPI/HideModalAPI";
+import KeydownAPI from "./compositionAPI/KeydownAPI";
+import ShowModalAPI from "./compositionAPI/ShowModalAPI";
+import SizeAPI from "./compositionAPI/SizeAPI";
+
 import {
   modalPluginOptions,
 } from "../plugins/AModalPlugin";
-import AKeysCode from "../const/AKeysCode";
 import {
-  focusableSelector
-} from "../const/AFocusableElements";
-import {
-  cloneDeep,
-  forEach,
-  isArray,
-  isFunction,
-  isString,
   uniqueId,
 } from "lodash-es";
 
@@ -144,226 +144,95 @@ export default {
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
       default: () => modalPluginOptions.value.propsDefault.size,
     },
-    withoutEscape: {
+    useEscape: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.withoutEscape,
+      default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
   },
-  data() {
+  setup(props) {
+    const isModalHidden = toRef(props, "isModalHidden");
+
+    const {
+      sizeClass,
+    } = SizeAPI(props);
+
+    const {
+      disabledLocal,
+    } = DisabledAPI(props);
+
+    const {
+      modalRef,
+      modalWrapperRef,
+      setFocusToModal,
+      trapFocus,
+    } = FocusAPI(props);
+
+    const {
+      setFocusByDestroy,
+    } = FocusByDestroyAPI(props);
+
+    const {
+      pressEscape,
+    } = EscapeAPI(props);
+
+    const {
+      setListenerForKeydown,
+      removeListenerForKeydown,
+    } = KeydownAPI({
+      pressEscape,
+      trapFocus,
+    });
+
+    const {
+      showModal,
+    } = ShowModalAPI(props, {
+      setFocusToModal,
+      setListenerForKeydown,
+    });
+
+    const {
+      hideModal,
+    } = HideModalAPI({
+      removeListenerForKeydown,
+      setFocusByDestroy,
+    });
+
+    watch(isModalHidden, () => {
+      if (isModalHidden.value) {
+        hideModal();
+      } else {
+        showModal();
+      }
+    });
+
+    onMounted(() => {
+      showModal();
+    });
+
+    onUnmounted(() => {
+      hideModal();
+    });
+
     return {
-      clientHeight: 0,
-      statusShow: false,
-      modalInModalCount: 0,
-      statusShowInfo: true,
+      disabledLocal,
+      modalRef,
+      modalWrapperRef,
+      setFocusToModal,
+      sizeClass,
     };
   },
   computed: {
-    modalClassSize() {
-      if (this.size) {
-        return `a_modal_${ this.size }`;
-      }
-      return "";
-    },
-
-    disabledLocal() {
-      return this.disabled || this.loading;
-    },
-
-    selectorsCloseAll() {
-      const ALL_SELECTORS = [];
-      if (this.selectorCloseIds) {
-        if (isString(this.selectorCloseIds)) {
-          ALL_SELECTORS.push(`#${ this.selectorCloseIds }`);
-        } else if (isArray(this.selectorCloseIds)) {
-          forEach(this.selectorCloseIds, selectorCloseId => {
-            ALL_SELECTORS.push(`#${ selectorCloseId }`);
-          });
-        }
-      }
-      if (this.selectorClose) {
-        if (isString(this.selectorClose)) {
-          ALL_SELECTORS.push(this.selectorClose);
-        } else if (isArray(this.selectorClose)) {
-          ALL_SELECTORS.push(...this.selectorClose);
-        }
-      }
-
-      return ALL_SELECTORS;
-    }
-  },
-  watch: {
-    isModalHidden() {
-      if (this.isModalHidden) {
-        this.hideModal();
-      } else {
-        this.showModal();
-      }
-    },
-  },
-  mounted() {
-    if (!this.isModalHidden) {
-      this.showModal();
-    }
-  },
-  unmounted() {
-    this.hideModal();
-  },
-  methods: {
-    showModal() {
-      document.body.classList.add("a_modal_open");
-      this.setFocusToModal();
-      this.setListenerForPressButtons();
-      setTimeout(() => {
-        this.statusShow = true;
-      });
-    },
-
-    hideModal() {
-      document.body.classList.remove("a_modal_open");
-      this.onFocusByDestroy();
-      this.removeMouseEventListeners();
-      this.removeListenerForPressButtons();
-    },
-
-    setListenerForPressButtons() {
-      document.addEventListener("keydown", this.pressButton);
-    },
-
-    pressButton($event) {
-      const EVENT = $event || window.$event;
-      if (EVENT.key === "Escape" || EVENT.keyCode === AKeysCode.escape) {
-        this.pressEscape();
-      } else if (EVENT.key === "Tab" || EVENT.keyCode === AKeysCode.tab) {
-        this.trapFocus(EVENT);
-      }
-    },
-
-    pressEscape() {
-      if (this.withoutEscape) {
-        return;
-      }
-      this.close();
-    },
-
-    trapFocus(EVENT) {
-      const FOCUSABLE_ELEMENTS = this.$refs.modal_parent.querySelectorAll(focusableSelector);
-      if (FOCUSABLE_ELEMENTS.length === 0) {
-        EVENT.preventDefault();
-        return;
-      }
-      const FIRST_FOCUSABLE_ELEMENT = FOCUSABLE_ELEMENTS[0];
-      const LAST_FOCUSABLE_ELEMENT = FOCUSABLE_ELEMENTS[FOCUSABLE_ELEMENTS.length - 1];
-      if (EVENT.shiftKey) { // Shift + Tab
-        if (document.activeElement === FIRST_FOCUSABLE_ELEMENT) {
-          this.setFocusToModal(EVENT);
-          EVENT.preventDefault();
-        } else if (document.activeElement === this.$refs.modal) { // Focus in .modal
-          LAST_FOCUSABLE_ELEMENT.focus();
-          EVENT.preventDefault();
-        }
-      } else { // Tab
-        if (document.activeElement === LAST_FOCUSABLE_ELEMENT) {
-          this.setFocusToModal(EVENT);
-          EVENT.preventDefault();
-        }
-      }
-    },
-
-    setFocusToModal() {
-      if (this.$refs.modal) {
-        this.$refs.modal.focus();
-      }
-    },
-
-    removeListenerForPressButtons() {
-      document.removeEventListener("keydown", this.pressButton);
-    },
-
-    mousedown() {
-      this.addMouseEventListeners();
-      this.clientHeight = document.documentElement.clientHeight;
-    },
-
-    mousemove($event) {
-      const CLIENT_Y = $event.clientY;
-      const MODAL_BODY_HEIGHT = this.getModalBodyHeight(CLIENT_Y);
-      this.$refs.modal_body.style.maxHeight = `${ MODAL_BODY_HEIGHT }px`;
-      this.$refs.modal_body.style.height = `${ MODAL_BODY_HEIGHT }px`;
-    },
-
-    mouseup() {
-      this.removeMouseEventListeners();
-    },
-
-    mouseoutDocument() {
-      this.removeMouseEventListeners();
-    },
-
-    addMouseEventListeners() {
-      document.addEventListener("mousemove", this.mousemove);
-      document.addEventListener("mouseup", this.mouseup);
-      document.addEventListener("mouseleave", this.mouseoutDocument);
-    },
-
-    removeMouseEventListeners() {
-      document.removeEventListener("mouseup", this.mouseup);
-      document.removeEventListener("mousemove", this.mousemove);
-      document.removeEventListener("mouseout", this.mouseoutDocument);
-    },
-
-    getModalBodyHeight(clientY) {
-      const CLIENT_Y = clientY + 30 > this.clientHeight ? this.clientHeight - 15 : clientY;
-      const MODAL_HEADER_HEIGHT = this.$refs.modal_header.clientHeight;
-      const MODAL_FOOTER_HEIGHT = this.$refs.modal_footer.clientHeight;
-      const MODAL_BODY_HEIGHT = CLIENT_Y - MODAL_HEADER_HEIGHT - MODAL_FOOTER_HEIGHT - 15;
-      return MODAL_BODY_HEIGHT > 0 ? MODAL_BODY_HEIGHT : 0;
-    },
-
-    onFocusByDestroy() {
-      if (!this.selectorsCloseAll.length) {
-        return;
-      }
-      const SELECTOR_CLOSE_ALL = cloneDeep(this.selectorsCloseAll);
-
-      setTimeout(() => {
-        forEach(SELECTOR_CLOSE_ALL, selector => {
-          const STATUS_SUCCESS = this.onFocusByDestroyForSelector({ selector });
-          if (STATUS_SUCCESS) {
-            return false;
-          }
-        });
-      }, 300);
-    },
-
-    onFocusByDestroyForSelector({ selector }) {
-      const ELEMENT = document.querySelector(selector);
-      if (ELEMENT) {
-        ELEMENT.focus();
-        return true;
-      }
-      return false;
-    },
-
-    saveLocal() {
-      if (isFunction(this.save)) {
-        this.save();
-      }
-    },
-
-    hideInfo() {
-      this.statusShowInfo = false;
-    },
   },
   render() {
     return h(Teleport, {
       to: "body",
     }, [
       h("div", {
-        ref: "modal_parent",
+        ref: "modalWrapperRef",
       }, [
         h("div", {
-          ref: "modal",
+          ref: "modalRef",
           id: this.id,
           class: ["a_modal", this.modalClass, {
             a_modal_confirm: this.isConfirm,
@@ -374,7 +243,7 @@ export default {
           ariaModal: true,
         }, [
           h("div", {
-            class: ["a_modal_dialog a_modal_dialog_scrollable", this.modalClassSize],
+            class: ["a_modal_dialog a_modal_dialog_scrollable", this.sizeClass],
           }, [
             h("div", {
               class: "a_modal_content",
