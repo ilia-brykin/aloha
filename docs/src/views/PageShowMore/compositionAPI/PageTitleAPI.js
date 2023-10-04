@@ -15,7 +15,7 @@ export default function PageTitleAPI() {
   });
 
   const pageTitle = computed(() => {
-    return `ShowMore${ componentNameTranslated.value ? ` (${ componentNameTranslated.value })` : "" }`;
+    return `AShowMore${ componentNameTranslated.value ? ` (${ componentNameTranslated.value })` : "" }`;
   });
 
   return {

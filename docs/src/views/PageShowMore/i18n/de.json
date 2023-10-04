@@ -32,7 +32,7 @@
   "_A_SHOW_MORE_GROUP_DISABLED_HEADER_": "Deaktiviert",
   "_A_SHOW_MORE_GROUP_EVENTS_DESCRIPTION_": "Emit Toggle ermöglicht es, beim Ändern des Status der Komponente die Methode mit einem Argument „isOpen“ aufzurufen, das ein Indikator für den offenen Status der Komponente ist.",
   "_A_SHOW_MORE_GROUP_EVENTS_HEADER_": "Events",
-  "_A_SHOW_MORE_GROUP_EXPOSES_DESCRIPTION_": "",
+  "_A_SHOW_MORE_GROUP_EXPOSES_DESCRIPTION_": "Dieses Beispiel zeigt, wie mit Exposes (Öffentliche Eigenschaften) gearbeitet wird.",
   "_A_SHOW_MORE_GROUP_EXPOSES_HEADER_": "Exposes: Öffentliche Eigenschaften",
   "_A_SHOW_MORE_GROUP_HEIGHT_DESCRIPTION_": "Wenn diese Höhe überschritten wird, wird eine Schaltfläche angezeigt. Die Maßeinheit ist Pixel.",
   "_A_SHOW_MORE_GROUP_HEIGHT_HEADER_": "Die Höhe des HTML-Blocks",
