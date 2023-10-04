@@ -3,8 +3,7 @@ export default function HtmlAPI() {
   :html="html"
   btn-text-more="Show more aloha"
   btn-text-less="Show less aloha"
->
-</a-show-more>`;
+></a-show-more>`;
 
   return {
     codeHtml,

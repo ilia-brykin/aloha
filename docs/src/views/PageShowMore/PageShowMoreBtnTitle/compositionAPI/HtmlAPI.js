@@ -3,8 +3,7 @@ export default function HtmlAPI() {
   :html="html"
   btn-title-less="_A_SHOW_MORE_GROUP_TITLE_LESS_"
   btn-title-more="_A_SHOW_MORE_GROUP_TITLE_MORE_"
->
-</a-show-more>`;
+></a-show-more>`;
 
   return {
     codeHtml,

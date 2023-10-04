@@ -5,8 +5,7 @@ export default function HtmlAPI() {
   btn-icon-right-less="ChevronUp"
   btn-icon-left-more="ChevronDown"
   btn-icon-right-more="ChevronDown"
->
-</a-show-more>`;
+></a-show-more>`;
 
   return {
     codeHtml,

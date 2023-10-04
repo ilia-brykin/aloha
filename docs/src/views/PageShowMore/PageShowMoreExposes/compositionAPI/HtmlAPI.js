@@ -1,6 +1,7 @@
 export default function HtmlAPI() {
   const codeHtml = `<div
   class="a_btn_group"
+  role="group"
 >
   <a-button
     class="a_btn a_btn_outline_primary"

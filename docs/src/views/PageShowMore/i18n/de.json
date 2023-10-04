@@ -43,7 +43,7 @@
   "_A_SHOW_MORE_GROUP_OPEN_DEFAULT_DESCRIPTION_": "Die Komponente kann zunächst im geöffneten Zustand angezeigt werden.",
   "_A_SHOW_MORE_GROUP_OPEN_DEFAULT_HEADER_": "Der gesamte Text wird standardmäßig angezeigt.",
   "_A_SHOW_MORE_GROUP_SAFE_HTML_DESCRIPTION_": "Der Inhalt der Komponente kann im sicheren HTML-Format definiert werden. Dieser Inhalt wird nicht bereinigt.",
-  "_A_SHOW_MORE_GROUP_SAFE_HTML_HEADER_": "sicheres HTML",
+  "_A_SHOW_MORE_GROUP_SAFE_HTML_HEADER_": "Sicheres HTML",
   "_A_SHOW_MORE_GROUP_SLOTS_DESCRIPTION_": "<p>Sie können Slots mit Parametern verwenden: <strong>isButtonVisible</strong>, <strong>isOpen</strong>.</p>",
   "_A_SHOW_MORE_GROUP_SLOTS_HEADER_": "Slots",
   "_A_SHOW_MORE_GROUP_TEXT_DESCRIPTION_": "Der Inhalt der Komponente kann als Klartext definiert werden.",
