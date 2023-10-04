@@ -32,7 +32,7 @@
   "_A_SHOW_MORE_GROUP_DISABLED_HEADER_": "Disabled",
   "_A_SHOW_MORE_GROUP_EVENTS_DESCRIPTION_": "Emit toggle allows, when changing the status of the component, to call the method with one argument \"isOpen\", which is an indicator of the open state of the component.",
   "_A_SHOW_MORE_GROUP_EVENTS_HEADER_": "Events",
-  "_A_SHOW_MORE_GROUP_EXPOSES_DESCRIPTION_": "",
+  "_A_SHOW_MORE_GROUP_EXPOSES_DESCRIPTION_": "This example shows how to work with Exposes (Public Properties).",
   "_A_SHOW_MORE_GROUP_EXPOSES_HEADER_": "Exposes: Public Properties",
   "_A_SHOW_MORE_GROUP_HEIGHT_DESCRIPTION_": "If this height is exceeded, a button will be shown. The unit of measure is pixel.",
   "_A_SHOW_MORE_GROUP_HEIGHT_HEADER_": "The height of the HTML block",
