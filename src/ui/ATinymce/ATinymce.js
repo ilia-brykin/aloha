@@ -24,7 +24,7 @@ export default {
     branding: {
       type: Boolean,
       required: false,
-      default: false,
+      default: true,
     },
     contentLangs: {
       type: Array,
