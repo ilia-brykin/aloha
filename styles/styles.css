@@ -7098,7 +7098,7 @@ input:not(:-webkit-autofill) {
     margin-right: auto;
     margin-bottom: .5rem;
     transition: all 0.5s ease-in-out;
-    width: 40px;
+    min-width: 40px;
     height: 40px;
     text-align: center;
     background: var(--a_wizard_border_color);
