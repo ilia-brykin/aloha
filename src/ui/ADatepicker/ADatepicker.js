@@ -3,6 +3,7 @@ import {
   Teleport,
   toRef,
   watch,
+  withDirectives,
 } from "vue";
 
 import ADatepickerCalendarPanel from "./ADatepickerCalendarPanel/ADatepickerCalendarPanel";
@@ -10,6 +11,8 @@ import ADatepickerIcon from "./ADatepickerIcon/ADatepickerIcon";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
+
+import AOnHooks from "../../directives/AOnHooks";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -23,10 +26,12 @@ import PopoverAPI from "./compositionAPI/PopoverAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 
 import placements from "../../const/placements";
+
 import {
   isPlainObject,
   isValidDate,
 } from "./utils";
+
 import {
   transformDate,
 } from "./utils/transform";
@@ -417,7 +422,6 @@ export default {
         this.isValidValue(value[1]) && (value2date(value[1]).getTime() >= value2date(value[0]).getTime());
     },
 
-
     selectRange(range) {
       if (typeof range.onClick === "function") {
         const close = range.onClick(this);
@@ -436,7 +440,7 @@ export default {
     },
 
     handleFocus(event) {
-      this.openPopoverWithFloatingUi();
+      this.initCalendar();
       this.$emit("focus", event);
     },
   },
@@ -467,8 +471,8 @@ export default {
               disabled: this.disabled,
             }],
             style: { width: this.widthLocal },
-            onMousedown: this.openPopoverWithFloatingUi,
-            onTouchstart: this.openPopoverWithFloatingUi,
+            onMousedown: this.initCalendar,
+            onTouchstart: this.initCalendar,
           }, [
             h("div", {
               class: "pux_datepicker__input_wrapper",
@@ -515,10 +519,10 @@ export default {
                 h(ADatepickerIcon),
               ]),
             ]),
-            this.popupVisible && h(Teleport, {
+            h(Teleport, {
               to: "body",
             }, [
-              h("div", {
+              this.popupVisible && withDirectives(h("div", {
                 ref: "calendarRef",
                 id: this.idForCalendar,
                 class: "pux_datepicker__popup",
@@ -599,6 +603,10 @@ export default {
                     onClick: this.confirmDate,
                   }, this.confirmText),
                 ]),
+              ]), [
+                [AOnHooks, {
+                  mounted: this.openPopoverWithFloatingUi,
+                }],
               ]),
             ]),
             h("div", {

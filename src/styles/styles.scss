@@ -1,4 +1,5 @@
 .floating {
+  max-width: fit-content;
   width: max-content;
   position: absolute;
   top: 0;
@@ -9,6 +10,7 @@
   position: absolute;
 
   /* Avoid layout interference */
+  max-width: fit-content;
   width: max-content;
   top: 0;
   left: 0;
