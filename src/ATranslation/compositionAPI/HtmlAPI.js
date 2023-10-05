@@ -15,6 +15,7 @@ import {
 import {
   forEach,
   isArray,
+  isNil,
   isPlainObject,
   isUndefined,
 } from "lodash-es";
@@ -160,8 +161,8 @@ export default function HtmlAPI(props, {
         }
       });
 
-      HTML_LOCAL_OPTIONS.html = htmlCombined || undefined;
-      HTML_LOCAL_OPTIONS.dataTranslateHtml = dataTranslateHtml || undefined;
+      HTML_LOCAL_OPTIONS.html = isNil(htmlCombined) ? undefined : htmlCombined;
+      HTML_LOCAL_OPTIONS.dataTranslateHtml = isNil(dataTranslateHtml) ? undefined : dataTranslateHtml;
     }
 
     return HTML_LOCAL_OPTIONS;
