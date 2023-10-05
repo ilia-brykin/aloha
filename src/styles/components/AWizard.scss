@@ -329,7 +329,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
       margin-right: auto;
       margin-bottom: .5rem;
       transition: all 0.5s ease-in-out;
-      width: 40px;
+      min-width: 40px;
       height: 40px;
       text-align: center;
       background: var(--a_wizard_border_color);
