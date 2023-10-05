@@ -1,5 +1,7 @@
 import {
   h,
+  toRef,
+  watch,
 } from "vue";
 
 import AFilterCenter from "../AFilterCenter/AFilterCenter";
@@ -64,6 +66,8 @@ export default {
     "update:unappliedModel",
   ],
   setup(props, context) {
+    const filtersSaved = toRef(props, "filtersSaved");
+
     const {
       filtersDataKeyById,
       filtersGroup,
@@ -105,6 +109,12 @@ export default {
       initFiltersSaved,
       updateFiltersSavedLocal,
     } = SaveAPI(props);
+
+    watch(filtersSaved, () => {
+      initFiltersSaved();
+    }, {
+      deep: true,
+    });
 
     setFiltersVisibleIds();
     initFiltersSaved();
