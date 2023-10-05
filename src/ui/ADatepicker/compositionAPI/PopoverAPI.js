@@ -33,37 +33,34 @@ export default function PopoverAPI(props, {
 
   const openPopoverWithFloatingUi = () => {
     if (!cleanupPopper.value && !disabled.value) {
-      popupVisible.value = true;
-      setTimeout(() => {
-        cleanupPopper.value = autoUpdate(
-          inputRef.value,
-          calendarRef.value,
-          () => {
-            if (calendarRef.value && inputRef.value) {
-              computePosition(
-                inputRef.value,
-                calendarRef.value,
-                {
-                  placement: placement.value,
-                  middleware: [
-                    flip(),
-                    shift({ limiter: limitShift() }),
-                  ],
-                },
-              ).then(({ x, y }) => {
-                Object.assign(calendarRef.value.style, {
-                  left: `${ x }px`,
-                  top: `${ y }px`,
-                });
+      cleanupPopper.value = autoUpdate(
+        inputRef.value,
+        calendarRef.value,
+        () => {
+          if (calendarRef.value && inputRef.value) {
+            computePosition(
+              inputRef.value,
+              calendarRef.value,
+              {
+                placement: placement.value,
+                middleware: [
+                  flip(),
+                  shift({ limiter: limitShift() }),
+                ],
+              },
+            ).then(({ x, y }) => {
+              Object.assign(calendarRef.value.style, {
+                left: `${ x }px`,
+                top: `${ y }px`,
               });
-            }
+            });
           }
-        );
+        }
+      );
 
-        setTimeout(() => {
-          setEventCloseClick();
-        }, 300);
-      });
+      setTimeout(() => {
+        setEventCloseClick();
+      }, 300);
     }
   };
 
@@ -91,7 +88,7 @@ export default function PopoverAPI(props, {
 
   const initCalendar = () => {
     // this.handleValueChange(this.modelValue);  TODO: prüfen
-    openPopoverWithFloatingUi();
+    popupVisible.value = true;
   };
 
   function onClickEvent($event) {
