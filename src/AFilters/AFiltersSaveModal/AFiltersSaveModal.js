@@ -3,7 +3,7 @@ import {
 } from "vue";
 
 import AAlert from "../../AAlert/AAlert";
-import AModal from "../../AModal/AModal";
+import AModalForm from "../../AModalForm/AModalForm";
 
 import DataFormAPI from "./compositionAPI/DataFormAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
@@ -75,7 +75,7 @@ export default {
     };
   },
   render() {
-    return h(AModal, {
+    return h(AModalForm, {
       close: this.close,
       dataForm: this.dataForm,
       disabledSave: this.disabledBtnSave,
