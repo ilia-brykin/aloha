@@ -293,6 +293,7 @@ export default {
     return h("div", {
       id: this.id,
       class: this.classWizard,
+      role: "application",
     }, [
       h("ul", {
         class: "a_wizard__steps",
@@ -306,6 +307,7 @@ export default {
         this.steps.map((step, stepIndex) => {
           return h(AWizardStep, {
             key: this.keyId ? step[this.keyId] : stepIndex,
+            id: this.id,
             step,
             stepIndex,
             stepActiveComputed: this.stepActiveComputed,
@@ -325,6 +327,7 @@ export default {
       }, [
         this.steps.map((step, stepIndex) => {
           return h(AWizardTab, {
+            key: this.keyId ? step[this.keyId] : stepIndex,
             id: this.id,
             extra: this.extra,
             step,

@@ -6,6 +6,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import ContentIdAPI from "../AWizardTab/compositionAPI/ContentIdAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import LinkClassAPI from "./compositionAPI/LinkClassAPI";
@@ -14,24 +15,15 @@ import NumberAPI from "./compositionAPI/NumberAPI";
 export default {
   name: "AWizardStep",
   props: {
-    step: {
+    extra: {
       type: Object,
       required: true,
     },
-    stepIndex: {
-      type: Number,
+    id: {
+      type: String,
       required: true,
     },
-    stepActiveComputed: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    isStepNumberVisible: {
-      type: Boolean,
-      required: true,
-    },
-    isForwardStepButtonDisabled: {
+    isBackButtonDisabled: {
       type: Boolean,
       required: true,
     },
@@ -43,12 +35,25 @@ export default {
       type: Boolean,
       required: true,
     },
-    isBackButtonDisabled: {
+    isForwardStepButtonDisabled: {
       type: Boolean,
       required: true,
     },
-    extra: {
+    isStepNumberVisible: {
+      type: Boolean,
+      required: true,
+    },
+    step: {
       type: Object,
+      required: true,
+    },
+    stepActiveComputed: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    stepIndex: {
+      type: Number,
       required: true,
     },
   },
@@ -91,8 +96,13 @@ export default {
       isStepActive,
     });
 
+    const {
+      contentId,
+    } = ContentIdAPI(props);
+
     return {
       ariaCurrentAttributes,
+      contentId,
       isStepActive,
       isStepDisabled,
       linkClass,
@@ -108,6 +118,7 @@ export default {
       "li",
       {
         class: "a_wizard__step",
+        role: "presentation",
       },
       [
         h("a", {
@@ -115,6 +126,7 @@ export default {
           role: "button",
           tabindex: this.tabindex,
           ariaDisabled: this.isStepDisabled,
+          "aria-controls": this.contentId,
           onClick: this.onClick,
           onKeydown: this.onKeydown,
           ...this.ariaCurrentAttributes,
