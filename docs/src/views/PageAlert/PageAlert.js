@@ -14,12 +14,14 @@ import PageAlertSafeHtml from "./PageAlertSafeHtml/PageAlertSafeHtml.vue";
 import PageAlertSlot from "./PageAlertSlot/PageAlertSlot.vue";
 import PageAlertText from "./PageAlertText/PageAlertText.vue";
 import PageAlertTypes from "./PageAlertTypes/PageAlertTypes.vue";
+import ADatepickerRange from "../../../../src/ADatepickerRange/ADatepickerRange";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
+import { computed, ref } from "vue";
 
 export default {
   name: "PageAlert",
@@ -40,6 +42,7 @@ export default {
     PageAlertSlot,
     PageAlertText,
     PageAlertTypes,
+    ADatepickerRange,
   },
   setup() {
     const {
@@ -62,12 +65,38 @@ export default {
       dataExposes,
     } = ExposesAPI();
 
+    const dateRangeModel = ref({
+      date_after: null,
+      date_before: null,
+    });
+
+    const datepickerOptions = ref({
+      value: {
+        htmlId: "myDatepicker",
+        id: "date",
+      }
+    });
+
+    const dateRangeText = computed(() => {
+      return `Selected Date Range: 
+              ${ dateRangeModel.value.date_after } - 
+              ${ dateRangeModel.value.date_before }`;
+    });
+
+    const updateDateRange = newRange => {
+      dateRangeModel.value = newRange.model;
+    };
+
     return {
       dataEvents,
       dataExposes,
       dataProps,
       dataSlots,
       pageTitle,
+      dateRangeModel,
+      datepickerOptions,
+      dateRangeText,
+      updateDateRange
     };
   },
 };
