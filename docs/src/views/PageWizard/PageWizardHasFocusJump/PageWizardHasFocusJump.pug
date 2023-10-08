@@ -1,0 +1,52 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_HAS_FOCUS_JUMP_HEADER_"
+  description="_A_WIZARD_GROUP_HAS_FOCUS_JUMP_DESCRIPTION_"
+  :props="['has-focus-jump']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch.a_mb_5
+      a-switch(
+        v-model="hasFocusJump"
+        label="has-focus-jump"
+      )
+  a-wizard(
+    :steps="wizardSteps"
+    :has-focus-jump="hasFocusJump"
+  )
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h2"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}

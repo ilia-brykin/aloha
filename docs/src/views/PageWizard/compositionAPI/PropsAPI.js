@@ -92,6 +92,20 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "has-focus-jump",
+      description: "_A_WIZARD_PROPS_HAS_FOCUS_JUMP_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "id",
+      description: "_A_WIZARD_PROPS_ID_DESCRIPTION_",
+      type: "String",
+      default: "() => uniqueId(\"a_wizard_\")",
+      required: false,
+    },
+    {
       name: "is-back-button-disabled",
       description: "_A_WIZARD_PROPS_IS_BACK_BUTTON_DISABLED_DESCRIPTION_",
       type: "Boolean",

@@ -14,6 +14,10 @@ import LocalAPI from "./compositionAPI/LocalAPI";
 import StepsAPI from "./compositionAPI/StepsAPI";
 import TeleportAPI from "./compositionAPI/TeleportAPI";
 
+import {
+  uniqueId,
+} from "lodash-es";
+
 export default {
   name: "AWizard",
   props: {
@@ -81,6 +85,16 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    hasFocusJump: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    id: {
+      type: String,
+      required: false,
+      default: () => uniqueId("a_wizard_"),
     },
     isBackButtonDisabled: {
       type: Boolean,
@@ -194,12 +208,19 @@ export default {
     } = ClassAPI(props);
 
     const {
+      setFocusToActiveStep,
+      wizardTabsRef,
+    } = FocusAPI(props);
+
+    const {
       initStepActive,
       stepActiveComputed,
       stepActiveLocal,
       stepsVisitedComputed,
       stepsVisitedLocal,
-    } = LocalAPI(props);
+    } = LocalAPI(props, {
+      setFocusToActiveStep,
+    });
 
     const {
       goOneStepBack,
@@ -209,12 +230,6 @@ export default {
       stepActiveComputed,
       stepActiveLocal,
       stepsVisitedLocal,
-    });
-
-    const {
-      tabContentRef,
-    } = FocusAPI({
-      stepActiveComputed,
     });
 
     const {
@@ -242,9 +257,9 @@ export default {
       stepsCount,
       stepsProgressbarTextTranslated,
       stepsVisitedComputed,
-      tabContentRef,
       toolbarBottomTeleportSelector,
       useTeleportToolbarBottom,
+      wizardTabsRef,
     };
   },
   render() {
@@ -276,6 +291,7 @@ export default {
     }, this.$slots);
 
     return h("div", {
+      id: this.id,
       class: this.classWizard,
     }, [
       h("ul", {
@@ -305,12 +321,12 @@ export default {
       ]),
       this.isToolbarTop && TOOLBAR,
       h("div", {
-        ref: "tabContentRef",
         class: "a_wizard__tab_content",
-        tabindex: -1,
       }, [
         this.steps.map((step, stepIndex) => {
           return h(AWizardTab, {
+            id: this.id,
+            extra: this.extra,
             step,
             stepIndex,
             stepActiveComputed: this.stepActiveComputed,

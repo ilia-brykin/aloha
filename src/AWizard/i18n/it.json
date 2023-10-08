@@ -1,4 +1,5 @@
 {
+  "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_",
   "_A_WIZARD_NEXT_": "Prossimo",
   "_A_WIZARD_PREVIOUS_": "Precedente",
   "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "palcoscenico {{ stepActive }} Di {{ stepsCount }}: {{ stepActiveLabel }}"

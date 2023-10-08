@@ -2,17 +2,21 @@ import {
   computed,
   ref,
   toRef,
+  watch,
 } from "vue";
 
 import {
   isNil,
 } from "lodash-es";
 
-export default function LocalAPI(props) {
+export default function LocalAPI(props, {
+  setFocusToActiveStep = () => {},
+}) {
   const stepActive = toRef(props, "stepActive");
   const stepsVisited = toRef(props, "stepsVisited");
   const isControlOutside = toRef(props, "isControlOutside");
 
+  const isWatchActive = ref(false);
   const stepActiveLocal = ref(0);
   const stepsVisitedLocal = ref({
     0: true,
@@ -27,16 +31,24 @@ export default function LocalAPI(props) {
   });
 
   const initStepActive = () => {
-    if (isControlOutside.value) {
-      return;
+    if (!isControlOutside.value) {
+      if (!isNil(stepActive.value)) {
+        stepActiveLocal.value = stepActive.value;
+        stepsVisitedLocal.value = {
+          [stepActive.value]: true,
+        };
+      }
     }
-    if (!isNil(stepActive.value)) {
-      stepActiveLocal.value = stepActive.value;
-      stepsVisitedLocal.value = {
-        [stepActive.value]: true,
-      };
-    }
+    setTimeout(() => {
+      isWatchActive.value = true;
+    });
   };
+
+  watch(stepActiveComputed, newValue => {
+    if (isWatchActive.value) {
+      setFocusToActiveStep({ stepActive: newValue });
+    }
+  });
 
   return {
     initStepActive,
