@@ -39,9 +39,18 @@ export default {
       type: Boolean,
       required: true,
     },
+    isMobile: {
+      type: Boolean,
+      required: true,
+    },
     isStepNumberVisible: {
       type: Boolean,
       required: true,
+    },
+    showOnlyActiveStepMobile: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     step: {
       type: Object,
@@ -56,19 +65,25 @@ export default {
       type: Number,
       required: true,
     },
+    stepsCount: {
+      type: Number,
+      required: true,
+    },
   },
   emits: [
     "onStepClick",
   ],
   setup(props, context) {
     const {
-      stepNumber,
-      stepNumberText,
-    } = NumberAPI(props);
-
-    const {
       isStepActive,
     } = ActiveAPI(props);
+
+    const {
+      stepNumber,
+      stepNumberText,
+    } = NumberAPI(props, {
+      isStepActive,
+    });
 
     const {
       isStepDisabled,
@@ -117,7 +132,12 @@ export default {
     return h(
       "li",
       {
-        class: "a_wizard__step",
+        class: [
+          "a_wizard__step",
+          {
+            a_wizard__step_active: this.isStepActive,
+          },
+        ],
         role: "presentation",
       },
       [
@@ -138,9 +158,15 @@ export default {
             isStepDisabled: this.isStepDisabled,
             isStepActive: this.isStepActive,
           }) : [
-            this.isStepNumberVisible && h("span", {
+            this.isStepNumberVisible && h(ATranslation, {
+              tag: "span",
+              text: this.stepNumberText,
               class: "a_wizard__step__number",
-            }, this.stepNumberText),
+              extra: {
+                stepActive: this.stepNumber,
+                stepsCount: this.stepsCount,
+              },
+            }),
             h(ATranslation, {
               tag: "span",
               html: this.step.label,

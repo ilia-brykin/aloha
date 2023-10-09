@@ -11,6 +11,7 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import LocalAPI from "./compositionAPI/LocalAPI";
+import MobileAPI from "./compositionAPI/MobileAPI";
 import StepsAPI from "./compositionAPI/StepsAPI";
 import TeleportAPI from "./compositionAPI/TeleportAPI";
 
@@ -141,6 +142,11 @@ export default {
       required: false,
       default: true,
     },
+    isMobile: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isStepNumberVisible: {
       type: Boolean,
       required: false,
@@ -165,6 +171,11 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    showOnlyActiveStepMobile: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     stepActive: {
       type: Number,
@@ -245,12 +256,17 @@ export default {
       useTeleportToolbarBottom,
     } = TeleportAPI(props);
 
+    const {
+      isMobileLocal,
+    } = MobileAPI(props);
+
     initStepActive();
 
     return {
       classWizard,
       goOneStepBack,
       goOneStepForward,
+      isMobileLocal,
       onStepClick,
       stepActiveComputed,
       stepActiveNumber,
@@ -292,7 +308,13 @@ export default {
 
     return h("div", {
       id: this.id,
-      class: this.classWizard,
+      class: [
+        this.classWizard,
+        {
+          a_wizard_mobile: this.isMobileLocal,
+          a_wizard_show_only_active_step_mobile: this.showOnlyActiveStepMobile,
+        }
+      ],
       role: "application",
     }, [
       h("ul", {
@@ -308,15 +330,18 @@ export default {
           return h(AWizardStep, {
             key: this.keyId ? step[this.keyId] : stepIndex,
             id: this.id,
-            step,
-            stepIndex,
-            stepActiveComputed: this.stepActiveComputed,
-            isStepNumberVisible: this.isStepNumberVisible,
-            isForwardStepButtonDisabled: this.isForwardStepButtonDisabled,
+            extra: this.extra,
+            isBackButtonDisabled: this.isBackButtonDisabled,
             isBackStepButtonDisabled: this.isBackStepButtonDisabled,
             isForwardButtonDisabled: this.isForwardButtonDisabled,
-            isBackButtonDisabled: this.isBackButtonDisabled,
-            extra: this.extra,
+            isForwardStepButtonDisabled: this.isForwardStepButtonDisabled,
+            isMobile: this.isMobileLocal,
+            isStepNumberVisible: this.isStepNumberVisible,
+            showOnlyActiveStepMobile: this.showOnlyActiveStepMobile,
+            step,
+            stepActiveComputed: this.stepActiveComputed,
+            stepIndex,
+            stepsCount: this.stepsCount,
             onOnStepClick: this.onStepClick,
           }, this.$slots);
         }),

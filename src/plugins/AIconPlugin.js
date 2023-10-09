@@ -43,6 +43,7 @@ import Plus from "../AIcon/Icons/Plus";
 import Reset from "../AIcon/Icons/Reset";
 import Search from "../AIcon/Icons/Search";
 import ThList from "../AIcon/Icons/ThList";
+import ThreeDots from "../AIcon/Icons/bootstrap-1-9-1/ThreeDots";
 import Trash from "../AIcon/Icons/Trash";
 
 export const iconPluginOptions = ref({
@@ -87,6 +88,7 @@ export const iconPluginOptions = ref({
     Reset,
     Search,
     ThList,
+    ThreeDots,
     Trash,
     _NoImage,
   },

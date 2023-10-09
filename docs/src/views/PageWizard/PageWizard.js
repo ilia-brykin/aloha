@@ -14,6 +14,7 @@ import PageWizardIsStepNumberVisible from "./PageWizardIsStepNumberVisible/PageW
 import PageWizardIsStepsJustified from "./PageWizardIsStepsJustified/PageWizardIsStepsJustified.vue";
 import PageWizardIsToolbar from "./PageWizardIsToolbar/PageWizardIsToolbar.vue";
 import PageWizardKeyId from "./PageWizardKeyId/PageWizardKeyId.vue";
+import PageWizardShowOnlyActiveStepMobile from "./PageWizardShowOnlyActiveStepMobile/PageWizardShowOnlyActiveStepMobile.vue";
 import PageWizardSlot from "./PageWizardSlot/PageWizardSlot.vue";
 import PageWizardSlotLabel from "./PageWizardSlotLabel/PageWizardSlotLabel.vue";
 import PageWizardSlotToolbar from "./PageWizardSlotToolbar/PageWizardSlotToolbar.vue";
@@ -48,6 +49,7 @@ export default {
     PageWizardIsStepsJustified,
     PageWizardIsToolbar,
     PageWizardKeyId,
+    PageWizardShowOnlyActiveStepMobile,
     PageWizardSlot,
     PageWizardSlotLabel,
     PageWizardSlotToolbar,

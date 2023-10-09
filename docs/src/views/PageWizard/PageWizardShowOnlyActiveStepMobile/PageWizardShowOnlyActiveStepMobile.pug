@@ -1,0 +1,34 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_WIZARD_GROUP_SHOW_ONLY_ACTIVE_STEP_MOBILE_HEADER_"
+  description="_A_WIZARD_GROUP_SHOW_ONLY_ACTIVE_STEP_MOBILE_DESCRIPTION_"
+  :props="['show-only-active-step-mobile', 'is-mobile']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch.a_mb_5
+      a-switch(
+        v-model="showOnlyActiveStepMobile"
+        label="show-only-active-step-mobile"
+      )
+      a-select(
+        v-model="modelType"
+        class="a_mt_4"
+        label="_A_WIZARD_LABEL_TYPE_"
+        key-id="value"
+        key-label="label"
+        :data="types"
+        :deselectable="false"
+        :translate-data="true"
+      )
+  a-wizard(
+    :steps="wizardSteps"
+    :is-mobile="true"
+    :show-only-active-step-mobile="showOnlyActiveStepMobile"
+    :type="modelType"
+  )
+    template(
+      v-slot:step="{ step }"
+    )
+      h2 {{ step.label }}
+      p {{ text }}
