@@ -1,14 +1,14 @@
 $a-wizard-breakpoint-phone:                  768px !default;
 $a-wizard-border_color:                      var(--a_color_gray_200, #eeeeee) !default; 
-$a-wizard-border-width:                      1px !default;
+$a-wizard-border-width:                      var(--a_border_width, 1px) !default;
 $a-wizard-step-default-primary-color:      var(--a_color_gray_200, #f8f9fa) !default;
 $a-wizard-step-default-secondary-color:    var(--a_color_gray_500, #b0b0b1) !default;
 $a-wizard-step-active-primary-color:       var(--a_color_primary, #009EF7) !default;
 $a-wizard-step-active-secondary-color:     var(--a_color_white, #ffffff) !default;
 $a-wizard-step-done-primary-color:         var(--a_color_primary_50, #90d4fa) !default;
-$a-wizard-step-done-secondary-color:       #fefefe !default;
-$a-wizard-step-disabled-primary-color:     #f8f9fa !default;
-$a-wizard-step-disabled-secondary-color:   #dbe0e5 !default;
+$a-wizard-step-done-secondary-color:       var(--a_color_gray_100, #fefefe) !default;
+$a-wizard-step-disabled-primary-color:     var(--a_color_gray_100, #f8f9fa) !default;
+$a-wizard-step-disabled-secondary-color:   var(--a_color_gray_300, #dbe0e5) !default;
 $a-wizard-step-error-primary-color:        var(--a_color_danger, #dc3545) !default;
 $a-wizard-step-error-secondary-color:      var(--a_color_white, #ffffff) !default;
 $a-wizard-step-warning-primary-color:      var(--a_color_warning, #ffc107) !default;
