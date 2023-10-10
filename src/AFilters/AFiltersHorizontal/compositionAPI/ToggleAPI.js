@@ -8,8 +8,8 @@ import {
 import AButton from "../../../AButton/AButton";
 
 import {
-  tablePluginComponentsProps,
-} from "../../../plugins/ATablePlugin";
+  filtersPluginComponentsProps,
+} from "../../../plugins/AFiltersPlugin";
 
 export default function ToggleAPI(props) {
   const filtersGroup = toRef(props, "filtersGroup");
@@ -55,7 +55,7 @@ export default function ToggleAPI(props) {
       text: textToggle,
       iconRight: iconToggle,
       onClick: onToggle,
-      ...tablePluginComponentsProps.value.buttonToggle,
+      ...filtersPluginComponentsProps.value.buttonToggle,
     });
   });
 

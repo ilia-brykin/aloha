@@ -11,8 +11,8 @@ import AConfirmAPI from "../../../compositionAPI/AConfirmAPI";
 import ANotificationAPI from "../../../compositionAPI/ANotificationAPI";
 
 import {
-  tablePluginComponentsProps,
-} from "../../../plugins/ATablePlugin";
+  filtersPluginComponentsProps,
+} from "../../../plugins/AFiltersPlugin";
 
 export default function FiltersSavedDeleteAPI(props, {
   changeModelFiltersSaved = () => {},
@@ -107,7 +107,7 @@ export default function FiltersSavedDeleteAPI(props, {
       },
       ariaDisabled: disabledButtonDeleteFiltersSaved.value,
       onClick: openDeleteConfirm,
-      ...tablePluginComponentsProps.value.buttonDeleteFiltersSaved,
+      ...filtersPluginComponentsProps.value.buttonDeleteFiltersSaved,
     });
   });
 

@@ -7,8 +7,8 @@ import {
 import AButton from "../../../AButton/AButton";
 
 import {
-  tablePluginComponentsProps,
-} from "../../../plugins/ATablePlugin";
+  filtersPluginComponentsProps,
+} from "../../../plugins/AFiltersPlugin";
 
 export default function SearchAPI(props, { emit }, {
   onClose = () => {},
@@ -39,7 +39,7 @@ export default function SearchAPI(props, { emit }, {
       stop: true,
       disabled: disabled.value,
       onClick: onSearch,
-      ...tablePluginComponentsProps.value.buttonSearch,
+      ...filtersPluginComponentsProps.value.buttonSearch,
     });
   });
 

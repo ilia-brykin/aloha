@@ -9,8 +9,8 @@ import AButton from "../../../AButton/AButton";
 import ASelect from "../../../ui/ASelect/ASelect";
 
 import {
-  tablePluginComponentsProps,
-} from "../../../plugins/ATablePlugin";
+  filtersPluginComponentsProps,
+} from "../../../plugins/AFiltersPlugin";
 
 export default function FiltersSaveAPI(props, {
   onOpen = () => ({}),
@@ -66,7 +66,7 @@ export default function FiltersSaveAPI(props, {
       id: buttonSaveComponentTopId.value,
       onClick: openModalSaveTop,
       ...buttonSaveComponentPropsDefault.value,
-      ...tablePluginComponentsProps.value.buttonSaveTop,
+      ...filtersPluginComponentsProps.value.buttonSaveTop,
     });
   });
 
@@ -113,7 +113,7 @@ export default function FiltersSaveAPI(props, {
       search: true,
       deselect: true,
       change: changeModelFiltersSaved,
-      ...tablePluginComponentsProps.value.selectFiltersSaved,
+      ...filtersPluginComponentsProps.value.selectFiltersSaved,
     });
   });
 

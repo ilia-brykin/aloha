@@ -4,8 +4,8 @@ import {
 } from "vue";
 
 import {
-  tablePluginOptions,
-} from "../../../plugins/ATablePlugin";
+  filtersPluginOptions,
+} from "../../../plugins/AFiltersPlugin";
 
 import {
   map,
@@ -33,7 +33,7 @@ export default function FiltersLayoutAPI({
   const filtersTopHeader = computed(() => {
     return h("div", {
       class: "a_table__filters_top__header",
-    }, map(tablePluginOptions.value.config.headerTopGroups, group => {
+    }, map(filtersPluginOptions.value.config.headerTopGroups, group => {
       return h("div", {
         class: "a_table__filters_top__header__group",
         ...group.props,
@@ -45,7 +45,7 @@ export default function FiltersLayoutAPI({
   const filtersTopFooter = computed(() => {
     return h("div", {
       class: "a_table__filters_top__footer",
-    }, map(tablePluginOptions.value.config.headerBottomGroups, group => {
+    }, map(filtersPluginOptions.value.config.headerBottomGroups, group => {
       return h("div", {
         class: "a_table__filters_top__footer__group",
         ...group.props,
