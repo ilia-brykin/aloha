@@ -64,7 +64,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 0.375rem;
+  border-radius: var(--a_border_radius);
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   &:focus,
   &.a_file__label:focus-within {
