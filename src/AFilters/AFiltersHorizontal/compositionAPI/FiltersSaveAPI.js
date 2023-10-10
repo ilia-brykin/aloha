@@ -66,7 +66,7 @@ export default function FiltersSaveAPI(props, {
       id: buttonSaveComponentTopId.value,
       onClick: openModalSaveTop,
       ...buttonSaveComponentPropsDefault.value,
-      ...filtersPluginComponentsProps.value.buttonSaveTop,
+      ...filtersPluginComponentsProps.value.buttonSaveTop || {},
     });
   });
 
@@ -113,7 +113,7 @@ export default function FiltersSaveAPI(props, {
       search: true,
       deselect: true,
       change: changeModelFiltersSaved,
-      ...filtersPluginComponentsProps.value.selectFiltersSaved,
+      ...filtersPluginComponentsProps.value.selectFiltersSaved || {},
     });
   });
 

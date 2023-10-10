@@ -6,6 +6,10 @@ import {
 
 import AFiltersHorizontalFilterUi from "../AFiltersHorizontalFilterUi/AFiltersHorizontalFilterUi";
 
+import {
+  filtersPluginComponentsProps,
+} from "../../../plugins/AFiltersPlugin";
+
 export default function FilterMainAPI(props) {
   const filtersGroup = toRef(props, "filtersGroup");
   const id = toRef(props, "id");
@@ -23,6 +27,7 @@ export default function FilterMainAPI(props) {
       unappliedModel: unappliedModel.value,
       onUpdateModelFilters: onUpdateModelFilters.value,
       updateDataKeyByIdFromFilter: updateDataKeyByIdFromFilter.value,
+      ...filtersPluginComponentsProps.value.filterMain || {},
     });
   });
 

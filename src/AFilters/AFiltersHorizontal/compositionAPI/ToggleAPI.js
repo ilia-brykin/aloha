@@ -55,7 +55,7 @@ export default function ToggleAPI(props) {
       text: textToggle,
       iconRight: iconToggle,
       onClick: onToggle,
-      ...filtersPluginComponentsProps.value.buttonToggle,
+      ...filtersPluginComponentsProps.value.buttonToggle || {},
     });
   });
 

@@ -2,6 +2,7 @@ import App from "./App/App.vue";
 import { createApp } from "vue";
 import router from "./router/index";
 // import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
+import AFiltersPlugin from "../../src/plugins/AFiltersPlugin";
 import {
   AIconPlugin,
   AI18nPlugin,
@@ -9,7 +10,6 @@ import {
   AModalPlugin,
   ASafeHtml,
   ASelectPlugin,
-  ATablePlugin,
 } from "../../dist";
 import mainIcons from "./mainIcons";
 
@@ -37,9 +37,25 @@ APP.use(ASelectPlugin, {
     menuWidthType: "by_content",
   },
 });
-APP.use(ATablePlugin, {
+APP.use(AFiltersPlugin, {
   config: {
-
+    headerBottomGroups: [
+      {
+        props: {},
+        children: [
+          {
+            component: "addFilterSelect",
+            props: {
+              keyGroup: "group",
+            },
+          },
+          {
+            component: "buttonSearch",
+            props: {},
+          },
+        ],
+      },
+    ],
   },
 });
 // APP.use(AGroupButtonDropdownPlugin, {

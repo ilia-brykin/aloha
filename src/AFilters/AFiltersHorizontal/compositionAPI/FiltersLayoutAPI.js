@@ -12,22 +12,22 @@ import {
 } from "lodash-es";
 
 export default function FiltersLayoutAPI({
-  filterMainComponent,
-  buttonSearchComponent,
-  buttonToggleComponent,
-  selectFiltersSavedComponent,
+  addFilterSelectComponent,
   buttonDeleteFiltersSavedComponent,
   buttonSaveTopComponent,
-  addFilterSelectComponent,
+  buttonSearchComponent,
+  buttonToggleComponent,
+  filterMainComponent,
+  selectFiltersSavedComponent,
 }) {
   const availableElements = {
-    filterMainComponent,
-    buttonSearchComponent,
-    buttonToggleComponent,
-    selectFiltersSavedComponent,
+    addFilterSelectComponent,
     buttonDeleteFiltersSavedComponent,
     buttonSaveTopComponent,
-    addFilterSelectComponent,
+    buttonSearchComponent,
+    buttonToggleComponent,
+    filterMainComponent,
+    selectFiltersSavedComponent,
   };
 
   const filtersTopHeader = computed(() => {

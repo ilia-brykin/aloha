@@ -107,7 +107,7 @@ export default function FiltersSavedDeleteAPI(props, {
       },
       ariaDisabled: disabledButtonDeleteFiltersSaved.value,
       onClick: openDeleteConfirm,
-      ...filtersPluginComponentsProps.value.buttonDeleteFiltersSaved,
+      ...filtersPluginComponentsProps.value.buttonDeleteFiltersSaved || {},
     });
   });
 

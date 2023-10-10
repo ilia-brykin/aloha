@@ -137,13 +137,13 @@ export default {
       filtersTopFooter,
       filtersTopHeader,
     } = FiltersLayoutAPI({
-      filterMainComponent,
-      buttonSearchComponent,
-      buttonToggleComponent,
-      selectFiltersSavedComponent,
+      addFilterSelectComponent,
       buttonDeleteFiltersSavedComponent,
       buttonSaveTopComponent,
-      addFilterSelectComponent,
+      buttonSearchComponent,
+      buttonToggleComponent,
+      filterMainComponent,
+      selectFiltersSavedComponent,
     });
 
     initEventBus();

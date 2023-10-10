@@ -6,6 +6,10 @@ import {
 import ASelect from "../../../ui/ASelect/ASelect";
 
 import {
+  filtersPluginComponentsProps,
+} from "../../../plugins/AFiltersPlugin";
+
+import {
   filter,
   forEach,
 } from "lodash-es";
@@ -59,6 +63,7 @@ export default function FiltersHiddenAPI(props, { emit }) {
       disabled: !filtersHidden.value.length,
       search: true,
       change: addFiltersVisible,
+      ...filtersPluginComponentsProps.value.addFilterSelect || {},
     });
   });
 

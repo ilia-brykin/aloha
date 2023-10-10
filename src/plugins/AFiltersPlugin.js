@@ -74,7 +74,11 @@ export const filtersPluginComponentsProps = computed(() => {
       propsByKey[child.component] = child.props;
     });
   });
-
+  forEach(filtersPluginOptions.value.config.headerBottomGroups, group => {
+    forEach(group.children, child => {
+      propsByKey[child.component] = child.props;
+    });
+  });
   return propsByKey;
 });
 

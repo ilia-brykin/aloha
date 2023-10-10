@@ -39,7 +39,7 @@ export default function SearchAPI(props, { emit }, {
       stop: true,
       disabled: disabled.value,
       onClick: onSearch,
-      ...filtersPluginComponentsProps.value.buttonSearch,
+      ...filtersPluginComponentsProps.value.buttonSearch || {},
     });
   });
 
