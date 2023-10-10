@@ -5063,7 +5063,7 @@ h6 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 0.375rem;
+  border-radius: var(--a_border_radius);
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
   .a_form_control:focus, .a_form_control.a_file__label:focus-within {
     color: #212529;
