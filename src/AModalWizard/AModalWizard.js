@@ -352,9 +352,11 @@ export default {
         }, this.$slots),
       ],
       modalFooterPrepend: () => [
+        this.$slots.modalWizardFooterPrepend && this.$slots.modalWizardFooterPrepend(),
         h("div", {
           id: this.footerId,
         }),
+        this.$slots.modalWizardFooterAppend && this.$slots.modalWizardFooterAppend(),
       ],
     });
   },
