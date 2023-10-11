@@ -4,9 +4,10 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import AIcon from "../../../../../src/AIcon/AIcon";
 import ASelect from "../../../../../src/ui/ASelect/ASelect";
 import PageSelectBasic from "./PageSelectBasic/PageSelectBasic.vue";
+import PageSelectDataExtra from "./PageSelectDataExtra/PageSelectDataExtra.vue";
 import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
-import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
+import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 import PageSelectTranslateData from "./PageSelectTranslateData/PageSelectTranslateData.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -24,6 +25,7 @@ export default {
     AIcon,
     ASelect,
     PageSelectBasic,
+    PageSelectDataExtra,
     PageSelectGroup,
     PageSelectSearch,
     PageSelectKeyDisabled,

@@ -68,6 +68,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.data,
     },
+    dataExtra: {
+      type: Array,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.dataExtra,
+    },
     dependencies: {
       type: [Array, Object],
       required: false,
@@ -339,8 +344,11 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      dataAll,
+      dataExtraLocal,
       dataKeyByKeyIdLocal,
       dataLocal,
+      hasDataExtra,
     } = UiDataWithKeyIdAndLabelAPI(props);
 
     const {
@@ -385,18 +393,23 @@ export default {
     });
 
     const {
-      elementsVisibleWithSearch,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       idForButtonSearchOutside,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
       onSearchOutside,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
       searchOutsideRef,
       updateModelSearch,
       updateModelSearchOutside,
     } = UiSearchAPI(props, context, {
       data: dataSort,
+      dataExtra: dataExtraLocal,
       htmlIdLocal,
       hasKeyGroup,
       keyGroupArray,
@@ -418,11 +431,11 @@ export default {
       onKeydownSelectAll,
       onSelectAll,
     } = ModelChangeAPI(props, {
-      isMultiselect,
       changeModel,
-      togglePopover,
-      dataLocal,
+      data: dataAll,
       dataKeyByKeyIdLocal,
+      isMultiselect,
+      togglePopover,
     });
 
     const {
@@ -452,15 +465,17 @@ export default {
       clearModel,
       componentStyleHide,
       containerId,
+      dataExtraLocal,
       dataGrouped,
       dataKeyByKeyIdLocal,
       dataLocal,
       dataSort,
-      elementsVisibleWithSearch,
       errorsId,
       groupsForLever,
       handleKeydown,
+      hasDataExtra,
       hasKeyGroup,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       hasSelectedTitle,
       helpTextId,
@@ -488,6 +503,10 @@ export default {
       onSearchOutside,
       onSelectAll,
       popperContainerIdSelector,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
       searchOutsideRef,
       selectedTitle,
       tabindex,
@@ -690,19 +709,44 @@ export default {
                         class: "a_select__divider",
                         ariaHidden: true,
                       }),
+                      this.hasDataExtra && h("div", {}, [
+                        ...this.dataExtraLocal.map((item, itemIndex) => {
+                          return h(ASelectElement, {
+                            key: item[AKeyId],
+                            id: this.htmlIdLocal,
+                            dataItem: item,
+                            disabled: this.disabled,
+                            searching: this.searching,
+                            searchingElements: this.searchingElementsExtra,
+                            itemIndex,
+                            keyDisabled: this.keyDisabled,
+                            modelSearch: this.modelSearchLowerCase,
+                            modelValue: this.modelValue,
+                            slotName: this.slotName,
+                            type: this.type,
+                            onChangeModelValue: this.onChangeModelValue,
+                          }, this.$slots);
+                        }),
+                        !this.hasNotElementsExtraWithSearch && h("div", {
+                          class: "a_select__divider",
+                          ariaHidden: true,
+                        }),
+                      ]),
                       h("div", {}, this.hasKeyGroup ?
                         [
                           h(ACheckboxRadioGroup, {
                             id: `${ this.htmlIdLocal }_lev_0`,
                             dataGrouped: this.dataGrouped,
                             disabled: this.disabled,
-                            elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                             groupsForLever: this.groupsForLever,
                             isErrors: this.isErrors,
                             keyDisabled: this.keyDisabled,
                             levelIndex: 0,
                             modelSearch: this.modelSearchLowerCase,
                             modelValue: this.modelValue,
+                            searching: this.searching,
+                            searchingElements: this.searchingElements,
+                            searchingGroups: this.searchingGroups,
                             slotName: this.slotName,
                             type: this.type,
                             onChangeModelValue: this.onChangeModelValue,
@@ -716,7 +760,8 @@ export default {
                                 id: this.htmlIdLocal,
                                 dataItem: item,
                                 disabled: this.disabled,
-                                elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                                searching: this.searching,
+                                searchingElements: this.searchingElements,
                                 itemIndex,
                                 keyDisabled: this.keyDisabled,
                                 modelSearch: this.modelSearchLowerCase,

@@ -1,6 +1,8 @@
 import DOMPurify from "dompurify";
 
 import {
+  every,
+  isArray,
   isNumber,
   toString,
 } from "lodash-es";
@@ -46,4 +48,20 @@ export function concatenateTwoStringsWithSpace({ class1, class2, defaultValue = 
     return class2;
   }
   return defaultValue;
+}
+
+export function isArrayOfStrings(array) {
+  if (!isArray(array)) {
+    return false;
+  }
+
+  return every(array, String);
+}
+
+export function isArrayOfArrays(array) {
+  if (!isArray(array)) {
+    return false;
+  }
+
+  return every(array, isArray);
 }

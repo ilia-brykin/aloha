@@ -63,6 +63,11 @@ export default {
       required: false,
       default: () => [],
     },
+    dataExtra: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     dependencies: {
       type: [Array, Object],
       required: false,
@@ -269,8 +274,10 @@ export default {
     } = TextAfterLabelAPI(props);
 
     const {
-      dataLocal,
+      dataExtraLocal,
       dataKeyByKeyIdLocal,
+      dataLocal,
+      hasDataExtra,
     } = UiDataWithKeyIdAndLabelAPI(props);
 
     UiDataWatchEmitAPI(props, context, {
@@ -293,18 +300,23 @@ export default {
     });
 
     const {
-      elementsVisibleWithSearch,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       idForButtonSearchOutside,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
       onSearchOutside,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
       searchOutsideRef,
       updateModelSearch,
       updateModelSearchOutside,
     } = UiSearchAPI(props, context, {
       data: dataSort,
+      dataExtra: dataExtraLocal,
       hasKeyGroup,
       htmlIdLocal,
       keyGroupArray,
@@ -329,12 +341,14 @@ export default {
     return {
       ariaDescribedbyLocal,
       componentStyleHide,
+      dataExtraLocal,
       dataGrouped,
       dataSort,
-      elementsVisibleWithSearch,
       errorsId,
       groupsForLever,
+      hasDataExtra,
       hasKeyGroup,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       helpTextId,
       htmlIdLocal,
@@ -349,6 +363,10 @@ export default {
       onChangeModelValue,
       onFocus,
       onSearchOutside,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
       searchOutsideRef,
       textAfterLabel,
       titleCollapse,
@@ -436,6 +454,33 @@ export default {
                 modelUndefined: "",
                 "onUpdate:modelValue": this.updateModelSearch,
               }),
+              this.hasDataExtra && h("div", {}, [
+                ...this.dataExtraLocal.map((item, itemIndex) => {
+                  return h(ACheckboxItem, {
+                    key: itemIndex,
+                    id: this.htmlIdLocal,
+                    idSuffix: "extra",
+                    classButtonGroupDefault: this.classButtonGroupDefault,
+                    dataItem: item,
+                    disabled: this.disabled,
+                    isButtonGroup: this.isButtonGroup,
+                    isErrors: this.isErrors,
+                    isWidthAuto: this.isWidthAuto,
+                    itemIndex,
+                    keyDisabled: this.keyDisabled,
+                    modelSearch: this.modelSearchLowerCase,
+                    modelValue: this.modelValue,
+                    searching: this.searching,
+                    searchingElements: this.searchingElementsExtra,
+                    slotName: this.slotName,
+                    onChangeModelValue: this.onChangeModelValue,
+                  }, this.$slots);
+                }),
+                !this.hasNotElementsExtraWithSearch && h("div", {
+                  class: "a_divider",
+                  ariaHidden: true,
+                }),
+              ]),
               h("div", {}, this.hasKeyGroup ?
                 [
                   h(ACheckboxRadioGroup, {
@@ -443,7 +488,6 @@ export default {
                     classButtonGroupDefault: this.classButtonGroupDefault,
                     dataGrouped: this.dataGrouped,
                     disabled: this.disabled,
-                    elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                     groupsForLever: this.groupsForLever,
                     isButtonGroup: this.isButtonGroup,
                     isErrors: this.isErrors,
@@ -452,6 +496,9 @@ export default {
                     levelIndex: 0,
                     modelSearch: this.modelSearchLowerCase,
                     modelValue: this.modelValue,
+                    searching: this.searching,
+                    searchingElements: this.searchingElements,
+                    searchingGroups: this.searchingGroups,
                     slotName: this.slotName,
                     type: "checkbox",
                     onChangeModelValue: this.onChangeModelValue,
@@ -473,7 +520,6 @@ export default {
                         classButtonGroupDefault: this.classButtonGroupDefault,
                         dataItem: item,
                         disabled: this.disabled,
-                        elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                         isButtonGroup: this.isButtonGroup,
                         isErrors: this.isErrors,
                         isWidthAuto: this.isWidthAuto,
@@ -481,6 +527,8 @@ export default {
                         keyDisabled: this.keyDisabled,
                         modelSearch: this.modelSearchLowerCase,
                         modelValue: this.modelValue,
+                        searching: this.searching,
+                        searchingElements: this.searchingElements,
                         slotName: this.slotName,
                         onChangeModelValue: this.onChangeModelValue,
                       }, this.$slots);

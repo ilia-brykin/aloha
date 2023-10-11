@@ -9,9 +9,10 @@ export default function UiVisibleElementWithSearchAPI(props, {
   labelLocal = computed(() => ""),
   valueLocal = computed(() => ""),
 }) {
-  const elementsVisibleWithSearch = toRef(props, "elementsVisibleWithSearch");
   const isHiddenWithSearch = toRef(props, "isHiddenWithSearch");
   const modelSearch = toRef(props, "modelSearch");
+  const searching = toRef(props, "searching");
+  const searchingElements = toRef(props, "searchingElements");
 
   const {
     filterSearchHighlight,
@@ -19,7 +20,7 @@ export default function UiVisibleElementWithSearchAPI(props, {
 
   const isHiddenWithSearchLocal = computed(() => {
     return !!(isHiddenWithSearch.value ||
-      (elementsVisibleWithSearch.value.searching && !elementsVisibleWithSearch.value.elements[valueLocal.value]));
+      (searching.value && !searchingElements.value[valueLocal.value]));
   });
 
   const currentLabelFiltered = computed(() => {

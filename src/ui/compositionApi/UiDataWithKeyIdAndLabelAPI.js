@@ -10,6 +10,9 @@ import {
   isPlaceholderTranslate,
 } from "../../ATranslation/compositionAPI/UtilsAPI";
 import {
+  isArrayOfArrays,
+} from "../../utils/utils";
+import {
   cloneDeep,
   forEach,
   get,
@@ -18,14 +21,34 @@ import {
 
 export default function UiDataWithKeyIdAndLabelAPI(props) {
   const data = toRef(props, "data");
+  const dataExtra = toRef(props, "dataExtra");
   const isDataSimpleArray = toRef(props, "isDataSimpleArray");
   const keyId = toRef(props, "keyId");
   const keyLabel = toRef(props, "keyLabel");
   const keyLabelCallback = toRef(props, "keyLabelCallback");
   const translateData = toRef(props, "translateData");
 
-  const dataLocal = computed(() => {
-    const DATA = cloneDeep(data.value);
+  const isArrayOfArraysDataExtra = computed(() => {
+    return isArrayOfArrays(dataExtra.value);
+  });
+
+  const prepareData = ({ _data, _isArrayOfArrays = false }) => {
+    const DATA = cloneDeep(_data);
+    if (_isArrayOfArrays) {
+      const DATA_LOCAL = [];
+      forEach(DATA, item => {
+        const ID = item[0];
+        let label = item[1];
+        if (translateData.value && isPlaceholderTranslate(label)) {
+          label = getTranslatedText({ placeholder: label });
+        }
+        DATA_LOCAL.push({
+          [AKeyId]: ID,
+          [AKeyLabel]: label,
+        });
+      });
+      return DATA_LOCAL;
+    }
     if (keyLabelCallback.value) {
       if (isDataSimpleArray.value) {
         const DATA_LOCAL = [];
@@ -74,14 +97,53 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
       });
     }
     return DATA;
+  };
+
+  const dataLocal = computed(() => {
+    return prepareData({
+      _data: data.value,
+      _isArrayOfArrays: false,
+    });
   });
 
-  const dataKeyByKeyIdLocal = computed(() => {
+  const dataExtraLocal = computed(() => {
+    return prepareData({
+      _data: dataExtra.value,
+      _isArrayOfArrays: isArrayOfArraysDataExtra.value,
+    });
+  });
+
+  const dataExtraKeyByKeyId = computed(() => {
+    return keyBy(dataExtraLocal.value, AKeyId);
+  });
+
+  const dataKeyByKeyId = computed(() => {
     return keyBy(dataLocal.value, AKeyId);
   });
 
+  const dataKeyByKeyIdLocal = computed(() => {
+    return {
+      ...dataExtraKeyByKeyId.value,
+      ...dataKeyByKeyId.value,
+    };
+  });
+
+  const dataAll = computed(() => {
+    return [
+      ...dataExtraLocal.value,
+      ...dataLocal.value,
+    ];
+  });
+
+  const hasDataExtra = computed(() => {
+    return dataExtraLocal.value.length > 0;
+  });
+
   return {
+    dataAll,
+    dataExtraLocal,
     dataKeyByKeyIdLocal,
     dataLocal,
+    hasDataExtra,
   };
 }

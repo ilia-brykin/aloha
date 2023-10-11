@@ -7,6 +7,7 @@ export const selectPluginOptions = ref({
     buttonClass: undefined,
     countMultiselect: 4,
     data: [],
+    dataExtra: [],
     inBody: true,
     isCloseByClick: undefined,
     isDataSimpleArray: false,
