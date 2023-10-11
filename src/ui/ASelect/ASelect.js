@@ -1,6 +1,7 @@
 import {
   h,
   Teleport,
+  watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -363,7 +364,11 @@ export default {
       dataFromServer,
       loadDataFromServer,
       loadingDataFromServer,
-    } = UiDataFromServerAPI(props);
+      updateUrlPropsComputed,
+      urlPropsComputed,
+    } = UiDataFromServerAPI(props, {
+      changeModel,
+    });
 
     const {
       loadingLocal,
@@ -483,6 +488,10 @@ export default {
       isDividerSelectDeselectVisible,
     } = DividerAPI(props, {
       isMultiselect,
+    });
+
+    watch(urlPropsComputed, updateUrlPropsComputed, {
+      deep: true,
     });
 
     addPopperContainerInBody();

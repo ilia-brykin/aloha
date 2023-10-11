@@ -1,5 +1,6 @@
 import {
   h,
+  watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -259,6 +260,7 @@ export default {
     type: {
       type: String,
       required: false,
+      default: "checkbox",
     },
     url: {
       type: String,
@@ -300,7 +302,11 @@ export default {
       dataFromServer,
       loadDataFromServer,
       loadingDataFromServer,
-    } = UiDataFromServerAPI(props);
+      updateUrlPropsComputed,
+      urlPropsComputed,
+    } = UiDataFromServerAPI(props, {
+      changeModel,
+    });
 
     const {
       loadingLocal,
@@ -372,6 +378,10 @@ export default {
       titleCollapse,
       toggleCollapse,
     } = UiCollapseAPI(props, context);
+
+    watch(urlPropsComputed, updateUrlPropsComputed, {
+      deep: true,
+    });
 
     initIsCollapsedLocal();
     loadDataFromServer();
