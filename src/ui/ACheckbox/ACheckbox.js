@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import ACloak from "../../ACloak/ACloak";
 import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -14,10 +15,12 @@ import ChangeAPI from "./compositionAPI/ChangeAPI";
 import TextAfterLabelAPI from "./compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
+import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -28,6 +31,11 @@ import {
 export default {
   name: "ACheckbox",
   props: {
+    apiSaveId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     change: {
       type: Function,
       required: false,
@@ -61,7 +69,7 @@ export default {
     data: {
       type: Array,
       required: false,
-      default: () => [],
+      default: undefined,
     },
     dataExtra: {
       type: Array,
@@ -186,6 +194,11 @@ export default {
       required: false,
       default: undefined,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     modelDependencies: {
       type: Object,
       required: false,
@@ -247,6 +260,16 @@ export default {
       type: String,
       required: false,
     },
+    url: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "onSearchOutside",
@@ -274,11 +297,25 @@ export default {
     } = TextAfterLabelAPI(props);
 
     const {
+      dataFromServer,
+      loadDataFromServer,
+      loadingDataFromServer,
+    } = UiDataFromServerAPI(props);
+
+    const {
+      loadingLocal,
+    } = UiLoadingAPI(props, {
+      loadingDataFromServer,
+    });
+
+    const {
       dataExtraLocal,
       dataKeyByKeyIdLocal,
       dataLocal,
       hasDataExtra,
-    } = UiDataWithKeyIdAndLabelAPI(props);
+    } = UiDataWithKeyIdAndLabelAPI(props, {
+      dataFromServer,
+    });
 
     UiDataWatchEmitAPI(props, context, {
       dataKeyByKeyIdLocal,
@@ -337,6 +374,7 @@ export default {
     } = UiCollapseAPI(props, context);
 
     initIsCollapsedLocal();
+    loadDataFromServer();
 
     return {
       ariaDescribedbyLocal,
@@ -356,6 +394,7 @@ export default {
       idForButtonSearchOutside,
       isCollapsedLocal,
       isErrors,
+      loadingLocal,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
@@ -454,6 +493,7 @@ export default {
                 modelUndefined: "",
                 "onUpdate:modelValue": this.updateModelSearch,
               }),
+              this.loadingLocal && h(ACloak),
               this.hasDataExtra && h("div", {}, [
                 ...this.dataExtraLocal.map((item, itemIndex) => {
                   return h(ACheckboxItem, {

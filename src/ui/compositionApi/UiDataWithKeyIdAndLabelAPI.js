@@ -19,7 +19,9 @@ import {
   keyBy,
 } from "lodash-es";
 
-export default function UiDataWithKeyIdAndLabelAPI(props) {
+export default function UiDataWithKeyIdAndLabelAPI(props, {
+  dataFromServer = computed(() => []),
+}) {
   const data = toRef(props, "data");
   const dataExtra = toRef(props, "dataExtra");
   const isDataSimpleArray = toRef(props, "isDataSimpleArray");
@@ -99,9 +101,13 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
     return DATA;
   };
 
+  const dataComputed = computed(() => {
+    return data.value || dataFromServer.value;
+  });
+
   const dataLocal = computed(() => {
     return prepareData({
-      _data: data.value,
+      _data: dataComputed.value,
       _isArrayOfArrays: false,
     });
   });

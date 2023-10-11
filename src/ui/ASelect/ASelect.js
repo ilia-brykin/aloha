@@ -23,13 +23,14 @@ import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI
 import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-
 
 import AKeyId from "../const/AKeyId";
 import placements from "../../const/placements";
@@ -43,6 +44,11 @@ import {
 export default {
   name: "ASelect",
   props: {
+    apiSaveId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     buttonClass: {
       type: String,
       required: false,
@@ -66,7 +72,7 @@ export default {
     data: {
       type: Array,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.data,
+      default: undefined,
     },
     dataExtra: {
       type: Array,
@@ -77,6 +83,11 @@ export default {
       type: [Array, Object],
       required: false,
       default: undefined,
+    },
+    deselectable: {
+      type: Boolean,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.deselectable,
     },
     disabled: {
       type: Boolean,
@@ -138,11 +149,6 @@ export default {
       type: Boolean,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.isDataSimpleArray,
-    },
-    deselectable: {
-      type: Boolean,
-      required: false,
-      default: () => selectPluginOptions.value.propsDefault.deselectable,
     },
     isDeselectAll: {
       type: Boolean,
@@ -215,7 +221,7 @@ export default {
     loading: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.loading,
+      default: false,
     },
     maxCountMultiselect: {
       type: Number,
@@ -317,6 +323,16 @@ export default {
       default: () => selectPluginOptions.value.propsDefault.type,
       validator: value => ["select", "multiselect"].indexOf(value) !== -1,
     },
+    url: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "blur",
@@ -344,12 +360,26 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      dataFromServer,
+      loadDataFromServer,
+      loadingDataFromServer,
+    } = UiDataFromServerAPI(props);
+
+    const {
+      loadingLocal,
+    } = UiLoadingAPI(props, {
+      loadingDataFromServer,
+    });
+
+    const {
       dataAll,
       dataExtraLocal,
       dataKeyByKeyIdLocal,
       dataLocal,
       hasDataExtra,
-    } = UiDataWithKeyIdAndLabelAPI(props);
+    } = UiDataWithKeyIdAndLabelAPI(props, {
+      dataFromServer,
+    });
 
     const {
       addPopperContainerInBody,
@@ -456,6 +486,7 @@ export default {
     });
 
     addPopperContainerInBody();
+    loadDataFromServer();
 
     return {
       ariaDescribedbyLocal,
@@ -488,6 +519,7 @@ export default {
       isModelValue,
       isMultiselect,
       isOpen,
+      loadingLocal,
       menuParentRef,
       menuRef,
       modelSearch,
@@ -533,7 +565,7 @@ export default {
           isLabelFloat: this.isLabelFloat,
           type: this.type,
           clickLabel: this.togglePopover,
-          loading: this.loading,
+          loading: this.loadingLocal,
         }),
         h("div", {
           class: "a_form_element",

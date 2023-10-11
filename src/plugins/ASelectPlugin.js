@@ -6,7 +6,6 @@ export const selectPluginOptions = ref({
   propsDefault: {
     buttonClass: undefined,
     countMultiselect: 4,
-    data: [],
     dataExtra: [],
     inBody: true,
     isCloseByClick: undefined,
@@ -19,7 +18,6 @@ export const selectPluginOptions = ref({
     keyGroup: undefined,
     keyId: "value",
     keyLabel: "label",
-    loading: false,
     maxCountMultiselect: undefined,
     menuWidthType: "as_button",
     modelValue: undefined,

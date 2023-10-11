@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import ACloak from "../../ACloak/ACloak";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
@@ -14,10 +15,12 @@ import ChangeAPI from "../ACheckbox/compositionAPI/ChangeAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
+import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -29,6 +32,11 @@ import {
 export default {
   name: "ARadio",
   props: {
+    apiSaveId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     change: {
       type: Function,
       required: false,
@@ -62,7 +70,7 @@ export default {
     data: {
       type: Array,
       required: false,
-      default: () => [],
+      default: undefined,
     },
     dataExtra: {
       type: Array,
@@ -187,6 +195,11 @@ export default {
       required: false,
       default: undefined,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     modelDependencies: {
       type: Object,
       required: false,
@@ -248,6 +261,16 @@ export default {
       type: String,
       required: false,
     },
+    url: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "onSearchOutside",
@@ -276,11 +299,25 @@ export default {
     } = TextAfterLabelAPI(props);
 
     const {
+      dataFromServer,
+      loadDataFromServer,
+      loadingDataFromServer,
+    } = UiDataFromServerAPI(props);
+
+    const {
+      loadingLocal,
+    } = UiLoadingAPI(props, {
+      loadingDataFromServer,
+    });
+
+    const {
       dataExtraLocal,
       dataKeyByKeyIdLocal,
       dataLocal,
       hasDataExtra,
-    } = UiDataWithKeyIdAndLabelAPI(props);
+    } = UiDataWithKeyIdAndLabelAPI(props, {
+      dataFromServer,
+    });
 
     UiDataWatchEmitAPI(props, context, {
       dataKeyByKeyIdLocal,
@@ -339,22 +376,19 @@ export default {
     } = UiCollapseAPI(props, context);
 
     initIsCollapsedLocal();
+    loadDataFromServer();
 
     return {
       ariaDescribedbyLocal,
       componentStyleHide,
+      dataExtraLocal,
       dataGrouped,
       dataSort,
-      dataExtraLocal,
-      searching,
-      searchingElements,
-      searchingElementsExtra,
-      searchingGroups,
-      hasNotElementsExtraWithSearch,
-      hasDataExtra,
       errorsId,
       groupsForLever,
+      hasDataExtra,
       hasKeyGroup,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       helpTextId,
       htmlIdLocal,
@@ -362,6 +396,7 @@ export default {
       idForButtonSearchOutside,
       isCollapsedLocal,
       isErrors,
+      loadingLocal,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
@@ -369,6 +404,10 @@ export default {
       onChangeModelValue,
       onFocus,
       onSearchOutside,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
       searchOutsideRef,
       textAfterLabel,
       titleCollapse,
@@ -456,6 +495,7 @@ export default {
                 modelUndefined: "",
                 "onUpdate:modelValue": this.updateModelSearch,
               }),
+              this.loadingLocal && h(ACloak),
               this.hasDataExtra && h("div", {}, [
                 ...this.dataExtraLocal.map((item, itemIndex) => {
                   return h(ARadioItem, {
