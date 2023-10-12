@@ -228,6 +228,16 @@ export default {
       type: Boolean,
       required: false,
     },
+    searchApi: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    searchApiKey: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     searchOutside: {
       type: Boolean,
       required: false,
@@ -302,27 +312,31 @@ export default {
 
     const {
       dataFromServer,
+      dataExtraLocal,
+      dataKeyByKeyIdLocal,
+      dataLocal,
+      hasDataExtra,
+    } = UiDataWithKeyIdAndLabelAPI(props);
+
+    const {
       loadDataFromServer,
+      loadDataFromServerForSearchAPI,
       loadingDataFromServer,
+      loadingSearchApi,
+      onSearchInApi,
+      searchApiLocal,
       updateUrlPropsComputed,
       urlPropsComputed,
     } = UiDataFromServerAPI(props, {
       changeModel,
+      dataExtraLocal,
+      dataFromServer,
     });
 
     const {
       loadingLocal,
     } = UiLoadingAPI(props, {
       loadingDataFromServer,
-    });
-
-    const {
-      dataExtraLocal,
-      dataKeyByKeyIdLocal,
-      dataLocal,
-      hasDataExtra,
-    } = UiDataWithKeyIdAndLabelAPI(props, {
-      dataFromServer,
     });
 
     UiDataWatchEmitAPI(props, context, {
@@ -356,15 +370,18 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchOutsideOrApi,
       searchOutsideRef,
       updateModelSearch,
       updateModelSearchOutside,
     } = UiSearchAPI(props, context, {
       data: dataSort,
       dataExtra: dataExtraLocal,
-      hasKeyGroup,
       htmlIdLocal,
+      hasKeyGroup,
       keyGroupArray,
+      searchApiLocal,
+      onSearchInApi,
     });
 
     const {
@@ -387,6 +404,7 @@ export default {
 
     initIsCollapsedLocal();
     loadDataFromServer();
+    loadDataFromServerForSearchAPI();
 
     return {
       ariaDescribedbyLocal,
@@ -394,6 +412,7 @@ export default {
       dataExtraLocal,
       dataGrouped,
       dataSort,
+      searchOutsideOrApi,
       errorsId,
       groupsForLever,
       hasDataExtra,
@@ -411,6 +430,7 @@ export default {
       modelSearchLowerCase,
       modelSearchOutside,
       onBlur,
+      loadingSearchApi,
       onChangeModelValue,
       onFocus,
       onSearchOutside,
@@ -473,7 +493,7 @@ export default {
             h("div", {
               class: "a_fieldset__content",
             }, [
-              this.searchOutside && h("div", {
+              this.searchOutsideOrApi && h("div", {
                 class: "a_fieldset__search",
               }, [
                 h("form", {
@@ -490,6 +510,7 @@ export default {
                       "onUpdate:modelValue": this.updateModelSearchOutside,
                     }),
                     h(AButton, {
+                      ariaDisabled: this.loadingSearchApi,
                       disabled: this.disabled,
                       class: "a_btn a_btn_primary",
                       type: "submit",

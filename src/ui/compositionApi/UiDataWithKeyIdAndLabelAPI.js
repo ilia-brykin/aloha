@@ -1,5 +1,5 @@
 import {
-  computed,
+  computed, ref,
   toRef,
 } from "vue";
 
@@ -19,9 +19,7 @@ import {
   keyBy,
 } from "lodash-es";
 
-export default function UiDataWithKeyIdAndLabelAPI(props, {
-  dataFromServer = computed(() => []),
-}) {
+export default function UiDataWithKeyIdAndLabelAPI(props) {
   const data = toRef(props, "data");
   const dataExtra = toRef(props, "dataExtra");
   const isDataSimpleArray = toRef(props, "isDataSimpleArray");
@@ -29,6 +27,8 @@ export default function UiDataWithKeyIdAndLabelAPI(props, {
   const keyLabel = toRef(props, "keyLabel");
   const keyLabelCallback = toRef(props, "keyLabelCallback");
   const translateData = toRef(props, "translateData");
+
+  const dataFromServer = ref([]);
 
   const isArrayOfArraysDataExtra = computed(() => {
     return isArrayOfArrays(dataExtra.value);
@@ -148,6 +148,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props, {
   return {
     dataAll,
     dataExtraLocal,
+    dataFromServer,
     dataKeyByKeyIdLocal,
     dataLocal,
     hasDataExtra,

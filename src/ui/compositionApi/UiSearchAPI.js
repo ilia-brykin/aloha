@@ -20,8 +20,11 @@ export default function UiSearchAPI(props, { emit }, {
   hasKeyGroup = computed(() => false),
   htmlIdLocal = computed(() => ""),
   keyGroupArray = computed(() => []),
+  onSearchInApi = () => {},
+  searchApiLocal = computed(() => false),
 }) {
   const searchTimeout = toRef(props, "searchTimeout");
+  const searchOutside = toRef(props, "searchOutside");
 
   const modelSearch = ref("");
   const modelSearchOutside = ref("");
@@ -30,6 +33,10 @@ export default function UiSearchAPI(props, { emit }, {
   const searchingElementsExtra = ref({});
   const searchingGroups = ref({});
   const searchOutsideRef = ref(undefined);
+  
+  const searchOutsideOrApi = computed(() => {
+    return !!(searchOutside.value || searchApiLocal.value);
+  });
 
   const idForButtonSearchOutside = computed(() => {
     return `${ htmlIdLocal.value }_search_global`;
@@ -107,10 +114,14 @@ export default function UiSearchAPI(props, { emit }, {
     }
   };
 
+
   const onSearchOutside = $event => {
     if ($event) {
       $event.preventDefault();
     }
+    onSearchInApi({
+      search: modelSearchOutside.value,
+    });
     emit("onSearchOutside", {
       model: modelSearchOutside.value,
     });
@@ -132,6 +143,7 @@ export default function UiSearchAPI(props, { emit }, {
     searchingElements,
     searchingElementsExtra,
     searchingGroups,
+    searchOutsideOrApi,
     searchOutsideRef,
     updateModelSearch,
     updateModelSearchOutside,

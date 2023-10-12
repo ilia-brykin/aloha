@@ -276,6 +276,16 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.search,
     },
+    searchApi: {
+      type: Boolean,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.searchApi,
+    },
+    searchApiKey: {
+      type: String,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.searchApiKey,
+    },
     searchOutside: {
       type: Boolean,
       required: false,
@@ -361,29 +371,33 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      dataAll,
       dataFromServer,
+      dataExtraLocal,
+      dataKeyByKeyIdLocal,
+      dataLocal,
+      hasDataExtra,
+    } = UiDataWithKeyIdAndLabelAPI(props);
+
+    const {
       loadDataFromServer,
+      loadDataFromServerForSearchAPI,
       loadingDataFromServer,
+      loadingSearchApi,
+      onSearchInApi,
+      searchApiLocal,
       updateUrlPropsComputed,
       urlPropsComputed,
     } = UiDataFromServerAPI(props, {
       changeModel,
+      dataExtraLocal,
+      dataFromServer,
     });
 
     const {
       loadingLocal,
     } = UiLoadingAPI(props, {
       loadingDataFromServer,
-    });
-
-    const {
-      dataAll,
-      dataExtraLocal,
-      dataKeyByKeyIdLocal,
-      dataLocal,
-      hasDataExtra,
-    } = UiDataWithKeyIdAndLabelAPI(props, {
-      dataFromServer,
     });
 
     const {
@@ -439,6 +453,7 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchOutsideOrApi,
       searchOutsideRef,
       updateModelSearch,
       updateModelSearchOutside,
@@ -448,6 +463,8 @@ export default {
       htmlIdLocal,
       hasKeyGroup,
       keyGroupArray,
+      searchApiLocal,
+      onSearchInApi,
     });
 
     const {
@@ -496,6 +513,7 @@ export default {
 
     addPopperContainerInBody();
     loadDataFromServer();
+    loadDataFromServerForSearchAPI();
 
     return {
       ariaDescribedbyLocal,
@@ -529,6 +547,7 @@ export default {
       isMultiselect,
       isOpen,
       loadingLocal,
+      loadingSearchApi,
       menuParentRef,
       menuRef,
       modelSearch,
@@ -548,6 +567,7 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchOutsideOrApi,
       searchOutsideRef,
       selectedTitle,
       tabindex,
@@ -671,7 +691,7 @@ export default {
                     role: "listbox",
                     ariaLabelledby: this.htmlIdLocal,
                   }, [
-                    this.searchOutside && h("div", {
+                    this.searchOutsideOrApi && h("div", {
                       class: "a_select__search",
                     }, [
                       h("form", {
@@ -688,6 +708,7 @@ export default {
                             "onUpdate:modelValue": this.updateModelSearchOutside,
                           }),
                           h(AButton, {
+                            ariaDisabled: this.loadingSearchApi,
                             disabled: this.disabled,
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",

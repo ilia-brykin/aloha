@@ -24,6 +24,8 @@ export const selectPluginOptions = ref({
     placement: "bottom-end",
     popperContainerId: "a_select_container",
     search: false,
+    searchApi: false,
+    searchApiKey: undefined,
     searchOutside: false,
     searchTimeout: 0,
     slotName: undefined,
