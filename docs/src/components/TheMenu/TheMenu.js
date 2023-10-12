@@ -392,6 +392,13 @@ export default {
                 name: "PageTablePreview",
               }
             },
+            {
+              id: "PageTablePreviewDown",
+              label: "Table preview down",
+              to: {
+                name: "PageTablePreviewDown",
+              }
+            },
           ],
         },
         {
