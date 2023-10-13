@@ -115,7 +115,7 @@ export default {
             BUTTON_SEARCH,
           ]),
           this.isBtnToggleVisible && h("div", {
-            class: "a_column",
+            class: "a_column a_pl_0",
           }, [
             h(AButton, {
               class: "a_btn a_btn_link a_text_nowrap",
