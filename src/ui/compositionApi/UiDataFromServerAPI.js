@@ -15,12 +15,13 @@ import {
   get,
   isArray,
   isMatch,
-  isNil, isNumber,
+  isNil,
+  isNumber,
+  isString,
   map,
   uniq,
   uniqBy,
 } from "lodash-es";
-import { isString } from "lodash";
 
 export default function UiDataFromServerAPI(props, {
   changeModel = () => {},
