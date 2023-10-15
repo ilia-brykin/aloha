@@ -7,13 +7,38 @@ export default function HtmlAPI() {
 
 <a-modal
   v-if="isModalVisible"
-  header-text="Aloha"
   :close="closeModal"
-  :close-button-attributes="{ textTag: 'strong' }"
-  close-button-class="a_btn a_btn_danger"
-  close-button-id="btn_close"
-  close-button-text="_A_MODAL_PAGE_BTN_CLOSE_"
-></a-modal>`;
+>
+  <template
+    v-slot:modalHeader
+  >
+    <span>Aloha</span>
+  </template>
+  
+  <template
+    v-slot:modalBody
+  >
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+  </template>
+  
+  <template
+    v-slot:modalFooterPrepend
+  >
+    <a-button
+      class="a_btn a_btn_primary"
+      icon-left="ChevronLeft"
+    ></a-button>
+  </template>
+  
+  <template
+    v-slot:modalFooterAppend
+  >
+    <a-button
+      class="a_btn a_btn_primary"
+      text="Aloha"
+    ></a-button>
+  </template>
+</a-modal>`;
 
   return {
     codeHtml,
