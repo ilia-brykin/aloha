@@ -8,6 +8,7 @@ import itJson from "./it.json";
 import ruJson from "./ru.json";
 
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
+import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
 import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import AFiltersI18n from "../AFilters/i18n/AFiltersI18n";
@@ -34,6 +35,7 @@ export const ar = {
   ...AFiltersI18n.ar,
   ...AWizardI18n.ar,
   ...AModalI18n.ar,
+  ...ADatepickerRangeI18n.ar,
 };
 export const de = {
   ...deJson,
@@ -49,6 +51,7 @@ export const de = {
   ...AFiltersI18n.de,
   ...AWizardI18n.de,
   ...AModalI18n.de,
+  ...ADatepickerRangeI18n.de,
 };
 export const en = {
   ...enJson,
@@ -64,6 +67,7 @@ export const en = {
   ...AFiltersI18n.en,
   ...AWizardI18n.en,
   ...AModalI18n.en,
+  ...ADatepickerRangeI18n.en,
 };
 export const es = {
   ...esJson,
@@ -79,6 +83,7 @@ export const es = {
   ...AFiltersI18n.es,
   ...AWizardI18n.es,
   ...AModalI18n.es,
+  ...ADatepickerRangeI18n.es,
 };
 export const fr = {
   ...frJson,
@@ -94,6 +99,7 @@ export const fr = {
   ...AFiltersI18n.fr,
   ...AWizardI18n.fr,
   ...AModalI18n.fr,
+  ...ADatepickerRangeI18n.fr,
 };
 export const hr = {
   ...hrJson,
@@ -109,6 +115,7 @@ export const hr = {
   ...AFiltersI18n.hr,
   ...AWizardI18n.hr,
   ...AModalI18n.hr,
+  ...ADatepickerRangeI18n.hr,
 };
 export const it = {
   ...itJson,
@@ -124,6 +131,7 @@ export const it = {
   ...AFiltersI18n.it,
   ...AWizardI18n.it,
   ...AModalI18n.it,
+  ...ADatepickerRangeI18n.it,
 };
 export const ru = {
   ...ruJson,
@@ -139,6 +147,7 @@ export const ru = {
   ...AFiltersI18n.ru,
   ...AWizardI18n.ru,
   ...AModalI18n.ru,
+  ...ADatepickerRangeI18n.ru,
 };
 
 export default {

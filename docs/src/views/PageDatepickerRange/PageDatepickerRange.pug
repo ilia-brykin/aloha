@@ -1,0 +1,30 @@
+aloha-page(
+  page-title="DatepickerRange"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_DATEPICKER_RANGE_DESCRIPTION_"
+    )
+
+    page-datepicker-range-basic
+
+    page-datepicker-range-id-width-disabled
+
+    page-datepicker-range-model-input-id-prefix-is-error
+
+    page-datepicker-range-options-events
+
+    page-datepicker-range-options-errors-html-id
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )

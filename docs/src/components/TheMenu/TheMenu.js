@@ -177,6 +177,13 @@ export default {
               }
             },
             {
+              id: "datepicker-range",
+              label: "DatepickerRange",
+              to: {
+                name: "PageDatepickerRange",
+              }
+            },
+            {
               id: "form",
               label: "Form",
               to: {

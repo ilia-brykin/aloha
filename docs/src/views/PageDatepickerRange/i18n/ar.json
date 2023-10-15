@@ -1,0 +1,22 @@
+{
+  "_A_DATEPICKER_RANGE_DESCRIPTION_": "يتيح اختيار نطاق التاريخ التفاعلي من خلال توفير حقلي تاريخ لتحديد قيم 'من' و'إلى'.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_MODEL_": "يُستخدم لتخزين وإدارة قيم فترة التاريخ المحددة داخل المكون.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_SELECTED_": "يدير الإجراءات الإضافية أو التأثيرات الجانبية التي يجب تنشيطها بعد اختيار تاريخ.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_DISABLED_": "يتحكم في ما إذا كانت التفاعلات مع نطاق اختيار التاريخ ممكنة أم لا.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_OPTIONS_": "يحتوي على معلمات وسمات قابلة للتهيئة تُعدل سلوك ومظهر منتقي التاريخ.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_ID_PREFIX_": "يوفر وسيلة لتخصيص معرفات العناصر للمكون في حال وجود عدة نُسخ على نفس الصفحة.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_IS_ERROR_": "علم للتحكم في حالات الخطأ المرئية أو لتنشيط منطق معين في حالات الخطأ داخل المكون.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_EMIT_INPUT_": "يُبلغ العنصر الأصل بتغييرات قيم الإدخال ويُحول القيم الحالية لنطاق منتقي التاريخ.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_EMIT_CHANGE_": "يُبلغ العنصر الأصل عند إجراء اختيار تاريخ نهائي ويُرسل البيانات الجديدة لاستخدامها أو معالجتها لاحقًا.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_EMIT_FOCUS_": "يُبلغ العنصر الأصل عند التركيز على منتقي التاريخ، والذي يمكن أن يكون مفيدًا لتفعيل حالات واجهة المستخدم المحددة أو تنفيذ بعض العمليات.",
+  "_A_DATEPICKER_RANGE_MODEL_SELECTED_DISABLED_HEADER_": "إدارة النموذج والحالة",
+  "_A_DATEPICKER_RANGE_MODEL_SELECTED_DISABLED_DESCRIPTION_": "يدمج الخصائص 'النموذج' و'المحدد' ويتحكم في الحالة المعطلة.",
+  "_A_DATEPICKER_RANGE_OPTIONS_CLASS_NAME_HEADER_": "نمط قابل للتخصيص",
+  "_A_DATEPICKER_RANGE_OPTIONS_CLASS_NAME_DESCRIPTION_": "يستخدم الخاصية 'className' لأساليب فردية.",
+  "_A_DATEPICKER_RANGE_OPTIONS_DATA_ERRORS_HEADER_": "تحكم متقدم في البيانات والأخطاء",
+  "_A_DATEPICKER_RANGE_OPTIONS_DATA_ERRORS_DESCRIPTION_": "يعالج البيانات والأخطاء بتضمين معلومات ثابتة إضافية.",
+  "_A_DATEPICKER_RANGE_OPTIONS_EVENTS_HEADER_": "إدارة الأحداث",
+  "_A_DATEPICKER_RANGE_OPTIONS_EVENTS_DESCRIPTION_": "يدير أحداث المستخدم مثل التركيز وتغييرات الإدخال.",
+  "_A_DATEPICKER_RANGE_OPTIONS_ID_PREFIX_IS_ERROR_HEADER_": "المعرف والتحكم في الأخطاء",
+  "_A_DATEPICKER_RANGE_OPTIONS_ID_PREFIX_IS_ERROR_DESCRIPTION_": "يتحكم في عرض الأخطاء ويعين المعرفات باستخدام 'idPrefix'."
+}

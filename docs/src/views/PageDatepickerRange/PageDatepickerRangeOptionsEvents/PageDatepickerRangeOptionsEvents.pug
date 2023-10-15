@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DATEPICKER_RANGE_OPTIONS_EVENTS_HEADER_"
+  description="_A_DATEPICKER_RANGE_OPTIONS_EVENTS_DESCRIPTION_"
+  :props="['model', 'focus', 'input', 'change']"
+)
+  a-datepicker-range(
+    :model="dateRangeModel"
+    @focus="handleFocus"
+    @input="updateDateRange"
+    @change="handleChange"
+  )

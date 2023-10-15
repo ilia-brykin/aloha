@@ -80,6 +80,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageAccordionBootstrap" */ "../views/PageAccordion/PageAccordion.vue"),
   },
   {
+    path: "/datepicker-range",
+    name: "PageDatepickerRange",
+    component: () => import(/* webpackChunkName: "PageDatepickerRange" */ "../views/PageDatepickerRange/PageDatepickerRange.vue"),
+  },
+  {
     path: "/alert",
     name: "PageAlert",
     component: () => import(/* webpackChunkName: "PageAlert" */ "../views/PageAlert/PageAlert.vue"),

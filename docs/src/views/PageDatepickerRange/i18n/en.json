@@ -1,0 +1,22 @@
+{
+  "_A_DATEPICKER_RANGE_DESCRIPTION_": "Enables interactive selection of a date range by providing two date fields to define 'From' and 'To' values.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_MODEL_": "Serves to store and manage the selected date interval values within the component.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_SELECTED_": "Handles additional actions or side effects to be triggered upon date selection.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_DISABLED_": "Controls whether user interactions with the datepicker range are possible or not.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_OPTIONS_": "Contains configurable parameters and attributes to modify the behavior and appearance of the datepicker.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_ID_PREFIX_": "Provides a means to customize the ID attributes of the component elements in case multiple instances exist on the same page.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_IS_ERROR_": "Flag to control visual error states or enable specific logic during error states within the component.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_EMIT_INPUT_": "Informs the parent element about changes in input values and transmits the current values of the datepicker range.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_EMIT_CHANGE_": "Notifies the parent element when a final date selection has been made and sends the new data for further use or processing.",
+  "_A_DATEPICKER_RANGE_DESCRIPTION_EMIT_FOCUS_": "Informs the parent element when the datepicker is focused, which can be useful for activating special UI states or executing certain logics.",
+  "_A_DATEPICKER_RANGE_MODEL_SELECTED_DISABLED_HEADER_": "Model and Status Management",
+  "_A_DATEPICKER_RANGE_MODEL_SELECTED_DISABLED_DESCRIPTION_": "Integrates the 'model' and 'selected' properties and manages the disabled status.",
+  "_A_DATEPICKER_RANGE_OPTIONS_CLASS_NAME_HEADER_": "Customizable Styling",
+  "_A_DATEPICKER_RANGE_OPTIONS_CLASS_NAME_DESCRIPTION_": "Utilizes the 'className' property for custom styles.",
+  "_A_DATEPICKER_RANGE_OPTIONS_DATA_ERRORS_HEADER_": "Advanced Data and Error Control",
+  "_A_DATEPICKER_RANGE_OPTIONS_DATA_ERRORS_DESCRIPTION_": "Processes data and errors while incorporating additional static information.",
+  "_A_DATEPICKER_RANGE_OPTIONS_EVENTS_HEADER_": "Event Handling",
+  "_A_DATEPICKER_RANGE_OPTIONS_EVENTS_DESCRIPTION_": "Manages user events such as focus and input changes.",
+  "_A_DATEPICKER_RANGE_OPTIONS_ID_PREFIX_IS_ERROR_HEADER_": "ID and Error Control",
+  "_A_DATEPICKER_RANGE_OPTIONS_ID_PREFIX_IS_ERROR_DESCRIPTION_": "Controls error display and assigns IDs using 'idPrefix'."
+}
