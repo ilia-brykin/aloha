@@ -21,9 +21,7 @@ export default {
     });
 
     const options = ref({
-      value: {
-        format: "DD.MM.YY",
-      }
+      format: "DD.MM.YY",
     });
     const errors = ref(["Start date is required", "End date is invalid"]);
 

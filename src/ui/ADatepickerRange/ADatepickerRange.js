@@ -46,6 +46,7 @@ export default {
     } = IdAPI(props);
 
     const {
+      inputClass,
       inputAttributesMin,
       inputAttributesMax,
     } = InputAPI(props, {
@@ -60,6 +61,8 @@ export default {
       minuteStep,
       type,
       format,
+      modelMin,
+      modelMax,
     } = DateAPI(props, {
       idMin,
       idMax,
@@ -70,7 +73,6 @@ export default {
       onSelectMax,
       onFocusMin,
       onFocusMax,
-      popupStyles,
     } = ActionsAPI(props, context);
 
     return {
@@ -85,11 +87,13 @@ export default {
       idForLabelMax,
       placeholderMax,
       inputAttributesMax,
+      modelMin,
+      modelMax,
+      inputClass,
       onSelectMin,
       onFocusMin,
       onSelectMax,
       onFocusMax,
-      popupStyles,
     };
   },
   render() {
@@ -107,7 +111,7 @@ export default {
       h(ADatepicker, {
         id: this.idMin,
         ref: "min",
-        modelValue: this.model.date_before,
+        modelValue: this.modelMin,
         class: { "is-invalid": this.isError },
         firstDayOfWeek: 1,
         lang: "de",
@@ -120,7 +124,6 @@ export default {
         minuteStep: this.minuteStep,
         inputAttr: this.inputAttributesMin,
         appendToBody: true,
-        popupStyle: this.popupStyles.min,
         onChange: event => {
           this.onSelectMin(event);
         },
@@ -134,7 +137,7 @@ export default {
       h(ADatepicker, {
         id: this.idMax,
         ref: "max",
-        modelValue: this.model.date_after,
+        modelValue: this.modelMax,
         class: { "is-invalid": this.isError },
         firstDayOfWeek: 1,
         lang: "de",
@@ -147,7 +150,6 @@ export default {
         minuteStep: this.minuteStep,
         inputAttr: this.inputAttributesMax,
         appendToBody: true,
-        popupStyle: this.popupStyles.max,
         onChange: event => {
           this.onSelectMax(event);
         },

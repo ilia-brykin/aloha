@@ -7,6 +7,7 @@ export default {
   name: "PageDatepickerRangeOptionsErrorsHtmlId",
   components: {
     ADatepickerRange,
+    AlohaExample,
   },
   setup() {
     const dateRangeModel = ref({
@@ -15,13 +16,10 @@ export default {
     });
 
     const options = ref({
-      value: {
-        htmlId: "myDatepicker3",
-        id: "date1",
-      }
+      format: "DD.MM.YY",
     });
     const errors = ref(["Start date is required", "End date is invalid"]);
-    const data = ref(null);
+
     const updateDateRange = newRange => {
       dateRangeModel.value = newRange.model;
     };
@@ -38,7 +36,6 @@ export default {
       dateRangeModel,
       updateDateRange,
       errors,
-      data,
       codeHtml,
       codeJs,
     };

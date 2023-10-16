@@ -1,17 +1,35 @@
+import {
+  uniqueId,
+} from "lodash-es";
+
 export default function PropsAPI() {
   const dataProps = [
+    {
+      name: "id",
+      description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_ID_",
+      type: "[String, Number]",
+      default: () => uniqueId("a_ui_"),
+      required: false,
+    },
+    {
+      name: "htmlId",
+      description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_HTML_ID_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "width",
+      description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_WIDTH_",
+      type: "[String, Number]",
+      default: null,
+      required: false,
+    },
     {
       name: "model",
       description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_MODEL_",
       type: "Object",
       default: () => ({}),
-      required: false,
-    },
-    {
-      name: "selected",
-      description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_SELECTED_",
-      type: "Function",
-      default: () => {},
       required: false,
     },
     {

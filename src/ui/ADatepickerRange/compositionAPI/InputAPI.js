@@ -16,6 +16,12 @@ export default function InputAPI(props, {
   const isError = toRef(props, "isError");
   const options = toRef(props, "options");
 
+  const inputClass = computed(() => [
+    "form-control form_control",
+    options.value.classInput,
+    { "is-invalid": isError.value },
+  ]);
+
   const ariaRequired = computed(() => `${ options.value.required || false }`);
   const ariaInvalid = computed(() => isError.value ? "true" : "false");
 
@@ -41,6 +47,7 @@ export default function InputAPI(props, {
   });
 
   return {
+    inputClass,
     inputAttributesMin,
     inputAttributesMax,
   };

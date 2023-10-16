@@ -1,18 +1,12 @@
-import {
-  ref,
-} from "vue";
-
+export default function JsAPI() {
+  const codeJs = `import { ref } from 'vue';
+  
 import ADatepickerRange from "../../../../../src/ui/ADatepickerRange/ADatepickerRange";
-import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-
-import HtmlAPI from "./compositionAPI/HtmlAPI";
-import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
   name: "PageDatepickerRangeOptionsEvents",
   components: {
     ADatepickerRange,
-    AlohaExample,
   },
   setup() {
     const dateRangeModel = ref({
@@ -21,8 +15,7 @@ export default {
     });
 
     const handleFocus = () => console.log("Focused!");
-    // eslint-disable-next-line no-alert
-    const handleChange = () => alert("Changed!");
+    const handleChange = () => console.log("Changed!");
 
     const updateDateRange = newRange => {
       dateRangeModel.value = newRange.model;
@@ -44,4 +37,9 @@ export default {
       codeJs,
     };
   },
-};
+};`;
+
+  return {
+    codeJs,
+  };
+}

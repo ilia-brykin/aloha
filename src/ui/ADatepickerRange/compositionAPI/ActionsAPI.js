@@ -1,5 +1,4 @@
 import {
-  ref,
   toRef,
 } from "vue";
 
@@ -13,11 +12,6 @@ export default function ActionsAPI(props, { emit }) {
   const model = toRef(props, "model");
   const options = toRef(props, "options");
   const id = toRef(props, "id");
-
-  const popupStyles = ref({
-    min: {},
-    max: {},
-  });
 
   const isDate = date => moment(date, "YYYY-MM-DD", true).isValid();
 
@@ -37,9 +31,9 @@ export default function ActionsAPI(props, { emit }) {
     const MODEL = cloneDeep(model.value);
 
     if (label === "min") {
-      MODEL.date_before = data;
-    } else if (label === "max") {
       MODEL.date_after = data;
+    } else if (label === "max") {
+      MODEL.date_before = data;
     }
     emit("input", {
       model: MODEL,
@@ -65,6 +59,5 @@ export default function ActionsAPI(props, { emit }) {
     onSelectMax,
     onFocusMin,
     onFocusMax,
-    popupStyles,
   };
 }

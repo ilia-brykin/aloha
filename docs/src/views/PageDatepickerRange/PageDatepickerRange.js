@@ -4,7 +4,7 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageDatepickerRangeIdWidthDisabled from "./PageDatepickerRangeIdWidthDisabled/PageDatepickerRangeIdWidthDisabled.vue";
 import PageDatepickerRangeBasic from "./PageDatepickerRangeBasic/PageDatepickerRangeBasic.vue";
 import PageDatepickerRangeOptionsErrorsHtmlId from "./PageDatepickerRangeOptionsErrorsHtmlId/PageDatepickerRangeOptionsErrorsHtmlId.vue";
-import PageDatepickerRangeOptionsEvents from "./PageDatepickerRangeOptionsEvents/PageDatepickerRangeOptionsEvents.vue";
+import PageDatepickerRangeEvents from "./PageDatepickerRangeEvents/PageDatepickerRangeEvents.vue";
 import PageDatepickerRangeModelInputIdPrefixIsError from "./PageDatepickerRangeModelInputIdPrefixIsError/PageDatepickerRangeModelInputIdPrefixIsError.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -19,7 +19,7 @@ export default {
     PageDatepickerRangeIdWidthDisabled,
     PageDatepickerRangeBasic,
     PageDatepickerRangeOptionsErrorsHtmlId,
-    PageDatepickerRangeOptionsEvents,
+    PageDatepickerRangeEvents,
     PageDatepickerRangeModelInputIdPrefixIsError,
   },
   setup() {

@@ -8,7 +8,7 @@ export default function IdAPI(props) {
   const htmlId = toRef(props, "htmlId");
   const idPrefix = toRef(props, "idPrefix");
 
-  const getId = computed(() => htmlId.value || `${ idPrefix.value }${ id.value }`);
+  const getId = computed(() => htmlId.value || `${ idPrefix.value || "" }${ id.value }`);
   const idMin = computed(() => `${ getId.value }_min`);
   const idMax = computed(() => `${ getId.value }_max`);
   const idForLabelMin = computed(() => `${ getId.value }_min_label`);
