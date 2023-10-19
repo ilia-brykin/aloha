@@ -18,7 +18,6 @@ import PageTranslationTitle from "./PageTranslationTitle/PageTranslationTitle.vu
 import PageTranslationTitleArray from "./PageTranslationTitleArray/PageTranslationTitleArray.vue";
 import PageTranslationTitleObject from "./PageTranslationTitleObject/PageTranslationTitleObject.vue";
 
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
@@ -59,12 +58,7 @@ export default {
       dataSlots,
     } = SlotsAPI();
 
-    const {
-      dataExposes,
-    } = ExposesAPI();
-
     return {
-      dataExposes,
       dataProps,
       dataSlots,
       pageTitle,
