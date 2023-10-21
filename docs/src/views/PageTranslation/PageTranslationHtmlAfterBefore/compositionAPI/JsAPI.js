@@ -6,6 +6,7 @@ export default {
   components: {
     ATranslation,
   },
+  // "_A_TRANSLATION_EXAMPLE_HTML_": "<button class='a_btn a_btn_primary' onclick='alert("Aloha")'>Aloha</button>",
 };`;
 
   return {

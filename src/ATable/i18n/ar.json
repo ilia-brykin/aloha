@@ -6,6 +6,7 @@
   "_A_TABLE_MULTIPLE_ACTIONS_": "إجراءات متعددة",
   "_A_TABLE_MULTIPLE_CANCEL_": "إلغاء الإجراءات المتعددة",
   "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_": "المحدد {{ countAllRows }} من {{ countSelectedRows }}",
+  "_A_TABLE_PREVIEW_DOWN_CLOSE_": "_A_TABLE_PREVIEW_DOWN_CLOSE_",
   "_A_TABLE_PREVIEW_RIGHT_CLOSE_": "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
   "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_": "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_",
   "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_": "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_",

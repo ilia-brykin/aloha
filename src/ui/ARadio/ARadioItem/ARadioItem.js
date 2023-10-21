@@ -29,13 +29,14 @@ export default {
       type: Boolean,
       required: false,
     },
-    elementsVisibleWithSearch: {
-      type: Object,
-      required: true,
-    },
     id: {
       type: String,
       required: true,
+    },
+    idSuffix: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     isButtonGroup: {
       type: Boolean,
@@ -69,6 +70,14 @@ export default {
     modelValue: {
       type: [String, Number, Boolean],
       required: false,
+    },
+    searching: {
+      type: Boolean,
+      required: false,
+    },
+    searchingElements: {
+      type: Object,
+      required: true,
     },
     slotName: {
       type: String,

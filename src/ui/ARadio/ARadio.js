@@ -1,8 +1,10 @@
 import {
   h,
+  watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import ACloak from "../../ACloak/ACloak";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
@@ -14,10 +16,12 @@ import ChangeAPI from "../ACheckbox/compositionAPI/ChangeAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
+import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -29,6 +33,11 @@ import {
 export default {
   name: "ARadio",
   props: {
+    apiSaveId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     change: {
       type: Function,
       required: false,
@@ -60,6 +69,11 @@ export default {
       default: undefined,
     },
     data: {
+      type: Array,
+      required: false,
+      default: undefined,
+    },
+    dataExtra: {
       type: Array,
       required: false,
       default: () => [],
@@ -182,6 +196,11 @@ export default {
       required: false,
       default: undefined,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     modelDependencies: {
       type: Object,
       required: false,
@@ -208,6 +227,16 @@ export default {
     search: {
       type: Boolean,
       required: false,
+    },
+    searchApi: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    searchApiKey: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     searchOutside: {
       type: Boolean,
@@ -242,6 +271,17 @@ export default {
     type: {
       type: String,
       required: false,
+      default: "radio",
+    },
+    url: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -271,9 +311,33 @@ export default {
     } = TextAfterLabelAPI(props);
 
     const {
-      dataLocal,
+      dataFromServer,
+      dataExtraLocal,
       dataKeyByKeyIdLocal,
+      dataLocal,
+      hasDataExtra,
     } = UiDataWithKeyIdAndLabelAPI(props);
+
+    const {
+      loadDataFromServer,
+      loadDataFromServerForSearchAPI,
+      loadingDataFromServer,
+      loadingSearchApi,
+      onSearchInApi,
+      searchApiLocal,
+      updateUrlPropsComputed,
+      urlPropsComputed,
+    } = UiDataFromServerAPI(props, {
+      changeModel,
+      dataExtraLocal,
+      dataFromServer,
+    });
+
+    const {
+      loadingLocal,
+    } = UiLoadingAPI(props, {
+      loadingDataFromServer,
+    });
 
     UiDataWatchEmitAPI(props, context, {
       dataKeyByKeyIdLocal,
@@ -295,21 +359,29 @@ export default {
     });
 
     const {
-      elementsVisibleWithSearch,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       idForButtonSearchOutside,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
       onSearchOutside,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
+      searchOutsideOrApi,
       searchOutsideRef,
       updateModelSearch,
       updateModelSearchOutside,
     } = UiSearchAPI(props, context, {
       data: dataSort,
-      hasKeyGroup,
+      dataExtra: dataExtraLocal,
       htmlIdLocal,
+      hasKeyGroup,
       keyGroupArray,
+      searchApiLocal,
+      onSearchInApi,
     });
 
     const {
@@ -326,17 +398,26 @@ export default {
       toggleCollapse,
     } = UiCollapseAPI(props, context);
 
+    watch(urlPropsComputed, updateUrlPropsComputed, {
+      deep: true,
+    });
+
     initIsCollapsedLocal();
+    loadDataFromServer();
+    loadDataFromServerForSearchAPI();
 
     return {
       ariaDescribedbyLocal,
       componentStyleHide,
+      dataExtraLocal,
       dataGrouped,
       dataSort,
-      elementsVisibleWithSearch,
+      searchOutsideOrApi,
       errorsId,
       groupsForLever,
+      hasDataExtra,
       hasKeyGroup,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       helpTextId,
       htmlIdLocal,
@@ -344,13 +425,19 @@ export default {
       idForButtonSearchOutside,
       isCollapsedLocal,
       isErrors,
+      loadingLocal,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
       onBlur,
+      loadingSearchApi,
       onChangeModelValue,
       onFocus,
       onSearchOutside,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
       searchOutsideRef,
       textAfterLabel,
       titleCollapse,
@@ -406,7 +493,7 @@ export default {
             h("div", {
               class: "a_fieldset__content",
             }, [
-              this.searchOutside && h("div", {
+              this.searchOutsideOrApi && h("div", {
                 class: "a_fieldset__search",
               }, [
                 h("form", {
@@ -423,6 +510,7 @@ export default {
                       "onUpdate:modelValue": this.updateModelSearchOutside,
                     }),
                     h(AButton, {
+                      ariaDisabled: this.loadingSearchApi,
                       disabled: this.disabled,
                       class: "a_btn a_btn_primary",
                       type: "submit",
@@ -438,6 +526,34 @@ export default {
                 modelUndefined: "",
                 "onUpdate:modelValue": this.updateModelSearch,
               }),
+              this.loadingLocal && h(ACloak),
+              this.hasDataExtra && h("div", {}, [
+                ...this.dataExtraLocal.map((item, itemIndex) => {
+                  return h(ARadioItem, {
+                    key: item[AKeyId],
+                    id: this.htmlIdLocal,
+                    idSuffix: "extra",
+                    classButtonGroupDefault: this.classButtonGroupDefault,
+                    dataItem: item,
+                    disabled: this.disabled,
+                    isButtonGroup: this.isButtonGroup,
+                    isErrors: this.isErrors,
+                    isWidthAuto: this.isWidthAuto,
+                    itemIndex,
+                    keyDisabled: this.keyDisabled,
+                    modelSearch: this.modelSearchLowerCase,
+                    modelValue: this.modelValue,
+                    searching: this.searching,
+                    searchingElements: this.searchingElementsExtra,
+                    slotName: this.slotName,
+                    onChangeModelValue: this.onChangeModelValue,
+                  }, this.$slots);
+                }),
+                !this.hasNotElementsExtraWithSearch && h("div", {
+                  class: "a_divider",
+                  ariaHidden: true,
+                }),
+              ]),
               h("div", {}, this.hasKeyGroup ?
                 [
                   h(ACheckboxRadioGroup, {
@@ -445,7 +561,6 @@ export default {
                     classButtonGroupDefault: this.classButtonGroupDefault,
                     dataGrouped: this.dataGrouped,
                     disabled: this.disabled,
-                    elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                     groupsForLever: this.groupsForLever,
                     isButtonGroup: this.isButtonGroup,
                     isErrors: this.isErrors,
@@ -454,6 +569,9 @@ export default {
                     levelIndex: 0,
                     modelSearch: this.modelSearchLowerCase,
                     modelValue: this.modelValue,
+                    searching: this.searching,
+                    searchingElements: this.searchingElements,
+                    searchingGroups: this.searchingGroups,
                     slotName: this.slotName,
                     type: "radio",
                     onChangeModelValue: this.onChangeModelValue,
@@ -475,7 +593,6 @@ export default {
                         classButtonGroupDefault: this.classButtonGroupDefault,
                         dataItem: item,
                         disabled: this.disabled,
-                        elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                         isButtonGroup: this.isButtonGroup,
                         isErrors: this.isErrors,
                         isWidthAuto: this.isWidthAuto,
@@ -483,6 +600,8 @@ export default {
                         keyDisabled: this.keyDisabled,
                         modelSearch: this.modelSearchLowerCase,
                         modelValue: this.modelValue,
+                        searching: this.searching,
+                        searchingElements: this.searchingElements,
                         slotName: this.slotName,
                         onChangeModelValue: this.onChangeModelValue,
                       }, this.$slots);

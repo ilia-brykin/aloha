@@ -122,14 +122,14 @@ export default function HtmlAPI(props, {
           dataTranslateSafeHtml += " ";
         }
         if (isPlaceholderTranslate(safeHtmlEl)) {
-          safeHtmlCombined += sanitizeLocal(getTranslatedText({
+          safeHtmlCombined += getTranslatedText({
             placeholder: safeHtmlEl,
             translationObj: translation,
             extra: extra.value,
-          }));
+          });
           dataTranslateSafeHtml += safeHtmlEl;
         } else {
-          safeHtmlCombined += sanitizeLocal(safeHtmlEl);
+          safeHtmlCombined += safeHtmlEl;
         }
       });
 

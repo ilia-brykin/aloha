@@ -24,14 +24,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    elementsVisibleWithSearch: {
-      type: Object,
-      required: true,
-    },
-    hideParentWithSearch: {
-      type: Boolean,
-      required: false,
-    },
     groupParentKey: {
       type: [String, Number],
       required: false,
@@ -42,6 +34,10 @@ export default {
       required: false,
       default: () => ({}),
     },
+    hideParentWithSearch: {
+      type: Boolean,
+      required: false,
+    },
     id: {
       type: String,
       required: true,
@@ -50,11 +46,11 @@ export default {
       type: Boolean,
       required: false,
     },
-    isHiddenWithSearch: {
+    isErrors: {
       type: Boolean,
       required: false,
     },
-    isErrors: {
+    isHiddenWithSearch: {
       type: Boolean,
       required: false,
     },
@@ -78,6 +74,18 @@ export default {
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
+    },
+    searching: {
+      type: Boolean,
+      required: false,
+    },
+    searchingElements: {
+      type: Object,
+      required: true,
+    },
+    searchingGroups: {
+      type: Object,
+      required: true,
     },
     slotName: {
       type: String,
@@ -124,9 +132,9 @@ export default {
       ...this.currentGroups.map((group, groupIndex) => {
         let styleWithSearch = undefined;
         let isHiddenWithSearch = false;
-        if (this.elementsVisibleWithSearch.searching) {
+        if (this.searching) {
           const GROUP_KEY_ALL = `${ this.groupParentKey ? `${ this.groupParentKey }_` : "" }${ group.groupKey }`;
-          if (this.isHiddenWithSearch || !this.elementsVisibleWithSearch.groups[GROUP_KEY_ALL]) {
+          if (this.isHiddenWithSearch || !this.searchingGroups[GROUP_KEY_ALL]) {
             styleWithSearch = "display: none;";
             isHiddenWithSearch = true;
           }
@@ -144,7 +152,6 @@ export default {
                 classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
                 dataItem: item,
                 disabled: this.disabled,
-                elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                 isButtonGroup: this.isComponentSelect ? undefined : this.isButtonGroup,
                 isErrors: this.isComponentSelect ? undefined : this.isErrors,
                 isHiddenWithSearch,
@@ -153,6 +160,8 @@ export default {
                 keyDisabled: this.keyDisabled,
                 modelSearch: this.modelSearch,
                 modelValue: this.modelValue,
+                searching: this.searching,
+                searchingElements: this.searchingElements,
                 slotName: this.slotName,
                 type: this.type,
                 onChangeModelValue: this.onChangeModelValue,
@@ -178,7 +187,6 @@ export default {
                 classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
                 dataItem: item,
                 disabled: this.disabled,
-                elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                 isButtonGroup: this.isComponentSelect ? undefined : this.isButtonGroup,
                 isErrors: this.isComponentSelect ? undefined : this.isErrors,
                 isHiddenWithSearch,
@@ -187,6 +195,8 @@ export default {
                 keyDisabled: this.keyDisabled,
                 modelSearch: this.modelSearch,
                 modelValue: this.modelValue,
+                searching: this.searching,
+                searchingElements: this.searchingElements,
                 slotName: this.slotName,
                 type: this.type,
                 onChangeModelValue: this.onChangeModelValue,
@@ -199,7 +209,6 @@ export default {
             classButtonGroupDefault: this.classButtonGroupDefault,
             dataGrouped: this.dataGrouped,
             disabled: this.disabled,
-            elementsVisibleWithSearch: this.elementsVisibleWithSearch,
             groupParentKey: group.groupKey,
             groupsForLever: this.groupsForLever,
             isButtonGroup: this.isButtonGroup,
@@ -210,6 +219,9 @@ export default {
             levelIndex: this.levelIndex + 1,
             modelSearch: this.modelSearch,
             modelValue: this.modelValue,
+            searching: this.searching,
+            searchingElements: this.searchingElements,
+            searchingGroups: this.searchingGroups,
             slotName: this.slotName,
             type: this.type,
             onChangeModelValue: this.onChangeModelValue,

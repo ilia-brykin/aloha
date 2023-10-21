@@ -749,6 +749,7 @@ export default {
                     disabledRowActions: this.disabledRowActions,
                     row,
                     rowIndex,
+                    isPreviewDownOpen: this.previewDownRowIndexes[rowIndex],
                     isRowActionsStickyLocal: this.isRowActionsStickyLocal,
                     selectedRowsIndexes: this.selectedRowsIndexes,
                     rowActionsClass: this.rowActionsClass,

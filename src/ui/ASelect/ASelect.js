@@ -1,6 +1,7 @@
 import {
   h,
   Teleport,
+  watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -23,13 +24,14 @@ import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI
 import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
 import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-
 
 import AKeyId from "../const/AKeyId";
 import placements from "../../const/placements";
@@ -43,6 +45,11 @@ import {
 export default {
   name: "ASelect",
   props: {
+    apiSaveId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     buttonClass: {
       type: String,
       required: false,
@@ -66,12 +73,22 @@ export default {
     data: {
       type: Array,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.data,
+      default: undefined,
+    },
+    dataExtra: {
+      type: Array,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.dataExtra,
     },
     dependencies: {
       type: [Array, Object],
       required: false,
       default: undefined,
+    },
+    deselectable: {
+      type: Boolean,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.deselectable,
     },
     disabled: {
       type: Boolean,
@@ -133,11 +150,6 @@ export default {
       type: Boolean,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.isDataSimpleArray,
-    },
-    deselectable: {
-      type: Boolean,
-      required: false,
-      default: () => selectPluginOptions.value.propsDefault.deselectable,
     },
     isDeselectAll: {
       type: Boolean,
@@ -210,7 +222,7 @@ export default {
     loading: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.loading,
+      default: false,
     },
     maxCountMultiselect: {
       type: Number,
@@ -264,6 +276,16 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.search,
     },
+    searchApi: {
+      type: Boolean,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.searchApi,
+    },
+    searchApiKey: {
+      type: String,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.searchApiKey,
+    },
     searchOutside: {
       type: Boolean,
       required: false,
@@ -312,6 +334,16 @@ export default {
       default: () => selectPluginOptions.value.propsDefault.type,
       validator: value => ["select", "multiselect"].indexOf(value) !== -1,
     },
+    url: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "blur",
@@ -339,9 +371,34 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      dataAll,
+      dataFromServer,
+      dataExtraLocal,
       dataKeyByKeyIdLocal,
       dataLocal,
+      hasDataExtra,
     } = UiDataWithKeyIdAndLabelAPI(props);
+
+    const {
+      loadDataFromServer,
+      loadDataFromServerForSearchAPI,
+      loadingDataFromServer,
+      loadingSearchApi,
+      onSearchInApi,
+      searchApiLocal,
+      updateUrlPropsComputed,
+      urlPropsComputed,
+    } = UiDataFromServerAPI(props, {
+      changeModel,
+      dataExtraLocal,
+      dataFromServer,
+    });
+
+    const {
+      loadingLocal,
+    } = UiLoadingAPI(props, {
+      loadingDataFromServer,
+    });
 
     const {
       addPopperContainerInBody,
@@ -385,21 +442,29 @@ export default {
     });
 
     const {
-      elementsVisibleWithSearch,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       idForButtonSearchOutside,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
       onSearchOutside,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
+      searchOutsideOrApi,
       searchOutsideRef,
       updateModelSearch,
       updateModelSearchOutside,
     } = UiSearchAPI(props, context, {
       data: dataSort,
+      dataExtra: dataExtraLocal,
       htmlIdLocal,
       hasKeyGroup,
       keyGroupArray,
+      searchApiLocal,
+      onSearchInApi,
     });
 
     const {
@@ -418,11 +483,11 @@ export default {
       onKeydownSelectAll,
       onSelectAll,
     } = ModelChangeAPI(props, {
-      isMultiselect,
       changeModel,
-      togglePopover,
-      dataLocal,
+      data: dataAll,
       dataKeyByKeyIdLocal,
+      isMultiselect,
+      togglePopover,
     });
 
     const {
@@ -442,7 +507,13 @@ export default {
       isMultiselect,
     });
 
+    watch(urlPropsComputed, updateUrlPropsComputed, {
+      deep: true,
+    });
+
     addPopperContainerInBody();
+    loadDataFromServer();
+    loadDataFromServerForSearchAPI();
 
     return {
       ariaDescribedbyLocal,
@@ -452,15 +523,17 @@ export default {
       clearModel,
       componentStyleHide,
       containerId,
+      dataExtraLocal,
       dataGrouped,
       dataKeyByKeyIdLocal,
       dataLocal,
       dataSort,
-      elementsVisibleWithSearch,
       errorsId,
       groupsForLever,
       handleKeydown,
+      hasDataExtra,
       hasKeyGroup,
+      hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       hasSelectedTitle,
       helpTextId,
@@ -473,6 +546,8 @@ export default {
       isModelValue,
       isMultiselect,
       isOpen,
+      loadingLocal,
+      loadingSearchApi,
       menuParentRef,
       menuRef,
       modelSearch,
@@ -488,6 +563,11 @@ export default {
       onSearchOutside,
       onSelectAll,
       popperContainerIdSelector,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+      searchingGroups,
+      searchOutsideOrApi,
       searchOutsideRef,
       selectedTitle,
       tabindex,
@@ -514,7 +594,7 @@ export default {
           isLabelFloat: this.isLabelFloat,
           type: this.type,
           clickLabel: this.togglePopover,
-          loading: this.loading,
+          loading: this.loadingLocal,
         }),
         h("div", {
           class: "a_form_element",
@@ -611,7 +691,7 @@ export default {
                     role: "listbox",
                     ariaLabelledby: this.htmlIdLocal,
                   }, [
-                    this.searchOutside && h("div", {
+                    this.searchOutsideOrApi && h("div", {
                       class: "a_select__search",
                     }, [
                       h("form", {
@@ -628,6 +708,7 @@ export default {
                             "onUpdate:modelValue": this.updateModelSearchOutside,
                           }),
                           h(AButton, {
+                            ariaDisabled: this.loadingSearchApi,
                             disabled: this.disabled,
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",
@@ -690,19 +771,44 @@ export default {
                         class: "a_select__divider",
                         ariaHidden: true,
                       }),
+                      this.hasDataExtra && h("div", {}, [
+                        ...this.dataExtraLocal.map((item, itemIndex) => {
+                          return h(ASelectElement, {
+                            key: item[AKeyId],
+                            id: this.htmlIdLocal,
+                            dataItem: item,
+                            disabled: this.disabled,
+                            searching: this.searching,
+                            searchingElements: this.searchingElementsExtra,
+                            itemIndex,
+                            keyDisabled: this.keyDisabled,
+                            modelSearch: this.modelSearchLowerCase,
+                            modelValue: this.modelValue,
+                            slotName: this.slotName,
+                            type: this.type,
+                            onChangeModelValue: this.onChangeModelValue,
+                          }, this.$slots);
+                        }),
+                        !this.hasNotElementsExtraWithSearch && h("div", {
+                          class: "a_select__divider",
+                          ariaHidden: true,
+                        }),
+                      ]),
                       h("div", {}, this.hasKeyGroup ?
                         [
                           h(ACheckboxRadioGroup, {
                             id: `${ this.htmlIdLocal }_lev_0`,
                             dataGrouped: this.dataGrouped,
                             disabled: this.disabled,
-                            elementsVisibleWithSearch: this.elementsVisibleWithSearch,
                             groupsForLever: this.groupsForLever,
                             isErrors: this.isErrors,
                             keyDisabled: this.keyDisabled,
                             levelIndex: 0,
                             modelSearch: this.modelSearchLowerCase,
                             modelValue: this.modelValue,
+                            searching: this.searching,
+                            searchingElements: this.searchingElements,
+                            searchingGroups: this.searchingGroups,
                             slotName: this.slotName,
                             type: this.type,
                             onChangeModelValue: this.onChangeModelValue,
@@ -716,7 +822,8 @@ export default {
                                 id: this.htmlIdLocal,
                                 dataItem: item,
                                 disabled: this.disabled,
-                                elementsVisibleWithSearch: this.elementsVisibleWithSearch,
+                                searching: this.searching,
+                                searchingElements: this.searchingElements,
                                 itemIndex,
                                 keyDisabled: this.keyDisabled,
                                 modelSearch: this.modelSearchLowerCase,

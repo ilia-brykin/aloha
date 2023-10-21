@@ -2,14 +2,15 @@ import {
   h,
 } from "vue";
 
+import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
+import ATablePreviewDown from "../ATablePreviewDown/ATablePreviewDown";
 import ATableTd from "../ATableTd/ATableTd";
 import ATableTdAction from "../ATableTdAction/ATableTdAction";
-import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import CheckboxAPI from "./compositionAPI/CheckboxAPI";
-import MobileAPI from "./compositionAPI/MobileAPI";
 
+import MobileAPI from "./compositionAPI/MobileAPI";
 import {
   forEach,
 } from "lodash-es";
@@ -38,6 +39,10 @@ export default {
       required: false,
     },
     isFooter: {
+      type: Boolean,
+      required: false,
+    },
+    isPreviewDownOpen: {
       type: Boolean,
       required: false,
     },
@@ -152,23 +157,24 @@ export default {
       }, tds) :
       tds;
 
-    return h("div", this.rowAttributes, [
-      this.isMultipleActionsActive && h("div", {
-        scope: "row",
-        class: "a_table__td a_table__cell a_table__cell_checkbox",
-        style: `width: 50px; min-width: 50px; max-width: 50px;`,
-      }, [
-        !this.isFooter && h(AOneCheckbox, {
-          isWidthAuto: true,
-          modelValue: this.isRowSelected,
-          disabled: this.isCheckboxDisabled,
-          label: this.labelCheckbox,
-          labelClass: "a_sr_only",
-          isLabelTitle: true,
-          "onUpdate:modelValue": this.toggleCheckbox,
-        }),
-      ]),
-      CHILDREN,
+    return [
+      h("div", this.rowAttributes, [
+        this.isMultipleActionsActive && h("div", {
+          scope: "row",
+          class: "a_table__td a_table__cell a_table__cell_checkbox",
+          style: `width: 50px; min-width: 50px; max-width: 50px;`,
+        }, [
+          !this.isFooter && h(AOneCheckbox, {
+            isWidthAuto: true,
+            modelValue: this.isRowSelected,
+            disabled: this.isCheckboxDisabled,
+            label: this.labelCheckbox,
+            labelClass: "a_sr_only",
+            isLabelTitle: true,
+            "onUpdate:modelValue": this.toggleCheckbox,
+          }),
+        ]),
+        CHILDREN,
       this.isMobile ?
         h("div", {
           class: "a_table_mobile__actions_parent",
@@ -180,6 +186,13 @@ export default {
           ACTIONS,
         ]) :
         ACTIONS,
-    ]);
+      ]),
+      this.isPreviewDownOpen && h(ATablePreviewDown, {
+        row: this.row,
+        rowIndex: this.rowIndex,
+      }, {
+        previewDown: arg => this.$slots.previewDown(arg),
+      }),
+    ];
   },
 };

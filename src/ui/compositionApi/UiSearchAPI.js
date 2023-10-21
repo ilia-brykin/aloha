@@ -16,19 +16,26 @@ import {
 
 export default function UiSearchAPI(props, { emit }, {
   data = computed(() => []),
+  dataExtra = computed(() => []),
   hasKeyGroup = computed(() => false),
   htmlIdLocal = computed(() => ""),
   keyGroupArray = computed(() => []),
+  onSearchInApi = () => {},
+  searchApiLocal = computed(() => false),
 }) {
   const searchTimeout = toRef(props, "searchTimeout");
+  const searchOutside = toRef(props, "searchOutside");
 
   const modelSearch = ref("");
   const modelSearchOutside = ref("");
+  const searching = ref(false);
+  const searchingElements = ref({});
+  const searchingElementsExtra = ref({});
+  const searchingGroups = ref({});
   const searchOutsideRef = ref(undefined);
-  const elementsVisibleWithSearch = ref({
-    searching: false,
-    groups: {},
-    elements: {},
+  
+  const searchOutsideOrApi = computed(() => {
+    return !!(searchOutside.value || searchApiLocal.value);
   });
 
   const idForButtonSearchOutside = computed(() => {
@@ -40,10 +47,11 @@ export default function UiSearchAPI(props, { emit }, {
   });
 
   const setElementsVisibleWithSearch = () => {
+    const ELEMENTS_EXTRA_VISIBLE = {};
     const ELEMENTS_VISIBLE = {};
     const GROUPS_VISIBLE = {};
     if (modelSearch.value) {
-      elementsVisibleWithSearch.value.searching = true;
+      searching.value = true;
       if (hasKeyGroup.value) {
         forEach(data.value, element => {
           const ELEMENT_LABEL = element[AKeyLabel];
@@ -70,16 +78,29 @@ export default function UiSearchAPI(props, { emit }, {
           }
         });
       }
+      forEach(dataExtra.value, element => {
+        const ELEMENT_LABEL = element[AKeyLabel];
+        const ELEMENT_ID = element[AKeyId];
+        if (toLower(`${ ELEMENT_LABEL }`).indexOf(modelSearchLowerCase.value) !== -1) {
+          ELEMENTS_EXTRA_VISIBLE[ELEMENT_ID] = true;
+        }
+      });
     } else {
-      elementsVisibleWithSearch.value.searching = false;
+      searching.value = false;
     }
-    elementsVisibleWithSearch.value.elements = ELEMENTS_VISIBLE;
-    elementsVisibleWithSearch.value.groups = GROUPS_VISIBLE;
+    searchingElements.value = ELEMENTS_VISIBLE;
+    searchingElementsExtra.value = ELEMENTS_EXTRA_VISIBLE;
+    searchingGroups.value = GROUPS_VISIBLE;
   };
 
+  const hasNotElementsExtraWithSearch = computed(() => {
+    return !!(searching.value &&
+      isEmpty(searchingElementsExtra.value));
+  });
+
   const hasNotElementsWithSearch = computed(() => {
-    return !!(elementsVisibleWithSearch.value.searching &&
-      isEmpty(elementsVisibleWithSearch.value.elements));
+    return !!(searching.value &&
+      isEmpty(searchingElements.value) && hasNotElementsExtraWithSearch.value);
   });
 
   const updateModelSearch = model => {
@@ -93,10 +114,14 @@ export default function UiSearchAPI(props, { emit }, {
     }
   };
 
+
   const onSearchOutside = $event => {
     if ($event) {
       $event.preventDefault();
     }
+    onSearchInApi({
+      search: modelSearchOutside.value,
+    });
     emit("onSearchOutside", {
       model: modelSearchOutside.value,
     });
@@ -107,13 +132,18 @@ export default function UiSearchAPI(props, { emit }, {
   };
 
   return {
-    elementsVisibleWithSearch,
+    hasNotElementsExtraWithSearch,
     hasNotElementsWithSearch,
     idForButtonSearchOutside,
     modelSearch,
     modelSearchLowerCase,
     modelSearchOutside,
     onSearchOutside,
+    searching,
+    searchingElements,
+    searchingElementsExtra,
+    searchingGroups,
+    searchOutsideOrApi,
     searchOutsideRef,
     updateModelSearch,
     updateModelSearchOutside,

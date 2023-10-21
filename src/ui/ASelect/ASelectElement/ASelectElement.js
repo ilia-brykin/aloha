@@ -24,10 +24,6 @@ export default {
       type: Boolean,
       required: false,
     },
-    elementsVisibleWithSearch: {
-      type: Object,
-      required: true,
-    },
     id: {
       type: String,
       required: true,
@@ -53,6 +49,14 @@ export default {
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
+    },
+    searching: {
+      type: Boolean,
+      required: false,
+    },
+    searchingElements: {
+      type: Object,
+      required: true,
     },
     slotName: {
       type: String,
