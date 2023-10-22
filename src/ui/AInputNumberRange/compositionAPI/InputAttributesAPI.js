@@ -5,25 +5,25 @@ import {
 
 export default function InputAttributesAPI(props) {
   const inputAttributes = toRef(props, "inputAttributes");
-  const inputAttributesMax = toRef(props, "inputAttributesMax");
-  const inputAttributesMin = toRef(props, "inputAttributesMin");
+  const inputAttributesFrom = toRef(props, "inputAttributesFrom");
+  const inputAttributesUntil = toRef(props, "inputAttributesUntil");
 
-  const inputAttributesMaxLocal = computed(() => {
+  const inputAttributesFromLocal = computed(() => {
     return {
       ...inputAttributes.value,
-      ...inputAttributesMax.value,
+      ...inputAttributesFrom.value,
     };
   });
 
-  const inputAttributesMinLocal = computed(() => {
+  const inputAttributesUntilLocal = computed(() => {
     return {
       ...inputAttributes.value,
-      ...inputAttributesMin.value,
+      ...inputAttributesUntil.value,
     };
   });
 
   return {
-    inputAttributesMaxLocal,
-    inputAttributesMinLocal,
+    inputAttributesFromLocal,
+    inputAttributesUntilLocal,
   };
 }

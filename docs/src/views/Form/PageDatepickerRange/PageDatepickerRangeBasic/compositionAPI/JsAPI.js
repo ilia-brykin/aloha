@@ -3,12 +3,12 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AInputNumberRange from "aloha-vue/src/ui/AInputNumberRange/AInputNumberRange";
-    
+import ADatepickerRange from "aloha-vue/ui/ADatepickerRange/ADatepickerRange";
+
 export default {
-  name: "PageInputNumberRangeBasic",
+  name: "PageDatepickerRangeBasic",
   components: {
-    AInputNumberRange,
+    ADatepickerRange,
   },
   setup() {
     const model = ref(undefined);

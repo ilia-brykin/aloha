@@ -11,7 +11,7 @@ import ru from "./i18n/ru.json";
 
 import PageAAlertI18n from "./views/PageAlert/i18n/PageAAlertI18n";
 import PageARateI18n from "./views/PageRate/i18n/PageARateI18n";
-import PageDatepickerRangeI18n from "./views/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
+import PageDatepickerRangeI18n from "./views/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageShowMoreI18n from "./views/PageShowMore/i18n/PageShowMoreI18n";
 import PageTranslationI18n from "./views/PageTranslation/i18n/PageTranslationI18n";
 import PageButtonI18n from "./views/PageButton/i18n/PageButtonI18n";

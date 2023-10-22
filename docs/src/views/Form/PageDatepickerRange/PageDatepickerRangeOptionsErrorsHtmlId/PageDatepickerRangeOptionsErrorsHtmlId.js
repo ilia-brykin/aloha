@@ -2,14 +2,14 @@ import {
   ref,
 } from "vue";
 
-import ADatepickerRange from "../../../../../src/ui/ADatepickerRange/ADatepickerRange";
-import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
+import ADatepickerRange from "../../../../../../src/ui/ADatepickerRange/ADatepickerRange";
+import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageDatepickerRangeModelInputIdPrefixIsError",
+  name: "PageDatepickerRangeOptionsErrorsHtmlId",
   components: {
     ADatepickerRange,
     AlohaExample,
@@ -20,8 +20,10 @@ export default {
       date_before: null,
     });
 
-    const idPrefix = ref("datepicker-prefix-");
-    const isError = ref(false);
+    const options = ref({
+      format: "DD.MM.YY",
+    });
+    const errors = ref(["Start date is required", "End date is invalid"]);
 
     const updateDateRange = newRange => {
       dateRangeModel.value = newRange.model;
@@ -35,10 +37,10 @@ export default {
     } = JsAPI();
 
     return {
+      options,
       dateRangeModel,
       updateDateRange,
-      idPrefix,
-      isError,
+      errors,
       codeHtml,
       codeJs,
     };

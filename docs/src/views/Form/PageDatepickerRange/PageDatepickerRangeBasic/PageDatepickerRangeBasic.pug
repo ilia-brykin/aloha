@@ -3,9 +3,10 @@ aloha-example(
   :code-js="codeJs"
   header="_A_DATEPICKER_RANGE_BASIC_HEADER_"
   description="_A_DATEPICKER_RANGE_BASIC_DESCRIPTION_"
-  :props="['model', 'input']"
+  :props="['v-model', 'label']"
 )
   a-datepicker-range(
-    :model="dateRangeModel"
-    @input="updateDateRange"
+    v-model="model"
+    label="Aloha"
   )
+  .a_mt_3 model: {{ model }}

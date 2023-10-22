@@ -1,5 +1,6 @@
 import ACheckbox from "./ACheckbox/ACheckbox";
 import ADatepicker from "./ADatepicker/ADatepicker";
+import ADatepickerRange from "./ADatepickerRange/ADatepickerRange";
 import AInput from "./AInput/AInput";
 import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
@@ -17,6 +18,7 @@ export default {
   color: AInput,
   date: ADatepicker,
   datetime: ADatepicker,
+  dateRange: ADatepickerRange,
   email: AInput,
   file: AInputFile,
   integer: AInputNumber,

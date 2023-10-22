@@ -3,158 +3,366 @@ import {
 } from "vue";
 
 import ADatepicker from "../ADatepicker/ADatepicker";
-import ATranslation from "../../ATranslation/ATranslation";
-
-import UiMixinProps from "../mixins/UiMixinProps";
+import AErrorsText from "../AErrorsText/AErrorsText";
+import AFormHelpText from "../AFormHelpText/AFormHelpText";
+import ALabel from "../ALabel/ALabel";
 
 import IdAPI from "./compositionAPI/IdAPI";
-import InputAPI from "./compositionAPI/InputAPI";
-import DateAPI from "./compositionAPI/DateAPI";
-import ActionsAPI from "./compositionAPI/ActionsAPI";
+import InputAttributesAPI from "../AInputNumberRange/compositionAPI/InputAttributesAPI";
+import ModelAPI from "./compositionAPI/ModelAPI";
+import UiAPI from "../compositionApi/UiAPI";
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+
+import placements from "../../const/placements";
+import {
+  uniqueId,
+} from "lodash-es";
 
 export default {
   name: "ADatepickerRange",
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
-    model: {
-      type: Object,
-      default: () => ({}),
-    },
-    isError: {
+    appendToBody: {
       type: Boolean,
       default: false,
     },
-    width: {
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    clearable: {
+      type: Boolean,
+      default: true,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    disabledFrom: {
+      type: Boolean,
+      required: false,
+    },
+    disabledUntil: {
+      type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    firstDayOfWeek: {
+      type: Number,
+      required: false,
+      default: 1,
+      validator: val => val >= 1 && val <= 7,
+    },
+    format: {
+      type: [String, Object],
+      default: "DD.MM.YYYY"
+    },
+    formatSave: {
+      type: String,
+      required: false,
+      default: "YYYY-MM-DD",
+    },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    iconDay: {
+      type: [Number, String],
+      default: undefined,
+    },
+    id: {
       type: [String, Number],
-      default: null,
+      required: false,
+      default: () => uniqueId("a_datepicker_range_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputAttributesFrom: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputAttributesUntil: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      default: "pux_datepicker__input",
+    },
+    inputName: {
+      type: String,
+      default: "date",
+    },
+    inputWidth: {
+      type: Number,
+      required: false,
+      default: 270,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    keyFrom: {
+      tpe: String,
+      required: false,
+      default: "from",
+    },
+    keyUntil: {
+      tpe: String,
+      required: false,
+      default: "until",
+    },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      required: false,
+      default: undefined,
+    },
+    labelFrom: {
+      type: String,
+      required: false,
+      default: "_A_DATEPICKER_RANGE_FROM_",
+    },
+    labelUntil: {
+      type: String,
+      required: false,
+      default: "_A_DATEPICKER_RANGE_UNTIL_",
+    },
+    lang: {
+      type: String,
+      default: "de",
+      required: false,
+    },
+    modelUndefined: {
+      required: false,
+      default: undefined,
+    },
+    modelValue: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    placeholderFrom: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    placeholderUntil: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    placement: {
+      type: String,
+      required: false,
+      default: "bottom-start",
+      validator: placement => placements.indexOf(placement) !== -1,
+    },
+    popupStyle: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    shortcuts: {
+      type: [Boolean, Array],
+      default: true,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "dateRange",
     },
   },
-  emits: [
-    "input",
-    "change",
-    "focus"
-  ],
   setup(props, context) {
     const {
-      getId,
-      idMin,
-      idMax,
-      idForLabelMin,
-      idForLabelMax,
-    } = IdAPI(props);
+      componentStyleHide,
+    } = UiStyleHideAPI(props);
 
     const {
-      inputClass,
-      inputAttributesMin,
-      inputAttributesMax,
-    } = InputAPI(props, {
-      idForLabelMin,
-      idForLabelMax,
-      getId,
+      changeModel,
+      errorsId,
+      helpTextId,
+      htmlIdLocal,
+      isErrors,
+    } = UiAPI(props, context);
+
+    const {
+      changeModelFrom,
+      changeModelUntil,
+      modelValueFrom,
+      modelValueUntil,
+    } = ModelAPI(props, {
+      changeModel,
     });
 
     const {
-      placeholderMin,
-      placeholderMax,
-      minuteStep,
-      type,
-      format,
-      modelMin,
-      modelMax,
-    } = DateAPI(props, {
-      idMin,
-      idMax,
+      idFrom,
+      idUntil,
+    } = IdAPI({
+      htmlIdLocal,
     });
 
     const {
-      onSelectMin,
-      onSelectMax,
-      onFocusMin,
-      onFocusMax,
-    } = ActionsAPI(props, context);
+      inputAttributesFromLocal,
+      inputAttributesUntilLocal,
+    } = InputAttributesAPI(props);
 
     return {
-      idForLabelMin,
-      idMin,
-      placeholderMin,
-      format,
-      type,
-      minuteStep,
-      inputAttributesMin,
-      idMax,
-      idForLabelMax,
-      placeholderMax,
-      inputAttributesMax,
-      modelMin,
-      modelMax,
-      inputClass,
-      onSelectMin,
-      onFocusMin,
-      onSelectMax,
-      onFocusMax,
+      changeModelFrom,
+      changeModelUntil,
+      componentStyleHide,
+      errorsId,
+      helpTextId,
+      idFrom,
+      idUntil,
+      inputAttributesFromLocal,
+      inputAttributesUntilLocal,
+      isErrors,
+      modelValueFrom,
+      modelValueUntil,
     };
   },
   render() {
-    return h("div", {
-      class: [
-        "a_d_flex",
-        "a_align_items_center"
-      ]
+    return this.isRender && h("div", {
+      class: "a_datepicker_range",
+      style: this.componentStyleHide,
     }, [
-      h(ATranslation, {
-        id: this.idForLabelMin,
-        text: "_A_DATEPICKER_RANGE_FROM_",
-        class: ["a_d_inline_block", "a_pr_4", "a_text_nowrap"]
-      }),
-      h(ADatepicker, {
-        id: this.idMin,
-        ref: "min",
-        modelValue: this.modelMin,
-        class: { "is-invalid": this.isError },
-        firstDayOfWeek: 1,
-        lang: "de",
-        inputClass: this.inputClass,
-        placeholder: this.placeholderMin,
-        disabled: this.disabled || this.options.disabledMin,
-        width: this.width,
-        format: this.format,
-        type: this.type,
-        minuteStep: this.minuteStep,
-        inputAttr: this.inputAttributesMin,
-        appendToBody: true,
-        onChange: event => {
-          this.onSelectMin(event);
-        },
-        onFocus: this.onFocusMin
-      }),
-      h(ATranslation, {
-        id: this.idForLabelMax,
-        text: "_A_DATEPICKER_RANGE_UNTIL_",
-        class: ["a_d_inline_block", "a_px_4", "a_text_nowrap"]
-      }),
-      h(ADatepicker, {
-        id: this.idMax,
-        ref: "max",
-        modelValue: this.modelMax,
-        class: { "is-invalid": this.isError },
-        firstDayOfWeek: 1,
-        lang: "de",
-        inputClass: this.inputClass,
-        placeholder: this.placeholderMax,
-        disabled: this.disabled || this.options.disabledMax,
-        width: this.width,
-        format: this.format,
-        type: this.type,
-        minuteStep: this.minuteStep,
-        inputAttr: this.inputAttributesMax,
-        appendToBody: true,
-        onChange: event => {
-          this.onSelectMax(event);
-        },
-        onFocus: this.onFocusMax
-      }),
+      h("div", {
+        class: ["a_form_element__parent", {
+          a_form_element__parent_invalid: this.isErrors,
+        }],
+      }, [
+        this.label && h(ALabel, {
+          id: this.idFrom,
+          label: this.label,
+          labelClass: this.labelClass,
+          required: this.required,
+          type: this.type,
+          isLabelFloat: false,
+        }),
+        h("div", {
+          class: "a_datepicker_range__content",
+        }, [
+          h(ALabel, {
+            id: this.idFrom,
+            labelClass: "a_datepicker_range__label a_datepicker_range__label_min",
+            isLabelFloat: false,
+            label: this.labelFrom,
+          }),
+          h(ADatepicker, {
+            id: this.idFrom,
+            ref: "from",
+            inputAttr: this.inputAttributesFromLocal,
+            modelValue: this.modelValueFrom,
+            formatSave: this.formatSave,
+            firstDayOfWeek: this.firstDayOfWeek,
+            appendToBody: this.appendToBody,
+            popupStyle: this.popupStyle,
+            iconDay: this.iconDay,
+            inputName: this.inputName,
+            placement: this.placement,
+            clearable: this.clearable,
+            shortcuts: this.shortcuts,
+            lang: this.lang,
+            inputClass: this.inputClass,
+            placeholder: this.placeholderFrom,
+            disabled: this.disabled || this.disabledFrom,
+            width: this.inputWidth,
+            format: this.format,
+            type: "date",
+            onChange: this.changeModelFrom,
+          }),
+          h(ALabel, {
+            id: this.idUntil,
+            labelClass: "a_datepicker_range__label a_datepicker_range__label_max",
+            isLabelFloat: false,
+            label: this.labelUntil,
+          }),
+          h(ADatepicker, {
+            id: this.idUntil,
+            ref: "until",
+            modelValue: this.modelValueUntil,
+            formatSave: this.formatSave,
+            firstDayOfWeek: this.firstDayOfWeek,
+            appendToBody: this.appendToBody,
+            popupStyle: this.popupStyle,
+            iconDay: this.iconDay,
+            inputName: this.inputName,
+            placement: this.placement,
+            clearable: this.clearable,
+            shortcuts: this.shortcuts,
+            lang: this.lang,
+            inputClass: this.inputClass,
+            placeholder: this.placeholderUntil,
+            disabled: this.disabled || this.disabledUntil,
+            width: this.inputWidth,
+            format: this.format,
+            type: "date",
+            inputAttr: this.inputAttributesUntilLocal,
+            onChange: this.changeModelUntil,
+          }),
+          h(AFormHelpText, {
+            id: this.helpTextId,
+            html: this.helpText,
+            extra: this.extra,
+          }),
+          this.isErrors && h(AErrorsText, {
+            id: this.errorsId,
+            errors: this.errors,
+          }),
+        ]),
+      ]),
     ]);
   },
 };

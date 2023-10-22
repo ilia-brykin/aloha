@@ -82,7 +82,7 @@ const ROUTES = [
   {
     path: "/datepicker-range",
     name: "PageDatepickerRange",
-    component: () => import(/* webpackChunkName: "PageDatepickerRange" */ "../views/PageDatepickerRange/PageDatepickerRange.vue"),
+    component: () => import(/* webpackChunkName: "PageDatepickerRange" */ "../views/Form/PageDatepickerRange/PageDatepickerRange.vue"),
   },
   {
     path: "/alert",
