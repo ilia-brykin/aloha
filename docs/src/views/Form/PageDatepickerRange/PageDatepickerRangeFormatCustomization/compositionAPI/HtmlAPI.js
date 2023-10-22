@@ -1,9 +1,8 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-datepicker-range
-  id="date5"
-  :width="350"
-  :model="dateRangeModel"
-  :disabled="isDisabled">
+  v-model="model"
+  format="DD.MM.YY"
+  format-save="YY-MM-DD"
 </a-datepicker-range>`;
 
   return {

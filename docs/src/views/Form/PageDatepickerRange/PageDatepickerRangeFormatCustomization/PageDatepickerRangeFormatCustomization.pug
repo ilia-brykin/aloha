@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_HEADER_"
+  description="_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_"
+  :props="['v-model', 'format', 'formatSave']"
+)
+  a-datepicker-range(
+    v-model="model"
+    format="DD.MM.YY"
+    format-save="YY-MM-DD"
+  )

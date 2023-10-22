@@ -9,38 +9,26 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageDatepickerRangeModelInputIdPrefixIsError",
+  name: "PageDatepickerRangeHelpText",
   components: {
     ADatepickerRange,
     AlohaExample,
   },
   setup() {
-    const dateRangeModel = ref({
-      date_after: null,
-      date_before: null,
-    });
-
-    const idPrefix = ref("datepicker-prefix-");
-    const isError = ref(false);
-
-    const updateDateRange = newRange => {
-      dateRangeModel.value = newRange.model;
-    };
-
     const {
       codeHtml,
     } = HtmlAPI();
+
     const {
       codeJs,
     } = JsAPI();
 
+    const model = ref(undefined);
+
     return {
-      dateRangeModel,
-      updateDateRange,
-      idPrefix,
-      isError,
       codeHtml,
       codeJs,
+      model,
     };
   },
 };

@@ -1,13 +1,12 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageDatepickerRangeIdWidthDisabled from "./PageDatepickerRangeIdWidthDisabled/PageDatepickerRangeIdWidthDisabled.vue";
 import PageDatepickerRangeBasic from "./PageDatepickerRangeBasic/PageDatepickerRangeBasic.vue";
-import PageDatepickerRangeOptionsErrorsHtmlId from "./PageDatepickerRangeOptionsErrorsHtmlId/PageDatepickerRangeOptionsErrorsHtmlId.vue";
-import PageDatepickerRangeEvents from "./PageDatepickerRangeEvents/PageDatepickerRangeEvents.vue";
-import PageDatepickerRangeModelInputIdPrefixIsError from "./PageDatepickerRangeModelInputIdPrefixIsError/PageDatepickerRangeModelInputIdPrefixIsError.vue";
+import PageDatepickerRangeCustomFirstDay from "./PageDatepickerRangeCustomFirstDay/PageDatepickerRangeCustomFirstDay.vue";
+import PageDatepickerRangeDisabledVariants from "./PageDatepickerRangeDisabledVariants/PageDatepickerRangeDisabledVariants.vue";
+import PageDatepickerRangeFormatCustomization from "./PageDatepickerRangeFormatCustomization/PageDatepickerRangeFormatCustomization.vue";
+import PageDatepickerRangeHelpText from "./PageDatepickerRangeHelpText/PageDatepickerRangeHelpText.vue";
 
-import EventsAPI from "./compositionAPI/EventsAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 
 export default {
@@ -16,23 +15,18 @@ export default {
     AlohaPage,
     AlohaTableProps,
     ATranslation,
-    PageDatepickerRangeIdWidthDisabled,
     PageDatepickerRangeBasic,
-    PageDatepickerRangeOptionsErrorsHtmlId,
-    PageDatepickerRangeEvents,
-    PageDatepickerRangeModelInputIdPrefixIsError,
+    PageDatepickerRangeCustomFirstDay,
+    PageDatepickerRangeDisabledVariants,
+    PageDatepickerRangeFormatCustomization,
+    PageDatepickerRangeHelpText,
   },
   setup() {
     const {
       dataProps,
     } = PropsAPI();
 
-    const {
-      dataEvents,
-    } = EventsAPI();
-
     return {
-      dataEvents,
       dataProps,
     };
   },

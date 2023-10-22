@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_HEADER_"
+  description="_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_DESCRIPTION_"
+  :props="['v-model', 'label', 'firstDayOfWeek']"
+)
+  a-datepicker-range(
+    v-model="model"
+    label="_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_"
+    :first-day-of-week=4
+  )
+

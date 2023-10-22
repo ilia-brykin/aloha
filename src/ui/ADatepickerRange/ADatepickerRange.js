@@ -353,6 +353,7 @@ export default {
             onChange: this.changeModelUntil,
           }),
           h(AFormHelpText, {
+            class: "a_datepicker_range__help_text",
             id: this.helpTextId,
             html: this.helpText,
             extra: this.extra,

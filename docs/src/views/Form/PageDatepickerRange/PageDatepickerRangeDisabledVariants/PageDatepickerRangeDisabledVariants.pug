@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_PAGE_DATEPICKER_RANGE_DISABLED_VARIANTS_HEADER_"
+  description="_PAGE_DATEPICKER_RANGE_DISABLED_VARIANTS_DESCRIPTION_"
+  :props="['v-model', 'disabled', 'disabledFrom', 'disabledUntil']"
+)
+  a-datepicker-range(
+    v-model="model"
+    :disabled="true"
+  )
+  a-datepicker-range(
+    v-model="model"
+    :disabled-from="true"
+  )
+  a-datepicker-range(
+    v-model="model"
+    :disabled-until="true"
+  )
