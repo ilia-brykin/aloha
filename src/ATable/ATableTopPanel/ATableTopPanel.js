@@ -262,6 +262,10 @@ export default {
               h("span", "aloha"),
             ],
           }),
+          this.$slots.tableActionsAppend && this.$slots.tableActionsAppend({
+            isMultipleActionsActive: this.isMultipleActionsActive,
+            modelView: this.modelView,
+          }),
         ]),
       ]),
       this.isMultipleActionsActive && h("div", {
@@ -298,10 +302,6 @@ export default {
             }),
           ]),
         ]),
-        this.$slots.tableActionsAppend && this.$slots.tableActionsAppend({
-          isMultipleActionsActive: this.isMultipleActionsActive,
-          modelView: this.modelView,
-        }),
         h("div", {
           class: "a_table__multiple_panel__actions",
         }, [
