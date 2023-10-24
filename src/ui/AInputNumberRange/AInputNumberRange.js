@@ -136,7 +136,7 @@ export default {
       default: undefined,
     },
     inputWidth: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: 200,
     },
@@ -184,7 +184,7 @@ export default {
     type: {
       type: String,
       required: false,
-      default: "number",
+      default: "numberRange",
       validator: value => Types.indexOf(value) !== -1,
       // TODO: "float", "floatPositiv", "floatNonNegative"
     },

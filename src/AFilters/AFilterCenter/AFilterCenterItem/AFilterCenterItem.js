@@ -89,14 +89,22 @@ export default {
           }),
           h(AButton, {
             class: "a_btn a_btn_secondary",
-            onClick: this.goToFilter,
+            onClick: () => this.goToFilter({ modelValue }),
           }, () => [
-            this.filterLabel && h(ATranslation, {
-              tag: "strong",
+            this.filterLabel && h("strong", {
               class: "a_table__filters_center__item__label",
-              html: this.filterLabel,
-              textAfter: ":",
-            }),
+            }, [
+              h(ATranslation, {
+                tag: "span",
+                html: this.filterLabel,
+              }),
+              modelValue.filterLabelSuffix && h(ATranslation, {
+                class: "a_table__filters_center__item__label__suffix",
+                tag: "span",
+                html: modelValue.filterLabelSuffix,
+              }),
+              h("span", null, ":"),
+            ]),
             this.filter.slotName && this.$slots[this.filter.slotName] ?
               this.$slots[this.filter.slotName]({
                 item: modelValue.item,
@@ -110,7 +118,7 @@ export default {
             class: "a_btn a_btn_secondary",
             disabled: this.disabled,
             iconLeft: "Close",
-            onClick: () => this.closeCurrentFilterValue({ currentModel: modelValue.value }),
+            onClick: () => this.closeCurrentFilterValue({ modelValue }),
           }),
         ]);
       }),

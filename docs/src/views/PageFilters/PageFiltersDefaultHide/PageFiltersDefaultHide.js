@@ -36,6 +36,11 @@ export default {
         label: "_A_TABLE_FILTER_TEXT_",
       },
       {
+        type: "dateRange",
+        id: "dateRange",
+        label: "_A_TABLE_FILTER_INPUT_DATE_RANGE_",
+      },
+      {
         type: "numberRange",
         id: "numberRange",
         label: "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_",

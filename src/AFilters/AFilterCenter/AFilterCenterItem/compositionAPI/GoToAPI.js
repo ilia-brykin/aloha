@@ -19,18 +19,21 @@ export default function GoToAPI(props) {
     return `eventATableFilterTopOnOpen_${ id.value }`;
   });
 
-  const goToFilter = () => {
+  const goToFilter = ({ modelValue } = {}) => {
     if (!filter.value.main) {
       EventBus.$emit(eventName.value);
     }
 
-    const FILTER_HTML_ID = getHtmlId({
+    let filterHtmlId = getHtmlId({
       id: filter.value.id,
       idPrefix: `${ id.value }_`,
       htmlId: filter.value.htmlId,
     });
+    if (modelValue.idSuffix) {
+      filterHtmlId += modelValue.idSuffix;
+    }
     setTimeout(() => {
-      setFocusToElement({ selector: `#${ FILTER_HTML_ID }` });
+      setFocusToElement({ selector: `#${ filterHtmlId }` });
     });
   };
 

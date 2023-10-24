@@ -7,13 +7,14 @@ export default function CloseFilterValueAPI(props) {
   const disabled = toRef(props, "disabled");
   const filter = toRef(props, "filter");
 
-  const closeCurrentFilterValue = ({ currentModel }) => {
+  const closeCurrentFilterValue = ({ modelValue }) => {
     if (disabled.value) {
       return;
     }
     closeFilterValue.value({
       filter: filter.value,
-      currentModel: currentModel,
+      currentModel: modelValue.value,
+      keyId: modelValue.keyId,
     });
   };
 
