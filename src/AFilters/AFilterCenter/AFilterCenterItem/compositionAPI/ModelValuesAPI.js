@@ -96,21 +96,23 @@ export default function ModelValuesAPI(props, {
     }
 
     if (TypesNumberRange.indexOf(filter.value.type) !== -1) {
+      const KEY_MAX = filter.value.keyMax || "max";
+      const KEY_MIN = filter.value.keyMin || "min";
       const MODEL_VALUES = [];
-      if (!isNil(model.value?.min) && model.value?.min !== "") {
+      if (!isNil(model.value?.[KEY_MIN]) && model.value?.[KEY_MIN] !== "") {
         MODEL_VALUES.push({
-          label: model.value.min,
+          label: model.value[KEY_MIN],
           filterLabelSuffix: filter.value.labelMin || "_A_INPUT_NUMBER_RANGE_LABEL_MIN_",
           idSuffix: "_min",
-          keyId: "min",
+          keyId: KEY_MIN,
         });
       }
-      if (!isNil(model.value?.max) && model.value?.max !== "") {
+      if (!isNil(model.value?.[KEY_MAX]) && model.value?.[KEY_MAX] !== "") {
         MODEL_VALUES.push({
-          label: model.value.max,
+          label: model.value[KEY_MAX],
           filterLabelSuffix: filter.value.labelMax || "_A_INPUT_NUMBER_RANGE_LABEL_MAX_",
           idSuffix: "_max",
-          keyId: "max",
+          keyId: KEY_MAX,
         });
       }
       return MODEL_VALUES;

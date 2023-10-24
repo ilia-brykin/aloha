@@ -140,6 +140,16 @@ export default {
       required: false,
       default: 200,
     },
+    keyMax: {
+      tpe: String,
+      required: false,
+      default: "max",
+    },
+    keyMin: {
+      tpe: String,
+      required: false,
+      default: "min",
+    },
     max: {
       type: Number,
       required: false,

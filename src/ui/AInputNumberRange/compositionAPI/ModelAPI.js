@@ -7,25 +7,27 @@ import { cloneDeep } from "lodash-es";
 export default function ModelAPI(props, {
   changeModel = () => ({}),
 }) {
+  const keyMax = toRef(props, "keyMax");
+  const keyMin = toRef(props, "keyMin");
   const modelValue = toRef(props, "modelValue");
 
   const modelValueMin = computed(() => {
-    return modelValue.value?.min;
+    return modelValue.value?.[keyMin.value];
   });
 
   const modelValueMax = computed(() => {
-    return modelValue.value?.max;
+    return modelValue.value?.[keyMax.value];
   });
 
   const changeModelMin = ({ model }) => {
     const MODEL = cloneDeep(modelValue.value);
-    MODEL.min = model;
+    MODEL[keyMin.value] = model;
     changeModel({ model: MODEL });
   };
 
   const changeModelMax = ({ model }) => {
     const MODEL = cloneDeep(modelValue.value);
-    MODEL.max = model;
+    MODEL[keyMax.value] = model;
     changeModel({ model: MODEL });
   };
 
