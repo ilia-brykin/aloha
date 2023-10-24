@@ -165,6 +165,20 @@ export default function RowActionsAPI(props) {
     return false;
   };
 
+  const getRowActionExtra = ({ rowAction }) => {
+    if (rowAction.extra) {
+      return rowAction.extra;
+    }
+    if (isFunction(rowAction.extraCallback)) {
+      return rowAction.extraCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return undefined;
+  };
+
   const replacePropertiesByRowAction = rowAction => {
     forEach(rowAction, (_, key) => {
       if (endsWith(key, "Callback")) {
@@ -201,6 +215,10 @@ export default function RowActionsAPI(props) {
           const ICON_RIGHT = getRowActionIconRight({ rowAction });
           if (ICON_RIGHT) {
             rowAction.iconRight = ICON_RIGHT;
+          }
+          const EXTRA = getRowActionExtra({ rowAction });
+          if (EXTRA) {
+            rowAction.extra = EXTRA;
           }
           if (rowAction.type === "link") {
             const TO = getRowActionTo({ rowAction });

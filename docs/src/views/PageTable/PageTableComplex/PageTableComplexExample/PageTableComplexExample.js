@@ -180,6 +180,9 @@ export default {
           callback: this.clickMe,
           class: "aloha a_dropdown__item",
           disabled: false,
+          extraCallback: ({ row }) => ({
+            aloha: row.aloha,
+          }),
         },
         {
           type: "divider",
