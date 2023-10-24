@@ -3,8 +3,11 @@ import {
   inject,
   toRef,
 } from "vue";
+import { isFunction } from "lodash-es";
 
 export default function AttributesAPI(props) {
+  const row = toRef(props, "row");
+  const rowClass = toRef(props, "rowClass");
   const rowIndex = toRef(props, "rowIndex");
 
   const hasPreview = inject("hasPreview");
@@ -26,11 +29,25 @@ export default function AttributesAPI(props) {
       rowIndex.value === previewRightRowIndexLast.value;
   });
 
-  const rowClass = computed(() => {
-    return ["a_table__row a_table__row_hover", {
-      a_table__row_focus: isPreviewRightForCurrentRowOpen.value,
-      a_table__row_focus_was: isPreviewRightForCurrentRowWasOpen.value,
-    }];
+  const rowClassLocal = computed(() => {
+    if (isFunction(rowClass.value)) {
+      return rowClass.value({
+        row: row.value,
+        rowindex: rowIndex.value,
+      });
+    }
+    return rowClass.value;
+  });
+
+  const rowClassComputed = computed(() => {
+    return [
+      "a_table__row a_table__row_hover",
+      {
+        a_table__row_focus: isPreviewRightForCurrentRowOpen.value,
+        a_table__row_focus_was: isPreviewRightForCurrentRowWasOpen.value,
+      },
+      rowClassLocal.value
+    ];
   });
 
   const roleLocal = computed(() => {
@@ -40,7 +57,7 @@ export default function AttributesAPI(props) {
   const rowAttributes = computed(() => {
     const ATTRIBUTES = {
       id: rowId.value,
-      class: rowClass.value,
+      class: rowClassComputed.value,
       role: roleLocal.value,
     };
     if (hasPreview.value) {

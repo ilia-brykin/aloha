@@ -59,6 +59,11 @@ export default {
       required: false,
       default: undefined,
     },
+    rowClass: {
+      type: [String, Object, Function],
+      required: false,
+      default: undefined,
+    },
     rowIndex: {
       type: Number,
       required: true,

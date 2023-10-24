@@ -280,6 +280,11 @@ export default {
       required: false,
       default: true,
     },
+    rowClass: {
+      type: [String, Object, Function],
+      required: false,
+      default: undefined,
+    },
     rowsCountRenderPerTick: {
       type: Number,
       required: false,
@@ -748,6 +753,7 @@ export default {
                     disabledPreview: this.disabledPreview,
                     disabledRowActions: this.disabledRowActions,
                     row,
+                    rowClass: this.rowClass,
                     rowIndex,
                     isPreviewDownOpen: this.previewDownRowIndexes[rowIndex],
                     isRowActionsStickyLocal: this.isRowActionsStickyLocal,
@@ -780,6 +786,7 @@ export default {
                   disabledPreview: this.disabledPreview,
                   disabledRowActions: this.disabledRowActions,
                   row,
+                  rowClass: this.rowClass,
                   rowIndex,
                   isRowActionsStickyLocal: this.isRowActionsStickyLocal,
                   rowActionsClass: this.rowActionsClass,
