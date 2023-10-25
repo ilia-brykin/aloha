@@ -7,6 +7,9 @@ import {
 import AConfirmAPI from "../../../compositionAPI/AConfirmAPI";
 
 import {
+  getTranslatedText,
+} from "../../../ATranslation/compositionAPI/UtilsAPI";
+import {
   cloneDeep,
   forEach,
   isFunction,
@@ -94,7 +97,9 @@ export default function ActionsAPI(props, { emit }) {
         bodyHtml: "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BODY_HTML_{{action}}_{{selectedRows}}_",
         saveButtonText: "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BTN_SAVE_",
         extra: {
-          action: currentMultipleActions.value.text,
+          action: getTranslatedText({
+            placeholder: currentMultipleActions.value.text,
+          }),
           selectedRows: selectedRows.value.length,
         },
         save: onStartModalMultipleActions,
