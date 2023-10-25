@@ -1,7 +1,12 @@
 import {
-  computed, ref,
+  computed,
+  ref,
   toRef,
 } from "vue";
+
+import {
+  getTranslatedText,
+} from "../../../ATranslation/compositionAPI/UtilsAPI";
 
 import {
   isString,
@@ -12,6 +17,7 @@ export default function AttributesAPI(props, {
   currentLanguage = computed(() => ({})),
   popupVisible = ref(false),
 }) {
+  const extra = toRef(props, "extra");
   const id = toRef(props, "id");
   const placeholder = toRef(props, "placeholder");
   const range = toRef(props, "range");
@@ -20,7 +26,7 @@ export default function AttributesAPI(props, {
 
   const innerPlaceholder = computed(() => {
     if (isString(placeholder.value)) {
-      return placeholder.value;
+      return getTranslatedText({ placeholder: placeholder.value, extra: extra.value });
     }
     if (range.value) {
       return currentLanguage.value.placeholder.dateRange;
