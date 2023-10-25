@@ -75,6 +75,7 @@ export default function ActionsAPI(props, { emit }) {
 
   const onStartModalMultipleActions = async() => {
     await currentMultipleActions.value.callback({
+      close: closeMultipleActionsActive.value,
       rows: selectedRows.value,
       rowsVisible: rowsLocalAll.value,
       id: buttonMultipleId.value,
@@ -90,7 +91,12 @@ export default function ActionsAPI(props, { emit }) {
     if (currentMultipleActions.value.isConfirm) {
       openConfirm({
         headerText: "_A_TABLE_EXECUTE_MULTIPLE_ACTION_",
-        bodyHtml: `<div>Möchten Sie die Aktion <strong>${ currentMultipleActions.value.label }</strong> auf <strong>${ selectedRows.value.length }</strong> Objekten durchführen?</div>`,
+        bodyHtml: "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BODY_HTML_{{action}}_{{selectedRows}}_",
+        saveButtonText: "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BTN_SAVE_",
+        extra: {
+          action: currentMultipleActions.value.text,
+          selectedRows: selectedRows.value.length,
+        },
         save: onStartModalMultipleActions,
       });
     } else {
