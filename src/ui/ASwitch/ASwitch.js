@@ -2,15 +2,13 @@ import {
   computed,
   h,
   toRef,
-  withDirectives,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 import ATooltip from "../../ATooltip/ATooltip";
-
-import ASafeHtml from "../../directives/ASafeHtml";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -270,7 +268,8 @@ export default {
               onFocus: this.onFocus,
               onBlur: this.onBlur,
             }),
-            withDirectives(h("label", {
+            h(ATranslation, {
+              tag: "label",
               class: [
                 "switch_button__label",
                 {
@@ -278,13 +277,12 @@ export default {
                 },
               ],
               for: this.htmlIdLocal,
-            }), [
-              [ASafeHtml, this.labelValueLocal],
-            ]),
+              html: this.labelValueLocal,
+            }),
           ],
-          title: () => withDirectives(h("div"), [
-            [ASafeHtml, this.title],
-          ])
+          title: () => h(ATranslation, {
+            html: this.title,
+          }),
         }),
         h(AFormHelpText, {
           id: this.helpTextId,
