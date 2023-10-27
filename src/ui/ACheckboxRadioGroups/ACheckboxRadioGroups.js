@@ -3,6 +3,8 @@ import {
   resolveComponent,
 } from "vue";
 
+import ATranslation from "../../ATranslation/ATranslation";
+
 import DataAPI from "./compostionAPI/DataAPI";
 import ComponentAPI from "./compostionAPI/ComponentAPI";
 import ChangeModelAPI from "./compostionAPI/ChangeModelAPI";
@@ -173,9 +175,11 @@ export default {
           class: "a_fieldset",
           style: styleWithSearch,
         }, [
-          h("legend", {
+          h(ATranslation, {
+            tag: "legend",
             class: "a_legend",
-          }, group.groupLabel),
+            html: group.groupLabel,
+          }),
           !!(this.dataGrouped[group.allGroupKeys] || []).length && h("div", {
             class: {
               a_btn_group: this.isButtonGroup,
