@@ -149,12 +149,12 @@ export default function RowActionsAPI(props) {
       if (rowAction.to.queryDynamic) {
         let hasParamsDynamicError = false;
         forEach(rowAction.to.queryDynamic, (value, key) => {
-          const PARAMS_VALUE = get(row.value, value);
-          if (isUndefined(PARAMS_VALUE)) {
+          const QUERY_VALUE = get(row.value, value);
+          if (isUndefined(QUERY_VALUE)) {
             hasParamsDynamicError = true;
             return false;
           }
-          PARAMS[key] = PARAMS_VALUE;
+          QUERY[key] = QUERY_VALUE;
         });
         if (hasParamsDynamicError) {
           return undefined;
