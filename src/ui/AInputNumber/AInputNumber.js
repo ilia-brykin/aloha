@@ -261,7 +261,7 @@ export default {
           a_form_element__parent_invalid: this.isErrors,
         }],
       }, [
-        this.label && h(ALabel, {
+        this.label && !this.isLabelFloat && h(ALabel, {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
@@ -283,6 +283,14 @@ export default {
               width: this.inputWidth ? `${ this.inputWidth }px` : undefined,
             },
           }, [
+            this.label && this.isLabelFloat && h(ALabel, {
+              id: this.htmlIdLocal,
+              label: this.label,
+              labelClass: this.labelClass,
+              required: this.required,
+              type: this.type,
+              isLabelFloat: this.isLabelFloat,
+            }),
             this.iconPrepend && h(AIcon, {
               icon: this.iconPrepend,
               class: "a_input__icon_prepend",
