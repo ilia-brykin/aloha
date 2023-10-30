@@ -28,6 +28,9 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
 
 import {
+  inputNumberPluginOptions,
+} from "../../plugins/AInputNumberPlugin";
+import {
   isNumber,
 } from "lodash-es";
 
@@ -41,69 +44,73 @@ export default {
     controlsType: {
       type: String,
       required: false,
-      default: "plus-minus",
+      default: inputNumberPluginOptions.value.propsDefault.controlsType,
       validator: value => ["plus-minus", "arrows"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
     eAllowed: {
       type: Boolean,
       required: false,
+      default: inputNumberPluginOptions.value.propsDefault.eAllowed,
     },
     iconPrepend: {
       type: String,
       required: false,
-      default: undefined,
+      default: inputNumberPluginOptions.value.propsDefault.iconPrepend,
     },
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: 200,
+      default: inputNumberPluginOptions.value.propsDefault.inputWidth,
     },
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: false,
+      default: inputNumberPluginOptions.value.propsDefault.isLabelFloat,
     },
     max: {
       type: Number,
       required: false,
-      default: undefined,
+      default: inputNumberPluginOptions.value.propsDefault.max,
     },
     min: {
       type: Number,
       required: false,
-      default: undefined,
+      default: inputNumberPluginOptions.value.propsDefault.min,
     },
     modelUndefined: {
       required: false,
-      default: undefined,
+      default: inputNumberPluginOptions.value.propsDefault.modelUndefined,
     },
     placeholder: {
       type: [String, Number],
       required: false,
-      default: undefined,
+      default: inputNumberPluginOptions.value.propsDefault.placeholder,
     },
     precision: {
       type: Number,
       validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
+      default: inputNumberPluginOptions.value.propsDefault.placeholder,
     },
     readonly: {
       type: Boolean,
       required: false,
+      default: inputNumberPluginOptions.value.propsDefault.readonly,
     },
     step: {
       type: Number,
       required: false,
-      default: 1,
+      default: inputNumberPluginOptions.value.propsDefault.step,
     },
     stepStrictly: {
       type: Boolean,
       required: false,
+      default: inputNumberPluginOptions.value.propsDefault.stepStrictly,
     },
     type: {
       type: String,
       required: false,
-      default: "number",
+      default: inputNumberPluginOptions.value.propsDefault.type,
       validator: value => ["number", "integerNonNegative", "integerPositive", "integer"].indexOf(value) !== -1,
       // TODO: "float", "floatPositiv", "floatNonNegative"
     },
