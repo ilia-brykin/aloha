@@ -27,6 +27,7 @@ export default function LinkAPI(props) {
     if (isPlainObject(column.value.to)) {
       const TO = cloneDeep(column.value.to);
       const PARAMS = TO.params || {};
+      const QUERY = TO.query || {};
       if (column.value.to.paramsDynamic) {
         let hasParamsDynamicError = false;
         forEach(column.value.to.paramsDynamic, (value, key) => {
@@ -41,7 +42,22 @@ export default function LinkAPI(props) {
           return undefined;
         }
       }
+      if (column.value.to.queryDynamic) {
+        let hasParamsDynamicError = false;
+        forEach(column.value.to.queryDynamic, (value, key) => {
+          const PARAMS_VALUE = get(row.value, value);
+          if (isUndefined(PARAMS_VALUE)) {
+            hasParamsDynamicError = true;
+            return false;
+          }
+          PARAMS[key] = PARAMS_VALUE;
+        });
+        if (hasParamsDynamicError) {
+          return undefined;
+        }
+      }
       TO.params = PARAMS;
+      TO.query = QUERY;
       return TO;
     }
     return undefined;

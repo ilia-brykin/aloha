@@ -131,6 +131,7 @@ export default function RowActionsAPI(props) {
     if (isPlainObject(rowAction.to)) {
       const TO = cloneDeep(rowAction.to);
       const PARAMS = TO.params || {};
+      const QUERY = TO.query || {};
       if (rowAction.to.paramsDynamic) {
         let hasParamsDynamicError = false;
         forEach(rowAction.to.paramsDynamic, (value, key) => {
@@ -145,7 +146,22 @@ export default function RowActionsAPI(props) {
           return undefined;
         }
       }
+      if (rowAction.to.queryDynamic) {
+        let hasParamsDynamicError = false;
+        forEach(rowAction.to.queryDynamic, (value, key) => {
+          const PARAMS_VALUE = get(row.value, value);
+          if (isUndefined(PARAMS_VALUE)) {
+            hasParamsDynamicError = true;
+            return false;
+          }
+          PARAMS[key] = PARAMS_VALUE;
+        });
+        if (hasParamsDynamicError) {
+          return undefined;
+        }
+      }
       TO.params = PARAMS;
+      TO.query = QUERY;
       return TO;
     }
     return undefined;
