@@ -265,6 +265,11 @@ export default {
       required: false,
       default: "h2",
     },
+    previewStyles: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     rowActions: {
       type: Array,
       required: false,
@@ -837,6 +842,7 @@ export default {
           limitPagination: this.limit,
           offsetPagination: this.offset,
           previewHeaderTag: this.previewHeaderTag,
+          previewStyles: this.previewStyles,
           rowIndex: this.previewRightRowIndex,
           rows: this.rowsLocalAll,
           usePagination: !!this.pagination.use,
