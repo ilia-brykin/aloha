@@ -204,6 +204,8 @@ export default {
     },
   },
   emits: [
+    "blur",
+    "focus",
     "update:modelValue",
   ],
   setup(props, context) {
