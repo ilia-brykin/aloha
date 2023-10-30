@@ -68,6 +68,7 @@ export { default as AGroupButtonDropdownPlugin } from "../src/plugins/AGroupButt
 export { default as AHttpPlugin } from "../src/plugins/AHttpPlugin";
 export { default as AI18nPlugin } from "../src/plugins/AI18nPlugin";
 export { default as AIconPlugin } from "../src/plugins/AIconPlugin";
+export { default as AInputNumberPlugin } from "../src/plugins/AInputNumberPlugin";
 export { default as AMobilePlugin } from "../src/plugins/AMobilePlugin";
 export { default as AModalPlugin } from "../src/plugins/AModalPlugin";
 export { default as APageTabTitlePlugin } from "../src/plugins/APageTabTitlePlugin";
