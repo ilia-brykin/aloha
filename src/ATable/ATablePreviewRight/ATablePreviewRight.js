@@ -126,7 +126,7 @@ export default {
     return h("div", {
       ref: "previewRef",
       class: "a_table__preview_right",
-      styles: this.previewStyles,
+      style: this.previewStyles,
     }, [
       h(AResizer, {
         class: "a_table__preview_right__resizer",
