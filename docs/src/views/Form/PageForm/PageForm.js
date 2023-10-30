@@ -174,7 +174,7 @@ export default {
           id: "aloha7",
           classColumn: "a_column_5",
           helpText: "ALOHA help!!!",
-          disabled: true,
+          disabled: false,
         },
         {
           type: "switch",

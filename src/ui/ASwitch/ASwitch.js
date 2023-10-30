@@ -1,7 +1,5 @@
 import {
-  computed,
   h,
-  toRef,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -10,22 +8,130 @@ import ALabel from "../ALabel/ALabel";
 import ATooltip from "../../ATooltip/ATooltip";
 import ATranslation from "../../ATranslation/ATranslation";
 
-import UiMixinProps from "../mixins/UiMixinProps";
-
+import CheckedAPI from "./compositionAPI/CheckedAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
+import ModelAPI from "./compositionAPI/ModelAPI";
+import OnInputAPI from "./compositionAPI/OnInputAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import placements from "../../const/placements";
+import {
+  uniqueId,
+} from "lodash-es";
 
-const KEY_CODE_SPACE = 32;
 
 export default {
   name: "ASwitch",
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_ui_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      required: false,
+    },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      required: false,
+      default: undefined,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    modelUndefined: {
+      required: false,
+      default: null,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    classColumn: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    type: {
+      type: String,
+      required: false,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     modelValue: {
       type: [Boolean, String, Number],
       required: false,
@@ -97,6 +203,9 @@ export default {
       required: false,
     },
   },
+  emits: [
+    "update:modelValue",
+  ],
   setup(props, context) {
     const {
       componentStyleHide,
@@ -119,102 +228,51 @@ export default {
       hasTitle,
     } = TitleAPI(props);
 
-    const modelValue = toRef(props, "modelValue");
+    const {
+      isModelDefault,
+      isModelFalse,
+      isModelTrue,
+    } = ModelAPI(props);
 
-    const trueLabel = toRef(props, "trueLabel");
-
-    const falseLabel = toRef(props, "falseLabel");
-
-    const defaultLabel = toRef(props, "defaultLabel");
-
-    const trueValue = toRef(props, "trueValue");
-
-    const falseValue = toRef(props, "falseValue");
-
-    const defaultValue = toRef(props, "defaultValue");
-
-    const isModelTrue = computed(() => {
-      return modelValue.value === trueValue.value ||
-        modelValue.value === "true";
+    const {
+      labelValueLocal,
+    } = LabelAPI(props, {
+      isModelFalse,
+      isModelTrue,
     });
 
-    const isModelFalse = computed(() => {
-      return modelValue.value === falseValue.value ||
-        modelValue.value === "false";
+    const {
+      isChecked,
+    } = CheckedAPI({
+      isModelFalse,
+      isModelTrue,
     });
 
-    const isModelDefault = computed(() => {
-      return !isModelTrue.value && !isModelFalse.value;
+    const {
+      onInput,
+      onKeydown,
+    } = OnInputAPI(props, {
+      changeModel,
+      isModelFalse,
+      isModelTrue,
     });
 
-    const labelValueLocal = computed(() => {
-      if (isModelTrue.value) {
-        return trueLabel.value;
-      }
-      if (isModelFalse.value) {
-        return falseLabel.value;
-      }
-      return defaultLabel.value;
-    });
-
-    const isThreeState = toRef(props, "isThreeState");
-
-    const isChecked = computed(() => {
-      if (isModelTrue.value) {
-        return true;
-      }
-      if (isModelFalse.value) {
-        return false;
-      }
-      return undefined;
-    });
-
-    const disabled = toRef(props, "disabled");
-    const onInput = $event => {
-      if (disabled.value) {
-        return;
-      }
-      let model;
-      if (isModelTrue.value) {
-        model = falseValue.value;
-      } else if (isThreeState.value && isModelFalse.value) {
-        model = defaultValue.value;
-      } else {
-        model = trueValue.value;
-      }
-
-      changeModel({
-        model,
-        $event,
-      });
-    };
-
-    const onKeydown = $event => {
-      if ($event.key === "Enter" ||
-        $event.keyCode === KEY_CODE_SPACE) {
-        onInput($event);
-        $event.stopPropagation();
-        $event.preventDefault();
-      }
-    };
 
     return {
-      componentStyleHide,
-
       ariaDescribedbyLocal,
       clearModel,
+      componentStyleHide,
       errorsId,
       hasTitle,
       helpTextId,
       htmlIdLocal,
+      isChecked,
       isErrors,
       isModel,
-      onBlur,
-      onFocus,
-
-      isChecked,
       isModelDefault,
       labelValueLocal,
+      onBlur,
+      onFocus,
       onInput,
       onKeydown,
     };
