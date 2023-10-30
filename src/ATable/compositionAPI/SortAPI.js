@@ -51,9 +51,9 @@ export default function SortAPI(props) {
   const dataSorted = computed(() => {
     if (modelSortLocal.value.length &&
       !isSortingOutside.value) {
-      return orderBy(data.value, sortOptions.value.models, sortOptions.value.directions);
+      return orderBy(data.value || [], sortOptions.value.models, sortOptions.value.directions);
     }
-    return data.value;
+    return data.value || [];
   });
 
   watch(modelSort, () => {

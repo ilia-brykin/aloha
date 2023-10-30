@@ -696,6 +696,7 @@ export default {
       if (this.isDataArray) {
         return this.data.length;
       }
+      return 0;
     },
 
     isDataObject() {
