@@ -11,7 +11,7 @@
     "build-css": "node-sass --include-path scss styles/styles.scss dist/styles/styles.css"
   },
   "dependencies": {
-    "@floating-ui/vue": "^1.0.2",
+    "@floating-ui/vue": "1.0.2",
     "aloha-css": "1.0.127",
     "axios": "1.4.0",
     "dompurify": "3.0.3",

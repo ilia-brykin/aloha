@@ -27,7 +27,7 @@ function resolveAlias(mode)  {
     "tiny-emitter": path.resolve(__dirname, "node_modules/tiny-emitter"),
     dompurify: path.resolve(__dirname, "node_modules/dompurify"),
     tinymce: path.resolve(__dirname, "node_modules/tinymce"),
-    "@popperjs/core": path.resolve(__dirname, "node_modules/@popperjs/core"),
+    "@floating-ui/vue": path.resolve(__dirname, "node_modules/@floating-ui/vue"),
   };
 }
 
