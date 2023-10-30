@@ -4930,6 +4930,25 @@ h6 {
 .a_border_left_0 {
   border-left: 0 !important; }
 
+.floating {
+  max-width: fit-content;
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.a_tooltip__container, .a_dropdown__menu, .a_select_menu, .pux_datepicker__popup, .ui_select_menu {
+  /* Float on top of the UI */
+  position: absolute;
+  /* Avoid layout interference */
+  max-width: fit-content;
+  width: max-content;
+  top: 0;
+  left: 0; }
+
+.a_tooltip__arrow {
+  position: absolute; }
+
 .a_search_highlight {
   color: red; }
 
@@ -5313,7 +5332,6 @@ h6 {
   --a_select_menu_link_focus_color: var(--a_color_focus);
   --a_select_menu_link_disabled_color: var(--a_color_gray_500);
   display: block;
-  position: relative;
   min-width: 200px;
   max-width: var(--a_select_menu_max_width);
   z-index: 1055;
@@ -6191,6 +6209,9 @@ input:not(:-webkit-autofill) {
 
 .a_table__filters_center__item__label {
   margin-right: .25rem; }
+
+.a_table__filters_center__item__label__suffix {
+  margin-left: .25rem; }
 
 .a_pagination__nav {
   flex: 1; }
@@ -7377,6 +7398,25 @@ input:not(:-webkit-autofill) {
 
 .a_input_number_range__label_max {
   margin-left: var(--a_input_number_range_label_max_padding_left); }
+
+.a_datepicker_range {
+  --a_datepicker_range_label_padding_right: .5rem;
+  --a_datepicker_range_label_max_padding_left: .5rem;
+  --a_datepicker_range_label_white_space: nowrap; }
+
+.a_datepicker_range__content {
+  display: flex;
+  align-items: center; }
+
+.a_datepicker_range__label {
+  margin-right: var(--a_datepicker_range_label_padding_right);
+  white-space: var(--a_datepicker_range_label_white_space); }
+
+.a_datepicker_range__label_max {
+  margin-left: var(--a_datepicker_range_label_max_padding_left); }
+
+.a_datepicker_range__help_text {
+  padding-left: 10px; }
 
 .a_form__not_elements {
   margin: .5rem; }
