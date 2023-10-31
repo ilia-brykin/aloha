@@ -6,8 +6,8 @@
   --a_table_cell_padding_x: .5rem;
   --a_table_cell_padding_y: .5rem;
   --a_table_row_hover_bg: #e1f2ff;
-  --a_table_row_preview_focus_bg: rgba(192, 209, 117, 0.75);
-  --a_table_row_preview_focus_was_bg: rgba(192, 209, 117, 0.3);
+  --a_table_row_preview_focus_bg: #D0DD98;
+  --a_table_row_preview_focus_was_bg: #ECF1D5;
   --a_table_quick_search_width: 250px;
   --a_table_between_actions_margin: .5rem;
   --a_table_preview_right_padding: .25rem .8rem;
@@ -72,17 +72,15 @@
   hyphens: auto;
 }
 .a_table__grandparent:not(.a_table_mobile) {
-  .a_table__cell {
-    .a_table__row_hover:hover &,
-    .a_table__row_hover:focus-within & {
-      background-color: var(--a_table_row_hover_bg);
-    }
-    .a_table__row.a_table__row_focus > & {
-      background-color: var(--a_table_row_preview_focus_bg);
-    }
-    .a_table__row.a_table__row_focus_was > & {
-      background-color: var(--a_table_row_preview_focus_was_bg);
-    }
+  .a_table__row_hover:hover > *,
+  .a_table__row_hover:focus-within > * {
+    background-color: var(--a_table_row_hover_bg);
+  }
+  .a_table__row.a_table__row_focus > * {
+    background-color: var(--a_table_row_preview_focus_bg);
+  }
+  .a_table__row.a_table__row_focus_was > * {
+    background-color: var(--a_table_row_preview_focus_was_bg);
   }
 }
 .a_table__cell__child {
