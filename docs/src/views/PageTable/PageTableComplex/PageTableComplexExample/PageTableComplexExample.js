@@ -1,5 +1,6 @@
 import AIcon from "../../../../../../src/AIcon/AIcon";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
+import ASwitch from "../../../../../../src/ui/ASwitch/ASwitch";
 import ATable from "../../../../../../src/ATable/ATable";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -15,6 +16,7 @@ export default {
   components: {
     AIcon,
     AlohaExample,
+    ASwitch,
     ATable,
   },
   setup() {
@@ -34,6 +36,7 @@ export default {
   data() {
     return {
       modelView: undefined,
+      modelLoading: false,
       modelColumnsVisible: {
         aloha: true,
       },

@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import ACloak from "../../ACloak/ACloak";
 import AResizer from "../../AResizer/AResizer";
 import ATranslation from "../../ATranslation/ATranslation";
 
@@ -19,6 +20,10 @@ export default {
     countAllRows: {
       type: Number,
       required: true,
+    },
+    isLoadingTable: {
+      type: Boolean,
+      required: false,
     },
     limitPagination: {
       type: Number,
@@ -140,39 +145,41 @@ export default {
       h(this.previewHeaderTag, {
         class: "a_table__preview_right__header",
       }, [
-        h("div", {}, [
-          h(ATranslation, {
-            class: "a_table__preview_right__header__text",
-            tag: "span",
-            text: "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_",
-            extra: {
-              rowNumber: this.rowNumber,
-              rowNumberFormatted: this.rowNumberFormatted,
-              countAllRows: this.countAllRows,
-              countAllRowsFormatted: this.countAllRowsFormatted,
-            },
-          }),
-          h("div", {
-            class: "a_table__preview_right__header__icons",
-          }, [
-            h(AButton, {
-              class: "a_btn a_btn_transparent_dark a_btn_small",
-              disabled: this.disabledBtnArrowLeft,
-              iconLeft: "ArrowLeft",
-              title: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
-              textScreenReader: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
-              onClick: this.toLastRow,
+        this.isLoadingTable ?
+          h(ACloak) :
+          h("div", {}, [
+            h(ATranslation, {
+              class: "a_table__preview_right__header__text",
+              tag: "span",
+              text: "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_",
+              extra: {
+                rowNumber: this.rowNumber,
+                rowNumberFormatted: this.rowNumberFormatted,
+                countAllRows: this.countAllRows,
+                countAllRowsFormatted: this.countAllRowsFormatted,
+              },
             }),
-            h(AButton, {
-              class: "a_btn a_btn_transparent_dark a_btn_small",
-              disabled: this.disabledBtnArrowRight,
-              iconLeft: "ArrowRight",
-              title: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
-              textScreenReader: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
-              onClick: this.toNextRow,
-            }),
+            h("div", {
+              class: "a_table__preview_right__header__icons",
+            }, [
+              h(AButton, {
+                class: "a_btn a_btn_transparent_dark a_btn_small",
+                disabled: this.disabledBtnArrowLeft,
+                iconLeft: "ArrowLeft",
+                title: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
+                textScreenReader: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
+                onClick: this.toLastRow,
+              }),
+              h(AButton, {
+                class: "a_btn a_btn_transparent_dark a_btn_small",
+                disabled: this.disabledBtnArrowRight,
+                iconLeft: "ArrowRight",
+                title: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
+                textScreenReader: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
+                onClick: this.toNextRow,
+              }),
+            ]),
           ]),
-        ]),
         h(AButton, {
           class: "a_btn a_btn_transparent_dark a_table__preview_right__btn_close",
           iconLeft: "Close",
@@ -185,14 +192,15 @@ export default {
       h("div", {
         class: "a_table__preview_right__body",
       }, [
-        this.$slots.previewRight ?
-          this.$slots.previewRight({
-            row: this.currentRow,
-            rowIndex: this.rowIndex,
-          }) :
-          h(ATranslation, {
-            text: "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_",
-          }),
+        this.isLoadingTable ? h(ACloak) :
+          this.$slots.previewRight ?
+            this.$slots.previewRight({
+              row: this.currentRow,
+              rowIndex: this.rowIndex,
+            }) :
+            h(ATranslation, {
+              text: "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_",
+            }),
       ]),
     ]);
   },

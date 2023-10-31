@@ -5,7 +5,10 @@ aloha-example(
   description="_A_TABLE_GROUP_COMPLEX_DESCRIPTION_"
 )
   div
-    div#alohaTest Kolokol
+    div
+      a-switch(
+        v-model="modelLoading"
+      )
     a-table(
       ref="aloha"
       :columns="columns"
@@ -23,7 +26,7 @@ aloha-example(
       :is-pagination="true"
       :filter="{ filters }"
       :rows-footer="rowsFooter"
-      :is-loading-table="false"
+      :is-loading-table="modelLoading"
       :is-loading-multiple-actions="false"
       :views="views"
       :model-view="modelView"

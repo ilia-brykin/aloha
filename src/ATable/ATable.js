@@ -839,6 +839,7 @@ export default {
         }),
         this.isPreviewRightOpen && h(ATablePreviewRight, {
           countAllRows: this.countAllRowsLocal,
+          isLoadingTable: this.isLoadingTable,
           limitPagination: this.limit,
           offsetPagination: this.offset,
           previewHeaderTag: this.previewHeaderTag,
