@@ -49,6 +49,7 @@ export default function MultipleActionAPI({ emit }, {
       setTimeout(() => {
         checkVisibleColumns();
       });
+      emit("toggleMultipleActions", ({ isActive, action }));
       return;
     }
 
