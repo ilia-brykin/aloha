@@ -305,15 +305,23 @@ export default {
         h("div", {
           class: "a_table__multiple_panel__actions",
         }, [
-          h(AButton, {
-            class: "a_btn a_btn_primary a_table__action",
-            type: "button",
-            disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
-            text: this.currentMultipleActions.text,
-            loading: this.isLoadingMultipleActions,
-            loadingAlign: "left",
-            onClick: this.onOpenModalMultipleActions,
-          }),
+          this.currentMultipleActions.slot && this.$slots.multipleActionActiveSlot ?
+            this.$slots.multipleActionActiveSlot({
+              disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
+              loading: this.isLoadingMultipleActions,
+              text: this.currentMultipleActions.text,
+              action: this.currentMultipleActions,
+              onClick: this.onOpenModalMultipleActions,
+            }) :
+            h(AButton, {
+              class: "a_btn a_btn_primary a_table__action",
+              type: "button",
+              disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
+              text: this.currentMultipleActions.text,
+              loading: this.isLoadingMultipleActions,
+              loadingAlign: "left",
+              onClick: this.onOpenModalMultipleActions,
+            }),
           h(AButton, {
             class: "a_btn a_btn_secondary a_table__action",
             type: "button",

@@ -1,4 +1,5 @@
 .a_table__parent {
+  --a_table_bg: var(--a_color_white);
   --a_table_th_bg: #f1f4f7;
   --a_table_th_border_bottom_width: 3px;
   --a_table_th_border_bottom_color: #d0c9c0;
@@ -42,7 +43,7 @@
   overflow-x: auto;
 }
 .a_table {
-  --a_table_bg: var(--a_color_white);
+
   display: block;
   width: 100%;
   caption-side: bottom;
