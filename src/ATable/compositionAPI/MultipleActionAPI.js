@@ -11,7 +11,7 @@ import {
   times,
 } from "lodash-es";
 
-export default function MultipleActionAPI({
+export default function MultipleActionAPI({ emit }, {
   checkVisibleColumns = () => {},
   isMultipleActionsActive = ref(undefined),
   rowsLocalAll = computed(() => []),
@@ -60,6 +60,7 @@ export default function MultipleActionAPI({
     setTimeout(() => {
       checkVisibleColumns();
     });
+    emit("toggleMultipleActions", ({ isActive, action }));
   };
 
   const selectedRowsIndexesLength = computed(() => {

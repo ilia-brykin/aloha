@@ -352,6 +352,7 @@ export default {
     "mouseupResizePreviewRight",
     "initTable",
     "togglePreview",
+    "toggleMultipleActions",
     "update:modelColumnsOrder",
     "update:modelColumnsVisible",
     "update:modelQuickSearch",
@@ -467,7 +468,7 @@ export default {
       setSelectedRowsIndexes,
       toggleBtnAllRows,
       toggleMultipleActionsActive,
-    } = MultipleActionAPI({
+    } = MultipleActionAPI(context, {
       checkVisibleColumns,
       isMultipleActionsActive,
       rowsLocalAll,
