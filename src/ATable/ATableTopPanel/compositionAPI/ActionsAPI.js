@@ -18,7 +18,6 @@ import {
 export default function ActionsAPI(props, { emit }) {
   const areAllRowsSelected = toRef(props, "areAllRowsSelected");
   const closeMultipleActionsActive = toRef(props, "closeMultipleActionsActive");
-  const modelFilters = toRef(props, "modelFilters");
   const multipleActions = toRef(props, "multipleActions");
   const selectedRows = toRef(props, "selectedRows");
   const tableActions = toRef(props, "tableActions");
@@ -83,7 +82,6 @@ export default function ActionsAPI(props, { emit }) {
       rowsVisible: rowsLocalAll.value,
       id: buttonMultipleId.value,
       areAllRowsSelected: areAllRowsSelected.value,
-      modelFilters: modelFilters.value,
       action: currentMultipleActions.value,
     });
     closeConfirm();
@@ -111,7 +109,6 @@ export default function ActionsAPI(props, { emit }) {
         rowsVisible: rowsLocalAll.value,
         id: buttonMultipleId.value,
         areAllRowsSelected: areAllRowsSelected.value,
-        modelFilters: modelFilters.value,
         action: currentMultipleActions.value,
       });
     }

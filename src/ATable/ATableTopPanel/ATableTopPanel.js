@@ -123,6 +123,7 @@ export default {
   ],
   inject: [
     "isMultipleActionsActive",
+    "rowsLocalAll",
     "tableId",
   ],
   setup(props, context) {
@@ -312,6 +313,11 @@ export default {
               text: this.currentMultipleActions.text,
               action: this.currentMultipleActions,
               onClick: this.onOpenModalMultipleActions,
+              close: this.closeMultipleActionsActive,
+              rows: this.selectedRows,
+              rowsVisible: this.rowsLocalAll,
+              id: this.buttonMultipleId,
+              areAllRowsSelected: this.areAllRowsSelected,
             }) :
             h(AButton, {
               class: "a_btn a_btn_primary a_table__action",
