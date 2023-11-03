@@ -54,6 +54,20 @@ export default function RowActionsAPI(props) {
     return undefined;
   };
 
+  const getRowActionHtml = ({ rowAction }) => {
+    if (rowAction.html) {
+      return rowAction.html;
+    }
+    if (isFunction(rowAction.htmlCallback)) {
+      return rowAction.htmlCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return undefined;
+  };
+
   const getRowActionTitle = ({ rowAction }) => {
     if (rowAction.title) {
       return rowAction.title;
@@ -211,6 +225,10 @@ export default function RowActionsAPI(props) {
           const TEXT = getRowActionText({ rowAction });
           if (TEXT) {
             rowAction.text = TEXT;
+          }
+          const HTML = getRowActionHtml({ rowAction });
+          if (HTML) {
+            rowAction.html = HTML;
           }
           const TITLE = getRowActionTitle({ rowAction });
           if (TITLE) {
