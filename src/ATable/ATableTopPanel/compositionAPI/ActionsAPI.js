@@ -61,7 +61,7 @@ export default function ActionsAPI(props, { emit }) {
   };
 
   const onCancelMultipleActions = () => {
-    emit("toggleMultipleActionsActive");
+    emit("toggleMultipleActionsActive", { action: currentMultipleActions.value });
   };
 
   const multipleActionsFiltered = computed(() => {
