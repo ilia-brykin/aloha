@@ -260,6 +260,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilters" */ "../views/PageFilters/PageFilters.vue"),
   },
   {
+    path: "/filters-right",
+    name: "PageFiltersRight",
+    component: () => import(/* webpackChunkName: "PageFiltersRight" */ "../views/PageFiltersRight/PageFiltersRight.vue"),
+  },
+  {
     path: "/modal-wizard",
     name: "PageModalWizard",
     component: () => import(/* webpackChunkName: "PageModalWizard" */ "../views/PageModalWizard/PageModalWizard.vue"),

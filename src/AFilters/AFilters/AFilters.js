@@ -1,11 +1,13 @@
 import {
   h,
+  Teleport,
   toRef,
   watch,
 } from "vue";
 
 import AFilterCenter from "../AFilterCenter/AFilterCenter";
 import AFiltersHorizontal from "../AFiltersHorizontal/AFiltersHorizontal";
+import AFilersRight from "../AFilersRight/AFilersRight";
 
 import CloseFilterAPI from "./compositionAPI/CloseFilterAPI";
 import DataKeyByKeyIdAPI from "./compositionAPI/DataKeyByKeyIdAPI";
@@ -59,6 +61,17 @@ export default {
       required: false,
       default: undefined,
     },
+    view: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: value => ["top", "right"].indexOf(value) !== -1,
+    },
+    viewRightTeleportSelector: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "startSearch",
@@ -78,6 +91,7 @@ export default {
       hasFilters,
       onUpdateModelFilters,
       setFiltersVisibleIds,
+      updateAppliedModel,
     } = FiltersAPI(props, context);
 
     const {
@@ -136,6 +150,7 @@ export default {
       toggleFiltersVisible,
       updateDataKeyByIdFromFilter,
       updateFiltersSavedLocal,
+      updateAppliedModel,
     };
   },
   render() {
@@ -145,7 +160,7 @@ export default {
     return h(
       "div",
       [
-        h(AFiltersHorizontal, {
+        this.view === "top" && h(AFiltersHorizontal, {
           id: this.id,
           canSave: this.canSave,
           disabled: this.disabled,
@@ -160,6 +175,21 @@ export default {
           onStartSearch: this.startSearch,
           onToggleFiltersVisible: this.toggleFiltersVisible,
         }, this.$slots),
+        this.view === "right" && h(Teleport, {
+          to: this.viewRightTeleportSelector,
+          disabled: !this.viewRightTeleportSelector,
+        }, [
+          h(AFilersRight, {
+            id: this.id,
+            disabled: this.disabled,
+            filters: this.filters,
+            filtersKeyById: this.filtersKeyById,
+            appliedModel: this.appliedModel,
+            onUpdateModelFilters: this.updateAppliedModel,
+            updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+            onStartSearch: this.startSearch,
+          }, this.$slots),
+        ]),
         h(AFilterCenter, {
           id: this.id,
           appliedModel: this.appliedModel,

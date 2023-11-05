@@ -40,6 +40,7 @@ import PageModalWizardI18n from "./views/PageModalWizard/i18n/PageModalWizardI18
 import PageWizardI18n from "./views/PageWizard/i18n/PageWizardI18n";
 import PageModalI18n from "./views/PageModal/i18n/PageModalI18n";
 import PageTablePreviewDownI18n from "./views/PageTable/PageTablePreviewDown/i18n/PageTablePreviewDownI18n";
+import PageFiltersRightI18n from "./views/PageFiltersRight/i18n/PageFiltersRightI18n";
 
 export const mainTranslation = {
   ar: {
@@ -76,6 +77,7 @@ export const mainTranslation = {
     ...PageWizardI18n.ar,
     ...PageModalI18n.ar,
     ...PageTablePreviewDownI18n.ar,
+    ...PageFiltersRightI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -111,6 +113,7 @@ export const mainTranslation = {
     ...PageWizardI18n.de,
     ...PageModalI18n.de,
     ...PageTablePreviewDownI18n.de,
+    ...PageFiltersRightI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -146,6 +149,7 @@ export const mainTranslation = {
     ...PageWizardI18n.en,
     ...PageModalI18n.en,
     ...PageTablePreviewDownI18n.en,
+    ...PageFiltersRightI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -181,6 +185,7 @@ export const mainTranslation = {
     ...PageWizardI18n.es,
     ...PageModalI18n.es,
     ...PageTablePreviewDownI18n.es,
+    ...PageFiltersRightI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -216,6 +221,7 @@ export const mainTranslation = {
     ...PageWizardI18n.fr,
     ...PageModalI18n.fr,
     ...PageTablePreviewDownI18n.fr,
+    ...PageFiltersRightI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -251,6 +257,7 @@ export const mainTranslation = {
     ...PageWizardI18n.hr,
     ...PageModalI18n.hr,
     ...PageTablePreviewDownI18n.hr,
+    ...PageFiltersRightI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -286,6 +293,7 @@ export const mainTranslation = {
     ...PageWizardI18n.it,
     ...PageModalI18n.it,
     ...PageTablePreviewDownI18n.it,
+    ...PageFiltersRightI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -321,5 +329,6 @@ export const mainTranslation = {
     ...PageWizardI18n.ru,
     ...PageModalI18n.ru,
     ...PageTablePreviewDownI18n.ru,
+    ...PageFiltersRightI18n.ru,
   },
 };

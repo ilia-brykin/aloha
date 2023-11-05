@@ -104,6 +104,10 @@ export default function FiltersAPI(props, { emit }) {
     }
   };
 
+  const updateAppliedModel = ({ model }) => {
+    emit("update:appliedModel", model);
+  };
+
   return {
     filtersDataKeyById,
     filtersGroup,
@@ -114,5 +118,6 @@ export default function FiltersAPI(props, { emit }) {
     hasFilters,
     onUpdateModelFilters,
     setFiltersVisibleIds,
+    updateAppliedModel,
   };
 }

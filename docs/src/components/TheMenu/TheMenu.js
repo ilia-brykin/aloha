@@ -130,6 +130,14 @@ export default {
           icon: "FilterCircleFill",
         },
         {
+          id: "filtersRight",
+          label: "filtersRight",
+          to: {
+            name: "PageFiltersRight",
+          },
+          icon: "FilterCircleFill",
+        },
+        {
           id: "dropdown",
           label: "Dropdown",
           to: {
