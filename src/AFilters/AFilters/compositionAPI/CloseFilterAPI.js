@@ -16,38 +16,40 @@ export default function CloseFilterAPI(props, { emit }, {
   const unappliedModel = toRef(props, "unappliedModel");
 
   const closeFilterValue = ({ filter, currentModel, keyId }) => {
+    const MODEL_ID = filter.modelId || filter.id;
+
     const APPLIED_MODEL = cloneDeep(appliedModel.value);
     if (AUiTypesModelArray[filter.type]) {
-      if (APPLIED_MODEL[filter.id] &&
-        APPLIED_MODEL[filter.id].length) {
-        const INDEX_IN_MODEL = APPLIED_MODEL[filter.id].indexOf(currentModel);
+      if (APPLIED_MODEL[MODEL_ID] &&
+        APPLIED_MODEL[MODEL_ID].length) {
+        const INDEX_IN_MODEL = APPLIED_MODEL[MODEL_ID].indexOf(currentModel);
         if (INDEX_IN_MODEL !== -1) {
-          APPLIED_MODEL[filter.id].splice(INDEX_IN_MODEL, 1);
+          APPLIED_MODEL[MODEL_ID].splice(INDEX_IN_MODEL, 1);
         }
       }
-      if (unappliedModel.value[filter.id] &&
-        unappliedModel.value[filter.id].length) {
-        const INDEX_IN_MODEL = unappliedModel.value[filter.id].indexOf(currentModel);
+      if (unappliedModel.value[MODEL_ID] &&
+        unappliedModel.value[MODEL_ID].length) {
+        const INDEX_IN_MODEL = unappliedModel.value[MODEL_ID].indexOf(currentModel);
         if (INDEX_IN_MODEL !== -1) {
           const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
-          UNAPPLIED_MODEL[filter.id].splice(INDEX_IN_MODEL, 1);
+          UNAPPLIED_MODEL[MODEL_ID].splice(INDEX_IN_MODEL, 1);
           emit("update:unappliedModel", UNAPPLIED_MODEL);
         }
       }
     } else if (AUiTypesModelObject[filter.type] && keyId) {
       const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
-      if (isPlainObject(UNAPPLIED_MODEL?.[filter.id])) {
-        UNAPPLIED_MODEL[filter.id][keyId] = undefined;
+      if (isPlainObject(UNAPPLIED_MODEL?.[MODEL_ID])) {
+        UNAPPLIED_MODEL[MODEL_ID][keyId] = undefined;
       }
-      if (isPlainObject(APPLIED_MODEL?.[filter.id])) {
-        APPLIED_MODEL[filter.id][keyId] = undefined;
+      if (isPlainObject(APPLIED_MODEL?.[MODEL_ID])) {
+        APPLIED_MODEL[MODEL_ID][keyId] = undefined;
       }
       emit("update:unappliedModel", UNAPPLIED_MODEL);
     } else {
       const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
-      UNAPPLIED_MODEL[filter.id] = undefined;
+      UNAPPLIED_MODEL[MODEL_ID] = undefined;
       emit("update:unappliedModel", UNAPPLIED_MODEL);
-      APPLIED_MODEL[filter.id] = undefined;
+      APPLIED_MODEL[MODEL_ID] = undefined;
     }
     emit("update:appliedModel", APPLIED_MODEL);
 

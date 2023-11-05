@@ -4,7 +4,7 @@ import {
 
 import AFilterCenterItem from "./AFilterCenterItem/AFilterCenterItem";
 
-import HideAPI from "./compositionAPI/HideAPI";
+import VisibleFiltersAPI from "./compositionAPI/VisibleFiltersAPI";
 
 export default {
   name: "AFilterCenter",
@@ -41,10 +41,12 @@ export default {
   setup(props) {
     const {
       styleHide,
-    } = HideAPI(props);
+      updateVisibleChildFilters,
+    } = VisibleFiltersAPI(props);
 
     return {
       styleHide,
+      updateVisibleChildFilters,
     };
   },
   render() {
@@ -63,7 +65,8 @@ export default {
           filter,
           closeFilterValue: this.closeFilterValue,
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
-          model: this.appliedModel[filter.id],
+          model: this.appliedModel[filter.modelId || filter.id],
+          onUpdateVisibleChildFilters: this.updateVisibleChildFilters,
         }, this.$slots);
       }),
     ]);

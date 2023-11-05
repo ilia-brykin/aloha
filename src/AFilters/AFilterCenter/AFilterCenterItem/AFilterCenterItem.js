@@ -1,15 +1,16 @@
 import {
-  h,
+  h, onBeforeUnmount, watch,
 } from "vue";
 
 import AButton from "../../../AButton/AButton";
 import ATranslation from "../../../ATranslation/ATranslation";
 
 import CloseFilterValueAPI from "./compositionAPI/CloseFilterValueAPI";
-import HasFilterAPI from "./compositionAPI/HasFilterAPI";
-import ModelValuesAPI from "./compositionAPI/ModelValuesAPI";
-import LabelAPI from "./compositionAPI/LabelAPI";
+import FilterVisibleAPI from "./compositionAPI/FilterVisibleAPI";
 import GoToAPI from "./compositionAPI/GoToAPI";
+import HasFilterAPI from "./compositionAPI/HasFilterAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
+import ModelValuesAPI from "./compositionAPI/ModelValuesAPI";
 
 export default {
   name: "AFilterCenterItem",
@@ -41,7 +42,10 @@ export default {
       default: undefined,
     },
   },
-  setup(props) {
+  emits: [
+    "updateVisibleChildFilters",
+  ],
+  setup(props, context) {
     const {
       hasCurrentFilter,
     } = HasFilterAPI(props);
@@ -59,6 +63,13 @@ export default {
     });
 
     const {
+      isLeastOneFilterVisible,
+      updateVisibleChildFilters,
+    } = FilterVisibleAPI(props, context, {
+      modelValuesForCurrentFilter,
+    });
+
+    const {
       goToFilter,
     } = GoToAPI(props);
 
@@ -66,11 +77,24 @@ export default {
       closeCurrentFilterValue,
     } = CloseFilterValueAPI(props);
 
+    watch(isLeastOneFilterVisible, () => {
+      updateVisibleChildFilters();
+    }, {
+      immediate: true,
+    });
+
+    onBeforeUnmount(() => {
+      updateVisibleChildFilters({
+        destroy: true,
+      });
+    });
+
     return {
       closeCurrentFilterValue,
       filterLabel,
       goToFilter,
       hasCurrentFilter,
+      isLeastOneFilterVisible,
       modelValuesForCurrentFilter,
     };
   },

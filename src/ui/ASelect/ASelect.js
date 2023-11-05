@@ -241,6 +241,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    modelId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     modelUndefined: {
       required: false,
       default: null,

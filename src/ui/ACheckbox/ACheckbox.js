@@ -186,6 +186,11 @@ export default {
       required: false,
       default: undefined,
     },
+    modelId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     label: {
       type: [String, Number],
       required: false,

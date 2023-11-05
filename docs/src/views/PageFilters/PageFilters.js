@@ -3,6 +3,7 @@ import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableP
 import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageFiltersExample from "./PageFiltersExample/PageFiltersExample.vue";
 import PageFiltersDefaultHide from "./PageFiltersDefaultHide/PageFiltersDefaultHide.vue";
+import PageFiltersModelId from "./PageFiltersModelId/PageFiltersModelId.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -17,6 +18,7 @@ export default {
     ATranslation,
     PageFiltersExample,
     PageFiltersDefaultHide,
+    PageFiltersModelId,
   },
   setup() {
     const {
