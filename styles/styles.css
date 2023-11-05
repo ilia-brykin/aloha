@@ -6341,6 +6341,9 @@ input:not(:-webkit-autofill) {
     right: .5rem;
     top: .5rem; }
 
+.a_filters_right__filter_ui {
+  margin-bottom: .5rem; }
+
 .a_tabs {
   --a_tabs_border_width: var(--a_border_width, 1px);
   --a_tabs_border_color: var(--a_border_color, #dee2e6);
