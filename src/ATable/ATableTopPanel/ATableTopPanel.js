@@ -105,6 +105,10 @@ export default {
       required: false,
       default: 0,
     },
+    useViewSlot: {
+      type: Boolean,
+      required: false,
+    },
     viewCurrent: {
       type: Object,
       required: false,
@@ -150,6 +154,7 @@ export default {
 
     const {
       updateViewCurrentLocal,
+      viewSlotLocal,
     } = ViewsAPI(props, context);
 
     return {
@@ -166,6 +171,7 @@ export default {
       textMultipleSelectedTranslateExtra,
       toggleBtnAllRows,
       updateViewCurrentLocal,
+      viewSlotLocal,
     };
   },
   computed: {
@@ -251,7 +257,7 @@ export default {
             class: "a_d_inline_block",
             isButtonGroup: true,
             disabled: this.disabledViews,
-            slotName: undefined, // TODO: "buttonGroup" AIcon
+            slotName: this.viewSlotLocal,
             data: this.views,
             keyId: "id",
             keyLabel: "label",
@@ -259,9 +265,9 @@ export default {
             classFieldset: "a_p_0",
             "onUpdate:modelValue": this.updateViewCurrentLocal,
           }, {
-            buttonGroup: () => [ // TODO: AIcon
-              h("span", "aloha"),
-            ],
+            viewSlot: arg => this.$slots.viewSlot && this.$slots.viewSlot({
+              ...arg,
+            }),
           }),
           this.$slots.tableActionsAppend && this.$slots.tableActionsAppend({
             isMultipleActionsActive: this.isMultipleActionsActive,

@@ -332,6 +332,10 @@ export default {
       required: false,
       default: 0,
     },
+    useViewSlot: {
+      type: Boolean,
+      required: false,
+    },
     valuesForColumnDefault: {
       type: Array,
       required: false,
@@ -721,6 +725,7 @@ export default {
           modelView: this.modelView,
           tableActionsIndexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
           tableActionsIndexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
+          useViewSlot: this.useViewSlot,
           onUpdateViewCurrent: this.updateViewCurrent,
           onUpdateModelQuickSearch: this.updateModelQuickSearch,
           onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
