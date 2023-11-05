@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import {
+  find,
   keyBy,
 } from "lodash-es";
 
@@ -26,10 +27,14 @@ export default function ViewsAPI(props, { emit }) {
 
   const initViewCurrent = () => {
     if (hasViews.value) {
-      const MODEL_VIEW = views.value[0].id;
+      const VIEW_ACTIVE = find(views.value, ["active", true]);
+      let modelViewLocal = views.value[0].id;
+      if (VIEW_ACTIVE) {
+        modelViewLocal = VIEW_ACTIVE.id;
+      }
       emit("updateView", {
-        _modelView: MODEL_VIEW,
-        view: viewKeyById.value[MODEL_VIEW],
+        _modelView: modelViewLocal,
+        view: viewKeyById.value[modelViewLocal],
         modelFilters: modelFilters.value,
         init: true,
       });
