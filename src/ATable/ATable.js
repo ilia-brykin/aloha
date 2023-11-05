@@ -502,18 +502,6 @@ export default {
     });
 
     const {
-      changeOffset,
-      changeLimit,
-    } = LimitOffsetAPI(props, context, {
-      closePreviewAll,
-      limit,
-      offset,
-      scrollToTable,
-      setEmptySelectedRowsIndexes,
-      setFocusToTable,
-    });
-
-    const {
       hasViews,
       initViewCurrent,
       isViewTableVisible,
@@ -522,6 +510,21 @@ export default {
     } = ViewsAPI(props, context, {
       closePreviewAll,
       startSearch: () => ({}), // TODO: in AFilters
+    });
+
+    const {
+      changeOffset,
+      changeLimit,
+      usePaginationLocal,
+    } = LimitOffsetAPI(props, context, {
+      closePreviewAll,
+      isViewTableVisible,
+      limit,
+      offset,
+      scrollToTable,
+      setEmptySelectedRowsIndexes,
+      setFocusToTable,
+      viewCurrent,
     });
 
     const {
@@ -628,6 +631,7 @@ export default {
       togglePreviewResize,
       updateRow,
       updateViewCurrent,
+      usePaginationLocal,
       viewCurrent,
     };
   },
@@ -824,7 +828,7 @@ export default {
         this.$slots[this.viewCurrent.type]({
           rows: this.rowsLocalAll,
         }),
-        (this.isViewTableVisible && this.pagination.use) &&
+        (this.usePaginationLocal) &&
         h(APagination, {
           countAllRows: this.countAllRowsLocal,
           disabled: this.pagination.disabled,

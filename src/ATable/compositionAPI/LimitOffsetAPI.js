@@ -1,4 +1,5 @@
 import {
+  computed,
   ref,
   toRef,
 } from "vue";
@@ -9,13 +10,25 @@ import {
 
 export default function LimitOffsetAPI(props, { emit }, {
   closePreviewAll = () => {},
+  isViewTableVisible = computed(() => true),
   limit = ref(0),
   offset = ref(0),
   scrollToTable = () => {},
   setEmptySelectedRowsIndexes = () => {},
   setFocusToTable = () => {},
+  viewCurrent = computed(() => ({})),
 }) {
   const offsetStart = toRef(props, "offsetStart");
+  const pagination = toRef(props, "pagination");
+
+  const usePaginationLocal = computed(() => {
+    if (pagination.value?.use) {
+      if (isViewTableVisible.value || viewCurrent.value.usePagination) {
+        return true;
+      }
+    }
+    return false;
+  });
 
   const changeOffset = _offset => {
     let offsetLocal;
@@ -58,5 +71,6 @@ export default function LimitOffsetAPI(props, { emit }, {
   return {
     changeOffset,
     changeLimit,
+    usePaginationLocal,
   };
 }
