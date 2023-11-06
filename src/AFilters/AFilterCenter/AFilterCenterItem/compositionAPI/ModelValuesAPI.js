@@ -59,7 +59,8 @@ export default function ModelValuesAPI(props, {
       }
       return [];
     }
-    if (AUiTypesModelArray[filter.value.type]) {
+    if (AUiTypesModelArray[filter.value.type] ||
+      (filter.value.type === "radio" && filter.value.isModelArray)) {
       const MODEL_VALUES = [];
       forEach(model.value, modelItem => {
         if (filterDataKey.value && filterDataKey.value[modelItem]) {
