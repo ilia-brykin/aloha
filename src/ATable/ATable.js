@@ -831,6 +831,7 @@ export default {
         ]),
         (!this.isViewTableVisible && this.viewCurrent && this.$slots[this.viewCurrent.type]) &&
         this.$slots[this.viewCurrent.type]({
+          isLoading: this.isLoadingTable,
           rows: this.rowsLocalAll,
         }),
         (this.usePaginationLocal) &&
