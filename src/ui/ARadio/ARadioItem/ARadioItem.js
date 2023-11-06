@@ -68,7 +68,7 @@ export default {
       required: true,
     },
     modelValue: {
-      type: [String, Number, Boolean],
+      type: [String, Number, Boolean, Array],
       required: false,
     },
     searching: {
