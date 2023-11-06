@@ -12,7 +12,7 @@ import AInput from "../AInput/AInput";
 import ARadioItem from "./ARadioItem/ARadioItem";
 import ATranslation from "../../ATranslation/ATranslation";
 
-import ChangeAPI from "../ACheckbox/compositionAPI/ChangeAPI";
+import ChangeAPI from "./compositionAPI/ChangeAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
@@ -148,6 +148,11 @@ export default {
       required: false,
       default: true,
     },
+    isModelArray: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isRender: {
       type: Boolean,
       required: false,
@@ -216,7 +221,7 @@ export default {
       default: null,
     },
     modelValue: {
-      type: [String, Number, Boolean],
+      type: [String, Number, Boolean, Array],
       required: false,
     },
     options: {
