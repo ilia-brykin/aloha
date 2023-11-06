@@ -398,6 +398,7 @@ export default {
       onChangeModelValue,
     } = ChangeAPI(props, {
       changeModel,
+      dataKeyByKeyIdLocal,
     });
 
     const {

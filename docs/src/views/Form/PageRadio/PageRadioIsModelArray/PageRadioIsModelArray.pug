@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_"
+  description="_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_"
+  props="isModelArray"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-radio(
+        v-model="model"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        :key-group="['alohaBR', 'aloha']"
+        label="Aloha group"
+        :is-model-array="true"
+      )
+      div model: {{ model }}
+
