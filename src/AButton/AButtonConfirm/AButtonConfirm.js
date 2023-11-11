@@ -56,7 +56,7 @@ export default {
     const isActionInProgress = ref(false);
     const isActionCompleted = ref(false);
     let actionTimeoutId = null;
-    const componentRoot = ref(null);
+    const confirmRef = ref(null);
     const isVisible = toRef(props, "isVisible");
 
     const handleYes = () => {
@@ -107,7 +107,7 @@ export default {
     });
 
     const checkOutsideClick = event => {
-      if (componentRoot.value && !componentRoot.value.contains(event.target)) {
+      if (confirmRef.value && !confirmRef.value.contains(event.target)) {
         handleCancel();
       }
     };
@@ -146,11 +146,11 @@ export default {
       isActionCompleted,
       yesButtonAttributes,
       noButtonAttributes,
-      componentRoot,
+      confirmRef,
     };
   },
   render() {
-    return h("div", { class: "a_btn_modal_content", ref: "componentRoot" }, [
+    return h("div", { class: "a_btn_modal_content", ref: "confirmRef" }, [
       this.isActionInProgress ? [
         h(ASpinner, { class: "a_btn_modal_spinner" }),
         h(ATranslation, {
