@@ -96,5 +96,13 @@
   "_A_BUTTON_SLOT_BUTTON_APPEND_DESCRIPTION_": "Der Slot, der den Inhalt enthält, der nach dem Text im Button angezeigt werden soll.",
   "_A_BUTTON_SLOT_BUTTON_PREPEND_DESCRIPTION_": "Der Slot, der den Inhalt enthält, der vor dem Text im Button angezeigt werden soll.",
   "_A_BUTTON_SLOT_BUTTON_TITLE_DESCRIPTION_": "Der Slot, der den HTML-Inhalt enthält, der als Titel für den Button verwendet werden soll.",
-  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Der Standard-Slot, der den Inhalt für den Button enthält."
+  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Der Standard-Slot, der den Inhalt für den Button enthält.",
+  "_A_BUTTON_PROPS_CONFIRM_MESSAGE_DESCRIPTION_": "Legt die Bestätigungsnachricht fest, die in der Komponente angezeigt wird und fordert den Benutzer zur Bestätigung auf. Die Standardnachricht lautet \"Sind Sie sicher?\".",
+  "_A_BUTTON_PROPS_CONFIRM_TIME_DESCRIPTION_": "Definiert die Dauer (in Sekunden) bevor die Aktion ausgeführt wird, nachdem der Benutzer auf \"Ja\" klickt. Es fungiert als Countdown-Zeit für die Bestätigungsaktion. Der Standardwert ist 5 Sekunden.",
+  "_A_BUTTON_PROPS_IN_PROGRESS_MESSAGE_DESCRIPTION_": "Legt die Nachricht fest, die angezeigt wird, wenn eine Aktion in Bearbeitung ist, insbesondere nachdem der Benutzer auf \"Ja\" geklickt und bevor die Aktion abgeschlossen ist. Die Standardnachricht lautet \"In Bearbeitung...\"",
+  "_A_BUTTON_PROPS_YES_ATTRIBUTES_DESCRIPTION_": "Passt die Attribute des \"Ja\"-Knopfes an, wobei jegliche relevanten Attribute oder Stile übergeben werden können. Standardmäßig ist es ein leeres Objekt.",
+  "_A_BUTTON_PROPS_NO_ATTRIBUTES_DESCRIPTION_": "Wird verwendet, um die Attribute des \"Nein\"-Knopfes anzupassen, ähnlich wie \"yesAttributes\". Standardmäßig ist es ebenfalls ein leeres Objekt.",
+  "_A_BUTTON_PROPS_CONFIRM_DESCRIPTION_": "Ermöglicht ein Bestätigungsdialog vor der Knopfaktion. Auf \"wahr\" setzen, um den Benutzer um Bestätigung zu bitten. Standard ist \"falsch\".",
+  "_A_BUTTON_GROUP_CONFIRM_HEADER_": "Hinzufügen von Bestätigungsdialogen für kritische Aktionen",
+  "_A_BUTTON_GROUP_CONFIRM_DESCRIPTION_": "Verbessern Sie die Benutzererfahrung, indem Sie Bestätigungsaufforderungen für wichtige Aktionen integrieren. Diese Funktion stellt sicher, dass Benutzer bewusste Entscheidungen treffen, wodurch versehentliche Klicks mit anpassbaren Nachrichten und Zeitabläufen reduziert werden."
 }

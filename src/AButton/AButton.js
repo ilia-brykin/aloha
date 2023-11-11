@@ -1,6 +1,6 @@
 import {
   h,
-  ref
+  ref,
 } from "vue";
 
 import AButtonConfirm from "./AButtonConfirm/AButtonConfirm";
@@ -239,7 +239,7 @@ export default {
     },
     confirmMessage: {
       type: String,
-      default: "Are you sure?",
+      default: "_CONFIRM_MESSAGE_",
     },
     extraConfirmMessage: {
       type: Object,
@@ -259,7 +259,7 @@ export default {
     },
     inProgressMessage: {
       type: String,
-      default: "Processing...",
+      default: "_PROCESSING_",
     },
     confirmPosition: {
       type: String,
@@ -432,18 +432,19 @@ export default {
           (!this.title && !this.$slots.buttonTitle) ?
           undefined :
           () => {
-          return [
-            this.isTitleVisible && h(ATranslation, {
-              html: this.title,
-              tag: "span",
-              extra: this.extra,
-            }),
-            this.$slots.buttonTitle && this.$slots.buttonTitle(),
-          ];
-        },
+            return [
+              this.isTitleVisible && h(ATranslation, {
+                html: this.title,
+                tag: "span",
+                extra: this.extra,
+              }),
+              this.$slots.buttonTitle && this.$slots.buttonTitle(),
+            ];
+          },
       }),
       this.isConfirmVisible && h(AButtonConfirm, {
         class: ["confirm_position", this.confirmPosition],
+        isVisible: this.isConfirmVisible,
         onAction: this.handleAction,
         onCancel: this.handleCancel,
         confirmMessage: this.confirmMessage,

@@ -26,5 +26,8 @@
   "_REMOVE_SELECTION_": "Auswahl entfernen",
   "_SEARCH_MENU_": "Menüsuche",
   "_SELECT_TEXT_EMPTY_": "[Keine Auswahl]",
-  "_YES_": "Ja"
+  "_YES_": "Ja",
+  "_CANCEL_": "Abbrechen",
+  "_CONFIRM_MESSAGE_": "Sind Sie sicher?",
+  "_PROCESSING_": "Verarbeitung..."
 }

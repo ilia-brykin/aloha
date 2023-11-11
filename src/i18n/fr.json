@@ -25,5 +25,8 @@
   "_REMOVE_FIELD_CONTENT_": "Supprimer le contenu du champ",
   "_REMOVE_SELECTION_": "supprimer la sélection",
   "_SEARCH_MENU_": "Menu de recherche",
-  "_YES_": "Oui"
+  "_YES_": "Oui",
+  "_CANCEL_": "Annuler",
+  "_CONFIRM_MESSAGE_": "Êtes-vous sûr?",
+  "_PROCESSING_": "Traitement..."
 }

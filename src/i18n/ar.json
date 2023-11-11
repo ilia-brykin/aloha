@@ -25,5 +25,8 @@
   "_REMOVE_FIELD_CONTENT_": "إزالة المحتوى",
   "_REMOVE_SELECTION_": "إزالة التحديد",
   "_SEARCH_MENU_": "قائمة البحث",
-  "_YES_": "نعم"
+  "_YES_": "نعم",
+  "_CANCEL_": "إلغاء",
+  "_CONFIRM_MESSAGE_": "هل أنت متأكد؟",
+  "_PROCESSING_": "جارٍ المعالجة..."
 }

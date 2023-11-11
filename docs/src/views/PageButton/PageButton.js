@@ -4,6 +4,7 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageButtonAriaDisabled from "./PageButtonAriaDisabled/PageButtonAriaDisabled.vue";
 import PageButtonBasic from "./PageButtonBasic/PageButtonBasic.vue";
 import PageButtonComplex from "./PageButtonComplex/PageButtonComplex.vue";
+import PageButtonConfirm from "./PageButtonConfirm/PageButtonConfirm.vue";
 import PageButtonDisabled from "./PageButtonDisabled/PageButtonDisabled.vue";
 import PageButtonGroup from "./PageButtonGroup/PageButtonGroup.vue";
 import PageButtonGroupHorizontalVertical from "./PageButtonGroupHorizontalVertical/PageButtonGroupHorizontalVertical.vue";
@@ -44,6 +45,7 @@ export default {
     PageButtonAriaDisabled,
     PageButtonBasic,
     PageButtonComplex,
+    PageButtonConfirm,
     PageButtonDisabled,
     PageButtonGroup,
     PageButtonGroupHorizontalVertical,

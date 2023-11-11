@@ -1,7 +1,11 @@
 import {
-  ref,
+  computed,
   h,
-  computed
+  onMounted,
+  onUnmounted,
+  ref,
+  toRef,
+  watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton.js";
@@ -21,7 +25,7 @@ export default {
   props: {
     confirmMessage: {
       type: String,
-      default: "Are you sure?",
+      default: "_CONFIRM_MESSAGE_",
     },
     extra: {
       type: Object,
@@ -33,7 +37,7 @@ export default {
     },
     inProgressMessage: {
       type: String,
-      default: "Processing...",
+      default: "_PROCESSING_",
     },
     yesAttributes: {
       type: Object,
@@ -42,12 +46,18 @@ export default {
     noAttributes: {
       type: Object,
       default: () => ({}),
-    }
+    },
+    isVisible: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const isActionInProgress = ref(false);
     const isActionCompleted = ref(false);
     let actionTimeoutId = null;
+    const componentRoot = ref(null);
+    const isVisible = toRef(props, "isVisible");
 
     const handleYes = () => {
       isActionInProgress.value = true;
@@ -81,7 +91,7 @@ export default {
         class: "a_btn_modal_button a_btn_modal_button_yes",
         onClick: handleYes,
         disabled: isActionInProgress.value,
-        text: "Yes",
+        text: "_YES_",
       };
       return getButtonAttributes(defaultYesAttributes, props.yesAttributes);
     });
@@ -91,9 +101,41 @@ export default {
         class: "a_btn_modal_button a_btn_modal_button_no",
         onClick: isActionInProgress.value ? handleCancel : handleNo,
         disabled: !isActionInProgress.value && isActionCompleted.value,
-        text: isActionInProgress.value ? "Cancel" : "No",
+        text: isActionInProgress.value ? "_CANCEL_" : "_NO_",
       };
       return getButtonAttributes(defaultNoAttributes, props.noAttributes);
+    });
+
+    const checkOutsideClick = event => {
+      if (componentRoot.value && !componentRoot.value.contains(event.target)) {
+        handleCancel();
+      }
+    };
+
+    const addClickListener = () => {
+      document.addEventListener("click", checkOutsideClick);
+    };
+
+    const delayedAddClickListener = () => {
+      setTimeout(addClickListener, 100);
+    };
+
+    watch(isVisible, newVal => {
+      if (newVal) {
+        delayedAddClickListener();
+      } else {
+        document.removeEventListener("click", checkOutsideClick);
+      }
+    });
+
+    onMounted(() => {
+      if (isVisible.value) {
+        delayedAddClickListener();
+      }
+    });
+
+    onUnmounted(() => {
+      document.removeEventListener("click", checkOutsideClick);
     });
 
     return {
@@ -103,11 +145,12 @@ export default {
       isActionInProgress,
       isActionCompleted,
       yesButtonAttributes,
-      noButtonAttributes
+      noButtonAttributes,
+      componentRoot,
     };
   },
   render() {
-    return h("div", { class: "a_btn_modal_content" }, [
+    return h("div", { class: "a_btn_modal_content", ref: "componentRoot" }, [
       this.isActionInProgress ? [
         h(ASpinner, { class: "a_btn_modal_spinner" }),
         h(ATranslation, {
@@ -127,4 +170,3 @@ export default {
     ]);
   }
 };
-

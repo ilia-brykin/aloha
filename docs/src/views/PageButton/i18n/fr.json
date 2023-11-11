@@ -91,5 +91,18 @@
   "_A_BUTTON_SLOT_BUTTON_APPEND_DESCRIPTION_": "Le slot contenant le contenu à afficher après le texte dans le bouton.",
   "_A_BUTTON_SLOT_BUTTON_PREPEND_DESCRIPTION_": "Le slot contenant le contenu à afficher avant le texte dans le bouton.",
   "_A_BUTTON_SLOT_BUTTON_TITLE_DESCRIPTION_": "Le slot contenant le contenu HTML à utiliser comme titre pour le bouton.",
-  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Le slot par défaut contenant le contenu pour le bouton."
+  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Le slot par défaut contenant le contenu pour le bouton.",
+  "_A_BUTTON_PROPS_TEXT_TAG_DESCRIPTION_": "Cette propriété vous permet de personnaliser la balise HTML qui affiche le texte à l'intérieur du bouton.",
+  "_A_BUTTON_GROUP_TRANSPARENT_HEADER_": "Boutons transparents",
+  "_A_BUTTON_GROUP_TRANSPARENT_DESCRIPTION_": "Si vous avez besoin d'un bouton qui se fond avec l'arrière-plan au lieu de le couvrir, remplacez les classes de modificateurs par défaut par les classes .a_btn_transparent*.",
+  "_A_BUTTON_GROUP_TEXT_TAG_DESCRIPTION_": "Cet exemple montre comment personnaliser la balise de texte dans le composant \"AButton\" en Vue.js. Par défaut, le texte est rendu dans une balise \"span\". Cependant, en utilisant la propriété \"text-tag\", la balise de texte peut être personnalisée de manière flexible pour utiliser différentes balises HTML comme \"strong\", \"em\" ou autres.",
+  "_A_BUTTON_GROUP_TEXT_TAG_HEADER_": "Changement de la balise de texte dans le composant \"AButton\"",
+  "_A_BUTTON_PROPS_CONFIRM_MESSAGE_DESCRIPTION_": "Définit le message de confirmation affiché dans le composant, demandant confirmation à l'utilisateur. Le message par défaut est \"Êtes-vous sûr ?\".",
+  "_A_BUTTON_PROPS_CONFIRM_TIME_DESCRIPTION_": "Détermine la durée (en secondes) avant l'exécution de l'action après que l'utilisateur a cliqué sur \"Oui\". Il sert de temps de compte à rebours pour l'action de confirmation. Le défaut est de 5 secondes.",
+  "_A_BUTTON_PROPS_IN_PROGRESS_MESSAGE_DESCRIPTION_": "Définit le message affiché lorsqu'une action est en cours, spécifiquement après que l'utilisateur a cliqué sur \"Oui\" et avant que l'action soit complétée. Le message par défaut est \"Traitement en cours...\"",
+  "_A_BUTTON_PROPS_YES_ATTRIBUTES_DESCRIPTION_": "Personnalise les attributs du bouton \"Oui\", permettant de passer tout attribut ou style pertinent. Par défaut, il s'agit d'un objet vide.",
+  "_A_BUTTON_PROPS_NO_ATTRIBUTES_DESCRIPTION_": "Utilisé pour personnaliser les attributs du bouton \"Non\", semblable à \"yesAttributes\". Il est également par défaut un objet vide.",
+  "_A_BUTTON_PROPS_CONFIRM_DESCRIPTION_": "Active un dialogue de confirmation avant l'action du bouton. Mettre sur \"vrai\" pour demander la confirmation de l'utilisateur. Le défaut est \"faux\".",
+  "_A_BUTTON_GROUP_CONFIRM_HEADER_": "Ajout de Dialogues de Confirmation pour Actions Critiques",
+  "_A_BUTTON_GROUP_CONFIRM_DESCRIPTION_": "Améliore l'expérience utilisateur en intégrant des invites de confirmation pour des actions importantes. Cette fonctionnalité assure que les utilisateurs prennent des décisions délibérées, réduisant les clics accidentels avec des messages et des temps personnalisables."
 }

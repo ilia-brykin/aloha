@@ -1,0 +1,33 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BUTTON_GROUP_CONFIRM_HEADER_"
+  description="_A_BUTTON_GROUP_CONFIRM_DESCRIPTION_"
+  :props="['confirm', 'confirm-time', 'confirm-position', 'yes-attributes', 'no-attributes', 'in-progress-message']"
+)
+  a-button(
+    class="a_btn a_btn_primary a_ml_2"
+    text="confirm"
+    :confirm="true"
+    confirm-position="bottom"
+    @click="onAlert('confirm')"
+  )
+  a-button(
+    class="a_btn a_btn_primary a_ml_2"
+    text="confirmTime"
+    :confirm="true"
+    :confirm-time="0"
+    confirm-position="left"
+    @click="onAlert('confirmTime')"
+  )
+  a-button(
+    class="a_btn a_btn_primary a_ml_2"
+    text="confirmAttributes"
+    :confirm="true"
+    confirm-message="hallo aloha lorem ipsum 1500000000 qwertrtz"
+    :yes-attributes={text: "success"}
+    :no-attributes={text: "nope"}
+    in-progress-message="test wait message"
+    confirm-position="right"
+    @click="onAlert('confirmAttributes')"
+  )
