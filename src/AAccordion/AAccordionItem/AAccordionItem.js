@@ -12,7 +12,7 @@ import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
-import AKeyId from "../../ui/const/AKeyId";
+import AKeyId from "../../const/AKeyId";
 
 export default {
   name: "AAccordionItem",

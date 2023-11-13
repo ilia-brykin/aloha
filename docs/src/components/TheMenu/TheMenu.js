@@ -298,6 +298,20 @@ export default {
           icon: "HourglassSplit",
         },
         {
+          id: "menu",
+          label: "Menu",
+          icon: "MenuAppFill",
+          children: [
+            {
+              id: "PageMenuBasic",
+              label: "Menu basic",
+              to: {
+                name: "PageMenuBasic",
+              },
+            },
+          ],
+        },
+        {
           id: "modal",
           label: "Modal",
           to: {

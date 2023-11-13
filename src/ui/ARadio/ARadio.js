@@ -25,7 +25,7 @@ import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import AKeyId from "../const/AKeyId";
+import AKeyId from "../../const/AKeyId";
 import {
   uniqueId,
 } from "lodash-es";

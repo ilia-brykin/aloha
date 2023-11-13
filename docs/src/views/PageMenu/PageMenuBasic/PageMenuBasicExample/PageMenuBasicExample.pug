@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  props="is-visible"
+)
+  .a_position_relative(
+    style="min-height: 600px;"
+  )
+    a-menu2(
+      :data="menuItems"
+      key-children="children"
+      key-slot="slot"
+    )

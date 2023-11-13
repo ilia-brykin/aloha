@@ -5,7 +5,7 @@ import {
 
 import AFiltersAPI from "../../../../compositionAPI/AFiltersAPI";
 
-import AKeyLabel from "../../../../ui/const/AKeyLabel";
+import AKeyLabel from "../../../../const/AKeyLabel";
 import AUiTypesModelArray from "../../../../ui/const/AUiTypesModelArray";
 import TypesNumberRange from "../../../../ui/AInputNumberRange/utils/Types";
 import {

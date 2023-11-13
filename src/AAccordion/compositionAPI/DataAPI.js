@@ -3,7 +3,7 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../ui/const/AKeyId";
+import AKeyId from "../../const/AKeyId";
 
 import {
   cloneDeep,

@@ -4,7 +4,7 @@ import {
 } from "vue";
 
 import AKeysCode from "../../../const/AKeysCode";
-import AKeyId from "../../const/AKeyId";
+import AKeyId from "../../../const/AKeyId";
 import {
   cloneDeep,
   get,

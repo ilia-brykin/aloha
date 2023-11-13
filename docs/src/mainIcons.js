@@ -30,11 +30,12 @@ import HourglassSplit from "../../src/AIcon/Icons/bootstrap-1-9-1/HourglassSplit
 import InputCursor from "../../src/AIcon/Icons/bootstrap-1-9-1/InputCursor";
 import ListNested from "../../src/AIcon/Icons/bootstrap-1-9-1/ListNested";
 import ListUl from "../../src/AIcon/Icons/bootstrap-1-9-1/ListUl";
+import MenuAppFill from "../../src/AIcon/Icons/bootstrap-1-9-1/MenuAppFill";
 import MenuDown from "../../src/AIcon/Icons/bootstrap-1-9-1/MenuDown";
 import Reception2 from "../../src/AIcon/Icons/bootstrap-1-9-1/Reception2";
 import SegmentedNav from "../../src/AIcon/Icons/bootstrap-1-9-1/SegmentedNav";
-import StarFill from "../../src/AIcon/Icons/bootstrap-1-9-1/StarFill";
 import Star from "../../src/AIcon/Icons/bootstrap3/StarEmpty";
+import StarFill from "../../src/AIcon/Icons/bootstrap-1-9-1/StarFill";
 import Table from "../../src/AIcon/Icons/bootstrap-1-9-1/Table";
 import Translate from "../../src/AIcon/Icons/bootstrap-1-9-1/Translate";
 import Window from "../../src/AIcon/Icons/bootstrap-1-9-1/Window";
@@ -74,6 +75,7 @@ export default {
   InputCursor,
   ListNested,
   ListUl,
+  MenuAppFill,
   MenuDown,
   Reception2,
   SegmentedNav,

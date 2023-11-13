@@ -7,7 +7,7 @@ import {
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
-import AKeyLabel from "../const/AKeyLabel";
+import AKeyLabel from "../../const/AKeyLabel";
 
 
 export default {

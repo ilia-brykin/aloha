@@ -6,7 +6,7 @@ import {
 
 import AMenuBreadcrumbsItem from "./AMenuBreadcrumbsItem";
 
-import AKeyLabel from "../ui/const/AKeyLabel";
+import AKeyLabel from "../const/AKeyLabel";
 import {
   forEach,
   get,

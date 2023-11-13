@@ -3,10 +3,10 @@ import {
   toRef,
 } from "vue";
 
-import AKeyChildren from "../../ui/const/AKeyChildren";
-import AKeyId from "../../ui/const/AKeyId";
-import AKeyLabel from "../../ui/const/AKeyLabel";
-import AKeyParent from "../../ui/const/AKeyParent";
+import AKeyChildren from "../../const/AKeyChildren";
+import AKeyId from "../../const/AKeyId";
+import AKeyLabel from "../../const/AKeyLabel";
+import AKeyParent from "../../const/AKeyParent";
 import {
   cloneDeep,
   forEach,

@@ -41,6 +41,7 @@ import PageWizardI18n from "./views/PageWizard/i18n/PageWizardI18n";
 import PageModalI18n from "./views/PageModal/i18n/PageModalI18n";
 import PageTablePreviewDownI18n from "./views/PageTable/PageTablePreviewDown/i18n/PageTablePreviewDownI18n";
 import PageFiltersRightI18n from "./views/PageFiltersRight/i18n/PageFiltersRightI18n";
+import PageMenuBasicI18n from "./views/PageMenu/PageMenuBasic/i18n/PageMenuBasicI18n";
 
 export const mainTranslation = {
   ar: {
@@ -78,6 +79,7 @@ export const mainTranslation = {
     ...PageModalI18n.ar,
     ...PageTablePreviewDownI18n.ar,
     ...PageFiltersRightI18n.ar,
+    ...PageMenuBasicI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -114,6 +116,7 @@ export const mainTranslation = {
     ...PageModalI18n.de,
     ...PageTablePreviewDownI18n.de,
     ...PageFiltersRightI18n.de,
+    ...PageMenuBasicI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -150,6 +153,7 @@ export const mainTranslation = {
     ...PageModalI18n.en,
     ...PageTablePreviewDownI18n.en,
     ...PageFiltersRightI18n.en,
+    ...PageMenuBasicI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -186,6 +190,7 @@ export const mainTranslation = {
     ...PageModalI18n.es,
     ...PageTablePreviewDownI18n.es,
     ...PageFiltersRightI18n.es,
+    ...PageMenuBasicI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -222,6 +227,7 @@ export const mainTranslation = {
     ...PageModalI18n.fr,
     ...PageTablePreviewDownI18n.fr,
     ...PageFiltersRightI18n.fr,
+    ...PageMenuBasicI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -258,6 +264,7 @@ export const mainTranslation = {
     ...PageModalI18n.hr,
     ...PageTablePreviewDownI18n.hr,
     ...PageFiltersRightI18n.hr,
+    ...PageMenuBasicI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -294,6 +301,7 @@ export const mainTranslation = {
     ...PageModalI18n.it,
     ...PageTablePreviewDownI18n.it,
     ...PageFiltersRightI18n.it,
+    ...PageMenuBasicI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -330,5 +338,6 @@ export const mainTranslation = {
     ...PageModalI18n.ru,
     ...PageTablePreviewDownI18n.ru,
     ...PageFiltersRightI18n.ru,
+    ...PageMenuBasicI18n.ru,
   },
 };

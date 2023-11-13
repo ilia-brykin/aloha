@@ -9,8 +9,8 @@ import AMenuPanelLink from "./AMenuPanelLink/AMenuPanelLink";
 
 import ASafeHtml from "../directives/ASafeHtml";
 
-import AKeyParent from "../ui/const/AKeyParent";
-import AKeyLabel from "../ui/const/AKeyLabel";
+import AKeyParent from "../const/AKeyParent";
+import AKeyLabel from "../const/AKeyLabel";
 
 import {
   get, isNil,
