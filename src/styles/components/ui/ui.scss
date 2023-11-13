@@ -1,5 +1,6 @@
 .a_form_element__parent {
   --a_form_element_error_color: var(--a_color_danger);
+  --a_form_element_label_float_top: 18px;
 }
 
 .a_form_element__parent_float {
@@ -7,7 +8,7 @@
   .a_form_element_label {
     position: absolute;
     left: 10px;
-    top: 18px;
+    top: var(--a_form_element_label_float_top);
     transform: translateY(-50%);
     color: #9f9185;
     font-size: 14px;

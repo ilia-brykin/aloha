@@ -13,10 +13,6 @@ export default {
       type: [String, Number],
       required: true,
     },
-    isBreadcrumbsLinkTruncated: {
-      type: Boolean,
-      required: true,
-    },
     panelParentId: {
       type: [String, Number],
       required: true,
@@ -57,9 +53,6 @@ export default {
         class: "a_mr_2",
       }),
       h("span", {
-        class: {
-          a_menu_2__link__text_truncated: this.isBreadcrumbsLinkTruncated,
-        },
       }, [
         h("span", {
           ariaHidden: true,

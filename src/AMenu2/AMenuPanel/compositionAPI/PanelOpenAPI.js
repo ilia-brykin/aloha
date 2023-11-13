@@ -4,7 +4,7 @@ import {
 } from "vue";
 
 export default function PanelOpenAPI(props) {
-  const isFirst = toRef(props, "isFirst");
+  const isPanelMain = toRef(props, "isPanelMain");
   const isSearchActive = toRef(props, "isSearchActive");
   const panelParentsOpen = toRef(props, "panelParentsOpen");
   const parentId = toRef(props, "parentId");
@@ -13,7 +13,7 @@ export default function PanelOpenAPI(props) {
     if (isSearchActive.value) {
       return false;
     }
-    if (isFirst.value) {
+    if (isPanelMain.value) {
       return panelParentsOpen.value.length === 0;
     }
     if (panelParentsOpen.value.length) {
@@ -23,7 +23,7 @@ export default function PanelOpenAPI(props) {
   });
 
   const isChildPanelOpen = computed(() => {
-    if (isFirst.value) {
+    if (isPanelMain.value) {
       return panelParentsOpen.value.length > 0;
     }
     const INDEX = panelParentsOpen.value.indexOf(parentId.value);

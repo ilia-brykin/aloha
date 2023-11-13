@@ -9,19 +9,19 @@ import {
 } from "vue";
 
 import AInput from "../ui/AInput/AInput";
-import AMenuBreadcrumbs from "./AMenuBreadcrumbs";
-import AMenuButtonToggle from "./AMenuButtonToggle";
+import AMenuButtonToggle from "./AMenuButtonToggle/AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel/AMenuPanel";
 import AMenuSearchPanel from "./AMenuSearchPanel";
 
 import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
-import DataAPI from "./compositionAPI/DataAPI";
-import AMenuPanelsAPI from "./compositionAPI/AMenuPanelsAPI";
-import AMenuResizeAPI from "./compositionAPI/AMenuResizeAPI";
 import AMenuSearchAPI from "./compositionAPI/AMenuSearchAPI";
-import AMenuToggleAPI from "./compositionAPI/AMenuToggleAPI";
-import DestroyAPI from "./compositionAPI/DestroyAPI";
+import CheckRoutesAPI from "./compositionAPI/CheckRoutesAPI";
+import DataAPI from "./compositionAPI/DataAPI";
+import LinkClickAPI from "./compositionAPI/LinkClickAPI";
 import MenuAttributesAPI from "./compositionAPI/MenuAttributesAPI";
+import PanelsAPI from "./compositionAPI/PanelsAPI";
+import ResizeAPI from "./compositionAPI/ResizeAPI";
+import ToggleAPI from "./AMenuButtonToggle/compositionAPI/ToggleAPI";
 
 import {
   uniqueId,
@@ -35,31 +35,30 @@ export default {
     };
   },
   props: {
-    breakpointMobile: {
-      type: Number,
-      required: false,
-      default: 991,
-    },
     buttonToggleClass: {
       type: [String, Object],
       required: false,
       default: "a_btn a_btn_secondary",
     },
-    buttonToggleVisible: {
-      type: String,
+    buttonToggleProps: {
+      type: Object,
       required: false,
-      default: "always",
-      validator: value => ["always", "mobile", "desktop"].indexOf(value) !== -1,
+      default: () => ({}),
+    },
+    canChangeBodyClass: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     data: {
       type: Array,
       required: false,
       default: () => [],
     },
-    id: {
-      type: String,
+    hasSearch: {
+      type: Boolean,
       required: false,
-      default: () => uniqueId("a_menu_2_"),
+      default: true,
     },
     isBackdrop: {
       type: Boolean,
@@ -70,12 +69,12 @@ export default {
       type: Boolean,
       required: false,
     },
-    isBreadcrumbsAll: {
+    isBodyFocusAfterClick: {
       type: Boolean,
       required: false,
       default: true,
     },
-    isBreadcrumbsLinkTruncated: {
+    isBreadcrumbsTruncated: {
       type: Boolean,
       required: false,
       default: true,
@@ -85,12 +84,7 @@ export default {
       required: false,
       default: true,
     },
-    isOpenDefault: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    isSearch: {
+    isMenuOpenInitial: {
       type: Boolean,
       required: false,
       default: true,
@@ -144,28 +138,19 @@ export default {
       required: false,
       default: undefined,
     },
-    isBodyFocusAfterClick: {
-      type: Boolean,
+    menuId: {
+      type: String,
       required: false,
-      default: true,
+      default: () => uniqueId("a_menu_2_"),
     },
   },
   setup(props) {
     const isLinkTruncated = toRef(props, "isLinkTruncated");
 
     const {
-      removeBodyClasses,
-    } = DestroyAPI();
-
-    const {
       dataKeyById,
       dataProParent,
     } = DataAPI(props);
-
-    const buttonToggleVisible = toRef(props, "buttonToggleVisible");
-    const isButtonToggleVisible = computed(() => {
-      return !!buttonToggleVisible.value;
-    });
 
     const {
       idsSearchVisible,
@@ -179,9 +164,21 @@ export default {
     });
 
     const {
+      closeAllPanels,
+      isSubMenuOpen,
+      panelParentsOpen,
+      setDefaultMenu,
+      togglePanel
+    } = PanelsAPI(props, {
+      dataKeyById,
+      resetSearch,
+    });
+
+    const {
       isMenuOpen,
+      removeBodyClasses,
       toggleMenu,
-    } = AMenuToggleAPI();
+    } = ToggleAPI(props);
 
     const {
       attributesMenuClick,
@@ -191,24 +188,20 @@ export default {
     });
 
     const {
+      destroyEventBusUpdateViewOnResize,
+      initEventBusUpdateViewOnResize,
       initMenuOpenOrClose,
-      isMenuMobile,
-    } = AMenuResizeAPI(props, {
+      isMobileWidth,
+    } = ResizeAPI(props, {
       toggleMenu,
     });
 
     const {
       clickMenuLink,
-      closeAllPanels,
-      isSubMenuOpen,
-      panelParentsOpen,
-      setDefaultMenu,
-      togglePanel,
-    } = AMenuPanelsAPI(props, {
-      dataProParent,
-      dataKeyById,
+      isMenuLinkClicked,
+    } = LinkClickAPI(props, {
+      isMobileWidth,
       resetSearch,
-      isMenuMobile,
       toggleMenu,
     });
 
@@ -218,10 +211,25 @@ export default {
       closeAllPanels,
     });
 
-    watch(isMenuOpen, (newValue, altValue) => {
-      if (!newValue && altValue) {
-        resetSearch();
-      }
+    const {
+      checkAllRoutes,
+      currentRoute,
+    } = CheckRoutesAPI({
+      dataKeyById,
+      dataProParent,
+      isMenuLinkClicked,
+      panelParentsOpen,
+    });
+
+    watch(currentRoute, () => {
+      checkAllRoutes();
+    }, {
+      immediate: true,
+    });
+
+    watch(isMenuOpen, () => {
+      resetSearch();
+      closeAllPanels();
     });
 
     provide("isLinkTruncated", computed(() => isLinkTruncated.value));
@@ -230,9 +238,11 @@ export default {
     provide("togglePanel", togglePanel);
 
     initMenuOpenOrClose();
+    initEventBusUpdateViewOnResize();
 
     onBeforeUnmount(() => {
       removeBodyClasses();
+      destroyEventBusUpdateViewOnResize();
     });
 
     return {
@@ -242,8 +252,7 @@ export default {
       dataProParent,
       dataProParentList,
       idsSearchVisible,
-      isButtonToggleVisible,
-      isMenuMobile,
+      isMobileWidth,
       isMenuOpen,
       isSearchActive,
       isSubMenuOpen,
@@ -259,36 +268,33 @@ export default {
   render() {
     return [
       h("nav", {
-        id: this.id,
+        id: this.menuId,
         class: [
           "a_menu_2",
           {
             a_menu_2_sub_open: this.isSubMenuOpen,
-          }
+            a_menu_2_open: this.isMenuOpen,
+            a_menu_2_close: !this.isMenuOpen,
+            a_menu_2_mobile: this.isMobileWidth,
+          },
         ],
         ...this.attributesMenuClick,
       }, [
         h("div", {
-          class: "a_menu_2__blocker",
-          ariaHidden: true,
-        }),
-        h("div", {
           class: "a_menu_2__navbar_top",
         }, [
-          this.$slots.aMenuHeader && this.$slots.aMenuHeader(),
-          this.isSearch && h(AInput, {
+          h(AMenuButtonToggle, {
+            menuId: this.menuId,
+            class: this.buttonToggleClass,
+            buttonToggleProps: this.buttonToggleProps,
+          }),
+          this.$slots.menuSearch && this.$slots.menuSearch(),
+          this.hasSearch && h(AInput, {
             id: "a_menu_2_search",
             class: "a_menu_2__navbar_top__search",
             modelValue: this.modelSearch,
             label: "_SEARCH_MENU_",
             "onUpdate:modelValue": this.updateModelSearch,
-          }),
-          h(AMenuBreadcrumbs, {
-            dataKeyById: this.dataKeyById,
-            isBreadcrumbsAll: this.isBreadcrumbsAll,
-            panelParentsOpen: this.panelParentsOpen,
-            isSearchActive: this.isSearchActive,
-            isBreadcrumbsLinkTruncated: this.isBreadcrumbsLinkTruncated,
           }),
         ]),
         h("div", {
@@ -296,12 +302,14 @@ export default {
         }, [
           h(AMenuPanel, {
             attributesBlockerClick: this.attributesBlockerClick,
+            dataKeyById: this.dataKeyById,
             dataProParentChildren: this.dataProParent.children,
-            isFirst: true,
+            isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
+            isPanelMain: true,
             isSearchActive: this.isSearchActive,
             keyGroup: this.keyGroup,
             keyIcon: this.keyIcon,
-            menuId: this.id,
+            menuId: this.menuId,
             paneIndex: "00",
             panelItems: this.dataProParent.main,
             panelParentsOpen: this.panelParentsOpen,
@@ -310,11 +318,13 @@ export default {
             return h(AMenuPanel, {
               key,
               attributesBlockerClick: {},
+              dataKeyById: this.dataKeyById,
               dataProParentChildren: this.dataProParent.children,
+              isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
               isSearchActive: this.isSearchActive,
               keyGroup: this.keyGroup,
               keyIcon: this.keyIcon,
-              menuId: this.id,
+              menuId: this.menuId,
               paneIndex,
               panelItems: this.dataProParent.children[key],
               panelParentsOpen: this.panelParentsOpen,
@@ -339,10 +349,6 @@ export default {
           }),
         ]),
       ]),
-      this.isButtonToggleVisible && h(AMenuButtonToggle, {
-        buttonToggleVisible: this.buttonToggleVisible,
-        class: this.buttonToggleClass,
-      }),
     ];
   },
 };

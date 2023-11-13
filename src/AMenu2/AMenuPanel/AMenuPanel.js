@@ -2,6 +2,7 @@ import {
   h,
 } from "vue";
 
+import AMenuBreadcrumbs from "../AMenuBreadcrumbs";
 import AMenuPanelGroup from "../AMenuPanelGroup/AMenuPanelGroup";
 
 import GroupAPI from "./compositionAPI/GroupAPI";
@@ -15,11 +16,19 @@ export default {
       type: Object,
       required: true,
     },
+    dataKeyById: {
+      type: Object,
+      required: true,
+    },
     dataProParentChildren: {
       type: Object,
       required: true,
     },
-    isFirst: {
+    isBreadcrumbsTruncated: {
+      type: Boolean,
+      required: false,
+    },
+    isPanelMain: {
       type: Boolean,
       required: false,
     },
@@ -84,16 +93,19 @@ export default {
     return h("div", {
       id: this.panelId,
       class: ["a_menu_2__panel", {
-        a_menu_2__panel_first: !this.isSearchActive && this.isFirst,
+        a_menu_2__panel_main: !this.isSearchActive && this.isPanelMain,
+        a_menu_2__panel_secondary: !this.isPanelMain,
         a_menu_2__panel_opened: !this.isSearchActive && this.isPanelOpen,
         a_menu_2__panel_parent: !this.isSearchActive && this.isChildPanelOpen,
       }],
     }, [
-      // h("div", {
-      //   class: "a_menu_2__blocker",
-      //   ariaHidden: true,
-      //   ...this.attributesBlockerClick,
-      // }),
+      h(AMenuBreadcrumbs, {
+        dataKeyById: this.dataKeyById,
+        isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
+        isPanelMain: this.isPanelMain,
+        isSearchActive: this.isSearchActive,
+        panelParentsOpen: this.panelParentsOpen,
+      }),
       h("ul", {
         class: "a_menu_2__listview",
       }, [

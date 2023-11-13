@@ -4,6 +4,8 @@ import {
   toRef,
 } from "vue";
 
+import ATranslation from "../ATranslation/ATranslation";
+
 import AMenuBreadcrumbsItem from "./AMenuBreadcrumbsItem";
 
 import AKeyLabel from "../const/AKeyLabel";
@@ -16,17 +18,17 @@ import {
 export default {
   name: "AMenuBreadcrumbs",
   props: {
-    isBreadcrumbsAll: {
-      type: Boolean,
-      required: true,
-    },
-    isBreadcrumbsLinkTruncated: {
+    isBreadcrumbsTruncated: {
       type: Boolean,
       required: true,
     },
     isSearchActive: {
       type: Boolean,
       required: true,
+    },
+    isPanelMain: {
+      type: Boolean,
+      required: false,
     },
     dataKeyById: {
       type: Object,
@@ -41,7 +43,7 @@ export default {
     const dataKeyById = toRef(props, "dataKeyById");
 
     const panelParentsOpen = toRef(props, "panelParentsOpen");
-    const isBreadcrumbsAll = toRef(props, "isBreadcrumbsAll");
+    const isBreadcrumbsTruncated = toRef(props, "isBreadcrumbsTruncated");
 
     const setBreadcrumbsItem = panelParentId => {
       return {
@@ -55,7 +57,7 @@ export default {
         return [];
       }
       const BREADCRUMBS_ITEMS = [];
-      if (isBreadcrumbsAll.value) {
+      if (isBreadcrumbsTruncated.value) {
         forEach(panelParentsOpen.value, panelParentId => {
           BREADCRUMBS_ITEMS.push(setBreadcrumbsItem(panelParentId));
         });
@@ -73,14 +75,23 @@ export default {
     if (this.isSearchActive) {
       return "";
     }
+    if (this.isPanelMain) {
+      return h("div", {
+        class: "a_menu_2__breadcrumb a_menu_2__breadcrumb_main",
+      }, [
+        h(ATranslation, {
+          tag: "strong",
+          text: "_A_MENU_2_MAIN_MENU_",
+        }),
+      ]);
+    }
     return h("div", {
-      class: "a_menu_2__breadcrumbs"
+      class: "a_menu_2__breadcrumb a_menu_2__breadcrumb_secondary"
     }, [
       this.breadcrumbsItems.map(breadcrumbsItem => {
         return h(AMenuBreadcrumbsItem, {
           label: breadcrumbsItem.label,
           panelParentId: breadcrumbsItem.panelParentId,
-          isBreadcrumbsLinkTruncated: this.isBreadcrumbsLinkTruncated,
         });
       }),
     ]);
