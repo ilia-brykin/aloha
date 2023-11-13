@@ -232,9 +232,10 @@ export default {
       closeAllPanels();
     });
 
+    provide("clickMenuLink", clickMenuLink);
     provide("isLinkTruncated", computed(() => isLinkTruncated.value));
     provide("isMenuOpen", computed(() => isMenuOpen.value));
-    provide("clickMenuLink", clickMenuLink);
+    provide("panelParentsOpen", panelParentsOpen);
     provide("togglePanel", togglePanel);
 
     initMenuOpenOrClose();

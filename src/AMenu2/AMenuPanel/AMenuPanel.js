@@ -1,5 +1,5 @@
 import {
-  h,
+  h, provide, toRef,
 } from "vue";
 
 import AMenuBreadcrumbs from "../AMenuBreadcrumbs";
@@ -67,6 +67,8 @@ export default {
     },
   },
   setup(props) {
+    const isPanelMain = toRef(props, "isPanelMain");
+
     const {
       panelId,
     } = IdAPI(props);
@@ -80,6 +82,8 @@ export default {
       isChildPanelOpen,
       isPanelOpen,
     } = PanelOpenAPI(props);
+
+    provide("isPanelMain", isPanelMain);
 
     return {
       isChildPanelOpen,

@@ -15,6 +15,7 @@ import ASafeHtml from "../../directives/ASafeHtml";
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
+import MainPanelLinkActiveAPI from "./compositionAPI/MainPanelLinkActiveAPI";
 
 import AKeyId from "../../const/AKeyId";
 import AKeyLabel from "../../const/AKeyLabel";
@@ -117,6 +118,12 @@ export default {
       return item.value[AKeyId];
     });
 
+    const {
+      isPanelMainLinkActive,
+    } = MainPanelLinkActiveAPI(props, {
+      id,
+    });
+
     const icon = computed(() => {
       if (isLinkInSearchPanel.value) {
         return undefined;
@@ -172,6 +179,7 @@ export default {
       countChildren,
       currentSlot,
       icon,
+      isPanelMainLinkActive,
       isLinkDisabled,
       isLinkTruncated,
       isLinkVisible,
@@ -233,6 +241,7 @@ export default {
             isHide: !this.isTitleHtml,
             class: ["a_menu_2__link a_menu_2__link__text_truncated", {
               a_menu_2__link_disabled: this.isLinkDisabled,
+              a_menu_2__link_active: this.isPanelMainLinkActive,
             }],
             to: this.toLocal,
             tabindex: this.tabindex,
@@ -245,7 +254,12 @@ export default {
           }) :
           h(ATranslation, {
             tag: "a",
-            class: "a_menu_2__link a_menu_2__link_btn a_menu_2__link__text_truncated",
+            class: [
+              "a_menu_2__link a_menu_2__link_btn a_menu_2__link__text_truncated",
+              {
+                a_menu_2__link_active: this.isPanelMainLinkActive,
+              },
+            ],
             ariaLabel: "_OPEN_SUBMENU_",
             role: "button",
             tabindex: this.tabindex,
