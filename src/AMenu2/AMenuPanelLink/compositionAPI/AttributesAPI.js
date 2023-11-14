@@ -4,9 +4,16 @@ import {
   toRef,
 } from "vue";
 
+import AKeyId from "../../../const/AKeyId";
+import {
+  get,
+} from "lodash-es";
+
 export default function AttributesAPI(props) {
-  const isPanelOpen = toRef(props, "isPanelOpen");
   const isLinkInSearchPanel = toRef(props, "isLinkInSearchPanel");
+  const isPanelOpen = toRef(props, "isPanelOpen");
+  const item = toRef(props, "item");
+  const keyIcon = toRef(props, "keyIcon");
 
   const isMenuOpen = inject("isMenuOpen");
 
@@ -17,7 +24,20 @@ export default function AttributesAPI(props) {
     return isPanelOpen.value && isMenuOpen.value ? 0 : -1;
   });
 
+  const id = computed(() => {
+    return item.value[AKeyId];
+  });
+
+  const icon = computed(() => {
+    if (isLinkInSearchPanel.value) {
+      return undefined;
+    }
+    return get(item.value, keyIcon.value);
+  });
+
   return {
+    icon,
+    id,
     tabindex,
   };
 }

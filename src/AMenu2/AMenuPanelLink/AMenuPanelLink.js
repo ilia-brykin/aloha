@@ -1,8 +1,5 @@
 import {
-  computed,
   h,
-  inject,
-  toRef,
   withDirectives,
 } from "vue";
 
@@ -12,22 +9,14 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
-import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 import MainPanelLinkActiveAPI from "./compositionAPI/MainPanelLinkActiveAPI";
-
-import AKeyId from "../../const/AKeyId";
-import AKeyLabel from "../../const/AKeyLabel";
-import AKeyParent from "../../const/AKeyParent";
-import AKeysCode from "../../const/AKeysCode";
-import {
-  setFocusToFirstLinkInPanel
-} from "../utils/utils";
-import {
-  get,
-} from "lodash-es";
-
+import SlotAPI from "./compositionAPI/SlotAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
+import ChildrenAPI from "./compositionAPI/ChildrenAPI";
+import LinkAPI from "./compositionAPI/LinkAPI";
+import EventsAPI from "./compositionAPI/EventsAPI";
 
 export default {
   name: "AMenuPanelLink",
@@ -65,58 +54,28 @@ export default {
     },
   },
   setup(props) {
-    const keyIcon = toRef(props, "keyIcon");
-    const isLinkInSearchPanel = toRef(props, "isLinkInSearchPanel");
-    const modelSearch = toRef(props, "modelSearch");
-    const item = toRef(props, "item");
-    const idsSearchVisible = toRef(props, "idsSearchVisible");
-    const dataProParentChildren = toRef(props, "dataProParentChildren");
+    const {
+      currentSlot,
+    } = SlotAPI(props);
 
-    const togglePanel = inject("togglePanel");
-    const isLinkTruncated = inject("isLinkTruncated");
-    const keySlot = inject("keySlot");
+    const {
+      isLinkDisabled,
+      isLinkVisible,
+      toLocal,
+    } = LinkAPI(props);
 
-    const currentSlot = computed(() => {
-      if (keySlot.value) {
-        return get(item.value, keySlot.value);
-      }
-      return undefined;
-    });
-
-    const isLinkDisabled = computed(() => {
-      return !!item.value.disabled;
-    });
-
-    const isLinkVisible = computed(() => {
-      if (isLinkInSearchPanel.value) {
-        return !!idsSearchVisible.value.rest[item.value[AKeyId]];
-      }
-      return true;
+    const {
+      label,
+      labelWithoutFilter,
+    } = LabelAPI(props, {
+      isLinkVisible,
     });
 
     const {
-      filterSearchHighlight,
-    } = AFiltersAPI();
-
-    const {
+      icon,
+      id,
       tabindex,
     } = AttributesAPI(props);
-
-    const labelWithoutFilter = computed(() => {
-      return item.value[AKeyLabel];
-    });
-
-    const label = computed(() => {
-      const LABEL = labelWithoutFilter.value;
-      if (isLinkInSearchPanel.value && isLinkVisible.value) {
-        return filterSearchHighlight(LABEL, { searchModel: modelSearch.value });
-      }
-      return LABEL;
-    });
-
-    const id = computed(() => {
-      return item.value[AKeyId];
-    });
 
     const {
       isPanelMainLinkActive,
@@ -124,54 +83,25 @@ export default {
       id,
     });
 
-    const icon = computed(() => {
-      if (isLinkInSearchPanel.value) {
-        return undefined;
-      }
-      return get(item.value, keyIcon.value);
+    const {
+      countChildren,
+    } = ChildrenAPI(props, {
+      id,
     });
-
-    const countChildren = computed(() => {
-      if (item.value.to) {
-        return 0;
-      }
-      return dataProParentChildren.value[id.value] && dataProParentChildren.value[id.value].length;
-    });
-
-    const toLocal = computed(() => {
-      if (isLinkDisabled.value) {
-        return "#";
-      }
-      return item.value.to;
-    });
-
-    const openSubMenu = () => {
-      togglePanel({ parentId: id.value, isLinkInSearchPanel: isLinkInSearchPanel.value });
-      setFocusToFirstLinkInPanel(id.value);
-    };
-
-    const onKeydown = $event => {
-      if ($event.keyCode === AKeysCode.enter ||
-        $event.keyCode === AKeysCode.space) {
-        openSubMenu();
-        $event.stopPropagation();
-        $event.preventDefault();
-      }
-    };
-
-    const clickMenuLink = inject("clickMenuLink");
-    const clickLink = () => {
-      if (isLinkInSearchPanel.value) {
-        togglePanel({ parentId: item.value[AKeyParent], isLinkInSearchPanel: isLinkInSearchPanel.value });
-      }
-      clickMenuLink();
-    };
 
     const {
       isTitleHtml,
       title,
     } = TitleAPI(props, {
       labelWithoutFilter,
+    });
+
+    const {
+      clickLink,
+      onKeydown,
+      openSubMenu,
+    } = EventsAPI(props, {
+      id,
     });
 
     return {
@@ -181,7 +111,6 @@ export default {
       icon,
       isPanelMainLinkActive,
       isLinkDisabled,
-      isLinkTruncated,
       isLinkVisible,
       isTitleHtml,
       label,

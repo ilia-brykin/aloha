@@ -24,12 +24,24 @@ export default function PanelsAPI(props, {
     return panelParentsOpenLocal;
   };
 
-  const togglePanel = ({ parentIds, parentId, isLinkInSearchPanel }) => {
+  const closeAllPanels = () => {
+    panelParentsOpen.value = [];
+    resetSearch();
+  };
+
+  const togglePanel = ({ parentIds, parentId, isLinkInSearchPanel, isPanelMain }) => {
     if (parentIds) {
       panelParentsOpen.value = parentIds;
     } else if (isLinkInSearchPanel) {
       const PANEL_PARENTS_OPEN = [];
       panelParentsOpen.value = openPanelFromSearch({ parentId, panelParentsOpenLocal: PANEL_PARENTS_OPEN });
+    } else if (isPanelMain && panelParentsOpen.value.length) {
+      const INDEX = panelParentsOpen.value.indexOf(parentId);
+      if (INDEX === -1) {
+        panelParentsOpen.value = [parentId];
+      } else {
+        panelParentsOpen.value = [];
+      }
     } else {
       const INDEX = panelParentsOpen.value.indexOf(parentId);
       if (INDEX === -1) {
@@ -38,11 +50,6 @@ export default function PanelsAPI(props, {
         panelParentsOpen.value.splice(INDEX, panelParentsOpen.value.length);
       }
     }
-    resetSearch();
-  };
-
-  const closeAllPanels = () => {
-    panelParentsOpen.value = [];
     resetSearch();
   };
 
