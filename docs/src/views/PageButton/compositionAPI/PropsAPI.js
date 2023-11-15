@@ -269,6 +269,48 @@ export default function PropsAPI() {
       required: false,
       //  validator: value => ["button", "submit", "reset"].indexOf(value) !== -1,
     },
+    {
+      name: "confirm",
+      description: "_A_BUTTON_PROPS_CONFIRM_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
+      name: "confirmMessage",
+      description: "_A_BUTTON_PROPS_CONFIRM_MESSAGE_DESCRIPTION_",
+      type: "String",
+      default: "Are you sure?",
+      required: false,
+    },
+    {
+      name: "confirmTime",
+      description: "_A_BUTTON_PROPS_CONFIRM_TIME_DESCRIPTION_",
+      type: "Number",
+      default: 5,
+      required: false,
+    },
+    {
+      name: "inProgressMessage",
+      description: "_A_BUTTON_PROPS_IN_PROGRESS_MESSAGE_DESCRIPTION_",
+      type: "String",
+      default: "Processing...",
+      required: false,
+    },
+    {
+      name: "yesAttributes",
+      description: "_A_BUTTON_PROPS_YES_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: () => ({}),
+      required: false,
+    },
+    {
+      name: "noAttributes",
+      description: "_A_BUTTON_PROPS_NO_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: () => ({}),
+      required: false,
+    },
   ];
 
   return {

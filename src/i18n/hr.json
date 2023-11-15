@@ -23,5 +23,8 @@
   "_REMOVE_SELECTION_": "Ukloniti odabir",
   "_SEARCH_MENU_": "Pretraživanje izbornika",
   "_SELECT_TEXT_EMPTY_": "[Bez odabira]",
-  "_YES_": "Da"
+  "_YES_": "Da",
+  "_CANCEL_": "Otkaži",
+  "_CONFIRM_MESSAGE_": "Jeste li sigurni?",
+  "_PROCESSING_": "Obrada..."
 }

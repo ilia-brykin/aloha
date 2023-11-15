@@ -91,5 +91,18 @@
   "_A_BUTTON_SLOT_BUTTON_APPEND_DESCRIPTION_": "Lo slot che contiene il contenuto da visualizzare dopo il testo nel pulsante.",
   "_A_BUTTON_SLOT_BUTTON_PREPEND_DESCRIPTION_": "Lo slot che contiene il contenuto da visualizzare prima del testo nel pulsante.",
   "_A_BUTTON_SLOT_BUTTON_TITLE_DESCRIPTION_": "Lo slot che contiene il contenuto HTML da utilizzare come titolo per il pulsante.",
-  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Lo slot predefinito che contiene il contenuto per il pulsante."
+  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Lo slot predefinito che contiene il contenuto per il pulsante.",
+  "_A_BUTTON_PROPS_TEXT_TAG_DESCRIPTION_": "Questa proprietà ti permette di personalizzare il tag HTML che visualizza il testo all'interno del pulsante.",
+  "_A_BUTTON_GROUP_TRANSPARENT_HEADER_": "Pulsanti trasparenti",
+  "_A_BUTTON_GROUP_TRANSPARENT_DESCRIPTION_": "Se hai bisogno di un pulsante che si fonda con lo sfondo invece di coprirlo, sostituisci le classi modificatrici predefinite con le classi .a_btn_transparent*.",
+  "_A_BUTTON_GROUP_TEXT_TAG_DESCRIPTION_": "Questo esempio mostra come personalizzare il tag del testo nel componente \"AButton\" in Vue.js. Per impostazione predefinita, il testo viene visualizzato in un tag \"span\". Tuttavia, utilizzando la proprietà \"text-tag\", il tag del testo può essere personalizzato in modo flessibile per utilizzare diversi tag HTML come \"strong\", \"em\" o altri.",
+  "_A_BUTTON_GROUP_TEXT_TAG_HEADER_": "Modifica del tag del testo nel componente \"AButton\"",
+  "_A_BUTTON_PROPS_CONFIRM_MESSAGE_DESCRIPTION_": "Imposta il messaggio di conferma visualizzato nel componente, richiedendo la conferma dell'utente. Il messaggio predefinito è \"Sei sicuro?\".",
+  "_A_BUTTON_PROPS_CONFIRM_TIME_DESCRIPTION_": "Definisce la durata (in secondi) prima che l'azione venga eseguita dopo che l'utente clicca su \"Sì\". Funziona come un tempo di conteggio alla rovescia per l'azione di conferma. Il valore predefinito è di 5 secondi.",
+  "_A_BUTTON_PROPS_IN_PROGRESS_MESSAGE_DESCRIPTION_": "Imposta il messaggio visualizzato quando un'azione è in corso, specificatamente dopo che l'utente ha cliccato su \"Sì\" e prima che l'azione sia completata. Il messaggio predefinito è \"Elaborazione in corso...\"",
+  "_A_BUTTON_PROPS_YES_ATTRIBUTES_DESCRIPTION_": "Personalizza gli attributi del pulsante \"Sì\", consentendo il passaggio di qualsiasi attributo o stile rilevante. Il valore predefinito è un oggetto vuoto.",
+  "_A_BUTTON_PROPS_NO_ATTRIBUTES_DESCRIPTION_": "Utilizzato per personalizzare gli attributi del pulsante \"No\", simile a \"yesAttributes\". Anche questo valore predefinito è un oggetto vuoto.",
+  "_A_BUTTON_PROPS_CONFIRM_DESCRIPTION_": "Abilita una finestra di dialogo di conferma prima dell'azione del pulsante. Impostare su \"vero\" per richiedere la conferma dell'utente. Il valore predefinito è \"falso\".",
+  "_A_BUTTON_GROUP_CONFIRM_HEADER_": "Aggiunta di finestre di dialogo di conferma per azioni critiche",
+  "_A_BUTTON_GROUP_CONFIRM_DESCRIPTION_": "Migliora l'esperienza utente integrando richieste di conferma per azioni importanti. Questa funzionalità assicura che gli utenti facciano scelte deliberate, riducendo clic accidentali con messaggi e tempistiche personalizzabili."
 }

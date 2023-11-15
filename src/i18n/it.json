@@ -22,5 +22,8 @@
   "_REMOVE_FIELD_CONTENT_": "Rimuovi il contenuto del campo",
   "_REMOVE_SELECTION_": "rimuovere la selezione",
   "_SEARCH_MENU_": "Menù di ricerca",
-  "_YES_": "Sì"
+  "_YES_": "Sì",
+  "_CANCEL_": "Annulla",
+  "_CONFIRM_MESSAGE_": "Sei sicuro?",
+  "_PROCESSING_": "Elaborazione..."
 }

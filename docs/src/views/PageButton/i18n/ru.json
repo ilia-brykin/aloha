@@ -94,5 +94,13 @@
   "_A_BUTTON_SLOT_BUTTON_APPEND_DESCRIPTION_": "Слот, который содержит контент, который должен быть отображен после текста кнопки.",
   "_A_BUTTON_SLOT_BUTTON_PREPEND_DESCRIPTION_": "Слот, который содержит контент, который должен быть отображен перед текстом кнопки.",
   "_A_BUTTON_SLOT_BUTTON_TITLE_DESCRIPTION_": "Слот, который содержит HTML-контент, который будет использоваться в качестве заголовка для кнопки.",
-  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Стандартный слот, который содержит контент для кнопки."
+  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "Стандартный слот, который содержит контент для кнопки.",
+  "_A_BUTTON_PROPS_CONFIRM_MESSAGE_DESCRIPTION_": "[Aloha]",
+  "_A_BUTTON_PROPS_CONFIRM_TIME_DESCRIPTION_": "[Aloha]",
+  "_A_BUTTON_PROPS_IN_PROGRESS_MESSAGE_DESCRIPTION_": "[Aloha]",
+  "_A_BUTTON_PROPS_YES_ATTRIBUTES_DESCRIPTION_": "[Aloha]",
+  "_A_BUTTON_PROPS_NO_ATTRIBUTES_DESCRIPTION_": "[Aloha]",
+  "_A_BUTTON_PROPS_CONFIRM_DESCRIPTION_": "[Aloha]",
+  "_A_BUTTON_GROUP_CONFIRM_HEADER_": "[Aloha]",
+  "_A_BUTTON_GROUP_CONFIRM_DESCRIPTION_": "[Aloha]"
 }

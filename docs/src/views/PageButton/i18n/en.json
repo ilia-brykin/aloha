@@ -96,5 +96,13 @@
   "_A_BUTTON_SLOT_BUTTON_APPEND_DESCRIPTION_": "The slot that contains the content to be displayed after the text in the button.",
   "_A_BUTTON_SLOT_BUTTON_PREPEND_DESCRIPTION_": "The slot that contains the content to be displayed before the text in the button.",
   "_A_BUTTON_SLOT_BUTTON_TITLE_DESCRIPTION_": "The slot that contains the HTML content to be used as the title for the button.",
-  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "The default slot that contains the content for the button."
+  "_A_BUTTON_SLOT_DEFAULT_DESCRIPTION_": "The default slot that contains the content for the button.",
+  "_A_BUTTON_PROPS_CONFIRM_MESSAGE_DESCRIPTION_": "Sets the confirmation message displayed in the component, prompting the user for confirmation. Default message is \"Are you sure?\".",
+  "_A_BUTTON_PROPS_CONFIRM_TIME_DESCRIPTION_": "Defines the duration (in seconds) before the action is executed after the user clicks \"Yes.\" It acts as a countdown time for the confirmation action. The default is 5 seconds.",
+  "_A_BUTTON_PROPS_IN_PROGRESS_MESSAGE_DESCRIPTION_": "Sets the message displayed when an action is in progress, specifically after the user has clicked \"Yes\" and before the action is completed. The default message is \"Processing...\"",
+  "_A_BUTTON_PROPS_YES_ATTRIBUTES_DESCRIPTION_": "Customizes the \"Yes\" button's attributes, allowing the passing of any relevant attributes or styles. It defaults to an empty object.",
+  "_A_BUTTON_PROPS_NO_ATTRIBUTES_DESCRIPTION_": "Used for customizing the \"No\" button's attributes, similar to \"yesAttributes\". It also defaults to an empty object.",
+  "_A_BUTTON_PROPS_CONFIRM_DESCRIPTION_": "Enables a confirmation dialog before the button action. Set to \"true\" to prompt the user for confirmation. Default is \"false\".",
+  "_A_BUTTON_GROUP_CONFIRM_HEADER_": "Adding Confirmation Dialogs for Critical Actions",
+  "_A_BUTTON_GROUP_CONFIRM_DESCRIPTION_": "Enhance user experience by integrating confirmation prompts for important actions. This feature ensures users make deliberate choices, reducing accidental clicks with customizable messages and timings."
 }

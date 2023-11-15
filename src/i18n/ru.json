@@ -24,5 +24,8 @@
   "_SCHNELLSUCHE_": "Быстрый поиск",
   "_SEARCH_MENU_": "поиск в меню",
   "_SELECT_TEXT_EMPTY_": "[Нет элементов]",
-  "_YES_": "Да"
+  "_YES_": "Да",
+  "_CANCEL_": "Отмена",
+  "_CONFIRM_MESSAGE_": "Вы уверены?",
+  "_PROCESSING_": "Обработка..."
 }
