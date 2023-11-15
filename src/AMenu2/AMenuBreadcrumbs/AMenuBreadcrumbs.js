@@ -54,19 +54,8 @@ export default {
     };
   },
   render() {
-    if (this.isSearchActive) {
+    if (this.isSearchActive || this.isPanelMain) {
       return "";
-    }
-
-    if (this.isPanelMain) {
-      return h("div", {
-        class: "a_menu_2__breadcrumb a_menu_2__breadcrumb_main",
-      }, [
-        h(ATranslation, {
-          tag: "strong",
-          text: "_A_MENU_2_MAIN_MENU_",
-        }),
-      ]);
     }
 
     if (!this.isBreadcrumbsTruncated) {

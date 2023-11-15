@@ -4,10 +4,11 @@ import {
 } from "vue";
 
 export default function IdAPI(props) {
+  const menuId = toRef(props, "menuId");
   const parentId = toRef(props, "parentId");
 
   const panelId = computed(() => {
-    return `a_menu_2_panel_${ parentId.value || "" }`;
+    return `${ menuId.value }_panel_${ parentId.value || "" }`;
   });
 
   return {

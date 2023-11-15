@@ -28,13 +28,13 @@ export default {
     const {
       btnToggleTitle,
       isMenuOpen,
-      toggleMenu,
+      toggleMenuObButton,
     } = ToggleAPI(props);
 
     return {
       btnToggleTitle,
       isMenuOpen,
-      toggleMenu,
+      toggleMenuObButton,
     };
   },
   render() {
@@ -45,7 +45,7 @@ export default {
       type: "button",
       title: this.btnToggleTitle,
       textAreaHidden: this.btnToggleTitle,
-      onClick: this.toggleMenu,
+      onClick: this.toggleMenuObButton,
       ...this.buttonToggleProps,
     }, () => [
       h("span", {

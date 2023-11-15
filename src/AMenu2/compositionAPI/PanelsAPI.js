@@ -1,6 +1,7 @@
 import {
   computed,
   ref,
+  toRef,
 } from "vue";
 
 import AKeyParent from "../../const/AKeyParent";
@@ -15,6 +16,8 @@ export default function PanelsAPI(props, {
   dataKeyById = computed(() => ({})),
   resetSearch = () => {},
 }) {
+  const menuId = toRef(props, "menuId");
+
   const panelParentsOpen = ref([]);
 
   const isSubMenuOpen = computed(() => {
@@ -56,7 +59,10 @@ export default function PanelsAPI(props, {
         panelParentsOpen.value.splice(INDEX, panelParentsOpen.value.length);
       }
     }
-    setFocusToFirstLinkInPanel(last(panelParentsOpen.value) || "");
+    setFocusToFirstLinkInPanel({
+      menuId: menuId.value,
+      panelId: last(panelParentsOpen.value) || "",
+    });
     resetSearch();
   };
 

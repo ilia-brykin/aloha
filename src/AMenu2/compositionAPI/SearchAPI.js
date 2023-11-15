@@ -1,6 +1,6 @@
 import {
   computed,
-  ref,
+  ref, toRef,
 } from "vue";
 
 import AKeyId from "../../const/AKeyId";
@@ -10,13 +10,19 @@ import {
 } from "lodash-es";
 
 
-export default function AMenuSearchAPI(props, {
+export default function SearchAPI(props, {
   dataProParent = computed(() => ({
     main: [],
     children: {},
   })),
 }) {
+  const menuId = toRef(props, "menuId");
+
   const modelSearch = ref("");
+
+  const searchInputId = computed(() => {
+    return `${ menuId.value }_search`;
+  });
 
   const updateModelSearch = model => {
     modelSearch.value = model;
@@ -70,11 +76,12 @@ export default function AMenuSearchAPI(props, {
 
 
   return {
+    dataProParentList,
     idsSearchVisible,
     isSearchActive,
-    dataProParentList,
     modelSearch,
     resetSearch,
+    searchInputId,
     updateModelSearch,
   };
 }

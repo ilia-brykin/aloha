@@ -8,19 +8,22 @@ import {
   watch,
 } from "vue";
 
+import AButton from "../AButton/AButton";
 import AInput from "../ui/AInput/AInput";
 import AMenuButtonToggle from "./AMenuButtonToggle/AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel/AMenuPanel";
 import AMenuSearchPanel from "./AMenuSearchPanel";
+import ATranslation from "../ATranslation/ATranslation";
 
 import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
-import AMenuSearchAPI from "./compositionAPI/AMenuSearchAPI";
 import CheckRoutesAPI from "./compositionAPI/CheckRoutesAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import LinkClickAPI from "./compositionAPI/LinkClickAPI";
 import MenuAttributesAPI from "./compositionAPI/MenuAttributesAPI";
 import PanelsAPI from "./compositionAPI/PanelsAPI";
 import ResizeAPI from "./compositionAPI/ResizeAPI";
+import SearchAPI from "./compositionAPI/SearchAPI";
+import SearchBtnAPI from "./compositionAPI/SearchBtnAPI";
 import ToggleAPI from "./AMenuButtonToggle/compositionAPI/ToggleAPI";
 
 import {
@@ -164,13 +167,14 @@ export default {
     } = DataAPI(props);
 
     const {
+      dataProParentList,
       idsSearchVisible,
       isSearchActive,
-      dataProParentList,
       modelSearch,
       resetSearch,
+      searchInputId,
       updateModelSearch,
-    } = AMenuSearchAPI(props, {
+    } = SearchAPI(props, {
       dataProParent,
     });
 
@@ -190,6 +194,14 @@ export default {
       removeBodyClasses,
       toggleMenu,
     } = ToggleAPI(props);
+
+    const {
+      clickOnSearchBtn,
+      keydownOnSearchBtn,
+    } = SearchBtnAPI({
+      searchInputId,
+      toggleMenu,
+    });
 
     const {
       attributesMenuClick,
@@ -261,17 +273,20 @@ export default {
     return {
       attributesBlockerClick,
       attributesMenuClick,
+      clickOnSearchBtn,
       dataKeyById,
       dataProParent,
       dataProParentList,
       idsSearchVisible,
-      isMobileWidth,
       isMenuOpen,
+      isMobileWidth,
       isSearchActive,
       isSubMenuOpen,
+      keydownOnSearchBtn,
       modelSearch,
       panelParentsOpen,
       removeBodyClasses,
+      searchInputId,
       setDefaultMenu,
       toggleMenu,
       togglePanel,
@@ -303,7 +318,7 @@ export default {
           }),
           this.$slots.menuSearch && this.$slots.menuSearch(),
           this.hasSearch && h(AInput, {
-            id: "a_menu_2_search",
+            id: this.searchInputId,
             class: "a_menu_2__navbar_top__search",
             modelValue: this.modelSearch,
             label: "_A_MENU_2_SEARCH_",
@@ -313,20 +328,46 @@ export default {
         h("div", {
           class: "a_menu_2__panels",
         }, [
-          h(AMenuPanel, {
-            attributesBlockerClick: this.attributesBlockerClick,
-            dataKeyById: this.dataKeyById,
-            dataProParentChildren: this.dataProParent.children,
-            isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
-            isPanelMain: true,
-            isSearchActive: this.isSearchActive,
-            keyGroup: this.keyGroup,
-            keyIcon: this.keyIcon,
-            menuId: this.menuId,
-            paneIndex: "00",
-            panelItems: this.dataProParent.main,
-            panelParentsOpen: this.panelParentsOpen,
-          }, this.$slots),
+          h("div", {
+            class: "a_menu_2__navbar_top_sub",
+          }, [
+            h(ATranslation, {
+              class: "a_menu_2__navbar_top_sub__text",
+              tag: "strong",
+              text: "_A_MENU_2_MAIN_MENU_",
+            }),
+            this.hasSearch && h(AButton, {
+              role: "button",
+              tabindex: 0,
+              tag: "a",
+              class: "a_menu_2__navbar_top_sub__search a_menu_2__link a_menu_2__link_btn",
+              iconLeft: "Search",
+              iconClass: "a_menu_2__link__icon",
+              title: "_A_MENU_2_OPEN_SEARCH_",
+              textScreenReader: "_A_MENU_2_OPEN_SEARCH_",
+              onClick: this.clickOnSearchBtn,
+              onKeydown: this.keydownOnSearchBtn,
+            }),
+          ]),
+          h("div", {
+            class: "a_menu_2__panels__main",
+          }, [
+            h(AMenuPanel, {
+              attributesBlockerClick: this.attributesBlockerClick,
+              dataKeyById: this.dataKeyById,
+              dataProParentChildren: this.dataProParent.children,
+              isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
+              isPanelMain: true,
+              isSearchActive: this.isSearchActive,
+              keyGroup: this.keyGroup,
+              keyIcon: this.keyIcon,
+              menuId: this.menuId,
+              paneIndex: "00",
+              panelItems: this.dataProParent.main,
+              panelParentsOpen: this.panelParentsOpen,
+            }, this.$slots),
+          ]),
+
           Object.keys(this.dataProParent.children).map((key, paneIndex) => {
             return h(AMenuPanel, {
               key,

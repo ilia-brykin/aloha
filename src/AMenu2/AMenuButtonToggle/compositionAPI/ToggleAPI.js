@@ -1,8 +1,12 @@
 import {
   computed,
-  ref, toRef,
+  ref,
+  toRef,
 } from "vue";
 
+import {
+  setFocusToFirstLinkInPanel,
+} from "../../utils/utils";
 import {
   isUndefined,
 } from "lodash-es";
@@ -50,20 +54,32 @@ export default function ToggleAPI(props) {
     }
   };
 
+  const isMenuOpen = computed(() => {
+    return isMenuOpenMap.value[menuId.value];
+  });
+
+  const toggleMenuObButton = () => {
+    toggleMenu();
+    if (isMenuOpen.value) {
+      setFocusToFirstLinkInPanel({
+        menuId: menuId.value,
+        panelId: "",
+      });
+    }
+  };
+
   const btnToggleTitle = computed(() => {
     return isMenuOpenMap.value[menuId.value] ?
       "_A_MENU_2_BTN_CLOSE_" :
       "_A_MENU_2_BTN_OPEN_";
   });
 
-  const isMenuOpen = computed(() => {
-    return isMenuOpenMap.value[menuId.value];
-  });
 
   return {
     btnToggleTitle,
     isMenuOpen,
     removeBodyClasses,
     toggleMenu,
+    toggleMenuObButton,
   };
 }
