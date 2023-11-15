@@ -2,7 +2,7 @@ import {
   h, provide, toRef,
 } from "vue";
 
-import AMenuBreadcrumbs from "../AMenuBreadcrumbs";
+import AMenuBreadcrumbs from "../AMenuBreadcrumbs/AMenuBreadcrumbs";
 import AMenuPanelGroup from "../AMenuPanelGroup/AMenuPanelGroup";
 
 import GroupAPI from "./compositionAPI/GroupAPI";
@@ -15,6 +15,11 @@ export default {
     attributesBlockerClick: {
       type: Object,
       required: true,
+    },
+    breadcrumbsLinkClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     dataKeyById: {
       type: Object,
@@ -104,6 +109,7 @@ export default {
       }],
     }, [
       h(AMenuBreadcrumbs, {
+        breadcrumbsLinkClass: this.breadcrumbsLinkClass,
         dataKeyById: this.dataKeyById,
         isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
         isPanelMain: this.isPanelMain,

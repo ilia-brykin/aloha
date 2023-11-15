@@ -35,6 +35,11 @@ export default {
     };
   },
   props: {
+    breadcrumbsLinkClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_link",
+    },
     buttonToggleClass: {
       type: [String, Object],
       required: false,
@@ -77,7 +82,7 @@ export default {
     isBreadcrumbsTruncated: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     isLinkTruncated: {
       type: Boolean,
@@ -319,6 +324,7 @@ export default {
             return h(AMenuPanel, {
               key,
               attributesBlockerClick: {},
+              breadcrumbsLinkClass: this.breadcrumbsLinkClass,
               dataKeyById: this.dataKeyById,
               dataProParentChildren: this.dataProParent.children,
               isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,

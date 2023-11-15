@@ -2,9 +2,9 @@ import {
   h, inject, toRef,
 } from "vue";
 
-import AIcon from "../AIcon/AIcon";
+import AIcon from "../../../AIcon/AIcon";
 
-import AKeysCode from "../const/AKeysCode";
+import AKeysCode from "../../../const/AKeysCode";
 
 export default {
   name: "AMenuBreadcrumbsItem",

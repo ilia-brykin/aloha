@@ -14,6 +14,7 @@ import LoadingAPI from "./comositionAPI/LoadingAPI";
 import SwitchAPI from "./comositionAPI/SwitchAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
+import TypeAPI from "./comositionAPI/TypeAPI";
 
 import placements from "../const/placements";
 import {
@@ -236,6 +237,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      typeLocal,
+    } = TypeAPI(props);
+
+    const {
       isTitleVisible,
     } = TitleAPI(props);
 
@@ -283,6 +288,7 @@ export default {
       isTextOrHtmlVisible,
       isTitleVisible,
       onClick,
+      typeLocal,
       switchClass,
     };
   },
@@ -301,7 +307,7 @@ export default {
           disabled: this.ariaDisabled,
         },
       ],
-      type: this.type,
+      type: this.typeLocal,
       tabindex: this.tabindex,
       disabled: this.disabled,
       ariaDisabled: this.ariaDisabled,
