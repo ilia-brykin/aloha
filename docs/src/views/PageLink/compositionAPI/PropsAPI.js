@@ -59,7 +59,7 @@ export default function PropsAPI() {
     {
       name: "icon-class",
       description: "_A_LINK_PROPS_ICON_CLASS_DESCRIPTION_",
-      type: "String",
+      type: "String / Object",
       default: undefined,
       required: false,
     },

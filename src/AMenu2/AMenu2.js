@@ -148,9 +148,15 @@ export default {
       required: false,
       default: () => uniqueId("a_menu_2_"),
     },
+    showCountChildren: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props) {
     const isLinkTruncated = toRef(props, "isLinkTruncated");
+    const showCountChildren = toRef(props, "showCountChildren");
 
     const {
       dataKeyById,
@@ -241,6 +247,7 @@ export default {
     provide("isLinkTruncated", computed(() => isLinkTruncated.value));
     provide("isMenuOpen", computed(() => isMenuOpen.value));
     provide("panelParentsOpen", panelParentsOpen);
+    provide("showCountChildren", computed(() => showCountChildren.value));
     provide("togglePanel", togglePanel);
 
     initMenuOpenOrClose();
@@ -299,7 +306,7 @@ export default {
             id: "a_menu_2_search",
             class: "a_menu_2__navbar_top__search",
             modelValue: this.modelSearch,
-            label: "_SEARCH_MENU_",
+            label: "_A_MENU_2_SEARCH_",
             "onUpdate:modelValue": this.updateModelSearch,
           }),
         ]),

@@ -3,5 +3,7 @@
   "_A_MENU_2_BTN_CLOSE_": "close menu",
   "_A_MENU_2_BTN_OPEN_": "open menu",
   "_A_MENU_2_MAIN_MENU_": "Main menu",
-  "_OPEN_SUBMENU_": "open submenu"
+  "_A_MENU_2_OPEN_SUBMENU_": "open submenu:",
+  "_A_MENU_2_SEARCH_": "Search menu",
+  "_A_MENU_2_TO_MAIN_MENU_": "To the main menu"
 }

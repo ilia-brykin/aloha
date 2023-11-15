@@ -28,7 +28,12 @@ export default function LinkAPI(props) {
     return item.value.to;
   });
 
+  const isItemLink = computed(() => {
+    return !!item.value.to;
+  });
+
   return {
+    isItemLink,
     isLinkDisabled,
     isLinkVisible,
     toLocal,

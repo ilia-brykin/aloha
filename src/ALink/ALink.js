@@ -72,7 +72,7 @@ export default {
       default: () => ({}),
     },
     iconClass: {
-      type: String,
+      type: [String, Object],
       required: false,
       default: undefined,
     },

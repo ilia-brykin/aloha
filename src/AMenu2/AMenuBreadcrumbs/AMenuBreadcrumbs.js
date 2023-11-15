@@ -74,7 +74,7 @@ export default {
         ariaLabel: "_A_MENU_2_BREADCRUMB_",
         class: "a_menu_2__breadcrumb a_menu_2__breadcrumb_secondary",
         tag: "nav",
-      }, [
+      }, () => [
         h("ul", {
           class: [
             "a_menu_2__breadcrumb__ul",

@@ -35,8 +35,17 @@ export default function AttributesAPI(props) {
     return get(item.value, keyIcon.value);
   });
 
+  const iconClassLocal = computed(() => {
+    const CLASS = "a_menu_2__link__icon";
+    if (item.value.iconClass) {
+      return `{ CLASS } ${ item.value.iconClass }`;
+    }
+    return CLASS;
+  });
+
   return {
     icon,
+    iconClassLocal,
     id,
     tabindex,
   };

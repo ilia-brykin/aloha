@@ -1,25 +1,25 @@
 import {
   h,
-  withDirectives,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import AIcon from "../../AIcon/AIcon";
-import ATooltip from "../../ATooltip/ATooltip";
-import ATranslation from "../../ATranslation/ATranslation";
-
-import ASafeHtml from "../../directives/ASafeHtml";
+import ALink from "../../ALink/ALink";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
-import TitleAPI from "./compositionAPI/TitleAPI";
-import MainPanelLinkActiveAPI from "./compositionAPI/MainPanelLinkActiveAPI";
-import SlotAPI from "./compositionAPI/SlotAPI";
-import LabelAPI from "./compositionAPI/LabelAPI";
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
-import LinkAPI from "./compositionAPI/LinkAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
+import LinkAPI from "./compositionAPI/LinkAPI";
+import MainPanelLinkOpenAPI from "./compositionAPI/MainPanelLinkOpenAPI";
+import SlotAPI from "./compositionAPI/SlotAPI";
+import TitleAPI from "./compositionAPI/TitleAPI";
 
 export default {
   name: "AMenuPanelLink",
+  inject: [
+    "showCountChildren",
+  ],
   props: {
     dataProParentChildren: {
       type: Object,
@@ -59,6 +59,7 @@ export default {
     } = SlotAPI(props);
 
     const {
+      isItemLink,
       isLinkDisabled,
       isLinkVisible,
       toLocal,
@@ -73,13 +74,14 @@ export default {
 
     const {
       icon,
+      iconClassLocal,
       id,
       tabindex,
     } = AttributesAPI(props);
 
     const {
-      isPanelMainLinkActive,
-    } = MainPanelLinkActiveAPI(props, {
+      isPanelMainLinkOpen,
+    } = MainPanelLinkOpenAPI(props, {
       id,
     });
 
@@ -91,8 +93,11 @@ export default {
 
     const {
       isTitleHtml,
-      title,
+      titleLocal,
+      titleAttributes,
     } = TitleAPI(props, {
+      isItemLink,
+      isPanelMainLinkOpen,
       labelWithoutFilter,
     });
 
@@ -109,7 +114,9 @@ export default {
       countChildren,
       currentSlot,
       icon,
-      isPanelMainLinkActive,
+      iconClassLocal,
+      isPanelMainLinkOpen,
+      isItemLink,
       isLinkDisabled,
       isLinkVisible,
       isTitleHtml,
@@ -118,7 +125,8 @@ export default {
       onKeydown,
       openSubMenu,
       tabindex,
-      title,
+      titleLocal,
+      titleAttributes,
       toLocal,
     };
   },
@@ -126,24 +134,6 @@ export default {
     if (!this.isLinkVisible) {
       return "";
     }
-    const ICON_AND_TEXT = [
-      this.icon && h(AIcon, {
-        class: ["a_menu_2__link__icon", this.item.iconClass],
-        icon: this.icon,
-      }),
-      h("span", {
-        class: "a_menu_2__link__text",
-      }, [
-        this.title && h("span", {
-          class: "a_position_absolute_all",
-          title: this.title,
-          ariaHidden: true,
-        }),
-        withDirectives(h("span"), [
-          [ASafeHtml, this.label],
-        ]),
-      ]),
-    ];
 
     return h("li", {
       class: "a_menu_2__listitem",
@@ -160,53 +150,59 @@ export default {
           labelWithoutFilter: this.labelWithoutFilter,
           tabindex: this.tabindex,
         }) :
-        this.item.to ?
-          h(ATooltip, {
-            tag: "RouterLink",
-            placement: "right",
-            minWidth: this.item.titleHtmlMinWidth,
-            width: this.item.titleHtmlWidth,
-            maxWidth: this.item.titleHtmlMaxWidth,
-            isHide: !this.isTitleHtml,
+        this.isItemLink ?
+          h(ALink, {
             class: ["a_menu_2__link a_menu_2__link__text_truncated", {
               a_menu_2__link_disabled: this.isLinkDisabled,
-              a_menu_2__link_active: this.isPanelMainLinkActive,
             }],
-            to: this.toLocal,
+            html: this.label,
+            iconClass: this.iconClassLocal,
+            iconLeft: this.icon,
+            isTitleHtml: this.isTitleHtml,
             tabindex: this.tabindex,
+            textAreaHidden: true,
+            textClass: "a_menu_2__link__text",
+            textScreenReader: this.titleLocal,
+            title: this.titleLocal,
+            titleAttributes: this.titleAttributes,
+            titlePlacement: "right",
+            to: this.toLocal,
             onClick: this.clickLink,
-          }, {
-            default: () => ICON_AND_TEXT,
-            title: () => withDirectives(h("div"), [
-              [ASafeHtml, this.item.titleHtml],
-            ])
           }) :
-          h(ATranslation, {
-            tag: "a",
+          h(AButton, {
             class: [
               "a_menu_2__link a_menu_2__link_btn a_menu_2__link__text_truncated",
               {
-                a_menu_2__link_active: this.isPanelMainLinkActive,
+                a_menu_2__link_open: this.isPanelMainLinkOpen,
               },
             ],
-            ariaLabel: "_OPEN_SUBMENU_",
+            html: this.label,
+            iconClass: this.iconClassLocal,
+            iconLeft: this.icon,
+            isTitleHtml: this.isTitleHtml,
             role: "button",
             tabindex: this.tabindex,
+            tag: "a",
+            textAreaHidden: true,
+            textClass: "a_menu_2__link__text",
+            textScreenReader: this.titleLocal,
+            title: this.titleLocal,
+            titleAttributes: this.titleAttributes,
+            titlePlacement: "right",
             onClick: this.openSubMenu,
             onKeydown: this.onKeydown,
           }, () => [
             h("span", {
-              class: "a_menu_2__link__counter",
+              class: "a_menu_2__link__counter aloha_btn__ml_0",
             }, [
-              h("span", {
-                ariaHidden: true, // TODO: ariaLabel
+              this.showCountChildren && h("span", {
+                ariaHidden: true,
               }, this.countChildren),
               h(AIcon, {
                 class: "a_menu_2__link__counter__icon",
                 icon: "ChevronRight",
               })
             ]),
-            ...ICON_AND_TEXT,
           ]),
     ]);
   },
