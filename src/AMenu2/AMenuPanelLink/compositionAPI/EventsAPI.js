@@ -6,9 +6,6 @@ import {
 
 import AKeysCode from "../../../const/AKeysCode";
 import AKeyParent from "../../../const/AKeyParent";
-import {
-  setFocusToFirstLinkInPanel,
-} from "../../utils/utils";
 
 export default function EventsAPI(props, {
   id = computed(() => undefined),
@@ -26,7 +23,6 @@ export default function EventsAPI(props, {
       isLinkInSearchPanel: isLinkInSearchPanel.value,
       isPanelMain: isPanelMain.value,
     });
-    setFocusToFirstLinkInPanel(id.value);
   };
 
   const onKeydown = $event => {

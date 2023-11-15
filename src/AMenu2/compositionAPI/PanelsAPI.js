@@ -4,6 +4,12 @@ import {
 } from "vue";
 
 import AKeyParent from "../../const/AKeyParent";
+import {
+  setFocusToFirstLinkInPanel,
+} from "../utils/utils";
+import {
+  last,
+} from "lodash-es";
 
 export default function PanelsAPI(props, {
   dataKeyById = computed(() => ({})),
@@ -50,6 +56,7 @@ export default function PanelsAPI(props, {
         panelParentsOpen.value.splice(INDEX, panelParentsOpen.value.length);
       }
     }
+    setFocusToFirstLinkInPanel(last(panelParentsOpen.value) || "");
     resetSearch();
   };
 
