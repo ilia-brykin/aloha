@@ -43,6 +43,11 @@ export default {
       required: false,
       default: "a_btn a_btn_link",
     },
+    breadcrumbsTruncatedDropdownProps: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     buttonToggleClass: {
       type: [String, Object],
       required: false,
@@ -373,6 +378,7 @@ export default {
               key,
               attributesBlockerClick: {},
               breadcrumbsLinkClass: this.breadcrumbsLinkClass,
+              breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
               dataKeyById: this.dataKeyById,
               dataProParentChildren: this.dataProParent.children,
               isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,

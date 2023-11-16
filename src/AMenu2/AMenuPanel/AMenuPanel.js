@@ -21,6 +21,11 @@ export default {
       required: false,
       default: undefined,
     },
+    breadcrumbsTruncatedDropdownProps: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     dataKeyById: {
       type: Object,
       required: true,
@@ -108,8 +113,9 @@ export default {
         a_menu_2__panel_parent: !this.isSearchActive && this.isChildPanelOpen,
       }],
     }, [
-      h(AMenuBreadcrumbs, {
+      (!this.isPanelMain && this.isPanelOpen) && h(AMenuBreadcrumbs, {
         breadcrumbsLinkClass: this.breadcrumbsLinkClass,
+        breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
         dataKeyById: this.dataKeyById,
         isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
         isPanelMain: this.isPanelMain,
