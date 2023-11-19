@@ -7184,7 +7184,8 @@ input:not(:-webkit-autofill) {
   .a_menu_2_close .a_menu_2__navbar_top__search {
     display: none; }
   .a_menu_2_close .a_menu_2__list_header {
-    opacity: 0; }
+    opacity: 0;
+    width: var(--a_menu_2_width_expanded); }
   .a_menu_2_close .a_menu_2__link__text {
     display: none; }
   .a_menu_2_close .a_menu_2__listitem:after {
