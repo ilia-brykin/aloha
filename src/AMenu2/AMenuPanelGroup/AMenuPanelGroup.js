@@ -83,6 +83,7 @@ export default {
               dataProParentChildren: this.dataProParentChildren,
               isPanelOpen: this.isPanelOpen,
               keyIcon: this.keyIcon,
+              menuId: this.menuId,
             }, this.$slots);
           }),
         ]),
@@ -96,6 +97,7 @@ export default {
         dataProParentChildren: this.dataProParentChildren,
         isPanelOpen: this.isPanelOpen,
         keyIcon: this.keyIcon,
+        menuId: this.menuId,
       }, this.$slots);
     });
   },

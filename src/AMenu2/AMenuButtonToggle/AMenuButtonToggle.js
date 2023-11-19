@@ -44,7 +44,7 @@ export default {
       }],
       type: "button",
       title: this.btnToggleTitle,
-      textAreaHidden: this.btnToggleTitle,
+      textScreenReader: this.btnToggleTitle,
       onClick: this.toggleMenuObButton,
       ...this.buttonToggleProps,
     }, () => [

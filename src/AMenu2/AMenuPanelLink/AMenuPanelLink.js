@@ -9,10 +9,12 @@ import ALink from "../../ALink/ALink";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import IdAPI from "./compositionAPI/IdAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import LinkAPI from "./compositionAPI/LinkAPI";
-import MainPanelLinkOpenAPI from "./compositionAPI/MainPanelLinkOpenAPI";
+import LinkOpenAPI from "./compositionAPI/LinkOpenAPI";
 import SlotAPI from "./compositionAPI/SlotAPI";
+import TabindexAPI from "./compositionAPI/TabindexAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 
 export default {
@@ -24,6 +26,15 @@ export default {
     dataProParentChildren: {
       type: Object,
       required: true,
+    },
+    idsSearchVisible: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    isLinkInSearchPanel: {
+      type: Boolean,
+      required: false,
     },
     isPanelOpen: {
       type: Boolean,
@@ -38,17 +49,12 @@ export default {
       required: false,
       default: undefined,
     },
-    isLinkInSearchPanel: {
-      type: Boolean,
-      required: false,
+    menuId: {
+      type: String,
+      required: true,
     },
     modelSearch: {
       type: String,
-      required: false,
-      default: undefined,
-    },
-    idsSearchVisible: {
-      type: Object,
       required: false,
       default: undefined,
     },
@@ -76,14 +82,25 @@ export default {
       icon,
       iconClassLocal,
       id,
-      tabindex,
     } = AttributesAPI(props);
 
     const {
-      isPanelMainLinkOpen,
-    } = MainPanelLinkOpenAPI(props, {
+      linkId,
+    } = IdAPI(props, {
       id,
     });
+
+    const {
+      isLinkOpen,
+      isLinkOpenPanelMain,
+      isLinkOpenPanelSecondaryMenuClose,
+    } = LinkOpenAPI(props, {
+      id,
+    });
+
+    const {
+      tabindex,
+    } = TabindexAPI(props);
 
     const {
       countChildren,
@@ -97,7 +114,8 @@ export default {
       titleAttributes,
     } = TitleAPI(props, {
       isItemLink,
-      isPanelMainLinkOpen,
+      isLinkOpenPanelMain,
+      isLinkOpenPanelSecondaryMenuClose,
       labelWithoutFilter,
     });
 
@@ -115,18 +133,19 @@ export default {
       currentSlot,
       icon,
       iconClassLocal,
-      isPanelMainLinkOpen,
       isItemLink,
       isLinkDisabled,
       isLinkVisible,
+      isLinkOpen,
       isTitleHtml,
       label,
       labelWithoutFilter,
+      linkId,
       onKeydown,
       openSubMenu,
       tabindex,
-      titleLocal,
       titleAttributes,
+      titleLocal,
       toLocal,
     };
   },
@@ -147,11 +166,13 @@ export default {
           onKeydown: this.onKeydown,
           countChildren: this.countChildren,
           label: this.label,
+          id: this.linkId,
           labelWithoutFilter: this.labelWithoutFilter,
           tabindex: this.tabindex,
         }) :
         this.isItemLink ?
           h(ALink, {
+            id: this.linkId,
             class: ["a_menu_2__link a_menu_2__link__text_truncated", {
               a_menu_2__link_disabled: this.isLinkDisabled,
             }],
@@ -160,7 +181,7 @@ export default {
             iconLeft: this.icon,
             isTitleHtml: this.isTitleHtml,
             tabindex: this.tabindex,
-            textAreaHidden: true,
+            textAriaHidden: true,
             textClass: "a_menu_2__link__text",
             textScreenReader: this.titleLocal,
             title: this.titleLocal,
@@ -170,10 +191,11 @@ export default {
             onClick: this.clickLink,
           }) :
           h(AButton, {
+            id: this.linkId,
             class: [
               "a_menu_2__link a_menu_2__link_btn a_menu_2__link__text_truncated",
               {
-                a_menu_2__link_open: this.isPanelMainLinkOpen,
+                a_menu_2__link_open: this.isLinkOpen,
               },
             ],
             html: this.label,
@@ -183,7 +205,7 @@ export default {
             role: "button",
             tabindex: this.tabindex,
             tag: "a",
-            textAreaHidden: true,
+            textAriaHidden: true,
             textClass: "a_menu_2__link__text",
             textScreenReader: this.titleLocal,
             title: this.titleLocal,

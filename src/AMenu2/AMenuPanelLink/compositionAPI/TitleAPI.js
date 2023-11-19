@@ -5,7 +5,8 @@ import {
 
 export default function TitleAPI(props, {
   isItemLink = computed(() => false),
-  isPanelMainLinkOpen = computed(() => false),
+  isLinkOpenPanelMain = computed(() => false),
+  isLinkOpenPanelSecondaryMenuClose = computed(() => false),
   labelWithoutFilter = computed(() => ""),
 }) {
   const item = toRef(props, "item");
@@ -15,8 +16,15 @@ export default function TitleAPI(props, {
   });
 
   const titleLocal = computed(() => {
-    if (isPanelMainLinkOpen.value) {
+    if (isLinkOpenPanelMain.value) {
       return "_A_MENU_2_TO_MAIN_MENU_";
+    }
+
+    if (isLinkOpenPanelSecondaryMenuClose.value) {
+      return [
+        "_A_MENU_2_CLOSE_SUBMENU_",
+        item.value.title || labelWithoutFilter.value,
+      ];
     }
 
     if (isItemLink.value) {

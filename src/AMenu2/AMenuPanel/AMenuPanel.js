@@ -93,6 +93,7 @@ export default {
       isPanelOpen,
     } = PanelOpenAPI(props);
 
+    provide("isChildPanelOpen", isChildPanelOpen);
     provide("isPanelMain", isPanelMain);
 
     return {

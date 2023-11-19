@@ -21,7 +21,9 @@ import CheckRoutesAPI from "./compositionAPI/CheckRoutesAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import LinkClickAPI from "./compositionAPI/LinkClickAPI";
 import MenuAttributesAPI from "./compositionAPI/MenuAttributesAPI";
+import PanelMainAPI from "./compositionAPI/PanelMainAPI";
 import PanelsAPI from "./compositionAPI/PanelsAPI";
+import PopoverAPI from "./compositionAPI/PopoverAPI";
 import ResizeAPI from "./compositionAPI/ResizeAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 import SearchBtnAPI from "./compositionAPI/SearchBtnAPI";
@@ -250,15 +252,39 @@ export default {
       panelParentsOpen,
     });
 
+    const {
+      destroyPopover,
+      startPopper,
+    } = PopoverAPI(props, {
+      isMenuOpen,
+      panelParentsOpen,
+    });
+
+    const {
+      isLeastOnePanelOpenAndMenuClosed,
+    } = PanelMainAPI({
+      isMenuOpen,
+      panelParentsOpen,
+    });
+
     watch(currentRoute, () => {
       checkAllRoutes();
     }, {
       immediate: true,
     });
 
-    watch(isMenuOpen, () => {
+    watch(isMenuOpen, newValue => {
       resetSearch();
       closeAllPanels();
+      if (newValue) {
+        destroyPopover();
+      }
+    });
+
+    watch(panelParentsOpen, () => {
+      startPopper();
+    }, {
+      deep: true,
     });
 
     provide("clickMenuLink", clickMenuLink);
@@ -274,6 +300,7 @@ export default {
     onBeforeUnmount(() => {
       removeBodyClasses();
       destroyEventBusUpdateViewOnResize();
+      destroyPopover();
     });
 
     return {
@@ -284,6 +311,7 @@ export default {
       dataProParent,
       dataProParentList,
       idsSearchVisible,
+      isLeastOnePanelOpenAndMenuClosed,
       isMenuOpen,
       isMobileWidth,
       isSearchActive,
@@ -356,7 +384,10 @@ export default {
             }),
           ]),
           h(AVerticalScroll, {
-            disabled: this.isMenuOpen,
+            class: {
+              a_menu_2__vertical_scroll_hidden: this.isLeastOnePanelOpenAndMenuClosed
+            },
+            disabled: this.isMenuOpen || this.isLeastOnePanelOpenAndMenuClosed,
           }, () => [
             h(AMenuPanel, {
               attributesBlockerClick: this.attributesBlockerClick,

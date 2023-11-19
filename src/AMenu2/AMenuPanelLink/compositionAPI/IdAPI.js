@@ -7,19 +7,20 @@ import {
   getElementId,
 } from "../../utils/utils";
 
-export default function IdAPI(props) {
+export default function IdAPI(props, {
+  id = computed(() => undefined),
+}) {
   const menuId = toRef(props, "menuId");
-  const parentId = toRef(props, "parentId");
 
-  const panelId = computed(() => {
+  const linkId = computed(() => {
     return getElementId({
       menuId: menuId.value,
-      id: parentId.value,
-      suffix: "panel",
+      id: id.value,
+      suffix: "link",
     });
   });
 
   return {
-    panelId,
+    linkId,
   };
 }

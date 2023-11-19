@@ -1,6 +1,5 @@
 import {
   computed,
-  inject,
   toRef,
 } from "vue";
 
@@ -11,25 +10,8 @@ import {
 
 export default function AttributesAPI(props) {
   const isLinkInSearchPanel = toRef(props, "isLinkInSearchPanel");
-  const isPanelOpen = toRef(props, "isPanelOpen");
   const item = toRef(props, "item");
   const keyIcon = toRef(props, "keyIcon");
-
-  const isMenuOpen = inject("isMenuOpen");
-  const isPanelMain = inject("isPanelMain");
-
-  const tabindex = computed(() => {
-    if (isLinkInSearchPanel.value) {
-      return 0;
-    }
-    if (isPanelOpen.value && isMenuOpen.value) {
-      return 0;
-    }
-    if (isPanelMain.value && !isMenuOpen.value) {
-      return 0;
-    }
-    return -1;
-  });
 
   const id = computed(() => {
     return item.value[AKeyId];
@@ -54,6 +36,5 @@ export default function AttributesAPI(props) {
     icon,
     iconClassLocal,
     id,
-    tabindex,
   };
 }
