@@ -16,12 +16,19 @@ export default function AttributesAPI(props) {
   const keyIcon = toRef(props, "keyIcon");
 
   const isMenuOpen = inject("isMenuOpen");
+  const isPanelMain = inject("isPanelMain");
 
   const tabindex = computed(() => {
     if (isLinkInSearchPanel.value) {
       return 0;
     }
-    return isPanelOpen.value && isMenuOpen.value ? 0 : -1;
+    if (isPanelOpen.value && isMenuOpen.value) {
+      return 0;
+    }
+    if (isPanelMain.value && !isMenuOpen.value) {
+      return 0;
+    }
+    return -1;
   });
 
   const id = computed(() => {
