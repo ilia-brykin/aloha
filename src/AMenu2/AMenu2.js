@@ -14,6 +14,7 @@ import AMenuButtonToggle from "./AMenuButtonToggle/AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel/AMenuPanel";
 import AMenuSearchPanel from "./AMenuSearchPanel";
 import ATranslation from "../ATranslation/ATranslation";
+import AVerticalScroll from "../AVerticalScroll/AVerticalScroll";
 
 import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
 import CheckRoutesAPI from "./compositionAPI/CheckRoutesAPI";
@@ -331,7 +332,7 @@ export default {
           }),
         ]),
         h("div", {
-          class: "a_menu_2__panels",
+          class: "a_menu_2__panels__main",
         }, [
           h("div", {
             class: "a_menu_2__navbar_top_sub",
@@ -354,9 +355,9 @@ export default {
               onKeydown: this.keydownOnSearchBtn,
             }),
           ]),
-          h("div", {
-            class: "a_menu_2__panels__main",
-          }, [
+          h(AVerticalScroll, {
+            disabled: this.isMenuOpen,
+          }, () => [
             h(AMenuPanel, {
               attributesBlockerClick: this.attributesBlockerClick,
               dataKeyById: this.dataKeyById,
@@ -372,36 +373,40 @@ export default {
               panelParentsOpen: this.panelParentsOpen,
             }, this.$slots),
           ]),
-
-          Object.keys(this.dataProParent.children).map((key, paneIndex) => {
-            return h(AMenuPanel, {
-              key,
-              attributesBlockerClick: {},
-              breadcrumbsLinkClass: this.breadcrumbsLinkClass,
-              breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
+          h("div", {
+            class: "a_menu_2__panels",
+          }, [
+            Object.keys(this.dataProParent.children).map((key, paneIndex) => {
+              return h(AMenuPanel, {
+                key,
+                attributesBlockerClick: {},
+                breadcrumbsLinkClass: this.breadcrumbsLinkClass,
+                breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
+                dataKeyById: this.dataKeyById,
+                dataProParentChildren: this.dataProParent.children,
+                isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
+                isSearchActive: this.isSearchActive,
+                keyGroup: this.keyGroup,
+                keyIcon: this.keyIcon,
+                menuId: this.menuId,
+                paneIndex,
+                panelItems: this.dataProParent.children[key],
+                panelParentsOpen: this.panelParentsOpen,
+                parentId: key,
+              }, this.$slots);
+            }),
+            h(AMenuSearchPanel, {
               dataKeyById: this.dataKeyById,
               dataProParentChildren: this.dataProParent.children,
-              isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
+              dataProParentList: this.dataProParentList,
+              idsSearchVisible: this.idsSearchVisible,
               isSearchActive: this.isSearchActive,
-              keyGroup: this.keyGroup,
-              keyIcon: this.keyIcon,
-              menuId: this.menuId,
-              paneIndex,
-              panelItems: this.dataProParent.children[key],
-              panelParentsOpen: this.panelParentsOpen,
-              parentId: key,
-            }, this.$slots);
-          }),
-          h(AMenuSearchPanel, {
-            dataKeyById: this.dataKeyById,
-            dataProParentChildren: this.dataProParent.children,
-            dataProParentList: this.dataProParentList,
-            idsSearchVisible: this.idsSearchVisible,
-            isSearchActive: this.isSearchActive,
-            isSearchBreadcrumbsAll: this.isSearchBreadcrumbsAll,
-            modelSearch: this.modelSearch,
-          }, this.$slots),
+              isSearchBreadcrumbsAll: this.isSearchBreadcrumbsAll,
+              modelSearch: this.modelSearch,
+            }, this.$slots),
+          ]),
         ]),
+
         this.isBackdrop && h(Teleport, {
           to: "body",
         }, [

@@ -1,0 +1,48 @@
+.a_vertical_scroll {
+  --a_vertical_scroll_wrapper_bg: #fff;
+  --a_vertical_scroll_wrapper_height: 20px;
+
+  position: relative;
+  padding-top: var(--a_vertical_scroll_wrapper_height);
+  padding-bottom: var(--a_vertical_scroll_wrapper_height);
+}
+.a_scroll_content {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.a_vertical_scroll_scrollable {
+  .a_scroll_content {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .a_vertical_scroll__btn {
+    display: inline-block;
+  }
+}
+.a_vertical_scroll__btn__wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: var(--a_vertical_scroll_wrapper_bg);
+  height: var(--a_vertical_scroll_wrapper_height);
+  text-align: center;
+  z-index: 2;
+}
+
+.a_vertical_scroll__btn__wrapper_up {
+  top: 0;
+}
+.a_vertical_scroll__btn__wrapper_down {
+  bottom: 0;
+}
+.a_vertical_scroll__btn {
+  display: none;
+  padding: 0;
+  &:focus {
+    box-shadow: none;
+  }
+}

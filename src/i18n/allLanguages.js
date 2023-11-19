@@ -21,6 +21,7 @@ import AShowMoreI18n from "../AShowMore/i18n/AShowMoreI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
 import AWizardI18n from "../AWizard/i18n/AWizardI18n";
 import AMenu2I18n from "../AMenu2/i18n/AMenu2I18n";
+import AVerticalScrollI18n from "../AVerticalScroll/i18n/AVerticalScrollI18n";
 
 export const ar = {
   ...arJson,
@@ -38,6 +39,7 @@ export const ar = {
   ...AModalI18n.ar,
   ...ADatepickerRangeI18n.ar,
   ...AMenu2I18n.ar,
+  ...AVerticalScrollI18n.ar,
 };
 export const de = {
   ...deJson,
@@ -55,6 +57,7 @@ export const de = {
   ...AModalI18n.de,
   ...ADatepickerRangeI18n.de,
   ...AMenu2I18n.de,
+  ...AVerticalScrollI18n.de,
 };
 export const en = {
   ...enJson,
@@ -72,6 +75,7 @@ export const en = {
   ...AModalI18n.en,
   ...ADatepickerRangeI18n.en,
   ...AMenu2I18n.en,
+  ...AVerticalScrollI18n.en,
 };
 export const es = {
   ...esJson,
@@ -89,6 +93,7 @@ export const es = {
   ...AModalI18n.es,
   ...ADatepickerRangeI18n.es,
   ...AMenu2I18n.es,
+  ...AVerticalScrollI18n.es,
 };
 export const fr = {
   ...frJson,
@@ -106,6 +111,7 @@ export const fr = {
   ...AModalI18n.fr,
   ...ADatepickerRangeI18n.fr,
   ...AMenu2I18n.fr,
+  ...AVerticalScrollI18n.fr,
 };
 export const hr = {
   ...hrJson,
@@ -123,6 +129,7 @@ export const hr = {
   ...AModalI18n.hr,
   ...ADatepickerRangeI18n.hr,
   ...AMenu2I18n.hr,
+  ...AVerticalScrollI18n.hr,
 };
 export const it = {
   ...itJson,
@@ -140,6 +147,7 @@ export const it = {
   ...AModalI18n.it,
   ...ADatepickerRangeI18n.it,
   ...AMenu2I18n.it,
+  ...AVerticalScrollI18n.it,
 };
 export const ru = {
   ...ruJson,
@@ -157,6 +165,7 @@ export const ru = {
   ...AModalI18n.ru,
   ...ADatepickerRangeI18n.ru,
   ...AMenu2I18n.ru,
+  ...AVerticalScrollI18n.ru,
 };
 
 export default {
