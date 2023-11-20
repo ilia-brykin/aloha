@@ -254,6 +254,7 @@ export default {
 
     const {
       destroyPopover,
+      menuRef,
       startPopper,
     } = PopoverAPI(props, {
       isMenuOpen,
@@ -316,6 +317,7 @@ export default {
       isSubMenuOpen,
       itemsWithSearch,
       keydownOnSearchBtn,
+      menuRef,
       modelSearch,
       panelParentsOpen,
       removeBodyClasses,
@@ -330,6 +332,7 @@ export default {
   render() {
     return [
       h("nav", {
+        ref: "menuRef",
         id: this.menuId,
         class: [
           "a_menu_2",

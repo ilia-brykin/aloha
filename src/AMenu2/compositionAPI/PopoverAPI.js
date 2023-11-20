@@ -26,6 +26,8 @@ export default function PopoverAPI(props, {
   const menuId = toRef(props, "menuId");
 
   const cleanupPopper = ref({});
+  const menuRef = ref(undefined);
+  const isEventCloseClickStarted = ref(false);
 
   const getElementLink = ({ id }) => {
     const ID = getElementId({
@@ -45,10 +47,39 @@ export default function PopoverAPI(props, {
     return document.getElementById(ID);
   };
 
+  const onClickEvent = $event => {
+    if (!menuRef.value.contains($event.target)) {
+      panelParentsOpen.value = [];
+    }
+  };
+
+  const setEventCloseClick = () => {
+    if (!isEventCloseClickStarted.value) {
+      isEventCloseClickStarted.value = true;
+      document.addEventListener("click", onClickEvent);
+    }
+  };
+
+  const destroyEventCloseClick = () => {
+    isEventCloseClickStarted.value = false;
+    document.removeEventListener("click", onClickEvent);
+  };
+
+  const cleanupPopperCurrent = key => {
+    if (cleanupPopper.value[key]) {
+      cleanupPopper.value[key]();
+      delete cleanupPopper.value[key];
+      const PANEL_ELEMENT = getElementPanel({ id: key });
+      PANEL_ELEMENT.style.removeProperty("left");
+      PANEL_ELEMENT.style.removeProperty("top");
+    }
+  };
+
   const startPopper = () => {
     if (isMenuOpen.value) {
       return;
     }
+    setEventCloseClick();
     const CLEANUP_POPPER = clone(cleanupPopper.value);
     forEach(panelParentsOpen.value, id => {
       if (cleanupPopper.value[id]) {
@@ -80,25 +111,21 @@ export default function PopoverAPI(props, {
         }
       );
     });
-    forEach(CLEANUP_POPPER, id => {
-      if (cleanupPopper.value[id]) {
-        cleanupPopper.value[id]();
-        delete cleanupPopper.value[id];
-      }
+    forEach(CLEANUP_POPPER, (_, key) => {
+      cleanupPopperCurrent(key);
     });
   };
 
   const destroyPopover = () => {
-    forEach(cleanupPopper.value, (item, key) => {
-      if (item) {
-        item();
-        delete cleanupPopper.value[key];
-      }
+    forEach(cleanupPopper.value, (_, key) => {
+      cleanupPopperCurrent(key);
     });
+    destroyEventCloseClick();
   };
 
   return {
     destroyPopover,
+    menuRef,
     startPopper,
   };
 }
