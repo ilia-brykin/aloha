@@ -67,16 +67,13 @@ export default {
     const {
       isItemLink,
       isLinkDisabled,
-      isLinkVisible,
       toLocal,
     } = LinkAPI(props);
 
     const {
       label,
       labelWithoutFilter,
-    } = LabelAPI(props, {
-      isLinkVisible,
-    });
+    } = LabelAPI(props);
 
     const {
       icon,
@@ -135,7 +132,6 @@ export default {
       iconClassLocal,
       isItemLink,
       isLinkDisabled,
-      isLinkVisible,
       isLinkOpen,
       isTitleHtml,
       label,
@@ -150,13 +146,13 @@ export default {
     };
   },
   render() {
-    if (!this.isLinkVisible) {
-      return "";
-    }
-
     return h("li", {
       class: "a_menu_2__listitem",
     }, [
+      this.isLinkInSearchPanel && h("span", {
+        class: "a_menu_2__breadcrumbs__item__divider",
+        ariaHidden: true,
+      }, "/"),
       this.currentSlot && this.$slots[this.currentSlot] ?
         this.$slots[this.currentSlot]({
           item: this.item,
@@ -182,7 +178,7 @@ export default {
             isTitleHtml: this.isTitleHtml,
             tabindex: this.tabindex,
             textAriaHidden: true,
-            textClass: "a_menu_2__link__text",
+            textClass: "a_menu_2__link__text aloha_link__ml_0",
             textScreenReader: this.titleLocal,
             title: this.titleLocal,
             titleAttributes: this.titleAttributes,
@@ -206,7 +202,7 @@ export default {
             tabindex: this.tabindex,
             tag: "a",
             textAriaHidden: true,
-            textClass: "a_menu_2__link__text",
+            textClass: "a_menu_2__link__text aloha_btn__ml_0",
             textScreenReader: this.titleLocal,
             title: this.titleLocal,
             titleAttributes: this.titleAttributes,

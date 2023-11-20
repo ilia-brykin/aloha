@@ -8,5 +8,7 @@
   "_A_MENU_2_OPEN_SEARCH_": "Öffnen Menüsuche",
   "_A_MENU_2_OPEN_SUBMENU_": "Untermenü öffnen:",
   "_A_MENU_2_SEARCH_": "Menüsuche",
+  "_A_MENU_2_SEARCH_ELEMENTS_{{count}}_": "{{ count }} Menüeinträge gefunden",
+  "_A_MENU_2_SEARCH_NONE_FOUND_": "Keine Menüeinträge gefunden",
   "_A_MENU_2_TO_MAIN_MENU_": "Zum Hauptmenü"
 }

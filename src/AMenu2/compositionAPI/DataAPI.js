@@ -35,7 +35,7 @@ export default function DataAPI(props) {
     if (parentId) {
       BREADCRUMBS.push({
         parentId,
-        parentLabel,
+        label: parentLabel,
       });
     }
 

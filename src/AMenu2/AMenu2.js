@@ -12,7 +12,7 @@ import AButton from "../AButton/AButton";
 import AInput from "../ui/AInput/AInput";
 import AMenuButtonToggle from "./AMenuButtonToggle/AMenuButtonToggle";
 import AMenuPanel from "./AMenuPanel/AMenuPanel";
-import AMenuSearchPanel from "./AMenuSearchPanel";
+import AMenuSearchPanel from "./AMenuSearchPanel/AMenuSearchPanel";
 import ATranslation from "../ATranslation/ATranslation";
 import AVerticalScroll from "../AVerticalScroll/AVerticalScroll";
 
@@ -105,10 +105,10 @@ export default {
       required: false,
       default: true,
     },
-    isSearchBreadcrumbsAll: {
+    isSearchBreadcrumbsTruncated: {
       type: Boolean,
       required: false,
-      default: false,
+      default: true,
     },
     isTranslated: {
       type: Boolean,
@@ -175,15 +175,15 @@ export default {
     } = DataAPI(props);
 
     const {
-      dataProParentList,
-      idsSearchVisible,
       isSearchActive,
+      itemsWithSearch,
       modelSearch,
       resetSearch,
       searchInputId,
+      styleSearchPanelMain,
       updateModelSearch,
     } = SearchAPI(props, {
-      dataProParent,
+      dataKeyById,
     });
 
     const {
@@ -309,19 +309,19 @@ export default {
       clickOnSearchBtn,
       dataKeyById,
       dataProParent,
-      dataProParentList,
-      idsSearchVisible,
       isLeastOnePanelOpenAndMenuClosed,
       isMenuOpen,
       isMobileWidth,
       isSearchActive,
       isSubMenuOpen,
+      itemsWithSearch,
       keydownOnSearchBtn,
       modelSearch,
       panelParentsOpen,
       removeBodyClasses,
       searchInputId,
       setDefaultMenu,
+      styleSearchPanelMain,
       toggleMenu,
       togglePanel,
       updateModelSearch,
@@ -361,6 +361,7 @@ export default {
         ]),
         h("div", {
           class: "a_menu_2__panels__main",
+          style: this.styleSearchPanelMain,
         }, [
           h("div", {
             class: "a_menu_2__navbar_top_sub",
@@ -426,17 +427,18 @@ export default {
                 parentId: key,
               }, this.$slots);
             }),
-            h(AMenuSearchPanel, {
-              dataKeyById: this.dataKeyById,
-              dataProParentChildren: this.dataProParent.children,
-              dataProParentList: this.dataProParentList,
-              idsSearchVisible: this.idsSearchVisible,
-              isSearchActive: this.isSearchActive,
-              isSearchBreadcrumbsAll: this.isSearchBreadcrumbsAll,
-              modelSearch: this.modelSearch,
-            }, this.$slots),
           ]),
         ]),
+        h(AMenuSearchPanel, {
+          breadcrumbsLinkClass: this.breadcrumbsLinkClass,
+          breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
+          dataProParentChildren: this.dataProParent.children,
+          isSearchActive: this.isSearchActive,
+          isSearchBreadcrumbsTruncated: this.isSearchBreadcrumbsTruncated,
+          itemsWithSearch: this.itemsWithSearch,
+          menuId: this.menuId,
+          modelSearch: this.modelSearch,
+        }, this.$slots),
 
         this.isBackdrop && h(Teleport, {
           to: "body",

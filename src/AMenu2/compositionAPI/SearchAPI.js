@@ -1,20 +1,16 @@
 import {
   computed,
-  ref, toRef,
+  ref,
+  toRef,
 } from "vue";
 
-import AKeyId from "../../const/AKeyId";
 import AKeyLabel from "../../const/AKeyLabel";
 import {
   forEach,
 } from "lodash-es";
 
-
 export default function SearchAPI(props, {
-  dataProParent = computed(() => ({
-    main: [],
-    children: {},
-  })),
+  dataKeyById = computed(() => ({})),
 }) {
   const menuId = toRef(props, "menuId");
 
@@ -32,56 +28,40 @@ export default function SearchAPI(props, {
     return !!modelSearch.value;
   });
 
+  const styleSearchPanelMain = computed(() => {
+    return isSearchActive.value ?
+      "display: none;" :
+      undefined;
+  });
+
   const resetSearch = () => {
     if (isSearchActive.value) {
       modelSearch.value = "";
     }
   };
 
-  const dataProParentList = computed(() => {
+  const itemsWithSearch = computed(() => {
     const ITEMS = [];
-    if (dataProParent.value.main.length) {
-      ITEMS.push(dataProParent.value.main);
-    }
-    forEach(dataProParent.value.children, childPanelItems => {
-      ITEMS.push(childPanelItems);
-    });
-    return ITEMS;
-  });
-
-  const idsSearchVisible = computed(() => {
-    const IDS = {
-      main: {},
-      rest: {},
-    };
     if (isSearchActive.value) {
       const RE = new RegExp(modelSearch.value, "gi");
-      forEach(dataProParentList.value, (items, index) => {
-        let isVisible = false;
-        forEach(items, item => {
-          const ITEM_LABEL = item[AKeyLabel];
-          if (`${ ITEM_LABEL }`.search(RE) !== -1) {
-            const ITEM_ID = item[AKeyId];
-            IDS.rest[ITEM_ID] = true;
-            isVisible = true;
-          }
-        });
-        if (isVisible) {
-          IDS.main[index] = true;
+      forEach(dataKeyById.value, item => {
+        const ITEM_LABEL = item[AKeyLabel];
+        if (`${ ITEM_LABEL }`.search(RE) !== -1) {
+          ITEMS.push(item);
         }
       });
     }
-    return IDS;
+    return ITEMS;
   });
 
 
   return {
-    dataProParentList,
-    idsSearchVisible,
     isSearchActive,
+    itemsWithSearch,
     modelSearch,
     resetSearch,
     searchInputId,
+    styleSearchPanelMain,
     updateModelSearch,
   };
 }

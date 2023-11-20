@@ -8,5 +8,7 @@
   "_A_MENU_2_OPEN_SEARCH_": "Открыть поиск в меню",
   "_A_MENU_2_OPEN_SUBMENU_": "Открыть подменю:",
   "_A_MENU_2_SEARCH_": "Поиск в меню",
+  "_A_MENU_2_SEARCH_ELEMENTS_{{count}}_": "Найдены пункты меню: {{ count }}",
+  "_A_MENU_2_SEARCH_NONE_FOUND_": "Пункты меню не найдены",
   "_A_MENU_2_TO_MAIN_MENU_": "В главное меню"
 }

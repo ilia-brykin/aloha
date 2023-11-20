@@ -7,9 +7,7 @@ import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
 
 import AKeyLabel from "../../../const/AKeyLabel";
 
-export default function LabelAPI(props, {
-  isLinkVisible = computed(() => false),
-}) {
+export default function LabelAPI(props) {
   const isLinkInSearchPanel = toRef(props, "isLinkInSearchPanel");
   const item = toRef(props, "item");
   const modelSearch = toRef(props, "modelSearch");
@@ -24,7 +22,7 @@ export default function LabelAPI(props, {
 
   const label = computed(() => {
     const LABEL = labelWithoutFilter.value;
-    if (isLinkInSearchPanel.value && isLinkVisible.value) {
+    if (isLinkInSearchPanel.value) {
       return filterSearchHighlight(LABEL, { searchModel: modelSearch.value });
     }
     return LABEL;
