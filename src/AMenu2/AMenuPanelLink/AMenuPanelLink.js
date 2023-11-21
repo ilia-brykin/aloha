@@ -6,6 +6,7 @@ import AButton from "../../AButton/AButton";
 import AIcon from "../../AIcon/AIcon";
 import ALink from "../../ALink/ALink";
 
+import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -82,6 +83,12 @@ export default {
     } = AttributesAPI(props);
 
     const {
+      isLinkActive,
+    } = ActiveAPI(props, {
+      id,
+    });
+
+    const {
       linkId,
     } = IdAPI(props, {
       id,
@@ -131,6 +138,7 @@ export default {
       icon,
       iconClassLocal,
       isItemLink,
+      isLinkActive,
       isLinkDisabled,
       isLinkOpen,
       isTitleHtml,
@@ -155,15 +163,17 @@ export default {
       }, "/"),
       this.currentSlot && this.$slots[this.currentSlot] ?
         this.$slots[this.currentSlot]({
-          item: this.item,
-          isPanelOpen: this.isPanelOpen,
-          clickLink: this.clickLink,
-          openSubMenu: this.openSubMenu,
-          onKeydown: this.onKeydown,
-          countChildren: this.countChildren,
-          label: this.label,
           id: this.linkId,
+          item: this.item,
+          clickLink: this.clickLink,
+          countChildren: this.countChildren,
+          isLinkActive: this.isLinkActive,
+          isLinkOpen: this.isLinkOpen,
+          isPanelOpen: this.isPanelOpen,
+          label: this.label,
           labelWithoutFilter: this.labelWithoutFilter,
+          onKeydown: this.onKeydown,
+          openSubMenu: this.openSubMenu,
           tabindex: this.tabindex,
         }) :
         this.isItemLink ?
@@ -171,6 +181,7 @@ export default {
             id: this.linkId,
             class: ["a_menu_2__link a_menu_2__link__text_truncated", {
               a_menu_2__link_disabled: this.isLinkDisabled,
+              a_menu_2__link_active: this.isLinkActive,
             }],
             html: this.label,
             iconClass: this.iconClassLocal,
@@ -192,6 +203,7 @@ export default {
               "a_menu_2__link a_menu_2__link_btn a_menu_2__link__text_truncated",
               {
                 a_menu_2__link_open: this.isLinkOpen,
+                a_menu_2__link_active: this.isLinkActive,
               },
             ],
             html: this.label,

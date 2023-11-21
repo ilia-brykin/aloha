@@ -66,6 +66,11 @@ export default {
       required: false,
       default: false,
     },
+    compareUrlCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     data: {
       type: Array,
       required: false,
@@ -244,9 +249,10 @@ export default {
     });
 
     const {
+      activeRoutesIds,
       checkAllRoutes,
       currentRoute,
-    } = CheckRoutesAPI({
+    } = CheckRoutesAPI(props, {
       dataKeyById,
       dataProParent,
       isMenuLinkClicked,
@@ -293,6 +299,7 @@ export default {
       deep: true,
     });
 
+    provide("activeRoutesIds", computed(() => activeRoutesIds.value));
     provide("clickMenuLink", clickMenuLink);
     provide("isLinkTruncated", computed(() => isLinkTruncated.value));
     provide("isMenuOpen", computed(() => isMenuOpen.value));
@@ -310,6 +317,7 @@ export default {
     });
 
     return {
+      activeRoutesIds,
       attributesBlockerClick,
       attributesMenuClick,
       clickOnSearchBtn,
