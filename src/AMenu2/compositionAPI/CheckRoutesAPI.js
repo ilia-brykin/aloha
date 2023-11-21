@@ -51,7 +51,6 @@ export default function CheckRoutesAPI({
   };
 
   const checkAllRoutes = () => {
-    console.log("checkAllRoutes");
     if (isMenuLinkClicked.value) {
       isMenuLinkClicked.value = false;
       return;

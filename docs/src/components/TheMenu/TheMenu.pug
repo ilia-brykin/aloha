@@ -1,15 +1,8 @@
-a-menu(
+a-menu-2(
   :data="menuItems"
-  button-toggle-visible="always"
-  :is-blocker-clickable="true"
-  :is-breadcrumbs-link-truncated="false"
+  :can-change-body-class="true"
   key-children="children"
   key-slot="slot"
-  :is-search-breadcrumbs-all="true"
+  :is-translated="true"
+  menu-id="a_menu"
 )
-  template(
-    v-slot:slotItem="{ item, label }"
-  )
-    span(
-      v-html="label"
-    )

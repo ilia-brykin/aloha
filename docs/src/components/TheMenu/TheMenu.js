@@ -1,12 +1,9 @@
-import AMenu from "../../../../src/AMenu/AMenu";
-
-import TheMenuItem from "../TheMenuItem/TheMenuItem.vue";
+import AMenu2 from "../../../../src/AMenu2/AMenu2";
 
 export default {
   name: "TheMenu",
   components: {
-    AMenu,
-    TheMenuItem,
+    AMenu2,
   },
   data() {
     return {
@@ -18,20 +15,6 @@ export default {
             name: "PageAccordion",
           },
           icon: "ListNested",
-        },
-        {
-          id: "accordion2",
-          label: "Accordion seeeeeehr lange name",
-          icon: "ListNested",
-          children: [
-            {
-              id: "accordion3",
-              label: "Accordion seeeeeehr lange name",
-              to: {
-                name: "PageAccordion",
-              }
-            }
-          ]
         },
         {
           id: "alert",

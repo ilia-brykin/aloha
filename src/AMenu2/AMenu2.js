@@ -273,6 +273,7 @@ export default {
       checkAllRoutes();
     }, {
       immediate: true,
+      deep: true,
     });
 
     watch(isMenuOpen, newValue => {
@@ -353,9 +354,10 @@ export default {
           class: "a_menu_2__navbar_top",
         }, [
           h(AMenuButtonToggle, {
-            menuId: this.menuId,
-            class: this.buttonToggleClass,
             buttonToggleProps: this.buttonToggleProps,
+            canChangeBodyClass: this.canChangeBodyClass,
+            class: this.buttonToggleClass,
+            menuId: this.menuId,
           }),
           this.$slots.menuSearch && this.$slots.menuSearch(),
           this.hasSearch && h(AInput, {

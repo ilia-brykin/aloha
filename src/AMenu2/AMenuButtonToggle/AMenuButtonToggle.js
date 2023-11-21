@@ -14,6 +14,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    canChangeBodyClass: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     class: {
       type: [String, Object],
       required: false,
