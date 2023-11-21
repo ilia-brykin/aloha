@@ -222,6 +222,7 @@ export default {
       destroyEventBusUpdateViewOnResize,
       initEventBusUpdateViewOnResize,
       initMenuOpenOrClose,
+      isMenuInitialized,
       isMobileWidth,
     } = ResizeAPI(props, {
       toggleMenu,
@@ -275,6 +276,9 @@ export default {
     });
 
     watch(isMenuOpen, newValue => {
+      if (!isMenuInitialized.value) {
+        return;
+      }
       resetSearch();
       closeAllPanels();
       if (newValue) {

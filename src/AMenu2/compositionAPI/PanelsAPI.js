@@ -69,6 +69,7 @@ export default function PanelsAPI(props, {
   const setDefaultMenu = () => {
     resetSearch();
     panelParentsOpen.value = [];
+    console.log("setDefaultMenu");
   };
 
   return {

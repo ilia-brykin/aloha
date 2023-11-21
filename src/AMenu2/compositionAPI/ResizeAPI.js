@@ -1,4 +1,6 @@
 import {
+  nextTick,
+  ref,
   toRef,
 } from "vue";
 
@@ -9,6 +11,8 @@ export default function ResizeAPI(props, {
   toggleMenu,
 }) {
   const isMenuOpenInitial = toRef(props, "isMenuOpenInitial");
+
+  const isMenuInitialized = ref(false);
 
   const {
     isMobileWidth,
@@ -36,12 +40,16 @@ export default function ResizeAPI(props, {
     } else {
       toggleMenu({ isOpen: isMenuOpenInitial.value });
     }
+    nextTick().then(() => {
+      isMenuInitialized.value = true;
+    });
   };
 
   return {
     destroyEventBusUpdateViewOnResize,
     initEventBusUpdateViewOnResize,
     initMenuOpenOrClose,
+    isMenuInitialized,
     isMobileWidth,
   };
 }
