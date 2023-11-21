@@ -6885,6 +6885,7 @@ input:not(:-webkit-autofill) {
   --a_menu_2_link_padding_y: 1rem;
   --a_menu_2_link_selected_bg: var(--a_color_gray_200);
   --a_menu_2_link_selected_color: inherit;
+  --a_menu_2_link_border_color: transparent;
   --a_menu_2_icon_color: var(--a_color_gray_600);
   --a_menu_2_panel_opened_icon_color: var(--a_color_gray_600);
   --a_menu_2_icon_focus_shadow_color: var(--a_color_focus);
@@ -6926,7 +6927,7 @@ input:not(:-webkit-autofill) {
   padding: 0;
   margin: 0;
   border-color: var(--a_menu_2_border_color); }
-  .a_menu_2__listitem:after {
+  .a_menu_2__listitem:not(:last-child):after {
     content: "";
     border-color: inherit;
     border-bottom-width: 1px;
@@ -6935,8 +6936,8 @@ input:not(:-webkit-autofill) {
     position: absolute;
     inset-inline-start: 20px;
     inset-inline-end: 0;
-    bottom: 0; }
-    .a_menu_2__panel_main .a_menu_2__listitem:after {
+    bottom: -1px; }
+    .a_menu_2__panel_main .a_menu_2__listitem:not(:last-child):after {
       left: var(--a_menu_2_panel_iconpanel_size); }
 
 .a_menu_2__list_header {
@@ -6955,7 +6956,8 @@ input:not(:-webkit-autofill) {
   display: block;
   padding: var(--a_menu_2_link_padding_y) var(--a_menu_2_link_padding_x);
   cursor: pointer;
-  color: inherit; }
+  color: inherit;
+  border: 1px solid var(--a_menu_2_link_border_color); }
   .a_menu_2__link, .a_menu_2__link:active, .a_menu_2__link:hover, .a_menu_2__link:link, .a_menu_2__link:visited {
     text-decoration: none; }
   .a_menu_2__link:focus, .a_menu_2__link:hover {
@@ -7093,8 +7095,16 @@ input:not(:-webkit-autofill) {
 .a_menu_2_mobile .a_menu_2__wrapper_close .a_menu_2__btn_toggle {
   left: 0; }
 
+.a_menu_2__link_active {
+  --a_menu_2_icon_color: var(--a_menu_2_submenu_open_bg);
+  --a_menu_2_link_border_color: var(--a_menu_2_submenu_open_bg);
+  border-radius: 4px;
+  background-color: var(--a_menu_2_submenu_open_color);
+  color: var(--a_menu_2_submenu_open_bg); }
+
 .a_menu_2__link_open {
   --a_menu_2_icon_color: var(--a_menu_2_submenu_open_color);
+  --a_menu_2_link_border_color: var(--a_menu_2_submenu_open_bg);
   border-radius: 4px;
   background-color: var(--a_menu_2_submenu_open_bg);
   color: var(--a_menu_2_submenu_open_color); }
