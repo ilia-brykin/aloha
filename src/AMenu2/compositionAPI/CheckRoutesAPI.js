@@ -17,6 +17,7 @@ export default function CheckRoutesAPI(props, {
     children: {},
   })),
   isMenuLinkClicked = ref(false),
+  isMenuOpen = computed(() => false),
   panelParentsOpen = ref([]),
 }) {
   const compareUrlCallback = toRef(props, "compareUrlCallback");
@@ -61,7 +62,7 @@ export default function CheckRoutesAPI(props, {
       if (route.to) {
         if (compareUrlLocal({ routerFullPath, route })) {
           const IDS_OPEN = setPanelParentsOpen({ route, ids: [] });
-          if (!isMenuLinkClicked.value) {
+          if (!isMenuLinkClicked.value && isMenuOpen.value) {
             panelParentsOpen.value = IDS_OPEN;
           }
           activeRoutesIds.value = [...IDS_OPEN, route[AKeyId]];

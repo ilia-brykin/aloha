@@ -225,7 +225,12 @@
   height: var(--a_menu_2_btn_toggle_height);
   width: var(--a_menu_2_btn_toggle_width);
   position: relative;
+}
+.a_menu_2__btn_toggle_inside_menu {
   margin-right: 1rem;
+}
+.a_menu_2__btn_toggle_outside_menu {
+  display: none;
 }
 
 .a_menu_2__btn_toggle__bar {
@@ -247,7 +252,9 @@
   &.a_menu_2__btn_toggle__bar_3 {
     top: var(--a_menu_2_btn_toggle_bar_3_top);
   }
-  .a_menu_2__btn_toggle_open & {
+}
+.a_menu_2__btn_toggle_open {
+  .a_menu_2__btn_toggle__bar {
     &.a_menu_2__btn_toggle__bar_1 {
       top: var(--a_menu_2_btn_toggle_bar_2_top);
       transform: translateX(-50%) rotate(45deg);
@@ -265,42 +272,34 @@
 .a_menu_2__backdrop {
   z-index: -1;
 }
-
-.a_menu_2_mobile {
-  .a_menu_2__btn_toggle {
-    position: fixed;
-    top: 0;
-    margin: var(--a_menu_2_mobile_btn_toggle_margin_top) 0 0 var(--a_menu_2_mobile_btn_toggle_margin_left);
-    z-index: var(--a_menu_2_mobile_z_index);
+// mobile
+.a_mobile {
+  .a_menu_2_close {
+    display: none;
   }
-  .a_menu_2__wrapper_open {
+  .a_menu_2__page {
+    width: 100%;
+    margin-left: 0;
+  }
+  .a_menu_2_open {
+    max-width: 100vw;
+  }
+  &.a_menu_2__wrapper_open {
     overflow: hidden;
     padding-right: 15px;
     .a_menu_2__page {
-      width: 100%;
-      margin-left: 0;
-    }
-    .a_menu {
-      z-index: var(--a_menu_2_mobile_z_index);
-    }
-    .a_menu_2__btn_toggle {
-      left: var(--a_menu_2_width_expanded);
-    }
-    .a_menu_2__backdrop {
       opacity: .5;
-      z-index: var(--a__backdrop_zindex);
     }
+    //    .a_menu_2__backdrop {
+    //      opacity: .5;
+    //      z-index: var(--a__backdrop_zindex);
+    //    }
   }
-  .a_menu_2__wrapper_close {
-    .a_menu_2__page {
-      width: 100%;
-      margin-left: 0;
-    }
-    .a_menu_2__btn_toggle {
-      left: 0;
-    }
+  .a_menu_2__btn_toggle_close.a_menu_2__btn_toggle_outside_menu {
+    display: inline-block;
   }
 }
+
 .a_menu_2__link_active {
   --a_menu_2_icon_color: var(--a_menu_2_submenu_open_bg);
   --a_menu_2_link_border_color: var(--a_menu_2_submenu_open_bg);

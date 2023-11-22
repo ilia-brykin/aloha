@@ -64,7 +64,7 @@ export default {
     canChangeBodyClass: {
       type: Boolean,
       required: false,
-      default: false,
+      default: true,
     },
     compareUrlCallback: {
       type: Function,
@@ -256,6 +256,7 @@ export default {
       dataKeyById,
       dataProParent,
       isMenuLinkClicked,
+      isMenuOpen,
       panelParentsOpen,
     });
 
@@ -365,6 +366,7 @@ export default {
             buttonToggleProps: this.buttonToggleProps,
             canChangeBodyClass: this.canChangeBodyClass,
             class: this.buttonToggleClass,
+            insideMenu: true,
             menuId: this.menuId,
           }),
           this.$slots.menuSearch && this.$slots.menuSearch(),

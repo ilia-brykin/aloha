@@ -17,12 +17,16 @@ export default {
     canChangeBodyClass: {
       type: Boolean,
       required: false,
-      default: false,
+      default: true,
     },
     class: {
       type: [String, Object],
       required: false,
       default: "a_btn a_btn_secondary",
+    },
+    insideMenu: {
+      type: Boolean,
+      required: false,
     },
     menuId: {
       type: String,
@@ -46,6 +50,9 @@ export default {
     return h(AButton, {
       class: ["a_menu_2__btn_toggle", this.class, {
         a_menu_2__btn_toggle_open: this.isMenuOpen,
+        a_menu_2__btn_toggle_close: !this.isMenuOpen,
+        a_menu_2__btn_toggle_inside_menu: this.insideMenu,
+        a_menu_2__btn_toggle_outside_menu: !this.insideMenu,
       }],
       type: "button",
       title: this.btnToggleTitle,
