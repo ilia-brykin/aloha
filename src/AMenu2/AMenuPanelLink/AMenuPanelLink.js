@@ -21,6 +21,7 @@ import TitleAPI from "./compositionAPI/TitleAPI";
 export default {
   name: "AMenuPanelLink",
   inject: [
+    "isPanelMain",
     "showCountChildren",
   ],
   props: {
@@ -170,6 +171,7 @@ export default {
           isLinkActive: this.isLinkActive,
           isLinkOpen: this.isLinkOpen,
           isPanelOpen: this.isPanelOpen,
+          isPanelMain: this.isPanelMain,
           label: this.label,
           labelWithoutFilter: this.labelWithoutFilter,
           onKeydown: this.onKeydown,
@@ -182,6 +184,7 @@ export default {
             class: ["a_menu_2__link a_menu_2__link__text_truncated", {
               a_menu_2__link_disabled: this.isLinkDisabled,
               a_menu_2__link_active: this.isLinkActive,
+              a_menu_2__link_panel_main: this.isPanelMain,
             }],
             html: this.label,
             iconClass: this.iconClassLocal,
@@ -204,6 +207,7 @@ export default {
               {
                 a_menu_2__link_open: this.isLinkOpen,
                 a_menu_2__link_active: this.isLinkActive,
+                a_menu_2__link_panel_main: this.isPanelMain,
               },
             ],
             html: this.label,
