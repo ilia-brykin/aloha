@@ -129,7 +129,7 @@ export default {
           icon: "MenuDown",
         },
         {
-          id: "form",
+          id: "form_parent",
           label: "Form",
           icon: "FileEarmarkText",
           children: [
