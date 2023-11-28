@@ -7192,6 +7192,10 @@ input:not(:-webkit-autofill) {
 .a_menu_2_close .a_menu_2__navbar_top_sub__text {
   display: none; }
 
+.a_menu_2_sub_open .a_menu_2__panel_search .a_menu_2__navbar_top_sub__text,
+.a_menu_2_close .a_menu_2__panel_search .a_menu_2__navbar_top_sub__text {
+  display: block; }
+
 .a_menu_2_open .a_menu_2__navbar_top_sub__search {
   display: none; }
 
