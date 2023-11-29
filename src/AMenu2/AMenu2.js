@@ -33,6 +33,9 @@ import {
   uniqueId,
 } from "lodash-es";
 
+const DROPDOWN_BUTTON_WIDTH = 34;
+const BREADCRUMBS_PADDINGS = 20;
+
 export default {
   name: "AMenu2",
   provide() {
@@ -50,6 +53,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    breadcrumbsTruncatedOffset: {
+      type: Number,
+      required: false,
+      default: () => DROPDOWN_BUTTON_WIDTH + BREADCRUMBS_PADDINGS,
     },
     buttonToggleClass: {
       type: [String, Object],
@@ -173,6 +181,7 @@ export default {
   setup(props) {
     const isLinkTruncated = toRef(props, "isLinkTruncated");
     const showCountChildren = toRef(props, "showCountChildren");
+    const breadcrumbsTruncatedOffset = toRef(props, "breadcrumbsTruncatedOffset");
 
     const {
       dataKeyById,
@@ -309,6 +318,7 @@ export default {
     provide("panelParentsOpen", panelParentsOpen);
     provide("showCountChildren", computed(() => showCountChildren.value));
     provide("togglePanel", togglePanel);
+    provide("breadcrumbsTruncatedOffset", computed(() => breadcrumbsTruncatedOffset.value));
 
     initMenuOpenOrClose();
     initEventBusUpdateViewOnResize();

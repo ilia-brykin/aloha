@@ -1,5 +1,6 @@
 import {
   h,
+  inject,
   withDirectives,
 } from "vue";
 
@@ -48,6 +49,8 @@ export default {
     },
   },
   setup(props) {
+    const breadcrumbsTruncatedOffset = inject("breadcrumbsTruncatedOffset");
+
     const {
       breadcrumbsItems,
     } = ItemsAPI(props);
@@ -65,6 +68,7 @@ export default {
       renderParent,
     } = RenderTruncatedAPI({
       breadcrumbsItems,
+      breadcrumbsTruncatedOffset,
     });
 
     return {

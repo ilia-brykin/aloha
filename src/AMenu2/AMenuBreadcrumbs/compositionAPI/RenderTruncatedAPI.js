@@ -9,11 +9,11 @@ import {
 
 export default function RenderTruncatedAPI({
   breadcrumbsItems = computed(() => []),
+  breadcrumbsTruncatedOffset = ref(0),
 }) {
   const breadcrumbsItemsDropdown = ref([]);
   const breadcrumbsItemsTruncated = ref([]);
   const breadcrumbsWidth = ref(0);
-  const dropdownButtonWidth = 30;
   const indexRenderedItem = ref(undefined);
   const isRenderedAll = ref(false);
   const itemsWidth = ref(0);
@@ -35,7 +35,7 @@ export default function RenderTruncatedAPI({
 
   const removeItem = () => {
     if (breadcrumbsItemsTruncated.value.length <= 1 ||
-      (itemsWidth.value + dropdownButtonWidth <= breadcrumbsWidth.value)) {
+      (itemsWidth.value + breadcrumbsTruncatedOffset.value <= breadcrumbsWidth.value)) {
       addDropdownItems();
       return;
     }
