@@ -237,6 +237,8 @@ export default {
       clickMenuLink,
       isMenuLinkClicked,
     } = LinkClickAPI(props, {
+      closeAllPanels,
+      isMenuOpen,
       isMobileWidth,
       resetSearch,
       toggleMenu,

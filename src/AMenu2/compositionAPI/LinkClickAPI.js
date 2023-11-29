@@ -1,9 +1,12 @@
 import {
+  computed,
   ref,
   toRef,
 } from "vue";
 
 export default function LinkClickAPI(props, {
+  closeAllPanels = () => {},
+  isMenuOpen = computed(() => false),
   isMobileWidth = ref(false),
   resetSearch = () => {},
   toggleMenu = () => {},
@@ -28,6 +31,9 @@ export default function LinkClickAPI(props, {
     isMenuLinkClicked.value = true;
     resetSearch();
     setFocusToBody();
+    if (!isMenuOpen.value) {
+      closeAllPanels();
+    }
     if (isMobileWidth.value) {
       toggleMenu({ isOpen: false });
     }
