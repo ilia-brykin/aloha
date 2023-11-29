@@ -6852,8 +6852,6 @@ input:not(:-webkit-autofill) {
 :root {
   --a_menu_2_width_expanded: 350px;
   --a_menu_2_width_collapsed: 60px;
-  --a_menu_2_close_panel_width: 300px;
-  --a_menu_2_close_panel_max_height: 400px;
   --a_menu_2_transition: 0.5s;
   --a_menu_2_btn_toggle_top: 5px;
   --a_menu_2_btn_toggle_margin_left: 0.5rem;
@@ -6891,6 +6889,9 @@ input:not(:-webkit-autofill) {
   --a_menu_2_submenu_border_radius: 1rem;
   --a_menu_2_submenu_border_width: 2px;
   --a_menu_2_search_height: 50px;
+  --a_menu_2_close_panel_width: 300px;
+  --a_menu_2_close_panel_max_height: 400px;
+  --a_menu_2_close_panel_border_radius: .3rem;
   width: var(--a_menu_2_width);
   position: absolute;
   top: var(--a_menu_2_top);
@@ -7231,7 +7232,7 @@ input:not(:-webkit-autofill) {
       left: auto;
       top: auto;
       border: none;
-      border-radius: 0;
+      border-radius: var(--a_menu_2_close_panel_border_radius);
       box-shadow: 0 0 2px 2px var(--a_color_gray_600);
       max-height: var(--a_menu_2_close_panel_max_height);
       overflow-y: auto;
