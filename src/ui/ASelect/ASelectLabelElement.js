@@ -41,6 +41,7 @@ export default {
         this.$slots[this.slotName]({
           item: this.data,
           label: this.currentLabel,
+          inDropdown: false,
         }) :
         withDirectives(h("span"), [
           [ASafeHtml, this.currentLabel],

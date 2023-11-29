@@ -144,6 +144,7 @@ export default {
           itemIndex: this.itemIndex,
           label: this.labelLocal,
           labelFiltered: this.currentLabelFiltered,
+          inDropdown: true,
         }) :
         withDirectives(h("span"), [
           [ASafeHtml, this.currentLabelFiltered],

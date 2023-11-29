@@ -63,6 +63,7 @@ export default {
         this.$slots[this.slotName]({
           item: this.data,
           label: this.currentLabel,
+          inDropdown: false,
         }) :
         h("span", {}, this.currentLabel),
       h("button", {
