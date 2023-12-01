@@ -346,7 +346,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: calc(100% - var(--a_menu_2_navbar_top));
+  height: calc(100% - var(--a_menu_2_navbar_top_height));
   .a_vertical_scroll {
     height: calc(100% - var(--a_menu_2_breadcrumb_min_height) + 20px);
     margin-top: -20px;
