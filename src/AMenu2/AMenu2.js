@@ -356,129 +356,127 @@ export default {
     };
   },
   render() {
-    return [
-      h("nav", {
-        ref: "menuRef",
-        id: this.menuId,
-        class: [
-          "a_menu_2",
-          {
-            a_menu_2_sub_open: this.isSubMenuOpen,
-            a_menu_2_open: this.isMenuOpen,
-            a_menu_2_close: !this.isMenuOpen,
-            a_menu_2_mobile: this.isMobileWidth,
-          },
-        ],
-        ...this.attributesMenuClick,
+    return h("nav", {
+      ref: "menuRef",
+      id: this.menuId,
+      class: [
+        "a_menu_2",
+        {
+          a_menu_2_sub_open: this.isSubMenuOpen,
+          a_menu_2_open: this.isMenuOpen,
+          a_menu_2_close: !this.isMenuOpen,
+          a_menu_2_mobile: this.isMobileWidth,
+        },
+      ],
+      ...this.attributesMenuClick,
+    }, [
+      h("div", {
+        class: "a_menu_2__navbar_top",
+      }, [
+        h(AMenuButtonToggle, {
+          buttonToggleProps: this.buttonToggleProps,
+          canChangeBodyClass: this.canChangeBodyClass,
+          class: this.buttonToggleClass,
+          insideMenu: true,
+          menuId: this.menuId,
+        }),
+        this.$slots.menuSearch && this.$slots.menuSearch(),
+        this.hasSearch && h(AInput, {
+          id: this.searchInputId,
+          class: "a_menu_2__navbar_top__search",
+          modelValue: this.modelSearch,
+          label: "_A_MENU_2_SEARCH_",
+          "onUpdate:modelValue": this.updateModelSearch,
+        }),
+      ]),
+      h("div", {
+        class: "a_menu_2__panels__main",
+        style: this.styleSearchPanelMain,
       }, [
         h("div", {
-          class: "a_menu_2__navbar_top",
+          class: "a_menu_2__navbar_top_sub",
         }, [
-          h(AMenuButtonToggle, {
-            buttonToggleProps: this.buttonToggleProps,
-            canChangeBodyClass: this.canChangeBodyClass,
-            class: this.buttonToggleClass,
-            insideMenu: true,
-            menuId: this.menuId,
+          h(ATranslation, {
+            class: "a_menu_2__navbar_top_sub__text",
+            tag: "strong",
+            text: "_A_MENU_2_MAIN_MENU_",
           }),
-          this.$slots.menuSearch && this.$slots.menuSearch(),
-          this.hasSearch && h(AInput, {
-            id: this.searchInputId,
-            class: "a_menu_2__navbar_top__search",
-            modelValue: this.modelSearch,
-            label: "_A_MENU_2_SEARCH_",
-            "onUpdate:modelValue": this.updateModelSearch,
+          this.hasSearch && h(AButton, {
+            role: "button",
+            tabindex: 0,
+            tag: "a",
+            class: "a_menu_2__navbar_top_sub__search a_menu_2__link a_menu_2__link_btn",
+            iconLeft: "Search",
+            iconClass: "a_menu_2__link__icon",
+            title: "_A_MENU_2_OPEN_SEARCH_",
+            textScreenReader: "_A_MENU_2_OPEN_SEARCH_",
+            onClick: this.clickOnSearchBtn,
+            onKeydown: this.keydownOnSearchBtn,
           }),
         ]),
+        h(AVerticalScroll, {
+          class: {
+            a_menu_2__vertical_scroll_hidden: this.isLeastOnePanelOpenAndMenuClosed
+          },
+          disabled: this.isMenuOpen || this.isLeastOnePanelOpenAndMenuClosed,
+        }, () => [
+          h(AMenuPanel, {
+            attributesBlockerClick: this.attributesBlockerClick,
+            dataKeyById: this.dataKeyById,
+            dataProParentChildren: this.dataProParent.children,
+            isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
+            isPanelMain: true,
+            isSearchActive: this.isSearchActive,
+            keyGroup: this.keyGroup,
+            keyIcon: this.keyIcon,
+            menuId: this.menuId,
+            paneIndex: "00",
+            panelItems: this.dataProParent.main,
+            panelParentsOpen: this.panelParentsOpen,
+          }, this.$slots),
+        ]),
         h("div", {
-          class: "a_menu_2__panels__main",
-          style: this.styleSearchPanelMain,
+          class: "a_menu_2__panels",
         }, [
-          h("div", {
-            class: "a_menu_2__navbar_top_sub",
-          }, [
-            h(ATranslation, {
-              class: "a_menu_2__navbar_top_sub__text",
-              tag: "strong",
-              text: "_A_MENU_2_MAIN_MENU_",
-            }),
-            this.hasSearch && h(AButton, {
-              role: "button",
-              tabindex: 0,
-              tag: "a",
-              class: "a_menu_2__navbar_top_sub__search a_menu_2__link a_menu_2__link_btn",
-              iconLeft: "Search",
-              iconClass: "a_menu_2__link__icon",
-              title: "_A_MENU_2_OPEN_SEARCH_",
-              textScreenReader: "_A_MENU_2_OPEN_SEARCH_",
-              onClick: this.clickOnSearchBtn,
-              onKeydown: this.keydownOnSearchBtn,
-            }),
-          ]),
-          h(AVerticalScroll, {
-            class: {
-              a_menu_2__vertical_scroll_hidden: this.isLeastOnePanelOpenAndMenuClosed
-            },
-            disabled: this.isMenuOpen || this.isLeastOnePanelOpenAndMenuClosed,
-          }, () => [
-            h(AMenuPanel, {
-              attributesBlockerClick: this.attributesBlockerClick,
+          Object.keys(this.dataProParent.children).map((key, paneIndex) => {
+            return h(AMenuPanel, {
+              key,
+              attributesBlockerClick: {},
+              breadcrumbsLinkClass: this.breadcrumbsLinkClass,
+              breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
               dataKeyById: this.dataKeyById,
               dataProParentChildren: this.dataProParent.children,
               isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
-              isPanelMain: true,
               isSearchActive: this.isSearchActive,
               keyGroup: this.keyGroup,
               keyIcon: this.keyIcon,
               menuId: this.menuId,
-              paneIndex: "00",
-              panelItems: this.dataProParent.main,
+              paneIndex,
+              panelItems: this.dataProParent.children[key],
               panelParentsOpen: this.panelParentsOpen,
-            }, this.$slots),
-          ]),
-          h("div", {
-            class: "a_menu_2__panels",
-          }, [
-            Object.keys(this.dataProParent.children).map((key, paneIndex) => {
-              return h(AMenuPanel, {
-                key,
-                attributesBlockerClick: {},
-                breadcrumbsLinkClass: this.breadcrumbsLinkClass,
-                breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
-                dataKeyById: this.dataKeyById,
-                dataProParentChildren: this.dataProParent.children,
-                isBreadcrumbsTruncated: this.isBreadcrumbsTruncated,
-                isSearchActive: this.isSearchActive,
-                keyGroup: this.keyGroup,
-                keyIcon: this.keyIcon,
-                menuId: this.menuId,
-                paneIndex,
-                panelItems: this.dataProParent.children[key],
-                panelParentsOpen: this.panelParentsOpen,
-                parentId: key,
-              }, this.$slots);
-            }),
-          ]),
-        ]),
-        h(AMenuSearchPanel, {
-          breadcrumbsLinkClass: this.breadcrumbsLinkClass,
-          breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
-          dataProParentChildren: this.dataProParent.children,
-          isSearchActive: this.isSearchActive,
-          isSearchBreadcrumbsTruncated: this.isSearchBreadcrumbsTruncated,
-          itemsWithSearch: this.itemsWithSearch,
-          menuId: this.menuId,
-          modelSearch: this.modelSearch,
-        }, this.$slots),
-
-        this.isBackdrop && h(Teleport, {
-          to: "body",
-        }, [
-          h("div", {
-            class: "a_menu_2__backdrop a_backdrop a_backdrop_fade",
+              parentId: key,
+            }, this.$slots);
           }),
         ]),
       ]),
-    ];
+      h(AMenuSearchPanel, {
+        breadcrumbsLinkClass: this.breadcrumbsLinkClass,
+        breadcrumbsTruncatedDropdownProps: this.breadcrumbsTruncatedDropdownProps,
+        dataProParentChildren: this.dataProParent.children,
+        isSearchActive: this.isSearchActive,
+        isSearchBreadcrumbsTruncated: this.isSearchBreadcrumbsTruncated,
+        itemsWithSearch: this.itemsWithSearch,
+        menuId: this.menuId,
+        modelSearch: this.modelSearch,
+      }, this.$slots),
+
+      this.isBackdrop && h(Teleport, {
+        to: "body",
+      }, [
+        h("div", {
+          class: "a_menu_2__backdrop a_backdrop a_backdrop_fade",
+        }),
+      ]),
+    ]);
   },
 };
