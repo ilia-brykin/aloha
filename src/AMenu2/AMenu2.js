@@ -333,6 +333,7 @@ export default {
       activeRoutesIds,
       attributesBlockerClick,
       attributesMenuClick,
+      checkAllRoutes,
       clickOnSearchBtn,
       dataKeyById,
       dataProParent,
