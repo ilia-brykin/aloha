@@ -2,6 +2,7 @@
   "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_": "Alle Zeilen abwählen ({{ countAllRows }})",
   "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Alle ausgewählten Zeilen abwählen",
   "_A_TABLE_DESELECT_THIS_ROW_": "Die Zeile abwählen",
+  "_A_TABLE_EMPTY_TEXT_": "Keine Einträge vorhanden.",
   "_A_TABLE_EXECUTE_MULTIPLE_ACTION_": "Mehrfachaktion durchführen?",
   "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BODY_HTML_{{action}}_{{selectedRows}}_": "<div>Möchten Sie die Aktion <strong>{{ action }}</strong> auf <strong>{{ selectedRows }}</strong> Objekten durchführen?</div>",
   "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BTN_SAVE_": "Fortfahren",

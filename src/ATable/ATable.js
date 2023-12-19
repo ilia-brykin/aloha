@@ -31,6 +31,7 @@ import TableAttributesAPI from "./compositionAPI/TableAttributesAPI";
 import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
 import TableColumnsVisibleAPI from "./compositionAPI/TableColumnsVisibleAPI";
 import TableColumnsVisibleFunctionAPI from "./compositionAPI/TableColumnsVisibleFunctionAPI";
+import TextsAPI from "./compositionAPI/TextsAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 import {
@@ -41,6 +42,7 @@ import {
   isPlainObject,
   uniqueId,
 } from "lodash-es";
+import ATranslation from "../ATranslation/ATranslation";
 
 export default {
   name: "ATable",
@@ -332,6 +334,13 @@ export default {
       required: false,
       default: 0,
     },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        empty: "_A_TABLE_EMPTY_TEXT_",
+      }),
+    },
     useViewSlot: {
       type: Boolean,
       required: false,
@@ -562,6 +571,10 @@ export default {
       modelColumnsVisibleLocal,
     });
 
+    const {
+      emptyText,
+    } = TextsAPI(props);
+
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("changeModelSort", changeModelSort);
     provide("columnsOrdered", columnsOrdered);
@@ -600,6 +613,7 @@ export default {
       closePreview,
       closePreviewAll,
       columnsOrdered,
+      emptyText,
       hasRows,
       hasViews,
       isMobile,
@@ -822,9 +836,10 @@ export default {
                   ...this.$slots,
                 });
               })),
-              (this.isViewTableVisible && !this.hasRows) && h("div", {
+              (this.isViewTableVisible && !this.hasRows) && h(ATranslation, {
                 class: "a_table__empty_text",
-              }, "Keine Einträge vorhanden."),
+                text: this.emptyText,
+              }),
             ]),
           ]),
 
