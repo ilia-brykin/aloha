@@ -1,5 +1,7 @@
 import {
-  h, provide, toRef,
+  h,
+  provide,
+  toRef,
 } from "vue";
 
 import AMenuBreadcrumbs from "../AMenuBreadcrumbs/AMenuBreadcrumbs";
@@ -7,6 +9,7 @@ import AMenuPanelGroup from "../AMenuPanelGroup/AMenuPanelGroup";
 
 import GroupAPI from "./compositionAPI/GroupAPI";
 import IdAPI from "./compositionAPI/IdAPI";
+import LevelAPI from "./compositionAPI/LevelAPI";
 import PanelOpenAPI from "./compositionAPI/PanelOpenAPI";
 
 export default {
@@ -84,6 +87,11 @@ export default {
     } = IdAPI(props);
 
     const {
+      openedLevelIndex,
+      styleZIndex,
+    } = LevelAPI(props);
+
+    const {
       isItemsWithoutGroup,
       itemsGroup,
     } = GroupAPI(props);
@@ -91,7 +99,9 @@ export default {
     const {
       isChildPanelOpen,
       isPanelOpen,
-    } = PanelOpenAPI(props);
+    } = PanelOpenAPI(props, {
+      openedLevelIndex,
+    });
 
     provide("isChildPanelOpen", isChildPanelOpen);
     provide("isPanelMain", isPanelMain);
@@ -102,6 +112,7 @@ export default {
       isPanelOpen,
       itemsGroup,
       panelId,
+      styleZIndex,
     };
   },
   render() {
@@ -113,6 +124,7 @@ export default {
         a_menu_2__panel_opened: !this.isSearchActive && this.isPanelOpen,
         a_menu_2__panel_parent: !this.isSearchActive && this.isChildPanelOpen,
       }],
+      style: this.styleZIndex,
     }, [
       (!this.isPanelMain && this.isPanelOpen) && h(AMenuBreadcrumbs, {
         breadcrumbsLinkClass: this.breadcrumbsLinkClass,

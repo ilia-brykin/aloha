@@ -3,11 +3,12 @@ import {
   toRef,
 } from "vue";
 
-export default function PanelOpenAPI(props) {
+export default function PanelOpenAPI(props, {
+  openedLevelIndex = computed(() => -1),
+}) {
   const isPanelMain = toRef(props, "isPanelMain");
   const isSearchActive = toRef(props, "isSearchActive");
   const panelParentsOpen = toRef(props, "panelParentsOpen");
-  const parentId = toRef(props, "parentId");
 
   const isPanelOpen = computed(() => {
     if (isSearchActive.value) {
@@ -17,7 +18,7 @@ export default function PanelOpenAPI(props) {
       return panelParentsOpen.value.length === 0;
     }
     if (panelParentsOpen.value.length) {
-      return panelParentsOpen.value.indexOf(parentId.value) === panelParentsOpen.value.length - 1;
+      return openedLevelIndex.value === panelParentsOpen.value.length - 1;
     }
     return false;
   });
@@ -26,7 +27,7 @@ export default function PanelOpenAPI(props) {
     if (isPanelMain.value) {
       return panelParentsOpen.value.length > 0;
     }
-    const INDEX = panelParentsOpen.value.indexOf(parentId.value);
+    const INDEX = openedLevelIndex.value;
 
     return INDEX !== -1 && INDEX !== panelParentsOpen.value.length - 1;
   });
