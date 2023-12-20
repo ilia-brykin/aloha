@@ -7315,7 +7315,8 @@ input:not(:-webkit-autofill) {
   margin-right: .2rem; }
 
 .a_menu_2__breadcrumb__ul_truncated__dropdown {
-  padding: .2rem; }
+  padding: .2rem;
+  min-width: auto; }
 
 .a_cloak__box {
   display: inline-flex;
