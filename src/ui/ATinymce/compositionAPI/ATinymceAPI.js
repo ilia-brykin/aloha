@@ -45,19 +45,25 @@ export default function ATinymceAPI(props, context, {
   htmlIdLocal = computed(() => ""),
 }) {
   const branding = toRef(props, "branding");
+  const contentCustomStyle = toRef(props, "contentCustomStyle");
   const contentLangs = toRef(props, "contentLangs");
   const disabled = toRef(props, "disabled");
   const languageDefault = toRef(props, "languageDefault");
   const menu = toRef(props, "menu");
   const menubar = toRef(props, "menubar");
+  const modelValue = toRef(props, "modelValue");
   const plugins = toRef(props, "plugins");
   const promotion = toRef(props, "promotion");
   const toolbar = toRef(props, "toolbar");
   const toolbarMode = toRef(props, "toolbarMode");
-  const modelValue = toRef(props, "modelValue");
+  const validElements = toRef(props, "validElements");
 
   let vueEditor = null;
   let modelValueLocal = undefined;
+
+  const contentStyle = computed(() => {
+    return `${ contentUiSkinCss.toString() }\n${ contentCss.toString() }\n${ contentCustomStyle.value ? contentCustomStyle.value : "" }`;
+  });
 
   const changeModelLocal = ({ model }) => {
     modelValueLocal = model;
@@ -74,7 +80,7 @@ export default function ATinymceAPI(props, context, {
       skin: false,
       content_css: false,
       entity_encoding: "raw",
-      content_style: `${ contentUiSkinCss.toString() }\n${ contentCss.toString() }`,
+      content_style: contentStyle.value,
       branding: branding.value,
       promotion: promotion.value,
       language: languageDefault.value,
@@ -82,6 +88,7 @@ export default function ATinymceAPI(props, context, {
       menu: menu.value,
       menubar: menubar.value,
       readonly: !!disabled.value,
+      valid_elements: validElements.value,
       setup: editor => {
         vueEditor = editor;
         editor.on("change input undo redo", () => {
