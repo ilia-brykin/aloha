@@ -346,9 +346,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: calc(100% - var(--a_menu_2_navbar_top_height));
+  height: calc(100% - var(--a_menu_2_navbar_top_height) - var(--a_menu_2_navbar_top_margin_bottom));
   .a_vertical_scroll {
-    height: calc(100% - var(--a_menu_2_breadcrumb_min_height) + 20px - var(--a_menu_2_navbar_top_margin_bottom));
+    height: calc(100% - var(--a_menu_2_breadcrumb_min_height) + 20px);
     margin-top: -20px;
     &:not(.a_vertical_scroll_scrollable) {
       padding-bottom: 0;
