@@ -15,6 +15,10 @@ import ATinymceAPI from "./compositionAPI/ATinymceAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import {
+  tinymcePluginOptions,
+} from "../../plugins/ATinymcePlugin";
+
 export default {
   name: "ATinymce",
   mixins: [
@@ -25,6 +29,11 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    contentCustomStyle: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     contentLangs: {
       type: Array,
@@ -95,6 +104,11 @@ export default {
       type: String,
       required: false,
       default: "tinymce",
+    },
+    validElements: {
+      type: String,
+      required: false,
+      default: () => tinymcePluginOptions.value.propsDefault.validElements,
     },
   },
   setup(props, context) {
