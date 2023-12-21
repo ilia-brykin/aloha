@@ -85,6 +85,7 @@ export default function RowsAPI(props, {
     }
   }, {
     immediate: true,
+    deep: true,
   });
 
   return {
