@@ -4,7 +4,7 @@ import {
 
 export const tinymcePluginOptions = ref({
   propsDefault: {
-    validElements: "a[href|target=_blank],strong/b,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
+    validElements: "a[href|target=_blank],strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
   },
 });
 
