@@ -60,11 +60,13 @@
   .aloha_example__actions
     .a_btn_group
       a-button.a_btn.a_btn_secondary(
+        v-if="codeJs"
         icon-left="FiletypeJs"
         title="_COPY_CODE_JS_"
         @click="copyJsToClipboard"
       )
       a-button.a_btn.a_btn_secondary(
+        v-if="codeHtml"
         icon-left="FiletypeHtml"
         title="_COPY_CODE_HTML_"
         @click="copyHtmlToClipboard"
@@ -78,14 +80,24 @@
   .aloha_example__code(
     v-if="isCodeVisible"
   )
-    h3.aloha_example__h3 HTML
     aloha-highlightjs(
-      :code="codeHtml"
-      language="html"
+      v-if="code"
+      :code="code"
+      language="markdown"
     )
-
-    h3.aloha_example__h3.a_mt_3 JS
-    aloha-highlightjs(
-      :code="codeJs"
-      language="javascript"
+    template(
+      v-if="codeHtml"
     )
+      h3.aloha_example__h3 HTML
+      aloha-highlightjs(
+        :code="codeHtml"
+        language="html"
+      )
+    template(
+      v-if="codeJs"
+    )
+      h3.aloha_example__h3.a_mt_3 JS
+      aloha-highlightjs(
+        :code="codeJs"
+        language="javascript"
+      )

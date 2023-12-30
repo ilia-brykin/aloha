@@ -2,3 +2,4 @@ PVP Refactoring
 filter list:
 1 'isListTree' - ist nicht benutzt
 2 list ohne 'keyLabel' - 'isSimpleArray'
+3 listClass default ist leer, war "a_list_without_styles"

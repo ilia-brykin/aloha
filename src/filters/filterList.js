@@ -8,14 +8,15 @@ import {
 export default filterList;
 
 function filterList(value, {
+  isChild = false,
   isHtml = true,
-  listClass = "a_list_without_styles",
+  isSimpleArray = false,
+  keyChildren = "",
   keyLabel = "",
   keyLabelCallback,
-  keyChildren = "",
-  isSimpleArray = false,
+  listClass = "",
   separator = ", ",
-  isChild = false,
+  tag = "ul",
 } = {}) {
   if (!isArray(value)) {
     return value;
@@ -67,6 +68,7 @@ function filterList(value, {
     });
     return result;
   }
+
   forEach(value, (item, index) => {
     let itemLocal;
     if (isSimpleArray) {
@@ -76,21 +78,51 @@ function filterList(value, {
     } else {
       itemLocal = keyLabel ? get(item, keyLabel) : item;
     }
-    if (isArray(itemLocal)) {
-      if (itemLocal.length) {
-        result += `<li>`;
+    let children;
+    let itemText = itemLocal;
+    if (isSimpleArray) {
+      if (isArray(itemLocal)) {
         forEach(itemLocal, itemChild => {
           if (isArray(itemChild)) {
-            result += filterList(itemChild, { isHtml, listClass, keyLabel, keyLabelCallback });
+            children = itemChild;
           } else {
-            result += itemChild;
+            itemText = itemChild;
           }
         });
-        result += `</li>`;
       }
-    } else {
-      result += `<li>${ itemLocal }</li>`;
+    } else if (keyChildren) {
+      children = get(item, keyChildren);
     }
+
+    if (children?.length) {
+      itemText += filterList(children, {
+        isChild: true,
+        isHtml,
+        isSimpleArray,
+        keyChildren,
+        keyLabel,
+        keyLabelCallback,
+        listClass,
+        tag,
+      });
+    }
+
+    // if (isArray(itemLocal)) {
+    //   if (itemLocal.length) {
+    //     result += `<li>`;
+    //     forEach(itemLocal, itemChild => {
+    //       if (isArray(itemChild)) {
+    //         result += filterList(itemChild, { isHtml, listClass, keyLabel, keyLabelCallback });
+    //       } else {
+    //         result += itemChild;
+    //       }
+    //     });
+    //     result += `</li>`;
+    //   }
+    // } else {
+    //   result += `<li>${ itemLocal }</li>`;
+    // }
+    result += `<li>${ itemText }</li>`;
   });
-  return `<ul${ listClass ? ` class="${ listClass }"` : "" }>${ result }</ul>`;
+  return `<${ tag }${ listClass ? ` class="${ listClass }"` : "" }>${ result }</${ tag }>`;
 }

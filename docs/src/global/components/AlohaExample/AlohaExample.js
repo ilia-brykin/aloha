@@ -14,13 +14,20 @@ export default {
     ATranslation,
   },
   props: {
+    code: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     codeHtml: {
       type: String,
-      required: true,
+      required: false,
+      default: undefined,
     },
     codeJs: {
       type: String,
-      required: true,
+      required: false,
+      default: undefined,
     },
     description: {
       type: String,
@@ -42,6 +49,11 @@ export default {
       required: false,
       default: undefined,
     },
+    isCodeVisibleDefault: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     props: {
       type: [String, Array],
       required: false,
@@ -58,7 +70,7 @@ export default {
       btnToggleCodeTitle,
       isCodeVisible,
       toggleCode,
-    } = CodeToggleAPI();
+    } = CodeToggleAPI(props);
 
     const {
       copyHtmlToClipboard,

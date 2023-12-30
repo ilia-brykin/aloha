@@ -121,6 +121,26 @@ export default {
           icon: "FilterCircleFill",
         },
         {
+          id: "functions",
+          label: "Functions",
+          icon: "Code",
+          children: [
+            {
+              id: "functions_filters",
+              label: "Filters",
+              children: [
+                {
+                  id: "PageFilterList",
+                  label: "Filter list",
+                  to: {
+                    name: "PageFilterList",
+                  }
+                },
+              ],
+            },
+          ],
+        },
+        {
           id: "dropdown",
           label: "Dropdown",
           to: {

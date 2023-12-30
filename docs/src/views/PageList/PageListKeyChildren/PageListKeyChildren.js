@@ -23,24 +23,24 @@ export default {
         label: "Parent 1",
         children: [
           {
-            label: "Child 1"
+            label: "Child 1",
           },
           {
-            label: "Child 2"
-          }
+            label: "Child 2",
+          },
         ],
       },
       {
         label: "Parent 2",
         children: [
           {
-            label: "Child 3"
+            label: "Child 3",
           },
           {
-            label: "Child 4"
-          }
+            label: "Child 4",
+          },
         ],
-      }
+      },
     ];
 
     return {

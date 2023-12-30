@@ -1,10 +1,12 @@
 import {
   computed,
-  ref,
+  ref, toRef,
 } from "vue";
 
-export default function CodeToggleAPI() {
-  const isCodeVisible = ref(false);
+export default function CodeToggleAPI(props) {
+  const isCodeVisibleDefault = toRef(props, "isCodeVisibleDefault");
+
+  const isCodeVisible = ref(isCodeVisibleDefault.value);
 
   const toggleCode = () => {
     isCodeVisible.value = !isCodeVisible.value;

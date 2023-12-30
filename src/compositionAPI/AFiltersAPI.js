@@ -9,7 +9,7 @@ import json from "../filters/json";
 import KeyValue from "../filters/KeyValue";
 import limitTo from "../filters/limitTo";
 import Link from "../filters/Link";
-import list from "../filters/list";
+import _filterList from "../filters/filterList";
 import propertyByValue from "../filters/propertyByValue";
 import searchHighlight from "../filters/searchHighlight";
 
@@ -58,8 +58,17 @@ export default function AFiltersAPI() {
     return Link(value, { param, target });
   };
 
-  const filterList = (value, { isHtml = true, listClass = "a_list_without_styles", keyLabel = "", keyLabelCallback, isListTree = false } = {}) => {
-    return list(value, { isHtml, listClass, keyLabel, keyLabelCallback, isListTree });
+  const filterList = (value, {
+    isHtml = true,
+    isSimpleArray = false,
+    keyChildren = "",
+    keyLabel = "",
+    keyLabelCallback,
+    listClass = "",
+    separator = ", ",
+    tag = "ul",
+  } = {}) => {
+    return _filterList(value, { isHtml, listClass, keyLabel, keyLabelCallback, keyChildren, isSimpleArray, separator, tag });
   };
 
   const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {

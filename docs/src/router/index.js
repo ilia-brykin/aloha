@@ -275,6 +275,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageMenuBasic" */ "../views/PageMenu/PageMenuBasic/PageMenuBasic.vue"),
   },
   {
+    path: "/filter-list",
+    name: "PageFilterList",
+    component: () => import(/* webpackChunkName: "PageFilterList" */ "../views/Functions/PageFilterList/PageFilterList.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

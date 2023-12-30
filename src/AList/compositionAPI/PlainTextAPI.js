@@ -3,7 +3,7 @@ import {
   toRef,
 } from "vue";
 
-import filterList from "../../filters/list";
+import filterList from "../../filters/filterList";
 
 export default function PlainTextAPI(props) {
   const data = toRef(props, "data");
