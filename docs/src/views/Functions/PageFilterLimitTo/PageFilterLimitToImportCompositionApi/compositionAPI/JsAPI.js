@@ -4,7 +4,7 @@ export default function JsAPI() {
 export default {
   setup() {  
     const {
-      filterList,
+      filterLimitTo,
     } = AFiltersAPI();
   },
 };`;

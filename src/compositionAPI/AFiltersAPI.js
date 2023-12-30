@@ -7,7 +7,7 @@ import FileSize from "../filters/FileSize";
 import iban from "../filters/iban";
 import json from "../filters/json";
 import KeyValue from "../filters/KeyValue";
-import limitTo from "../filters/limitTo";
+import _filterLimitTo from "../filters/filterLimitTo";
 import Link from "../filters/Link";
 import _filterList from "../filters/filterList";
 import propertyByValue from "../filters/propertyByValue";
@@ -50,8 +50,11 @@ export default function AFiltersAPI() {
     return KeyValue(value);
   };
 
-  const filterLimitTo = (value, { param = 30 } = {}) => {
-    return limitTo(value, { param });
+  const filterLimitTo = (value, {
+    limit = 30,
+    maxThreeDots = true,
+  } = {}) => {
+    return _filterLimitTo(value, { limit, maxThreeDots });
   };
 
   const filterLink = (value, { param = "http://", target = "_blank" } = {}) => {

@@ -1,8 +1,5 @@
 {
   "_PAGE_FILTER_LIST_ARGUMENTS_": "# Argumente:  \narray (Array): Das Array für die Liste\n[isHtml=true] (Boolean): Wenn true, wird eine HTML-Liste (<ul><li>...</li></ul>) erstellt. Andernfalls wird eine Textliste generiert (<span>...</span>)\n[isSimpleArray=false] (Boolean): Gibt an, ob nur ein einfaches Array ohne Objekte verwendet wird\n[keyChildren=\"\"] (String): Schlüssel für Kinderelemente (nur wenn isSimpleArray=false)\n[keyLabel=\"\"] (String): Schlüssel für das anzuzeigende Text (nur wenn isSimpleArray=false)\n[keyLabelCallback] (Function): Funktion zur Generierung von Labels mit zwei Parametern (item, itemIndex)\n[separator=\", \"] (String): Separator zwischen Elementen (nur wenn isHtml=false)\n[tag=\"ul\"] (String): HTML-Tag für die gesamte Liste\n[listClass=\"\"] (String): CSS-Klasse (a_list_without_styles)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_HEADER_": "Argumente",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "Die Funktion erstellt eine Liste aus einem Array.",
-  "_PAGE_FILTER_LIST_IMPORT_COMPOSITION_API_HEADER_": "Import als composition API",
-  "_PAGE_FILTER_LIST_IMPORT_FUNCTION_HEADER_": "Import als Funktion",
   "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Baumstruktur isSimpleArray=true"
 }

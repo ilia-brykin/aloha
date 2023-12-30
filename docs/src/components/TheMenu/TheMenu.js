@@ -131,9 +131,16 @@ export default {
               children: [
                 {
                   id: "PageFilterList",
-                  label: "Filter list",
+                  label: "filterList",
                   to: {
                     name: "PageFilterList",
+                  }
+                },
+                {
+                  id: "PageFilterLimitTo",
+                  label: "filterLimitTo",
+                  to: {
+                    name: "PageFilterLimitTo",
                   }
                 },
               ],

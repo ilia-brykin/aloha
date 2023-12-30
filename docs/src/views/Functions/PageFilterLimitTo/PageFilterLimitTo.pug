@@ -1,0 +1,21 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_LIMIT_TO_DESCRIPTION_"
+    )
+
+    page-filter-limit-to-import-function
+
+    page-filter-limit-to-import-composition-api
+
+    page-filter-limit-to-arguments
+
+    page-filter-limit-to-limit
+
+    page-filter-limit-to-max-three-dots
+

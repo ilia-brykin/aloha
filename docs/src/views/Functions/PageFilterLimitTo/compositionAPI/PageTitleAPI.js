@@ -1,5 +1,5 @@
 export default function PageTitleAPI() {
-  const pageTitle = "filterList";
+  const pageTitle = "filterLimitTo";
 
   return {
     pageTitle,
