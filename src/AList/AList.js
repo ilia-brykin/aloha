@@ -2,15 +2,52 @@ import {
   h,
 } from "vue";
 
-import AListItem from "./AListItem";
+import AListItem from "./AListItem/AListItem";
+
+import PlainTextAPI from "./compositionAPI/PlainTextAPI";
+import TagAPI from "./compositionAPI/TagAPI";
+
+import {
+  get,
+} from "lodash-es";
 
 export default {
   name: "AList",
   props: {
+    classItem: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
+    classMain: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     data: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    isDataSimpleArray: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isHtml: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    keyChildren: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     keyLabel: {
       type: String,
@@ -22,49 +59,67 @@ export default {
       required: false,
       default: undefined,
     },
-    keyChildren: {
+    labelTag: {
       type: String,
       required: false,
-      default: undefined,
+      default: "span",
+    },
+    listItemTag: {
+      type: String,
+      required: false,
+      default: "li",
+    },
+    separator: {
+      type: String,
+      required: false,
+      default: ", ",
     },
     tag: {
       type: String,
       required: false,
       default: "ul",
     },
-    labelTag: {
-      type: String,
-      required: false,
-      default: "span",
-    },
-    classMain: {
-      type: [String, Object, Array],
-      required: false,
-      default: undefined,
-    },
-    classItem: {
-      type: [String, Object, Array],
-      required: false,
-      default: undefined,
-    },
+  },
+  setup(props) {
+    const {
+      tagLocal,
+    } = TagAPI(props);
+
+    const {
+      plainText,
+    } = PlainTextAPI(props);
+
+    return {
+      plainText,
+      tagLocal,
+    };
   },
   render() {
-    return h(this.tag, {
-      class: this.classMain,
-    }, [
-      this.data.map((item, itemIndex) => {
-        return h(AListItem, {
-          item,
-          itemIndex,
-          keyLabel: this.keyLabel,
-          keyLabelCallback: this.keyLabelCallback,
-          keyChildren: this.keyChildren,
-          tag: this.tag,
-          labelTag: this.labelTag,
-          classMain: this.classMain,
-          classItem: this.classItem,
-        }, this.$slots);
-      }),
-    ]);
+    if (this.isHtml) {
+      return h(this.tag, {
+        class: this.classMain,
+      }, [
+        this.data.map((item, itemIndex) => {
+          const KEY = this.keyId ? get(item, this.keyId) : itemIndex;
+          return h(AListItem, {
+            key: KEY,
+            classItem: this.classItem,
+            classMain: this.classMain,
+            isDataSimpleArray: this.isDataSimpleArray,
+            item,
+            itemIndex,
+            keyChildren: this.keyChildren,
+            keyId: this.keyId,
+            keyLabel: this.keyLabel,
+            keyLabelCallback: this.keyLabelCallback,
+            labelTag: this.labelTag,
+            listItemTag: this.listItemTag,
+            tag: this.tag,
+          }, this.$slots);
+        }),
+      ]);
+    }
+
+    return h(this.tagLocal, null, this.plainText);
   },
 };

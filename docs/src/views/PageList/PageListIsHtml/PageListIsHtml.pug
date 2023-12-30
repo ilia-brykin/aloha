@@ -1,0 +1,33 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LIST_GROUP_IS_HTML_HEADER_"
+  description="_A_LIST_GROUP_IS_HTML_DESCRIPTION_"
+  :props="['is-html']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_4.a_column_12_tablet
+      a-switch(
+        v-model="modelIsHtml"
+        label="is-html"
+      )
+
+      a-list(
+        :data="items"
+        key-label="label"
+        :is-html="modelIsHtml"
+      )
+      .a_mt_4
+      a-list(
+        :data="itemsWithChildren"
+        key-label="label"
+        key-children="children"
+        :is-html="modelIsHtml"
+      )
+      .a_mt_4
+      a-list(
+        :data="itemsArrays"
+        key-label="label"
+        :is-data-simple-array="true"
+        :is-html="modelIsHtml"
+      )

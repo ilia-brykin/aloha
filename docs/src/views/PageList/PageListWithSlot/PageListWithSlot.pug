@@ -3,12 +3,13 @@ aloha-example(
   :code-js="codeJs"
   header="_A_LIST_WITH_SLOT_HEADER_"
   description="_A_LIST_WITH_SLOT_DESCRIPTION_"
+  slot="listItem"
 )
   a-list(
     :data="items"
     key-children="items"
   )
     template(
-      v-slot:listItem="vm"
+      v-slot:listItem="{ item, itemIndex }"
     )
-      pre {{ vm.item.label }}
+      pre + {{ item.label }}

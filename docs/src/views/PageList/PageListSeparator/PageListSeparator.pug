@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LIST_GROUP_SEPARATOR_HEADER_"
+  description="_A_LIST_GROUP_SEPARATOR_DESCRIPTION_"
+  :props="['separator', 'is-html=\"false\"']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_4.a_column_12_tablet
+      a-list(
+        :data="items"
+        :is-data-simple-array="true"
+        :is-html="false"
+        separator="; "
+      )
+      .a_mt_4
+      a-list(
+        :data="items"
+        :is-data-simple-array="true"
+        :is-html="false"
+        separator=" + "
+      )

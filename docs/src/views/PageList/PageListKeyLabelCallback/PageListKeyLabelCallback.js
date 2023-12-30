@@ -32,7 +32,6 @@ export default {
         label: "Item 4",
       },
     ];
-
     const keyLabelCallback = ({ item, itemIndex }) => `${ item.label } - Index: ${ itemIndex }`;
 
     return {

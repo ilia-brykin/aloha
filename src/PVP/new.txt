@@ -1,0 +1,4 @@
+PVP Refactoring
+filter list:
+1 'isListTree' - ist nicht benutzt
+2 list ohne 'keyLabel' - 'isSimpleArray'

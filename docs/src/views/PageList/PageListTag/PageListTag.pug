@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LIST_GROUP_TAG_HEADER_"
+  description="_A_LIST_GROUP_TAG_DESCRIPTION_"
+  :props="['tag']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_4.a_column_12_tablet
+      a-radio(
+        v-model="modelTag"
+        class="a_mb_4"
+        :data="['ol', 'ul']"
+        :is-data-simple-array="true"
+      )
+
+      a-list(
+        :data="items"
+        key-label="label"
+        :tag="modelTag"
+      )

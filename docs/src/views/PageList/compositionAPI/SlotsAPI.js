@@ -1,7 +1,7 @@
 export default function SlotsAPI() {
   const dataSlots = [
     {
-      name: "default",
+      name: "listItem",
       description: "_A_LIST_SLOT_DESCRIPTION_",
     },
   ];

@@ -1,10 +1,16 @@
 export default function JsAPI() {
-  const codeJs = `import AList from "aloha-vue/src/AList/AList";
+  const codeJs = `import {
+  ref,
+} from "vue";
+
+import AList from "aloha-vue/src/AList/AList";
+import ARadio from "aloha-vue/src/ui/ARadio/ARadio";
     
 export default {
-  name: "AListWithoutChildren",
+  name: "PageListTag",
   components: {
     AList,
+    ARadio,
   },
   setup() {
     const items = [
@@ -17,10 +23,15 @@ export default {
       {
         label: "label 3",
       },
+      {
+        label: "label 4",
+      },
     ];
+    const modelTag = ref("ol");
 
     return {
       items,
+      modelTag,
     };
   },
 };`;

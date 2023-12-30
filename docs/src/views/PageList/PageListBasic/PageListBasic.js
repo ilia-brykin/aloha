@@ -5,27 +5,32 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageListTagLabelTag",
+  name: "PageListClassGroup",
   components: {
     AList,
     AlohaExample,
   },
   setup() {
-    const { codeHtml } = HtmlAPI();
-    const { codeJs } = JsAPI();
+    const {
+      codeHtml,
+    } = HtmlAPI();
+
+    const {
+      codeJs,
+    } = JsAPI();
 
     const items = [
       {
-        label: "Item 1",
+        label: "label 1",
       },
       {
-        label: "Item 2",
+        label: "label 2",
       },
       {
-        label: "Item 3",
+        label: "label 3",
       },
       {
-        label: "Item 4",
+        label: "label 4",
       },
     ];
 

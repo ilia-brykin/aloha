@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_LIST_KEY_ID_HEADER_"
+  description="_A_LIST_KEY_ID_DESCRIPTION_"
+  :props="['key-id']"
+)
+  a-list(
+    :data="items1"
+    key-label="label"
+    key-id="id"
+  )
+  a-list(
+    class="a_mt_4"
+    :data="items2"
+    key-label="label"
+    key-id="label"
+  )

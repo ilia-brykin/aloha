@@ -2,7 +2,7 @@ export default function JsAPI() {
   const codeJs = `import AList from "aloha-vue/src/AList/AList";
     
 export default {
-  name: "PageListTagLabelTag",
+  name: "PageListBasic",
   components: {
     AList,
   },

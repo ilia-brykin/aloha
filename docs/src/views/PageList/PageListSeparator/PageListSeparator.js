@@ -1,28 +1,29 @@
 import AList from "../../../../../src/AList/AList";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
+
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "AListWithoutChildren",
+  name: "PageListSeparator",
   components: {
     AList,
     AlohaExample,
   },
   setup() {
-    const { codeHtml } = HtmlAPI();
-    const { codeJs } = JsAPI();
+    const {
+      codeHtml,
+    } = HtmlAPI();
+
+    const {
+      codeJs,
+    } = JsAPI();
 
     const items = [
-      {
-        label: "level 1",
-      },
-      {
-        label: "level 2",
-      },
-      {
-        label: "level 3",
-      },
+      "label 1",
+      "label 2",
+      "label 3",
+      "label 4",
     ];
 
     return {
