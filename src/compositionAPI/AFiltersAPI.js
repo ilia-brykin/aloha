@@ -1,4 +1,4 @@
-import boolean from "../filters/boolean";
+import _filterBoolean from "../filters/filterBoolean";
 import currency from "../filters/currency";
 import date from "../filters/date";
 import DefaultForEmpty from "../filters/DefaultForEmpty";
@@ -14,8 +14,12 @@ import propertyByValue from "../filters/propertyByValue";
 import searchHighlight from "../filters/searchHighlight";
 
 export default function AFiltersAPI() {
-  const filterBoolean = (value, { trueValue = "_YES_", falseValue = "_NO_", isNilUsed = true } = {}) => {
-    return boolean(value, { trueValue, falseValue, isNilUsed });
+  const filterBoolean = (value, { trueValue = "_YES_", falseValue = "_NO_", useNil = true } = {}) => {
+    return _filterBoolean(value, {
+      trueValue,
+      falseValue,
+      useNil,
+    });
   };
 
   const filterCurrency = (value, { suffix = "€", digits = 2, digitGrouping = true } = {}) => {

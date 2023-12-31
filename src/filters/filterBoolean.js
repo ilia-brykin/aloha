@@ -8,9 +8,9 @@ import {
 export default function(value, {
   trueValue = "_YES_",
   falseValue = "_NO_",
-  isNilUsed = true,
+  useNil = true,
 } = {}) {
-  if (isNilUsed && isNil(value)) {
+  if (useNil && isNil(value)) {
     return "";
   }
   return value ?

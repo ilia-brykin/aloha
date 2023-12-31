@@ -8,3 +8,8 @@ filter list:
 filter limitTo:
 1 rename limitTo in filterLimitTo
 2 rename "param" to "limit"
+
+filter boolean
+1 rename boolean in filterBoolean
+1 rename isNilUsed in useNil
+

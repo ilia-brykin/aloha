@@ -130,10 +130,10 @@ export default {
               label: "Filters",
               children: [
                 {
-                  id: "PageFilterList",
-                  label: "filterList",
+                  id: "PageFilterBoolean",
+                  label: "filterBoolean",
                   to: {
-                    name: "PageFilterList",
+                    name: "PageFilterBoolean",
                   }
                 },
                 {
@@ -141,6 +141,13 @@ export default {
                   label: "filterLimitTo",
                   to: {
                     name: "PageFilterLimitTo",
+                  }
+                },
+                {
+                  id: "PageFilterList",
+                  label: "filterList",
+                  to: {
+                    name: "PageFilterList",
                   }
                 },
               ],
