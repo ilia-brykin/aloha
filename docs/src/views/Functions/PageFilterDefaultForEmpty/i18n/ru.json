@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "# Аргументы:  \nvalue (Any): Значение, которое следует проверить\n[emptyValue=\"-\"] (String): Стандартное значение, возвращаемое, если проверяемое значение считается пустым",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "Функция <strong>filterDefaultForEmpty</strong> предназначена для проверки значения и возвращения стандартного значения, если проверяемое значение считается пустым. В этом контексте значение считается пустым, если оно равно <strong>undefined</strong>, <strong>null</strong> или пустой строке."
+}

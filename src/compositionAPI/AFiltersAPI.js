@@ -1,7 +1,7 @@
 import _filterBoolean from "../filters/filterBoolean";
 import currency from "../filters/currency";
 import date from "../filters/date";
-import DefaultForEmpty from "../filters/DefaultForEmpty";
+import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
 import Email from "../filters/Email";
 import FileSize from "../filters/FileSize";
 import iban from "../filters/iban";
@@ -31,7 +31,9 @@ export default function AFiltersAPI() {
   };
 
   const filterDefaultForEmpty = (value, { emptyValue = "-" } = {}) => {
-    return DefaultForEmpty(value, { emptyValue });
+    return _filterDefaultForEmpty(value, {
+      emptyValue,
+    });
   };
 
   const filterEmail = value => {

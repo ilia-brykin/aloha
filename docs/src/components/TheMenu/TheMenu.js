@@ -137,6 +137,13 @@ export default {
                   }
                 },
                 {
+                  id: "PageFilterDefaultForEmpty",
+                  label: "filterDefaultForEmpty",
+                  to: {
+                    name: "PageFilterDefaultForEmpty",
+                  }
+                },
+                {
                   id: "PageFilterLimitTo",
                   label: "filterLimitTo",
                   to: {

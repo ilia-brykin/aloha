@@ -290,6 +290,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterBoolean" */ "../views/Functions/PageFilterBoolean/PageFilterBoolean.vue"),
   },
   {
+    path: "/filter-default-for-empty",
+    name: "PageFilterDefaultForEmpty",
+    component: () => import(/* webpackChunkName: "PageFilterDefaultForEmpty" */ "../views/Functions/PageFilterDefaultForEmpty/PageFilterDefaultForEmpty.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

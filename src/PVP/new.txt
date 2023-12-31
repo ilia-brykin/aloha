@@ -13,3 +13,6 @@ filter boolean
 1 rename boolean in filterBoolean
 1 rename isNilUsed in useNil
 
+filter defaultForEmpty
+1 rename DefaultForEmpty in filterDefaultForEmpty
+
