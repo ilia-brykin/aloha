@@ -1,14 +1,14 @@
 {
-  "_A_MENU_2_BREADCRUMB_": "_A_MENU_2_BREADCRUMB_",
-  "_A_MENU_2_BREADCRUMB_SHOW_BTN_": "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
+  "_A_MENU_2_BREADCRUMB_": "Breadcrumb",
+  "_A_MENU_2_BREADCRUMB_SHOW_BTN_": "إظهار الروابط المخفية",
   "_A_MENU_2_BTN_CLOSE_": "إغلاق القائمة",
   "_A_MENU_2_BTN_OPEN_": "فتح القائمة",
-  "_A_MENU_2_CLOSE_SUBMENU_": "_A_MENU_2_CLOSE_SUBMENU_",
-  "_A_MENU_2_MAIN_MENU_": "_A_MENU_2_MAIN_MENU_",
-  "_A_MENU_2_OPEN_SEARCH_": "_A_MENU_2_OPEN_SEARCH_",
-  "_A_MENU_2_OPEN_SUBMENU_": ":قائمة فرعية مفتوحة",
-  "_A_MENU_2_SEARCH_": "قائمة البحث",
-  "_A_MENU_2_SEARCH_ELEMENTS_{{count}}_": "_A_MENU_2_SEARCH_ELEMENTS_{{count}}_",
-  "_A_MENU_2_SEARCH_NONE_FOUND_": "_A_MENU_2_SEARCH_NONE_FOUND_",
-  "_A_MENU_2_TO_MAIN_MENU_": "_A_MENU_2_TO_MAIN_MENU_"
+  "_A_MENU_2_CLOSE_SUBMENU_": "إغلاق القائمة الفرعية:",
+  "_A_MENU_2_MAIN_MENU_": "القائمة الرئيسية",
+  "_A_MENU_2_OPEN_SEARCH_": "فتح بحث القائمة",
+  "_A_MENU_2_OPEN_SUBMENU_": "فتح القائمة الفرعية:",
+  "_A_MENU_2_SEARCH_": "بحث القائمة",
+  "_A_MENU_2_SEARCH_ELEMENTS_{{count}}_": "تم العثور على {{ count }} من عناصر القائمة",
+  "_A_MENU_2_SEARCH_NONE_FOUND_": "لم يتم العثور على عناصر القائمة",
+  "_A_MENU_2_TO_MAIN_MENU_": "إلى القائمة الرئيسية"
 }
