@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_"
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "# الحجج:  \nvalue (أي نوع): القيمة التي سيتم فحصها\n[emptyValue=\"-\"] (String): القيمة الافتراضية التي سيتم إرجاعها إذا كانت القيمة المفحوصة فارغة",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "تُستخدم وظيفة <strong>filterDefaultForEmpty</strong> لفحص قيمة وإرجاع قيمة افتراضية إذا كانت القيمة المفحوصة فارغة. في هذا السياق، تعتبر القيمة فارغة إذا كانت <strong>undefined</strong>، <strong>null</strong> أو سلسلة فارغة."
 }

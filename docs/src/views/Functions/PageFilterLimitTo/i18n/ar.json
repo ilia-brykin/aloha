@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_",
-  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_"
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# الحجج:  \ntext (String): النص الذي يجب اقتصاصه\n[limit=30] (Number): الطول الأقصى للنص الذي سيتم إرجاعه\n[maxThreeDots=true] (Boolean): يحدد ما إذا كان يجب إظهار ثلاث نقاط على الأكثر في نهاية النص\n",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "تُستخدم وظيفة <strong>filterLimitTo</strong> لتحديد نص مدخل إلى طول أقصى معين وتطبيق منطق خاص للنقاط في نهاية النص اختياريًا."
 }

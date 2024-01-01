@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_"
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "# Arguments :  \nvalue (Tout type) : La valeur à vérifier\n[emptyValue=\"-\"] (String) : La valeur par défaut retournée si la valeur vérifiée est considérée comme vide",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "La fonction <strong>filterDefaultForEmpty</strong> est utilisée pour vérifier une valeur et renvoyer une valeur par défaut si la valeur vérifiée est considérée comme vide. Dans ce contexte, une valeur est considérée comme vide si elle est <strong>undefined</strong>, <strong>null</strong> ou une chaîne vide."
 }

@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_",
-  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_"
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# Arguments :  \ntext (String): La chaîne de caractères d'entrée à écourter\n[limit=30] (Number): La longueur maximale de la chaîne retournée\n[maxThreeDots=true] (Boolean): Indique si un maximum de trois points doit être affiché à la fin de la chaîne\n",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "La fonction <strong>filterLimitTo</strong> est utilisée pour limiter une chaîne d'entrée à une longueur maximale spécifique et appliquer éventuellement une logique de points spéciale à la fin de la chaîne."
 }

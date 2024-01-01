@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_",
-  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_"
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# Argumentos:  \ntext (String): El texto de entrada que se va a recortar\n[limit=30] (Número): La longitud máxima del texto devuelto\n[maxThreeDots=true] (Booleano): Indica si se deben mostrar un máximo de tres puntos al final del texto\n",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "La función <strong>filterLimitTo</strong> se utiliza para limitar un texto de entrada a una longitud máxima determinada y, opcionalmente, aplicar una lógica especial de puntos al final del texto."
 }

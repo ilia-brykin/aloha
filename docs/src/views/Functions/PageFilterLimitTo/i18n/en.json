@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_",
-  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_"
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# Arguments:  \ntext (String): The input string to be trimmed\n[limit=30] (Number): The maximum length of the returned string\n[maxThreeDots=true] (Boolean): Indicates whether a maximum of three dots should be shown at the end of the string\n",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "The function <strong>filterLimitTo</strong> is used to limit an input string to a certain maximum length and optionally apply a special dot logic at the end of the string."
 }
