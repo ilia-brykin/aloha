@@ -8,7 +8,7 @@ import iban from "../filters/iban";
 import json from "../filters/json";
 import KeyValue from "../filters/KeyValue";
 import _filterLimitTo from "../filters/filterLimitTo";
-import Link from "../filters/Link";
+import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
@@ -63,8 +63,8 @@ export default function AFiltersAPI() {
     return _filterLimitTo(value, { limit, maxThreeDots });
   };
 
-  const filterLink = (value, { param = "http://", target = "_blank" } = {}) => {
-    return Link(value, { param, target });
+  const filterLink = (value, { linkText = "", protocol = "https://", target = "", linkClass = "" } = {}) => {
+    return _filterLink(value, { linkText, protocol, target, linkClass });
   };
 
   const filterList = (value, {

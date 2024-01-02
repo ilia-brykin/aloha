@@ -1,5 +1,5 @@
 export default function JsAPI() {
-  const codeJs = `import filterBoolean from "aloha-vue/src/filters/filterBoolean";`;
+  const codeJs = `import filterLink from "aloha-vue/src/filters/filterLink";`;
 
   return {
     codeJs,

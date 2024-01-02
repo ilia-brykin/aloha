@@ -1,2 +1,2 @@
-<template lang="pug" src="./PageFilterLinkProtocol.pug"></template>
-<script src="./PageFilterLinkProtocol.js"></script>
+<template lang="pug" src="./PageFilterLinkTarget.pug"></template>
+<script src="./PageFilterLinkTarget.js"></script>

@@ -1,14 +1,17 @@
 import {
-  isNil,
+  isNil, isString,
 } from "lodash-es";
 
-export default function(value, { param = "http://", target = "_blank" } = {}) {
-  if (isNil(value)) {
+export default function(url, { linkText = "", protocol = "https://", target = "", linkClass = "" } = {}) {
+  if (isNil(url) ||
+    !isString(url)) {
     return "";
   }
-  let paramLocal = param;
-  if (value.indexOf("https://") !== -1 || value.indexOf("http://") !== -1) {
-    paramLocal = "";
+  let protocolLocal = protocol;
+  if (url.startsWith("https://") || url.startsWith("http://")) {
+    protocolLocal = "";
   }
-  return `<a href="${ paramLocal }${ value }" target="${ target }">${ value }</a>`;
+  const targetAttributes = target ? ` target="${ target }"` : "";
+  const classAttributes = linkClass ? ` class="${ linkClass }"` : "";
+  return `<a href="${ protocolLocal }${ url }"${ targetAttributes }${ classAttributes }>${ linkText || url }</a>`;
 }

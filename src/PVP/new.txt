@@ -16,3 +16,8 @@ filter boolean
 filter defaultForEmpty
 1 rename DefaultForEmpty in filterDefaultForEmpty
 
+filter link
+1 param rename in protocol
+2 target default war "_blank", jetzt ""
+3  protocol = "https://" war  protocol = "http://"
+

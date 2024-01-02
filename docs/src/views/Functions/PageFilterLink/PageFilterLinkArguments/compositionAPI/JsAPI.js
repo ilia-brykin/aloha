@@ -9,12 +9,12 @@ import {
 export default function JsAPI() {
   const argumentsTranslated = computed(() => {
     return getTranslatedText({
-      placeholder: "_PAGE_FILTER_BOOLEAN_ARGUMENTS_",
+      placeholder: "_PAGE_FILTER_LINK_ARGUMENTS_",
     });
   });
 
   const codeJs = computed(() => {
-    return `filterBoolean(value, { [trueValue="_YES_"], [falseValue="_NO_"], [useNil=true] });
+    return `filterLink(url, { [linkText=""], [protocol="https://"], [target=""], [linkClass=""] });
 
 ${ argumentsTranslated.value }`;
   });

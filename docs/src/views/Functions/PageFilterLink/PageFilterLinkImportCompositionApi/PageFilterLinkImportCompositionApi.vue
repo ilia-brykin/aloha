@@ -1,2 +1,2 @@
-<template lang="pug" src="./PageFilterBooleanImportCompositionApi.pug"></template>
-<script src="./PageFilterBooleanImportCompositionApi.js"></script>
+<template lang="pug" src="./PageFilterLinkImportCompositionApi.pug"></template>
+<script src="./PageFilterLinkImportCompositionApi.js"></script>

@@ -158,6 +158,13 @@ export default {
                   },
                 },
                 {
+                  id: "PageFilterLink",
+                  label: "filterLink",
+                  to: {
+                    name: "PageFilterLink",
+                  },
+                },
+                {
                   id: "PageFilterList",
                   label: "filterList",
                   to: {

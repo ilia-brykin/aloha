@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "# Arguments:  \nvalue (Any): The value to be converted into translated text\n[trueValue=\"_YES_\"] (String): The translated text to be returned if value is true.\n[falseValue=\"_NO_\"] (String): The translated text to be returned if value is false.\n[useNil=true] (Boolean): Indicates whether an empty string should be returned for undefined or null values",
-  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "The function <strong>filterBoolean</strong> is used to convert a boolean value into translated text. It allows customization of texts for <strong>true</strong> and <strong>false</strong> values, and the option to return an empty string for <strong>undefined</strong> or <strong>null</strong> values."
+  "_PAGE_FILTER_LINK_ARGUMENTS_": "_PAGE_FILTER_LINK_ARGUMENTS_",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "_PAGE_FILTER_LINK_DESCRIPTION_"
 }

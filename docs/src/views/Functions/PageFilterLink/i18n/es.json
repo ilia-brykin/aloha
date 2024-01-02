@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "# Argumentos:  \nvalue (Cualquiera): El valor que se convertirá en texto traducido\n[trueValue=\"_YES_\"] (String): El texto traducido que se devolverá si el valor es true.\n[falseValue=\"_NO_\"] (String): El texto traducido que se devolverá si el valor es false.\n[useNil=true] (Booleano): Indica si se debe devolver una cadena vacía para valores undefined o null",
-  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "La función <strong>filterBoolean</strong> se utiliza para convertir un valor booleano en texto traducido. Permite la personalización de textos para los valores <strong>true</strong> y <strong>false</strong>, y la opción de devolver una cadena vacía para valores <strong>undefined</strong> o <strong>null</strong>."
+  "_PAGE_FILTER_LINK_ARGUMENTS_": "_PAGE_FILTER_LINK_ARGUMENTS_",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "_PAGE_FILTER_LINK_DESCRIPTION_"
 }

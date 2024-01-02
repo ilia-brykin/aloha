@@ -3,7 +3,7 @@ import AlohaExample from "../../../../global/components/AlohaExample/AlohaExampl
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageFilterBooleanImportFunction",
+  name: "PageFilterLinkImportFunction",
   components: {
     AlohaExample,
   },

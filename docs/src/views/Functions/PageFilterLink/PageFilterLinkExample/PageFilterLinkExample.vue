@@ -1,2 +1,2 @@
-<template lang="pug" src="./PageFilterBooleanExample.pug"></template>
-<script src="./PageFilterBooleanExample.js"></script>
+<template lang="pug" src="./PageFilterLinkExample.pug"></template>
+<script src="./PageFilterLinkExample.js"></script>

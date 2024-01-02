@@ -1,20 +1,11 @@
-import filterBoolean from "../../../../../../../src/filters/filterBoolean";
+import filterLink from "../../../../../../../src/filters/filterLink";
 
 export default function JsAPI() {
-  const codeJs = `filterBoolean(true);
-// ${ filterBoolean(true) }
-filterBoolean(false);
-// ${ filterBoolean(false) }
+  const codeJs = `filterLink("example.com");
+// ${ filterLink("example.com") }
 
-filterBoolean(1);
-// ${ filterBoolean(1) }
-filterBoolean(0);
-// ${ filterBoolean(0) }
-
-filterBoolean("aloha");
-// ${ filterBoolean("aloha") }
-filterBoolean("");
-// ${ filterBoolean("") }`;
+filterLink("https://example.com");
+// ${ filterLink("https://example.com") }`;
 
   return {
     codeJs,

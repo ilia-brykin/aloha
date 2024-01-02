@@ -1,5 +1,5 @@
 export default function PageTitleAPI() {
-  const pageTitle = "filterBoolean";
+  const pageTitle = "filterLink";
 
   return {
     pageTitle,
