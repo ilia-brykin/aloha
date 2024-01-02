@@ -10,7 +10,7 @@ import KeyValue from "../filters/KeyValue";
 import _filterLimitTo from "../filters/filterLimitTo";
 import Link from "../filters/Link";
 import _filterList from "../filters/filterList";
-import propertyByValue from "../filters/propertyByValue";
+import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import searchHighlight from "../filters/searchHighlight";
 
 export default function AFiltersAPI() {
@@ -81,7 +81,7 @@ export default function AFiltersAPI() {
   };
 
   const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {
-    return propertyByValue(value, { mapping, defaultValue });
+    return _filterPropertyByValue(value, { mapping, defaultValue });
   };
 
   const filterSearchHighlight = (value, { searchModel = "" } = {}) => {

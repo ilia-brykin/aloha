@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# Argumente:  \nvalue (Any): Der Wert, der auf eine Eigenschaft im Mapping-Objekt abgebildet werden soll\n[mapping={}] (Object): Ein Objekt, das die Zuordnung von Werten zu Eigenschaften definiert\n[defaultValue=\"\"] (String): Der Standardwert, der zurückgegeben wird, wenn der übergebene Wert nicht im Mapping-Objekt gefunden wird",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "Die Funktion <strong>filterPropertyByValue</strong> ermöglicht die Abbildung von Werten auf vordefinierte Eigenschaften in einem Mapping-Objekt. Sie überprüft, ob der übergebene Wert als Schlüssel im Mapping-Objekt vorhanden ist. Falls ja, wird die zugeordnete Eigenschaft zurückgegeben, andernfalls wird der Standardwert verwendet."
+}

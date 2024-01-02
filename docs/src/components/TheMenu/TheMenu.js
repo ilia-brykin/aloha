@@ -134,35 +134,42 @@ export default {
                   label: "filterBoolean",
                   to: {
                     name: "PageFilterBoolean",
-                  }
+                  },
                 },
                 {
                   id: "PageFilterDefaultForEmpty",
                   label: "filterDefaultForEmpty",
                   to: {
                     name: "PageFilterDefaultForEmpty",
-                  }
+                  },
                 },
                 {
                   id: "PageFilterEmail",
                   label: "filterEmail",
                   to: {
                     name: "PageFilterEmail",
-                  }
+                  },
                 },
                 {
                   id: "PageFilterLimitTo",
                   label: "filterLimitTo",
                   to: {
                     name: "PageFilterLimitTo",
-                  }
+                  },
                 },
                 {
                   id: "PageFilterList",
                   label: "filterList",
                   to: {
                     name: "PageFilterList",
-                  }
+                  },
+                },
+                {
+                  id: "PageFilterPropertyByValue",
+                  label: "filterPropertyByValue",
+                  to: {
+                    name: "PageFilterPropertyByValue",
+                  },
                 },
               ],
             },
