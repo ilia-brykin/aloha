@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "# Аргументы:  \nvalue (Any): Значение, которое следует преобразовать в переведенный текст\n[trueValue=\"_YES_\"] (String): Переведенный текст, возвращаемый в случае, если значение равно true.\n[falseValue=\"_NO_\"] (String): Переведенный текст, возвращаемый в случае, если значение равно false.\n[useNil=true] (Boolean): Определяет, следует ли возвращать пустую строку для undefined или null",
+  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "Функция <strong>filterBoolean</strong> используется для преобразования булевого значения в переведенный текст. Она позволяет настраивать тексты для значений <strong>true</strong> и <strong>false</strong>, а также возвращает пустую строку для значений <strong>undefined</strong> или <strong>null</strong>, если <strong>useNil</strong> установлен в <strong>true</strong>."
+}

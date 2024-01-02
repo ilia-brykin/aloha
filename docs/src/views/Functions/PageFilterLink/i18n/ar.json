@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "# الحجج:  \nvalue (أي نوع): القيمة التي يجب تحويلها إلى نص مترجم\n[trueValue=\"_YES_\"] (String): النص المترجم الذي سيتم إرجاعه في حال كانت value تساوي true.\n[falseValue=\"_NO_\"] (String): النص المترجم الذي سيتم إرجاعه في حال كانت value تساوي false.\n[useNil=true] (Boolean): يحدد ما إذا كان يجب إرجاع سلسلة فارغة للقيم undefined أو null",
+  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "تُستخدم وظيفة <strong>filterBoolean</strong> لتحويل قيمة منطقية إلى نص مترجم. تتيح تخصيص النصوص للقيم <strong>true</strong> و <strong>false</strong>، وكذلك إمكانية إرجاع سلسلة فارغة للقيم <strong>undefined</strong> أو <strong>null</strong>."
+}

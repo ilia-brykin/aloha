@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "# Arguments :  \nvalue (Tout type) : La valeur à convertir en texte traduit\n[trueValue=\"_YES_\"] (String) : Le texte traduit à retourner si la valeur est true.\n[falseValue=\"_NO_\"] (String) : Le texte traduit à retourner si la valeur est false.\n[useNil=true] (Boolean) : Indique si une chaîne vide doit être retournée pour les valeurs undefined ou null",
+  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "La fonction <strong>filterBoolean</strong> est utilisée pour convertir une valeur booléenne en texte traduit. Elle permet la personnalisation des textes pour les valeurs <strong>true</strong> et <strong>false</strong>, ainsi que l'option de retourner une chaîne vide pour les valeurs <strong>undefined</strong> ou <strong>null</strong>."
+}
