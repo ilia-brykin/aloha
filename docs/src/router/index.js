@@ -305,6 +305,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterPropertyByValue" */ "../views/Functions/PageFilterPropertyByValue/PageFilterPropertyByValue.vue"),
   },
   {
+    path: "/filter-search-highlight",
+    name: "PageFilterSearchHighlight",
+    component: () => import(/* webpackChunkName: "PageFilterSearchHighlight" */ "../views/Functions/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

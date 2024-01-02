@@ -11,7 +11,7 @@ import _filterLimitTo from "../filters/filterLimitTo";
 import Link from "../filters/Link";
 import _filterList from "../filters/filterList";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
-import searchHighlight from "../filters/searchHighlight";
+import _filterSearchHighlight from "../filters/filterSearchHighlight";
 
 export default function AFiltersAPI() {
   const filterBoolean = (value, { trueValue = "_YES_", falseValue = "_NO_", useNil = true } = {}) => {
@@ -84,8 +84,8 @@ export default function AFiltersAPI() {
     return _filterPropertyByValue(value, { mapping, defaultValue });
   };
 
-  const filterSearchHighlight = (value, { searchModel = "" } = {}) => {
-    return searchHighlight(value, { searchModel });
+  const filterSearchHighlight = (value, { searchModel = "", searchClass = "a_search_highlight" } = {}) => {
+    return _filterSearchHighlight(value, { searchModel, searchClass });
   };
 
   return {

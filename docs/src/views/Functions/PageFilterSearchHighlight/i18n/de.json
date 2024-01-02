@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_": "# Argumente:  \nvalue (String): Der Wert, in dem der Suchbegriff hervorgehoben werden soll.\n[searchModel=\"\"] (String): Der Suchbegriff, der im Wert hervorgehoben werden soll\n[searchClass=\"a_search_highlight\"] (String): Eine CSS-Klasse, die den hervorgehobenen Teil des Werts stylen soll",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Die Funktion <strong>filterSearchHighlight</strong> dient dazu, einen Suchbegriff in einem Wert zu markieren, indem sie den Suchbegriff durch HTML-Tags umschließt. Sie ermöglicht die Anpassung des Suchbegriffs und der CSS-Klasse für die Hervorhebung."
+}

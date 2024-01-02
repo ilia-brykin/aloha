@@ -171,6 +171,13 @@ export default {
                     name: "PageFilterPropertyByValue",
                   },
                 },
+                {
+                  id: "PageFilterSearchHighlight",
+                  label: "filterSearchHighlight",
+                  to: {
+                    name: "PageFilterSearchHighlight",
+                  },
+                },
               ],
             },
           ],
