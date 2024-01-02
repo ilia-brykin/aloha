@@ -144,6 +144,13 @@ export default {
                   }
                 },
                 {
+                  id: "PageFilterEmail",
+                  label: "filterEmail",
+                  to: {
+                    name: "PageFilterEmail",
+                  }
+                },
+                {
                   id: "PageFilterLimitTo",
                   label: "filterLimitTo",
                   to: {

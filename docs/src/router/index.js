@@ -295,6 +295,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterDefaultForEmpty" */ "../views/Functions/PageFilterDefaultForEmpty/PageFilterDefaultForEmpty.vue"),
   },
   {
+    path: "/filter-email",
+    name: "PageFilterEmail",
+    component: () => import(/* webpackChunkName: "PageFilterEmail" */ "../views/Functions/PageFilterEmail/PageFilterEmail.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

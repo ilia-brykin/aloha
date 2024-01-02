@@ -2,7 +2,7 @@ import _filterBoolean from "../filters/filterBoolean";
 import currency from "../filters/currency";
 import date from "../filters/date";
 import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
-import Email from "../filters/Email";
+import _filterEmail from "../filters/filterEmail";
 import FileSize from "../filters/FileSize";
 import iban from "../filters/iban";
 import json from "../filters/json";
@@ -36,8 +36,8 @@ export default function AFiltersAPI() {
     });
   };
 
-  const filterEmail = value => {
-    return Email(value);
+  const filterEmail = (value, { linkClass } = {}) => {
+    return _filterEmail(value, { linkClass });
   };
 
   const filterFileSize = (value, { units } = {}) => {

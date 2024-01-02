@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_": "# Argumente:  \nemail (String): Die E-Mail-Adresse, für die der HTML-Link erstellt werden soll\n[linkClass] (String): Eine CSS-Klasse, die dem erstellten HTML-Link hinzugefügt wird",
+  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "Die Funktion <strong>filterEmail</strong> erstellt einen HTML-Link für eine E-Mail-Adresse. Sie überprüft, ob die E-Mail-Adresse vorhanden ist und nicht leer ist. Wenn die Bedingungen erfüllt sind, wird ein HTML-Link im Format <strong>&lt;a href=\"mailto:emailAdresse\" class=\"linkClass\"&gt;emailAdresse&lt;/a&gt;</strong> zurückgegeben."
+}
