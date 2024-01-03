@@ -151,6 +151,13 @@ export default {
                   },
                 },
                 {
+                  id: "PageFilterJson",
+                  label: "filterJson",
+                  to: {
+                    name: "PageFilterJson",
+                  },
+                },
+                {
                   id: "PageFilterLimitTo",
                   label: "filterLimitTo",
                   to: {

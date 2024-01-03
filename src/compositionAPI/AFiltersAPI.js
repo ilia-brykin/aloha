@@ -5,7 +5,7 @@ import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
 import _filterEmail from "../filters/filterEmail";
 import FileSize from "../filters/FileSize";
 import iban from "../filters/iban";
-import json from "../filters/json";
+import _filterJson from "../filters/filterJson";
 import KeyValue from "../filters/KeyValue";
 import _filterLimitTo from "../filters/filterLimitTo";
 import _filterLink from "../filters/filterLink";
@@ -48,8 +48,8 @@ export default function AFiltersAPI() {
     return iban(value, { plain });
   };
 
-  const filterJson = (value, { parameter = 2 } = {}) => {
-    return json(value, { parameter });
+  const filterJson = (value, { replacer, space = 2 } = {}) => {
+    return _filterJson(value, { replacer, space });
   };
 
   const filterKeyValue = value => {

@@ -21,3 +21,5 @@ filter link
 2 target default war "_blank", jetzt ""
 3  protocol = "https://" war  protocol = "http://"
 
+filter json
+1 parameter rename in space
