@@ -281,7 +281,7 @@ export default {
                   disabled: this.disabledLocal,
                   textScreenReader: this.closeButtonText,
                   title: this.closeButtonText,
-                  onClick: this.close,
+                  onClick: () => this.close(true),
                 })
               ]),
               h("div", {
@@ -317,7 +317,7 @@ export default {
                   html: this.closeButtonText,
                   extra: this.extra,
                   ...this.closeButtonAttributes,
-                  onClick: this.close,
+                  onClick: () => this.close(true),
                 }),
                 this.$slots.modalFooterAppend && this.$slots.modalFooterAppend(),
               ]),

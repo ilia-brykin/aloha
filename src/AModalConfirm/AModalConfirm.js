@@ -19,10 +19,10 @@ export default {
 
     const modalProps = computed(() => {
       return {
-        close: closeConfirm,
         isModalHidden: isModalHidden.value,
         isConfirm: true,
-        ...confirmOptions.value
+        ...confirmOptions.value,
+        close: closeConfirm,
       };
     });
 

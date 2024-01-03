@@ -34,8 +34,8 @@ export default function AConfirmAPI() {
     isModalHidden.value = false;
   };
 
-  const closeConfirm = () => {
-    if (isFunction(confirmOptions.value.close)) {
+  const closeConfirm = isCloseButton => {
+    if (isCloseButton && isFunction(confirmOptions.value.close)) {
       confirmOptions.value.close();
     }
     isModalHidden.value = true;

@@ -14,6 +14,7 @@ export default {
     } = AConfirmAPI();
 
     const save = () => {
+      console.log("save");
       closeConfirm();
     };
 
@@ -22,6 +23,9 @@ export default {
         headerText: "Aloha",
         bodyHtml: "<div>Aloha <strong>Hola</strong></div>",
         save: save,
+        close: () => {
+          console.log("close");
+        },
         selectorClose: "#btn_confirm",
       });
     };
