@@ -1,3 +1,7 @@
+import {
+  ref,
+} from "vue";
+
 import _filterBoolean from "../filters/filterBoolean";
 import currency from "../filters/currency";
 import date from "../filters/date";
@@ -12,6 +16,8 @@ import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
+
+export const additionFilters = ref({});
 
 export default function AFiltersAPI() {
   const filterBoolean = (value, { trueValue = "_YES_", falseValue = "_NO_", useNil = true } = {}) => {
@@ -103,5 +109,6 @@ export default function AFiltersAPI() {
     filterList,
     filterPropertyByValue,
     filterSearchHighlight,
+    ...additionFilters,
   };
 }
