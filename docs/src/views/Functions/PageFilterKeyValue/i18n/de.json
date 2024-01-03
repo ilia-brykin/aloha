@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# Argumente:  \nvalue (Object): Das JavaScript-Objekt, dessen Schlüssel-Wert-Paare in eine formatierte Zeichenkette umgewandelt werden sollen",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "Die Funktion <strong>filterKeyValue</strong> erstellt eine formatierte Zeichenkette aus den Schlüssel-Wert-Paaren eines JavaScript-Objekts. Sie verwendet die Reduktionsfunktion, um die Paare zu durchlaufen und sie in ein lesbares Format umzuwandeln."
+}

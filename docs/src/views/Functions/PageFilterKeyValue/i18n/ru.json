@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# Аргументы:  \nvalue (Object): JavaScript-объект, ключи и значения которого должны быть преобразованы в отформатированную строку",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "Функция <strong>filterKeyValue</strong> создает отформатированную строку из пар ключ-значение объекта JavaScript. Она использует функцию reduce для перебора пар и преобразования их в удобочитаемый формат."
+}

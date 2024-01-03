@@ -158,6 +158,13 @@ export default {
                   },
                 },
                 {
+                  id: "PageFilterKeyValue",
+                  label: "filterKeyValue",
+                  to: {
+                    name: "PageFilterKeyValue",
+                  },
+                },
+                {
                   id: "PageFilterLimitTo",
                   label: "filterLimitTo",
                   to: {

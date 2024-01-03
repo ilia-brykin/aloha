@@ -6,7 +6,7 @@ import _filterEmail from "../filters/filterEmail";
 import FileSize from "../filters/FileSize";
 import iban from "../filters/iban";
 import _filterJson from "../filters/filterJson";
-import KeyValue from "../filters/KeyValue";
+import _filterKeyValue from "../filters/filterKeyValue";
 import _filterLimitTo from "../filters/filterLimitTo";
 import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
@@ -53,7 +53,7 @@ export default function AFiltersAPI() {
   };
 
   const filterKeyValue = value => {
-    return KeyValue(value);
+    return _filterKeyValue(value);
   };
 
   const filterLimitTo = (value, {

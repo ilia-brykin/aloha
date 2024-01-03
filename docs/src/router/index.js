@@ -320,6 +320,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterJson" */ "../views/Functions/PageFilterJson/PageFilterJson.vue"),
   },
   {
+    path: "/filter-key-value",
+    name: "PageFilterKeyValue",
+    component: () => import(/* webpackChunkName: "PageFilterKeyValue" */ "../views/Functions/PageFilterKeyValue/PageFilterKeyValue.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom
