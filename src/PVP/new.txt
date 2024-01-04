@@ -23,3 +23,6 @@ filter link
 
 filter json
 1 parameter rename in space
+
+filter date
+1 parameter rename in format

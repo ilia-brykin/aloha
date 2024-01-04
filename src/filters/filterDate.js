@@ -15,7 +15,7 @@ const DATE_FORMAT = {
   timeWithSeconds: () => "HH:mm:ss",
 };
 
-export default function(value, { parameter = "date" } = {}) {
+export default function(value, { format = "date" } = {}) {
   if (isNil(value) || value === "") {
     return "";
   }
@@ -23,8 +23,8 @@ export default function(value, { parameter = "date" } = {}) {
   if (!DATE.isValid()) {
     return value;
   }
-  if (isFunction(DATE_FORMAT[parameter])) {
-    parameter = DATE_FORMAT[parameter]();
+  if (isFunction(DATE_FORMAT[format])) {
+    format = DATE_FORMAT[format]();
   }
-  return DATE.format(parameter);
+  return DATE.format(format);
 }

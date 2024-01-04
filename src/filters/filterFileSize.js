@@ -1,4 +1,4 @@
-import currency from "./currency";
+import filterCurrency from "./filterCurrency";
 import {
   isNumber,
 } from "lodash-es";
@@ -13,5 +13,5 @@ export default function(value, { units = "KB" } = {}) {
   if (!isNumber(value)) {
     valueLocal = 0;
   }
-  return `${ currency(valueLocal / UNITS_MAPPING[units], "") } ${ units }`;
+  return `${ filterCurrency(valueLocal / UNITS_MAPPING[units], "") } ${ units }`;
 }

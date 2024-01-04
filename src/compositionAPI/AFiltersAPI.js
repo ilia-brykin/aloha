@@ -3,12 +3,12 @@ import {
 } from "vue";
 
 import _filterBoolean from "../filters/filterBoolean";
-import currency from "../filters/currency";
-import date from "../filters/date";
+import _filterCurrency from "../filters/filterCurrency";
+import _filterDate from "../filters/filterDate";
 import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
 import _filterEmail from "../filters/filterEmail";
-import FileSize from "../filters/FileSize";
-import iban from "../filters/iban";
+import _filterFileSize from "../filters/filterFileSize";
+import _filterFloat from "../filters/filterFloat";
 import _filterJson from "../filters/filterJson";
 import _filterKeyValue from "../filters/filterKeyValue";
 import _filterLimitTo from "../filters/filterLimitTo";
@@ -29,11 +29,15 @@ export default function AFiltersAPI() {
   };
 
   const filterCurrency = (value, { suffix = "€", digits = 2, digitGrouping = true } = {}) => {
-    return currency(value, { suffix, digits, digitGrouping });
+    return _filterCurrency(value, { suffix, digits, digitGrouping });
   };
 
-  const filterDate = (value, { parameter = "date" } = {}) => {
-    return date(value, { parameter });
+  const filterFloat = (value, { suffix = "", digits = 2, digitGrouping = true } = {}) => {
+    return _filterFloat(value, { suffix, digits, digitGrouping });
+  };
+
+  const filterDate = (value, { format = "date" } = {}) => {
+    return _filterDate(value, { format });
   };
 
   const filterDefaultForEmpty = (value, { emptyValue = "-" } = {}) => {
@@ -46,12 +50,8 @@ export default function AFiltersAPI() {
     return _filterEmail(value, { linkClass });
   };
 
-  const filterFileSize = (value, { units } = {}) => {
-    return FileSize(value, { units });
-  };
-
-  const filterIban = (value, { plain } = {}) => {
-    return iban(value, { plain });
+  const filterFileSize = (value, { units = "KB" } = {}) => {
+    return _filterFileSize(value, { units });
   };
 
   const filterJson = (value, { replacer, space = 2 } = {}) => {
@@ -101,7 +101,7 @@ export default function AFiltersAPI() {
     filterDefaultForEmpty,
     filterEmail,
     filterFileSize,
-    filterIban,
+    filterFloat,
     filterJson,
     filterKeyValue,
     filterLimitTo,
