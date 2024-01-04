@@ -151,6 +151,13 @@ export default {
                   },
                 },
                 {
+                  id: "PageFilterFileSize",
+                  label: "filterFileSize",
+                  to: {
+                    name: "PageFilterFileSize",
+                  },
+                },
+                {
                   id: "PageFilterJson",
                   label: "filterJson",
                   to: {

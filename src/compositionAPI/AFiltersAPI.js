@@ -50,8 +50,8 @@ export default function AFiltersAPI() {
     return _filterEmail(value, { linkClass });
   };
 
-  const filterFileSize = (value, { units = "KB" } = {}) => {
-    return _filterFileSize(value, { units });
+  const filterFileSize = (value, { units = "kb", sourceUnits = "b", digits = 2 } = {}) => {
+    return _filterFileSize(value, { units, sourceUnits, digits });
   };
 
   const filterJson = (value, { replacer, space = 2 } = {}) => {
