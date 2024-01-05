@@ -3,5 +3,9 @@
   "_A_FILE_SIZE_KB_": "КБ",
   "_A_FILE_SIZE_MB_": "МБ",
   "_A_FILE_SIZE_GB_": "ГБ",
-  "_A_FILE_SIZE_TB_": "ТБ"
+  "_A_FILE_SIZE_TB_": "ТБ",
+  "_A_FILE_SIZE_PB_": "ПБ",
+  "_A_FILE_SIZE_EB_": "ЭБ",
+  "_A_FILE_SIZE_ZB_": "ЗБ",
+  "_A_FILE_SIZE_YB_": "ИБ"
 }

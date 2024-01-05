@@ -7,6 +7,7 @@ import PageFilterFileSizeImportCompositionApi from "./PageFilterFileSizeImportCo
 import PageFilterFileSizeImportFunction from "./PageFilterFileSizeImportFunction/PageFilterFileSizeImportFunction.vue";
 import PageFilterFileSizeSourceUnits from "./PageFilterFileSizeSourceUnits/PageFilterFileSizeSourceUnits.vue";
 import PageFilterFileSizeUnits from "./PageFilterFileSizeUnits/PageFilterFileSizeUnits.vue";
+import PageFilterFileSizeUnitsEmpty from "./PageFilterFileSizeUnitsEmpty/PageFilterFileSizeUnitsEmpty.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -22,6 +23,7 @@ export default {
     PageFilterFileSizeImportFunction,
     PageFilterFileSizeSourceUnits,
     PageFilterFileSizeUnits,
+    PageFilterFileSizeUnitsEmpty,
   },
   setup() {
     const {
