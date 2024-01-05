@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_",
-  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_"
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# Arguments:  \nvalue (Object): The JavaScript object whose key-value pairs are to be converted into a formatted string",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "The function <strong>filterKeyValue</strong> creates a formatted string from the key-value pairs of a JavaScript object. It uses the reduction function to iterate through the pairs and convert them into a readable format."
 }

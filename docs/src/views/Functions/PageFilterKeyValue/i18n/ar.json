@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_",
-  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_"
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# الحجج:  \nvalue (Object): الكائن البرمجي JavaScript الذي يجب تحويل أزواج المفتاح-القيمة الخاصة به إلى سلسلة مُنسقة",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "تقوم الوظيفة <strong>filterKeyValue</strong> بإنشاء سلسلة مُنسقة من أزواج المفتاح-القيمة لكائن JavaScript. تستخدم وظيفة التخفيض للتنقل عبر الأزواج وتحويلها إلى تنسيق قابل للقراءة."
 }

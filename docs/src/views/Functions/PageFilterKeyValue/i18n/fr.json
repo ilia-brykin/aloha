@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_",
-  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_"
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# Arguments :  \nvalue (Object): L'objet JavaScript dont les paires clé-valeur doivent être converties en une chaîne formatée",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "La fonction <strong>filterKeyValue</strong> crée une chaîne formatée à partir des paires clé-valeur d'un objet JavaScript. Elle utilise la fonction de réduction pour parcourir les paires et les convertir en un format lisible."
 }
