@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_LINK_ARGUMENTS_": "_PAGE_FILTER_LINK_ARGUMENTS_",
-  "_PAGE_FILTER_LINK_DESCRIPTION_": "_PAGE_FILTER_LINK_DESCRIPTION_"
+  "_PAGE_FILTER_LINK_ARGUMENTS_": "# Argomenti:  \nurl (String): L'URL da inserire nel link HTML\n[linkText=\"\"] (String): Il testo che verrà visualizzato nel link HTML. Se non specificato, viene utilizzato l'URL\n[protocol=\"https://\"] (String): Il protocollo da aggiungere prima dell'URL\n[target=\"\"] (String): L'attributo 'target' per il link HTML, che controlla il comportamento all'apertura del link\n[linkClass=\"\"] (String): Una classe CSS da aggiungere al link HTML",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "La funzione <strong>filterLnk</strong> crea un link HTML basato sull'URL fornito <strong>url</strong>. Consente la personalizzazione del protocollo, del target, della classe CSS e del testo visualizzato per il link. La funzione verifica la validità dell'URL e ne garantisce l'inserimento sicuro nel link HTML."
 }
