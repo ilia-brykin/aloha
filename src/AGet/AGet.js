@@ -51,7 +51,7 @@ export default {
       default: undefined,
     },
     filterParameters: {
-      type: [Object, String, Number],
+      type: [Object, String, Number, Boolean],
       required: false,
       default: () => {},
     },
