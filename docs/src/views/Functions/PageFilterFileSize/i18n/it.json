@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_",
-  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_"
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# Argomenti:  \nvalue (Number): La dimensione da convertire.\n[units=\"kb\"] (String): L'unità desiderata per la dimensione. Le unità possibili sono \"b\" (Byte), \"kb\" (Kilobyte), \"mb\" (Megabyte), \"gb\" (Gigabyte), \"tb\" (Terabyte), \"pb\" (Petabyte), \"eb\" (Exabyte), \"zb\" (Zettabyte), \"yb\" (Yottabyte).\n[sourceUnits=\"b\"] (String): L'unità della dimensione originale. Le unità possibili sono le stesse di units.\n[digits=2] (Number): Il numero di cifre decimali nella stringa formattata",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "La funzione <strong>filterFileSize</strong> converte una dimensione da un'unità di origine (ad esempio, Byte) in una dimensione target con una specifica unità (ad esempio, Kilobyte, Megabyte) e restituisce il risultato come una stringa formattata."
 }

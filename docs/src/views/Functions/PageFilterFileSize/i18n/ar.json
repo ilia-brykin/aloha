@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_",
-  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_"
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# الحجج:  \nvalue (Number): الحجم الذي يجب تحويله.\n[units=\"kb\"] (String): الوحدة المرغوبة للحجم. الوحدات الممكنة هي \"b\" (بايت)، \"kb\" (كيلوبايت)، \"mb\" (ميغابايت)، \"gb\" (جيجابايت)، \"tb\" (تيرابايت)، \"pb\" (بيتابايت)، \"eb\" (اكسابايت)، \"zb\" (زيتابايت)، \"yb\" (يوتابايت).\n[sourceUnits=\"b\"] (String): وحدة الحجم الأصلية. الوحدات الممكنة هي نفسها المذكورة للوحدات.\n[digits=2] (Number): عدد الأرقام العشرية في السلسلة المنسقة",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "تقوم الوظيفة <strong>filterFileSize</strong> بتحويل حجم من وحدة مصدر (مثلاً البايت) إلى حجم هدف بوحدة معينة (مثلاً كيلوبايت، ميغابايت) وتعيد النتيجة كسلسلة منسقة."
 }

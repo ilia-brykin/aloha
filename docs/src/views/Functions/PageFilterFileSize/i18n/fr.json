@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_",
-  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_"
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# Arguments :  \nvalue (Number): La taille à convertir.\n[units=\"kb\"] (String): L'unité souhaitée pour la taille. Les unités possibles sont \"b\" (Octets), \"kb\" (Kilooctets), \"mb\" (Mégaoctets), \"gb\" (Gigaoctets), \"tb\" (Téraoctets), \"pb\" (Pétaoctets), \"eb\" (Exaoctets), \"zb\" (Zettaoctets), \"yb\" (Yottaoctets).\n[sourceUnits=\"b\"] (String): L'unité de la taille originale. Les unités possibles sont les mêmes que pour units.\n[digits=2] (Number): Le nombre de décimales dans la chaîne formatée",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "La fonction <strong>filterFileSize</strong> convertit une taille d'une unité source (par exemple, Octets) en une taille cible avec une unité spécifique (par exemple, Kilooctets, Mégaoctets) et retourne le résultat sous forme de chaîne formatée."
 }

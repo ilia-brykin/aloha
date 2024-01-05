@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_",
-  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_"
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# Arguments:  \nvalue (Number): The size to be converted.\n[units=\"kb\"] (String): The desired unit for the size. Possible units are \"b\" (Bytes), \"kb\" (Kilobytes), \"mb\" (Megabytes), \"gb\" (Gigabytes), \"tb\" (Terabytes), \"pb\" (Petabytes), \"eb\" (Exabytes), \"zb\" (Zettabytes), \"yb\" (Yottabytes).\n[sourceUnits=\"b\"] (String): The unit of the original size. Possible units are the same as for units.\n[digits=2] (Number): The number of decimal places in the formatted string",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "The function <strong>filterFileSize</strong> converts a size from a source unit (for example, Bytes) to a target size with a specific unit (for example, Kilobytes, Megabytes) and returns the result as a formatted string."
 }
