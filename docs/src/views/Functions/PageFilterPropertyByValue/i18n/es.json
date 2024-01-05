@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_"
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# Argumentos:  \nvalue (Any): El valor que se asignará a una propiedad en el objeto de mapeo\n[mapping={}] (Object): Un objeto que define la asignación de valores a propiedades\n[defaultValue=\"\"] (String): El valor predeterminado que se devuelve si el valor pasado no se encuentra en el objeto de mapeo",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "La función <strong>filterPropertyByValue</strong> permite la asignación de valores a propiedades predefinidas en un objeto de mapeo. Verifica si el valor pasado existe como clave en el objeto de mapeo. Si es así, se devuelve la propiedad asociada, de lo contrario, se utiliza el valor predeterminado."
 }

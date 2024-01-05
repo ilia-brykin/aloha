@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_"
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# الحجج:  \nvalue (Any): القيمة التي يجب تعيينها على خاصية في كائن الخريطة\n[mapping={}] (Object): كائن يحدد تعيين القيم إلى الخصائص\n[defaultValue=\"\"] (String): القيمة الافتراضية التي يتم إرجاعها إذا لم يتم العثور على القيمة المنقولة في كائن الخريطة",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "تتيح الوظيفة <strong>filterPropertyByValue</strong> تعيين القيم على خصائص محددة مسبقًا في كائن خريطة. تفحص إذا كانت القيمة المنقولة موجودة كمفتاح في كائن الخريطة. إذا كان الأمر كذلك، يتم إرجاع الخاصية المرتبطة، وإلا يتم استخدام القيمة الافتراضية."
 }

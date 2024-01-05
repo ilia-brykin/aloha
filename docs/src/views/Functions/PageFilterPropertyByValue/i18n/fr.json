@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_"
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# Arguments :  \nvalue (Any): La valeur à mapper sur une propriété dans l'objet de mappage\n[mapping={}] (Object): Un objet définissant la mise en correspondance des valeurs aux propriétés\n[defaultValue=\"\"] (String): La valeur par défaut retournée si la valeur transmise n'est pas trouvée dans l'objet de mappage",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "La fonction <strong>filterPropertyByValue</strong> permet de mapper des valeurs sur des propriétés prédéfinies dans un objet de mappage. Elle vérifie si la valeur transmise existe comme clé dans l'objet de mappage. Si c'est le cas, la propriété associée est retournée, sinon la valeur par défaut est utilisée."
 }

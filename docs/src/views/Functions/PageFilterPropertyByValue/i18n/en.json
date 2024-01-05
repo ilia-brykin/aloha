@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_"
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# Arguments:  \nvalue (Any): The value to be mapped to a property in the mapping object\n[mapping={}] (Object): An object defining the mapping of values to properties\n[defaultValue=\"\"] (String): The default value returned if the passed value is not found in the mapping object",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "The function <strong>filterPropertyByValue</strong> enables mapping of values to predefined properties in a mapping object. It checks if the passed value exists as a key in the mapping object. If so, the associated property is returned, otherwise the default value is used."
 }
