@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_": "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_"
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_": "# الحجج:  \nvalue (String): القيمة التي يجب تسليط الضوء على مصطلح البحث فيها.\n[searchModel=\"\"] (String): مصطلح البحث الذي يجب تسليط الضوء عليه في القيمة\n[searchClass=\"a_search_highlight\"] (String): فئة CSS يجب أن تُنمط الجزء المُضاء من القيمة",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "تعمل الوظيفة <strong>filterSearchHighlight</strong> على تمييز مصطلح بحث في قيمة معينة، وذلك بتغليف مصطلح البحث بواسطة علامات HTML. تتيح تخصيص مصطلح البحث وفئة CSS للتمييز."
 }
