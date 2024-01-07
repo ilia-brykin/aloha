@@ -165,6 +165,13 @@ export default {
                   },
                 },
                 {
+                  id: "PageFilterFloat",
+                  label: "filterFloat",
+                  to: {
+                    name: "PageFilterFloat",
+                  },
+                },
+                {
                   id: "PageFilterJson",
                   label: "filterJson",
                   to: {
