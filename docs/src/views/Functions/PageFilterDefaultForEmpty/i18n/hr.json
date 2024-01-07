@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_"
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "# Argumenti:  \nvalue (prozivoljna vrijednost): Vrijednost koja će biti provjerena\n[emptyValue=\"-\"] (string): Zadana vrijednost koja će biti vraćena ako se ulazna vrijednost smatra praznom",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "Funkcija <strong>filterDefaultForEmpty</strong> koristi se za provjeru ulazne vrijednosti i za vraćanje zadane vrijednosti ako se ulazna vrijednost smatra praznom. U ovom kontekstu, vrijednost se smatra praznom ako je <strong>undefined</strong>, <strong>null</strong> ili prazan string."
 }
