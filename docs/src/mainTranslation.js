@@ -54,6 +54,7 @@ import PageFilterLinkI18n from "./views/Functions/PageFilterLink/i18n/PageFilter
 import PageFilterJsonI18n from "./views/Functions/PageFilterJson/i18n/PageFilterJsonI18n";
 import PageFilterKeyValueI18n from "./views/Functions/PageFilterKeyValue/i18n/PageFilterKeyValueI18n";
 import PageFilterFileSizeI18n from "./views/Functions/PageFilterFileSize/i18n/PageFilterFileSizeI18n";
+import PageFilterDateI18n from "./views/Functions/PageFilterDate/i18n/PageFilterDateI18n";
 
 export const mainTranslation = {
   ar: {
@@ -104,6 +105,7 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.ar,
     ...PageFilterKeyValueI18n.ar,
     ...PageFilterFileSizeI18n.ar,
+    ...PageFilterDateI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -153,6 +155,7 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.de,
     ...PageFilterKeyValueI18n.de,
     ...PageFilterFileSizeI18n.de,
+    ...PageFilterDateI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -202,6 +205,7 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.en,
     ...PageFilterKeyValueI18n.en,
     ...PageFilterFileSizeI18n.en,
+    ...PageFilterDateI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -251,6 +255,7 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.es,
     ...PageFilterKeyValueI18n.es,
     ...PageFilterFileSizeI18n.es,
+    ...PageFilterDateI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -300,6 +305,7 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.fr,
     ...PageFilterKeyValueI18n.fr,
     ...PageFilterFileSizeI18n.fr,
+    ...PageFilterDateI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -349,6 +355,7 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.hr,
     ...PageFilterKeyValueI18n.hr,
     ...PageFilterFileSizeI18n.hr,
+    ...PageFilterDateI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -398,6 +405,7 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.it,
     ...PageFilterKeyValueI18n.it,
     ...PageFilterFileSizeI18n.it,
+    ...PageFilterDateI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -447,5 +455,6 @@ export const mainTranslation = {
     ...PageFilterJsonI18n.ru,
     ...PageFilterKeyValueI18n.ru,
     ...PageFilterFileSizeI18n.ru,
+    ...PageFilterDateI18n.ru,
   },
 };

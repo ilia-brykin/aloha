@@ -137,6 +137,13 @@ export default {
                   },
                 },
                 {
+                  id: "PageFilterDate",
+                  label: "filterDate",
+                  to: {
+                    name: "PageFilterDate",
+                  },
+                },
+                {
                   id: "PageFilterDefaultForEmpty",
                   label: "filterDefaultForEmpty",
                   to: {
