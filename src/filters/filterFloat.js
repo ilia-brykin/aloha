@@ -26,7 +26,7 @@ export default function(value, { suffix = "", digits = 2, digitGrouping = true }
     return `0${ digits > 0 ? "," : "" }${ repeat("0", digits) }${ suffix ? ` ${ suffix }` : "" }`;
   }
   if (!valNumber) {
-    return `${ value }${ suffix ? ` ${ suffix }` : "" }`;
+    return value;
   }
   valNumber = round(valNumber, digits);
   valString = toString(valNumber);

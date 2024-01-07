@@ -1,0 +1,13 @@
+import filterCurrency from "../../../../../../../src/filters/filterCurrency";
+
+export default function JsAPI() {
+  const codeJs = `filterCurrency(2000, { digits: 0 });
+// ${ filterCurrency(2000, { digits: 0 }) }
+
+filterCurrency("25.53451", { digits: 4 });
+// ${ filterCurrency("25.53451", { digits: 4 }) }`;
+
+  return {
+    codeJs,
+  };
+}

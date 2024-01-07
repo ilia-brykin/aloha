@@ -340,6 +340,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterFloat" */ "../views/Functions/PageFilterFloat/PageFilterFloat.vue"),
   },
   {
+    path: "/filter-currency",
+    name: "PageFilterCurrency",
+    component: () => import(/* webpackChunkName: "PageFilterCurrency" */ "../views/Functions/PageFilterCurrency/PageFilterCurrency.vue"),
+  },
+  {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom

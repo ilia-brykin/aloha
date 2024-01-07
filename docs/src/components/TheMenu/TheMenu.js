@@ -137,6 +137,13 @@ export default {
                   },
                 },
                 {
+                  id: "PageFilterCurrency",
+                  label: "filterCurrency",
+                  to: {
+                    name: "PageFilterCurrency",
+                  },
+                },
+                {
                   id: "PageFilterDate",
                   label: "filterDate",
                   to: {
