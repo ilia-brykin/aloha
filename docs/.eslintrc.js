@@ -20,7 +20,7 @@ module.exports = exports = {
       jsx: false,
     },
   },
-
+  plugins: ["jest"],
   extends: [
     "eslint:recommended",
     "plugin:vue/vue3-recommended",
@@ -183,10 +183,18 @@ module.exports = exports = {
     // Vue.js
     "vue/multi-word-component-names": OFF,
     "vue/component-definition-name-casing": OFF, // TODO: wenn angular.js weg ist, soll WARN sein
+
+    // Jest
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
   },
   env: {
     jquery: true,
     es6: true,
     browser: true,
+    "jest/globals": true,
   }
 };
