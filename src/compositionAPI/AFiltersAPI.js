@@ -109,6 +109,6 @@ export default function AFiltersAPI() {
     filterList,
     filterPropertyByValue,
     filterSearchHighlight,
-    ...additionFilters,
+    ...additionFilters.value,
   };
 }
