@@ -30,7 +30,7 @@ export function isPlaceholderTranslate(text = "") {
 
 export function getTranslatedText({ placeholder, translationObj = translation, extra }) {
   if (!translationObj || !timeTranslationLastChanged.value) {
-    return undefined;
+    return placeholder;
   }
   const TEXT_FROM_TRANSLATION = isNil(translationObj[placeholder]) ? placeholder : translationObj[placeholder];
 
