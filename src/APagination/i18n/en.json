@@ -1,0 +1,12 @@
+{
+  "_A_COUNT_PER_PAGE_": "Per page:",
+  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "Items per page:",
+  "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} to {{ current }} of {{ count }}",
+  "_A_PAGINATION_FIRST_PAGE_": "To first page",
+  "_A_PAGINATION_LAST_PAGE_": "To last page",
+  "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} of {{ allPages }}",
+  "_A_PAGINATION_NAVIGATION_": "Pagination navigation",
+  "_A_PAGINATION_NEXT_PAGE_": "To next page",
+  "_A_PAGINATION_PREVIOUS_PAGE_": "To previous page",
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "To page {{ page }}"
+}

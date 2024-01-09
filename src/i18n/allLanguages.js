@@ -23,6 +23,7 @@ import AWizardI18n from "../AWizard/i18n/AWizardI18n";
 import AMenu2I18n from "../AMenu2/i18n/AMenu2I18n";
 import AVerticalScrollI18n from "../AVerticalScroll/i18n/AVerticalScrollI18n";
 import Filters18n from "../filters/i18n/Filters18n";
+import APaginationI18n from "../APagination/i18n/APaginationI18n.js";
 
 export const ar = {
   ...arJson,
@@ -42,6 +43,7 @@ export const ar = {
   ...AMenu2I18n.ar,
   ...AVerticalScrollI18n.ar,
   ...Filters18n.ar,
+  ...APaginationI18n.ar,
 };
 export const de = {
   ...deJson,
@@ -61,6 +63,7 @@ export const de = {
   ...AMenu2I18n.de,
   ...AVerticalScrollI18n.de,
   ...Filters18n.de,
+  ...APaginationI18n.de,
 };
 export const en = {
   ...enJson,
@@ -80,6 +83,7 @@ export const en = {
   ...AMenu2I18n.en,
   ...AVerticalScrollI18n.en,
   ...Filters18n.en,
+  ...APaginationI18n.en,
 };
 export const es = {
   ...esJson,
@@ -99,6 +103,7 @@ export const es = {
   ...AMenu2I18n.es,
   ...AVerticalScrollI18n.es,
   ...Filters18n.es,
+  ...APaginationI18n.es,
 };
 export const fr = {
   ...frJson,
@@ -118,6 +123,7 @@ export const fr = {
   ...AMenu2I18n.fr,
   ...AVerticalScrollI18n.fr,
   ...Filters18n.fr,
+  ...APaginationI18n.fr,
 };
 export const hr = {
   ...hrJson,
@@ -137,6 +143,7 @@ export const hr = {
   ...AMenu2I18n.hr,
   ...AVerticalScrollI18n.hr,
   ...Filters18n.hr,
+  ...APaginationI18n.hr,
 };
 export const it = {
   ...itJson,
@@ -156,6 +163,7 @@ export const it = {
   ...AMenu2I18n.it,
   ...AVerticalScrollI18n.it,
   ...Filters18n.it,
+  ...APaginationI18n.it,
 };
 export const ru = {
   ...ruJson,
@@ -175,6 +183,7 @@ export const ru = {
   ...AMenu2I18n.ru,
   ...AVerticalScrollI18n.ru,
   ...Filters18n.ru,
+  ...APaginationI18n.ru,
 };
 
 export default {
