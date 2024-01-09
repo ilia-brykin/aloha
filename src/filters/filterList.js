@@ -2,7 +2,7 @@ import {
   isArray,
   forEach,
   get,
-  isFunction,
+  isFunction, isUndefined,
 } from "lodash-es";
 
 export default filterList;
@@ -34,6 +34,9 @@ function filterList(value, {
         itemText = keyLabelCallback({ item, itemIndex: index });
       } else {
         itemText = keyLabel ? get(item, keyLabel) : item;
+      }
+      if (isUndefined(itemText)) {
+        itemText = "";
       }
       let children;
       if (isSimpleArray) {
@@ -77,6 +80,9 @@ function filterList(value, {
       itemLocal = keyLabelCallback({ item, itemIndex: index });
     } else {
       itemLocal = keyLabel ? get(item, keyLabel) : item;
+    }
+    if (isUndefined(itemLocal)) {
+      itemLocal = "";
     }
     let children;
     let itemText = itemLocal;
