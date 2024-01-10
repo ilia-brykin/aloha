@@ -14,7 +14,6 @@ export default function AriaLabelHiddenAPI(props) {
     }
     return {
       ariaHidden: true,
-      ariaLabel: "aloha"
     };
   });
 

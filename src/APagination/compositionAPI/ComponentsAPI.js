@@ -87,7 +87,6 @@ export default function ComponentsAPI(props, {
           disabled: disabled.value,
           totalRowsCount: totalRowsCount.value,
           offset: offset.value,
-          isMobile: isMobile.value,
           paginationMaxItems: maxPages.value,
           mode: item.mode,
           "onUpdate:offset": updateOffset,

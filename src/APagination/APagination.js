@@ -115,7 +115,6 @@ export default {
 
     return {
       components,
-      isMobile,
       updateLimit,
       updateOffset,
     };

@@ -92,7 +92,6 @@ export default {
   render() {
     return h(ATranslation, {
       tag: "nav",
-      role: "navigation",
       class: "a_pagination__nav",
       "aria-label": "_A_PAGINATION_NAVIGATION_",
     }, {
