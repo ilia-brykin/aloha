@@ -112,9 +112,6 @@ export default {
     };
   },
   render() {
-    if (this.column.isRender === false) {
-      return "";
-    }
     return h("div", this.attributesForTh, [
       h("div", {
         class: [

@@ -66,7 +66,7 @@ export default {
   ],
   inject: [
     "changeColumnsOrdering",
-    "columnsOrdered",
+    "columnsFilteredForRender",
     "isActionColumnVisible",
     "isMobile",
     "isMultipleActionsActive",
@@ -144,7 +144,7 @@ export default {
             "onUpdate:modelValue": this.toggleCheckbox,
           }),
         ]),
-        this.columnsOrdered.map((column, columnIndex) => {
+        this.columnsFilteredForRender.map((column, columnIndex) => {
           return h(ATableHeaderTh, {
             ref: "th",
             column: column,

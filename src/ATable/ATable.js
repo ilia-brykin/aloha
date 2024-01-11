@@ -2,7 +2,6 @@ import {
   computed,
   h,
   provide,
-  ref,
 } from "vue";
 
 import AGet from "../AGet/AGet";
@@ -14,7 +13,7 @@ import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 
 import AMobileAPI from "../compositionAPI/AMobileAPI";
-import ColumnsIdsAPI from "./compositionAPI/ColumnsIdsAPI";
+import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
 import FocusTableAPI from "./compositionAPI/FocusTableAPI";
 import InitAPI from "./compositionAPI/InitAPI";
@@ -28,10 +27,9 @@ import SortAPI from "./compositionAPI/SortAPI";
 import SortChangeAPI from "./compositionAPI/SortChangeAPI";
 import StickyAPI from "./compositionAPI/StickyAPI";
 import TableAttributesAPI from "./compositionAPI/TableAttributesAPI";
-import TableColumnsAPI from "./compositionAPI/TableColumnsAPI";
-import TableColumnsVisibleAPI from "./compositionAPI/TableColumnsVisibleAPI";
 import TableColumnsVisibleFunctionAPI from "./compositionAPI/TableColumnsVisibleFunctionAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
+import VariablesAPI from "./compositionAPI/VariablesAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 import {
@@ -389,9 +387,14 @@ export default {
     };
   },
   setup(props, context) {
-    const tableGrandparentRef = ref(undefined);
-    const tableRef = ref(undefined);
-    const isMultipleActionsActive = ref(undefined);
+    const {
+      indexFirstScrollInvisibleColumn,
+      isMultipleActionsActive,
+      modelColumnsVisibleLocal,
+      modelIsTableWithoutScroll,
+      tableGrandparentRef,
+      tableRef,
+    } = VariablesAPI(props);
 
     const {
       scrollToTable,
@@ -401,20 +404,14 @@ export default {
     });
 
     const {
-      columnsKeyById,
-      columnIdsGroupByLocked,
-    } = ColumnsIdsAPI(props);
-
-    const {
       columnsOrdered,
-    } = TableColumnsAPI(props, {
-      columnsKeyById,
       columnIdsGroupByLocked,
-    });
-
-    const {
+      columnsFilteredForRender,
+    } = ColumnsAPI(props, {
+      indexFirstScrollInvisibleColumn,
       modelColumnsVisibleLocal,
-    } = TableColumnsVisibleAPI();
+      modelIsTableWithoutScroll,
+    });
 
     const {
       isMobileWidth: isMobile,
@@ -445,13 +442,13 @@ export default {
       checkVisibleColumns,
       columnsVisibleAdditionalSpaceForOneGrow,
       columnsScrollInvisible,
-      indexFirstScrollInvisibleColumn,
-      modelIsTableWithoutScroll,
     } = ScrollControlAPI(props, context, {
       columnsOrdered,
+      indexFirstScrollInvisibleColumn,
       isMobile,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
+      modelIsTableWithoutScroll,
     });
 
     const {
@@ -578,6 +575,7 @@ export default {
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("changeModelSort", changeModelSort);
     provide("columnsOrdered", columnsOrdered);
+    provide("columnsFilteredForRender", columnsFilteredForRender);
     provide("columnsScrollInvisible", columnsScrollInvisible);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("currentMultipleActions", currentMultipleActions);
@@ -613,6 +611,7 @@ export default {
       closePreview,
       closePreviewAll,
       columnsOrdered,
+      columnsFilteredForRender,
       emptyText,
       hasRows,
       hasViews,

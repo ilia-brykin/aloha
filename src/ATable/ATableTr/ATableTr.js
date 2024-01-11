@@ -108,7 +108,7 @@ export default {
     };
   },
   inject: [
-    "columnsOrdered",
+    "columnsFilteredForRender",
     "isActionColumnVisible",
     "isMultipleActionsActive",
     "isMobile",
@@ -133,7 +133,7 @@ export default {
         );
       });
     } else {
-      tds = this.columnsOrdered.map((column, columnIndex) => {
+      tds = this.columnsFilteredForRender.map((column, columnIndex) => {
         return h(ATableTd, {
           key: column.id,
           column,

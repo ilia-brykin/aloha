@@ -21,7 +21,7 @@
     "moment": "2.29.4",
     "tiny-emitter": "2.1.0",
     "tinymce": "6.6.1",
-    "vue": "3.3.8",
+    "vue": "3.4.8",
     "vue-router": "4.2.5"
   },
   "devDependencies": {

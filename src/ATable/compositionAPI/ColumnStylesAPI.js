@@ -5,15 +5,10 @@ import {
 } from "vue";
 
 import ColumnAdditionalSpaceAPI from "./ColumnAdditionalSpaceAPI";
-import ColumnVisibleAPI from "./ColumnVisibleAPI";
 
 export default function ColumnStylesAPI(props) {
   const column = toRef(props, "column");
   const columnWidthDefault = inject("columnWidthDefault");
-
-  const {
-    isColumnVisible,
-  } = ColumnVisibleAPI(props);
 
   const {
     additionalWidthForCurrentColumn,
@@ -28,7 +23,7 @@ export default function ColumnStylesAPI(props) {
   });
 
   const stylesWidth = computed(() => {
-    return `width: ${ columnWidthWithAdditionalSpace.value }px; min-width: ${ columnWidthWithAdditionalSpace.value }px; max-width: ${ columnWidthWithAdditionalSpace.value }px; ${ !isColumnVisible.value ? `display: none;` : "" }`;
+    return `width: ${ columnWidthWithAdditionalSpace.value }px; min-width: ${ columnWidthWithAdditionalSpace.value }px; max-width: ${ columnWidthWithAdditionalSpace.value }px;`;
   });
 
   const columnsStyles = computed(() => {

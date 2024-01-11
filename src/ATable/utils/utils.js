@@ -1,3 +1,5 @@
+import { isNil } from "lodash-es";
+
 export function getModelColumnsVisibleDefault(columns) {
   const MODEL_COLUMNS_VISIBLE = {};
   columns.forEach(column => {
@@ -29,4 +31,38 @@ export function isClickTags({ $event, classStop = "", tagsName = [] } = {}) {
     return isTargetTags({ element: $event.target, tagsName, classStop });
   }
   return false;
+}
+
+export function isColumnVisibleFromModel({ column, modelColumnsVisibleLocal }) {
+  if (column.isRender === false) {
+    return false;
+  }
+
+  if (column.id in modelColumnsVisibleLocal) {
+    return !!modelColumnsVisibleLocal[column.id];
+  }
+  return !column.hide;
+}
+
+function isColumnVisibleFromScroll({ columnIndex, indexFirstScrollInvisibleColumn }) {
+  if (isNil(indexFirstScrollInvisibleColumn)) {
+    return true;
+  }
+  return columnIndex < indexFirstScrollInvisibleColumn;
+}
+
+export function isColumnVisible({ column, columnIndex, modelIsTableWithoutScroll, modelColumnsVisibleLocal, indexFirstScrollInvisibleColumn }) {
+  if (modelIsTableWithoutScroll) {
+    return isColumnVisibleFromModel({
+      column,
+      modelColumnsVisibleLocal,
+    }) && isColumnVisibleFromScroll({
+      columnIndex,
+      indexFirstScrollInvisibleColumn,
+    });
+  }
+  return isColumnVisibleFromModel({
+    column,
+    modelColumnsVisibleLocal,
+  });
 }

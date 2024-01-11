@@ -3,9 +3,13 @@ import {
   onBeforeUnmount,
   onMounted,
   ref,
-  toRef, watch,
+  toRef,
+  watch,
 } from "vue";
 
+import {
+  isColumnVisibleFromModel,
+} from "../utils/utils.js";
 import {
   cloneDeep,
   forEach,
@@ -14,26 +18,17 @@ import {
 
 export default function ScrollControlAPI(props, { emit }, {
   columnsOrdered = computed(() => []),
+  indexFirstScrollInvisibleColumn = ref(undefined),
   isMobile = ref(false),
   isMultipleActionsActive = ref(undefined),
   modelColumnsVisibleLocal = ref({}),
+  modelIsTableWithoutScroll = ref(false),
 }) {
   const columnWidthDefault = toRef(props, "columnWidthDefault");
   const columnActionsWidth = toRef(props, "columnActionsWidth");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
 
   let changingTableWidth = false;
-
-  const isColumnVisible = ({ column }) => {
-    if (column.isRender === false) {
-      return false;
-    }
-    const COLUMN_ID = column.id;
-    if (COLUMN_ID in modelColumnsVisibleLocal.value) {
-      return !!modelColumnsVisibleLocal.value[COLUMN_ID];
-    }
-    return !column.hide;
-  };
 
   const columnActionsWidthMinLocal = computed(() => {
     if (isActionColumnVisible.value) {
@@ -50,11 +45,8 @@ export default function ScrollControlAPI(props, { emit }, {
   const tableWidth = ref(undefined);
   const aTableRef = ref(undefined);
   const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
-  const indexFirstScrollInvisibleColumn = ref(undefined);
   const columnsScrollInvisible = ref([]);
 
-  const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
-  const modelIsTableWithoutScroll = ref(modelIsTableWithoutScrollStart.value);
   const changeModelIsTableWithoutScroll = model => {
     modelIsTableWithoutScroll.value = model;
     emit("updateModelIsTableWithoutScroll", model);
@@ -79,7 +71,10 @@ export default function ScrollControlAPI(props, { emit }, {
       const COLUMNS_SCROLL_VISIBLE = [];
       for (let i = indexFirstScrollInvisibleColumn.value; i < columnsOrdered.value.length; i++) {
         const COLUMN = columnsOrdered.value[i];
-        if (isColumnVisible({ column: COLUMN })) {
+        if (isColumnVisibleFromModel({
+          column: COLUMN,
+          modelColumnsVisibleLocal: modelColumnsVisibleLocal.value,
+        })) {
           COLUMNS_SCROLL_VISIBLE.push(cloneDeep(COLUMN));
         }
       }
@@ -107,7 +102,10 @@ export default function ScrollControlAPI(props, { emit }, {
     let sumGrows = 0;
     let isMinOneColumnHide = false;
     forEach(columnsOrdered.value, column => {
-      if (!isColumnVisible({ column })) {
+      if (!isColumnVisibleFromModel({
+        column,
+        modelColumnsVisibleLocal: modelColumnsVisibleLocal.value,
+      })) {
         indexFirstScrollInvisibleColumnLocal++;
         return;
       }
@@ -124,7 +122,10 @@ export default function ScrollControlAPI(props, { emit }, {
       for (let i = indexFirstScrollInvisibleColumnLocal - 1; i >= 0; i--) {
         indexFirstScrollInvisibleColumnLocal--;
         const COLUMN = columnsOrdered.value[indexFirstScrollInvisibleColumnLocal];
-        if (!isColumnVisible({ column: COLUMN })) {
+        if (!isColumnVisibleFromModel({
+          column: COLUMN,
+          modelColumnsVisibleLocal: modelColumnsVisibleLocal.value,
+        })) {
           continue;
         }
         const COLUMN_WIDTH = +COLUMN.width || columnWidthDefault.value;
@@ -192,7 +193,5 @@ export default function ScrollControlAPI(props, { emit }, {
     checkVisibleColumns,
     columnsVisibleAdditionalSpaceForOneGrow,
     columnsScrollInvisible,
-    indexFirstScrollInvisibleColumn,
-    modelIsTableWithoutScroll,
   };
 }

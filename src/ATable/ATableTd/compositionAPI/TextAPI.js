@@ -108,12 +108,12 @@ export default function TextAPI(props) {
       return h("span", null, textWithDefault.value);
     }
     if (safeHtmlKeyLabel.value) {
-      return h("span", {
+      return h("div", {
         innerHTML: safeHtmlWithDefault.value,
       });
     }
     if (htmlKeyLabel.value) {
-      return withDirectives(h("span"), [
+      return withDirectives(h("div"), [
         [ASafeHtml, htmlWithDefault.value],
       ]);
     }

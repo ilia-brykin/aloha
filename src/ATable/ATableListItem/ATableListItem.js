@@ -66,7 +66,10 @@ export default {
         text: this.column.label,
         tag: "dt",
       }),
-      h("dd", null, (this.hasSlot && this.$slots[this.slotName]) ?
+      h(
+        "dd", 
+        null,
+        (this.hasSlot && this.$slots[this.slotName]) ?
         this.$slots[this.slotName]({
           column: this.column,
           columnIndex: this.columnIndex,
@@ -89,7 +92,8 @@ export default {
           ] :
           [
             this.textOrHtmlRender,
-          ])
+          ]
+      )
     ];
   },
 };

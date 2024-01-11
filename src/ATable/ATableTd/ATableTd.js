@@ -6,9 +6,7 @@ import {
 import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
-import ColumnVisibleAPI from "../compositionAPI/ColumnVisibleAPI";
 import LinkAPI from "./compositionAPI/LinkAPI";
-import MobileAPI from "./compositionAPI/MobileAPI";
 import SlotAPI from "./compositionAPI/SlotAPI";
 import TextAPI from "./compositionAPI/TextAPI";
 
@@ -50,10 +48,6 @@ export default {
     } = AttributesAPI(props);
 
     const {
-      isColumnVisible,
-    } = ColumnVisibleAPI(props);
-
-    const {
       classForLink,
       isLink,
       toLocal,
@@ -68,28 +62,17 @@ export default {
       textOrHtmlRender,
     } = TextAPI(props);
 
-    const {
-      styleMobile,
-    } = MobileAPI({
-      isColumnVisible,
-    });
-
     return {
       attributesForTd,
       classForLink,
       hasSlot,
       isLink,
       slotName,
-      styleMobile,
       textOrHtmlRender,
       toLocal,
     };
   },
   render() {
-    if (this.column.isRender === false) {
-      return "";
-    }
-
     const TD = h(
       "div",
       this.attributesForTd,
@@ -134,11 +117,8 @@ export default {
       h(ATranslation, {
         text: this.column.label,
         tag: "dt",
-        style: this.styleMobile,
       }),
-      h("dd", {
-        style: this.styleMobile,
-      }, [
+      h("dd", {}, [
         TD,
       ]),
     ];
