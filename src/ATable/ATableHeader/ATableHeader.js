@@ -128,7 +128,6 @@ export default {
         onDrop: this.drop,
       }, [
         this.isMultipleActionsActive && h("div", {
-          scope: "col",
           role: "columnheader",
           class: "a_table__th a_table__cell a_table__cell_checkbox",
           style: `width: 50px; min-width: 50px; max-width: 50px;`,

@@ -104,7 +104,6 @@ export default {
           a_table__cell_action_sticky: this.isRowActionsStickyLocal,
         },
       ],
-      scope: "col",
       role: "columnheader",
     }, [
       h("span", {

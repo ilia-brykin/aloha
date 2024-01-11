@@ -71,7 +71,8 @@ export default {
               disabled: DISABLED,
               onClick: action.callback,
               callback: undefined,
-              actionnotdividerindex: undefined,
+              actionNotDividerIndex: undefined,
+              isHidden: undefined,
             });
           }
           if (action.type === "link") {
@@ -80,7 +81,9 @@ export default {
               classButton: undefined,
               disabled: DISABLED,
               class: CLASS,
-              actionnotdividerindex: undefined,
+              actionNotDividerIndex: undefined,
+              isHidden: undefined,
+              type: undefined,
             });
           }
           if (action.type === "template" &&

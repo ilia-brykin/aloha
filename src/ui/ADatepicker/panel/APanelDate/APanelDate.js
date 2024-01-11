@@ -307,7 +307,6 @@ export default {
           this.ths.map((thData, thIndex) => {
             return h("th", {
               key: thIndex,
-              scope: "col",
               ariaLabel: thData.longName,
             }, thData.shortName);
           }),

@@ -165,7 +165,6 @@ export default {
     return [
       h("div", this.rowAttributes, [
         this.isMultipleActionsActive && h("div", {
-          scope: "row",
           class: "a_table__td a_table__cell a_table__cell_checkbox",
           style: `width: 50px; min-width: 50px; max-width: 50px;`,
         }, [

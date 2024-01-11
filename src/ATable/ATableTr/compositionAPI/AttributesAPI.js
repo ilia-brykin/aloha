@@ -6,6 +6,7 @@ import {
 import { isFunction } from "lodash-es";
 
 export default function AttributesAPI(props) {
+  const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
   const rowClass = toRef(props, "rowClass");
   const rowIndex = toRef(props, "rowIndex");
@@ -17,7 +18,8 @@ export default function AttributesAPI(props) {
   const tableId = inject("tableId");
 
   const rowId = computed(() => {
-    return `${ tableId.value }_${ rowIndex.value }`;
+    const FOOTER_ID = isFooter.value ? "_footer" : "";
+    return `${ tableId.value }${ FOOTER_ID }_${ rowIndex.value }`;
   });
 
   const isPreviewRightForCurrentRowOpen = computed(() => {

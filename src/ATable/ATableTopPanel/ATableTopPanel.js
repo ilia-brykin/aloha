@@ -215,8 +215,6 @@ export default {
           }),
           h(AGroupButtonDropdown, {
             actions: this.tableActionsFiltered,
-            useActionClass: true,
-            useDropdownActionClass: false,
             actionsClasses: [],
             disabled: this.isMultipleActionsActive || this.disabledActions,
             indexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
@@ -230,8 +228,6 @@ export default {
           }),
           h(AGroupButtonDropdown, {
             actions: this.multipleActionsFiltered,
-            useActionClass: true,
-            useDropdownActionClass: true,
             actionsClasses: [],
             disabled: this.isMultipleActionsActive || this.disabledMultipleActions,
             indexFirstDropdownAction: 0,
