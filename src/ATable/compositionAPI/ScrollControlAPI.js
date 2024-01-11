@@ -18,6 +18,7 @@ import {
 
 export default function ScrollControlAPI(props, { emit }, {
   columnsOrdered = computed(() => []),
+  columnsScrollInvisible = ref([]),
   indexFirstScrollInvisibleColumn = ref(undefined),
   isMobile = ref(false),
   isMultipleActionsActive = ref(undefined),
@@ -45,7 +46,6 @@ export default function ScrollControlAPI(props, { emit }, {
   const tableWidth = ref(undefined);
   const aTableRef = ref(undefined);
   const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
-  const columnsScrollInvisible = ref([]);
 
   const changeModelIsTableWithoutScroll = model => {
     modelIsTableWithoutScroll.value = model;
@@ -192,6 +192,5 @@ export default function ScrollControlAPI(props, { emit }, {
     changeModelIsTableWithoutScroll,
     checkVisibleColumns,
     columnsVisibleAdditionalSpaceForOneGrow,
-    columnsScrollInvisible,
   };
 }

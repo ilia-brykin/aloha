@@ -388,6 +388,7 @@ export default {
   },
   setup(props, context) {
     const {
+      columnsScrollInvisible,
       indexFirstScrollInvisibleColumn,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
@@ -404,10 +405,12 @@ export default {
     });
 
     const {
-      columnsOrdered,
       columnIdsGroupByLocked,
       columnsFilteredForRender,
+      columnsOrdered,
+      countNotHiddenColumns,
     } = ColumnsAPI(props, {
+      columnsScrollInvisible,
       indexFirstScrollInvisibleColumn,
       modelColumnsVisibleLocal,
       modelIsTableWithoutScroll,
@@ -441,9 +444,9 @@ export default {
       changeModelIsTableWithoutScroll,
       checkVisibleColumns,
       columnsVisibleAdditionalSpaceForOneGrow,
-      columnsScrollInvisible,
     } = ScrollControlAPI(props, context, {
       columnsOrdered,
+      columnsScrollInvisible,
       indexFirstScrollInvisibleColumn,
       isMobile,
       isMultipleActionsActive,
@@ -541,6 +544,7 @@ export default {
       tableChildRole,
       tableRoleAttributes,
     } = TableAttributesAPI({
+      countNotHiddenColumns,
       isMobile,
     });
 

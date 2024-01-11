@@ -12,6 +12,7 @@ export default function AttributesAPI(props, {
   titlesSort = computed(() => []),
 }) {
   const column = toRef(props, "column");
+  const columnIndex = toRef(props, "columnIndex");
 
   const isColumnsDnd = inject("isLoadingOptions");
   const isLoadingOptions = inject("isLoadingOptions");
@@ -30,7 +31,7 @@ export default function AttributesAPI(props, {
     const ATTRIBUTES = {
       ...ariaSort.value,
       ...attributesForRoot.value,
-      scope: "col",
+      "aria-colindex": columnIndex.value + 1,
       ref: "root",
       role: "columnheader",
     };

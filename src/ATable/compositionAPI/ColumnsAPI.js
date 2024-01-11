@@ -15,11 +15,13 @@ import {
 } from "lodash-es";
 
 export default function ColumnsAPI(props, {
+  columnsScrollInvisible = ref([]),
   indexFirstScrollInvisibleColumn = ref(undefined),
   modelColumnsVisibleLocal = ref({}),
   modelIsTableWithoutScroll = ref(false),
 }) {
   const columns = toRef(props, "columns");
+  const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const modelColumnsOrdering = toRef(props, "modelColumnsOrdering");
 
   const columnsKeyById = computed(() => {
@@ -78,9 +80,21 @@ export default function ColumnsAPI(props, {
     });
   });
 
+  const countNotHiddenColumns = computed(() => {
+    let count = columnsFilteredForRender.value.length;
+    if (modelIsTableWithoutScroll.value) {
+      count += columnsScrollInvisible.value.length;
+    }
+    if (isActionColumnVisible.value) {
+      count++;
+    }
+    return count;
+  });
+
   return {
-    columnsOrdered,
     columnIdsGroupByLocked,
     columnsFilteredForRender,
+    columnsOrdered,
+    countNotHiddenColumns,
   };
 }
