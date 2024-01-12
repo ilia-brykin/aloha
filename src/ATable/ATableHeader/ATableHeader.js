@@ -36,6 +36,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    hasMultipleActions: {
+      type: Boolean,
+      required: true,
+    },
     isRowActionsStickyLocal: {
       type: Boolean,
       required: true,
@@ -131,6 +135,7 @@ export default {
           role: "columnheader",
           class: "a_table__th a_table__cell a_table__cell_checkbox",
           style: `width: 50px; min-width: 50px; max-width: 50px;`,
+          "aria-colindex": 1,
         }, [
           h(AOneCheckbox, {
             isWidthAuto: true,
@@ -150,10 +155,11 @@ export default {
             columnIndex: columnIndex,
             columnIndexDraggable: this.columnIndexDraggable,
             disabledSort: this.disabledSort,
-            modelSort: this.modelSort,
-            sortingSequenceNumberClass: this.sortingSequenceNumberClass,
+            hasMultipleActions: this.hasMultipleActions,
             isSortingMultiColumn: this.isSortingMultiColumn,
+            modelSort: this.modelSort,
             showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
+            sortingSequenceNumberClass: this.sortingSequenceNumberClass,
             onDragstartParent: this.dragstart,
             onDragenterParent: this.dragenter,
             onDragleaveParent: this.dragleave,

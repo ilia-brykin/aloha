@@ -13,6 +13,7 @@ export default function AttributesAPI(props, {
 }) {
   const column = toRef(props, "column");
   const columnIndex = toRef(props, "columnIndex");
+  const hasMultipleActions = toRef(props, "hasMultipleActions");
 
   const isColumnsDnd = inject("isLoadingOptions");
   const isLoadingOptions = inject("isLoadingOptions");
@@ -28,10 +29,14 @@ export default function AttributesAPI(props, {
   });
 
   const attributesForTh = computed(() => {
+    let ariaColindex = columnIndex.value + 1;
+    if (hasMultipleActions.value) {
+      ariaColindex++;
+    }
     const ATTRIBUTES = {
       ...ariaSort.value,
       ...attributesForRoot.value,
-      "aria-colindex": columnIndex.value + 1,
+      "aria-colindex": ariaColindex,
       ref: "root",
       role: "columnheader",
     };

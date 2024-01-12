@@ -1,6 +1,6 @@
 import {
   computed,
-  ref,
+  ref, toRef,
 } from "vue";
 
 import {
@@ -11,15 +11,21 @@ import {
   times,
 } from "lodash-es";
 
-export default function MultipleActionAPI({ emit }, {
+export default function MultipleActionAPI(props, { emit }, {
   checkVisibleColumns = () => {},
   isMultipleActionsActive = ref(undefined),
   rowsLocalAll = computed(() => []),
   rowsLocalLength = computed(() => 0),
 }) {
+  const multipleActions = toRef(props, "multipleActions");
+
   const currentMultipleActions = ref(undefined);
   const selectedRowsIndexes = ref({});
   const areAllRowsSelected = ref(false);
+
+  const hasMultipleActions = computed(() => {
+    return multipleActions.value.length > 0;
+  });
 
   const hasCurrentMultipleActionsIsHiddenCallback = computed(() => {
     return isFunction(get(currentMultipleActions.value, "isHiddenCallback"));
@@ -121,7 +127,7 @@ export default function MultipleActionAPI({ emit }, {
     areSomeRowsSelected,
     closeMultipleActionsActive,
     currentMultipleActions,
-    isMultipleActionsActive,
+    hasMultipleActions,
     selectedRows,
     selectedRowsIndexes,
     setEmptySelectedRowsIndexes,

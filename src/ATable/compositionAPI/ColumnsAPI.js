@@ -23,6 +23,7 @@ export default function ColumnsAPI(props, {
   const columns = toRef(props, "columns");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const modelColumnsOrdering = toRef(props, "modelColumnsOrdering");
+  const multipleActions = toRef(props, "multipleActions");
 
   const columnsKeyById = computed(() => {
     return keyBy(columns.value, "id");
@@ -86,6 +87,9 @@ export default function ColumnsAPI(props, {
       count += columnsScrollInvisible.value.length;
     }
     if (isActionColumnVisible.value) {
+      count++;
+    }
+    if (multipleActions.value.length) {
       count++;
     }
     return count;

@@ -35,6 +35,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    hasMultipleActions: {
+      type: Boolean,
+      required: true,
+    },
     isSortingMultiColumn: {
       type: Boolean,
       required: false,
