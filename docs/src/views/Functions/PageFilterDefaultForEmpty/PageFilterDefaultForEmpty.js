@@ -1,6 +1,6 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageFilterDefaultForEmptyArguments from "./PageFilterDefaultForEmptyArguments/PageFilterDefaultForEmptyArguments.vue";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterDefaultForEmptyEmptyValue from "./PageFilterDefaultForEmptyEmptyValue/PageFilterDefaultForEmptyEmptyValue.vue";
 import PageFilterDefaultForEmptyExample from "./PageFilterDefaultForEmptyExample/PageFilterDefaultForEmptyExample.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
@@ -13,7 +13,7 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
-    PageFilterDefaultForEmptyArguments,
+    PageFilterArguments,
     PageFilterDefaultForEmptyEmptyValue,
     PageFilterDefaultForEmptyExample,
     PageFilterImportCompositionApi,

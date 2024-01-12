@@ -1,6 +1,6 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageFilterEmailArguments from "./PageFilterEmailArguments/PageFilterEmailArguments.vue";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterEmailExample from "./PageFilterEmailExample/PageFilterEmailExample.vue";
 import PageFilterEmailLinkClass from "./PageFilterEmailLinkClass/PageFilterEmailLinkClass.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
@@ -13,7 +13,7 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
-    PageFilterEmailArguments,
+    PageFilterArguments,
     PageFilterEmailExample,
     PageFilterEmailLinkClass,
     PageFilterImportCompositionApi,

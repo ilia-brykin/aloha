@@ -1,7 +1,7 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageFilterFileSizeArguments from "./PageFilterFileSizeArguments/PageFilterFileSizeArguments.vue";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterFileSizeDigits from "./PageFilterFileSizeDigits/PageFilterFileSizeDigits.vue";
 import PageFilterFileSizeExample from "./PageFilterFileSizeExample/PageFilterFileSizeExample.vue";
 import PageFilterFileSizeSourceUnits from "./PageFilterFileSizeSourceUnits/PageFilterFileSizeSourceUnits.vue";
@@ -19,7 +19,7 @@ export default {
     AlohaPage,
     AlohaTableTranslate,
     ATranslation,
-    PageFilterFileSizeArguments,
+    PageFilterArguments,
     PageFilterFileSizeDigits,
     PageFilterFileSizeExample,
     PageFilterFileSizeSourceUnits,

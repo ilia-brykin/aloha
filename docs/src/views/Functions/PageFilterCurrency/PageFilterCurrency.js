@@ -1,6 +1,6 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageFilterCurrencyArguments from "./PageFilterCurrencyArguments/PageFilterCurrencyArguments.vue";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterCurrencyDigitGrouping from "./PageFilterCurrencyDigitGrouping/PageFilterCurrencyDigitGrouping.vue";
 import PageFilterCurrencyDigits from "./PageFilterCurrencyDigits/PageFilterCurrencyDigits.vue";
 import PageFilterCurrencyExample from "./PageFilterCurrencyExample/PageFilterCurrencyExample.vue";
@@ -15,7 +15,7 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
-    PageFilterCurrencyArguments,
+    PageFilterArguments,
     PageFilterCurrencyDigitGrouping,
     PageFilterCurrencyDigits,
     PageFilterCurrencyExample,

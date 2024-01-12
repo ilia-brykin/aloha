@@ -1,8 +1,8 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
-import PageFilterJsonArguments from "./PageFilterJsonArguments/PageFilterJsonArguments.vue";
 import PageFilterJsonExample from "./PageFilterJsonExample/PageFilterJsonExample.vue";
 import PageFilterJsonReplacer from "./PageFilterJsonReplacer/PageFilterJsonReplacer.vue";
 import PageFilterJsonSpace from "./PageFilterJsonSpace/PageFilterJsonSpace.vue";
@@ -14,9 +14,9 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
+    PageFilterArguments,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
-    PageFilterJsonArguments,
     PageFilterJsonExample,
     PageFilterJsonReplacer,
     PageFilterJsonSpace,

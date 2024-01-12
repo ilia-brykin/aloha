@@ -1,6 +1,6 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageFilterDateArguments from "./PageFilterDateArguments/PageFilterDateArguments.vue";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterDateExample from "./PageFilterDateExample/PageFilterDateExample.vue";
 import PageFilterDateFormat from "./PageFilterDateFormat/PageFilterDateFormat.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
@@ -13,7 +13,7 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
-    PageFilterDateArguments,
+    PageFilterArguments,
     PageFilterDateExample,
     PageFilterDateFormat,
     PageFilterImportCompositionApi,

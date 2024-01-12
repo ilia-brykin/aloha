@@ -1,8 +1,8 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
-import PageFilterListArguments from "./PageFilterListArguments/PageFilterListArguments.vue";
 import PageFilterListIsHtml from "./PageFilterListIsHtml/PageFilterListIsHtml.vue";
 import PageFilterListIsSimpleArray from "./PageFilterListIsSimpleArray/PageFilterListIsSimpleArray.vue";
 import PageFilterListIsSimpleArrayTree from "./PageFilterListIsSimpleArrayTree/PageFilterListIsSimpleArrayTree.vue";
@@ -20,9 +20,9 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
+    PageFilterArguments,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
-    PageFilterListArguments,
     PageFilterListIsHtml,
     PageFilterListIsSimpleArray,
     PageFilterListIsSimpleArrayTree,

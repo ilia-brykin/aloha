@@ -1,6 +1,6 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageFilterBooleanArguments from "./PageFilterBooleanArguments/PageFilterBooleanArguments.vue";
+import PageFilterArguments from "../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterBooleanExample from "./PageFilterBooleanExample/PageFilterBooleanExample.vue";
 import PageFilterBooleanTrueFalseValues from "./PageFilterBooleanTrueFalseValues/PageFilterBooleanTrueFalseValues.vue";
 import PageFilterBooleanUseNil from "./PageFilterBooleanUseNil/PageFilterBooleanUseNil.vue";
@@ -14,7 +14,7 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
-    PageFilterBooleanArguments,
+    PageFilterArguments,
     PageFilterBooleanExample,
     PageFilterBooleanTrueFalseValues,
     PageFilterBooleanUseNil,
