@@ -4,7 +4,7 @@ import PageFilterDateArguments from "./PageFilterDateArguments/PageFilterDateArg
 import PageFilterDateExample from "./PageFilterDateExample/PageFilterDateExample.vue";
 import PageFilterDateFormat from "./PageFilterDateFormat/PageFilterDateFormat.vue";
 import PageFilterDateImportCompositionApi from "./PageFilterDateImportCompositionApi/PageFilterDateImportCompositionApi.vue";
-import PageFilterDateImportFunction from "./PageFilterDateImportFunction/PageFilterDateImportFunction.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -17,7 +17,7 @@ export default {
     PageFilterDateExample,
     PageFilterDateFormat,
     PageFilterDateImportCompositionApi,
-    PageFilterDateImportFunction,
+    PageFilterImportFunction,
   },
   setup() {
     const {

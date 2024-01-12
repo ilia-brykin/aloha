@@ -3,7 +3,7 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFilterKeyValueArguments from "./PageFilterKeyValueArguments/PageFilterKeyValueArguments.vue";
 import PageFilterKeyValueExample from "./PageFilterKeyValueExample/PageFilterKeyValueExample.vue";
 import PageFilterKeyValueImportCompositionApi from "./PageFilterKeyValueImportCompositionApi/PageFilterKeyValueImportCompositionApi.vue";
-import PageFilterKeyValueImportFunction from "./PageFilterKeyValueImportFunction/PageFilterKeyValueImportFunction.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -15,7 +15,7 @@ export default {
     PageFilterKeyValueArguments,
     PageFilterKeyValueExample,
     PageFilterKeyValueImportCompositionApi,
-    PageFilterKeyValueImportFunction,
+    PageFilterImportFunction,
   },
   setup() {
     const {

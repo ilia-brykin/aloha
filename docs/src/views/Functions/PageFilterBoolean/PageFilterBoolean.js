@@ -3,9 +3,9 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFilterBooleanArguments from "./PageFilterBooleanArguments/PageFilterBooleanArguments.vue";
 import PageFilterBooleanExample from "./PageFilterBooleanExample/PageFilterBooleanExample.vue";
 import PageFilterBooleanImportCompositionApi from "./PageFilterBooleanImportCompositionApi/PageFilterBooleanImportCompositionApi.vue";
-import PageFilterBooleanImportFunction from "./PageFilterBooleanImportFunction/PageFilterBooleanImportFunction.vue";
 import PageFilterBooleanTrueFalseValues from "./PageFilterBooleanTrueFalseValues/PageFilterBooleanTrueFalseValues.vue";
 import PageFilterBooleanUseNil from "./PageFilterBooleanUseNil/PageFilterBooleanUseNil.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -17,9 +17,9 @@ export default {
     PageFilterBooleanArguments,
     PageFilterBooleanExample,
     PageFilterBooleanImportCompositionApi,
-    PageFilterBooleanImportFunction,
     PageFilterBooleanTrueFalseValues,
     PageFilterBooleanUseNil,
+    PageFilterImportFunction,
   },
   setup() {
     const {

@@ -3,8 +3,8 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFilterPropertyByValueArguments from "./PageFilterPropertyByValueArguments/PageFilterPropertyByValueArguments.vue";
 import PageFilterPropertyByValueDefaultValue from "./PageFilterPropertyByValueDefaultValue/PageFilterPropertyByValueDefaultValue.vue";
 import PageFilterPropertyByValueImportCompositionApi from "./PageFilterPropertyByValueImportCompositionApi/PageFilterPropertyByValueImportCompositionApi.vue";
-import PageFilterPropertyByValueImportFunction from "./PageFilterPropertyByValueImportFunction/PageFilterPropertyByValueImportFunction.vue";
 import PageFilterPropertyByValueMapping from "./PageFilterPropertyByValueMapping/PageFilterPropertyByValueMapping.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -16,8 +16,8 @@ export default {
     PageFilterPropertyByValueArguments,
     PageFilterPropertyByValueDefaultValue,
     PageFilterPropertyByValueImportCompositionApi,
-    PageFilterPropertyByValueImportFunction,
     PageFilterPropertyByValueMapping,
+    PageFilterImportFunction,
   },
   setup() {
     const {

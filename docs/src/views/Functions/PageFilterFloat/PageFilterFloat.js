@@ -5,8 +5,8 @@ import PageFilterFloatDigitGrouping from "./PageFilterFloatDigitGrouping/PageFil
 import PageFilterFloatDigits from "./PageFilterFloatDigits/PageFilterFloatDigits.vue";
 import PageFilterFloatExample from "./PageFilterFloatExample/PageFilterFloatExample.vue";
 import PageFilterFloatImportCompositionApi from "./PageFilterFloatImportCompositionApi/PageFilterFloatImportCompositionApi.vue";
-import PageFilterFloatImportFunction from "./PageFilterFloatImportFunction/PageFilterFloatImportFunction.vue";
 import PageFilterFloatSuffix from "./PageFilterFloatSuffix/PageFilterFloatSuffix.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -20,8 +20,8 @@ export default {
     PageFilterFloatDigits,
     PageFilterFloatExample,
     PageFilterFloatImportCompositionApi,
-    PageFilterFloatImportFunction,
     PageFilterFloatSuffix,
+    PageFilterImportFunction,
   },
   setup() {
     const {

@@ -3,8 +3,8 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFilterEmailArguments from "./PageFilterEmailArguments/PageFilterEmailArguments.vue";
 import PageFilterEmailExample from "./PageFilterEmailExample/PageFilterEmailExample.vue";
 import PageFilterEmailImportCompositionApi from "./PageFilterEmailImportCompositionApi/PageFilterEmailImportCompositionApi.vue";
-import PageFilterEmailImportFunction from "./PageFilterEmailImportFunction/PageFilterEmailImportFunction.vue";
 import PageFilterEmailLinkClass from "./PageFilterEmailLinkClass/PageFilterEmailLinkClass.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -16,7 +16,7 @@ export default {
     PageFilterEmailArguments,
     PageFilterEmailExample,
     PageFilterEmailImportCompositionApi,
-    PageFilterEmailImportFunction,
+    PageFilterImportFunction,
     PageFilterEmailLinkClass,
   },
   setup() {

@@ -4,7 +4,7 @@ import PageFilterDefaultForEmptyArguments from "./PageFilterDefaultForEmptyArgum
 import PageFilterDefaultForEmptyEmptyValue from "./PageFilterDefaultForEmptyEmptyValue/PageFilterDefaultForEmptyEmptyValue.vue";
 import PageFilterDefaultForEmptyExample from "./PageFilterDefaultForEmptyExample/PageFilterDefaultForEmptyExample.vue";
 import PageFilterDefaultForEmptyImportCompositionApi from "./PageFilterDefaultForEmptyImportCompositionApi/PageFilterDefaultForEmptyImportCompositionApi.vue";
-import PageFilterDefaultForEmptyImportFunction from "./PageFilterDefaultForEmptyImportFunction/PageFilterDefaultForEmptyImportFunction.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -17,7 +17,7 @@ export default {
     PageFilterDefaultForEmptyEmptyValue,
     PageFilterDefaultForEmptyExample,
     PageFilterDefaultForEmptyImportCompositionApi,
-    PageFilterDefaultForEmptyImportFunction,
+    PageFilterImportFunction,
   },
   setup() {
     const {
