@@ -111,6 +111,8 @@ export default {
       }, "Aktionen"),
       h(ADropdown, {
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
+        buttonTitle: "_A_TABLE_DROPDOWN_OPTIONS_TITLE_",
+        buttonTextScreenReader: "_A_TABLE_DROPDOWN_OPTIONS_TITLE_",
         dropdownTag: "div",
         dropdownClass: "a_p_0",
         hasCaret: false,

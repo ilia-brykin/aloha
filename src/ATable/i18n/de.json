@@ -20,5 +20,11 @@
   "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Alle sichtbaren, relevanten Zeilen auswählen",
   "_A_TABLE_SELECT_THIS_ROW_": "Die Zeile auswählen",
   "_A_TABLE_SORT_TITLE_": "Klicken Sie hier, um zwischen aufsteigender, absteigender und keiner Sortierung zu wechseln.",
-  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "Halten Sie die Umschalttaste beim Klicken gedrückt, um die Sortierung mehrerer Spalten zu kombinieren."
+  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "Halten Sie die Umschalttaste beim Klicken gedrückt, um die Sortierung mehrerer Spalten zu kombinieren.",
+  "_A_TABLE_DROPDOWN_OPTIONS_TITLE_": "Tabelle anpassen",
+  "_A_TABLE_DROPDOWN_HIDE_FIELDS_TITLE_{{count}}_": "Weitere Felder anzeigen ({{ count }})",
+  "_A_TABLE_DROPDOWN_HIDE_FIELD_TEXT_": "1 Feld",
+  "_A_TABLE_DROPDOWN_HIDE_FIELDS_TEXT_{{count}}_": "{{ count }} Felder",
+  "_A_TABLE_ALL_ROWS_{{count}}_": "Gesamtanzahl der Einträge: {{ count }}",
+  "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_": "Aktionen zur Zeile: {{ rowNumber }}"
 }

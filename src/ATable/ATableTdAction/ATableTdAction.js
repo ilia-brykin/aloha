@@ -6,7 +6,9 @@ import ADropdown from "../../ADropdown/ADropdown";
 import AIcon from "../../AIcon/AIcon";
 import ATableListItem from "../ATableListItem/ATableListItem";
 
+import ColumnsCountAPI from "./compositionAPI/ColumnsCountAPI.js";
 import RowActionsAPI from "../compositionAPI/RowActionsAPI";
+import RowNumberAPI from "./compositionAPI/RowNumberAPI.js";
 
 export default {
   name: "ATableTdAction",
@@ -43,9 +45,7 @@ export default {
     },
   },
   inject: [
-    "columnActionsWidthLocal",
     "columnsScrollInvisible",
-    "modelIsTableWithoutScroll",
   ],
   setup(props) {
     const {
@@ -54,29 +54,25 @@ export default {
       rowActionsFiltered,
     } = RowActionsAPI(props);
 
+    const {
+      columnsScrollInvisibleText,
+      countColumnsScrollInvisible,
+      isColumnsScrollInvisibleDropdownVisible,
+    } = ColumnsCountAPI();
+
+    const {
+      rowNumber,
+    } = RowNumberAPI(props);
+
     return {
       buttonActionsId,
+      columnsScrollInvisibleText,
+      countColumnsScrollInvisible,
+      isColumnsScrollInvisibleDropdownVisible,
       isRowActionsDropdownVisible,
       rowActionsFiltered,
+      rowNumber,
     };
-  },
-  computed: {
-    isColumnsScrollInvisibleDropdownVisible() {
-      if (this.modelIsTableWithoutScroll) {
-        return this.countColumnsScrollInvisible > 0;
-      }
-      return false;
-    },
-
-    columnsScrollInvisibleText() {
-      return this.countColumnsScrollInvisible === 1 ?
-        `${ this.countColumnsScrollInvisible } Feld` :
-        `${ this.countColumnsScrollInvisible } Felder`;
-    },
-
-    countColumnsScrollInvisible() {
-      return this.columnsScrollInvisible.length;
-    },
   },
   render() {
     return h("div", {
@@ -96,6 +92,16 @@ export default {
       }, [
         this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
           buttonClass: "a_btn a_btn_link",
+          buttonIconLeft: "Plus",
+          buttonIconClass: "a_table__cell_action__additional_icon",
+          buttonTitle: "_A_TABLE_DROPDOWN_HIDE_FIELDS_TITLE_{{count}}_",
+          buttonTextScreenReader: "_A_TABLE_DROPDOWN_HIDE_FIELDS_TITLE_{{count}}_",
+          buttonText: this.columnsScrollInvisibleText,
+          buttonTextClass: "a_table__cell_action__additional_text",
+          buttonTextAriaHidden: true,
+          extra: {
+            count: this.countColumnsScrollInvisible,
+          },
           dropdownClass: "a_p_0 a_overflow_x_hidden",
           dropdownTag: "div",
           hasCaret: false,
@@ -104,15 +110,6 @@ export default {
           menuWidth: 600,
           isCloseByClickInside: false,
         }, {
-          button: () => [
-            h(AIcon, {
-              icon: "Plus",
-              class: "a_table__cell_action__additional_icon",
-            }),
-            h("span", {
-              class: "a_table__cell_action__additional_text",
-            }, this.columnsScrollInvisibleText)
-          ],
           dropdown: () => [
             h("dl", {
               class: "a_list_dl a_list_dl_dt_right",
@@ -133,10 +130,16 @@ export default {
           id: this.buttonActionsId,
           actions: this.rowActionsFiltered,
           buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-          placement: "bottom-end",
-          caretIcon: "OptionVertical",
+          buttonIconLeft: "OptionVertical",
+          buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
+          buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
           disabled: this.disabledRowActions,
+          extra: {
+            rowNumber: this.rowNumber,
+          },
+          hasCaret: false,
           inBody: true,
+          placement: "bottom-end",
         }, this.$slots),
       ]),
     ]);

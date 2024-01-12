@@ -10,6 +10,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
+import CountAllRowsAPI from "./compositionAPI/CountAllRowsAPI";
 import MultipleAPI from "./compositionAPI/MultipleAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
@@ -157,8 +158,13 @@ export default {
       viewSlotLocal,
     } = ViewsAPI(props, context);
 
+    const {
+      countAllRowsFormatted,
+    } = CountAllRowsAPI(props);
+
     return {
       buttonMultipleId,
+      countAllRowsFormatted,
       currentMultipleActions,
       filterCurrency,
       isBtnMultipleActionDisabled,
@@ -173,11 +179,6 @@ export default {
       updateViewCurrentLocal,
       viewSlotLocal,
     };
-  },
-  computed: {
-    countAllRowsFormatted() {
-      return `(${ this.filterCurrency(this.countAllRows, { suffix: "", digits: 0 }) })`;
-    },
   },
   methods: {
     updateModelQuickSearch(model) {
@@ -201,9 +202,16 @@ export default {
                 class: "a_table__top_panel__label__text",
                 text: this.label,
               }),
-              h("span", {
+              h(AButton, {
                 class: "a_table__top_panel__label__count",
-              }, this.countAllRowsFormatted),
+                tag: "span",
+                text: this.countAllRowsFormatted,
+                textAriaHidden: true,
+                title: "_A_TABLE_ALL_ROWS_{{count}}_",
+                extra: {
+                  count: this.countAllRows,
+                },
+              }),
             ]) :
           "",
         h("div", {
