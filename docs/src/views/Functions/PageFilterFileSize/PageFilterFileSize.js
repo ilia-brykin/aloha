@@ -4,10 +4,10 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFilterFileSizeArguments from "./PageFilterFileSizeArguments/PageFilterFileSizeArguments.vue";
 import PageFilterFileSizeDigits from "./PageFilterFileSizeDigits/PageFilterFileSizeDigits.vue";
 import PageFilterFileSizeExample from "./PageFilterFileSizeExample/PageFilterFileSizeExample.vue";
-import PageFilterFileSizeImportCompositionApi from "./PageFilterFileSizeImportCompositionApi/PageFilterFileSizeImportCompositionApi.vue";
 import PageFilterFileSizeSourceUnits from "./PageFilterFileSizeSourceUnits/PageFilterFileSizeSourceUnits.vue";
 import PageFilterFileSizeUnits from "./PageFilterFileSizeUnits/PageFilterFileSizeUnits.vue";
 import PageFilterFileSizeUnitsEmpty from "./PageFilterFileSizeUnitsEmpty/PageFilterFileSizeUnitsEmpty.vue";
+import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -22,10 +22,10 @@ export default {
     PageFilterFileSizeArguments,
     PageFilterFileSizeDigits,
     PageFilterFileSizeExample,
-    PageFilterFileSizeImportCompositionApi,
     PageFilterFileSizeSourceUnits,
     PageFilterFileSizeUnits,
     PageFilterFileSizeUnitsEmpty,
+    PageFilterImportCompositionApi,
     PageFilterImportFunction,
   },
   setup() {

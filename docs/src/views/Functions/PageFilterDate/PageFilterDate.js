@@ -3,7 +3,7 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFilterDateArguments from "./PageFilterDateArguments/PageFilterDateArguments.vue";
 import PageFilterDateExample from "./PageFilterDateExample/PageFilterDateExample.vue";
 import PageFilterDateFormat from "./PageFilterDateFormat/PageFilterDateFormat.vue";
-import PageFilterDateImportCompositionApi from "./PageFilterDateImportCompositionApi/PageFilterDateImportCompositionApi.vue";
+import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -16,7 +16,7 @@ export default {
     PageFilterDateArguments,
     PageFilterDateExample,
     PageFilterDateFormat,
-    PageFilterDateImportCompositionApi,
+    PageFilterImportCompositionApi,
     PageFilterImportFunction,
   },
   setup() {

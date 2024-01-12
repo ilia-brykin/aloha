@@ -4,8 +4,8 @@ import PageFilterCurrencyArguments from "./PageFilterCurrencyArguments/PageFilte
 import PageFilterCurrencyDigitGrouping from "./PageFilterCurrencyDigitGrouping/PageFilterCurrencyDigitGrouping.vue";
 import PageFilterCurrencyDigits from "./PageFilterCurrencyDigits/PageFilterCurrencyDigits.vue";
 import PageFilterCurrencyExample from "./PageFilterCurrencyExample/PageFilterCurrencyExample.vue";
-import PageFilterCurrencyImportCompositionApi from "./PageFilterCurrencyImportCompositionApi/PageFilterCurrencyImportCompositionApi.vue";
 import PageFilterCurrencySuffix from "./PageFilterCurrencySuffix/PageFilterCurrencySuffix.vue";
+import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -19,8 +19,8 @@ export default {
     PageFilterCurrencyDigitGrouping,
     PageFilterCurrencyDigits,
     PageFilterCurrencyExample,
-    PageFilterCurrencyImportCompositionApi,
     PageFilterCurrencySuffix,
+    PageFilterImportCompositionApi,
     PageFilterImportFunction,
   },
   setup() {

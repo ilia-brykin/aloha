@@ -1,9 +1,9 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
+import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 import PageFilterKeyValueArguments from "./PageFilterKeyValueArguments/PageFilterKeyValueArguments.vue";
 import PageFilterKeyValueExample from "./PageFilterKeyValueExample/PageFilterKeyValueExample.vue";
-import PageFilterKeyValueImportCompositionApi from "./PageFilterKeyValueImportCompositionApi/PageFilterKeyValueImportCompositionApi.vue";
-import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -12,10 +12,10 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
+    PageFilterImportCompositionApi,
+    PageFilterImportFunction,
     PageFilterKeyValueArguments,
     PageFilterKeyValueExample,
-    PageFilterKeyValueImportCompositionApi,
-    PageFilterImportFunction,
   },
   setup() {
     const {

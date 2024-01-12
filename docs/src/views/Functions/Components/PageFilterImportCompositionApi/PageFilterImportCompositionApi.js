@@ -3,14 +3,20 @@ import AlohaExample from "../../../../global/components/AlohaExample/AlohaExampl
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageFilterLinkImportCompositionApi",
+  name: "PageFilterImportCompositionApi",
   components: {
     AlohaExample,
   },
-  setup() {
+  props: {
+    functionName: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props) {
     const {
       codeJs,
-    } = JsAPI();
+    } = JsAPI(props);
 
     return {
       codeJs,

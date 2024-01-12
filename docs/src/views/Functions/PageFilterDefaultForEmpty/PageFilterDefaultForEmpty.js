@@ -3,7 +3,7 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFilterDefaultForEmptyArguments from "./PageFilterDefaultForEmptyArguments/PageFilterDefaultForEmptyArguments.vue";
 import PageFilterDefaultForEmptyEmptyValue from "./PageFilterDefaultForEmptyEmptyValue/PageFilterDefaultForEmptyEmptyValue.vue";
 import PageFilterDefaultForEmptyExample from "./PageFilterDefaultForEmptyExample/PageFilterDefaultForEmptyExample.vue";
-import PageFilterDefaultForEmptyImportCompositionApi from "./PageFilterDefaultForEmptyImportCompositionApi/PageFilterDefaultForEmptyImportCompositionApi.vue";
+import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -16,7 +16,7 @@ export default {
     PageFilterDefaultForEmptyArguments,
     PageFilterDefaultForEmptyEmptyValue,
     PageFilterDefaultForEmptyExample,
-    PageFilterDefaultForEmptyImportCompositionApi,
+    PageFilterImportCompositionApi,
     PageFilterImportFunction,
   },
   setup() {

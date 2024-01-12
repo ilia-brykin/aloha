@@ -1,10 +1,10 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
+import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
+import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 import PageFilterLimitToArguments from "./PageFilterLimitToArguments/PageFilterLimitToArguments.vue";
-import PageFilterLimitToImportCompositionApi from "./PageFilterLimitToImportCompositionApi/PageFilterLimitToImportCompositionApi.vue";
 import PageFilterLimitToLimit from "./PageFilterLimitToLimit/PageFilterLimitToLimit.vue";
 import PageFilterLimitToMaxThreeDots from "./PageFilterLimitToMaxThreeDots/PageFilterLimitToMaxThreeDots.vue";
-import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
@@ -13,11 +13,11 @@ export default {
   components: {
     AlohaPage,
     ATranslation,
+    PageFilterImportCompositionApi,
+    PageFilterImportFunction,
     PageFilterLimitToArguments,
-    PageFilterLimitToImportCompositionApi,
     PageFilterLimitToLimit,
     PageFilterLimitToMaxThreeDots,
-    PageFilterImportFunction,
   },
   setup() {
     const {
