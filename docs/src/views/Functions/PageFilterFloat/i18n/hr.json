@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "_PAGE_FILTER_FLOAT_ARGUMENTS_",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "_PAGE_FILTER_FLOAT_DESCRIPTION_"
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Argumenti: \nvalue (proizvoljna vrijednost): Numerička vrijednost koja će biti formatirana\n[suffix=\"\"] (string): Sufiks koji će biti dodan nakon numeričke vrijednosti\n[digits=2] (cijeli broj): Broj decimalnih mjesta nakon decimalne točke\n[digitGrouping=true] (boolean): Indikator treba li primijeniti grupiranje znamenki (separator tisuća)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "Funkcija <strong>filterFloat</strong> formatira numeričke vrijednosti prema zadanim parametrima. Prima numeričku vrijednost i vraća je kao string sa zadanim brojem decimalnih mjesta, sufiksom i opcionalnim grupiranjem znamenki (separator tisuća). Ako numerička vrijednost nije proslijeđena (null ili undefined), vraća se prazan string."
 }
