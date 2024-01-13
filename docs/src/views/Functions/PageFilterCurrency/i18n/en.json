@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_CURRENCY_ARGUMENTS_": "_PAGE_FILTER_CURRENCY_ARGUMENTS_",
-  "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "_PAGE_FILTER_CURRENCY_DESCRIPTION_"
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_": "<strong>value</strong> (<strong>Number | String</strong>): The numeric value to be formatted as a currency<br>[<strong>suffix=\"€\"</strong>] (<strong>String</strong>): The suffix added to the formatted string to indicate the currency<br>[<strong>digits=2</strong>] (<strong>Number</strong>): The number of decimal places in the formatted string<br>[<strong>digitGrouping=true</strong>] (<strong>Boolean</strong>): Indicates whether digit grouping is enabled to insert thousand separators in the formatted string",
+  "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "The <strong>filterCurrency</strong> function is a specialized extension of the <a href=\"/#/filter-float\"><strong>filterFloat</strong></a> function and is designed to format numeric values as currency. It accepts a numeric value and returns a string that represents the value with the specified currency, number of decimal places, a suffix, and optionally digit grouping (thousand separators). If the numeric value is not specified (null or undefined), an empty string is returned. This function is designed to be extended for many currencies."
 }

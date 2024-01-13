@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_CURRENCY_ARGUMENTS_": "_PAGE_FILTER_CURRENCY_ARGUMENTS_",
-  "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "_PAGE_FILTER_CURRENCY_DESCRIPTION_"
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_": "<strong>value</strong> (<strong>عدد | نص</strong>): القيمة العددية التي يجب تنسيقها كعملة<br>[<strong>suffix=\"€\"</strong>] (<strong>نص</strong>): اللاحقة التي يتم إضافتها إلى السلسلة النصية المنسقة لتحديد العملة<br>[<strong>digits=2</strong>] (<strong>عدد</strong>): عدد الأرقام العشرية في السلسلة النصية المنسقة<br>[<strong>digitGrouping=true</strong>] (<strong>Boolean</strong>): يشير إلى ما إذا كانت مجموعة الأرقام مفعلة لإضافة فواصل الآلاف في السلسلة النصية المنسقة",
+  "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "تعد وظيفة <strong>filterCurrency</strong> توسعة متخصصة لوظيفة <a href=\"/#/filter-float\"><strong>filterFloat</strong></a> وهي مصممة لتنسيق القيم العددية كعملة. تقبل قيمة عددية وتعيدها كسلسلة نصية تمثل القيمة مع العملة المحددة، عدد الأرقام العشرية، لاحقة، واختياريًا مجموعة الأرقام (فواصل الآلاف). إذا لم تُحدد القيمة العددية (فارغة أو غير معرفة)، يتم إرجاع سلسلة نصية فارغة. تم تطوير هذه الوظيفة لتكون قابلة للتوسع للعديد من العملات."
 }
