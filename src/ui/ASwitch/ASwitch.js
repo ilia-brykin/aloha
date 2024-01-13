@@ -155,12 +155,12 @@ export default {
     trueLabel: {
       type: String,
       required: false,
-      default: "Ja",
+      default: "_YES_",
     },
     falseLabel: {
       type: String,
       required: false,
-      default: "Nein",
+      default: "_NO_",
     },
     defaultLabel: {
       type: String,

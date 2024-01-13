@@ -6,12 +6,12 @@
   "_LOADING_": "Loading",
   "_MORE_ACTIONS_": "more actions",
   "_NEXT_": "Next",
-  "_NO_": "no",
+  "_NO_": "No",
   "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} from {{ count}}",
   "_PREVIOUS_": "Previous",
   "_REMOVE_FIELD_CONTENT_": "Remove field content",
   "_REMOVE_SELECTION_": "remove selection",
   "_SEARCH_MENU_": "Search menu",
   "_SELECT_TEXT_EMPTY_": "[No selection]",
-  "_YES_": "yes"
+  "_YES_": "Yes"
 }
