@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_",
-  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_"
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# Argumenti:  \nvalue (cijeli broj): Veličina koja će biti pretvorena.\n[units=\"kb\"] (string): Željena jedinica za veličinu. Moguće jedinice su \"b\" (bajti), \"kb\" (kilobajti), \"mb\" (megabajti), \"gb\" (gigabajti), \"tb\" (terabajti), \"pb\" (petabajti), \"eb\" (ekzabajti), \"zb\" (zetabajti) i \"yb\" (jotabajti).\n[sourceUnits=\"b\"] (string): Izvorna jedinica veličine. Moguće jedinice su iste kao i za units.\n[digits=2] (cijeli broj): \nBroj decimalnih mjesta u formatiranom stringu",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "Funkcija <strong>filterFileSize</strong> pretvara veličinu iz izvorne jedinice (na primjer, u bajtima) u ciljnu veličinu s određenom jedinicom (na primjer, u kilobajtima ili megabajtima) i vraća rezultat kao formatirani niz."
 }
