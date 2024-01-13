@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_DATE_ARGUMENTS_": "_PAGE_FILTER_DATE_ARGUMENTS_",
-  "_PAGE_FILTER_DATE_DESCRIPTION_": "_PAGE_FILTER_DATE_DESCRIPTION_"
+  "_PAGE_FILTER_DATE_ARGUMENTS_": "# Argumentos: \nvalue (Cualquier tipo): La fecha o el tiempo que se va a formatear\n[format=\"date\"] (String): El formato de visualización para la fecha. Valores posibles: \"date\" (fecha), \"datetime\" (fecha y hora), \"fullDate\" (fecha y hora completa), \"time\" (hora), \"timeWithSeconds\" (hora con segundos) o un formato válido de moment.js.",
+  "_PAGE_FILTER_DATE_DESCRIPTION_": "La función <strong>filterDate</strong> utiliza la biblioteca <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a> para formatear fechas y horas. Toma un valor de fecha o tiempo y lo devuelve en el formato especificado. Tenga en cuenta que moment.js se considera una biblioteca obsoleta y está previsto reemplazarla por otra solución en el futuro. También está previsto ampliar la función para admitir diferentes idiomas."
 }

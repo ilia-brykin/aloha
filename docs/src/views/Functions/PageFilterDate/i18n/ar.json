@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_DATE_ARGUMENTS_": "_PAGE_FILTER_DATE_ARGUMENTS_",
-  "_PAGE_FILTER_DATE_DESCRIPTION_": "_PAGE_FILTER_DATE_DESCRIPTION_"
+  "_PAGE_FILTER_DATE_ARGUMENTS_": "# الحجج: \nvalue (أي شيء): التاريخ أو الوقت الذي يجب تنسيقه\n[format=\"date\"] (String): تنسيق عرض التاريخ. القيم الممكنة: \"date\" (تاريخ), \"datetime\" (تاريخ ووقت), \"fullDate\" (تاريخ ووقت كامل), \"time\" (وقت), \"timeWithSeconds\" (وقت مع ثواني) أو تنسيق صالح من moment.js.",
+  "_PAGE_FILTER_DATE_DESCRIPTION_": "تستخدم وظيفة <strong>filterDate</strong> مكتبة <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a> لتنسيق التاريخ والوقت. تأخذ قيمة تاريخ أو وقت وتعيدها بالتنسيق المحدد. يرجى ملاحظة أن مكتبة moment.js تعتبر قديمة ومن المقرر استبدالها بحل آخر في المستقبل. كما يخطط لتوسيع الوظيفة لدعم لغات مختلفة."
 }
