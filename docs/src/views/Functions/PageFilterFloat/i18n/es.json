@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "_PAGE_FILTER_FLOAT_ARGUMENTS_",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "_PAGE_FILTER_FLOAT_DESCRIPTION_"
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Argumentos: \nvalue (Cualquiera): El valor numérico que se va a formatear\n[suffix=\"\"] (String): Un sufijo que se añadirá después del valor numérico\n[digits=2] (Número): El número de decimales después del punto decimal\n[digitGrouping=true] (Booleano): Una marca que indica si se debe aplicar el agrupamiento de dígitos (separador de miles)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La función <strong>filterFloat</strong> formatea valores numéricos de acuerdo con los parámetros especificados. Toma un valor numérico y lo devuelve como una cadena con el número especificado de decimales, un sufijo y, opcionalmente, agrupamiento de dígitos (separador de miles). Si no se proporciona el valor numérico (nulo o indefinido), se devuelve una cadena vacía."
 }

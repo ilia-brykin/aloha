@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "_PAGE_FILTER_FLOAT_ARGUMENTS_",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "_PAGE_FILTER_FLOAT_DESCRIPTION_"
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Arguments : \nvalue (Tout): La valeur numérique à formater\n[suffix=\"\"] (String): Un suffixe à ajouter après la valeur numérique\n[digits=2] (Number): Le nombre de décimales après la virgule\n[digitGrouping=true] (Boolean): Un drapeau indiquant si le regroupement des chiffres doit être appliqué (séparateurs de milliers)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La fonction <strong>filterFloat</strong> formate les valeurs numériques selon les paramètres spécifiés. Elle prend une valeur numérique et la retourne sous forme de chaîne avec le nombre spécifié de décimales, un suffixe et, éventuellement, un regroupement de chiffres (séparateurs de milliers). Si la valeur numérique n'est pas spécifiée (nulle ou indéfinie), une chaîne vide est renvoyée."
 }

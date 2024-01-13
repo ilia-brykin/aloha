@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "_PAGE_FILTER_FLOAT_ARGUMENTS_",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "_PAGE_FILTER_FLOAT_DESCRIPTION_"
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Arguments: \nvalue (Any): The numeric value to be formatted\n[suffix=\"\"] (String): A suffix to be added after the numeric value\n[digits=2] (Number): The number of decimal places after the decimal point\n[digitGrouping=true] (Boolean): A flag indicating whether digit grouping should be applied (thousands separator)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "The <strong>filterFloat</strong> function formats numeric values according to the specified parameters. It takes a numeric value and returns it as a string with the specified number of decimal places, a suffix, and optional digit grouping (thousands separator). If the numeric value is not provided (null or undefined), an empty string is returned."
 }

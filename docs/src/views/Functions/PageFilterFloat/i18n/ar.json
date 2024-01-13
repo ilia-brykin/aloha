@@ -1,4 +1,4 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "_PAGE_FILTER_FLOAT_ARGUMENTS_",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "_PAGE_FILTER_FLOAT_DESCRIPTION_"
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# الحجج: \nvalue (أي شيء): القيمة العددية التي سيتم تنسيقها\n[suffix=\"\"] (String): لاحقة تضاف إلى القيمة العددية\n[digits=2] (Number): عدد الخانات العشرية بعد الفاصلة\n[digitGrouping=true] (Boolean): علامة تشير إلى ما إذا كان يجب تطبيق تجميع الأرقام (فاصلة كل ثلاثة أرقام)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "تقوم وظيفة <strong>filterFloat</strong> بتنسيق القيم العددية وفقًا للمعايير المحددة. تستقبل قيمة عددية وتعيدها كسلسلة نصية مع عدد محدد من الخانات العشرية، ولاحقة، واختياريًا تجميع الأرقام (فاصلة كل ثلاثة أرقام). إذا لم يتم تحديد القيمة العددية (null أو undefined)، فسيتم إرجاع سلسلة نصية فارغة."
 }
