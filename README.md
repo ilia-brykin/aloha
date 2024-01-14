@@ -35,6 +35,16 @@ The documentation can be found in [DOCS](https://ilia-brykin.github.io/aloha/). 
 
 [Aloha documentation](https://ilia-brykin.github.io/aloha/)  is available in English, German, Spanish, French, Arabic, Italian, Russian and Croatian.
 
+## Tests
+
+``` bash
+# start all tests
+$ npm run test
+
+# start one test
+$ npm run test src/filters/__tests__/filterList.test.js
+```
+
 ## Sponsor / Support
 
 [PROUNIX](https://prounix.de/)
