@@ -6,6 +6,7 @@ import PageFilterImportFunction from "../Components/PageFilterImportFunction/Pag
 import PageFilterSearchHighlightSearchClass from "./PageFilterSearchHighlightSearchClass/PageFilterSearchHighlightSearchClass.vue";
 import PageFilterSearchHighlightSearchModel from "./PageFilterSearchHighlightSearchModel/PageFilterSearchHighlightSearchModel.vue";
 
+import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 export default {
@@ -24,7 +25,12 @@ export default {
       pageTitle,
     } = PageTitleAPI();
 
+    const {
+      argumentsText,
+    } = ArgumentsAPI();
+
     return {
+      argumentsText,
       pageTitle,
     };
   },

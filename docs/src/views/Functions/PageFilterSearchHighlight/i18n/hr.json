@@ -1,4 +1,7 @@
 {
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Der Wert, in dem der Suchbegriff hervorgehoben werden soll",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Der Suchbegriff, der im Wert hervorgehoben werden soll",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Eine CSS-Klasse, die den hervorgehobenen Teil des Werts stylen soll",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_": "# Argumenti:  \nvalue (string): Vrijednost u kojoj bi se trebao nalaziti traženi pojam.\n[searchModel=\"\"] (string): Traženi pojam koji će biti istaknut\n[searchClass=\"a_search_highlight\"] (string): \nCSS klasa koja bi trebala stilizirati istaknuti dio vrijednosti",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Funkcija <strong>filterSearchHighlight</strong> koristi se za isticanje traženog pojma unutar neke vrijednosti omotavanjem traženog pojma HTML oznakama. Omogućuje prilagodbu traženog pojma i CSS klase za isticanje."
 }

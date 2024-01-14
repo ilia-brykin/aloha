@@ -1,4 +1,6 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_": "# Аргументы:  \nvalue (String): Значение, в котором следует выделить поисковый запрос.\n[searchModel=\"\"] (String): Поисковый запрос, который следует выделить в значении\n[searchClass=\"a_search_highlight\"] (String): CSS-класс, стилизующий выделенную часть значения",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Значение, в котором следует выделить поисковый запрос",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Поисковый запрос, который следует выделить в значении",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "CSS-класс, стилизующий выделенную часть значения",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Функция <strong>filterSearchHighlight</strong> предназначена для выделения поискового запроса в значении, обрамляя его HTML-тегами. Она позволяет настраивать поисковый запрос и CSS-класс для выделения."
 }

@@ -1,4 +1,7 @@
 {
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Der Wert, in dem der Suchbegriff hervorgehoben werden soll",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Der Suchbegriff, der im Wert hervorgehoben werden soll",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Eine CSS-Klasse, die den hervorgehobenen Teil des Werts stylen soll",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_": "# Argomenti:  \nvalue (String): Il valore in cui il termine di ricerca dovrebbe essere evidenziato.\n[searchModel=\"\"] (String): Il termine di ricerca da evidenziare nel valore\n[searchClass=\"a_search_highlight\"] (String): Una classe CSS che dovrebbe stilizzare la parte evidenziata del valore",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "La funzione <strong>filterSearchHighlight</strong> viene utilizzata per evidenziare un termine di ricerca in un valore avvolgendolo con tag HTML. Permette la personalizzazione del termine di ricerca e della classe CSS per l'evidenziazione."
 }
