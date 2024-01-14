@@ -1,4 +1,7 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Argumente:  \nvalue (Any): Die zu formatierende numerische Wert\n[suffix=\"\"] (String): Ein Suffix, das nach dem numerischen Wert hinzugefügt wird\n[digits=2] (Number): Die Anzahl der Dezimalstellen nach dem Komma\n[digitGrouping=true] (Boolean): Ein Flag, das angibt, ob die Zifferngruppierung angewendet werden soll (Tausendertrennzeichen)\n",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "Die Funktion <strong>filterFloat</strong> formatiert numerische Werte gemäß den angegebenen Parametern. Sie nimmt eine numerische Wert entgegen und gibt ihn als Zeichenkette mit der angegebenen Anzahl von Dezimalstellen, einem Suffix und optionaler Zifferngruppierung (Tausendertrennzeichen) zurück. Wenn der numerische Wert nicht angegeben ist (null oder undefined), wird eine leere Zeichenkette zurückgegeben."
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "Die zu formatierende numerische Wert",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Ein Suffix, das nach dem numerischen Wert hinzugefügt wird",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen nach dem Komma",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Ein Flag, das angibt, ob die Zifferngruppierung angewendet werden soll (Tausendertrennzeichen)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "Die Funktion <strong>filterFloat</strong> formatiert numerische Werte gemäß den angegebenen Parametern. Sie nimmt eine numerische Wert entgegen und gibt ihn als Zeichenkette mit der angegebenen Anzahl von Dezimalstellen, einem Suffix und optionaler Zifferngruppierung (Tausendertrennzeichen) zurück. Wenn der numerische Wert nicht angegeben ist (<strong>null</strong> oder <strong>undefined</strong>), wird eine leere Zeichenkette zurückgegeben."
 }
