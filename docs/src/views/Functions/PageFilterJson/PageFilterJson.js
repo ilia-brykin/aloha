@@ -7,6 +7,7 @@ import PageFilterJsonExample from "./PageFilterJsonExample/PageFilterJsonExample
 import PageFilterJsonReplacer from "./PageFilterJsonReplacer/PageFilterJsonReplacer.vue";
 import PageFilterJsonSpace from "./PageFilterJsonSpace/PageFilterJsonSpace.vue";
 
+import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 export default {
@@ -26,7 +27,12 @@ export default {
       pageTitle,
     } = PageTitleAPI();
 
+    const {
+      argumentsText,
+    } = ArgumentsAPI();
+
     return {
+      argumentsText,
       pageTitle,
     };
   },
