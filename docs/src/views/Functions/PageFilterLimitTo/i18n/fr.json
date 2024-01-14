@@ -1,4 +1,7 @@
 {
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "Der Eingangsstring, der beschnitten werden soll",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "Die maximale Länge des zurückgegebenen Strings",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Gibt an, ob maximal drei Punkten am Ende des Strings angezeigt werden",
   "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# Arguments :  \ntext (String): La chaîne de caractères d'entrée à écourter\n[limit=30] (Number): La longueur maximale de la chaîne retournée\n[maxThreeDots=true] (Boolean): Indique si un maximum de trois points doit être affiché à la fin de la chaîne\n",
   "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "La fonction <strong>filterLimitTo</strong> est utilisée pour limiter une chaîne d'entrée à une longueur maximale spécifique et appliquer éventuellement une logique de points spéciale à la fin de la chaîne."
 }

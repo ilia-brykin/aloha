@@ -1,4 +1,7 @@
 {
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "Der Eingangsstring, der beschnitten werden soll",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "Die maximale Länge des zurückgegebenen Strings",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Gibt an, ob maximal drei Punkten am Ende des Strings angezeigt werden",
   "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# Argomenti:  \ntext (String): La stringa di input da tagliare\n[limit=30] (Number): La lunghezza massima della stringa restituita\n[maxThreeDots=true] (Booleano): Indica se mostrare al massimo tre punti alla fine della stringa\n",
   "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "La funzione <strong>filterLimitTo</strong> viene utilizzata per limitare una stringa di input a una lunghezza massima specifica e, opzionalmente, applicare una logica speciale di punti alla fine della stringa."
 }

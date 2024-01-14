@@ -1,4 +1,7 @@
 {
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "Der Eingangsstring, der beschnitten werden soll",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "Die maximale Länge des zurückgegebenen Strings",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Gibt an, ob maximal drei Punkten am Ende des Strings angezeigt werden",
   "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# Argumenti: \ntext (string): Ulazni string čija će duljina biti ograničena\n[limit=30] (cijeli broj): Maksimalna duljina povratnog stringa\n[maxThreeDots=true] (boolean): Određuje hoće li se najviše tri točke vratiti na kraju povratnog stringa\n",
   "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "Funkcija <strong>filterLimitTo</strong> koristi se za ograničavanje duljine ulaznog stringa na zadanu maksimalnu vrijednost, kao i za opcionalno primjenjivanje posebne logike točaka na kraju stringa."
 }

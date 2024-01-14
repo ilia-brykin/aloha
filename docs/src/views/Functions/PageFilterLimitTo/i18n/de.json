@@ -1,4 +1,6 @@
 {
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# Argumente:  \ntext (String): Der Eingangsstring, der beschnitten werden soll\n[limit=30] (Number): Die maximale Länge des zurückgegebenen Strings\n[maxThreeDots=true] (Boolean): Gibt an, ob maximal drei Punkten am Ende des Strings angezeigt werden\n",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "Der Eingangsstring, der beschnitten werden soll",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "Die maximale Länge des zurückgegebenen Strings",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Gibt an, ob maximal drei Punkten am Ende des Strings angezeigt werden",
   "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "Die Funktion <strong>filterLimitTo</strong> dient dazu, einen Eingangsstring auf eine bestimmte maximale Länge zu beschränken und optional eine spezielle Punktelogik am Ende des Strings anzuwenden."
 }
