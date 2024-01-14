@@ -1,4 +1,8 @@
 {
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "Die Größe, die konvertiert werden soll",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "Die gewünschte Einheit für die Größenangabe. Mögliche Einheiten sind <strong>b</strong> (Bytes), <strong>kb</strong> (Kilobytes), <strong>mb</strong> (Megabytes), <strong>gb</strong> (Gigabytes), <strong>tb</strong> (Terabytes), <strong>pb</strong> (Petabytes), <strong>eb</strong> (Exabytes), <strong>zb</strong> (Zettabytes), <strong>yb</strong> (Yottabytes)",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "Die Einheit der ursprünglichen Größe. Mögliche Einheiten sind dieselben wie für units",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen in der formatierten Zeichenkette",
   "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# Argumenti:  \nvalue (cijeli broj): Veličina koja će biti pretvorena.\n[units=\"kb\"] (string): Željena jedinica za veličinu. Moguće jedinice su \"b\" (bajti), \"kb\" (kilobajti), \"mb\" (megabajti), \"gb\" (gigabajti), \"tb\" (terabajti), \"pb\" (petabajti), \"eb\" (ekzabajti), \"zb\" (zetabajti) i \"yb\" (jotabajti).\n[sourceUnits=\"b\"] (string): Izvorna jedinica veličine. Moguće jedinice su iste kao i za units.\n[digits=2] (cijeli broj): \nBroj decimalnih mjesta u formatiranom stringu",
   "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "Funkcija <strong>filterFileSize</strong> pretvara veličinu iz izvorne jedinice (na primjer, u bajtima) u ciljnu veličinu s određenom jedinicom (na primjer, u kilobajtima ili megabajtima) i vraća rezultat kao formatirani niz."
 }

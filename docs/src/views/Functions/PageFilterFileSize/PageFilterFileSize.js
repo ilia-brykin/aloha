@@ -10,6 +10,7 @@ import PageFilterFileSizeUnitsEmpty from "./PageFilterFileSizeUnitsEmpty/PageFil
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 
+import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import TranslateAPI from "./compositionAPI/TranslateAPI";
 
@@ -37,7 +38,12 @@ export default {
       dataTranslate,
     } = TranslateAPI();
 
+    const {
+      argumentsText,
+    } = ArgumentsAPI();
+
     return {
+      argumentsText,
       dataTranslate,
       pageTitle,
     };

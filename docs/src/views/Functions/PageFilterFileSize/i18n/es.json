@@ -1,4 +1,8 @@
 {
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "Die Größe, die konvertiert werden soll",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "Die gewünschte Einheit für die Größenangabe. Mögliche Einheiten sind <strong>b</strong> (Bytes), <strong>kb</strong> (Kilobytes), <strong>mb</strong> (Megabytes), <strong>gb</strong> (Gigabytes), <strong>tb</strong> (Terabytes), <strong>pb</strong> (Petabytes), <strong>eb</strong> (Exabytes), <strong>zb</strong> (Zettabytes), <strong>yb</strong> (Yottabytes)",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "Die Einheit der ursprünglichen Größe. Mögliche Einheiten sind dieselben wie für units",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen in der formatierten Zeichenkette",
   "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# Argumentos:  \nvalue (Number): El tamaño que se convertirá.\n[units=\"kb\"] (String): La unidad deseada para el tamaño. Las unidades posibles son \"b\" (Bytes), \"kb\" (Kilobytes), \"mb\" (Megabytes), \"gb\" (Gigabytes), \"tb\" (Terabytes), \"pb\" (Petabytes), \"eb\" (Exabytes), \"zb\" (Zettabytes), \"yb\" (Yottabytes).\n[sourceUnits=\"b\"] (String): La unidad del tamaño original. Las unidades posibles son las mismas que para units.\n[digits=2] (Number): El número de decimales en la cadena formateada",
   "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "La función <strong>filterFileSize</strong> convierte un tamaño de una unidad de origen (por ejemplo, Bytes) a un tamaño objetivo con una unidad específica (por ejemplo, Kilobytes, Megabytes) y devuelve el resultado como una cadena formateada."
 }
