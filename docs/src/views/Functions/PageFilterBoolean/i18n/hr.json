@@ -1,4 +1,7 @@
 {
-  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "# Argumenti:  \nvalue (prozivoljan tip): Ulazna vrijednost koja će biti pretvorena u prevedeni tekst\n[trueValue=\"_YES_\"] (string): Prevedeni tekst koji će biti vraćen ako je vrijednost istinita.\n[falseValue=\"_NO_\"] (string): Prevedeni tekst koji će biti vraćen ako je vrijednost neistinita.\n[useNil=true] (boolean): Određuje treba li prazan string biti vraćen za undefined ili null vrijednosti.",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_FALSE_VALUE_": "Prevedeni tekst koji će biti vraćen ako je vrijednost <strong>neistinita</strong>.",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_TRUE_VALUE_": "Prevedeni tekst koji će biti vraćen ako je vrijednost <strong>istinita</strong>.",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_USE_NIL_": "Određuje treba li prazan string biti vraćen za <strong>undefined</strong> ili <strong>null</strong> vrijednosti.",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_VALUE_": "Ulazna vrijednost koja će biti pretvorena u prevedeni tekst.",
   "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "Funkcija <strong>filterBoolean</strong> koristi se za pretvaranje logičke vrijednosti u prevedeni tekst. Omogućuje prilagodbu teksta za vrijednosti <strong>true</strong> i <strong>false</strong> vrijednosti, te opciju vraćanja praznog stringa za vrijednosti <strong>undefined</strong> ili <strong>null</strong>."
 }

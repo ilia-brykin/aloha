@@ -15,11 +15,11 @@
   "_SUPPORT_FRAMEWORKS_": "Podržavamo sljedeće CSS-frameworke",
   "_VIEW_SOURCE_": "Prikaži izvorni kod",
   "_WELCOME_": "Dobrodošli!",
-  "_JS_TYPE_OBJECT_": "Object",
-  "_JS_TYPE_ARRAY_": "Array",
-  "_JS_TYPE_ANY_": "Any",
-  "_JS_TYPE_STRING_": "String",
-  "_JS_TYPE_NUMBER_": "Number",
-  "_JS_TYPE_FUNCTION_": "Function",
-  "_JS_TYPE_BOOLEAN_": "Boolean"
+  "_JS_TYPE_OBJECT_": "objekt",
+  "_JS_TYPE_ARRAY_": "niz",
+  "_JS_TYPE_ANY_": "proizvoljna vrijednost",
+  "_JS_TYPE_STRING_": "string",
+  "_JS_TYPE_NUMBER_": "cijeli broj",
+  "_JS_TYPE_FUNCTION_": "funkcija",
+  "_JS_TYPE_BOOLEAN_": "boolean"
 }
