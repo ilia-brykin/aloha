@@ -1,4 +1,7 @@
 {
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_VALUE_": "Der Wert, der auf eine Eigenschaft im Mapping-Objekt abgebildet werden soll",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_MAPPING_": " Ein Objekt, das die Zuordnung von Werten zu Eigenschaften definiert",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_DEFAULT_VALUE_": "Der Standardwert, der zurückgegeben wird, wenn der übergebene Wert nicht im Mapping-Objekt gefunden wird",
   "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# Argomenti:  \nvalue (Any): Il valore da mappare su una proprietà nell'oggetto di mappatura\n[mapping={}] (Object): Un oggetto che definisce la mappatura dei valori alle proprietà\n[defaultValue=\"\"] (String): Il valore predefinito restituito se il valore passato non si trova nell'oggetto di mappatura",
   "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "La funzione <strong>filterPropertyByValue</strong> consente la mappatura di valori su proprietà predefinite in un oggetto di mappatura. Controlla se il valore passato esiste come chiave nell'oggetto di mappatura. Se sì, viene restituita la proprietà associata, altrimenti viene utilizzato il valore predefinito."
 }
