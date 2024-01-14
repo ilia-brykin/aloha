@@ -52,7 +52,13 @@ export default function JsAPI() {
 filterList(ITEMS, {
   isSimpleArray: true,
 });
-// ${ filterList(ITEMS, { isSimpleArray: true }) }`;
+// ${ filterList(ITEMS, { isSimpleArray: true }) }
+
+filterList([["x1", ["x1.1", "x1.2"]], { isSimpleArray: true })
+// ${ filterList([["x1", ["x1.1", "x1.2"]]], { isSimpleArray: true }) }
+
+filterList(["x0", ["x1", ["x1.1", "x1.2"]], "x3"], { isSimpleArray: true })
+// ${ filterList(["x0", ["x1", ["x1.1", "x1.2"]], "x3"], { isSimpleArray: true }) }`;
 
   return {
     codeJs,

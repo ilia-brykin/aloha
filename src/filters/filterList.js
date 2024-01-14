@@ -27,17 +27,10 @@ function filterList(value, {
   let result = "";
   if (isHtml === false || isHtml === "false") {
     forEach(value, (item, index) => {
-      let itemText = "";
-      if (isSimpleArray) {
-        itemText = item;
-      } else if (isFunction(keyLabelCallback)) {
-        itemText = keyLabelCallback({ item, itemIndex: index });
-      } else {
-        itemText = keyLabel ? get(item, keyLabel) : item;
-      }
-      if (isUndefined(itemText)) {
-        itemText = "";
-      }
+      let itemText = getItemText({
+        keyLabel, keyLabelCallback, index, item, isSimpleArray
+      });
+
       let children;
       if (isSimpleArray) {
         if (isArray(itemText)) {
@@ -73,17 +66,10 @@ function filterList(value, {
   }
 
   forEach(value, (item, index) => {
-    let itemLocal;
-    if (isSimpleArray) {
-      itemLocal = item;
-    } else if (isFunction(keyLabelCallback)) {
-      itemLocal = keyLabelCallback({ item, itemIndex: index });
-    } else {
-      itemLocal = keyLabel ? get(item, keyLabel) : item;
-    }
-    if (isUndefined(itemLocal)) {
-      itemLocal = "";
-    }
+    const itemLocal = getItemText({
+      keyLabel, keyLabelCallback, index, item, isSimpleArray
+    });
+
     let children;
     let itemText = itemLocal;
     if (isSimpleArray) {
@@ -113,22 +99,27 @@ function filterList(value, {
       });
     }
 
-    // if (isArray(itemLocal)) {
-    //   if (itemLocal.length) {
-    //     result += `<li>`;
-    //     forEach(itemLocal, itemChild => {
-    //       if (isArray(itemChild)) {
-    //         result += filterList(itemChild, { isHtml, listClass, keyLabel, keyLabelCallback });
-    //       } else {
-    //         result += itemChild;
-    //       }
-    //     });
-    //     result += `</li>`;
-    //   }
-    // } else {
-    //   result += `<li>${ itemLocal }</li>`;
-    // }
     result += `<li>${ itemText }</li>`;
   });
-  return `<${ tag }${ listClass ? ` class="${ listClass }"` : "" }>${ result }</${ tag }>`;
+  return `<${ tag }${ getAttributClass({ listClass }) }>${ result }</${ tag }>`;
+}
+
+function getItemText({ keyLabel, keyLabelCallback, index, item, isSimpleArray }) {
+  let itemLocal;
+  if (isSimpleArray) {
+    itemLocal = item;
+  } else if (isFunction(keyLabelCallback)) {
+    itemLocal = keyLabelCallback({ item, itemIndex: index });
+  } else {
+    itemLocal = keyLabel ? get(item, keyLabel) : item;
+  }
+  if (isUndefined(itemLocal)) {
+    itemLocal = "";
+  }
+
+  return itemLocal;
+}
+
+function getAttributClass({ listClass }) {
+  return listClass ? ` class="${ listClass }"` : "";
 }
