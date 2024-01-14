@@ -1,4 +1,6 @@
 {
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_EMAIL_": "Die E-Mail-Adresse, für die der HTML-Link erstellt werden soll",
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_LINK_CLASS_": "Eine CSS-Klasse, die dem erstellten HTML-Link hinzugefügt wird",
   "_PAGE_FILTER_EMAIL_ARGUMENTS_": "# Argumenti: \nemail (string): E-mail adresa za koju treba kreirati HTML poveznicu\n[linkClass] (String): CSS klasa koja će se dodati stvorenoj HTML poveznici",
   "_PAGE_FILTER_EMAIL_DESCRIPTION_": "Funkcija <strong>filterEmail</strong> stvara HTML poveznicu za e-mail adresu. Provjerava da ulazna e-mail adresa nije prazna. Ako su uvjeti ispunjeni, vraća HTML poveznicu u formatu <strong>&lt;a href=\"mailto:emailAdresa\" class=\"linkClass\"&gt;emailAdresa&lt;/a&gt;</strong>."
 }

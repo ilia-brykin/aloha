@@ -1,4 +1,5 @@
 {
-  "_PAGE_FILTER_EMAIL_ARGUMENTS_": "# Аргументы:  \nemail (String): E-Mail-адрес, для которого будет создан HTML-ссылка\n[linkClass] (String): CSS-класс, добавляемый к созданной HTML-ссылке",
-  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "Функция <strong>filterEmail</strong> создает HTML-ссылку для E-Mail-адреса. Проверяется, существует ли E-Mail-адрес и не является ли он пустым. Если условия выполнены, возвращается HTML-ссылка в формате <strong>&lt;a href=\"mailto:emailAdresse\" class=\"linkClass\"&gt;emailAdresse&lt;/a&gt;</strong>."
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_EMAIL_": "Адрес электронной почты, для которого будет создан HTML-ссылка",
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_LINK_CLASS_": "CSS-класс, добавляемый к созданной HTML-ссылке",
+  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "Функция <strong>filterEmail</strong> создает HTML-ссылку для адреса электронной почты. Проверяется, существует ли Адрес электронной почты и не является ли он пустым. Если условия выполнены, возвращается HTML-ссылка в формате <strong>&lt;a href=\"mailto:email\" class=\"linkClass\"&gt;email&lt;/a&gt;</strong>."
 }
