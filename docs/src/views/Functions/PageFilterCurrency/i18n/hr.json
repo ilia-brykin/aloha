@@ -1,4 +1,8 @@
 {
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGIT_GROUPING_": "Gibt an, ob die Zifferngruppierung aktiviert ist, um Tausendertrennzeichen in der formatierten Zeichenkette einzufügen",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen in der formatierten Zeichenkette",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_SUFFIX_": "Das Suffix, das der formatierten Zeichenkette hinzugefügt wird, um die Währung anzugeben",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_VALUE_": "Der numerische Wert, der als Währung formatiert werden soll",
   "_PAGE_FILTER_CURRENCY_ARGUMENTS_": "<strong>value</strong> (<strong>cijeli broj | string</strong>): Numerička vrijednost koja će biti formatirana u obliku valute<br>[<strong>suffix=\"€\"</strong>] (<strong>string</strong>): Sufiks dodan formatiranom stringu kao oznaka valute<br>[<strong>digits=2</strong>] (<strong>cijeli broj</strong>): Broj decimalnih mjesta u formatiranom stringu<br>[<strong>digitGrouping=true</strong>] (<strong>boolean</strong>): Označava je li omogućeno grupiranje znamenki za umetanje separatora tisuća u formatirani string",
   "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "Funkcija <strong>filterCurrency</strong> je specijalizirano proširenje funkcije <a href=\"/#/filter-float\"><strong>filterFloat</strong></a> namijenjeno oblikovanju numeričkih vrijednosti u obliku valute. Prihvaća numeričku vrijednost i vraća string koja predstavlja vrijednost u zadanoj valuti, sa zadanim brojem decimalnih mjesta, sufiksom i, opcionalno, s grupiranjem znamenki (separator tisuća). Ako numerička vrijednost nije navedena (null ili undefined), vraća se prazan. Ova funkcija je dizajnirana za proširivanje za mnoge različite valute."
 }

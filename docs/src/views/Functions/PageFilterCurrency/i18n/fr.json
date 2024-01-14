@@ -1,4 +1,8 @@
 {
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGIT_GROUPING_": "Gibt an, ob die Zifferngruppierung aktiviert ist, um Tausendertrennzeichen in der formatierten Zeichenkette einzufügen",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen in der formatierten Zeichenkette",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_SUFFIX_": "Das Suffix, das der formatierten Zeichenkette hinzugefügt wird, um die Währung anzugeben",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_VALUE_": "Der numerische Wert, der als Währung formatiert werden soll",
   "_PAGE_FILTER_CURRENCY_ARGUMENTS_": "<strong>value</strong> (<strong>Nombre | Chaîne de caractères</strong>): La valeur numérique à formater en monnaie<br>[<strong>suffix=\"€\"</strong>] (<strong>Chaîne de caractères</strong>): Le suffixe ajouté à la chaîne formatée pour indiquer la monnaie<br>[<strong>digits=2</strong>] (<strong>Nombre</strong>): Le nombre de décimales dans la chaîne formatée<br>[<strong>digitGrouping=true</strong>] (<strong>Booléen</strong>): Indique si le regroupement des chiffres est activé pour insérer des séparateurs de milliers dans la chaîne formatée",
   "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "La fonction <strong>filterCurrency</strong> est une extension spécialisée de la fonction <a href=\"/#/filter-float\"><strong>filterFloat</strong></a> et sert à formater les valeurs numériques en monnaie. Elle accepte une valeur numérique et renvoie une chaîne qui représente la valeur avec la monnaie spécifiée, le nombre de décimales, un suffixe et, éventuellement, un regroupement des chiffres (séparateurs de milliers). Si la valeur numérique n'est pas spécifiée (nulle ou indéfinie), une chaîne vide est retournée. Cette fonction a été conçue pour être étendue à de nombreuses monnaies."
 }

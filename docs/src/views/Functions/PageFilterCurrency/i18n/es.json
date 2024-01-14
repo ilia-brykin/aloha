@@ -1,4 +1,8 @@
 {
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGIT_GROUPING_": "Gibt an, ob die Zifferngruppierung aktiviert ist, um Tausendertrennzeichen in der formatierten Zeichenkette einzufügen",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen in der formatierten Zeichenkette",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_SUFFIX_": "Das Suffix, das der formatierten Zeichenkette hinzugefügt wird, um die Währung anzugeben",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_VALUE_": "Der numerische Wert, der als Währung formatiert werden soll",
   "_PAGE_FILTER_CURRENCY_ARGUMENTS_": "<strong>value</strong> (<strong>Número | Cadena</strong>): El valor numérico que se formateará como moneda<br>[<strong>suffix=\"€\"</strong>] (<strong>Cadena</strong>): El sufijo que se añadirá a la cadena formateada para indicar la moneda<br>[<strong>digits=2</strong>] (<strong>Número</strong>): El número de decimales en la cadena formateada<br>[<strong>digitGrouping=true</strong>] (<strong>Booleano</strong>): Indica si la agrupación de dígitos está activada para insertar separadores de miles en la cadena formateada",
   "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "La función <strong>filterCurrency</strong> es una extensión especializada de la función <a href=\"/#/filter-float\"><strong>filterFloat</strong></a> y se utiliza para formatear valores numéricos como moneda. Acepta un valor numérico y devuelve una cadena que representa el valor con la moneda especificada, número de decimales, un sufijo y, opcionalmente, agrupación de dígitos (separadores de miles). Si no se especifica el valor numérico (nulo o indefinido), se devuelve una cadena vacía. Esta función ha sido diseñada para ser ampliada a muchas monedas."
 }
