@@ -1,4 +1,6 @@
 {
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "Der zu überprüfende Wert",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "Der Standardwert, der zurückgegeben wird, wenn der überprüfte Wert als leer betrachtet wird",
   "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "# Arguments:  \nvalue (Any): The value to be checked\n[emptyValue=\"-\"] (String): The default value returned if the checked value is considered empty",
   "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "The function <strong>filterDefaultForEmpty</strong> is used to check a value and return a default value if the checked value is considered empty. In this context, a value is considered empty if it is <strong>undefined</strong>, <strong>null</strong> or an empty string."
 }
