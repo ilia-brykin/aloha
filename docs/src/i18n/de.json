@@ -14,5 +14,12 @@
   "_ALOHA_TABLE_TRANSLATE_LABEL_": "Übersetzungen",
   "_ALOHA_TABLE_COLUMN_TRANSLATE_PLACEHOLDER_": "Platzhalter",
   "_ALOHA_TABLE_COLUMN_TRANSLATE_": "Übersetzung",
-  "_WELCOME_": "Willkommen"
+  "_WELCOME_": "Willkommen",
+  "_JS_TYPE_OBJECT_": "Objekt",
+  "_JS_TYPE_ARRAY_": "Array",
+  "_JS_TYPE_ANY_": "Beliebig",
+  "_JS_TYPE_STRING_": "Zeichenkette",
+  "_JS_TYPE_NUMBER_": "Zahl",
+  "_JS_TYPE_FUNCTION_": "Funktion",
+  "_JS_TYPE_BOOLEAN_": "Wahrheitswert"
 }

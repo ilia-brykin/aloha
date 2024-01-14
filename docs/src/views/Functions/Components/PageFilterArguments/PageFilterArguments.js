@@ -1,5 +1,6 @@
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 import ATranslation from "../../../../../../src/ATranslation/ATranslation";
+import TypeTranslate from "../../../../components/TypeTranslate/TypeTranslate.vue";
 
 import JsAPI from "./compositionAPI/JsAPI";
 
@@ -8,13 +9,14 @@ export default {
   components: {
     AlohaExample,
     ATranslation,
+    TypeTranslate,
   },
   props: {
-    functionDescription: {
-      type: String,
+    argumentsText: {
+      type: Array,
       required: true,
     },
-    placeholder: {
+    functionDescription: {
       type: String,
       required: true,
     },

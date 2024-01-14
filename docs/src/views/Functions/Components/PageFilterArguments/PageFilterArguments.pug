@@ -5,6 +5,30 @@ div
     :is-code-visible-default="true"
   )
 
-  a-translation.a_mt_3(
-    :safe-html="placeholder"
-  )
+  ul.a_list_without_styles.a_mt_3
+    li.a_mb_2(
+      v-for="obj in argumentsText"
+      :key="obj.text"
+    )
+      a-translation(
+        :text="obj.value"
+        tag="strong"
+        text-after=" "
+      )
+      span (
+      template(
+        v-for="(type, indexType) in obj.types"
+        :key="type"
+      )
+        strong(
+          v-if="indexType !== 0"
+        ) |
+        type-translate(
+          :type="type"
+        )
+      span ):
+      a-translation(
+        :safe-html="obj.text"
+        tag="span"
+        text-before=" "
+      )

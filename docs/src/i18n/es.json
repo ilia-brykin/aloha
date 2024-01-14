@@ -14,5 +14,12 @@
   "_HIDE_SOURCE_": "Ocultar fuente",
   "_SUPPORT_FRAMEWORKS_": "Admitimos los siguientes marcos CSS",
   "_VIEW_SOURCE_": "Ver fuente",
-  "_WELCOME_": "Bienvenido"
+  "_WELCOME_": "Bienvenido",
+  "_JS_TYPE_OBJECT_": "Object",
+  "_JS_TYPE_ARRAY_": "Array",
+  "_JS_TYPE_ANY_": "Any",
+  "_JS_TYPE_STRING_": "String",
+  "_JS_TYPE_NUMBER_": "Number",
+  "_JS_TYPE_FUNCTION_": "Function",
+  "_JS_TYPE_BOOLEAN_": "Boolean"
 }

@@ -1,4 +1,7 @@
 {
-  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "Argumente: <br><strong>value</strong> (<strong>Beliebig</strong>): Der Wert, der in einen übersetzten Text umgewandelt werden soll<br>[<strong>trueValue=\"YES\"</strong>] (<strong>String</strong>): Der übersetzte Text, der für den Fall zurückgegeben wird, dass value den Wert <strong>Wahr</strong> hat.<br>[<strong>falseValue=\"NO\"</strong>] (<strong>String</strong>): Der übersetzte Text, der für den Fall zurückgegeben wird, dass value den Wert <strong>Falsch</strong> hat.<br>[<strong>useNil=true</strong>] (<strong>Wahrheitswert</strong>): Gibt an, ob für <strong>undefined</strong> oder <strong>null</strong> ein leerer String zurückgegeben werden soll",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_FALSE_VALUE_": "Der übersetzte Text, der für den Fall zurückgegeben wird, dass value den Wert <strong>Falsch</strong> hat",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_TRUE_VALUE_": "Der übersetzte Text, der für den Fall zurückgegeben wird, dass value den Wert <strong>Wahr</strong> hat",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_USE_NIL_": "Gibt an, ob für <strong>undefined</strong> oder <strong>null</strong> ein leerer String zurückgegeben werden soll",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_VALUE_": "Der Wert, der in einen übersetzten Text umgewandelt werden soll",
   "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "Die Funktion <strong>filterBoolean</strong> wird verwendet, um einen <strong>Wahrheitswert</strong> in einen übersetzten Text umzuwandeln. Sie ermöglicht die Anpassung der Texte für <strong>Wahr</strong> und <strong>Falsch</strong> Werte sowie die Möglichkeit, für <strong>undefined</strong> oder <strong>null</strong> einen leeren String zurückzugeben."
 }

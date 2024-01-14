@@ -1,4 +1,7 @@
 {
-  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_": "Аргументы: <br><strong>value</strong> (<strong>Любой</strong>): Значение, которое следует преобразовать в переведенный текст<br>[<strong>trueValue=\"YES\"</strong>] (<strong>Строка</strong>): Переведенный текст, который будет возвращен в случае, если значение равно <strong>Истина</strong>.<br>[<strong>falseValue=\"NO\"</strong>] (<strong>Строка</strong>): Переведенный текст, который будет возвращен в случае, если значение равно <strong>Ложь</strong>.<br>[<strong>useNil=true</strong>] (<strong>Логическое значение</strong>): Указывает, следует ли возвращать пустую строку для <strong>undefined</strong> или <strong>null</strong>.",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_FALSE_VALUE_": "Переведенный текст, который будет возвращен в случае, если значение равно <strong>Ложь</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_TRUE_VALUE_": "Переведенный текст, который будет возвращен в случае, если значение равно <strong>Истина</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_USE_NIL_": "Указывает, следует ли возвращать пустую строку для <strong>undefined</strong> или <strong>null</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_VALUE_": "Значение, которое следует преобразовать в переведенный текст",
   "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "Функция <strong>filterBoolean</strong> используется для преобразования <strong>Логического значения</strong> в переведенный текст. Она позволяет настраивать тексты для значений <strong>Истина</strong> и <strong>Ложь</strong>, а также возвращать пустую строку для значений <strong>undefined</strong> или <strong>null</strong>."
 }
