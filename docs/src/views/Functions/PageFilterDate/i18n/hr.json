@@ -1,4 +1,6 @@
 {
+  "_PAGE_FILTER_DATE_ARGUMENTS_VALUE_": "Das Datum oder die Uhrzeit, das bzw. die formatiert werden soll",
+  "_PAGE_FILTER_DATE_ARGUMENTS_FORMAT_": "Das Anzeigeformat für das Datum. Mögliche Werte: \"date\" (Datum), \"datetime\" (Datum und Uhrzeit), \"fullDate\" (vollständiges Datum und Uhrzeit), \"time\" (Uhrzeit), \"timeWithSeconds\" (Uhrzeit mit Sekunden) oder ein gültiges Format von moment.js",
   "_PAGE_FILTER_DATE_ARGUMENTS_": "# Argumenti: \nvalue (proizvoljna vrijednost): Datum ili vrijeme koje treba formatirati\n[format=\"date\"] (string): Format prikaza za datum. Moguće vrijednosti: \"date\" (datum), \"datetime\" (datum i vrijeme), \"fullDate\" (potpuni datum i vrijeme), \"time\" (vrijeme), \"timeWithSeconds\" (vrijeme s sekundama) ili valjani format iz moment.js.",
   "_PAGE_FILTER_DATE_DESCRIPTION_": "Funkcija <strong>filterDate</strong> koristi <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js biblioteku</a> za formatiranje datuma i vremena. Prima vrijednost datuma ili vremena i vraća ju u zadanom formatu. Napomena: moment.js se smatra zastarjelom (legacy) bibliotekom i planira se zamijeniti drugim rješenjem u budućnosti. Također je planirano proširenje funkcije za podršku različitim jezicima."
 }
