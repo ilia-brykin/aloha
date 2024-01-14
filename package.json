@@ -38,7 +38,7 @@
   },
   "scripts": {
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "@floating-ui/vue": "1.0.2",
