@@ -9,6 +9,7 @@ import PageFilterLinkLinkText from "./PageFilterLinkLinkText/PageFilterLinkLinkT
 import PageFilterLinkProtocol from "./PageFilterLinkProtocol/PageFilterLinkProtocol.vue";
 import PageFilterLinkTarget from "./PageFilterLinkTarget/PageFilterLinkTarget.vue";
 
+import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 export default {
@@ -30,7 +31,12 @@ export default {
       pageTitle,
     } = PageTitleAPI();
 
+    const {
+      argumentsText,
+    } = ArgumentsAPI();
+
     return {
+      argumentsText,
       pageTitle,
     };
   },

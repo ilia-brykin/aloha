@@ -1,4 +1,8 @@
 {
-  "_PAGE_FILTER_LINK_ARGUMENTS_": "# Argumente:  \nurl (String): Die URL, die in den HTML-Link eingefügt werden soll\n[linkText=\"\"] (String): Der Text, der im HTML-Link angezeigt wird. Wenn nicht angegeben, wird die URL verwendet\n[protocol=\"https://\"] (String): Das Protokoll, das vor der URL hinzugefügt wird\n[target=\"\"] (String): Das Attribut \"target\" für den HTML-Link, das das Verhalten beim Öffnen des Links steuert\n[linkClass=\"\"] (String): Eine CSS-Klasse, die dem HTML-Link hinzugefügt wird",
-  "_PAGE_FILTER_LINK_DESCRIPTION_": "Die Funktion <strong>filterLink</strong> erstellt einen HTML-Link basierend auf der bereitgestellten URL <strong>url</strong>. Sie ermöglicht die Anpassung des Protokolls, des Ziels, der CSS-Klasse und des angezeigten Texts für den Link. Die Funktion überprüft dabei die Gültigkeit der URL und sorgt dafür, dass sie sicher in den HTML-Link eingefügt wird."
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "Die URL, die in den HTML-Link eingefügt werden soll",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Der Text, der im HTML-Link angezeigt wird. Wenn nicht angegeben, wird die URL verwendet",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Das Protokoll, das vor der URL hinzugefügt wird",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Das Attribut <strong>target</strong> für den HTML-Link, das das Verhalten beim Öffnen des Links steuert",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Eine CSS-Klasse, die dem HTML-Link hinzugefügt wird",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "Die Funktion <strong>filterLink</strong> erstellt einen HTML-Link basierend auf der bereitgestellten URL. Sie ermöglicht die Anpassung des Protokolls, des Ziels, der CSS-Klasse und des angezeigten Texts für den Link. Die Funktion überprüft dabei die Gültigkeit der URL und sorgt dafür, dass sie sicher in den HTML-Link eingefügt wird."
 }

@@ -1,4 +1,9 @@
 {
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "Die URL, die in den HTML-Link eingefügt werden soll",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Der Text, der im HTML-Link angezeigt wird. Wenn nicht angegeben, wird die URL verwendet",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Das Protokoll, das vor der URL hinzugefügt wird",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Das Attribut <strong>target</strong> für den HTML-Link, das das Verhalten beim Öffnen des Links steuert",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Eine CSS-Klasse, die dem HTML-Link hinzugefügt wird",
   "_PAGE_FILTER_LINK_ARGUMENTS_": "# الحجج:  \nurl (String): عنوان URL الذي يجب إدراجه في الرابط HTML\n[linkText=\"\"] (String): النص الذي سيظهر في الرابط HTML. إذا لم يتم تحديده، يتم استخدام عنوان URL\n[protocol=\"https://\"] (String): البروتوكول الذي يتم إضافته قبل عنوان URL\n[target=\"\"] (String): صفة \"target\" للرابط HTML، التي تتحكم في السلوك عند فتح الرابط\n[linkClass=\"\"] (String): فئة CSS يتم إضافتها إلى الرابط HTML",
   "_PAGE_FILTER_LINK_DESCRIPTION_": "تقوم الدالة <strong>filterLink</strong> بإنشاء رابط HTML استنادًا إلى عنوان URL المقدم <strong>url</strong>. تسمح بتخصيص البروتوكول، الهدف، فئة CSS والنص المعروض للرابط. تقوم الدالة بفحص صحة عنوان URL وضمان إدراجه بأمان في الرابط HTML."
 }

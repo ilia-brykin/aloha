@@ -1,4 +1,9 @@
 {
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "Die URL, die in den HTML-Link eingefügt werden soll",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Der Text, der im HTML-Link angezeigt wird. Wenn nicht angegeben, wird die URL verwendet",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Das Protokoll, das vor der URL hinzugefügt wird",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Das Attribut <strong>target</strong> für den HTML-Link, das das Verhalten beim Öffnen des Links steuert",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Eine CSS-Klasse, die dem HTML-Link hinzugefügt wird",
   "_PAGE_FILTER_LINK_ARGUMENTS_": "# Argumenti:  \nurl (string): URL koji će se umetnuti u HTML poveznicu\n[linkText=\"\"] (string): Tekst koji će biti prikazan u HTML poveznici. Ako nije naveden, koristi se URL\n[protocol=\"https://\"] (string): Protokol koji će biti dodan ispred URL-a\n[target=\"\"] (string): Atribut 'target' za HTML poveznicu, koji kontrolira ponašanje prilikom otvaranja poveznice\n[linkClass=\"\"] (string): CSS klasa koja će biti dodana HTML poveznici",
   "_PAGE_FILTER_LINK_DESCRIPTION_": "Funkcija <strong>filterLink</strong> stvara HTML poveznicu na temelju proslijeđenog URL-a <strong>url</strong>. Omogućuje prilagodbu protokola, izvora, CSS klase te teksta poveznice. Funkcija provjerava valjanost URL-a i osigurava sigurno umetanje u HTML poveznicu."
 }
