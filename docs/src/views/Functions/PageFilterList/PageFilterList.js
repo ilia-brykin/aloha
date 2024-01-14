@@ -13,6 +13,7 @@ import PageFilterListListClass from "./PageFilterListListClass/PageFilterListLis
 import PageFilterListSeparator from "./PageFilterListSeparator/PageFilterListSeparator.vue";
 import PageFilterListTag from "./PageFilterListTag/PageFilterListTag.vue";
 
+import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 export default {
@@ -38,7 +39,12 @@ export default {
       pageTitle,
     } = PageTitleAPI();
 
+    const {
+      argumentsText,
+    } = ArgumentsAPI();
+
     return {
+      argumentsText,
       pageTitle,
     };
   },

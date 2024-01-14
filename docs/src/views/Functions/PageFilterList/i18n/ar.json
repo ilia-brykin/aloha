@@ -1,4 +1,13 @@
 {
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Das Array für die Liste",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Wenn true, wird eine HTML-Liste (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;) erstellt. Andernfalls wird eine Textliste generiert",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Gibt an, ob nur ein einfaches Array ohne Objekte verwendet wird",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Schlüssel für Kinderelemente (nur wenn <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Schlüssel für das anzuzeigende Text (nur wenn <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funktion zur Generierung von Labels mit zwei Parametern (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator zwischen Elementen (nur wenn <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-Tag für die gesamte Liste",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-Klasse z.B.: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_ARGUMENTS_": "# الحجج:  \narray (Array): المصفوفة للقائمة\n[isHtml=true] (Boolean): إذا كان true، يتم إنشاء قائمة HTML (<ul><li>...</li></ul>). وإلا، يتم إنشاء قائمة نصية (<span>...</span>)\n[isSimpleArray=false] (Boolean): يحدد ما إذا كان يستخدم مصفوفة بسيطة فقط بدون كائنات\n[keyChildren=\"\"] (String): مفتاح للعناصر الفرعية (فقط إذا كان isSimpleArray=false)\n[keyLabel=\"\"] (String): مفتاح للنص المراد عرضه (فقط إذا كان isSimpleArray=false)\n[keyLabelCallback] (Function): وظيفة لإنشاء التسميات مع معاملين (item, itemIndex)\n[separator=\", \"] (String): فاصل بين العناصر (فقط إذا كان isHtml=false)\n[tag=\"ul\"] (String): وسم HTML للقائمة بأكملها\n[listClass=\"\"] (String): فئة CSS (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "تُستخدم الوظيفة لإنشاء قائمة من مصفوفة.",
   "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "هيكل الشجرة isSimpleArray=true"

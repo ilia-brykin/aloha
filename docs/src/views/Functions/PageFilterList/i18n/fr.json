@@ -1,4 +1,13 @@
 {
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Das Array für die Liste",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Wenn true, wird eine HTML-Liste (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;) erstellt. Andernfalls wird eine Textliste generiert",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Gibt an, ob nur ein einfaches Array ohne Objekte verwendet wird",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Schlüssel für Kinderelemente (nur wenn <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Schlüssel für das anzuzeigende Text (nur wenn <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funktion zur Generierung von Labels mit zwei Parametern (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator zwischen Elementen (nur wenn <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-Tag für die gesamte Liste",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-Klasse z.B.: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_ARGUMENTS_": "# Arguments :  \narray (Array): Le tableau pour la liste\n[isHtml=true] (Boolean): Si vrai, une liste HTML (<ul><li>...</li></ul>) est créée. Sinon, une liste de texte est générée (<span>...</span>)\n[isSimpleArray=false] (Boolean): Indique si seulement un tableau simple sans objets est utilisé\n[keyChildren=\"\"] (String): Clé pour les éléments enfants (seulement si isSimpleArray=false)\n[keyLabel=\"\"] (String): Clé pour le texte à afficher (seulement si isSimpleArray=false)\n[keyLabelCallback] (Fonction): Fonction pour générer des étiquettes avec deux paramètres (item, itemIndex)\n[separator=\", \"] (String): Séparateur entre les éléments (seulement si isHtml=false)\n[tag=\"ul\"] (String): Balise HTML pour toute la liste\n[listClass=\"\"] (String): Classe CSS (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "La fonction crée une liste à partir d'un tableau.",
   "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Structure d'arbre isSimpleArray=true"

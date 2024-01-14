@@ -1,4 +1,13 @@
 {
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Das Array für die Liste",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Wenn true, wird eine HTML-Liste (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;) erstellt. Andernfalls wird eine Textliste generiert",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Gibt an, ob nur ein einfaches Array ohne Objekte verwendet wird",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Schlüssel für Kinderelemente (nur wenn <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Schlüssel für das anzuzeigende Text (nur wenn <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funktion zur Generierung von Labels mit zwei Parametern (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator zwischen Elementen (nur wenn <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-Tag für die gesamte Liste",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-Klasse z.B.: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_ARGUMENTS_": "# Argumentos:  \narray (Array): El arreglo para la lista\n[isHtml=true] (Booleano): Si es true, se crea una lista HTML (<ul><li>...</li></ul>). De lo contrario, se genera una lista de texto (<span>...</span>)\n[isSimpleArray=false] (Booleano): Indica si solo se usa un arreglo simple sin objetos\n[keyChildren=\"\"] (String): Clave para elementos hijos (solo si isSimpleArray=false)\n[keyLabel=\"\"] (String): Clave para el texto a mostrar (solo si isSimpleArray=false)\n[keyLabelCallback] (Función): Función para generar etiquetas con dos parámetros (item, itemIndex)\n[separator=\", \"] (String): Separador entre elementos (solo si isHtml=false)\n[tag=\"ul\"] (String): Etiqueta HTML para toda la lista\n[listClass=\"\"] (String): Clase CSS (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "La función crea una lista a partir de un arreglo.",
   "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Estructura de árbol isSimpleArray=true"
