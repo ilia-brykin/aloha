@@ -1,4 +1,5 @@
 {
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_VALUE_": "Das JavaScript-Objekt, dessen Schlüssel-Wert-Paare in eine formatierte Zeichenkette umgewandelt werden sollen",
   "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# Argumenti:  \nvalue (objekt): JavaScript objekt čiji će se parovi ključ-vrijednost pretvoriti u formatirani string",
   "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "Funkcija <strong>filterKeyValue</strong> kreira formatirani string iz ključ-vrijednost parova datog JavaScript objekta. Koristi funkciju redukcije za iteraciju kroz parove i njihovo pretvaranje u čitljiv format."
 }

@@ -1,4 +1,5 @@
 {
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_VALUE_": "Das JavaScript-Objekt, dessen Schlüssel-Wert-Paare in eine formatierte Zeichenkette umgewandelt werden sollen",
   "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# Argumentos:  \nvalue (Object): El objeto JavaScript cuyos pares clave-valor deben convertirse en una cadena formateada",
   "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "La función <strong>filterKeyValue</strong> crea una cadena formateada a partir de los pares clave-valor de un objeto JavaScript. Utiliza la función de reducción para iterar a través de los pares y convertirlos en un formato legible."
 }

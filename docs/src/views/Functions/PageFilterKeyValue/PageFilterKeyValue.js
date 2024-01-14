@@ -5,6 +5,7 @@ import PageFilterImportCompositionApi from "../Components/PageFilterImportCompos
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 import PageFilterKeyValueExample from "./PageFilterKeyValueExample/PageFilterKeyValueExample.vue";
 
+import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 export default {
@@ -22,7 +23,12 @@ export default {
       pageTitle,
     } = PageTitleAPI();
 
+    const {
+      argumentsText,
+    } = ArgumentsAPI();
+
     return {
+      argumentsText,
       pageTitle,
     };
   },
