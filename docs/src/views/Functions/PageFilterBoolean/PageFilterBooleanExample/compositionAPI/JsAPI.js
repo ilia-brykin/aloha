@@ -1,7 +1,12 @@
+import {
+  computed,
+} from "vue";
+
 import filterBoolean from "../../../../../../../src/filters/filterBoolean";
 
 export default function JsAPI() {
-  const codeJs = `filterBoolean(true);
+  const codeJs = computed(() => {
+    return `filterBoolean(true);
 // ${ filterBoolean(true) }
 filterBoolean(false);
 // ${ filterBoolean(false) }
@@ -15,6 +20,7 @@ filterBoolean("aloha");
 // ${ filterBoolean("aloha") }
 filterBoolean("");
 // ${ filterBoolean("") }`;
+  });
 
   return {
     codeJs,
