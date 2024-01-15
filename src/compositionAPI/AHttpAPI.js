@@ -9,7 +9,8 @@ import {
   isArray,
   isFunction,
   isNil,
-  isPlainObject, isString,
+  isPlainObject,
+  isString,
   keyBy,
 } from "lodash-es";
 
@@ -544,4 +545,34 @@ function removeAbortGroupCurrent({ abortGroup, abortable }) {
     delete abortGroupPending[abortGroup];
     delete abortGroupController[abortGroup];
   }
+}
+
+export function getUrlParams({ url } = {}) {
+  let urlParamsString = url || window.location.search.substring(1);
+  try {
+    urlParamsString = decodeURI(urlParamsString);
+  } catch (e) {
+    console.error(e);
+  }
+  const urlParamsArray = urlParamsString.split("&");
+  const urlParamsObj = {};
+  forEach(urlParamsArray, item => {
+    const pair = item.split("=");
+    if (pair && pair.length === 2) {
+      if (pair[1].indexOf("[") !== -1 || pair[1].indexOf("%5B") !== -1) { // Wenn in URL array steht. Z.B.: doc_type1=%5B%22uuid1%22%5D oder doc_type1=["uuid1"]
+        const stringValue = pair[1].replace("%5B", "[").replace("%5D", "]").replace(/%22/g, `"`);
+        urlParamsObj[pair[0]] = JSON.parse(stringValue);
+      } else if (urlParamsObj[pair[0]]) {
+        if (isString(urlParamsObj[pair[0]])) {
+          urlParamsObj[pair[0]] = [urlParamsObj[pair[0]]];
+          urlParamsObj[pair[0]].push(pair[1]);
+        } else if (isArray(urlParamsObj[pair[0]])) {
+          urlParamsObj[pair[0]].push(pair[1]);
+        }
+      } else {
+        urlParamsObj[pair[0]] = pair[1];
+      }
+    }
+  });
+  return urlParamsObj;
 }
