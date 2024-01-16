@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkaloha_vue_docs=self.webpackChunkaloha_vue_docs||[]).push([[2443],{9402:(a,e,s)=>{s.r(e),s.d(e,{default:()=>o});var u=s(798);const n={class:"about"},c=[(0,u._)("h1",null,"This is an about page",-1)],l={},o=(0,s(3744).Z)(l,[["render",function(a,e){return(0,u.wg)(),(0,u.iD)("div",n,c)}]])}}]);
-//# sourceMappingURL=chunk.2443.5a4e3fa950c46280de79.js.map

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkaloha_vue_docs=self.webpackChunkaloha_vue_docs||[]).push([[6152],{9084:(e,u,a)=>{a.r(u),a.d(u,{default:()=>c});var n=a(798);const s={},c=(0,a(3744).Z)(s,[["render",function(e,u){return(0,n.wg)(),(0,n.iD)("div",null,"NOT FOUND")}]])}}]);
-//# sourceMappingURL=chunk.6152.06e197c13d005b9ee58b.js.map
