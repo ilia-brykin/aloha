@@ -34,16 +34,6 @@ function resolveAlias(mode)  {
 function getRules(mode) {
   const TARGET = process.env.npm_lifecycle_event;
   const RULES = [
-    {
-      test: /\.m?js?json/,
-      type: "javascript/auto",
-    },
-    {
-      test: /\.m?js/,
-      resolve: {
-        fullySpecified: false,
-      },
-    },
     // {
     //   test: /\.js$/,
     //   enforce: "pre",
