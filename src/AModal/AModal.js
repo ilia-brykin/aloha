@@ -1,5 +1,6 @@
 import {
   h,
+  onBeforeUnmount,
   onMounted,
   onUnmounted,
   Teleport,
@@ -10,6 +11,7 @@ import {
 import AButton from "../AButton/AButton";
 import ATranslation from "../ATranslation/ATranslation";
 
+import CloseFromOutsideAPI from "./compositionAPI/CloseFromOutsideAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EscapeAPI from "./compositionAPI/EscapeAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
@@ -168,6 +170,11 @@ export default {
     const isModalHidden = toRef(props, "isModalHidden");
 
     const {
+      destroyEventBusCloseFromOutside,
+      initEventBusCloseFromOutside,
+    } = CloseFromOutsideAPI(props);
+
+    const {
       sizeClass,
     } = SizeAPI(props);
 
@@ -220,8 +227,14 @@ export default {
       }
     });
 
+    initEventBusCloseFromOutside();
+
     onMounted(() => {
       showModal();
+    });
+
+    onBeforeUnmount(() => {
+      destroyEventBusCloseFromOutside();
     });
 
     onUnmounted(() => {
@@ -235,8 +248,6 @@ export default {
       setFocusToModal,
       sizeClass,
     };
-  },
-  computed: {
   },
   render() {
     return h(Teleport, {
