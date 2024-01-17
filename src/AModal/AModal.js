@@ -1,5 +1,5 @@
 import {
-  h,
+  h, onBeforeUnmount,
   Teleport,
   withDirectives,
 } from "vue";
@@ -8,6 +8,8 @@ import AForm from "../ui/AForm/AForm";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ASafeHtml from "../directives/ASafeHtml";
+
+import CloseFromOutsideAPI from "./compositionAPI/CloseFromOutsideAPI";
 
 import {
   modalPluginOptions,
@@ -191,9 +193,20 @@ export default {
     "update:modelValue",
   ],
   setup(props, { emit }) {
+    const {
+      destroyEventBusCloseFromOutside,
+      initEventBusCloseFromOutside,
+    } = CloseFromOutsideAPI(props);
+
     const updateModelLocal = model => {
       emit("update:modelValue", model);
     };
+
+    initEventBusCloseFromOutside();
+
+    onBeforeUnmount(() => {
+      destroyEventBusCloseFromOutside();
+    });
 
     return {
       updateModelLocal,

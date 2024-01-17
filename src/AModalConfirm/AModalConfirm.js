@@ -1,11 +1,12 @@
 import {
   computed,
-  h,
+  h, onBeforeUnmount,
 } from "vue";
 
 import AModal from "../AModal/AModal";
 
 import AConfirmAPI from "../compositionAPI/AConfirmAPI";
+import CloseFromOutsideAPI from "./compositionAPI/CloseFromOutsideAPI";
 
 // @vue/component
 export default {
@@ -17,6 +18,13 @@ export default {
       isModalHidden,
     } = AConfirmAPI();
 
+    const {
+      destroyEventBusCloseFromOutside,
+      initEventBusCloseFromOutside,
+    } = CloseFromOutsideAPI({
+      isModalHidden,
+    });
+
     const modalProps = computed(() => {
       return {
         close: closeConfirm,
@@ -24,6 +32,12 @@ export default {
         isConfirm: true,
         ...confirmOptions.value
       };
+    });
+
+    initEventBusCloseFromOutside();
+
+    onBeforeUnmount(() => {
+      destroyEventBusCloseFromOutside();
     });
 
     return {
