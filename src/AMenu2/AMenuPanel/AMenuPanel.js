@@ -6,8 +6,10 @@ import {
 
 import AMenuBreadcrumbs from "../AMenuBreadcrumbs/AMenuBreadcrumbs";
 import AMenuPanelGroup from "../AMenuPanelGroup/AMenuPanelGroup";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import GroupAPI from "./compositionAPI/GroupAPI";
+import HeaderAPI from "./compositionAPI/HeaderAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import LevelAPI from "./compositionAPI/LevelAPI";
 import PanelOpenAPI from "./compositionAPI/PanelOpenAPI";
@@ -103,15 +105,24 @@ export default {
       openedLevelIndex,
     });
 
+    const {
+      isHeaderPanelVisible,
+      parentLabel,
+    } = HeaderAPI(props, {
+      openedLevelIndex,
+    });
+
     provide("isChildPanelOpen", isChildPanelOpen);
     provide("isPanelMain", isPanelMain);
 
     return {
       isChildPanelOpen,
+      isHeaderPanelVisible,
       isItemsWithoutGroup,
       isPanelOpen,
       itemsGroup,
       panelId,
+      parentLabel,
       styleZIndex,
     };
   },
@@ -135,6 +146,15 @@ export default {
         isSearchActive: this.isSearchActive,
         panelParentsOpen: this.panelParentsOpen,
       }),
+      (this.isHeaderPanelVisible) && h("div", {
+        class: "a_menu_2__panel_header",
+      }, [
+        h(ATranslation, {
+          class: "a_menu_2__panel_header__text",
+          html: this.parentLabel,
+          tag: "strong",
+        }),
+      ]),
       h("ul", {
         class: "a_menu_2__listview",
       }, [
