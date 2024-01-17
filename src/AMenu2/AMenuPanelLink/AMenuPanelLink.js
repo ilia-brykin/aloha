@@ -236,7 +236,7 @@ export default {
               }, this.countChildren),
               h(AIcon, {
                 class: "a_menu_2__link__counter__icon",
-                icon: "ChevronRight",
+                icon: "MenuChevronRight",
               })
             ]),
           ]),

@@ -18,6 +18,7 @@ import CheckLg from "../AIcon/Icons/CheckLg";
 import ChevronDown from "../AIcon/Icons/ChevronDown";
 import ChevronLeft from "../AIcon/Icons/ChevronLeft";
 import ChevronRight from "../AIcon/Icons/ChevronRight";
+import ChevronRightThin from "../AIcon/Icons/bootstrap-1-9-1/ChevronRight";
 import ChevronUp from "../AIcon/Icons/ChevronUp";
 import Close from "../AIcon/Icons/Close";
 import Cog from "../AIcon/Icons/Cog";
@@ -48,11 +49,12 @@ import Trash from "../AIcon/Icons/Trash";
 
 export const iconPluginOptions = ref({
   icons: {
-    Aloha,
+    _NoImage,
     AlertDanger,
-    AlertSuccess,
     AlertInfo,
+    AlertSuccess,
     AlertWarning,
+    Aloha,
     AngleDown,
     AngleLeft,
     AngleRight,
@@ -64,8 +66,8 @@ export const iconPluginOptions = ref({
     ChevronLeft,
     ChevronRight,
     ChevronUp,
-    Cog,
     Close,
+    Cog,
     Cross,
     Dnd,
     DoubleAngleDown,
@@ -78,6 +80,7 @@ export const iconPluginOptions = ref({
     FloppyDisk,
     Home,
     Lock,
+    MenuChevronRight: ChevronRightThin,
     Minus,
     Ok,
     OptionHorizontal,
@@ -90,7 +93,6 @@ export const iconPluginOptions = ref({
     ThList,
     ThreeDots,
     Trash,
-    _NoImage,
   },
 });
 
