@@ -98,7 +98,7 @@ export default {
         withDirectives(h(this.labelTag), [
           [ASafeHtml, this.label]
         ]),
-      this.hasChildren && h(AList, {
+      this.hasChildren ? h(AList, {
         classItem: this.classItem,
         classMain: this.classMain,
         data: this.children,
@@ -110,7 +110,7 @@ export default {
         labelTag: this.labelTag,
         listItemTag: this.listItemTag,
         tag: this.tag,
-      }, this.$slots),
+      }, this.$slots) : "",
     ]);
   },
 };

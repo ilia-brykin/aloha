@@ -3,14 +3,16 @@
 
 module.exports = {
   coverageDirectory: "coverage",
-  moduleNameMapper: {
-    "@/(.*)$": "<rootDir>/src/$1"
-  },
-  testEnvironment: "node",
-  transform: {
-    "^.+\\.jsx?$": "babel-jest"
-  },
   transformIgnorePatterns: [
     "<rootDir>/node_modules/(?!lodash-es)"
   ],
+  globals: {},
+  testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    customExportConditions: ["node", "node-addons"],
+  },
+  transform: {
+    "^.+\\js$": "babel-jest"
+  },
+  moduleFileExtensions: ["vue", "js", "json", "jsx", "ts", "tsx", "node"]
 };
