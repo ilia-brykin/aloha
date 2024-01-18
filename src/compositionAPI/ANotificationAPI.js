@@ -4,7 +4,11 @@ import {
 } from "vue";
 
 import {
+  createListFromObject,
+} from "../utils/utils";
+import {
   isNil,
+  isPlainObject,
   values,
 } from "lodash-es";
 
@@ -28,13 +32,17 @@ export function setNotificationTimeout(timeout) {
   notificationTimeout = timeout;
 }
 
-export function addNotification({ text, type = "success", timeout }) {
+export function addNotification({ text, type = "success", timeout, useValuesFromObject = true }) {
   const TIMEOUT_LOCAL = isNil(timeout) ? notificationTimeout : timeout;
   const CURRENT_INDEX = notificationsCount;
   const TYPE = type === "error" ? "danger" : type;
+  let textLocal = text;
+  if (isPlainObject(text) && useValuesFromObject) {
+    textLocal = createListFromObject(text); // TODO: filterList
+  }
 
   notificationsObj.value[CURRENT_INDEX] = {
-    text,
+    text: textLocal,
     type: TYPE,
     index: CURRENT_INDEX,
   };

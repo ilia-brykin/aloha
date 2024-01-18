@@ -8,5 +8,9 @@ div
     :text="'_ADD_NOTIFICATION_{{type}}_'"
     :extra="{type: type}"
     @click="addNotificationLocal(type)"
-    text="Open Modal"
   )
+  .a_mt_4
+    a-button.a_btn.a_btn_primary(
+      text="Object"
+      @click="addNotificationLocal({ sdf: 'x', abc: 'y', aloha: 'z' })"
+    )

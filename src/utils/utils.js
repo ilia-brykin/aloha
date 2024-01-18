@@ -47,3 +47,13 @@ export function concatenateTwoStringsWithSpace({ class1, class2, defaultValue = 
   }
   return defaultValue;
 }
+
+export function createListFromObject(obj) { // TODO: filterList, soll gelöscht werden
+  const keys = Object.keys(obj);
+  if (keys.length === 0) {
+    return "";
+  }
+
+  const items = keys.map(key => `<li>${ obj[key] }</li>`).join("");
+  return `<ul class="a_list_without_styles">${ items }</ul>`;
+}
