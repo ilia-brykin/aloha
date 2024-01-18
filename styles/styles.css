@@ -6900,7 +6900,7 @@ input:not(:-webkit-autofill) {
   --a_menu_2_submenu_open_color: var(--a_color_white);
   --a_menu_2_submenu_border_radius: 1rem;
   --a_menu_2_submenu_border_width: 2px;
-  --a_menu_2_search_height: auto;
+  --a_menu_2_search_height: 38px;
   --a_menu_2_search_link_focus_size: inset 0 0 1px 2px;
   --a_menu_2_close_panel_width: 300px;
   --a_menu_2_close_panel_max_height: 400px;
@@ -7075,7 +7075,7 @@ input:not(:-webkit-autofill) {
   margin: 0 var(--a_menu_2_listitem_padding); }
 
 .a_menu_2__btn_toggle {
-  --a_menu_2_btn_toggle_width: 38px;
+  --a_menu_2_btn_toggle_width: 42px;
   --a_menu_2_btn_toggle_height: 38px;
   --a_menu_2_btn_toggle_bar_width: 18px;
   --a_menu_2_btn_toggle_bar_height: 2px;
@@ -7083,7 +7083,9 @@ input:not(:-webkit-autofill) {
   --a_menu_2_btn_toggle_bar_2_top: calc(var(--a_menu_2_btn_toggle_height) / 2 - var(--a_menu_2_btn_toggle_bar_height) / 2);
   --a_menu_2_btn_toggle_bar_3_top: 24px;
   --a_menu_2_btn_toggle_bar_bg: var(--a_btn_color, var(--a_color_white));
+  min-height: var(--a_menu_2_btn_toggle_height);
   height: var(--a_menu_2_btn_toggle_height);
+  min-width: var(--a_menu_2_btn_toggle_width);
   width: var(--a_menu_2_btn_toggle_width);
   position: relative; }
   .a_menu_2__btn_toggle:active, .a_menu_2__btn_toggle.active {
