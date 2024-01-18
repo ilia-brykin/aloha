@@ -62,7 +62,7 @@ export default {
     buttonToggleClass: {
       type: [String, Object],
       required: false,
-      default: "a_btn a_btn_secondary",
+      default: "a_btn a_btn_transparent_secondary a_btn_small",
     },
     buttonToggleProps: {
       type: Object,
