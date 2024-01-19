@@ -23,8 +23,11 @@ jobs:
           npm install
           npm test
 
-#      - name: Tests failure
-#        if: ${{ failure() }}
+      - name: Tests failed
+        if: ${{ failure() }}
+        run: |
+          echo "Tests failed. Exiting workflow."
+          exit 1
 
       - name: Install dependencies
         if: ${{ success() }}
