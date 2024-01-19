@@ -35,11 +35,6 @@ export default {
       required: false,
       default: () => tinymcePluginOptions.value.propsDefault.contentCustomStyle,
     },
-    contentCustomStyle: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     contentLangs: {
       type: Array,
       required: false,
