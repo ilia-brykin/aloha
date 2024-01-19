@@ -27,8 +27,8 @@ jobs:
           npm install
           npm test
 
-      - name: Tests failure
-        if: ${{ failure() }}
+#      - name: Tests failure
+#        if: ${{ failure() }}
 
       - name: Build documentation
         if: ${{ success() }}
