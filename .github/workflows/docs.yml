@@ -21,10 +21,6 @@ jobs:
       - name: Run Tests
         run: |
           npm install
-
-      - name: Install dependencies global
-        run: |
-          npm install
           npm test
 
 #      - name: Tests failure
