@@ -32,7 +32,7 @@ export const tinymcePluginOptions = ref({
       { name: "Hilfe", items: ["help"] },
     ],
     toolbarMode: "wrap",
-    validElements: "a[href|target=_blank],strong/b,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
+    validElements: "@[style],a[href|target|title],strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
   },
 });
 
