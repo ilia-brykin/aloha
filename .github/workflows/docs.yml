@@ -26,6 +26,12 @@ jobs:
 #      - name: Tests failure
 #        if: ${{ failure() }}
 
+      - name: Install dependencies
+        if: ${{ success() }}
+        run: |
+          cd docs/
+          npm install
+
       - name: Build documentation
         if: ${{ success() }}
         run: |
