@@ -12,9 +12,12 @@ import PageFilterListKeyLabelCallback from "./PageFilterListKeyLabelCallback/Pag
 import PageFilterListListClass from "./PageFilterListListClass/PageFilterListListClass.vue";
 import PageFilterListSeparator from "./PageFilterListSeparator/PageFilterListSeparator.vue";
 import PageFilterListTag from "./PageFilterListTag/PageFilterListTag.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterListTest from "../../../../../src/filters/__tests__/filterList.test.js?raw";
 
 export default {
   name: "PageFilterList",
@@ -33,6 +36,7 @@ export default {
     PageFilterListListClass,
     PageFilterListSeparator,
     PageFilterListTag,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -43,9 +47,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterListTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };

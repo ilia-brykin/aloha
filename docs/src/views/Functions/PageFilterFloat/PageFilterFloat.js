@@ -7,9 +7,12 @@ import PageFilterFloatExample from "./PageFilterFloatExample/PageFilterFloatExam
 import PageFilterFloatSuffix from "./PageFilterFloatSuffix/PageFilterFloatSuffix.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterFloatTest from "../../../../../src/filters/__tests__/filterFloat.test.js?raw";
 
 export default {
   name: "PageFilterFloat",
@@ -23,6 +26,7 @@ export default {
     PageFilterFloatSuffix,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -33,9 +37,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterFloatTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };

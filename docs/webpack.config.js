@@ -40,6 +40,10 @@ function getRules(mode) {
     //   use: ["source-map-loader"],
     // },
     {
+      resourceQuery: /raw/,
+      type: "asset/source",
+    },
+    {
       test: /\.pug$/,
       use: ["vue-pug-loader"],
     },

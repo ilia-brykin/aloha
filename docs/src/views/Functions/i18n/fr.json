@@ -1,5 +1,6 @@
 {
   "_PAGE_FUNCTIONS_ARGUMENTS_HEADER_": "Arguments",
   "_PAGE_FUNCTIONS_IMPORT_COMPOSITION_API_HEADER_": "Importer en tant qu'API de composition",
-  "_PAGE_FUNCTIONS_IMPORT_FUNCTION_HEADER_": "Importer en tant que Fonction"
+  "_PAGE_FUNCTIONS_IMPORT_FUNCTION_HEADER_": "Importer en tant que Fonction",
+  "_PAGE_FUNCTIONS_TESTS_HEADER_": "Tests"
 }

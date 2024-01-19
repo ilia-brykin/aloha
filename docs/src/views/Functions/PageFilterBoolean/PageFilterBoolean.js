@@ -6,9 +6,13 @@ import PageFilterBooleanTrueFalseValues from "./PageFilterBooleanTrueFalseValues
 import PageFilterBooleanUseNil from "./PageFilterBooleanUseNil/PageFilterBooleanUseNil.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterBooleanTest from "../../../../../src/filters/__tests__/filterBoolean.test.js?raw";
+
 
 export default {
   name: "PageFilterBoolean",
@@ -21,6 +25,7 @@ export default {
     PageFilterBooleanUseNil,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -31,9 +36,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterBooleanTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };

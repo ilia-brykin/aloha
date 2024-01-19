@@ -1,6 +1,7 @@
 {
   "_PAGE_FUNCTIONS_ARGUMENTS_HEADER_": "الحجج",
   "_PAGE_FUNCTIONS_IMPORT_COMPOSITION_API_HEADER_": "الاستيراد كواجهة برمجة التطبيقات المركبة",
-  "_PAGE_FUNCTIONS_IMPORT_FUNCTION_HEADER_": "الاستيراد كدالة"
+  "_PAGE_FUNCTIONS_IMPORT_FUNCTION_HEADER_": "الاستيراد كدالة",
+  "_PAGE_FUNCTIONS_TESTS_HEADER_": "Tests"
 }
 
