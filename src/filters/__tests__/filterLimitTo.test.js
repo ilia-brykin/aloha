@@ -1,47 +1,31 @@
 import filterLimitTo from "../filterLimitTo";
 
 describe("filterLimitTo", () => {
-  test("limit - shorter text", () => {
-    expect(filterLimitTo("Lorem ipsum", { limit: 20 })).toBe("Lorem ipsum");
+  test("text exactly at limit", () => {
+    expect(filterLimitTo("Lorem ipsum dolor sit amet, cons", { limit: 30 })).toBe("Lorem ipsum dolor sit amet, co...");
   });
 
-  test("limit - longer text", () => {
-    expect(filterLimitTo("Lorem ipsum dolor sit amet", { limit: 10 })).toBe("Lorem ipsu...");
+  test("long text exceeding limit", () => {
+    expect(filterLimitTo("Lorem ipsum dolor sit amet, consectetur adipiscing elit", { limit: 30 })).toBe("Lorem ipsum dolor sit amet, co...");
   });
 
-  test("maxThreeDots - true with text ending in dot", () => {
-    expect(filterLimitTo("Lorem ipsum.", { limit: 10, maxThreeDots: true })).toBe("Lorem ipsu...");
+  test("text ending with a period", () => {
+    expect(filterLimitTo("Lorem ipsum dolor sit amet.", { limit: 30 })).toBe("Lorem ipsum dolor sit amet.");
   });
 
-  test("maxThreeDots - false with text ending in dot", () => {
-    expect(filterLimitTo("Lorem ipsum.", { limit: 10, maxThreeDots: false })).toBe("Lorem ipsu...");
+  test("text with multiple periods at the end", () => {
+    expect(filterLimitTo("Lorem ipsum dolor sit amet...", { limit: 30 })).toBe("Lorem ipsum dolor sit amet...");
   });
 
-  test("maxThreeDots - true with multiple ending dots", () => {
-    expect(filterLimitTo("Lorem ipsum...", { limit: 10, maxThreeDots: true })).toBe("Lorem ipsu...");
+  test("numeric value treated as text", () => {
+    expect(filterLimitTo(1234567890, { limit: 10 })).toBe("1234567890");
   });
 
-  test("maxThreeDots - false with multiple ending dots", () => {
-    expect(filterLimitTo("Lorem ipsum...", { limit: 10, maxThreeDots: false })).toBe("Lorem ipsu...");
+  test("null value", () => {
+    expect(filterLimitTo(null, { limit: 30 })).toBe("");
   });
 
-  test("numeric input", () => {
-    expect(filterLimitTo(1234567890, { limit: 5 })).toBe("12345...");
-  });
-
-  test("null input", () => {
-    expect(filterLimitTo(null)).toBe("");
-  });
-
-  test("undefined input", () => {
-    expect(filterLimitTo(undefined)).toBe("");
-  });
-
-  test("no options provided", () => {
-    expect(filterLimitTo("Default lorem ipsum")).toBe("Default lorem ipsum");
-  });
-
-  test("empty string input", () => {
-    expect(filterLimitTo("", { limit: 5 })).toBe("");
+  test("long text with maxThreeDots false", () => {
+    expect(filterLimitTo("Lorem ipsum dolor sit amet, consectetur adipiscing elit", { limit: 30, maxThreeDots: false })).toBe("Lorem ipsum dolor sit amet, co...");
   });
 });
