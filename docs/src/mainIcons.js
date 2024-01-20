@@ -2,6 +2,7 @@ import ArrowRightCircle from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRightCi
 import ArrowRightCircleFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRightCircleFill";
 import ArrowsCollapse from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowsCollapse";
 import Bell from "../../src/AIcon/Icons/bootstrap-1-9-1/Bell";
+import Boxes from "../../src/AIcon/Icons/bootstrap-1-9-1/Boxes";
 import BoxArrowUpRight from "../../src/AIcon/Icons/bootstrap-1-9-1/BoxArrowUpRight";
 import ChatSquareText from "../../src/AIcon/Icons/bootstrap-1-9-1/ChatSquareText";
 import ChatSquareTextFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ChatSquareTextFill";
@@ -48,6 +49,7 @@ export default {
   Star,
   ArrowsCollapse,
   Bell,
+  Boxes,
   BoxArrowUpRight,
   ChatSquareText,
   ChatSquareTextFill,
