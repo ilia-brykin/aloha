@@ -8022,7 +8022,7 @@ input:not(:-webkit-autofill) {
   padding: var(--a_example_padding_y) var(--a_example_padding_x); }
 
 .a_menu_2__page {
-  padding: 0 1rem; }
+  padding: 0 1rem 0 2.5rem; }
 
 .a_menu_2 {
   position: fixed; }
