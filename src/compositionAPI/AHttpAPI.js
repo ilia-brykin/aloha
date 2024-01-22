@@ -547,7 +547,7 @@ function removeAbortGroupCurrent({ abortGroup, abortable }) {
   }
 }
 
-export function getUrlParams({ url } = {}) {
+export function getUrlParams({ url, allCommasToArray = false, keysCommaToArray = [] } = {}) {
   let urlParamsString = url || window.location.search.substring(1);
   try {
     urlParamsString = decodeURI(urlParamsString);
@@ -562,7 +562,9 @@ export function getUrlParams({ url } = {}) {
       if (pair[1].indexOf("[") !== -1 || pair[1].indexOf("%5B") !== -1) { // Wenn in URL array steht. Z.B.: doc_type1=%5B%22uuid1%22%5D oder doc_type1=["uuid1"]
         const stringValue = pair[1].replace("%5B", "[").replace("%5D", "]").replace(/%22/g, `"`);
         urlParamsObj[pair[0]] = JSON.parse(stringValue);
-      } else if (pair[1].indexOf(",") !== -1) {
+      } else if (pair[1].indexOf(",") !== -1 &&
+        (allCommasToArray ||
+          keysCommaToArray.indexOf(pair[0]) !== -1)) {
         const LIST = pair[1].split(",");
         urlParamsObj[pair[0]] = LIST;
       } else if (urlParamsObj[pair[0]]) {
