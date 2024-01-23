@@ -26,5 +26,10 @@
   "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Select all visible, possible rows",
   "_A_TABLE_SELECT_THIS_ROW_": "Select this row",
   "_A_TABLE_SORT_TITLE_": "Click here to toggle between ascending, descending and no sorting.",
-  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "Hold Shift while clicking to combine sorting of multiple columns."
+  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "Hold Shift while clicking to combine sorting of multiple columns.",
+  "_A_TABLE_OPTIONS_BTN_LOCK_TITLE_": "_A_TABLE_OPTIONS_BTN_LOCK_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_EYE_TITLE_": "_A_TABLE_OPTIONS_BTN_EYE_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_": "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_": "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_"
 }

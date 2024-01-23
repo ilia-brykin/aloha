@@ -26,5 +26,10 @@
   "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Odaberite sve vidljive, moguće retke",
   "_A_TABLE_SELECT_THIS_ROW_": "Odaberite ovu liniju",
   "_A_TABLE_SORT_TITLE_": "Kliknite ovdje za prebacivanje između uzlaznog, silaznog i bez sortiranja.",
-  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "Držite Shift dok klikate kako biste kombinirali sortiranje više stupaca."
+  "_A_TABLE_SORT_TITLE_MULTI_COLUMN_": "Držite Shift dok klikate kako biste kombinirali sortiranje više stupaca.",
+  "_A_TABLE_OPTIONS_BTN_LOCK_TITLE_": "_A_TABLE_OPTIONS_BTN_LOCK_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_EYE_TITLE_": "_A_TABLE_OPTIONS_BTN_EYE_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_": "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_": "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_",
+  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_"
 }

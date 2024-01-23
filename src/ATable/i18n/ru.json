@@ -26,5 +26,10 @@
   "_A_TABLE_DROPDOWN_HIDE_FIELD_TEXT_": "Поле",
   "_A_TABLE_DROPDOWN_HIDE_FIELDS_TEXT_{{count}}_": "Поля: {{ count }}",
   "_A_TABLE_ALL_ROWS_{{count}}_": "Общее количество записей: {{ count }}",
-  "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_": "Действия для строки: {{rowNumber}}"
+  "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_": "Действия для строки: {{rowNumber}}",
+  "_A_TABLE_OPTIONS_BTN_LOCK_TITLE_": "Столбец заблокирован",
+  "_A_TABLE_OPTIONS_BTN_EYE_TITLE_": "Скрыть столбец",
+  "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_": "Показать столбец",
+  "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_": "Передвинуть столбец влево",
+  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "Передвинуть столбец вправо"
 }

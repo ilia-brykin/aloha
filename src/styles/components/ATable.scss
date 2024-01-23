@@ -159,6 +159,12 @@
   }
 }
 
+.a_table__th__dropdown__li_invisible {
+  .a_dropdown__item_text {
+    color: var(--a_color_gray_600);
+  }
+}
+
 .a_table__th__dropdown__li_over {
   border-top: 6px solid var(--a_table_draggable_color);
   position: relative;

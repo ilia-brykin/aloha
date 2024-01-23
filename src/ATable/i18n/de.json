@@ -26,5 +26,10 @@
   "_A_TABLE_DROPDOWN_HIDE_FIELD_TEXT_": "1 Feld",
   "_A_TABLE_DROPDOWN_HIDE_FIELDS_TEXT_{{count}}_": "{{ count }} Felder",
   "_A_TABLE_ALL_ROWS_{{count}}_": "Gesamtanzahl der Einträge: {{ count }}",
-  "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_": "Aktionen zur Zeile: {{ rowNumber }}"
+  "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_": "Aktionen zur Zeile: {{ rowNumber }}",
+  "_A_TABLE_OPTIONS_BTN_LOCK_TITLE_": "Spalte ist gesperrt",
+  "_A_TABLE_OPTIONS_BTN_EYE_TITLE_": "Spalte ausblenden",
+  "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_": "Spalte einblenden",
+  "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_": "Spalte nach links verschieben",
+  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "Spalte nach rechts verschieben"
 }
