@@ -118,7 +118,7 @@ export default {
         hasCaret: false,
         isCloseByClickInside: false,
         disabled: this.disabledOptions,
-        placement: "bottom-end",
+        placement: "left",
         menuWidth: 320,
         inBody: true,
       }, {
