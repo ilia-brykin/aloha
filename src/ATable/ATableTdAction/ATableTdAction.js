@@ -102,7 +102,7 @@ export default {
           extra: {
             count: this.countColumnsScrollInvisible,
           },
-          dropdownClass: "a_p_0 a_overflow_x_hidden",
+          dropdownClass: "a_p_0 a_overflow_x_hidden a_table__extra_dropdown",
           dropdownTag: "div",
           hasCaret: false,
           inBody: true,

@@ -28,6 +28,9 @@
   z-index: 1900;
   top: 100%;
 }
+.a_dropdown__menu {
+  box-shadow: 0 0 7px 3px var(--a_color_gray_600);
+}
 
 @import "components/AIcon";
 @import "components/AButton";
