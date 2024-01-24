@@ -3,7 +3,6 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
-import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
@@ -13,10 +12,6 @@ import SortAPI from "./compositionAPI/SortAPI";
 
 export default {
   name: "ATableHeaderTh",
-  components: {
-    AIcon,
-    ATranslation,
-  },
   props: {
     column: {
       type: Object,
@@ -125,12 +120,19 @@ export default {
         ],
       }, [
         h(AButton, {
+          class: [
+            "a_table__th__btn",
+            {
+              "a_btn a_btn_link a_table__th__btn_sort": this.isSortable,
+              a_table__th__btn_sequence: this.sequenceNumberSort,
+            },
+          ],
           iconLeft: this.column.icon,
           iconClass: "a_table__th__icon",
           textAriaHidden: this.column.textAriaHidden,
           title: this.titlesLocal,
           htmlScreenReader: this.column.textScreenReader,
-          ...this.attributesForButtonSort
+          ...this.attributesForButtonSort,
         }, () => [
           this.titlesSort.map(titleSort => {
             return h(ATranslation, {

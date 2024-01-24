@@ -31,7 +31,7 @@ export default {
       {
         id: "column1",
         keyLabel: "id",
-        label: "_A_TABLE_COLUMN_1_",
+        label: "_A_TABLE_COLUMN_MULTI_ROWS_",
         sortId: "id",
       },
       {

@@ -52,14 +52,14 @@ export default function SortAPI(props) {
 
   const ariaSort = computed(() => {
     if (isSortable.value) {
-      let ariaSort = "none";
+      let ariaSortValue = "none";
       if (isSortAscending.value) {
-        ariaSort = "ascending";
+        ariaSortValue = "ascending";
       } else if (isSortDescending.value) {
-        ariaSort = "descending";
+        ariaSortValue = "descending";
       }
       return {
-        "aria-sort": ariaSort,
+        "aria-sort": ariaSortValue,
       };
     }
     return {};
@@ -67,14 +67,14 @@ export default function SortAPI(props) {
 
   const iconSortDescending = computed(() => {
     return h(AIcon, {
-      icon: "ChevronUp",
+      icon: "CaretUpFill",
       class: "a_table__th__sort__icon a_table__th__sort__icon_up",
     });
   });
 
   const iconSortAscending = computed(() => {
     return h(AIcon, {
-      icon: "ChevronDown",
+      icon: "CaretDownFill",
       class: "a_table__th__sort__icon a_table__th__sort__icon_down",
     });
   });
@@ -107,7 +107,6 @@ export default function SortAPI(props) {
       return {
         type: "button",
         disabled: disabledSort.value,
-        class: "a_btn a_btn_link a_table__th__sort",
         isTitleHtml: tablePluginOptions.value.config?.isHtmlTitleSort || false,
         // ariaLabel: "Bla bla", // TODO: Barrierefreiheit
         // "aria-describedby": "alohaTest",
