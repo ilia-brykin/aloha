@@ -7540,6 +7540,23 @@ input:not(:-webkit-autofill) {
   background-color: var(--a_table_th_bg);
   border-bottom: var(--a_table_th_border_bottom_width) solid var(--a_table_th_border_bottom_color);
   position: relative; }
+  .a_table__th .a_table__cell__child {
+    height: 100%; }
+
+.a_table__th__btn {
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: inherit;
+  display: flex;
+  align-items: center; }
+
+.a_table__th__btn_sort {
+  padding-right: 15px; }
+
+.a_table__th__btn_sequence {
+  padding-right: 45px; }
 
 .a_table__th_draggable {
   cursor: move; }
@@ -7634,7 +7651,10 @@ input:not(:-webkit-autofill) {
   align-items: center; }
 
 .a_table__th__sort__box {
-  padding-left: .2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
   display: flex;
   align-items: center; }
 
