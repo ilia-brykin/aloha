@@ -146,23 +146,26 @@ export default {
                   }),
                 ]) :
                 this.paginationItems.map(item => {
+                  const IS_ACTIVE = item === this.currentItem;
+
                   return h("li", {
                     class: ["a_pagination__item", {
-                      active: item === this.currentItem,
+                      active: IS_ACTIVE,
                       disabled: this.disabled,
                     }],
                   }, [
                     h(AButton, {
-                      tag: "a",
+                      "aria-current": IS_ACTIVE ? true : undefined,
                       class: "a_pagination__item__link",
-                      role: "button",
-                      tabindex: item === this.currentItem || this.disabled ? -1 : 0,
-                      title: "_A_PAGINATION_TO_PAGE_{{page}}_",
-                      text: item,
-                      textAriaHidden: true,
                       extra: {
                         page: item,
                       },
+                      role: "button",
+                      tabindex: IS_ACTIVE || this.disabled ? -1 : 0,
+                      tag: "a",
+                      text: item,
+                      textAriaHidden: true,
+                      title: "_A_PAGINATION_TO_PAGE_{{page}}_",
                       onClick: () => this.updateOffset(item),
                     }),
                   ]);

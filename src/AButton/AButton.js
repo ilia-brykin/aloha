@@ -47,6 +47,11 @@ export default {
       required: false,
       default: undefined,
     },
+    classDefault: { // TODO: Documentation
+      type: String,
+      required: false,
+      default: "aloha_btn",
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -300,7 +305,7 @@ export default {
       ref: "buttonRef",
       id: this.id,
       class: [
-        "aloha_btn",
+        this.classDefault,
         this.switchClass,
         this.class,
         {

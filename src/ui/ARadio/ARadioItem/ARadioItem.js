@@ -3,6 +3,7 @@ import {
   withDirectives,
 } from "vue";
 
+import AButton from "../../../AButton/AButton";
 import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI";
 
 import ASafeHtml from "../../../directives/ASafeHtml";
@@ -11,6 +12,7 @@ import ButtonGroupAPI from "../../ACheckbox/ACheckboxItem/compositionAPI/ButtonG
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
+import UiTitleElementAPI from "../../compositionApi/UiTitleElementAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
 
 export default {
@@ -60,6 +62,16 @@ export default {
     },
     keyDisabled: {
       type: String,
+      required: false,
+      default: undefined,
+    },
+    keyTitle: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyTitleCallback: {
+      type: Function,
       required: false,
       default: undefined,
     },
@@ -130,6 +142,10 @@ export default {
       valueLocal,
     });
 
+    const {
+      titleLocal,
+    } = UiTitleElementAPI(props);
+
     return {
       classButton,
       currentLabelFiltered,
@@ -140,6 +156,7 @@ export default {
       onClick,
       onKeydown,
       styleWithSearch,
+      titleLocal,
       valueLocal,
     };
   },
@@ -158,10 +175,17 @@ export default {
           onClick: this.onClick,
           onKeydown: this.onKeydown,
         }),
-        h("label", {
-          for: this.idLocal,
+        h(AButton, {
           class: this.classButton,
-        }, [
+          classDefault: "",
+          extra: {
+            label: this.labelLocal,
+            labelFiltered: this.currentLabelFiltered,
+          },
+          for: this.idLocal,
+          tag: "label",
+          title: this.titleLocal,
+        }, () => [
           this.slotName && this.$slots[this.slotName] ?
             this.$slots[this.slotName]({
               id: this.id,
@@ -193,12 +217,20 @@ export default {
         onClick: this.onClick,
         onKeydown: this.onKeydown,
       }),
-      h("label", {
-        for: this.idLocal,
-        class: ["a_custom_control_label", {
+      h(AButton, {
+        class: {
+          a_custom_control_label: true,
           a_custom_control_label_width_auto: this.isWidthAuto,
-        }],
-      }, [
+        },
+        classDefault: "",
+        extra: {
+          label: this.labelLocal,
+          labelFiltered: this.currentLabelFiltered,
+        },
+        for: this.idLocal,
+        tag: "label",
+        title: this.titleLocal,
+      }, () => [
         this.slotName && this.$slots[this.slotName] ?
           this.$slots[this.slotName]({
             id: this.id,

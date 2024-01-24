@@ -38,11 +38,12 @@
   },
   "scripts": {
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1",
+    "publish": "npm publish --scope=@npm",
     "test": "jest"
   },
   "dependencies": {
     "@floating-ui/vue": "1.0.2",
-    "aloha-css": "1.0.98",
+    "aloha-css": "1.0.132",
     "axios": "^1.4.0",
     "dompurify": "^2.4.1",
     "fecha": "^4.2.3",

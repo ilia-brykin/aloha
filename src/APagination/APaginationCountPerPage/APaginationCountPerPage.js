@@ -32,8 +32,8 @@ export default {
     mode: {
       type: String,
       required: false,
-      default: "inline",
-      validator: value => ["inline", "select"].indexOf(value) !== -1,
+      default: "group",
+      validator: value => ["inline", "group", "select"].indexOf(value) !== -1,
     },
     offset: {
       type: Number,
@@ -68,7 +68,7 @@ export default {
   render() {
     return h("div", {
       class: "a_pagination__counts",
-    }, this.mode === "inline" ?
+    }, (this.mode === "inline" || this.mode === "group") ?
       [
         h(ATranslation, {
           class: "a_pagination__count_from_to",
@@ -80,28 +80,66 @@ export default {
           class: "a_pagination__count__text",
           html: "_A_COUNT_PER_PAGE_",
         }),
-        h("div", {
-          class: "a_pagination__count",
-        }, [
-          this.limitsPerPage.map(count => {
-            return h("div", {
-              class: "a_pagination__count__item",
-            }, [
-              h(AButton, {
-                type: "button",
-                class: "a_btn a_btn_link a_pagination__count__button",
-                disabled: +count === this.limit || this.disabled,
-                text: count,
-                textAriaHidden: true,
-                textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
-                extra: {
-                  count,
-                },
-                onClick: () => this.changeLimit(count),
-              }),
-            ]);
-          }),
-        ]),
+        this.mode === "inline" ?
+          h("div", {
+            class: "a_pagination__count",
+          }, [
+            this.limitsPerPage.map(count => {
+              const IS_ACTIVE = +count === this.limit;
+
+              return h("div", {
+                class: "a_pagination__count__item",
+              }, [
+                h(AButton, {
+                  "aria-current": IS_ACTIVE ? true : undefined,
+                  class: "a_btn a_btn_link a_pagination__count__button",
+                  disabled: IS_ACTIVE || this.disabled,
+                  extra: {
+                    count,
+                  },
+                  text: count,
+                  textAriaHidden: true,
+                  textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  title: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  type: "button",
+                  onClick: () => this.changeLimit(count),
+                }),
+              ]);
+            }),
+          ]) :
+          h("ul", {
+            class: "a_pagination a_pagination_group",
+          }, [
+            this.limitsPerPage.map(count => {
+              const IS_ACTIVE = +count === this.limit;
+
+              return h("li", {
+                class: [
+                  "a_pagination__item",
+                  {
+                    active: IS_ACTIVE,
+                  }
+                ],
+              }, [
+                h(AButton, {
+                  "aria-current": IS_ACTIVE ? true : undefined,
+                  class: "a_pagination__item__link",
+                  disabled: this.disabled,
+                  extra: {
+                    count,
+                  },
+                  role: "button",
+                  tabindex: IS_ACTIVE || this.disabled ? -1 : 0,
+                  tag: "a",
+                  text: count,
+                  textAriaHidden: true,
+                  textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  title: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  onClick: () => this.changeLimit(count),
+                }),
+              ]);
+            }),
+          ]),
       ] :
       [
         h(ATranslation, {

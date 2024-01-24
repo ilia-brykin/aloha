@@ -1,0 +1,148 @@
+.a_pagination__parent {
+  --a_pagination_padding_x: 0.75rem;
+  --a_pagination_padding_y: 0.375rem;
+  --a_pagination_font_size: 1rem;
+  --a_pagination_color: var(--a_color_link);
+  --a_pagination_bg: #fff;
+  --a_pagination_border_width: var(--a_border_width);
+  --a_pagination_border_color:  var(--a_border_color);
+  --a_pagination_border_radius: var(--a_border_radius);
+  --a_pagination_hover_color: var(--a_color_link_hover);
+  --a_pagination_hover_bg: var(--a_color_gray_200);
+  --a_pagination_hover_border_color: var(--a_color_gray_300);
+  --a_pagination_focus_color: var(--a_color_link_hover);
+  --a_pagination_focus_bg: var(--a_color_gray_200);
+  --a_pagination_focus_box_shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  --a_pagination_active_color: #fff;
+  --a_pagination_active_bg: var(--a_color_primary);
+  --a_pagination_active_border_color: var(--a_color_primary);
+  --a_pagination_disabled_color: var(--a_color_secondary);
+  --a_pagination_disabled_bg: #fff;
+  --a_pagination_disabled_border_color: var(--a_color_gray_300);
+}
+
+.a_pagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-left: 0;
+  list-style: none;
+}
+.a_pagination_group {
+  width: auto;
+  justify-content: normal;
+  padding-left: 1rem;
+}
+.a_pagination__item {
+  white-space: nowrap;
+}
+
+.a_pagination__item__link {
+  position: relative;
+  display: block;
+  padding: var(--a_pagination_padding_y) var(--a_pagination_padding_x);
+  font-size: var(--a_pagination_font_size);
+  color: var(--a_pagination_color);
+  text-decoration: none;
+  background-color: var(--a_pagination_bg);
+  border: var(--a_pagination_border_width) solid var(--a_pagination_border_color);
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  cursor: pointer;
+  .a_pagination__item:first-child & {
+    border-top-left-radius: var(--a_pagination_border_radius);
+    border-bottom-left-radius: var(--a_pagination_border_radius);
+  }
+  .a_pagination__item:last-child & {
+    border-top-right-radius: var(--a_pagination_border_radius);
+    border-bottom-right-radius: var(--a_pagination_border_radius);
+  }
+  &:hover {
+    z-index: 2;
+    color: var(--a_pagination_hover_color);
+    background-color: var(--a_pagination_hover_bg);
+    border-color: var(--a_pagination_hover_border_color);
+  }
+  &:focus {
+    z-index: 3;
+    color: var(--a_pagination_focus_color);
+    background-color: var(--a_pagination_focus_bg);
+    outline: 0;
+    box-shadow: var(--a_pagination_focus_box_shadow);
+  }
+  .disabled > &,
+  &.disabled {
+    color: var(--a_pagination_disabled_color);
+    pointer-events: none;
+    background-color: var(--a_pagination_disabled_bg);
+    border-color: var(--a_pagination_disabled_border_color);
+    cursor: default;
+  }
+  .active > &,
+  &.active {
+    z-index: 3;
+    color: var(--a_pagination_active_color);
+    background-color: var(--a_pagination_active_bg);
+    border-color: var(--a_pagination_active_border_color);
+  }
+}
+
+.pagination_lg {
+  --a_pagination_padding_x: 1.5rem;
+  --a_pagination_padding_y: 0.75rem;
+  --a_pagination_font_size: 1.25rem;
+  --a_pagination_border_radius: 0.5rem;
+}
+.pagination_sm {
+  --a_pagination_padding_x: 0.5rem;
+  --a_pagination_padding_y: 0.25rem;
+  --a_pagination_font_size: 0.875rem;
+  --a_pagination_border_radius: 0.25rem;
+}
+
+.a_pagination__nav {
+  flex: 1;
+}
+.a_pagination {
+  margin-bottom: 0;
+}
+.a_pagination__parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f4f7;
+  padding: .5rem .5rem 0 .5rem;
+  min-height: 2rem;
+  > * {
+    margin-bottom: .5rem;
+  }
+}
+.a_pagination__counts {
+  display: flex;
+  flex: 20;
+  align-items: center;
+  .ui_select {
+    --a_select_min_width: 100px;
+  }
+}
+.a_pagination__count_from_to {
+  margin-right: 1rem;
+  white-space: nowrap;
+}
+.a_pagination__count__text {
+  white-space: nowrap;
+}
+.a_pagination__count {
+  display: flex;
+  white-space: nowrap;
+}
+.a_pagination__count__item {
+  border-right: 1px solid #000;
+  padding: 0 .25rem;
+  &:last-child {
+    border-right: none;
+  }
+}
+.a_pagination__count__button {
+  padding: 0;
+}
