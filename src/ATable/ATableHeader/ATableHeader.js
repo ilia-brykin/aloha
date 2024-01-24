@@ -127,7 +127,7 @@ export default {
       }],
     }, [
       h("div", {
-        class: "a_table__row",
+        class: "a_table__row a_table__head__row",
         role: "row",
         onDrop: this.drop,
       }, [
