@@ -2,16 +2,17 @@
   --a_input_number_range_label_padding_right: .5rem;
   --a_input_number_range_label_max_padding_left: .5rem;
   --a_input_number_range_label_white_space: nowrap;
+  --a_input_number_range_flex_basis: 220px;
 }
 .a_input_number_range__content {
   display: flex;
   align-items: center;
-  // flex-wrap: wrap;
+   flex-wrap: wrap;
 }
 .a_input_number_range__group {
   display: flex;
   align-items: center;
-  // flex-wrap: wrap;
+  flex-basis: var(--a_input_number_range_flex_basis);
 }
 .a_input_number_range__label {
   margin-right: var(--a_input_number_range_label_padding_right);

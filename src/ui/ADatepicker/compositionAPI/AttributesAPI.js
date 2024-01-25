@@ -61,7 +61,7 @@ export default function AttributesAPI(props, {
   });
 
   const widthLocal = computed(() => {
-    if (isNumber(width.value) || (isString(width.value) && /^\d+$/.test(this.width))) {
+    if (isNumber(width.value) || (isString(width.value) && /^\d+$/.test(width.value))) {
       return width.value + "px";
     }
     return width.value;

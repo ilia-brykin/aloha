@@ -4,6 +4,9 @@ import {
 } from "vue";
 
 import {
+  typesMapDatepickerRange,
+} from "../../../../ui/ADatepickerRange/utils/Types";
+import {
   typesMapInputNumberRange,
 } from "../../../../ui/AInputNumberRange/utils/Types";
 import {
@@ -15,7 +18,7 @@ export default function FilterSpecificTypeAPI(props) {
 
   const filterSpecificAttributes = computed(() => {
     const ATTRIBUTES = {};
-    if (typesMapInputNumberRange[filter.value.type]) {
+    if (typesMapInputNumberRange[filter.value.type] || typesMapDatepickerRange[filter.value.type]) {
       if (isUndefined(filter.value.inputWidth)) {
         ATTRIBUTES.inputWidth = "auto";
       }
