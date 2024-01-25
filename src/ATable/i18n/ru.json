@@ -31,5 +31,9 @@
   "_A_TABLE_OPTIONS_BTN_EYE_TITLE_": "Скрыть столбец",
   "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_": "Показать столбец",
   "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_": "Передвинуть столбец влево",
-  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "Передвинуть столбец вправо"
+  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "Передвинуть столбец вправо",
+  "_A_TABLE_ROW_PREVIEW_CLOSE_": "Закрыть  предпросмотр строки",
+  "_A_TABLE_ROW_PREVIEW_OPEN_": "Открыть предпросмотр строки",
+  "_A_TABLE_PREVIEW_DOWN_ARIA_LABEL_": "Предпросмотр строки",
+  "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_": "Предпросмотр строки"
 }

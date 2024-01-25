@@ -3,9 +3,20 @@ import {
   inject,
   toRef,
 } from "vue";
-import { isFunction } from "lodash-es";
+
+import AKeysCode from "../../../const/AKeysCode";
+import {
+  isClickTags,
+} from "../../utils/utils";
+import {
+  getTranslatedText,
+} from "../../../ATranslation/compositionAPI/UtilsAPI";
+import {
+  isFunction,
+} from "lodash-es";
 
 export default function AttributesAPI(props) {
+  const disabledPreview = toRef(props, "disabledPreview");
   const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
   const rowClass = toRef(props, "rowClass");
@@ -13,6 +24,7 @@ export default function AttributesAPI(props) {
 
   const hasPreview = inject("hasPreview");
   const isMobile = inject("isMobile");
+  const onTogglePreview = inject("onTogglePreview");
   const previewRightRowIndex = inject("previewRightRowIndex");
   const previewRightRowIndexLast = inject("previewRightRowIndexLast");
   const tableId = inject("tableId");
@@ -45,8 +57,8 @@ export default function AttributesAPI(props) {
     return [
       "a_table__row a_table__row_hover",
       {
-        a_table__row_focus: isPreviewRightForCurrentRowOpen.value,
-        a_table__row_focus_was: isPreviewRightForCurrentRowWasOpen.value,
+        a_table__row_preview_open: isPreviewRightForCurrentRowOpen.value,
+        a_table__row_preview_was_open: isPreviewRightForCurrentRowWasOpen.value,
       },
       rowClassLocal.value
     ];
@@ -56,14 +68,55 @@ export default function AttributesAPI(props) {
     return isMobile.value ? "listitem" : "row";
   });
 
+  const previewAriaLabel = computed(() => {
+    return getTranslatedText({
+      placeholder: isPreviewRightForCurrentRowOpen.value ?
+        "_A_TABLE_ROW_PREVIEW_CLOSE_" :
+        "_A_TABLE_ROW_PREVIEW_OPEN_",
+    });
+  });
+
+  const onClickRow = $event => {
+    if (disabledPreview.value) {
+      return;
+    }
+    if (isClickTags({
+      $event,
+      tagsName: [
+        "A",
+        "BUTTON",
+      ],
+      classStop: "a_table__row",
+    })) {
+      return;
+    }
+
+    $event.stopPropagation();
+    $event.preventDefault();
+
+    onTogglePreview({
+      row: row.value,
+      rowIndex: rowIndex.value,
+    });
+  };
+
+  const onKeydownRow = $event => {
+    if ($event.keyCode === AKeysCode.enter) {
+      onClickRow($event);
+    }
+  };
+
   const rowAttributes = computed(() => {
     const ATTRIBUTES = {
       id: rowId.value,
       class: rowClassComputed.value,
       role: roleLocal.value,
     };
-    if (hasPreview.value) {
-      ATTRIBUTES.tabindex = -1;
+    if (hasPreview.value && !isFooter.value) {
+      ATTRIBUTES.tabindex = 0;
+      ATTRIBUTES["aria-label"] = previewAriaLabel.value;
+      ATTRIBUTES.onClick = onClickRow;
+      ATTRIBUTES.onKeydown = onKeydownRow;
     }
     return ATTRIBUTES;
   });

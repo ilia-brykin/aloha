@@ -66,3 +66,7 @@ export function isColumnVisible({ column, columnIndex, modelIsTableWithoutScroll
     modelColumnsVisibleLocal,
   });
 }
+
+export function getPreviewRightId({ tableId }) {
+  return `${ tableId }_preview_right`;
+}

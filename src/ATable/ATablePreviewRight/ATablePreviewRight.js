@@ -9,7 +9,9 @@ import ACloak from "../../ACloak/ACloak";
 import AResizer from "../../AResizer/AResizer";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import ArrowsAPI from "./compositionAPI/ArrowsAPI";
+import IdAPI from "./compositionAPI/IdAPI";
 import MouseEventsAPI from "./compositionAPI/MouseEventsAPI";
 import PreviewRightRewAPI from "../compositionAPI/PreviewRightRewAPI";
 import RowAPI from "./compositionAPI/RowAPI";
@@ -75,6 +77,14 @@ export default {
     } = PreviewRightRewAPI();
 
     const {
+      idLocal,
+    } = IdAPI();
+
+    const {
+      previewAriaLabel,
+    } = AriaLabelAPI();
+
+    const {
       mousedown,
       mousemove,
       mouseup,
@@ -117,9 +127,11 @@ export default {
       currentRow,
       disabledBtnArrowLeft,
       disabledBtnArrowRight,
+      idLocal,
       mousedown,
       mousemove,
       mouseup,
+      previewAriaLabel,
       previewRef,
       rowNumber,
       rowNumberFormatted,
@@ -130,8 +142,11 @@ export default {
   render() {
     return h("div", {
       ref: "previewRef",
+      id: this.idLocal,
+      "aria-label": this.previewAriaLabel,
       class: "a_table__preview_right",
       style: this.previewStyles,
+      tabindex: -1,
     }, [
       h(AResizer, {
         class: "a_table__preview_right__resizer",

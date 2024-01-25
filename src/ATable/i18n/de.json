@@ -31,5 +31,9 @@
   "_A_TABLE_OPTIONS_BTN_EYE_TITLE_": "Spalte ausblenden",
   "_A_TABLE_OPTIONS_BTN_EYE_CLOSED_TITLE_": "Spalte einblenden",
   "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_": "Spalte nach links verschieben",
-  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "Spalte nach rechts verschieben"
+  "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_": "Spalte nach rechts verschieben",
+  "_A_TABLE_ROW_PREVIEW_CLOSE_": "Vorschau der Zeile schließen",
+  "_A_TABLE_ROW_PREVIEW_OPEN_": "Vorschau der Zeile öffnen",
+  "_A_TABLE_PREVIEW_DOWN_ARIA_LABEL_": "Vorschau der Zeile",
+  "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_": "Vorschau der Zeile"
 }

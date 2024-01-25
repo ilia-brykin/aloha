@@ -6,20 +6,12 @@ import {
 
 import ColumnStylesAPI from "../../compositionAPI/ColumnStylesAPI";
 
-import {
-  isClickTags,
-} from "../../utils/utils";
-
 export default function AttributesAPI(props) {
   const column = toRef(props, "column");
-  const disabledPreview = toRef(props, "disabledPreview");
   const isFooter = toRef(props, "isFooter");
-  const row = toRef(props, "row");
-  const rowIndex = toRef(props, "rowIndex");
 
   const hasPreview = inject("hasPreview");
   const isMobile = inject("isMobile");
-  const onTogglePreview = inject("onTogglePreview");
 
   const {
     columnsStyles,
@@ -39,27 +31,7 @@ export default function AttributesAPI(props) {
     if (!isMobile.value) {
       ATTRIBUTES.role = "cell";
     }
-    if (hasPreview.value && !isFooter.value) {
-      ATTRIBUTES.onClick = $event => {
-        if (disabledPreview.value) {
-          return;
-        }
-        if (isClickTags({
-          $event,
-          tagsName: [
-            "A",
-            "BUTTON",
-          ],
-          classStop: "a_table__td",
-        })) {
-          return;
-        }
-        onTogglePreview({
-          row: row.value,
-          rowIndex: rowIndex.value,
-        });
-      };
-    }
+
     return ATTRIBUTES;
   });
 

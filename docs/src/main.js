@@ -9,7 +9,6 @@ import {
   AMobilePlugin,
   AModalPlugin,
   ASafeHtml,
-  ASelectPlugin,
 } from "../../dist";
 import mainIcons from "./mainIcons";
 
@@ -30,11 +29,6 @@ APP.use(AMobilePlugin, {
 APP.use(AModalPlugin, {
   propsDefault: {
     closeButtonClass: "a_btn a_btn_link",
-  },
-});
-APP.use(ASelectPlugin, {
-  propsDefault: {
-    menuWidthType: "by_content",
   },
 });
 APP.use(AFiltersPlugin, {

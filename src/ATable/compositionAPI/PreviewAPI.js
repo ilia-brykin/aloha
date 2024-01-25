@@ -11,6 +11,9 @@ import {
   setFocusToElement,
 } from "../../utils/utilsDOM";
 import {
+  getPreviewRightId,
+} from "../utils/utils";
+import {
   isNil,
   isUndefined,
 } from "lodash-es";
@@ -50,6 +53,13 @@ export default function PreviewAPI(props, context, {
     });
   };
 
+  const setFocusToPreviewRight = () => {
+    setTimeout(() => {
+      const PREVIEW_ID = `#${ getPreviewRightId({ tableId: tableId.value }) }`;
+      setFocusToElement({ selector: PREVIEW_ID });
+    });
+  };
+
   const isPreviewRight = computed(() => {
     return preview.value === "right";
   });
@@ -58,6 +68,7 @@ export default function PreviewAPI(props, context, {
   const isPreviewRightOpen = computed(() => {
     return !isNil(previewRightRowIndex.value);
   });
+
   const closePreviewRight = () => {
     setFocusToRow({
       rowIndex: previewRightRowIndex.value,
@@ -71,6 +82,7 @@ export default function PreviewAPI(props, context, {
     previewRightRowIndex.value = undefined;
     removeEventListenerWindowResize();
   };
+
   const closePreviewRightAll = () => {
     emit("togglePreview", {
       row: rowsLocalAll.value[previewRightRowIndex.value],
@@ -85,10 +97,13 @@ export default function PreviewAPI(props, context, {
   const isPreviewDown = computed(() => {
     return preview.value === "down";
   });
+
   const previewDownRowIndexes = ref({});
+
   const closePreviewDown = ({ rowIndex }) => {
     previewDownRowIndexes.value[rowIndex] = undefined;
   };
+
   const closePreviewDownAll = () => {
     previewDownRowIndexes.value = {};
   };
@@ -122,6 +137,8 @@ export default function PreviewAPI(props, context, {
     });
     previewRightRowIndex.value = rowIndex;
     previewRightRowIndexLast.value = undefined;
+
+    setFocusToPreviewRight();
   };
 
   const onTogglePreviewRight = ({ rowIndex }) => {

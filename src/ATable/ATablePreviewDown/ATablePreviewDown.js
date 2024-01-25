@@ -1,8 +1,11 @@
 import {
-  h,
+  h, onMounted,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+
+import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+import FocusAPI from "./compositionAPI/FocusAPI";
 
 export default {
   name: "ATablePreviewDown",
@@ -19,9 +22,31 @@ export default {
   inject: [
     "onTogglePreview",
   ],
+  setup() {
+    const {
+      previewAriaLabel,
+    } = AriaLabelAPI();
+
+    const {
+      componentRef,
+      setFocusToComponent,
+    } = FocusAPI();
+
+    onMounted(() => {
+      setFocusToComponent();
+    });
+
+    return {
+      componentRef,
+      previewAriaLabel,
+    };
+  },
   render() {
     return h("div", {
+      ref: "componentRef",
       class: "a_table__preview_down",
+      tabindex: -1,
+      "aria-label": this.previewAriaLabel,
     }, [
       this.$slots.previewDown && this.$slots.previewDown({
         row: this.row,
