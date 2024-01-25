@@ -134,9 +134,12 @@ export default {
                 item: modelValue.item,
                 label: modelValue.label,
               }) :
-              h("span", {
+              h(ATranslation, {
                 class: "a_filters_center__item__value",
-              }, modelValue.label),
+                tag: "span",
+                html: modelValue.label,
+                extra: modelValue.extra,
+              }),
           ]),
           !this.filter.hasNotClose && h(AButton, {
             class: "a_btn a_btn_secondary",

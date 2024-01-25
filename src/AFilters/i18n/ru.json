@@ -19,5 +19,8 @@
   "_A_FILTERS_SAVE_MSG_SUCCESS_UPDATE_{{name}}_": "Поиск <strong>\"{{ name }}\"</strong> обновлен.",
   "_A_FILTERS_SAVE_SELECT_": "Мои сохраненные поиски",
   "_A_FILTERS_START_SEARCH_": "начать поиск",
-  "_A_FILTERS_TOP_CLOSE_": "Убрать фильтр"
+  "_A_FILTERS_TOP_CLOSE_": "Убрать фильтр",
+  "_A_FILTERS_YOUR_SELECTION_": "Ваш выбор",
+  "_A_FILTERS_DESELECT_ALL_": "Сбросить выбор",
+  "_A_FILTERS_SELECTED_{{count}}_": "{{ count }} выбрано"
 }

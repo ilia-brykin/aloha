@@ -13,7 +13,7 @@ export default function CloseFilterValueAPI(props) {
     }
     closeFilterValue.value({
       filter: filter.value,
-      currentModel: modelValue.value,
+      modelArray: modelValue.modelArray,
       keyId: modelValue.keyId,
     });
   };

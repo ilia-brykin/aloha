@@ -95,8 +95,10 @@ export default {
     } = FiltersAPI(props, context);
 
     const {
+      closeAllFilters,
       closeFilterValue,
     } = CloseFilterAPI(props, context, {
+      filtersVisibleAll,
       onUpdateModelFilters,
     });
 
@@ -134,6 +136,7 @@ export default {
     initFiltersSaved();
 
     return {
+      closeAllFilters,
       closeFilterValue,
       dataKeyByKeyIdPerFilter,
       filtersDataKeyById,
@@ -193,6 +196,7 @@ export default {
         h(AFilterCenter, {
           id: this.id,
           appliedModel: this.appliedModel,
+          closeAllFilters: this.closeAllFilters,
           closeFilterValue: this.closeFilterValue,
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
           disabled: this.disabled,

@@ -19,5 +19,8 @@
   "_A_FILTERS_SAVE_MSG_SUCCESS_UPDATE_{{name}}_": "Suche <strong>\"{{ name }}\"</strong> ist aktualisiert.",
   "_A_FILTERS_SAVE_SELECT_": "Meine gespeicherten Suchen",
   "_A_FILTERS_START_SEARCH_": "Suche starten",
-  "_A_FILTERS_TOP_CLOSE_": "Filter löschen"
+  "_A_FILTERS_TOP_CLOSE_": "Filter löschen",
+  "_A_FILTERS_YOUR_SELECTION_": "Ihre Auswahl",
+  "_A_FILTERS_DESELECT_ALL_": "Auswahl zurücksetzen",
+  "_A_FILTERS_SELECTED_{{count}}_": "{{ count }} ausgewählt"
 }

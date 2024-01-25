@@ -9,8 +9,9 @@ import AKeyLabel from "../../../../const/AKeyLabel";
 import AUiTypesModelArray from "../../../../ui/const/AUiTypesModelArray";
 import TypesNumberRange from "../../../../ui/AInputNumberRange/utils/Types";
 import {
-  forEach,
-  get, isNil,
+  filter as _filter,
+  get,
+  isNil,
 } from "lodash-es";
 
 
@@ -21,6 +22,11 @@ export default function ModelValuesAPI(props, {
   const filter = toRef(props, "filter");
   const model = toRef(props, "model");
 
+  const {
+    filterBoolean,
+    filterDate,
+  } = AFiltersAPI();
+
   const filterDataKey = computed(() => {
     if (filter.value) {
       return dataKeyByKeyIdPerFilter.value[filter.value.id];
@@ -28,10 +34,14 @@ export default function ModelValuesAPI(props, {
     return undefined;
   });
 
-  const {
-    filterBoolean,
-    filterDate,
-  } = AFiltersAPI();
+  const modelArrayReal = computed(() => {
+    if (model.value?.length) {
+      return _filter(model.value, modelItem => {
+        return filterDataKey.value && filterDataKey.value[modelItem];
+      });
+    }
+    return [];
+  });
 
   const modelValuesForCurrentFilter = computed(() => {
     if (!hasCurrentFilter.value) {
@@ -61,18 +71,27 @@ export default function ModelValuesAPI(props, {
     }
     if (AUiTypesModelArray[filter.value.type] ||
       (filter.value.type === "radio" && filter.value.isModelArray)) {
-      const MODEL_VALUES = [];
-      forEach(model.value, modelItem => {
-        if (filterDataKey.value && filterDataKey.value[modelItem]) {
-          MODEL_VALUES.push({
-            label: filterDataKey.value[modelItem][AKeyLabel],
-            value: modelItem,
-            item: filterDataKey.value[modelItem],
-          });
+      if (modelArrayReal.value.length) {
+        if (modelArrayReal.value.length === 1) {
+          const item = filterDataKey.value?.[modelArrayReal.value[0]];
+
+          return [{
+            label: item?.[AKeyLabel],
+            item,
+            modelArray: modelArrayReal.value,
+          }];
         }
-      });
-      return MODEL_VALUES;
+        return [{
+          label: "_A_FILTERS_SELECTED_{{count}}_",
+          extra: {
+            count: modelArrayReal.value.length,
+            modelArray: modelArrayReal.value,
+          },
+        }];
+      }
+      return [];
     }
+
     if (filter.value.type === "dateRange") {
       const KEY_FROM = filter.value.keyFrom || "from";
       const KEY_UNTIL = filter.value.keyUntil || "until";

@@ -19,5 +19,8 @@
   "_A_FILTERS_SAVE_MSG_SUCCESS_UPDATE_{{name}}_": "_A_FILTERS_SAVE_MSG_SUCCESS_UPDATE_{{name}}_",
   "_A_FILTERS_SAVE_SELECT_": "My saved searches",
   "_A_FILTERS_START_SEARCH_": "start search",
-  "_A_FILTERS_TOP_CLOSE_": "_A_FILTERS_TOP_CLOSE_"
+  "_A_FILTERS_TOP_CLOSE_": "_A_FILTERS_TOP_CLOSE_",
+  "_A_FILTERS_YOUR_SELECTION_": "Your selection",
+  "_A_FILTERS_DESELECT_ALL_": "Reset selection",
+  "_A_FILTERS_SELECTED_{{count}}_": "{{ count }} selected"
 }

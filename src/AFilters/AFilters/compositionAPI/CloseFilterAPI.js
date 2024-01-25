@@ -1,4 +1,5 @@
 import {
+  computed,
   toRef,
 } from "vue";
 
@@ -6,52 +7,100 @@ import AUiTypesModelArray from "../../../ui/const/AUiTypesModelArray";
 import AUiTypesModelObject from "../../../ui/const/AUiTypesModelObject";
 import {
   cloneDeep,
+  filter as _filter,
+  forEach,
   isPlainObject,
 } from "lodash-es";
 
 export default function CloseFilterAPI(props, { emit }, {
+  filtersVisibleAll = computed(() => []),
   onUpdateModelFilters = () => {},
 }) {
   const appliedModel = toRef(props, "appliedModel");
   const unappliedModel = toRef(props, "unappliedModel");
 
-  const closeFilterValue = ({ filter, currentModel, keyId }) => {
+  const closeCurrentFilter = ({ filter, keyId, modelArray, appliedModelLocal, unappliedModelLocal }) => {
     const MODEL_ID = filter.modelId || filter.id;
 
-    const APPLIED_MODEL = cloneDeep(appliedModel.value);
     if (AUiTypesModelArray[filter.type]) {
-      if (APPLIED_MODEL[MODEL_ID] &&
-        APPLIED_MODEL[MODEL_ID].length) {
-        const INDEX_IN_MODEL = APPLIED_MODEL[MODEL_ID].indexOf(currentModel);
-        if (INDEX_IN_MODEL !== -1) {
-          APPLIED_MODEL[MODEL_ID].splice(INDEX_IN_MODEL, 1);
+      if (appliedModelLocal[MODEL_ID] &&
+        appliedModelLocal[MODEL_ID].length) {
+        if (modelArray) {
+          appliedModelLocal[MODEL_ID] = _filter(appliedModelLocal[MODEL_ID], modelItem => {
+            return modelArray.indexOf(modelItem) === -1;
+          });
+        } else {
+          appliedModelLocal[MODEL_ID] = [];
         }
       }
-      if (unappliedModel.value[MODEL_ID] &&
-        unappliedModel.value[MODEL_ID].length) {
-        const INDEX_IN_MODEL = unappliedModel.value[MODEL_ID].indexOf(currentModel);
-        if (INDEX_IN_MODEL !== -1) {
-          const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
-          UNAPPLIED_MODEL[MODEL_ID].splice(INDEX_IN_MODEL, 1);
-          emit("update:unappliedModel", UNAPPLIED_MODEL);
+      if (unappliedModelLocal[MODEL_ID] &&
+        unappliedModelLocal[MODEL_ID].length) {
+        if (modelArray) {
+          unappliedModelLocal[MODEL_ID] = _filter(unappliedModelLocal[MODEL_ID], modelItem => {
+            return modelArray.indexOf(modelItem) === -1;
+          });
+        } else {
+          unappliedModelLocal[MODEL_ID] = [];
         }
       }
     } else if (AUiTypesModelObject[filter.type] && keyId) {
-      const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
-      if (isPlainObject(UNAPPLIED_MODEL?.[MODEL_ID])) {
-        UNAPPLIED_MODEL[MODEL_ID][keyId] = undefined;
+      if (isPlainObject(unappliedModelLocal?.[MODEL_ID])) {
+        unappliedModelLocal[MODEL_ID][keyId] = undefined;
       }
-      if (isPlainObject(APPLIED_MODEL?.[MODEL_ID])) {
-        APPLIED_MODEL[MODEL_ID][keyId] = undefined;
+      if (isPlainObject(appliedModelLocal?.[MODEL_ID])) {
+        appliedModelLocal[MODEL_ID][keyId] = undefined;
       }
-      emit("update:unappliedModel", UNAPPLIED_MODEL);
     } else {
-      const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
-      UNAPPLIED_MODEL[MODEL_ID] = undefined;
-      emit("update:unappliedModel", UNAPPLIED_MODEL);
-      APPLIED_MODEL[MODEL_ID] = undefined;
+      unappliedModelLocal[MODEL_ID] = undefined;
+      appliedModelLocal[MODEL_ID] = undefined;
     }
-    emit("update:appliedModel", APPLIED_MODEL);
+
+    return {
+      appliedModelLocal,
+      unappliedModelLocal,
+    };
+  };
+
+  const closeFilterValue = ({ filter, keyId, modelArray }) => {
+    const APPLIED_MODEL = cloneDeep(appliedModel.value);
+    const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
+
+    const {
+      appliedModelLocal,
+      unappliedModelLocal,
+    } = closeCurrentFilter({
+      filter,
+      keyId,
+      modelArray,
+      appliedModelLocal: APPLIED_MODEL,
+      unappliedModelLocal: UNAPPLIED_MODEL,
+    });
+
+    emit("update:unappliedModel", unappliedModelLocal);
+    emit("update:appliedModel", appliedModelLocal);
+
+    setTimeout(() => {
+      onUpdateModelFilters({ model: appliedModel.value });
+    });
+  };
+
+  const closeAllFilters = () => {
+    let appliedModelLocal = cloneDeep(appliedModel.value);
+    let unappliedModelLocal = cloneDeep(unappliedModel.value);
+
+    forEach(filtersVisibleAll.value, filter => {
+      const MODELS_OBJECT = closeCurrentFilter({
+        filter,
+        appliedModelLocal: appliedModelLocal,
+        unappliedModelLocal: unappliedModelLocal,
+      });
+
+      appliedModelLocal = MODELS_OBJECT.appliedModelLocal;
+      unappliedModelLocal = MODELS_OBJECT.unappliedModelLocal;
+    });
+
+    emit("update:unappliedModel", unappliedModelLocal);
+    emit("update:appliedModel", appliedModelLocal);
 
     setTimeout(() => {
       onUpdateModelFilters({ model: appliedModel.value });
@@ -59,6 +108,7 @@ export default function CloseFilterAPI(props, { emit }, {
   };
 
   return {
+    closeAllFilters,
     closeFilterValue,
   };
 }
