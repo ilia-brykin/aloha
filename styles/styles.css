@@ -5308,7 +5308,8 @@ h6 {
   background-color: #fff;
   border: 1px solid grey;
   padding: 10px;
-  border-radius: var(--a_select_border_radius); }
+  border-radius: var(--a_select_border_radius);
+  box-shadow: 0 0 7px 3px var(--a_color_gray_600); }
   .a_select_menu[data-popper-reference-hidden] {
     visibility: hidden !important;
     pointer-events: none !important; }
