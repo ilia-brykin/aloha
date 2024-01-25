@@ -1,23 +1,23 @@
 .a_input_number_range {
   --a_input_number_range_label_padding_right: .5rem;
-  --a_input_number_range_label_max_padding_left: .5rem;
+  --a_input_number_range_label_max_margin_left: 6px;
   --a_input_number_range_label_white_space: nowrap;
-  --a_input_number_range_flex_basis: 220px;
 }
 .a_input_number_range__content {
   display: flex;
   align-items: center;
    flex-wrap: wrap;
+  row-gap: .5rem;
 }
 .a_input_number_range__group {
   display: flex;
   align-items: center;
-  flex-basis: var(--a_input_number_range_flex_basis);
+  flex-basis: 50%;
 }
 .a_input_number_range__label {
   margin-right: var(--a_input_number_range_label_padding_right);
   white-space: var(--a_input_number_range_label_white_space);
 }
 .a_input_number_range__label_max {
-  margin-left: var(--a_input_number_range_label_max_padding_left);
+  margin-left: var(--a_input_number_range_label_max_margin_left);
 }

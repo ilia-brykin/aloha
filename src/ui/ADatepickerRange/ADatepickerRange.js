@@ -295,7 +295,7 @@ export default {
           class: "a_datepicker_range__content",
         }, [
           h("div", {
-            class: "a_datepicker_range__group"
+            class: "a_datepicker_range__group a_datepicker_range__group_min"
           }, [
             h(ALabel, {
               id: this.idFrom,

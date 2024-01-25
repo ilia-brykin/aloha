@@ -2,10 +2,9 @@
   --a_input_datepicker_range_width: 100%;
   --a_input_datepicker_range_max_width: 100%;
   --a_input_datepicker_range_min_width: 100px;
-  --a_input_datepicker_range_flex_basis: 220px;
 
   --a_datepicker_range_label_padding_right: .5rem;
-  --a_datepicker_range_label_max_padding_left: .5rem;
+  --a_datepicker_range_label_max_margin_left: 6px;
   --a_datepicker_range_label_white_space: nowrap;
 
   .a_form_element {
@@ -18,18 +17,19 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  row-gap: .5rem;
 }
 .a_datepicker_range__group {
   display: flex;
   align-items: center;
-  flex-basis: var(--a_input_datepicker_range_flex_basis);
+  flex-basis: 50%;
 }
 .a_datepicker_range__label {
   margin-right: var(--a_datepicker_range_label_padding_right);
   white-space: var(--a_datepicker_range_label_white_space);
 }
 .a_datepicker_range__label_max {
-  margin-left: var(--a_datepicker_range_label_max_padding_left);
+  margin-left: var(--a_datepicker_range_label_max_margin_left);
 }
 
 .a_datepicker_range__help_text {
