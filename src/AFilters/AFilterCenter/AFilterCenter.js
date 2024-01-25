@@ -51,11 +51,11 @@ export default {
   },
   render() {
     return h("div", {
-      class: "a_table__filters_center",
+      class: "a_filters_center",
       style: this.styleHide,
     }, [
       h("span", {
-        class: "a_table__filters_center__headline a_table__filters_center__item",
+        class: "a_filters_center__headline a_filters_center__item",
       }, "Ihre Auswahl:"),
       this.filtersVisibleAll.map(filter => {
         return h(AFilterCenterItem, {

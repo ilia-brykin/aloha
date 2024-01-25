@@ -6,6 +6,12 @@
 .a_input_number_range__content {
   display: flex;
   align-items: center;
+  // flex-wrap: wrap;
+}
+.a_input_number_range__group {
+  display: flex;
+  align-items: center;
+  // flex-wrap: wrap;
 }
 .a_input_number_range__label {
   margin-right: var(--a_input_number_range_label_padding_right);

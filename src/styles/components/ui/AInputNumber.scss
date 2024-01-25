@@ -1,9 +1,14 @@
 .a_form_element_number_controls {
+  --a_input_number_width: 100%;
+  --a_input_number_max_width: 100%;
+  --a_input_number_min_width: 100px;
+
   display: flex;
   align-items: stretch;
   .a_form_element {
-    width: 100%;
-    max-width: 100%;
+    width: var(--a_input_number_width);
+    max-width: var(--a_input_number_max_width);
+    min-width: var(--a_input_number_min_width);
   }
   .a_btn_group {
     border-top-left-radius: 0;

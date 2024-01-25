@@ -1,25 +1,17 @@
 import {
   computed,
-  h,
   ref,
   toRef,
 } from "vue";
 
-import AButton from "../../../AButton/AButton";
-
 import AConfirmAPI from "../../../compositionAPI/AConfirmAPI";
 import ANotificationAPI from "../../../compositionAPI/ANotificationAPI";
-
-import {
-  filtersPluginComponentsProps,
-} from "../../../plugins/AFiltersPlugin";
 
 export default function FiltersSavedDeleteAPI(props, {
   changeModelFiltersSaved = () => {},
   idFilterTop = computed(() => ""),
   modelFiltersSaved = ref(undefined),
 }) {
-  const canSave = toRef(props, "canSave");
   const id = toRef(props, "id");
   const updateFiltersSaved = toRef(props, "updateFiltersSaved");
 
@@ -33,8 +25,8 @@ export default function FiltersSavedDeleteAPI(props, {
     addNotification,
   } = ANotificationAPI();
 
-  const buttonDeleteComponentId = computed(() => {
-    return `${ id.value }btn_save_top`;
+  const buttonDeleteId = computed(() => {
+    return `${ id.value }btn_save`;
   });
 
   const disabledButtonDeleteFiltersSaved = computed(() => {
@@ -90,28 +82,15 @@ export default function FiltersSavedDeleteAPI(props, {
         name: modelFiltersSaved.value,
       },
       save: deleteFiltersSaved,
-      selectorCloseIds: [buttonDeleteComponentId.value, idFilterTop.value],
+      selectorCloseIds: [buttonDeleteId.value, idFilterTop.value],
       saveButtonText: "_A_FILTERS_DELETE_FILTER_BTN_DELETE_",
     });
   };
 
-  const buttonDeleteFiltersSavedComponent = computed(() => {
-    return canSave.value && h(AButton, {
-      id: buttonDeleteComponentId.value,
-      class: "a_btn a_btn_secondary a_table__filters_top__delete_filter_saved",
-      iconLeft: "Trash",
-      textScreenReader: titleButtonDeleteFiltersSaved.value,
-      title: titleButtonDeleteFiltersSaved.value,
-      extra: {
-        name: modelFiltersSaved.value,
-      },
-      ariaDisabled: disabledButtonDeleteFiltersSaved.value,
-      onClick: openDeleteConfirm,
-      ...filtersPluginComponentsProps.value.buttonDeleteFiltersSaved || {},
-    });
-  });
-
   return {
-    buttonDeleteFiltersSavedComponent,
+    buttonDeleteId,
+    disabledButtonDeleteFiltersSaved,
+    openDeleteConfirm,
+    titleButtonDeleteFiltersSaved,
   };
 }

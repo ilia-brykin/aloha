@@ -42,6 +42,24 @@ export default {
         label: "_A_PAGE_FILTER_DATE_",
         alwaysVisible: true,
       },
+      {
+        type: "integer",
+        id: "integer",
+        label: "_A_PAGE_FILTER_INTEGER_",
+        alwaysVisible: true,
+      },
+      {
+        type: "dateRange",
+        id: "dateRange",
+        label: "_A_TABLE_FILTER_INPUT_DATE_RANGE_",
+        alwaysVisible: true,
+      },
+      {
+        type: "numberRange",
+        id: "numberRange",
+        label: "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_",
+        alwaysVisible: true,
+      },
     ];
 
     const appliedModel = ref({});

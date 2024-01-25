@@ -26,6 +26,10 @@ export default {
       type: String,
       required: true,
     },
+    isFilterMain: {
+      type: Boolean,
+      required: false,
+    },
     onUpdateModelFilters: {
       type: Function,
       required: true,
@@ -65,7 +69,7 @@ export default {
   },
   render() {
     return this.isFilter && h("div", {
-      class: "a_table__filters_top__filter_ui_group"
+      class: "a_filters_top__filter_ui_group"
     }, [
       this.isLabelInComponentVisible ? h("span", {
         class: this.labelClass,
@@ -78,10 +82,10 @@ export default {
         isLabelFloat: false,
       }),
       h("div", {
-        class: "a_table__filters_top__filter_ui_subgroup",
+        class: "a_filters_top__filter_ui_subgroup",
       }, [
         h(AFiltersHorizontalFilterUi, {
-          class: "a_table__filters_top__filter_ui",
+          class: "a_filters_top__filter_ui",
           filter: this.filter,
           isLabelVisible: this.isLabelInComponentVisible,
           unappliedModel: this.unappliedModel,
@@ -89,8 +93,9 @@ export default {
           onUpdateModelFilters: this.onUpdateModelFilters,
           id: this.id,
         }, this.$slots),
+        this.isFilterMain && this.$slots.btnSearchStart(),
         this.closable && h(AButton, {
-          class: "a_btn a_btn_transparent_secondary a_table__filters_top__filter_ui_delete",
+          class: "a_btn a_btn_transparent_secondary a_filters_top__filter_ui_delete",
           title: "_A_FILTERS_TOP_CLOSE_",
           iconLeft: "Close",
           onClick: () => this.$emit("deleteFiltersVisible", { filter: this.filter }),

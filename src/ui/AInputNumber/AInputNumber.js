@@ -26,6 +26,7 @@ import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
+import WidthAPI from "./compositionAPI/WidthAPI";
 
 import {
   inputNumberPluginOptions,
@@ -153,6 +154,10 @@ export default {
       placeholderAttributes,
     } = PlaceholderAPI(props);
 
+    const {
+      inputWidthStyleValue,
+    } = WidthAPI(props);
+
     const inputRef = ref(undefined);
     const disabled = toRef(props, "disabled");
     const onInput = $event => {
@@ -244,6 +249,7 @@ export default {
       increase,
       inputRef,
       inputType,
+      inputWidthStyleValue,
       isAutofill,
       isClearButtonLocal,
       isErrors,
@@ -287,7 +293,7 @@ export default {
           h("div", {
             class: "a_form_element",
             style: {
-              width: this.inputWidth ? `${ this.inputWidth }px` : undefined,
+              ...this.inputWidthStyleValue,
             },
           }, [
             this.label && this.isLabelFloat && h(ALabel, {

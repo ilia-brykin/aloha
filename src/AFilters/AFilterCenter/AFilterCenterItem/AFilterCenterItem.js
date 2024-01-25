@@ -103,7 +103,7 @@ export default {
       this.modelValuesForCurrentFilter.map(modelValue => {
         return h("div", {
           role: "group",
-          class: "a_table__filters_center__item a_btn_group a_btn_group_small",
+          class: "a_filters_center__item a_btn_group a_btn_group_small",
         }, [
           this.filter.hasNotClose && h(AButton, {
             class: "a_btn a_btn_secondary",
@@ -116,14 +116,14 @@ export default {
             onClick: () => this.goToFilter({ modelValue }),
           }, () => [
             this.filterLabel && h("strong", {
-              class: "a_table__filters_center__item__label",
+              class: "a_filters_center__item__label",
             }, [
               h(ATranslation, {
                 tag: "span",
                 html: this.filterLabel,
               }),
               modelValue.filterLabelSuffix && h(ATranslation, {
-                class: "a_table__filters_center__item__label__suffix",
+                class: "a_filters_center__item__label__suffix",
                 tag: "span",
                 html: modelValue.filterLabelSuffix,
               }),
@@ -135,7 +135,7 @@ export default {
                 label: modelValue.label,
               }) :
               h("span", {
-                class: "a_table__filters_center__item__value",
+                class: "a_filters_center__item__value",
               }, modelValue.label),
           ]),
           !this.filter.hasNotClose && h(AButton, {

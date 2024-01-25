@@ -2,9 +2,15 @@ $dp-default-color: #73879c;
 $dp-primary-color: #1284e7;
 
 .pux_datepicker {
+  --a_datepicker_width: 300px;
+  --a_datepicker_max_width: 100%;
+  --a_datepicker_min_width: 120px;
+
   position: relative;
   display: inline-block;
-  width: 300px;
+  width: var(--a_datepicker_width);
+  max-width: var(--a_datepicker_max_width);
+  min-width: var(--a_datepicker_min_width);
   color: $dp-default-color;
   font-size: 14px;
   // font: 14px/1.5 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei', sans-serif;

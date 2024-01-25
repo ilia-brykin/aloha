@@ -7,6 +7,7 @@ aloha-example(
 )
   div
     a-filters(
+      :can-save="true"
       :filters="filters"
       v-model:applied-model="appliedModel"
       v-model:unapplied-model="unappliedModel"

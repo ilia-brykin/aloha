@@ -1,15 +1,8 @@
 import {
   computed,
-  h,
   ref,
   toRef,
 } from "vue";
-
-import AButton from "../../../AButton/AButton";
-
-import {
-  filtersPluginComponentsProps,
-} from "../../../plugins/AFiltersPlugin";
 
 export default function ToggleAPI(props) {
   const filtersGroup = toRef(props, "filtersGroup");
@@ -48,22 +41,14 @@ export default function ToggleAPI(props) {
     return !!(filtersGroup.value.alwaysVisible.length || filtersGroup.value.filters.length);
   });
 
-  const buttonToggleComponent = computed(() => {
-    return isBtnToggleVisible.value && h(AButton, {
-      class: "a_btn a_btn_link a_text_nowrap a_table__filters_top__toggle_filter",
-      type: "button",
-      text: textToggle,
-      iconRight: iconToggle,
-      onClick: onToggle,
-      ...filtersPluginComponentsProps.value.buttonToggle || {},
-    });
-  });
-
   return {
-    buttonToggleComponent,
+    iconToggle,
+    isBtnToggleVisible,
     isOpen,
     onClose,
     onOpen,
+    onToggle,
     styleToggle,
+    textToggle,
   };
 }

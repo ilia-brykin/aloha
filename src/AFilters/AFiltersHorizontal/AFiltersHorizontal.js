@@ -3,18 +3,19 @@ import {
   onBeforeUnmount,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
+import ASelect from "../../ui/ASelect/ASelect";
 import AFiltersSaveModal from "../AFiltersSaveModal/AFiltersSaveModal";
 import AFiltersHorizontalFilter from "./AFiltersHorizontalFilter/AFiltersHorizontalFilter";
 
 import EventBusAPI from "./compositionAPI/EventBusAPI";
-import FilterMainAPI from "./compositionAPI/FilterMainAPI";
 import FiltersHiddenAPI from "./compositionAPI/FiltersHiddenAPI";
 import FiltersSaveAPI from "./compositionAPI/FiltersSaveAPI";
 import FiltersSavedDeleteAPI from "./compositionAPI/FiltersSavedDeleteAPI";
-import FiltersLayoutAPI from "./compositionAPI/FiltersLayoutAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
+
 
 export default {
   name: "AFiltersHorizontal",
@@ -79,19 +80,17 @@ export default {
     } = IdAPI(props);
 
     const {
-      buttonToggleComponent,
+      iconToggle,
+      isBtnToggleVisible,
       isOpen,
       onClose,
       onOpen,
+      onToggle,
       styleToggle,
+      textToggle,
     } = ToggleAPI(props);
 
     const {
-      filterMainComponent,
-    } = FilterMainAPI(props);
-
-    const {
-      buttonSearchComponent,
       onSearch,
     } = SearchAPI(props, context, {
       onClose,
@@ -105,7 +104,6 @@ export default {
     });
 
     const {
-      addFilterSelectComponent,
       addFiltersVisible,
       deleteFiltersVisible,
       filtersHidden,
@@ -113,37 +111,26 @@ export default {
     } = FiltersHiddenAPI(props, context);
 
     const {
-      buttonSaveComponentBottom,
-      buttonSaveTopComponent,
+      buttonSaveComponentId,
       changeModelFiltersSaved,
       closeModalSave,
       isModalSaveVisible,
       modelFiltersSaved,
-      selectFiltersSavedComponent,
+      openModalSave,
       selectorCloseIds,
     } = FiltersSaveAPI(props, {
       onOpen,
     });
 
     const {
-      buttonDeleteFiltersSavedComponent,
+      buttonDeleteId,
+      disabledButtonDeleteFiltersSaved,
+      openDeleteConfirm,
+      titleButtonDeleteFiltersSaved,
     } = FiltersSavedDeleteAPI(props, {
       changeModelFiltersSaved,
       idFilterTop,
       modelFiltersSaved,
-    });
-
-    const {
-      filtersTopFooter,
-      filtersTopHeader,
-    } = FiltersLayoutAPI({
-      addFilterSelectComponent,
-      buttonDeleteFiltersSavedComponent,
-      buttonSaveTopComponent,
-      buttonSearchComponent,
-      buttonToggleComponent,
-      filterMainComponent,
-      selectFiltersSavedComponent,
     });
 
     initEventBus();
@@ -154,33 +141,83 @@ export default {
 
     return {
       addFiltersVisible,
-      buttonSaveComponentBottom,
-      buttonSearchComponent,
+      buttonSaveComponentId,
       changeModelFiltersSaved,
       closeModalSave,
       deleteFiltersVisible,
       filtersHidden,
-      filtersTopFooter,
-      filtersTopHeader,
       hasFiltersHiddenDefault,
       idFilterTop,
+      isBtnToggleVisible,
       isModalSaveVisible,
+      onToggle,
+      textToggle,
       isOpen,
       modelFiltersSaved,
+      openModalSave,
+      iconToggle,
       onSearch,
       selectorCloseIds,
       styleToggle,
+      buttonDeleteId,
+      disabledButtonDeleteFiltersSaved,
+      openDeleteConfirm,
+      titleButtonDeleteFiltersSaved,
     };
   },
   render() {
+    const BTN_SEARCH = h(AButton, {
+      class: "a_btn a_btn_primary a_text_nowrap a_filters_top__search",
+      iconLeft: "Search",
+      type: "submit",
+      text: {
+        desktop: "_A_FILTERS_START_SEARCH_",
+      },
+      textScreenReader: {
+        mobile: "_A_FILTERS_START_SEARCH_",
+      },
+      prevent: true,
+      stop: true,
+      disabled: this.disabled,
+      onClick: this.onSearch,
+    });
+
     return h("div", {
       id: this.idFilterTop,
-      class: "a_table__filters_top",
+      class: "a_filters_top",
     }, [
-      h("form", {}, [
-        this.filtersTopHeader,
+      h("form", {
+        class: "a_filters_top__form",
+      }, [
         h("div", {
-          class: "a_table__filters_top__always_visible",
+          class: "a_filters_top__header",
+        }, [
+          h(AFiltersHorizontalFilter, {
+            id: this.id,
+            class: "a_filters_top__filter_main",
+            closable: false,
+            filter: this.filtersGroup.main,
+            isFilterMain: true,
+            unappliedModel: this.unappliedModel,
+            updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+            onUpdateModelFilters: this.onUpdateModelFilters,
+          }, {
+            ...this.$slots,
+            btnSearchStart: () => {
+              return BTN_SEARCH;
+            },
+          }),
+        ]),
+
+        this.isBtnToggleVisible && h(AButton, {
+          class: "a_btn a_btn_secondary a_text_nowrap a_filters_top__toggle_filter",
+          type: "button",
+          text: this.textToggle,
+          iconRight: this.iconToggle,
+          onClick: this.onToggle,
+        }),
+        h("div", {
+          class: "a_filters_top__always_visible",
           style: this.styleToggle,
         }, [
           this.filtersGroup.alwaysVisible.map(filter => {
@@ -206,7 +243,23 @@ export default {
               updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
             }, this.$slots);
           }),
-          this.filtersTopFooter,
+          h("div", {
+            class: "a_filters_top__footer",
+          }, [
+            h(ASelect, {
+              class: "a_filters_top__footer__select",
+              type: "select",
+              data: this.filtersHidden,
+              keyLabel: "label",
+              keyId: "id",
+              label: "_A_FILTERS_ADD_FILTER_",
+              translateData: true,
+              disabled: !this.filtersHidden.length,
+              search: true,
+              change: this.addFiltersVisible,
+            }),
+            BTN_SEARCH,
+          ]),
         ]),
       ]),
       this.isModalSaveVisible && h(AFiltersSaveModal, {
@@ -217,6 +270,50 @@ export default {
         updateFiltersSaved: this.updateFiltersSaved,
         onClose: this.closeModalSave,
       }),
+      this.canSave && h("div", {
+        class: "a_filters_top__save",
+      }, [
+        h(ASelect, {
+          modelValue: this.modelFiltersSaved,
+          class: "a_filters_top__save_select",
+          type: "select",
+          data: this.filtersSaved,
+          keyLabel: "label",
+          keyId: "label",
+          label: "_A_FILTERS_SAVE_SELECT_",
+          translateData: true,
+          disabled: !this.filtersSaved.length,
+          search: true,
+          deselect: true,
+          change: this.changeModelFiltersSaved,
+        }),
+        h(AButton, {
+          id: this.buttonSaveComponentId,
+          onClick: this.openModalSave,
+          class: "a_btn a_btn_secondary a_text_nowrap a_filters_top__delete_filter_saved",
+          text: {
+            desktop: "_A_FILTERS_SAVE_BTN_",
+          },
+          iconLeft: {
+            mobile: "FloppyDisk",
+          },
+          textScreenReader: {
+            mobile: "_A_FILTERS_SAVE_BTN_",
+          },
+        }),
+        h(AButton, {
+          id: this.buttonDeleteId,
+          class: "a_btn a_btn_secondary",
+          iconLeft: "Trash",
+          textScreenReader: this.titleButtonDeleteFiltersSaved,
+          title: this.titleButtonDeleteFiltersSaved,
+          extra: {
+            name: this.modelFiltersSaved,
+          },
+          ariaDisabled: this.disabledButtonDeleteFiltersSaved,
+          onClick: this.openDeleteConfirm,
+        }),
+      ]),
     ]);
   },
 };
