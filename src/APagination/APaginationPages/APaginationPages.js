@@ -64,6 +64,11 @@ export default {
     });
 
     const {
+      keyDownUpdateOffset,
+      keyDownUpdateOffsetFirst,
+      keyDownUpdateOffsetLast,
+      keyDownUpdateOffsetNext,
+      keyDownUpdateOffsetPrevious,
       updateOffset,
       updateOffsetFirst,
       updateOffsetLast,
@@ -80,6 +85,11 @@ export default {
       currentItem,
       disabledButtonFirstPage,
       disabledButtonLastPage,
+      keyDownUpdateOffset,
+      keyDownUpdateOffsetFirst,
+      keyDownUpdateOffsetLast,
+      keyDownUpdateOffsetNext,
+      keyDownUpdateOffsetPrevious,
       maxItems,
       paginationItems,
       updateOffset,
@@ -117,6 +127,7 @@ export default {
                 title: "_A_PAGINATION_FIRST_PAGE_",
                 iconLeft: "DoubleAngleLeft",
                 onClick: this.updateOffsetFirst,
+                onKeydown: this.keyDownUpdateOffsetFirst,
               }),
             ]),
             h("li", {
@@ -130,6 +141,7 @@ export default {
                 title: "_A_PAGINATION_PREVIOUS_PAGE_",
                 iconLeft: "AngleLeft",
                 onClick: this.updateOffsetPrevious,
+                onKeydown: this.keyDownUpdateOffsetPrevious,
               }),
             ]),
               this.mode === "short" ?
@@ -167,6 +179,7 @@ export default {
                       textAriaHidden: true,
                       title: "_A_PAGINATION_TO_PAGE_{{page}}_",
                       onClick: () => this.updateOffset(item),
+                      onKeydown: $event => this.keyDownUpdateOffset($event, item),
                     }),
                   ]);
                 }),
@@ -181,6 +194,7 @@ export default {
                 title: "_A_PAGINATION_NEXT_PAGE_",
                 iconLeft: "AngleRight",
                 onClick: this.updateOffsetNext,
+                onKeydown: this.keyDownUpdateOffsetNext,
               }),
             ]),
             h("li", {
@@ -194,6 +208,7 @@ export default {
                 title: "_A_PAGINATION_LAST_PAGE_",
                 iconLeft: "DoubleAngleRight",
                 onClick: this.updateOffsetLast,
+                onKeydown: this.keyDownUpdateOffsetLast,
               }),
             ]),
           ]),

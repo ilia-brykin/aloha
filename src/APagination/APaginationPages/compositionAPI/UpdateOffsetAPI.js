@@ -3,6 +3,8 @@ import {
   toRef,
 } from "vue";
 
+import AKeysCode from "../../../const/AKeysCode";
+
 export default function UpdateOffsetAPI(props, { emit }, {
   currentItem = computed(() => 1),
   disabledButtonFirstPage = computed(() => false),
@@ -49,7 +51,57 @@ export default function UpdateOffsetAPI(props, { emit }, {
     emit("update:offset", offset.value + limit.value);
   };
 
+  const keyDownUpdateOffsetFirst = $event => {
+    if ($event.keyCode === AKeysCode.enter ||
+      $event.keyCode === AKeysCode.space) {
+      updateOffsetFirst();
+      $event.stopPropagation();
+      $event.preventDefault();
+    }
+  };
+
+  const keyDownUpdateOffset = ($event, item) => {
+    if ($event.keyCode === AKeysCode.enter ||
+      $event.keyCode === AKeysCode.space) {
+      updateOffset(item);
+      $event.stopPropagation();
+      $event.preventDefault();
+    }
+  };
+
+  const keyDownUpdateOffsetPrevious = $event => {
+    if ($event.keyCode === AKeysCode.enter ||
+      $event.keyCode === AKeysCode.space) {
+      updateOffsetPrevious();
+      $event.stopPropagation();
+      $event.preventDefault();
+    }
+  };
+
+  const keyDownUpdateOffsetLast = $event => {
+    if ($event.keyCode === AKeysCode.enter ||
+      $event.keyCode === AKeysCode.space) {
+      updateOffsetLast();
+      $event.stopPropagation();
+      $event.preventDefault();
+    }
+  };
+
+  const keyDownUpdateOffsetNext = $event => {
+    if ($event.keyCode === AKeysCode.enter ||
+      $event.keyCode === AKeysCode.space) {
+      updateOffsetNext();
+      $event.stopPropagation();
+      $event.preventDefault();
+    }
+  };
+
   return {
+    keyDownUpdateOffset,
+    keyDownUpdateOffsetFirst,
+    keyDownUpdateOffsetLast,
+    keyDownUpdateOffsetNext,
+    keyDownUpdateOffsetPrevious,
     updateOffset,
     updateOffsetFirst,
     updateOffsetLast,

@@ -51,6 +51,7 @@ export default {
     const {
       changeLimit,
       changeLimitFromSelect,
+      keyDownChangeLimit,
       limitString,
     } = LimitAPI(props, context);
 
@@ -62,6 +63,7 @@ export default {
       changeLimit,
       changeLimitFromSelect,
       extraForTranslate,
+      keyDownChangeLimit,
       limitString,
     };
   },
@@ -136,6 +138,7 @@ export default {
                   textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
                   title: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
                   onClick: () => this.changeLimit(count),
+                  onKeydown: $event => this.keyDownChangeLimit($event, count),
                 }),
               ]);
             }),
