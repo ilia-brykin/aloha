@@ -18,10 +18,18 @@ export default function FilterSpecificTypeAPI(props) {
 
   const filterSpecificAttributes = computed(() => {
     const ATTRIBUTES = {};
-    if (typesMapInputNumberRange[filter.value.type] || typesMapDatepickerRange[filter.value.type]) {
+    const IS_NUMBER_RANGE = typesMapInputNumberRange[filter.value.type];
+    const IS_DATEPICKER_RANGE = typesMapDatepickerRange[filter.value.type];
+    if (IS_NUMBER_RANGE || IS_DATEPICKER_RANGE) {
       if (isUndefined(filter.value.inputWidth)) {
         ATTRIBUTES.inputWidth = "auto";
       }
+    }
+
+    if (IS_DATEPICKER_RANGE) {
+      ATTRIBUTES.inputAttributes = {
+        style: "min-width: 181px",
+      };
     }
 
     return ATTRIBUTES;
