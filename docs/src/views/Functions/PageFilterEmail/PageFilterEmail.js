@@ -5,9 +5,12 @@ import PageFilterEmailExample from "./PageFilterEmailExample/PageFilterEmailExam
 import PageFilterEmailLinkClass from "./PageFilterEmailLinkClass/PageFilterEmailLinkClass.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterEmailTest from "../../../../../src/filters/__tests__/filterEmail.test.js?raw";
 
 export default {
   name: "PageFilterEmail",
@@ -19,6 +22,7 @@ export default {
     PageFilterEmailLinkClass,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -29,9 +33,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterEmailTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };

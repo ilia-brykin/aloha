@@ -8,9 +8,12 @@ import PageFilterLinkLinkClass from "./PageFilterLinkLinkClass/PageFilterLinkLin
 import PageFilterLinkLinkText from "./PageFilterLinkLinkText/PageFilterLinkLinkText.vue";
 import PageFilterLinkProtocol from "./PageFilterLinkProtocol/PageFilterLinkProtocol.vue";
 import PageFilterLinkTarget from "./PageFilterLinkTarget/PageFilterLinkTarget.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterLinkTest from "../../../../../src/filters/__tests__/filterLink.test.js?raw";
 
 export default {
   name: "PageFilterLink",
@@ -25,6 +28,7 @@ export default {
     PageFilterLinkLinkText,
     PageFilterLinkProtocol,
     PageFilterLinkTarget,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -35,9 +39,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterLinkTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };
