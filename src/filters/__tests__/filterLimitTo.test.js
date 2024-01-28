@@ -19,13 +19,15 @@ describe("filterLimitTo", () => {
 
   test("numeric value treated as text", () => {
     expect(filterLimitTo(1234567890, { limit: 10 })).toBe("1234567890");
+    expect(filterLimitTo(1234567890, { limit: 9 })).toBe("123456789...");
   });
 
   test("null value", () => {
     expect(filterLimitTo(null, { limit: 30 })).toBe("");
   });
 
-  test("long text with maxThreeDots false", () => {
-    expect(filterLimitTo("Lorem ipsum dolor sit amet, consectetur adipiscing elit", { limit: 30, maxThreeDots: false })).toBe("Lorem ipsum dolor sit amet, co...");
+  test("maxThreeDots false", () => {
+    expect(filterLimitTo("Lorem ipsum dolor sit amet, c..", { limit: 30, maxThreeDots: false })).toBe("Lorem ipsum dolor sit amet, c....");
+    expect(filterLimitTo("Lorem ipsum dolor sit ame, c...", { limit: 30, maxThreeDots: false })).toBe("Lorem ipsum dolor sit ame, c.....");
   });
 });
