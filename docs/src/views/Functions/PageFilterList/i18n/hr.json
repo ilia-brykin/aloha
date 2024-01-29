@@ -1,14 +1,13 @@
 {
-  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Das Array für die Liste",
-  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Wenn true, wird eine HTML-Liste (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;) erstellt. Andernfalls wird eine Textliste generiert",
-  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Gibt an, ob nur ein einfaches Array ohne Objekte verwendet wird",
-  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Schlüssel für Kinderelemente (nur wenn <strong>isSimpleArray=false</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Schlüssel für das anzuzeigende Text (nur wenn <strong>isSimpleArray=false</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funktion zur Generierung von Labels mit zwei Parametern (<strong>item</strong>, <strong>itemIndex</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator zwischen Elementen (nur wenn <strong>isHtml=false</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-Tag für die gesamte Liste",
-  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-Klasse z.B.: (a_list_without_styles)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_": "# Argumenti:  \narray (niz): Niz od kojeg se kreira lista\n[isHtml=true] (boolean): Za istinitu vrijednost će se kreirati lista u HTML formatu (<ul><li>...</li></ul>). U suprotnom će se kreirati lista u tekstualnom formatu (<span>...</span>)\n[isSimpleArray=false] (boolean): Određuje hoće li se koristiti jednostavan niz bez objekata\n[keyChildren=\"\"] (string): Ključ za podelemente (samo ako je isSimpleArray=false)\n[keyLabel=\"\"] (string): Ključ teksta koji će biti prikazan (samo ako je isSimpleArray=false)\n[keyLabelCallback] (funkcija): Funkcija za generiranje oznaka s dva parametra (item, itemIndex)\n[separator=\", \"] (string): separator između elemenata (samo ako je isHtml=false)\n[tag=\"ul\"] (string): HTML oznaka za cijelu listu\n[listClass=\"\"] (sString): CSS klasa (a_list_without_styles)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Niz od kojeg se kreira lista",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Za <strong>istinitu</strong> vrijednost će se kreirati lista u HTML formatu (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;). U suprotnom će se kreirati lista u tekstualnom formatu.",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Određuje hoće li se koristiti jednostavan niz bez objekata.",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Ključ za podelemente (samo ako je <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Ključ teksta koji će biti prikazan (samo ako je <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funkcija za generiranje oznaka s dva parametra (<strong>item</strong>, <strong>itemIndex</strong>).",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator separator između elemenata (samo ako je <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML oznaka za cijelu listu",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS klasa (Npr. a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "Ova funkcija kreira listu od niza.",
   "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Struktura stabla isSimpleArray=true"
 }
