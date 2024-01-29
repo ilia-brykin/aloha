@@ -99,6 +99,7 @@ export default {
 
     const {
       currentLabelFiltered,
+      dataHideWithSearch,
       styleWithSearch,
     } = UiVisibleElementWithSearchAPI(props, {
       labelLocal,
@@ -107,6 +108,7 @@ export default {
 
     return {
       currentLabelFiltered,
+      dataHideWithSearch,
       disabledElement,
       idLocal,
       isChecked,
@@ -123,6 +125,7 @@ export default {
         a_select__menu__link_selected: this.isChecked,
         a_select__menu__link_disabled: this.disabledElement,
       }],
+      "data-hide": this.dataHideWithSearch,
       disabled: this.disabledElement,
       role: "option",
       style: this.styleWithSearch,

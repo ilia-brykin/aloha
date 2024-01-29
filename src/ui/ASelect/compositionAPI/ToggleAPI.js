@@ -21,7 +21,7 @@ import {
   forEach,
 } from "lodash-es";
 
-const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled])";
+const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled]):not([data-hide])";
 
 export default function ToggleAPI(props, {
   emit,

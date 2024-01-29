@@ -36,8 +36,15 @@ export default function UiVisibleElementWithSearchAPI(props, {
       undefined;
   });
 
+  const dataHideWithSearch = computed(() => {
+    return isHiddenWithSearchLocal.value ?
+      true :
+      undefined;
+  });
+
   return {
     currentLabelFiltered,
+    dataHideWithSearch,
     styleWithSearch,
   };
 }
