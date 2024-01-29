@@ -264,6 +264,7 @@ export default {
   },
   render() {
     return this.isRender && h("div", {
+      class: "a_form_element__container",
       style: this.componentStyleHide,
     }, [
       h("div", {

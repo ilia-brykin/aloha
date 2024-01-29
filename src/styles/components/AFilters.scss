@@ -70,8 +70,14 @@
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: .5rem;
+  column-gap: .5rem;
   &:first-child {
     margin-top: 0;
+  }
+  .a_filters_top__search {
+    margin-left: 0;
   }
 }
 .a_filters_top__footer__select {

@@ -20,13 +20,14 @@ export default function FilterSpecificTypeAPI(props) {
     const ATTRIBUTES = {};
     const IS_NUMBER_RANGE = typesMapInputNumberRange[filter.value.type];
     const IS_DATEPICKER_RANGE = typesMapDatepickerRange[filter.value.type];
-    if (IS_NUMBER_RANGE || IS_DATEPICKER_RANGE) {
+    if (IS_NUMBER_RANGE) {
       if (isUndefined(filter.value.inputWidth)) {
         ATTRIBUTES.inputWidth = "auto";
       }
     }
 
     if (IS_DATEPICKER_RANGE) {
+      ATTRIBUTES.inputWidth = "inherit";
       ATTRIBUTES.inputAttributes = {
         style: "min-width: 181px",
       };
