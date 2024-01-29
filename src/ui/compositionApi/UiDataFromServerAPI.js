@@ -153,7 +153,7 @@ export default function UiDataFromServerAPI(props, {
       url: url.value,
       params: {
         ...(urlParams.value || {}),
-        searchApiKey: search,
+        [searchApiKey.value]: search,
       },
     }).then(
       response => {
@@ -174,6 +174,7 @@ export default function UiDataFromServerAPI(props, {
       !modelArrayWithoutDataExtra.value.length) {
       return;
     }
+    loadingDataFromServer.value = true;
     const URL_PARAMS = {
       ...urlParams.value,
       ...{
@@ -188,7 +189,9 @@ export default function UiDataFromServerAPI(props, {
       response => {
         dataFromServer.value = response || [];
       }
-    );
+    ).finally(() => {
+      loadingDataFromServer.value = false;
+    });
   };
 
   return {

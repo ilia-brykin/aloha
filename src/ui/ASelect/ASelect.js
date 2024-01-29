@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import ACloak from "../../ACloak/ACloak";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
@@ -719,7 +720,6 @@ export default {
                             type: "submit",
                             iconLeft: "Search",
                             loadingAlign: "left",
-                            loading: this.loadingSearchApi,
                           }),
                         ]),
                       ]),
@@ -778,6 +778,9 @@ export default {
                         class: "a_select__divider",
                         ariaHidden: true,
                       }),
+                      (this.loadingLocal || this.loadingSearchApi) ?
+                        h(ACloak) :
+                        "",
                       this.hasDataExtra && h("div", {}, [
                         ...this.dataExtraLocal.map((item, itemIndex) => {
                           return h(ASelectElement, {
