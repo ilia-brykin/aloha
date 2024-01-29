@@ -231,6 +231,7 @@ export default {
             dropdownAttributes: {
               buttonText: "Aktionen",
               buttonClass: "a_btn a_btn_secondary a_table__action",
+              inBody: true,
               placement: "bottom-end",
             },
           }),
@@ -243,8 +244,9 @@ export default {
             minDropdownActions: 0,
             dropdownAttributes: {
               id: this.buttonMultipleId,
-              buttonText: "Mehrfachaktionen",
               buttonClass: "a_btn a_btn_secondary a_table__action",
+              buttonText: "Mehrfachaktionen",
+              inBody: true,
               placement: "bottom-end",
             },
           }),
