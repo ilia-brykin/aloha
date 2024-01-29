@@ -26,6 +26,8 @@
   --a_table_preview_right_border_color: #f1f4f7;
   --a_table_preview_right_header_bg: #f1f4f7;
   --a_table_preview_right_header_font_size: 1.5rem;
+  --a_table_preview_right_shadow_size: -2px 0 3px 1px;;
+  --a_table_preview_right_shadow_color: var(--a_color_gray_600);
   --a_table_preview_down_border_width: 4px;
   --a_table_preview_down_border_color: var(--a_color_gray_400);
   --a_table_preview_down_padding_y: 1.5rem;
@@ -430,9 +432,10 @@
   border-width: var(--a_table_preview_right_border_width);
   border-style: solid;
   border-color: var(--a_table_preview_right_border_color);
+  box-shadow: var(--a_table_preview_right_shadow_size) var(--a_table_preview_right_shadow_color);
 
   &:focus {
-    box-shadow: var(--a_table_row_focus_shadow_size) var(--a_table_row_focus_shadow_color);
+    --a_table_preview_right_shadow_color: var(--a_table_row_focus_shadow_color);
   }
 }
 .a_table__preview_right__header {
