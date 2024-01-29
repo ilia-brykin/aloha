@@ -703,7 +703,7 @@ export default {
                         onSubmit: this.onSearchOutside,
                       }, [
                         h("div", {
-                          class: "input-group",
+                          class: "a_select__search__group",
                         }, [
                           h(AInput, {
                             label: "_A_SELECT_SEARCH_",
@@ -718,6 +718,8 @@ export default {
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",
                             iconLeft: "Search",
+                            loadingAlign: "left",
+                            loading: this.loadingSearchApi,
                           }),
                         ]),
                       ]),

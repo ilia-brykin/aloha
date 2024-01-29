@@ -29,6 +29,22 @@
 .a_select__search {
   margin-bottom: 10px;
 }
+.a_select__search__group {
+  display: flex;
+  width: 100%;
+  & > div {
+    width: 100%;
+    .a_form_control {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  & > button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    white-space: nowrap;
+  }
+}
 
 .a_select_menu {
   --a_select_divider_margin_y: 0.5rem;
