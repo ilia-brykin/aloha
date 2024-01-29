@@ -59,7 +59,7 @@ export default function UiDataFromServerAPI(props, {
   });
 
   const loadDataFromServer = () => {
-    if (!url.value || !searchApiLocal.value) {
+    if (!url.value || searchApiLocal.value) {
       dataFromServer.value = [];
       return;
     }
@@ -151,7 +151,7 @@ export default function UiDataFromServerAPI(props, {
     loadingSearchApi.value = true;
     getListHttp({
       url: url.value,
-      params: {
+      urlParams: {
         ...(urlParams.value || {}),
         [searchApiKey.value]: search,
       },
