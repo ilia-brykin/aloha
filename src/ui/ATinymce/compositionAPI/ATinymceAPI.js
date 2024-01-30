@@ -5,8 +5,11 @@ import {
   watch,
 } from "vue";
 
+import MyPowerPaste from "../plugins/MyPowerPaste";
+
 /* Import TinyMCE */
 import tinymce from "tinymce";
+tinymce.PluginManager.add("example", MyPowerPaste);
 
 /* Default icons are required. After that, import custom icons if applicable */
 import "tinymce/icons/default";
@@ -89,6 +92,7 @@ export default function ATinymceAPI(props, context, {
       menubar: menubar.value,
       readonly: !!disabled.value,
       valid_elements: validElements.value,
+
       setup: editor => {
         vueEditor = editor;
         editor.on("change input undo redo", () => {

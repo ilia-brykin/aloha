@@ -18,7 +18,7 @@ export const tinymcePluginOptions = ref({
     maxlength: undefined,
     menu: undefined,
     menubar: false,
-    plugins: "advlist code emoticons link lists table help",
+    plugins: "advlist code emoticons link lists table help example",
     promotion: false,
     rows: undefined,
     toolbar: [
@@ -30,6 +30,7 @@ export const tinymcePluginOptions = ref({
       { name: "Link", items: ["link", "unlink"] },
       { name: "Historie", items: ["undo", "redo"] },
       { name: "Hilfe", items: ["help"] },
+      { name: "Example", items: ["example"] },
     ],
     toolbarMode: "wrap",
     validElements: "@[style],a[href|target|title],strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
