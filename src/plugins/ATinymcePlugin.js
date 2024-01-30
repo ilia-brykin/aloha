@@ -33,6 +33,7 @@ export const tinymcePluginOptions = ref({
       { name: "Example", items: ["example"] },
     ],
     toolbarMode: "wrap",
+    // validElements: "@[style],a[href|target|title],span[style='text-decoration:underline;']/u,strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
     validElements: "@[style],a[href|target|title],strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
   },
 });

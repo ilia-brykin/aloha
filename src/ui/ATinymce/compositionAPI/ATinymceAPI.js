@@ -92,6 +92,12 @@ export default function ATinymceAPI(props, context, {
       menubar: menubar.value,
       readonly: !!disabled.value,
       valid_elements: validElements.value,
+      valid_styles: {
+        "*": "text-align,padding-left,text-decoration",
+        ul: "list-style-type",
+        ol: "list-style-type",
+        // 'div': 'width,height'
+      },
 
       setup: editor => {
         vueEditor = editor;

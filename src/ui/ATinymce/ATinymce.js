@@ -14,7 +14,6 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import ATinymceAPI from "./compositionAPI/ATinymceAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-import MammothAPI from "./compositionAPI/MammothAPI";
 
 import {
   tinymcePluginOptions,
@@ -139,8 +138,6 @@ export default {
     onMounted(() => {
       render();
     });
-
-    MammothAPI();
 
     return {
       componentStyleHide,

@@ -1,5 +1,9 @@
-export default function(editor, url) {
-  console.log("url", url);
+// import {
+//   parseHtml,
+// } from "./CKEditor";
+// import MSWordNormalizer from "./CKEditor/normalizers/mswordnormalizer";
+
+export default function(editor) {
   const openDialog = () => editor.windowManager.open({
     title: "Example plugin",
     body: {
@@ -32,8 +36,19 @@ export default function(editor, url) {
   });
   // Event-Handler für Einfügevorgänge
   editor.on("paste", function(e) {
-    const paste = (e.clipboardData || window.clipboardData).getData("text");
-    console.log("paste", paste);
+    const clipboardData = (e.clipboardData || window.clipboardData);
+    e.stopPropagation();
+    e.preventDefault();
+    // console.log("text/plain", clipboardData.getData("text/plain"));
+    // console.log("application/rtf", clipboardData.getData("application/rtf"));
+    // console.log("text/html", clipboardData.getData("text/html"));
+
+    const PAGE_HTML = clipboardData.getData("text/html");
+    const HTML_FRAGMENT = extractTextBetweenComments(PAGE_HTML);
+
+    console.log("PAGE_HTML", PAGE_HTML);
+    // console.log("HTML", HTML_FRAGMENT);
+    editor.insertContent(HTML_FRAGMENT);
 
     // Hier können Sie Ihre Logik einfügen, was passieren soll,
     // wenn Inhalte eingefügt werden. Zum Beispiel:
@@ -67,4 +82,17 @@ export default function(editor, url) {
       url: "http://exampleplugindocsurl.com"
     })
   };
+}
+
+function extractTextBetweenComments(htmlString) {
+  const startKommentar = "<!--StartFragment-->";
+  const endKommentar = "<!--EndFragment-->";
+
+  const startIndex = htmlString.indexOf(startKommentar);
+  const endIndex = htmlString.indexOf(endKommentar);
+
+  if (startIndex !== -1 && endIndex !== -1) {
+    return htmlString.substring(startIndex + startKommentar.length, endIndex).trim();
+  }
+  return htmlString;
 }
