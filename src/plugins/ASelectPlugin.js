@@ -5,6 +5,7 @@ import {
 export const selectPluginOptions = ref({
   propsDefault: {
     buttonClass: undefined,
+    caretIcon: "ChevronDown",
     countMultiselect: 4,
     dataExtra: [],
     inBody: true,

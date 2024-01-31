@@ -56,6 +56,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.buttonClass,
     },
+    caretIcon: {
+      type: [String, Object],
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.caretIcon,
+    },
     change: {
       type: Function,
       required: false,
@@ -614,7 +619,7 @@ export default {
             h("div", {
               ref: "buttonRef",
               id: this.htmlIdLocal,
-              class: ["a_form_control a_select_toggle a_caret", this.buttonClass, {
+              class: ["a_form_control a_select_toggle", this.buttonClass, {
                 disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
                 a_form_control_invalid: this.isErrors,
@@ -853,6 +858,13 @@ export default {
                   ]),
                 ]),
               ]),
+              h("span", {
+                class: "a_caret",
+              }, [
+                h(AIcon, {
+                  icon: this.caretIcon,
+                }),
+              ])
             ]),
           ]),
         ]),
