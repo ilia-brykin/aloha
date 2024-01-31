@@ -18,7 +18,7 @@ export const tinymcePluginOptions = ref({
     maxlength: undefined,
     menu: undefined,
     menubar: false,
-    plugins: "advlist code emoticons link lists table help",
+    plugins: "advlist code emoticons link lists table help example",
     promotion: false,
     rows: undefined,
     toolbar: [
@@ -32,7 +32,12 @@ export const tinymcePluginOptions = ref({
       { name: "Hilfe", items: ["help"] },
     ],
     toolbarMode: "wrap",
-    validElements: "@[style],a[href|target|title],strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
+    validElements: "@[style],a[href|target|title],strong/b[style],em/i[style],div[style],br[],p[style],span[style],ul[style],ol[style],li[style],table[],thead[],tbody[],th[],tr[],td[]",
+    validStyles: {
+      "*": "text-align,padding-left,text-decoration",
+      ul: "list-style-type",
+      ol: "list-style-type",
+    },
   },
 });
 

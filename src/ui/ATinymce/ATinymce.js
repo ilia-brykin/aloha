@@ -96,6 +96,11 @@ export default {
       required: false,
       default: () => tinymcePluginOptions.value.propsDefault.validElements,
     },
+    validStyles: {
+      type: Object,
+      required: false,
+      default: () => tinymcePluginOptions.value.propsDefault.validStyles,
+    },
   },
   setup(props, context) {
     const {
