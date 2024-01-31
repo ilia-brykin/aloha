@@ -1,98 +1,179 @@
-// import {
-//   parseHtml,
-// } from "./CKEditor";
-// import MSWordNormalizer from "./CKEditor/normalizers/mswordnormalizer";
+import {
+  forEach,
+} from "lodash";
 
 export default function(editor) {
-  const openDialog = () => editor.windowManager.open({
-    title: "Example plugin",
-    body: {
-      type: "panel",
-      items: [
-        {
-          type: "input",
-          name: "title",
-          label: "Title"
-        }
-      ]
-    },
-    buttons: [
-      {
-        type: "cancel",
-        text: "Close"
-      },
-      {
-        type: "submit",
-        text: "Save",
-        buttonType: "primary"
-      }
-    ],
-    onSubmit: api => {
-      const data = api.getData();
-      /* Insert content when the window form is submitted */
-      editor.insertContent("Title: " + data.title);
-      api.close();
-    }
-  });
   // Event-Handler für Einfügevorgänge
   editor.on("paste", function(e) {
     const clipboardData = (e.clipboardData || window.clipboardData);
     e.stopPropagation();
     e.preventDefault();
-    // console.log("text/plain", clipboardData.getData("text/plain"));
-    // console.log("application/rtf", clipboardData.getData("application/rtf"));
-    // console.log("text/html", clipboardData.getData("text/html"));
 
     const PAGE_HTML = clipboardData.getData("text/html");
-    const HTML_FRAGMENT = extractTextBetweenComments(PAGE_HTML);
+    const HTML_FRAGMENT = extractTextBetween({
+      html: PAGE_HTML,
+      start: "<!--StartFragment-->",
+      end: "<!--EndFragment-->",
+    });
 
-    console.log("PAGE_HTML", PAGE_HTML);
-    // console.log("HTML", HTML_FRAGMENT);
-    editor.insertContent(HTML_FRAGMENT);
+    if (isMsWord({ html: PAGE_HTML })) {
+      editor.insertContent(parseWord({ html: HTML_FRAGMENT }));
+    } else {
+      const cleanedHtml = HTML_FRAGMENT.replace(/\sdata-[a-z0-9-]+="[^"]*"/gi, "").replace(/\saria-[a-z0-9-]+="[^"]*"/gi, "");
 
-    // Hier können Sie Ihre Logik einfügen, was passieren soll,
-    // wenn Inhalte eingefügt werden. Zum Beispiel:
-    // - Überprüfen oder Bereinigen des eingefügten Inhalts
-    // - Anzeigen eines Dialogs
-    // - Oder andere benutzerdefinierte Aktionen
-    // const cleanedText = `blabla ${ paste }`;
-    // editor.insertContent(cleanedText);
-  });
-
-  /* Add a button that opens a window */
-  editor.ui.registry.addButton("example", {
-    text: "My button",
-    onAction: () => {
-      /* Open window */
-      openDialog();
-    }
-  });
-  /* Adds a menu item, which can then be included in any menu via the menu/menubar configuration */
-  editor.ui.registry.addMenuItem("example", {
-    text: "Example plugin",
-    onAction: () => {
-      /* Open window */
-      openDialog();
+      editor.insertContent(cleanedHtml);
     }
   });
   /* Return the metadata for the help plugin */
   return {
     getMetadata: () => ({
       name: "My power paste",
-      url: "http://exampleplugindocsurl.com"
+      url: "https://ilia-brykin.github.io/aloha/#/"
     })
   };
 }
 
-function extractTextBetweenComments(htmlString) {
-  const startKommentar = "<!--StartFragment-->";
-  const endKommentar = "<!--EndFragment-->";
-
-  const startIndex = htmlString.indexOf(startKommentar);
-  const endIndex = htmlString.indexOf(endKommentar);
+function extractTextBetween({ html, start, end }) {
+  const startIndex = html.indexOf(start);
+  const endIndex = html.indexOf(end);
 
   if (startIndex !== -1 && endIndex !== -1) {
-    return htmlString.substring(startIndex + startKommentar.length, endIndex).trim();
+    return html.substring(startIndex + start.length, endIndex).trim();
   }
-  return htmlString;
+  return html;
+}
+
+function isMsWord({ html }) {
+  const HTML_TAG = extractTextBetween({
+    html,
+    start: "<html",
+    end: ">",
+  });
+
+  return HTML_TAG.indexOf(":office:word") !== -1;
+}
+
+function parseWord({ html }) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+  const paragraphs = doc.querySelectorAll("p");
+
+  const rootElement = document.createElement("div");
+  let currentList = null;
+  let lastLevel = 0;
+  const listStack = [];
+
+  paragraphs.forEach(function(p) {
+    const isNormalParagraph = p.className.includes("MsoNormal");
+    const htmlContent = p.innerHTML.trim()
+      .replace(/<u>/g, "<span style=\"text-decoration: underline;\">")
+      .replace(/<\/u>/g, "</span>")
+      .replace(/<!--\[if !supportLists]-->.*?<!--\[endif]-->/gs, "")
+      .replace(/&nbsp;/g, " ")
+      .replace(/^[\s·o§1-9]+[.)]?/g, "");
+
+    if (isNormalParagraph && !p.className.includes("MsoListParagraph")) {
+      const newParagraph = document.createElement("p");
+      newParagraph.innerHTML = htmlContent;
+      rootElement.appendChild(newParagraph);
+      lastLevel = 0;
+      currentList = null;
+      return;
+    }
+
+    const LIST_LEVEL = getCurrentLevelForList(p);
+    const { type, style } = getListTypeAndStyleFromSpanContent(p);
+
+    if (!currentList || LIST_LEVEL > lastLevel) {
+      const newList = document.createElement(type);
+      if (style) {
+        newList.style.listStyleType = style;
+      }
+
+      if (currentList) {
+        currentList.appendChild(newList);
+      } else {
+        rootElement.appendChild(newList);
+      }
+      currentList = newList;
+      listStack.push({ element: newList, level: LIST_LEVEL });
+    } else if (LIST_LEVEL < lastLevel) {
+      while (listStack.length > 1 && LIST_LEVEL < listStack[listStack.length - 1].level) {
+        listStack.pop();
+        currentList = listStack[listStack.length - 1].element;
+      }
+    }
+
+    const li = document.createElement("li");
+    li.innerHTML = htmlContent;
+    currentList.appendChild(li);
+
+    lastLevel = LIST_LEVEL;
+  });
+
+  return rootElement.innerHTML;
+}
+
+function getListTypeAndStyleFromSpanContent(p) {
+  const spans = p.querySelectorAll("span");
+  let spanContent = "";
+  forEach(spans, span => {
+    const styleAttr = span.getAttribute("style");
+    if (styleAttr && styleAttr.includes("mso-list:Ignore")) {
+      spanContent = span.textContent || "";
+      return false;
+    }
+  });
+
+  spanContent = spanContent.trim();
+  if (!spanContent) {
+    return { type: "ul", style: "" };
+  }
+  // Check for ordered list with Arabic numerals or numbers within parentheses
+  if (/^\d+[.)]/.test(spanContent) || /^\(\d+\)/.test(spanContent)) {
+    return { type: "ol", style: "" }; // Default style for <ol>
+  }
+  // Check for ordered list with uppercase Roman numerals
+  if (/^[IVXLCDM]+\./.test(spanContent)) {
+    return { type: "ol", style: "upper-roman" };
+  }
+  // Check for ordered list with lowercase Roman numerals
+  if (/^[ivxlcdm]+\./.test(spanContent)) {
+    return { type: "ol", style: "lower-roman" };
+  }
+  // Check for ordered list with uppercase letters
+  if (/^[A-Z]+[.)]/.test(spanContent)) {
+    return { type: "ol", style: "upper-alpha" };
+  }
+  // Check for ordered list with lowercase letters
+  if (/^[a-z]+[.)]/.test(spanContent)) {
+    return { type: "ol", style: "lower-alpha" };
+  }
+  // Check for unordered list with various symbols
+  if (/^[·o§]/.test(spanContent)) {
+    // Determine list style based on the symbol
+    let style;
+    switch (spanContent.trim()[0]) {
+    case "·": style = "disc"; break;
+    case "o": style = "circle"; break;
+    case "§": style = "square"; break;
+    default: style = "";
+    }
+    return { type: "ul", style: style };
+  }
+
+  return { type: "ul", style: "" };
+}
+
+function getCurrentLevelForList(p) {
+  const styleAttr = p.getAttribute("style");
+  let level = 1;
+  if (styleAttr) {
+    const levelMatch = styleAttr.match(/mso-list:l\d+ level(\d+)/);
+    if (levelMatch) {
+      level = parseInt(levelMatch[1], 10);
+    }
+  }
+
+  return level;
 }

@@ -60,6 +60,7 @@ export default function ATinymceAPI(props, context, {
   const toolbar = toRef(props, "toolbar");
   const toolbarMode = toRef(props, "toolbarMode");
   const validElements = toRef(props, "validElements");
+  const validStyles = toRef(props, "validStyles");
 
   let vueEditor = null;
   let modelValueLocal = undefined;
@@ -92,12 +93,7 @@ export default function ATinymceAPI(props, context, {
       menubar: menubar.value,
       readonly: !!disabled.value,
       valid_elements: validElements.value,
-      valid_styles: {
-        "*": "text-align,padding-left,text-decoration",
-        ul: "list-style-type",
-        ol: "list-style-type",
-        // 'div': 'width,height'
-      },
+      valid_styles: validStyles.value,
 
       setup: editor => {
         vueEditor = editor;

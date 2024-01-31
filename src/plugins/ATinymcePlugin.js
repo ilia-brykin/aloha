@@ -30,11 +30,14 @@ export const tinymcePluginOptions = ref({
       { name: "Link", items: ["link", "unlink"] },
       { name: "Historie", items: ["undo", "redo"] },
       { name: "Hilfe", items: ["help"] },
-      { name: "Example", items: ["example"] },
     ],
     toolbarMode: "wrap",
-    // validElements: "@[style],a[href|target|title],span[style='text-decoration:underline;']/u,strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
-    validElements: "@[style],a[href|target|title],strong/b,em/i,div,br,p,span,ul,ol,li,table,thead,tbody,th,tr,td",
+    validElements: "@[style],a[href|target|title],strong/b[style],em/i[style],div[style],br[],p[style],span[style],ul[style],ol[style],li[style],table[],thead[],tbody[],th[],tr[],td[]",
+    validStyles: {
+      "*": "text-align,padding-left,text-decoration",
+      ul: "list-style-type",
+      ol: "list-style-type",
+    },
   },
 });
 
