@@ -5282,6 +5282,7 @@ h6 {
   position: relative;
   min-width: var(--a_select_min_width);
   min-height: calc(26px + 0.375rem * 2);
+  padding-right: 30px;
   text-align: left; }
 
 .a_select_toggle_closeable {
