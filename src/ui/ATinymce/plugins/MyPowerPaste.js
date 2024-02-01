@@ -54,7 +54,6 @@ function isMsWord({ html }) {
 }
 
 function parseWord({ html }) {
-  console.log("html", html);
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
   const allChildren = doc.body.querySelectorAll(":scope > *");
