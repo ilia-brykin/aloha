@@ -5286,7 +5286,7 @@ h6 {
   text-align: left; }
 
 .a_select_toggle_closeable {
-  padding: 0; }
+  padding: 0 30px 0 0; }
 
 .a_caret {
   display: flex;
