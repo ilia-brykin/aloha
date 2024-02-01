@@ -1,6 +1,6 @@
 import {
   forEach,
-} from "lodash";
+} from "lodash-es";
 
 export default function(editor) {
   // Event-Handler für Einfügevorgänge
@@ -56,23 +56,31 @@ function isMsWord({ html }) {
 function parseWord({ html }) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
-  const paragraphs = doc.querySelectorAll("p");
+  const allChildren = doc.body.querySelectorAll(":scope > *");
 
   const rootElement = document.createElement("div");
   let currentList = null;
   let lastLevel = 0;
   const listStack = [];
 
-  paragraphs.forEach(function(p) {
-    const isNormalParagraph = p.className.includes("MsoNormal");
-    const htmlContent = p.innerHTML.trim()
+  forEach(allChildren, element => {
+    const isTagP = element.tagName === "P";
+    if (!isTagP) {
+      rootElement.appendChild(element);
+      lastLevel = 0;
+      currentList = null;
+      return;
+    }
+
+    const isNormalParagraph = element.className.includes("MsoNormal");
+    const htmlContent = element.innerHTML.trim()
       .replace(/<u>/g, "<span style=\"text-decoration: underline;\">")
       .replace(/<\/u>/g, "</span>")
       .replace(/<!--\[if !supportLists]-->.*?<!--\[endif]-->/gs, "")
       .replace(/&nbsp;/g, " ")
       .replace(/^[\s·o§1-9]+[.)]?/g, "");
 
-    if (isNormalParagraph && !p.className.includes("MsoListParagraph")) {
+    if (isTagP && isNormalParagraph && !element.className.includes("MsoListParagraph")) {
       const newParagraph = document.createElement("p");
       newParagraph.innerHTML = htmlContent;
       rootElement.appendChild(newParagraph);
@@ -81,8 +89,8 @@ function parseWord({ html }) {
       return;
     }
 
-    const LIST_LEVEL = getCurrentLevelForList(p);
-    const { type, style } = getListTypeAndStyleFromSpanContent(p);
+    const LIST_LEVEL = getCurrentLevelForList(element);
+    const { type, style } = getListTypeAndStyleFromSpanContent(element);
 
     if (!currentList || LIST_LEVEL > lastLevel) {
       const newList = document.createElement(type);
