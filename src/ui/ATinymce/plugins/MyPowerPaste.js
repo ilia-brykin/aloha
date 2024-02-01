@@ -97,11 +97,6 @@ function parseWord({ html }) {
     const LIST_LEVEL = getCurrentLevelForList(element);
     const { type, style } = getListTypeAndStyleFromSpanContent(element);
 
-    // two lists on the same level
-    if (LIST_LEVEL === lastLevel || MARGIN_LEFT === lastIndent) {
-      currentList = null;
-    }
-
     if (!currentList || LIST_LEVEL > lastLevel || MARGIN_LEFT > lastIndent) {
       const newList = document.createElement(type);
       if (style) {
