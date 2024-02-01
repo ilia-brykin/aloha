@@ -61,6 +61,7 @@ function parseWord({ html }) {
   const rootElement = document.createElement("div");
   let currentList = null;
   let lastLevel = 0;
+  let lastIndent = 0;
   const listStack = [];
 
   forEach(allChildren, element => {
@@ -68,31 +69,35 @@ function parseWord({ html }) {
     if (!isTagP) {
       rootElement.appendChild(element);
       lastLevel = 0;
+      lastIndent = 0;
       currentList = null;
       return;
     }
 
-    const isNormalParagraph = element.className.includes("MsoNormal");
-    const htmlContent = element.innerHTML.trim()
+    let htmlContent = element.innerHTML.trim();
+    const IS_NORMAL_PARAGRAPH = isNormalParagraph({ element, htmlContent });
+    htmlContent = htmlContent
       .replace(/<u>/g, "<span style=\"text-decoration: underline;\">")
       .replace(/<\/u>/g, "</span>")
       .replace(/<!--\[if !supportLists]-->.*?<!--\[endif]-->/gs, "")
       .replace(/&nbsp;/g, " ")
       .replace(/^[\s·o§1-9]+[.)]?/g, "");
 
-    if (isTagP && isNormalParagraph && !element.className.includes("MsoListParagraph")) {
+    if (isTagP && IS_NORMAL_PARAGRAPH) {
       const newParagraph = document.createElement("p");
       newParagraph.innerHTML = htmlContent;
       rootElement.appendChild(newParagraph);
       lastLevel = 0;
+      lastIndent = 0;
       currentList = null;
       return;
     }
 
+    const MARGIN_LEFT = parseInt(element.style.marginLeft) || 0;
     const LIST_LEVEL = getCurrentLevelForList(element);
     const { type, style } = getListTypeAndStyleFromSpanContent(element);
 
-    if (!currentList || LIST_LEVEL > lastLevel) {
+    if (!currentList || LIST_LEVEL > lastLevel || MARGIN_LEFT > lastIndent) {
       const newList = document.createElement(type);
       if (style) {
         newList.style.listStyleType = style;
@@ -104,9 +109,14 @@ function parseWord({ html }) {
         rootElement.appendChild(newList);
       }
       currentList = newList;
-      listStack.push({ element: newList, level: LIST_LEVEL });
+      listStack.push({ element: newList, level: LIST_LEVEL, marginLeft: MARGIN_LEFT });
     } else if (LIST_LEVEL < lastLevel) {
       while (listStack.length > 1 && LIST_LEVEL < listStack[listStack.length - 1].level) {
+        listStack.pop();
+        currentList = listStack[listStack.length - 1].element;
+      }
+    } else if (MARGIN_LEFT < lastIndent && listStack.length > 1) {
+      while (listStack.length > 1 && MARGIN_LEFT < listStack[listStack.length - 1].marginLeft) {
         listStack.pop();
         currentList = listStack[listStack.length - 1].element;
       }
@@ -117,6 +127,7 @@ function parseWord({ html }) {
     currentList.appendChild(li);
 
     lastLevel = LIST_LEVEL;
+    lastIndent = MARGIN_LEFT;
   });
 
   return rootElement.innerHTML;
@@ -184,4 +195,10 @@ function getCurrentLevelForList(p) {
   }
 
   return level;
+}
+
+function isNormalParagraph({ element, htmlContent }) {
+  return element.className.includes("MsoNormal") ||
+    (!element.className.includes("MsoListParagraph") &&
+    !/mso-list:/.test(htmlContent));
 }
