@@ -54,6 +54,7 @@ function isMsWord({ html }) {
 }
 
 function parseWord({ html }) {
+  console.log("html", html);
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
   const allChildren = doc.body.querySelectorAll(":scope > *");
@@ -74,15 +75,16 @@ function parseWord({ html }) {
       return;
     }
 
-    const isNormalParagraph = element.className.includes("MsoNormal");
-    const htmlContent = element.innerHTML.trim()
+    let htmlContent = element.innerHTML.trim();
+    const IS_NORMAL_PARAGRAPH = isNormalParagraph({ element, htmlContent });
+    htmlContent = htmlContent
       .replace(/<u>/g, "<span style=\"text-decoration: underline;\">")
       .replace(/<\/u>/g, "</span>")
       .replace(/<!--\[if !supportLists]-->.*?<!--\[endif]-->/gs, "")
       .replace(/&nbsp;/g, " ")
       .replace(/^[\s·o§1-9]+[.)]?/g, "");
 
-    if (isTagP && isNormalParagraph && !element.className.includes("MsoListParagraph")) {
+    if (isTagP && IS_NORMAL_PARAGRAPH) {
       const newParagraph = document.createElement("p");
       newParagraph.innerHTML = htmlContent;
       rootElement.appendChild(newParagraph);
@@ -95,6 +97,11 @@ function parseWord({ html }) {
     const MARGIN_LEFT = parseInt(element.style.marginLeft) || 0;
     const LIST_LEVEL = getCurrentLevelForList(element);
     const { type, style } = getListTypeAndStyleFromSpanContent(element);
+
+    // two lists on the same level
+    if (LIST_LEVEL === lastLevel || MARGIN_LEFT === lastIndent) {
+      currentList = null;
+    }
 
     if (!currentList || LIST_LEVEL > lastLevel || MARGIN_LEFT > lastIndent) {
       const newList = document.createElement(type);
@@ -194,4 +201,10 @@ function getCurrentLevelForList(p) {
   }
 
   return level;
+}
+
+function isNormalParagraph({ element, htmlContent }) {
+  return element.className.includes("MsoNormal") ||
+    (!element.className.includes("MsoListParagraph") &&
+    !/mso-list:/.test(htmlContent));
 }
