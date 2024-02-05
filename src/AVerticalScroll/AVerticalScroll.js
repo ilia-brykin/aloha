@@ -61,6 +61,7 @@ export default {
       containerRef,
       hasScroll,
       onScroll,
+      scrollContentChildRef,
       scrollContentRef,
       scrollDown,
       scrollUp,
@@ -74,7 +75,7 @@ export default {
     } = ObserverAPI({
       checkScroll,
       containerRef,
-      scrollContentRef,
+      scrollContentChildRef,
     });
 
     const {
@@ -113,6 +114,7 @@ export default {
       canScrollUp,
       containerRef,
       hasScroll,
+      scrollContentChildRef,
       scrollContentRef,
       scrollDown,
       scrollUp,
@@ -147,7 +149,11 @@ export default {
         class: "a_scroll_content",
         ...this.scrollContentAttributes,
       }, [
-        this.$slots.default && this.$slots.default(),
+        h("div", {
+          ref: "scrollContentChildRef",
+        }, [
+          this.$slots.default && this.$slots.default(),
+        ]),
       ]),
       h("div", {
         class: "a_vertical_scroll__btn__wrapper a_vertical_scroll__btn__wrapper_down"

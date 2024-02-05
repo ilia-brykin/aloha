@@ -5,7 +5,7 @@ import {
 export default function ObserverAPI({
   checkScroll = () => {},
   containerRef = ref(undefined),
-  scrollContentRef = ref(undefined),
+  scrollContentChildRef = ref(undefined),
 }) {
   const resizeContainerObserver = ref(undefined);
   const resizeContainerObserverConnected = ref(false);
@@ -60,14 +60,14 @@ export default function ObserverAPI({
 
   const connectScrollContentObserver = () => {
     if (!resizeScrollContentObserverConnected.value) {
-      resizeScrollContentObserver.value.observe(scrollContentRef.value);
+      resizeScrollContentObserver.value.observe(scrollContentChildRef.value);
       resizeScrollContentObserverConnected.value = true;
     }
   };
 
   const disconnectScrollContentObserver = () => {
     if (resizeScrollContentObserverConnected.value) {
-      resizeScrollContentObserver.value.unobserve(scrollContentRef.value);
+      resizeScrollContentObserver.value.unobserve(scrollContentChildRef.value);
       resizeScrollContentObserverConnected.value = false;
     }
   };

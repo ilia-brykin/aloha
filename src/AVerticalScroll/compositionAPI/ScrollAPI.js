@@ -11,6 +11,7 @@ export default function ScrollAPI(props) {
   const containerRef = ref(undefined);
   const hasScroll = ref(false);
   const scrollContentRef = ref(undefined);
+  const scrollContentChildRef = ref(undefined);
 
   const onScroll = () => {
     const scrollContent = scrollContentRef.value;
@@ -43,6 +44,7 @@ export default function ScrollAPI(props) {
     containerRef,
     hasScroll,
     onScroll,
+    scrollContentChildRef,
     scrollContentRef,
     scrollDown,
     scrollUp,
