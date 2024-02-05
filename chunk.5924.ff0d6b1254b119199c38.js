@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkaloha_vue_docs=self.webpackChunkaloha_vue_docs||[]).push([[5924],{8244:(a,e,n)=>{n.r(e),n.d(e,{default:()=>s});var l=n(7736);const o=(0,l.QD)("h1",null,"PageCloak",-1),c={name:"PageCloak",components:{ACloak:n(1536).c}},s=(0,n(8152).c)(c,[["render",function(a,e){const n=(0,l.E1)("a-cloak");return(0,l.Wz)(),(0,l.An)("div",null,[o,(0,l.K2)(n,{size:"4"})])}]])}}]);
+//# sourceMappingURL=chunk.5924.ff0d6b1254b119199c38.js.map
