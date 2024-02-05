@@ -1,7 +1,6 @@
 {
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_VALUE_": "Der Wert, der auf eine Eigenschaft im Mapping-Objekt abgebildet werden soll",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_MAPPING_": " Ein Objekt, das die Zuordnung von Werten zu Eigenschaften definiert",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_DEFAULT_VALUE_": "Der Standardwert, der zurückgegeben wird, wenn der übergebene Wert nicht im Mapping-Objekt gefunden wird",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# Argumenti:  \nvalue (prozivoljan tip): Vrijednost koja će biti mapirana na svojstvo u objektu mapiranja.\n[mapping={}] (objekt): Objekt koji definira mapiranje vrijednosti na svojstva.\n[defaultValue=\"\"] (string): Zadana vrijednost koja se vraća ako se proslijeđena vrijednost ne pronađe u objektu mapiranja.",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_VALUE_": "Vrijednost koja će biti mapirana na svojstvo u objektu mapiranja.",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_MAPPING_": "Objekt koji definira mapiranje vrijednosti na svojstva.",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_DEFAULT_VALUE_": "Zadana vrijednost koja se vraća ako se proslijeđena vrijednost ne pronađe u objektu mapiranja.",
   "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "Funkcija <strong>filterPropertyByValue</strong> omogućuje mapiranje vrijednosti na predefinirana svojstva proslijeđenog objekta mapiranja. Provjerava se postoji li proslijeđena vrijednost kao svojstvo, odnosno ključ u objektu mapiranja. Ako da, vraća se pripadajuća vrijednost tog ključa, a u suprotnom se vraća zadana vrijednost."
 }
