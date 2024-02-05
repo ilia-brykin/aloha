@@ -94,6 +94,8 @@ export default function ATinymceAPI(props, context, {
       readonly: !!disabled.value,
       valid_elements: validElements.value,
       valid_styles: validStyles.value,
+      force_br_newlines: true,
+      indent: false,
 
       setup: editor => {
         vueEditor = editor;
