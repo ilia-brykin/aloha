@@ -359,8 +359,9 @@ export default {
       loadingDataFromServer,
     });
 
-    UiDataWatchEmitAPI(props, context, {
+    UiDataWatchEmitAPI(context, {
       dataKeyByKeyIdLocal,
+      dataLocal,
     });
 
     const {

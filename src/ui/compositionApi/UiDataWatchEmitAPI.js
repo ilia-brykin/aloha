@@ -1,15 +1,13 @@
 import {
   computed,
-  toRef,
   watch,
 } from "vue";
 
-export default function UiDataWatchEmitAPI(props, { emit }, {
+export default function UiDataWatchEmitAPI({ emit }, {
   dataKeyByKeyIdLocal = computed(() => ({})),
+  dataLocal = computed(() => ({})),
 }) {
-  const data = toRef(props, "data");
-
-  watch(data, () => {
+  watch(dataLocal, () => {
     emit("updateData", {
       dataKeyByKeyId: dataKeyByKeyIdLocal.value,
     });
