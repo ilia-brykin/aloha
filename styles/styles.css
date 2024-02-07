@@ -7751,6 +7751,8 @@ input:not(:-webkit-autofill) {
   .a_table__row:focus {
     outline: none;
     box-shadow: var(--a_table_row_focus_shadow_size) var(--a_table_row_focus_shadow_color); }
+    .a_table__row:focus .a_table__cell_action_sticky {
+      box-shadow: var(--a_table_row_focus_shadow_size) var(--a_table_row_focus_shadow_color); }
 
 .a_table__head__row {
   background-color: var(--a_table_th_bg);
@@ -7761,6 +7763,8 @@ input:not(:-webkit-autofill) {
   align-items: center;
   position: relative;
   background-color: inherit; }
+  .a_table__th.a_table__cell_action {
+    background-color: inherit; }
   .a_table__th + .a_table__th {
     border-left: var(--a_table_th_border_left_width) solid var(--a_table_th_border_left_color); }
   .a_table__th .a_table__cell__child {
@@ -7856,12 +7860,19 @@ input:not(:-webkit-autofill) {
 .a_table__grandparent:not(.a_table_mobile) .a_table__row_hover:hover,
 .a_table__grandparent:not(.a_table_mobile) .a_table__row_hover:focus-within {
   background-color: var(--a_table_row_hover_bg); }
+  .a_table__grandparent:not(.a_table_mobile) .a_table__row_hover:hover .a_table__cell_action_sticky,
+  .a_table__grandparent:not(.a_table_mobile) .a_table__row_hover:focus-within .a_table__cell_action_sticky {
+    background-color: var(--a_table_row_hover_bg); }
 
 .a_table__grandparent:not(.a_table_mobile) .a_table__row.a_table__row_preview_open {
   background-color: var(--a_table_row_preview_open_bg); }
+  .a_table__grandparent:not(.a_table_mobile) .a_table__row.a_table__row_preview_open .a_table__cell_action_sticky {
+    background-color: var(--a_table_row_preview_open_bg); }
 
 .a_table__grandparent:not(.a_table_mobile) .a_table__row.a_table__row_preview_was_open {
   background-color: var(--a_table_row_preview_was_open_bg); }
+  .a_table__grandparent:not(.a_table_mobile) .a_table__row.a_table__row_preview_was_open .a_table__cell_action_sticky {
+    background-color: var(--a_table_row_preview_was_open_bg); }
 
 .a_table__td {
   display: flex;
@@ -7923,7 +7934,8 @@ input:not(:-webkit-autofill) {
 
 .a_table__cell_action_sticky {
   position: sticky;
-  right: 0; }
+  right: 0;
+  background-color: var(--a_table_bg); }
 
 .a_table__th__dropdown_item {
   display: flex;
