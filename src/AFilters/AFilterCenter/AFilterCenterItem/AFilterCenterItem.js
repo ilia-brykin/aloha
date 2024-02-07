@@ -11,6 +11,7 @@ import GoToAPI from "./compositionAPI/GoToAPI";
 import HasFilterAPI from "./compositionAPI/HasFilterAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import ModelValuesAPI from "./compositionAPI/ModelValuesAPI";
+import IsDataLoadingAPI from "./compositionAPI/IsDataLoadingAPI";
 
 export default {
   name: "AFilterCenterItem",
@@ -44,11 +45,17 @@ export default {
   },
   emits: [
     "updateVisibleChildFilters",
+    "updateLoadingChildFilters",
   ],
   setup(props, context) {
     const {
       hasCurrentFilter,
     } = HasFilterAPI(props);
+
+    const {
+      isFilterLoading,
+      updateLoadingChildFilters,
+    } = IsDataLoadingAPI(props, context);
 
     const {
       filterLabel,
@@ -79,6 +86,12 @@ export default {
 
     watch(isLeastOneFilterVisible, () => {
       updateVisibleChildFilters();
+    }, {
+      immediate: true,
+    });
+
+    watch(isFilterLoading, () => {
+      updateLoadingChildFilters();
     }, {
       immediate: true,
     });

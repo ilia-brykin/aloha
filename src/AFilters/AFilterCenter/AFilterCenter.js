@@ -7,6 +7,8 @@ import AFilterCenterItem from "./AFilterCenterItem/AFilterCenterItem";
 
 import VisibleFiltersAPI from "./compositionAPI/VisibleFiltersAPI";
 import AButton from "../../AButton/AButton";
+import LoadingFiltersAPI from "./compositionAPI/LoadingFiltersAPI";
+import ASpinner from "../../ASpinner/ASpinner";
 
 export default {
   name: "AFilterCenter",
@@ -50,8 +52,15 @@ export default {
       updateVisibleChildFilters,
     } = VisibleFiltersAPI(props);
 
+    const {
+      isLeastOneChildFilterLoading,
+      updateLoadingChildFilters,
+    } = LoadingFiltersAPI(props);
+
     return {
+      isLeastOneChildFilterLoading,
       styleHide,
+      updateLoadingChildFilters,
       updateVisibleChildFilters,
     };
   },
@@ -75,8 +84,16 @@ export default {
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
           model: this.appliedModel[filter.modelId || filter.id],
           onUpdateVisibleChildFilters: this.updateVisibleChildFilters,
+          onUpdateLoadingChildFilters: this.updateLoadingChildFilters,
         }, this.$slots);
       }),
+      this.isLeastOneChildFilterLoading && h("div", {
+        class: "a_filters_center__item",
+      }, [
+        h(ASpinner, {
+          class: "a_spinner_small",
+        }),
+      ]),
       h("div", {
         class: "a_filters_center__item",
       }, [
