@@ -158,6 +158,10 @@ export default function ToggleAPI(props, {
               ]
             },
           ).then(({ x, y }) => {
+            if (!buttonRef.value.clientWidth) { // if button hide
+              closePopover();
+              return;
+            }
             const SOURCE = {
               left: `${ x }px`,
               top: `${ y }px`,

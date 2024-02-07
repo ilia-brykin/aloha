@@ -60,6 +60,24 @@ export default {
         id: "integerNumber",
         label: "Integer range",
       },
+      {
+        type: "select",
+        id: "select1",
+        label: "Select 1",
+        alwaysVisible: true,
+        keyLabel: "label",
+        keyId: "id",
+        data: [
+          {
+            label: "Aloha 0",
+            id: "aloha_0",
+          },
+          {
+            label: "Aloha 1",
+            id: "aloha_1",
+          },
+        ],
+      },
     ];
 
     const appliedModel = ref({});
