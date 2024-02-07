@@ -105,6 +105,7 @@
 }
 .a_table__row {
   display: flex;
+  min-width: min-content;
   border-bottom: var(--a_table_row_border_bottom_width) solid var(--a_table_row_border_bottom_color);
   background-color: var(--a_table_bg);
   &:focus {
