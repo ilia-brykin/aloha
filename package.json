@@ -14,7 +14,7 @@
     "Vue.js"
   ],
   "homepage": "https://github.com/ilia-brykin/aloha/#README.md",
-  "version": "1.2.96",
+  "version": "1.2.97",
   "author": {
     "name": "Ilia Brykin",
     "email": "brykin.ilia@gmail.com"
@@ -38,7 +38,7 @@
   },
   "scripts": {
     "build-icons": "node scriptsNode/iconsSvgToJs.js bootstrap3 && node scriptsNode/iconsSvgToJs.js bootstrap-1-9-1",
-    "publish": "npm publish --scope=@npm",
+    "pub": "npm publish --scope=@npm",
     "test": "jest"
   },
   "dependencies": {
