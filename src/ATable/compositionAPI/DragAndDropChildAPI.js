@@ -5,8 +5,11 @@ import {
   toRef,
 } from "vue";
 
+const CLASS_DRAG = "a_table__drag_element";
+
 export default function DragAndDropChildAPI(props, { emit }, {
   classOverString = "",
+  inDropdown = false,
 }) {
   const column = toRef(props, "column");
   const columnIndex = toRef(props, "columnIndex");
@@ -25,7 +28,11 @@ export default function DragAndDropChildAPI(props, { emit }, {
   });
 
   const dragstart = $event => {
-    $event.target.style.opacity = "0.4";
+    $event.target?.classList.add(CLASS_DRAG);
+    if (inDropdown) {
+      const HEIGHT = $event.target?.offsetHeight || 30;
+      $event.target?.parentElement.style.setProperty("--a_table_draggable_li_height", `${ HEIGHT }px`);
+    }
     $event.dataTransfer.effectAllowed = "move";
     emit("dragstartParent", {
       columnIndex: columnIndex.value,
@@ -33,8 +40,8 @@ export default function DragAndDropChildAPI(props, { emit }, {
   };
 
   const dragend = $event => {
-    $event.target.style.opacity = "1";
-    $event.target.classList.remove(classOver.value);
+    $event.target?.classList.remove(classOver.value);
+    $event.target?.classList.remove(CLASS_DRAG);
     emit("dragendParent");
   };
 
@@ -55,7 +62,7 @@ export default function DragAndDropChildAPI(props, { emit }, {
   };
 
   const dragleave = () => {
-    if (root.value && root.value) {
+    if (root.value && root.value.classList) {
       root.value.classList.remove(classOver.value);
     }
     emit("dragleaveParent", {

@@ -63,6 +63,7 @@ export default {
       root,
     } = DragAndDropChildAPI(props, context, {
       classOverString: "a_table__th__dropdown__li_over",
+      inDropdown: true,
     });
 
     const {
