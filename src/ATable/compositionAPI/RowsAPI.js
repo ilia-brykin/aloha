@@ -73,6 +73,14 @@ export default function RowsAPI(props, {
     rowsLocal.value[rowIndex] = row;
   };
 
+  const addRow = ({ row }) => {
+    rowsLocal.value.unshift(row);
+  };
+
+  const deleteRow = ({ index }) => {
+    rowsLocal.value.splice(index, 1);
+  };
+
   watch(dataPaginated, () => {
     rowsLocal.value = [];
     rowsLocalIndex = 0;
@@ -89,6 +97,8 @@ export default function RowsAPI(props, {
   });
 
   return {
+    addRow,
+    deleteRow,
     hasRows,
     limit,
     offset,

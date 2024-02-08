@@ -427,6 +427,8 @@ export default {
     } = SortAPI(props);
 
     const {
+      addRow,
+      deleteRow,
       hasRows,
       limit,
       offset,
@@ -603,6 +605,7 @@ export default {
     initModelSort();
 
     return {
+      addRow,
       allVisibleMobileColumns,
       areAllRowsSelected,
       areAllVisibleRowsSelected,
@@ -617,6 +620,7 @@ export default {
       closePreviewAll,
       columnsFilteredForRender,
       columnsOrdered,
+      deleteRow,
       emptyText,
       hasMultipleActions,
       hasRows,
