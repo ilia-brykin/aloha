@@ -4,23 +4,34 @@ import {
 } from "vue";
 
 import {
+  isArray,
   isEmpty,
 } from "lodash-es";
 
-export default function IsDataLoadingAPI(props, { emit }) {
+export default function IsDataLoadingAPI(props, { emit }, {
+  hasCurrentFilter = computed(() => false),
+}) {
+  const dataKeyByKeyIdPerFilter = toRef(props, "dataKeyByKeyIdPerFilter");
   const filter = toRef(props, "filter");
   const model = toRef(props, "model");
-  const dataKeyByKeyIdPerFilter = toRef(props, "dataKeyByKeyIdPerFilter");
 
   const isFilterLoading = computed(() => {
-    return !isEmpty(model.value) && isEmpty(dataKeyByKeyIdPerFilter.value[filter.value.id]);
+    if (!hasCurrentFilter.value) {
+      return false;
+    }
+    if (isArray(model.value) && model.value.length) {
+      return isEmpty(dataKeyByKeyIdPerFilter.value[filter.value.id]);
+    }
+    return false;
   });
 
-  const updateLoadingChildFilters = () => {
-    emit("updateLoadingChildFilters", {
-      id: filter.value.id,
-      isLoading: isFilterLoading.value,
-    });
+  const updateLoadingChildFilters = (newValue, altValue) => {
+    if (newValue !== altValue) {
+      emit("updateLoadingChildFilters", {
+        id: filter.value.id,
+        isLoading: isFilterLoading.value,
+      });
+    }
   };
 
   return {

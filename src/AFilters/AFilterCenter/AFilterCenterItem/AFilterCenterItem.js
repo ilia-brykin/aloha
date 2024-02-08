@@ -55,7 +55,9 @@ export default {
     const {
       isFilterLoading,
       updateLoadingChildFilters,
-    } = IsDataLoadingAPI(props, context);
+    } = IsDataLoadingAPI(props, context, {
+      hasCurrentFilter,
+    });
 
     const {
       filterLabel,
@@ -90,8 +92,8 @@ export default {
       immediate: true,
     });
 
-    watch(isFilterLoading, () => {
-      updateLoadingChildFilters();
+    watch(isFilterLoading, (newValue, altValue) => {
+      updateLoadingChildFilters(newValue, altValue);
     }, {
       immediate: true,
     });

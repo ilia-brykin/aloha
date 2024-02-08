@@ -2,13 +2,13 @@ import {
   h,
 } from "vue";
 
-import ATranslation from "../../ATranslation/ATranslation";
-import AFilterCenterItem from "./AFilterCenterItem/AFilterCenterItem";
-
-import VisibleFiltersAPI from "./compositionAPI/VisibleFiltersAPI";
 import AButton from "../../AButton/AButton";
-import LoadingFiltersAPI from "./compositionAPI/LoadingFiltersAPI";
+import AFilterCenterItem from "./AFilterCenterItem/AFilterCenterItem";
 import ASpinner from "../../ASpinner/ASpinner";
+import ATranslation from "../../ATranslation/ATranslation";
+
+import LoadingFiltersAPI from "./compositionAPI/LoadingFiltersAPI";
+import VisibleFiltersAPI from "./compositionAPI/VisibleFiltersAPI";
 
 export default {
   name: "AFilterCenter",
@@ -87,13 +87,13 @@ export default {
           onUpdateLoadingChildFilters: this.updateLoadingChildFilters,
         }, this.$slots);
       }),
-      this.isLeastOneChildFilterLoading && h("div", {
+      this.isLeastOneChildFilterLoading ? h("div", {
         class: "a_filters_center__item",
       }, [
         h(ASpinner, {
           class: "a_spinner_small",
         }),
-      ]),
+      ]) : "",
       h("div", {
         class: "a_filters_center__item",
       }, [
