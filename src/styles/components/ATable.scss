@@ -83,6 +83,7 @@
 
 .a_table__cell__child {
   width: 100%;
+  overflow-x: auto;
 }
 .a_table__cell_checkbox {
   --a_table_cell_padding_x: 0;
