@@ -3,8 +3,8 @@ import {
   toRef,
 } from "vue";
 
+import AUiTypesWithData from "../../../../ui/const/AUiTypesWithData";
 import {
-  isArray,
   isEmpty,
 } from "lodash-es";
 
@@ -13,13 +13,12 @@ export default function IsDataLoadingAPI(props, { emit }, {
 }) {
   const dataKeyByKeyIdPerFilter = toRef(props, "dataKeyByKeyIdPerFilter");
   const filter = toRef(props, "filter");
-  const model = toRef(props, "model");
 
   const isFilterLoading = computed(() => {
     if (!hasCurrentFilter.value) {
       return false;
     }
-    if (isArray(model.value) && model.value.length) {
+    if (AUiTypesWithData[filter.value.type]) {
       return isEmpty(dataKeyByKeyIdPerFilter.value[filter.value.id]);
     }
     return false;
