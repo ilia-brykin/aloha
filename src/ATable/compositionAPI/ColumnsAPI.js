@@ -9,7 +9,6 @@ import {
 } from "../utils/utils.js";
 import {
   cloneDeep,
-  filter,
   forEach,
   keyBy,
 } from "lodash-es";
@@ -68,17 +67,35 @@ export default function ColumnsAPI(props, {
     return COLUMNS;
   });
 
-
-  const columnsFilteredForRender = computed(() => {
-    return filter(columnsOrdered.value, (column, columnIndex) => {
-      return isColumnVisible({
+  const columnsFilteredForRenderObj = computed(() => {
+    const COLUMNS = [];
+    const COLUMNS_INDEXES_MAPPING = {};
+    forEach(columnsOrdered.value, (column, columnIndex) => {
+      if (isColumnVisible({
         column,
         columnIndex,
         modelIsTableWithoutScroll: modelIsTableWithoutScroll.value,
         modelColumnsVisibleLocal: modelColumnsVisibleLocal.value,
         indexFirstScrollInvisibleColumn: indexFirstScrollInvisibleColumn.value,
-      });
+      })) {
+        COLUMNS_INDEXES_MAPPING[COLUMNS.length] = columnIndex;
+        COLUMNS.push(column);
+      }
     });
+
+    return {
+      columns: COLUMNS,
+      columnsIndexesMapping: COLUMNS_INDEXES_MAPPING,
+    };
+  });
+
+  const columnsFilteredForRenderIndexesMapping = computed(() => {
+    return columnsFilteredForRenderObj.value.columnsIndexesMapping;
+  });
+
+
+  const columnsFilteredForRender = computed(() => {
+    return columnsFilteredForRenderObj.value.columns;
   });
 
   const countNotHiddenColumns = computed(() => {
@@ -98,6 +115,7 @@ export default function ColumnsAPI(props, {
   return {
     columnIdsGroupByLocked,
     columnsFilteredForRender,
+    columnsFilteredForRenderIndexesMapping,
     columnsOrdered,
     countNotHiddenColumns,
   };

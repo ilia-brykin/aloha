@@ -407,6 +407,7 @@ export default {
     const {
       columnIdsGroupByLocked,
       columnsFilteredForRender,
+      columnsFilteredForRenderIndexesMapping,
       columnsOrdered,
       countNotHiddenColumns,
     } = ColumnsAPI(props, {
@@ -462,6 +463,7 @@ export default {
     } = ColumnsOrderingAPI(props, context, {
       checkVisibleColumns,
       columnIdsGroupByLocked,
+      columnsFilteredForRenderIndexesMapping,
     });
 
     const {

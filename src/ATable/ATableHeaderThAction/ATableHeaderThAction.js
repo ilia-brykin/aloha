@@ -53,6 +53,7 @@ export default {
       classOver: "a_table__th__dropdown__li_over",
       classOverRight: "a_table__th__dropdown__li_over_right",
       classOverParent: "a_table__th__dropdown__li",
+      inHeader: false,
     });
 
     const {

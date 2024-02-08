@@ -20,13 +20,19 @@ export default function ColumnsOrderingAPI(props, { emit }, {
     trueColumns: [],
     falseColumns: [],
   })),
+  columnsFilteredForRenderIndexesMapping = computed(() => ({})),
 }) {
   const columns = toRef(props, "columns");
   const modelColumnsOrdering = toRef(props, "modelColumnsOrdering");
 
-  const changeColumnsOrdering = ({ columnIndexDraggable, columnIndexOver, reset }) => {
+  const changeColumnsOrdering = ({ columnIndexDraggable, columnIndexOver, reset, inHeader }) => {
     if (columnIndexDraggable === columnIndexOver && !reset) {
       return;
+    }
+    // Not all columns may be shown, so the order may be out of order
+    if (inHeader) {
+      columnIndexDraggable = columnsFilteredForRenderIndexesMapping.value[columnIndexDraggable];
+      columnIndexOver = columnsFilteredForRenderIndexesMapping.value[columnIndexOver];
     }
     let modelColumnsOrderingLocal = [];
     if (reset) {

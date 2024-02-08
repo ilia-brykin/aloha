@@ -88,7 +88,8 @@ export default {
     } = DragAndDropParentAPI({
       classOver: "a_table__th_over",
       classOverRight: "a_table__th_over_right",
-      classOverParent: "a_table__th"
+      classOverParent: "a_table__th",
+      inHeader: true,
     });
 
     const {

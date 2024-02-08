@@ -13,6 +13,7 @@ export default function DragAndDropParentAPI({
   classOver = "",
   classOverRight = "",
   classOverParent = "",
+  inHeader = false,
 }) {
   const root = ref(undefined);
   const columnIndexDraggable = ref(undefined);
@@ -45,6 +46,7 @@ export default function DragAndDropParentAPI({
     changeColumnsOrdering({
       columnIndexDraggable: columnIndexDraggable.value,
       columnIndexOver: columnIndexOver.value,
+      inHeader,
     });
     $event.stopPropagation();
     return false;
