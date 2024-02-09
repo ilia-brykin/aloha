@@ -7725,8 +7725,7 @@ input:not(:-webkit-autofill) {
   hyphens: auto; }
 
 .a_table__cell__child {
-  width: 100%;
-  overflow-x: auto; }
+  width: 100%; }
 
 .a_table__cell_checkbox {
   --a_table_cell_padding_x: 0; }
@@ -7857,7 +7856,8 @@ input:not(:-webkit-autofill) {
 
 .a_table__td {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  overflow-x: auto; }
   .a_table__td + .a_table__td {
     border-left: var(--a_table_td_border_left_width) solid var(--a_table_td_border_left_color); }
 
