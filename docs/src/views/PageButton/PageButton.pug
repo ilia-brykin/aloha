@@ -66,6 +66,12 @@ aloha-page(
     aloha-table-props(
       :data="dataProps"
     )
+      template(
+        v-slot:class-default="{ row }"
+      )
+        aloha-highlightjs(
+          :code="row.scss"
+        )
 
     aloha-table-props(
       table-label="Slots"

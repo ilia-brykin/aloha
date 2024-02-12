@@ -1,3 +1,4 @@
+import AlohaHighlightjs from "../../global/components/AlohaHighlightjs/AlohaHighlightjs";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
@@ -38,6 +39,7 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageButton",
   components: {
+    AlohaHighlightjs,
     AlohaPage,
     AlohaTableProps,
     ATranslation,

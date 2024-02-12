@@ -15,3 +15,8 @@
       div(
         v-html="row.description"
       )
+      slot(
+        v-if="row.descriptionSlot"
+        :name="[row.descriptionSlot]"
+        :row="row"
+      )
