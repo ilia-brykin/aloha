@@ -15,11 +15,16 @@ import mainIcons from "./mainIcons";
 import {
   mainTranslation,
 } from "./mainTranslation";
+import {
+  modelLanguage,
+  setLanguageFromLocalStorage,
+} from "./components/TheNavbar/compositionAPI/LanguagesAPI";
 
+setLanguageFromLocalStorage();
 
 const APP = createApp(App);
 
-APP.use(AI18nPlugin, mainTranslation, "de", {});
+APP.use(AI18nPlugin, mainTranslation, modelLanguage.value, {});
 APP.use(AIconPlugin, {
   icons: mainIcons,
 });

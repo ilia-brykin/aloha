@@ -6,8 +6,9 @@ import {
   setLanguage,
 } from "../../../../../src/ATranslation/compositionAPI/ATranslationAPI";
 
+export const modelLanguage = ref("de");
+
 export default function LanguagesAPI() {
-  const modelLanguage = ref("de");
   const languages = [
     {
       label: "Deutsch",
@@ -45,6 +46,7 @@ export default function LanguagesAPI() {
 
   const changeLanguage = () => {
     setTimeout(() => {
+      localStorage.setItem("language", modelLanguage.value);
       setLanguage(modelLanguage.value);
     });
   };
@@ -55,3 +57,8 @@ export default function LanguagesAPI() {
     modelLanguage,
   };
 }
+
+export function setLanguageFromLocalStorage() {
+  modelLanguage.value = localStorage.getItem("language") || "de";
+}
+
