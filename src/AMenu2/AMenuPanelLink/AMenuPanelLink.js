@@ -194,7 +194,7 @@ export default {
             isTitleHtml: this.isTitleHtml,
             tabindex: this.tabindex,
             textAriaHidden: true,
-            textClass: "a_menu_2__link__text aloha_link__ml_0",
+            textClass: "a_menu_2__link__text aloha_element__ml_0",
             textScreenReader: this.titleLocal,
             title: this.titleLocal,
             titleAttributes: this.titleAttributes,
@@ -220,7 +220,7 @@ export default {
             tabindex: this.tabindex,
             tag: "a",
             textAriaHidden: true,
-            textClass: "a_menu_2__link__text aloha_btn__ml_0",
+            textClass: "a_menu_2__link__text aloha_element__ml_0",
             textScreenReader: this.titleLocal,
             title: this.titleLocal,
             titleAttributes: this.titleAttributes,
@@ -229,7 +229,7 @@ export default {
             onKeydown: this.onKeydown,
           }, () => [
             h("span", {
-              class: "a_menu_2__link__counter aloha_btn__ml_0",
+              class: "a_menu_2__link__counter aloha_element__ml_0",
             }, [
               this.showCountChildren && h("span", {
                 ariaHidden: true,

@@ -62,15 +62,15 @@ export default {
     }, () => [
       h("span", {
         areaHidden: true,
-        class: "a_menu_2__btn_toggle__bar a_menu_2__btn_toggle__bar_1 aloha_btn__ml_0",
+        class: "a_menu_2__btn_toggle__bar a_menu_2__btn_toggle__bar_1 aloha_element__ml_0",
       }),
       h("span", {
         areaHidden: true,
-        class: "a_menu_2__btn_toggle__bar a_menu_2__btn_toggle__bar_2 aloha_btn__ml_0",
+        class: "a_menu_2__btn_toggle__bar a_menu_2__btn_toggle__bar_2 aloha_element__ml_0",
       }),
       h("span", {
         areaHidden: true,
-        class: "a_menu_2__btn_toggle__bar a_menu_2__btn_toggle__bar_3 aloha_btn__ml_0",
+        class: "a_menu_2__btn_toggle__bar a_menu_2__btn_toggle__bar_3 aloha_element__ml_0",
       }),
     ]);
   },
