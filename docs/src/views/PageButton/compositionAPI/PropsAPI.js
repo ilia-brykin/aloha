@@ -29,6 +29,20 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "classDefault",
+      description: "_A_BUTTON_PROPS_CLASS_DEFAULT_DESCRIPTION_",
+      type: "String",
+      default: "aloha_element",
+      required: false,
+    },
+    {
+      name: "classDefaultHidden",
+      description: "_A_BUTTON_PROPS_CLASS_DEFAULT_HIDDEN_DESCRIPTION_",
+      type: "String",
+      default: "aloha_element__hidden",
+      required: false,
+    },
+    {
       name: "disabled",
       description: "_A_BUTTON_PROPS_DISABLED_DESCRIPTION_",
       type: "Boolean",
@@ -39,6 +53,13 @@ export default function PropsAPI() {
       name: "extra",
       description: "_A_BUTTON_PROPS_EXTRA_DESCRIPTION_",
       type: "Object",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "extraData",
+      description: "_A_BUTTON_PROPS_EXTRA_DATA_DESCRIPTION_",
+      type: "Any",
       default: undefined,
       required: false,
     },
@@ -99,6 +120,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-switch",
+      description: "_A_BUTTON_PROPS_IS_SWITCH_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "is-title-html",
       description: "_A_BUTTON_PROPS_IS_TITLE_HTML_DESCRIPTION_",
       type: "Boolean",
@@ -125,6 +153,13 @@ export default function PropsAPI() {
       description: "_A_BUTTON_PROPS_LOADING_CLASS_DESCRIPTION_",
       type: "String / Object",
       default: "a_spinner_small",
+      required: false,
+    },
+    {
+      name: "model-switch",
+      description: "_A_BUTTON_PROPS_MODEL_SWITCH_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
       required: false,
     },
     {
@@ -166,7 +201,7 @@ export default function PropsAPI() {
       name: "tag",
       description: "_A_BUTTON_PROPS_TAG_DESCRIPTION_",
       type: "String",
-      default: "button",
+      default: undefined,
       required: false,
     },
     {
@@ -248,26 +283,11 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "is-switch",
-      description: "_A_BUTTON_PROPS_IS_SWITCH_DESCRIPTION_",
-      type: "Boolean",
-      default: undefined,
-      required: false,
-    },
-    {
-      name: "model-switch",
-      description: "_A_BUTTON_PROPS_MODEL_SWITCH_DESCRIPTION_",
-      type: "Boolean",
-      default: undefined,
-      required: false,
-    },
-    {
       name: "type",
       description: "_A_BUTTON_PROPS_TYPE_DESCRIPTION_",
       type: "String",
       default: "button",
       required: false,
-      //  validator: value => ["button", "submit", "reset"].indexOf(value) !== -1,
     },
   ];
 

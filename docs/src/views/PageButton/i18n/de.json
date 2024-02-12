@@ -1,4 +1,9 @@
 {
+  "_A_BUTTON_PROPS_CLASS_DEFAULT_DESCRIPTION_": "Definiert die Basis-CSS-Klasse für das Element, indem ein allgemeiner visueller Standardstil festgelegt wird.",
+  "_A_BUTTON_PROPS_CLASS_DEFAULT_HIDDEN_DESCRIPTION_": "Legt eine CSS-Klasse fest, um das Element zu verbergen, wird verwendet, um die Sichtbarkeit des Elements in verschiedenen Kontexten zu steuern.",
+  "_A_BUTTON_PROPS_TITLE_ATTRIBUTES_DESCRIPTION_": "Bietet ein Objekt zur Einstellung zusätzlicher HTML-Attribute für den Titel des Elements, ermöglicht eine detaillierte Anpassung seines Verhaltens und Stils.",
+  "_A_BUTTON_PROPS_TITLE_Z_INDEX_DESCRIPTION_": "Setzt den z-Index für den Titel des Elements, bestimmt seine Überlagerungsreihenfolge im Kontext anderer überlappender Elemente.",
+  "_A_BUTTON_COMPONENT_DESCRIPTION_": "Die Komponente <strong>AButton</strong> ist eine universelle Schaltfläche mit erweiterten Anpassungsmöglichkeiten über Props. Sie integriert sich mit <a href=\"/#/element\">AElement</a> für das Rendering und ermöglicht die Anpassung von Zugänglichkeit, Klassen, Identifikatoren, Ladezuständen und anderen Parametern. Sie unterstützt das Anpassen des Aussehens, des Texts, der Icons und das Verarbeiten von Ereignissen wie Klicks, was sie zu einem leistungsstarken Werkzeug für die Gestaltung von Benutzeroberflächen macht.",
   "_A_BUTTON_COMPONENT_NAME_": "Schaltfläche",
   "_A_BUTTON_EVENTS_CLICK_DESCRIPTION_": "Wird emittiert, wenn der Button geklickt wird.",
   "_A_BUTTON_EXAMPLE_BIG_TITLE_": "<div>DAS IST MEIN <strong>HTML-TOOLTIP!!!!</strong></div><div>Zweite Zeile</div>",
