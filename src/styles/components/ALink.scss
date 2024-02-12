@@ -1,6 +1,0 @@
-.aloha_link {
-  position: relative;
-  & > :not(.aloha_link__hidden) + :not(.aloha_link__ml_0) {
-    margin-left: .5rem;
-  }
-}
