@@ -4902,6 +4902,11 @@ h6 {
   .aloha_btn > :not(.aloha_btn__hidden) + :not(.aloha_btn__ml_0) {
     margin-left: .5rem; }
 
+.aloha_element {
+  position: relative; }
+  .aloha_element > :not(.aloha_element__hidden) + :not(.aloha_element__ml_0) {
+    margin-left: .5rem; }
+
 .a_resizer {
   --a_resizer_width: 2px;
   --a_resizer_bg: #f4f5f7;
