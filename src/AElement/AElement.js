@@ -7,16 +7,16 @@ import ASpinner from "../ASpinner/ASpinner";
 import ATranslation from "../ATranslation/ATranslation";
 
 import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
+import AttributesAPI from "./comositionAPI/AttributesAPI";
 import ClickAPI from "./comositionAPI/ClickAPI";
 import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
 import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
 import LoadingAPI from "./comositionAPI/LoadingAPI";
+import RouterLinkAPI from "./comositionAPI/RouterLinkAPI";
 import SwitchAPI from "./comositionAPI/SwitchAPI";
+import TagAPI from "./comositionAPI/TagAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
-import AttributesAPI from "./comositionAPI/AttributesAPI";
-import TagAPI from "./comositionAPI/TagAPI";
-import RouterLinkAPI from "./comositionAPI/RouterLinkAPI";
 
 import placements from "../const/placements";
 import {
@@ -323,8 +323,8 @@ export default {
 
     return {
       ariaLabelAttributes,
-      elementRef,
       componentLocal,
+      elementRef,
       htmlTitleAttributes,
       isLoadingLeft,
       isLoadingRight,
@@ -333,10 +333,10 @@ export default {
       isTextOrHtmlVisible,
       isTitleVisible,
       onClick,
+      switchClass,
+      tagLocal,
       toHrefAttributes,
       typeAttribut,
-      tagLocal,
-      switchClass,
     };
   },
   render() {
