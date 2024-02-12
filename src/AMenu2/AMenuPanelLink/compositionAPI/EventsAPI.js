@@ -34,11 +34,11 @@ export default function EventsAPI(props, {
     }
   };
 
-  const clickLink = () => {
+  const clickLink = ({ $event }) => {
     if (isLinkInSearchPanel.value) {
       togglePanel({ parentId: item.value[AKeyParent], isLinkInSearchPanel: isLinkInSearchPanel.value });
     }
-    clickMenuLink();
+    clickMenuLink({ ctrlKey: $event.ctrlKey });
   };
 
   return {
