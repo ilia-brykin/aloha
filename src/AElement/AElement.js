@@ -390,7 +390,7 @@ export default {
           safeHtml: this.safeHtmlScreenReader,
           extra: this.extra,
         }) : undefined,
-        this.$slots.buttonPrepend ? this.$slots.buttonPrepend() : undefined,
+        this.$slots.buttonPrepend ? this.$slots.buttonPrepend({ extraData: this.extraData }) : undefined,
         this.isLoadingLeft ? h(ASpinner, {
           class: [
             "aloha_btn__spinner_left",
@@ -435,7 +435,7 @@ export default {
             ],
           }) :
           undefined,
-        this.$slots.buttonAppend ? this.$slots.buttonAppend() : undefined,
+        this.$slots.buttonAppend ? this.$slots.buttonAppend({ extraData: this.extraData }) : undefined,
       ],
       title: !this.isTitleHtml ||
         (!this.title && !this.$slots.buttonTitle) ?
@@ -447,7 +447,7 @@ export default {
               tag: "span",
               extra: this.extra,
             }),
-            this.$slots.buttonTitle && this.$slots.buttonTitle(),
+            this.$slots.buttonTitle && this.$slots.buttonTitle({ extraData: this.extraData }),
           ];
         },
     });
