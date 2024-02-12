@@ -4,6 +4,8 @@ import {
 
 import AElement from "../AElement/AElement";
 
+import EmitsAPI from "../AButton/compositionAPI/EmitsAPI";
+
 import placements from "../const/placements";
 import {
   isInteger,
@@ -212,11 +214,21 @@ export default {
   emits: [
     "click",
   ],
+  setup(props, context) {
+    const {
+      clickEmit,
+    } = EmitsAPI(props, context);
+
+    return {
+      clickEmit,
+    };
+  },
   render() {
     return h(AElement, {
       ...this.$attrs,
       ...this.$props,
       type: "link",
-    });
+      onClick: this.clickEmit,
+    }, this.$slots);
   },
 };

@@ -2,19 +2,9 @@ import {
   h,
 } from "vue";
 
-import AIcon from "../AIcon/AIcon";
-import ASpinner from "../ASpinner/ASpinner";
-import ATranslation from "../ATranslation/ATranslation";
+import AElement from "../AElement/AElement";
 
-import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
-import ClickAPI from "./comositionAPI/ClickAPI";
-import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
-import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
-import LoadingAPI from "./comositionAPI/LoadingAPI";
-import SwitchAPI from "./comositionAPI/SwitchAPI";
-import TextAPI from "./comositionAPI/TextAPI";
-import TitleAPI from "./comositionAPI/TitleAPI";
-import TypeAPI from "./comositionAPI/TypeAPI";
+import EmitsAPI from "./compositionAPI/EmitsAPI";
 
 import placements from "../const/placements";
 import {
@@ -47,10 +37,15 @@ export default {
       required: false,
       default: undefined,
     },
-    classDefault: { // TODO: Documentation
+    classDefault: {
       type: String,
       required: false,
-      default: "aloha_btn",
+      default: "aloha_element",
+    },
+    classDefaultHidden: {
+      type: String,
+      required: false,
+      default: "aloha_element__hidden",
     },
     disabled: {
       type: Boolean,
@@ -166,7 +161,7 @@ export default {
     tag: {
       type: String,
       required: false,
-      default: "button",
+      default: undefined,
     },
     text: {
       type: [String, Number, Object, Array],
@@ -242,164 +237,18 @@ export default {
   ],
   setup(props, context) {
     const {
-      typeLocal,
-    } = TypeAPI(props);
-
-    const {
-      isTitleVisible,
-    } = TitleAPI(props);
-
-    const {
-      isLoadingLeft,
-      isLoadingRight,
-    } = LoadingAPI(props);
-
-    const {
-      isTextOrHtmlVisible,
-      isTextOrHtmlScreenReaderVisible,
-    } = TextAPI(props);
-
-    const {
-      onClick,
-    } = ClickAPI(props, context);
-
-    const {
-      componentLocal,
-    } = ComponentLocalAPI(props);
-
-    const {
-      buttonRef,
-      htmlTitleAttributes,
-    } = HtmlTitleAPI(props);
-
-    const {
-      ariaLabelAttributes,
-    } = AriaLabelAPI(props);
-
-    const {
-      isSwitchActive,
-      switchClass,
-    } = SwitchAPI(props);
+      clickEmit,
+    } = EmitsAPI(props, context);
 
     return {
-      ariaLabelAttributes,
-      buttonRef,
-      componentLocal,
-      htmlTitleAttributes,
-      isLoadingLeft,
-      isLoadingRight,
-      isSwitchActive,
-      isTextOrHtmlScreenReaderVisible,
-      isTextOrHtmlVisible,
-      isTitleVisible,
-      onClick,
-      typeLocal,
-      switchClass,
+      clickEmit,
     };
   },
   render() {
-    return h(this.componentLocal, {
+    return h(AElement, {
       ...this.$attrs,
-      ...this.htmlTitleAttributes,
-      ...this.ariaLabelAttributes,
-      ref: "buttonRef",
-      id: this.id,
-      class: [
-        this.classDefault,
-        this.switchClass,
-        this.class,
-        {
-          disabled: this.ariaDisabled,
-        },
-      ],
-      type: this.typeLocal,
-      tabindex: this.tabindex,
-      disabled: this.disabled,
-      ariaDisabled: this.ariaDisabled,
-      "aria-pressed": this.isSwitchActive,
-      // TODO: ATable
-      isAllRowsSelected: undefined,
-      onClick: this.onClick,
-      ...this.attributes,
-    }, {
-      default: () => [
-        (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
-          tag: "span",
-          ariaHidden: true,
-          class: "a_position_absolute_all aloha_btn__hidden",
-          title: this.title,
-          extra: this.extra,
-          style: {
-            zIndex: this.titleZIndex,
-          },
-          ...this.titleAttributes,
-        }),
-        this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
-          class: "a_sr_only aloha_btn__hidden",
-          tag: "span",
-          text: this.textScreenReader,
-          html: this.htmlScreenReader,
-          safeHtml: this.safeHtmlScreenReader,
-          extra: this.extra,
-        }),
-        this.$slots.buttonPrepend && this.$slots.buttonPrepend(),
-        this.isLoadingLeft && h(ASpinner, {
-          class: [
-            "aloha_btn__spinner_left",
-            this.loadingClass,
-          ],
-        }),
-        h(AIcon, {
-          icon: this.iconLeft,
-          iconTag: this.iconTag,
-          class: [
-            "aloha_btn__icon_left",
-            this.iconClass,
-          ],
-          ...this.iconAttributes,
-        }),
-        this.$slots.default && this.$slots.default({ extraData: this.extraData }),
-        this.isTextOrHtmlVisible && h(ATranslation, {
-          ariaHidden: this.textAriaHidden,
-          class: this.textClass,
-          extra: this.extra,
-          html: this.html,
-          safeHtml: this.safeHtml,
-          tag: this.textTag,
-          text: this.text,
-          textAfter: this.textAfter,
-          textBefore: this.textBefore,
-        }),
-        h(AIcon, {
-          icon: this.iconRight,
-          iconTag: this.iconTag,
-          class: [
-            "aloha_btn__icon_right",
-            this.iconClass,
-          ],
-          ...this.iconAttributes,
-        }),
-        this.isLoadingRight && h(ASpinner, {
-          class: [
-            "aloha_btn__spinner_right",
-            this.loadingClass,
-          ],
-        }),
-        this.$slots.buttonAppend && this.$slots.buttonAppend(),
-      ],
-      title: !this.isTitleHtml ||
-        (!this.title && !this.$slots.buttonTitle) ?
-        undefined :
-        () => {
-          return [
-            this.isTitleVisible && h(ATranslation, {
-              html: this.title,
-              tag: "span",
-              extra: this.extra,
-            }),
-            this.$slots.buttonTitle && this.$slots.buttonTitle(),
-          ];
-        },
-    });
+      ...this.$props,
+      onClick: this.clickEmit,
+    }, this.$slots);
   },
 };
