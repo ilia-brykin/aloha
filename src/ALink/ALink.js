@@ -2,18 +2,7 @@ import {
   h,
 } from "vue";
 
-import AIcon from "../AIcon/AIcon";
-import ASpinner from "../ASpinner/ASpinner";
-import ATranslation from "../ATranslation/ATranslation";
-
-import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
-import ClickAPI from "./compositionAPI/ClickAPI";
-import ComponentLocalAPI from "./compositionAPI/ComponentLocalAPI";
-import HtmlTitleAPI from "./compositionAPI/HtmlTitleAPI";
-import LoadingAPI from "../AButton/comositionAPI/LoadingAPI";
-import TextAPI from "../AButton/comositionAPI/TextAPI";
-import TitleAPI from "../AButton/comositionAPI/TitleAPI";
-import ToHrefAPI from "./compositionAPI/ToHrefAPI";
+import AElement from "../AElement/AElement";
 
 import placements from "../const/placements";
 import {
@@ -41,6 +30,16 @@ export default {
       required: false,
       default: undefined,
     },
+    classDefault: {
+      type: String,
+      required: false,
+      default: "aloha_element",
+    },
+    classDefaultHidden: {
+      type: String,
+      required: false,
+      default: "aloha_element__hidden",
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -48,6 +47,11 @@ export default {
     },
     extra: {
       type: Object,
+      required: false,
+      default: undefined,
+    },
+    extraData: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol, null, undefined],
       required: false,
       default: undefined,
     },
@@ -208,160 +212,11 @@ export default {
   emits: [
     "click",
   ],
-  setup(props, context) {
-    const {
-      isTitleVisible,
-    } = TitleAPI(props);
-
-    const {
-      isLoadingLeft,
-      isLoadingRight,
-    } = LoadingAPI(props);
-
-    const {
-      isTextOrHtmlVisible,
-      isTextOrHtmlScreenReaderVisible,
-    } = TextAPI(props);
-
-    const {
-      componentLocal,
-      isRouterLink,
-      tagLocal,
-    } = ComponentLocalAPI(props);
-
-    const {
-      htmlTitleAttributes,
-    } = HtmlTitleAPI(props, {
-      tagLocal,
-    });
-
-    const {
-      toHrefAttributes,
-    } = ToHrefAPI(props, {
-      isRouterLink,
-    });
-
-    const {
-      ariaLabelAttributes,
-    } = AriaLabelAPI(props);
-
-    const {
-      onClick,
-    } = ClickAPI(props, context);
-
-    return {
-      ariaLabelAttributes,
-      componentLocal,
-      htmlTitleAttributes,
-      isLoadingLeft,
-      isLoadingRight,
-      isTextOrHtmlScreenReaderVisible,
-      isTextOrHtmlVisible,
-      isTitleVisible,
-      onClick,
-      toHrefAttributes,
-    };
-  },
   render() {
-    return h(this.componentLocal, {
+    return h(AElement, {
       ...this.$attrs,
-      ...this.attributes,
-      ...this.htmlTitleAttributes,
-      ...this.toHrefAttributes,
-      ...this.ariaLabelAttributes,
-      id: this.id,
-      target: this.target,
-      class: [
-        "aloha_link",
-        this.class,
-        {
-          disabled: this.disabled,
-        },
-      ],
-      ariaDisabled: this.disabled,
-      onClick: this.onClick,
-    }, {
-      default: () => [
-        (!this.isTitleHtml && this.isTitleVisible) && h(ATranslation, {
-          tag: "span",
-          ariaHidden: true,
-          class: "a_position_absolute_all aloha_link__hidden",
-          title: this.title,
-          extra: this.extra,
-          style: {
-            zIndex: this.titleZIndex,
-          },
-          ...this.titleAttributes,
-        }),
-        this.isTextOrHtmlScreenReaderVisible && h(ATranslation, {
-          class: "a_sr_only aloha_link__hidden",
-          tag: "span",
-          text: this.textScreenReader,
-          html: this.htmlScreenReader,
-          safeHtml: this.safeHtmlScreenReader,
-          extra: this.extra,
-        }),
-        this.$slots.linkPrepend && this.$slots.linkPrepend(),
-        this.isLoadingLeft && h(ASpinner, {
-          class: [
-            "aloha_link__spinner_left",
-            this.loadingClass,
-          ],
-        }),
-        h(AIcon, {
-          icon: this.iconLeft,
-          iconTag: this.iconTag,
-          class: [
-            "aloha_link__icon_left",
-            this.iconClass,
-          ],
-          ...this.iconAttributes,
-        }),
-        this.$slots.default && this.$slots.default(),
-        this.isTextOrHtmlVisible && h(ATranslation, {
-          ariaHidden: this.textAriaHidden,
-          class: this.textClass,
-          extra: this.extra,
-          html: this.html,
-          safeHtml: this.safeHtml,
-          tag: this.textTag,
-          text: this.text,
-          textAfter: this.textAfter,
-          textBefore: this.textBefore,
-        }),
-        h(AIcon, {
-          icon: this.iconRight,
-          iconTag: this.iconTag,
-          class: [
-            "aloha_link__icon_right",
-            this.iconClass,
-          ],
-          ...this.iconAttributes,
-        }),
-        this.isLoadingRight && h(ASpinner, {
-          class: [
-            "aloha_link__spinner_right",
-            this.loadingClass,
-          ],
-        }),
-        this.$slots.linkAppend && this.$slots.linkAppend(),
-      ],
-      title: !this.isTitleHtml ||
-      (!this.title && !this.$slots.linkTitle) ?
-        undefined :
-        () => {
-          if (!this.isTitleHtml) {
-            return;
-          }
-          return [
-            this.isTitleVisible && h(ATranslation, {
-              html: this.title,
-              tag: "span",
-              extra: this.extra,
-            }),
-            this.$slots.linkTitle && this.$slots.linkTitle(),
-          ];
-        },
+      ...this.$props,
+      type: "link",
     });
   },
 };
