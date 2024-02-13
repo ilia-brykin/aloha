@@ -8,6 +8,17 @@ import {
   toUpper,
 } from "lodash-es";
 
+/**
+ * Converts a value from one unit of measurement to another unit of measurement.
+ * By default, converts a value from bytes to kilobytes, but can be customized to convert to any other units supported.
+ *
+ * @param {number} value - The value to be converted.
+ * @param {object} options - Optional configuration for the conversion.
+ * @param {string} options.units - The desired units for the converted value. Defaults to "kb".
+ * @param {string} options.sourceUnits - The source units of the value. Defaults to "b".
+ * @param {number} options.digits - The number of decimal places to round the converted value. Defaults to 2.
+ * @returns {string} - The converted value, formatted as a string.
+ */
 export default function(value, { units = "kb", sourceUnits = "b", digits = 2 } = {}) {
   const KB = 1024;
   const UNITS_ORDER = [
