@@ -89,7 +89,7 @@ export default function FiltersAPI(props, { emit }) {
   const setFiltersVisibleIds = () => {
     const FILTERS_VISIBLE_IDS = [];
     forEach(filtersGroup.value.filters, filter => {
-      if (unappliedModel.value[filter.id]) {
+      if (filter.id in unappliedModel.value) {
         FILTERS_VISIBLE_IDS.push(filter.id);
       }
     });
