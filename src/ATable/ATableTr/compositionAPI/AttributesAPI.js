@@ -91,9 +91,6 @@ export default function AttributesAPI(props) {
       return;
     }
 
-    $event.stopPropagation();
-    $event.preventDefault();
-
     onTogglePreview({
       row: row.value,
       rowIndex: rowIndex.value,
