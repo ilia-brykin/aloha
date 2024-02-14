@@ -14,6 +14,7 @@ import MobileAPI from "./compositionAPI/MobileAPI";
 import {
   forEach,
 } from "lodash-es";
+import AButton from "../../AButton/AButton";
 
 export default {
   name: "ATableTr",
@@ -82,6 +83,7 @@ export default {
     } = AttributesAPI(props);
 
     const {
+      countInvisibleMobileColumns,
       isAllColumnsVisibleMobile,
       isBtnToggleAllColumnsVisible,
       textBtnToggleAllColumns,
@@ -96,6 +98,7 @@ export default {
     } = CheckboxAPI(props, context);
 
     return {
+      countInvisibleMobileColumns,
       isAllColumnsVisibleMobile,
       isBtnToggleAllColumnsVisible,
       isCheckboxDisabled,
@@ -186,10 +189,14 @@ export default {
         h("div", {
           class: "a_table_mobile__actions_parent",
         }, [
-          this.isBtnToggleAllColumnsVisible && h("button", {
+          this.isBtnToggleAllColumnsVisible && h(AButton, {
             class: "a_btn a_btn_link a_table_mobile__columns_btn_toggle",
+            extra: {
+              count: this.countInvisibleMobileColumns,
+            },
+            text: this.textBtnToggleAllColumns,
             onClick: this.toggleAllColumnsVisibleMobile,
-          }, this.textBtnToggleAllColumns),
+          }),
           ACTIONS,
         ]) :
         ACTIONS,

@@ -22,23 +22,24 @@ export default function MobileAPI(props) {
 
   const textOpenBtnToggleAllColumns = computed(() => {
     return countInvisibleMobileColumns.value === 1 ?
-      `+ ${ countInvisibleMobileColumns.value } Feld` :
-      `+ ${ countInvisibleMobileColumns.value } Felder`;
+      "_A_TABLE_MOBILE_TR_PLUS_FIELD_" :
+      "_A_TABLE_MOBILE_TR_PLUS_FIELDS_{{count}}_";
   });
 
   const textBtnToggleAllColumns = computed(() => {
     return isAllColumnsVisibleMobile.value ?
-      "Schließen" :
+      "_A_TABLE_MOBILE_TR_CLOSE_" :
       textOpenBtnToggleAllColumns.value;
   });
 
-  const toggleAllColumnsVisibleMobile = $event => {
+  const toggleAllColumnsVisibleMobile = ({ $event }) => {
     isAllColumnsVisibleMobile.value = !isAllColumnsVisibleMobile.value;
     $event.stopPropagation();
   };
 
 
   return {
+    countInvisibleMobileColumns,
     isAllColumnsVisibleMobile,
     isBtnToggleAllColumnsVisible,
     textBtnToggleAllColumns,

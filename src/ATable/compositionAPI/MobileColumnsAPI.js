@@ -17,7 +17,7 @@ export default function MobileColumnsAPI({
       return [];
     }
     return filter(columnsOrdered.value, column => {
-      return !!(column.isRender !== false && modelColumnsVisibleLocal.value[column.id]);
+      return !!(column.isRender !== false && modelColumnsVisibleLocal.value[column.id] !== false);
     });
   });
 
