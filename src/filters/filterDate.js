@@ -15,6 +15,14 @@ const DATE_FORMAT = {
   timeWithSeconds: () => "HH:mm:ss",
 };
 
+/**
+ * Converts a value to a given format.
+ *
+ * @param {any} value - The value to convert.
+ * @param {Object} options - Optional parameters.
+ * @param {string} options.format - The format to convert the value to. Default is "date".
+ * @returns {string} - The converted value in the specified format.
+ */
 export default function(value, { format = "date" } = {}) {
   if (isNil(value) || value === "") {
     return "";

@@ -1,3 +1,11 @@
+/**
+ * Mixes two colors based on a specified weight.
+ *
+ * @param {string} color_1 - The first color to mix, in hexadecimal format (#RRGGBB).
+ * @param {string} color_2 - The second color to mix, in hexadecimal format (#RRGGBB).
+ * @param {number} [weight=50] - The weight of color_1 in the mixture, between 0 and 100.
+ * @returns {string} The resulting mixed color, in hexadecimal format (#RRGGBB).
+ */
 export function mixColor(color_1, color_2, weight) {
   function d2h(d) { // convert a decimal value to hex
     return d.toString(16);
@@ -29,23 +37,59 @@ export function mixColor(color_1, color_2, weight) {
   return color;
 }
 
+/**
+ * Mixes a color with white based on the given weight.
+ *
+ * @param {string} color - The color to mix with white, in hexadecimal format.
+ * @param {number} weight - The weight of the color to mix with white. Must be between 0 and 1.
+ * @return {string} - The resulting color after mixing with white.
+ */
 export function mixWhite(color, weight) {
   return mixColor("#ffffff", color, weight);
 }
 
+/**
+ * Mixes a given color with black using the provided weight.
+ *
+ * @param {string} color - The color to mix.
+ * @param {number} weight - The weight of the black color to mix, ranging from 0 to 1.
+ *
+ * @return {string} - The resulting mixed color.
+ */
 export function mixBlack(color, weight) {
   return mixColor("#000000", color, weight);
 }
 
+/**
+ * Converts a color value to its corresponding hexadecimal representation.
+ *
+ * @param {number} color - The color value to convert.
+ * @return {string} - The hexadecimal representation of the color.
+ */
 function colorToHex(color) {
   const HEX = color.toString(16);
   return HEX.length === 1 ? `0${ HEX }` : HEX;
 }
 
+/**
+ * Converts RGB values to a hexadecimal color code.
+ *
+ * @param {number} r - The red component of the color (0-255).
+ * @param {number} g - The green component of the color (0-255).
+ * @param {number} b - The blue component of the color (0-255).
+ * @return {string} The hexadecimal color code representation of the RGB color.
+ */
 export function rgbToHex(r, g, b) {
   return `#${ colorToHex(r) }${ colorToHex(g) }${ colorToHex(b) }`;
 }
 
+/**
+ * Converts a hexadecimal color code to RGB format.
+ *
+ * @param {string} hex - The hexadecimal color code to convert.
+ * @param {boolean} [formatString=false] - Determines whether the result should be formatted as a string.
+ * @returns {null|{r: number, g: number, b: number}|string} - The RGB representation of the color, or null if the input is invalid.
+ */
 export function hexToRgb(hex, formatString = false) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) {

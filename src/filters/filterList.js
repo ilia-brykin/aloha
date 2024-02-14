@@ -7,6 +7,22 @@ import {
 
 export default filterList;
 
+/**
+ * Filters a list of values and returns a formatted string or HTML.
+ *
+ * @param {Array} value - The list of values to filter.
+ * @param {Object} options - The options for filtering the list (optional).
+ * @param {boolean} [options.isChild=false] - Determines if the item is a child item.
+ * @param {boolean} [options.isHtml=true] - Determines if the result should be in HTML format.
+ * @param {boolean} [options.isSimpleArray=false] - Determines if the list is a simple array.
+ * @param {string} [options.keyChildren=""] - The key to access the children of each item.
+ * @param {string} [options.keyLabel=""] - The key to access the label of each item.
+ * @param {Function} [options.keyLabelCallback] - The callback function to generate the label for each item.
+ * @param {string} [options.listClass=""] - The class attribute for the list.
+ * @param {string} [options.separator=", "] - The separator to use between items.
+ * @param {string} [options.tag="ul"] - The HTML tag to use for the list.
+ * @return {string} - The filtered list as a formatted string or HTML.
+ */
 function filterList(value, {
   isChild = false,
   isHtml = true,
@@ -104,6 +120,18 @@ function filterList(value, {
   return `<${ tag }${ getAttributClass({ listClass }) }>${ result }</${ tag }>`;
 }
 
+/**
+ * Retrieves the text value of an item in a list.
+ *
+ * @param {object} options - The options object.
+ * @param {string} options.keyLabel - The property name used to retrieve the value from an item if it is an object.
+ * @param {function} options.keyLabelCallback - A callback function used to retrieve the value from an item. It takes an object with properties 'item' and 'itemIndex'.
+ * @param {number} options.index - The index of the item in the list.
+ * @param {any} options.item - The item from which to retrieve the text value.
+ * @param {boolean} options.isSimpleArray - Indicates whether the list is a simple array or an array of objects.
+ *
+ * @return {string} The text value of the item. If the item is undefined, an empty string is returned.
+ */
 function getItemText({ keyLabel, keyLabelCallback, index, item, isSimpleArray }) {
   let itemLocal;
   if (isSimpleArray) {
@@ -120,6 +148,13 @@ function getItemText({ keyLabel, keyLabelCallback, index, item, isSimpleArray })
   return itemLocal;
 }
 
+/**
+ * Returns an HTML class attribute string.
+ *
+ * @param {Object} args - The arguments for the method.
+ * @param {string} args.listClass - The value of the "listClass" property.
+ * @return {string} - The class attribute string.
+ */
 function getAttributClass({ listClass }) {
   return listClass ? ` class="${ listClass }"` : "";
 }

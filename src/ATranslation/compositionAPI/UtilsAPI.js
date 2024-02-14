@@ -22,12 +22,28 @@ export default function UtilsAPI() {
   };
 }
 
+/**
+ * Checks if a given text is a placeholder translation.
+ *
+ * @param {string} text - The text to check.
+ * @return {boolean} - True if the text is a placeholder translation, false otherwise.
+ */
 export function isPlaceholderTranslate(text = "") {
   return !(!isString(text) ||
     text[0] !== "_" ||
     text[text.length - 1] !== "_");
 }
 
+/**
+ * Retrieves the translated text for a given placeholder.
+ *
+ * @param {object} options - The options object.
+ * @param {string} options.placeholder - The placeholder text to be translated.
+ * @param {object} [options.translationObj=translation] - The translation object to use.
+ * @param {object} [options.extra] - Optional additional data to be used in text replacement.
+ *
+ * @return {string} The translated text for the given placeholder.
+ */
 export function getTranslatedText({ placeholder, translationObj = translation, extra }) {
   if (!translationObj || !timeTranslationLastChanged.value) {
     return placeholder;
@@ -43,6 +59,16 @@ export function getTranslatedText({ placeholder, translationObj = translation, e
   return TEXT_FROM_TRANSLATION;
 }
 
+/**
+ * Replaces placeholders in a text with corresponding values from an object.
+ * If a translation configuration is available, it uses the `replaceText` method
+ * from the configuration to perform the replacement.
+ *
+ * @param {object} options - The options for replacement.
+ * @param {string} options.text - The text containing placeholders.
+ * @param {object} options.object - The object containing values for placeholders.
+ * @return {string} - The text with replaced placeholders.
+ */
 function replaceText({ text = "", object }) {
   if (isFunction(translateConfig.value?.replaceText)) {
     return translateConfig.value?.replaceText({ text, object });
@@ -74,6 +100,17 @@ function replaceText({ text = "", object }) {
   return textClone;
 }
 
+/**
+ * Splices a given text by replacing a substring with a new string.
+ *
+ * @param {Object} params - The parameters for the splicing
+ * @param {string} params.text - The original text to be spliced
+ * @param {string} params.replaceText - The new string to replace the substring
+ * @param {number} params.firstIndex - The index where the replacement starts
+ * @param {number} params.lastIndex - The index where the replacement ends
+ *
+ * @return {string} The spliced text with the replaced substring
+ */
 function spliceString({
   text = "",
   replaceText = "",

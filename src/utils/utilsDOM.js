@@ -2,6 +2,16 @@ import {
   focusableSelector,
 } from "../const/AFocusableElements";
 
+/**
+ * Scrolls the window to the specified element.
+ *
+ * @param {object} options - The options for scrolling.
+ * @param {Element} options.element - The element to scroll to.
+ * @param {boolean} [options.isMiddleOfScreen=true] - Determines whether to scroll the element to the middle of the screen. Defaults to true.
+ * @param {string} [options.behavior="smooth"] - The scroll behavior. Defaults to "smooth".
+ *
+ * @return {void}
+ */
 export function scrollToElement({ element, isMiddleOfScreen = true, behavior = "smooth" }) {
   if (isMiddleOfScreen) {
     window.scroll({
@@ -13,6 +23,15 @@ export function scrollToElement({ element, isMiddleOfScreen = true, behavior = "
   }
 }
 
+/**
+ * Sets focus to a given element or element selector.
+ *
+ * @param {Object} options - The options for setting focus.
+ * @param {HTMLElement} options.element - The element to set focus to.
+ * @param {string} options.selector - The selector of the element to set focus to.
+ *
+ * @return {void}
+ */
 export function setFocusToElement({ element, selector }) {
   const ELEMENT = element ? element : document.querySelector(selector);
   if (ELEMENT) {
@@ -31,6 +50,14 @@ function isElementVisible(element) {
   return rect.width > 0 && rect.height > 0;
 }
 
+/**
+ * Sets focus to the next focusable element.
+ *
+ * @param {Object} [options] - The options for setting focus.
+ * @param {Element} [options.element] - The current element. If not provided, the active element will be used.
+ *
+ * @returns {void}
+ */
 export function setFocusToNextFocusableElement({ element } = {}) {
   const focusableElements = document.querySelectorAll(focusableSelector);
   const currentElement = element || document.activeElement;
@@ -57,6 +84,14 @@ export function setFocusToNextFocusableElement({ element } = {}) {
   }
 }
 
+/**
+ * Sets focus to the previous focusable element.
+ *
+ * @param {Object} options - The options for setting focus to the previous focusable element.
+ * @param {HTMLElement} options.element - The current element. If not provided, the current active element will be used.
+ *
+ * @return {void}
+ */
 export function setFocusToPreviousFocusableElement({ element } = {}) {
   const focusableElements = document.querySelectorAll(focusableSelector);
   const currentElement = element || document.activeElement;
