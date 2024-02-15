@@ -11,6 +11,7 @@ import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
+import ATranslation from "../ATranslation/ATranslation";
 
 import AMobileAPI from "../compositionAPI/AMobileAPI";
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
@@ -33,6 +34,10 @@ import VariablesAPI from "./compositionAPI/VariablesAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
 import {
+  tablePluginOptions,
+} from "../plugins/ATablePlugin";
+
+import {
   get,
   isArray,
   isInteger,
@@ -40,7 +45,6 @@ import {
   isPlainObject,
   uniqueId,
 } from "lodash-es";
-import ATranslation from "../ATranslation/ATranslation";
 
 export default {
   name: "ATable",
@@ -74,6 +78,12 @@ export default {
       required: false,
       default: 4,
       validator: value => value > 0,
+    },
+    borderType: {
+      type: String,
+      required: false,
+      default: () => tablePluginOptions.value.propsDefault.borderType,
+      validator: value => ["bordered", "innerBordered"].indexOf(value) !== -1,
     },
     data: {
       type: [Array, Object, Promise],
@@ -758,7 +768,13 @@ export default {
         }, this.$slots),
         this.isViewTableVisible && h("div", {
           ref: "tableRef",
-          class: "a_table",
+          class: [
+            "a_table",
+            {
+              a_table_bordered: this.borderType === "bordered",
+              a_table_inner_bordered: this.borderType === "innerBordered",
+            },
+          ],
           ...this.tableRoleAttributes,
         }, [
           h(ATableHeader, {

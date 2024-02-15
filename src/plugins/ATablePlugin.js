@@ -4,7 +4,7 @@ import {
 
 export const tablePluginOptions = ref({
   propsDefault: {
-
+    borderType: "bordered",
   },
   config: {
     isHtmlTitleSort: false,

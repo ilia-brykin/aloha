@@ -55,7 +55,7 @@ export default function AttributesAPI(props) {
 
   const rowClassComputed = computed(() => {
     return [
-      "a_table__row a_table__row_hover",
+      "a_table__row a_table__body__row a_table__row_hover",
       {
         a_table__row_preview_open: isPreviewRightForCurrentRowOpen.value,
         a_table__row_preview_was_open: isPreviewRightForCurrentRowWasOpen.value,
