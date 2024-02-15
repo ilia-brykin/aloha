@@ -5281,13 +5281,14 @@ h6 {
   --a_select_placeholder_color: --a_color_gray_600;
   --a_select_min_width: 200px;
   --a_select_closeable_item_bg: var(--a_color_gray_200);
+  --a_select_toggle_padding_right: 30px;
   position: relative; }
 
 .a_select_toggle {
   position: relative;
   min-width: var(--a_select_min_width);
   min-height: calc(26px + 0.375rem * 2);
-  padding-right: 30px;
+  padding-right: var(--a_select_toggle_padding_right);
   text-align: left; }
 
 .a_select_toggle_closeable {
@@ -7477,8 +7478,11 @@ input:not(:-webkit-autofill) {
   display: flex;
   flex: 20;
   align-items: center; }
-  .a_pagination__counts .ui_select {
-    --a_select_min_width: 100px; }
+  .a_pagination__counts .a_select {
+    --a_select_min_width: 50px;
+    --a_select_toggle_padding_right: 5px; }
+  .a_pagination__counts .a_select_toggle {
+    width: 70px; }
 
 .a_pagination__count_from_to {
   margin-right: 1rem;
