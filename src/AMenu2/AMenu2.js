@@ -17,6 +17,7 @@ import ATranslation from "../ATranslation/ATranslation";
 import AVerticalScroll from "../AVerticalScroll/AVerticalScroll";
 
 import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
+import BackdropAPI from "./compositionAPI/BackdropAPI";
 import CheckRoutesAPI from "./compositionAPI/CheckRoutesAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import LinkClickAPI from "./compositionAPI/LinkClickAPI";
@@ -89,7 +90,7 @@ export default {
       required: false,
       default: true,
     },
-    isBackdrop: {
+    isBackdropMobileClickable: {
       type: Boolean,
       required: false,
       default: true,
@@ -173,6 +174,11 @@ export default {
       default: () => uniqueId("a_menu_2_"),
     },
     showCountChildren: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    useBackdropMobile: {
       type: Boolean,
       required: false,
       default: true,
@@ -287,6 +293,15 @@ export default {
       panelParentsOpen,
     });
 
+    const {
+      clickAttributesBackdrop,
+      isBackdropVisible,
+    } = BackdropAPI(props, {
+      isMenuOpen,
+      isMobileWidth,
+      toggleMenu,
+    });
+
     watch(currentRoute, () => {
       checkAllRoutes();
     }, {
@@ -334,9 +349,11 @@ export default {
       attributesBlockerClick,
       attributesMenuClick,
       checkAllRoutes,
+      clickAttributesBackdrop,
       clickOnSearchBtn,
       dataKeyById,
       dataProParent,
+      isBackdropVisible,
       isLeastOnePanelOpenAndMenuClosed,
       isMenuOpen,
       isMobileWidth,
@@ -471,13 +488,15 @@ export default {
         modelSearch: this.modelSearch,
       }, this.$slots),
 
-      this.isBackdrop && h(Teleport, {
+      this.isBackdropVisible ? h(Teleport, {
         to: "body",
       }, [
         h("div", {
           class: "a_menu_2__backdrop a_backdrop a_backdrop_fade",
+          "aria-hidden": true,
+          ...this.clickAttributesBackdrop,
         }),
-      ]),
+      ]) : "",
     ]);
   },
 };

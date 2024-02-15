@@ -340,7 +340,6 @@
   }
   &.a_menu_2__wrapper_open {
     overflow: hidden;
-    padding-right: 15px;
     .a_menu_2__page {
       opacity: .5;
     }
@@ -606,4 +605,9 @@
 .a_menu_2__panel_header__text {
   display: inline-block;
   padding: var(--a_menu_2_link_padding_y) var(--a_menu_2_link_padding_x);
+}
+.a_menu_2__backdrop {
+  opacity: 0.5;
+  z-index: 1;
+  left: var(--a_menu_2_width_expanded);
 }
