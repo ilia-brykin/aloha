@@ -121,8 +121,12 @@
   display: flex;
   flex: 20;
   align-items: center;
-  .ui_select {
-    --a_select_min_width: 100px;
+  .a_select {
+    --a_select_min_width: 50px;
+    --a_select_toggle_padding_right: 5px;
+  }
+  .a_select_toggle {
+    width: 70px;
   }
 }
 .a_pagination__count_from_to {

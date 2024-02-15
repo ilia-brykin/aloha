@@ -72,6 +72,7 @@ export default {
           perPage: {
             mode: "group",
             position: 0,
+            showTextCountFromTo: true,
           },
           pagination: {
             mode: "normal",
@@ -82,6 +83,7 @@ export default {
           perPage: {
             mode: "select",
             position: 0,
+            showTextCountFromTo: false,
           },
           pagination: {
             mode: "short",

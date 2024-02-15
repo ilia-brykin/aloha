@@ -43,6 +43,11 @@ export default {
       type: Number,
       required: true,
     },
+    showTextCountFromTo: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "update:limit",
@@ -72,11 +77,11 @@ export default {
       class: "a_pagination__counts",
     }, (this.mode === "inline" || this.mode === "group") ?
       [
-        h(ATranslation, {
+        this.showTextCountFromTo ? h(ATranslation, {
           class: "a_pagination__count_from_to",
           html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
           extra: this.extraForTranslate,
-        }),
+        }) : "",
         h(ATranslation, {
           tag: "span",
           class: "a_pagination__count__text",
@@ -145,16 +150,19 @@ export default {
           ]),
       ] :
       [
-        h(ATranslation, {
+        this.showTextCountFromTo ? h(ATranslation, {
           class: "a_pagination__count_from_to",
           html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
           extra: this.extraForTranslate,
-        }),
+        }) : "",
         h(ASelect, {
           label: "_A_COUNT_PER_PAGE_",
+          labelClass: "a_sr_only",
           data: this.limitsPerPage,
           isDataSimpleArray: true,
+          isLabelFloat: false,
           deselectable: false,
+          menuWidthType: "by_content",
           modelValue: this.limitString,
           disabled: this.disabled,
           change: this.changeLimitFromSelect,

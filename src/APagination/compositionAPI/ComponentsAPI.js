@@ -35,6 +35,7 @@ export default function ComponentsAPI(props, {
           perPage: {
             mode: "select",
             position: 0,
+            showTextCountFromTo: false,
           },
           pagination: {
             mode: "short",
@@ -47,6 +48,7 @@ export default function ComponentsAPI(props, {
         perPage: {
           mode: "inline",
           position: 0,
+          showTextCountFromTo: true,
         },
         pagination: {
           mode: "normal",
@@ -79,6 +81,7 @@ export default function ComponentsAPI(props, {
           offset: offset.value,
           rowsLength: rowsLength.value,
           mode: item.mode,
+          showTextCountFromTo: item.showTextCountFromTo,
           "onUpdate:limit": updateLimit,
         }));
       } else if (item.component === "pagination") {
