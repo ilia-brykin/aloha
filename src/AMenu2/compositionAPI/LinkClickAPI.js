@@ -27,11 +27,11 @@ export default function LinkClickAPI(props, {
     }
   };
 
-  const clickMenuLink = ({ ctrlKey = false } = {}) => {
+  const clickMenuLink = ({ ctrlKey = false, isPanelMain = false } = {}) => {
     isMenuLinkClicked.value = true;
     resetSearch();
     setFocusToBody();
-    if (!isMenuOpen.value) {
+    if (!isMenuOpen.value || isPanelMain) {
       closeAllPanels();
     }
     if (isMobileWidth.value && !ctrlKey) {

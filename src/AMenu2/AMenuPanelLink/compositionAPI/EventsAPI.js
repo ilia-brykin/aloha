@@ -38,7 +38,7 @@ export default function EventsAPI(props, {
     if (isLinkInSearchPanel.value) {
       togglePanel({ parentId: item.value[AKeyParent], isLinkInSearchPanel: isLinkInSearchPanel.value });
     }
-    clickMenuLink({ ctrlKey: $event.ctrlKey });
+    clickMenuLink({ ctrlKey: $event.ctrlKey, isPanelMain: isPanelMain.value });
   };
 
   return {
