@@ -7662,7 +7662,7 @@ input:not(:-webkit-autofill) {
   --a_table_row_preview_open_bg: #D0DD98;
   --a_table_row_preview_was_open_bg: #ECF1D5;
   --a_table_td_border_left_width: 2px;
-  --a_table_td_border_left_color: var(--a_color_gray_200);
+  --a_table_td_border_left_color: var(--a_color_gray_100);
   --a_table_cell_padding_x: .5rem;
   --a_table_cell_padding_y: .5rem;
   --a_table_quick_search_width: 250px;
@@ -8060,9 +8060,9 @@ input:not(:-webkit-autofill) {
   left: 0; }
 
 .a_table_mobile .a_table__row {
-  flex-direction: column;
-  border-top: 1px solid;
-  border-top-color: inherit; }
+  flex-direction: column; }
+  .a_table_mobile .a_table__row:first-child {
+    border-top: var(--a_table_row_border_bottom_width) solid var(--a_table_row_border_bottom_color); }
 
 .a_table_mobile .a_table__td {
   border-bottom: none; }
