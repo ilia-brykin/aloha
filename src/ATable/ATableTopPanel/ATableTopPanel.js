@@ -298,7 +298,7 @@ export default {
             h(ATranslation, {
               class: "a_table__multiple_panel__items__selected",
               tag: "span",
-              text: "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_",
+              text: "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_{{countSelectedRowsFiltered}}_{{countAllRowsFiltered}}_",
               extra: this.textMultipleSelectedTranslateExtra,
             }),
             this.currentMultipleActions.isAllRowsSelected &&
@@ -306,9 +306,7 @@ export default {
               class: "a_btn a_btn_secondary a_table__multiple_panel__btn_all_rows",
               type: "button",
               text: this.textMultipleBtnAllRowsTranslate,
-              extra: {
-                countAllRows: this.countAllRows,
-              },
+              extra: this.textMultipleSelectedTranslateExtra,
               disabled: this.isBtnSelectAllRowsDisabled || this.disabledMultipleActions,
               loading: this.isLoadingMultipleActions,
               onClick: this.toggleBtnAllRows,

@@ -3,12 +3,18 @@ import {
   toRef,
 } from "vue";
 
+import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
+
 export default function MultipleAPI(props, { emit }) {
   const areAllRowsSelected = toRef(props, "areAllRowsSelected");
   const areSomeRowsSelected = toRef(props, "areSomeRowsSelected");
   const countAllRows = toRef(props, "countAllRows");
   const isLoadingMultipleActions = toRef(props, "isLoadingMultipleActions");
   const selectedRows = toRef(props, "selectedRows");
+
+  const {
+    filterFloat,
+  } = AFiltersAPI();
 
   const countSelectedRows = computed(() => {
     return areAllRowsSelected.value ?
@@ -19,14 +25,16 @@ export default function MultipleAPI(props, { emit }) {
   const textMultipleSelectedTranslateExtra = computed(() => {
     return {
       countSelectedRows: countSelectedRows.value,
+      countSelectedRowsFiltered: filterFloat(countSelectedRows.value, { digits: 0 }),
       countAllRows: countAllRows.value,
+      countAllRowsFiltered: filterFloat(countAllRows.value, { digits: 0 }),
     };
   });
 
   const textMultipleBtnAllRowsTranslate = computed(() => {
     return areAllRowsSelected.value ?
-      "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_" :
-      "_A_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_";
+      "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_{{countAllRowsFiltered}}_" :
+      "_A_TABLE_SELECT_ALL_ROWS_{{countAllRows}}_{{countAllRowsFiltered}}_";
   });
 
   const isBtnSelectAllRowsDisabled = computed(() => {
