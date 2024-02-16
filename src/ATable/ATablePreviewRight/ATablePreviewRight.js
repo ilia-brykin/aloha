@@ -1,11 +1,12 @@
 import {
   h,
   onBeforeUnmount,
-  onMounted,
+  onMounted, toRef,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
 import ACloak from "../../ACloak/ACloak";
+import AModal from "../../AModal/AModal";
 import AResizer from "../../AResizer/AResizer";
 import ATranslation from "../../ATranslation/ATranslation";
 
@@ -24,6 +25,10 @@ export default {
       required: true,
     },
     isLoadingTable: {
+      type: Boolean,
+      required: false,
+    },
+    isMobile: {
       type: Boolean,
       required: false,
     },
@@ -72,6 +77,8 @@ export default {
     "isLoadingOptions",
   ],
   setup(props, context) {
+    const isMobile = toRef(props, "isMobile");
+
     const {
       previewRef,
     } = PreviewRightRewAPI();
@@ -109,17 +116,21 @@ export default {
     });
 
     onMounted(() => {
-      context.emit("togglePreviewResize", {
-        isOpen: true,
-        previewRef: previewRef.value,
-      });
+      if (!isMobile.value) {
+        context.emit("togglePreviewResize", {
+          isOpen: true,
+          previewRef: previewRef.value,
+        });
+      }
     });
 
     onBeforeUnmount(() => {
-      context.emit("togglePreviewResize", {
-        isOpen: false,
-        previewRef: previewRef.value,
-      });
+      if (!isMobile.value) {
+        context.emit("togglePreviewResize", {
+          isOpen: false,
+          previewRef: previewRef.value,
+        });
+      }
     });
 
     return {
@@ -140,6 +151,75 @@ export default {
     };
   },
   render() {
+    const HEADER = [
+      this.isLoadingTable ?
+        h(ACloak) :
+        h("div", {}, [
+          h(ATranslation, {
+            class: "a_table__preview_right__header__text",
+            tag: "span",
+            text: "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_",
+            extra: {
+              rowNumber: this.rowNumber,
+              rowNumberFormatted: this.rowNumberFormatted,
+              countAllRows: this.countAllRows,
+              countAllRowsFormatted: this.countAllRowsFormatted,
+            },
+          }),
+          h("div", {
+            class: "a_table__preview_right__header__icons",
+          }, [
+            h(AButton, {
+              class: "a_btn a_btn_transparent_dark a_btn_small",
+              disabled: this.disabledBtnArrowLeft,
+              iconLeft: "ArrowLeft",
+              title: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
+              textScreenReader: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
+              onClick: this.toLastRow,
+            }),
+            h(AButton, {
+              class: "a_btn a_btn_transparent_dark a_btn_small",
+              disabled: this.disabledBtnArrowRight,
+              iconLeft: "ArrowRight",
+              title: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
+              textScreenReader: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
+              onClick: this.toNextRow,
+            }),
+          ]),
+        ]),
+      !this.isMobile ? h(AButton, {
+        class: "a_btn a_btn_transparent_dark a_table__preview_right__btn_close",
+        iconLeft: "Close",
+        iconClass: "a_table__preview_right__btn_close__icon",
+        title: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
+        textScreenReader: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
+        onClick: () => this.$emit("closePreview"),
+      }) : "",
+    ];
+
+    const BODY = [
+      this.isLoadingTable ? h(ACloak) :
+        this.$slots.preview ?
+          this.$slots.preview({
+            row: this.currentRow,
+            rowIndex: this.rowIndex,
+          }) :
+          h(ATranslation, {
+            text: "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_",
+          }),
+    ];
+
+    if (this.isMobile) {
+      return h(AModal, {
+        hideFooter: true,
+        close: () => this.$emit("closePreview"),
+        size: "xxl",
+      }, {
+        modalHeader: () => HEADER,
+        modalBody: () => BODY,
+      });
+    }
+
     return h("div", {
       ref: "previewRef",
       id: this.idLocal,
@@ -159,64 +239,10 @@ export default {
       }),
       h(this.previewHeaderTag, {
         class: "a_table__preview_right__header",
-      }, [
-        this.isLoadingTable ?
-          h(ACloak) :
-          h("div", {}, [
-            h(ATranslation, {
-              class: "a_table__preview_right__header__text",
-              tag: "span",
-              text: "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_",
-              extra: {
-                rowNumber: this.rowNumber,
-                rowNumberFormatted: this.rowNumberFormatted,
-                countAllRows: this.countAllRows,
-                countAllRowsFormatted: this.countAllRowsFormatted,
-              },
-            }),
-            h("div", {
-              class: "a_table__preview_right__header__icons",
-            }, [
-              h(AButton, {
-                class: "a_btn a_btn_transparent_dark a_btn_small",
-                disabled: this.disabledBtnArrowLeft,
-                iconLeft: "ArrowLeft",
-                title: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
-                textScreenReader: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
-                onClick: this.toLastRow,
-              }),
-              h(AButton, {
-                class: "a_btn a_btn_transparent_dark a_btn_small",
-                disabled: this.disabledBtnArrowRight,
-                iconLeft: "ArrowRight",
-                title: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
-                textScreenReader: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
-                onClick: this.toNextRow,
-              }),
-            ]),
-          ]),
-        h(AButton, {
-          class: "a_btn a_btn_transparent_dark a_table__preview_right__btn_close",
-          iconLeft: "Close",
-          iconClass: "a_table__preview_right__btn_close__icon",
-          title: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
-          textScreenReader: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
-          onClick: () => this.$emit("closePreview"),
-        }),
-      ]),
+      }, HEADER),
       h("div", {
         class: "a_table__preview_right__body",
-      }, [
-        this.isLoadingTable ? h(ACloak) :
-          this.$slots.previewRight ?
-            this.$slots.previewRight({
-              row: this.currentRow,
-              rowIndex: this.rowIndex,
-            }) :
-            h(ATranslation, {
-              text: "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_",
-            }),
-      ]),
+      }, BODY),
     ]);
   },
 };

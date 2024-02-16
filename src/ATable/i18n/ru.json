@@ -28,7 +28,7 @@
   "_A_TABLE_PREVIEW_DOWN_CLOSE_": "Закрыть предварительный просмотр",
   "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_": "Предпросмотр строки",
   "_A_TABLE_PREVIEW_RIGHT_CLOSE_": "Закрыть предварительный просмотр",
-  "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_": "Пожалуйста, используйте слот: 'previewRight'",
+  "_A_TABLE_PREVIEW_HAS_NOT_SLOT_": "Пожалуйста, используйте слот: 'preview'",
   "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_": "{{ rowNumberFormatted }} из {{ countAllRowsFormatted }}",
   "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_": "К следующей строке",
   "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_": "К предыдущей строке",

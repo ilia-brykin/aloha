@@ -34,3 +34,7 @@ AGroupButtonDropdown
 
 .aloha_btn__ml_0 -> .aloha_element__ml_0
 .aloha_link__ml_0 -> .aloha_element__ml_0
+
+
+ATable
+slot previewRight -> preview

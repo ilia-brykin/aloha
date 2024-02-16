@@ -28,7 +28,7 @@
   "_A_TABLE_PREVIEW_DOWN_CLOSE_": "Vorschau schließen",
   "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_": "Vorschau der Zeile",
   "_A_TABLE_PREVIEW_RIGHT_CLOSE_": "Vorschau schließen",
-  "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_": "Benutzen sie bitte slot: 'previewRight'",
+  "_A_TABLE_PREVIEW_HAS_NOT_SLOT_": "Benutzen sie bitte slot: 'preview'",
   "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_": "{{ rowNumberFormatted }} von {{ countAllRowsFormatted }}",
   "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_": "Zur nächsten Zeile",
   "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_": "Zur vorherigen Zeile",

@@ -87,6 +87,10 @@ export default {
       required: false,
       default: undefined,
     },
+    hideFooter: {
+      type: Boolean,
+      required: false,
+    },
     id: {
       type: String,
       required: false,
@@ -305,7 +309,7 @@ export default {
                   extra: this.extra,
                 }),
               ]),
-              h("div", {
+              !this.hideFooter ? h("div", {
                 ref: "modal_footer",
                 class: "a_modal_footer",
               }, [
@@ -331,7 +335,7 @@ export default {
                   onClick: () => this.close(true),
                 }),
                 this.$slots.modalFooterAppend && this.$slots.modalFooterAppend(),
-              ]),
+              ]) : "",
             ]),
           ]),
         ]),

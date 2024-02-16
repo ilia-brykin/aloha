@@ -4,7 +4,6 @@ import {
   onMounted,
   ref,
   toRef,
-  watch,
 } from "vue";
 
 import {
@@ -168,14 +167,14 @@ export default function ScrollControlAPI(props, { emit }, {
     }
   });
 
-  watch(isMobile, newValue => {
+  const onWatchMobileScrollControl = newValue => {
     if (newValue) {
       resizeOb.unobserve(aTableRef.value);
       setAllDefaultForMobile();
     } else {
       resizeOb.observe(aTableRef.value);
     }
-  });
+  };
 
   onMounted(() => {
     if (!isMobile.value) {
@@ -192,5 +191,6 @@ export default function ScrollControlAPI(props, { emit }, {
     changeModelIsTableWithoutScroll,
     checkVisibleColumns,
     columnsVisibleAdditionalSpaceForOneGrow,
+    onWatchMobileScrollControl,
   };
 }

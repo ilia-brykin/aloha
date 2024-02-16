@@ -20,6 +20,7 @@ import {
 
 export default function PreviewAPI(props, context, {
   aTableRef = ref({}),
+  isMobile = ref(undefined),
   rowsLocalAll = computed(() => []),
   tableGrandparentRef = ref({}),
 }) {
@@ -61,7 +62,7 @@ export default function PreviewAPI(props, context, {
   };
 
   const isPreviewRight = computed(() => {
-    return preview.value === "right";
+    return preview.value === "right" || isMobile.value;
   });
   const previewRightRowIndex = ref(undefined);
   const previewRightRowIndexLast = ref(undefined);
@@ -109,12 +110,8 @@ export default function PreviewAPI(props, context, {
   };
 
   const closePreviewAll = () => {
-    if (isPreviewRight.value) {
-      closePreviewRightAll();
-    }
-    if (isPreviewDown.value) {
-      closePreviewDownAll();
-    }
+    closePreviewRightAll();
+    closePreviewDownAll();
   };
 
   const closePreview = ({ rowIndex } = {}) => {
@@ -127,7 +124,7 @@ export default function PreviewAPI(props, context, {
   };
 
   const openPreviewRight = ({ rowIndex }) => {
-    if (isUndefined(previewRightRowIndex.value)) {
+    if (!isMobile.value && isUndefined(previewRightRowIndex.value)) {
       addEventListenerWindowResize();
     }
     emit("togglePreview", {
@@ -162,6 +159,7 @@ export default function PreviewAPI(props, context, {
     }
     if (isPreviewRight.value) {
       onTogglePreviewRight({ rowIndex });
+      return;
     }
     if (isPreviewDown.value) {
       onTogglePreviewDown({ rowIndex });

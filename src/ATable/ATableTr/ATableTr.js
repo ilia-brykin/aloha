@@ -205,7 +205,7 @@ export default {
         row: this.row,
         rowIndex: this.rowIndex,
       }, {
-        previewDown: arg => this.$slots.previewDown ? this.$slots.previewDown(arg) : undefined,
+        preview: arg => this.$slots.preview ? this.$slots.preview(arg) : undefined,
       }),
     ];
   },

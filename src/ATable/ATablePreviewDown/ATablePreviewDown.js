@@ -48,7 +48,7 @@ export default {
       tabindex: -1,
       "aria-label": this.previewAriaLabel,
     }, [
-      this.$slots.previewDown && this.$slots.previewDown({
+      this.$slots.preview && this.$slots.preview({
         row: this.row,
         rowIndex: this.rowIndex,
       }),

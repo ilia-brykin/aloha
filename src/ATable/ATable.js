@@ -2,6 +2,7 @@ import {
   computed,
   h,
   provide,
+  watch,
 } from "vue";
 
 import AGet from "../AGet/AGet";
@@ -457,6 +458,7 @@ export default {
       changeModelIsTableWithoutScroll,
       checkVisibleColumns,
       columnsVisibleAdditionalSpaceForOneGrow,
+      onWatchMobileScrollControl,
     } = ScrollControlAPI(props, context, {
       columnsOrdered,
       columnsScrollInvisible,
@@ -525,6 +527,7 @@ export default {
       togglePreviewResize,
     } = PreviewAPI(props, context, {
       aTableRef,
+      isMobile,
       rowsLocalAll,
       tableGrandparentRef,
     });
@@ -590,6 +593,11 @@ export default {
     const {
       emptyText,
     } = TextsAPI(props);
+
+    watch(isMobile, newValue => {
+      onWatchMobileScrollControl(newValue);
+      closePreviewAll();
+    });
 
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("changeModelSort", changeModelSort);
@@ -893,6 +901,7 @@ export default {
         }),
         this.isPreviewRightOpen && h(ATablePreviewRight, {
           countAllRows: this.countAllRowsLocal,
+          isMobile: this.isMobile,
           isLoadingTable: this.isLoadingTable,
           limitPagination: this.limit,
           offsetPagination: this.offset,
