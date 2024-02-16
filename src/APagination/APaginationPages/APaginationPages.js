@@ -116,7 +116,7 @@ export default {
           h("ul", {
             class: "a_pagination",
           }, [
-            h("li", {
+            this.mode !== "short" ? h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
             }, [
               h(AButton, {
@@ -129,7 +129,7 @@ export default {
                 onClick: this.updateOffsetFirst,
                 onKeydown: this.keyDownUpdateOffsetFirst,
               }),
-            ]),
+            ]) : "",
             h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
             }, [
@@ -197,7 +197,7 @@ export default {
                 onKeydown: this.keyDownUpdateOffsetNext,
               }),
             ]),
-            h("li", {
+            this.mode !== "short" ? h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
             }, [
               h(AButton, {
@@ -210,7 +210,7 @@ export default {
                 onClick: this.updateOffsetLast,
                 onKeydown: this.keyDownUpdateOffsetLast,
               }),
-            ]),
+            ]) : "",
           ]),
         ];
       },
