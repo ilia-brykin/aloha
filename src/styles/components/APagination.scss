@@ -99,9 +99,6 @@
   --a_pagination_border_radius: 0.25rem;
 }
 
-.a_pagination__nav {
-  flex: 1;
-}
 .a_pagination {
   margin-bottom: 0;
 }
@@ -119,7 +116,6 @@
 }
 .a_pagination__counts {
   display: flex;
-  flex: 20;
   align-items: center;
   .a_select {
     --a_select_min_width: 50px;
