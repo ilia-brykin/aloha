@@ -27,6 +27,7 @@ export default {
     "changeModelColumnsVisible",
     "columns",
     "columnsOrdered",
+    "isActionIconVisible",
     "modelIsTableWithoutScroll",
   ],
   props: {
@@ -110,7 +111,7 @@ export default {
       h("span", {
         class: "a_sr_only"
       }, "Aktionen"),
-      h(ADropdown, {
+      this.isActionIconVisible && h(ADropdown, {
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
         buttonTitle: "_A_TABLE_DROPDOWN_OPTIONS_TITLE_",
         buttonTextScreenReader: "_A_TABLE_DROPDOWN_OPTIONS_TITLE_",

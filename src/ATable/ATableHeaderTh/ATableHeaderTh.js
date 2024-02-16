@@ -17,6 +17,11 @@ export default {
       type: Object,
       required: true,
     },
+    columnGroupIds: {
+      type: Array,
+      required: false,
+      default: undefined,
+    },
     columnIndex: {
       type: Number,
       required: true,
@@ -120,6 +125,11 @@ export default {
           this.column.classHeader,
         ],
       }, [
+        this.columnGroupIds && h(ATranslation, {
+          html: this.columnGroupIds,
+          tag: "span",
+          class: "a_sr_only",
+        }),
         h(AButton, {
           class: [
             "a_table__th__btn",

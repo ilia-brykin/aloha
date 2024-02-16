@@ -10,11 +10,13 @@ import {
 import {
   cloneDeep,
   forEach,
+  get,
   keyBy,
 } from "lodash-es";
 
 export default function ColumnsAPI(props, {
   columnsScrollInvisible = ref([]),
+  groupedHeaderRef = ref({}),
   indexFirstScrollInvisibleColumn = ref(undefined),
   modelColumnsVisibleLocal = ref({}),
   modelIsTableWithoutScroll = ref(false),
@@ -26,6 +28,10 @@ export default function ColumnsAPI(props, {
 
   const columnsKeyById = computed(() => {
     return keyBy(columns.value, "id");
+  });
+
+  const columnsFromGroupedHeader = computed(() => {
+    return get(groupedHeaderRef, "value.columnsOrdered");
   });
 
   const columnIdsGroupByLocked = computed(() => {
@@ -53,6 +59,9 @@ export default function ColumnsAPI(props, {
   });
 
   const columnsOrdered = computed(() => {
+    if (columnsFromGroupedHeader.value && columnsFromGroupedHeader.value.length) {
+      return columnsFromGroupedHeader.value;
+    }
     if (!modelColumnsOrdering.value.length) {
       return [...columnIdsGroupByLocked.value.trueColumns, ...columnIdsGroupByLocked.value.falseColumns];
     }
