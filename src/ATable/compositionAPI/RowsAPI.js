@@ -12,19 +12,19 @@ import {
 
 export default function RowsAPI(props, {
   dataSorted = computed(() => []),
+  limit = ref(0),
+  offset = ref(0),
+  usePaginationLocal = computed(() => false),
 }) {
   const pagination = toRef(props, "pagination");
-  const offsetStart = toRef(props, "offsetStart");
   const rowsCountRenderPerTick = toRef(props, "rowsCountRenderPerTick");
 
-  const limit = ref(pagination.value.limitStart || 10);
-  const offset = ref(offsetStart.value);
   const rowsLocal = ref([]);
   let rowsLocalIndex = 0;
   let rowsLocalInterval = undefined;
 
   const dataPaginated = computed(() => {
-    if (limit.value && !pagination.value.isOutside && pagination.value.use) {
+    if (limit.value && !pagination.value.isOutside && usePaginationLocal.value) {
       const DATA_SORTED = cloneDeep(dataSorted.value);
       const INDEX_START = offset.value;
       const INDEX_END = INDEX_START + limit.value;
@@ -100,8 +100,6 @@ export default function RowsAPI(props, {
     addRow,
     deleteRow,
     hasRows,
-    limit,
-    offset,
     rowsLocal,
     rowsLocalAll,
     rowsLocalLength,

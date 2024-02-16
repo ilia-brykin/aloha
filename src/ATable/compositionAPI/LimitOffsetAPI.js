@@ -10,9 +10,6 @@ import {
 
 export default function LimitOffsetAPI(props, { emit }, {
   closePreviewAll = () => {},
-  isViewTableVisible = computed(() => true),
-  limit = ref(0),
-  offset = ref(0),
   scrollToTable = () => {},
   setEmptySelectedRowsIndexes = () => {},
   setFocusToTable = () => {},
@@ -21,11 +18,15 @@ export default function LimitOffsetAPI(props, { emit }, {
   const offsetStart = toRef(props, "offsetStart");
   const pagination = toRef(props, "pagination");
 
+  const limit = ref(pagination.value.limitStart || 10);
+  const offset = ref(offsetStart.value);
+
   const usePaginationLocal = computed(() => {
     if (pagination.value?.use) {
-      if (isViewTableVisible.value || viewCurrent.value.usePagination) {
-        return true;
+      if (viewCurrent.value) {
+        return viewCurrent.value.usePagination || false;
       }
+      return true;
     }
     return false;
   });
@@ -69,8 +70,10 @@ export default function LimitOffsetAPI(props, { emit }, {
   };
 
   return {
-    changeOffset,
     changeLimit,
+    changeOffset,
+    limit,
+    offset,
     usePaginationLocal,
   };
 }

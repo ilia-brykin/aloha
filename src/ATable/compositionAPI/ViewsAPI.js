@@ -8,7 +8,9 @@ import {
   keyBy,
 } from "lodash-es";
 
-export default function ViewsAPI(props, { emit }) {
+export default function ViewsAPI(props, { emit }, {
+  closePreviewAll = () => {},
+}) {
   const views = toRef(props, "views");
   const modelFilters = toRef(props, "modelFilters");
   const modelView = toRef(props, "modelView");
@@ -42,6 +44,7 @@ export default function ViewsAPI(props, { emit }) {
   };
 
   const updateViewCurrent = model => {
+    closePreviewAll();
     emit("updateView", {
       _modelView: model,
       view: viewKeyById.value[model],

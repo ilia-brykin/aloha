@@ -416,6 +416,16 @@ export default {
     });
 
     const {
+      hasViews,
+      initViewCurrent,
+      isViewTableVisible,
+      updateViewCurrent,
+      viewCurrent,
+    } = ViewsAPI(props, context, {
+      closePreviewAll,
+    });
+
+    const {
       columnIdsGroupByLocked,
       columnsFilteredForRender,
       columnsFilteredForRenderIndexesMapping,
@@ -439,11 +449,23 @@ export default {
     } = SortAPI(props);
 
     const {
+      changeLimit,
+      changeOffset,
+      limit,
+      offset,
+      usePaginationLocal,
+    } = LimitOffsetAPI(props, context, {
+      closePreviewAll,
+      scrollToTable,
+      setEmptySelectedRowsIndexes,
+      setFocusToTable,
+      viewCurrent,
+    });
+
+    const {
       addRow,
       deleteRow,
       hasRows,
-      limit,
-      offset,
       rowsLocal,
       rowsLocalAll,
       rowsLocalLength,
@@ -451,6 +473,9 @@ export default {
       updateRow,
     } = RowsAPI(props, {
       dataSorted,
+      limit,
+      offset,
+      usePaginationLocal,
     });
 
     const {
@@ -494,7 +519,7 @@ export default {
       hasMultipleActions,
       selectedRows,
       selectedRowsIndexes,
-      setEmptySelectedRowsIndexes,
+      setEmptySelectedRowsIndexes: _setEmptySelectedRowsIndexes,
       setSelectedRowsIndexes,
       toggleBtnAllRows,
       toggleMultipleActionsActive,
@@ -514,7 +539,7 @@ export default {
 
     const {
       closePreview,
-      closePreviewAll,
+      closePreviewAll: _closePreviewAll,
       hasPreview,
       isPreviewRightOpen,
       onTogglePreview,
@@ -530,32 +555,6 @@ export default {
       isMobile,
       rowsLocalAll,
       tableGrandparentRef,
-    });
-
-    const {
-      hasViews,
-      initViewCurrent,
-      isViewTableVisible,
-      updateViewCurrent,
-      viewCurrent,
-    } = ViewsAPI(props, context, {
-      closePreviewAll,
-      startSearch: () => ({}), // TODO: in AFilters
-    });
-
-    const {
-      changeOffset,
-      changeLimit,
-      usePaginationLocal,
-    } = LimitOffsetAPI(props, context, {
-      closePreviewAll,
-      isViewTableVisible,
-      limit,
-      offset,
-      scrollToTable,
-      setEmptySelectedRowsIndexes,
-      setFocusToTable,
-      viewCurrent,
     });
 
     const {
@@ -594,6 +593,14 @@ export default {
       emptyText,
     } = TextsAPI(props);
 
+    function closePreviewAll() {
+      _closePreviewAll();
+    }
+
+    function setEmptySelectedRowsIndexes() {
+      _setEmptySelectedRowsIndexes();
+    }
+
     watch(isMobile, newValue => {
       onWatchMobileScrollControl(newValue);
       closePreviewAll();
@@ -619,9 +626,8 @@ export default {
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("changeColumnsOrdering", changeColumnsOrdering);
 
-    initTable();
-
     initViewCurrent();
+    initTable();
     initModelSort();
 
     return {
@@ -909,7 +915,7 @@ export default {
           previewStyles: this.previewStyles,
           rowIndex: this.previewRightRowIndex,
           rows: this.rowsLocalAll,
-          usePagination: !!this.pagination.use,
+          usePagination: !!this.usePaginationLocal,
           onClosePreview: this.closePreview,
           onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
           onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,

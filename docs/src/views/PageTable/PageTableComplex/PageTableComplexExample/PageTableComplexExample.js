@@ -334,6 +334,7 @@ export default {
           type: "table",
           label: "Tabelle",
           icon: "Table",
+          usePagination: true,
         },
         {
           id: "aloha2",
@@ -474,7 +475,7 @@ export default {
 
     setData() {
       const DATA = [];
-      times(1001, item => {
+      times(100, item => {
         DATA.push({
           id: item,
           number: +item,
