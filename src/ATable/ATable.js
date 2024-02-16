@@ -9,12 +9,12 @@ import AGet from "../AGet/AGet";
 import ALoading from "../ALoading/ALoading";
 import APagination from "../APagination/APagination";
 import ATableHeader from "./ATableHeader/ATableHeader";
+import ATableGroupedHeader from "./ATableGroupedHeader/ATableGroupedHeader";
 import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 import ATranslation from "../ATranslation/ATranslation";
 
-import AMobileAPI from "../compositionAPI/AMobileAPI";
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
 import FocusTableAPI from "./compositionAPI/FocusTableAPI";
@@ -25,6 +25,7 @@ import MultipleActionAPI from "./compositionAPI/MultipleActionAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import ScrollControlAPI from "./compositionAPI/ScrollControlAPI";
+import SimpleTableAPI from "./compositionAPI/SimpleTableAPI";
 import SortAPI from "./compositionAPI/SortAPI";
 import SortChangeAPI from "./compositionAPI/SortChangeAPI";
 import StickyAPI from "./compositionAPI/StickyAPI";
@@ -128,6 +129,11 @@ export default {
       required: false,
       default: false,
     },
+    isActionIconVisible: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isColumnsDnd: {
       type: Boolean,
       required: false,
@@ -153,6 +159,11 @@ export default {
     isQuickSearch: {
       type: Boolean,
       required: false,
+    },
+    isSimpleTable: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     isSortingMultiColumn: {
       type: Boolean,
@@ -389,7 +400,6 @@ export default {
       columnActionsWidthLocal: computed(() => this.columnActionsWidth),
       columnWidthDefault: computed(() => this.columnWidthDefault),
       isActionColumnVisible: computed(() => this.isActionColumnVisible),
-      isColumnsDnd: computed(() => this.isColumnsDnd),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
       rowActions: computed(() => this.rowActions),
@@ -399,11 +409,18 @@ export default {
   },
   setup(props, context) {
     const {
+      isActionIconVisibleLocal,
+      isColumnsDndLocal,
+      isMobile,
+      modelIsTableWithoutScrollStartLocal,
+    } = SimpleTableAPI(props);
+
+    const {
       columnsScrollInvisible,
+      groupedHeaderRef,
       indexFirstScrollInvisibleColumn,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
-      modelIsTableWithoutScroll,
       tableGrandparentRef,
       tableRef,
     } = VariablesAPI(props);
@@ -433,14 +450,11 @@ export default {
       countNotHiddenColumns,
     } = ColumnsAPI(props, {
       columnsScrollInvisible,
+      groupedHeaderRef,
       indexFirstScrollInvisibleColumn,
       modelColumnsVisibleLocal,
-      modelIsTableWithoutScroll,
+      modelIsTableWithoutScroll: modelIsTableWithoutScrollStartLocal,
     });
-
-    const {
-      isMobileWidth: isMobile,
-    } = AMobileAPI();
 
     const {
       dataSorted,
@@ -491,7 +505,7 @@ export default {
       isMobile,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
-      modelIsTableWithoutScroll,
+      modelIsTableWithoutScroll: modelIsTableWithoutScrollStartLocal,
     });
 
     const {
@@ -501,13 +515,14 @@ export default {
       checkVisibleColumns,
       columnIdsGroupByLocked,
       columnsFilteredForRenderIndexesMapping,
+      groupedHeaderRef,
     });
 
     const {
       isRowActionsStickyLocal,
     } = StickyAPI(props, {
       isMobile,
-      modelIsTableWithoutScroll,
+      modelIsTableWithoutScroll: modelIsTableWithoutScrollStartLocal,
     });
 
     const {
@@ -615,9 +630,11 @@ export default {
     provide("currentMultipleActions", currentMultipleActions);
     provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
+    provide("isActionIconVisible", isActionIconVisibleLocal);
+    provide("isColumnsDnd", isColumnsDndLocal);
     provide("isMobile", isMobile);
     provide("isMultipleActionsActive", isMultipleActionsActive);
-    provide("modelIsTableWithoutScroll", modelIsTableWithoutScroll);
+    provide("modelIsTableWithoutScroll", modelIsTableWithoutScrollStartLocal);
     provide("onTogglePreview", onTogglePreview);
     provide("previewRightRowIndex", previewRightRowIndex);
     provide("previewRightRowIndexLast", previewRightRowIndexLast);
@@ -648,6 +665,7 @@ export default {
       columnsOrdered,
       deleteRow,
       emptyText,
+      groupedHeaderRef,
       hasMultipleActions,
       hasRows,
       hasViews,
@@ -658,7 +676,7 @@ export default {
       isViewTableVisible,
       limit,
       modelColumnsVisibleLocal,
-      modelIsTableWithoutScroll,
+      modelIsTableWithoutScrollStartLocal,
       modelSortLocal,
       mousedownResizePreviewRight,
       mousemoveResizePreviewRight,
@@ -737,7 +755,7 @@ export default {
     return h("div", {
       ref: "tableGrandparentRef",
       class: ["a_table__grandparent", {
-        a_table_mobile: this.isMobile,
+        a_table_mobile: !this.isSimpleTable && this.isMobile,
       }],
     }, [
       this.$slots.tablePrepend &&
@@ -747,7 +765,7 @@ export default {
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {
-          a_table__parent_scrollable: !this.modelIsTableWithoutScroll,
+          a_table__parent_scrollable: !this.modelIsTableWithoutScrollStartLocal,
         }],
       }, [
         h(ATableTopPanel, {
@@ -791,6 +809,23 @@ export default {
           ],
           ...this.tableRoleAttributes,
         }, [
+          this.isSimpleTable ?
+          h(ATableGroupedHeader, {
+            ref: "groupedHeaderRef",
+            areAllRowsSelected: this.areAllRowsSelected,
+            areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
+            areSomeRowsSelected: this.areSomeRowsSelected,
+            disabledOptions: this.disabledOptions,
+            disabledSort: this.disabledSort,
+            hasMultipleActions: this.hasMultipleActions,
+            isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+            isSortingMultiColumn: this.isSortingMultiColumn,
+            modelSort: this.modelSortLocal,
+            rowsLocalLength: this.rowsLocalLength,
+            showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
+            sortingSequenceNumberClass: this.sortingSequenceNumberClass,
+            onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+          }) :
           h(ATableHeader, {
             areAllRowsSelected: this.areAllRowsSelected,
             areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
