@@ -3,7 +3,7 @@ export default function HtmlAPI() {
   :data="items"
   :is-data-simple-array="true"
   :is-html="false"
-  separator="; "
+  separator=", "
 ></a-list>
 <div class="a_mt_4"></div>
 <a-list
@@ -11,6 +11,20 @@ export default function HtmlAPI() {
   :is-data-simple-array="true"
   :is-html="false"
   separator=" + "
+></a-list>
+<div class="a_mt_5"></div>
+<a-list
+  :data="items"
+  :is-data-simple-array="true"
+  :is-html="true"
+  separator=","
+></a-list>
+<div class="a_mt_4"></div>
+<a-list
+  :data="items"
+  :is-data-simple-array="true"
+  :is-html="true"
+  separator=";"
 ></a-list>`;
 
   return {

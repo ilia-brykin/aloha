@@ -65,6 +65,16 @@ export default {
       required: false,
       default: "li",
     },
+    separator: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    separatorHtml: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     tag: {
       type: String,
       required: true,
@@ -98,6 +108,9 @@ export default {
         withDirectives(h(this.labelTag), [
           [ASafeHtml, this.label]
         ]),
+      this.separator ?
+        h("span", {}, this.separator) :
+        "",
       this.hasChildren ? h(AList, {
         classItem: this.classItem,
         classMain: this.classMain,
@@ -109,8 +122,13 @@ export default {
         keyLabelCallback: this.keyLabelCallback,
         labelTag: this.labelTag,
         listItemTag: this.listItemTag,
+        separator: this.separator,
+        separatorHtml: this.separatorHtml,
         tag: this.tag,
       }, this.$slots) : "",
+      this.separatorHtml ? withDirectives(h("div"), [
+        [ASafeHtml, this.separatorHtml]
+      ]) : "",
     ]);
   },
 };

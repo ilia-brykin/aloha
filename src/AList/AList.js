@@ -72,7 +72,12 @@ export default {
     separator: {
       type: String,
       required: false,
-      default: ", ",
+      default: undefined,
+    },
+    separatorHtml: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     tag: {
       type: String,
@@ -114,6 +119,8 @@ export default {
             keyLabelCallback: this.keyLabelCallback,
             labelTag: this.labelTag,
             listItemTag: this.listItemTag,
+            separator: this.separator,
+            separatorHtml: this.separatorHtml,
             tag: this.tag,
           }, this.$slots);
         }),

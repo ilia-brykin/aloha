@@ -10,6 +10,7 @@ import PageListKeyChildren from "./PageListKeyChildren/PageListKeyChildren.vue";
 import PageListKeyId from "./PageListKeyId/PageListKeyId.vue";
 import PageListKeyLabelCallback from "./PageListKeyLabelCallback/PageListKeyLabelCallback.vue";
 import PageListSeparator from "./PageListSeparator/PageListSeparator.vue";
+import PageListSeparatorHtml from "./PageListSeparatorHtml/PageListSeparatorHtml.vue";
 import PageListTag from "./PageListTag/PageListTag.vue";
 import PageListWithSlot from "./PageListWithSlot/PageListWithSlot.vue";
 
@@ -32,6 +33,7 @@ export default {
     PageListKeyId,
     PageListKeyLabelCallback,
     PageListSeparator,
+    PageListSeparatorHtml,
     PageListTag,
     PageListWithSlot,
   },

@@ -81,7 +81,14 @@ export default function PropsAPI() {
       name: "separator",
       description: "_A_LIST_SEPARATOR_PROP_DESCRIPTION_",
       type: "String",
-      default: ", ",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "separator-html",
+      description: "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_",
+      type: "String",
+      default: undefined,
       required: false,
     },
     {
