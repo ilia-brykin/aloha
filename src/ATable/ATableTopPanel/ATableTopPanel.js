@@ -229,8 +229,11 @@ export default {
             indexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
             minDropdownActions: 0,
             dropdownAttributes: {
-              buttonText: "Aktionen",
+              buttonText: {
+                desktop: "_A_TABLE_ACTIONS_",
+              },
               buttonClass: "a_btn a_btn_secondary a_table__action",
+              buttonIconLeft: "OptionVertical",
               inBody: true,
               placement: "bottom-end",
             },
@@ -245,7 +248,10 @@ export default {
             dropdownAttributes: {
               id: this.buttonMultipleId,
               buttonClass: "a_btn a_btn_secondary a_table__action",
-              buttonText: "Mehrfachaktionen",
+              buttonText: {
+                desktop: "_A_TABLE_MULTIPLE_ACTIONS_",
+              },
+              buttonIconLeft: "UiChecks",
               inBody: true,
               placement: "bottom-end",
             },

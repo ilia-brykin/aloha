@@ -1,4 +1,5 @@
 {
+  "_A_TABLE_ACTIONS_": "_A_TABLE_ACTIONS_",
   "_A_TABLE_ALL_ROWS_{{count}}_": "_A_TABLE_ALL_ROWS_{{count}}_",
   "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_{{countAllRowsFiltered}}_": "Poništite odabir svih redaka ({{ countAllRowsFiltered }})",
   "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Poništite odabir svih odabranih redaka",

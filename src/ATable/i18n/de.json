@@ -1,4 +1,5 @@
 {
+  "_A_TABLE_ACTIONS_": "Aktionen",
   "_A_TABLE_ALL_ROWS_{{count}}_": "Gesamtanzahl der Einträge: {{ count }}",
   "_A_TABLE_DESELECT_ALL_ROWS_{{countAllRows}}_{{countAllRowsFiltered}}_": "Alle Zeilen abwählen ({{ countAllRowsFiltered }})",
   "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_": "Alle ausgewählten Zeilen abwählen",

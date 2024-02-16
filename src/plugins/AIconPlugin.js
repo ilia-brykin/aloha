@@ -3,11 +3,11 @@ import {
 } from "vue";
 
 import _NoImage from "../AIcon/Icons/_NoImage";
-import Aloha from "../AIcon/Icons/Aloha";
 import AlertDanger from "../AIcon/Icons/AlertDanger";
-import AlertSuccess from "../AIcon/Icons/AlertSuccess";
 import AlertInfo from "../AIcon/Icons/AlertInfo";
+import AlertSuccess from "../AIcon/Icons/AlertSuccess";
 import AlertWarning from "../AIcon/Icons/AlertWarning";
+import Aloha from "../AIcon/Icons/Aloha";
 import AngleDown from "../AIcon/Icons/AngleDown";
 import AngleLeft from "../AIcon/Icons/AngleLeft";
 import AngleRight from "../AIcon/Icons/AngleRight";
@@ -48,6 +48,7 @@ import Search from "../AIcon/Icons/Search";
 import ThList from "../AIcon/Icons/ThList";
 import ThreeDots from "../AIcon/Icons/bootstrap-1-9-1/ThreeDots";
 import Trash from "../AIcon/Icons/Trash";
+import UiChecks from "../AIcon/Icons/bootstrap-1-9-1/UiChecks";
 
 export const iconPluginOptions = ref({
   icons: {
@@ -97,6 +98,7 @@ export const iconPluginOptions = ref({
     ThList,
     ThreeDots,
     Trash,
+    UiChecks,
   },
 });
 
