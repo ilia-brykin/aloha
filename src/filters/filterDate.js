@@ -16,7 +16,7 @@ const DATE_FORMAT = {
 };
 
 /**
- * Converts a value to a given format.
+ * Converts a value to a given date format.
  *
  * @param {any} value - The value to convert.
  * @param {Object} options - Optional parameters.

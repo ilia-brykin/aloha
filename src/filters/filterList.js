@@ -8,10 +8,10 @@ import {
 export default filterList;
 
 /**
- * Filters a list of values and returns a formatted string or HTML.
+ * Formats an array of values as a list in string or HTML format.
  *
- * @param {Array} value - The list of values to filter.
- * @param {Object} options - The options for filtering the list (optional).
+ * @param {Array} value - The array of values to filter.
+ * @param {Object} options - The optional options.
  * @param {boolean} [options.isChild=false] - Determines if the item is a child item.
  * @param {boolean} [options.isHtml=true] - Determines if the result should be in HTML format.
  * @param {boolean} [options.isSimpleArray=false] - Determines if the list is a simple array.

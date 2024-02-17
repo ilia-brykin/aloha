@@ -6,7 +6,8 @@ import {
 } from "lodash-es";
 
 /**
- * Translates a value into a corresponding text representation using specified true and false values.
+ * Translates a value into a corresponding text representation using specified true and false values,
+ * based on the evaluation of the value in a boolean context.
  *
  * @param {any} value - The value to translate.
  * @param {object} options - The translation options.

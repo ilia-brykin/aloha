@@ -11,7 +11,7 @@ import {
 } from "lodash-es";
 
 /**
- * Formats a given value as a string with specified formatting options.
+ * Converts a given value to a string representing formatted floating-point number according to specified formatting options.
  *
  * @param {any} value - The value to be formatted.
  * @param {Object} options - The formatting options.

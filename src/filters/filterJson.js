@@ -3,7 +3,7 @@ import {
 } from "lodash-es";
 
 /**
- * Converts a JavaScript value to a JSON string.
+ * Converts a JavaScript value to a formatted JSON string.
  *
  * @param {*} value - The value to be converted to JSON.
  * @param {Object} options - The options for the stringify operation.

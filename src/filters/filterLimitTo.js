@@ -4,7 +4,7 @@ import {
 } from "lodash-es";
 
 /**
- * Truncates a string to a specified length and adds ellipsis if necessary.
+ * Truncates a string to a specified length and adds ellipsis if specified.
  *
  * @param {*} value - The value to truncate.
  * @param {Object} options - The options object.

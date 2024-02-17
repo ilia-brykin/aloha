@@ -9,7 +9,7 @@ import {
 } from "lodash-es";
 
 /**
- * Converts a value from one unit of measurement to another unit of measurement.
+ * Converts a value from one to another unit of digital information storage.
  * By default, converts a value from bytes to kilobytes, but can be customized to convert to any other units supported.
  *
  * @param {number} value - The value to be converted.
