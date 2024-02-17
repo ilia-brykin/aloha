@@ -6,9 +6,9 @@ import {
 /**
  * Generates an HTML anchor tag with a mailto link.
  *
- * @param {string} value - The email address to be used as the link.
- * @param {Object} options - The options for generating the anchor tag.
- * @param {string} options.linkClass - The CSS class to be applied to the anchor tag.
+ * @param {string} value - The email address to be used as the link
+ * @param {Object} [options] - Optional parameters
+ * @param {string} [options.linkClass] - The CSS class to be applied to the anchor tag
  *
  * @returns {string} The generated HTML anchor tag.
  */

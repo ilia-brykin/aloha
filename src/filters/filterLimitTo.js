@@ -6,10 +6,11 @@ import {
 /**
  * Truncates a string to a specified length and adds ellipsis if specified.
  *
- * @param {*} value - The value to truncate.
- * @param {Object} options - The options object.
- * @param {number} [options.limit=30] - The maximum length of the truncated string.
- * @param {boolean} [options.maxThreeDots=true] - Whether to add ellipsis if the string is truncated.
+ * @param {*} value - The value to truncate
+ * @param {Object} [options] - Optional parameters
+ * @param {number} [options.limit=30] - The maximum length of the truncated string
+ * @param {boolean} [options.maxThreeDots=true] - Whether to add ellipsis if the string is truncated
+ *
  * @returns {string} - The truncated string.
  */
 export default function(value, { limit = 30, maxThreeDots = true } = {}) {

@@ -9,14 +9,15 @@ import {
 } from "lodash-es";
 
 /**
- * Converts a value from one to another unit of digital information storage.
- * By default, converts a value from bytes to kilobytes, but can be customized to convert to any other units supported.
+ * Converts a size from a source unit (for example, Bytes) to a target size with a specific unit (for example, Kilobytes, Megabytes) and returns the result as a formatted string.
+ * By default, converts a value from bytes to kilobytes.
  *
- * @param {number} value - The value to be converted.
- * @param {object} options - Optional configuration for the conversion.
- * @param {string} options.units - The desired units for the converted value. Defaults to "kb".
- * @param {string} options.sourceUnits - The source units of the value. Defaults to "b".
- * @param {number} options.digits - The number of decimal places to round the converted value. Defaults to 2.
+ * @param {number|string} value - The value to be converted
+ * @param {Object} [options] - Optional parameters
+ * @param {string} [options.units="kb"] - The desired units for the converted value
+ * @param {string} [options.sourceUnits="b"] - The source units of the value
+ * @param {number} [options.digits=2] - The number of decimal places to round the converted value
+ *
  * @returns {string} - The converted value, formatted as a string.
  */
 export default function(value, { units = "kb", sourceUnits = "b", digits = 2 } = {}) {

@@ -18,9 +18,10 @@ const DATE_FORMAT = {
 /**
  * Converts a value to a given date format.
  *
- * @param {any} value - The value to convert.
- * @param {Object} options - Optional parameters.
- * @param {string} options.format - The format to convert the value to. Default is "date".
+ * @param {*} value - The value to convert
+ * @param {Object} [options] - Optional parameters
+ * @param {string} [options.format="date"] - The format to convert the value to
+ *
  * @returns {string} - The converted value in the specified format.
  */
 export default function(value, { format = "date" } = {}) {

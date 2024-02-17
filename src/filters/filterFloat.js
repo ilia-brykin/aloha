@@ -13,11 +13,11 @@ import {
 /**
  * Converts a given value to a string representing formatted floating-point number according to specified formatting options.
  *
- * @param {any} value - The value to be formatted.
- * @param {Object} options - The formatting options.
- * @param {string} [options.suffix=""] - The suffix to be appended to the formatted string.
- * @param {number} [options.digits=2] - The number of decimal places to include in the formatted string.
- * @param {boolean} [options.digitGrouping=true] - Whether to include digit grouping separators in the formatted string.
+ * @param {number|string} value - The value to be formatted
+ * @param {Object} [options] - Optional parameters
+ * @param {string} [options.suffix=""] - The suffix to be appended to the formatted string
+ * @param {number} [options.digits=2] - The number of decimal places to include in the formatted string
+ * @param {boolean} [options.digitGrouping=true] - Whether to include digit grouping separators in the formatted string
  *
  * @returns {string} The formatted value as a string.
  */
