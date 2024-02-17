@@ -6,9 +6,12 @@ import PageFilterImportFunction from "../Components/PageFilterImportFunction/Pag
 import PageFilterJsonExample from "./PageFilterJsonExample/PageFilterJsonExample.vue";
 import PageFilterJsonReplacer from "./PageFilterJsonReplacer/PageFilterJsonReplacer.vue";
 import PageFilterJsonSpace from "./PageFilterJsonSpace/PageFilterJsonSpace.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterJsonTest from "../../../../../src/filters/__tests__/filterJson.test.js?raw";
 
 export default {
   name: "PageFilterJson",
@@ -21,6 +24,7 @@ export default {
     PageFilterJsonExample,
     PageFilterJsonReplacer,
     PageFilterJsonSpace,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -31,9 +35,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterJsonTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };

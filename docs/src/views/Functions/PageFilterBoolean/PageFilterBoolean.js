@@ -13,7 +13,6 @@ import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 import filterBooleanTest from "../../../../../src/filters/__tests__/filterBoolean.test.js?raw";
 
-
 export default {
   name: "PageFilterBoolean",
   components: {

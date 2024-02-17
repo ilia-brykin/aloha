@@ -5,9 +5,12 @@ import PageFilterImportCompositionApi from "../Components/PageFilterImportCompos
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 import PageFilterPropertyByValueDefaultValue from "./PageFilterPropertyByValueDefaultValue/PageFilterPropertyByValueDefaultValue.vue";
 import PageFilterPropertyByValueMapping from "./PageFilterPropertyByValueMapping/PageFilterPropertyByValueMapping.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterPropertyByValueTest from "../../../../../src/filters/__tests__/filterPropertyByValue.test.js?raw";
 
 export default {
   name: "PageFilterPropertyByValue",
@@ -19,6 +22,7 @@ export default {
     PageFilterImportFunction,
     PageFilterPropertyByValueDefaultValue,
     PageFilterPropertyByValueMapping,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -29,9 +33,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterPropertyByValueTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };

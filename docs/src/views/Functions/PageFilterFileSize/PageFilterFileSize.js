@@ -15,7 +15,7 @@ import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import TranslateAPI from "./compositionAPI/TranslateAPI";
 
-import ffilterBooleanTest from "../../../../../src/filters/__tests__/filterBoolean.test.js?raw";
+import filterBooleanTest from "../../../../../src/filters/__tests__/filterBoolean.test.js?raw";
 
 export default {
   name: "PageFilterFileSize",
@@ -46,7 +46,7 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
-    const test = ffilterBooleanTest;
+    const test = filterBooleanTest;
 
     return {
       argumentsText,

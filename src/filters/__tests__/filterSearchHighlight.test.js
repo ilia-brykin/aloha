@@ -20,9 +20,9 @@ describe("filterSearchHighlight function", () => {
 
   it("should return value with replaced searchModel content wrapped in span with searchClass, when searchModel is provided", () => {
     let result = filterSearchHighlight("test searchModel", { searchModel: "searchModel", searchClass: "test" });
-    expect(result).toBe('test <span class="test">searchModel</span>');
+    expect(result).toBe("test <span class=\"test\">searchModel</span>");
 
     result = filterSearchHighlight("test searchModel", { searchModel: "searchModel" });
-    expect(result).toBe('test <span class="a_search_highlight">searchModel</span>');
+    expect(result).toBe("test <span class=\"a_search_highlight\">searchModel</span>");
   });
 });

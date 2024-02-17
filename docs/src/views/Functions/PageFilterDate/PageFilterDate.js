@@ -5,9 +5,12 @@ import PageFilterDateExample from "./PageFilterDateExample/PageFilterDateExample
 import PageFilterDateFormat from "./PageFilterDateFormat/PageFilterDateFormat.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterDateTest from "../../../../../src/filters/__tests__/filterDate.test.js?raw";
 
 export default {
   name: "PageFilterDate",
@@ -19,6 +22,7 @@ export default {
     PageFilterDateFormat,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -29,9 +33,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterDateTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };

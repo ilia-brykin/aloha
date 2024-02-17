@@ -5,9 +5,12 @@ import PageFilterDefaultForEmptyEmptyValue from "./PageFilterDefaultForEmptyEmpt
 import PageFilterDefaultForEmptyExample from "./PageFilterDefaultForEmptyExample/PageFilterDefaultForEmptyExample.vue";
 import PageFilterImportCompositionApi from "../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
+import PageFilterTest from "../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+
+import filterDefaultForEmptyTest from "../../../../../src/filters/__tests__/filterDefaultForEmpty.test.js?raw";
 
 export default {
   name: "PageFilterDefaultForEmpty",
@@ -19,6 +22,7 @@ export default {
     PageFilterDefaultForEmptyExample,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
+    PageFilterTest,
   },
   setup() {
     const {
@@ -29,9 +33,12 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
+    const test = filterDefaultForEmptyTest;
+
     return {
       argumentsText,
       pageTitle,
+      test,
     };
   },
 };
