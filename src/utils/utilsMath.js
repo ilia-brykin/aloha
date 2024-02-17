@@ -5,7 +5,8 @@ import {
 /**
  * Determines if a given number is odd.
  *
- * @param {number} n - The number to check if it is odd.
+ * @param {number} n - The number to check if it is odd
+ *
  * @return {boolean} - True if the number is odd, otherwise false.
  */
 export function isOdd(n) {
@@ -18,7 +19,8 @@ export function isOdd(n) {
 /**
  * Determines if a given number is even.
  *
- * @param {number} n - The number to be checked.
+ * @param {number} n - The number to be checked
+ *
  * @returns {boolean} - True if the number is even, false otherwise.
  */
 export function isEven(n) {
