@@ -28,28 +28,6 @@ function toCorrectFormat(value) {
 }
 
 /**
- * Concatenates two strings with a space between them.
- *
- * @param {Object} options - The options for concatenation.
- * @param {string} options.class1 - The first class to concatenate.
- * @param {string} options.class2 - The second class to concatenate.
- * @param {string} [options.defaultValue=undefined] - The default value to return if both class1 and class2 are falsy.
- * @returns {string} The concatenated string or the defaultValue if both class1 and class2 are falsy.
- */
-export function concatenateTwoStringsWithSpace({ class1, class2, defaultValue = undefined }) {
-  if (class1) {
-    if (class2) {
-      return `${ class1 } ${ class2 }`;
-    }
-    return class1;
-  }
-  if (class2) {
-    return class2;
-  }
-  return defaultValue;
-}
-
-/**
  * Checks if the given input is an array of strings.
  *
  * @param {Array} array - The array to be checked
