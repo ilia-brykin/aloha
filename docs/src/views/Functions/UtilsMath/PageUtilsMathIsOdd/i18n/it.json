@@ -1,4 +1,4 @@
 {
-  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_",
-  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_"
+  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "Il numero da verificare se è dispari",
+  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "<p>Determina se un dato numero è dispari.</p><p>Questa funzione verifica prima se il valore fornito è un intero. Restituisce <strong lang=\"en\">false</strong> per valori non interi per garantire un controllo accurato della disparità. Per valori interi, controlla se il numero è dispari.</p>"
 }

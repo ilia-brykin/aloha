@@ -1,4 +1,4 @@
 {
-  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_",
-  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_"
+  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "El número para verificar si es impar",
+  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "<p>Determina si un número dado es impar.</p><p>Esta función primero verifica si el valor proporcionado es un entero. Devuelve <strong lang=\"en\">false</strong> para valores no enteros para asegurar una verificación de imparidad precisa. Para valores enteros, verifica si el número es impar.</p>"
 }
