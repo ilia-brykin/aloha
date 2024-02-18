@@ -1,7 +1,6 @@
 {
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_VALUE_": "Der Wert, der auf eine Eigenschaft im Mapping-Objekt abgebildet werden soll",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_MAPPING_": " Ein Objekt, das die Zuordnung von Werten zu Eigenschaften definiert",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_DEFAULT_VALUE_": "Der Standardwert, der zurückgegeben wird, wenn der übergebene Wert nicht im Mapping-Objekt gefunden wird",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_": "# Arguments:  \nvalue (Any): The value to be mapped to a property in the mapping object\n[mapping={}] (Object): An object defining the mapping of values to properties\n[defaultValue=\"\"] (String): The default value returned if the passed value is not found in the mapping object",
-  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "The function <strong>filterPropertyByValue</strong> enables mapping of values to predefined properties in a mapping object. It checks if the passed value exists as a key in the mapping object. If so, the associated property is returned, otherwise the default value is used."
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_VALUE_": "The value that should be mapped to a property in the mapping object",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_MAPPING_": "An object that defines the mapping of values to properties",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_DEFAULT_VALUE_": "The default value returned if the passed value is not found in the mapping object",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "The function <strong>filterPropertyByValue</strong> allows for mapping values to predefined properties in a mapping object. It checks if the passed value exists as a key in the mapping object. If so, the associated property is returned; otherwise, the default value is used."
 }
