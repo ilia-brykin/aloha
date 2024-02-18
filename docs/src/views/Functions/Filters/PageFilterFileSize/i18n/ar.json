@@ -1,8 +1,7 @@
 {
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "Die Größe, die konvertiert werden soll",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "Die gewünschte Einheit für die Größenangabe. Mögliche Einheiten sind <strong>b</strong> (Bytes), <strong>kb</strong> (Kilobytes), <strong>mb</strong> (Megabytes), <strong>gb</strong> (Gigabytes), <strong>tb</strong> (Terabytes), <strong>pb</strong> (Petabytes), <strong>eb</strong> (Exabytes), <strong>zb</strong> (Zettabytes), <strong>yb</strong> (Yottabytes)",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "Die Einheit der ursprünglichen Größe. Mögliche Einheiten sind dieselben wie für units",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen in der formatierten Zeichenkette",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# الحجج:  \nvalue (Number): الحجم الذي يجب تحويله.\n[units=\"kb\"] (String): الوحدة المرغوبة للحجم. الوحدات الممكنة هي \"b\" (بايت)، \"kb\" (كيلوبايت)، \"mb\" (ميغابايت)، \"gb\" (جيجابايت)، \"tb\" (تيرابايت)، \"pb\" (بيتابايت)، \"eb\" (اكسابايت)، \"zb\" (زيتابايت)، \"yb\" (يوتابايت).\n[sourceUnits=\"b\"] (String): وحدة الحجم الأصلية. الوحدات الممكنة هي نفسها المذكورة للوحدات.\n[digits=2] (Number): عدد الأرقام العشرية في السلسلة المنسقة",
-  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "تقوم الوظيفة <strong>filterFileSize</strong> بتحويل حجم من وحدة مصدر (مثلاً البايت) إلى حجم هدف بوحدة معينة (مثلاً كيلوبايت، ميغابايت) وتعيد النتيجة كسلسلة منسقة."
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "الحجم المراد تحويله",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "الوحدة المرغوبة لتحديد الحجم. الوحدات الممكنة هي <strong>b</strong> (بايت)، <strong>kb</strong> (كيلوبايت)، <strong>mb</strong> (ميغابايت)، <strong>gb</strong> (جيغابايت)، <strong>tb</strong> (تيرابايت)، <strong>pb</strong> (بيتابايت)، <strong>eb</strong> (إكسابايت)، <strong>zb</strong> (زيتابايت)، <strong>yb</strong> (يوتابايت)",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "وحدة الحجم الأصلي. الوحدات الممكنة هي نفسها لـ <strong>units</strong>",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "عدد العلامات العشرية في السلسلة المنسقة",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "تقوم وظيفة <strong>filterFileSize</strong> بتحويل حجم من وحدة المصدر (مثل، بايت) إلى حجم هدف في وحدة محددة (مثل، كيلوبايت، ميغابايت) وترجع النتيجة كسلسلة مُنسقة."
 }

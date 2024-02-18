@@ -1,8 +1,7 @@
 {
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "Die Größe, die konvertiert werden soll",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "Die gewünschte Einheit für die Größenangabe. Mögliche Einheiten sind <strong>b</strong> (Bytes), <strong>kb</strong> (Kilobytes), <strong>mb</strong> (Megabytes), <strong>gb</strong> (Gigabytes), <strong>tb</strong> (Terabytes), <strong>pb</strong> (Petabytes), <strong>eb</strong> (Exabytes), <strong>zb</strong> (Zettabytes), <strong>yb</strong> (Yottabytes)",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "Die Einheit der ursprünglichen Größe. Mögliche Einheiten sind dieselben wie für units",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen in der formatierten Zeichenkette",
-  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_": "# Argomenti:  \nvalue (Number): La dimensione da convertire.\n[units=\"kb\"] (String): L'unità desiderata per la dimensione. Le unità possibili sono \"b\" (Byte), \"kb\" (Kilobyte), \"mb\" (Megabyte), \"gb\" (Gigabyte), \"tb\" (Terabyte), \"pb\" (Petabyte), \"eb\" (Exabyte), \"zb\" (Zettabyte), \"yb\" (Yottabyte).\n[sourceUnits=\"b\"] (String): L'unità della dimensione originale. Le unità possibili sono le stesse di units.\n[digits=2] (Number): Il numero di cifre decimali nella stringa formattata",
-  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "La funzione <strong>filterFileSize</strong> converte una dimensione da un'unità di origine (ad esempio, Byte) in una dimensione target con una specifica unità (ad esempio, Kilobyte, Megabyte) e restituisce il risultato come una stringa formattata."
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "La dimensione da convertire",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "L'unità desiderata per la specifica della dimensione. Le unità possibili sono <strong>b</strong> (Byte), <strong>kb</strong> (Kilobyte), <strong>mb</strong> (Megabyte), <strong>gb</strong> (Gigabyte), <strong>tb</strong> (Terabyte), <strong>pb</strong> (Petabyte), <strong>eb</strong> (Exabyte), <strong>zb</strong> (Zettabyte), <strong>yb</strong> (Yottabyte)",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "L'unità della dimensione originale. Le unità possibili sono le stesse di <strong>units</strong>",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "Il numero di decimali nella stringa formattata",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "La funzione <strong>filterFileSize</strong> converte una dimensione da un'unità di origine (ad esempio, Byte) a una dimensione target in un'unità specifica (ad esempio, Kilobyte, Megabyte) e restituisce il risultato come una stringa formattata."
 }
