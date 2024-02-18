@@ -27,7 +27,7 @@ export function isOdd(value) {
  * It returns false for non-integer values to ensure accurate evenness check.
  * For integer values, it checks if the number is even.
  *
- * @param {number} value - The number to check if it is even.
+ * @param {number} value - The number to check if it is even
  *
  * @return {boolean} - True if the number is an integer and even, otherwise false.
  */

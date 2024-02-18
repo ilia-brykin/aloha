@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "Die Zahl, um zu prüfen, ob sie gerade ist",
+  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "<p>Bestimmt, ob eine gegebene Zahl gerade ist.</p><p>Diese Funktion überprüft zunächst, ob der bereitgestellte Wert eine ganze Zahl ist. Sie gibt <strong lang=\"en\">false</strong> für Nicht-Ganzzahlwerte zurück, um eine genaue Geradheitsprüfung zu gewährleisten. Für Ganzzahlwerte prüft sie, ob die Zahl gerade ist.</p>"
+}

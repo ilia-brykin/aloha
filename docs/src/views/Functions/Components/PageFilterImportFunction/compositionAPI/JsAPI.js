@@ -12,10 +12,10 @@ export default function JsAPI(props) {
       return `import ${ functionName.value } from "aloha-vue/src/filters/${ functionName.value }";`;
     }
     if (typeImport.value === "utils") {
-      return `import { ${ functionName.value } } from "aloha-vue/src/utils/utils/";`;
+      return `import { ${ functionName.value } } from "aloha-vue/src/utils/utils";`;
     }
     if (typeImport.value === "utilsMath") {
-      return `import { ${ functionName.value } } from "aloha-vue/src/utils/utilsMath/";`;
+      return `import { ${ functionName.value } } from "aloha-vue/src/utils/utilsMath";`;
     }
     return "";
   });

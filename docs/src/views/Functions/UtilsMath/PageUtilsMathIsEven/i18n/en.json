@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "The number to check if it is even",
+  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "<p>Determines if a given number is even.</p><p>This function first checks if the provided value is an integer. It returns <strong>false</strong> for non-integer values to ensure accurate evenness check. For integer values, it checks if the number is even.</p>"
+}

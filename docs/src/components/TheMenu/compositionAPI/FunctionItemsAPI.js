@@ -113,6 +113,13 @@ export default function FunctionItemsAPI() {
         label: "Utils math",
         children: [
           {
+            id: "PageUtilsMathIsEven",
+            label: "isEven",
+            to: {
+              name: "PageUtilsMathIsEven",
+            },
+          },
+          {
             id: "PageUtilsMathIsOdd",
             label: "isOdd",
             to: {
