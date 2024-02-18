@@ -1,5 +1,4 @@
 {
-  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_VALUE_": "Das JavaScript-Objekt, dessen Schlüssel-Wert-Paare in eine formatierte Zeichenkette umgewandelt werden sollen",
-  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_": "# Argomenti:  \nvalue (Object): L'oggetto JavaScript le cui coppie chiave-valore devono essere convertite in una stringa formattata",
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_VALUE_": "L'oggetto JavaScript i cui coppie chiave-valore devono essere convertite in una stringa formattata",
   "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "La funzione <strong>filterKeyValue</strong> crea una stringa formattata dalle coppie chiave-valore di un oggetto JavaScript. Utilizza la funzione di riduzione per iterare attraverso le coppie e convertirle in un formato leggibile."
 }
