@@ -1,4 +1,4 @@
 {
-  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_",
-  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_"
+  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "Il numero da verificare se è pari",
+  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "<p>Determina se un dato numero è pari.</p><p>Questa funzione verifica prima se il valore fornito è un intero. Restituisce <strong lang=\"en\">false</strong> per valori non interi per garantire un controllo accurato della parità. Per valori interi, controlla se il numero è pari.</p>"
 }

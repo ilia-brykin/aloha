@@ -1,4 +1,4 @@
 {
-  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_",
-  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_"
+  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "الرقم للتحقق مما إذا كان زوجيًا",
+  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "<p>يحدد ما إذا كان الرقم المعطى زوجيًا.</p><p>تقوم هذه الوظيفة أولاً بالتحقق مما إذا كانت القيمة المقدمة عددًا صحيحًا. تعيد <strong lang=\"en\">false</strong> لقيم غير صحيحة لضمان التحقق الدقيق من الزوجية. بالنسبة للقيم الصحيحة، تفحص إذا كان الرقم زوجيًا.</p>"
 }

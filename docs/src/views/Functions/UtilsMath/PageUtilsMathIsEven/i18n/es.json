@@ -1,4 +1,4 @@
 {
-  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_",
-  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_"
+  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "El número para verificar si es par",
+  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "<p>Determina si un número dado es par.</p><p>Esta función primero verifica si el valor proporcionado es un entero. Devuelve <strong lang=\"en\">false</strong> para valores no enteros para asegurar una verificación de paridad precisa. Para valores enteros, verifica si el número es par.</p>"
 }
