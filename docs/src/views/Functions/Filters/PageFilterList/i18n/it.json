@@ -1,14 +1,13 @@
 {
-  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Das Array für die Liste",
-  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Wenn true, wird eine HTML-Liste (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;) erstellt. Andernfalls wird eine Textliste generiert",
-  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Gibt an, ob nur ein einfaches Array ohne Objekte verwendet wird",
-  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Schlüssel für Kinderelemente (nur wenn <strong>isSimpleArray=false</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Schlüssel für das anzuzeigende Text (nur wenn <strong>isSimpleArray=false</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funktion zur Generierung von Labels mit zwei Parametern (<strong>item</strong>, <strong>itemIndex</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator zwischen Elementen (nur wenn <strong>isHtml=false</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-Tag für die gesamte Liste",
-  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-Klasse z.B.: (a_list_without_styles)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_": "# Argomenti:  \narray (Array): L'array per la lista\n[isHtml=true] (Booleano): Se vero, viene creata una lista HTML (<ul><li>...</li></ul>). Altrimenti, viene generata una lista di testo (<span>...</span>)\n[isSimpleArray=false] (Booleano): Indica se viene utilizzato solo un array semplice senza oggetti\n[keyChildren=\"\"] (String): Chiave per gli elementi figli (solo se isSimpleArray=false)\n[keyLabel=\"\"] (String): Chiave per il testo da visualizzare (solo se isSimpleArray=false)\n[keyLabelCallback] (Funzione): Funzione per generare etichette con due parametri (item, itemIndex)\n[separator=\", \"] (String): Separatore tra gli elementi (solo se isHtml=false)\n[tag=\"ul\"] (String): Tag HTML per l'intera lista\n[listClass=\"\"] (String): Classe CSS (a_list_without_styles)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "L'array per la lista",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Se <strong>Vero</strong>, viene creata una lista HTML (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;). Altrimenti, viene generata una lista di testo",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Indica se viene utilizzato solo un array semplice senza oggetti",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Chiave per gli elementi figli (solo se <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Chiave per l'etichetta da visualizzare (solo se <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funzione per generare etichette con due parametri (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separatore tra gli elementi (solo se <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "Tag HTML per l'intera lista",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "Classe CSS per esempio: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "La funzione crea una lista da un array.",
   "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Struttura ad albero isSimpleArray=true"
 }
