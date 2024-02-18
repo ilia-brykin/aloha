@@ -65,11 +65,11 @@ export function isArrayOfStrings(array) {
 }
 
 /**
- * Check if given array is an array of arrays.
+ * Checks if the given input is an array of arrays.
  *
- * @param {Array} array - The array to be checked.
+ * @param {Array} array - The array to be checked
  *
- * @return {boolean} - Returns `true` if the array is an array of arrays, otherwise `false`.
+ * @return {boolean} - True if the input is an array of arrays, false otherwise.
  */
 export function isArrayOfArrays(array) {
   if (!isArray(array)) {

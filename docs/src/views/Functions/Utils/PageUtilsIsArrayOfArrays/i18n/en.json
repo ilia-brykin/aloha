@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_IS_ARRAY_OF_ARRAYS_ARGUMENTS_VALUE_": "The array to be checked",
+  "_PAGE_UTILS_IS_ARRAY_OF_ARRAYS_DESCRIPTION_": "Checks if the given input is an array of arrays."
+}

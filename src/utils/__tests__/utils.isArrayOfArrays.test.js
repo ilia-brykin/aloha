@@ -18,10 +18,11 @@ describe("isArrayOfArrays", () => {
   });
 
   it("should return false if provided with a non-array", () => {
-    const testData = "This isn’t an array";
-    const result = isArrayOfArrays(testData);
-
-    expect(result).toBe(false);
+    expect(isArrayOfArrays("Aloha")).toBe(false);
+    expect(isArrayOfArrays(123)).toBe(false);
+    expect(isArrayOfArrays(undefined)).toBe(false);
+    expect(isArrayOfArrays(null)).toBe(false);
+    expect(isArrayOfArrays({})).toBe(false);
   });
 
   it("should return false if provided with an array that contains non-array elements", () => {

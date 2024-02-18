@@ -1,0 +1,26 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_UTILS_IS_ARRAY_OF_ARRAYS_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="isArrayOfArrays"
+      type-import="utils"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="isArrayOfArrays(value)"
+    )
+
+    page-utils-is-array-of-arrays-example
+
+    page-filter-test(
+      :test="test"
+    )

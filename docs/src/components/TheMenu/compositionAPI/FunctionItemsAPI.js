@@ -113,6 +113,13 @@ export default function FunctionItemsAPI() {
         label: "Utils",
         children: [
           {
+            id: "PageUtilsIsArrayOfArrays",
+            label: "isArrayOfArrays",
+            to: {
+              name: "PageUtilsIsArrayOfArrays",
+            },
+          },
+          {
             id: "PageUtilsIsArrayOfStrings",
             label: "isArrayOfStrings",
             to: {
