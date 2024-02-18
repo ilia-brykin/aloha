@@ -1,8 +1,7 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "Die zu formatierende numerische Wert",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Ein Suffix, das nach dem numerischen Wert hinzugefügt wird",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen nach dem Komma",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Ein Flag, das angibt, ob die Zifferngruppierung angewendet werden soll (Tausendertrennzeichen)",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Argomenti: \nvalue (Qualsiasi): Il valore numerico da formattare\n[suffix=\"\"] (String): Un suffisso da aggiungere dopo il valore numerico\n[digits=2] (Number): Il numero di decimali dopo la virgola\n[digitGrouping=true] (Boolean): Un indicatore che specifica se applicare il raggruppamento delle cifre (separatori delle migliaia)",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La funzione <strong>filterFloat</strong> formatta i valori numerici secondo i parametri specificati. Prende un valore numerico e lo restituisce come stringa con il numero specificato di decimali, un suffisso e, opzionalmente, raggruppamento delle cifre (separatori delle migliaia). Se il valore numerico non è specificato (nullo o indefinito), viene restituita una stringa vuota."
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "Il valore numerico da formattare",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Un suffisso da aggiungere dopo il valore numerico",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Il numero di cifre decimali dopo la virgola",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Un flag che indica se applicare il raggruppamento delle cifre (separatore delle migliaia)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La funzione <strong>filterFloat</strong> formatta i valori numerici secondo i parametri specificati. Prende un valore numerico e lo restituisce come stringa con il numero specificato di decimali, un suffisso e, opzionalmente, il raggruppamento delle cifre (separatore delle migliaia). Se il valore numerico non è specificato (<strong>null</strong> o <strong>undefined</strong>), viene restituita una stringa vuota."
 }

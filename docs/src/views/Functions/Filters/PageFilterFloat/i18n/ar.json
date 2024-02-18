@@ -1,8 +1,7 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "Die zu formatierende numerische Wert",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Ein Suffix, das nach dem numerischen Wert hinzugefügt wird",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen nach dem Komma",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Ein Flag, das angibt, ob die Zifferngruppierung angewendet werden soll (Tausendertrennzeichen)",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# الحجج: \nvalue (أي شيء): القيمة العددية التي سيتم تنسيقها\n[suffix=\"\"] (String): لاحقة تضاف إلى القيمة العددية\n[digits=2] (Number): عدد الخانات العشرية بعد الفاصلة\n[digitGrouping=true] (Boolean): علامة تشير إلى ما إذا كان يجب تطبيق تجميع الأرقام (فاصلة كل ثلاثة أرقام)",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "تقوم وظيفة <strong>filterFloat</strong> بتنسيق القيم العددية وفقًا للمعايير المحددة. تستقبل قيمة عددية وتعيدها كسلسلة نصية مع عدد محدد من الخانات العشرية، ولاحقة، واختياريًا تجميع الأرقام (فاصلة كل ثلاثة أرقام). إذا لم يتم تحديد القيمة العددية (null أو undefined)، فسيتم إرجاع سلسلة نصية فارغة."
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "القيمة الرقمية المراد تنسيقها",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "لواحق تضاف بعد القيمة الرقمية",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "عدد الأماكن العشرية بعد الفاصلة",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "علامة تدل على ما إذا كان يجب تطبيق تجميع الأرقام (فاصلة الآلاف)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "تقوم الوظيفة <strong>filterFloat</strong> بتنسيق القيم الرقمية وفقًا للمعايير المحددة. تأخذ قيمة رقمية وتعيدها على شكل سلسلة نصية مع عدد محدد من الأماكن العشرية، لواحق، واختياريًا تجميع الأرقام (فاصلة الآلاف). إذا لم يتم تحديد القيمة الرقمية (<strong>null</strong> أو <strong>undefined</strong>)، يتم إرجاع سلسلة فارغة."
 }

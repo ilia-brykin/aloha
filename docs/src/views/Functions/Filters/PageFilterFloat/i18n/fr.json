@@ -1,8 +1,7 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "Die zu formatierende numerische Wert",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Ein Suffix, das nach dem numerischen Wert hinzugefügt wird",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen nach dem Komma",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Ein Flag, das angibt, ob die Zifferngruppierung angewendet werden soll (Tausendertrennzeichen)",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Arguments : \nvalue (Tout): La valeur numérique à formater\n[suffix=\"\"] (String): Un suffixe à ajouter après la valeur numérique\n[digits=2] (Number): Le nombre de décimales après la virgule\n[digitGrouping=true] (Boolean): Un drapeau indiquant si le regroupement des chiffres doit être appliqué (séparateurs de milliers)",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La fonction <strong>filterFloat</strong> formate les valeurs numériques selon les paramètres spécifiés. Elle prend une valeur numérique et la retourne sous forme de chaîne avec le nombre spécifié de décimales, un suffixe et, éventuellement, un regroupement de chiffres (séparateurs de milliers). Si la valeur numérique n'est pas spécifiée (nulle ou indéfinie), une chaîne vide est renvoyée."
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "La valeur numérique à formater",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Un suffixe à ajouter après la valeur numérique",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Le nombre de décimales après la virgule",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Un indicateur qui signale si le regroupement des chiffres doit être appliqué (séparateur de milliers)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La fonction <strong>filterFloat</strong> formate les valeurs numériques selon les paramètres spécifiés. Elle prend une valeur numérique et la retourne sous forme de chaîne avec le nombre spécifié de décimales, un suffixe, et le regroupement des chiffres optionnel (séparateur de milliers). Si la valeur numérique n'est pas spécifiée (<strong>null</strong> ou <strong>undefined</strong>), une chaîne vide est retournée."
 }

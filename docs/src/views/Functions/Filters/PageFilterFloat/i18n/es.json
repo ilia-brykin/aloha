@@ -1,8 +1,7 @@
 {
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "Die zu formatierende numerische Wert",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Ein Suffix, das nach dem numerischen Wert hinzugefügt wird",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Die Anzahl der Dezimalstellen nach dem Komma",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Ein Flag, das angibt, ob die Zifferngruppierung angewendet werden soll (Tausendertrennzeichen)",
-  "_PAGE_FILTER_FLOAT_ARGUMENTS_": "# Argumentos: \nvalue (Cualquiera): El valor numérico que se va a formatear\n[suffix=\"\"] (String): Un sufijo que se añadirá después del valor numérico\n[digits=2] (Número): El número de decimales después del punto decimal\n[digitGrouping=true] (Booleano): Una marca que indica si se debe aplicar el agrupamiento de dígitos (separador de miles)",
-  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La función <strong>filterFloat</strong> formatea valores numéricos de acuerdo con los parámetros especificados. Toma un valor numérico y lo devuelve como una cadena con el número especificado de decimales, un sufijo y, opcionalmente, agrupamiento de dígitos (separador de miles). Si no se proporciona el valor numérico (nulo o indefinido), se devuelve una cadena vacía."
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "El valor numérico que se va a formatear",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Un sufijo que se añadirá después del valor numérico",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "El número de decimales después de la coma",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Una bandera que indica si se debe aplicar la agrupación de dígitos (separador de miles)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "La función <strong>filterFloat</strong> formatea valores numéricos de acuerdo con los parámetros especificados. Toma un valor numérico y lo devuelve como una cadena con el número especificado de decimales, un sufijo y agrupación de dígitos opcional (separador de miles). Si el valor numérico no se especifica (<strong>null</strong> o <strong>undefined</strong>), se devuelve una cadena vacía."
 }
