@@ -1,7 +1,6 @@
 {
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "Der Eingangsstring, der beschnitten werden soll",
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "Die maximale Länge des zurückgegebenen Strings",
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Gibt an, ob maximal drei Punkten am Ende des Strings angezeigt werden",
-  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_": "# الحجج:  \ntext (String): النص الذي يجب اقتصاصه\n[limit=30] (Number): الطول الأقصى للنص الذي سيتم إرجاعه\n[maxThreeDots=true] (Boolean): يحدد ما إذا كان يجب إظهار ثلاث نقاط على الأكثر في نهاية النص\n",
-  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "تُستخدم وظيفة <strong>filterLimitTo</strong> لتحديد نص مدخل إلى طول أقصى معين وتطبيق منطق خاص للنقاط في نهاية النص اختياريًا."
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "النص الإدخالي المراد تقليمه",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "الطول الأقصى للنص المُرجع",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "يُشير إلى ما إذا كان سيتم عرض ثلاث نقاط على الأكثر في نهاية النص",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "تُستخدم الوظيفة <strong>filterLimitTo</strong> لتحديد نص الإدخال بطول أقصى مُحدد واختياريًا لتطبيق منطق خاص للنقاط الثلاث في نهاية النص."
 }
