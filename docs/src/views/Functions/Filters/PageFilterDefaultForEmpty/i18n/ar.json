@@ -1,6 +1,5 @@
 {
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "Der zu überprüfende Wert",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "Der Standardwert, der zurückgegeben wird, wenn der überprüfte Wert als leer betrachtet wird",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "# الحجج:  \nvalue (أي نوع): القيمة التي سيتم فحصها\n[emptyValue=\"-\"] (String): القيمة الافتراضية التي سيتم إرجاعها إذا كانت القيمة المفحوصة فارغة",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "تُستخدم وظيفة <strong>filterDefaultForEmpty</strong> لفحص قيمة وإرجاع قيمة افتراضية إذا كانت القيمة المفحوصة فارغة. في هذا السياق، تعتبر القيمة فارغة إذا كانت <strong>undefined</strong>، <strong>null</strong> أو سلسلة فارغة."
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "القيمة المراد فحصها",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "القيمة الافتراضية التي يتم إرجاعها إذا اعتبرت القيمة المفحوصة فارغة",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "تعمل الوظيفة <strong>filterDefaultForEmpty</strong> على فحص قيمة وإرجاع قيمة افتراضية إذا اعتبرت القيمة المفحوصة فارغة. في هذا السياق، تعتبر قيمة فارغة إذا كانت <strong>غير محددة</strong>، <strong>فارغة</strong>، أو سلسلة فارغة."
 }

@@ -1,6 +1,5 @@
 {
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "Der zu überprüfende Wert",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "Der Standardwert, der zurückgegeben wird, wenn der überprüfte Wert als leer betrachtet wird",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_": "# Argumentos:  \nvalue (Cualquiera): El valor a verificar\n[emptyValue=\"-\"] (String): El valor predeterminado que se devuelve si el valor verificado se considera vacío",
-  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "La función <strong>filterDefaultForEmpty</strong> se utiliza para verificar un valor y devolver un valor predeterminado si el valor verificado se considera vacío. En este contexto, un valor se considera vacío si es <strong>undefined</strong>, <strong>null</strong> o una cadena vacía."
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "El valor a verificar",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "El valor predeterminado que se devuelve si el valor verificado se considera vacío",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "La función <strong>filterDefaultForEmpty</strong> sirve para verificar un valor y devolver un valor predeterminado si el valor verificado se considera vacío. En este contexto, un valor se considera vacío si es <strong>undefined</strong>, <strong>null</strong> o una cadena vacía."
 }
