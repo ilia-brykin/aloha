@@ -109,6 +109,19 @@ export default function FunctionItemsAPI() {
         ],
       },
       {
+        id: "functions_utils",
+        label: "Utils",
+        children: [
+          {
+            id: "PageUtilsIsArrayOfStrings",
+            label: "isArrayOfStrings",
+            to: {
+              name: "PageUtilsIsArrayOfStrings",
+            },
+          },
+        ],
+      },
+      {
         id: "functions_utils_math",
         label: "Utils math",
         children: [

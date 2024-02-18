@@ -51,7 +51,8 @@ export function concatenateTwoStringsWithSpace({ class1, class2, defaultValue = 
 
 /**
  * Checks if the given input is an array of strings.
- * @param {Array} array - The input array to be checked.
+ *
+ * @param {Array} array - The array to be checked
  *
  * @return {boolean} - True if the input is an array of strings, false otherwise.
  */

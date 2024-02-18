@@ -59,6 +59,7 @@ import PageFilterFloatI18n from "./views/Functions/Filters/PageFilterFloat/i18n/
 import PageFilterCurrencyI18n from "./views/Functions/Filters/PageFilterCurrency/i18n/PageFilterCurrencyI18n";
 import PageUtilsMathIsOddI18n from "./views/Functions/UtilsMath/PageUtilsMathIsOdd/i18n/PageUtilsMathIsOddI18n";
 import PageUtilsMathIsEvenI18n from "./views/Functions/UtilsMath/PageUtilsMathIsEven/i18n/PageUtilsMathIsEvenI18n";
+import PageUtilsIsArrayOfStringsI18n from "./views/Functions/Utils/PageUtilsIsArrayOfStrings/i18n/PageUtilsIsArrayOfStringsI18n";
 
 export const mainTranslation = {
   ar: {
@@ -114,6 +115,7 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.ar,
     ...PageUtilsMathIsOddI18n.ar,
     ...PageUtilsMathIsEvenI18n.ar,
+    ...PageUtilsIsArrayOfStringsI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -168,6 +170,7 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.de,
     ...PageUtilsMathIsOddI18n.de,
     ...PageUtilsMathIsEvenI18n.de,
+    ...PageUtilsIsArrayOfStringsI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -222,6 +225,7 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.en,
     ...PageUtilsMathIsOddI18n.en,
     ...PageUtilsMathIsEvenI18n.en,
+    ...PageUtilsIsArrayOfStringsI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -276,6 +280,7 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.es,
     ...PageUtilsMathIsOddI18n.es,
     ...PageUtilsMathIsEvenI18n.es,
+    ...PageUtilsIsArrayOfStringsI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -330,6 +335,7 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.fr,
     ...PageUtilsMathIsOddI18n.fr,
     ...PageUtilsMathIsEvenI18n.fr,
+    ...PageUtilsIsArrayOfStringsI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -384,6 +390,7 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.hr,
     ...PageUtilsMathIsOddI18n.hr,
     ...PageUtilsMathIsEvenI18n.hr,
+    ...PageUtilsIsArrayOfStringsI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -438,6 +445,7 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.it,
     ...PageUtilsMathIsOddI18n.it,
     ...PageUtilsMathIsEvenI18n.it,
+    ...PageUtilsIsArrayOfStringsI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -492,5 +500,6 @@ export const mainTranslation = {
     ...PageFilterCurrencyI18n.ru,
     ...PageUtilsMathIsOddI18n.ru,
     ...PageUtilsMathIsEvenI18n.ru,
+    ...PageUtilsIsArrayOfStringsI18n.ru,
   },
 };
