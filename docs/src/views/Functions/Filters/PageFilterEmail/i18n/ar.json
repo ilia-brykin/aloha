@@ -1,6 +1,5 @@
 {
-  "_PAGE_FILTER_EMAIL_ARGUMENTS_EMAIL_": "Die E-Mail-Adresse, für die der HTML-Link erstellt werden soll",
-  "_PAGE_FILTER_EMAIL_ARGUMENTS_LINK_CLASS_": "Eine CSS-Klasse, die dem erstellten HTML-Link hinzugefügt wird",
-  "_PAGE_FILTER_EMAIL_ARGUMENTS_": "# الحجج:  \nemail (String): عنوان البريد الإلكتروني الذي يجب إنشاء رابط HTML له\n[linkClass] (String): فئة CSS يتم إضافتها إلى رابط HTML المُنشأ",
-  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "تقوم وظيفة <strong>filterEmail</strong> بإنشاء رابط HTML لعنوان بريد إلكتروني. تتحقق من وجود عنوان البريد الإلكتروني وأنه ليس فارغًا. إذا تم استيفاء الشروط، يتم إرجاع رابط HTML بالتنسيق <strong>&lt;a href=\"mailto:emailAdresse\" class=\"linkClass\"&gt;emailAdresse&lt;/a&gt;</strong>."
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_EMAIL_": "عنوان البريد الإلكتروني الذي سيتم إنشاء الرابط الHTML له",
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_LINK_CLASS_": "فئة CSS سيتم إضافتها إلى الرابط HTML المُنشأ",
+  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "تقوم الوظيفة <strong>filterEmail</strong> بإنشاء رابط HTML لعنوان بريد إلكتروني. تتحقق مما إذا كان عنوان البريد الإلكتروني موجودًا وليس فارغًا. إذا تم استيفاء الشروط، يتم إرجاع رابط HTML بالتنسيق <strong>&lt;a href=\"mailto:email\" class=\"linkClass\"&gt;email&lt;/a&gt;</strong>."
 }
