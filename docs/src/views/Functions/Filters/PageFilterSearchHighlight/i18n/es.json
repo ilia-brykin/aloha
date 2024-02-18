@@ -1,7 +1,6 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Der Wert, in dem der Suchbegriff hervorgehoben werden soll",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Der Suchbegriff, der im Wert hervorgehoben werden soll",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Eine CSS-Klasse, die den hervorgehobenen Teil des Werts stylen soll",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_": "# Argumentos:  \nvalue (String): El valor en el que se debe resaltar el término de búsqueda.\n[searchModel=\"\"] (String): El término de búsqueda que se debe resaltar en el valor\n[searchClass=\"a_search_highlight\"] (String): Una clase CSS que debe estilizar la parte resaltada del valor",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "La función <strong>filterSearchHighlight</strong> se utiliza para resaltar un término de búsqueda en un valor envolviendo el término de búsqueda con etiquetas HTML. Permite la personalización del término de búsqueda y la clase CSS para resaltar."
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "El valor en el que se debe resaltar el término de búsqueda",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "El término de búsqueda que se debe resaltar en el valor",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Una clase CSS que debe estilizar la parte resaltada del valor",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "La función <strong>filterSearchHighlight</strong> se utiliza para marcar un término de búsqueda en un valor encerrando el término de búsqueda con etiquetas HTML. Permite la personalización del término de búsqueda y la clase CSS para el resaltado."
 }
