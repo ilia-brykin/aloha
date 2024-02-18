@@ -1,9 +1,8 @@
 {
-  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "Die URL, die in den HTML-Link eingefügt werden soll",
-  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Der Text, der im HTML-Link angezeigt wird. Wenn nicht angegeben, wird die URL verwendet",
-  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Das Protokoll, das vor der URL hinzugefügt wird",
-  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Das Attribut <strong>target</strong> für den HTML-Link, das das Verhalten beim Öffnen des Links steuert",
-  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Eine CSS-Klasse, die dem HTML-Link hinzugefügt wird",
-  "_PAGE_FILTER_LINK_ARGUMENTS_": "# Argumentos:  \nurl (String): La URL que se insertará en el enlace HTML\n[linkText=\"\"] (String): El texto que se mostrará en el enlace HTML. Si no se especifica, se utiliza la URL\n[protocol=\"https://\"] (String): El protocolo que se añadirá antes de la URL\n[target=\"\"] (String): El atributo 'target' para el enlace HTML, controlando el comportamiento al abrir el enlace\n[linkClass=\"\"] (String): Una clase CSS que se añadirá al enlace HTML",
-  "_PAGE_FILTER_LINK_DESCRIPTION_": "La función <strong>filterLink</strong> crea un enlace HTML basado en la URL proporcionada <strong>url</strong>. Permite la personalización del protocolo, destino, clase CSS y texto mostrado para el enlace. La función verifica la validez de la URL y asegura que se inserte de manera segura en el enlace HTML."
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "La URL que se insertará en el enlace HTML",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "El texto que se mostrará en el enlace HTML. Si no se especifica, se utiliza la URL",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "El protocolo que se añadirá antes de la URL",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "El atributo <strong>target</strong> para el enlace HTML, que controla el comportamiento al abrir el enlace",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Una clase CSS que se añadirá al enlace HTML",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "La función <strong>filterLink</strong> crea un enlace HTML basado en la URL proporcionada. Permite la personalización del protocolo, el objetivo, la clase CSS y el texto mostrado para el enlace. La función verifica la validez de la URL y asegura que se inserte de forma segura en el enlace HTML."
 }

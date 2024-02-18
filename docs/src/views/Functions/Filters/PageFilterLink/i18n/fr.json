@@ -1,9 +1,8 @@
 {
-  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "Die URL, die in den HTML-Link eingefügt werden soll",
-  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Der Text, der im HTML-Link angezeigt wird. Wenn nicht angegeben, wird die URL verwendet",
-  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Das Protokoll, das vor der URL hinzugefügt wird",
-  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Das Attribut <strong>target</strong> für den HTML-Link, das das Verhalten beim Öffnen des Links steuert",
-  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Eine CSS-Klasse, die dem HTML-Link hinzugefügt wird",
-  "_PAGE_FILTER_LINK_ARGUMENTS_": "# Arguments :  \nurl (String): L'URL à insérer dans le lien HTML\n[linkText=\"\"] (String): Le texte qui sera affiché dans le lien HTML. Si non spécifié, l'URL est utilisée\n[protocol=\"https://\"] (String): Le protocole à ajouter avant l'URL\n[target=\"\"] (String): L'attribut 'target' pour le lien HTML, contrôlant le comportement lors de l'ouverture du lien\n[linkClass=\"\"] (String): Une classe CSS à ajouter au lien HTML",
-  "_PAGE_FILTER_LINK_DESCRIPTION_": "La fonction <strong>filterLink</strong> crée un lien HTML basé sur l'URL fournie <strong>url</strong>. Elle permet la personnalisation du protocole, de la cible, de la classe CSS et du texte affiché pour le lien. La fonction vérifie la validité de l'URL et assure son insertion sécurisée dans le lien HTML."
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "L'URL à insérer dans le lien HTML",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Le texte qui sera affiché dans le lien HTML. Si non spécifié, l'URL est utilisée",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Le protocole à ajouter avant l'URL",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "L'attribut <strong>target</strong> pour le lien HTML, qui contrôle le comportement lors de l'ouverture du lien",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Une classe CSS qui sera ajoutée au lien HTML",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "La fonction <strong>filterLink</strong> crée un lien HTML basé sur l'URL fournie. Elle permet la personnalisation du protocole, de la cible, de la classe CSS et du texte affiché pour le lien. La fonction vérifie la validité de l'URL et assure qu'elle est insérée en toute sécurité dans le lien HTML."
 }
