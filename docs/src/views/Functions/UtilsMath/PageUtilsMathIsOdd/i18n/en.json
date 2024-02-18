@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "The number to check if it is odd",
+  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "<p>Determines if a given number is odd.</p><p>This function first checks if the provided value is an integer. It returns <strong>false</strong> for non-integer values to ensure accurate oddness check. For integer values, it checks if the number is odd.</p>"
+}

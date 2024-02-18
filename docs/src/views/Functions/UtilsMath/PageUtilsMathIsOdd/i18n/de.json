@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "Die Zahl, um zu prüfen, ob sie ungerade ist",
+  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "<p>Bestimmt, ob eine gegebene Zahl ungerade ist.</p><p>Diese Funktion überprüft zunächst, ob der bereitgestellte Wert eine ganze Zahl ist. Sie gibt <strong lang=\"en\">false</strong> für Nicht-Ganzzahlwerte zurück, um eine genaue Ungeradheitsprüfung zu gewährleisten. Für Ganzzahlwerte prüft sie, ob die Zahl ungerade ist.</p>"
+}

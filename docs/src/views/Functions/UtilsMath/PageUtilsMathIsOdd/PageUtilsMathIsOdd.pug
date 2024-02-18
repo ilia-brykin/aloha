@@ -1,0 +1,26 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="isOdd"
+      type-import="utilsMath"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="isOdd(value)"
+    )
+
+    page-utils-math-is-odd-example
+
+    page-filter-test(
+      :test="test"
+    )

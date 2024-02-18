@@ -108,6 +108,19 @@ export default function FunctionItemsAPI() {
           },
         ],
       },
+      {
+        id: "functions_utils_math",
+        label: "Utils math",
+        children: [
+          {
+            id: "PageUtilsMathIsOdd",
+            label: "isOdd",
+            to: {
+              name: "PageUtilsMathIsOdd",
+            },
+          },
+        ],
+      },
     ],
   };
 

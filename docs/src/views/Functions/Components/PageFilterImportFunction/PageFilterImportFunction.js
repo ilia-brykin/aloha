@@ -12,6 +12,11 @@ export default {
       type: String,
       required: true,
     },
+    typeImport: {
+      type: String,
+      required: true,
+      validator: value => ["filters", "utils", "utilsMath"].indexOf(value) !== -1,
+    },
   },
   setup(props) {
     const {

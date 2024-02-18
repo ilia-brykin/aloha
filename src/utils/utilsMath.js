@@ -5,28 +5,36 @@ import {
 /**
  * Determines if a given number is odd.
  *
- * @param {number} n - The number to check if it is odd
+ * This function first checks if the provided value is an integer.
+ * It returns false for non-integer values to ensure accurate oddness check.
+ * For integer values, it checks if the number is odd.
  *
- * @return {boolean} - True if the number is odd, otherwise false.
+ * @param {number} value - The number to check if it is odd
+ *
+ * @return {boolean} - True if the number is an integer and odd, otherwise false.
  */
-export function isOdd(n) {
-  if (!isInteger(n)) {
+export function isOdd(value) {
+  if (!isInteger(value)) {
     return false;
   }
-  return Math.abs(n % 2) === 1;
+  return Math.abs(value % 2) === 1;
 }
 
 /**
  * Determines if a given number is even.
  *
- * @param {number} n - The number to be checked
+ * This function first checks if the provided value is an integer.
+ * It returns false for non-integer values to ensure accurate evenness check.
+ * For integer values, it checks if the number is even.
  *
- * @returns {boolean} - True if the number is even, false otherwise.
+ * @param {number} value - The number to check if it is even.
+ *
+ * @return {boolean} - True if the number is an integer and even, otherwise false.
  */
-export function isEven(n) {
-  if (!isInteger(n)) {
+export function isEven(value) {
+  if (!isInteger(value)) {
     return false;
   }
-  return n % 2 === 0;
+  return value % 2 === 0;
 }
 
