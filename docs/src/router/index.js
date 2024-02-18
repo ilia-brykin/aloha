@@ -277,72 +277,72 @@ const ROUTES = [
   {
     path: "/filter-list",
     name: "PageFilterList",
-    component: () => import(/* webpackChunkName: "PageFilterList" */ "../views/Functions/PageFilterList/PageFilterList.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterList" */ "../views/Functions/Filters/PageFilterList/PageFilterList.vue"),
   },
   {
     path: "/filter-limit-to",
     name: "PageFilterLimitTo",
-    component: () => import(/* webpackChunkName: "PageFilterLimitTo" */ "../views/Functions/PageFilterLimitTo/PageFilterLimitTo.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterLimitTo" */ "../views/Functions/Filters/PageFilterLimitTo/PageFilterLimitTo.vue"),
   },
   {
     path: "/filter-boolean",
     name: "PageFilterBoolean",
-    component: () => import(/* webpackChunkName: "PageFilterBoolean" */ "../views/Functions/PageFilterBoolean/PageFilterBoolean.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterBoolean" */ "../views/Functions/Filters/PageFilterBoolean/PageFilterBoolean.vue"),
   },
   {
     path: "/filter-default-for-empty",
     name: "PageFilterDefaultForEmpty",
-    component: () => import(/* webpackChunkName: "PageFilterDefaultForEmpty" */ "../views/Functions/PageFilterDefaultForEmpty/PageFilterDefaultForEmpty.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterDefaultForEmpty" */ "../views/Functions/Filters/PageFilterDefaultForEmpty/PageFilterDefaultForEmpty.vue"),
   },
   {
     path: "/filter-email",
     name: "PageFilterEmail",
-    component: () => import(/* webpackChunkName: "PageFilterEmail" */ "../views/Functions/PageFilterEmail/PageFilterEmail.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterEmail" */ "../views/Functions/Filters/PageFilterEmail/PageFilterEmail.vue"),
   },
   {
     path: "/filter-property-by-value",
     name: "PageFilterPropertyByValue",
-    component: () => import(/* webpackChunkName: "PageFilterPropertyByValue" */ "../views/Functions/PageFilterPropertyByValue/PageFilterPropertyByValue.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterPropertyByValue" */ "../views/Functions/Filters/PageFilterPropertyByValue/PageFilterPropertyByValue.vue"),
   },
   {
     path: "/filter-search-highlight",
     name: "PageFilterSearchHighlight",
-    component: () => import(/* webpackChunkName: "PageFilterSearchHighlight" */ "../views/Functions/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterSearchHighlight" */ "../views/Functions/Filters/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),
   },
   {
     path: "/filter-link",
     name: "PageFilterLink",
-    component: () => import(/* webpackChunkName: "PageFilterLink" */ "../views/Functions/PageFilterLink/PageFilterLink.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterLink" */ "../views/Functions/Filters/PageFilterLink/PageFilterLink.vue"),
   },
   {
     path: "/filter-json",
     name: "PageFilterJson",
-    component: () => import(/* webpackChunkName: "PageFilterJson" */ "../views/Functions/PageFilterJson/PageFilterJson.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterJson" */ "../views/Functions/Filters/PageFilterJson/PageFilterJson.vue"),
   },
   {
     path: "/filter-key-value",
     name: "PageFilterKeyValue",
-    component: () => import(/* webpackChunkName: "PageFilterKeyValue" */ "../views/Functions/PageFilterKeyValue/PageFilterKeyValue.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterKeyValue" */ "../views/Functions/Filters/PageFilterKeyValue/PageFilterKeyValue.vue"),
   },
   {
     path: "/filter-file-size",
     name: "PageFilterFileSize",
-    component: () => import(/* webpackChunkName: "PageFilterFileSize" */ "../views/Functions/PageFilterFileSize/PageFilterFileSize.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterFileSize" */ "../views/Functions/Filters/PageFilterFileSize/PageFilterFileSize.vue"),
   },
   {
     path: "/filter-date",
     name: "PageFilterDate",
-    component: () => import(/* webpackChunkName: "PageFilterDate" */ "../views/Functions/PageFilterDate/PageFilterDate.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterDate" */ "../views/Functions/Filters/PageFilterDate/PageFilterDate.vue"),
   },
   {
     path: "/filter-float",
     name: "PageFilterFloat",
-    component: () => import(/* webpackChunkName: "PageFilterFloat" */ "../views/Functions/PageFilterFloat/PageFilterFloat.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterFloat" */ "../views/Functions/Filters/PageFilterFloat/PageFilterFloat.vue"),
   },
   {
     path: "/filter-currency",
     name: "PageFilterCurrency",
-    component: () => import(/* webpackChunkName: "PageFilterCurrency" */ "../views/Functions/PageFilterCurrency/PageFilterCurrency.vue"),
+    component: () => import(/* webpackChunkName: "PageFilterCurrency" */ "../views/Functions/Filters/PageFilterCurrency/PageFilterCurrency.vue"),
   },
   {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'

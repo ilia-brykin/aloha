@@ -43,20 +43,20 @@ import PageTablePreviewDownI18n from "./views/PageTable/PageTablePreviewDown/i18
 import PageFiltersRightI18n from "./views/PageFiltersRight/i18n/PageFiltersRightI18n";
 import PageMenuBasicI18n from "./views/PageMenu/PageMenuBasic/i18n/PageMenuBasicI18n";
 import PageFunctionsI18n from "./views/Functions/i18n/PageFunctionsI18n";
-import PageFilterListI18n from "./views/Functions/PageFilterList/i18n/PageFilterListI18n";
-import PageFilterLimitToI18n from "./views/Functions/PageFilterLimitTo/i18n/PageFilterLimitToI18n";
-import PageFilterBooleanI18n from "./views/Functions/PageFilterBoolean/i18n/PageFilterBooleanI18n";
-import PageFilterDefaultForEmptyI18n from "./views/Functions/PageFilterDefaultForEmpty/i18n/PageFilterDefaultForEmptyI18n";
-import PageFilterEmailI18n from "./views/Functions/PageFilterEmail/i18n/PageFilterEmailI18n";
-import PageFilterPropertyByValueI18n from "./views/Functions/PageFilterPropertyByValue/i18n/PageFilterPropertyByValueI18n";
-import PageFilterSearchHighlightI18n from "./views/Functions/PageFilterSearchHighlight/i18n/PageFilterSearchHighlightI18n";
-import PageFilterLinkI18n from "./views/Functions/PageFilterLink/i18n/PageFilterLinkI18n";
-import PageFilterJsonI18n from "./views/Functions/PageFilterJson/i18n/PageFilterJsonI18n";
-import PageFilterKeyValueI18n from "./views/Functions/PageFilterKeyValue/i18n/PageFilterKeyValueI18n";
-import PageFilterFileSizeI18n from "./views/Functions/PageFilterFileSize/i18n/PageFilterFileSizeI18n";
-import PageFilterDateI18n from "./views/Functions/PageFilterDate/i18n/PageFilterDateI18n";
-import PageFilterFloatI18n from "./views/Functions/PageFilterFloat/i18n/PageFilterFloatI18n";
-import PageFilterCurrencyI18n from "./views/Functions/PageFilterCurrency/i18n/PageFilterCurrencyI18n";
+import PageFilterListI18n from "./views/Functions/Filters/PageFilterList/i18n/PageFilterListI18n";
+import PageFilterLimitToI18n from "./views/Functions/Filters/PageFilterLimitTo/i18n/PageFilterLimitToI18n";
+import PageFilterBooleanI18n from "./views/Functions/Filters/PageFilterBoolean/i18n/PageFilterBooleanI18n";
+import PageFilterDefaultForEmptyI18n from "./views/Functions/Filters/PageFilterDefaultForEmpty/i18n/PageFilterDefaultForEmptyI18n";
+import PageFilterEmailI18n from "./views/Functions/Filters/PageFilterEmail/i18n/PageFilterEmailI18n";
+import PageFilterPropertyByValueI18n from "./views/Functions/Filters/PageFilterPropertyByValue/i18n/PageFilterPropertyByValueI18n";
+import PageFilterSearchHighlightI18n from "./views/Functions/Filters/PageFilterSearchHighlight/i18n/PageFilterSearchHighlightI18n";
+import PageFilterLinkI18n from "./views/Functions/Filters/PageFilterLink/i18n/PageFilterLinkI18n";
+import PageFilterJsonI18n from "./views/Functions/Filters/PageFilterJson/i18n/PageFilterJsonI18n";
+import PageFilterKeyValueI18n from "./views/Functions/Filters/PageFilterKeyValue/i18n/PageFilterKeyValueI18n";
+import PageFilterFileSizeI18n from "./views/Functions/Filters/PageFilterFileSize/i18n/PageFilterFileSizeI18n";
+import PageFilterDateI18n from "./views/Functions/Filters/PageFilterDate/i18n/PageFilterDateI18n";
+import PageFilterFloatI18n from "./views/Functions/Filters/PageFilterFloat/i18n/PageFilterFloatI18n";
+import PageFilterCurrencyI18n from "./views/Functions/Filters/PageFilterCurrency/i18n/PageFilterCurrencyI18n";
 
 export const mainTranslation = {
   ar: {
