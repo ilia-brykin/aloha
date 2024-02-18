@@ -11,6 +11,7 @@ import PageFilterListKeyLabel from "./PageFilterListKeyLabel/PageFilterListKeyLa
 import PageFilterListKeyLabelCallback from "./PageFilterListKeyLabelCallback/PageFilterListKeyLabelCallback.vue";
 import PageFilterListListClass from "./PageFilterListListClass/PageFilterListListClass.vue";
 import PageFilterListSeparator from "./PageFilterListSeparator/PageFilterListSeparator.vue";
+import PageFilterListSeparatorHtml from "./PageFilterListSeparatorHtml/PageFilterListSeparatorHtml.vue";
 import PageFilterListTag from "./PageFilterListTag/PageFilterListTag.vue";
 import PageFilterTest from "../../Components/PageFilterTest/PageFilterTest.vue";
 
@@ -35,6 +36,7 @@ export default {
     PageFilterListKeyLabelCallback,
     PageFilterListListClass,
     PageFilterListSeparator,
+    PageFilterListSeparatorHtml,
     PageFilterListTag,
     PageFilterTest,
   },

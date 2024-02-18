@@ -40,13 +40,23 @@ describe("filterList", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: false })).toBe("label 1, label 2, label 3");
     expect(filterList(["aloha"], { isHtml: false })).toBe("aloha");
     expect(filterList(["x", "y", "z"], { isHtml: false })).toBe("x, y, z");
-    expect(filterList(123, { isHtml: false })).toBe(123);
+    expect(filterList(123, { isHtml: false })).toBe("");
   });
 
-  test("separator", () => {
+  test("separator isHtml=false", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: false, separator: "," })).toBe("label 1,label 2,label 3");
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: false, separator: "; " })).toBe("label 1; label 2; label 3");
     expect(filterList(["x", "y", "z"], { isHtml: false, separator: " - " })).toBe("x - y - z");
+  });
+
+  test("separator isHtml=true", () => {
+    expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separator: "," })).toBe("<ul><li>label 1,</li><li>label 2,</li><li>label 3</li></ul>");
+    expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separator: ";" })).toBe("<ul><li>label 1;</li><li>label 2;</li><li>label 3</li></ul>");
+  });
+
+  test("separatorHtml", () => {
+    expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separatorHtml: "<hr>" })).toBe("<ul><li>label 1<hr></li><li>label 2<hr></li><li>label 3</li></ul>");
+    expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separatorHtml: "<div>Aloha</div>" })).toBe("<ul><li>label 1<div>Aloha</div></li><li>label 2<div>Aloha</div></li><li>label 3</li></ul>");
   });
 
   test("tag", () => {

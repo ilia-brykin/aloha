@@ -6,18 +6,18 @@ export default function JsAPI() {
   const codeJs = `const ITEMS = ["label 1", "label 2", "label 3"];
 
 filterList(ITEMS, {
-  isHtml: false,
+  isHtml: true,
   isSimpleArray: true,
-  separator: "; ",
+  separatorHtml: "<hr>",
 });
-// ${ filterList(ITEMS, { isHtml: false, isSimpleArray: true, separator: "; ", }) }
+// ${ filterList(ITEMS, { isHtml: true, isSimpleArray: true, separatorHtml: "<hr>" }) }
 
 filterList(ITEMS, {
   isHtml: true,
   isSimpleArray: true,
-  separator: ";",
+  separatorHtml: "<div>Aloha</div>",
 });
-// ${ filterList(ITEMS, { isHtml: true, isSimpleArray: true, separator: ";", }) }`;
+// ${ filterList(ITEMS, { isHtml: true, isSimpleArray: true, separatorHtml: "<div>Aloha</div>" }) }`;
 
   return {
     codeJs,

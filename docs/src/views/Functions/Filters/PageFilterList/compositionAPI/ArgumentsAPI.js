@@ -8,6 +8,13 @@ export default function ArgumentsAPI() {
       text: "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_",
     },
     {
+      value: "[defaultValue=\"\"]",
+      types: [
+        "String",
+      ],
+      text: "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_",
+    },
+    {
       value: "[isHtml=true]",
       types: [
         "Boolean",
@@ -50,11 +57,18 @@ export default function ArgumentsAPI() {
       text: "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_",
     },
     {
-      value: "[separator=\", \"]",
+      value: "[separator]",
       types: [
         "String",
       ],
       text: "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_",
+    },
+    {
+      value: "[separatorHtml=\"\"]",
+      types: [
+        "String",
+      ],
+      text: "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_",
     },
     {
       value: "[tag=\"ul\"]",

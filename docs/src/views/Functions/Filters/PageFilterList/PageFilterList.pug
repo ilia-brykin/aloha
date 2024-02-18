@@ -20,7 +20,7 @@ aloha-page(
 
     page-filter-arguments(
       :arguments-text="argumentsText"
-      function-description="filterList(array, { [isHtml=true], [isSimpleArray=false], [keyChildren=\"\"], [keyLabel=\"\"], [keyLabelCallback], [listClass=\"\"], [separator=\", \"], [tag=\"ul\"] })"
+      function-description="filterList(array, { [defaultValue=\"\"], [isHtml=true], [isSimpleArray=false], [keyChildren=\"\"], [keyLabel=\"\"], [keyLabelCallback], [listClass=\"\"], [separator], [separatorHtml=\", \"], [tag=\"ul\"] })"
     )
 
     page-filter-list-is-simple-array
@@ -32,6 +32,8 @@ aloha-page(
     page-filter-list-is-html
 
     page-filter-list-separator
+
+    page-filter-list-separator-html
 
     page-filter-list-tag
 
