@@ -1,6 +1,5 @@
 {
-  "_PAGE_FILTER_DATE_ARGUMENTS_VALUE_": "Das Datum oder die Uhrzeit, das bzw. die formatiert werden soll",
-  "_PAGE_FILTER_DATE_ARGUMENTS_FORMAT_": "Das Anzeigeformat für das Datum. Mögliche Werte: \"date\" (Datum), \"datetime\" (Datum und Uhrzeit), \"fullDate\" (vollständiges Datum und Uhrzeit), \"time\" (Uhrzeit), \"timeWithSeconds\" (Uhrzeit mit Sekunden) oder ein gültiges Format von moment.js",
-  "_PAGE_FILTER_DATE_ARGUMENTS_": "# الحجج: \nvalue (أي شيء): التاريخ أو الوقت الذي يجب تنسيقه\n[format=\"date\"] (String): تنسيق عرض التاريخ. القيم الممكنة: \"date\" (تاريخ), \"datetime\" (تاريخ ووقت), \"fullDate\" (تاريخ ووقت كامل), \"time\" (وقت), \"timeWithSeconds\" (وقت مع ثواني) أو تنسيق صالح من moment.js.",
-  "_PAGE_FILTER_DATE_DESCRIPTION_": "تستخدم وظيفة <strong>filterDate</strong> مكتبة <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a> لتنسيق التاريخ والوقت. تأخذ قيمة تاريخ أو وقت وتعيدها بالتنسيق المحدد. يرجى ملاحظة أن مكتبة moment.js تعتبر قديمة ومن المقرر استبدالها بحل آخر في المستقبل. كما يخطط لتوسيع الوظيفة لدعم لغات مختلفة."
+  "_PAGE_FILTER_DATE_ARGUMENTS_VALUE_": "التاريخ أو الوقت المراد تنسيقه",
+  "_PAGE_FILTER_DATE_ARGUMENTS_FORMAT_": "تنسيق العرض للتاريخ. القيم الممكنة: \"date\" (تاريخ)، \"datetime\" (تاريخ ووقت)، \"fullDate\" (تاريخ ووقت كامل)، \"time\" (وقت)، \"timeWithSeconds\" (وقت مع الثواني) أو تنسيق صالح من <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a>",
+  "_PAGE_FILTER_DATE_DESCRIPTION_": "تستخدم الدالة <strong>filterDate</strong> مكتبة <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a> لتنسيق التواريخ والأوقات. تأخذ قيمة تاريخ أو وقت وتعيدها بالتنسيق المحدد. لاحظ أن moment.js تعتبر مكتبة قديمة ومن المخطط استبدالها بحل آخر في المستقبل. هناك أيضًا خطط لتوسيع الوظيفة لدعم لغات مختلفة."
 }
