@@ -2,7 +2,6 @@ import {
   computed,
   h,
   inject,
-  ref,
 } from "vue";
 
 import ATableHeaderTh from "../../ATableHeaderTh/ATableHeaderTh";
@@ -21,8 +20,6 @@ import {
 export default function ColumnsGroupedAPI() {
   const columns = cloneDeep(inject("columnsFilteredForRender"));
 
-  const columnsOrderedFromGroups = ref([]);
-
   const columnsWithIndexedGroups = computed(() => {
     return map(columns.value, column => {
       if (column.group && column.group.length) {
@@ -38,27 +35,32 @@ export default function ColumnsGroupedAPI() {
     });
   });
 
-  const getRecursiveChildrenForGroup = ({ groups, group, level }) => {
+  const getRecursiveChildrenForGroup = ({ groups, group, level, columnsOrderedFromGroups }) => {
     const foundGroupsForCurrentLevel = group ? filter(groups, _group => {
       return includes(_group, group[level - 1]);
     }) : groups;
 
     const uniqGroupsForCurrentLevel = uniqBy(foundGroupsForCurrentLevel, _group => _group[level]);
 
-    return map(uniqGroupsForCurrentLevel, _group => {
+    const recursiveGroup = map(uniqGroupsForCurrentLevel, _group => {
       const groupObjectToReturn = {
         id: _group[level].split("%%%")[0],
       };
 
       if (_group.length > level + 1) {
-        groupObjectToReturn.children = getRecursiveChildrenForGroup({ groups, group: _group, level: level + 1 });
+        groupObjectToReturn.children = get(getRecursiveChildrenForGroup({ groups, group: _group, level: level + 1, columnsOrderedFromGroups }), "recursiveGroup");
       } else if (_group.length === level + 1) {
         groupObjectToReturn.columns = filter(columnsWithIndexedGroups.value, column => includes(column.group, _group[level]));
-        columnsOrderedFromGroups.value.push(...groupObjectToReturn.columns);
+        columnsOrderedFromGroups.push(...groupObjectToReturn.columns);
       }
 
       return groupObjectToReturn;
     });
+
+    return {
+      columnsOrderedFromGroups,
+      recursiveGroup,
+    };
   };
 
   const plainGroupsAndColumns = computed(() => {
@@ -72,14 +74,16 @@ export default function ColumnsGroupedAPI() {
   const onlyColumns = computed(() => {
     return filter(plainGroupsAndColumns.value, group => !isArray(group));
   });
+  const columnsGrouped = computed(() => {
+    const columnsOrderedFromGroupsLocal = [];
+
+    return getRecursiveChildrenForGroup({ groups: onlyGroups.value, group: null, level: 0, columnsOrderedFromGroups: columnsOrderedFromGroupsLocal });
+  });
   const columnsOrdered = computed(() => {
     return [
-      ...columnsOrderedFromGroups.value,
+      ...columnsGrouped.value.columnsOrderedFromGroups,
       ...onlyColumns.value,
     ];
-  });
-  const columnsGrouped = computed(() => {
-    return getRecursiveChildrenForGroup({ groups: onlyGroups.value, group: null, level: 0 });
   });
 
   const getColumnsForRender = cols => {
@@ -89,7 +93,7 @@ export default function ColumnsGroupedAPI() {
         column: column,
         columnIndex: columnIndex,
         class: "a_table__cell__child_group",
-        columnGroupIds: column.group,
+        columnGroupNames: column.group,
         hasMultipleActions: false,
       });
     });
@@ -118,7 +122,7 @@ export default function ColumnsGroupedAPI() {
   };
   const renderedGroupedColumns = computed(() => {
     return [
-      ...getRecursiveGroupForRender(columnsGrouped.value),
+      ...getRecursiveGroupForRender(columnsGrouped.value.recursiveGroup),
       ...getColumnsForRender(onlyColumns.value),
     ];
   });
