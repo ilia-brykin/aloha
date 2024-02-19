@@ -7651,6 +7651,8 @@ input:not(:-webkit-autofill) {
   --a_table_th_bg: var(--a_color_gray_300);
   --a_table_th_border_vertical_width: 2px;
   --a_table_th_border_vertical_color: var(--a_color_gray_100);
+  --a_table_th_border_horizontal_width: 2px;
+  --a_table_th_border_horizontal_color: var(--a_color_gray_100);
   --a_table_th_border_bottom_width: 2px;
   --a_table_th_border_bottom_color: var(--a_color_gray_500);
   --a_table_th_sorting_bg: #d0e3a4;
@@ -7781,6 +7783,20 @@ input:not(:-webkit-autofill) {
     padding: var(--a_table_cell_padding_y) var(--a_table_cell_padding_x); }
   .a_table__th .a_table__cell__child {
     height: 100%; }
+
+.a_table__th_group_container {
+  display: flex;
+  flex-direction: row; }
+
+.a_table__cell_group {
+  height: 100%;
+  padding: var(--a_table_cell_padding_y) var(--a_table_cell_padding_x); }
+
+.a_table__th_child_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; }
 
 .a_table__th__btn {
   padding: 0;
@@ -8161,6 +8177,26 @@ input:not(:-webkit-autofill) {
 .a_table_bordered .a_table__th + .a_table__th,
 .a_table_inner_bordered .a_table__th + .a_table__th {
   border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
+
+.a_table_bordered .a_table__th_group,
+.a_table_inner_bordered .a_table__th_group {
+  width: 100%; }
+  .a_table_bordered .a_table__th_group:not(:first-child) .a_table__cell_group,
+  .a_table_bordered .a_table__th_group:not(:first-child) .a_table__cell__child_group,
+  .a_table_inner_bordered .a_table__th_group:not(:first-child) .a_table__cell_group,
+  .a_table_inner_bordered .a_table__th_group:not(:first-child) .a_table__cell__child_group {
+    border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
+  .a_table_bordered .a_table__th_group:not(:first-child) + .a_table__th,
+  .a_table_inner_bordered .a_table__th_group:not(:first-child) + .a_table__th {
+    border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
+
+.a_table_bordered .a_table__cell_action,
+.a_table_inner_bordered .a_table__cell_action {
+  border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
+
+.a_table_bordered .a_table__cell_group,
+.a_table_inner_bordered .a_table__cell_group {
+  border-bottom: var(--a_table_th_border_horizontal_width) solid var(--a_table_th_border_horizontal_color); }
 
 .a_dropdown__caret {
   margin: 0; }
