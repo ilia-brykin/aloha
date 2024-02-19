@@ -87,6 +87,7 @@ export default function ModelValuesAPI(props, {
             count: modelArrayReal.value.length,
             modelArray: modelArrayReal.value,
           },
+          modelArray: modelArrayReal.value,
         }];
       }
       return [];

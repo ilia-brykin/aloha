@@ -148,6 +148,8 @@ export default {
               this.$slots[this.filter.slotName]({
                 item: modelValue.item,
                 label: modelValue.label,
+                extra: modelValue.extra,
+                inFilterCenter: true,
               }) :
               h(ATranslation, {
                 class: "a_filters_center__item__value",
