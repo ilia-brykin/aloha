@@ -17,7 +17,7 @@ export default {
       type: Object,
       required: true,
     },
-    columnGroupIds: {
+    columnGroupNames: {
       type: Array,
       required: false,
       default: undefined,
@@ -125,8 +125,8 @@ export default {
           this.column.classHeader,
         ],
       }, [
-        this.columnGroupIds && h(ATranslation, {
-          html: this.columnGroupIds,
+        this.columnGroupNames && h(ATranslation, {
+          html: this.columnGroupNames,
           tag: "span",
           class: "a_sr_only",
         }),
