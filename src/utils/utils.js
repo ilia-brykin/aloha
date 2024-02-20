@@ -35,7 +35,7 @@ function toCorrectFormat(value) {
  * @return {boolean} - True if the input is an array of strings, false otherwise.
  */
 export function isArrayOfStrings(array) {
-  if (!isArray(array)) {
+  if (!isArray(array) || !array.length) {
     return false;
   }
 
@@ -50,7 +50,7 @@ export function isArrayOfStrings(array) {
  * @return {boolean} - True if the input is an array of arrays, false otherwise.
  */
 export function isArrayOfArrays(array) {
-  if (!isArray(array)) {
+  if (!isArray(array) || !array.length) {
     return false;
   }
 

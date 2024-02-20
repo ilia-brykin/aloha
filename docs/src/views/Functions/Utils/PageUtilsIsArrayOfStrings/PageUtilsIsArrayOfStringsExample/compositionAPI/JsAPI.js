@@ -16,7 +16,20 @@ isArrayOfStrings(["Aloha", false]);
 isArrayOfStrings(["Aloha", undefined]);
 // ${ isArrayOfStrings(["Aloha", undefined]) }
 isArrayOfStrings(["Aloha", null]);
-// ${ isArrayOfStrings(["Aloha", null]) }`;
+// ${ isArrayOfStrings(["Aloha", null]) }
+
+isArrayOfStrings([]);
+// ${ isArrayOfStrings([]) }
+isArrayOfStrings("Aloha");
+// ${ isArrayOfStrings("Aloha") }
+isArrayOfStrings(1);
+// ${ isArrayOfStrings(1) }
+isArrayOfStrings(undefined);
+// ${ isArrayOfStrings(undefined) }
+isArrayOfStrings(null);
+// ${ isArrayOfStrings(null) }
+isArrayOfStrings({});
+// ${ isArrayOfStrings({}) }`;
 
   return {
     codeJs,

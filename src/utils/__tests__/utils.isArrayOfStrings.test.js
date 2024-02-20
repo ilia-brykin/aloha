@@ -17,6 +17,10 @@ describe("isArrayOfStrings function", () => {
     expect(result).toBe(false);
   });
 
+  it("should return false if provided with a empty array", () => {
+    expect(isArrayOfStrings([])).toBe(false);
+  });
+
   test("should return false when input is an array but not all elements are strings", () => {
     expect(isArrayOfStrings(["hello", 1234])).toBe(false);
     expect(isArrayOfStrings(["hello", false])).toBe(false);

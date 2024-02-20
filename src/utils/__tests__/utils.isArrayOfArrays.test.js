@@ -25,6 +25,10 @@ describe("isArrayOfArrays", () => {
     expect(isArrayOfArrays({})).toBe(false);
   });
 
+  it("should return false if provided with a empty array", () => {
+    expect(isArrayOfArrays([])).toBe(false);
+  });
+
   it("should return false if provided with an array that contains non-array elements", () => {
     const testData = [[1, 2, 3], "This is not an array", [7, 8, 9]];
     const result = isArrayOfArrays(testData);

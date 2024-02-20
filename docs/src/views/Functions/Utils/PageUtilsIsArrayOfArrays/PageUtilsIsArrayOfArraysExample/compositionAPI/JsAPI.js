@@ -11,6 +11,8 @@ isArrayOfArrays([[], [], []]);
 isArrayOfArrays([1, 2, 3]);
 // ${ isArrayOfArrays([1, 2, 3]) }
 
+isArrayOfArrays([]);
+// ${ isArrayOfArrays([]) }
 isArrayOfArrays("Aloha");
 // ${ isArrayOfArrays("Aloha") }
 isArrayOfArrays(1);
