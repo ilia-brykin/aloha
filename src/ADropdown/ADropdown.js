@@ -110,7 +110,7 @@ export default {
       default: "button",
     },
     buttonText: {
-      type: [String, Number, Object],
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -125,12 +125,12 @@ export default {
       default: undefined,
     },
     buttonTextScreenReader: {
-      type: String,
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
     buttonTitle: {
-      type: String,
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
