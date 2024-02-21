@@ -43,7 +43,7 @@ export default {
       modelColumnsOrdering: ["sdf", "ddsadsa", "aloha"],
       columns: [
         {
-          label: "Aloha",
+          label: "_A_TABLE_COLUMN_1_",
           id: "aloha",
           keyLabel: "aloha",
           sortId: "aloha",
@@ -56,7 +56,7 @@ export default {
           title: "Aloha",
         },
         {
-          label: "Slot",
+          label: "_A_TABLE_COLUMN_2_",
           id: "slot",
           slot: "slot1",
           title: "bbbbbbbbbb",

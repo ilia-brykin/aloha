@@ -67,6 +67,11 @@ export default {
     });
 
     const {
+      labelLocal,
+      labelTranslated,
+    } = LabelAPI(props);
+
+    const {
       buttonVisibleProps,
       isColumnVisible,
     } = ButtonVisibleAPI(props, {
@@ -88,11 +93,8 @@ export default {
       attributesForRoot,
       isColumnVisible,
       isLocked,
+      labelTranslated,
     });
-
-    const {
-      labelLocal,
-    } = LabelAPI(props);
 
     return {
       attributesComponent,

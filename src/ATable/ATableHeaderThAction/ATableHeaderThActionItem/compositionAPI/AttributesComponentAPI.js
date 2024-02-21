@@ -7,8 +7,8 @@ export default function AttributesComponentAPI(props, {
   attributesForRoot = computed(() => ({})),
   isColumnVisible = computed(() => false),
   isLocked = computed(() => false),
+  labelTranslated = computed(() => ""),
 }) {
-  const column = toRef(props, "column");
   const searchColumnModel = toRef(props, "searchColumnModel");
 
   const isComponentVisible = computed(() => {
@@ -16,7 +16,7 @@ export default function AttributesComponentAPI(props, {
       return true;
     }
     const RE = new RegExp(searchColumnModel.value, "gi");
-    return `${ column.value.label }`.search(RE) !== -1;
+    return `${ labelTranslated.value }`.search(RE) !== -1;
   });
 
   const attributesComponent = computed(() => {
