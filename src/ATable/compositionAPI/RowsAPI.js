@@ -6,7 +6,7 @@ import {
 } from "vue";
 
 import {
-  cloneDeep,
+  isEqual,
   map,
 } from "lodash-es";
 
@@ -25,10 +25,9 @@ export default function RowsAPI(props, {
 
   const dataPaginated = computed(() => {
     if (limit.value && !pagination.value.isOutside && usePaginationLocal.value) {
-      const DATA_SORTED = cloneDeep(dataSorted.value);
       const INDEX_START = offset.value;
       const INDEX_END = INDEX_START + limit.value;
-      return DATA_SORTED.slice(INDEX_START, INDEX_END);
+      return dataSorted.value.slice(INDEX_START, INDEX_END);
     }
     return dataSorted.value;
   });
@@ -81,7 +80,10 @@ export default function RowsAPI(props, {
     rowsLocal.value.splice(index, 1);
   };
 
-  watch(dataPaginated, () => {
+  watch(dataPaginated, (newValue, oldValue) => {
+    if (isEqual(newValue, oldValue)) {
+      return;
+    }
     rowsLocal.value = [];
     rowsLocalIndex = 0;
     stopRenderRows();
