@@ -6,15 +6,24 @@ import {
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
 
 export default function SimpleTableAPI(props) {
+  const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const isActionIconVisible = toRef(props, "isActionColumnVisible");
   const isColumnsDnd = toRef(props, "isColumnsDnd");
   const isSimpleTable = toRef(props, "isSimpleTable");
   const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
+  const rowActions = toRef(props, "rowActions");
 
   const {
     isMobileWidth,
   } = AMobileAPI();
 
+  const isActionColumnVisibleLocal = computed(() => {
+    if (isSimpleTable.value) {
+      return rowActions.value && !!rowActions.value.length && isActionColumnVisible.value;
+    }
+
+    return isActionIconVisible.value;
+  });
   const isActionIconVisibleLocal = computed(() => {
     return !!(isActionIconVisible.value && !isSimpleTable.value);
   });
@@ -29,6 +38,7 @@ export default function SimpleTableAPI(props) {
   });
 
   return {
+    isActionColumnVisibleLocal,
     isActionIconVisibleLocal,
     isColumnsDndLocal,
     isMobile,

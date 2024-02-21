@@ -399,7 +399,6 @@ export default {
       columnsDefaultValue: computed(() => this.columnsDefaultValue),
       columnActionsWidthLocal: computed(() => this.columnActionsWidth),
       columnWidthDefault: computed(() => this.columnWidthDefault),
-      isActionColumnVisible: computed(() => this.isActionColumnVisible),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
       rowActions: computed(() => this.rowActions),
@@ -409,6 +408,7 @@ export default {
   },
   setup(props, context) {
     const {
+      isActionColumnVisibleLocal,
       isActionIconVisibleLocal,
       isColumnsDndLocal,
       isMobile,
@@ -630,6 +630,7 @@ export default {
     provide("currentMultipleActions", currentMultipleActions);
     provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
+    provide("isActionColumnVisible", isActionColumnVisibleLocal);
     provide("isActionIconVisible", isActionIconVisibleLocal);
     provide("isColumnsDnd", isColumnsDndLocal);
     provide("isMobile", isMobile);
