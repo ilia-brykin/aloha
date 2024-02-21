@@ -323,6 +323,11 @@ export default {
       required: false,
       default: () => [],
     },
+    showCount: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     showFirstSortingSequenceNumber: {
       type: Boolean,
       required: false,
@@ -791,6 +796,7 @@ export default {
           hasViews: this.hasViews,
           viewCurrent: this.viewCurrent,
           modelView: this.modelView,
+          showCount: this.showCount,
           tableActionsIndexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
           tableActionsIndexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
           useViewSlot: this.useViewSlot,
