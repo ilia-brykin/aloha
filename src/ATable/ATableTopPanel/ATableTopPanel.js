@@ -92,6 +92,11 @@ export default {
       type: Array,
       required: true,
     },
+    showCount: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     tableActions: {
       type: Array,
       required: true,
@@ -202,7 +207,7 @@ export default {
                 class: "a_table__top_panel__label__text",
                 text: this.label,
               }),
-              h(AButton, {
+              this.showCount && h(AButton, {
                 class: "a_table__top_panel__label__count",
                 tag: "span",
                 text: this.countAllRowsFormatted,
