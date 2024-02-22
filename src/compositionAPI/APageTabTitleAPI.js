@@ -67,7 +67,7 @@ export default function APageTabTitleAPI(props) {
 
   setPageTabTitle();
 
-  watch(title, () => {
+  watch(titleTranslated, () => {
     setPageTabTitle();
   });
 }
