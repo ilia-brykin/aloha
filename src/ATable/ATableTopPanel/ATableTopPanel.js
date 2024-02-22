@@ -207,7 +207,7 @@ export default {
                 class: "a_table__top_panel__label__text",
                 text: this.label,
               }),
-              this.showCount && h(AButton, {
+              this.showCount ? h(AButton, {
                 class: "a_table__top_panel__label__count",
                 tag: "span",
                 text: this.countAllRowsFormatted,
@@ -216,7 +216,7 @@ export default {
                 extra: {
                   count: this.countAllRows,
                 },
-              }),
+              }) : "",
             ]) :
           "",
         h("div", {
