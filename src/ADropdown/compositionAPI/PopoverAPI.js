@@ -1,4 +1,5 @@
 import {
+  computed,
   ref,
   toRef,
 } from "vue";
@@ -15,9 +16,22 @@ export default function PopoverAPI(props, {
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
 }) {
+  const floatingFlip = toRef(props, "floatingFlip");
   const placement = toRef(props, "placement");
 
   const cleanupPopper = ref(undefined);
+
+  const middleware = computed(() => {
+    const MIDDLEWARE = [];
+    if (floatingFlip.value?.use) {
+      MIDDLEWARE.push(
+        flip(floatingFlip.value),
+      );
+    }
+    MIDDLEWARE.push(shift({ limiter: limitShift() }));
+
+    return MIDDLEWARE;
+  });
 
   const startPopper = () => {
     if (!cleanupPopper.value) {
@@ -30,10 +44,7 @@ export default function PopoverAPI(props, {
             dropdownRef.value,
             {
               placement: placement.value,
-              middleware: [
-                flip(),
-                shift({ limiter: limitShift() }),
-              ]
+              middleware: middleware.value,
             },
           ).then(({ x, y }) => {
             Object.assign(dropdownRef.value.style, {

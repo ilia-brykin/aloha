@@ -27,6 +27,7 @@ import {
   difference,
   uniqueId,
 } from "lodash-es";
+import { flip } from "@floating-ui/vue";
 
 
 export default {
@@ -183,6 +184,19 @@ export default {
       type: Object,
       required: false,
       default: undefined,
+    },
+    floatingFlip: {
+      type: Object,
+      required: false,
+      // mainAxis?: boolean;
+      // crossAxis?: boolean;
+      // fallbackAxisSideDirection?: 'none' | 'start' | 'end';
+      // flipAlignment?: boolean;
+      // fallbackPlacements?: Array<Placement>;
+      // fallbackStrategy?: 'bestFit' | 'initialPlacement';
+      default: () => ({
+        use: true,
+      }),
     },
     hasCaret: {
       type: Boolean,

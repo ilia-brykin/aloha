@@ -105,6 +105,10 @@ export default {
           dropdownClass: "a_p_0 a_overflow_x_hidden a_table__extra_dropdown",
           dropdownTag: "div",
           hasCaret: false,
+          floatingFlip: {
+            use: true,
+            fallbackPlacements: ["top-end", "left"],
+          },
           inBody: true,
           placement: "bottom-end",
           menuWidth: 600,
