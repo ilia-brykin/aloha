@@ -28,10 +28,12 @@
   "_A_LIST_KEY_LABEL_PROP_DESCRIPTION_": "Clé pour l'étiquette à afficher, si les données sont un tableau d'objets",
   "_A_LIST_LABEL_TAG_PROP_DESCRIPTION_": "Balise HTML pour les étiquettes",
   "_A_LIST_LIST_ITEM_TAG_PROP_DESCRIPTION_": "Balise HTML pour les éléments de la liste",
-  "_A_LIST_SEPARATOR_PROP_DESCRIPTION_": "Séparateur entre les éléments",
-  "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_": "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_",
   "_A_LIST_SLOT_DESCRIPTION_": "Contenu personnalisé pour chaque élément de la liste",
   "_A_LIST_TAG_PROP_DESCRIPTION_": "Balise HTML pour la liste entière",
   "_A_LIST_WITH_SLOT_DESCRIPTION_": "Une liste avec du contenu personnalisé dans les éléments via le slot.",
-  "_A_LIST_WITH_SLOT_HEADER_": "Slot"
+  "_A_LIST_WITH_SLOT_HEADER_": "Slot",
+  "_A_LIST_GROUP_SEPARATOR_HTML_DESCRIPTION_": "Le contenu utilisé comme séparateur entre les éléments d'une liste peut également être spécifié au format HTML. Ce contenu sera nettoyé.",
+  "_A_LIST_GROUP_SEPARATOR_HTML_HEADER_": "Séparateur personnalisé entre les éléments d'une liste au format HTML",
+  "_A_LIST_SEPARATOR_PROP_DESCRIPTION_": "Séparateur entre les éléments d'une liste.",
+  "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_": "Séparateur entre les éléments d'une liste au format HTML."
 }

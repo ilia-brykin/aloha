@@ -28,10 +28,12 @@
   "_A_LIST_KEY_LABEL_PROP_DESCRIPTION_": "مفتاح للتسمية المراد عرضها، إذا كانت data عبارة عن مصفوفة من الكائنات",
   "_A_LIST_LABEL_TAG_PROP_DESCRIPTION_": "وسم HTML للتسميات",
   "_A_LIST_LIST_ITEM_TAG_PROP_DESCRIPTION_": "وسم HTML للعناصر في القائمة",
-  "_A_LIST_SEPARATOR_PROP_DESCRIPTION_": "فاصل بين العناصر",
-  "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_": "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_",
   "_A_LIST_SLOT_DESCRIPTION_": "محتوى مخصص لكل عنصر في القائمة",
   "_A_LIST_TAG_PROP_DESCRIPTION_": "وسم HTML للقائمة بأكملها",
   "_A_LIST_WITH_SLOT_DESCRIPTION_": "قائمة بمحتوى مخصص في العناصر عبر الشق.",
-  "_A_LIST_WITH_SLOT_HEADER_": "شق"
+  "_A_LIST_WITH_SLOT_HEADER_": "شق",
+  "_A_LIST_GROUP_SEPARATOR_HTML_DESCRIPTION_": "المحتوى المستخدم كفاصل بين عناصر في قائمة يمكن أيضًا تحديده بتنسيق HTML. سيتم تنقية هذا المحتوى.",
+  "_A_LIST_GROUP_SEPARATOR_HTML_HEADER_": "فاصل مخصص بين عناصر القائمة بتنسيق HTML",
+  "_A_LIST_SEPARATOR_PROP_DESCRIPTION_": "فاصل بين عناصر القائمة.",
+  "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_": "فاصل بين عناصر القائمة بتنسيق HTML."
 }

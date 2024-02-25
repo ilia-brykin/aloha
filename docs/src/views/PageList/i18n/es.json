@@ -28,10 +28,12 @@
   "_A_LIST_KEY_LABEL_PROP_DESCRIPTION_": "Clave para la etiqueta que se mostrará, si los datos son un array de objetos",
   "_A_LIST_LABEL_TAG_PROP_DESCRIPTION_": "Etiqueta HTML para las etiquetas",
   "_A_LIST_LIST_ITEM_TAG_PROP_DESCRIPTION_": "Etiqueta HTML para los elementos en la lista",
-  "_A_LIST_SEPARATOR_PROP_DESCRIPTION_": "Separador entre elementos",
-  "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_": "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_",
   "_A_LIST_SLOT_DESCRIPTION_": "Contenido personalizado para cada elemento en la lista",
   "_A_LIST_TAG_PROP_DESCRIPTION_": "Etiqueta HTML para toda la lista",
   "_A_LIST_WITH_SLOT_DESCRIPTION_": "Una lista con contenido personalizado en los elementos a través del slot.",
+  "_A_LIST_GROUP_SEPARATOR_HTML_DESCRIPTION_": "El contenido utilizado como separador entre elementos de una lista también puede especificarse en formato HTML. Este contenido será saneado.",
+  "_A_LIST_GROUP_SEPARATOR_HTML_HEADER_": "Separador personalizado entre elementos de una lista en formato HTML",
+  "_A_LIST_SEPARATOR_PROP_DESCRIPTION_": "Separador entre elementos de una lista.",
+  "_A_LIST_SEPARATOR_HTML_PROP_DESCRIPTION_": "Separador entre elementos de una lista en formato HTML.",
   "_A_LIST_WITH_SLOT_HEADER_": "Slot"
 }
