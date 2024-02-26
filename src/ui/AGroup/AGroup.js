@@ -14,6 +14,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import UiAPI, {
   getHtmlId,
 } from "../compositionApi/UiAPI";
+import SpecificTypeAPI from "./compositionAPI/SpecificTypeAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -94,6 +95,10 @@ export default {
       });
     });
 
+    const {
+      specificAttributes,
+    } = SpecificTypeAPI(props);
+
     return {
       componentTypesMapping,
       firstChild,
@@ -102,6 +107,8 @@ export default {
       onUpdateDataLocal,
 
       componentStyleHide,
+
+      specificAttributes,
 
       ariaDescribedbyLocal,
       changeModel,
@@ -155,6 +162,7 @@ export default {
                 "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
                 onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
                 ...item,
+                ...this.specificAttributes[item.id],
                 label: itemIndex === 0 ? undefined : item.label,
                 slotAppend: undefined,
               }, this.$slots),

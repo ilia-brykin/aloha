@@ -13,7 +13,7 @@
   .a_btn_group {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    > .aloha_btn {
+    > .a_btn {
       --a_btn_border_color: #ced4da;
       &:first-child {
         margin-left: calc(-1 * var(--a_btn_border_width, var(--a_border_width)));

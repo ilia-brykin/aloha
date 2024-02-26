@@ -85,6 +85,13 @@
 }
 .a_filter_horizontal__body {
   padding: var(--a_filter_hor_padding_y) var(--a_filter_hor_padding_x) 0 var(--a_filter_hor_padding_x);
+
+  .a_form_element__container {
+    display: flex;
+    flex-basis: 181px;
+    flex-grow: 1;
+    width: 100%;
+  }
 }
 .a_filter_horizontal__body__form {
   padding: 0;
