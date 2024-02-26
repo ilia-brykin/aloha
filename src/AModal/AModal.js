@@ -28,12 +28,18 @@ import {
 import {
   uniqueId,
 } from "lodash-es";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 
 // @vue/component
 export default {
   name: "AModal",
   inheritAttrs: false,
   props: {
+    backdropZIndex: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
     bodyHtml: {
       type: String,
       required: false,
@@ -174,6 +180,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
+    zIndex: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
   },
   setup(props) {
     const isModalHidden = toRef(props, "isModalHidden");
@@ -182,6 +193,11 @@ export default {
       destroyEventBusCloseFromOutside,
       initEventBusCloseFromOutside,
     } = CloseFromOutsideAPI(props);
+
+    const {
+      stylesBackdrop,
+      stylesModal,
+    } = AttributesAPI(props);
 
     const {
       sizeClass,
@@ -261,6 +277,8 @@ export default {
       modalWrapperRef,
       setFocusToModal,
       sizeClass,
+      stylesBackdrop,
+      stylesModal,
     };
   },
   render() {
@@ -281,6 +299,7 @@ export default {
           tabindex: -1,
           role: "dialog",
           ariaModal: true,
+          style: this.stylesModal,
         }, [
           h("div", {
             class: ["a_modal_dialog a_modal_dialog_scrollable", this.sizeClass],
@@ -358,7 +377,8 @@ export default {
             a_backdrop_confirm: this.isConfirm,
           },
         ],
-      })
+        style: this.stylesBackdrop,
+      }),
     ]);
   },
 };

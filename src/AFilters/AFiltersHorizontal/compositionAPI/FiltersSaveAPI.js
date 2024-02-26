@@ -67,13 +67,14 @@ export default function FiltersSaveAPI(props, {
     isModalSaveVisible.value = false;
   };
 
-  const changeModelFiltersSaved = ({ model, item }) => {
+  const changeModelFiltersSaved = ({ model, item, isDelete }) => {
     if (!model) {
-      if (modelFiltersSaved.value === NEW_FILTER_LABEL) {
+      if (modelFiltersSaved.value === NEW_FILTER_LABEL || isDelete) {
         onUpdateModelFilters.value({
           model: {},
           isUpdateFiltersVisible: true,
         });
+        modelFiltersSaved.value = NEW_FILTER_LABEL;
       } else if (item) {
         onUpdateModelFilters.value({
           model: {},

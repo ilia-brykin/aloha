@@ -78,7 +78,7 @@ export default function FiltersSavedDeleteAPI(props, {
       loading: false,
     });
     closeConfirm();
-    changeModelFiltersSaved({ model: undefined });
+    changeModelFiltersSaved({ model: undefined, isDelete: true });
   };
 
   const openDeleteConfirm = () => {
@@ -91,6 +91,9 @@ export default function FiltersSavedDeleteAPI(props, {
       save: deleteFiltersSaved,
       selectorCloseIds: [buttonDeleteId.value, idFilterTop.value],
       saveButtonText: "_A_FILTERS_DELETE_FILTER_BTN_DELETE_",
+      stop: true,
+      zIndex: 1901,
+      backdropZIndex: 1900,
     });
   };
 

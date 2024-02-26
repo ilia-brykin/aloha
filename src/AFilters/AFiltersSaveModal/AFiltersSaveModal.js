@@ -20,6 +20,10 @@ export default {
       type: Array,
       required: true,
     },
+    isModelFilterSavedNew: {
+      type: Boolean,
+      required: true,
+    },
     modelFiltersSaved: {
       type: String,
       required: false,
@@ -87,6 +91,8 @@ export default {
       size: "large",
       save: this.save,
       stop: true,
+      zIndex: 1901,
+      backdropZIndex: 1900,
       "onUpdate:modelValue": this.updateModel,
     }, {
       modalBodyPrepend: () => [

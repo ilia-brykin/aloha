@@ -21,6 +21,11 @@ export default {
   name: "AModalForm",
   inheritAttrs: false,
   props: {
+    backdropZIndex: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
     bodyHtml: {
       type: String,
       required: false,
@@ -192,6 +197,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
+    zIndex: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "update:modelValue",
@@ -212,6 +222,7 @@ export default {
   },
   render() {
     return h(AModal, {
+      backdropZIndex: this.backdropZIndex,
       close: this.close,
       closeButtonClass: this.closeButtonClass,
       closeButtonId: this.closeButtonId,
@@ -237,6 +248,7 @@ export default {
       size: this.size,
       stop: this.stop,
       useEscape: this.useEscape,
+      zIndex: this.zIndex,
     }, {
       ...this.$slots || {},
       modalBody: () => [

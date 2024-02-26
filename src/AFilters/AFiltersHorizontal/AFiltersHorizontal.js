@@ -376,6 +376,7 @@ export default {
         h(AFiltersSaveModal, {
           changeModelFiltersSaved: this.changeModelFiltersSaved,
           filtersSaved: this.filtersSaved,
+          isModelFilterSavedNew: this.isModelFilterSavedNew,
           modelFiltersSaved: this.modelFiltersSaved,
           selectorCloseIds: this.selectorCloseIds,
           updateFiltersSaved: this.updateFiltersSaved,
