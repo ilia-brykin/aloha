@@ -8,7 +8,9 @@ aloha-example(
   div
     a-filters(
       :can-save="true"
+      :filter-main="filterMain"
       :filters="filters"
       v-model:applied-model="appliedModel"
       v-model:unapplied-model="unappliedModel"
+      v-model:main-model="mainModel"
     )

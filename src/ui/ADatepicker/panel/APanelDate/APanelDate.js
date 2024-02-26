@@ -12,7 +12,7 @@ import {
 
 // @vue/component
 export default {
-  name: "PanelDate",
+  name: "APanelDate",
   mixins: [
     PanelMixin,
   ],
@@ -138,7 +138,8 @@ export default {
     },
   },
   methods: {
-    selectDate({ year, month, day }) {
+    selectDate($event, { year, month, day }) {
+      $event.stopPropagation();
       const date = new Date(year, month, day);
       if (this.disabledDate(date)) {
         return;
@@ -331,7 +332,7 @@ export default {
                   tabindex: -1,
                   ariaHidden: true,
                   ariaSelected: !!(tdData.isCurrentMonth && tdData.label === this.dayFromValue),
-                  onClick: () => this.selectDate(tdData.date),
+                  onClick: $event => this.selectDate($event, tdData.date),
                 }, [
                   h("span", {
                     ariaHidden: true,

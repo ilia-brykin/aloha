@@ -5,18 +5,18 @@ import {
 import EventBus from "../../../utils/EventBus";
 
 export default function EventBusAPI(props, {
-  onOpen = () => {},
+  openDropdown = () => {},
 }) {
   const id = toRef(props, "id");
 
   const eventName = `eventATableFilterTopOnOpen_${ id.value }`;
 
   const initEventBus = () => {
-    EventBus.$on(eventName, onOpen);
+    EventBus.$on(eventName, openDropdown);
   };
 
   const destroyEventBus = () => {
-    EventBus.$off(eventName, onOpen);
+    EventBus.$off(eventName, openDropdown);
   };
 
   return {

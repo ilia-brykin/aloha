@@ -23,13 +23,13 @@ export default {
       codeJs,
     } = JsAPI();
 
+    const filterMain = {
+      type: "text",
+      id: "search",
+      label: "_A_PAGE_FILTER_SEARCH_",
+    };
+
     const filters = [
-      {
-        type: "text",
-        id: "search",
-        label: "_A_PAGE_FILTER_SEARCH_",
-        main: true,
-      },
       {
         type: "text",
         id: "aloha",
@@ -63,13 +63,16 @@ export default {
     ];
 
     const appliedModel = ref({});
+    const mainModel = ref({});
     const unappliedModel = ref({});
 
     return {
       appliedModel,
       codeHtml,
       codeJs,
+      filterMain,
       filters,
+      mainModel,
       unappliedModel,
     };
   },

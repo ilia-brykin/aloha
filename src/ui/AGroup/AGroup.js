@@ -143,18 +143,25 @@ export default {
             } else if (item.classColumn) {
               classColumn = item.classColumn;
             }
-            return h(this.componentTypesMapping[item.type], {
-              key: itemIndex,
-              modelValue: get(this.modelValue, item.id),
-              modelDependencies: this.modelValue,
+            return h("div", {
               class: classColumn,
-              errors: this.errorsAll[item.id],
-              idPrefix: item.idPrefix || this.idPrefix,
-              "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
-              onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
-              ...item,
-              label: itemIndex === 0 ? undefined : item.label,
-            }, this.$slots);
+            }, [
+              h(this.componentTypesMapping[item.type], {
+                key: itemIndex,
+                modelValue: get(this.modelValue, item.id),
+                modelDependencies: this.modelValue,
+                errors: this.errorsAll[item.id],
+                idPrefix: item.idPrefix || this.idPrefix,
+                "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+                onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
+                ...item,
+                label: itemIndex === 0 ? undefined : item.label,
+                slotAppend: undefined,
+              }, this.$slots),
+              (item.slotAppend && this.$slots[item.slotAppend]) ?
+                this.$slots[item.slotAppend]({ item, itemIndex }) :
+                "",
+            ]);
           }),
         ]),
       ]),

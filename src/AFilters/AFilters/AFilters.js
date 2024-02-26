@@ -5,9 +5,10 @@ import {
   watch,
 } from "vue";
 
+import AFilersRight from "../AFilersRight/AFilersRight";
 import AFilterCenter from "../AFilterCenter/AFilterCenter";
 import AFiltersHorizontal from "../AFiltersHorizontal/AFiltersHorizontal";
-import AFilersRight from "../AFilersRight/AFilersRight";
+import AFiltersMain from "../AFiltersMain/AFiltersMain";
 
 import CloseFilterAPI from "./compositionAPI/CloseFilterAPI";
 import DataKeyByKeyIdAPI from "./compositionAPI/DataKeyByKeyIdAPI";
@@ -46,10 +47,18 @@ export default {
       required: false,
       default: () => [],
     },
+    filterMain: {
+      type: Object,
+      required: false,
+    },
     id: {
       type: String,
       required: false,
       default: () => uniqueId("a_filters_"),
+    },
+    mainModel: {
+      type: Object,
+      required: false,
     },
     unappliedModel: {
       type: Object,
@@ -76,6 +85,7 @@ export default {
   emits: [
     "startSearch",
     "update:appliedModel",
+    "update:mainModel",
     "update:unappliedModel",
   ],
   setup(props, context) {
@@ -92,6 +102,7 @@ export default {
       onUpdateModelFilters,
       setFiltersVisibleIds,
       updateAppliedModel,
+      updateMainModel,
     } = FiltersAPI(props, context);
 
     const {
@@ -151,9 +162,10 @@ export default {
       setFiltersVisibleIds,
       startSearch,
       toggleFiltersVisible,
+      updateAppliedModel,
       updateDataKeyByIdFromFilter,
       updateFiltersSavedLocal,
-      updateAppliedModel,
+      updateMainModel,
     };
   },
   render() {
@@ -163,21 +175,33 @@ export default {
     return h(
       "div",
       [
-        this.view === "top" && h(AFiltersHorizontal, {
+        this.view === "top" && h(AFiltersMain, {
           id: this.id,
-          canSave: this.canSave,
           disabled: this.disabled,
-          filtersGroup: this.filtersGroup,
-          filtersKeyById: this.filtersKeyById,
-          filtersSaved: this.filtersSavedLocal,
-          filtersVisible: this.filtersVisible,
-          unappliedModel: this.unappliedModel,
-          updateFiltersSaved: this.updateFiltersSavedLocal,
-          onUpdateModelFilters: this.onUpdateModelFilters,
+          filterMain: this.filterMain,
+          mainModel: this.mainModel,
           updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+          updateMainModel: this.updateMainModel,
           onStartSearch: this.startSearch,
-          onToggleFiltersVisible: this.toggleFiltersVisible,
         }, this.$slots),
+        // this.view === "top" && h(AFiltersHorizontal, {
+        //   id: this.id,
+        //   canSave: this.canSave,
+        //   disabled: this.disabled,
+        //   filterMain: this.filterMain,
+        //   filtersGroup: this.filtersGroup,
+        //   filtersKeyById: this.filtersKeyById,
+        //   filtersSaved: this.filtersSavedLocal,
+        //   filtersVisible: this.filtersVisible,
+        //   mainModel: this.mainModel,
+        //   onUpdateModelFilters: this.onUpdateModelFilters,
+        //   unappliedModel: this.unappliedModel,
+        //   updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+        //   updateFiltersSaved: this.updateFiltersSavedLocal,
+        //   updateMainModel: this.updateMainModel,
+        //   onStartSearch: this.startSearch,
+        //   onToggleFiltersVisible: this.toggleFiltersVisible,
+        // }, this.$slots),
         this.view === "right" && h(Teleport, {
           to: this.viewRightTeleportSelector,
           disabled: !this.viewRightTeleportSelector,
@@ -202,7 +226,24 @@ export default {
           disabled: this.disabled,
           filtersKeyById: this.filtersKeyById,
           filtersVisibleAll: this.filtersVisibleAll,
-        }, this.$slots),
+        }, {
+          filtersHorizontal: () => h(AFiltersHorizontal, {
+            id: this.id,
+            canSave: this.canSave,
+            disabled: this.disabled,
+            filtersGroup: this.filtersGroup,
+            filtersKeyById: this.filtersKeyById,
+            filtersSaved: this.filtersSavedLocal,
+            filtersVisible: this.filtersVisible,
+            onUpdateModelFilters: this.onUpdateModelFilters,
+            unappliedModel: this.unappliedModel,
+            updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+            updateFiltersSaved: this.updateFiltersSavedLocal,
+            onStartSearch: this.startSearch,
+            onToggleFiltersVisible: this.toggleFiltersVisible,
+          }, this.$slots),
+          ...this.$slots,
+        }),
       ],
     );
   },

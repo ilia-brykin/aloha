@@ -3,7 +3,6 @@ import {
 } from "vue";
 
 import AButton from "../../../AButton/AButton";
-import ALabel from "../../../ui/ALabel/ALabel";
 import AFiltersHorizontalFilterUi from "../AFiltersHorizontalFilterUi/AFiltersHorizontalFilterUi";
 
 import IdAPI from "./compositionAPI/IdAPI";
@@ -71,23 +70,13 @@ export default {
     return this.isFilter && h("div", {
       class: "a_filters_top__filter_ui_group"
     }, [
-      this.isLabelInComponentVisible ? h("span", {
-        class: this.labelClass,
-        ariaHidden: true,
-      }) : h(ALabel, {
-        id: this.htmlIdLocal,
-        label: this.filter.label,
-        class: this.labelClass,
-        type: this.filter.type,
-        isLabelFloat: false,
-      }),
       h("div", {
         class: "a_filters_top__filter_ui_subgroup",
       }, [
         h(AFiltersHorizontalFilterUi, {
           class: "a_filters_top__filter_ui",
           filter: this.filter,
-          isLabelVisible: this.isLabelInComponentVisible,
+          isLabelVisible: true,
           unappliedModel: this.unappliedModel,
           updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
           onUpdateModelFilters: this.onUpdateModelFilters,

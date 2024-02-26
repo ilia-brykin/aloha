@@ -473,21 +473,24 @@ export default {
       }
     },
 
-    handleBtnYear() {
+    handleBtnYear($event) {
+      $event.stopPropagation();
       this.showPanelYear();
       if (this.isWorkWithKeyboard) {
         this.setFocusToActivePanel();
       }
     },
 
-    handleBtnMonth() {
+    handleBtnMonth($event) {
+      $event.stopPropagation();
       this.showPanelMonth();
       if (this.isWorkWithKeyboard) {
         this.setFocusToActivePanel();
       }
     },
 
-    handleTimeHeader() {
+    handleTimeHeader($event) {
+      $event.stopPropagation();
       if (this.type === "time") {
         return;
       }
@@ -669,14 +672,20 @@ export default {
             type: "button",
             ariaLabel: this.ariaLabelForButtonLastYear,
             innerHTML: "&laquo;",
-            onClick: () => this.handleIconYear(-1),
+            onClick: $event => {
+              $event.stopPropagation();
+              this.handleIconYear(-1);
+            },
           }),
           this.panel === "DATE" && h("button", {
             class: "pux_datepicker__icon_last_month pux_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonLastMonth,
             innerHTML: "&lsaquo;",
-            onClick: () => this.handleIconMonth(-1),
+            onClick: $event => {
+              $event.stopPropagation();
+              this.handleIconMonth(-1);
+            },
           }),
         ]),
         h("div", null, [
@@ -714,14 +723,20 @@ export default {
             type: "button",
             ariaLabel: this.ariaLabelForButtonNextMonth,
             innerHTML: "&rsaquo;",
-            onClick: () => this.handleIconMonth(1),
+            onClick: $event => {
+              $event.stopPropagation();
+              this.handleIconMonth(1);
+            },
           }),
           this.panel !== "TIME" && h("button", {
             class: "pux_datepicker__icon_next_year pux_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonNextYear,
             innerHTML: "&raquo;",
-            onClick: () => this.handleIconYear(1),
+            onClick: $event => {
+              $event.stopPropagation();
+              this.handleIconYear(1);
+            },
           }),
         ]),
       ]),

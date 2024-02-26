@@ -94,7 +94,9 @@ export default {
       return !!(typeof this.disabledMonth === "function" && this.disabledMonth(month));
     },
 
-    selectMonth(month, isButtonClick) {
+    selectMonth($event, month, isButtonClick) {
+      $event.stopPropagation();
+      $event.preventDefault();
       if (this.isDisabled(month)) {
         return;
       }
@@ -153,9 +155,7 @@ export default {
     keypress($event, monthIndex) {
       if ($event.keyCode === AKeysCode.enter ||
         $event.keyCode === AKeysCode.space) {
-        this.selectMonth(monthIndex);
-        $event.stopPropagation();
-        $event.preventDefault();
+        this.selectMonth($event, monthIndex);
       }
     },
   },
@@ -178,7 +178,7 @@ export default {
           role: "option",
           ariaSelected: !!month.isActive,
           tabindex: -1,
-          onClick: () => this.selectMonth(monthIndex),
+          onClick: $event => this.selectMonth($event, monthIndex),
           onKeypress: $event => this.keypress($event, monthIndex),
         }, month.label);
       }),

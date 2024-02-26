@@ -25,10 +25,28 @@ export default {
 
     const filters = [
       {
+        type: "select",
+        id: "select1",
+        label: "Select 1",
+        alwaysVisible: true,
+        keyLabel: "label",
+        keyId: "id",
+        data: [
+          {
+            label: "Aloha 0",
+            id: "aloha_0",
+          },
+          {
+            label: "Aloha 1",
+            id: "aloha_1",
+          },
+        ],
+      },
+      {
         type: "text",
         id: "search",
         label: "_A_TABLE_FILTER_SEARCH_",
-        main: true,
+        alwaysVisible: true,
       },
       {
         type: "text",
@@ -59,24 +77,6 @@ export default {
         type: "integerRange",
         id: "integerNumber",
         label: "Integer range",
-      },
-      {
-        type: "select",
-        id: "select1",
-        label: "Select 1",
-        alwaysVisible: true,
-        keyLabel: "label",
-        keyId: "id",
-        data: [
-          {
-            label: "Aloha 0",
-            id: "aloha_0",
-          },
-          {
-            label: "Aloha 1",
-            id: "aloha_1",
-          },
-        ],
       },
     ];
 

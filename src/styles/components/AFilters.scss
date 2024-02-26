@@ -19,8 +19,107 @@
     --a_datepicker_width: 100%;
   }
 }
+.a_filters_top__main_wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+.a_filters_top__main {
+  width: 100%;
+}
+
+.a_filter_horizontal__wrapper {
+  --a_filter_hor_divider_border_width: 1px;
+  --a_filter_hor_divider_border_color: var(--a_color_gray_600);
+  --a_filter_hor_width: 1200px;
+  --a_filter_hor_max_width: calc(100vw - 1rem);
+  --a_filter_max_height: calc(100vh - 1rem);
+  --a_filter_hor_padding_x: 1rem;
+  --a_filter_hor_padding_y: 1rem;
+  --a_filter_hor_header_height: 70px;
+  --a_filter_hor_body_max_height: calc(100vh - 1rem - 70px);
+  --a_filter_hor_footer_height: 70px;
+  --a_filter_hor_footer_bg: rgba(255, 255, 255, 0.7);
+  --a_filter_hor_footer_actions_bg: var(--a_color_white);
+
+  width: var(--a_filter_hor_width);
+  max-width: var(--a_filter_hor_max_width);
+  max-height: var(--a_filter_max_height);
+  overflow-y: hidden;
+  padding: 0;
+}
+.a_filter_horizontal {
+
+}
+.a_filter_horizontal__header__wrapper {
+  padding: var(--a_filter_hor_padding_y) var(--a_filter_hor_padding_x) 0 var(--a_filter_hor_padding_x);
+  height: var(--a_filter_hor_header_height);
+}
+.a_filter_horizontal__header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  border-bottom: var(--a_filter_hor_divider_border_width) solid var(--a_filter_hor_divider_border_color);
+  padding-bottom: var(--a_filter_hor_padding_y);
+}
+.a_filter_horizontal__header__texts {
+  font-size: 1.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.a_filter_horizontal__header__texts__filter {
+  padding-right: .5rem;
+}
+.a_filter_horizontal__header__texts__new {
+
+}
+.a_filter_horizontal__hr {
+  border: var(--a_filter_hor_hr_border_width) solid var(--a_filter_hor_hr_border_color);
+  margin: var(--a_filter_hor_hr_margin_y) 0;
+}
+.a_filter_horizontal__body__wrapper {
+  position: relative;
+  overflow-y: auto;
+  max-height: var(--a_filter_hor_body_max_height);
+}
+.a_filter_horizontal__body {
+  padding: var(--a_filter_hor_padding_y) var(--a_filter_hor_padding_x) 0 var(--a_filter_hor_padding_x);
+}
+.a_filter_horizontal__body__form {
+  padding: 0;
+  .pux_datepicker {
+    --a_datepicker_width: 100%;
+  }
+  .a_form_element_number_controls .a_form_element {
+    --a_input_number_width: 100% !important;
+  }
+}
+.a_filter_horizontal__save_actions {
+  padding: var(--a_filter_hor_padding_y) 0;
+  .a_btn + .a_btn {
+    margin-left: .5rem;
+  }
+}
+.a_filter_horizontal__footer {
+  text-align: right;
+  height: var(--a_filter_hor_footer_height);
+  position: sticky;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.a_filter_horizontal__footer__actions {
+  display: inline-block;
+  background-color: var(--a_filter_hor_footer_actions_bg);
+  padding: var(--a_filter_hor_padding_y) var(--a_filter_hor_padding_x);
+}
+.a_filter_horizontal__footer__actions__btn_close {
+  margin-left: .5rem;
+}
+
 .a_filters_top__form {
   width: var(--a_filters_top_form_width);
+  padding: 0;
 }
 .a_filters_top__save_select {
   width: 250px;

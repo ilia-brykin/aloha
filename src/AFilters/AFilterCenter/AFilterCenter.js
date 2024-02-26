@@ -67,12 +67,13 @@ export default {
   render() {
     return h("div", {
       class: "a_filters_center",
-      style: this.styleHide,
+
     }, [
       h(ATranslation, {
         class: "a_filters_center__headline a_filters_center__item",
         tag: "span",
         text: "_A_FILTERS_YOUR_SELECTION_",
+        style: this.styleHide,
       }),
       this.filtersVisibleAll.map(filter => {
         return h(AFilterCenterItem, {
@@ -96,6 +97,7 @@ export default {
       ]) : "",
       h("div", {
         class: "a_filters_center__item",
+        style: this.styleHide,
       }, [
         h(AButton, {
           class: "a_btn a_btn_link a_btn_small",
@@ -103,6 +105,10 @@ export default {
           onClick: this.closeAllFilters,
         }),
       ]),
+
+      this.$slots.filtersHorizontal ?
+        this.$slots.filtersHorizontal() :
+        "",
     ]);
   },
 };

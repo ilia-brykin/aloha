@@ -51,7 +51,9 @@ export default {
     },
   },
   methods: {
-    selectYearLocal(isButtonClick) {
+    selectYearLocal($event, isButtonClick) {
+      $event.stopPropagation();
+      $event.preventDefault();
       if (this.isDisabledLocal) {
         return;
       }
@@ -61,9 +63,7 @@ export default {
     keypress($event) {
       if ($event.keyCode === AKeysCode.enter ||
         $event.keyCode === AKeysCode.space) {
-        this.selectYearLocal(true);
-        $event.stopPropagation();
-        $event.preventDefault();
+        this.selectYearLocal($event, true);
       }
     },
   },

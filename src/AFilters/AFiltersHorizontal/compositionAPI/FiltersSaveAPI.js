@@ -5,7 +5,7 @@ import {
 } from "vue";
 
 export default function FiltersSaveAPI(props, {
-  onOpen = () => ({}),
+  openDropdown = () => ({}),
 }) {
   const onUpdateModelFilters = toRef(props, "onUpdateModelFilters");
   const id = toRef(props, "id");
@@ -16,6 +16,10 @@ export default function FiltersSaveAPI(props, {
 
   const buttonSaveComponentId = computed(() => {
     return `${ id.value }btn_save_`;
+  });
+
+  const hasNotModelFiltersSaved = computed(() => {
+    return !modelFiltersSaved.value;
   });
 
   const openModalSave = () => {
@@ -35,7 +39,7 @@ export default function FiltersSaveAPI(props, {
           model: item.data || {},
           isUpdateFiltersVisible: true,
         });
-        onOpen();
+        openDropdown();
       }
     } else if (item) {
       if (item) {
@@ -43,7 +47,7 @@ export default function FiltersSaveAPI(props, {
           model: {},
           isUpdateFiltersVisible: true,
         });
-        onOpen();
+        openDropdown();
       }
     }
   };
@@ -52,6 +56,7 @@ export default function FiltersSaveAPI(props, {
     buttonSaveComponentId,
     changeModelFiltersSaved,
     closeModalSave,
+    hasNotModelFiltersSaved,
     isModalSaveVisible,
     modelFiltersSaved,
     openModalSave,

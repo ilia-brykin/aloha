@@ -56,6 +56,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.buttonClass,
     },
+    buttonClassDefault: {
+      type: [String, Object],
+      required: false,
+      default: "a_form_control a_select_toggle",
+    },
     caretIcon: {
       type: [String, Object],
       required: false,
@@ -114,6 +119,11 @@ export default {
       type: Object,
       required: false,
       default: undefined,
+    },
+    hasCaret: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     helpText: {
       type: String,
@@ -620,7 +630,7 @@ export default {
             h("div", {
               ref: "buttonRef",
               id: this.htmlIdLocal,
-              class: ["a_form_control a_select_toggle", this.buttonClass, {
+              class: [this.buttonClassDefault, this.buttonClass, {
                 disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
                 a_form_control_invalid: this.isErrors,
@@ -641,50 +651,47 @@ export default {
               onBlur: this.onBlur,
               ...this.attributesDisabled,
             }, [
-              // this.hasSelectedTitle && h("span", {
-              //   class: "a_position_absolute_all",
-              //   ariaHidden: true,
-              //   title: this.selectedTitle,
-              // }),
-              this.isModelValue ?
-                this.isMultiselect ?
-                  this.isSelectionCloseable ?
-                    h("ul", {
-                      class: "a_select__ul_closeable",
-                    }, [
-                      this.modelValue.map((item, index) => {
-                        return h(ASelectValueCloseable, {
-                          key: index,
-                          data: this.dataKeyByKeyIdLocal[item] || {},
-                          slotName: this.slotName,
-                          disabled: this.disabled,
-                          onChangeModelValue: this.onChangeModelValue,
-                        }, this.$slots);
-                      }),
-                    ]) :
-                    h("span", {
-                      class: "a_select__value__label",
-                    }, [
-                      this.isModelLengthLimitExceeded ?
-                        h("span", null, `${ this.modelValueLength } ausgewählt`) :
+              this.$slots.fixedPlaceholder ?
+                this.$slots.fixedPlaceholder() :
+                this.isModelValue ?
+                  this.isMultiselect ?
+                    this.isSelectionCloseable ?
+                      h("ul", {
+                        class: "a_select__ul_closeable",
+                      }, [
                         this.modelValue.map((item, index) => {
-                          return h("span", {
+                          return h(ASelectValueCloseable, {
                             key: index,
-                          }, [
-                            h("span", null, index !== 0 ? ", " : ""),
-                            h(ASelectLabelElement, {
-                              data: this.dataKeyByKeyIdLocal[item] || {},
-                              slotName: this.slotName,
-                            }, this.$slots),
-                          ]);
+                            data: this.dataKeyByKeyIdLocal[item] || {},
+                            slotName: this.slotName,
+                            disabled: this.disabled,
+                            onChangeModelValue: this.onChangeModelValue,
+                          }, this.$slots);
                         }),
-                    ]) :
-                  h(ASelectLabelElement, {
-                    data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
-                    class: "a_select__value__label",
-                    slotName: this.slotName,
-                  }, this.$slots)
-                : "",
+                      ]) :
+                      h("span", {
+                        class: "a_select__value__label",
+                      }, [
+                        this.isModelLengthLimitExceeded ?
+                          h("span", null, `${ this.modelValueLength } ausgewählt`) :
+                          this.modelValue.map((item, index) => {
+                            return h("span", {
+                              key: index,
+                            }, [
+                              h("span", null, index !== 0 ? ", " : ""),
+                              h(ASelectLabelElement, {
+                                data: this.dataKeyByKeyIdLocal[item] || {},
+                                slotName: this.slotName,
+                              }, this.$slots),
+                            ]);
+                          }),
+                      ]) :
+                    h(ASelectLabelElement, {
+                      data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
+                      class: "a_select__value__label",
+                      slotName: this.slotName,
+                    }, this.$slots)
+                  : "",
               h(Teleport, {
                 to: this.popperContainerIdSelector,
                 disabled: !this.inBody,
@@ -859,13 +866,15 @@ export default {
                   ]),
                 ]),
               ]),
-              h("span", {
-                class: "a_caret",
-              }, [
-                h(AIcon, {
-                  icon: this.caretIcon,
-                }),
-              ])
+              this.hasCaret ?
+                h("span", {
+                  class: "a_caret",
+                }, [
+                  h(AIcon, {
+                    icon: this.caretIcon,
+                  }),
+                ]) :
+                "",
             ]),
           ]),
         ]),

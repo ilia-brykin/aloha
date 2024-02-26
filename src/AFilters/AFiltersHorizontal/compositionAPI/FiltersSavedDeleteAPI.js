@@ -9,6 +9,7 @@ import ANotificationAPI from "../../../compositionAPI/ANotificationAPI";
 
 export default function FiltersSavedDeleteAPI(props, {
   changeModelFiltersSaved = () => {},
+  hasNotModelFiltersSaved = computed(() => false),
   idFilterTop = computed(() => ""),
   modelFiltersSaved = ref(undefined),
 }) {
@@ -29,14 +30,20 @@ export default function FiltersSavedDeleteAPI(props, {
     return `${ id.value }btn_save`;
   });
 
-  const disabledButtonDeleteFiltersSaved = computed(() => {
-    return !modelFiltersSaved.value;
+  const titleButtonDeleteFiltersSaved = computed(() => {
+    if (hasNotModelFiltersSaved.value) {
+      return "_A_FILTERS_DELETE_FILTER_SAVED_BTN_DISABLED_";
+    }
+    return {
+      mobile: "_A_FILTERS_DELETE_FILTER_SAVED_BTN_",
+    };
   });
 
-  const titleButtonDeleteFiltersSaved = computed(() => {
-    return disabledButtonDeleteFiltersSaved.value ?
-      "_A_FILTERS_DELETE_FILTER_SAVED_BTN_DISABLED_" :
-      "_A_FILTERS_DELETE_FILTER_SAVED_BTN_{{name}}_";
+  const textScreenreaderButtonDeleteFiltersSaved = computed(() => {
+    if (hasNotModelFiltersSaved.value) {
+      return "_A_FILTERS_DELETE_FILTER_SAVED_BTN_DISABLED_";
+    }
+    return "_A_FILTERS_DELETE_FILTER_SAVED_BTN_";
   });
 
   const deleteFiltersSaved = async() => {
@@ -89,8 +96,8 @@ export default function FiltersSavedDeleteAPI(props, {
 
   return {
     buttonDeleteId,
-    disabledButtonDeleteFiltersSaved,
     openDeleteConfirm,
+    textScreenreaderButtonDeleteFiltersSaved,
     titleButtonDeleteFiltersSaved,
   };
 }

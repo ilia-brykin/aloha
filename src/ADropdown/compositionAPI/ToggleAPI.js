@@ -22,9 +22,12 @@ export default function ToggleAPI(props, {
   startPopper = () => {},
 }) {
   const disabled = toRef(props, "disabled");
+  const dropdownRenderDefault = toRef(props, "dropdownRenderDefault");
   const elementsForArrows = toRef(props, "elementsForArrows");
   const isCloseByClickInside = toRef(props, "isCloseByClickInside");
   const isListWidthSameWithButton = toRef(props, "isListWidthSameWithButton");
+  const lockArrowsNavigation = toRef(props, "lockArrowsNavigation");
+  const lockTabNavigation = toRef(props, "lockTabNavigation");
   const persist = toRef(props, "persist");
 
   const buttonWidth = ref(undefined);
@@ -32,7 +35,7 @@ export default function ToggleAPI(props, {
   const statusExpanded = ref(false);
   const timerCloseHover = ref(undefined);
   const triggerOpen = ref(undefined);
-  const wasOpened = ref(false);
+  const wasOpened = ref(dropdownRenderDefault.value || false);
 
   const {
     closeDropdownGlobal,
@@ -76,6 +79,9 @@ export default function ToggleAPI(props, {
     const EVENT = $event || window.$event;
     if (EVENT.keyCode === AKeysCode.arrowDown ||
       EVENT.keyCode === AKeysCode.arrowUp) { // arrow down or up
+      if (!lockArrowsNavigation.value) {
+        return;
+      }
       const DOWN = EVENT.keyCode === AKeysCode.arrowDown;
       pressArrows({ down: DOWN });
       $event.preventDefault();
@@ -85,6 +91,9 @@ export default function ToggleAPI(props, {
       $event.preventDefault();
       $event.stopPropagation();
     } else if (EVENT.keyCode === AKeysCode.tab) {
+      if (!lockTabNavigation.value) {
+        return;
+      }
       if (EVENT.shiftKey) {
         onClose();
         setTimeout(() => {

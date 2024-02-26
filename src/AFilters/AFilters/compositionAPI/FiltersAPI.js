@@ -38,18 +38,11 @@ export default function FiltersAPI(props, { emit }) {
 
   const filtersGroup = computed(() => {
     const FILTER_GROUP = {
-      main: undefined,
       alwaysVisible: [],
       filters: [],
     };
     forEach(cloneDeep(filters.value), filter => {
-      if (filter.main) {
-        if (!FILTER_GROUP.main) {
-          FILTER_GROUP.main = filter;
-        } else {
-          FILTER_GROUP.alwaysVisible.push(filter);
-        }
-      } else if (filter.alwaysVisible) {
+      if (filter.alwaysVisible) {
         FILTER_GROUP.alwaysVisible.push(filter);
       } else {
         FILTER_GROUP.filters.push(filter);
@@ -108,6 +101,10 @@ export default function FiltersAPI(props, { emit }) {
     emit("update:appliedModel", model);
   };
 
+  const updateMainModel = ({ model }) => {
+    emit("update:mainModel", model);
+  };
+
   return {
     filtersDataKeyById,
     filtersGroup,
@@ -119,5 +116,6 @@ export default function FiltersAPI(props, { emit }) {
     onUpdateModelFilters,
     setFiltersVisibleIds,
     updateAppliedModel,
+    updateMainModel,
   };
 }

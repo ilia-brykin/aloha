@@ -3,10 +3,12 @@ import {
   onBeforeUnmount,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
+import ADropdown from "../../ADropdown/ADropdown";
+import AElement from "../../AElement/AElement";
+import AForm from "../../ui/AForm/AForm";
+import AIcon from "../../AIcon/AIcon";
 import ASelect from "../../ui/ASelect/ASelect";
-import AFiltersSaveModal from "../AFiltersSaveModal/AFiltersSaveModal";
-import AFiltersHorizontalFilter from "./AFiltersHorizontalFilter/AFiltersHorizontalFilter";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import EventBusAPI from "./compositionAPI/EventBusAPI";
 import FiltersHiddenAPI from "./compositionAPI/FiltersHiddenAPI";
@@ -14,7 +16,8 @@ import FiltersSaveAPI from "./compositionAPI/FiltersSaveAPI";
 import FiltersSavedDeleteAPI from "./compositionAPI/FiltersSavedDeleteAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
-import ToggleAPI from "./compositionAPI/ToggleAPI";
+import FormAPI from "./compositionAPI/FormAPI";
+import DropdownAPI from "./compositionAPI/DropdownAPI";
 
 
 export default {
@@ -32,7 +35,6 @@ export default {
       type: Object,
       required: true,
       default: () => ({
-        main: undefined,
         alwaysVisible: [],
         filters: [],
       }),
@@ -48,6 +50,10 @@ export default {
     filtersVisible: {
       type: Array,
       required: true,
+    },
+    mainModel: {
+      type: Object,
+      required: false,
     },
     unappliedModel: {
       type: Object,
@@ -76,31 +82,31 @@ export default {
   ],
   setup(props, context) {
     const {
+      dataForForm,
+    } = FormAPI(props);
+
+    const {
+      closeDropdown,
+      dropdownRef,
+      isDropdownVisible,
+      openDropdown,
+    } = DropdownAPI(props);
+
+    const {
       idFilterTop,
     } = IdAPI(props);
 
     const {
-      iconToggle,
-      isBtnToggleVisible,
-      isOpen,
-      onClose,
-      onOpen,
-      onToggle,
-      styleToggle,
-      textToggle,
-    } = ToggleAPI(props);
-
-    const {
       onSearch,
     } = SearchAPI(props, context, {
-      onClose,
+      closeDropdown,
     });
 
     const {
       destroyEventBus,
       initEventBus,
     } = EventBusAPI(props, {
-      onOpen,
+      openDropdown,
     });
 
     const {
@@ -114,21 +120,23 @@ export default {
       buttonSaveComponentId,
       changeModelFiltersSaved,
       closeModalSave,
+      hasNotModelFiltersSaved,
       isModalSaveVisible,
       modelFiltersSaved,
       openModalSave,
       selectorCloseIds,
     } = FiltersSaveAPI(props, {
-      onOpen,
+      openDropdown,
     });
 
     const {
       buttonDeleteId,
-      disabledButtonDeleteFiltersSaved,
       openDeleteConfirm,
+      textScreenreaderButtonDeleteFiltersSaved,
       titleButtonDeleteFiltersSaved,
     } = FiltersSavedDeleteAPI(props, {
       changeModelFiltersSaved,
+      hasNotModelFiltersSaved,
       idFilterTop,
       modelFiltersSaved,
     });
@@ -140,183 +148,345 @@ export default {
     });
 
     return {
+      isDropdownVisible,
+      closeDropdown,
+      dropdownRef,
       addFiltersVisible,
       buttonSaveComponentId,
       changeModelFiltersSaved,
       closeModalSave,
       deleteFiltersVisible,
+      dataForForm,
       filtersHidden,
       hasFiltersHiddenDefault,
       idFilterTop,
-      isBtnToggleVisible,
       isModalSaveVisible,
-      onToggle,
-      textToggle,
-      isOpen,
       modelFiltersSaved,
       openModalSave,
-      iconToggle,
       onSearch,
       selectorCloseIds,
-      styleToggle,
       buttonDeleteId,
-      disabledButtonDeleteFiltersSaved,
+      hasNotModelFiltersSaved,
       openDeleteConfirm,
+      textScreenreaderButtonDeleteFiltersSaved,
       titleButtonDeleteFiltersSaved,
     };
   },
   render() {
-    const BTN_SEARCH = h(AButton, {
-      class: "a_btn a_btn_primary a_text_nowrap a_filters_top__search",
-      iconLeft: "Search",
-      type: "submit",
-      text: {
-        desktop: "_A_FILTERS_START_SEARCH_",
+    if (!this.isDropdownVisible) {
+      return "";
+    }
+
+    return h(ADropdown, {
+      ref: "dropdownRef",
+      buttonIconLeft: "Filter",
+      buttonText: "Filter",
+      buttonClass: "a_btn a_btn_primary",
+      dropdownTag: "div",
+      dropdownClass: "a_filter_horizontal__wrapper",
+      dropdownRenderDefault: true,
+      isCloseByClickInside: false,
+      hasCaret: false,
+      inBody: true,
+      lockArrowsNavigation: false,
+      lockTabNavigation: false,
+      floatingFlip: {
+        use: true,
+        fallbackPlacements: ["bottom", "top", "left", "right", "auto"],
       },
-      textScreenReader: {
-        mobile: "_A_FILTERS_START_SEARCH_",
+    }, {
+      ...this.$slots,
+      dropdown: () => {
+        return h("div", {
+          class: "a_filter_horizontal",
+        }, [
+          h("div", {
+            class: "a_filter_horizontal__header__wrapper",
+          }, [
+            h("div", {
+              class: "a_filter_horizontal__header",
+            }, [
+              h("div", {
+                class: "a_filter_horizontal__header__texts",
+              }, [
+                h(ATranslation, {
+                  class: "a_filter_horizontal__header__texts__filter",
+                  tag: "span",
+                  text: "_A_FILTERS_HOR_FILTER_HEADER_"
+                }),
+                this.hasNotModelFiltersSaved ?
+                  h(ATranslation, {
+                    class: "a_filter_horizontal__header__texts__new",
+                    tag: "em",
+                    text: "_A_FILTERS_HOR_FILTER_NEW_"
+                  }) :
+                  h("span", {}, this.modelFiltersSaved),
+              ]),
+              this.canSave ?
+                h(ASelect, {
+                  modelValue: this.modelFiltersSaved,
+                  change: this.changeModelFiltersSaved,
+                  class: "a_filters_top__save_select",
+                  data: this.filtersSaved,
+                  deselect: true,
+                  disabled: !this.filtersSaved.length,
+                  keyId: "label",
+                  keyLabel: "label",
+                  label: "_A_FILTERS_SAVE_SELECT_",
+                  menuWidthType: "by_content",
+                  search: true,
+                  translateData: true,
+                  type: "select",
+                }) :
+                "",
+            ]),
+          ]),
+          h("div", {
+            class: "a_filter_horizontal__body__wrapper",
+          }, [
+            h("div", {
+              class: "a_filter_horizontal__body",
+            }, [
+              h(AForm, {
+                idPrefix: this.idFilterTop,
+                class: "a_filter_horizontal__body__form",
+                classColumns: "",
+                classColumnDefault: "",
+                data: this.dataForForm,
+                showErrors: false,
+                modelValue: this.unappliedModel,
+                onChange: this.onUpdateModelFilters,
+              }, {
+                ...this.$slots,
+                groupAppend: ({ item }) => h(AElement, {
+                  type: "button",
+                  class: "a_btn a_btn_primary a_ml_2",
+                  title: "_A_FILTERS_TOP_CLOSE_",
+                  textScreenReader: "_A_FILTERS_TOP_CLOSE_",
+                  iconLeft: "Close",
+                  stop: true,
+                  onClick: () => this.deleteFiltersVisible({ filter: item }),
+                }),
+                formDataAppend: () => h(ASelect, {
+                  type: "select",
+                  data: this.filtersHidden,
+                  keyGroup: "group",
+                  keyLabel: "label",
+                  keyId: "id",
+                  hasCaret: false,
+                  label: "_A_FILTERS_ADD_FILTER_",
+                  labelClass: "a_sr_only",
+                  buttonClassDefault: "a_btn a_btn_primary",
+                  isLabelFloat: false,
+                  menuWidthType: "by_content",
+                  translateData: true,
+                  search: true,
+                  change: this.addFiltersVisible,
+                }, {
+                  fixedPlaceholder: () => h(AIcon, {
+                    icon: "Plus",
+                  }),
+                }),
+                formAppend: () => this.canSave ?
+                  h("div", {
+                    class: "a_filter_horizontal__save_actions",
+                  }, [
+                    h(AElement, {
+                      class: "a_btn a_btn_primary",
+                      iconLeft: "FloppyDisk",
+                      type: "button",
+                      text: "Filter speichern unter",
+                    }),
+                    h(AElement, {
+                      ariaDisabled: this.hasNotModelFiltersSaved,
+                      class: "a_btn a_btn_secondary",
+                      iconLeft: "Pencil",
+                      type: "button",
+                      text: {
+                        desktop: "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_TEXT_",
+                      },
+                      textAriaHidden: true,
+                    }),
+                    h(AElement, {
+                      id: this.buttonDeleteId,
+                      ariaDisabled: this.hasNotModelFiltersSaved,
+                      class: "a_btn a_btn_secondary",
+                      iconLeft: "Trash",
+                      text: {
+                        desktop: "_A_FILTERS_DELETE_FILTER_SAVED_BTN_TEXT_",
+                      },
+                      textAriaHidden: true,
+                      textScreenReader: this.textScreenreaderButtonDeleteFiltersSaved,
+                      title: this.titleButtonDeleteFiltersSaved,
+                      type: "button",
+                      onClick: this.openDeleteConfirm,
+                    }),
+                  ]) :
+                  "",
+              }),
+            ]),
+            h("div", {
+              class: "a_filter_horizontal__footer",
+            }, [
+              h("div", {
+                class: "a_filter_horizontal__footer__actions",
+              }, [
+                h(AElement, {
+                  type: "button",
+                  class: "a_btn a_btn_primary a_text_nowrap a_filter_horizontal__footer__actions__btn_search",
+                  iconLeft: "Search",
+                  text: "_A_FILTERS_START_SEARCH_",
+                  disabled: this.disabled,
+                  onClick: this.onSearch,
+                }),
+                h(AElement, {
+                  type: "button",
+                  class: "a_btn a_btn_secondary a_text_nowrap a_filter_horizontal__footer__actions__btn_close",
+                  text: "_A_FILTERS_HOR_CLOSE_DROPDOWN_",
+                  onClick: this.closeDropdown,
+                }),
+              ]),
+            ]),
+          ]),
+        ]);
       },
-      prevent: true,
-      stop: true,
-      disabled: this.disabled,
-      onClick: this.onSearch,
     });
 
-    return h("div", {
-      id: this.idFilterTop,
-      class: "a_filters_top",
-    }, [
-      h("form", {
-        class: "a_filters_top__form",
-      }, [
-        h("div", {
-          class: "a_filters_top__header",
-        }, [
-          h(AFiltersHorizontalFilter, {
-            id: this.id,
-            class: "a_filters_top__filter_main",
-            closable: false,
-            filter: this.filtersGroup.main,
-            isFilterMain: true,
-            unappliedModel: this.unappliedModel,
-            updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
-            onUpdateModelFilters: this.onUpdateModelFilters,
-          }, {
-            ...this.$slots,
-            btnSearchStart: () => {
-              return BTN_SEARCH;
-            },
-          }),
-        ]),
-
-        this.isBtnToggleVisible && h(AButton, {
-          class: "a_btn a_btn_secondary a_text_nowrap a_filters_top__toggle_filter",
-          type: "button",
-          text: this.textToggle,
-          iconRight: this.iconToggle,
-          onClick: this.onToggle,
-        }),
-        h("div", {
-          class: "a_filters_top__always_visible",
-          style: this.styleToggle,
-        }, [
-          this.filtersGroup.alwaysVisible.map(filter => {
-            return h(AFiltersHorizontalFilter, {
-              key: filter.id,
-              closable: false,
-              filter,
-              unappliedModel: this.unappliedModel,
-              onUpdateModelFilters: this.onUpdateModelFilters,
-              updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
-              id: this.id,
-            }, this.$slots);
-          }),
-          this.filtersVisible.map(filter => {
-            return h(AFiltersHorizontalFilter, {
-              key: filter.id,
-              closable: true,
-              filter: filter,
-              unappliedModel: this.unappliedModel,
-              onUpdateModelFilters: this.onUpdateModelFilters,
-              id: this.id,
-              onDeleteFiltersVisible: this.deleteFiltersVisible,
-              updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
-            }, this.$slots);
-          }),
-          h("div", {
-            class: "a_filters_top__footer",
-          }, [
-            h(ASelect, {
-              class: "a_filters_top__footer__select",
-              type: "select",
-              data: this.filtersHidden,
-              keyGroup: "group",
-              keyLabel: "label",
-              keyId: "id",
-              label: "_A_FILTERS_ADD_FILTER_",
-              menuWidthType: "by_content",
-              translateData: true,
-              disabled: !this.filtersHidden.length,
-              search: true,
-              change: this.addFiltersVisible,
-            }),
-            BTN_SEARCH,
-          ]),
-        ]),
-      ]),
-      this.isModalSaveVisible && h(AFiltersSaveModal, {
-        changeModelFiltersSaved: this.changeModelFiltersSaved,
-        filtersSaved: this.filtersSaved,
-        modelFiltersSaved: this.modelFiltersSaved,
-        selectorCloseIds: this.selectorCloseIds,
-        updateFiltersSaved: this.updateFiltersSaved,
-        onClose: this.closeModalSave,
-      }),
-      this.canSave && h("div", {
-        class: "a_filters_top__save",
-      }, [
-        h(ASelect, {
-          modelValue: this.modelFiltersSaved,
-          change: this.changeModelFiltersSaved,
-          class: "a_filters_top__save_select",
-          data: this.filtersSaved,
-          deselect: true,
-          disabled: !this.filtersSaved.length,
-          keyId: "label",
-          keyLabel: "label",
-          label: "_A_FILTERS_SAVE_SELECT_",
-          menuWidthType: "by_content",
-          search: true,
-          translateData: true,
-          type: "select",
-        }),
-        h(AButton, {
-          id: this.buttonSaveComponentId,
-          onClick: this.openModalSave,
-          class: "a_btn a_btn_secondary a_text_nowrap a_filters_top__delete_filter_saved",
-          text: {
-            desktop: "_A_FILTERS_SAVE_BTN_",
-          },
-          iconLeft: {
-            mobile: "FloppyDisk",
-          },
-          textScreenReader: {
-            mobile: "_A_FILTERS_SAVE_BTN_",
-          },
-        }),
-        h(AButton, {
-          id: this.buttonDeleteId,
-          class: "a_btn a_btn_secondary",
-          iconLeft: "Trash",
-          textScreenReader: this.titleButtonDeleteFiltersSaved,
-          title: this.titleButtonDeleteFiltersSaved,
-          extra: {
-            name: this.modelFiltersSaved,
-          },
-          ariaDisabled: this.disabledButtonDeleteFiltersSaved,
-          onClick: this.openDeleteConfirm,
-        }),
-      ]),
-    ]);
+    // return h("div", {
+    //   id: this.idFilterTop,
+    //   class: "a_filters_top",
+    // }, [
+    //   h("form", {
+    //     class: "a_filters_top__form",
+    //   }, [
+    //     h("div", {
+    //       class: "a_filters_top__header",
+    //     }, [
+    //       h(AFiltersHorizontalFilter, {
+    //         id: this.id,
+    //         class: "a_filters_top__filter_main",
+    //         closable: false,
+    //         filter: this.filtersGroup.main,
+    //         isFilterMain: true,
+    //         unappliedModel: this.unappliedModel,
+    //         updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+    //         onUpdateModelFilters: this.onUpdateModelFilters,
+    //       }, {
+    //         ...this.$slots,
+    //         btnSearchStart: () => {
+    //           return BTN_SEARCH;
+    //         },
+    //       }),
+    //     ]),
+    //
+    //     this.isBtnToggleVisible && h(AButton, {
+    //       class: "a_btn a_btn_secondary a_text_nowrap a_filters_top__toggle_filter",
+    //       type: "button",
+    //       text: this.textToggle,
+    //       iconRight: this.iconToggle,
+    //       onClick: this.onToggle,
+    //     }),
+    //     h("div", {
+    //       class: "a_filters_top__always_visible",
+    //       style: this.styleToggle,
+    //     }, [
+    //       this.filtersGroup.alwaysVisible.map(filter => {
+    //         return h(AFiltersHorizontalFilter, {
+    //           key: filter.id,
+    //           closable: false,
+    //           filter,
+    //           unappliedModel: this.unappliedModel,
+    //           onUpdateModelFilters: this.onUpdateModelFilters,
+    //           updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+    //           id: this.id,
+    //         }, this.$slots);
+    //       }),
+    //       this.filtersVisible.map(filter => {
+    //         return h(AFiltersHorizontalFilter, {
+    //           key: filter.id,
+    //           closable: true,
+    //           filter: filter,
+    //           unappliedModel: this.unappliedModel,
+    //           onUpdateModelFilters: this.onUpdateModelFilters,
+    //           id: this.id,
+    //           onDeleteFiltersVisible: this.deleteFiltersVisible,
+    //           updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
+    //         }, this.$slots);
+    //       }),
+    //       h("div", {
+    //         class: "a_filters_top__footer",
+    //       }, [
+    //         h(ASelect, {
+    //           class: "a_filters_top__footer__select",
+    //           type: "select",
+    //           data: this.filtersHidden,
+    //           keyGroup: "group",
+    //           keyLabel: "label",
+    //           keyId: "id",
+    //           label: "_A_FILTERS_ADD_FILTER_",
+    //           menuWidthType: "by_content",
+    //           translateData: true,
+    //           disabled: !this.filtersHidden.length,
+    //           search: true,
+    //           change: this.addFiltersVisible,
+    //         }),
+    //         BTN_SEARCH,
+    //       ]),
+    //     ]),
+    //   ]),
+    //   this.isModalSaveVisible && h(AFiltersSaveModal, {
+    //     changeModelFiltersSaved: this.changeModelFiltersSaved,
+    //     filtersSaved: this.filtersSaved,
+    //     modelFiltersSaved: this.modelFiltersSaved,
+    //     selectorCloseIds: this.selectorCloseIds,
+    //     updateFiltersSaved: this.updateFiltersSaved,
+    //     onClose: this.closeModalSave,
+    //   }),
+    //   this.canSave && h("div", {
+    //     class: "a_filters_top__save",
+    //   }, [
+    //     h(ASelect, {
+    //       modelValue: this.modelFiltersSaved,
+    //       change: this.changeModelFiltersSaved,
+    //       class: "a_filters_top__save_select",
+    //       data: this.filtersSaved,
+    //       deselect: true,
+    //       disabled: !this.filtersSaved.length,
+    //       keyId: "label",
+    //       keyLabel: "label",
+    //       label: "_A_FILTERS_SAVE_SELECT_",
+    //       menuWidthType: "by_content",
+    //       search: true,
+    //       translateData: true,
+    //       type: "select",
+    //     }),
+    //     h(AButton, {
+    //       id: this.buttonSaveComponentId,
+    //       onClick: this.openModalSave,
+    //       class: "a_btn a_btn_secondary a_text_nowrap a_filters_top__delete_filter_saved",
+    //       text: {
+    //         desktop: "_A_FILTERS_SAVE_BTN_",
+    //       },
+    //       iconLeft: {
+    //         mobile: "FloppyDisk",
+    //       },
+    //       textScreenReader: {
+    //         mobile: "_A_FILTERS_SAVE_BTN_",
+    //       },
+    //     }),
+    //     h(AButton, {
+    //       id: this.buttonDeleteId,
+    //       class: "a_btn a_btn_secondary",
+    //       iconLeft: "Trash",
+    //       textScreenReader: this.titleButtonDeleteFiltersSaved,
+    //       title: this.titleButtonDeleteFiltersSaved,
+    //       extra: {
+    //         name: this.modelFiltersSaved,
+    //       },
+    //       ariaDisabled: this.hasNotModelFiltersSaved,
+    //       onClick: this.openDeleteConfirm,
+    //     }),
+    //   ]),
+    // ]);
   },
 };

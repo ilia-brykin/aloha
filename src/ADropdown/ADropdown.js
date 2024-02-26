@@ -168,6 +168,10 @@ export default {
       required: false,
       default: undefined,
     },
+    dropdownRenderDefault: {
+      type: Boolean,
+      required: false,
+    },
     dropdownTag: {
       type: String,
       required: false,
@@ -224,6 +228,16 @@ export default {
     isListWidthSameWithButton: {
       type: Boolean,
       required: false,
+    },
+    lockArrowsNavigation: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    lockTabNavigation: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     menuWidth: {
       type: Number,
@@ -352,6 +366,8 @@ export default {
       hasActions,
       idLocal,
       isMenuRendered,
+      onClose,
+      onOpen,
       popperContainerIdSelector,
       startPopper,
       statusExpanded,

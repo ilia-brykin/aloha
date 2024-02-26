@@ -18,6 +18,8 @@ export default function EventsAPI(props, { emit }, {
       $event,
       isSelected: isChecked.value,
     });
+    $event.stopPropagation();
+    $event.preventDefault();
   };
 
   const onKeydown = $event => {
@@ -27,8 +29,6 @@ export default function EventsAPI(props, { emit }, {
     if ($event.keyCode === AKeysCode.enter ||
       $event.keyCode === AKeysCode.space) {
       onClick($event);
-      $event.stopPropagation();
-      $event.preventDefault();
     }
   };
 
