@@ -86,6 +86,7 @@ export default {
       selectorCloseIds: this.selectorCloseIds,
       size: "large",
       save: this.save,
+      stop: true,
       "onUpdate:modelValue": this.updateModel,
     }, {
       modalBodyPrepend: () => [

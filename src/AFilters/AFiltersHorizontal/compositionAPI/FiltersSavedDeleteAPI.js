@@ -9,8 +9,8 @@ import ANotificationAPI from "../../../compositionAPI/ANotificationAPI";
 
 export default function FiltersSavedDeleteAPI(props, {
   changeModelFiltersSaved = () => {},
-  hasNotModelFiltersSaved = computed(() => false),
   idFilterTop = computed(() => ""),
+  isModelFilterSavedNew = computed(() => false),
   modelFiltersSaved = ref(undefined),
 }) {
   const id = toRef(props, "id");
@@ -31,7 +31,7 @@ export default function FiltersSavedDeleteAPI(props, {
   });
 
   const titleButtonDeleteFiltersSaved = computed(() => {
-    if (hasNotModelFiltersSaved.value) {
+    if (isModelFilterSavedNew.value) {
       return "_A_FILTERS_DELETE_FILTER_SAVED_BTN_DISABLED_";
     }
     return {
@@ -40,7 +40,7 @@ export default function FiltersSavedDeleteAPI(props, {
   });
 
   const textScreenreaderButtonDeleteFiltersSaved = computed(() => {
-    if (hasNotModelFiltersSaved.value) {
+    if (isModelFilterSavedNew.value) {
       return "_A_FILTERS_DELETE_FILTER_SAVED_BTN_DISABLED_";
     }
     return "_A_FILTERS_DELETE_FILTER_SAVED_BTN_";

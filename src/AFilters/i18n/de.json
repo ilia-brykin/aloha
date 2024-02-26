@@ -1,5 +1,5 @@
 {
-  "_A_FILTERS_ADD_FILTER_": "Filter hinzufügen",
+  "_A_FILTERS_ADD_FILTER_": "Neues Filterkriterium",
   "_A_FILTERS_CLOSE_ADVANCED_SEARCH_": "Erweiterte Suche schließen",
   "_A_FILTERS_DELETE_FILTER_BODY_{{name}}_": "Sind Sie sicher, dass Sie diese gespeicherte Suche <strong>{{ name }}</strong> löschen wollen?",
   "_A_FILTERS_DELETE_FILTER_BTN_DELETE_": "Löschen",
@@ -27,5 +27,9 @@
   "_A_FILTERS_HOR_FILTER_HEADER_": "Filter:",
   "_A_FILTERS_HOR_CLOSE_DROPDOWN_": "Schließen",
   "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_TEXT_": "Filter aktualisieren",
-  "_A_FILTERS_HOR_FILTER_NEW_": "Neu"
+  "_A_FILTERS_HOR_FILTER_NEW_": "Neu",
+  "_A_FILTERS_SAVE_FILTER_SAVED_BTN_TEXT_": "Filter speichern unter",
+  "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_": "Ausgewählten Filter aktualisieren",
+  "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_DISABLED_": "Ausgewählten Filter kann nicht aktualisiert werden. (Gespeicherter Filter nicht ausgewählt)",
+  "_A_FILTERS_FILTER_SAVED_GROUP_MY_": "Meine Filter"
 }

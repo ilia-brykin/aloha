@@ -20,6 +20,7 @@ import HideModalAPI from "./compositionAPI/HideModalAPI";
 import KeydownAPI from "./compositionAPI/KeydownAPI";
 import ShowModalAPI from "./compositionAPI/ShowModalAPI";
 import SizeAPI from "./compositionAPI/SizeAPI";
+import WrapperAPI from "./compositionAPI/WrapperAPI";
 
 import {
   modalPluginOptions,
@@ -164,6 +165,10 @@ export default {
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
       default: () => modalPluginOptions.value.propsDefault.size,
     },
+    stop: {
+      type: Boolean,
+      required: false,
+    },
     useEscape: {
       type: Boolean,
       required: false,
@@ -223,6 +228,10 @@ export default {
       setFocusByDestroy,
     });
 
+    const {
+      clickWrapperStoppPropagationEventMap,
+    } = WrapperAPI(props);
+
     watch(isModalHidden, () => {
       if (isModalHidden.value) {
         hideModal();
@@ -246,6 +255,7 @@ export default {
     });
 
     return {
+      clickWrapperStoppPropagationEventMap,
       disabledLocal,
       modalRef,
       modalWrapperRef,
@@ -259,6 +269,7 @@ export default {
     }, [
       h("div", {
         ref: "modalWrapperRef",
+        ...this.clickWrapperStoppPropagationEventMap,
       }, [
         h("div", {
           ref: "modalRef",

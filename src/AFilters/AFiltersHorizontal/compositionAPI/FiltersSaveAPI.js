@@ -4,22 +4,58 @@ import {
   toRef,
 } from "vue";
 
+import {
+  cloneDeep,
+  forEach,
+} from "lodash-es";
+
+const NEW_FILTER_LABEL = "_A_FILTERS_HOR_FILTER_NEW_";
+
 export default function FiltersSaveAPI(props, {
   openDropdown = () => ({}),
 }) {
-  const onUpdateModelFilters = toRef(props, "onUpdateModelFilters");
+  const filtersSaved = toRef(props, "filtersSaved");
   const id = toRef(props, "id");
+  const onUpdateModelFilters = toRef(props, "onUpdateModelFilters");
 
   const isModalSaveVisible = ref(undefined);
-  const modelFiltersSaved = ref(undefined);
+  const modelFiltersSaved = ref(NEW_FILTER_LABEL);
   const selectorCloseIds = ref(undefined);
 
   const buttonSaveComponentId = computed(() => {
     return `${ id.value }btn_save_`;
   });
 
-  const hasNotModelFiltersSaved = computed(() => {
-    return !modelFiltersSaved.value;
+  const isModelFilterSavedNew = computed(() => {
+    return modelFiltersSaved.value === NEW_FILTER_LABEL;
+  });
+
+  const filtersSavedLocal = computed(() => {
+    const FILTER_SAVED = [{
+      label: NEW_FILTER_LABEL,
+    }];
+    forEach(cloneDeep(filtersSaved.value), filter => {
+      filter.group = "_A_FILTERS_FILTER_SAVED_GROUP_MY_";
+      FILTER_SAVED.push(filter);
+    });
+
+    return FILTER_SAVED;
+  });
+
+  const titleButtonUpdateFiltersSaved = computed(() => {
+    if (isModelFilterSavedNew.value) {
+      return "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_DISABLED_";
+    }
+    return {
+      mobile: "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_",
+    };
+  });
+
+  const textScreenreaderButtonUpdateFiltersSaved = computed(() => {
+    if (isModelFilterSavedNew.value) {
+      return "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_DISABLED_";
+    }
+    return "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_";
   });
 
   const openModalSave = () => {
@@ -32,8 +68,21 @@ export default function FiltersSaveAPI(props, {
   };
 
   const changeModelFiltersSaved = ({ model, item }) => {
-    modelFiltersSaved.value = model;
-    if (model) {
+    if (!model) {
+      if (modelFiltersSaved.value === NEW_FILTER_LABEL) {
+        onUpdateModelFilters.value({
+          model: {},
+          isUpdateFiltersVisible: true,
+        });
+      } else if (item) {
+        onUpdateModelFilters.value({
+          model: {},
+          isUpdateFiltersVisible: true,
+        });
+        openDropdown();
+      }
+    } else {
+      modelFiltersSaved.value = model;
       if (item) {
         onUpdateModelFilters.value({
           model: item.data || {},
@@ -41,25 +90,39 @@ export default function FiltersSaveAPI(props, {
         });
         openDropdown();
       }
-    } else if (item) {
-      if (item) {
-        onUpdateModelFilters.value({
-          model: {},
-          isUpdateFiltersVisible: true,
-        });
-        openDropdown();
-      }
     }
+
+    // modelFiltersSaved.value = model;
+    // if (model) {
+    //   if (item) {
+    //     onUpdateModelFilters.value({
+    //       model: item.data || {},
+    //       isUpdateFiltersVisible: true,
+    //     });
+    //     openDropdown();
+    //   }
+    // } else if (item) {
+    //   if (item) {
+    //     onUpdateModelFilters.value({
+    //       model: {},
+    //       isUpdateFiltersVisible: true,
+    //     });
+    //     openDropdown();
+    //   }
+    // }
   };
 
   return {
     buttonSaveComponentId,
     changeModelFiltersSaved,
     closeModalSave,
-    hasNotModelFiltersSaved,
+    filtersSavedLocal,
     isModalSaveVisible,
+    isModelFilterSavedNew,
     modelFiltersSaved,
     openModalSave,
     selectorCloseIds,
+    textScreenreaderButtonUpdateFiltersSaved,
+    titleButtonUpdateFiltersSaved,
   };
 }

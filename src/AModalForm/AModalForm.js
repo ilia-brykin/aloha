@@ -173,6 +173,10 @@ export default {
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
       default: () => modalPluginOptions.value.propsDefault.size,
     },
+    stop: {
+      type: Boolean,
+      required: false,
+    },
     textErrorHeader: {
       type: String,
       required: false,
@@ -231,6 +235,7 @@ export default {
       selectorClose: this.selectorClose,
       selectorCloseIds: this.selectorCloseIds,
       size: this.size,
+      stop: this.stop,
       useEscape: this.useEscape,
     }, {
       ...this.$slots || {},
