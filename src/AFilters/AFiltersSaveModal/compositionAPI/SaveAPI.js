@@ -51,7 +51,7 @@ export default function SaveAPI(props, { emit }, {
         name: model.value.name,
       },
     });
-    changeModelFiltersSaved.value({ model: model.value.name });
+    changeModelFiltersSaved.value({ model: model.value.name, isCreateOrEdit: true });
     close();
     loading.value = false;
   };

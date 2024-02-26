@@ -42,22 +42,6 @@ export default function FiltersSaveAPI(props, {
     return FILTER_SAVED;
   });
 
-  const titleButtonUpdateFiltersSaved = computed(() => {
-    if (isModelFilterSavedNew.value) {
-      return "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_DISABLED_";
-    }
-    return {
-      mobile: "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_",
-    };
-  });
-
-  const textScreenreaderButtonUpdateFiltersSaved = computed(() => {
-    if (isModelFilterSavedNew.value) {
-      return "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_DISABLED_";
-    }
-    return "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_";
-  });
-
   const openModalSave = () => {
     selectorCloseIds.value = buttonSaveComponentId.value;
     isModalSaveVisible.value = true;
@@ -67,7 +51,12 @@ export default function FiltersSaveAPI(props, {
     isModalSaveVisible.value = false;
   };
 
-  const changeModelFiltersSaved = ({ model, item, isDelete }) => {
+  const changeModelFiltersSaved = ({ model, item, isDelete, isCreateOrEdit }) => {
+    if (isCreateOrEdit) {
+      modelFiltersSaved.value = model;
+      return;
+    }
+
     if (!model) {
       if (modelFiltersSaved.value === NEW_FILTER_LABEL || isDelete) {
         onUpdateModelFilters.value({
@@ -123,7 +112,5 @@ export default function FiltersSaveAPI(props, {
     modelFiltersSaved,
     openModalSave,
     selectorCloseIds,
-    textScreenreaderButtonUpdateFiltersSaved,
-    titleButtonUpdateFiltersSaved,
   };
 }

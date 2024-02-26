@@ -3,5 +3,8 @@
   "_A_FILTERS_COMPONENT_NAME_": "Filters",
   "_A_PAGE_FILTER_SEARCH_": "Schnellsuche",
   "_A_PAGE_FILTER_TEXT_": "Text",
-  "_A_PAGE_FILTER_DATE_": "Datum"
+  "_A_PAGE_FILTER_DATE_": "Datum",
+  "_A_PAGE_FILTER_INTEGER_": "Ganze Zahl",
+  "_A_TABLE_FILTER_INPUT_DATE_RANGE_": "Zeitraum",
+  "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_": "Zahlenbereich"
 }

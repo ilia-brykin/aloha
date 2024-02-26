@@ -114,6 +114,14 @@
   position: sticky;
   bottom: 0;
   background-color: rgba(255, 255, 255, 0.8);
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--a_filter_hor_padding_x);
+    right: var(--a_filter_hor_padding_x);
+    border-top: var(--a_filter_hor_divider_border_width) solid var(--a_filter_hor_divider_border_color);
+  }
 }
 .a_filter_horizontal__footer__actions {
   display: inline-block;

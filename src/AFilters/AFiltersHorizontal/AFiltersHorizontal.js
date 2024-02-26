@@ -127,8 +127,6 @@ export default {
       modelFiltersSaved,
       openModalSave,
       selectorCloseIds,
-      textScreenreaderButtonUpdateFiltersSaved,
-      titleButtonUpdateFiltersSaved,
     } = FiltersSaveAPI(props, {
       openDropdown,
     });
@@ -175,8 +173,6 @@ export default {
       openDeleteConfirm,
       textScreenreaderButtonDeleteFiltersSaved,
       titleButtonDeleteFiltersSaved,
-      textScreenreaderButtonUpdateFiltersSaved,
-      titleButtonUpdateFiltersSaved,
     };
   },
   render() {
@@ -277,20 +273,21 @@ export default {
                     onClick: () => this.deleteFiltersVisible({ filter: item }),
                   }),
                   formDataAppend: () => h(ASelect, {
-                    type: "select",
+                    buttonClassDefault: "a_btn a_btn_primary",
+                    change: this.addFiltersVisible,
                     data: this.filtersHidden,
-                    keyGroup: "group",
-                    keyLabel: "label",
-                    keyId: "id",
                     hasCaret: false,
+                    isLabelFloat: false,
+                    keyGroup: "group",
+                    keyId: "id",
+                    keyLabel: "label",
                     label: "_A_FILTERS_ADD_FILTER_",
                     labelClass: "a_sr_only",
-                    buttonClassDefault: "a_btn a_btn_primary",
-                    isLabelFloat: false,
                     menuWidthType: "by_content",
-                    translateData: true,
+                    placement: "bottom-start",
                     search: true,
-                    change: this.addFiltersVisible,
+                    translateData: true,
+                    type: "select",
                   }, {
                     fixedPlaceholder: () => [
                       h(ATranslation, {
@@ -315,18 +312,6 @@ export default {
                       type: "button",
                       text: "_A_FILTERS_SAVE_FILTER_SAVED_BTN_TEXT_",
                       onClick: this.openModalSave,
-                    }),
-                    h(AElement, {
-                      ariaDisabled: this.isModelFilterSavedNew,
-                      class: "a_btn a_btn_secondary",
-                      iconLeft: "Pencil",
-                      text: {
-                        desktop: "_A_FILTERS_UPDATE_FILTER_SAVED_BTN_TEXT_",
-                      },
-                      textAriaHidden: true,
-                      textScreenReader: this.textScreenreaderButtonUpdateFiltersSaved,
-                      title: this.titleButtonUpdateFiltersSaved,
-                      type: "button",
                     }),
                     h(AElement, {
                       id: this.buttonDeleteId,
