@@ -24,6 +24,9 @@ import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import placements from "../const/placements";
 import {
+  focusableSelector,
+} from "../const/AFocusableElements";
+import {
   difference,
   uniqueId,
 } from "lodash-es";
@@ -180,7 +183,7 @@ export default {
     elementsForArrows: {
       type: String,
       required: false,
-      default: "button:not([disabled]), input:not([disabled]), a",
+      default: focusableSelector,
     },
     extra: {
       type: Object,

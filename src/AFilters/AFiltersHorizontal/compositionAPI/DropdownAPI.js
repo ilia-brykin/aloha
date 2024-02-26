@@ -17,8 +17,8 @@ export default function DropdownAPI(props) {
     dropdownRef.value?.onClose({ trigger: "click" });
   };
 
-  const openDropdown = () => {
-    dropdownRef.value?.onOpen({ trigger: "click" });
+  const openDropdown = selectorToFocus => {
+    dropdownRef.value?.onOpen({ trigger: "click", selectorToFocus });
   };
 
   return {

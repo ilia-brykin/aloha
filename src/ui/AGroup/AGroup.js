@@ -96,8 +96,11 @@ export default {
     });
 
     const {
+      labelAttributesForNotFocusableElements,
       specificAttributes,
-    } = SpecificTypeAPI(props);
+    } = SpecificTypeAPI(props, {
+      htmlIdFirstChild,
+    });
 
     return {
       componentTypesMapping,
@@ -108,6 +111,7 @@ export default {
 
       componentStyleHide,
 
+      labelAttributesForNotFocusableElements,
       specificAttributes,
 
       ariaDescribedbyLocal,
@@ -142,6 +146,7 @@ export default {
             required: this.firstChild.required,
             type: this.firstChild.type,
             isLabelFloat: false,
+            ...this.labelAttributesForNotFocusableElements,
           }),
           this.children.map((item, itemIndex) => {
             let classColumn;

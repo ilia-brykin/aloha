@@ -145,7 +145,7 @@ export default function ToggleAPI(props, {
     }
   };
 
-  const onOpen = ({ trigger = "click" } = {}) => {
+  const onOpen = ({ trigger = "click", selectorToFocus } = {}) => {
     if (trigger === "hover" && triggerOpen.value === "hover") {
       clearTimeout(timerCloseHover.value);
     }
@@ -163,7 +163,11 @@ export default function ToggleAPI(props, {
     wasOpened.value = true;
     setTimeout(() => {
       setEventCloseClick();
-      if (trigger === "click") {
+      if (selectorToFocus) {
+        setTimeout(() => {
+          document.getElementById(selectorToFocus).focus();
+        });
+      } else if (trigger === "click") {
         setTimeout(() => {
           setFocusToFirstElement();
         });

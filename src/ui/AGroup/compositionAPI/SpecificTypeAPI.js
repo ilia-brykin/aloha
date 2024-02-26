@@ -9,13 +9,17 @@ import {
 import {
   typesMapInputNumberRange,
 } from "../../AInputNumberRange/utils/Types";
+import AUiTypesNotFocusable from "../../const/AUiTypesNotFocusable";
 
 import {
   forEach,
+  get,
   isUndefined,
 } from "lodash-es";
 
-export default function SpecificTypeAPI(props) {
+export default function SpecificTypeAPI(props, {
+  htmlIdFirstChild = computed(() => ""),
+}) {
   const children = toRef(props, "children");
 
   const specificAttributes = computed(() => {
@@ -45,7 +49,21 @@ export default function SpecificTypeAPI(props) {
     return ATTRIBUTES;
   });
 
+  const labelAttributesForNotFocusableElements = computed(() => {
+    const ATTRIBUTES = {};
+    const IS_ELEMENT_NOT_FOCUSABLE = AUiTypesNotFocusable[get(children, "value[0].type")];
+
+    if (IS_ELEMENT_NOT_FOCUSABLE) {
+      ATTRIBUTES.clickLabel = () => {
+        document.getElementById(htmlIdFirstChild.value).focus();
+      };
+    }
+
+    return ATTRIBUTES;
+  });
+
   return {
+    labelAttributesForNotFocusableElements,
     specificAttributes,
   };
 }
