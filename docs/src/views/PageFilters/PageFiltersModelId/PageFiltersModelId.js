@@ -28,7 +28,6 @@ export default {
         type: "text",
         id: "search",
         label: "_A_TABLE_FILTER_SEARCH_",
-        main: true,
       },
       {
         type: "checkbox",

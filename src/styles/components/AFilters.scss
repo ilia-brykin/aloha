@@ -6,10 +6,10 @@
   --a_filters_top_subgroup_width: 66%;
   --a_filters_top_always_visible_padding: 1rem 1rem 1rem 2rem;
 
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  //display: flex;
+  //align-items: start;
+  //justify-content: space-between;
+  //flex-wrap: wrap;
   padding: var(--a_filters_top_padding);
 
   .a_form_element_number_controls .a_form_element {
@@ -51,6 +51,9 @@
 .a_filter_horizontal {
 
 }
+.a_filter_horizontal__btn_dropdown {
+  margin-top: .5rem;
+}
 .a_filter_horizontal__header__wrapper {
   padding: var(--a_filter_hor_padding_y) var(--a_filter_hor_padding_x) 0 var(--a_filter_hor_padding_x);
   height: var(--a_filter_hor_header_height);
@@ -67,6 +70,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-right: .5rem;
 }
 .a_filter_horizontal__header__texts__filter {
   padding-right: .5rem;
@@ -102,8 +106,14 @@
     --a_input_number_width: 100% !important;
   }
 }
+.a_filter_horizontal__add_filter {
+  position: relative;
+}
+.a_filter_horizontal__add_filter__wrapper {
+  margin: var(--a_filter_hor_padding_y) 0;
+}
 .a_filter_horizontal__save_actions {
-  padding: var(--a_filter_hor_padding_y) 0;
+  margin: var(--a_filter_hor_padding_y) 0;
   .a_btn + .a_btn {
     margin-left: .5rem;
   }
