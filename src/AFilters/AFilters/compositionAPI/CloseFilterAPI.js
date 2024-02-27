@@ -1,5 +1,6 @@
 import {
   computed,
+  ref,
   toRef,
 } from "vue";
 
@@ -13,11 +14,16 @@ import {
 } from "lodash-es";
 
 export default function CloseFilterAPI(props, { emit }, {
+  filtersHorizontalRef = ref(undefined),
   filtersVisibleAll = computed(() => []),
   onUpdateModelFilters = () => {},
 }) {
   const appliedModel = toRef(props, "appliedModel");
   const unappliedModel = toRef(props, "unappliedModel");
+
+  const updateFilterSavedModel = () => {
+    filtersHorizontalRef.value?.initModelFiltersSaved();
+  };
 
   const closeCurrentFilter = ({ filter, keyId, modelArray, appliedModelLocal, unappliedModelLocal }) => {
     const MODEL_ID = filter.modelId || filter.id;
@@ -98,6 +104,8 @@ export default function CloseFilterAPI(props, { emit }, {
       appliedModelLocal = MODELS_OBJECT.appliedModelLocal;
       unappliedModelLocal = MODELS_OBJECT.unappliedModelLocal;
     });
+
+    updateFilterSavedModel();
 
     emit("update:unappliedModel", unappliedModelLocal);
     emit("update:appliedModel", appliedModelLocal);

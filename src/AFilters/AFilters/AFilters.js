@@ -94,6 +94,7 @@ export default {
     const {
       filtersDataKeyById,
       filtersGroup,
+      filtersHorizontalRef,
       filtersKeyById,
       filtersVisible,
       filtersVisibleAll,
@@ -109,6 +110,7 @@ export default {
       closeAllFilters,
       closeFilterValue,
     } = CloseFilterAPI(props, context, {
+      filtersHorizontalRef,
       filtersVisibleAll,
       onUpdateModelFilters,
     });
@@ -152,6 +154,7 @@ export default {
       dataKeyByKeyIdPerFilter,
       filtersDataKeyById,
       filtersGroup,
+      filtersHorizontalRef,
       filtersKeyById,
       filtersSavedLocal,
       filtersVisible,
@@ -212,6 +215,7 @@ export default {
           filtersVisibleAll: this.filtersVisibleAll,
         }, {
           filtersHorizontal: () => h(AFiltersHorizontal, {
+            ref: "filtersHorizontalRef",
             id: this.id,
             canSave: this.canSave,
             disabled: this.disabled,

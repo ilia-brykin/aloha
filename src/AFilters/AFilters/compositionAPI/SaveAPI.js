@@ -32,7 +32,10 @@ export default function SaveAPI(props) {
         if (action === "delete") {
           filtersSavedLocal.value.splice(INDEX, 1);
         } else if (action === "update") {
-          filtersSavedLocal.value.splice(INDEX, 1, cloneDeep(unappliedModel.value));
+          filtersSavedLocal.value.splice(INDEX, 1, {
+            label,
+            data: cloneDeep(unappliedModel.value),
+          });
         }
       }
     }

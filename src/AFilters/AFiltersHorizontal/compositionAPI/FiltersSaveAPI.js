@@ -9,8 +9,6 @@ import {
   forEach,
 } from "lodash-es";
 
-const NEW_FILTER_LABEL = "_A_FILTERS_HOR_FILTER_NEW_";
-
 export default function FiltersSaveAPI(props, {
   openDropdown = () => ({}),
 }) {
@@ -18,8 +16,9 @@ export default function FiltersSaveAPI(props, {
   const id = toRef(props, "id");
   const onUpdateModelFilters = toRef(props, "onUpdateModelFilters");
 
+  const NEW_FILTER_LABEL = "_A_FILTERS_HOR_FILTER_NEW_";
   const isModalSaveVisible = ref(undefined);
-  const modelFiltersSaved = ref(NEW_FILTER_LABEL);
+  const modelFiltersSaved = ref(undefined);
   const selectorCloseIds = ref(undefined);
 
   const buttonSaveComponentId = computed(() => {
@@ -57,21 +56,16 @@ export default function FiltersSaveAPI(props, {
       return;
     }
 
-    if (!model) {
-      if (modelFiltersSaved.value === NEW_FILTER_LABEL || isDelete) {
-        onUpdateModelFilters.value({
-          model: {},
-          isUpdateFiltersVisible: true,
-        });
-        modelFiltersSaved.value = NEW_FILTER_LABEL;
-      } else if (item) {
-        onUpdateModelFilters.value({
-          model: {},
-          isUpdateFiltersVisible: true,
-        });
-        openDropdown();
-      }
-    } else {
+    if (item?.label === NEW_FILTER_LABEL || isDelete) {
+      onUpdateModelFilters.value({
+        model: {},
+        isUpdateFiltersVisible: true,
+      });
+      modelFiltersSaved.value = NEW_FILTER_LABEL;
+      return;
+    }
+
+    if (model) {
       modelFiltersSaved.value = model;
       if (item) {
         onUpdateModelFilters.value({
@@ -80,26 +74,19 @@ export default function FiltersSaveAPI(props, {
         });
         openDropdown();
       }
+    } else {
+      if (item) {
+        onUpdateModelFilters.value({
+          model: item.data || {},
+          isUpdateFiltersVisible: true,
+        });
+        openDropdown();
+      }
     }
+  };
 
-    // modelFiltersSaved.value = model;
-    // if (model) {
-    //   if (item) {
-    //     onUpdateModelFilters.value({
-    //       model: item.data || {},
-    //       isUpdateFiltersVisible: true,
-    //     });
-    //     openDropdown();
-    //   }
-    // } else if (item) {
-    //   if (item) {
-    //     onUpdateModelFilters.value({
-    //       model: {},
-    //       isUpdateFiltersVisible: true,
-    //     });
-    //     openDropdown();
-    //   }
-    // }
+  const initModelFiltersSaved = () => {
+    modelFiltersSaved.value = NEW_FILTER_LABEL;
   };
 
   return {
@@ -107,6 +94,7 @@ export default function FiltersSaveAPI(props, {
     changeModelFiltersSaved,
     closeModalSave,
     filtersSavedLocal,
+    initModelFiltersSaved,
     isModalSaveVisible,
     isModelFilterSavedNew,
     modelFiltersSaved,

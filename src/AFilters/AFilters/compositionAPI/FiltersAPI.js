@@ -15,6 +15,7 @@ export default function FiltersAPI(props, { emit }) {
   const unappliedModel = toRef(props, "unappliedModel");
 
   const filtersDataKeyById = ref({});
+  const filtersHorizontalRef = ref(undefined);
   const filtersVisibleIds = ref([]);
 
   const hasFilters = computed(() => {
@@ -108,6 +109,7 @@ export default function FiltersAPI(props, { emit }) {
   return {
     filtersDataKeyById,
     filtersGroup,
+    filtersHorizontalRef,
     filtersKeyById,
     filtersVisible,
     filtersVisibleAll,
