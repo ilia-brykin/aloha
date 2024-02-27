@@ -1,3 +1,5 @@
+$a_breakpoint_touch: 1023px !default;
+
 .a_filters_top {
   --a_filters_top_padding: 0.5rem;
   --a_filters_top_form_width: 50%;
@@ -289,5 +291,15 @@
     .a_filters_top__filter_ui_subgroup {
       padding-left: 0;
     }
+  }
+}
+
+@media screen and (max-width: #{$a_breakpoint_touch})  {
+  .a_form_element_label {
+    padding-bottom: 0;
+  }
+
+  .a_filters__form_element {
+    padding-top: 0;
   }
 }
