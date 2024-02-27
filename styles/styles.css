@@ -7742,6 +7742,12 @@ input:not(:-webkit-autofill) {
   .a_filters_top__filter_main .a_filters_top__filter_ui_subgroup {
     padding-left: 0; } }
 
+@media screen and (max-width: 1023px) {
+  .a_form_element_label {
+    padding-bottom: 0; }
+  .a_filters__form_element {
+    padding-top: 0; } }
+
 .a_table__parent {
   --a_table_bg: var(--a_color_white);
   --a_table_th_bg: var(--a_color_gray_300);
