@@ -533,7 +533,7 @@ export default {
       deep: true,
     });
 
-    addPopperContainerInBody({ className: "a_select_container " });
+    addPopperContainerInBody({ className: "a_select_container" });
     loadDataFromServer();
     loadDataFromServerForSearchAPI();
 
