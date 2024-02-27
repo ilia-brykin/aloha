@@ -4871,11 +4871,17 @@ h6 {
 .a_search_highlight {
   color: red; }
 
-.a_popup_container {
+.a_popup_container,
+.a_select_container {
   position: relative;
   height: 0;
-  z-index: 1900;
   top: 100%; }
+
+.a_popup_container {
+  z-index: 1900; }
+
+.a_select_container {
+  z-index: 1901; }
 
 .a_dropdown__menu {
   box-shadow: 0 0 7px 3px var(--a_color_gray_600); }
