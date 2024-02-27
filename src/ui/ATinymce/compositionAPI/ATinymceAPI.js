@@ -23,6 +23,7 @@ import "tinymce/skins/ui/oxide/skin.css";
 
 /* Import plugins */
 import "tinymce/plugins/advlist";
+import "tinymce/plugins/autoresize";
 import "tinymce/plugins/code";
 import "tinymce/plugins/emoticons";
 import "tinymce/plugins/emoticons/js/emojis";
@@ -77,25 +78,26 @@ export default function ATinymceAPI(props, context, {
   const render = () => {
     modelValueLocal = modelValue.value;
     tinymce.init({
-      selector: `#${ htmlIdLocal.value }`,
-      plugins: plugins.value,
-      toolbar: toolbar.value,
-      toolbar_mode: toolbarMode.value,
-      skin: false,
-      content_css: false,
-      entity_encoding: "raw",
-      content_style: contentStyle.value,
       branding: branding.value,
-      promotion: promotion.value,
-      language: languageDefault.value,
+      content_css: false,
       content_langs: contentLangs.value,
-      menu: menu.value,
-      menubar: menubar.value,
-      readonly: !!disabled.value,
-      valid_elements: validElements.value,
-      valid_styles: validStyles.value,
+      content_style: contentStyle.value,
+      contextmenu: "copy paste",
+      entity_encoding: "raw",
       force_br_newlines: true,
       indent: false,
+      language: languageDefault.value,
+      menu: menu.value,
+      menubar: menubar.value,
+      plugins: plugins.value,
+      promotion: promotion.value,
+      readonly: !!disabled.value,
+      selector: `#${ htmlIdLocal.value }`,
+      skin: false,
+      toolbar: toolbar.value,
+      toolbar_mode: toolbarMode.value,
+      valid_elements: validElements.value,
+      valid_styles: validStyles.value,
 
       setup: editor => {
         vueEditor = editor;

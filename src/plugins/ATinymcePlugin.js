@@ -18,7 +18,7 @@ export const tinymcePluginOptions = ref({
     maxlength: undefined,
     menu: undefined,
     menubar: false,
-    plugins: "advlist code emoticons link lists table help example",
+    plugins: "advlist autoresize code emoticons link lists table help example",
     promotion: false,
     rows: undefined,
     toolbar: [
