@@ -185,7 +185,7 @@ export default {
         ref: "dropdownRef",
         buttonIconLeft: "Filter",
         buttonText: "Filter",
-        buttonClass: "a_btn a_btn_primary a_filter_horizontal__btn_dropdown",
+        buttonClass: "a_btn a_btn_primary a_btn_small a_filter_horizontal__btn_dropdown",
         dropdownTag: "div",
         dropdownClass: "a_filter_horizontal__wrapper",
         dropdownRenderDefault: true,

@@ -1,13 +1,15 @@
 import {
   computed,
-  ref,
+  ref, toRef,
 } from "vue";
 
 import {
   forEach,
 } from "lodash-es";
 
-export default function VisibleFiltersAPI() {
+export default function VisibleFiltersAPI(props) {
+  const filtersGroup = toRef(props, "filtersGroup");
+
   const visibleChildFilters = ref({});
 
   const updateVisibleChildFilters = ({ id, isVisible }) => {
@@ -25,6 +27,10 @@ export default function VisibleFiltersAPI() {
     return isVisible;
   });
 
+  const hasFilters = computed(() => {
+    return !!(filtersGroup.value.alwaysVisible.length || filtersGroup.value.filters.length);
+  });
+
   const styleHide = computed(() => {
     return isLeastOneChildFilterVisible.value ?
       undefined :
@@ -32,6 +38,7 @@ export default function VisibleFiltersAPI() {
   });
 
   return {
+    hasFilters,
     styleHide,
     updateVisibleChildFilters,
   };

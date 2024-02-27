@@ -48,12 +48,6 @@
   overflow-y: hidden;
   padding: 0;
 }
-.a_filter_horizontal {
-
-}
-.a_filter_horizontal__btn_dropdown {
-  margin-top: .5rem;
-}
 .a_filter_horizontal__header__wrapper {
   padding: var(--a_filter_hor_padding_y) var(--a_filter_hor_padding_x) 0 var(--a_filter_hor_padding_x);
   height: var(--a_filter_hor_header_height);
@@ -221,6 +215,9 @@
 .a_filters_center__item {
   margin-top: .5rem;
   margin-left: .5rem;
+  &:first-child {
+    margin-left: 0;
+  }
   .aloha_btn .a_filters_center__item__value {
     margin-left: 0;
   }

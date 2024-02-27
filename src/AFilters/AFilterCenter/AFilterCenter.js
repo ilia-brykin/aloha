@@ -5,7 +5,6 @@ import {
 import AButton from "../../AButton/AButton";
 import AFilterCenterItem from "./AFilterCenterItem/AFilterCenterItem";
 import ASpinner from "../../ASpinner/ASpinner";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import LoadingFiltersAPI from "./compositionAPI/LoadingFiltersAPI";
 import VisibleFiltersAPI from "./compositionAPI/VisibleFiltersAPI";
@@ -33,6 +32,14 @@ export default {
       type: Boolean,
       required: false,
     },
+    filtersGroup: {
+      type: Object,
+      required: true,
+      default: () => ({
+        alwaysVisible: [],
+        filters: [],
+      }),
+    },
     filtersKeyById: {
       type: Object,
       required: true,
@@ -48,6 +55,7 @@ export default {
   },
   setup(props) {
     const {
+      hasFilters,
       styleHide,
       updateVisibleChildFilters,
     } = VisibleFiltersAPI(props);
@@ -58,6 +66,7 @@ export default {
     } = LoadingFiltersAPI(props);
 
     return {
+      hasFilters,
       isLeastOneChildFilterLoading,
       styleHide,
       updateLoadingChildFilters,
@@ -65,15 +74,20 @@ export default {
     };
   },
   render() {
+    if (!this.hasFilters) {
+      return "";
+    }
+
     return h("div", {
       class: "a_filters_center",
-      style: this.styleHide,
     }, [
-      h(ATranslation, {
-        class: "a_filters_center__headline a_filters_center__item",
-        tag: "span",
-        text: "_A_FILTERS_YOUR_SELECTION_",
-      }),
+      h("div", {
+        class: "a_filters_center__item",
+      }, [
+        this.$slots.filtersHorizontal ?
+          this.$slots.filtersHorizontal() :
+          "",
+      ]),
       this.filtersVisibleAll.map(filter => {
         return h(AFilterCenterItem, {
           key: filter.id,
@@ -88,6 +102,7 @@ export default {
         }, this.$slots);
       }),
       this.isLeastOneChildFilterLoading ? h("div", {
+        style: this.styleHide,
         class: "a_filters_center__item",
       }, [
         h(ASpinner, {
@@ -96,9 +111,11 @@ export default {
       ]) : "",
       h("div", {
         class: "a_filters_center__item",
+        style: this.styleHide,
       }, [
         h(AButton, {
           class: "a_btn a_btn_link a_btn_small",
+          iconLeft: "Reset",
           text: "_A_FILTERS_DESELECT_ALL_",
           onClick: this.closeAllFilters,
         }),

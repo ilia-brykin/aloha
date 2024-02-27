@@ -64,11 +64,15 @@ export default {
     };
   },
   render() {
+    if (!this.hasFilterMain) {
+      return "";
+    }
+
     return h("div", {
       id: this.idFilterTop,
       class: "a_filters_top",
     }, [
-      this.hasFilterMain ? h(AForm, {
+      h(AForm, {
         idPrefix: this.idFilterTop,
         class: "a_filters_top__form",
         classColumns: "a_filters_top__main_wrapper",
@@ -93,10 +97,7 @@ export default {
           disabled: this.disabled,
           onClick: this.onSearch,
         }),
-      }) : "",
-      this.$slots.filtersHorizontal ?
-        this.$slots.filtersHorizontal() :
-        "",
+      }),
     ]);
   },
 };
