@@ -8,8 +8,7 @@ import {
   autoUpdate,
   computePosition,
   flip,
-  limitShift,
-  shift
+  shift,
 } from "@floating-ui/vue";
 
 export default function PopoverAPI(props, {
@@ -17,6 +16,7 @@ export default function PopoverAPI(props, {
   dropdownRef = ref(undefined),
 }) {
   const floatingFlip = toRef(props, "floatingFlip");
+  const floatingShift = toRef(props, "floatingShift");
   const placement = toRef(props, "placement");
 
   const cleanupPopper = ref(undefined);
@@ -28,7 +28,11 @@ export default function PopoverAPI(props, {
         flip(floatingFlip.value),
       );
     }
-    MIDDLEWARE.push(shift({ limiter: limitShift() }));
+    if (floatingShift.value?.use) {
+      MIDDLEWARE.push(
+        shift(floatingShift.value),
+      );
+    }
 
     return MIDDLEWARE;
   });

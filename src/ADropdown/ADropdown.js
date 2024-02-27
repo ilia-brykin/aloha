@@ -199,8 +199,15 @@ export default {
       // flipAlignment?: boolean;
       // fallbackPlacements?: Array<Placement>;
       // fallbackStrategy?: 'bestFit' | 'initialPlacement';
+      default: () => ({}),
+    },
+    floatingShift: {
+      type: Object,
+      required: false,
       default: () => ({
         use: true,
+        crossAxis: true,
+        padding: 20,
       }),
     },
     hasCaret: {

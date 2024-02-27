@@ -194,10 +194,6 @@ export default {
         inBody: true,
         lockArrowsNavigation: false,
         lockTabNavigation: false,
-        floatingFlip: {
-          use: true,
-          fallbackPlacements: ["bottom", "top", "left", "right", "auto"],
-        },
       }, {
         ...this.$slots,
         dropdown: () => {
