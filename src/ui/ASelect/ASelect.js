@@ -709,6 +709,7 @@ export default {
                     }],
                     role: "listbox",
                     ariaLabelledby: this.htmlIdLocal,
+                    onClick: event => event.stopPropagation(),
                   }, [
                     this.searchOutsideOrApi && h("div", {
                       class: "a_select__search",
