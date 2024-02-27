@@ -10,12 +10,12 @@ export default function PopperContainerAPI(props) {
     return `#${ popperContainerId.value }`;
   });
 
-  const addPopperContainerInBody = () => {
+  const addPopperContainerInBody = ({ className = "a_popup_container" } = {}) => {
     const ELEMENT_CONTAINER = document.getElementById(popperContainerId.value);
     if (!ELEMENT_CONTAINER) {
       const POPPER_CONTAINER = document.createElement("div");
       POPPER_CONTAINER.id = popperContainerId.value;
-      POPPER_CONTAINER.className = "a_popup_container";
+      POPPER_CONTAINER.className = className;
       POPPER_CONTAINER.setAttribute("aria-hidden", "true");
       document.body.prepend(POPPER_CONTAINER);
     }
