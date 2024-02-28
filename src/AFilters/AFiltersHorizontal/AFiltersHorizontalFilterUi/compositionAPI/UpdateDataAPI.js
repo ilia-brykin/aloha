@@ -3,11 +3,11 @@ import {
   toRef,
 } from "vue";
 
-export default function DataAPI(props) {
+export default function UpdateDataAPI(props) {
   const filter = toRef(props, "filter");
   const updateDataKeyByIdFromFilter = toRef(props, "updateDataKeyByIdFromFilter");
 
-  const typesWithData = ["select", "multiselect", "radio", "checkbox", "group", "fieldset"];
+  const TYPES_WITH_DATA = ["select", "multiselect", "radio", "checkbox", "group", "fieldset"];
 
   const updateDataLocal = ({ dataKeyByKeyId, item }) => {
     let filterId = filter.value.id;
@@ -22,7 +22,7 @@ export default function DataAPI(props) {
 
   const emitForComponentsWithData = computed(() => {
     const EMITS = {};
-    if (typesWithData.indexOf(filter.value.type) !== -1) {
+    if (TYPES_WITH_DATA.indexOf(filter.value.type) !== -1) {
       EMITS.onUpdateData = updateDataLocal;
     }
     return EMITS;

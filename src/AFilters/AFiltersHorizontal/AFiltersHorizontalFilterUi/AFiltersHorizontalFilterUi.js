@@ -4,10 +4,10 @@ import {
 
 import ComponentTypesAPI from "./compositionAPI/ComponentTypesAPI";
 import ContainerAPI from "./compositionAPI/ContainerAPI";
-import DataAPI from "./compositionAPI/DataAPI";
 import FilterSpecificTypeAPI from "./compositionAPI/FilterSpecificTypeAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import UpdateDataAPI from "./compositionAPI/UpdateDataAPI";
 
 export default {
   name: "AFiltersHorizontalFilterUi",
@@ -51,7 +51,7 @@ export default {
 
     const {
       emitForComponentsWithData,
-    } = DataAPI(props);
+    } = UpdateDataAPI(props);
 
     const {
       idPrefix,
