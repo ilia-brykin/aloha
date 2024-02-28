@@ -805,6 +805,7 @@ export default {
           onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
           onToggleBtnAllRows: this.toggleBtnAllRows,
         }, this.$slots),
+        this.$slots.topPanelAppend ? this.$slots.topPanelAppend() : "",
         this.isViewTableVisible && h("div", {
           ref: "tableRef",
           class: [
