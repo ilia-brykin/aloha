@@ -487,6 +487,9 @@
   .a_table__td {
     border-bottom: none;
   }
+  .a_table__cell_action {
+    --a_table_th_border_vertical_width: 0;
+  }
 }
 
 .a_table_mobile__dl {

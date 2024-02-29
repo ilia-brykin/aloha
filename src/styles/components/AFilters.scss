@@ -202,7 +202,7 @@ $a_breakpoint_touch: 1023px !default;
 }
 
 .a_filters_center {
-  --a_table_filters_center_padding: 1rem;
+  --a_table_filters_center_padding: 1rem 1rem 1rem .5rem;
 
   margin-top: -0.5rem;
   margin-left: -0.5rem;
@@ -214,9 +214,6 @@ $a_breakpoint_touch: 1023px !default;
 .a_filters_center__item {
   margin-top: .5rem;
   margin-left: .5rem;
-  &:first-child {
-    margin-left: 0;
-  }
   .aloha_btn .a_filters_center__item__value {
     margin-left: 0;
   }

@@ -234,11 +234,12 @@ export default {
             indexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
             minDropdownActions: 0,
             dropdownAttributes: {
+              buttonClass: "a_btn a_btn_secondary a_table__action",
+              buttonIconLeft: "OptionVertical",
               buttonText: {
                 desktop: "_A_TABLE_ACTIONS_",
               },
-              buttonClass: "a_btn a_btn_secondary a_table__action",
-              buttonIconLeft: "OptionVertical",
+              hasCaret: false,
               inBody: true,
               placement: "bottom-end",
             },
