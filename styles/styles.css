@@ -7678,7 +7678,7 @@ input:not(:-webkit-autofill) {
   display: inline-block; }
 
 .a_filters_center {
-  --a_table_filters_center_padding: 1rem;
+  --a_table_filters_center_padding: 1rem 1rem 1rem .5rem;
   margin-top: -0.5rem;
   margin-left: -0.5rem;
   display: flex;
@@ -7689,8 +7689,6 @@ input:not(:-webkit-autofill) {
 .a_filters_center__item {
   margin-top: .5rem;
   margin-left: .5rem; }
-  .a_filters_center__item:first-child {
-    margin-left: 0; }
   .a_filters_center__item .aloha_btn .a_filters_center__item__value {
     margin-left: 0; }
 
@@ -8185,6 +8183,9 @@ input:not(:-webkit-autofill) {
 
 .a_table_mobile .a_table__td {
   border-bottom: none; }
+
+.a_table_mobile .a_table__cell_action {
+  --a_table_th_border_vertical_width: 0; }
 
 .a_table_mobile__dl {
   display: flex;
