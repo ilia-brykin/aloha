@@ -321,7 +321,7 @@
   min-width: 50px;
   > .a_table__cell__child {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 }
 .a_table__cell_action_sticky {
