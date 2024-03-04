@@ -5401,7 +5401,7 @@ h6 {
   background-color: inherit;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-55%);
   left: 5px; }
   .a_select__menu__link__icon_box > .a_icon {
     vertical-align: inherit; }
