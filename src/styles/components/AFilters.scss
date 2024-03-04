@@ -3,7 +3,7 @@ $a_breakpoint_touch: 1023px !default;
 .a_filters_top {
   --a_filters_top_padding: 0.5rem;
   --a_filters_top_form_width: 50%;
-  --a_filters_top_form_max_width: 500px;
+  --a_filters_top_form_max_width: 600px;
   --a_filters_top_label_padding_left: 2rem;
   --a_filters_top_label_width: 34%;
   --a_filters_top_subgroup_width: 66%;
@@ -26,9 +26,31 @@ $a_breakpoint_touch: 1023px !default;
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
+  align-items: flex-end;
 }
 .a_filters_top__main {
   width: 100%;
+
+  &.a_datepicker_range {
+    .a_form_element__parent {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .a_datepicker_range__content {
+      flex-wrap: nowrap;
+      .a_datepicker_range__group {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        flex-grow: unset;
+      }
+    }
+    .a_form_element_label {
+      white-space: nowrap;
+      margin-right: 0.5rem;
+    }
+  }
 }
 
 .a_filter_horizontal__wrapper {

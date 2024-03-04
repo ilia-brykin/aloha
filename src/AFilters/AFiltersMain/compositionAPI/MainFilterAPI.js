@@ -2,9 +2,14 @@ import {
   computed,
   toRef,
 } from "vue";
+import FilterSpecificTypeAPI from "./FilterSpecificTypeAPI";
 
 export default function MainFilterAPI(props) {
   const filterMain = toRef(props, "filterMain");
+
+  const {
+    filterSpecificAttributes,
+  } = FilterSpecificTypeAPI(props);
 
   const hasFilterMain = computed(() => {
     return !!filterMain.value;
@@ -15,7 +20,10 @@ export default function MainFilterAPI(props) {
       return [];
     }
     return [
-      filterMain.value,
+      {
+        ...filterMain.value,
+        ...filterSpecificAttributes.value,
+      },
     ];
   });
 
