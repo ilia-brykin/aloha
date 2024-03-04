@@ -49,7 +49,9 @@ export default function ColumnsOrderingAPI(props, { emit }, {
       columnIndexOver,
       modelColumnsOrdering: modelColumnsOrderingLocal,
     });
-    checkVisibleColumns();
+    setTimeout(() => {
+      checkVisibleColumns();
+    });
   };
 
   const checkColumnsOrdering = () => {
