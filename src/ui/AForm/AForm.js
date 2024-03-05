@@ -12,7 +12,9 @@ import HideAPI from "./compositionAPI/HideAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import RequiredAPI from "./compositionAPI/RequiredAPI";
 
-import AUiTypesContainer from "../const/AUiTypesContainer";
+import {
+  typesContainer,
+} from "../const/AUiTypes";
 import {
   get,
   isNil,
@@ -147,7 +149,7 @@ export default {
           this.$slots.formDataPrepend() :
           "",
         ...this.data.map((item, itemIndex) => {
-          const IS_CONTAINER = AUiTypesContainer[item.type];
+          const IS_CONTAINER = typesContainer.value[item.type];
           let classColumn;
           if (isNil(item.classColumn)) {
             classColumn = this.classColumnDefault;

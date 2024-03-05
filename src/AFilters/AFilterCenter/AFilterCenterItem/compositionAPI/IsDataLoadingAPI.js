@@ -3,7 +3,9 @@ import {
   toRef,
 } from "vue";
 
-import AUiTypesWithData from "../../../../ui/const/AUiTypesWithData";
+import {
+  typesWithData,
+} from "../../../../ui/const/AUiTypes";
 import {
   isEmpty,
 } from "lodash-es";
@@ -18,7 +20,7 @@ export default function IsDataLoadingAPI(props, { emit }, {
     if (!hasCurrentFilter.value) {
       return false;
     }
-    if (AUiTypesWithData[filter.value.type]) {
+    if (typesWithData.value[filter.value.type]) {
       return isEmpty(dataKeyByKeyIdPerFilter.value[filter.value.id]);
     }
     return false;

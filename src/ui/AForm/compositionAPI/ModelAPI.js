@@ -3,7 +3,9 @@ import {
   toRef,
 } from "vue";
 
-import AUiTypesContainer from "../../const/AUiTypesContainer";
+import {
+  typesContainer,
+} from "../../const/AUiTypes";
 import {
   getModelId,
 } from "../utils/utils";
@@ -20,7 +22,7 @@ export default function ModelAPI(props, { emit }) {
   });
 
   const onUpdateModelLocal = ({ item, model }) => {
-    if (AUiTypesContainer[item.type]) {
+    if (typesContainer.value[item.type]) {
       emit("update:modelValue", model);
       emit("change", { model });
     } else {

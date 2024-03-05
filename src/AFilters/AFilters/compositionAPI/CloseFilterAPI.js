@@ -4,8 +4,10 @@ import {
   toRef,
 } from "vue";
 
-import AUiTypesModelArray from "../../../ui/const/AUiTypesModelArray";
-import AUiTypesModelObject from "../../../ui/const/AUiTypesModelObject";
+import {
+  typesModelArray,
+  typesModelObject,
+} from "../../../ui/const/AUiTypes";
 import {
   cloneDeep,
   filter as _filter,
@@ -28,7 +30,7 @@ export default function CloseFilterAPI(props, { emit }, {
   const closeCurrentFilter = ({ filter, keyId, modelArray, appliedModelLocal, unappliedModelLocal }) => {
     const MODEL_ID = filter.modelId || filter.id;
 
-    if (AUiTypesModelArray[filter.type]) {
+    if (typesModelArray.value[filter.type]) {
       if (appliedModelLocal[MODEL_ID] &&
         appliedModelLocal[MODEL_ID].length) {
         if (modelArray) {
@@ -49,7 +51,7 @@ export default function CloseFilterAPI(props, { emit }, {
           unappliedModelLocal[MODEL_ID] = [];
         }
       }
-    } else if (AUiTypesModelObject[filter.type] && keyId) {
+    } else if (typesModelObject.value[filter.type] && keyId) {
       if (isPlainObject(unappliedModelLocal?.[MODEL_ID])) {
         unappliedModelLocal[MODEL_ID][keyId] = undefined;
       }

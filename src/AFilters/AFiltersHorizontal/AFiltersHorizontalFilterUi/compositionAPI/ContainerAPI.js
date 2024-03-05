@@ -3,13 +3,15 @@ import {
   toRef,
 } from "vue";
 
-import AUiTypesContainer from "../../../../ui/const/AUiTypesContainer";
+import {
+  typesContainer,
+} from "../../../../ui/const/AUiTypes";
 
 export default function ContainerAPI(props) {
   const filter = toRef(props, "filter");
 
   const isContainer = computed(() => {
-    return !!AUiTypesContainer[filter.value.type];
+    return !!typesContainer.value[filter.value.type];
   });
 
   return {

@@ -4,7 +4,12 @@ import {
   toRef,
 } from "vue";
 
-import AUiTypesContainer from "../../../ui/const/AUiTypesContainer";
+import {
+  typesContainer,
+} from "../../../ui/const/AUiTypes";
+import {
+  isModelForFilterNotEmpty,
+} from "../../../utils/utilsUi";
 import {
   cloneDeep,
   forEach,
@@ -26,7 +31,7 @@ export default function FiltersAPI(props, { emit }) {
     const FILTERS = {};
     forEach(cloneDeep(filters.value), filter => {
       FILTERS[filter.id] = filter;
-      if (AUiTypesContainer[filter.type] &&
+      if (typesContainer.value[filter.type] &&
         filter.children &&
         filter.children.length) {
         forEach(filter.children, filterChild => {
@@ -69,7 +74,7 @@ export default function FiltersAPI(props, { emit }) {
     const FILERS_NEW = [];
     forEach(FILTERS, filter => {
       FILERS_NEW.push(filter);
-      if (AUiTypesContainer[filter.type] &&
+      if (typesContainer.value[filter.type] &&
         filter.children &&
         filter.children.length) {
         forEach(filter.children, filterChild => {
@@ -83,7 +88,9 @@ export default function FiltersAPI(props, { emit }) {
   const setFiltersVisibleIds = () => {
     const FILTERS_VISIBLE_IDS = [];
     forEach(filtersGroup.value.filters, filter => {
-      if (filter.id in unappliedModel.value) {
+      if (isModelForFilterNotEmpty({
+        filter, modelObj: unappliedModel.value,
+      })) {
         FILTERS_VISIBLE_IDS.push(filter.id);
       }
     });
@@ -94,7 +101,9 @@ export default function FiltersAPI(props, { emit }) {
     emit("update:unappliedModel", model);
 
     if (isUpdateFiltersVisible) {
-      setFiltersVisibleIds();
+      setTimeout(() => {
+        setFiltersVisibleIds();
+      });
     }
   };
 

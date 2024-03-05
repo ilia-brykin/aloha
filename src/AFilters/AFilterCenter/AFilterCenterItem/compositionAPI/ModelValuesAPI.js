@@ -6,7 +6,9 @@ import {
 import AFiltersAPI from "../../../../compositionAPI/AFiltersAPI";
 
 import AKeyLabel from "../../../../const/AKeyLabel";
-import AUiTypesModelArray from "../../../../ui/const/AUiTypesModelArray";
+import {
+  typesModelArray,
+} from "../../../../ui/const/AUiTypes";
 import TypesNumberRange from "../../../../ui/AInputNumberRange/utils/Types";
 import {
   filter as _filter,
@@ -69,7 +71,7 @@ export default function ModelValuesAPI(props, {
       }
       return [];
     }
-    if (AUiTypesModelArray[filter.value.type] ||
+    if (typesModelArray.value[filter.value.type] ||
       (filter.value.type === "radio" && filter.value.isModelArray)) {
       if (modelArrayReal.value.length) {
         if (modelArrayReal.value.length === 1) {

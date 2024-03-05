@@ -17,9 +17,12 @@ import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import AUiTypesContainer from "../const/AUiTypesContainer";
 import {
-  cloneDeep, get,
+  typesContainer,
+} from "../const/AUiTypes";
+import {
+  cloneDeep,
+  get,
   isNil,
   set,
 } from "lodash-es";
@@ -95,7 +98,7 @@ export default {
 
     const modelValue = toRef(props, "modelValue");
     const onUpdateModelLocal = ({ item, model }) => {
-      if (AUiTypesContainer[item.type]) {
+      if (typesContainer.value[item.type]) {
         context.emit("update:modelValue", model);
       } else {
         const MODEL_VALUE = cloneDeep(modelValue.value);
@@ -177,7 +180,7 @@ export default {
           ],
         }, [
           this.children.map((item, itemIndex) => {
-            const IS_CONTAINER = AUiTypesContainer[item.type];
+            const IS_CONTAINER = typesContainer.value[item.type];
             let classColumn;
             if (isNil(item.classColumn)) {
               classColumn = "a_column a_column_12";

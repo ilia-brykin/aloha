@@ -9,8 +9,9 @@ import {
 import {
   typesMapInputNumberRange,
 } from "../../AInputNumberRange/utils/Types";
-import AUiTypesNotFocusable from "../../const/AUiTypesNotFocusable";
-
+import {
+  typesNotFocusable,
+} from "../../const/AUiTypes";
 import {
   forEach,
   get,
@@ -51,7 +52,7 @@ export default function SpecificTypeAPI(props, {
 
   const labelAttributesForNotFocusableElements = computed(() => {
     const ATTRIBUTES = {};
-    const IS_ELEMENT_NOT_FOCUSABLE = AUiTypesNotFocusable[get(children, "value[0].type")];
+    const IS_ELEMENT_NOT_FOCUSABLE = typesNotFocusable.value[get(children, "value[0].type")];
 
     if (IS_ELEMENT_NOT_FOCUSABLE) {
       ATTRIBUTES.clickLabel = () => {
