@@ -7,6 +7,7 @@ import ASafeHtml from "../../directives/ASafeHtml";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 export default {
@@ -15,6 +16,11 @@ export default {
     UiMixinProps,
   ],
   props: {
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     html: {
       type: String,
       required: false,
@@ -28,16 +34,26 @@ export default {
   },
   setup(props) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
 
     return {
+      attributesToExcludeFromRender,
       componentStyleHide,
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       this.$slots[this.slotName] ?
         h("div", {

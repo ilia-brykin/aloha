@@ -13,6 +13,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     filters: {
       type: Array,
       required: false,
@@ -59,13 +64,14 @@ export default {
       h("form", {}, [
         this.filters.map(filter => {
           return h(AFiltersHorizontalFilterUi, {
+            id: this.id,
             class: "a_filters_right__filter_ui",
+            excludeRenderAttributes: this.excludeRenderAttributes,
             filter,
             isLabelVisible: true,
+            onUpdateModelFilters: this.onUpdateModelFilters,
             unappliedModel: this.appliedModel,
             updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
-            onUpdateModelFilters: this.onUpdateModelFilters,
-            id: this.id,
           }, this.$slots);
         })
       ]),

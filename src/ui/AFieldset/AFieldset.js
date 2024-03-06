@@ -15,6 +15,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -48,6 +49,11 @@ export default {
       required: false,
       default: undefined,
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     hasBorder: {
       type: Boolean,
       required: false,
@@ -73,6 +79,10 @@ export default {
     "updateData",
   ],
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const componentTypesMapping = {
       fieldset: resolveComponent("AFieldset"),
       ...AUiComponents
@@ -123,6 +133,7 @@ export default {
 
     return {
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       changeModel,
       clearModel,
       componentStyleHide,
@@ -141,8 +152,13 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return ("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("fieldset", {
         id: this.htmlIdLocal,

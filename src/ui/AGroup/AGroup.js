@@ -15,6 +15,7 @@ import UiAPI, {
   getHtmlId,
 } from "../compositionApi/UiAPI";
 import SpecificTypeAPI from "./compositionAPI/SpecificTypeAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -30,11 +31,6 @@ export default {
     UiMixinProps,
   ],
   props: {
-    modelValue: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     children: {
       type: Array,
       required: false,
@@ -45,11 +41,25 @@ export default {
       required: false,
       default: "a_columns a_columns_count_12 a_columns_gab_2",
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    modelValue: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   emits: [
     "updateData",
   ],
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const componentTypesMapping = {
       ...AUiComponents
     };
@@ -103,29 +113,32 @@ export default {
     });
 
     return {
-      componentTypesMapping,
-      firstChild,
-      htmlIdFirstChild,
-      onUpdateModelLocal,
-      onUpdateDataLocal,
-
-      componentStyleHide,
-
-      labelAttributesForNotFocusableElements,
-      specificAttributes,
-
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       changeModel,
       clearModel,
+      componentStyleHide,
+      componentTypesMapping,
       errorsId,
+      firstChild,
       helpTextId,
+      htmlIdFirstChild,
       htmlIdLocal,
       isErrors,
+      labelAttributesForNotFocusableElements,
+      onUpdateDataLocal,
+      onUpdateModelLocal,
+      specificAttributes,
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         id: this.htmlIdLocal,

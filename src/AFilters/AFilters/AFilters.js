@@ -37,6 +37,15 @@ export default {
       type: Boolean,
       required: false,
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    filterMain: {
+      type: Object,
+      required: false,
+    },
     filters: {
       type: Array,
       required: false,
@@ -46,10 +55,6 @@ export default {
       type: Array,
       required: false,
       default: () => [],
-    },
-    filterMain: {
-      type: Object,
-      required: false,
     },
     id: {
       type: String,
@@ -181,6 +186,7 @@ export default {
         this.view === "top" && h(AFiltersMain, {
           id: this.id,
           disabled: this.disabled,
+          excludeRenderAttributes: this.excludeRenderAttributes,
           filterMain: this.filterMain,
           mainModel: this.mainModel,
           updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
@@ -194,6 +200,7 @@ export default {
           h(AFilersRight, {
             id: this.id,
             disabled: this.disabled,
+            excludeRenderAttributes: this.excludeRenderAttributes,
             filters: this.filters,
             filtersKeyById: this.filtersKeyById,
             appliedModel: this.appliedModel,
@@ -220,6 +227,7 @@ export default {
               id: this.id,
               canSave: this.canSave,
               disabled: this.disabled,
+              excludeRenderAttributes: this.excludeRenderAttributes,
               filtersGroup: this.filtersGroup,
               filtersKeyById: this.filtersKeyById,
               filtersSaved: this.filtersSavedLocal,

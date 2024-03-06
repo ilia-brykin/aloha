@@ -13,6 +13,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 
 import ATinymceAPI from "./compositionAPI/ATinymceAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -39,6 +40,11 @@ export default {
       type: Array,
       required: false,
       default: () => tinymcePluginOptions.value.propsDefault.contentLangs,
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     languageDefault: {
       type: String,
@@ -104,6 +110,10 @@ export default {
   },
   setup(props, context) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
 
@@ -145,10 +155,11 @@ export default {
     });
 
     return {
-      componentStyleHide,
-
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       changeModel,
+      clickLabel,
+      componentStyleHide,
       errorsId,
       helpTextId,
       htmlIdLocal,
@@ -156,16 +167,19 @@ export default {
       isModel,
       onBlur,
       onFocus,
-
-      clickLabel,
       onInput,
-      textareaRef,
       render,
+      textareaRef,
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

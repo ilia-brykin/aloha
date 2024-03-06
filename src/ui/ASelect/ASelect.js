@@ -30,6 +30,7 @@ import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
@@ -114,6 +115,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     extra: {
       type: Object,
@@ -376,6 +382,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
 
@@ -541,6 +551,7 @@ export default {
       ariaDescribedbyLocal,
       ariaLabelledby,
       attributesDisabled,
+      attributesToExcludeFromRender,
       buttonRef,
       clearModel,
       componentStyleHide,
@@ -599,8 +610,13 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

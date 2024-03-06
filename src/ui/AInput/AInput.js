@@ -16,8 +16,9 @@ import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
-import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 export default {
@@ -32,19 +33,19 @@ export default {
     UiMixinProps,
   ],
   props: {
-    maxlength: {
-      type: [String, Number],
+    excludeRenderAttributes: {
+      type: Array,
       required: false,
-    },
-    type: {
-      type: String,
-      required: false,
-      default: "text",
+      default: () => [],
     },
     iconPrepend: {
       type: String,
       required: false,
       default: undefined,
+    },
+    maxlength: {
+      type: [String, Number],
+      required: false,
     },
     modelUndefined: {
       required: false,
@@ -55,8 +56,17 @@ export default {
       required: false,
       default: undefined,
     },
+    type: {
+      type: String,
+      required: false,
+      default: "text",
+    },
   },
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -117,30 +127,32 @@ export default {
     } = UiInputAutofillAPI({ inputRef });
 
     return {
-      componentStyleHide,
-
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       clearModel,
+      componentStyleHide,
       errorsId,
       helpTextId,
       htmlIdLocal,
-      isErrors,
-      isModel,
-
-      isClearButtonLocal,
-
-      onInput,
-      typeForInput,
-
       inputRef,
       isAutofill,
-      onFocus,
+      isClearButtonLocal,
+      isErrors,
+      isModel,
       onBlur,
+      onFocus,
+      onInput,
+      typeForInput,
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+    
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

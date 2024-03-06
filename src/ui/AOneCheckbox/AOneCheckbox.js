@@ -11,6 +11,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 export default {
@@ -19,6 +20,11 @@ export default {
     UiMixinProps,
   ],
   props: {
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     falseValue: {
       type: [Boolean, String, Number],
       required: false,
@@ -48,6 +54,10 @@ export default {
   },
   setup(props, context) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
 
@@ -76,6 +86,7 @@ export default {
 
     return {
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       componentStyleHide,
       errorsId,
       hasLabel,
@@ -90,8 +101,13 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent"],

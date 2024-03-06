@@ -23,6 +23,7 @@ import NumberAttributesAPI from "./compositionAPI/NumberAttributesAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
@@ -53,6 +54,11 @@ export default {
       type: Boolean,
       required: false,
       default: inputNumberPluginOptions.value.propsDefault.eAllowed,
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     iconPrepend: {
       type: String,
@@ -117,6 +123,10 @@ export default {
     },
   },
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -235,6 +245,7 @@ export default {
 
     return {
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       clearModel,
       componentStyleHide,
       currentValue,
@@ -263,9 +274,14 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       class: "a_form_element__container",
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

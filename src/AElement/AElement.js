@@ -17,6 +17,7 @@ import SwitchAPI from "./comositionAPI/SwitchAPI";
 import TagAPI from "./comositionAPI/TagAPI";
 import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
+import UIExcludeRenderAttributesAPI from "../ui/compositionApi/UIExcludeRenderAttributesAPI";
 
 import placements from "../const/placements";
 import {
@@ -63,6 +64,11 @@ export default {
       type: Boolean,
       required: false,
       default: undefined,
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     extra: {
       type: Object,
@@ -175,12 +181,12 @@ export default {
       required: false,
       default: undefined,
     },
-    target: {
+    tag: {
       type: String,
       required: false,
       default: undefined,
     },
-    tag: {
+    target: {
       type: String,
       required: false,
       default: undefined,
@@ -264,6 +270,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       isRouterLink,
     } = RouterLinkAPI(props);
 
@@ -323,6 +333,7 @@ export default {
 
     return {
       ariaLabelAttributes,
+      attributesToExcludeFromRender,
       componentLocal,
       elementRef,
       htmlTitleAttributes,
@@ -363,6 +374,7 @@ export default {
       isAllRowsSelected: undefined, // TODO: ATable
       onClick: this.onClick,
       ...this.attributes,
+      ...this.attributesToExcludeFromRender,
     }, {
       default: () => [
         (!this.isTitleHtml && this.isTitleVisible) ? h(ATranslation, {

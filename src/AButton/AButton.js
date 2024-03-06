@@ -52,6 +52,11 @@ export default {
       required: false,
       default: undefined,
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     extra: {
       type: Object,
       required: false,

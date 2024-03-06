@@ -32,6 +32,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     filtersGroup: {
       type: Object,
       required: true,
@@ -52,27 +57,27 @@ export default {
       type: Array,
       required: true,
     },
+    id: {
+      type: String,
+      required: true,
+    },
     mainModel: {
       type: Object,
       required: false,
-    },
-    unappliedModel: {
-      type: Object,
-      required: true,
     },
     onUpdateModelFilters: {
       type: Function,
       required: true,
     },
-    id: {
-      type: String,
-      required: true,
-    },
-    updateFiltersSaved: {
-      type: Function,
+    unappliedModel: {
+      type: Object,
       required: true,
     },
     updateDataKeyByIdFromFilter: {
+      type: Function,
+      required: true,
+    },
+    updateFiltersSaved: {
       type: Function,
       required: true,
     },
@@ -253,11 +258,12 @@ export default {
                 h(AForm, {
                   idPrefix: this.idFilterTop,
                   class: "a_filter_horizontal__body__form",
-                  classColumns: "",
                   classColumnDefault: "",
+                  classColumns: "",
                   data: this.dataForForm,
-                  showErrors: false,
+                  excludeRenderAttributes: this.excludeRenderAttributes,
                   modelValue: this.unappliedModel,
+                  showErrors: false,
                   onChange: this.onUpdateModelFilters,
                 }, {
                   ...this.$slots,

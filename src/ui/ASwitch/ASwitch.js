@@ -14,6 +14,7 @@ import ModelAPI from "./compositionAPI/ModelAPI";
 import OnInputAPI from "./compositionAPI/OnInputAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import placements from "../../const/placements";
@@ -25,9 +26,77 @@ import {
 export default {
   name: "ASwitch",
   props: {
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    classColumn: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    defaultLabel: {
+      type: String,
+      required: false,
+      default: "Nicht ausgewählt",
+    },
+    defaultValue: {
+      type: [Boolean, String, Number],
+      required: false,
+      default: undefined,
+    },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
     disabled: {
       type: Boolean,
       required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    falseLabel: {
+      type: String,
+      required: false,
+      default: "_NO_",
+    },
+    falseValue: {
+      type: [Boolean, String, Number],
+      required: false,
+      default: false,
+    },
+    fullWidth: {
+      type: Boolean,
+      required: false,
+    },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     id: {
       type: [String, Number],
@@ -35,11 +104,6 @@ export default {
       default: () => uniqueId("a_ui_"),
     },
     idPrefix: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    htmlId: {
       type: String,
       required: false,
       default: undefined,
@@ -52,6 +116,25 @@ export default {
     inputClass: {
       required: false,
     },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isThreeState: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     label: {
       type: [String, Number],
       required: false,
@@ -61,135 +144,32 @@ export default {
       required: false,
       default: undefined,
     },
-    required: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    modelUndefined: {
-      required: false,
-      default: null,
-    },
-    isLabelFloat: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    errors: {
-      type: [String, Array],
-      required: false,
-      default: undefined,
-    },
-    errorsAll: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    classColumn: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     modelDependencies: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    dependencies: {
-      type: [Array, Object],
+    modelUndefined: {
       required: false,
-      default: undefined,
-    },
-    helpText: {
-      type: String,
-      required: false,
-    },
-    type: {
-      type: String,
-      required: false,
-    },
-    isHide: {
-      type: Boolean,
-      required: false,
-    },
-    isRender: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    change: {
-      type: Function,
-      required: false,
-      default: () => {},
-    },
-    extra: {
-      type: Object,
-      required: false,
-      default: undefined,
+      default: null,
     },
     modelValue: {
       type: [Boolean, String, Number],
       required: false,
       default: undefined,
     },
-    trueValue: {
-      type: [Boolean, String, Number],
+    options: {
+      type: Object,
       required: false,
-      default: true,
+      default: () => ({}),
     },
-    falseValue: {
-      type: [Boolean, String, Number],
-      required: false,
-      default: false,
-    },
-    defaultValue: {
-      type: [Boolean, String, Number],
-      required: false,
-      default: undefined,
-    },
-    trueLabel: {
-      type: String,
-      required: false,
-      default: "_YES_",
-    },
-    falseLabel: {
-      type: String,
-      required: false,
-      default: "_NO_",
-    },
-    defaultLabel: {
-      type: String,
-      required: false,
-      default: "Nicht ausgewählt",
-    },
-    isThreeState: {
+    required: {
       type: Boolean,
       required: false,
       default: false,
     },
-    titlePlacement: {
-      type: String,
-      required: false,
-      default: "top",
-      validator: placement => placements.indexOf(placement) !== -1,
-    },
     title: {
       type: String,
-      required: false,
-      default: undefined,
-    },
-    titleMinWidth: {
-      type: Number,
-      required: false,
-      default: undefined,
-    },
-    titleWidth: {
-      type: Number,
       required: false,
       default: undefined,
     },
@@ -198,8 +178,34 @@ export default {
       required: false,
       default: undefined,
     },
-    fullWidth: {
-      type: Boolean,
+    titleMinWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    titlePlacement: {
+      type: String,
+      required: false,
+      default: "top",
+      validator: placement => placements.indexOf(placement) !== -1,
+    },
+    titleWidth: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
+    trueLabel: {
+      type: String,
+      required: false,
+      default: "_YES_",
+    },
+    trueValue: {
+      type: [Boolean, String, Number],
+      required: false,
+      default: true,
+    },
+    type: {
+      type: String,
       required: false,
     },
   },
@@ -209,6 +215,10 @@ export default {
     "update:modelValue",
   ],
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -262,6 +272,7 @@ export default {
 
     return {
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       clearModel,
       componentStyleHide,
       errorsId,
@@ -280,8 +291,13 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

@@ -19,6 +19,7 @@ import UiMixinProps from "../mixins/UiMixinProps";
 import ResizeClass from "./compositionAPI/ResizeClass";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import autosize from "../../utils/autosize";
@@ -35,15 +36,16 @@ export default {
     UiMixinProps,
   ],
   props: {
-    maxlength: {
-      type: [String, Number],
+    excludeRenderAttributes: {
+      type: Array,
       required: false,
+      default: () => [],
     },
     isScalable: {
       type: Boolean,
       required: false,
     },
-    rows: {
+    maxlength: {
       type: [String, Number],
       required: false,
     },
@@ -57,8 +59,16 @@ export default {
       default: "v",
       validator: value => ["v", "h", "none", "auto"].indexOf(value) !== -1,
     },
+    rows: {
+      type: [String, Number],
+      required: false,
+    },
   },
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -147,6 +157,7 @@ export default {
 
     return {
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       changeModel,
       clearModel,
       componentStyleHide,
@@ -166,8 +177,13 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

@@ -37,6 +37,11 @@ export default {
       type: Array,
       required: true,
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     errors: {
       type: Object,
       required: false,
@@ -164,6 +169,7 @@ export default {
             errors: this.errors[item.id],
             errorsAll: this.errors,
             idPrefix: this.idPrefix,
+            excludeRenderAttributes: this.excludeRenderAttributes,
             "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
             ...item,
           }, this.$slots);

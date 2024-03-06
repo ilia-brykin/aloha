@@ -16,14 +16,15 @@ import AOnHooks from "../../directives/AOnHooks";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
-import LanguagesAPI from "./compositionAPI/LanguagesAPI";
-import RefsAPI from "./compositionAPI/RefsAPI";
-import PopoverAPI from "./compositionAPI/PopoverAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import LanguagesAPI from "./compositionAPI/LanguagesAPI";
+import PopoverAPI from "./compositionAPI/PopoverAPI";
+import RefsAPI from "./compositionAPI/RefsAPI";
+import UiAPI from "../compositionApi/UiAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import placements from "../../const/placements";
 
@@ -43,19 +44,75 @@ export default {
     UiMixinProps,
   ],
   props: {
-    modelValue: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+    appendToBody: {
+      type: Boolean,
+      default: false,
+    },
+    clearable: {
+      type: Boolean,
+      default: true,
+    },
+    confirm: {
+      type: Boolean,
+      default: false,
+    },
+    confirmText: {
+      type: String,
+      default: "OK",
+    },
+    dateFormat: {
+      type: String, // format the time header and date tooltip
       default: undefined,
     },
-    valueType: {
-      default: "format",
-      validator: function(value) {
-        return ["timestamp", "format", "date"].indexOf(value) !== -1 || isPlainObject(value);
-      },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
-    placeholder: {
+    editable: {
+      type: Boolean,
+      default: true,
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    firstDayOfWeek: {
+      type: Number,
+      required: false,
+      default: 1,
+      validator: val => val >= 1 && val <= 7,
+    },
+    format: {
+      type: [String, Object],
+      default: "DD.MM.YYYY"
+    },
+    formatSave: {
       type: String,
-      default: null,
+      required: false,
+      default: "YYYY-MM-DD",
+    },
+    iconDay: {
+      type: [Number, String],
+      default: undefined,
+    },
+    inputAttr: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      default: "pux_datepicker__input",
+    },
+    inputName: {
+      type: String,
+      default: "date",
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     lang: {
       type: String,
@@ -67,17 +124,24 @@ export default {
       required: false,
       default: () => ({}),
     },
-    format: {
-      type: [String, Object],
-      default: "DD.MM.YYYY"
-    },
-    dateFormat: {
-      type: String, // format the time header and date tooltip
+    modelValue: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       default: undefined,
     },
-    type: {
+    placeholder: {
       type: String,
-      default: "date", // ["date", "datetime"] zendy added "month", "year", mxie added "time"
+      default: null,
+    },
+    placement: {
+      type: String,
+      required: false,
+      default: "bottom-start",
+      validator: placement => placements.indexOf(placement) !== -1,
+    },
+    popupStyle: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     range: {
       type: Boolean,
@@ -87,81 +151,23 @@ export default {
       type: String,
       default: "~",
     },
-    width: {
-      type: [String, Number],
-      default: null,
-    },
-    confirmText: {
-      type: String,
-      default: "OK",
-    },
-    confirm: {
-      type: Boolean,
-      default: false,
-    },
-    editable: {
-      type: Boolean,
-      default: true,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    clearable: {
-      type: Boolean,
-      default: true,
-    },
     shortcuts: {
       type: [Boolean, Array],
       default: true,
     },
-    inputName: {
+    type: {
       type: String,
-      default: "date",
+      default: "date", // ["date", "datetime"] zendy added "month", "year", mxie added "time"
     },
-    inputClass: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      default: "pux_datepicker__input",
+    valueType: {
+      default: "format",
+      validator: function(value) {
+        return ["timestamp", "format", "date"].indexOf(value) !== -1 || isPlainObject(value);
+      },
     },
-    placement: {
-      type: String,
-      required: false,
-      default: "bottom-start",
-      validator: placement => placements.indexOf(placement) !== -1,
-    },
-    inputAttr: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    appendToBody: {
-      type: Boolean,
-      default: false,
-    },
-    popupStyle: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    iconDay: {
-      type: [Number, String],
-      default: undefined,
-    },
-    isLabelFloat: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    formatSave: {
-      type: String,
-      required: false,
-      default: "YYYY-MM-DD",
-    },
-    firstDayOfWeek: {
-      type: Number,
-      required: false,
-      default: 1,
-      validator: val => val >= 1 && val <= 7,
+    width: {
+      type: [String, Number],
+      default: null,
     },
   },
   emits: [
@@ -177,6 +183,10 @@ export default {
   ],
   setup(props, context) {
     const modelValue = toRef(props, "modelValue");
+
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
 
     const {
       calendarRef,
@@ -277,6 +287,7 @@ export default {
       ariaDescribedbyLocal,
       ariaExpandedForCalendar,
       ariaHiddenForCalendar,
+      attributesToExcludeFromRender,
       blur,
       calendarPanel2Ref,
       calendarPanelRef,
@@ -445,9 +456,14 @@ export default {
     },
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       class: "a_form_element__container",
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

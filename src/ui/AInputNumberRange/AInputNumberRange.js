@@ -12,6 +12,7 @@ import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import Types from "./utils/Types";
@@ -22,9 +23,55 @@ import {
 export default {
   name: "AInputNumberRange",
   props: {
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    controlsType: {
+      type: String,
+      required: false,
+      default: "plus-minus",
+      validator: value => ["plus-minus", "arrows"].indexOf(value) !== -1,
+      // TODO: "arrows",
+    },
     disabled: {
       type: Boolean,
       required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    iconPrepend: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     id: {
       type: [String, Number],
@@ -32,11 +79,6 @@ export default {
       default: () => uniqueId("a_input_number_range_"),
     },
     idPrefix: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    htmlId: {
       type: String,
       required: false,
       default: undefined,
@@ -56,48 +98,10 @@ export default {
       required: false,
       default: () => ({}),
     },
-    label: {
-      type: [String, Number],
+    inputWidth: {
+      type: [Number, String],
       required: false,
-      default: undefined,
-    },
-    labelMin: {
-      type: String,
-      required: false,
-      default: "_A_INPUT_NUMBER_RANGE_LABEL_MIN_",
-    },
-    labelMax: {
-      type: String,
-      required: false,
-      default: "_A_INPUT_NUMBER_RANGE_LABEL_MAX_",
-    },
-    labelClass: {
-      required: false,
-      default: undefined,
-    },
-    required: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    modelValue: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    errors: {
-      type: [String, Array],
-      required: false,
-      default: undefined,
-    },
-    errorsAll: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    helpText: {
-      type: String,
-      required: false,
+      default: 200,
     },
     isHide: {
       type: Boolean,
@@ -108,38 +112,6 @@ export default {
       required: false,
       default: true,
     },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    change: {
-      type: Function,
-      required: false,
-      default: () => {},
-    },
-    extra: {
-      type: Object,
-      required: false,
-      default: undefined,
-    },
-    controlsType: {
-      type: String,
-      required: false,
-      default: "plus-minus",
-      validator: value => ["plus-minus", "arrows"].indexOf(value) !== -1,
-      // TODO: "arrows",
-    },
-    iconPrepend: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    inputWidth: {
-      type: [Number, String],
-      required: false,
-      default: 200,
-    },
     keyMax: {
       tpe: String,
       required: false,
@@ -149,6 +121,25 @@ export default {
       tpe: String,
       required: false,
       default: "min",
+    },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      required: false,
+      default: undefined,
+    },
+    labelMax: {
+      type: String,
+      required: false,
+      default: "_A_INPUT_NUMBER_RANGE_LABEL_MAX_",
+    },
+    labelMin: {
+      type: String,
+      required: false,
+      default: "_A_INPUT_NUMBER_RANGE_LABEL_MIN_",
     },
     max: {
       type: Number,
@@ -164,6 +155,26 @@ export default {
       required: false,
       default: undefined,
     },
+    modelValue: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    placeholderMax: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    placeholderMin: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     precision: {
       type: Number,
       validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
@@ -171,6 +182,11 @@ export default {
     readonly: {
       type: Boolean,
       required: false,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     step: {
       type: Number,
@@ -180,16 +196,6 @@ export default {
     stepStrictly: {
       type: Boolean,
       required: false,
-    },
-    placeholderMin: {
-      type: [String, Number],
-      required: false,
-      default: undefined,
-    },
-    placeholderMax: {
-      type: [String, Number],
-      required: false,
-      default: undefined,
     },
     type: {
       type: String,
@@ -203,6 +209,10 @@ export default {
     "update:modelValue",
   ],
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -241,6 +251,7 @@ export default {
     } = InputAttributesAPI(props);
 
     return {
+      attributesToExcludeFromRender,
       changeModelMax,
       changeModelMin,
       componentStyleHide,
@@ -257,9 +268,14 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       class: "a_input_number_range",
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

@@ -11,6 +11,7 @@ import IdAPI from "./compositionAPI/IdAPI";
 import InputAttributesAPI from "../AInputNumberRange/compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import placements from "../../const/placements";
@@ -55,6 +56,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     extra: {
       type: Object,
@@ -226,6 +232,10 @@ export default {
   },
   setup(props, context) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
 
@@ -259,6 +269,7 @@ export default {
     } = InputAttributesAPI(props);
 
     return {
+      attributesToExcludeFromRender,
       changeModelFrom,
       changeModelUntil,
       componentStyleHide,
@@ -274,9 +285,14 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       class: "a_datepicker_range",
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent", {

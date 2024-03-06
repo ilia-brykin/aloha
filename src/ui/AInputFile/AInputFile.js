@@ -12,6 +12,7 @@ import ALabel from "../ALabel/ALabel";
 import UiMixinProps from "../mixins/UiMixinProps";
 
 import UiAPI from "../compositionApi/UiAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -27,18 +28,18 @@ export default {
     UiMixinProps,
   ],
   props: {
-    type: {
-      type: String,
+    excludeRenderAttributes: {
+      type: Array,
       required: false,
-      default: "input",
-    },
-    modelUndefined: {
-      required: false,
-      default: "",
+      default: () => [],
     },
     isMultiple: {
       type: Boolean,
       required: false,
+    },
+    modelUndefined: {
+      required: false,
+      default: "",
     },
     modelValue: {
       type: [String, Number, Object, Array],
@@ -49,8 +50,17 @@ export default {
       required: false,
       default: "Dateien auswählen",
     },
+    type: {
+      type: String,
+      required: false,
+      default: "input",
+    },
   },
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -118,28 +128,31 @@ export default {
     });
 
     return {
-      componentStyleHide,
-
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       clearModel,
+      componentStyleHide,
       errorsId,
       helpTextId,
       htmlIdLocal,
+      inputRef,
       isErrors,
       isModel,
-
       modelValueListLocal,
+      onBlur,
+      onFocus,
       onInput,
       textAfterLabel,
-
-      inputRef,
-      onFocus,
-      onBlur,
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: "a_form_element__parent",

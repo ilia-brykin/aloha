@@ -21,6 +21,7 @@ import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
@@ -90,6 +91,11 @@ export default {
       type: [String, Array],
       required: false,
       default: undefined,
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     extra: {
       type: Object,
@@ -196,11 +202,6 @@ export default {
       required: false,
       default: undefined,
     },
-    modelId: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     label: {
       type: [String, Number],
       required: false,
@@ -219,6 +220,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    modelId: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     modelUndefined: {
       required: false,
@@ -304,6 +310,10 @@ export default {
     "update:modelValue",
   ],
   setup(props, context) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
@@ -422,6 +432,7 @@ export default {
 
     return {
       ariaDescribedbyLocal,
+      attributesToExcludeFromRender,
       componentStyleHide,
       dataExtraLocal,
       dataGrouped,
@@ -461,9 +472,14 @@ export default {
     };
   },
   render() {
-    return this.isRender && h("div", {
+    if (!this.isRender) {
+      return "";
+    }
+
+    return h("div", {
       style: this.componentStyleHide,
       errorsAll: undefined,
+      ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
         class: ["a_form_element__parent"],

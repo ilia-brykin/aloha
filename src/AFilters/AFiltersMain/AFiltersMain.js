@@ -17,6 +17,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     filterMain: {
       type: Object,
       required: false,
@@ -78,6 +83,7 @@ export default {
         classColumns: "a_filters_top__main_wrapper",
         classColumnDefault: "a_filters_top__main",
         data: this.dataMainFilter,
+        excludeRenderAttributes: this.excludeRenderAttributes,
         modelValue: this.mainModel,
         showErrors: false,
         onChange: this.updateMainModel,

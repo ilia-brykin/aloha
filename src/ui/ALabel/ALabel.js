@@ -7,6 +7,8 @@ import {
 import ASpinner from "../../ASpinner/ASpinner";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+
 import {
   isFunction,
   isNil,
@@ -16,9 +18,28 @@ import {
 export default {
   name: "ALabel",
   props: {
+    clickLabel: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     id: {
       type: String,
       required: true,
+    },
+    isIdVisible: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
     },
     label: {
       type: [String, Number],
@@ -26,6 +47,10 @@ export default {
       default: undefined,
     },
     labelClass: {
+      required: false,
+    },
+    loading: {
+      type: Boolean,
       required: false,
     },
     required: {
@@ -37,26 +62,12 @@ export default {
       type: String,
       required: false,
     },
-    isLabelFloat: {
-      type: Boolean,
-      required: false,
-    },
-    clickLabel: {
-      type: Function,
-      required: false,
-      default: undefined,
-    },
-    loading: {
-      type: Boolean,
-      required: false,
-    },
-    isIdVisible: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
   },
   setup(props) {
+    const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
     const id = toRef(props, "id");
     const idLabel = computed(() => {
       return `${ id.value }_label`;
@@ -72,6 +83,7 @@ export default {
     };
 
     return {
+      attributesToExcludeFromRender,
       idLabel,
       onClick,
     };
@@ -99,6 +111,7 @@ export default {
       class: ["a_form_element_label", this.labelClass],
       onClick: this.onClick,
       ...this.idObject,
+      ...this.attributesToExcludeFromRender,
     }, [
       this.isLabel && h(ATranslation, {
         tag: "span",
