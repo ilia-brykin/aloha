@@ -11,6 +11,7 @@ import AUiContainerComponents from "../AUiContainerComponents";
 import HideAPI from "./compositionAPI/HideAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import RequiredAPI from "./compositionAPI/RequiredAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 
 import {
   typesContainer,
@@ -97,6 +98,10 @@ export default {
   ],
   setup(props, content) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       modelValueLocal,
       onUpdateModelLocal,
     } = ModelAPI(props, content);
@@ -115,6 +120,7 @@ export default {
     };
 
     return {
+      attributesToExcludeFromRender,
       componentTypesMapping,
       isRequiredLocal,
       modelValueLocal,
@@ -172,6 +178,7 @@ export default {
             excludeRenderAttributes: this.excludeRenderAttributes,
             "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
             ...item,
+            ...this.attributesToExcludeFromRender,
           }, this.$slots);
         }),
 

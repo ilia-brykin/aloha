@@ -206,7 +206,7 @@ export default {
             return h(this.componentTypesMapping[item.type], {
               key: itemIndex,
               modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
-              modelDependencies: this.modelValue,
+              modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
               class: classColumn,
               errors: this.errorsAll[item.id],
               errorsAll: this.errorsAll,
@@ -214,6 +214,8 @@ export default {
               "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
               onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
               ...item,
+              classColumn: undefined,
+              ...this.attributesToExcludeFromRender,
             }, this.$slots);
           }),
           this.slotName &&

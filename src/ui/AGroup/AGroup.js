@@ -19,6 +19,9 @@ import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttri
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
+  typesContainer,
+} from "../const/AUiTypes";
+import {
   cloneDeep,
   get,
   isNil,
@@ -162,6 +165,7 @@ export default {
             ...this.labelAttributesForNotFocusableElements,
           }),
           this.children.map((item, itemIndex) => {
+            const IS_CONTAINER = typesContainer.value[item.type];
             let classColumn;
             if (isNil(item.classColumn)) {
               classColumn = "a_column a_column_12";
@@ -174,7 +178,7 @@ export default {
               h(this.componentTypesMapping[item.type], {
                 key: itemIndex,
                 modelValue: get(this.modelValue, item.id),
-                modelDependencies: this.modelValue,
+                modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
                 errors: this.errorsAll[item.id],
                 idPrefix: item.idPrefix || this.idPrefix,
                 "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
@@ -183,6 +187,8 @@ export default {
                 ...this.specificAttributes[item.id],
                 label: itemIndex === 0 ? undefined : item.label,
                 slotAppend: undefined,
+                classColumn: undefined,
+                ...this.attributesToExcludeFromRender,
               }, this.$slots),
               (item.slotAppend && this.$slots[item.slotAppend]) ?
                 this.$slots[item.slotAppend]({ item, itemIndex }) :
