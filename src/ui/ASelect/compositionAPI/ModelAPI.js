@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import {
+  isArray,
   isNil,
 } from "lodash-es";
 
@@ -18,7 +19,7 @@ export default function ModelAPI(props) {
 
   const isModelValue = computed(() => {
     if (isMultiselect.value) {
-      return !!(modelValue.value && modelValue.value.length);
+      return !!(modelValue.value && modelValue.value.length && isArray(modelValue.value));
     }
     return !isNil(modelValue.value);
   });
