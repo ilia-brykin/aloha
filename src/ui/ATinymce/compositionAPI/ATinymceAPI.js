@@ -79,6 +79,7 @@ export default function ATinymceAPI(props, context, {
     modelValueLocal = modelValue.value;
     tinymce.init({
       branding: branding.value,
+      browser_spellcheck: true,
       content_css: false,
       content_langs: contentLangs.value,
       content_style: contentStyle.value,
