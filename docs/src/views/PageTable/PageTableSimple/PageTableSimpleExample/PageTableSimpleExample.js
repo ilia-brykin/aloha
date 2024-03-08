@@ -57,6 +57,11 @@ export default {
 
     const columnsGrouped = [
       {
+        id: "column5",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_7_",
+      },
+      {
         id: "column1",
         keyLabel: "id",
         label: "_A_TABLE_COLUMN_1_",
@@ -82,6 +87,11 @@ export default {
         group: ["Group 1", "Group 1.2"],
       },
       {
+        id: "column9",
+        keyLabel: "aloha",
+        label: "_A_TABLE_COLUMN_7_",
+      },
+      {
         id: "column3",
         keyLabel: "aloha",
         label: "_A_TABLE_COLUMN_5_",
@@ -92,11 +102,6 @@ export default {
         keyLabel: "aloha",
         label: "_A_TABLE_COLUMN_6_",
         group: ["_A_TABLE_COLUMN_6_", "Group 2.2"],
-      },
-      {
-        id: "column5",
-        keyLabel: "aloha",
-        label: "_A_TABLE_COLUMN_7_",
       },
       {
         id: "column6",
