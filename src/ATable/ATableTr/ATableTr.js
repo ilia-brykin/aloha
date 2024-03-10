@@ -179,9 +179,6 @@ export default {
             labelClass: "a_sr_only",
             isLabelTitle: true,
             "onUpdate:modelValue": this.toggleCheckbox,
-            onClick: $event => {
-              $event.stopPropagation();
-            },
           }),
         ]),
         CHILDREN,

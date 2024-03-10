@@ -85,6 +85,8 @@ export default function AttributesAPI(props) {
       tagsName: [
         "A",
         "BUTTON",
+        "INPUT",
+        "LABEL",
       ],
       classStop: "a_table__row",
     })) {
