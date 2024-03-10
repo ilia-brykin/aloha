@@ -476,7 +476,6 @@ export default {
     } = LimitOffsetAPI(props, context, {
       closePreviewAll,
       scrollToTable,
-      setEmptySelectedRowsIndexes,
       setFocusToTable,
       viewCurrent,
     });
@@ -494,6 +493,7 @@ export default {
       dataSorted,
       limit,
       offset,
+      setEmptySelectedRowsIndexes,
       usePaginationLocal,
     });
 
@@ -597,7 +597,6 @@ export default {
       changeModelSort,
     } = SortChangeAPI(props, context, {
       modelSortLocal,
-      setEmptySelectedRowsIndexes,
       closePreviewAll,
     });
 

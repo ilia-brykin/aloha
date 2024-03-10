@@ -10,7 +10,6 @@ import {
 
 export default function SortChangeAPI(props, { emit }, {
   modelSortLocal = ref([]),
-  setEmptySelectedRowsIndexes = () => {},
   closePreviewAll = () => {},
 }) {
   const isSortingMultiColumn = toRef(props, "isSortingMultiColumn");
@@ -62,7 +61,6 @@ export default function SortChangeAPI(props, { emit }, {
     emit("changeSorting", {
       modelSort: cloneDeep(modelSortLocal.value),
     });
-    setEmptySelectedRowsIndexes();
     closePreviewAll();
   };
 

@@ -11,7 +11,6 @@ import {
 export default function LimitOffsetAPI(props, { emit }, {
   closePreviewAll = () => {},
   scrollToTable = () => {},
-  setEmptySelectedRowsIndexes = () => {},
   setFocusToTable = () => {},
   viewCurrent = computed(() => ({})),
 }) {
@@ -50,7 +49,6 @@ export default function LimitOffsetAPI(props, { emit }, {
       offset: offsetLocal,
       limit: limit.value,
     });
-    setEmptySelectedRowsIndexes();
     if (reloadLocal) {
       closePreviewAll();
     }
@@ -65,7 +63,6 @@ export default function LimitOffsetAPI(props, { emit }, {
       offset: offset.value,
       limit: limitLocal,
     });
-    setEmptySelectedRowsIndexes();
     closePreviewAll();
   };
 

@@ -14,6 +14,7 @@ export default function RowsAPI(props, {
   dataSorted = computed(() => []),
   limit = ref(0),
   offset = ref(0),
+  setEmptySelectedRowsIndexes = () => {},
   usePaginationLocal = computed(() => false),
 }) {
   const pagination = toRef(props, "pagination");
@@ -22,6 +23,7 @@ export default function RowsAPI(props, {
   const rowsLocal = ref([]);
   let rowsLocalIndex = 0;
   let rowsLocalInterval = undefined;
+  let firstLoad = true;
 
   const dataPaginated = computed(() => {
     if (limit.value && !pagination.value.isOutside && usePaginationLocal.value) {
@@ -84,6 +86,11 @@ export default function RowsAPI(props, {
     if (isEqual(newValue, oldValue)) {
       return;
     }
+    if (!firstLoad) {
+      setEmptySelectedRowsIndexes();
+    }
+    firstLoad = false;
+
     rowsLocal.value = [];
     rowsLocalIndex = 0;
     stopRenderRows();
