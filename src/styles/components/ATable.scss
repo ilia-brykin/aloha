@@ -168,6 +168,15 @@
   text-align: inherit;
   display: flex;
   align-items: center;
+  &.a_text_right {
+    justify-content: flex-end;
+  }
+  &.a_text_left {
+    justify-content: flex-start;
+  }
+  &.a_text_center {
+    justify-content: center;
+  }
 }
 .a_table__th__btn_sort {
   padding-right: 15px;

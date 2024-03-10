@@ -121,8 +121,6 @@ export default {
       h("div", {
         class: [
           "a_table__cell__child",
-          this.column.class,
-          this.column.classHeader,
         ],
       }, [
         this.columnGroupNames && h(ATranslation, {
@@ -133,6 +131,8 @@ export default {
         h(AButton, {
           class: [
             "a_table__th__btn",
+            this.column.class,
+            this.column.classHeader,
             {
               "a_btn a_btn_link a_table__th__btn_sort": this.isSortable,
               a_table__th__btn_sequence: this.sequenceNumberSort,
