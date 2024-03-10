@@ -354,7 +354,7 @@ export default {
     },
 
     showClearIcon() {
-      return !this.disabled && this.clearable && (this.range ? this.isValidRangeValue(this.modelValue) : this.isValidValue(this.modelValue));
+      return !this.disabled && this.clearable && this.text;
     },
 
     innerShortcuts() {
