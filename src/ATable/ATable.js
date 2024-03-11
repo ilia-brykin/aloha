@@ -56,6 +56,11 @@ export default {
       required: false,
       default: 170,
     },
+    columnActionsWidthMin: {
+      type: Number,
+      required: false,
+      default: 50,
+    },
     columns: {
       type: Array,
       required: true,

@@ -26,18 +26,19 @@ export default function ScrollControlAPI(props, { emit }, {
 }) {
   const columnWidthDefault = toRef(props, "columnWidthDefault");
   const columnActionsWidth = toRef(props, "columnActionsWidth");
+  const columnActionsWidthMin = toRef(props, "columnActionsWidthMin");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
 
   let changingTableWidth = false;
 
   const columnActionsWidthMinLocal = computed(() => {
     if (isActionColumnVisible.value) {
-      return 50;
+      return columnActionsWidthMin.value;
     }
     return 0;
   });
   const columnsSpecialWidth = computed(() => {
-    const columnMultipleActionsWidth = isMultipleActionsActive.value ? 50 : 0;
+    const columnMultipleActionsWidth = isMultipleActionsActive.value ? columnActionsWidthMin.value : 0;
     const scrollBarWidth = 10;
     return columnMultipleActionsWidth + scrollBarWidth;
   });

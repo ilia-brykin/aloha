@@ -46,6 +46,7 @@ export default {
   },
   inject: [
     "columnsScrollInvisible",
+    "tableId",
   ],
   setup(props) {
     const {
@@ -130,6 +131,14 @@ export default {
             ]),
           ],
         }),
+        this.$slots.rowActions ?
+          this.$slots.rowActions({
+            tableId: this.tableId,
+            row: this.row,
+            rowIndex: this.rowIndex,
+            isFooter: this.isFooter,
+          }) :
+          "",
         this.isRowActionsDropdownVisible && h(ADropdown, {
           id: this.buttonActionsId,
           actions: this.rowActionsFiltered,
