@@ -10,6 +10,7 @@ import ATableHeaderThActionItem from "./ATableHeaderThActionItem/ATableHeaderThA
 
 import ColumnSearchAPI from "../compositionAPI/ColumnSearchAPI";
 import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
+import StylesThTdAction from "./compositionAPI/StylesThTdAction";
 
 import {
   getModelColumnsVisibleDefault,
@@ -62,17 +63,21 @@ export default {
       updateSearchColumnModel,
     } = ColumnSearchAPI();
 
+    const {
+      stylesThTd,
+    } = StylesThTdAction();
+
     return {
       columnIndexDraggable,
-      dragstart,
+      dragend,
       dragenter,
       dragleave,
-      dragend,
+      dragstart,
       drop,
       isDragstart,
       root,
-
       searchColumnModel,
+      stylesThTd,
       updateSearchColumnModel,
     };
   },
@@ -107,6 +112,7 @@ export default {
         },
       ],
       role: "columnheader",
+      ...this.stylesThTd,
     }, [
       h("span", {
         class: "a_sr_only"

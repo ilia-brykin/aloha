@@ -1,0 +1,85 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_GROUP_COMPLEX_HEADER_"
+  description="_A_TABLE_GROUP_COMPLEX_DESCRIPTION_"
+)
+  div
+    div
+      a-switch(
+        v-model="modelLoading"
+      )
+    a-table(
+      ref="aloha"
+      :column-actions-width="250"
+      :column-actions-width-min="150"
+      :columns="columns"
+      :data="data"
+      :is-loading-options="isLoadingOptions"
+      label="Example table"
+      :row-actions="rowActions"
+      :table-actions="tableActions"
+      :multiple-actions="multipleActions"
+      preview="right"
+      :is-quick-search="true"
+      :is-action-column-visible="true"
+      :is-columns-dnd="true"
+      :pagination="{ use: true }"
+      :is-loading-table="modelLoading"
+      :is-loading-multiple-actions="false"
+      :model-is-table-without-scroll-start="true"
+      v-model:modelQuickSearch="modelQuickSearch"
+      :model-columns-ordering="modelColumnsOrdering"
+      :model-columns-visible="modelColumnsVisible"
+      @change-columns-ordering="changeColumnsOrdering"
+      @toggle-preview="togglePreview"
+      @update:model-columns-visible="changeModelColumnsVisible"
+      @update-model-is-table-without-scroll=""
+      @init-table="initTable"
+    )
+      template(
+        v-slot:rowActions="{ row }"
+      )
+        .a_btn_group(
+          role="group"
+        )
+          a-button.a_btn.a_btn_primary(
+            icon-left="Pencil"
+          )
+          a-button.a_btn.a_btn_secondary(
+            icon-left="Trash"
+          )
+
+      template(
+        v-slot:slot1="vm"
+      )
+        router-link(
+          :to="{ name: 'PageTabs' }"
+        ) Tabs
+
+      template(
+        v-slot:preview="vm"
+      )
+        pre {{ vm }}
+
+      template(
+        v-slot:tableActions
+      )
+        button.a_btn.a_btn_primary Click me
+
+
+      template(
+        v-slot:termin="{ label, labelFiltered }"
+      )
+        a-icon.a_mr_1(
+          icon="Cog"
+        )
+        span(
+          v-if="labelFiltered"
+          v-html="labelFiltered"
+        )
+        span(
+          v-else
+          v-html="label"
+        )
+

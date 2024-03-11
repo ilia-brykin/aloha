@@ -9,6 +9,7 @@ import ATableListItem from "../ATableListItem/ATableListItem";
 import ColumnsCountAPI from "./compositionAPI/ColumnsCountAPI.js";
 import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 import RowNumberAPI from "./compositionAPI/RowNumberAPI.js";
+import StylesThTdAction from "../ATableHeaderThAction/compositionAPI/StylesThTdAction";
 
 export default {
   name: "ATableTdAction",
@@ -65,6 +66,10 @@ export default {
       rowNumber,
     } = RowNumberAPI(props);
 
+    const {
+      stylesThTd,
+    } = StylesThTdAction();
+
     return {
       buttonActionsId,
       columnsScrollInvisibleText,
@@ -73,6 +78,7 @@ export default {
       isRowActionsDropdownVisible,
       rowActionsFiltered,
       rowNumber,
+      stylesThTd,
     };
   },
   render() {
@@ -84,6 +90,7 @@ export default {
           a_table__cell_action_sticky: this.isRowActionsStickyLocal,
         },
       ],
+      ...this.stylesThTd,
     }, [
       h("div", {
         class: [

@@ -405,9 +405,10 @@ export default {
   provide() {
     return {
       changeModelColumnsVisible: this.changeModelColumnsVisible,
+      columnActionsWidthLocal: computed(() => this.columnActionsWidth),
+      columnActionsWidthMin: computed(() => this.columnActionsWidthMin),
       columns: computed(() => this.columns),
       columnsDefaultValue: computed(() => this.columnsDefaultValue),
-      columnActionsWidthLocal: computed(() => this.columnActionsWidth),
       columnWidthDefault: computed(() => this.columnWidthDefault),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
