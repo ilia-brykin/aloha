@@ -8222,8 +8222,11 @@ input:not(:-webkit-autofill) {
 .a_table_mobile__actions_parent {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-left: var(--a_table_mobile_dt_padding_left);
   padding-right: var(--a_table_mobile_dd_padding_right); }
+  .a_table_mobile__actions_parent .a_table__cell_action {
+    flex-grow: unset; }
 
 .a_table_mobile__columns_btn_toggle {
   padding: 0; }
