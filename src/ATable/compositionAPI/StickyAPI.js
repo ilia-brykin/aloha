@@ -6,12 +6,12 @@ import {
 
 export default function StickyAPI(props, {
   isMobile = ref(undefined),
-  modelIsTableWithoutScroll = ref(undefined),
+  modelIsTableWithoutScrollComputed = computed(() => undefined),
 }) {
   const rowActionsSticky = toRef(props, "rowActionsSticky");
 
   const isRowActionsStickyLocal = computed(() => {
-    return !!(!isMobile.value && rowActionsSticky.value && !modelIsTableWithoutScroll.value);
+    return !!(!isMobile.value && rowActionsSticky.value && !modelIsTableWithoutScrollComputed.value);
   });
 
   return {

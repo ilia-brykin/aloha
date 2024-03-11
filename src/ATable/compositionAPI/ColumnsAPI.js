@@ -19,7 +19,7 @@ export default function ColumnsAPI(props, {
   groupedHeaderRef = ref({}),
   indexFirstScrollInvisibleColumn = ref(undefined),
   modelColumnsVisibleLocal = ref({}),
-  modelIsTableWithoutScroll = ref(false),
+  modelIsTableWithoutScrollComputed = computed(() => false),
 }) {
   const columns = toRef(props, "columns");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
@@ -83,7 +83,7 @@ export default function ColumnsAPI(props, {
       if (isColumnVisible({
         column,
         columnIndex,
-        modelIsTableWithoutScroll: modelIsTableWithoutScroll.value,
+        modelIsTableWithoutScroll: modelIsTableWithoutScrollComputed.value,
         modelColumnsVisibleLocal: modelColumnsVisibleLocal.value,
         indexFirstScrollInvisibleColumn: indexFirstScrollInvisibleColumn.value,
       })) {
@@ -109,7 +109,7 @@ export default function ColumnsAPI(props, {
 
   const countNotHiddenColumns = computed(() => {
     let count = columnsFilteredForRender.value.length;
-    if (modelIsTableWithoutScroll.value) {
+    if (modelIsTableWithoutScrollComputed.value) {
       count += columnsScrollInvisible.value.length;
     }
     if (isActionColumnVisible.value) {

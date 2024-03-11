@@ -422,7 +422,8 @@ export default {
       isActionIconVisibleLocal,
       isColumnsDndLocal,
       isMobile,
-      modelIsTableWithoutScrollStartLocal,
+      modelIsTableWithoutScroll,
+      modelIsTableWithoutScrollComputed,
     } = SimpleTableAPI(props);
 
     const {
@@ -463,7 +464,7 @@ export default {
       groupedHeaderRef,
       indexFirstScrollInvisibleColumn,
       modelColumnsVisibleLocal,
-      modelIsTableWithoutScroll: modelIsTableWithoutScrollStartLocal,
+      modelIsTableWithoutScrollComputed,
     });
 
     const {
@@ -515,7 +516,7 @@ export default {
       isMobile,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
-      modelIsTableWithoutScroll: modelIsTableWithoutScrollStartLocal,
+      modelIsTableWithoutScroll,
     });
 
     const {
@@ -532,7 +533,7 @@ export default {
       isRowActionsStickyLocal,
     } = StickyAPI(props, {
       isMobile,
-      modelIsTableWithoutScroll: modelIsTableWithoutScrollStartLocal,
+      modelIsTableWithoutScrollComputed,
     });
 
     const {
@@ -644,7 +645,7 @@ export default {
     provide("isColumnsDnd", isColumnsDndLocal);
     provide("isMobile", isMobile);
     provide("isMultipleActionsActive", isMultipleActionsActive);
-    provide("modelIsTableWithoutScroll", modelIsTableWithoutScrollStartLocal);
+    provide("modelIsTableWithoutScroll", modelIsTableWithoutScrollComputed);
     provide("onTogglePreview", onTogglePreview);
     provide("previewRightRowIndex", previewRightRowIndex);
     provide("previewRightRowIndexLast", previewRightRowIndexLast);
@@ -686,7 +687,7 @@ export default {
       isViewTableVisible,
       limit,
       modelColumnsVisibleLocal,
-      modelIsTableWithoutScrollStartLocal,
+      modelIsTableWithoutScrollComputed,
       modelSortLocal,
       mousedownResizePreviewRight,
       mousemoveResizePreviewRight,
@@ -775,7 +776,7 @@ export default {
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {
-          a_table__parent_scrollable: !this.modelIsTableWithoutScrollStartLocal,
+          a_table__parent_scrollable: !this.modelIsTableWithoutScrollComputed,
         }],
       }, [
         h(ATableTopPanel, {

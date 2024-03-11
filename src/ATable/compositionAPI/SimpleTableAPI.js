@@ -1,5 +1,5 @@
 import {
-  computed,
+  computed, ref,
   toRef,
 } from "vue";
 
@@ -13,6 +13,8 @@ export default function SimpleTableAPI(props) {
   const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
   const rowActions = toRef(props, "rowActions");
 
+  const modelIsTableWithoutScroll = ref(modelIsTableWithoutScrollStart.value);
+
   const {
     isMobileWidth,
   } = AMobileAPI();
@@ -24,17 +26,24 @@ export default function SimpleTableAPI(props) {
 
     return isActionIconVisible.value;
   });
+
   const isActionIconVisibleLocal = computed(() => {
     return !!(isActionIconVisible.value && !isSimpleTable.value);
   });
+
   const isColumnsDndLocal = computed(() => {
     return !!(isColumnsDnd.value && !isSimpleTable.value);
   });
+
   const isMobile = computed(() => {
     return !!(isMobileWidth.value && !isSimpleTable.value);
   });
-  const modelIsTableWithoutScrollStartLocal = computed(() => {
-    return !!(modelIsTableWithoutScrollStart.value && !isSimpleTable.value);
+
+  const modelIsTableWithoutScrollComputed = computed(() => {
+    if (isSimpleTable.value) {
+      return false;
+    }
+    return modelIsTableWithoutScroll.value;
   });
 
   return {
@@ -42,6 +51,7 @@ export default function SimpleTableAPI(props) {
     isActionIconVisibleLocal,
     isColumnsDndLocal,
     isMobile,
-    modelIsTableWithoutScrollStartLocal,
+    modelIsTableWithoutScroll,
+    modelIsTableWithoutScrollComputed,
   };
 }
