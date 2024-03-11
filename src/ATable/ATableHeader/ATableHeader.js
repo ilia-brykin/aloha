@@ -118,7 +118,7 @@ export default {
   },
   render() {
     if (this.isMobile) {
-      return "";
+      return null;
     }
     return h("div", {
       ref: "root",

@@ -123,7 +123,7 @@ export default {
   },
   render() {
     if (this.isHidden) {
-      return "";
+      return null;
     }
     return h("div", {
       class: [

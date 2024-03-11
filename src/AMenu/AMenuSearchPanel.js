@@ -84,6 +84,6 @@ export default {
           ]),
       ]);
     }
-    return "";
+    return null;
   },
 };

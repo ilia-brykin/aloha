@@ -138,7 +138,7 @@ export default {
   },
   render() {
     if (!this.isComponentVisible) {
-      return "";
+      return null;
     }
     return [
       ...this.currentGroups.map((group, groupIndex) => {

@@ -130,7 +130,7 @@ export default {
   },
   render() {
     if (!this.isRender) {
-      return "";
+      return null;
     }
 
     return h(this.tag, {

@@ -62,6 +62,6 @@ export default {
         action: this.action,
       });
     }
-    return "";
+    return null;
   },
 };

@@ -185,7 +185,7 @@ export default {
   },
   render() {
     if (!this.isDropdownVisible) {
-      return "";
+      return null;
     }
 
     return [

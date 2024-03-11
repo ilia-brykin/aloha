@@ -33,7 +33,7 @@ export default {
   },
   render() {
     if (this.disabled) {
-      return "";
+      return null;
     }
     return h("button", {
       class: ["a_form_element__btn_close", this.clearButtonClass],

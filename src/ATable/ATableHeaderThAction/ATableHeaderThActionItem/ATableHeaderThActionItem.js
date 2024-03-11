@@ -113,7 +113,7 @@ export default {
   },
   render() {
     if (this.column.isRender === false) {
-      return "";
+      return null;
     }
     return h("li", this.attributesComponent, [
       h("div", {

@@ -71,7 +71,7 @@ export default {
   },
   render() {
     if (this.isSearchActive) {
-      return "";
+      return null;
     }
     return h("div", {
       class: "a_menu__breadcrumbs"

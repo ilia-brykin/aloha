@@ -62,7 +62,7 @@ export default {
   },
   render() {
     if (!this.hasItems) {
-      return "";
+      return null;
     }
 
     if (this.groupLabel) {

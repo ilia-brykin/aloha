@@ -75,7 +75,7 @@ export default {
   },
   render() {
     if (!this.hasFilters) {
-      return "";
+      return null;
     }
 
     return h("div", {

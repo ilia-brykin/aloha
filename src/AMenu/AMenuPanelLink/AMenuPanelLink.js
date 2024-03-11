@@ -187,7 +187,7 @@ export default {
   },
   render() {
     if (!this.isLinkVisible) {
-      return "";
+      return null;
     }
     const ICON_AND_TEXT = [
       this.icon && h(AIcon, {

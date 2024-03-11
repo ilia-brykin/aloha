@@ -123,7 +123,7 @@ export default {
   },
   render() {
     if (!this.hasRows) {
-      return "";
+      return null;
     }
     return h("div", {
       class: "a_pagination__parent",

@@ -70,7 +70,7 @@ export default {
   },
   render() {
     if (!this.hasFilterMain) {
-      return "";
+      return null;
     }
 
     return h("div", {

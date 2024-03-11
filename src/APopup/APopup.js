@@ -82,7 +82,7 @@ export default {
   },
   render() {
     if (!this.isOpenComputed) {
-      return "";
+      return null;
     }
 
     h(Teleport, {

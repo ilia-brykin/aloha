@@ -84,7 +84,7 @@ export default {
   },
   render() {
     if (this.isSearchActive || this.isPanelMain) {
-      return "";
+      return null;
     }
 
     if (this.isBreadcrumbsTruncated) {

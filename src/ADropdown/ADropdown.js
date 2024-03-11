@@ -387,7 +387,7 @@ export default {
     if (this.isHideWithoutActionAndSlot &&
       !this.hasActions && 
       !this.$slots.dropdown) {
-      return "";
+      return null;
     }
     return [
       h(AButton, {
