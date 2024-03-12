@@ -99,6 +99,10 @@ $a_breakpoint_touch: 1023px !default;
   .a_form_element_number_controls .a_form_element {
     --a_input_number_width: 100% !important;
   }
+  .a_fieldset {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 .a_filter_horizontal__add_filter {
   position: relative;

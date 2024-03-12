@@ -14,7 +14,7 @@ import {
   forEach,
 } from "lodash-es";
 
-export default function ToggleAPI(props, {
+export default function ToggleAPI(props, { emit }, {
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
   destroyPopover = () => {},
@@ -173,6 +173,7 @@ export default function ToggleAPI(props, {
         });
       }
       openDropdownGlobal();
+      emit("open");
     });
   };
 
@@ -216,6 +217,7 @@ export default function ToggleAPI(props, {
       setFocusToButton();
     }
     triggerOpen.value = undefined;
+    emit("close");
   }
 
   function onClose({ trigger } = {}) {

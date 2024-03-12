@@ -277,7 +277,11 @@ export default {
       validator: value => difference(value, ["click", "hover", "focus"]).length === 0,
     },
   },
-  setup(props) {
+  emits: [
+    "open",
+    "close",
+  ],
+  setup(props, context) {
     const {
       dropdownButtonRef,
       dropdownRef,
@@ -309,7 +313,7 @@ export default {
       timerCloseHover,
       triggerOpen,
       wasOpened,
-    } = ToggleAPI(props, {
+    } = ToggleAPI(props, context, {
       dropdownButtonRef,
       dropdownRef,
       destroyPopover,

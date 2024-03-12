@@ -6,6 +6,7 @@ import AButton from "../../AButton/AButton";
 import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdown";
 import AInput from "../../ui/AInput/AInput";
 import ARadio from "../../ui/ARadio/ARadio";
+import ATableSortingAdditional from "../ATableSortingAdditional/ATableSortingAdditional";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ActionsAPI from "./compositionAPI/ActionsAPI";
@@ -17,6 +18,11 @@ import ViewsAPI from "./compositionAPI/ViewsAPI";
 export default {
   name: "ATableTopPanel",
   props: {
+    additionalSortingColumns: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     areAllRowsSelected: {
       type: Boolean,
       required: true,
@@ -40,6 +46,10 @@ export default {
     disabledMultipleActions: {
       type: Boolean,
       required: true,
+    },
+    disabledSort: {
+      type: Boolean,
+      required: false,
     },
     disabledViews: {
       type: Boolean,
@@ -79,6 +89,10 @@ export default {
       type: String,
       required: true,
     },
+    modelSort: {
+      type: Array,
+      required: false,
+    },
     modelView: {
       type: String,
       required: false,
@@ -110,6 +124,11 @@ export default {
       type: Number,
       required: false,
       default: 0,
+    },
+    useAdditionalSorting: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     useViewSlot: {
       type: Boolean,
@@ -222,10 +241,12 @@ export default {
         h("div", {
           class: "a_table__top_panel__actions",
         }, [
-          this.$slots.tableActionsPrepend && this.$slots.tableActionsPrepend({
-            isMultipleActionsActive: this.isMultipleActionsActive,
-            modelView: this.modelView,
-          }),
+          this.$slots.tableActionsPrepend ?
+            this.$slots.tableActionsPrepend({
+              isMultipleActionsActive: this.isMultipleActionsActive,
+              modelView: this.modelView,
+            }) :
+            "",
           h(AGroupButtonDropdown, {
             actions: this.tableActionsFiltered,
             actionsClasses: [],
@@ -262,35 +283,48 @@ export default {
               placement: "bottom-end",
             },
           }),
-          this.isQuickSearch && h(AInput, {
-            label: "_A_TABLE_QUICK_SEARCH_",
-            class: "a_table__top_panel__actions__quick_search",
-            modelUndefined: "",
-            modelValue: this.modelQuickSearch,
-            iconPrepend: "Search",
-            "onUpdate:modelValue": this.updateModelQuickSearch,
-          }),
-          this.hasViews && h(ARadio, {
-            modelValue: this.modelView,
-            class: "a_d_inline_block",
-            isButtonGroup: true,
-            disabled: this.disabledViews,
-            slotName: this.viewSlotLocal,
-            data: this.views,
-            keyId: "id",
-            keyLabel: "label",
-            hasBorder: false,
-            classFieldset: "a_p_0",
-            "onUpdate:modelValue": this.updateViewCurrentLocal,
-          }, {
-            viewSlot: arg => this.$slots.viewSlot && this.$slots.viewSlot({
-              ...arg,
-            }),
-          }),
-          this.$slots.tableActionsAppend && this.$slots.tableActionsAppend({
-            isMultipleActionsActive: this.isMultipleActionsActive,
-            modelView: this.modelView,
-          }),
+          this.isQuickSearch ?
+            h(AInput, {
+              label: "_A_TABLE_QUICK_SEARCH_",
+              class: "a_table__top_panel__actions__quick_search",
+              modelUndefined: "",
+              modelValue: this.modelQuickSearch,
+              iconPrepend: "Search",
+              "onUpdate:modelValue": this.updateModelQuickSearch,
+            }) :
+            "",
+          this.hasViews ?
+            h(ARadio, {
+              modelValue: this.modelView,
+              class: "a_d_inline_block",
+              isButtonGroup: true,
+              disabled: this.disabledViews,
+              slotName: this.viewSlotLocal,
+              data: this.views,
+              keyId: "id",
+              keyLabel: "label",
+              hasBorder: false,
+              classFieldset: "a_p_0",
+              "onUpdate:modelValue": this.updateViewCurrentLocal,
+            }, {
+              viewSlot: arg => this.$slots.viewSlot && this.$slots.viewSlot({
+                ...arg,
+              }),
+            }) :
+            "",
+          this.useAdditionalSorting ?
+            h(ATableSortingAdditional, {
+              additionalSortingColumns: this.additionalSortingColumns,
+              disabledSort: this.disabledSort,
+              modelSort: this.modelSort,
+            }) :
+            "",
+          this.$slots.tableActionsAppend ?
+            this.$slots.tableActionsAppend({
+              isMultipleActionsActive: this.isMultipleActionsActive,
+              modelView: this.modelView,
+            }) :
+            "",
         ]),
       ]),
       this.isMultipleActionsActive && h("div", {

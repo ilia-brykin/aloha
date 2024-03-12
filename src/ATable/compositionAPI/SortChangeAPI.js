@@ -4,6 +4,7 @@ import {
   toRef,
 } from "vue";
 
+import EventBus from "../../utils/EventBus";
 import {
   cloneDeep,
 } from "lodash-es";
@@ -12,6 +13,7 @@ export default function SortChangeAPI(props, { emit }, {
   modelSortLocal = ref([]),
   closePreviewAll = () => {},
 }) {
+  const id = toRef(props, "id");
   const isSortingMultiColumn = toRef(props, "isSortingMultiColumn");
   const sortingMultiColumnKey = toRef(props, "sortingMultiColumnKey");
 
@@ -52,14 +54,21 @@ export default function SortChangeAPI(props, { emit }, {
     modelSortLocal.value = [sortId];
   };
 
-  const changeModelSort = ({ sortId, $event }) => {
-    if (isSortingMultiColumnKeyPressed($event)) {
+  const changeModelSort = ({ sortId, $event, modelAll }) => {
+    if (modelAll) {
+      modelSortLocal.value = modelAll;
+    } else if (isSortingMultiColumnKeyPressed($event)) {
       changeModelSortMultiColumn({ sortId });
     } else {
       changeModelSortSingleColumn({ sortId });
     }
+
     emit("changeSorting", {
       modelSort: cloneDeep(modelSortLocal.value),
+    });
+    EventBus.$emit("changeTableSorting", {
+      modelSort: cloneDeep(modelSortLocal.value),
+      tableId: id.value,
     });
     closePreviewAll();
   };

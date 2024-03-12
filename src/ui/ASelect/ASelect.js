@@ -72,10 +72,9 @@ export default {
       required: false,
       default: () => {},
     },
-    classColumn: {
-      type: String,
+    class: {
+      type: [String, Object],
       required: false,
-      default: undefined,
     },
     countMultiselect: {
       type: Number,
@@ -615,6 +614,7 @@ export default {
     }
 
     return h("div", {
+      class: this.class,
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,
     }, [

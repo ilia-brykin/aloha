@@ -156,7 +156,7 @@ export default {
       return null;
     }
 
-    return ("div", {
+    return h("div", {
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,
     }, [
@@ -203,20 +203,27 @@ export default {
             } else if (item.classColumn) {
               classColumn = item.classColumn;
             }
-            return h(this.componentTypesMapping[item.type], {
-              key: itemIndex,
-              modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
-              modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
+            return h("div", {
               class: classColumn,
-              errors: this.errorsAll[item.id],
-              errorsAll: this.errorsAll,
-              idPrefix: this.idPrefix,
-              "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
-              onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
-              ...item,
-              classColumn: undefined,
-              ...this.attributesToExcludeFromRender,
-            }, this.$slots);
+            }, [
+              h(this.componentTypesMapping[item.type], {
+                key: itemIndex,
+                modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
+                modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
+                errors: this.errorsAll[item.id],
+                errorsAll: this.errorsAll,
+                idPrefix: this.idPrefix,
+                "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+                onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
+                ...item,
+                classColumn: undefined,
+                slotAppend: undefined,
+                ...this.attributesToExcludeFromRender,
+              }, this.$slots),
+              (item.slotAppend && this.$slots[item.slotAppend]) ?
+                this.$slots[item.slotAppend]({ item, itemIndex }) :
+                "",
+            ]);
           }),
           this.slotName &&
           this.$slots[this.slotName] &&
