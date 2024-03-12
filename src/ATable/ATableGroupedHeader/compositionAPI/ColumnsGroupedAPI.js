@@ -2,6 +2,7 @@ import {
   computed,
   h,
   inject,
+  toRef,
 } from "vue";
 
 import ATableHeaderTh from "../../ATableHeaderTh/ATableHeaderTh";
@@ -13,11 +14,17 @@ import {
   get,
   includes,
   isArray,
-  map, min, sortBy,
+  map,
+  min,
+  sortBy,
   uniqBy,
 } from "lodash-es";
 
-export default function ColumnsGroupedAPI() {
+export default function ColumnsGroupedAPI(props) {
+  const modelSort = toRef(props, "modelSort");
+  const showFirstSortingSequenceNumber = toRef(props, "showFirstSortingSequenceNumber");
+  const sortingSequenceNumberClass = toRef(props, "sortingSequenceNumberClass");
+
   const columns = cloneDeep(map(inject("columnsFilteredForRender").value, (column, index) => {
     return {
       ...column,
@@ -112,11 +119,14 @@ export default function ColumnsGroupedAPI() {
   const getColumnsForRender = col => {
     return h(ATableHeaderTh, {
       ref: "th",
-      column: col,
-      columnIndex: col._index,
       class: "a_table__cell__child_group",
+      column: col,
       columnGroupNames: col.group,
+      columnIndex: col._index,
       hasMultipleActions: false,
+      modelSort: modelSort.value,
+      showFirstSortingSequenceNumber: showFirstSortingSequenceNumber.value,
+      sortingSequenceNumberClass: sortingSequenceNumberClass.value,
     });
   };
   const getRecursiveGroupForRender = group => {

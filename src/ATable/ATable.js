@@ -232,7 +232,7 @@ export default {
     modelSort: {
       type: [String, Array],
       required: false,
-      default: undefined,
+      default: () => [],
     },
     modelView: {
       type: [String, Number],

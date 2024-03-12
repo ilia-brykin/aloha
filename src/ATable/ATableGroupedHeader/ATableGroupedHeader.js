@@ -72,11 +72,11 @@ export default {
     "isMobile",
     "isMultipleActionsActive",
   ],
-  setup() {
+  setup(props) {
     const {
       columnsOrdered,
       renderedGroupedColumns,
-    } = ColumnsGroupedAPI();
+    } = ColumnsGroupedAPI(props);
 
     return {
       columnsOrdered,
