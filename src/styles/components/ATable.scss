@@ -331,6 +331,13 @@
   > .a_table__cell__child {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+}
+.a_table__cell_action__group {
+  margin-left: auto;
+  > * + * {
+    margin-left: 0.5rem;
   }
 }
 .a_table__cell_action_sticky {
@@ -436,9 +443,9 @@
   margin-right: .25rem;
 }
 .a_table__cell_action__btn {
+  --a_btn_padding_y: 0.25rem;
   --a_btn_padding_x: 0.5rem;
-  --a_btn_padding_y: 0.375rem;
-  --a_btn_line_height: 1;
+  --a_btn_font_size: 0.875rem;
 }
 
 .a_table__preview_right {

@@ -138,29 +138,35 @@ export default {
             ]),
           ],
         }),
-        this.$slots.rowActions ?
-          this.$slots.rowActions({
-            tableId: this.tableId,
-            row: this.row,
-            rowIndex: this.rowIndex,
-            isFooter: this.isFooter,
-          }) :
+        this.isRowActionsDropdownVisible || this.$slots.rowActions ?
+          h("div", {
+            class: "a_table__cell_action__group"
+          }, [
+            this.$slots.rowActions ?
+              this.$slots.rowActions({
+                tableId: this.tableId,
+                row: this.row,
+                rowIndex: this.rowIndex,
+                isFooter: this.isFooter,
+              }) :
+              "",
+            this.isRowActionsDropdownVisible && h(ADropdown, {
+              id: this.buttonActionsId,
+              actions: this.rowActionsFiltered,
+              buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
+              buttonIconLeft: "OptionVertical",
+              buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
+              buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
+              disabled: this.disabledRowActions,
+              extra: {
+                rowNumber: this.rowNumber,
+              },
+              hasCaret: false,
+              inBody: true,
+              placement: "bottom-end",
+            }, this.$slots),
+          ]) :
           "",
-        this.isRowActionsDropdownVisible && h(ADropdown, {
-          id: this.buttonActionsId,
-          actions: this.rowActionsFiltered,
-          buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-          buttonIconLeft: "OptionVertical",
-          buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
-          buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
-          disabled: this.disabledRowActions,
-          extra: {
-            rowNumber: this.rowNumber,
-          },
-          hasCaret: false,
-          inBody: true,
-          placement: "bottom-end",
-        }, this.$slots),
       ]),
     ]);
   },
