@@ -34,6 +34,7 @@ export default {
   setup(props) {
     const {
       columnsAll,
+      countColumnsAll,
     } = ColumnsAPI(props);
 
     const {
@@ -65,6 +66,7 @@ export default {
       updateUnappliedModelSort,
     } = ModelAPI(props, {
       closeDropdown,
+      countColumnsAll,
       hasLastSelectOnlyOneColumn,
       initDataForForm,
       wasOpenDropdown,

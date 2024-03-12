@@ -22,7 +22,12 @@ export default function ColumnsAPI(props) {
     ];
   });
 
+  const countColumnsAll = computed(() => {
+    return columnsAll.value.length;
+  });
+
   return {
     columnsAll,
+    countColumnsAll,
   };
 }

@@ -9,12 +9,12 @@ import EventBus from "../../../utils/EventBus";
 import {
   cloneDeep,
   forEach,
-  last,
   startsWith,
 } from "lodash-es";
 
 export default function ModelAPI(props, {
   closeDropdown = () => {},
+  countColumnsAll = computed(() => 0),
   hasLastSelectOnlyOneColumn = computed(() => false),
   initDataForForm = () => {},
   wasOpenDropdown = ref(false),
@@ -33,7 +33,9 @@ export default function ModelAPI(props, {
     wasOpenDropdown.value = true;
 
     const MODEL_SORT = model ? model : cloneDeep(modelSort.value);
-    MODEL_SORT.push(undefined);
+    if (MODEL_SORT.length < countColumnsAll.value) {
+      MODEL_SORT.push(undefined);
+    }
 
     const UNAPPLIED_MODEL = [];
     forEach(MODEL_SORT, model => {
@@ -51,14 +53,8 @@ export default function ModelAPI(props, {
     initDataForForm({ unappliedModelSort: UNAPPLIED_MODEL });
   };
 
-  const isLastModelForColumnNotEmpty = ({ model }) => {
-    const LAST_MODEL = last(model);
-
-    return !!LAST_MODEL.sortId;
-  };
-
   const updateUnappliedModelSort = ({ model }) => {
-    if (isLastModelForColumnNotEmpty({ model }) && !hasLastSelectOnlyOneColumn.value) {
+    if (model.length < countColumnsAll.value && !hasLastSelectOnlyOneColumn.value) {
       model.push({
         sortId: undefined,
         sortMode: "asc",
@@ -70,7 +66,20 @@ export default function ModelAPI(props, {
 
   const removeUnappliedModelSort = ({ item }) => {
     const INDEX = item.additionalProps.index;
-    unappliedModelSort.value.splice(INDEX, 1);
+    const isLast = INDEX === unappliedModelSort.value.length - 1;
+    if (isLast) {
+      unappliedModelSort.value[INDEX].sortId = undefined;
+    } else {
+      unappliedModelSort.value.splice(INDEX, 1);
+    }
+
+    const LAST_INDEX_IN_MODEL = unappliedModelSort.value.length - 1;
+    if (unappliedModelSort.value?.[LAST_INDEX_IN_MODEL]?.sortId) {
+      unappliedModelSort.value.push({
+        sortId: undefined,
+        sortMode: "asc",
+      });
+    }
     initDataForForm({ unappliedModelSort: unappliedModelSort.value });
   };
 
