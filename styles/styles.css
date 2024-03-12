@@ -7583,6 +7583,9 @@ input:not(:-webkit-autofill) {
     --a_datepicker_width: 100%; }
   .a_filter_horizontal__body__form .a_form_element_number_controls .a_form_element {
     --a_input_number_width: 100% !important; }
+  .a_filter_horizontal__body__form .a_fieldset {
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
 
 .a_filter_horizontal__add_filter {
   position: relative; }
