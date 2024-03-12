@@ -4,7 +4,6 @@ import {
 
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
-import ColumnsGroupedAPI from "./compositionAPI/ColumnsGroupedAPI";
 
 export default {
   name: "ATableGroupedHeader",
@@ -23,6 +22,10 @@ export default {
     },
     areSomeRowsSelected: {
       type: Boolean,
+      required: true,
+    },
+    columnsForRender: {
+      type: Array,
       required: true,
     },
     disabledOptions: {
@@ -72,17 +75,6 @@ export default {
     "isMobile",
     "isMultipleActionsActive",
   ],
-  setup(props) {
-    const {
-      columnsOrdered,
-      renderedGroupedColumns,
-    } = ColumnsGroupedAPI(props);
-
-    return {
-      columnsOrdered,
-      renderedGroupedColumns,
-    };
-  },
   render() {
     return h("div", {
       ref: "root",
@@ -93,7 +85,7 @@ export default {
         class: "a_table__row a_table__head__row",
         role: "row",
       }, [
-        this.renderedGroupedColumns,
+        this.columnsForRender,
         this.isActionColumnVisible && h(ATableHeaderThAction, {
           disabledOptions: this.disabledOptions,
           isRowActionsStickyLocal: this.isRowActionsStickyLocal,

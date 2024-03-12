@@ -47,6 +47,7 @@ import {
   isPlainObject,
   uniqueId,
 } from "lodash-es";
+import ColumnsGroupedAPI from "./compositionAPI/ColumnsGroupedAPI";
 
 export default {
   name: "ATable",
@@ -439,7 +440,6 @@ export default {
 
     const {
       columnsScrollInvisible,
-      groupedHeaderRef,
       indexFirstScrollInvisibleColumn,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
@@ -465,6 +465,11 @@ export default {
     });
 
     const {
+      columnsOrderedFromSimpleTable,
+      renderedGroupedColumns,
+    } = ColumnsGroupedAPI(props);
+
+    const {
       columnIdsGroupByLocked,
       columnsFilteredForRender,
       columnsFilteredForRenderIndexesMapping,
@@ -472,10 +477,10 @@ export default {
       countNotHiddenColumns,
     } = ColumnsAPI(props, {
       columnsScrollInvisible,
-      groupedHeaderRef,
       indexFirstScrollInvisibleColumn,
       modelColumnsVisibleLocal,
       modelIsTableWithoutScrollComputed,
+      columnsOrderedFromSimpleTable,
     });
 
     const {
@@ -537,7 +542,6 @@ export default {
       checkVisibleColumns,
       columnIdsGroupByLocked,
       columnsFilteredForRenderIndexesMapping,
-      groupedHeaderRef,
     });
 
     const {
@@ -687,7 +691,6 @@ export default {
       columnsOrdered,
       deleteRow,
       emptyText,
-      groupedHeaderRef,
       hasMultipleActions,
       hasRows,
       hasViews,
@@ -707,6 +710,7 @@ export default {
       onTogglePreview,
       previewDownRowIndexes,
       previewRightRowIndex,
+      renderedGroupedColumns,
       rowsLocal,
       rowsLocalAll,
       rowsLocalLength,
@@ -839,7 +843,6 @@ export default {
         }, [
           this.isSimpleTable ?
           h(ATableGroupedHeader, {
-            ref: "groupedHeaderRef",
             areAllRowsSelected: this.areAllRowsSelected,
             areAllVisibleRowsSelected: this.areAllVisibleRowsSelected,
             areSomeRowsSelected: this.areSomeRowsSelected,
@@ -853,6 +856,7 @@ export default {
             showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
             sortingSequenceNumberClass: this.sortingSequenceNumberClass,
             onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
+            columnsForRender: this.renderedGroupedColumns,
           }) :
           h(ATableHeader, {
             areAllRowsSelected: this.areAllRowsSelected,
