@@ -465,9 +465,17 @@ export default {
     });
 
     const {
+      dataSorted,
+      initModelSort,
+      modelSortLocal,
+    } = SortAPI(props);
+
+    const {
       columnsOrderedFromSimpleTable,
       renderedGroupedColumns,
-    } = ColumnsGroupedAPI(props);
+    } = ColumnsGroupedAPI(props, {
+      modelSort: modelSortLocal,
+    });
 
     const {
       columnIdsGroupByLocked,
@@ -482,12 +490,6 @@ export default {
       modelIsTableWithoutScrollComputed,
       columnsOrderedFromSimpleTable,
     });
-
-    const {
-      dataSorted,
-      initModelSort,
-      modelSortLocal,
-    } = SortAPI(props);
 
     const {
       changeLimit,

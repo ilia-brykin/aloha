@@ -1,6 +1,7 @@
 import {
   computed,
   h,
+  ref,
   toRef,
 } from "vue";
 
@@ -18,9 +19,10 @@ import {
   uniqBy,
 } from "lodash-es";
 
-export default function ColumnsGroupedAPI(props) {
+export default function ColumnsGroupedAPI(props, {
+  modelSort = ref([]),
+}) {
   const columns = toRef(props, "columns");
-  const modelSort = toRef(props, "modelSort");
   const showFirstSortingSequenceNumber = toRef(props, "showFirstSortingSequenceNumber");
   const sortingSequenceNumberClass = toRef(props, "sortingSequenceNumberClass");
 
