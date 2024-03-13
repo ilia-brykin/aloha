@@ -4,6 +4,7 @@ import {
   onMounted,
   ref,
   toRef,
+  watch,
 } from "vue";
 
 import {
@@ -184,6 +185,10 @@ export default function ScrollControlAPI(props, { emit }, {
   });
   onBeforeUnmount(() => {
     resizeOb.unobserve(aTableRef.value);
+  });
+
+  watch(columnsOrdered, () => {
+    checkVisibleColumns();
   });
 
 
