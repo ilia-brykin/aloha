@@ -2,7 +2,7 @@ import {
   mockVueInject,
 } from "../../../../utilsTests/utilsTests";
 
-describe("ColumnsAPI", () => {
+describe("ATableSortingAdditional ColumnsAPI", () => {
   let props;
   let ColumnsAPI;
 
@@ -15,7 +15,7 @@ describe("ColumnsAPI", () => {
       ]
     });
 
-    // Dynamically import the ColumnsAPI module after mocks are set up
+    // Dynamically import CompositionAPI after mocks are set up
     ColumnsAPI = (await import("../compositionAPI/ColumnsAPI")).default;
   });
 
