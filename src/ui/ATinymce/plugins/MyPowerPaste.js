@@ -9,7 +9,7 @@ export default function(editor) {
     e.stopPropagation();
     e.preventDefault();
 
-    const PAGE_HTML = clipboardData.getData("text/html");
+    const PAGE_HTML = clipboardData.getData("text/html") || clipboardData.getData("text/plain");
     const HTML_FRAGMENT = extractTextBetween({
       html: PAGE_HTML,
       start: "<!--StartFragment-->",
