@@ -16,6 +16,7 @@ import ATableTr from "./ATableTr/ATableTr";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
+import ColumnsGroupedAPI from "./compositionAPI/ColumnsGroupedAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
 import FocusTableAPI from "./compositionAPI/FocusTableAPI";
 import InitAPI from "./compositionAPI/InitAPI";
@@ -47,7 +48,6 @@ import {
   isPlainObject,
   uniqueId,
 } from "lodash-es";
-import ColumnsGroupedAPI from "./compositionAPI/ColumnsGroupedAPI";
 
 export default {
   name: "ATable",
