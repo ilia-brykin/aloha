@@ -9,22 +9,21 @@ import EventBus from "../../../utils/EventBus";
 import {
   cloneDeep,
   forEach,
+  last,
   startsWith,
 } from "lodash-es";
 
 export default function ModelAPI(props, {
   closeDropdown = () => {},
   countColumnsAll = computed(() => 0),
-  hasLastSelectOnlyOneColumn = computed(() => false),
   initDataForForm = () => {},
+  unappliedModelSort = ref([]),
   wasOpenDropdown = ref(false),
 }) {
   const modelSort = toRef(props, "modelSort");
 
   const changeModelSort = inject("changeModelSort");
   const tableId = inject("tableId");
-
-  const unappliedModelSort = ref([]);
 
   const initUnappliedModelSort = ({ model } = {}) => {
     if (wasOpenDropdown.value && !model) {
@@ -53,8 +52,16 @@ export default function ModelAPI(props, {
     initDataForForm({ unappliedModelSort: UNAPPLIED_MODEL });
   };
 
+  const needAddModelUndefined = ({ model }) => {
+    if (model.length >= countColumnsAll.value) {
+      return false;
+    }
+    const MODEL_LAST_ITEM = last(model);
+    return !!MODEL_LAST_ITEM.sortId;
+  };
+
   const updateUnappliedModelSort = ({ model }) => {
-    if (model.length < countColumnsAll.value && !hasLastSelectOnlyOneColumn.value) {
+    if (needAddModelUndefined({ model })) {
       model.push({
         sortId: undefined,
         sortMode: "asc",
@@ -131,7 +138,6 @@ export default function ModelAPI(props, {
     initUnappliedModelSort,
     removeUnappliedModelSort,
     textCountModelSort,
-    unappliedModelSort,
     updateUnappliedModelSort,
   };
 }

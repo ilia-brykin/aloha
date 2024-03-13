@@ -6,6 +6,7 @@ import {
 
 import {
   filter,
+  keyBy,
 } from "lodash-es";
 
 export default function ColumnsAPI(props) {
@@ -22,12 +23,17 @@ export default function ColumnsAPI(props) {
     ];
   });
 
+  const columnsAllKeyBySortId = computed(() => {
+    return keyBy(columnsAll.value, "sortId");
+  });
+
   const countColumnsAll = computed(() => {
     return columnsAll.value.length;
   });
 
   return {
     columnsAll,
+    columnsAllKeyBySortId,
     countColumnsAll,
   };
 }

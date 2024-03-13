@@ -1,6 +1,7 @@
 import {
   h,
   onBeforeUnmount,
+  ref,
 } from "vue";
 
 import ADropdown from "../../ADropdown/ADropdown";
@@ -32,17 +33,21 @@ export default {
     },
   },
   setup(props) {
+    const unappliedModelSort = ref([]);
+
     const {
       columnsAll,
+      columnsAllKeyBySortId,
       countColumnsAll,
     } = ColumnsAPI(props);
 
     const {
       dataForForm,
-      hasLastSelectOnlyOneColumn,
       initDataForForm,
     } = FormAPI(props, {
       columnsAll,
+      columnsAllKeyBySortId,
+      unappliedModelSort,
     });
 
     const {
@@ -62,13 +67,12 @@ export default {
       initUnappliedModelSort,
       removeUnappliedModelSort,
       textCountModelSort,
-      unappliedModelSort,
       updateUnappliedModelSort,
     } = ModelAPI(props, {
       closeDropdown,
       countColumnsAll,
-      hasLastSelectOnlyOneColumn,
       initDataForForm,
+      unappliedModelSort,
       wasOpenDropdown,
     });
 
