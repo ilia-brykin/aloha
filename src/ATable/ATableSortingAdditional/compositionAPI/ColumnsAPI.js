@@ -12,7 +12,7 @@ import {
 export default function ColumnsAPI(props) {
   const additionalSortingColumns = toRef(props, "additionalSortingColumns");
 
-  const columnsOrdered = inject("columnsOrdered");
+  const columnsOrdered = inject("columnsOrdered", []);
 
   const columnsAll = computed(() => {
     return [
