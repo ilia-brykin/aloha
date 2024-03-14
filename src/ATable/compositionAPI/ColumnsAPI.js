@@ -22,6 +22,7 @@ export default function ColumnsAPI(props, {
 }) {
   const columns = toRef(props, "columns");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
+  const isSimpleTable = toRef(props, "isSimpleTable");
   const modelColumnsOrdering = toRef(props, "modelColumnsOrdering");
   const multipleActions = toRef(props, "multipleActions");
 
@@ -54,7 +55,7 @@ export default function ColumnsAPI(props, {
   });
 
   const columnsOrdered = computed(() => {
-    if (columnsOrderedFromSimpleTable.value && columnsOrderedFromSimpleTable.value.length) {
+    if (isSimpleTable.value && columnsOrderedFromSimpleTable.value && columnsOrderedFromSimpleTable.value.length) {
       return columnsOrderedFromSimpleTable.value;
     }
     if (!modelColumnsOrdering.value.length) {
