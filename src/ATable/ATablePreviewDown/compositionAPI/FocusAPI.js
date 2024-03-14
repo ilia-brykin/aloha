@@ -6,7 +6,7 @@ export default function FocusAPI() {
   const componentRef = ref(undefined);
 
   const setFocusToComponent = () => {
-    componentRef.value?.focus();
+    componentRef.value?.focus({ preventScroll: true });
   };
 
   return {
