@@ -55,6 +55,11 @@ export default {
       type: Boolean,
       required: true,
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     hasViews: {
       type: Boolean,
       required: true,
@@ -225,6 +230,7 @@ export default {
                 tag: "span",
                 class: "a_table__top_panel__label__text",
                 text: this.label,
+                extra: this.extra,
               }),
               this.showCount ? h(AButton, {
                 class: "a_table__top_panel__label__count",

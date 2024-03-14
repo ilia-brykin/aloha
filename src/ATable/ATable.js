@@ -130,6 +130,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     id: {
       type: String,
       required: false,
@@ -806,6 +811,7 @@ export default {
           disabledMultipleActions: this.disabledMultipleActions,
           disabledSort: this.disabledSort,
           disabledViews: this.disabledViews,
+          extra: this.extra,
           hasViews: this.hasViews,
           isLabelVisible: this.isLabelVisible,
           isLoadingMultipleActions: this.isLoadingMultipleActions,
