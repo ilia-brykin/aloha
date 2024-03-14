@@ -20,10 +20,11 @@ export default function RowsAPI(props, {
   const pagination = toRef(props, "pagination");
   const rowsCountRenderPerTick = toRef(props, "rowsCountRenderPerTick");
 
+  const prevDataPaginated = ref([]);
   const rowsLocal = ref([]);
+  let firstLoad = true;
   let rowsLocalIndex = 0;
   let rowsLocalInterval = undefined;
-  let firstLoad = true;
 
   const dataPaginated = computed(() => {
     if (limit.value && !pagination.value.isOutside && usePaginationLocal.value) {
@@ -82,10 +83,11 @@ export default function RowsAPI(props, {
     rowsLocal.value.splice(index, 1);
   };
 
-  watch(dataPaginated, (newValue, oldValue) => {
-    if (isEqual(newValue, oldValue)) {
+  watch(dataPaginated, newValue => {
+    if (isEqual(newValue, prevDataPaginated.value)) {
       return;
     }
+    prevDataPaginated.value = [...newValue];
     if (!firstLoad) {
       setEmptySelectedRowsIndexes();
     }
