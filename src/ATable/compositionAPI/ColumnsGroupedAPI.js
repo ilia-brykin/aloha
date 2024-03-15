@@ -140,7 +140,7 @@ export default function ColumnsGroupedAPI(props, {
         class: "a_table__th_child_group",
       }, [
         h("div", {
-          class: "a_table__cell_group",
+          class: "a_table__cell_group a_text_center",
         }, [
           group.id && h(ATranslation, {
             html: group.id,
