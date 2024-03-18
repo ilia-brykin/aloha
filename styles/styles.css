@@ -7999,7 +7999,8 @@ input:not(:-webkit-autofill) {
 .a_table__body,
 .a_table__footer {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  min-width: min-content; }
 
 .a_table__footer {
   border-top: var(--a_table_footer_border_top); }
