@@ -37,6 +37,11 @@ export default {
       required: false,
       default: () => alertPluginOptions.value.propsDefault.closable,
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     html: {
       type: String,
       required: false,
@@ -154,6 +159,7 @@ export default {
             ],
           }, [
             (this.html || this.text || this.safeHtml) && h(ATranslation, {
+              extra: this.extra,
               html: this.html,
               safeHtml: this.safeHtml,
               text: this.text,
