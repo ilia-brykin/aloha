@@ -135,6 +135,10 @@ export default {
       required: false,
       default: undefined,
     },
+    hasScrollClass: {
+      type: Boolean,
+      required: false,
+    },
     id: {
       type: String,
       required: false,
@@ -798,7 +802,7 @@ export default {
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {
-          a_table__parent_scrollable: !this.modelIsTableWithoutScrollComputed,
+          a_table__parent_scrollable: this.hasScrollClass && !this.modelIsTableWithoutScrollComputed,
         }],
       }, [
         h(ATableTopPanel, {
