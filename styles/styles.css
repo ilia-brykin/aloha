@@ -8325,6 +8325,12 @@ input:not(:-webkit-autofill) {
 .a_table_inner_bordered .a_table__cell_group {
   border-bottom: var(--a_table_th_border_horizontal_width) solid var(--a_table_th_border_horizontal_color); }
 
+.a_table__grandparent_without_scroll .a_table__parent {
+  overflow-x: unset; }
+
+.a_table__grandparent_without_scroll .a_table {
+  overflow-x: unset; }
+
 .a_dropdown__caret {
   margin: 0; }
 
