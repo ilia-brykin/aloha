@@ -47,7 +47,7 @@ export default {
       type: String,
       required: false,
       default: inputNumberPluginOptions.value.propsDefault.controlsType,
-      validator: value => ["plus-minus", "arrows"].indexOf(value) !== -1,
+      validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
     eAllowed: {
