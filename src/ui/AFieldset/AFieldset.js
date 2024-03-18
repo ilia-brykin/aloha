@@ -9,6 +9,7 @@ import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ATranslation from "../../ATranslation/ATranslation";
 import AUiComponents from "../AUiComponents";
+import AUiContainerComponents from "../AUiContainerComponents";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -84,8 +85,9 @@ export default {
     } = UIExcludeRenderAttributesAPI(props);
 
     const componentTypesMapping = {
+      ...AUiComponents,
+      ...AUiContainerComponents,
       fieldset: resolveComponent("AFieldset"),
-      ...AUiComponents
     };
 
     const {
