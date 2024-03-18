@@ -9,6 +9,7 @@ import {
 } from "vue";
 
 import AButton from "../AButton/AButton";
+import ALoading from "../ALoading/ALoading";
 import ATranslation from "../ATranslation/ATranslation";
 
 import CloseFromOutsideAPI from "./compositionAPI/CloseFromOutsideAPI";
@@ -343,28 +344,33 @@ export default {
                 ref: "modal_footer",
                 class: "a_modal_footer",
               }, [
-                this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend(),
-                (!this.isSaveButtonHide && this.save) && h(AButton, {
-                  id: this.saveButtonId,
-                  class: this.saveButtonClass,
-                  disabled: this.disabledLocal || this.disabledSave,
-                  extra: this.extra,
-                  html: this.saveButtonText,
-                  type: "button",
-                  ...this.saveButtonAttributes,
-                  onClick: this.save,
-                }),
-                !this.isCloseButtonHide && h(AButton, {
-                  id: this.closeButtonId,
-                  type: "button",
-                  class: this.closeButtonClass,
-                  disabled: this.disabledLocal,
-                  html: this.closeButtonText,
-                  extra: this.extra,
-                  ...this.closeButtonAttributes,
-                  onClick: () => this.close(true),
-                }),
-                this.$slots.modalFooterAppend && this.$slots.modalFooterAppend(),
+                h(ALoading, {
+                  isLoading: this.loading,
+                }, () => [
+                  this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend(),
+                  (!this.isSaveButtonHide && this.save) && h(AButton, {
+                    id: this.saveButtonId,
+                    class: this.saveButtonClass,
+                    disabled: this.disabledLocal || this.disabledSave,
+                    extra: this.extra,
+                    html: this.saveButtonText,
+                    type: "button",
+                    ...this.saveButtonAttributes,
+                    onClick: this.save,
+                  }),
+                  !this.isCloseButtonHide && h(AButton, {
+                    id: this.closeButtonId,
+                    type: "button",
+                    class: this.closeButtonClass,
+                    disabled: this.disabledLocal,
+                    html: this.closeButtonText,
+                    extra: this.extra,
+                    ...this.closeButtonAttributes,
+                    onClick: () => this.close(true),
+                  }),
+                  this.$slots.modalFooterAppend && this.$slots.modalFooterAppend(),
+                ]),
+
               ]) : "",
             ]),
           ]),
