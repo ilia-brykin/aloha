@@ -793,6 +793,7 @@ export default {
       ref: "tableGrandparentRef",
       class: ["a_table__grandparent", {
         a_table_mobile: !this.isSimpleTable && this.isMobile,
+        a_table__grandparent_without_scroll: !this.hasScrollClass,
       }],
     }, [
       this.$slots.tablePrepend &&
