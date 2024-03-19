@@ -331,6 +331,7 @@ export default {
           label: "Tabelle",
           icon: "Table",
           usePagination: true,
+          useAdditionalSorting: true,
         },
         {
           id: "aloha2",
