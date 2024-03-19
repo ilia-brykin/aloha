@@ -13,12 +13,25 @@ import {
   startsWith,
 } from "lodash-es";
 
-export default function SortAPI(props) {
+export default function SortAPI(props, {
+  viewCurrent = computed(() => ({})),
+}) {
   const data = toRef(props, "data");
   const isSortingOutside = toRef(props, "isSortingOutside");
   const modelSort = toRef(props, "modelSort");
+  const useAdditionalSorting = toRef(props, "useAdditionalSorting");
 
   const modelSortLocal = ref([]);
+
+  const useAdditionalSortingLocal = computed(() => {
+    if (useAdditionalSorting.value) {
+      if (viewCurrent.value) {
+        return viewCurrent.value.useAdditionalSorting || false;
+      }
+      return true;
+    }
+    return false;
+  });
 
   const initModelSort = () => {
     if (isString(modelSort.value)) {
@@ -64,5 +77,6 @@ export default function SortAPI(props) {
     dataSorted,
     initModelSort,
     modelSortLocal,
+    useAdditionalSortingLocal,
   };
 }

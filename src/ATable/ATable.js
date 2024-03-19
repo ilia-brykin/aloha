@@ -477,7 +477,10 @@ export default {
       dataSorted,
       initModelSort,
       modelSortLocal,
-    } = SortAPI(props);
+      useAdditionalSortingLocal,
+    } = SortAPI(props, {
+      viewCurrent,
+    });
 
     const {
       columnsOrderedFromSimpleTable,
@@ -739,6 +742,7 @@ export default {
       togglePreviewResize,
       updateRow,
       updateViewCurrent,
+      useAdditionalSortingLocal,
       usePaginationLocal,
       viewCurrent,
     };
@@ -833,7 +837,7 @@ export default {
           tableActions: this.tableActions,
           tableActionsIndexFirstDropdownAction: this.tableActionsIndexFirstDropdownAction,
           tableActionsIndexFirstDropdownActionMobile: this.tableActionsIndexFirstDropdownActionMobile,
-          useAdditionalSorting: this.useAdditionalSorting,
+          useAdditionalSorting: this.useAdditionalSortingLocal,
           useViewSlot: this.useViewSlot,
           viewCurrent: this.viewCurrent,
           views: this.views,
