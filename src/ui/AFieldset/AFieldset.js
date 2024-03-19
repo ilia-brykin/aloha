@@ -7,9 +7,9 @@ import {
 import AButton from "../../AButton/AButton";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
+import AGroup from "../AGroup/AGroup";
 import ATranslation from "../../ATranslation/ATranslation";
 import AUiComponents from "../AUiComponents";
-import AUiContainerComponents from "../AUiContainerComponents";
 
 import UiMixinProps from "../mixins/UiMixinProps";
 
@@ -86,7 +86,7 @@ export default {
 
     const componentTypesMapping = {
       ...AUiComponents,
-      ...AUiContainerComponents,
+      group: AGroup,
       fieldset: resolveComponent("AFieldset"),
     };
 
