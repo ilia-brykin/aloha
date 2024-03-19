@@ -93,6 +93,7 @@
 .a_select_menu__child {
   max-height: var(--a_select_menu_max_height);
   overflow: auto;
+  overflow-y: hidden;
 }
 
 .a_select_list {
