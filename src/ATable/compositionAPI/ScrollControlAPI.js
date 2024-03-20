@@ -48,11 +48,6 @@ export default function ScrollControlAPI(props, { emit }, {
   const aTableRef = ref(undefined);
   const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
 
-  const changeModelIsTableWithoutScroll = model => {
-    modelIsTableWithoutScroll.value = model;
-    emit("updateModelIsTableWithoutScroll", model);
-  };
-
   const setAdditionalSpaceColumnsForOneGrow = ({
     sumGrows = 0,
     freeSpaceWidth = 0,
@@ -175,6 +170,14 @@ export default function ScrollControlAPI(props, { emit }, {
       setAllDefaultForMobile();
     } else {
       resizeOb.observe(aTableRef.value);
+    }
+  };
+
+  const changeModelIsTableWithoutScroll = model => {
+    modelIsTableWithoutScroll.value = model;
+    emit("updateModelIsTableWithoutScroll", model);
+    if (modelIsTableWithoutScroll.value) {
+      checkVisibleColumns();
     }
   };
 
