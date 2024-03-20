@@ -17,6 +17,7 @@ import {
 
 export default function FiltersAPI(props, { emit }) {
   const filters = toRef(props, "filters");
+  const filterMain = toRef(props, "filterMain");
   const unappliedModel = toRef(props, "unappliedModel");
 
   const filtersDataKeyById = ref({});
@@ -24,7 +25,7 @@ export default function FiltersAPI(props, { emit }) {
   const filtersVisibleIds = ref([]);
 
   const hasFilters = computed(() => {
-    return filters.value.length > 0;
+    return !!(filters.value.length || filterMain.value);
   });
 
   const filtersKeyById = computed(() => {
