@@ -12,7 +12,9 @@ describe("ATableSortingAdditional ModelAPI", () => {
     const {
       initUnappliedModelSort,
     } = ModelAPI({
-      modelSort: ref([]) }, {
+      modelSort: ref([]),
+      isSortingMultiColumn: ref(true),
+    }, {
       countColumnsAll,
       unappliedModelSort,
     });
@@ -33,7 +35,10 @@ describe("ATableSortingAdditional ModelAPI", () => {
 
     const {
       updateUnappliedModelSort
-    } = ModelAPI({ modelSort: modelSortProvided }, {
+    } = ModelAPI({
+      isSortingMultiColumn: ref(true),
+      modelSort: modelSortProvided,
+    }, {
       countColumnsAll,
       unappliedModelSort,
     });
@@ -55,7 +60,9 @@ describe("ATableSortingAdditional ModelAPI", () => {
     const {
       removeUnappliedModelSort,
     } = ModelAPI({
-      modelSort: ref([]) }, {
+      isSortingMultiColumn: ref(true),
+      modelSort: ref([]),
+    }, {
       countColumnsAll,
       unappliedModelSort,
     });
@@ -93,7 +100,9 @@ describe("ATableSortingAdditional ModelAPI", () => {
     const {
       updateUnappliedModelSort,
     } = ModelAPI({
-      modelSort: ref([]) }, {
+      isSortingMultiColumn: ref(true),
+      modelSort: ref([]),
+    }, {
       countColumnsAll,
       unappliedModelSort,
     });
@@ -140,6 +149,47 @@ describe("ATableSortingAdditional ModelAPI", () => {
       { sortId: "1", sortMode: "asc" },
       { sortId: "2", sortMode: "desc" },
       { sortId: "3", sortMode: "asc" },
+    ]);
+  });
+
+  it("Initializes, updates, and removes unapplied model sort while maintaining a single-column sort constraint", () => {
+    const countColumnsAll = computed(() => 3);
+    const unappliedModelSort = ref([]);
+    const {
+      initUnappliedModelSort,
+      removeUnappliedModelSort,
+      updateUnappliedModelSort,
+    } = ModelAPI({
+      modelSort: ref([]),
+      isSortingMultiColumn: ref(false),
+    }, {
+      countColumnsAll,
+      unappliedModelSort,
+    });
+
+    initUnappliedModelSort();
+
+    expect(unappliedModelSort.value).toHaveLength(1);
+    expect(unappliedModelSort.value[0].sortId).toBeUndefined();
+    expect(unappliedModelSort.value[0].sortMode).toBe("asc");
+
+    let model = [
+      { sortId: "1", sortMode: "asc" },
+    ];
+    updateUnappliedModelSort({ model });
+
+    expect(unappliedModelSort.value).toHaveLength(1);
+    expect(unappliedModelSort.value).toStrictEqual([
+      { sortId: "1", sortMode: "asc" },
+    ]);
+
+    removeUnappliedModelSort({
+      item: { additionalProps: { index: 0 } },
+    });
+
+    expect(unappliedModelSort.value).toHaveLength(1);
+    expect(unappliedModelSort.value).toStrictEqual([
+      { sortId: undefined, sortMode: "asc" },
     ]);
   });
 });
