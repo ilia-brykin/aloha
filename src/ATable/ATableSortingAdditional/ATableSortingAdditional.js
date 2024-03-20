@@ -27,6 +27,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    isSortingMultiColumn: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     modelSort: {
       type: Array,
       required: false,

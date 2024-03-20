@@ -76,6 +76,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    isSortingMultiColumn: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     label: {
       type: [String, Number],
       required: false,
@@ -322,6 +327,7 @@ export default {
             h(ATableSortingAdditional, {
               additionalSortingColumns: this.additionalSortingColumns,
               disabledSort: this.disabledSort,
+              isSortingMultiColumn: this.isSortingMultiColumn,
               modelSort: this.modelSort,
             }) :
             "",

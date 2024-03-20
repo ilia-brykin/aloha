@@ -20,6 +20,7 @@ export default function ModelAPI(props, {
   unappliedModelSort = ref([]),
   wasOpenDropdown = ref(false),
 }) {
+  const isSortingMultiColumn = toRef(props, "isSortingMultiColumn");
   const modelSort = toRef(props, "modelSort");
 
   const changeModelSort = inject("changeModelSort");
@@ -34,6 +35,12 @@ export default function ModelAPI(props, {
     const MODEL_SORT = model ? model : cloneDeep(modelSort.value);
     if (MODEL_SORT.length < countColumnsAll.value) {
       MODEL_SORT.push(undefined);
+    }
+
+    if (!isSortingMultiColumn.value) {
+      if (MODEL_SORT.length > 1) {
+        MODEL_SORT.length = 1;
+      }
     }
 
     const UNAPPLIED_MODEL = [];
@@ -53,7 +60,7 @@ export default function ModelAPI(props, {
   };
 
   const needAddModelUndefined = ({ model }) => {
-    if (model.length >= countColumnsAll.value) {
+    if (!isSortingMultiColumn.value || model.length >= countColumnsAll.value) {
       return false;
     }
     const MODEL_LAST_ITEM = last(model);

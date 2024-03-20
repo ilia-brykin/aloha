@@ -825,6 +825,7 @@ export default {
           isLabelVisible: this.isLabelVisible,
           isLoadingMultipleActions: this.isLoadingMultipleActions,
           isQuickSearch: this.isQuickSearch,
+          isSortingMultiColumn: this.isSortingMultiColumn,
           label: this.label,
           labelClass: this.labelClass,
           labelTag: this.labelTag,
