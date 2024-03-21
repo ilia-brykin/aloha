@@ -14,6 +14,7 @@ export default function LimitOffsetAPI(props, { emit }, {
   setFocusToTable = () => {},
   viewCurrent = computed(() => ({})),
 }) {
+  const isTree = toRef(props, "isTree");
   const offsetStart = toRef(props, "offsetStart");
   const pagination = toRef(props, "pagination");
 
@@ -21,6 +22,9 @@ export default function LimitOffsetAPI(props, { emit }, {
   const offset = ref(offsetStart.value);
 
   const usePaginationLocal = computed(() => {
+    if (isTree.value) {
+      return false;
+    }
     if (pagination.value?.use) {
       if (viewCurrent.value) {
         return viewCurrent.value.usePagination || false;

@@ -194,6 +194,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isTree: {
+      type: Boolean,
+      required: false,
+    },
     keyCountAllRowsInData: {
       type: String,
       required: false,
@@ -203,6 +207,11 @@ export default {
       type: String,
       required: false,
       default: "id",
+    },
+    keyChildren: {
+      type: String,
+      required: false,
+      default: "children",
     },
     label: {
       type: [String, Number],
