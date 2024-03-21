@@ -61,6 +61,7 @@ import PageUtilsMathIsOddI18n from "./views/Functions/UtilsMath/PageUtilsMathIsO
 import PageUtilsMathIsEvenI18n from "./views/Functions/UtilsMath/PageUtilsMathIsEven/i18n/PageUtilsMathIsEvenI18n";
 import PageUtilsIsArrayOfStringsI18n from "./views/Functions/Utils/PageUtilsIsArrayOfStrings/i18n/PageUtilsIsArrayOfStringsI18n";
 import PageUtilsIsArrayOfArraysI18n from "./views/Functions/Utils/PageUtilsIsArrayOfArrays/i18n/PageUtilsIsArrayOfArraysI18n";
+import PageTableTreeI18n from "./views/PageTable/PageTableTree/i18n/PageTableTreeI18n";
 
 export const mainTranslation = {
   ar: {
@@ -118,6 +119,7 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.ar,
     ...PageUtilsIsArrayOfStringsI18n.ar,
     ...PageUtilsIsArrayOfArraysI18n.ar,
+    ...PageTableTreeI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -174,6 +176,7 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.de,
     ...PageUtilsIsArrayOfStringsI18n.de,
     ...PageUtilsIsArrayOfArraysI18n.de,
+    ...PageTableTreeI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -230,6 +233,7 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.en,
     ...PageUtilsIsArrayOfStringsI18n.en,
     ...PageUtilsIsArrayOfArraysI18n.en,
+    ...PageTableTreeI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -286,6 +290,7 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.es,
     ...PageUtilsIsArrayOfStringsI18n.es,
     ...PageUtilsIsArrayOfArraysI18n.es,
+    ...PageTableTreeI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -342,6 +347,7 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.fr,
     ...PageUtilsIsArrayOfStringsI18n.fr,
     ...PageUtilsIsArrayOfArraysI18n.fr,
+    ...PageTableTreeI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -398,6 +404,7 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.hr,
     ...PageUtilsIsArrayOfStringsI18n.hr,
     ...PageUtilsIsArrayOfArraysI18n.hr,
+    ...PageTableTreeI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -454,6 +461,7 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.it,
     ...PageUtilsIsArrayOfStringsI18n.it,
     ...PageUtilsIsArrayOfArraysI18n.it,
+    ...PageTableTreeI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -510,5 +518,6 @@ export const mainTranslation = {
     ...PageUtilsMathIsEvenI18n.ru,
     ...PageUtilsIsArrayOfStringsI18n.ru,
     ...PageUtilsIsArrayOfArraysI18n.ru,
+    ...PageTableTreeI18n.ru,
   },
 };

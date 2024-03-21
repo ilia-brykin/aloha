@@ -339,6 +339,13 @@ export default function ComponentItemsAPI() {
               name: "PageTablePreviewDown",
             }
           },
+          {
+            id: "PageTableTree",
+            label: "Table tree",
+            to: {
+              name: "PageTableTree",
+            }
+          },
         ],
       },
       {
