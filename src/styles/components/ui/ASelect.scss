@@ -93,7 +93,6 @@
 .a_select_menu__child {
   max-height: var(--a_select_menu_max_height);
   overflow: auto;
-  overflow-y: hidden;
 }
 
 .a_select_list {
@@ -122,6 +121,7 @@
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+  overflow-y: hidden;
   &:not(.a_select__menu__link_disabled) {
     &:hover {
       background-color: var(--a_select_menu_link_hover_bg);
