@@ -1,7 +1,8 @@
 import {
-  h,
+  h, resolveComponent,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 import ATablePreviewDown from "../ATablePreviewDown/ATablePreviewDown";
 import ATableTd from "../ATableTd/ATableTd";
@@ -9,12 +10,14 @@ import ATableTdAction from "../ATableTdAction/ATableTdAction";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import CheckboxAPI from "./compositionAPI/CheckboxAPI";
-
+import ChildrenAPI from "./compositionAPI/ChildrenAPI";
+import ChildrenToggleAPI from "./compositionAPI/ChildrenToggleAPI";
 import MobileAPI from "./compositionAPI/MobileAPI";
+import PreviewAPI from "./compositionAPI/PreviewAPI";
+
 import {
   forEach,
 } from "lodash-es";
-import AButton from "../../AButton/AButton";
 
 export default {
   name: "ATableTr",
@@ -43,12 +46,34 @@ export default {
       type: Boolean,
       required: false,
     },
+    isOneOfParentsClose: {
+      type: Boolean,
+      required: false,
+    },
     isPreviewDownOpen: {
       type: Boolean,
       required: false,
     },
     isRowActionsStickyLocal: {
       type: Boolean,
+      required: true,
+    },
+    isTree: {
+      type: Boolean,
+      required: false,
+    },
+    keyChildren: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: "id",
+    },
+    level: {
+      type: Number,
       required: true,
     },
     row: {
@@ -69,6 +94,10 @@ export default {
       type: Number,
       required: true,
     },
+    rowsLength: {
+      type: Number,
+      required: true,
+    },
     selectedRowsIndexes: {
       type: Object,
       required: true,
@@ -79,8 +108,43 @@ export default {
   ],
   setup(props, context) {
     const {
-      rowAttributes,
-    } = AttributesAPI(props);
+      ariaTreeAttributes,
+      children,
+      hasChildren,
+      levelForChildren,
+      rowClassLevelChildren,
+    } = ChildrenAPI(props);
+
+    const {
+      ariaExpanded,
+      isOneOfParentsCloseForChildren,
+      rowClassChildren,
+      toggleChildren,
+    } = ChildrenToggleAPI(props, {
+      hasChildren,
+    });
+
+    const {
+      hasPreviewLocal,
+      previewAttributes,
+      rowClassPreview,
+    } = PreviewAPI(props, {
+      hasChildren,
+    });
+
+    const {
+      eventsLocal,
+      roleLocal,
+      rowClassComputed,
+      rowId,
+    } = AttributesAPI(props, {
+      hasChildren,
+      hasPreviewLocal,
+      rowClassChildren,
+      rowClassLevelChildren,
+      rowClassPreview,
+      toggleChildren,
+    });
 
     const {
       countInvisibleMobileColumns,
@@ -98,13 +162,23 @@ export default {
     } = CheckboxAPI(props, context);
 
     return {
+      ariaExpanded,
+      ariaTreeAttributes,
+      children,
       countInvisibleMobileColumns,
+      eventsLocal,
+      hasChildren,
       isAllColumnsVisibleMobile,
       isBtnToggleAllColumnsVisible,
       isCheckboxDisabled,
+      isOneOfParentsCloseForChildren,
       isRowSelected,
       labelCheckbox,
-      rowAttributes,
+      levelForChildren,
+      previewAttributes,
+      roleLocal,
+      rowClassComputed,
+      rowId,
       textBtnToggleAllColumns,
       toggleAllColumnsVisibleMobile,
       toggleCheckbox,
@@ -166,7 +240,15 @@ export default {
       tds;
 
     return [
-      h("div", this.rowAttributes, [
+      h("div", {
+        id: this.rowId,
+        role: this.roleLocal,
+        class: this.rowClassComputed,
+        "aria-expanded": this.ariaExpanded,
+        ...this.previewAttributes,
+        ...this.ariaTreeAttributes,
+        ...this.eventsLocal,
+      }, [
         this.isMultipleActionsActive && h("div", {
           class: "a_table__td a_table__cell a_table__cell_checkbox",
           style: `width: 50px; min-width: 50px; max-width: 50px;`,
@@ -204,6 +286,31 @@ export default {
       }, {
         preview: arg => this.$slots.preview ? this.$slots.preview(arg) : undefined,
       }),
+      this.hasChildren ?
+        this.children.map((row, rowIndex) => {
+          return h(resolveComponent("ATableTr"), {
+            key: row[this.keyId] || rowIndex,
+            allVisibleMobileColumns: this.allVisibleMobileColumns,
+            areAllRowsSelected: this.areAllRowsSelected,
+            countVisibleMobileColumns: this.countVisibleMobileColumns,
+            disabledPreview: this.disabledPreview,
+            disabledRowActions: this.disabledRowActions,
+            isFooter: this.isFooter,
+            isOneOfParentsClose: this.isOneOfParentsCloseForChildren,
+            isPreviewDownOpen: false,
+            isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+            isTree: this.isTree,
+            keyChildren: this.keyChildren,
+            level: this.levelForChildren,
+            row,
+            rowActionsClass: this.rowActionsClass,
+            rowClass: this.rowClass,
+            rowIndex,
+            rowsLength: this.children.length,
+            selectedRowsIndexes: this.selectedRowsIndexes,
+          });
+        }) :
+        "",
     ];
   },
 };
