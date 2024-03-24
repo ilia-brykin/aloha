@@ -52,6 +52,7 @@
   --a_table_sort_sequence_num_color: var(--a_color_white);
   --a_table_dnd_th_bg: var(--a_color_gray_500);
   --a_table_dnd_th_width: 50px;
+  --a_table_tree_level_padding_right: .5rem;
 
   width: 100%;
   overflow-x: hidden;
@@ -123,6 +124,9 @@
       box-shadow: var(--a_table_row_focus_shadow_size) var(--a_table_row_focus_shadow_color);
     }
   }
+}
+.a_table__row_hide {
+  display: none;
 }
 .a_table__head__row {
   background-color: var(--a_table_th_bg);
@@ -648,5 +652,30 @@
   }
   .a_table {
     overflow-x: unset;
+  }
+}
+.a_table__row_level_1 {
+  .a_table__cell:first-child .a_table__cell__child {
+    padding-left: var(--a_table_tree_level_padding_right);
+  }
+}
+.a_table__row_level_2 {
+  .a_table__cell:first-child .a_table__cell__child {
+    padding-left: calc(2 * var(--a_table_tree_level_padding_right));
+  }
+}
+.a_table__row_level_3 {
+  .a_table__cell:first-child .a_table__cell__child {
+    padding-left: calc(3 * var(--a_table_tree_level_padding_right));
+  }
+}
+.a_table__row_level_4 {
+  .a_table__cell:first-child .a_table__cell__child {
+    padding-left: calc(4 * var(--a_table_tree_level_padding_right));
+  }
+}
+.a_table__row_level_5 {
+  .a_table__cell:first-child .a_table__cell__child {
+    padding-left: calc(5 * var(--a_table_tree_level_padding_right));
   }
 }

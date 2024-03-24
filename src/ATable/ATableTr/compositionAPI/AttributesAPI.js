@@ -4,43 +4,35 @@ import {
   toRef,
 } from "vue";
 
+import {
+  isFunction,
+} from "lodash-es";
 import AKeysCode from "../../../const/AKeysCode";
 import {
   isClickTags,
 } from "../../utils/utils";
-import {
-  getTranslatedText,
-} from "../../../ATranslation/compositionAPI/UtilsAPI";
-import {
-  isFunction,
-} from "lodash-es";
 
-export default function AttributesAPI(props) {
+export default function AttributesAPI(props, {
+  hasChildren = computed(() => false),
+  hasPreviewLocal = computed(() => false),
+  rowClassChildren = computed(() => undefined),
+  rowClassLevelChildren = computed(() => undefined),
+  rowClassPreview = computed(() => undefined),
+  toggleChildren = () => {},
+}) {
   const disabledPreview = toRef(props, "disabledPreview");
   const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
   const rowClass = toRef(props, "rowClass");
   const rowIndex = toRef(props, "rowIndex");
 
-  const hasPreview = inject("hasPreview");
   const isMobile = inject("isMobile");
   const onTogglePreview = inject("onTogglePreview");
-  const previewRightRowIndex = inject("previewRightRowIndex");
-  const previewRightRowIndexLast = inject("previewRightRowIndexLast");
   const tableId = inject("tableId");
 
   const rowId = computed(() => {
     const FOOTER_ID = isFooter.value ? "_footer" : "";
     return `${ tableId.value }${ FOOTER_ID }_${ rowIndex.value }`;
-  });
-
-  const isPreviewRightForCurrentRowOpen = computed(() => {
-    return rowIndex.value === previewRightRowIndex.value;
-  });
-
-  const isPreviewRightForCurrentRowWasOpen = computed(() => {
-    return !isPreviewRightForCurrentRowOpen.value &&
-      rowIndex.value === previewRightRowIndexLast.value;
   });
 
   const rowClassLocal = computed(() => {
@@ -56,10 +48,9 @@ export default function AttributesAPI(props) {
   const rowClassComputed = computed(() => {
     return [
       "a_table__row a_table__body__row a_table__row_hover",
-      {
-        a_table__row_preview_open: isPreviewRightForCurrentRowOpen.value,
-        a_table__row_preview_was_open: isPreviewRightForCurrentRowWasOpen.value,
-      },
+      rowClassChildren.value,
+      rowClassLevelChildren.value,
+      rowClassPreview.value,
       rowClassLocal.value
     ];
   });
@@ -68,18 +59,7 @@ export default function AttributesAPI(props) {
     return isMobile.value ? "listitem" : "row";
   });
 
-  const previewAriaLabel = computed(() => {
-    return getTranslatedText({
-      placeholder: isPreviewRightForCurrentRowOpen.value ?
-        "_A_TABLE_ROW_PREVIEW_CLOSE_" :
-        "_A_TABLE_ROW_PREVIEW_OPEN_",
-    });
-  });
-
   const onClickRow = $event => {
-    if (disabledPreview.value) {
-      return;
-    }
     if (isClickTags({
       $event,
       tagsName: [
@@ -92,11 +72,17 @@ export default function AttributesAPI(props) {
     })) {
       return;
     }
-
-    onTogglePreview({
-      row: row.value,
-      rowIndex: rowIndex.value,
-    });
+    if (hasChildren.value) {
+      toggleChildren();
+    } else if (hasPreviewLocal.value) {
+      if (disabledPreview.value) {
+        return;
+      }
+      onTogglePreview({
+        row: row.value,
+        rowIndex: rowIndex.value,
+      });
+    }
   };
 
   const onKeydownRow = $event => {
@@ -105,22 +91,21 @@ export default function AttributesAPI(props) {
     }
   };
 
-  const rowAttributes = computed(() => {
-    const ATTRIBUTES = {
-      id: rowId.value,
-      class: rowClassComputed.value,
-      role: roleLocal.value,
-    };
-    if (hasPreview.value && !isFooter.value) {
-      ATTRIBUTES.tabindex = 0;
-      ATTRIBUTES["aria-label"] = previewAriaLabel.value;
-      ATTRIBUTES.onClick = onClickRow;
-      ATTRIBUTES.onKeydown = onKeydownRow;
+  const eventsLocal = computed(() => {
+    if (hasChildren.value || hasPreviewLocal.value) {
+      return {
+        onClick: onClickRow,
+        onKeydown: onKeydownRow,
+      };
     }
-    return ATTRIBUTES;
+
+    return {};
   });
 
   return {
-    rowAttributes,
+    eventsLocal,
+    roleLocal,
+    rowClassComputed,
+    rowId,
   };
 }
