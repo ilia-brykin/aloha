@@ -29,6 +29,7 @@ export default {
       return {
         isModalHidden: isModalHidden.value,
         isConfirm: true,
+        hideCloseButtonForModalConfirm: true,
         ...confirmOptions.value,
         close: closeConfirm,
       };

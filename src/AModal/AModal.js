@@ -85,6 +85,11 @@ export default {
       required: false,
       default: undefined,
     },
+    hideCloseButtonForModalConfirm: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     headerTag: {
       type: String,
       required: false,
@@ -322,7 +327,7 @@ export default {
                     extra: this.extra,
                   }),
                 ]),
-                h(AButton, {
+                (!this.hideCloseButtonForModalConfirm) && h(AButton, {
                   class: "a_btn_close",
                   disabled: this.disabledLocal,
                   textScreenReader: this.closeButtonText,
