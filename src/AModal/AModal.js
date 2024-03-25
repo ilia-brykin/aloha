@@ -322,13 +322,6 @@ export default {
                     extra: this.extra,
                   }),
                 ]),
-                h(AButton, {
-                  class: "a_btn_close",
-                  disabled: this.disabledLocal,
-                  textScreenReader: this.closeButtonText,
-                  title: this.closeButtonText,
-                  onClick: () => this.close(true),
-                })
               ]),
               h("div", {
                 ref: "modal_body",
