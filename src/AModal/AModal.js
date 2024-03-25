@@ -85,6 +85,11 @@ export default {
       required: false,
       default: undefined,
     },
+    showCloseButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     headerTag: {
       type: String,
       required: false,
@@ -322,13 +327,13 @@ export default {
                     extra: this.extra,
                   }),
                 ]),
-                h(AButton, {
+                this.showCloseButton ? h(AButton, {
                   class: "a_btn_close",
                   disabled: this.disabledLocal,
                   textScreenReader: this.closeButtonText,
                   title: this.closeButtonText,
                   onClick: () => this.close(true),
-                })
+                }) : "",
               ]),
               h("div", {
                 ref: "modal_body",
