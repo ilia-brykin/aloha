@@ -45,7 +45,6 @@ export default function PreviewAPI(props, {
     }
 
     return {
-      tabindex: 0,
       "aria-label": previewAriaLabel.value,
     };
   });

@@ -94,6 +94,7 @@ export default function AttributesAPI(props, {
   const eventsLocal = computed(() => {
     if (hasChildren.value || hasPreviewLocal.value) {
       return {
+        tabindex: 0,
         onClick: onClickRow,
         onKeydown: onKeydownRow,
       };
