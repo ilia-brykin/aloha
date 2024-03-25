@@ -85,11 +85,6 @@ export default {
       required: false,
       default: undefined,
     },
-    showCloseButton: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
     headerTag: {
       type: String,
       required: false,
@@ -171,6 +166,11 @@ export default {
       type: [String, Array],
       required: false,
       default: () => modalPluginOptions.value.propsDefault.selectorCloseIds,
+    },
+    showCloseButton: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     size: {
       type: String,
