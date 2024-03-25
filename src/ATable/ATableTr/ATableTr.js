@@ -219,6 +219,7 @@ export default {
           row: this.row,
           rowIndex: this.rowIndex,
           isFooter: this.isFooter,
+          showIconChildren: !!(this.hasChildren && columnIndex === 0),
         }, this.$slots);
       });
     }

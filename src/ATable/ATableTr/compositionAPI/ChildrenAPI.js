@@ -50,7 +50,7 @@ export default function ChildrenAPI(props) {
 
   const rowClassLevelChildren = computed(() => {
     if (isTree.value) {
-      return `a_table__row_level_${ level.value }`;
+      return `a_table__row_level a_table__row_level_${ level.value }`;
     }
 
     return undefined;

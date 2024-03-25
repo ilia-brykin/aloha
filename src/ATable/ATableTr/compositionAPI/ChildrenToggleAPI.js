@@ -19,11 +19,10 @@ export default function ChildrenToggleAPI(props, {
   });
 
   const rowClassChildren = computed(() => {
-    if (isOneOfParentsClose.value) {
-      return "a_table__row_hide";
-    }
-
-    return undefined;
+    return {
+      a_table__row_hide: isOneOfParentsClose.value,
+      a_table__row_level_open: hasChildren.value && isChildrenOpen.value,
+    };
   });
 
   const isOneOfParentsCloseForChildren = computed(() => {
