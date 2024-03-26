@@ -1,0 +1,5 @@
+{
+  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_ARGUMENTS_ARRAY_": "The initial array to traverse for counting",
+  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_ARGUMENTS_KEY_CHILDREN_": "The key used to identify child elements within each object in the array",
+  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_DESCRIPTION_": "Calculates the total count of elements within a nested structure, including all children and sub-children, based on the specified child key."
+}
