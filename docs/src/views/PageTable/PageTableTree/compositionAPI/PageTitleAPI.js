@@ -10,7 +10,7 @@ import {
 export default function PageTitleAPI() {
   const componentNameTranslated = computed(() => {
     return getTranslatedText({
-      placeholder: "_A_TABLE_TREE_",
+      placeholder: "_A_TABLE_TREE_COMPONENT_NAME_",
     });
   });
 

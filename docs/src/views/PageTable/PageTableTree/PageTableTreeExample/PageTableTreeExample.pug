@@ -3,12 +3,13 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_GROUP_TREE_HEADER_"
   description="_A_TABLE_GROUP_TREE_DESCRIPTION_"
+  props="is-tree"
 )
   div
     a-table(
       :columns="columns"
       :data="data"
-      label="_A_TABLE_GROUP_TREE_LABEL_"
-      key-id="id"
       :is-tree="true"
+      key-id="id"
+      label="_A_TABLE_GROUP_TREE_LABEL_"
     )

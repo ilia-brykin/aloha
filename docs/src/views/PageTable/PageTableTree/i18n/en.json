@@ -1,3 +1,7 @@
 {
-
+  "_A_TABLE_GROUP_TREE_DESCRIPTION_": "This example showcases an interactive tree table designed to visually represent hierarchical data structures. The component allows users to view structured information in a convenient format and dynamically control the display of sub-levels by expanding or collapsing child elements as needed. Ideal for displaying complex data structures like organizational charts, product categories, or hierarchical lists, it provides end-users with flexible exploration and data analysis capabilities.",
+  "_A_TABLE_GROUP_TREE_HEADER_": "Simple example",
+  "_A_TABLE_GROUP_TREE_LABEL_": "Data Hierarchy",
+  "_A_TABLE_TREE_COMPONENT_NAME_": "(Tree Table)"
 }
+

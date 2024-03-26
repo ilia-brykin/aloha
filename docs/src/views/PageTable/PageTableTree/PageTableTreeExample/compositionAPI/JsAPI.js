@@ -6,7 +6,7 @@ export default function JsAPI() {
 import ATable from "aloha-vue/src/ATable/ATable";
     
 export default {
-  name: "PageTableSimpleExample",
+  name: "PageTableTreeExample",
   components: {
     ATable,
   },
@@ -19,40 +19,74 @@ export default {
       },
       {
         id: "column2",
-        keyLabel: "aloha",
+        keyLabel: "label",
         label: "_A_TABLE_COLUMN_2_",
       },
       {
         id: "column3",
-        keyLabel: "aloha",
+        keyLabel: "test",
         label: "_A_TABLE_COLUMN_3_",
-      },
-      {
-        id: "column4",
-        keyLabel: "aloha",
-        label: "_A_TABLE_COLUMN_4_",
-      },
-      {
-        id: "column5",
-        keyLabel: "aloha",
-        label: "_A_TABLE_COLUMN_5_",
       },
     ];
 
-    const data = ref([]);
-
-    const setData = () => {
-      const DATA = [];
-      times(20, item => {
-        DATA.push({
-          id: item,
-          aloha: \`aloha \${ item }\`,
-        });
-      });
-      data.value = DATA;
-    };
-
-    setData();
+    const data = ref([
+      {
+        id: "1",
+        label: "label 1",
+        test: "test 1",
+      },
+      {
+        id: "2",
+        label: "label 2",
+        test: "test 2",
+        children: [
+          {
+            id: "2_1",
+            label: "label 2.1",
+            test: "test 2.1",
+          },
+          {
+            id: "2_2",
+            label: "label 2.2",
+            test: "test 2.2",
+            children: [
+              {
+                id: "2_2_1",
+                label: "label 2.2.1",
+                test: "test 2.2.1",
+              },
+            ],
+          },
+          {
+            id: "2_3",
+            label: "label 2.3",
+            test: "test 2.3",
+          },
+        ],
+      },
+      {
+        id: "3",
+        label: "label 3",
+        test: "test 3",
+        children: [
+          {
+            id: "3_1",
+            label: "label 3.1",
+            test: "test 3.1",
+          },
+          {
+            id: "3_2",
+            label: "label 3.2",
+            test: "test 3.2",
+          },
+          {
+            id: "3_3",
+            label: "label 3.3",
+            test: "test 3.3",
+          },
+        ],
+      },
+    ]);
     
     return {
       columns,
