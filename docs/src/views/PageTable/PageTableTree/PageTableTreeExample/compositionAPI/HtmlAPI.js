@@ -2,10 +2,10 @@ export default function HtmlAPI() {
   const codeHtml = `<a-table
   :columns="columns"
   :data="data"
-  label="_A_TABLE_GROUP_SIMPLE_LABEL_"
+  :is-tree="true"
   key-id="id"
->
-</a-table>`;
+  label="_A_TABLE_GROUP_TREE_LABEL_"
+></a-table>`;
 
   return {
     codeHtml,
