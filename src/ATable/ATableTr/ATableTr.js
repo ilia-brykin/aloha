@@ -302,6 +302,7 @@ export default {
             isRowActionsStickyLocal: this.isRowActionsStickyLocal,
             isTree: this.isTree,
             keyChildren: this.keyChildren,
+            keyId: this.keyId,
             level: this.levelForChildren,
             row,
             rowActionsClass: this.rowActionsClass,
