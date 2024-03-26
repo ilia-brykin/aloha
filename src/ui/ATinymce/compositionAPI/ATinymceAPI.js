@@ -84,6 +84,7 @@ export default function ATinymceAPI(props, context, {
       content_langs: contentLangs.value,
       content_style: contentStyle.value,
       contextmenu: "copy link",
+      convert_urls: false,
       entity_encoding: "raw",
       force_br_newlines: true,
       indent: false,
