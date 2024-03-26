@@ -448,6 +448,7 @@ export default {
   },
   setup(props, context) {
     const {
+      hasScrollClassLocal,
       isActionColumnVisibleLocal,
       isActionIconVisibleLocal,
       isColumnsDndLocal,
@@ -716,6 +717,7 @@ export default {
       emptyText,
       hasMultipleActions,
       hasRows,
+      hasScrollClassLocal,
       hasViews,
       isMobile,
       isMultipleActionsActive,
@@ -806,7 +808,7 @@ export default {
       ref: "tableGrandparentRef",
       class: ["a_table__grandparent", {
         a_table_mobile: !this.isSimpleTable && this.isMobile,
-        a_table__grandparent_without_scroll: !this.hasScrollClass,
+        a_table__grandparent_without_scroll: !this.hasScrollClassLocal,
       }],
     }, [
       this.$slots.tablePrepend &&
@@ -816,7 +818,7 @@ export default {
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {
-          a_table__parent_scrollable: this.hasScrollClass && !this.modelIsTableWithoutScrollComputed,
+          a_table__parent_scrollable: this.hasScrollClassLocal && !this.modelIsTableWithoutScrollComputed,
         }],
       }, [
         h(ATableTopPanel, {
