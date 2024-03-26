@@ -50,6 +50,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageTablePreviewDown" */ "../views/PageTable/PageTablePreviewDown/PageTablePreviewDown.vue"),
   },
   {
+    path: "/table-tree",
+    name: "PageTableTree",
+    component: () => import(/* webpackChunkName: "PageTableTree" */ "../views/PageTable/PageTableTree/PageTableTree.vue"),
+  },
+  {
     path: "/spinner",
     name: "PageSpinner",
     component: () => import(/* webpackChunkName: "PageSpinner" */ "../views/PageSpinner/PageSpinner.vue"),
@@ -363,6 +368,11 @@ const ROUTES = [
     path: "/utils-is-array-of-arrays",
     name: "PageUtilsIsArrayOfArrays",
     component: () => import(/* webpackChunkName: "PageUtilsIsArrayOfArrays" */ "../views/Functions/Utils/PageUtilsIsArrayOfArrays/PageUtilsIsArrayOfArrays.vue"),
+  },
+  {
+    path: "/utils-get-total-nested-count",
+    name: "PageUtilsGetTotalNestedCount",
+    component: () => import(/* webpackChunkName: "PageUtilsGetTotalNestedCount" */ "../views/Functions/Utils/PageUtilsGetTotalNestedCount/PageUtilsGetTotalNestedCount.vue"),
   },
   {
     // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'

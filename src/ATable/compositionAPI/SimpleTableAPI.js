@@ -6,10 +6,12 @@ import {
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
 
 export default function SimpleTableAPI(props) {
+  const hasScrollClass = toRef(props, "hasScrollClass");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const isActionIconVisible = toRef(props, "isActionColumnVisible");
   const isColumnsDnd = toRef(props, "isColumnsDnd");
   const isSimpleTable = toRef(props, "isSimpleTable");
+  const isTree = toRef(props, "isTree");
   const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
   const rowActions = toRef(props, "rowActions");
 
@@ -36,17 +38,29 @@ export default function SimpleTableAPI(props) {
   });
 
   const isMobile = computed(() => {
-    return !!(isMobileWidth.value && !isSimpleTable.value);
+    return !!(!isSimpleTable.value &&
+      !isTree.value && 
+      isMobileWidth.value);
   });
 
   const modelIsTableWithoutScrollComputed = computed(() => {
     if (isSimpleTable.value) {
       return false;
     }
+
     return modelIsTableWithoutScroll.value;
   });
 
+  const hasScrollClassLocal = computed(() => {
+    if (isSimpleTable.value || isTree.value) {
+      return true;
+    }
+
+    return hasScrollClass.value;
+  });
+
   return {
+    hasScrollClassLocal,
     isActionColumnVisibleLocal,
     isActionIconVisibleLocal,
     isColumnsDndLocal,

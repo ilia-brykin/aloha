@@ -3,6 +3,7 @@ import {
   resolveComponent,
 } from "vue";
 
+import AElement from "../../AElement/AElement";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
@@ -36,6 +37,10 @@ export default {
     rowIndex: {
       type: Number,
       required: true,
+    },
+    showIconChildren: {
+      type: Boolean,
+      required: false,
     },
   },
   inject: [
@@ -83,16 +88,23 @@ export default {
             this.column.class,
             this.column.classRow,
           ],
-        }, (this.hasSlot && this.$slots[this.slotName]) ?
-          this.$slots[this.slotName]({
-            column: this.column,
-            columnIndex: this.columnIndex,
-            row: this.row,
-            rowIndex: this.rowIndex,
-            rows: this.rowsLocalAll,
-          }) :
-          (this.isLink && this.toLocal) ?
-            [
+        }, [
+          this.showIconChildren ? h(AElement, {
+            "aria-hidden": true,
+            class: "a_table__row_level__icon",
+            classDefault: "",
+            iconLeft: "CaretRightFill",
+            type: "text",
+          }) : "",
+          (this.hasSlot && this.$slots[this.slotName]) ?
+            this.$slots[this.slotName]({
+              column: this.column,
+              columnIndex: this.columnIndex,
+              row: this.row,
+              rowIndex: this.rowIndex,
+              rows: this.rowsLocalAll,
+            }) :
+            (this.isLink && this.toLocal) ?
               h(resolveComponent("RouterLink"), {
                 class: [
                   this.column.class,
@@ -102,11 +114,9 @@ export default {
                 to: this.toLocal,
               }, () => [
                 this.textOrHtmlRender,
-              ]),
-            ] :
-            [
+              ]) :
               this.textOrHtmlRender,
-            ])
+        ]),
       ]
     );
 

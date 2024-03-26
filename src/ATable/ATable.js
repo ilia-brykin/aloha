@@ -18,6 +18,7 @@ import ATranslation from "../ATranslation/ATranslation";
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import ColumnsGroupedAPI from "./compositionAPI/ColumnsGroupedAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
+import CountAPI from "./compositionAPI/CountAPI";
 import FocusTableAPI from "./compositionAPI/FocusTableAPI";
 import InitAPI from "./compositionAPI/InitAPI";
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
@@ -41,11 +42,7 @@ import {
 } from "../plugins/ATablePlugin";
 
 import {
-  get,
-  isArray,
   isInteger,
-  isNil,
-  isPlainObject,
   uniqueId,
 } from "lodash-es";
 
@@ -194,6 +191,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    isTree: {
+      type: Boolean,
+      required: false,
+    },
     keyCountAllRowsInData: {
       type: String,
       required: false,
@@ -203,6 +204,11 @@ export default {
       type: String,
       required: false,
       default: "id",
+    },
+    keyChildren: {
+      type: String,
+      required: false,
+      default: "children",
     },
     label: {
       type: [String, Number],
@@ -439,6 +445,7 @@ export default {
   },
   setup(props, context) {
     const {
+      hasScrollClassLocal,
       isActionColumnVisibleLocal,
       isActionIconVisibleLocal,
       isColumnsDndLocal,
@@ -446,6 +453,11 @@ export default {
       modelIsTableWithoutScroll,
       modelIsTableWithoutScrollComputed,
     } = SimpleTableAPI(props);
+
+    const {
+      countAllRowsLocal,
+      totalRowsCount,
+    } = CountAPI(props);
 
     const {
       columnsScrollInvisible,
@@ -703,10 +715,12 @@ export default {
       closePreviewAll,
       columnsFilteredForRender,
       columnsOrdered,
+      countAllRowsLocal,
       deleteRow,
       emptyText,
       hasMultipleActions,
       hasRows,
+      hasScrollClassLocal,
       hasViews,
       isMobile,
       isMultipleActionsActive,
@@ -740,6 +754,7 @@ export default {
       toggleBtnAllRows,
       toggleMultipleActionsActive,
       togglePreviewResize,
+      totalRowsCount,
       updateRow,
       updateViewCurrent,
       useAdditionalSortingLocal,
@@ -754,35 +769,6 @@ export default {
     };
   },
   computed: {
-    totalRowsCountLocal() {
-      return this.totalRowsCount;
-    },
-
-    totalRowsCount() {
-      return !isNil(this.countAllRows) ? this.countAllRows : this.data.length;
-    },
-
-    countAllRowsLocal() {
-      if (!isNil(this.countAllRows)) {
-        return this.countAllRows;
-      }
-      if (this.isDataObject) {
-        return +get(this.data, this.keyCountAllRowsInData);
-      }
-      if (this.isDataArray) {
-        return this.data.length;
-      }
-      return 0;
-    },
-
-    isDataObject() {
-      return isPlainObject(this.data);
-    },
-
-    isDataArray() {
-      return isArray(this.data);
-    },
-
     hasRowsFooter() {
       return this.rowsFooter.length > 0;
     },
@@ -797,7 +783,7 @@ export default {
       ref: "tableGrandparentRef",
       class: ["a_table__grandparent", {
         a_table_mobile: !this.isSimpleTable && this.isMobile,
-        a_table__grandparent_without_scroll: !this.hasScrollClass,
+        a_table__grandparent_without_scroll: !this.hasScrollClassLocal,
       }],
     }, [
       this.$slots.tablePrepend &&
@@ -807,7 +793,7 @@ export default {
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {
-          a_table__parent_scrollable: this.hasScrollClass && !this.modelIsTableWithoutScrollComputed,
+          a_table__parent_scrollable: this.hasScrollClassLocal && !this.modelIsTableWithoutScrollComputed,
         }],
       }, [
         h(ATableTopPanel, {
@@ -909,13 +895,19 @@ export default {
                     countVisibleMobileColumns: this.countVisibleMobileColumns,
                     disabledPreview: this.disabledPreview,
                     disabledRowActions: this.disabledRowActions,
-                    row,
-                    rowClass: this.rowClass,
-                    rowIndex,
+                    isFooter: false,
                     isPreviewDownOpen: this.previewDownRowIndexes[rowIndex],
                     isRowActionsStickyLocal: this.isRowActionsStickyLocal,
-                    selectedRowsIndexes: this.selectedRowsIndexes,
+                    isTree: this.isTree,
+                    keyChildren: this.keyChildren,
+                    keyId: this.keyId,
+                    level: 1,
+                    row,
                     rowActionsClass: this.rowActionsClass,
+                    rowClass: this.rowClass,
+                    rowIndex,
+                    rowsLength: this.rowsLocal.length,
+                    selectedRowsIndexes: this.selectedRowsIndexes,
                     onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
                   }, {
                     get: vm => [
@@ -942,14 +934,19 @@ export default {
                   countVisibleMobileColumns: this.countVisibleMobileColumns,
                   disabledPreview: this.disabledPreview,
                   disabledRowActions: this.disabledRowActions,
+                  isFooter: true,
+                  isRowActionsStickyLocal: this.isRowActionsStickyLocal,
+                  isTree: this.isTree,
+                  keyChildren: this.keyChildren,
+                  keyId: this.keyId,
+                  level: 1,
                   row,
+                  rowActionsClass: this.rowActionsClass,
                   rowClass: this.rowClass,
                   rowIndex,
-                  isRowActionsStickyLocal: this.isRowActionsStickyLocal,
-                  rowActionsClass: this.rowActionsClass,
+                  rowsLength: this.rowsFooter.length,
                   selectedRowsIndexes: this.selectedRowsIndexes,
                   onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-                  isFooter: true,
                 }, {
                   get: vm => [
                     h(AGet, {
@@ -986,7 +983,7 @@ export default {
           maxPages: this.pagination.maxPages,
           offset: this.offset,
           rowsLength: this.rowsLocalLength,
-          totalRowsCount: this.totalRowsCountLocal,
+          totalRowsCount: this.totalRowsCount,
           "onUpdate:limit": this.changeLimit,
           "onUpdate:offset": this.changeOffset,
         }),

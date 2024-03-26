@@ -16,6 +16,7 @@ import ArrowDownUp from "../AIcon/Icons/bootstrap-1-9-1/ArrowDownUp";
 import ArrowLeft from "../AIcon/Icons/bootstrap-1-9-1/ArrowLeft";
 import ArrowRight from "../AIcon/Icons/bootstrap-1-9-1/ArrowRight";
 import CaretDownFill from "../AIcon/Icons/bootstrap-1-9-1/CaretDownFill";
+import CaretRightFill from "../AIcon/Icons/bootstrap-1-9-1/CaretRightFill";
 import CaretUpFill from "../AIcon/Icons/bootstrap-1-9-1/CaretUpFill";
 import CheckLg from "../AIcon/Icons/CheckLg";
 import ChevronDown from "../AIcon/Icons/ChevronDown";
@@ -68,6 +69,7 @@ export const iconPluginOptions = ref({
     ArrowLeft,
     ArrowRight,
     CaretDownFill,
+    CaretRightFill,
     CaretUpFill,
     CheckLg,
     ChevronDown,
