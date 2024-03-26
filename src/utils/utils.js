@@ -2,6 +2,8 @@ import DOMPurify from "dompurify";
 
 import {
   every,
+  forEach,
+  get,
   isArray,
   isNumber,
   isString,
@@ -65,4 +67,29 @@ export function createListFromObject(obj) { // TODO: filterList, soll gelöscht 
 
   const items = keys.map(key => `<li>${ obj[key] }</li>`).join("");
   return `<ul class="a_list_without_styles">${ items }</ul>`;
+}
+
+/**
+ * Calculates the total count of elements within a nested structure, including all children and sub-children, based on the specified child key.
+ *
+ * @param {Object} [options] - Optional parameters
+ * @param {Array} options.array - The initial array to traverse for counting
+ * @param {string} options.keyChildren - The key used to identify child elements within each object in the array
+ *
+ * @returns {number} The total count of elements, including nested children
+ */
+export function getTotalNestedCount({ array = [], keyChildren = "" }) {
+  return _getTotalNestedCount({ array, keyChildren, count: 0 });
+}
+
+function _getTotalNestedCount({ array = [], keyChildren = "", count = 0 }) {
+  if (isArray(array)) {
+    forEach(array, item => {
+      count++;
+      const CHILDREN = get(item, keyChildren);
+      count = _getTotalNestedCount({ array: CHILDREN, keyChildren, count });
+    });
+  }
+
+  return count;
 }
