@@ -1,0 +1,26 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="getTotalNestedCount"
+      type-import="utils"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="getTotalNestedCount({ array, keyChildren })"
+    )
+
+    page-utils-get-total-nested-count-example
+
+    page-filter-test(
+      :test="test"
+    )

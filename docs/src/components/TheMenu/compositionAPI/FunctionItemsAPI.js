@@ -113,6 +113,13 @@ export default function FunctionItemsAPI() {
         label: "Utils",
         children: [
           {
+            id: "PageUtilsGetTotalNestedCount",
+            label: "getTotalNestedCount",
+            to: {
+              name: "PageUtilsGetTotalNestedCount",
+            },
+          },
+          {
             id: "PageUtilsIsArrayOfArrays",
             label: "isArrayOfArrays",
             to: {

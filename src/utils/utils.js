@@ -78,11 +78,11 @@ export function createListFromObject(obj) { // TODO: filterList, soll gelöscht 
  *
  * @returns {number} The total count of elements, including nested children
  */
-export function getTotalNestedCount({ array = [], keyChildren = "" }) {
+export function getTotalNestedCount({ array, keyChildren }) {
   return _getTotalNestedCount({ array, keyChildren, count: 0 });
 }
 
-function _getTotalNestedCount({ array = [], keyChildren = "", count = 0 }) {
+function _getTotalNestedCount({ array, keyChildren, count = 0 }) {
   if (isArray(array)) {
     forEach(array, item => {
       count++;
