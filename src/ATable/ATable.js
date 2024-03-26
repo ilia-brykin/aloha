@@ -18,6 +18,7 @@ import ATranslation from "../ATranslation/ATranslation";
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import ColumnsGroupedAPI from "./compositionAPI/ColumnsGroupedAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
+import CountAPI from "./compositionAPI/CountAPI";
 import FocusTableAPI from "./compositionAPI/FocusTableAPI";
 import InitAPI from "./compositionAPI/InitAPI";
 import LimitOffsetAPI from "./compositionAPI/LimitOffsetAPI";
@@ -41,11 +42,7 @@ import {
 } from "../plugins/ATablePlugin";
 
 import {
-  get,
-  isArray,
   isInteger,
-  isNil,
-  isPlainObject,
   uniqueId,
 } from "lodash-es";
 
@@ -458,6 +455,11 @@ export default {
     } = SimpleTableAPI(props);
 
     const {
+      countAllRowsLocal,
+      totalRowsCount,
+    } = CountAPI(props);
+
+    const {
       columnsScrollInvisible,
       indexFirstScrollInvisibleColumn,
       isMultipleActionsActive,
@@ -713,6 +715,7 @@ export default {
       closePreviewAll,
       columnsFilteredForRender,
       columnsOrdered,
+      countAllRowsLocal,
       deleteRow,
       emptyText,
       hasMultipleActions,
@@ -751,6 +754,7 @@ export default {
       toggleBtnAllRows,
       toggleMultipleActionsActive,
       togglePreviewResize,
+      totalRowsCount,
       updateRow,
       updateViewCurrent,
       useAdditionalSortingLocal,
@@ -765,35 +769,6 @@ export default {
     };
   },
   computed: {
-    totalRowsCountLocal() {
-      return this.totalRowsCount;
-    },
-
-    totalRowsCount() {
-      return !isNil(this.countAllRows) ? this.countAllRows : this.data.length;
-    },
-
-    countAllRowsLocal() {
-      if (!isNil(this.countAllRows)) {
-        return this.countAllRows;
-      }
-      if (this.isDataObject) {
-        return +get(this.data, this.keyCountAllRowsInData);
-      }
-      if (this.isDataArray) {
-        return this.data.length;
-      }
-      return 0;
-    },
-
-    isDataObject() {
-      return isPlainObject(this.data);
-    },
-
-    isDataArray() {
-      return isArray(this.data);
-    },
-
     hasRowsFooter() {
       return this.rowsFooter.length > 0;
     },
@@ -1008,7 +983,7 @@ export default {
           maxPages: this.pagination.maxPages,
           offset: this.offset,
           rowsLength: this.rowsLocalLength,
-          totalRowsCount: this.totalRowsCountLocal,
+          totalRowsCount: this.totalRowsCount,
           "onUpdate:limit": this.changeLimit,
           "onUpdate:offset": this.changeOffset,
         }),
