@@ -645,9 +645,7 @@ export default {
           label: this.label,
           labelClass: this.labelClass,
           loading: this.loadingLocal,
-          prevent: true,
           required: this.required,
-          stop: true,
           type: this.type,
         }),
         h("div", {
@@ -667,7 +665,7 @@ export default {
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
                 a_form_control_invalid: this.isErrors,
               }],
-              ariaLabelledby: this.ariaLabelledby,
+              "aria-labelledby": this.ariaLabelledby,
               role: "combobox",
               tabindex: this.tabindex,
               ariaHaspopup: "listbox",

@@ -30,12 +30,12 @@ export const typesWithData = ref({
 
 export const typesLabelProps = ref({
   select: {
+    hideFor: true,
     prevent: true,
-    stop: true,
   },
   multiselect: {
+    hideFor: true,
     prevent: true,
-    stop: true,
   },
   file: {
     hideId: true,
@@ -44,27 +44,22 @@ export const typesLabelProps = ref({
   numberRange: {
     hideFor: true,
     prevent: true,
-    stop: true,
   },
   integerNonNegativeRange: {
     hideFor: true,
     prevent: true,
-    stop: true,
   },
   integerPositiveRange: {
     hideFor: true,
     prevent: true,
-    stop: true,
   },
   integerRange: {
     hideFor: true,
     prevent: true,
-    stop: true,
   },
   // numberRange /
   dateRange: {
     hideFor: true,
     prevent: true,
-    stop: true,
   },
 });

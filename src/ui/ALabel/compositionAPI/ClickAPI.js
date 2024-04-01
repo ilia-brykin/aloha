@@ -24,21 +24,24 @@ export default function ClickAPI(props, {
       clickLabel.value({
         id: id.value,
         idLabel: idLabelLocal.value,
+        $event,
       });
     }
 
-    EventBus.$emit(getLabelClickEventName(id.value), {
-      id: id.value,
-      idLabel: idLabelLocal.value,
-    });
-
     if (preventLocal.value) {
-      $event.stopPropagation();
+      $event.preventDefault();
     }
 
     if (stopLocal.value) {
-      $event.preventDefault();
+      $event.stopPropagation();
     }
+    setTimeout(() => {
+      EventBus.$emit(getLabelClickEventName(id.value), {
+        id: id.value,
+        idLabel: idLabelLocal.value,
+        $event,
+      });
+    });
   };
 
   return {
