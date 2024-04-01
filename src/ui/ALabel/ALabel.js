@@ -28,6 +28,11 @@ export default {
       type: String,
       required: true,
     },
+    idSuffix: {
+      type: String,
+      required: false,
+      default: "_label",
+    },
     isIdVisible: {
       type: Boolean,
       required: false,
