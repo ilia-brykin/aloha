@@ -3,13 +3,13 @@ aloha-example(
   :code-js="codeJs"
   header="_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_HEADER_"
   description="_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_DESCRIPTION_"
-  props="type='integerNonNegative'"
+  props="type='integerNonNegativeRange'"
 )
   .a_columns.a_columns_count_12
     .a_column.a_column_6.a_columns_count_12_touch
       a-input-number-range(
         v-model="model"
         label="Aloha"
-        type="integerNonNegative"
+        type="integerNonNegativeRange"
       )
       .a_mt_3 model: {{ model }}

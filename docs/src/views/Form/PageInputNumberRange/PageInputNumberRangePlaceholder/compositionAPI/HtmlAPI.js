@@ -4,7 +4,7 @@ export default function HtmlAPI() {
   label="Aloha"
   placeholder-max="Max"
   placeholder-min="Min"
-  type="integer"
+  type="integerRange"
 ></a-input-number-range>
 <div class="a_mt_3">model: {{ model }}</div>`;
 

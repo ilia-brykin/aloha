@@ -20,7 +20,6 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DividerAPI from "./compositionAPI/DividerAPI";
-import EventBusAPI from "./compositionAPI/EventBusAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
@@ -33,6 +32,7 @@ import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
 import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
@@ -543,9 +543,9 @@ export default {
     const {
       destroyEventBusClickLabel,
       initEventBusClickLabel,
-    } = EventBusAPI(props, {
+    } = UiLabelClickEventBusAPI({
       htmlIdLocal,
-      togglePopover,
+      clickLabel: togglePopover,
     });
 
     watch(urlPropsComputed, updateUrlPropsComputed, {

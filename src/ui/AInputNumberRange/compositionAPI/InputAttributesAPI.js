@@ -3,27 +3,37 @@ import {
   toRef,
 } from "vue";
 
-export default function InputAttributesAPI(props) {
+export default function InputAttributesAPI(props, {
+  htmlIdLocal = computed(() => ""),
+  idMax = computed(() => ""),
+  idMin = computed(() => ""),
+}) {
   const inputAttributes = toRef(props, "inputAttributes");
-  const inputAttributesFrom = toRef(props, "inputAttributesFrom");
-  const inputAttributesUntil = toRef(props, "inputAttributesUntil");
+  const inputAttributesMax = toRef(props, "inputAttributesMax");
+  const inputAttributesMin = toRef(props, "inputAttributesMin");
 
-  const inputAttributesFromLocal = computed(() => {
+  const idLabel = computed(() => {
+    return `${ htmlIdLocal.value }_label`;
+  });
+
+  const inputAttributesMinLocal = computed(() => {
     return {
+      "aria-labelledby": `${ idLabel.value } ${ idMin.value }`,
       ...inputAttributes.value,
-      ...inputAttributesFrom.value,
+      ...inputAttributesMin.value,
     };
   });
 
-  const inputAttributesUntilLocal = computed(() => {
+  const inputAttributesMaxLocal = computed(() => {
     return {
+      "aria-labelledby": `${ idLabel.value } ${ idMax.value }`,
       ...inputAttributes.value,
-      ...inputAttributesUntil.value,
+      ...inputAttributesMax.value,
     };
   });
 
   return {
-    inputAttributesFromLocal,
-    inputAttributesUntilLocal,
+    inputAttributesMaxLocal,
+    inputAttributesMinLocal,
   };
 }

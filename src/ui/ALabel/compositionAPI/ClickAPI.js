@@ -12,31 +12,31 @@ import {
 } from "lodash-es";
 
 export default function ClickAPI(props, {
-  idLabel = computed(() => ""),
+  idLabelLocal = computed(() => ""),
+  preventLocal = computed(() => false),
+  stopLocal = computed(() => false),
 }) {
   const clickLabel = toRef(props, "clickLabel");
   const id = toRef(props, "id");
-  const prevent = toRef(props, "prevent");
-  const stop = toRef(props, "stop");
 
   const onClick = $event => {
     if (isFunction(clickLabel.value)) {
       clickLabel.value({
         id: id.value,
-        idLabel: idLabel.value,
+        idLabel: idLabelLocal.value,
       });
     }
 
     EventBus.$emit(getLabelClickEventName(id.value), {
       id: id.value,
-      idLabel: idLabel.value,
+      idLabel: idLabelLocal.value,
     });
 
-    if (stop.value) {
+    if (preventLocal.value) {
       $event.stopPropagation();
     }
 
-    if (prevent.value) {
+    if (stopLocal.value) {
       $event.preventDefault();
     }
   };

@@ -162,7 +162,7 @@ export default {
           label: this.label,
           labelClass: this.labelClass,
           required: this.required,
-          isIdVisible: false,
+          hideId: true,
           type: this.type,
         }),
         h("div", {}, [

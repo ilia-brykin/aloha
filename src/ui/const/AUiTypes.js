@@ -31,3 +31,40 @@ export const typesWithData = ref({
   radio: true,
   select: true,
 });
+
+
+export const typesLabelProps = ref({
+  select: {
+    prevent: true,
+    stop: true,
+  },
+  multiselect: {
+    prevent: true,
+    stop: true,
+  },
+  file: {
+    hideId: true,
+  },
+  // numberRange
+  numberRange: {
+    hideFor: true,
+    prevent: true,
+    stop: true,
+  },
+  integerNonNegativeRange: {
+    hideFor: true,
+    prevent: true,
+    stop: true,
+  },
+  integerPositiveRange: {
+    hideFor: true,
+    prevent: true,
+    stop: true,
+  },
+  integerRange: {
+    hideFor: true,
+    prevent: true,
+    stop: true,
+  },
+  // numberRange /
+});

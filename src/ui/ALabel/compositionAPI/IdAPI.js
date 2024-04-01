@@ -3,27 +3,31 @@ import {
   toRef,
 } from "vue";
 
-export default function IdAPI(props) {
+export default function IdAPI(props, {
+  hideForLocal = computed(() => false),
+  hideIdLocal = computed(() => false),
+}) {
   const id = toRef(props, "id");
   const idSuffix = toRef(props, "idSuffix");
-  const isIdVisible = toRef(props, "isIdVisible");
 
-  const idLabel = computed(() => {
+  const idLabelLocal = computed(() => {
+    if (hideIdLocal.value) {
+      return undefined;
+    }
+
     return `${ id.value }${ idSuffix.value }`;
   });
 
-  const idLabelAttribut = computed(() => {
-    if (isIdVisible.value) {
-      return {
-        id: idLabel.value,
-      };
+  const forLabelLocal = computed(() => {
+    if (hideForLocal.value) {
+      return undefined;
     }
 
-    return {};
+    return id.value;
   });
 
   return {
-    idLabel,
-    idLabelAttribut,
+    forLabelLocal,
+    idLabelLocal,
   };
 }

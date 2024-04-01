@@ -1,5 +1,5 @@
 import {
-  h,
+  h, onBeforeUnmount,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -7,12 +7,14 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AInputNumber from "../AInputNumber/AInputNumber";
 import ALabel from "../ALabel/ALabel";
 
+import FocusAPI from "./compositionAPI/FocusAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import Types from "./utils/Types";
@@ -248,7 +250,31 @@ export default {
     const {
       inputAttributesMaxLocal,
       inputAttributesMinLocal,
-    } = InputAttributesAPI(props);
+    } = InputAttributesAPI(props, {
+      htmlIdLocal,
+      idMax,
+      idMin,
+    });
+
+    const {
+      setFocusToMinInput,
+    } = FocusAPI({
+      idMin,
+    });
+
+    const {
+      destroyEventBusClickLabel,
+      initEventBusClickLabel,
+    } = UiLabelClickEventBusAPI({
+      htmlIdLocal,
+      clickLabel: setFocusToMinInput,
+    });
+
+    initEventBusClickLabel();
+
+    onBeforeUnmount(() => {
+      destroyEventBusClickLabel();
+    });
 
     return {
       attributesToExcludeFromRender,
@@ -257,6 +283,7 @@ export default {
       componentStyleHide,
       errorsId,
       helpTextId,
+      htmlIdLocal,
       idMax,
       idMin,
       inputAttributesMaxLocal,
@@ -282,14 +309,16 @@ export default {
           a_form_element__parent_invalid: this.isErrors,
         }],
       }, [
-        this.label && h(ALabel, {
-          id: this.idMin,
-          label: this.label,
-          labelClass: this.labelClass,
-          required: this.required,
-          type: this.type,
-          isLabelFloat: false,
-        }),
+        this.label ?
+          h(ALabel, {
+            id: this.htmlIdLocal,
+            label: this.label,
+            labelClass: this.labelClass,
+            required: this.required,
+            type: this.type,
+            isLabelFloat: false,
+          }) :
+          "",
         h("div", {
           class: "a_input_number_range__content",
         }, [
@@ -361,10 +390,12 @@ export default {
           html: this.helpText,
           extra: this.extra,
         }),
-        this.isErrors && h(AErrorsText, {
-          id: this.errorsId,
-          errors: this.errors,
-        }),
+        this.isErrors ?
+          h(AErrorsText, {
+            id: this.errorsId,
+            errors: this.errors,
+          }) :
+          "",
       ]),
     ]);
   },

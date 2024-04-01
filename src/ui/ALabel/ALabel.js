@@ -8,6 +8,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 import ClickAPI from "./compositionAPI/ClickAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
+import PropsTypeAPI from "./compositionAPI/PropsTypeAPI";
 import TextAfterAPI from "./compositionAPI/TextAfterAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 
@@ -24,6 +25,16 @@ export default {
       required: false,
       default: () => [],
     },
+    hideFor: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    hideId: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     id: {
       type: String,
       required: true,
@@ -32,11 +43,6 @@ export default {
       type: String,
       required: false,
       default: "_label",
-    },
-    isIdVisible: {
-      type: Boolean,
-      required: false,
-      default: true,
     },
     isLabelFloat: {
       type: Boolean,
@@ -57,7 +63,7 @@ export default {
     prevent: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     required: {
       type: Boolean,
@@ -67,7 +73,7 @@ export default {
     stop: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     type: {
       type: String,
@@ -80,9 +86,19 @@ export default {
     } = UIExcludeRenderAttributesAPI(props);
 
     const {
-      idLabel,
-      idLabelAttribut,
-    } = IdAPI(props);
+      hideForLocal,
+      hideIdLocal,
+      preventLocal,
+      stopLocal,
+    } = PropsTypeAPI(props);
+
+    const {
+      forLabelLocal,
+      idLabelLocal,
+    } = IdAPI(props, {
+      hideForLocal,
+      hideIdLocal,
+    });
 
     const {
       textAfterLabel,
@@ -95,12 +111,15 @@ export default {
     const {
       onClick,
     } = ClickAPI(props, {
-      idLabel,
+      idLabelLocal,
+      preventLocal,
+      stopLocal,
     });
 
     return {
       attributesToExcludeFromRender,
-      idLabelAttribut,
+      forLabelLocal,
+      idLabelLocal,
       isLabel,
       onClick,
       textAfterLabel,
@@ -108,10 +127,10 @@ export default {
   },
   render() {
     return h("label", {
-      for: this.id,
+      id: this.idLabelLocal,
+      for: this.forLabelLocal,
       class: ["a_form_element_label", this.labelClass],
       onClick: this.onClick,
-      ...this.idLabelAttribut,
       ...this.attributesToExcludeFromRender,
     }, [
       this.isLabel && h(ATranslation, {

@@ -2,21 +2,21 @@ import {
   computed,
 } from "vue";
 
-import EventBus from "../../../utils/EventBus";
+import EventBus from "../../utils/EventBus";
 import {
   getLabelClickEventName,
-} from "../../utils/utils";
+} from "../utils/utils";
 
-export default function EventBusAPI(props, {
+export default function UiLabelClickEventBusAPI({
   htmlIdLocal = computed(() => ""),
-  togglePopover = () => {},
+  clickLabel = () => {},
 }) {
   const eventBusName = computed(() => {
     return getLabelClickEventName(htmlIdLocal.value);
   });
 
   const clickALabel = () => {
-    togglePopover();
+    clickLabel();
   };
 
   const initEventBusClickLabel = () => {
