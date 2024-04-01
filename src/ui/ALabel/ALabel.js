@@ -1,19 +1,15 @@
 import {
-  computed,
   h,
-  toRef,
 } from "vue";
 
 import ASpinner from "../../ASpinner/ASpinner";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import ClickAPI from "./compositionAPI/ClickAPI";
+import IdAPI from "./compositionAPI/IdAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
+import TextAfterAPI from "./compositionAPI/TextAfterAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-
-import {
-  isFunction,
-  isNil,
-} from "lodash-es";
-
 
 export default {
   name: "ALabel",
@@ -68,49 +64,36 @@ export default {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
-    const id = toRef(props, "id");
-    const idLabel = computed(() => {
-      return `${ id.value }_label`;
-    });
+    const {
+      idLabelAttribut,
+    } = IdAPI(props);
 
-    const clickLabel = toRef(props, "clickLabel");
-    const onClick = $event => {
-      if (isFunction(clickLabel.value)) {
-        clickLabel.value();
-        $event.stopPropagation();
-        $event.preventDefault();
-      }
-    };
+    const {
+      textAfterLabel,
+    } = TextAfterAPI(props);
+
+    const {
+      isLabel,
+    } = LabelAPI(props);
+
+    const {
+      onClick,
+    } = ClickAPI(props);
 
     return {
       attributesToExcludeFromRender,
-      idLabel,
+      idLabelAttribut,
+      isLabel,
       onClick,
+      textAfterLabel,
     };
-  },
-  computed: {
-    textAfterLabel() {
-      return this.required ? "*" : "";
-    },
-
-    isLabel() {
-      return !isNil(this.label);
-    },
-
-    idObject() {
-      const ID_OBJECT = {};
-      if (this.isIdVisible) {
-        ID_OBJECT.id = this.idLabel;
-      }
-      return ID_OBJECT;
-    },
   },
   render() {
     return h("label", {
       for: this.id,
       class: ["a_form_element_label", this.labelClass],
       onClick: this.onClick,
-      ...this.idObject,
+      ...this.idLabelAttribut,
       ...this.attributesToExcludeFromRender,
     }, [
       this.isLabel && h(ATranslation, {
