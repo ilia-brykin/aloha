@@ -1,23 +1,37 @@
+import {
+  computed,
+} from "vue";
+
 import IdAPI from "../compositionAPI/IdAPI";
 
 describe("ALabel IdAPI", () => {
-  it("'idLabel' and 'idLabelAttribute' should correctly concatenate 'id' and 'idSuffix' and apply 'id' when 'hideId' is false", () => {
-    const {
-      idLabel,
-      idLabelAttribut,
-    } = IdAPI({ id: "user", idSuffix: "_123", hideId: false });
+  it("'forLabelLocal' and 'idLabelLocal' should return correct values when 'hideForLocal' and 'hideIdLocal' are false", () => {
+    const props = { id: "user", idSuffix: "_123" };
 
-    expect(idLabel.value).toBe("user_123");
-    expect(idLabelAttribut.value).toEqual({ id: "user_123" });
+    const {
+      forLabelLocal,
+      idLabelLocal,
+    } = IdAPI(props, {
+      hideForLocal: computed(() => false),
+      hideIdLocal: computed(() => false),
+    });
+
+    expect(idLabelLocal.value).toBe("user_123");
+    expect(forLabelLocal.value).toBe("user");
   });
 
-  it("'idLabel' should concatenate 'id' and 'idSuffix' but 'idLabelAttribute' should be empty when 'hideId' is true", () => {
-    const {
-      idLabel,
-      idLabelAttribut,
-    } = IdAPI({ id: "user", idSuffix: "_123", hideId: true });
+  it("'forLabelLocal' and 'idLabelLocal' should be undefined when 'hideForLocal' and 'hideIdLocal' are true", () => {
+    const props = { id: "user", idSuffix: "_123" };
 
-    expect(idLabel.value).toBe("user_123");
-    expect(idLabelAttribut.value).toEqual({});
+    const {
+      forLabelLocal,
+      idLabelLocal,
+    } = IdAPI(props, {
+      hideForLocal: computed(() => true),
+      hideIdLocal: computed(() => true),
+    });
+
+    expect(idLabelLocal.value).toBeUndefined();
+    expect(forLabelLocal.value).toBeUndefined();
   });
 });
