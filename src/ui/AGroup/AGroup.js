@@ -109,7 +109,6 @@ export default {
     });
 
     const {
-      labelAttributesForNotFocusableElements,
       specificAttributes,
     } = SpecificTypeAPI(props);
 
@@ -126,7 +125,6 @@ export default {
       htmlIdFirstChild,
       htmlIdLocal,
       isErrors,
-      labelAttributesForNotFocusableElements,
       onUpdateDataLocal,
       onUpdateModelLocal,
       specificAttributes,
@@ -160,7 +158,6 @@ export default {
             required: this.firstChild.required,
             type: this.firstChild.type,
             isLabelFloat: false,
-            ...this.labelAttributesForNotFocusableElements,
           }),
           this.children.map((item, itemIndex) => {
             const IS_CONTAINER = typesContainer.value[item.type];

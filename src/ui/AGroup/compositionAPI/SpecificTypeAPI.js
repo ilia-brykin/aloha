@@ -10,11 +10,7 @@ import {
   typesMapInputNumberRange,
 } from "../../AInputNumberRange/utils/Types";
 import {
-  typesNotFocusable,
-} from "../../const/AUiTypes";
-import {
   forEach,
-  get,
   isUndefined,
 } from "lodash-es";
 
@@ -48,20 +44,7 @@ export default function SpecificTypeAPI(props) {
     return ATTRIBUTES;
   });
 
-  const labelAttributesForNotFocusableElements = computed(() => {
-    const ATTRIBUTES = {};
-    const IS_ELEMENT_NOT_FOCUSABLE = typesNotFocusable.value[get(children.value, "[0].type")];
-
-    if (IS_ELEMENT_NOT_FOCUSABLE) {
-      ATTRIBUTES.prevent = true;
-      ATTRIBUTES.stop = true;
-    }
-
-    return ATTRIBUTES;
-  });
-
   return {
-    labelAttributesForNotFocusableElements,
     specificAttributes,
   };
 }

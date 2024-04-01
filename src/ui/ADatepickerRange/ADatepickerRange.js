@@ -1,5 +1,6 @@
 import {
   h,
+  onBeforeUnmount,
 } from "vue";
 
 import ADatepicker from "../ADatepicker/ADatepicker";
@@ -7,11 +8,13 @@ import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 
+import FocusAPI from "./compositionAPI/FocusAPI";
 import IdAPI from "./compositionAPI/IdAPI";
-import InputAttributesAPI from "../AInputNumberRange/compositionAPI/InputAttributesAPI";
+import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import placements from "../../const/placements";
@@ -266,7 +269,31 @@ export default {
     const {
       inputAttributesFromLocal,
       inputAttributesUntilLocal,
-    } = InputAttributesAPI(props);
+    } = InputAttributesAPI(props, {
+      htmlIdLocal,
+      idFrom,
+      idUntil,
+    });
+
+    const {
+      setFocusToFromInput,
+    } = FocusAPI({
+      idFrom,
+    });
+
+    const {
+      destroyEventBusClickLabel,
+      initEventBusClickLabel,
+    } = UiLabelClickEventBusAPI({
+      htmlIdLocal,
+      clickLabel: setFocusToFromInput,
+    });
+
+    initEventBusClickLabel();
+
+    onBeforeUnmount(() => {
+      destroyEventBusClickLabel();
+    });
 
     return {
       attributesToExcludeFromRender,

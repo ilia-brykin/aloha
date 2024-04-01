@@ -20,11 +20,6 @@ export const typesModelObject = ref({
   numberRange: true,
 });
 
-export const typesNotFocusable = ref({
-  select: true,
-  multiselect: true,
-});
-
 export const typesWithData = ref({
   checkbox: true,
   multiselect: true,
@@ -67,4 +62,9 @@ export const typesLabelProps = ref({
     stop: true,
   },
   // numberRange /
+  dateRange: {
+    hideFor: true,
+    prevent: true,
+    stop: true,
+  },
 });
