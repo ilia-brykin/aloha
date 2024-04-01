@@ -716,6 +716,7 @@ export default {
                   ref: "menuParentRef",
                   id: this.idForList,
                   style: !this.isOpen ? "display: none;" : "",
+                  "aria-hidden": !this.isOpen,
                   role: "application",
                 }, [
                   h("div", {
