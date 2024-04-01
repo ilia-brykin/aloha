@@ -18,9 +18,7 @@ import {
   isUndefined,
 } from "lodash-es";
 
-export default function SpecificTypeAPI(props, {
-  htmlIdFirstChild = computed(() => ""),
-}) {
+export default function SpecificTypeAPI(props) {
   const children = toRef(props, "children");
 
   const specificAttributes = computed(() => {
@@ -52,12 +50,11 @@ export default function SpecificTypeAPI(props, {
 
   const labelAttributesForNotFocusableElements = computed(() => {
     const ATTRIBUTES = {};
-    const IS_ELEMENT_NOT_FOCUSABLE = typesNotFocusable.value[get(children, "value[0].type")];
+    const IS_ELEMENT_NOT_FOCUSABLE = typesNotFocusable.value[get(children.value, "[0].type")];
 
     if (IS_ELEMENT_NOT_FOCUSABLE) {
-      ATTRIBUTES.clickLabel = () => {
-        document.getElementById(htmlIdFirstChild.value).focus();
-      };
+      ATTRIBUTES.prevent = true;
+      ATTRIBUTES.stop = true;
     }
 
     return ATTRIBUTES;

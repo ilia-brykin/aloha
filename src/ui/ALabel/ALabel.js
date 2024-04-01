@@ -54,7 +54,17 @@ export default {
       type: Boolean,
       required: false,
     },
+    prevent: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     required: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    stop: {
       type: Boolean,
       required: false,
       default: false,
@@ -70,6 +80,7 @@ export default {
     } = UIExcludeRenderAttributesAPI(props);
 
     const {
+      idLabel,
       idLabelAttribut,
     } = IdAPI(props);
 
@@ -83,7 +94,9 @@ export default {
 
     const {
       onClick,
-    } = ClickAPI(props);
+    } = ClickAPI(props, {
+      idLabel,
+    });
 
     return {
       attributesToExcludeFromRender,

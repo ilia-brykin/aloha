@@ -111,9 +111,7 @@ export default {
     const {
       labelAttributesForNotFocusableElements,
       specificAttributes,
-    } = SpecificTypeAPI(props, {
-      htmlIdFirstChild,
-    });
+    } = SpecificTypeAPI(props);
 
     return {
       ariaDescribedbyLocal,

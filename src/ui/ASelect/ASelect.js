@@ -1,5 +1,6 @@
 import {
   h,
+  onBeforeUnmount,
   Teleport,
   watch,
 } from "vue";
@@ -19,6 +20,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DividerAPI from "./compositionAPI/DividerAPI";
+import EventBusAPI from "./compositionAPI/EventBusAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
@@ -538,13 +540,26 @@ export default {
       isMultiselect,
     });
 
+    const {
+      destroyEventBusClickLabel,
+      initEventBusClickLabel,
+    } = EventBusAPI(props, {
+      htmlIdLocal,
+      togglePopover,
+    });
+
     watch(urlPropsComputed, updateUrlPropsComputed, {
       deep: true,
     });
 
     addPopperContainerInBody({ className: "a_select_container" });
+    initEventBusClickLabel();
     loadDataFromServer();
     loadDataFromServerForSearchAPI();
+
+    onBeforeUnmount(() => {
+      destroyEventBusClickLabel();
+    });
 
     return {
       ariaDescribedbyLocal,
@@ -625,14 +640,15 @@ export default {
         }],
       }, [
         this.label && h(ALabel, {
-          id: this.id,
+          id: this.htmlIdLocal,
+          isLabelFloat: this.isLabelFloat,
           label: this.label,
           labelClass: this.labelClass,
-          required: this.required,
-          isLabelFloat: this.isLabelFloat,
-          type: this.type,
-          clickLabel: this.togglePopover,
           loading: this.loadingLocal,
+          prevent: true,
+          required: this.required,
+          stop: true,
+          type: this.type,
         }),
         h("div", {
           class: "a_form_element",

@@ -188,10 +188,12 @@ export default {
       }, [
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
+          clickLabel: this.clickLabel,
           label: this.label,
           labelClass: this.labelClass,
+          prevent: true,
           required: this.required,
-          clickLabel: this.clickLabel,
+          stop: true,
         }),
         h("div", {
           class: ["a_form_element", {
