@@ -12,6 +12,7 @@ import AFiltersMain from "../AFiltersMain/AFiltersMain";
 
 import CloseFilterAPI from "./compositionAPI/CloseFilterAPI";
 import DataKeyByKeyIdAPI from "./compositionAPI/DataKeyByKeyIdAPI";
+import ExcludeRenderAttributesAPI from "./compositionAPI/ExcludeRenderAttributesAPI";
 import FiltersAPI from "./compositionAPI/FiltersAPI";
 import SaveAPI from "./compositionAPI/SaveAPI";
 import StartSearchAPI from "./compositionAPI/StartSearchAPI";
@@ -144,6 +145,10 @@ export default {
       updateFiltersSavedLocal,
     } = SaveAPI(props);
 
+    const {
+      excludeRenderAttributesComputed,
+    } = ExcludeRenderAttributesAPI(props);
+
     watch(filtersSaved, () => {
       initFiltersSaved();
     }, {
@@ -157,6 +162,7 @@ export default {
       closeAllFilters,
       closeFilterValue,
       dataKeyByKeyIdPerFilter,
+      excludeRenderAttributesComputed,
       filtersDataKeyById,
       filtersGroup,
       filtersHorizontalRef,
@@ -186,7 +192,7 @@ export default {
         this.view === "top" && h(AFiltersMain, {
           id: this.id,
           disabled: this.disabled,
-          excludeRenderAttributes: this.excludeRenderAttributes,
+          excludeRenderAttributes: this.excludeRenderAttributesComputed,
           filterMain: this.filterMain,
           mainModel: this.mainModel,
           updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
@@ -200,7 +206,7 @@ export default {
           h(AFilersRight, {
             id: this.id,
             disabled: this.disabled,
-            excludeRenderAttributes: this.excludeRenderAttributes,
+            excludeRenderAttributes: this.excludeRenderAttributesComputed,
             filters: this.filters,
             filtersKeyById: this.filtersKeyById,
             appliedModel: this.appliedModel,
@@ -227,7 +233,7 @@ export default {
               id: this.id,
               canSave: this.canSave,
               disabled: this.disabled,
-              excludeRenderAttributes: this.excludeRenderAttributes,
+              excludeRenderAttributes: this.excludeRenderAttributesComputed,
               filtersGroup: this.filtersGroup,
               filtersKeyById: this.filtersKeyById,
               filtersSaved: this.filtersSavedLocal,
