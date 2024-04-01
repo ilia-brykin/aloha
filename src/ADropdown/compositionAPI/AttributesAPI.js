@@ -54,6 +54,7 @@ export default function AttributesAPI(props, {
     const DROPDOWN_ATTRIBUTES = cloneDeep(dropdownAttributes.value);
     DROPDOWN_ATTRIBUTES.ref = "dropdownRef";
     DROPDOWN_ATTRIBUTES["aria-labelledby"] = idLocal.value;
+    DROPDOWN_ATTRIBUTES["aria-hidden"] = !statusExpanded.value;
     DROPDOWN_ATTRIBUTES.class = ["a_dropdown__menu", dropdownClass.value, {
       a_dropdown__menu_show: statusExpanded.value,
     }];
