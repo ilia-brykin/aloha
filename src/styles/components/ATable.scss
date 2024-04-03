@@ -421,6 +421,7 @@
   padding-left: var(--a_table_between_actions_margin);
 }
 .a_table__top_panel__actions {
+  margin-left: auto;
   .a_table__action {
     margin-left: var(--a_table_between_actions_margin);
   }
@@ -628,7 +629,6 @@
     border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color);
   }
   .a_table__th_group {
-    width: 100%;
     &:not(:first-child) {
       .a_table__cell_group,
       .a_table__cell__child_group {

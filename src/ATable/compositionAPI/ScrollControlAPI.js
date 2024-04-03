@@ -29,6 +29,7 @@ export default function ScrollControlAPI(props, { emit }, {
   const columnActionsWidth = toRef(props, "columnActionsWidth");
   const columnActionsWidthMin = toRef(props, "columnActionsWidthMin");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
+  const isSimpleTable = toRef(props, "isSimpleTable");
 
   let changingTableWidth = false;
 
@@ -40,7 +41,7 @@ export default function ScrollControlAPI(props, { emit }, {
   });
   const columnsSpecialWidth = computed(() => {
     const columnMultipleActionsWidth = isMultipleActionsActive.value ? columnActionsWidthMin.value : 0;
-    const scrollBarWidth = 10;
+    const scrollBarWidth = isSimpleTable.value ? 0 : 10; // delta for table resize when scrollbar appears
     return columnMultipleActionsWidth + scrollBarWidth;
   });
 
@@ -153,6 +154,7 @@ export default function ScrollControlAPI(props, { emit }, {
 
   const resizeOb = new ResizeObserver(entries => {
     // since we are observing only a single element, so we access the first element in entries array
+    // TODO add delta for table resize when scrollbar appears
     const RECT = entries[0].contentRect;
     if (tableWidth.value !== RECT.width) {
       if (!changingTableWidth) {
