@@ -140,6 +140,7 @@ export default {
     hasScrollClass: {
       type: Boolean,
       required: false,
+      default: true,
     },
     id: {
       type: String,
@@ -844,6 +845,7 @@ export default {
           class: [
             "a_table",
             {
+              a_table_simple: this.isSimpleTable,
               a_table_bordered: this.borderType === "bordered",
               a_table_inner_bordered: this.borderType === "innerBordered",
             },
