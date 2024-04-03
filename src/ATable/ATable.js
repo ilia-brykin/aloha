@@ -118,7 +118,6 @@ export default {
     disabledPreviewRowCallback: {
       type: Function,
       required: false,
-      default: () => {},
     },
     disabledRowActions: {
       type: Boolean,
@@ -1006,6 +1005,7 @@ export default {
           previewStyles: this.previewStyles,
           rowIndex: this.previewRightRowIndex,
           rows: this.rowsLocalAll,
+          disabledPreviewRowCallback: this.disabledPreviewRowCallback,
           usePagination: !!this.usePaginationLocal,
           onClosePreview: this.closePreview,
           onMousedownResizePreviewRight: this.mousedownResizePreviewRight,

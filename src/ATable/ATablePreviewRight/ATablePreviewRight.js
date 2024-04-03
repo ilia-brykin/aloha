@@ -24,6 +24,11 @@ export default {
       type: Number,
       required: true,
     },
+    disabledPreviewRowCallback: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
     isLoadingTable: {
       type: Boolean,
       required: false,
@@ -102,6 +107,8 @@ export default {
     const {
       countAllRowsFormatted,
       currentRow,
+      nextAvailableRowIndex,
+      previousAvailableRowIndex,
       rowNumber,
       rowNumberFormatted,
     } = RowAPI(props);
@@ -109,9 +116,11 @@ export default {
     const {
       disabledBtnArrowLeft,
       disabledBtnArrowRight,
-      toLastRow,
       toNextRow,
+      toPreviousRow,
     } = ArrowsAPI(props, context, {
+      nextAvailableRowIndex,
+      previousAvailableRowIndex,
       rowNumber,
     });
 
@@ -146,8 +155,8 @@ export default {
       previewRef,
       rowNumber,
       rowNumberFormatted,
-      toLastRow,
       toNextRow,
+      toPreviousRow,
     };
   },
   render() {
@@ -175,7 +184,7 @@ export default {
               iconLeft: "ArrowLeft",
               title: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
               textScreenReader: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
-              onClick: this.toLastRow,
+              onClick: this.toPreviousRow,
             }),
             h(AButton, {
               class: "a_btn a_btn_transparent_dark a_btn_small",

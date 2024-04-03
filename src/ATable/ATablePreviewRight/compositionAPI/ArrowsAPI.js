@@ -3,7 +3,13 @@ import {
   toRef,
 } from "vue";
 
+import {
+  isNil,
+} from "lodash-es";
+
 export default function ArrowsAPI(props, { emit }, {
+  nextAvailableRowIndex,
+  previousAvailableRowIndex,
   rowNumber = computed(() => 0),
 }) {
   const countAllRows = toRef(props, "countAllRows");
@@ -13,14 +19,14 @@ export default function ArrowsAPI(props, { emit }, {
   const usePagination = toRef(props, "usePagination");
 
   const disabledBtnArrowLeft = computed(() => {
-    return rowNumber.value <= 1;
+    return rowNumber.value <= 1 || isNil(previousAvailableRowIndex.value);
   });
 
   const disabledBtnArrowRight = computed(() => {
-    return rowNumber.value >= countAllRows.value;
+    return rowNumber.value >= countAllRows.value || isNil(nextAvailableRowIndex.value);
   });
 
-  const toLastRow = () => {
+  const toPreviousRow = () => {
     if (disabledBtnArrowLeft.value) {
       return;
     }
@@ -30,10 +36,10 @@ export default function ArrowsAPI(props, { emit }, {
         emit("update:offset", { offset: offsetPagination.value - limitPagination.value, reload: false });
         emit("togglePreview", { rowIndex: limitPagination.value - 1 });
       } else {
-        emit("togglePreview", { rowIndex: rowIndex.value - 1 });
+        emit("togglePreview", { rowIndex: previousAvailableRowIndex.value });
       }
     } else {
-      emit("togglePreview", { rowIndex: rowIndex.value - 1 });
+      emit("togglePreview", { rowIndex: previousAvailableRowIndex.value });
     }
   };
 
@@ -47,17 +53,17 @@ export default function ArrowsAPI(props, { emit }, {
         emit("update:offset", { offset: offsetPagination.value + limitPagination.value, reload: false });
         emit("togglePreview", { rowIndex: 0 });
       } else {
-        emit("togglePreview", { rowIndex: rowIndex.value + 1 });
+        emit("togglePreview", { rowIndex: nextAvailableRowIndex.value });
       }
     } else {
-      emit("togglePreview", { rowIndex: rowIndex.value + 1 });
+      emit("togglePreview", { rowIndex: nextAvailableRowIndex.value });
     }
   };
 
   return {
     disabledBtnArrowLeft,
     disabledBtnArrowRight,
-    toLastRow,
     toNextRow,
+    toPreviousRow,
   };
 }

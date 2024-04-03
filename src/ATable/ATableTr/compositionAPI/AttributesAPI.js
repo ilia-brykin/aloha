@@ -61,7 +61,10 @@ export default function AttributesAPI(props, {
   });
 
   const disabledPreviewRow = computed(() => {
-    return disabledPreview.value || disabledPreviewRowCallback.value({ row: row.value, rowIndex: rowIndex.value });
+    if (isFunction(disabledPreviewRowCallback.value)) {
+      return disabledPreviewRowCallback.value({ row: row.value, rowIndex: rowIndex.value });
+    }
+    return disabledPreview.value;
   });
 
   const onClickRow = $event => {
