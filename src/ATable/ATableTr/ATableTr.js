@@ -38,6 +38,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    disabledPreviewRowCallback: {
+      type: Function,
+      required: false,
+    },
     disabledRowActions: {
       type: Boolean,
       required: false,
@@ -133,6 +137,7 @@ export default {
     });
 
     const {
+      disabledPreviewRow,
       eventsLocal,
       roleLocal,
       rowClassComputed,
@@ -166,6 +171,7 @@ export default {
       ariaTreeAttributes,
       children,
       countInvisibleMobileColumns,
+      disabledPreviewRow,
       eventsLocal,
       hasChildren,
       isAllColumnsVisibleMobile,
@@ -202,7 +208,7 @@ export default {
             key: column.id,
             column,
             columnIndex,
-            disabledPreview: this.disabledPreview,
+            disabledPreview: this.disabledPreview || this.disabledPreviewRow,
             row: this.row,
             rowIndex: this.rowIndex,
             isFooter: this.isFooter,
@@ -215,7 +221,7 @@ export default {
           key: column.id,
           column,
           columnIndex,
-          disabledPreview: this.disabledPreview,
+          disabledPreview: this.disabledPreview || this.disabledPreviewRow,
           row: this.row,
           rowIndex: this.rowIndex,
           isFooter: this.isFooter,
@@ -294,7 +300,7 @@ export default {
             allVisibleMobileColumns: this.allVisibleMobileColumns,
             areAllRowsSelected: this.areAllRowsSelected,
             countVisibleMobileColumns: this.countVisibleMobileColumns,
-            disabledPreview: this.disabledPreview,
+            disabledPreview: this.disabledPreview || this.disabledPreviewRow,
             disabledRowActions: this.disabledRowActions,
             isFooter: this.isFooter,
             isOneOfParentsClose: this.isOneOfParentsCloseForChildren,

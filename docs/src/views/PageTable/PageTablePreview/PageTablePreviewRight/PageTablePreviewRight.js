@@ -68,6 +68,10 @@ export default {
       data.value = DATA;
     };
 
+    const disableRowPreview = ({ row }) => {
+      return row.id === 2 || row.id === 4;
+    };
+
     setData();
 
     return {
@@ -75,6 +79,7 @@ export default {
       codeJs,
       columns,
       data,
+      disableRowPreview,
     };
   },
 };

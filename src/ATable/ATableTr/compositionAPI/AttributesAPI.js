@@ -21,6 +21,7 @@ export default function AttributesAPI(props, {
   toggleChildren = () => {},
 }) {
   const disabledPreview = toRef(props, "disabledPreview");
+  const disabledPreviewRowCallback = toRef(props, "disabledPreviewRowCallback");
   const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
   const rowClass = toRef(props, "rowClass");
@@ -59,6 +60,10 @@ export default function AttributesAPI(props, {
     return isMobile.value ? "listitem" : "row";
   });
 
+  const disabledPreviewRow = computed(() => {
+    return disabledPreview.value || disabledPreviewRowCallback.value({ row: row.value, rowIndex: rowIndex.value });
+  });
+
   const onClickRow = $event => {
     if (isClickTags({
       $event,
@@ -75,9 +80,6 @@ export default function AttributesAPI(props, {
     if (hasChildren.value) {
       toggleChildren();
     } else if (hasPreviewLocal.value) {
-      if (disabledPreview.value) {
-        return;
-      }
       onTogglePreview({
         row: row.value,
         rowIndex: rowIndex.value,
@@ -92,7 +94,7 @@ export default function AttributesAPI(props, {
   };
 
   const eventsLocal = computed(() => {
-    if (hasChildren.value || hasPreviewLocal.value) {
+    if ((hasChildren.value || hasPreviewLocal.value) && !disabledPreviewRow.value) {
       return {
         tabindex: 0,
         onClick: onClickRow,
@@ -104,6 +106,7 @@ export default function AttributesAPI(props, {
   });
 
   return {
+    disabledPreviewRow,
     eventsLocal,
     roleLocal,
     rowClassComputed,

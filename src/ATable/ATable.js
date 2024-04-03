@@ -115,6 +115,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    disabledPreviewRowCallback: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
     disabledRowActions: {
       type: Boolean,
       required: false,
@@ -894,6 +899,7 @@ export default {
                     areAllRowsSelected: this.areAllRowsSelected,
                     countVisibleMobileColumns: this.countVisibleMobileColumns,
                     disabledPreview: this.disabledPreview,
+                    disabledPreviewRowCallback: this.disabledPreviewRowCallback,
                     disabledRowActions: this.disabledRowActions,
                     isFooter: false,
                     isPreviewDownOpen: this.previewDownRowIndexes[rowIndex],
@@ -933,6 +939,7 @@ export default {
                   areAllRowsSelected: this.areAllRowsSelected,
                   countVisibleMobileColumns: this.countVisibleMobileColumns,
                   disabledPreview: this.disabledPreview,
+                  disabledPreviewRowCallback: this.disabledPreviewRowCallback,
                   disabledRowActions: this.disabledRowActions,
                   isFooter: true,
                   isRowActionsStickyLocal: this.isRowActionsStickyLocal,

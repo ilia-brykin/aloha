@@ -11,6 +11,7 @@ aloha-example(
       label="_A_TABLE_GROUP_SIMPLE_LABEL_"
       key-id="id"
       preview="right"
+      :disabled-preview-row-callback="disableRowPreview"
     )
       template(
         v-slot:preview="vm"
