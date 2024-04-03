@@ -8297,19 +8297,17 @@ input:not(:-webkit-autofill) {
     top: .5rem; }
 
 .a_table_bordered .a_table__body__row {
-  border-left: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color);
   border-right: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color); }
 
 .a_table_bordered .a_table__head__row {
-  border-right: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color);
-  border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
+  border-right: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
 
-.a_table_bordered .a_table__td + .a_table__td,
-.a_table_inner_bordered .a_table__td + .a_table__td {
+.a_table_bordered .a_table__td,
+.a_table_inner_bordered .a_table__td {
   border-left: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color); }
 
-.a_table_bordered .a_table__th + .a_table__th,
-.a_table_inner_bordered .a_table__th + .a_table__th {
+.a_table_bordered .a_table__th,
+.a_table_inner_bordered .a_table__th {
   border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
 
 .a_table_bordered .a_table__th_group:not(:first-child) .a_table__cell_group,
@@ -8329,6 +8327,16 @@ input:not(:-webkit-autofill) {
 .a_table_bordered .a_table__cell_group,
 .a_table_inner_bordered .a_table__cell_group {
   border-bottom: var(--a_table_th_border_horizontal_width) solid var(--a_table_th_border_horizontal_color); }
+
+.a_table_simple.a_table_bordered .a_table__td:last-child {
+  border-right: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color); }
+
+.a_table_simple.a_table_bordered .a_table__th:last-child {
+  border-right: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color); }
+
+.a_table_simple.a_table_bordered .a_table__body__row,
+.a_table_simple.a_table_bordered .a_table__head__row {
+  border-right: none; }
 
 .a_table__grandparent_without_scroll .a_table__parent {
   overflow-x: unset; }
