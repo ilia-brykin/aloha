@@ -8129,11 +8129,12 @@ input:not(:-webkit-autofill) {
 .a_table__top_panel__label__count {
   padding-left: var(--a_table_between_actions_margin); }
 
-.a_table__top_panel__actions .a_table__action {
-  margin-left: var(--a_table_between_actions_margin); }
-
-.a_table__top_panel__actions .aloha_group_btn_dropdown {
-  display: inline-block; }
+.a_table__top_panel__actions {
+  margin-left: auto; }
+  .a_table__top_panel__actions .a_table__action {
+    margin-left: var(--a_table_between_actions_margin); }
+  .a_table__top_panel__actions .aloha_group_btn_dropdown {
+    display: inline-block; }
 
 .a_table__top_panel__actions__quick_search {
   display: inline-block;
@@ -8311,17 +8312,15 @@ input:not(:-webkit-autofill) {
 .a_table_inner_bordered .a_table__th + .a_table__th {
   border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
 
-.a_table_bordered .a_table__th_group,
-.a_table_inner_bordered .a_table__th_group {
-  width: 100%; }
-  .a_table_bordered .a_table__th_group:not(:first-child) .a_table__cell_group,
-  .a_table_bordered .a_table__th_group:not(:first-child) .a_table__cell__child_group,
-  .a_table_inner_bordered .a_table__th_group:not(:first-child) .a_table__cell_group,
-  .a_table_inner_bordered .a_table__th_group:not(:first-child) .a_table__cell__child_group {
-    border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
-  .a_table_bordered .a_table__th_group:not(:first-child) + .a_table__th,
-  .a_table_inner_bordered .a_table__th_group:not(:first-child) + .a_table__th {
-    border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
+.a_table_bordered .a_table__th_group:not(:first-child) .a_table__cell_group,
+.a_table_bordered .a_table__th_group:not(:first-child) .a_table__cell__child_group,
+.a_table_inner_bordered .a_table__th_group:not(:first-child) .a_table__cell_group,
+.a_table_inner_bordered .a_table__th_group:not(:first-child) .a_table__cell__child_group {
+  border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
+
+.a_table_bordered .a_table__th_group:not(:first-child) + .a_table__th,
+.a_table_inner_bordered .a_table__th_group:not(:first-child) + .a_table__th {
+  border-left: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color); }
 
 .a_table_bordered .a_table__cell_action,
 .a_table_inner_bordered .a_table__cell_action {
