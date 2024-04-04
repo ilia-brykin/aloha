@@ -2,15 +2,13 @@ import {
   h,
 } from "vue";
 
-import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
+import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 import ATableHeaderThAction from "../ATableHeaderThAction/ATableHeaderThAction";
+
+import CheckboxAPI from "../ATableHeader/compositionAPI/CheckboxAPI";
 
 export default {
   name: "ATableGroupedHeader",
-  components: {
-    ATableHeaderTh,
-    ATableHeaderThAction,
-  },
   props: {
     areAllRowsSelected: {
       type: Boolean,
@@ -75,6 +73,23 @@ export default {
     "isMobile",
     "isMultipleActionsActive",
   ],
+  setup(props, context) {
+    const {
+      isCheckboxDisabled,
+      isCheckboxIndeterminate,
+      labelCheckbox,
+      modelValueCheckboxLocal,
+      toggleCheckbox,
+    } = CheckboxAPI(props, context);
+
+    return {
+      isCheckboxDisabled,
+      isCheckboxIndeterminate,
+      labelCheckbox,
+      modelValueCheckboxLocal,
+      toggleCheckbox,
+    };
+  },
   render() {
     return h("div", {
       ref: "root",
@@ -85,6 +100,23 @@ export default {
         class: "a_table__row a_table__head__row",
         role: "row",
       }, [
+        this.isMultipleActionsActive && h("div", {
+          role: "columnheader",
+          class: "a_table__th a_table__cell a_table__cell_checkbox",
+          style: `width: 50px; min-width: 50px; max-width: 50px;`,
+          "aria-colindex": 1,
+        }, [
+          h(AOneCheckbox, {
+            isWidthAuto: true,
+            modelValue: this.modelValueCheckboxLocal,
+            indeterminate: this.isCheckboxIndeterminate,
+            disabled: this.isCheckboxDisabled,
+            label: this.labelCheckbox,
+            labelClass: "a_sr_only",
+            isLabelTitle: true,
+            "onUpdate:modelValue": this.toggleCheckbox,
+          }),
+        ]),
         this.columnsForRender,
         this.isActionColumnVisible && h(ATableHeaderThAction, {
           disabledOptions: this.disabledOptions,
