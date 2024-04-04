@@ -54,6 +54,11 @@ export default {
       required: false,
       default: () => [],
     },
+    clearSelectedRowsOnDataChange: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     columnActionsWidth: {
       type: Number,
       required: false,

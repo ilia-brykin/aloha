@@ -17,6 +17,7 @@ export default function RowsAPI(props, {
   setEmptySelectedRowsIndexes = () => {},
   usePaginationLocal = computed(() => false),
 }) {
+  const clearSelectedRowsOnDataChange = toRef(props, "clearSelectedRowsOnDataChange");
   const pagination = toRef(props, "pagination");
   const rowsCountRenderPerTick = toRef(props, "rowsCountRenderPerTick");
 
@@ -88,7 +89,7 @@ export default function RowsAPI(props, {
       return;
     }
     prevDataPaginated.value = [...newValue];
-    if (!firstLoad) {
+    if (!firstLoad && clearSelectedRowsOnDataChange.value) {
       setEmptySelectedRowsIndexes();
     }
     firstLoad = false;
