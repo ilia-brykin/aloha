@@ -7275,16 +7275,16 @@ input:not(:-webkit-autofill) {
         border-bottom-left-radius: 0; }
   .a_form_element_number_controls .a_input_number {
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0; }
+    border-bottom-right-radius: 0;
+    height: 100%;
+    line-height: 1; }
 
 .a_form_element__parent_invalid .a_form_element_number_controls .a_btn_group > .aloha_btn {
   --a_btn_border_color: var(--a_form_element_error_color); }
 
 .a_input_number {
-  height: 100%;
   -webkit-appearance: none;
-  -moz-appearance: textfield;
-  line-height: 1; }
+  -moz-appearance: textfield; }
   .a_input_number::-webkit-inner-spin-button, .a_input_number::-webkit-outer-spin-button {
     margin: 0;
     -webkit-appearance: none; }
