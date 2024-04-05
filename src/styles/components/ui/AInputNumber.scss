@@ -27,6 +27,8 @@
   .a_input_number {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    height: 100%;
+    line-height: 1;
   }
 }
 
@@ -37,7 +39,6 @@
 }
 
 .a_input_number {
-  height: 100%;
   -webkit-appearance: none;
   -moz-appearance: textfield;
   &::-webkit-inner-spin-button,
@@ -45,5 +46,4 @@
     margin: 0;
     -webkit-appearance: none;
   }
-  line-height: 1;
 }

@@ -309,7 +309,7 @@ export default {
           class: [
             "a_form_element_number",
             {
-              a_form_element_number_controls: this.controlsType,
+              a_form_element_number_controls: this.controlsType !== "none",
             },
           ],
         }, [
