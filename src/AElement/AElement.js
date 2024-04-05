@@ -377,38 +377,46 @@ export default {
       ...this.attributesToExcludeFromRender,
     }, {
       default: () => [
-        (!this.isTitleHtml && this.isTitleVisible) ? h(ATranslation, {
-          tag: "span",
-          ariaHidden: true,
-          class: [
-            "a_position_absolute_all",
-            this.classDefaultHidden,
-          ],
-          title: this.title,
-          extra: this.extra,
-          style: {
-            zIndex: this.titleZIndex,
-          },
-          ...this.titleAttributes,
-        }) : undefined,
-        this.isTextOrHtmlScreenReaderVisible ? h(ATranslation, {
-          class: [
-            "a_sr_only",
-            this.classDefaultHidden,
-          ],
-          tag: "span",
-          text: this.textScreenReader,
-          html: this.htmlScreenReader,
-          safeHtml: this.safeHtmlScreenReader,
-          extra: this.extra,
-        }) : undefined,
-        this.$slots.buttonPrepend ? this.$slots.buttonPrepend({ extraData: this.extraData }) : undefined,
-        this.isLoadingLeft ? h(ASpinner, {
-          class: [
-            "aloha_btn__spinner_left",
-            this.loadingClass,
-          ],
-        }) : undefined,
+        (!this.isTitleHtml && this.isTitleVisible) ?
+          h(ATranslation, {
+            tag: "span",
+            ariaHidden: true,
+            class: [
+              "a_position_absolute_all",
+              this.classDefaultHidden,
+            ],
+            title: this.title,
+            extra: this.extra,
+            style: {
+              zIndex: this.titleZIndex,
+            },
+            ...this.titleAttributes,
+          }) :
+          "",
+        this.isTextOrHtmlScreenReaderVisible ?
+          h(ATranslation, {
+            class: [
+              "a_sr_only",
+              this.classDefaultHidden,
+            ],
+            tag: "span",
+            text: this.textScreenReader,
+            html: this.htmlScreenReader,
+            safeHtml: this.safeHtmlScreenReader,
+            extra: this.extra,
+          }) :
+          "",
+        this.$slots.buttonPrepend ?
+          this.$slots.buttonPrepend({ extraData: this.extraData }) :
+          "",
+        this.isLoadingLeft ?
+          h(ASpinner, {
+            class: [
+              "aloha_btn__spinner_left",
+              this.loadingClass,
+            ],
+          }) :
+          "",
         h(AIcon, {
           icon: this.iconLeft,
           iconTag: this.iconTag,
@@ -418,18 +426,22 @@ export default {
           ],
           ...this.iconAttributes,
         }),
-        this.$slots.default ? this.$slots.default({ extraData: this.extraData }) : undefined,
-        this.isTextOrHtmlVisible ? h(ATranslation, {
-          ariaHidden: this.textAriaHidden,
-          class: this.textClass,
-          extra: this.extra,
-          html: this.html,
-          safeHtml: this.safeHtml,
-          tag: this.textTag,
-          text: this.text,
-          textAfter: this.textAfter,
-          textBefore: this.textBefore,
-        }) : undefined,
+        this.$slots.default ?
+          this.$slots.default({ extraData: this.extraData }) :
+          "",
+        this.isTextOrHtmlVisible ?
+          h(ATranslation, {
+            ariaHidden: this.textAriaHidden,
+            class: this.textClass,
+            extra: this.extra,
+            html: this.html,
+            safeHtml: this.safeHtml,
+            tag: this.textTag,
+            text: this.text,
+            textAfter: this.textAfter,
+            textBefore: this.textBefore,
+          }) :
+          "",
         h(AIcon, {
           icon: this.iconRight,
           iconTag: this.iconTag,
@@ -446,20 +458,26 @@ export default {
               this.loadingClass,
             ],
           }) :
-          undefined,
-        this.$slots.buttonAppend ? this.$slots.buttonAppend({ extraData: this.extraData }) : undefined,
+          "",
+        this.$slots.buttonAppend ?
+          this.$slots.buttonAppend({ extraData: this.extraData }) :
+          "",
       ],
       title: !this.isTitleHtml ||
         (!this.title && !this.$slots.buttonTitle) ?
-        undefined :
+        "" :
         () => {
           return [
-            this.isTitleVisible && h(ATranslation, {
-              html: this.title,
-              tag: "span",
-              extra: this.extra,
-            }),
-            this.$slots.buttonTitle && this.$slots.buttonTitle({ extraData: this.extraData }),
+            this.isTitleVisible ?
+              h(ATranslation, {
+                html: this.title,
+                tag: "span",
+                extra: this.extra,
+              }) :
+              "",
+            this.$slots.buttonTitle ?
+              this.$slots.buttonTitle({ extraData: this.extraData }) :
+              "",
           ];
         },
     });
