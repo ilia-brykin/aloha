@@ -37,6 +37,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     modelUndefined: {
       required: false,
       default: "",
@@ -161,6 +166,7 @@ export default {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           required: this.required,
           hideId: true,
           type: this.type,

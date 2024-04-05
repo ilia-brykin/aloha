@@ -169,6 +169,11 @@ export default {
       required: false,
       default: "_A_DATEPICKER_RANGE_FROM_",
     },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelUntil: {
       type: String,
       required: false,
@@ -330,6 +335,7 @@ export default {
           id: this.idFrom,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           required: this.required,
           type: this.type,
           isLabelFloat: false,

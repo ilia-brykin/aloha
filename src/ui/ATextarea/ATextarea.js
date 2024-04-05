@@ -11,7 +11,6 @@ import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -26,11 +25,6 @@ import autosize from "../../utils/autosize";
 
 export default {
   name: "ATextarea",
-  components: {
-    AFormElementBtnClear,
-    ALabel,
-    ATranslation,
-  },
   mixins: [
     UiClearButtonMixinProps,
     UiMixinProps,
@@ -44,6 +38,11 @@ export default {
     isScalable: {
       type: Boolean,
       required: false,
+    },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     maxlength: {
       type: [String, Number],
@@ -195,6 +194,7 @@ export default {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           required: this.required,
           isLabelFloat: this.isLabelFloat,
         }),

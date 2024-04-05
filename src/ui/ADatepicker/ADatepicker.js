@@ -114,6 +114,11 @@ export default {
       required: false,
       default: false,
     },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     lang: {
       type: String,
       default: "de",
@@ -475,6 +480,7 @@ export default {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,

@@ -75,6 +75,11 @@ export default {
       required: false,
       default: inputNumberPluginOptions.value.propsDefault.isLabelFloat,
     },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     max: {
       type: Number,
       required: false,
@@ -295,6 +300,7 @@ export default {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,
@@ -317,6 +323,7 @@ export default {
               id: this.htmlIdLocal,
               label: this.label,
               labelClass: this.labelClass,
+              labelScreenreader: this.labelScreenreader,
               required: this.required,
               type: this.type,
               isLabelFloat: this.isLabelFloat,

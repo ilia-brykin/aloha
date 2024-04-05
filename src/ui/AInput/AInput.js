@@ -10,7 +10,6 @@ import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormE
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -23,11 +22,6 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 export default {
   name: "AInput",
-  components: {
-    AFormElementBtnClear,
-    ALabel,
-    ATranslation,
-  },
   mixins: [
     UiClearButtonMixinProps,
     UiMixinProps,
@@ -39,6 +33,11 @@ export default {
       default: () => [],
     },
     iconPrepend: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    labelScreenreader: {
       type: String,
       required: false,
       default: undefined,
@@ -165,6 +164,7 @@ export default {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,

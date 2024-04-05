@@ -46,6 +46,11 @@ export default {
       required: false,
       default: () => [],
     },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     languageDefault: {
       type: String,
       required: false,
@@ -191,6 +196,7 @@ export default {
           clickLabel: this.clickLabel,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           prevent: true,
           required: this.required,
           stop: true,

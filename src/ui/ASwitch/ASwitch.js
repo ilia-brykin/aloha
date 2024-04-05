@@ -144,6 +144,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     modelDependencies: {
       type: Object,
       required: false,
@@ -308,6 +313,7 @@ export default {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenreader: this.labelScreenreader,
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,

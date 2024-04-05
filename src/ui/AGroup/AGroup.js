@@ -155,6 +155,7 @@ export default {
             id: this.htmlIdFirstChild,
             label: this.firstChild.label,
             labelClass: this.firstChild.labelClass,
+            labelScreenreader: this.firstChild.labelScreenreader,
             required: this.firstChild.required,
             type: this.firstChild.type,
             isLabelFloat: false,
