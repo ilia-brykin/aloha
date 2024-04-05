@@ -2,14 +2,12 @@ import {
   h,
 } from "vue";
 
-import ASpinner from "../../ASpinner/ASpinner";
-import ATranslation from "../../ATranslation/ATranslation";
+import AElement from "../../AElement/AElement";
 
 import ClickAPI from "./compositionAPI/ClickAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import PropsTypeAPI from "./compositionAPI/PropsTypeAPI";
-import TextAfterAPI from "./compositionAPI/TextAfterAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 
 export default {
@@ -56,6 +54,11 @@ export default {
     labelClass: {
       required: false,
     },
+    labelScreenreader: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     loading: {
       type: Boolean,
       required: false,
@@ -74,6 +77,11 @@ export default {
       type: Boolean,
       required: false,
       default: undefined,
+    },
+    tag: {
+      type: String,
+      required: false,
+      default: "label",
     },
     type: {
       type: String,
@@ -101,11 +109,10 @@ export default {
     });
 
     const {
-      textAfterLabel,
-    } = TextAfterAPI(props);
-
-    const {
       isLabel,
+      labelLocal,
+      textAfterLabel,
+      titleLocal,
     } = LabelAPI(props);
 
     const {
@@ -121,33 +128,28 @@ export default {
       forLabelLocal,
       idLabelLocal,
       isLabel,
+      labelLocal,
       onClick,
       textAfterLabel,
+      titleLocal,
     };
   },
   render() {
-    return h("label", {
+    return h(AElement, {
       id: this.idLabelLocal,
-      for: this.forLabelLocal,
       class: ["a_form_element_label", this.labelClass],
+      html: this.labelLocal,
+      htmlScreenReader: this.labelScreenreader,
+      for: this.forLabelLocal,
+      loading: this.loading,
+      loadingAlign: "right",
+      loadingClass: "a_spinner_small a_form_element_label__spinner",
+      tag: this.tag,
+      textAfter: this.textAfterLabel,
+      title: this.titleLocal,
+      type: "text",
       onClick: this.onClick,
       ...this.attributesToExcludeFromRender,
-    }, [
-      this.isLabel && h(ATranslation, {
-        tag: "span",
-        html: this.label,
-        textAfter: this.textAfterLabel,
-      }, () => [
-        this.isLabelFloat && h(ATranslation, {
-          class: "a_position_absolute_all",
-          ariaHidden: true,
-          tag: "span",
-          title: this.label,
-        })
-      ]),
-      this.loading && h(ASpinner, {
-        class: "a_spinner_small a_form_element_label__spinner",
-      }),
-    ]);
+    });
   },
 };
