@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import AElement from "../../AElement/AElement";
 import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdown";
 import AInput from "../../ui/AInput/AInput";
 import ARadio from "../../ui/ARadio/ARadio";
@@ -247,15 +248,17 @@ export default {
                 text: this.label,
                 extra: this.extra,
               }),
-              this.showCount ? h(AButton, {
+              this.showCount ? h(AElement, {
                 class: "a_table__top_panel__label__count",
-                tag: "span",
-                text: this.countAllRowsFormatted,
-                textAriaHidden: true,
-                title: "_A_TABLE_ALL_ROWS_{{count}}_",
                 extra: {
                   count: this.countAllRows,
                 },
+                tag: "span",
+                text: this.countAllRowsFormatted,
+                textAriaHidden: true,
+                textScreenReader: "_A_TABLE_ALL_ROWS_{{count}}_",
+                title: "_A_TABLE_ALL_ROWS_{{count}}_",
+                type: "text",
               }) : "",
             ]) :
           "",
