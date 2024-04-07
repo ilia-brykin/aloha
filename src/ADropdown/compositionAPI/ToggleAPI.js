@@ -29,6 +29,7 @@ export default function ToggleAPI(props, { emit }, {
   const lockArrowsNavigation = toRef(props, "lockArrowsNavigation");
   const lockTabNavigation = toRef(props, "lockTabNavigation");
   const persist = toRef(props, "persist");
+  const useEscape = toRef(props, "useEscape");
 
   const buttonWidth = ref(undefined);
   const statusEventPressArrows = ref(false);
@@ -87,9 +88,11 @@ export default function ToggleAPI(props, { emit }, {
       $event.preventDefault();
       $event.stopPropagation();
     } else if (EVENT.keyCode === AKeysCode.escape) {
-      onClose({ trigger: "click" });
-      $event.preventDefault();
-      $event.stopPropagation();
+      if (useEscape.value) {
+        onClose({ trigger: "click" });
+        $event.preventDefault();
+        $event.stopPropagation();
+      }
     } else if (EVENT.keyCode === AKeysCode.tab) {
       if (!lockTabNavigation.value) {
         return;

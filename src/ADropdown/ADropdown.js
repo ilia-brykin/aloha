@@ -276,6 +276,11 @@ export default {
       default: () => ["click"],
       validator: value => difference(value, ["click", "hover", "focus"]).length === 0,
     },
+    useEscape: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "open",
