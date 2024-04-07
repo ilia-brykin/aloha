@@ -1,9 +1,14 @@
 import {
   computed,
+  inject,
   toRef,
 } from "vue";
 
 import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
+
+import {
+  getMultiplePanelId,
+} from "../../utils/utils";
 
 export default function MultipleAPI(props, { emit }) {
   const areAllRowsSelected = toRef(props, "areAllRowsSelected");
@@ -12,9 +17,15 @@ export default function MultipleAPI(props, { emit }) {
   const isLoadingMultipleActions = toRef(props, "isLoadingMultipleActions");
   const selectedRows = toRef(props, "selectedRows");
 
+  const tableId = inject("tableId");
+
   const {
     filterFloat,
   } = AFiltersAPI();
+
+  const multiplePanelId = computed(() => {
+    return getMultiplePanelId({ tableId: tableId.value });
+  });
 
   const countSelectedRows = computed(() => {
     return areAllRowsSelected.value ?
@@ -56,6 +67,7 @@ export default function MultipleAPI(props, { emit }) {
   return {
     isBtnMultipleActionDisabled,
     isBtnSelectAllRowsDisabled,
+    multiplePanelId,
     textMultipleBtnAllRowsTranslate,
     textMultipleSelectedTranslateExtra,
     toggleBtnAllRows,

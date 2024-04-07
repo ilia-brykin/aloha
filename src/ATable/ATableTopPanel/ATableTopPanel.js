@@ -182,6 +182,7 @@ export default {
     const {
       isBtnMultipleActionDisabled,
       isBtnSelectAllRowsDisabled,
+      multiplePanelId,
       textMultipleBtnAllRowsTranslate,
       textMultipleSelectedTranslateExtra,
       toggleBtnAllRows,
@@ -204,6 +205,7 @@ export default {
       isBtnMultipleActionDisabled,
       isBtnSelectAllRowsDisabled,
       multipleActionsFiltered,
+      multiplePanelId,
       onCancelMultipleActions,
       onOpenModalMultipleActions,
       tableActionsFiltered,
@@ -340,6 +342,7 @@ export default {
         ]),
       ]),
       this.isMultipleActionsActive && h("div", {
+        id: this.multiplePanelId,
         class: "a_table__multiple_panel",
       }, [
         h("div", {

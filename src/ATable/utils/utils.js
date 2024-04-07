@@ -70,3 +70,7 @@ export function isColumnVisible({ column, columnIndex, modelIsTableWithoutScroll
 export function getPreviewRightId({ tableId }) {
   return `${ tableId }_preview_right`;
 }
+
+export function getMultiplePanelId({ tableId }) {
+  return `${ tableId }_multiple_panel`;
+}

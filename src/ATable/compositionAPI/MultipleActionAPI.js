@@ -1,8 +1,15 @@
 import {
   computed,
-  ref, toRef,
+  ref,
+  toRef,
 } from "vue";
 
+import {
+  setFocusToElement,
+} from "../../utils/utilsDOM";
+import {
+  getMultiplePanelId,
+} from "../utils/utils";
 import {
   filter,
   get,
@@ -17,6 +24,7 @@ export default function MultipleActionAPI(props, { emit }, {
   rowsLocalAll = computed(() => []),
   rowsLocalLength = computed(() => 0),
 }) {
+  const id = toRef(props, "id");
   const multipleActions = toRef(props, "multipleActions");
 
   const currentMultipleActions = ref(undefined);
@@ -48,12 +56,20 @@ export default function MultipleActionAPI(props, { emit }, {
     setEmptySelectedRowsIndexes();
   };
 
+  const setFocusToMultiplePanel = () => {
+    const PANEL_ID = getMultiplePanelId({ tableId: id.value });
+    setFocusToElement({
+      selector: `#${ PANEL_ID }`,
+    });
+  };
+
   const toggleMultipleActionsActive = ({ isActive, action } = {}) => {
     if (isActive) {
       isMultipleActionsActive.value = true;
       currentMultipleActions.value = action;
       setTimeout(() => {
         checkVisibleColumns();
+        setFocusToMultiplePanel();
       });
       emit("toggleMultipleActions", ({ isActive, action }));
       return;
@@ -66,6 +82,7 @@ export default function MultipleActionAPI(props, { emit }, {
     }
     setTimeout(() => {
       checkVisibleColumns();
+      setFocusToMultiplePanel();
     });
     emit("toggleMultipleActions", ({ isActive, action }));
   };
