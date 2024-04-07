@@ -11,9 +11,11 @@ export default function FocusAPI() {
   const modalWrapperRef = ref(undefined);
 
   const setFocusToModal = () => {
-    if (modalRef.value) {
-      modalRef.value.focus();
-    }
+    setTimeout(() => {
+      if (modalRef.value) {
+        modalRef.value.focus();
+      }
+    });
   };
 
   const trapFocus = EVENT => {
