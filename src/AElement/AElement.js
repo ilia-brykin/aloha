@@ -465,7 +465,7 @@ export default {
       ],
       title: !this.isTitleHtml ||
         (!this.title && !this.$slots.buttonTitle) ?
-        "" :
+        () => "" :
         () => {
           return [
             this.isTitleVisible ?
