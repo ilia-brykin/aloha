@@ -242,7 +242,7 @@ export default {
       required: false,
       default: undefined,
     },
-    labelScreenreader: {
+    labelScreenReader: {
       type: String,
       required: false,
       default: undefined,
@@ -649,7 +649,7 @@ export default {
           isLabelFloat: this.isLabelFloat,
           label: this.label,
           labelClass: this.labelClass,
-          labelScreenreader: this.labelScreenreader,
+          labelScreenReader: this.labelScreenReader,
           loading: this.loadingLocal,
           required: this.required,
           type: this.type,

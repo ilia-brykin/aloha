@@ -46,7 +46,7 @@ export default {
       required: false,
       default: () => [],
     },
-    labelScreenreader: {
+    labelScreenReader: {
       type: String,
       required: false,
       default: undefined,
@@ -196,7 +196,7 @@ export default {
           clickLabel: this.clickLabel,
           label: this.label,
           labelClass: this.labelClass,
-          labelScreenreader: this.labelScreenreader,
+          labelScreenReader: this.labelScreenReader,
           prevent: true,
           required: this.required,
           stop: true,

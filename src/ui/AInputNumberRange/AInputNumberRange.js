@@ -143,7 +143,7 @@ export default {
       required: false,
       default: "_A_INPUT_NUMBER_RANGE_LABEL_MIN_",
     },
-    labelScreenreader: {
+    labelScreenReader: {
       type: String,
       required: false,
       default: undefined,
@@ -319,7 +319,7 @@ export default {
             id: this.htmlIdLocal,
             label: this.label,
             labelClass: this.labelClass,
-            labelScreenreader: this.labelScreenreader,
+            labelScreenReader: this.labelScreenReader,
             required: this.required,
             type: this.type,
             isLabelFloat: false,

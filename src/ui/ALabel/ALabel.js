@@ -54,7 +54,7 @@ export default {
     labelClass: {
       required: false,
     },
-    labelScreenreader: {
+    labelScreenReader: {
       type: String,
       required: false,
       default: undefined,
@@ -138,14 +138,15 @@ export default {
     return h(AElement, {
       id: this.idLabelLocal,
       class: ["a_form_element_label", this.labelClass],
-      html: this.labelLocal,
-      htmlScreenReader: this.labelScreenreader,
       for: this.forLabelLocal,
+      html: this.labelLocal,
       loading: this.loading,
       loadingAlign: "right",
       loadingClass: "a_spinner_small a_form_element_label__spinner",
       tag: this.tag,
       textAfter: this.textAfterLabel,
+      textAriaHidden: !!this.labelScreenReader,
+      textScreenReader: this.labelScreenReader,
       title: this.titleLocal,
       type: "text",
       onClick: this.onClick,

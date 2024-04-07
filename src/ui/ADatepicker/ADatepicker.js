@@ -114,7 +114,7 @@ export default {
       required: false,
       default: false,
     },
-    labelScreenreader: {
+    labelScreenReader: {
       type: String,
       required: false,
       default: undefined,
@@ -480,7 +480,7 @@ export default {
           id: this.htmlIdLocal,
           label: this.label,
           labelClass: this.labelClass,
-          labelScreenreader: this.labelScreenreader,
+          labelScreenReader: this.labelScreenReader,
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,
