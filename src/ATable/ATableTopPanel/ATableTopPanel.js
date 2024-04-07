@@ -12,6 +12,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
 import CountAllRowsAPI from "./compositionAPI/CountAllRowsAPI";
+import IdAPI from "./compositionAPI/IdAPI";
 import MultipleAPI from "./compositionAPI/MultipleAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
@@ -167,6 +168,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      tableLabelId,
+    } = IdAPI();
+
+    const {
       filterCurrency,
     } = AFiltersAPI();
 
@@ -209,6 +214,7 @@ export default {
       onCancelMultipleActions,
       onOpenModalMultipleActions,
       tableActionsFiltered,
+      tableLabelId,
       textMultipleBtnAllRowsTranslate,
       textMultipleSelectedTranslateExtra,
       toggleBtnAllRows,
@@ -229,11 +235,13 @@ export default {
         this.isLabelVisible ?
           this.$slots.tableLabel ? this.$slots.tableLabel({
             countAllRows: this.countAllRows,
+            tableLabelId: this.tableLabelId,
           }) :
             h(this.labelTag, {
               class: ["a_table__top_panel__label", this.labelClass],
             }, [
               h(ATranslation, {
+                id: this.tableLabelId,
                 tag: "span",
                 class: "a_table__top_panel__label__text",
                 text: this.label,

@@ -74,3 +74,7 @@ export function getPreviewRightId({ tableId }) {
 export function getMultiplePanelId({ tableId }) {
   return `${ tableId }_multiple_panel`;
 }
+
+export function getTableLabelId({ tableId }) {
+  return `${ tableId }_header_label`;
+}

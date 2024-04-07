@@ -636,8 +636,9 @@ export default {
 
     const {
       tableChildRole,
+      tableLabelId,
       tableRoleAttributes,
-    } = TableAttributesAPI({
+    } = TableAttributesAPI(props, {
       countNotHiddenColumns,
       isMobile,
     });
@@ -759,6 +760,7 @@ export default {
       stopRenderRows,
       tableChildRole,
       tableGrandparentRef,
+      tableLabelId,
       tableRef,
       tableRoleAttributes,
       toggleBtnAllRows,
@@ -846,6 +848,7 @@ export default {
         this.$slots.topPanelAppend ? this.$slots.topPanelAppend() : "",
         this.isViewTableVisible && h("div", {
           ref: "tableRef",
+          "aria-labelledby": this.tableLabelId,
           class: [
             "a_table",
             {
