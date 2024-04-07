@@ -27,7 +27,7 @@ export default {
       type: "text",
       id: "search",
       label: "_A_PAGE_FILTER_SEARCH_",
-      labelScreenreader: "_A_PAGE_FILTER_SEARCH_SCREEN_READER_",
+      labelScreenReader: "_A_PAGE_FILTER_SEARCH_SCREEN_READER_",
     };
 
     const filters = [

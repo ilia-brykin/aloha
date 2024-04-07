@@ -15,7 +15,19 @@ export default function LabelAPI(props, {
     return "";
   });
 
+  const filterLabelScreenReader = computed(() => {
+    if (hasCurrentFilter.value) {
+      return filter.value.labelScreenReader;
+    }
+    return undefined;
+  });
+
+  const filterLabelForTitle = computed(() => {
+    return filterLabelScreenReader.value || filterLabel.value;
+  });
+
   return {
     filterLabel,
+    filterLabelForTitle,
   };
 }

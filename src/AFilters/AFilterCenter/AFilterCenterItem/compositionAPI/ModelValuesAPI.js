@@ -11,6 +11,9 @@ import {
 } from "../../../../ui/const/AUiTypes";
 import TypesNumberRange from "../../../../ui/AInputNumberRange/utils/Types";
 import {
+  getTranslatedText,
+} from "../../../../ATranslation/compositionAPI/UtilsAPI";
+import {
   filter as _filter,
   get,
   isNil,
@@ -18,6 +21,8 @@ import {
 
 
 export default function ModelValuesAPI(props, {
+  filterLabel = computed(() => ""),
+  filterLabelForTitle = computed(() => ""),
   hasCurrentFilter = computed(() => false),
 }) {
   const dataKeyByKeyIdPerFilter = toRef(props, "dataKeyByKeyIdPerFilter");
@@ -45,6 +50,17 @@ export default function ModelValuesAPI(props, {
     return [];
   });
 
+  const getTranslatedLabelWithSuffix = ({ label, suffixTranslated }) => {
+    const LABEL_TRANSLATED = getTranslatedText({
+      placeholder: label,
+    });
+    if (!suffixTranslated) {
+      return LABEL_TRANSLATED;
+    }
+
+    return `${ LABEL_TRANSLATED } ${ suffixTranslated }`;
+  };
+
   const modelValuesForCurrentFilter = computed(() => {
     if (!hasCurrentFilter.value) {
       return [];
@@ -52,11 +68,15 @@ export default function ModelValuesAPI(props, {
     if (filter.value.type === "switch" ||
       filter.value.type === "oneCheckbox") {
       return [{
+        filterLabelTranslated: getTranslatedLabelWithSuffix({ label: filterLabel.value }),
+        filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({ label: filterLabelForTitle.value }),
         label: filterBoolean(model.value),
       }];
     }
     if (filter.value.type === "date") {
       return [{
+        filterLabelTranslated: getTranslatedLabelWithSuffix({ label: filterLabel.value }),
+        filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({ label: filterLabelForTitle.value }),
         label: filterDate(model.value),
       }];
     }
@@ -66,6 +86,8 @@ export default function ModelValuesAPI(props, {
       const LABEL = get(filterDataKey.value, `${ model.value }.${ AKeyLabel }`);
       if (LABEL) {
         return [{
+          filterLabelTranslated: getTranslatedLabelWithSuffix({ label: filterLabel.value }),
+          filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({ label: filterLabelForTitle.value }),
           label: LABEL,
         }];
       }
@@ -78,18 +100,28 @@ export default function ModelValuesAPI(props, {
           const item = filterDataKey.value?.[modelArrayReal.value[0]];
 
           return [{
+            filterLabelTranslated: getTranslatedLabelWithSuffix({ label: filterLabel.value }),
+            filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({ label: filterLabelForTitle.value }),
             label: item?.[AKeyLabel],
             item,
             modelArray: modelArrayReal.value,
           }];
         }
         return [{
-          label: "_A_FILTERS_SELECTED_{{count}}_",
+          filterLabelTranslated: getTranslatedLabelWithSuffix({ label: filterLabel.value }),
+          filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({ label: filterLabelForTitle.value }),
+          label: getTranslatedText({
+            placeholder: "_A_FILTERS_SELECTED_{{count}}_",
+            extra: {
+              count: modelArrayReal.value.length,
+              modelArray: modelArrayReal.value,
+            },
+          }),
+          modelArray: modelArrayReal.value,
           extra: {
             count: modelArrayReal.value.length,
             modelArray: modelArrayReal.value,
           },
-          modelArray: modelArrayReal.value,
         }];
       }
       return [];
@@ -100,17 +132,37 @@ export default function ModelValuesAPI(props, {
       const KEY_UNTIL = filter.value.keyUntil || "until";
       const MODEL_VALUES = [];
       if (!isNil(model.value?.[KEY_FROM]) && model.value?.[KEY_FROM] !== "") {
+        const SUFFIX_TRANSLATED = getTranslatedText({
+          placeholder: filter.value.labelFrom || "_A_DATEPICKER_RANGE_FROM_",
+        });
         MODEL_VALUES.push({
+          filterLabelTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabel.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
+          filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabelForTitle.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
           label: filterDate(model.value[KEY_FROM]),
-          filterLabelSuffix: filter.value.labelFrom || "_A_DATEPICKER_RANGE_FROM_",
           idSuffix: "_from",
           keyId: KEY_FROM,
         });
       }
       if (!isNil(model.value?.[KEY_UNTIL]) && model.value?.[KEY_UNTIL] !== "") {
+        const SUFFIX_TRANSLATED = getTranslatedText({
+          placeholder: filter.value.labelUntil || "_A_DATEPICKER_RANGE_UNTIL_",
+        });
         MODEL_VALUES.push({
+          filterLabelTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabel.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
+          filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabelForTitle.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
           label: filterDate(model.value[KEY_UNTIL]),
-          filterLabelSuffix: filter.value.labelUntil || "_A_DATEPICKER_RANGE_UNTIL_",
           idSuffix: "_until",
           keyId: KEY_UNTIL,
         });
@@ -123,17 +175,39 @@ export default function ModelValuesAPI(props, {
       const KEY_MIN = filter.value.keyMin || "min";
       const MODEL_VALUES = [];
       if (!isNil(model.value?.[KEY_MIN]) && model.value?.[KEY_MIN] !== "") {
+        const SUFFIX_TRANSLATED = getTranslatedText({
+          placeholder: filter.value.labelMin || "_A_INPUT_NUMBER_RANGE_LABEL_MIN_",
+        });
+
         MODEL_VALUES.push({
+          filterLabelTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabel.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
+          filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabelForTitle.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
           label: model.value[KEY_MIN],
-          filterLabelSuffix: filter.value.labelMin || "_A_INPUT_NUMBER_RANGE_LABEL_MIN_",
           idSuffix: "_min",
           keyId: KEY_MIN,
         });
       }
       if (!isNil(model.value?.[KEY_MAX]) && model.value?.[KEY_MAX] !== "") {
+        const SUFFIX_TRANSLATED = getTranslatedText({
+          placeholder: filter.value.labelMax || "_A_INPUT_NUMBER_RANGE_LABEL_MAX_",
+        });
+
         MODEL_VALUES.push({
+          filterLabelTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabel.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
+          filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({
+            label: filterLabelForTitle.value,
+            suffixTranslated: SUFFIX_TRANSLATED,
+          }),
           label: model.value[KEY_MAX],
-          filterLabelSuffix: filter.value.labelMax || "_A_INPUT_NUMBER_RANGE_LABEL_MAX_",
           idSuffix: "_max",
           keyId: KEY_MAX,
         });
@@ -142,6 +216,8 @@ export default function ModelValuesAPI(props, {
     }
     return [{
       label: model.value,
+      filterLabelTranslated: getTranslatedLabelWithSuffix({ label: filterLabel.value }),
+      filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({ label: filterLabelForTitle.value }),
     }];
   });
 
