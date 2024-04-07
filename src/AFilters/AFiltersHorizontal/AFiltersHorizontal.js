@@ -139,6 +139,7 @@ export default {
 
     const {
       buttonDeleteId,
+      isConfirmHidden,
       openDeleteConfirm,
       textScreenreaderButtonDeleteFiltersSaved,
       titleButtonDeleteFiltersSaved,
@@ -171,6 +172,7 @@ export default {
       hasFiltersHiddenDefault,
       idFilterTop,
       initModelFiltersSaved,
+      isConfirmHidden,
       isDropdownVisible,
       isModalSaveVisible,
       isModelFilterSavedNew,
@@ -202,7 +204,7 @@ export default {
         inBody: true,
         lockArrowsNavigation: false,
         lockTabNavigation: false,
-        useEscape: !this.isModalSaveVisible,
+        useEscape: !this.isModalSaveVisible && this.isConfirmHidden,
       }, {
         ...this.$slots,
         dropdown: () => {

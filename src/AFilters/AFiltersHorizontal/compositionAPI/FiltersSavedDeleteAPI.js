@@ -17,9 +17,10 @@ export default function FiltersSavedDeleteAPI(props, {
   const updateFiltersSaved = toRef(props, "updateFiltersSaved");
 
   const {
-    closeConfirm,
-    openConfirm,
     changeConfirmOptions,
+    closeConfirm,
+    isModalHidden: isConfirmHidden,
+    openConfirm,
   } = AConfirmAPI();
 
   const {
@@ -99,6 +100,7 @@ export default function FiltersSavedDeleteAPI(props, {
 
   return {
     buttonDeleteId,
+    isConfirmHidden,
     openDeleteConfirm,
     textScreenreaderButtonDeleteFiltersSaved,
     titleButtonDeleteFiltersSaved,
