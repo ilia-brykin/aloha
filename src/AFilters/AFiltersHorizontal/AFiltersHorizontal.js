@@ -202,6 +202,7 @@ export default {
         inBody: true,
         lockArrowsNavigation: false,
         lockTabNavigation: false,
+        useEscape: !this.isModalSaveVisible,
       }, {
         ...this.$slots,
         dropdown: () => {
