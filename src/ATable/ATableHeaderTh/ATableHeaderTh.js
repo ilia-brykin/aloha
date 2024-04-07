@@ -85,6 +85,7 @@ export default {
     const {
       ariaSort,
       attributesForButtonSort,
+      columnTextScreenReaderId,
       iconsSortable,
       isSortable,
       isSorting,
@@ -107,6 +108,7 @@ export default {
     return {
       attributesForButtonSort,
       attributesForTh,
+      columnTextScreenReaderId,
       columnsStyles,
       iconsSortable,
       isSortable,
@@ -128,6 +130,13 @@ export default {
           tag: "span",
           class: "a_sr_only",
         }),
+        h(ATranslation, {
+          id: this.columnTextScreenReaderId,
+          text: this.titlesLocal,
+          tag: "span",
+          class: "a_sr_only",
+          ariaHidden: true,
+        }),
         h(AButton, {
           class: [
             "a_table__th__btn",
@@ -140,23 +149,15 @@ export default {
           ],
           iconLeft: this.column.icon,
           iconClass: "a_table__th__icon",
-          textAriaHidden: this.column.textAriaHidden,
           title: this.titlesLocal,
-          htmlScreenReader: this.column.textScreenReader,
+          textScreenReader: this.column.textScreenReader || undefined,
           ...this.attributesForButtonSort,
         }, () => [
-          this.titlesSort.map(titleSort => {
-            return h(ATranslation, {
-              html: titleSort,
-              tag: "span",
-              class: "a_sr_only",
-            });
-          }),
           this.column.label && h(ATranslation, {
             html: this.column.label,
             tag: "span",
             class: "a_table__th__text aloha_element__ml_0",
-            ariaHidden: this.column.textAriaHidden,
+            ariaHidden: !!this.column.textScreenReader,
           }),
           this.isSortable && h("span", {
             class: "a_table__th__sort__box aloha_element__ml_0",

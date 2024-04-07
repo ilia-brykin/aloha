@@ -13,12 +13,14 @@ import {
 
 export default function SortAPI(props) {
   const column = toRef(props, "column");
+  const columnIndex = toRef(props, "columnIndex");
   const disabledSort = toRef(props, "disabledSort");
   const isSortingMultiColumn = toRef(props, "isSortingMultiColumn");
   const modelSort = toRef(props, "modelSort");
   const showFirstSortingSequenceNumber = toRef(props, "showFirstSortingSequenceNumber");
 
   const changeModelSort = inject("changeModelSort");
+  const tableId = inject("tableId");
 
   const sortId = computed(() => {
     return column.value.sortId;
@@ -102,14 +104,17 @@ export default function SortAPI(props) {
     });
   };
 
+  const columnTextScreenReaderId = computed(() => {
+    return `${ tableId.value }_th_${ columnIndex.value }_screen_reader`;
+  });
+
   const attributesForButtonSort = computed(() => {
     if (isSortable.value) {
       return {
         type: "button",
         disabled: disabledSort.value,
         isTitleHtml: tablePluginOptions.value.config?.isHtmlTitleSort || false,
-        // ariaLabel: "Bla bla", // TODO: Barrierefreiheit
-        // "aria-describedby": "alohaTest",
+        "aria-describedby": columnTextScreenReaderId.value,
         onClick: changeModelSortLocal,
       };
     }
@@ -150,6 +155,7 @@ export default function SortAPI(props) {
   return {
     ariaSort,
     attributesForButtonSort,
+    columnTextScreenReaderId,
     iconsSortable,
     isSortable,
     isSorting,
