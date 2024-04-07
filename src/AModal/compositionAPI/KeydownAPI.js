@@ -7,7 +7,7 @@ export default function KeydownAPI({
   const keydown = $event => {
     const EVENT = $event || window.$event;
     if (EVENT.key === "Escape" || EVENT.keyCode === AKeysCode.escape) {
-      pressEscape();
+      pressEscape($event);
     } else if (EVENT.key === "Tab" || EVENT.keyCode === AKeysCode.tab) {
       trapFocus(EVENT);
     }
