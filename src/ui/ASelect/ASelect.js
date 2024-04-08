@@ -674,7 +674,7 @@ export default {
               "aria-labelledby": this.ariaLabelledby,
               role: "combobox",
               tabindex: this.tabindex,
-              ariaHaspopup: "listbox",
+              "aria-haspopup": "listbox",
               ariaExpanded: this.isOpen,
               ariaRequired: this.required,
               ariaDisabled: this.disabled,
