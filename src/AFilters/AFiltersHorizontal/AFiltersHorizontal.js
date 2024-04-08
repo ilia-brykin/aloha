@@ -239,7 +239,7 @@ export default {
                   change: this.changeModelFiltersSaved,
                   class: "a_filters_top__save_select",
                   data: this.filtersSavedLocal,
-                  deselect: false,
+                  deselectable: false,
                   keyId: "label",
                   keyLabel: "label",
                   keyGroup: "group",
