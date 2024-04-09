@@ -1,4 +1,4 @@
-import { isNil } from "lodash-es";
+import { get, isNil } from "lodash-es";
 
 export function getModelColumnsVisibleDefault(columns) {
   const MODEL_COLUMNS_VISIBLE = {};
@@ -77,4 +77,12 @@ export function getMultiplePanelId({ tableId }) {
 
 export function getTableLabelId({ tableId }) {
   return `${ tableId }_header_label`;
+}
+
+export function getRowIdOrIndex({ row, rowIndex, keyId }) {
+  if (keyId) {
+    return get(row, keyId);
+  }
+
+  return rowIndex;
 }

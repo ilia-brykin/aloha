@@ -141,7 +141,7 @@ export default {
       eventsLocal,
       roleLocal,
       rowClassComputed,
-      rowId,
+      rowHtmlId,
     } = AttributesAPI(props, {
       hasChildren,
       hasPreviewLocal,
@@ -184,7 +184,7 @@ export default {
       previewAttributes,
       roleLocal,
       rowClassComputed,
-      rowId,
+      rowHtmlId,
       textBtnToggleAllColumns,
       toggleAllColumnsVisibleMobile,
       toggleCheckbox,
@@ -248,7 +248,7 @@ export default {
 
     return [
       h("div", {
-        id: this.rowId,
+        id: this.rowHtmlId,
         role: this.roleLocal,
         class: this.rowClassComputed,
         "aria-expanded": this.ariaExpanded,

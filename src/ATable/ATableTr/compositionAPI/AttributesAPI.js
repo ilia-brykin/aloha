@@ -4,13 +4,13 @@ import {
   toRef,
 } from "vue";
 
-import {
-  isFunction,
-} from "lodash-es";
 import AKeysCode from "../../../const/AKeysCode";
 import {
   isClickTags,
 } from "../../utils/utils";
+import {
+  isFunction,
+} from "lodash-es";
 
 export default function AttributesAPI(props, {
   hasChildren = computed(() => false),
@@ -31,7 +31,7 @@ export default function AttributesAPI(props, {
   const onTogglePreview = inject("onTogglePreview");
   const tableId = inject("tableId");
 
-  const rowId = computed(() => {
+  const rowHtmlId = computed(() => {
     const FOOTER_ID = isFooter.value ? "_footer" : "";
     return `${ tableId.value }${ FOOTER_ID }_${ rowIndex.value }`;
   });
@@ -113,6 +113,6 @@ export default function AttributesAPI(props, {
     eventsLocal,
     roleLocal,
     rowClassComputed,
-    rowId,
+    rowHtmlId,
   };
 }

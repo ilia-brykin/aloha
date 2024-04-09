@@ -12,6 +12,7 @@ import {
 } from "../../utils/utilsDOM";
 import {
   getPreviewRightId,
+  getRowIdOrIndex,
 } from "../utils/utils";
 import {
   isNil,
@@ -39,10 +40,15 @@ export default function PreviewAPI(props, context, {
     aTableRef,
     tableGrandparentRef,
   });
-  const emit = context.emit;
-
+  const keyId = toRef(props, "keyId");
   const preview = toRef(props, "preview");
   const tableId = toRef(props, "id");
+
+  const emit = context.emit;
+  const previewDownRowIds = ref({});
+  const previewRightRowIndex = ref(undefined);
+  const previewRightRowIndexLast = ref(undefined);
+
   const hasPreview = computed(() => {
     return !!preview.value;
   });
@@ -64,8 +70,7 @@ export default function PreviewAPI(props, context, {
   const isPreviewRight = computed(() => {
     return preview.value === "right" || isMobile.value;
   });
-  const previewRightRowIndex = ref(undefined);
-  const previewRightRowIndexLast = ref(undefined);
+
   const isPreviewRightOpen = computed(() => {
     return !isNil(previewRightRowIndex.value);
   });
@@ -99,14 +104,14 @@ export default function PreviewAPI(props, context, {
     return preview.value === "down";
   });
 
-  const previewDownRowIndexes = ref({});
+  const closePreviewDown = ({ rowIndex, row }) => {
+    const ID = getRowIdOrIndex({ row, rowIndex, keyId: keyId.value });
 
-  const closePreviewDown = ({ rowIndex }) => {
-    previewDownRowIndexes.value[rowIndex] = undefined;
+    delete previewDownRowIds.value[ID];
   };
 
   const closePreviewDownAll = () => {
-    previewDownRowIndexes.value = {};
+    previewDownRowIds.value = {};
   };
 
   const closePreviewAll = () => {
@@ -114,12 +119,11 @@ export default function PreviewAPI(props, context, {
     closePreviewDownAll();
   };
 
-  const closePreview = ({ rowIndex } = {}) => {
+  const closePreview = ({ rowIndex, row } = {}) => {
     if (isPreviewRight.value) {
       closePreviewRight();
-    }
-    if (isPreviewDown.value) {
-      closePreviewDown({ rowIndex });
+    } else if (isPreviewDown.value) {
+      closePreviewDown({ rowIndex, row });
     }
   };
 
@@ -145,15 +149,18 @@ export default function PreviewAPI(props, context, {
       openPreviewRight({ rowIndex });
     }
   };
-  const onTogglePreviewDown = ({ rowIndex }) => {
-    if (previewDownRowIndexes.value[rowIndex]) {
-      previewDownRowIndexes.value[rowIndex] = undefined;
+
+  const onTogglePreviewDown = ({ rowIndex, row }) => {
+    const ID = getRowIdOrIndex({ row, rowIndex, keyId: keyId.value });
+
+    if (previewDownRowIds.value[ID]) {
+      delete previewDownRowIds.value[ID];
     } else {
-      previewDownRowIndexes.value[rowIndex] = true;
+      previewDownRowIds.value[ID] = true;
     }
   };
 
-  const onTogglePreview = ({ rowIndex }) => {
+  const onTogglePreview = ({ row, rowIndex }) => {
     if (isDropdownGlobalOpen.value) {
       return;
     }
@@ -162,7 +169,7 @@ export default function PreviewAPI(props, context, {
       return;
     }
     if (isPreviewDown.value) {
-      onTogglePreviewDown({ rowIndex });
+      onTogglePreviewDown({ row, rowIndex });
     }
   };
 
@@ -175,7 +182,7 @@ export default function PreviewAPI(props, context, {
     mousemoveResizePreviewRight,
     mouseupResizePreviewRight,
     onTogglePreview,
-    previewDownRowIndexes,
+    previewDownRowIds,
     previewRightRowIndex,
     previewRightRowIndexLast,
     togglePreviewResize,

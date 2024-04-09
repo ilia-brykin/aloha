@@ -42,6 +42,9 @@ import {
 } from "../plugins/ATablePlugin";
 
 import {
+  getRowIdOrIndex,
+} from "./utils/utils";
+import {
   isInteger,
   uniqueId,
 } from "lodash-es";
@@ -213,7 +216,7 @@ export default {
     keyId: {
       type: String,
       required: false,
-      default: "id",
+      default: undefined,
     },
     keyChildren: {
       type: String,
@@ -448,6 +451,7 @@ export default {
       columnWidthDefault: computed(() => this.columnWidthDefault),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
+      keyId: computed(() => this.keyId),
       rowActions: computed(() => this.rowActions),
       tableId: computed(() => this.id),
       valuesForColumnDefault: computed(() => this.valuesForColumnDefault),
@@ -623,7 +627,7 @@ export default {
       mousedownResizePreviewRight,
       mousemoveResizePreviewRight,
       mouseupResizePreviewRight,
-      previewDownRowIndexes,
+      previewDownRowIds,
       previewRightRowIndex,
       previewRightRowIndexLast,
       togglePreviewResize,
@@ -747,7 +751,7 @@ export default {
       mouseupResizePreviewRight,
       offset,
       onTogglePreview,
-      previewDownRowIndexes,
+      previewDownRowIds,
       previewRightRowIndex,
       renderedGroupedColumns,
       rowsLocal,
@@ -902,8 +906,10 @@ export default {
                 role: this.tableChildRole,
               }, {
                 default: () => this.rowsLocal.map((row, rowIndex) => {
+                  const ROW_ID = getRowIdOrIndex({ row, rowIndex, keyId: this.keyId });
+
                   return h(ATableTr, {
-                    key: row[this.keyId] || rowIndex,
+                    key: ROW_ID,
                     allVisibleMobileColumns: this.allVisibleMobileColumns,
                     areAllRowsSelected: this.areAllRowsSelected,
                     countVisibleMobileColumns: this.countVisibleMobileColumns,
@@ -911,7 +917,7 @@ export default {
                     disabledPreviewRowCallback: this.disabledPreviewRowCallback,
                     disabledRowActions: this.disabledRowActions,
                     isFooter: false,
-                    isPreviewDownOpen: this.previewDownRowIndexes[rowIndex],
+                    isPreviewDownOpen: this.previewDownRowIds[ROW_ID],
                     isRowActionsStickyLocal: this.isRowActionsStickyLocal,
                     isTree: this.isTree,
                     keyChildren: this.keyChildren,
@@ -943,7 +949,10 @@ export default {
                 class: "a_table__footer",
                 role: this.tableChildRole,
               }, this.rowsFooter.map((row, rowIndex) => {
+                const ROW_ID = getRowIdOrIndex({ row, rowIndex, keyId: this.keyId });
+
                 return h(ATableTr, {
+                  key: ROW_ID,
                   allVisibleMobileColumns: this.allVisibleMobileColumns,
                   areAllRowsSelected: this.areAllRowsSelected,
                   countVisibleMobileColumns: this.countVisibleMobileColumns,
