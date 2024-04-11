@@ -5,6 +5,9 @@ import {
 } from "vue";
 
 import {
+  isRowActionVisible,
+} from "../utils/utils";
+import {
   cloneDeep,
   endsWith,
   forEach,
@@ -16,6 +19,7 @@ import {
 } from "lodash-es";
 
 export default function RowActionsAPI(props) {
+  const columnActionsView = toRef(props, "columnActionsView");
   const row = toRef(props, "row");
   const rowIndex = toRef(props, "rowIndex");
   const isFooter = toRef(props, "isFooter");
@@ -23,22 +27,13 @@ export default function RowActionsAPI(props) {
   const rowActions = inject("rowActions");
   const tableId = inject("tableId");
 
+  const buttonFirstActionId = computed(() => {
+    return `${ tableId.value }_action_${ rowIndex.value }_first`;
+  });
+
   const buttonActionsId = computed(() => {
     return `${ tableId.value }_action_${ rowIndex.value }`;
   });
-
-  const isRowActionVisible = ({ rowAction }) => {
-    if (rowAction.isHidden) {
-      return false;
-    }
-    if (isFunction(rowAction.isHiddenCallback)) {
-      return !rowAction.isHiddenCallback({
-        row: row.value,
-        rowIndex: rowIndex.value,
-      });
-    }
-    return true;
-  };
 
   const getRowActionText = ({ rowAction }) => {
     if (rowAction.text) {
@@ -219,8 +214,13 @@ export default function RowActionsAPI(props) {
 
   const rowActionsFiltered = computed(() => {
     const ROW_ACTIONS = [];
+    let rowActionIndexVisible = 0;
     forEach(cloneDeep(rowActions.value), rowAction => {
-      if (isRowActionVisible({ rowAction })) {
+      if (isRowActionVisible({
+        rowAction,
+        row: row.value,
+        rowIndex: rowIndex.value,
+      })) {
         if (rowAction.type !== "divider") {
           const TEXT = getRowActionText({ rowAction });
           if (TEXT) {
@@ -233,6 +233,8 @@ export default function RowActionsAPI(props) {
           const TITLE = getRowActionTitle({ rowAction });
           if (TITLE) {
             rowAction.title = TITLE;
+          } else if (TEXT) {
+            rowAction.title = TEXT;
           }
           const DISABLED = getRowActionDisabled({ rowAction });
           if (DISABLED) {
@@ -263,18 +265,24 @@ export default function RowActionsAPI(props) {
             }
           }
           if (isFunction(rowAction.callback)) {
+            let buttonId = buttonActionsId.value;
+            if (columnActionsView.value !== "dropdown" && rowActionIndexVisible === 0) {
+              buttonId = buttonFirstActionId.value;
+            }
+
             const CALLBACK_DEFAULT = rowAction.callback;
             rowAction.callback = () => CALLBACK_DEFAULT({
               row: row.value,
               rowIndex: rowIndex.value,
-              id: buttonActionsId.value,
-              ids: [buttonActionsId.value, tableId.value],
+              id: buttonId,
+              ids: [buttonId, tableId.value],
               rowAction,
             });
           }
           replacePropertiesByRowAction(rowAction);
         }
 
+        rowActionIndexVisible++;
         ROW_ACTIONS.push(rowAction);
       }
     });
@@ -288,6 +296,7 @@ export default function RowActionsAPI(props) {
 
   return {
     buttonActionsId,
+    buttonFirstActionId,
     isRowActionsDropdownVisible,
     rowActionsFiltered,
   };

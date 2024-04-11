@@ -15,6 +15,7 @@ import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 import ATranslation from "../ATranslation/ATranslation";
 
+import ColumnActionAPI from "./compositionAPI/ColumnActionAPI";
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import ColumnsGroupedAPI from "./compositionAPI/ColumnsGroupedAPI";
 import ColumnsOrderingAPI from "./compositionAPI/ColumnsOrderingAPI";
@@ -65,12 +66,29 @@ export default {
     columnActionsWidth: {
       type: Number,
       required: false,
-      default: 170,
+      default: undefined,
+    },
+    columnActionsWidthDefaults: {
+      type: Object,
+      required: false,
+      default: () => ({
+        default: 170,
+        min: 50,
+        onePlusDropdown: 320,
+        onePlusDropdownMin: 200,
+        btnGroupMaxWidth: 180,
+      }),
     },
     columnActionsWidthMin: {
       type: Number,
       required: false,
-      default: 50,
+      default: undefined,
+    },
+    columnActionsView: {
+      type: String,
+      required: false,
+      default: "dropdown",
+      validator: value => ["onePlusDropdown", "onePlusDropdownEmptyPlace", "dropdown"].indexOf(value) !== -1,
     },
     columns: {
       type: Array,
@@ -444,8 +462,6 @@ export default {
   provide() {
     return {
       changeModelColumnsVisible: this.changeModelColumnsVisible,
-      columnActionsWidthLocal: computed(() => this.columnActionsWidth),
-      columnActionsWidthMin: computed(() => this.columnActionsWidthMin),
       columns: computed(() => this.columns),
       columnsDefaultValue: computed(() => this.columnsDefaultValue),
       columnWidthDefault: computed(() => this.columnWidthDefault),
@@ -559,12 +575,23 @@ export default {
     });
 
     const {
+      columnActionsBtnGroupMaxWidthStyle,
+      columnActionsWidthLocal,
+      columnActionsWidthMinLocal,
+      isColumnActionWide,
+    } = ColumnActionAPI(props, {
+      rowsLocal,
+    });
+
+    const {
       aTableRef,
       changeModelIsTableWithoutScroll,
       checkVisibleColumns,
       columnsVisibleAdditionalSpaceForOneGrow,
       onWatchMobileScrollControl,
     } = ScrollControlAPI(props, context, {
+      columnActionsWidth: columnActionsWidthLocal,
+      columnActionsWidthMin: columnActionsWidthMinLocal,
       columnsOrdered,
       columnsScrollInvisible,
       indexFirstScrollInvisibleColumn,
@@ -686,12 +713,20 @@ export default {
       closePreviewAll();
     });
 
+    watch(isColumnActionWide, (newValue, oldValue) => {
+      if (newValue === oldValue) {
+        checkVisibleColumns();
+      }
+    });
+
     provide("changeModelIsTableWithoutScroll", changeModelIsTableWithoutScroll);
     provide("changeModelSort", changeModelSort);
     provide("columnsOrdered", columnsOrdered);
     provide("columnsFilteredForRender", columnsFilteredForRender);
     provide("columnsScrollInvisible", columnsScrollInvisible);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
+    provide("columnActionsWidthLocal", columnActionsWidthLocal);
+    provide("columnActionsWidthMinLocal", columnActionsWidthMinLocal);
     provide("currentMultipleActions", currentMultipleActions);
     provide("hasPreview", hasPreview);
     provide("indexFirstScrollInvisibleColumn", indexFirstScrollInvisibleColumn);
@@ -727,6 +762,7 @@ export default {
       closeMultipleActionsActive,
       closePreview,
       closePreviewAll,
+      columnActionsBtnGroupMaxWidthStyle,
       columnsFilteredForRender,
       columnsOrdered,
       countAllRowsLocal,
@@ -910,6 +946,8 @@ export default {
                     key: ROW_ID,
                     allVisibleMobileColumns: this.allVisibleMobileColumns,
                     areAllRowsSelected: this.areAllRowsSelected,
+                    columnActionsBtnGroupMaxWidthStyle: this.columnActionsBtnGroupMaxWidthStyle,
+                    columnActionsView: this.columnActionsView,
                     countVisibleMobileColumns: this.countVisibleMobileColumns,
                     disabledPreview: this.disabledPreview,
                     disabledPreviewRowCallback: this.disabledPreviewRowCallback,
@@ -953,6 +991,8 @@ export default {
                   key: ROW_ID,
                   allVisibleMobileColumns: this.allVisibleMobileColumns,
                   areAllRowsSelected: this.areAllRowsSelected,
+                  columnActionsBtnGroupMaxWidthStyle: this.columnActionsBtnGroupMaxWidthStyle,
+                  columnActionsView: this.columnActionsView,
                   countVisibleMobileColumns: this.countVisibleMobileColumns,
                   disabledPreview: this.disabledPreview,
                   disabledPreviewRowCallback: this.disabledPreviewRowCallback,

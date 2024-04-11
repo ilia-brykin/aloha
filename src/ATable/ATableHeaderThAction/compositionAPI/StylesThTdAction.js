@@ -4,7 +4,7 @@ import {
 } from "vue";
 
 export default function StylesThTdAction() {
-  const columnActionsWidthMin = inject("columnActionsWidthMin");
+  const columnActionsWidthMinLocal = inject("columnActionsWidthMinLocal");
   const modelIsTableWithoutScroll = inject("modelIsTableWithoutScroll");
 
   const stylesThTd = computed(() => {
@@ -13,7 +13,7 @@ export default function StylesThTdAction() {
     }
 
     return {
-      style: `width: ${ columnActionsWidthMin.value }px;`,
+      style: `width: ${ columnActionsWidthMinLocal.value }px;`,
     };
   });
 

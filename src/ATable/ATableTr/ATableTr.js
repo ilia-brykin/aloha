@@ -30,6 +30,15 @@ export default {
       type: Boolean,
       required: true,
     },
+    columnActionsBtnGroupMaxWidthStyle: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    columnActionsView: {
+      type: String,
+      required: true,
+    },
     countVisibleMobileColumns: {
       type: Number,
       required: true,
@@ -232,6 +241,8 @@ export default {
 
     const ACTIONS = this.isActionColumnVisible &&
       h(ATableTdAction, {
+        columnActionsBtnGroupMaxWidthStyle: this.columnActionsBtnGroupMaxWidthStyle,
+        columnActionsView: this.columnActionsView,
         disabledRowActions: this.disabledRowActions,
         row: this.row,
         rowIndex: this.rowIndex,
@@ -299,6 +310,8 @@ export default {
             key: row[this.keyId] || rowIndex,
             allVisibleMobileColumns: this.allVisibleMobileColumns,
             areAllRowsSelected: this.areAllRowsSelected,
+            columnActionsBtnGroupMaxWidthStyle: this.columnActionsBtnGroupMaxWidthStyle,
+            columnActionsView: this.columnActionsView,
             countVisibleMobileColumns: this.countVisibleMobileColumns,
             disabledPreview: this.disabledPreviewRow,
             disabledRowActions: this.disabledRowActions,

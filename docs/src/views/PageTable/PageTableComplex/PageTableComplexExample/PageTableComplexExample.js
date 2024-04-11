@@ -173,15 +173,15 @@ export default {
         },
         {
           type: "button",
-          text: "Click me",
-          title: "Click me title",
+          text: "Click me Click me Click me Click me",
           isHidden: false,
           callback: this.clickMe,
-          class: "aloha a_dropdown__item",
           disabled: false,
           extraCallback: ({ row }) => ({
             aloha: row.aloha,
           }),
+          iconLeft: "Export",
+          isHiddenCallback: ({ rowIndex }) => rowIndex > 5,
         },
         {
           type: "divider",

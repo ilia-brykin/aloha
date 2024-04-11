@@ -183,7 +183,6 @@ export default {
           title: "Click me title",
           isHidden: false,
           callback: this.clickMe,
-          class: "aloha a_dropdown__item",
           disabled: false,
           extraCallback: ({ row }) => ({
             aloha: row.aloha,

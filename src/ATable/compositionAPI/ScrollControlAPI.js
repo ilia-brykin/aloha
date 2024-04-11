@@ -17,6 +17,8 @@ import {
 } from "lodash-es";
 
 export default function ScrollControlAPI(props, { emit }, {
+  columnActionsWidth = computed(() => 0),
+  columnActionsWidthMin = computed(() => 0),
   columnsOrdered = computed(() => []),
   columnsScrollInvisible = ref([]),
   indexFirstScrollInvisibleColumn = ref(undefined),
@@ -26,8 +28,6 @@ export default function ScrollControlAPI(props, { emit }, {
   modelIsTableWithoutScroll = ref(false),
 }) {
   const columnWidthDefault = toRef(props, "columnWidthDefault");
-  const columnActionsWidth = toRef(props, "columnActionsWidth");
-  const columnActionsWidthMin = toRef(props, "columnActionsWidthMin");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const isSimpleTable = toRef(props, "isSimpleTable");
 

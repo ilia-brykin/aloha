@@ -1,4 +1,4 @@
-import { get, isNil } from "lodash-es";
+import { get, isFunction, isNil } from "lodash-es";
 
 export function getModelColumnsVisibleDefault(columns) {
   const MODEL_COLUMNS_VISIBLE = {};
@@ -85,4 +85,19 @@ export function getRowIdOrIndex({ row, rowIndex, keyId }) {
   }
 
   return rowIndex;
+}
+
+export function isRowActionVisible({ rowAction, row, rowIndex }) {
+  if (rowAction.isHidden) {
+    return false;
+  }
+
+  if (isFunction(rowAction.isHiddenCallback)) {
+    return !rowAction.isHiddenCallback({
+      row,
+      rowIndex,
+    });
+  }
+
+  return true;
 }

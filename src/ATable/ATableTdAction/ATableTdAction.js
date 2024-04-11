@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import ADropdown from "../../ADropdown/ADropdown";
+import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdown";
 import AIcon from "../../AIcon/AIcon";
 import ATableListItem from "../ATableListItem/ATableListItem";
 
@@ -14,11 +15,19 @@ import StylesThTdAction from "../ATableHeaderThAction/compositionAPI/StylesThTdA
 export default {
   name: "ATableTdAction",
   components: {
-    ADropdown,
     AIcon,
     ATableListItem,
   },
   props: {
+    columnActionsBtnGroupMaxWidthStyle: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    columnActionsView: {
+      type: String,
+      required: true,
+    },
     disabledRowActions: {
       type: Boolean,
       required: false,
@@ -52,6 +61,7 @@ export default {
   setup(props) {
     const {
       buttonActionsId,
+      buttonFirstActionId,
       isRowActionsDropdownVisible,
       rowActionsFiltered,
     } = RowActionsAPI(props);
@@ -72,6 +82,7 @@ export default {
 
     return {
       buttonActionsId,
+      buttonFirstActionId,
       columnsScrollInvisibleText,
       countColumnsScrollInvisible,
       isColumnsScrollInvisibleDropdownVisible,
@@ -99,7 +110,7 @@ export default {
         ],
       }, [
         this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
-          buttonClass: "a_btn a_btn_link",
+          buttonClass: "a_btn a_btn_link a_text_nowrap",
           buttonIconLeft: "Plus",
           buttonIconClass: "a_table__cell_action__additional_icon",
           buttonTitle: "_A_TABLE_DROPDOWN_HIDE_FIELDS_TITLE_{{count}}_",
@@ -140,7 +151,8 @@ export default {
         }),
         this.isRowActionsDropdownVisible || this.$slots.rowActions ?
           h("div", {
-            class: "a_table__cell_action__group"
+            class: "a_table__cell_action__group",
+            style: this.columnActionsBtnGroupMaxWidthStyle,
           }, [
             this.$slots.rowActions ?
               this.$slots.rowActions({
@@ -150,21 +162,47 @@ export default {
                 isFooter: this.isFooter,
               }) :
               "",
-            this.isRowActionsDropdownVisible && h(ADropdown, {
-              id: this.buttonActionsId,
-              actions: this.rowActionsFiltered,
-              buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-              buttonIconLeft: "OptionVertical",
-              buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
-              buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
-              disabled: this.disabledRowActions,
-              extra: {
-                rowNumber: this.rowNumber,
-              },
-              hasCaret: false,
-              inBody: true,
-              placement: "bottom-end",
-            }, this.$slots),
+            this.isRowActionsDropdownVisible ?
+              this.columnActionsView === "dropdown" ?
+                h(ADropdown, {
+                  id: this.buttonActionsId,
+                  actions: this.rowActionsFiltered,
+                  buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
+                  buttonIconLeft: "OptionVertical",
+                  buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
+                  buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
+                  disabled: this.disabledRowActions,
+                  extra: {
+                    rowNumber: this.rowNumber,
+                  },
+                  hasCaret: false,
+                  inBody: true,
+                  placement: "bottom-end",
+                }, this.$slots) :
+                h(AGroupButtonDropdown, {
+                  actions: this.rowActionsFiltered,
+                  dropdownAttributes: {
+                    id: this.buttonActionsId,
+                    buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
+                    buttonIconLeft: "ChevronDown",
+                    buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
+                    buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
+                    extra: {
+                      rowNumber: this.rowNumber,
+                    },
+                    hasCaret: false,
+                    inBody: true,
+                    placement: "bottom-end",
+                  },
+                  disabled: this.disabledRowActions,
+                  hasDividerBeforeDropdown: false,
+                  indexFirstDropdownAction: 1,
+                  indexFirstDropdownActionMobile: 0,
+                  minDropdownActions: 1,
+                  actionsClasses: ["a_btn a_btn_primary a_text_truncate"],
+                  actionsIds: [this.buttonFirstActionId],
+                }, this.$slots) :
+              "",
           ]) :
           "",
       ]),

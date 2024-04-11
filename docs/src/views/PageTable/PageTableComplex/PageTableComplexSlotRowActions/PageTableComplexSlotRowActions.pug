@@ -3,6 +3,7 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_GROUP_COMPLEX_HEADER_"
   description="_A_TABLE_GROUP_COMPLEX_DESCRIPTION_"
+  :props="['dropdown']"
 )
   div
     div
@@ -11,6 +12,7 @@ aloha-example(
       )
     a-table(
       ref="aloha"
+      column-actions-view="dropdown"
       :column-actions-width="250"
       :column-actions-width-min="150"
       :columns="columns"
