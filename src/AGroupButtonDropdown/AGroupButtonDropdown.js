@@ -23,6 +23,11 @@ export default {
       required: false,
       default: () => groupButtonDropdownPluginOptions.value.propsDefault.actionsClasses,
     },
+    actionsIds: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -96,6 +101,7 @@ export default {
             hasDropdownActions: this.hasDropdownActions,
             dropdownAttributes: this.dropdownAttributes,
             actionsClasses: this.actionsClasses,
+            actionsIds: this.actionsIds,
             isLast: itemIndex === this.actionsGrouped.buttons.length - 1,
             hasDividerBeforeDropdown: this.hasDividerBeforeDropdown,
           }, this.$slots);

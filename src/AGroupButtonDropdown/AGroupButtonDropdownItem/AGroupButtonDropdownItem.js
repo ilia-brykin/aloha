@@ -15,6 +15,10 @@ export default {
       type: Array,
       required: true,
     },
+    actionsIds: {
+      type: Array,
+      required: true,
+    },
     actionsDropdown: {
       type: Array,
       required: true,
@@ -62,10 +66,12 @@ export default {
       }, [
         ...this.data.children.map(action => {
           const CLASS = action.classButton ? action.classButton : this.actionsClasses[action.actionNotDividerIndex];
+          const ID = action.id ? action.id : this.actionsIds[action.actionNotDividerIndex];
           const DISABLED = this.disabled || action.disabled;
           if (action.type === "button") {
             return h(AButton, {
               ...action,
+              id: ID,
               class: CLASS,
               classButton: undefined,
               disabled: DISABLED,
@@ -78,6 +84,7 @@ export default {
           if (action.type === "link") {
             return h(ALink, {
               ...action,
+              id: ID,
               classButton: undefined,
               disabled: DISABLED,
               class: CLASS,
@@ -90,6 +97,7 @@ export default {
             action.slotName &&
             this.$slots[action.slotName]) {
             return this.$slots[action.slotName]({
+              id: ID,
               class: CLASS,
               action: action,
             });
