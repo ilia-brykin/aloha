@@ -31,6 +31,9 @@ export default function ScrollControlAPI(props, { emit }, {
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const isSimpleTable = toRef(props, "isSimpleTable");
 
+  const aTableRef = ref(undefined);
+  const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
+  const tableWidth = ref(undefined);
   let changingTableWidth = false;
 
   const columnActionsWidthMinLocal = computed(() => {
@@ -39,15 +42,13 @@ export default function ScrollControlAPI(props, { emit }, {
     }
     return 0;
   });
+
   const columnsSpecialWidth = computed(() => {
     const columnMultipleActionsWidth = isMultipleActionsActive.value ? columnActionsWidthMin.value : 0;
     const scrollBarWidth = isSimpleTable.value ? 0 : 10; // delta for table resize when scrollbar appears
     return columnMultipleActionsWidth + scrollBarWidth;
   });
 
-  const tableWidth = ref(undefined);
-  const aTableRef = ref(undefined);
-  const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
 
   const setAdditionalSpaceColumnsForOneGrow = ({
     sumGrows = 0,
