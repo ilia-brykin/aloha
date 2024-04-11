@@ -714,7 +714,7 @@ export default {
     });
 
     watch(isColumnActionWide, (newValue, oldValue) => {
-      if (newValue === oldValue) {
+      if (newValue !== oldValue) {
         checkVisibleColumns();
       }
     });
