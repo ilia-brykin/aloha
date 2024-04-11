@@ -280,7 +280,7 @@ export default {
             minDropdownActions: 0,
             dropdownAttributes: {
               buttonClass: "a_btn a_btn_secondary a_table__action",
-              buttonIconLeft: "OptionVertical",
+              buttonIconLeft: "OptionHorizontal",
               buttonText: {
                 desktop: "_A_TABLE_ACTIONS_",
               },

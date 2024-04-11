@@ -168,7 +168,7 @@ export default {
                   id: this.buttonActionsId,
                   actions: this.rowActionsFiltered,
                   buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-                  buttonIconLeft: "OptionVertical",
+                  buttonIconLeft: "OptionHorizontal",
                   buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
                   buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
                   disabled: this.disabledRowActions,
