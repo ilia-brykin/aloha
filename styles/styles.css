@@ -7259,10 +7259,6 @@ input:not(:-webkit-autofill) {
   --a_input_number_min_width: 100px;
   display: flex;
   align-items: stretch; }
-  .a_form_element_number_controls .a_form_element {
-    width: var(--a_input_number_width);
-    max-width: var(--a_input_number_max_width);
-    min-width: var(--a_input_number_min_width); }
   .a_form_element_number_controls .a_btn_group {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
@@ -7278,6 +7274,11 @@ input:not(:-webkit-autofill) {
     border-bottom-right-radius: 0;
     height: 100%;
     line-height: 1; }
+
+.a_form_element_number .a_form_element {
+  width: var(--a_input_number_width);
+  max-width: var(--a_input_number_max_width);
+  min-width: var(--a_input_number_min_width); }
 
 .a_form_element__parent_invalid .a_form_element_number_controls .a_btn_group > .aloha_btn {
   --a_btn_border_color: var(--a_form_element_error_color); }
