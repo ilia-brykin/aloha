@@ -197,7 +197,7 @@ export default {
                   disabled: this.disabledRowActions,
                   hasDividerBeforeDropdown: false,
                   indexFirstDropdownAction: 1,
-                  indexFirstDropdownActionMobile: 0,
+                  indexFirstDropdownActionMobile: 1,
                   minDropdownActions: 1,
                   actionsClasses: ["a_btn a_btn_primary a_text_truncate"],
                   actionsIds: [this.buttonFirstActionId],
