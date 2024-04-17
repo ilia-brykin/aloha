@@ -109,7 +109,7 @@ export default function UiDataFromServerAPI(props, {
 
   const isValidModelValue = value => {
     if (dataExtraLocal.value.length) {
-      return !!find(dataExtraLocal.value, [AKeyId, value]);
+      return !find(dataExtraLocal.value, [AKeyId, value]);
     }
     return isString(value) || isNumber(value);
   };
@@ -174,12 +174,21 @@ export default function UiDataFromServerAPI(props, {
       !modelArrayWithoutDataExtra.value.length) {
       return;
     }
+    let MODEL_ARRAY;
+    if (keyId.value === "pk") {
+      MODEL_ARRAY = filter(modelArrayWithoutDataExtra.value, value => !isNil(value));
+    } else {
+      MODEL_ARRAY = cloneDeep(modelArrayWithoutDataExtra.value);
+    }
+    if (!MODEL_ARRAY.length) {
+      return;
+    }
     loadingDataFromServer.value = true;
     const URL_PARAMS = {
       ...urlParams.value,
       ...{
-        [keyId.value]: modelArrayWithoutDataExtra.value,
-        limit: modelArrayWithoutDataExtra.value.length,
+        [keyId.value]: MODEL_ARRAY,
+        limit: MODEL_ARRAY.length,
       },
     };
     return getListHttp({
