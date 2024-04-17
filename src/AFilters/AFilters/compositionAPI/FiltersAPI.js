@@ -31,12 +31,18 @@ export default function FiltersAPI(props, { emit }) {
   const filtersKeyById = computed(() => {
     const FILTERS = {};
     forEach(cloneDeep(filters.value), filter => {
-      FILTERS[filter.id] = filter;
+      FILTERS[filter.modelId || filter.id] = {
+        ...filter,
+        id: filter.modelId || filter.id,
+      };
       if (typesContainer.value[filter.type] &&
         filter.children &&
         filter.children.length) {
         forEach(filter.children, filterChild => {
-          FILTERS[filterChild.id] = filterChild;
+          FILTERS[filter.modelId || filterChild.id] = {
+            ...filterChild,
+            id: filterChild.modelId || filterChild.id,
+          };
         });
       }
     });
@@ -50,9 +56,15 @@ export default function FiltersAPI(props, { emit }) {
     };
     forEach(cloneDeep(filters.value), filter => {
       if (filter.alwaysVisible) {
-        FILTER_GROUP.alwaysVisible.push(filter);
+        FILTER_GROUP.alwaysVisible.push({
+          ...filter,
+          id: filter.modelId || filter.id,
+        });
       } else {
-        FILTER_GROUP.filters.push(filter);
+        FILTER_GROUP.filters.push({
+          ...filter,
+          id: filter.modelId || filter.id,
+        });
       }
     });
 
@@ -74,12 +86,18 @@ export default function FiltersAPI(props, { emit }) {
     FILTERS.push(...filters.value);
     const FILERS_NEW = [];
     forEach(FILTERS, filter => {
-      FILERS_NEW.push(filter);
+      FILERS_NEW.push({
+        ...filter,
+        id: filter.modelId || filter.id,
+      });
       if (typesContainer.value[filter.type] &&
         filter.children &&
         filter.children.length) {
         forEach(filter.children, filterChild => {
-          FILERS_NEW.push(filterChild);
+          FILERS_NEW.push({
+            ...filterChild,
+            id: filterChild.modelId || filterChild.id,
+          });
         });
       }
     });
