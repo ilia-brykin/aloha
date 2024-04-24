@@ -15,6 +15,7 @@ export default function AttributesAPI(props, {
 }) {
   const disabled = toRef(props, "disabled");
   const href = toRef(props, "href");
+  const target = toRef(props, "target");
   const to = toRef(props, "to");
   const type = toRef(props, "type");
 
@@ -29,14 +30,17 @@ export default function AttributesAPI(props, {
   const toHrefAttributes = computed(() => {
     if (isRouterLink.value) {
       return {
+        target: target.value,
         to: to.value,
       };
     }
     if (disabled.value) {
       return {};
     }
+
     return {
       href: href.value,
+      target: target.value,
     };
   });
 
