@@ -688,7 +688,10 @@ export default {
               ...this.attributesDisabled,
             }, [
               this.$slots.fixedPlaceholder ?
-                this.$slots.fixedPlaceholder() :
+                this.$slots.fixedPlaceholder({
+                  dataKeyByKeyId: this.dataKeyByKeyIdLocal,
+                  modelValue: this.modelValue,
+                }) :
                 this.isModelValue ?
                   this.isMultiselect ?
                     this.isSelectionCloseable ?
