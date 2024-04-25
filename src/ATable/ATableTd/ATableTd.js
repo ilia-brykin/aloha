@@ -30,6 +30,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    level: {
+      type: Number,
+      required: true,
+    },
     row: {
       type: Object,
       required: true,
@@ -100,6 +104,7 @@ export default {
             this.$slots[this.slotName]({
               column: this.column,
               columnIndex: this.columnIndex,
+              level: this.level,
               row: this.row,
               rowIndex: this.rowIndex,
               rows: this.rowsLocalAll,

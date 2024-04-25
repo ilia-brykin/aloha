@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import AGet from "../../AGet/AGet";
 import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 import ATablePreviewDown from "../ATablePreviewDown/ATablePreviewDown";
 import ATableTd from "../ATableTd/ATableTd";
@@ -218,6 +219,7 @@ export default {
             column,
             columnIndex,
             disabledPreview: this.disabledPreviewRow,
+            level: this.level,
             row: this.row,
             rowIndex: this.rowIndex,
             isFooter: this.isFooter,
@@ -231,6 +233,7 @@ export default {
           column,
           columnIndex,
           disabledPreview: this.disabledPreviewRow,
+          level: this.level,
           row: this.row,
           rowIndex: this.rowIndex,
           isFooter: this.isFooter,
@@ -329,6 +332,18 @@ export default {
             rowIndex,
             rowsLength: this.children.length,
             selectedRowsIndexes: this.selectedRowsIndexes,
+          }, {
+            get: vm => [
+              h(AGet, {
+                data: vm.row,
+                keyLabel: vm.column.keyLabel,
+                filter: vm.column.filter,
+                filterParameters: vm.column.filterParameters,
+                defaultValue: vm.column.defaultValue,
+                tag: vm.column.filterTag || "div",
+              }),
+            ],
+            ...this.$slots,
           });
         }) :
         "",
