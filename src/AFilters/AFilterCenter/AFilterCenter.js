@@ -90,7 +90,7 @@ export default {
       ]),
       this.filtersVisibleAll.map(filter => {
         return h(AFilterCenterItem, {
-          key: filter.modelId || filter.id,
+          key: filter.id,
           id: this.id,
           disabled: this.disabled,
           filter,

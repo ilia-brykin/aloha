@@ -21,7 +21,7 @@ export default function IsDataLoadingAPI(props, { emit }, {
       return false;
     }
     if (typesWithData.value[filter.value.type]) {
-      return isEmpty(dataKeyByKeyIdPerFilter.value[filter.value.modelId || filter.value.id]);
+      return isEmpty(dataKeyByKeyIdPerFilter.value[filter.value.id]);
     }
     return false;
   });
@@ -29,7 +29,7 @@ export default function IsDataLoadingAPI(props, { emit }, {
   const updateLoadingChildFilters = (newValue, altValue) => {
     if (newValue !== altValue) {
       emit("updateLoadingChildFilters", {
-        id: filter.value.modelId || filter.value.id,
+        id: filter.value.id,
         isLoading: isFilterLoading.value,
       });
     }

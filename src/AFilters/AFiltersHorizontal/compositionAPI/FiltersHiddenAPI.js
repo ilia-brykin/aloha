@@ -12,8 +12,8 @@ export default function FiltersHiddenAPI(props, { emit }) {
   const filtersGroup = toRef(props, "filtersGroup");
   const filtersVisible = toRef(props, "filtersVisible");
 
-  const toggleFiltersVisible = ({ isAdd, filterId }) => {
-    emit("toggleFiltersVisible", { isAdd, filterId });
+  const toggleFiltersVisible = ({ isAdd, filterId, filter }) => {
+    emit("toggleFiltersVisible", { isAdd, filterId, filter });
   };
 
   const addFiltersVisible = ({ model }) => {
@@ -21,7 +21,7 @@ export default function FiltersHiddenAPI(props, { emit }) {
   };
 
   const deleteFiltersVisible = ({ filter }) => {
-    toggleFiltersVisible({ isAdd: false, filterId: filter.id });
+    toggleFiltersVisible({ isAdd: false, filterId: filter.id, filter });
   };
 
   const hasFiltersHiddenDefault = computed(() => {

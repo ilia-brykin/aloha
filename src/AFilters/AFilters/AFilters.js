@@ -129,6 +129,7 @@ export default {
     const {
       toggleFiltersVisible,
     } = ToggleAPI(props, {
+      dataKeyByKeyIdPerFilter,
       filtersVisibleIds,
       onUpdateModelFilters,
     });

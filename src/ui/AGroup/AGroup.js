@@ -22,6 +22,9 @@ import {
   typesContainer,
 } from "../const/AUiTypes";
 import {
+  getModelId
+} from "../AForm/utils/utils";
+import {
   cloneDeep,
   get,
   isNil,
@@ -84,8 +87,9 @@ export default {
     const modelValue = toRef(props, "modelValue");
 
     const onUpdateModelLocal = ({ item, model }) => {
+      const MODEL_ID = getModelId({ item });
       const MODEL_VALUE = cloneDeep(modelValue.value);
-      set(MODEL_VALUE, item.id, cloneDeep(model));
+      set(MODEL_VALUE, MODEL_ID, cloneDeep(model));
       context.emit("update:modelValue", MODEL_VALUE);
     };
 
@@ -168,12 +172,14 @@ export default {
             } else if (item.classColumn) {
               classColumn = item.classColumn;
             }
+            const MODEL_ID = getModelId({ item });
+
             return h("div", {
               class: classColumn,
             }, [
               h(this.componentTypesMapping[item.type], {
                 key: itemIndex,
-                modelValue: get(this.modelValue, item.id),
+                modelValue: get(this.modelValue, MODEL_ID),
                 modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
                 errors: this.errorsAll[item.id],
                 idPrefix: item.idPrefix || this.idPrefix,

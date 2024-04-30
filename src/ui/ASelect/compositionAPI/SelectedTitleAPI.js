@@ -9,11 +9,12 @@ import {
 } from "lodash-es";
 
 export default function SelectedTitleAPI(props, {
+  dataKeyByKeyIdLocal = computed(() => ({})),
+  isModelLengthLimitExceeded,
   isModelValue = computed(() => false),
   isMultiselect,
-  isModelLengthLimitExceeded,
   modelValueLength,
-  dataKeyByKeyIdLocal = computed(() => ({})),
+  modelValueMultiselectFiltered = computed(() => []),
 }) {
   const modelValue = toRef(props, "modelValue");
   const isSelectionCloseable = toRef(props, "isSelectionCloseable");
@@ -25,7 +26,7 @@ export default function SelectedTitleAPI(props, {
     let title = "";
     if (isMultiselect.value) {
       if (isSelectionCloseable.value || !isModelLengthLimitExceeded.value) {
-        forEach(modelValue.value, (item, index) => {
+        forEach(modelValueMultiselectFiltered.value, (item, index) => {
           const DATA = dataKeyByKeyIdLocal.value[item] || {};
           title += `${ index > 0 ? ", " : "" }${ DATA[AKeyLabel] }`;
         });

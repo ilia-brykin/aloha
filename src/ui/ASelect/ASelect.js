@@ -452,7 +452,10 @@ export default {
       isModelValue,
       isMultiselect,
       modelValueLength,
-    } = ModelAPI(props);
+      modelValueMultiselectFiltered,
+    } = ModelAPI(props, {
+      dataKeyByKeyIdLocal,
+    });
 
     const {
       ariaLabelledby,
@@ -532,11 +535,12 @@ export default {
       hasSelectedTitle,
       selectedTitle,
     } = SelectedTitleAPI(props, {
+      dataKeyByKeyIdLocal,
+      isModelLengthLimitExceeded,
       isModelValue,
       isMultiselect,
-      isModelLengthLimitExceeded,
       modelValueLength,
-      dataKeyByKeyIdLocal,
+      modelValueMultiselectFiltered,
     });
 
     const {
@@ -606,6 +610,7 @@ export default {
       modelSearchLowerCase,
       modelSearchOutside,
       modelValueLength,
+      modelValueMultiselectFiltered,
       onBlur,
       onChangeModelValue,
       onDeselectAll,
@@ -698,7 +703,7 @@ export default {
                       h("ul", {
                         class: "a_select__ul_closeable",
                       }, [
-                        this.modelValue.map((item, index) => {
+                        this.modelValueMultiselectFiltered.map((item, index) => {
                           return h(ASelectValueCloseable, {
                             key: index,
                             data: this.dataKeyByKeyIdLocal[item] || {},
@@ -713,7 +718,7 @@ export default {
                       }, [
                         this.isModelLengthLimitExceeded ?
                           h("span", null, `${ this.modelValueLength } ausgewählt`) :
-                          this.modelValue.map((item, index) => {
+                          this.modelValueMultiselectFiltered.map((item, index) => {
                             return h("span", {
                               key: index,
                             }, [
