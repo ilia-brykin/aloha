@@ -29,11 +29,11 @@ export default function ClickAPI(props, {
     }
 
     if (preventLocal.value) {
-      $event.preventDefault();
+      $event?.preventDefault();
     }
 
     if (stopLocal.value) {
-      $event.stopPropagation();
+      $event?.stopPropagation();
     }
     setTimeout(() => {
       EventBus.$emit(getLabelClickEventName(id.value), {
