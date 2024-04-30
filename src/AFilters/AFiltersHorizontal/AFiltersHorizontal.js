@@ -295,6 +295,7 @@ export default {
                       label: "_A_FILTERS_ADD_FILTER_",
                       labelClass: "a_sr_only",
                       menuWidthType: "by_content",
+                      sortOrderGroup: "asc",
                       placement: "bottom-start",
                       search: true,
                       translateData: true,
