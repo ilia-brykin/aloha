@@ -82,7 +82,7 @@ export default {
   render() {
     return h(this.componentTypesMapping[this.filter.type], {
       idPrefix: this.idPrefix,
-      modelValue: this.isContainer ? this.unappliedModel : this.unappliedModel[this.filter.modelId || this.filter.id],
+      modelValue: this.isContainer ? this.unappliedModel : this.unappliedModel[this.filter.id],
       "onUpdate:modelValue": this.onUpdateModelFiltersLocal,
       excludeRenderAttributes: this.excludeRenderAttributes,
       ...this.filter,

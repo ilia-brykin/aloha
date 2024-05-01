@@ -90,13 +90,13 @@ export default {
       ]),
       this.filtersVisibleAll.map(filter => {
         return h(AFilterCenterItem, {
-          key: filter.modelId || filter.id,
+          key: filter.id,
           id: this.id,
           disabled: this.disabled,
           filter,
           closeFilterValue: this.closeFilterValue,
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
-          model: this.appliedModel[filter.modelId || filter.id],
+          model: this.appliedModel[filter.id],
           onUpdateVisibleChildFilters: this.updateVisibleChildFilters,
           onUpdateLoadingChildFilters: this.updateLoadingChildFilters,
         }, this.$slots);

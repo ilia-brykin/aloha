@@ -7,9 +7,6 @@ import {
   typesContainer,
 } from "../../const/AUiTypes";
 import {
-  getModelId,
-} from "../utils/utils";
-import {
   cloneDeep,
   set,
 } from "lodash-es";
@@ -27,7 +24,7 @@ export default function ModelAPI(props, { emit }) {
       emit("change", { model });
     } else {
       const MODEL_VALUE = cloneDeep(modelValueLocal.value);
-      const MODEL_ID = getModelId({ item });
+      const MODEL_ID = item.id;
       
       set(MODEL_VALUE, MODEL_ID, cloneDeep(model));
       emit("update:modelValue", MODEL_VALUE);

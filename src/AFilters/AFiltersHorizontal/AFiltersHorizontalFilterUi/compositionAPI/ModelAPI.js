@@ -19,7 +19,7 @@ export default function ModelAPI(props, {
       onUpdateModelFilters.value({ model });
     } else {
       const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
-      UNAPPLIED_MODEL[filter.value.modelId || filter.value.id] = cloneDeep(model);
+      UNAPPLIED_MODEL[filter.value.id] = cloneDeep(model);
       onUpdateModelFilters.value({ model: UNAPPLIED_MODEL });
     }
   };

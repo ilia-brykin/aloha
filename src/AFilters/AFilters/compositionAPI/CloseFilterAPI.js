@@ -28,7 +28,7 @@ export default function CloseFilterAPI(props, { emit }, {
   };
 
   const closeCurrentFilter = ({ filter, keyId, modelArray, appliedModelLocal, unappliedModelLocal }) => {
-    const MODEL_ID = filter.modelId || filter.id;
+    const MODEL_ID = filter.id;
 
     if (typesModelArray.value[filter.type]) {
       if (appliedModelLocal[MODEL_ID] &&
