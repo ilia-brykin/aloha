@@ -152,7 +152,6 @@ export default {
         this.isRowActionsDropdownVisible || this.$slots.rowActions ?
           h("div", {
             class: "a_table__cell_action__group",
-            style: this.columnActionsBtnGroupMaxWidthStyle,
           }, [
             this.$slots.rowActions ?
               this.$slots.rowActions({
@@ -180,6 +179,8 @@ export default {
                   placement: "bottom-end",
                 }, this.$slots) :
                 h(AGroupButtonDropdown, {
+                  class: "a_d_inline_block",
+                  style: this.columnActionsBtnGroupMaxWidthStyle,
                   actions: this.rowActionsFiltered,
                   dropdownAttributes: {
                     id: this.buttonActionsId,
