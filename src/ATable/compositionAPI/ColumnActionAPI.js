@@ -69,7 +69,7 @@ export default function ColumnActionAPI(props, {
 
   const columnActionsWidthMinLocal = computed(() => {
     if (!isUndefined(columnActionsWidthMin.value)) {
-      return columnActionsWidth.value;
+      return columnActionsWidthMin.value;
     }
 
     if (!isColumnActionWide.value) {
