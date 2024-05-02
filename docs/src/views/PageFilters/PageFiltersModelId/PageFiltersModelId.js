@@ -32,7 +32,6 @@ export default {
       {
         type: "checkbox",
         id: "aloha1",
-        modelId: "aloha",
         label: "Aloha 1",
         alwaysVisible: true,
         keyLabel: "label",
@@ -51,7 +50,6 @@ export default {
       {
         type: "checkbox",
         id: "aloha2",
-        modelId: "aloha",
         label: "Aloha 2",
         alwaysVisible: true,
         keyLabel: "label",

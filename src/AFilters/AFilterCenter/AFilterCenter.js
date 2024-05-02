@@ -96,7 +96,7 @@ export default {
           filter,
           closeFilterValue: this.closeFilterValue,
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,
-          model: this.appliedModel[filter.modelId || filter.id],
+          model: this.appliedModel[filter.id],
           onUpdateVisibleChildFilters: this.updateVisibleChildFilters,
           onUpdateLoadingChildFilters: this.updateLoadingChildFilters,
         }, this.$slots);
