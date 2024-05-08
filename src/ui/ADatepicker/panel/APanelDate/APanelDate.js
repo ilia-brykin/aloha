@@ -300,7 +300,7 @@ export default {
       class: "pux_datepicker__panel pux_datepicker__panel_date",
       role: "grid",
       ariaReadonly: true,
-      ariaLabelledby: this.idForHeader,
+      "aria-labelledby": this.idForHeader,
       ...this.attributesForMainElement,
     }, [
       h("thead", null, [

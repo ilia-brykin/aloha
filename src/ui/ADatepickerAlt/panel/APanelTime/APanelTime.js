@@ -276,7 +276,7 @@ export default {
           key: timeListIndex,
           class: "pux_datepicker__time_list",
           role: "listbox",
-          ariaLabelledby: this.idForHeader,
+          "aria-labelledby": this.idForHeader,
           style: { width: `${ 100 / this.timesFiltered.length }%` },
         }, [
           timeList.map((time, timeIndex) => {

@@ -642,7 +642,7 @@ export default {
     return h("div", {
       class: ["pux_datepicker__calendar", `pux_datepicker__calendar_${ this.panel.toLowerCase() }`],
       role: "region",
-      ariaLabelledby: this.idForHeaderParent,
+      "aria-labelledby": this.idForHeaderParent,
     }, [
       h("div", {
         id: this.idForHeaderParent,

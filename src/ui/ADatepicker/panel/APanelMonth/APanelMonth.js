@@ -163,7 +163,7 @@ export default {
     return h("ul", {
       class: "pux_datepicker__panel pux_datepicker__panel_month pux_datepicker__panel__list",
       role: "listbox",
-      ariaLabelledby: this.idForHeader,
+      "aria-labelledby": this.idForHeader,
       ...this.attributesForMainElement,
     }, [
       this.months.map((month, monthIndex) => {

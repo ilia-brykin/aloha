@@ -72,7 +72,7 @@ export default {
       class: ["a_tabs__content", {
         a_tabs__content_show: this.isActive,
       }],
-      ariaLabelledby: this.idLocal,
+      "aria-labelledby": this.idLocal,
     }, [
       content,
     ]);

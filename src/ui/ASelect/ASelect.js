@@ -748,7 +748,7 @@ export default {
                       a_select_menu_by_content: this.menuWidthType === "by_content",
                     }],
                     role: "listbox",
-                    ariaLabelledby: this.htmlIdLocal,
+                    "aria-labelledby": this.htmlIdLocal,
                     onClick: event => event.stopPropagation(),
                   }, [
                     this.searchOutsideOrApi && h("div", {
