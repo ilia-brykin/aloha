@@ -7,6 +7,7 @@ import ContainerAPI from "./compositionAPI/ContainerAPI";
 import FilterSpecificTypeAPI from "./compositionAPI/FilterSpecificTypeAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import UIExcludeRenderAttributesAPI from "../../../ui/compositionApi/UIExcludeRenderAttributesAPI";
 import UpdateDataAPI from "./compositionAPI/UpdateDataAPI";
 
 export default {
@@ -45,6 +46,10 @@ export default {
   },
   setup(props) {
     const {
+      attributesToExcludeFromRender,
+    } = UIExcludeRenderAttributesAPI(props);
+
+    const {
       isContainer,
     } = ContainerAPI(props);
 
@@ -71,6 +76,7 @@ export default {
     } = FilterSpecificTypeAPI(props);
 
     return {
+      attributesToExcludeFromRender,
       componentTypesMapping,
       emitForComponentsWithData,
       filterSpecificAttributes,
@@ -89,6 +95,7 @@ export default {
       ...this.filterSpecificAttributes,
       label: this.isLabelVisible ? this.filter.label : undefined,
       ...this.emitForComponentsWithData,
+      ...this.attributesToExcludeFromRender,
     }, this.$slots);
   },
 };
