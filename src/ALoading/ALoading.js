@@ -36,11 +36,6 @@ export default {
       default: 6,
       validator: size => ["1", "2", "3", "4", "5", "6", "7"].indexOf(`${ size }`) !== -1,
     },
-    spinnerType: {
-      type: String,
-      required: false,
-      default: "border",
-    },
     tag: {
       type: String,
       required: false,
@@ -98,9 +93,6 @@ export default {
     boxSpinner() {
       return h(ASpinner, {
         class: ["a_cloak__spinner"],
-        type: this.spinnerType,
-        size: this.size,
-        text: "",
         "aria-hidden": "true",
       });
     },

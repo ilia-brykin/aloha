@@ -36,11 +36,6 @@ export default {
       required: false,
       default: "div",
     },
-    spinnerType: {
-      type: String,
-      required: false,
-      default: "border",
-    },
     size: {
       type: [String, Number],
       required: false,
@@ -94,9 +89,6 @@ export default {
     boxSpinner() {
       return h(ASpinner, {
         class: ["a_cloak__spinner"],
-        type: this.spinnerType,
-        size: this.size,
-        text: "",
         "aria-hidden": "true",
       });
     },
