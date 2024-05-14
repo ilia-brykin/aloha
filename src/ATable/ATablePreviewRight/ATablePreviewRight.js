@@ -10,7 +10,6 @@ import AModal from "../../AModal/AModal";
 import AResizer from "../../AResizer/AResizer";
 import ATranslation from "../../ATranslation/ATranslation";
 
-import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import ArrowsAPI from "./compositionAPI/ArrowsAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import MouseEventsAPI from "./compositionAPI/MouseEventsAPI";
@@ -93,10 +92,6 @@ export default {
     } = IdAPI();
 
     const {
-      previewAriaLabel,
-    } = AriaLabelAPI();
-
-    const {
       mousedown,
       mousemove,
       mouseup,
@@ -151,7 +146,6 @@ export default {
       mousedown,
       mousemove,
       mouseup,
-      previewAriaLabel,
       previewRef,
       rowNumber,
       rowNumberFormatted,
@@ -232,7 +226,6 @@ export default {
     return h("div", {
       ref: "previewRef",
       id: this.idLocal,
-      "aria-label": this.previewAriaLabel,
       class: "a_table__preview_right",
       style: this.previewStyles,
       tabindex: -1,
@@ -245,6 +238,10 @@ export default {
         onMousemove: this.mousemove,
         onMouseup: this.mouseup,
         onMouseoutDocument: this.mouseup,
+      }),
+      h(ATranslation, {
+        class: "a_sr_only",
+        text: "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_",
       }),
       h(this.previewHeaderTag, {
         class: "a_table__preview_right__header",
