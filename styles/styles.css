@@ -4885,6 +4885,10 @@ h6 {
 
 .a_dropdown__menu {
   box-shadow: 0 0 7px 3px var(--a_color_gray_600); }
+  .a_dropdown__menu > ul {
+    margin: 0;
+    list-style: none;
+    padding: 0; }
 
 .a_icon {
   speak: none;
