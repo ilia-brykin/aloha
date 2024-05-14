@@ -3,8 +3,8 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
+import ATranslation from "../../ATranslation/ATranslation";
 
-import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 
 export default {
@@ -24,10 +24,6 @@ export default {
   ],
   setup() {
     const {
-      previewAriaLabel,
-    } = AriaLabelAPI();
-
-    const {
       componentRef,
       setFocusToComponent,
     } = FocusAPI();
@@ -38,7 +34,6 @@ export default {
 
     return {
       componentRef,
-      previewAriaLabel,
     };
   },
   render() {
@@ -46,8 +41,11 @@ export default {
       ref: "componentRef",
       class: "a_table__preview_down",
       tabindex: -1,
-      "aria-label": this.previewAriaLabel,
     }, [
+      h(ATranslation, {
+        class: "a_sr_only",
+        text: "_A_TABLE_PREVIEW_DOWN_ARIA_LABEL_",
+      }),
       this.$slots.preview && this.$slots.preview({
         row: this.row,
         rowIndex: this.rowIndex,
