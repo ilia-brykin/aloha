@@ -442,16 +442,24 @@ export default {
         disabled: !this.inBody,
       }, [
         this.isMenuRendered && withDirectives(h(
-          this.dropdownTag,
-          this.dropdownAttributesLocal,
+          "div", 
+          {
+            ref: "dropdownRef",
+            role: "application",
+            "aria-labelledby": this.idLocal,
+            ariaHidden: !this.statusExpanded,
+            ...this.dropdownAttributesLocal,
+          },
           [
-            this.$slots.dropdown && this.$slots.dropdown(),
-            this.hasActions && this.actionsFiltered.map((action, actionIndex) => {
-              return h(ADropdownAction, {
-                key: actionIndex,
-                action,
-              }, this.$slots);
-            }),
+            h(this.dropdownTag, {}, [
+              this.$slots.dropdown && this.$slots.dropdown(),
+              this.hasActions && this.actionsFiltered.map((action, actionIndex) => {
+                return h(ADropdownAction, {
+                  key: actionIndex,
+                  action,
+                }, this.$slots);
+              }),
+            ]),
           ],
         ), [
           [AOnHooks, {
