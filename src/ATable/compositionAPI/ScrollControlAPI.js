@@ -36,7 +36,7 @@ export default function ScrollControlAPI(props, { emit }, {
   const resizeTimeout = ref(undefined);
   const tableWidth = ref(undefined);
   let changingTableWidth = false;
-  const delta = 18;
+  const delta = 18; // approx scrollbar width
 
   const columnActionsWidthMinLocal = computed(() => {
     if (isActionColumnVisible.value) {
