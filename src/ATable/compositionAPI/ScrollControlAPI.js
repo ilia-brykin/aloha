@@ -36,7 +36,7 @@ export default function ScrollControlAPI(props, { emit }, {
   const resizeTimeout = ref(undefined);
   const tableWidth = ref(undefined);
   let changingTableWidth = false;
-  const delta = 18; // approx scrollbar width
+  const delta = 20; // approx scrollbar width + 2px for <tr> border
 
   const columnActionsWidthMinLocal = computed(() => {
     if (isActionColumnVisible.value) {
@@ -159,6 +159,8 @@ export default function ScrollControlAPI(props, { emit }, {
 
   const adjustTableWidth = ({ entries, forceAdjust }) => {
     const RECT = entries[0].contentRect;
+    console.log("RECT.width", RECT.width);
+    console.log("tableWidth.value", tableWidth.value);
     const tableWidthMissingOrExceededDelta = forceAdjust ||
       tableWidth.value > RECT.width + delta ||
       tableWidth.value < RECT.width - delta;
