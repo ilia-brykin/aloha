@@ -159,8 +159,6 @@ export default function ScrollControlAPI(props, { emit }, {
 
   const adjustTableWidth = ({ entries, forceAdjust }) => {
     const RECT = entries[0].contentRect;
-    console.log("RECT.width", RECT.width);
-    console.log("tableWidth.value", tableWidth.value);
     const tableWidthMissingOrExceededDelta = forceAdjust ||
       tableWidth.value > RECT.width + delta ||
       tableWidth.value < RECT.width - delta;
