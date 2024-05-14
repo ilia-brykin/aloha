@@ -33,19 +33,23 @@ export default function ScrollControlAPI(props, { emit }, {
 
   const aTableRef = ref(undefined);
   const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
+  const resizeTimeout = ref(undefined);
   const tableWidth = ref(undefined);
   let changingTableWidth = false;
+  const delta = 18;
 
   const columnActionsWidthMinLocal = computed(() => {
     if (isActionColumnVisible.value) {
       return columnActionsWidthMin.value;
     }
+
     return 0;
   });
 
   const columnsSpecialWidth = computed(() => {
     const columnMultipleActionsWidth = isMultipleActionsActive.value ? columnActionsWidthMin.value : 0;
-    const scrollBarWidth = isSimpleTable.value ? 0 : 10; // delta for table resize when scrollbar appears
+    const scrollBarWidth = isSimpleTable.value ? 0 : delta; // delta for table resize when scrollbar appears
+
     return columnMultipleActionsWidth + scrollBarWidth;
   });
 
@@ -156,15 +160,24 @@ export default function ScrollControlAPI(props, { emit }, {
   const resizeOb = new ResizeObserver(entries => {
     // since we are observing only a single element, so we access the first element in entries array
     // TODO add delta for table resize when scrollbar appears
-    const RECT = entries[0].contentRect;
-    if (tableWidth.value !== RECT.width) {
-      if (!changingTableWidth) {
-        changingTableWidth = true;
-        tableWidth.value = RECT.width;
-        checkVisibleColumns();
-        changingTableWidth = false;
-      }
+    if (resizeTimeout.value) {
+      clearTimeout(resizeTimeout.value);
     }
+
+    resizeTimeout.value = setTimeout(() => {
+      const RECT = entries[0].contentRect;
+      const tableWidthMissingOrExceededDelta = !tableWidth.value ||
+        tableWidth.value > RECT.width + delta ||
+        tableWidth.value < RECT.width - delta;
+      if (tableWidthMissingOrExceededDelta) {
+        if (!changingTableWidth) {
+          changingTableWidth = true;
+          tableWidth.value = RECT.width;
+          checkVisibleColumns();
+          changingTableWidth = false;
+        }
+      }
+    }, 300);
   });
 
   const onWatchMobileScrollControl = newValue => {
