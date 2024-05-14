@@ -28,6 +28,7 @@
   --a_menu_2_panel_secondary_bg: var(--a_color_white);
   --a_menu_2_panel_main_link_hover_color: var(--a_color_gray_900);
   --a_menu_2_panel_main_link_hover_bg: var(--a_color_gray_300);
+  --a_menu_2_panel_main_link_padding_left: 25px;
   --a_menu_2_link_color: var(--a_color_gray_900);
   --a_menu_2_link_hover_color: var(--a_color_gray_900);
   --a_menu_2_link_hover_bg: var(--a_color_gray_300);
@@ -179,7 +180,7 @@
 }
 .a_menu_2__link_panel_main {
   .a_menu_2__link__text {
-    padding-left: 20px;
+    padding-left: var(--a_menu_2_panel_main_link_padding_left);
   }
 }
 .a_menu_2__link_disabled {
