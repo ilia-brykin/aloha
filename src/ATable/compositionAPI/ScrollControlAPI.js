@@ -157,27 +157,32 @@ export default function ScrollControlAPI(props, { emit }, {
     setColumnsScrollInvisible();
   };
 
+  const adjustTableWidth = ({ entries, forceAdjust }) => {
+    const RECT = entries[0].contentRect;
+    const tableWidthMissingOrExceededDelta = forceAdjust ||
+      tableWidth.value > RECT.width + delta ||
+      tableWidth.value < RECT.width - delta;
+    if (tableWidthMissingOrExceededDelta) {
+      if (!changingTableWidth) {
+        changingTableWidth = true;
+        tableWidth.value = RECT.width;
+        checkVisibleColumns();
+        changingTableWidth = false;
+      }
+    }
+  };
+
   const resizeOb = new ResizeObserver(entries => {
     // since we are observing only a single element, so we access the first element in entries array
-    // TODO add delta for table resize when scrollbar appears
-    if (resizeTimeout.value) {
+    if (!tableWidth.value) {
+      adjustTableWidth({ entries, forceAdjust: true });
+    } else {
       clearTimeout(resizeTimeout.value);
-    }
 
-    resizeTimeout.value = setTimeout(() => {
-      const RECT = entries[0].contentRect;
-      const tableWidthMissingOrExceededDelta = !tableWidth.value ||
-        tableWidth.value > RECT.width + delta ||
-        tableWidth.value < RECT.width - delta;
-      if (tableWidthMissingOrExceededDelta) {
-        if (!changingTableWidth) {
-          changingTableWidth = true;
-          tableWidth.value = RECT.width;
-          checkVisibleColumns();
-          changingTableWidth = false;
-        }
-      }
-    }, 300);
+      resizeTimeout.value = setTimeout(() => {
+        adjustTableWidth({ entries });
+      }, 300);
+    }
   });
 
   const onWatchMobileScrollControl = newValue => {
