@@ -46,10 +46,6 @@ export default {
       required: false,
       default: undefined,
     },
-    previewHeaderTag: {
-      type: String,
-      required: true,
-    },
     previewStyles: {
       type: [String, Object],
       required: false,
@@ -243,7 +239,7 @@ export default {
         class: "a_sr_only",
         text: "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_",
       }),
-      h(this.previewHeaderTag, {
+      h("div", {
         class: "a_table__preview_right__header",
       }, HEADER),
       h("div", {
