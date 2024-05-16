@@ -9,6 +9,7 @@ import {
   cloneDeep,
   get,
   isUndefined,
+  take,
 } from "lodash-es";
 
 export default function ModelChangeAPI(props, {
@@ -18,6 +19,7 @@ export default function ModelChangeAPI(props, {
   isMultiselect = computed(() => false),
   togglePopover = () => {},
 }) {
+  const countMultiselect = toRef(props, "countMultiselect");
   const isCloseByClick = toRef(props, "isCloseByClick");
   const deselectable = toRef(props, "deselectable");
   const maxCountMultiselect = toRef(props, "maxCountMultiselect");
@@ -74,6 +76,15 @@ export default function ModelChangeAPI(props, {
     }
   };
 
+  const deleteExceededItems = $event => {
+    let modelValueLocal;
+    modelValueLocal = take(cloneDeep(modelValue.value), countMultiselect.value);
+    changeModel({
+      model: modelValueLocal,
+      $event,
+    });
+  };
+
   const onSelectAll = () => {
     const MODEL = dataAll.value.map(item => item[AKeyId]);
     changeModel({
@@ -106,6 +117,7 @@ export default function ModelChangeAPI(props, {
   };
 
   return {
+    deleteExceededItems,
     onChangeModelValue,
     onDeselectAll,
     onKeydownDeselectAll,

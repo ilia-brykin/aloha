@@ -43,6 +43,7 @@ import {
   selectPluginOptions,
 } from "../../plugins/ASelectPlugin";
 import {
+  take,
   uniqueId,
 } from "lodash-es";
 
@@ -116,6 +117,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    exceededItemsDeletable: {
+      type: Boolean,
+      required: false,
+      default: () => selectPluginOptions.value.propsDefault.exceededItemsDeletable,
     },
     excludeRenderAttributes: {
       type: Array,
@@ -446,6 +452,7 @@ export default {
       isModelLengthLimitExceeded,
       isModelValue,
       isMultiselect,
+      limitExceededModelData,
       modelValueLength,
       modelValueMultiselectFiltered,
     } = ModelAPI(props, {
@@ -513,6 +520,7 @@ export default {
     } = ToggleAPI(props, context);
     
     const {
+      deleteExceededItems,
       onChangeModelValue,
       onDeselectAll,
       onKeydownDeselectAll,
@@ -579,6 +587,7 @@ export default {
       dataKeyByKeyIdLocal,
       dataLocal,
       dataSort,
+      deleteExceededItems,
       errorsId,
       groupsForLever,
       handleKeydown,
@@ -597,6 +606,7 @@ export default {
       isModelValue,
       isMultiselect,
       isOpen,
+      limitExceededModelData,
       loadingLocal,
       loadingSearchApi,
       menuParentRef,
@@ -698,7 +708,7 @@ export default {
                       h("ul", {
                         class: "a_select__ul_closeable",
                       }, [
-                        this.modelValueMultiselectFiltered.map((item, index) => {
+                        take(this.modelValueMultiselectFiltered, this.countMultiselect).map((item, index) => {
                           return h(ASelectValueCloseable, {
                             key: index,
                             data: this.dataKeyByKeyIdLocal[item] || {},
@@ -707,12 +717,24 @@ export default {
                             onChangeModelValue: this.onChangeModelValue,
                           }, this.$slots);
                         }),
+                        this.isModelLengthLimitExceeded && h(ASelectValueCloseable, {
+                          key: this.countMultiselect,
+                          data: this.limitExceededModelData,
+                          disabled: this.disabled,
+                          hideDeleteButton: !this.exceededItemsDeletable,
+                          onChangeModelValue: this.deleteExceededItems,
+                        }),
                       ]) :
                       h("span", {
                         class: "a_select__value__label",
                       }, [
                         this.isModelLengthLimitExceeded ?
-                          h("span", null, `${ this.modelValueLength } ausgewählt`) :
+                          h(ATranslation, {
+                            text: "_A_SELECT_SELECTED_{{count}}_",
+                            extra: {
+                              count: this.modelValueLength,
+                            },
+                          }) :
                           this.modelValueMultiselectFiltered.map((item, index) => {
                             return h("span", {
                               key: index,
