@@ -8,6 +8,7 @@ export const selectPluginOptions = ref({
     caretIcon: "ChevronDown",
     countMultiselect: 4,
     dataExtra: [],
+    exceededItemsDeletable: true,
     inBody: true,
     isCloseByClick: undefined,
     isDataSimpleArray: false,

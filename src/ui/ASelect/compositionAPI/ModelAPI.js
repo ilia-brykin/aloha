@@ -9,6 +9,8 @@ import {
   isNil,
 } from "lodash-es";
 
+import AKeyLabel from "../../../const/AKeyLabel";
+
 export default function ModelAPI(props, {
   dataKeyByKeyIdLocal = computed(() => ({})),
 }) {
@@ -45,10 +47,20 @@ export default function ModelAPI(props, {
     return modelValueLength.value > countMultiselect.value;
   });
 
+  const limitExceededModelData = computed(() => {
+    return {
+      [AKeyLabel]: `_A_SELECT_MORE_SELECTED_{{count}}_`,
+      extra: {
+        count: modelValueLength.value - countMultiselect.value,
+      },
+    };
+  });
+
   return {
     isModelLengthLimitExceeded,
     isModelValue,
     isMultiselect,
+    limitExceededModelData,
     modelValueLength,
     modelValueMultiselectFiltered,
   };

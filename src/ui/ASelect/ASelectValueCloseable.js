@@ -7,6 +7,7 @@ import {
 import AKeyLabel from "../../const/AKeyLabel";
 import AKeyId from "../../const/AKeyId";
 import AIcon from "../../AIcon/AIcon";
+import ATranslation from "../../ATranslation/ATranslation";
 
 export default {
   name: "ASelectValueCloseable",
@@ -23,6 +24,11 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
+    },
+    hideDeleteButton: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   emits: [
@@ -65,8 +71,12 @@ export default {
           label: this.currentLabel,
           inDropdown: false,
         }) :
-        h("span", {}, this.currentLabel),
-      h("button", {
+        h(ATranslation, {
+          tag: "span",
+          text: this.currentLabel,
+          extra: this.data.extra,
+        }),
+      !this.hideDeleteButton && h("button", {
         class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
         type: "button",
         tabindex: -1,
