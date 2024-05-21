@@ -77,8 +77,7 @@ export default function ModelChangeAPI(props, {
   };
 
   const deleteExceededItems = $event => {
-    let modelValueLocal;
-    modelValueLocal = take(cloneDeep(modelValue.value), countMultiselect.value);
+    const modelValueLocal = take(modelValue.value, countMultiselect.value);
     changeModel({
       model: modelValueLocal,
       $event,
