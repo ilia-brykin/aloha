@@ -28,6 +28,11 @@ export default {
       required: false,
       default: () => [],
     },
+    btnGroupClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: "a_btn_group",
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -95,6 +100,7 @@ export default {
       }, [
         ...this.actionsGrouped.buttons.map((item, itemIndex) => {
           return h(AGroupButtonDropdownItem, {
+            btnGroupClass: this.btnGroupClass,
             data: item,
             disabled: this.disabled,
             actionsDropdown: this.actionsGrouped.dropdown,

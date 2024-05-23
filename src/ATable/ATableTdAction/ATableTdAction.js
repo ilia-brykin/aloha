@@ -11,7 +11,10 @@ import ColumnsCountAPI from "./compositionAPI/ColumnsCountAPI.js";
 import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 import RowNumberAPI from "./compositionAPI/RowNumberAPI.js";
 import StylesThTdAction from "../ATableHeaderThAction/compositionAPI/StylesThTdAction";
-import { isUndefined } from "lodash-es";
+
+import {
+  isUndefined,
+} from "lodash-es";
 
 export default {
   name: "ATableTdAction",
@@ -198,6 +201,7 @@ export default {
                     placement: "bottom-end",
                   },
                   disabled: this.disabledRowActions,
+                  btnGroupClass: isUndefined(this.columnActionsOnePlusDropdownOptions.btnGroupClass) ? "a_btn_group" : this.columnActionsOnePlusDropdownOptions.btnGroupClass,
                   hasDividerBeforeDropdown: this.columnActionsOnePlusDropdownOptions.hasDividerBeforeDropdown || false,
                   indexFirstDropdownAction: isUndefined(this.columnActionsOnePlusDropdownOptions.indexFirstDropdownAction) ? 1 : this.columnActionsOnePlusDropdownOptions.indexFirstDropdownAction,
                   indexFirstDropdownActionMobile: isUndefined(this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile) ? 1 : this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile,

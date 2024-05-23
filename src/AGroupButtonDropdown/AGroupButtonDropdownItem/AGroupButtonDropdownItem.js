@@ -27,6 +27,11 @@ export default {
       type: Array,
       required: true,
     },
+    btnGroupClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: "a_btn_group",
+    },
     data: {
       type: Object,
       required: true,
@@ -66,7 +71,7 @@ export default {
   render() {
     return [
       !!this.data.children.length && h("div", {
-        class: "a_btn_group",
+        class: this.btnGroupClass,
       }, [
         ...this.data.children.map(action => {
           let classLocal = action.classButton ? action.classButton : this.actionsClasses[action.actionNotDividerIndex];
