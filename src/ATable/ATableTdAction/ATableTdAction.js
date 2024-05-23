@@ -201,7 +201,7 @@ export default {
                     placement: "bottom-end",
                   },
                   disabled: this.disabledRowActions,
-                  btnGroupClass: isUndefined(this.columnActionsOnePlusDropdownOptions.btnGroupClass) ? "a_btn_group" : this.columnActionsOnePlusDropdownOptions.btnGroupClass,
+                  btnGroupClass: isUndefined(this.columnActionsOnePlusDropdownOptions.btnGroupClass) ? "a_btn_group a_btn_group_table" : this.columnActionsOnePlusDropdownOptions.btnGroupClass,
                   hasDividerBeforeDropdown: this.columnActionsOnePlusDropdownOptions.hasDividerBeforeDropdown || false,
                   indexFirstDropdownAction: isUndefined(this.columnActionsOnePlusDropdownOptions.indexFirstDropdownAction) ? 1 : this.columnActionsOnePlusDropdownOptions.indexFirstDropdownAction,
                   indexFirstDropdownActionMobile: isUndefined(this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile) ? 1 : this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile,

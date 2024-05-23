@@ -68,7 +68,7 @@ export default {
       required: false,
       default: () => ({
         actionsClasses: ["a_btn a_btn_primary a_text_truncate"],
-        btnGroupClass: "a_btn_group",
+        btnGroupClass: "a_btn_group a_btn_group_table",
         hasDividerBeforeDropdown: false,
         indexFirstDropdownAction: 1,
         indexFirstDropdownActionMobile: 1,
