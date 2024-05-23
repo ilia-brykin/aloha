@@ -6,6 +6,7 @@ import {
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
 
 import {
+  concatTwoStringsWithSpace,
   filterActionsHiddenAndDivider,
 } from "../../utils/actions";
 import {
@@ -34,15 +35,23 @@ export default function ActionsAPI(props) {
     const ACTIONS = cloneDeep(actionsAllFiltered.value);
     forEach(ACTIONS, action => {
       // only for inline buttons
-      action.classButton = concatenateTwoStringsWithSpace({
+      action.classButton = concatTwoStringsWithSpace({
         class1: action.classButton,
         class2: action.class,
       });
+
       // only for dropdown
-      action.class = concatenateTwoStringsWithSpace({
+      action.class = concatTwoStringsWithSpace({
         class1: action.classDropdown,
         class2: action.class,
       });
+      delete action.classDropdown;
+      if (action.classExtra) {
+        action.class = concatTwoStringsWithSpace({
+          class1: action.classExtra,
+          class2: action.class,
+        });
+      }
     });
 
     return ACTIONS;
@@ -130,24 +139,3 @@ export default function ActionsAPI(props) {
   };
 }
 
-/**
- * Concatenates two strings with a space between them.
- *
- * @param {Object} options - The options for concatenation.
- * @param {string} options.class1 - The first class to concatenate.
- * @param {string} options.class2 - The second class to concatenate.
- * @param {string} [options.defaultValue=undefined] - The default value to return if both class1 and class2 are falsy.
- * @returns {string} The concatenated string or the defaultValue if both class1 and class2 are falsy.
- */
-export function concatenateTwoStringsWithSpace({ class1, class2, defaultValue = undefined }) {
-  if (class1) {
-    if (class2) {
-      return `${ class1 } ${ class2 }`;
-    }
-    return class1;
-  }
-  if (class2) {
-    return class2;
-  }
-  return defaultValue;
-}

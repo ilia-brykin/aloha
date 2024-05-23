@@ -33,6 +33,8 @@ export default {
           ...this.attributesAction,
           isHidden: undefined,
           callback: undefined,
+          classButton: undefined,
+          classExtra: undefined,
           onClick: this.action.callback,
         }),
       ]);
@@ -51,6 +53,8 @@ export default {
       }, [
         h(ALink, {
           ...this.attributesAction,
+          classButton: undefined,
+          classExtra: undefined,
           isHidden: undefined,
         }),
       ]);

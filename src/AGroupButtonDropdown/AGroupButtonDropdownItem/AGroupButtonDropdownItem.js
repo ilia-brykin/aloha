@@ -8,6 +8,10 @@ import ALink from "../../ALink/ALink";
 
 import DropdownAPI from "./compositionAPI/DropdownAPI";
 
+import {
+  concatTwoStringsWithSpace,
+} from "../../utils/actions";
+
 export default {
   name: "AGroupButtonDropdownItem",
   props: {
@@ -65,15 +69,22 @@ export default {
         class: "a_btn_group",
       }, [
         ...this.data.children.map(action => {
-          const CLASS = action.classButton ? action.classButton : this.actionsClasses[action.actionNotDividerIndex];
+          let classLocal = action.classButton ? action.classButton : this.actionsClasses[action.actionNotDividerIndex];
+          if (action.classExtra) {
+            classLocal = concatTwoStringsWithSpace({
+              class1: classLocal,
+              class2: action.classExtra,
+            });
+          }
           const ID = action.id ? action.id : this.actionsIds[action.actionNotDividerIndex];
           const DISABLED = this.disabled || action.disabled;
           if (action.type === "button") {
             return h(AButton, {
               ...action,
               id: ID,
-              class: CLASS,
+              class: classLocal,
               classButton: undefined,
+              classExtra: undefined,
               disabled: DISABLED,
               onClick: action.callback,
               callback: undefined,
@@ -86,8 +97,9 @@ export default {
               ...action,
               id: ID,
               classButton: undefined,
+              classExtra: undefined,
               disabled: DISABLED,
-              class: CLASS,
+              class: classLocal,
               actionNotDividerIndex: undefined,
               isHidden: undefined,
               type: undefined,
@@ -98,7 +110,7 @@ export default {
             this.$slots[action.slotName]) {
             return this.$slots[action.slotName]({
               id: ID,
-              class: CLASS,
+              class: classLocal,
               action: action,
             });
           }
