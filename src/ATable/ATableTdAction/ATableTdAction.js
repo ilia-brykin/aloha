@@ -61,6 +61,7 @@ export default {
   inject: [
     "columnActionsOnePlusDropdownOptions",
     "columnsScrollInvisible",
+    "isMobile",
     "tableId",
   ],
   setup(props) {
@@ -167,7 +168,8 @@ export default {
               }) :
               "",
             this.isRowActionsDropdownVisible ?
-              this.columnActionsView === "dropdown" ?
+              this.columnActionsView === "dropdown" ||
+              (this.isMobile && this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile === 0) ?
                 h(ADropdown, {
                   id: this.buttonActionsId,
                   actions: this.rowActionsFiltered,
