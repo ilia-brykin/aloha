@@ -8062,7 +8062,7 @@ input:not(:-webkit-autofill) {
   margin-left: auto; }
   .a_table__cell_action__group > * + * {
     margin-left: 0.5rem; }
-  .a_table__cell_action__group .aloha_group_btn_dropdown .a_btn_group {
+  .a_table__cell_action__group .aloha_group_btn_dropdown .a_btn_group_table {
     width: 100%; }
 
 .a_table__cell_action_sticky {
