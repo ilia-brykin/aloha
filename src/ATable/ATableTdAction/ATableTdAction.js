@@ -7,6 +7,7 @@ import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdow
 import AIcon from "../../AIcon/AIcon";
 import ATableListItem from "../ATableListItem/ATableListItem";
 
+import AMobileAPI from "../../compositionAPI/AMobileAPI";
 import ColumnsCountAPI from "./compositionAPI/ColumnsCountAPI.js";
 import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 import RowNumberAPI from "./compositionAPI/RowNumberAPI.js";
@@ -61,10 +62,13 @@ export default {
   inject: [
     "columnActionsOnePlusDropdownOptions",
     "columnsScrollInvisible",
-    "isMobile",
     "tableId",
   ],
   setup(props) {
+    const {
+      isMobileWidth,
+    } = AMobileAPI();
+
     const {
       buttonActionsId,
       buttonFirstActionId,
@@ -92,6 +96,7 @@ export default {
       columnsScrollInvisibleText,
       countColumnsScrollInvisible,
       isColumnsScrollInvisibleDropdownVisible,
+      isMobileWidth,
       isRowActionsDropdownVisible,
       rowActionsFiltered,
       rowNumber,
@@ -169,7 +174,7 @@ export default {
               "",
             this.isRowActionsDropdownVisible ?
               this.columnActionsView === "dropdown" ||
-              (this.isMobile && this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile === 0) ?
+              (this.isMobileWidth && this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile === 0) ?
                 h(ADropdown, {
                   id: this.buttonActionsId,
                   actions: this.rowActionsFiltered,
