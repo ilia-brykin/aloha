@@ -11,6 +11,7 @@ import ColumnsCountAPI from "./compositionAPI/ColumnsCountAPI.js";
 import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 import RowNumberAPI from "./compositionAPI/RowNumberAPI.js";
 import StylesThTdAction from "../ATableHeaderThAction/compositionAPI/StylesThTdAction";
+import { isUndefined } from "lodash-es";
 
 export default {
   name: "ATableTdAction",
@@ -55,6 +56,7 @@ export default {
     },
   },
   inject: [
+    "columnActionsOnePlusDropdownOptions",
     "columnsScrollInvisible",
     "tableId",
   ],
@@ -196,11 +198,11 @@ export default {
                     placement: "bottom-end",
                   },
                   disabled: this.disabledRowActions,
-                  hasDividerBeforeDropdown: false,
-                  indexFirstDropdownAction: 1,
-                  indexFirstDropdownActionMobile: 1,
-                  minDropdownActions: 1,
-                  actionsClasses: ["a_btn a_btn_primary a_text_truncate"],
+                  hasDividerBeforeDropdown: this.columnActionsOnePlusDropdownOptions.hasDividerBeforeDropdown || false,
+                  indexFirstDropdownAction: isUndefined(this.columnActionsOnePlusDropdownOptions.indexFirstDropdownAction) ? 1 : this.columnActionsOnePlusDropdownOptions.indexFirstDropdownAction,
+                  indexFirstDropdownActionMobile: isUndefined(this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile) ? 1 : this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile,
+                  minDropdownActions: isUndefined(this.columnActionsOnePlusDropdownOptions.minDropdownActions) ? 1 : this.columnActionsOnePlusDropdownOptions.minDropdownActions,
+                  actionsClasses: this.columnActionsOnePlusDropdownOptions.actionsClasses || ["a_btn a_btn_primary a_text_truncate"],
                   actionsIds: [this.buttonFirstActionId],
                 }, this.$slots) :
               "",

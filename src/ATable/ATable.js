@@ -63,6 +63,23 @@ export default {
       required: false,
       default: true,
     },
+    columnActionsOnePlusDropdownOptions: {
+      type: Object,
+      required: false,
+      default: () => ({
+        actionsClasses: ["a_btn a_btn_primary a_text_truncate"],
+        hasDividerBeforeDropdown: false,
+        indexFirstDropdownAction: 1,
+        indexFirstDropdownActionMobile: 1,
+        minDropdownActions: 1,
+      }),
+    },
+    columnActionsView: {
+      type: String,
+      required: false,
+      default: "dropdown",
+      validator: value => ["onePlusDropdown", "onePlusDropdownEmptyPlace", "dropdown"].indexOf(value) !== -1,
+    },
     columnActionsWidth: {
       type: Number,
       required: false,
@@ -83,12 +100,6 @@ export default {
       type: Number,
       required: false,
       default: undefined,
-    },
-    columnActionsView: {
-      type: String,
-      required: false,
-      default: "dropdown",
-      validator: value => ["onePlusDropdown", "onePlusDropdownEmptyPlace", "dropdown"].indexOf(value) !== -1,
     },
     columns: {
       type: Array,
@@ -457,6 +468,7 @@ export default {
   provide() {
     return {
       changeModelColumnsVisible: this.changeModelColumnsVisible,
+      columnActionsOnePlusDropdownOptions: computed(() => this.columnActionsOnePlusDropdownOptions),
       columns: computed(() => this.columns),
       columnsDefaultValue: computed(() => this.columnsDefaultValue),
       columnWidthDefault: computed(() => this.columnWidthDefault),
