@@ -7,6 +7,7 @@ import {
 import AKeyLabel from "../../const/AKeyLabel";
 import AKeyId from "../../const/AKeyId";
 import {
+  escapeRegExp,
   forEach,
   get,
   isEmpty,
@@ -46,6 +47,14 @@ export default function UiSearchAPI(props, { emit }, {
     return toLower(modelSearch.value || "");
   });
 
+  const modelSearchEscapeRegExp = computed(() => {
+    return escapeRegExp(modelSearchLowerCase.value);
+  });
+
+  const modelSearchRE = computed(() => {
+    return new RegExp(modelSearchEscapeRegExp.value, "gi");
+  });
+
   const setElementsVisibleWithSearch = () => {
     const ELEMENTS_EXTRA_VISIBLE = {};
     const ELEMENTS_VISIBLE = {};
@@ -56,7 +65,7 @@ export default function UiSearchAPI(props, { emit }, {
         forEach(data.value, element => {
           const ELEMENT_LABEL = element[AKeyLabel];
           const ELEMENT_ID = element[AKeyId];
-          if (toLower(`${ ELEMENT_LABEL }`).indexOf(modelSearchLowerCase.value) !== -1) {
+          if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
             ELEMENTS_VISIBLE[ELEMENT_ID] = true;
             let allGroupKeys = "";
             forEach(keyGroupArray.value, keyGroup => {
@@ -73,7 +82,7 @@ export default function UiSearchAPI(props, { emit }, {
         forEach(data.value, element => {
           const ELEMENT_LABEL = element[AKeyLabel];
           const ELEMENT_ID = element[AKeyId];
-          if (toLower(`${ ELEMENT_LABEL }`).indexOf(modelSearchLowerCase.value) !== -1) {
+          if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
             ELEMENTS_VISIBLE[ELEMENT_ID] = true;
           }
         });
@@ -81,7 +90,7 @@ export default function UiSearchAPI(props, { emit }, {
       forEach(dataExtra.value, element => {
         const ELEMENT_LABEL = element[AKeyLabel];
         const ELEMENT_ID = element[AKeyId];
-        if (toLower(`${ ELEMENT_LABEL }`).indexOf(modelSearchLowerCase.value) !== -1) {
+        if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
           ELEMENTS_EXTRA_VISIBLE[ELEMENT_ID] = true;
         }
       });

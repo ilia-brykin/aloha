@@ -6,6 +6,7 @@ import {
 import AKeyId from "../../const/AKeyId";
 import AKeyLabel from "../../const/AKeyLabel";
 import {
+  escapeRegExp,
   forEach,
 } from "lodash-es";
 
@@ -49,7 +50,7 @@ export default function AMenuSearchAPI(props, {
       rest: {},
     };
     if (isSearchActive.value) {
-      const RE = new RegExp(modelSearch.value, "gi");
+      const RE = new RegExp(escapeRegExp(modelSearch.value), "gi");
       forEach(dataProParentList.value, (items, index) => {
         let isVisible = false;
         forEach(items, item => {

@@ -3,6 +3,10 @@ import {
   toRef,
 } from "vue";
 
+import {
+  escapeRegExp,
+} from "lodash-es";
+
 export default function AttributesComponentAPI(props, {
   attributesForRoot = computed(() => ({})),
   isColumnVisible = computed(() => false),
@@ -15,7 +19,7 @@ export default function AttributesComponentAPI(props, {
     if (!searchColumnModel.value) {
       return true;
     }
-    const RE = new RegExp(searchColumnModel.value, "gi");
+    const RE = new RegExp(escapeRegExp(searchColumnModel.value), "gi");
     return `${ labelTranslated.value }`.search(RE) !== -1;
   });
 
