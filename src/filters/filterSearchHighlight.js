@@ -1,4 +1,5 @@
 import {
+  escapeRegExp,
   isNil,
 } from "lodash-es";
 
@@ -20,6 +21,6 @@ export default function(value, { searchModel = "", searchClass = "a_search_highl
   if (searchModel === "" || isNil(searchModel)) {
     return value;
   }
-  const RE = new RegExp(searchModel, "gi");
+  const RE = new RegExp(escapeRegExp(searchModel), "gi");
   return value.replace(RE, val => `<span class="${ searchClass }">${ val }</span>`);
 }
