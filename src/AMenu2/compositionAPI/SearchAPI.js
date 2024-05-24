@@ -6,6 +6,7 @@ import {
 
 import AKeyLabel from "../../const/AKeyLabel";
 import {
+  escapeRegExp,
   forEach,
 } from "lodash-es";
 
@@ -40,10 +41,14 @@ export default function SearchAPI(props, {
     }
   };
 
+  const modelSearchEscapeRegExp = computed(() => {
+    return escapeRegExp(modelSearch.value);
+  });
+
   const itemsWithSearch = computed(() => {
     const ITEMS = [];
     if (isSearchActive.value) {
-      const RE = new RegExp(modelSearch.value, "gi");
+      const RE = new RegExp(modelSearchEscapeRegExp.value, "gi");
       forEach(dataKeyById.value, item => {
         const ITEM_LABEL = item[AKeyLabel];
         if (`${ ITEM_LABEL }`.search(RE) !== -1) {
