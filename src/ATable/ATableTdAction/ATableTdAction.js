@@ -71,7 +71,6 @@ export default {
 
     const {
       buttonActionsId,
-      buttonFirstActionId,
       isRowActionsDropdownVisible,
       rowActionsFiltered,
     } = RowActionsAPI(props);
@@ -92,7 +91,6 @@ export default {
 
     return {
       buttonActionsId,
-      buttonFirstActionId,
       columnsScrollInvisibleText,
       countColumnsScrollInvisible,
       isColumnsScrollInvisibleDropdownVisible,
@@ -214,7 +212,6 @@ export default {
                   indexFirstDropdownActionMobile: isUndefined(this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile) ? 1 : this.columnActionsOnePlusDropdownOptions.indexFirstDropdownActionMobile,
                   minDropdownActions: isUndefined(this.columnActionsOnePlusDropdownOptions.minDropdownActions) ? 1 : this.columnActionsOnePlusDropdownOptions.minDropdownActions,
                   actionsClasses: this.columnActionsOnePlusDropdownOptions.actionsClasses || ["a_btn a_btn_primary a_text_truncate"],
-                  actionsIds: [this.buttonFirstActionId],
                 }, this.$slots) :
               "",
           ]) :

@@ -20,19 +20,22 @@ import {
 
 export default function RowActionsAPI(props) {
   const columnActionsView = toRef(props, "columnActionsView");
+  const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
   const rowIndex = toRef(props, "rowIndex");
-  const isFooter = toRef(props, "isFooter");
 
+  const columnActionsOnePlusDropdownOptions = inject("columnActionsOnePlusDropdownOptions");
   const rowActions = inject("rowActions");
   const tableId = inject("tableId");
 
-  const buttonFirstActionId = computed(() => {
-    return `${ tableId.value }_action_${ rowIndex.value }_first`;
-  });
-
   const buttonActionsId = computed(() => {
     return `${ tableId.value }_action_${ rowIndex.value }`;
+  });
+
+  const indexFirstDropdownActionLocal = computed(() => {
+    return isUndefined(columnActionsOnePlusDropdownOptions.value.indexFirstDropdownAction) ?
+      1 :
+      columnActionsOnePlusDropdownOptions.value.indexFirstDropdownAction;
   });
 
   const getRowActionText = ({ rowAction }) => {
@@ -204,6 +207,30 @@ export default function RowActionsAPI(props) {
     return undefined;
   };
 
+  const getRowActionIds = ({ rowActionIndexVisible }) => {
+    if (columnActionsView.value === "dropdown") {
+      return {
+        id: buttonActionsId.value,
+        ids: [buttonActionsId.value, tableId.value],
+      };
+    }
+
+    if (rowActionIndexVisible < indexFirstDropdownActionLocal.value) {
+      const buttonId = `${ buttonActionsId.value }_${ rowActionIndexVisible }`;
+
+      return {
+        buttonId,
+        id: buttonId,
+        ids: [buttonId, tableId.value],
+      };
+    }
+
+    return {
+      id: buttonActionsId.value,
+      ids: [buttonActionsId.value, tableId.value],
+    };
+  };
+
   const replacePropertiesByRowAction = rowAction => {
     forEach(rowAction, (_, key) => {
       if (endsWith(key, "Callback")) {
@@ -265,17 +292,22 @@ export default function RowActionsAPI(props) {
             }
           }
           if (isFunction(rowAction.callback)) {
-            let buttonId = buttonActionsId.value;
-            if (columnActionsView.value !== "dropdown" && rowActionIndexVisible === 0) {
-              buttonId = buttonFirstActionId.value;
-            }
+            const {
+              buttonId,
+              id,
+              ids,
+            } = getRowActionIds({
+              rowActionIndexVisible,
+            });
+
+            rowAction.id = buttonId;
 
             const CALLBACK_DEFAULT = rowAction.callback;
             rowAction.callback = () => CALLBACK_DEFAULT({
               row: row.value,
               rowIndex: rowIndex.value,
-              id: buttonId,
-              ids: [buttonId, tableId.value],
+              id,
+              ids,
               rowAction,
             });
           }
@@ -296,7 +328,6 @@ export default function RowActionsAPI(props) {
 
   return {
     buttonActionsId,
-    buttonFirstActionId,
     isRowActionsDropdownVisible,
     rowActionsFiltered,
   };
