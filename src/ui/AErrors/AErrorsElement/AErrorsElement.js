@@ -206,10 +206,10 @@ export default {
               h("div", {
                 class: "a_pl_2",
               }, [
-                ...Object.keys(this.errors).map(key => {
+                ...Object.keys(this.error).map(key => {
                   return h(resolveComponent("AErrorsElement"), {
                     key: key,
-                    error: this.errors[key],
+                    error: this.error[key],
                     errorLabels: this.errorLabels[key] || this.errorLabels,
                     goToError: this.goToError,
                     isErrorLink: this.isErrorLink,
