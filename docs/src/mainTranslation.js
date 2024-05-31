@@ -63,6 +63,7 @@ import PageUtilsIsArrayOfStringsI18n from "./views/Functions/Utils/PageUtilsIsAr
 import PageUtilsIsArrayOfArraysI18n from "./views/Functions/Utils/PageUtilsIsArrayOfArrays/i18n/PageUtilsIsArrayOfArraysI18n";
 import PageUtilsGetTotalNestedCountI18n from "./views/Functions/Utils/PageUtilsGetTotalNestedCount/i18n/PageUtilsGetTotalNestedCountI18n";
 import PageTableTreeI18n from "./views/PageTable/PageTableTree/i18n/PageTableTreeI18n";
+import PageInputCurrencyI18n from "./views/Form/PageInputCurrency/i18n/PageInputCurrencyI18n";
 
 export const mainTranslation = {
   ar: {
@@ -122,6 +123,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.ar,
     ...PageUtilsGetTotalNestedCountI18n.ar,
     ...PageTableTreeI18n.ar,
+    ...PageInputCurrencyI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -180,6 +182,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.de,
     ...PageUtilsGetTotalNestedCountI18n.de,
     ...PageTableTreeI18n.de,
+    ...PageInputCurrencyI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -238,6 +241,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.en,
     ...PageUtilsGetTotalNestedCountI18n.en,
     ...PageTableTreeI18n.en,
+    ...PageInputCurrencyI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -296,6 +300,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.es,
     ...PageUtilsGetTotalNestedCountI18n.es,
     ...PageTableTreeI18n.es,
+    ...PageInputCurrencyI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -354,6 +359,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.fr,
     ...PageUtilsGetTotalNestedCountI18n.fr,
     ...PageTableTreeI18n.fr,
+    ...PageInputCurrencyI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -412,6 +418,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.hr,
     ...PageUtilsGetTotalNestedCountI18n.hr,
     ...PageTableTreeI18n.hr,
+    ...PageInputCurrencyI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -470,6 +477,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.it,
     ...PageUtilsGetTotalNestedCountI18n.it,
     ...PageTableTreeI18n.it,
+    ...PageInputCurrencyI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -528,5 +536,6 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfArraysI18n.ru,
     ...PageUtilsGetTotalNestedCountI18n.ru,
     ...PageTableTreeI18n.ru,
+    ...PageInputCurrencyI18n.ru,
   },
 };
