@@ -33,6 +33,12 @@
     max-width: var(--a_input_number_max_width);
     min-width: var(--a_input_number_min_width);
   }
+
+  .a_form_element_number__currency_symbol {
+    display: flex;
+    align-self: center;
+    margin: 0 0.5rem;
+  }
 }
 
 .a_form_element__parent_invalid {
