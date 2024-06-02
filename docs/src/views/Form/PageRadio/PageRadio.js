@@ -3,12 +3,13 @@ import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTab
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageRadioCollapse from "./PageRadioCollapse/PageRadioCollapse.vue";
 import PageRadioDataExtra from "./PageRadioDataExtra/PageRadioDataExtra.vue";
+import PageRadioInline from "./PageRadioInline/PageRadioInline.vue";
 import PageRadioIsButtonGroup from "./PageRadioIsButtonGroup/PageRadioIsButtonGroup.vue";
+import PageRadioIsModelArray from "./PageRadioIsModelArray/PageRadioIsModelArray.vue";
 import PageRadioKeyDisabled from "./PageRadioKeyDisabled/PageRadioKeyDisabled.vue";
 import PageRadioSearch from "./PageRadioSearch/PageRadioSearch.vue";
 import PageRadioTranslateData from "./PageRadioTranslateData/PageRadioTranslateData.vue";
 import PageRadioTwoColumns from "./PageRadioTwoColumns/PageRadioTwoColumns.vue";
-import PageRadioIsModelArray from "./PageRadioIsModelArray/PageRadioIsModelArray.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -24,6 +25,7 @@ export default {
     ATranslation,
     PageRadioCollapse,
     PageRadioDataExtra,
+    PageRadioInline,
     PageRadioIsButtonGroup,
     PageRadioKeyDisabled,
     PageRadioSearch,

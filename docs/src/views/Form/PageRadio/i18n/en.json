@@ -13,5 +13,7 @@
   "_A_RADIO_GROUP_TRANSLATE_DATA_HEADER_": "Internationalization",
   "_A_RADIO_GROUP_TWO_COLUMNS_DESCRIPTION_": "Passing a class name as a prop determines whether the options are displayed in one or two columns.",
   "_A_RADIO_GROUP_TWO_COLUMNS_HEADER_": "Two-Column Layout",
-  "_A_RADIO_LABEL_WIDE_SCREEN_": "Wide Screen Layout"
+  "_A_RADIO_LABEL_WIDE_SCREEN_": "Wide Screen Layout",
+  "_A_RADIO_GROUP_INLINE_HEADER_": "Inline Radio Button Group",
+  "_A_RADIO_GROUP_INLINE_DESCRIPTION_": "Specifies whether the radio buttons should be displayed in a single line. When set to true, the radio buttons will be rendered inline. Otherwise, they will be displayed vertically."
 }

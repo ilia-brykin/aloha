@@ -126,6 +126,11 @@ export default {
       required: false,
       default: undefined,
     },
+    inline: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     inputAttributes: {
       type: Object,
       required: false,
@@ -477,7 +482,12 @@ export default {
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
-        class: ["a_form_element__parent"],
+        class: [
+          "a_form_element__parent",
+          {
+            a_checkbox_inline: this.inline,
+          },
+        ],
       }, [
         h("div", {
           class: "a_form_element",
@@ -552,7 +562,9 @@ export default {
                 "onUpdate:modelValue": this.updateModelSearch,
               }),
               this.loadingLocal && h(ACloak),
-              this.hasDataExtra && h("div", {}, [
+              this.hasDataExtra && h("div", {
+                class: "a_checkbox__data_extra",
+              }, [
                 ...this.dataExtraLocal.map((item, itemIndex) => {
                   return h(ACheckboxItem, {
                     key: itemIndex,
@@ -609,6 +621,7 @@ export default {
                 [
                   h("div", {
                     class: [
+                      "a_checkbox_data",
                       {
                         a_btn_group: this.isButtonGroup,
                       },

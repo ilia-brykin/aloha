@@ -4,6 +4,7 @@ import AOneCheckbox from "../../../../../src/ui/AOneCheckbox/AOneCheckbox";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageCheckboxCollapse from "./PageCheckboxCollapse/PageCheckboxCollapse.vue";
 import PageCheckboxDataExtra from "./PageCheckboxDataExtra/PageCheckboxDataExtra.vue";
+import PageCheckboxInline from "./PageCheckboxInline/PageCheckboxInline.vue";
 import PageCheckboxIsButtonGroup from "./PageCheckboxIsButtonGroup/PageCheckboxIsButtonGroup.vue";
 import PageCheckboxKeyDisabled from "./PageCheckboxKeyDisabled/PageCheckboxKeyDisabled.vue";
 import PageCheckboxSearch from "./PageCheckboxSearch/PageCheckboxSearch.vue";
@@ -25,6 +26,7 @@ export default {
     AOneCheckbox,
     PageCheckboxCollapse,
     PageCheckboxDataExtra,
+    PageCheckboxInline,
     PageCheckboxIsButtonGroup,
     PageCheckboxKeyDisabled,
     PageCheckboxSearch,

@@ -153,9 +153,12 @@ export default {
         }
         if (group.groupKey === "_not_grouped") {
           return h("div", {
-            class: {
-              a_btn_group: this.isButtonGroup,
-            },
+            class: [
+              "a_checkbox_radio_group__data",
+              {
+                a_btn_group: this.isButtonGroup,
+              },
+            ],
             style: styleWithSearch,
           }, [
             ...this.dataGrouped[group.allGroupKeys].map((item, itemIndex) => {
@@ -193,9 +196,12 @@ export default {
             html: group.groupLabel,
           }),
           !!(this.dataGrouped[group.allGroupKeys] || []).length && h("div", {
-            class: {
-              a_btn_group: this.isButtonGroup,
-            },
+            class: [
+              "a_checkbox_radio_group__data",
+              {
+                a_btn_group: this.isButtonGroup,
+              },
+            ],
           }, [
             ...(this.dataGrouped[group.allGroupKeys] || []).map((item, itemIndex) => {
               return h(this.currentComponent, {

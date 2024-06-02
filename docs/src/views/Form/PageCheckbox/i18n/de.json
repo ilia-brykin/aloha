@@ -13,5 +13,7 @@
   "_A_CHECKBOX_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisierung",
   "_A_CHECKBOX_GROUP_TWO_COLUMNS_DESCRIPTION_": "Durch das Übergeben eines Klassennamens als Prop wird festgelegt, ob die Optionen in einer oder zwei Spalten basierend auf dem bereitgestellten Klassennamen angezeigt werden.",
   "_A_CHECKBOX_GROUP_TWO_COLUMNS_HEADER_": "Zweispaltiges Layout",
-  "_A_CHECKBOX_LABEL_WIDE_SCREEN_": "Breitbildlayout"
+  "_A_CHECKBOX_LABEL_WIDE_SCREEN_": "Breitbildlayout",
+  "_A_CHECKBOX_GROUP_INLINE_HEADER_": "Inline-Checkbox-Gruppe",
+  "_A_CHECKBOX_GROUP_INLINE_DESCRIPTION_": "Gibt an, ob die Kontrollkästchen in einer Zeile angezeigt werden sollen. Wenn auf true gesetzt, werden die Kontrollkästchen inline angezeigt. Andernfalls werden sie vertikal angezeigt."
 }

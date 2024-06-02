@@ -127,6 +127,11 @@ export default {
       required: false,
       default: undefined,
     },
+    inline: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     inputAttributes: {
       type: Object,
       required: false,
@@ -485,7 +490,12 @@ export default {
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
-        class: ["a_form_element__parent"],
+        class: [
+          "a_form_element__parent",
+          {
+            a_radio_inline: this.inline,
+          },
+        ],
       }, [
         h("div", {
           class: "a_form_element",
@@ -560,7 +570,9 @@ export default {
                 "onUpdate:modelValue": this.updateModelSearch,
               }),
               this.loadingLocal && h(ACloak),
-              this.hasDataExtra && h("div", {}, [
+              this.hasDataExtra && h("div", {
+                class: "a_radio__data_extra",
+              }, [
                 ...this.dataExtraLocal.map((item, itemIndex) => {
                   return h(ARadioItem, {
                     key: item[AKeyId],
@@ -617,6 +629,7 @@ export default {
                 [
                   h("div", {
                     class: [
+                      "a_radio_data",
                       {
                         a_btn_group: this.isButtonGroup,
                       },
