@@ -5735,6 +5735,14 @@ h6 {
   display: flex;
   flex-wrap: wrap; }
 
+.a_checkbox_control {
+  margin-top: 1rem; }
+  .a_checkbox_control .a_checkbox_data {
+    margin-top: 0.5rem; }
+  .a_checkbox_control .a_fieldset .a_fieldset {
+    margin-top: 1.5rem;
+    --a_fieldset_padding_top: 1.5rem; }
+
 .a_radio_inline .a_radio__data_extra,
 .a_radio_inline .a_radio_data,
 .a_radio_inline .a_checkbox_radio_group__data {
