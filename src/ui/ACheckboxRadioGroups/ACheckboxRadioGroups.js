@@ -3,7 +3,7 @@ import {
   resolveComponent,
 } from "vue";
 
-import ATranslation from "../../ATranslation/ATranslation";
+import ACheckboxLegend from "../ACheckbox/ACheckboxLegend/ACheckboxLegend";
 
 import DataAPI from "./compostionAPI/DataAPI";
 import ComponentAPI from "./compostionAPI/ComponentAPI";
@@ -35,6 +35,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    hasControlCheckbox: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     hideParentWithSearch: {
       type: Boolean,
@@ -86,6 +91,11 @@ export default {
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
+    },
+    modelValueObj: {
+      type: Object,
+      required: false,
+      default: undefined,
     },
     searching: {
       type: Boolean,
@@ -190,68 +200,82 @@ export default {
           class: "a_fieldset",
           style: styleWithSearch,
         }, [
-          h(ATranslation, {
-            tag: "legend",
-            class: "a_legend",
-            html: group.groupLabel,
-          }),
-          !!(this.dataGrouped[group.allGroupKeys] || []).length && h("div", {
-            class: [
-              "a_checkbox_radio_group__data",
-              {
-                a_btn_group: this.isButtonGroup,
-              },
-            ],
-          }, [
-            ...(this.dataGrouped[group.allGroupKeys] || []).map((item, itemIndex) => {
-              return h(this.currentComponent, {
-                id: `${ this.id }_gr_${ groupIndex }`,
-                classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
-                dataItem: item,
-                disabled: this.disabled,
-                isButtonGroup: this.isComponentSelect ? undefined : this.isButtonGroup,
-                isErrors: this.isComponentSelect ? undefined : this.isErrors,
-                isHiddenWithSearch,
-                isWidthAuto: this.isComponentSelect ? undefined : this.isWidthAuto,
-                itemIndex,
-                keyDisabled: this.keyDisabled,
-                keyTitle: this.keyTitle,
-                keyTitleCallback: this.keyTitleCallback,
-                modelSearch: this.modelSearch,
-                modelValue: this.modelValue,
-                searching: this.searching,
-                searchingElements: this.searchingElements,
-                slotName: this.slotName,
-                type: this.type,
-                onChangeModelValue: this.onChangeModelValue,
-              }, this.$slots);
-            }),
-          ]),
-
-          h(resolveComponent("ACheckboxRadioGroups"), {
+          h(ACheckboxLegend, {
             id: `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }`,
-            classButtonGroupDefault: this.classButtonGroupDefault,
-            dataGrouped: this.dataGrouped,
+            data: group.data,
+            dataKeyByKeyId: group.dataKeyByKeyId,
             disabled: this.disabled,
-            groupParentKey: group.groupKey,
-            groupsForLever: this.groupsForLever,
-            isButtonGroup: this.isButtonGroup,
+            hasControlCheckbox: this.hasControlCheckbox,
             isErrors: this.isErrors,
-            isHiddenWithSearch,
-            isWidthAuto: this.isWidthAuto,
-            keyDisabled: this.keyDisabled,
-            keyTitle: this.keyTitle,
-            keyTitleCallback: this.keyTitleCallback,
-            levelIndex: this.levelIndex + 1,
-            modelSearch: this.modelSearch,
+            label: group.groupLabel,
             modelValue: this.modelValue,
-            searching: this.searching,
-            searchingElements: this.searchingElements,
-            searchingGroups: this.searchingGroups,
-            slotName: this.slotName,
-            type: this.type,
+            modelValueObj: this.modelValueObj,
             onChangeModelValue: this.onChangeModelValue,
-          }, this.$slots)
+          }),
+          h("div", {
+            id: `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }_group`,
+            "aria-labelledby": `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }_legend`,
+            role: "group",
+          }, [
+            !!(this.dataGrouped[group.allGroupKeys] || []).length && h("div", {
+              class: [
+                "a_checkbox_radio_group__data",
+                {
+                  a_btn_group: this.isButtonGroup,
+                },
+              ],
+            }, [
+              ...(this.dataGrouped[group.allGroupKeys] || []).map((item, itemIndex) => {
+                return h(this.currentComponent, {
+                  id: `${ this.id }_gr_${ groupIndex }`,
+                  classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
+                  dataItem: item,
+                  disabled: this.disabled,
+                  isButtonGroup: this.isComponentSelect ? undefined : this.isButtonGroup,
+                  isErrors: this.isComponentSelect ? undefined : this.isErrors,
+                  isHiddenWithSearch,
+                  isWidthAuto: this.isComponentSelect ? undefined : this.isWidthAuto,
+                  itemIndex,
+                  keyDisabled: this.keyDisabled,
+                  keyTitle: this.keyTitle,
+                  keyTitleCallback: this.keyTitleCallback,
+                  modelSearch: this.modelSearch,
+                  modelValue: this.modelValue,
+                  searching: this.searching,
+                  searchingElements: this.searchingElements,
+                  slotName: this.slotName,
+                  type: this.type,
+                  onChangeModelValue: this.onChangeModelValue,
+                }, this.$slots);
+              }),
+            ]),
+            h(resolveComponent("ACheckboxRadioGroups"), {
+              id: `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }`,
+              classButtonGroupDefault: this.classButtonGroupDefault,
+              dataGrouped: this.dataGrouped,
+              disabled: this.disabled,
+              groupParentKey: group.groupKey,
+              groupsForLever: this.groupsForLever,
+              hasControlCheckbox: this.hasControlCheckbox,
+              isButtonGroup: this.isButtonGroup,
+              isErrors: this.isErrors,
+              isHiddenWithSearch,
+              isWidthAuto: this.isWidthAuto,
+              keyDisabled: this.keyDisabled,
+              keyTitle: this.keyTitle,
+              keyTitleCallback: this.keyTitleCallback,
+              levelIndex: this.levelIndex + 1,
+              modelSearch: this.modelSearch,
+              modelValue: this.modelValue,
+              modelValueObj: this.modelValueObj,
+              searching: this.searching,
+              searchingElements: this.searchingElements,
+              searchingGroups: this.searchingGroups,
+              slotName: this.slotName,
+              type: this.type,
+              onChangeModelValue: this.onChangeModelValue,
+            }, this.$slots)
+          ]),
         ]);
       }),
     ];

@@ -15,5 +15,7 @@
   "_A_CHECKBOX_GROUP_TWO_COLUMNS_HEADER_": "Two-Column Layout",
   "_A_CHECKBOX_LABEL_WIDE_SCREEN_": "Wide Screen Layout",
   "_A_CHECKBOX_GROUP_INLINE_HEADER_": "Inline Checkbox Group",
-  "_A_CHECKBOX_GROUP_INLINE_DESCRIPTION_": "Specifies whether the checkboxes should be displayed in a single line. When set to true, the checkboxes will be rendered inline. Otherwise, they will be displayed vertically."
+  "_A_CHECKBOX_GROUP_INLINE_DESCRIPTION_": "Specifies whether the checkboxes should be displayed in a single line. When set to true, the checkboxes will be rendered inline. Otherwise, they will be displayed vertically.",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Enable Control Checkbox",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "When this option is enabled, an additional control checkbox will be displayed. This control checkbox allows the user to select or deselect all child checkboxes at once."
 }

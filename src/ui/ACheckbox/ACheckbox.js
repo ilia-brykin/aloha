@@ -6,13 +6,16 @@ import {
 import AButton from "../../AButton/AButton";
 import ACloak from "../../ACloak/ACloak";
 import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
+import ACheckboxLegend from "./ACheckboxLegend/ACheckboxLegend";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AInput from "../AInput/AInput";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
+import ModelObjAPI from "./compositionAPI/ModelObjAPI";
 import TextAfterLabelAPI from "./compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
@@ -106,6 +109,11 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    hasControlCheckbox: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     helpText: {
       type: String,
@@ -334,6 +342,7 @@ export default {
     } = TextAfterLabelAPI(props);
 
     const {
+      dataAll,
       dataFromServer,
       dataExtraLocal,
       dataKeyByKeyIdLocal,
@@ -422,6 +431,17 @@ export default {
       toggleCollapse,
     } = UiCollapseAPI(props, context);
 
+    const {
+      modelValueObj,
+    } = ModelObjAPI(props);
+
+    const {
+      groupAriaLabelledby,
+      groupId,
+    } = AttributesAPI(props, {
+      htmlIdLocal,
+    });
+
     watch(urlPropsComputed, updateUrlPropsComputed, {
       deep: true,
     });
@@ -434,10 +454,14 @@ export default {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       componentStyleHide,
+      dataAll,
       dataExtraLocal,
       dataGrouped,
+      dataKeyByKeyIdLocal,
       dataSort,
       errorsId,
+      groupAriaLabelledby,
+      groupId,
       groupsForLever,
       hasDataExtra,
       hasKeyGroup,
@@ -454,6 +478,7 @@ export default {
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
+      modelValueObj,
       onBlur,
       onChangeModelValue,
       onFocus,
@@ -486,6 +511,7 @@ export default {
           "a_form_element__parent",
           {
             a_checkbox_inline: this.inline,
+            a_checkbox_control: this.hasControlCheckbox,
           },
         ],
       }, [
@@ -506,17 +532,20 @@ export default {
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
-            this.label && h(ATranslation, {
-              tag: "legend",
-              class: [
-                "a_legend",
-                {
-                  a_legend_invalid: this.isErrors,
-                },
-                this.labelClass,
-              ],
-              html: this.label,
+            this.label && h(ACheckboxLegend, {
+              id: this.htmlIdLocal,
+              data: this.dataAll,
+              dataKeyByKeyId: this.dataKeyByKeyIdLocal,
+              disabled: this.disabled,
+              hasControlCheckbox: this.hasControlCheckbox,
+              isErrors: this.isErrors,
+              label: this.label,
+              legendClass: this.labelClass,
+              main: true,
+              modelValue: this.modelValue,
+              modelValueObj: this.modelValueObj,
               textAfter: this.textAfterLabel,
+              onChangeModelValue: this.onChangeModelValue,
             }),
             this.collapsible && h(AButton, {
               class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
@@ -526,7 +555,10 @@ export default {
               onClick: this.toggleCollapse,
             }),
             h("div", {
+              id: this.groupId,
+              "aria-labelledby": this.groupAriaLabelledby,
               class: "a_fieldset__content",
+              role: "group",
             }, [
               this.searchOutsideOrApi && h("div", {
                 class: "a_fieldset__search",
@@ -600,6 +632,7 @@ export default {
                     classButtonGroupDefault: this.classButtonGroupDefault,
                     dataGrouped: this.dataGrouped,
                     disabled: this.disabled,
+                    hasControlCheckbox: this.hasControlCheckbox,
                     groupsForLever: this.groupsForLever,
                     isButtonGroup: this.isButtonGroup,
                     isErrors: this.isErrors,
@@ -610,6 +643,7 @@ export default {
                     levelIndex: 0,
                     modelSearch: this.modelSearchLowerCase,
                     modelValue: this.modelValue,
+                    modelValueObj: this.modelValueObj,
                     searching: this.searching,
                     searchingElements: this.searchingElements,
                     searchingGroups: this.searchingGroups,

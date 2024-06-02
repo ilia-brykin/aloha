@@ -12,6 +12,7 @@ import {
   isString,
   orderBy, values,
 } from "lodash-es";
+import AKeyId from "../../const/AKeyId";
 
 export default function UIDataGroupAPI(props, {
   data = computed(() => []),
@@ -59,8 +60,12 @@ export default function UIDataGroupAPI(props, {
             groupLabel: isFunction(keyGroupCallback.value) ? keyGroupCallback.value({ group: group, item }) : group,
             groupParentKey: groupParentKey,
             allGroupKeys: allGroupKeys,
+            data: [],
+            dataKeyByKeyId: {},
           };
         }
+        GROUPS_FOR_LEVER[leverIndex][allGroupKeys].data.push(item);
+        GROUPS_FOR_LEVER[leverIndex][allGroupKeys].dataKeyByKeyId[item[AKeyId]] = item;
         groupParentKey = group;
       });
     });

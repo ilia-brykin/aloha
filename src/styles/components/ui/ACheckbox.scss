@@ -6,3 +6,13 @@
     flex-wrap: wrap;
   }
 }
+.a_checkbox_control {
+  margin-top: 1rem;
+  .a_checkbox_data {
+    margin-top: 0.5rem;
+  }
+  .a_fieldset .a_fieldset {
+    margin-top: 1.5rem;
+    --a_fieldset_padding_top: 1.5rem;
+  }
+}

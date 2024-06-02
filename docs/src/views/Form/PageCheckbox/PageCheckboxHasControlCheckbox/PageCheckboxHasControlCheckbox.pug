@@ -1,0 +1,40 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_"
+  description="_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_"
+  props="has-control-checkbox"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :has-control-checkbox="true"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        type="select"
+      )
+      div model: {{ model }}
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :has-control-checkbox="true"
+        :key-group="['alohaBR', 'aloha']"
+        key-id="id"
+        key-label="label"
+        label="Aloha group"
+      )
+      div model: {{ model }}
+      a-checkbox(
+        v-model="model1"
+        :data="data"
+        :has-control-checkbox="true"
+        :inline="true"
+        key-id="id"
+        key-label="label"
+        label="Aloha inline"
+        type="select"
+      )
+      div model1: {{ model1 }}

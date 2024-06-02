@@ -15,5 +15,7 @@
   "_A_CHECKBOX_GROUP_TWO_COLUMNS_HEADER_": "Zweispaltiges Layout",
   "_A_CHECKBOX_LABEL_WIDE_SCREEN_": "Breitbildlayout",
   "_A_CHECKBOX_GROUP_INLINE_HEADER_": "Inline-Checkbox-Gruppe",
-  "_A_CHECKBOX_GROUP_INLINE_DESCRIPTION_": "Gibt an, ob die Kontrollkästchen in einer Zeile angezeigt werden sollen. Wenn auf true gesetzt, werden die Kontrollkästchen inline angezeigt. Andernfalls werden sie vertikal angezeigt."
+  "_A_CHECKBOX_GROUP_INLINE_DESCRIPTION_": "Gibt an, ob die Kontrollkästchen in einer Zeile angezeigt werden sollen. Wenn auf true gesetzt, werden die Kontrollkästchen inline angezeigt. Andernfalls werden sie vertikal angezeigt.",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Steuer-Checkbox aktivieren",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Wenn diese Option aktiviert ist, wird eine zusätzliche Steuer-Checkbox angezeigt. Diese Steuer-Checkbox ermöglicht es dem Benutzer, alle untergeordneten Checkboxen auf einmal auszuwählen oder abzuwählen."
 }
