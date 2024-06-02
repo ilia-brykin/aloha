@@ -5729,6 +5729,18 @@ h6 {
 .a_form_control_invalid .tox-tinymce {
   border-color: var(--a_form_element_error_color); }
 
+.a_checkbox_inline .a_checkbox__data_extra,
+.a_checkbox_inline .a_checkbox_data,
+.a_checkbox_inline .a_checkbox_radio_group__data {
+  display: flex;
+  flex-wrap: wrap; }
+
+.a_radio_inline .a_radio__data_extra,
+.a_radio_inline .a_radio_data,
+.a_radio_inline .a_checkbox_radio_group__data {
+  display: flex;
+  flex-wrap: wrap; }
+
 input:-webkit-autofill {
   animation-name: onAutoFillStart;
   transition: background-color 50000s ease-in-out 0s; }
