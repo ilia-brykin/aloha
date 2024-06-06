@@ -149,6 +149,7 @@ export default {
           ],
           iconLeft: this.column.icon,
           iconClass: "a_table__th__icon",
+          extra: this.column.extra,
           title: this.titlesLocal,
           textScreenReader: this.column.textScreenReader || undefined,
           ...this.attributesForButtonSort,
@@ -156,6 +157,7 @@ export default {
           this.column.label && h(ATranslation, {
             html: this.column.label,
             tag: "span",
+            extra: this.column.extra,
             class: "a_table__th__text aloha_element__ml_0",
             ariaHidden: !!this.column.textScreenReader,
           }),
