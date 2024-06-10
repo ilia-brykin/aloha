@@ -207,6 +207,20 @@ export default function RowActionsAPI(props) {
     return undefined;
   };
 
+  const getRowActionTextScreenReader = ({ rowAction }) => {
+    if (rowAction.textScreenReader) {
+      return rowAction.textScreenReader;
+    }
+    if (isFunction(rowAction.textScreenReaderCallback)) {
+      return rowAction.textScreenReaderCallback({
+        row: row.value,
+        rowIndex: rowIndex.value,
+        rowAction,
+      });
+    }
+    return undefined;
+  };
+
   const getRowActionIds = ({ rowActionIndexVisible }) => {
     if (columnActionsView.value === "dropdown") {
       return {
@@ -282,6 +296,10 @@ export default function RowActionsAPI(props) {
           const EXTRA = getRowActionExtra({ rowAction });
           if (EXTRA) {
             rowAction.extra = EXTRA;
+          }
+          const TEXT_SCREEN_READER = getRowActionTextScreenReader({ rowAction });
+          if (EXTRA) {
+            rowAction.textScreenReader = TEXT_SCREEN_READER;
           }
           if (rowAction.type === "link") {
             const TO = getRowActionTo({ rowAction });
