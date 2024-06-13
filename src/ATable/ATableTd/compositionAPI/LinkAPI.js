@@ -28,6 +28,12 @@ export default function LinkAPI(props) {
       const TO = cloneDeep(column.value.to);
       const PARAMS = TO.params || {};
       const QUERY = TO.query || {};
+      if (column.value.to.nameDynamic && !column.value.to.name) {
+        const NAME = get(row.value, column.value.to.nameDynamic);
+        if (NAME) {
+          TO.name = NAME;
+        }
+      }
       if (column.value.to.paramsDynamic) {
         let hasParamsDynamicError = false;
         forEach(column.value.to.paramsDynamic, (value, key) => {

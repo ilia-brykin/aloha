@@ -144,6 +144,12 @@ export default function RowActionsAPI(props) {
       const TO = cloneDeep(rowAction.to);
       const PARAMS = TO.params || {};
       const QUERY = TO.query || {};
+      if (rowAction.to.nameDynamic && !rowAction.to.name) {
+        const NAME = get(row.value, rowAction.to.nameDynamic);
+        if (NAME) {
+          TO.name = NAME;
+        }
+      }
       if (rowAction.to.paramsDynamic) {
         let hasParamsDynamicError = false;
         forEach(rowAction.to.paramsDynamic, (value, key) => {
