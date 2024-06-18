@@ -91,6 +91,10 @@ export default {
     };
   },
   render() {
+    if (this.isMobile) {
+      return null;
+    }
+
     return h("div", {
       ref: "root",
       role: "rowgroup",

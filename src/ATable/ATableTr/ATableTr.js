@@ -255,9 +255,27 @@ export default {
       }, this.$slots);
 
     const CHILDREN = this.isMobile ?
-      h("dl", {
-        class: "a_table_mobile__dl",
-      }, tds) :
+      h("div", {
+        class: "a_table_mobile__dl__wrapper",
+      }, [
+        this.$slots.rowMobilePrepend ?
+          this.$slots.rowMobilePrepend({
+            row: this.row,
+            rowIndex: this.rowIndex,
+            isFooter: this.isFooter,
+          }) :
+          "",
+        h("dl", {
+          class: "a_table_mobile__dl",
+        }, tds),
+        this.$slots.rowMobileAppend ?
+          this.$slots.rowMobileAppend({
+            row: this.row,
+            rowIndex: this.rowIndex,
+            isFooter: this.isFooter,
+          }) :
+          "",
+      ]) :
       tds;
 
     return [

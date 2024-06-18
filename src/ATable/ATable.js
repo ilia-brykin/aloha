@@ -174,6 +174,11 @@ export default {
       required: false,
       default: undefined,
     },
+    hasMobile: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     hasScrollClass: {
       type: Boolean,
       required: false,
@@ -840,7 +845,7 @@ export default {
     return h("div", {
       ref: "tableGrandparentRef",
       class: ["a_table__grandparent", {
-        a_table_mobile: !this.isSimpleTable && this.isMobile,
+        a_table_mobile: this.isMobile,
         a_table__grandparent_without_scroll: !this.hasScrollClass,
       }],
     }, [

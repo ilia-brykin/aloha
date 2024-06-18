@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_"
+  description="_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_"
+  props="is-simple-table"
+  :slots="['rowMobilePrepend', 'rowMobileAppend']"
+)
+  div
+    a-table(
+      :columns="columns"
+      :data="data"
+      :is-simple-table="true"
+      key-id="id"
+      label="_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_"
+    )
+      template(
+        v-slot:rowMobilePrepend="{ row, rowIndex, isFooter }"
+      )
+        span(
+          style="width: 100px;"
+        ) Aloha
+
+      template(
+        v-slot:rowMobileAppend="{ row, rowIndex, isFooter }"
+      )
+        span(
+          style="width: 100px;"
+        ) Aloha

@@ -6,6 +6,7 @@ import {
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
 
 export default function SimpleTableAPI(props) {
+  const hasMobile = toRef(props, "hasMobile");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const isActionIconVisible = toRef(props, "isActionColumnVisible");
   const isColumnsDnd = toRef(props, "isColumnsDnd");
@@ -37,8 +38,11 @@ export default function SimpleTableAPI(props) {
   });
 
   const isMobile = computed(() => {
-    return !!(!isSimpleTable.value &&
-      !isTree.value && 
+    if (!hasMobile.value) {
+      return false;
+    }
+
+    return !!(!isTree.value &&
       isMobileWidth.value);
   });
 

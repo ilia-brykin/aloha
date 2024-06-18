@@ -3,6 +3,7 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_"
   description="_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_"
+  :props="['is-simple-table', 'has-mobile']"
 )
   div
     a-table(
@@ -11,4 +12,5 @@ aloha-example(
       label="_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_"
       key-id="id"
       :is-simple-table="true"
+      :has-mobile="false"
     )
