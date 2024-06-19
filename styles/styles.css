@@ -6377,10 +6377,10 @@ input:not(:-webkit-autofill) {
     color: var(--a_menu_2_link_hover_color);
     background-color: var(--a_menu_2_link_hover_bg); }
   .a_menu_2__link.a_menu_2__link_active {
-    --a_menu_2_icon_color: var(--a_menu_2_submenu_open_bg);
-    --a_menu_2_link_border_color: var(--a_menu_2_submenu_open_bg);
-    background-color: var(--a_menu_2_submenu_open_color);
-    color: var(--a_menu_2_submenu_open_bg); }
+    --a_menu_2_icon_color: var(--a_menu_2_submenu_open_color);
+    --a_menu_2_link_border_color: var(--a_menu_2_submenu_open_color);
+    background-color: var(--a_menu_2_submenu_open_bg);
+    color: var(--a_menu_2_submenu_open_color); }
   .a_menu_2__link.a_menu_2__link_open {
     --a_menu_2_icon_color: var(--a_menu_2_submenu_open_color);
     --a_menu_2_link_border_color: var(--a_menu_2_submenu_open_bg);
