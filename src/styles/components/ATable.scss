@@ -561,6 +561,7 @@
   padding-right: var(--a_table_mobile_dd_padding_right);
   .a_table__cell_action {
     flex-grow: unset;
+    margin-left: auto;
   }
 }
 .a_table_mobile__columns_btn_toggle {
