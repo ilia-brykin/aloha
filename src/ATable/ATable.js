@@ -593,6 +593,7 @@ export default {
       columnActionsWidthMinLocal,
       isColumnActionWide,
     } = ColumnActionAPI(props, {
+      isMobile,
       rowsLocal,
     });
 

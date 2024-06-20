@@ -12,6 +12,7 @@ import {
 } from "lodash-es";
 
 export default function ColumnActionAPI(props, {
+  isMobile = computed(() => false),
   rowsLocal = ref([]),
 }) {
   const columnActionsView = toRef(props, "columnActionsView");
@@ -85,7 +86,8 @@ export default function ColumnActionAPI(props, {
 
   const columnActionsBtnGroupMaxWidthStyle = computed(() => {
     const MAX_WIDTH = columnActionsWidthDefaults.value.btnGroupMaxWidth;
-    if (columnActionsView.value !== "dropdown" &&
+    if (!isMobile.value &&
+      columnActionsView.value !== "dropdown" &&
       !isUndefined(MAX_WIDTH)) {
       return `max-width: ${ MAX_WIDTH }px`;
     }
