@@ -88,6 +88,7 @@ export default function ScrollControlAPI(props, { emit }, {
     columnsScrollInvisible.value = [];
     columnsVisibleAdditionalSpaceForOneGrow.value = 0;
     indexFirstScrollInvisibleColumn.value = 1000;
+    tableWidth.value = 0;
   };
 
   const checkVisibleColumns = () => {
@@ -191,6 +192,9 @@ export default function ScrollControlAPI(props, { emit }, {
       setAllDefaultForMobile();
     } else {
       resizeOb.observe(aTableRef.value);
+      if (modelIsTableWithoutScroll.value) {
+        checkVisibleColumns();
+      }
     }
   };
 
