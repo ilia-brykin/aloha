@@ -145,6 +145,13 @@ export default function ComponentItemsAPI() {
             label: "Input",
           },
           {
+            id: "input-currency",
+            to: {
+              name: "PageInputCurrency",
+            },
+            label: "Input currency",
+          },
+          {
             id: "input-number",
             to: {
               name: "PageInputNumber",
