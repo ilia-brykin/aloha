@@ -14,6 +14,7 @@ import {
   cloneDeep,
   forEach,
   isNil,
+  isUndefined,
 } from "lodash-es";
 
 export default function ScrollControlAPI(props, { emit }, {
@@ -175,7 +176,7 @@ export default function ScrollControlAPI(props, { emit }, {
 
   const resizeOb = new ResizeObserver(entries => {
     // since we are observing only a single element, so we access the first element in entries array
-    if (!tableWidth.value) {
+    if (isUndefined(tableWidth.value)) {
       adjustTableWidth({ entries, forceAdjust: true });
     } else {
       clearTimeout(resizeTimeout.value);
