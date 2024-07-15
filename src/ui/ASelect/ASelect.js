@@ -330,6 +330,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.searchTimeout,
     },
+    selectMenuClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     slotName: {
       type: String,
       required: false,
@@ -766,9 +771,13 @@ export default {
                 }, [
                   h("div", {
                     ref: "menuRef",
-                    class: ["a_select_menu", {
-                      a_select_menu_by_content: this.menuWidthType === "by_content",
-                    }],
+                    class: [
+                      "a_select_menu",
+                      {
+                        a_select_menu_by_content: this.menuWidthType === "by_content",
+                      },
+                      this.selectMenuClass,
+                    ],
                     role: "listbox",
                     "aria-labelledby": this.htmlIdLocal,
                     onClick: event => event.stopPropagation(),
