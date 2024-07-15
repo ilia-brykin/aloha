@@ -921,7 +921,7 @@ export default {
                             })
                           ]),
                         ]),
-                      (!this.dataSort.length || this.hasNotElementsWithSearch) ?
+                      ((!this.dataSort.length && !this.hasDataExtra) || this.hasNotElementsWithSearch) ?
                         h(ATranslation, {
                           class: "a_form__not_elements",
                           text: "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_",
