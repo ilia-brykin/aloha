@@ -117,3 +117,31 @@ export function setFocusToPreviousFocusableElement({ element } = {}) {
     }
   }
 }
+
+/**
+ * Generates a unique CSS selector for a given element.
+ *
+ * @param {Object} options - The options object.
+ * @param {Element} options.element - The DOM element for which to generate the selector.
+ * @returns {string} The unique CSS selector for the element.
+ */
+export function getUniqueSelector({ element }) {
+  if (element.id) {
+    return `#${ element.id }`;
+  }
+
+  const path = [];
+  while (element) {
+    const tag = element.tagName;
+    path.unshift(
+        element.className ? `${ tag }.${ element.className.replace(/\s+/g, ".") }` : tag
+    );
+    const siblings = parent.children;
+    if (siblings.length > 1) {
+      path[0] += `:nth-child(${ Array.prototype.indexOf.call(siblings, element) + 1 })`;
+    }
+    element = element.parentElement;
+  }
+
+  return path.join(" > ");
+}
