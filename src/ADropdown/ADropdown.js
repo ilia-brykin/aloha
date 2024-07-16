@@ -230,6 +230,11 @@ export default {
       required: false,
       default: true,
     },
+    isCloseByClickOutside: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isHideWithoutActionAndSlot: {
       type: Boolean,
       required: false,

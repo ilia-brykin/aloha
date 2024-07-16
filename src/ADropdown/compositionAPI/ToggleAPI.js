@@ -25,6 +25,7 @@ export default function ToggleAPI(props, { emit }, {
   const dropdownRenderDefault = toRef(props, "dropdownRenderDefault");
   const elementsForArrows = toRef(props, "elementsForArrows");
   const isCloseByClickInside = toRef(props, "isCloseByClickInside");
+  const isCloseByClickOutside = toRef(props, "isCloseByClickOutside");
   const isListWidthSameWithButton = toRef(props, "isListWidthSameWithButton");
   const lockArrowsNavigation = toRef(props, "lockArrowsNavigation");
   const lockTabNavigation = toRef(props, "lockTabNavigation");
@@ -118,11 +119,15 @@ export default function ToggleAPI(props, { emit }, {
   };
 
   const setEventCloseClick = () => {
-    document.addEventListener("click", onClickEvent);
+    if (isCloseByClickOutside.value) {
+      document.addEventListener("click", onClickEvent);
+    }
   };
 
   const destroyEventCloseClick = () => {
-    document.removeEventListener("click", onClickEvent);
+    if (isCloseByClickOutside.value) {
+      document.removeEventListener("click", onClickEvent);
+    }
   };
 
   const initEventPressArrows = () => {
