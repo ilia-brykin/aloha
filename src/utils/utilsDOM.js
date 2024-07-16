@@ -137,7 +137,7 @@ export function getUniqueSelector({ element }) {
         element.className ? `${ tag }.${ element.className.replace(/\s+/g, ".") }` : tag
     );
     const siblings = parent.children;
-    if (siblings.length > 1) {
+    if (siblings?.length && siblings.length > 1) {
       path[0] += `:nth-child(${ Array.prototype.indexOf.call(siblings, element) + 1 })`;
     }
     element = element.parentElement;
