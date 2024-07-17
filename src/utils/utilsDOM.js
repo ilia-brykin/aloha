@@ -133,9 +133,14 @@ export function getUniqueSelector({ element }) {
   const path = [];
   while (element) {
     const tag = element.tagName;
-    path.unshift(
+    if (tag === "BODY" || tag === "HTML") {
+      path.unshift(tag);
+    } else {
+      path.unshift(
         element.className ? `${ tag }.${ element.className.replace(/\s+/g, ".") }` : tag
-    );
+      );
+    }
+
     const siblings = parent.children;
     if (siblings?.length && siblings.length > 1) {
       path[0] += `:nth-child(${ Array.prototype.indexOf.call(siblings, element) + 1 })`;
