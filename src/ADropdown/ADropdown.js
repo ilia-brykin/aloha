@@ -8,7 +8,6 @@ import {
 import AButton from "../AButton/AButton";
 import ADropdownAction from "./ADropdownAction/ADropdownAction";
 import AIcon from "../AIcon/AIcon";
-import ATranslation from "../ATranslation/ATranslation";
 
 import AOnHooks from "../directives/AOnHooks";
 
@@ -34,14 +33,15 @@ import {
 export default {
   name: "ADropdown",
   inheritAttrs: false,
-  components: {
-    ATranslation,
-  },
   props: {
     actions: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
     },
     buttonAttributes: {
       type: Object,
@@ -408,6 +408,7 @@ export default {
         ref: "dropdownButtonRef",
         ...this.$attrs,
         id: this.idLocal,
+        alwaysTranslate: this.alwaysTranslate,
         tag: this.buttonTag,
         class: this.buttonClassLocal,
         text: this.buttonText,
@@ -462,6 +463,7 @@ export default {
                 return h(ADropdownAction, {
                   key: actionIndex,
                   action,
+                  alwaysTranslate: this.alwaysTranslate,
                 }, this.$slots);
               }),
             ]),

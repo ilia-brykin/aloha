@@ -14,6 +14,10 @@ export default {
       type: Object,
       required: true,
     },
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
   },
   setup(props) {
     const {
@@ -31,6 +35,7 @@ export default {
       }, [
         h(AButton, {
           ...this.attributesAction,
+          alwaysTranslate: this.alwaysTranslate,
           isHidden: undefined,
           callback: undefined,
           classButton: undefined,
@@ -53,6 +58,7 @@ export default {
       }, [
         h(ALink, {
           ...this.attributesAction,
+          alwaysTranslate: this.alwaysTranslate,
           classButton: undefined,
           classExtra: undefined,
           isHidden: undefined,

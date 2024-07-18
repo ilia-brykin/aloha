@@ -17,6 +17,10 @@ export default {
   name: "AButton",
   inheritAttrs: false,
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     ariaDisabled: {
       type: Boolean,
       required: false,

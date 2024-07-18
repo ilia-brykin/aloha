@@ -30,6 +30,10 @@ export default {
   name: "AElement",
   inheritAttrs: false,
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     ariaDisabled: {
       type: Boolean,
       required: false,
@@ -380,6 +384,7 @@ export default {
         (!this.isTitleHtml && this.isTitleVisible) ?
           h(ATranslation, {
             tag: "span",
+            alwaysTranslate: this.alwaysTranslate,
             ariaHidden: true,
             class: [
               "a_position_absolute_all",
@@ -395,6 +400,7 @@ export default {
           "",
         this.isTextOrHtmlScreenReaderVisible ?
           h(ATranslation, {
+            alwaysTranslate: this.alwaysTranslate,
             class: [
               "a_sr_only",
               this.classDefaultHidden,
@@ -431,6 +437,7 @@ export default {
           "",
         this.isTextOrHtmlVisible ?
           h(ATranslation, {
+            alwaysTranslate: this.alwaysTranslate,
             ariaHidden: this.textAriaHidden,
             class: this.textClass,
             extra: this.extra,
@@ -470,6 +477,7 @@ export default {
           return [
             this.isTitleVisible ?
               h(ATranslation, {
+                alwaysTranslate: this.alwaysTranslate,
                 html: this.title,
                 tag: "span",
                 extra: this.extra,

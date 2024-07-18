@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "always-translate",
+      description: "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "aria-disabled",
       description: "_A_BUTTON_PROPS_ARIA_DISABLED_DESCRIPTION_",
       type: "Boolean",
