@@ -50,6 +50,10 @@ import {
 export default {
   name: "ASelect",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     apiSaveId: {
       type: String,
       required: false,
@@ -661,6 +665,7 @@ export default {
       }, [
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
+          alwaysTranslate: this.alwaysTranslate,
           isLabelFloat: this.isLabelFloat,
           label: this.label,
           labelClass: this.labelClass,
@@ -716,6 +721,7 @@ export default {
                         take(this.modelValueMultiselectFiltered, this.countMultiselect).map((item, index) => {
                           return h(ASelectValueCloseable, {
                             key: index,
+                            alwaysTranslate: this.alwaysTranslate,
                             data: this.dataKeyByKeyIdLocal[item] || {},
                             slotName: this.slotName,
                             disabled: this.disabled,
@@ -724,6 +730,7 @@ export default {
                         }),
                         this.isModelLengthLimitExceeded && h(ASelectValueCloseable, {
                           key: this.countMultiselect,
+                          alwaysTranslate: this.alwaysTranslate,
                           data: this.limitExceededModelData,
                           disabled: this.disabled,
                           hideDeleteButton: !this.exceededItemsDeletable,
@@ -735,6 +742,7 @@ export default {
                       }, [
                         this.isModelLengthLimitExceeded ?
                           h(ATranslation, {
+                            alwaysTranslate: this.alwaysTranslate,
                             text: "_A_SELECT_SELECTED_{{count}}_",
                             extra: {
                               count: this.modelValueLength,
@@ -746,6 +754,7 @@ export default {
                             }, [
                               h("span", null, index !== 0 ? ", " : ""),
                               h(ASelectLabelElement, {
+                                alwaysTranslate: this.alwaysTranslate,
                                 data: this.dataKeyByKeyIdLocal[item] || {},
                                 slotName: this.slotName,
                               }, this.$slots),
@@ -753,6 +762,7 @@ export default {
                           }),
                       ]) :
                     h(ASelectLabelElement, {
+                      alwaysTranslate: this.alwaysTranslate,
                       data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
                       class: "a_select__value__label",
                       slotName: this.slotName,
@@ -792,6 +802,7 @@ export default {
                           class: "a_select__search__group",
                         }, [
                           h(AInput, {
+                            alwaysTranslate: this.alwaysTranslate,
                             label: "_A_SELECT_SEARCH_",
                             inputClass: "a_select__element_clickable",
                             modelValue: this.modelSearchOutside,
@@ -799,6 +810,7 @@ export default {
                             "onUpdate:modelValue": this.updateModelSearchOutside,
                           }),
                           h(AButton, {
+                            alwaysTranslate: this.alwaysTranslate,
                             ariaDisabled: this.loadingSearchApi,
                             disabled: this.disabled,
                             class: "a_btn a_btn_primary a_select__element_clickable",
@@ -813,6 +825,7 @@ export default {
                       class: "a_select__search",
                     }, [
                       h(AInput, {
+                        alwaysTranslate: this.alwaysTranslate,
                         label: "_A_SELECT_SEARCH_",
                         inputClass: "a_select__element_clickable",
                         modelValue: this.modelSearch,
@@ -871,6 +884,7 @@ export default {
                           return h(ASelectElement, {
                             key: item[AKeyId],
                             id: this.htmlIdLocal,
+                            alwaysTranslate: this.alwaysTranslate,
                             dataItem: item,
                             disabled: this.disabled,
                             searching: this.searching,
@@ -893,6 +907,7 @@ export default {
                         [
                           h(ACheckboxRadioGroup, {
                             id: `${ this.htmlIdLocal }_lev_0`,
+                            alwaysTranslate: this.alwaysTranslate,
                             dataGrouped: this.dataGrouped,
                             disabled: this.disabled,
                             groupsForLever: this.groupsForLever,
@@ -915,6 +930,7 @@ export default {
                               return h(ASelectElement, {
                                 key: item[AKeyId],
                                 id: this.htmlIdLocal,
+                                alwaysTranslate: this.alwaysTranslate,
                                 dataItem: item,
                                 disabled: this.disabled,
                                 searching: this.searching,
@@ -932,6 +948,7 @@ export default {
                         ]),
                       ((!this.dataSort.length && !this.hasDataExtra) || this.hasNotElementsWithSearch) ?
                         h(ATranslation, {
+                          alwaysTranslate: this.alwaysTranslate,
                           class: "a_form__not_elements",
                           text: "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_",
                         }) :
@@ -954,11 +971,13 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
         }),
       ]),

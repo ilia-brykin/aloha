@@ -12,14 +12,13 @@ import ATranslation from "../../ATranslation/ATranslation";
 export default {
   name: "ASelectValueCloseable",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     data: {
       type: Object,
       required: true,
-    },
-    slotName: {
-      type: String,
-      required: false,
-      default: undefined,
     },
     disabled: {
       type: Boolean,
@@ -29,6 +28,11 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -72,6 +76,7 @@ export default {
           inDropdown: false,
         }) :
         h(ATranslation, {
+          alwaysTranslate: this.alwaysTranslate,
           tag: "span",
           text: this.currentLabel,
           extra: this.data.extra,

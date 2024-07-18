@@ -13,6 +13,10 @@ import AKeyLabel from "../../const/AKeyLabel";
 export default {
   name: "ASelectLabelElement",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     data: {
       type: Object,
       required: true,
