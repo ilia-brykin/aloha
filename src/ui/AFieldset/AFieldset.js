@@ -35,6 +35,10 @@ export default {
     UiMixinProps,
   ],
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     children: {
       type: Array,
       required: false,
@@ -174,6 +178,7 @@ export default {
         "aria-describedby": this.ariaDescribedbyLocal,
       }, [
         this.label && h(ATranslation, {
+          alwaysTranslate: this.alwaysTranslate,
           tag: "legend",
           class: [
             "a_legend",
@@ -186,6 +191,7 @@ export default {
           textAfter: this.textAfterLabel,
         }),
         this.collapsible && h(AButton, {
+          alwaysTranslate: this.alwaysTranslate,
           class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
           iconLeft: this.iconCollapse,
           title: this.titleCollapse,
@@ -212,6 +218,7 @@ export default {
             }, [
               h(this.componentTypesMapping[item.type], {
                 key: itemIndex,
+                alwaysTranslate: this.alwaysTranslate,
                 modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
                 modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
                 errors: this.errorsAll[item.id],
@@ -238,11 +245,13 @@ export default {
       ]),
       h(AFormHelpText, {
         id: this.helpTextId,
+        alwaysTranslate: this.alwaysTranslate,
         html: this.helpText,
         extra: this.extra,
       }),
       this.isErrors && h(AErrorsText, {
         id: this.errorsId,
+        alwaysTranslate: this.alwaysTranslate,
         errors: this.errors,
       }),
     ]);

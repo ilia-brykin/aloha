@@ -20,6 +20,7 @@ import {
 } from "lodash-es";
 
 export default function UiDataWithKeyIdAndLabelAPI(props) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const data = toRef(props, "data");
   const dataExtra = toRef(props, "dataExtra");
   const isDataSimpleArray = toRef(props, "isDataSimpleArray");
@@ -42,7 +43,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
         const ID = item[0];
         let label = item[1];
         if (translateData.value && isPlaceholderTranslate(label)) {
-          label = getTranslatedText({ placeholder: label });
+          label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
         }
         DATA_LOCAL.push({
           [AKeyId]: ID,
@@ -57,7 +58,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
         forEach(DATA, item => {
           let label = keyLabelCallback.value({ item });
           if (translateData.value && isPlaceholderTranslate(label)) {
-            label = getTranslatedText({ placeholder: label });
+            label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
           }
           DATA_LOCAL.push({
             [AKeyId]: item,
@@ -69,7 +70,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
       forEach(DATA, item => {
         let label = keyLabelCallback.value({ item });
         if (translateData.value && isPlaceholderTranslate(label)) {
-          label = getTranslatedText({ placeholder: label });
+          label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
         }
         item[AKeyId] = get(item, keyId.value);
         item[AKeyLabel] = label;
@@ -80,7 +81,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
         forEach(DATA, item => {
           let label = item;
           if (translateData.value && isPlaceholderTranslate(label)) {
-            label = getTranslatedText({ placeholder: label });
+            label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
           }
           DATA_LOCAL.push({
             [AKeyId]: item,
@@ -92,7 +93,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
       forEach(DATA, item => {
         let label = get(item, keyLabel.value);
         if (translateData.value && isPlaceholderTranslate(label)) {
-          label = getTranslatedText({ placeholder: label });
+          label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
         }
         item[AKeyId] = get(item, keyId.value);
         item[AKeyLabel] = label;

@@ -12,6 +12,10 @@ export default {
     ATranslation,
   },
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     clearButtonClass: {
       type: [String, Object],
       required: false,
@@ -44,12 +48,14 @@ export default {
       onClick: this.clearLocal,
     }, [
       h(ATranslation, {
+        alwaysTranslate: this.alwaysTranslate,
         class: "a_position_absolute_all",
         tag: "span",
         title: "_REMOVE_FIELD_CONTENT_",
         "aria-hidden": "true",
       }),
       h(ATranslation, {
+        alwaysTranslate: this.alwaysTranslate,
         class: "a_sr_only",
         tag: "span",
         text: "_REMOVE_FIELD_CONTENT_",

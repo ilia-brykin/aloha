@@ -10,6 +10,10 @@ import CopyAPI from "./compositionAPI/CopyAPI";
 export default {
   name: "ALinkCopy",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     buttonOptions: {
       type: Object,
       required: false,
@@ -59,6 +63,7 @@ export default {
   },
   render() {
     const BUTTON = h(AButton, {
+      alwaysTranslate: this.alwaysTranslate,
       class: "a_btn a_btn_secondary",
       disabled: this.disabled,
       iconLeft: "Files",
@@ -78,6 +83,7 @@ export default {
       this.buttonPosition === "left" && BUTTON,
       h(ALink, {
         ref: "linkRef",
+        alwaysTranslate: this.alwaysTranslate,
         disabled: this.disabled,
         ...this.linkOptions,
       }, this.$slots?.link),

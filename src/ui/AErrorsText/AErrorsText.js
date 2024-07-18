@@ -11,14 +11,18 @@ import {
 export default {
   name: "AErrorsText",
   props: {
-    id: {
-      type: String,
-      required: true,
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
     },
     errors: {
       type: [String, Array],
       required: false,
       default: undefined,
+    },
+    id: {
+      type: String,
+      required: true,
     },
   },
   setup(props) {

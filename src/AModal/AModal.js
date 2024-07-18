@@ -36,6 +36,10 @@ export default {
   name: "AModal",
   inheritAttrs: false,
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     backdropZIndex: {
       type: Number,
       required: false,
@@ -322,12 +326,14 @@ export default {
                   class: "a_modal_title",
                 }, [
                   h(ATranslation, {
+                    alwaysTranslate: this.alwaysTranslate,
                     tag: "span",
                     html: this.headerText,
                     extra: this.extra,
                   }),
                 ]),
                 this.showCloseButton ? h(AButton, {
+                  alwaysTranslate: this.alwaysTranslate,
                   class: "a_btn_close",
                   disabled: this.disabledLocal,
                   textScreenReader: this.closeButtonText,
@@ -341,6 +347,7 @@ export default {
               }, [
                 this.$slots.modalBody && this.$slots.modalBody(),
                 this.bodyHtml && h(ATranslation, {
+                  alwaysTranslate: this.alwaysTranslate,
                   html: this.bodyHtml,
                   extra: this.extra,
                 }),
@@ -350,11 +357,13 @@ export default {
                 class: "a_modal_footer",
               }, [
                 h(ALoading, {
+                  alwaysTranslate: this.alwaysTranslate,
                   isLoading: this.loading,
                 }, () => [
                   this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend(),
                   (!this.isSaveButtonHide && this.save) && h(AButton, {
                     id: this.saveButtonId,
+                    alwaysTranslate: this.alwaysTranslate,
                     class: this.saveButtonClass,
                     disabled: this.disabledLocal || this.disabledSave,
                     extra: this.extra,
@@ -365,6 +374,7 @@ export default {
                   }),
                   !this.isCloseButtonHide && h(AButton, {
                     id: this.closeButtonId,
+                    alwaysTranslate: this.alwaysTranslate,
                     type: "button",
                     class: this.closeButtonClass,
                     disabled: this.disabledLocal,

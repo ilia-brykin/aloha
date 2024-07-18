@@ -174,6 +174,7 @@ export default {
         ]),
       ]),
       (this.isVisible && this.closable) && h(AButton, {
+        alwaysTranslate: this.alwaysTranslate,
         type: "button",
         class: "a_btn_close",
         textScreenReader: this.textClose,

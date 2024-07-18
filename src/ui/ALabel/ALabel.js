@@ -13,6 +13,10 @@ import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttri
 export default {
   name: "ALabel",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     clickLabel: {
       type: Function,
       required: false,
@@ -137,6 +141,7 @@ export default {
   render() {
     return h(AElement, {
       id: this.idLabelLocal,
+      alwaysTranslate: this.alwaysTranslate,
       class: ["a_form_element_label", this.labelClass],
       for: this.forLabelLocal,
       html: this.labelLocal,

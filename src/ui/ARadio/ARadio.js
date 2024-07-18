@@ -34,6 +34,10 @@ import {
 export default {
   name: "ARadio",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     apiSaveId: {
       type: String,
       required: false,
@@ -515,6 +519,7 @@ export default {
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
             this.label && h(ATranslation, {
+              alwaysTranslate: this.alwaysTranslate,
               tag: "legend",
               class: [
                 "a_legend",
@@ -527,6 +532,7 @@ export default {
               textAfter: this.textAfterLabel,
             }),
             this.collapsible && h(AButton, {
+              alwaysTranslate: this.alwaysTranslate,
               class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
               iconLeft: this.iconCollapse,
               title: this.titleCollapse,
@@ -546,6 +552,7 @@ export default {
                     class: "input-group",
                   }, [
                     h(AInput, {
+                      alwaysTranslate: this.alwaysTranslate,
                       label: "_A_SELECT_SEARCH_",
                       inputClass: "a_select__element_clickable",
                       modelValue: this.modelSearchOutside,
@@ -553,6 +560,7 @@ export default {
                       "onUpdate:modelValue": this.updateModelSearchOutside,
                     }),
                     h(AButton, {
+                      alwaysTranslate: this.alwaysTranslate,
                       ariaDisabled: this.loadingSearchApi,
                       disabled: this.disabled,
                       class: "a_btn a_btn_primary",
@@ -563,6 +571,7 @@ export default {
                 ]),
               ]),
               this.search && h(AInput, {
+                alwaysTranslate: this.alwaysTranslate,
                 class: "a_fieldset__search",
                 label: "_A_RADIO_SEARCH_",
                 modelValue: this.modelSearch,
@@ -577,6 +586,7 @@ export default {
                   return h(ARadioItem, {
                     key: item[AKeyId],
                     id: this.htmlIdLocal,
+                    alwaysTranslate: this.alwaysTranslate,
                     idSuffix: "extra",
                     classButtonGroupDefault: this.classButtonGroupDefault,
                     dataItem: item,
@@ -605,6 +615,7 @@ export default {
                 [
                   h(ACheckboxRadioGroup, {
                     id: `${ this.htmlIdLocal }_lev_0`,
+                    alwaysTranslate: this.alwaysTranslate,
                     classButtonGroupDefault: this.classButtonGroupDefault,
                     dataGrouped: this.dataGrouped,
                     disabled: this.disabled,
@@ -640,6 +651,7 @@ export default {
                       return h(ARadioItem, {
                         key: item[AKeyId],
                         id: this.htmlIdLocal,
+                        alwaysTranslate: this.alwaysTranslate,
                         classButtonGroupDefault: this.classButtonGroupDefault,
                         dataItem: item,
                         disabled: this.disabled,
@@ -662,6 +674,7 @@ export default {
                 ]),
               (!this.dataSort.length || this.hasNotElementsWithSearch) ?
                 h(ATranslation, {
+                  alwaysTranslate: this.alwaysTranslate,
                   class: "a_form__not_elements",
                   text: "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_",
                 }) :
@@ -671,11 +684,13 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
         }),
       ]),

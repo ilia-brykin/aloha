@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "always-translate",
+      description: "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "btn-attributes",
       description: "_A_SHOW_MORE_PROPS_BTN_ATTRIBUTES_DESCRIPTION_",
       type: "Object",

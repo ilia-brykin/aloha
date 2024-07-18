@@ -28,6 +28,10 @@ export default {
     UiMixinProps,
   ],
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     excludeRenderAttributes: {
       type: Array,
       required: false,
@@ -164,6 +168,7 @@ export default {
       }, [
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
+          alwaysTranslate: this.alwaysTranslate,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
@@ -213,11 +218,13 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
         }),
       ]),

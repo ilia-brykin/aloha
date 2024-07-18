@@ -43,6 +43,10 @@ export default {
     UiMixinProps,
   ],
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     controlsType: {
       type: String,
       required: false,
@@ -298,6 +302,7 @@ export default {
       }, [
         this.label && !this.isLabelFloat && h(ALabel, {
           id: this.htmlIdLocal,
+          alwaysTranslate: this.alwaysTranslate,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
@@ -321,6 +326,7 @@ export default {
           }, [
             this.label && this.isLabelFloat && h(ALabel, {
               id: this.htmlIdLocal,
+              alwaysTranslate: this.alwaysTranslate,
               label: this.label,
               labelClass: this.labelClass,
               labelScreenReader: this.labelScreenReader,
@@ -359,6 +365,7 @@ export default {
               onBlur: this.onBlurNumber,
             }),
             this.isClearButtonLocal && h(AFormElementBtnClear, {
+              alwaysTranslate: this.alwaysTranslate,
               disabled: this.disabled,
               clearButtonClass: this.clearButtonClass,
               onClear: this.clearModel,
@@ -368,6 +375,7 @@ export default {
             class: "a_btn_group",
           }, [
             h(AButton, {
+              alwaysTranslate: this.alwaysTranslate,
               class: "a_btn a_btn_outline_secondary",
               iconLeft: "Minus",
               tabindex: -1,
@@ -378,6 +386,7 @@ export default {
               onClick: this.decrease,
             }),
             h(AButton, {
+              alwaysTranslate: this.alwaysTranslate,
               class: "a_btn a_btn_outline_secondary",
               iconLeft: "Plus",
               tabindex: -1,
@@ -391,11 +400,13 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
         }),
       ]),

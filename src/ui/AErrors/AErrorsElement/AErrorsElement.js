@@ -32,10 +32,9 @@ import {
 export default {
   name: "AErrorsElement",
   props: {
-    id: {
-      type: [String, Number],
+    alwaysTranslate: {
+      type: Boolean,
       required: false,
-      default: () => uniqueId("a_errors_"),
     },
     error: {
       type: [Object, Array, String],
@@ -55,6 +54,11 @@ export default {
       type: Function,
       required: false,
       default: undefined,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_errors_"),
     },
     isErrorLink: {
       type: Boolean,
@@ -188,6 +192,7 @@ export default {
         this.isErrorString ?
           [
             h(ATranslation, {
+              alwaysTranslate: this.alwaysTranslate,
               tag: "span",
               html: this.error,
             })
@@ -196,6 +201,7 @@ export default {
             return h(resolveComponent("AErrorsElement"), {
               key: erIndex,
               error,
+              alwaysTranslate: this.alwaysTranslate,
               errorLabels: this.isErrorLabelsArray ? this.errorLabels[erIndex] || this.errorLabels : this.errorLabels,
               goToError: this.goToError,
               isErrorLink: this.isErrorLink,
@@ -209,6 +215,7 @@ export default {
                 ...Object.keys(this.error).map(key => {
                   return h(resolveComponent("AErrorsElement"), {
                     key: key,
+                    alwaysTranslate: this.alwaysTranslate,
                     error: this.error[key],
                     errorLabels: this.errorLabels[key] || this.errorLabels,
                     goToError: this.goToError,

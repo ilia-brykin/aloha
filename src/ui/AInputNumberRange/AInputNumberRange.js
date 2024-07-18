@@ -25,6 +25,10 @@ import {
 export default {
   name: "AInputNumberRange",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     change: {
       type: Function,
       required: false,
@@ -317,6 +321,7 @@ export default {
         this.label ?
           h(ALabel, {
             id: this.htmlIdLocal,
+            alwaysTranslate: this.alwaysTranslate,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,
@@ -333,12 +338,14 @@ export default {
           }, [
             h(ALabel, {
               id: this.idMin,
+              alwaysTranslate: this.alwaysTranslate,
               labelClass: "a_input_number_range__label a_input_number_range__label_min",
               isLabelFloat: false,
               label: this.labelMin,
             }),
             h(AInputNumber, {
               id: this.idMin,
+              alwaysTranslate: this.alwaysTranslate,
               controlsType: this.controlsType,
               iconPrepend: this.iconPrepend,
               inputWidth: this.inputWidth,
@@ -364,12 +371,14 @@ export default {
           }, [
             h(ALabel, {
               id: this.idMax,
+              alwaysTranslate: this.alwaysTranslate,
               labelClass: "a_input_number_range__label a_input_number_range__label_max",
               isLabelFloat: false,
               label: this.labelMax,
             }),
             h(AInputNumber, {
               id: this.idMax,
+              alwaysTranslate: this.alwaysTranslate,
               controlsType: this.controlsType,
               iconPrepend: this.iconPrepend,
               inputWidth: this.inputWidth,
@@ -393,12 +402,14 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors ?
           h(AErrorsText, {
             id: this.errorsId,
+            alwaysTranslate: this.alwaysTranslate,
             errors: this.errors,
           }) :
           "",

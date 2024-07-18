@@ -34,6 +34,10 @@ export default {
     UiMixinProps,
   ],
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     children: {
       type: Array,
       required: false,
@@ -154,6 +158,7 @@ export default {
         }, [
           this.firstChild.label && h(ALabel, {
             id: this.htmlIdFirstChild,
+            alwaysTranslate: this.alwaysTranslate,
             label: this.firstChild.label,
             labelClass: this.firstChild.labelClass,
             labelScreenReader: this.firstChild.labelScreenReader,
@@ -175,6 +180,7 @@ export default {
             }, [
               h(this.componentTypesMapping[item.type], {
                 key: itemIndex,
+                alwaysTranslate: this.alwaysTranslate,
                 modelValue: get(this.modelValue, item.id),
                 modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
                 errors: this.errorsAll[item.id],
@@ -197,11 +203,13 @@ export default {
       ]),
       h(AFormHelpText, {
         id: this.helpTextId,
+        alwaysTranslate: this.alwaysTranslate,
         html: this.helpText,
         extra: this.extra,
       }),
       this.isErrors && h(AErrorsText, {
         id: this.errorsId,
+        alwaysTranslate: this.alwaysTranslate,
         errors: this.errors,
       }),
     ]);

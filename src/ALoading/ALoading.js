@@ -18,6 +18,10 @@ export default {
       default: "center",
       validator: value => ["start", "center", "end"].indexOf(value) !== -1,
     },
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     extra: {
       type: Object,
       required: false,
@@ -78,6 +82,7 @@ export default {
         class: ["a_cloak__text a_cloak__text_left", this.classTextSize],
         text: this.text,
         extra: this.extra,
+        alwaysTranslate: this.alwaysTranslate,
       });
     },
 
@@ -87,6 +92,7 @@ export default {
         class: ["a_cloak__text a_cloak__text_right", this.classTextSize],
         text: this.text,
         extra: this.extra,
+        alwaysTranslate: this.alwaysTranslate,
       });
     },
 

@@ -20,6 +20,10 @@ export default {
     UiMixinProps,
   ],
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     excludeRenderAttributes: {
       type: Array,
       required: false,
@@ -153,12 +157,14 @@ export default {
                 ],
               }, [
                 h(ATranslation, {
+                  alwaysTranslate: this.alwaysTranslate,
                   tag: "span",
                   html: this.label,
                 }),
                 this.required && h("span", null, "*"),
               ]),
               (this.isLabelTitle && this.hasLabel) && h(ATranslation, {
+                alwaysTranslate: this.alwaysTranslate,
                 class: "a_position_absolute_all",
                 ariaHidden: true,
                 tag: "span",
@@ -169,11 +175,13 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
         }),
       ]),

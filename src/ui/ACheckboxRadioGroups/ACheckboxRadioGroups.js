@@ -12,6 +12,10 @@ import ChangeModelAPI from "./compostionAPI/ChangeModelAPI";
 export default {
   name: "ACheckboxRadioGroups",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     classButtonGroupDefault: {
       type: [String, Object, Array],
       required: false,
@@ -174,6 +178,7 @@ export default {
             ...this.dataGrouped[group.allGroupKeys].map((item, itemIndex) => {
               return h(this.currentComponent, {
                 id: `${ this.id }`,
+                alwaysTranslate: this.alwaysTranslate,
                 classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
                 dataItem: item,
                 disabled: this.disabled,
@@ -202,6 +207,7 @@ export default {
         }, [
           h(ACheckboxLegend, {
             id: `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }`,
+            alwaysTranslate: this.alwaysTranslate,
             data: group.data,
             dataKeyByKeyId: group.dataKeyByKeyId,
             disabled: this.disabled,
@@ -228,6 +234,7 @@ export default {
               ...(this.dataGrouped[group.allGroupKeys] || []).map((item, itemIndex) => {
                 return h(this.currentComponent, {
                   id: `${ this.id }_gr_${ groupIndex }`,
+                  alwaysTranslate: this.alwaysTranslate,
                   classButtonGroupDefault: this.isComponentSelect ? undefined : this.classButtonGroupDefault,
                   dataItem: item,
                   disabled: this.disabled,
@@ -251,6 +258,7 @@ export default {
             ]),
             h(resolveComponent("ACheckboxRadioGroups"), {
               id: `${ this.id }_lev_${ this.levelIndex + 1 }_gr_${ groupIndex }`,
+              alwaysTranslate: this.alwaysTranslate,
               classButtonGroupDefault: this.classButtonGroupDefault,
               dataGrouped: this.dataGrouped,
               disabled: this.disabled,

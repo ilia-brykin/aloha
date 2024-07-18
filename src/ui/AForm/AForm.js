@@ -24,6 +24,10 @@ import {
 export default {
   name: "AForm",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     classColumns: {
       type: [String, Object],
       required: false,
@@ -146,6 +150,7 @@ export default {
       }) : "",
       this.showErrors ?
         h(AErrors, {
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
           closable: false,
           optionsList: this.data,
@@ -169,6 +174,7 @@ export default {
           }
           return h(this.componentTypesMapping[item.type], {
             key: itemIndex,
+            alwaysTranslate: this.alwaysTranslate,
             modelValue: IS_CONTAINER ? this.modelValueLocal : get(this.modelValueLocal, item.id),
             modelDependencies: this.modelValueLocal,
             class: classColumn,

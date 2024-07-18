@@ -18,6 +18,10 @@ import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElement
 export default {
   name: "ARadioItem",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     classButtonGroupDefault: {
       type: [String, Object, Array],
       required: false,
@@ -176,6 +180,7 @@ export default {
           onKeydown: this.onKeydown,
         }),
         h(AButton, {
+          alwaysTranslate: this.alwaysTranslate,
           class: this.classButton,
           classDefault: "",
           extra: {
@@ -218,6 +223,7 @@ export default {
         onKeydown: this.onKeydown,
       }),
       h(AButton, {
+        alwaysTranslate: this.alwaysTranslate,
         class: {
           a_custom_control_label: true,
           a_custom_control_label_width_auto: this.isWidthAuto,

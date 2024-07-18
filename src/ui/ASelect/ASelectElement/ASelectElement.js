@@ -16,6 +16,10 @@ import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElement
 export default {
   name: "ASelectElement",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     dataItem: {
       type: Object,
       required: true,

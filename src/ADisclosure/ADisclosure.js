@@ -247,6 +247,7 @@ export default {
         h(AButton, {
           ref: "buttonRef",
           id: this.btnId,
+          alwaysTranslate: this.alwaysTranslate,
           "aria-controls": this.id,
           class: [
             "a_show_more__button",

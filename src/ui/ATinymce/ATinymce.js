@@ -26,6 +26,10 @@ export default {
     UiMixinProps,
   ],
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     branding: {
       type: Boolean,
       required: false,
@@ -193,6 +197,7 @@ export default {
       }, [
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
+          alwaysTranslate: this.alwaysTranslate,
           clickLabel: this.clickLabel,
           label: this.label,
           labelClass: this.labelClass,
@@ -227,11 +232,13 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
         }),
       ]),

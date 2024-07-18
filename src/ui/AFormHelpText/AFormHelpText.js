@@ -7,6 +7,10 @@ import ATranslation from "../../ATranslation/ATranslation";
 export default {
   name: "AFormHelpText",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     html: {
       type: [String, Number],
       required: false,
@@ -24,6 +28,7 @@ export default {
   render() {
     return this.html && h(ATranslation, {
       id: this.id,
+      alwaysTranslate: this.alwaysTranslate,
       class: "a_form_element__help_text",
       html: this.html,
       extra: this.extra,

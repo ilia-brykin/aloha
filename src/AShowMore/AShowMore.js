@@ -26,6 +26,10 @@ export default {
   name: "AShowMore",
   inheritAttrs: true,
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     btnAttributes: {
       type: Object,
       required: false,
@@ -278,6 +282,7 @@ export default {
           ...this.$attrs,
         }, [
           this.isTextOrHtmlVisible && h(ATranslation, {
+            alwaysTranslate: this.alwaysTranslate,
             tag: "div",
             text: this.textLocal,
             html: this.html,
@@ -295,6 +300,7 @@ export default {
         h(AButton, {
           ref: "buttonRef",
           id: this.btnId,
+          alwaysTranslate: this.alwaysTranslate,
           "aria-controls": this.id,
           class: [
             "a_show_more__button",

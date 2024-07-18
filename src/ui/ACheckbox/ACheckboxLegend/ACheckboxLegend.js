@@ -12,6 +12,10 @@ import IdAPI from "./compositionAPI/IdAPI";
 export default {
   name: "ACheckboxLegend",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     data: {
       type: Array,
       required: false,
@@ -128,6 +132,7 @@ export default {
             onKeydown: this.onKeydown,
           }),
           h(AElement, {
+            alwaysTranslate: this.alwaysTranslate,
             class: "a_custom_control_label a_custom_control_label_width_auto",
             classDefault: "",
             for: this.idLocal,

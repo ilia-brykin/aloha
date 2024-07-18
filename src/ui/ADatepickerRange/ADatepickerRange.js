@@ -25,6 +25,10 @@ import {
 export default {
   name: "ADatepickerRange",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     appendToBody: {
       type: Boolean,
       default: false,
@@ -333,6 +337,7 @@ export default {
       }, [
         this.label && h(ALabel, {
           id: this.idFrom,
+          alwaysTranslate: this.alwaysTranslate,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
@@ -348,6 +353,7 @@ export default {
           }, [
             h(ALabel, {
               id: this.idFrom,
+              alwaysTranslate: this.alwaysTranslate,
               labelClass: "a_datepicker_range__label a_datepicker_range__label_min",
               isLabelFloat: false,
               label: this.labelFrom,
@@ -355,6 +361,7 @@ export default {
             h(ADatepicker, {
               id: this.idFrom,
               ref: "from",
+              alwaysTranslate: this.alwaysTranslate,
               inputAttr: this.inputAttributesFromLocal,
               modelValue: this.modelValueFrom,
               formatSave: this.formatSave,
@@ -381,6 +388,7 @@ export default {
           }, [
             h(ALabel, {
               id: this.idUntil,
+              alwaysTranslate: this.alwaysTranslate,
               labelClass: "a_datepicker_range__label a_datepicker_range__label_max",
               isLabelFloat: false,
               label: this.labelUntil,
@@ -388,6 +396,7 @@ export default {
             h(ADatepicker, {
               id: this.idUntil,
               ref: "until",
+              alwaysTranslate: this.alwaysTranslate,
               modelValue: this.modelValueUntil,
               formatSave: this.formatSave,
               firstDayOfWeek: this.firstDayOfWeek,
@@ -410,6 +419,7 @@ export default {
             }),
           ]),
           h(AFormHelpText, {
+            alwaysTranslate: this.alwaysTranslate,
             class: "a_datepicker_range__help_text",
             id: this.helpTextId,
             html: this.helpText,
@@ -417,6 +427,7 @@ export default {
           }),
           this.isErrors && h(AErrorsText, {
             id: this.errorsId,
+            alwaysTranslate: this.alwaysTranslate,
             errors: this.errors,
           }),
         ]),

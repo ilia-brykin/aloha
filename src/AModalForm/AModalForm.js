@@ -21,6 +21,10 @@ export default {
   name: "AModalForm",
   inheritAttrs: false,
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     backdropZIndex: {
       type: Number,
       required: false,
@@ -222,6 +226,7 @@ export default {
   },
   render() {
     return h(AModal, {
+      alwaysTranslate: this.alwaysTranslate,
       backdropZIndex: this.backdropZIndex,
       close: this.close,
       closeButtonClass: this.closeButtonClass,
@@ -254,6 +259,7 @@ export default {
       modalBody: () => [
         this.$slots.modalBodyPrepend && this.$slots.modalBodyPrepend(),
         this.hasDataForm && h(AForm, {
+          alwaysTranslate: this.alwaysTranslate,
           modelValue: this.modelValue,
           data: this.dataForm,
           errors: this.errors,
@@ -266,6 +272,7 @@ export default {
           "onUpdate:modelValue": this.updateModelLocal,
         }, this.$slots),
         this.bodyHtml && h(ATranslation, {
+          alwaysTranslate: this.alwaysTranslate,
           html: this.bodyHtml,
           extra: this.extra,
         }),

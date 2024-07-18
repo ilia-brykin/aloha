@@ -27,6 +27,10 @@ export default {
     UiMixinProps,
   ],
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     excludeRenderAttributes: {
       type: Array,
       required: false,
@@ -162,6 +166,7 @@ export default {
       }, [
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
+          alwaysTranslate: this.alwaysTranslate,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
@@ -201,6 +206,7 @@ export default {
             onBlur: this.onBlur,
           }),
           this.isClearButtonLocal && h(AFormElementBtnClear, {
+            alwaysTranslate: this.alwaysTranslate,
             disabled: this.disabled,
             clearButtonClass: this.clearButtonClass,
             onClear: this.clearModel,
@@ -208,11 +214,13 @@ export default {
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
           html: this.helpText,
           extra: this.extra,
         }),
         this.isErrors && h(AErrorsText, {
           id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
         }),
       ]),

@@ -2,25 +2,28 @@ import {
   h,
 } from "vue";
 
-import ATranslation from "../ATranslation/ATranslation";
-
-import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
 
 import {
   spinnerPluginOptions,
 } from "../plugins/ASpinnerPlugin";
 
-
 export default {
   name: "ASpinner",
-  components: {
-    ATranslation,
-  },
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     ariaLabel: {
       type: String,
       required: false,
       default: () => spinnerPluginOptions.value.propsDefault.ariaLabel,
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
     },
     safeHtml: {
       type: String,
@@ -35,19 +38,19 @@ export default {
   },
   setup(props) {
     const {
-      ariaLabelTranslated,
+      ariaLabelAttributes,
     } = AriaLabelAPI(props);
 
     return {
-      ariaLabelTranslated,
+      ariaLabelAttributes,
     };
   },
   render() {
     return h(this.tag, {
-      ariaLabel: this.ariaLabelTranslated,
       class: spinnerPluginOptions.value.propsDefault.class,
       role: "status",
       innerHTML: this.safeHtml,
+      ...this.ariaLabelAttributes,
     });
   },
 };

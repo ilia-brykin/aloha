@@ -15,6 +15,10 @@ import LabelsAPI from "./compositionAPI/LabelsAPI";
 export default {
   name: "AErrors",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     errors: {
       type: Object,
       required: false,
@@ -97,6 +101,7 @@ export default {
   render() {
     return h(AAlert, {
       ref: "elRef",
+      alwaysTranslate: this.alwaysTranslate,
       tabindex: -1,
       role: "alert",
       "aria-atomic": true,
@@ -118,6 +123,7 @@ export default {
           ...Object.keys(this.errors).map(key => {
             return h(AErrorsElement, {
               key,
+              alwaysTranslate: this.alwaysTranslate,
               error: this.errors[key],
               errorLabels: this.labelsLocal[key] || this.labelsLocal,
               goToError: this.goToError,

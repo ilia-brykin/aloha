@@ -7,6 +7,10 @@ import ATranslation from "../../ATranslation/ATranslation";
 export default {
   name: "ARequired",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     text: {
       type: String,
       required: false,
@@ -15,6 +19,7 @@ export default {
   },
   render() {
     return h(ATranslation, {
+      alwaysTranslate: this.alwaysTranslate,
       class: "a_required",
       html: this.text,
     });

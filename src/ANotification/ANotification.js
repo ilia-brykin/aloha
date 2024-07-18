@@ -31,6 +31,7 @@ export default {
       }, this.notifications.map(notification => {
         return h(AAlert, {
           key: notification.index,
+          alwaysTranslate: notification.alwaysTranslate,
           isVisible: true,
           closable: true,
           type: notification.type,
@@ -38,6 +39,7 @@ export default {
           onClose: () => this.removeNotification(notification.index),
         }, () => [
           h(ATranslation, {
+            alwaysTranslate: notification.alwaysTranslate,
             html: notification.text,
             extra: notification.extra,
           }),
