@@ -4,9 +4,7 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
-import ATranslationAPI, {
-  translation,
-} from "./ATranslationAPI";
+import ATranslationAPI from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -124,7 +122,6 @@ export default function HtmlAPI(props, {
         if (isPlaceholderTranslate(safeHtmlEl)) {
           safeHtmlCombined += getTranslatedText({
             placeholder: safeHtmlEl,
-            translationObj: translation,
             extra: extra.value,
           });
           dataTranslateSafeHtml += safeHtmlEl;
@@ -152,7 +149,6 @@ export default function HtmlAPI(props, {
         if (isPlaceholderTranslate(htmlEl)) {
           htmlCombined += sanitizeLocal(getTranslatedText({
             placeholder: htmlEl,
-            translationObj: translation,
             extra: extra.value,
           }));
           dataTranslateHtml += htmlEl;

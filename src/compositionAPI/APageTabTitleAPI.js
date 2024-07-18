@@ -5,9 +5,7 @@ import {
   watch,
 } from "vue";
 
-import ATranslationAPI, {
-  translation,
-} from "../ATranslation/compositionAPI/ATranslationAPI";
+import ATranslationAPI from "../ATranslation/compositionAPI/ATranslationAPI";
 import UtilsAPI from "../ATranslation/compositionAPI/UtilsAPI";
 
 const baseTitle = ref("");
@@ -32,7 +30,6 @@ export default function APageTabTitleAPI(props) {
     if (isPlaceholderTranslate(baseTitle.value)) {
       return getTranslatedText({
         placeholder: baseTitle.value,
-        translationObj: translation,
       });
     }
     return baseTitle.value;
@@ -45,7 +42,6 @@ export default function APageTabTitleAPI(props) {
     if (isPlaceholderTranslate(title.value)) {
       return getTranslatedText({
         placeholder: title.value,
-        translationObj: translation,
         extra: extra.value,
       });
     }

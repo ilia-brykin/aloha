@@ -4,9 +4,7 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
-import ATranslationAPI, {
-  translation,
-} from "./ATranslationAPI";
+import ATranslationAPI from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -56,7 +54,6 @@ export default function AriaLabelAPI(props) {
     if (isTranslateAriaLabel.value) {
       return getTranslatedText({
         placeholder: ariaLabelForCurrentDevice.value,
-        translationObj: translation,
         extra: extra.value,
       });
     }

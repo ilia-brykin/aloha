@@ -4,9 +4,7 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
-import ATranslationAPI, {
-  translation,
-} from "./ATranslationAPI";
+import ATranslationAPI from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -79,7 +77,6 @@ export default function TextAPI(props) {
         if (isPlaceholderTranslate(textEl)) {
           textCombined += getTranslatedText({
             placeholder: textEl,
-            translationObj: translation,
             extra: extra.value,
           });
           dataTranslateText += textEl;

@@ -4,9 +4,7 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
-import ATranslationAPI, {
-  translation,
-} from "./ATranslationAPI";
+import ATranslationAPI from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
 import {
@@ -81,7 +79,6 @@ export default function TitleAPI(props) {
       if (isPlaceholderTranslate(titleEl)) {
         titleCombined += getTranslatedText({
           placeholder: titleEl,
-          translationObj: translation,
           extra: extra.value,
         });
         dataTranslateTitle += titleEl;
