@@ -15,6 +15,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "always-translate",
+      description: "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "btn-close-attributes",
       description: "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_",
       type: "Object",

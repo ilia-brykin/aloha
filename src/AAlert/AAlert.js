@@ -17,6 +17,10 @@ import {
 export default {
   name: "AAlert",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     alertClass: {
       type: [String, Object],
       required: false,
@@ -159,6 +163,7 @@ export default {
             ],
           }, [
             (this.html || this.text || this.safeHtml) && h(ATranslation, {
+              alwaysTranslate: this.alwaysTranslate,
               extra: this.extra,
               html: this.html,
               safeHtml: this.safeHtml,
