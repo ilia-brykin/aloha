@@ -58,11 +58,7 @@ export function toggleTranslate(isTranslateLocal) {
 }
 
 function _updateTranslation() {
-  if (isTranslate.value) {
-    translation = i18n[language.value];
-  } else {
-    translation = {};
-  }
+  translation = i18n[language.value];
   timeTranslationLastChanged.value = new Date();
 }
 

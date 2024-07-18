@@ -1,4 +1,5 @@
 import {
+  isTranslate,
   timeTranslationLastChanged,
   translation,
 } from "./ATranslationAPI";
@@ -41,22 +42,30 @@ export function isPlaceholderTranslate(text = "") {
  * @param {string} options.placeholder - The placeholder text to be translated.
  * @param {object} [options.translationObj=translation] - The translation object to use.
  * @param {object} [options.extra] - Optional additional data to be used in text replacement.
+ * @param {boolean} [options.alwaysTranslate=false] - If true, forces translation regardless of the isTranslate.value flag.
  *
  * @return {string} The translated text for the given placeholder.
  */
-export function getTranslatedText({ placeholder, translationObj = translation, extra }) {
+export function getTranslatedText({ placeholder, translationObj = translation, extra, alwaysTranslate = false }) {
   if (!translationObj || !timeTranslationLastChanged.value) {
     return placeholder;
   }
-  const TEXT_FROM_TRANSLATION = isNil(translationObj[placeholder]) ? placeholder : translationObj[placeholder];
+
+  let textFromTranslation;
+  if (!alwaysTranslate && !isTranslate.value) {
+    textFromTranslation = placeholder;
+  } else {
+    textFromTranslation = isNil(translationObj[placeholder]) ? placeholder : translationObj[placeholder];
+  }
 
   if (extra) {
     return replaceText({
-      text: TEXT_FROM_TRANSLATION,
+      text: textFromTranslation,
       object: extra,
     });
   }
-  return TEXT_FROM_TRANSLATION;
+
+  return textFromTranslation;
 }
 
 /**
