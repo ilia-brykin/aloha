@@ -24,6 +24,7 @@ export default function HtmlAPI(props, {
   textAfterForCurrentDevice = computed(() => ""),
   textBeforeForCurrentDevice = computed(() => ""),
 }) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const extra = toRef(props, "extra");
   const html = toRef(props, "html");
   const safeHtml = toRef(props, "safeHtml");
@@ -123,6 +124,7 @@ export default function HtmlAPI(props, {
           safeHtmlCombined += getTranslatedText({
             placeholder: safeHtmlEl,
             extra: extra.value,
+            alwaysTranslate: alwaysTranslate.value,
           });
           dataTranslateSafeHtml += safeHtmlEl;
         } else {
@@ -150,6 +152,7 @@ export default function HtmlAPI(props, {
           htmlCombined += sanitizeLocal(getTranslatedText({
             placeholder: htmlEl,
             extra: extra.value,
+            alwaysTranslate: alwaysTranslate.value,
           }));
           dataTranslateHtml += htmlEl;
         } else {

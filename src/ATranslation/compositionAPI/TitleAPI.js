@@ -15,6 +15,7 @@ import {
 } from "lodash-es";
 
 export default function TitleAPI(props) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const extra = toRef(props, "extra");
   const title = toRef(props, "title");
 
@@ -80,6 +81,7 @@ export default function TitleAPI(props) {
         titleCombined += getTranslatedText({
           placeholder: titleEl,
           extra: extra.value,
+          alwaysTranslate: alwaysTranslate.value,
         });
         dataTranslateTitle += titleEl;
       } else {

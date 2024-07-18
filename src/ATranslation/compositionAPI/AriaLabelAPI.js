@@ -13,6 +13,7 @@ import {
 } from "lodash-es";
 
 export default function AriaLabelAPI(props) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const ariaLabel = toRef(props, "ariaLabel");
   const extra = toRef(props, "extra");
 
@@ -55,6 +56,7 @@ export default function AriaLabelAPI(props) {
       return getTranslatedText({
         placeholder: ariaLabelForCurrentDevice.value,
         extra: extra.value,
+        alwaysTranslate: alwaysTranslate.value,
       });
     }
     return ariaLabelForCurrentDevice.value;

@@ -1,9 +1,9 @@
 export default function PropsAPI() {
   const dataProps = [
     {
-      name: "aria-label",
-      description: "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_",
-      type: "String / Number / Object",
+      name: "always-translate",
+      description: "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
+      type: "Boolean",
       default: undefined,
       required: false,
     },

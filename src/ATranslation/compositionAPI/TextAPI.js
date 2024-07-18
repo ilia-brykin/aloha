@@ -15,6 +15,7 @@ import {
 } from "lodash-es";
 
 export default function TextAPI(props) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const extra = toRef(props, "extra");
   const text = toRef(props, "text");
 
@@ -78,6 +79,7 @@ export default function TextAPI(props) {
           textCombined += getTranslatedText({
             placeholder: textEl,
             extra: extra.value,
+            alwaysTranslate: alwaysTranslate.value,
           });
           dataTranslateText += textEl;
         } else {

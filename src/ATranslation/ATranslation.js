@@ -14,6 +14,10 @@ import TitleAPI from "./compositionAPI/TitleAPI";
 export default {
   name: "ATranslation",
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     ariaLabel: {
       type: [String, Number, Object],
       required: false,

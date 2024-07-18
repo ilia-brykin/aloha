@@ -31,6 +31,7 @@
   "_A_TRANSLATION_GROUP_TITLE_HEADER_": "[ALOHA]",
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_DESCRIPTION_": "[ALOHA]",
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_HEADER_": "[ALOHA]",
+  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Erzwingt die Übersetzung unabhängig vom <strong>isTranslate</strong>-Flag.",
   "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "Ein übersetzbarer Text für die ARIA-Labeling-Funktion. (Object -> <strong>mobile</strong> und <strong>desktop</strong>)",
   "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_": "Variablen für die Übersetzungen.",
   "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "Ein übersetzbarer Inhalt, der HTML-Tags enthalten kann, wird auf Sicherheit geprüft und gerendert. (Object -> <strong>mobile</strong> und <strong>desktop</strong>, Array -> Konkatenation)",
@@ -41,7 +42,7 @@
   "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "Zusätzlicher Text, der unverändert vor dem übersetzten Text angezeigt wird. (Object -> <strong>mobile</strong> und <strong>desktop</strong>)",
   "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "Ein übersetzbarer Text. (Object -> <strong>mobile</strong> und <strong>desktop</strong>, Array -> Konkatenation)",
   "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "Ein übersetzbarer Titel. (Object -> <strong>mobile</strong> und <strong>desktop</strong>, Array -> Konkatenation)",
-  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "[ALOHA]",
   "_A_TRANSLATION_SHOW_LESS_": "Weniger anzeigen",
-  "_A_TRANSLATION_SHOW_MORE_": "Mehr anzeigen"
+  "_A_TRANSLATION_SHOW_MORE_": "Mehr anzeigen",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "[ALOHA]"
 }

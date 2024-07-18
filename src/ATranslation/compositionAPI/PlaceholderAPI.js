@@ -13,6 +13,7 @@ import {
 } from "lodash-es";
 
 export default function PlaceholderAPI(props) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const extra = toRef(props, "extra");
   const placeholder = toRef(props, "placeholder");
 
@@ -55,6 +56,7 @@ export default function PlaceholderAPI(props) {
       return getTranslatedText({
         placeholder: placeholderForCurrentDevice.value,
         extra: extra.value,
+        alwaysTranslate: alwaysTranslate.value
       });
     }
     return placeholderForCurrentDevice.value;
