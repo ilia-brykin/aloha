@@ -19,6 +19,10 @@ export default {
   name: "ADisclosure",
   inheritAttrs: true,
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
     btnAttributes: {
       type: Object,
       required: false,
@@ -220,10 +224,11 @@ export default {
           ...this.$attrs,
         }, [
           this.isTextOrHtmlVisible && h(ATranslation, {
-            tag: "div",
-            text: this.textLocal,
+            alwaysTranslate: this.alwaysTranslate,
             html: this.htmlLocal,
             safeHtml: this.safeHtmlLocal,
+            tag: "div",
+            text: this.textLocal,
           }),
           this.isOpen ?
             this.$slots.more && this.$slots.more({
