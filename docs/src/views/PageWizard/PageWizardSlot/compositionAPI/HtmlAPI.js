@@ -6,7 +6,7 @@ export default function HtmlAPI() {
     v-slot:step="{ step, stepIndex }"
   >
     <a-translation
-      tag="h2"
+      tag="h3"
       :text="step.label"
     ></a-translation>
     <p>{{ text }}</p>

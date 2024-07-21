@@ -14,7 +14,7 @@ export default function HtmlAPI() {
     v-slot:step1
   >
     <a-translation
-      tag="h2"
+      tag="h3"
       text="_A_MODAL_WIZARD_STEP_1_"
     ></a-translation>
     <p>{{ text }}</p>
@@ -23,7 +23,7 @@ export default function HtmlAPI() {
     v-slot:step2
   >
     <a-translation
-      tag="h2"
+      tag="h3"
       text="_A_MODAL_WIZARD_STEP_2_"
     ></a-translation>
     <p>{{ text }}</p>
@@ -32,7 +32,7 @@ export default function HtmlAPI() {
     v-slot:step3
   >
     <a-translation
-      tag="h2"
+      tag="h3"
       text="_A_MODAL_WIZARD_STEP_3_"
     ></a-translation>
     <p>{{ text }}</p>
@@ -41,7 +41,7 @@ export default function HtmlAPI() {
     v-slot:step4
   >
     <a-translation
-      tag="h2"
+      tag="h3"
       text="_A_MODAL_WIZARD_STEP_4_"
     ></a-translation>
     <p>{{ text }}</p>
