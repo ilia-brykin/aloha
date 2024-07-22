@@ -46,6 +46,11 @@ export default {
       required: false,
       default: "_label",
     },
+    isError: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isLabelFloat: {
       type: Boolean,
       required: false,
@@ -142,7 +147,13 @@ export default {
     return h(AElement, {
       id: this.idLabelLocal,
       alwaysTranslate: this.alwaysTranslate,
-      class: ["a_form_element_label", this.labelClass],
+      class: [
+        "a_form_element_label",
+        this.labelClass,
+        {
+          a_form_element_label_error: this.isError,
+        },
+      ],
       for: this.forLabelLocal,
       html: this.labelLocal,
       loading: this.loading,
