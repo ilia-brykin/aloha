@@ -673,6 +673,7 @@ export default {
           loading: this.loadingLocal,
           required: this.required,
           type: this.type,
+          isError: this.isErrors,
         }),
         h("div", {
           class: "a_form_element",

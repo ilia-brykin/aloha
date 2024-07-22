@@ -202,6 +202,7 @@ export default {
           labelScreenReader: this.labelScreenReader,
           required: this.required,
           isLabelFloat: this.isLabelFloat,
+          isError: this.isErrors,
         }),
         h("div", {
           class: "a_form_element a_form_element_textarea",

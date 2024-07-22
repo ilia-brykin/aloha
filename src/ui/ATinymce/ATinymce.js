@@ -205,6 +205,7 @@ export default {
           prevent: true,
           required: this.required,
           stop: true,
+          isError: this.isErrors,
         }),
         h("div", {
           class: ["a_form_element", {

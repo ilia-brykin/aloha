@@ -322,6 +322,7 @@ export default {
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,
+          isError: this.isErrors,
         }),
         h(ATooltip, {
           tag: "div",

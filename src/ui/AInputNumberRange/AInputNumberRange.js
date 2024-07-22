@@ -328,6 +328,7 @@ export default {
             required: this.required,
             type: this.type,
             isLabelFloat: false,
+            isError: this.isErrors,
           }) :
           "",
         h("div", {
@@ -342,6 +343,7 @@ export default {
               labelClass: "a_input_number_range__label a_input_number_range__label_min",
               isLabelFloat: false,
               label: this.labelMin,
+              isError: this.isErrors,
             }),
             h(AInputNumber, {
               id: this.idMin,
@@ -375,6 +377,7 @@ export default {
               labelClass: "a_input_number_range__label a_input_number_range__label_max",
               isLabelFloat: false,
               label: this.labelMax,
+              isError: this.isErrors,
             }),
             h(AInputNumber, {
               id: this.idMax,
