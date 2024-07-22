@@ -45,6 +45,10 @@
   margin-left: .5rem;
 }
 
+.a_form_element_label_error {
+  color: var(--a_form_element_error_color);
+}
+
 .a_form_element {
   position: relative;
   .a_form_element_with_btn_close {
@@ -81,7 +85,8 @@
     opacity: 1;
   }
 }
-.a_form_control_invalid {
+.a_form_control_invalid,
+.a_group_invalid .a_form_control {
   border-color: var(--a_form_element_error_color);
   &:focus {
     border-color: var(--a_form_element_error_color);

@@ -165,6 +165,7 @@ export default {
             required: this.firstChild.required,
             type: this.firstChild.type,
             isLabelFloat: false,
+            isError: this.errorsAll[this.firstChild.id],
           }),
           this.children.map((item, itemIndex) => {
             const IS_CONTAINER = typesContainer.value[item.type];
@@ -208,6 +209,7 @@ export default {
         extra: this.extra,
       }),
       this.isErrors && h(AErrorsText, {
+        class: "a_px_3",
         id: this.errorsId,
         alwaysTranslate: this.alwaysTranslate,
         errors: this.errors,
