@@ -175,6 +175,7 @@ export default {
           required: this.required,
           hideId: true,
           type: this.type,
+          isError: this.isErrors,
         }),
         h("div", {}, [
           h("label", {

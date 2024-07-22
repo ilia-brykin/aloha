@@ -309,6 +309,7 @@ export default {
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,
+          isError: this.isErrors,
         }),
         h("div", {
           class: [
@@ -333,6 +334,7 @@ export default {
               required: this.required,
               type: this.type,
               isLabelFloat: this.isLabelFloat,
+              isError: this.isErrors,
             }),
             this.iconPrepend && h(AIcon, {
               icon: this.iconPrepend,

@@ -344,6 +344,7 @@ export default {
           required: this.required,
           type: this.type,
           isLabelFloat: false,
+          isError: this.isErrors,
         }),
         h("div", {
           class: "a_datepicker_range__content",
@@ -357,6 +358,7 @@ export default {
               labelClass: "a_datepicker_range__label a_datepicker_range__label_min",
               isLabelFloat: false,
               label: this.labelFrom,
+              isError: this.isErrors,
             }),
             h(ADatepicker, {
               id: this.idFrom,
@@ -392,6 +394,7 @@ export default {
               labelClass: "a_datepicker_range__label a_datepicker_range__label_max",
               isLabelFloat: false,
               label: this.labelUntil,
+              isError: this.isErrors,
             }),
             h(ADatepicker, {
               id: this.idUntil,

@@ -173,6 +173,7 @@ export default {
           required: this.required,
           type: this.type,
           isLabelFloat: this.isLabelFloat,
+          isError: this.isErrors,
         }),
         h("div", {
           class: "a_form_element",

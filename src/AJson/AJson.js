@@ -297,6 +297,7 @@ export default {
         label: this.label,
         labelClass: this.labelClass,
         required: this.required,
+        isError: this.isError,
       }),
       h("div", {}, [
         h("button", {
