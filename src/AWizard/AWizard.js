@@ -7,6 +7,7 @@ import AWizardStep from "./AWizardStep/AWizardStep";
 import AWizardTab from "./AWizardTab/AWizardTab";
 import AWizardToolbar from "./AWizardToolbar/AWizardToolbar";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
@@ -18,10 +19,16 @@ import TeleportAPI from "./compositionAPI/TeleportAPI";
 import {
   uniqueId,
 } from "lodash-es";
+import ATranslation from "../ATranslation/ATranslation";
 
 export default {
   name: "AWizard",
   props: {
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_ARIA_LABEL_",
+    },
     backButtonAttributes: {
       type: Object,
       required: false,
@@ -190,7 +197,7 @@ export default {
     stepsProgressbarText: {
       type: String,
       required: false,
-      default: "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_",
+      default: "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_",
     },
     stepsVisited: {
       type: Object,
@@ -234,6 +241,14 @@ export default {
     });
 
     const {
+      ariaLabelAttributes,
+      idProgressbar,
+      wizardAriaDescribedby,
+    } = AttributesAPI(props, {
+      stepActiveComputed,
+    });
+
+    const {
       goOneStepBack,
       goOneStepForward,
       onStepClick,
@@ -246,7 +261,6 @@ export default {
     const {
       stepActiveNumber,
       stepsCount,
-      stepsProgressbarTextTranslated,
     } = StepsAPI(props, {
       stepActiveComputed,
     });
@@ -263,18 +277,20 @@ export default {
     initStepActive();
 
     return {
+      ariaLabelAttributes,
       classWizard,
       goOneStepBack,
       goOneStepForward,
+      idProgressbar,
       isMobileLocal,
       onStepClick,
       stepActiveComputed,
       stepActiveNumber,
       stepsCount,
-      stepsProgressbarTextTranslated,
       stepsVisitedComputed,
       toolbarBottomTeleportSelector,
       useTeleportToolbarBottom,
+      wizardAriaDescribedby,
       wizardTabsRef,
     };
   },
@@ -307,7 +323,10 @@ export default {
     }, this.$slots);
 
     return h("div", {
+      tabindex: 0,
       id: this.id,
+      role: "application",
+      "aria-describedby": this.wizardAriaDescribedby,
       class: [
         this.classWizard,
         {
@@ -315,16 +334,21 @@ export default {
           a_wizard_show_only_active_step_mobile: this.showOnlyActiveStepMobile,
         }
       ],
-      role: "application",
+      ...this.ariaLabelAttributes,
     }, [
+      h(ATranslation, {
+        id: this.idProgressbar,
+        class: "a_sr_only",
+        extra: {
+          stepActive: this.stepActiveNumber,
+          stepsCount: this.stepsCount,
+        },
+        tag: "span",
+        text: this.stepsProgressbarText,
+      }),
       h("ul", {
         class: "a_wizard__steps",
-        tabindex: 0,
-        role: "progressbar",
-        "aria-valuemin": 1,
-        "aria-valuemax": this.stepsCount,
-        "aria-valuenow": this.stepActiveNumber,
-        "aria-valuetext": this.stepsProgressbarTextTranslated,
+        role: "navigation",
       }, [
         this.steps.map((step, stepIndex) => {
           return h(AWizardStep, {
@@ -356,9 +380,10 @@ export default {
             id: this.id,
             extra: this.extra,
             step,
-            stepIndex,
             stepActiveComputed: this.stepActiveComputed,
+            stepIndex,
             stepsVisitedComputed: this.stepsVisitedComputed,
+            wizardAriaDescribedby: this.wizardAriaDescribedby,
           }, this.$slots);
         }),
       ]),

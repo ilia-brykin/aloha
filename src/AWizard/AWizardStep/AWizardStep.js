@@ -105,8 +105,9 @@ export default {
 
     const {
       ariaCurrentAttributes,
+      stepTextId,
       tabindex,
-    } = AttributesAPI({
+    } = AttributesAPI(props, {
       isStepDisabled,
       isStepActive,
     });
@@ -125,6 +126,7 @@ export default {
       onKeydown,
       stepNumber,
       stepNumberText,
+      stepTextId,
       tabindex,
     };
   },
@@ -152,11 +154,12 @@ export default {
           ...this.ariaCurrentAttributes,
         }, this.step.slotLabel && this.$slots[this.step.slotLabel] ?
           this.$slots[this.step.slotLabel]({
-            step: this.step,
-            stepNumber: this.stepNumber,
-            stepIndex: this.stepIndex,
-            isStepDisabled: this.isStepDisabled,
             isStepActive: this.isStepActive,
+            isStepDisabled: this.isStepDisabled,
+            step: this.step,
+            stepIndex: this.stepIndex,
+            stepNumber: this.stepNumber,
+            stepTextId: this.stepTextId,
           }) : [
             this.isStepNumberVisible && h(ATranslation, {
               tag: "span",
@@ -168,10 +171,11 @@ export default {
               },
             }),
             h(ATranslation, {
-              tag: "span",
-              html: this.step.label,
+              id: this.stepTextId,
               class: "a_wizard__step__text",
               extra: this.extra,
+              html: this.step.label,
+              tag: "span",
             }),
           ]),
         h("span", {

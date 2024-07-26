@@ -2,8 +2,6 @@ import {
   h,
 } from "vue";
 
-import ATranslation from "../../ATranslation/ATranslation";
-
 import ActiveAPI from "./compositionAPI/ActiveAPI";
 import FocusIdAPI from "./compositionAPI/FocusIdAPI";
 import VisibilityAPI from "./compositionAPI/VisibilityAPI";
@@ -12,20 +10,16 @@ import ContentIdAPI from "./compositionAPI/ContentIdAPI";
 export default {
   name: "AWizardTab",
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
     extra: {
       type: Object,
       required: true,
     },
-    step: {
-      type: Object,
+    id: {
+      type: String,
       required: true,
     },
-    stepIndex: {
-      type: Number,
+    step: {
+      type: Object,
       required: true,
     },
     stepActiveComputed: {
@@ -33,10 +27,18 @@ export default {
       required: false,
       default: 0,
     },
+    stepIndex: {
+      type: Number,
+      required: true,
+    },
     stepsVisitedComputed: {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    wizardAriaDescribedby: {
+      type: String,
+      required: true,
     },
   },
   setup(props) {
@@ -78,22 +80,8 @@ export default {
           id: this.focusId,
           class: "a_sr_only",
           tabindex: "-1",
-        }, [
-          h(ATranslation, {
-            tag: "span",
-            text: "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_",
-            extra: {
-              stepNumber: this.stepIndex + 1,
-            },
-          }),
-          (!this.step.slotLabel || this.$slots[this.step.slotLabel]) &&
-          h(ATranslation, {
-            tag: "span",
-            html: this.step.label,
-            class: "a_wizard__step__text",
-            extra: this.extra,
-          }),
-        ]),
+          "aria-describedby": this.wizardAriaDescribedby,
+        }),
         this.$slots[this.step.slot] && this.$slots[this.step.slot]({
           step: this.step,
           stepIndex: this.stepIndex,

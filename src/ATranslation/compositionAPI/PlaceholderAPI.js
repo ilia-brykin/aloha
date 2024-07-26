@@ -24,6 +24,7 @@ export default function PlaceholderAPI(props) {
   const {
     isPlaceholderTranslate,
     getTranslatedText,
+    getTranslationAttributes,
   } = UtilsAPI();
 
   const {
@@ -65,10 +66,12 @@ export default function PlaceholderAPI(props) {
   const placeholderAttributes = computed(() => {
     const ATTRIBUTES = {};
     if (hasPlaceholder.value) {
-      ATTRIBUTES.placeholder = placeholderLocal.value;
-      if (isTranslatePlaceholder.value) {
-        ATTRIBUTES["data-translate-placeholder"] = placeholderForCurrentDevice.value;
-      }
+      return getTranslationAttributes({
+        attr: "placeholder",
+        translation: placeholderLocal.value,
+        value: placeholderForCurrentDevice.value,
+        isTranslate: isTranslatePlaceholder.value,
+      });
     }
     return ATTRIBUTES;
   });

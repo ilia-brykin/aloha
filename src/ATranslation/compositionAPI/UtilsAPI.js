@@ -8,7 +8,8 @@ import {
   translateConfig,
 } from "../../plugins/AI18nPlugin";
 import {
-  get, isFunction,
+  get,
+  isFunction,
   isNil,
   isPlainObject,
   isString,
@@ -17,6 +18,7 @@ import {
 export default function UtilsAPI() {
   return {
     getTranslatedText,
+    getTranslationAttributes,
     isPlaceholderTranslate,
     replaceText,
     spliceString,
@@ -127,4 +129,16 @@ function spliceString({
   lastindex,
 }) {
   return `${ text.slice(0, firstIndex) }${ replaceText }${ text.slice(lastindex, text.length) }`;
+}
+
+export function getTranslationAttributes({ attr = "", value = "", translation = "", isTranslate = true }) {
+  const ATTRIBUTES = {};
+  if (!isNil(translation)) {
+    ATTRIBUTES[attr] = translation;
+  }
+  if (isTranslate) {
+    ATTRIBUTES[`data-translate-${ attr }`] = value;
+  }
+
+  return ATTRIBUTES;
 }

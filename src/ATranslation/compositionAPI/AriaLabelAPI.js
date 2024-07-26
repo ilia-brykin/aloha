@@ -24,6 +24,7 @@ export default function AriaLabelAPI(props) {
   const {
     isPlaceholderTranslate,
     getTranslatedText,
+    getTranslationAttributes,
   } = UtilsAPI();
 
   const {
@@ -63,14 +64,16 @@ export default function AriaLabelAPI(props) {
   });
 
   const ariaLabelAttributes = computed(() => {
-    const ATTRIBUTES = {};
     if (hasAriaLabel.value) {
-      ATTRIBUTES["aria-label"] = ariaLabelLocal.value;
-      if (isTranslateAriaLabel.value) {
-        ATTRIBUTES["data-translate-aria-label"] = ariaLabelForCurrentDevice.value;
-      }
+      return getTranslationAttributes({
+        attr: "aria-label",
+        translation: ariaLabelLocal.value,
+        value: ariaLabelForCurrentDevice.value,
+        isTranslate: isTranslateAriaLabel.value,
+      });
     }
-    return ATTRIBUTES;
+
+    return {};
   });
 
   return {

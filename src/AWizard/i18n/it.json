@@ -1,7 +1,8 @@
 {
+  "_A_WIZARD_ARIA_LABEL_": "Wizard",
   "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Passo {{ stepNumber }}:",
   "_A_WIZARD_NEXT_": "Prossimo",
   "_A_WIZARD_PREVIOUS_": "Precedente",
   "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_",
-  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_": "palcoscenico {{ stepActive }} Di {{ stepsCount }}: {{ stepActiveLabel }}"
+  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "palcoscenico {{ stepActive }} Di {{ stepsCount }}"
 }
