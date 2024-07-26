@@ -26,14 +26,16 @@ export default function MoveColumnAPI(props) {
       columnIndexDraggable: columnIndex.value,
       columnIndexOver: columnIndexOver,
     });
-    setTimeout(() => {
-      setFocusToElement({
-        selector: `#${ getArrowButtonId({
-          columnIndex: columnIndexOver,
-          iconKey: "up",
-        }) }`
+    if (!window.isScrollDisabled) { // for autotests
+      setTimeout(() => {
+        setFocusToElement({
+          selector: `#${ getArrowButtonId({
+            columnIndex: columnIndexOver,
+            iconKey: "up",
+          }) }`
+        });
       });
-    });
+    }
   };
 
   const moveColumnDown = ({ $event }) => {
@@ -43,15 +45,17 @@ export default function MoveColumnAPI(props) {
       columnIndexDraggable: columnIndex.value,
       columnIndexOver: columnIndexOver,
     });
-    setTimeout(() => {
-      const NEW_ID = `#${ getArrowButtonId({
-        columnIndex: columnIndexOver,
-        iconKey: "down",
-      }) }`;
-      setFocusToElement({
-        selector: NEW_ID,
+    if (!window.isScrollDisabled) { // for autotests
+      setTimeout(() => {
+        const NEW_ID = `#${ getArrowButtonId({
+          columnIndex: columnIndexOver,
+          iconKey: "down",
+        }) }`;
+        setFocusToElement({
+          selector: NEW_ID,
+        });
       });
-    });
+    }
   };
 
   const idButtonArrowUp = computed(() => {

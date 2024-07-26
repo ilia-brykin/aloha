@@ -13,11 +13,13 @@ export default function SearchBtnAPI({
 }) {
   const clickOnSearchBtn = () => {
     toggleMenu({ isOpen: true });
-    setTimeout(() => {
-      setFocusToElement({
-        selector: `#${ searchInputId.value }`,
+    if (!window.isScrollDisabled) { // for autotests
+      setTimeout(() => {
+        setFocusToElement({
+          selector: `#${ searchInputId.value }`,
+        });
       });
-    });
+    }
   };
 
   const keydownOnSearchBtn = $event => {

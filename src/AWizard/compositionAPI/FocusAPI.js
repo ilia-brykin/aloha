@@ -14,7 +14,8 @@ export default function FocusAPI(props) {
   const wizardTabsRef = ref([]);
 
   const setFocusToActiveStep = ({ stepActive }) => {
-    if (hasFocusJump.value) {
+    if (hasFocusJump.value &&
+      !window.isScrollDisabled) { // for autotests
       setTimeout(() => {
         const FOCUS_ID_SELECTOR = `#${ id.value }_${ stepActive }_focus`;
         setFocusToElement({

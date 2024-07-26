@@ -24,7 +24,9 @@ export default function ToggleAPI(props, { emit }, {
     }
     emit("toggle", { isOpen: isOpen.value });
 
-    if (hasTextAndLength.value && isOpen.value) {
+    if (hasTextAndLength.value &&
+      isOpen.value &&
+      !window.isScrollDisabled) { // for autotests
       nextTick().then(
         () => setFocusToElement({
           element: containerRef.value,

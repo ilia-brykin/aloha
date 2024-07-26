@@ -57,6 +57,10 @@ export default function MultipleActionAPI(props, { emit }, {
   };
 
   const setFocusToMultiplePanel = () => {
+    if (window.isScrollDisabled) { // for autotests
+      return;
+    }
+
     const PANEL_ID = getMultiplePanelId({ tableId: id.value });
     setFocusToElement({
       selector: `#${ PANEL_ID }`,

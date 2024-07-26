@@ -54,6 +54,10 @@ export default function PreviewAPI(props, context, {
   });
 
   const setFocusToRow = ({ rowIndex }) => {
+    if (window.isScrollDisabled) { // for autotests
+      return;
+    }
+
     setTimeout(() => {
       const ROW_ID = `#${ tableId.value }_${ rowIndex }`;
       setFocusToElement({ selector: ROW_ID });
@@ -61,6 +65,10 @@ export default function PreviewAPI(props, context, {
   };
 
   const setFocusToPreviewRight = () => {
+    if (window.isScrollDisabled) { // for autotests
+      return;
+    }
+
     setTimeout(() => {
       const PREVIEW_ID = `#${ getPreviewRightId({ tableId: tableId.value }) }`;
       setFocusToElement({ selector: PREVIEW_ID });
