@@ -32,5 +32,12 @@ div
     )
     div model3:
     pre {{ model3 }}
-
-
+  h2 Input (Password)
+  a-input.a_pt_2(
+    id="input4"
+    v-model="model4"
+    type="password"
+    :toggle-password-visibility="true"
+    label="Input 4"
+    :required="true"
+  )

@@ -12,6 +12,7 @@ import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI1
 import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
 import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import AFiltersI18n from "../AFilters/i18n/AFiltersI18n";
+import AInputI18n from "../ui/AInput/i18n/AInputI18n";
 import AInputNumberRangeI18n from "../ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
 import ALinkCopyI18n from "../ALinkCopy/i18n/ALinkCopyI18n";
 import AModalI18n from "../AModal/i18n/AModalI18n";
@@ -35,6 +36,7 @@ export const ar = {
   ...ATableI18n.ar,
   ...AFieldsetI18n.ar,
   ...ALinkCopyI18n.ar,
+  ...AInputI18n.ar,
   ...AInputNumberRangeI18n.ar,
   ...AFiltersI18n.ar,
   ...AWizardI18n.ar,
@@ -55,6 +57,7 @@ export const de = {
   ...ATableI18n.de,
   ...AFieldsetI18n.de,
   ...ALinkCopyI18n.de,
+  ...AInputI18n.de,
   ...AInputNumberRangeI18n.de,
   ...AFiltersI18n.de,
   ...AWizardI18n.de,
@@ -75,6 +78,7 @@ export const en = {
   ...ATableI18n.en,
   ...AFieldsetI18n.en,
   ...ALinkCopyI18n.en,
+  ...AInputI18n.en,
   ...AInputNumberRangeI18n.en,
   ...AFiltersI18n.en,
   ...AWizardI18n.en,
@@ -95,6 +99,7 @@ export const es = {
   ...ATableI18n.es,
   ...AFieldsetI18n.es,
   ...ALinkCopyI18n.es,
+  ...AInputI18n.es,
   ...AInputNumberRangeI18n.es,
   ...AFiltersI18n.es,
   ...AWizardI18n.es,
@@ -115,6 +120,7 @@ export const fr = {
   ...ATableI18n.fr,
   ...AFieldsetI18n.fr,
   ...ALinkCopyI18n.fr,
+  ...AInputI18n.fr,
   ...AInputNumberRangeI18n.fr,
   ...AFiltersI18n.fr,
   ...AWizardI18n.fr,
@@ -135,6 +141,7 @@ export const hr = {
   ...ATableI18n.hr,
   ...AFieldsetI18n.hr,
   ...ALinkCopyI18n.hr,
+  ...AInputI18n.hr,
   ...AInputNumberRangeI18n.hr,
   ...AFiltersI18n.hr,
   ...AWizardI18n.hr,
@@ -155,6 +162,7 @@ export const it = {
   ...ATableI18n.it,
   ...AFieldsetI18n.it,
   ...ALinkCopyI18n.it,
+  ...AInputI18n.it,
   ...AInputNumberRangeI18n.it,
   ...AFiltersI18n.it,
   ...AWizardI18n.it,
@@ -175,6 +183,7 @@ export const ru = {
   ...ATableI18n.ru,
   ...AFieldsetI18n.ru,
   ...ALinkCopyI18n.ru,
+  ...AInputI18n.ru,
   ...AInputNumberRangeI18n.ru,
   ...AFiltersI18n.ru,
   ...AWizardI18n.ru,

@@ -5,6 +5,7 @@ import {
   toRef,
 } from "vue";
 
+import AButton from "../../AButton/AButton";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
@@ -14,11 +15,17 @@ import ALabel from "../ALabel/ALabel";
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
 
+import ToggleAPI from "./compositionAPI/ToggleAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+
+import {
+  cloneDeep,
+} from "lodash-es";
+
 
 export default {
   name: "AInput",
@@ -59,6 +66,11 @@ export default {
       required: false,
       default: undefined,
     },
+    togglePasswordVisibility: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     type: {
       type: String,
       required: false,
@@ -94,13 +106,18 @@ export default {
     });
 
     const type = toRef(props, "type");
+    const typeLocal = ref(undefined);
+    typeLocal.value = cloneDeep(type.value);
+
     const typeForInput = computed(() => {
-      if (type.value === "integer") {
+      if (typeLocal.value === "integer") {
         return "text";
       }
-      return type.value;
+      return typeLocal.value;
     });
-
+    
+    const isTypePassword = computed(() => typeForInput.value === "password");
+    
     const inputRef = ref(undefined);
     const disabled = toRef(props, "disabled");
     const onInput = $event => {
@@ -126,12 +143,18 @@ export default {
     };
 
     const {
+      btnToggleTypeTitle,
+      toggleType,
+    } = ToggleAPI({ isTypePassword, typeLocal });
+
+    const {
       isAutofill,
     } = UiInputAutofillAPI({ inputRef });
 
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
+      btnToggleTypeTitle,
       clearModel,
       componentStyleHide,
       errorsId,
@@ -142,9 +165,11 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
+      isTypePassword,
       onBlur,
       onFocus,
       onInput,
+      toggleType,
       typeForInput,
     };
   },
@@ -213,6 +238,16 @@ export default {
             onClear: this.clearModel,
           }),
         ]),
+        this.type === "password" && this.togglePasswordVisibility && h(AButton, {
+          alwaysTranslate: this.alwaysTranslate,
+          class: "a_btn a_btn_outline_secondary",
+          iconLeft: this.isTypePassword ? "EyeClose" : "EyeOpen",
+          type: "button",
+          title: this.btnToggleTypeTitle,
+          textScreenReader: this.btnToggleTypeTitle,
+          disabled: this.disabled,
+          onClick: this.toggleType,
+        }),
         h(AFormHelpText, {
           id: this.helpTextId,
           alwaysTranslate: this.alwaysTranslate,
