@@ -2,7 +2,15 @@
   "_A_WIZARD_ARIA_LABEL_": "Wizard",
   "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Passo {{ stepNumber }}:",
   "_A_WIZARD_NEXT_": "Prossimo",
+  "_A_WIZARD_NEXT_TITLE_": "Passo successivo",
   "_A_WIZARD_PREVIOUS_": "Precedente",
-  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_",
+  "_A_WIZARD_PREVIOUS_TITLE_": "Passo precedente",
+  "_A_WIZARD_STEP_ACTIVE_": "Passo attuale",
+  "_A_WIZARD_STEP_ERROR_": "Errore del passo",
+  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "{{ stepActive }} di {{ stepsCount }}",
+  "_A_WIZARD_STEP_UPCOMING_": "Passo successivo",
+  "_A_WIZARD_STEP_VISITED_": "Passo visitato",
+  "_A_WIZARD_STEP_WARNING_": "Avvertimento del passo",
+  "_A_WIZARD_STEPS_ARIA_LABEL_": "Passi dell'assistente",
   "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "palcoscenico {{ stepActive }} Di {{ stepsCount }}"
 }

@@ -2,7 +2,15 @@
   "_A_WIZARD_ARIA_LABEL_": "Assistant",
   "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Étape {{ stepNumber }} :",
   "_A_WIZARD_NEXT_": "Suivant",
+  "_A_WIZARD_NEXT_TITLE_": "Étape suivante",
   "_A_WIZARD_PREVIOUS_": "Précédent",
-  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_",
+  "_A_WIZARD_PREVIOUS_TITLE_": "Étape précédente",
+  "_A_WIZARD_STEP_ACTIVE_": "Étape actuelle",
+  "_A_WIZARD_STEP_ERROR_": "Erreur de l'étape",
+  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "{{ stepActive }} sur {{ stepsCount }}",
+  "_A_WIZARD_STEP_UPCOMING_": "Étape à venir",
+  "_A_WIZARD_STEP_VISITED_": "Étape visitée",
+  "_A_WIZARD_STEP_WARNING_": "Avertissement de l'étape",
+  "_A_WIZARD_STEPS_ARIA_LABEL_": "Étapes de l'assistant",
   "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Etape {{ stepActive }} de {{ stepsCount }}"
 }

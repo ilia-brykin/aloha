@@ -38,14 +38,6 @@ export default function PropsAPI() {
     {
       name: "class-default",
       description: "_A_BUTTON_PROPS_CLASS_DEFAULT_DESCRIPTION_",
-      descriptionSlot: "class-default",
-      scss: `// SCSS:
-.aloha_element {
-  position: relative;
-  & > :not(.aloha_element__hidden) + :not(.aloha_element__ml_0) {
-    margin-left: .5rem;
-  }
-}`,
       type: "String",
       default: "aloha_element",
       required: false,
@@ -55,6 +47,13 @@ export default function PropsAPI() {
       description: "_A_BUTTON_PROPS_CLASS_DEFAULT_HIDDEN_DESCRIPTION_",
       type: "String",
       default: "aloha_element__hidden",
+      required: false,
+    },
+    {
+      name: "class-disabled",
+      description: "_A_BUTTON_PROPS_CLASS_DISABLED_DESCRIPTION_",
+      type: "String",
+      default: "disabled",
       required: false,
     },
     {

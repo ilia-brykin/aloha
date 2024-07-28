@@ -2,6 +2,7 @@ import {
   h,
 } from "vue";
 
+import AElement from "../../AElement/AElement";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
@@ -9,8 +10,10 @@ import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ContentIdAPI from "../AWizardTab/compositionAPI/ContentIdAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import ErrorWarningAPI from "./compositionAPI/ErrorWarningAPI";
 import LinkClassAPI from "./compositionAPI/LinkClassAPI";
 import NumberAPI from "./compositionAPI/NumberAPI";
+import StatusTextAPI from "./compositionAPI/StatusTextAPI";
 
 export default {
   name: "AWizardStep",
@@ -61,6 +64,26 @@ export default {
       required: false,
       default: 0,
     },
+    stepIconError: {
+      type: String,
+      required: false,
+      default: "AlertDanger",
+    },
+    stepIconErrorText: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEP_ERROR_",
+    },
+    stepIconWarning: {
+      type: String,
+      required: false,
+      default: "AlertWarning",
+    },
+    stepIconWarningText: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEP_WARNING_",
+    },
     stepIndex: {
       type: Number,
       required: true,
@@ -76,6 +99,7 @@ export default {
   setup(props, context) {
     const {
       isStepActive,
+      isStepBeforeActive,
     } = ActiveAPI(props);
 
     const {
@@ -93,6 +117,7 @@ export default {
       linkClass,
     } = LinkClassAPI(props, {
       isStepActive,
+      isStepBeforeActive,
       isStepDisabled,
     });
 
@@ -106,6 +131,7 @@ export default {
     const {
       ariaCurrentAttributes,
       stepTextId,
+      stepStatusTextId,
       tabindex,
     } = AttributesAPI(props, {
       isStepDisabled,
@@ -116,18 +142,34 @@ export default {
       contentId,
     } = ContentIdAPI(props);
 
+    const {
+      statusText,
+    } = StatusTextAPI(props, {
+      isStepActive,
+      isStepBeforeActive,
+    });
+
+    const {
+      iconErrorWarning,
+      titleIconErrorWarning,
+    } = ErrorWarningAPI(props);
+
     return {
       ariaCurrentAttributes,
       contentId,
+      iconErrorWarning,
       isStepActive,
       isStepDisabled,
       linkClass,
       onClick,
       onKeydown,
+      statusText,
       stepNumber,
       stepNumberText,
+      stepStatusTextId,
       stepTextId,
       tabindex,
+      titleIconErrorWarning,
     };
   },
   render() {
@@ -140,19 +182,23 @@ export default {
             a_wizard__step_active: this.isStepActive,
           },
         ],
-        role: "presentation",
       },
       [
-        h("a", {
+        h(AElement, {
+          "aria-controls": this.contentId,
+          "aria-describedby": this.stepStatusTextId,
+          ariaDisabled: this.isStepDisabled,
           class: this.linkClass,
+          classDefault: "",
+          classDisabled: "",
           role: "button",
           tabindex: this.tabindex,
-          ariaDisabled: this.isStepDisabled,
-          "aria-controls": this.contentId,
+          title: this.step.title,
+          type: "link",
           onClick: this.onClick,
           onKeydown: this.onKeydown,
           ...this.ariaCurrentAttributes,
-        }, this.step.slotLabel && this.$slots[this.step.slotLabel] ?
+        }, () => this.step.slotLabel && this.$slots[this.step.slotLabel] ?
           this.$slots[this.step.slotLabel]({
             isStepActive: this.isStepActive,
             isStepDisabled: this.isStepDisabled,
@@ -170,14 +216,33 @@ export default {
                 stepsCount: this.stepsCount,
               },
             }),
-            h(ATranslation, {
-              id: this.stepTextId,
+            h("span", {
               class: "a_wizard__step__text",
-              extra: this.extra,
-              html: this.step.label,
-              tag: "span",
-            }),
+            }, [
+              h(ATranslation, {
+                id: this.stepTextId,
+                class: "a_wizard__step__text__child",
+                extra: this.extra,
+                html: this.step.label,
+                tag: "span",
+              }),
+              (this.iconErrorWarning) ?
+                h(AElement, {
+                  iconClass: "a_wizard__step__text__icon",
+                  iconLeft: this.iconErrorWarning,
+                  tag: "span",
+                  textScreenReader: this.titleIconErrorWarning,
+                  title: this.titleIconErrorWarning,
+                  type: "text",
+                }) : ""
+            ]),
           ]),
+        h(ATranslation, {
+          id: this.stepStatusTextId,
+          class: "a_sr_only",
+          tag: "span",
+          text: this.statusText,
+        }),
         h("span", {
           class: "a_wizard__step__divider",
           ariaHidden: true,

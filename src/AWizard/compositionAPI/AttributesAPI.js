@@ -9,6 +9,7 @@ export default function AttributesAPI(props, {
   stepActiveComputed = computed(() => 0),
 }) {
   const ariaLabel = toRef(props, "ariaLabel");
+  const ariaLabelSteps = toRef(props, "ariaLabelSteps");
   const extra = toRef(props, "extra");
   const id = toRef(props, "id");
 
@@ -19,7 +20,11 @@ export default function AttributesAPI(props, {
   } = UtilsAPI();
 
   const isAriaLabelTranslated = computed(() => {
-    return isPlaceholderTranslate({ text: ariaLabel.value });
+    return isPlaceholderTranslate(ariaLabel.value);
+  });
+
+  const isAriaLabelStepsTranslated = computed(() => {
+    return isPlaceholderTranslate(ariaLabelSteps.value);
   });
 
   const ariaLabelTranslated = computed(() => {
@@ -33,12 +38,32 @@ export default function AttributesAPI(props, {
     return undefined;
   });
 
+  const ariaLabelStepsTranslated = computed(() => {
+    if (isAriaLabelStepsTranslated.value) {
+      return getTranslatedText({
+        placeholder: ariaLabelSteps.value,
+        extra: extra.value,
+      });
+    }
+
+    return undefined;
+  });
+
   const ariaLabelAttributes = computed(() => {
     return getTranslationAttributes({
       attr: "aria-label",
       value: ariaLabel.value,
       translation: ariaLabelTranslated.value,
       isTranslate: isAriaLabelTranslated.value,
+    });
+  });
+
+  const ariaLabelStepsAttributes = computed(() => {
+    return getTranslationAttributes({
+      attr: "aria-label",
+      value: ariaLabelSteps.value,
+      translation: ariaLabelStepsTranslated.value,
+      isTranslate: isAriaLabelStepsTranslated.value,
     });
   });
 
@@ -56,6 +81,7 @@ export default function AttributesAPI(props, {
 
   return {
     ariaLabelAttributes,
+    ariaLabelStepsAttributes,
     idProgressbar,
     wizardAriaDescribedby,
   };

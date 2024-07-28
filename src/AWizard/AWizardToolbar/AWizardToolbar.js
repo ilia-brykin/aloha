@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
+import AElement from "../../AElement/AElement";
 
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -157,33 +157,36 @@ export default {
     return h(
       "div",
       {
-        role: "status",
         class: "a_wizard__toolbar",
       },
       [
-        !this.isBackButtonHideLocal && h(AButton, {
-          type: "button",
+        !this.isBackButtonHideLocal && h(AElement, {
           class: this.backButtonClass,
-          text: this.backButtonText,
+          disabled: this.isBackButtonDisabledLocal,
+          extra: this.extra,
           iconLeft: this.backButtonIconLeft,
           iconRight: this.backButtonIconRight,
-          title: this.backButtonTitle,
-          extra: this.extra,
-          disabled: this.isBackButtonDisabledLocal,
           loading: this.isButtonsLoading,
+          text: this.backButtonText,
+          textAriaHidden: true,
+          textScreenReader: this.backButtonTitle,
+          title: this.backButtonTitle,
+          type: "button",
           onClick: this.goOneStepBack,
           ...this.backButtonAttributes,
         }),
-        !this.isForwardButtonHideLocal && h(AButton, {
-          type: "button",
+        !this.isForwardButtonHideLocal && h(AElement, {
           class: this.forwardButtonClass,
-          text: this.forwardButtonText,
+          disabled: this.isForwardButtonDisabledLocal,
+          extra: this.extra,
           iconLeft: this.forwardButtonIconLeft,
           iconRight: this.forwardButtonIconRight,
-          title: this.forwardButtonTitle,
-          extra: this.extra,
-          disabled: this.isForwardButtonDisabledLocal,
           loading: this.isButtonsLoading,
+          text: this.forwardButtonText,
+          textAriaHidden: true,
+          textScreenReader: this.forwardButtonTitle,
+          title: this.forwardButtonTitle,
+          type: "button",
           onClick: this.goOneStepForward,
           ...this.forwardButtonAttributes,
         }),

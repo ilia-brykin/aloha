@@ -26,9 +26,14 @@ export default function AttributesAPI(props, {
     return `${ id.value }_step_text_${ stepIndex.value }`;
   });
 
+  const stepStatusTextId = computed(() => {
+    return `${ id.value }_step_status_text_${ stepIndex.value }`;
+  });
+
   return {
     ariaCurrentAttributes,
     tabindex,
+    stepStatusTextId,
     stepTextId,
   };
 }

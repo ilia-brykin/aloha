@@ -22,6 +22,27 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "class-default",
+      description: "_A_LINK_PROPS_CLASS_DEFAULT_DESCRIPTION_",
+      type: "String",
+      default: "aloha_element",
+      required: false,
+    },
+    {
+      name: "class-default-hidden",
+      description: "_A_LINK_PROPS_CLASS_DEFAULT_HIDDEN_DESCRIPTION_",
+      type: "String",
+      default: "aloha_element__hidden",
+      required: false,
+    },
+    {
+      name: "class-disabled",
+      description: "_A_LINK_PROPS_CLASS_DISABLED_DESCRIPTION_",
+      type: "String",
+      default: "disabled",
+      required: false,
+    },
+    {
       name: "disabled",
       description: "_A_LINK_PROPS_DISABLED_DESCRIPTION_",
       type: "Boolean",

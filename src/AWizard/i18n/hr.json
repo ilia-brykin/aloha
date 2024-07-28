@@ -2,7 +2,15 @@
   "_A_WIZARD_ARIA_LABEL_": "Čarobnjak",
   "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Korak {{ stepNumber }}:",
   "_A_WIZARD_NEXT_": "Dalje",
+  "_A_WIZARD_NEXT_TITLE_": "Sljedeći korak",
   "_A_WIZARD_PREVIOUS_": "Natrag",
+  "_A_WIZARD_PREVIOUS_TITLE_": "Prethodni korak",
+  "_A_WIZARD_STEP_ACTIVE_": "Trenutni korak",
+  "_A_WIZARD_STEP_ERROR_": "Pogreška koraka",
   "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "{{ stepActive }} od {{stepsCount}}",
+  "_A_WIZARD_STEP_UPCOMING_": "Nadolazeći korak",
+  "_A_WIZARD_STEP_VISITED_": "Posjećeni korak",
+  "_A_WIZARD_STEP_WARNING_": "Upozorenje koraka",
+  "_A_WIZARD_STEPS_ARIA_LABEL_": "Koraci čarobnjaka",
   "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Korak {{ stepActive }} od {{ stepsCount }}"
 }

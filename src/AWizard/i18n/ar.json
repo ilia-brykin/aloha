@@ -2,7 +2,15 @@
   "_A_WIZARD_ARIA_LABEL_": "معالج",
   "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "الخطوة {{ stepNumber }}:",
   "_A_WIZARD_NEXT_": "التالي",
+  "_A_WIZARD_NEXT_TITLE_": "الخطوة التالية",
   "_A_WIZARD_PREVIOUS_": "سابق",
-  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_",
+  "_A_WIZARD_PREVIOUS_TITLE_": "الخطوة السابقة",
+  "_A_WIZARD_STEP_ACTIVE_": "الخطوة الحالية",
+  "_A_WIZARD_STEP_ERROR_": "خطأ في الخطوة",
+  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "{{ stepActive }} من {{ stepsCount }}",
+  "_A_WIZARD_STEP_UPCOMING_": "الخطوة القادمة",
+  "_A_WIZARD_STEP_VISITED_": "الخطوة المزار",
+  "_A_WIZARD_STEP_WARNING_": "تحذير خطوة",
+  "_A_WIZARD_STEPS_ARIA_LABEL_": "خطوات المعالج",
   "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "{{ stepsCount }} من {{ stepActive }} خطوة"
 }

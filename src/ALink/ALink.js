@@ -46,6 +46,11 @@ export default {
       required: false,
       default: "aloha_element__hidden",
     },
+    classDisabled: {
+      type: String,
+      required: false,
+      default: "disabled",
+    },
     disabled: {
       type: Boolean,
       required: false,

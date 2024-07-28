@@ -64,6 +64,11 @@ export default {
       required: false,
       default: "aloha_element__hidden",
     },
+    classDisabled: {
+      type: String,
+      required: false,
+      default: "disabled",
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -367,7 +372,7 @@ export default {
         this.switchClass,
         this.class,
         {
-          disabled: this.ariaDisabled,
+          [this.classDisabled]: this.ariaDisabled,
         },
       ],
       type: this.typeAttribut,

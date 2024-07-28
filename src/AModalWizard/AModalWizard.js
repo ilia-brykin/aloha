@@ -134,17 +134,32 @@ export default {
       default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
     // WIZARD
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_ARIA_LABEL_",
+    },
+    ariaLabelSteps: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEPS_ARIA_LABEL_",
+    },
+    backButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     backButtonClass: {
       type: [String, Array, Object],
       required: false,
       default: "a_btn a_btn_secondary"
     },
-    backButtonIcon: {
+    backButtonIconLeft: {
       type: String,
       required: false,
       default: undefined,
     },
-    backButtonIconAlign: {
+    backButtonIconRight: {
       type: String,
       required: false,
       default: undefined,
@@ -157,19 +172,24 @@ export default {
     backButtonTitle: {
       type: String,
       required: false,
-      default: undefined,
+      default: "_A_WIZARD_PREVIOUS_TITLE_",
+    },
+    forwardButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     forwardButtonClass: {
       type: [String, Array, Object],
       required: false,
       default: "a_btn a_btn_secondary"
     },
-    forwardButtonIcon: {
+    forwardButtonIconLeft: {
       type: String,
       required: false,
       default: undefined,
     },
-    forwardButtonIconAlign: {
+    forwardButtonIconRight: {
       type: String,
       required: false,
       default: undefined,
@@ -182,7 +202,12 @@ export default {
     forwardButtonTitle: {
       type: String,
       required: false,
-      default: undefined,
+      default: "_A_WIZARD_NEXT_TITLE_",
+    },
+    hasFocusJump: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     id: {
       type: String,
@@ -234,6 +259,11 @@ export default {
       required: false,
       default: true,
     },
+    isMobile: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isStepNumberVisible: {
       type: Boolean,
       required: false,
@@ -244,9 +274,39 @@ export default {
       required: false,
       default: true,
     },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    showOnlyActiveStepMobile: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     stepActive: {
       type: Number,
       default: undefined,
+    },
+    stepIconError: {
+      type: String,
+      required: false,
+      default: "AlertDanger",
+    },
+    stepIconErrorText: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEP_ERROR_",
+    },
+    stepIconWarning: {
+      type: String,
+      required: false,
+      default: "AlertWarning",
+    },
+    stepIconWarningText: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEP_WARNING_",
     },
     steps: {
       type: Array,
@@ -326,6 +386,21 @@ export default {
       ...this.$slots || {},
       modalBody: () => [
         this.isWizardVisible && h(AWizard, {
+          ariaLabel: this.ariaLabel,
+          ariaLabelSteps: this.ariaLabelSteps,
+          backButtonAttributes: this.backButtonAttributes,
+          backButtonClass: this.backButtonClass,
+          backButtonIconLeft: this.backButtonIconLeft,
+          backButtonIconRight: this.backButtonIconRight,
+          backButtonText: this.backButtonText,
+          backButtonTitle: this.backButtonTitle,
+          forwardButtonAttributes: this.forwardButtonAttributes,
+          forwardButtonClass: this.forwardButtonClass,
+          forwardButtonIconLeft: this.forwardButtonIconLeft,
+          forwardButtonIconRight: this.forwardButtonIconRight,
+          forwardButtonText: this.forwardButtonText,
+          forwardButtonTitle: this.forwardButtonTitle,
+          hasFocusJump: this.hasFocusJump,
           extra: this.extra,
           isBackButtonDisabled: this.isBackButtonDisabled,
           isBackButtonHide: this.isBackButtonHide,
@@ -337,11 +412,18 @@ export default {
           isForwardButtonHide: this.isForwardButtonHide,
           isForwardLastButtonHide: this.isForwardLastButtonHide,
           isForwardStepButtonDisabled: this.isForwardStepButtonDisabled,
+          isMobile: this.isMobile,
           isStepNumberVisible: this.isStepNumberVisible,
           isStepsJustified: this.isStepsJustified,
+          keyId: this.keyId,
           isToolbarBottom: true,
           isToolbarTop: false,
+          showOnlyActiveStepMobile: this.showOnlyActiveStepMobile,
           stepActive: this.stepActive,
+          stepIconError: this.stepIconError,
+          stepIconErrorText: this.stepIconErrorText,
+          stepIconWarning: this.stepIconWarning,
+          stepIconWarningText: this.stepIconWarningText,
           steps: this.steps,
           stepsProgressbarText: this.stepsProgressbarText,
           stepsVisited: this.stepsVisited,

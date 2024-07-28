@@ -11,7 +11,12 @@ export default function ActiveAPI(props) {
     return stepActiveComputed.value === stepIndex.value;
   });
 
+  const isStepBeforeActive = computed(() => {
+    return stepIndex.value < stepActiveComputed.value;
+  });
+
   return {
     isStepActive,
+    isStepBeforeActive,
   };
 }

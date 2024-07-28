@@ -376,7 +376,7 @@ export default function ComponentItemsAPI() {
         children: [
           {
             id: "PageWizard",
-            label: "Normal",
+            label: "Wizard normal",
             to: {
               name: "PageWizard",
             },

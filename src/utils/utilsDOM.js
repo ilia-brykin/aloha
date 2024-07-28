@@ -35,9 +35,7 @@ export function scrollToElement({ element, isMiddleOfScreen = true, behavior = "
 export function setFocusToElement({ element, selector }) {
   const ELEMENT = element ? element : document.querySelector(selector);
   if (ELEMENT) {
-    console.log("ELEMENT", ELEMENT);
     if (!ELEMENT.hasAttribute("tabindex")) {
-      console.log("ELEMENT.hasAttribute(\"tabindex\")", ELEMENT.hasAttribute("tabindex"));
       ELEMENT.setAttribute("tabindex", "-1");
       ELEMENT.focus();
       ELEMENT.removeAttribute("tabindex");

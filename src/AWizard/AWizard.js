@@ -29,6 +29,11 @@ export default {
       required: false,
       default: "_A_WIZARD_ARIA_LABEL_",
     },
+    ariaLabelSteps: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEPS_ARIA_LABEL_",
+    },
     backButtonAttributes: {
       type: Object,
       required: false,
@@ -57,7 +62,7 @@ export default {
     backButtonTitle: {
       type: String,
       required: false,
-      default: undefined,
+      default: "_A_WIZARD_PREVIOUS_TITLE_",
     },
     extra: {
       type: Object,
@@ -92,7 +97,7 @@ export default {
     forwardButtonTitle: {
       type: String,
       required: false,
-      default: undefined,
+      default: "_A_WIZARD_NEXT_TITLE_",
     },
     hasFocusJump: {
       type: Boolean,
@@ -189,6 +194,26 @@ export default {
       required: false,
       default: undefined,
     },
+    stepIconError: {
+      type: String,
+      required: false,
+      default: "AlertDanger",
+    },
+    stepIconErrorText: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEP_ERROR_",
+    },
+    stepIconWarning: {
+      type: String,
+      required: false,
+      default: "AlertWarning",
+    },
+    stepIconWarningText: {
+      type: String,
+      required: false,
+      default: "_A_WIZARD_STEP_WARNING_",
+    },
     steps: {
       type: Array,
       required: false,
@@ -242,6 +267,7 @@ export default {
 
     const {
       ariaLabelAttributes,
+      ariaLabelStepsAttributes,
       idProgressbar,
       wizardAriaDescribedby,
     } = AttributesAPI(props, {
@@ -278,6 +304,7 @@ export default {
 
     return {
       ariaLabelAttributes,
+      ariaLabelStepsAttributes,
       classWizard,
       goOneStepBack,
       goOneStepForward,
@@ -349,6 +376,7 @@ export default {
       h("ul", {
         class: "a_wizard__steps",
         role: "navigation",
+        ...this.ariaLabelStepsAttributes,
       }, [
         this.steps.map((step, stepIndex) => {
           return h(AWizardStep, {
@@ -364,6 +392,8 @@ export default {
             showOnlyActiveStepMobile: this.showOnlyActiveStepMobile,
             step,
             stepActiveComputed: this.stepActiveComputed,
+            stepIconError: this.stepIconError,
+            stepIconWarning: this.stepIconWarning,
             stepIndex,
             stepsCount: this.stepsCount,
             onOnStepClick: this.onStepClick,

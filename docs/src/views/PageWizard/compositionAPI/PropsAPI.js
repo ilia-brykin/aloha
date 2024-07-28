@@ -1,6 +1,20 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "aria-label",
+      description: "_A_WIZARD_PROPS_ARIA_LABEL_DESCRIPTION_",
+      type: "String",
+      default: "_A_WIZARD_ARIA_LABEL_",
+      required: false,
+    },
+    {
+      name: "aria-label-steps",
+      description: "_A_WIZARD_PROPS_ARIA_LABEL_STEPS_DESCRIPTION_",
+      type: "String",
+      default: "_A_WIZARD_STEPS_ARIA_LABEL_",
+      required: false,
+    },
+    {
       name: "back-button-attributes",
       description: "_A_WIZARD_PROPS_BACK_BUTTON_ATTRIBUTES_DESCRIPTION_",
       type: "Object",
@@ -229,6 +243,34 @@ export default function PropsAPI() {
       description: "_A_WIZARD_PROPS_STEP_ACTIVE_DESCRIPTION_",
       type: "Number",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "steps-icon-error",
+      description: "_A_WIZARD_PROPS_STEP_ICON_ERROR_DESCRIPTION_",
+      type: "String",
+      default: "AlertDanger",
+      required: false,
+    },
+    {
+      name: "steps-icon-error-text",
+      description: "_A_WIZARD_PROPS_STEP_ICON_ERROR_TEXT_DESCRIPTION_",
+      type: "String",
+      default: "_A_WIZARD_STEP_ERROR_",
+      required: false,
+    },
+    {
+      name: "steps-icon-warning",
+      description: "_A_WIZARD_PROPS_STEP_ICON_WARNING_DESCRIPTION_",
+      type: "String",
+      default: "AlertWarning",
+      required: false,
+    },
+    {
+      name: "steps-icon-warning-text",
+      description: "_A_WIZARD_PROPS_STEP_ICON_WARNING_TEXT_DESCRIPTION_",
+      type: "String",
+      default: "_A_WIZARD_STEP_WARNING_",
       required: false,
     },
     {

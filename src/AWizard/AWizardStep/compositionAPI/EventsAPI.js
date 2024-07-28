@@ -10,11 +10,13 @@ export default function EventsAPI(props, { emit }, {
 }) {
   const step = toRef(props, "step");
   const stepIndex = toRef(props, "stepIndex");
-  const onClick = () => {
+
+  const onClick = ({ $event }) => {
     if (isStepDisabled.value) {
       return;
     }
     emit("onStepClick", {
+      $event,
       step: step.value,
       stepIndex: stepIndex.value,
     });
@@ -23,7 +25,7 @@ export default function EventsAPI(props, { emit }, {
   const onKeydown = $event => {
     if ($event.keyCode === AKeysCode.enter ||
       $event.keyCode === AKeysCode.space) {
-      onClick($event);
+      onClick({ $event });
       $event.preventDefault();
       $event.stopPropagation();
     }
