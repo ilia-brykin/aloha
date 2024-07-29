@@ -226,7 +226,7 @@ export default function PropsAPI() {
     },
     {
       name: "key-id",
-      description: "_A_WIZARD_PROPS_STEP_ACTIVE_DESCRIPTION_",
+      description: "_A_WIZARD_PROPS_KEY_ID_DESCRIPTION_",
       type: "String",
       default: undefined,
       required: false,
