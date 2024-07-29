@@ -6,7 +6,7 @@ import AModal from "../AModal/AModal";
 import AWizard from "../AWizard/AWizard";
 
 import EmitsAPI from "./compositionAPI/EmitsAPI";
-import FooterAPI from "./compositionAPI/FooterAPI";
+import IdsAPI from "./compositionAPI/IdsAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import {
@@ -21,9 +21,23 @@ export default {
   name: "AModalWizard",
   inheritAttrs: false,
   props: {
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
+    },
+    backdropZIndex: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
     close: {
       type: Function,
       required: true,
+    },
+    closeButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     closeButtonClass: {
       type: [String, Array, Object],
@@ -70,15 +84,6 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.isCloseButtonHide,
     },
-    isConfirm: {
-      type: Boolean,
-      required: false,
-    },
-    isModalHidden: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     isSaveButtonHide: {
       type: Boolean,
       required: false,
@@ -97,6 +102,11 @@ export default {
       type: Function,
       required: false,
       default: undefined,
+    },
+    saveButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     saveButtonClass: {
       type: [String, Array, Object],
@@ -123,15 +133,29 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.selectorCloseIds,
     },
+    showCloseButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     size: {
       type: String,
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
       default: () => modalPluginOptions.value.propsDefault.size,
     },
+    stop: {
+      type: Boolean,
+      required: false,
+    },
     useEscape: {
       type: Boolean,
       required: false,
       default: () => modalPluginOptions.value.propsDefault.useEscape,
+    },
+    zIndex: {
+      type: Number,
+      required: false,
+      default: undefined,
     },
     // WIZARD
     ariaLabel: {
@@ -167,7 +191,7 @@ export default {
     backButtonText: {
       type: String,
       required: false,
-      default: "_WIZARD_PREVIOUS_",
+      default: "_A_WIZARD_PREVIOUS_",
     },
     backButtonTitle: {
       type: String,
@@ -197,7 +221,7 @@ export default {
     forwardButtonText: {
       type: String,
       required: false,
-      default: "_WIZARD_NEXT_",
+      default: "_A_WIZARD_NEXT_",
     },
     forwardButtonTitle: {
       type: String,
@@ -315,7 +339,7 @@ export default {
     stepsProgressbarText: {
       type: String,
       required: false,
-      default: "_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_{{stepActiveLabel}}_",
+      default: "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_",
     },
     stepsVisited: {
       type: Object,
@@ -340,7 +364,8 @@ export default {
 
     const {
       footerId,
-    } = FooterAPI(props);
+      wizardId,
+    } = IdsAPI(props);
 
     const {
       initWizard,
@@ -354,11 +379,15 @@ export default {
       goStepBackLocal,
       goStepForwardLocal,
       isWizardVisible,
+      wizardId,
     };
   },
   render() {
     return h(AModal, {
+      alwaysTranslate: this.alwaysTranslate,
+      backdropZIndex: this.backdropZIndex,
       close: this.close,
+      closeButtonAttributes: this.closeButtonAttributes,
       closeButtonClass: this.closeButtonClass,
       closeButtonId: this.closeButtonId,
       closeButtonText: this.closeButtonText,
@@ -369,23 +398,26 @@ export default {
       headerText: this.headerText,
       id: this.id,
       isCloseButtonHide: this.isCloseButtonHide,
-      isConfirm: this.isConfirm,
-      isModalHidden: this.isModalHidden,
       isSaveButtonHide: this.isSaveButtonHide,
       loading: this.loading,
       modalClass: this.modalClass,
       save: this.save,
+      saveButtonAttributes: this.saveButtonAttributes,
       saveButtonClass: this.saveButtonClass,
       saveButtonId: this.saveButtonId,
       saveButtonText: this.saveButtonText,
       selectorClose: this.selectorClose,
       selectorCloseIds: this.selectorCloseIds,
+      showCloseButton: this.showCloseButton,
       size: this.size,
+      stop: this.stop,
       useEscape: this.useEscape,
+      zIndex: this.zIndex,
     }, {
       ...this.$slots || {},
       modalBody: () => [
         this.isWizardVisible && h(AWizard, {
+          id: this.wizardId,
           ariaLabel: this.ariaLabel,
           ariaLabelSteps: this.ariaLabelSteps,
           backButtonAttributes: this.backButtonAttributes,
