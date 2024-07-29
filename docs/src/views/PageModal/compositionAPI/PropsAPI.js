@@ -1,6 +1,20 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "always-translate",
+      description: "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "backdrop-z-index",
+      description: "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_",
+      type: "Number",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "body-html",
       description: "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_",
       type: "Object",
@@ -74,6 +88,13 @@ export default function PropsAPI() {
       name: "header-text",
       description: "_A_MODAL_PROPS_HEADER_TEXT_DESCRIPTION_",
       type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "hide-footer",
+      description: "_A_MODAL_PROPS_HIDE_FOOTER_DESCRIPTION_",
+      type: "Boolean",
       default: undefined,
       required: false,
     },
@@ -176,9 +197,23 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "show-close-button",
+      description: "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "size",
       description: "_A_MODAL_PROPS_SIZE_DESCRIPTION_",
       type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "stop",
+      description: "_A_MODAL_PROPS_STOP_DESCRIPTION_",
+      type: "Boolean",
       default: undefined,
       required: false,
     },
@@ -187,6 +222,13 @@ export default function PropsAPI() {
       description: "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_",
       type: "Boolean",
       default: true,
+      required: false,
+    },
+    {
+      name: "z-index",
+      description: "_A_MODAL_PROPS_Z_INDEX_DESCRIPTION_",
+      type: "Number",
+      default: undefined,
       required: false,
     },
   ];
