@@ -64,6 +64,7 @@
   "_A_BUTTON_PROPS_CLASS_DEFAULT_DESCRIPTION_": "Definiert die Basis-CSS-Klasse für das Element, indem ein allgemeiner visueller Standardstil festgelegt wird.",
   "_A_BUTTON_PROPS_CLASS_DEFAULT_HIDDEN_DESCRIPTION_": "Legt eine CSS-Klasse fest, um das Element zu verbergen, wird verwendet, um die Sichtbarkeit des Elements in verschiedenen Kontexten zu steuern.",
   "_A_BUTTON_PROPS_CLASS_DESCRIPTION_": "CSS-Klasse",
+  "_A_BUTTON_PROPS_CLASS_DISABLED_DESCRIPTION_": "Gibt die CSS-Klasse an, die auf den Button angewendet wird, wenn dieser deaktiviert ist.",
   "_A_BUTTON_PROPS_DISABLED_DESCRIPTION_": "Gibt an, ob der Button deaktiviert werden soll. Wenn der Wert auf true gesetzt ist, wird der Button deaktiviert.",
   "_A_BUTTON_PROPS_EXTRA_DATA_DESCRIPTION_": "Bietet zusätzliche Daten für alle Slots des Komponenten, was die Übertragung benutzerdefinierter Daten und Informationen ermöglicht, die innerhalb der Slots für eine flexiblere und detailliertere Anpassung des Inhalts verwendet werden können.",
   "_A_BUTTON_PROPS_EXTRA_DESCRIPTION_": "Extra-Objekt für Übersetzung",
