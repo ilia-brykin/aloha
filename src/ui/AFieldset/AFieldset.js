@@ -205,36 +205,43 @@ export default {
           ],
         }, [
           this.children.map((item, itemIndex) => {
-            const IS_CONTAINER = typesContainer.value[item.type];
-            let classColumn;
-            if (isNil(item.classColumn)) {
-              classColumn = "a_column a_column_12";
-            } else if (item.classColumn) {
-              classColumn = item.classColumn;
-            }
+            if (item.isRender !== false) {
+              const IS_CONTAINER = typesContainer.value[item.type];
+              let classColumn;
+              if (isNil(item.classColumn)) {
+                classColumn = "a_column a_column_12";
+              } else if (item.classColumn) {
+                classColumn = item.classColumn;
+              }
+              let style;
+              if (item.isHide) {
+                style = "display: none;";
+              }
 
-            return h("div", {
-              class: classColumn,
-            }, [
-              h(this.componentTypesMapping[item.type], {
-                key: itemIndex,
-                alwaysTranslate: this.alwaysTranslate,
-                modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
-                modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
-                errors: this.errorsAll[item.id],
-                errorsAll: this.errorsAll,
-                idPrefix: this.idPrefix,
-                "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
-                onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
-                ...item,
-                classColumn: undefined,
-                slotAppend: undefined,
-                ...this.attributesToExcludeFromRender,
-              }, this.$slots),
-              (item.slotAppend && this.$slots[item.slotAppend]) ?
-                this.$slots[item.slotAppend]({ item, itemIndex }) :
-                "",
-            ]);
+              return h("div", {
+                class: classColumn,
+                style,
+              }, [
+                h(this.componentTypesMapping[item.type], {
+                  key: itemIndex,
+                  alwaysTranslate: this.alwaysTranslate,
+                  modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
+                  modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
+                  errors: this.errorsAll[item.id],
+                  errorsAll: this.errorsAll,
+                  idPrefix: this.idPrefix,
+                  "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+                  onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
+                  ...item,
+                  classColumn: undefined,
+                  slotAppend: undefined,
+                  ...this.attributesToExcludeFromRender,
+                }, this.$slots),
+                (item.slotAppend && this.$slots[item.slotAppend]) ?
+                  this.$slots[item.slotAppend]({ item, itemIndex }) :
+                  "",
+              ]);
+            }
           }),
           this.slotName &&
           this.$slots[this.slotName] &&
