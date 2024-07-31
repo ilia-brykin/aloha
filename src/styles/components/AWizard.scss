@@ -7,14 +7,14 @@ $a-wizard-step-active-secondary-color:       var(--a_color_white, #ffffff) !defa
 $a-wizard-step-active-font-weight:           700 !default;
 $a-wizard-step-done-primary-color:           var(--a_color_primary_50, #90d4fa) !default;
 $a-wizard-step-done-secondary-color:         var(--a_color_gray_100, #fefefe) !default;
-$a-wizard-step-disabled-primary-color:       var(--a_color_gray_100, #f8f9fa) !default;
-$a-wizard-step-disabled-secondary-color:     var(--a_color_gray_300, #dbe0e5) !default;
+$a-wizard-step-disabled-primary-color:       var(--a_color_gray_500, #adb5bd) !default;
+$a-wizard-step-disabled-secondary-color:     var(--a_color_gray_100, #fefefe) !default;
 $a-wizard-step-error-primary-color:          var(--a_color_danger, #dc3545) !default;
 $a-wizard-step-error-secondary-color:        var(--a_color_white, #ffffff) !default;
 $a-wizard-step-warning-primary-color:        var(--a_color_warning, #ffc107) !default;
 $a-wizard-step-warning-secondary-color:      var(--a_color_white, #ffffff) !default;
-$a-wizard-step-focus-shadow-rgb:             var(--a_color_primary_rgb) !default;
-$a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_step_focus_shadow_rgb), .5) !default;
+$a-wizard-step-focus-shadow:                 var(--a_color_primary_50, #90d4fa) !default;
+$a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_focus_shadow) !default;
 
 .a_wizard {
   --a_wizard_border_color: #{$a-wizard-border_color};
@@ -32,7 +32,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
   --a_wizard_step_error_secondary_color: #{$a-wizard-step-error-secondary-color};
   --a_wizard_step_warning_primary_color: #{$a-wizard-step-warning-primary-color};
   --a_wizard_step_warning_secondary_color: #{$a-wizard-step-warning-secondary-color};
-  --a_wizard_step_focus_shadow_rgb: #{$a-wizard-step-focus-shadow-rgb};
+  --a_wizard_step_focus_shadow: #{$a-wizard-step-focus-shadow};
   --a_wizard_step_focus_box_shadow: #{$a-wizard-step-focus-box-shadow};
 
   border: var(--a_wizard_border_width) solid var(--a_wizard_border_color);
@@ -311,6 +311,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem rgba(var(--a_wizard_s
 
       & > .a_wizard__step__number {
         background-color: var(--a_wizard_step_disabled_primary_color);
+        color: var(--a_wizard_step_disabled_secondary_color);
       }
     }
 

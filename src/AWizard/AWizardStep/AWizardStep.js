@@ -190,7 +190,7 @@ export default {
           ariaDisabled: this.isStepDisabled,
           class: this.linkClass,
           classDefault: "",
-          classDisabled: "",
+          classDisabled: "disabled",
           role: "button",
           tabindex: this.tabindex,
           title: this.step.title,
