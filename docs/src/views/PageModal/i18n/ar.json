@@ -17,7 +17,6 @@
   "_A_MODAL_GROUP_SLOTS_HEADER_": "استخدام الفتحات لمحتوى العرض المودال",
   "_A_MODAL_PAGE_BTN_CLOSE_": "إغلاق",
   "_A_MODAL_PAGE_BTN_OPEN_MODAL_": "فتح نافذة العرض المودال",
-  "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "يحدد ما إذا كان يمكن تعطيل الترجمات لهذا المكون. إذا تم تعيينه على true، فلا يمكن إيقاف الترجمات، ولن يتم عرض العناصر النائبة بدلاً من ذلك.",
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "إذا تم تعيينه، فإن هذا الخاصية تحدد z-index لـ CSS لخلفية نافذة المودال.",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "محتوى HTML لنافذة العرض المودال.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "سمات زر الإغلاق في العرض المودال. <a href=\"/#/button\">(AButton)</a>",

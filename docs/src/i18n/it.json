@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "Utilizzo di base",
+  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determina se le traduzioni per questo componente possono essere disattivate. Se impostato su true, le traduzioni non possono essere disattivate e i segnaposto non verranno visualizzati.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Predefinito",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Descrizione",
   "_ALOHA_TABLE_COLUMN_NAME_": "Nome",

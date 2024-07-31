@@ -17,7 +17,6 @@
   "_A_MODAL_GROUP_SLOTS_HEADER_": "Using slots for modal content",
   "_A_MODAL_PAGE_BTN_CLOSE_": "Close",
   "_A_MODAL_PAGE_BTN_OPEN_MODAL_": "Open Modal Window",
-  "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determines whether translations for this component can be disabled. If set to true, translations cannot be turned off, and placeholders will not be shown instead.",
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "If set, this prop specifies the CSS z-index for the modal window's backdrop.",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "The HTML content of the modal window.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attributes for the modal's close button. <a href=\"/#/button\">(AButton)</a>",

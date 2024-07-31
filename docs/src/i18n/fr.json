@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "Utilisation de base",
+  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Détermine si les traductions pour ce composant peuvent être désactivées. Si défini sur true, les traductions ne peuvent pas être désactivées et les espaces réservés ne seront pas affichés à la place.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Défaut",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Description",
   "_ALOHA_TABLE_COLUMN_NAME_": "Nom",

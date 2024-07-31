@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "الاستخدام الأساسي",
+  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "يحدد ما إذا كان يمكن تعطيل الترجمات لهذا المكون. إذا تم تعيينه على true، فلا يمكن إيقاف الترجمات، ولن يتم عرض العناصر النائبة بدلاً من ذلك.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "إعداد سابق",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "وصف",
   "_ALOHA_TABLE_COLUMN_NAME_": "اسم",

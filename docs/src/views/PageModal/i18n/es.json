@@ -17,7 +17,6 @@
   "_A_MODAL_GROUP_SLOTS_HEADER_": "Uso de Ranuras para el Contenido de la Ventana Modal",
   "_A_MODAL_PAGE_BTN_CLOSE_": "Cerrar",
   "_A_MODAL_PAGE_BTN_OPEN_MODAL_": "Abrir Ventana Modal",
-  "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determina si las traducciones para este componente se pueden desactivar. Si se establece en true, las traducciones no se pueden desactivar y en su lugar no se mostrarán los marcadores de posición.",
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "Si se establece, esta propiedad especifica el z-index de CSS para el fondo de la ventana modal.",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "El contenido HTML de la ventana modal.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Atributos para el botón de cierre de la ventana modal. <a href=\"/#/button\">(AButton)</a>",

@@ -17,7 +17,6 @@
   "_A_MODAL_GROUP_SLOTS_HEADER_": "Verwendung von Slots für Modal-Inhalte",
   "_A_MODAL_PAGE_BTN_CLOSE_": "Schließen",
   "_A_MODAL_PAGE_BTN_OPEN_MODAL_": "Modal Fenster öffnen",
-  "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Legt fest, ob Übersetzungen für diese Komponente deaktiviert werden können. Wenn auf true gesetzt, können Übersetzungen nicht deaktiviert werden und Platzhalter werden stattdessen nicht angezeigt.",
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "Wenn gesetzt, gibt diese Eigenschaft den CSS-z-index für den Hintergrund des Modalfensters an.",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "Der HTML-Inhalt des Modal-Fensters.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attribute für den Schließen-Button des Modals. <a href=\"/#/button\">(AButton)</a>",

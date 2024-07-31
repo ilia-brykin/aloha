@@ -17,7 +17,6 @@
   "_A_MODAL_GROUP_SLOTS_HEADER_": "Использование слотов для содержимого модального окна",
   "_A_MODAL_PAGE_BTN_CLOSE_": "Закрыть",
   "_A_MODAL_PAGE_BTN_OPEN_MODAL_": "Открыть модальное окно",
-  "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Определяет, можно ли отключить переводы для этого компонента. Если установлено значение true, переводы отключить нельзя, и вместо этого не будут отображаться заполнители.",
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "Если установлено, это свойство задает CSS z-index для фона модального окна.",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "HTML-содержимое модального окна.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Атрибуты кнопки закрытия модального окна. <a href=\"/#/button\">(AButton)</a>",

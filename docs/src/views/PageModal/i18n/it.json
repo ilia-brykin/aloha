@@ -17,7 +17,6 @@
   "_A_MODAL_GROUP_SLOTS_HEADER_": "Utilizzo degli Slot per il Contenuto della Finestra Modale",
   "_A_MODAL_PAGE_BTN_CLOSE_": "Chiudi",
   "_A_MODAL_PAGE_BTN_OPEN_MODAL_": "Apri Finestra Modale",
-  "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determina se le traduzioni per questo componente possono essere disattivate. Se impostato su true, le traduzioni non possono essere disattivate e i segnaposto non verranno visualizzati.",
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "Se impostato, questa proprietà specifica lo z-index CSS per lo sfondo della finestra modale.",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "Il contenuto HTML della finestra modale.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attributi per il pulsante di chiusura della finestra modale. <a href=\"/#/button\">(AButton)</a>",

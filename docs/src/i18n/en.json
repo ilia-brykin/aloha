@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "Basic usage",
+  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determines whether translations for this component can be disabled. If set to true, translations cannot be turned off, and placeholders will not be shown instead.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Default",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Description",
   "_ALOHA_TABLE_COLUMN_NAME_": "Name",
