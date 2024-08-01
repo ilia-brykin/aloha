@@ -1,5 +1,6 @@
 import {
   computed,
+  toRef,
 } from "vue";
 
 import AKeysCode from "../../../../const/AKeysCode";
@@ -9,6 +10,8 @@ export default function EventsAPI(props, { emit }, {
   isChecked = computed(() => false),
   valueLocal = computed(() => undefined),
 }) {
+  const dataItem = toRef(props, "dataItem");
+
   const onClick = $event => {
     if (disabledElement.value || isChecked.value) {
       $event.preventDefault();
@@ -17,6 +20,7 @@ export default function EventsAPI(props, { emit }, {
     }
     emit("changeModelValue", {
       model: valueLocal.value,
+      item: dataItem.value,
       $event,
     });
     $event.preventDefault();

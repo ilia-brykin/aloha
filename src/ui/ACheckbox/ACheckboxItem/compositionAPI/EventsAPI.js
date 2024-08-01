@@ -13,6 +13,7 @@ export default function EventsAPI(props, { emit }, {
   isChecked = computed(() => false),
   valueLocal = computed(() => undefined),
 }) {
+  const dataItem = toRef(props, "dataItem");
   const modelValue = toRef(props, "modelValue");
 
   const onClick = $event => {
@@ -31,6 +32,7 @@ export default function EventsAPI(props, { emit }, {
 
     emit("changeModelValue", {
       model: MODEL,
+      item: dataItem.value,
       $event,
     });
     $event.preventDefault();
