@@ -25,18 +25,11 @@ export default function ModelAPI(props, {
     return Number(`${ displayValue.value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."));
   });
 
-  const setCurrentValue = (
-    value,
-    emitChange = true
-  ) => {
+  const setCurrentValue = value => {
     displayValue.value = value;
     const newVal = modelType.value === "number"
       ? Number(`${ value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."))
       : value;
-    if (!emitChange) {
-      changeModel({ model: newVal });
-      return;
-    }
     changeModel({ model: newVal });
   };
 
@@ -60,7 +53,6 @@ export default function ModelAPI(props, {
     clearModel,
     displayValue,
     modelNumber,
-    modelValue,
     setCurrentValue,
   };
 }

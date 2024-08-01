@@ -9,6 +9,7 @@ import {
 
 export default function IncreaseDecreaseAPI(props, {
   ensurePrecision = () => {},
+  getCleanIntValue = () => {},
   setCurrentValue = () => {},
   modelNumber = computed(() => undefined),
 }) {
@@ -35,12 +36,7 @@ export default function IncreaseDecreaseAPI(props, {
       const intPart = splitVal[0];
       const setMinusSymbol = intPart[0] === "-" ? "-" : "";
       const intPartWithDivider = thousandDivider.value
-        ? intPart
-          .replaceAll(thousandDivider.value, "")
-          .replaceAll("-", "")
-          .split("").reverse().join("")
-          .match(/.{1,3}/g).join(thousandDivider.value)
-          .split("").reverse().join("")
+        ? getCleanIntValue({ value: intPart, thousandDivider: thousandDivider.value })
         : intPart;
       const floatPart = splitVal.length > 1 ? splitVal[1] : "";
       const floatPartLength = floatPart.length;

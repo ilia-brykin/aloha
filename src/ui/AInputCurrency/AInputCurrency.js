@@ -22,6 +22,7 @@ import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+import UtilsAPI from "./compositionAPI/UtilsAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
@@ -151,6 +152,10 @@ export default {
     } = UiStyleHideAPI(props);
 
     const {
+      getCleanIntValue,
+    } = UtilsAPI();
+
+    const {
       ariaDescribedbyLocal,
       changeModel,
       errorsId,
@@ -202,13 +207,13 @@ export default {
     } = IncreaseDecreaseAPI(props, {
       displayValue,
       ensurePrecision,
+      getCleanIntValue,
       setCurrentValue,
       modelNumber,
     });
 
     const {
       handleInput,
-      handleInputChange,
       handleKeydown,
       handlePaste,
       initFirstCheck,
@@ -218,6 +223,7 @@ export default {
       adjustFloatPartAndDivider,
       decrease,
       displayValue,
+      getCleanIntValue,
       increase,
       inputRef,
       modelNumber,
@@ -236,7 +242,6 @@ export default {
       displayValue,
       errorsId,
       handleInput,
-      handleInputChange,
       handleKeydown,
       handlePaste,
       helpTextId,
@@ -330,7 +335,6 @@ export default {
               ...this.placeholderAttributes,
               ...this.inputAttributes,
               onInput: this.handleInput,
-              onChange: this.handleInputChange,
               onKeydown: this.handleKeydown,
               onFocus: this.onFocus,
               onBlur: this.onBlurNumber,

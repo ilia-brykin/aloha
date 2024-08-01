@@ -15,12 +15,13 @@ import {
 export default function InputEventsAPI(props, {
   adjustFloatPartAndDivider = () => {},
   decrease = () => {},
+  getCleanIntValue = () => {},
   increase = () => {},
   inputRef = ref({}),
   modelNumber = computed(() => undefined),
   onBlur = () => {},
   setCurrentValue = () => {},
-  displayValue = computed(() => ""),
+  displayValue = ref(undefined),
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
   const max = toRef(props, "max");
@@ -95,16 +96,11 @@ export default function InputEventsAPI(props, {
       return;
     }
     const valWithDivider = thousandDivider.value
-      ? intVal
-        .replaceAll(thousandDivider.value, "")
-        .replaceAll("-", "")
-        .split("").reverse().join("")
-        .match(/.{1,3}/g).join(thousandDivider.value)
-        .split("").reverse().join("")
+      ? getCleanIntValue({ value: intVal, thousandDivider: thousandDivider.value })
       : intVal;
     let newVal;
     if (!isInteger.value) {
-      if (_value) {
+      if (value) {
         const floatValLocal = floatVal || "";
         const zerosToAdd = times(symbolsAfterDecimalDivider.value - floatValLocal.length, () => "0").join("");
         newVal = `${ setMinusSymbol }${ valWithDivider }${ decimalDivider.value }${ floatValLocal }${ zerosToAdd }`;
@@ -246,7 +242,8 @@ export default function InputEventsAPI(props, {
         const floatVal = splitVal[1];
         let valWithDivider = intVal.split("");
         valWithDivider.splice(cursorPosition + 1, 1);
-        valWithDivider = valWithDivider.reverse().join("")
+        valWithDivider = valWithDivider
+          .reverse().join("")
           .replaceAll(thousandDivider.value, "")
           .match(/.{1,3}/g).join(thousandDivider.value)
           .split("").reverse().join("");
