@@ -4,6 +4,10 @@ import {
 } from "vue";
 
 import {
+  toPrecision,
+} from "../../../utils/utilsMath";
+
+import {
   isNil,
   isNumber,
   isUndefined,
@@ -47,31 +51,6 @@ export default function VerifyAPI(props, {
     return Math.max(getPrecision(modelValue.value), stepPrecision);
   });
 
-  const toPrecision = (num, pre) => {
-    if (isUndefined(pre)) {
-      pre = numPrecision.value;
-    }
-    if (pre === 0) {
-      return Math.round(num);
-    }
-    let snum = String(num);
-    const pointPos = snum.indexOf(".");
-    if (pointPos === -1) {
-      return num;
-    }
-    const nums = snum.replace(".", "").split("");
-    const datum = nums[pointPos + pre];
-    if (!datum) {
-      return num;
-    }
-    const length = snum.length;
-    if (snum.charAt(length - 1) === "5") {
-      snum = `${ snum.slice(0, Math.max(0, length - 1)) }6`;
-    }
-    return Number.parseFloat(Number(snum).toFixed(pre));
-  };
-
-
   const verifyValue = (value, update) => {
     let newValue = Number(value);
     if (isNil(value) ||
@@ -101,7 +80,7 @@ export default function VerifyAPI(props, {
       return currentValue;
     }
     // Solve the accuracy problem of JS decimal calculation by converting the value to integer.
-    return toPrecision(value + step.value * coefficient);
+    return toPrecision(value + step.value * coefficient, numPrecision.value);
   };
 
   return {
