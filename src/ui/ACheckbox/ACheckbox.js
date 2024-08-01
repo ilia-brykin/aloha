@@ -279,6 +279,11 @@ export default {
       required: false,
       default: 0,
     },
+    slotAppendName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     slotName: {
       type: String,
       required: false,
@@ -626,6 +631,7 @@ export default {
                     modelValue: this.modelValue,
                     searching: this.searching,
                     searchingElements: this.searchingElementsExtra,
+                    slotAppendName: this.slotAppendName,
                     slotName: this.slotName,
                     onChangeModelValue: this.onChangeModelValue,
                   }, this.$slots);
@@ -658,6 +664,7 @@ export default {
                     searching: this.searching,
                     searchingElements: this.searchingElements,
                     searchingGroups: this.searchingGroups,
+                    slotAppendName: this.slotAppendName,
                     slotName: this.slotName,
                     type: "checkbox",
                     onChangeModelValue: this.onChangeModelValue,
@@ -692,6 +699,7 @@ export default {
                         modelValue: this.modelValue,
                         searching: this.searching,
                         searchingElements: this.searchingElements,
+                        slotAppendName: this.slotAppendName,
                         slotName: this.slotName,
                         onChangeModelValue: this.onChangeModelValue,
                       }, this.$slots);

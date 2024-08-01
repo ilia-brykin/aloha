@@ -3,14 +3,14 @@ import {
   withDirectives,
 } from "vue";
 
-import AButton from "../../../AButton/AButton";
-import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI";
+import AElement from "../../../AElement/AElement";
 
 import ASafeHtml from "../../../directives/ASafeHtml";
 
 import ButtonGroupAPI from "../../ACheckbox/ACheckboxItem/compositionAPI/ButtonGroupAPI";
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI";
 import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
 import UiTitleElementAPI from "../../compositionApi/UiTitleElementAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
@@ -94,6 +94,11 @@ export default {
     searchingElements: {
       type: Object,
       required: true,
+    },
+    slotAppendName: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     slotName: {
       type: String,
@@ -179,7 +184,7 @@ export default {
           onClick: this.onClick,
           onKeydown: this.onKeydown,
         }),
-        h(AButton, {
+        h(AElement, {
           alwaysTranslate: this.alwaysTranslate,
           class: this.classButton,
           classDefault: "",
@@ -190,6 +195,7 @@ export default {
           for: this.idLocal,
           tag: "label",
           title: this.titleLocal,
+          type: "button",
         }, () => [
           this.slotName && this.$slots[this.slotName] ?
             this.$slots[this.slotName]({
@@ -205,52 +211,64 @@ export default {
         ]),
       ];
     }
-    return h("div", {
-      class: ["a_custom_control a_custom_radio", {
-        a_custom_control_invalid: this.isErrors,
-      }],
-      style: this.styleWithSearch,
-    }, [
-      h("input", {
-        id: this.idLocal,
-        checked: this.isChecked,
-        class: "a_custom_control_input",
-        disabled: this.disabledElement,
-        name: this.id,
-        type: "radio",
-        value: this.valueLocal,
-        onClick: this.onClick,
-        onKeydown: this.onKeydown,
-      }),
-      h(AButton, {
-        alwaysTranslate: this.alwaysTranslate,
-        class: {
-          a_custom_control_label: true,
-          a_custom_control_label_width_auto: this.isWidthAuto,
-        },
-        classDefault: "",
-        extra: {
-          label: this.labelLocal,
-          labelFiltered: this.currentLabelFiltered,
-        },
-        for: this.idLocal,
-        tag: "label",
-        title: this.titleLocal,
-      }, () => [
-        this.slotName && this.$slots[this.slotName] ?
-          this.$slots[this.slotName]({
-            id: this.id,
-            item: this.dataItem,
-            itemIndex: this.itemIndex,
+    return [
+      h("div", {
+        class: ["a_custom_control a_custom_radio", {
+          a_custom_control_invalid: this.isErrors,
+        }],
+        style: this.styleWithSearch,
+      }, [
+        h("input", {
+          id: this.idLocal,
+          checked: this.isChecked,
+          class: "a_custom_control_input",
+          disabled: this.disabledElement,
+          name: this.id,
+          type: "radio",
+          value: this.valueLocal,
+          onClick: this.onClick,
+          onKeydown: this.onKeydown,
+        }),
+        h(AElement, {
+          alwaysTranslate: this.alwaysTranslate,
+          class: {
+            a_custom_control_label: true,
+            a_custom_control_label_width_auto: this.isWidthAuto,
+          },
+          classDefault: "",
+          extra: {
             label: this.labelLocal,
             labelFiltered: this.currentLabelFiltered,
-          }) :
-          this.labelLocal && withDirectives(h("span", {
-            class: "a_custom_control_label__text",
-          }), [
-            [ASafeHtml, this.currentLabelFiltered],
-          ]),
+          },
+          for: this.idLocal,
+          tag: "label",
+          title: this.titleLocal,
+          type: "button",
+        }, () => [
+          this.slotName && this.$slots[this.slotName] ?
+            this.$slots[this.slotName]({
+              id: this.id,
+              item: this.dataItem,
+              itemIndex: this.itemIndex,
+              label: this.labelLocal,
+              labelFiltered: this.currentLabelFiltered,
+            }) :
+            this.labelLocal && withDirectives(h("span", {
+              class: "a_custom_control_label__text",
+            }), [
+              [ASafeHtml, this.currentLabelFiltered],
+            ]),
+        ]),
       ]),
-    ]);
+      this.slotAppendName && this.$slots[this.slotAppendName] ?
+        this.$slots[this.slotAppendName]({
+          id: this.id,
+          item: this.dataItem,
+          itemIndex: this.itemIndex,
+          isChecked: this.isChecked,
+          label: this.labelLocal,
+          labelFiltered: this.currentLabelFiltered,
+        }) : "",
+    ];
   },
 };

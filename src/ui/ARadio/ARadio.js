@@ -277,6 +277,11 @@ export default {
       required: false,
       default: 0,
     },
+    slotAppendName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     slotName: {
       type: String,
       required: false,
@@ -603,6 +608,7 @@ export default {
                     searching: this.searching,
                     searchingElements: this.searchingElementsExtra,
                     slotName: this.slotName,
+                    slotAppendName: this.slotAppendName,
                     onChangeModelValue: this.onChangeModelValue,
                   }, this.$slots);
                 }),
@@ -632,6 +638,7 @@ export default {
                     searching: this.searching,
                     searchingElements: this.searchingElements,
                     searchingGroups: this.searchingGroups,
+                    slotAppendName: this.slotAppendName,
                     slotName: this.slotName,
                     type: "radio",
                     onChangeModelValue: this.onChangeModelValue,
@@ -667,6 +674,7 @@ export default {
                         searching: this.searching,
                         searchingElements: this.searchingElements,
                         slotName: this.slotName,
+                        slotAppendName: this.slotAppendName,
                         onChangeModelValue: this.onChangeModelValue,
                       }, this.$slots);
                     })

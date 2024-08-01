@@ -113,6 +113,11 @@ export default {
       type: Object,
       required: true,
     },
+    slotAppendName: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     slotName: {
       type: String,
       required: false,
@@ -195,6 +200,7 @@ export default {
                 searching: this.searching,
                 searchingElements: this.searchingElements,
                 slotName: this.slotName,
+                slotAppendName: this.slotAppendName,
                 type: this.type,
                 onChangeModelValue: this.onChangeModelValue,
               }, this.$slots);
@@ -251,6 +257,7 @@ export default {
                   searching: this.searching,
                   searchingElements: this.searchingElements,
                   slotName: this.slotName,
+                  slotAppendName: this.slotAppendName,
                   type: this.type,
                   onChangeModelValue: this.onChangeModelValue,
                 }, this.$slots);
@@ -280,6 +287,7 @@ export default {
               searchingElements: this.searchingElements,
               searchingGroups: this.searchingGroups,
               slotName: this.slotName,
+              slotAppendName: this.slotAppendName,
               type: this.type,
               onChangeModelValue: this.onChangeModelValue,
             }, this.$slots)
