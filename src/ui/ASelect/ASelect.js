@@ -694,7 +694,7 @@ export default {
               id: this.htmlIdLocal,
               class: [this.buttonClassDefault, this.buttonClass, {
                 disabled: this.disabled,
-                a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable,
+                a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable && this.isModelValue,
                 a_form_control_invalid: this.isErrors,
               }],
               "aria-labelledby": this.ariaLabelledby,
