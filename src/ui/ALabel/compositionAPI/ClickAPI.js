@@ -19,7 +19,7 @@ export default function ClickAPI(props, {
   const clickLabel = toRef(props, "clickLabel");
   const id = toRef(props, "id");
 
-  const onClick = $event => {
+  const onClick = ({ $event }) => {
     if (isFunction(clickLabel.value)) {
       clickLabel.value({
         id: id.value,
