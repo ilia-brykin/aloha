@@ -293,6 +293,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    placeholder: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     placement: {
       type: String,
       required: false,
@@ -768,7 +773,10 @@ export default {
                       class: "a_select__value__label",
                       slotName: this.slotName,
                     }, this.$slots)
-                  : "",
+                  : h(ATranslation, {
+                    tag: "span",
+                    text: this.placeholder,
+                  }),
               h(Teleport, {
                 to: this.popperContainerIdSelector,
                 disabled: !this.inBody,
