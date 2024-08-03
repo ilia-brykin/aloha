@@ -10,6 +10,7 @@
   "_A_DISCLOSURE_GROUP_BTN_ICONS_DESCRIPTION_": "U ovom primjeru opisano je kako se ikonice mogu koristiti u komponenti kako bi se gumb \"Prikaži više/Prikaži manje\" učinio korisnijim te kako bi se prenijele informacije o svrsi gumba. Ikonice se mogu pozicionirati i s lijeve i s desne strane gumba.",
   "_A_DISCLOSURE_GROUP_BTN_ICONS_HEADER_": "Ikonice gumba",
   "_A_DISCLOSURE_GROUP_BTN_TEXTS_DESCRIPTION_": "U ovom primjeru prikazano je kako prilagoditi zadane tekstove za gumb \"Prikaži više/Prikaži manje\" unutar komponente.",
+  "_A_DISCLOSURE_GROUP_BTN_TEXTS_HEADER_": "Prilagodba zadanog tekstova za gumb \"Prikaži više/Prikaži manje\"",
   "_A_DISCLOSURE_GROUP_BTN_TITLE_DESCRIPTION_": "U ovom primjeru prikazano je kako se tekst oblačića gumba \"Prikaži više/Prikaži manje\" može proizvoljno prilagoditi. Time je  omogućeno da postavljanje prikladnog oblačića kako bi korisnicima bilo jasno što će se dogoditi kada klikom na gumb.",
   "_A_DISCLOSURE_GROUP_BTN_TITLE_HEADER_": "Prilagođeni tekst oblačića gumba \"Prikaži više/Prikaži manje\"",
   "_A_DISCLOSURE_GROUP_BTN_TITLE_HTML_DESCRIPTION_": "U ovom primjeru prikazano je kako se tekst oblačića gumba \"Prikaži više/Prikaži manje\" može prikazati u HTML formatu. Pomoću <strong>:is-btn-title-html=true</strong> proslijeđeni se tekst oblačića gumba interpretira i prikazuje kao HTML.",
@@ -59,6 +60,5 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "Ovaj slot omogućuje prilagodbu dužeg tekstualnog sadržaja koji će se prikazati kada korisnik klikne na \"Prikaži više\". Imate pristup vrijednostima <strong>isButtonVisible</strong> i <strong>isOpen</strong>, koje pružaju informacije o vidljivosti gumba i trenutačnom stanju.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Promjeni stanje komponente (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Promjeni stanje komponente (gumb)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Ovaj događaj se aktivira kada korisnik klikne na gumb \"Prikaži više/Prikaži manje\". Vraća objekt koji sadrži informacije o trenutačnom stanju komponente, uključujući <strong>isOpen</strong>.",
-"_A_DISCLOSURE_GROUP_BTN_TEXTS_HEADER_": "Prilagodba zadanog tekstova za gumb \"Prikaži više/Prikaži manje\""
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Ovaj događaj se aktivira kada korisnik klikne na gumb \"Prikaži više/Prikaži manje\". Vraća objekt koji sadrži informacije o trenutačnom stanju komponente, uključujući <strong>isOpen</strong>."
 }
