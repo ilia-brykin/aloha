@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_UPPER_CASE_ARGUMENTS_VALUE_": "The string to be converted to uppercase.",
+  "_PAGE_FILTER_UPPER_CASE_DESCRIPTION_": "<p>Converts the input string to uppercase.</p><p>This function uses lodash's <strong>toUpper</strong> method to convert the provided value to uppercase. It is designed to handle input strings safely and consistently.</p>"
+}

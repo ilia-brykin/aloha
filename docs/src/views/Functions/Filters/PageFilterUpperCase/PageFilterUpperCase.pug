@@ -1,0 +1,30 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_UPPER_CASE_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterUpperCase"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterUpperCase"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterUpperCase(value)"
+    )
+
+    page-filter-upper-case-example
+
+    page-filter-test(
+      :test="test"
+    )

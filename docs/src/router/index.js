@@ -325,6 +325,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterSearchHighlight" */ "../views/Functions/Filters/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),
   },
   {
+    path: "/filter-upper-case",
+    name: "PageFilterUpperCase",
+    component: () => import(/* webpackChunkName: "PageFilterUpperCase" */ "../views/Functions/Filters/PageFilterUpperCase/PageFilterUpperCase.vue"),
+  },
+  {
     path: "/filter-link",
     name: "PageFilterLink",
     component: () => import(/* webpackChunkName: "PageFilterLink" */ "../views/Functions/Filters/PageFilterLink/PageFilterLink.vue"),

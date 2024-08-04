@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_UPPER_CASE_ARGUMENTS_VALUE_": "La stringa da convertire in maiuscolo.",
+  "_PAGE_FILTER_UPPER_CASE_DESCRIPTION_": "<p>Converte la stringa di input in maiuscolo.</p><p>Questa funzione utilizza il metodo <strong>toUpper</strong> di lodash per convertire il valore fornito in maiuscolo. È progettata per gestire le stringhe di input in modo sicuro e coerente.</p>"
+}

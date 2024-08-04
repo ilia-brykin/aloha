@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_UPPER_CASE_ARGUMENTS_VALUE_": "La chaîne à convertir en majuscules.",
+  "_PAGE_FILTER_UPPER_CASE_DESCRIPTION_": "<p>Convertit la chaîne d'entrée en majuscules.</p><p>Cette fonction utilise la méthode <strong>toUpper</strong> de lodash pour convertir la valeur fournie en majuscules. Elle est conçue pour gérer les chaînes d'entrée de manière sécurisée et cohérente.</p>"
+}

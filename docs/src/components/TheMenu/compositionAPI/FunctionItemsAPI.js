@@ -120,6 +120,13 @@ export default function FunctionItemsAPI() {
               name: "PageFilterSearchHighlight",
             },
           },
+          {
+            id: "PageFilterUpperCase",
+            label: "filterUpperCase",
+            to: {
+              name: "PageFilterUpperCase",
+            },
+          },
         ],
       },
       {

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_UPPER_CASE_ARGUMENTS_VALUE_": "Niz koji će biti pretvoren u velika slova.",
+  "_PAGE_FILTER_UPPER_CASE_DESCRIPTION_": "<p>Pretvara ulazni niz u velika slova.</p><p>Ova funkcija koristi metodu <strong>toUpper</strong> iz biblioteke lodash za pretvaranje unesenih vrijednosti u velika slova. Dizajnirana je za sigurno i dosljedno rukovanje ulaznim nizovima.</p>"
+}

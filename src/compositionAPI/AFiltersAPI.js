@@ -18,6 +18,7 @@ import _filterList from "../filters/filterList";
 import _filterLowerCase from "../filters/filterLowerCase";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
+import _filterUpperCase from "../filters/filterUpperCase";
 
 export const additionFilters = ref({});
 
@@ -104,6 +105,10 @@ export default function AFiltersAPI() {
     return _filterSearchHighlight(value, { searchModel, searchClass });
   };
 
+  const filterUpperCase = value => {
+    return _filterUpperCase(value);
+  };
+
   return {
     filterBoolean,
     filterCurrency,
@@ -121,6 +126,7 @@ export default function AFiltersAPI() {
     filterLowerCase,
     filterPropertyByValue,
     filterSearchHighlight,
+    filterUpperCase,
     ...additionFilters.value,
   };
 }

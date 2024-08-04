@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_UPPER_CASE_ARGUMENTS_VALUE_": "Die Zeichenkette, die in Großbuchstaben umgewandelt werden soll.",
+  "_PAGE_FILTER_UPPER_CASE_DESCRIPTION_": "<p>Konvertiert die Eingabezeichenkette in Großbuchstaben.</p><p>Diese Funktion verwendet die <strong>toUpper</strong>-Methode von lodash, um den bereitgestellten Wert in Großbuchstaben umzuwandeln. Sie ist darauf ausgelegt, Eingabezeichenketten sicher und konsistent zu behandeln.</p>"
+}
