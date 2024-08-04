@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_CAPITALIZE_ARGUMENTS_VALUE_": "Die Zeichenkette, die in kapitalisierte Form umgewandelt werden soll.",
+  "_PAGE_FILTER_CAPITALIZE_DESCRIPTION_": "<p>Konvertiert das erste Zeichen der Zeichenkette in einen Großbuchstaben und die verbleibenden Zeichen in Kleinbuchstaben.</p><p>Diese Funktion verwendet die <strong>capitalize</strong>-Methode von lodash, um den bereitgestellten Wert zu konvertieren. Sie ist darauf ausgelegt, Eingabezeichenketten sicher und konsistent zu behandeln.</p>"
+}

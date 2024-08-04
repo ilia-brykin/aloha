@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import _filterBoolean from "../filters/filterBoolean";
+import _filterCapitalize from "../filters/filterCapitalize";
 import _filterCurrency from "../filters/filterCurrency";
 import _filterDate from "../filters/filterDate";
 import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
@@ -29,6 +30,10 @@ export default function AFiltersAPI() {
       falseValue,
       useNil,
     });
+  };
+
+  const filterCapitalize = value => {
+    return _filterCapitalize(value);
   };
 
   const filterCurrency = (value, { suffix = "€", digits = 2, digitGrouping = true } = {}) => {
@@ -111,6 +116,7 @@ export default function AFiltersAPI() {
 
   return {
     filterBoolean,
+    filterCapitalize,
     filterCurrency,
     filterDate,
     filterDefaultForEmpty,

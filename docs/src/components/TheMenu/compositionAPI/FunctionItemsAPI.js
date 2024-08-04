@@ -16,6 +16,13 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterCapitalize",
+            label: "filterCapitalize",
+            to: {
+              name: "PageFilterCapitalize",
+            },
+          },
+          {
             id: "PageFilterCurrency",
             label: "filterCurrency",
             to: {

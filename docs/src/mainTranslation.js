@@ -53,6 +53,7 @@ import PageFilterEscapeHtmlI18n from "./views/Functions/Filters/PageFilterEscape
 import PageFilterPropertyByValueI18n from "./views/Functions/Filters/PageFilterPropertyByValue/i18n/PageFilterPropertyByValueI18n";
 import PageFilterSearchHighlightI18n from "./views/Functions/Filters/PageFilterSearchHighlight/i18n/PageFilterSearchHighlightI18n";
 import PageFilterUpperCaseI18n from "./views/Functions/Filters/PageFilterUpperCase/i18n/PageFilterUpperCaseI18n";
+import PageFilterCapitalizeI18n from "./views/Functions/Filters/PageFilterCapitalize/i18n/PageFilterCapitalizeI18n";
 import PageFilterLinkI18n from "./views/Functions/Filters/PageFilterLink/i18n/PageFilterLinkI18n";
 import PageFilterJsonI18n from "./views/Functions/Filters/PageFilterJson/i18n/PageFilterJsonI18n";
 import PageFilterKeyValueI18n from "./views/Functions/Filters/PageFilterKeyValue/i18n/PageFilterKeyValueI18n";
@@ -116,6 +117,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.ar,
     ...PageFilterSearchHighlightI18n.ar,
     ...PageFilterUpperCaseI18n.ar,
+    ...PageFilterCapitalizeI18n.ar,
     ...PageFilterLinkI18n.ar,
     ...PageFilterJsonI18n.ar,
     ...PageFilterKeyValueI18n.ar,
@@ -178,6 +180,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.de,
     ...PageFilterSearchHighlightI18n.de,
     ...PageFilterUpperCaseI18n.de,
+    ...PageFilterCapitalizeI18n.de,
     ...PageFilterLinkI18n.de,
     ...PageFilterJsonI18n.de,
     ...PageFilterKeyValueI18n.de,
@@ -240,6 +243,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.en,
     ...PageFilterSearchHighlightI18n.en,
     ...PageFilterUpperCaseI18n.en,
+    ...PageFilterCapitalizeI18n.en,
     ...PageFilterLinkI18n.en,
     ...PageFilterJsonI18n.en,
     ...PageFilterKeyValueI18n.en,
@@ -302,6 +306,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.es,
     ...PageFilterSearchHighlightI18n.es,
     ...PageFilterUpperCaseI18n.es,
+    ...PageFilterCapitalizeI18n.es,
     ...PageFilterLinkI18n.es,
     ...PageFilterJsonI18n.es,
     ...PageFilterKeyValueI18n.es,
@@ -364,6 +369,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.fr,
     ...PageFilterSearchHighlightI18n.fr,
     ...PageFilterUpperCaseI18n.fr,
+    ...PageFilterCapitalizeI18n.fr,
     ...PageFilterLinkI18n.fr,
     ...PageFilterJsonI18n.fr,
     ...PageFilterKeyValueI18n.fr,
@@ -426,6 +432,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.hr,
     ...PageFilterSearchHighlightI18n.hr,
     ...PageFilterUpperCaseI18n.hr,
+    ...PageFilterCapitalizeI18n.hr,
     ...PageFilterLinkI18n.hr,
     ...PageFilterJsonI18n.hr,
     ...PageFilterKeyValueI18n.hr,
@@ -488,6 +495,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.it,
     ...PageFilterSearchHighlightI18n.it,
     ...PageFilterUpperCaseI18n.it,
+    ...PageFilterCapitalizeI18n.it,
     ...PageFilterLinkI18n.it,
     ...PageFilterJsonI18n.it,
     ...PageFilterKeyValueI18n.it,
@@ -550,6 +558,7 @@ export const mainTranslation = {
     ...PageFilterPropertyByValueI18n.ru,
     ...PageFilterSearchHighlightI18n.ru,
     ...PageFilterUpperCaseI18n.ru,
+    ...PageFilterCapitalizeI18n.ru,
     ...PageFilterLinkI18n.ru,
     ...PageFilterJsonI18n.ru,
     ...PageFilterKeyValueI18n.ru,

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_CAPITALIZE_ARGUMENTS_VALUE_": "The string to be converted to capitalize.",
+  "_PAGE_FILTER_CAPITALIZE_DESCRIPTION_": "<p>Converts the first character of string to upper case and the remaining to lower case.</p><p>This function uses lodash's <strong>capitalize</strong> method to convert the provided value. It is designed to handle input strings safely and consistently.</p>"
+}

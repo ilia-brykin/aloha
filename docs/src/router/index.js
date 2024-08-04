@@ -330,6 +330,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterUpperCase" */ "../views/Functions/Filters/PageFilterUpperCase/PageFilterUpperCase.vue"),
   },
   {
+    path: "/filter-capitalize",
+    name: "PageFilterCapitalize",
+    component: () => import(/* webpackChunkName: "PageFilterCapitalize" */ "../views/Functions/Filters/PageFilterCapitalize/PageFilterCapitalize.vue"),
+  },
+  {
     path: "/filter-link",
     name: "PageFilterLink",
     component: () => import(/* webpackChunkName: "PageFilterLink" */ "../views/Functions/Filters/PageFilterLink/PageFilterLink.vue"),

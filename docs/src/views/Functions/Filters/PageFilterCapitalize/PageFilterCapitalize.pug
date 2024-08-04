@@ -1,0 +1,30 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_CAPITALIZE_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterCapitalize"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterCapitalize"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterCapitalize(value)"
+    )
+
+    page-filter-capitalize-example
+
+    page-filter-test(
+      :test="test"
+    )

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_CAPITALIZE_ARGUMENTS_VALUE_": "Niz koji će biti pretvoren u kapitaliziran oblik.",
+  "_PAGE_FILTER_CAPITALIZE_DESCRIPTION_": "<p>Pretvara prvo slovo niza u veliko slovo, a preostala slova u mala slova.</p><p>Ova funkcija koristi metodu <strong>capitalize</strong> iz biblioteke lodash za pretvaranje unesene vrijednosti. Dizajnirana je za sigurno i dosljedno rukovanje ulaznim nizovima.</p>"
+}

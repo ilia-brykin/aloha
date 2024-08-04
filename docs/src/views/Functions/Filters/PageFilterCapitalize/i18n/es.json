@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_CAPITALIZE_ARGUMENTS_VALUE_": "La cadena que se convertirá a mayúscula inicial.",
+  "_PAGE_FILTER_CAPITALIZE_DESCRIPTION_": "<p>Convierte el primer carácter de la cadena a mayúscula y el resto a minúsculas.</p><p>Esta función utiliza el método <strong>capitalize</strong> de lodash para convertir el valor proporcionado. Está diseñada para manejar cadenas de entrada de manera segura y consistente.</p>"
+}
