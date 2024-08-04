@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_LOWER_CASE_ARGUMENTS_VALUE_": "La stringa da convertire in minuscolo.",
+  "_PAGE_FILTER_LOWER_CASE_DESCRIPTION_": "<p>Converte la stringa di input in minuscolo.</p><p>Questa funzione utilizza il metodo <strong>toLower</strong> di lodash per convertire il valore fornito in minuscolo. È progettata per gestire le stringhe di input in modo sicuro e coerente.</p>"
+}

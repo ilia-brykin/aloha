@@ -15,6 +15,7 @@ import _filterKeyValue from "../filters/filterKeyValue";
 import _filterLimitTo from "../filters/filterLimitTo";
 import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
+import _filterLowerCase from "../filters/filterLowerCase";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
 
@@ -91,6 +92,10 @@ export default function AFiltersAPI() {
     return _filterList(value, { isHtml, listClass, keyLabel, keyLabelCallback, keyChildren, isSimpleArray, separator, tag });
   };
 
+  const filterLowerCase = value => {
+    return _filterLowerCase(value);
+  };
+
   const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {
     return _filterPropertyByValue(value, { mapping, defaultValue });
   };
@@ -113,6 +118,7 @@ export default function AFiltersAPI() {
     filterLimitTo,
     filterLink,
     filterList,
+    filterLowerCase,
     filterPropertyByValue,
     filterSearchHighlight,
     ...additionFilters.value,

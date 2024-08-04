@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_LOWER_CASE_ARGUMENTS_VALUE_": "Die Zeichenkette, die in Kleinbuchstaben umgewandelt werden soll.",
+  "_PAGE_FILTER_LOWER_CASE_DESCRIPTION_": "<p>Konvertiert die Eingabezeichenkette in Kleinbuchstaben.</p><p>Diese Funktion verwendet die <strong>toLower</strong>-Methode von lodash, um den bereitgestellten Wert in Kleinbuchstaben umzuwandeln. Sie ist darauf ausgelegt, Eingabezeichenketten sicher und konsistent zu behandeln.</p>"
+}

@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_LOWER_CASE_ARGUMENTS_VALUE_": "La chaîne à convertir en minuscules.",
+  "_PAGE_FILTER_LOWER_CASE_DESCRIPTION_": "<p>Convertit la chaîne d'entrée en minuscules.</p><p>Cette fonction utilise la méthode <strong>toLower</strong> de lodash pour convertir la valeur fournie en minuscules. Elle est conçue pour gérer les chaînes d'entrée de manière sécurisée et cohérente.</p>"
+}

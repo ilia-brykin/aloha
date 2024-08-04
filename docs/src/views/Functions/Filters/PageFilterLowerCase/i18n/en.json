@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_LOWER_CASE_ARGUMENTS_VALUE_": "The string to be converted to lowercase.",
+  "_PAGE_FILTER_LOWER_CASE_DESCRIPTION_": "<p>Converts the input string to lowercase.</p><p>This function uses lodash's <strong>toLower</strong> method to convert the provided value to lowercase. It is designed to handle input strings safely and consistently.</p>"
+}

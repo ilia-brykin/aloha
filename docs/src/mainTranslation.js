@@ -44,6 +44,7 @@ import PageFiltersRightI18n from "./views/PageFiltersRight/i18n/PageFiltersRight
 import PageMenuBasicI18n from "./views/PageMenu/PageMenuBasic/i18n/PageMenuBasicI18n";
 import PageFunctionsI18n from "./views/Functions/i18n/PageFunctionsI18n";
 import PageFilterListI18n from "./views/Functions/Filters/PageFilterList/i18n/PageFilterListI18n";
+import PageFilterLowerCaseI18n from "./views/Functions/Filters/PageFilterLowerCase/i18n/PageFilterLowerCaseI18n";
 import PageFilterLimitToI18n from "./views/Functions/Filters/PageFilterLimitTo/i18n/PageFilterLimitToI18n";
 import PageFilterBooleanI18n from "./views/Functions/Filters/PageFilterBoolean/i18n/PageFilterBooleanI18n";
 import PageFilterDefaultForEmptyI18n from "./views/Functions/Filters/PageFilterDefaultForEmpty/i18n/PageFilterDefaultForEmptyI18n";
@@ -105,6 +106,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.ar,
     ...PageFunctionsI18n.ar,
     ...PageFilterListI18n.ar,
+    ...PageFilterLowerCaseI18n.ar,
     ...PageFilterLimitToI18n.ar,
     ...PageFilterBooleanI18n.ar,
     ...PageFilterDefaultForEmptyI18n.ar,
@@ -165,6 +167,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.de,
     ...PageFunctionsI18n.de,
     ...PageFilterListI18n.de,
+    ...PageFilterLowerCaseI18n.de,
     ...PageFilterLimitToI18n.de,
     ...PageFilterBooleanI18n.de,
     ...PageFilterDefaultForEmptyI18n.de,
@@ -225,6 +228,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.en,
     ...PageFunctionsI18n.en,
     ...PageFilterListI18n.en,
+    ...PageFilterLowerCaseI18n.en,
     ...PageFilterLimitToI18n.en,
     ...PageFilterBooleanI18n.en,
     ...PageFilterDefaultForEmptyI18n.en,
@@ -285,6 +289,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.es,
     ...PageFunctionsI18n.es,
     ...PageFilterListI18n.es,
+    ...PageFilterLowerCaseI18n.es,
     ...PageFilterLimitToI18n.es,
     ...PageFilterBooleanI18n.es,
     ...PageFilterDefaultForEmptyI18n.es,
@@ -345,6 +350,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.fr,
     ...PageFunctionsI18n.fr,
     ...PageFilterListI18n.fr,
+    ...PageFilterLowerCaseI18n.fr,
     ...PageFilterLimitToI18n.fr,
     ...PageFilterBooleanI18n.fr,
     ...PageFilterDefaultForEmptyI18n.fr,
@@ -405,6 +411,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.hr,
     ...PageFunctionsI18n.hr,
     ...PageFilterListI18n.hr,
+    ...PageFilterLowerCaseI18n.hr,
     ...PageFilterLimitToI18n.hr,
     ...PageFilterBooleanI18n.hr,
     ...PageFilterDefaultForEmptyI18n.hr,
@@ -465,6 +472,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.it,
     ...PageFunctionsI18n.it,
     ...PageFilterListI18n.it,
+    ...PageFilterLowerCaseI18n.it,
     ...PageFilterLimitToI18n.it,
     ...PageFilterBooleanI18n.it,
     ...PageFilterDefaultForEmptyI18n.it,
@@ -525,6 +533,7 @@ export const mainTranslation = {
     ...PageMenuBasicI18n.ru,
     ...PageFunctionsI18n.ru,
     ...PageFilterListI18n.ru,
+    ...PageFilterLowerCaseI18n.ru,
     ...PageFilterLimitToI18n.ru,
     ...PageFilterBooleanI18n.ru,
     ...PageFilterDefaultForEmptyI18n.ru,

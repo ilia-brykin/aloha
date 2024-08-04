@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_LOWER_CASE_ARGUMENTS_VALUE_": "Niz koji će biti pretvoren u mala slova.",
+  "_PAGE_FILTER_LOWER_CASE_DESCRIPTION_": "<p>Pretvara ulazni niz u mala slova.</p><p>Ova funkcija koristi metodu <strong>toLower</strong> iz biblioteke lodash za pretvaranje unesenih vrijednosti u mala slova. Dizajnirana je za sigurno i dosljedno rukovanje ulaznim nizovima.</p>"
+}

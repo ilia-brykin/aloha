@@ -330,6 +330,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterLink" */ "../views/Functions/Filters/PageFilterLink/PageFilterLink.vue"),
   },
   {
+    path: "/filter-lower-case",
+    name: "PageFilterLowerCase",
+    component: () => import(/* webpackChunkName: "PageFilterLowerCase" */ "../views/Functions/Filters/PageFilterLowerCase/PageFilterLowerCase.vue"),
+  },
+  {
     path: "/filter-json",
     name: "PageFilterJson",
     component: () => import(/* webpackChunkName: "PageFilterJson" */ "../views/Functions/Filters/PageFilterJson/PageFilterJson.vue"),

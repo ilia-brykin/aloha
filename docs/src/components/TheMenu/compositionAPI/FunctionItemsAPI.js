@@ -100,6 +100,13 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterLowerCase",
+            label: "filterLowerCase",
+            to: {
+              name: "PageFilterLowerCase",
+            },
+          },
+          {
             id: "PageFilterPropertyByValue",
             label: "filterPropertyByValue",
             to: {
