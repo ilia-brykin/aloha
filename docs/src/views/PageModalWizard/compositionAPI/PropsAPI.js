@@ -3,7 +3,7 @@ export default function PropsAPI() {
     // Modal
     {
       name: "always-translate",
-      description: "_A_MODAL_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
+      description: "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_",
       type: "Boolean",
       default: undefined,
       required: false,

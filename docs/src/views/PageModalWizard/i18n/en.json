@@ -1,4 +1,8 @@
 {
-  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_",
-  "_A_MODAL_WIZARD_COMPONENT_NAME_": "_A_MODAL_WIZARD_COMPONENT_NAME_"
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "This component is a combination of a modal window (<a href='/#/modal'>AModal</a>) and a wizard (<a href='/#/wizard'>AWizard</a>). You can use almost all props from <a href='/#/modal'>AModal</a> and <a href='/#/wizard'>AWizard</a>.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Wizard in a modal window",
+  "_A_MODAL_WIZARD_STEP_1_": "Step 1",
+  "_A_MODAL_WIZARD_STEP_2_": "Step 2",
+  "_A_MODAL_WIZARD_STEP_3_": "Step 3",
+  "_A_MODAL_WIZARD_STEP_4_": "Step 4"
 }

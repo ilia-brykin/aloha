@@ -1,4 +1,8 @@
 {
-  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_",
-  "_A_MODAL_WIZARD_COMPONENT_NAME_": "_A_MODAL_WIZARD_COMPONENT_NAME_"
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Ova komponenta je kombinacija modalnog prozora (<a href='/#/modal'>AModal</a>) i čarobnjaka (<a href='/#/wizard'>AWizard</a>). Možete koristiti gotovo sve rekvizite iz <a href='/#/modal'>AModal</a> i <a href='/#/wizard'>AWizard</a>.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Čarobnjak u modalnom prozoru",
+  "_A_MODAL_WIZARD_STEP_1_": "Korak 1",
+  "_A_MODAL_WIZARD_STEP_2_": "Korak 2",
+  "_A_MODAL_WIZARD_STEP_3_": "Korak 3",
+  "_A_MODAL_WIZARD_STEP_4_": "Korak 4"
 }

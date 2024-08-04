@@ -1,4 +1,8 @@
 {
-  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_",
-  "_A_MODAL_WIZARD_COMPONENT_NAME_": "_A_MODAL_WIZARD_COMPONENT_NAME_"
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "هذه المكوّن هو مزيج من نافذة منبثقة (<a href='/#/modal'>AModal</a>) وWizard (<a href='/#/wizard'>AWizard</a>). يمكنك استخدام معظم الخصائص من <a href='/#/modal'>AModal</a> و<a href='/#/wizard'>AWizard</a>.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Wizard في نافذة منبثقة",
+  "_A_MODAL_WIZARD_STEP_1_": "الخطوة 1",
+  "_A_MODAL_WIZARD_STEP_2_": "الخطوة 2",
+  "_A_MODAL_WIZARD_STEP_3_": "الخطوة 3",
+  "_A_MODAL_WIZARD_STEP_4_": "الخطوة 4"
 }

@@ -1,4 +1,8 @@
 {
-  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_",
-  "_A_MODAL_WIZARD_COMPONENT_NAME_": "_A_MODAL_WIZARD_COMPONENT_NAME_"
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Ce composant est une combinaison d'une fenêtre modale (<a href='/#/modal'>AModal</a>) et d'un assistant (<a href='/#/wizard'>AWizard</a>). Vous pouvez utiliser presque toutes les propriétés de <a href='/#/modal'>AModal</a> et de <a href='/#/wizard'>AWizard</a>.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Assistant dans une fenêtre modale",
+  "_A_MODAL_WIZARD_STEP_1_": "Étape 1",
+  "_A_MODAL_WIZARD_STEP_2_": "Étape 2",
+  "_A_MODAL_WIZARD_STEP_3_": "Étape 3",
+  "_A_MODAL_WIZARD_STEP_4_": "Étape 4"
 }
