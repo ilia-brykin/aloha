@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_ESCAPE_HTML_ARGUMENTS_VALUE_": "Niz koji sadrži potencijalno nesiguran HTML",
+  "_PAGE_FILTER_ESCAPE_HTML_DESCRIPTION_": "<p>Escape HTML posebnih znakova u nizu kako bi se spriječili XSS napadi.</p><p>Ova funkcija uzima niz kao ulaz i pretvara posebne znakove (kao što su <, >, &, itd.) u njihove odgovarajuće HTML entitete (npr. &amp;lt;, &amp;gt;, &amp;amp;, itd.), čineći niz sigurnim za prikazivanje kao HTML.</p>"
+}

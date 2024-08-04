@@ -310,6 +310,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFilterEmail" */ "../views/Functions/Filters/PageFilterEmail/PageFilterEmail.vue"),
   },
   {
+    path: "/filter-escape-html",
+    name: "PageFilterEscapeHTML",
+    component: () => import(/* webpackChunkName: "PageFilterEscapeHTML" */ "../views/Functions/Filters/PageFilterEscapeHTML/PageFilterEscapeHTML.vue"),
+  },
+  {
     path: "/filter-property-by-value",
     name: "PageFilterPropertyByValue",
     component: () => import(/* webpackChunkName: "PageFilterPropertyByValue" */ "../views/Functions/Filters/PageFilterPropertyByValue/PageFilterPropertyByValue.vue"),

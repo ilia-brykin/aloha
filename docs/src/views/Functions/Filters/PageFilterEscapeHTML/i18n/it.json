@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_ESCAPE_HTML_ARGUMENTS_VALUE_": "La stringa contenente HTML potenzialmente non sicuro",
+  "_PAGE_FILTER_ESCAPE_HTML_DESCRIPTION_": "<p>Escape dei caratteri speciali HTML in una stringa per prevenire attacchi XSS.</p><p>Questa funzione prende una stringa in input e converte i caratteri speciali (come <, >, &, ecc.) nelle corrispondenti entità HTML (ad esempio, &amp;lt;, &amp;gt;, &amp;amp;, ecc.), rendendo la stringa sicura per il rendering come HTML.</p>"
+}

@@ -7,6 +7,7 @@ import _filterCurrency from "../filters/filterCurrency";
 import _filterDate from "../filters/filterDate";
 import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
 import _filterEmail from "../filters/filterEmail";
+import _filterEscapeHtml from "../filters/filterEscapeHtml";
 import _filterFileSize from "../filters/filterFileSize";
 import _filterFloat from "../filters/filterFloat";
 import _filterJson from "../filters/filterJson";
@@ -48,6 +49,10 @@ export default function AFiltersAPI() {
 
   const filterEmail = (value, { linkClass } = {}) => {
     return _filterEmail(value, { linkClass });
+  };
+
+  const filterEscapeHtml = value => {
+    return _filterEscapeHtml(value);
   };
 
   const filterFileSize = (value, { units = "kb", sourceUnits = "b", digits = 2 } = {}) => {
@@ -100,6 +105,7 @@ export default function AFiltersAPI() {
     filterDate,
     filterDefaultForEmpty,
     filterEmail,
+    filterEscapeHtml,
     filterFileSize,
     filterFloat,
     filterJson,

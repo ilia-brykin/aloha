@@ -48,6 +48,7 @@ import PageFilterLimitToI18n from "./views/Functions/Filters/PageFilterLimitTo/i
 import PageFilterBooleanI18n from "./views/Functions/Filters/PageFilterBoolean/i18n/PageFilterBooleanI18n";
 import PageFilterDefaultForEmptyI18n from "./views/Functions/Filters/PageFilterDefaultForEmpty/i18n/PageFilterDefaultForEmptyI18n";
 import PageFilterEmailI18n from "./views/Functions/Filters/PageFilterEmail/i18n/PageFilterEmailI18n";
+import PageFilterEscapeHtmlI18n from "./views/Functions/Filters/PageFilterEscapeHTML/i18n/PageFilterEscapeHtmlI18n";
 import PageFilterPropertyByValueI18n from "./views/Functions/Filters/PageFilterPropertyByValue/i18n/PageFilterPropertyByValueI18n";
 import PageFilterSearchHighlightI18n from "./views/Functions/Filters/PageFilterSearchHighlight/i18n/PageFilterSearchHighlightI18n";
 import PageFilterLinkI18n from "./views/Functions/Filters/PageFilterLink/i18n/PageFilterLinkI18n";
@@ -108,6 +109,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.ar,
     ...PageFilterDefaultForEmptyI18n.ar,
     ...PageFilterEmailI18n.ar,
+    ...PageFilterEscapeHtmlI18n.ar,
     ...PageFilterPropertyByValueI18n.ar,
     ...PageFilterSearchHighlightI18n.ar,
     ...PageFilterLinkI18n.ar,
@@ -167,6 +169,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.de,
     ...PageFilterDefaultForEmptyI18n.de,
     ...PageFilterEmailI18n.de,
+    ...PageFilterEscapeHtmlI18n.de,
     ...PageFilterPropertyByValueI18n.de,
     ...PageFilterSearchHighlightI18n.de,
     ...PageFilterLinkI18n.de,
@@ -226,6 +229,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.en,
     ...PageFilterDefaultForEmptyI18n.en,
     ...PageFilterEmailI18n.en,
+    ...PageFilterEscapeHtmlI18n.en,
     ...PageFilterPropertyByValueI18n.en,
     ...PageFilterSearchHighlightI18n.en,
     ...PageFilterLinkI18n.en,
@@ -285,6 +289,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.es,
     ...PageFilterDefaultForEmptyI18n.es,
     ...PageFilterEmailI18n.es,
+    ...PageFilterEscapeHtmlI18n.es,
     ...PageFilterPropertyByValueI18n.es,
     ...PageFilterSearchHighlightI18n.es,
     ...PageFilterLinkI18n.es,
@@ -344,6 +349,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.fr,
     ...PageFilterDefaultForEmptyI18n.fr,
     ...PageFilterEmailI18n.fr,
+    ...PageFilterEscapeHtmlI18n.fr,
     ...PageFilterPropertyByValueI18n.fr,
     ...PageFilterSearchHighlightI18n.fr,
     ...PageFilterLinkI18n.fr,
@@ -403,6 +409,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.hr,
     ...PageFilterDefaultForEmptyI18n.hr,
     ...PageFilterEmailI18n.hr,
+    ...PageFilterEscapeHtmlI18n.hr,
     ...PageFilterPropertyByValueI18n.hr,
     ...PageFilterSearchHighlightI18n.hr,
     ...PageFilterLinkI18n.hr,
@@ -462,6 +469,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.it,
     ...PageFilterDefaultForEmptyI18n.it,
     ...PageFilterEmailI18n.it,
+    ...PageFilterEscapeHtmlI18n.it,
     ...PageFilterPropertyByValueI18n.it,
     ...PageFilterSearchHighlightI18n.it,
     ...PageFilterLinkI18n.it,
@@ -521,6 +529,7 @@ export const mainTranslation = {
     ...PageFilterBooleanI18n.ru,
     ...PageFilterDefaultForEmptyI18n.ru,
     ...PageFilterEmailI18n.ru,
+    ...PageFilterEscapeHtmlI18n.ru,
     ...PageFilterPropertyByValueI18n.ru,
     ...PageFilterSearchHighlightI18n.ru,
     ...PageFilterLinkI18n.ru,

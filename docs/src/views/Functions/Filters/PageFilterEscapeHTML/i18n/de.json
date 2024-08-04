@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_ESCAPE_HTML_ARGUMENTS_VALUE_": "Der String, der potenziell unsicheres HTML enthält",
+  "_PAGE_FILTER_ESCAPE_HTML_DESCRIPTION_": "<p>Entfernt HTML-Sonderzeichen in einem String, um XSS-Angriffe zu verhindern.</p><p>Diese Funktion nimmt eine Zeichenkette als Eingabe und konvertiert Sonderzeichen (wie <, >, &, usw.) in ihre entsprechenden HTML-Entitäten (z.B. &amp;lt;, &amp;gt;, &amp;amp;, usw.), wodurch die Zeichenkette sicher als HTML gerendert werden kann.</p>"
+}

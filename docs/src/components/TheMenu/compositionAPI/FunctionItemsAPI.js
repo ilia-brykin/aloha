@@ -44,6 +44,13 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterEscapeHTML",
+            label: "filterEscapeHTML",
+            to: {
+              name: "PageFilterEscapeHTML",
+            },
+          },
+          {
             id: "PageFilterFileSize",
             label: "filterFileSize",
             to: {

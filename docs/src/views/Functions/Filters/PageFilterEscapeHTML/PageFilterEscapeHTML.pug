@@ -1,0 +1,30 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_ESCAPE_HTML_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterEscapeHtml"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterEscapeHtml"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterEscapeHtml(value)"
+    )
+
+    page-filter-escape-h-t-m-l-example
+
+    page-filter-test(
+      :test="test"
+    )

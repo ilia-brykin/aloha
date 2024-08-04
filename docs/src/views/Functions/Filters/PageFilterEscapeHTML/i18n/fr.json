@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_ESCAPE_HTML_ARGUMENTS_VALUE_": "La chaîne contenant du HTML potentiellement dangereux",
+  "_PAGE_FILTER_ESCAPE_HTML_DESCRIPTION_": "<p>Échappe les caractères spéciaux HTML dans une chaîne pour prévenir les attaques XSS.</p><p>Cette fonction prend une chaîne en entrée et convertit les caractères spéciaux (tels que <, >, &, etc.) en leurs entités HTML correspondantes (par exemple, &amp;lt;, &amp;gt;, &amp;amp;, etc.), rendant la chaîne sûre pour un rendu HTML.</p>"
+}
