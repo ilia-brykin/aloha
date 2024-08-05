@@ -13,6 +13,7 @@ export default {
       model1: "aloha",
       model2: "hola",
       model3: "",
+      model4: "FakePass",
     };
   },
   methods: {
