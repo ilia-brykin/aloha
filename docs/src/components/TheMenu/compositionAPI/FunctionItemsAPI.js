@@ -114,6 +114,13 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterMask",
+            label: "filterMask",
+            to: {
+              name: "PageFilterMask",
+            },
+          },
+          {
             id: "PageFilterPropertyByValue",
             label: "filterPropertyByValue",
             to: {

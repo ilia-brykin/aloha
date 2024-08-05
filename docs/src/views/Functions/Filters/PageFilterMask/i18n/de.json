@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "Die Anzahl der Zeichen, die am Ende der Zeichenkette unmaskiert angezeigt werden sollen.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "Das Zeichen, das für die Maskierung verwendet wird.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "Der zu maskierende Wert. Er wird in einen String umgewandelt.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Maskiert einen gegebenen Wert und zeigt nur die letzten paar Zeichen an."
+}

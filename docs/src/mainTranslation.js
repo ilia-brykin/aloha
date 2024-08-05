@@ -68,6 +68,7 @@ import PageUtilsIsArrayOfArraysI18n from "./views/Functions/Utils/PageUtilsIsArr
 import PageUtilsGetTotalNestedCountI18n from "./views/Functions/Utils/PageUtilsGetTotalNestedCount/i18n/PageUtilsGetTotalNestedCountI18n";
 import PageTableTreeI18n from "./views/PageTable/PageTableTree/i18n/PageTableTreeI18n";
 import PageInputCurrencyI18n from "./views/Form/PageInputCurrency/i18n/PageInputCurrencyI18n";
+import PageFilterMaskI18n from "./views/Functions/Filters/PageFilterMask/i18n/PageFilterMaskI18n";
 
 export const mainTranslation = {
   ar: {
@@ -132,6 +133,7 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.ar,
     ...PageTableTreeI18n.ar,
     ...PageInputCurrencyI18n.ar,
+    ...PageFilterMaskI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -195,6 +197,7 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.de,
     ...PageTableTreeI18n.de,
     ...PageInputCurrencyI18n.de,
+    ...PageFilterMaskI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -258,6 +261,7 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.en,
     ...PageTableTreeI18n.en,
     ...PageInputCurrencyI18n.en,
+    ...PageFilterMaskI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -321,6 +325,7 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.es,
     ...PageTableTreeI18n.es,
     ...PageInputCurrencyI18n.es,
+    ...PageFilterMaskI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -384,6 +389,7 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.fr,
     ...PageTableTreeI18n.fr,
     ...PageInputCurrencyI18n.fr,
+    ...PageFilterMaskI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -447,6 +453,7 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.hr,
     ...PageTableTreeI18n.hr,
     ...PageInputCurrencyI18n.hr,
+    ...PageFilterMaskI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -510,6 +517,7 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.it,
     ...PageTableTreeI18n.it,
     ...PageInputCurrencyI18n.it,
+    ...PageFilterMaskI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -573,5 +581,6 @@ export const mainTranslation = {
     ...PageUtilsGetTotalNestedCountI18n.ru,
     ...PageTableTreeI18n.ru,
     ...PageInputCurrencyI18n.ru,
+    ...PageFilterMaskI18n.ru,
   },
 };

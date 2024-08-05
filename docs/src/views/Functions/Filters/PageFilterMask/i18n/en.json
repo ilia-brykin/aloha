@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "The number of characters to show unmasked at the end of the string.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "The character to use for masking.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "The value to be masked. It will be converted to a string.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Masks a given value, displaying only the last few characters."
+}

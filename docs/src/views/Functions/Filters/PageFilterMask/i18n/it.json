@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "Il numero di caratteri da mostrare non mascherati alla fine della stringa.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "Il carattere da utilizzare per la mascheratura.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "Il valore da mascherare. Verrà convertito in una stringa.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Maschera un valore dato, mostrando solo gli ultimi caratteri."
+}

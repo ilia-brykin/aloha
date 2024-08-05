@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "Broj znakova koji će biti prikazani bez maske na kraju niza.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "Znak koji će se koristiti za maskiranje.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "Vrijednost koju treba maskirati. Bit će pretvorena u niz.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Maskira zadanu vrijednost, prikazujući samo posljednjih nekoliko znakova."
+}

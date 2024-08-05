@@ -17,6 +17,7 @@ import _filterLimitTo from "../filters/filterLimitTo";
 import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
 import _filterLowerCase from "../filters/filterLowerCase";
+import _filterMask from "../filters/filterMask";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
 import _filterUpperCase from "../filters/filterUpperCase";
@@ -102,6 +103,10 @@ export default function AFiltersAPI() {
     return _filterLowerCase(value);
   };
 
+  const filterMask = (value, { chars = 4, mask = "*" } = {}) => {
+    return _filterMask(value, { chars, mask });
+  };
+
   const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {
     return _filterPropertyByValue(value, { mapping, defaultValue });
   };
@@ -130,6 +135,7 @@ export default function AFiltersAPI() {
     filterLink,
     filterList,
     filterLowerCase,
+    filterMask,
     filterPropertyByValue,
     filterSearchHighlight,
     filterUpperCase,

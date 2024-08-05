@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "عدد الأحرف التي سيتم عرضها غير مخفية في نهاية السلسلة.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "الحرف المستخدم للإخفاء.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "القيمة التي سيتم إخفاؤها. سيتم تحويلها إلى سلسلة.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "يخفي القيمة المعطاة، مع عرض الأحرف الأخيرة فقط."
+}

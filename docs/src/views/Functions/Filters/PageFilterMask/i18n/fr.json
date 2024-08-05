@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "Le nombre de caractères à afficher non masqués à la fin de la chaîne.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "Le caractère à utiliser pour le masquage.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "La valeur à masquer. Elle sera convertie en chaîne de caractères.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Masque une valeur donnée, en affichant seulement les derniers caractères."
+}

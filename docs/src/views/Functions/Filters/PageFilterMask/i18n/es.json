@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "El número de caracteres que se mostrarán sin máscara al final de la cadena.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "El carácter que se utilizará para enmascarar.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "El valor a enmascarar. Se convertirá a una cadena.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Enmascara un valor dado, mostrando solo los últimos caracteres."
+}
