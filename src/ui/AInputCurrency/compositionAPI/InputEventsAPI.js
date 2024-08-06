@@ -84,7 +84,7 @@ export default function InputEventsAPI(props, {
   };
 
   const handleInput = ($event, _value) => {
-    const value = _value || $event.target.value;
+    const value = isNil(_value) ? $event.target.value : _value;
     const decimalDividerIndex = value.indexOf(decimalDivider.value);
     const hasDecimalDivider = decimalDividerIndex !== -1;
     const cursorPosition = inputRef.value.selectionStart;
@@ -488,7 +488,10 @@ export default function InputEventsAPI(props, {
 
   const initFirstCheck = () => {
     setTimeout(() => {
-      const valueToSet = modelValue.value.toString().replace(".", decimalDivider.value);
+      let valueToSet = "0";
+      if (modelValue.value) {
+        valueToSet = modelValue.value.toString().replace(".", decimalDivider.value);
+      }
       handleInput(null, valueToSet);
     });
   };

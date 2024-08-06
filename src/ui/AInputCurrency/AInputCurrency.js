@@ -27,8 +27,8 @@ import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
 import {
-  inputNumberPluginOptions,
-} from "../../plugins/AInputNumberPlugin";
+  inputCurrencyPluginOptions,
+} from "../../plugins/AInputCurrencyPlugin";
 
 export default {
   name: "AInputCurrency",
@@ -40,7 +40,7 @@ export default {
     controlsType: {
       type: String,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.controlsType,
+      default: inputCurrencyPluginOptions.value.propsDefault.controlsType,
       validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
@@ -58,7 +58,7 @@ export default {
     decimalDivider: {
       type: String,
       required: false,
-      default: ",",
+      default: inputCurrencyPluginOptions.value.propsDefault.decimalDivider,
       validator: value => [".", ","].indexOf(value) !== -1,
     },
     excludeRenderAttributes: {
@@ -69,27 +69,27 @@ export default {
     iconPrepend: {
       type: String,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.iconPrepend,
+      default: inputCurrencyPluginOptions.value.propsDefault.iconPrepend,
     },
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.inputWidth,
+      default: inputCurrencyPluginOptions.value.propsDefault.inputWidth,
     },
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.isLabelFloat,
+      default: inputCurrencyPluginOptions.value.propsDefault.isLabelFloat,
     },
     max: {
       type: Number,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.max,
+      default: inputCurrencyPluginOptions.value.propsDefault.max,
     },
     min: {
       type: Number,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.min,
+      default: inputCurrencyPluginOptions.value.propsDefault.min,
     },
     modelType: {
       type: String,
@@ -99,17 +99,17 @@ export default {
     },
     modelUndefined: {
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.modelUndefined,
+      default: inputCurrencyPluginOptions.value.propsDefault.modelUndefined,
     },
     placeholder: {
       type: [String, Number],
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.placeholder,
+      default: inputCurrencyPluginOptions.value.propsDefault.placeholder,
     },
     readonly: {
       type: Boolean,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.readonly,
+      default: inputCurrencyPluginOptions.value.propsDefault.readonly,
     },
     required: {
       type: Boolean,
@@ -119,17 +119,17 @@ export default {
     symbolsAfterDecimalDivider: {
       type: Number,
       required: false,
-      default: 2,
+      default: inputCurrencyPluginOptions.value.propsDefault.symbolsAfterDecimalDivider,
     },
     step: {
       type: Number,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.step,
+      default: inputCurrencyPluginOptions.value.propsDefault.step,
     },
     thousandDivider: {
       type: String,
       required: false,
-      default: "",
+      default: inputCurrencyPluginOptions.value.propsDefault.thousandDivider,
       validator: value => [".", ",", ""].indexOf(value) !== -1,
     },
     type: {

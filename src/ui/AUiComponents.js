@@ -2,6 +2,7 @@ import ACheckbox from "./ACheckbox/ACheckbox";
 import ADatepicker from "./ADatepicker/ADatepicker";
 import ADatepickerRange from "./ADatepickerRange/ADatepickerRange";
 import AInput from "./AInput/AInput";
+import AInputCurrency from "./AInputCurrency/AInputCurrency";
 import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
 import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
@@ -16,6 +17,7 @@ import ATinymce from "./ATinymce/ATinymce";
 export default {
   checkbox: ACheckbox,
   color: AInput,
+  currency: AInputCurrency,
   date: ADatepicker,
   datetime: ADatepicker,
   dateRange: ADatepickerRange,
