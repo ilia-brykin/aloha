@@ -613,6 +613,7 @@ export default {
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
       modelIsTableWithoutScroll,
+      modelIsTableWithoutScrollComputed,
     });
 
     const {

@@ -27,6 +27,7 @@ export default function ScrollControlAPI(props, { emit }, {
   isMultipleActionsActive = ref(undefined),
   modelColumnsVisibleLocal = ref({}),
   modelIsTableWithoutScroll = ref(false),
+  modelIsTableWithoutScrollComputed = computed(() => false),
 }) {
   const columnWidthDefault = toRef(props, "columnWidthDefault");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
@@ -98,6 +99,10 @@ export default function ScrollControlAPI(props, { emit }, {
       setAllDefaultForMobile();
       return;
     }
+
+    if (isUndefined(tableWidth.value)) {
+      return;
+    }
     const TABLE_WIDTH_WITHOUT_ACTIONS_MIN = tableWidth.value - columnsSpecialWidth.value - columnActionsWidthMinLocal.value;
     const TABLE_WIDTH_WITHOUT_ACTIONS_MAX = tableWidth.value - columnsSpecialWidth.value - columnActionsWidth.value;
 
@@ -145,7 +150,7 @@ export default function ScrollControlAPI(props, { emit }, {
 
     let freeSpaceWidth = 0;
     const TABLE_WIDTH = isMinOneColumnHide ? TABLE_WIDTH_WITHOUT_ACTIONS_MAX : TABLE_WIDTH_WITHOUT_ACTIONS_MIN;
-    if (modelIsTableWithoutScroll.value) {
+    if (modelIsTableWithoutScrollComputed.value) {
       freeSpaceWidth = TABLE_WIDTH - columnsWidthInOrder;
     } else if (indexFirstScrollInvisibleColumnLocal === columnsOrdered.value.length) {
       freeSpaceWidth = TABLE_WIDTH - columnsWidthInOrder;
