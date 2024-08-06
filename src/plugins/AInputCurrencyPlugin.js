@@ -25,8 +25,8 @@ export default {
   install: (app, {
     propsDefault = {},
   } = {}) => {
-    inputNumberPluginOptions.value.propsDefault = {
-      ...inputNumberPluginOptions.value.propsDefault,
+    inputCurrencyPluginOptions.value.propsDefault = {
+      ...inputCurrencyPluginOptions.value.propsDefault,
       ...propsDefault,
     };
   },
