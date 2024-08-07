@@ -200,28 +200,17 @@ export default function InputEventsAPI(props, {
         setTimeout(() => {
           setValueLocal(intVal);
         });
-      } else if ((decimalDividerIndex > cursorPosition) || !hasDecimalDivider) {
-        const numberOfSymbols = value.length;
-        setTimeout(() => {
-          let positionToSet = cursorPosition ? cursorPosition - 1 : cursorPosition;
-          const numberOfSymbolsAfterEvent = inputRef.value.value.length;
-          if (numberOfSymbolsAfterEvent < numberOfSymbols - 1) {
-            positionToSet--;
-          }
-          setCursorPosition(positionToSet);
-        });
       }
-    } else {
-      const numberOfSymbols = value.length;
-      setTimeout(() => {
-        let positionToSet = cursorPosition ? cursorPosition - 1 : cursorPosition;
-        const numberOfSymbolsAfterEvent = inputRef.value.value.length;
-        if (numberOfSymbolsAfterEvent < numberOfSymbols - 1) {
-          positionToSet--;
-        }
-        setCursorPosition(positionToSet);
-      });
     }
+    const numberOfSymbols = value.length;
+    setTimeout(() => {
+      let positionToSet = cursorPosition ? cursorPosition - 1 : cursorPosition;
+      const numberOfSymbolsAfterEvent = inputRef.value.value.length;
+      if (numberOfSymbolsAfterEvent < numberOfSymbols - 1) {
+        positionToSet--;
+      }
+      setCursorPosition(positionToSet);
+    });
   };
 
   const handleDelete = ({ value, $event, hasDecimalDivider, cursorPosition }) => {
