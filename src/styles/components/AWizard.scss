@@ -260,16 +260,16 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
     }
 
     & > .a_wizard__step__number {
-      display: block;
+      display: flex;
+      align-items: center;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: .5rem;
       transition: all 0.5s ease-in-out;
       height: 40px;
-      text-align: center;
       background: var(--a_wizard_border_color);
       border-radius: var(--a_border_radius, .5rem);
-      padding: 0.2rem 11px;
+      padding: 0 12px;
       z-index: 1;
     }
 

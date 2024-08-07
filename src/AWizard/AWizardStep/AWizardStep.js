@@ -207,15 +207,21 @@ export default {
             stepNumber: this.stepNumber,
             stepTextId: this.stepTextId,
           }) : [
-            this.isStepNumberVisible && h(ATranslation, {
-              tag: "span",
-              text: this.stepNumberText,
-              class: "a_wizard__step__number",
-              extra: {
-                stepActive: this.stepNumber,
-                stepsCount: this.stepsCount,
-              },
-            }),
+            this.isStepNumberVisible ?
+              h("span", {
+                class: "a_wizard__step__number",
+              }, [
+                h(ATranslation, {
+                  class: "a_wizard__step__number__text",
+                  tag: "span",
+                  text: this.stepNumberText,
+                  extra: {
+                    stepActive: this.stepNumber,
+                    stepsCount: this.stepsCount,
+                  },
+                }),
+              ]) :
+              "",
             h("span", {
               class: "a_wizard__step__text",
             }, [
