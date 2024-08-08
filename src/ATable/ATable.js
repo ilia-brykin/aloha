@@ -996,6 +996,10 @@ export default {
                   });
                 })
               }),
+              (this.isViewTableVisible && !this.hasRows) && h(ATranslation, {
+                class: "a_table__empty_text",
+                text: this.emptyText,
+              }),
               this.hasRowsFooter && h("div", {
                 class: "a_table__footer",
                 role: this.tableChildRole,
@@ -1038,10 +1042,6 @@ export default {
                   ...this.$slots,
                 });
               })),
-              (this.isViewTableVisible && !this.hasRows) && h(ATranslation, {
-                class: "a_table__empty_text",
-                text: this.emptyText,
-              }),
             ]),
           ]),
 
