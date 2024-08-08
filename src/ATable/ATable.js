@@ -996,7 +996,7 @@ export default {
                   });
                 })
               }),
-              (this.hasRows && this.hasRowsFooter) && h("div", {
+              this.hasRowsFooter && h("div", {
                 class: "a_table__footer",
                 role: this.tableChildRole,
               }, this.rowsFooter.map((row, rowIndex) => {
