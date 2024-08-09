@@ -40,7 +40,6 @@ jobs:
         run: |
           cd docs/
           npm run build-production
-          npm run build-css        
 
       - name: Deploy to GitHub Pages
         if: ${{ success() }}
