@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@floating-ui/vue": "1.0.2",
-    "aloha-css": "1.0.132",
+    "aloha-css": "1.0.134",
     "axios": "^1.4.0",
     "dompurify": "^2.4.1",
     "fecha": "^4.2.3",
