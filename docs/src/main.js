@@ -20,8 +20,6 @@ import {
   setLanguageFromLocalStorage,
 } from "./components/TheNavbar/compositionAPI/LanguagesAPI";
 
-import "../styles/styles.scss";
-
 setLanguageFromLocalStorage();
 
 const APP = createApp(App);
