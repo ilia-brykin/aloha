@@ -349,7 +349,7 @@ export default {
                 "a_form_control a_input a_input_number",
                 this.inputClass,
                 {
-                  a_form_element_with_btn_close: this.isClearButtonLocal,
+                  a_form_element_with_one_btn: this.isClearButtonLocal,
                   a_form_control_invalid: this.isErrors,
                 },
               ],
@@ -366,12 +366,18 @@ export default {
               onFocus: this.onFocus,
               onBlur: this.onBlurNumber,
             }),
-            this.isClearButtonLocal && h(AFormElementBtnClear, {
-              alwaysTranslate: this.alwaysTranslate,
-              disabled: this.disabled,
-              clearButtonClass: this.clearButtonClass,
-              onClear: this.clearModel,
-            }),
+            this.isClearButtonLocal ?
+              h("div", {
+                class: "a_form_control__actions"
+              }, [
+                h(AFormElementBtnClear, {
+                  alwaysTranslate: this.alwaysTranslate,
+                  disabled: this.disabledClearButton,
+                  class: this.clearButtonClass,
+                  onClear: this.clearModel,
+                }),
+              ]) :
+              "",
           ]),
           this.controlsType === "plus-minus" && h("div", {
             class: "a_btn_group",

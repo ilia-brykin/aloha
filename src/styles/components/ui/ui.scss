@@ -62,8 +62,11 @@
 
 .a_form_element {
   position: relative;
-  .a_form_element_with_btn_close {
+  .a_form_element_with_one_btn {
     padding-right: 30px;
+  }
+  .a_form_element_with_two_btns {
+    padding-right: 50px;
   }
 }
 
@@ -96,6 +99,17 @@
     opacity: 1;
   }
 }
+.a_form_control__actions {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: .2rem;
+}
+.a_form_control__actions__btn {
+  --a_btn_padding_x: 0.2rem;
+  --a_btn_padding_y: 0.1rem;
+}
+
 .a_form_control_invalid,
 .a_group_invalid .a_form_control {
   border-color: var(--a_form_element_error_color);
@@ -115,25 +129,6 @@
   padding: 0.25rem 0.5rem;
   font-size: .875rem;
   border-radius: 0.25rem;
-}
-
-.a_form_element__btn_close {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: .5rem;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  line-height: 0;
-  cursor: pointer;
-  .a_icon__svg {
-    width: .8rem;
-    height: .8rem;
-  }
-  &:disabled {
-    cursor: default;
-  }
 }
 
 .a_input__icon_prepend {

@@ -1,8 +1,7 @@
 import {
-  computed,
   h,
   ref,
-  toRef,
+  toRef, watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -15,17 +14,14 @@ import ALabel from "../ALabel/ALabel";
 import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
 
-import ToggleAPI from "./compositionAPI/ToggleAPI";
+import ClassAPI from "./compositionAPI/ClassAPI";
+import PasswordAPI from "./compositionAPI/PasswordAPI";
+import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
-
-import {
-  cloneDeep,
-} from "lodash-es";
-
 
 export default {
   name: "AInput",
@@ -61,15 +57,15 @@ export default {
       required: false,
       default: "",
     },
+    showPassword: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     step: {
       type: [String, Number],
       required: false,
       default: undefined,
-    },
-    togglePasswordVisibility: {
-      type: Boolean,
-      required: false,
-      default: false,
     },
     type: {
       type: String,
@@ -78,6 +74,14 @@ export default {
     },
   },
   setup(props, context) {
+    const type = toRef(props, "type");
+
+    const {
+      setTypeLocal,
+      typeForInput,
+    } = TypeAPI(props);
+
+
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
@@ -104,19 +108,6 @@ export default {
     } = UiClearButtonAPI(props, {
       isModel,
     });
-
-    const type = toRef(props, "type");
-    const typeLocal = ref(undefined);
-    typeLocal.value = cloneDeep(type.value);
-
-    const typeForInput = computed(() => {
-      if (typeLocal.value === "integer") {
-        return "text";
-      }
-      return typeLocal.value;
-    });
-    
-    const isTypePassword = computed(() => typeForInput.value === "password");
     
     const inputRef = ref(undefined);
     const disabled = toRef(props, "disabled");
@@ -143,33 +134,53 @@ export default {
     };
 
     const {
-      btnToggleTypeTitle,
-      toggleType,
-    } = ToggleAPI({ isTypePassword, typeLocal });
+      iconBtnShowPassword,
+      isBtnShowPasswordVisible,
+      titleBtnShowPassword,
+      toggleTypePassword,
+    } = PasswordAPI(props, {
+      setTypeLocal,
+      typeForInput,
+    });
 
     const {
       isAutofill,
     } = UiInputAutofillAPI({ inputRef });
 
+    const {
+      inputClassBtns,
+    } = ClassAPI({
+      isBtnShowPasswordVisible,
+      isClearButtonLocal,
+    });
+
+    watch(type, () => {
+      setTypeLocal();
+    });
+
+    setTypeLocal();
+
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
-      btnToggleTypeTitle,
       clearModel,
       componentStyleHide,
       errorsId,
       helpTextId,
       htmlIdLocal,
+      iconBtnShowPassword,
+      inputClassBtns,
       inputRef,
       isAutofill,
+      isBtnShowPasswordVisible,
       isClearButtonLocal,
       isErrors,
       isModel,
-      isTypePassword,
       onBlur,
       onFocus,
       onInput,
-      toggleType,
+      titleBtnShowPassword,
+      toggleTypePassword,
       typeForInput,
     };
   },
@@ -215,8 +226,8 @@ export default {
             class: [
               "a_form_control a_input",
               this.inputClass,
+              this.inputClassBtns,
               {
-                a_form_element_with_btn_close: this.isClearButtonLocal,
                 a_form_control_invalid: this.isErrors,
               },
             ],
@@ -231,23 +242,33 @@ export default {
             onFocus: this.onFocus,
             onBlur: this.onBlur,
           }),
-          this.isClearButtonLocal && h(AFormElementBtnClear, {
-            alwaysTranslate: this.alwaysTranslate,
-            disabled: this.disabled,
-            clearButtonClass: this.clearButtonClass,
-            onClear: this.clearModel,
-          }),
+          (this.isBtnShowPasswordVisible || this.isClearButtonLocal) ?
+            h("div", {
+              class: "a_form_control__actions"
+            }, [
+              this.isBtnShowPasswordVisible ?
+                h(AButton, {
+                  alwaysTranslate: this.alwaysTranslate,
+                  class: "a_btn a_btn_transparent_dark a_btn_small a_form_control__actions__btn",
+                  iconLeft: this.iconBtnShowPassword,
+                  type: "button",
+                  title: this.titleBtnShowPassword,
+                  textScreenReader: this.titleBtnShowPassword,
+                  disabled: this.disabled,
+                  onClick: this.toggleTypePassword,
+                }) :
+                "",
+              this.isClearButtonLocal ?
+                h(AFormElementBtnClear, {
+                  alwaysTranslate: this.alwaysTranslate,
+                  disabled: this.disabled,
+                  class: this.clearButtonClass,
+                  onClear: this.clearModel,
+                }) :
+                "",
+            ]) :
+            "",
         ]),
-        this.type === "password" && this.togglePasswordVisibility && h(AButton, {
-          alwaysTranslate: this.alwaysTranslate,
-          class: "a_btn a_btn_outline_secondary",
-          iconLeft: this.isTypePassword ? "EyeClose" : "EyeOpen",
-          type: "button",
-          title: this.btnToggleTypeTitle,
-          textScreenReader: this.btnToggleTypeTitle,
-          disabled: this.disabled,
-          onClick: this.toggleType,
-        }),
         h(AFormHelpText, {
           id: this.helpTextId,
           alwaysTranslate: this.alwaysTranslate,

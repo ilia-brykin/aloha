@@ -333,7 +333,7 @@ export default {
             this.inputClassLocal,
             {
               a_textarea_scalable: this.isScalable,
-              a_form_element_with_btn_close: this.isClearButtonLocal,
+              a_form_element_with_one_btn: this.isClearButtonLocal,
             },
           ],
           disabled: this.disabledLocal,
@@ -343,11 +343,17 @@ export default {
           ...this.inputAttributes,
           onInput: this.stringToJSON,
         }),
-        this.isClearButtonLocal && h(AFormElementBtnClear, {
-          disabled: this.disabledClearButton,
-          clearButtonClass: this.clearButtonClass,
-          onClear: this.clearModel,
-        }),
+        this.isClearButtonLocal ?
+          h("div", {
+            class: "a_form_control__actions"
+          }, [
+            h(AFormElementBtnClear, {
+              disabled: this.disabledClearButton,
+              class: this.clearButtonClass,
+              onClear: this.clearModel,
+            }),
+          ]) :
+          "",
       ]),
       this.parseError && h("div", {}, [
         this.parseError,

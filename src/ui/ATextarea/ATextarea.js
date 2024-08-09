@@ -217,7 +217,7 @@ export default {
               this.inputClass,
               {
                 a_textarea_scalable: this.isScalable,
-                a_form_element_with_btn_close: this.isClearButton,
+                a_form_element_with_one_btn: this.isClearButton,
                 a_form_control_invalid: this.isErrors,
               },
               this.resizeClass,
@@ -232,12 +232,18 @@ export default {
             onFocus: this.onFocus,
             onBlur: this.onBlur,
           }),
-          this.isClearButtonLocal && h(AFormElementBtnClear, {
-            alwaysTranslate: this.alwaysTranslate,
-            disabled: this.disabled,
-            clearButtonClass: this.clearButtonClass,
-            onClear: this.clearModel,
-          }),
+          this.isClearButtonLocal ?
+            h("div", {
+              class: "a_form_control__actions"
+            }, [
+              h(AFormElementBtnClear, {
+                alwaysTranslate: this.alwaysTranslate,
+                disabled: this.disabled,
+                class: this.clearButtonClass,
+                onClear: this.clearModel,
+              }),
+            ]) :
+            "",
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,

@@ -1,69 +1,83 @@
-import AIcon from "../../AIcon/AIcon";
-import ATranslation from "../../ATranslation/ATranslation";
-
 import {
   h,
 } from "vue";
 
+import AElement from "../../AElement/AElement";
+
+import ClearAPI from "./compositionAPI/ClearAPI";
+
 export default {
   name: "AFormElementBtnClear",
-  components: {
-    AIcon,
-    ATranslation,
-  },
   props: {
     alwaysTranslate: {
       type: Boolean,
       required: false,
     },
-    clearButtonClass: {
+    class: {
       type: [String, Object],
       required: false,
+      default: "a_btn a_btn_transparent_dark a_btn_small",
+    },
+    icon: {
+      type: String,
+      required: false,
+      default: "Close",
     },
     disabled: {
       type: Boolean,
       required: false,
     },
+    title: {
+      type: String,
+      required: false,
+      default: "_REMOVE_FIELD_CONTENT_",
+    },
+    textScreenReader: {
+      type: String,
+      required: false,
+      default: "_REMOVE_FIELD_CONTENT_",
+    },
+    tabindex: {
+      type: Number,
+      required: false,
+      default: -1,
+    },
+    iconClass: {
+      type: String,
+      required: false,
+      default: "a_form_element__btn_close__icon",
+    },
   },
   emits: [
     "clear",
   ],
-  methods: {
-    clearLocal($event) {
-      $event.stopPropagation();
-      $event.preventDefault();
-      this.$emit("clear", $event);
-    },
+  setup(props, context) {
+    const {
+      clearLocal,
+    } = ClearAPI(context);
+
+    return {
+      clearLocal,
+    };
   },
   render() {
     if (this.disabled) {
-      return null;
+      return undefined;
     }
-    return h("button", {
-      class: ["a_form_element__btn_close", this.clearButtonClass],
-      type: "button",
-      tabindex: -1,
-      ariaHidden: true,
+
+    return h(AElement, {
+      class: [
+        "a_form_control__actions__btn",
+        this.class,
+      ],
       disabled: this.disabled,
+      iconClass: this.iconClass,
+      iconLeft: this.icon,
       onClick: this.clearLocal,
-    }, [
-      h(ATranslation, {
-        alwaysTranslate: this.alwaysTranslate,
-        class: "a_position_absolute_all",
-        tag: "span",
-        title: "_REMOVE_FIELD_CONTENT_",
-        "aria-hidden": "true",
-      }),
-      h(ATranslation, {
-        alwaysTranslate: this.alwaysTranslate,
-        class: "a_sr_only",
-        tag: "span",
-        text: "_REMOVE_FIELD_CONTENT_",
-      }),
-      h(AIcon, {
-        class: "a_form_element__btn_close__icon",
-        icon: "Close",
-      }),
-    ]);
+      tabindex: this.tabindex,
+      textScreenReader: this.textScreenReader,
+      title: this.title,
+      type: "button",
+    });
   },
 };
