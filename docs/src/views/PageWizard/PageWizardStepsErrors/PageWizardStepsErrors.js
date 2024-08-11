@@ -40,8 +40,8 @@ export default {
         value: "arrows",
       },
       {
-        label: "_A_WIZARD_TYPE_SQUARE_",
-        value: "square",
+        label: "_A_WIZARD_TYPE_LINE_",
+        value: "line",
       },
       {
         label: "_A_WIZARD_TYPE_ROUND_",

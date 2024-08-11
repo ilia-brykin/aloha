@@ -229,6 +229,11 @@ export default {
       required: false,
       default: undefined,
     },
+    subType: {
+      type: String,
+      required: false,
+      default: "square",
+    },
     toolbarBottomTeleportId: {
       type: String,
       required: false,
@@ -238,7 +243,7 @@ export default {
       type: String,
       required: false,
       default: "basic",
-      validator: value => ["arrows", "square", "round", "basic"].indexOf(value) !== -1,
+      validator: value => ["arrows", "line", "round", "basic"].indexOf(value) !== -1,
     },
   },
   emits: [

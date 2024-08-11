@@ -36,7 +36,7 @@ export default {
       codeJs,
     } = JsAPI();
 
-    const modelType = ref("square");
+    const modelType = ref("line");
     const modelStepName = ref("");
     const modelStepId = ref(undefined);
     const isStepsJustified = ref(true);
@@ -50,8 +50,8 @@ export default {
         value: "arrows",
       },
       {
-        label: "_A_WIZARD_TYPE_SQUARE_",
-        value: "square",
+        label: "_A_WIZARD_TYPE_LINE_",
+        value: "line",
       },
       {
         label: "_A_WIZARD_TYPE_ROUND_",

@@ -41,7 +41,7 @@
   "_A_WIZARD_GROUP_STEPS_ERRORS_HEADER_": "Step error",
   "_A_WIZARD_GROUP_STEPS_WARNINGS_DESCRIPTION_": "Each step of the wizard can contain boolean property \"warning\". For value true, the corresponding step will be highlighted as questionable. This is useful when suggesting that something in a step might be deviating from the norm, without necessarily indicating an error.",
   "_A_WIZARD_GROUP_STEPS_WARNINGS_HEADER_": "Step warning",
-  "_A_WIZARD_GROUP_TYPE_DESCRIPTION_": "Allows for the selection of the visual representation of steps in header. An overview of all the steps is shown at the top of the wizard. The following values are accepted: <strong>basic</strong>, <strong>arrows</strong>, <strong>square</strong> and <strong>round</strong>.",
+  "_A_WIZARD_GROUP_TYPE_DESCRIPTION_": "Allows for the selection of the visual representation of steps in header. An overview of all the steps is shown at the top of the wizard. The following values are accepted: <strong>basic</strong>, <strong>arrows</strong>, <strong>line</strong> and <strong>round</strong>.",
   "_A_WIZARD_GROUP_TYPE_HEADER_": "Type",
   "_A_WIZARD_LABEL_STEPS_": "Steps",
   "_A_WIZARD_LABEL_TYPE_": "Type",
@@ -101,6 +101,6 @@
   "_A_WIZARD_STEP_NAME_": "Name of the step",
   "_A_WIZARD_TYPE_ARROWS_": "Arrow",
   "_A_WIZARD_TYPE_BASIC_": "Basic",
-  "_A_WIZARD_TYPE_ROUND_": "Round",
-  "_A_WIZARD_TYPE_SQUARE_": "Square"
+  "_A_WIZARD_TYPE_LINE_": "Linear",
+  "_A_WIZARD_TYPE_ROUND_": "Round"
 }

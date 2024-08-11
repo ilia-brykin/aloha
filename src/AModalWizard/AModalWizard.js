@@ -349,7 +349,7 @@ export default {
       type: String,
       required: false,
       default: "basic",
-      validator: value => ["arrows", "square", "round", "basic"].indexOf(value) !== -1,
+      validator: value => ["arrows", "line", "round", "basic"].indexOf(value) !== -1,
     },
   },
   emits: [

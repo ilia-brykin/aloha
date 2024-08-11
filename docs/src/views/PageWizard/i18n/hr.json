@@ -41,7 +41,7 @@
   "_A_WIZARD_GROUP_STEPS_ERRORS_HEADER_": "Greška koraka",
   "_A_WIZARD_GROUP_STEPS_WARNINGS_DESCRIPTION_": "Svaki korak čarobnjaka može sadržavati logički atribut \"warning\". Za vrijednost true, odgovarajući korak bit će istaknut kao sumnjiv. To je korisno kada se sugerira da nešto u koraku odstupa od norme, bez nužnog ukazivanja na pogrešku.",
   "_A_WIZARD_GROUP_STEPS_WARNINGS_HEADER_": "Upozorenje koraka",
-  "_A_WIZARD_GROUP_TYPE_DESCRIPTION_": "Omogućuje odabir vizualnog prikaza koraka u zaglavlju. Pregled svih koraka prikazuje se na vrhu čarobnjaka. Prihvaćene vrijednosti su: <strong>basic</strong>, <strong>arrows</strong>, <strong>square</strong> i <strong>round</strong>.",
+  "_A_WIZARD_GROUP_TYPE_DESCRIPTION_": "Omogućuje odabir vizualnog prikaza koraka u zaglavlju. Pregled svih koraka prikazuje se na vrhu čarobnjaka. Prihvaćene vrijednosti su: <strong>basic</strong>, <strong>arrows</strong>, <strong>line</strong> i <strong>round</strong>.",
   "_A_WIZARD_GROUP_TYPE_HEADER_": "Tip",
   "_A_WIZARD_LABEL_STEPS_": "Koraci",
   "_A_WIZARD_LABEL_TYPE_": "Vrsta",
@@ -101,6 +101,6 @@
   "_A_WIZARD_STEP_NAME_": "Naziv koraka",
   "_A_WIZARD_TYPE_ARROWS_": "Strelica",
   "_A_WIZARD_TYPE_BASIC_": "Osnovni",
-  "_A_WIZARD_TYPE_ROUND_": "Okrugli",
-  "_A_WIZARD_TYPE_SQUARE_": "Kvadrat"
+  "_A_WIZARD_TYPE_LINE_": "Linearno",
+  "_A_WIZARD_TYPE_ROUND_": "Okrugli"
 }

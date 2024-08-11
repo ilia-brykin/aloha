@@ -41,7 +41,7 @@
   "_A_WIZARD_GROUP_STEPS_ERRORS_HEADER_": "Ошибка шага",
   "_A_WIZARD_GROUP_STEPS_WARNINGS_DESCRIPTION_": "Каждый шаг мастера может содержать логическое свойство \"предупреждение\". При значении true соответствующий шаг выделяется как шаг с предупреждением. Это полезно для указания, что что-то на шаге может отличаться от нормы, не указывая напрямую на ошибку.",
   "_A_WIZARD_GROUP_STEPS_WARNINGS_HEADER_": "Предупреждение шага",
-  "_A_WIZARD_GROUP_TYPE_DESCRIPTION_": "Позволяет выбрать визуальное представление шагов в заголовке. Обзор всех шагов отображается в верхней части мастера. Поддерживаются следующие значения: <strong>basic</strong>, <strong>arrows</strong>, <strong>square</strong> и <strong>round</strong>.",
+  "_A_WIZARD_GROUP_TYPE_DESCRIPTION_": "Позволяет выбрать визуальное представление шагов в заголовке. Обзор всех шагов отображается в верхней части мастера. Поддерживаются следующие значения: <strong>basic</strong>, <strong>arrows</strong>, <strong>line</strong> и <strong>round</strong>.",
   "_A_WIZARD_GROUP_TYPE_HEADER_": "Тип",
   "_A_WIZARD_LABEL_STEPS_": "Шаги",
   "_A_WIZARD_LABEL_TYPE_": "Тип",
@@ -82,6 +82,10 @@
   "_A_WIZARD_PROPS_KEY_ID_DESCRIPTION_": "Уникальный ключ идентификатора для каждого шага. Используется для повышения производительности.",
   "_A_WIZARD_PROPS_SHOW_ONLY_ACTIVE_STEP_MOBILE_DESCRIPTION_": "Отображает только текущий активный шаг в мастере.",
   "_A_WIZARD_PROPS_STEP_ACTIVE_DESCRIPTION_": "Индекс текущего активного шага в мастере.",
+  "_A_WIZARD_PROPS_STEP_ICON_ERROR_DESCRIPTION_": "Иконка, отображаемая в случае ошибки на шаге",
+  "_A_WIZARD_PROPS_STEP_ICON_ERROR_TEXT_DESCRIPTION_": "Текст и заголовок для скринридера для иконки ошибки",
+  "_A_WIZARD_PROPS_STEP_ICON_WARNING_DESCRIPTION_": "Иконка, отображаемая в случае предупреждения на шаге",
+  "_A_WIZARD_PROPS_STEP_ICON_WARNING_TEXT_DESCRIPTION_": "Текст и заголовок для скринридера для иконки предупреждения",
   "_A_WIZARD_PROPS_STEP_PROGRESSBAR_TEXT_DESCRIPTION_": "Текст, указывающий на прогресс пользователя в мастере. Переменные, доступные в плейсхолдере, включают stepActive (текущий активный шаг), stepsCount (общее количество шагов) и stepActiveLabel (метка текущего активного шага).",
   "_A_WIZARD_PROPS_STEPS_DESCRIPTION_": "Массив объектов с информацией о каждом шаге в мастере.",
   "_A_WIZARD_PROPS_STEPS_VISITED_DESCRIPTION_": "Представляет объект, где каждый ключ соответствует индексу шага, а связанное логическое значение указывает, был ли посещен соответствующий шаг.",
@@ -97,10 +101,6 @@
   "_A_WIZARD_STEP_NAME_": "Название шага",
   "_A_WIZARD_TYPE_ARROWS_": "Стрелка",
   "_A_WIZARD_TYPE_BASIC_": "Основной",
-  "_A_WIZARD_TYPE_ROUND_": "Круглый",
-  "_A_WIZARD_TYPE_SQUARE_": "Квадратный",
-  "_A_WIZARD_PROPS_STEP_ICON_ERROR_DESCRIPTION_": "Иконка, отображаемая в случае ошибки на шаге",
-  "_A_WIZARD_PROPS_STEP_ICON_ERROR_TEXT_DESCRIPTION_": "Текст и заголовок для скринридера для иконки ошибки",
-  "_A_WIZARD_PROPS_STEP_ICON_WARNING_DESCRIPTION_": "Иконка, отображаемая в случае предупреждения на шаге",
-  "_A_WIZARD_PROPS_STEP_ICON_WARNING_TEXT_DESCRIPTION_": "Текст и заголовок для скринридера для иконки предупреждения"
+  "_A_WIZARD_TYPE_LINE_": "Линейный",
+  "_A_WIZARD_TYPE_ROUND_": "Круглый"
 }
