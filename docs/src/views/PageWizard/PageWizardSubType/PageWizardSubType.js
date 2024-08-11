@@ -6,7 +6,7 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageWizardType",
+  name: "PageWizardSubType",
   components: {
     AlohaExample,
     ATranslation,

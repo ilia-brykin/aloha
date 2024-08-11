@@ -1,55 +1,15 @@
 aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
-  header="_A_WIZARD_GROUP_TYPE_HEADER_"
-  description="_A_WIZARD_GROUP_TYPE_DESCRIPTION_"
-  props="type"
+  header="_A_WIZARD_GROUP_SUB_TYPE_HEADER_"
+  description="_A_WIZARD_GROUP_SUB_TYPE_DESCRIPTION_"
+  :props="['sub-type', 'type']"
 )
-  h3.a_my_3 type="basic"
-  a-wizard(
-    :steps="wizardSteps"
-    type="basic"
-  )
-    template(
-      v-slot:step1
-    )
-      a-translation(
-        tag="h4"
-        text="_A_WIZARD_STEP_1_"
-      )
-      p {{ text }}
-
-    template(
-      v-slot:step2
-    )
-      a-translation(
-        tag="h4"
-        text="_A_WIZARD_STEP_2_"
-      )
-      p {{ text }}
-
-    template(
-      v-slot:step3
-    )
-      a-translation(
-        tag="h4"
-        text="_A_WIZARD_STEP_3_"
-      )
-      p {{ text }}
-
-    template(
-      v-slot:step4
-    )
-      a-translation(
-        tag="h4"
-        text="_A_WIZARD_STEP_4_"
-      )
-      p {{ text }}
-
-  h3.a_my_3 type="line"
+  h3.a_my_3 type="line", sub-type="square"
   a-wizard(
     :steps="wizardSteps"
     type="line"
+    sub-type="square"
   )
     template(
       v-slot:step1
@@ -87,10 +47,11 @@ aloha-example(
       )
       p {{ text }}
 
-  h3.a_my_3 type="round"
+  h3.a_my_3 type="line", sub-type="circle"
   a-wizard(
     :steps="wizardSteps"
-    type="round"
+    type="line"
+    sub-type="circle"
   )
     template(
       v-slot:step1
@@ -128,10 +89,53 @@ aloha-example(
       )
       p {{ text }}
 
-  h3.a_my_3 type="arrows"
+  h3.a_my_3 type="line", sub-type="square-bordered"
   a-wizard(
     :steps="wizardSteps"
-    type="arrows"
+    type="line"
+    sub-type="square-bordered"
+  )
+    template(
+      v-slot:step1
+    )
+      a-translation(
+        tag="h4"
+        text="_A_WIZARD_STEP_1_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step2
+    )
+      a-translation(
+        tag="h4"
+        text="_A_WIZARD_STEP_2_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step3
+    )
+      a-translation(
+        tag="h4"
+        text="_A_WIZARD_STEP_3_"
+      )
+      p {{ text }}
+
+    template(
+      v-slot:step4
+    )
+      a-translation(
+        tag="h4"
+        text="_A_WIZARD_STEP_4_"
+      )
+      p {{ text }}
+
+  h3.a_my_3 type="line", sub-type="circle-bordered"
+  a-wizard(
+    :steps="wizardSteps"
+    type="line"
+    sub-type="circle-bordered"
   )
     template(
       v-slot:step1

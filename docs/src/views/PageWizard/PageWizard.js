@@ -21,6 +21,7 @@ import PageWizardSlotToolbar from "./PageWizardSlotToolbar/PageWizardSlotToolbar
 import PageWizardStepActive from "./PageWizardStepActive/PageWizardStepActive.vue";
 import PageWizardStepsErrors from "./PageWizardStepsErrors/PageWizardStepsErrors.vue";
 import PageWizardStepsWarnings from "./PageWizardStepsWarnings/PageWizardStepsWarnings.vue";
+import PageWizardSubType from "./PageWizardSubType/PageWizardSubType.vue";
 import PageWizardType from "./PageWizardType/PageWizardType.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
@@ -56,6 +57,7 @@ export default {
     PageWizardStepActive,
     PageWizardStepsErrors,
     PageWizardStepsWarnings,
+    PageWizardSubType,
     PageWizardType,
   },
   setup() {

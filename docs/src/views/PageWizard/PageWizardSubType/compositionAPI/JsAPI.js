@@ -3,7 +3,7 @@ export default function JsAPI() {
 import AWizard from "aloha-vue/src/AWizard/AWizard";
     
 export default {
-  name: "PageWizardType",
+  name: "PageWizardSubType",
   components: {
     ATranslation,
     AWizard,

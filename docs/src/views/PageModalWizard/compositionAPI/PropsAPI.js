@@ -472,6 +472,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "sub-type",
+      description: "_A_WIZARD_PROPS_SUB_TYPE_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "steps-visited",
       description: "_A_WIZARD_PROPS_STEPS_VISITED_DESCRIPTION_",
       type: "Object",

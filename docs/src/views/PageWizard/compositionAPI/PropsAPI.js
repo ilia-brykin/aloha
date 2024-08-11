@@ -295,6 +295,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "sub-type",
+      description: "_A_WIZARD_PROPS_SUB_TYPE_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "toolbar-bottom-teleport-id",
       description: "_A_WIZARD_PROPS_TOOLBAR_BOTTOM_TELEPORT_ID_DESCRIPTION_",
       type: "String",

@@ -13,6 +13,7 @@ import {
   modalPluginOptions,
 } from "../plugins/AModalPlugin";
 import {
+  isNil,
   uniqueId,
 } from "lodash-es";
 
@@ -341,6 +342,25 @@ export default {
       required: false,
       default: "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_",
     },
+    subType: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: (value, props) => {
+        const validSubTypes = {
+          arrows: [],
+          basic: [],
+          line: ["square", "circle", "square-bordered", "circle-bordered"],
+          round: [],
+        };
+
+        if (props.type in validSubTypes) {
+          return isNil(value) || validSubTypes[props.type].indexOf(value) !== -1;
+        }
+
+        return false;
+      },
+    },
     stepsVisited: {
       type: Object,
       default: undefined,
@@ -459,6 +479,7 @@ export default {
           steps: this.steps,
           stepsProgressbarText: this.stepsProgressbarText,
           stepsVisited: this.stepsVisited,
+          subType: this.subType,
           toolbarBottomTeleportId: this.footerId,
           type: this.type,
           onGoStepBack: this.goStepBackLocal,

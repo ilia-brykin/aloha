@@ -6,6 +6,7 @@ import {
 import AWizardStep from "./AWizardStep/AWizardStep";
 import AWizardTab from "./AWizardTab/AWizardTab";
 import AWizardToolbar from "./AWizardToolbar/AWizardToolbar";
+import ATranslation from "../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
@@ -15,11 +16,12 @@ import LocalAPI from "./compositionAPI/LocalAPI";
 import MobileAPI from "./compositionAPI/MobileAPI";
 import StepsAPI from "./compositionAPI/StepsAPI";
 import TeleportAPI from "./compositionAPI/TeleportAPI";
+import TypeAPI from "./compositionAPI/TypeAPI";
 
 import {
+  isNil,
   uniqueId,
 } from "lodash-es";
-import ATranslation from "../ATranslation/ATranslation";
 
 export default {
   name: "AWizard",
@@ -232,7 +234,21 @@ export default {
     subType: {
       type: String,
       required: false,
-      default: "square",
+      default: undefined,
+      validator: (value, props) => {
+        const validSubTypes = {
+          arrows: [],
+          basic: [],
+          line: ["square", "circle", "square-bordered", "circle-bordered"],
+          round: [],
+        };
+
+        if (props.type in validSubTypes) {
+          return isNil(value) || validSubTypes[props.type].indexOf(value) !== -1;
+        }
+
+        return false;
+      },
     },
     toolbarBottomTeleportId: {
       type: String,
@@ -252,8 +268,14 @@ export default {
   ],
   setup(props, context) {
     const {
+      subTypeLocal,
+    } = TypeAPI(props);
+
+    const {
       classWizard,
-    } = ClassAPI(props);
+    } = ClassAPI(props, {
+      subTypeLocal,
+    });
 
     const {
       setFocusToActiveStep,
