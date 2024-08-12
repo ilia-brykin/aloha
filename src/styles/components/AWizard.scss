@@ -116,6 +116,9 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
   }
 }
 .a_wizard_arrows {
+  .a_wizard__step {
+    margin-top: .5rem;
+  }
   > .a_wizard__steps {
     margin-left: 60px;
     .a_wizard__step {
@@ -433,6 +436,10 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
 }
 
 .a_wizard_round {
+  --a_wizard_step_focus_shadow: #{$a-wizard-step-active-primary-color};
+  .a_wizard__step {
+    margin-top: .5rem;
+  }
   .a_wizard__step__link {
     position: relative;
     height: 100%;
