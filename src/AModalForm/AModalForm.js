@@ -111,12 +111,17 @@ export default {
     isDataFormHide: {
       type: Boolean,
       required: false,
-      default: modalPluginOptions.value.propsDefault.isDataFormHide,
+      default: () => modalPluginOptions.value.propsDefault.isDataFormHide,
     },
     isDataFormRender: {
       type: Boolean,
       required: false,
       default: () => modalPluginOptions.value.propsDefault.isDataFormRender,
+    },
+    isFooterSticky: {
+      type: Boolean,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.isFooterSticky,
     },
     isModalHidden: {
       type: Boolean,
@@ -240,6 +245,7 @@ export default {
       id: this.id,
       isCloseButtonHide: this.isCloseButtonHide,
       isConfirm: this.isConfirm,
+      isFooterSticky: this.isFooterSticky,
       isModalHidden: this.isModalHidden,
       isSaveButtonHide: this.isSaveButtonHide,
       loading: this.loading,

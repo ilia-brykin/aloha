@@ -13,6 +13,7 @@ export const modalPluginOptions = ref({
     isDataFormRender: true,
     isRequired: false,
     isSaveButtonHide: false,
+    isFooterSticky: false,
     modalClass: undefined,
     saveButtonClass: "a_btn a_btn_primary",
     saveButtonText: "_A_MODAL_BTN_SAVE_",

@@ -120,6 +120,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-footer-sticky",
+      description: "_A_MODAL_PROPS_IS_FOOTER_STICKY_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "is-modal-hidden",
       description: "_A_MODAL_PROPS_IS_MODAL_HIDDEN_DESCRIPTION_",
       type: "Boolean",

@@ -93,6 +93,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-footer-sticky",
+      description: "_A_MODAL_PROPS_IS_FOOTER_STICKY_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "is-save-button-hide",
       description: "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_",
       type: "Boolean",

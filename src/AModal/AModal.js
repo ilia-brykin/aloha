@@ -117,6 +117,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    isFooterSticky: {
+      type: Boolean,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.isFooterSticky,
+    },
     isModalHidden: {
       type: Boolean,
       required: false,
@@ -292,6 +297,49 @@ export default {
     };
   },
   render() {
+    const FOOTER = !this.hideFooter ?
+      h("div", {
+        ref: "modal_footer",
+        class: [
+          "a_modal_footer",
+          {
+            a_modal_footer_sticky: this.isFooterSticky
+          },
+        ],
+      }, [
+        h(ALoading, {
+          alwaysTranslate: this.alwaysTranslate,
+          isLoading: this.loading,
+        }, () => [
+          this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend(),
+          (!this.isSaveButtonHide && this.save) && h(AButton, {
+            id: this.saveButtonId,
+            alwaysTranslate: this.alwaysTranslate,
+            class: this.saveButtonClass,
+            disabled: this.disabledLocal || this.disabledSave,
+            extra: this.extra,
+            html: this.saveButtonText,
+            type: "button",
+            ...this.saveButtonAttributes,
+            onClick: this.save,
+          }),
+          !this.isCloseButtonHide && h(AButton, {
+            id: this.closeButtonId,
+            alwaysTranslate: this.alwaysTranslate,
+            type: "button",
+            class: this.closeButtonClass,
+            disabled: this.disabledLocal,
+            html: this.closeButtonText,
+            extra: this.extra,
+            ...this.closeButtonAttributes,
+            onClick: () => this.close(true),
+          }),
+          this.$slots.modalFooterAppend && this.$slots.modalFooterAppend(),
+        ]),
+
+      ]) :
+      "";
+
     return h(Teleport, {
       to: "body",
     }, [
@@ -315,7 +363,12 @@ export default {
             class: ["a_modal_dialog a_modal_dialog_scrollable", this.sizeClass],
           }, [
             h("div", {
-              class: "a_modal_content",
+              class: [
+                "a_modal_content",
+                {
+                  a_modal_content_with_footer_sticky: this.isFooterSticky
+                },
+              ],
             }, [
               h("div", {
                 ref: "modal_header",
@@ -345,48 +398,24 @@ export default {
                 ref: "modal_body",
                 class: "a_modal_body",
               }, [
-                this.$slots.modalBody && this.$slots.modalBody(),
-                this.bodyHtml && h(ATranslation, {
-                  alwaysTranslate: this.alwaysTranslate,
-                  html: this.bodyHtml,
-                  extra: this.extra,
-                }),
-              ]),
-              !this.hideFooter ? h("div", {
-                ref: "modal_footer",
-                class: "a_modal_footer",
-              }, [
-                h(ALoading, {
-                  alwaysTranslate: this.alwaysTranslate,
-                  isLoading: this.loading,
-                }, () => [
-                  this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend(),
-                  (!this.isSaveButtonHide && this.save) && h(AButton, {
-                    id: this.saveButtonId,
+                h("div", {
+                  ref: "modal_body",
+                  class: "a_modal_body__content",
+                }, [
+                  this.$slots.modalBody && this.$slots.modalBody(),
+                  this.bodyHtml && h(ATranslation, {
                     alwaysTranslate: this.alwaysTranslate,
-                    class: this.saveButtonClass,
-                    disabled: this.disabledLocal || this.disabledSave,
+                    html: this.bodyHtml,
                     extra: this.extra,
-                    html: this.saveButtonText,
-                    type: "button",
-                    ...this.saveButtonAttributes,
-                    onClick: this.save,
                   }),
-                  !this.isCloseButtonHide && h(AButton, {
-                    id: this.closeButtonId,
-                    alwaysTranslate: this.alwaysTranslate,
-                    type: "button",
-                    class: this.closeButtonClass,
-                    disabled: this.disabledLocal,
-                    html: this.closeButtonText,
-                    extra: this.extra,
-                    ...this.closeButtonAttributes,
-                    onClick: () => this.close(true),
-                  }),
-                  this.$slots.modalFooterAppend && this.$slots.modalFooterAppend(),
                 ]),
-
-              ]) : "",
+                this.isFooterSticky ?
+                  FOOTER :
+                  "",
+              ]),
+              !this.isFooterSticky ?
+                FOOTER :
+                "",
             ]),
           ]),
         ]),

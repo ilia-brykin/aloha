@@ -85,6 +85,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.isCloseButtonHide,
     },
+    isFooterSticky: {
+      type: Boolean,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.isFooterSticky,
+    },
     isSaveButtonHide: {
       type: Boolean,
       required: false,
@@ -418,6 +423,7 @@ export default {
       headerText: this.headerText,
       id: this.id,
       isCloseButtonHide: this.isCloseButtonHide,
+      isFooterSticky: this.isFooterSticky,
       isSaveButtonHide: this.isSaveButtonHide,
       loading: this.loading,
       modalClass: this.modalClass,
