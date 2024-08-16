@@ -1,0 +1,8 @@
+{
+  "_A_JSON_CURRENT_VALUE_": "Trenutna vrijednost",
+  "_A_JSON_DISCARD_ALL_CHANGES_": "Odbaci sve promjene",
+  "_A_JSON_ERROR_HTML_{{error}}_": "Unos se ne može pretvoriti u JSON objekt. Molimo provjerite svoj unos:<br>{{ error }}",
+  "_A_JSON_FORMAT_INPUT_": "Formatiraj unos",
+  "_A_JSON_INPUT_": "Unos",
+  "_A_JSON_RESET_INPUT_": "Poništi unos na trenutnu vrijednost"
+}

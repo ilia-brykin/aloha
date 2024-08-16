@@ -169,7 +169,7 @@ export default function ComponentItemsAPI() {
             id: "json",
             label: "JSON",
             to: {
-              name: "PageAJson",
+              name: "PageJson",
             }
           },
           {

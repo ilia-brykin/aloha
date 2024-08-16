@@ -1,0 +1,8 @@
+{
+  "_A_JSON_CURRENT_VALUE_": "القيمة الحالية",
+  "_A_JSON_DISCARD_ALL_CHANGES_": "تجاهل جميع التغييرات",
+  "_A_JSON_ERROR_HTML_{{error}}_": "لا يمكن تحويل الإدخال إلى كائن JSON. يرجى التحقق من الإدخال الخاص بك:<br>{{ error }}",
+  "_A_JSON_FORMAT_INPUT_": "تنسيق الإدخال",
+  "_A_JSON_INPUT_": "إدخال",
+  "_A_JSON_RESET_INPUT_": "إعادة تعيين الإدخال إلى القيمة الحالية"
+}

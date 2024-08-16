@@ -1,0 +1,8 @@
+{
+  "_A_JSON_CURRENT_VALUE_": "Текущее значение",
+  "_A_JSON_DISCARD_ALL_CHANGES_": "Отменить все изменения",
+  "_A_JSON_ERROR_HTML_{{error}}_": "Ввод не может быть преобразован в объект JSON. Пожалуйста, проверьте ваш ввод:<br>{{ error }}",
+  "_A_JSON_FORMAT_INPUT_": "Форматировать ввод",
+  "_A_JSON_INPUT_": "Ввод",
+  "_A_JSON_RESET_INPUT_": "Сбросить ввод до текущего значения"
+}

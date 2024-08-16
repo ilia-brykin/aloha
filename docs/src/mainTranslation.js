@@ -69,6 +69,7 @@ import PageUtilsGetTotalNestedCountI18n from "./views/Functions/Utils/PageUtilsG
 import PageTableTreeI18n from "./views/PageTable/PageTableTree/i18n/PageTableTreeI18n";
 import PageInputCurrencyI18n from "./views/Form/PageInputCurrency/i18n/PageInputCurrencyI18n";
 import PageFilterMaskI18n from "./views/Functions/Filters/PageFilterMask/i18n/PageFilterMaskI18n";
+import PageJsonI18n from "./views/Form/PageJson/i18n/PageJsonI18n";
 
 export const mainTranslation = {
   ar: {
@@ -134,6 +135,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.ar,
     ...PageInputCurrencyI18n.ar,
     ...PageFilterMaskI18n.ar,
+    ...PageJsonI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -198,6 +200,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.de,
     ...PageInputCurrencyI18n.de,
     ...PageFilterMaskI18n.de,
+    ...PageJsonI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -262,6 +265,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.en,
     ...PageInputCurrencyI18n.en,
     ...PageFilterMaskI18n.en,
+    ...PageJsonI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -326,6 +330,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.es,
     ...PageInputCurrencyI18n.es,
     ...PageFilterMaskI18n.es,
+    ...PageJsonI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -390,6 +395,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.fr,
     ...PageInputCurrencyI18n.fr,
     ...PageFilterMaskI18n.fr,
+    ...PageJsonI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -454,6 +460,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.hr,
     ...PageInputCurrencyI18n.hr,
     ...PageFilterMaskI18n.hr,
+    ...PageJsonI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -518,6 +525,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.it,
     ...PageInputCurrencyI18n.it,
     ...PageFilterMaskI18n.it,
+    ...PageJsonI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -582,5 +590,6 @@ export const mainTranslation = {
     ...PageTableTreeI18n.ru,
     ...PageInputCurrencyI18n.ru,
     ...PageFilterMaskI18n.ru,
+    ...PageJsonI18n.ru,
   },
 };

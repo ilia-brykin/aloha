@@ -1,0 +1,8 @@
+{
+  "_A_JSON_CURRENT_VALUE_": "Valore attuale",
+  "_A_JSON_DISCARD_ALL_CHANGES_": "Annulla tutte le modifiche",
+  "_A_JSON_ERROR_HTML_{{error}}_": "L'input non può essere convertito in un oggetto JSON. Si prega di controllare l'input:<br>{{ error }}",
+  "_A_JSON_FORMAT_INPUT_": "Formatta input",
+  "_A_JSON_INPUT_": "Input",
+  "_A_JSON_RESET_INPUT_": "Reimposta input al valore corrente"
+}

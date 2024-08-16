@@ -6,6 +6,7 @@ import AInputCurrency from "./AInputCurrency/AInputCurrency";
 import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
 import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
+import AJson from "./AJson/AJson";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
 import ASelect from "./ASelect/ASelect";
@@ -19,8 +20,8 @@ export default {
   color: AInput,
   currency: AInputCurrency,
   date: ADatepicker,
-  datetime: ADatepicker,
   dateRange: ADatepickerRange,
+  datetime: ADatepicker,
   email: AInput,
   file: AInputFile,
   integer: AInputNumber,
@@ -29,6 +30,7 @@ export default {
   integerPositive: AInputNumber,
   integerPositiveRange: AInputNumberRange,
   integerRange: AInputNumberRange,
+  json: AJson,
   multiselect: ASelect,
   natural: AInput,
   number: AInputNumber,

@@ -76,8 +76,8 @@ const ROUTES = [
   },
   {
     path: "/json",
-    name: "PageAJson",
-    component: () => import(/* webpackChunkName: "PageAJson" */ "../views/Form/PageAJson/PageAJson.vue"),
+    name: "PageJson",
+    component: () => import(/* webpackChunkName: "PageJson" */ "../views/Form/PageJson/PageJson.vue"),
   },
   {
     path: "/accordion",

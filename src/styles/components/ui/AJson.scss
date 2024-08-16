@@ -1,0 +1,11 @@
+.a_json__textarea {
+  resize: vertical;
+}
+
+.a_json__code,
+.a_json__textarea {
+  white-space: pre;
+  font-family: monospace;
+  overflow: auto;
+}
+

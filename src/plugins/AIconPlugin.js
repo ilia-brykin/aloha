@@ -14,7 +14,9 @@ import AngleRight from "../AIcon/Icons/AngleRight";
 import AngleUp from "../AIcon/Icons/AngleUp";
 import ArrowDownUp from "../AIcon/Icons/bootstrap-1-9-1/ArrowDownUp";
 import ArrowLeft from "../AIcon/Icons/bootstrap-1-9-1/ArrowLeft";
+import ArrowRepeat from "../AIcon/Icons/bootstrap-1-9-1/ArrowRepeat";
 import ArrowRight from "../AIcon/Icons/bootstrap-1-9-1/ArrowRight";
+import Braces from "../AIcon/Icons/bootstrap-1-9-1/Braces";
 import CaretDownFill from "../AIcon/Icons/bootstrap-1-9-1/CaretDownFill";
 import CaretRightFill from "../AIcon/Icons/bootstrap-1-9-1/CaretRightFill";
 import CaretUpFill from "../AIcon/Icons/bootstrap-1-9-1/CaretUpFill";
@@ -67,7 +69,9 @@ export const iconPluginOptions = ref({
     AngleUp,
     ArrowDownUp,
     ArrowLeft,
+    ArrowRepeat,
     ArrowRight,
+    Braces,
     CaretDownFill,
     CaretRightFill,
     CaretUpFill,

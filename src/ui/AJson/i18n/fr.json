@@ -1,0 +1,8 @@
+{
+  "_A_JSON_CURRENT_VALUE_": "Valeur actuelle",
+  "_A_JSON_DISCARD_ALL_CHANGES_": "Annuler toutes les modifications",
+  "_A_JSON_ERROR_HTML_{{error}}_": "L'entrée ne peut pas être convertie en objet JSON. Veuillez vérifier votre entrée:<br>{{ error }}",
+  "_A_JSON_FORMAT_INPUT_": "Formater l'entrée",
+  "_A_JSON_INPUT_": "Entrée",
+  "_A_JSON_RESET_INPUT_": "Réinitialiser l'entrée à la valeur actuelle"
+}

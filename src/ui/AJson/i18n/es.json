@@ -1,0 +1,8 @@
+{
+  "_A_JSON_CURRENT_VALUE_": "Valor actual",
+  "_A_JSON_DISCARD_ALL_CHANGES_": "Descartar todos los cambios",
+  "_A_JSON_ERROR_HTML_{{error}}_": "No se puede convertir la entrada en un objeto JSON. Por favor, revise su entrada:<br>{{ error }}",
+  "_A_JSON_FORMAT_INPUT_": "Formatear entrada",
+  "_A_JSON_INPUT_": "Entrada",
+  "_A_JSON_RESET_INPUT_": "Restablecer entrada al valor actual"
+}

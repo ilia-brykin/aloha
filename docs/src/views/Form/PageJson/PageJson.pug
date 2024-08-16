@@ -1,0 +1,27 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_JSON_COMPONENT_DESCRIPTION_"
+    )
+
+    page-json-basic
+
+    //aloha-table-props(
+    //  :data="dataProps"
+    //)
+    //
+    //aloha-table-props(
+    //  table-label="Slots"
+    //  :data="dataSlots"
+    //  :columns="['name', 'description']"
+    //)
+    //
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
