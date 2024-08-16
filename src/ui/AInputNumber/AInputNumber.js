@@ -372,7 +372,7 @@ export default {
               }, [
                 h(AFormElementBtnClear, {
                   alwaysTranslate: this.alwaysTranslate,
-                  disabled: this.disabledClearButton,
+                  disabled: this.disabled,
                   class: this.clearButtonClass,
                   onClear: this.clearModel,
                 }),
