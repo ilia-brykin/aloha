@@ -3,12 +3,10 @@ import {
   h,
   resolveComponent,
   toRef,
-  withDirectives,
 } from "vue";
 
+import AElement from "../../../AElement/AElement";
 import ATranslation from "../../../ATranslation/ATranslation";
-
-import ASafeHtml from "../../../directives/ASafeHtml";
 
 import AKeysCode from "../../../const/AKeysCode";
 import {
@@ -132,15 +130,6 @@ export default {
       }
     };
 
-    const labelHtml = computed(() => {
-      return currentLabel.value && h("strong", null, [
-        withDirectives(h("span"), [
-          [ASafeHtml, currentLabel.value],
-        ]),
-        h("span", null, ":"),
-      ]);
-    });
-
     const onKeydown = $event => {
       if ($event.keyCode === AKeysCode.enter ||
         $event.keyCode === AKeysCode.space) {
@@ -158,7 +147,6 @@ export default {
       isErrorLinkLocal,
       isErrorObject,
       isErrorString,
-      labelHtml,
       onKeydown,
     };
   },
@@ -168,20 +156,25 @@ export default {
     }, [
       this.isErrorString ?
         this.isErrorLinkLocal ?
-          h("a", {
+          h(AElement, {
+            type: "link",
             class: "a_errors__label a_btn a_btn_link a_p_0",
             tabindex: 0,
             "aria-describedby": this.id,
+            safeHtml: this.currentLabel,
+            textTag: "strong",
+            textAfter: ":",
             onClick: this.goToErrorLocal,
             onKeydown: this.onKeydown,
-          }, [
-            this.labelHtml,
-          ]) :
+          }) :
           h("div", {
             class: "a_errors__label",
             "aria-describedby": this.id,
           }, [
-            this.labelHtml,
+            h(ATranslation, {
+              tag: "strong",
+              safeHtml: this.currentLabel,
+            }),
           ]) : "",
       h(
         "div", 
