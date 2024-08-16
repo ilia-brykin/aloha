@@ -32,6 +32,7 @@
     width: var(--a_input_number_width);
     max-width: var(--a_input_number_max_width);
     min-width: var(--a_input_number_min_width);
+    z-index: 1;
   }
 
   .a_form_element_number__currency_symbol {
