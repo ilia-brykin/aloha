@@ -14,6 +14,7 @@ export default function ModelAPI(props, {
   const required = toRef(props, "required");
   const modelValue = toRef(props, "modelValue");
   const modelType = toRef(props, "modelType");
+  const modelUndefined = toRef(props, "modelUndefined");
   const decimalDivider = toRef(props, "decimalDivider");
   const disabled = toRef(props, "disabled");
   const symbolsAfterDecimalDivider = toRef(props, "symbolsAfterDecimalDivider");
@@ -33,26 +34,27 @@ export default function ModelAPI(props, {
     changeModel({ model: newVal });
   };
 
-  const modelUndefined = computed(() => {
+  const modelUndefinedLocal = computed(() => {
     return required.value
       ? [
         "0",
         decimalDivider.value,
         times(symbolsAfterDecimalDivider.value, () => "0").join(""),
       ].join("")
-      : "";
+      : modelUndefined.value;
   });
   const clearModel = () => {
     if (disabled.value) {
       return;
     }
-    setCurrentValue(modelUndefined.value);
+    setCurrentValue(modelUndefinedLocal.value);
   };
 
   return {
     clearModel,
     displayValue,
     modelNumber,
+    modelUndefinedLocal,
     setCurrentValue,
   };
 }

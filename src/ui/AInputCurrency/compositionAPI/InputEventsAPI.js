@@ -19,6 +19,7 @@ export default function InputEventsAPI(props, {
   increase = () => {},
   inputRef = ref({}),
   modelNumber = computed(() => undefined),
+  modelUndefinedLocal = computed(() => undefined),
   onBlur = () => {},
   setCurrentValue = () => {},
   displayValue = ref(undefined),
@@ -84,6 +85,11 @@ export default function InputEventsAPI(props, {
   };
 
   const handleInput = ($event, _value) => {
+    if (!required.value && isNil(_value) && !$event?.target?.value) {
+      setValueLocal(_value);
+
+      return;
+    }
     const value = isNil(_value) ? $event.target.value : _value;
     const decimalDividerIndex = value.indexOf(decimalDivider.value);
     const hasDecimalDivider = decimalDividerIndex !== -1;
@@ -100,11 +106,7 @@ export default function InputEventsAPI(props, {
       : intVal;
     let newVal;
     if (!isInteger.value) {
-      if (value) {
-        const floatValLocal = floatVal || "";
-        const zerosToAdd = times(symbolsAfterDecimalDivider.value - floatValLocal.length, () => "0").join("");
-        newVal = `${ setMinusSymbol }${ valWithDivider }${ decimalDivider.value }${ floatValLocal }${ zerosToAdd }`;
-      } else if (floatVal) {
+      if (floatVal) {
         newVal = `${ setMinusSymbol }${ valWithDivider }${ decimalDivider.value }${ floatVal }`;
       } else if (hasDecimalDivider) {
         newVal = `${ setMinusSymbol }${ valWithDivider }${ decimalDivider.value }`;
@@ -201,12 +203,14 @@ export default function InputEventsAPI(props, {
           setValueLocal(intVal);
         });
       }
+
+      return;
     }
     const numberOfSymbols = value.length;
     setTimeout(() => {
       let positionToSet = cursorPosition ? cursorPosition - 1 : cursorPosition;
       const numberOfSymbolsAfterEvent = inputRef.value.value.length;
-      if (numberOfSymbolsAfterEvent < numberOfSymbols - 1) {
+      if (numberOfSymbolsAfterEvent < numberOfSymbols - 1 && positionToSet > 0) {
         positionToSet--;
       }
       setCursorPosition(positionToSet);
@@ -270,6 +274,7 @@ export default function InputEventsAPI(props, {
     const keyIsDecimalDivider = keyValue === decimalDivider.value && !!symbolsAfterDecimalDivider.value;
     const hasDecimalDivider = $event.target.value.indexOf(decimalDivider.value) !== -1;
     const cursorPosition = inputRef.value.selectionStart;
+    const isLastPosition = cursorPosition === value.length;
     const valueProps = {
       value,
       keyCode,
@@ -316,7 +321,7 @@ export default function InputEventsAPI(props, {
       return;
     }
     if (keyIsDecimalDivider) {
-      if (hasDecimalDivider) {
+      if (hasDecimalDivider || !isLastPosition) {
         $event.preventDefault();
 
         return;
@@ -348,7 +353,6 @@ export default function InputEventsAPI(props, {
           const floatVal = splitVal[1];
 
           if (floatVal.length === symbolsAfterDecimalDivider.value) {
-            const isLastPosition = cursorPosition === value.length;
             if (isLastPosition) {
               $event.preventDefault();
 
@@ -435,7 +439,7 @@ export default function InputEventsAPI(props, {
 
         return;
       }
-      const value = "";
+      const value = modelUndefinedLocal.value;
       setValueLocal(value);
       onBlur($event);
 
@@ -477,7 +481,7 @@ export default function InputEventsAPI(props, {
 
   const initFirstCheck = () => {
     setTimeout(() => {
-      let valueToSet = "0";
+      let valueToSet = required.value ? "0" : modelUndefinedLocal.value;
       if (modelValue.value) {
         valueToSet = modelValue.value.toString().replace(".", decimalDivider.value);
       }

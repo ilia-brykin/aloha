@@ -44,7 +44,7 @@ export default {
     controlsType: {
       type: String,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.controlsType,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.controlsType,
       validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
@@ -62,7 +62,7 @@ export default {
     decimalDivider: {
       type: String,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.decimalDivider,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.decimalDivider,
       validator: value => [".", ","].indexOf(value) !== -1,
     },
     excludeRenderAttributes: {
@@ -73,27 +73,27 @@ export default {
     iconPrepend: {
       type: String,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.iconPrepend,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.iconPrepend,
     },
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.inputWidth,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.inputWidth,
     },
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.isLabelFloat,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.isLabelFloat,
     },
     max: {
       type: Number,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.max,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.max,
     },
     min: {
       type: Number,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.min,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.min,
     },
     modelType: {
       type: String,
@@ -103,17 +103,17 @@ export default {
     },
     modelUndefined: {
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.modelUndefined,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.modelUndefined,
     },
     placeholder: {
       type: [String, Number],
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.placeholder,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.placeholder,
     },
     readonly: {
       type: Boolean,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.readonly,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.readonly,
     },
     required: {
       type: Boolean,
@@ -123,17 +123,17 @@ export default {
     symbolsAfterDecimalDivider: {
       type: Number,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.symbolsAfterDecimalDivider,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.symbolsAfterDecimalDivider,
     },
     step: {
       type: Number,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.step,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.step,
     },
     thousandDivider: {
       type: String,
       required: false,
-      default: inputCurrencyPluginOptions.value.propsDefault.thousandDivider,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.thousandDivider,
       validator: value => [".", ",", ""].indexOf(value) !== -1,
     },
     type: {
@@ -199,6 +199,7 @@ export default {
       clearModel,
       displayValue,
       modelNumber,
+      modelUndefinedLocal,
       setCurrentValue,
     } = ModelAPI(props, {
       changeModel,
@@ -231,6 +232,7 @@ export default {
       increase,
       inputRef,
       modelNumber,
+      modelUndefinedLocal,
       onBlur,
       setCurrentValue,
     });
@@ -351,7 +353,7 @@ export default {
               }, [
                 h(AFormElementBtnClear, {
                   alwaysTranslate: this.alwaysTranslate,
-                  disabled: this.disabledClearButton,
+                  disabled: false,
                   class: this.clearButtonClass,
                   onClear: this.clearModel,
                 }),

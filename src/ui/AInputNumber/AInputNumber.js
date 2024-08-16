@@ -50,14 +50,14 @@ export default {
     controlsType: {
       type: String,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.controlsType,
+      default: () => inputNumberPluginOptions.value.propsDefault.controlsType,
       validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
     eAllowed: {
       type: Boolean,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.eAllowed,
+      default: () => inputNumberPluginOptions.value.propsDefault.eAllowed,
     },
     excludeRenderAttributes: {
       type: Array,
@@ -67,17 +67,17 @@ export default {
     iconPrepend: {
       type: String,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.iconPrepend,
+      default: () => inputNumberPluginOptions.value.propsDefault.iconPrepend,
     },
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.inputWidth,
+      default: () => inputNumberPluginOptions.value.propsDefault.inputWidth,
     },
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.isLabelFloat,
+      default: () => inputNumberPluginOptions.value.propsDefault.isLabelFloat,
     },
     labelScreenReader: {
       type: String,
@@ -87,46 +87,46 @@ export default {
     max: {
       type: Number,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.max,
+      default: () => inputNumberPluginOptions.value.propsDefault.max,
     },
     min: {
       type: Number,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.min,
+      default: () => inputNumberPluginOptions.value.propsDefault.min,
     },
     modelUndefined: {
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.modelUndefined,
+      default: () => inputNumberPluginOptions.value.propsDefault.modelUndefined,
     },
     placeholder: {
       type: [String, Number],
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.placeholder,
+      default: () => inputNumberPluginOptions.value.propsDefault.placeholder,
     },
     precision: {
       type: Number,
       validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
-      default: inputNumberPluginOptions.value.propsDefault.placeholder,
+      default: () => inputNumberPluginOptions.value.propsDefault.placeholder,
     },
     readonly: {
       type: Boolean,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.readonly,
+      default: () => inputNumberPluginOptions.value.propsDefault.readonly,
     },
     step: {
       type: Number,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.step,
+      default: () => inputNumberPluginOptions.value.propsDefault.step,
     },
     stepStrictly: {
       type: Boolean,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.stepStrictly,
+      default: () => inputNumberPluginOptions.value.propsDefault.stepStrictly,
     },
     type: {
       type: String,
       required: false,
-      default: inputNumberPluginOptions.value.propsDefault.type,
+      default: () => inputNumberPluginOptions.value.propsDefault.type,
       validator: value => ["number", "integerNonNegative", "integerPositive", "integer"].indexOf(value) !== -1,
       // TODO: "float", "floatPositiv", "floatNonNegative"
     },
