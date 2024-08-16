@@ -5757,6 +5757,15 @@ h6 {
   display: flex;
   flex-wrap: wrap; }
 
+.a_json__textarea {
+  resize: vertical; }
+
+.a_json__code,
+.a_json__textarea {
+  white-space: pre;
+  font-family: monospace;
+  overflow: auto; }
+
 input:-webkit-autofill {
   animation-name: onAutoFillStart;
   transition: background-color 50000s ease-in-out 0s; }
