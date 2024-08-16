@@ -8531,6 +8531,20 @@ input:not(:-webkit-autofill) {
 .a_table__row_level_open .a_table__row_level__icon {
   transform: rotate(90deg); }
 
+.a_modal_footer_sticky {
+  position: sticky;
+  bottom: 0;
+  margin-left: calc(-1*var(--a_modal_padding));
+  margin-right: calc(-1*var(--a_modal_padding));
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px); }
+
+.a_modal_content_with_footer_sticky .a_modal_body {
+  padding-bottom: 0; }
+
+.a_modal_content_with_footer_sticky .a_modal_body__content {
+  padding-bottom: var(--a_modal_padding); }
+
 .a_dropdown__caret {
   margin: 0; }
 
