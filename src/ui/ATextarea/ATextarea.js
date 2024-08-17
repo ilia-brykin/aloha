@@ -1,10 +1,7 @@
 import {
-  computed,
   h,
   onBeforeUnmount,
   onMounted,
-  ref,
-  toRef,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -12,49 +9,149 @@ import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormE
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 
-import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
-import UiMixinProps from "../mixins/UiMixinProps";
-
+import AutosizeAPI from "./compositionAPI/AutosizeAPI";
+import ModelAPI from "./compositionAPI/ModelAPI";
 import ResizeClass from "./compositionAPI/ResizeClass";
+import RowsAPI from "./compositionAPI/RowsAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import autosize from "../../utils/autosize";
+import {
+  uniqueId,
+} from "lodash-es";
 
 export default {
   name: "ATextarea",
-  mixins: [
-    UiClearButtonMixinProps,
-    UiMixinProps,
-  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    clearButtonClass: {
+      type: [String, Object],
+      required: false,
+    },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
     },
     excludeRenderAttributes: {
       type: Array,
       required: false,
       default: () => [],
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    helpText: {
+      type: String,
+      required: false,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_textarea_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    isClearButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isScalable: {
       type: Boolean,
       required: false,
     },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     labelScreenReader: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: undefined,
     },
     maxlength: {
       type: [String, Number],
       required: false,
+      default: undefined,
+    },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     modelUndefined: {
+      type: [String, Number, Object, Array, Boolean],
       required: false,
       default: "",
+    },
+    modelValue: {
+      type: [String, Number],
+      required: false,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     resize: {
       type: String,
@@ -67,6 +164,11 @@ export default {
       required: false,
     },
   },
+  emits: [
+    "update:modelValue",
+    "focus",
+    "blur",
+  ],
   setup(props, context) {
     const {
       attributesToExcludeFromRender,
@@ -98,57 +200,24 @@ export default {
       resizeClass,
     } = ResizeClass(props);
 
-    const isAutosizeStarted = ref(undefined);
+    const {
+      destroyAutosize,
+      initAutosize,
+      textareaRef,
+      updateAutosize,
+    } = AutosizeAPI(props);
 
-    const rows = toRef(props, "rows");
-    const isScalable = toRef(props, "isScalable");
-    const rowsLocal = computed(() => {
-      if (rows.value) {
-        return rows.value;
-      }
-      if (isScalable.value) {
-        return 1;
-      }
-      return undefined;
+    const {
+      clearModel,
+      onInput,
+    } = ModelAPI(props, {
+      changeModel,
+      updateAutosize,
     });
 
-    const textareaRef = ref(undefined);
-    const initAutosize = () => {
-      if (isScalable.value) {
-        autosize(textareaRef.value);
-        isAutosizeStarted.value = true;
-      }
-    };
-
-    const destroyAutosize = () => {
-      if (isAutosizeStarted.value) {
-        autosize.destroy(textareaRef.value);
-      }
-    };
-
-    const disabled = toRef(props, "disabled");
-    const onInput = $event => {
-      if (disabled.value) {
-        return;
-      }
-      const value = $event.target.value;
-      changeModel({
-        model: value,
-      });
-    };
-
-    const modelUndefined = toRef(props, "modelUndefined");
-    const clearModel = () => {
-      if (disabled.value) {
-        return;
-      }
-      changeModel({
-        model: modelUndefined.value,
-      });
-      setTimeout(() => {
-        autosize.update(textareaRef.value);
-      });
-    };
+    const {
+      rowsLocal,
+    } = RowsAPI(props);
 
     onMounted(() => {
       initAutosize();
@@ -167,7 +236,6 @@ export default {
       errorsId,
       helpTextId,
       htmlIdLocal,
-      isAutosizeStarted,
       isClearButtonLocal,
       isErrors,
       isModel,
@@ -186,6 +254,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
@@ -197,12 +266,13 @@ export default {
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
           alwaysTranslate: this.alwaysTranslate,
+          extra: this.extra,
+          isError: this.isErrors,
+          isLabelFloat: this.isLabelFloat,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
           required: this.required,
-          isLabelFloat: this.isLabelFloat,
-          isError: this.isErrors,
         }),
         h("div", {
           class: "a_form_element a_form_element_textarea",

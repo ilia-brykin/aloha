@@ -9,11 +9,6 @@ export default {
       required: false,
       default: () => {},
     },
-    classColumn: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     dependencies: {
       type: [Array, Object],
       required: false,
