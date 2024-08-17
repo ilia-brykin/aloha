@@ -9,7 +9,7 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageLinkCopyClass",
+  name: "PageJsonBasic",
   components: {
     AJson,
     AlohaExample,

@@ -6,7 +6,7 @@ export default function JsAPI() {
 import AJson from "aloha-vue/src/ui/AJson/AJson";
     
 export default {
-  name: "PageLinkCopyClass",
+  name: "PageJsonBasic",
   components: {
     AJson,
   },

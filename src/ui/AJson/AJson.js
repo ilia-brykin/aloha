@@ -33,15 +33,6 @@ export default {
       required: false,
       default: () => {},
     },
-    classColumn: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    clearButtonClass: {
-      type: [String, Object],
-      required: false,
-    },
     dependencies: {
       type: [Array, Object],
       required: false,
@@ -55,11 +46,6 @@ export default {
       type: [String, Array],
       required: false,
       default: undefined,
-    },
-    errorsAll: {
-      type: Object,
-      required: false,
-      default: () => ({}),
     },
     excludeRenderAttributes: {
       type: Array,
@@ -101,7 +87,9 @@ export default {
       default: () => ({}),
     },
     inputClass: {
+      type: [String, Object],
       required: false,
+      default: undefined,
     },
     isHide: {
       type: Boolean,
@@ -118,11 +106,12 @@ export default {
       default: undefined,
     },
     labelClass: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
     labelScreenReader: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: undefined,
     },
@@ -132,28 +121,26 @@ export default {
       default: () => ({}),
     },
     modelUndefined: {
+      type: [String, Number, Object, Array, Boolean],
       required: false,
       default: undefined,
     },
     modelValue: {
       type: [String, Number, Object, Array, Boolean],
       required: false,
-    },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
+      default: undefined,
     },
     required: {
       type: Boolean,
       required: false,
-      default: false,
-    },
-    type: {
-      type: String,
-      required: false,
+      default: undefined,
     },
   },
+  emits: [
+    "blur",
+    "focus",
+    "update:modelValue",
+  ],
   setup(props, context) {
     const {
       attributesToExcludeFromRender,
@@ -231,6 +218,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
@@ -241,12 +229,13 @@ export default {
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
           alwaysTranslate: this.alwaysTranslate,
+          extra: this.extra,
+          isError: this.isErrors,
+          isLabelFloat: false,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
           required: this.required,
-          isLabelFloat: false,
-          isError: this.isErrors,
         }),
         h("div", {
           class: "a_columns a_columns_count_12",
@@ -259,11 +248,12 @@ export default {
             }, [
               h(ALabel, {
                 id: this.htmlIdLocal,
-                idSuffix: "_input",
                 alwaysTranslate: this.alwaysTranslate,
-                label: "_A_JSON_INPUT_",
-                isLabelFloat: false,
+                extra: this.extra,
+                idSuffix: "_input",
                 isError: this.isErrors,
+                isLabelFloat: false,
+                label: "_A_JSON_INPUT_",
               }),
               h("div", {
                 class: "a_btn_group",

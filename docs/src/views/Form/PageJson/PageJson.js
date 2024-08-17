@@ -3,10 +3,11 @@ import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTab
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageJsonBasic from "./PageJsonBasic/PageJsonBasic.vue";
+import PageJsonChange from "./PageJsonChange/PageJsonChange.vue";
 
+import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import SlotsAPI from "./compositionAPI/SlotsAPI";
 import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
@@ -17,6 +18,7 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageJsonBasic,
+    PageJsonChange,
   },
   setup() {
     const {
@@ -28,16 +30,16 @@ export default {
     } = PropsAPI();
 
     const {
-      dataSlots,
-    } = SlotsAPI();
-
-    const {
       dataTranslate,
     } = TranslateAPI();
 
+    const {
+      dataEvents,
+    } = EventsAPI();
+
     return {
+      dataEvents,
       dataProps,
-      dataSlots,
       dataTranslate,
       pageTitle,
     };

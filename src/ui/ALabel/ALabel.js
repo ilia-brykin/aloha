@@ -27,6 +27,11 @@ export default {
       required: false,
       default: () => [],
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     hideFor: {
       type: Boolean,
       required: false,
@@ -61,10 +66,12 @@ export default {
       default: undefined,
     },
     labelClass: {
+      type: [String, Object],
       required: false,
+      default: undefined,
     },
     labelScreenReader: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: undefined,
     },
@@ -154,6 +161,7 @@ export default {
           a_form_element_label_error: this.isError,
         },
       ],
+      extra: this.extra,
       for: this.forLabelLocal,
       html: this.labelLocal,
       loading: this.loading,

@@ -1,6 +1,7 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-json
-  v-model="model"
+  :change="changeModel"
+  :model-value="model"
   label="JSON"
 ></a-json>
 <div>model:</div>

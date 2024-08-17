@@ -1,1 +1,7 @@
-{}
+{
+  "_A_JSON_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AJson</strong> je Vue.js komponenta dizajnirana za prikaz i uređivanje <strong lang=\"en\">JSON</strong> podataka. Uključuje tekstualno polje za unos <strong lang=\"en\">JSON</strong>, gumbe za formatiranje, resetiranje i odbacivanje promjena te područje za prikaz trenutne vrijednosti <strong lang=\"en\">JSON</strong>.",
+  "_A_JSON_COMPONENT_NAME_": "Uređivač <span lang=\"en\">JSON</span>",
+  "_A_JSON_GROUP_CHANGE_DESCRIPTION_": "U ovom primjeru, funkcija <strong lang=\"en\">change</strong> odgovorna je za ažuriranje modela komponente. Funkcija prihvaća tri argumenta: model <strong lang=\"en\">model</strong>, identifikator komponente <strong lang=\"en\">id</strong> i sve proslijeđene <strong lang=\"en\">props</strong>. Ovaj pristup omogućuje fleksibilno rukovanje promjenama modela i izvršavanje dodatnih radnji, kao što su zapisivanje u logove ili validacija.",
+  "_A_JSON_GROUP_CHANGE_HEADER_": "Funkcija za promjenu modela",
+  "_A_JSON_PROPS_HEIGHT_CSS_DESCRIPTION_": "Postavlja visinu komponente putem <span lang=\"en\">CSS</span>. Prihvaća niz s vrijednošću visine, npr. <strong lang=\"en\">400px;</strong>."
+}

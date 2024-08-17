@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "Uso básico",
+  "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Un objeto que contiene variables para la sustitución en la plantilla de traducción. Se utiliza para reemplazar dinámicamente valores en las cadenas de traducción. Por ejemplo, si la cadena de traducción tiene marcadores de posición como <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, que se traduce como <strong>\"Bienvenido <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, puede pasar un objeto como <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, y el resultado será la traducción <strong>\"Bienvenido abc: 123\"</strong>.",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determina si las traducciones para este componente se pueden desactivar. Si se establece en true, las traducciones no se pueden desactivar y en su lugar no se mostrarán los marcadores de posición.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Por defecto",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Descripción",

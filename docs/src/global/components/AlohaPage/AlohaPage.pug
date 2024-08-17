@@ -3,7 +3,9 @@
     v-if="pageTitle"
     :title="pageTitle"
   )
-  h1 {{ pageTitle }}
+  h1(
+    v-html="pageTitle"
+  )
 
   slot(
     name="body"

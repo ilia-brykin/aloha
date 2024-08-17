@@ -11,16 +11,18 @@ aloha-page(
 
     page-json-basic
 
-    //aloha-table-props(
-    //  :data="dataProps"
-    //)
-    //
-    //aloha-table-props(
-    //  table-label="Slots"
-    //  :data="dataSlots"
-    //  :columns="['name', 'description']"
-    //)
-    //
+    page-json-change
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
     aloha-table-translate(
       :data="dataTranslate"
     )

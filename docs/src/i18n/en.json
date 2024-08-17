@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "Basic usage",
+  "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "An object that contains variables for substitution in the translation template. It is used for dynamically replacing values in translation strings. For example, if the translation string has placeholders like <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, which is translated as <strong>\"Welcome <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, you can pass an object like <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, and the result will be the translation <strong>\"Welcome abc: 123\"</strong>.",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determines whether translations for this component can be disabled. If set to true, translations cannot be turned off, and placeholders will not be shown instead.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Default",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Description",

@@ -7,9 +7,17 @@ import {
 import UiErrorsAPI from "./UiErrorsAPI";
 
 export default function UiAPI(props, { emit }) {
+  const change = toRef(props, "change");
+  const disabled = toRef(props, "disabled");
+  const helpText = toRef(props, "helpText");
+  const htmlId = toRef(props, "htmlId");
   const id = toRef(props, "id");
   const idPrefix = toRef(props, "idPrefix");
-  const htmlId = toRef(props, "htmlId");
+  const modelUndefined = toRef(props, "modelUndefined");
+  const modelValue = toRef(props, "modelValue");
+
+  const isFocus = ref(false);
+
   const htmlIdLocal = computed(() => {
     return getHtmlId({
       id: id.value,
@@ -25,24 +33,21 @@ export default function UiAPI(props, { emit }) {
     htmlIdLocal,
   });
 
-  const change = toRef(props, "change");
   const changeModel = ({ model, currentModel, item }) => {
     emit("update:modelValue", model);
     change.value({
+      currentModel,
+      id: id.value,
+      item,
       model,
       props,
-      currentModel,
-      item,
     });
   };
 
-  const modelValue = toRef(props, "modelValue");
   const isModel = computed(() => {
     return !!(modelValue.value || modelValue.value === 0);
   });
 
-  const disabled = toRef(props, "disabled");
-  const modelUndefined = toRef(props, "modelUndefined");
   const clearModel = () => {
     if (disabled.value) {
       return;
@@ -56,7 +61,6 @@ export default function UiAPI(props, { emit }) {
     return `${ htmlIdLocal.value }_help_text`;
   });
 
-  const helpText = toRef(props, "helpText");
   const ariaDescribedbyLocal = computed(() => {
     let ariaDescribedby = "";
     if (helpText.value) {
@@ -71,7 +75,6 @@ export default function UiAPI(props, { emit }) {
     return ariaDescribedby || undefined;
   });
 
-  const isFocus = ref(false);
   const onFocus = $event => {
     isFocus.value = true;
     emit("focus", {
@@ -79,6 +82,7 @@ export default function UiAPI(props, { emit }) {
       props,
     });
   };
+
   const onBlur = $event => {
     isFocus.value = false;
     emit("blur", {

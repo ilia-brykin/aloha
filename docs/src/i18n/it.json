@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "Utilizzo di base",
+  "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Un oggetto che contiene variabili per la sostituzione nel modello di traduzione. Viene utilizzato per sostituire dinamicamente i valori nelle stringhe di traduzione. Ad esempio, se la stringa di traduzione ha segnaposti come <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, che viene tradotto come <strong>\"Benvenuto <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, puoi passare un oggetto come <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, e il risultato sarà la traduzione <strong>\"Benvenuto abc: 123\"</strong>.",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determina se le traduzioni per questo componente possono essere disattivate. Se impostato su true, le traduzioni non possono essere disattivate e i segnaposto non verranno visualizzati.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Predefinito",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Descrizione",

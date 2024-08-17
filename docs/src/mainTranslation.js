@@ -70,6 +70,7 @@ import PageTableTreeI18n from "./views/PageTable/PageTableTree/i18n/PageTableTre
 import PageInputCurrencyI18n from "./views/Form/PageInputCurrency/i18n/PageInputCurrencyI18n";
 import PageFilterMaskI18n from "./views/Functions/Filters/PageFilterMask/i18n/PageFilterMaskI18n";
 import PageJsonI18n from "./views/Form/PageJson/i18n/PageJsonI18n";
+import FormI18n from "./views/Form/i18n/FormI18n";
 
 export const mainTranslation = {
   ar: {
@@ -136,6 +137,7 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.ar,
     ...PageFilterMaskI18n.ar,
     ...PageJsonI18n.ar,
+    ...FormI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -201,6 +203,7 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.de,
     ...PageFilterMaskI18n.de,
     ...PageJsonI18n.de,
+    ...FormI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -266,6 +269,7 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.en,
     ...PageFilterMaskI18n.en,
     ...PageJsonI18n.en,
+    ...FormI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -331,6 +335,7 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.es,
     ...PageFilterMaskI18n.es,
     ...PageJsonI18n.es,
+    ...FormI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -396,6 +401,7 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.fr,
     ...PageFilterMaskI18n.fr,
     ...PageJsonI18n.fr,
+    ...FormI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -461,6 +467,7 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.hr,
     ...PageFilterMaskI18n.hr,
     ...PageJsonI18n.hr,
+    ...FormI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -526,6 +533,7 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.it,
     ...PageFilterMaskI18n.it,
     ...PageJsonI18n.it,
+    ...FormI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -591,5 +599,6 @@ export const mainTranslation = {
     ...PageInputCurrencyI18n.ru,
     ...PageFilterMaskI18n.ru,
     ...PageJsonI18n.ru,
+    ...FormI18n.ru,
   },
 };

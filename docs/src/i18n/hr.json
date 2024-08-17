@@ -1,5 +1,6 @@
 {
   "_A_BASIC_USAGE_": "Osnovna uporaba",
+  "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Objekt koji sadrži varijable za zamjenu u predlošku prijevoda. Koristi se za dinamičku zamjenu vrijednosti u prijevodnim nizovima. Na primjer, ako prijevodni niz ima rezervirane prostore poput <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, što je prevedeno kao <strong>\"Dobrodošli <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, možete proslijediti objekt poput <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, a rezultat će biti prijevod <strong>\"Dobrodošli abc: 123\"</strong>.",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Određuje može li se onemogućiti prijevod za ovu komponentu. Ako je postavljeno na true, prijevodi se ne mogu isključiti i umjesto toga neće se prikazivati rezervirana mjesta.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Zadana vrijednost",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Opis",

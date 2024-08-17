@@ -228,7 +228,7 @@ export default {
                   modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
                   modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
                   errors: this.errorsAll[item.id],
-                  errorsAll: this.errorsAll,
+                  errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
                   idPrefix: this.idPrefix,
                   "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
                   onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
