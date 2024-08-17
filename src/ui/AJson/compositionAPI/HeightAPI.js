@@ -14,7 +14,16 @@ export default function HeightAPI(props) {
     return undefined;
   });
 
+  const styleMaxHeight = computed(() => {
+    if (heightCss.value) {
+      return `max-height: ${ heightCss.value }`;
+    }
+
+    return undefined;
+  });
+
   return {
     styleHeight,
+    styleMaxHeight,
   };
 }

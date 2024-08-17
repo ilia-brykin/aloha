@@ -177,6 +177,7 @@ export default {
 
     const {
       styleHeight,
+      styleMaxHeight,
     } = HeightAPI(props);
 
     const {
@@ -220,6 +221,7 @@ export default {
       parseError,
       resetModel,
       styleHeight,
+      styleMaxHeight,
     };
   },
   render() {
@@ -255,9 +257,13 @@ export default {
             h("div", {
               class: "a_d_flex a_justify_content_between",
             }, [
-              h(ATranslation, {
-                tag: "span",
-                text: "_A_JSON_INPUT_",
+              h(ALabel, {
+                id: this.htmlIdLocal,
+                idSuffix: "_input",
+                alwaysTranslate: this.alwaysTranslate,
+                label: "_A_JSON_INPUT_",
+                isLabelFloat: false,
+                isError: this.isErrors,
               }),
               h("div", {
                 class: "a_btn_group",
@@ -345,7 +351,7 @@ export default {
             }),
             withDirectives(h("div", {
               class: "a_json__code",
-              style: this.styleHeight,
+              style: this.styleMaxHeight,
             }), [
               [ASafeHtml, this.jsonString],
             ]),
