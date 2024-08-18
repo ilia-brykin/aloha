@@ -37,6 +37,7 @@ export default {
     clearButtonClass: {
       type: [String, Object],
       required: false,
+      default: undefined,
     },
     dependencies: {
       type: [Array, Object],
@@ -162,6 +163,7 @@ export default {
     rows: {
       type: [String, Number],
       required: false,
+      default: undefined,
     },
   },
   emits: [
@@ -275,7 +277,12 @@ export default {
           required: this.required,
         }),
         h("div", {
-          class: "a_form_element a_form_element_textarea",
+          class: [
+            "a_form_element a_form_element_textarea",
+            {
+              a_form_element_textarea_scalable: this.isScalable,
+            },
+          ],
         }, [
           h("textarea", {
             ref: "textareaRef",

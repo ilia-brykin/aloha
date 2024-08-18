@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">ATextarea</strong> proporciona la funcionalidad de un campo de texto con varias configuraciones como escalabilidad, un botón de borrar y la capacidad de cambiar el tamaño. El componente también admite etiquetas, texto de ayuda y visualización de errores.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Campo de texto multilínea",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "Este ejemplo demuestra un campo de texto cuya altura se ajusta automáticamente al contenido. A medida que se agregan nuevas líneas, el campo de texto se expande, proporcionando un tamaño óptimo para mostrar todo el texto ingresado.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Campo de Texto Escalable",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "Este ejemplo muestra varias opciones para configurar las capacidades de cambio de tamaño del campo de texto. Puede establecer el cambio de tamaño vertical <strong lang=\"en\">(resize='v')</strong>, el cambio de tamaño horizontal <strong lang=\"en\">(resize='h')</strong>, deshabilitar completamente el cambio de tamaño <strong lang=\"en\">(resize='none')</strong> o permitir el cambio de tamaño automático <strong lang=\"en\">(resize='auto')</strong>. Cada opción se demuestra utilizando el campo de texto correspondiente.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Cambio de Tamaño del Campo de Texto",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Determina si la altura del campo de texto debe cambiar según el contenido. Si este parámetro se establece en <strong lang=\"en\">true</strong>, la altura del campo de texto se ajustará automáticamente al agregar o eliminar caracteres.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Define cómo el usuario puede cambiar el tamaño del campo de texto. Opciones disponibles: <strong lang=\"en\">'v'</strong> — cambio de tamaño vertical, <strong lang=\"en\">'h'</strong> — cambio de tamaño horizontal, <strong lang=\"en\">'none'</strong> — el cambio de tamaño está deshabilitado, <strong lang=\"en\">'auto'</strong> — cambio de tamaño automático.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Establece el número de filas para el campo de texto."
+}

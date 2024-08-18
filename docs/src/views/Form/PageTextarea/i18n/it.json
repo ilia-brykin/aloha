@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">ATextarea</strong> fornisce la funzionalità di un campo di testo con varie impostazioni come scalabilità, pulsante di cancellazione e possibilità di ridimensionamento. Il componente supporta anche etichette, testo di aiuto e visualizzazione degli errori.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Campo di testo multilinea",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "Questo esempio mostra un campo di testo la cui altezza si adatta automaticamente al contenuto. Man mano che vengono aggiunte nuove righe, il campo di testo si espande, fornendo una dimensione ottimale per visualizzare tutto il testo inserito.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Campo di Testo Scalabile",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "Questo esempio mostra diverse opzioni per configurare le capacità di ridimensionamento del campo di testo. Puoi impostare il ridimensionamento verticale <strong lang=\"en\">(resize='v')</strong>, il ridimensionamento orizzontale <strong lang=\"en\">(resize='h')</strong>, disabilitare completamente il ridimensionamento <strong lang=\"en\">(resize='none')</strong> o consentire il ridimensionamento automatico <strong lang=\"en\">(resize='auto')</strong>. Ogni opzione viene dimostrata utilizzando il campo di testo corrispondente.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Ridimensionamento del Campo di Testo",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Determina se l'altezza del campo di testo dovrebbe cambiare in base al contenuto. Se questo parametro è impostato su <strong lang=\"en\">true</strong>, l'altezza del campo di testo si adatterà automaticamente all'aggiunta o rimozione di caratteri.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Definisce come l'utente può ridimensionare il campo di testo. Opzioni disponibili: <strong lang=\"en\">'v'</strong> — ridimensionamento verticale, <strong lang=\"en\">'h'</strong> — ridimensionamento orizzontale, <strong lang=\"en\">'none'</strong> — ridimensionamento disabilitato, <strong lang=\"en\">'auto'</strong> — ridimensionamento automatico.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Imposta il numero di righe per il campo di testo."
+}

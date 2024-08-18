@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">ATextarea</strong> component provides the functionality of a text field with various settings such as scalability, a clear button, and the ability to resize. The component also supports labels, help text, and error display.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Multiline text field",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "This example demonstrates a text field whose height automatically adjusts to the content. As new lines are added, the text field expands, providing an optimal size to display all entered text.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Scalable text field",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "This example shows various options for configuring the resizing capabilities of the text field. You can set vertical resizing <strong lang=\"en\">(resize='v')</strong>, horizontal resizing <strong lang=\"en\">(resize='h')</strong>, completely disable resizing <strong lang=\"en\">(resize='none')</strong>, or allow automatic resizing <strong lang=\"en\">(resize='auto')</strong>. Each option is demonstrated using the corresponding text field.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Text field resizing",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Determines whether the height of the text field should change based on the content. If this parameter is set to <strong lang=\"en\">true</strong>, the height of the text field will automatically adjust as characters are added or removed.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Defines how the user can resize the text field. Available options: <strong lang=\"en\">'v'</strong> — vertical resizing, <strong lang=\"en\">'h'</strong> — horizontal resizing, <strong lang=\"en\">'none'</strong> — resizing is disabled, <strong lang=\"en\">'auto'</strong> — resizing is automatic.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Sets the number of rows for the text field."
+}

@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "يوفر مكون <strong lang=\"en\">ATextarea</strong> وظيفة حقل النص مع إعدادات متنوعة مثل القابلية للتوسع وزر المسح وإمكانية تغيير الحجم. يدعم المكون أيضًا العمل مع التسميات، نص المساعدة، وعرض الأخطاء.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "حقل نص متعدد الأسطر",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "يوضح هذا المثال حقل نص يتكيف ارتفاعه تلقائيًا مع المحتوى. عندما تتم إضافة أسطر جديدة، يتوسع حقل النص، مما يوفر حجمًا مثاليًا لعرض جميع النصوص المدخلة.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "حقل نص قابل للتوسع",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "يوضح هذا المثال خيارات متعددة لتكوين قدرات تغيير حجم حقل النص. يمكنك ضبط تغيير الحجم عموديًا <strong lang=\"en\">(resize='v')</strong>، تغيير الحجم أفقيًا <strong lang=\"en\">(resize='h')</strong>، تعطيل تغيير الحجم تمامًا <strong lang=\"en\">(resize='none')</strong>، أو السماح بتغيير الحجم تلقائيًا <strong lang=\"en\">(resize='auto')</strong>. يتم توضيح كل خيار باستخدام حقل النص المناسب.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "تغيير حجم حقل النص",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "يحدد ما إذا كان يجب أن يتغير ارتفاع حقل النص بناءً على المحتوى. إذا تم تعيين هذه المعلمة إلى <strong lang=\"en\">true</strong>، فسيتم تعديل ارتفاع حقل النص تلقائيًا عند إضافة أو إزالة الأحرف.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "يحدد كيفية تغيير المستخدم لحجم حقل النص. الخيارات المتاحة: <strong lang=\"en\">'v'</strong> — تغيير الحجم عموديًا، <strong lang=\"en\">'h'</strong> — تغيير الحجم أفقيًا، <strong lang=\"en\">'none'</strong> — تعطيل تغيير الحجم، <strong lang=\"en\">'auto'</strong> — تغيير الحجم تلقائيًا.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "يضبط عدد الأسطر لحقل النص."
+}

@@ -194,6 +194,13 @@ export default function ComponentItemsAPI() {
             }
           },
           {
+            id: "PageTextarea",
+            label: "Textarea",
+            to: {
+              name: "PageTextarea",
+            }
+          },
+          {
             id: "tinyMce",
             label: "TinyMce",
             to: {

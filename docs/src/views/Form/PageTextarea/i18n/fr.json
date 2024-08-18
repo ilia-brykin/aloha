@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">ATextarea</strong> fournit la fonctionnalité d'un champ de texte avec divers réglages tels que la possibilité d'agrandir, un bouton de suppression et la possibilité de redimensionner. Le composant prend également en charge les étiquettes, les textes d'aide et l'affichage des erreurs.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Champ de texte multiligne",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "Cet exemple montre un champ de texte dont la hauteur s'ajuste automatiquement au contenu. Lorsque de nouvelles lignes sont ajoutées, le champ de texte s'agrandit pour offrir une taille optimale permettant d'afficher tout le texte saisi.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Champ de Texte Extensible",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "Cet exemple montre diverses options pour configurer les capacités de redimensionnement du champ de texte. Vous pouvez définir le redimensionnement vertical <strong lang=\"en\">(resize='v')</strong>, le redimensionnement horizontal <strong lang=\"en\">(resize='h')</strong>, désactiver complètement le redimensionnement <strong lang=\"en\">(resize='none')</strong> ou permettre le redimensionnement automatique <strong lang=\"en\">(resize='auto')</strong>. Chaque option est démontrée à l'aide du champ de texte correspondant.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Redimensionnement du Champ de Texte",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Détermine si la hauteur du champ de texte doit changer en fonction du contenu. Si ce paramètre est réglé sur <strong lang=\"en\">true</strong>, la hauteur du champ de texte s'ajustera automatiquement lorsque des caractères sont ajoutés ou supprimés.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Définit comment l'utilisateur peut redimensionner le champ de texte. Options disponibles : <strong lang=\"en\">'v'</strong> — redimensionnement vertical, <strong lang=\"en\">'h'</strong> — redimensionnement horizontal, <strong lang=\"en\">'none'</strong> — redimensionnement désactivé, <strong lang=\"en\">'auto'</strong> — redimensionnement automatique.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Définit le nombre de lignes pour le champ de texte."
+}

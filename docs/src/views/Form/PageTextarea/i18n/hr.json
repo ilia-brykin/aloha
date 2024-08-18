@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">ATextarea</strong> pruža funkcionalnost tekstualnog polja s raznim postavkama poput skalabilnosti, gumba za brisanje i mogućnosti promjene veličine. Komponenta također podržava rad s oznakama, tekstom pomoći i prikazom pogrešaka.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Višeredno tekstualno polje",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "Ovaj primjer pokazuje tekstualno polje čija se visina automatski prilagođava sadržaju. Kako se dodaju novi redovi, tekstualno polje se širi, pružajući optimalnu veličinu za prikaz cijelog unesenog teksta.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Skalabilno Tekstualno Polje",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "Ovaj primjer prikazuje razne opcije za konfiguriranje mogućnosti promjene veličine tekstualnog polja. Možete postaviti vertikalnu promjenu veličine <strong lang=\"en\">(resize='v')</strong>, horizontalnu promjenu veličine <strong lang=\"en\">(resize='h')</strong>, potpuno onemogućiti promjenu veličine <strong lang=\"en\">(resize='none')</strong> ili omogućiti automatsku promjenu veličine <strong lang=\"en\">(resize='auto')</strong>. Svaka opcija je prikazana pomoću odgovarajućeg tekstualnog polja.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Promjena Veličine Tekstualnog Polja",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Određuje treba li se visina tekstualnog polja mijenjati ovisno o sadržaju. Ako je ovaj parametar postavljen na <strong lang=\"en\">true</strong>, visina tekstualnog polja automatski će se prilagoditi dodavanju ili uklanjanju znakova.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Definira kako korisnik može promijeniti veličinu tekstualnog polja. Dostupne opcije: <strong lang=\"en\">'v'</strong> — promjena visine, <strong lang=\"en\">'h'</strong> — promjena širine, <strong lang=\"en\">'none'</strong> — promjena veličine onemogućena, <strong lang=\"en\">'auto'</strong> — automatska promjena veličine.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Postavlja broj redaka za tekstualno polje."
+}

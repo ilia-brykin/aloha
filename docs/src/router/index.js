@@ -80,6 +80,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageJson" */ "../views/Form/PageJson/PageJson.vue"),
   },
   {
+    path: "/textarea",
+    name: "PageTextarea",
+    component: () => import(/* webpackChunkName: "PageTextarea" */ "../views/Form/PageTextarea/PageTextarea.vue"),
+  },
+  {
     path: "/accordion",
     name: "PageAccordion",
     component: () => import(/* webpackChunkName: "PageAccordionBootstrap" */ "../views/PageAccordion/PageAccordion.vue"),

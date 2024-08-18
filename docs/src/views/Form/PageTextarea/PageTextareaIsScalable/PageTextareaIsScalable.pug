@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_"
+  description="_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_"
+  :props="['is-scalable']"
+)
+  a-textarea(
+    v-model="model"
+    :is-scalable="true"
+    label="Textarea"
+  )
+  div model:
+  pre {{ model }}

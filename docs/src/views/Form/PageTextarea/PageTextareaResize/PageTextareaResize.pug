@@ -1,0 +1,32 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TEXTAREA_GROUP_RESIZE_HEADER_"
+  description="_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_"
+  :props="['resize']"
+)
+  a-textarea(
+    v-model="model"
+    label="resize='v'"
+    resize="v"
+  )
+  a-textarea(
+    v-model="model"
+    class="a_mt_3"
+    label="resize='h'"
+    resize="h"
+  )
+  a-textarea(
+    v-model="model"
+    class="a_mt_3"
+    label="resize='none'"
+    resize="none"
+  )
+  a-textarea(
+    v-model="model"
+    class="a_mt_3"
+    label="resize='auto'"
+    resize="auto"
+  )
+  div model:
+  pre {{ model }}
