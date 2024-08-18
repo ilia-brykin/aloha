@@ -1,11 +1,11 @@
 {
-  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "يوفر مكون <strong lang=\"en\">ATextarea</strong> وظيفة حقل النص مع إعدادات متنوعة مثل القابلية للتوسع وزر المسح وإمكانية تغيير الحجم. يدعم المكون أيضًا العمل مع التسميات، نص المساعدة، وعرض الأخطاء.",
-  "_A_TEXTAREA_COMPONENT_NAME_": "حقل نص متعدد الأسطر",
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">ATextarea</strong> bietet die Funktionalität eines Textfeldes mit verschiedenen Einstellungen wie Skalierbarkeit, einer Löschtaste und der Möglichkeit, die Größe zu ändern. Die Komponente unterstützt auch Labels, Hilfetexte und die Anzeige von Fehlern.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Mehrzeiliges Textfeld",
   "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "Dieses Beispiel zeigt ein Textfeld, dessen Höhe sich automatisch an den Inhalt anpasst. Wenn neue Zeilen hinzugefügt werden, erweitert sich das Textfeld und bietet eine optimale Größe, um den gesamten eingegebenen Text anzuzeigen.",
   "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Skalierbares Textfeld",
   "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "Dieses Beispiel zeigt verschiedene Optionen zur Konfiguration der Größenänderung des Textfeldes. Sie können die vertikale Größenänderung <strong lang=\"en\">(resize='v')</strong>, die horizontale Größenänderung <strong lang=\"en\">(resize='h')</strong> festlegen, die Größenänderung vollständig deaktivieren <strong lang=\"en\">(resize='none')</strong> oder die automatische Größenänderung <strong lang=\"en\">(resize='auto')</strong> zulassen. Jede Option wird mit dem entsprechenden Textfeld demonstriert.",
   "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Änderung der Textfeldgröße",
-  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "يحدد ما إذا كان يجب أن يتغير ارتفاع حقل النص بناءً على المحتوى. إذا تم تعيين هذه المعلمة إلى <strong lang=\"en\">true</strong>، فسيتم تعديل ارتفاع حقل النص تلقائيًا عند إضافة أو إزالة الأحرف.",
-  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "يحدد كيفية تغيير المستخدم لحجم حقل النص. الخيارات المتاحة: <strong lang=\"en\">'v'</strong> — تغيير الحجم عموديًا، <strong lang=\"en\">'h'</strong> — تغيير الحجم أفقيًا، <strong lang=\"en\">'none'</strong> — تعطيل تغيير الحجم، <strong lang=\"en\">'auto'</strong> — تغيير الحجم تلقائيًا.",
-  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "يضبط عدد الأسطر لحقل النص."
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Bestimmt, ob die Höhe des Textfeldes basierend auf dem Inhalt geändert werden soll. Wenn dieser Parameter auf <strong lang=\"en\">true</strong> gesetzt ist, passt sich die Höhe des Textfeldes automatisch an, wenn Zeichen hinzugefügt oder entfernt werden.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Definiert, wie der Benutzer die Größe des Textfeldes ändern kann. Verfügbare Optionen: <strong lang=\"en\">'v'</strong> — vertikale Größenänderung, <strong lang=\"en\">'h'</strong> — horizontale Größenänderung, <strong lang=\"en\">'none'</strong> — Größenänderung ist deaktiviert, <strong lang=\"en\">'auto'</strong> — automatische Größenänderung.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Legt die Anzahl der Zeilen für das Textfeld fest."
 }
