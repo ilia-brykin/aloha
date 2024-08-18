@@ -7382,7 +7382,7 @@ input:not(:-webkit-autofill) {
 .a_textarea_resize_none {
   resize: none; }
 
-.a_form_element_textarea > .a_form_control__actions {
+.a_form_element_textarea:not(.a_form_element_textarea_scalable) > .a_form_control__actions {
   right: 1.2rem; }
 
 .a_form_element_number_controls {
