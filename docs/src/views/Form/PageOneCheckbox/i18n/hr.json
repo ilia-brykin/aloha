@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">AOneCheckbox</strong> predstavlja jednu potvrdnu kućicu s mogućnošću povezivanja s podatkovnim modelom. Potvrdna kućica može prikazivati tekst pored sebe i podržava različita stanja i postavke.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Jedna Potvrdna Kućica",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">false-value</strong> za postavljanje vrijednosti koja će se prenijeti u model kada potvrdna kućica nije označena. U prvom slučaju vrijednost <strong lang=\"en\">false</strong> se prenosi u model kada potvrdna kućica nije odabrana. U drugom slučaju, ako potvrdna kućica nije odabrana, vrijednost <strong>0</strong> se prenosi u model.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Vrijednosti kada nije označeno",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">indeterminate</strong> za prikaz neodređenog stanja potvrdne kućice. Kada je <strong lang=\"en\">indeterminate</strong> postavljen na <strong lang=\"en\">true</strong>, potvrdna kućica prikazuje znak minus umjesto standardne kvačice, što označava prijelazno ili neodređeno stanje.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Neodređeno Stanje",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">true-value</strong> za postavljanje vrijednosti koja će se prenijeti u model kada je potvrdna kućica označena. U ovom slučaju, kada je potvrdna kućica odabrana, vrijednost <strong>1</strong> se prenosi u model.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Vrijednosti kada je označeno",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">is-width-auto</strong> za kontrolu širine <strong lang=\"en\">etikete</strong> pored potvrdne kućice. U prvoj potvrdnoj kućici, etiketa ima širinu postavljenu na <strong lang=\"en\">auto</strong>, što omogućava tekstu da zauzme minimalni potreban prostor. U drugoj potvrdnoj kućici širina etikete se ne mijenja i zauzima fiksni prostor.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Auto Širina za Etiketu",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "Vrijednost koja će se prenijeti u model kada potvrdna kućica nije označena.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Prikazuje neodređeno stanje <strong lang=\"en\">(indeterminate)</strong> gdje se umjesto kvačice prikazuje znak minus.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Određuje hoće li tekst etikete biti prikazan kao <strong lang=\"en\">naslov</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Dodaje posebnu klasu <strong lang=\"en\">etiketi</strong> s postavljenom širinom na <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Vrijednost koja će se prenijeti u model kada je potvrdna kućica označena."
+}

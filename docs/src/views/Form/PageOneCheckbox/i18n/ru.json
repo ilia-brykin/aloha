@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AOneCheckbox</strong> представляет собой одиночный чекбокс с возможностью привязки к модели данных. Чекбокс может отображать текст рядом с собой и поддерживает различные состояния и настройки.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Одиночный чекбокс",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">false-value</strong> для задания значения, которое будет передано в модель при отключении (снятии) чекбокса. В первом случае значение <strong lang=\"en\">false</strong> передается в модель, когда чекбокс не выбран. Во втором случае, если чекбокс не выбран, в модель передается значение <strong>0</strong>.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Значения при снятии отметки",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">indeterminate</strong> для отображения состояния неопределенности у чекбокса. Когда этот <strong lang=\"en\">indeterminate</strong> установлен в <strong lang=\"en\">true</strong>, чекбокс отображает минус вместо стандартной галочки, указывая на промежуточное или неопределенное состояние.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Состояния неопределенности",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">true-value</strong> для задания значения, которое будет передано в модель при установке галочки в чекбоксе. В данном случае, когда чекбокс выбран, в модель передается значение <strong>1</strong>.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Значения при установке отметки ",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">is-width-auto</strong> для управления шириной метки <strong lang=\"en\">(label)</strong> рядом с чекбоксом. В первом чекбоксе метка имеет ширину, установленную в <strong lang=\"en\">is-width-auto</strong>, что позволяет тексту занимать минимально необходимое пространство. Во втором чекбоксе ширина метки не изменяется, и она занимает фиксированное пространство.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "ПШирина <strong lang=\"en\">auto</strong> для метки",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "Значение, которое будет передано в модель, если чекбокс не выбран.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Отображает состояние неопределенности <strong lang=\"en\">(indeterminate)</strong>, когда вместо галочки показывается символ минуса.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Определяет, будет ли текст метки отображаться в виде заголовка <strong lang=\"en\">(title)</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Добавляет специальный класс для метки <strong lang=\"en\">(label)</strong> с шириной, установленной в <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Значение, которое будет передано в модель, если чекбокс выбран."
+}

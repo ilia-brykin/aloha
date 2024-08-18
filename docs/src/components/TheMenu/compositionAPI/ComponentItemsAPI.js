@@ -173,6 +173,13 @@ export default function ComponentItemsAPI() {
             }
           },
           {
+            id: "PageOneCheckbox",
+            label: "One checkbox",
+            to: {
+              name: "PageOneCheckbox",
+            }
+          },
+          {
             id: "radio",
             label: "Radio",
             to: {

@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "يمثل مكون <strong lang=\"en\">AOneCheckbox</strong> خانة اختيار واحدة مع إمكانية الربط بنموذج البيانات. يمكن لخانة الاختيار عرض نص بجانبها وتدعم حالات وإعدادات مختلفة.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "خانة اختيار واحدة",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">false-value</strong> لتعيين القيمة التي سيتم تمريرها إلى النموذج عندما تكون خانة الاختيار غير محددة. في الحالة الأولى، يتم تمرير القيمة <strong lang=\"en\">false</strong> إلى النموذج عندما لا يتم تحديد خانة الاختيار. في الحالة الثانية، إذا لم يتم تحديد خانة الاختيار، يتم تمرير القيمة <strong>0</strong> إلى النموذج.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "القيم عند عدم التحديد",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">indeterminate</strong> لعرض حالة غير محددة لخانة الاختيار. عند تعيين <strong lang=\"en\">indeterminate</strong> على <strong lang=\"en\">true</strong>، تعرض خانة الاختيار علامة ناقص بدلاً من علامة الاختيار القياسية، مما يشير إلى حالة وسيطة أو غير محددة.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "حالة غير محددة",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">true-value</strong> لتعيين القيمة التي سيتم تمريرها إلى النموذج عند تحديد خانة الاختيار. في هذه الحالة، عند تحديد خانة الاختيار، يتم تمرير القيمة <strong>1</strong> إلى النموذج.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "القيم عند التحديد",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">is-width-auto</strong> للتحكم في عرض <strong lang=\"en\">label</strong> بجانب خانة الاختيار. في خانة الاختيار الأولى، يتم تعيين عرض التسمية على <strong lang=\"en\">auto</strong>، مما يسمح للنص باحتلال المساحة اللازمة فقط. في خانة الاختيار الثانية، لا يتغير عرض التسمية وتحتل مساحة ثابتة.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "العرض التلقائي للتسمية",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "القيمة التي سيتم تمريرها إلى النموذج عندما تكون خانة الاختيار غير محددة.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "يعرض حالة غير محددة <strong lang=\"en\">(indeterminate)</strong> حيث يتم عرض رمز ناقص بدلاً من علامة الاختيار.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "يحدد ما إذا كان سيتم عرض نص التسمية كـ <strong lang=\"en\">title</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "يضيف فئة خاصة إلى <strong lang=\"en\">label</strong> مع ضبط العرض على <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "القيمة التي سيتم تمريرها إلى النموذج عندما يتم تحديد خانة الاختيار."
+}

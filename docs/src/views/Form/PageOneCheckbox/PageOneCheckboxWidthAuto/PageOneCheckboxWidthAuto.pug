@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_"
+  description="_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_"
+  :props="['is-width-auto']"
+)
+  a-one-checkbox(
+    v-model="model"
+    :is-width-auto="true"
+    label="is-width-auto='true'"
+  )
+  a-one-checkbox(
+    v-model="model"
+    :is-width-auto="false"
+    class="a_mt_3"
+    label="is-width-auto='false'"
+  )

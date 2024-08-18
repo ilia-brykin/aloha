@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_"
+  description="_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_"
+  :props="['false-value']"
+)
+  a-one-checkbox(
+    v-model="model1"
+    :false-value="false"
+    label="false-value='false'"
+  )
+  div model1: {{ model1 }}
+
+  a-one-checkbox(
+    v-model="model2"
+    :false-value="0"
+    class="a_mt_3"
+    label="false-value='0'"
+  )
+  div model2: {{ model2 }}

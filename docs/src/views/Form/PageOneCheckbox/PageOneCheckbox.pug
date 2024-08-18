@@ -1,0 +1,36 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_"
+    )
+
+    page-one-checkbox-basic
+
+    page-one-checkbox-change
+
+    page-one-checkbox-help-text
+
+    page-one-checkbox-errors
+
+    page-one-checkbox-width-auto
+
+    page-one-checkbox-false-value
+
+    page-one-checkbox-true-value
+
+    page-one-checkbox-indeterminate
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )

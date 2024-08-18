@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">AOneCheckbox</strong> représente une seule case à cocher avec la possibilité de se lier à un modèle de données. La case à cocher peut afficher du texte à côté et prend en charge divers états et paramètres.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Case à Cocher Unique",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">false-value</strong> pour définir la valeur qui sera transmise au modèle lorsque la case à cocher est décochée. Dans le premier cas, la valeur <strong lang=\"en\">false</strong> est transmise au modèle lorsque la case à cocher n'est pas sélectionnée. Dans le deuxième cas, si la case à cocher n'est pas sélectionnée, la valeur <strong>0</strong> est transmise au modèle.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Valeurs lorsque non coché",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">indeterminate</strong> pour afficher l'état indéterminé de la case à cocher. Lorsque <strong lang=\"en\">indeterminate</strong> est réglé sur <strong lang=\"en\">true</strong>, la case à cocher affiche un signe moins au lieu de la coche standard, indiquant un état intermédiaire ou indéterminé.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "État Indéterminé",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">true-value</strong> pour définir la valeur qui sera transmise au modèle lorsque la case à cocher est cochée. Dans ce cas, lorsque la case à cocher est sélectionnée, la valeur <strong>1</strong> est transmise au modèle.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Valeurs lorsque coché",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">is-width-auto</strong> pour contrôler la largeur de l'<strong lang=\"en\">étiquette</strong> à côté de la case à cocher. Dans la première case à cocher, l'étiquette a une largeur définie sur <strong lang=\"en\">auto</strong>, permettant au texte de prendre le minimum d'espace nécessaire. Dans la deuxième case à cocher, la largeur de l'étiquette ne change pas et elle occupe un espace fixe.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Largeur Automatique pour l'Étiquette",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "La valeur qui sera transmise au modèle lorsque la case à cocher est décochée.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Affiche l'état indéterminé <strong lang=\"en\">(indeterminate)</strong> où un symbole moins est affiché à la place d'une coche.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Spécifie si le texte de l'étiquette sera affiché comme un <strong lang=\"en\">titre</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Ajoute une classe spéciale à l'<strong lang=\"en\">étiquette</strong> avec la largeur définie sur <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "La valeur qui sera transmise au modèle lorsque la case à cocher est cochée."
+}

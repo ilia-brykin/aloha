@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">AOneCheckbox</strong> representa una única casilla de verificación con la capacidad de vincularse a un modelo de datos. La casilla de verificación puede mostrar texto al lado y admite varios estados y configuraciones.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Casilla de Verificación Única",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">false-value</strong> para establecer el valor que se pasará al modelo cuando la casilla de verificación esté desmarcada. En el primer caso, el valor <strong lang=\"en\">false</strong> se pasa al modelo cuando la casilla de verificación no está seleccionada. En el segundo caso, si la casilla de verificación no está seleccionada, se pasa el valor <strong>0</strong> al modelo.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Valores cuando no está marcado",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">indeterminate</strong> para mostrar el estado indeterminado de la casilla de verificación. Cuando <strong lang=\"en\">indeterminate</strong> está configurado en <strong lang=\"en\">true</strong>, la casilla de verificación muestra un signo menos en lugar de la marca de verificación estándar, lo que indica un estado intermedio o indeterminado.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Estado Indeterminado",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">true-value</strong> para establecer el valor que se pasará al modelo cuando la casilla de verificación esté marcada. En este caso, cuando se selecciona la casilla de verificación, el valor <strong>1</strong> se pasa al modelo.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Valores cuando está marcado",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">is-width-auto</strong> para controlar el ancho de la <strong lang=\"en\">label</strong> junto a la casilla de verificación. En la primera casilla, la etiqueta tiene un ancho configurado en <strong lang=\"en\">auto</strong>, lo que permite que el texto ocupe el espacio mínimo necesario. En la segunda casilla, el ancho de la etiqueta no cambia y ocupa un espacio fijo.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Ancho Automático para la Etiqueta",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "El valor que se pasará al modelo cuando la casilla de verificación esté desmarcada.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Muestra el estado indeterminado <strong lang=\"en\">(indeterminate)</strong> donde se muestra un signo menos en lugar de una marca de verificación.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Especifica si el texto de la etiqueta se mostrará como un <strong lang=\"en\">título</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Agrega una clase especial a la <strong lang=\"en\">etiqueta</strong> con el ancho configurado en <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "El valor que se pasará al modelo cuando la casilla de verificación esté marcada."
+}

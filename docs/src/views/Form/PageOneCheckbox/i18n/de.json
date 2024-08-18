@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Die <strong lang=\"en\">AOneCheckbox</strong>-Komponente stellt eine einzelne Checkbox dar, die an ein Datenmodell gebunden werden kann. Die Checkbox kann Text daneben anzeigen und unterstützt verschiedene Zustände und Einstellungen.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Einzelne Checkbox",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Dieses Beispiel zeigt, wie man <strong lang=\"en\">false-value</strong> verwendet, um den Wert festzulegen, der an das Modell übergeben wird, wenn die Checkbox nicht aktiviert ist. Im ersten Fall wird der Wert <strong lang=\"en\">false</strong> an das Modell übergeben, wenn die Checkbox nicht ausgewählt ist. Im zweiten Fall, wenn die Checkbox nicht ausgewählt ist, wird der Wert <strong>0</strong> an das Modell übergeben.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Werte bei Deaktivierung",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Dieses Beispiel zeigt, wie man <strong lang=\"en\">indeterminate</strong> verwendet, um den unbestimmten Zustand der Checkbox anzuzeigen. Wenn <strong lang=\"en\">indeterminate</strong> auf <strong lang=\"en\">true</strong> gesetzt ist, zeigt die Checkbox anstelle des Standard-Häkchens ein Minuszeichen an, was auf einen Zwischen- oder unbestimmten Zustand hinweist.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Unbestimmter Zustand",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Dieses Beispiel zeigt, wie man <strong lang=\"en\">true-value</strong> verwendet, um den Wert festzulegen, der an das Modell übergeben wird, wenn die Checkbox aktiviert ist. In diesem Fall wird, wenn die Checkbox ausgewählt ist, der Wert <strong>1</strong> an das Modell übergeben.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Werte bei Aktivierung",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Dieses Beispiel zeigt, wie man <strong lang=\"en\">is-width-auto</strong> verwendet, um die Breite des <strong lang=\"en\">Labels</strong> neben der Checkbox zu steuern. In der ersten Checkbox hat das Label eine Breite, die auf <strong lang=\"en\">auto</strong> gesetzt ist, sodass der Text nur den notwendigen Platz einnimmt. In der zweiten Checkbox ändert sich die Breite des Labels nicht und es nimmt einen festen Platz ein.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Auto-Breite für Label",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "Der Wert, der an das Modell übergeben wird, wenn die Checkbox nicht aktiviert ist.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Zeigt den unbestimmten Zustand <strong lang=\"en\">(indeterminate)</strong> an, bei dem anstelle eines Häkchens ein Minuszeichen angezeigt wird.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Gibt an, ob der Label-Text als <strong lang=\"en\">Titel</strong> angezeigt wird.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Fügt dem <strong lang=\"en\">Label</strong> eine spezielle Klasse hinzu, wobei die Breite auf <strong lang=\"en\">auto</strong> gesetzt ist.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Der Wert, der an das Modell übergeben wird, wenn die Checkbox aktiviert ist."
+}

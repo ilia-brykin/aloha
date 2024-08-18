@@ -80,6 +80,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageJson" */ "../views/Form/PageJson/PageJson.vue"),
   },
   {
+    path: "/one-checkbox",
+    name: "PageOneCheckbox",
+    component: () => import(/* webpackChunkName: "PageOneCheckbox" */ "../views/Form/PageOneCheckbox/PageOneCheckbox.vue"),
+  },
+  {
     path: "/textarea",
     name: "PageTextarea",
     component: () => import(/* webpackChunkName: "PageTextarea" */ "../views/Form/PageTextarea/PageTextarea.vue"),

@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">AOneCheckbox</strong> component represents a single checkbox with the ability to bind to a data model. The checkbox can display text next to it and supports various states and settings.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Single checkbox",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">false-value</strong> to set the value that will be passed to the model when the checkbox is unchecked. In the first case, the value <strong lang=\"en\">false</strong> is passed to the model when the checkbox is not selected. In the second case, if the checkbox is not selected, the value <strong>0</strong> is passed to the model.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Values when unchecked",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">indeterminate</strong> to display the indeterminate state of the checkbox. When <strong lang=\"en\">indeterminate</strong> is set to <strong lang=\"en\">true</strong>, the checkbox displays a minus instead of the standard checkmark, indicating an intermediate or indeterminate state.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Indeterminate state",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">true-value</strong> to set the value that will be passed to the model when the checkbox is checked. In this case, when the checkbox is selected, the value <strong>1</strong> is passed to the model.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Values when checked",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">is-width-auto</strong> to control the width of the <strong lang=\"en\">label</strong> next to the checkbox. In the first checkbox, the label has a width set to <strong lang=\"en\">auto</strong>, allowing the text to take up the minimum necessary space. In the second checkbox, the label's width does not change, and it occupies a fixed space.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Auto width for label",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "The value that will be passed to the model when the checkbox is unchecked.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Displays the indeterminate state <strong lang=\"en\">(indeterminate)</strong> where a minus symbol is shown instead of a checkmark.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Specifies whether the label text will be displayed as a <strong lang=\"en\">title</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Adds a special class to the <strong lang=\"en\">label</strong> with the width set to <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "The value that will be passed to the model when the checkbox is checked."
+}

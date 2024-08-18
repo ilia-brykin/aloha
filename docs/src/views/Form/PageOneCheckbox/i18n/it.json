@@ -1,0 +1,17 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">AOneCheckbox</strong> rappresenta una singola casella di controllo con la possibilità di collegarsi a un modello di dati. La casella di controllo può visualizzare il testo accanto ad essa e supporta vari stati e impostazioni.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Singola Casella di Controllo",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">false-value</strong> per impostare il valore che verrà passato al modello quando la casella di controllo non è selezionata. Nel primo caso, il valore <strong lang=\"en\">false</strong> viene passato al modello quando la casella di controllo non è selezionata. Nel secondo caso, se la casella di controllo non è selezionata, il valore <strong>0</strong> viene passato al modello.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Valori quando non selezionato",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">indeterminate</strong> per visualizzare lo stato indeterminato della casella di controllo. Quando <strong lang=\"en\">indeterminate</strong> è impostato su <strong lang=\"en\">true</strong>, la casella di controllo visualizza un segno meno invece del segno di spunta standard, indicando uno stato intermedio o indeterminato.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Stato Indeterminato",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">true-value</strong> per impostare il valore che verrà passato al modello quando la casella di controllo è selezionata. In questo caso, quando la casella di controllo è selezionata, il valore <strong>1</strong> viene passato al modello.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Valori quando selezionato",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">is-width-auto</strong> per controllare la larghezza dell'<strong lang=\"en\">etichetta</strong> accanto alla casella di controllo. Nella prima casella di controllo, l'etichetta ha una larghezza impostata su <strong lang=\"en\">auto</strong>, consentendo al testo di occupare lo spazio minimo necessario. Nella seconda casella di controllo, la larghezza dell'etichetta non cambia e occupa uno spazio fisso.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Larghezza Automatica per l'Etichetta",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "Il valore che verrà passato al modello quando la casella di controllo non è selezionata.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Visualizza lo stato indeterminato <strong lang=\"en\">(indeterminate)</strong> in cui viene mostrato un simbolo meno al posto del segno di spunta.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Specifica se il testo dell'etichetta verrà visualizzato come <strong lang=\"en\">titolo</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Aggiunge una classe speciale all'<strong lang=\"en\">etichetta</strong> con la larghezza impostata su <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Il valore che verrà passato al modello quando la casella di controllo è selezionata."
+}

@@ -2,11 +2,9 @@ import {
   h,
 } from "vue";
 
+import AElement from "../../AElement/AElement";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import ATranslation from "../../ATranslation/ATranslation";
-
-import UiMixinProps from "../mixins/UiMixinProps";
 
 import LabelAPI from "./compositionAPI/LabelAPI";
 import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
@@ -14,23 +12,68 @@ import UiAPI from "../compositionApi/UiAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import {
+  uniqueId,
+} from "lodash-es";
+
 export default {
   name: "AOneCheckbox",
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
     },
     excludeRenderAttributes: {
       type: Array,
       required: false,
       default: () => [],
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     falseValue: {
       type: [Boolean, String, Number],
+      required: false,
+      default: undefined,
+    },
+    helpText: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_one_checkbox_"),
+    },
+    idPrefix: {
+      type: String,
       required: false,
       default: undefined,
     },
@@ -38,17 +81,67 @@ export default {
       type: Boolean,
       required: false,
     },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
     isLabelTitle: {
       type: Boolean,
       required: false,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     isWidthAuto: {
       type: Boolean,
       required: false,
     },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelScreenReader: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    modelUndefined: {
+      type: [String, Number, Object, Array, Boolean],
+      required: false,
+      default: undefined,
+    },
     modelValue: {
       type: [Boolean, String, Number],
       required: false,
+      default: undefined,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     trueValue: {
       type: [Boolean, String, Number],
@@ -56,6 +149,11 @@ export default {
       default: true,
     },
   },
+  emits: [
+    "update:modelValue",
+    "focus",
+    "blur",
+  ],
   setup(props, context) {
     const {
       attributesToExcludeFromRender,
@@ -111,6 +209,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
@@ -156,20 +255,19 @@ export default {
                   this.labelClass,
                 ],
               }, [
-                h(ATranslation, {
+                h(AElement, {
                   alwaysTranslate: this.alwaysTranslate,
-                  tag: "span",
+                  extra: this.extra,
                   html: this.label,
+                  textScreenReader: this.labelScreenReader,
+                  tag: "span",
+                  title: this.isLabelTitle ? this.label : undefined,
+                  type: "text",
                 }),
-                this.required && h("span", null, "*"),
+                this.required ?
+                  h("span", null, "*") :
+                  "",
               ]),
-              (this.isLabelTitle && this.hasLabel) && h(ATranslation, {
-                alwaysTranslate: this.alwaysTranslate,
-                class: "a_position_absolute_all",
-                ariaHidden: true,
-                tag: "span",
-                title: this.label,
-              }),
             ]),
           ]),
         ]),
