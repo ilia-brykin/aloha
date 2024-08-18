@@ -1,7 +1,7 @@
 import {
   h,
-  ref,
-  toRef, watch,
+  toRef,
+  watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -11,10 +11,8 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
 
-import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
-import UiMixinProps from "../mixins/UiMixinProps";
-
 import ClassAPI from "./compositionAPI/ClassAPI";
+import ModelAPI from "./compositionAPI/ModelAPI";
 import PasswordAPI from "./compositionAPI/PasswordAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
@@ -23,39 +21,144 @@ import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttri
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import {
+  uniqueId,
+} from "lodash-es";
+
 export default {
   name: "AInput",
-  mixins: [
-    UiClearButtonMixinProps,
-    UiMixinProps,
-  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    clearButtonClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
     },
     excludeRenderAttributes: {
       type: Array,
       required: false,
       default: () => [],
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    helpText: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     iconPrepend: {
       type: String,
       required: false,
       default: undefined,
     },
-    labelScreenReader: {
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_input_"),
+    },
+    idPrefix: {
       type: String,
+      required: false,
+      default: undefined,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    isClearButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
+    isLabelFloat: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelScreenReader: {
+      type: [String, Number],
       required: false,
       default: undefined,
     },
     maxlength: {
       type: [String, Number],
       required: false,
+      default: undefined,
+    },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     modelUndefined: {
+      type: [String, Number, Object, Array, Boolean],
       required: false,
       default: "",
+    },
+    modelValue: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     showPassword: {
       type: Boolean,
@@ -73,6 +176,11 @@ export default {
       default: "text",
     },
   },
+  emits: [
+    "update:modelValue",
+    "focus",
+    "blur",
+  ],
   setup(props, context) {
     const type = toRef(props, "type");
 
@@ -108,30 +216,13 @@ export default {
     } = UiClearButtonAPI(props, {
       isModel,
     });
-    
-    const inputRef = ref(undefined);
-    const disabled = toRef(props, "disabled");
-    const onInput = $event => {
-      if (disabled.value) {
-        return;
-      }
-      let value = $event.target.value;
-      if (type.value === "integer") {
-        value = value.replace(/\D/g, "");
-        if (value !== "") {
-          value = +value;
-        }
-        inputRef.value.value = value;
-      }
-      if (type.value === "number") {
-        if (value !== "") {
-          value = +value;
-        }
-      }
-      changeModel({
-        model: value,
-      });
-    };
+
+    const {
+      inputRef,
+      onInput,
+    } = ModelAPI(props, {
+      changeModel,
+    });
 
     const {
       iconBtnShowPassword,

@@ -72,6 +72,7 @@ import PageFilterMaskI18n from "./views/Functions/Filters/PageFilterMask/i18n/Pa
 import PageJsonI18n from "./views/Form/PageJson/i18n/PageJsonI18n";
 import FormI18n from "./views/Form/i18n/FormI18n";
 import PageTextareaI18n from "./views/Form/PageTextarea/i18n/PageTextareaI18n";
+import PageInputI18n from "./views/Form/PageInput/i18n/PageInputI18n";
 
 export const mainTranslation = {
   ar: {
@@ -140,6 +141,7 @@ export const mainTranslation = {
     ...PageJsonI18n.ar,
     ...FormI18n.ar,
     ...PageTextareaI18n.ar,
+    ...PageInputI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -207,6 +209,7 @@ export const mainTranslation = {
     ...PageJsonI18n.de,
     ...FormI18n.de,
     ...PageTextareaI18n.de,
+    ...PageInputI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -274,6 +277,7 @@ export const mainTranslation = {
     ...PageJsonI18n.en,
     ...FormI18n.en,
     ...PageTextareaI18n.en,
+    ...PageInputI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -341,6 +345,7 @@ export const mainTranslation = {
     ...PageJsonI18n.es,
     ...FormI18n.es,
     ...PageTextareaI18n.es,
+    ...PageInputI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -408,6 +413,7 @@ export const mainTranslation = {
     ...PageJsonI18n.fr,
     ...FormI18n.fr,
     ...PageTextareaI18n.fr,
+    ...PageInputI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -475,6 +481,7 @@ export const mainTranslation = {
     ...PageJsonI18n.hr,
     ...FormI18n.hr,
     ...PageTextareaI18n.hr,
+    ...PageInputI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -542,6 +549,7 @@ export const mainTranslation = {
     ...PageJsonI18n.it,
     ...FormI18n.it,
     ...PageTextareaI18n.it,
+    ...PageInputI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -609,5 +617,6 @@ export const mainTranslation = {
     ...PageJsonI18n.ru,
     ...FormI18n.ru,
     ...PageTextareaI18n.ru,
+    ...PageInputI18n.ru,
   },
 };

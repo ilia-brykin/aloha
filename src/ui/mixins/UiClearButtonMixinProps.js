@@ -3,6 +3,7 @@ export default {
     clearButtonClass: {
       type: [String, Object],
       required: false,
+      default: undefined,
     },
     isClearButton: {
       type: Boolean,
