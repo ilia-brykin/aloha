@@ -4,6 +4,8 @@ import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageJsonBasic from "./PageJsonBasic/PageJsonBasic.vue";
 import PageJsonChange from "./PageJsonChange/PageJsonChange.vue";
+import PageJsonErrors from "./PageJsonErrors/PageJsonErrors.vue";
+import PageJsonHelpText from "./PageJsonHelpText/PageJsonHelpText.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -19,6 +21,8 @@ export default {
     ATranslation,
     PageJsonBasic,
     PageJsonChange,
+    PageJsonErrors,
+    PageJsonHelpText,
   },
   setup() {
     const {
