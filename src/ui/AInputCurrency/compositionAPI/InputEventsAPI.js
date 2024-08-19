@@ -33,6 +33,8 @@ export default function InputEventsAPI(props, {
   const thousandDivider = toRef(props, "thousandDivider");
   const validationOnChange = toRef(props, "validationOnChange");
 
+  const isTimeoutActive = ref(0);
+
   const allowedButtons = [
     AKeysCode.tab,
     AKeysCode.del,
@@ -128,7 +130,11 @@ export default function InputEventsAPI(props, {
   };
 
   const handleMinus = ({ value }) => {
+    if (min.value >= 0) {
+      return;
+    }
     if (value[0] !== "-") {
+      isTimeoutActive.value++;
       setTimeout(() => {
         const newVal = `-${ value }`;
 
@@ -140,12 +146,14 @@ export default function InputEventsAPI(props, {
         }
 
         setValueLocal(newVal);
+        isTimeoutActive.value--;
       });
     }
   };
 
   const handlePlus = ({ value }) => {
     if (value[0] === "-") {
+      isTimeoutActive.value++;
       setTimeout(() => {
         const newVal = value.replace("-", "");
 
@@ -157,32 +165,38 @@ export default function InputEventsAPI(props, {
         }
 
         setValueLocal(newVal);
+        isTimeoutActive.value--;
       });
     }
   };
 
   const handleArrowLeft = ({ value }) => {
+    isTimeoutActive.value++;
     setTimeout(() => {
       const cursorPositionAfterPress = inputRef.value.selectionStart;
       if (thousandDivider.value && value[cursorPositionAfterPress - 1] === thousandDivider.value) {
         const positionToSet = cursorPositionAfterPress - 1;
         setCursorPosition(positionToSet);
       }
+      isTimeoutActive.value--;
     });
   };
 
   const handleArrowRight = ({ value }) => {
     setTimeout(() => {
+      isTimeoutActive.value++;
       const cursorPositionAfterPress = inputRef.value.selectionStart;
       if (thousandDivider.value && value[cursorPositionAfterPress - 1] === thousandDivider.value) {
         const positionToSet = cursorPositionAfterPress + 1;
         setCursorPosition(positionToSet);
       }
+      isTimeoutActive.value--;
     });
   };
 
   const setDecimalDivider = ({ value }) => {
     setTimeout(() => {
+      isTimeoutActive.value++;
       const positionToSet = value.length + 1;
       let valueAfterKeyPress = inputRef.value.value;
       if (valueAfterKeyPress[valueAfterKeyPress.length - 1] === decimalDivider.value) {
@@ -190,31 +204,41 @@ export default function InputEventsAPI(props, {
         setValueLocal(valueAfterKeyPress);
         setCursorPosition(positionToSet);
       }
+      isTimeoutActive.value--;
     });
   };
 
+  const setCursorPositionForBackspace = ({ cursorPosition, numberOfSymbols }) => {
+    let positionToSet = cursorPosition ? cursorPosition - 1 : cursorPosition;
+    const numberOfSymbolsAfterEvent = inputRef.value.value.length;
+    if (numberOfSymbolsAfterEvent < numberOfSymbols - 1 && positionToSet > 0) {
+      positionToSet--;
+    }
+    setCursorPosition(positionToSet);
+  };
+
   const handleBackspace = ({ hasDecimalDivider, value, cursorPosition }) => {
-    if (!isInteger.value && hasDecimalDivider) {
+    const numberOfSymbols = value.length;
+    if (!isInteger.value) {
       const decimalDividerIndex = value.indexOf(decimalDivider.value);
-      if (decimalDividerIndex === cursorPosition - 1) {
+      if (hasDecimalDivider && decimalDividerIndex === cursorPosition - 1) {
         const splitVal = value.split(decimalDivider.value);
         const intVal = splitVal[0];
+        isTimeoutActive.value++;
         setTimeout(() => {
+          setCursorPositionForBackspace({ cursorPosition, numberOfSymbols });
           setValueLocal(intVal);
+          isTimeoutActive.value--;
         });
-      }
 
-      return;
-    }
-    const numberOfSymbols = value.length;
-    setTimeout(() => {
-      let positionToSet = cursorPosition ? cursorPosition - 1 : cursorPosition;
-      const numberOfSymbolsAfterEvent = inputRef.value.value.length;
-      if (numberOfSymbolsAfterEvent < numberOfSymbols - 1 && positionToSet > 0) {
-        positionToSet--;
+        return;
       }
-      setCursorPosition(positionToSet);
-    });
+      isTimeoutActive.value++;
+      setTimeout(() => {
+        setCursorPositionForBackspace({ cursorPosition, numberOfSymbols });
+        isTimeoutActive.value--;
+      });
+    }
   };
 
   const handleDelete = ({ value, $event, hasDecimalDivider, cursorPosition }) => {
@@ -257,16 +281,23 @@ export default function InputEventsAPI(props, {
         setCursorPosition(positionToSet + 1);
       } else {
         setTimeout(() => {
+          isTimeoutActive.value++;
           const valueAfterKeyPress = inputRef.value.value;
           if (valueAfterKeyPress.length < value.length - 1) {
             setCursorPosition(cursorPosition > 0 ? cursorPosition - 1 : 0);
           }
+          isTimeoutActive.value--;
         });
       }
     }
   };
 
   const handleKeydown = $event => {
+    if (isTimeoutActive.value) {
+      $event.preventDefault();
+
+      return;
+    }
     const value = $event.target.value;
     const keyCode = $event.keyCode;
     const keyValue = $event.key;
@@ -364,8 +395,10 @@ export default function InputEventsAPI(props, {
             splitVal[cursorPosition] = keyValue;
             const newVal = splitVal.join("");
             setValueLocal(newVal);
+            isTimeoutActive.value++;
             setTimeout(() => {
               setCursorPosition(cursorPosition + 1);
+              isTimeoutActive.value--;
             });
 
             return;
@@ -380,6 +413,7 @@ export default function InputEventsAPI(props, {
 
     if ($event.keyCode !== AKeysCode.home && $event.keyCode !== AKeysCode.end && !$event.ctrlKey) {
       const numberOfSymbols = value.length;
+      isTimeoutActive.value++;
       setTimeout(() => {
         let positionToSet = cursorPosition + 1;
         const numberOfSymbolsAfterEvent = inputRef.value.value.length;
@@ -389,6 +423,7 @@ export default function InputEventsAPI(props, {
           positionToSet--;
         }
         setCursorPosition(positionToSet);
+        isTimeoutActive.value--;
       });
     }
   };
@@ -470,20 +505,38 @@ export default function InputEventsAPI(props, {
   };
 
   const onClickNumber = $event => {
+    isTimeoutActive.value++;
     setTimeout(() => {
       const cursorPosition = $event.target.selectionStart;
       const value = $event.target.value;
       if (thousandDivider.value && thousandDivider.value === value[cursorPosition - 1]) {
         setCursorPosition(cursorPosition - 1);
       }
+      isTimeoutActive.value--;
     });
   };
 
   const initFirstCheck = () => {
     setTimeout(() => {
-      let valueToSet = required.value ? "0" : modelUndefinedLocal.value;
-      if (modelValue.value) {
+      let valueToSet;
+      if (modelValue.value || modelValue.value === 0) {
         valueToSet = modelValue.value.toString().replace(".", decimalDivider.value);
+        if (decimalDivider.value) {
+          const splitVal = valueToSet.toString().split(decimalDivider.value);
+          const intPart = splitVal[0];
+          const setMinusSymbol = intPart[0] === "-" ? "-" : "";
+          const floatPart = splitVal.length > 1 ? splitVal[1] : "";
+          const floatPartLength = floatPart.length;
+          const zerosToAdd = times(symbolsAfterDecimalDivider.value - floatPartLength, () => "0").join("");
+
+          valueToSet = `${ setMinusSymbol }${ intPart }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
+        }
+      } else {
+        valueToSet = required.value ? [
+          "0",
+          decimalDivider.value,
+          times(symbolsAfterDecimalDivider.value, () => "0").join(""),
+        ].join("") : modelUndefinedLocal.value;
       }
       handleInput(null, valueToSet);
     });

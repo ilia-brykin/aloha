@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import {
+  isNil,
   times,
 } from "lodash-es";
 
@@ -26,14 +27,6 @@ export default function ModelAPI(props, {
     return Number(`${ displayValue.value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."));
   });
 
-  const setCurrentValue = value => {
-    displayValue.value = value;
-    const newVal = modelType.value === "number"
-      ? Number(`${ value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."))
-      : value;
-    changeModel({ model: newVal });
-  };
-
   const modelUndefinedLocal = computed(() => {
     return required.value
       ? [
@@ -43,6 +36,20 @@ export default function ModelAPI(props, {
       ].join("")
       : modelUndefined.value;
   });
+
+  const setCurrentValue = value => {
+    displayValue.value = value;
+    let newVal;
+    if (!required.value && isNil(value)) {
+      newVal = modelUndefinedLocal.value;
+    } else {
+      newVal = modelType.value === "number"
+        ? Number(`${ value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."))
+        : value;
+    }
+    changeModel({ model: newVal });
+  };
+
   const clearModel = () => {
     if (disabled.value) {
       return;
