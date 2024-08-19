@@ -1,6 +1,9 @@
 {
   "_A_BASIC_USAGE_": "Основное использование",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Объект, который содержит переменные для подстановки в шаблон перевода. Используется для динамической замены значений в строках перевода. Например, если строка перевода имеет плейсхолдеры, такие как <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, это переведено как <strong>\"Добро пожаловать <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, можно передать объект <strong>{ <span lang=\"en\">foo</span>: \"абв\", bar: \"123\" }</strong>, и в результате получится перевод <strong>\"Добро пожаловать абв: 123\"</strong>.",
+  "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Определяет, будет ли всплывающая подсказка интерпретироваться как <strong lang=\"en\">HTML</strong>. Если установлено в <strong lang=\"en\">true</strong>, содержимое подсказки будет отображаться с учетом <strong lang=\"en\">HTML</strong>-разметки.",
+  "_A_GLOBAL_PROPS_TITLE_DESCRIPTION_": "Задает текст всплывающей подсказки, который будет отображаться при наведении на элемент. Подсказка может быть представлена как простым текстом, так и объектом для различных устройств (например, для десктопов и мобильных устройств).",
+  "_A_GLOBAL_PROPS_TITLE_PLACEMENT_DESCRIPTION_": "Определяет расположение всплывающей подсказки относительно элемента. Поддерживаются различные позиции, такие как <strong lang=\"en\">top</strong>, <strong lang=\"en\">bottom</strong>, <strong lang=\"en\">left</strong>, <strong lang=\"en\">right</strong> и другие. Это свойство работает только в том случае, если <strong lang=\"en\">isTitleHtml</strong> установлено в <strong lang=\"en\">true</strong>.",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Определяет, можно ли отключить переводы для этого компонента. Если установлено значение true, переводы отключить нельзя, и вместо этого не будут отображаться заполнители.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "По умолчанию",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Описание",
@@ -14,14 +17,14 @@
   "_COPY_CODE_HTML_": "Скопировать код HTML",
   "_COPY_CODE_JS_": "Скопировать код JS",
   "_HIDE_SOURCE_": "Скрыть исходный код",
+  "_JS_TYPE_ANY_": "Любой",
+  "_JS_TYPE_ARRAY_": "Массив",
+  "_JS_TYPE_BOOLEAN_": "Логическое значение",
+  "_JS_TYPE_FUNCTION_": "Функция",
+  "_JS_TYPE_NUMBER_": "Число",
+  "_JS_TYPE_OBJECT_": "Объект",
+  "_JS_TYPE_STRING_": "Строка",
   "_SUPPORT_FRAMEWORKS_": "Мы поддерживаем следующие CSS-фреймворки",
   "_VIEW_SOURCE_": "Посмотреть исходный код",
-  "_WELCOME_": "Добро пожаловать",
-  "_JS_TYPE_OBJECT_": "Объект",
-  "_JS_TYPE_ARRAY_": "Массив",
-  "_JS_TYPE_ANY_": "Любой",
-  "_JS_TYPE_STRING_": "Строка",
-  "_JS_TYPE_NUMBER_": "Число",
-  "_JS_TYPE_FUNCTION_": "Функция",
-  "_JS_TYPE_BOOLEAN_": "Логическое значение"
+  "_WELCOME_": "Добро пожаловать"
 }

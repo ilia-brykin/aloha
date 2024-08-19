@@ -74,6 +74,7 @@ import FormI18n from "./views/Form/i18n/FormI18n";
 import PageTextareaI18n from "./views/Form/PageTextarea/i18n/PageTextareaI18n";
 import PageInputI18n from "./views/Form/PageInput/i18n/PageInputI18n";
 import PageOneCheckboxI18n from "./views/Form/PageOneCheckbox/i18n/PageOneCheckboxI18n";
+import PageSwitchI18n from "./views/Form/PageSwitch/i18n/PageSwitchI18n";
 
 export const mainTranslation = {
   ar: {
@@ -144,6 +145,7 @@ export const mainTranslation = {
     ...PageTextareaI18n.ar,
     ...PageInputI18n.ar,
     ...PageOneCheckboxI18n.ar,
+    ...PageSwitchI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -213,6 +215,7 @@ export const mainTranslation = {
     ...PageTextareaI18n.de,
     ...PageInputI18n.de,
     ...PageOneCheckboxI18n.de,
+    ...PageSwitchI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -282,6 +285,7 @@ export const mainTranslation = {
     ...PageTextareaI18n.en,
     ...PageInputI18n.en,
     ...PageOneCheckboxI18n.en,
+    ...PageSwitchI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -351,6 +355,7 @@ export const mainTranslation = {
     ...PageTextareaI18n.es,
     ...PageInputI18n.es,
     ...PageOneCheckboxI18n.es,
+    ...PageSwitchI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -420,6 +425,7 @@ export const mainTranslation = {
     ...PageTextareaI18n.fr,
     ...PageInputI18n.fr,
     ...PageOneCheckboxI18n.fr,
+    ...PageSwitchI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -489,6 +495,7 @@ export const mainTranslation = {
     ...PageTextareaI18n.hr,
     ...PageInputI18n.hr,
     ...PageOneCheckboxI18n.hr,
+    ...PageSwitchI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -558,6 +565,7 @@ export const mainTranslation = {
     ...PageTextareaI18n.it,
     ...PageInputI18n.it,
     ...PageOneCheckboxI18n.it,
+    ...PageSwitchI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -627,5 +635,6 @@ export const mainTranslation = {
     ...PageTextareaI18n.ru,
     ...PageInputI18n.ru,
     ...PageOneCheckboxI18n.ru,
+    ...PageSwitchI18n.ru,
   },
 };

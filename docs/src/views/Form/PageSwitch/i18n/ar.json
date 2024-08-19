@@ -1,0 +1,5 @@
+{
+  "_A_JSON_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AJson</strong> هو مكون Vue.js مصمم لعرض وتحرير بيانات <strong lang=\"en\">JSON</strong>. يتضمن حقل نصي لإدخال <strong lang=\"en\">JSON</strong>، وأزرار لتنسيق البيانات، وإعادة تعيينها، وإلغاء التعديلات، ومنطقة لعرض القيمة الحالية لـ<strong lang=\"en\">JSON</strong>.",
+  "_A_JSON_COMPONENT_NAME_": "محرر <span lang=\"en\">JSON</span>",
+  "_A_JSON_PROPS_HEIGHT_CSS_DESCRIPTION_": "يحدد ارتفاع المكون عبر <span lang=\"en\">CSS</span>. يقبل سلسلة نصية تحتوي على قيمة الارتفاع، مثل <strong lang=\"en\">400px;</strong>."
+}

@@ -201,6 +201,13 @@ export default function ComponentItemsAPI() {
             }
           },
           {
+            id: "PageSwitch",
+            label: "Switch",
+            to: {
+              name: "PageSwitch",
+            }
+          },
+          {
             id: "PageTextarea",
             label: "Textarea",
             to: {

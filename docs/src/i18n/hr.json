@@ -1,6 +1,9 @@
 {
   "_A_BASIC_USAGE_": "Osnovna uporaba",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Objekt koji sadrži varijable za zamjenu u predlošku prijevoda. Koristi se za dinamičku zamjenu vrijednosti u prijevodnim nizovima. Na primjer, ako prijevodni niz ima rezervirane prostore poput <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, što je prevedeno kao <strong>\"Dobrodošli <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, možete proslijediti objekt poput <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, a rezultat će biti prijevod <strong>\"Dobrodošli abc: 123\"</strong>.",
+  "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Određuje hoće li se alatna traka tumačiti kao <strong lang=\"en\">HTML</strong>. Ako je postavljeno na <strong lang=\"en\">true</strong>, sadržaj alatne trake će se prikazivati s <strong lang=\"en\">HTML</strong> formatiranjem.",
+  "_A_GLOBAL_PROPS_TITLE_DESCRIPTION_": "Postavlja tekst alatne trake koji će se prikazivati pri prelasku mišem preko elementa. Alatna traka može biti prikazana kao običan tekst ili kao objekt za različite uređaje (npr. stolna računala i mobilni uređaji).",
+  "_A_GLOBAL_PROPS_TITLE_PLACEMENT_DESCRIPTION_": "Određuje položaj alatne trake u odnosu na element. Podržane su različite pozicije, kao što su <strong lang=\"en\">top</strong>, <strong lang=\"en\">bottom</strong>, <strong lang=\"en\">left</strong>, <strong lang=\"en\">right</strong> i druge. Ovo svojstvo radi samo ako je <strong lang=\"en\">isTitleHtml</strong> postavljeno na <strong lang=\"en\">true</strong>.",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Određuje može li se onemogućiti prijevod za ovu komponentu. Ako je postavljeno na true, prijevodi se ne mogu isključiti i umjesto toga neće se prikazivati rezervirana mjesta.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Zadana vrijednost",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Opis",
@@ -14,14 +17,14 @@
   "_COPY_CODE_HTML_": "Kopiraj HTML kod",
   "_COPY_CODE_JS_": "Kopiraj JS kod",
   "_HIDE_SOURCE_": "Sakrij izvorni kod",
+  "_JS_TYPE_ANY_": "proizvoljna vrijednost",
+  "_JS_TYPE_ARRAY_": "niz",
+  "_JS_TYPE_BOOLEAN_": "boolean",
+  "_JS_TYPE_FUNCTION_": "funkcija",
+  "_JS_TYPE_NUMBER_": "cijeli broj",
+  "_JS_TYPE_OBJECT_": "objekt",
+  "_JS_TYPE_STRING_": "string",
   "_SUPPORT_FRAMEWORKS_": "Podržavamo sljedeće CSS-frameworke",
   "_VIEW_SOURCE_": "Prikaži izvorni kod",
-  "_WELCOME_": "Dobrodošli!",
-  "_JS_TYPE_OBJECT_": "objekt",
-  "_JS_TYPE_ARRAY_": "niz",
-  "_JS_TYPE_ANY_": "proizvoljna vrijednost",
-  "_JS_TYPE_STRING_": "string",
-  "_JS_TYPE_NUMBER_": "cijeli broj",
-  "_JS_TYPE_FUNCTION_": "funkcija",
-  "_JS_TYPE_BOOLEAN_": "boolean"
+  "_WELCOME_": "Dobrodošli!"
 }

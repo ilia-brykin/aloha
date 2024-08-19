@@ -1,0 +1,33 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_SWITCH_COMPONENT_DESCRIPTION_"
+    )
+
+    page-switch-basic
+
+    page-switch-change
+
+    page-switch-help-text
+
+    page-switch-errors
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+

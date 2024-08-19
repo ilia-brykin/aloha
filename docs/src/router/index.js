@@ -80,6 +80,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageJson" */ "../views/Form/PageJson/PageJson.vue"),
   },
   {
+    path: "/switch",
+    name: "PageSwitch",
+    component: () => import(/* webpackChunkName: "PageSwitch" */ "../views/Form/PageSwitch/PageSwitch.vue"),
+  },
+  {
     path: "/one-checkbox",
     name: "PageOneCheckbox",
     component: () => import(/* webpackChunkName: "PageOneCheckbox" */ "../views/Form/PageOneCheckbox/PageOneCheckbox.vue"),

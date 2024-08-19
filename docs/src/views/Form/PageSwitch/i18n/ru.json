@@ -1,0 +1,12 @@
+{
+  "_A_SWITCH_COMPONENT_NAME_": "Переключатель",
+  "_A_SWITCH_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ASwitch</strong> представляет собой переключатель с поддержкой различных состояний, который может быть связан с моделью данных. Компонент поддерживает режим с двумя или тремя состояниями, а также отображение пользовательских меток.",
+  "_A_SWITCH_PROPS_DEFAULT_LABEL_DESCRIPTION_": "Если значение модели не соответствует <strong lang=\"en\">falseValue</strong> и <strong lang=\"en\">trueValue</strong>, отображается эта метка.",
+  "_A_SWITCH_PROPS_DEFAULT_VALUE_DESCRIPTION_": "Используется только в случае, если <strong lang=\"en\">isThreeState</strong> установлено в <strong lang=\"en\">true</strong>, для обозначения третьего состояния модели.",
+  "_A_SWITCH_PROPS_FALSE_LABEL_DESCRIPTION_": "Метка, отображаемая, когда переключатель находится в состоянии <strong lang=\"en\">false</strong>.",
+  "_A_SWITCH_PROPS_FALSE_VALUE_DESCRIPTION_": "Значение, которое присваивается модели, когда переключатель находится в состоянии <strong lang=\"en\">false</strong>.",
+  "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "Если установлено в <strong lang=\"en\">true</strong>, переключатель занимает всю доступную ширину.",
+  "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "Используется для переключателя с тремя состояниями: <strong lang=\"en\">trueValue</strong>, <strong lang=\"en\">falseValue</strong> и <strong lang=\"en\">defaultValue</strong>.",
+  "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "Метка, отображаемая, когда переключатель находится в состоянии <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "Значение, которое присваивается модели, когда переключатель находится в состоянии <strong lang=\"en\">true</strong>."
+}

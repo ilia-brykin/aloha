@@ -1,6 +1,9 @@
 {
   "_A_BASIC_USAGE_": "Basic usage",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "An object that contains variables for substitution in the translation template. It is used for dynamically replacing values in translation strings. For example, if the translation string has placeholders like <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, which is translated as <strong>\"Welcome <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, you can pass an object like <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, and the result will be the translation <strong>\"Welcome abc: 123\"</strong>.",
+  "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Determines whether the tooltip should be interpreted as <strong lang=\"en\">HTML</strong>. If set to <strong lang=\"en\">true</strong>, the content of the tooltip will be displayed with <strong lang=\"en\">HTML</strong> formatting.",
+  "_A_GLOBAL_PROPS_TITLE_DESCRIPTION_": "Sets the text of the tooltip that will appear when hovering over an element. The tooltip can be presented as plain text or an object for different devices (e.g., desktops and mobile devices).",
+  "_A_GLOBAL_PROPS_TITLE_PLACEMENT_DESCRIPTION_": "Specifies the position of the tooltip relative to the element. Various positions are supported, such as <strong lang=\"en\">top</strong>, <strong lang=\"en\">bottom</strong>, <strong lang=\"en\">left</strong>, <strong lang=\"en\">right</strong>, and others. This property only works if <strong lang=\"en\">isTitleHtml</strong> is set to <strong lang=\"en\">true</strong>.",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Determines whether translations for this component can be disabled. If set to true, translations cannot be turned off, and placeholders will not be shown instead.",
   "_ALOHA_TABLE_COLUMN_DEFAULT_": "Default",
   "_ALOHA_TABLE_COLUMN_DESCRIPTION_": "Description",
@@ -14,14 +17,14 @@
   "_COPY_CODE_HTML_": "Copy code HTML",
   "_COPY_CODE_JS_": "Copy code JS",
   "_HIDE_SOURCE_": "Hide source",
+  "_JS_TYPE_ANY_": "Any",
+  "_JS_TYPE_ARRAY_": "Array",
+  "_JS_TYPE_BOOLEAN_": "Boolean",
+  "_JS_TYPE_FUNCTION_": "Function",
+  "_JS_TYPE_NUMBER_": "Number",
+  "_JS_TYPE_OBJECT_": "Object",
+  "_JS_TYPE_STRING_": "String",
   "_SUPPORT_FRAMEWORKS_": "We support the following CSS-frameworks",
   "_VIEW_SOURCE_": "View source",
-  "_WELCOME_": "Welcome",
-  "_JS_TYPE_OBJECT_": "Object",
-  "_JS_TYPE_ARRAY_": "Array",
-  "_JS_TYPE_ANY_": "Any",
-  "_JS_TYPE_STRING_": "String",
-  "_JS_TYPE_NUMBER_": "Number",
-  "_JS_TYPE_FUNCTION_": "Function",
-  "_JS_TYPE_BOOLEAN_": "Boolean"
+  "_WELCOME_": "Welcome"
 }

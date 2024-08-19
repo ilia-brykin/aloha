@@ -2,18 +2,18 @@ import {
   h,
 } from "vue";
 
+import AElement from "../../AElement/AElement";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
-import ATooltip from "../../ATooltip/ATooltip";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import OnInputAPI from "./compositionAPI/OnInputAPI";
-import TitleAPI from "./compositionAPI/TitleAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -21,7 +21,6 @@ import placements from "../../const/placements";
 import {
   uniqueId,
 } from "lodash-es";
-
 
 export default {
   name: "ASwitch",
@@ -35,15 +34,10 @@ export default {
       required: false,
       default: () => {},
     },
-    classColumn: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     defaultLabel: {
       type: String,
       required: false,
-      default: "Nicht ausgewählt",
+      default: "_A_SWITCH_DEFAULT_LABEL_",
     },
     defaultValue: {
       type: [Boolean, String, Number],
@@ -64,11 +58,6 @@ export default {
       required: false,
       default: undefined,
     },
-    errorsAll: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     excludeRenderAttributes: {
       type: Array,
       required: false,
@@ -82,7 +71,7 @@ export default {
     falseLabel: {
       type: String,
       required: false,
-      default: "_NO_",
+      default: "_A_SWITCH_FALSE_LABEL_",
     },
     falseValue: {
       type: [Boolean, String, Number],
@@ -96,6 +85,7 @@ export default {
     helpText: {
       type: String,
       required: false,
+      default: undefined
     },
     htmlId: {
       type: String,
@@ -105,7 +95,7 @@ export default {
     id: {
       type: [String, Number],
       required: false,
-      default: () => uniqueId("a_ui_"),
+      default: () => uniqueId("a_switch_"),
     },
     idPrefix: {
       type: String,
@@ -118,16 +108,13 @@ export default {
       default: () => ({}),
     },
     inputClass: {
+      type: [String, Object],
       required: false,
+      default: undefined,
     },
     isHide: {
       type: Boolean,
       required: false,
-    },
-    isLabelFloat: {
-      type: Boolean,
-      required: false,
-      default: true,
     },
     isRender: {
       type: Boolean,
@@ -139,17 +126,23 @@ export default {
       required: false,
       default: false,
     },
+    isTitleHtml: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     label: {
       type: [String, Number],
       required: false,
       default: undefined,
     },
     labelClass: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
     labelScreenReader: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: undefined,
     },
@@ -159,18 +152,14 @@ export default {
       default: () => ({}),
     },
     modelUndefined: {
+      type: [String, Number, Object, Array, Boolean],
       required: false,
-      default: null,
+      default: undefined,
     },
     modelValue: {
       type: [Boolean, String, Number],
       required: false,
       default: undefined,
-    },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
     },
     required: {
       type: Boolean,
@@ -178,17 +167,7 @@ export default {
       default: false,
     },
     title: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    titleMaxWidth: {
-      type: Number,
-      required: false,
-      default: undefined,
-    },
-    titleMinWidth: {
-      type: Number,
+      type: [String, Number, Object, Array],
       required: false,
       default: undefined,
     },
@@ -198,24 +177,15 @@ export default {
       default: "top",
       validator: placement => placements.indexOf(placement) !== -1,
     },
-    titleWidth: {
-      type: Number,
-      required: false,
-      default: undefined,
-    },
     trueLabel: {
       type: String,
       required: false,
-      default: "_YES_",
+      default: "_A_SWITCH_TRUE_LABEL_",
     },
     trueValue: {
       type: [Boolean, String, Number],
       required: false,
       default: true,
-    },
-    type: {
-      type: String,
-      required: false,
     },
   },
   emits: [
@@ -224,6 +194,10 @@ export default {
     "update:modelValue",
   ],
   setup(props, context) {
+    const {
+      disabledAttribut,
+    } = UiDisabledAPI(props);
+
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
@@ -244,10 +218,6 @@ export default {
       onBlur,
       onFocus,
     } = UiAPI(props, context);
-
-    const {
-      hasTitle,
-    } = TitleAPI(props);
 
     const {
       isModelDefault,
@@ -278,14 +248,13 @@ export default {
       isModelTrue,
     });
 
-
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       clearModel,
       componentStyleHide,
+      disabledAttribut,
       errorsId,
-      hasTitle,
       helpTextId,
       htmlIdLocal,
       isChecked,
@@ -306,6 +275,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
@@ -321,35 +291,36 @@ export default {
           labelScreenReader: this.labelScreenReader,
           required: this.required,
           type: this.type,
-          isLabelFloat: this.isLabelFloat,
           isError: this.isErrors,
         }),
-        h(ATooltip, {
+        h(AElement, {
+          class: [
+            "switch_button",
+            {
+              switch_button_undefined: this.isModelDefault,
+              switch_button_invalid: this.isErrors,
+            },
+          ],
+          classDefault: "",
+          isTitleHtml: this.isTitleHtml,
           tag: "div",
-          placement: this.titlePlacement,
-          isHide: !this.hasTitle,
-          class: ["switch_button", {
-            switch_button_undefined: this.isModelDefault,
-            switch_button_invalid: this.isErrors,
-          }],
-          minWidth: this.titleMinWidth,
-          width: this.titleWidth,
-          maxWidth: this.titleMaxWidth,
+          title: this.title,
+          titlePlacement: this.titlePlacement,
+          type: "text",
         }, {
           default: () => [
             h("input", {
               id: this.htmlIdLocal,
-              ref: "input",
+              "aria-describedby": this.ariaDescribedbyLocal,
+              ariaInvalid: this.isErrors,
+              ariaRequired: this.required,
               checked: this.isChecked,
-              type: "checkbox",
               class: [
                 "switch_button__input",
                 this.inputClass,
               ],
-              disabled: this.disabled,
-              ariaRequired: this.required,
-              ariaInvalid: this.isErrors,
-              "aria-describedby": this.ariaDescribedbyLocal,
+              disabled: this.disabledAttribut,
+              type: "checkbox",
               ...this.inputAttributes,
               onClick: this.onInput,
               onKeydown: this.onKeydown,
@@ -366,12 +337,10 @@ export default {
                 },
               ],
               for: this.htmlIdLocal,
+              extra: this.extra,
               html: this.labelValueLocal,
             }),
           ],
-          title: () => h(ATranslation, {
-            html: this.title,
-          }),
         }),
         h(AFormHelpText, {
           id: this.helpTextId,
