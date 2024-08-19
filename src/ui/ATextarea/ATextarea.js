@@ -15,6 +15,7 @@ import ResizeClass from "./compositionAPI/ResizeClass";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -173,6 +174,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      disabledAttribut,
+    } = UiDisabledAPI(props);
+
+    const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
@@ -235,6 +240,7 @@ export default {
       changeModel,
       clearModel,
       componentStyleHide,
+      disabledAttribut,
       errorsId,
       helpTextId,
       htmlIdLocal,
@@ -299,7 +305,7 @@ export default {
               },
               this.resizeClass,
             ],
-            disabled: this.disabled,
+            disabled: this.disabledAttribut,
             ariaRequired: this.required,
             ariaInvalid: this.isErrors,
             "aria-describedby": this.ariaDescribedbyLocal,

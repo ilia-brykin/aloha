@@ -14,6 +14,7 @@ import ASafeHtml from "../../directives/ASafeHtml";
 import HeightAPI from "./compositionAPI/HeightAPI";
 import JsonAPI from "./compositionAPI/JsonAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -143,6 +144,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      disabledAttribut,
+    } = UiDisabledAPI(props);
+
+    const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
@@ -191,6 +196,7 @@ export default {
       changeModel,
       clearModel,
       componentStyleHide,
+      disabledAttribut,
       errorsId,
       formatJson,
       helpTextId,
@@ -313,7 +319,7 @@ export default {
                     a_form_control_invalid: this.isErrors,
                   },
                 ],
-                disabled: this.disabled,
+                disabled: this.disabledAttribut,
                 spellcheck: "false",
                 ...this.inputAttributes,
                 onInput: this.onInput,

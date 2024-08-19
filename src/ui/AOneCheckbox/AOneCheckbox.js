@@ -9,6 +9,7 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
 import UiAPI from "../compositionApi/UiAPI";
+import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
@@ -156,6 +157,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      disabledAttribut,
+    } = UiDisabledAPI(props);
+
+    const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
@@ -190,6 +195,7 @@ export default {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       componentStyleHide,
+      disabledAttribut,
       errorsId,
       hasLabel,
       helpTextId,
@@ -229,7 +235,7 @@ export default {
               type: "checkbox",
               checked: this.isChecked,
               class: "a_custom_control_input",
-              disabled: this.disabled,
+              disabled: this.disabledAttribut,
               ariaRequired: this.required,
               ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,

@@ -17,6 +17,7 @@ import PasswordAPI from "./compositionAPI/PasswordAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
+import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
@@ -185,6 +186,10 @@ export default {
     const type = toRef(props, "type");
 
     const {
+      disabledAttribut,
+    } = UiDisabledAPI(props);
+
+    const {
       setTypeLocal,
       typeForInput,
     } = TypeAPI(props);
@@ -256,6 +261,7 @@ export default {
       attributesToExcludeFromRender,
       clearModel,
       componentStyleHide,
+      disabledAttribut,
       errorsId,
       helpTextId,
       htmlIdLocal,
@@ -322,7 +328,7 @@ export default {
                 a_form_control_invalid: this.isErrors,
               },
             ],
-            disabled: this.disabled,
+            disabled: this.disabledAttribut,
             ariaRequired: this.required,
             ariaInvalid: this.isErrors,
             "aria-describedby": this.ariaDescribedbyLocal,
