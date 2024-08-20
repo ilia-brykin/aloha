@@ -1,57 +1,55 @@
-import AButton from "../../../../../src/AButton/AButton";
-import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import AInputCurrency from "../../../../../src/ui/AInputCurrency/AInputCurrency";
-import AInputNumber from "../../../../../src/ui/AInputNumber/AInputNumber";
-import ASelect from "../../../../../src/ui/ASelect/ASelect";
+import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
+import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
+import PageInputBasic from "./PageInputBasic/PageInputBasic.vue";
+import PageInputChange from "./PageInputChange/PageInputChange.vue";
+import PageInputErrors from "./PageInputErrors/PageInputErrors.vue";
+import PageInputHelpText from "./PageInputHelpText/PageInputHelpText.vue";
+import PageInputLabelFloat from "./PageInputLabelFloat/PageInputLabelFloat.vue";
+import PageInputPassword from "./PageInputPassword/PageInputPassword.vue";
 
-import HtmlAPI from "./compositionAPI/HtmlAPI";
-import JsAPI from "./compositionAPI/JsAPI";
-import ModelAPI from "./compositionAPI/ModelAPI";
+import EventsAPI from "./compositionAPI/EventsAPI";
+import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+import PropsAPI from "./compositionAPI/PropsAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageInputCurrency",
   components: {
-    AButton,
-    AlohaExample,
-    AInputCurrency,
-    AInputNumber,
-    ASelect,
+    AlohaPage,
+    AlohaTableProps,
+    AlohaTableTranslate,
     ATranslation,
+    PageInputBasic,
+    PageInputChange,
+    PageInputErrors,
+    PageInputHelpText,
+    PageInputLabelFloat,
+    PageInputPassword,
   },
   setup() {
     const {
-      codeHtml,
-    } = HtmlAPI();
+      pageTitle,
+    } = PageTitleAPI();
 
     const {
-      codeJs,
-    } = JsAPI();
+      dataProps,
+    } = PropsAPI();
 
     const {
-      appliedModel,
-      applyModel,
-      decimalDividerCollection,
-      changeDecimalDivider,
-      changeThousandDivider,
-      exampleInputKey,
-      mainModel,
-      thousandDividerCollection,
-      unappliedModel,
-    } = ModelAPI();
+      dataTranslate,
+    } = TranslateAPI();
+
+    const {
+      dataEvents,
+    } = EventsAPI();
 
     return {
-      appliedModel,
-      applyModel,
-      changeDecimalDivider,
-      changeThousandDivider,
-      codeHtml,
-      codeJs,
-      decimalDividerCollection,
-      exampleInputKey,
-      mainModel,
-      thousandDividerCollection,
-      unappliedModel,
+      dataEvents,
+      dataProps,
+      dataTranslate,
+      pageTitle,
     };
   },
 };

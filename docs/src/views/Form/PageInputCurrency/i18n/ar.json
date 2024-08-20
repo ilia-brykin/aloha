@@ -1,6 +1,10 @@
 {
-  "_A_PAGE_INPUT_CURRENCY_HEADER_": "Demonstration example",
-  "_A_PAGE_INPUT_CURRENCY_DESCRIPTION_": "Demonstration example of AInputCurrency.",
-  "_A_PAGE_INPUT_CURRENCY_EXAMPLE_MODEL_": "Example Model",
-  "_A_PAGE_INPUT_CURRENCY_EXAMPLE_INPUT_": "Example Input"
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "يوفر مكون <strong lang=\"en\">AInput</strong> وظيفة إدخال البيانات مع دعم لأنواع مختلفة من البيانات مثل <strong lang=\"en\">text</strong>، <strong lang=\"en\">password</strong>، <strong lang=\"en\">number</strong>، <strong lang=\"en\">email</strong> وغيرها. يدعم المكون عرض الأيقونات وزر المسح بالإضافة إلى إمكانية إظهار/إخفاء كلمة المرور.",
+  "_A_INPUT_COMPONENT_NAME_": "حقل النص",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام حقل إدخال من النوع <strong lang=\"en\">password</strong> وإمكانية تبديل عرض كلمة المرور باستخدام <strong lang=\"en\">show-password</strong>. في الحقل الأول، يمكن للمستخدم التبديل بين إظهار وإخفاء كلمة المرور، بينما يتم تعطيل هذه الميزة في الحقل الثاني.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "حقل إدخال كلمة المرور",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "يحدد الأيقونة التي ستظهر قبل حقل الإدخال. يمكن استخدام هذه الأيقونة لتحسين الفهم البصري أو للإشارة إلى نوع البيانات المدخلة.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "يعمل عند تعيين نوع الإدخال إلى <strong lang=\"en\">password</strong>. يسمح بتبديل رؤية كلمة المرور المدخلة، مما يمنح المستخدم خيار رؤية كلمة المرور أثناء كتابتها.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "يستخدم لأنواع <strong lang=\"en\">number</strong> أو <strong lang=\"en\">integer</strong>. يحدد الخطوة لتغيير القيمة، على سبيل المثال عند زيادة أو تقليل الرقم باستخدام أسهم لوحة المفاتيح.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "يحدد نوع قيمة الإدخال. يتم دعم أنواع مختلفة من البيانات مثل <strong lang=\"en\">text</strong>، <strong lang=\"en\">password</strong>، <strong lang=\"en\">number</strong>، <strong lang=\"en\">integer</strong>، <strong lang=\"en\">email</strong> وغيرها."
 }

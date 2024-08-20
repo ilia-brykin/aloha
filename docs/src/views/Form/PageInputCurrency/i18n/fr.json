@@ -1,6 +1,10 @@
 {
-  "_A_PAGE_INPUT_CURRENCY_HEADER_": "Demonstration example",
-  "_A_PAGE_INPUT_CURRENCY_DESCRIPTION_": "Demonstration example of AInputCurrency.",
-  "_A_PAGE_INPUT_CURRENCY_EXAMPLE_MODEL_": "Example Model",
-  "_A_PAGE_INPUT_CURRENCY_EXAMPLE_INPUT_": "Example Input"
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">AInput</strong> fournit une fonctionnalité de saisie de données avec prise en charge de divers types de données tels que <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> et d'autres. Le composant prend en charge l'affichage des icônes, un bouton de suppression et la possibilité d'afficher/masquer le mot de passe.",
+  "_A_INPUT_COMPONENT_NAME_": "Champ de Texte",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Cet exemple montre comment utiliser un champ de saisie avec le type <strong lang=\"en\">password</strong> et la possibilité de basculer la visibilité du mot de passe en utilisant <strong lang=\"en\">show-password</strong>. Dans le premier champ, l'utilisateur peut basculer entre l'affichage et la masquage du mot de passe, tandis que dans le deuxième champ, cette fonction est désactivée.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Champ de Saisie de Mot de Passe",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Spécifie l'icône qui sera affichée avant le champ de saisie. Cette icône peut être utilisée pour améliorer la perception visuelle ou indiquer le type de données saisies.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Fonctionne lorsque le type de saisie est <strong lang=\"en\">password</strong>. Permet de basculer l'affichage du mot de passe saisi, donnant à l'utilisateur l'option de voir le mot de passe pendant la saisie.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Utilisé pour les types <strong lang=\"en\">number</strong> ou <strong lang=\"en\">integer</strong>. Spécifie l'étape pour changer la valeur, par exemple lors de l'augmentation ou de la diminution du nombre à l'aide des flèches du clavier.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Définit le type de valeur de saisie. Divers types de données sont pris en charge, tels que <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> et d'autres."
 }

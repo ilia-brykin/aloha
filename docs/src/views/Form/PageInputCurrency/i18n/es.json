@@ -1,6 +1,10 @@
 {
-  "_A_PAGE_INPUT_CURRENCY_HEADER_": "Demonstration example",
-  "_A_PAGE_INPUT_CURRENCY_DESCRIPTION_": "Demonstration example of AInputCurrency.",
-  "_A_PAGE_INPUT_CURRENCY_EXAMPLE_MODEL_": "Example Model",
-  "_A_PAGE_INPUT_CURRENCY_EXAMPLE_INPUT_": "Example Input"
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">AInput</strong> proporciona funcionalidad de entrada de datos con soporte para varios tipos de datos, como <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> y otros. El componente admite la visualización de íconos, un botón de borrado y la capacidad de mostrar/ocultar la contraseña.",
+  "_A_INPUT_COMPONENT_NAME_": "Campo de Texto",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Este ejemplo muestra cómo usar un campo de entrada con el tipo <strong lang=\"en\">password</strong> y la capacidad de alternar la visibilidad de la contraseña usando <strong lang=\"en\">show-password</strong>. En el primer campo, el usuario puede alternar entre mostrar y ocultar la contraseña, mientras que en el segundo campo esta función está desactivada.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Campo de Entrada de Contraseña",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Especifica el ícono que se mostrará antes del campo de entrada. Este ícono puede usarse para mejorar la percepción visual o indicar el tipo de datos de entrada.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Funciona cuando el tipo de entrada es <strong lang=\"en\">password</strong>. Permite alternar la visibilidad de la contraseña ingresada, dando al usuario la opción de ver la contraseña mientras se escribe.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Se utiliza para los tipos <strong lang=\"en\">number</strong> o <strong lang=\"en\">integer</strong>. Especifica el paso para cambiar el valor, por ejemplo, al aumentar o disminuir el número usando las flechas del teclado.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Define el tipo de valor de entrada. Se admiten varios tipos de datos, como <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> y otros."
 }

@@ -1,6 +1,5 @@
 import {
   h,
-  ref,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -9,9 +8,6 @@ import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormE
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
-
-import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
-import UiMixinProps from "../mixins/UiMixinProps";
 
 import IncreaseDecreaseAPI from "./compositionAPI/IncreaseDecreaseAPI";
 import InputEventsAPI from "./compositionAPI/InputEventsAPI";
@@ -30,16 +26,26 @@ import {
   inputCurrencyPluginOptions,
 } from "../../plugins/AInputCurrencyPlugin";
 
+import {
+  uniqueId,
+} from "lodash-es";
+
 export default {
   name: "AInputCurrency",
-  mixins: [
-    UiClearButtonMixinProps,
-    UiMixinProps,
-  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
+    },
+    clearButtonClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     controlsType: {
       type: String,
@@ -65,25 +71,98 @@ export default {
       default: () => inputCurrencyPluginOptions.value.propsDefault.decimalDivider,
       validator: value => [".", ","].indexOf(value) !== -1,
     },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
     excludeRenderAttributes: {
       type: Array,
       required: false,
       default: () => [],
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    helpText: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     iconPrepend: {
       type: String,
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.iconPrepend,
     },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_input_currency_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     inputWidth: {
       type: [String, Number],
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.inputWidth,
     },
+    isClearButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+    },
     isLabelFloat: {
       type: Boolean,
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.isLabelFloat,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     max: {
       type: Number,
@@ -95,6 +174,11 @@ export default {
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.min,
     },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     modelType: {
       type: String,
       required: false,
@@ -104,6 +188,10 @@ export default {
     modelUndefined: {
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.modelUndefined,
+    },
+    modelValue: {
+      type: [String, Number],
+      required: false,
     },
     placeholder: {
       type: [String, Number],
@@ -120,15 +208,15 @@ export default {
       required: false,
       default: false,
     },
-    symbolsAfterDecimalDivider: {
-      type: Number,
-      required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.symbolsAfterDecimalDivider,
-    },
     step: {
       type: Number,
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.step,
+    },
+    symbolsAfterDecimalDivider: {
+      type: Number,
+      required: false,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.symbolsAfterDecimalDivider,
     },
     thousandDivider: {
       type: String,
@@ -136,16 +224,17 @@ export default {
       default: () => inputCurrencyPluginOptions.value.propsDefault.thousandDivider,
       validator: value => [".", ",", ""].indexOf(value) !== -1,
     },
-    type: {
-      type: String,
-      required: false,
-    },
     validationOnChange: {
       type: Boolean,
       required: false,
       default: false,
     },
   },
+  emits: [
+    "update:modelValue",
+    "focus",
+    "blur",
+  ],
   setup(props, context) {
     const {
       attributesToExcludeFromRender,
@@ -189,8 +278,6 @@ export default {
       inputWidthStyleValue,
     } = WidthAPI(props);
 
-    const inputRef = ref(undefined);
-
     const {
       ensurePrecision,
     } = VerifyAPI(props);
@@ -222,15 +309,15 @@ export default {
       handleKeydown,
       handlePaste,
       initFirstCheck,
-      onClickNumber,
+      inputRef,
       onBlurNumber,
+      onClickNumber,
     } = InputEventsAPI(props, {
       adjustFloatPartAndDivider,
       decrease,
       displayValue,
       getCleanIntValue,
       increase,
-      inputRef,
       modelNumber,
       modelUndefinedLocal,
       onBlur,
@@ -273,6 +360,7 @@ export default {
     return h("div", {
       class: "a_form_element__container",
       style: this.componentStyleHide,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {

@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_IS_LABEL_FLOAT_HEADER_"
+  description="_A_UI_GROUP_IS_LABEL_FLOAT_DESCRIPTION_"
+  :props="['is-label-float']"
+)
+  a-input(
+    v-model="model"
+    :is-label-float="false"
+    label="Input"
+  )
+  a-input(
+    v-model="model"
+    :is-label-float="true"
+    class="a_mt_3"
+    label="Input"
+  )

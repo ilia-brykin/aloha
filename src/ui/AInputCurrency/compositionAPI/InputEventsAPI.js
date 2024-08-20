@@ -17,7 +17,6 @@ export default function InputEventsAPI(props, {
   decrease = () => {},
   getCleanIntValue = () => {},
   increase = () => {},
-  inputRef = ref({}),
   modelNumber = computed(() => undefined),
   modelUndefinedLocal = computed(() => undefined),
   onBlur = () => {},
@@ -25,6 +24,7 @@ export default function InputEventsAPI(props, {
   displayValue = ref(undefined),
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
+  const inputRef = ref(undefined);
   const max = toRef(props, "max");
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
@@ -547,7 +547,8 @@ export default function InputEventsAPI(props, {
     handleKeydown,
     handlePaste,
     initFirstCheck,
-    onClickNumber,
+    inputRef,
     onBlurNumber,
+    onClickNumber,
   };
 }

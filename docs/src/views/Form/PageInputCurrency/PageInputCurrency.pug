@@ -1,66 +1,37 @@
-aloha-example(
-  :code-html="codeHtml"
-  :code-js="codeJs"
-  header="_A_PAGE_INPUT_CURRENCY_HEADER_"
-  description="_A_PAGE_INPUT_CURRENCY_DESCRIPTION_"
-  :props="['thousand-divider', 'decimal-divider', 'step', 'symbols-after-decimal-divider']"
+aloha-page(
+  :page-title="pageTitle"
 )
-  .a_columns.a_columns_count_12
-    .a_column.a_column_6.a_columns_count_12_touch.a_mb_5
-      a-input-number(
-        id="input_currency_symbols_after_decimal_divider"
-        v-model="unappliedModel.modelSymbolsAfterDecimalDivider"
-        type="integerNonNegative"
-        label="symbols-after-decimal-divider"
-        :step="1"
-      )
-      a-input-number(
-        id="input_currency_step"
-        v-model="unappliedModel.modelStep"
-        label="step"
-      )
-      a-select(
-        id="input_thousand_divider"
-        v-model="unappliedModel.modelThousandDivider"
-        label="thousand-divider"
-        key-id="value"
-        key-label="label"
-        :data="thousandDividerCollection"
-        :is-label-float="false"
-        type="select"
-        :change="changeThousandDivider"
-      )
-      a-select(
-        id="input_currency_decimal_divider"
-        v-model="unappliedModel.modelDecimalDivider"
-        label="decimal-divider"
-        key-id="value"
-        key-label="label"
-        :data="decimalDividerCollection"
-        :is-label-float="false"
-        type="select"
-        :change="changeDecimalDivider"
-      )
-      a-button(
-        id="input_currency_apply_model"
-        class="a_btn a_btn_primary a_mt_2"
-        text="Apply model"
-        @click="applyModel"
-      )
-  a-translation(
-    tag="span"
-    html="_A_PAGE_INPUT_CURRENCY_EXAMPLE_MODEL_"
-    :text-after="': ' + mainModel"
+  template(
+    v-slot:body
   )
-  a-input-currency.a_mb_5(
-    id="input_currency_example"
-    :key="exampleInputKey"
-    v-model="mainModel"
-    label="_A_PAGE_INPUT_CURRENCY_EXAMPLE_INPUT_"
-    :required="true"
-    :thousand-divider="appliedModel.modelThousandDivider"
-    :decimal-divider="appliedModel.modelDecimalDivider"
-    :step="appliedModel.modelStep"
-    :symbols-after-decimal-divider="appliedModel.modelSymbolsAfterDecimalDivider"
-    :validation-on-change="true"
-  )
+    a-translation(
+      tag="p"
+      html="_A_INPUT_CURRENCY_COMPONENT_DESCRIPTION_"
+    )
+
+    page-input-basic
+
+    page-input-change
+
+    page-input-help-text
+
+    page-input-errors
+
+    page-input-label-float
+
+    page-input-password
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
