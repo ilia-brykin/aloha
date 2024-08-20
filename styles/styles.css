@@ -7393,7 +7393,8 @@ input:not(:-webkit-autofill) {
   align-items: stretch; }
   .a_form_element_number_controls .a_btn_group {
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0; }
+    border-bottom-left-radius: 0;
+    background-color: #fff; }
     .a_form_element_number_controls .a_btn_group > .a_btn {
       --a_btn_border_color: #ced4da; }
       .a_form_element_number_controls .a_btn_group > .a_btn:first-child {
