@@ -18,7 +18,6 @@ export default function IncreaseDecreaseAPI(props, {
   const modelValue = toRef(props, "modelValue");
   const max = toRef(props, "max");
   const min = toRef(props, "min");
-  const readonly = toRef(props, "readonly");
   const symbolsAfterDecimalDivider = toRef(props, "symbolsAfterDecimalDivider");
   const thousandDivider = toRef(props, "thousandDivider");
 
@@ -59,7 +58,7 @@ export default function IncreaseDecreaseAPI(props, {
   };
 
   const increase = () => {
-    if (readonly.value || disabled.value || maxDisabled.value) {
+    if (disabled.value || maxDisabled.value) {
       return;
     }
     if (modelNumber.value < min.value) {
@@ -76,7 +75,7 @@ export default function IncreaseDecreaseAPI(props, {
   };
 
   const decrease = () => {
-    if (readonly.value || disabled.value || minDisabled.value) {
+    if (disabled.value || minDisabled.value) {
       return; 
     }
     if (modelNumber.value > max.value) {

@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_ERRORS_HEADER_"
+  description="_A_UI_GROUP_ERRORS_DESCRIPTION_"
+  :props="['errors']"
+)
+  a-input-currency(
+    v-model="model"
+    errors="Aloha"
+    label="Input"
+  )
+  div model: {{ model }}

@@ -33,5 +33,6 @@
   "_A_UI_PROPS_MODEL_DEPENDENCIES_DESCRIPTION_": "Determines model dependencies that may affect the visibility or behavior of the component.",
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "The value used to reset the model to an undefined state. Useful for clearing the model value.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "The current model value associated with the component. Used to manage the data displayed in the component.",
+  "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Specifies the placeholder text that will be displayed in the input field until the user enters data. The placeholder helps the user understand what data is expected in the field.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indicates whether the component is required. If set to <strong lang=\"en\">true</strong>, the component requires user input."
 }

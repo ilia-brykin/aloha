@@ -33,5 +33,6 @@
   "_A_UI_PROPS_MODEL_DEPENDENCIES_DESCRIPTION_": "Determina le dipendenze del modello che possono influenzare la visibilità o il comportamento della componente.",
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "Il valore utilizzato per reimpostare il modello in uno stato indefinito. Utile per cancellare il valore del modello.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "Il valore corrente del modello associato alla componente. Usato per gestire i dati visualizzati nella componente.",
+  "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Specifica il testo del segnaposto che verrà visualizzato nel campo di input fino a quando l'utente non inserisce i dati. Il segnaposto aiuta l'utente a capire quali dati sono richiesti nel campo.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indica se la componente è obbligatoria. Se impostato su <strong lang=\"en\">true</strong>, la componente richiede l'input dell'utente."
 }

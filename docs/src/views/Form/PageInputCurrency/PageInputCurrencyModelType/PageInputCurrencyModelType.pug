@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_CURRENCY_GROUP_MODEL_TYPE_HEADER_"
+  description="_A_INPUT_CURRENCY_GROUP_MODEL_TYPE_DESCRIPTION_"
+  :props="['model-type']"
+)
+  a-input-currency(
+    v-model="model"
+    label="number"
+    model-type="number"
+  )
+  a-input-currency(
+    v-model="model"
+    class="a_mt_3"
+    label="string"
+    model-type="string"
+  )
+  div model: {{ model }}

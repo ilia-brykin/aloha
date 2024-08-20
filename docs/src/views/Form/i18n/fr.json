@@ -33,5 +33,6 @@
   "_A_UI_PROPS_MODEL_DEPENDENCIES_DESCRIPTION_": "Détermine les dépendances du modèle qui peuvent affecter la visibilité ou le comportement de la composante.",
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "La valeur utilisée pour réinitialiser le modèle à un état indéfini. Utile pour effacer la valeur du modèle.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "La valeur actuelle du modèle associée à la composante. Utilisée pour gérer les données affichées dans la composante.",
+  "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Spécifie le texte de l'espace réservé qui sera affiché dans le champ de saisie jusqu'à ce que l'utilisateur entre des données. L'espace réservé aide l'utilisateur à comprendre quelles données sont attendues dans le champ.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indique si la composante est obligatoire. Si la valeur est définie sur <strong lang=\"en\">true</strong>, la composante nécessite une entrée utilisateur."
 }

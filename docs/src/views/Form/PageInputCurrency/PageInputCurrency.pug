@@ -9,17 +9,25 @@ aloha-page(
       html="_A_INPUT_CURRENCY_COMPONENT_DESCRIPTION_"
     )
 
-    page-input-basic
+    page-input-currency-basic
 
-    page-input-change
+    page-input-currency-change
 
-    page-input-help-text
+    page-input-currency-help-text
 
-    page-input-errors
+    page-input-currency-errors
 
-    page-input-label-float
+    page-input-currency-label-float
 
-    page-input-password
+    page-input-currency-symbol
+
+    page-input-currency-controls-type
+
+    page-input-currency-decimal-divider
+
+    page-input-currency-max-min
+
+    page-input-currency-model-type
 
     aloha-table-props(
       :data="dataProps"
@@ -30,8 +38,3 @@ aloha-page(
       :data="dataEvents"
       :columns="['name', 'type', 'description']"
     )
-
-    aloha-table-translate(
-      :data="dataTranslate"
-    )
-

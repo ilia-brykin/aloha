@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_CURRENCY_GROUP_SYMBOL_HEADER_"
+  description="_A_INPUT_CURRENCY_GROUP_SYMBOL_DESCRIPTION_"
+  :props="['currency-symbol', 'currency-symbol-position']"
+)
+  a-input-currency(
+    v-model="model"
+    currency-symbol-position="right"
+    currency-symbol="%"
+    label="Input"
+  )
+  a-input-currency(
+    v-model="model"
+    class="a_mt_3"
+    currency-symbol-position="left"
+    currency-symbol="$"
+    label="Input"
+  )
+  div model: {{ model }}

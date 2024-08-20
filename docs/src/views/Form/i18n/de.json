@@ -33,5 +33,6 @@
   "_A_UI_PROPS_MODEL_DEPENDENCIES_DESCRIPTION_": "Bestimmt Modellabhängigkeiten, die die Sichtbarkeit oder das Verhalten der Komponente beeinflussen können.",
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "Der Wert, der verwendet wird, um das Modell in einen undefinierten Zustand zurückzusetzen. Nützlich, um den Modellwert zu löschen.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "Der aktuelle Modellwert, der mit der Komponente verknüpft ist. Wird verwendet, um die in der Komponente angezeigten Daten zu verwalten.",
+  "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Legt den Platzhaltertext fest, der im Eingabefeld angezeigt wird, bis der Benutzer Daten eingibt. Der Platzhalter hilft dem Benutzer zu verstehen, welche Daten im Feld erwartet werden.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Gibt an, ob die Komponente erforderlich ist. Wenn auf <strong lang=\"en\">true</strong> gesetzt, erfordert die Komponente eine Benutzereingabe."
 }

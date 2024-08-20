@@ -2,17 +2,20 @@ import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import PageInputBasic from "./PageInputBasic/PageInputBasic.vue";
-import PageInputChange from "./PageInputChange/PageInputChange.vue";
-import PageInputErrors from "./PageInputErrors/PageInputErrors.vue";
-import PageInputHelpText from "./PageInputHelpText/PageInputHelpText.vue";
-import PageInputLabelFloat from "./PageInputLabelFloat/PageInputLabelFloat.vue";
-import PageInputPassword from "./PageInputPassword/PageInputPassword.vue";
+import PageInputCurrencyBasic from "./PageInputCurrencyBasic/PageInputCurrencyBasic.vue";
+import PageInputCurrencyChange from "./PageInputCurrencyChange/PageInputCurrencyChange.vue";
+import PageInputCurrencyErrors from "./PageInputCurrencyErrors/PageInputCurrencyErrors.vue";
+import PageInputCurrencyHelpText from "./PageInputCurrencyHelpText/PageInputCurrencyHelpText.vue";
+import PageInputCurrencyLabelFloat from "./PageInputCurrencyLabelFloat/PageInputCurrencyLabelFloat.vue";
+import PageInputCurrencySymbol from "./PageInputCurrencySymbol/PageInputCurrencySymbol.vue";
+import PageInputCurrencyControlsType from "./PageInputCurrencyControlsType/PageInputCurrencyControlsType.vue";
+import PageInputCurrencyDecimalDivider from "./PageInputCurrencyDecimalDivider/PageInputCurrencyDecimalDivider.vue";
+import PageInputCurrencyMaxMin from "./PageInputCurrencyMaxMin/PageInputCurrencyMaxMin.vue";
+import PageInputCurrencyModelType from "./PageInputCurrencyModelType/PageInputCurrencyModelType.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageInputCurrency",
@@ -21,12 +24,16 @@ export default {
     AlohaTableProps,
     AlohaTableTranslate,
     ATranslation,
-    PageInputBasic,
-    PageInputChange,
-    PageInputErrors,
-    PageInputHelpText,
-    PageInputLabelFloat,
-    PageInputPassword,
+    PageInputCurrencyBasic,
+    PageInputCurrencyChange,
+    PageInputCurrencyErrors,
+    PageInputCurrencyHelpText,
+    PageInputCurrencyLabelFloat,
+    PageInputCurrencySymbol,
+    PageInputCurrencyControlsType,
+    PageInputCurrencyDecimalDivider,
+    PageInputCurrencyMaxMin,
+    PageInputCurrencyModelType,
   },
   setup() {
     const {
@@ -38,17 +45,12 @@ export default {
     } = PropsAPI();
 
     const {
-      dataTranslate,
-    } = TranslateAPI();
-
-    const {
       dataEvents,
     } = EventsAPI();
 
     return {
       dataEvents,
       dataProps,
-      dataTranslate,
       pageTitle,
     };
   },

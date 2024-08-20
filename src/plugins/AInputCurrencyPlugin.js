@@ -5,6 +5,8 @@ import {
 export const inputCurrencyPluginOptions = ref({
   propsDefault: {
     controlsType: "none",
+    currencySymbol: "€",
+    currencySymbolPosition: "right",
     decimalDivider: ",",
     iconPrepend: undefined,
     inputWidth: 200,
@@ -13,7 +15,6 @@ export const inputCurrencyPluginOptions = ref({
     min: undefined,
     modelUndefined: undefined,
     placeholder: undefined,
-    readonly: undefined,
     step: 1,
     symbolsAfterDecimalDivider: 2,
     thousandDivider: ".",

@@ -57,12 +57,12 @@ export default {
     currencySymbol: {
       type: String,
       required: false,
-      default: "€",
+      default: () => inputCurrencyPluginOptions.value.propsDefault.currencySymbol,
     },
     currencySymbolPosition: {
       type: String,
       required: false,
-      default: "right",
+      default: () => inputCurrencyPluginOptions.value.propsDefault.currencySymbolPosition,
       validator: value => ["right", "left"].indexOf(value) !== -1,
     },
     decimalDivider: {
@@ -164,6 +164,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelScreenReader: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     max: {
       type: Number,
       required: false,
@@ -194,14 +199,9 @@ export default {
       required: false,
     },
     placeholder: {
-      type: [String, Number],
+      type: [String, Number, Object],
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.placeholder,
-    },
-    readonly: {
-      type: Boolean,
-      required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.readonly,
     },
     required: {
       type: Boolean,
@@ -373,11 +373,13 @@ export default {
       }, [
         this.label && !this.isLabelFloat && h(ALabel, {
           id: this.htmlIdLocal,
+          extra: this.extra,
+          isLabelFloat: this.isLabelFloat,
           label: this.label,
           labelClass: this.labelClass,
+          labelScreenReader: this.labelScreenReader,
           required: this.required,
           type: "text",
-          isLabelFloat: this.isLabelFloat,
         }),
         h("div", {
           class: [

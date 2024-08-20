@@ -33,5 +33,6 @@
   "_A_UI_PROPS_MODEL_DEPENDENCIES_DESCRIPTION_": "Determina las dependencias del modelo que pueden afectar la visibilidad o el comportamiento del componente.",
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "El valor que se utiliza para restablecer el modelo a un estado indefinido. Útil para borrar el valor del modelo.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "El valor actual del modelo asociado con el componente. Se utiliza para gestionar los datos mostrados en el componente.",
+  "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Especifica el texto de marcador de posición que se mostrará en el campo de entrada hasta que el usuario ingrese datos. El marcador de posición ayuda al usuario a entender qué datos se esperan en el campo.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indica si el componente es obligatorio. Si se establece en <strong lang=\"en\">true</strong>, el componente requiere la entrada del usuario."
 }
