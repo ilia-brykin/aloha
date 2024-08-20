@@ -290,7 +290,6 @@ export default {
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
           required: this.required,
-          type: this.type,
           isError: this.isErrors,
         }),
         h(AElement, {
@@ -299,6 +298,7 @@ export default {
             {
               switch_button_undefined: this.isModelDefault,
               switch_button_invalid: this.isErrors,
+              switch_button_auto: !this.fullWidth,
             },
           ],
           classDefault: "",

@@ -1,5 +1,20 @@
 {
-  "_A_JSON_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AJson</strong> هو مكون Vue.js مصمم لعرض وتحرير بيانات <strong lang=\"en\">JSON</strong>. يتضمن حقل نصي لإدخال <strong lang=\"en\">JSON</strong>، وأزرار لتنسيق البيانات، وإعادة تعيينها، وإلغاء التعديلات، ومنطقة لعرض القيمة الحالية لـ<strong lang=\"en\">JSON</strong>.",
-  "_A_JSON_COMPONENT_NAME_": "محرر <span lang=\"en\">JSON</span>",
-  "_A_JSON_PROPS_HEIGHT_CSS_DESCRIPTION_": "يحدد ارتفاع المكون عبر <span lang=\"en\">CSS</span>. يقبل سلسلة نصية تحتوي على قيمة الارتفاع، مثل <strong lang=\"en\">400px;</strong>."
+  "_A_SWITCH_COMPONENT_DESCRIPTION_": "مكون <strong lang=\"en\">ASwitch</strong> هو مفتاح يدعم حالات مختلفة ويمكن ربطه بنموذج البيانات. يدعم المكون وضع الحالتين أو الثلاث حالات، بالإضافة إلى عرض تسميات مخصصة.",
+  "_A_SWITCH_COMPONENT_NAME_": "مفتاح التبديل",
+  "_A_SWITCH_GROUP_THREE_STATE_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام المفتاح في وضع الثلاث حالات باستخدام <strong lang=\"en\">is-three-state</strong>، <strong lang=\"en\">default-value</strong> و<strong lang=\"en\">default-label</strong>. عندما يكون المفتاح في حالة وسيطة، يتم تعيين قيمة النموذج إلى <strong lang=\"en\">default-value</strong> (في هذه الحالة، <strong lang=\"en\">null</strong>)، وتُعرض التسمية <strong lang=\"en\">Default</strong>. يسمح هذا الوضع للمفتاح بامتلاك ثلاث حالات: <strong lang=\"en\">true</strong>، <strong lang=\"en\">false</strong> وحالة افتراضية.",
+  "_A_SWITCH_GROUP_THREE_STATE_HEADER_": "وضع الثلاث حالات",
+  "_A_SWITCH_GROUP_TITLE_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام خصائص <strong lang=\"en\">title</strong> و<strong lang=\"en\">is-title-html</strong> في مكون المفتاح. في المفتاح الأول، يتم عرض التلميح باستخدام تفسير HTML، لأن <strong lang=\"en\">is-title-html</strong> مضبوط على <strong lang=\"en\">true</strong>. في المثال الثاني، لا يتم تفسير كود HTML في التلميح لأن <strong lang=\"en\">is-title-html</strong> مضبوط على <strong lang=\"en\">false</strong>. كلا المفتاحين يعرض تلميحًا بالنص <strong lang=\"en\">Aloha</strong> عند التمرير فوقه.",
+  "_A_SWITCH_GROUP_TITLE_HEADER_": "استخدام خصائص <strong lang=\"en\">title</strong> و<strong lang=\"en\">is-title-html</strong>",
+  "_A_SWITCH_GROUP_TRUE_FALSE_LABEL_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">true-label</strong> و<strong lang=\"en\">false-label</strong> لتعيين التسميات المعروضة للمفتاح. عندما تتطابق قيمة النموذج مع حالة <strong lang=\"en\">true</strong>، يعرض المفتاح التسمية <strong>1</strong>، وعند التواجد في حالة <strong lang=\"en\">false</strong>، يعرض التسمية <strong>0</strong>.",
+  "_A_SWITCH_GROUP_TRUE_FALSE_LABEL_HEADER_": "استخدام تسميات <strong lang=\"en\">true-label</strong> و<strong lang=\"en\">false-label</strong>",
+  "_A_SWITCH_GROUP_TRUE_FALSE_VALUE_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">true-value</strong> و<strong lang=\"en\">false-value</strong> لتعيين القيم التي يتم تخصيصها للنموذج عند التبديل. عندما يكون المفتاح في حالة <strong lang=\"en\">true</strong>، تصبح قيمة النموذج '1'. في حالة <strong lang=\"en\">false</strong>، تصبح قيمة النموذج '0'.",
+  "_A_SWITCH_GROUP_TRUE_FALSE_VALUE_HEADER_": "استخدام قيم <strong lang=\"en\">true-value</strong> و<strong lang=\"en\">false-value</strong>",
+  "_A_SWITCH_PROPS_DEFAULT_LABEL_DESCRIPTION_": "إذا لم تتطابق قيمة النموذج مع <strong lang=\"en\">falseValue</strong> و<strong lang=\"en\">trueValue</strong>، يتم عرض هذه التسمية.",
+  "_A_SWITCH_PROPS_DEFAULT_VALUE_DESCRIPTION_": "يتم استخدامه فقط عند ضبط <strong lang=\"en\">isThreeState</strong> على <strong lang=\"en\">true</strong>، لتمثيل الحالة الثالثة للنموذج.",
+  "_A_SWITCH_PROPS_FALSE_LABEL_DESCRIPTION_": "التسمية التي يتم عرضها عندما يكون المفتاح في حالة <strong lang=\"en\">false</strong>.",
+  "_A_SWITCH_PROPS_FALSE_VALUE_DESCRIPTION_": "القيمة التي يتم تخصيصها للنموذج عندما يكون المفتاح في حالة <strong lang=\"en\">false</strong>.",
+  "_A_SWITCH_PROPS_FULL_WIDTH_DESCRIPTION_": "إذا تم ضبطه على <strong lang=\"en\">true</strong>، يشغل المفتاح العرض الكامل المتاح.",
+  "_A_SWITCH_PROPS_IS_THREE_STATE_DESCRIPTION_": "يتم استخدامه لمفتاح بثلاث حالات: <strong lang=\"en\">trueValue</strong>، <strong lang=\"en\">falseValue</strong> و<strong lang=\"en\">defaultValue</strong>.",
+  "_A_SWITCH_PROPS_TRUE_LABEL_DESCRIPTION_": "التسمية التي يتم عرضها عندما يكون المفتاح في حالة <strong lang=\"en\">true</strong>.",
+  "_A_SWITCH_PROPS_TRUE_VALUE_DESCRIPTION_": "القيمة التي يتم تخصيصها للنموذج عندما يكون المفتاح في حالة <strong lang=\"en\">true</strong>."
 }
