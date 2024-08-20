@@ -171,13 +171,6 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "class-for-tooltip-inner",
-      description: "_A_DROPDOWN_PROPS_CLASS_FOR_TOOLTIP_INNER_DESCRIPTION_",
-      type: "String / Object",
-      default: "a_position_relative a_p_0 font_family_inherit",
-      required: false,
-    },
-    {
       name: "disabled",
       description: "_A_DROPDOWN_PROPS_DISABLED_DESCRIPTION_",
       type: "Boolean",
