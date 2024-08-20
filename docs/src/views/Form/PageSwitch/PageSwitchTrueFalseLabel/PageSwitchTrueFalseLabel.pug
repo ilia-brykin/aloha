@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SWITCH_GROUP_TRUE_FALSE_LABEL_HEADER_"
+  description="_A_SWITCH_GROUP_TRUE_FALSE_LABEL_DESCRIPTION_"
+  :props="['false-label', 'true-label']"
+)
+  a-switch(
+    v-model="model"
+    false-label="0"
+    true-label="1"
+  )

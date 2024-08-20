@@ -6,6 +6,8 @@ import PageSwitchBasic from "./PageSwitchBasic/PageSwitchBasic.vue";
 import PageSwitchChange from "./PageSwitchChange/PageSwitchChange.vue";
 import PageSwitchErrors from "./PageSwitchErrors/PageSwitchErrors.vue";
 import PageSwitchHelpText from "./PageSwitchHelpText/PageSwitchHelpText.vue";
+import PageSwitchTrueFalseLabel from "./PageSwitchTrueFalseLabel/PageSwitchTrueFalseLabel.vue";
+import PageSwitchTrueFalseValue from "./PageSwitchTrueFalseValue/PageSwitchTrueFalseValue.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -23,6 +25,8 @@ export default {
     PageSwitchChange,
     PageSwitchErrors,
     PageSwitchHelpText,
+    PageSwitchTrueFalseLabel,
+    PageSwitchTrueFalseValue,
   },
   setup() {
     const {

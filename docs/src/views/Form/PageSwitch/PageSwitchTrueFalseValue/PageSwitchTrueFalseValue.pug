@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SWITCH_GROUP_TRUE_FALSE_VALUE_HEADER_"
+  description="_A_SWITCH_GROUP_TRUE_FALSE_VALUE_DESCRIPTION_"
+  :props="['false-value', 'true-value']"
+)
+  a-switch(
+    v-model="model"
+    :false-value="0"
+    :true-value="1"
+  )
+  div model: {{ model }}
