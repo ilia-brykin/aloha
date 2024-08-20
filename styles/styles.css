@@ -5287,6 +5287,9 @@ h6 {
 .switch_button_undefined .switch_button__label::after {
   left: 15px; }
 
+.switch_button_auto {
+  display: inline-block; }
+
 .a_select {
   --a_select_border_radius: var(--a_border_radius);
   --a_select_close_hover_color: --a_color_primary;
