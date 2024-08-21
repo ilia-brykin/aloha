@@ -292,56 +292,60 @@ export default {
           required: this.required,
           isError: this.isErrors,
         }),
-        h(AElement, {
-          class: [
-            "switch_button",
-            {
-              switch_button_undefined: this.isModelDefault,
-              switch_button_invalid: this.isErrors,
-              switch_button_auto: !this.fullWidth,
-            },
-          ],
-          classDefault: "",
-          isTitleHtml: this.isTitleHtml,
-          tag: "div",
-          title: this.title,
-          titlePlacement: this.titlePlacement,
-          type: "text",
-        }, {
-          default: () => [
-            h("input", {
-              id: this.htmlIdLocal,
-              "aria-describedby": this.ariaDescribedbyLocal,
-              ariaInvalid: this.isErrors,
-              ariaRequired: this.required,
-              checked: this.isChecked,
-              class: [
-                "switch_button__input",
-                this.inputClass,
-              ],
-              disabled: this.disabledAttribut,
-              type: "checkbox",
-              ...this.inputAttributes,
-              onClick: this.onInput,
-              onKeydown: this.onKeydown,
-              onFocus: this.onFocus,
-              onBlur: this.onBlur,
-            }),
-            h(ATranslation, {
-              alwaysTranslate: this.alwaysTranslate,
-              tag: "label",
-              class: [
-                "switch_button__label",
-                {
-                  switch_button__label_full: this.fullWidth,
-                },
-              ],
-              for: this.htmlIdLocal,
-              extra: this.extra,
-              html: this.labelValueLocal,
-            }),
-          ],
-        }),
+        h("div", {
+          class: "switch_button__wrapper",
+        }, [
+          h(AElement, {
+            class: [
+              "switch_button",
+              {
+                switch_button_undefined: this.isModelDefault,
+                switch_button_invalid: this.isErrors,
+                switch_button_auto: !this.fullWidth,
+              },
+            ],
+            classDefault: "",
+            isTitleHtml: this.isTitleHtml,
+            tag: "div",
+            title: this.title,
+            titlePlacement: this.titlePlacement,
+            type: "text",
+          }, {
+            default: () => [
+              h("input", {
+                id: this.htmlIdLocal,
+                "aria-describedby": this.ariaDescribedbyLocal,
+                ariaInvalid: this.isErrors,
+                ariaRequired: this.required,
+                checked: this.isChecked,
+                class: [
+                  "switch_button__input",
+                  this.inputClass,
+                ],
+                disabled: this.disabledAttribut,
+                type: "checkbox",
+                ...this.inputAttributes,
+                onClick: this.onInput,
+                onKeydown: this.onKeydown,
+                onFocus: this.onFocus,
+                onBlur: this.onBlur,
+              }),
+              h(ATranslation, {
+                alwaysTranslate: this.alwaysTranslate,
+                tag: "label",
+                class: [
+                  "switch_button__label",
+                  {
+                    switch_button__label_full: this.fullWidth,
+                  },
+                ],
+                for: this.htmlIdLocal,
+                extra: this.extra,
+                html: this.labelValueLocal,
+              }),
+            ],
+          }),
+        ]),
         h(AFormHelpText, {
           id: this.helpTextId,
           alwaysTranslate: this.alwaysTranslate,
