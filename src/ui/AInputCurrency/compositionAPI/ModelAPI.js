@@ -18,7 +18,7 @@ export default function ModelAPI(props, {
   const modelUndefined = toRef(props, "modelUndefined");
   const decimalDivider = toRef(props, "decimalDivider");
   const disabled = toRef(props, "disabled");
-  const symbolsAfterDecimalDivider = toRef(props, "symbolsAfterDecimalDivider");
+  const decimalPartLength = toRef(props, "decimalPartLength");
   const thousandDivider = toRef(props, "thousandDivider");
 
   const displayValue = ref(modelValue.value);
@@ -32,7 +32,7 @@ export default function ModelAPI(props, {
       ? [
         "0",
         decimalDivider.value,
-        times(symbolsAfterDecimalDivider.value, () => "0").join(""),
+        times(decimalPartLength.value, () => "0").join(""),
       ].join("")
       : modelUndefined.value;
   });

@@ -29,7 +29,7 @@ export default function InputEventsAPI(props, {
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
   const required = toRef(props, "required");
-  const symbolsAfterDecimalDivider = toRef(props, "symbolsAfterDecimalDivider");
+  const decimalPartLength = toRef(props, "decimalPartLength");
   const thousandDivider = toRef(props, "thousandDivider");
   const validationOnChange = toRef(props, "validationOnChange");
 
@@ -47,7 +47,7 @@ export default function InputEventsAPI(props, {
   ];
 
   const isInteger = computed(() => {
-    return !symbolsAfterDecimalDivider.value;
+    return !decimalPartLength.value;
   });
 
   const getNumValue = val => {
@@ -99,7 +99,7 @@ export default function InputEventsAPI(props, {
     const splitVal = value.split(decimalDivider.value);
     const setMinusSymbol = splitVal[0] === "-" ? "-" : "";
     const intVal = Number(splitVal[0].replace(/[^0-9]/g, "")).toString();
-    const floatVal = splitVal[1] ? splitVal[1].substring(0, symbolsAfterDecimalDivider.value) : "";
+    const floatVal = splitVal[1] ? splitVal[1].substring(0, decimalPartLength.value) : "";
     if (isNil(intVal) || intVal === "") {
       return;
     }
@@ -200,7 +200,7 @@ export default function InputEventsAPI(props, {
       const positionToSet = value.length + 1;
       let valueAfterKeyPress = inputRef.value.value;
       if (valueAfterKeyPress[valueAfterKeyPress.length - 1] === decimalDivider.value) {
-        valueAfterKeyPress += times(symbolsAfterDecimalDivider.value, () => "0").join("");
+        valueAfterKeyPress += times(decimalPartLength.value, () => "0").join("");
         setValueLocal(valueAfterKeyPress);
         setCursorPosition(positionToSet);
       }
@@ -302,7 +302,7 @@ export default function InputEventsAPI(props, {
     const keyCode = $event.keyCode;
     const keyValue = $event.key;
     const keyIsNumber = keyCode >= 48 && keyCode <= 57 || keyCode >= 96 && keyCode <= 105;
-    const keyIsDecimalDivider = keyValue === decimalDivider.value && !!symbolsAfterDecimalDivider.value;
+    const keyIsDecimalDivider = keyValue === decimalDivider.value && !!decimalPartLength.value;
     const hasDecimalDivider = $event.target.value.indexOf(decimalDivider.value) !== -1;
     const cursorPosition = inputRef.value.selectionStart;
     const isLastPosition = cursorPosition === value.length;
@@ -383,7 +383,7 @@ export default function InputEventsAPI(props, {
           const splitVal = value.split(decimalDivider.value);
           const floatVal = splitVal[1];
 
-          if (floatVal.length === symbolsAfterDecimalDivider.value) {
+          if (floatVal.length === decimalPartLength.value) {
             if (isLastPosition) {
               $event.preventDefault();
 
@@ -464,7 +464,7 @@ export default function InputEventsAPI(props, {
       if (required.value) {
         if (min.value > 0) {
           const value = decimalDivider.value
-            ? `0${ decimalDivider.value }${ times(symbolsAfterDecimalDivider.value, () => "0").join("") }`
+            ? `0${ decimalDivider.value }${ times(decimalPartLength.value, () => "0").join("") }`
             : "0";
           setValueLocal(value);
         } else {
@@ -488,14 +488,14 @@ export default function InputEventsAPI(props, {
 
       return;
     }
-    if (symbolsAfterDecimalDivider.value) {
+    if (decimalPartLength.value) {
       let value = $event.target.value;
       const splitVal = value.split(decimalDivider.value);
       const floatVal = splitVal[1];
       if (value.indexOf(decimalDivider.value) === -1) {
-        value += `${ decimalDivider.value }${ times(symbolsAfterDecimalDivider.value, () => "0").join("") }`;
-      } else if (floatVal.length < symbolsAfterDecimalDivider.value) {
-        value += `${ times(symbolsAfterDecimalDivider.value - floatVal.length, () => "0").join("") }`;
+        value += `${ decimalDivider.value }${ times(decimalPartLength.value, () => "0").join("") }`;
+      } else if (floatVal.length < decimalPartLength.value) {
+        value += `${ times(decimalPartLength.value - floatVal.length, () => "0").join("") }`;
       }
       setValueLocal(value);
     } else {
@@ -527,7 +527,7 @@ export default function InputEventsAPI(props, {
           const setMinusSymbol = intPart[0] === "-" ? "-" : "";
           const floatPart = splitVal.length > 1 ? splitVal[1] : "";
           const floatPartLength = floatPart.length;
-          const zerosToAdd = times(symbolsAfterDecimalDivider.value - floatPartLength, () => "0").join("");
+          const zerosToAdd = times(decimalPartLength.value - floatPartLength, () => "0").join("");
 
           valueToSet = `${ setMinusSymbol }${ intPart }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
         }
@@ -535,7 +535,7 @@ export default function InputEventsAPI(props, {
         valueToSet = required.value ? [
           "0",
           decimalDivider.value,
-          times(symbolsAfterDecimalDivider.value, () => "0").join(""),
+          times(decimalPartLength.value, () => "0").join(""),
         ].join("") : modelUndefinedLocal.value;
       }
       handleInput(null, valueToSet);

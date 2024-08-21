@@ -18,7 +18,7 @@ export default function IncreaseDecreaseAPI(props, {
   const modelValue = toRef(props, "modelValue");
   const max = toRef(props, "max");
   const min = toRef(props, "min");
-  const symbolsAfterDecimalDivider = toRef(props, "symbolsAfterDecimalDivider");
+  const decimalPartLength = toRef(props, "decimalPartLength");
   const thousandDivider = toRef(props, "thousandDivider");
 
   const minDisabled = computed(() => {
@@ -39,7 +39,7 @@ export default function IncreaseDecreaseAPI(props, {
         : intPart;
       const floatPart = splitVal.length > 1 ? splitVal[1] : "";
       const floatPartLength = floatPart.length;
-      const zerosToAdd = times(symbolsAfterDecimalDivider.value - floatPartLength, () => "0").join("");
+      const zerosToAdd = times(decimalPartLength.value - floatPartLength, () => "0").join("");
 
       return `${ setMinusSymbol }${ intPartWithDivider }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
     }

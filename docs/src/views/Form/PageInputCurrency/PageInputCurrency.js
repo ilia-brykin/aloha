@@ -4,14 +4,18 @@ import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageInputCurrencyBasic from "./PageInputCurrencyBasic/PageInputCurrencyBasic.vue";
 import PageInputCurrencyChange from "./PageInputCurrencyChange/PageInputCurrencyChange.vue";
+import PageInputCurrencyControlsType from "./PageInputCurrencyControlsType/PageInputCurrencyControlsType.vue";
+import PageInputCurrencyDecimalDivider from "./PageInputCurrencyDecimalDivider/PageInputCurrencyDecimalDivider.vue";
+import PageInputCurrencyDecimalPartLength from "./PageInputCurrencyDecimalPartLength/PageInputCurrencyDecimalPartLength.vue";
 import PageInputCurrencyErrors from "./PageInputCurrencyErrors/PageInputCurrencyErrors.vue";
 import PageInputCurrencyHelpText from "./PageInputCurrencyHelpText/PageInputCurrencyHelpText.vue";
 import PageInputCurrencyLabelFloat from "./PageInputCurrencyLabelFloat/PageInputCurrencyLabelFloat.vue";
-import PageInputCurrencySymbol from "./PageInputCurrencySymbol/PageInputCurrencySymbol.vue";
-import PageInputCurrencyControlsType from "./PageInputCurrencyControlsType/PageInputCurrencyControlsType.vue";
-import PageInputCurrencyDecimalDivider from "./PageInputCurrencyDecimalDivider/PageInputCurrencyDecimalDivider.vue";
 import PageInputCurrencyMaxMin from "./PageInputCurrencyMaxMin/PageInputCurrencyMaxMin.vue";
 import PageInputCurrencyModelType from "./PageInputCurrencyModelType/PageInputCurrencyModelType.vue";
+import PageInputCurrencyStep from "./PageInputCurrencyStep/PageInputCurrencyStep.vue";
+import PageInputCurrencySymbol from "./PageInputCurrencySymbol/PageInputCurrencySymbol.vue";
+import PageInputCurrencyThousandDivider from "./PageInputCurrencyThousandDivider/PageInputCurrencyThousandDivider.vue";
+import PageInputCurrencyValidationOnChange from "./PageInputCurrencyValidationOnChange/PageInputCurrencyValidationOnChange.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -26,14 +30,18 @@ export default {
     ATranslation,
     PageInputCurrencyBasic,
     PageInputCurrencyChange,
+    PageInputCurrencyControlsType,
+    PageInputCurrencyDecimalDivider,
+    PageInputCurrencyDecimalPartLength,
     PageInputCurrencyErrors,
     PageInputCurrencyHelpText,
     PageInputCurrencyLabelFloat,
-    PageInputCurrencySymbol,
-    PageInputCurrencyControlsType,
-    PageInputCurrencyDecimalDivider,
     PageInputCurrencyMaxMin,
     PageInputCurrencyModelType,
+    PageInputCurrencyStep,
+    PageInputCurrencySymbol,
+    PageInputCurrencyThousandDivider,
+    PageInputCurrencyValidationOnChange,
   },
   setup() {
     const {

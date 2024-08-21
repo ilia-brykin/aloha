@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_CURRENCY_GROUP_VALIDATION_ON_CHANGE_HEADER_"
+  description="_A_INPUT_CURRENCY_GROUP_VALIDATION_ON_CHANGE_DESCRIPTION_"
+  :props="['validation-on-change']"
+)
+  a-input-currency(
+    v-model="model"
+    :validation-on-change="false"
+    label="validation-on-change=false"
+  )
+  a-input-currency(
+    v-model="model"
+    :validation-on-change="true"
+    class="a_mt_3"
+    label="validation-on-change=true"
+  )
+  div model: {{ model }}

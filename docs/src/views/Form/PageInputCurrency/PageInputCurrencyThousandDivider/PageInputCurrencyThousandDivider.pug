@@ -1,0 +1,31 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_CURRENCY_GROUP_THOUSAND_DIVIDER_HEADER_"
+  description="_A_INPUT_CURRENCY_GROUP_THOUSAND_DIVIDER_DESCRIPTION_"
+  :props="['thousand-divider']"
+)
+  a-input-currency(
+    v-model="model"
+    thousand-divider=","
+    label="thousand-divider=','"
+  )
+  a-input-currency(
+    v-model="model"
+    thousand-divider="."
+    class="a_mt_3"
+    label="thousand-divider='.'"
+  )
+  a-input-currency(
+    v-model="model"
+    thousand-divider=" "
+    class="a_mt_3"
+    label="thousand-divider=' '"
+  )
+  a-input-currency(
+    v-model="model"
+    thousand-divider=""
+    class="a_mt_3"
+    label="thousand-divider=''"
+  )
+  div model: {{ model }}

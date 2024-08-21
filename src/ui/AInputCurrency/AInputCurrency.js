@@ -71,6 +71,12 @@ export default {
       default: () => inputCurrencyPluginOptions.value.propsDefault.decimalDivider,
       validator: value => [".", ","].indexOf(value) !== -1,
     },
+    decimalPartLength: {
+      type: Number,
+      required: false,
+      default: () => inputCurrencyPluginOptions.value.propsDefault.decimalPartLength,
+      validator: value => value >= 0,
+    },
     dependencies: {
       type: [Array, Object],
       required: false,
@@ -212,17 +218,13 @@ export default {
       type: Number,
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.step,
-    },
-    symbolsAfterDecimalDivider: {
-      type: Number,
-      required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.symbolsAfterDecimalDivider,
+      validator: value => value > 0,
     },
     thousandDivider: {
       type: String,
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.thousandDivider,
-      validator: value => [".", ",", ""].indexOf(value) !== -1,
+      validator: value => [".", ",", "", " "].indexOf(value) !== -1,
     },
     validationOnChange: {
       type: Boolean,

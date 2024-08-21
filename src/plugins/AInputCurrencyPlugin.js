@@ -8,6 +8,7 @@ export const inputCurrencyPluginOptions = ref({
     currencySymbol: "€",
     currencySymbolPosition: "right",
     decimalDivider: ",",
+    decimalPartLength: 2,
     iconPrepend: undefined,
     inputWidth: 200,
     isLabelFloat: false,
@@ -16,7 +17,6 @@ export const inputCurrencyPluginOptions = ref({
     modelUndefined: undefined,
     placeholder: undefined,
     step: 1,
-    symbolsAfterDecimalDivider: 2,
     thousandDivider: ".",
   },
 });

@@ -50,6 +50,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "decimal-part-length",
+      description: "_A_INPUT_CURRENCY_PROPS_DECIMAL_PART_LENGTH_DESCRIPTION_",
+      type: "Number",
+      default: 2,
+      required: false,
+    },
+    {
       name: "dependencies",
       description: "_A_UI_PROPS_DEPENDENCIES_DESCRIPTION_",
       type: "Array / Object",
@@ -250,13 +257,6 @@ export default function PropsAPI() {
       description: "_A_INPUT_PROPS_STEP_DESCRIPTION_",
       type: "Number",
       default: 1,
-      required: false,
-    },
-    {
-      name: "symbols-after-decimal-divider",
-      description: "_A_INPUT_CURRENCY_PROPS_SYMBOLS_AFTER_DECIMAL_DIVIDER_DESCRIPTION_",
-      type: "Number",
-      default: 2,
       required: false,
     },
     {
