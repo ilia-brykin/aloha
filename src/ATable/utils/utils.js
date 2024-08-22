@@ -44,6 +44,14 @@ export function isColumnVisibleFromModel({ column, modelColumnsVisibleLocal }) {
   return !column.hide;
 }
 
+export function isColumnVisibleWithoutModel({ column }) {
+  if (column.isRender === false) {
+    return false;
+  }
+
+  return !column.hide;
+}
+
 function isColumnVisibleFromScroll({ columnIndex, indexFirstScrollInvisibleColumn }) {
   if (isNil(indexFirstScrollInvisibleColumn)) {
     return true;

@@ -9,6 +9,9 @@ import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import {
+  isColumnVisibleWithoutModel,
+} from "../utils/utils";
+import {
   filter,
   get,
   includes,
@@ -26,8 +29,14 @@ export default function ColumnsGroupedAPI(props, {
   const showFirstSortingSequenceNumber = toRef(props, "showFirstSortingSequenceNumber");
   const sortingSequenceNumberClass = toRef(props, "sortingSequenceNumberClass");
 
+  const columnsVisible = computed(() => {
+    return filter(columns.value, column => {
+      return isColumnVisibleWithoutModel({ column });
+    });
+  });
+
   const columnsLocal = computed(() => {
-    return map(columns.value, (column, index) => {
+    return map(columnsVisible.value, (column, index) => {
       return {
         ...column,
         _index: column.prio || index,
