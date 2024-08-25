@@ -4,10 +4,10 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
-import ACloak from "../../ACloak/ACloak";
 import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
 import ACheckboxLegend from "./ACheckboxLegend/ACheckboxLegend";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
+import ACloak from "../../ACloak/ACloak";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AInput from "../AInput/AInput";
@@ -39,6 +39,7 @@ export default {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     apiSaveId: {
       type: String,
@@ -54,11 +55,6 @@ export default {
       type: [String, Object, Array],
       required: false,
       default: "a_btn a_btn_outline_primary",
-    },
-    classColumn: {
-      type: String,
-      required: false,
-      default: undefined,
     },
     classDataParent: {
       type: [String, Object],
@@ -93,6 +89,7 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     errors: {
       type: [String, Array],
@@ -117,7 +114,7 @@ export default {
     hasControlCheckbox: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     helpText: {
       type: String,
@@ -141,7 +138,7 @@ export default {
     inline: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     inputAttributes: {
       type: Object,
@@ -151,6 +148,7 @@ export default {
     isButtonGroup: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     isCollapsed: {
       type: Boolean,
@@ -160,15 +158,12 @@ export default {
     isDataSimpleArray: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     isHide: {
       type: Boolean,
       required: false,
-    },
-    isLabelFloat: {
-      type: Boolean,
-      required: false,
-      default: true,
+      default: undefined,
     },
     isRender: {
       type: Boolean,
@@ -178,6 +173,7 @@ export default {
     isWidthAuto: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     keyDisabled: {
       type: String,
@@ -189,7 +185,7 @@ export default {
       required: false,
       default: undefined,
     },
-    keyGroupCallback: {
+    keyGroupLabelCallback: {
       type: Function,
       required: false,
       default: undefined,
@@ -228,42 +224,39 @@ export default {
       required: false,
       default: undefined,
     },
+    labelScreenReader: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     loading: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     modelDependencies: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    modelUndefined: {
-      required: false,
-      default: null,
-    },
     modelValue: {
       type: Array,
       required: false,
     },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     required: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     search: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     searchApi: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     searchApiKey: {
       type: String,
@@ -273,11 +266,13 @@ export default {
     searchOutside: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     searchTimeout: {
       type: Number,
       required: false,
       default: 0,
+      validator: value => value >= 0,
     },
     slotAppendName: {
       type: String,
@@ -304,11 +299,7 @@ export default {
     translateData: {
       type: Boolean,
       required: false,
-    },
-    type: {
-      type: String,
-      required: false,
-      default: "checkbox",
+      default: undefined,
     },
     url: {
       type: String,
@@ -323,6 +314,7 @@ export default {
   },
   emits: [
     "onSearchOutside",
+    "toggleCollapse",
     "updateData",
     "update:modelValue",
   ],
@@ -512,7 +504,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
-      errorsAll: undefined,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
@@ -541,106 +533,121 @@ export default {
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
-            this.label && h(ACheckboxLegend, {
-              id: this.htmlIdLocal,
-              alwaysTranslate: this.alwaysTranslate,
-              data: this.dataAll,
-              dataKeyByKeyId: this.dataKeyByKeyIdLocal,
-              disabled: this.disabled,
-              hasControlCheckbox: this.hasControlCheckbox,
-              isErrors: this.isErrors,
-              label: this.label,
-              legendClass: this.labelClass,
-              main: true,
-              modelValue: this.modelValue,
-              modelValueObj: this.modelValueObj,
-              textAfter: this.textAfterLabel,
-              onChangeModelValue: this.onChangeModelValue,
-            }),
-            this.collapsible && h(AButton, {
-              alwaysTranslate: this.alwaysTranslate,
-              class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
-              iconLeft: this.iconCollapse,
-              title: this.titleCollapse,
-              textScreenReader: this.titleCollapse,
-              onClick: this.toggleCollapse,
-            }),
+            this.label ?
+              h(ACheckboxLegend, {
+                id: this.htmlIdLocal,
+                alwaysTranslate: this.alwaysTranslate,
+                data: this.dataAll,
+                dataKeyByKeyId: this.dataKeyByKeyIdLocal,
+                disabled: this.disabled,
+                hasControlCheckbox: this.hasControlCheckbox,
+                isErrors: this.isErrors,
+                label: this.label,
+                legendClass: this.labelClass,
+                labelScreenReader: this.labelScreenReader,
+                main: true,
+                modelValue: this.modelValue,
+                modelValueObj: this.modelValueObj,
+                textAfter: this.textAfterLabel,
+                onChangeModelValue: this.onChangeModelValue,
+              }) :
+              "",
+            this.collapsible ?
+              h(AButton, {
+                alwaysTranslate: this.alwaysTranslate,
+                class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
+                iconLeft: this.iconCollapse,
+                title: this.titleCollapse,
+                textScreenReader: this.titleCollapse,
+                onClick: this.toggleCollapse,
+              }) :
+              "",
             h("div", {
               id: this.groupId,
               "aria-labelledby": this.groupAriaLabelledby,
               class: "a_fieldset__content",
               role: "group",
             }, [
-              this.searchOutsideOrApi && h("div", {
-                class: "a_fieldset__search",
-              }, [
-                h("form", {
-                  onSubmit: this.onSearchOutside,
+              this.searchOutsideOrApi ?
+                h("div", {
+                  class: "a_fieldset__search",
                 }, [
-                  h("div", {
-                    class: "input-group",
+                  h("form", {
+                    onSubmit: this.onSearchOutside,
                   }, [
-                    h(AInput, {
-                      alwaysTranslate: this.alwaysTranslate,
-                      label: "_A_SELECT_SEARCH_",
-                      inputClass: "a_select__element_clickable",
-                      modelValue: this.modelSearchOutside,
-                      modelUndefined: "",
-                      "onUpdate:modelValue": this.updateModelSearchOutside,
-                    }),
-                    h(AButton, {
-                      alwaysTranslate: this.alwaysTranslate,
-                      ariaDisabled: this.loadingSearchApi,
-                      disabled: this.disabled,
-                      class: "a_btn a_btn_primary",
-                      type: "submit",
-                      iconLeft: "Search",
-                    }),
+                    h("div", {
+                      class: "input-group",
+                    }, [
+                      h(AInput, {
+                        alwaysTranslate: this.alwaysTranslate,
+                        label: "_A_SELECT_SEARCH_",
+                        inputClass: "a_select__element_clickable",
+                        modelValue: this.modelSearchOutside,
+                        modelUndefined: "",
+                        "onUpdate:modelValue": this.updateModelSearchOutside,
+                      }),
+                      h(AButton, {
+                        alwaysTranslate: this.alwaysTranslate,
+                        ariaDisabled: this.loadingSearchApi,
+                        disabled: this.disabled,
+                        class: "a_btn a_btn_primary",
+                        type: "submit",
+                        iconLeft: "Search",
+                      }),
+                    ]),
                   ]),
-                ]),
-              ]),
-              this.search && h(AInput, {
-                alwaysTranslate: this.alwaysTranslate,
-                label: "_A_CHECKBOX_SEARCH_",
-                class: "a_fieldset__search",
-                modelValue: this.modelSearch,
-                modelUndefined: "",
-                "onUpdate:modelValue": this.updateModelSearch,
-              }),
-              this.loadingLocal && h(ACloak),
-              this.hasDataExtra && h("div", {
-                class: "a_checkbox__data_extra",
-              }, [
-                ...this.dataExtraLocal.map((item, itemIndex) => {
-                  return h(ACheckboxItem, {
-                    key: itemIndex,
-                    id: this.htmlIdLocal,
-                    alwaysTranslate: this.alwaysTranslate,
-                    idSuffix: "extra",
-                    classButtonGroupDefault: this.classButtonGroupDefault,
-                    dataItem: item,
-                    disabled: this.disabled,
-                    isButtonGroup: this.isButtonGroup,
-                    isErrors: this.isErrors,
-                    isWidthAuto: this.isWidthAuto,
-                    itemIndex,
-                    keyDisabled: this.keyDisabled,
-                    keyTitle: this.keyTitle,
-                    keyTitleCallback: this.keyTitleCallback,
-                    modelSearch: this.modelSearchLowerCase,
-                    modelValue: this.modelValue,
-                    searching: this.searching,
-                    searchingElements: this.searchingElementsExtra,
-                    slotAppendName: this.slotAppendName,
-                    slotName: this.slotName,
-                    onChangeModelValue: this.onChangeModelValue,
-                  }, this.$slots);
-                }),
-                !this.hasNotElementsExtraWithSearch && h("div", {
-                  class: "a_divider",
-                  ariaHidden: true,
-                }),
-              ]),
+                ]) :
+                "",
+              this.search ?
+                h(AInput, {
+                  alwaysTranslate: this.alwaysTranslate,
+                  label: "_A_CHECKBOX_SEARCH_",
+                  class: "a_fieldset__search",
+                  modelValue: this.modelSearch,
+                  modelUndefined: "",
+                  "onUpdate:modelValue": this.updateModelSearch,
+                }) :
+                "",
+              this.loadingLocal ?
+                h(ACloak) :
+                "",
+              this.hasDataExtra ?
+                h("div", {
+                  class: "a_checkbox__data_extra",
+                }, [
+                  ...this.dataExtraLocal.map((item, itemIndex) => {
+                    return h(ACheckboxItem, {
+                      key: itemIndex,
+                      id: this.htmlIdLocal,
+                      alwaysTranslate: this.alwaysTranslate,
+                      idSuffix: "extra",
+                      classButtonGroupDefault: this.classButtonGroupDefault,
+                      dataItem: item,
+                      disabled: this.disabled,
+                      isButtonGroup: this.isButtonGroup,
+                      isErrors: this.isErrors,
+                      isWidthAuto: this.isWidthAuto,
+                      itemIndex,
+                      keyDisabled: this.keyDisabled,
+                      keyTitle: this.keyTitle,
+                      keyTitleCallback: this.keyTitleCallback,
+                      modelSearch: this.modelSearchLowerCase,
+                      modelValue: this.modelValue,
+                      searching: this.searching,
+                      searchingElements: this.searchingElementsExtra,
+                      slotAppendName: this.slotAppendName,
+                      slotName: this.slotName,
+                      onChangeModelValue: this.onChangeModelValue,
+                    }, this.$slots);
+                  }),
+                  !this.hasNotElementsExtraWithSearch ?
+                    h("div", {
+                      class: "a_divider",
+                      ariaHidden: true,
+                    }) :
+                    "",
+                ]) :
+                "",
               h("div", {}, this.hasKeyGroup ?
                 [
                   h(ACheckboxRadioGroup, {

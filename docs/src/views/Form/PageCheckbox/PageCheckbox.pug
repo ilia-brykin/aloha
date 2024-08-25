@@ -9,13 +9,21 @@ aloha-page(
       html="_A_CHECKBOX_COMPONENT_DESCRIPTION_"
     )
 
+    page-checkbox-basic
+
+    page-checkbox-change
+
+    page-checkbox-help-text
+
+    page-checkbox-error
+
+    page-checkbox-group
+
     page-checkbox-search
 
     page-checkbox-key-disabled
 
     page-checkbox-translate-data
-
-    page-checkbox-two-columns
 
     page-checkbox-is-button-group
 
@@ -27,18 +35,18 @@ aloha-page(
 
     page-checkbox-has-control-checkbox
 
-    a-one-checkbox(
-      v-model="model"
-      label="aloha one checkbox"
-      true-value="aloha"
-      :false-value="undefined"
-      :required="true"
+    page-checkbox-two-columns
+
+    aloha-table-props(
+      :data="dataProps"
     )
-    div model: {{ model }}
-    a-one-checkbox(
-      v-model="model1"
-      label="aloha one checkbox"
-      :is-width-auto="true"
-      :false-value="false"
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
     )
-    div model1: {{ model1 }}
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

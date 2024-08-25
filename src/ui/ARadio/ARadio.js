@@ -187,7 +187,7 @@ export default {
       required: false,
       default: undefined,
     },
-    keyGroupCallback: {
+    keyGroupLabelCallback: {
       type: Function,
       required: false,
       default: undefined,

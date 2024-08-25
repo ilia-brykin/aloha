@@ -1,8 +1,23 @@
 export default function EventsAPI() {
   const dataEvents = [
     {
-      name: "close",
-      description: "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_",
+      name: "on-search-outside",
+      description: "_A_UI_EVENTS_ON_SEARCH_OUTSIDE_DESCRIPTION_",
+      type: "Function",
+    },
+    {
+      name: "update-data",
+      description: "_A_UI_EVENTS_UPDATE_DATA_DESCRIPTION_",
+      type: "Function",
+    },
+    {
+      name: "toggle-collapse",
+      description: "_A_UI_EVENTS_TOGGLE_COLLAPSE_DESCRIPTION_",
+      type: "Function",
+    },
+    {
+      name: "update:model-value",
+      description: "_A_UI_EVENTS_UPDATE_MODEL_VALUE_DESCRIPTION_",
       type: "Function",
     },
   ];

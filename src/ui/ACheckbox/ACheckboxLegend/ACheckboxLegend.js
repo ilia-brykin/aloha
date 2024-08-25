@@ -3,7 +3,6 @@ import {
 } from "vue";
 
 import AElement from "../../../AElement/AElement";
-import ATranslation from "../../../ATranslation/ATranslation";
 
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -50,6 +49,11 @@ export default {
     },
     legendClass: {
       type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelScreenReader: {
+      type: [String, Number],
       required: false,
       default: undefined,
     },
@@ -137,6 +141,7 @@ export default {
             classDefault: "",
             for: this.idLocal,
             html: this.label,
+            textScreenReader: this.labelScreenReader,
             tag: "label",
             textAfter: this.textAfterLabel,
             textClass: "a_custom_control_label__text",
@@ -146,9 +151,8 @@ export default {
       ]);
     }
 
-    return h(ATranslation, {
+    return h(AElement, {
       id: this.idLocal,
-      tag: "legend",
       class: [
         "a_legend",
         {
@@ -157,7 +161,10 @@ export default {
         this.legendClass,
       ],
       html: this.label,
+      tag: "legend",
       textAfter: this.textAfterLabel,
+      textScreenReader: this.labelScreenReader,
+      type: "text",
     });
   },
 };

@@ -18,7 +18,7 @@ export default function UIDataGroupAPI(props, {
   data = computed(() => []),
 }) {
   const keyGroup = toRef(props, "keyGroup");
-  const keyGroupCallback = toRef(props, "keyGroupCallback");
+  const keyGroupLabelCallback = toRef(props, "keyGroupLabelCallback");
   const sortOrderGroup = toRef(props, "sortOrderGroup");
 
   const keyGroupArray = computed(() => {
@@ -57,7 +57,7 @@ export default function UIDataGroupAPI(props, {
         if (!GROUPS_FOR_LEVER[leverIndex][allGroupKeys]) {
           GROUPS_FOR_LEVER[leverIndex][allGroupKeys] = {
             groupKey: group,
-            groupLabel: isFunction(keyGroupCallback.value) ? keyGroupCallback.value({ group: group, item }) : group,
+            groupLabel: isFunction(keyGroupLabelCallback.value) ? keyGroupLabelCallback.value({ group: group, item }) : group,
             groupParentKey: groupParentKey,
             allGroupKeys: allGroupKeys,
             data: [],

@@ -7,6 +7,7 @@ import {
 
 export default function UiCollapseAPI(props, { emit }) {
   const collapsible = toRef(props, "collapsible");
+  const id = toRef(props, "id");
   const isCollapsed = toRef(props, "isCollapsed");
 
   const isCollapsedLocal = ref(false);
@@ -25,7 +26,7 @@ export default function UiCollapseAPI(props, { emit }) {
 
   const toggleCollapse = () => {
     isCollapsedLocal.value = !isCollapsedLocal.value;
-    emit("toggleCollapse", isCollapsedLocal.value);
+    emit("toggleCollapse", { isCollapsed: isCollapsedLocal.value, id: id.value, props });
   };
 
   const initIsCollapsedLocal = () => {

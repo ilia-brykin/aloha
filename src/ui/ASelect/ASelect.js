@@ -223,7 +223,7 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.keyGroup,
     },
-    keyGroupCallback: {
+    keyGroupLabelCallback: {
       type: Function,
       required: false,
       default: undefined,

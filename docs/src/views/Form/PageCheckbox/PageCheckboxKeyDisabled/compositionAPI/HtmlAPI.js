@@ -2,20 +2,20 @@ export default function HtmlAPI() {
   const codeHtml = `<a-checkbox
   v-model="model"
   :data="data"
+  :key-group="['alohaBR', 'aloha']"
+  key-disabled="disabled"
   key-id="id"
   key-label="label"
   label="Aloha group"
-  key-disabled="disabled"
 ></a-checkbox>
-<div>model: {{ model }}</div>
 <a-checkbox
   v-model="model"
-  class="a_mt_3"
   :data="data"
+  class="a_mt_3"
+  key-disabled="disabled"
   key-id="id"
   key-label="label"
   label="Aloha"
-  key-disabled="disabled"
 ></a-checkbox>
 <div>model: {{ model }}</div>`;
 

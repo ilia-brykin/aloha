@@ -1,8 +1,8 @@
 aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
-  header="_A_CHECKBOX_GROUP_SEARCH_HEADER_"
-  description="_A_CHECKBOX_GROUP_SEARCH_DESCRIPTION_"
+  header="_A_UI_GROUP_SEARCH_HEADER_"
+  description="_A_UI_GROUP_SEARCH_DESCRIPTION_"
   props="search"
 )
   .a_columns.a_columns_count_12
@@ -10,20 +10,19 @@ aloha-example(
       a-checkbox(
         v-model="model"
         :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        :search="true"
         key-id="id"
         key-label="label"
-        :key-group="['alohaBR', 'aloha']"
         label="Aloha group"
-        :search="true"
       )
-      div model: {{ model }}
       a-checkbox(
         v-model="model"
-        class="a_mt_3"
         :data="data"
+        :search="true"
+        class="a_mt_3"
         key-id="id"
         key-label="label"
         label="Aloha"
-        :search="true"
       )
       div model: {{ model }}
