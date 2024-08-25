@@ -1,4 +1,8 @@
 {
+  "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_HEADER_": "Простой массив данных",
+  "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">is-data-simple-array</strong> для работы с простым массивом строк. Данные представлены в виде массива строк, где каждая строка — это отдельный элемент списка. Это упрощает процесс отображения и управления элементами без необходимости использования объектов.",
+  "_A_UI_GROUP_HAS_BORDER_HEADER_": "Отображение границ",
+  "_A_UI_GROUP_HAS_BORDER_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">has-border</strong> для управления отображением границы. В первом примере граница включена, что делает элементы более выделенными. Во втором примере граница отключена, что придаёт более минималистичный вид элементам.",
   "_A_UI_GROUP_TWO_COLUMNS_HEADER_": "В две колонки",
   "_A_UI_GROUP_TWO_COLUMNS_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">class-data-parent</strong> для задания <strong lang=\"en\">CSS</strong>-классов, которые управляют отображением элементов. В первом примере элементы располагаются в две колонки с помощью классов <strong lang=\"en\">a_list_columns a_list_columns_2</strong>. Во втором примере используются дополнительные классы для адаптивного отображения на разных разрешениях экрана, таких как <strong lang=\"en\">desktop</strong>, <strong lang=\"en\">widescreen</strong> и <strong lang=\"en\">fullhd</strong>.",
   "_A_UI_GROUP_INLINE_HEADER_": "В линию",

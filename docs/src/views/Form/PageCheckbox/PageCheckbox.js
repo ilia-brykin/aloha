@@ -16,6 +16,8 @@ import PageCheckboxGroup from "./PageCheckboxGroup/PageCheckboxGroup.vue";
 import PageCheckboxChange from "./PageCheckboxChange/PageCheckboxChange.vue";
 import PageCheckboxHelpText from "./PageCheckboxHelpText/PageCheckboxHelpText.vue";
 import PageCheckboxError from "./PageCheckboxError/PageCheckboxError.vue";
+import PageCheckboxHasBorder from "./PageCheckboxHasBorder/PageCheckboxHasBorder.vue";
+import PageCheckboxIsDataSimpleArray from "./PageCheckboxIsDataSimpleArray/PageCheckboxIsDataSimpleArray.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -43,6 +45,8 @@ export default {
     PageCheckboxChange,
     PageCheckboxHelpText,
     PageCheckboxError,
+    PageCheckboxHasBorder,
+    PageCheckboxIsDataSimpleArray,
   },
   setup() {
     const {
