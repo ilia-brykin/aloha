@@ -1,3 +1,12 @@
 {
-
+  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">ACheckbox</strong> fournit une interface pour créer un groupe de cases à cocher, permettant aux utilisateurs de sélectionner plusieurs options dans une liste. Le composant prend en charge diverses configurations telles que les groupes repliables, l'affichage sous forme de groupe de boutons, la fonctionnalité de recherche, et bien plus encore.",
+  "_A_CHECKBOX_COMPONENT_NAME_": "Cases à cocher",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Lorsque cette option est activée, une case à cocher de contrôle supplémentaire sera affichée. Cette case à cocher de contrôle permet à l'utilisateur de sélectionner ou de désélectionner toutes les cases à cocher enfant simultanément.",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Case à cocher de contrôle",
+  "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Spécifie si le groupe de cases à cocher peut être replié et développé. Si la valeur est définie sur <strong lang=\"en\">true</strong>, l'utilisateur peut basculer le groupe.",
+  "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Ajoute une case à cocher de contrôle permettant de sélectionner ou désélectionner toutes les cases à cocher du groupe simultanément.",
+  "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Spécifie si les cases à cocher doivent être affichées en ligne. Si la valeur est définie sur <strong lang=\"en\">true</strong>, les cases à cocher seront alignées horizontalement.",
+  "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Spécifie si les cases à cocher doivent être affichées sous forme de boutons. Si la valeur est définie sur <strong lang=\"en\">true</strong>, les cases à cocher seront affichées sous forme de boutons, ce qui peut offrir une interface plus attrayante visuellement.",
+  "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Spécifie l'état initial replié du groupe de cases à cocher. Si la valeur est définie sur <strong lang=\"en\">true</strong>, le groupe sera replié lors du chargement de la page.",
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Spécifie si la largeur du groupe de cases à cocher doit s'ajuster automatiquement à son contenu. Si la valeur est définie sur <strong lang=\"en\">true</strong>, la largeur s'ajustera automatiquement."
 }

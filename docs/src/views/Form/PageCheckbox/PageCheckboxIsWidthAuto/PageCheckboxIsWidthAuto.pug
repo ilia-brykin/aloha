@@ -1,0 +1,27 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_IS_WIDTH_AUTO_HEADER_"
+  description="_A_UI_GROUP_IS_WIDTH_AUTO_DESCRIPTION_"
+  props="is-width-auto"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :is-width-auto="true"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+      )
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :is-width-auto="false"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+      )
+      div model: {{ model }}

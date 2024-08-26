@@ -1,0 +1,39 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_SORT_ORDER_GROUP_HEADER_"
+  description="_A_UI_GROUP_SORT_ORDER_GROUP_DESCRIPTION_"
+  :props="['sort-order-group']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        :sort-order-group="undefined"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+      )
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        sort-order-group="asc"
+      )
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        sort-order-group="desc"
+      )
+      div model: {{ model }}

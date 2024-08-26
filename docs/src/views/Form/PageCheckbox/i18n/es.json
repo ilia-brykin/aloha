@@ -1,3 +1,12 @@
 {
-
+  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">ACheckbox</strong> proporciona una interfaz para crear un grupo de casillas de verificación, lo que permite a los usuarios seleccionar múltiples opciones de una lista. El componente admite varias configuraciones como grupos colapsables, visualización de grupo de botones, funcionalidad de búsqueda y muchas más.",
+  "_A_CHECKBOX_COMPONENT_NAME_": "Casillas de verificación",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Cuando esta opción está habilitada, se mostrará una casilla de verificación de control adicional. Esta casilla de verificación de control permite al usuario seleccionar o deseleccionar todas las casillas de verificación secundarias al mismo tiempo.",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Casilla de control",
+  "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Especifica si el grupo de casillas de verificación puede colapsarse y expandirse. Si se establece en <strong lang=\"en\">true</strong>, el grupo puede ser alternado por el usuario.",
+  "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Agrega una casilla de verificación de control que permite seleccionar o deseleccionar todas las casillas de verificación en el grupo simultáneamente.",
+  "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Especifica si las casillas de verificación deben mostrarse en línea. Si se establece en <strong lang=\"en\">true</strong>, las casillas de verificación se alinearán horizontalmente.",
+  "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Especifica si las casillas de verificación deben mostrarse como botones. Si se establece en <strong lang=\"en\">true</strong>, las casillas de verificación se mostrarán como botones, lo que puede proporcionar una interfaz más visualmente atractiva.",
+  "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Especifica el estado inicial de colapso del grupo de casillas de verificación. Si se establece en <strong lang=\"en\">true</strong>, el grupo estará colapsado cuando se cargue la página.",
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Especifica si el ancho del grupo de casillas de verificación debe ajustarse automáticamente a su contenido. Si se establece en <strong lang=\"en\">true</strong>, el ancho se ajustará automáticamente."
 }

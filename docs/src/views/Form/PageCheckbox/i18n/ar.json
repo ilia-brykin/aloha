@@ -1,3 +1,12 @@
 {
-
+  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "يوفر مكون <strong lang=\"en\">ACheckbox</strong> واجهة لإنشاء مجموعة من مربعات الاختيار، مما يسمح للمستخدمين باختيار عدة خيارات من القائمة. يدعم المكون إعدادات مختلفة مثل المجموعات القابلة للطي، عرض مجموعة الأزرار، وظيفة البحث، والعديد من الميزات الأخرى.",
+  "_A_CHECKBOX_COMPONENT_NAME_": "مربعات الاختيار",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "عند تمكين هذا الخيار، سيتم عرض مربع اختيار تحكم إضافي. يتيح هذا المربع التحكم في تحديد أو إلغاء تحديد جميع مربعات الاختيار الفرعية في نفس الوقت.",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "مربع تحكم",
+  "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "يحدد ما إذا كان يمكن طي مجموعة مربعات الاختيار وتوسيعها. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، يمكن للمستخدم التبديل بين الحالات.",
+  "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "يضيف مربع اختيار تحكم يسمح بتحديد أو إلغاء تحديد جميع مربعات الاختيار في المجموعة دفعة واحدة.",
+  "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "يحدد ما إذا كان يجب عرض مربعات الاختيار في سطر واحد. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم محاذاة مربعات الاختيار أفقيًا.",
+  "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "يحدد ما إذا كان يجب عرض مربعات الاختيار كأزرار. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم عرض مربعات الاختيار كأزرار، مما يوفر واجهة أكثر جاذبية بصريًا.",
+  "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "يحدد حالة الطي الأولية لمجموعة مربعات الاختيار. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم طي المجموعة عند تحميل الصفحة.",
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "يحدد ما إذا كان يجب أن تتكيف عرض مجموعة مربعات الاختيار تلقائيًا مع محتواها. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم تعديل العرض تلقائيًا."
 }

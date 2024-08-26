@@ -1,3 +1,12 @@
 {
-
+  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">ACheckbox</strong> fornisce un'interfaccia per creare un gruppo di caselle di controllo, consentendo agli utenti di selezionare più opzioni da un elenco. Il componente supporta varie impostazioni come gruppi comprimibili, visualizzazione del gruppo di pulsanti, funzionalità di ricerca e molto altro.",
+  "_A_CHECKBOX_COMPONENT_NAME_": "Caselle di controllo",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Quando questa opzione è attivata, verrà visualizzata una casella di controllo di controllo aggiuntiva. Questa casella di controllo di controllo consente all'utente di selezionare o deselezionare tutte le caselle di controllo secondarie contemporaneamente.",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Casella di controllo di controllo",
+  "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Specifica se il gruppo di caselle di controllo può essere compresso e espanso. Se impostato su <strong lang=\"en\">true</strong>, l'utente può alternare il gruppo.",
+  "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Aggiunge una casella di controllo di controllo che consente di selezionare o deselezionare tutte le caselle di controllo nel gruppo contemporaneamente.",
+  "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Specifica se le caselle di controllo devono essere visualizzate in linea. Se impostato su <strong lang=\"en\">true</strong>, le caselle di controllo verranno allineate orizzontalmente.",
+  "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Specifica se le caselle di controllo devono essere visualizzate come pulsanti. Se impostato su <strong lang=\"en\">true</strong>, le caselle di controllo verranno visualizzate come pulsanti, il che può offrire un'interfaccia più attraente visivamente.",
+  "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Specifica lo stato iniziale compresso del gruppo di caselle di controllo. Se impostato su <strong lang=\"en\">true</strong>, il gruppo verrà compresso al caricamento della pagina.",
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Specifica se la larghezza del gruppo di caselle di controllo deve adattarsi automaticamente al suo contenuto. Se impostato su <strong lang=\"en\">true</strong>, la larghezza si adatterà automaticamente."
 }

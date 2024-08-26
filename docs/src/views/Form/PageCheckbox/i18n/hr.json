@@ -1,17 +1,12 @@
 {
-  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "Potvrdni okvir je interaktivni element koji omogućuje korisnicima da prebacuju između dva stanja opcija, obično \"označeno\" i \"neoznačeno\". Često se koristi za odabir ili aktivaciju/deaktivaciju opcija u korisničkom sučelju.",
-  "_A_CHECKBOX_COMPONENT_NAME_": "Potvrdni okvir",
-  "_A_CHECKBOX_GROUP_COLLAPSE_DESCRIPTION_": "Omogućuje korisniku da na osnovu interakcije s grupom potvrdnih okvira sakrije i ponovo prikaže opcije.",
-  "_A_CHECKBOX_GROUP_COLLAPSE_HEADER_": "Grupa potvrdnih okvira: Sklopivi sadržaj",
-  "_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_DESCRIPTION_": "Omogućuje, umjesto tradicionalnog kvadratnog oblika, izgled potvrdnih okvira kao grupe standardnih gumba.",
-  "_A_CHECKBOX_GROUP_IS_BUTTON_GROUP_HEADER_": "Grupa u stilu gumba",
-  "_A_CHECKBOX_GROUP_KEY_DISABLED_DESCRIPTION_": "Specifične opcije mogu biti onemogućene na osnovu atributa pripadajućeg objekta, s nazivom ključa proslijeđenim kao prop.",
-  "_A_CHECKBOX_GROUP_KEY_DISABLED_HEADER_": "Onemogućavanje opcija",
-  "_A_CHECKBOX_GROUP_SEARCH_DESCRIPTION_": "Pretraživanje omogućuje korisnicima da brzo pronađu i odaberu određenu opciju unosom pojma za pretraživanje. Ovo je posebno korisno za veliki broj opcija.",
-  "_A_CHECKBOX_GROUP_SEARCH_HEADER_": "Pretraživanje",
-  "_A_CHECKBOX_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Podržana je uporaba prevedivih oznaka za potvrdne okvire, što omogućuje prilagodbu komponente različitim jezicima i regijama.",
-  "_A_CHECKBOX_GROUP_TRANSLATE_DATA_HEADER_": "Internacionalizacija",
-  "_A_CHECKBOX_GROUP_TWO_COLUMNS_DESCRIPTION_": "Prikaz opcija u jednoj ili dvije kolone određen je na temelju proslijeđenog naziva klase.",
-  "_A_CHECKBOX_GROUP_TWO_COLUMNS_HEADER_": "Prikaz u dva stupca",
-  "_A_CHECKBOX_LABEL_WIDE_SCREEN_": "Širokozaslonski prikaz"
+  "_A_CHECKBOX_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">ACheckbox</strong> pruža sučelje za stvaranje grupe potvrdnih okvira, omogućujući korisnicima da odaberu više opcija s popisa. Komponenta podržava različite postavke kao što su grupe koje se mogu skladištiti, prikaz gumba, funkcionalnost pretraživanja i mnoge druge.",
+  "_A_CHECKBOX_COMPONENT_NAME_": "Potvrdni okviri",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Kada je ova opcija omogućena, prikazat će se dodatni kontrolni potvrdni okvir. Ovaj kontrolni potvrdni okvir omogućuje korisniku da odabere ili poništi sve potvrdne okvire odjednom.",
+  "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Kontrolni potvrdni okvir",
+  "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Određuje može li se grupa potvrdnih okvira sažeti i proširiti. Ako je postavljeno na <strong lang=\"en\">true</strong>, korisnik može prebaciti grupu.",
+  "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Dodaje kontrolni potvrdni okvir koji omogućuje odabir ili poništavanje svih potvrdnih okvira u grupi odjednom.",
+  "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Određuje treba li potvrdne okvire prikazati u redu. Ako je postavljeno na <strong lang=\"en\">true</strong>, potvrdni okviri će biti poravnati vodoravno.",
+  "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Određuje treba li potvrdne okvire prikazati kao gumbe. Ako je postavljeno na <strong lang=\"en\">true</strong>, potvrdni okviri će se prikazati kao gumbi, što može pružiti vizualno privlačnije sučelje.",
+  "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Određuje početno stanje sažetka grupe potvrdnih okvira. Ako je postavljeno na <strong lang=\"en\">true</strong>, grupa će biti sažeta pri učitavanju stranice.",
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Određuje hoće li se širina grupe potvrdnih okvira automatski prilagoditi njenom sadržaju. Ako je postavljeno na <strong lang=\"en\">true</strong>, širina će se automatski prilagoditi."
 }
