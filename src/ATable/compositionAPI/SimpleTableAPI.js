@@ -1,5 +1,6 @@
 import {
-  computed, ref,
+  computed,
+  ref,
   toRef,
 } from "vue";
 
@@ -11,7 +12,6 @@ export default function SimpleTableAPI(props) {
   const isActionIconVisible = toRef(props, "isActionColumnVisible");
   const isColumnsDnd = toRef(props, "isColumnsDnd");
   const isSimpleTable = toRef(props, "isSimpleTable");
-  const isTree = toRef(props, "isTree");
   const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
   const rowActions = toRef(props, "rowActions");
 
@@ -42,8 +42,7 @@ export default function SimpleTableAPI(props) {
       return false;
     }
 
-    return !!(!isTree.value &&
-      isMobileWidth.value);
+    return !!(isMobileWidth.value);
   });
 
   const modelIsTableWithoutScrollComputed = computed(() => {

@@ -20,6 +20,7 @@ export default function ChildrenToggleAPI(props, {
 
   const rowClassChildren = computed(() => {
     return {
+      a_table__row_has_children: hasChildren.value,
       a_table__row_hide: isOneOfParentsClose.value,
       a_table__row_level_open: hasChildren.value && isChildrenOpen.value,
     };

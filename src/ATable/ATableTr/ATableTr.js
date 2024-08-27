@@ -1,8 +1,9 @@
 import {
-  h, resolveComponent,
+  h,
+  resolveComponent,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
+import AElement from "../../AElement/AElement";
 import AGet from "../../AGet/AGet";
 import AOneCheckbox from "../../ui/AOneCheckbox/AOneCheckbox";
 import ATablePreviewDown from "../ATablePreviewDown/ATablePreviewDown";
@@ -198,6 +199,7 @@ export default {
       textBtnToggleAllColumns,
       toggleAllColumnsVisibleMobile,
       toggleCheckbox,
+      toggleChildren,
     };
   },
   inject: [
@@ -265,6 +267,13 @@ export default {
             isFooter: this.isFooter,
           }) :
           "",
+        this.hasChildren && h(AElement, {
+          "aria-hidden": true,
+          class: "a_table__row_level__icon",
+          classDefault: "",
+          iconLeft: "CaretRightFill",
+          type: "text",
+        }),
         h("dl", {
           class: "a_table_mobile__dl",
         }, tds),
@@ -307,12 +316,13 @@ export default {
         h("div", {
           class: "a_table_mobile__actions_parent",
         }, [
-          this.isBtnToggleAllColumnsVisible && h(AButton, {
+          this.isBtnToggleAllColumnsVisible && h(AElement, {
             class: "a_btn a_btn_link a_table_mobile__columns_btn_toggle",
             extra: {
               count: this.countInvisibleMobileColumns,
             },
             text: this.textBtnToggleAllColumns,
+            type: "button",
             onClick: this.toggleAllColumnsVisibleMobile,
           }),
           ACTIONS,

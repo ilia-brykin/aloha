@@ -17,7 +17,7 @@ export default function ChildrenAPI(props) {
   const rowsLength = toRef(props, "rowsLength");
 
   const children = computed(() => {
-    if (!isTree.value || !keyChildren.value) {
+    if (!keyChildren.value) {
       return [];
     }
     const CHILDREN = get(row.value, keyChildren.value);
