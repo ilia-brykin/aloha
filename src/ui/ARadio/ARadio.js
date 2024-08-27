@@ -4,14 +4,16 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
-import ACloak from "../../ACloak/ACloak";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
+import ACloak from "../../ACloak/ACloak";
+import AElement from "../../AElement/AElement";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AInput from "../AInput/AInput";
 import ARadioItem from "./ARadioItem/ARadioItem";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
@@ -37,6 +39,7 @@ export default {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     apiSaveId: {
       type: String,
@@ -52,11 +55,6 @@ export default {
       type: [String, Object, Array],
       required: false,
       default: "a_btn a_btn_outline_primary",
-    },
-    classColumn: {
-      type: String,
-      required: false,
-      default: undefined,
     },
     classDataParent: {
       type: [String, Object],
@@ -91,6 +89,7 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     errors: {
       type: [String, Array],
@@ -115,6 +114,7 @@ export default {
     helpText: {
       type: String,
       required: false,
+      default: undefined,
     },
     htmlId: {
       type: String,
@@ -134,7 +134,7 @@ export default {
     inline: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     inputAttributes: {
       type: Object,
@@ -144,6 +144,7 @@ export default {
     isButtonGroup: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     isCollapsed: {
       type: Boolean,
@@ -153,20 +154,17 @@ export default {
     isDataSimpleArray: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     isHide: {
       type: Boolean,
       required: false,
-    },
-    isLabelFloat: {
-      type: Boolean,
-      required: false,
-      default: true,
+      default: undefined,
     },
     isModelArray: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     isRender: {
       type: Boolean,
@@ -176,6 +174,7 @@ export default {
     isWidthAuto: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     keyDisabled: {
       type: String,
@@ -223,13 +222,19 @@ export default {
       default: undefined,
     },
     labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelScreenReader: {
+      type: [String, Number],
       required: false,
       default: undefined,
     },
     loading: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     modelDependencies: {
       type: Object,
@@ -237,31 +242,29 @@ export default {
       default: () => ({}),
     },
     modelUndefined: {
+      type: [String, Number, Object, Array, Boolean],
       required: false,
       default: null,
     },
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
-    },
-    options: {
-      type: Object,
-      required: false,
-      default: () => ({}),
+      default: undefined,
     },
     required: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     search: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     searchApi: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
     },
     searchApiKey: {
       type: String,
@@ -271,11 +274,13 @@ export default {
     searchOutside: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     searchTimeout: {
       type: Number,
       required: false,
       default: 0,
+      validator: value => value >= 0,
     },
     slotAppendName: {
       type: String,
@@ -302,11 +307,7 @@ export default {
     translateData: {
       type: Boolean,
       required: false,
-    },
-    type: {
-      type: String,
-      required: false,
-      default: "radio",
+      default: undefined,
     },
     url: {
       type: String,
@@ -439,6 +440,13 @@ export default {
       toggleCollapse,
     } = UiCollapseAPI(props, context);
 
+    const {
+      groupAriaLabelledby,
+      groupId,
+    } = AttributesAPI(props, {
+      htmlIdLocal,
+    });
+
     watch(urlPropsComputed, updateUrlPropsComputed, {
       deep: true,
     });
@@ -454,8 +462,9 @@ export default {
       dataExtraLocal,
       dataGrouped,
       dataSort,
-      searchOutsideOrApi,
       errorsId,
+      groupAriaLabelledby,
+      groupId,
       groupsForLever,
       hasDataExtra,
       hasKeyGroup,
@@ -468,11 +477,11 @@ export default {
       isCollapsedLocal,
       isErrors,
       loadingLocal,
+      loadingSearchApi,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
       onBlur,
-      loadingSearchApi,
       onChangeModelValue,
       onFocus,
       onSearchOutside,
@@ -480,6 +489,7 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchOutsideOrApi,
       searchOutsideRef,
       textAfterLabel,
       titleCollapse,
@@ -495,7 +505,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
-      errorsAll: undefined,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
@@ -523,100 +533,119 @@ export default {
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
-            this.label && h(ATranslation, {
-              alwaysTranslate: this.alwaysTranslate,
-              tag: "legend",
-              class: [
-                "a_legend",
-                {
-                  a_legend_invalid: this.isErrors,
-                },
-                this.labelClass,
-              ],
-              html: this.label,
-              textAfter: this.textAfterLabel,
-            }),
-            this.collapsible && h(AButton, {
-              alwaysTranslate: this.alwaysTranslate,
-              class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
-              iconLeft: this.iconCollapse,
-              title: this.titleCollapse,
-              textScreenReader: this.titleCollapse,
-              onClick: this.toggleCollapse,
-            }),
-            h("div", {
-              class: "a_fieldset__content",
-            }, [
-              this.searchOutsideOrApi && h("div", {
-                class: "a_fieldset__search",
-              }, [
-                h("form", {
-                  onSubmit: this.onSearchOutside,
-                }, [
-                  h("div", {
-                    class: "input-group",
-                  }, [
-                    h(AInput, {
-                      alwaysTranslate: this.alwaysTranslate,
-                      label: "_A_SELECT_SEARCH_",
-                      inputClass: "a_select__element_clickable",
-                      modelValue: this.modelSearchOutside,
-                      modelUndefined: "",
-                      "onUpdate:modelValue": this.updateModelSearchOutside,
-                    }),
-                    h(AButton, {
-                      alwaysTranslate: this.alwaysTranslate,
-                      ariaDisabled: this.loadingSearchApi,
-                      disabled: this.disabled,
-                      class: "a_btn a_btn_primary",
-                      type: "submit",
-                      iconLeft: "Search",
-                    }),
-                  ]),
-                ]),
-              ]),
-              this.search && h(AInput, {
+            this.label ?
+              h(AElement, {
+                type: "text",
                 alwaysTranslate: this.alwaysTranslate,
-                class: "a_fieldset__search",
-                label: "_A_RADIO_SEARCH_",
-                modelValue: this.modelSearch,
-                modelUndefined: "",
-                "onUpdate:modelValue": this.updateModelSearch,
-              }),
-              this.loadingLocal && h(ACloak),
-              this.hasDataExtra && h("div", {
-                class: "a_radio__data_extra",
-              }, [
-                ...this.dataExtraLocal.map((item, itemIndex) => {
-                  return h(ARadioItem, {
-                    key: item[AKeyId],
-                    id: this.htmlIdLocal,
-                    alwaysTranslate: this.alwaysTranslate,
-                    idSuffix: "extra",
-                    classButtonGroupDefault: this.classButtonGroupDefault,
-                    dataItem: item,
-                    disabled: this.disabled,
-                    isButtonGroup: this.isButtonGroup,
-                    isErrors: this.isErrors,
-                    isWidthAuto: this.isWidthAuto,
-                    itemIndex,
-                    keyDisabled: this.keyDisabled,
-                    keyTitle: this.keyTitle,
-                    keyTitleCallback: this.keyTitleCallback,
-                    modelSearch: this.modelSearchLowerCase,
-                    modelValue: this.modelValue,
-                    searching: this.searching,
-                    searchingElements: this.searchingElementsExtra,
-                    slotName: this.slotName,
-                    slotAppendName: this.slotAppendName,
-                    onChangeModelValue: this.onChangeModelValue,
-                  }, this.$slots);
-                }),
-                !this.hasNotElementsExtraWithSearch && h("div", {
-                  class: "a_divider",
-                  ariaHidden: true,
-                }),
-              ]),
+                tag: "legend",
+                class: [
+                  "a_legend",
+                  {
+                    a_legend_invalid: this.isErrors,
+                  },
+                  this.labelClass,
+                ],
+                html: this.label,
+                textScreenReader: this.labelScreenReader,
+                textAfter: this.textAfterLabel,
+              }) :
+              "",
+            this.collapsible ?
+              h(AButton, {
+                alwaysTranslate: this.alwaysTranslate,
+                class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
+                iconLeft: this.iconCollapse,
+                title: this.titleCollapse,
+                textScreenReader: this.titleCollapse,
+                onClick: this.toggleCollapse,
+              }) :
+              "",
+            h("div", {
+              id: this.groupId,
+              "aria-labelledby": this.groupAriaLabelledby,
+              class: "a_fieldset__content",
+              role: "group",
+            }, [
+              this.searchOutsideOrApi ?
+                h("div", {
+                  class: "a_fieldset__search",
+                }, [
+                  h("form", {
+                    onSubmit: this.onSearchOutside,
+                  }, [
+                    h("div", {
+                      class: "input-group",
+                    }, [
+                      h(AInput, {
+                        alwaysTranslate: this.alwaysTranslate,
+                        label: "_A_RADIO_SEARCH_",
+                        inputClass: "a_select__element_clickable",
+                        modelValue: this.modelSearchOutside,
+                        modelUndefined: "",
+                        "onUpdate:modelValue": this.updateModelSearchOutside,
+                      }),
+                      h(AButton, {
+                        alwaysTranslate: this.alwaysTranslate,
+                        ariaDisabled: this.loadingSearchApi,
+                        disabled: this.disabled,
+                        class: "a_btn a_btn_primary",
+                        type: "submit",
+                        iconLeft: "Search",
+                      }),
+                    ]),
+                  ]),
+                ]) :
+                "",
+              this.search ?
+                h(AInput, {
+                  alwaysTranslate: this.alwaysTranslate,
+                  class: "a_fieldset__search",
+                  label: "_A_RADIO_SEARCH_",
+                  modelValue: this.modelSearch,
+                  modelUndefined: "",
+                  "onUpdate:modelValue": this.updateModelSearch,
+                }) :
+                "",
+              this.loadingLocal ?
+                h(ACloak) :
+                "",
+              this.hasDataExtra ?
+                h("div", {
+                  class: "a_radio__data_extra",
+                }, [
+                  ...this.dataExtraLocal.map((item, itemIndex) => {
+                    return h(ARadioItem, {
+                      key: item[AKeyId],
+                      id: this.htmlIdLocal,
+                      alwaysTranslate: this.alwaysTranslate,
+                      idSuffix: "extra",
+                      classButtonGroupDefault: this.classButtonGroupDefault,
+                      dataItem: item,
+                      disabled: this.disabled,
+                      isButtonGroup: this.isButtonGroup,
+                      isErrors: this.isErrors,
+                      isWidthAuto: this.isWidthAuto,
+                      itemIndex,
+                      keyDisabled: this.keyDisabled,
+                      keyTitle: this.keyTitle,
+                      keyTitleCallback: this.keyTitleCallback,
+                      modelSearch: this.modelSearchLowerCase,
+                      modelValue: this.modelValue,
+                      searching: this.searching,
+                      searchingElements: this.searchingElementsExtra,
+                      slotName: this.slotName,
+                      slotAppendName: this.slotAppendName,
+                      onChangeModelValue: this.onChangeModelValue,
+                    }, this.$slots);
+                  }),
+                  !this.hasNotElementsExtraWithSearch ?
+                    h("div", {
+                      class: "a_divider",
+                      ariaHidden: true,
+                    }) :
+                    "",
+                ]) :
+                "",
               h("div", {}, this.hasKeyGroup ?
                 [
                   h(ACheckboxRadioGroup, {

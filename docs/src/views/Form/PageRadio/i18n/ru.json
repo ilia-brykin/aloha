@@ -1,4 +1,5 @@
 {
-  "_A_RADIO_GROUP_INLINE_HEADER_": "Группа радиокнопок в одну линию",
-  "_A_RADIO_GROUP_INLINE_DESCRIPTION_": "Определяет, должны ли радиокнопки отображаться в одну линию. Если значение установлено в true, радиокнопки будут выстроены в линию. В противном случае они будут отображаться вертикально."
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "",
+  "_A_RADIO_COMPONENT_NAME_": "",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": ""
 }

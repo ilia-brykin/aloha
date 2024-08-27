@@ -221,6 +221,7 @@ export default {
       default: undefined,
     },
     labelClass: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -242,6 +243,7 @@ export default {
     modelValue: {
       type: Array,
       required: false,
+      default: undefined,
     },
     required: {
       type: Boolean,
@@ -580,7 +582,7 @@ export default {
                     }, [
                       h(AInput, {
                         alwaysTranslate: this.alwaysTranslate,
-                        label: "_A_SELECT_SEARCH_",
+                        label: "_A_CHECKBOX_SEARCH_",
                         inputClass: "a_select__element_clickable",
                         modelValue: this.modelSearchOutside,
                         modelUndefined: "",

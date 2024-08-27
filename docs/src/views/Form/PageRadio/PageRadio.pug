@@ -9,20 +9,18 @@ aloha-page(
       html="_A_RADIO_COMPONENT_DESCRIPTION_"
     )
 
-    page-radio-search
-
-    page-radio-key-disabled
-
-    page-radio-translate-data
-
-    page-radio-two-columns
-
-    page-radio-is-button-group
-
-    page-radio-collapse
-
-    page-radio-data-extra
-
-    page-radio-inline
-
     page-radio-is-model-array
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
