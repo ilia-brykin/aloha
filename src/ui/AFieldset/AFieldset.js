@@ -59,6 +59,11 @@ export default {
       required: false,
       default: () => [],
     },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     hasBorder: {
       type: Boolean,
       required: false,
@@ -227,7 +232,7 @@ export default {
                   alwaysTranslate: this.alwaysTranslate,
                   modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
                   modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
-                  errors: this.errorsAll[item.id],
+                  errors: get(this.errorsAll, item.id),
                   errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
                   idPrefix: this.idPrefix,
                   "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
