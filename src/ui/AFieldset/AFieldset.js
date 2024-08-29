@@ -4,14 +4,11 @@ import {
   toRef,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
+import AElement from "../../AElement/AElement";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AGroup from "../AGroup/AGroup";
-import ATranslation from "../../ATranslation/ATranslation";
 import AUiComponents from "../AUiComponents";
-
-import UiMixinProps from "../mixins/UiMixinProps";
 
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
@@ -27,17 +24,21 @@ import {
   get,
   isNil,
   set,
+  uniqueId,
 } from "lodash-es";
 
 export default {
   name: "AFieldset",
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+      default: undefined,
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
     },
     children: {
       type: Array,
@@ -54,30 +55,115 @@ export default {
       required: false,
       default: undefined,
     },
-    excludeRenderAttributes: {
-      type: Array,
+    dependencies: {
+      type: [Array, Object],
       required: false,
-      default: () => [],
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
     },
     errorsAll: {
       type: Object,
       required: false,
       default: () => ({}),
     },
+    excludeRenderAttributes: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     hasBorder: {
       type: Boolean,
       required: false,
       default: true,
+    },
+    helpText: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_fieldset_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    inputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    inputClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     isCollapsed: {
       type: Boolean,
       required: false,
       default: undefined,
     },
+    isHide: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelScreenReader: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    modelDependencies: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     modelValue: {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     slotName: {
       type: String,
@@ -86,7 +172,9 @@ export default {
     },
   },
   emits: [
+    "toggleCollapse",
     "updateData",
+    "update:modelValue",
   ],
   setup(props, context) {
     const {
@@ -170,6 +258,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("fieldset", {
@@ -182,25 +271,30 @@ export default {
         }],
         "aria-describedby": this.ariaDescribedbyLocal,
       }, [
-        this.label && h(ATranslation, {
-          alwaysTranslate: this.alwaysTranslate,
-          tag: "legend",
-          class: [
-            "a_legend",
-            {
-              a_legend_invalid: this.isErrors,
-            },
-            this.labelClass,
-          ],
-          html: this.label,
-          textAfter: this.textAfterLabel,
-        }),
-        this.collapsible && h(AButton, {
+        (this.label || this.labelScreenReader) ?
+          h(AElement, {
+            type: "text",
+            alwaysTranslate: this.alwaysTranslate,
+            tag: "legend",
+            class: [
+              "a_legend",
+              {
+                a_legend_invalid: this.isErrors,
+              },
+              this.labelClass,
+            ],
+            html: this.label,
+            textScreenReader: this.labelScreenReader,
+            textAfter: this.textAfterLabel,
+          }) :
+          "",
+        this.collapsible && h(AElement, {
           alwaysTranslate: this.alwaysTranslate,
           class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
           iconLeft: this.iconCollapse,
           title: this.titleCollapse,
           textScreenReader: this.titleCollapse,
+          type: "button",
           onClick: this.toggleCollapse,
         }),
         h("div", {

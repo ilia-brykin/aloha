@@ -533,7 +533,7 @@ export default {
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
-            this.label ?
+            (this.label || this.labelScreenReader) ?
               h(AElement, {
                 type: "text",
                 alwaysTranslate: this.alwaysTranslate,
