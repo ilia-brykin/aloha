@@ -7411,16 +7411,18 @@ input:not(:-webkit-autofill) {
     height: 100%;
     line-height: 1; }
 
-.a_form_element_number .a_form_element {
-  width: var(--a_input_number_width);
-  max-width: var(--a_input_number_max_width);
-  min-width: var(--a_input_number_min_width);
-  z-index: 1; }
-
-.a_form_element_number .a_form_element_number__currency_symbol {
+.a_form_element_number {
   display: flex;
-  align-self: center;
-  margin: 0 0.5rem; }
+  align-items: stretch; }
+  .a_form_element_number .a_form_element {
+    width: var(--a_input_number_width);
+    max-width: var(--a_input_number_max_width);
+    min-width: var(--a_input_number_min_width);
+    z-index: 1; }
+  .a_form_element_number .a_form_element_number__currency_symbol {
+    display: flex;
+    align-self: center;
+    margin: 0 0.5rem; }
 
 .a_form_element__parent_invalid .a_form_element_number_controls .a_btn_group > .aloha_btn {
   --a_btn_border_color: var(--a_form_element_error_color); }
