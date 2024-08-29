@@ -9,4 +9,22 @@ aloha-page(
       html="_A_FIELDSET_COMPONENT_DESCRIPTION_"
     )
 
+    page-fieldset-basic
+
+    page-fieldset-change
+
     page-fieldset-collapse
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

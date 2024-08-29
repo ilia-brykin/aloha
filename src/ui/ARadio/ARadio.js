@@ -136,11 +136,6 @@ export default {
       required: false,
       default: undefined,
     },
-    inputAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     isButtonGroup: {
       type: Boolean,
       required: false,
@@ -545,6 +540,7 @@ export default {
                   },
                   this.labelClass,
                 ],
+                extra: this.extra,
                 html: this.label,
                 textScreenReader: this.labelScreenReader,
                 textAfter: this.textAfterLabel,

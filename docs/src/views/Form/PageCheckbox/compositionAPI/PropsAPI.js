@@ -148,13 +148,6 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "input-attributes",
-      description: "_A_UI_PROPS_INPUT_ATTRIBUTES_DESCRIPTION_",
-      type: "Object",
-      default: "() => ({})",
-      required: false,
-    },
-    {
       name: "is-button-group",
       description: "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_",
       type: "Boolean",

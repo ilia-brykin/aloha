@@ -1,7 +1,6 @@
 import {
   h,
   resolveComponent,
-  toRef,
 } from "vue";
 
 import AElement from "../../AElement/AElement";
@@ -10,6 +9,7 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AGroup from "../AGroup/AGroup";
 import AUiComponents from "../AUiComponents";
 
+import ModelAPI from "./compositionAPI/ModelAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
@@ -20,10 +20,8 @@ import {
   typesContainer,
 } from "../const/AUiTypes";
 import {
-  cloneDeep,
   get,
   isNil,
-  set,
   uniqueId,
 } from "lodash-es";
 
@@ -49,6 +47,11 @@ export default {
       type: [String, Object],
       required: false,
       default: "a_columns a_columns_count_12 a_columns_gab_2",
+    },
+    classFieldset: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     collapsible: {
       type: Boolean,
@@ -107,16 +110,6 @@ export default {
     },
     idPrefix: {
       type: String,
-      required: false,
-      default: undefined,
-    },
-    inputAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    inputClass: {
-      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -194,7 +187,6 @@ export default {
     const {
       ariaDescribedbyLocal,
       changeModel,
-      clearModel,
       errorsId,
       helpTextId,
       htmlIdLocal,
@@ -205,17 +197,11 @@ export default {
       textAfterLabel,
     } = TextAfterLabelAPI(props);
 
-    const modelValue = toRef(props, "modelValue");
-    const onUpdateModelLocal = ({ item, model }) => {
-      if (typesContainer.value[item.type]) {
-        context.emit("update:modelValue", model);
-      } else {
-        const MODEL_ID = item.id;
-        const MODEL_VALUE = cloneDeep(modelValue.value);
-        set(MODEL_VALUE, MODEL_ID, cloneDeep(model));
-        context.emit("update:modelValue", MODEL_VALUE);
-      }
-    };
+    const {
+      onUpdateModelLocal,
+    } = ModelAPI(props, context, {
+      changeModel,
+    });
 
     const onUpdateDataLocal = ({ item, dataKeyByKeyId }) => {
       context.emit("updateData", { item, dataKeyByKeyId });
@@ -234,8 +220,6 @@ export default {
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
-      changeModel,
-      clearModel,
       componentStyleHide,
       componentTypesMapping,
       errorsId,
@@ -264,7 +248,7 @@ export default {
       h("fieldset", {
         id: this.htmlIdLocal,
         tabindex: -1,
-        class: ["a_fieldset", this.inputClass, {
+        class: ["a_fieldset", this.classFieldset, {
           a_fieldset_invalid: this.isErrors,
           a_fieldset_no_border: !this.hasBorder,
           a_fieldset_collapsed: this.isCollapsedLocal,
@@ -283,20 +267,23 @@ export default {
               },
               this.labelClass,
             ],
+            extra: this.extra,
             html: this.label,
             textScreenReader: this.labelScreenReader,
             textAfter: this.textAfterLabel,
           }) :
           "",
-        this.collapsible && h(AElement, {
-          alwaysTranslate: this.alwaysTranslate,
-          class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
-          iconLeft: this.iconCollapse,
-          title: this.titleCollapse,
-          textScreenReader: this.titleCollapse,
-          type: "button",
-          onClick: this.toggleCollapse,
-        }),
+        this.collapsible ?
+          h(AElement, {
+            alwaysTranslate: this.alwaysTranslate,
+            class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
+            iconLeft: this.iconCollapse,
+            title: this.titleCollapse,
+            textScreenReader: this.titleCollapse,
+            type: "button",
+            onClick: this.toggleCollapse,
+          }) :
+          "",
         h("div", {
           class: [
             this.classColumns,
@@ -342,11 +329,12 @@ export default {
               ]);
             }
           }),
-          this.slotName &&
-          this.$slots[this.slotName] &&
-          this.$slots[this.slotName]({
-            id: this.htmlIdLocal,
-          }),
+          (this.slotName &&
+          this.$slots[this.slotName]) ?
+            this.$slots[this.slotName]({
+              id: this.htmlIdLocal,
+            }) :
+            "",
         ]),
       ]),
       h(AFormHelpText, {

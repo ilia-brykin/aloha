@@ -1,21 +1,26 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFieldsetCollapse from "./PageFieldsetCollapse/PageFieldsetCollapse.vue";
+import PageFieldsetBasic from "./PageFieldsetBasic/PageFieldsetBasic.vue";
+import PageFieldsetChange from "./PageFieldsetChange/PageFieldsetChange.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import SlotsAPI from "./compositionAPI/SlotsAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
-import ExposesAPI from "./compositionAPI/ExposesAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageFieldset",
   components: {
     AlohaPage,
     AlohaTableProps,
+    AlohaTableTranslate,
     ATranslation,
     PageFieldsetCollapse,
+    PageFieldsetBasic,
+    PageFieldsetChange,
   },
   setup() {
     const {
@@ -27,22 +32,17 @@ export default {
     } = PropsAPI();
 
     const {
-      dataSlots,
-    } = SlotsAPI();
-
-    const {
       dataEvents,
     } = EventsAPI();
 
     const {
-      dataExposes,
-    } = ExposesAPI();
+      dataTranslate,
+    } = TranslateAPI();
 
     return {
       dataEvents,
-      dataExposes,
       dataProps,
-      dataSlots,
+      dataTranslate,
       pageTitle,
     };
   },

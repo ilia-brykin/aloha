@@ -140,11 +140,6 @@ export default {
       required: false,
       default: undefined,
     },
-    inputAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     isButtonGroup: {
       type: Boolean,
       required: false,
