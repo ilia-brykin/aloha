@@ -1,5 +1,7 @@
 import {
   h,
+  toRef,
+  watch,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -69,7 +71,15 @@ export default {
       type: String,
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.decimalDivider,
-      validator: value => [".", ","].indexOf(value) !== -1,
+      validator: (value, props) => {
+        const thousandDivider = props?.thousandDivider;
+
+        if (thousandDivider) {
+          return [".", ","].indexOf(value) !== -1 && value !== thousandDivider;
+        }
+
+        return [".", ","].indexOf(value) !== -1;
+      },
     },
     decimalPartLength: {
       type: Number,
@@ -224,7 +234,15 @@ export default {
       type: String,
       required: false,
       default: () => inputCurrencyPluginOptions.value.propsDefault.thousandDivider,
-      validator: value => [".", ",", "", " "].indexOf(value) !== -1,
+      validator: (value, props) => {
+        const decimalDivider = props?.decimalDivider;
+
+        if (decimalDivider) {
+          return [".", ",", " "].indexOf(value) !== -1 && value !== decimalDivider;
+        }
+
+        return [".", ",", " "].indexOf(value) !== -1;
+      },
     },
     validationOnChange: {
       type: Boolean,
@@ -238,6 +256,8 @@ export default {
     "blur",
   ],
   setup(props, context) {
+    const modelValue = toRef(props, "modelValue");
+
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
@@ -287,6 +307,8 @@ export default {
     const {
       clearModel,
       displayValue,
+      isInternalChange,
+      localModel,
       modelNumber,
       modelUndefinedLocal,
       setCurrentValue,
@@ -327,6 +349,13 @@ export default {
     });
 
     initFirstCheck();
+    watch(modelValue, newVal => {
+      if (!isInternalChange.value) {
+        localModel.value = newVal;
+        handleInput(null, newVal, true);
+      }
+      isInternalChange.value = false;
+    });
 
     return {
       ariaDescribedbyLocal,
@@ -387,7 +416,7 @@ export default {
           class: [
             "a_form_element_number",
             {
-              a_form_element_number_controls: this.controlsType,
+              a_form_element_number_controls: this.controlsType && this.controlsType !== "none",
             },
           ],
         }, [

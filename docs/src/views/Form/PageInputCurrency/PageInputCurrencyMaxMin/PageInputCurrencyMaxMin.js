@@ -9,13 +9,14 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageInputCurrencyControlsType",
+  name: "PageInputCurrencyMaxMin",
   components: {
     AInputCurrency,
     AlohaExample,
   },
   setup() {
-    const model = ref(10.02);
+    const model1 = ref(10.02);
+    const model2 = ref(10.02);
 
     const {
       codeHtml,
@@ -28,7 +29,8 @@ export default {
     return {
       codeHtml,
       codeJs,
-      model,
+      model1,
+      model2,
     };
   },
 };

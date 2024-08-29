@@ -21,7 +21,6 @@ export default function InputEventsAPI(props, {
   modelUndefinedLocal = computed(() => undefined),
   onBlur = () => {},
   setCurrentValue = () => {},
-  displayValue = ref(undefined),
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
   const inputRef = ref(undefined);
@@ -54,13 +53,14 @@ export default function InputEventsAPI(props, {
     return Number(`${ val }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."));
   };
 
-  const setValueLocal = val => {
-    setCurrentValue(val);
-    inputRef.value.value = val;
+  const setValueLocal = (val, updateOutside) => {
+    setCurrentValue(val, updateOutside);
   };
 
   const setCursorPosition = position => {
-    inputRef.value.setSelectionRange(position, position);
+    setTimeout(() => {
+      inputRef.value.setSelectionRange(position, position);
+    });
   };
 
   const setMaximumValue = () => {
@@ -86,18 +86,23 @@ export default function InputEventsAPI(props, {
     }
   };
 
-  const handleInput = ($event, _value) => {
+  const handleInput = ($event, _value, updateOutside = false) => {
     if (!required.value && isNil(_value) && !$event?.target?.value) {
-      setValueLocal(_value);
+      setValueLocal(_value, updateOutside);
 
       return;
     }
-    const value = isNil(_value) ? $event.target.value : _value;
+    let value;
+    if (updateOutside) {
+      value = typeof _value === "number" ? `${ _value }`.replace(".", decimalDivider.value) : _value;
+    } else {
+      value = isNil(_value) ? $event.target.value : `${ _value }`;
+    }
     const decimalDividerIndex = value.indexOf(decimalDivider.value);
     const hasDecimalDivider = decimalDividerIndex !== -1;
     const cursorPosition = inputRef.value.selectionStart;
     const splitVal = value.split(decimalDivider.value);
-    const setMinusSymbol = splitVal[0] === "-" ? "-" : "";
+    const setMinusSymbol = splitVal[0].length && splitVal[0][0] === "-" ? "-" : "";
     const intVal = Number(splitVal[0].replace(/[^0-9]/g, "")).toString();
     const floatVal = splitVal[1] ? splitVal[1].substring(0, decimalPartLength.value) : "";
     if (isNil(intVal) || intVal === "") {
@@ -108,7 +113,11 @@ export default function InputEventsAPI(props, {
       : intVal;
     let newVal;
     if (!isInteger.value) {
-      if (floatVal) {
+      if (updateOutside) {
+        const floatValLocal = floatVal || "";
+        const zerosToAdd = times(decimalPartLength.value - floatValLocal.length, () => "0").join("");
+        newVal = `${ setMinusSymbol }${ valWithDivider }${ decimalDivider.value }${ floatValLocal }${ zerosToAdd }`;
+      } else if (floatVal) {
         newVal = `${ setMinusSymbol }${ valWithDivider }${ decimalDivider.value }${ floatVal }`;
       } else if (hasDecimalDivider) {
         newVal = `${ setMinusSymbol }${ valWithDivider }${ decimalDivider.value }`;
@@ -125,7 +134,7 @@ export default function InputEventsAPI(props, {
         return;
       }
     }
-    setValueLocal(newVal);
+    setValueLocal(newVal, updateOutside);
     setCursorPosition(cursorPosition);
   };
 
@@ -335,7 +344,7 @@ export default function InputEventsAPI(props, {
 
       return;
     }
-    if (keyCode === AKeysCode.plus && $event.shiftKey || keyCode.numPlus) {
+    if (keyCode === AKeysCode.plus && $event.shiftKey || keyCode === AKeysCode.numPlus) {
       handlePlus(valueProps);
       $event.preventDefault();
 
@@ -353,6 +362,9 @@ export default function InputEventsAPI(props, {
     }
     if (keyIsDecimalDivider) {
       if (hasDecimalDivider || !isLastPosition) {
+        if (value[cursorPosition] === decimalDivider.value) {
+          setCursorPosition(cursorPosition + 1);
+        }
         $event.preventDefault();
 
         return;
@@ -411,20 +423,27 @@ export default function InputEventsAPI(props, {
       $event.preventDefault();
     }
 
-    if ($event.keyCode !== AKeysCode.home && $event.keyCode !== AKeysCode.end && !$event.ctrlKey) {
-      const numberOfSymbols = value.length;
-      isTimeoutActive.value++;
-      setTimeout(() => {
-        let positionToSet = cursorPosition + 1;
-        const numberOfSymbolsAfterEvent = inputRef.value.value.length;
-        if (numberOfSymbolsAfterEvent - 1 > numberOfSymbols) {
-          positionToSet++;
-        } else if (numberOfSymbolsAfterEvent === numberOfSymbols) {
-          positionToSet--;
-        }
-        setCursorPosition(positionToSet);
-        isTimeoutActive.value--;
-      });
+    if ($event.keyCode !== AKeysCode.home && $event.keyCode !== AKeysCode.end && !$event.ctrlKey && $event.keyCode) {
+      if (cursorPosition === 0 && value.length && value[0] === "0") {
+        $event.preventDefault();
+        const newVal = `${ keyValue }${ value.slice(1) }`;
+        setValueLocal(newVal);
+        setCursorPosition(1);
+      } else {
+        const numberOfSymbols = value.length;
+        isTimeoutActive.value++;
+        setTimeout(() => {
+          let positionToSet = cursorPosition + 1;
+          const numberOfSymbolsAfterEvent = inputRef.value.value.length;
+          if (numberOfSymbolsAfterEvent - 1 > numberOfSymbols) {
+            positionToSet++;
+          } else if (numberOfSymbolsAfterEvent === numberOfSymbols) {
+            positionToSet--;
+          }
+          setCursorPosition(positionToSet);
+          isTimeoutActive.value--;
+        });
+      }
     }
   };
 
@@ -433,7 +452,7 @@ export default function InputEventsAPI(props, {
     const pasteData = ($event.clipboardData || window.clipboardData).getData("text");
     const pastedDataArray = pasteData.split(decimalDivider.value);
     const pastedIntPart = pastedDataArray[0].replace(/[^0-9]/g, "");
-    const pastedFloatPart = pastedDataArray[1].replace(/[^0-9]/g, "");
+    const pastedFloatPart = pastedDataArray[1]?.replace(/[^0-9]/g, "") || "";
     let modifiedData;
     const hasDecimalDivider = inputRef.value.value.indexOf(decimalDivider.value) !== -1;
 
@@ -489,7 +508,7 @@ export default function InputEventsAPI(props, {
       return;
     }
     if (decimalPartLength.value) {
-      let value = $event.target.value;
+      let value = `${ $event.target.value }`;
       const splitVal = value.split(decimalDivider.value);
       const floatVal = splitVal[1];
       if (value.indexOf(decimalDivider.value) === -1) {
@@ -498,8 +517,6 @@ export default function InputEventsAPI(props, {
         value += `${ times(decimalPartLength.value - floatVal.length, () => "0").join("") }`;
       }
       setValueLocal(value);
-    } else {
-      inputRef.value.value = displayValue.value;
     }
     onBlur($event);
   };
@@ -538,7 +555,7 @@ export default function InputEventsAPI(props, {
           times(decimalPartLength.value, () => "0").join(""),
         ].join("") : modelUndefinedLocal.value;
       }
-      handleInput(null, valueToSet);
+      handleInput(null, valueToSet, true);
     });
   };
 

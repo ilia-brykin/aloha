@@ -8,11 +8,13 @@ aloha-example(
   a-input-currency(
     v-model="model"
     thousand-divider=","
+    decimal-divider="."
     label="thousand-divider=','"
   )
   a-input-currency(
     v-model="model"
     thousand-divider="."
+    decimal-divider=","
     class="a_mt_3"
     label="thousand-divider='.'"
   )
@@ -21,11 +23,5 @@ aloha-example(
     thousand-divider=" "
     class="a_mt_3"
     label="thousand-divider=' '"
-  )
-  a-input-currency(
-    v-model="model"
-    thousand-divider=""
-    class="a_mt_3"
-    label="thousand-divider=''"
   )
   div model: {{ model }}

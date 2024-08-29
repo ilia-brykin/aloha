@@ -6,16 +6,17 @@ aloha-example(
   :props="['max', 'min']"
 )
   a-input-currency(
-    v-model="model"
+    v-model="model1"
     :max="20"
     :min="1"
     label="1 - 20"
   )
+  div model: {{ model1 }}
   a-input-currency(
-    v-model="model"
+    v-model="model2"
     :max="19.05"
     :min="-10.05"
     class="a_mt_3"
     label="-10.05 - 19.05"
   )
-  div model: {{ model }}
+  div model: {{ model2 }}

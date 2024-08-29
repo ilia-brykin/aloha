@@ -22,6 +22,8 @@ export default function ModelAPI(props, {
   const thousandDivider = toRef(props, "thousandDivider");
 
   const displayValue = ref(modelValue.value);
+  const isInternalChange = ref(false);
+  const localModel = ref(modelValue.value);
 
   const modelNumber = computed(() => {
     return Number(`${ displayValue.value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."));
@@ -37,9 +39,9 @@ export default function ModelAPI(props, {
       : modelUndefined.value;
   });
 
-  const setCurrentValue = value => {
-    displayValue.value = value;
-    let newVal;
+  const setCurrentValue = (value, updateOutside = false) => {
+    displayValue.value = isNil(value) ? "" : value;
+    let newVal = value;
     if (!required.value && isNil(value)) {
       newVal = modelUndefinedLocal.value;
     } else {
@@ -47,7 +49,11 @@ export default function ModelAPI(props, {
         ? Number(`${ value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."))
         : value;
     }
-    changeModel({ model: newVal });
+    if (!updateOutside) {
+      isInternalChange.value = true;
+      localModel.value = newVal;
+      changeModel({ model: newVal });
+    }
   };
 
   const clearModel = () => {
@@ -60,6 +66,8 @@ export default function ModelAPI(props, {
   return {
     clearModel,
     displayValue,
+    isInternalChange,
+    localModel,
     modelNumber,
     modelUndefinedLocal,
     setCurrentValue,
