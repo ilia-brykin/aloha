@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_CHANGE_HEADER_"
+  description="_A_UI_GROUP_CHANGE_DESCRIPTION_"
+  :props="['change', 'model-value']"
+)
+  a-radio(
+    :change="changeModel"
+    :data="data"
+    :model-value="model"
+    label="Aloha"
+  )
+  div model: {{ model }}

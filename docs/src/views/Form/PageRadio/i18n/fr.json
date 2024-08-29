@@ -1,3 +1,7 @@
 {
-
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">ARadio</strong> représente un ensemble de boutons radio, où l'utilisateur ne peut sélectionner qu'un seul élément parmi les options proposées. Le composant prend en charge diverses configurations telles que le repliement des groupes, l'affichage en tant que groupe de boutons, la recherche et bien d'autres.",
+  "_A_RADIO_COMPONENT_NAME_": "Boutons Radio",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">is-model-array</strong>. Il permet de définir un tableau comme modèle de données pour les boutons radio. L'élément sélectionné est enregistré dans le tableau du modèle.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Utilisation d'un Tableau comme Modèle",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Permet d'utiliser un tableau (<strong lang=\"en\">Array</strong>) comme modèle."
 }

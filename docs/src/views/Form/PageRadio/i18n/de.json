@@ -1,19 +1,7 @@
 {
-  "_A_RADIO_COMPONENT_DESCRIPTION_":  "ARadio ist eine Komponente, die es Benutzern ermöglicht, eine einzelne Auswahl aus einem vordefinierten Satz von ausschließlichen Optionen zu treffen.",
-  "_A_RADIO_COMPONENT_NAME_": "Radiobutton",
-  "_A_RADIO_GROUP_COLLAPSE_DESCRIPTION_": "Ermöglicht das Aus- und Einklappen einer Gruppe von Radiobuttons basierend auf der Benutzerinteraktion mit der Komponente.",
-  "_A_RADIO_GROUP_COLLAPSE_HEADER_": "Radiobutton Gruppe: Einklappbarer Inhalt",
-  "_A_RADIO_GROUP_IS_BUTTON_GROUP_DESCRIPTION_": "Ermöglicht den Wechsel zwischen dem traditionellen kreisförmigen Erscheinungsbild von Optionsfeldern und einem schaltflächenähnlichen Stil.",
-  "_A_RADIO_GROUP_IS_BUTTON_GROUP_HEADER_": "Schaltflächenstil-Gruppe",
-  "_A_RADIO_GROUP_KEY_DISABLED_DESCRIPTION_": "Es ist möglich, bestimmte Optionen basierend auf einer Eigenschaft im zugehörigen Objekt zu deaktivieren, wobei der Schlüsselname als Prop übergeben wird.",
-  "_A_RADIO_GROUP_KEY_DISABLED_HEADER_": "Deaktivierung der Optionen",
-  "_A_RADIO_GROUP_SEARCH_DESCRIPTION_": "Die Suche ermöglicht es, schnell eine bestimmte Option zu finden und auszuwählen, indem man einen Suchbegriff eingibt. Dies verbessert die Benutzerfreundlichkeit für eine große Liste von Optionen.",
-  "_A_RADIO_GROUP_SEARCH_HEADER_": "Suche",
-  "_A_RADIO_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Die Verwendung von übersetzbaren Labels für Optionen wird unterstützt, um die Benutzeroberfläche an verschiedene Sprachen und Regionen anzupassen.",
-  "_A_RADIO_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisierung",
-  "_A_RADIO_GROUP_TWO_COLUMNS_DESCRIPTION_": "Durch Übergeben eines Klassennamens als Prop wird festgelegt, ob die Optionen in einer oder zwei Spalten basierend auf dem bereitgestellten Klassennamen angezeigt werden.",
-  "_A_RADIO_GROUP_TWO_COLUMNS_HEADER_": "Zweispaltiges Layout",
-  "_A_RADIO_LABEL_WIDE_SCREEN_": "Breitbildlayout",
-  "_A_RADIO_GROUP_INLINE_HEADER_": "Inline-Radiobutton-Gruppe",
-  "_A_RADIO_GROUP_INLINE_DESCRIPTION_": "Gibt an, ob die Radiobuttons in einer Zeile angezeigt werden sollen. Wenn auf true gesetzt, werden die Radiobuttons inline angezeigt. Andernfalls werden sie vertikal angezeigt."
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "Die <strong lang=\"en\">ARadio</strong>-Komponente stellt eine Gruppe von Optionsfeldern dar, bei denen der Benutzer nur ein Element aus den angebotenen Optionen auswählen kann. Die Komponente unterstützt verschiedene Einstellungen wie das Zusammenklappen von Gruppen, die Darstellung als Schaltflächengruppe, Suchfunktionen und viele andere.",
+  "_A_RADIO_COMPONENT_NAME_": "Optionsfelder",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Dieses Beispiel zeigt, wie man <strong lang=\"en\">is-model-array</strong> verwendet. Es ermöglicht das Festlegen eines Arrays als Datenmodell für die Optionsfelder. Das ausgewählte Element wird im Modell-Array gespeichert.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Verwendung eines Arrays als Modell",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Ermöglicht die Verwendung eines Arrays (<strong lang=\"en\">Array</strong>) als Modell."
 }

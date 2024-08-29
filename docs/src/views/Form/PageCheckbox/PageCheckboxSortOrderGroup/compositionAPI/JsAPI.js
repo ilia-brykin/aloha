@@ -68,23 +68,10 @@ export default {
       },
     ];
     const model = ref(undefined);
-    
-    const onGroupLabelCallback = ({ group, item }) => {
-      if (group === "_not_grouped") {
-        return "---";
-      }
-
-      if (group === "Alex") {
-        return \`-\${ group }-\`;
-      }
-
-      return group;
-    };
 
     return {
       data,
       model,
-      onGroupLabelCallback,
     };
   },
 };`;

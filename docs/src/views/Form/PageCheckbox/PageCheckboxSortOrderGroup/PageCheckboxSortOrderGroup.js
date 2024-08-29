@@ -81,25 +81,11 @@ export default {
     ];
     const model = ref(undefined);
 
-    // eslint-disable-next-line no-unused-vars
-    const onGroupLabelCallback = ({ group, item }) => {
-      if (group === "_not_grouped") {
-        return "---";
-      }
-
-      if (group === "Alex") {
-        return `-${ group }-`;
-      }
-
-      return group;
-    };
-
     return {
       codeHtml,
       codeJs,
       data,
       model,
-      onGroupLabelCallback,
     };
   },
 };

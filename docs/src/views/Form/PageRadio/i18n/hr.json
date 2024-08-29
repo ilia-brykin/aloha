@@ -1,17 +1,7 @@
 {
-  "_A_RADIO_COMPONENT_DESCRIPTION_": "ARadio je komponenta koja korisnicima omogućuje da naprave jedan odabir iz unaprijed definiranog skupa uzajamno isključivih opcija.",
-  "_A_RADIO_COMPONENT_NAME_": "Radio gumb",
-  "_A_RADIO_GROUP_COLLAPSE_DESCRIPTION_": "Omogućuje korisniku da na osnovu interakcije s grupom radio gumba sakrije i ponovo prikaže opcije.",
-  "_A_RADIO_GROUP_COLLAPSE_HEADER_": "Grupa radio gumba: Sklopivi sadržaj",
-  "_A_RADIO_GROUP_IS_BUTTON_GROUP_DESCRIPTION_": "Omogućuje, umjesto tradicionalnog kružnog radio gumba, izgled opcija kao grupe standardnih gumba.",
-  "_A_RADIO_GROUP_IS_BUTTON_GROUP_HEADER_": "Grupa u stilu gumba",
-  "_A_RADIO_GROUP_KEY_DISABLED_DESCRIPTION_": "Specifične opcije mogu biti onemogućene na osnovu atributa pripadajućeg objekta, s nazivom ključa proslijeđenim kao prop.",
-  "_A_RADIO_GROUP_KEY_DISABLED_HEADER_": "Onemogućavanje opcija",
-  "_A_RADIO_GROUP_SEARCH_DESCRIPTION_": "Pretraživanje omogućuje korisnicima da brzo pronađu i odaberu određenu opciju unosom pojma za pretraživanje. Ovo je posebno korisno za veliki broj opcija.",
-  "_A_RADIO_GROUP_SEARCH_HEADER_": "Pretraživanje",
-  "_A_RADIO_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Podržana je uporaba prevedivih oznaka za opcije, što omogućuje prilagodbu komponente različitim jezicima i regijama.",
-  "_A_RADIO_GROUP_TRANSLATE_DATA_HEADER_": "Internacionalizacija",
-  "_A_RADIO_GROUP_TWO_COLUMNS_DESCRIPTION_": "Prikaz opcija u jednoj ili dvije kolone određen je na temelju proslijeđenog naziva klase.",
-  "_A_RADIO_GROUP_TWO_COLUMNS_HEADER_": "Prikaz u dva stupca",
-  "_A_RADIO_LABEL_WIDE_SCREEN_": "Širokozaslonski prikaz"
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">ARadio</strong> predstavlja skup radio gumba, gdje korisnik može odabrati samo jednu opciju iz ponuđenih. Komponenta podržava razne postavke kao što su grupno smanjivanje, prikaz kao skupina gumba, pretraga i mnoge druge.",
+  "_A_RADIO_COMPONENT_NAME_": "Radio Gumbi",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">is-model-array</strong>. Omogućuje postavljanje niza kao modela podataka za radio gumbe. Odabrana stavka bilježi se u niz modela.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Korištenje Niza kao Modela",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Omogućuje korištenje niza (<strong lang=\"en\">Array</strong>) kao modela."
 }

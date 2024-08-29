@@ -1,3 +1,7 @@
 {
-
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "يمثل مكون <strong lang=\"en\">ARadio</strong> مجموعة من أزرار الاختيار، حيث يمكن للمستخدم اختيار عنصر واحد فقط من الخيارات المتاحة. يدعم المكون إعدادات متنوعة مثل طي المجموعة، عرض المجموعة كأزرار، البحث، والعديد من الميزات الأخرى.",
+  "_A_RADIO_COMPONENT_NAME_": "أزرار الاختيار",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">is-model-array</strong>. يتيح تعيين مصفوفة كنموذج بيانات لأزرار الاختيار. يتم تسجيل العنصر المحدد في مصفوفة النموذج.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "استخدام المصفوفة كنموذج",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "يتيح استخدام المصفوفة (<strong lang=\"en\">Array</strong>) كنموذج."
 }

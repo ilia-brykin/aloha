@@ -1,5 +1,7 @@
 {
-  "_A_RADIO_COMPONENT_DESCRIPTION_": "",
-  "_A_RADIO_COMPONENT_NAME_": "",
-  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": ""
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ARadio</strong> представляет собой набор радиокнопок, где пользователь может выбрать только один элемент из предложенных. Компонент поддерживает различные настройки, такие как сворачивание группы, отображение в виде группы кнопок, поиск и многие другие.",
+  "_A_RADIO_COMPONENT_NAME_": "Радиокнопки",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">is-model-array</strong>. Позволяет задать массив как модель данных для радиокнопок. Выбор одного из элементов записывается в массив модели.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Использование массива в качестве модели",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Позволяет использовать массив (<strong lang=\"en\">Array</strong>) в качестве модели."
 }

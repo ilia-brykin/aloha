@@ -1,3 +1,7 @@
 {
-
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">ARadio</strong> rappresenta un insieme di pulsanti radio, dove l'utente può selezionare solo un elemento tra le opzioni offerte. Il componente supporta varie configurazioni, come il collasso del gruppo, la visualizzazione come gruppo di pulsanti, la ricerca e molti altri.",
+  "_A_RADIO_COMPONENT_NAME_": "Pulsanti Radio",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Questo esempio dimostra come utilizzare <strong lang=\"en\">is-model-array</strong>. Consente di impostare un array come modello di dati per i pulsanti radio. L'elemento selezionato viene registrato nell'array del modello.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Utilizzo di un Array come Modello",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Permette l'uso di un array (<strong lang=\"en\">Array</strong>) come modello."
 }

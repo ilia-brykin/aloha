@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['data', 'model-value', 'label']"
+)
+  a-radio(
+    v-model="model"
+    :data="data"
+    label="Aloha"
+  )
+  div model: {{ model }}

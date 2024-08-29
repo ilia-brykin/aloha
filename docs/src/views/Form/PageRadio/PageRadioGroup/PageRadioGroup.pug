@@ -1,0 +1,28 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_GROUP_HEADER_"
+  description="_A_UI_GROUP_GROUP_DESCRIPTION_"
+  :props="['key-group', 'key-group-label-callback']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-radio(
+        v-model="model"
+        :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        key-id="id"
+        key-label="label"
+        label="key-group"
+      )
+      a-radio(
+        v-model="model"
+        :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        :key-group-label-callback="onGroupLabelCallback"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        label="key-group + key-group-callback"
+      )
+      div model: {{ model }}

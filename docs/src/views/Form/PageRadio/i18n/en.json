@@ -1,19 +1,7 @@
 {
-  "_A_RADIO_COMPONENT_DESCRIPTION_": "ARadio is a component that allows users to make a single selection from a predefined set of mutually exclusive options.",
-  "_A_RADIO_COMPONENT_NAME_": "Radio Button",
-  "_A_RADIO_GROUP_COLLAPSE_DESCRIPTION_": "Allows for a group of radio buttons to expand and collapse based on the user interaction.",
-  "_A_RADIO_GROUP_COLLAPSE_HEADER_": "Radio Button Group: Collapsible Content",
-  "_A_RADIO_GROUP_IS_BUTTON_GROUP_DESCRIPTION_": "Allows for a switch between the traditional circular radio button appearance and a more button-like style.",
-  "_A_RADIO_GROUP_IS_BUTTON_GROUP_HEADER_": "Button-Style Group",
-  "_A_RADIO_GROUP_KEY_DISABLED_DESCRIPTION_": "Specific options can be disabled based on a property in the associated object, with the key name passed as a prop.",
-  "_A_RADIO_GROUP_KEY_DISABLED_HEADER_": "Option Disabling",
-  "_A_RADIO_GROUP_SEARCH_DESCRIPTION_": "The search allows users to quickly find and select a specific option by entering a search term. This improves usability for a large list of options.",
-  "_A_RADIO_GROUP_SEARCH_HEADER_": "Search",
-  "_A_RADIO_GROUP_TRANSLATE_DATA_DESCRIPTION_": "The use of translatable labels for options is supported, allowing the interface to adapt to different languages and regions.",
-  "_A_RADIO_GROUP_TRANSLATE_DATA_HEADER_": "Internationalization",
-  "_A_RADIO_GROUP_TWO_COLUMNS_DESCRIPTION_": "Passing a class name as a prop determines whether the options are displayed in one or two columns.",
-  "_A_RADIO_GROUP_TWO_COLUMNS_HEADER_": "Two-Column Layout",
-  "_A_RADIO_LABEL_WIDE_SCREEN_": "Wide Screen Layout",
-  "_A_RADIO_GROUP_INLINE_HEADER_": "Inline Radio Button Group",
-  "_A_RADIO_GROUP_INLINE_DESCRIPTION_": "Specifies whether the radio buttons should be displayed in a single line. When set to true, the radio buttons will be rendered inline. Otherwise, they will be displayed vertically."
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">ARadio</strong> component represents a set of radio buttons, where the user can select only one item from the given options. The component supports various settings such as group collapsing, button group display, search functionality, and many others.",
+  "_A_RADIO_COMPONENT_NAME_": "Radio buttons",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">is-model-array</strong>. It allows you to set an array as the data model for the radio buttons. The selected item is recorded in the model array.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Using Array as a Model",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Allows the use of an array (<strong lang=\"en\">Array</strong>) as the model."
 }

@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_HEADER_"
+  description="_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_"
+  props="is-data-simple-array"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-radio(
+        v-model="model"
+        :data="data"
+        :is-data-simple-array="true"
+        label="Aloha"
+      )
+      div model: {{ model }}

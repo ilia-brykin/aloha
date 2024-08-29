@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_KEY_LABEL_CALLBACK_HEADER_"
+  description="_A_UI_GROUP_KEY_LABEL_CALLBACK_DESCRIPTION_"
+  props="key-label-callback"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-radio(
+        v-model="model"
+        :data="data"
+        :key-label-callback="onKeyLabelCallback"
+        key-id="id"
+        label="Aloha"
+      )
+      div model: {{ model }}
