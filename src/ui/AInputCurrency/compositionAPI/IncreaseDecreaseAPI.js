@@ -13,7 +13,6 @@ export default function IncreaseDecreaseAPI(props, {
   setCurrentValue = () => {},
   modelNumber = computed(() => undefined),
 }) {
-  const controlsType = toRef(props, "controlsType");
   const decimalDivider = toRef(props, "decimalDivider");
   const disabled = toRef(props, "disabled");
   const modelValue = toRef(props, "modelValue");
@@ -62,7 +61,7 @@ export default function IncreaseDecreaseAPI(props, {
   };
 
   const increase = () => {
-    if (disabled.value || maxDisabled.value || controlsType.value === "none") {
+    if (disabled.value || maxDisabled.value) {
       return;
     }
     const value = modelNumber.value;
@@ -79,7 +78,7 @@ export default function IncreaseDecreaseAPI(props, {
   };
 
   const decrease = () => {
-    if (disabled.value || minDisabled.value || controlsType.value === "none") {
+    if (disabled.value || minDisabled.value) {
       return; 
     }
     const value = modelNumber.value;

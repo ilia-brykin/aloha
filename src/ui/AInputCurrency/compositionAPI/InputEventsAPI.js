@@ -203,15 +203,34 @@ export default function InputEventsAPI(props, {
     });
   };
 
-  const setDecimalDivider = ({ value }) => {
+  const setDecimalDivider = ({ value, cursorPosition }, isLastPosition) => {
     setTimeout(() => {
       isTimeoutActive.value++;
-      const positionToSet = value.length + 1;
       let valueAfterKeyPress = inputRef.value.value;
-      if (valueAfterKeyPress[valueAfterKeyPress.length - 1] === decimalDivider.value) {
-        valueAfterKeyPress += times(decimalPartLength.value, () => "0").join("");
-        setValueLocal(valueAfterKeyPress);
-        setCursorPosition(positionToSet);
+      if (isLastPosition) {
+        const positionToSet = value.length + 1;
+        if (valueAfterKeyPress[valueAfterKeyPress.length - 1] === decimalDivider.value) {
+          valueAfterKeyPress += times(decimalPartLength.value, () => "0").join("");
+          setValueLocal(valueAfterKeyPress);
+          setCursorPosition(positionToSet);
+        }
+      } else {
+        const intVal = value.substring(0, cursorPosition)
+          .split("").reverse().join("")
+          .replaceAll(thousandDivider.value, "")
+          .match(/.{1,3}/g).join(thousandDivider.value)
+          .split("").reverse().join("");
+        let floatVal = value
+          .substring(cursorPosition, value.length)
+          .replace(/[^0-9]/g, "")
+          .substring(0, decimalPartLength.value);
+        floatVal = `${ floatVal }${ times(decimalPartLength.value - floatVal.length, () => "0").join("") }`;
+        const result = [
+          intVal,
+          floatVal,
+        ].join(decimalDivider.value);
+        setValueLocal(result);
+        setCursorPosition(intVal.length + 1);
       }
       isTimeoutActive.value--;
     });
@@ -312,7 +331,8 @@ export default function InputEventsAPI(props, {
     const keyValue = $event.key;
     const keyIsNumber = keyCode >= 48 && keyCode <= 57 || keyCode >= 96 && keyCode <= 105;
     const keyIsDecimalDivider = keyValue === decimalDivider.value && !!decimalPartLength.value;
-    const hasDecimalDivider = $event.target.value.indexOf(decimalDivider.value) !== -1;
+    const decimalDividerIndex = $event.target.value.indexOf(decimalDivider.value);
+    const hasDecimalDivider = decimalDividerIndex !== -1;
     const cursorPosition = inputRef.value.selectionStart;
     const isLastPosition = cursorPosition === value.length;
     const valueProps = {
@@ -361,15 +381,16 @@ export default function InputEventsAPI(props, {
       return;
     }
     if (keyIsDecimalDivider) {
-      if (hasDecimalDivider || !isLastPosition) {
-        if (value[cursorPosition] === decimalDivider.value) {
-          setCursorPosition(cursorPosition + 1);
-        }
+      if (hasDecimalDivider) {
+        setCursorPosition(decimalDividerIndex + 1);
         $event.preventDefault();
 
         return;
       }
-      setDecimalDivider(valueProps);
+      if (!isLastPosition) {
+        $event.preventDefault();
+      }
+      setDecimalDivider(valueProps, isLastPosition);
 
       return;
     }
@@ -454,9 +475,14 @@ export default function InputEventsAPI(props, {
     const pastedIntPart = pastedDataArray[0].replace(/[^0-9]/g, "");
     const pastedFloatPart = pastedDataArray[1]?.replace(/[^0-9]/g, "") || "";
     let modifiedData;
-    const hasDecimalDivider = inputRef.value.value.indexOf(decimalDivider.value) !== -1;
+    const start = inputRef.value.selectionStart;
+    const end = inputRef.value.selectionEnd;
+    const text = inputRef.value.value;
+    const hasDecimalDivider = text.indexOf(decimalDivider.value) !== -1;
+    const selectedPart = text.substring(start, end);
+    const selectedPartHasDecimalDivider = selectedPart.indexOf(decimalDivider.value) !== -1;
 
-    if (hasDecimalDivider) {
+    if (hasDecimalDivider && !selectedPartHasDecimalDivider) {
       modifiedData = pastedFloatPart ?
         [pastedIntPart, pastedFloatPart].join("") :
         pastedIntPart;
@@ -466,9 +492,6 @@ export default function InputEventsAPI(props, {
         pastedIntPart;
     }
 
-    const start = inputRef.value.selectionStart;
-    const end = inputRef.value.selectionEnd;
-    const text = inputRef.value.value;
     const newVal = text.slice(0, start) + modifiedData + text.slice(end);
     handleInput(null, newVal);
   };

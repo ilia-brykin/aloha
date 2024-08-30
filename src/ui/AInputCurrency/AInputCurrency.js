@@ -14,7 +14,6 @@ import ALabel from "../ALabel/ALabel";
 import IncreaseDecreaseAPI from "./compositionAPI/IncreaseDecreaseAPI";
 import InputEventsAPI from "./compositionAPI/InputEventsAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
-import NumberAttributesAPI from "./compositionAPI/NumberAttributesAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
@@ -289,10 +288,6 @@ export default {
     });
 
     const {
-      numberAttributes,
-    } = NumberAttributesAPI(props);
-
-    const {
       placeholderAttributes,
     } = PlaceholderAPI(props);
 
@@ -376,7 +371,6 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
-      numberAttributes,
       onClickNumber,
       onBlurNumber,
       onFocus,
@@ -458,7 +452,6 @@ export default {
               ariaRequired: this.required,
               ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
-              ...this.numberAttributes,
               ...this.placeholderAttributes,
               ...this.inputAttributes,
               onInput: this.handleInput,
