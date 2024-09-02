@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_HELP_TEXT_HEADER_"
+  description="_A_UI_GROUP_HELP_TEXT_DESCRIPTION_"
+  :props="['help-text']"
+)
+  a-fieldset(
+    v-model="model"
+    :children="children"
+    help-text="Aloha"
+    label="Fieldset"
+  )
+  div model: {{ model }}

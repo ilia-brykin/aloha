@@ -9,28 +9,25 @@ import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 export default {
-  name: "PageFieldsetCollapse",
+  name: "PageFieldsetHelpText",
   components: {
     AFieldset,
     AlohaExample,
   },
   setup() {
-    const children1 = [
+    const children = [
       {
         type: "text",
         label: "Text",
-        id: "aloha1.text",
+        id: "aloha.text2",
       },
-    ];
-    const children2 = [
       {
-        type: "text",
-        label: "Text",
-        id: "aloha2.text",
+        type: "oneCheckbox",
+        label: "Checkbox",
+        id: "aloha.checkbox2",
       },
     ];
-    const model1 = ref(undefined);
-    const model2 = ref(undefined);
+    const model = ref(undefined);
 
     const {
       codeHtml,
@@ -40,18 +37,11 @@ export default {
       codeJs,
     } = JsAPI();
 
-    const toggleCollapse = ({ isCollapsed, id, props }) => {
-      console.log(isCollapsed, id, props);
-    };
-
     return {
-      children1,
-      children2,
+      children,
       codeHtml,
       codeJs,
-      model1,
-      model2,
-      toggleCollapse,
+      model,
     };
   },
 };

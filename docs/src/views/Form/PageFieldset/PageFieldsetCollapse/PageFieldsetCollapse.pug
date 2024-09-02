@@ -1,31 +1,28 @@
 aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
-  header="_A_FIELDSET_GROUP_COLLAPSE_HEADER_"
-  description="_A_FIELDSET_GROUP_COLLAPSE_DESCRIPTION_"
+  header="_A_UI_GROUP_COLLAPSE_HEADER_"
+  description="_A_UI_GROUP_COLLAPSE_DESCRIPTION_"
   :props="['collapsible', 'is-collapsed']"
+  :emits="['toggle-collapse']"
 )
   .a_columns.a_columns_count_12
     .a_column.a_column_6.a_columns_count_12_touch
       a-fieldset(
+        v-model="model1"
+        :children="children1"
         :collapsible="true"
-        slot-name="fieldset"
-        class-columns=""
         label="Aloha"
+        @toggle-collapse="toggleCollapse"
       )
-        template(
-          v-slot:fieldset
-        )
-          div Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-
+      div model1: {{ model1 }}
       a-fieldset(
-        class="a_mt_5"
+        v-model="model2"
+        :children="children2"
         :collapsible="true"
         :is-collapsed="true"
-        slot-name="fieldset"
-        class-columns=""
+        class="a_mt_3"
+        label="Aloha"
+        @toggle-collapse="toggleCollapse"
       )
-        template(
-          v-slot:fieldset
-        )
-          div Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+      div model2: {{ model2 }}

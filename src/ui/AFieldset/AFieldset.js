@@ -241,6 +241,7 @@ export default {
     }
 
     return h("div", {
+      class: "a_form_element__parent",
       style: this.componentStyleHide,
       type: undefined,
       ...this.attributesToExcludeFromRender,

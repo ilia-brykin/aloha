@@ -5,6 +5,8 @@ import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFieldsetCollapse from "./PageFieldsetCollapse/PageFieldsetCollapse.vue";
 import PageFieldsetBasic from "./PageFieldsetBasic/PageFieldsetBasic.vue";
 import PageFieldsetChange from "./PageFieldsetChange/PageFieldsetChange.vue";
+import PageFieldsetHelpText from "./PageFieldsetHelpText/PageFieldsetHelpText.vue";
+import PageFieldsetError from "./PageFieldsetError/PageFieldsetError.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -21,6 +23,8 @@ export default {
     PageFieldsetCollapse,
     PageFieldsetBasic,
     PageFieldsetChange,
+    PageFieldsetHelpText,
+    PageFieldsetError,
   },
   setup() {
     const {

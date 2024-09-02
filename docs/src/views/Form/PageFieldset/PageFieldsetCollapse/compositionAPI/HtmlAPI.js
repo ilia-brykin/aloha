@@ -1,29 +1,21 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-fieldset
+  v-model="model1"
+  :children="children1"
   :collapsible="true"
-  slot-name="fieldset"
-  class-columns=""
   label="Aloha"
->
-  <template
-    v-slot:fieldset
-  >
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum</div>
-  </template>
-</a-fieldset>
+  @toggle-collapse="toggleCollapse"
+></a-fieldset>
+<div>model1: {{ model1 }}</div>
 <a-fieldset
-  class="a_mt_5"
+  v-model="model2"
+  :children="children2"
   :collapsible="true"
-  :is-collapsed="true"
-  slot-name="fieldset"
-  class-columns=""
->
-  <template
-    v-slot:fieldset
-  >
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum</div>
-  </template>
-</a-fieldset>`;
+  class="a_mt_3"
+  label="Aloha"
+  @toggle-collapse="toggleCollapse"
+></a-fieldset>
+<div>model2: {{ model2 }}</div>`;
 
   return {
     codeHtml,
