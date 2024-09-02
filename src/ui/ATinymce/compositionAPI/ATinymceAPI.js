@@ -83,7 +83,7 @@ export default function ATinymceAPI(props, context, {
       content_css: false,
       content_langs: contentLangs.value,
       content_style: contentStyle.value,
-      contextmenu: false,
+      contextmenu: "link copy custompaste",
       convert_urls: false,
       entity_encoding: "raw",
       force_br_newlines: true,
@@ -105,6 +105,24 @@ export default function ATinymceAPI(props, context, {
         vueEditor = editor;
         editor.on("change input undo redo", () => {
           changeModelLocal({ model: editor.getContent({ format: "html" }) });
+        });
+        editor.ui.registry.addMenuItem("custompaste", {
+          text: "Paste",
+          icon: "paste",
+          shortcut: "Ctrl+V",
+          onAction: () => {
+            navigator.clipboard.readText().then(text => {
+              if (text) {
+                editor.insertContent(text);
+              }
+            }).catch(err => {
+              editor.notificationManager.open({
+                text: "Your browser doesn't support direct access to the clipboard. Please use the Ctrl+X/C/V keyboard shortcuts instead.",
+                type: "error"
+              });
+              console.error("Paste error: ", err);
+            });
+          },
         });
       },
     });
