@@ -359,8 +359,12 @@ export default {
           round: [],
         };
 
-        if (props.type in validSubTypes) {
-          return isNil(value) || validSubTypes[props.type].indexOf(value) !== -1;
+        if (props) {
+          if (props.type in validSubTypes) {
+            return isNil(value) || validSubTypes[props.type].indexOf(value) !== -1;
+          }
+        } else {
+          return ["square", "circle", "square-bordered", "circle-bordered"].indexOf(value) !== -1;
         }
 
         return false;
