@@ -8615,6 +8615,11 @@ input:not(:-webkit-autofill) {
 .a_modal_content_with_footer_sticky .a_modal_body__content {
   padding-bottom: var(--a_modal_padding); }
 
+.a_modal_footer_actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
 .a_dropdown__caret {
   margin: 0; }
 
