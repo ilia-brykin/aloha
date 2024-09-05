@@ -24,6 +24,7 @@ export default function AttributesAPI(props, {
   const disabledPreviewRowCallback = toRef(props, "disabledPreviewRowCallback");
   const isFooter = toRef(props, "isFooter");
   const isTreeCollapsible = toRef(props, "isTreeCollapsible");
+  const level = toRef(props, "level");
   const row = toRef(props, "row");
   const rowClass = toRef(props, "rowClass");
   const rowIndex = toRef(props, "rowIndex");
@@ -40,6 +41,7 @@ export default function AttributesAPI(props, {
   const rowClassLocal = computed(() => {
     if (isFunction(rowClass.value)) {
       return rowClass.value({
+        level: level.value,
         row: row.value,
         rowindex: rowIndex.value,
       });
