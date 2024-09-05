@@ -77,6 +77,15 @@ export default {
       type: Boolean,
       required: false,
     },
+    isTreeCollapsible: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isTreeOpened: {
+      type: Boolean,
+      required: false,
+    },
     keyChildren: {
       type: String,
       required: false,
@@ -132,6 +141,7 @@ export default {
 
     const {
       ariaExpanded,
+      initIsChildrenOpen,
       isOneOfParentsCloseForChildren,
       rowClassChildren,
       toggleChildren,
@@ -176,6 +186,8 @@ export default {
       labelCheckbox,
       toggleCheckbox,
     } = CheckboxAPI(props, context);
+
+    initIsChildrenOpen();
 
     return {
       ariaExpanded,
@@ -239,7 +251,7 @@ export default {
           row: this.row,
           rowIndex: this.rowIndex,
           isFooter: this.isFooter,
-          showIconChildren: !!(this.hasChildren && columnIndex === 0),
+          showIconChildren: !!(this.isTreeCollapsible && this.hasChildren && columnIndex === 0),
         }, this.$slots);
       });
     }
@@ -267,13 +279,15 @@ export default {
             isFooter: this.isFooter,
           }) :
           "",
-        this.hasChildren && h(AElement, {
-          "aria-hidden": true,
-          class: "a_table__row_level__icon",
-          classDefault: "",
-          iconLeft: "CaretRightFill",
-          type: "text",
-        }),
+        (this.isTreeCollapsible && this.hasChildren) ?
+          h(AElement, {
+            "aria-hidden": true,
+            class: "a_table__row_level__icon",
+            classDefault: "",
+            iconLeft: "CaretRightFill",
+            type: "text",
+          }) :
+          "",
         h("dl", {
           class: "a_table_mobile__dl",
         }, tds),
@@ -351,6 +365,8 @@ export default {
             isPreviewDownOpen: false,
             isRowActionsStickyLocal: this.isRowActionsStickyLocal,
             isTree: this.isTree,
+            isTreeCollapsible: this.isTreeCollapsible,
+            isTreeOpened: this.isTreeOpened,
             keyChildren: this.keyChildren,
             keyId: this.keyId,
             level: this.levelForChildren,

@@ -243,6 +243,15 @@ export default {
       type: Boolean,
       required: false,
     },
+    isTreeCollapsible: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isTreeOpened: {
+      type: Boolean,
+      required: false,
+    },
     keyCountAllRowsInData: {
       type: String,
       required: false,
@@ -971,6 +980,8 @@ export default {
                     isPreviewDownOpen: this.previewDownRowIds[ROW_ID],
                     isRowActionsStickyLocal: this.isRowActionsStickyLocal,
                     isTree: this.isTree,
+                    isTreeCollapsible: this.isTreeCollapsible,
+                    isTreeOpened: this.isTreeOpened,
                     keyChildren: this.keyChildren,
                     keyId: this.keyId,
                     level: 1,
@@ -1019,6 +1030,8 @@ export default {
                   isFooter: true,
                   isRowActionsStickyLocal: this.isRowActionsStickyLocal,
                   isTree: this.isTree,
+                  isTreeCollapsible: this.isTreeCollapsible,
+                  isTreeOpened: this.isTreeOpened,
                   keyChildren: this.keyChildren,
                   keyId: this.keyId,
                   level: 1,

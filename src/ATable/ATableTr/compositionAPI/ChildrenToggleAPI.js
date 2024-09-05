@@ -7,6 +7,8 @@ export default function ChildrenToggleAPI(props, {
   hasChildren = computed(() => false),
 }) {
   const isOneOfParentsClose = toRef(props, "isOneOfParentsClose");
+  const isTreeCollapsible = toRef(props, "isTreeCollapsible");
+  const isTreeOpened = toRef(props, "isTreeOpened");
 
   const isChildrenOpen = ref(false);
 
@@ -34,9 +36,16 @@ export default function ChildrenToggleAPI(props, {
     isChildrenOpen.value = !isChildrenOpen.value;
   };
 
+  const initIsChildrenOpen = () => {
+    if (!isTreeCollapsible.value || isTreeOpened.value) {
+      isChildrenOpen.value = true;
+    }
+  };
+
 
   return {
     ariaExpanded,
+    initIsChildrenOpen,
     isOneOfParentsCloseForChildren,
     rowClassChildren,
     toggleChildren,

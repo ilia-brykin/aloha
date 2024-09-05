@@ -23,6 +23,7 @@ export default function AttributesAPI(props, {
   const disabledPreview = toRef(props, "disabledPreview");
   const disabledPreviewRowCallback = toRef(props, "disabledPreviewRowCallback");
   const isFooter = toRef(props, "isFooter");
+  const isTreeCollapsible = toRef(props, "isTreeCollapsible");
   const row = toRef(props, "row");
   const rowClass = toRef(props, "rowClass");
   const rowIndex = toRef(props, "rowIndex");
@@ -97,7 +98,9 @@ export default function AttributesAPI(props, {
   };
 
   const eventsLocal = computed(() => {
-    if ((hasChildren.value || hasPreviewLocal.value) && !disabledPreviewRow.value) {
+    if (((isTreeCollapsible.value && hasChildren.value)
+      || hasPreviewLocal.value) &&
+      !disabledPreviewRow.value) {
       return {
         tabindex: 0,
         onClick: onClickRow,
