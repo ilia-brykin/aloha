@@ -56,6 +56,7 @@ export default function ATinymceAPI(props, context, {
   const menu = toRef(props, "menu");
   const menubar = toRef(props, "menubar");
   const modelValue = toRef(props, "modelValue");
+  const minHeightBody = toRef(props, "minHeightBody");
   const plugins = toRef(props, "plugins");
   const promotion = toRef(props, "promotion");
   const toolbar = toRef(props, "toolbar");
@@ -67,7 +68,7 @@ export default function ATinymceAPI(props, context, {
   let modelValueLocal = undefined;
 
   const contentStyle = computed(() => {
-    return `body { padding-bottom: 50px; }
+    return `body { min-height: ${ minHeightBody.value }px; }
       ${ contentUiSkinCss.toString() }\n${ contentCss.toString() }\n${ contentCustomStyle.value ? contentCustomStyle.value : "" }`;
   });
 

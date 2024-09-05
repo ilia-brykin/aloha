@@ -75,6 +75,11 @@ export default {
       required: false,
       default: () => tinymcePluginOptions.value.propsDefault.menubar,
     },
+    minHeightBody: {
+      type: Number,
+      required: false,
+      default: () => tinymcePluginOptions.value.propsDefault.minHeightBody,
+    },
     plugins: {
       type: String,
       required: false,
