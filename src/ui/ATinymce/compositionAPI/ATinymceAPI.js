@@ -67,7 +67,8 @@ export default function ATinymceAPI(props, context, {
   let modelValueLocal = undefined;
 
   const contentStyle = computed(() => {
-    return `${ contentUiSkinCss.toString() }\n${ contentCss.toString() }\n${ contentCustomStyle.value ? contentCustomStyle.value : "" }`;
+    return `body { padding-bottom: 50px; }
+      ${ contentUiSkinCss.toString() }\n${ contentCss.toString() }\n${ contentCustomStyle.value ? contentCustomStyle.value : "" }`;
   });
 
   const changeModelLocal = ({ model }) => {
@@ -78,12 +79,13 @@ export default function ATinymceAPI(props, context, {
   const render = () => {
     modelValueLocal = modelValue.value;
     tinymce.init({
+      autoresize_bottom_margin: 0,
       branding: branding.value,
       browser_spellcheck: true,
       content_css: false,
       content_langs: contentLangs.value,
       content_style: contentStyle.value,
-      contextmenu: "link copy custompaste",
+      contextmenu: false,
       convert_urls: false,
       entity_encoding: "raw",
       force_br_newlines: true,
@@ -105,24 +107,6 @@ export default function ATinymceAPI(props, context, {
         vueEditor = editor;
         editor.on("change input undo redo", () => {
           changeModelLocal({ model: editor.getContent({ format: "html" }) });
-        });
-        editor.ui.registry.addMenuItem("custompaste", {
-          text: "Paste",
-          icon: "paste",
-          shortcut: "Ctrl+V",
-          onAction: () => {
-            navigator.clipboard.readText().then(text => {
-              if (text) {
-                editor.insertContent(text);
-              }
-            }).catch(err => {
-              editor.notificationManager.open({
-                text: "Your browser doesn't support direct access to the clipboard. Please use the Ctrl+X/C/V keyboard shortcuts instead.",
-                type: "error"
-              });
-              console.error("Paste error: ", err);
-            });
-          },
         });
       },
     });
