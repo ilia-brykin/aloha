@@ -7,7 +7,7 @@ export default function AttributesAPI(props) {
   const backdropZIndex = toRef(props, "backdropZIndex");
   const zIndex = toRef(props, "zIndex");
 
-  const stylesModal = computed(() => {
+  const stylesZIndexModal = computed(() => {
     const STYLES = {};
 
     if (zIndex.value) {
@@ -29,6 +29,6 @@ export default function AttributesAPI(props) {
 
   return {
     stylesBackdrop,
-    stylesModal,
+    stylesZIndexModal,
   };
 }

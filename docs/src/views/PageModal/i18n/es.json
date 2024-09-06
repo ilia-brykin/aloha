@@ -40,6 +40,7 @@
   "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_": "Determina si el botón de guardar es visible.",
   "_A_MODAL_PROPS_LOADING_DESCRIPTION_": "Especifica si la ventana modal está en estado de carga.",
   "_A_MODAL_PROPS_MODAL_CLASS_DESCRIPTION_": "La clase o clases de la ventana modal.",
+  "_A_MODAL_PROPS_MODAL_STYLE_DESCRIPTION_": "El estilo o los estilos de la ventana modal.",
   "_A_MODAL_PROPS_SAVE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Atributos para el botón de guardar en la ventana modal. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_CLASS_DESCRIPTION_": "La clase o clases del botón de guardar. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_ID_DESCRIPTION_": "El ID del botón de guardar.",

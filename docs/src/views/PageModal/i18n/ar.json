@@ -40,6 +40,7 @@
   "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_": "يُحدد ما إذا كان زر الحفظ مرئيًا.",
   "_A_MODAL_PROPS_LOADING_DESCRIPTION_": "يُحدد ما إذا كان العرض المودال في حالة التحميل.",
   "_A_MODAL_PROPS_MODAL_CLASS_DESCRIPTION_": "الفئة أو الفئات للعرض المودال.",
+  "_A_MODAL_PROPS_MODAL_STYLE_DESCRIPTION_": "نمط أو أنماط النافذة المنبثقة.",
   "_A_MODAL_PROPS_SAVE_BUTTON_ATTRIBUTES_DESCRIPTION_": "سمات زر الحفظ في العرض المودال. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_CLASS_DESCRIPTION_": "الفئة أو الفئات لزر الحفظ. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_ID_DESCRIPTION_": "معرف زر الحفظ.",

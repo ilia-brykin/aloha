@@ -15,6 +15,7 @@ export const modalPluginOptions = ref({
     isSaveButtonHide: false,
     isFooterSticky: false,
     modalClass: undefined,
+    modalStyle: undefined,
     saveButtonClass: "a_btn a_btn_primary",
     saveButtonText: "_A_MODAL_BTN_SAVE_",
     selectorClose: undefined,

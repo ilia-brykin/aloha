@@ -40,6 +40,7 @@
   "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_": "Određuje je li gumb za spremanje vidljiv.",
   "_A_MODAL_PROPS_LOADING_DESCRIPTION_": "Određuje je li se modalni prozor učitava.",
   "_A_MODAL_PROPS_MODAL_CLASS_DESCRIPTION_": "Jedna ili više klara modalnog prozora.",
+  "_A_MODAL_PROPS_MODAL_STYLE_DESCRIPTION_": "Stil ili stilovi modalnog prozora.",
   "_A_MODAL_PROPS_SAVE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Atributi gumba za spremanje u modalnom prozoru. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_CLASS_DESCRIPTION_": "Jedna ili više klasa gumba za spremanje. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_ID_DESCRIPTION_": "ID gumba za spremanje.",

@@ -19,6 +19,7 @@ import {
 // @vue/component
 export default {
   name: "AModalForm",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -146,6 +147,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.modalClass,
     },
+    modalStyle: {
+      type: [String, Object],
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.modalStyle,
+    },
     modelValue: {
       type: Object,
       required: false,
@@ -249,6 +255,7 @@ export default {
       isSaveButtonHide: this.isSaveButtonHide,
       loading: this.loading,
       modalClass: this.modalClass,
+      modalStyle: this.modalStyle,
       save: this.save,
       saveButtonClass: this.saveButtonClass,
       saveButtonId: this.saveButtonId,

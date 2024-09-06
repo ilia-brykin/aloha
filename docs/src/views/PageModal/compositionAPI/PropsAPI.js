@@ -155,6 +155,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "modal-style",
+      description: "_A_MODAL_PROPS_MODAL_STYLE_DESCRIPTION_",
+      type: "String / Object",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "save",
       description: "_A_MODAL_PROPS_SAVE_DESCRIPTION_",
       type: "Function",

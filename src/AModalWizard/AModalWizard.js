@@ -20,6 +20,7 @@ import {
 // @vue/component
 export default {
   name: "AModalWizard",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -102,6 +103,11 @@ export default {
       type: [String, Object],
       required: false,
       default: () => modalPluginOptions.value.propsDefault.modalClass,
+    },
+    modalStyle: {
+      type: [String, Object],
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.modalStyle,
     },
     save: {
       type: Function,
@@ -430,6 +436,7 @@ export default {
       isSaveButtonHide: this.isSaveButtonHide,
       loading: this.loading,
       modalClass: this.modalClass,
+      modalStyle: this.modalStyle,
       save: this.save,
       saveButtonAttributes: this.saveButtonAttributes,
       saveButtonClass: this.saveButtonClass,

@@ -40,6 +40,7 @@
   "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_": "Determines whether the save button is visible.",
   "_A_MODAL_PROPS_LOADING_DESCRIPTION_": "Specifies whether the modal is in a loading state.",
   "_A_MODAL_PROPS_MODAL_CLASS_DESCRIPTION_": "The class or classes of the modal.",
+  "_A_MODAL_PROPS_MODAL_STYLE_DESCRIPTION_": "The style or styles of the modal window.",
   "_A_MODAL_PROPS_SAVE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attributes for the save button in the modal. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_CLASS_DESCRIPTION_": "The class or classes of the save button. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_ID_DESCRIPTION_": "The ID of the save button.",

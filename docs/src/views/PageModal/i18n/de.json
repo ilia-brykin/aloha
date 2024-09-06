@@ -40,6 +40,7 @@
   "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_": "Bestimmt, ob der Speichern-Button sichtbar ist.",
   "_A_MODAL_PROPS_LOADING_DESCRIPTION_": "Legt fest, ob sich das Modal im Ladezustand befindet.",
   "_A_MODAL_PROPS_MODAL_CLASS_DESCRIPTION_": "Die Klasse oder Klassen des Modals.",
+  "_A_MODAL_PROPS_MODAL_STYLE_DESCRIPTION_": "Der Stil oder die Stile des Modalfensters.",
   "_A_MODAL_PROPS_SAVE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attribute für den Speichern-Button im Modal. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_CLASS_DESCRIPTION_": "Die Klasse oder Klassen des Speichern-Buttons. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_ID_DESCRIPTION_": "Die ID des Speichern-Buttons.",

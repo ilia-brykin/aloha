@@ -40,6 +40,7 @@
   "_A_MODAL_PROPS_IS_SAVE_BUTTON_HIDE_DESCRIPTION_": "Determina se il pulsante di salvataggio è visibile.",
   "_A_MODAL_PROPS_LOADING_DESCRIPTION_": "Specifica se la finestra modale è in uno stato di caricamento.",
   "_A_MODAL_PROPS_MODAL_CLASS_DESCRIPTION_": "La classe o le classi della finestra modale.",
+  "_A_MODAL_PROPS_MODAL_STYLE_DESCRIPTION_": "Lo stile o gli stili della finestra modale.",
   "_A_MODAL_PROPS_SAVE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attributi per il pulsante di salvataggio nella finestra modale. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_CLASS_DESCRIPTION_": "La classe o le classi del pulsante di salvataggio. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_SAVE_BUTTON_ID_DESCRIPTION_": "L'ID del pulsante di salvataggio.",

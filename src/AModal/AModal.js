@@ -141,6 +141,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.modalClass,
     },
+    modalStyle: {
+      type: [String, Object],
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.modalStyle,
+    },
     save: {
       type: Function,
       required: false,
@@ -211,7 +216,7 @@ export default {
 
     const {
       stylesBackdrop,
-      stylesModal,
+      stylesZIndexModal,
     } = AttributesAPI(props);
 
     const {
@@ -293,7 +298,7 @@ export default {
       setFocusToModal,
       sizeClass,
       stylesBackdrop,
-      stylesModal,
+      stylesZIndexModal,
     };
   },
   render() {
@@ -361,7 +366,10 @@ export default {
           tabindex: -1,
           role: "dialog",
           ariaModal: true,
-          style: this.stylesModal,
+          style: [
+            this.modalStyle,
+            this.stylesZIndexModal,
+          ],
           ...this.$attrs,
         }, [
           h("div", {
