@@ -20,7 +20,6 @@ import {
 // @vue/component
 export default {
   name: "AModalWizard",
-  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,

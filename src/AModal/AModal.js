@@ -362,6 +362,7 @@ export default {
           role: "dialog",
           ariaModal: true,
           style: this.stylesModal,
+          ...this.$attrs,
         }, [
           h("div", {
             class: ["a_modal_dialog a_modal_dialog_scrollable", this.sizeClass],

@@ -19,7 +19,6 @@ import {
 // @vue/component
 export default {
   name: "AModalForm",
-  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
