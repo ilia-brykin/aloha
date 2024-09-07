@@ -7,6 +7,7 @@ import PageFieldsetBasic from "./PageFieldsetBasic/PageFieldsetBasic.vue";
 import PageFieldsetChange from "./PageFieldsetChange/PageFieldsetChange.vue";
 import PageFieldsetHelpText from "./PageFieldsetHelpText/PageFieldsetHelpText.vue";
 import PageFieldsetError from "./PageFieldsetError/PageFieldsetError.vue";
+import PageFieldsetHasBorder from "./PageFieldsetHasBorder/PageFieldsetHasBorder.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -25,6 +26,7 @@ export default {
     PageFieldsetChange,
     PageFieldsetHelpText,
     PageFieldsetError,
+    PageFieldsetHasBorder,
   },
   setup() {
     const {

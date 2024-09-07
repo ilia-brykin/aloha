@@ -334,6 +334,7 @@ export default {
           this.$slots[this.slotName]) ?
             this.$slots[this.slotName]({
               id: this.htmlIdLocal,
+              props: this.$props,
             }) :
             "",
         ]),

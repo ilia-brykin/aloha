@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_HAS_BORDER_HEADER_"
+  description="_A_UI_GROUP_HAS_BORDER_DESCRIPTION_"
+  props="has-border"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-fieldset(
+        v-model="model"
+        :children="children"
+        :has-border="true"
+        label="Fieldset"
+      )
+      a-fieldset(
+        v-model="model"
+        :children="children"
+        :has-border="false"
+        class="a_mt_3"
+        label="Fieldset"
+      )
+      div model: {{ model }}
