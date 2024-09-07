@@ -396,16 +396,18 @@ export default {
           a_form_element__parent_invalid: this.isErrors,
         }],
       }, [
-        this.label && !this.isLabelFloat && h(ALabel, {
-          id: this.htmlIdLocal,
-          extra: this.extra,
-          isLabelFloat: this.isLabelFloat,
-          label: this.label,
-          labelClass: this.labelClass,
-          labelScreenReader: this.labelScreenReader,
-          required: this.required,
-          type: "text",
-        }),
+        ((this.label || this.labelScreenReader) && !this.isLabelFloat) ?
+          h(ALabel, {
+            id: this.htmlIdLocal,
+            extra: this.extra,
+            isLabelFloat: this.isLabelFloat,
+            label: this.label,
+            labelClass: this.labelClass,
+            labelScreenReader: this.labelScreenReader,
+            required: this.required,
+            type: "text",
+          }) :
+          "",
         h("div", {
           class: [
             "a_form_element_number",
@@ -423,14 +425,17 @@ export default {
               ...this.inputWidthStyleValue,
             },
           }, [
-            this.label && this.isLabelFloat && h(ALabel, {
-              id: this.htmlIdLocal,
-              label: this.label,
-              labelClass: this.labelClass,
-              required: this.required,
-              type: "text",
-              isLabelFloat: this.isLabelFloat,
-            }),
+            ((this.label || this.labelScreenReader) && this.isLabelFloat) ?
+              h(ALabel, {
+                id: this.htmlIdLocal,
+                isLabelFloat: this.isLabelFloat,
+                label: this.label,
+                labelClass: this.labelClass,
+                labelScreenReader: this.labelScreenReader,
+                required: this.required,
+                type: "text",
+              }) :
+              "",
             this.iconPrepend && h(AIcon, {
               icon: this.iconPrepend,
               class: "a_input__icon_prepend",

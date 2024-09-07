@@ -232,17 +232,19 @@ export default {
           a_form_element__parent_not_empty: this.isModel,
         }],
       }, [
-        this.label && h(ALabel, {
-          id: this.htmlIdLocal,
-          alwaysTranslate: this.alwaysTranslate,
-          extra: this.extra,
-          isError: this.isErrors,
-          isLabelFloat: false,
-          label: this.label,
-          labelClass: this.labelClass,
-          labelScreenReader: this.labelScreenReader,
-          required: this.required,
-        }),
+        (this.label || this.labelScreenReader) ?
+          h(ALabel, {
+            id: this.htmlIdLocal,
+            alwaysTranslate: this.alwaysTranslate,
+            extra: this.extra,
+            isError: this.isErrors,
+            isLabelFloat: false,
+            label: this.label,
+            labelClass: this.labelClass,
+            labelScreenReader: this.labelScreenReader,
+            required: this.required,
+          }) :
+          "",
         h("div", {
           class: "a_columns a_columns_count_12",
         }, [

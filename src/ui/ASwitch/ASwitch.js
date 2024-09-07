@@ -283,15 +283,17 @@ export default {
           a_form_element__parent_not_empty: this.isModel,
         }],
       }, [
-        this.label && h(ALabel, {
-          id: this.htmlIdLocal,
-          alwaysTranslate: this.alwaysTranslate,
-          label: this.label,
-          labelClass: this.labelClass,
-          labelScreenReader: this.labelScreenReader,
-          required: this.required,
-          isError: this.isErrors,
-        }),
+        (this.label || this.labelScreenReader) ?
+          h(ALabel, {
+            id: this.htmlIdLocal,
+            alwaysTranslate: this.alwaysTranslate,
+            label: this.label,
+            labelClass: this.labelClass,
+            labelScreenReader: this.labelScreenReader,
+            required: this.required,
+            isError: this.isErrors,
+          }) :
+          "",
         h("div", {
           class: "switch_button__wrapper",
         }, [

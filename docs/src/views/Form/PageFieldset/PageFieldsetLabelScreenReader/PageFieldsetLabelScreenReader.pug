@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_"
+  description="_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_"
+  :props="['label-screen-reader']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-fieldset(
+        v-model="model"
+        :children="children"
+        label="Fieldset"
+      )
+      a-fieldset(
+        v-model="model"
+        :children="children"
+        class="a_mt_3"
+        label-screen-reader="Fieldset"
+      )
+      div model: {{ model }}

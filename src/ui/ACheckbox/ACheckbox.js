@@ -530,7 +530,7 @@ export default {
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
-            this.label ?
+            (this.label || this.labelScreenReader) ?
               h(ACheckboxLegend, {
                 id: this.htmlIdLocal,
                 alwaysTranslate: this.alwaysTranslate,

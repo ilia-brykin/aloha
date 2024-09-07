@@ -8,6 +8,7 @@ import PageTextareaErrors from "./PageTextareaErrors/PageTextareaErrors.vue";
 import PageTextareaHelpText from "./PageTextareaHelpText/PageTextareaHelpText.vue";
 import PageTextareaIsScalable from "./PageTextareaIsScalable/PageTextareaIsScalable.vue";
 import PageTextareaLabelFloat from "./PageTextareaLabelFloat/PageTextareaLabelFloat.vue";
+import PageTextareaLabelScreenReader from "./PageTextareaLabelScreenReader/PageTextareaLabelScreenReader.vue";
 import PageTextareaResize from "./PageTextareaResize/PageTextareaResize.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -27,6 +28,7 @@ export default {
     PageTextareaHelpText,
     PageTextareaIsScalable,
     PageTextareaLabelFloat,
+    PageTextareaLabelScreenReader,
     PageTextareaResize,
   },
   setup() {

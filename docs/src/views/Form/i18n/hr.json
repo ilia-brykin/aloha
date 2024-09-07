@@ -44,6 +44,8 @@
   "_A_UI_GROUP_KEY_LABEL_CALLBACK_HEADER_": "Funkcija za postavljanje oznaka",
   "_A_UI_GROUP_KEY_TITLE_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">key-title</strong> i <strong lang=\"en\">key-title-callback</strong> za postavljanje naslova elemenata. U prvom slučaju, naslov svakog elementa statički se postavlja putem svojstva <strong lang=\"en\">key-title</strong>. U drugom primjeru, naslov se dinamički generira pomoću funkcije <strong lang=\"en\">key-title-callback</strong> koja prima podatke o elementu i vraća niz za prikaz.",
   "_A_UI_GROUP_KEY_TITLE_HEADER_": "Postavka naslova",
+  "_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">label-screen-reader</strong>. Omogućuje postavljanje skrivene oznake koja će biti vidljiva samo čitačima zaslona.",
+  "_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_": "Oznaka za čitač zaslona",
   "_A_UI_GROUP_SEARCH_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">search</strong> za dodavanje funkcionalnosti pretraživanja elemenata u komponenti. Ova značajka omogućuje korisnicima da lako pronađu željene elemente u velikom skupu podataka.",
   "_A_UI_GROUP_SEARCH_HEADER_": "Pretraživanje elemenata",
   "_A_UI_GROUP_SORT_ORDER_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">sort-order</strong> za postavljanje redoslijeda sortiranja elemenata. U prvom slučaju nije specificiran redoslijed sortiranja, u drugom su elementi sortirani uzlaznim redoslijedom (<strong lang=\"en\">asc</strong>), a u trećem silaznim redoslijedom (<strong lang=\"en\">desc</strong>). Ovo vam omogućuje prilagodbu prikaza elemenata u željenom redoslijedu.",

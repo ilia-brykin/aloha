@@ -7,6 +7,7 @@ import PageInputChange from "./PageInputChange/PageInputChange.vue";
 import PageInputErrors from "./PageInputErrors/PageInputErrors.vue";
 import PageInputHelpText from "./PageInputHelpText/PageInputHelpText.vue";
 import PageInputLabelFloat from "./PageInputLabelFloat/PageInputLabelFloat.vue";
+import PageInputLabelScreenReader from "./PageInputLabelScreenReader/PageInputLabelScreenReader.vue";
 import PageInputPassword from "./PageInputPassword/PageInputPassword.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -26,6 +27,7 @@ export default {
     PageInputErrors,
     PageInputHelpText,
     PageInputLabelFloat,
+    PageInputLabelScreenReader,
     PageInputPassword,
   },
   setup() {

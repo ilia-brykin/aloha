@@ -18,6 +18,7 @@ import PageRadioIsWidthAuto from "./PageRadioIsWidthAuto/PageRadioIsWidthAuto.vu
 import PageRadioKeyDisabled from "./PageRadioKeyDisabled/PageRadioKeyDisabled.vue";
 import PageRadioKeyLabelCallback from "./PageRadioKeyLabelCallback/PageRadioKeyLabelCallback.vue";
 import PageRadioKeyTitle from "./PageRadioKeyTitle/PageRadioKeyTitle.vue";
+import PageRadioLabelScreenReader from "./PageRadioLabelScreenReader/PageRadioLabelScreenReader.vue";
 import PageRadioSearch from "./PageRadioSearch/PageRadioSearch.vue";
 import PageRadioSortOrder from "./PageRadioSortOrder/PageRadioSortOrder.vue";
 import PageRadioSortOrderGroup from "./PageRadioSortOrderGroup/PageRadioSortOrderGroup.vue";
@@ -52,6 +53,7 @@ export default {
     PageRadioKeyDisabled,
     PageRadioKeyLabelCallback,
     PageRadioKeyTitle,
+    PageRadioLabelScreenReader,
     PageRadioSearch,
     PageRadioSortOrder,
     PageRadioSortOrderGroup,

@@ -44,6 +44,8 @@
   "_A_UI_GROUP_KEY_LABEL_CALLBACK_HEADER_": "Label configuration function",
   "_A_UI_GROUP_KEY_TITLE_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">key-title</strong> and <strong lang=\"en\">key-title-callback</strong> to set the titles of items. In the first case, the title of each item is statically set using the <strong lang=\"en\">key-title</strong> property. In the second example, the title is dynamically generated using the <strong lang=\"en\">key-title-callback</strong> function, which takes the item data and returns a string to be displayed.",
   "_A_UI_GROUP_KEY_TITLE_HEADER_": "Title configuration",
+  "_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">label-screen-reader</strong>. It allows you to set a hidden label that will only be visible to screen readers.",
+  "_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_": "Label for screen reader",
   "_A_UI_GROUP_SEARCH_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">search</strong> to add search functionality to the items in the component. This feature allows users to easily find the required items in a large data set.",
   "_A_UI_GROUP_SEARCH_HEADER_": "Item search",
   "_A_UI_GROUP_SORT_ORDER_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">sort-order</strong> to set the sort order of items. In the first case, no sort order is set, in the second, the items are sorted in ascending order (<strong lang=\"en\">asc</strong>), and in the third, in descending order (<strong lang=\"en\">desc</strong>). This allows you to customize the display order of items.",

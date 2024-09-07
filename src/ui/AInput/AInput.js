@@ -297,17 +297,19 @@ export default {
           a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
         }],
       }, [
-        this.label && h(ALabel, {
-          id: this.htmlIdLocal,
-          alwaysTranslate: this.alwaysTranslate,
-          label: this.label,
-          labelClass: this.labelClass,
-          labelScreenReader: this.labelScreenReader,
-          required: this.required,
-          type: this.type,
-          isLabelFloat: this.isLabelFloat,
-          isError: this.isErrors,
-        }),
+        (this.label || this.labelScreenReader) ?
+          h(ALabel, {
+            id: this.htmlIdLocal,
+            alwaysTranslate: this.alwaysTranslate,
+            label: this.label,
+            labelClass: this.labelClass,
+            labelScreenReader: this.labelScreenReader,
+            required: this.required,
+            type: this.type,
+            isLabelFloat: this.isLabelFloat,
+            isError: this.isErrors,
+          }) :
+          "",
         h("div", {
           class: "a_form_element",
         }, [
