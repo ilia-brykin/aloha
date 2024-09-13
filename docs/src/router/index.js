@@ -145,6 +145,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageFieldset" */ "../views/Form/PageFieldset/PageFieldset.vue"),
   },
   {
+    path: "/fieldset-children",
+    name: "PageFieldsetChildren",
+    component: () => import(/* webpackChunkName: "PageFieldsetChildren" */ "../views/Form/PageFieldsetChildren/PageFieldsetChildren.vue"),
+  },
+  {
     path: "/select",
     name: "PageSelect",
     component: () => import(/* webpackChunkName: "PageSelect" */ "../views/Form/PageSelect/PageSelect.vue"),

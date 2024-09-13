@@ -3,5 +3,6 @@
   "_A_RADIO_COMPONENT_NAME_": "Boutons Radio",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">is-model-array</strong>. Il permet de définir un tableau comme modèle de données pour les boutons radio. L'élément sélectionné est enregistré dans le tableau du modèle.",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Utilisation d'un Tableau comme Modèle",
-  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Permet d'utiliser un tableau (<strong lang=\"en\">Array</strong>) comme modèle."
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Permet d'utiliser un tableau (<strong lang=\"en\">Array</strong>) comme modèle.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Permet de personnaliser les messages textuels pour diverses actions dans le composant. Cela inclut les textes pour le repli/dépliement (<strong lang=\"en\">collapseClose</strong> et <strong lang=\"en\">collapseOpen</strong>), les messages indiquant l'absence d'éléments lors de la recherche (<strong lang=\"en\">notElementsWithSearch</strong>) et le texte du champ de recherche (<strong lang=\"en\">search</strong>)."
 }

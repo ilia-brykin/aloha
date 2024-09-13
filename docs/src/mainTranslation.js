@@ -33,6 +33,7 @@ import PageProgressCircleI18n from "./views/Progress/PageProgressCircle/i18n/Pag
 import PageRadioI18n from "./views/Form/PageRadio/i18n/PageRadioI18n";
 import PageCheckboxI18n from "./views/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageFieldsetI18n from "./views/Form/PageFieldset/i18n/PageFieldsetI18n";
+import PageFieldsetChildrenI18n from "./views/Form/PageFieldsetChildren/i18n/PageFieldsetChildrenI18n";
 import PageLinkCopyI18n from "./views/PageLinkCopy/i18n/PageLinkCopyI18n";
 import PageInputNumberRangeI18n from "./views/Form/PageInputNumberRange/i18n/PageInputNumberRangeI18n";
 import PageFiltersI18n from "./views/PageFilters/i18n/PageFiltersI18n";
@@ -104,6 +105,7 @@ export const mainTranslation = {
     ...PageRadioI18n.ar,
     ...PageCheckboxI18n.ar,
     ...PageFieldsetI18n.ar,
+    ...PageFieldsetChildrenI18n.ar,
     ...PageLinkCopyI18n.ar,
     ...PageInputNumberRangeI18n.ar,
     ...PageFiltersI18n.ar,
@@ -174,6 +176,7 @@ export const mainTranslation = {
     ...PageRadioI18n.de,
     ...PageCheckboxI18n.de,
     ...PageFieldsetI18n.de,
+    ...PageFieldsetChildrenI18n.de,
     ...PageLinkCopyI18n.de,
     ...PageInputNumberRangeI18n.de,
     ...PageFiltersI18n.de,
@@ -244,6 +247,7 @@ export const mainTranslation = {
     ...PageRadioI18n.en,
     ...PageCheckboxI18n.en,
     ...PageFieldsetI18n.en,
+    ...PageFieldsetChildrenI18n.en,
     ...PageLinkCopyI18n.en,
     ...PageInputNumberRangeI18n.en,
     ...PageFiltersI18n.en,
@@ -314,6 +318,7 @@ export const mainTranslation = {
     ...PageRadioI18n.es,
     ...PageCheckboxI18n.es,
     ...PageFieldsetI18n.es,
+    ...PageFieldsetChildrenI18n.es,
     ...PageLinkCopyI18n.es,
     ...PageInputNumberRangeI18n.es,
     ...PageFiltersI18n.es,
@@ -384,6 +389,7 @@ export const mainTranslation = {
     ...PageRadioI18n.fr,
     ...PageCheckboxI18n.fr,
     ...PageFieldsetI18n.fr,
+    ...PageFieldsetChildrenI18n.fr,
     ...PageLinkCopyI18n.fr,
     ...PageInputNumberRangeI18n.fr,
     ...PageFiltersI18n.fr,
@@ -454,6 +460,7 @@ export const mainTranslation = {
     ...PageRadioI18n.hr,
     ...PageCheckboxI18n.hr,
     ...PageFieldsetI18n.hr,
+    ...PageFieldsetChildrenI18n.hr,
     ...PageLinkCopyI18n.hr,
     ...PageInputNumberRangeI18n.hr,
     ...PageFiltersI18n.hr,
@@ -524,6 +531,7 @@ export const mainTranslation = {
     ...PageRadioI18n.it,
     ...PageCheckboxI18n.it,
     ...PageFieldsetI18n.it,
+    ...PageFieldsetChildrenI18n.it,
     ...PageLinkCopyI18n.it,
     ...PageInputNumberRangeI18n.it,
     ...PageFiltersI18n.it,
@@ -594,6 +602,7 @@ export const mainTranslation = {
     ...PageRadioI18n.ru,
     ...PageCheckboxI18n.ru,
     ...PageFieldsetI18n.ru,
+    ...PageFieldsetChildrenI18n.ru,
     ...PageLinkCopyI18n.ru,
     ...PageInputNumberRangeI18n.ru,
     ...PageFiltersI18n.ru,

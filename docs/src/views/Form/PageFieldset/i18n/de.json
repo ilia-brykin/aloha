@@ -1,3 +1,5 @@
 {
-  "_A_FIELDSET_COMPONENT_NAME_": "Fieldset"
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "Die <strong lang=\"en\">AFieldset</strong>-Komponente wird verwendet, um Formularelemente zu einer logischen Gruppe zusammenzufassen. Sie unterstützt verschiedene Funktionen wie Fehlermeldungen, Hilfetexte, das Ein- und Ausklappen von Inhalten sowie die Anpassung von Stilen für Kindelemente.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Feldgruppen",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Ermöglicht das Anpassen des Textes für die Ein- und Ausklappaktionen der Komponente. Standardmäßig wird <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> zum Schließen und <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> zum Öffnen verwendet."
 }

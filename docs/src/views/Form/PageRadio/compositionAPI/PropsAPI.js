@@ -365,6 +365,18 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "texts",
+      description: "_A_RADIO_PROPS_TEXTS_DESCRIPTION_",
+      type: "Object",
+      default: `() => ({
+        collapseClose: "_A_FIELDSET_COLLAPSE_CLOSE_",
+        collapseOpen: "_A_FIELDSET_COLLAPSE_OPEN_",
+        notElementsWithSearch: "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_",
+        search: "_A_RADIO_SEARCH_",
+      })`,
+      required: false,
+    },
+    {
       name: "translate-data",
       description: "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_",
       type: "Boolean",

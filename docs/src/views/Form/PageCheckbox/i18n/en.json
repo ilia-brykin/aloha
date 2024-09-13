@@ -8,5 +8,6 @@
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Specifies whether the checkboxes should be displayed inline. If set to <strong lang=\"en\">true</strong>, the checkboxes will be aligned horizontally.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Specifies whether the checkboxes should be displayed as buttons. If set to <strong lang=\"en\">true</strong>, the checkboxes will be displayed as buttons, which can provide a more visually appealing interface.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Specifies the initial collapsed state of the checkbox group. If set to <strong lang=\"en\">true</strong>, the group will be collapsed when the page loads.",
-  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Specifies whether the width of the checkbox group should automatically adjust to its content. If set to <strong lang=\"en\">true</strong>, the width will adjust automatically."
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Specifies whether the width of the checkbox group should automatically adjust to its content. If set to <strong lang=\"en\">true</strong>, the width will adjust automatically.",
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Allows modifying text messages for various actions in the component. Includes texts for collapsing/expanding (<strong lang=\"en\">collapseClose</strong> and <strong lang=\"en\">collapseOpen</strong>), messages for no elements found during search (<strong lang=\"en\">notElementsWithSearch</strong>), and text for the search field (<strong lang=\"en\">search</strong>)."
 }

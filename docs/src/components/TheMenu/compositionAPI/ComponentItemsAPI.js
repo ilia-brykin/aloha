@@ -99,9 +99,22 @@ export default function ComponentItemsAPI() {
           {
             id: "fieldset",
             label: "Fieldset",
-            to: {
-              name: "PageFieldset",
-            }
+            children: [
+              {
+                id: "fieldsetBasic",
+                label: "Fieldset",
+                to: {
+                  name: "PageFieldset",
+                },
+              },
+              {
+                id: "fieldsetChildren",
+                label: "Fieldset (children)",
+                to: {
+                  name: "PageFieldsetChildren",
+                },
+              },
+            ],
           },
           {
             id: "ui-child",

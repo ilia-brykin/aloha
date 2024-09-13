@@ -1,0 +1,6 @@
+{
+  "_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_": "Auf dieser Seite wird die Verwendung von <strong lang=\"en\">children</strong> im <strong lang=\"en\">AFieldset</strong>-Komponenten erläutert, sowie verwandte Eigenschaften wie <strong lang=\"en\">class-column</strong> zur Anpassung der Klassen einzelner Kinderelemente, <strong lang=\"en\">class-columns</strong> für das Elternelement und <strong lang=\"en\">errors-all</strong> zur Anzeige von Fehlern der Kinderelemente.",
+  "_A_FIELDSET_CHILDREN_COMPONENT_NAME_": "Kinderelemente <strong lang=\"en\">children</strong>",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_DESCRIPTION_": "Dieses Beispiel zeigt die Möglichkeit, eine verschachtelte Elementstruktur mit unbegrenzter Tiefe mithilfe der <strong lang=\"en\">AFieldset</strong>-Komponente zu erstellen. Jedes Kinderelement kann seine eigenen verschachtelten Elemente enthalten, was eine flexible Steuerung der Datenstruktur und -anzeige ermöglicht. Zum Beispiel enthalten hier das erste und zweite <strong lang=\"en\">fieldset</strong> ihre eigenen Kinderelemente wie Textfelder und Kontrollkästchen.",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_HEADER_": "Verschachtelte Elementstruktur"
+}

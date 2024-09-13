@@ -9,6 +9,7 @@ export default function UiCollapseAPI(props, { emit }) {
   const collapsible = toRef(props, "collapsible");
   const id = toRef(props, "id");
   const isCollapsed = toRef(props, "isCollapsed");
+  const texts = toRef(props, "texts");
 
   const isCollapsedLocal = ref(false);
 
@@ -18,10 +19,18 @@ export default function UiCollapseAPI(props, { emit }) {
       "ChevronDown";
   });
 
+  const textOpen = computed(() => {
+    return texts.value?.collapseOpen || "_A_FIELDSET_COLLAPSE_OPEN_";
+  });
+
+  const textClose = computed(() => {
+    return texts.value?.collapseClose || "_A_FIELDSET_COLLAPSE_CLOSE_";
+  });
+
   const titleCollapse = computed(() => {
     return isCollapsedLocal.value ?
-      "_A_FIELDSET_COLLAPSE_OPEN_" :
-      "_A_FIELDSET_COLLAPSE_CLOSE_";
+      textOpen.value :
+      textClose.value;
   });
 
   const toggleCollapse = () => {

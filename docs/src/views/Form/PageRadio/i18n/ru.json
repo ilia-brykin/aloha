@@ -3,5 +3,6 @@
   "_A_RADIO_COMPONENT_NAME_": "Радиокнопки",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">is-model-array</strong>. Позволяет задать массив как модель данных для радиокнопок. Выбор одного из элементов записывается в массив модели.",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Использование массива в качестве модели",
-  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Позволяет использовать массив (<strong lang=\"en\">Array</strong>) в качестве модели."
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Позволяет использовать массив (<strong lang=\"en\">Array</strong>) в качестве модели.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Позволяет изменить текстовые сообщения для различных действий в компоненте. Включает тексты для сворачивания/разворачивания (<strong lang=\"en\">collapseClose</strong> и <strong lang=\"en\">collapseOpen</strong>), сообщения об отсутствии элементов при поиске (<strong lang=\"en\">notElementsWithSearch</strong>), а также текст для поля поиска (<strong lang=\"en\">search</strong>)."
 }

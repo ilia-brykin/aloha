@@ -1,3 +1,5 @@
 {
-
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">AFieldset</strong> viene utilizzato per raggruppare elementi del modulo in un gruppo logico. Supporta varie funzionalità, come la visualizzazione degli errori, il testo di aiuto, il contenuto espandibile/riducibile e la personalizzazione degli stili per gli elementi figli.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Gruppo di campi",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Consente di personalizzare il testo per le azioni di riduzione e espansione del componente. Per impostazione predefinita, vengono utilizzati <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> per chiudere e <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> per aprire."
 }

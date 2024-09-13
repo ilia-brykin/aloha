@@ -3,5 +3,6 @@
   "_A_RADIO_COMPONENT_NAME_": "Radio buttons",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">is-model-array</strong>. It allows you to set an array as the data model for the radio buttons. The selected item is recorded in the model array.",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Using Array as a Model",
-  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Allows the use of an array (<strong lang=\"en\">Array</strong>) as the model."
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Allows the use of an array (<strong lang=\"en\">Array</strong>) as the model.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Allows customization of text messages for various actions within the component. This includes texts for collapsing/expanding (<strong lang=\"en\">collapseClose</strong> and <strong lang=\"en\">collapseOpen</strong>), messages for no elements found during search (<strong lang=\"en\">notElementsWithSearch</strong>), and the search field text (<strong lang=\"en\">search</strong>)."
 }

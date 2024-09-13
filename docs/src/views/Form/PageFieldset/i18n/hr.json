@@ -1,3 +1,5 @@
 {
-
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">AFieldset</strong> koristi se za grupiranje elemenata obrasca u logičku skupinu. Podržava različite značajke poput prikaza pogrešaka, pomoćnog teksta, sklapanja/širenja sadržaja i prilagođavanja stilova za podređene elemente.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Grupa polja",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Omogućuje prilagodbu teksta za radnje sklapanja i širenja komponente. Po zadanim postavkama koristi se <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> za zatvaranje i <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> za otvaranje."
 }

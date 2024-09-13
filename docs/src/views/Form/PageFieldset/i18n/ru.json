@@ -1,7 +1,5 @@
 {
-  "_A_FIELDSET_COMPONENT_NAME_": "",
-  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "",
-  "_A_FIELDSET_PROPS_CHILDREN_DESCRIPTION_": "",
-  "_A_FIELDSET_PROPS_CLASS_COLUMNS_DESCRIPTION_": "",
-  "_A_FIELDSET_PROPS_ERRORS_ALL_DESCRIPTION_": ""
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AFieldset</strong> используется для объединения группы элементов формы в логическую группу. Он поддерживает различные настройки, такие как отображение ошибок, помощь с текстом, сворачивание/разворачивание содержимого, а также кастомизацию стилей для дочерних элементов.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Группа полей",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Позволяет изменить текст для действий сворачивания и разворачивания компонента. По умолчанию используются значения <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> для закрытия и <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> для открытия."
 }

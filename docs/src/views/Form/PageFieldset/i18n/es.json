@@ -1,3 +1,5 @@
 {
-
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">AFieldset</strong> se utiliza para agrupar los elementos del formulario en un conjunto lógico. Admite varias funciones, como la visualización de errores, texto de ayuda, colapso/expansión de contenido, y la personalización de estilos para los elementos secundarios.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Grupo de campos",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Permite personalizar el texto para las acciones de colapsar y expandir del componente. De manera predeterminada, se utiliza <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> para cerrar y <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> para abrir."
 }

@@ -1,3 +1,5 @@
 {
-
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "يُستخدم مكون <strong lang=\"en\">AFieldset</strong> لتجميع عناصر النموذج في مجموعة منطقية. يدعم ميزات متعددة، مثل عرض الأخطاء، نص المساعدة، طي/توسيع المحتوى، وتخصيص الأنماط للعناصر الفرعية.",
+  "_A_FIELDSET_COMPONENT_NAME_": "مجموعة الحقول",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "يسمح لك بتخصيص النص لإجراءات طي وتوسيع المكون. بشكل افتراضي، يتم استخدام <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> للإغلاق و<strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> للفتح."
 }

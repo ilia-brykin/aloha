@@ -8,5 +8,6 @@
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "يحدد ما إذا كان يجب عرض مربعات الاختيار في سطر واحد. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم محاذاة مربعات الاختيار أفقيًا.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "يحدد ما إذا كان يجب عرض مربعات الاختيار كأزرار. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم عرض مربعات الاختيار كأزرار، مما يوفر واجهة أكثر جاذبية بصريًا.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "يحدد حالة الطي الأولية لمجموعة مربعات الاختيار. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم طي المجموعة عند تحميل الصفحة.",
-  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "يحدد ما إذا كان يجب أن تتكيف عرض مجموعة مربعات الاختيار تلقائيًا مع محتواها. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم تعديل العرض تلقائيًا."
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "يحدد ما إذا كان يجب أن تتكيف عرض مجموعة مربعات الاختيار تلقائيًا مع محتواها. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم تعديل العرض تلقائيًا.",
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "يتيح تعديل الرسائل النصية للإجراءات المختلفة في المكون. يتضمن النصوص الخاصة بالطي/التوسيع (<strong lang=\"en\">collapseClose</strong> و <strong lang=\"en\">collapseOpen</strong>)، الرسائل الخاصة بعدم وجود عناصر أثناء البحث (<strong lang=\"en\">notElementsWithSearch</strong>)، والنص الخاص بحقل البحث (<strong lang=\"en\">search</strong>)."
 }

@@ -1,0 +1,40 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_"
+    )
+
+    a-translation(
+      tag="h2"
+      html="_A_UI_TYPES_FOR_USE_"
+    )
+    a-list.a_list_without_styles(
+      :data="types"
+    )
+      template(
+        v-slot:listItem="{ item }"
+      )
+        a-element(
+          :text="item.text"
+          :to="item.to"
+          :type="item.type"
+        )
+
+    page-fieldset-children-basic
+
+    page-fieldset-children-class-column
+
+    page-fieldset-children-class-columns
+
+    page-fieldset-children-errors-all
+
+    page-fieldset-children-tree
+
+    aloha-table-props(
+      :data="dataProps"
+    )

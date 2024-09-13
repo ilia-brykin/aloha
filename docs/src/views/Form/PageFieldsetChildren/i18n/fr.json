@@ -1,0 +1,6 @@
+{
+  "_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_": "Cette page couvre l'utilisation des <strong lang=\"en\">children</strong> dans le composant <strong lang=\"en\">AFieldset</strong>, ainsi que des propriétés associées telles que <strong lang=\"en\">class-column</strong> pour personnaliser les classes des éléments enfants individuels, <strong lang=\"en\">class-columns</strong> pour le conteneur parent, et <strong lang=\"en\">errors-all</strong> pour afficher les erreurs des éléments enfants.",
+  "_A_FIELDSET_CHILDREN_COMPONENT_NAME_": "Éléments enfants <strong lang=\"en\">children</strong>",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_DESCRIPTION_": "Cet exemple montre la capacité de créer une structure d'éléments imbriqués de profondeur illimitée en utilisant le composant <strong lang=\"en\">AFieldset</strong>. Chaque élément enfant peut contenir ses propres éléments imbriqués, permettant ainsi une gestion flexible de la structure des données et de l'affichage. Par exemple, ici, le premier et le second <strong lang=\"en\">fieldset</strong> contiennent leurs propres éléments enfants tels que des champs de texte et des cases à cocher.",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_HEADER_": "Structure imbriquée d'éléments"
+}

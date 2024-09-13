@@ -43,10 +43,15 @@ export default {
       required: false,
       default: () => [],
     },
+    classColumn: {
+      type: [String, Object],
+      required: false,
+      default: "a_column a_column_12",
+    },
     classColumns: {
       type: [String, Object],
       required: false,
-      default: "a_columns a_columns_count_12 a_columns_gab_2",
+      default: "a_columns a_columns_count_12",
     },
     classFieldset: {
       type: [String, Object],
@@ -162,6 +167,14 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        collapseClose: "_A_FIELDSET_COLLAPSE_CLOSE_",
+        collapseOpen: "_A_FIELDSET_COLLAPSE_OPEN_",
+      }),
     },
   },
   emits: [
@@ -296,7 +309,7 @@ export default {
               const IS_CONTAINER = typesContainer.value[item.type];
               let classColumn;
               if (isNil(item.classColumn)) {
-                classColumn = "a_column a_column_12";
+                classColumn = this.classColumn;
               } else if (item.classColumn) {
                 classColumn = item.classColumn;
               }

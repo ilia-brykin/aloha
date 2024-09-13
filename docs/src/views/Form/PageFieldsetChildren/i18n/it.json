@@ -1,0 +1,6 @@
+{
+  "_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_": "Questa pagina tratta l'uso di <strong lang=\"en\">children</strong> nel componente <strong lang=\"en\">AFieldset</strong>, nonché le proprietà correlate come <strong lang=\"en\">class-column</strong> per personalizzare le classi dei singoli elementi figli, <strong lang=\"en\">class-columns</strong> per il contenitore padre e <strong lang=\"en\">errors-all</strong> per visualizzare gli errori degli elementi figli.",
+  "_A_FIELDSET_CHILDREN_COMPONENT_NAME_": "Elementi figli <strong lang=\"en\">children</strong>",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_DESCRIPTION_": "Questo esempio dimostra la capacità di creare una struttura di elementi nidificati di profondità illimitata utilizzando il componente <strong lang=\"en\">AFieldset</strong>. Ogni elemento figlio può contenere i propri elementi nidificati, consentendo un controllo flessibile della struttura dei dati e della visualizzazione. Ad esempio, qui, il primo e il secondo <strong lang=\"en\">fieldset</strong> contengono i propri elementi figli come campi di testo e caselle di controllo.",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_HEADER_": "Struttura nidificata degli elementi"
+}

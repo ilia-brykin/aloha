@@ -3,5 +3,6 @@
   "_A_RADIO_COMPONENT_NAME_": "Radio Gumbi",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">is-model-array</strong>. Omogućuje postavljanje niza kao modela podataka za radio gumbe. Odabrana stavka bilježi se u niz modela.",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Korištenje Niza kao Modela",
-  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Omogućuje korištenje niza (<strong lang=\"en\">Array</strong>) kao modela."
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Omogućuje korištenje niza (<strong lang=\"en\">Array</strong>) kao modela.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Omogućuje prilagodbu tekstualnih poruka za različite radnje unutar komponente. To uključuje tekstove za skupljanje/širenje (<strong lang=\"en\">collapseClose</strong> i <strong lang=\"en\">collapseOpen</strong>), poruke za nedostatak elemenata tijekom pretraživanja (<strong lang=\"en\">notElementsWithSearch</strong>) i tekst za polje pretraživanja (<strong lang=\"en\">search</strong>)."
 }

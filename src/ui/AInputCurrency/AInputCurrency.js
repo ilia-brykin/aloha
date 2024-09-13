@@ -401,6 +401,7 @@ export default {
             id: this.htmlIdLocal,
             extra: this.extra,
             isLabelFloat: this.isLabelFloat,
+            isError: this.isErrors,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,
@@ -429,6 +430,7 @@ export default {
               h(ALabel, {
                 id: this.htmlIdLocal,
                 isLabelFloat: this.isLabelFloat,
+                isError: this.isErrors,
                 label: this.label,
                 labelClass: this.labelClass,
                 labelScreenReader: this.labelScreenReader,

@@ -1,0 +1,6 @@
+{
+  "_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_": "This page covers the use of <strong lang=\"en\">children</strong> in the <strong lang=\"en\">AFieldset</strong> component, as well as related properties such as <strong lang=\"en\">class-column</strong> for customizing the classes of individual child elements, <strong lang=\"en\">class-columns</strong> for the parent container, and <strong lang=\"en\">errors-all</strong> for displaying child element errors.",
+  "_A_FIELDSET_CHILDREN_COMPONENT_NAME_": "Child elements <strong lang=\"en\">children</strong>",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_DESCRIPTION_": "This example demonstrates the ability to create a nested element structure of unlimited depth using the <strong lang=\"en\">AFieldset</strong> component. Each child element can contain its own nested elements, allowing flexible data structure and rendering control. For example, here, the first and second <strong lang=\"en\">fieldset</strong> contain their own child elements such as text fields and checkboxes.",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_HEADER_": "Nested element structure"
+}

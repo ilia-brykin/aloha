@@ -8,5 +8,6 @@
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Određuje treba li potvrdne okvire prikazati u redu. Ako je postavljeno na <strong lang=\"en\">true</strong>, potvrdni okviri će biti poravnati vodoravno.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Određuje treba li potvrdne okvire prikazati kao gumbe. Ako je postavljeno na <strong lang=\"en\">true</strong>, potvrdni okviri će se prikazati kao gumbi, što može pružiti vizualno privlačnije sučelje.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Određuje početno stanje sažetka grupe potvrdnih okvira. Ako je postavljeno na <strong lang=\"en\">true</strong>, grupa će biti sažeta pri učitavanju stranice.",
-  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Određuje hoće li se širina grupe potvrdnih okvira automatski prilagoditi njenom sadržaju. Ako je postavljeno na <strong lang=\"en\">true</strong>, širina će se automatski prilagoditi."
+  "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Određuje hoće li se širina grupe potvrdnih okvira automatski prilagoditi njenom sadržaju. Ako je postavljeno na <strong lang=\"en\">true</strong>, širina će se automatski prilagoditi.",
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Omogućuje izmjenu tekstualnih poruka za razne radnje u komponenti. Uključuje tekstove za sažimanje/proširivanje (<strong lang=\"en\">collapseClose</strong> i <strong lang=\"en\">collapseOpen</strong>), poruke kada nema elemenata tijekom pretraživanja (<strong lang=\"en\">notElementsWithSearch</strong>), i tekst za polje za pretraživanje (<strong lang=\"en\">search</strong>)."
 }

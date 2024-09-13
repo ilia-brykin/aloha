@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_ERRORS_ALL_HEADER_"
+  description="_A_UI_GROUP_ERRORS_ALL_DESCRIPTION_"
+  :props="['errors-all']"
+)
+  a-fieldset(
+    v-model="model"
+    :children="children"
+    :errors-all="errorsAll"
+    label="Fieldset"
+  )
+  div model: {{ model }}

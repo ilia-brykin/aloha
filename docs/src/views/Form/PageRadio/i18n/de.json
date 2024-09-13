@@ -3,5 +3,6 @@
   "_A_RADIO_COMPONENT_NAME_": "Optionsfelder",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Dieses Beispiel zeigt, wie man <strong lang=\"en\">is-model-array</strong> verwendet. Es ermöglicht das Festlegen eines Arrays als Datenmodell für die Optionsfelder. Das ausgewählte Element wird im Modell-Array gespeichert.",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Verwendung eines Arrays als Modell",
-  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Ermöglicht die Verwendung eines Arrays (<strong lang=\"en\">Array</strong>) als Modell."
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Ermöglicht die Verwendung eines Arrays (<strong lang=\"en\">Array</strong>) als Modell.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Ermöglicht die Anpassung von Textnachrichten für verschiedene Aktionen innerhalb der Komponente. Dazu gehören Texte zum Ein-/Ausklappen (<strong lang=\"en\">collapseClose</strong> und <strong lang=\"en\">collapseOpen</strong>), Nachrichten für keine gefundenen Elemente bei der Suche (<strong lang=\"en\">notElementsWithSearch</strong>) und der Suchfeldtext (<strong lang=\"en\">search</strong>)."
 }

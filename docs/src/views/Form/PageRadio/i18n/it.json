@@ -3,5 +3,6 @@
   "_A_RADIO_COMPONENT_NAME_": "Pulsanti Radio",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Questo esempio dimostra come utilizzare <strong lang=\"en\">is-model-array</strong>. Consente di impostare un array come modello di dati per i pulsanti radio. L'elemento selezionato viene registrato nell'array del modello.",
   "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Utilizzo di un Array come Modello",
-  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Permette l'uso di un array (<strong lang=\"en\">Array</strong>) come modello."
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Permette l'uso di un array (<strong lang=\"en\">Array</strong>) come modello.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Consente la personalizzazione dei messaggi di testo per varie azioni all'interno del componente. Include testi per la chiusura/apertura (<strong lang=\"en\">collapseClose</strong> e <strong lang=\"en\">collapseOpen</strong>), messaggi per la mancanza di elementi durante la ricerca (<strong lang=\"en\">notElementsWithSearch</strong>) e il testo del campo di ricerca (<strong lang=\"en\">search</strong>)."
 }

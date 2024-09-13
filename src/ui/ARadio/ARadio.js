@@ -299,6 +299,16 @@ export default {
       default: undefined,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        collapseClose: "_A_FIELDSET_COLLAPSE_CLOSE_",
+        collapseOpen: "_A_FIELDSET_COLLAPSE_OPEN_",
+        notElementsWithSearch: "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_",
+        search: "_A_RADIO_SEARCH_",
+      }),
+    },
     translateData: {
       type: Boolean,
       required: false,
@@ -574,7 +584,7 @@ export default {
                     }, [
                       h(AInput, {
                         alwaysTranslate: this.alwaysTranslate,
-                        label: "_A_RADIO_SEARCH_",
+                        label: this.texts?.search || "_A_RADIO_SEARCH_",
                         inputClass: "a_select__element_clickable",
                         modelValue: this.modelSearchOutside,
                         modelUndefined: "",
@@ -596,7 +606,7 @@ export default {
                 h(AInput, {
                   alwaysTranslate: this.alwaysTranslate,
                   class: "a_fieldset__search",
-                  label: "_A_RADIO_SEARCH_",
+                  label: this.texts?.search || "_A_RADIO_SEARCH_",
                   modelValue: this.modelSearch,
                   modelUndefined: "",
                   "onUpdate:modelValue": this.updateModelSearch,
@@ -709,7 +719,7 @@ export default {
                 h(ATranslation, {
                   alwaysTranslate: this.alwaysTranslate,
                   class: "a_form__not_elements",
-                  text: "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_",
+                  text: this.texts?.notElementsWithSearch || "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_",
                 }) :
                 "",
             ]),

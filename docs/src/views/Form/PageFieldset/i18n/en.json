@@ -1,3 +1,5 @@
 {
-
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">AFieldset</strong> component is used to group form elements into a logical set. It supports various features, such as error display, help text, content collapse/expand, and customization of styles for child elements.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Fieldset Group",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Allows you to customize the text for the collapse and expand actions of the component. By default, <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> is used for closing and <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> for opening."
 }

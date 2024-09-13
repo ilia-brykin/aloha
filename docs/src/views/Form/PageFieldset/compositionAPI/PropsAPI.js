@@ -16,16 +16,23 @@ export default function PropsAPI() {
     },
     {
       name: "children",
-      description: "_A_FIELDSET_PROPS_CHILDREN_DESCRIPTION_",
+      description: "_A_UI_PROPS_CHILDREN_DESCRIPTION_",
       type: "Array",
       default: "() => []",
       required: false,
     },
     {
-      name: "class-columns",
-      description: "_A_FIELDSET_PROPS_CLASS_COLUMNS_DESCRIPTION_",
+      name: "class-column",
+      description: "_A_UI_PROPS_CLASS_COLUMN_DESCRIPTION_",
       type: "String / Object",
-      default: "a_columns a_columns_count_12 a_columns_gab_2",
+      default: "a_column a_column_12",
+      required: false,
+    },
+    {
+      name: "class-columns",
+      description: "_A_UI_PROPS_CLASS_COLUMNS_DESCRIPTION_",
+      type: "String / Object",
+      default: "a_columns a_columns_count_12",
       required: false,
     },
     {
@@ -65,7 +72,7 @@ export default function PropsAPI() {
     },
     {
       name: "errors-all",
-      description: "_A_FIELDSET_PROPS_ERRORS_ALL_DESCRIPTION_",
+      description: "_A_UI_PROPS_ERRORS_ALL_DESCRIPTION_",
       type: "Object",
       default: "() => ({})",
       required: false,
@@ -187,6 +194,16 @@ export default function PropsAPI() {
       description: "_A_UI_PROPS_SLOT_NAME_DESCRIPTION_",
       type: "String",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "texts",
+      description: "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_",
+      type: "Object",
+      default: `() => ({
+        collapseClose: "_A_FIELDSET_COLLAPSE_CLOSE_",
+        collapseOpen: "_A_FIELDSET_COLLAPSE_OPEN_",
+      })`,
       required: false,
     },
   ];
