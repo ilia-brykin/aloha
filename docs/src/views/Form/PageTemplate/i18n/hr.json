@@ -1,0 +1,13 @@
+{
+  "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">ATemplate</strong> koristi se kao univerzalni slot za komponente kao što su <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> i <strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong>. Omogućuje proširenje funkcionalnosti ovih komponenti pružajući fleksibilnost za prikaz prilagođenog sadržaja putem slotova i prosljeđivanje podataka kroz svojstva.",
+  "_A_TEMPLATE_COMPONENT_NAME_": "Predložak",
+  "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti slot <strong lang=\"en\">template</strong> u komponenti <strong lang=\"en\">AFieldset</strong>. Jedan od podređenih elemenata je predložak koji se renderira putem slota <strong lang=\"en\">template</strong>. U ovom primjeru unutar predloška prikazuje se gumb s tekstom <strong lang=\"en\">'Aloha'</strong>.",
+  "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "Korištenje predloška u <strong lang=\"en\">AFieldset</strong>",
+  "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">html</strong> za prikaz <strong lang=\"en\">HTML</strong> sadržaja u komponenti <strong lang=\"en\">ATemplate</strong>. <strong lang=\"en\">HTML</strong> kod se sigurno prikazuje unutar komponente.",
+  "_A_TEMPLATE_GROUP_HTML_HEADER_": "Korištenje <strong lang=\"en\">HTML</strong>",
+  "_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">slot-name</strong> i <strong lang=\"en\">options</strong> u komponenti <strong lang=\"en\">ATemplate</strong>. Parametri <strong lang=\"en\">options</strong>, kao i sva svojstva komponente, prosljeđuju se u slot i mogu se koristiti za prilagodbu prikazanog sadržaja.",
+  "_A_TEMPLATE_GROUP_SLOT_HEADER_": "Slot",
+  "_A_TEMPLATE_PROPS_HTML_DESCRIPTION_": "<strong lang=\"en\">HTML</strong> sadržaj koji će biti sigurno prikazan unutar komponente.",
+  "_A_TEMPLATE_PROPS_OPTIONS_DESCRIPTION_": "Bilo koji podaci za prosljeđivanje u slot.",
+  "_A_TEMPLATE_PROPS_SLOT_NAME_DESCRIPTION_": "Naziv slota u koji će biti prosljeđen prilagođeni sadržaj."
+}

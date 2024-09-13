@@ -1,0 +1,13 @@
+{
+  "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">ATemplate</strong> wird als universeller Slot für Komponenten wie <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> und <strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong> verwendet. Sie ermöglicht es, die Funktionalität dieser Komponenten zu erweitern, indem Flexibilität für die Anzeige benutzerdefinierter Inhalte über Slots und die Übertragung von Daten durch Eigenschaften bereitgestellt wird.",
+  "_A_TEMPLATE_COMPONENT_NAME_": "Vorlage",
+  "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "In diesem Beispiel wird gezeigt, wie der Slot <strong lang=\"en\">template</strong> in der Komponente <strong lang=\"en\">AFieldset</strong> verwendet wird. Eines der Kind-Elemente ist eine Vorlage, die über den Slot <strong lang=\"en\">template</strong> gerendert wird. In diesem Beispiel wird innerhalb der Vorlage eine Schaltfläche mit dem Text <strong lang=\"en\">'Aloha'</strong> angezeigt.",
+  "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "Verwendung einer Vorlage in <strong lang=\"en\">AFieldset</strong>",
+  "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "In diesem Beispiel wird gezeigt, wie <strong lang=\"en\">html</strong> verwendet wird, um <strong lang=\"en\">HTML</strong>-Inhalte in der Komponente <strong lang=\"en\">ATemplate</strong> zu rendern. Der <strong lang=\"en\">HTML</strong>-Code wird sicher innerhalb der Komponente angezeigt.",
+  "_A_TEMPLATE_GROUP_HTML_HEADER_": "Verwendung von <strong lang=\"en\">HTML</strong>",
+  "_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_": "In diesem Beispiel wird gezeigt, wie <strong lang=\"en\">slot-name</strong> und <strong lang=\"en\">options</strong> in der Komponente <strong lang=\"en\">ATemplate</strong> verwendet werden. Parameter wie <strong lang=\"en\">options</strong> sowie alle Eigenschaften der Komponente werden in den Slot übergeben und können zur Anpassung des angezeigten Inhalts verwendet werden.",
+  "_A_TEMPLATE_GROUP_SLOT_HEADER_": "Slot",
+  "_A_TEMPLATE_PROPS_HTML_DESCRIPTION_": "<strong lang=\"en\">HTML</strong>-Inhalte, die sicher innerhalb der Komponente gerendert werden.",
+  "_A_TEMPLATE_PROPS_OPTIONS_DESCRIPTION_": "Beliebige Daten, die in den Slot übergeben werden sollen.",
+  "_A_TEMPLATE_PROPS_SLOT_NAME_DESCRIPTION_": "Der Name des Slots, in den benutzerdefinierte Inhalte übergeben werden."
+}

@@ -1,0 +1,13 @@
+{
+  "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">ATemplate</strong> se utiliza como un slot universal para componentes como <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> y <strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong>. Permite extender las funcionalidades de estos componentes, brindando flexibilidad para mostrar contenido personalizado mediante slots y pasar datos a través de propiedades.",
+  "_A_TEMPLATE_COMPONENT_NAME_": "Plantilla",
+  "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "Este ejemplo muestra cómo usar el slot <strong lang=\"en\">template</strong> en el componente <strong lang=\"en\">AFieldset</strong>. Uno de los elementos secundarios es una plantilla que se renderiza a través del slot <strong lang=\"en\">template</strong>. En este ejemplo, se muestra un botón con el texto <strong lang=\"en\">'Aloha'</strong> dentro de la plantilla.",
+  "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "Uso de la plantilla en <strong lang=\"en\">AFieldset</strong>",
+  "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">html</strong> para renderizar contenido <strong lang=\"en\">HTML</strong> en el componente <strong lang=\"en\">ATemplate</strong>. El código <strong lang=\"en\">HTML</strong> se renderiza de forma segura dentro del componente.",
+  "_A_TEMPLATE_GROUP_HTML_HEADER_": "Uso de <strong lang=\"en\">HTML</strong>",
+  "_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">slot-name</strong> y <strong lang=\"en\">options</strong> en el componente <strong lang=\"en\">ATemplate</strong>. Se pasan parámetros <strong lang=\"en\">options</strong>, así como todas las propiedades del componente, al slot y se pueden usar para personalizar el contenido que se muestra.",
+  "_A_TEMPLATE_GROUP_SLOT_HEADER_": "Slot",
+  "_A_TEMPLATE_PROPS_HTML_DESCRIPTION_": "Contenido <strong lang=\"en\">HTML</strong> que se renderizará de forma segura dentro del componente.",
+  "_A_TEMPLATE_PROPS_OPTIONS_DESCRIPTION_": "Cualquier dato que se pasará al slot.",
+  "_A_TEMPLATE_PROPS_SLOT_NAME_DESCRIPTION_": "El nombre del slot en el que se pasará contenido personalizado."
+}

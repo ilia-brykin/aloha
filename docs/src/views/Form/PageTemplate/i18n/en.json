@@ -1,0 +1,13 @@
+{
+  "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">ATemplate</strong> component is used as a universal slot for components such as <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> and <strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong>. It extends the functionality of these components by providing flexibility to display custom content using slots and passing data through properties.",
+  "_A_TEMPLATE_COMPONENT_NAME_": "Template",
+  "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "This example demonstrates how to use the <strong lang=\"en\">template</strong> slot in the <strong lang=\"en\">AFieldset</strong> component. One of the child elements is a template that is rendered through the <strong lang=\"en\">template</strong> slot. In this example, a button with the text <strong lang=\"en\">'Aloha'</strong> is displayed inside the template.",
+  "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "Using a template in <strong lang=\"en\">AFieldset</strong>",
+  "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">html</strong> to render <strong lang=\"en\">HTML</strong> content inside the <strong lang=\"en\">ATemplate</strong> component. The <strong lang=\"en\">HTML</strong> code is safely displayed within the component.",
+  "_A_TEMPLATE_GROUP_HTML_HEADER_": "Using <strong lang=\"en\">HTML</strong>",
+  "_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">slot-name</strong> and <strong lang=\"en\">options</strong> in the <strong lang=\"en\">ATemplate</strong> component. The slot receives the <strong lang=\"en\">options</strong> parameters, as well as all component props, which can be used to configure the displayed content.",
+  "_A_TEMPLATE_GROUP_SLOT_HEADER_": "Slot",
+  "_A_TEMPLATE_PROPS_HTML_DESCRIPTION_": "<strong lang=\"en\">HTML</strong> content that will be safely rendered inside the component.",
+  "_A_TEMPLATE_PROPS_OPTIONS_DESCRIPTION_": "Any data to pass into the slot.",
+  "_A_TEMPLATE_PROPS_SLOT_NAME_DESCRIPTION_": "The name of the slot where the custom content will be passed."
+}

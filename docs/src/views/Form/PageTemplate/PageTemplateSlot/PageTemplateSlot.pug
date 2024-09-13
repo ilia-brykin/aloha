@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TEMPLATE_GROUP_SLOT_HEADER_"
+  description="_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_"
+  :props="['slot-name', 'options']"
+)
+  a-template(
+    :options="{ id: 'template', text: 'Aloha' }"
+    slot-name="aloha"
+  )
+    template(
+      v-slot:aloha="{ options, props }"
+    )
+      div(
+        :id="options.id"
+      ) {{ options.text }}
+

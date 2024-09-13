@@ -1,0 +1,13 @@
+{
+  "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ATemplate</strong> используется как универсальный слот для компонентов, таких как <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> и <strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong>. Он позволяет расширить функциональные возможности этих компонентов, предоставляя гибкость для отображения пользовательского контента с помощью слотов и передачи данных через свойства.",
+  "_A_TEMPLATE_COMPONENT_NAME_": "Шаблон",
+  "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "В этом примере показано, как использовать слот <strong lang=\"en\">template</strong> в компоненте <strong lang=\"en\">AFieldset</strong>. Один из дочерних элементов является шаблоном, который рендерится через слот <strong lang=\"en\">template</strong>. В данном примере внутри шаблона отображается кнопка с текстом <strong lang=\"en\">'Aloha'</strong>.",
+  "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "Использование шаблона в <strong lang=\"en\">AFieldset</strong>",
+  "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">html</strong> для рендеринга <strong lang=\"en\">HTML</strong>-контента в компоненте <strong lang=\"en\">ATemplate</strong>. <strong lang=\"en\">HTML</strong>-код безопасно отображается внутри компонента.",
+  "_A_TEMPLATE_GROUP_HTML_HEADER_": "Использование <strong lang=\"en\">HTML</strong>",
+  "_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">slot-name</strong> и <strong lang=\"en\">options</strong> в компоненте <strong lang=\"en\">ATemplate</strong>. В слот передаются параметры <strong lang=\"en\">options</strong>, а также все пропсы компонента, которые можно использовать для настройки отображаемого контента.",
+  "_A_TEMPLATE_GROUP_SLOT_HEADER_": "Слот",
+  "_A_TEMPLATE_PROPS_HTML_DESCRIPTION_": "<strong lang=\"en\">HTML</strong>-контент, который будет безопасно отрендерен внутри компонента.",
+  "_A_TEMPLATE_PROPS_OPTIONS_DESCRIPTION_": "Любые данные для передачи в слот.",
+  "_A_TEMPLATE_PROPS_SLOT_NAME_DESCRIPTION_": "Имя слота, в который будет передан пользовательский контент."
+}

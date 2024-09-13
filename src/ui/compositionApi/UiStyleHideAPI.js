@@ -15,7 +15,7 @@ export default function UiStyleHideAPI(props) {
   const modelDependencies = toRef(props, "modelDependencies");
 
   const isComponentVisibleWithDependence = ({ id, value }) => {
-    return modelDependencies.value[id] === value;
+    return modelDependencies.value?.[id] === value;
   };
 
   const isComponentHideDependencies = computed(() => {

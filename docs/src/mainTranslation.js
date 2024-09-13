@@ -76,6 +76,7 @@ import PageTextareaI18n from "./views/Form/PageTextarea/i18n/PageTextareaI18n";
 import PageInputI18n from "./views/Form/PageInput/i18n/PageInputI18n";
 import PageOneCheckboxI18n from "./views/Form/PageOneCheckbox/i18n/PageOneCheckboxI18n";
 import PageSwitchI18n from "./views/Form/PageSwitch/i18n/PageSwitchI18n";
+import PageTemplateI18n from "./views/Form/PageTemplate/i18n/PageTemplateI18n";
 
 export const mainTranslation = {
   ar: {
@@ -148,6 +149,7 @@ export const mainTranslation = {
     ...PageInputI18n.ar,
     ...PageOneCheckboxI18n.ar,
     ...PageSwitchI18n.ar,
+    ...PageTemplateI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -219,6 +221,7 @@ export const mainTranslation = {
     ...PageInputI18n.de,
     ...PageOneCheckboxI18n.de,
     ...PageSwitchI18n.de,
+    ...PageTemplateI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -290,6 +293,7 @@ export const mainTranslation = {
     ...PageInputI18n.en,
     ...PageOneCheckboxI18n.en,
     ...PageSwitchI18n.en,
+    ...PageTemplateI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -361,6 +365,7 @@ export const mainTranslation = {
     ...PageInputI18n.es,
     ...PageOneCheckboxI18n.es,
     ...PageSwitchI18n.es,
+    ...PageTemplateI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -432,6 +437,7 @@ export const mainTranslation = {
     ...PageInputI18n.fr,
     ...PageOneCheckboxI18n.fr,
     ...PageSwitchI18n.fr,
+    ...PageTemplateI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -503,6 +509,7 @@ export const mainTranslation = {
     ...PageInputI18n.hr,
     ...PageOneCheckboxI18n.hr,
     ...PageSwitchI18n.hr,
+    ...PageTemplateI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -574,6 +581,7 @@ export const mainTranslation = {
     ...PageInputI18n.it,
     ...PageOneCheckboxI18n.it,
     ...PageSwitchI18n.it,
+    ...PageTemplateI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -645,5 +653,6 @@ export const mainTranslation = {
     ...PageInputI18n.ru,
     ...PageOneCheckboxI18n.ru,
     ...PageSwitchI18n.ru,
+    ...PageTemplateI18n.ru,
   },
 };

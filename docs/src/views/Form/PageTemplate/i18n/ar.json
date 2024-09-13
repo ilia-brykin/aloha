@@ -1,0 +1,13 @@
+{
+  "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "يُستخدم مكون <strong lang=\"en\">ATemplate</strong> كفتحة عامة للمكونات مثل <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> و<strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong>. يتيح توسيع الوظائف لهذه المكونات من خلال توفير المرونة لعرض المحتوى المخصص باستخدام الفتحات وتمرير البيانات عبر الخصائص.",
+  "_A_TEMPLATE_COMPONENT_NAME_": "القالب",
+  "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام الفتحة <strong lang=\"en\">template</strong> في المكون <strong lang=\"en\">AFieldset</strong>. أحد العناصر الفرعية هو قالب يتم عرضه من خلال الفتحة <strong lang=\"en\">template</strong>. في هذا المثال، يتم عرض زر بالنص <strong lang=\"en\">'Aloha'</strong> داخل القالب.",
+  "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "استخدام القالب في <strong lang=\"en\">AFieldset</strong>",
+  "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">html</strong> لعرض محتوى <strong lang=\"en\">HTML</strong> داخل مكون <strong lang=\"en\">ATemplate</strong>. يتم عرض كود <strong lang=\"en\">HTML</strong> بشكل آمن داخل المكون.",
+  "_A_TEMPLATE_GROUP_HTML_HEADER_": "استخدام <strong lang=\"en\">HTML</strong>",
+  "_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">slot-name</strong> و<strong lang=\"en\">options</strong> في مكون <strong lang=\"en\">ATemplate</strong>. يتم تمرير معلمات <strong lang=\"en\">options</strong>، بالإضافة إلى جميع خصائص المكون، والتي يمكن استخدامها لتخصيص المحتوى المعروض.",
+  "_A_TEMPLATE_GROUP_SLOT_HEADER_": "الفتحة",
+  "_A_TEMPLATE_PROPS_HTML_DESCRIPTION_": "محتوى <strong lang=\"en\">HTML</strong> سيتم عرضه بأمان داخل المكون.",
+  "_A_TEMPLATE_PROPS_OPTIONS_DESCRIPTION_": "أي بيانات لتمريرها إلى الفتحة.",
+  "_A_TEMPLATE_PROPS_SLOT_NAME_DESCRIPTION_": "اسم الفتحة التي سيتم تمرير المحتوى المخصص إليها."
+}

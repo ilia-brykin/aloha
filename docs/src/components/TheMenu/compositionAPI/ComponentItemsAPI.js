@@ -183,21 +183,21 @@ export default function ComponentItemsAPI() {
             label: "JSON",
             to: {
               name: "PageJson",
-            }
+            },
           },
           {
             id: "PageOneCheckbox",
             label: "One checkbox",
             to: {
               name: "PageOneCheckbox",
-            }
+            },
           },
           {
             id: "radio",
             label: "Radio",
             to: {
               name: "PageRadio",
-            }
+            },
           },
           {
             id: "rate",
@@ -211,21 +211,28 @@ export default function ComponentItemsAPI() {
             label: "Select",
             to: {
               name: "PageSelect",
-            }
+            },
           },
           {
             id: "PageSwitch",
             label: "Switch",
             to: {
               name: "PageSwitch",
-            }
+            },
           },
           {
             id: "PageTextarea",
             label: "Textarea",
             to: {
               name: "PageTextarea",
-            }
+            },
+          },
+          {
+            id: "PageTemplate",
+            label: "Template",
+            to: {
+              name: "PageTemplate",
+            },
           },
           {
             id: "tinyMce",

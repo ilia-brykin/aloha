@@ -5,16 +5,11 @@ import {
 
 import ASafeHtml from "../../directives/ASafeHtml";
 
-import UiMixinProps from "../mixins/UiMixinProps";
-
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 export default {
   name: "ATemplate",
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
     excludeRenderAttributes: {
       type: Array,
@@ -23,6 +18,21 @@ export default {
     },
     html: {
       type: String,
+      required: false,
+      default: undefined,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    options: {
+      type: [String, Number, Object, Array, Boolean],
       required: false,
       default: undefined,
     },
@@ -53,6 +63,8 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
+      type: undefined,
+      modelValue: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       this.$slots[this.slotName] ?
@@ -60,12 +72,16 @@ export default {
           class: "a_template",
         }, this.$slots[this.slotName]({
           options: this.options,
+          props: this.$props,
         })) :
+        "",
+      this.html ?
         withDirectives(h("div", {
           class: "a_template",
         }), [
-          this.html ? [ASafeHtml, this.html] : [],
-        ]),
+          [ASafeHtml, this.html],
+        ]) :
+        ""
     ]);
   },
 };

@@ -230,6 +230,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageInputNumber" */ "../views/Form/PageInputCurrency/PageInputCurrency.vue"),
   },
   {
+    path: "/template",
+    name: "PageTemplate",
+    component: () => import(/* webpackChunkName: "PageTemplate" */ "../views/Form/PageTemplate/PageTemplate.vue"),
+  },
+  {
     path: "/group-button-dropdown",
     name: "PageGroupButtonDropdown",
     component: () => import(/* webpackChunkName: "PageGroupButtonDropdown" */ "../views/PageGroupButtonDropdown/PageGroupButtonDropdown.vue"),
