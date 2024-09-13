@@ -48,7 +48,9 @@ export default function TypesAPI() {
     ASwitch: {
       name: "PageSwitch",
     },
-    ATemplate: undefined,
+    ATemplate: {
+      name: "PageTemplate",
+    },
     ATextarea: {
       name: "PageTextarea",
     },
