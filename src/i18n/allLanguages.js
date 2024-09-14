@@ -29,6 +29,7 @@ import AJsonI18n from "../ui/AJson/i18n/AJsonI18n";
 import ASwitchI18n from "../ui/ASwitch/i18n/ASwitchI18n";
 import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 import ALoadingI18n from "../ALoading/i18n/ALoadingI18n";
+import ACloakI18n from "../ACloak/i18n/ACloakI18n";
 
 export const ar = {
   ...arJson,
@@ -54,6 +55,7 @@ export const ar = {
   ...ASwitchI18n.ar,
   ...ASpinnerI18n.ar,
   ...ALoadingI18n.ar,
+  ...ACloakI18n.ar,
 };
 export const de = {
   ...deJson,
@@ -79,6 +81,7 @@ export const de = {
   ...ASwitchI18n.de,
   ...ASpinnerI18n.de,
   ...ALoadingI18n.de,
+  ...ACloakI18n.de,
 };
 export const en = {
   ...enJson,
@@ -104,6 +107,7 @@ export const en = {
   ...ASwitchI18n.en,
   ...ASpinnerI18n.en,
   ...ALoadingI18n.en,
+  ...ACloakI18n.en,
 };
 export const es = {
   ...esJson,
@@ -129,6 +133,7 @@ export const es = {
   ...ASwitchI18n.es,
   ...ASpinnerI18n.es,
   ...ALoadingI18n.es,
+  ...ACloakI18n.es,
 };
 export const fr = {
   ...frJson,
@@ -154,6 +159,7 @@ export const fr = {
   ...ASwitchI18n.fr,
   ...ASpinnerI18n.fr,
   ...ALoadingI18n.fr,
+  ...ACloakI18n.fr,
 };
 export const hr = {
   ...hrJson,
@@ -179,6 +185,7 @@ export const hr = {
   ...ASwitchI18n.hr,
   ...ASpinnerI18n.hr,
   ...ALoadingI18n.hr,
+  ...ACloakI18n.hr,
 };
 export const it = {
   ...itJson,
@@ -204,6 +211,7 @@ export const it = {
   ...ASwitchI18n.it,
   ...ASpinnerI18n.it,
   ...ALoadingI18n.it,
+  ...ACloakI18n.it,
 };
 export const ru = {
   ...ruJson,
@@ -229,6 +237,7 @@ export const ru = {
   ...ASwitchI18n.ru,
   ...ASpinnerI18n.ru,
   ...ALoadingI18n.ru,
+  ...ACloakI18n.ru,
 };
 
 export default {

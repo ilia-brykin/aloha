@@ -21,7 +21,7 @@ export default {
     text: {
       type: String,
       required: false,
-      default: "_LOADING_",
+      default: "_A_CLOAK_LOADING_",
     },
     isTextLeft: {
       type: Boolean,
