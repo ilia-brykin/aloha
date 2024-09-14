@@ -7287,6 +7287,10 @@ input:not(:-webkit-autofill) {
   display: flex;
   align-items: center;
   justify-content: center; }
+  .a_loading.a_text_left {
+    justify-content: left; }
+  .a_loading.a_text_right {
+    justify-content: right; }
 
 .a_wizard {
   --a_wizard_border_color: var(--a_color_gray_200, #eeeeee);
