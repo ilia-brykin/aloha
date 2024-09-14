@@ -4,7 +4,7 @@ import {
 
 export const spinnerPluginOptions = ref({
   propsDefault: {
-    ariaLabel: "_LOADING_",
+    ariaLabel: "_A_SPINNER_LOADING_",
     class: "a_spinner",
     safeHtml: "",
     tag: "span",

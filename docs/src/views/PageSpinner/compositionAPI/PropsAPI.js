@@ -11,7 +11,7 @@ export default function PropsAPI() {
       name: "aria-label",
       description: "_A_SPINNER_PROPS_ARIA_LABEL_DESCRIPTION_",
       type: "String / Number / Object",
-      default: "_LOADING_",
+      default: "_A_SPINNER_LOADING_",
       required: false,
     },
     {

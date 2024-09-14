@@ -27,6 +27,7 @@ import Filters18n from "../filters/i18n/Filters18n";
 import APaginationI18n from "../APagination/i18n/APaginationI18n.js";
 import AJsonI18n from "../ui/AJson/i18n/AJsonI18n";
 import ASwitchI18n from "../ui/ASwitch/i18n/ASwitchI18n";
+import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 
 export const ar = {
   ...arJson,
@@ -50,6 +51,7 @@ export const ar = {
   ...APaginationI18n.ar,
   ...AJsonI18n.ar,
   ...ASwitchI18n.ar,
+  ...ASpinnerI18n.ar,
 };
 export const de = {
   ...deJson,
@@ -73,6 +75,7 @@ export const de = {
   ...APaginationI18n.de,
   ...AJsonI18n.de,
   ...ASwitchI18n.de,
+  ...ASpinnerI18n.de,
 };
 export const en = {
   ...enJson,
@@ -96,6 +99,7 @@ export const en = {
   ...APaginationI18n.en,
   ...AJsonI18n.en,
   ...ASwitchI18n.en,
+  ...ASpinnerI18n.en,
 };
 export const es = {
   ...esJson,
@@ -119,6 +123,7 @@ export const es = {
   ...APaginationI18n.es,
   ...AJsonI18n.es,
   ...ASwitchI18n.es,
+  ...ASpinnerI18n.es,
 };
 export const fr = {
   ...frJson,
@@ -142,6 +147,7 @@ export const fr = {
   ...APaginationI18n.fr,
   ...AJsonI18n.fr,
   ...ASwitchI18n.fr,
+  ...ASpinnerI18n.fr,
 };
 export const hr = {
   ...hrJson,
@@ -165,6 +171,7 @@ export const hr = {
   ...APaginationI18n.hr,
   ...AJsonI18n.hr,
   ...ASwitchI18n.hr,
+  ...ASpinnerI18n.hr,
 };
 export const it = {
   ...itJson,
@@ -188,6 +195,7 @@ export const it = {
   ...APaginationI18n.it,
   ...AJsonI18n.it,
   ...ASwitchI18n.it,
+  ...ASpinnerI18n.it,
 };
 export const ru = {
   ...ruJson,
@@ -211,6 +219,7 @@ export const ru = {
   ...APaginationI18n.ru,
   ...AJsonI18n.ru,
   ...ASwitchI18n.ru,
+  ...ASpinnerI18n.ru,
 };
 
 export default {
