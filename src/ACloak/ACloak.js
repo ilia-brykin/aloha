@@ -74,14 +74,12 @@ export default {
     const {
       classAlign,
       classForBox,
-      classSpinnerSize,
       classTextSize,
     } = ClassAPI(props);
 
     return {
       classAlign,
       classForBox,
-      classSpinnerSize,
       classTextSize,
     };
   },

@@ -1,22 +1,27 @@
-import ASpinner from "../ASpinner/ASpinner.js";
-import ATranslation from "../ATranslation/ATranslation";
-
 import {
   h,
 } from "vue";
 
+import ASpinner from "../ASpinner/ASpinner.js";
+import ATranslation from "../ATranslation/ATranslation";
+
+import ClassAPI from "../ACloak/compositionAPI/ClassAPI";
+
+import {
+  loadingPluginOptions,
+} from "../plugins/ALoadingPlugin";
+import {
+  spinnerPluginOptions,
+} from "../plugins/ASpinnerPlugin";
+
 export default {
   name: "ALoading",
-  components: {
-    ASpinner,
-    ATranslation,
-  },
   props: {
     align: {
       type: String,
       required: false,
-      default: "center",
-      validator: value => ["start", "center", "end"].indexOf(value) !== -1,
+      default: () => loadingPluginOptions.value.propsDefault.align,
+      validator: value => ["left", "center", "right"].indexOf(value) !== -1,
     },
     alwaysTranslate: {
       type: Boolean,
@@ -25,85 +30,81 @@ export default {
     extra: {
       type: Object,
       required: false,
+      default: undefined,
     },
     isLoading: {
       type: Boolean,
       required: false,
-    },
-    isTextLeft: {
-      type: Boolean,
-      required: false,
+      default: undefined,
     },
     size: {
       type: [String, Number],
       required: false,
-      default: 6,
+      default: () => loadingPluginOptions.value.propsDefault.size,
       validator: size => ["1", "2", "3", "4", "5", "6", "7"].indexOf(`${ size }`) !== -1,
+    },
+    spinnerClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    spinnerSafeHtml: {
+      type: String,
+      required: false,
+      default: () => spinnerPluginOptions.value.propsDefault.safeHtml,
+    },
+    spinnerTag: {
+      type: String,
+      required: false,
+      default: () => spinnerPluginOptions.value.propsDefault.tag,
     },
     tag: {
       type: String,
       required: false,
-      default: "div",
+      default: () => loadingPluginOptions.value.propsDefault.tag,
     },
     text: {
       type: String,
       required: false,
-      default: "_A_LOADING_LOADING_",
+      default: () => loadingPluginOptions.value.propsDefault.text,
+    },
+    textAlign: {
+      type: String,
+      required: false,
+      default: () => loadingPluginOptions.value.propsDefault.textAlign,
+      validator: value => ["left", "right"].indexOf(value) !== -1,
     },
   },
-  computed: {
-    classAlign() {
-      return `a_text_${ this.align }`;
-    },
+  setup(props) {
+    const {
+      classAlign,
+      classForBox,
+      classTextSize,
+    } = ClassAPI(props);
 
-    classForBox() {
-      return this.isTextLeft ? "a_cloak__box_text_left" : "a_cloak__box_text_right";
-    },
-
-    classTextSize() {
-      return `a_fs_${ this.size }`;
-    },
-
-    boxChildren() {
-      const CHILDREN = [];
-      if (this.isTextLeft) {
-        CHILDREN.push(this.boxTextLeft);
-      }
-      CHILDREN.push(this.boxSpinner);
-      if (!this.isTextLeft) {
-        CHILDREN.push(this.boxTextRight);
-      }
-      return CHILDREN;
-    },
-
-    boxTextLeft() {
-      return h(ATranslation, {
-        tag: "span",
-        class: ["a_cloak__text a_cloak__text_left", this.classTextSize],
-        text: this.text,
-        extra: this.extra,
-        alwaysTranslate: this.alwaysTranslate,
-      });
-    },
-
-    boxTextRight() {
-      return h(ATranslation, {
-        tag: "span",
-        class: ["a_cloak__text a_cloak__text_right", this.classTextSize],
-        text: this.text,
-        extra: this.extra,
-        alwaysTranslate: this.alwaysTranslate,
-      });
-    },
-
-    boxSpinner() {
-      return h(ASpinner, {
-        class: ["a_cloak__spinner"],
-        "aria-hidden": "true",
-      });
-    },
+    return {
+      classAlign,
+      classForBox,
+      classTextSize,
+    };
   },
   render() {
+    const IS_TEXT_LEFT = this.textAlign === "left";
+
+    const BOX_TEXT = h(ATranslation, {
+      alwaysTranslate: this.alwaysTranslate,
+      tag: "span",
+      class: [
+        "a_cloak__text",
+        IS_TEXT_LEFT ?
+          "a_cloak__text_left" :
+          "a_cloak__text_right",
+        this.classTextSize,
+      ],
+      text: this.text,
+      extra: this.extra,
+    });
+
     return [
       this.$slots.default && this.$slots.default(),
       this.isLoading && h(
@@ -117,7 +118,25 @@ export default {
 
           h("div", {
             class: ["a_cloak__box", this.classForBox]
-          }, this.boxChildren),
+          }, [
+            IS_TEXT_LEFT ?
+              BOX_TEXT :
+              "",
+            h(ASpinner, {
+              alwaysTranslate: this.alwaysTranslate,
+              class: [
+                "a_cloak__spinner",
+                this.spinnerClass,
+              ],
+              "aria-hidden": "true",
+              safeHtml: this.spinnerSafeHtml,
+              size: this.size,
+              tag: this.spinnerTag,
+            }),
+            !IS_TEXT_LEFT ?
+              BOX_TEXT :
+              "",
+          ]),
         ],
       ),
     ];
