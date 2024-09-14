@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "Die Komponente <strong>ALoading</strong> zeigt einen Ladespinner mit Text über dem Inhalt an, wenn die Eigenschaft <strong>is-loading</strong> auf <strong>true</strong> gesetzt ist. Sie wird verwendet, um Inhalte zu blockieren und den Ladespinner anzuzeigen, bis der Ladevorgang abgeschlossen ist.",
+  "_A_LOADING_COMPONENT_NAME_": "Ladebildschirm über dem Inhalt",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Bestimmt, ob der Ladeindikator angezeigt werden soll. Wenn der Wert auf <strong>true</strong> gesetzt ist, wird der Ladeindikator über dem Inhalt der Komponente angezeigt.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Laden {{ number }}"
+}

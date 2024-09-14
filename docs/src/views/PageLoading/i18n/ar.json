@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "يعرض مكون <strong>ALoading</strong> مؤشر التحميل مع نص فوق المحتوى عندما يتم تعيين خاصية <strong>is-loading</strong> على <strong>true</strong>. يُستخدم لحجب المحتوى وعرض مؤشر التحميل حتى يكتمل التحميل.",
+  "_A_LOADING_COMPONENT_NAME_": "شاشة التحميل فوق المحتوى",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "يحدد ما إذا كان يجب عرض مؤشر التحميل. إذا تم تعيين القيمة إلى <strong>true</strong>، فسيظهر مؤشر التحميل فوق محتوى المكون.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "جاري التحميل {{ number }}"
+}

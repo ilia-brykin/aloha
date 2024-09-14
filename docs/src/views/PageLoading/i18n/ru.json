@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ALoading</strong> отображает индикатор загрузки с текстом поверх контента, если свойство <strong lang=\"en\">is-loading</strong> установлено в <strong lang=\"en\">true</strong>. Он используется для блокировки контента и отображения спиннера до завершения загрузки.",
+  "_A_LOADING_COMPONENT_NAME_": "Экран загрузки поверх контента",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Следует ли отображать индикатор загрузки. Если значение установлено в <strong lang=\"en\">true</strong>, индикатор загрузки будет отображаться поверх содержимого компонента.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Загрузка {{ number }}"
+}

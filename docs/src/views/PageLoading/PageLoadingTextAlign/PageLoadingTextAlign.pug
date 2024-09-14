@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_"
+  description="_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_"
+  :props="['text-align']"
+)
+  .a_position_relative
+    a-loading(
+      :is-loading="true"
+      text-align="left"
+    )
+      ul
+        li aloha 1
+        li aloha 2
+        li aloha 3
+  .a_position_relative
+    a-loading(
+      :is-loading="true"
+      text-align="right"
+    )
+      ul
+        li aloha 1
+        li aloha 2
+        li aloha 3

@@ -16,6 +16,7 @@ import {
 
 export default {
   name: "ALoading",
+  inheritAttrs: false,
   props: {
     align: {
       type: String,
@@ -110,6 +111,7 @@ export default {
       this.isLoading && h(
         this.tag,
         {
+          ...this.$attrs,
           role: "status",
           tabindex: -1,
           class: ["a_loading", this.classAlign],

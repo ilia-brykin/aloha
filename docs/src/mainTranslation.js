@@ -79,6 +79,7 @@ import PageSwitchI18n from "./views/Form/PageSwitch/i18n/PageSwitchI18n";
 import PageTemplateI18n from "./views/Form/PageTemplate/i18n/PageTemplateI18n";
 import PageSpinnerI18n from "./views/PageSpinner/i18n/PageSpinnerI18n";
 import PageCloakI18n from "./views/PageCloak/i18n/PageCloakI18n";
+import PageLoadingI18n from "./views/PageLoading/i18n/PageLoadingI18n";
 
 export const mainTranslation = {
   ar: {
@@ -154,6 +155,7 @@ export const mainTranslation = {
     ...PageTemplateI18n.ar,
     ...PageSpinnerI18n.ar,
     ...PageCloakI18n.ar,
+    ...PageLoadingI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -228,6 +230,7 @@ export const mainTranslation = {
     ...PageTemplateI18n.de,
     ...PageSpinnerI18n.de,
     ...PageCloakI18n.de,
+    ...PageLoadingI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -302,6 +305,7 @@ export const mainTranslation = {
     ...PageTemplateI18n.en,
     ...PageSpinnerI18n.en,
     ...PageCloakI18n.en,
+    ...PageLoadingI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -376,6 +380,7 @@ export const mainTranslation = {
     ...PageTemplateI18n.es,
     ...PageSpinnerI18n.es,
     ...PageCloakI18n.es,
+    ...PageLoadingI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -450,6 +455,7 @@ export const mainTranslation = {
     ...PageTemplateI18n.fr,
     ...PageSpinnerI18n.fr,
     ...PageCloakI18n.fr,
+    ...PageLoadingI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -524,6 +530,7 @@ export const mainTranslation = {
     ...PageTemplateI18n.hr,
     ...PageSpinnerI18n.hr,
     ...PageCloakI18n.hr,
+    ...PageLoadingI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -598,6 +605,7 @@ export const mainTranslation = {
     ...PageTemplateI18n.it,
     ...PageSpinnerI18n.it,
     ...PageCloakI18n.it,
+    ...PageLoadingI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -672,5 +680,6 @@ export const mainTranslation = {
     ...PageTemplateI18n.ru,
     ...PageSpinnerI18n.ru,
     ...PageCloakI18n.ru,
+    ...PageLoadingI18n.ru,
   },
 };

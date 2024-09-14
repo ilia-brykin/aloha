@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "The <strong>ALoading</strong> component displays a loading spinner with text over the content when the <strong>is-loading</strong> property is set to <strong>true</strong>. It is used to block content and show a spinner until the loading process is complete.",
+  "_A_LOADING_COMPONENT_NAME_": "Loading screen over content",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Determines whether the loading indicator should be displayed. If set to <strong>true</strong>, the loading indicator will appear over the component's content.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Loading {{ number }}"
+}

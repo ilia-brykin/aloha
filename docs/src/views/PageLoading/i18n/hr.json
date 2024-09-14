@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "Komponenta <strong>ALoading</strong> prikazuje indikator učitavanja s tekstom iznad sadržaja kada je svojstvo <strong>is-loading</strong> postavljeno na <strong>true</strong>. Koristi se za blokiranje sadržaja i prikazivanje indikatora dok se proces učitavanja ne završi.",
+  "_A_LOADING_COMPONENT_NAME_": "Ekran za učitavanje iznad sadržaja",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Određuje hoće li se prikazati indikator učitavanja. Ako je vrijednost postavljena na <strong>true</strong>, indikator učitavanja će se pojaviti iznad sadržaja komponente.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Učitavanje {{ number }}"
+}

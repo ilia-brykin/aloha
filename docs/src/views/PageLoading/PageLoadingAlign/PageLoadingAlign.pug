@@ -1,0 +1,34 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CLOAK_GROUP_ALIGN_HEADER_"
+  description="_A_CLOAK_GROUP_ALIGN_DESCRIPTION_"
+  :props="['align']"
+)
+  .a_position_relative
+    a-loading(
+      :is-loading="true"
+      align="left"
+    )
+      ul
+        li aloha 1
+        li aloha 2
+        li aloha 3
+  .a_position_relative
+    a-loading(
+      :is-loading="true"
+      align="center"
+    )
+      ul
+        li aloha 1
+        li aloha 2
+        li aloha 3
+  .a_position_relative
+    a-loading(
+      :is-loading="true"
+      align="right"
+    )
+      ul
+        li aloha 1
+        li aloha 2
+        li aloha 3

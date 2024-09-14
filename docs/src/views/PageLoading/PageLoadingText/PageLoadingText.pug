@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CLOAK_GROUP_TEXT_HEADER_"
+  description="_A_CLOAK_GROUP_TEXT_DESCRIPTION_"
+  :props="['text', 'extra']"
+)
+  .a_position_relative
+    a-loading(
+      :extra="{ number: 1 }"
+      :is-loading="true"
+      text="_PAGE_LOADING_TEXT_{{number}}_"
+    )
+      ul
+        li aloha 1
+        li aloha 2
+        li aloha 3

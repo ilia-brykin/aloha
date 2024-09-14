@@ -254,7 +254,6 @@ export default function ComponentItemsAPI() {
         },
       },
       {
-        group: "Hola",
         id: "loading",
         label: "Loading",
         to: {

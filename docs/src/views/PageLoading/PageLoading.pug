@@ -1,20 +1,28 @@
-div
-  h1 PageLoading
-  .a_position_relative
-    a-loading(
-      :is-loading="true"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_LOADING_COMPONENT_DESCRIPTION_"
     )
-      div
-        ul
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
-          li sfdsf
+
+    page-loading-basic
+
+    page-loading-align
+
+    page-loading-text-align
+
+    page-loading-sizes
+
+    page-loading-text
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

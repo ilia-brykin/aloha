@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "Il componente <strong>ALoading</strong> visualizza un indicatore di caricamento con testo sopra il contenuto quando la proprietà <strong>is-loading</strong> è impostata su <strong>true</strong>. Viene utilizzato per bloccare il contenuto e mostrare lo spinner fino al completamento del caricamento.",
+  "_A_LOADING_COMPONENT_NAME_": "Schermo di caricamento sopra il contenuto",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Determina se l'indicatore di caricamento deve essere visualizzato. Se impostato su <strong>true</strong>, l'indicatore di caricamento verrà visualizzato sopra il contenuto del componente.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Caricamento {{ number }}"
+}
