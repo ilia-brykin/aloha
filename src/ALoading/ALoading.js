@@ -48,7 +48,7 @@ export default {
     text: {
       type: String,
       required: false,
-      default: "_LOADING_",
+      default: "_A_LOADING_LOADING_",
     },
   },
   computed: {
