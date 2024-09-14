@@ -1,0 +1,66 @@
+export default function HtmlAPI() {
+  const codeHtml = `<a-spinner
+  class="a_color_black"
+></a-spinner>
+<a-spinner
+  class="a_color_danger"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_100"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_200"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_300"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_400"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_500"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_600"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_700"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_800"
+></a-spinner>
+<a-spinner
+  class="a_color_gray_900"
+></a-spinner>
+<a-spinner
+  class="a_color_info"
+></a-spinner>
+<a-spinner
+  class="a_color_link"
+></a-spinner>
+<a-spinner
+  class="a_color_primary"
+></a-spinner>
+<a-spinner
+  class="a_color_secondary"
+></a-spinner>
+<a-spinner
+  class="a_color_success"
+></a-spinner>
+<a-spinner
+  class="a_color_tertiary"
+></a-spinner>
+<a-spinner
+  class="a_color_text"
+></a-spinner>
+<a-spinner
+  class="a_color_warning"
+></a-spinner>
+<a-spinner
+  class="a_color_white"
+></a-spinner>`;
+
+  return {
+    codeHtml,
+  };
+}

@@ -334,7 +334,6 @@ export default function ComponentItemsAPI() {
         },
       },
       {
-        group: "Aloha",
         id: "spinner",
         label: "Spinner",
         to: {

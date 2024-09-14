@@ -16,7 +16,7 @@ export default {
       required: false,
     },
     ariaLabel: {
-      type: String,
+      type: [String, Number, Object],
       required: false,
       default: () => spinnerPluginOptions.value.propsDefault.ariaLabel,
     },

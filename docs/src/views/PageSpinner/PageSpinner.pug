@@ -1,10 +1,22 @@
-div
-  h1 PageSpinner
-  a-spinner
-  div
-    button.a_btn.a_btn_primary()
-      a-spinner.a_spinner_small
-      span Click me
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_SPINNER_COMPONENT_DESCRIPTION_"
+    )
 
-  div
-    a-spinner.a_spinner_large
+    page-spinner-basic
+
+    page-spinner-aria-label
+
+    page-spinner-sizes
+
+    page-spinner-colors
+
+    aloha-table-props(
+      :data="dataProps"
+    )

@@ -77,6 +77,7 @@ import PageInputI18n from "./views/Form/PageInput/i18n/PageInputI18n";
 import PageOneCheckboxI18n from "./views/Form/PageOneCheckbox/i18n/PageOneCheckboxI18n";
 import PageSwitchI18n from "./views/Form/PageSwitch/i18n/PageSwitchI18n";
 import PageTemplateI18n from "./views/Form/PageTemplate/i18n/PageTemplateI18n";
+import PageSpinnerI18n from "./views/PageSpinner/i18n/PageSpinnerI18n";
 
 export const mainTranslation = {
   ar: {
@@ -150,6 +151,7 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.ar,
     ...PageSwitchI18n.ar,
     ...PageTemplateI18n.ar,
+    ...PageSpinnerI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -222,6 +224,7 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.de,
     ...PageSwitchI18n.de,
     ...PageTemplateI18n.de,
+    ...PageSpinnerI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -294,6 +297,7 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.en,
     ...PageSwitchI18n.en,
     ...PageTemplateI18n.en,
+    ...PageSpinnerI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -366,6 +370,7 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.es,
     ...PageSwitchI18n.es,
     ...PageTemplateI18n.es,
+    ...PageSpinnerI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -438,6 +443,7 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.fr,
     ...PageSwitchI18n.fr,
     ...PageTemplateI18n.fr,
+    ...PageSpinnerI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -510,6 +516,7 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.hr,
     ...PageSwitchI18n.hr,
     ...PageTemplateI18n.hr,
+    ...PageSpinnerI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -582,6 +589,7 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.it,
     ...PageSwitchI18n.it,
     ...PageTemplateI18n.it,
+    ...PageSpinnerI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -654,5 +662,6 @@ export const mainTranslation = {
     ...PageOneCheckboxI18n.ru,
     ...PageSwitchI18n.ru,
     ...PageTemplateI18n.ru,
+    ...PageSpinnerI18n.ru,
   },
 };
