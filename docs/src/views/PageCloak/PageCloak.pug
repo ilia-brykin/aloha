@@ -1,6 +1,28 @@
-div
-  h1 PageCloak
-  a-cloak(
-    size="4"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
+    a-translation(
+      tag="p"
+      html="_A_CLOAK_COMPONENT_DESCRIPTION_"
+    )
 
+    page-cloak-basic
+
+    page-cloak-align
+
+    page-cloak-text-align
+
+    page-cloak-sizes
+
+    page-cloak-text
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

@@ -26,28 +26,10 @@ export default function ComponentItemsAPI() {
         },
       },
       {
-        group: "Hola",
         id: "cloak",
         label: "Cloak",
         to: {
           name: "PageCloak",
-        },
-      },
-      {
-        group: "Hola",
-        id: "cloak2",
-        label: "Cloak disabled",
-        to: {
-          name: "PageCloak",
-        },
-        disabled: true,
-      },
-      {
-        group: "Hola",
-        id: "collapse",
-        label: "Collapse",
-        to: {
-          name: "PageCollapse",
         },
       },
       {

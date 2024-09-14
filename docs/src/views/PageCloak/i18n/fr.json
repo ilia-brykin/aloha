@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">ACloak</strong> affiche un indicateur de chargement avec un texte indiquant le chargement actuel de la page ou d'un grand composant. Il prend en charge diverses options de personnalisation, y compris l'alignement du texte, la taille de l'indicateur et la possibilité de changer la balise <strong lang=\"en\">HTML</strong> utilisée pour le rendu.",
+  "_A_CLOAK_COMPONENT_NAME_": "Écran de chargement",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">align</strong> dans le composant <strong lang=\"en\">ACloak</strong>. Il permet d'aligner le texte et le spinner à gauche, au centre ou à droite. Par exemple, le premier spinner est aligné à gauche, le deuxième est centré et le troisième est aligné à droite.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Alignement du composant",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">size</strong> pour contrôler les tailles du texte et de l'indicateur de chargement. Les valeurs vont de <strong lang=\"en\">1</strong> (le plus grand) à <strong lang=\"en\">7</strong> (le plus petit).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Tailles",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">text-align</strong> dans le composant <strong lang=\"en\">ACloak</strong>. Cette propriété permet d'aligner le texte accompagnant l'indicateur de chargement à gauche ou à droite. Dans le premier exemple, le texte est aligné à gauche, et dans le deuxième, il est aligné à droite.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Alignement du texte",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">text</strong> et <strong lang=\"en\">extra</strong>. Le paramètre <strong lang=\"en\">extra</strong> permet de modifier dynamiquement le texte. Dans ce cas, le texte affiche le message 'Chargement 1', où le nombre <strong>{{ number }}</strong> est extrait de l'objet <strong lang=\"en\">extra</strong> passé.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Texte avec le paramètre <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Définit l'alignement du texte et du spinner dans le composant. Valeurs possibles : <strong lang=\"en\">left</strong> (gauche), <strong lang=\"en\">center</strong> (centre) et <strong lang=\"en\">right</strong> (droite).",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Définit la taille du texte et de l'indicateur de chargement. Les valeurs valides vont de <strong lang=\"en\">1</strong> (le plus grand) à <strong lang=\"en\">7</strong> (le plus petit).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> pour personnaliser l'apparence de l'indicateur de chargement.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "Balise <strong lang=\"en\">HTML</strong> utilisée pour rendre le composant.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Définit l'alignement du texte par rapport au spinner. Valeurs possibles : <strong lang=\"en\">left</strong> (gauche) et <strong lang=\"en\">right</strong> (droite). Par défaut, le texte est aligné à droite.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Texte qui sera affiché à côté de l'indicateur de chargement.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Chargement {{ number }}"
+}

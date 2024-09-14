@@ -1,99 +1,107 @@
-import ASpinner from "../ASpinner/ASpinner.js";
-import ATranslation from "../ATranslation/ATranslation";
-
 import {
   h,
 } from "vue";
 
+import ASpinner from "../ASpinner/ASpinner.js";
+import ATranslation from "../ATranslation/ATranslation";
+
+import ClassAPI from "./compositionAPI/ClassAPI";
+
+import {
+  cloakPluginOptions,
+} from "../plugins/ACloakPlugin";
+import {
+  spinnerPluginOptions,
+} from "../plugins/ASpinnerPlugin";
+
 export default {
   name: "ACloak",
-  components: {
-    ASpinner,
-    ATranslation,
-  },
   props: {
     align: {
       type: String,
       required: false,
-      default: "center",
-      validator: value => ["start", "center", "end"].indexOf(value) !== -1,
+      default: () => cloakPluginOptions.value.propsDefault.align,
+      validator: value => ["left", "center", "right"].indexOf(value) !== -1,
     },
-    text: {
-      type: String,
-      required: false,
-      default: "_A_CLOAK_LOADING_",
-    },
-    isTextLeft: {
+    alwaysTranslate: {
       type: Boolean,
       required: false,
     },
     extra: {
       type: Object,
       required: false,
-    },
-    tag: {
-      type: String,
-      required: false,
-      default: "div",
+      default: undefined,
     },
     size: {
       type: [String, Number],
       required: false,
-      default: 6,
+      default: () => cloakPluginOptions.value.propsDefault.size,
       validator: size => ["1", "2", "3", "4", "5", "6", "7"].indexOf(`${ size }`) !== -1,
     },
+    spinnerClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    spinnerSafeHtml: {
+      type: String,
+      required: false,
+      default: () => spinnerPluginOptions.value.propsDefault.safeHtml,
+    },
+    spinnerTag: {
+      type: String,
+      required: false,
+      default: () => spinnerPluginOptions.value.propsDefault.tag,
+    },
+    tag: {
+      type: String,
+      required: false,
+      default: () => cloakPluginOptions.value.propsDefault.tag,
+    },
+    text: {
+      type: String,
+      required: false,
+      default: () => cloakPluginOptions.value.propsDefault.text,
+    },
+    textAlign: {
+      type: String,
+      required: false,
+      default: () => cloakPluginOptions.value.propsDefault.textAlign,
+      validator: value => ["left", "right"].indexOf(value) !== -1,
+    },
   },
-  computed: {
-    classAlign() {
-      return `a_text_${ this.align }`;
-    },
+  setup(props) {
+    const {
+      classAlign,
+      classForBox,
+      classSpinnerSize,
+      classTextSize,
+    } = ClassAPI(props);
 
-    classForBox() {
-      return this.isTextLeft ? "a_cloak__box_text_left" : "a_cloak__box_text_right";
-    },
-
-    classTextSize() {
-      return `a_fs_${ this.size }`;
-    },
-
-    boxChildren() {
-      const CHILDREN = [];
-      if (this.isTextLeft) {
-        CHILDREN.push(this.boxTextLeft);
-      }
-      CHILDREN.push(this.boxSpinner);
-      if (!this.isTextLeft) {
-        CHILDREN.push(this.boxTextRight);
-      }
-      return CHILDREN;
-    },
-
-    boxTextLeft() {
-      return h(ATranslation, {
-        tag: "span",
-        class: ["a_cloak__text a_cloak__text_left", this.classTextSize],
-        text: this.text,
-        extra: this.extra,
-      });
-    },
-
-    boxTextRight() {
-      return h(ATranslation, {
-        tag: "span",
-        class: ["a_cloak__text a_cloak__text_right", this.classTextSize],
-        text: this.text,
-        extra: this.extra,
-      });
-    },
-
-    boxSpinner() {
-      return h(ASpinner, {
-        class: ["a_cloak__spinner"],
-        "aria-hidden": "true",
-      });
-    },
+    return {
+      classAlign,
+      classForBox,
+      classSpinnerSize,
+      classTextSize,
+    };
   },
   render() {
+    const IS_TEXT_LEFT = this.textAlign === "left";
+
+    const BOX_TEXT = h(ATranslation, {
+      alwaysTranslate: this.alwaysTranslate,
+      tag: "span",
+      class: [
+        "a_cloak__text",
+        IS_TEXT_LEFT ?
+          "a_cloak__text_left" :
+          "a_cloak__text_right",
+        this.classTextSize,
+      ],
+      text: this.text,
+      extra: this.extra,
+    });
+
     return h(
       this.tag,
       {
@@ -103,7 +111,25 @@ export default {
       [
         h("div", {
           class: ["a_cloak__box", this.classForBox]
-        }, this.boxChildren),
+        }, [
+          IS_TEXT_LEFT ?
+            BOX_TEXT :
+            "",
+          h(ASpinner, {
+            alwaysTranslate: this.alwaysTranslate,
+            class: [
+              "a_cloak__spinner",
+              this.spinnerClass,
+            ],
+            "aria-hidden": "true",
+            safeHtml: this.spinnerSafeHtml,
+            size: this.size,
+            tag: this.spinnerTag,
+          }),
+          !IS_TEXT_LEFT ?
+            BOX_TEXT :
+            "",
+        ]),
       ],
     );
   },

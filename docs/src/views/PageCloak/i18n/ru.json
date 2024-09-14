@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ACloak</strong> отображает индикатор загрузки с текстом, указывающим на текущую загрузку страницы или большого компонента. Он поддерживает различные параметры настройки, включая выравнивание текста, размер индикатора и возможность изменения <strong lang=\"en\">HTML</strong>-тега для рендеринга.",
+  "_A_CLOAK_COMPONENT_NAME_": "Экран загрузки",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">align</strong> для компонента <strong lang=\"en\">ACloak</strong>. Оно позволяет настроить выравнивание текста и спиннера по центру, левому или правому краю. Например, первый спиннер выровнен по левому краю, второй — по центру, а третий — по правому.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Выравнивание компонента",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">size</strong> для управления размерами как текста, так и индикатора загрузки. Значения варьируются от <strong lang=\"en\">1</strong> (самый большой) до <strong lang=\"en\">7</strong> (самый маленький).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Размеры",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">text-align</strong> для компонента <strong lang=\"en\">ACloak</strong>. Это свойство позволяет выровнять текст, сопровождающий индикатор загрузки, по левому или правому краю. В первом примере текст выравнивается по левому краю, а во втором — по правому.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Выравнивание текста",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">text</strong> и <strong lang=\"en\">extra</strong>. Параметр <strong lang=\"en\">extra</strong> позволяет динамически изменять текст. В данном случае текст отображает сообщение 'Загрузка 1', где число <strong>{{ number }}</strong> берется из переданного объекта <strong lang=\"en\">extra</strong>.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Текст с параметром <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Определяет выравнивание текста и спиннера внутри компонента. Возможные значения: <strong lang=\"en\">left</strong> (слева), <strong lang=\"en\">center</strong> (по центру) и <strong lang=\"en\">right</strong> (справа).",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Определяет размер текста и индикатора загрузки. Допустимые значения — от <strong lang=\"en\">1</strong>(самый большой)  до <strong lang=\"en\">7</strong> (самый маленький).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс для настройки внешнего вида индикатора загрузки.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "<strong lang=\"en\">HTML</strong>-тег, который будет использоваться для рендеринга компонента.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Определяет выравнивание текста относительно спиннера. Возможные значения: <strong lang=\"en\">left</strong> (слева) и <strong lang=\"en\">right</strong> (справа). По умолчанию текст выравнивается по правому краю.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Текст, который будет отображаться рядом с индикатором загрузки.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Загрузка {{ number }}"
+}

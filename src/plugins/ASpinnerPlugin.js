@@ -7,6 +7,7 @@ export const spinnerPluginOptions = ref({
     ariaLabel: "_A_SPINNER_LOADING_",
     class: "a_spinner",
     safeHtml: "",
+    size: undefined,
     tag: "span",
   },
 });

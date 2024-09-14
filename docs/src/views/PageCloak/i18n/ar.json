@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "يعرض مكون <strong lang=\"en\">ACloak</strong> مؤشر تحميل مع نص يشير إلى تحميل الصفحة أو المكون الكبير. يدعم خيارات تخصيص متعددة، بما في ذلك محاذاة النص، حجم المؤشر، وإمكانية تغيير علامة <strong lang=\"en\">HTML</strong> المستخدمة في العرض.",
+  "_A_CLOAK_COMPONENT_NAME_": "شاشة التحميل",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">align</strong> في مكون <strong lang=\"en\">ACloak</strong>. يسمح لك بمحاذاة النص والمؤشر إلى اليسار أو الوسط أو اليمين. على سبيل المثال، المؤشر الأول محاذٍ إلى اليسار، الثاني في المنتصف، والثالث إلى اليمين.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "محاذاة المكون",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">size</strong> للتحكم في أحجام النص ومؤشر التحميل. تتراوح القيم من <strong lang=\"en\">1</strong> (الأكبر) إلى <strong lang=\"en\">7</strong> (الأصغر).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "الأحجام",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">text-align</strong> في مكون <strong lang=\"en\">ACloak</strong>. يتيح لك هذا الخاصية محاذاة النص المرافق لمؤشر التحميل إلى اليسار أو اليمين. في المثال الأول، يتم محاذاة النص إلى اليسار، وفي الثاني يتم محاذاة النص إلى اليمين.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "محاذاة النص",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">text</strong> و <strong lang=\"en\">extra</strong>. يسمح لك المعامل <strong lang=\"en\">extra</strong> بتغيير النص ديناميكيًا. في هذه الحالة، يعرض النص الرسالة 'تحميل 1'، حيث يتم أخذ الرقم <strong>{{ number }}</strong> من الكائن <strong lang=\"en\">extra</strong> الممرر.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "النص مع معلمة <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "يحدد محاذاة النص والمؤشر داخل المكون. القيم المتاحة: <strong lang=\"en\">left</strong> (اليسار)، <strong lang=\"en\">center</strong> (الوسط)، و<strong lang=\"en\">right</strong> (اليمين).",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "يحدد حجم النص ومؤشر التحميل. القيم الصالحة تتراوح من <strong lang=\"en\">1</strong> (الأكبر) إلى <strong lang=\"en\">7</strong> (الأصغر).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لتخصيص مظهر مؤشر التحميل.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "علامة <strong lang=\"en\">HTML</strong> المستخدمة في عرض المكون.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "يحدد محاذاة النص بالنسبة إلى المؤشر. القيم المتاحة: <strong lang=\"en\">left</strong> (اليسار) و<strong lang=\"en\">right</strong> (اليمين). بشكل افتراضي، يتم محاذاة النص إلى اليمين.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "النص الذي سيتم عرضه بجانب مؤشر التحميل.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "تحميل {{ number }}"
+}

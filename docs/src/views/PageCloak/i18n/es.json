@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">ACloak</strong> muestra un indicador de carga con un texto que indica la carga actual de la página o de un componente grande. Admite varias opciones de personalización, como la alineación del texto, el tamaño del indicador y la posibilidad de cambiar la etiqueta <strong lang=\"en\">HTML</strong> utilizada para el renderizado.",
+  "_A_CLOAK_COMPONENT_NAME_": "Pantalla de carga",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">align</strong> en el componente <strong lang=\"en\">ACloak</strong>. Permite alinear el texto y el indicador de carga a la izquierda, en el centro o a la derecha. Por ejemplo, el primer indicador está alineado a la izquierda, el segundo está centrado y el tercero está alineado a la derecha.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Alineación del componente",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">size</strong> para controlar los tamaños tanto del texto como del indicador de carga. Los valores varían de <strong lang=\"en\">1</strong> (el más grande) a <strong lang=\"en\">7</strong> (el más pequeño).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Tamaños",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">text-align</strong> en el componente <strong lang=\"en\">ACloak</strong>. Esta propiedad permite alinear el texto que acompaña al indicador de carga a la izquierda o a la derecha. En el primer ejemplo, el texto está alineado a la izquierda, y en el segundo está alineado a la derecha.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Alineación del texto",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">text</strong> y <strong lang=\"en\">extra</strong>. El parámetro <strong lang=\"en\">extra</strong> permite cambiar dinámicamente el texto. En este caso, el texto muestra el mensaje 'Cargando 1', donde el número <strong>{{ number }}</strong> se toma del objeto <strong lang=\"en\">extra</strong> pasado.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Texto con el parámetro <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Define la alineación del texto y el indicador de carga dentro del componente. Los valores posibles son: <strong lang=\"en\">left</strong> (izquierda), <strong lang=\"en\">center</strong> (centro) y <strong lang=\"en\">right</strong> (derecha).",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Define el tamaño del texto y del indicador de carga. Los valores válidos van de <strong lang=\"en\">1</strong> (el más grande) a <strong lang=\"en\">7</strong> (el más pequeño).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> para personalizar la apariencia del indicador de carga.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "Etiqueta <strong lang=\"en\">HTML</strong> utilizada para renderizar el componente.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Define la alineación del texto en relación con el indicador de carga. Los valores posibles son: <strong lang=\"en\">left</strong> (izquierda) y <strong lang=\"en\">right</strong> (derecha). Por defecto, el texto está alineado a la derecha.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Texto que se mostrará junto al indicador de carga.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Cargando {{ number }}"
+}
