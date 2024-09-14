@@ -5,10 +5,13 @@
   "_A_SPINNER_GROUP_ARIA_LABEL_HEADER_": "<strong lang=\"en\">Aria-label</strong> con el parámetro <strong lang=\"en\">extra</strong>",
   "_A_SPINNER_GROUP_COLORS_DESCRIPTION_": "Este ejemplo muestra cómo usar varios colores para el componente <strong lang=\"en\">ASpinner</strong>. Puede aplicar diferentes clases <strong lang=\"en\">CSS</strong>, como <strong lang=\"en\">a_color_black</strong>, <strong lang=\"en\">a_color_danger</strong> o <strong lang=\"en\">a_color_primary</strong>, para cambiar el color del spinner. Colores estándar como <strong lang=\"en\">primary</strong>, <strong lang=\"en\">success</strong> y <strong lang=\"en\">warning</strong> están disponibles, así como varios tonos de gris y colores de texto.",
   "_A_SPINNER_GROUP_COLORS_HEADER_": "Colores",
+  "_A_SPINNER_GROUP_SIZE_DESCRIPTION_": "Este ejemplo muestra cómo usar <strong lang=\"en\">size</strong> para controlar el tamaño del indicador de carga. Los valores varían de <strong lang=\"en\">1</strong> (el más grande) a <strong lang=\"en\">7</strong> (el más pequeño).",
+  "_A_SPINNER_GROUP_SIZE_HEADER_": "Tamaños",
   "_A_SPINNER_GROUP_SIZES_DESCRIPTION_": "Este ejemplo muestra cómo usar diferentes tamaños para el componente <strong lang=\"en\">ASpinner</strong>. El componente admite tres tamaños: <strong lang=\"en\">small</strong>, <strong lang=\"en\">medium</strong> (por defecto) y <strong lang=\"en\">large</strong>. El tamaño se establece utilizando la clase <strong lang=\"en\">CSS</strong> correspondiente, como <strong lang=\"en\">a_spinner_small</strong> para un spinner pequeño y <strong lang=\"en\">a_spinner_large</strong> para uno grande. El tamaño medio se muestra de forma predeterminada.",
-  "_A_SPINNER_GROUP_SIZES_HEADER_": "Tamaños",
+  "_A_SPINNER_GROUP_SIZES_HEADER_": "Tamaños utilizando <strong lang=\"en\">CSS</strong>",
   "_A_SPINNER_PROPS_ARIA_LABEL_DESCRIPTION_": "El atributo <strong lang=\"en\">aria-label</strong> para mejorar la accesibilidad. Puede especificar texto diferente para dispositivos móviles y de escritorio, o pasar una cadena para todos los dispositivos.",
   "_A_SPINNER_PROPS_SAFE_HTML_DESCRIPTION_": "Contenido <strong lang=\"en\">HTML</strong> seguro que se mostrará dentro del indicador de carga. Se utiliza para personalizar el contenido interno del spinner.",
+  "_A_SPINNER_PROPS_SIZE_DESCRIPTION_": "Define el tamaño del indicador de carga. Los valores válidos van de <strong lang=\"en\">1</strong> (el más grande) a <strong lang=\"en\">7</strong> (el más pequeño).",
   "_A_SPINNER_PROPS_TAG_DESCRIPTION_": "La etiqueta <strong lang=\"en\">HTML</strong> que se utilizará para renderizar el indicador de carga. De forma predeterminada, es <strong lang=\"en\">span</strong>, pero puede cambiarse a cualquier otra etiqueta apropiada.",
   "_PAGE_SPINNER_ARIA_LABEL_{{number}}_": "Cargando {{ number }}"
 }

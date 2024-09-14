@@ -29,6 +29,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "size",
+      description: "_A_SPINNER_PROPS_SIZE_DESCRIPTION_",
+      type: "String / Number",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "tag",
       description: "_A_SPINNER_PROPS_TAG_DESCRIPTION_",
       type: "String",

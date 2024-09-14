@@ -5,10 +5,13 @@
   "_A_SPINNER_GROUP_ARIA_LABEL_HEADER_": "<strong lang=\"en\">Aria-label</strong> с параметром <strong lang=\"en\">extra</strong>",
   "_A_SPINNER_GROUP_COLORS_DESCRIPTION_": "В этом примере показано, как использовать различные цвета для компонента <strong lang=\"en\">ASpinner</strong>. Вы можете применить различные <strong lang=\"en\">CSS</strong>-классы, такие как <strong lang=\"en\">a_color_black</strong>, <strong lang=\"en\">a_color_danger</strong> или <strong lang=\"en\">a_color_primary</strong>, чтобы изменить цвет спиннера. Доступны как стандартные цвета (например, <strong lang=\"en\">primary</strong>, <strong lang=\"en\">success</strong> и <strong lang=\"en\">warning</strong>), так и различные оттенки серого и текстовые цвета.",
   "_A_SPINNER_GROUP_COLORS_HEADER_": "Цвета",
+  "_A_SPINNER_GROUP_SIZE_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">size</strong> для управления размерами индикатора загрузки. Значения варьируются от <strong lang=\"en\">1</strong> (самый большой) до <strong lang=\"en\">7</strong> (самый маленький).",
+  "_A_SPINNER_GROUP_SIZE_HEADER_": "Размеры",
   "_A_SPINNER_GROUP_SIZES_DESCRIPTION_": "В этом примере показано, как использовать различные размеры для компонента <strong lang=\"en\">ASpinner</strong>. Компонент поддерживает три размера: <strong lang=\"en\">small</strong>, <strong lang=\"en\">medium</strong> (по умолчанию) и <strong lang=\"en\">large</strong>. Для задания размера используется соответствующий <strong lang=\"en\">CSS</strong>-класс, такой как <strong lang=\"en\">a_spinner_small</strong> для маленького спиннера и <strong lang=\"en\">a_spinner_large</strong> для большого. Средний размер отображается по умолчанию.",
-  "_A_SPINNER_GROUP_SIZES_HEADER_": "Размеры",
+  "_A_SPINNER_GROUP_SIZES_HEADER_": "Размеры при помощи <strong lang=\"en\">CSS</strong>",
   "_A_SPINNER_PROPS_ARIA_LABEL_DESCRIPTION_": "Атрибут <strong lang=\"en\">aria-label</strong> для повышения доступности. Можно указать текст для мобильных и десктопных устройств отдельно, либо передать строку для всех устройств.",
   "_A_SPINNER_PROPS_SAFE_HTML_DESCRIPTION_": "Безопасный <strong lang=\"en\">HTML</strong>-контент, который будет отображен внутри индикатора загрузки. Используется для настройки внутреннего содержимого спиннера.",
+  "_A_SPINNER_PROPS_SIZE_DESCRIPTION_": "Определяет размер индикатора загрузки. Допустимые значения — от <strong lang=\"en\">1</strong> (самый большой)  до <strong lang=\"en\">7</strong> (самый маленький).",
   "_A_SPINNER_PROPS_TAG_DESCRIPTION_": "<strong lang=\"en\">HTML</strong>-тег, который будет использоваться для рендеринга индикатора загрузки. По умолчанию это <strong lang=\"en\">span</strong>, но может быть изменено на любой другой подходящий тег.",
   "_PAGE_SPINNER_ARIA_LABEL_{{number}}_": "Загрузка {{ number }}"
 }

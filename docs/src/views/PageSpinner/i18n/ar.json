@@ -5,10 +5,13 @@
   "_A_SPINNER_GROUP_ARIA_LABEL_HEADER_": "<strong lang=\"en\">Aria-label</strong> مع معلمة <strong lang=\"en\">extra</strong>",
   "_A_SPINNER_GROUP_COLORS_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام ألوان مختلفة لمكون <strong lang=\"en\">ASpinner</strong>. يمكنك تطبيق فئات <strong lang=\"en\">CSS</strong> مختلفة، مثل <strong lang=\"en\">a_color_black</strong> أو <strong lang=\"en\">a_color_danger</strong> أو <strong lang=\"en\">a_color_primary</strong> لتغيير لون مؤشر التحميل. الألوان القياسية مثل <strong lang=\"en\">primary</strong> و <strong lang=\"en\">success</strong> و <strong lang=\"en\">warning</strong> متاحة، بالإضافة إلى درجات مختلفة من الرمادي وألوان النص.",
   "_A_SPINNER_GROUP_COLORS_HEADER_": "الألوان",
+  "_A_SPINNER_GROUP_SIZE_DESCRIPTION_": "يُظهر هذا المثال كيفية استخدام <strong lang=\"en\">size</strong> للتحكم في حجم مؤشر التحميل. تتراوح القيم من <strong lang=\"en\">1</strong> (الأكبر) إلى <strong lang=\"en\">7</strong> (الأصغر).",
+  "_A_SPINNER_GROUP_SIZE_HEADER_": "الأحجام",
   "_A_SPINNER_GROUP_SIZES_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام أحجام مختلفة لمكون <strong lang=\"en\">ASpinner</strong>. يدعم المكون ثلاثة أحجام: <strong lang=\"en\">small</strong> و <strong lang=\"en\">medium</strong> (افتراضي) و <strong lang=\"en\">large</strong>. يتم تحديد الحجم باستخدام فئة <strong lang=\"en\">CSS</strong> المناسبة، مثل <strong lang=\"en\">a_spinner_small</strong> لمؤشر التحميل الصغير و <strong lang=\"en\">a_spinner_large</strong> للمؤشر الكبير. الحجم المتوسط هو الحجم الافتراضي.",
-  "_A_SPINNER_GROUP_SIZES_HEADER_": "الأحجام",
+  "_A_SPINNER_GROUP_SIZES_HEADER_": "الأحجام باستخدام <strong lang=\"en\">CSS</strong>",
   "_A_SPINNER_PROPS_ARIA_LABEL_DESCRIPTION_": "خاصية <strong lang=\"en\">aria-label</strong> لتحسين الوصول. يمكن تحديد نص مختلف للأجهزة المحمولة والمكتبية أو تمرير نص واحد لجميع الأجهزة.",
   "_A_SPINNER_PROPS_SAFE_HTML_DESCRIPTION_": "محتوى <strong lang=\"en\">HTML</strong> آمن ليتم عرضه داخل مؤشر التحميل. يُستخدم لتخصيص المحتوى الداخلي للمؤشر.",
+  "_A_SPINNER_PROPS_SIZE_DESCRIPTION_": "يحدد حجم مؤشر التحميل. القيم المسموح بها تتراوح من <strong lang=\"en\">1</strong> (الأكبر) إلى <strong lang=\"en\">7</strong> (الأصغر).",
   "_A_SPINNER_PROPS_TAG_DESCRIPTION_": "علامة <strong lang=\"en\">HTML</strong> المستخدمة لعرض مؤشر التحميل. افتراضيًا، يكون <strong lang=\"en\">span</strong>، ولكن يمكن تغييره إلى أي علامة أخرى مناسبة.",
   "_PAGE_SPINNER_ARIA_LABEL_{{number}}_": "تحميل {{ number }}"
 }

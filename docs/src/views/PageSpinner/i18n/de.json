@@ -5,10 +5,13 @@
   "_A_SPINNER_GROUP_ARIA_LABEL_HEADER_": "<strong lang=\"en\">Aria-label</strong> mit dem <strong lang=\"en\">extra</strong>-Parameter",
   "_A_SPINNER_GROUP_COLORS_DESCRIPTION_": "Dieses Beispiel zeigt, wie verschiedene Farben für die <strong lang=\"en\">ASpinner</strong>-Komponente verwendet werden. Sie können verschiedene <strong lang=\"en\">CSS</strong>-Klassen wie <strong lang=\"en\">a_color_black</strong>, <strong lang=\"en\">a_color_danger</strong> oder <strong lang=\"en\">a_color_primary</strong> anwenden, um die Farbe des Spinners zu ändern. Standardfarben wie <strong lang=\"en\">primary</strong>, <strong lang=\"en\">success</strong> und <strong lang=\"en\">warning</strong> sowie verschiedene Grautöne und Textfarben sind verfügbar.",
   "_A_SPINNER_GROUP_COLORS_HEADER_": "Farben",
+  "_A_SPINNER_GROUP_SIZE_DESCRIPTION_": "Dieses Beispiel zeigt, wie <strong lang=\"en\">size</strong> verwendet wird, um die Größe des Ladeindikators zu steuern. Die Werte reichen von <strong lang=\"en\">1</strong> (größter) bis <strong lang=\"en\">7</strong> (kleinster).",
+  "_A_SPINNER_GROUP_SIZE_HEADER_": "Größen",
   "_A_SPINNER_GROUP_SIZES_DESCRIPTION_": "Dieses Beispiel zeigt, wie verschiedene Größen für die <strong lang=\"en\">ASpinner</strong>-Komponente verwendet werden. Die Komponente unterstützt drei Größen: <strong lang=\"en\">small</strong>, <strong lang=\"en\">medium</strong> (Standard) und <strong lang=\"en\">large</strong>. Die Größe wird mit der entsprechenden <strong lang=\"en\">CSS</strong>-Klasse festgelegt, z. B. <strong lang=\"en\">a_spinner_small</strong> für kleine und <strong lang=\"en\">a_spinner_large</strong> für große Spinner. Die mittlere Größe wird standardmäßig angezeigt.",
-  "_A_SPINNER_GROUP_SIZES_HEADER_": "Größen",
+  "_A_SPINNER_GROUP_SIZES_HEADER_": "Größen mit <strong lang=\"en\">CSS</strong>",
   "_A_SPINNER_PROPS_ARIA_LABEL_DESCRIPTION_": "Das <strong lang=\"en\">aria-label</strong>-Attribut zur Verbesserung der Barrierefreiheit. Es kann einen separaten Text für mobile und Desktop-Geräte angeben oder eine Zeichenkette für alle Geräte übergeben.",
   "_A_SPINNER_PROPS_SAFE_HTML_DESCRIPTION_": "Sicherer <strong lang=\"en\">HTML</strong>-Inhalt, der im Ladeindikator angezeigt wird. Wird verwendet, um den inneren Inhalt des Spinners anzupassen.",
+  "_A_SPINNER_PROPS_SIZE_DESCRIPTION_": "Bestimmt die Größe des Ladeindikators. Gültige Werte reichen von <strong lang=\"en\">1</strong> (größter) bis <strong lang=\"en\">7</strong> (kleinster).",
   "_A_SPINNER_PROPS_TAG_DESCRIPTION_": "Das <strong lang=\"en\">HTML</strong>-Tag, das zum Rendern des Ladeindikators verwendet wird. Standardmäßig ist es <strong lang=\"en\">span</strong>, kann aber auf jedes andere geeignete Tag geändert werden.",
   "_PAGE_SPINNER_ARIA_LABEL_{{number}}_": "Laden {{ number }}"
 }

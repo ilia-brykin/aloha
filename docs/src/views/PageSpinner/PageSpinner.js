@@ -5,6 +5,7 @@ import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageSpinnerAriaLabel from "./PageSpinnerAriaLabel/PageSpinnerAriaLabel.vue";
 import PageSpinnerBasic from "./PageSpinnerBasic/PageSpinnerBasic.vue";
 import PageSpinnerColors from "./PageSpinnerColors/PageSpinnerColors.vue";
+import PageSpinnerSize from "./PageSpinnerSize/PageSpinnerSize.vue";
 import PageSpinnerSizes from "./PageSpinnerSizes/PageSpinnerSizes.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -21,6 +22,7 @@ export default {
     PageSpinnerAriaLabel,
     PageSpinnerBasic,
     PageSpinnerColors,
+    PageSpinnerSize,
     PageSpinnerSizes,
   },
   setup() {

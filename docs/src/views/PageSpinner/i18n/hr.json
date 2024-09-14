@@ -5,10 +5,13 @@
   "_A_SPINNER_GROUP_ARIA_LABEL_HEADER_": "<strong lang=\"en\">Aria-label</strong> s parametrom <strong lang=\"en\">extra</strong>",
   "_A_SPINNER_GROUP_COLORS_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti različite boje za komponentu <strong lang=\"en\">ASpinner</strong>. Možete primijeniti različite <strong lang=\"en\">CSS</strong> klase, poput <strong lang=\"en\">a_color_black</strong>, <strong lang=\"en\">a_color_danger</strong> ili <strong lang=\"en\">a_color_primary</strong>, kako biste promijenili boju spinnra. Dostupne su standardne boje poput <strong lang=\"en\">primary</strong>, <strong lang=\"en\">success</strong> i <strong lang=\"en\">warning</strong>, kao i različite nijanse sive i tekstualne boje.",
   "_A_SPINNER_GROUP_COLORS_HEADER_": "Boje",
+  "_A_SPINNER_GROUP_SIZE_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">size</strong> za kontrolu veličine indikatora učitavanja. Vrijednosti se kreću od <strong lang=\"en\">1</strong> (najveća) do <strong lang=\"en\">7</strong> (najmanja).",
+  "_A_SPINNER_GROUP_SIZE_HEADER_": "Veličine",
   "_A_SPINNER_GROUP_SIZES_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti različite veličine za komponentu <strong lang=\"en\">ASpinner</strong>. Komponenta podržava tri veličine: <strong lang=\"en\">small</strong>, <strong lang=\"en\">medium</strong> (zadano) i <strong lang=\"en\">large</strong>. Veličina se postavlja pomoću odgovarajuće <strong lang=\"en\">CSS</strong> klase, kao što je <strong lang=\"en\">a_spinner_small</strong> za mali spinner i <strong lang=\"en\">a_spinner_large</strong> za veliki. Srednja veličina prikazuje se prema zadanim postavkama.",
-  "_A_SPINNER_GROUP_SIZES_HEADER_": "Veličine",
+  "_A_SPINNER_GROUP_SIZES_HEADER_": "Veličine koristeći <strong lang=\"en\">CSS</strong>",
   "_A_SPINNER_PROPS_ARIA_LABEL_DESCRIPTION_": "Atribut <strong lang=\"en\">aria-label</strong> za poboljšanje pristupačnosti. Možete specificirati različit tekst za mobilne i desktop uređaje ili proslijediti isti tekst za sve uređaje.",
   "_A_SPINNER_PROPS_SAFE_HTML_DESCRIPTION_": "Sigurni <strong lang=\"en\">HTML</strong> sadržaj koji će biti prikazan unutar indikatora učitavanja. Koristi se za prilagodbu unutarnjeg sadržaja spinnra.",
+  "_A_SPINNER_PROPS_SIZE_DESCRIPTION_": "Definira veličinu indikatora učitavanja. Valjane vrijednosti su od <strong lang=\"en\">1</strong> (najveće) do <strong lang=\"en\">7</strong> (najmanje).",
   "_A_SPINNER_PROPS_TAG_DESCRIPTION_": "Oznaka <strong lang=\"en\">HTML</strong> koja će se koristiti za renderiranje indikatora učitavanja. Zadano je <strong lang=\"en\">span</strong>, ali se može promijeniti u bilo koju drugu odgovarajuću oznaku.",
   "_PAGE_SPINNER_ARIA_LABEL_{{number}}_": "Učitavanje {{ number }}"
 }
