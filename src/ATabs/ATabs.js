@@ -29,6 +29,7 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     id: {
       type: String,
@@ -38,10 +39,12 @@ export default {
     isBoxed: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     isChangeOutside: {
       type: Boolean,
       required: false,
+      default: undefined,
     },
     isTitleHtml: {
       type: Boolean,
@@ -51,6 +54,12 @@ export default {
     isVertical: {
       type: Boolean,
       required: false,
+      default: undefined,
+    },
+    keyActive: {
+      type: String,
+      required: false,
+      default: "active",
     },
     keyContent: {
       type: String,
@@ -91,13 +100,13 @@ export default {
     const activeTabId = toRef(props, "activeTabId");
 
     const {
-      changeTab,
       activeTabIdLocal,
-      initTabActiveIndex,
+      changeTab,
+      initActiveTabIdLocal,
       setActiveTabIdLocal,
     } = ActiveAPI(props, context);
 
-    initTabActiveIndex();
+    initActiveTabIdLocal();
 
     watch(activeTabId, () => {
       setActiveTabIdLocal();

@@ -1,29 +1,37 @@
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import ATranslation from "../../../../src/ATranslation/ATranslation";
-import PageCloakAlign from "./PageCloakAlign/PageCloakAlign.vue";
-import PageCloakBasic from "./PageCloakBasic/PageCloakBasic.vue";
-import PageCloakSizes from "./PageCloakSizes/PageCloakSizes.vue";
-import PageCloakText from "./PageCloakText/PageCloakText.vue";
-import PageCloakTextAlign from "./PageCloakTextAlign/PageCloakTextAlign.vue";
+import PageTabsBasic from "./PageTabsBasic/PageTabsBasic.vue";
+import PageTabsDisabled from "./PageTabsDisabled/PageTabsDisabled.vue";
+import PageTabsKeyDisabled from "./PageTabsKeyDisabled/PageTabsKeyDisabled.vue";
+import PageTabsKeyLabel from "./PageTabsKeyLabel/PageTabsKeyLabel.vue";
+import PageTabsKeyContent from "./PageTabsKeyContent/PageTabsKeyContent.vue";
+import PageTabsKeyTitle from "./PageTabsKeyTitle/PageTabsKeyTitle.vue";
+import PageTabsTitleHtml from "./PageTabsTitleHtml/PageTabsTitleHtml.vue";
+import PageTabsIsBoxed from "./PageTabsIsBoxed/PageTabsIsBoxed.vue";
+import PageTabsIsVertical from "./PageTabsIsVertical/PageTabsIsVertical.vue";
+import PageTabsKeyId from "./PageTabsKeyId/PageTabsKeyId.vue";
 
+import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageTabs",
   components: {
     AlohaPage,
     AlohaTableProps,
-    AlohaTableTranslate,
     ATranslation,
-    PageCloakAlign,
-    PageCloakBasic,
-    PageCloakSizes,
-    PageCloakText,
-    PageCloakTextAlign,
+    PageTabsBasic,
+    PageTabsDisabled,
+    PageTabsKeyDisabled,
+    PageTabsKeyLabel,
+    PageTabsKeyContent,
+    PageTabsKeyTitle,
+    PageTabsTitleHtml,
+    PageTabsIsBoxed,
+    PageTabsIsVertical,
+    PageTabsKeyId,
   },
   setup() {
     const {
@@ -35,12 +43,12 @@ export default {
     } = PropsAPI();
 
     const {
-      dataTranslate,
-    } = TranslateAPI();
+      dataEvents,
+    } = EventsAPI();
 
     return {
+      dataEvents,
       dataProps,
-      dataTranslate,
       pageTitle,
     };
   },

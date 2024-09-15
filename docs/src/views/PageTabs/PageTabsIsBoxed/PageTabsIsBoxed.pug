@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABS_GROUP_IS_BOXED_HEADER_"
+  description="_A_TABS_GROUP_IS_BOXED_DESCRIPTION_"
+  :props="['is-boxed']"
+)
+  a-tabs(
+    :data="data"
+    :is-boxed="true"
+  )
+  a-tabs(
+    :data="data"
+    :is-boxed="false"
+    class="a_mt_3"
+  )

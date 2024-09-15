@@ -1,6 +1,7 @@
 {
   "_A_BASIC_USAGE_": "الاستخدام الأساسي",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "كائن يحتوي على متغيرات لاستبدالها في قالب الترجمة. يُستخدم لاستبدال القيم في نصوص الترجمة بشكل ديناميكي. على سبيل المثال، إذا كانت سلسلة الترجمة تحتوي على عناصر نائبة مثل <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>، والتي تُترجم إلى <strong>\"مرحبًا <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>، يمكنك تمرير كائن مثل <strong>{ <span lang=\"en\">foo</span>: \"أبج\", bar: \"123\" }</strong>، وستكون النتيجة هي الترجمة <strong>\"مرحبًا أبج: 123\"</strong>.",
+  "_A_GLOBAL_PROPS_ID_DESCRIPTION_": "معرّف فريد للمكون",
   "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "يحدد ما إذا كان يجب تفسير التلميح على أنه <strong lang=\"en\">HTML</strong>. إذا تم تعيينه على <strong lang=\"en\">true</strong>، سيتم عرض محتوى التلميح مع تنسيق <strong lang=\"en\">HTML</strong>.",
   "_A_GLOBAL_PROPS_TITLE_DESCRIPTION_": "يضبط نص التلميح الذي سيظهر عند التمرير فوق عنصر. يمكن تقديم التلميح كنص عادي أو ككائن لأجهزة مختلفة (مثل أجهزة الكمبيوتر المكتبية والأجهزة المحمولة).",
   "_A_GLOBAL_PROPS_TITLE_PLACEMENT_DESCRIPTION_": "يحدد موضع التلميح بالنسبة إلى العنصر. يتم دعم مواضع مختلفة، مثل <strong lang=\"en\">top</strong>، <strong lang=\"en\">bottom</strong>، <strong lang=\"en\">left</strong>، <strong lang=\"en\">right</strong>، وغيرها. هذه الخاصية تعمل فقط إذا تم تعيين <strong lang=\"en\">isTitleHtml</strong> إلى <strong lang=\"en\">true</strong>.",

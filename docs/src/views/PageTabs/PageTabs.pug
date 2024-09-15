@@ -9,20 +9,32 @@ aloha-page(
       html="_A_TABS_COMPONENT_DESCRIPTION_"
     )
 
-    page-cloak-basic
+    page-tabs-basic
 
-    page-cloak-align
+    page-tabs-disabled
 
-    page-cloak-text-align
+    page-tabs-key-disabled
 
-    page-cloak-sizes
+    page-tabs-key-label
 
-    page-cloak-text
+    page-tabs-key-content
+
+    page-tabs-key-title
+
+    page-tabs-title-html
+
+    page-tabs-is-boxed
+
+    page-tabs-is-vertical
+
+    page-tabs-key-id
 
     aloha-table-props(
       :data="dataProps"
     )
 
-    aloha-table-translate(
-      :data="dataTranslate"
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
     )
