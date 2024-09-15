@@ -15,33 +15,33 @@ import {
 export default {
   name: "ATabs",
   props: {
+    data: {
+      type: Array,
+      required: true,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
     id: {
       type: String,
       required: false,
       default: () => uniqueId("a_tabs_"),
-    },
-    data: {
-      type: Array,
-      required: true,
     },
     indexActiveTab: {
       type: Number,
       required: false,
       default: undefined,
     },
-    isChangeOutside: {
-      type: Boolean,
-      required: false,
-    },
     isBoxed: {
       type: Boolean,
       required: false,
     },
-    isVertical: {
+    isChangeOutside: {
       type: Boolean,
       required: false,
     },
-    disabled: {
+    isVertical: {
       type: Boolean,
       required: false,
     },

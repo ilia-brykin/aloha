@@ -1,78 +1,28 @@
-div
-  h1 ATabs
-  a-tabs(
-    :data="dataTabs1"
-    :index-active-tab="1"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
-  br
-  a-tabs(
-    :data="dataTabs1"
-    :is-boxed="true"
-  )
-  br
-  a-tabs.a_tabs_small(
-    :data="dataTabs1"
-    :is-boxed="true"
-  )
-  br
-  a-tabs.a_tabs_medium(
-    :data="dataTabs1"
-    :is-boxed="true"
-  )
-  br
-  a-tabs.a_tabs_large(
-    :data="dataTabs1"
-    :is-boxed="true"
-  )
-  h2 Vertical
-  a-tabs.a_tabs_large(
-    :data="dataTabs1"
-    :is-boxed="false"
-    :is-vertical="true"
-  )
-  a-tabs.a_tabs_large(
-    :data="dataTabs1"
-    :is-boxed="true"
-    :is-vertical="true"
-  )
-  h2 With Slots
-  a-tabs(
-    :data="dataTabs2"
-    :is-boxed="true"
-  )
-    template(
-      v-slot:tab="{ tab }"
+    a-translation(
+      tag="p"
+      html="_A_TABS_COMPONENT_DESCRIPTION_"
     )
-      span {{ tab }}
 
-    template(
-      v-slot:content="{ tab }"
-    )
-      span {{ tab }}
+    page-cloak-basic
 
-  a-tabs(
-    :data="dataTabs3"
-    :is-boxed="true"
-  )
-    template(
-      v-slot:content1
-    )
-      span content1
+    page-cloak-align
 
-    template(
-      v-slot:content2
-    )
-      span content2
+    page-cloak-text-align
 
-    template(
-      v-slot:tab1
+    page-cloak-sizes
+
+    page-cloak-text
+
+    aloha-table-props(
+      :data="dataProps"
     )
-      span tab1
-    template(
-      v-slot:tab2
+
+    aloha-table-translate(
+      :data="dataTranslate"
     )
-      span tab2
-    template(
-      v-slot:tab3
-    )
-      span tab3

@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">ACloak</strong> prikazuje indikator učitavanja s tekstom koji pokazuje trenutno učitavanje stranice ili velikog komponenta. Podržava različite opcije prilagodbe, uključujući poravnanje teksta, veličinu indikatora i mogućnost promjene <strong lang=\"en\">HTML</strong> oznake za prikaz.",
+  "_A_CLOAK_COMPONENT_NAME_": "Zaslon učitavanja",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">align</strong>. Omogućuje vam podešavanje poravnanja teksta i indikatora učitavanja u sredini, lijevo ili desno. Na primjer, prvi indikator je poravnan lijevo, drugi u sredini, a treći desno.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Poravnanje komponente",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "Ovaj primjer prikazuje kako koristiti <strong lang=\"en\">size</strong> za upravljanje veličinama teksta i indikatora učitavanja. Vrijednosti se kreću od <strong lang=\"en\">1</strong> (najveće) do <strong lang=\"en\">7</strong> (najmanje).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Veličine",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti <strong lang=\"en\">text-align</strong>. Ova svojstva omogućuju poravnavanje teksta koji prati indikator učitavanja ulijevo ili udesno. U prvom primjeru, tekst je poravnan lijevo, dok je u drugom poravnan desno.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Poravnanje teksta",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "Ovaj primjer prikazuje kako koristiti <strong lang=\"en\">text</strong> i <strong lang=\"en\">extra</strong>. Parametar <strong lang=\"en\">extra</strong> omogućuje dinamičnu promjenu teksta. U ovom slučaju tekst prikazuje poruku 'Učitavanje 1', gdje se broj <strong>{{ number }}</strong> uzima iz proslijeđenog objekta <strong lang=\"en\">extra</strong>.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Tekst s parametrom <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Definira poravnanje teksta i indikatora unutar komponente. Moguće vrijednosti: <strong lang=\"en\">left</strong> (lijevo), <strong lang=\"en\">center</strong> (u sredini) i <strong lang=\"en\">right</strong> (desno).",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Definira veličinu teksta i indikatora učitavanja. Valjane vrijednosti su od <strong lang=\"en\">1</strong> (najveće) do <strong lang=\"en\">7</strong> (najmanje).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klasa za prilagodbu izgleda indikatora učitavanja.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "<strong lang=\"en\">HTML</strong> oznaka koja se koristi za prikaz komponente.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Definira poravnanje teksta u odnosu na indikator. Moguće vrijednosti: <strong lang=\"en\">left</strong> (lijevo) i <strong lang=\"en\">right</strong> (desno). Zadano je poravnanje teksta desno.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Tekst koji će biti prikazan uz indikator učitavanja.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Učitavanje {{ number }}"
+}

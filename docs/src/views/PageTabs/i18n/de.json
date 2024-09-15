@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">ACloak</strong> zeigt einen Ladeindikator mit einem Text an, der auf das aktuelle Laden der Seite oder einer großen Komponente hinweist. Sie unterstützt verschiedene Anpassungsoptionen, einschließlich der Ausrichtung des Textes, der Größe des Indikators und der Möglichkeit, das <strong lang=\"en\">HTML</strong>-Tag für das Rendern zu ändern.",
+  "_A_CLOAK_COMPONENT_NAME_": "Ladebildschirm",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "Dieses Beispiel zeigt, wie <strong lang=\"en\">align</strong> verwendet wird. Es ermöglicht das Ausrichten von Text und Spinner in die Mitte, nach links oder nach rechts. Zum Beispiel ist der erste Spinner links, der zweite zentriert und der dritte rechts ausgerichtet.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Ausrichtung der Komponente",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "Dieses Beispiel zeigt, wie Sie <strong lang=\"en\">size</strong> verwenden, um die Größe sowohl des Textes als auch des Ladeindikators zu steuern. Die Werte reichen von <strong lang=\"en\">1</strong> (größter) bis <strong lang=\"en\">7</strong> (kleinster).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Größen",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "Dieses Beispiel zeigt, wie <strong lang=\"en\">text-align</strong> verwendet wird. Mit dieser Eigenschaft kann der Text, der den Ladespinner begleitet, links oder rechts ausgerichtet werden. Im ersten Beispiel ist der Text linksbündig, im zweiten rechtsbündig.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Textausrichtung",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "Dieses Beispiel zeigt, wie Sie <strong lang=\"en\">text</strong> und <strong lang=\"en\">extra</strong> verwenden. Der Parameter <strong lang=\"en\">extra</strong> ermöglicht es, den Text dynamisch zu ändern. In diesem Fall zeigt der Text die Nachricht 'Laden 1' an, wobei die Zahl <strong>{{ number }}</strong> aus dem übergebenen <strong lang=\"en\">extra</strong>-Objekt genommen wird.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Text mit dem Parameter <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Legt die Ausrichtung von Text und Spinner innerhalb der Komponente fest. Mögliche Werte: <strong lang=\"en\">left</strong> (links), <strong lang=\"en\">center</strong> (zentriert) und <strong lang=\"en\">right</strong> (rechts).",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Legt die Größe von Text und Ladeindikator fest. Gültige Werte reichen von <strong lang=\"en\">1</strong> (größter) bis <strong lang=\"en\">7</strong> (kleinster).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse zur Anpassung des Erscheinungsbildes des Ladeindikators.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "<strong lang=\"en\">HTML</strong>-Tag, das zum Rendern der Komponente verwendet wird.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Legt die Ausrichtung des Textes relativ zum Spinner fest. Mögliche Werte: <strong lang=\"en\">left</strong> (links) und <strong lang=\"en\">right</strong> (rechts). Standardmäßig ist der Text rechtsbündig.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Text, der neben dem Ladeindikator angezeigt wird.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Laden {{ number }}"
+}

@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">ACloak</strong> component displays a loading indicator with text indicating the current loading of the page or a large component. It supports various customization options, including text alignment, size of the indicator, and the ability to change the <strong lang=\"en\">HTML</strong> tag for rendering.",
+  "_A_CLOAK_COMPONENT_NAME_": "Loading screen",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">align</strong>. It allows you to adjust the alignment of the text and spinner to the center, left, or right. For example, the first spinner is aligned to the left, the second to the center, and the third to the right.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Component alignment",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">size</strong> to control the sizes of both the text and loading indicator. Values range from <strong lang=\"en\">1</strong> (largest) to <strong lang=\"en\">7</strong> (smallest).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Sizes",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">text-align</strong>. This property allows you to align the text accompanying the loading spinner to the left or right. In the first example, the text is aligned to the left, while in the second it is aligned to the right.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Text alignment",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">text</strong> and <strong lang=\"en\">extra</strong>. The <strong lang=\"en\">extra</strong> parameter allows you to dynamically change the text. In this case, the text displays the message 'Loading 1', where the number <strong>{{ number }}</strong> is taken from the passed <strong lang=\"en\">extra</strong> object.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Text with <strong lang=\"en\">extra</strong> Parameter",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Defines the alignment of the text and spinner within the component. Possible values: <strong lang=\"en\">left</strong>, <strong lang=\"en\">center</strong>, and <strong lang=\"en\">right</strong>.",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Defines the size of the text and loading indicator. Valid values range from <strong lang=\"en\">1</strong> (largest) to <strong lang=\"en\">7</strong> (smallest).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for customizing the appearance of the loading indicator.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "<strong lang=\"en\">HTML</strong> tag used to render the component.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Defines the alignment of the text relative to the spinner. Possible values: <strong lang=\"en\">left</strong> and <strong lang=\"en\">right</strong>. By default, the text is right-aligned.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Text that will be displayed next to the loading indicator.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Loading {{ number }}"
+}
