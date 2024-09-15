@@ -1,20 +1,59 @@
 import {
   h,
-  withDirectives,
 } from "vue";
 
-import ATooltip from "../../ATooltip/ATooltip";
-
-import ASafeHtml from "../../directives/ASafeHtml";
+import AElement from "../../AElement/AElement";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import ATabAPI from "../compositionAPI/ATabAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
+import DisabledAPI from "./compositionAPI/DisabledAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
+import TitleAPI from "./compositionAPI/TitleAPI";
+
 import placements from "../../const/placements";
 
 export default {
   name: "ATabsTab",
   props: {
+    activeTabIdLocal: {
+      type: [String, Number],
+      required: true,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
+    isTitleHtml: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyLabel: {
+      type: String,
+      required: false,
+      default: "label",
+    },
+    keyTitle: {
+      type: String,
+      required: false,
+      default: "title",
+    },
     parentId: {
       type: String,
       required: true,
@@ -22,18 +61,6 @@ export default {
     tab: {
       type: Object,
       required: true,
-    },
-    index: {
-      type: Number,
-      required: true,
-    },
-    indexActiveTabLocal: {
-      type: Number,
-      required: true,
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
     },
     titlePlacement: {
       type: String,
@@ -50,19 +77,34 @@ export default {
       idForContent,
       idLocal,
       isActive,
+      tabIdLocal,
     } = ATabAPI(props);
 
     const {
       isDisabled,
+    } = DisabledAPI(props);
+
+    const {
       tabindexLocal,
-    } = AttributesAPI(props);
+    } = AttributesAPI({
+      isDisabled,
+    });
 
     const {
       changeTabLocal,
       keydownTab,
     } = ChangeAPI(props, context, {
       isDisabled,
+      tabIdLocal,
     });
+
+    const {
+      labelLocal,
+    } = LabelAPI(props);
+
+    const {
+      titleLocal,
+    } = TitleAPI(props);
 
     return {
       changeTabLocal,
@@ -71,65 +113,72 @@ export default {
       isActive,
       isDisabled,
       keydownTab,
+      labelLocal,
       tabindexLocal,
+      tabIdLocal,
+      titleLocal,
     };
   },
   render() {
     let tab = "";
     if (this.tab.slotTab && this.$slots[this.tab.slotTab]) {
       tab = this.$slots[this.tab.slotTab]({
-        tab: this.tab,
-        tabIndex: this.index,
-        isActive: this.isActive,
-        indexActiveTab: this.indexActiveTabLocal,
+        activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        isActive: this.isActive,
         parentId: this.parentId,
+        tab: this.tab,
+        tabId: this.tabIdLocal,
+        tabIndex: this.index,
       });
     } else if (this.$slots.tab) {
       tab = this.$slots.tab({
-        tab: this.tab,
-        tabIndex: this.index,
-        isActive: this.isActive,
-        indexActiveTab: this.indexActiveTabLocal,
+        activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        isActive: this.isActive,
         parentId: this.parentId,
+        tab: this.tab,
+        tabId: this.tabIdLocal,
+        tabIndex: this.index,
       });
-    } else if (this.tab.label) {
-      tab = withDirectives(h("div"), [
-        [ASafeHtml, this.tab.label],
-      ]);
+    } else if (this.labelLocal) {
+      tab = h(ATranslation, {
+        html: this.labelLocal,
+      });
     }
 
-    return h(ATooltip, {
-      tag: "li",
-      placement: this.titlePlacement,
-      isHide: !this.tab.title,
+    return h("li", {
       class: [
         "a_tabs__list__item",
         this.tab.classLi,
       ],
-    }, {
-      default: () => [
-        h("a", {
-          id: this.idLocal,
-          class: ["a_tabs__list__link", this.tab.class, {
+    }, [
+      h(AElement, {
+        id: this.idLocal,
+        ariaControls: this.idForContent,
+        ariaDisabled: this.tab.disabled,
+        ariaSelected: this.isActive,
+        class: [
+          "a_tabs__list__link",
+          this.tab.class,
+          {
             a_tabs__list__link_active: this.isActive,
             a_tabs__list__link_disabled: this.isDisabled,
-          }],
-          role: "tab",
-          ariaDisabled: this.tab.disabled,
-          ariaControls: this.idForContent,
-          ariaSelected: this.isActive,
-          tabindex: this.tabindexLocal,
-          onClick: this.changeTabLocal,
-          onKeydown: this.keydownTab,
-        }, [
-          tab,
-        ]),
-      ],
-      title: () => withDirectives(h("div"), [
-        [ASafeHtml, this.tab.title],
-      ])
-    });
+          }
+        ],
+        classDefault: "",
+        isTitleHtml: this.isTitleHtml,
+        role: "tab",
+        tabindex: this.tabindexLocal,
+        tag: "a",
+        titlePlacement: this.titlePlacement,
+        type: "button",
+        title: this.titleLocal,
+        onClick: this.changeTabLocal,
+        onKeydown: this.keydownTab,
+      }, () => [
+        tab,
+      ]),
+    ]);
   },
 };

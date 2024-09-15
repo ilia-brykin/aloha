@@ -3,13 +3,27 @@ import {
   toRef,
 } from "vue";
 
+import {
+  get,
+} from "lodash-es";
+
 export default function ATabAPI(props) {
-  const parentId = toRef(props, "parentId");
+  const activeTabIdLocal = toRef(props, "activeTabIdLocal");
   const index = toRef(props, "index");
-  const indexActiveTabLocal = toRef(props, "indexActiveTabLocal");
+  const keyId = toRef(props, "keyId");
+  const parentId = toRef(props, "parentId");
+  const tab = toRef(props, "tab");
+
+  const tabIdLocal = computed(() => {
+    if (keyId.value) {
+      return get(tab.value, keyId.value);
+    }
+
+    return index.value;
+  });
 
   const isActive = computed(() => {
-    return indexActiveTabLocal.value === index.value;
+    return activeTabIdLocal.value === tabIdLocal.value;
   });
 
   const idLocal = computed(() => {
@@ -24,5 +38,6 @@ export default function ATabAPI(props) {
     idForContent,
     idLocal,
     isActive,
+    tabIdLocal,
   };
 }

@@ -7,14 +7,16 @@ import AKeysCode from "../../../const/AKeysCode";
 
 export default function ChangeAPI(props, { emit }, {
   isDisabled = computed(() => false),
+  tabIdLocal = computed(() => ""),
 }) {
   const tab = toRef(props, "tab");
-  const index = toRef(props, "index");
+
   const changeTabLocal = $event => {
     if (isDisabled.value) {
       return;
     }
-    emit("changeTab", { $event, tab: tab.value, tabIndex: index.value });
+
+    emit("changeTab", { $event, tab: tab.value, tabId: tabIdLocal.value });
   };
 
   const keydownTab = $event => {

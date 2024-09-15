@@ -1,5 +1,7 @@
 import {
   h,
+  toRef,
+  watch,
 } from "vue";
 
 import ATabsContent from "./ATabsContent/ATabsContent";
@@ -15,6 +17,11 @@ import {
 export default {
   name: "ATabs",
   props: {
+    activeTabId: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     data: {
       type: Array,
       required: true,
@@ -28,11 +35,6 @@ export default {
       required: false,
       default: () => uniqueId("a_tabs_"),
     },
-    indexActiveTab: {
-      type: Number,
-      required: false,
-      default: undefined,
-    },
     isBoxed: {
       type: Boolean,
       required: false,
@@ -41,9 +43,39 @@ export default {
       type: Boolean,
       required: false,
     },
+    isTitleHtml: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     isVertical: {
       type: Boolean,
       required: false,
+    },
+    keyContent: {
+      type: String,
+      required: false,
+      default: "content",
+    },
+    keyDisabled: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyLabel: {
+      type: String,
+      required: false,
+      default: "label",
+    },
+    keyTitle: {
+      type: String,
+      required: false,
+      default: "title",
     },
     titlePlacement: {
       type: String,
@@ -56,16 +88,23 @@ export default {
     "change",
   ],
   setup(props, context) {
+    const activeTabId = toRef(props, "activeTabId");
+
     const {
       changeTab,
-      indexActiveTabLocal,
+      activeTabIdLocal,
       initTabActiveIndex,
+      setActiveTabIdLocal,
     } = ActiveAPI(props, context);
 
     initTabActiveIndex();
 
+    watch(activeTabId, () => {
+      setActiveTabIdLocal();
+    });
+
     return {
-      indexActiveTabLocal,
+      activeTabIdLocal,
       changeTab,
     };
   },
@@ -87,11 +126,16 @@ export default {
           this.data.map((tab, tabIndex) => {
             return h(ATabsTab, {
               key: tabIndex,
-              tab,
-              index: tabIndex,
-              parentId: this.id,
-              indexActiveTabLocal: this.indexActiveTabLocal,
+              activeTabIdLocal: this.activeTabIdLocal,
               disabled: this.disabled,
+              index: tabIndex,
+              isTitleHtml: this.isTitleHtml,
+              keyDisabled: this.keyDisabled,
+              keyId: this.keyId,
+              keyLabel: this.keyLabel,
+              keyTitle: this.keyTitle,
+              parentId: this.id,
+              tab,
               titlePlacement: this.titlePlacement,
               onChangeTab: this.changeTab,
             }, this.$slots);
@@ -104,10 +148,12 @@ export default {
         this.data.map((tab, tabIndex) => {
           return h(ATabsContent, {
             key: tabIndex,
-            tab,
+            activeTabIdLocal: this.activeTabIdLocal,
             index: tabIndex,
+            keyContent: this.keyContent,
+            keyId: this.keyId,
             parentId: this.id,
-            indexActiveTabLocal: this.indexActiveTabLocal,
+            tab,
           }, this.$slots);
         }),
       ]),

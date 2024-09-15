@@ -1,15 +1,33 @@
 import {
   h,
-  withDirectives,
 } from "vue";
 
-import ASafeHtml from "../../directives/ASafeHtml";
+import ATranslation from "../../ATranslation/ATranslation";
 
 import ATabAPI from "../compositionAPI/ATabAPI";
+import ContentAPI from "./compositionAPI/ContentAPI";
 
 export default {
   name: "ATabsContent",
   props: {
+    activeTabIdLocal: {
+      type: Number,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
+    keyContent: {
+      type: String,
+      required: false,
+      default: "content",
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     parentId: {
       type: String,
       required: true,
@@ -18,61 +36,65 @@ export default {
       type: Object,
       required: true,
     },
-    index: {
-      type: Number,
-      required: true,
-    },
-    indexActiveTabLocal: {
-      type: Number,
-      required: true,
-    },
   },
   setup(props) {
     const {
       idForContent,
       idLocal,
       isActive,
+      tabIdLocal,
     } = ATabAPI(props);
 
+    const {
+      contentLocal,
+    } = ContentAPI(props);
+
     return {
+      contentLocal,
       idForContent,
       idLocal,
       isActive,
+      tabIdLocal,
     };
   },
   render() {
     let content = "";
     if (this.tab.slotContent && this.$slots[this.tab.slotContent]) {
       content = this.$slots[this.tab.slotContent]({
-        tab: this.tab,
-        tabIndex: this.index,
-        isActive: this.isActive,
-        indexActiveTab: this.indexActiveTabLocal,
+        activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        isActive: this.isActive,
         parentId: this.parentId,
+        tab: this.tab,
+        tabId: this.tabIdLocal,
+        tabIndex: this.index,
       });
     } else if (this.$slots.content) {
       content = this.$slots.content({
-        tab: this.tab,
-        tabIndex: this.index,
-        isActive: this.isActive,
-        indexActiveTab: this.indexActiveTabLocal,
+        activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        isActive: this.isActive,
         parentId: this.parentId,
+        tab: this.tab,
+        tabId: this.tabIdLocal,
+        tabIndex: this.index,
       });
-    } else if (this.tab.content) {
-      content = withDirectives(h("div"), [
-        [ASafeHtml, this.tab.content],
-      ]);
+    } else if (this.contentLocal) {
+      content = h(ATranslation, {
+        html: this.contentLocal,
+      });
     }
 
     return h("div", {
       id: this.idForContent,
-      role: "tabpanel",
-      class: ["a_tabs__content", {
-        a_tabs__content_show: this.isActive,
-      }],
       "aria-labelledby": this.idLocal,
+      class: [
+        "a_tabs__content",
+        {
+          a_tabs__content_show: this.isActive,
+        },
+      ],
+      role: "tabpanel",
     }, [
       content,
     ]);

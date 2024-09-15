@@ -1,7 +1,6 @@
 import {
   ref,
   toRef,
-  watch,
 } from "vue";
 
 import {
@@ -10,50 +9,47 @@ import {
 } from "lodash-es";
 
 export default function ActiveAPI(props, { emit }) {
-  const indexActiveTab = toRef(props, "indexActiveTab");
+  const activeTabId = toRef(props, "activeTabId");
   const data = toRef(props, "data");
   const isChangeOutside = toRef(props, "isChangeOutside");
 
-  const indexActiveTabLocal = ref(0);
+  const activeTabIdLocal = ref(0);
 
-  const setIndexActiveTabLocal = () => {
-    if (!isNil(indexActiveTab.value)) {
-      indexActiveTabLocal.value = indexActiveTab.value;
+  const setActiveTabIdLocal = () => {
+    if (!isNil(activeTabId.value)) {
+      activeTabIdLocal.value = activeTabId.value;
     }
   };
 
   const initTabActiveIndex = () => {
-    setIndexActiveTabLocal();
+    setActiveTabIdLocal();
 
-    if (!isNil(indexActiveTabLocal.value)) {
+    if (!isNil(activeTabIdLocal.value)) {
       return;
     }
 
     forEach(data.value, (item, index) => {
       if (item.active) {
-        indexActiveTabLocal.value = index;
+        activeTabIdLocal.value = index;
         return false;
       }
     });
   };
 
-  const changeTab = ({ $event, tab, tabIndex }) => {
-    if (indexActiveTabLocal.value === tabIndex) {
+  const changeTab = ({ $event, tab, tabId }) => {
+    if (activeTabIdLocal.value === tabId) {
       return;
     }
     if (!isChangeOutside.value) {
-      indexActiveTabLocal.value = tabIndex;
+      activeTabIdLocal.value = tabId;
     }
-    emit("change", { $event, tab, tabIndex });
+    emit("change", { $event, tab, tabId });
   };
-
-  watch(indexActiveTab, () => {
-    setIndexActiveTabLocal();
-  });
 
   return {
     changeTab,
-    indexActiveTabLocal,
+    activeTabIdLocal,
     initTabActiveIndex,
+    setActiveTabIdLocal,
   };
 }
