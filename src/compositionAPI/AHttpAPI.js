@@ -208,6 +208,7 @@ export function getOptionsHttp({
 
 export function postHttp({
   url,
+  urlBase,
   data,
   urlParams = {},
   headerParams,
@@ -221,6 +222,7 @@ export function postHttp({
   return callHttpRequestAndCheckSavedApi({
     methodHttp: "post",
     url,
+    urlBase,
     urlParams,
     data,
     headerParams,
