@@ -54,6 +54,7 @@ function filterList(value, {
   keyChildren = "",
   keyLabel = "",
   keyLabelCallback,
+  lastSeparator,
   listClass = "",
   separator,
   separatorHtml = "",
@@ -92,7 +93,11 @@ function filterList(value, {
         children = get(item, keyChildren);
       }
 
-      result += `${ index !== 0 || isChild ? separator : "" }${ itemText }`;
+      if (!isUndefined(lastSeparator) && index === value.length - 1) {
+        result += `${ index !== 0 || isChild ? lastSeparator : "" }${ itemText }`;
+      } else {
+        result += `${ index !== 0 || isChild ? separator : "" }${ itemText }`;
+      }
 
       if (children?.length) {
         result += filterList(children, {

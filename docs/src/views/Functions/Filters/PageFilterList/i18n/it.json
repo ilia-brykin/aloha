@@ -5,6 +5,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Chiave per gli elementi figli (solo se <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Chiave per l'etichetta da visualizzare (solo se <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funzione per generare etichette con due parametri (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_",
   "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separatore tra gli elementi (solo se <strong>isHtml=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "Tag HTML per l'intera lista",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "Classe CSS per esempio: (a_list_without_styles)",

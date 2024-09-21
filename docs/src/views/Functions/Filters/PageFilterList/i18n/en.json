@@ -5,6 +5,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Key for child elements (only if <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Key for the label to be displayed (only if <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Function for generating labels with two parameters (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "Specifies the separator to be used before the final element in the list.",
   "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator between elements (only if <strong>isHtml=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML tag for the entire list",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS class e.g.: (a_list_without_styles)",
