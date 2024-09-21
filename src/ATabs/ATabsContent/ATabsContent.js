@@ -11,7 +11,7 @@ export default {
   name: "ATabsContent",
   props: {
     activeTabIdLocal: {
-      type: Number,
+      type: [String, Number],
       required: true,
     },
     index: {

@@ -11,6 +11,9 @@ import PageTabsTitleHtml from "./PageTabsTitleHtml/PageTabsTitleHtml.vue";
 import PageTabsIsBoxed from "./PageTabsIsBoxed/PageTabsIsBoxed.vue";
 import PageTabsIsVertical from "./PageTabsIsVertical/PageTabsIsVertical.vue";
 import PageTabsKeyId from "./PageTabsKeyId/PageTabsKeyId.vue";
+import PageTabsKeyActive from "./PageTabsKeyActive/PageTabsKeyActive.vue";
+import PageTabsActiveTabId from "./PageTabsActiveTabId/PageTabsActiveTabId.vue";
+import PageTabsIsChangeOutside from "./PageTabsIsChangeOutside/PageTabsIsChangeOutside.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -32,6 +35,9 @@ export default {
     PageTabsIsBoxed,
     PageTabsIsVertical,
     PageTabsKeyId,
+    PageTabsKeyActive,
+    PageTabsActiveTabId,
+    PageTabsIsChangeOutside,
   },
   setup() {
     const {

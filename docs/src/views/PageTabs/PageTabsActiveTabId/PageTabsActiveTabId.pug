@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABS_GROUP_ACTIVE_TAB_ID_HEADER_"
+  description="_A_TABS_GROUP_ACTIVE_TAB_ID_DESCRIPTION_"
+  :props="['active-tab-id']"
+)
+  a-tabs(
+    :data="data1"
+    active-tab-id="3"
+    key-id="id"
+  )
+  a-tabs(
+    :active-tab-id="2"
+    :data="data2"
+    class="a_mt_3"
+  )

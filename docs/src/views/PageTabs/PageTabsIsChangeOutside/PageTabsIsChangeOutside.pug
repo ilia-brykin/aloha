@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABS_GROUP_IS_CHANGE_OUTSIDE_HEADER_"
+  description="_A_TABS_GROUP_IS_CHANGE_OUTSIDE_DESCRIPTION_"
+  :props="['is-change-outside', 'active-tab-id']"
+  :emits="['change']"
+)
+  a-tabs(
+    :data="data"
+    :active-tab-id="activeTabId"
+    :is-change-outside="true"
+    key-id="id"
+    @change="changeTab"
+  )

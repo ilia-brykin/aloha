@@ -9,6 +9,7 @@ export default function ChangeAPI(props, { emit }, {
   isDisabled = computed(() => false),
   tabIdLocal = computed(() => ""),
 }) {
+  const index = toRef(props, "index");
   const tab = toRef(props, "tab");
 
   const changeTabLocal = $event => {
@@ -16,7 +17,7 @@ export default function ChangeAPI(props, { emit }, {
       return;
     }
 
-    emit("changeTab", { $event, tab: tab.value, tabId: tabIdLocal.value });
+    emit("changeTab", { $event, tab: tab.value, tabId: tabIdLocal.value, index: index.value });
   };
 
   const keydownTab = $event => {

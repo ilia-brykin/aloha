@@ -56,14 +56,15 @@ export default function ActiveAPI(props, { emit }) {
     }
   };
 
-  const changeTab = ({ $event, tab, tabId }) => {
+  const changeTab = ({ $event, tab, tabId, index }) => {
     if (activeTabIdLocal.value === tabId) {
       return;
     }
+
     if (!isChangeOutside.value) {
       activeTabIdLocal.value = tabId;
     }
-    emit("change", { $event, tab, tabId });
+    emit("change", { $event, tab, tabId, index });
   };
 
   return {
