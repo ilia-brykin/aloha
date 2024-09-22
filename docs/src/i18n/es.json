@@ -1,5 +1,7 @@
 {
   "_A_BASIC_USAGE_": "Uso básico",
+  "_A_GLOBAL_ADD_": "Añadir",
+  "_A_GLOBAL_DELETE_": "Eliminar",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Un objeto que contiene variables para la sustitución en la plantilla de traducción. Se utiliza para reemplazar dinámicamente valores en las cadenas de traducción. Por ejemplo, si la cadena de traducción tiene marcadores de posición como <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, que se traduce como <strong>\"Bienvenido <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, puede pasar un objeto como <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, y el resultado será la traducción <strong>\"Bienvenido abc: 123\"</strong>.",
   "_A_GLOBAL_PROPS_ID_DESCRIPTION_": "Identificador único para el componente",
   "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Determina si la herramienta debe interpretarse como <strong lang=\"en\">HTML</strong>. Si se establece en <strong lang=\"en\">true</strong>, el contenido de la herramienta se mostrará con formato <strong lang=\"en\">HTML</strong>.",

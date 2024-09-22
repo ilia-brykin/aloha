@@ -254,115 +254,118 @@ export default {
     }
 
     return h("div", {
-      class: "a_form_element__parent",
       style: this.componentStyleHide,
       type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
-      h("fieldset", {
-        id: this.htmlIdLocal,
-        tabindex: -1,
-        class: ["a_fieldset", this.classFieldset, {
-          a_fieldset_invalid: this.isErrors,
-          a_fieldset_no_border: !this.hasBorder,
-          a_fieldset_collapsed: this.isCollapsedLocal,
-        }],
-        "aria-describedby": this.ariaDescribedbyLocal,
+      h("div", {
+        class: "a_form_element__parent",
       }, [
-        (this.label || this.labelScreenReader) ?
-          h(AElement, {
-            type: "text",
-            alwaysTranslate: this.alwaysTranslate,
-            tag: "legend",
-            class: [
-              "a_legend",
-              {
-                a_legend_invalid: this.isErrors,
-              },
-              this.labelClass,
-            ],
-            extra: this.extra,
-            html: this.label,
-            textScreenReader: this.labelScreenReader,
-            textAfter: this.textAfterLabel,
-          }) :
-          "",
-        this.collapsible ?
-          h(AElement, {
-            alwaysTranslate: this.alwaysTranslate,
-            class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
-            iconLeft: this.iconCollapse,
-            title: this.titleCollapse,
-            textScreenReader: this.titleCollapse,
-            type: "button",
-            onClick: this.toggleCollapse,
-          }) :
-          "",
-        h("div", {
-          class: [
-            this.classColumns,
-            "a_fieldset__content",
-          ],
+        h("fieldset", {
+          id: this.htmlIdLocal,
+          tabindex: -1,
+          class: ["a_fieldset", this.classFieldset, {
+            a_fieldset_invalid: this.isErrors,
+            a_fieldset_no_border: !this.hasBorder,
+            a_fieldset_collapsed: this.isCollapsedLocal,
+          }],
+          "aria-describedby": this.ariaDescribedbyLocal,
         }, [
-          this.children.map((item, itemIndex) => {
-            if (item.isRender !== false) {
-              const IS_CONTAINER = typesContainer.value[item.type];
-              let classColumn;
-              if (isNil(item.classColumn)) {
-                classColumn = this.classColumn;
-              } else if (item.classColumn) {
-                classColumn = item.classColumn;
-              }
-              let style;
-              if (item.isHide) {
-                style = "display: none;";
-              }
-
-              return h("div", {
-                class: classColumn,
-                style,
-              }, [
-                h(this.componentTypesMapping[item.type], {
-                  key: itemIndex,
-                  alwaysTranslate: this.alwaysTranslate,
-                  modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
-                  modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
-                  errors: get(this.errorsAll, item.id),
-                  errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
-                  idPrefix: this.idPrefix,
-                  "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
-                  onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
-                  ...item,
-                  classColumn: undefined,
-                  slotAppend: undefined,
-                  ...this.attributesToExcludeFromRender,
-                }, this.$slots),
-                (item.slotAppend && this.$slots[item.slotAppend]) ?
-                  this.$slots[item.slotAppend]({ item, itemIndex }) :
-                  "",
-              ]);
-            }
-          }),
-          (this.slotName &&
-          this.$slots[this.slotName]) ?
-            this.$slots[this.slotName]({
-              id: this.htmlIdLocal,
-              props: this.$props,
+          (this.label || this.labelScreenReader) ?
+            h(AElement, {
+              type: "text",
+              alwaysTranslate: this.alwaysTranslate,
+              tag: "legend",
+              class: [
+                "a_legend",
+                {
+                  a_legend_invalid: this.isErrors,
+                },
+                this.labelClass,
+              ],
+              extra: this.extra,
+              html: this.label,
+              textScreenReader: this.labelScreenReader,
+              textAfter: this.textAfterLabel,
             }) :
             "",
+          this.collapsible ?
+            h(AElement, {
+              alwaysTranslate: this.alwaysTranslate,
+              class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
+              iconLeft: this.iconCollapse,
+              title: this.titleCollapse,
+              textScreenReader: this.titleCollapse,
+              type: "button",
+              onClick: this.toggleCollapse,
+            }) :
+            "",
+          h("div", {
+            class: [
+              this.classColumns,
+              "a_fieldset__content",
+            ],
+          }, [
+            this.children.map((item, itemIndex) => {
+              if (item.isRender !== false) {
+                const IS_CONTAINER = typesContainer.value[item.type];
+                let classColumn;
+                if (isNil(item.classColumn)) {
+                  classColumn = this.classColumn;
+                } else if (item.classColumn) {
+                  classColumn = item.classColumn;
+                }
+                let style;
+                if (item.isHide) {
+                  style = "display: none;";
+                }
+
+                return h("div", {
+                  class: classColumn,
+                  style,
+                }, [
+                  h(this.componentTypesMapping[item.type], {
+                    key: itemIndex,
+                    alwaysTranslate: this.alwaysTranslate,
+                    modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
+                    modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
+                    errors: get(this.errorsAll, item.id),
+                    errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
+                    idPrefix: this.idPrefix,
+                    "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+                    onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
+                    ...item,
+                    classColumn: undefined,
+                    slotAppend: undefined,
+                    ...this.attributesToExcludeFromRender,
+                  }, this.$slots),
+                  (item.slotAppend && this.$slots[item.slotAppend]) ?
+                    this.$slots[item.slotAppend]({ item, itemIndex }) :
+                    "",
+                ]);
+              }
+            }),
+            (this.slotName &&
+              this.$slots[this.slotName]) ?
+              this.$slots[this.slotName]({
+                id: this.htmlIdLocal,
+                props: this.$props,
+              }) :
+              "",
+          ]),
         ]),
+        h(AFormHelpText, {
+          id: this.helpTextId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.helpText,
+          extra: this.extra,
+        }),
+        this.isErrors && h(AErrorsText, {
+          id: this.errorsId,
+          alwaysTranslate: this.alwaysTranslate,
+          errors: this.errors,
+        }),
       ]),
-      h(AFormHelpText, {
-        id: this.helpTextId,
-        alwaysTranslate: this.alwaysTranslate,
-        html: this.helpText,
-        extra: this.extra,
-      }),
-      this.isErrors && h(AErrorsText, {
-        id: this.errorsId,
-        alwaysTranslate: this.alwaysTranslate,
-        errors: this.errors,
-      }),
     ]);
   },
 };

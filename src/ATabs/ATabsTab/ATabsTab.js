@@ -125,21 +125,21 @@ export default {
       tab = this.$slots[this.tab.slotTab]({
         activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        index: this.index,
         isActive: this.isActive,
         parentId: this.parentId,
         tab: this.tab,
         tabId: this.tabIdLocal,
-        tabIndex: this.index,
       });
     } else if (this.$slots.tab) {
       tab = this.$slots.tab({
         activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        index: this.index,
         isActive: this.isActive,
         parentId: this.parentId,
         tab: this.tab,
         tabId: this.tabIdLocal,
-        tabIndex: this.index,
       });
     } else if (this.labelLocal) {
       tab = h(ATranslation, {
@@ -155,7 +155,7 @@ export default {
     }, [
       h(AElement, {
         id: this.idLocal,
-        ariaControls: this.idForContent,
+        "aria-controls": this.idForContent,
         ariaDisabled: this.tab.disabled,
         ariaSelected: this.isActive,
         class: [

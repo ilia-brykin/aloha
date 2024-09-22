@@ -9,16 +9,16 @@ export default {
   setup() {
     const data = [
       {
-        label: "Tab 1",
-        aloha: "<strong>Content 1</strong>",
+        label: "_A_TABS_TAB_1_",
+        aloha: "<strong>_A_TABS_CONTENT_1_</strong>",
       },
       {
-        label: "Tab 2",
-        aloha: "<strong>Content 2</strong>",
+        label: "_A_TABS_TAB_2_",
+        aloha: "<strong>_A_TABS_CONTENT_2_</strong>",
       },
       {
-        label: "Tab 3",
-        aloha: "<strong>Content 3</strong>",
+        label: "_A_TABS_TAB_3_",
+        aloha: "<strong>_A_TABS_CONTENT_3_</strong>",
       },
     ];
     

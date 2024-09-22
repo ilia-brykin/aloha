@@ -1,5 +1,7 @@
 {
   "_A_BASIC_USAGE_": "Основное использование",
+  "_A_GLOBAL_ADD_": "Добавить",
+  "_A_GLOBAL_DELETE_": "Удалить",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Объект, который содержит переменные для подстановки в шаблон перевода. Используется для динамической замены значений в строках перевода. Например, если строка перевода имеет плейсхолдеры, такие как <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, это переведено как <strong>\"Добро пожаловать <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, можно передать объект <strong>{ <span lang=\"en\">foo</span>: \"абв\", bar: \"123\" }</strong>, и в результате получится перевод <strong>\"Добро пожаловать абв: 123\"</strong>.",
   "_A_GLOBAL_PROPS_ID_DESCRIPTION_": "Уникальный идентификатор для компонента",
   "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Определяет, будет ли всплывающая подсказка интерпретироваться как <strong lang=\"en\">HTML</strong>. Если установлено в <strong lang=\"en\">true</strong>, содержимое подсказки будет отображаться с учетом <strong lang=\"en\">HTML</strong>-разметки.",

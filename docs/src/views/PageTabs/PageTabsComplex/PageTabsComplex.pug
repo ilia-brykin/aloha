@@ -1,0 +1,43 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABS_GROUP_COMPLEX_HEADER_"
+  description="_A_TABS_GROUP_COMPLEX_DESCRIPTION_"
+)
+  a-form(
+    v-model="model"
+    :data="dataForm"
+  )
+    template(
+      v-slot:deleteButton
+    )
+      div
+        a-element(
+          :disabled="!model.deleteTab"
+          class="a_btn a_btn_primary"
+          text="_A_GLOBAL_DELETE_"
+          type="button"
+          @click="deleteTab"
+        )
+
+    template(
+      v-slot:addButton
+    )
+      div
+        a-element(
+          :disabled="!model.addTab"
+          class="a_btn a_btn_primary"
+          text="_A_GLOBAL_ADD_"
+          type="button"
+          @click="addTab"
+        )
+  a-tabs(
+    :data="data"
+    :disabled="model.disabled"
+    :is-boxed="model.isBoxed"
+    :is-title-html="model.isTitleHtml"
+    :is-vertical="model.isVertical"
+    :title-placement="model.titlePlacement"
+    key-content="label"
+    key-title="label"
+  )

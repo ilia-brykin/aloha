@@ -13,16 +13,16 @@ export default {
   setup() {
     const data = [
       {
-        name: "Tab 1",
-        content: "Content 1",
+        name: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
       },
       {
-        name: "Tab 2",
-        content: "Content 2",
+        name: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
       },
       {
-        name: "Tab 3",
-        content: "Content 3",
+        name: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
       },
     ];
 

@@ -63,21 +63,21 @@ export default {
       content = this.$slots[this.tab.slotContent]({
         activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        index: this.index,
         isActive: this.isActive,
         parentId: this.parentId,
         tab: this.tab,
         tabId: this.tabIdLocal,
-        tabIndex: this.index,
       });
     } else if (this.$slots.content) {
       content = this.$slots.content({
         activeTabId: this.activeTabIdLocal,
         contentId: this.idForContent,
+        index: this.index,
         isActive: this.isActive,
         parentId: this.parentId,
         tab: this.tab,
         tabId: this.tabIdLocal,
-        tabIndex: this.index,
       });
     } else if (this.contentLocal) {
       content = h(ATranslation, {

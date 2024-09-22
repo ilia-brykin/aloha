@@ -63,6 +63,7 @@ export default {
 
     return h("div", {
       style: this.componentStyleHide,
+      alwaysTranslate: undefined,
       type: undefined,
       modelValue: undefined,
       ...this.attributesToExcludeFromRender,

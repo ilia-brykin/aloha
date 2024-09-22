@@ -1,5 +1,7 @@
 {
   "_A_BASIC_USAGE_": "Osnovna uporaba",
+  "_A_GLOBAL_ADD_": "Dodaj",
+  "_A_GLOBAL_DELETE_": "Izbriši",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Objekt koji sadrži varijable za zamjenu u predlošku prijevoda. Koristi se za dinamičku zamjenu vrijednosti u prijevodnim nizovima. Na primjer, ako prijevodni niz ima rezervirane prostore poput <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, što je prevedeno kao <strong>\"Dobrodošli <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, možete proslijediti objekt poput <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, a rezultat će biti prijevod <strong>\"Dobrodošli abc: 123\"</strong>.",
   "_A_GLOBAL_PROPS_ID_DESCRIPTION_": "Jedinstveni identifikator za komponentu",
   "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Određuje hoće li se alatna traka tumačiti kao <strong lang=\"en\">HTML</strong>. Ako je postavljeno na <strong lang=\"en\">true</strong>, sadržaj alatne trake će se prikazivati s <strong lang=\"en\">HTML</strong> formatiranjem.",

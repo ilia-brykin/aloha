@@ -1,0 +1,56 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABS_GROUP_DYNAMIC_SLOTS_HEADER_"
+  description="_A_TABS_GROUP_DYNAMIC_SLOTS_DESCRIPTION_"
+  :props="['data']"
+  :slots="['slotTab', 'slotContent']"
+)
+  a-tabs(
+    :data="data"
+    key-id="slotTab"
+  )
+    template(
+      v-slot:tab1="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      a-translation(
+        class="a_mr_2"
+        tag="span"
+        text="_A_TABS_TAB_"
+      )
+      span {{ index + 1 }}
+
+    template(
+      v-slot:tab2="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      a-translation(
+        class="a_mr_2"
+        tag="span"
+        text="_A_TABS_TAB_"
+      )
+      span {{ index + 1 }}
+
+    template(
+      v-slot:tab3="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      a-translation(
+        class="a_mr_2"
+        tag="span"
+        text="_A_TABS_TAB_"
+      )
+      span {{ index + 1 }}
+
+    template(
+      v-slot:content1="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      span {{ tabId }}
+
+    template(
+      v-slot:content2="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      span {{ tabId }}
+
+    template(
+      v-slot:content3="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      span {{ tabId }}

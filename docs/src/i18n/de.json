@@ -1,5 +1,7 @@
 {
   "_A_BASIC_USAGE_": "Grundlegende Verwendung",
+  "_A_GLOBAL_ADD_": "Hinzufügen",
+  "_A_GLOBAL_DELETE_": "Löschen",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Ein Objekt, das Variablen für die Ersetzung im Übersetzungstemplate enthält. Es wird verwendet, um Werte in Übersetzungsstrings dynamisch zu ersetzen. Zum Beispiel, wenn der Übersetzungsstring Platzhalter wie <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong> enthält, was als <strong>\"Willkommen <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong> übersetzt wird, können Sie ein Objekt wie <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong> übergeben, und das Ergebnis wird die Übersetzung <strong>\"Willkommen abc: 123\"</strong> sein.",
   "_A_GLOBAL_PROPS_ID_DESCRIPTION_": "Eindeutiger Bezeichner für die Komponente",
   "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Legt fest, ob das Tooltip als <strong lang=\"en\">HTML</strong> interpretiert werden soll. Wenn auf <strong lang=\"en\">true</strong> gesetzt, wird der Inhalt des Tooltips mit <strong lang=\"en\">HTML</strong>-Formatierung angezeigt.",

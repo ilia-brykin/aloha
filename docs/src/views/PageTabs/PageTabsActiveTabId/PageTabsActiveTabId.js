@@ -13,43 +13,43 @@ export default {
   setup() {
     const data1 = [
       {
-        label: "Tab 1",
-        content: "Content 1",
+        label: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
         id: "1",
       },
       {
-        label: "Tab 2",
-        content: "Content 2",
+        label: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
         id: "2",
       },
       {
-        label: "Tab 3",
-        content: "Content 3",
+        label: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
         id: "3",
       },
       {
-        label: "Tab 4",
-        content: "Content 4",
+        label: "_A_TABS_TAB_4_",
+        content: "_A_TABS_CONTENT_4_",
         id: "4",
       },
     ];
 
     const data2 = [
       {
-        label: "Tab 1",
-        content: "Content 1",
+        label: "_A_TABS_TAB_1_",
+        content: "_A_TABS_CONTENT_1_",
       },
       {
-        label: "Tab 2",
-        content: "Content 2",
+        label: "_A_TABS_TAB_2_",
+        content: "_A_TABS_CONTENT_2_",
       },
       {
-        label: "Tab 3",
-        content: "Content 3",
+        label: "_A_TABS_TAB_3_",
+        content: "_A_TABS_CONTENT_3_",
       },
       {
-        label: "Tab 4",
-        content: "Content 4",
+        label: "_A_TABS_TAB_4_",
+        content: "_A_TABS_CONTENT_4_",
       },
     ];
 

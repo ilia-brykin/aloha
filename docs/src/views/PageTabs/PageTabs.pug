@@ -35,8 +35,20 @@ aloha-page(
 
     page-tabs-is-change-outside
 
+    page-tabs-static-slots
+
+    page-tabs-dynamic-slots
+
+    page-tabs-complex
+
     aloha-table-props(
       :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
     )
 
     aloha-table-props(

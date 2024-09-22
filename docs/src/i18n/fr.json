@@ -1,5 +1,7 @@
 {
   "_A_BASIC_USAGE_": "Utilisation de base",
+  "_A_GLOBAL_ADD_": "Ajouter",
+  "_A_GLOBAL_DELETE_": "Supprimer",
   "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_": "Un objet qui contient des variables pour la substitution dans le modèle de traduction. Il est utilisé pour remplacer dynamiquement les valeurs dans les chaînes de traduction. Par exemple, si la chaîne de traduction contient des espaces réservés comme <strong lang=\"en\">\"_WELCOME_{{foo}}_{{bar}}_\"</strong>, qui est traduit par <strong>\"Bienvenue <span lang=\"en\">{{ foo }}</span>: <span lang=\"en\">{{ bar }}</span>\"</strong>, vous pouvez passer un objet comme <strong>{ <span lang=\"en\">foo</span>: \"abc\", bar: \"123\" }</strong>, et le résultat sera la traduction <strong>\"Bienvenue abc: 123\"</strong>.",
   "_A_GLOBAL_PROPS_ID_DESCRIPTION_": "Identifiant unique pour le composant",
   "_A_GLOBAL_PROPS_IS_TITLE_HTML_DESCRIPTION_": "Détermine si l'infobulle doit être interprétée comme <strong lang=\"en\">HTML</strong>. Si cette option est activée (<strong lang=\"en\">true</strong>), le contenu de l'infobulle sera affiché avec une mise en forme <strong lang=\"en\">HTML</strong>.",

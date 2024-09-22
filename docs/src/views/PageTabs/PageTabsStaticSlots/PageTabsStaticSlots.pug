@@ -1,0 +1,31 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABS_GROUP_STATIC_SLOTS_HEADER_"
+  description="_A_TABS_GROUP_STATIC_SLOTS_DESCRIPTION_"
+  :props="['data']"
+  :slots="['tab', 'content']"
+)
+  a-tabs(
+    :data="data"
+    key-id="id"
+  )
+    template(
+      v-slot:tab="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      span {{ index + 1 }}
+      a-element(
+        :icon-left="tab.icon"
+        class="a_ml_2"
+        type="text"
+      )
+      a-translation(
+        :text="tab.name"
+        class="a_ml_2"
+        tag="span"
+      )
+
+    template(
+      v-slot:content="{ activeTabId, contentId, index, isActive, parentId, tab, tabId }"
+    )
+      span {{ tab.content }}
