@@ -5,7 +5,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Clave para elementos hijos (solo si <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Clave para la etiqueta que se mostrará (solo si <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Función para generar etiquetas con dos parámetros (<strong>item</strong>, <strong>itemIndex</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "Especifica el separador que se utilizará antes del último elemento en la lista.",
   "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separador entre elementos (solo si <strong>isHtml=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "Etiqueta HTML para la lista entera",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "Clase CSS por ejemplo: (a_list_without_styles)",

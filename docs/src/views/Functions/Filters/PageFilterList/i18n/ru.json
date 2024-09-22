@@ -5,7 +5,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": " Ключ для дочерних элементов (только если <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Ключ для отображаемого текста (только если <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Функция для генерации текста с двумя параметрами (<strong>item</strong>, <strong>itemIndex</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "Указывает разделитель, который будет использоваться перед последним элементом в списке.",
   "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Разделитель между элементами (только если <strong>isHtml=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-тег для всего списка",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-класс, например (a_list_without_styles)",

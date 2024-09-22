@@ -5,7 +5,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "مفتاح لعناصر الأطفال (فقط إذا كان <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "مفتاح للنص المعروض (فقط إذا كان <strong>isSimpleArray=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "وظيفة لإنشاء التسميات بمعاملين (<strong>item</strong>، <strong>itemIndex</strong>)",
-  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "يحدد الفاصل الذي سيتم استخدامه قبل العنصر الأخير في القائمة.",
   "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "فاصل بين العناصر (فقط إذا كان <strong>isHtml=false</strong>)",
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "علامة HTML للقائمة بأكملها",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "فئة CSS مثال: (a_list_without_styles)",
