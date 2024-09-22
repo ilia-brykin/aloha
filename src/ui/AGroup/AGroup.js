@@ -9,8 +9,6 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 import AUiComponents from "../AUiComponents";
 
-import UiMixinProps from "../mixins/UiMixinProps";
-
 import UiAPI, {
   getHtmlId,
 } from "../compositionApi/UiAPI";
@@ -26,41 +24,138 @@ import {
   get,
   isNil,
   set,
+  uniqueId,
 } from "lodash-es";
 
 export default {
   name: "AGroup",
   inheritAttrs: false,
-  mixins: [
-    UiMixinProps,
-  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+      default: undefined,
+    },
+    change: {
+      type: Function,
+      required: false,
+      default: () => {},
     },
     children: {
       type: Array,
       required: false,
       default: () => [],
     },
+    classColumnDefault: {
+      type: [String, Object],
+      required: false,
+      default: "a_column a_column_6 a_column_12_touch",
+    },
     classColumns: {
       type: [String, Object],
       required: false,
       default: "a_columns a_columns_count_12 a_columns_gab_2",
+    },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    errors: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     excludeRenderAttributes: {
       type: Array,
       required: false,
       default: () => [],
     },
-    modelValue: {
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    helpText: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    id: {
+      type: [String, Number],
+      required: false,
+      default: () => uniqueId("a_group_"),
+    },
+    idPrefix: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    inputClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    isHide: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    label: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    labelClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelScreenReader: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
+    modelDependencies: {
       type: Object,
       required: false,
       default: () => ({}),
     },
+    modelValue: {
+      type: [String, Number, Array, Object, Boolean],
+      required: false,
+      default: undefined,
+    },
+    required: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   emits: [
+    "blur",
+    "focus",
+    "update:modelValue",
     "updateData",
   ],
   setup(props, context) {
@@ -144,6 +239,7 @@ export default {
     return h("div", {
       ...this.$attrs,
       style: this.componentStyleHide,
+      type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
@@ -161,33 +257,40 @@ export default {
           this.firstChild.label && h(ALabel, {
             id: this.htmlIdFirstChild,
             alwaysTranslate: this.alwaysTranslate,
-            label: this.firstChild.label,
-            labelClass: this.firstChild.labelClass,
-            labelScreenReader: this.firstChild.labelScreenReader,
-            required: this.firstChild.required,
-            type: this.firstChild.type,
+            extra: this.extra,
+            isError: !!this.errorsAll[this.firstChild.id],
             isLabelFloat: false,
-            isError: this.errorsAll[this.firstChild.id],
+            label: this.label || this.firstChild.label,
+            labelClass: this.labelClass || this.firstChild.labelClass || this.classColumnDefault,
+            labelScreenReader: this.labelScreenReader || this.firstChild.labelScreenReader,
+            required: this.required || this.firstChild.required,
+            type: this.firstChild.type,
           }),
           this.children.map((item, itemIndex) => {
             const IS_CONTAINER = typesContainer.value[item.type];
             let classColumn;
             if (isNil(item.classColumn)) {
-              classColumn = "a_column a_column_12";
+              classColumn = this.classColumnDefault;
             } else if (item.classColumn) {
               classColumn = item.classColumn;
+            }
+            let style;
+            if (item.isHide) {
+              style = "display: none;";
             }
 
             return h("div", {
               class: classColumn,
+              style,
             }, [
               h(this.componentTypesMapping[item.type], {
                 key: itemIndex,
                 alwaysTranslate: this.alwaysTranslate,
-                modelValue: get(this.modelValue, item.id),
+                modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
                 modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
                 errors: this.errorsAll[item.id],
-                idPrefix: item.idPrefix || this.idPrefix,
+                errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
+                idPrefix: this.idPrefix,
                 "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
                 onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
                 ...item,

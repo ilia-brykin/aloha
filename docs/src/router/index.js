@@ -260,6 +260,11 @@ const ROUTES = [
     component: () => import(/* webpackChunkName: "PageButton" */ "../views/PageButton/PageButton.vue"),
   },
   {
+    path: "/group",
+    name: "PageGroup",
+    component: () => import(/* webpackChunkName: "PageGroup" */ "../views/Form/PageGroup/PageGroup.vue"),
+  },
+  {
     path: "/link",
     name: "PageLink",
     component: () => import(/* webpackChunkName: "PageLink" */ "../views/PageLink/PageLink.vue"),

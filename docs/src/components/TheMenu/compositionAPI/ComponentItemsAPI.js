@@ -120,6 +120,13 @@ export default function ComponentItemsAPI() {
             }
           },
           {
+            id: "PageGroup",
+            to: {
+              name: "PageGroup",
+            },
+            label: "Group",
+          },
+          {
             id: "input",
             to: {
               name: "PageInput",
