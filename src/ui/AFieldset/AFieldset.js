@@ -44,7 +44,7 @@ export default {
       required: false,
       default: () => [],
     },
-    classColumn: {
+    classColumnDefault: {
       type: [String, Object],
       required: false,
       default: "a_column a_column_12",
@@ -313,7 +313,7 @@ export default {
                 const IS_CONTAINER = typesContainer.value[item.type];
                 let classColumn;
                 if (isNil(item.classColumn)) {
-                  classColumn = this.classColumn;
+                  classColumn = this.classColumnDefault;
                 } else if (item.classColumn) {
                   classColumn = item.classColumn;
                 }

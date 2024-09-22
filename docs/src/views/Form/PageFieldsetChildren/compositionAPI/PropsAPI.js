@@ -8,8 +8,8 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "class-column",
-      description: "_A_UI_PROPS_CLASS_COLUMN_DESCRIPTION_",
+      name: "class-column-default",
+      description: "_A_UI_PROPS_CLASS_COLUMN_DEFAULT_DESCRIPTION_",
       type: "String / Object",
       default: "a_column a_column_12",
       required: false,
