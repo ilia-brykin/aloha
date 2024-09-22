@@ -79,6 +79,20 @@ export default function ComponentItemsAPI() {
             }
           },
           {
+            id: "datepicker",
+            label: "Datepicker",
+            to: {
+              name: "PageDatepicker",
+            }
+          },
+          {
+            id: "datepicker-range",
+            label: "DatepickerRange",
+            to: {
+              name: "PageDatepickerRange",
+            }
+          },
+          {
             id: "fieldset",
             label: "Fieldset",
             children: [
@@ -97,33 +111,6 @@ export default function ComponentItemsAPI() {
                 },
               },
             ],
-          },
-          {
-            id: "ui-child",
-            label: "Child",
-            children: [
-              {
-                id: "input",
-                to: {
-                  name: "PageInput",
-                },
-                label: "Input",
-              }
-            ]
-          },
-          {
-            id: "datepicker",
-            label: "Datepicker",
-            to: {
-              name: "PageDatepicker",
-            }
-          },
-          {
-            id: "datepicker-range",
-            label: "DatepickerRange",
-            to: {
-              name: "PageDatepickerRange",
-            }
           },
           {
             id: "form",
