@@ -24,6 +24,7 @@ import {
 
 export default {
   name: "ADatepickerRange",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -326,6 +327,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       class: "a_datepicker_range",
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,

@@ -10,6 +10,7 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 export default {
   name: "ATemplate",
+  inheritAttrs: false,
   props: {
     excludeRenderAttributes: {
       type: Array,
@@ -62,6 +63,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       style: this.componentStyleHide,
       alwaysTranslate: undefined,
       type: undefined,

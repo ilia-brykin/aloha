@@ -49,6 +49,7 @@ import {
 
 export default {
   name: "ASelect",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -658,6 +659,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       class: this.class,
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,

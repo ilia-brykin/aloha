@@ -33,6 +33,7 @@ import {
 
 export default {
   name: "AInputCurrency",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -383,6 +384,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       class: "a_form_element__container",
       style: this.componentStyleHide,
       type: undefined,

@@ -35,6 +35,7 @@ import {
 
 export default {
   name: "ARadio",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -509,6 +510,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       style: this.componentStyleHide,
       type: undefined,
       ...this.attributesToExcludeFromRender,

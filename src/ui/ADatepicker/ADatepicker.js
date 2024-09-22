@@ -43,6 +43,7 @@ export default {
   mixins: [
     UiMixinProps,
   ],
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -470,6 +471,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       class: "a_form_element__container",
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,

@@ -38,6 +38,7 @@ import {
 
 export default {
   name: "AInputNumber",
+  inheritAttrs: false,
   mixins: [
     UiClearButtonMixinProps,
     UiMixinProps,
@@ -288,6 +289,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       class: "a_form_element__container",
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,

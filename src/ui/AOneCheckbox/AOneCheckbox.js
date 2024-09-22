@@ -19,6 +19,7 @@ import {
 
 export default {
   name: "AOneCheckbox",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -214,6 +215,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       style: this.componentStyleHide,
       type: undefined,
       ...this.attributesToExcludeFromRender,

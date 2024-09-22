@@ -30,6 +30,7 @@ import {
 
 export default {
   name: "AGroup",
+  inheritAttrs: false,
   mixins: [
     UiMixinProps,
   ],
@@ -141,6 +142,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,
     }, [

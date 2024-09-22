@@ -1,5 +1,6 @@
 import {
-  h, onBeforeUnmount,
+  h,
+  onBeforeUnmount,
 } from "vue";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -24,6 +25,7 @@ import {
 
 export default {
   name: "AInputNumberRange",
+  inheritAttrs: false,
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -309,6 +311,7 @@ export default {
     }
 
     return h("div", {
+      ...this.$attrs,
       class: "a_input_number_range",
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,
