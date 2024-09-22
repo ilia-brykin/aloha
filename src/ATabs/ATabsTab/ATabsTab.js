@@ -144,6 +144,7 @@ export default {
     } else if (this.labelLocal) {
       tab = h(ATranslation, {
         html: this.labelLocal,
+        tag: "span",
       });
     }
 
@@ -156,7 +157,7 @@ export default {
       h(AElement, {
         id: this.idLocal,
         "aria-controls": this.idForContent,
-        ariaDisabled: this.tab.disabled,
+        ariaDisabled: this.isDisabled,
         ariaSelected: this.isActive,
         class: [
           "a_tabs__list__link",

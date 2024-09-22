@@ -159,6 +159,9 @@
   .a_tabs__list {
     flex-direction: column;
   }
+  .a_tabs__list__item {
+    width: 100%;
+  }
   .a_tabs__list__link {
     border-radius: var(--a_tabs_border_radius) 0 0 var(--a_tabs_border_radius);
     margin-bottom: 0;
