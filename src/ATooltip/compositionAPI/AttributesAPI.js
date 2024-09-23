@@ -15,9 +15,10 @@ export default function AttributesAPI(props, {
   const minWidth = toRef(props, "minWidth");
   const width = toRef(props, "width");
   const maxWidth = toRef(props, "maxWidth");
+  const withoutAriaDescribedby = toRef(props, "withoutAriaDescribedby");
 
   const ariaDescribedby = computed(() => {
-    if (isTitleVisible.value) {
+    if (!withoutAriaDescribedby.value && isTitleVisible.value) {
       return `${ id.value }_title`;
     }
     return undefined;

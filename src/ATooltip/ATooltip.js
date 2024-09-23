@@ -87,6 +87,10 @@ export default {
       required: false,
       default: undefined,
     },
+    withoutAriaDescribedby: {
+      type: Boolean,
+      required: false,
+    },
   },
   setup(props) {
     const {

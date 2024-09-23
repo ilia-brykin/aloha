@@ -18,6 +18,7 @@ export default function HtmlTitleAPI(props, {
       return {
         tag: tagLocal.value,
         placement: titlePlacement.value,
+        withoutAriaDescribedby: true,
         ...titleAttributes.value,
       };
     }
