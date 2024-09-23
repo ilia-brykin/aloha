@@ -50,6 +50,13 @@ export default function ArgumentsAPI() {
       text: "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_",
     },
     {
+      value: "[lastSeparator]",
+      types: [
+        "String",
+      ],
+      text: "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_",
+    },
+    {
       value: "[listClass=\"\"]",
       types: [
         "String",

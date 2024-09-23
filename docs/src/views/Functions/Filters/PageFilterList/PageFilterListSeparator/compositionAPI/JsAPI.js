@@ -13,6 +13,15 @@ filterList(ITEMS, {
 // ${ filterList(ITEMS, { isHtml: false, isSimpleArray: true, separator: "; ", }) }
 
 filterList(ITEMS, {
+  isHtml: false,
+  isSimpleArray: true,
+  lastSeparator: " & ",
+  separator: ", ",
+});
+// ${ filterList(ITEMS, { isHtml: false, isSimpleArray: true, lastSeparator: " & ", separator: ", ", }) }
+
+
+filterList(ITEMS, {
   isHtml: true,
   isSimpleArray: true,
   separator: ";",
