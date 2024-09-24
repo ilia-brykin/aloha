@@ -385,141 +385,144 @@ export default {
 
     return h("div", {
       ...this.$attrs,
-      class: "a_form_element__container",
       style: this.componentStyleHide,
       type: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
-        class: ["a_form_element__parent", {
-          a_form_element__parent_float: this.isLabelFloat,
-          a_form_element__parent_not_empty: this.isModel,
-          a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
-          a_form_element__parent_invalid: this.isErrors,
-        }],
+        class: "a_form_element__container",
       }, [
-        ((this.label || this.labelScreenReader) && !this.isLabelFloat) ?
-          h(ALabel, {
-            id: this.htmlIdLocal,
-            extra: this.extra,
-            isLabelFloat: this.isLabelFloat,
-            isError: this.isErrors,
-            label: this.label,
-            labelClass: this.labelClass,
-            labelScreenReader: this.labelScreenReader,
-            required: this.required,
-            type: "text",
-          }) :
-          "",
         h("div", {
-          class: [
-            "a_form_element_number",
-            {
-              a_form_element_number_controls: this.controlsType && this.controlsType !== "none",
-            },
-          ],
+          class: ["a_form_element__parent", {
+            a_form_element__parent_float: this.isLabelFloat,
+            a_form_element__parent_not_empty: this.isModel,
+            a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
+            a_form_element__parent_invalid: this.isErrors,
+          }],
         }, [
-          this.currencySymbol && this.currencySymbolPosition === "left" && h("span", {
-            class: "a_form_element_number__currency_symbol",
-          }, this.currencySymbol),
-          h("div", {
-            class: "a_form_element",
-            style: {
-              ...this.inputWidthStyleValue,
-            },
-          }, [
-            ((this.label || this.labelScreenReader) && this.isLabelFloat) ?
-              h(ALabel, {
-                id: this.htmlIdLocal,
-                isLabelFloat: this.isLabelFloat,
-                isError: this.isErrors,
-                label: this.label,
-                labelClass: this.labelClass,
-                labelScreenReader: this.labelScreenReader,
-                required: this.required,
-                type: "text",
-              }) :
-              "",
-            this.iconPrepend && h(AIcon, {
-              icon: this.iconPrepend,
-              class: "a_input__icon_prepend",
-            }),
-            h("input", {
-              ref: "inputRef",
+          ((this.label || this.labelScreenReader) && !this.isLabelFloat) ?
+            h(ALabel, {
               id: this.htmlIdLocal,
-              value: this.displayValue,
+              extra: this.extra,
+              isLabelFloat: this.isLabelFloat,
+              isError: this.isErrors,
+              label: this.label,
+              labelClass: this.labelClass,
+              labelScreenReader: this.labelScreenReader,
+              required: this.required,
               type: "text",
-              class: [
-                "a_form_control a_input a_input_number",
-                this.inputClass,
-                {
-                  a_form_element_with_one_btn: this.isClearButtonLocal,
-                  a_form_control_invalid: this.isErrors,
-                },
-              ],
-              disabled: this.disabled,
-              ariaRequired: this.required,
-              ariaInvalid: this.isErrors,
-              "aria-describedby": this.ariaDescribedbyLocal,
-              ...this.placeholderAttributes,
-              ...this.inputAttributes,
-              onInput: this.handleInput,
-              onKeydown: this.handleKeydown,
-              onFocus: this.onFocus,
-              onBlur: this.onBlurNumber,
-              onClick: this.onClickNumber,
-              onPaste: this.handlePaste,
-            }),
-            this.isClearButtonLocal ?
-              h("div", {
-                class: "a_form_control__actions"
-              }, [
-                h(AFormElementBtnClear, {
-                  alwaysTranslate: this.alwaysTranslate,
-                  disabled: false,
-                  class: this.clearButtonClass,
-                  onClear: this.clearModel,
-                }),
-              ]) :
-              "",
-          ]),
-          this.controlsType === "plus-minus" && h("div", {
-            class: "a_btn_group",
+            }) :
+            "",
+          h("div", {
+            class: [
+              "a_form_element_number",
+              {
+                a_form_element_number_controls: this.controlsType && this.controlsType !== "none",
+              },
+            ],
           }, [
-            h(AButton, {
-              class: "a_btn a_btn_outline_secondary",
-              iconLeft: "Minus",
-              tabindex: -1,
-              attributes: {
-                role: "button",
+            this.currencySymbol && this.currencySymbolPosition === "left" && h("span", {
+              class: "a_form_element_number__currency_symbol",
+            }, this.currencySymbol),
+            h("div", {
+              class: "a_form_element",
+              style: {
+                ...this.inputWidthStyleValue,
               },
-              disabled: this.disabled,
-              onClick: this.decrease,
-            }),
-            h(AButton, {
-              class: "a_btn a_btn_outline_secondary",
-              iconLeft: "Plus",
-              tabindex: -1,
-              attributes: {
-                role: "button",
-              },
-              disabled: this.disabled,
-              onClick: this.increase,
-            }),
+            }, [
+              ((this.label || this.labelScreenReader) && this.isLabelFloat) ?
+                h(ALabel, {
+                  id: this.htmlIdLocal,
+                  isLabelFloat: this.isLabelFloat,
+                  isError: this.isErrors,
+                  label: this.label,
+                  labelClass: this.labelClass,
+                  labelScreenReader: this.labelScreenReader,
+                  required: this.required,
+                  type: "text",
+                }) :
+                "",
+              this.iconPrepend && h(AIcon, {
+                icon: this.iconPrepend,
+                class: "a_input__icon_prepend",
+              }),
+              h("input", {
+                ref: "inputRef",
+                id: this.htmlIdLocal,
+                value: this.displayValue,
+                type: "text",
+                class: [
+                  "a_form_control a_input a_input_number",
+                  this.inputClass,
+                  {
+                    a_form_element_with_one_btn: this.isClearButtonLocal,
+                    a_form_control_invalid: this.isErrors,
+                  },
+                ],
+                disabled: this.disabled,
+                ariaRequired: this.required,
+                ariaInvalid: this.isErrors,
+                "aria-describedby": this.ariaDescribedbyLocal,
+                ...this.placeholderAttributes,
+                ...this.inputAttributes,
+                onInput: this.handleInput,
+                onKeydown: this.handleKeydown,
+                onFocus: this.onFocus,
+                onBlur: this.onBlurNumber,
+                onClick: this.onClickNumber,
+                onPaste: this.handlePaste,
+              }),
+              this.isClearButtonLocal ?
+                h("div", {
+                  class: "a_form_control__actions"
+                }, [
+                  h(AFormElementBtnClear, {
+                    alwaysTranslate: this.alwaysTranslate,
+                    disabled: false,
+                    class: this.clearButtonClass,
+                    onClear: this.clearModel,
+                  }),
+                ]) :
+                "",
+            ]),
+            this.controlsType === "plus-minus" && h("div", {
+              class: "a_btn_group",
+            }, [
+              h(AButton, {
+                class: "a_btn a_btn_outline_secondary",
+                iconLeft: "Minus",
+                tabindex: -1,
+                attributes: {
+                  role: "button",
+                },
+                disabled: this.disabled,
+                onClick: this.decrease,
+              }),
+              h(AButton, {
+                class: "a_btn a_btn_outline_secondary",
+                iconLeft: "Plus",
+                tabindex: -1,
+                attributes: {
+                  role: "button",
+                },
+                disabled: this.disabled,
+                onClick: this.increase,
+              }),
+            ]),
+            this.currencySymbol && this.currencySymbolPosition === "right" && h("div", {
+              class: "a_form_element_number__currency_symbol",
+            }, this.currencySymbol),
           ]),
-          this.currencySymbol && this.currencySymbolPosition === "right" && h("div", {
-            class: "a_form_element_number__currency_symbol",
-          }, this.currencySymbol),
+          h(AFormHelpText, {
+            id: this.helpTextId,
+            html: this.helpText,
+            extra: this.extra,
+          }),
+          this.isErrors && h(AErrorsText, {
+            id: this.errorsId,
+            errors: this.errors,
+          }),
         ]),
-        h(AFormHelpText, {
-          id: this.helpTextId,
-          html: this.helpText,
-          extra: this.extra,
-        }),
-        this.isErrors && h(AErrorsText, {
-          id: this.errorsId,
-          errors: this.errors,
-        }),
       ]),
     ]);
   },
