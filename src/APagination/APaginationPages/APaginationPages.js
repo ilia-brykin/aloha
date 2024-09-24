@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
+import AElement from "../../AElement/AElement";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import DisabledAPI from "./compositionAPI/DisabledAPI";
@@ -107,9 +107,10 @@ export default {
     }, {
       default: () => {
         if (this.mode === "loadMore") {
-          return h(AButton, {
+          return h(AElement, {
             class: "a_btn a_btn_primary",
             text: "Load more",
+            type: "button",
           });
         }
         return [
@@ -119,13 +120,15 @@ export default {
             this.mode !== "short" ? h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
             }, [
-              h(AButton, {
-                tag: "a",
+              h(AElement, {
                 class: "a_pagination__item__link",
+                iconLeft: "DoubleAngleLeft",
                 role: "button",
                 tabindex: this.disabledButtonFirstPage ? -1 : 0,
+                tag: "a",
+                textScreenReader: "_A_PAGINATION_FIRST_PAGE_",
                 title: "_A_PAGINATION_FIRST_PAGE_",
-                iconLeft: "DoubleAngleLeft",
+                type: "button",
                 onClick: this.updateOffsetFirst,
                 onKeydown: this.keyDownUpdateOffsetFirst,
               }),
@@ -133,13 +136,15 @@ export default {
             h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }]
             }, [
-              h(AButton, {
-                tag: "a",
+              h(AElement, {
                 class: "a_pagination__item__link",
+                iconLeft: "AngleLeft",
                 role: "button",
                 tabindex: this.disabledButtonFirstPage ? -1 : 0,
+                tag: "a",
+                textScreenReader: "_A_PAGINATION_PREVIOUS_PAGE_",
                 title: "_A_PAGINATION_PREVIOUS_PAGE_",
-                iconLeft: "AngleLeft",
+                type: "button",
                 onClick: this.updateOffsetPrevious,
                 onKeydown: this.keyDownUpdateOffsetPrevious,
               }),
@@ -166,7 +171,7 @@ export default {
                       disabled: this.disabled,
                     }],
                   }, [
-                    h(AButton, {
+                    h(AElement, {
                       "aria-current": IS_ACTIVE ? true : undefined,
                       class: "a_pagination__item__link",
                       extra: {
@@ -177,7 +182,9 @@ export default {
                       tag: "a",
                       text: item,
                       textAriaHidden: true,
+                      textScreenReader: "_A_PAGINATION_TO_PAGE_{{page}}_",
                       title: "_A_PAGINATION_TO_PAGE_{{page}}_",
+                      type: "button",
                       onClick: () => this.updateOffset(item),
                       onKeydown: $event => this.keyDownUpdateOffset($event, item),
                     }),
@@ -186,13 +193,15 @@ export default {
             h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
             }, [
-              h(AButton, {
-                tag: "a",
+              h(AElement, {
                 class: "a_pagination__item__link",
+                iconLeft: "AngleRight",
                 role: "button",
                 tabindex: this.disabledButtonLastPage ? -1 : 0,
+                tag: "a",
+                textScreenReader: "_A_PAGINATION_NEXT_PAGE_",
                 title: "_A_PAGINATION_NEXT_PAGE_",
-                iconLeft: "AngleRight",
+                type: "button",
                 onClick: this.updateOffsetNext,
                 onKeydown: this.keyDownUpdateOffsetNext,
               }),
@@ -200,13 +209,15 @@ export default {
             this.mode !== "short" ? h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }]
             }, [
-              h(AButton, {
-                tag: "a",
+              h(AElement, {
                 class: "a_pagination__item__link",
+                iconLeft: "DoubleAngleRight",
                 role: "button",
                 tabindex: this.disabledButtonLastPage ? -1 : 0,
+                tag: "a",
+                textScreenReader: "_A_PAGINATION_LAST_PAGE_",
                 title: "_A_PAGINATION_LAST_PAGE_",
-                iconLeft: "DoubleAngleRight",
+                type: "button",
                 onClick: this.updateOffsetLast,
                 onKeydown: this.keyDownUpdateOffsetLast,
               }),

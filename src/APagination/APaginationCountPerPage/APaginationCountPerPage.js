@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
+import AElement from "../../AElement/AElement";
 import ASelect from "../../ui/ASelect/ASelect";
 import ATranslation from "../../ATranslation/ATranslation";
 
@@ -97,7 +97,7 @@ export default {
               return h("div", {
                 class: "a_pagination__count__item",
               }, [
-                h(AButton, {
+                h(AElement, {
                   "aria-current": IS_ACTIVE ? true : undefined,
                   class: "a_btn a_btn_link a_pagination__count__button",
                   disabled: IS_ACTIVE || this.disabled,
@@ -128,7 +128,7 @@ export default {
                   }
                 ],
               }, [
-                h(AButton, {
+                h(AElement, {
                   "aria-current": IS_ACTIVE ? true : undefined,
                   class: "a_pagination__item__link",
                   disabled: this.disabled,
@@ -142,6 +142,7 @@ export default {
                   textAriaHidden: true,
                   textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
                   title: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  type: "button",
                   onClick: () => this.changeLimit(count),
                   onKeydown: $event => this.keyDownChangeLimit($event, count),
                 }),
