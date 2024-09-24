@@ -5553,6 +5553,9 @@ h6 {
   margin: 0;
   padding: 0; }
 
+.a_form_element_label_static {
+  font-weight: bolder; }
+
 .a_required {
   margin-bottom: 1rem; }
 
