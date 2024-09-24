@@ -1,4 +1,7 @@
 {
   "_A_MODAL_BTN_CANCEL_": "Прервать",
-  "_A_MODAL_BTN_SAVE_": "Сохранить"
+  "_A_MODAL_BTN_SAVE_": "Сохранить",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_": "Закрыть модальное окно (расположена в хедере)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_": "Закрыть модальное окно (расположена в футере)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_": "Сохранить данные в модальном окне"
 }

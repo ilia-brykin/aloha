@@ -1,4 +1,7 @@
 {
   "_A_MODAL_BTN_CANCEL_": "Odustani",
-  "_A_MODAL_BTN_SAVE_": "Spremi"
+  "_A_MODAL_BTN_SAVE_": "Spremi",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_": "Zatvori modalni prozor (smještena u zaglavlju)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_": "Zatvori modalni prozor (smještena u podnožju)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_": "Spremi podatke u modalnom prozoru"
 }

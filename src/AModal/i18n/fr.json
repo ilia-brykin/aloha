@@ -1,4 +1,7 @@
 {
   "_A_MODAL_BTN_CANCEL_": "Interrompre",
-  "_A_MODAL_BTN_SAVE_": "Enregistrer"
+  "_A_MODAL_BTN_SAVE_": "Enregistrer",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_": "Fermer la fenêtre modale (située dans l'en-tête)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_": "Fermer la fenêtre modale (située dans le pied de page)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_": "Enregistrer les données dans la fenêtre modale"
 }

@@ -8,7 +8,7 @@ import {
   watch,
 } from "vue";
 
-import AButton from "../AButton/AButton";
+import AElement from "../AElement/AElement";
 import ALoading from "../ALoading/ALoading";
 import ATranslation from "../ATranslation/ATranslation";
 
@@ -30,6 +30,7 @@ import {
   uniqueId,
 } from "lodash-es";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import BodyHtmlAPI from "./compositionAPI/BodyHtmlAPI";
 
 // @vue/component
 export default {
@@ -49,6 +50,11 @@ export default {
       type: String,
       required: false,
       default: "",
+    },
+    bodyHtmlClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: undefined,
     },
     close: {
       type: Function,
@@ -74,6 +80,16 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.closeButtonText,
     },
+    closeButtonTextScreenReaderFooter: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderFooter,
+    },
+    closeButtonTextScreenReaderHeader: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderHeader,
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -89,6 +105,11 @@ export default {
       required: false,
       default: undefined,
     },
+    focusStartId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     headerTag: {
       type: String,
       required: false,
@@ -100,6 +121,10 @@ export default {
       default: undefined,
     },
     hideFooter: {
+      type: Boolean,
+      required: false,
+    },
+    hideHeader: {
       type: Boolean,
       required: false,
     },
@@ -171,6 +196,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.saveButtonText,
     },
+    saveButtonTextScreenReader: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.saveButtonTextScreenReader,
+    },
     selectorClose: {
       type: [String, Array],
       required: false,
@@ -181,7 +211,7 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.selectorCloseIds,
     },
-    showCloseButton: {
+    showCloseButtonHeader: {
       type: Boolean,
       required: false,
       default: true,
@@ -200,6 +230,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
+    useFocusOnStart: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     zIndex: {
       type: Number,
       required: false,
@@ -210,11 +245,16 @@ export default {
     const isModalHidden = toRef(props, "isModalHidden");
 
     const {
+      bodyHtmlId,
+    } = BodyHtmlAPI(props);
+
+    const {
       destroyEventBusCloseFromOutside,
       initEventBusCloseFromOutside,
     } = CloseFromOutsideAPI(props);
 
     const {
+      headerId,
       stylesBackdrop,
       stylesZIndexModal,
     } = AttributesAPI(props);
@@ -230,7 +270,7 @@ export default {
     const {
       modalRef,
       modalWrapperRef,
-      setFocusToModal,
+      setFocusByShowModal,
       trapFocus,
     } = FocusAPI(props);
 
@@ -253,7 +293,7 @@ export default {
     const {
       showModal,
     } = ShowModalAPI(props, {
-      setFocusToModal,
+      setFocusByShowModal,
       setListenerForKeydown,
     });
 
@@ -291,11 +331,12 @@ export default {
     });
 
     return {
+      bodyHtmlId,
       clickWrapperStoppPropagationEventMap,
       disabledLocal,
+      headerId,
       modalRef,
       modalWrapperRef,
-      setFocusToModal,
       sizeClass,
       stylesBackdrop,
       stylesZIndexModal,
@@ -320,25 +361,29 @@ export default {
             class: "a_modal_footer_actions",
           }, [
             this.$slots.modalFooterPrepend && this.$slots.modalFooterPrepend(),
-            (!this.isSaveButtonHide && this.save) && h(AButton, {
+            (!this.isSaveButtonHide && this.save) && h(AElement, {
               id: this.saveButtonId,
               alwaysTranslate: this.alwaysTranslate,
               class: this.saveButtonClass,
               disabled: this.disabledLocal || this.disabledSave,
               extra: this.extra,
               html: this.saveButtonText,
+              textAriaHidden: true,
+              textScreenReader: this.saveButtonTextScreenReader,
               type: "button",
               ...this.saveButtonAttributes,
               onClick: this.save,
             }),
-            !this.isCloseButtonHide && h(AButton, {
+            !this.isCloseButtonHide && h(AElement, {
               id: this.closeButtonId,
               alwaysTranslate: this.alwaysTranslate,
-              type: "button",
               class: this.closeButtonClass,
               disabled: this.disabledLocal,
-              html: this.closeButtonText,
               extra: this.extra,
+              html: this.closeButtonText,
+              textAriaHidden: true,
+              textScreenReader: this.closeButtonTextScreenReaderFooter,
+              type: "button",
               ...this.closeButtonAttributes,
               onClick: () => this.close(true),
             }),
@@ -363,9 +408,10 @@ export default {
             a_modal_confirm: this.isConfirm,
             a_modal_show: !this.isModalHidden
           }],
-          tabindex: -1,
           role: "dialog",
           ariaModal: true,
+          "aria-labelledby": this.headerId,
+          "aria-describedby": this.bodyHtmlId,
           style: [
             this.modalStyle,
             this.stylesZIndexModal,
@@ -383,30 +429,44 @@ export default {
                 },
               ],
             }, [
-              h("div", {
-                ref: "modal_header",
-                class: "a_modal_header",
-              }, [
-                this.$slots.modalHeader && this.$slots.modalHeader(),
-                this.headerText && h(this.headerTag, {
-                  class: "a_modal_title",
+              !this.hideHeader ?
+                h("div", {
+                  ref: "modal_header",
+                  class: "a_modal_header",
                 }, [
-                  h(ATranslation, {
-                    alwaysTranslate: this.alwaysTranslate,
-                    tag: "span",
-                    html: this.headerText,
-                    extra: this.extra,
-                  }),
-                ]),
-                this.showCloseButton ? h(AButton, {
-                  alwaysTranslate: this.alwaysTranslate,
-                  class: "a_btn_close",
-                  disabled: this.disabledLocal,
-                  textScreenReader: this.closeButtonText,
-                  title: this.closeButtonText,
-                  onClick: () => this.close(true),
-                }) : "",
-              ]),
+                  h("div", {
+                    id: this.headerId,
+                  }, [
+                  this.$slots.modalHeader ?
+                    this.$slots.modalHeader() :
+                    "",
+                  this.headerText ?
+                    h(this.headerTag, {
+                      class: "a_modal_title",
+                    }, [
+                      h(ATranslation, {
+                        alwaysTranslate: this.alwaysTranslate,
+                        tag: "span",
+                        html: this.headerText,
+                        extra: this.extra,
+                      }),
+                    ]) :
+                    "",
+                  ]),
+
+                  this.showCloseButtonHeader ?
+                    h(AElement, {
+                      alwaysTranslate: this.alwaysTranslate,
+                      class: "a_btn_close",
+                      disabled: this.disabledLocal,
+                      textScreenReader: this.closeButtonTextScreenReaderHeader,
+                      title: this.closeButtonTextScreenReaderHeader,
+                      type: "button",
+                      onClick: () => this.close(true),
+                    }) :
+                    "",
+                ]) :
+                "",
               h("div", {
                 ref: "modal_body",
                 class: "a_modal_body",
@@ -415,12 +475,14 @@ export default {
                   ref: "modal_body",
                   class: "a_modal_body__content",
                 }, [
-                  this.$slots.modalBody && this.$slots.modalBody(),
                   this.bodyHtml && h(ATranslation, {
+                    id: this.bodyHtmlId,
                     alwaysTranslate: this.alwaysTranslate,
+                    class: this.bodyHtmlClass,
                     html: this.bodyHtml,
                     extra: this.extra,
                   }),
+                  this.$slots.modalBody && this.$slots.modalBody(),
                 ]),
                 this.isFooterSticky ?
                   FOOTER :

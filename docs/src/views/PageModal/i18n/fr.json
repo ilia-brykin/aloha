@@ -48,7 +48,7 @@
   "_A_MODAL_PROPS_SAVE_DESCRIPTION_": "La fonction qui permet de sauvegarder dans la fenêtre modale.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_DESCRIPTION_": "Le sélecteur de focus pour s'assurer que le focus n'est pas perdu dans le navigateur lors de la fermeture de la fenêtre modale.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_IDS_DESCRIPTION_": "L'ID ou les ID pour le focus afin de s'assurer que le focus n'est pas perdu dans le navigateur lors de la fermeture de la fenêtre modale.",
-  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_DESCRIPTION_": "Détermine s'il faut afficher le bouton de fermeture (\"x\") dans l'en-tête de la fenêtre modale.",
+  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_HEADER_DESCRIPTION_": "Détermine s'il faut afficher le bouton de fermeture (\"x\") dans l'en-tête de la fenêtre modale.",
   "_A_MODAL_PROPS_SIZE_DESCRIPTION_": "La taille de la fenêtre modale (petite, grande, xl, xxl, plein écran).",
   "_A_MODAL_PROPS_STOP_DESCRIPTION_": "Ajoute un événement de clic avec stopPropagation à l'élément parent de la fenêtre modale pour empêcher la propagation de l'événement.",
   "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_": "Spécifie si la touche Échap peut fermer la fenêtre modale.",

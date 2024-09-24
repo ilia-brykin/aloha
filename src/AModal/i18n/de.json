@@ -1,4 +1,7 @@
 {
   "_A_MODAL_BTN_CANCEL_": "Abbrechen",
-  "_A_MODAL_BTN_SAVE_": "Speichern"
+  "_A_MODAL_BTN_SAVE_": "Speichern",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_": "Modales Fenster schließen (im Header angeordnet)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_": "Modales Fenster schließen (im Footer angeordnet)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_": "Daten im modalen Fenster speichern"
 }

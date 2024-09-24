@@ -1,4 +1,7 @@
 {
   "_A_MODAL_BTN_CANCEL_": "قطع",
-  "_A_MODAL_BTN_SAVE_": "حفظ"
+  "_A_MODAL_BTN_SAVE_": "حفظ",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_": "إغلاق النافذة المنبثقة (موجودة في الرأس)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_": "إغلاق النافذة المنبثقة (موجودة في التذييل)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_": "حفظ البيانات في النافذة المنبثقة"
 }

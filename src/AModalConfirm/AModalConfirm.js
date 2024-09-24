@@ -30,7 +30,7 @@ export default {
         isModalHidden: isModalHidden.value,
         isConfirm: true,
         ...confirmOptions.value,
-        showCloseButton: false,
+        showCloseButtonHeader: false,
         close: closeConfirm,
       };
     });

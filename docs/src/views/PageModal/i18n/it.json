@@ -48,7 +48,7 @@
   "_A_MODAL_PROPS_SAVE_DESCRIPTION_": "La funzione che consente di salvare nella finestra modale.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_DESCRIPTION_": "Il selettore di focus per assicurare che il focus non venga perso nel browser quando viene chiusa la finestra modale.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_IDS_DESCRIPTION_": "L'ID o gli ID per il focus per assicurare che il focus non venga perso nel browser quando viene chiusa la finestra modale.",
-  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_DESCRIPTION_": "Determina se visualizzare il pulsante di chiusura (\"x\") nell'intestazione della finestra modale.",
+  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_HEADER_DESCRIPTION_": "Determina se visualizzare il pulsante di chiusura (\"x\") nell'intestazione della finestra modale.",
   "_A_MODAL_PROPS_SIZE_DESCRIPTION_": "Le dimensioni della finestra modale (piccola, grande, xl, xxl, schermo intero).",
   "_A_MODAL_PROPS_STOP_DESCRIPTION_": "Aggiunge un evento di clic con stopPropagation all'elemento padre della finestra modale per impedire che l'evento si propaghi ulteriormente.",
   "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_": "Specifica se il tasto Esc può chiudere la finestra modale.",

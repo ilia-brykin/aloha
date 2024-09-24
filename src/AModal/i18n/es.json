@@ -1,4 +1,7 @@
 {
   "_A_MODAL_BTN_CANCEL_": "Interrumpir",
-  "_A_MODAL_BTN_SAVE_": "Guardar"
+  "_A_MODAL_BTN_SAVE_": "Guardar",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_": "Cerrar ventana modal (ubicada en el encabezado)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_": "Cerrar ventana modal (ubicada en el pie de página)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_": "Guardar los datos en la ventana modal"
 }

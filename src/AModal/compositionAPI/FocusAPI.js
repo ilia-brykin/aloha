@@ -1,19 +1,45 @@
 import {
-  ref,
+  ref, toRef,
 } from "vue";
 
 import {
   focusableSelector,
 } from "../../const/AFocusableElements";
 
-export default function FocusAPI() {
+export default function FocusAPI(props) {
+  const focusStartId = toRef(props, "focusStartId");
+  const useFocusOnStart = toRef(props, "focusStartId");
+
   const modalRef = ref(undefined);
   const modalWrapperRef = ref(undefined);
 
-  const setFocusToModal = () => {
+  const setFocusToElementWithFocusStartId = () => {
+    const element = document.getElementById(focusStartId.value);
+
+    if (element) {
+      element.focus();
+    }
+  };
+
+  const setFocusToFirstElement = () => {
+    const FOCUSABLE_ELEMENTS = modalWrapperRef.value?.querySelectorAll(focusableSelector) || [];
+    if (FOCUSABLE_ELEMENTS.length === 0) {
+      return;
+    }
+
+    FOCUSABLE_ELEMENTS[0].focus();
+  };
+
+  const setFocusByShowModal = () => {
     setTimeout(() => {
-      if (modalRef.value) {
-        modalRef.value.focus();
+      if (useFocusOnStart.value) {
+        return;
+      }
+
+      if (focusStartId.value) {
+        setFocusToElementWithFocusStartId();
+      } else {
+        setFocusToFirstElement();
       }
     });
   };
@@ -28,15 +54,12 @@ export default function FocusAPI() {
     const LAST_FOCUSABLE_ELEMENT = FOCUSABLE_ELEMENTS[FOCUSABLE_ELEMENTS.length - 1];
     if (EVENT.shiftKey) { // Shift + Tab
       if (document.activeElement === FIRST_FOCUSABLE_ELEMENT) {
-        setFocusToModal();
-        EVENT.preventDefault();
-      } else if (document.activeElement === modalRef.value) { // Focus in .modal
         LAST_FOCUSABLE_ELEMENT.focus();
         EVENT.preventDefault();
       }
     } else { // Tab
       if (document.activeElement === LAST_FOCUSABLE_ELEMENT) {
-        setFocusToModal();
+        FIRST_FOCUSABLE_ELEMENT.focus();
         EVENT.preventDefault();
       }
     }
@@ -45,7 +68,7 @@ export default function FocusAPI() {
   return {
     modalRef,
     modalWrapperRef,
-    setFocusToModal,
+    setFocusByShowModal,
     trapFocus,
   };
 }

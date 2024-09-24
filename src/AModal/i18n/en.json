@@ -1,4 +1,7 @@
 {
   "_A_MODAL_BTN_CANCEL_": "cancel",
-  "_A_MODAL_BTN_SAVE_": "save"
+  "_A_MODAL_BTN_SAVE_": "save",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_": "Close modal window (located in the header)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_": "Close modal window (located in the footer)",
+  "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_": "Save data in the modal window"
 }

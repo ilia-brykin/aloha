@@ -48,7 +48,7 @@
   "_A_MODAL_PROPS_SAVE_DESCRIPTION_": "The function that enables saving in the modal.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_DESCRIPTION_": "The focus selector to ensure that focus is not lost in the browser when the modal is closed.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_IDS_DESCRIPTION_": "The ID or IDs for focus to ensure that focus is not lost in the browser when the modal is closed.",
-  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_DESCRIPTION_": "Determines whether to display the close button (\"x\") in the header of the modal window.",
+  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_HEADER_DESCRIPTION_": "Determines whether to display the close button (\"x\") in the header of the modal window.",
   "_A_MODAL_PROPS_SIZE_DESCRIPTION_": "The size of the modal (small, large, xl, xxl, fullscreen).",
   "_A_MODAL_PROPS_STOP_DESCRIPTION_": "Adds a click event with stopPropagation to the modal window's parent element to prevent the event from propagating further.",
   "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_": "Specifies whether the Escape key can close the modal.",

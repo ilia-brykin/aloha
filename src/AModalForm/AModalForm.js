@@ -6,6 +6,7 @@ import AForm from "../ui/AForm/AForm";
 import AModal from "../AModal/AModal";
 import ATranslation from "../ATranslation/ATranslation";
 
+import BodyHtmlAPI from "../AModal/compositionAPI/BodyHtmlAPI";
 import DataFormAPI from "./compositionAPI/DataFormAPI";
 import UpdateModalAPI from "./compositionAPI/UpdateModalAPI";
 
@@ -35,6 +36,11 @@ export default {
       required: false,
       default: "",
     },
+    bodyHtmlClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: undefined,
+    },
     close: {
       type: Function,
       required: true,
@@ -53,6 +59,16 @@ export default {
       type: String,
       required: false,
       default: () => modalPluginOptions.value.propsDefault.closeButtonText,
+    },
+    closeButtonTextScreenReaderFooter: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderFooter,
+    },
+    closeButtonTextScreenReaderHeader: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderHeader,
     },
     dataForm: {
       type: Array,
@@ -79,6 +95,11 @@ export default {
       required: false,
       default: undefined,
     },
+    focusStartId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     headerTag: {
       type: String,
       required: false,
@@ -88,6 +109,14 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    hideFooter: {
+      type: Boolean,
+      required: false,
+    },
+    hideHeader: {
+      type: Boolean,
+      required: false,
     },
     id: {
       type: String,
@@ -177,6 +206,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.saveButtonText,
     },
+    saveButtonTextScreenReader: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.saveButtonTextScreenReader,
+    },
     selectorClose: {
       type: [String, Array],
       required: false,
@@ -211,6 +245,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
+    useFocusOnStart: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     zIndex: {
       type: Number,
       required: false,
@@ -222,6 +261,10 @@ export default {
   ],
   setup(props, context) {
     const {
+      bodyHtmlId,
+    } = BodyHtmlAPI(props);
+
+    const {
       hasDataForm,
     } = DataFormAPI(props);
 
@@ -230,6 +273,7 @@ export default {
     } = UpdateModalAPI(context);
 
     return {
+      bodyHtmlId,
       hasDataForm,
       updateModelLocal,
     };
@@ -242,11 +286,16 @@ export default {
       closeButtonClass: this.closeButtonClass,
       closeButtonId: this.closeButtonId,
       closeButtonText: this.closeButtonText,
+      closeButtonTextScreenReaderFooter: this.closeButtonTextScreenReaderFooter,
+      closeButtonTextScreenReaderHeader: this.closeButtonTextScreenReaderHeader,
       disabled: this.disabled,
       disabledSave: this.disabledSave,
       extra: this.extra,
+      focusStartId: this.focusStartId,
       headerTag: this.headerTag,
       headerText: this.headerText,
+      hideFooter: this.hideFooter,
+      hideHeader: this.hideHeader,
       id: this.id,
       isCloseButtonHide: this.isCloseButtonHide,
       isConfirm: this.isConfirm,
@@ -260,16 +309,26 @@ export default {
       saveButtonClass: this.saveButtonClass,
       saveButtonId: this.saveButtonId,
       saveButtonText: this.saveButtonText,
+      saveButtonTextScreenReader: this.saveButtonTextScreenReader,
       selectorClose: this.selectorClose,
       selectorCloseIds: this.selectorCloseIds,
       size: this.size,
       stop: this.stop,
       useEscape: this.useEscape,
+      useFocusOnStart: this.useFocusOnStart,
       zIndex: this.zIndex,
+      "aria-describedby": this.bodyHtmlId,
     }, {
       ...this.$slots || {},
       modalBody: () => [
         this.$slots.modalBodyPrepend && this.$slots.modalBodyPrepend(),
+        this.bodyHtml && h(ATranslation, {
+          id: this.bodyHtmlId,
+          alwaysTranslate: this.alwaysTranslate,
+          class: this.bodyHtmlClass,
+          html: this.bodyHtml,
+          extra: this.extra,
+        }),
         this.hasDataForm && h(AForm, {
           alwaysTranslate: this.alwaysTranslate,
           modelValue: this.modelValue,
@@ -283,11 +342,6 @@ export default {
           isRender: this.isDataFormRender,
           "onUpdate:modelValue": this.updateModelLocal,
         }, this.$slots),
-        this.bodyHtml && h(ATranslation, {
-          alwaysTranslate: this.alwaysTranslate,
-          html: this.bodyHtml,
-          extra: this.extra,
-        }),
         this.$slots.modalBodyAppend && this.$slots.modalBodyAppend(),
       ],
     });

@@ -48,7 +48,7 @@
   "_A_MODAL_PROPS_SAVE_DESCRIPTION_": "La función que permite guardar en la ventana modal.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_DESCRIPTION_": "El selector de enfoque para asegurar que no se pierda el enfoque en el navegador al cerrar la ventana modal.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_IDS_DESCRIPTION_": "El ID o IDs para el enfoque para asegurar que no se pierda el enfoque en el navegador al cerrar la ventana modal.",
-  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_DESCRIPTION_": "Determina si se debe mostrar el botón de cerrar (\"x\") en el encabezado de la ventana modal.",
+  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_HEADER_DESCRIPTION_": "Determina si se debe mostrar el botón de cerrar (\"x\") en el encabezado de la ventana modal.",
   "_A_MODAL_PROPS_SIZE_DESCRIPTION_": "El tamaño de la ventana modal (pequeño, grande, xl, xxl, pantalla completa).",
   "_A_MODAL_PROPS_STOP_DESCRIPTION_": "Añade un evento de clic con stopPropagation al elemento padre de la ventana modal para evitar que el evento se propague más.",
   "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_": "Especifica si la tecla Escape puede cerrar la ventana modal.",

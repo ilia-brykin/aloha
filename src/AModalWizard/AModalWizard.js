@@ -55,6 +55,16 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.closeButtonText,
     },
+    closeButtonTextScreenReaderFooter: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderFooter,
+    },
+    closeButtonTextScreenReaderHeader: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderHeader,
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -70,6 +80,11 @@ export default {
       required: false,
       default: undefined,
     },
+    focusStartId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     headerTag: {
       type: String,
       required: false,
@@ -79,6 +94,10 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    hideHeader: {
+      type: Boolean,
+      required: false,
     },
     isCloseButtonHide: {
       type: Boolean,
@@ -134,6 +153,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.saveButtonText,
     },
+    saveButtonTextScreenReader: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.saveButtonTextScreenReader,
+    },
     selectorClose: {
       type: [String, Array],
       required: false,
@@ -144,7 +168,7 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.selectorCloseIds,
     },
-    showCloseButton: {
+    showCloseButtonHeader: {
       type: Boolean,
       required: false,
       default: true,
@@ -162,6 +186,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => modalPluginOptions.value.propsDefault.useEscape,
+    },
+    useFocusOnStart: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     zIndex: {
       type: Number,
@@ -425,11 +454,15 @@ export default {
       closeButtonClass: this.closeButtonClass,
       closeButtonId: this.closeButtonId,
       closeButtonText: this.closeButtonText,
+      closeButtonTextScreenReaderFooter: this.closeButtonTextScreenReaderFooter,
+      closeButtonTextScreenReaderHeader: this.closeButtonTextScreenReaderHeader,
       disabled: this.disabled,
       disabledSave: this.disabledSave,
       extra: this.extra,
+      focusStartId: this.focusStartId,
       headerTag: this.headerTag,
       headerText: this.headerText,
+      hideHeader: this.hideHeader,
       id: this.id,
       isCloseButtonHide: this.isCloseButtonHide,
       isFooterSticky: this.isFooterSticky,
@@ -442,12 +475,14 @@ export default {
       saveButtonClass: this.saveButtonClass,
       saveButtonId: this.saveButtonId,
       saveButtonText: this.saveButtonText,
+      saveButtonTextScreenReader: this.saveButtonTextScreenReader,
       selectorClose: this.selectorClose,
       selectorCloseIds: this.selectorCloseIds,
-      showCloseButton: this.showCloseButton,
+      showCloseButtonHeader: this.showCloseButtonHeader,
       size: this.size,
       stop: this.stop,
       useEscape: this.useEscape,
+      useFocusOnStart: this.useFocusOnStart,
       zIndex: this.zIndex,
     }, {
       ...this.$slots || {},

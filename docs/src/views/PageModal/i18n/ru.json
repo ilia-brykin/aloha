@@ -48,7 +48,7 @@
   "_A_MODAL_PROPS_SAVE_DESCRIPTION_": "Функция, позволяющая сохранить в модальном окне.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_DESCRIPTION_": "Селектор фокуса для предотвращения потери фокуса в браузере после закрытия модального окна.",
   "_A_MODAL_PROPS_SELECTOR_CLOSE_IDS_DESCRIPTION_": "Идентификатор или идентификаторы для установки фокуса и предотвращения потери фокуса в браузере после закрытия модального окна.",
-  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_DESCRIPTION_": "Определяет, следует ли отображать кнопку закрытия (\"x\") в заголовке модального окна.",
+  "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_HEADER_DESCRIPTION_": "Определяет, следует ли отображать кнопку закрытия (\"x\") в заголовке модального окна.",
   "_A_MODAL_PROPS_SIZE_DESCRIPTION_": "Размер модального окна (small, large, xl, xxl, fullscreen).",
   "_A_MODAL_PROPS_STOP_DESCRIPTION_": "Добавляет событие клика с stopPropagation к родительскому элементу модального окна, чтобы предотвратить дальнейшее распространение события.",
   "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_": "Определяет, может ли клавиша Escape закрыть модальное окно.",

@@ -51,6 +51,20 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "close-button-text-screen-reader-footer",
+      description: "_A_MODAL_PROPS_CLOSE_BUTTON_TEXT_SCREEN_READER_FOOTER_DESCRIPTION_",
+      type: "String",
+      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_",
+      required: false,
+    },
+    {
+      name: "close-button-text-screen-reader-header",
+      description: "_A_MODAL_PROPS_CLOSE_BUTTON_TEXT_SCREEN_READER_HEADER_DESCRIPTION_",
+      type: "String",
+      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_",
+      required: false,
+    },
+    {
       name: "disabled",
       description: "_A_MODAL_PROPS_DISABLED_DESCRIPTION_",
       type: "Boolean",
@@ -72,6 +86,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "focus-start-id",
+      description: "_A_MODAL_PROPS_FOCUS_START_ID_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "header-tag",
       description: "_A_MODAL_PROPS_HEADER_TAG_DESCRIPTION_",
       type: "String",
@@ -82,6 +103,13 @@ export default function PropsAPI() {
       name: "header-text",
       description: "_A_MODAL_PROPS_HEADER_TEXT_DESCRIPTION_",
       type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "hide-header",
+      description: "_A_MODAL_PROPS_HIDE_HEADER_DESCRIPTION_",
+      type: "Boolean",
       default: undefined,
       required: false,
     },
@@ -163,6 +191,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "save-button-text-screen-reader",
+      description: "_A_MODAL_PROPS_SAVE_BUTTON_TEXT_SCREEN_READER_DESCRIPTION_",
+      type: "String",
+      default: "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_",
+      required: false,
+    },
+    {
       name: "selector-close",
       description: "_A_MODAL_PROPS_SELECTOR_CLOSE_DESCRIPTION_",
       type: "String / Array",
@@ -177,8 +212,8 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "show-close-button",
-      description: "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_DESCRIPTION_",
+      name: "show-close-button-header",
+      description: "_A_MODAL_PROPS_SHOW_CLOSE_BUTTON_HEADER_DESCRIPTION_",
       type: "Boolean",
       default: true,
       required: false,
@@ -200,6 +235,13 @@ export default function PropsAPI() {
     {
       name: "use-escape",
       description: "_A_MODAL_PROPS_USE_ESCAPE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "use-focus-on-start",
+      description: "_A_MODAL_PROPS_USE_FOCUS_ON_START_DESCRIPTION_",
       type: "Boolean",
       default: true,
       required: false,

@@ -3,7 +3,7 @@ import {
 } from "vue";
 
 export default function ShowModalAPI(props, {
-  setFocusToModal = () => {},
+  setFocusByShowModal = () => {},
   setListenerForKeydown = () => {},
 }) {
   const isModalHidden = toRef(props, "isModalHidden");
@@ -13,7 +13,7 @@ export default function ShowModalAPI(props, {
       return;
     }
     document.body.classList.add("a_modal_open");
-    setFocusToModal();
+    setFocusByShowModal();
     setListenerForKeydown();
   };
 
