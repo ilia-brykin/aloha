@@ -157,6 +157,9 @@ export default {
       class: [
         "a_form_element_label",
         this.labelClass,
+        this.isLabelFloat ?
+          "a_form_element_label_float" :
+          "a_form_element_label_static",
         {
           a_form_element_label_error: this.isError,
         },
