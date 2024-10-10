@@ -40,14 +40,14 @@ export default function UiCollapseAPI(props, { emit }) {
 
   const initIsCollapsedLocal = () => {
     if (collapsible.value) {
-      isCollapsedLocal.value = isCollapsed.value;
+      isCollapsedLocal.value = isCollapsed.value || false;
     } else {
       isCollapsedLocal.value = false;
     }
   };
 
   watch(isCollapsed, () => {
-    isCollapsedLocal.value = isCollapsed.value;
+    isCollapsedLocal.value = isCollapsed.value || false;
   });
 
   return {

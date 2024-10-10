@@ -3,7 +3,6 @@ import {
   watch,
 } from "vue";
 
-import AButton from "../../AButton/AButton";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
 import ACloak from "../../ACloak/ACloak";
 import AElement from "../../AElement/AElement";
@@ -447,7 +446,6 @@ export default {
     } = UiCollapseAPI(props, context);
 
     const {
-      groupAriaLabelledby,
       groupId,
     } = AttributesAPI(props, {
       htmlIdLocal,
@@ -469,7 +467,6 @@ export default {
       dataGrouped,
       dataSort,
       errorsId,
-      groupAriaLabelledby,
       groupId,
       groupsForLever,
       hasDataExtra,
@@ -559,20 +556,21 @@ export default {
               }) :
               "",
             this.collapsible ?
-              h(AButton, {
+              h(AElement, {
+                "aria-controls": this.groupId,
+                "aria-expanded": !this.isCollapsedLocal,
                 alwaysTranslate: this.alwaysTranslate,
                 class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
                 iconLeft: this.iconCollapse,
                 title: this.titleCollapse,
                 textScreenReader: this.titleCollapse,
+                type: "button",
                 onClick: this.toggleCollapse,
               }) :
               "",
             h("div", {
               id: this.groupId,
-              "aria-labelledby": this.groupAriaLabelledby,
               class: "a_fieldset__content",
-              role: "group",
             }, [
               this.searchOutsideOrApi ?
                 h("div", {
@@ -592,13 +590,13 @@ export default {
                         modelUndefined: "",
                         "onUpdate:modelValue": this.updateModelSearchOutside,
                       }),
-                      h(AButton, {
+                      h(AElement, {
                         alwaysTranslate: this.alwaysTranslate,
                         ariaDisabled: this.loadingSearchApi,
-                        disabled: this.disabled,
                         class: "a_btn a_btn_primary",
-                        type: "submit",
+                        disabled: this.disabled,
                         iconLeft: "Search",
+                        type: "submit",
                       }),
                     ]),
                   ]),

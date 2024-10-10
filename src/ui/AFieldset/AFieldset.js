@@ -9,6 +9,7 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AGroup from "../AGroup/AGroup";
 import AUiComponents from "../AUiComponents";
 
+import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
@@ -222,6 +223,12 @@ export default {
     };
 
     const {
+      groupId,
+    } = AttributesAPI(props, {
+      htmlIdLocal,
+    });
+
+    const {
       iconCollapse,
       initIsCollapsedLocal,
       isCollapsedLocal,
@@ -237,6 +244,7 @@ export default {
       componentStyleHide,
       componentTypesMapping,
       errorsId,
+      groupId,
       helpTextId,
       htmlIdLocal,
       iconCollapse,
@@ -293,6 +301,8 @@ export default {
             "",
           this.collapsible ?
             h(AElement, {
+              "aria-controls": this.groupId,
+              "aria-expanded": !this.isCollapsedLocal,
               alwaysTranslate: this.alwaysTranslate,
               class: "a_fieldset__btn_collapse a_btn a_btn_transparent_secondary",
               iconLeft: this.iconCollapse,
@@ -303,6 +313,7 @@ export default {
             }) :
             "",
           h("div", {
+            id: this.groupId,
             class: [
               this.classColumns,
               "a_fieldset__content",
