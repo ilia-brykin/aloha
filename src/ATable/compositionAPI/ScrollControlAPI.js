@@ -12,6 +12,7 @@ import {
 } from "../utils/utils.js";
 import {
   cloneDeep,
+  debounce,
   forEach,
   isNil,
   isUndefined,
@@ -35,7 +36,6 @@ export default function ScrollControlAPI(props, { emit }, {
 
   const aTableRef = ref(undefined);
   const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
-  const resizeTimeout = ref(undefined);
   const tableWidth = ref(undefined);
   let changingTableWidth = false;
   const delta = 20; // approx scrollbar width + 2px for <tr> border
@@ -179,18 +179,16 @@ export default function ScrollControlAPI(props, { emit }, {
     }
   };
 
-  const resizeOb = new ResizeObserver(entries => {
-    // since we are observing only a single element, so we access the first element in entries array
-    if (isUndefined(tableWidth.value)) {
-      adjustTableWidth({ entries, forceAdjust: true });
-    } else {
-      clearTimeout(resizeTimeout.value);
-
-      resizeTimeout.value = setTimeout(() => {
+  const resizeOb = new ResizeObserver(
+    debounce(entries => {
+      // since we are observing only a single element, so we access the first element in entries array
+      if (isUndefined(tableWidth.value)) {
+        adjustTableWidth({ entries, forceAdjust: true });
+      } else {
         adjustTableWidth({ entries });
-      }, 300);
-    }
-  });
+      }
+    }, 300)
+  );
 
   const onWatchMobileScrollControl = newValue => {
     if (newValue) {

@@ -7,6 +7,7 @@ import {
 import PreviewRightRewAPI from "./PreviewRightRewAPI";
 
 import {
+  debounce,
   get,
 } from "lodash-es";
 
@@ -90,14 +91,16 @@ export default function PreviewRightResizeAPI(props, { emit }, {
     });
   };
 
-  const resizeOb = new ResizeObserver(entries => {
-    // since we are observing only a single element, so we access the first element in entries array
-    const RECT = entries[0].contentRect;
-    if (tableGrandparentWidth !== RECT.width) {
-      tableGrandparentWidth = RECT.width;
-      correctTableUndPreviewWidth();
-    }
-  });
+  const resizeOb = new ResizeObserver(
+    debounce(entries => {
+      // since we are observing only a single element, so we access the first element in entries array
+      const RECT = entries[0].contentRect;
+      if (tableGrandparentWidth !== RECT.width) {
+        tableGrandparentWidth = RECT.width;
+        correctTableUndPreviewWidth();
+      }
+    }, 300)
+  );
 
   const addEventListenerWindowResize = () => {
     resizeOb.observe(tableGrandparentRef.value);

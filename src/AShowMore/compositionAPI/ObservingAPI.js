@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import {
+  debounce,
   get,
 } from "lodash-es";
 
@@ -33,9 +34,11 @@ export default function ObservingAPI(props, {
     if (isBtnHiddenDependentOnTextLength.value) {
       return;
     }
-    observer.value = new ResizeObserver(() => {
-      checkHeight();
-    });
+    observer.value = new ResizeObserver(
+      debounce(() => {
+        checkHeight();
+      }, 300)
+    );
     observer.value.observe(containerRef.value);
   };
 

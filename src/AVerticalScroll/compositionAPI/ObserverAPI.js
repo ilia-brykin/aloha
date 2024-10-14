@@ -2,6 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  debounce,
+} from "lodash-es";
+
 export default function ObserverAPI({
   checkScroll = () => {},
   containerRef = ref(undefined),
@@ -33,11 +37,15 @@ export default function ObserverAPI({
   };
 
   const initContainerObserver = () => {
-    resizeContainerObserver.value = new ResizeObserver(callbackContainerObserver);
+    resizeContainerObserver.value = new ResizeObserver(
+      debounce(entries => callbackContainerObserver(entries), 300)
+    );
   };
 
   const initScrollContentObserver = () => {
-    resizeScrollContentObserver.value = new ResizeObserver(callbackScrollContentObserver);
+    resizeScrollContentObserver.value = new ResizeObserver(
+      debounce(entries => callbackScrollContentObserver(entries), 300)
+    );
   };
 
   const connectContainerObserver = () => {
