@@ -12,6 +12,7 @@ import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
+import ColorAPI from "./compositionAPI/ColorAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import PasswordAPI from "./compositionAPI/PasswordAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
@@ -251,6 +252,10 @@ export default {
       isClearButtonLocal,
     });
 
+    const {
+      modelValueLocal,
+    } = ColorAPI(props);
+
     watch(type, () => {
       setTypeLocal();
     });
@@ -274,6 +279,7 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
+      modelValueLocal,
       onBlur,
       onFocus,
       onInput,
@@ -322,7 +328,7 @@ export default {
           h("input", {
             ref: "inputRef",
             id: this.htmlIdLocal,
-            value: this.modelValue,
+            value: this.modelValueLocal,
             type: this.typeForInput,
             class: [
               "a_form_control a_input",
