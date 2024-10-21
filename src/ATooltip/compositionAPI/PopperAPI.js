@@ -105,12 +105,17 @@ export default function PopperAPI(props) {
   };
 
   const startPopper = () => {
-    if (!cleanupPopper.value) {
-      if (!titleRef.value) {
-        return;
-      }
+    if (cleanupPopper.value ||
+      !element.value ||
+      !titleRef.value) {
+      return;
     }
     cleanupPopper.value = autoUpdate(element.value, titleRef.value, () => {
+      if (!element.value ||
+        !titleRef.value) {
+        return;
+      }
+
       computePosition(
         element.value,
         titleRef.value,

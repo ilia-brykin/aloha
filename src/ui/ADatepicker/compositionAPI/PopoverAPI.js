@@ -32,7 +32,10 @@ export default function PopoverAPI(props, {
   };
 
   const openPopoverWithFloatingUi = () => {
-    if (!cleanupPopper.value && !disabled.value) {
+    if (!cleanupPopper.value &&
+      !disabled.value &&
+      inputRef.value &&
+      calendarRef.value) {
       cleanupPopper.value = autoUpdate(
         inputRef.value,
         calendarRef.value,

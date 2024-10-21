@@ -38,11 +38,18 @@ export default function PopoverAPI(props, {
   });
 
   const startPopper = () => {
-    if (!cleanupPopper.value) {
+    if (!cleanupPopper.value &&
+      dropdownButtonRef.value.$el &&
+      dropdownRef.value) {
       cleanupPopper.value = autoUpdate(
         dropdownButtonRef.value.$el,
         dropdownRef.value,
         () => {
+          if (!dropdownButtonRef.value.$el ||
+            !dropdownRef.value) {
+            return;
+          }
+
           computePosition(
             dropdownButtonRef.value.$el,
             dropdownRef.value,
