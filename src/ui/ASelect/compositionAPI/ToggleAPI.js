@@ -142,11 +142,18 @@ export default function ToggleAPI(props, {
   };
 
   const openPopoverWithFloatingUi = () => {
-    if (!cleanupPopper.value) {
+    if (!cleanupPopper.value &&
+      buttonRef.value &&
+      menuRef.value) {
       cleanupPopper.value = autoUpdate(
         buttonRef.value,
         menuRef.value,
         () => {
+          if (!buttonRef.value ||
+            !menuRef.value) {
+            return;
+          }
+
           computePosition(
             buttonRef.value,
             menuRef.value,

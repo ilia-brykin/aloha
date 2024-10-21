@@ -88,10 +88,18 @@ export default function PopoverAPI(props, {
       }
       const LINK_ELEMENT = getElementLink({ id });
       const PANEL_ELEMENT = getElementPanel({ id });
+      if (!LINK_ELEMENT ||
+        !PANEL_ELEMENT) {
+        return;
+      }
       cleanupPopper.value[id] = autoUpdate(
         LINK_ELEMENT,
         PANEL_ELEMENT,
         () => {
+          if (!LINK_ELEMENT ||
+            !PANEL_ELEMENT) {
+            return;
+          }
           computePosition(
             LINK_ELEMENT,
             PANEL_ELEMENT,
