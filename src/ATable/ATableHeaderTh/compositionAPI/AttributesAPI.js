@@ -26,7 +26,8 @@ export default function AttributesAPI(props, {
       {
         a_table__th_draggable: !isLocked.value && !isLoadingOptions.value && isColumnsDnd.value,
         a_table__th_sorting: isSorting.value,
-      }
+      },
+      column.value.classHeaderParent,
     ];
   });
 
