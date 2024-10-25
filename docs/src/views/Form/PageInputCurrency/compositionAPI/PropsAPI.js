@@ -8,6 +8,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "autocomplete",
+      description: "_A_UI_PROPS_AUTOCOMPLETE_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "change",
       description: "_A_UI_PROPS_CHANGE_DESCRIPTION_",
       type: "Function",
@@ -241,7 +248,7 @@ export default function PropsAPI() {
     {
       name: "placeholder",
       description: "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_",
-      type: "String / Number",
+      type: "String / Number / Object",
       default: undefined,
       required: false,
     },

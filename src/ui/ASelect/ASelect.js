@@ -60,6 +60,11 @@ export default {
       required: false,
       default: undefined,
     },
+    autocomplete: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     buttonClass: {
       type: String,
       required: false,
@@ -694,6 +699,7 @@ export default {
             h("div", {
               ref: "buttonRef",
               id: this.htmlIdLocal,
+              autocomplete: this.autocomplete,
               class: [this.buttonClassDefault, this.buttonClass, {
                 disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable && this.isModelValue,

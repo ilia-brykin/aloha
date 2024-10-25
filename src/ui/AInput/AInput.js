@@ -15,6 +15,7 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 import ColorAPI from "./compositionAPI/ColorAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import PasswordAPI from "./compositionAPI/PasswordAPI";
+import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
@@ -34,6 +35,11 @@ export default {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+    },
+    autocomplete: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     change: {
       type: Function,
@@ -158,6 +164,11 @@ export default {
       required: false,
       default: undefined,
     },
+    placeholder: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
     required: {
       type: Boolean,
       required: false,
@@ -253,6 +264,10 @@ export default {
     });
 
     const {
+      placeholderAttributes,
+    } = PlaceholderAPI(props);
+
+    const {
       modelValueLocal,
     } = ColorAPI(props);
 
@@ -283,6 +298,7 @@ export default {
       onBlur,
       onFocus,
       onInput,
+      placeholderAttributes,
       titleBtnShowPassword,
       toggleTypePassword,
       typeForInput,
@@ -328,6 +344,7 @@ export default {
           h("input", {
             ref: "inputRef",
             id: this.htmlIdLocal,
+            autocomplete: this.autocomplete,
             value: this.modelValueLocal,
             type: this.typeForInput,
             class: [
@@ -344,6 +361,7 @@ export default {
             "aria-describedby": this.ariaDescribedbyLocal,
             maxlength: this.maxlength,
             step: this.step,
+            ...this.placeholderAttributes,
             ...this.inputAttributes,
             onInput: this.onInput,
             onFocus: this.onFocus,

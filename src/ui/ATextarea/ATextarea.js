@@ -11,6 +11,7 @@ import ALabel from "../ALabel/ALabel";
 
 import AutosizeAPI from "./compositionAPI/AutosizeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import ResizeClass from "./compositionAPI/ResizeClass";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import UiAPI from "../compositionApi/UiAPI";
@@ -30,6 +31,11 @@ export default {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+    },
+    autocomplete: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     change: {
       type: Function,
@@ -151,6 +157,11 @@ export default {
       type: [String, Number],
       required: false,
     },
+    placeholder: {
+      type: [String, Number, Object],
+      required: false,
+      default: undefined,
+    },
     required: {
       type: Boolean,
       required: false,
@@ -227,6 +238,10 @@ export default {
       rowsLocal,
     } = RowsAPI(props);
 
+    const {
+      placeholderAttributes,
+    } = PlaceholderAPI(props);
+
     onMounted(() => {
       initAutosize();
     });
@@ -251,6 +266,7 @@ export default {
       onBlur,
       onFocus,
       onInput,
+      placeholderAttributes,
       resizeClass,
       rowsLocal,
       textareaRef,
@@ -297,6 +313,7 @@ export default {
           h("textarea", {
             ref: "textareaRef",
             id: this.htmlIdLocal,
+            autocomplete: this.autocomplete,
             value: this.modelValue,
             rows: this.rowsLocal,
             class: [
@@ -314,6 +331,7 @@ export default {
             ariaInvalid: this.isErrors,
             "aria-describedby": this.ariaDescribedbyLocal,
             maxlength: this.maxlength,
+            ...this.placeholderAttributes,
             ...this.inputAttributes,
             onInput: this.onInput,
             onFocus: this.onFocus,

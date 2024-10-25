@@ -48,6 +48,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    autocomplete: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     controlsType: {
       type: String,
       required: false,
@@ -100,14 +105,14 @@ export default {
       default: () => inputNumberPluginOptions.value.propsDefault.modelUndefined,
     },
     placeholder: {
-      type: [String, Number],
+      type: [String, Number, Object],
       required: false,
       default: () => inputNumberPluginOptions.value.propsDefault.placeholder,
     },
     precision: {
       type: Number,
       validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
-      default: () => inputNumberPluginOptions.value.propsDefault.placeholder,
+      default: () => inputNumberPluginOptions.value.propsDefault.precision,
     },
     readonly: {
       type: Boolean,
@@ -347,6 +352,7 @@ export default {
               h("input", {
                 ref: "inputRef",
                 id: this.htmlIdLocal,
+                autocomplete: this.autocomplete,
                 value: this.displayValue,
                 type: this.inputType,
                 class: [

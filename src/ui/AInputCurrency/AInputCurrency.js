@@ -39,6 +39,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    autocomplete: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     change: {
       type: Function,
       required: false,
@@ -372,8 +377,8 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
-      onClickNumber,
       onBlurNumber,
+      onClickNumber,
       onFocus,
       placeholderAttributes,
     };
@@ -449,6 +454,7 @@ export default {
               h("input", {
                 ref: "inputRef",
                 id: this.htmlIdLocal,
+                autocomplete: this.autocomplete,
                 value: this.displayValue,
                 type: "text",
                 class: [
