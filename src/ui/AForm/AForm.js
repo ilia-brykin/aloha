@@ -148,6 +148,9 @@ export default {
       this.isRequiredLocal ? h(ARequired, {
         text: this.textRequired,
       }) : "",
+      this.$slots.formPrependAfterRequired ?
+        this.$slots.formPrependAfterRequired() :
+        "",
       this.showErrors ?
         h(AErrors, {
           alwaysTranslate: this.alwaysTranslate,
