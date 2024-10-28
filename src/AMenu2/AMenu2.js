@@ -248,6 +248,7 @@ export default {
 
     const {
       attributesMenuClick,
+      attributesMobile,
     } = MenuAttributesAPI(props, {
       isMenuOpen,
       toggleMenu,
@@ -368,6 +369,7 @@ export default {
       activeRoutesIds,
       attributesBlockerClick,
       attributesMenuClick,
+      attributesMobile,
       checkAllRoutes,
       clickAttributesBackdrop,
       clickOnSearchBtn,
@@ -406,6 +408,7 @@ export default {
           a_menu_2_mobile: this.isMobileWidth,
         },
       ],
+      ...this.attributesMobile,
       ...this.attributesMenuClick,
     }, [
       h("div", {
