@@ -8,7 +8,8 @@ import AMobileAPI from "../../compositionAPI/AMobileAPI";
 import EventBus from "../../utils/EventBus";
 
 export default function ResizeAPI(props, {
-  toggleMenu,
+  removeListenerForKeydown = () => {},
+  toggleMenu = () => {},
 }) {
   const isMenuOpenInitial = toRef(props, "isMenuOpenInitial");
 
@@ -23,6 +24,7 @@ export default function ResizeAPI(props, {
       toggleMenu({ isOpen: false });
     } else {
       toggleMenu({ isOpen: isMenuOpenInitial.value });
+      removeListenerForKeydown();
     }
   };
 

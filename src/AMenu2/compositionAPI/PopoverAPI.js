@@ -20,13 +20,13 @@ import {
 } from "lodash-es";
 
 export default function PopoverAPI(props, {
+  menuRef = ref(undefined),
   isMenuOpen = computed(() => false),
   panelParentsOpen = ref([]),
 }) {
   const menuId = toRef(props, "menuId");
 
   const cleanupPopper = ref({});
-  const menuRef = ref(undefined);
   const isEventCloseClickStarted = ref(false);
 
   const getElementLink = ({ id }) => {
@@ -133,7 +133,6 @@ export default function PopoverAPI(props, {
 
   return {
     destroyPopover,
-    menuRef,
     startPopper,
   };
 }

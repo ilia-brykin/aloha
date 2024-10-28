@@ -20,6 +20,7 @@ import AMenuBlockerClickAPI from "./compositionAPI/AMenuBlockerClickAPI";
 import BackdropAPI from "./compositionAPI/BackdropAPI";
 import CheckRoutesAPI from "./compositionAPI/CheckRoutesAPI";
 import DataAPI from "./compositionAPI/DataAPI";
+import KeydownAPI from "./compositionAPI/KeydownAPI";
 import LinkClickAPI from "./compositionAPI/LinkClickAPI";
 import MenuAttributesAPI from "./compositionAPI/MenuAttributesAPI";
 import PanelMainAPI from "./compositionAPI/PanelMainAPI";
@@ -183,11 +184,22 @@ export default {
       required: false,
       default: true,
     },
+    useEscapeForMobile: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props) {
     const isLinkTruncated = toRef(props, "isLinkTruncated");
     const showCountChildren = toRef(props, "showCountChildren");
     const breadcrumbsTruncatedOffset = toRef(props, "breadcrumbsTruncatedOffset");
+
+    const {
+      menuRef,
+      removeListenerForKeydown,
+      setListenerForKeydown,
+    } = KeydownAPI(props);
 
     const {
       dataKeyById,
@@ -221,7 +233,10 @@ export default {
       isMenuOpen,
       removeBodyClasses,
       toggleMenu,
-    } = ToggleAPI(props);
+    } = ToggleAPI(props, {
+      removeListenerForKeydown,
+      setListenerForKeydown,
+    });
 
     const {
       clickOnSearchBtn,
@@ -245,6 +260,7 @@ export default {
       isMenuInitialized,
       isMobileWidth,
     } = ResizeAPI(props, {
+      removeListenerForKeydown,
       toggleMenu,
     });
 
@@ -279,9 +295,9 @@ export default {
 
     const {
       destroyPopover,
-      menuRef,
       startPopper,
     } = PopoverAPI(props, {
+      menuRef,
       isMenuOpen,
       panelParentsOpen,
     });
@@ -317,6 +333,9 @@ export default {
       closeAllPanels();
       if (newValue) {
         destroyPopover();
+        setListenerForKeydown();
+      } else {
+        removeListenerForKeydown();
       }
     });
 
@@ -342,6 +361,7 @@ export default {
       removeBodyClasses();
       destroyEventBusUpdateViewOnResize();
       destroyPopover();
+      removeListenerForKeydown();
     });
 
     return {
