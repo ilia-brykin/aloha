@@ -77,6 +77,7 @@ export default function ToggleAPI(props) {
 
   return {
     btnToggleTitle,
+    closeMenu,
     isMenuOpen,
     removeBodyClasses,
     toggleMenu,

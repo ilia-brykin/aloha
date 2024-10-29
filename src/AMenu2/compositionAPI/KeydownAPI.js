@@ -10,7 +10,9 @@ import {
   focusableSelector,
 } from "../../const/AFocusableElements";
 
-export default function KeydownAPI(props) {
+export default function KeydownAPI(props, {
+  closeMenu = () => {},
+}) {
   const useEscapeForMobile = toRef(props, "useEscapeForMobile");
 
   const menuRef = ref(undefined);
@@ -50,7 +52,7 @@ export default function KeydownAPI(props) {
       return;
     }
 
-    close.value();
+    closeMenu();
     $event.preventDefault();
     $event.stopPropagation();
   };

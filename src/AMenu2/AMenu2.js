@@ -196,12 +196,6 @@ export default {
     const breadcrumbsTruncatedOffset = toRef(props, "breadcrumbsTruncatedOffset");
 
     const {
-      menuRef,
-      removeListenerForKeydown,
-      setListenerForKeydown,
-    } = KeydownAPI(props);
-
-    const {
       dataKeyById,
       dataProParent,
     } = DataAPI(props);
@@ -230,12 +224,18 @@ export default {
     });
 
     const {
+      closeMenu,
       isMenuOpen,
       removeBodyClasses,
       toggleMenu,
-    } = ToggleAPI(props, {
+    } = ToggleAPI(props);
+
+    const {
+      menuRef,
       removeListenerForKeydown,
       setListenerForKeydown,
+    } = KeydownAPI(props, {
+      closeMenu,
     });
 
     const {
