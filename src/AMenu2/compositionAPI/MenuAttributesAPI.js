@@ -11,6 +11,7 @@ export default function MenuAttributesAPI(props, {
   toggleMenu = () => {},
 }) {
   const isBlockerClickable = toRef(props, "isBlockerClickable");
+  const menuId = toRef(props, "menuId");
 
   const {
     isMobileWidth,
@@ -27,6 +28,10 @@ export default function MenuAttributesAPI(props, {
     return {};
   });
 
+  const headerId = computed(() => {
+    return `${ menuId.value }_header`;
+  });
+
   const attributesMenuClick = computed(() => {
     const ATTRIBUTES = {};
     if (isBlockerClickable.value &&
@@ -40,5 +45,6 @@ export default function MenuAttributesAPI(props, {
   return {
     attributesMenuClick,
     attributesMobile,
+    headerId,
   };
 }

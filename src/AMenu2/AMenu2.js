@@ -249,6 +249,7 @@ export default {
     const {
       attributesMenuClick,
       attributesMobile,
+      headerId,
     } = MenuAttributesAPI(props, {
       isMenuOpen,
       toggleMenu,
@@ -375,6 +376,7 @@ export default {
       clickOnSearchBtn,
       dataKeyById,
       dataProParent,
+      headerId,
       isBackdropVisible,
       isLeastOnePanelOpenAndMenuClosed,
       isMenuOpen,
@@ -399,6 +401,7 @@ export default {
     return h("nav", {
       ref: "menuRef",
       id: this.menuId,
+      "aria-labelledby": this.headerId,
       class: [
         "a_menu_2",
         {
@@ -438,6 +441,7 @@ export default {
           class: "a_menu_2__navbar_top_sub",
         }, [
           h(ATranslation, {
+            id: this.headerId,
             class: "a_menu_2__navbar_top_sub__text",
             tag: "strong",
             text: "_A_MENU_2_MAIN_MENU_",
