@@ -62,6 +62,10 @@ export default {
       type: Object,
       required: true,
     },
+    showElementWennGroupFound: {
+      type: Boolean,
+      required: false,
+    },
     slotName: {
       type: String,
       required: false,

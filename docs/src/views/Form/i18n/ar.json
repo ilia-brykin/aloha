@@ -112,6 +112,7 @@
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "يشير إلى ما إذا كان البحث عن العناصر سيتم تنفيذه باستخدام <strong lang=\"en\">API</strong>. إذا تم تعيينه على <strong lang=\"en\">true</strong>، سيتم تحميل البيانات من الخادم أثناء إدخال الاستعلام.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "المفتاح المستخدم لتنفيذ البحث عبر <strong lang=\"en\">API</strong>. عادة ما يكون هذا المعلمة التي يتم تمريرها في الطلب إلى الخادم لتصفية البيانات.",
   "_A_UI_PROPS_SEARCH_DESCRIPTION_": "يحدد ما إذا كانت ميزة البحث مدعومة. إذا تم تعيينه على <strong lang=\"en\">true</strong>، سيتمكن المستخدمون من البحث داخل المجموعة.",
+  "_A_UI_PROPS_SEARCH_IN_GROUP_DESCRIPTION_": "يتيح البحث الإضافي بأسماء المجموعات.",
   "_A_UI_PROPS_SEARCH_OUTSIDE_DESCRIPTION_": "يحدد ما إذا كان سيتم إجراء البحث خارج المكون، على سبيل المثال، عبر <strong lang=\"en\">API</strong> أو مصدر بيانات خارجي آخر.",
   "_A_UI_PROPS_SEARCH_TIMEOUT_DESCRIPTION_": "يحدد وقت التأخير بالمللي ثانية قبل تنفيذ البحث. مفيد لمنع الطلبات الزائدة أثناء إدخال النص بسرعة من قبل المستخدم.",
   "_A_UI_PROPS_SLOT_APPEND_NAME_DESCRIPTION_": "اسم الفتحة التي سيتم إضافتها بعد المحتوى الرئيسي للمكون. يتيح ذلك توسيع وظيفة المكون بإضافة محتوى مخصص.",

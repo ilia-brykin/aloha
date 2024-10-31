@@ -112,6 +112,7 @@
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Indica si la búsqueda de elementos se realizará mediante una <strong lang=\"en\">API</strong>. Si se establece en <strong lang=\"en\">true</strong>, los datos se cargarán desde el servidor a medida que se introduzca la consulta.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "La clave que se utiliza para realizar la búsqueda a través de una <strong lang=\"en\">API</strong>. Normalmente, es un parámetro que se pasa en la solicitud al servidor para filtrar los datos.",
   "_A_UI_PROPS_SEARCH_DESCRIPTION_": "Indica si se admitirá la función de búsqueda. Si se establece en <strong lang=\"en\">true</strong>, los usuarios podrán buscar elementos dentro del grupo.",
+  "_A_UI_PROPS_SEARCH_IN_GROUP_DESCRIPTION_": "Permite búsqueda adicional por nombres de grupo.",
   "_A_UI_PROPS_SEARCH_OUTSIDE_DESCRIPTION_": "Indica si la búsqueda se realizará fuera del componente, por ejemplo, a través de una <strong lang=\"en\">API</strong> o de otra fuente externa de datos.",
   "_A_UI_PROPS_SEARCH_TIMEOUT_DESCRIPTION_": "Establece el tiempo de demora en milisegundos antes de realizar la búsqueda. Es útil para evitar solicitudes excesivas cuando el usuario escribe rápidamente.",
   "_A_UI_PROPS_SLOT_APPEND_NAME_DESCRIPTION_": "El nombre de la ranura que se agregará después del contenido principal del componente. Esto permite extender la funcionalidad del componente mediante la adición de contenido personalizado.",

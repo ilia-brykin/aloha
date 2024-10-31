@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import {
+  cloneDeep,
   forEach,
   get,
   isArray,
@@ -47,6 +48,7 @@ export default function UIDataGroupAPI(props, {
 
     forEach(data.value, item => {
       let groupParentKey = undefined;
+      const allParentKeys = [];
       let allGroupKeys = "";
       forEach(keyGroupArray.value, (keyGroup, leverIndex) => {
         let group = get(item, keyGroup);
@@ -60,6 +62,7 @@ export default function UIDataGroupAPI(props, {
             groupLabel: isFunction(keyGroupLabelCallback.value) ? keyGroupLabelCallback.value({ group: group, item }) : group,
             groupParentKey: groupParentKey,
             allGroupKeys: allGroupKeys,
+            allParentKeys: cloneDeep(allParentKeys),
             data: [],
             dataKeyByKeyId: {},
           };
@@ -67,6 +70,7 @@ export default function UIDataGroupAPI(props, {
         GROUPS_FOR_LEVER[leverIndex][allGroupKeys].data.push(item);
         GROUPS_FOR_LEVER[leverIndex][allGroupKeys].dataKeyByKeyId[item[AKeyId]] = item;
         groupParentKey = group;
+        allParentKeys.push(group);
       });
     });
 

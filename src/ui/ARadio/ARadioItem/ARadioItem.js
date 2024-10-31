@@ -95,6 +95,10 @@ export default {
       type: Object,
       required: true,
     },
+    showElementWennGroupFound: {
+      type: Boolean,
+      required: false,
+    },
     slotAppendName: {
       type: String,
       required: false,

@@ -18,6 +18,7 @@ import {
 export default function UiSearchAPI(props, { emit }, {
   data = computed(() => []),
   dataExtra = computed(() => []),
+  groupsForLever = computed(() => undefined),
   hasKeyGroup = computed(() => false),
   htmlIdLocal = computed(() => ""),
   keyGroupArray = computed(() => []),
@@ -25,14 +26,17 @@ export default function UiSearchAPI(props, { emit }, {
   searchApiLocal = computed(() => false),
 }) {
   const searchTimeout = toRef(props, "searchTimeout");
+  const searchInGroup = toRef(props, "searchInGroup");
   const searchOutside = toRef(props, "searchOutside");
 
+  const hasAtLeastOneElementInGroupSearch = ref(false);
   const modelSearch = ref("");
   const modelSearchOutside = ref("");
   const searching = ref(false);
   const searchingElements = ref({});
   const searchingElementsExtra = ref({});
   const searchingGroups = ref({});
+  const searchingGroupsWithSearchInGroup = ref({});
   const searchOutsideRef = ref(undefined);
   
   const searchOutsideOrApi = computed(() => {
@@ -55,6 +59,51 @@ export default function UiSearchAPI(props, { emit }, {
     return new RegExp(modelSearchEscapeRegExp.value, "gi");
   });
 
+  const setSearchingGroupsWithSearchInGroup = () => {
+    let _hasAtLeastOneElementInGroupSearch = false;
+    if (!searchInGroup.value ||
+      !groupsForLever.value) {
+      searchingGroupsWithSearchInGroup.value = {};
+      hasAtLeastOneElementInGroupSearch.value = _hasAtLeastOneElementInGroupSearch;
+      return;
+    }
+
+    const SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP = {};
+    const SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP_FOR_PARENT = {};
+
+    forEach(groupsForLever.value, level => {
+      forEach(level, group => {
+        const GROUP_LABEL = group.groupLabel;
+        if (GROUP_LABEL === "_not_grouped" &&
+          !group.groupParentKey) {
+          return;
+        }
+        if (SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.groupParentKey]) {
+          SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.allGroupKeys] = true;
+          if (group.data.length) {
+            _hasAtLeastOneElementInGroupSearch = true;
+          }
+        } else if (`${ GROUP_LABEL }`.search(modelSearchRE.value) !== -1) {
+          SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.allGroupKeys] = true;
+          if (group.data.length) {
+            _hasAtLeastOneElementInGroupSearch = true;
+          }
+          if (group.allParentKeys.length) {
+            forEach(group.allParentKeys, parentKey => {
+              SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP_FOR_PARENT[parentKey] = true;
+            });
+          }
+        }
+      });
+    });
+
+    searchingGroupsWithSearchInGroup.value = {
+      ...SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP,
+      ...SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP_FOR_PARENT,
+    };
+    hasAtLeastOneElementInGroupSearch.value = _hasAtLeastOneElementInGroupSearch;
+  };
+
   const setElementsVisibleWithSearch = () => {
     const ELEMENTS_EXTRA_VISIBLE = {};
     const ELEMENTS_VISIBLE = {};
@@ -62,6 +111,7 @@ export default function UiSearchAPI(props, { emit }, {
     if (modelSearch.value) {
       searching.value = true;
       if (hasKeyGroup.value) {
+        setSearchingGroupsWithSearchInGroup();
         forEach(data.value, element => {
           const ELEMENT_LABEL = element[AKeyLabel];
           const ELEMENT_ID = element[AKeyId];
@@ -109,7 +159,9 @@ export default function UiSearchAPI(props, { emit }, {
 
   const hasNotElementsWithSearch = computed(() => {
     return !!(searching.value &&
-      isEmpty(searchingElements.value) && hasNotElementsExtraWithSearch.value);
+      isEmpty(searchingElements.value) &&
+      hasNotElementsExtraWithSearch.value &&
+      !hasAtLeastOneElementInGroupSearch.value);
   });
 
   const updateModelSearch = model => {
@@ -152,6 +204,7 @@ export default function UiSearchAPI(props, { emit }, {
     searchingElements,
     searchingElementsExtra,
     searchingGroups,
+    searchingGroupsWithSearchInGroup,
     searchOutsideOrApi,
     searchOutsideRef,
     updateModelSearch,

@@ -261,6 +261,11 @@ export default {
       required: false,
       default: undefined,
     },
+    searchInGroup: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     searchOutside: {
       type: Boolean,
       required: false,
@@ -412,6 +417,7 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchingGroupsWithSearchInGroup,
       searchOutsideOrApi,
       searchOutsideRef,
       updateModelSearch,
@@ -419,6 +425,7 @@ export default {
     } = UiSearchAPI(props, context, {
       data: dataSort,
       dataExtra: dataExtraLocal,
+      groupsForLever,
       htmlIdLocal,
       hasKeyGroup,
       keyGroupArray,
@@ -494,6 +501,7 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchingGroupsWithSearchInGroup,
       searchOutsideOrApi,
       searchOutsideRef,
       textAfterLabel,
@@ -679,6 +687,7 @@ export default {
                     searching: this.searching,
                     searchingElements: this.searchingElements,
                     searchingGroups: this.searchingGroups,
+                    searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
                     slotAppendName: this.slotAppendName,
                     slotName: this.slotName,
                     type: "checkbox",

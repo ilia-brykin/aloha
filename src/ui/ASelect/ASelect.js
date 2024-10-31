@@ -335,6 +335,11 @@ export default {
       required: false,
       default: () => selectPluginOptions.value.propsDefault.searchApiKey,
     },
+    searchInGroup: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     searchOutside: {
       type: Boolean,
       required: false,
@@ -516,6 +521,7 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchingGroupsWithSearchInGroup,
       searchOutsideOrApi,
       searchOutsideRef,
       updateModelSearch,
@@ -523,11 +529,12 @@ export default {
     } = UiSearchAPI(props, context, {
       data: dataSort,
       dataExtra: dataExtraLocal,
-      htmlIdLocal,
+      groupsForLever,
       hasKeyGroup,
+      htmlIdLocal,
       keyGroupArray,
-      searchApiLocal,
       onSearchInApi,
+      searchApiLocal,
     });
 
     const {
@@ -649,6 +656,7 @@ export default {
       searchingElements,
       searchingElementsExtra,
       searchingGroups,
+      searchingGroupsWithSearchInGroup,
       searchOutsideOrApi,
       searchOutsideRef,
       selectedTitle,
@@ -936,6 +944,7 @@ export default {
                             searching: this.searching,
                             searchingElements: this.searchingElements,
                             searchingGroups: this.searchingGroups,
+                            searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
                             slotName: this.slotName,
                             type: this.type,
                             onChangeModelValue: this.onChangeModelValue,

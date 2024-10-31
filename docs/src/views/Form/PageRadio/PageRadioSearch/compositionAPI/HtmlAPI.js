@@ -4,6 +4,7 @@ export default function HtmlAPI() {
   :data="data"
   :key-group="['alohaBR', 'aloha']"
   :search="true"
+  :search-in-group="true"
   key-id="id"
   key-label="label"
   label="Aloha group"

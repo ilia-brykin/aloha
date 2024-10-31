@@ -112,6 +112,7 @@
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Indique si la recherche d'éléments sera effectuée à l'aide d'une <strong lang=\"en\">API</strong>. Si défini sur <strong lang=\"en\">true</strong>, les données seront chargées à partir du serveur au fur et à mesure de la saisie de la requête.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "La clé utilisée pour effectuer la recherche via une <strong lang=\"en\">API</strong>. Il s'agit généralement d'un paramètre transmis dans la requête au serveur pour filtrer les données.",
   "_A_UI_PROPS_SEARCH_DESCRIPTION_": "Indique si la fonction de recherche sera prise en charge. Si défini sur <strong lang=\"en\">true</strong>, les utilisateurs pourront rechercher des éléments au sein du groupe.",
+  "_A_UI_PROPS_SEARCH_IN_GROUP_DESCRIPTION_": "Active la recherche supplémentaire par noms de groupe.",
   "_A_UI_PROPS_SEARCH_OUTSIDE_DESCRIPTION_": "Indique si la recherche sera effectuée en dehors du composant, par exemple via une <strong lang=\"en\">API</strong> ou une autre source de données externe.",
   "_A_UI_PROPS_SEARCH_TIMEOUT_DESCRIPTION_": "Définit le délai en millisecondes avant d'effectuer la recherche. Utile pour éviter les requêtes excessives lorsque l'utilisateur saisit du texte rapidement.",
   "_A_UI_PROPS_SLOT_APPEND_NAME_DESCRIPTION_": "Le nom de la fente qui sera ajoutée après le contenu principal du composant. Cela permet d'étendre la fonctionnalité du composant en ajoutant du contenu personnalisé.",

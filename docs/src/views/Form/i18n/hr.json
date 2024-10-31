@@ -112,6 +112,7 @@
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Naznačuje hoće li se pretraživanje elemenata provoditi putem <strong lang=\"en\">API</strong> sučelja. Ako je postavljeno na <strong lang=\"en\">true</strong>, podaci će se učitavati sa servera kako se unosi upit.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "Ključ koji se koristi za provođenje pretraživanja putem <strong lang=\"en\">API</strong> sučelja. Obično je to parametar koji se prosljeđuje u zahtjevu serveru za filtriranje podataka.",
   "_A_UI_PROPS_SEARCH_DESCRIPTION_": "Naznačuje hoće li funkcionalnost pretraživanja biti podržana. Ako je postavljeno na <strong lang=\"en\">true</strong>, korisnici će moći pretraživati elemente unutar grupe.",
+  "_A_UI_PROPS_SEARCH_IN_GROUP_DESCRIPTION_": "Omogućuje dodatno pretraživanje prema nazivima grupa.",
   "_A_UI_PROPS_SEARCH_OUTSIDE_DESCRIPTION_": "Naznačuje hoće li se pretraživanje provoditi izvan komponente, primjerice putem <strong lang=\"en\">API</strong> sučelja ili drugog vanjskog izvora podataka.",
   "_A_UI_PROPS_SEARCH_TIMEOUT_DESCRIPTION_": "Postavlja vrijeme odgode u milisekundama prije provođenja pretraživanja. Korisno za sprječavanje prekomjernih zahtjeva kada korisnik brzo unosi tekst.",
   "_A_UI_PROPS_SLOT_APPEND_NAME_DESCRIPTION_": "Naziv utora koji će se dodati nakon glavnog sadržaja komponente. Ovo omogućuje proširenje funkcionalnosti komponente dodavanjem prilagođenog sadržaja.",

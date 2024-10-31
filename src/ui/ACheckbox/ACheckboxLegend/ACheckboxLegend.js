@@ -7,6 +7,7 @@ import AElement from "../../../AElement/AElement";
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import IdAPI from "./compositionAPI/IdAPI";
+import LabelSearchAPI from "./compositionAPI/LabelSearchAPI";
 
 export default {
   name: "ACheckboxLegend",
@@ -61,6 +62,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    modelSearch: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
@@ -70,6 +76,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    showSearchHighlight: {
+      type: Boolean,
+      required: false,
+      default: undefined,
     },
     textAfterLabel: {
       type: String,
@@ -99,11 +110,16 @@ export default {
       isIndeterminate,
     });
 
+    const {
+      labelSearchHighlight,
+    } = LabelSearchAPI(props);
+
     return {
       idGroup,
       idLocal,
       isCheckedAll,
       isIndeterminate,
+      labelSearchHighlight,
       onClick,
       onKeydown,
     };
@@ -140,7 +156,7 @@ export default {
             class: "a_custom_control_label a_custom_control_label_width_auto",
             classDefault: "",
             for: this.idLocal,
-            html: this.label,
+            html: this.labelSearchHighlight,
             textScreenReader: this.labelScreenReader,
             tag: "label",
             textAfter: this.textAfterLabel,
@@ -160,7 +176,7 @@ export default {
         },
         this.legendClass,
       ],
-      html: this.label,
+      html: this.labelSearchHighlight,
       tag: "legend",
       textAfter: this.textAfterLabel,
       textScreenReader: this.labelScreenReader,

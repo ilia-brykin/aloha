@@ -316,6 +316,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "search-in-group",
+      description: "_A_UI_PROPS_SEARCH_IN_GROUP_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "search-outside",
       description: "_A_UI_PROPS_SEARCH_OUTSIDE_DESCRIPTION_",
       type: "Boolean",

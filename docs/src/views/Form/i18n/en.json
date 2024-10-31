@@ -112,6 +112,7 @@
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Specifies whether item searches will be performed using an <strong lang=\"en\">API</strong>. If set to <strong lang=\"en\">true</strong>, data will be loaded from the server as the query is entered.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "The key used to perform the search via <strong lang=\"en\">API</strong>. Typically, this is a parameter passed in the server request to filter the data.",
   "_A_UI_PROPS_SEARCH_DESCRIPTION_": "Determines whether the search feature is supported. If set to <strong lang=\"en\">true</strong>, users will be able to search within the group.",
+  "_A_UI_PROPS_SEARCH_IN_GROUP_DESCRIPTION_": "Enables additional search by group names.",
   "_A_UI_PROPS_SEARCH_OUTSIDE_DESCRIPTION_": "Determines whether the search will be performed outside the component, for example, via <strong lang=\"en\">API</strong> or another external data source.",
   "_A_UI_PROPS_SEARCH_TIMEOUT_DESCRIPTION_": "Specifies the delay time in milliseconds before performing the search. Useful for preventing excessive requests during fast text input by the user.",
   "_A_UI_PROPS_SLOT_APPEND_NAME_DESCRIPTION_": "The name of the slot that will be appended after the component's main content. This allows extending the functionality of the component by adding custom content.",

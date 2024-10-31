@@ -113,6 +113,10 @@ export default {
       type: Object,
       required: true,
     },
+    searchingGroupsWithSearchInGroup: {
+      type: Object,
+      required: true,
+    },
     slotAppendName: {
       type: String,
       required: false,
@@ -163,9 +167,13 @@ export default {
       ...this.currentGroups.map((group, groupIndex) => {
         let styleWithSearch = undefined;
         let isHiddenWithSearch = false;
+        let showElementWennGroupFound = false;
         if (this.searching) {
           const GROUP_KEY_ALL = `${ this.groupParentKey ? `${ this.groupParentKey }_` : "" }${ group.groupKey }`;
-          if (this.isHiddenWithSearch || !this.searchingGroups[GROUP_KEY_ALL]) {
+          showElementWennGroupFound = this.searchingGroupsWithSearchInGroup[GROUP_KEY_ALL];
+          if (this.isHiddenWithSearch ||
+            (!this.searchingGroups[GROUP_KEY_ALL] &&
+              !showElementWennGroupFound)) {
             styleWithSearch = "display: none;";
             isHiddenWithSearch = true;
           }
@@ -199,8 +207,9 @@ export default {
                 modelValue: this.modelValue,
                 searching: this.searching,
                 searchingElements: this.searchingElements,
-                slotName: this.slotName,
+                showElementWennGroupFound,
                 slotAppendName: this.slotAppendName,
+                slotName: this.slotName,
                 type: this.type,
                 onChangeModelValue: this.onChangeModelValue,
               }, this.$slots);
@@ -220,8 +229,10 @@ export default {
             hasControlCheckbox: this.hasControlCheckbox,
             isErrors: this.isErrors,
             label: group.groupLabel,
+            modelSearch: this.modelSearch,
             modelValue: this.modelValue,
             modelValueObj: this.modelValueObj,
+            showSearchHighlight: showElementWennGroupFound,
             onChangeModelValue: this.onChangeModelValue,
           }),
           h("div", {
@@ -256,8 +267,9 @@ export default {
                   modelValue: this.modelValue,
                   searching: this.searching,
                   searchingElements: this.searchingElements,
-                  slotName: this.slotName,
+                  showElementWennGroupFound: showElementWennGroupFound,
                   slotAppendName: this.slotAppendName,
+                  slotName: this.slotName,
                   type: this.type,
                   onChangeModelValue: this.onChangeModelValue,
                 }, this.$slots);
@@ -286,6 +298,7 @@ export default {
               searching: this.searching,
               searchingElements: this.searchingElements,
               searchingGroups: this.searchingGroups,
+              searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
               slotName: this.slotName,
               slotAppendName: this.slotAppendName,
               type: this.type,

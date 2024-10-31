@@ -112,6 +112,7 @@
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Gibt an, ob die Suche nach Elementen mit <strong lang=\"en\">API</strong> ausgeführt wird. Wenn auf <strong lang=\"en\">true</strong> gesetzt, werden die Daten während der Eingabe der Suchanfrage vom Server geladen.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "Der Schlüssel, der für die Ausführung der Suche über <strong lang=\"en\">API</strong> verwendet wird. Dies ist normalerweise ein Parameter, der in der Anforderung an den Server übergeben wird, um die Daten zu filtern.",
   "_A_UI_PROPS_SEARCH_DESCRIPTION_": "Gibt an, ob die Suchfunktion unterstützt wird. Wenn auf <strong lang=\"en\">true</strong> gesetzt, können Benutzer innerhalb der Gruppe suchen.",
+  "_A_UI_PROPS_SEARCH_IN_GROUP_DESCRIPTION_": "Ermöglicht zusätzliche Suche nach Gruppennamen.",
   "_A_UI_PROPS_SEARCH_OUTSIDE_DESCRIPTION_": "Gibt an, ob die Suche außerhalb des Komponents ausgeführt wird, z. B. über <strong lang=\"en\">API</strong> oder eine andere externe Datenquelle.",
   "_A_UI_PROPS_SEARCH_TIMEOUT_DESCRIPTION_": "Legt die Verzögerungszeit in Millisekunden fest, bevor die Suche ausgeführt wird. Nützlich, um übermäßige Anfragen bei schneller Texteingabe durch den Benutzer zu verhindern.",
   "_A_UI_PROPS_SLOT_APPEND_NAME_DESCRIPTION_": "Der Name des Slots, der nach dem Hauptinhalt des Komponents hinzugefügt wird. Dies ermöglicht es, die Funktionalität des Komponents zu erweitern, indem benutzerdefinierter Inhalt hinzugefügt wird.",
