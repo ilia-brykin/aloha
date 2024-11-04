@@ -294,6 +294,7 @@ export default {
                 "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
                 onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
                 ...item,
+                disabled: this.disabled || item.disabled,
                 ...this.specificAttributes[item.id],
                 label: itemIndex === 0 ? undefined : item.label,
                 slotAppend: undefined,
