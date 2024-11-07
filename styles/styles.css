@@ -6191,6 +6191,12 @@ input:-webkit-autofill {
 input:not(:-webkit-autofill) {
   animation-name: onAutoFillCancel; }
 
+input[type="password"]::-ms-reveal {
+  display: none; }
+
+input[type="text"]::-ms-clear {
+  display: none; }
+
 @keyframes onAutoFillStart {
   from {
     /**/ }
