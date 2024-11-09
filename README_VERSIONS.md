@@ -53,3 +53,67 @@
 
 - Implemented a `debounce` function for `ResizeObserver` in components to address intermittent errors related to resize events.
 
+## 1.2.256
+
+- Expanded accessibility attributes for the `AFieldset`, `ACheckbox` and `ARadio` components to improve screen reader support.
+- Added translations for the documentation of the `AModal` component.
+
+## 1.2.255
+
+- Enhanced accessibility for the `APagination` component, improving its support for screen readers
+
+## 1.2.254
+
+- Made structural adjustments to the templates of `AInputCurrency` and `AInputNumber` components and added new CSS classes for improved styling and layout consistency
+
+## 1.2.253
+
+- Applied `font-weight: bolder` styling to labels in the `ALabel` component when `isLabelFloat` is set to `false`.
+
+## 1.2.252
+
+- Introduced new props and made changes to enhance accessibility for the `AModal` component, improving its usability with screen readers and assistive technologies.
+
+## 1.2.251
+
+- `ATooltip`: Added the `withoutAriaDescribedby` prop for more flexible ARIA descriptions.
+- `FilterList`: Introduced a new `lastSeparator` parameter in the `filterList` function, with documentation updates.
+- `AGroup`: Refactored the component and added the first part of its documentation.
+- Menu Sorting: Adjusted the order of links in the documentation menu.
+- `ATabs` Fixes: Applied CSS, HTML, and disabled state fixes to improve component styling and functionality.
+- `AFieldset`: Renamed the ´classColumn´ prop to ´classColumnDefault´ for a consistent structure among form elements.
+- Accessibility Extensions: Added ´inheritAttrs: false´ to form element components to enhance accessibility customization.
+- ´ATabs´ Documentation: Added parts 3 and 4 of the ´ATabs´ component documentation.
+
+## 1.2.250
+
+- ´AHttpAPI´: Fixed the ´postHttp´ function by adding the ´urlBase´ argument.
+- ´ATabs´ Documentation: Added parts 1 and 2 of the ´ATabs´ component documentation.
+- ´ATabs´ Refactoring: Expanded the ´ATabs´ component with new props and additional functionality.
+- ´ALoading´ Documentation and Refactoring: Refactored the ´ALoading´ component and provided full documentation.
+- ´ASpinner´ Documentation: Documented the ´ASpinner´ component and added translations.
+- ´ACloak´ Documentation: Added documentation and translations for the ´ACloak´ component.
+- ´AFieldset´ Documentation and Refactoring: Documented the ´AFieldset´ component with structural improvements.
+- ´ATemplate´ Documentation: Added complete documentation for the ´ATemplate´ component.
+- ´label-screen-reader´ Fixes and Documentation: Introduced the ´label-screen-reader´ prop for form elements and added corresponding documentation.
+
+## 1.2.249
+
+- Added the ´modalStyle´ prop to the ´AModal` component, allowing for additional style customization. Documentation has been updated to include details on this new prop.
+
+## 1.2.248
+
+- Added support for custom HTML attributes to the `AModal` component
+
+## 1.2.247
+
+- Added the ´minHeightBody´ prop to set a minimum height for the ´ATinymce´ editor body
+- Updated the context menu functionality within the ´ATinymce´ component for improved contextual behavior
+
+## 1.2.246
+
+- Enhanced the ´rowClass´ prop in the ´ATable´ component by adding a level argument for cases where ´rowClass´ is a function, allowing for more granular row styling based on hierarchy or depth
+
+## 1.2.245
+
+- Added the ´isTreeCollapsible´ and ´isTreeOpened´ props to the ´ATable´ component, enabling collapsible tree functionality and control over the initial open state of tree nodes.
