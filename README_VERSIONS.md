@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.269
+
+- Fixed an issue with the `"select all"` button in the `ASelect` component to ensure it functions correctly.
+
 ## 1.2.268
 
 - Enhanced the `AWizard` component to support icons in addition to numbers, providing more flexibility in step representation. Documentation has been updated to include details on this new feature.
