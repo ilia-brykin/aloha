@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.268
+
+- Enhanced the `AWizard` component to support icons in addition to numbers, providing more flexibility in step representation. Documentation has been updated to include details on this new feature.
+
 ## 1.2.267
 
 - Removed the password reveal button for `Edge`
