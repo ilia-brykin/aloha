@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 import AElement from "../../AElement/AElement";
+import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
@@ -211,15 +212,20 @@ export default {
               h("span", {
                 class: "a_wizard__step__number",
               }, [
-                h(ATranslation, {
-                  class: "a_wizard__step__number__text",
-                  tag: "span",
-                  text: this.stepNumberText,
-                  extra: {
-                    stepActive: this.stepNumber,
-                    stepsCount: this.stepsCount,
-                  },
-                }),
+                this.step.icon ?
+                  h(AIcon, {
+                    class: "a_wizard__step__number__icon",
+                    icon: this.step.icon,
+                  }) :
+                  h(ATranslation, {
+                    class: "a_wizard__step__number__text",
+                    tag: "span",
+                    text: this.stepNumberText,
+                    extra: {
+                      stepActive: this.stepNumber,
+                      stepsCount: this.stepsCount,
+                    },
+                  }),
               ]) :
               "",
             h("span", {

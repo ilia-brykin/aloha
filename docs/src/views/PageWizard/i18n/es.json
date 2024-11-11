@@ -15,6 +15,8 @@
   "_A_WIZARD_GROUP_DEMO_HEADER_": "Ejemplo de demostración",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_DESCRIPTION_": "Al pasar a otro paso en un Asistente, se puede utilizar el cambio de enfoque para dirigir al usuario a la fuente de contenido relevante, en lugar de dejar el enfoque en el botón de navegación.",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_HEADER_": "Cambio de enfoque",
+  "_A_WIZARD_GROUP_ICON_DESCRIPTION_": "Este ejemplo muestra diferentes tipos de asistentes donde se utilizan iconos o números para representar los pasos.",
+  "_A_WIZARD_GROUP_ICON_HEADER_": "Ejemplo con iconos",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_DESCRIPTION_": "El componente <strong lang=\"en\">AWizard</strong> permite mostrar el indicador de carga dentro de los botones de navegación. Esto puede ser útil para indicar que una operación específica está en curso en segundo plano y que el usuario debe esperar a que se complete el paso.",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_HEADER_": "Indicador de carga",
   "_A_WIZARD_GROUP_IS_CONTROL_OUTSIDE_DESCRIPTION_": "La navegación externa de pasos incluye el control dinámico de un proceso de varios pasos de un Asistente utilizando variables externas o lógica personalizada, lo que permite una progresión personalizada a través de los pasos según diferentes necesidades y factores.",

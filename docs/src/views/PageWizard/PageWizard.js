@@ -8,6 +8,7 @@ import PageWizardButtonsDisabled from "./PageWizardButtonsDisabled/PageWizardBut
 import PageWizardButtonsHide from "./PageWizardButtonsHide/PageWizardButtonsHide.vue";
 import PageWizardDemo from "./PageWizardDemo/PageWizardDemo.vue";
 import PageWizardHasFocusJump from "./PageWizardHasFocusJump/PageWizardHasFocusJump.vue";
+import PageWizardIcon from "./PageWizardIcon/PageWizardIcon.vue";
 import PageWizardIsButtonsLoading from "./PageWizardIsButtonsLoading/PageWizardIsButtonsLoading.vue";
 import PageWizardIsControlOutside from "./PageWizardIsControlOutside/PageWizardIsControlOutside.vue";
 import PageWizardIsStepNumberVisible from "./PageWizardIsStepNumberVisible/PageWizardIsStepNumberVisible.vue";
@@ -44,6 +45,7 @@ export default {
     PageWizardButtonsHide,
     PageWizardDemo,
     PageWizardHasFocusJump,
+    PageWizardIcon,
     PageWizardIsButtonsLoading,
     PageWizardIsControlOutside,
     PageWizardIsStepNumberVisible,

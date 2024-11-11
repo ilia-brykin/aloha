@@ -15,6 +15,8 @@
   "_A_WIZARD_GROUP_DEMO_HEADER_": "Exemple de démonstration",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_DESCRIPTION_": "Lors du passage à une autre étape dans un Assistant, un changement de focus peut être utilisé pour orienter l'utilisateur vers la source de contenu pertinente, au lieu de laisser le focus sur le bouton de navigation.",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_HEADER_": "Changement de focus",
+  "_A_WIZARD_GROUP_ICON_DESCRIPTION_": "Cet exemple présente différents types d'assistants où des icônes ou des chiffres sont utilisés pour représenter les étapes.",
+  "_A_WIZARD_GROUP_ICON_HEADER_": "Exemple avec des icônes",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_DESCRIPTION_": "Le composant <strong lang=\"en\">AWizard</strong> permet d'afficher l'indicateur de chargement à l'intérieur des boutons de navigation. Cela peut être utile pour indiquer qu'une opération spécifique est en cours d'exécution en arrière-plan et que l'utilisateur doit attendre la fin de l'étape.",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_HEADER_": "Indicateur de chargement",
   "_A_WIZARD_GROUP_IS_CONTROL_OUTSIDE_DESCRIPTION_": "La navigation externe des étapes comprend le contrôle dynamique d'un processus en plusieurs étapes d'un Assistant en utilisant des variables externes ou une logique personnalisée, ce qui permet une progression personnalisée à travers les étapes en fonction de différents besoins et facteurs.",

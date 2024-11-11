@@ -15,6 +15,8 @@
   "_A_WIZARD_GROUP_DEMO_HEADER_": "Esempio dimostrativo",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_DESCRIPTION_": "Quando si passa a un altro passaggio in un Wizard, è possibile utilizzare il cambio di focus per indirizzare l'utente alla fonte del contenuto pertinente, anziché lasciare il focus sul pulsante di navigazione.",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_HEADER_": "Cambio di focus",
+  "_A_WIZARD_GROUP_ICON_DESCRIPTION_": "Questo esempio mostra diversi tipi di wizard in cui vengono utilizzate icone o numeri per rappresentare i passaggi.",
+  "_A_WIZARD_GROUP_ICON_HEADER_": "Esempio con icone",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_DESCRIPTION_": "Il componente <strong lang=\"en\">AWizard</strong> consente di visualizzare l'indicatore di caricamento all'interno dei pulsanti di navigazione. Questo può essere utile per indicare che un'operazione è in corso in background e che l'utente deve attendere il completamento del passaggio.",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_HEADER_": "Indicatore di caricamento",
   "_A_WIZARD_GROUP_IS_CONTROL_OUTSIDE_DESCRIPTION_": "La navigazione esterna dei passaggi include il controllo dinamico di un processo a più passaggi di un Wizard utilizzando variabili esterne o logica personalizzata, che consente una progressione personalizzata attraverso i passaggi in base a diverse esigenze e fattori.",

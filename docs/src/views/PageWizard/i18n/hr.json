@@ -15,6 +15,8 @@
   "_A_WIZARD_GROUP_DEMO_HEADER_": "Demonstracijski prikaz",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_DESCRIPTION_": "Pri prijelazu na drugi korak iz trenutnog u čarobnjaku, skok fokusa može se koristiti za usmjeravanje korisnika na relevantan sadržaj, za razliku od zadržavanja fokusa na gumbu za navigaciju s kojom je korisnik imao posljednju interakciju.",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_HEADER_": "Skok fokusa",
+  "_A_WIZARD_GROUP_ICON_DESCRIPTION_": "Ovaj primjer prikazuje različite vrste čarobnjaka gdje se koriste ikone ili brojevi za prikazivanje koraka.",
+  "_A_WIZARD_GROUP_ICON_HEADER_": "Primjer s ikonama",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_DESCRIPTION_": "Komponenta <strong lang=\"en\">AWizard</strong> omogućuje prikaz indikatora učitavanja unutar navigacijskih gumba. To može biti korisno za naznaku da se određena radnja obavlja u pozadini i da korisnik treba pričekati za završetak koraka.",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_HEADER_": "Indikator učitavanja",
   "_A_WIZARD_GROUP_IS_CONTROL_OUTSIDE_DESCRIPTION_": "Eksterna navigacija koraka uključuje dinamičku kontrolu procesa čarobnjaka pomoću eksternih varijabli ili prilagođene logike, omogućujući napredak kroz korake prilagođen različitim potrebama i čimbenicima.",

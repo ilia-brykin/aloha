@@ -15,6 +15,8 @@
   "_A_WIZARD_GROUP_DEMO_HEADER_": "Demonstrationsbeispiel",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_DESCRIPTION_": "Beim Übergang zu einem anderen Schritt in einem Assistenten kann ein Fokuswechsel verwendet werden, um den Benutzer zur relevanten Inhaltsquelle zu leiten, im Gegensatz dazu, den Fokus auf der interagierten Navigationstaste zu belassen.",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_HEADER_": "Fokuswechsel",
+  "_A_WIZARD_GROUP_ICON_DESCRIPTION_": "Dieses Beispiel zeigt verschiedene Arten von Wizards, bei denen Symbole oder Zahlen zur Darstellung der Schritte verwendet werden.",
+  "_A_WIZARD_GROUP_ICON_HEADER_": "Beispiel mit Symbolen",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_DESCRIPTION_": "Die <strong lang=\"en\">AWizard</strong>-Komponente ermöglicht das Anzeigen des Ladeindikators innerhalb der Navigationstasten. Dies kann nützlich sein, um anzuzeigen, dass ein bestimmter Vorgang im Hintergrund ausgeführt wird und der Benutzer auf den Abschluss des Schritts warten muss.",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_HEADER_": "Ladeindikator",
   "_A_WIZARD_GROUP_IS_CONTROL_OUTSIDE_DESCRIPTION_": "Die externe Schrittnavigation beinhaltet die dynamische Steuerung eines mehrstufigen Prozesses eines Assistenten unter Verwendung externer Variablen oder benutzerdefinierter Logik, die eine maßgeschneiderte Progression durch die Schritte basierend auf unterschiedlichen Bedürfnissen und Faktoren ermöglicht.",

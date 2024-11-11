@@ -15,6 +15,8 @@
   "_A_WIZARD_GROUP_DEMO_HEADER_": "Showcase example",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_DESCRIPTION_": "When transitioning to different step from the current one in a wizard, a focus jump can be used to direct the user to the relevant content, in contrast to the keeping focus on the navigation button that was interacted with.",
   "_A_WIZARD_GROUP_HAS_FOCUS_JUMP_HEADER_": "Focus jump",
+  "_A_WIZARD_GROUP_ICON_DESCRIPTION_": "This example showcases different types of wizards where icons or numbers are used to represent steps.",
+  "_A_WIZARD_GROUP_ICON_HEADER_": "Example with icons",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_DESCRIPTION_": "The <strong>AWizard</strong> component allows for displaying the loading indicator inside navigation buttons. This can be useful to indicate that a specific operation is running in the background and the user needs to wait for completion of the step.",
   "_A_WIZARD_GROUP_IS_BUTTONS_LOADING_HEADER_": "Loading indicator",
   "_A_WIZARD_GROUP_IS_CONTROL_OUTSIDE_DESCRIPTION_": "External step navigation involves the dynamic control of multi-step process of a wizard using external variables or custom logic, enabling customized progression through the steps based on different needs and factors.",
