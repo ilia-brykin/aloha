@@ -555,7 +555,7 @@ export default {
       onSelectAll,
     } = ModelChangeAPI(props, {
       changeModel,
-      data: dataAll,
+      dataAll,
       dataKeyByKeyIdLocal,
       isMultiselect,
       togglePopover,
