@@ -7693,6 +7693,10 @@ input[type="text"]::-ms-clear {
   text-decoration: none;
   white-space: nowrap; }
 
+.a_wizard__step__number__icon {
+  width: 1.5rem;
+  height: auto; }
+
 .a_wizard__step__text__icon {
   margin-left: .5rem; }
 
