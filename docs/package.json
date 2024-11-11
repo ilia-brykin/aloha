@@ -8,7 +8,8 @@
     "watch": "webpack --watch --mode=development --devtool=eval",
     "watch-details": "webpack --watch --mode=development --devtool=eval-source-map",
     "build-production": "webpack --mode=production --devtool=source-map",
-    "build-css": "node-sass --include-path scss styles/styles.scss dist/styles/styles.css"
+    "build-css": "node-sass --include-path scss styles/styles.scss dist/styles/styles.css",
+    "i": "npm i --scope=@npm"
   },
   "dependencies": {
     "@floating-ui/vue": "1.0.2",
@@ -45,6 +46,7 @@
     "node-sass": "8.0.0",
     "null-loader": "4.0.1",
     "pug": "3.0.2",
+    "raw-loader": "4.0.2",
     "regenerator-runtime": "0.13.11",
     "sass-loader": "13.3.2",
     "source-map-loader": "4.0.1",

@@ -109,6 +109,10 @@ function getRules(mode) {
         }
       ]
     },
+    {
+      test: /\.md$/,
+      use: "raw-loader",
+    }
   ];
 
   return RULES;
