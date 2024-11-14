@@ -19,6 +19,7 @@ import {
   modelLanguage,
   setLanguageFromLocalStorage,
 } from "./components/TheNavbar/compositionAPI/LanguagesAPI";
+import "../styles/styles.scss";
 
 setLanguageFromLocalStorage();
 

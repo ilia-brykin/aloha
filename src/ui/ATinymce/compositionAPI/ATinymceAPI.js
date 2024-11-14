@@ -33,10 +33,10 @@ import "tinymce/plugins/lists";
 import "tinymce/plugins/table";
 
 /* content UI CSS is required */
-import contentUiSkinCss from "tinymce/skins/ui/oxide/content.css";
+import contentUiSkinCss from "tinymce/skins/ui/oxide/content.css?inline";
 
 /* The default content CSS can be changed or replaced with appropriate CSS for the editor content. */
-import contentCss from "tinymce/skins/content/default/content.css";
+import contentCss from "tinymce/skins/content/default/content.css?inline";
 
 /* lang */
 import "../langs/de";

@@ -3,23 +3,6 @@ const WARN = 1;
 const ERROR = 2;
 
 module.exports = exports = {
-  root: true,
-  parser: "vue-eslint-parser",
-  parserOptions: {
-    parser: {
-      js: "@babel/eslint-parser",
-    },
-    allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
-    sourceType: "module",
-    impliedStrict: true,
-    ecmaFeatures: {
-      spread: true,
-      globalReturn: false,
-      impliedStrict: false,
-      jsx: false,
-    },
-  },
   plugins: ["jest"],
   extends: [
     "eslint:recommended",
@@ -28,34 +11,7 @@ module.exports = exports = {
 
   globals: {
     __dirname: false,
-    _: false,
-    $: false,
-    L: false,
-    angular: false,
-    window: false,
-    event: false,
-    beforeEach: false,
-    afterEach: false,
     module: false,
-    it: false,
-    describe: false,
-    inject: false,
-    expect: false,
-    spyOn: false,
-    jasmine: false,
-    sinon: false,
-    xdescribe: false,
-    Raven: false,
-    console: false,
-    setTimeout: false,
-    clearTimeout: false,
-    history: false,
-    localStorage: false,
-    CKEDITOR: false,
-    document: false,
-    require: false,
-    process: false,
-    MediaElementPlayer: false,
   },
 
   rules: {
@@ -192,7 +148,6 @@ module.exports = exports = {
     "jest/valid-expect": "error"
   },
   env: {
-    jquery: true,
     es6: true,
     browser: true,
     "jest/globals": true,

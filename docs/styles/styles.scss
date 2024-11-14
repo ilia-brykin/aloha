@@ -1,7 +1,7 @@
-@import "../node_modules/aloha-css/sass/aloha";
+@use "../node_modules/aloha-css/sass/aloha" as *;
 
-@import "../../src/styles/styles";
-@import "Example";
+@use "../../src/styles/styles" as *;
+@use "Example" as *;
 
 .a_menu_2__page {
   padding: 0 1rem 0 2.5rem;
