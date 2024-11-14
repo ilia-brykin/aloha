@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.270
+
+- Fixed styling issues for the `ALoading` component when used in the footer of the `AModal` component.
+
 ## 1.2.269
 
 - Fixed an issue with the `"select all"` button in the `ASelect` component to ensure it functions correctly.
