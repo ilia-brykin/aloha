@@ -12,6 +12,7 @@ module.exports = exports = {
   globals: {
     __dirname: false,
     module: false,
+    process: false,
   },
 
   rules: {

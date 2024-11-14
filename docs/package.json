@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "author": "Ilia Brykin",
   "scripts": {
-    "dev": "vite",
+    "dev": "DEV=true vite",
     "build-production": "vite build",
     "serve": "vite preview",
     "i": "npm i --scope=@npm"

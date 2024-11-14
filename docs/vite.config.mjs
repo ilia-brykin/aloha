@@ -5,7 +5,10 @@ import {
   defineConfig,
 } from "vite";
 
+const isDevelopment = process.env.DEV === "true";
+
 export default defineConfig({
+  base: isDevelopment ? "/" : "/aloha/",
   plugins: [
     vue(),
     eslintPlugin({
