@@ -9072,6 +9072,8 @@ input[type="text"]::-ms-clear {
     margin: 0; }
     .a_modal_footer_sticky .a_modal_footer_actions > * {
       margin: calc(var(--a_modal_footer_sticky_gap)); }
+  .a_modal_footer_sticky .a_loading {
+    margin: 0; }
 
 .a_modal_content_with_footer_sticky .a_modal_body {
   padding-bottom: 0; }
