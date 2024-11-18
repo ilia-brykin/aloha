@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 1.2.271
+
+- Documentation Build: Replaced `Webpack` with `Vite` for building the documentation. 
+- Corrected styles for the `ATabs` component when the `isVertical` prop is set to ´true´.
+
 ## 1.2.270
 
 - Fixed styling issues for the `ALoading` component when used in the footer of the `AModal` component.
