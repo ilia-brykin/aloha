@@ -155,6 +155,8 @@
   }
   .a_tabs__box {
     overflow: visible;
+    white-space: normal;
+    flex: 2;
   }
   .a_tabs__list {
     flex-direction: column;
@@ -174,7 +176,7 @@
     --a_tabs_link_border_color: transparent var(--a_color_primary) transparent transparent;
   }
   .a_tabs__contents {
-    flex: 1;
+    flex: 2;
   }
   &.a_tabs_boxed {
     .a_tabs__list__link_active {
