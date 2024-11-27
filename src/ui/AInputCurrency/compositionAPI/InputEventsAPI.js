@@ -33,6 +33,7 @@ export default function InputEventsAPI(props, {
   const validationOnChange = toRef(props, "validationOnChange");
 
   const isTimeoutActive = ref(0);
+  const timeoutDelay = navigator.userAgent.indexOf('Firefox') !== -1 ? 1 : 0;
 
   const allowedButtons = [
     AKeysCode.tab,
@@ -156,7 +157,7 @@ export default function InputEventsAPI(props, {
 
         setValueLocal(newVal);
         isTimeoutActive.value--;
-      });
+      }, timeoutDelay);
     }
   };
 
@@ -175,7 +176,7 @@ export default function InputEventsAPI(props, {
 
         setValueLocal(newVal);
         isTimeoutActive.value--;
-      });
+      }, timeoutDelay);
     }
   };
 
@@ -188,7 +189,7 @@ export default function InputEventsAPI(props, {
         setCursorPosition(positionToSet);
       }
       isTimeoutActive.value--;
-    });
+    }, timeoutDelay);
   };
 
   const handleArrowRight = ({ value }) => {
@@ -200,7 +201,7 @@ export default function InputEventsAPI(props, {
         setCursorPosition(positionToSet);
       }
       isTimeoutActive.value--;
-    });
+    }, timeoutDelay);
   };
 
   const setDecimalDivider = ({ value, cursorPosition }, isLastPosition) => {
@@ -257,7 +258,7 @@ export default function InputEventsAPI(props, {
           setCursorPositionForBackspace({ cursorPosition, numberOfSymbols });
           setValueLocal(intVal);
           isTimeoutActive.value--;
-        });
+        }, timeoutDelay);
 
         return;
       }
@@ -265,7 +266,7 @@ export default function InputEventsAPI(props, {
       setTimeout(() => {
         setCursorPositionForBackspace({ cursorPosition, numberOfSymbols });
         isTimeoutActive.value--;
-      });
+      }, timeoutDelay);
     }
   };
 
@@ -315,7 +316,7 @@ export default function InputEventsAPI(props, {
             setCursorPosition(cursorPosition > 0 ? cursorPosition - 1 : 0);
           }
           isTimeoutActive.value--;
-        });
+        }, timeoutDelay);
       }
     }
   };
@@ -432,7 +433,7 @@ export default function InputEventsAPI(props, {
             setTimeout(() => {
               setCursorPosition(cursorPosition + 1);
               isTimeoutActive.value--;
-            });
+            }, timeoutDelay);
 
             return;
           }
@@ -463,7 +464,7 @@ export default function InputEventsAPI(props, {
           }
           setCursorPosition(positionToSet);
           isTimeoutActive.value--;
-        });
+        }, timeoutDelay);
       }
     }
   };
