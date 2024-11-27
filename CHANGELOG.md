@@ -7,6 +7,9 @@
 ---
 # Versions
 
+## 1.2.272
+- Fixed input behaviour in AInputCurrency for Mozilla Firefox (Firefox has slightly different event times than Webkit browsers).
+
 ## 1.2.271
 
 - Documentation Build: Replaced `Webpack` with `Vite` for building the documentation. 
