@@ -7,7 +7,12 @@
 ---
 # Versions
 
+## 1.2.273
+
+- Added `text-break` `CSS` styling to the `AModal` component to improve text handling and prevent overflow issues.
+
 ## 1.2.272
+
 - Fixed input behaviour in AInputCurrency for Mozilla Firefox (Firefox has slightly different event times than Webkit browsers).
 
 ## 1.2.271
