@@ -12,6 +12,8 @@ import AElement from "../AElement/AElement";
 import ALoading from "../ALoading/ALoading";
 import ATranslation from "../ATranslation/ATranslation";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
+import BodyHtmlAPI from "./compositionAPI/BodyHtmlAPI";
 import CloseFromOutsideAPI from "./compositionAPI/CloseFromOutsideAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EscapeAPI from "./compositionAPI/EscapeAPI";
@@ -22,6 +24,7 @@ import KeydownAPI from "./compositionAPI/KeydownAPI";
 import ShowModalAPI from "./compositionAPI/ShowModalAPI";
 import SizeAPI from "./compositionAPI/SizeAPI";
 import WrapperAPI from "./compositionAPI/WrapperAPI";
+import ZIndexAPI from "./compositionAPI/ZIndexAPI";
 
 import {
   modalPluginOptions,
@@ -29,8 +32,6 @@ import {
 import {
   uniqueId,
 } from "lodash-es";
-import AttributesAPI from "./compositionAPI/AttributesAPI";
-import BodyHtmlAPI from "./compositionAPI/BodyHtmlAPI";
 
 // @vue/component
 export default {
@@ -245,6 +246,12 @@ export default {
     const isModalHidden = toRef(props, "isModalHidden");
 
     const {
+      checkOpenedModals,
+      stylesBackdrop,
+      stylesZIndexModal,
+    } = ZIndexAPI(props);
+
+    const {
       bodyHtmlId,
     } = BodyHtmlAPI(props);
 
@@ -255,8 +262,6 @@ export default {
 
     const {
       headerId,
-      stylesBackdrop,
-      stylesZIndexModal,
     } = AttributesAPI(props);
 
     const {
@@ -293,6 +298,7 @@ export default {
     const {
       showModal,
     } = ShowModalAPI(props, {
+      checkOpenedModals,
       setFocusByShowModal,
       setListenerForKeydown,
     });

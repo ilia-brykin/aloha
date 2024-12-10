@@ -3,6 +3,7 @@ import {
 } from "vue";
 
 export default function ShowModalAPI(props, {
+  checkOpenedModals = () => {},
   setFocusByShowModal = () => {},
   setListenerForKeydown = () => {},
 }) {
@@ -12,6 +13,8 @@ export default function ShowModalAPI(props, {
     if (isModalHidden.value) {
       return;
     }
+
+    checkOpenedModals();
     document.body.classList.add("a_modal_open");
     setFocusByShowModal();
     setListenerForKeydown();
