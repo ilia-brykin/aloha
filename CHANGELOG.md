@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.275
+
+- Improved the `AModal` component by managing `z-index` for multiple modal windows, ensuring proper stacking order.
+
 ## 1.2.274
 
 - Added translations for the `ARequired` component to support multiple languages.
