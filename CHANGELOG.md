@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.274
+
+- Added translations for the `ARequired` component to support multiple languages.
+
 ## 1.2.273
 
 - Added `text-break` `CSS` styling to the `AModal` component to improve text handling and prevent overflow issues.
