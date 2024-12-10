@@ -14,7 +14,7 @@ export default {
     text: {
       type: String,
       required: false,
-      default: "Die mit *Sternchen versehenen Felder sind Pflichtfelder.",
+      default: "_A_REQUIRED_TEXT_",
     },
   },
   render() {
