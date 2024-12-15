@@ -1,0 +1,25 @@
+@import "aloha_prefix";
+
+.#{$aloha-prefix}backdrop {
+  --#{$aloha-prefix}_backdrop_zindex: var(--a_z_index_backdrop);
+  --#{$aloha-prefix}_backdrop_bg: #000;
+  --#{$aloha-prefix}_backdrop_opacity: 0.5;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--#{$aloha-prefix}_backdrop_zindex);
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--#{$aloha-prefix}_backdrop_bg);
+}
+.#{$aloha-prefix}backdrop_confirm {
+  --#{$aloha-prefix}_backdrop_zindex: var(--a_z_index_backdrop_confirm);
+}
+.#{$aloha-prefix}backdrop_fade {
+  transition: opacity .15s linear;
+  opacity: 0;
+}
+.#{$aloha-prefix}backdrop_show {
+  opacity: var(--#{$aloha-prefix}_backdrop_opacity);
+}

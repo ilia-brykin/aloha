@@ -1,0 +1,90 @@
+@import "aloha_prefix";
+
+.#{$aloha-prefix}position_static {
+  position: static !important;
+}
+
+.#{$aloha-prefix}position_relative {
+  position: relative !important;
+}
+
+.#{$aloha-prefix}position_absolute {
+  position: absolute !important;
+}
+
+.#{$aloha-prefix}position_fixed {
+  position: fixed !important;
+}
+
+.#{$aloha-prefix}position_sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+}
+
+.#{$aloha-prefix}position_absolute_all {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+
+.#{$aloha-prefix}top_0 {
+  top: 0 !important;
+}
+
+.#{$aloha-prefix}top_50 {
+  top: 50% !important;
+}
+
+.#{$aloha-prefix}top_100 {
+  top: 100% !important;
+}
+
+.#{$aloha-prefix}bottom_0 {
+  bottom: 0 !important;
+}
+
+.#{$aloha-prefix}bottom_50 {
+  bottom: 50% !important;
+}
+
+.#{$aloha-prefix}bottom_100 {
+  bottom: 100% !important;
+}
+
+.#{$aloha-prefix}start_0 {
+  left: 0 !important;
+}
+
+.#{$aloha-prefix}start_50 {
+  left: 50% !important;
+}
+
+.#{$aloha-prefix}start_100 {
+  left: 100% !important;
+}
+
+.#{$aloha-prefix}end_0 {
+  right: 0 !important;
+}
+
+.#{$aloha-prefix}end_50 {
+  right: 50% !important;
+}
+
+.#{$aloha-prefix}end_100 {
+  right: 100% !important;
+}
+
+.#{$aloha-prefix}translate_middle {
+  transform: translate(-50%, -50%) !important;
+}
+
+.#{$aloha-prefix}translate_middle_x {
+  transform: translateX(-50%) !important;
+}
+
+.#{$aloha-prefix}translate_middle_y {
+  transform: translateY(-50%) !important;
+}

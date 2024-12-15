@@ -1,0 +1,35 @@
+@mixin from($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin until($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin between($widthMin, $widthMax) {
+    @media screen and (min-width: $widthMin) and (max-width: $widthMax) {
+        @content;
+    }
+}
+
+@mixin media-width-all($widthMin, $widthMax) {
+    @if $widthMin and $widthMax {
+        @media screen and (min-width: $widthMin) and (max-width: $widthMax) {
+            @content;
+        }
+    } @else if $widthMin {
+        @media screen and (min-width: $widthMin) {
+            @content;
+        }
+    } @else if $widthMax {
+        @media screen and (max-width: $widthMax) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}

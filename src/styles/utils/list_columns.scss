@@ -1,0 +1,29 @@
+@import "breakpoint";
+@import "mixins";
+@import "funktions";
+
+$a_breakpoints_list: prepend($a_breakpoints, (class: null));
+
+.a_list_columns > * {
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+  -webkit-column-break-inside: avoid;
+  overflow: hidden; /* fix for firefox */
+  display: inline-grid; /* fix for firefox */
+  width: 100%;
+  @supports (break-inside: avoid-column) {
+    overflow: visible;
+  }
+}
+
+@each $breakpoint in $a_breakpoints_list {
+  $breakpoint-class: map-get($breakpoint, "class");
+  $breakpoint-min: map-get($breakpoint, "min");
+  $breakpoint-max: map-get($breakpoint, "max");
+
+    @include media-width-all($breakpoint-min, $breakpoint-max) {
+      .a_list_columns_2#{ getBreakpointWithPrefix($breakpoint-class) } {
+        column-count: 2;
+      }
+  }
+}

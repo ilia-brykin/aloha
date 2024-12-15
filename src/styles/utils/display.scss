@@ -1,0 +1,65 @@
+@import "aloha_prefix";
+@import "breakpoint";
+@import "mixins";
+@import "funktions";
+
+$a_displays: (
+    (
+        class: "d_inline",
+        value: "inline !important",
+    ),
+    (
+        class: "d_inline_block",
+        value: "inline-block !important",
+    ),
+    (
+        class: "d_block",
+        value: "block !important",
+    ),
+    (
+        class: "d_grid",
+        value: "grid !important",
+    ),
+    (
+        class: "d_table",
+        value: "table !important",
+    ),
+    (
+        class: "d_table_cell",
+        value: "table-cell !important",
+    ),
+    (
+        class: "d_table_row",
+        value: "table-row !important",
+    ),
+    (
+        class: "d_flex",
+        value: "flex !important",
+    ),
+    (
+        class: "d_inline_flex",
+        value: "inline-flex !important",
+    ),
+    (
+        class: "d_none",
+        value: "none !important",
+    ),
+) !default;
+
+$a_breakpoints_display: prepend($a_breakpoints, (class: null));
+
+@each $breakpoint in $a_breakpoints_display {
+    $breakpoint-class: map-get($breakpoint, "class");
+    $breakpoint-min: map-get($breakpoint, "min");
+    $breakpoint-max: map-get($breakpoint, "max");
+    @each $display in $a_displays {
+        $display-class: map-get($display, "class");
+        $display-value: map-get($display, "value");
+
+        @include media-width-all($breakpoint-min, $breakpoint-max) {
+            .#{$aloha-prefix}#{ $display-class }#{ getBreakpointWithPrefix($breakpoint-class) } {
+                display: #{ $display-value };
+            }
+        }
+    }
+}

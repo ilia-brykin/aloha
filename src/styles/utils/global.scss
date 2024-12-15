@@ -1,0 +1,45 @@
+@import "aloha_prefix";
+@import "global_variables";
+
+:root {
+  --#{$aloha-prefix}font_sans_serif: #{$a_font_family_sans_serif};
+  --#{$aloha-prefix}font_monospace: #{$a_font_family_monospace};
+  --#{$aloha-prefix}body_font_family: var(--#{$aloha-prefix}font_sans_serif);
+  --#{$aloha-prefix}body_font_size: #{$a_body_font_size};
+  --#{$aloha-prefix}body_font_weight: #{$a_body_font_weight};
+  --#{$aloha-prefix}body_line_height: #{$a_body_line_height};
+
+
+
+  --#{$aloha-prefix}border_width: #{$a_border_width};
+  --#{$aloha-prefix}border_color: #{$a_border_color};
+  --#{$aloha-prefix}border_style: #{$a_border_style};
+  --#{$aloha-prefix}border_color_translucent: rgba(0, 0, 0, 0.175);
+
+  --#{$aloha-prefix}border_radius: #{$a_border_radius};
+  --#{$aloha-prefix}border_radius_small: #{$a_border_radius_small};
+  --#{$aloha-prefix}border_radius_large: #{$a_border_radius_large};
+  --#{$aloha-prefix}border_radius_xl: #{$a_border_radius_xl};
+  --#{$aloha-prefix}border_radius_2xl: #{$a_border_radius_2xl};
+  --#{$aloha-prefix}border_radius_pill: #{$a_border_radius_pill};
+
+
+  --#{$aloha-prefix}z_index_backdrop: #{$a_z_index_backdrop};
+  --#{$aloha-prefix}z_index_modal: #{$a_z_index_modal};
+  --#{$aloha-prefix}z_index_backdrop_confirm: #{$a_z_index_backdrop_confirm};
+  --#{$aloha-prefix}z_index_confirm: #{$a_z_index_confirm};
+  --#{$aloha-prefix}z_index_dropdown: #{$a_z_index_dropdown};
+  --#{$aloha-prefix}z_index_tooltip: #{$a_z_index_tooltip};
+}
+
+body {
+  margin: 0;
+  font-family: var(--#{$aloha-prefix}body_font_family);
+  font-size: var(--#{$aloha-prefix}body_font_size);
+  font-weight: var(--#{$aloha-prefix}body_font_weight);
+  line-height: var(--#{$aloha-prefix}body_line_height);
+  color: var(--#{$aloha-prefix}color_text);
+  background-color: var(--#{$aloha-prefix}color_body_bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

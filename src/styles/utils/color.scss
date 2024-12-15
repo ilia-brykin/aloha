@@ -1,0 +1,42 @@
+@import "aloha_prefix";
+@import "funktions";
+@import "color_utils";
+
+:root {
+  @each $color-key, $color-value in $a_colors_global {
+      #{ getColorVar($color-key) }: #{ $color-value };
+  }
+  @each $color-key, $color-value in $a_theme_colors_text {
+    #{ getColorVar($color-key, "_text_emphasis") }: #{$color-value};
+  }
+  @each $color-key, $color-value in $a_theme_colors_bg_subtle {
+    #{ getColorVar($color-key, "_bg_subtle") }: #{$color-value};
+  }
+  @each $color-key, $color-value in $a_theme_colors_border_subtle {
+    #{ getColorVar($color-key, "_border_subtle") }: #{$color-value};
+  }
+  --a_color_emphasis_color: #000;
+
+  --a_border_width: 1px;
+  --a_border_style: solid;
+  --a_border_color: var(--a_color_gray_300);
+}
+
+@each $color in $a_colors {
+    .#{ $aloha-prefix }color_#{ $color } {
+        color: var(#{ getColorVar($color) }) !important;
+    }
+}
+
+@each $bg_color in $a_bg_colors {
+    .#{ $aloha-prefix }bg_#{ $bg_color } {
+        background-color: var(#{ getColorVar($bg_color) }) !important;
+    }
+}
+
+.a_color_transparent {
+    color: transparent !important;
+}
+.a_bg_transparent {
+    background-color: transparent !important;
+}

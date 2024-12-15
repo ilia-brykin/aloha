@@ -1,0 +1,33 @@
+@import "../utils/aloha_prefix";
+@import "../utils/breakpoint";
+@import "../utils/mixins";
+@import "../utils/funktions";
+
+.#{$aloha-prefix}text_left {
+  text-align: left !important;
+}
+
+.#{$aloha-prefix}text_center {
+  text-align: center !important;
+}
+
+.#{$aloha-prefix}text_right {
+  text-align: right !important;
+}
+@each $breakpoint in $a_breakpoints {
+  $breakpoint-class: map-get($breakpoint, "class");
+  $breakpoint-min: map-get($breakpoint, "min");
+  $breakpoint-max: map-get($breakpoint, "max");
+
+  @include media-width-all($breakpoint-min, $breakpoint-max) {
+    .a_text_left#{ getBreakpointWithPrefix($breakpoint-class) } {
+      text-align: left !important;
+    }
+    .a_text_center#{ getBreakpointWithPrefix($breakpoint-class) } {
+      text-align: center !important;
+    }
+    .a_text_right#{ getBreakpointWithPrefix($breakpoint-class) } {
+      text-align: right !important;
+    }
+  }
+}

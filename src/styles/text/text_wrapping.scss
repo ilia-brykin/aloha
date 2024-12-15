@@ -1,0 +1,25 @@
+@import "../utils/aloha_prefix";
+
+.#{$aloha-prefix}text_wrap {
+  white-space: normal !important;
+}
+
+.#{$aloha-prefix}text_nowrap {
+  white-space: nowrap !important;
+}
+
+.#{$aloha-prefix}text_break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  hyphens: auto !important;
+}
+
+.#{$aloha-prefix}text_wrap_hyphens {
+  hyphens: auto !important;
+}
+
+.#{$aloha-prefix}text_truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
