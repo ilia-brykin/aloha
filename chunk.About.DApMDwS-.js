@@ -1,1 +1,0 @@
-import{_ as o}from"./bundle.index.Cv6dkyGa.js";import{N as t,J as e,O as s}from"./chunk.vendor.DQz1Isc4.js";import"./chunk.vendor-lodash.Cgq9oNCy.js";import"./chunk.vendor-tinymce.cPIiul0H.js";const c={},a={class:"about"},r=s("h1",null,"This is an about page",-1),n=[r];function _(i,d){return e(),t("div",a,n)}const u=o(c,[["render",_]]);export{u as default};
