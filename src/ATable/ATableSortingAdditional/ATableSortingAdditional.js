@@ -15,6 +15,9 @@ import DropdownAPI from "./compositionAPI/DropdownAPI";
 import FormAPI from "./compositionAPI/FormAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 
+import ArrowDownUp from "aloha-svg/dist/js/bootstrap/ArrowDownUp";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+
 export default {
   name: "ATableSortingAdditional",
   props: {
@@ -117,7 +120,7 @@ export default {
     return h(ADropdown, {
       ref: "dropdownRef",
       buttonClass: "a_btn a_btn_secondary a_table__action",
-      buttonIconLeft: "ArrowDownUp",
+      buttonIconLeft: ArrowDownUp,
       buttonText: this.textCountModelSort,
       buttonTextAriaHidden: true,
       buttonTitle: "_A_TABLE_SORT_ADDITIONAL_DROPDOWN_TITLE_{{count}}_",
@@ -181,7 +184,7 @@ export default {
                   title: "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_",
                   textScreenReader: "_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_",
                   disabled: !this.unappliedModelSort?.[item.additionalProps.index]?.sortId,
-                  iconLeft: "Close",
+                  iconLeft: XLg,
                   onClick: () => this.removeUnappliedModelSort({ item }),
                 }),
               }),
@@ -195,7 +198,7 @@ export default {
                 h(AElement, {
                   type: "button",
                   class: "a_btn a_btn_primary a_text_nowrap a_filter_horizontal__footer__actions__btn_search",
-                  iconLeft: "ArrowDownUp",
+                  iconLeft: ArrowDownUp,
                   text: "_A_TABLE_SORT_ADDITIONAL_START_",
                   disabled: this.disabledSort,
                   onClick: this.changeModelSortInTable,

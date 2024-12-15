@@ -31,6 +31,7 @@ import SearchAPI from "./compositionAPI/SearchAPI";
 import SearchBtnAPI from "./compositionAPI/SearchBtnAPI";
 import ToggleAPI from "./AMenuButtonToggle/compositionAPI/ToggleAPI";
 
+import Search from "aloha-svg/dist/js/bootstrap/Search";
 import {
   uniqueId,
 } from "lodash-es";
@@ -451,7 +452,7 @@ export default {
             tabindex: 0,
             tag: "a",
             class: "a_menu_2__navbar_top_sub__search a_menu_2__link a_menu_2__link_btn",
-            iconLeft: "Search",
+            iconLeft: Search,
             iconClass: "a_menu_2__link__icon",
             title: "_A_MENU_2_OPEN_SEARCH_",
             textScreenReader: "_A_MENU_2_OPEN_SEARCH_",

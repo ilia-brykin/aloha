@@ -14,7 +14,7 @@ export default {
         slot: "step1",
         label: "_A_WIZARD_STEP_1_",
         title: "_A_WIZARD_STEP_1_",
-        icon: "Dnd",
+        icon: "Gear",
       },
       {
         slot: "step2",

@@ -16,6 +16,9 @@ import LinkClassAPI from "./compositionAPI/LinkClassAPI";
 import NumberAPI from "./compositionAPI/NumberAPI";
 import StatusTextAPI from "./compositionAPI/StatusTextAPI";
 
+import ExclamationCircleFill from "../../AIcon/Icons/bootstrap-1-9-1/ExclamationCircleFill";
+import XCircleFill from "../../AIcon/Icons/bootstrap-1-9-1/XCircleFill";
+
 export default {
   name: "AWizardStep",
   props: {
@@ -68,7 +71,7 @@ export default {
     stepIconError: {
       type: String,
       required: false,
-      default: "AlertDanger",
+      default: XCircleFill,
     },
     stepIconErrorText: {
       type: String,
@@ -78,7 +81,7 @@ export default {
     stepIconWarning: {
       type: String,
       required: false,
-      default: "AlertWarning",
+      default: ExclamationCircleFill,
     },
     stepIconWarningText: {
       type: String,

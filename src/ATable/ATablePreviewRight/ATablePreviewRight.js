@@ -1,7 +1,8 @@
 import {
   h,
   onBeforeUnmount,
-  onMounted, toRef,
+  onMounted,
+  toRef,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
@@ -15,6 +16,10 @@ import IdAPI from "./compositionAPI/IdAPI";
 import MouseEventsAPI from "./compositionAPI/MouseEventsAPI";
 import PreviewRightRewAPI from "../compositionAPI/PreviewRightRewAPI";
 import RowAPI from "./compositionAPI/RowAPI";
+
+import ArrowLeft from "aloha-svg/dist/js/bootstrap/ArrowLeft";
+import ArrowRight from "aloha-svg/dist/js/bootstrap/ArrowRight";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 
 export default {
   name: "ATablePreviewRight",
@@ -171,7 +176,7 @@ export default {
             h(AButton, {
               class: "a_btn a_btn_transparent_dark a_btn_small",
               disabled: this.disabledBtnArrowLeft,
-              iconLeft: "ArrowLeft",
+              iconLeft: ArrowLeft,
               title: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
               textScreenReader: "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_",
               onClick: this.toPreviousRow,
@@ -179,7 +184,7 @@ export default {
             h(AButton, {
               class: "a_btn a_btn_transparent_dark a_btn_small",
               disabled: this.disabledBtnArrowRight,
-              iconLeft: "ArrowRight",
+              iconLeft: ArrowRight,
               title: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
               textScreenReader: "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_",
               onClick: this.toNextRow,
@@ -188,7 +193,7 @@ export default {
         ]),
       !this.isMobile ? h(AButton, {
         class: "a_btn a_btn_transparent_dark a_table__preview_right__btn_close",
-        iconLeft: "Close",
+        iconLeft: XLg,
         iconClass: "a_table__preview_right__btn_close__icon",
         title: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
         textScreenReader: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",

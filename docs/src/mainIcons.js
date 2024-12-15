@@ -1,46 +1,54 @@
-import ArrowRightCircle from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRightCircle";
-import ArrowRightCircleFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowRightCircleFill";
-import ArrowsCollapse from "../../src/AIcon/Icons/bootstrap-1-9-1/ArrowsCollapse";
-import Bell from "../../src/AIcon/Icons/bootstrap-1-9-1/Bell";
-import Boxes from "../../src/AIcon/Icons/bootstrap-1-9-1/Boxes";
-import BoxArrowUpRight from "../../src/AIcon/Icons/bootstrap-1-9-1/BoxArrowUpRight";
-import ChatSquareText from "../../src/AIcon/Icons/bootstrap-1-9-1/ChatSquareText";
-import ChatSquareTextFill from "../../src/AIcon/Icons/bootstrap-1-9-1/ChatSquareTextFill";
-import CheckLg from "../../src/AIcon/Icons/bootstrap-1-9-1/CheckLg";
-import ChevronBarExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronBarExpand";
-import ChevronDown from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronDown";
-import ChevronExpand from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronExpand";
-import ChevronLeft from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronLeft";
-import ChevronRight from "../../src/AIcon/Icons/bootstrap-1-9-1/ChevronRight";
-import Code from "../../src/AIcon/Icons/bootstrap-1-9-1/Code";
-import CodeSquare from "../../src/AIcon/Icons/bootstrap-1-9-1/CodeSquare";
-import Duplicate from "../../src/AIcon/Icons/bootstrap3/Duplicate";
-import EjectFill from "../../src/AIcon/Icons/bootstrap-1-9-1/EjectFill";
-import Envelope from "../../src/AIcon/Icons/bootstrap3/Envelope";
-import ExclamationTriangle from "../../src/AIcon/Icons/bootstrap-1-9-1/ExclamationTriangle";
-import Export from "../../src/AIcon/Icons/bootstrap3/Export";
-import FileEarmarkText from "../../src/AIcon/Icons/bootstrap-1-9-1/FileEarmarkText";
-import Files from "../../src/AIcon/Icons/bootstrap-1-9-1/Files";
-import FiletypeCss from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeCss";
-import FiletypeHtml from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeHtml";
-import FiletypeJs from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeJs";
-import FiletypeSvg from "../../src/AIcon/Icons/bootstrap-1-9-1/FiletypeSvg";
-import FilterCircleFill from "../../src/AIcon/Icons/bootstrap-1-9-1/FilterCircleFill";
-import Gear from "../../src/AIcon/Icons/bootstrap-1-9-1/Gear";
-import GlobeEuropeAfrica from "../../src/AIcon/Icons/bootstrap-1-9-1/GlobeEuropeAfrica";
-import HourglassSplit from "../../src/AIcon/Icons/bootstrap-1-9-1/HourglassSplit";
-import InputCursor from "../../src/AIcon/Icons/bootstrap-1-9-1/InputCursor";
-import ListNested from "../../src/AIcon/Icons/bootstrap-1-9-1/ListNested";
-import ListUl from "../../src/AIcon/Icons/bootstrap-1-9-1/ListUl";
-import MenuAppFill from "../../src/AIcon/Icons/bootstrap-1-9-1/MenuAppFill";
-import MenuDown from "../../src/AIcon/Icons/bootstrap-1-9-1/MenuDown";
-import Reception2 from "../../src/AIcon/Icons/bootstrap-1-9-1/Reception2";
-import SegmentedNav from "../../src/AIcon/Icons/bootstrap-1-9-1/SegmentedNav";
-import Star from "../../src/AIcon/Icons/bootstrap3/StarEmpty";
-import StarFill from "../../src/AIcon/Icons/bootstrap-1-9-1/StarFill";
-import Table from "../../src/AIcon/Icons/bootstrap-1-9-1/Table";
-import Translate from "../../src/AIcon/Icons/bootstrap-1-9-1/Translate";
-import Window from "../../src/AIcon/Icons/bootstrap-1-9-1/Window";
+import ArrowRightCircle from "aloha-svg/dist/js/bootstrap/ArrowRightCircle";
+import ArrowRightCircleFill from "aloha-svg/dist/js/bootstrap/ArrowRightCircleFill";
+import ArrowsCollapse from "aloha-svg/dist/js/bootstrap/ArrowsCollapse";
+import Bell from "aloha-svg/dist/js/bootstrap/Bell";
+import Boxes from "aloha-svg/dist/js/bootstrap/Boxes";
+import BoxArrowUpRight from "aloha-svg/dist/js/bootstrap/BoxArrowUpRight";
+import ChatSquareText from "aloha-svg/dist/js/bootstrap/ChatSquareText";
+import ChatSquareTextFill from "aloha-svg/dist/js/bootstrap/ChatSquareTextFill";
+import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
+import ChevronBarExpand from "aloha-svg/dist/js/bootstrap/ChevronBarExpand";
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+import ChevronExpand from "aloha-svg/dist/js/bootstrap/ChevronExpand";
+import ChevronLeft from "aloha-svg/dist/js/bootstrap/ChevronLeft";
+import ChevronRight from "aloha-svg/dist/js/bootstrap/ChevronRight";
+import Code from "aloha-svg/dist/js/bootstrap/Code";
+import CodeSquare from "aloha-svg/dist/js/bootstrap/CodeSquare";
+import Duplicate from "aloha-svg/dist/js/bootstrap3/Duplicate";
+import EjectFill from "aloha-svg/dist/js/bootstrap/EjectFill";
+import Envelope from "aloha-svg/dist/js/bootstrap3/Envelope";
+import ExclamationTriangle from "aloha-svg/dist/js/bootstrap/ExclamationTriangle";
+import Export from "aloha-svg/dist/js/bootstrap3/Export";
+import FileEarmarkText from "aloha-svg/dist/js/bootstrap/FileEarmarkText";
+import Files from "aloha-svg/dist/js/bootstrap/Files";
+import FiletypeCss from "aloha-svg/dist/js/bootstrap/FiletypeCss";
+import FiletypeHtml from "aloha-svg/dist/js/bootstrap/FiletypeHtml";
+import FiletypeJs from "aloha-svg/dist/js/bootstrap/FiletypeJs";
+import FiletypeSvg from "aloha-svg/dist/js/bootstrap/FiletypeSvg";
+import FilterCircleFill from "aloha-svg/dist/js/bootstrap/FilterCircleFill";
+import Gear from "aloha-svg/dist/js/bootstrap/Gear";
+import GlobeEuropeAfrica from "aloha-svg/dist/js/bootstrap/GlobeEuropeAfrica";
+import HourglassSplit from "aloha-svg/dist/js/bootstrap/HourglassSplit";
+import InputCursor from "aloha-svg/dist/js/bootstrap/InputCursor";
+import ListNested from "aloha-svg/dist/js/bootstrap/ListNested";
+import ListUl from "aloha-svg/dist/js/bootstrap/ListUl";
+import MenuAppFill from "aloha-svg/dist/js/bootstrap/MenuAppFill";
+import MenuDown from "aloha-svg/dist/js/bootstrap/MenuDown";
+import Reception2 from "aloha-svg/dist/js/bootstrap/Reception2";
+import SegmentedNav from "aloha-svg/dist/js/bootstrap/SegmentedNav";
+import Star from "aloha-svg/dist/js/bootstrap3/StarEmpty";
+import StarFill from "aloha-svg/dist/js/bootstrap/StarFill";
+import Table from "aloha-svg/dist/js/bootstrap/Table";
+import ThreeDotsVertical from "aloha-svg/dist/js/bootstrap/ThreeDotsVertical";
+import Translate from "aloha-svg/dist/js/bootstrap/Translate";
+import Window from "aloha-svg/dist/js/bootstrap/Window";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+import Upload from "aloha-svg/dist/js/bootstrap/Upload";
+import PlusLg from "aloha-svg/dist/js/bootstrap/PlusLg";
+import EyeFill from "aloha-svg/dist/js/bootstrap/EyeFill";
+import EyeSlash from "aloha-svg/dist/js/bootstrap/EyeSlash";
+import House from "aloha-svg/dist/js/bootstrap/House";
+import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 
 export default {
   ArrowRightCircle,
@@ -84,6 +92,14 @@ export default {
   Reception2,
   SegmentedNav,
   Table,
+  ThreeDotsVertical,
   Translate,
   Window,
+  XLg,
+  Upload,
+  PlusLg,
+  EyeFill,
+  EyeSlash,
+  House,
+  ChevronUp,
 };

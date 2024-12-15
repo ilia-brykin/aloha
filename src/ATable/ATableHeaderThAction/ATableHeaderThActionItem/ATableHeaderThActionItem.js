@@ -12,6 +12,10 @@ import DragAndDropChildAPI from "../../compositionAPI/DragAndDropChildAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import MoveColumnAPI from "./compositionAPI/MoveColumnAPI";
 
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
+import GripVertical from "aloha-svg/dist/js/bootstrap/GripVertical";
+
 export default {
   name: "ATableHeaderThActionItem",
   components: {
@@ -153,7 +157,7 @@ export default {
               class: "a_sr_only_focusable a_btn a_btn_link a_p_0 a_table__th__dropdown_item__btn_arrow",
               disabled: this.disabledOptions,
               type: "button",
-              iconLeft: "ChevronUp",
+              iconLeft: ChevronUp,
               title: "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_",
               textScreenReader: "_A_TABLE_OPTIONS_BTN_ARROW_UP_TITLE_",
               onClick: this.moveColumnUp,
@@ -163,7 +167,7 @@ export default {
                class: "a_sr_only_focusable a_btn a_btn_link a_p_0 a_table__th__dropdown_item__btn_arrow",
                disabled: this.disabledOptions,
                type: "button",
-               iconLeft: "ChevronDown",
+               iconLeft: ChevronDown,
                title: "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_",
                textScreenReader: "_A_TABLE_OPTIONS_BTN_ARROW_DOWN_TITLE_",
                onClick: this.moveColumnDown,
@@ -171,7 +175,7 @@ export default {
             "",
         ]),
         (!this.isLocked && this.isColumnsDnd) && h(AIcon, {
-          icon: "Dnd",
+          icon: GripVertical,
           class: "a_table__th__dropdown_item__icon_dnd"
         }),
       ]),

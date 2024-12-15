@@ -5,6 +5,9 @@ import {
 import AIcon from "../../AIcon/AIcon";
 import ADecimalIcon from "./ADecimalIcon/ADecimalIcon";
 
+import Star from "aloha-svg/dist/js/bootstrap/Star";
+import StarFill from "aloha-svg/dist/js/bootstrap/StarFill";
+
 export default {
   name: "ARateIcon",
   components: {
@@ -22,11 +25,11 @@ export default {
     },
     icon: {
       type: String,
-      default: "Star",
+      default: Star,
     },
     iconFill: {
       type: String,
-      default: "StarFill",
+      default: StarFill,
     },
     size: {
       type: String,

@@ -17,6 +17,7 @@ import ChildrenToggleAPI from "./compositionAPI/ChildrenToggleAPI";
 import MobileAPI from "./compositionAPI/MobileAPI";
 import PreviewAPI from "./compositionAPI/PreviewAPI";
 
+import CaretRightFill from "aloha-svg/dist/js/bootstrap/CaretRightFill";
 import {
   forEach,
 } from "lodash-es";
@@ -284,7 +285,7 @@ export default {
             "aria-hidden": true,
             class: "a_table__row_level__icon",
             classDefault: "",
-            iconLeft: "CaretRightFill",
+            iconLeft: CaretRightFill,
             type: "text",
           }) :
           "",

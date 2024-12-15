@@ -10,7 +10,7 @@ import {
 } from "../../plugins/AIconPlugin";
 import {
   isNil,
-  isPlainObject,
+  isPlainObject, isString,
 } from "lodash-es";
 
 export default function IconAPI(props) {
@@ -34,16 +34,29 @@ export default function IconAPI(props) {
     return !isNil(iconCurrentDevice.value) && iconCurrentDevice.value !== "";
   });
 
+  const isIconSvg = computed(() => {
+    const ICON = iconCurrentDevice.value;
+
+    return !!(isString(ICON) &&
+      ICON.trim().startsWith("<svg"));
+  });
+
   const iconSvg = computed(() => {
+    if (isIconSvg.value) {
+      return iconCurrentDevice.value;
+    }
+
     const ICON_SVG = iconPluginOptions.value.icons[iconCurrentDevice.value];
     if (ICON_SVG) {
       return ICON_SVG;
     }
+
     return iconPluginOptions.value.icons._NoImage;
   });
 
   return {
     hasIcon,
     iconSvg,
+    isIconSvg,
   };
 }

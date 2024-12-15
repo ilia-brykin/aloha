@@ -9,6 +9,10 @@ import IdAPI from "./compositionAPI/IdAPI";
 export default {
   name: "AFilersRight",
   props: {
+    appliedModel: {
+      type: Object,
+      required: true,
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -27,16 +31,12 @@ export default {
       type: Object,
       required: true,
     },
-    appliedModel: {
-      type: Object,
+    id: {
+      type: String,
       required: true,
     },
     onUpdateModelFilters: {
       type: Function,
-      required: true,
-    },
-    id: {
-      type: String,
       required: true,
     },
     updateDataKeyByIdFromFilter: {

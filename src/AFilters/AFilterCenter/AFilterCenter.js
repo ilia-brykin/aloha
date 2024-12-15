@@ -9,6 +9,8 @@ import ASpinner from "../../ASpinner/ASpinner";
 import LoadingFiltersAPI from "./compositionAPI/LoadingFiltersAPI";
 import VisibleFiltersAPI from "./compositionAPI/VisibleFiltersAPI";
 
+import ArrowClockwise from "aloha-svg/dist/js/bootstrap/ArrowClockwise";
+
 export default {
   name: "AFilterCenter",
   props: {
@@ -115,7 +117,7 @@ export default {
       }, [
         h(AButton, {
           class: "a_btn a_btn_link a_btn_small",
-          iconLeft: "Reset",
+          iconLeft: ArrowClockwise,
           text: "_A_FILTERS_DESELECT_ALL_",
           onClick: this.closeAllFilters,
         }),

@@ -1,36 +1,36 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-link
   class="a_btn a_btn_primary"
-  icon-left="Dnd"
+  icon-left="Gear"
   href="https://github.com/"
 >
 </a-link>
 <a-link
   class="a_btn a_btn_primary a_ml_2"
-  icon-left="Dnd"
+  icon-left="Gear"
   text="Aloha"
   href="https://github.com/"
 >
 </a-link>
 <a-link
   class="a_btn a_btn_primary a_ml_2"
-  icon-right="Dnd"
+  icon-right="Gear"
   text="Aloha"
   href="https://github.com/"
 >
 </a-link>
 <a-link
   class="a_btn a_btn_primary a_ml_2"
-  icon-left="Dnd"
-  icon-right="Dnd"
+  icon-left="Gear"
+  icon-right="Gear"
   text="Aloha"
   href="https://github.com/"
 >
 </a-link>
 <a-link
   class="a_btn a_btn_primary a_ml_2"
-  icon-left="Dnd"
-  icon-right="Dnd"
+  icon-left="Gear"
+  icon-right="Gear"
   href="https://github.com/"
 >
 </a-link>`;

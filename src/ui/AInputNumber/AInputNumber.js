@@ -29,6 +29,8 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
+import Dash from "aloha-svg/dist/js/bootstrap/Dash";
+import Plus from "aloha-svg/dist/js/bootstrap/Plus";
 import {
   inputNumberPluginOptions,
 } from "../../plugins/AInputNumberPlugin";
@@ -395,7 +397,7 @@ export default {
               h(AButton, {
                 alwaysTranslate: this.alwaysTranslate,
                 class: "a_btn a_btn_outline_secondary",
-                iconLeft: "Minus",
+                iconLeft: Dash,
                 tabindex: -1,
                 attributes: {
                   role: "button",
@@ -406,7 +408,7 @@ export default {
               h(AButton, {
                 alwaysTranslate: this.alwaysTranslate,
                 class: "a_btn a_btn_outline_secondary",
-                iconLeft: "Plus",
+                iconLeft: Plus,
                 tabindex: -1,
                 attributes: {
                   role: "button",

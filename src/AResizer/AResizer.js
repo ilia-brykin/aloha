@@ -4,6 +4,9 @@ import {
 
 import AIcon from "../AIcon/AIcon";
 
+import ThreeDots from "aloha-svg/dist/js/bootstrap/ThreeDots";
+import ThreeDotsVertical from "aloha-svg/dist/js/bootstrap/ThreeDotsVertical";
+
 export default {
   name: "AResizer",
   props: {
@@ -44,10 +47,10 @@ export default {
 
     directionIcon() {
       if (this.direction === "x") {
-        return "OptionVertical";
+        return ThreeDotsVertical;
       }
       if (this.direction === "y") {
-        return "OptionHorizontal";
+        return ThreeDots;
       }
     },
 

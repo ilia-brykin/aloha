@@ -4,7 +4,7 @@ export default function HtmlAPI() {
   :is-visible="true" 
   type="success"
   :show-icon="true"
-  icon="Cog"
+  icon="Boxes"
 >
 </a-alert>
 <a-alert 
@@ -12,7 +12,7 @@ export default function HtmlAPI() {
   :is-visible="true" 
   type="info"
   :show-icon="true"
-  icon="EyeOpen"
+  icon="EyeFill"
 >
 </a-alert>
 <a-alert 
@@ -20,7 +20,7 @@ export default function HtmlAPI() {
   :is-visible="true" 
   type="warning"
   :show-icon="true"
-  icon="EyeClose"
+  icon="EyeSlash"
 >
 </a-alert>
 <a-alert 
@@ -28,7 +28,7 @@ export default function HtmlAPI() {
   :is-visible="true" 
   type="danger"
   :show-icon="true"
-  icon="Home"
+  icon="House"
 >
 </a-alert>
 <a-alert 
@@ -36,7 +36,7 @@ export default function HtmlAPI() {
   :is-visible="true" 
   type="primary"
   :show-icon="true"
-  icon="Lock"
+  icon="Bell"
 >
 </a-alert>`;
 

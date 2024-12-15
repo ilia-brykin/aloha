@@ -11,6 +11,8 @@ import LinkAPI from "./compositionAPI/LinkAPI";
 import SlotAPI from "./compositionAPI/SlotAPI";
 import TextAPI from "./compositionAPI/TextAPI";
 
+import CaretRightFill from "aloha-svg/dist/js/bootstrap/CaretRightFill";
+
 export default {
   name: "ATableTd",
   props: {
@@ -97,7 +99,7 @@ export default {
             "aria-hidden": true,
             class: "a_table__row_level__icon",
             classDefault: "",
-            iconLeft: "CaretRightFill",
+            iconLeft: CaretRightFill,
             type: "text",
           }) : "",
           (this.hasSlot && this.$slots[this.slotName]) ?

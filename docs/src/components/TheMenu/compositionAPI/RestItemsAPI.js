@@ -2,7 +2,7 @@ export default function RestItemsAPI() {
   const restItems = {
     id: "rest",
     label: "Rest",
-    icon: "Dnd",
+    icon: "ThreeDotsVertical",
     children: [
       {
         id: "scale",

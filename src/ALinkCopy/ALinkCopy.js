@@ -7,6 +7,8 @@ import ALink from "../ALink/ALink";
 
 import CopyAPI from "./compositionAPI/CopyAPI";
 
+import Copy from "aloha-svg/dist/js/bootstrap/Copy";
+
 export default {
   name: "ALinkCopy",
   props: {
@@ -66,7 +68,7 @@ export default {
       alwaysTranslate: this.alwaysTranslate,
       class: "a_btn a_btn_secondary",
       disabled: this.disabled,
-      iconLeft: "Files",
+      iconLeft: Copy,
       textScreenReader: "_A_LINK_COPY_BTN_TITLE_",
       title: "_A_LINK_COPY_BTN_TITLE_",
       onClick: this.copyText,

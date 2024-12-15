@@ -15,6 +15,9 @@ import IsDataLoadingAPI from "./compositionAPI/IsDataLoadingAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import ModelValuesAPI from "./compositionAPI/ModelValuesAPI";
 
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+import PinFill from "aloha-svg/dist/js/bootstrap/PinFill";
+
 export default {
   name: "AFilterCenterItem",
   props: {
@@ -129,7 +132,7 @@ export default {
             class: "a_btn a_btn_secondary",
             ariaHidden: true,
             tabindex: -1,
-            iconLeft: "PinFill",
+            iconLeft: PinFill,
             type: "text",
           }),
           h(AElement, {
@@ -170,7 +173,7 @@ export default {
             h(AElement, {
               class: "a_btn a_btn_secondary",
               disabled: this.disabled,
-              iconLeft: "Close",
+              iconLeft: XLg,
               title: "_A_FILTERS_HOR_CLOSE_TITLE_{{filterLabel}}_{{filterValue}}_",
               textScreenReader: "_A_FILTERS_HOR_CLOSE_TITLE_{{filterLabel}}_{{filterValue}}_",
               extra: {

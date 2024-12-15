@@ -20,6 +20,7 @@ import AKeyId from "../../const/AKeyId";
 import AKeyLabel from "../../const/AKeyLabel";
 import AKeyParent from "../../const/AKeyParent";
 import AKeysCode from "../../const/AKeysCode";
+import ChevronRight from "aloha-svg/dist/js/bootstrap/ChevronRight";
 import {
   setFocusToFirstLinkInPanel
 } from "../utils/utils";
@@ -260,7 +261,7 @@ export default {
               }, this.countChildren),
               h(AIcon, {
                 class: "a_menu__link__counter__icon",
-                icon: "ChevronRight",
+                icon: ChevronRight,
               })
             ]),
             ...ICON_AND_TEXT,

@@ -6,6 +6,8 @@ import AElement from "../../AElement/AElement";
 
 import ClearAPI from "./compositionAPI/ClearAPI";
 
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+
 export default {
   name: "AFormElementBtnClear",
   props: {
@@ -21,7 +23,7 @@ export default {
     icon: {
       type: String,
       required: false,
-      default: "Close",
+      default: XLg,
     },
     disabled: {
       type: Boolean,

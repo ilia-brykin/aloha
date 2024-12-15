@@ -5,8 +5,8 @@ import {
   withDirectives,
 } from "vue";
 
-import AButton from "../AButton/AButton";
 import ADropdownAction from "./ADropdownAction/ADropdownAction";
+import AElement from "../AElement/AElement";
 import AIcon from "../AIcon/AIcon";
 
 import AOnHooks from "../directives/AOnHooks";
@@ -21,6 +21,7 @@ import PopperContainerAPI from "../ATooltip/compositionAPI/PopperContainerAPI";
 import RefsAPI from "./compositionAPI/RefsAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
 import placements from "../const/placements";
 import {
   focusableSelector,
@@ -145,7 +146,7 @@ export default {
     caretIcon: {
       type: String,
       required: false,
-      default: "ChevronDown",
+      default: ChevronDown,
     },
     class: {
       type: [String, Object],
@@ -399,7 +400,7 @@ export default {
       return null;
     }
     return [
-      h(AButton, {
+      h(AElement, {
         ref: "dropdownButtonRef",
         ...this.$attrs,
         id: this.idLocal,
@@ -424,6 +425,7 @@ export default {
         prevent: this.buttonPrevent,
         stop: this.buttonStop,
         extra: this.extra,
+        type: "button",
         attributes: this.buttonAttributesLocal,
         ...this.buttonAttributesDisabled,
         ...this.eventsLocal,

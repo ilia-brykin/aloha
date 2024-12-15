@@ -9,6 +9,10 @@ import DisabledAPI from "./compositionAPI/DisabledAPI";
 import PaginationItemsAPI from "./compositionAPI/PaginationItemsAPI";
 import UpdateOffsetAPI from "./compositionAPI/UpdateOffsetAPI";
 
+import ChevronDoubleLeft from "aloha-svg/dist/js/bootstrap/ChevronDoubleLeft";
+import ChevronDoubleRight from "aloha-svg/dist/js/bootstrap/ChevronDoubleRight";
+import ChevronLeft from "aloha-svg/dist/js/bootstrap/ChevronLeft";
+import ChevronRight from "aloha-svg/dist/js/bootstrap/ChevronRight";
 import {
   isInteger,
 } from "lodash-es";
@@ -122,7 +126,7 @@ export default {
             }, [
               h(AElement, {
                 class: "a_pagination__item__link",
-                iconLeft: "DoubleAngleLeft",
+                iconLeft: ChevronDoubleLeft,
                 role: "button",
                 tabindex: this.disabledButtonFirstPage ? -1 : 0,
                 tag: "a",
@@ -138,7 +142,7 @@ export default {
             }, [
               h(AElement, {
                 class: "a_pagination__item__link",
-                iconLeft: "AngleLeft",
+                iconLeft: ChevronLeft,
                 role: "button",
                 tabindex: this.disabledButtonFirstPage ? -1 : 0,
                 tag: "a",
@@ -195,7 +199,7 @@ export default {
             }, [
               h(AElement, {
                 class: "a_pagination__item__link",
-                iconLeft: "AngleRight",
+                iconLeft: ChevronRight,
                 role: "button",
                 tabindex: this.disabledButtonLastPage ? -1 : 0,
                 tag: "a",
@@ -211,7 +215,7 @@ export default {
             }, [
               h(AElement, {
                 class: "a_pagination__item__link",
-                iconLeft: "DoubleAngleRight",
+                iconLeft: ChevronDoubleRight,
                 role: "button",
                 tabindex: this.disabledButtonLastPage ? -1 : 0,
                 tag: "a",

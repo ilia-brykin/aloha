@@ -9,6 +9,7 @@ import IdAPI from "./compositionAPI/IdAPI";
 import MainFilterAPI from "./compositionAPI/MainFilterAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 
+import Search from "aloha-svg/dist/js/bootstrap/Search";
 
 export default {
   name: "AFiltersMain",
@@ -90,7 +91,7 @@ export default {
       }, {
         formDataAppend: () => h(AButton, {
           class: "a_btn a_btn_primary a_text_nowrap a_filters_top__search",
-          iconLeft: "Search",
+          iconLeft: Search,
           type: "submit",
           text: {
             desktop: "_A_FILTERS_START_SEARCH_",

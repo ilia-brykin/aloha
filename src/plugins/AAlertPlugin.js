@@ -2,6 +2,11 @@ import {
   ref,
 } from "vue";
 
+import CheckCircleFill from "aloha-svg/dist/js/bootstrap/CheckCircleFill";
+import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
+import InfoCircleFill from "aloha-svg/dist/js/bootstrap/InfoCircleFill";
+import XCircleFill from "aloha-svg/dist/js/bootstrap/XCircleFill";
+
 export const alertPluginOptions = ref({
   propsDefault: {
     alertClass: undefined,
@@ -20,10 +25,10 @@ export const alertPluginOptions = ref({
     type: "danger",
   },
   icons: {
-    success: "AlertSuccess",
-    danger: "AlertDanger",
-    info: "AlertInfo",
-    warning: "AlertWarning",
+    success: CheckCircleFill,
+    danger: XCircleFill,
+    info: InfoCircleFill,
+    warning: ExclamationCircleFill,
   },
 });
 

@@ -20,6 +20,12 @@ import FormAPI from "./compositionAPI/FormAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 
+import Filter from "aloha-svg/dist/js/bootstrap/Filter";
+import Floppy2Fill from "aloha-svg/dist/js/bootstrap/Floppy2Fill";
+import PlusLg from "aloha-svg/dist/js/bootstrap//PlusLg";
+import Search from "aloha-svg/dist/js/bootstrap3/Search";
+import Trash from "aloha-svg/dist/js/bootstrap/Trash";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 
 export default {
   name: "AFiltersHorizontal",
@@ -193,7 +199,7 @@ export default {
     return [
       h(ADropdown, {
         ref: "dropdownRef",
-        buttonIconLeft: "Filter",
+        buttonIconLeft: Filter,
         buttonText: "Filter",
         buttonClass: "a_btn a_btn_primary a_btn_small a_filter_horizontal__btn_dropdown",
         dropdownTag: "div",
@@ -275,7 +281,7 @@ export default {
                     class: "a_btn a_btn_primary a_ml_2",
                     title: "_A_FILTERS_TOP_CLOSE_",
                     textScreenReader: "_A_FILTERS_TOP_CLOSE_",
-                    iconLeft: "Close",
+                    iconLeft: XLg,
                     stop: true,
                     onClick: () => this.deleteFiltersVisible({ filter: item }),
                   }),
@@ -309,7 +315,7 @@ export default {
                           title: "_A_FILTERS_ADD_FILTER_",
                         }),
                         h(AIcon, {
-                          icon: "Plus",
+                          icon: PlusLg,
                         }),
                       ],
                     }),
@@ -321,7 +327,7 @@ export default {
                     h(AElement, {
                       id: this.buttonSaveComponentId,
                       class: "a_btn a_btn_primary",
-                      iconLeft: "FloppyDisk",
+                      iconLeft: Floppy2Fill,
                       type: "button",
                       text: "_A_FILTERS_SAVE_FILTER_SAVED_BTN_TEXT_",
                       onClick: this.openModalSave,
@@ -330,7 +336,7 @@ export default {
                       id: this.buttonDeleteId,
                       ariaDisabled: this.isModelFilterSavedNew,
                       class: "a_btn a_btn_secondary",
-                      iconLeft: "Trash",
+                      iconLeft: Trash,
                       text: {
                         desktop: "_A_FILTERS_DELETE_FILTER_SAVED_BTN_TEXT_",
                       },
@@ -353,7 +359,7 @@ export default {
                   h(AElement, {
                     type: "button",
                     class: "a_btn a_btn_primary a_text_nowrap a_filter_horizontal__footer__actions__btn_search",
-                    iconLeft: "Search",
+                    iconLeft: Search,
                     text: "_A_FILTERS_START_SEARCH_",
                     disabled: this.disabled,
                     onClick: this.onSearch,

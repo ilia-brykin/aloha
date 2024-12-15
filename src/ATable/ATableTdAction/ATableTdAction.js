@@ -13,6 +13,9 @@ import RowActionsAPI from "../compositionAPI/RowActionsAPI";
 import RowNumberAPI from "./compositionAPI/RowNumberAPI.js";
 import StylesThTdAction from "../ATableHeaderThAction/compositionAPI/StylesThTdAction";
 
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+import PlusLg from "aloha-svg/dist/js/bootstrap/PlusLg";
+import ThreeDots from "aloha-svg/dist/js/bootstrap/ThreeDots";
 import {
   isUndefined,
 } from "lodash-es";
@@ -120,7 +123,7 @@ export default {
       }, [
         this.isColumnsScrollInvisibleDropdownVisible && h(ADropdown, {
           buttonClass: "a_btn a_btn_link a_text_nowrap",
-          buttonIconLeft: "Plus",
+          buttonIconLeft: PlusLg,
           buttonIconClass: "a_table__cell_action__additional_icon",
           buttonTitle: "_A_TABLE_DROPDOWN_HIDE_FIELDS_TITLE_{{count}}_",
           buttonTextScreenReader: "_A_TABLE_DROPDOWN_HIDE_FIELDS_TITLE_{{count}}_",
@@ -177,7 +180,7 @@ export default {
                   id: this.buttonActionsId,
                   actions: this.rowActionsFiltered,
                   buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-                  buttonIconLeft: "OptionHorizontal",
+                  buttonIconLeft: ThreeDots,
                   buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
                   buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
                   disabled: this.disabledRowActions,
@@ -195,7 +198,7 @@ export default {
                   dropdownAttributes: {
                     id: this.buttonActionsId,
                     buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",
-                    buttonIconLeft: "ChevronDown",
+                    buttonIconLeft: ChevronDown,
                     buttonTextScreenReader: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
                     buttonTitle: "_A_TABLE_DROPDOWN_ACTIONS_TITLE_{{rowNumber}}_",
                     extra: {

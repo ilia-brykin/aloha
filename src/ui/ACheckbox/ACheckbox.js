@@ -29,6 +29,7 @@ import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import Search from "aloha-svg/dist/js/bootstrap/Search";
 import {
   uniqueId,
 } from "lodash-es";
@@ -608,7 +609,7 @@ export default {
                         disabled: this.disabled,
                         class: "a_btn a_btn_primary",
                         type: "submit",
-                        iconLeft: "Search",
+                        iconLeft: Search,
                       }),
                     ]),
                   ]),

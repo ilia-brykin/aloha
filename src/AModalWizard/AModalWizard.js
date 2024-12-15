@@ -9,6 +9,8 @@ import EmitsAPI from "./compositionAPI/EmitsAPI";
 import IdsAPI from "./compositionAPI/IdsAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
+import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
+import XCircleFill from "aloha-svg/dist/js/bootstrap/XCircleFill";
 import {
   modalPluginOptions,
 } from "../plugins/AModalPlugin";
@@ -355,7 +357,7 @@ export default {
     stepIconError: {
       type: String,
       required: false,
-      default: "AlertDanger",
+      default: XCircleFill,
     },
     stepIconErrorText: {
       type: String,
@@ -365,7 +367,7 @@ export default {
     stepIconWarning: {
       type: String,
       required: false,
-      default: "AlertWarning",
+      default: ExclamationCircleFill,
     },
     stepIconWarningText: {
       type: String,

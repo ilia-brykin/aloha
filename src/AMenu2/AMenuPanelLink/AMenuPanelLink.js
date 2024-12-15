@@ -18,6 +18,8 @@ import SlotAPI from "./compositionAPI/SlotAPI";
 import TabindexAPI from "./compositionAPI/TabindexAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 
+import ChevronRight from "aloha-svg/dist/js/bootstrap/ChevronRight";
+
 export default {
   name: "AMenuPanelLink",
   inject: [
@@ -236,7 +238,7 @@ export default {
               }, this.countChildren),
               h(AIcon, {
                 class: "a_menu_2__link__counter__icon",
-                icon: "MenuChevronRight",
+                icon: ChevronRight,
               })
             ]),
           ]),

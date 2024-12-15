@@ -2,7 +2,7 @@ import {
   h,
 } from "vue";
 
-import AButton from "../AButton/AButton";
+import AElement from "../AElement/AElement";
 import ATranslation from "../ATranslation/ATranslation";
 
 import BtnAttributesAPI from "./compositionAPI/BtnAttributesAPI";
@@ -244,7 +244,7 @@ export default {
       this.isButtonVisible && h("div", {
         class: this.btnParentClass,
       }, [
-        h(AButton, {
+        h(AElement, {
           ref: "buttonRef",
           id: this.btnId,
           alwaysTranslate: this.alwaysTranslate,
@@ -260,6 +260,7 @@ export default {
           text: this.btnText,
           title: this.btnTitle,
           titlePlacement: this.btnTitlePlacement,
+          type: "button",
           ...this.btnAttributes,
           onClick: this.toggleButton,
         }, () => this.$slots.button && this.$slots.button({

@@ -17,6 +17,10 @@ import IdAPI from "./compositionAPI/IdAPI";
 import MultipleAPI from "./compositionAPI/MultipleAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
+import Search from "aloha-svg/dist/js/bootstrap3/Search";
+import ThreeDots from "aloha-svg/dist/js/bootstrap/ThreeDots";
+import UiChecks from "aloha-svg/dist/js/bootstrap/UiChecks";
+
 export default {
   name: "ATableTopPanel",
   props: {
@@ -280,7 +284,7 @@ export default {
             minDropdownActions: 0,
             dropdownAttributes: {
               buttonClass: "a_btn a_btn_secondary a_table__action",
-              buttonIconLeft: "OptionHorizontal",
+              buttonIconLeft: ThreeDots,
               buttonText: {
                 desktop: "_A_TABLE_ACTIONS_",
               },
@@ -302,7 +306,7 @@ export default {
               buttonText: {
                 desktop: "_A_TABLE_MULTIPLE_ACTIONS_",
               },
-              buttonIconLeft: "UiChecks",
+              buttonIconLeft: UiChecks,
               inBody: true,
               placement: "bottom-end",
             },
@@ -313,7 +317,7 @@ export default {
               class: "a_table__top_panel__actions__quick_search",
               modelUndefined: "",
               modelValue: this.modelQuickSearch,
-              iconPrepend: "Search",
+              iconPrepend: Search,
               "onUpdate:modelValue": this.updateModelQuickSearch,
             }) :
             "",

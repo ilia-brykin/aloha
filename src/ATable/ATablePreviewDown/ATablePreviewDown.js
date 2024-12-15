@@ -1,11 +1,14 @@
 import {
-  h, onMounted,
+  h,
+  onMounted,
 } from "vue";
 
 import AButton from "../../AButton/AButton";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import FocusAPI from "./compositionAPI/FocusAPI";
+
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 
 export default {
   name: "ATablePreviewDown",
@@ -52,7 +55,7 @@ export default {
       }),
       h(AButton, {
         class: "a_btn a_btn_transparent_dark a_table__preview_down__btn_close",
-        iconLeft: "Close",
+        iconLeft: XLg,
         iconClass: "a_table__preview_down__btn_close__icon",
         title: "_A_TABLE_PREVIEW_DOWN_CLOSE_",
         textScreenReader: "_A_TABLE_PREVIEW_DOWN_CLOSE_",

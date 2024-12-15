@@ -18,6 +18,9 @@ import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import ArrowRepeat from "aloha-svg/dist/js/bootstrap/ArrowRepeat";
+import Braces from "aloha-svg/dist/js/bootstrap/Braces";
+import Trash from "aloha-svg/dist/js/bootstrap/Trash";
 import {
   uniqueId,
 } from "lodash-es";
@@ -278,7 +281,7 @@ export default {
                     },
                   ],
                   disabled: !!this.parseError,
-                  iconLeft: "Braces",
+                  iconLeft: Braces,
                   textScreenReader: "_A_JSON_FORMAT_INPUT_",
                   title: "_A_JSON_FORMAT_INPUT_",
                   type: "button",
@@ -286,7 +289,7 @@ export default {
                 }),
                 h(AElement, {
                   class: "a_btn a_btn_transparent_warning",
-                  iconLeft: "ArrowRepeat",
+                  iconLeft: ArrowRepeat,
                   textScreenReader: "_A_JSON_RESET_INPUT_",
                   title: "_A_JSON_RESET_INPUT_",
                   type: "button",
@@ -294,7 +297,7 @@ export default {
                 }),
                 h(AElement, {
                   class: "a_btn a_btn_transparent_danger",
-                  iconLeft: "Trash",
+                  iconLeft: Trash,
                   textScreenReader: "_A_JSON_DISCARD_ALL_CHANGES_",
                   title: "_A_JSON_DISCARD_ALL_CHANGES_",
                   type: "button",

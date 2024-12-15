@@ -51,7 +51,7 @@ export default {
           grow: 2,
           footerSlot: "footerAloha",
           class: "a_text_right",
-          icon: "Close",
+          icon: "XLg",
           isRender: true,
           title: "Aloha",
         },
@@ -180,7 +180,7 @@ export default {
           extraCallback: ({ row }) => ({
             aloha: row.aloha,
           }),
-          iconLeft: "Export",
+          iconLeft: "Upload",
           isHiddenCallback: ({ rowIndex }) => rowIndex > 5,
         },
         {
@@ -204,7 +204,7 @@ export default {
           callback: this.clickMe,
         },
         {
-          iconLeft: "Export",
+          iconLeft: "Upload",
           type: "link",
           hrefCallback: ({ row }) => `dokumente/${ row.number }/download/`,
           text: "Dokument herunterladen",
@@ -231,7 +231,7 @@ export default {
           isHidden: false,
           callback: this.clickMe,
           disabled: false,
-          icon: "Plus",
+          icon: "PlusLg",
           isConfirm: true,
           isAllRowsSelected: true,
         },
@@ -253,7 +253,7 @@ export default {
           title: "Aloha1 Title",
           callback: this.clickMeModal,
           disabled: false,
-          icon: "Plus",
+          icon: "PlusLg",
           isHidden: false,
           isHiddenCallback: this.isHiddenMultiple,
         },
@@ -272,7 +272,7 @@ export default {
           callback: this.clickMe,
           type: "button",
           classButton: "a_btn a_btn_primary",
-          iconLeft: "Plus",
+          iconLeft: "PlusLg",
           id: "aloha_1"
         },
         {
@@ -296,7 +296,7 @@ export default {
           disabled: false,
           classButton: "a_btn a_btn_secondary",
           type: "link",
-          iconRight: "Plus",
+          iconRight: "PlusLg",
           to: "/spinner",
         },
         {
@@ -306,7 +306,7 @@ export default {
           classButton: "a_btn a_btn_secondary",
           type: "link",
           href: "/spinner",
-          iconLeft: "Plus",
+          iconLeft: "PlusLg",
         },
         {
           type: "divider",
@@ -317,7 +317,7 @@ export default {
           classButton: "a_btn a_btn_secondary",
           type: "link",
           href: "/spinner",
-          iconLeft: "Plus",
+          iconLeft: "PlusLg",
         },
       ],
       modelQuickSearch: "",

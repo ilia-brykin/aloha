@@ -12,6 +12,10 @@ import ColumnSearchAPI from "../compositionAPI/ColumnSearchAPI";
 import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
 import StylesThTdAction from "./compositionAPI/StylesThTdAction";
 
+import ArrowCounterclockwise from "aloha-svg/dist/js/bootstrap/ArrowCounterclockwise";
+import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
+import GearFill from "aloha-svg/dist/js/bootstrap/GearFill";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 import {
   getModelColumnsVisibleDefault,
 } from "../utils/utils";
@@ -131,7 +135,7 @@ export default {
         inBody: true,
       }, {
         button: () => h(AIcon, {
-          icon: "Cog",
+          icon: GearFill,
         }),
         dropdown: () => [
           h("ul", {
@@ -166,7 +170,7 @@ export default {
                 onClick: this.selectAllColumns,
               }, [
                 h(AIcon, {
-                  icon: "CheckLg",
+                  icon: CheckLg,
                   class: "a_table__th__dropdown_item__icon",
                 }),
                 h("span", null, "Alle einblenden"),
@@ -180,7 +184,7 @@ export default {
                 onClick: this.deselectAllColumns,
               }, [
                 h(AIcon, {
-                  icon: "Close",
+                  icon: XLg,
                   class: "a_table__th__dropdown_item__icon",
                 }),
                 h("span", null, "Alle ausblenden"),
@@ -194,7 +198,7 @@ export default {
                 onClick: this.resetColumns,
               }, [
                 h(AIcon, {
-                  icon: "Reset",
+                  icon: ArrowCounterclockwise,
                   class: "a_table__th__dropdown_item__icon",
                 }),
                 h("span", null, "Zurücksetzen"),

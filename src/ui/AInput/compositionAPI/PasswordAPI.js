@@ -3,6 +3,9 @@ import {
   toRef,
 } from "vue";
 
+import EyeClose from "../../../AIcon/Icons/EyeClose";
+import EyeOpen from "../../../AIcon/Icons/EyeOpen";
+
 export default function PasswordAPI(props, {
   setTypeLocal = () => {},
   typeForInput = computed(() => ""),
@@ -19,7 +22,7 @@ export default function PasswordAPI(props, {
   });
 
   const iconBtnShowPassword = computed(() => {
-    return isTypeForInputPassword.value ? "EyeClose" : "EyeOpen";
+    return isTypeForInputPassword.value ? EyeClose : EyeOpen;
   });
 
   const toggleTypePassword = () => {

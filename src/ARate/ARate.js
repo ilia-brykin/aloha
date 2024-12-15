@@ -9,6 +9,9 @@ import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 import ARateIcon from "./ARateIcon/ARateIcon";
 
+import Star from "aloha-svg/dist/js/bootstrap/Star";
+import StarFill from "aloha-svg/dist/js/bootstrap/StarFill";
+
 export default {
   name: "ARate",
   components: {
@@ -31,11 +34,11 @@ export default {
     },
     icon: {
       type: String,
-      default: "Star",
+      default: Star,
     },
     iconFill: {
       type: String,
-      default: null,
+      default: StarFill,
     },
     readonly: {
       type: Boolean,

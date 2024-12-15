@@ -4,6 +4,8 @@ import {
 
 import AIcon from "../../../AIcon/AIcon";
 
+import StarFill from "aloha-svg/dist/js/bootstrap/StarFill";
+
 export default {
   name: "ADecimalIcon",
   components: {
@@ -20,7 +22,7 @@ export default {
     },
     icon: {
       type: String,
-      default: "StarFill",
+      default: StarFill,
     },
     size: {
       type: String,

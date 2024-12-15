@@ -13,6 +13,8 @@ import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI"
 import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
 
+import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
+
 export default {
   name: "ASelectElement",
   props: {
@@ -145,7 +147,7 @@ export default {
         class: "a_select__menu__link__icon_box",
       }, [
         this.isChecked && h(AIcon, {
-          icon: "CheckLg",
+          icon: CheckLg,
         }),
       ]),
       this.slotName && this.$slots[this.slotName] ?

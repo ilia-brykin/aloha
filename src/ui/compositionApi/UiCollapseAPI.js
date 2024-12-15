@@ -5,6 +5,9 @@ import {
   watch,
 } from "vue";
 
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
+
 export default function UiCollapseAPI(props, { emit }) {
   const collapsible = toRef(props, "collapsible");
   const id = toRef(props, "id");
@@ -15,8 +18,8 @@ export default function UiCollapseAPI(props, { emit }) {
 
   const iconCollapse = computed(() => {
     return isCollapsedLocal.value ?
-      "ChevronUp" :
-      "ChevronDown";
+      ChevronUp :
+      ChevronDown;
   });
 
   const textOpen = computed(() => {

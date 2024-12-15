@@ -2,10 +2,12 @@ import {
   ref,
 } from "vue";
 
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+
 export const selectPluginOptions = ref({
   propsDefault: {
     buttonClass: undefined,
-    caretIcon: "ChevronDown",
+    caretIcon: ChevronDown,
     countMultiselect: 4,
     dataExtra: [],
     exceededItemsDeletable: true,

@@ -4,6 +4,9 @@ import {
   toRef,
 } from "vue";
 
+import EyeClose from "../../../../AIcon/Icons/EyeClose";
+import EyeOpen from "../../../../AIcon/Icons/EyeOpen";
+import Lock from "../../../../AIcon/Icons/Lock";
 import {
   cloneDeep,
 } from "lodash-es";
@@ -26,9 +29,11 @@ export default function ButtonVisibleAPI(props, {
 
   const iconVisible = computed(() => {
     if (isLocked.value) {
-      return "Lock";
+      return Lock;
     }
-    return isColumnVisible.value ? "EyeOpen" : "EyeClose";
+    return isColumnVisible.value ?
+      EyeOpen :
+      EyeClose;
   });
 
   const titleButtonVisible = computed(() => {

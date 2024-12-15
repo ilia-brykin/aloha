@@ -9,6 +9,8 @@ import AMenuPanelLink from "../AMenuPanelLink/AMenuPanelLink";
 import BreadcrumbsItemsAPI from "./compositionAPI/BreadcrumbsItemsAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 
+import ThreeDots from "aloha-svg/dist/js/bootstrap/ThreeDots";
+
 export default {
   name: "AMenuSearchPanelBreadcrumbs",
   props: {
@@ -69,7 +71,7 @@ export default {
         h("li", {}, [
           h(ADropdown, {
             buttonClass: "a_btn a_btn_secondary a_btn_small a_menu_2__breadcrumb__ul_truncated__btn",
-            buttonIconLeft: "ThreeDots",
+            buttonIconLeft: ThreeDots,
             buttonTextScreenReader: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
             buttonTitle: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
             dropdownClass: "a_menu_2__breadcrumb__ul_truncated__dropdown",

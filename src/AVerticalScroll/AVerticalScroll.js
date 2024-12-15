@@ -12,6 +12,9 @@ import ListenerAPI from "./compositionAPI/ListenerAPI";
 import ObserverAPI from "./compositionAPI/ObserverAPI";
 import ScrollAPI from "./compositionAPI/ScrollAPI";
 
+import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+
 export default {
   name: "AVerticalScroll",
   props: {
@@ -135,7 +138,7 @@ export default {
       }, [
         h(AButton, {
           class: "a_btn a_btn_transparent_secondary a_btn_small a_vertical_scroll__btn a_vertical_scroll__btn_up",
-          iconLeft: "ChevronUp",
+          iconLeft: ChevronUp,
           disabled: !this.canScrollUp,
           tabindex: -1,
           title: "_A_VERTICAL_SCROLL_BTN_UP_TITLE_",
@@ -160,7 +163,7 @@ export default {
       }, [
         h(AButton, {
           class: "a_btn a_btn_transparent_secondary a_btn_small a_vertical_scroll__btn a_vertical_scroll__btn_down",
-          iconLeft: "ChevronDown",
+          iconLeft: ChevronDown,
           disabled: !this.canScrollDown,
           title: "_A_VERTICAL_SCROLL_BTN_DOWN_TITLE_",
           textScreenReader: "_A_VERTICAL_SCROLL_BTN_DOWN_TITLE_",

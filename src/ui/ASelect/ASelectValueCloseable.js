@@ -9,6 +9,8 @@ import AKeyId from "../../const/AKeyId";
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+
 export default {
   name: "ASelectValueCloseable",
   props: {
@@ -89,7 +91,7 @@ export default {
         onClick: this.closeModel,
       }, [
         h(AIcon, {
-          icon: "Close",
+          icon: XLg,
         }),
       ]),
     ]);

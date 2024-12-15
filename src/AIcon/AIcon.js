@@ -39,13 +39,16 @@ export default {
     } = AriaLabelHiddenAPI(props);
 
     const {
-      iconClass,
-    } = ClassAPI(props);
-
-    const {
       hasIcon,
       iconSvg,
+      isIconSvg,
     } = IconAPI(props);
+
+    const {
+      iconClass,
+    } = ClassAPI(props, {
+      isIconSvg,
+    });
 
     return {
       attributesAriaLabelHidden,

@@ -9,6 +9,8 @@ import IdAPI from "./compositionAPI/IdAPI";
 import IsFilterAPI from "./compositionAPI/IsFilterAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+
 export default {
   name: "AFiltersHorizontalFilter",
   props: {
@@ -86,7 +88,7 @@ export default {
         this.closable && h(AButton, {
           class: "a_btn a_btn_transparent_secondary a_filters_top__filter_ui_delete",
           title: "_A_FILTERS_TOP_CLOSE_",
-          iconLeft: "Close",
+          iconLeft: XLg,
           onClick: () => this.$emit("deleteFiltersVisible", { filter: this.filter }),
         }),
       ])

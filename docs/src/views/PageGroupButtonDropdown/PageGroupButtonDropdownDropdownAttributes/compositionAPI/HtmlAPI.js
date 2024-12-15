@@ -10,7 +10,7 @@ export default function HtmlAPI() {
   :actions="actions"
   :index-first-dropdown-action="1"
   :index-first-dropdown-action-mobile="1"
-  :dropdown-attributes="{ buttonText: '_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_', buttonIconLeft: 'Cog' }"
+  :dropdown-attributes="{ buttonText: '_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_', buttonIconLeft: 'Gear' }"
 ></a-group-button-dropdown>`;
 
   return {

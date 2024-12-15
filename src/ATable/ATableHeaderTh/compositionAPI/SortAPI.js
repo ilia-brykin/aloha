@@ -7,6 +7,8 @@ import {
 
 import AIcon from "../../../AIcon/AIcon";
 
+import CaretDownFill from "aloha-svg/dist/js/bootstrap/CaretDownFill";
+import CaretUpFill from "aloha-svg/dist/js/bootstrap/CaretUpFill";
 import {
   tablePluginOptions,
 } from "../../../plugins/ATablePlugin";
@@ -69,14 +71,14 @@ export default function SortAPI(props) {
 
   const iconSortDescending = computed(() => {
     return h(AIcon, {
-      icon: "CaretUpFill",
+      icon: CaretUpFill,
       class: "a_table__th__sort__icon a_table__th__sort__icon_up",
     });
   });
 
   const iconSortAscending = computed(() => {
     return h(AIcon, {
-      icon: "CaretDownFill",
+      icon: CaretDownFill,
       class: "a_table__th__sort__icon a_table__th__sort__icon_down",
     });
   });

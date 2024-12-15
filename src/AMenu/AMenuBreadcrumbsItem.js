@@ -5,6 +5,7 @@ import {
 import AIcon from "../AIcon/AIcon";
 
 import AKeysCode from "../const/AKeysCode";
+import ChevronLeft from "aloha-svg/dist/js/bootstrap/ChevronLeft";
 
 export default {
   name: "AMenuBreadcrumbsItem",
@@ -53,7 +54,7 @@ export default {
       onKeydown: this.onKeydown,
     }, [
       h(AIcon, {
-        icon: "ChevronLeft",
+        icon: ChevronLeft,
         class: "a_mr_2",
       }),
       h("span", {

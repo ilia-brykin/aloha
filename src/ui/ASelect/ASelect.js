@@ -38,7 +38,10 @@ import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AKeyId from "../../const/AKeyId";
+import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
 import placements from "../../const/placements";
+import Search from "aloha-svg/dist/js/bootstrap/Search";
+import XLg from "../../AIcon/Icons/bootstrap-1-9-1/XLg";
 import {
   selectPluginOptions,
 } from "../../plugins/ASelectPlugin";
@@ -840,7 +843,7 @@ export default {
                             disabled: this.disabled,
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",
-                            iconLeft: "Search",
+                            iconLeft: Search,
                             loadingAlign: "left",
                           }),
                         ]),
@@ -876,7 +879,7 @@ export default {
                           class: "a_select__menu__link__icon_box",
                         }, [
                           h(AIcon, {
-                            icon: "CheckLg",
+                            icon: CheckLg,
                           }),
                         ]),
                         h("span", null, this.textSelectAll),
@@ -892,7 +895,7 @@ export default {
                           class: "a_select__menu__link__icon_box",
                         }, [
                           h(AIcon, {
-                            icon: "Close",
+                            icon: XLg,
                           }),
                         ]),
                         h("span", null, this.textDeselectAll),
