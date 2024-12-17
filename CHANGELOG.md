@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 1.2.277
+
+- Removed the unnecessary `role="button"` attribute from buttons in`AInputCurrency` and `AInputNumber` components.
+  Added `title` and `textScreenReader` props for buttons in `AInputCurrency` and `AInputNumber` to enhance accessibility and screen reader support.
+
 ## 1.2.276
 
 - Fixed the `aria-describedby` attribute for UI components to ensure proper association with error messages, improving accessibility.
