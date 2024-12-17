@@ -499,6 +499,8 @@ export default {
                 iconLeft: "Minus",
                 tabindex: -1,
                 disabled: this.disabled,
+                title: "_A_INPUT_CURRENCY_BTN_DECREASE_",
+                textScreenReader: "_A_INPUT_CURRENCY_BTN_DECREASE_",
                 onClick: this.decrease,
               }),
               h(AButton, {
@@ -506,6 +508,8 @@ export default {
                 iconLeft: "Plus",
                 tabindex: -1,
                 disabled: this.disabled,
+                title: "_A_INPUT_CURRENCY_BTN_INCREASE_",
+                textScreenReader: "_A_INPUT_CURRENCY_BTN_INCREASE_",
                 onClick: this.increase,
               }),
             ]),

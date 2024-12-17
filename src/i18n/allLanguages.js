@@ -31,6 +31,8 @@ import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 import ALoadingI18n from "../ALoading/i18n/ALoadingI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
 import ARequiredI18n from "../ui/ARequired/i18n/ARequiredI18n";
+import AInputNumberI18n from "../ui/AInputNumber/i18n/AInputNumberI18n";
+import AInputCurrencyI18n from "../ui/AInputCurrency/i18n/AInputCurrencyI18n";
 
 export const ar = {
   ...arJson,
@@ -58,6 +60,8 @@ export const ar = {
   ...ALoadingI18n.ar,
   ...ACloakI18n.ar,
   ...ARequiredI18n.ar,
+  ...AInputNumberI18n.ar,
+  ...AInputCurrencyI18n.ar,
 };
 export const de = {
   ...deJson,
@@ -85,6 +89,8 @@ export const de = {
   ...ALoadingI18n.de,
   ...ACloakI18n.de,
   ...ARequiredI18n.de,
+  ...AInputNumberI18n.de,
+  ...AInputCurrencyI18n.de,
 };
 export const en = {
   ...enJson,
@@ -112,6 +118,8 @@ export const en = {
   ...ALoadingI18n.en,
   ...ACloakI18n.en,
   ...ARequiredI18n.en,
+  ...AInputNumberI18n.en,
+  ...AInputCurrencyI18n.en,
 };
 export const es = {
   ...esJson,
@@ -139,6 +147,8 @@ export const es = {
   ...ALoadingI18n.es,
   ...ACloakI18n.es,
   ...ARequiredI18n.es,
+  ...AInputNumberI18n.es,
+  ...AInputCurrencyI18n.es,
 };
 export const fr = {
   ...frJson,
@@ -166,6 +176,8 @@ export const fr = {
   ...ALoadingI18n.fr,
   ...ACloakI18n.fr,
   ...ARequiredI18n.fr,
+  ...AInputNumberI18n.fr,
+  ...AInputCurrencyI18n.fr,
 };
 export const hr = {
   ...hrJson,
@@ -193,6 +205,8 @@ export const hr = {
   ...ALoadingI18n.hr,
   ...ACloakI18n.hr,
   ...ARequiredI18n.hr,
+  ...AInputNumberI18n.hr,
+  ...AInputCurrencyI18n.hr,
 };
 export const it = {
   ...itJson,
@@ -220,6 +234,8 @@ export const it = {
   ...ALoadingI18n.it,
   ...ACloakI18n.it,
   ...ARequiredI18n.it,
+  ...AInputNumberI18n.it,
+  ...AInputCurrencyI18n.it,
 };
 export const ru = {
   ...ruJson,
@@ -247,6 +263,8 @@ export const ru = {
   ...ALoadingI18n.ru,
   ...ACloakI18n.ru,
   ...ARequiredI18n.ru,
+  ...AInputNumberI18n.ru,
+  ...AInputCurrencyI18n.ru,
 };
 
 export default {
