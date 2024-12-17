@@ -486,7 +486,6 @@ export default {
 
     const {
       ariaLabelledby,
-      attributesDisabled,
       containerId,
       idForList,
       tabindex,
@@ -603,7 +602,6 @@ export default {
     return {
       ariaDescribedbyLocal,
       ariaLabelledby,
-      attributesDisabled,
       attributesToExcludeFromRender,
       buttonRef,
       clearModel,
@@ -727,7 +725,6 @@ export default {
               onKeydown: this.handleKeydown,
               onFocus: this.onFocus,
               onBlur: this.onBlur,
-              ...this.attributesDisabled,
             }, [
               this.$slots.fixedPlaceholder ?
                 this.$slots.fixedPlaceholder({
