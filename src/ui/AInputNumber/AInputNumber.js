@@ -397,9 +397,6 @@ export default {
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: "Minus",
                 tabindex: -1,
-                attributes: {
-                  role: "button",
-                },
                 disabled: this.disabled,
                 onClick: this.decrease,
               }),
@@ -408,9 +405,6 @@ export default {
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: "Plus",
                 tabindex: -1,
-                attributes: {
-                  role: "button",
-                },
                 disabled: this.disabled,
                 onClick: this.increase,
               }),
