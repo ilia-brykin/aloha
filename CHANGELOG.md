@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.276
+
+- Fixed the `aria-describedby` attribute for UI components to ensure proper association with error messages, improving accessibility.
+
 ## 1.2.275
 
 - Improved the `AModal` component by managing `z-index` for multiple modal windows, ensuring proper stacking order.
