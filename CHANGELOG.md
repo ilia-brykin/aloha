@@ -7,10 +7,14 @@
 ---
 # Versions
 
+## 1.2.278
+
+- Fixed the `disabled` state handling for elements with `type="link"` in the `AElement` component.
+
 ## 1.2.277
 
 - Removed the unnecessary `role="button"` attribute from buttons in`AInputCurrency` and `AInputNumber` components.
-  Added `title` and `textScreenReader` props for buttons in `AInputCurrency` and `AInputNumber` to enhance accessibility and screen reader support.
+- Added `title` and `textScreenReader` props for buttons in `AInputCurrency` and `AInputNumber` to enhance accessibility and screen reader support.
 
 ## 1.2.276
 
