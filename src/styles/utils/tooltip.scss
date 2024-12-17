@@ -1,48 +1,48 @@
-@import "aloha_prefix";
+@use "aloha_prefix" as aloha;
 
 .a_tooltip__container {
-  --#{$aloha-prefix}tooltip_bg: var(--#{$aloha-prefix}color_primary);
-  --#{$aloha-prefix}tooltip_color: var(--#{$aloha-prefix}color_white);
-  --#{$aloha-prefix}tooltip_border_radius: var(--#{$aloha-prefix}border_radius);
-  --#{$aloha-prefix}tooltip_padding_x: 0.5rem;
-  --#{$aloha-prefix}tooltip_padding_y: 0.3rem;
-  --#{$aloha-prefix}tooltip_font_size: 0.8rem;
-  --#{$aloha-prefix}tooltip_arrow_width: 8px;
-  --#{$aloha-prefix}tooltip_arrow_height: 8px;
-  --#{$aloha-prefix}tooltip_arrow_shift: -4px;
-  --#{$aloha-prefix}tooltip_max_height: 400px;
-  --#{$aloha-prefix}tooltip_box_shadow_color: var(--#{$aloha-prefix}color_gray_400);
-  --#{$aloha-prefix}tooltip_box_shadow: 1px 1px 0 0 var(--#{$aloha-prefix}tooltip_box_shadow_color);
+  --#{aloha.$aloha-prefix}tooltip_bg: var(--#{aloha.$aloha-prefix}color_primary);
+  --#{aloha.$aloha-prefix}tooltip_color: var(--#{aloha.$aloha-prefix}color_white);
+  --#{aloha.$aloha-prefix}tooltip_border_radius: var(--#{aloha.$aloha-prefix}border_radius);
+  --#{aloha.$aloha-prefix}tooltip_padding_x: 0.5rem;
+  --#{aloha.$aloha-prefix}tooltip_padding_y: 0.3rem;
+  --#{aloha.$aloha-prefix}tooltip_font_size: 0.8rem;
+  --#{aloha.$aloha-prefix}tooltip_arrow_width: 8px;
+  --#{aloha.$aloha-prefix}tooltip_arrow_height: 8px;
+  --#{aloha.$aloha-prefix}tooltip_arrow_shift: -4px;
+  --#{aloha.$aloha-prefix}tooltip_max_height: 400px;
+  --#{aloha.$aloha-prefix}tooltip_box_shadow_color: var(--#{aloha.$aloha-prefix}color_gray_400);
+  --#{aloha.$aloha-prefix}tooltip_box_shadow: 1px 1px 0 0 var(--#{aloha.$aloha-prefix}tooltip_box_shadow_color);
 
-  z-index: var(--#{$aloha-prefix}z_index_tooltip);
-  background-color: var(--#{$aloha-prefix}tooltip_bg);
-  color: var(--#{$aloha-prefix}tooltip_color);
-  border-radius: var(--#{$aloha-prefix}tooltip_border_radius);
-  font-size: var(--#{$aloha-prefix}tooltip_font_size);
+  z-index: var(--#{aloha.$aloha-prefix}z_index_tooltip);
+  background-color: var(--#{aloha.$aloha-prefix}tooltip_bg);
+  color: var(--#{aloha.$aloha-prefix}tooltip_color);
+  border-radius: var(--#{aloha.$aloha-prefix}tooltip_border_radius);
+  font-size: var(--#{aloha.$aloha-prefix}tooltip_font_size);
   display: inline-block;
-  box-shadow: var(--#{$aloha-prefix}tooltip_box_shadow);
+  box-shadow: var(--#{aloha.$aloha-prefix}tooltip_box_shadow);
 
   &[data-popper-placement^='top'] > .a_tooltip__arrow {
-    bottom: var(--#{$aloha-prefix}tooltip_arrow_shift);
+    bottom: var(--#{aloha.$aloha-prefix}tooltip_arrow_shift);
   }
   &[data-popper-placement^='bottom'] > .a_tooltip__arrow {
-    top: var(--#{$aloha-prefix}tooltip_arrow_shift);
+    top: var(--#{aloha.$aloha-prefix}tooltip_arrow_shift);
   }
   &[data-popper-placement^='left'] > .a_tooltip__arrow {
-    right: var(--#{$aloha-prefix}tooltip_arrow_shift);
+    right: var(--#{aloha.$aloha-prefix}tooltip_arrow_shift);
   }
   &[data-popper-placement^='right'] > .a_tooltip__arrow {
-    left: var(--#{$aloha-prefix}tooltip_arrow_shift);
+    left: var(--#{aloha.$aloha-prefix}tooltip_arrow_shift);
   }
 }
 
 .a_tooltip__arrow,
 .a_tooltip__arrow:before {
   position: absolute;
-  width: var(--#{$aloha-prefix}tooltip_arrow_width);
-  height: var(--#{$aloha-prefix}tooltip_arrow_height);
+  width: var(--#{aloha.$aloha-prefix}tooltip_arrow_width);
+  height: var(--#{aloha.$aloha-prefix}tooltip_arrow_height);
   background: inherit;
-  box-shadow: var(--#{$aloha-prefix}tooltip_box_shadow);
+  box-shadow: var(--#{aloha.$aloha-prefix}tooltip_box_shadow);
 }
 
 .a_tooltip__arrow {
@@ -55,9 +55,9 @@
 }
 
 .a_tooltip__wrapper {
-  max-height: var(--#{$aloha-prefix}tooltip_max_height);
+  max-height: var(--#{aloha.$aloha-prefix}tooltip_max_height);
   overflow-y: auto;
-  padding: var(--#{$aloha-prefix}tooltip_padding_y) var(--#{$aloha-prefix}tooltip_padding_x);
+  padding: var(--#{aloha.$aloha-prefix}tooltip_padding_y) var(--#{aloha.$aloha-prefix}tooltip_padding_x);
   background-color: inherit;
   border-radius: inherit;
   position: relative;

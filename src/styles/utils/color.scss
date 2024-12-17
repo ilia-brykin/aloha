@@ -1,19 +1,18 @@
-@import "aloha_prefix";
-@import "funktions";
-@import "color_utils";
+@use "aloha_prefix" as aloha;
+@use "color_utils";
 
 :root {
-  @each $color-key, $color-value in $a_colors_global {
-      #{ getColorVar($color-key) }: #{ $color-value };
+  @each $color-key, $color-value in color_utils.$a_colors_global {
+      #{ color_utils.getColorVar($color-key) }: #{ $color-value };
   }
-  @each $color-key, $color-value in $a_theme_colors_text {
-    #{ getColorVar($color-key, "_text_emphasis") }: #{$color-value};
+  @each $color-key, $color-value in color_utils.$a_theme_colors_text {
+    #{ color_utils.getColorVar($color-key, "_text_emphasis") }: #{$color-value};
   }
-  @each $color-key, $color-value in $a_theme_colors_bg_subtle {
-    #{ getColorVar($color-key, "_bg_subtle") }: #{$color-value};
+  @each $color-key, $color-value in color_utils.$a_theme_colors_bg_subtle {
+    #{ color_utils.getColorVar($color-key, "_bg_subtle") }: #{$color-value};
   }
-  @each $color-key, $color-value in $a_theme_colors_border_subtle {
-    #{ getColorVar($color-key, "_border_subtle") }: #{$color-value};
+  @each $color-key, $color-value in color_utils.$a_theme_colors_border_subtle {
+    #{ color_utils.getColorVar($color-key, "_border_subtle") }: #{$color-value};
   }
   --a_color_emphasis_color: #000;
 
@@ -22,15 +21,15 @@
   --a_border_color: var(--a_color_gray_300);
 }
 
-@each $color in $a_colors {
-    .#{ $aloha-prefix }color_#{ $color } {
-        color: var(#{ getColorVar($color) }) !important;
+@each $color in color_utils.$a_colors {
+    .#{ aloha.$aloha-prefix }color_#{ "" + $color } {
+        color: var(#{ color_utils.getColorVar($color) }) !important;
     }
 }
 
-@each $bg_color in $a_bg_colors {
-    .#{ $aloha-prefix }bg_#{ $bg_color } {
-        background-color: var(#{ getColorVar($bg_color) }) !important;
+@each $bg_color in color_utils.$a_bg_colors {
+    .#{ aloha.$aloha-prefix }bg_#{ "" + $bg_color } {
+        background-color: var(#{ color_utils.getColorVar($bg_color) }) !important;
     }
 }
 

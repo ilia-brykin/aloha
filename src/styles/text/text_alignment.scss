@@ -1,32 +1,33 @@
-@import "../utils/aloha_prefix";
-@import "../utils/breakpoint";
-@import "../utils/mixins";
-@import "../utils/funktions";
+@use "sass:map";
 
-.#{$aloha-prefix}text_left {
+@use "../utils/aloha_prefix" as aloha;
+@use "../utils/breakpoint";
+@use "../utils/mixins";
+
+.#{aloha.$aloha-prefix}text_left {
   text-align: left !important;
 }
 
-.#{$aloha-prefix}text_center {
+.#{aloha.$aloha-prefix}text_center {
   text-align: center !important;
 }
 
-.#{$aloha-prefix}text_right {
+.#{aloha.$aloha-prefix}text_right {
   text-align: right !important;
 }
-@each $breakpoint in $a_breakpoints {
-  $breakpoint-class: map-get($breakpoint, "class");
-  $breakpoint-min: map-get($breakpoint, "min");
-  $breakpoint-max: map-get($breakpoint, "max");
+@each $breakpoint in breakpoint.$a_breakpoints {
+  $breakpoint-class: map.get($breakpoint, "class");
+  $breakpoint-min: map.get($breakpoint, "min");
+  $breakpoint-max: map.get($breakpoint, "max");
 
-  @include media-width-all($breakpoint-min, $breakpoint-max) {
-    .a_text_left#{ getBreakpointWithPrefix($breakpoint-class) } {
+  @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+    .a_text_left#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
       text-align: left !important;
     }
-    .a_text_center#{ getBreakpointWithPrefix($breakpoint-class) } {
+    .a_text_center#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
       text-align: center !important;
     }
-    .a_text_right#{ getBreakpointWithPrefix($breakpoint-class) } {
+    .a_text_right#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
       text-align: right !important;
     }
   }

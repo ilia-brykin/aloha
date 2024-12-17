@@ -1,7 +1,9 @@
-@import "aloha_prefix";
-@import "breakpoint";
-@import "mixins";
-@import "funktions";
+@use "sass:map";
+
+@use "aloha_prefix" as aloha;
+@use "breakpoint";
+@use "mixins";
+@use "funktions";
 
 $a_column_gaps: (
   0: 0rem,
@@ -15,72 +17,72 @@ $a_column_gaps: (
   8: 2rem,
 ) !default;
 
-$a_column_count: 12;
+$a_column_count: 12 !default;
 
-.#{$aloha-prefix}columns {
-  --#{$aloha-prefix}column_gap_x: 0.75rem;
-  --#{$aloha-prefix}column_gap_y: 0.75rem;
+.#{aloha.$aloha-prefix}columns {
+  --#{aloha.$aloha-prefix}column_gap_x: 0.75rem;
+  --#{aloha.$aloha-prefix}column_gap_y: 0.75rem;
   display: flex;
-  margin-left: calc(-1 * var(--#{$aloha-prefix}column_gap_x));
-  margin-right: calc(-1 * var(--#{$aloha-prefix}column_gap_x));
-  > .#{$aloha-prefix}column {
-    padding-left: var(--#{$aloha-prefix}column_gap_x);
-    padding-right: var(--#{$aloha-prefix}column_gap_x);
+  margin-left: calc(-1 * var(--#{aloha.$aloha-prefix}column_gap_x));
+  margin-right: calc(-1 * var(--#{aloha.$aloha-prefix}column_gap_x));
+  > .#{aloha.$aloha-prefix}column {
+    padding-left: var(--#{aloha.$aloha-prefix}column_gap_x);
+    padding-right: var(--#{aloha.$aloha-prefix}column_gap_x);
   }
 }
-.#{$aloha-prefix}column {
+.#{aloha.$aloha-prefix}column {
   display: block;
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: var(--#{$aloha-prefix}column_gap_y) var(--#{$aloha-prefix}column_gap_x);
+  padding: var(--#{aloha.$aloha-prefix}column_gap_y) var(--#{aloha.$aloha-prefix}column_gap_x);
 }
 
 
-$a_breakpoints_grid: prepend($a_breakpoints, (class: null));
+$a_breakpoints_grid: funktions.prepend(breakpoint.$a_breakpoints, (class: null));
 
 @each $breakpoint in $a_breakpoints_grid {
-  $breakpoint-class: map-get($breakpoint, "class");
-  $breakpoint-min: map-get($breakpoint, "min");
-  $breakpoint-max: map-get($breakpoint, "max");
+  $breakpoint-class: map.get($breakpoint, "class");
+  $breakpoint-min: map.get($breakpoint, "min");
+  $breakpoint-max: map.get($breakpoint, "max");
 
   @for $i from 1 through $a_column_count {
-    @include media-width-all($breakpoint-min, $breakpoint-max) {
-      .#{$aloha-prefix}columns_count_#{$i}#{ getBreakpointWithPrefix($breakpoint-class) } {
-        --#{$aloha-prefix}column_count: #{$i};
+    @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+      .#{aloha.$aloha-prefix}columns_count_#{$i}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
+        --#{aloha.$aloha-prefix}column_count: #{$i};
         flex-wrap: wrap;
       }
     }
   }
 
   @each $gap-key, $gap-value in $a_column_gaps {
-    @include media-width-all($breakpoint-min, $breakpoint-max) {
-      .#{$aloha-prefix}columns_gap_x_#{$gap-key}#{ getBreakpointWithPrefix($breakpoint-class) },
-      .#{$aloha-prefix}columns_gab_x_#{$gap-key}#{ getBreakpointWithPrefix($breakpoint-class) } { // Will be removed in version 2.0.0
-        --#{$aloha-prefix}column_gap_x: #{$gap-value};
+    @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+      .#{aloha.$aloha-prefix}columns_gap_x_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) },
+      .#{aloha.$aloha-prefix}columns_gab_x_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } { // Will be removed in version 2.0.0
+        --#{aloha.$aloha-prefix}column_gap_x: #{$gap-value};
       }
-      .#{$aloha-prefix}columns_gap_y_#{$gap-key}#{ getBreakpointWithPrefix($breakpoint-class) },
-      .#{$aloha-prefix}columns_gab_y_#{$gap-key}#{ getBreakpointWithPrefix($breakpoint-class) } { // Will be removed in version 2.0.0
-        --#{$aloha-prefix}column_gap_y: #{$gap-value};
+      .#{aloha.$aloha-prefix}columns_gap_y_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) },
+      .#{aloha.$aloha-prefix}columns_gab_y_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } { // Will be removed in version 2.0.0
+        --#{aloha.$aloha-prefix}column_gap_y: #{$gap-value};
       }
     }
   }
 
   @for $i from 1 through $a_column_count {
-    @include media-width-all($breakpoint-min, $breakpoint-max) {
-      .#{$aloha-prefix}column_#{$i}#{ getBreakpointWithPrefix($breakpoint-class) } {
+    @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+      .#{aloha.$aloha-prefix}column_#{$i}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
         flex: none;
-        width: calc(100% / var(--#{$aloha-prefix}column_count) * #{$i});
+        width: calc(100% / var(--#{aloha.$aloha-prefix}column_count) * #{$i});
       }
     }
   }
   @for $i from 0 through $a_column_count - 1 {
-    @include media-width-all($breakpoint-min, $breakpoint-max) {
-      .#{$aloha-prefix}column_offset_#{$i}#{ getBreakpointWithPrefix($breakpoint-class) } {
+    @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+      .#{aloha.$aloha-prefix}column_offset_#{$i}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
         @if $i == 0 {
           margin-left: 0;
         } @else {
-          margin-left: calc(100% / var(--#{$aloha-prefix}column_count) * #{$i});
+          margin-left: calc(100% / var(--#{aloha.$aloha-prefix}column_count) * #{$i});
         }
       }
     }

@@ -1,4 +1,6 @@
-@import "aloha_prefix";
+@use "sass:string";
+
+@use "aloha_prefix" as aloha;
 
 $a_spacing_shortcuts: ("margin": "m", "padding": "p") !default;
 $a_spacing_directions: ("top": "t", "right": "r", "bottom": "b", "left": "l") !default;
@@ -17,27 +19,27 @@ $a_spacing_values: (
 
 @each $property, $shortcut in $a_spacing_shortcuts {
     @each $name, $value in $a_spacing_values {
-        @if $property != "padding" or str-index($value, "auto") == null {
+        @if $property != "padding" or string.index($value, "auto") == null {
             // All directions
-            .#{$aloha-prefix}#{$shortcut}_#{$name} {
+            .#{aloha.$aloha-prefix}#{$shortcut}_#{$name} {
                 #{$property}: #{$value};
             }
             // Cardinal directions
             @each $direction, $suffix in $a_spacing_directions {
-                .#{$aloha-prefix}#{$shortcut}#{$suffix}_#{$name} {
+                .#{aloha.$aloha-prefix}#{$shortcut}#{$suffix}_#{$name} {
                     #{$property}-#{$direction}: #{$value};
                 }
             }
             // Horizontal axis
             @if $a_spacing_horizontal != null {
-                .#{$aloha-prefix}#{$shortcut}#{$a_spacing_horizontal}_#{$name} {
+                .#{aloha.$aloha-prefix}#{$shortcut}#{$a_spacing_horizontal}_#{$name} {
                     #{$property}-left: #{$value};
                     #{$property}-right: #{$value};
                 }
             }
             // Vertical axis
             @if $a_spacing_vertical != null {
-                .#{$aloha-prefix}#{$shortcut}#{$a_spacing_vertical}_#{$name} {
+                .#{aloha.$aloha-prefix}#{$shortcut}#{$a_spacing_vertical}_#{$name} {
                     #{$property}-top: #{$value};
                     #{$property}-bottom: #{$value};
                 }

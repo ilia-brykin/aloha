@@ -1,39 +1,39 @@
-@import "aloha_prefix";
-@import "breakpoint";
-@import "backdrop";
+@use "aloha_prefix" as aloha;
+@use "breakpoint";
+@use "backdrop";
 
-.#{$aloha-prefix}modal_open {
+.#{aloha.$aloha-prefix}modal_open {
   overflow: hidden;
   padding-right: 15px;
 }
 
-.#{$aloha-prefix}modal {
-  --#{$aloha-prefix}modal_zindex: var(--a_z_index_modal);
-  --#{$aloha-prefix}modal_width: 500px;
-  --#{$aloha-prefix}modal_padding: 1rem;
-  --#{$aloha-prefix}modal_margin: 0.5rem;
-  --#{$aloha-prefix}modal_color: inherit;
-  --#{$aloha-prefix}modal_bg: #fff;
-  --#{$aloha-prefix}modal_border_color: var(--#{$aloha-prefix}border_color_translucent);
-  --#{$aloha-prefix}modal_border_width: 1px;
-  --#{$aloha-prefix}modal_border_radius: var(--#{$aloha-prefix}border_radius_large);
-  --#{$aloha-prefix}modal_box_shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --#{$aloha-prefix}modal_inner_border_radius: calc(0.5rem - 1px);
-  --#{$aloha-prefix}modal_header_padding_x: 1rem;
-  --#{$aloha-prefix}modal_header_padding_y: 1rem;
-  --#{$aloha-prefix}modal_header_padding: 1rem 1rem;
-  --#{$aloha-prefix}modal_header_border_color: var(--#{$aloha-prefix}border_color);
-  --#{$aloha-prefix}modal_header_border_width: 1px;
-  --#{$aloha-prefix}modal_title_line_height: 1.5;
-  --#{$aloha-prefix}modal_footer_gap: 0.5rem;
-  --#{$aloha-prefix}modal_footer_bg: inherit;
-  --#{$aloha-prefix}modal_footer_border_color: var(--#{$aloha-prefix}border_color);
-  --#{$aloha-prefix}modal_footer_border_width: 1px;
+.#{aloha.$aloha-prefix}modal {
+  --#{aloha.$aloha-prefix}modal_zindex: var(--a_z_index_modal);
+  --#{aloha.$aloha-prefix}modal_width: 500px;
+  --#{aloha.$aloha-prefix}modal_padding: 1rem;
+  --#{aloha.$aloha-prefix}modal_margin: 0.5rem;
+  --#{aloha.$aloha-prefix}modal_color: inherit;
+  --#{aloha.$aloha-prefix}modal_bg: #fff;
+  --#{aloha.$aloha-prefix}modal_border_color: var(--#{aloha.$aloha-prefix}border_color_translucent);
+  --#{aloha.$aloha-prefix}modal_border_width: 1px;
+  --#{aloha.$aloha-prefix}modal_border_radius: var(--#{aloha.$aloha-prefix}border_radius_large);
+  --#{aloha.$aloha-prefix}modal_box_shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --#{aloha.$aloha-prefix}modal_inner_border_radius: calc(0.5rem - 1px);
+  --#{aloha.$aloha-prefix}modal_header_padding_x: 1rem;
+  --#{aloha.$aloha-prefix}modal_header_padding_y: 1rem;
+  --#{aloha.$aloha-prefix}modal_header_padding: 1rem 1rem;
+  --#{aloha.$aloha-prefix}modal_header_border_color: var(--#{aloha.$aloha-prefix}border_color);
+  --#{aloha.$aloha-prefix}modal_header_border_width: 1px;
+  --#{aloha.$aloha-prefix}modal_title_line_height: 1.5;
+  --#{aloha.$aloha-prefix}modal_footer_gap: 0.5rem;
+  --#{aloha.$aloha-prefix}modal_footer_bg: inherit;
+  --#{aloha.$aloha-prefix}modal_footer_border_color: var(--#{aloha.$aloha-prefix}border_color);
+  --#{aloha.$aloha-prefix}modal_footer_border_width: 1px;
 
   position: fixed;
   top: 0;
   left: 0;
-  z-index: var(--#{$aloha-prefix}modal_zindex);
+  z-index: var(--#{aloha.$aloha-prefix}modal_zindex);
   display: none;
   width: 100%;
   height: 100%;
@@ -41,126 +41,126 @@
   overflow-y: auto;
   outline: 0;
 }
-.#{$aloha-prefix}modal_confirm {
-  --#{$aloha-prefix}modal_zindex: var(--a_z_index_confirm);
+.#{aloha.$aloha-prefix}modal_confirm {
+  --#{aloha.$aloha-prefix}modal_zindex: var(--a_z_index_confirm);
 }
-.#{$aloha-prefix}modal_show {
+.#{aloha.$aloha-prefix}modal_show {
   display: block;
 }
-.#{$aloha-prefix}modal_dialog {
+.#{aloha.$aloha-prefix}modal_dialog {
   position: relative;
   width: auto;
-  margin: var(--#{$aloha-prefix}modal_margin);
+  margin: var(--#{aloha.$aloha-prefix}modal_margin);
   pointer-events: none;
 }
 
-.#{$aloha-prefix}modal_content {
+.#{aloha.$aloha-prefix}modal_content {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: var(--#{$aloha-prefix}modal_color);
+  color: var(--#{aloha.$aloha-prefix}modal_color);
   pointer-events: auto;
-  background-color: var(--#{$aloha-prefix}modal_bg);
+  background-color: var(--#{aloha.$aloha-prefix}modal_bg);
   background-clip: padding-box;
-  border: var(--#{$aloha-prefix}modal_border_width) solid var(--#{$aloha-prefix}modal_border_color);
-  border-radius: var(--#{$aloha-prefix}modal_border_radius);
+  border: var(--#{aloha.$aloha-prefix}modal_border_width) solid var(--#{aloha.$aloha-prefix}modal_border_color);
+  border-radius: var(--#{aloha.$aloha-prefix}modal_border_radius);
   outline: 0;
-  .#{$aloha-prefix}modal_dialog_scrollable & {
+  .#{aloha.$aloha-prefix}modal_dialog_scrollable & {
     max-height: 100%;
     overflow: hidden;
   }
 }
-.#{$aloha-prefix}modal_dialog_scrollable {
-  height: calc(100% - var(--#{$aloha-prefix}modal_margin) * 2);
+.#{aloha.$aloha-prefix}modal_dialog_scrollable {
+  height: calc(100% - var(--#{aloha.$aloha-prefix}modal_margin) * 2);
 }
-.#{$aloha-prefix}modal_header {
+.#{aloha.$aloha-prefix}modal_header {
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  padding: var(--#{$aloha-prefix}modal_header_padding);
-  border-bottom: var(--#{$aloha-prefix}modal_header_border_width) solid var(--#{$aloha-prefix}modal_header_border_color);
-  border-top-left-radius: var(--#{$aloha-prefix}modal_inner_border_radius);
-  border-top-right-radius: var(--#{$aloha-prefix}modal_inner_border_radius);
-  .#{$aloha-prefix}btn_close {
-    padding: calc(var(--#{$aloha-prefix}modal_header_padding_y) * .5) calc(var(--#{$aloha-prefix}modal_header_padding_x) * .5);
-    margin: calc(var(--#{$aloha-prefix}modal_header_padding_y) * -.5) calc(var(--#{$aloha-prefix}modal_header_padding_x) * -.5) calc(var(--#{$aloha-prefix}modal_header_padding_y) * -.5) auto;
+  padding: var(--#{aloha.$aloha-prefix}modal_header_padding);
+  border-bottom: var(--#{aloha.$aloha-prefix}modal_header_border_width) solid var(--#{aloha.$aloha-prefix}modal_header_border_color);
+  border-top-left-radius: var(--#{aloha.$aloha-prefix}modal_inner_border_radius);
+  border-top-right-radius: var(--#{aloha.$aloha-prefix}modal_inner_border_radius);
+  .#{aloha.$aloha-prefix}btn_close {
+    padding: calc(var(--#{aloha.$aloha-prefix}modal_header_padding_y) * .5) calc(var(--#{aloha.$aloha-prefix}modal_header_padding_x) * .5);
+    margin: calc(var(--#{aloha.$aloha-prefix}modal_header_padding_y) * -.5) calc(var(--#{aloha.$aloha-prefix}modal_header_padding_x) * -.5) calc(var(--#{aloha.$aloha-prefix}modal_header_padding_y) * -.5) auto;
   }
 }
-.#{$aloha-prefix}modal_title {
+.#{aloha.$aloha-prefix}modal_title {
   margin: 0;
-  line-height: var(--#{$aloha-prefix}modal_title_line_height);
+  line-height: var(--#{aloha.$aloha-prefix}modal_title_line_height);
 }
-.#{$aloha-prefix}modal_body {
+.#{aloha.$aloha-prefix}modal_body {
   position: relative;
   flex: 1 1 auto;
-  padding: var(--#{$aloha-prefix}modal_padding);
-  .#{$aloha-prefix}modal_dialog_scrollable & {
+  padding: var(--#{aloha.$aloha-prefix}modal_padding);
+  .#{aloha.$aloha-prefix}modal_dialog_scrollable & {
     overflow-y: auto;
   }
 }
-.#{$aloha-prefix}modal_footer {
+.#{aloha.$aloha-prefix}modal_footer {
   display: flex;
   flex-shrink: 0;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  padding: calc(var(--#{$aloha-prefix}modal_padding) - var(--#{$aloha-prefix}modal_footer_gap) * .5);
-  background-color: var(--#{$aloha-prefix}modal_footer_bg);
-  border-top: var(--#{$aloha-prefix}modal_footer_border_width) solid var(--#{$aloha-prefix}modal_footer_border_color);
-  border-bottom-right-radius: var(--#{$aloha-prefix}modal_inner_border_radius);
-  border-bottom-left-radius: var(--#{$aloha-prefix}modal_inner_border_radius);
+  padding: calc(var(--#{aloha.$aloha-prefix}modal_padding) - var(--#{aloha.$aloha-prefix}modal_footer_gap) * .5);
+  background-color: var(--#{aloha.$aloha-prefix}modal_footer_bg);
+  border-top: var(--#{aloha.$aloha-prefix}modal_footer_border_width) solid var(--#{aloha.$aloha-prefix}modal_footer_border_color);
+  border-bottom-right-radius: var(--#{aloha.$aloha-prefix}modal_inner_border_radius);
+  border-bottom-left-radius: var(--#{aloha.$aloha-prefix}modal_inner_border_radius);
   & > * {
-    margin: calc(var(--#{$aloha-prefix}modal_footer_gap) * 0.5);
+    margin: calc(var(--#{aloha.$aloha-prefix}modal_footer_gap) * 0.5);
   }
 }
-@media (min-width: #{$a_breakpoint_mobile}) {
-  .#{$aloha-prefix}modal {
-    --#{$aloha-prefix}modal_margin: 1.75rem;
-    --#{$aloha-prefix}modal_box_shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+@media (min-width: #{breakpoint.$a_breakpoint_mobile}) {
+  .#{aloha.$aloha-prefix}modal {
+    --#{aloha.$aloha-prefix}modal_margin: 1.75rem;
+    --#{aloha.$aloha-prefix}modal_box_shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
-  .#{$aloha-prefix}modal_dialog {
-    max-width: var(--#{$aloha-prefix}modal_width);
+  .#{aloha.$aloha-prefix}modal_dialog {
+    max-width: var(--#{aloha.$aloha-prefix}modal_width);
     margin-right: auto;
     margin-left: auto;
   }
-  .#{$aloha-prefix}modal_small {
-    --#{$aloha-prefix}modal_width: 300px;
+  .#{aloha.$aloha-prefix}modal_small {
+    --#{aloha.$aloha-prefix}modal_width: 300px;
   }
 }
-@media (min-width: #{$a_breakpoint_tablet}) {
-  .#{$aloha-prefix}modal_large,
-  .#{$aloha-prefix}modal_xl {
-    --#{$aloha-prefix}modal_width: 800px;
+@media (min-width: #{breakpoint.$a_breakpoint_tablet}) {
+  .#{aloha.$aloha-prefix}modal_large,
+  .#{aloha.$aloha-prefix}modal_xl {
+    --#{aloha.$aloha-prefix}modal_width: 800px;
   }
-  .#{$aloha-prefix}modal_xxl {
-    --#{$aloha-prefix}modal_width: 90vw;
-  }
-}
-@media (min-width: #{$a_breakpoint_desktop}) {
-  .#{$aloha-prefix}modal_xl {
-    --#{$aloha-prefix}modal_width: 1140px;
-  }
-  .#{$aloha-prefix}modal_xxl {
-    --#{$aloha-prefix}modal_width: 90vw;
+  .#{aloha.$aloha-prefix}modal_xxl {
+    --#{aloha.$aloha-prefix}modal_width: 90vw;
   }
 }
-.#{$aloha-prefix}modal_fullscreen {
+@media (min-width: #{breakpoint.$a_breakpoint_desktop}) {
+  .#{aloha.$aloha-prefix}modal_xl {
+    --#{aloha.$aloha-prefix}modal_width: 1140px;
+  }
+  .#{aloha.$aloha-prefix}modal_xxl {
+    --#{aloha.$aloha-prefix}modal_width: 90vw;
+  }
+}
+.#{aloha.$aloha-prefix}modal_fullscreen {
   width: 100vw;
   max-width: none;
   height: 100%;
   margin: 0;
-  .#{$aloha-prefix}modal_content {
+  .#{aloha.$aloha-prefix}modal_content {
     height: 100%;
     border: 0;
     border-radius: 0;
   }
-  .#{$aloha-prefix}modal_header,
-  .#{$aloha-prefix}modal_footer {
+  .#{aloha.$aloha-prefix}modal_header,
+  .#{aloha.$aloha-prefix}modal_footer {
     border-radius: 0;
   }
-  .#{$aloha-prefix}modal_body {
+  .#{aloha.$aloha-prefix}modal_body {
     overflow-y: auto;
   }
 }

@@ -1,24 +1,24 @@
-@import "aloha_prefix";
-@import "color_utils";
-@import "funktions";
-@import "global_variables";
+@use "aloha_prefix" as aloha;
+@use "color_utils";
+@use "funktions";
+@use "global_variables";
 
 $a_input_btn_focus_width:         .25rem !default;
 $a_input_btn_focus_color_opacity: .25 !default;
-$a_input_btn_focus_color:         rgba($a_primary, $a_input_btn_focus_color_opacity) !default;
+$a_input_btn_focus_color:         rgba(color_utils.$a_primary, $a_input_btn_focus_color_opacity) !default;
 $a_input_btn_focus_blur:          0 !default;
 $a_input_btn_focus_box_shadow:    0 0 $a_input_btn_focus_blur $a_input_btn_focus_width $a_input_btn_focus_color !default;
 
 $a_input_btn_focus_color_opacity: .25 !default;
-$a_input_focus_border_color:              tint-color($a_primary, 50%) !default;
+$a_input_focus_border_color:              funktions.tint-color(color_utils.$a_primary, 50%) !default;
 $a_btn_focus_box_shadow:        $a_input_btn_focus_box_shadow !default;
 
 $a_accordion_padding_y:                     1rem !default;
 $a_accordion_padding_x:                     1.25rem !default;
-$a_accordion_color:                         var(--#{$aloha-prefix}color_text) !default;
-$a_accordion_bg:                            $a_body_bg !default;
-$a_accordion_border_width:                  $a_border_width !default;
-$a_accordion_border_color:                  var(--#{$aloha-prefix}border_color) !default;
+$a_accordion_color:                         var(--#{aloha.$aloha-prefix}color_text) !default;
+$a_accordion_bg:                            color_utils.$a_body_bg !default;
+$a_accordion_border_width:                  global_variables.$a_border_width !default;
+$a_accordion_border_color:                  var(--#{aloha.$aloha-prefix}border_color) !default;
 $a_accordion_border_radius:                 var(--a_border_radius) !default;
 $a_accordion_font_size:                     inherit !default;
 
@@ -28,14 +28,14 @@ $a_accordion_body_padding_x:                $a_accordion_padding_x !default;
 $a_accordion_button_padding_y:              $a_accordion_padding_y !default;
 $a_accordion_button_padding_x:              $a_accordion_padding_x !default;
 $a_accordion_button_color:                  $a_accordion_color !default;
-$a_accordion_button_bg:                     var(--#{$aloha-prefix}accordion_bg) !default;
-$a_accordion_transition:                    $a_btn_transition, border-radius .15s ease !default;
-$a_accordion_button_active_bg:              tint-color($a_primary, 90%) !default;
-$a_accordion_button_active_color:           shade-color($a_primary, 10%) !default;
+$a_accordion_button_bg:                     var(--#{aloha.$aloha-prefix}accordion_bg) !default;
+$a_accordion_transition:                    global_variables.$a_btn_transition, border-radius .15s ease !default;
+$a_accordion_button_active_bg:              funktions.tint-color(color_utils.$a_primary, 90%) !default;
+$a_accordion_button_active_color:           funktions.shade-color(color_utils.$a_primary, 10%) !default;
 
 $a_accordion_button_focus_border_color:     $a_input_focus_border_color !default;
 $a_accordion_button_focus_box_shadow:       $a_btn_focus_box_shadow !default;
-$a_accordion_button_hover_bg:               var(--#{$aloha-prefix}color_gray_100) !default;
+$a_accordion_button_hover_bg:               var(--#{aloha.$aloha-prefix}color_gray_100) !default;
 
 $a_accordion_icon_width:                    1.25rem !default;
 $a_accordion_icon_color:                    $a_accordion_button_color !default;
@@ -51,8 +51,8 @@ $a_accordion_button_active_icon:  url("data:image/svg+xml,<svg xmlns='http://www
 // Base styles
 //
 
-.#{$aloha-prefix}accordion {
-  --a_accordion_color: #{color-contrast($a_accordion_bg)};
+.#{aloha.$aloha-prefix}accordion {
+  --a_accordion_color: #{funktions.color-contrast($a_accordion_bg)};
   --a_accordion_bg: #{$a_accordion_bg};
   --a_accordion_transition: #{$a_accordion_transition};
   --a_accordion_border_color: #{$a_accordion_border_color};
@@ -62,11 +62,11 @@ $a_accordion_button_active_icon:  url("data:image/svg+xml,<svg xmlns='http://www
   --a_accordion_btn_padding_y: #{$a_accordion_button_padding_y};
   --a_accordion_btn_color: #{$a_accordion_color};
   --a_accordion_btn_bg: #{$a_accordion_button_bg};
-  --a_accordion_btn_icon: #{escape-svg($a_accordion_button_icon)};
+  --a_accordion_btn_icon: #{funktions.escape-svg($a_accordion_button_icon)};
   --a_accordion_btn_icon_width: #{$a_accordion_icon_width};
   --a_accordion_btn_icon_transform: #{$a_accordion_icon_transform};
   --a_accordion_btn_icon_transition: #{$a_accordion_icon_transition};
-  --a_accordion_btn_active_icon: #{escape-svg($a_accordion_button_active_icon)};
+  --a_accordion_btn_active_icon: #{funktions.escape-svg($a_accordion_button_active_icon)};
   --a_accordion_btn_focus_border_color: #{$a_accordion_button_focus_border_color};
   --a_accordion_btn_focus_box_shadow: #{$a_accordion_button_focus_box_shadow};
   --a_accordion_btn_hover_bg: #{$a_accordion_button_hover_bg};
@@ -79,7 +79,7 @@ $a_accordion_button_active_icon:  url("data:image/svg+xml,<svg xmlns='http://www
   font-size: #{ $a_accordion_font_size };
 }
 
-.#{$aloha-prefix}accordion__button {
+.#{aloha.$aloha-prefix}accordion__button {
   position: relative;
   display: flex;
   align-items: center;
@@ -97,19 +97,19 @@ $a_accordion_button_active_icon:  url("data:image/svg+xml,<svg xmlns='http://www
     cursor: inherit;
   }
 
-  &:not(.#{$aloha-prefix}accordion__button_collapsed) {
+  &:not(.#{aloha.$aloha-prefix}accordion__button_collapsed) {
     color: var(--a_accordion_active_color);
     background-color: var(--a_accordion_active_bg);
     box-shadow: inset 0 calc(var(--a_accordion_border_width) * -1) 0 var(--a_accordion_border_color); // stylelint-disable-line function-disallowed-list
 
-    &:not(.#{$aloha-prefix}accordion__button_has_not_caret)::after {
+    &:not(.#{aloha.$aloha-prefix}accordion__button_has_not_caret)::after {
       background-image: var(--a_accordion_btn_active_icon);
       transform: var(--a_accordion_btn_icon_transform);
     }
   }
 
   // Accordion icon
-  &:not(.#{$aloha-prefix}accordion__button_has_not_caret)::after {
+  &:not(.#{aloha.$aloha-prefix}accordion__button_has_not_caret)::after {
     flex-shrink: 0;
     width: var(--a_accordion_btn_icon_width);
     height: var(--a_accordion_btn_icon_width);
@@ -133,11 +133,11 @@ $a_accordion_button_active_icon:  url("data:image/svg+xml,<svg xmlns='http://www
   }
 }
 
-.#{$aloha-prefix}accordion__header {
+.#{aloha.$aloha-prefix}accordion__header {
   margin-bottom: 0;
 }
 
-.#{$aloha-prefix}accordion__item {
+.#{aloha.$aloha-prefix}accordion__item {
   color: var(--a_accordion_color);
   background-color: var(--a_accordion_bg);
   border: var(--a_accordion_border_width) solid var(--a_accordion_border_color);
@@ -145,7 +145,7 @@ $a_accordion_button_active_icon:  url("data:image/svg+xml,<svg xmlns='http://www
   &:first-of-type {
     border-top-left-radius: var(--a_accordion_border_radius);
     border-top-right-radius: var(--a_accordion_border_radius);
-    .#{$aloha-prefix}accordion__button {
+    .#{aloha.$aloha-prefix}accordion__button {
       border-top-left-radius: var(--a_accordion_border_radius);
       border-top-right-radius: var(--a_accordion_border_radius);
     }
@@ -159,35 +159,35 @@ $a_accordion_button_active_icon:  url("data:image/svg+xml,<svg xmlns='http://www
   &:last-of-type {
     border-bottom-right-radius: var(--a_accordion_border_radius);
     border-bottom-left-radius: var(--a_accordion_border_radius);
-    .#{$aloha-prefix}accordion__button_collapsed {
+    .#{aloha.$aloha-prefix}accordion__button_collapsed {
       border-bottom-right-radius: var(--a_accordion_border_radius);
       border-bottom-left-radius: var(--a_accordion_border_radius);
     }
   }
 }
 
-.#{$aloha-prefix}accordion__body {
+.#{aloha.$aloha-prefix}accordion__body {
   padding: var(--a_accordion_body_padding_y) var(--a_accordion_body_padding_x);
   border-radius: inherit;
 }
 
-.#{$aloha-prefix}accordion__collapse_box {
+.#{aloha.$aloha-prefix}accordion__collapse_box {
   display: none;
   border-radius: inherit;
 }
-.#{$aloha-prefix}accordion__collapse_box_show {
+.#{aloha.$aloha-prefix}accordion__collapse_box_show {
   display: block;
 }
 
 // Gap
-.#{$aloha-prefix}accordion__item.#{$aloha-prefix}accordion__item_with_gap {
+.#{aloha.$aloha-prefix}accordion__item.#{aloha.$aloha-prefix}accordion__item_with_gap {
   margin-bottom: var(--a_accordion_with_gap_margin_bottom);
   border: var(--a_accordion_border_width) solid var(--a_accordion_border_color);
   border-radius: var(--a_accordion_border_radius);
 }
-.#{$aloha-prefix}accordion__button.#{$aloha-prefix}accordion__button_with_gap {
+.#{aloha.$aloha-prefix}accordion__button.#{aloha.$aloha-prefix}accordion__button_with_gap {
   border-radius: var(--a_accordion_border_radius) var(--a_accordion_border_radius) 0 0;
-  &.#{$aloha-prefix}accordion__button_collapsed {
+  &.#{aloha.$aloha-prefix}accordion__button_collapsed {
     border-radius: var(--a_accordion_border_radius);
   }
 }

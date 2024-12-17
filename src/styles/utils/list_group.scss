@@ -1,4 +1,6 @@
-@import "color_utils";
+@use "sass:map";
+
+@use "color_utils";
 
 .a_list_group {
   --a_list_group_color: var(--a_color_text);
@@ -110,7 +112,7 @@
   }
 }
 
-@each $state in map-keys($a_theme_colors) {
+@each $state in map.keys(color_utils.$a_theme_colors) {
   .a_list_group__item_#{$state} {
     --a_list_group_color: var(--a_color_#{$state}_text_emphasis);
     --a_list_group_bg: var(--a_color_#{$state}_bg_subtle);

@@ -8,13 +8,20 @@ module.exports = exports = {
     "eslint:recommended",
     "plugin:vue/vue3-recommended",
   ],
-
+  env: {
+    es6: true,
+    browser: true,
+    "jest/globals": true,
+  },
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: "module",
+  },
   globals: {
     __dirname: false,
     module: false,
     process: false,
   },
-
   rules: {
     // Possible Errors
     "for-direction": WARN,
@@ -148,9 +155,4 @@ module.exports = exports = {
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error"
   },
-  env: {
-    es6: true,
-    browser: true,
-    "jest/globals": true,
-  }
 };

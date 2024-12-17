@@ -1,3 +1,15 @@
+@forward "AFieldset";
+@forward "AForm";
+@forward "ASwitch";
+@forward "ASelect";
+@forward "AErrors";
+@forward "AInputFile";
+@forward "ADatepicker";
+@forward "ATinymce";
+@forward "ACheckbox";
+@forward "ARadio";
+@forward "AJson";
+
 .a_form_element__parent {
   width: 100%;
   --a_form_element_error_color: var(--a_color_danger);
@@ -158,18 +170,6 @@
 .a_required {
   margin-bottom: 1rem;
 }
-
-@import "AFieldset";
-@import "AForm";
-@import "ASwitch";
-@import "ASelect";
-@import "AErrors";
-@import "AInputFile";
-@import "ADatepicker";
-@import "ATinymce";
-@import "ACheckbox";
-@import "ARadio";
-@import "AJson";
 
 // fix für autofill
 input:-webkit-autofill {

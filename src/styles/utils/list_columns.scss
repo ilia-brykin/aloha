@@ -1,8 +1,10 @@
-@import "breakpoint";
-@import "mixins";
-@import "funktions";
+@use "sass:map";
 
-$a_breakpoints_list: prepend($a_breakpoints, (class: null));
+@use "breakpoint";
+@use "mixins";
+@use "funktions";
+
+$a_breakpoints_list: funktions.prepend(breakpoint.$a_breakpoints, (class: null));
 
 .a_list_columns > * {
   page-break-inside: avoid;
@@ -17,12 +19,12 @@ $a_breakpoints_list: prepend($a_breakpoints, (class: null));
 }
 
 @each $breakpoint in $a_breakpoints_list {
-  $breakpoint-class: map-get($breakpoint, "class");
-  $breakpoint-min: map-get($breakpoint, "min");
-  $breakpoint-max: map-get($breakpoint, "max");
+  $breakpoint-class: map.get($breakpoint, "class");
+  $breakpoint-min: map.get($breakpoint, "min");
+  $breakpoint-max: map.get($breakpoint, "max");
 
-    @include media-width-all($breakpoint-min, $breakpoint-max) {
-      .a_list_columns_2#{ getBreakpointWithPrefix($breakpoint-class) } {
+    @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+      .a_list_columns_2#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
         column-count: 2;
       }
   }

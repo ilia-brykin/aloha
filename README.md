@@ -23,7 +23,7 @@ $ npm install aloha-vue
 
 ``` bash
 # serve with hot reloading at localhost:9000
-# node v18.16
+# node v22.12.0
 $ cd docs
 $ npm run dev
 ```

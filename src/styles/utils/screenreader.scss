@@ -1,7 +1,7 @@
-@import "aloha_prefix";
+@use "aloha_prefix" as aloha;
 
-.#{$aloha-prefix}sr_only,
-.#{$aloha-prefix}sr_only_focusable:not(:focus):not(:focus-within) {
+.#{aloha.$aloha-prefix}sr_only,
+.#{aloha.$aloha-prefix}sr_only_focusable:not(:focus):not(:focus-within) {
   border: none !important;
   clip: rect(0, 0, 0, 0) !important;
   height: 0.01em !important;

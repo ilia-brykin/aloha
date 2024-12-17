@@ -1,6 +1,6 @@
 import vue from "@vitejs/plugin-vue";
 import path from "path";
-import eslintPlugin from "vite-plugin-eslint";
+import eslintPlugin from "vite-plugin-eslint2";
 import {
   defineConfig,
 } from "vite";
@@ -11,10 +11,14 @@ export default defineConfig({
   base: isDevelopment ? "/" : "/aloha/",
   plugins: [
     vue(),
-    eslintPlugin({
-      cache: false,
-      include: ["src/**/*.js", "src/**/*.vue"],
-    }),
+    // eslintPlugin({
+    //   cache: false,
+    //   include: [
+    //     "src/**/*.js",
+    //     "src/**/*.vue",
+    //     // "../src/**/*.js",
+    //   ],
+    // }),
   ],
   css: {
     preprocessorOptions: {
@@ -50,7 +54,6 @@ export default defineConfig({
   server: {
     port: 9000,
     open: true,
-    hmr: false,
   },
   build: {
     outDir: "dist",

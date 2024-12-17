@@ -1,5 +1,7 @@
-@import "aloha_prefix";
-@import "funktions";
+@use "sass:color";
+
+@use "aloha_prefix" as aloha;
+@use "funktions";
 
 $a_primary:                                 #0d6efd !default;
 $a_secondary:                               #6c757d !default;
@@ -7,7 +9,7 @@ $a_tertiary:                                #da6c8e !default;
 $a_link_color:                              $a_primary !default;
 $a_link_decoration:                         underline !default;
 $a_link_shade_percentage:                   20% !default;
-$a_link_hover_color:                        shift-color($a_link_color, $a_link_shade_percentage) !default;
+$a_link_hover_color:                        funktions.shift-color($a_link_color, $a_link_shade_percentage) !default;
 $a_link_hover_decoration:                   underline !default;
 
 $a_info:                                    #0DCAF0FF !default;
@@ -15,7 +17,7 @@ $a_success:                                 #198754 !default;
 $a_warning:                                 #FFC107FF !default;
 $a_danger:                                  #DC3545FF !default;
 
-$a_white:                                   #fff !default;
+$a_white:                                   #ffffff !default;
 $a_gray_100:                                #f8f9fa !default;
 $a_gray_200:                                #e9ecef !default;
 $a_gray_300:                                #dee2e6 !default;
@@ -25,7 +27,7 @@ $a_gray_600:                                #6c757d !default;
 $a_gray_700:                                #495057 !default;
 $a_gray_800:                                #343a40 !default;
 $a_gray_900:                                #212529 !default;
-$a_black:                                   #000 !default;
+$a_black:                                   #000000 !default;
 
 $a_light:                                   $a_gray_100 !default;
 $a_dark:                                    $a_gray_900 !default;
@@ -35,16 +37,16 @@ $a_text_color:                              #212529 !default;
 $a_body_bg:                                 $a_white !default;
 
 // rgb
-$a_primary_rgb: to-rgb($a_primary);
-$a_secondary_rgb: to-rgb($a_secondary);
-$a_tertiary_rgb: to-rgb($a_secondary);
-$a_link_rgb: to-rgb($a_link_color);
-$a_info_rgb: to-rgb($a_info);
-$a_success_rgb: to-rgb($a_success);
-$a_warning_rgb: to-rgb($a_warning);
-$a_danger_rgb: to-rgb($a_danger);
-$a_light_rgb: to-rgb($a_light);
-$a_dark_rgb: to-rgb($a_dark);
+$a_primary_rgb: funktions.to-rgb($a_primary);
+$a_secondary_rgb: funktions.to-rgb($a_secondary);
+$a_tertiary_rgb: funktions.to-rgb($a_secondary);
+$a_link_rgb: funktions.to-rgb($a_link_color);
+$a_info_rgb: funktions.to-rgb($a_info);
+$a_success_rgb: funktions.to-rgb($a_success);
+$a_warning_rgb: funktions.to-rgb($a_warning);
+$a_danger_rgb: funktions.to-rgb($a_danger);
+$a_light_rgb: funktions.to-rgb($a_light);
+$a_dark_rgb: funktions.to-rgb($a_dark);
 
 $a_color_contrast_dark:      $a_black !default;
 $a_color_contrast_light:     $a_white !default;
@@ -54,63 +56,63 @@ $a_color_contrast_light:     $a_white !default;
 $a_min_contrast_ratio:   4.5 !default;
 
 // text
-$a_primary_text_emphasis:   shade-color($a_primary, 60%) !default;
-$a_secondary_text_emphasis: shade-color($a_secondary, 60%) !default;
-$a_tertiary_text_emphasis:  shade-color($a_tertiary, 60%) !default;
-$a_success_text_emphasis:   shade-color($a_success, 60%) !default;
-$a_info_text_emphasis:      shade-color($a_info, 60%) !default;
-$a_warning_text_emphasis:   shade-color($a_warning, 60%) !default;
-$a_danger_text_emphasis:    shade-color($a_danger, 60%) !default;
+$a_primary_text_emphasis:   funktions.shade-color($a_primary, 60%) !default;
+$a_secondary_text_emphasis: funktions.shade-color($a_secondary, 60%) !default;
+$a_tertiary_text_emphasis:  funktions.shade-color($a_tertiary, 60%) !default;
+$a_success_text_emphasis:   funktions.shade-color($a_success, 60%) !default;
+$a_info_text_emphasis:      funktions.shade-color($a_info, 60%) !default;
+$a_warning_text_emphasis:   funktions.shade-color($a_warning, 60%) !default;
+$a_danger_text_emphasis:    funktions.shade-color($a_danger, 60%) !default;
 $a_light_text_emphasis:     $a_gray_700 !default;
 $a_dark_text_emphasis:      $a_gray_700 !default;
 
 // subtle
-$a_primary_bg_subtle:       tint-color($a_primary, 80%) !default;
-$a_secondary_bg_subtle:     tint-color($a_secondary, 80%) !default;
-$a_tertiary_bg_subtle:      tint-color($a_tertiary, 80%) !default;
-$a_success_bg_subtle:       tint-color($a_success, 80%) !default;
-$a_info_bg_subtle:          tint-color($a_info, 80%) !default;
-$a_warning_bg_subtle:       tint-color($a_warning, 80%) !default;
-$a_danger_bg_subtle:        tint-color($a_danger, 80%) !default;
-$a_light_bg_subtle:         mix($a_gray_100, $a_white) !default;
+$a_primary_bg_subtle:       funktions.tint-color($a_primary, 80%) !default;
+$a_secondary_bg_subtle:     funktions.tint-color($a_secondary, 80%) !default;
+$a_tertiary_bg_subtle:      funktions.tint-color($a_tertiary, 80%) !default;
+$a_success_bg_subtle:       funktions.tint-color($a_success, 80%) !default;
+$a_info_bg_subtle:          funktions.tint-color($a_info, 80%) !default;
+$a_warning_bg_subtle:       funktions.tint-color($a_warning, 80%) !default;
+$a_danger_bg_subtle:        funktions.tint-color($a_danger, 80%) !default;
+$a_light_bg_subtle:         color.mix($a_gray_100, $a_white) !default;
 $a_dark_bg_subtle:          $a_gray_400 !default;
 
 // border-subtle
-$a_primary_border_subtle:   tint-color($a_primary, 60%) !default;
-$a_secondary_border_subtle: tint-color($a_secondary, 60%) !default;
-$a_tertiary_border_subtle:  tint-color($a_tertiary, 60%) !default;
-$a_success_border_subtle:   tint-color($a_success, 60%) !default;
-$a_info_border_subtle:      tint-color($a_info, 60%) !default;
-$a_warning_border_subtle:   tint-color($a_warning, 60%) !default;
-$a_danger_border_subtle:    tint-color($a_danger, 60%) !default;
+$a_primary_border_subtle:   funktions.tint-color($a_primary, 60%) !default;
+$a_secondary_border_subtle: funktions.tint-color($a_secondary, 60%) !default;
+$a_tertiary_border_subtle:  funktions.tint-color($a_tertiary, 60%) !default;
+$a_success_border_subtle:   funktions.tint-color($a_success, 60%) !default;
+$a_info_border_subtle:      funktions.tint-color($a_info, 60%) !default;
+$a_warning_border_subtle:   funktions.tint-color($a_warning, 60%) !default;
+$a_danger_border_subtle:    funktions.tint-color($a_danger, 60%) !default;
 $a_light_border_subtle:     $a_gray_200 !default;
 $a_dark_border_subtle:      $a_gray_500 !default;
 
 $a_colors_global: (
     primary: $a_primary,
-    primary_50: mix(#fff, $a_primary, 50),
+    primary_50: color.mix(#fff, $a_primary, 50%),
     primary_rgb: $a_primary_rgb,
     secondary: $a_secondary,
-    secondary_50: mix(#fff, $a_secondary, 50),
+    secondary_50: color.mix(#fff, $a_secondary, 50%),
     secondary_rgb: $a_secondary_rgb,
     tertiary: $a_tertiary,
-    tertiary_50: mix(#fff, $a_tertiary, 50),
+    tertiary_50: color.mix(#fff, $a_tertiary, 50%),
     tertiary_rgb: $a_tertiary_rgb,
     link: $a_link_color,
     link_hover: $a_link_hover_color,
-    link_50: mix(#fff, $a_link_color, 50),
+    link_50: color.mix(#fff, $a_link_color, 50%),
     link_rgb: $a_link_rgb,
     info: $a_info,
-    info_50: mix(#fff, $a_info, 50),
+    info_50: color.mix(#fff, $a_info, 50%),
     info_rgb: $a_info_rgb,
     success: $a_success,
-    success_50: mix(#fff, $a_success, 50),
+    success_50: color.mix(#fff, $a_success, 50%),
     success_rgb: $a_success_rgb,
     warning: $a_warning,
-    warning_50: mix(#fff, $a_warning, 50),
+    warning_50: color.mix(#fff, $a_warning, 50%),
     warning_rgb: $a_warning_rgb,
     danger: $a_danger,
-    danger_50: mix(#fff, $a_danger, 50),
+    danger_50: color.mix(#fff, $a_danger, 50%),
     danger_rgb: $a_danger_rgb,
     light: $a_light,
     light_rgb: $a_light_rgb,
@@ -228,5 +230,5 @@ $a_theme_colors_border_subtle: (
 
 
 @function getColorVar($value, $suffix: "") {
-    @return --#{ $aloha-prefix }color_#{ $value }#{ $suffix };
+    @return --#{ aloha.$aloha-prefix }color_#{ $value }#{ $suffix };
 }

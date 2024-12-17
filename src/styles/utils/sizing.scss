@@ -1,4 +1,9 @@
-@import "aloha_prefix";
+@use "sass:map";
+
+@use "aloha_prefix" as aloha;
+@use "breakpoint";
+@use "funktions";
+@use "mixins";
 
 $a_is_sizing_important: true !default;
 $a_sizing_width: (
@@ -102,21 +107,21 @@ $a_sizing_important_suffix: "";
   $a_sizing_important_suffix: " !important";
 }
 
-$a_breakpoints_display: prepend($a_breakpoints, (class: null));
+$a_breakpoints_display: funktions.prepend(breakpoint.$a_breakpoints, (class: null));
 
 @each $breakpoint in $a_breakpoints_display {
-  $breakpoint-class: map-get($breakpoint, "class");
-  $breakpoint-min: map-get($breakpoint, "min");
-  $breakpoint-max: map-get($breakpoint, "max");
+  $breakpoint-class: map.get($breakpoint, "class");
+  $breakpoint-min: map.get($breakpoint, "min");
+  $breakpoint-max: map.get($breakpoint, "max");
 
   @each $name, $sizing-value in $a_sizing {
-    $property: map-get($sizing-value, "property");
-    $class: map-get($sizing-value, "class");
-    $values: map-get($sizing-value, "values");
+    $property: map.get($sizing-value, "property");
+    $class: map.get($sizing-value, "class");
+    $values: map.get($sizing-value, "values");
 
     @each $value-key, $value in $values {
-      @include media-width-all($breakpoint-min, $breakpoint-max) {
-        .#{$aloha-prefix}#{$class}_#{$value-key}#{ getBreakpointWithPrefix($breakpoint-class) } {
+      @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+        .#{aloha.$aloha-prefix}#{$class}_#{$value-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
           #{$property}: #{ $value }#{$a_sizing_important_suffix};
         }
       }

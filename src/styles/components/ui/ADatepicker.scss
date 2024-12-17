@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $dp-default-color: #73879c;
 $dp-primary-color: #1284e7;
 
@@ -111,7 +113,7 @@ $dp-primary-color: #1284e7;
     white-space: nowrap;
     cursor: pointer;
     &:hover {
-      color: mix(#fff, $dp-primary-color, 20%);
+      color: color.mix(#fff, $dp-primary-color, 20%);
     }
     &:after {
       content: '|';
@@ -174,7 +176,7 @@ $dp-primary-color: #1284e7;
     border: none;
     background-color: transparent;
     &:hover {
-      color: mix(#fff, $dp-primary-color, 20%);
+      color: color.mix(#fff, $dp-primary-color, 20%);
     }
   }
   @at-root {
@@ -239,7 +241,7 @@ $dp-primary-color: #1284e7;
   }
   td {
     &.today {
-      color: mix(#fff, $dp-primary-color, 10%);
+      color: color.mix(#fff, $dp-primary-color, 10%);
     }
     &.last-month,
     &.next-month {

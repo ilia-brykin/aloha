@@ -1,36 +1,36 @@
-@import "aloha_prefix";
-@import "breakpoint";
+@use "aloha_prefix" as aloha;
+@use "breakpoint";
 
-.#{$aloha-prefix}notification_parent {
-  --#{$aloha-prefix}notification_shadow: 0 0 10px -5px #000;
-  --#{$aloha-prefix}notification_width: calc(100% - 2rem);
-  --#{$aloha-prefix}notification_left: 1rem;
-  --#{$aloha-prefix}notification_top: 1rem;
-  --#{$aloha-prefix}notification_z_index: 1071;
-  --#{$aloha-prefix}notification_text_align: center;
+.#{aloha.$aloha-prefix}notification_parent {
+  --#{aloha.$aloha-prefix}notification_shadow: 0 0 10px -5px #000;
+  --#{aloha.$aloha-prefix}notification_width: calc(100% - 2rem);
+  --#{aloha.$aloha-prefix}notification_left: 1rem;
+  --#{aloha.$aloha-prefix}notification_top: 1rem;
+  --#{aloha.$aloha-prefix}notification_z_index: 1071;
+  --#{aloha.$aloha-prefix}notification_text_align: center;
 
   position: fixed;
-  width: var(--#{$aloha-prefix}notification_width);
-  left: var(--#{$aloha-prefix}notification_left);
-  top: var(--#{$aloha-prefix}notification_top);
-  z-index: var(--#{$aloha-prefix}notification_z_index);
-  text-align: var(--#{$aloha-prefix}notification_text_align);
+  width: var(--#{aloha.$aloha-prefix}notification_width);
+  left: var(--#{aloha.$aloha-prefix}notification_left);
+  top: var(--#{aloha.$aloha-prefix}notification_top);
+  z-index: var(--#{aloha.$aloha-prefix}notification_z_index);
+  text-align: var(--#{aloha.$aloha-prefix}notification_text_align);
   max-height: 100vh;
   overflow-y: auto;
 }
-@media (min-width: #{$a_breakpoint_tablet}) {
-  .#{$aloha-prefix}notification_parent {
-    --#{$aloha-prefix}notification_width: 60%;
-    --#{$aloha-prefix}notification_left: 15%;
+@media (min-width: #{breakpoint.$a_breakpoint_tablet}) {
+  .#{aloha.$aloha-prefix}notification_parent {
+    --#{aloha.$aloha-prefix}notification_width: 60%;
+    --#{aloha.$aloha-prefix}notification_left: 15%;
   }
 }
-@media (min-width: #{$a_breakpoint_desktop}) {
-  .#{$aloha-prefix}notification_parent {
-    --#{$aloha-prefix}notification_width: 40%;
-    --#{$aloha-prefix}notification_left: 30%;
+@media (min-width: #{breakpoint.$a_breakpoint_desktop}) {
+  .#{aloha.$aloha-prefix}notification_parent {
+    --#{aloha.$aloha-prefix}notification_width: 40%;
+    --#{aloha.$aloha-prefix}notification_left: 30%;
   }
 }
 
-.#{$aloha-prefix}notification {
-  box-shadow: var(--#{$aloha-prefix}notification_shadow);
+.#{aloha.$aloha-prefix}notification {
+  box-shadow: var(--#{aloha.$aloha-prefix}notification_shadow);
 }

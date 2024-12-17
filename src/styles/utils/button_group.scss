@@ -1,70 +1,70 @@
-@import "aloha_prefix";
+@use "aloha_prefix" as aloha;
 
-.#{$aloha-prefix}btn_group,
-.#{$aloha-prefix}btn_group_vertical {
+.#{aloha.$aloha-prefix}btn_group,
+.#{aloha.$aloha-prefix}btn_group_vertical {
   position: relative;
   display: inline-flex;
   vertical-align: middle;
-  > .#{$aloha-prefix}btn {
+  > .#{aloha.$aloha-prefix}btn {
     position: relative;
     flex: 1 1 auto;
   }
 }
-.#{$aloha-prefix}btn_group {
-  --#{$aloha-prefix}btn_group_border_radius: var(--#{$aloha-prefix}border_radius);
+.#{aloha.$aloha-prefix}btn_group {
+  --#{aloha.$aloha-prefix}btn_group_border_radius: var(--#{aloha.$aloha-prefix}border_radius);
 
-  border-radius: var(--#{$aloha-prefix}btn_group_border_radius);
-  & > &:not(:last-child) > .#{$aloha-prefix}btn,
-  & > .#{$aloha-prefix}btn:not(:last-child) {
+  border-radius: var(--#{aloha.$aloha-prefix}btn_group_border_radius);
+  & > &:not(:last-child) > .#{aloha.$aloha-prefix}btn,
+  & > .#{aloha.$aloha-prefix}btn:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  & > &:not(:first-child) > .#{$aloha-prefix}btn,
-  & > .#{$aloha-prefix}btn:nth-child(n+3),
-  & > :not(.#{$aloha-prefix}btn_check) + .#{$aloha-prefix}btn {
+  & > &:not(:first-child) > .#{aloha.$aloha-prefix}btn,
+  & > .#{aloha.$aloha-prefix}btn:nth-child(n+3),
+  & > :not(.#{aloha.$aloha-prefix}btn_check) + .#{aloha.$aloha-prefix}btn {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
   & > &:not(:first-child),
-  & > :not(.#{$aloha-prefix}btn_check:first-child) + .#{$aloha-prefix}btn {
-    margin-left: calc(-1 * var(--#{$aloha-prefix}btn_border_width, var(--#{$aloha-prefix}border_width)));
+  & > :not(.#{aloha.$aloha-prefix}btn_check:first-child) + .#{aloha.$aloha-prefix}btn {
+    margin-left: calc(-1 * var(--#{aloha.$aloha-prefix}btn_border_width, var(--#{aloha.$aloha-prefix}border_width)));
   }
 }
 
-.#{$aloha-prefix}btn_group_vertical {
+.#{aloha.$aloha-prefix}btn_group_vertical {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 
-  & > .#{$aloha-prefix}btn,
-  & > .#{$aloha-prefix}btn_group {
+  & > .#{aloha.$aloha-prefix}btn,
+  & > .#{aloha.$aloha-prefix}btn_group {
     width: 100%;
   }
-  & > .#{$aloha-prefix}btn_group:not(:last-child) > .#{$aloha-prefix}btn,
-  & > .#{$aloha-prefix}btn:not(:last-child) {
+  & > .#{aloha.$aloha-prefix}btn_group:not(:last-child) > .#{aloha.$aloha-prefix}btn,
+  & > .#{aloha.$aloha-prefix}btn:not(:last-child) {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
-  & > .#{$aloha-prefix}btn_group:not(:first-child) > .#{$aloha-prefix}btn,
-  & > .#{$aloha-prefix}btn ~ .#{$aloha-prefix}btn {
+  & > .#{aloha.$aloha-prefix}btn_group:not(:first-child) > .#{aloha.$aloha-prefix}btn,
+  & > .#{aloha.$aloha-prefix}btn ~ .#{aloha.$aloha-prefix}btn {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
 
-  & > .#{$aloha-prefix}btn_group:not(:first-child),
-  & > .#{$aloha-prefix}btn:not(:first-child) {
-    margin-top: calc(-1 * var(--#{$aloha-prefix}btn_border_width, var(--#{$aloha-prefix}border_width)));
+  & > .#{aloha.$aloha-prefix}btn_group:not(:first-child),
+  & > .#{aloha.$aloha-prefix}btn:not(:first-child) {
+    margin-top: calc(-1 * var(--#{aloha.$aloha-prefix}btn_border_width, var(--#{aloha.$aloha-prefix}border_width)));
   }
 }
 
-.#{$aloha-prefix}btn_group_vertical >.#{$aloha-prefix}btn.active,
-.#{$aloha-prefix}btn_group_vertical >.#{$aloha-prefix}btn:active,
-.#{$aloha-prefix}btn_group_vertical >.#{$aloha-prefix}btn:focus,
-.#{$aloha-prefix}btn_group_vertical >.#{$aloha-prefix}btn:hover,
-.#{$aloha-prefix}btn_group >.#{$aloha-prefix}btn.active,
-.#{$aloha-prefix}btn_group >.#{$aloha-prefix}btn:active,
-.#{$aloha-prefix}btn_group >.#{$aloha-prefix}btn:focus,
-.#{$aloha-prefix}btn_group >.#{$aloha-prefix}btn:hover {
+.#{aloha.$aloha-prefix}btn_group_vertical >.#{aloha.$aloha-prefix}btn.active,
+.#{aloha.$aloha-prefix}btn_group_vertical >.#{aloha.$aloha-prefix}btn:active,
+.#{aloha.$aloha-prefix}btn_group_vertical >.#{aloha.$aloha-prefix}btn:focus,
+.#{aloha.$aloha-prefix}btn_group_vertical >.#{aloha.$aloha-prefix}btn:hover,
+.#{aloha.$aloha-prefix}btn_group >.#{aloha.$aloha-prefix}btn.active,
+.#{aloha.$aloha-prefix}btn_group >.#{aloha.$aloha-prefix}btn:active,
+.#{aloha.$aloha-prefix}btn_group >.#{aloha.$aloha-prefix}btn:focus,
+.#{aloha.$aloha-prefix}btn_group >.#{aloha.$aloha-prefix}btn:hover {
   z-index: 1;
 }

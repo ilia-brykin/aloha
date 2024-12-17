@@ -1,11 +1,11 @@
-@import "aloha_prefix";
+@use "aloha_prefix" as aloha;
 
-.#{$aloha-prefix}float_left {
+.#{aloha.$aloha-prefix}float_left {
   float: left !important;
 }
-.#{$aloha-prefix}float_right {
+.#{aloha.$aloha-prefix}float_right {
   float: right !important;
 }
-.#{$aloha-prefix}float_none {
+.#{aloha.$aloha-prefix}float_none {
   float: none !important;
 }

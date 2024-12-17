@@ -1,24 +1,24 @@
-@import "../utils/aloha_prefix";
+@use "../utils/aloha_prefix" as aloha;
 
-.#{$aloha-prefix}text_wrap {
+.#{aloha.$aloha-prefix}text_wrap {
   white-space: normal !important;
 }
 
-.#{$aloha-prefix}text_nowrap {
+.#{aloha.$aloha-prefix}text_nowrap {
   white-space: nowrap !important;
 }
 
-.#{$aloha-prefix}text_break {
+.#{aloha.$aloha-prefix}text_break {
   word-wrap: break-word !important;
   word-break: break-word !important;
   hyphens: auto !important;
 }
 
-.#{$aloha-prefix}text_wrap_hyphens {
+.#{aloha.$aloha-prefix}text_wrap_hyphens {
   hyphens: auto !important;
 }
 
-.#{$aloha-prefix}text_truncate {
+.#{aloha.$aloha-prefix}text_truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

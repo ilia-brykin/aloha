@@ -1,7 +1,9 @@
-@import "aloha_prefix";
-@import "breakpoint";
-@import "mixins";
-@import "funktions";
+@use "sass:map";
+
+@use "aloha_prefix" as aloha;
+@use "breakpoint";
+@use "mixins";
+@use "funktions";
 
 $a_displays: (
     (
@@ -46,18 +48,18 @@ $a_displays: (
     ),
 ) !default;
 
-$a_breakpoints_display: prepend($a_breakpoints, (class: null));
+$a_breakpoints_display: funktions.prepend(breakpoint.$a_breakpoints, (class: null));
 
 @each $breakpoint in $a_breakpoints_display {
-    $breakpoint-class: map-get($breakpoint, "class");
-    $breakpoint-min: map-get($breakpoint, "min");
-    $breakpoint-max: map-get($breakpoint, "max");
+    $breakpoint-class: map.get($breakpoint, "class");
+    $breakpoint-min: map.get($breakpoint, "min");
+    $breakpoint-max: map.get($breakpoint, "max");
     @each $display in $a_displays {
-        $display-class: map-get($display, "class");
-        $display-value: map-get($display, "value");
+        $display-class: map.get($display, "class");
+        $display-value: map.get($display, "value");
 
-        @include media-width-all($breakpoint-min, $breakpoint-max) {
-            .#{$aloha-prefix}#{ $display-class }#{ getBreakpointWithPrefix($breakpoint-class) } {
+        @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
+            .#{aloha.$aloha-prefix}#{ $display-class }#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
                 display: #{ $display-value };
             }
         }

@@ -1,94 +1,94 @@
-@import "aloha_prefix";
+@use "aloha_prefix" as aloha;
 
-.#{$aloha-prefix}pagination {
-  --#{$aloha-prefix}pagination_padding_x: 0.75rem;
-  --#{$aloha-prefix}pagination_padding_y: 0.375rem;
-  --#{$aloha-prefix}pagination_font_size: 1rem;
-  --#{$aloha-prefix}pagination_color: var(--#{$aloha-prefix}color_link);
-  --#{$aloha-prefix}pagination_bg: #fff;
-  --#{$aloha-prefix}pagination_border_width: var(--#{$aloha-prefix}border_width);
-  --#{$aloha-prefix}pagination_border_color:  var(--#{$aloha-prefix}border_color);
-  --#{$aloha-prefix}pagination_border_radius: var(--#{$aloha-prefix}border_radius);
-  --#{$aloha-prefix}pagination_hover_color: var(--#{$aloha-prefix}color_link_hover);
-  --#{$aloha-prefix}pagination_hover_bg: var(--#{$aloha-prefix}color_gray_200);
-  --#{$aloha-prefix}pagination_hover_border_color: var(--#{$aloha-prefix}color_gray_300);
-  --#{$aloha-prefix}pagination_focus_color: var(--#{$aloha-prefix}color_link_hover);
-  --#{$aloha-prefix}pagination_focus_bg: var(--#{$aloha-prefix}color_gray_200);
-  --#{$aloha-prefix}pagination_focus_box_shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-  --#{$aloha-prefix}pagination_active_color: #fff;
-  --#{$aloha-prefix}pagination_active_bg: var(--#{$aloha-prefix}color_primary);
-  --#{$aloha-prefix}pagination_active_border_color: var(--#{$aloha-prefix}color_primary);
-  --#{$aloha-prefix}pagination_disabled_color: var(--#{$aloha-prefix}color_secondary);
-  --#{$aloha-prefix}pagination_disabled_bg: #fff;
-  --#{$aloha-prefix}pagination_disabled_border_color: var(--#{$aloha-prefix}color_gray_300);
+.#{aloha.$aloha-prefix}pagination {
+  --#{aloha.$aloha-prefix}pagination_padding_x: 0.75rem;
+  --#{aloha.$aloha-prefix}pagination_padding_y: 0.375rem;
+  --#{aloha.$aloha-prefix}pagination_font_size: 1rem;
+  --#{aloha.$aloha-prefix}pagination_color: var(--#{aloha.$aloha-prefix}color_link);
+  --#{aloha.$aloha-prefix}pagination_bg: #fff;
+  --#{aloha.$aloha-prefix}pagination_border_width: var(--#{aloha.$aloha-prefix}border_width);
+  --#{aloha.$aloha-prefix}pagination_border_color:  var(--#{aloha.$aloha-prefix}border_color);
+  --#{aloha.$aloha-prefix}pagination_border_radius: var(--#{aloha.$aloha-prefix}border_radius);
+  --#{aloha.$aloha-prefix}pagination_hover_color: var(--#{aloha.$aloha-prefix}color_link_hover);
+  --#{aloha.$aloha-prefix}pagination_hover_bg: var(--#{aloha.$aloha-prefix}color_gray_200);
+  --#{aloha.$aloha-prefix}pagination_hover_border_color: var(--#{aloha.$aloha-prefix}color_gray_300);
+  --#{aloha.$aloha-prefix}pagination_focus_color: var(--#{aloha.$aloha-prefix}color_link_hover);
+  --#{aloha.$aloha-prefix}pagination_focus_bg: var(--#{aloha.$aloha-prefix}color_gray_200);
+  --#{aloha.$aloha-prefix}pagination_focus_box_shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  --#{aloha.$aloha-prefix}pagination_active_color: #fff;
+  --#{aloha.$aloha-prefix}pagination_active_bg: var(--#{aloha.$aloha-prefix}color_primary);
+  --#{aloha.$aloha-prefix}pagination_active_border_color: var(--#{aloha.$aloha-prefix}color_primary);
+  --#{aloha.$aloha-prefix}pagination_disabled_color: var(--#{aloha.$aloha-prefix}color_secondary);
+  --#{aloha.$aloha-prefix}pagination_disabled_bg: #fff;
+  --#{aloha.$aloha-prefix}pagination_disabled_border_color: var(--#{aloha.$aloha-prefix}color_gray_300);
   display: flex;
   justify-content: center;
   width: 100%;
   padding-left: 0;
   list-style: none;
 }
-.#{$aloha-prefix}pagination__item {
+.#{aloha.$aloha-prefix}pagination__item {
   white-space: nowrap;
 }
 
-.#{$aloha-prefix}pagination__item__link {
+.#{aloha.$aloha-prefix}pagination__item__link {
   position: relative;
   display: block;
-  padding: var(--#{$aloha-prefix}pagination_padding_y) var(--#{$aloha-prefix}pagination_padding_x);
-  font-size: var(--#{$aloha-prefix}pagination_font_size);
-  color: var(--#{$aloha-prefix}pagination_color);
+  padding: var(--#{aloha.$aloha-prefix}pagination_padding_y) var(--#{aloha.$aloha-prefix}pagination_padding_x);
+  font-size: var(--#{aloha.$aloha-prefix}pagination_font_size);
+  color: var(--#{aloha.$aloha-prefix}pagination_color);
   text-decoration: none;
-  background-color: var(--#{$aloha-prefix}pagination_bg);
-  border: var(--#{$aloha-prefix}pagination_border_width) solid var(--#{$aloha-prefix}pagination_border_color);
+  background-color: var(--#{aloha.$aloha-prefix}pagination_bg);
+  border: var(--#{aloha.$aloha-prefix}pagination_border_width) solid var(--#{aloha.$aloha-prefix}pagination_border_color);
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   cursor: pointer;
-  .#{$aloha-prefix}pagination__item:first-child & {
-    border-top-left-radius: var(--#{$aloha-prefix}pagination_border_radius);
-    border-bottom-left-radius: var(--#{$aloha-prefix}pagination_border_radius);
+  .#{aloha.$aloha-prefix}pagination__item:first-child & {
+    border-top-left-radius: var(--#{aloha.$aloha-prefix}pagination_border_radius);
+    border-bottom-left-radius: var(--#{aloha.$aloha-prefix}pagination_border_radius);
   }
-  .#{$aloha-prefix}pagination__item:last-child & {
-    border-top-right-radius: var(--#{$aloha-prefix}pagination_border_radius);
-    border-bottom-right-radius: var(--#{$aloha-prefix}pagination_border_radius);
+  .#{aloha.$aloha-prefix}pagination__item:last-child & {
+    border-top-right-radius: var(--#{aloha.$aloha-prefix}pagination_border_radius);
+    border-bottom-right-radius: var(--#{aloha.$aloha-prefix}pagination_border_radius);
   }
   &:hover {
     z-index: 2;
-    color: var(--#{$aloha-prefix}pagination_hover_color);
-    background-color: var(--#{$aloha-prefix}pagination_hover_bg);
-    border-color: var(--#{$aloha-prefix}pagination_hover_border_color);
+    color: var(--#{aloha.$aloha-prefix}pagination_hover_color);
+    background-color: var(--#{aloha.$aloha-prefix}pagination_hover_bg);
+    border-color: var(--#{aloha.$aloha-prefix}pagination_hover_border_color);
   }
   &:focus {
     z-index: 3;
-    color: var(--#{$aloha-prefix}pagination_focus_color);
-    background-color: var(--#{$aloha-prefix}pagination_focus_bg);
+    color: var(--#{aloha.$aloha-prefix}pagination_focus_color);
+    background-color: var(--#{aloha.$aloha-prefix}pagination_focus_bg);
     outline: 0;
-    box-shadow: var(--#{$aloha-prefix}pagination_focus_box_shadow);
+    box-shadow: var(--#{aloha.$aloha-prefix}pagination_focus_box_shadow);
   }
   .disabled > &,
   &.disabled {
-    color: var(--#{$aloha-prefix}pagination_disabled_color);
+    color: var(--#{aloha.$aloha-prefix}pagination_disabled_color);
     pointer-events: none;
-    background-color: var(--#{$aloha-prefix}pagination_disabled_bg);
-    border-color: var(--#{$aloha-prefix}pagination_disabled_border_color);
+    background-color: var(--#{aloha.$aloha-prefix}pagination_disabled_bg);
+    border-color: var(--#{aloha.$aloha-prefix}pagination_disabled_border_color);
     cursor: default;
   }
   .active > &,
   &.active {
     z-index: 3;
-    color: var(--#{$aloha-prefix}pagination_active_color);
-    background-color: var(--#{$aloha-prefix}pagination_active_bg);
-    border-color: var(--#{$aloha-prefix}pagination_active_border_color);
+    color: var(--#{aloha.$aloha-prefix}pagination_active_color);
+    background-color: var(--#{aloha.$aloha-prefix}pagination_active_bg);
+    border-color: var(--#{aloha.$aloha-prefix}pagination_active_border_color);
   }
 }
 
 .pagination_lg {
-  --#{$aloha-prefix}pagination_padding_x: 1.5rem;
-  --#{$aloha-prefix}pagination_padding_y: 0.75rem;
-  --#{$aloha-prefix}pagination_font_size: 1.25rem;
-  --#{$aloha-prefix}pagination_border_radius: 0.5rem;
+  --#{aloha.$aloha-prefix}pagination_padding_x: 1.5rem;
+  --#{aloha.$aloha-prefix}pagination_padding_y: 0.75rem;
+  --#{aloha.$aloha-prefix}pagination_font_size: 1.25rem;
+  --#{aloha.$aloha-prefix}pagination_border_radius: 0.5rem;
 }
 .pagination_sm {
-  --#{$aloha-prefix}pagination_padding_x: 0.5rem;
-  --#{$aloha-prefix}pagination_padding_y: 0.25rem;
-  --#{$aloha-prefix}pagination_font_size: 0.875rem;
-  --#{$aloha-prefix}pagination_border_radius: 0.25rem;
+  --#{aloha.$aloha-prefix}pagination_padding_x: 0.5rem;
+  --#{aloha.$aloha-prefix}pagination_padding_y: 0.25rem;
+  --#{aloha.$aloha-prefix}pagination_font_size: 0.875rem;
+  --#{aloha.$aloha-prefix}pagination_border_radius: 0.25rem;
 }

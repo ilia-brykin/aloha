@@ -1,36 +1,36 @@
-@import "aloha_prefix";
+@use "aloha_prefix" as aloha;
 
-.#{$aloha-prefix}spinner {
-  --#{$aloha-prefix}spinner_width: 2rem;
-  --#{$aloha-prefix}spinner_height: 2rem;
-  --#{$aloha-prefix}spinner_vertical_align: -0.125em;
-  --#{$aloha-prefix}spinner_border_width: 0.25em;
-  --#{$aloha-prefix}spinner_animation_speed: 1.25s;
-  --#{$aloha-prefix}spinner_animation_name: #{$aloha-prefix}spinner;
+.#{aloha.$aloha-prefix}spinner {
+  --#{aloha.$aloha-prefix}spinner_width: 2rem;
+  --#{aloha.$aloha-prefix}spinner_height: 2rem;
+  --#{aloha.$aloha-prefix}spinner_vertical_align: -0.125em;
+  --#{aloha.$aloha-prefix}spinner_border_width: 0.25em;
+  --#{aloha.$aloha-prefix}spinner_animation_speed: 1.25s;
+  --#{aloha.$aloha-prefix}spinner_animation_name: #{aloha.$aloha-prefix}spinner;
 
-  border: var(--#{$aloha-prefix}spinner_border_width) solid currentcolor;
+  border: var(--#{aloha.$aloha-prefix}spinner_border_width) solid currentcolor;
   border-right-color: transparent;
   display: inline-block;
-  width: var(--#{$aloha-prefix}spinner_width);
-  height: var(--#{$aloha-prefix}spinner_height);
-  vertical-align: var(--#{$aloha-prefix}spinner_vertical_align);
+  width: var(--#{aloha.$aloha-prefix}spinner_width);
+  height: var(--#{aloha.$aloha-prefix}spinner_height);
+  vertical-align: var(--#{aloha.$aloha-prefix}spinner_vertical_align);
   border-radius: 50%;
-  -webkit-animation: var(--#{$aloha-prefix}spinner_animation_speed) linear infinite var(--#{$aloha-prefix}spinner_animation_name);
-  animation: var(--#{$aloha-prefix}spinner_animation_speed) linear infinite var(--#{$aloha-prefix}spinner_animation_name);
+  -webkit-animation: var(--#{aloha.$aloha-prefix}spinner_animation_speed) linear infinite var(--#{aloha.$aloha-prefix}spinner_animation_name);
+  animation: var(--#{aloha.$aloha-prefix}spinner_animation_speed) linear infinite var(--#{aloha.$aloha-prefix}spinner_animation_name);
 }
 
-.#{$aloha-prefix}spinner_small {
-  --#{$aloha-prefix}spinner_width: 1rem;
-  --#{$aloha-prefix}spinner_height: 1rem;
-  --#{$aloha-prefix}spinner_border_width: 0.2em;
+.#{aloha.$aloha-prefix}spinner_small {
+  --#{aloha.$aloha-prefix}spinner_width: 1rem;
+  --#{aloha.$aloha-prefix}spinner_height: 1rem;
+  --#{aloha.$aloha-prefix}spinner_border_width: 0.2em;
 }
 
-.#{$aloha-prefix}spinner_large {
-  --#{$aloha-prefix}spinner_width: 3rem;
-  --#{$aloha-prefix}spinner_height: 3rem;
-  --#{$aloha-prefix}spinner_border_width: 0.3em;
+.#{aloha.$aloha-prefix}spinner_large {
+  --#{aloha.$aloha-prefix}spinner_width: 3rem;
+  --#{aloha.$aloha-prefix}spinner_height: 3rem;
+  --#{aloha.$aloha-prefix}spinner_border_width: 0.3em;
 }
 
-@keyframes #{$aloha-prefix}spinner {
+@keyframes #{aloha.$aloha-prefix}spinner {
   to { transform: rotate(360deg) }
 }

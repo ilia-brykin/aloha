@@ -1,17 +1,17 @@
-@import "../utils/aloha_prefix";
+@use "../utils/aloha_prefix" as aloha;
 
-.#{$aloha-prefix}line_height_1 {
+.#{aloha.$aloha-prefix}line_height_1 {
   line-height: 1 !important;
 }
 
-.#{$aloha-prefix}line_height_small {
+.#{aloha.$aloha-prefix}line_height_small {
   line-height: 1.25 !important;
 }
 
-.#{$aloha-prefix}line_height_base {
+.#{aloha.$aloha-prefix}line_height_base {
   line-height: 1.5 !important;
 }
 
-.#{$aloha-prefix}line_height_large {
+.#{aloha.$aloha-prefix}line_height_large {
   line-height: 2 !important;
 }
