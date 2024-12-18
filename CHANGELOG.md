@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.280
+
+- Excluded `isConfirm` and `callbackLocal` attributes from the rendering of the `AGroupButtonDropdown` component to improve accessibility.
+
 ## 1.2.279
 
 - Removed the `disabled` attribute from the `HTML` output of the `ASelect` component to improve accessibility.
