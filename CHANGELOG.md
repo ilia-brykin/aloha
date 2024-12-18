@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 1.2.281
+
+- Excluded `isConfirm` and `callbackLocal` attributes from the rendering of the `ADropdown` component to improve accessibility.
+
+
 ## 1.2.280
 
 - Excluded `isConfirm` and `callbackLocal` attributes from the rendering of the `AGroupButtonDropdown` component to improve accessibility.
