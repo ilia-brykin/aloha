@@ -40,6 +40,8 @@ export default {
           callback: undefined,
           classButton: undefined,
           classExtra: undefined,
+          isConfirm: undefined,
+          callbackLocal: undefined,
           onClick: this.action.callback,
         }),
       ]);
@@ -62,6 +64,8 @@ export default {
           classButton: undefined,
           classExtra: undefined,
           isHidden: undefined,
+          isConfirm: undefined,
+          callbackLocal: undefined,
         }),
       ]);
     }
