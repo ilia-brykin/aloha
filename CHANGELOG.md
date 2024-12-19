@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.283
+
+- Fixed the `HTML` structure of the `AMenu2` component to improve accessibility and ensure compliance with accessibility standards.
+
 ## 1.2.282
 
 - Fixed the `ATable` component to ensure the `aria-labelledby` attribute is not used when the table has no header, improving accessibility compliance.
