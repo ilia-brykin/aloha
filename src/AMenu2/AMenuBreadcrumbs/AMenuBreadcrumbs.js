@@ -98,50 +98,56 @@ export default {
             "a_menu_2__breadcrumb__ul a_menu_2__breadcrumb__ul_truncated",
           ],
         }, [
-          this.breadcrumbsItemsDropdown.length > 0 && h(ADropdown, {
-            buttonClass: "a_btn a_btn_secondary a_btn_small a_menu_2__breadcrumb__ul_truncated__btn",
-            buttonIconLeft: "ThreeDots",
-            buttonTextScreenReader: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
-            buttonTitle: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
-            dropdownClass: "a_menu_2__breadcrumb__ul_truncated__dropdown",
-            hasCaret: false,
-            inBody: true,
-            ...this.breadcrumbsTruncatedDropdownProps,
-          }, {
-            dropdown: () => [
-              this.breadcrumbsItemsDropdown.map(breadcrumbsItem => {
-                const ATTR = breadcrumbsItem.panelParentId ?
-                  {
-                    tag: "a",
-                    class: [
-                      "a_menu_2__breadcrumbs__link",
-                      this.breadcrumbsLinkClass,
-                    ],
-                    role: "button",
-                    tabindex: 0,
-                    onClick: () => this.goBack({ parentId: breadcrumbsItem.panelParentId }),
-                    onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
-                  } :
-                  {
-                    class: "a_menu_2__breadcrumbs__link",
-                    tag: "strong",
-                  };
-                return h("li", {
-                  key: breadcrumbsItem.panelParentId,
-                  class: "a_menu_2__breadcrumbs__item",
-                }, [
-                  h(AButton, {
-                    text: breadcrumbsItem.label,
-                    title: breadcrumbsItem.label,
-                    ...ATTR,
+          this.breadcrumbsItemsDropdown.length > 0 ?
+            h("li", {
+              class: "a_menu_2__breadcrumbs__item",
+            }, [
+              h(ADropdown, {
+                buttonClass: "a_btn a_btn_secondary a_btn_small a_menu_2__breadcrumb__ul_truncated__btn",
+                buttonIconLeft: "ThreeDots",
+                buttonTextScreenReader: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
+                buttonTitle: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
+                dropdownClass: "a_menu_2__breadcrumb__ul_truncated__dropdown",
+                hasCaret: false,
+                inBody: true,
+                ...this.breadcrumbsTruncatedDropdownProps,
+              }, {
+                dropdown: () => [
+                  this.breadcrumbsItemsDropdown.map(breadcrumbsItem => {
+                    const ATTR = breadcrumbsItem.panelParentId ?
+                      {
+                        tag: "a",
+                        class: [
+                          "a_menu_2__breadcrumbs__link",
+                          this.breadcrumbsLinkClass,
+                        ],
+                        role: "button",
+                        tabindex: 0,
+                        onClick: () => this.goBack({ parentId: breadcrumbsItem.panelParentId }),
+                        onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
+                      } :
+                      {
+                        class: "a_menu_2__breadcrumbs__link",
+                        tag: "strong",
+                      };
+                    return h("li", {
+                      key: breadcrumbsItem.panelParentId,
+                      class: "a_menu_2__breadcrumbs__item",
+                    }, [
+                      h(AButton, {
+                        text: breadcrumbsItem.label,
+                        title: breadcrumbsItem.label,
+                        ...ATTR,
+                      }),
+                      h("span", {
+                        class: "a_menu_2__breadcrumbs__item__divider",
+                      }, "/"),
+                    ]);
                   }),
-                  h("span", {
-                    class: "a_menu_2__breadcrumbs__item__divider",
-                  }, "/"),
-                ]);
+                ],
               }),
-            ],
-          }),
+            ]) :
+            "",
           this.breadcrumbsItemsTruncated.map(breadcrumbsItem => {
             const ATTR = breadcrumbsItem.panelParentId ?
               {
