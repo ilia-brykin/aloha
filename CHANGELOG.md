@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.282
+
+- Fixed the `ATable` component to ensure the `aria-labelledby` attribute is not used when the table has no header, improving accessibility compliance.
+
 ## 1.2.281
 
 - Excluded `isConfirm` and `callbackLocal` attributes from the rendering of the `ADropdown` component to improve accessibility.
