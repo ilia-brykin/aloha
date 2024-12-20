@@ -14,6 +14,10 @@ export default [
     files: [
       "**/*.{js,mjs,cjs,vue}",
     ],
+    ignores: [
+      "docs/vite.config.mjs",
+    ],
+    // vite.config.mjs
     plugins: {
       jest: pluginJest,
     },
