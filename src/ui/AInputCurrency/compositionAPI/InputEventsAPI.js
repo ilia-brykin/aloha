@@ -33,7 +33,7 @@ export default function InputEventsAPI(props, {
   const validationOnChange = toRef(props, "validationOnChange");
 
   const isTimeoutActive = ref(0);
-  const timeoutDelay = navigator.userAgent.indexOf('Firefox') !== -1 ? 1 : 0;
+  const timeoutDelay = navigator.userAgent.indexOf("Firefox") !== -1 ? 1 : 0;
 
   const allowedButtons = [
     AKeysCode.tab,

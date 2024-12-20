@@ -340,6 +340,7 @@ export default {
       switchClass,
     } = SwitchAPI(props);
 
+
     return {
       ariaLabelAttributes,
       attributesToExcludeFromRender,

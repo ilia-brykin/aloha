@@ -11,14 +11,14 @@ export default defineConfig({
   base: isDevelopment ? "/" : "/aloha/",
   plugins: [
     vue(),
-    // eslintPlugin({
-    //   cache: false,
-    //   include: [
-    //     "src/**/*.js",
-    //     "src/**/*.vue",
-    //     // "../src/**/*.js",
-    //   ],
-    // }),
+    eslintPlugin({
+      cache: false,
+      include: [
+        "src/**/*.js",
+        "src/**/*.vue",
+        "../src/**/*.js",
+      ],
+    }),
   ],
   css: {
     preprocessorOptions: {
@@ -29,22 +29,11 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@public": path.resolve(__dirname, "public"),
       axios: path.resolve(__dirname, "node_modules/axios"),
       fecha: path.resolve(__dirname, "node_modules/fecha"),
       "lodash-es": path.resolve(__dirname, "node_modules/lodash-es"),
       moment: path.resolve(__dirname, "node_modules/moment"),
-      "vue-style-loader": path.resolve(__dirname, "node_modules/vue-style-loader"),
-      "vue-upload-component": path.resolve(__dirname, "node_modules/vue-upload-component"),
       vue: path.resolve(__dirname, "node_modules/vue"),
-      vuex: path.resolve(__dirname, "node_modules/vuex"),
-      leaflet: path.resolve(__dirname, "node_modules/leaflet"),
-      inputmask: path.resolve(__dirname, "node_modules/inputmask"),
-      autosize: path.resolve(__dirname, "node_modules/autosize"),
-      mediaelement: path.resolve(__dirname, "node_modules/mediaelement"),
-      "mediaelement-plugins": path.resolve(__dirname, "node_modules/mediaelement-plugins"),
-      "get-contrast-ratio": path.resolve(__dirname, "node_modules/get-contrast-ratio"),
-      popperjs: path.resolve(__dirname, "node_modules/@popperjs/core"),
       "tiny-emitter": path.resolve(__dirname, "node_modules/tiny-emitter"),
       dompurify: path.resolve(__dirname, "node_modules/dompurify"),
       tinymce: path.resolve(__dirname, "node_modules/tinymce"),
@@ -54,6 +43,12 @@ export default defineConfig({
   server: {
     port: 9000,
     open: true,
+    fs: {
+      allow: [
+        "./",
+        "../src", // Allow access to src
+      ],
+    },
   },
   build: {
     outDir: "dist",
