@@ -16,8 +16,8 @@ import LinkClassAPI from "./compositionAPI/LinkClassAPI";
 import NumberAPI from "./compositionAPI/NumberAPI";
 import StatusTextAPI from "./compositionAPI/StatusTextAPI";
 
-import ExclamationCircleFill from "../../AIcon/Icons/bootstrap-1-9-1/ExclamationCircleFill";
-import XCircleFill from "../../AIcon/Icons/bootstrap-1-9-1/XCircleFill";
+import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
+import XCircleFill from "aloha-svg/dist/js/bootstrap/XCircleFill";
 
 export default {
   name: "AWizardStep",
