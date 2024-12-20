@@ -70,7 +70,7 @@ export default function UiAPI(props, { emit }) {
       if (ariaDescribedby) {
         ariaDescribedby += " ";
       }
-      ariaDescribedby += helpTextId.value;
+      ariaDescribedby += errorsId.value;
     }
     return ariaDescribedby || undefined;
   });

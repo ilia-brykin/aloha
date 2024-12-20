@@ -7,6 +7,40 @@
 ---
 # Versions
 
+## 1.2.283
+
+- Fixed the `HTML` structure of the `AMenu2` component to improve accessibility and ensure compliance with accessibility standards.
+
+## 1.2.282
+
+- Fixed the `ATable` component to ensure the `aria-labelledby` attribute is not used when the table has no header, improving accessibility compliance.
+
+## 1.2.281
+
+- Excluded `isConfirm` and `callbackLocal` attributes from the rendering of the `ADropdown` component to improve accessibility.
+
+
+## 1.2.280
+
+- Excluded `isConfirm` and `callbackLocal` attributes from the rendering of the `AGroupButtonDropdown` component to improve accessibility.
+
+## 1.2.279
+
+- Removed the `disabled` attribute from the `HTML` output of the `ASelect` component to improve accessibility.
+
+## 1.2.278
+
+- Fixed the `disabled` state handling for elements with `type="link"` in the `AElement` component.
+
+## 1.2.277
+
+- Removed the unnecessary `role="button"` attribute from buttons in`AInputCurrency` and `AInputNumber` components.
+- Added `title` and `textScreenReader` props for buttons in `AInputCurrency` and `AInputNumber` to enhance accessibility and screen reader support.
+
+## 1.2.276
+
+- Fixed the `aria-describedby` attribute for UI components to ensure proper association with error messages, improving accessibility.
+
 ## 1.2.275
 
 - Improved the `AModal` component by managing `z-index` for multiple modal windows, ensuring proper stacking order.

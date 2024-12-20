@@ -910,7 +910,9 @@ export default {
         this.$slots.topPanelAppend ? this.$slots.topPanelAppend() : "",
         this.isViewTableVisible && h("div", {
           ref: "tableRef",
-          "aria-labelledby": this.tableLabelId,
+          "aria-labelledby": this.isLabelVisible ?
+            this.tableLabelId :
+            undefined,
           class: [
             "a_table",
             {

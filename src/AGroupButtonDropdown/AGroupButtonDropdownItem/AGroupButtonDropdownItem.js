@@ -95,6 +95,8 @@ export default {
               callback: undefined,
               actionNotDividerIndex: undefined,
               isHidden: undefined,
+              isConfirm: undefined,
+              callbackLocal: undefined,
             });
           }
           if (action.type === "link") {
@@ -108,6 +110,8 @@ export default {
               actionNotDividerIndex: undefined,
               isHidden: undefined,
               type: undefined,
+              isConfirm: undefined,
+              callbackLocal: undefined,
             });
           }
           if (action.type === "template" &&

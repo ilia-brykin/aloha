@@ -24,17 +24,8 @@ export default function AttributesAPI(props, {
     return disabled.value ? undefined : 0;
   });
 
-  const attributesDisabled = computed(() => {
-    const ATTRIBUTES = {};
-    if (disabled.value) {
-      ATTRIBUTES.disabled = true;
-    }
-    return ATTRIBUTES;
-  });
-
   return {
     ariaLabelledby,
-    attributesDisabled,
     containerId,
     idForList,
     tabindex,

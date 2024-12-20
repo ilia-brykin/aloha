@@ -10,6 +10,7 @@ import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
 import AttributesAPI from "./comositionAPI/AttributesAPI";
 import ClickAPI from "./comositionAPI/ClickAPI";
 import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
+import DisabledAPI from "./comositionAPI/DisabledAPI";
 import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
 import LoadingAPI from "./comositionAPI/LoadingAPI";
 import RouterLinkAPI from "./comositionAPI/RouterLinkAPI";
@@ -287,6 +288,10 @@ export default {
     } = RouterLinkAPI(props);
 
     const {
+      disabledLocal,
+    } = DisabledAPI(props);
+
+    const {
       tagLocal,
     } = TagAPI(props, {
       isRouterLink,
@@ -345,6 +350,7 @@ export default {
       ariaLabelAttributes,
       attributesToExcludeFromRender,
       componentLocal,
+      disabledLocal,
       elementRef,
       htmlTitleAttributes,
       isLoadingLeft,
@@ -378,7 +384,7 @@ export default {
       ],
       type: this.typeAttribut,
       tabindex: this.tabindex,
-      disabled: this.disabled,
+      disabled: this.disabledLocal,
       ariaDisabled: this.ariaDisabled,
       "aria-pressed": this.isSwitchActive,
       isAllRowsSelected: undefined, // TODO: ATable

@@ -399,10 +399,9 @@ export default {
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: Dash,
                 tabindex: -1,
-                attributes: {
-                  role: "button",
-                },
                 disabled: this.disabled,
+                title: "_A_INPUT_NUMBER_BTN_DECREASE_",
+                textScreenReader: "_A_INPUT_NUMBER_BTN_DECREASE_",
                 onClick: this.decrease,
               }),
               h(AButton, {
@@ -410,10 +409,9 @@ export default {
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: Plus,
                 tabindex: -1,
-                attributes: {
-                  role: "button",
-                },
                 disabled: this.disabled,
+                title: "_A_INPUT_NUMBER_BTN_INCREASE_",
+                textScreenReader: "_A_INPUT_NUMBER_BTN_INCREASE_",
                 onClick: this.increase,
               }),
             ]),
