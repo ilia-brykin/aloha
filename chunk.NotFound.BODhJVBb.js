@@ -1,1 +1,0 @@
-import{_ as o}from"./bundle.index.BNDXU1qV.js";import{M as e,H as r}from"./chunk.vendor.z3GIbCk9.js";import"./chunk.vendor-lodash.C_VDyCZ-.js";const t={};function c(n,s){return r(),e("div",null,"NOT FOUND")}const m=o(t,[["render",c]]);export{m as default};
