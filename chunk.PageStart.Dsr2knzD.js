@@ -1,0 +1,1 @@
+import{A as a,_ as o}from"./bundle.index.DdISXs5g.js";import{k as e,M as n,O as r,H as s}from"./chunk.vendor.Ca3-nzbX.js";import"./chunk.vendor-lodash.-viuv_rg.js";const c={name:"PageStart",components:{ATranslation:a}};function p(_,m,i,l,d,f){const t=e("a-translation");return s(),n("div",null,[r(t,{tag:"h1",text:"_WELCOME_"})])}const g=o(c,[["render",p]]);export{g as default};
