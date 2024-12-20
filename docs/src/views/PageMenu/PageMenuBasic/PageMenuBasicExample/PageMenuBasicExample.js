@@ -256,13 +256,6 @@ export default {
               name: "PageSelect",
             }
           },
-          {
-            id: "tinyMce",
-            label: "TinyMce",
-            to: {
-              name: "PageTinyMce",
-            },
-          },
         ],
       },
       {

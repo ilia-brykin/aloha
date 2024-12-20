@@ -210,13 +210,6 @@ export default function ComponentItemsAPI() {
               name: "PageTemplate",
             },
           },
-          {
-            id: "tinyMce",
-            label: "TinyMce",
-            to: {
-              name: "PageTinyMce",
-            },
-          },
         ],
       },
       {

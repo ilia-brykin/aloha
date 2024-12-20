@@ -68,13 +68,6 @@ export default {
           disabled: true,
         },
         {
-          type: "tinymce",
-          label: "Aloha tiny",
-          id: "aloha_tiny",
-          classColumn: "a_column_8",
-          required: true,
-        },
-        {
           type: "color",
           label: "Aloha Color",
           id: "alohaColor",

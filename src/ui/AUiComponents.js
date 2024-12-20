@@ -13,7 +13,6 @@ import ASelect from "./ASelect/ASelect";
 import ASwitch from "./ASwitch/ASwitch";
 import ATemplate from "./ATemplate/ATemplate";
 import ATextarea from "./ATextarea/ATextarea";
-import ATinymce from "./ATinymce/ATinymce";
 
 export default {
   checkbox: ACheckbox,
@@ -43,5 +42,4 @@ export default {
   template: ATemplate,
   text: AInput,
   textarea: ATextarea,
-  tinymce: ATinymce,
 };

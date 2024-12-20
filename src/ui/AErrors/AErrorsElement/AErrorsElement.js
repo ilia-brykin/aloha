@@ -10,12 +10,6 @@ import ATranslation from "../../../ATranslation/ATranslation";
 
 import AKeysCode from "../../../const/AKeysCode";
 import {
-  setFocusToTinymce
-} from "../../ATinymce/compositionAPI/ATinymceAPI";
-import {
-  scrollToElement,
-} from "../../../utils/utilsDOM";
-import {
   get,
   isArray,
   isFunction,
@@ -119,12 +113,6 @@ export default {
       if (size(idStr) > 0) {
         const ELEMENT = document.getElementById(idStr);
         if (ELEMENT) {
-          if (ELEMENT.tagName === "TEXTAREA" &&
-            ELEMENT.classList.contains("a_textarea_tinymce")) {
-            setFocusToTinymce({ id: idStr });
-            scrollToElement({ element: ELEMENT.parentNode });
-            return;
-          }
           ELEMENT.focus();
         }
       }

@@ -43,7 +43,6 @@ export { default as ATable } from "../src/ATable/ATable";
 export { default as ATabs } from "../src/ATabs/ATabs";
 export { default as ATemplate } from "../src/ui/ATemplate/ATemplate";
 export { default as ATextarea } from "../src/ui/ATextarea/ATextarea";
-export { default as ATinymce } from "../src/ui/ATinymce/ATinymce";
 export { default as ATooltip } from "../src/ATooltip/ATooltip";
 export { default as ATranslation } from "../src/ATranslation/ATranslation";
 export { default as AWizard } from "../src/AWizard/AWizard";

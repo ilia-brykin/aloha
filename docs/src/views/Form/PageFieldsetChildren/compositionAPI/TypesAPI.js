@@ -54,9 +54,6 @@ export default function TypesAPI() {
     ATextarea: {
       name: "PageTextarea",
     },
-    ATinymce: {
-      name: "PageTinyMce",
-    },
     AFieldset: {
       name: "PageFieldset",
     },

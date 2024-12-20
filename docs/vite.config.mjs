@@ -5,16 +5,6 @@ import {
   defineConfig,
 } from "vite";
 
-import {
-  fileURLToPath,
-} from "url";
-import {
-  dirname,
-} from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 const isDevelopment = process.env.DEV === "true";
 
 export default defineConfig({
@@ -46,7 +36,6 @@ export default defineConfig({
       vue: path.resolve(__dirname, "node_modules/vue"),
       "tiny-emitter": path.resolve(__dirname, "node_modules/tiny-emitter"),
       dompurify: path.resolve(__dirname, "node_modules/dompurify"),
-      tinymce: path.resolve(__dirname, "node_modules/tinymce"),
       "@floating-ui/vue": path.resolve(__dirname, "node_modules/@floating-ui/vue"),
     },
   },
@@ -70,9 +59,6 @@ export default defineConfig({
           if (id.includes("node_modules")) {
             if (id.includes("lodash")) {
               return "vendor-lodash";
-            }
-            if (id.includes("tinymce")) {
-              return "vendor-tinymce";
             }
             return "vendor";
           }

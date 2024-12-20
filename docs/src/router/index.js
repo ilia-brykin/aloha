@@ -190,11 +190,6 @@ const ROUTES = [
     component: () => import("../views/Form/PageDatepicker/PageDatepicker.vue"),
   },
   {
-    path: "/tinymce",
-    name: "PageTinyMce",
-    component: () => import("../views/Form/PageTinyMce/PageTinyMce.vue"),
-  },
-  {
     path: "/loading",
     name: "PageLoading",
     component: () => import("../views/PageLoading/PageLoading.vue"),
