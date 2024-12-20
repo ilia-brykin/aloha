@@ -41,7 +41,7 @@ import AKeyId from "../../const/AKeyId";
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
 import placements from "../../const/placements";
 import Search from "aloha-svg/dist/js/bootstrap/Search";
-import XLg from "../../AIcon/Icons/bootstrap-1-9-1/XLg";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 import {
   selectPluginOptions,
 } from "../../plugins/ASelectPlugin";

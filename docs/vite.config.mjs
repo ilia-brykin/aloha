@@ -41,7 +41,9 @@ export default defineConfig({
   },
   server: {
     port: 9000,
+    strictPort: true,
     open: true,
+    hmr: true,
     fs: {
       allow: [
         "./",
