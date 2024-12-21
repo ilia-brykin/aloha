@@ -1,0 +1,40 @@
+import{A as c,a as P}from"./chunk.AlohaExample.COwLWL3e.js";import{aB as t,_ as s,A as T}from"./bundle.index.TDRGJtdO.js";import{P as x,a as h,b as F}from"./chunk.PageFilterTest.H7z1D9Te.js";import{a as m,k as o,J as u,H as i,aJ as J,O as l}from"./chunk.vendor.Ca3-nzbX.js";import{P as I}from"./chunk.PageFilterImportCompositionApi.Bgg4gNbM.js";import{f as L}from"./chunk.filterBoolean.test.DygJ_39J.js";import"./chunk.vendor-lodash.-viuv_rg.js";import"./chunk.translations-ar.CGH9gktb.js";import"./chunk.translations-de.S4PF1KYg.js";import"./chunk.translations-en.Ck05aPwN.js";import"./chunk.translations-es.CN4IYWAw.js";import"./chunk.translations-fr.CCwWtZH3.js";import"./chunk.translations-hr.C7fo1LlO.js";import"./chunk.translations-it.BFH_rAJL.js";import"./chunk.translations-ru.C3zXigta.js";function O(){return{codeJs:m(()=>`filterBoolean(true);
+// ${t(!0)}
+filterBoolean(false);
+// ${t(!1)}
+
+filterBoolean(1);
+// ${t(1)}
+filterBoolean(0);
+// ${t(0)}
+
+filterBoolean("aloha");
+// ${t("aloha")}
+filterBoolean("");
+// ${t("")}`)}}const S={name:"PageFilterBooleanExample",components:{AlohaExample:c},setup(){const{codeJs:e}=O();return{codeJs:e}}};function v(e,n,r,_,p,f){const a=o("aloha-example");return i(),u(a,{"code-js":e.codeJs,header:"_A_BASIC_USAGE_","is-code-visible-default":!0},null,8,["code-js"])}const U=s(S,[["render",v]]);function b(){return{codeJs:m(()=>`filterBoolean(true, { trueValue: "1", falseValue: "0" });
+// ${t(!0,{trueValue:"1",falseValue:"0"})}
+filterBoolean(false, { trueValue: "1", falseValue: "0" });
+// ${t(!1,{trueValue:"1",falseValue:"0"})}
+
+filterBoolean(1, { trueValue: "true", falseValue: "false" });
+// ${t(1,{trueValue:"true",falseValue:"false"})}
+filterBoolean(0, { trueValue: "true", falseValue: "false" });
+// ${t(0,{trueValue:"true",falseValue:"false"})}`)}}const R={name:"PageFilterBooleanTrueFalseValues",components:{AlohaExample:c},setup(){const{codeJs:e}=b();return{codeJs:e}}};function G(e,n,r,_,p,f){const a=o("aloha-example");return i(),u(a,{"code-js":e.codeJs,header:"trueValue, falseValue","is-code-visible-default":!0},null,8,["code-js"])}const y=s(R,[["render",G]]);function j(){return{codeJs:m(()=>`filterBoolean(null, { useNil: true });
+// ${t(null,{useNil:!0})}
+filterBoolean(null, { useNil: false });
+// ${t(null,{useNil:!1})}
+
+filterBoolean(undefined, { useNil: true });
+// ${t(void 0,{useNil:!0})}
+filterBoolean(undefined, { useNil: false });
+// ${t(void 0,{useNil:!1})}
+
+filterBoolean("null", { useNil: true });
+// ${t("null",{useNil:!0})}
+filterBoolean("null", { useNil: false });
+// ${t("null",{useNil:!1})}
+
+filterBoolean("undefined", { useNil: true });
+// ${t("undefined",{useNil:!0})}
+filterBoolean("undefined", { useNil: false });
+// ${t("undefined",{useNil:!1})}`)}}const C={name:"PageFilterBooleanUseNil",components:{AlohaExample:c},setup(){const{codeJs:e}=j();return{codeJs:e}}};function M(e,n,r,_,p,f){const a=o("aloha-example");return i(),u(a,{"code-js":e.codeJs,header:"useNil","is-code-visible-default":!0},null,8,["code-js"])}const k=s(C,[["render",M]]);function Y(){return{argumentsText:[{value:"value",types:["Any"],text:"_PAGE_FILTER_BOOLEAN_ARGUMENTS_VALUE_"},{value:'[trueValue="_YES_"]',types:["String"],text:"_PAGE_FILTER_BOOLEAN_ARGUMENTS_TRUE_VALUE_"},{value:'[falseValue="_NO_"]',types:["String"],text:"_PAGE_FILTER_BOOLEAN_ARGUMENTS_FALSE_VALUE_"},{value:"[useNil=true]",types:["Boolean"],text:"_PAGE_FILTER_BOOLEAN_ARGUMENTS_USE_NIL_"}]}}function w(){return{pageTitle:"filterBoolean"}}const D={name:"PageFilterBoolean",components:{AlohaPage:P,ATranslation:T,PageFilterArguments:x,PageFilterBooleanExample:U,PageFilterBooleanTrueFalseValues:y,PageFilterBooleanUseNil:k,PageFilterImportCompositionApi:I,PageFilterImportFunction:h,PageFilterTest:F},setup(){const{pageTitle:e}=w(),{argumentsText:n}=Y();return{argumentsText:n,pageTitle:e,test:L}}};function H(e,n,r,_,p,f){const a=o("a-translation"),d=o("page-filter-import-function"),g=o("page-filter-import-composition-api"),B=o("page-filter-arguments"),$=o("page-filter-boolean-example"),A=o("page-filter-boolean-true-false-values"),N=o("page-filter-boolean-use-nil"),E=o("page-filter-test"),V=o("aloha-page");return i(),u(V,{"page-title":e.pageTitle},{body:J(()=>[l(a,{tag:"p",html:"_PAGE_FILTER_BOOLEAN_DESCRIPTION_"}),l(d,{"function-name":"filterBoolean","type-import":"filters"}),l(g,{"function-name":"filterBoolean"}),l(B,{"function-description":'filterBoolean(value, { [trueValue="_YES_"], [falseValue="_NO_"], [useNil=true] })',"arguments-text":e.argumentsText},null,8,["arguments-text"]),l($),l(A),l(N),l(E,{test:e.test},null,8,["test"])]),_:1},8,["page-title"])}const ue=s(D,[["render",H]]);export{ue as default};

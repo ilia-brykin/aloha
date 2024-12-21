@@ -1,1 +1,0 @@
-import{_ as o}from"./bundle.index.DdISXs5g.js";import{M as e,H as r}from"./chunk.vendor.Ca3-nzbX.js";import"./chunk.vendor-lodash.-viuv_rg.js";const t={};function c(n,s){return r(),e("div",null,"NOT FOUND")}const m=o(t,[["render",c]]);export{m as default};
