@@ -64,6 +64,32 @@ export default defineConfig({
             }
             return "vendor";
           }
+          if (id.includes("ar.json")) {
+            return "translations-ar";
+          }
+          if (id.includes("de.json")) {
+            return "translations-de";
+          }
+          if (id.includes("en.json")) {
+            return "translations-en";
+          }
+          if (id.includes("es.json")) {
+            return "translations-es";
+          }
+          if (id.includes("fr.json")) {
+            return "translations-fr";
+          }
+          if (id.includes("hr.json")) {
+            return "translations-hr";
+          }
+          if (id.includes("it.json")) {
+            return "translations-it";
+          }
+          if (id.includes("ru.json")) {
+            return "translations-ru";
+          }
+
+          return null;
         },
       },
     },
