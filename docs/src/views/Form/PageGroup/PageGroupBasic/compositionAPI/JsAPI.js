@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AGroup from "aloha-vue/src/ui/AGroup/AGroup";
+import { 
+  AGroup,
+} from "aloha-vue";
     
 export default {
   name: "PageGroupBasic",

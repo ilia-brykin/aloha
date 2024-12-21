@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AInput from "aloha-vue/src/ui/AInput/AInput";
+import { 
+  AInput,
+} from "aloha-vue";
     
 export default {
   name: "PageInputBasic",

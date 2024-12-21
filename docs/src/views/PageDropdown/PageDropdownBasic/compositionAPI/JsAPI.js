@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ADropdown from "aloha-vue/src/ADropdown/ADropdown";
+  const codeJs = `import { 
+  ADropdown,
+} from "aloha-vue";
     
 export default {
   name: "PageDropdownBasic",

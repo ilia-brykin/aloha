@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ATabs from "aloha-vue/src/ATabs/ATabs";
+  const codeJs = `import { 
+  ATabs,
+} from "aloha-vue";
     
 export default {
   name: "PageTabsKeyLabel",

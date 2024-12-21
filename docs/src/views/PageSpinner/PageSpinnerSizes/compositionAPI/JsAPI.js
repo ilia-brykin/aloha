@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ASpinner from "aloha-vue/src/ASpinner/ASpinner";
+  const codeJs = `import { 
+  ASpinner,
+} from "aloha-vue";
     
 export default {
   name: "PageSpinnerSizes",

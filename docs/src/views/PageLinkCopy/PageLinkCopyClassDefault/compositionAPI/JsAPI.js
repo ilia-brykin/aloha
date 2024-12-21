@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ALinkCopy from "aloha-vue/src/ALinkCopy/ALinkCopy";
+  const codeJs = `import { 
+  ALinkCopy,
+} from "aloha-vue";
     
 export default {
   name: "PageLinkCopyClassDefault",

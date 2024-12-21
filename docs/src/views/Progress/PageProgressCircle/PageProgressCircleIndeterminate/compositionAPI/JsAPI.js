@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AProgressCircle from "aloha-vue/src/AProgressCircle/AProgressCircle";
+  const codeJs = `import { 
+  AProgressCircle,
+} from "aloha-vue";";
     
 export default {
   name: "PageProgressCircleIndeterminate",

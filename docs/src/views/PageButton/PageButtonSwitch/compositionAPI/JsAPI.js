@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AButton from "aloha-vue/src/AButton/AButton";
+import { 
+  AButton,
+} from "aloha-vue";
     
 export default {
   name: "PageButtonSwitch",

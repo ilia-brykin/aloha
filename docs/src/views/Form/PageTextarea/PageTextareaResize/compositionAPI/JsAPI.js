@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ATextarea from "aloha-vue/src/ui/ATextarea/ATextarea";
+import { 
+  ATextarea,
+} from "aloha-vue";
     
 export default {
   name: "PageTextareaResize",

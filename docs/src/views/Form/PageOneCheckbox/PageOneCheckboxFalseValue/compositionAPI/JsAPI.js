@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AOneCheckbox from "aloha-vue/src/ui/AOneCheckbox/AOneCheckbox";
+import { 
+  AOneCheckbox,
+} from "aloha-vue";
     
 export default {
   name: "PageOneCheckboxFalseValue",

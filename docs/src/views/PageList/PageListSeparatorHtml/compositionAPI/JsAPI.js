@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AList from "aloha-vue/src/AList/AList";
+  const codeJs = `import { 
+  AList,
+} from "aloha-vue";
     
 export default {
   name: "PageListSeparatorHtml",

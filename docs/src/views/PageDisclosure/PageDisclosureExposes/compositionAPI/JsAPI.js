@@ -5,8 +5,10 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AButton from "aloha-vue/src/AButton/AButton";
-import ADisclosure from "aloha-vue/src/ADisclosure/ADisclosure";
+import {
+  AButton,
+  ADisclosure,
+} from "aloha-vue";
     
 export default {
   name: "PageDisclosureExposes",

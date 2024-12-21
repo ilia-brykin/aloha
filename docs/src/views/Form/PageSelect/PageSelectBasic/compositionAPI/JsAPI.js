@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ASelect from "aloha-vue/src/ui/ASelect/ASelect";
+import { 
+  ASelect,
+} from "aloha-vue";
     
 export default {
   name: "PageSelectBasic",

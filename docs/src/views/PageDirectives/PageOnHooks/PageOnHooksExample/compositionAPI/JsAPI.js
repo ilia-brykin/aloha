@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AOnHooks from "aloha-vue/src/directives/AOnHooks";
+  const codeJs = `import {
+  AOnHooks,
+} from "aloha-vue";
     
 export default {
   name: "PageOnHooksExample",

@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ATooltip from "aloha-vue/src/ATooltip/ATooltip";
+  const codeJs = `import { 
+  ATooltip,
+} from "aloha-vue";
     
 export default {
   name: "PageTooltipBasic",

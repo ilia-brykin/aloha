@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
+  const codeJs = `import { 
+  ATranslation,
+} from "aloha-vue";";
     
 export default {
   name: "PageTranslationTitle",

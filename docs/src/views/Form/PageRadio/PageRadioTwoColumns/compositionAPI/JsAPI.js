@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ARadio from "aloha-vue/src/ui/ARadio/ARadio";
+import { 
+  ARadio,
+} from "aloha-vue";
     
 export default {
   name: "PageRadioTwoColumns",

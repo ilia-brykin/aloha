@@ -1,6 +1,8 @@
 export default function JsAPI() {
-  const codeJs = `import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
-import AWizard from "aloha-vue/src/AWizard/AWizard";
+  const codeJs = `import {
+  ATranslation,
+  AWizard,
+} from "aloha-vue";
     
 export default {
   name: "PageWizardIcon",

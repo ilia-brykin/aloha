@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ARate from "aloha-vue/src/ARate/ARate";
+  const codeJs = `import { 
+  ARate,
+} from "aloha-vue";
     
 export default {
   name: "PageRateIconFill",

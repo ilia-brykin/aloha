@@ -3,7 +3,7 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ATable from "aloha-vue/src/ATable/ATable";
+import { ATable } from "aloha-vue";
     
 export default {
   name: "PageTableFiltersInitialModel",

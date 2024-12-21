@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AGroupButtonDropdown from "aloha-vue/src/AGroupButtonDropdown/AGroupButtonDropdown";
+  const codeJs = `import { 
+  AGroupButtonDropdown,
+} from "aloha-vue";
     
 export default {
   name: "PageGroupButtonDropdownBasic",

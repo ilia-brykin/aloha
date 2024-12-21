@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AFieldset from "aloha-vue/src/ui/AFieldset/AFieldset";
+import { 
+  AFieldset,
+} from "aloha-vue";
     
 export default {
   name: "PageFieldsetBasic",

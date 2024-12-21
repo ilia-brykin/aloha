@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AFilters from "aloha-vue/src/AFilters/AFilters";
+import { 
+  AFilters,
+} from "aloha-vue";
     
 export default {
   name: "PageFiltersExample",

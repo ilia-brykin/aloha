@@ -3,8 +3,10 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AList from "aloha-vue/src/AList/AList";
-import ASwitch from "aloha-vue/src/ui/ASwitch/ASwitch";
+import {
+  AList,
+  ASwitch, 
+} from "aloha-vue";
     
 export default {
   name: "PageListIsHtml",

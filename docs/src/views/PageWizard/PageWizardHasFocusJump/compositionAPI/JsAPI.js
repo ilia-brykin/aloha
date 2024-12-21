@@ -3,9 +3,11 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ASwitch from "aloha-vue/src/ui/ASwitch/ASwitch";
-import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
-import AWizard from "aloha-vue/src/AWizard/AWizard";
+import { 
+  ASwitch,
+  ATranslation,
+  AWizard,
+} from "aloha-vue";
     
 export default {
   name: "PageWizardHasFocusJump",

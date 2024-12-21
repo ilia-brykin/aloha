@@ -2,7 +2,9 @@ import {
   ref,
 } from "vue";
 
-import AAlert from "../../../../../src/AAlert/AAlert";
+import {
+  AAlert,
+} from "../../../../../src";
 import AButton from "../../../../../src/AButton/AButton";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 

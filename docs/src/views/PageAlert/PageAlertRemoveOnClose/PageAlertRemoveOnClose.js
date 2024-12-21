@@ -1,4 +1,6 @@
-import AAlert from "../../../../../src/AAlert/AAlert";
+import {
+  AAlert,
+} from "../../../../../src";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

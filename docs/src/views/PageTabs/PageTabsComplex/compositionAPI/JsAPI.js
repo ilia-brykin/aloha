@@ -4,9 +4,11 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AElement from "aloha-vue/src/AElement/AElement";
-import AForm from "aloha-vue/src/ui/AForm/AForm";
-import ATabs from "aloha-vue/src/ATabs/ATabs";
+import { 
+  AElement,
+  AForm,
+  ATabs,
+} from "aloha-vue";
     
 export default {
   name: "PageTabsComplex",

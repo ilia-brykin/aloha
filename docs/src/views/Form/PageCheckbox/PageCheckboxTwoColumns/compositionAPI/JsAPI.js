@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ACheckbox from "aloha-vue/src/ui/ACheckbox/ACheckbox";
+import { 
+  ACheckbox,
+} from "aloha-vue";
     
 export default {
   name: "PageCheckboxTwoColumns",

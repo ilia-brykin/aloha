@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AProgress from "aloha-vue/src/AProgress/AProgress";
+  const codeJs = `import { 
+  AProgress,
+} from "aloha-vue";
     
 export default {
   name: "PageProgressSizes",

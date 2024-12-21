@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ASwitch from "aloha-vue/src/ui/ASwitch/ASwitch";
+import { 
+  ASwitch,
+} from "aloha-vue";
     
 export default {
   name: "PageSwitchTitle",

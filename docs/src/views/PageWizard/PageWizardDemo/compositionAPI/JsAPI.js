@@ -3,11 +3,13 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AButton from "aloha-vue/src/AButton/AButton";
-import AInput from "aloha-vue/src/ui/AInput/AInput";
-import ASelect from "aloha-vue/src/ui/ASelect/ASelect";
-import ASwitch from "aloha-vue/src/ui/ASwitch/ASwitch";
-import AWizard from "aloha-vue/src/AWizard/AWizard";
+import { 
+  AButton,
+  AInput,
+  ASelect,
+  ASwitch,
+  AWizard,
+} from "aloha-vue";
     
 export default {
   name: "PageWizardDemo",

@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AButton from "aloha-vue/src/AButton/AButton";
+  const codeJs = `import { 
+  AButton,
+} from "aloha-vue";
     
 export default {
   name: "PageButtonBasic",

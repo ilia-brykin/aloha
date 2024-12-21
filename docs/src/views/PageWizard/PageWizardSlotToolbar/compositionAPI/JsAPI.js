@@ -1,7 +1,9 @@
 export default function JsAPI() {
-  const codeJs = `import AButton from "aloha-vue/src/AButton/AButton";
-import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
-import AWizard from "aloha-vue/src/AWizard/AWizard";
+  const codeJs = `import {
+  AButton,
+  ATranslation,
+  AWizard,
+} from "aloha-vue";
     
 export default {
   name: "PageWizardSlotToolbar",

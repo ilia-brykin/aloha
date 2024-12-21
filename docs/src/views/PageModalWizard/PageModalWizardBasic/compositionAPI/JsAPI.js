@@ -3,9 +3,11 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AButton from "aloha-vue/src/AButton/AButton";
-import AModalWizard from "aloha-vue/src/AModalWizard/AModalWizard";
-import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
+import { 
+  AButton, 
+  AModalWizard, 
+  ATranslation,
+} from "aloha-vue";
     
 export default {
   name: "PageModalWizardBasic",

@@ -3,12 +3,14 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AInput from "aloha-vue/src/ui/AInput/AInput";
+import { 
+  AInputCurrency,
+} from "aloha-vue";
     
 export default {
   name: "PageInputCurrencyChange",
   components: {
-    AInput,
+    AInputCurrency,
   },
   setup() {
     const model = ref(10.02);

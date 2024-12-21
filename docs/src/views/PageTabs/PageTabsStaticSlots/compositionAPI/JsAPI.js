@@ -1,7 +1,9 @@
 export default function JsAPI() {
-  const codeJs = `import AElement from "aloha-vue/src/AElement/AElement";
-import ATabs from "aloha-vue/src/ATabs/ATabs";
-import ATranslation from "aloha-vue/src/ATranslation/ATranslation";
+  const codeJs = `import {
+  AElement,
+  ATabs,
+  ATranslation,
+} from "aloha-vue";
     
 export default {
   name: "PageTabsStaticSlots",

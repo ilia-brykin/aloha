@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import ADatepickerRange from "aloha-vue/ui/ADatepickerRange/ADatepickerRange";
+import { 
+  ADatepickerRange,
+} from "aloha-vue";
 
 export default {
   name: "PageDatepickerRangeHelpText",

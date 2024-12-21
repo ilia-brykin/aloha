@@ -3,8 +3,10 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AButton from "aloha-vue/src/AButton/AButton";
-import ALink from "aloha-vue/src/ALink/ALink";
+import {
+  AButton,
+  ALink,
+} from "aloha-vue";
     
 export default {
   name: "PageLinkLoading",

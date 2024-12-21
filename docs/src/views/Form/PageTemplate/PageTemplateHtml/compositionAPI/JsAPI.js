@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ATemplate from "aloha-vue/src/ui/ATemplate/ATemplate";
+  const codeJs = `import {
+  ATemplate,
+} from "aloha-vue";
     
 export default {
   name: "PageTemplateHtml",

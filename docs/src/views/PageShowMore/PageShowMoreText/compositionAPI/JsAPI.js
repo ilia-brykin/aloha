@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AShowMore from "aloha-vue/src/AShowMore/AShowMore";
+  const codeJs = `import { 
+  AShowMore,
+} from "aloha-vue";
     
 export default {
   name: "PageShowMoreText",

@@ -3,8 +3,10 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AAlert from "aloha-vue/src/AAlert/AAlert";
-import AButton from "aloha-vue/src/AButton/AButton";
+import {
+  AAlert,
+  AButton,
+} from "aloha-vue";
     
 export default {
   name: "PageAlertExposes",

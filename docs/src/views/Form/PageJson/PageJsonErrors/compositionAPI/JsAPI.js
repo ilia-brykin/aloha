@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AJson from "aloha-vue/src/ui/AJson/AJson";
+import { 
+  AJson,
+} from "aloha-vue";
     
 export default {
   name: "PageJsonErrors",

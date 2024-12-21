@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ACloak from "aloha-vue/src/ACloak/ACloak";
+  const codeJs = `import { 
+  ACloak,
+} from "aloha-vue";
     
 export default {
   name: "PageCloakBasic",

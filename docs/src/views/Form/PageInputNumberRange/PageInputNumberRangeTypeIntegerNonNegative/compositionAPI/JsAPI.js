@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AInputNumberRange from "aloha-vue/src/ui/AInputNumberRange/AInputNumberRange";
+import { 
+  AInputNumberRange,
+} from "aloha-vue";
     
 export default {
   name: "PageInputNumberRangeTypeIntegerNonNegative",

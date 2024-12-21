@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ADisclosure from "aloha-vue/src/ADisclosure/ADisclosure";
+  const codeJs = `import { 
+  ADisclosure,
+} from "aloha-vue";
     
 export default {
   name: "PageDisclosureOpenDefault",

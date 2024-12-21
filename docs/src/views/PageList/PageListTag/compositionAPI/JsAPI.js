@@ -3,8 +3,10 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AList from "aloha-vue/src/AList/AList";
-import ARadio from "aloha-vue/src/ui/ARadio/ARadio";
+import {
+  AList,
+  ARadio,
+} from "aloha-vue";
     
 export default {
   name: "PageListTag",

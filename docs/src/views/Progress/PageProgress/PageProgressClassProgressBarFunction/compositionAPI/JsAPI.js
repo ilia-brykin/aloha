@@ -3,8 +3,10 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AInputNumber from "aloha-vue/src/ui/AInputNumber/AInputNumber";
-import AProgress from "aloha-vue/src/AProgress/AProgress";
+import { 
+  AInputNumber,
+  AProgress,
+} from "aloha-vue";
     
 export default {
   name: "PageProgressClassProgressBarFunction",

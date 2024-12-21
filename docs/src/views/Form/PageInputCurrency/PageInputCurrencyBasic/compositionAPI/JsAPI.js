@@ -3,7 +3,9 @@ export default function JsAPI() {
   ref,
 } from "vue";
 
-import AInputCurrency from "aloha-vue/src/ui/AInputCurrency/AInputCurrency";
+import { 
+  AInputCurrency,
+} from "aloha-vue";
     
 export default {
   name: "PageInputCurrencyBasic",

@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import ALoading from "aloha-vue/src/ALoading/ALoading";
+  const codeJs = `import { 
+  ALoading,
+} from "aloha-vue";
     
 export default {
   name: "PageLoadingSizes",

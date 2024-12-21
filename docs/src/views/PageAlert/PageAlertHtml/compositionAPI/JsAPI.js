@@ -1,5 +1,7 @@
 export default function JsAPI() {
-  const codeJs = `import AAlert from "aloha-vue/src/AAlert/AAlert";
+  const codeJs = `import { 
+  AAlert,
+} from "aloha-vue";
     
 export default {
   name: "PageAlertHtml",
