@@ -1,4 +1,6 @@
-import filterLimitTo from "../../../../../../../../src/filters/filterLimitTo";
+import {
+  filterLimitTo,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const TEXT = "Lorem ipsum dolor sit amet consectetur adipisicing elit";

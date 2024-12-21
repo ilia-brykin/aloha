@@ -1,6 +1,6 @@
 import {
   getTotalNestedCount,
-} from "../../../../../../../../src/utils/utils";
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `getTotalNestedCount({ array: ["hello", "Aloha"], keyChildren: "" });

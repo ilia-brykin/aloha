@@ -2,7 +2,9 @@ import {
   computed,
 } from "vue";
 
-import filterBoolean from "../../../../../../../../src/filters/filterBoolean";
+import {
+  filterBoolean,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = computed(() => {

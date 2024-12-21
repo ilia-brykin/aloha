@@ -2,7 +2,9 @@ import {
   computed,
 } from "vue";
 
-import filterFileSize from "../../../../../../../../src/filters/filterFileSize";
+import {
+  filterFileSize,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = computed(() => {

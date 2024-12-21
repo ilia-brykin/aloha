@@ -1,4 +1,6 @@
-import filterCapitalize from "../../../../../../../../src/filters/filterCapitalize";
+import {
+  filterCapitalize,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterCapitalize("foobar");

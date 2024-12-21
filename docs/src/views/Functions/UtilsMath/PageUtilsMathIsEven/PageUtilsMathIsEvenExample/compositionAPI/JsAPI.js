@@ -1,6 +1,6 @@
 import {
   isEven,
-} from "../../../../../../../../src/utils/utilsMath";
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `isEven(2);

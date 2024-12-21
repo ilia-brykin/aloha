@@ -1,6 +1,6 @@
 import {
   isOdd,
-} from "../../../../../../../../src/utils/utilsMath";
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `isOdd(1);

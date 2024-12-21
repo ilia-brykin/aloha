@@ -1,6 +1,6 @@
 import {
   isArrayOfStrings,
-} from "../../../../../../../../src/utils/utils";
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `isArrayOfStrings(["hello", "Aloha"]);

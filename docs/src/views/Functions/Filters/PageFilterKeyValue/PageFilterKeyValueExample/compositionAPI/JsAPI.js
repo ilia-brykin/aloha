@@ -1,4 +1,6 @@
-import filterKeyValue from "../../../../../../../../src/filters/filterKeyValue";
+import {
+  filterKeyValue,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterKeyValue({ x: "aloha", y: 2 });

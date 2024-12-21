@@ -1,4 +1,6 @@
-import filterMask from "../../../../../../../../src/filters/filterMask";
+import {
+  filterMask,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterMask("1234567812345678");

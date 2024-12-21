@@ -2,14 +2,14 @@ import App from "./App/App.vue";
 import { createApp } from "vue";
 import router from "./router/index";
 // import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
-import AFiltersPlugin from "../../src/plugins/AFiltersPlugin";
 import {
   AIconPlugin,
   AI18nPlugin,
   AMobilePlugin,
   AModalPlugin,
   ASafeHtml,
-} from "../../dist";
+  AFiltersPlugin,
+} from "../../src/index";
 import mainIcons from "./mainIcons";
 
 import {

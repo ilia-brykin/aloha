@@ -1,4 +1,6 @@
-import filterPropertyByValue from "../../../../../../../../src/filters/filterPropertyByValue";
+import {
+  filterPropertyByValue,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterPropertyByValue("111", { mapping: { aloha: "1", holla: "2" } });

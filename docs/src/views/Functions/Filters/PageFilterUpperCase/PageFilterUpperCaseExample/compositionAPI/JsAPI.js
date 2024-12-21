@@ -1,4 +1,6 @@
-import filterUpperCase from "../../../../../../../../src/filters/filterUpperCase";
+import {
+  filterUpperCase,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterUpperCase("--foo-bar--");

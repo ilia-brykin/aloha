@@ -1,4 +1,6 @@
-import filterEmail from "../../../../../../../../src/filters/filterEmail";
+import {
+  filterEmail,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterEmail("example@example.com");

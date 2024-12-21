@@ -1,4 +1,6 @@
-import filterJson from "../../../../../../../../src/filters/filterJson";
+import {
+  filterJson,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterJson({ x: 5, y: 6 });

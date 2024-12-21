@@ -1,4 +1,6 @@
-import filterLowerCase from "../../../../../../../../src/filters/filterLowerCase";
+import {
+  filterLowerCase,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterLowerCase("--Foo-Bar--");

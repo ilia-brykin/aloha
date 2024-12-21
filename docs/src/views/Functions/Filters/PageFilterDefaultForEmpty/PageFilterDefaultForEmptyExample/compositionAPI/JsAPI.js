@@ -1,4 +1,6 @@
-import filterDefaultForEmpty from "../../../../../../../../src/filters/filterDefaultForEmpty";
+import {
+  filterDefaultForEmpty,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterDefaultForEmpty(undefined);

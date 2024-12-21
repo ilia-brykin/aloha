@@ -1,4 +1,6 @@
-import filterCurrency from "../../../../../../../../src/filters/filterCurrency";
+import {
+  filterCurrency,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterCurrency(1000222.55, { digitGrouping: false });

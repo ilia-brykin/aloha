@@ -1,4 +1,6 @@
-import filterList from "../../../../../../../../src/filters/filterList";
+import {
+  filterList,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const ITEMS = [

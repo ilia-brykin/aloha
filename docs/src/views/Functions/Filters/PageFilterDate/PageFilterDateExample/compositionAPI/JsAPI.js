@@ -1,4 +1,6 @@
-import filterDate from "../../../../../../../../src/filters/filterDate";
+import {
+  filterDate,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterDate("2014-09-08T08:02:17-05:00");

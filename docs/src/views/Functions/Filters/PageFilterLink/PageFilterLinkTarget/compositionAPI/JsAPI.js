@@ -1,4 +1,6 @@
-import filterLink from "../../../../../../../../src/filters/filterLink";
+import {
+  filterLink,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterLink("example.com", { target: "_blank" });

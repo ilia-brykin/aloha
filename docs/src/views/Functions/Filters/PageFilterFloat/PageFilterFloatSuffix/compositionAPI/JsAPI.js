@@ -1,4 +1,6 @@
-import filterFloat from "../../../../../../../../src/filters/filterFloat";
+import {
+  filterFloat,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterFloat(2000, { suffix: "€" });

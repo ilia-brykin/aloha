@@ -1,4 +1,6 @@
-import filterEscapeHtml from "../../../../../../../../src/filters/filterEscapeHtml";
+import {
+  filterEscapeHtml,
+} from "../../../../../../../../src";
 
 export default function JsAPI() {
   const codeJs = `filterEscapeHtml("<script>alert('XSS Attack')</script>");
