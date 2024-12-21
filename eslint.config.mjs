@@ -16,6 +16,7 @@ export default [
     ],
     ignores: [
       "docs/vite.config.mjs",
+      "vite.lib.config.mjs",
     ],
     // vite.config.mjs
     plugins: {
