@@ -126,3 +126,42 @@ export {
   isOdd,
   isEven,
 } from "./utils/utilsMath";
+
+// translations
+export {
+  default as i18n,
+  ar as i18nAR,
+  de as i18nDE,
+  en as i18nEN,
+  es as i18nES,
+  fr as i18nFR,
+  hr as i18nHR,
+  it as i18nIT,
+  ru as i18nRU,
+} from "./i18n/allLanguages";
+export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";
+export { default as ADisclosureI18n } from "./ADisclosure/i18n/ADisclosureI18n";
+export { default as AFiltersI18n } from "./AFilters/i18n/AFiltersI18n";
+export { default as ALinkCopyI18n } from "./ALinkCopy/i18n/ALinkCopyI18n";
+export { default as ALoadingI18n } from "./ALoading/i18n/ALoadingI18n";
+export { default as AMenu2I18n } from "./AMenu2/i18n/AMenu2I18n";
+export { default as AModalI18n } from "./AModal/i18n/AModalI18n";
+export { default as APaginationI18n } from "./APagination/i18n/APaginationI18n";
+export { default as AShowMoreI18n } from "./AShowMore/i18n/AShowMoreI18n";
+export { default as ASpinnerI18n } from "./ASpinner/i18n/ASpinnerI18n";
+export { default as ATableI18n } from "./ATable/i18n/ATableI18n";
+export { default as AVerticalScrollI18n } from "./AVerticalScroll/i18n/AVerticalScrollI18n";
+export { default as AWizardI18n } from "./AWizard/i18n/AWizardI18n";
+export { default as Filters18n } from "./filters/i18n/Filters18n";
+export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
+export { default as ADatepickerRangeI18n } from "./ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
+export { default as AFieldsetI18n } from "./ui/AFieldset/i18n/AFieldsetI18n";
+export { default as AInputI18n } from "./ui/AInput/i18n/AInputI18n";
+export { default as AInputCurrencyI18n } from "./ui/AInputCurrency/i18n/AInputCurrencyI18n";
+export { default as AInputNumberI18n } from "./ui/AInputNumber/i18n/AInputNumberI18n";
+export { default as AInputNumberRangeI18n } from "./ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
+export { default as AJsonI18n } from "./ui/AJson/i18n/AJsonI18n";
+export { default as ARadioI18n } from "./ui/ARadio/i18n/ARadioI18n";
+export { default as ARequiredI18n } from "./ui/ARequired/i18n/ARequiredI18n";
+export { default as ASelectI18n } from "./ui/ASelect/i18n/ASelectI18n";
+export { default as ASwitchI18n } from "./ui/ASwitch/i18n/ASwitchI18n";
