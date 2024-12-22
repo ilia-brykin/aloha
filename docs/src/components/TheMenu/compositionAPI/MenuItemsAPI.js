@@ -4,11 +4,16 @@ import DirectiveItemsAPI from "./DirectiveItemsAPI";
 import FunctionItemsAPI from "./FunctionItemsAPI";
 import InstallationItemsAPI from "./InstallationItemsAPI";
 import RestItemsAPI from "./RestItemsAPI";
+import PluginsItemsAPI from "./PluginsItemsAPI";
 
 export default function MenuItemsAPI() {
   const {
     installationItems,
   } = InstallationItemsAPI();
+
+  const {
+    pluginsItems,
+  } = PluginsItemsAPI();
 
   const {
     componentItems,
@@ -40,6 +45,7 @@ export default function MenuItemsAPI() {
       icon: "Aloha",
     },
     installationItems,
+    pluginsItems,
     componentItems,
     cssItems,
     directiveItems,

@@ -35,6 +35,7 @@ import ListNested from "aloha-svg/dist/js/bootstrap/ListNested";
 import ListUl from "aloha-svg/dist/js/bootstrap/ListUl";
 import MenuAppFill from "aloha-svg/dist/js/bootstrap/MenuAppFill";
 import MenuDown from "aloha-svg/dist/js/bootstrap/MenuDown";
+import Plugin from "aloha-svg/dist/js/bootstrap/Plugin";
 import Reception2 from "aloha-svg/dist/js/bootstrap/Reception2";
 import SegmentedNav from "aloha-svg/dist/js/bootstrap/SegmentedNav";
 import Star from "aloha-svg/dist/js/bootstrap3/StarEmpty";
@@ -91,6 +92,7 @@ export default {
   ListUl,
   MenuAppFill,
   MenuDown,
+  Plugin,
   Reception2,
   SegmentedNav,
   Table,

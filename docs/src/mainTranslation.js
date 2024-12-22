@@ -84,6 +84,7 @@ import PageTabsI18n from "./views/PageTabs/i18n/PageTabsI18n";
 import PageGroupI18n from "./views/Form/PageGroup/i18n/PageGroupI18n";
 import PageStartI18n from "./views/PageStart/i18n/PageStartI18n";
 import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQuickStartI18n";
+import PageIconsPluginI18n from "./views/Plugins/PageIconsPlugin/i18n/PageIconsPluginI18n";
 
 export const mainTranslation = {
   ar: {
@@ -164,6 +165,7 @@ export const mainTranslation = {
     ...PageGroupI18n.ar,
     ...PageStartI18n.ar,
     ...PageQuickStartI18n.ar,
+    ...PageIconsPluginI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -243,6 +245,7 @@ export const mainTranslation = {
     ...PageGroupI18n.de,
     ...PageStartI18n.de,
     ...PageQuickStartI18n.de,
+    ...PageIconsPluginI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -322,6 +325,7 @@ export const mainTranslation = {
     ...PageGroupI18n.en,
     ...PageStartI18n.en,
     ...PageQuickStartI18n.en,
+    ...PageIconsPluginI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -401,6 +405,7 @@ export const mainTranslation = {
     ...PageGroupI18n.es,
     ...PageStartI18n.es,
     ...PageQuickStartI18n.es,
+    ...PageIconsPluginI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -480,6 +485,7 @@ export const mainTranslation = {
     ...PageGroupI18n.fr,
     ...PageStartI18n.fr,
     ...PageQuickStartI18n.fr,
+    ...PageIconsPluginI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -559,6 +565,7 @@ export const mainTranslation = {
     ...PageGroupI18n.hr,
     ...PageStartI18n.hr,
     ...PageQuickStartI18n.hr,
+    ...PageIconsPluginI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -638,6 +645,7 @@ export const mainTranslation = {
     ...PageGroupI18n.it,
     ...PageStartI18n.it,
     ...PageQuickStartI18n.it,
+    ...PageIconsPluginI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -717,5 +725,6 @@ export const mainTranslation = {
     ...PageGroupI18n.ru,
     ...PageStartI18n.ru,
     ...PageQuickStartI18n.ru,
+    ...PageIconsPluginI18n.ru,
   },
 };

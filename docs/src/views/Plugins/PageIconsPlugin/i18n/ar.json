@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_ICON_PAGE_TITLE_": "الإضافة AIconPlugin",
+  "_PAGE_PLUGIN_ICON_H1_": "الإضافة <span lang=\"en\">AIconPlugin</span>",
+  "_PAGE_PLUGIN_ICON_INTRODUCTION_": "<h2 class=\"a_mb_3\">المقدمة</h2><p>تتيح <strong lang=\"en\">AIconPlugin</strong> ربط مجموعة من الأيقونات التي يمكن استخدامها في مكونات <strong lang=\"en\">Aloha-Vue</strong> مثل <strong lang=\"en\">AButton</strong> و <strong lang=\"en\">AIcon</strong>. نوصي باستخدام الأيقونات من مكتبة <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a> التي تجمع أيقونات <strong lang=\"en\">SVG</strong> المحدثة من مصادر متعددة مثل <strong lang=\"en\">Bootstrap</strong>، <strong lang=\"en\">Flag Icons</strong> و <strong lang=\"en\">Tabler Icons</strong>. يتم استيراد الأيقونات كملفات <strong lang=\"en\">JavaScript</strong>.</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_": "<h2 class=\"a_mb_3\">الاتصال</h2><p>ابدأ بربط الإضافة والأيقونات في مشروعك:</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">ملاحظات</h3><ul><li>يمكنك استيراد الأيقونات من أي مكتبة، لكننا نوصي باستخدام <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a> لسهولة الاستخدام والتحديث المستمر.</li><li>ستكون جميع الأيقونات المسجلة متاحة في المكونات التي تدعمها من خلال الخاصية المناسبة.</li></ul>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_": "<h2 class=\"a_mb_3\">أمثلة الاستخدام</h2><h3 class=\"a_mb_3\">الاستخدام في <strong lang=\"en\">AButton</strong></h3><p>يدعم مكون <strong lang=\"en\">AButton</strong> الأيقونات عبر الخصائص <strong lang=\"en\">icon-left</strong> و <strong lang=\"en\">icon-right</strong>.</p>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_A_ICON_": "<h3 class=\"a_mb_3\">الاستخدام في <strong lang=\"en\">AIcon</strong></h3><p>يتيح مكون <strong lang=\"en\">AIcon</strong> استخدام الأيقونات المسجلة مباشرة.</p>"
+}

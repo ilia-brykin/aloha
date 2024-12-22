@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_ICON_PAGE_TITLE_": "Dodatak AIconPlugin",
+  "_PAGE_PLUGIN_ICON_H1_": "Dodatak <span lang=\"en\">AIconPlugin</span>",
+  "_PAGE_PLUGIN_ICON_INTRODUCTION_": "<h2 class=\"a_mb_3\">Uvod</h2><p><strong lang=\"en\">AIconPlugin</strong> omogućuje povezivanje skupa ikona koje se mogu koristiti u <strong lang=\"en\">Aloha-Vue</strong> komponentama, poput <strong lang=\"en\">AButton</strong> i <strong lang=\"en\">AIcon</strong>. Preporučujemo korištenje ikona iz biblioteke <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a>, koja objedinjuje ažurirane <strong lang=\"en\">SVG</strong> ikone iz raznih izvora, poput <strong lang=\"en\">Bootstrap</strong>, <strong lang=\"en\">Flag Icons</strong> i <strong lang=\"en\">Tabler Icons</strong>. Ikone se uvoze kao <strong lang=\"en\">JavaScript</strong> datoteke.</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_": "<h2 class=\"a_mb_3\">Povezivanje</h2><p>Počnite povezivanjem dodatka i ikona u vašem projektu:</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Napomene</h3><ul><li>Možete uvesti ikone iz bilo koje biblioteke, ali preporučujemo <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a> radi praktičnosti i ažuriranja.</li><li>Sve registrirane ikone bit će dostupne u komponentama koje ih podržavaju putem odgovarajućeg propa.</li></ul>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_": "<h2 class=\"a_mb_3\">Primjeri korištenja</h2><h3 class=\"a_mb_3\">Korištenje u <strong lang=\"en\">AButton</strong></h3><p>Komponenta <strong lang=\"en\">AButton</strong> podržava ikone putem propa <strong lang=\"en\">icon-left</strong> i <strong lang=\"en\">icon-right</strong>.</p>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_A_ICON_": "<h3 class=\"a_mb_3\">Korištenje u <strong lang=\"en\">AIcon</strong></h3><p>Komponenta <strong lang=\"en\">AIcon</strong> omogućuje izravno korištenje registriranih ikona.</p>"
+}

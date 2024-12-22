@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_ICON_PAGE_TITLE_": "AIconPlugin Plugin",
+  "_PAGE_PLUGIN_ICON_H1_": "<span lang=\"en\">AIconPlugin</span> Plugin",
+  "_PAGE_PLUGIN_ICON_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introduction</h2><p><strong lang=\"en\">AIconPlugin</strong> allows you to connect a set of icons that can be used in <strong lang=\"en\">Aloha-Vue</strong> components, such as <strong lang=\"en\">AButton</strong> and <strong lang=\"en\">AIcon</strong>. We recommend using icons from the <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a> library, which combines up-to-date <strong lang=\"en\">SVG</strong> icons from various sources, such as <strong lang=\"en\">Bootstrap</strong>, <strong lang=\"en\">Flag Icons</strong>, and <strong lang=\"en\">Tabler Icons</strong>. Icons are imported as <strong lang=\"en\">JavaScript</strong> files.</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_": "<h2 class=\"a_mb_3\">Connection</h2><p>Start by connecting the plugin and icons in your project:</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Notes</h3><ul><li>You can import icons from any library, but we recommend <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a> for convenience and up-to-date icons.</li><li>All registered icons will be available in components that support them through the appropriate prop.</li></ul>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_": "<h2 class=\"a_mb_3\">Usage Examples</h2><h3 class=\"a_mb_3\">Using in <strong lang=\"en\">AButton</strong></h3><p>The <strong lang=\"en\">AButton</strong> component supports icons through the <strong lang=\"en\">icon-left</strong> and <strong lang=\"en\">icon-right</strong> props.</p>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_A_ICON_": "<h3 class=\"a_mb_3\">Using in <strong lang=\"en\">AIcon</strong></h3><p>The <strong lang=\"en\">AIcon</strong> component allows you to directly use registered icons.</p>"
+}
