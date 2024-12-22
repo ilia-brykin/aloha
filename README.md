@@ -8,40 +8,103 @@
 
 ---
 
-Aloha is a Vue.js-based, highly customizable, internationalized framework for helping developers write code faster and more efficient, with an especial focus on accessibility.
-
+Aloha is a Vue.js-based, highly customizable, internationalized framework for helping developers write code faster and more efficiently, with a special focus on accessibility.
 
 ## Installation
-``` bash
+
+Aloha-vue can be installed using npm, yarn, or pnpm:
+
+```bash
+# Using npm
 $ npm install aloha-vue
+
+# Using yarn
+$ yarn add aloha-vue
+
+# Using pnpm
+$ pnpm add aloha-vue
 ```
+
+## Styles
+
+The styles for aloha-vue are provided in two formats:
+
+- Precompiled CSS: `dist/aloha-vue.css`
+- SCSS source: `scss/aloha-vue.scss`
+
+### Example: Adding styles in `main.js`
+
+```javascript
+import { createApp } from 'vue';
+import App from './App.vue';
+import 'aloha-vue/dist/aloha-vue.css';
+
+const app = createApp(App);
+app.mount('#app');
+```
+
 ## Usage
 
-## Developement
+### Example: Importing and using a simple component (AButton)
+
+```javascript
+import { createApp } from 'vue';
+import App from './App.vue';
+import { AButton } from 'aloha-vue';
+import 'aloha-vue/dist/aloha-vue.css';
+
+const app = createApp(App);
+
+app.component('AButton', AButton);
+
+app.mount('#app');
+```
+
+In your Vue template:
+
+```html
+<template>
+  <div>
+    <a-button @click="onClick">Click Me</a-button>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    onClick() {
+      alert('Button clicked!');
+    },
+  },
+};
+</script>
+```
+
+## Development
 
 ### Documentation
 
-``` bash
-# serve with hot reloading at localhost:9000
-# node v22.12.0
+```bash
+# Serve with hot reloading at localhost:9000
+# Requires Node.js v22.12.0
 $ cd docs
+$ npm i
 $ npm run dev
 ```
-
 
 ## Documentation
 
 The documentation can be found in [DOCS](https://ilia-brykin.github.io/aloha/). Each component has a dedicated demo page outlining both basic and advanced usage, along with an overview table.
 
-[Aloha documentation](https://ilia-brykin.github.io/aloha/)  is available in English, German, Spanish, French, Arabic, Italian, Russian and Croatian.
+[Aloha documentation](https://ilia-brykin.github.io/aloha/) is available in English, German, Spanish, French, Arabic, Italian, Russian, and Croatian.
 
 ## Tests
 
-``` bash
-# start all tests
+```bash
+# Start all tests
 $ npm run test
 
-# start one test
+# Start one test
 $ npm run test src/filters/__tests__/filterList.test.js
 ```
 
@@ -50,4 +113,5 @@ $ npm run test src/filters/__tests__/filterList.test.js
 [PROUNIX](https://prounix.de/)
 
 ## License
-aloha-vue is released under [MIT](https://github.com/ilia-brykin/aloha/blob/master/LICENSE) license.
+
+aloha-vue is released under the [MIT](https://github.com/ilia-brykin/aloha/blob/master/LICENSE) license.
