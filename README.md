@@ -35,12 +35,12 @@ The styles for aloha-vue are provided in two formats:
 ### Example: Adding styles in `main.js`
 
 ```javascript
-import { createApp } from 'vue';
-import App from './App.vue';
-import 'aloha-vue/dist/aloha-vue.css';
+import { createApp } from "vue";
+import App from "./App.vue";
+import "aloha-vue/dist/aloha-vue.css";
 
 const app = createApp(App);
-app.mount('#app');
+app.mount("#app");
 ```
 
 ## Usage
@@ -48,16 +48,16 @@ app.mount('#app');
 ### Example: Importing and using a simple component (AButton)
 
 ```javascript
-import { createApp } from 'vue';
-import App from './App.vue';
-import { AButton } from 'aloha-vue';
-import 'aloha-vue/dist/aloha-vue.css';
+import { createApp } from "vue";
+import App from "./App.vue";
+import { AButton } from "aloha-vue";
+import "aloha-vue/dist/aloha-vue.css";
 
 const app = createApp(App);
 
-app.component('AButton', AButton);
+app.component("AButton", AButton);
 
-app.mount('#app');
+app.mount("#app");
 ```
 
 In your Vue template:
@@ -73,7 +73,7 @@ In your Vue template:
 export default {
   methods: {
     onClick() {
-      alert('Button clicked!');
+      alert("Button clicked!");
     },
   },
 };
