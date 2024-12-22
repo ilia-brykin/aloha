@@ -8,23 +8,23 @@ $ yarn add aloha-vue
 # Using pnpm
 $ pnpm add aloha-vue`;
 
-  const stylesCode = `import { createApp } from 'vue';
-import App from './App.vue';
-import 'aloha-vue/dist/aloha-vue.css';
+  const stylesCode = `import { createApp } from "vue";
+import App from "./App.vue";
+import "aloha-vue/dist/aloha-vue.css";
 
 const app = createApp(App);
-app.mount('#app');`;
+app.mount("#app");`;
 
-  const useInMainCode = `import { createApp } from 'vue';
-import App from './App.vue';
-import { AButton } from 'aloha-vue';
-import 'aloha-vue/dist/aloha-vue.css';
+  const useInMainCode = `import { createApp } from "vue";
+import App from "./App.vue";
+import { AButton } from "aloha-vue";
+import "aloha-vue/dist/aloha-vue.css";
 
 const app = createApp(App);
 
-app.component('AButton', AButton);
+app.component("AButton", AButton);
 
-app.mount('#app');`;
+app.mount("#app");`;
 
   const useInHtmlCode = `<template>
   <div>
