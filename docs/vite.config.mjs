@@ -4,6 +4,10 @@ import eslintPlugin from "vite-plugin-eslint2";
 import {
   defineConfig,
 } from "vite";
+import {
+  viteStaticCopy,
+} from "vite-plugin-static-copy";
+
 
 const isDevelopment = process.env.DEV === "true";
 
@@ -17,6 +21,15 @@ export default defineConfig({
         "src/**/*.js",
         "src/**/*.vue",
         "../src/**/*.js",
+      ],
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "dist/index.html", // исходный файл
+          dest: "./",            // директория назначения
+          rename: "404.html",    // переименование файла
+        },
       ],
     }),
   ],
