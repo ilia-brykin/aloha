@@ -24,7 +24,7 @@ export default {
     extra: {
       type: Object,
       required: false,
-      default: undefined,
+      default: () => spinnerPluginOptions.value.propsDefault.extra,
     },
     safeHtml: {
       type: String,

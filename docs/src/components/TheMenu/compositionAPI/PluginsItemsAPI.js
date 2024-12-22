@@ -19,6 +19,13 @@ export default function PluginsItemsAPI() {
         },
       },
       {
+        id: "PageSpinnerPlugin",
+        label: "Spinner plugin",
+        to: {
+          name: "PageSpinnerPlugin",
+        },
+      },
+      {
         id: "PagePageTabTitlePlugin",
         label: "Page tab title plugin",
         to: {

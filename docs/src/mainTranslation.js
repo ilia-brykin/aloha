@@ -87,6 +87,7 @@ import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQui
 import PageIconsPluginI18n from "./views/Plugins/PageIconsPlugin/i18n/PageIconsPluginI18n";
 import PagePageTabTitlePluginI18n from "./views/Plugins/PagePageTabTitlePlugin/i18n/PagePageTabTitlePluginI18n";
 import PageMobilePluginI18n from "./views/Plugins/PageMobilePlugin/i18n/PageMobilePluginI18n";
+import PageSpinnerPluginI18n from "./views/Plugins/PageSpinnerPlugin/i18n/PageSpinnerPluginI18n";
 
 export const mainTranslation = {
   ar: {
@@ -170,6 +171,7 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.ar,
     ...PagePageTabTitlePluginI18n.ar,
     ...PageMobilePluginI18n.ar,
+    ...PageSpinnerPluginI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -252,6 +254,7 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.de,
     ...PagePageTabTitlePluginI18n.de,
     ...PageMobilePluginI18n.de,
+    ...PageSpinnerPluginI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -334,6 +337,7 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.en,
     ...PagePageTabTitlePluginI18n.en,
     ...PageMobilePluginI18n.en,
+    ...PageSpinnerPluginI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -416,6 +420,7 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.es,
     ...PagePageTabTitlePluginI18n.es,
     ...PageMobilePluginI18n.es,
+    ...PageSpinnerPluginI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -498,6 +503,7 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.fr,
     ...PagePageTabTitlePluginI18n.fr,
     ...PageMobilePluginI18n.fr,
+    ...PageSpinnerPluginI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -580,6 +586,7 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.hr,
     ...PagePageTabTitlePluginI18n.hr,
     ...PageMobilePluginI18n.hr,
+    ...PageSpinnerPluginI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -662,6 +669,7 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.it,
     ...PagePageTabTitlePluginI18n.it,
     ...PageMobilePluginI18n.it,
+    ...PageSpinnerPluginI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -744,5 +752,6 @@ export const mainTranslation = {
     ...PageIconsPluginI18n.ru,
     ...PagePageTabTitlePluginI18n.ru,
     ...PageMobilePluginI18n.ru,
+    ...PageSpinnerPluginI18n.ru,
   },
 };

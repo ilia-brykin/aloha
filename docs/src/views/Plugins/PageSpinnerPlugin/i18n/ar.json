@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_SPINNER_PAGE_TITLE_": "الإضافة ASpinnerPlugin",
+  "_PAGE_PLUGIN_SPINNER_H1_": "الإضافة <span lang=\"en\">ASpinnerPlugin</span>",
+  "_PAGE_PLUGIN_SPINNER_INTRODUCTION_": "<h2 class=\"a_mb_3\">المقدمة</h2><p>يُستخدم <strong lang=\"en\">ASpinnerPlugin</strong> لتعيين القيم الافتراضية لخصائص مكون <strong lang=\"en\">ASpinner</strong>. يتيح ذلك تخصيص الشكل والسلوك الخاص بالمكون مركزيًا، بما في ذلك الفئة، الحجم، محتوى <strong lang=\"en\">HTML</strong>، وخصائص أخرى.</p>",
+  "_PAGE_PLUGIN_SPINNER_CONNECTION_": "<h2 class=\"a_mb_3\">الاتصال</h2><p>للاتصال بالإضافة، أضفها إلى مشروعك وقم بتكوين الخصائص الافتراضية:</p>",
+  "_PAGE_PLUGIN_SPINNER_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">ملاحظات</h3><p>يمكنك تجاوز الخصائص التالية:</p><ul><li><strong lang=\"en\">class</strong>: فئة <strong lang=\"en\">CSS</strong> للمكون (الافتراضي: <strong lang=\"en\">a_spinner</strong>).</li><li><strong lang=\"en\">safeHtml</strong>: محتوى <strong lang=\"en\">HTML</strong> داخل المكون.</li><li><strong lang=\"en\">size</strong>: حجم المكون (الافتراضي: <strong lang=\"en\">undefined</strong>).</li><li><strong lang=\"en\">tag</strong>: وسم <strong lang=\"en\">HTML</strong> المستخدم للتغليف (الافتراضي: <strong lang=\"en\">span</strong>).</li><li><strong lang=\"en\">ariaLabel</strong>: النص لخاصية <strong lang=\"en\">aria-label</strong> (الافتراضي: <strong lang=\"en\">\"_A_SPINNER_LOADING_\"</strong>).</li><li><strong lang=\"en\">extra</strong>: كائن يحتوي على معلمات للترجمات.</li></ul>",
+  "_PAGE_PLUGIN_SPINNER_EXAMPLES_": "<h2 class=\"a_mb_3\">أمثلة الاستخدام</h2><p>بعد توصيل الإضافة، سيستخدم مكون <strong lang=\"en\">ASpinner</strong> القيم الافتراضية المحددة:</p>"
+}

@@ -32,6 +32,11 @@ const ROUTES = [
     component: () => import("../views/Plugins/PageMobilePlugin/PageMobilePlugin.vue"),
   },
   {
+    path: "/spinner-plugin",
+    name: "PageSpinnerPlugin",
+    component: () => import("../views/Plugins/PageSpinnerPlugin/PageSpinnerPlugin.vue"),
+  },
+  {
     path: "/page-tab-title-plugin",
     name: "PagePageTabTitlePlugin",
     component: () => import("../views/Plugins/PagePageTabTitlePlugin/PagePageTabTitlePlugin.vue"),
