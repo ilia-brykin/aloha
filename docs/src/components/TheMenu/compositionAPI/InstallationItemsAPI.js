@@ -2,7 +2,7 @@ export default function InstallationItemsAPI() {
   const installationItems = {
     id: "installation",
     label: "Installation",
-    icon: "ThreeDotsVertical",
+    icon: "BoxArrowInDown",
     children: [
       {
         id: "scale",

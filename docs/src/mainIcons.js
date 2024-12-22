@@ -2,8 +2,9 @@ import ArrowRightCircle from "aloha-svg/dist/js/bootstrap/ArrowRightCircle";
 import ArrowRightCircleFill from "aloha-svg/dist/js/bootstrap/ArrowRightCircleFill";
 import ArrowsCollapse from "aloha-svg/dist/js/bootstrap/ArrowsCollapse";
 import Bell from "aloha-svg/dist/js/bootstrap/Bell";
-import Boxes from "aloha-svg/dist/js/bootstrap/Boxes";
+import BoxArrowInDown from "aloha-svg/dist/js/bootstrap/BoxArrowInDown";
 import BoxArrowUpRight from "aloha-svg/dist/js/bootstrap/BoxArrowUpRight";
+import Boxes from "aloha-svg/dist/js/bootstrap/Boxes";
 import ChatSquareText from "aloha-svg/dist/js/bootstrap/ChatSquareText";
 import ChatSquareTextFill from "aloha-svg/dist/js/bootstrap/ChatSquareTextFill";
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
@@ -57,8 +58,9 @@ export default {
   Star,
   ArrowsCollapse,
   Bell,
-  Boxes,
+  BoxArrowInDown,
   BoxArrowUpRight,
+  Boxes,
   ChatSquareText,
   ChatSquareTextFill,
   CheckLg,
