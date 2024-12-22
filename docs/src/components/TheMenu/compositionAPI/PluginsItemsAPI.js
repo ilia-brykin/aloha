@@ -12,8 +12,15 @@ export default function PluginsItemsAPI() {
         },
       },
       {
+        id: "PageMobilePlugin",
+        label: "Mobile plugin",
+        to: {
+          name: "PageMobilePlugin",
+        },
+      },
+      {
         id: "PagePageTabTitlePlugin",
-        label: "page tab title plugin",
+        label: "Page tab title plugin",
         to: {
           name: "PagePageTabTitlePlugin",
         },

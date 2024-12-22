@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_MOBILE_PAGE_TITLE_": "Dodatak AMobilePlugin",
+  "_PAGE_PLUGIN_MOBILE_H1_": "Dodatak <span lang=\"en\">AMobilePlugin</span>",
+  "_PAGE_PLUGIN_MOBILE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Uvod</h2><p><strong lang=\"en\">AMobilePlugin</strong> omogućuje postavljanje breakpointa za širine mobilnih uređaja. To omogućuje komponentama poput <strong lang=\"en\">ATable</strong> i <strong lang=\"en\">AButton</strong> da reagiraju na promjene širine zaslona. Dodatak također pruža <strong lang=\"en\">compositionAPI</strong> pod nazivom <strong lang=\"en\">AMobileAPI</strong>, iz kojeg možete uvesti <strong lang=\"en\">ref</strong> <strong lang=\"en\">isMobileWidth</strong> i koristiti ga u svojim komponentama za prilagodbu sučelja.</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_": "<h2 class=\"a_mb_3\">Povezivanje</h2><p>Da biste povezali dodatak, dodajte ga svom projektu:</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Napomene</h3><ul><li>Vrijednost breakpointa <strong lang=\"en\">breakpoint</strong> postavlja se u pikselima i definira maksimalnu širinu zaslona za mobilne uređaje.</li><li>Dodatak radi u kombinaciji s komponentama <strong lang=\"en\">aloha-vue</strong> koje podržavaju prilagodbu za mobilne uređaje.</li></ul>",
+  "_PAGE_PLUGIN_MOBILE_EXAMPLES_": "<h2 class=\"a_mb_3\">Primjer korištenja <strong lang=\"en\">AMobilePlugin</strong></h2>"
+}

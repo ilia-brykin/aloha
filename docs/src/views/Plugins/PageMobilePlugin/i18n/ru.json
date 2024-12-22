@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_MOBILE_PAGE_TITLE_": "Плагин AMobilePlugin",
+  "_PAGE_PLUGIN_MOBILE_H1_": "Плагин <span lang=\"en\">AMobilePlugin</span>",
+  "_PAGE_PLUGIN_MOBILE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Введение</h2><p><strong lang=\"en\">AMobilePlugin</strong> предоставляет возможность задать брейкпоинт для ширины мобильных устройств. Это позволяет компонентам, таким как <strong lang=\"en\">ATable</strong> и <strong lang=\"en\">AButton</strong>, реагировать на изменение ширины экрана. Плагин также предоставляет <strong lang=\"en\">compositionAPI</strong> под названием <strong lang=\"en\">AMobileAPI</strong>, из которого можно импортировать <strong lang=\"en\">ref</strong> <strong lang=\"en\">isMobileWidth</strong> и использовать его в ваших компонентах для адаптации интерфейса.</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_": "<h2 class=\"a_mb_3\">Подключение</h2><p>Чтобы подключить плагин, добавьте его в ваш проект:</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Примечания</h3><ul><li>Значение брейкпоинта <strong lang=\"en\">breakpoint</strong> задаётся в пикселях и определяет максимальную ширину экрана для мобильных устройств.</li><li>Плагин работает в сочетании с компонентами <strong lang=\"en\">aloha-vue</strong>, которые поддерживают адаптацию под мобильные устройства.</li></ul>",
+  "_PAGE_PLUGIN_MOBILE_EXAMPLES_": "<h2 class=\"a_mb_3\">Пример использования <strong lang=\"en\">AMobilePlugin</strong></h2>"
+}

@@ -22,12 +22,17 @@ const ROUTES = [
   },
   // Plugins
   {
-    path: "/icon-plugins",
+    path: "/icon-plugin",
     name: "PageIconsPlugin",
     component: () => import("../views/Plugins/PageIconsPlugin/PageIconsPlugin.vue"),
   },
   {
-    path: "/page-tab-title-plugins",
+    path: "/mobile-plugin",
+    name: "PageMobilePlugin",
+    component: () => import("../views/Plugins/PageMobilePlugin/PageMobilePlugin.vue"),
+  },
+  {
+    path: "/page-tab-title-plugin",
     name: "PagePageTabTitlePlugin",
     component: () => import("../views/Plugins/PagePageTabTitlePlugin/PagePageTabTitlePlugin.vue"),
   },

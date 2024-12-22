@@ -31,7 +31,7 @@ APP.use(AIconPlugin, {
   icons: mainIcons,
 });
 APP.use(AMobilePlugin, {
-  breakpoint: 991,
+  breakpoint: 1023,
 });
 APP.use(AModalPlugin, {
   propsDefault: {

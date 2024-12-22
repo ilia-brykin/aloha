@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_MOBILE_PAGE_TITLE_": "الإضافة AMobilePlugin",
+  "_PAGE_PLUGIN_MOBILE_H1_": "الإضافة <span lang=\"en\">AMobilePlugin</span>",
+  "_PAGE_PLUGIN_MOBILE_INTRODUCTION_": "<h2 class=\"a_mb_3\">المقدمة</h2><p>يوفر <strong lang=\"en\">AMobilePlugin</strong> إمكانية تعيين نقطة توقف لعرض الأجهزة المحمولة. يتيح ذلك للمكونات مثل <strong lang=\"en\">ATable</strong> و <strong lang=\"en\">AButton</strong> التفاعل مع تغييرات عرض الشاشة. كما يوفر الإضافة <strong lang=\"en\">compositionAPI</strong> تحت اسم <strong lang=\"en\">AMobileAPI</strong>، والذي يمكن من خلاله استيراد <strong lang=\"en\">ref</strong> <strong lang=\"en\">isMobileWidth</strong> واستخدامه في مكوناتك لتكييف الواجهة.</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_": "<h2 class=\"a_mb_3\">الاتصال</h2><p>للاتصال بالإضافة، أضفها إلى مشروعك:</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">ملاحظات</h3><ul><li>يتم تعيين قيمة نقطة التوقف <strong lang=\"en\">breakpoint</strong> بالبكسل وتحدد الحد الأقصى لعرض الشاشة للأجهزة المحمولة.</li><li>تعمل الإضافة بالتزامن مع مكونات <strong lang=\"en\">aloha-vue</strong> التي تدعم التكيف مع الأجهزة المحمولة.</li></ul>",
+  "_PAGE_PLUGIN_MOBILE_EXAMPLES_": "<h2 class=\"a_mb_3\">مثال على استخدام <strong lang=\"en\">AMobilePlugin</strong></h2>"
+}

@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_MOBILE_PAGE_TITLE_": "Plugin AMobilePlugin",
+  "_PAGE_PLUGIN_MOBILE_H1_": "Plugin <span lang=\"en\">AMobilePlugin</span>",
+  "_PAGE_PLUGIN_MOBILE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introduzione</h2><p><strong lang=\"en\">AMobilePlugin</strong> offre la possibilità di impostare un breakpoint per le larghezze dei dispositivi mobili. Questo consente a componenti come <strong lang=\"en\">ATable</strong> e <strong lang=\"en\">AButton</strong> di reagire alle modifiche della larghezza dello schermo. Il plugin fornisce inoltre una <strong lang=\"en\">compositionAPI</strong> chiamata <strong lang=\"en\">AMobileAPI</strong>, da cui è possibile importare il <strong lang=\"en\">ref</strong> <strong lang=\"en\">isMobileWidth</strong> e utilizzarlo nei propri componenti per adattare l'interfaccia.</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_": "<h2 class=\"a_mb_3\">Connessione</h2><p>Per connettere il plugin, aggiungilo al tuo progetto:</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Note</h3><ul><li>Il valore del breakpoint <strong lang=\"en\">breakpoint</strong> è impostato in pixel e definisce la larghezza massima dello schermo per i dispositivi mobili.</li><li>Il plugin funziona in combinazione con i componenti di <strong lang=\"en\">aloha-vue</strong> che supportano l'adattamento mobile.</li></ul>",
+  "_PAGE_PLUGIN_MOBILE_EXAMPLES_": "<h2 class=\"a_mb_3\">Esempio di utilizzo di <strong lang=\"en\">AMobilePlugin</strong></h2>"
+}
