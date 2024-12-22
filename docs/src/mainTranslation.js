@@ -83,6 +83,7 @@ import PageLoadingI18n from "./views/PageLoading/i18n/PageLoadingI18n";
 import PageTabsI18n from "./views/PageTabs/i18n/PageTabsI18n";
 import PageGroupI18n from "./views/Form/PageGroup/i18n/PageGroupI18n";
 import PageStartI18n from "./views/PageStart/i18n/PageStartI18n";
+import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQuickStartI18n";
 
 export const mainTranslation = {
   ar: {
@@ -162,6 +163,7 @@ export const mainTranslation = {
     ...PageTabsI18n.ar,
     ...PageGroupI18n.ar,
     ...PageStartI18n.ar,
+    ...PageQuickStartI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -240,6 +242,7 @@ export const mainTranslation = {
     ...PageTabsI18n.de,
     ...PageGroupI18n.de,
     ...PageStartI18n.de,
+    ...PageQuickStartI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -318,6 +321,7 @@ export const mainTranslation = {
     ...PageTabsI18n.en,
     ...PageGroupI18n.en,
     ...PageStartI18n.en,
+    ...PageQuickStartI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -396,6 +400,7 @@ export const mainTranslation = {
     ...PageTabsI18n.es,
     ...PageGroupI18n.es,
     ...PageStartI18n.es,
+    ...PageQuickStartI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -474,6 +479,7 @@ export const mainTranslation = {
     ...PageTabsI18n.fr,
     ...PageGroupI18n.fr,
     ...PageStartI18n.fr,
+    ...PageQuickStartI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -552,6 +558,7 @@ export const mainTranslation = {
     ...PageTabsI18n.hr,
     ...PageGroupI18n.hr,
     ...PageStartI18n.hr,
+    ...PageQuickStartI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -630,6 +637,7 @@ export const mainTranslation = {
     ...PageTabsI18n.it,
     ...PageGroupI18n.it,
     ...PageStartI18n.it,
+    ...PageQuickStartI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -708,5 +716,6 @@ export const mainTranslation = {
     ...PageTabsI18n.ru,
     ...PageGroupI18n.ru,
     ...PageStartI18n.ru,
+    ...PageQuickStartI18n.ru,
   },
 };

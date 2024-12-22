@@ -14,6 +14,12 @@ const ROUTES = [
     name: "PageStart",
     component: () => import("../views/PageStart/PageStart.vue"),
   },
+  // Installation
+  {
+    path: "/quick-start",
+    name: "PageQuickStart",
+    component: () => import("../views/Installation/PageQuickStart/PageQuickStart.vue"),
+  },
   {
     path: "/about",
     name: "About",
@@ -434,7 +440,7 @@ const ROUTES = [
     // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom
     redirect: "/404",
-  }
+  },
 ];
 
 const ROUTER = createRouter({
