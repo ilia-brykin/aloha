@@ -1,4 +1,7 @@
 {
-  "_PAGE_QUICK_START_H1_": "Добро пожаловать в <span lang=\"en\">Aloha-Vue</span>",
-  "_PAGE_QUICK_START_PAGE_TITLE_": "Стартовая страница"
+  "_PAGE_QUICK_START_H1_": "البداية السريعة",
+  "_PAGE_QUICK_START_INSTALL_": "<h2 class=\"a_mb_3\">التثبيت</h2><p>يمكن تثبيت <strong lang=\"en\">Aloha-Vue</strong> باستخدام <strong lang=\"en\">npm</strong> أو <strong lang=\"en\">yarn</strong> أو <strong lang=\"en\">pnpm</strong>:</p>",
+  "_PAGE_QUICK_START_STYLES_": "<h2 class=\"a_mb_3\">الأنماط</h2><p>يوفر <strong lang=\"en\">Aloha-Vue</strong> الأنماط بصيغتين:</p><ul><li><strong lang=\"en\">CSS</strong> مسبق التجميع: <code>dist/aloha-vue.css</code></li><li><strong lang=\"en\">SCSS</strong> المصدر: <code>scss/aloha-vue.scss</code></li></ul><h3 class=\"a_mb_3\">مثال: إضافة الأنماط في <code>main.js</code></h3>",
+  "_PAGE_QUICK_START_USE_": "<h2 class=\"a_mb_3\">الاستخدام</h2><h3 class=\"a_mb_3\">مثال: استيراد واستخدام المكون البسيط <strong lang=\"en\">AButton</strong></h3>",
+  "_PAGE_QUICK_START_IN_TEMPLATE_": "في قالب <strong lang=\"en\">Vue</strong> الخاص بك:"
 }

@@ -1,5 +1,5 @@
-export default function RestItemsAPI() {
-  const restItems = {
+export default function InstallationItemsAPI() {
+  const installationItems = {
     id: "installation",
     label: "Installation",
     icon: "ThreeDotsVertical",
@@ -15,6 +15,6 @@ export default function RestItemsAPI() {
   };
 
   return {
-    restItems,
+    installationItems,
   };
 }

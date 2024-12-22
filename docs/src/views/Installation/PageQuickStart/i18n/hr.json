@@ -1,4 +1,7 @@
 {
-  "_PAGE_QUICK_START_H1_": "Добро пожаловать в <span lang=\"en\">Aloha-Vue</span>",
-  "_PAGE_QUICK_START_PAGE_TITLE_": "Стартовая страница"
+  "_PAGE_QUICK_START_H1_": "Brzi Početak",
+  "_PAGE_QUICK_START_INSTALL_": "<h2 class=\"a_mb_3\">Instalacija</h2><p><strong lang=\"en\">Aloha-Vue</strong> može se instalirati korištenjem <strong lang=\"en\">npm</strong>, <strong lang=\"en\">yarn</strong> ili <strong lang=\"en\">pnpm</strong>:</p>",
+  "_PAGE_QUICK_START_STYLES_": "<h2 class=\"a_mb_3\">Stilovi</h2><p><strong lang=\"en\">Aloha-Vue</strong> nudi stilove u dva formata:</p><ul><li>Prekompilirani <strong lang=\"en\">CSS</strong>: <code>dist/aloha-vue.css</code></li><li>Izvorni <strong lang=\"en\">SCSS</strong>: <code>scss/aloha-vue.scss</code></li></ul><h3 class=\"a_mb_3\">Primjer: Dodavanje stilova u <code>main.js</code></h3>",
+  "_PAGE_QUICK_START_USE_": "<h2 class=\"a_mb_3\">Korištenje</h2><h3 class=\"a_mb_3\">Primjer: Uvoz i korištenje jednostavne komponente <strong lang=\"en\">AButton</strong></h3>",
+  "_PAGE_QUICK_START_IN_TEMPLATE_": "U vašem <strong lang=\"en\">Vue</strong> predlošku:"
 }

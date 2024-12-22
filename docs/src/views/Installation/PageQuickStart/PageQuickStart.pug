@@ -1,9 +1,42 @@
 div
   a-page-tab-title(
-    title="_PAGE_QUICK_START_PAGE_TITLE_"
+    title="_PAGE_QUICK_START_H1_"
   )
   a-translation.a_mb_3(
     tag="h1"
     safe-html="_PAGE_QUICK_START_H1_"
   )
-
+  a-translation.a_mb_3(
+    tag="div"
+    safe-html="_PAGE_QUICK_START_INSTALL_"
+  )
+  aloha-highlightjs(
+    :code="installCode"
+    language="markdown"
+  )
+  hr.a_my_5
+  a-translation(
+    tag="div"
+    safe-html="_PAGE_QUICK_START_STYLES_"
+  )
+  aloha-highlightjs(
+    :code="stylesCode"
+    language="javascript"
+  )
+  hr.a_my_5
+  a-translation(
+    tag="div"
+    safe-html="_PAGE_QUICK_START_USE_"
+  )
+  aloha-highlightjs(
+    :code="useInMainCode"
+    language="javascript"
+  )
+  a-translation.a_my_3(
+    tag="p"
+    safe-html="_PAGE_QUICK_START_IN_TEMPLATE_"
+  )
+  aloha-highlightjs(
+    :code="useInHtmlCode"
+    language="html"
+  )

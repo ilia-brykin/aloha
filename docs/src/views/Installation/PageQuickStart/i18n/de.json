@@ -1,4 +1,7 @@
 {
-  "_PAGE_QUICK_START_H1_": "Добро пожаловать в <span lang=\"en\">Aloha-Vue</span>",
-  "_PAGE_QUICK_START_PAGE_TITLE_": "Стартовая страница"
+  "_PAGE_QUICK_START_H1_": "Schnellstart",
+  "_PAGE_QUICK_START_INSTALL_": "<h2 class=\"a_mb_3\">Installation</h2><p><strong lang=\"en\">Aloha-Vue</strong> kann mit <strong lang=\"en\">npm</strong>, <strong lang=\"en\">yarn</strong> oder <strong lang=\"en\">pnpm</strong> installiert werden:</p>",
+  "_PAGE_QUICK_START_STYLES_": "<h2 class=\"a_mb_3\">Stile</h2><p><strong lang=\"en\">Aloha-Vue</strong> bietet Stile in zwei Formaten an:</p><ul><li>Vorkompiliertes <strong lang=\"en\">CSS</strong>: <code>dist/aloha-vue.css</code></li><li>Quell-<strong lang=\"en\">SCSS</strong>: <code>scss/aloha-vue.scss</code></li></ul><h3 class=\"a_mb_3\">Beispiel: Hinzufügen von Stilen in <code>main.js</code></h3>",
+  "_PAGE_QUICK_START_USE_": "<h2 class=\"a_mb_3\">Verwendung</h2><h3 class=\"a_mb_3\">Beispiel: Import und Verwendung einer einfachen Komponente <strong lang=\"en\">AButton</strong></h3>",
+  "_PAGE_QUICK_START_IN_TEMPLATE_": "In Ihrer <strong lang=\"en\">Vue</strong>-Vorlage:"
 }

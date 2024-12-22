@@ -1,4 +1,7 @@
 {
-  "_PAGE_QUICK_START_H1_": "Добро пожаловать в <span lang=\"en\">Aloha-Vue</span>",
-  "_PAGE_QUICK_START_PAGE_TITLE_": "Стартовая страница"
+  "_PAGE_QUICK_START_H1_": "Avvio Rapido",
+  "_PAGE_QUICK_START_INSTALL_": "<h2 class=\"a_mb_3\">Installazione</h2><p><strong lang=\"en\">Aloha-Vue</strong> può essere installato utilizzando <strong lang=\"en\">npm</strong>, <strong lang=\"en\">yarn</strong> o <strong lang=\"en\">pnpm</strong>:</p>",
+  "_PAGE_QUICK_START_STYLES_": "<h2 class=\"a_mb_3\">Stili</h2><p><strong lang=\"en\">Aloha-Vue</strong> fornisce stili in due formati:</p><ul><li><strong lang=\"en\">CSS</strong> precompilato: <code>dist/aloha-vue.css</code></li><li><strong lang=\"en\">SCSS</strong> sorgente: <code>scss/aloha-vue.scss</code></li></ul><h3 class=\"a_mb_3\">Esempio: Aggiungere stili in <code>main.js</code></h3>",
+  "_PAGE_QUICK_START_USE_": "<h2 class=\"a_mb_3\">Uso</h2><h3 class=\"a_mb_3\">Esempio: Importare e utilizzare un componente semplice <strong lang=\"en\">AButton</strong></h3>",
+  "_PAGE_QUICK_START_IN_TEMPLATE_": "Nel tuo template <strong lang=\"en\">Vue</strong>:"
 }
