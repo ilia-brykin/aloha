@@ -5,10 +5,17 @@ export default function PluginsItemsAPI() {
     icon: "Plugin",
     children: [
       {
-        id: "scale",
+        id: "PageIconsPlugin",
         label: "Icons plugin",
         to: {
           name: "PageIconsPlugin",
+        },
+      },
+      {
+        id: "PagePageTabTitlePlugin",
+        label: "page tab title plugin",
+        to: {
+          name: "PagePageTabTitlePlugin",
         },
       },
     ],

@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_PAGE_TITLE_": "الإضافة APageTabTitlePlugin",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_H1_": "الإضافة <span lang=\"en\">APageTabTitlePlugin</span>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_INTRODUCTION_": "<h2 class=\"a_mb_3\">المقدمة</h2><p>تُستخدم <strong lang=\"en\">APageTabTitlePlugin</strong> لتعيين عنوان أساسي <strong lang=\"en\">baseTitle</strong> لعلامة <strong lang=\"en\">&lt;title&gt;</strong> في مشروعك. يتم تعيين الجزء الأساسي من العنوان (مثل اسم التطبيق) مرة واحدة عبر الإضافة وسيتم إضافته تلقائيًا في نهاية عنوان كل صفحة. يتم تعيين الجزء الفريد من العنوان، الخاص بكل صفحة، باستخدام مكون <strong lang=\"en\">APageTabTitle</strong> عبر خاصية <strong lang=\"en\">title</strong>.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_CONNECTION_": "<h2 class=\"a_mb_3\">الاتصال</h2><p>للاتصال بالإضافة، أضفها إلى مشروعك:</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_NOTES_": "<h3 class=\"a_mb_3\">ملاحظات</h3><ul><li>يتم تعيين العنوان الأساسي <strong lang=\"en\">baseTitle</strong> أثناء تهيئة الإضافة ويبقى ثابتًا طوال التطبيق.</li><li>يُضاف العنوان الفريد لكل صفحة باستخدام مكون <strong lang=\"en\">APageTabTitle</strong>.</li></ul>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_": "<h2 class=\"a_mb_3\">مثال على استخدام المكون <strong lang=\"en\">APageTabTitle</strong></h2><p>يسمح مكون <strong lang=\"en\">APageTabTitle</strong> بتعيين الجزء الفريد من العنوان لكل صفحة.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_NOTES_": "<p>في هذا المثال، سيكون العنوان الكامل للصفحة: <strong lang=\"en\">\"Home Page - Documentation aloha-vue\"</strong>.</p>"
+}

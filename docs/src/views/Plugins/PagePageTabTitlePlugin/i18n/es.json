@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_PAGE_TITLE_": "Plugin APageTabTitlePlugin",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_H1_": "Plugin <span lang=\"en\">APageTabTitlePlugin</span>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introducción</h2><p><strong lang=\"en\">APageTabTitlePlugin</strong> se utiliza para establecer un título base <strong lang=\"en\">baseTitle</strong> para la etiqueta <strong lang=\"en\">&lt;title&gt;</strong> en su proyecto. La parte base del título (por ejemplo, el nombre de la aplicación) se establece una vez mediante el plugin y se añadirá automáticamente al final del título de cada página. La parte única del título, específica para cada página, se establece mediante el componente <strong lang=\"en\">APageTabTitle</strong> a través de la propiedad <strong lang=\"en\">title</strong>.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_CONNECTION_": "<h2 class=\"a_mb_3\">Conexión</h2><p>Para conectar el plugin, agréguelo a su proyecto:</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_NOTES_": "<h3 class=\"a_mb_3\">Notas</h3><ul><li>El título base <strong lang=\"en\">baseTitle</strong> se establece durante la inicialización del plugin y permanece inmutable para toda la aplicación.</li><li>El título único de cada página se añade mediante el componente <strong lang=\"en\">APageTabTitle</strong>.</li></ul>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_": "<h2 class=\"a_mb_3\">Ejemplo de uso del componente <strong lang=\"en\">APageTabTitle</strong></h2><p>El componente <strong lang=\"en\">APageTabTitle</strong> permite establecer la parte única del título para cada página.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_NOTES_": "<p>En este ejemplo, el título completo de la página será: <strong lang=\"en\">\"Home Page - Documentation aloha-vue\"</strong>.</p>"
+}

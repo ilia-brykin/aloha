@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_PAGE_TITLE_": "Dodatak APageTabTitlePlugin",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_H1_": "Dodatak <span lang=\"en\">APageTabTitlePlugin</span>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Uvod</h2><p><strong lang=\"en\">APageTabTitlePlugin</strong> koristi se za postavljanje osnovnog naslova <strong lang=\"en\">baseTitle</strong> za oznaku <strong lang=\"en\">&lt;title&gt;</strong> u vašem projektu. Osnovni dio naslova (npr. naziv aplikacije) postavlja se jednom putem dodatka i automatski će se dodati na kraj naslova svake stranice. Jedinstveni dio naslova, specifičan za svaku stranicu, postavlja se pomoću komponente <strong lang=\"en\">APageTabTitle</strong> putem svojstva <strong lang=\"en\">title</strong>.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_CONNECTION_": "<h2 class=\"a_mb_3\">Povezivanje</h2><p>Da biste povezali dodatak, dodajte ga svom projektu:</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_NOTES_": "<h3 class=\"a_mb_3\">Napomene</h3><ul><li>Osnovni naslov <strong lang=\"en\">baseTitle</strong> postavlja se prilikom inicijalizacije dodatka i ostaje nepromijenjen za cijelu aplikaciju.</li><li>Jedinstveni naslov za svaku stranicu dodaje se pomoću komponente <strong lang=\"en\">APageTabTitle</strong>.</li></ul>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_": "<h2 class=\"a_mb_3\">Primjer korištenja komponente <strong lang=\"en\">APageTabTitle</strong></h2><p>Komponenta <strong lang=\"en\">APageTabTitle</strong> omogućuje postavljanje jedinstvenog dijela naslova za svaku stranicu.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_NOTES_": "<p>U ovom primjeru, puni naslov stranice bit će: <strong lang=\"en\">\"Home Page - Documentation aloha-vue\"</strong>.</p>"
+}

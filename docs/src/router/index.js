@@ -20,11 +20,16 @@ const ROUTES = [
     name: "PageQuickStart",
     component: () => import("../views/Installation/PageQuickStart/PageQuickStart.vue"),
   },
-  // Plugins PageIconsPlugin
+  // Plugins
   {
     path: "/icon-plugins",
     name: "PageIconsPlugin",
     component: () => import("../views/Plugins/PageIconsPlugin/PageIconsPlugin.vue"),
+  },
+  {
+    path: "/page-tab-title-plugins",
+    name: "PagePageTabTitlePlugin",
+    component: () => import("../views/Plugins/PagePageTabTitlePlugin/PagePageTabTitlePlugin.vue"),
   },
   {
     path: "/about",
