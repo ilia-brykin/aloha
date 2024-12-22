@@ -1,0 +1,108 @@
+# Menu
+
+- Start
+- Installation
+    - Quick Start
+    - Styling (Как подключить стили)
+    - Configuration
+- Translations
+    - Setting Up (Настройка переводов)
+    - Customizing Translations (Кастомизация текстов)
+    - Supported Languages (Поддерживаемые языки)
+- Plugins
+    - Overview (Обзор плагинов)
+    - How to Use (Как подключить и использовать)
+    - List of Plugins (Список доступных плагинов)
+- Components
+  - Accordion
+  - Alert
+  - Button
+  - Cloak
+  - Confirm
+  - Disclosure
+  - filters
+  - filtersRight
+  - Dropdown
+  - Form
+    - Checkbox
+    - Datepicker
+    - DatepickerRange
+    - Fieldset
+      - Fieldset
+      - Fieldset (children)
+    - Form
+    - Group
+    - Input
+    - Input currency
+    - Input number
+    - JSON
+    - One checkbox
+    - Radio
+    - Rate
+    - Select
+    - Switch
+    - Textarea
+    - Template
+  - GroupButtonDropdown
+  - Link
+  - Link copy
+  - List
+  - Loading
+  - Menu
+    - Menu basic
+  - Modal
+  - Notification
+  - Progress
+    - Progress bar
+    - Progress circle
+  - Show more
+  - Spinner
+  - Tables
+    - Table complex
+    - Table pagination
+    - Table simple
+    - Table sort
+    - Table preview
+    - Table preview down
+    - Table tree
+  - Tabs
+  - Tooltip
+  - Translation
+  - Wizard
+    - Wizard normal
+    - Modal Wizard
+- CSS
+  - Columns
+- Directives
+  - OnHooks
+- Functions
+  - Filters
+    - filterBoolean
+    - filterCapitalize
+    - filterCurrency
+    - filterDate
+    - filterDefaultForEmpty
+    - filterEmail
+    - filterEscapeHTML
+    - filterFileSize
+    - filterFloat
+    - filterJson
+    - filterKeyValue
+    - filterLimitTo
+    - filterLink
+    - filterList
+    - filterLowerCase
+    - filterMask
+    - filterPropertyByValue
+    - filterSearchHighlight
+    - filterUpperCase
+  - Utils
+    - getTotalNestedCount
+    - isArrayOfArrays
+    - isArrayOfStrings
+  - Utils math
+    - isEven
+    - isOdd
+- Rest
+  - Scale
+  - Svg
