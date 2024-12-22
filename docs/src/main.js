@@ -3,12 +3,13 @@ import { createApp } from "vue";
 import router from "./router/index";
 // import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
 import {
-  AIconPlugin,
+  AFiltersPlugin,
   AI18nPlugin,
+  AIconPlugin,
   AMobilePlugin,
   AModalPlugin,
+  APageTabTitlePlugin,
   ASafeHtml,
-  AFiltersPlugin,
 } from "../../src/index";
 import mainIcons from "./mainIcons";
 
@@ -58,6 +59,7 @@ APP.use(AFiltersPlugin, {
     ],
   },
 });
+APP.use(APageTabTitlePlugin, "_PAGE_TITLE_BASE_");
 // APP.use(AGroupButtonDropdownPlugin, {
 //   propsDefault: {
 //     dropdownAttributes: {
