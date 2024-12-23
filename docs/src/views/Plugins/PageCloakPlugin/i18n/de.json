@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_CLOAK_PAGE_TITLE_": "Plugin ACloakPlugin",
+  "_PAGE_PLUGIN_CLOAK_H1_": "Plugin <span lang=\"en\">ACloakPlugin</span>",
+  "_PAGE_PLUGIN_CLOAK_INTRODUCTION_": "<h2 class=\"a_mb_3\">Einführung</h2><p><strong lang=\"en\">ACloakPlugin</strong> wird verwendet, um Standardwerte für die Eigenschaften der <strong lang=\"en\">ACloak</strong>-Komponente festzulegen. Dies ermöglicht eine zentrale Anpassung des Aussehens und Verhaltens des Elements, einschließlich Ausrichtung, Größe, Text und anderer Eigenschaften.</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_": "<h2 class=\"a_mb_3\">Verbindung</h2><p>Um das Plugin zu verbinden, fügen Sie es Ihrem Projekt hinzu und konfigurieren Sie die Standardwerte der Eigenschaften:</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Hinweise</h3><p>Sie können die folgenden Eigenschaften überschreiben:</p><ul><li><strong lang=\"en\">align</strong>: Inhalt-Ausrichtung (Standard: <strong lang=\"en\">\"center\"</strong>).</li><li><strong lang=\"en\">extra</strong>: Objekt mit Parametern für Übersetzungen.</li><li><strong lang=\"en\">size</strong>: Elementgröße (Standard: 6).</li><li><strong lang=\"en\">tag</strong>: <strong lang=\"en\">HTML</strong>-Tag für die Umhüllung (Standard: <strong lang=\"en\">\"div\"</strong>).</li><li><strong lang=\"en\">text</strong>: Im Element angezeigter Text (Standard: <strong lang=\"en\">\"_A_CLOAK_LOADING_\"</strong>).</li><li><strong lang=\"en\">textAlign</strong>: Textausrichtung (Standard: <strong lang=\"en\">\"right\"</strong>).</li></ul>",
+  "_PAGE_PLUGIN_CLOAK_EXAMPLES_": "<h2 class=\"a_mb_3\">Beispiel für die Verwendung</h2><p>Nach dem Verbinden des Plugins verwendet die <strong lang=\"en\">ACloak</strong>-Komponente die angegebenen Standardwerte:</p>"
+}

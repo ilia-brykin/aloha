@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_CLOAK_PAGE_TITLE_": "ACloakPlugin Plugin",
+  "_PAGE_PLUGIN_CLOAK_H1_": "Plugin <span lang=\"en\">ACloakPlugin</span>",
+  "_PAGE_PLUGIN_CLOAK_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introduction</h2><p><strong lang=\"en\">ACloakPlugin</strong> is used to set default values for the props of the <strong lang=\"en\">ACloak</strong> component. This allows centralized customization of the element's appearance and behavior, including alignment, size, text, and other properties.</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_": "<h2 class=\"a_mb_3\">Connection</h2><p>To connect the plugin, add it to your project and configure default props:</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Notes</h3><p>You can override the following properties:</p><ul><li><strong lang=\"en\">align</strong>: Content alignment (default: <strong lang=\"en\">\"center\"</strong>).</li><li><strong lang=\"en\">extra</strong>: Object with parameters for translations.</li><li><strong lang=\"en\">size</strong>: Element size (default: 6).</li><li><strong lang=\"en\">tag</strong>: <strong lang=\"en\">HTML</strong> tag for wrapping (default: <strong lang=\"en\">\"div\"</strong>).</li><li><strong lang=\"en\">text</strong>: Text displayed in the element (default: <strong lang=\"en\">\"_A_CLOAK_LOADING_\"</strong>).</li><li><strong lang=\"en\">textAlign</strong>: Text alignment (default: <strong lang=\"en\">\"right\"</strong>).</li></ul>",
+  "_PAGE_PLUGIN_CLOAK_EXAMPLES_": "<h2 class=\"a_mb_3\">Usage Example</h2><p>After connecting the plugin, the <strong lang=\"en\">ACloak</strong> component will use the specified default values:</p>"
+}

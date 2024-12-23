@@ -30,7 +30,7 @@ export default {
     extra: {
       type: Object,
       required: false,
-      default: undefined,
+      default: cloakPluginOptions.value.propsDefault.extra,
     },
     size: {
       type: [String, Number],
@@ -41,7 +41,7 @@ export default {
     spinnerClass: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: () => spinnerPluginOptions.value.propsDefault.class,
     },
     spinnerSafeHtml: {
       type: String,

@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_CLOAK_PAGE_TITLE_": "Dodatak ACloakPlugin",
+  "_PAGE_PLUGIN_CLOAK_H1_": "Dodatak <span lang=\"en\">ACloakPlugin</span>",
+  "_PAGE_PLUGIN_CLOAK_INTRODUCTION_": "<h2 class=\"a_mb_3\">Uvod</h2><p><strong lang=\"en\">ACloakPlugin</strong> koristi se za postavljanje zadanih vrijednosti za svojstva komponente <strong lang=\"en\">ACloak</strong>. Ovo omogućuje centraliziranu prilagodbu izgleda i ponašanja elementa, uključujući poravnanje, veličinu, tekst i druga svojstva.</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_": "<h2 class=\"a_mb_3\">Povezivanje</h2><p>Da biste povezali dodatak, dodajte ga svom projektu i konfigurirajte zadane vrijednosti svojstava:</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Napomene</h3><p>Možete prilagoditi sljedeća svojstva:</p><ul><li><strong lang=\"en\">align</strong>: Poravnanje sadržaja (zadano: <strong lang=\"en\">\"center\"</strong>).</li><li><strong lang=\"en\">extra</strong>: Objekt s parametrima za prijevode.</li><li><strong lang=\"en\">size</strong>: Veličina elementa (zadano: 6).</li><li><strong lang=\"en\">tag</strong>: <strong lang=\"en\">HTML</strong> oznaka za omotavanje (zadano: <strong lang=\"en\">\"div\"</strong>).</li><li><strong lang=\"en\">text</strong>: Tekst prikazan u elementu (zadano: <strong lang=\"en\">\"_A_CLOAK_LOADING_\"</strong>).</li><li><strong lang=\"en\">textAlign</strong>: Poravnanje teksta (zadano: <strong lang=\"en\">\"right\"</strong>).</li></ul>",
+  "_PAGE_PLUGIN_CLOAK_EXAMPLES_": "<h2 class=\"a_mb_3\">Primjer korištenja</h2><p>Nakon povezivanja dodatka, komponenta <strong lang=\"en\">ACloak</strong> koristit će zadane vrijednosti koje ste postavili:</p>"
+}

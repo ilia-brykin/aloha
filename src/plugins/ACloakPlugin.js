@@ -5,6 +5,7 @@ import {
 export const cloakPluginOptions = ref({
   propsDefault: {
     align: "center",
+    extra: undefined,
     size: 6,
     tag: "div",
     text: "_A_CLOAK_LOADING_",

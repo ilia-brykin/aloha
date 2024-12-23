@@ -22,6 +22,11 @@ const ROUTES = [
   },
   // Plugins
   {
+    path: "/cloak-plugin",
+    name: "PageCloakPlugin",
+    component: () => import("../views/Plugins/PageCloakPlugin/PageCloakPlugin.vue"),
+  },
+  {
     path: "/icon-plugin",
     name: "PageIconsPlugin",
     component: () => import("../views/Plugins/PageIconsPlugin/PageIconsPlugin.vue"),
