@@ -1,7 +1,9 @@
 export default function CodeAPI() {
   const connectionCode = `import { createApp } from "vue";
 import App from "./App.vue";
-import { AMobilePlugin } from "aloha-vue";
+import {
+  AMobilePlugin,
+} from "aloha-vue";
 
 const app = createApp(App);
 

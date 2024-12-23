@@ -89,6 +89,7 @@ import PagePageTabTitlePluginI18n from "./views/Plugins/PagePageTabTitlePlugin/i
 import PageMobilePluginI18n from "./views/Plugins/PageMobilePlugin/i18n/PageMobilePluginI18n";
 import PageSpinnerPluginI18n from "./views/Plugins/PageSpinnerPlugin/i18n/PageSpinnerPluginI18n";
 import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
+import PageLoadingPluginI18n from "./views/Plugins/PageLoadingPlugin/i18n/PageLoadingPluginI18n";
 
 export const mainTranslation = {
   ar: {
@@ -174,6 +175,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.ar,
     ...PageSpinnerPluginI18n.ar,
     ...PageCloakPluginI18n.ar,
+    ...PageLoadingPluginI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -258,6 +260,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.de,
     ...PageSpinnerPluginI18n.de,
     ...PageCloakPluginI18n.de,
+    ...PageLoadingPluginI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -342,6 +345,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.en,
     ...PageSpinnerPluginI18n.en,
     ...PageCloakPluginI18n.en,
+    ...PageLoadingPluginI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -426,6 +430,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.es,
     ...PageSpinnerPluginI18n.es,
     ...PageCloakPluginI18n.es,
+    ...PageLoadingPluginI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -510,6 +515,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.fr,
     ...PageSpinnerPluginI18n.fr,
     ...PageCloakPluginI18n.fr,
+    ...PageLoadingPluginI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -594,6 +600,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.hr,
     ...PageSpinnerPluginI18n.hr,
     ...PageCloakPluginI18n.hr,
+    ...PageLoadingPluginI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -678,6 +685,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.it,
     ...PageSpinnerPluginI18n.it,
     ...PageCloakPluginI18n.it,
+    ...PageLoadingPluginI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -762,5 +770,6 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.ru,
     ...PageSpinnerPluginI18n.ru,
     ...PageCloakPluginI18n.ru,
+    ...PageLoadingPluginI18n.ru,
   },
 };

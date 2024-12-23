@@ -19,6 +19,13 @@ export default function PluginsItemsAPI() {
         },
       },
       {
+        id: "PageLoadingPlugin",
+        label: "Loading plugin",
+        to: {
+          name: "PageLoadingPlugin",
+        },
+      },
+      {
         id: "PageMobilePlugin",
         label: "Mobile plugin",
         to: {

@@ -2,32 +2,40 @@ export default function CodeAPI() {
   const connectionCode = `import { createApp } from "vue";
 import App from "./App.vue";
 import {
-  APageTabTitlePlugin,
+  ALoadingPlugin,
 } from "aloha-vue";
 
 const app = createApp(App);
 
-app.use(APageTabTitlePlugin, "Documentation aloha-vue");
+app.use(ALoadingPlugin, {
+  propsDefault: {
+    align: "left",
+    size: 8,
+    tag: "section",
+    text: "Loading, please wait...",
+    textAlign: "center",
+  },
+});
 
 app.mount("#app");`;
 
   const useCode = `<template>
   <div>
-    <a-page-tab-title title="Home Page"></a-page-tab-title>
-    <h1>Welcome!</h1>
-    <p>This is a demo page.</p>
+    <a-loading :is-loading="true">
+      <div>Aloha</div>
+    </a-loading>
   </div>
 </template>
 
 <script>
 import { 
-  APageTabTitle,
+  ALoading,
 } from "aloha-vue";
 
 export default {
-  name: "HomePage",
+  name: "LoadingExample",
   components: {
-    APageTabTitle,
+    ALoading,
   },
 };
 </script>`;

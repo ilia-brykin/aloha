@@ -1,7 +1,9 @@
 export default function CodeAPI() {
   const connectionCode = `import { createApp } from "vue";
 import App from "./App.vue";
-import ASpinnerPlugin from "aloha-vue";
+import {
+  ASpinnerPlugin,
+} from "aloha-vue";
 
 const app = createApp(App);
 

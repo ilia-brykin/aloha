@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_LOADING_PAGE_TITLE_": "الإضافة ALoadingPlugin",
+  "_PAGE_PLUGIN_LOADING_H1_": "الإضافة <span lang=\"en\">ALoadingPlugin</span>",
+  "_PAGE_PLUGIN_LOADING_INTRODUCTION_": "<h2 class=\"a_mb_3\">المقدمة</h2><p><strong lang=\"en\">ALoadingPlugin</strong> يُستخدم لتعيين القيم الافتراضية لخصائص مكون <strong lang=\"en\">ALoading</strong>. يتيح ذلك تخصيص المظهر والسلوك المركزي، بما في ذلك المحاذاة، الحجم، النص، والخصائص الأخرى.</p>",
+  "_PAGE_PLUGIN_LOADING_CONNECTION_": "<h2 class=\"a_mb_3\">الاتصال</h2><p>للاتصال بالإضافة، أضفها إلى مشروعك وقم بتكوين الخصائص الافتراضية:</p>",
+  "_PAGE_PLUGIN_LOADING_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">ملاحظات</h3><p>يمكنك تجاوز الخصائص التالية:</p><ul><li><strong lang=\"en\">align</strong>: محاذاة المحتوى (الافتراضي: <strong lang=\"en\">\"center\"</strong>).</li><li><strong lang=\"en\">extra</strong>: كائن يحتوي على معلمات للترجمات.</li><li><strong lang=\"en\">size</strong>: حجم العنصر (الافتراضي: 6).</li><li><strong lang=\"en\">tag</strong>: وسم <strong lang=\"en\">HTML</strong> للتغليف (الافتراضي: <strong lang=\"en\">\"div\"</strong>).</li><li><strong lang=\"en\">text</strong>: النص المعروض في العنصر (الافتراضي: <strong lang=\"en\">\"_A_LOADING_LOADING_\"</strong>).</li><li><strong lang=\"en\">textAlign</strong>: محاذاة النص (الافتراضي: <strong lang=\"en\">\"right\"</strong>).</li></ul>",
+  "_PAGE_PLUGIN_LOADING_EXAMPLES_": "<h2 class=\"a_mb_3\">مثال الاستخدام</h2><p>بعد توصيل الإضافة، سيستخدم مكون <strong lang=\"en\">ALoading</strong> القيم الافتراضية المحددة:</p>"
+}

@@ -32,6 +32,11 @@ const ROUTES = [
     component: () => import("../views/Plugins/PageIconsPlugin/PageIconsPlugin.vue"),
   },
   {
+    path: "/loading-plugin",
+    name: "PageLoadingPlugin",
+    component: () => import("../views/Plugins/PageLoadingPlugin/PageLoadingPlugin.vue"),
+  },
+  {
     path: "/mobile-plugin",
     name: "PageMobilePlugin",
     component: () => import("../views/Plugins/PageMobilePlugin/PageMobilePlugin.vue"),

@@ -31,7 +31,7 @@ export default {
     extra: {
       type: Object,
       required: false,
-      default: undefined,
+      default: () => loadingPluginOptions.value.propsDefault.extra,
     },
     isLoading: {
       type: Boolean,
