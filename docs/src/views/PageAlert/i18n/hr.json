@@ -35,7 +35,7 @@
   "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_": "Objekt koji definira svojstva gumba za zatvaranje.",
   "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_": "Zatvaranje upozorenja moguće ili ne.",
   "_A_ALERT_PROPS_REMOVE_ALERT_ON_CLOSE_DESCRIPTION_": "Upravljanje zatvaranjem upozorenja izvan komponente.",
-  "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_": "Prikazivanje ikone uz sadržaj upozorenja.",
+  "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_": "Prikazivanje ikone uz sadržaj upozorenja.",
   "_A_ALERT_PROPS_HTML_DESCRIPTION_": "HTML za prikazivanje unutar upozorenja.",
   "_A_ALERT_PROPS_ICON_CLASS_DESCRIPTION_": "Dodatna CSS klasa za ikonu upozorenja.",
   "_A_ALERT_PROPS_ICON_DESCRIPTION_": "Ikona. Bilo koja ikona dostupna za <strong>AIcon</strong> može biti korištena i za upozorenje.",

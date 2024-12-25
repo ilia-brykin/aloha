@@ -5,12 +5,13 @@ export default function PluginsItemsAPI() {
     icon: "Plugin",
     children: [
       {
-        id: "PageCloakPlugin",
-        label: "Cloak plugin",
+        id: "PageAlertPlugin",
+        label: "Alert plugin",
         to: {
-          name: "PageCloakPlugin",
+          name: "PageAlertPlugin",
         },
       },
+
       {
         id: "PageIconsPlugin",
         label: "Icons plugin",

@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "Plugin AAlertPlugin",
+  "_PAGE_PLUGIN_ALERT_H1_": "Plugin <span lang=\"en\">AAlertPlugin</span>",
+  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introduzione</h2><p><strong lang=\"en\">AAlertPlugin</strong> viene utilizzato per impostare valori predefiniti per le proprietà del componente <a href=\"/aloha/alert\" lang=\"en\">AAlert</a>, nonché per definire icone standard per diversi tipi di avvisi. Questo consente una personalizzazione centralizzata del comportamento e dell'aspetto degli avvisi.</p>",
+  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">Connessione</h2><p>Per connettere il plugin, usa il seguente codice:</p>",
+  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">Note</h3>",
+  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>Questo codice mostra i valori predefiniti per tutte le proprietà e le icone standard utilizzate per diversi tipi di avvisi.</p>"
+}

@@ -22,6 +22,11 @@ const ROUTES = [
   },
   // Plugins
   {
+    path: "/alert-plugin",
+    name: "PageAlertPlugin",
+    component: () => import("../views/Plugins/PageAlertPlugin/PageAlertPlugin.vue"),
+  },
+  {
     path: "/cloak-plugin",
     name: "PageCloakPlugin",
     component: () => import("../views/Plugins/PageCloakPlugin/PageCloakPlugin.vue"),

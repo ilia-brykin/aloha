@@ -17,10 +17,6 @@ import {
 export default {
   name: "AAlert",
   props: {
-    alwaysTranslate: {
-      type: Boolean,
-      required: false,
-    },
     alertClass: {
       type: [String, Object],
       required: false,
@@ -30,6 +26,10 @@ export default {
       type: [String, Object],
       required: false,
       default: () => alertPluginOptions.value.propsDefault.alertContentClass,
+    },
+    alwaysTranslate: {
+      type: Boolean,
+      required: false,
     },
     btnCloseAttributes: {
       type: Object,
@@ -44,7 +44,7 @@ export default {
     extra: {
       type: Object,
       required: false,
-      default: undefined,
+      default: () => alertPluginOptions.value.propsDefault.extra,
     },
     html: {
       type: String,

@@ -36,10 +36,10 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "show-icon",
-      description: "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_",
-      type: "Boolean",
-      default: false,
+      name: "extra",
+      description: "_A_GLOBAL_PROPS_EXTRA_DESCRIPTION_",
+      type: "Object",
+      default: undefined,
       required: false,
     },
     {
@@ -82,6 +82,13 @@ export default function PropsAPI() {
       description: "_A_ALERT_PROPS_SAFE_HTML_DESCRIPTION_",
       type: "String",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "show-icon",
+      description: "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
       required: false,
     },
     {

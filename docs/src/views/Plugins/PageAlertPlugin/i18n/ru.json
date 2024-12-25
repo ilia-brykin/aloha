@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "Плагин AAlertPlugin",
+  "_PAGE_PLUGIN_ALERT_H1_": "Плагин <span lang=\"en\">AAlertPlugin</span>",
+  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">Введение</h2><p><strong lang=\"en\">AAlertPlugin</strong> используется для задания значений по умолчанию для пропсов компонента <a href=\"/aloha/alert\" lang=\"en\">AAlert</a>, а также для определения стандартных иконок для различных типов оповещений. Это позволяет централизованно настроить поведение и внешний вид оповещений.</p>",
+  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">Подключение</h2><p>Для подключения плагина используйте следующий код:</p>",
+  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">Примечания</h3>",
+  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>Этот код показывает значения по умолчанию для всех пропсов и стандартные иконки, которые используются для различных типов оповещений.</p>"
+}

@@ -34,7 +34,7 @@
   "_A_ALERT_PROPS_ALERT_CONTENT_CLASS_DESCRIPTION_": "Zusätzliche CSS-Klasse für Inhalt",
   "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_": "Ein Objekt, das die Eigenschaften des Schließen-Buttons definiert.",
   "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_": "Ob die Warnung geschlossen werden kann",
-  "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_": "Ob das Typ-Icon angezeigt wird",
+  "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_": "Ob das Typ-Icon angezeigt wird",
   "_A_ALERT_PROPS_HTML_DESCRIPTION_": "HTML, das innerhalb der Komponente angezeigt werden soll",
   "_A_ALERT_PROPS_ICON_CLASS_DESCRIPTION_": "Zusätzliche CSS-Klasse für das Icon",
   "_A_ALERT_PROPS_ICON_DESCRIPTION_": "Icon. Jedes für die <strong>AIcon</strong>-Komponente verfügbare Icon kann verwendet werden",

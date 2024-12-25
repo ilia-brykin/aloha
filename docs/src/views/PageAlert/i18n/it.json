@@ -34,7 +34,7 @@
   "_A_ALERT_PROPS_ALERT_CONTENT_CLASS_DESCRIPTION_": "Classe CSS aggiuntiva per il contenuto",
   "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_": "Un oggetto che definisce le proprietà del pulsante di chiusura.",
   "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_": "Se l'avviso può essere chiuso",
-  "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_": "Se viene visualizzata un'icona di tipo",
+  "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_": "Se viene visualizzata un'icona di tipo",
   "_A_ALERT_PROPS_HTML_DESCRIPTION_": "HTML da mostrare all'interno del componente",
   "_A_ALERT_PROPS_ICON_CLASS_DESCRIPTION_": "Classe CSS aggiuntiva per l'icona",
   "_A_ALERT_PROPS_ICON_DESCRIPTION_": "Icona. È possibile utilizzare qualsiasi icona disponibile per il componente <strong>AIcon</strong>",

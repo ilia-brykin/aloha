@@ -34,7 +34,7 @@
   "_A_ALERT_PROPS_ALERT_CONTENT_CLASS_DESCRIPTION_": "Additional CSS class for content",
   "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_": "An object that defines the properties of the close button.",
   "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_": "Whether alert can be dismissed",
-  "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_": "Whether a type icon is displayed",
+  "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_": "Whether a type icon is displayed",
   "_A_ALERT_PROPS_HTML_DESCRIPTION_": "HTML to be shown inside the component",
   "_A_ALERT_PROPS_ICON_CLASS_DESCRIPTION_": "Additional CSS class for the icon",
   "_A_ALERT_PROPS_ICON_DESCRIPTION_": "Icon. Any icon available for the <strong>AIcon</strong> component can be used",

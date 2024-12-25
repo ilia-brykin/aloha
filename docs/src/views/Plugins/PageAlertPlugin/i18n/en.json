@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "AAlertPlugin Plugin",
+  "_PAGE_PLUGIN_ALERT_H1_": "Plugin <span lang=\"en\">AAlertPlugin</span>",
+  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">Introduction</h2><p><strong lang=\"en\">AAlertPlugin</strong> is used to set default values for the props of the <a href=\"/aloha/alert\" lang=\"en\">AAlert</a> component, as well as to define standard icons for various types of alerts. This allows centralized customization of the behavior and appearance of alerts.</p>",
+  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">Connection</h2><p>To connect the plugin, use the following code:</p>",
+  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">Notes</h3>",
+  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>This code shows the default values for all props and the standard icons used for various types of alerts.</p>"
+}

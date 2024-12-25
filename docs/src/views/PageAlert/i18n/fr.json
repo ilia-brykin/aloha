@@ -34,7 +34,7 @@
   "_A_ALERT_PROPS_ALERT_CONTENT_CLASS_DESCRIPTION_": "Classe CSS supplémentaire pour le contenu",
   "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_": "Un objet qui définit les propriétés du bouton de fermeture.",
   "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_": "Indique si l'alerte peut être fermée",
-  "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_": "Indique si une icône de type est affichée",
+  "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_": "Indique si une icône de type est affichée",
   "_A_ALERT_PROPS_HTML_DESCRIPTION_": "HTML à afficher à l'intérieur du composant",
   "_A_ALERT_PROPS_ICON_CLASS_DESCRIPTION_": "Classe CSS supplémentaire pour l'icône",
   "_A_ALERT_PROPS_ICON_DESCRIPTION_": "Icône. Toute icône disponible pour le composant <strong>AIcon</strong> peut être utilisée",

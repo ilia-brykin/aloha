@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_ALERT_PAGE_TITLE_": "Plugin AAlertPlugin",
+  "_PAGE_PLUGIN_ALERT_H1_": "Plugin <span lang=\"en\">AAlertPlugin</span>",
+  "_PAGE_PLUGIN_ALERT_INTRODUCTION_": "<h2 class=\"a_mb_3\">Einführung</h2><p><strong lang=\"en\">AAlertPlugin</strong> wird verwendet, um Standardwerte für die Eigenschaften der <a href=\"/aloha/alert\" lang=\"en\">AAlert</a>-Komponente festzulegen sowie Standardicons für verschiedene Arten von Warnungen zu definieren. Dies ermöglicht eine zentrale Anpassung des Verhaltens und Aussehens von Warnungen.</p>",
+  "_PAGE_PLUGIN_ALERT_CONNECTION_": "<h2 class=\"a_mb_3\">Verbindung</h2><p>Um das Plugin zu verbinden, verwenden Sie den folgenden Code:</p>",
+  "_PAGE_PLUGIN_ALERT_NOTES_": "<h3 class=\"a_mb_3\">Hinweise</h3>",
+  "_PAGE_PLUGIN_ALERT_NOTES_AFTER_": "<p>Dieser Code zeigt die Standardwerte für alle Eigenschaften sowie die Standardicons, die für verschiedene Arten von Warnungen verwendet werden.</p>"
+}

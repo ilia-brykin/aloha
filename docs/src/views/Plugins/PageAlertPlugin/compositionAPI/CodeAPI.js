@@ -1,8 +1,28 @@
+export default function CodeAPI() {
+  const connectionCode = `import { createApp } from "vue";
+import App from "./App.vue";
 import {
-  ref,
-} from "vue";
+  AAlertPlugin,
+} from "aloha-vue";
+import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
 
-import CheckCircleFill from "aloha-svg/dist/js/bootstrap/CheckCircleFill";
+const app = createApp(App);
+
+app.use(AAlertPlugin, {
+  propsDefault: {
+    closable: true,
+    textClose: "Close",
+    type: "info",
+    alertClass: "custom-alert-class",
+  },
+  icons: {
+    info: CheckLg,
+  },
+});
+
+app.mount("#app");`;
+
+  const pluginCode = `import CheckCircleFill from "aloha-svg/dist/js/bootstrap/CheckCircleFill";
 import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
 import InfoCircleFill from "aloha-svg/dist/js/bootstrap/InfoCircleFill";
 import XCircleFill from "aloha-svg/dist/js/bootstrap/XCircleFill";
@@ -31,21 +51,10 @@ export const alertPluginOptions = ref({
     info: InfoCircleFill,
     warning: ExclamationCircleFill,
   },
-});
+});`;
 
-
-export default {
-  install: (app, {
-    propsDefault = {},
-    icons = {},
-  } = {}) => {
-    alertPluginOptions.value.propsDefault = {
-      ...alertPluginOptions.value.propsDefault,
-      ...propsDefault,
-    };
-    alertPluginOptions.value.icons = {
-      ...alertPluginOptions.value.icons,
-      ...icons,
-    };
-  },
-};
+  return {
+    connectionCode,
+    pluginCode,
+  };
+}

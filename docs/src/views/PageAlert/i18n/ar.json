@@ -34,7 +34,7 @@
   "_A_ALERT_PROPS_ALERT_CONTENT_CLASS_DESCRIPTION_": "فئة CSS إضافية للمحتوى",
   "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_": "كائن يحدد خصائص زر الإغلاق.",
   "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_": "ما إذا كان يمكن إغلاق التنبيه",
-  "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_": "ما إذا كان يتم عرض أيقونة نوع",
+  "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_": "ما إذا كان يتم عرض أيقونة نوع",
   "_A_ALERT_PROPS_HTML_DESCRIPTION_": "HTML لعرضه داخل المكون",
   "_A_ALERT_PROPS_ICON_CLASS_DESCRIPTION_": "فئة CSS إضافية للأيقونة",
   "_A_ALERT_PROPS_ICON_DESCRIPTION_": "أيقونة. يمكن استخدام أي أيقونة متاحة لمكون <strong>AIcon</strong>",
