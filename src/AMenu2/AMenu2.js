@@ -239,7 +239,6 @@ export default {
       setListenerForKeydownMobile,
     } = KeydownAPI(props, {
       closeMenu,
-      dataProParent,
       isMenuOpen,
       isSubMenuOpen,
       panelParentsOpen,

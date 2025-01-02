@@ -7,7 +7,6 @@ import {
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
 
 import AKeysCode from "../../const/AKeysCode";
-import AKeyId from "../../const/AKeyId";
 import {
   getElementId,
 } from "../utils/utils";
@@ -15,13 +14,11 @@ import {
   focusableSelector,
 } from "../../const/AFocusableElements";
 import {
-  findIndex,
   forEach,
 } from "lodash-es";
 
 export default function KeydownAPI(props, {
   closeMenu = () => {},
-  dataProParent = computed(() => ({})),
   isMenuOpen = computed(() => false),
   isSubMenuOpen = computed(() => false),
   panelParentsOpen = ref([]),
@@ -127,28 +124,6 @@ export default function KeydownAPI(props, {
     }
   };
 
-  const setFocusToNextParentLinkInMainPanel = ({ panelId }) => {
-    let linkNextId = panelId;
-    const INDEX_ACTIVE_LINK_IN_MAIN_PANEL = findIndex(dataProParent.value.main, [AKeyId, panelId]);
-    if (INDEX_ACTIVE_LINK_IN_MAIN_PANEL === -1) {
-      return;
-    }
-    if (INDEX_ACTIVE_LINK_IN_MAIN_PANEL !== dataProParent.value.main.length - 1) { // not last link
-      linkNextId = dataProParent.value.main?.[INDEX_ACTIVE_LINK_IN_MAIN_PANEL + 1]?.[AKeyId];
-    }
-
-    const LINK_ID = getElementId({
-      menuId: menuId.value,
-      id: linkNextId,
-      suffix: "link",
-    });
-    const LINK_ELEMENT = document.getElementById(LINK_ID);
-    if (LINK_ELEMENT) {
-      togglePanel({ parentIds: [], withoutFocus: true });
-      LINK_ELEMENT.focus();
-    }
-  };
-
   const setFocus = ({ EVENT, PANEL_ELEMENT, panelIndex, panelId }) => {
     const LINKS = PANEL_ELEMENT.querySelectorAll("a.a_menu_2__link");
     if (EVENT.shiftKey) { // Shift + Tab
@@ -167,7 +142,7 @@ export default function KeydownAPI(props, {
         } else if (panelIndex > 0) {
           setFocusToLinkInPreviousSubPanel({ panelIndex, panelId });
         } else {
-          setFocusToNextParentLinkInMainPanel({ panelId });
+          setFocusToParentLinkInMainPanel({ panelId });
         }
         EVENT.preventDefault();
       }
