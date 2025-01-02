@@ -7,9 +7,13 @@
 ---
 # Versions
 
+## 1.2.284
+
+- Improved `focus` management for the `AMenu2` component, ensuring better accessibility when the menu is closed.
+
 ## 1.2.283
 
-- Fixed the `HTML` structure of the `AMenu2` component to improve accessibility and ensure compliance with accessibility standards.
+- Fixed the `HTML` structure of the  component to improve accessibility and ensure compliance with accessibility standards.
 
 ## 1.2.282
 

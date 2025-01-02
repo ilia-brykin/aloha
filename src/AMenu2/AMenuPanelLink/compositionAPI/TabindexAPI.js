@@ -4,9 +4,7 @@ import {
   toRef,
 } from "vue";
 
-export default function TabindexAPI(props, {
-  isLinkOpen = computed(() => false),
-}) {
+export default function TabindexAPI(props) {
   const isLinkInSearchPanel = toRef(props, "isLinkInSearchPanel");
   const isPanelOpen = toRef(props, "isPanelOpen");
 
@@ -18,24 +16,18 @@ export default function TabindexAPI(props, {
     if (isLinkInSearchPanel.value) {
       return 0;
     }
-    if (!isMenuOpen.value) {
-      if (isPanelMain.value && isPanelOpen.value) {
-        return 0;
-      }
-      if (isPanelMain.value || isChildPanelOpen.value) {
-        if (isLinkOpen.value) {
-          return 0;
-        }
-        return -1;
-      }
-      if (isPanelOpen.value) {
-        return 0;
-      }
-      return -1;
+    if (isPanelMain.value) {
+      return 0;
     }
     if (isPanelOpen.value) {
       return 0;
     }
+    if (!isMenuOpen.value) {
+      if (isChildPanelOpen.value) {
+        return 0;
+      }
+    }
+
     return -1;
   });
 

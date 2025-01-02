@@ -232,11 +232,19 @@ export default {
     } = ToggleAPI(props);
 
     const {
+      isDesktopSubMenuVisibleWhenMenuClosed,
       menuRef,
-      removeListenerForKeydown,
-      setListenerForKeydown,
+      removeListenerForKeydownDesktop,
+      removeListenerForKeydownMobile,
+      setListenerForKeydownDesktop,
+      setListenerForKeydownMobile,
     } = KeydownAPI(props, {
       closeMenu,
+      dataProParent,
+      isMenuOpen,
+      isSubMenuOpen,
+      panelParentsOpen,
+      togglePanel,
     });
 
     const {
@@ -263,7 +271,7 @@ export default {
       isMenuInitialized,
       isMobileWidth,
     } = ResizeAPI(props, {
-      removeListenerForKeydown,
+      removeListenerForKeydownMobile,
       toggleMenu,
     });
 
@@ -336,9 +344,9 @@ export default {
       closeAllPanels();
       if (newValue) {
         destroyPopover();
-        setListenerForKeydown();
+        setListenerForKeydownMobile();
       } else {
-        removeListenerForKeydown();
+        removeListenerForKeydownMobile();
       }
     });
 
@@ -346,6 +354,14 @@ export default {
       startPopper();
     }, {
       deep: true,
+    });
+
+    watch(isDesktopSubMenuVisibleWhenMenuClosed, newValue => {
+      if (newValue) {
+        setListenerForKeydownDesktop();
+      } else {
+        removeListenerForKeydownDesktop();
+      }
     });
 
     provide("activeRoutesIds", computed(() => activeRoutesIds.value));
@@ -364,7 +380,8 @@ export default {
       removeBodyClasses();
       destroyEventBusUpdateViewOnResize();
       destroyPopover();
-      removeListenerForKeydown();
+      removeListenerForKeydownDesktop();
+      removeListenerForKeydownMobile();
     });
 
     return {

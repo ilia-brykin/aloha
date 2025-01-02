@@ -107,9 +107,7 @@ export default {
 
     const {
       tabindex,
-    } = TabindexAPI(props, {
-      isLinkOpen,
-    });
+    } = TabindexAPI(props);
 
     const {
       countChildren,

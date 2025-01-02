@@ -38,7 +38,7 @@ export default function PanelsAPI(props, {
     resetSearch();
   };
 
-  const togglePanel = ({ parentIds, parentId, isLinkInSearchPanel }) => {
+  const togglePanel = ({ parentIds, parentId, isLinkInSearchPanel, withoutFocus }) => {
     if (parentIds) {
       panelParentsOpen.value = parentIds;
     } else {
@@ -50,10 +50,12 @@ export default function PanelsAPI(props, {
       panelParentsOpen.value = PANEL_PARENTS_OPEN;
     }
 
-    setFocusToFirstLinkInPanel({
-      menuId: menuId.value,
-      panelId: last(panelParentsOpen.value) || "",
-    });
+    if (!withoutFocus) {
+      setFocusToFirstLinkInPanel({
+        menuId: menuId.value,
+        panelId: last(panelParentsOpen.value) || "",
+      });
+    }
     resetSearch();
   };
 
