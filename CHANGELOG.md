@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.2.285
+
+- Minor fix to the `focus` logic in the `AMenu2` component for improved usability and accessibility.
+
 ## 1.2.284
 
 - Improved `focus` management for the `AMenu2` component, ensuring better accessibility when the menu is closed.
