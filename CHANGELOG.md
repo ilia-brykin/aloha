@@ -7,6 +7,18 @@
 ---
 # Versions
 
+## 2.0.0
+
+- Major refactoring and expanded documentation.
+- Migration Guide:
+  - `AMenu2` → `AMenu`: Component renamed, updated CSS classes, and variables.
+  - `ATinymce` removed: License change to `GPL-2.0-or-later`.
+- Style updates:
+  - Fixed `.a_columns_gab_` typo to `.a_columns_gap_`.
+  - Integrated `aloha-css` styles into `aloha-vue`.
+- Improved import system: Direct import for all components, directives, and plugins.
+- Dependency updates for compatibility.
+
 ## 1.2.285
 
 - Minor fix to the `focus` logic in the `AMenu2` component for improved usability and accessibility.
