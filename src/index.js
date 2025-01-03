@@ -32,7 +32,6 @@ export { default as ALink } from "./ALink/ALink";
 export { default as ALinkCopy } from "./ALinkCopy/ALinkCopy";
 export { default as AList } from "./AList/AList";
 export { default as ALoading } from "./ALoading/ALoading";
-export { default as AMenu } from "./AMenu/AMenu";
 export { default as AMenu2 } from "./AMenu2/AMenu2";
 export { default as AModal } from "./AModal/AModal";
 export { default as AModalConfirm } from "./AModalConfirm/AModalConfirm";
