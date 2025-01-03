@@ -86,7 +86,9 @@ export default {
     };
   },
   render() {
-    return h(this.componentTypesMapping[this.filter.type], {
+    const COMPONENT = this.componentTypesMapping()[this.filter.type];
+
+    return h(COMPONENT, {
       idPrefix: this.idPrefix,
       modelValue: this.isContainer ? this.unappliedModel : this.unappliedModel[this.filter.id],
       "onUpdate:modelValue": this.onUpdateModelFiltersLocal,

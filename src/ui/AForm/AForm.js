@@ -14,6 +14,9 @@ import RequiredAPI from "./compositionAPI/RequiredAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 
 import {
+  formPluginOptions,
+} from "../../plugins/AFormPlugin";
+import {
   typesContainer,
 } from "../const/AUiTypes";
 import {
@@ -118,10 +121,12 @@ export default {
       isRequiredLocal,
     } = RequiredAPI(props);
 
-    const componentTypesMapping = {
+    const componentTypesMapping = () => ({
       ...AUiComponents,
       ...AUiContainerComponents,
-    };
+      ...formPluginOptions.components,
+      ...formPluginOptions.containerComponents,
+    });
 
     return {
       attributesToExcludeFromRender,
@@ -175,7 +180,8 @@ export default {
           } else if (item.classColumn) {
             classColumn = item.classColumn;
           }
-          return h(this.componentTypesMapping[item.type], {
+          const COMPONENT = this.componentTypesMapping()[item.type];
+          return h(COMPONENT, {
             key: itemIndex,
             alwaysTranslate: this.alwaysTranslate,
             modelValue: IS_CONTAINER ? this.modelValueLocal : get(this.modelValueLocal, item.id),

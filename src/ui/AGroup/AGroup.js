@@ -17,6 +17,9 @@ import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttri
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
+  formPluginOptions,
+} from "../../plugins/AFormPlugin";
+import {
   typesContainer,
 } from "../const/AUiTypes";
 import {
@@ -163,9 +166,11 @@ export default {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
-    const componentTypesMapping = {
-      ...AUiComponents
-    };
+    const componentTypesMapping = () => ({
+      ...AUiComponents,
+      ...formPluginOptions.components,
+      ...formPluginOptions.containerComponents,
+    });
 
     const {
       componentStyleHide,
@@ -278,12 +283,13 @@ export default {
             if (item.isHide) {
               style = "display: none;";
             }
+            const COMPONENT = this.componentTypesMapping()[item.type];
 
             return h("div", {
               class: classColumn,
               style,
             }, [
-              h(this.componentTypesMapping[item.type], {
+              h(COMPONENT, {
                 key: itemIndex,
                 alwaysTranslate: this.alwaysTranslate,
                 modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),

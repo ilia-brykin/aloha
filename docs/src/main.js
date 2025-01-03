@@ -4,6 +4,7 @@ import router from "./router/index";
 // import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
 import {
   AFiltersPlugin,
+  AFormPlugin,
   AI18nPlugin,
   AIconPlugin,
   AMobilePlugin,
@@ -11,6 +12,7 @@ import {
   APageTabTitlePlugin,
   ASafeHtml,
 } from "../../src/index";
+import ATest from "./components/ATest/ATest";
 import mainIcons from "./mainIcons";
 
 import {
@@ -60,6 +62,11 @@ APP.use(AFiltersPlugin, {
   },
 });
 APP.use(APageTabTitlePlugin, "_PAGE_TITLE_BASE_");
+APP.use(AFormPlugin, {
+  components: {
+    test: ATest,
+  },
+}),
 // APP.use(AGroupButtonDropdownPlugin, {
 //   propsDefault: {
 //     dropdownAttributes: {

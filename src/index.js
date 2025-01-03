@@ -79,6 +79,7 @@ export { default as ASafeHtml } from "./directives/ASafeHtml";
 export { default as AAlertPlugin } from "./plugins/AAlertPlugin";
 export { default as ACloakPlugin } from "./plugins/ACloakPlugin";
 export { default as AFiltersPlugin } from "./plugins/AFiltersPlugin";
+export { default as AFormPlugin } from "./plugins/AFormPlugin";
 export { default as AGroupButtonDropdownPlugin } from "./plugins/AGroupButtonDropdownPlugin";
 export { default as AHttpPlugin } from "./plugins/AHttpPlugin";
 export { default as AI18nPlugin } from "./plugins/AI18nPlugin";

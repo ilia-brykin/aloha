@@ -60,8 +60,16 @@ export default {
     data() {
       return [
         {
+          type: "test",
+          label: "Aloha test",
+          id: "aloha_textarea1",
+          classColumn: "a_column a_column_8",
+          required: true,
+          disabled: true,
+        },
+        {
           type: "textarea",
-          label: "Aloha tiny",
+          label: "Aloha ",
           id: "aloha_textarea",
           classColumn: "a_column a_column_8",
           required: true,
