@@ -1,17 +1,17 @@
 @use "../../scss/aloha-vue";
 @use "Example";
 
-.a_menu_2__page {
+.a_menu__page {
   padding: 0 1rem 0 2.5rem;
 }
-.a_menu_2 {
+.a_menu {
   position: fixed;
 }
 .a_mobile {
-  .a_menu_2__page {
+  .a_menu__page {
     padding: 0 .5rem;
   }
-  .a_menu_2__btn_toggle_outside_menu {
+  .a_menu__btn_toggle_outside_menu {
     display: inline-block;
   }
 }

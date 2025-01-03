@@ -1,9 +1,9 @@
 export function setFocusToFirstLinkInPanel({
-  menuId = "a_menu_2_",
+  menuId = "a_menu_",
   panelId = "",
 }) {
   const PANEL_ID = `#${ getElementId({ menuId, id: panelId, suffix: "panel" }) }`;
-  const PANEL_LINKS_SELECTOR = `${ PANEL_ID } .a_menu_2__listview a`;
+  const PANEL_LINKS_SELECTOR = `${ PANEL_ID } .a_menu__listview a`;
   setTimeout(() => {
     const EL_LINK = document.querySelector(PANEL_LINKS_SELECTOR);
     if (EL_LINK) {
@@ -13,7 +13,7 @@ export function setFocusToFirstLinkInPanel({
 }
 
 export function getElementId({
-  menuId = "a_menu_2_",
+  menuId = "a_menu_",
   id = "",
   suffix = "",
 }) {

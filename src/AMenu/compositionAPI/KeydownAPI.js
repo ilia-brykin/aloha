@@ -105,7 +105,7 @@ export default function KeydownAPI(props, {
       id: PANEL_ID,
       suffix: "panel",
     });
-    const LINKS = document.querySelectorAll(`#${ PANEL_HTML_ID } a.a_menu_2__link`);
+    const LINKS = document.querySelectorAll(`#${ PANEL_HTML_ID } a.a_menu__link`);
     if (LINKS.length) {
       LINKS[0].focus();
     }
@@ -125,7 +125,7 @@ export default function KeydownAPI(props, {
   };
 
   const setFocus = ({ EVENT, PANEL_ELEMENT, panelIndex, panelId }) => {
-    const LINKS = PANEL_ELEMENT.querySelectorAll("a.a_menu_2__link");
+    const LINKS = PANEL_ELEMENT.querySelectorAll("a.a_menu__link");
     if (EVENT.shiftKey) { // Shift + Tab
       if (document.activeElement === LINKS[0]) {
         if (panelIndex > 0) {

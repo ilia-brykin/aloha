@@ -66,15 +66,15 @@ export default {
   render() {
     return h("li", {}, [
       h("ul", {
-        class: "a_menu_2__breadcrumb__ul a_menu_2__breadcrumb__ul_search",
+        class: "a_menu__breadcrumb__ul a_menu__breadcrumb__ul_search",
       }, [
         h("li", {}, [
           h(ADropdown, {
-            buttonClass: "a_btn a_btn_secondary a_btn_small a_menu_2__breadcrumb__ul_truncated__btn",
+            buttonClass: "a_btn a_btn_secondary a_btn_small a_menu__breadcrumb__ul_truncated__btn",
             buttonIconLeft: ThreeDots,
             buttonTextScreenReader: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
             buttonTitle: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
-            dropdownClass: "a_menu_2__breadcrumb__ul_truncated__dropdown",
+            dropdownClass: "a_menu__breadcrumb__ul_truncated__dropdown",
             hasCaret: false,
             inBody: true,
             ...this.breadcrumbsTruncatedDropdownProps,
@@ -83,14 +83,14 @@ export default {
               this.breadcrumbsItems.map(breadcrumbsItem => {
                 return h("li", {
                   key: breadcrumbsItem.parentId,
-                  class: "a_menu_2__breadcrumbs__item",
+                  class: "a_menu__breadcrumbs__item",
                 }, [
                   h(AButton, {
                     text: breadcrumbsItem.label,
                     title: breadcrumbsItem.label,
                     tag: "a",
                     class: [
-                      "a_menu_2__breadcrumbs__link",
+                      "a_menu__breadcrumbs__link",
                       this.breadcrumbsLinkClass,
                     ],
                     role: "button",
@@ -99,7 +99,7 @@ export default {
                     onKeydown: $event => this.goToKeydown({ $event, parentIds: breadcrumbsItem.parentIds }),
                   }),
                   h("span", {
-                    class: "a_menu_2__breadcrumbs__item__divider",
+                    class: "a_menu__breadcrumbs__item__divider",
                   }, "/"),
                 ]);
               }),

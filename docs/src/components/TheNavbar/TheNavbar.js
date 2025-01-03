@@ -2,7 +2,7 @@ import ALink from "../../../../src/ALink/ALink";
 import AButton from "../../../../src/AButton/AButton";
 import AIcon from "../../../../src/AIcon/AIcon";
 import ASelect from "../../../../src/ui/ASelect/ASelect";
-import AMenuButtonToggle from "../../../../src/AMenu2/AMenuButtonToggle/AMenuButtonToggle";
+import AMenuButtonToggle from "../../../../src/AMenu/AMenuButtonToggle/AMenuButtonToggle";
 
 import LanguagesAPI from "./compositionAPI/LanguagesAPI";
 import ATranslationAPI from "../../../../src/ATranslation/compositionAPI/ATranslationAPI";

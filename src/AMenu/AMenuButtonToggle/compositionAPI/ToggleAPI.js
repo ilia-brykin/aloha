@@ -19,24 +19,24 @@ export default function ToggleAPI(props) {
 
   const openMenu = () => {
     if (canChangeBodyClass.value) {
-      document.body.classList.add("a_menu_2__wrapper_open");
-      document.body.classList.remove("a_menu_2__wrapper_close");
+      document.body.classList.add("a_menu__wrapper_open");
+      document.body.classList.remove("a_menu__wrapper_close");
     }
     isMenuOpenMap.value[menuId.value] = true;
   };
 
   const closeMenu = () => {
     if (canChangeBodyClass.value) {
-      document.body.classList.add("a_menu_2__wrapper_close");
-      document.body.classList.remove("a_menu_2__wrapper_open");
+      document.body.classList.add("a_menu__wrapper_close");
+      document.body.classList.remove("a_menu__wrapper_open");
     }
     isMenuOpenMap.value[menuId.value] = false;
   };
 
   const removeBodyClasses = () => {
     if (canChangeBodyClass.value) {
-      document.body.classList.remove("a_menu_2__wrapper_close");
-      document.body.classList.remove("a_menu_2__wrapper_open");
+      document.body.classList.remove("a_menu__wrapper_close");
+      document.body.classList.remove("a_menu__wrapper_open");
     }
   };
 

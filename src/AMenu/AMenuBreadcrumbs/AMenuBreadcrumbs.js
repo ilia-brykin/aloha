@@ -92,24 +92,24 @@ export default {
     if (this.isBreadcrumbsTruncated) {
       return h(ATranslation, {
         ariaLabel: "_A_MENU_2_BREADCRUMB_",
-        class: "a_menu_2__breadcrumb a_menu_2__breadcrumb_secondary",
+        class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav",
       }, () => [
         withDirectives(h("ul", {
           class: [
-            "a_menu_2__breadcrumb__ul a_menu_2__breadcrumb__ul_truncated",
+            "a_menu__breadcrumb__ul a_menu__breadcrumb__ul_truncated",
           ],
         }, [
           this.breadcrumbsItemsDropdown.length > 0 ?
             h("li", {
-              class: "a_menu_2__breadcrumbs__item",
+              class: "a_menu__breadcrumbs__item",
             }, [
               h(ADropdown, {
-                buttonClass: "a_btn a_btn_secondary a_btn_small a_menu_2__breadcrumb__ul_truncated__btn",
+                buttonClass: "a_btn a_btn_secondary a_btn_small a_menu__breadcrumb__ul_truncated__btn",
                 buttonIconLeft: ThreeDots,
                 buttonTextScreenReader: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
                 buttonTitle: "_A_MENU_2_BREADCRUMB_SHOW_BTN_",
-                dropdownClass: "a_menu_2__breadcrumb__ul_truncated__dropdown",
+                dropdownClass: "a_menu__breadcrumb__ul_truncated__dropdown",
                 hasCaret: false,
                 inBody: true,
                 ...this.breadcrumbsTruncatedDropdownProps,
@@ -120,7 +120,7 @@ export default {
                       {
                         tag: "a",
                         class: [
-                          "a_menu_2__breadcrumbs__link",
+                          "a_menu__breadcrumbs__link",
                           this.breadcrumbsLinkClass,
                         ],
                         role: "button",
@@ -129,12 +129,12 @@ export default {
                         onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
                       } :
                       {
-                        class: "a_menu_2__breadcrumbs__link",
+                        class: "a_menu__breadcrumbs__link",
                         tag: "strong",
                       };
                     return h("li", {
                       key: breadcrumbsItem.panelParentId,
-                      class: "a_menu_2__breadcrumbs__item",
+                      class: "a_menu__breadcrumbs__item",
                     }, [
                       h(AButton, {
                         text: breadcrumbsItem.label,
@@ -142,7 +142,7 @@ export default {
                         ...ATTR,
                       }),
                       h("span", {
-                        class: "a_menu_2__breadcrumbs__item__divider",
+                        class: "a_menu__breadcrumbs__item__divider",
                       }, "/"),
                     ]);
                   }),
@@ -155,7 +155,7 @@ export default {
               {
                 tag: "a",
                 class: [
-                  "a_menu_2__breadcrumbs__link",
+                  "a_menu__breadcrumbs__link",
                   this.breadcrumbsLinkClass,
                 ],
                 role: "button",
@@ -164,15 +164,15 @@ export default {
                 onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
               } :
               {
-                class: "a_menu_2__breadcrumbs__link",
+                class: "a_menu__breadcrumbs__link",
                 tag: "strong",
               };
             return withDirectives(h("li", {
               key: breadcrumbsItem.panelParentId,
-              class: "a_menu_2__breadcrumbs__item",
+              class: "a_menu__breadcrumbs__item",
             }, [
               !breadcrumbsItem.isFirst && h("span", {
-                class: "a_menu_2__breadcrumbs__item__divider",
+                class: "a_menu__breadcrumbs__item__divider",
               }, "/"),
               h(AButton, {
                 text: breadcrumbsItem.label,
@@ -192,12 +192,12 @@ export default {
     if (!this.isBreadcrumbsTruncated) {
       return h(ATranslation, {
         ariaLabel: "_A_MENU_2_BREADCRUMB_",
-        class: "a_menu_2__breadcrumb a_menu_2__breadcrumb_secondary",
+        class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav",
       }, () => [
         h("ul", {
           class: [
-            "a_menu_2__breadcrumb__ul",
+            "a_menu__breadcrumb__ul",
           ],
         }, [
           this.breadcrumbsItems.map(breadcrumbsItem => {
@@ -205,7 +205,7 @@ export default {
               {
                 tag: "a",
                 class: [
-                  "a_menu_2__breadcrumbs__link",
+                  "a_menu__breadcrumbs__link",
                   this.breadcrumbsLinkClass,
                 ],
                 role: "button",
@@ -214,15 +214,15 @@ export default {
                 onKeydown: $event => this.goBackKeydown({ $event, parentId: breadcrumbsItem.panelParentId }),
               } :
               {
-                class: "a_menu_2__breadcrumbs__link",
+                class: "a_menu__breadcrumbs__link",
                 tag: "strong",
               };
             return h("li", {
               key: breadcrumbsItem.panelParentId,
-              class: "a_menu_2__breadcrumbs__item",
+              class: "a_menu__breadcrumbs__item",
             }, [
               !breadcrumbsItem.isFirst && h("span", {
-                class: "a_menu_2__breadcrumbs__item__divider",
+                class: "a_menu__breadcrumbs__item__divider",
               }, "/"),
               h(AButton, {
                 text: breadcrumbsItem.label,

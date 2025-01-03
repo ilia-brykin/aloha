@@ -73,13 +73,13 @@ export default {
   render() {
     if (this.isSearchActive) {
       return h("div", {
-        class: "a_menu_2__panels__main a_menu_2__panel_search",
+        class: "a_menu__panels__main a_menu__panel_search",
       }, [
         h("div", {
-          class: "a_menu_2__navbar_top_sub",
+          class: "a_menu__navbar_top_sub",
         }, [
           h(ATranslation, {
-            class: "a_menu_2__navbar_top_sub__text",
+            class: "a_menu__navbar_top_sub__text",
             tag: "strong",
             text: this.textLocal,
             extra: {
@@ -94,7 +94,7 @@ export default {
             class: "a_scroll_content",
           }, [
             h("ul", {
-              class: "a_menu_2__listview",
+              class: "a_menu__listview",
             }, [
               this.itemsWithSearch.map(item => {
                 return h(AMenuSearchPanelBreadcrumbs, {

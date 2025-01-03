@@ -71,10 +71,10 @@ export default {
       }, [
         h("div", {
           id: this.labelId,
-          class: "a_menu_2__list_header",
+          class: "a_menu__list_header",
         }, this.groupLabel),
         h("ul", {
-          class: "a_menu_2__listview",
+          class: "a_menu__listview",
         }, [
           this.groupItems.map((item, itemIndex) => {
             return h(AMenuPanelLink, {

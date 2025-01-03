@@ -1,5 +1,5 @@
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import AMenu2 from "../../../../../../src/AMenu2/AMenu2";
+import AMenu2 from "../../../../../../src/AMenu/AMenu";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

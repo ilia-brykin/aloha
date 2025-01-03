@@ -129,11 +129,11 @@ export default {
   render() {
     return h("div", {
       id: this.panelId,
-      class: ["a_menu_2__panel", {
-        a_menu_2__panel_main: !this.isSearchActive && this.isPanelMain,
-        a_menu_2__panel_secondary: !this.isPanelMain,
-        a_menu_2__panel_opened: !this.isSearchActive && this.isPanelOpen,
-        a_menu_2__panel_parent: !this.isSearchActive && this.isChildPanelOpen,
+      class: ["a_menu__panel", {
+        a_menu__panel_main: !this.isSearchActive && this.isPanelMain,
+        a_menu__panel_secondary: !this.isPanelMain,
+        a_menu__panel_opened: !this.isSearchActive && this.isPanelOpen,
+        a_menu__panel_parent: !this.isSearchActive && this.isChildPanelOpen,
       }],
       style: this.styleZIndex,
     }, [
@@ -147,16 +147,16 @@ export default {
         panelParentsOpen: this.panelParentsOpen,
       }),
       (this.isHeaderPanelVisible) && h("div", {
-        class: "a_menu_2__panel_header",
+        class: "a_menu__panel_header",
       }, [
         h(ATranslation, {
-          class: "a_menu_2__panel_header__text",
+          class: "a_menu__panel_header__text",
           html: this.parentLabel,
           tag: "strong",
         }),
       ]),
       h("ul", {
-        class: "a_menu_2__listview",
+        class: "a_menu__listview",
       }, [
         this.isItemsWithoutGroup && h(AMenuPanelGroup, {
           dataProParentChildren: this.dataProParentChildren,

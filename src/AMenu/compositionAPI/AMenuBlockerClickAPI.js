@@ -16,7 +16,7 @@ export default function AMenuBlockerClickAPI(props, {
     const ATTRIBUTES = {};
     if (isBlockerClickable.value) {
       ATTRIBUTES.onClick = clickBlocker;
-      ATTRIBUTES.class = "a_menu_2__blocker a_menu_2_clickable";
+      ATTRIBUTES.class = "a_menu__blocker a_menu_clickable";
     }
     return ATTRIBUTES;
   });

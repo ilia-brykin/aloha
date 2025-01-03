@@ -1,11 +1,13 @@
-import AMenu2 from "../../../../src/AMenu2/AMenu2";
+import {
+  AMenu,
+} from "../../../../src/index";
 
 import MenuItemsAPI from "./compositionAPI/MenuItemsAPI";
 
 export default {
   name: "TheMenu",
   components: {
-    AMenu2,
+    AMenu,
   },
   setup() {
     const {

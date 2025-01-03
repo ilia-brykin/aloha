@@ -21,7 +21,7 @@ import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
 import AShowMoreI18n from "../AShowMore/i18n/AShowMoreI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
 import AWizardI18n from "../AWizard/i18n/AWizardI18n";
-import AMenu2I18n from "../AMenu2/i18n/AMenu2I18n";
+import AMenu2I18n from "../AMenu/i18n/AMenu2I18n";
 import AVerticalScrollI18n from "../AVerticalScroll/i18n/AVerticalScrollI18n";
 import Filters18n from "../filters/i18n/Filters18n";
 import APaginationI18n from "../APagination/i18n/APaginationI18n.js";

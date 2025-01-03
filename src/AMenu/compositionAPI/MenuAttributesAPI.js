@@ -37,7 +37,7 @@ export default function MenuAttributesAPI(props, {
     if (isBlockerClickable.value &&
       !isMenuOpen.value) {
       ATTRIBUTES.onClick = () => toggleMenu({ isOpen: true });
-      ATTRIBUTES.class = "a_menu_2 a_menu_2_clickable";
+      ATTRIBUTES.class = "a_menu a_menu_clickable";
     }
     return ATTRIBUTES;
   });

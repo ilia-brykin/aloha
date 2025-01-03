@@ -40,7 +40,7 @@ const DROPDOWN_BUTTON_WIDTH = 34;
 const BREADCRUMBS_PADDINGS = 20;
 
 export default {
-  name: "AMenu2",
+  name: "AMenu",
   provide() {
     return {
       keySlot: computed(() => this.keySlot),
@@ -173,7 +173,7 @@ export default {
     menuId: {
       type: String,
       required: false,
-      default: () => uniqueId("a_menu_2_"),
+      default: () => uniqueId("a_menu_"),
     },
     showCountChildren: {
       type: Boolean,
@@ -420,19 +420,19 @@ export default {
       id: this.menuId,
       "aria-labelledby": this.headerId,
       class: [
-        "a_menu_2",
+        "a_menu",
         {
-          a_menu_2_sub_open: this.isSubMenuOpen,
-          a_menu_2_open: this.isMenuOpen,
-          a_menu_2_close: !this.isMenuOpen,
-          a_menu_2_mobile: this.isMobileWidth,
+          a_menu_sub_open: this.isSubMenuOpen,
+          a_menu_open: this.isMenuOpen,
+          a_menu_close: !this.isMenuOpen,
+          a_menu_mobile: this.isMobileWidth,
         },
       ],
       ...this.attributesMobile,
       ...this.attributesMenuClick,
     }, [
       h("div", {
-        class: "a_menu_2__navbar_top",
+        class: "a_menu__navbar_top",
       }, [
         h(AMenuButtonToggle, {
           buttonToggleProps: this.buttonToggleProps,
@@ -444,22 +444,22 @@ export default {
         this.$slots.menuSearch && this.$slots.menuSearch(),
         this.hasSearch && h(AInput, {
           id: this.searchInputId,
-          class: "a_menu_2__navbar_top__search",
+          class: "a_menu__navbar_top__search",
           modelValue: this.modelSearch,
           label: "_A_MENU_2_SEARCH_",
           "onUpdate:modelValue": this.updateModelSearch,
         }),
       ]),
       h("div", {
-        class: "a_menu_2__panels__main",
+        class: "a_menu__panels__main",
         style: this.styleSearchPanelMain,
       }, [
         h("div", {
-          class: "a_menu_2__navbar_top_sub",
+          class: "a_menu__navbar_top_sub",
         }, [
           h(ATranslation, {
             id: this.headerId,
-            class: "a_menu_2__navbar_top_sub__text",
+            class: "a_menu__navbar_top_sub__text",
             tag: "strong",
             text: "_A_MENU_2_MAIN_MENU_",
           }),
@@ -467,9 +467,9 @@ export default {
             role: "button",
             tabindex: 0,
             tag: "a",
-            class: "a_menu_2__navbar_top_sub__search a_menu_2__link a_menu_2__link_btn",
+            class: "a_menu__navbar_top_sub__search a_menu__link a_menu__link_btn",
             iconLeft: Search,
-            iconClass: "a_menu_2__link__icon",
+            iconClass: "a_menu__link__icon",
             title: "_A_MENU_2_OPEN_SEARCH_",
             textScreenReader: "_A_MENU_2_OPEN_SEARCH_",
             onClick: this.clickOnSearchBtn,
@@ -478,7 +478,7 @@ export default {
         ]),
         h(AVerticalScroll, {
           class: {
-            a_menu_2__vertical_scroll_hidden: this.isLeastOnePanelOpenAndMenuClosed
+            a_menu__vertical_scroll_hidden: this.isLeastOnePanelOpenAndMenuClosed
           },
           disabled: this.isMenuOpen || this.isLeastOnePanelOpenAndMenuClosed,
         }, () => [
@@ -498,7 +498,7 @@ export default {
           }, this.$slots),
         ]),
         h("div", {
-          class: "a_menu_2__panels",
+          class: "a_menu__panels",
         }, [
           Object.keys(this.dataProParent.children).map((key, paneIndex) => {
             return h(AMenuPanel, {
@@ -536,7 +536,7 @@ export default {
         to: "body",
       }, [
         h("div", {
-          class: "a_menu_2__backdrop a_backdrop a_backdrop_fade",
+          class: "a_menu__backdrop a_backdrop a_backdrop_fade",
           "aria-hidden": true,
           ...this.clickAttributesBackdrop,
         }),
