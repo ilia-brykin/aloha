@@ -1,0 +1,18 @@
+{
+  "_PAGE_MIGRATION_1_TO_2_PAGE_TITLE_": "دليل الترحيل من aloha-vue 1.2.x إلى 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_H1_": "دليل الترحيل من <span lang=\"en\">aloha-vue</span> 1.2.x إلى 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_HEADER_": "1. المكونات المحذوفة والمعاد تسميتها",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_HEADER_": "<strong lang=\"en\">AMenu2</strong> → <strong lang=\"en\">AMenu</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_DESCRIPTION_": "<ul><li>تمت إعادة تسمية المكون <code lang=\"en\">AMenu2</code> إلى <code lang=\"en\">AMenu</code></li><li>تمت إعادة تسمية جميع فئات <strong lang=\"en\">CSS</strong>:<ul><li><code lang=\"en\">.a_menu_2</code> → <code lang=\"en\">.a_menu</code>.</li><li>متغيرات CSS: <code lang=\"en\">--a_menu_2_</code> → <code lang=\"en\">--a_menu_</code>.</li></ul></li></ul><div class=\"a_mt_3\">يتم الآن استيراد المكون كما يلي:</div>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_HEADER_": "<strong lang=\"en\">TinyMCE</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_DESCRIPTION_": "<ul><li>لم يعد مكون <strong lang=\"en\">TinyMCE</strong> مدعومًا بسبب تغيير رخصة <strong lang=\"en\">TinyMCE</strong> من <strong lang=\"en\">MIT</strong> إلى <strong lang=\"en\">GPL-2.0-or-later</strong>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_HEADER_": "2. تغييرات الأنماط",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_HEADER_": "الفئات المحذوفة",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_DESCRIPTION_": "<ul><li>تمت إزالة أنماط <code lang=\"en\">.a_columns_gab_</code> (خطأ مطبعي). استخدم <code lang=\"en\">.a_columns_gap_</code> بدلاً من ذلك.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_HEADER_": "دمج <strong lang=\"en\">aloha-css</strong>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>تم الآن دمج الأنماط من <code lang=\"en\">aloha-css</code> في <code lang=\"en\">aloha-vue</code>.</li><li>يعتبر <code lang=\"en\">aloha-css</code> قديمًا وسيتم إزالته في المستقبل القريب.</li></ul><div class=\"a_mt_3\">يوصى بتضمين الأنماط كما يلي:</div>",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_HEADER_": "3. تحسين نظام الاستيراد",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_DESCRIPTION_": "يمكن الآن استيراد جميع الكيانات، مثل المكونات، التوجيهات، الإضافات، الوظائف، والترجمات مباشرة:",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. تحديث التبعيات",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_DESCRIPTION_": "<div>تحقق من التحديثات في مشروعك لتلبية المتطلبات الجديدة.</div>"
+}

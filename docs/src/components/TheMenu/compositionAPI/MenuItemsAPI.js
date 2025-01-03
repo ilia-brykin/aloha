@@ -3,13 +3,18 @@ import CssItemsAPI from "./CssItemsAPI";
 import DirectiveItemsAPI from "./DirectiveItemsAPI";
 import FunctionItemsAPI from "./FunctionItemsAPI";
 import InstallationItemsAPI from "./InstallationItemsAPI";
-import RestItemsAPI from "./RestItemsAPI";
+import MigrationItemsAPI from "./MigrationItemsAPI";
 import PluginsItemsAPI from "./PluginsItemsAPI";
+import RestItemsAPI from "./RestItemsAPI";
 
 export default function MenuItemsAPI() {
   const {
     installationItems,
   } = InstallationItemsAPI();
+
+  const {
+    migrationItems,
+  } = MigrationItemsAPI();
 
   const {
     pluginsItems,
@@ -45,6 +50,7 @@ export default function MenuItemsAPI() {
       icon: "Aloha",
     },
     installationItems,
+    migrationItems,
     pluginsItems,
     componentItems,
     cssItems,

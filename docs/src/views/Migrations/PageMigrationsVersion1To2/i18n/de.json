@@ -1,0 +1,18 @@
+{
+  "_PAGE_MIGRATION_1_TO_2_PAGE_TITLE_": "Migrationsanleitung von aloha-vue 1.2.x auf 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_H1_": "Migrationsanleitung von <span lang=\"en\">aloha-vue</span> 1.2.x auf 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_HEADER_": "1. Entfernte und umbenannte Komponenten",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_HEADER_": "<strong lang=\"en\">AMenu2</strong> → <strong lang=\"en\">AMenu</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_DESCRIPTION_": "<ul><li>Die Komponente <code lang=\"en\">AMenu2</code> wurde in <code lang=\"en\">AMenu</code> umbenannt.</li><li>Alle <strong lang=\"en\">CSS</strong>-Klassen wurden umbenannt:<ul><li><code lang=\"en\">.a_menu_2</code> → <code lang=\"en\">.a_menu</code>.</li><li>CSS-Variablen: <code lang=\"en\">--a_menu_2_</code> → <code lang=\"en\">--a_menu_</code>.</li></ul></li></ul><div class=\"a_mt_3\">Die Komponente wird jetzt wie folgt importiert:</div>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_HEADER_": "<strong lang=\"en\">TinyMCE</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_DESCRIPTION_": "<ul><li>Die Komponente <strong lang=\"en\">TinyMCE</strong> wird aufgrund einer Lizenzänderung von <strong lang=\"en\">TinyMCE</strong> von <strong lang=\"en\">MIT</strong> auf <strong lang=\"en\">GPL-2.0-or-later</strong> nicht mehr unterstützt.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_HEADER_": "2. Änderungen an den Stilen",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_HEADER_": "Entfernte Klassen",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_DESCRIPTION_": "<ul><li>Die Stile <code lang=\"en\">.a_columns_gab_</code> wurden entfernt (Tippfehler). Verwenden Sie stattdessen <code lang=\"en\">.a_columns_gap_</code>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_HEADER_": "Integration von <strong lang=\"en\">aloha-css</strong>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>Die Stile aus <code lang=\"en\">aloha-css</code> sind jetzt in <code lang=\"en\">aloha-vue</code> integriert.</li><li><code lang=\"en\">aloha-css</code> wird als veraltet eingestuft und in naher Zukunft entfernt.</li></ul><div class=\"a_mt_3\">Es wird empfohlen, die Stile wie folgt einzubinden:</div>",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_HEADER_": "3. Verbesserte Importsystem",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_DESCRIPTION_": "Alle Entitäten wie Komponenten, Direktiven, Plugins, Funktionen und Übersetzungen können jetzt direkt importiert werden:",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. Abhängigkeitsaktualisierungen",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_DESCRIPTION_": "<div>Überprüfen Sie die Updates in Ihrem Projekt, um die neuen Anforderungen zu erfüllen.</div>"
+}

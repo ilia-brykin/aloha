@@ -91,6 +91,7 @@ import PageSpinnerPluginI18n from "./views/Plugins/PageSpinnerPlugin/i18n/PageSp
 import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
 import PageLoadingPluginI18n from "./views/Plugins/PageLoadingPlugin/i18n/PageLoadingPluginI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
+import PageMigrationsVersion1To2I18n from "./views/Migrations/PageMigrationsVersion1To2/i18n/PageMigrationsVersion1To2I18n";
 
 export const mainTranslation = {
   ar: {
@@ -178,6 +179,7 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.ar,
     ...PageLoadingPluginI18n.ar,
     ...PageAlertPluginI18n.ar,
+    ...PageMigrationsVersion1To2I18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -264,6 +266,7 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.de,
     ...PageLoadingPluginI18n.de,
     ...PageAlertPluginI18n.de,
+    ...PageMigrationsVersion1To2I18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -350,6 +353,7 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.en,
     ...PageLoadingPluginI18n.en,
     ...PageAlertPluginI18n.en,
+    ...PageMigrationsVersion1To2I18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -436,6 +440,7 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.es,
     ...PageLoadingPluginI18n.es,
     ...PageAlertPluginI18n.es,
+    ...PageMigrationsVersion1To2I18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -522,6 +527,7 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.fr,
     ...PageLoadingPluginI18n.fr,
     ...PageAlertPluginI18n.fr,
+    ...PageMigrationsVersion1To2I18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -608,6 +614,7 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.hr,
     ...PageLoadingPluginI18n.hr,
     ...PageAlertPluginI18n.hr,
+    ...PageMigrationsVersion1To2I18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -694,6 +701,7 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.it,
     ...PageLoadingPluginI18n.it,
     ...PageAlertPluginI18n.it,
+    ...PageMigrationsVersion1To2I18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -780,5 +788,6 @@ export const mainTranslation = {
     ...PageCloakPluginI18n.ru,
     ...PageLoadingPluginI18n.ru,
     ...PageAlertPluginI18n.ru,
+    ...PageMigrationsVersion1To2I18n.ru,
   },
 };

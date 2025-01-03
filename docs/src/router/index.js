@@ -20,6 +20,12 @@ const ROUTES = [
     name: "PageQuickStart",
     component: () => import("../views/Installation/PageQuickStart/PageQuickStart.vue"),
   },
+  // Migrations PageMigrationsVersion1To2
+  {
+    path: "/migration-1.2.x-2.0.x",
+    name: "PageMigrationsVersion1To2",
+    component: () => import("../views/Migrations/PageMigrationsVersion1To2/PageMigrationsVersion1To2.vue"),
+  },
   // Plugins
   {
     path: "/alert-plugin",

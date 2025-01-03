@@ -1,0 +1,18 @@
+{
+  "_PAGE_MIGRATION_1_TO_2_PAGE_TITLE_": "Vodič za migraciju s aloha-vue 1.2.x na 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_H1_": "Vodič za migraciju s <span lang=\"en\">aloha-vue</span> 1.2.x na 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_HEADER_": "1. Uklonjeni i preimenovani komponente",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_HEADER_": "<strong lang=\"en\">AMenu2</strong> → <strong lang=\"en\">AMenu</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_DESCRIPTION_": "<ul><li>Komponenta <code lang=\"en\">AMenu2</code> preimenovana je u <code lang=\"en\">AMenu</code></li><li>Sve <strong lang=\"en\">CSS</strong> klase su preimenovane:<ul><li><code lang=\"en\">.a_menu_2</code> → <code lang=\"en\">.a_menu</code>.</li><li>CSS varijable: <code lang=\"en\">--a_menu_2_</code> → <code lang=\"en\">--a_menu_</code>.</li></ul></li></ul><div class=\"a_mt_3\">Komponenta se sada uvozi na sljedeći način:</div>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_HEADER_": "<strong lang=\"en\">TinyMCE</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_DESCRIPTION_": "<ul><li>Komponenta <strong lang=\"en\">TinyMCE</strong> više nije podržana zbog promjene licence <strong lang=\"en\">TinyMCE</strong> s <strong lang=\"en\">MIT</strong> na <strong lang=\"en\">GPL-2.0-or-later</strong>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_HEADER_": "2. Promjene u stilovima",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_HEADER_": "Uklonjene klase",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_DESCRIPTION_": "<ul><li>Stilovi <code lang=\"en\">.a_columns_gab_</code> uklonjeni su (tipografska greška). Koristite <code lang=\"en\">.a_columns_gap_</code>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_HEADER_": "Integracija <strong lang=\"en\">aloha-css</strong>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>Stilovi iz <code lang=\"en\">aloha-css</code> sada su integrirani u <code lang=\"en\">aloha-vue</code>.</li><li><code lang=\"en\">aloha-css</code> smatra se zastarjelim i bit će uklonjen u bliskoj budućnosti.</li></ul><div class=\"a_mt_3\">Preporučuje se uključivanje stilova na sljedeći način:</div>",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_HEADER_": "3. Poboljšani sustav uvoza",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_DESCRIPTION_": "Sve entitete, kao što su komponente, direktive, dodaci, funkcije i prijevodi, sada možete uvoziti izravno:",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. Ažuriranje ovisnosti",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_DESCRIPTION_": "<div>Provjerite ažuriranja u svom projektu kako biste ispunili nove zahtjeve.</div>"
+}

@@ -1,0 +1,18 @@
+{
+  "_PAGE_MIGRATION_1_TO_2_PAGE_TITLE_": "Migration Guide from aloha-vue 1.2.x to 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_H1_": "Migration Guide from <span lang=\"en\">aloha-vue</span> 1.2.x to 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_HEADER_": "1. Removed and Renamed Components",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_HEADER_": "<strong lang=\"en\">AMenu2</strong> → <strong lang=\"en\">AMenu</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_DESCRIPTION_": "<ul><li>The <code lang=\"en\">AMenu2</code> component has been renamed to <code lang=\"en\">AMenu</code></li><li>All <strong lang=\"en\">CSS</strong> classes have been renamed:<ul><li><code lang=\"en\">.a_menu_2</code> → <code lang=\"en\">.a_menu</code>.</li><li>CSS variables: <code lang=\"en\">--a_menu_2_</code> → <code lang=\"en\">--a_menu_</code>.</li></ul></li></ul><div class=\"a_mt_3\">The component is now imported as follows:</div>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_HEADER_": "<strong lang=\"en\">TinyMCE</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_DESCRIPTION_": "<ul><li>The <strong lang=\"en\">TinyMCE</strong> component is no longer supported due to the license change of <strong lang=\"en\">TinyMCE</strong> from <strong lang=\"en\">MIT</strong> to <strong lang=\"en\">GPL-2.0-or-later</strong>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_HEADER_": "2. Style Changes",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_HEADER_": "Removed Classes",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_DESCRIPTION_": "<ul><li>The <code lang=\"en\">.a_columns_gab_</code> styles have been removed (typo). Use <code lang=\"en\">.a_columns_gap_</code> instead.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_HEADER_": "Integration of <strong lang=\"en\">aloha-css</strong>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>The styles from <code lang=\"en\">aloha-css</code> are now integrated into <code lang=\"en\">aloha-vue</code>.</li><li><code lang=\"en\">aloha-css</code> is deprecated and will be removed in the near future.</li></ul><div class=\"a_mt_3\">It is recommended to include styles as follows:</div>",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_HEADER_": "3. Improved Import System",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_DESCRIPTION_": "All entities, such as components, directives, plugins, functions, and translations, can now be imported directly:",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. Dependency Updates",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_DESCRIPTION_": "<div>Check for updates in your project to meet the new requirements.</div>"
+}
