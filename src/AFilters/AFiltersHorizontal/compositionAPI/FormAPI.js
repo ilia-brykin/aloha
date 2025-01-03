@@ -14,7 +14,7 @@ export default function FormAPI(props) {
   const updateDataKeyByIdFromFilter = toRef(props, "updateDataKeyByIdFromFilter");
 
   const LABEL_CLASS = "a_column a_column_12_touch a_column_3_fullhd a_column_3_widescreen a_column_3_desktop";
-  const CLASS_COLUMNS = "a_columns a_columns_count_12 a_columns_gab_x_2 a_columns_gab_y_2 a_columns_gab_y_1_touch";
+  const CLASS_COLUMNS = "a_columns a_columns_count_12 a_columns_gap_x_2 a_columns_gap_y_2 a_columns_gap_y_1_touch";
   const CLASS_COLUMN_DEFAULT = "a_filters__form_element a_column a_column_12_touch a_column_9_fullhd a_column_9_widescreen a_column_9_desktop";
   const TYPES_WITH_DATA = ["select", "multiselect", "radio", "checkbox", "group", "fieldset"];
 

@@ -54,7 +54,7 @@ export default {
     classColumns: {
       type: [String, Object],
       required: false,
-      default: "a_columns a_columns_count_12 a_columns_gab_2",
+      default: "a_columns a_columns_count_12 a_columns_gap_2",
     },
     dependencies: {
       type: [Array, Object],

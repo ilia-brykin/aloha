@@ -57,12 +57,10 @@ $a_breakpoints_grid: funktions.prepend(breakpoint.$a_breakpoints, (class: null))
 
   @each $gap-key, $gap-value in $a_column_gaps {
     @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
-      .#{aloha.$aloha-prefix}columns_gap_x_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) },
-      .#{aloha.$aloha-prefix}columns_gab_x_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } { // Will be removed in version 2.0.0
+      .#{aloha.$aloha-prefix}columns_gap_x_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
         --#{aloha.$aloha-prefix}column_gap_x: #{$gap-value};
       }
-      .#{aloha.$aloha-prefix}columns_gap_y_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) },
-      .#{aloha.$aloha-prefix}columns_gab_y_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } { // Will be removed in version 2.0.0
+      .#{aloha.$aloha-prefix}columns_gap_y_#{$gap-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
         --#{aloha.$aloha-prefix}column_gap_y: #{$gap-value};
       }
     }
