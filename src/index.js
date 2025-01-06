@@ -118,14 +118,46 @@ export { default as filterUpperCase } from "./filters/filterUpperCase";
 
 // functions
 export {
+  concatTwoStringsWithSpace,
+} from "./utils/actions";
+export {
+  colorToHex,
+  hexToRgb,
+  mixBlack,
+  mixColor,
+  mixWhite,
+  rgbToHex,
+} from "./utils/colors";
+export { default as EventBus } from "./utils/EventBus";
+export {
   getTotalNestedCount,
   isArrayOfArrays,
   isArrayOfStrings,
+  sanitizeLocal,
 } from "./utils/utils";
+export {
+  getUniqueSelector,
+  scrollToElement,
+  setFocusToElement,
+  setFocusToNextFocusableElement,
+  setFocusToPreviousFocusableElement,
+} from "./utils/utilsDOM";
 export {
   isOdd,
   isEven,
+  toPrecision,
 } from "./utils/utilsMath";
+
+// const
+export {
+  focusableList,
+  focusableSelector,
+} from "./const/AFocusableElements";
+export { default as AKeyChildren } from "./const/AKeyChildren";
+export { default as AKeyId } from "./const/AKeyId";
+export { default as AKeyLabel } from "./const/AKeyLabel";
+export { default as AKeyParent } from "./const/AKeyParent";
+export { default as AKeysCode } from "./const/AKeysCode";
 
 // translations
 export {

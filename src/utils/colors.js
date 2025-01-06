@@ -66,7 +66,7 @@ export function mixBlack(color, weight) {
  * @param {number} color - The color value to convert.
  * @return {string} - The hexadecimal representation of the color.
  */
-function colorToHex(color) {
+export function colorToHex(color) {
   const HEX = color.toString(16);
   return HEX.length === 1 ? `0${ HEX }` : HEX;
 }
