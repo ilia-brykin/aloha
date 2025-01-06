@@ -7,6 +7,15 @@
 ---
 # Versions
 
+## 2.0.1
+
+- Bug Fix: Added missing `CSS` file to the library.
+- New Imports:
+  - Functions:
+    - `concatTwoStringsWithSpace`, `colorToHex`, `hexToRgb`, `mixBlack`, `mixColor`, `mixWhite`, `rgbToHex`, `sanitizeLocal`, `getUniqueSelector`, `scrollToElement`, `setFocusToElement`, `setFocusToPreviousFocusableElement`, `setFocusToNextFocusableElement`, `toPrecision`.
+  - Constants:
+    - `focusableList`, `focusableSelector`, `AKeyChildren`, `AKeyId`, `AKeyLabel`, `AKeyParent`, `AKeysCode`.
+
 ## 2.0.0
 
 - Major refactoring and expanded documentation.
