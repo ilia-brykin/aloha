@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 1.3.0
+
+- `AOneCheckbox`: Added new props:
+  - `slotName` for customizing slots.
+  - `labelAttributes` for configuring additional attributes on labels.
+
 ## 1.2.285
 
 - Minor fix to the `focus` logic in the `AMenu2` component for improved usability and accessibility.
