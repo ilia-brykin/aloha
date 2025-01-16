@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.1.1
+
+- `AOneCheckbox`: Fixed warnings related to the slot usage.
+
 ## 2.1.0
 
 - `AOneCheckbox`: Added new props:
@@ -36,11 +40,15 @@
 
 ***
 
+## 1.3.1
+
+- `AOneCheckbox`: Fixed warnings related to the slot usage.
+
 ## 1.3.0
 
 - `AOneCheckbox`: Added new props:
-    - `slotName` for customizing slots.
-    - `labelAttributes` for configuring additional attributes on labels.
+  - `slotName` for customizing slots.
+  - `labelAttributes` for configuring additional attributes on labels.
 
 ## 1.2.285
 

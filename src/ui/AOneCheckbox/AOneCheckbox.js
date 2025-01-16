@@ -272,7 +272,7 @@ export default {
               title: this.isLabelTitle ? this.label : undefined,
               type: "text",
               ...this.labelAttributes,
-            }, [
+            }, () => [
               this.$slots?.[this.slotName] ?
                 this.$slots[this.slotName]({
                   id: this.htmlIdLocal,
