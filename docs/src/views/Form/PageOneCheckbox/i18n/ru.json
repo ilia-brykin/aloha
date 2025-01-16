@@ -1,4 +1,9 @@
 {
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "Имя слота, который будет использован вместо стандартного текста, если слот с указанным именем передан в компонент.",
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Дополнительные пропсы и <strong lang=\"en\">HTML</strong>-атрибуты для настройки тега <strong lang=\"en\">label</strong>, который рендерится с использованием компонента <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Пример использования <strong lang=\"en\">slot-name</strong>",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "В данном примере используется <strong lang=\"en\">slot-name</strong>, чтобы заменить стандартный текст <strong lang=\"en\">label</strong> кастомным содержимым. Слот с именем <strong lang=\"en\">aloha</strong> предоставляет шаблон, в котором текст <strong lang=\"en\">label</strong> и иконка отображаются с дополнительными настройками. Этот подход позволяет гибко кастомизировать содержимое <strong lang=\"en\">label</strong>, используя стандартные атрибуты и компоненты, такие как <strong lang=\"en\">AElement</strong>.",
+
   "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AOneCheckbox</strong> представляет собой одиночный чекбокс с возможностью привязки к модели данных. Чекбокс может отображать текст рядом с собой и поддерживает различные состояния и настройки.",
   "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Одиночный чекбокс",
   "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">false-value</strong> для задания значения, которое будет передано в модель при отключении (снятии) чекбокса. В первом случае значение <strong lang=\"en\">false</strong> передается в модель, когда чекбокс не выбран. Во втором случае, если чекбокс не выбран, в модель передается значение <strong>0</strong>.",

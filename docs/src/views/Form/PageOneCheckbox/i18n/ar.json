@@ -13,5 +13,9 @@
   "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "يعرض حالة غير محددة <strong lang=\"en\">(indeterminate)</strong> حيث يتم عرض رمز ناقص بدلاً من علامة الاختيار.",
   "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "يحدد ما إذا كان سيتم عرض نص التسمية كـ <strong lang=\"en\">title</strong>.",
   "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "يضيف فئة خاصة إلى <strong lang=\"en\">label</strong> مع ضبط العرض على <strong lang=\"en\">auto</strong>.",
-  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "القيمة التي سيتم تمريرها إلى النموذج عندما يتم تحديد خانة الاختيار."
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "خصائص إضافية و<strong lang=\"en\">HTML</strong> لتخصيص علامة <strong lang=\"en\">label</strong>، التي يتم عرضها باستخدام مكون <strong lang=\"en\">AElement</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "اسم الفتحة التي سيتم استخدامها بدلاً من النص الافتراضي إذا تم تمرير فتحة بالاسم المحدد إلى المكون.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "القيمة التي سيتم تمريرها إلى النموذج عندما يتم تحديد خانة الاختيار.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "يستخدم هذا المثال <strong lang=\"en\">slot-name</strong> لاستبدال النص الافتراضي <strong lang=\"en\">label</strong> بمحتوى مخصص. الفتحة ذات الاسم <strong lang=\"en\">aloha</strong> توفر قالبًا حيث يتم عرض النص <strong lang=\"en\">label</strong> والرمز مع إعدادات إضافية. يتيح هذا النهج تخصيص محتوى <strong lang=\"en\">label</strong> بمرونة باستخدام الخصائص القياسية والمكونات مثل <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "مثال على استخدام <strong lang=\"en\">slot-name</strong>"
 }

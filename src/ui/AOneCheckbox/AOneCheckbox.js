@@ -115,6 +115,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     labelClass: {
       type: [String, Object],
       required: false,
@@ -144,6 +149,11 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    slotName: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     trueValue: {
       type: [Boolean, String, Number],
@@ -248,34 +258,52 @@ export default {
               onFocus: this.onFocus,
               onBlur: this.onBlur,
             }),
-            h("label", {
-              for: this.htmlIdLocal,
+            h(AElement, {
+              alwaysTranslate: this.alwaysTranslate,
               class: [
                 "a_custom_control_label",
                 {
                   a_custom_control_label_width_auto: this.isWidthAuto,
                 },
               ],
+              extra: this.extra,
+              for: this.htmlIdLocal,
+              tag: "label",
+              title: this.isLabelTitle ? this.label : undefined,
+              type: "text",
+              ...this.labelAttributes,
             }, [
-              this.hasLabel && h("span", {
-                class: [
-                  "a_custom_control_label__text",
-                  this.labelClass,
-                ],
-              }, [
-                h(AElement, {
-                  alwaysTranslate: this.alwaysTranslate,
-                  extra: this.extra,
-                  html: this.label,
-                  textScreenReader: this.labelScreenReader,
-                  tag: "span",
-                  title: this.isLabelTitle ? this.label : undefined,
-                  type: "text",
-                }),
-                this.required ?
-                  h("span", null, "*") :
-                  "",
-              ]),
+              this.$slots?.[this.slotName] ?
+                this.$slots[this.slotName]({
+                  id: this.htmlIdLocal,
+                  labelClass: [
+                    "a_custom_control_label__text",
+                    this.labelClass,
+                  ],
+                  label: this.label,
+                  labelScreenReader: this.labelScreenReader,
+                  props: this.$props,
+                  required: this.required,
+                }) :
+                this.hasLabel && h("span", {
+                  class: [
+                    "a_custom_control_label__text",
+                    this.labelClass,
+                  ],
+                }, [
+                  h(AElement, {
+                    alwaysTranslate: this.alwaysTranslate,
+                    extra: this.extra,
+                    html: this.label,
+                    textScreenReader: this.labelScreenReader,
+                    tag: "span",
+                    title: this.isLabelTitle ? this.label : undefined,
+                    type: "text",
+                  }),
+                  this.required ?
+                    h("span", null, "*") :
+                    "",
+                ]),
             ]),
           ]),
         ]),
