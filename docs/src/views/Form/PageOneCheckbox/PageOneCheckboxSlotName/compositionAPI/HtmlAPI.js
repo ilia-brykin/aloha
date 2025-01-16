@@ -18,7 +18,7 @@ export default function HtmlAPI() {
         tabindex="0"
         text-screen-reader="Aloha"
         title="Aloha"
-        type="string"
+        type="text"
       ></a-element>
     </span>
   </template>
