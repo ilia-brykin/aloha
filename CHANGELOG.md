@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.3.1
+
+- `AOneCheckbox`: Fixed warnings related to the slot usage.
+
 ## 1.3.0
 
 - `AOneCheckbox`: Added new props:
