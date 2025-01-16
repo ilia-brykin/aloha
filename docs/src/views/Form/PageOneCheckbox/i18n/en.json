@@ -13,5 +13,9 @@
   "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Displays the indeterminate state <strong lang=\"en\">(indeterminate)</strong> where a minus symbol is shown instead of a checkmark.",
   "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Specifies whether the label text will be displayed as a <strong lang=\"en\">title</strong>.",
   "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Adds a special class to the <strong lang=\"en\">label</strong> with the width set to <strong lang=\"en\">auto</strong>.",
-  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "The value that will be passed to the model when the checkbox is checked."
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Additional props and <strong lang=\"en\">HTML</strong> attributes for customizing the <strong lang=\"en\">label</strong> tag, which is rendered using the <strong lang=\"en\">AElement</strong> component.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "The name of the slot that will be used instead of the default text if a slot with the specified name is passed to the component.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "The value that will be passed to the model when the checkbox is checked.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "This example uses <strong lang=\"en\">slot-name</strong> to replace the default <strong lang=\"en\">label</strong> text with custom content. The slot with the name <strong lang=\"en\">aloha</strong> provides a template where the <strong lang=\"en\">label</strong> text and icon are displayed with additional settings. This approach allows you to flexibly customize the <strong lang=\"en\">label</strong> content using standard attributes and components such as <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Example of using <strong lang=\"en\">slot-name</strong>"
 }

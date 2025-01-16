@@ -113,7 +113,7 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "isLabelTitle",
+      name: "is-label-title",
       description: "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_",
       type: "Boolean",
       default: undefined,
@@ -138,6 +138,13 @@ export default function PropsAPI() {
       description: "_A_UI_PROPS_LABEL_DESCRIPTION_",
       type: "String / Number",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "label-attributes",
+      description: "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_",
+      type: "Object",
+      default: "{}",
       required: false,
     },
     {
@@ -183,7 +190,14 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "trueValue",
+      name: "slot-name",
+      description: "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "true-value",
       description: "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_",
       type: "Boolean / String / Number",
       default: true,

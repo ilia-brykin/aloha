@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 2.1.0
+
+- `AOneCheckbox`: Added new props:
+  - `slotName` for customizing slots.
+  - `labelAttributes` for configuring additional attributes on labels.
+
 ## 2.0.1
 
 - Bug Fix: Added missing `CSS` file to the library.
@@ -27,6 +33,14 @@
   - Integrated `aloha-css` styles into `aloha-vue`.
 - Improved import system: Direct import for all components, directives, and plugins.
 - Dependency updates for compatibility.
+
+***
+
+## 1.3.0
+
+- `AOneCheckbox`: Added new props:
+    - `slotName` for customizing slots.
+    - `labelAttributes` for configuring additional attributes on labels.
 
 ## 1.2.285
 

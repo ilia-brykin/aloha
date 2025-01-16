@@ -13,5 +13,9 @@
   "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Prikazuje neodređeno stanje <strong lang=\"en\">(indeterminate)</strong> gdje se umjesto kvačice prikazuje znak minus.",
   "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Određuje hoće li tekst etikete biti prikazan kao <strong lang=\"en\">naslov</strong>.",
   "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Dodaje posebnu klasu <strong lang=\"en\">etiketi</strong> s postavljenom širinom na <strong lang=\"en\">auto</strong>.",
-  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Vrijednost koja će se prenijeti u model kada je potvrdna kućica označena."
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Dodatni props i <strong lang=\"en\">HTML</strong> atributi za prilagodbu oznake <strong lang=\"en\">label</strong>, koja se renderira pomoću komponente <strong lang=\"en\">AElement</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "Naziv slota koji će se koristiti umjesto zadanog teksta ako se komponenti proslijedi slot s navedenim imenom.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Vrijednost koja će se prenijeti u model kada je potvrdna kućica označena.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "Ovaj primjer koristi <strong lang=\"en\">slot-name</strong> za zamjenu zadanog teksta <strong lang=\"en\">label</strong> prilagođenim sadržajem. Slot s imenom <strong lang=\"en\">aloha</strong> pruža predložak u kojem se tekst <strong lang=\"en\">label</strong> i ikona prikazuju s dodatnim postavkama. Ovaj pristup omogućuje fleksibilnu prilagodbu sadržaja <strong lang=\"en\">label</strong> koristeći standardne atribute i komponente poput <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Primjer korištenja <strong lang=\"en\">slot-name</strong>"
 }

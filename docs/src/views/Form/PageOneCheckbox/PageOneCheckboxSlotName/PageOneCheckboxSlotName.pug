@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_SLOT_NAME_HEADER_"
+  description="_A_UI_GROUP_SLOT_NAME_DESCRIPTION_"
+  :props="['slot-name']"
+)
+  a-one-checkbox(
+    v-model="model"
+    label="Aloha"
+    slot-name="aloha"
+  )
+    template(
+      v-slot:aloha="{ id, labelClass, label, labelScreenReader, required, props }"
+    )
+      span(
+        :class="labelClass"
+      )
+        span {{ label }}
+        a-element(
+          :is-title-html="true"
+          class="a_ml_2"
+          icon-left="Window"
+          tabindex="0"
+          text-screen-reader="Aloha"
+          title="Aloha"
+          type="string"
+        )
+

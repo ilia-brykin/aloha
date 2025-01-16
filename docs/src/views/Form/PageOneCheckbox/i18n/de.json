@@ -13,5 +13,9 @@
   "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Zeigt den unbestimmten Zustand <strong lang=\"en\">(indeterminate)</strong> an, bei dem anstelle eines Häkchens ein Minuszeichen angezeigt wird.",
   "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Gibt an, ob der Label-Text als <strong lang=\"en\">Titel</strong> angezeigt wird.",
   "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Fügt dem <strong lang=\"en\">Label</strong> eine spezielle Klasse hinzu, wobei die Breite auf <strong lang=\"en\">auto</strong> gesetzt ist.",
-  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Der Wert, der an das Modell übergeben wird, wenn die Checkbox aktiviert ist."
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Zusätzliche Eigenschaften und <strong lang=\"en\">HTML</strong>-Attribute zur Anpassung des <strong lang=\"en\">label</strong>-Tags, das mit der Komponente <strong lang=\"en\">AElement</strong> gerendert wird.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "Der Name des Slots, der anstelle des Standardtexts verwendet wird, wenn ein Slot mit dem angegebenen Namen an die Komponente übergeben wird.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Der Wert, der an das Modell übergeben wird, wenn die Checkbox aktiviert ist.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "Dieses Beispiel verwendet <strong lang=\"en\">slot-name</strong>, um den Standardtext <strong lang=\"en\">label</strong> durch benutzerdefinierten Inhalt zu ersetzen. Der Slot mit dem Namen <strong lang=\"en\">aloha</strong> bietet eine Vorlage, in der der Text <strong lang=\"en\">label</strong> und das Symbol mit zusätzlichen Einstellungen angezeigt werden. Dieser Ansatz ermöglicht eine flexible Anpassung des <strong lang=\"en\">label</strong>-Inhalts mit Standardattributen und Komponenten wie <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Beispiel für die Verwendung von <strong lang=\"en\">slot-name</strong>"
 }

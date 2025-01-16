@@ -13,5 +13,9 @@
   "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Affiche l'état indéterminé <strong lang=\"en\">(indeterminate)</strong> où un symbole moins est affiché à la place d'une coche.",
   "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Spécifie si le texte de l'étiquette sera affiché comme un <strong lang=\"en\">titre</strong>.",
   "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Ajoute une classe spéciale à l'<strong lang=\"en\">étiquette</strong> avec la largeur définie sur <strong lang=\"en\">auto</strong>.",
-  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "La valeur qui sera transmise au modèle lorsque la case à cocher est cochée."
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Props supplémentaires et attributs <strong lang=\"en\">HTML</strong> pour personnaliser l'étiquette <strong lang=\"en\">label</strong>, qui est rendue à l'aide du composant <strong lang=\"en\">AElement</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "Le nom de la slot qui sera utilisé à la place du texte par défaut si une slot avec le nom spécifié est passé au composant.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "La valeur qui sera transmise au modèle lorsque la case à cocher est cochée.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "Cet exemple utilise <strong lang=\"en\">slot-name</strong> pour remplacer le texte par défaut de <strong lang=\"en\">label</strong> par un contenu personnalisé. La slot portant le nom <strong lang=\"en\">aloha</strong> fournit un modèle où le texte <strong lang=\"en\">label</strong> et l'icône sont affichés avec des réglages supplémentaires. Cette approche permet de personnaliser de manière flexible le contenu de <strong lang=\"en\">label</strong> à l'aide des attributs standard et des composants comme <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Exemple d'utilisation de <strong lang=\"en\">slot-name</strong>"
 }
