@@ -32,7 +32,7 @@ export default function MoveColumnAPI(props) {
           selector: `#${ getArrowButtonId({
             columnIndex: columnIndexOver,
             iconKey: "up",
-          }) }`
+          }) }`,
         });
       });
     }

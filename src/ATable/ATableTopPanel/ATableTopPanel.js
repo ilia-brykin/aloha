@@ -238,10 +238,11 @@ export default {
         class: "a_table__top_panel",
       }, [
         this.isLabelVisible ?
-          this.$slots.tableLabel ? this.$slots.tableLabel({
-            countAllRows: this.countAllRows,
-            tableLabelId: this.tableLabelId,
-          }) :
+          this.$slots.tableLabel
+? this.$slots.tableLabel({
+  countAllRows: this.countAllRows,
+  tableLabelId: this.tableLabelId,
+}) :
             h(this.labelTag, {
               class: ["a_table__top_panel__label", this.labelClass],
             }, [
@@ -252,18 +253,20 @@ export default {
                 text: this.label,
                 extra: this.extra,
               }),
-              this.showCount ? h(AElement, {
-                class: "a_table__top_panel__label__count",
-                extra: {
-                  count: this.countAllRows,
-                },
-                tag: "span",
-                text: this.countAllRowsFormatted,
-                textAriaHidden: true,
-                textScreenReader: "_A_TABLE_ALL_ROWS_{{count}}_",
-                title: "_A_TABLE_ALL_ROWS_{{count}}_",
-                type: "text",
-              }) : "",
+              this.showCount
+? h(AElement, {
+  class: "a_table__top_panel__label__count",
+  extra: {
+    count: this.countAllRows,
+  },
+  tag: "span",
+  text: this.countAllRowsFormatted,
+  textAriaHidden: true,
+  textScreenReader: "_A_TABLE_ALL_ROWS_{{count}}_",
+  title: "_A_TABLE_ALL_ROWS_{{count}}_",
+  type: "text",
+})
+: "",
             ]) :
           "",
         h("div", {

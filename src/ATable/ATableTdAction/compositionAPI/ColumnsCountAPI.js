@@ -23,7 +23,7 @@ export default function ColumnsCountAPI() {
       "_A_TABLE_DROPDOWN_HIDE_FIELD_TEXT_" :
       "_A_TABLE_DROPDOWN_HIDE_FIELDS_TEXT_{{count}}_";
   });
-  
+
   return {
     columnsScrollInvisibleText,
     countColumnsScrollInvisible,

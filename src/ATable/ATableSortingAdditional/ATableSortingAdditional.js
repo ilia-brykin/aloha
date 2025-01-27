@@ -156,7 +156,7 @@ export default {
                 h(ATranslation, {
                   class: "a_filter_horizontal__header__texts__filter",
                   tag: "span",
-                  text: "_A_TABLE_SORT_ADDITIONAL_HEADER_"
+                  text: "_A_TABLE_SORT_ADDITIONAL_HEADER_",
                 }),
               ]),
             ]),
@@ -213,7 +213,7 @@ export default {
             ]),
           ]),
         ]);
-      }
+      },
     });
   },
 };

@@ -9,7 +9,8 @@ import {
 
 export default function UiLabelClickEventBusAPI({
   htmlIdLocal = computed(() => ""),
-  clickLabel = () => {},
+  clickLabel = () => {
+  },
 }) {
   const eventBusName = computed(() => {
     return getLabelClickEventName(htmlIdLocal.value);

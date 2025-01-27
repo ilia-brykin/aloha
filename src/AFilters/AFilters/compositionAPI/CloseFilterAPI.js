@@ -18,7 +18,8 @@ import {
 export default function CloseFilterAPI(props, { emit }, {
   filtersHorizontalRef = ref(undefined),
   filtersVisibleAll = computed(() => []),
-  onUpdateModelFilters = () => {},
+  onUpdateModelFilters = () => {
+  },
 }) {
   const appliedModel = toRef(props, "appliedModel");
   const unappliedModel = toRef(props, "unappliedModel");

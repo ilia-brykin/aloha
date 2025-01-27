@@ -187,7 +187,7 @@ export default function ScrollControlAPI(props, { emit }, {
       } else {
         adjustTableWidth({ entries });
       }
-    }, 300)
+    }, 300),
   );
 
   const onWatchMobileScrollControl = newValue => {

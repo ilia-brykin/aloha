@@ -119,7 +119,7 @@ export default {
       ...this.stylesThTd,
     }, [
       h("span", {
-        class: "a_sr_only"
+        class: "a_sr_only",
       }, "Aktionen"),
       this.isActionIconVisible && h(ADropdown, {
         buttonClass: "a_btn a_btn_secondary a_table__cell_action__btn",

@@ -63,7 +63,7 @@ export default function PopoverAPI(props, {
               top: `${ y }px`,
             });
           });
-        }
+        },
       );
     }
   };

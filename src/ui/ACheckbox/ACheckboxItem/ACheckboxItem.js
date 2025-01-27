@@ -271,7 +271,8 @@ export default {
           isChecked: this.isChecked,
           label: this.labelLocal,
           labelFiltered: this.currentLabelFiltered,
-        }) : "",
+        })
+: "",
     ];
   },
 };

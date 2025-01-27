@@ -189,12 +189,15 @@ export default {
     floatingFlip: {
       type: Object,
       required: false,
-      // mainAxis?: boolean;
-      // crossAxis?: boolean;
-      // fallbackAxisSideDirection?: 'none' | 'start' | 'end';
-      // flipAlignment?: boolean;
-      // fallbackPlacements?: Array<Placement>;
-      // fallbackStrategy?: 'bestFit' | 'initialPlacement';
+
+      /*
+       * mainAxis?: boolean;
+       * crossAxis?: boolean;
+       * fallbackAxisSideDirection?: 'none' | 'start' | 'end';
+       * flipAlignment?: boolean;
+       * fallbackPlacements?: Array<Placement>;
+       * fallbackStrategy?: 'bestFit' | 'initialPlacement';
+       */
       default: () => ({}),
     },
     floatingShift: {
@@ -395,7 +398,7 @@ export default {
   },
   render() {
     if (this.isHideWithoutActionAndSlot &&
-      !this.hasActions && 
+      !this.hasActions &&
       !this.$slots.dropdown) {
       return null;
     }
@@ -445,7 +448,7 @@ export default {
         disabled: !this.inBody,
       }, [
         this.isMenuRendered && withDirectives(h(
-          "div", 
+          "div",
           {
             ref: "dropdownRef",
             role: "application",

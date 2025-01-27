@@ -134,7 +134,7 @@ export default {
       ],
     }, [
       h("div", {
-        class: "a_vertical_scroll__btn__wrapper a_vertical_scroll__btn__wrapper_up"
+        class: "a_vertical_scroll__btn__wrapper a_vertical_scroll__btn__wrapper_up",
       }, [
         h(AButton, {
           class: "a_btn a_btn_transparent_secondary a_btn_small a_vertical_scroll__btn a_vertical_scroll__btn_up",
@@ -159,7 +159,7 @@ export default {
         ]),
       ]),
       h("div", {
-        class: "a_vertical_scroll__btn__wrapper a_vertical_scroll__btn__wrapper_down"
+        class: "a_vertical_scroll__btn__wrapper a_vertical_scroll__btn__wrapper_down",
       }, [
         h(AButton, {
           class: "a_btn a_btn_transparent_secondary a_btn_small a_vertical_scroll__btn a_vertical_scroll__btn_down",

@@ -18,11 +18,13 @@ import {
 } from "lodash-es";
 
 export default function KeydownAPI(props, {
-  closeMenu = () => {},
+  closeMenu = () => {
+  },
   isMenuOpen = computed(() => false),
   isSubMenuOpen = computed(() => false),
   panelParentsOpen = ref([]),
-  togglePanel = () => {},
+  togglePanel = () => {
+  },
 }) {
   const menuId = toRef(props, "menuId");
   const useEscapeForMobile = toRef(props, "useEscapeForMobile");

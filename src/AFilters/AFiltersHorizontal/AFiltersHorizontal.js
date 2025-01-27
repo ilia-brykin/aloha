@@ -229,7 +229,7 @@ export default {
                   h(ATranslation, {
                     class: "a_filter_horizontal__header__texts__filter",
                     tag: "span",
-                    text: "_A_FILTERS_HOR_FILTER_HEADER_"
+                    text: "_A_FILTERS_HOR_FILTER_HEADER_",
                   }),
                 this.isModelFilterSavedNew ?
                   h(ATranslation, {
@@ -386,7 +386,7 @@ export default {
           updateFiltersSaved: this.updateFiltersSaved,
           onClose: this.closeModalSave,
         }) :
-        ""
+        "",
     ];
   },
 };

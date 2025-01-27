@@ -22,7 +22,8 @@ export default function UiSearchAPI(props, { emit }, {
   hasKeyGroup = computed(() => false),
   htmlIdLocal = computed(() => ""),
   keyGroupArray = computed(() => []),
-  onSearchInApi = () => {},
+  onSearchInApi = () => {
+  },
   searchApiLocal = computed(() => false),
 }) {
   const searchTimeout = toRef(props, "searchTimeout");
@@ -38,7 +39,7 @@ export default function UiSearchAPI(props, { emit }, {
   const searchingGroups = ref({});
   const searchingGroupsWithSearchInGroup = ref({});
   const searchOutsideRef = ref(undefined);
-  
+
   const searchOutsideOrApi = computed(() => {
     return !!(searchOutside.value || searchApiLocal.value);
   });

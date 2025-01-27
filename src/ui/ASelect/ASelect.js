@@ -86,7 +86,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     class: {
       type: [String, Object],
@@ -547,7 +548,7 @@ export default {
       menuRef,
       togglePopover,
     } = ToggleAPI(props, context);
-    
+
     const {
       deleteExceededItems,
       onChangeModelValue,
@@ -969,7 +970,7 @@ export default {
                                 type: this.type,
                                 onChangeModelValue: this.onChangeModelValue,
                               }, this.$slots);
-                            })
+                            }),
                           ]),
                         ]),
                       ((!this.dataSort.length && !this.hasDataExtra) || this.hasNotElementsWithSearch) ?

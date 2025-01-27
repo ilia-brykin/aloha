@@ -10,7 +10,7 @@ export default function VisibleAPI() {
     nextTick().then(
       () => {
         isWizardVisible.value = true;
-      }
+      },
     );
   };
 

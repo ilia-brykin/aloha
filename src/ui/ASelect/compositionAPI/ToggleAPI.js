@@ -10,7 +10,7 @@ import {
   computePosition,
   flip,
   limitShift,
-  shift
+  shift,
 } from "@floating-ui/vue";
 
 import AEventOutsideAPI from "../../../compositionAPI/AEventOutsideAPI";
@@ -162,7 +162,7 @@ export default function ToggleAPI(props, {
               middleware: [
                 flip(),
                 shift({ limiter: limitShift() }),
-              ]
+              ],
             },
           ).then(({ x, y }) => {
             if (!buttonRef.value.clientWidth) { // if button hide
@@ -179,7 +179,7 @@ export default function ToggleAPI(props, {
             }
             Object.assign(menuRef.value.style, SOURCE);
           });
-        }
+        },
       );
       onShow();
     }

@@ -12,8 +12,8 @@ export function filterActionsHiddenAndDivider({ actions }) {
   const ACTIONS_DIVIDER_FILTERED = [];
   forEach(ACTIONS_FILTERED, action => {
     if (action.type !== "divider" ||
-        (ACTIONS_DIVIDER_FILTERED.length > 0 &&
-          last(ACTIONS_DIVIDER_FILTERED).type !== "divider")) {
+      (ACTIONS_DIVIDER_FILTERED.length > 0 &&
+        last(ACTIONS_DIVIDER_FILTERED).type !== "divider")) {
       ACTIONS_DIVIDER_FILTERED.push(action);
     }
   });

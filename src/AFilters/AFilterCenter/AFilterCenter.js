@@ -103,14 +103,16 @@ export default {
           onUpdateLoadingChildFilters: this.updateLoadingChildFilters,
         }, this.$slots);
       }),
-      this.isLeastOneChildFilterLoading ? h("div", {
-        style: this.styleHide,
-        class: "a_filters_center__item",
-      }, [
-        h(ASpinner, {
-          class: "a_spinner_small",
-        }),
-      ]) : "",
+      this.isLeastOneChildFilterLoading
+? h("div", {
+  style: this.styleHide,
+  class: "a_filters_center__item",
+}, [
+  h(ASpinner, {
+    class: "a_spinner_small",
+  }),
+])
+: "",
       h("div", {
         class: "a_filters_center__item",
         style: this.styleHide,

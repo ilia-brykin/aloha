@@ -10,7 +10,8 @@ import {
 
 export default function AEventOutsideAPI({
   $elements = computed(() => []),
-  clickOutsideCallback = () => {},
+  clickOutsideCallback = () => {
+  },
 }) {
   const clickEventName = ref("ontouchend" in document ? "touchstart" : "click");
 

@@ -155,68 +155,30 @@ export default [
       //   "error",
       //   {
       //     groups: [
-      //       "builtin", // 1. Imports from "vue" and "vue-router"
+      //       "builtin", // 1. Imports from "vue" and other built-in modules
       //       "external", // 2. Imports from external libraries like "aloha-vue"
-      //       "internal", // 3. Imports of components, directives, mixins, and Composition API
-      //       ["parent", "sibling"], // 4. Imports from parent and sibling directories
-      //       "index" // 5. Imports from index files
       //     ],
       //     pathGroups: [
       //       {
-      //         // Group for "vue" imports
-      //         pattern: "vue",
+      //         pattern: "vue", // Group for "vue" imports
       //         group: "builtin",
       //         position: "before",
       //       },
       //       {
-      //         // Group for "vue-router" imports
-      //         pattern: "vue-router",
+      //         pattern: "aloha-vue", // Group for "aloha-vue" imports
       //         group: "builtin",
-      //         position: "after",
-      //       },
-      //       {
-      //         // Group for "aloha-vue" imports
-      //         pattern: "aloha-vue",
-      //         group: "external",
-      //         position: "after",
-      //       },
-      //       {
-      //         // Group for components
-      //         pattern: "src/components/**",
-      //         group: "internal",
-      //         position: "before",
-      //       },
-      //       {
-      //         // Group for directives
-      //         pattern: "src/directives/**",
-      //         group: "internal",
-      //         position: "after",
-      //       },
-      //       {
-      //         // Group for mixins
-      //         pattern: "src/mixins/**",
-      //         group: "internal",
-      //         position: "after",
-      //       },
-      //       {
-      //         // Group for Composition API
-      //         pattern: "src/compositionAPI/**",
-      //         group: "internal",
-      //         position: "after",
-      //       },
-      //       {
-      //         // Group for "lodash-es" imports
-      //         pattern: "lodash-es",
-      //         group: "external",
-      //         position: "before",
+      //         position: "before", // Ensure it's in the same group as "vue"
       //       },
       //     ],
-      //     pathGroupsExcludedImportTypes: ["builtin"], // Exclude "builtin" from path group checks
+      //     pathGroupsExcludedImportTypes: [
+      //       "builtin",
+      //       // "builtin", "unknown"
+      //     ], // Exclude "builtin" from path group checks
       //     alphabetize: {
       //       order: "asc", // Alphabetize imports within each group
       //       caseInsensitive: true, // Ignore case sensitivity while sorting
       //     },
-      //     "newlines-between": "always", // Enforce a blank line between import groups
+      //     "newlines-between": "always-and-inside-groups", // Enforce a blank line after "aloha-vue" but not between related imports
       //   },
       // ],
 
@@ -284,7 +246,6 @@ export default [
       "no-unused-vars": [WARN, { caughtErrors: "none" }],
 
       // Stylistic Issues
-      "func-call-spacing": [WARN, "never"],
       "no-multi-assign": WARN,
       "no-unneeded-ternary": WARN,
 

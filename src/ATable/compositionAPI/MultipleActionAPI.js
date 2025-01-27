@@ -19,7 +19,8 @@ import {
 } from "lodash-es";
 
 export default function MultipleActionAPI(props, { emit }, {
-  checkVisibleColumns = () => {},
+  checkVisibleColumns = () => {
+  },
   isMultipleActionsActive = ref(undefined),
   rowsLocalAll = computed(() => []),
   rowsLocalLength = computed(() => 0),
@@ -96,7 +97,7 @@ export default function MultipleActionAPI(props, { emit }, {
   });
 
   const areAllVisibleRowsSelected = computed(() => {
-    return rowsLocalLength.value > 0 && 
+    return rowsLocalLength.value > 0 &&
       rowsLocalLength.value === selectedRowsIndexesLength.value;
   });
 

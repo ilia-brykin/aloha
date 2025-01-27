@@ -6,7 +6,7 @@ describe("TagAPI", () => {
   beforeEach(() => {
     props = {
       tag: "ul",
-      isHtml: false
+      isHtml: false,
     };
   });
 

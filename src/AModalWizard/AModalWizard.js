@@ -218,7 +218,7 @@ export default {
     backButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: "a_btn a_btn_secondary"
+      default: "a_btn a_btn_secondary",
     },
     backButtonIconLeft: {
       type: String,
@@ -248,7 +248,7 @@ export default {
     forwardButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: "a_btn a_btn_secondary"
+      default: "a_btn a_btn_secondary",
     },
     forwardButtonIconLeft: {
       type: String,
@@ -278,7 +278,7 @@ export default {
     id: {
       type: String,
       required: false,
-      default: () => uniqueId("a_modal_wizard_")
+      default: () => uniqueId("a_modal_wizard_"),
     },
     isBackButtonDisabled: {
       type: Boolean,

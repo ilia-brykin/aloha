@@ -174,12 +174,14 @@ export default {
         !this.isHide && h(Teleport, {
           to: this.popperContainerIdSelector,
         }, [
-          // h("div", {
-          //   id: this.ariaDescribedby,
-          //   class: "a_sr_only",
-          // }, [
-          //   this.$slots.title && this.$slots.title(),
-          // ]),
+          /*
+           * h("div", {
+           *   id: this.ariaDescribedby,
+           *   class: "a_sr_only",
+           * }, [
+           *   this.$slots.title && this.$slots.title(),
+           * ]),
+           */
           !!(this.$slots.title && this.isTitleVisible) && withDirectives(h("div", {
             ref: "titleRef",
             class: "a_tooltip__container",

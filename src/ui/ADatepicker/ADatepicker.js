@@ -90,7 +90,7 @@ export default {
     },
     format: {
       type: [String, Object],
-      default: "DD.MM.YYYY"
+      default: "DD.MM.YYYY",
     },
     formatSave: {
       type: String,
@@ -357,7 +357,7 @@ export default {
       if (type === "format") {
         return {
           value2date: this.parse.bind(this),
-          date2value: this.stringify.bind(this)
+          date2value: this.stringify.bind(this),
         };
       }
       return transformDate[type] || transformDate.date;
@@ -381,29 +381,29 @@ export default {
           onClick(self) {
             self.currentValue = [new Date(), new Date(Date.now() + 3600 * 1000 * 24 * 7)];
             self.updateDate(true);
-          }
+          },
         },
         {
           text: pickers[1],
           onClick(self) {
             self.currentValue = [new Date(), new Date(Date.now() + 3600 * 1000 * 24 * 30)];
             self.updateDate(true);
-          }
+          },
         },
         {
           text: pickers[2],
           onClick(self) {
             self.currentValue = [new Date(Date.now() - 3600 * 1000 * 24 * 7), new Date()];
             self.updateDate(true);
-          }
+          },
         },
         {
           text: pickers[3],
           onClick(self) {
             self.currentValue = [new Date(Date.now() - 3600 * 1000 * 24 * 30), new Date()];
             self.updateDate(true);
-          }
-        }
+          },
+        },
       ];
       return arr;
     },
@@ -646,11 +646,14 @@ export default {
               tabindex: -1,
             }),
           ]),
-          // this.isClearButtonLocal && h(AFormElementBtnClear, {
-          //   disabled: this.disabled,
-          //   clearButtonClass: this.clearButtonClass,
-          //   onClear: this.clearModel,
-          // }),
+
+          /*
+           * this.isClearButtonLocal && h(AFormElementBtnClear, {
+           *   disabled: this.disabled,
+           *   clearButtonClass: this.clearButtonClass,
+           *   onClear: this.clearModel,
+           * }),
+           */
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,

@@ -21,7 +21,7 @@ export default function ToggleAPI(props, { emit }, {
       nextTick().then(
         () => setFocusToElement({
           element: containerRef.value,
-        })
+        }),
       );
     }
   };

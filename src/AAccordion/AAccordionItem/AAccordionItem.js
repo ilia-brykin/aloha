@@ -134,7 +134,8 @@ export default {
             parentIndexes: this.parentIndexes,
             id: this.id,
             currentId: this.currentId,
-          }) : this.$slots.accordionContent ?
+          })
+: this.$slots.accordionContent ?
             this.$slots.accordionContent({
               item: this.item,
               itemIndex: this.itemIndex,
@@ -208,7 +209,7 @@ export default {
         h("div", {
           class: ["a_accordion__body", this.classBody, this.classBodyLocal],
         }, body),
-      ])
+      ]),
     ]);
   },
 };

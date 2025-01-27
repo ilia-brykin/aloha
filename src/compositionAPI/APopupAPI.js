@@ -16,7 +16,7 @@ export default function APopupAPI({ id, idRef }) {
     }
     return isCurrentPopupOpen({ id });
   });
-  
+
   return {
     closePopup,
     isCurrentPopupOpen,

@@ -27,7 +27,8 @@ export default function CheckboxAPI(props, { emit }) {
 
   const labelCheckbox = computed(() => {
     return isCheckboxIndeterminate.value || modelValueCheckboxLocal.value ?
-      "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_" : "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_";
+      "_A_TABLE_DESELECT_ALL_VISIBLE_POSSIBLE_ROWS_"
+: "_A_TABLE_SELECT_ALL_VISIBLE_POSSIBLE_ROWS_";
   });
 
   const toggleCheckbox = () => {

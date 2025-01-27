@@ -12,7 +12,7 @@ import {
   computePosition,
   flip,
   limitShift,
-  shift
+  shift,
 } from "@floating-ui/vue";
 import {
   clone,
@@ -108,7 +108,7 @@ export default function PopoverAPI(props, {
               middleware: [
                 flip(),
                 shift({ limiter: limitShift() }),
-              ]
+              ],
             },
           ).then(({ x, y }) => {
             Object.assign(PANEL_ELEMENT.style, {
@@ -116,7 +116,7 @@ export default function PopoverAPI(props, {
               top: `${ y }px`,
             });
           });
-        }
+        },
       );
     });
     forEach(CLEANUP_POPPER, (_, key) => {

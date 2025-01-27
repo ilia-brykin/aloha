@@ -77,11 +77,13 @@ export default {
       class: "a_pagination__counts",
     }, (this.mode === "inline" || this.mode === "group") ?
       [
-        this.showTextCountFromTo ? h(ATranslation, {
-          class: "a_pagination__count_from_to",
-          html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
-          extra: this.extraForTranslate,
-        }) : "",
+        this.showTextCountFromTo
+? h(ATranslation, {
+  class: "a_pagination__count_from_to",
+  html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+  extra: this.extraForTranslate,
+})
+: "",
         h(ATranslation, {
           tag: "span",
           class: "a_pagination__count__text",
@@ -125,7 +127,7 @@ export default {
                   "a_pagination__item",
                   {
                     active: IS_ACTIVE,
-                  }
+                  },
                 ],
               }, [
                 h(AElement, {
@@ -151,11 +153,13 @@ export default {
           ]),
       ] :
       [
-        this.showTextCountFromTo ? h(ATranslation, {
-          class: "a_pagination__count_from_to",
-          html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
-          extra: this.extraForTranslate,
-        }) : "",
+        this.showTextCountFromTo
+? h(ATranslation, {
+  class: "a_pagination__count_from_to",
+  html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+  extra: this.extraForTranslate,
+})
+: "",
         h(ASelect, {
           label: "_A_COUNT_PER_PAGE_",
           labelClass: "a_sr_only",

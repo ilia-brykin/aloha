@@ -33,7 +33,7 @@ export function parseTime(time) {
     const minutes = parseInt(VALUES[1], 10);
     return {
       hours,
-      minutes
+      minutes,
     };
   }
   return null;

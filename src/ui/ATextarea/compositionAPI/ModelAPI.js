@@ -3,8 +3,10 @@ import {
 } from "vue";
 
 export default function ModelAPI(props, {
-  changeModel = () => {},
-  updateAutosize = () => {},
+  changeModel = () => {
+  },
+  updateAutosize = () => {
+  },
 }) {
   const disabled = toRef(props, "disabled");
   const modelUndefined = toRef(props, "modelUndefined");

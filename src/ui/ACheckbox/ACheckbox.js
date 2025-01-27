@@ -51,7 +51,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     classButtonGroupDefault: {
       type: [String, Object, Array],
@@ -545,7 +546,7 @@ export default {
                 a_fieldset_no_border: !this.hasBorder,
                 a_fieldset_invalid: this.isErrors,
                 a_fieldset_collapsed: this.isCollapsedLocal,
-              }
+              },
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
           }, [
@@ -728,7 +729,7 @@ export default {
                         slotName: this.slotName,
                         onChangeModelValue: this.onChangeModelValue,
                       }, this.$slots);
-                    })
+                    }),
                   ]),
                 ]),
               (!this.dataSort.length || this.hasNotElementsWithSearch) ?

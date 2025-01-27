@@ -7,7 +7,8 @@ import {
 } from "lodash-es";
 
 export default function ObserverAPI({
-  checkScroll = () => {},
+  checkScroll = () => {
+  },
   containerRef = ref(undefined),
   scrollContentChildRef = ref(undefined),
 }) {
@@ -38,13 +39,13 @@ export default function ObserverAPI({
 
   const initContainerObserver = () => {
     resizeContainerObserver.value = new ResizeObserver(
-      debounce(entries => callbackContainerObserver(entries), 300)
+      debounce(entries => callbackContainerObserver(entries), 300),
     );
   };
 
   const initScrollContentObserver = () => {
     resizeScrollContentObserver.value = new ResizeObserver(
-      debounce(entries => callbackScrollContentObserver(entries), 300)
+      debounce(entries => callbackScrollContentObserver(entries), 300),
     );
   };
 

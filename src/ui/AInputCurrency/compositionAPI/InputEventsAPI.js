@@ -13,14 +13,20 @@ import {
 } from "lodash-es";
 
 export default function InputEventsAPI(props, {
-  adjustFloatPartAndDivider = () => {},
-  decrease = () => {},
-  getCleanIntValue = () => {},
-  increase = () => {},
+  adjustFloatPartAndDivider = () => {
+  },
+  decrease = () => {
+  },
+  getCleanIntValue = () => {
+  },
+  increase = () => {
+  },
   modelNumber = computed(() => undefined),
   modelUndefinedLocal = computed(() => undefined),
-  onBlur = () => {},
-  setCurrentValue = () => {},
+  onBlur = () => {
+  },
+  setCurrentValue = () => {
+  },
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
   const inputRef = ref(undefined);
@@ -573,11 +579,13 @@ export default function InputEventsAPI(props, {
           valueToSet = `${ setMinusSymbol }${ intPart }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
         }
       } else {
-        valueToSet = required.value ? [
-          "0",
-          decimalDivider.value,
-          times(decimalPartLength.value, () => "0").join(""),
-        ].join("") : modelUndefinedLocal.value;
+        valueToSet = required.value
+? [
+  "0",
+  decimalDivider.value,
+  times(decimalPartLength.value, () => "0").join(""),
+].join("")
+: modelUndefinedLocal.value;
       }
       handleInput(null, valueToSet, true);
     });

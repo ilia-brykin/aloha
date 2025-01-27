@@ -210,7 +210,7 @@ export default {
               onBlur: this.onBlur,
             }),
             h("span", {
-              class: "a_file__label"
+              class: "a_file__label",
             }, this.text),
           ]),
         ]),

@@ -303,7 +303,7 @@ export default {
               slotAppendName: this.slotAppendName,
               type: this.type,
               onChangeModelValue: this.onChangeModelValue,
-            }, this.$slots)
+            }, this.$slots),
           ]),
         ]);
       }),

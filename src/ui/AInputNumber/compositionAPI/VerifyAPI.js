@@ -14,7 +14,8 @@ import {
 } from "lodash-es";
 
 export default function VerifyAPI(props, {
-  changeModel = () => {},
+  changeModel = () => {
+  },
   minLocal = computed(() => undefined),
 }) {
   const modelUndefined = toRef(props, "modelUndefined");
@@ -43,7 +44,7 @@ export default function VerifyAPI(props, {
       if (stepPrecision > precision.value) {
         console.warn(
           "AInputNumber",
-          "precision should not be less than the decimal places of step"
+          "precision should not be less than the decimal places of step",
         );
       }
       return precision.value;

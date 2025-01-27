@@ -9,7 +9,7 @@ import {
   computePosition,
   flip,
   limitShift,
-  shift
+  shift,
 } from "@floating-ui/vue";
 
 export default function PopoverAPI(props, {
@@ -58,7 +58,7 @@ export default function PopoverAPI(props, {
               });
             });
           }
-        }
+        },
       );
 
       setTimeout(() => {

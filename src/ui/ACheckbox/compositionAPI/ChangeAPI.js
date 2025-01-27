@@ -3,7 +3,8 @@ import {
 } from "vue";
 
 export default function ChangeAPI(props, {
-  changeModel = () => {},
+  changeModel = () => {
+  },
 }) {
   const disabled = toRef(props, "disabled");
 

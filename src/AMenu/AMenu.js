@@ -218,7 +218,7 @@ export default {
       isSubMenuOpen,
       panelParentsOpen,
       setDefaultMenu,
-      togglePanel
+      togglePanel,
     } = PanelsAPI(props, {
       dataKeyById,
       resetSearch,
@@ -478,7 +478,7 @@ export default {
         ]),
         h(AVerticalScroll, {
           class: {
-            a_menu__vertical_scroll_hidden: this.isLeastOnePanelOpenAndMenuClosed
+            a_menu__vertical_scroll_hidden: this.isLeastOnePanelOpenAndMenuClosed,
           },
           disabled: this.isMenuOpen || this.isLeastOnePanelOpenAndMenuClosed,
         }, () => [
@@ -532,15 +532,17 @@ export default {
         modelSearch: this.modelSearch,
       }, this.$slots),
 
-      this.isBackdropVisible ? h(Teleport, {
-        to: "body",
-      }, [
-        h("div", {
-          class: "a_menu__backdrop a_backdrop a_backdrop_fade",
-          "aria-hidden": true,
-          ...this.clickAttributesBackdrop,
-        }),
-      ]) : "",
+      this.isBackdropVisible
+? h(Teleport, {
+  to: "body",
+}, [
+  h("div", {
+    class: "a_menu__backdrop a_backdrop a_backdrop_fade",
+    "aria-hidden": true,
+    ...this.clickAttributesBackdrop,
+  }),
+])
+: "",
     ]);
   },
 };

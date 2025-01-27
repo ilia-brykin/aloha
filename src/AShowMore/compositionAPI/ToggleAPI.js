@@ -13,7 +13,8 @@ export default function ToggleAPI(props, { emit }, {
   containerRef = ref(undefined),
   hasTextAndLength = computed(() => false),
   isOpen = ref(false),
-  stopObservingMutation = () => {}
+  stopObservingMutation = () => {
+  },
 }) {
   const showLess = toRef(props, "showLess");
 
@@ -30,7 +31,7 @@ export default function ToggleAPI(props, { emit }, {
       nextTick().then(
         () => setFocusToElement({
           element: containerRef.value,
-        })
+        }),
       );
     }
   };

@@ -49,7 +49,7 @@ export default {
     const {
       x,
       y,
-    } = SizesAPI(props,);
+    } = SizesAPI(props);
 
     return {
       x,
@@ -60,7 +60,7 @@ export default {
     return h("use", {
       x: this.x,
       y: this.y,
-      "xlink:href": "#scale_bowl"
+      "xlink:href": "#scale_bowl",
     });
   },
 };

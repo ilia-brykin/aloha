@@ -103,7 +103,7 @@ export default {
       if (isFunction(goToError.value)) {
         return goToError.value({
           id: idLocal.value,
-          key: errorKey.value
+          key: errorKey.value,
         });
       }
       let idStr = idLocal.value;
@@ -163,9 +163,10 @@ export default {
               tag: "strong",
               safeHtml: this.currentLabel,
             }),
-          ]) : "",
+          ])
+: "",
       h(
-        "div", 
+        "div",
         {
           id: this.id,
           class: "a_errors__errors",
@@ -176,18 +177,19 @@ export default {
               alwaysTranslate: this.alwaysTranslate,
               tag: "span",
               html: this.error,
-            })
+            }),
           ] :
-          this.isErrorArray ? [...this.error.map((error, erIndex) => {
-            return h(resolveComponent("AErrorsElement"), {
-              key: erIndex,
-              error,
-              alwaysTranslate: this.alwaysTranslate,
-              errorLabels: this.isErrorLabelsArray ? this.errorLabels[erIndex] || this.errorLabels : this.errorLabels,
-              goToError: this.goToError,
-              isErrorLink: this.isErrorLink,
-            });
-          })] :
+          this.isErrorArray
+? [...this.error.map((error, erIndex) => {
+  return h(resolveComponent("AErrorsElement"), {
+    key: erIndex,
+    error,
+    alwaysTranslate: this.alwaysTranslate,
+    errorLabels: this.isErrorLabelsArray ? this.errorLabels[erIndex] || this.errorLabels : this.errorLabels,
+    goToError: this.goToError,
+    isErrorLink: this.isErrorLink,
+  });
+})] :
           this.isErrorObject ?
             [
               h("div", {

@@ -31,7 +31,8 @@ export default {
     disabledPreviewRowCallback: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     isLoadingTable: {
       type: Boolean,
@@ -191,18 +192,21 @@ export default {
             }),
           ]),
         ]),
-      !this.isMobile ? h(AButton, {
-        class: "a_btn a_btn_transparent_dark a_table__preview_right__btn_close",
-        iconLeft: XLg,
-        iconClass: "a_table__preview_right__btn_close__icon",
-        title: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
-        textScreenReader: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
-        onClick: () => this.$emit("closePreview"),
-      }) : "",
+      !this.isMobile
+? h(AButton, {
+  class: "a_btn a_btn_transparent_dark a_table__preview_right__btn_close",
+  iconLeft: XLg,
+  iconClass: "a_table__preview_right__btn_close__icon",
+  title: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
+  textScreenReader: "_A_TABLE_PREVIEW_RIGHT_CLOSE_",
+  onClick: () => this.$emit("closePreview"),
+})
+: "",
     ];
 
     const BODY = [
-      this.isLoadingTable ? h(ACloak) :
+      this.isLoadingTable
+? h(ACloak) :
         this.$slots.preview ?
           this.$slots.preview({
             row: this.currentRow,

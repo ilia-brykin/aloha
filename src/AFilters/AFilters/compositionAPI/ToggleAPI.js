@@ -11,7 +11,8 @@ import {
 export default function ToggleAPI(props, {
   dataKeyByKeyIdPerFilter = ref({}),
   filtersVisibleIds = ref([]),
-  onUpdateModelFilters = () => {},
+  onUpdateModelFilters = () => {
+  },
 }) {
   const unappliedModel = toRef(props, "unappliedModel");
 

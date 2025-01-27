@@ -99,7 +99,7 @@ export default function PreviewRightResizeAPI(props, { emit }, {
         tableGrandparentWidth = RECT.width;
         correctTableUndPreviewWidth();
       }
-    }, 300)
+    }, 300),
   );
 
   const addEventListenerWindowResize = () => {

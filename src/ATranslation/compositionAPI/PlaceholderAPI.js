@@ -57,7 +57,7 @@ export default function PlaceholderAPI(props) {
       return getTranslatedText({
         placeholder: placeholderForCurrentDevice.value,
         extra: extra.value,
-        alwaysTranslate: alwaysTranslate.value
+        alwaysTranslate: alwaysTranslate.value,
       });
     }
     return placeholderForCurrentDevice.value;

@@ -11,7 +11,8 @@ import {
 
 
 export default function ColumnsOrderingAPI(props, { emit }, {
-  checkVisibleColumns = () => {},
+  checkVisibleColumns = () => {
+  },
   columnIdsGroupByLocked = computed(() => ({
     true: [],
     false: [],
@@ -72,7 +73,7 @@ export default function ColumnsOrderingAPI(props, { emit }, {
       forEach(COLUMNS_NOT_LOCKED_IDS, (_, columnId) => {
         modelColumnsOrderingLocal.push(columnId);
       });
-      
+
       if (JSON.stringify(modelColumnsOrdering.value) !== JSON.stringify(modelColumnsOrderingLocal)) {
         shouldFixColumns = true;
       }

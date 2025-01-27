@@ -18,9 +18,11 @@ export default function ColumnAdditionalSpaceAPI(props) {
   });
 
   const additionalWidthForCurrentColumn = computed(() => {
-    // if (!modelIsTableWithoutScroll.value) {
-    //   return 0;
-    // }
+    /*
+     * if (!modelIsTableWithoutScroll.value) {
+     *   return 0;
+     * }
+     */
     return columnsVisibleAdditionalSpaceForOneGrow.value * currentGrow.value;
   });
 

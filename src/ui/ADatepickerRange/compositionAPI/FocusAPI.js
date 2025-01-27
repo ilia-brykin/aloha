@@ -13,6 +13,6 @@ export default function FocusAPI({
   };
 
   return {
-    setFocusToFromInput
+    setFocusToFromInput,
   };
 }

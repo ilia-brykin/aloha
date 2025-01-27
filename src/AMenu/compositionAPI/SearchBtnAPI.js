@@ -4,12 +4,13 @@ import {
 
 import AKeysCode from "../../const/AKeysCode";
 import {
-  setFocusToElement
+  setFocusToElement,
 } from "../../utils/utilsDOM";
 
 export default function SearchBtnAPI({
   searchInputId = computed(() => undefined),
-  toggleMenu = () => {},
+  toggleMenu = () => {
+  },
 }) {
   const clickOnSearchBtn = () => {
     toggleMenu({ isOpen: true });

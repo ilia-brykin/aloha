@@ -6,7 +6,8 @@ import {
 import AKeysCode from "../../../const/AKeysCode";
 
 export default function TrueFalseValueAPI(props, {
-  changeModel = () => {}
+  changeModel = () => {
+  },
 }) {
   const modelValue = toRef(props, "modelValue");
   const trueValue = toRef(props, "trueValue");

@@ -37,7 +37,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     clearable: {
       type: Boolean,
@@ -83,7 +84,7 @@ export default {
     },
     format: {
       type: [String, Object],
-      default: "DD.MM.YYYY"
+      default: "DD.MM.YYYY",
     },
     formatSave: {
       type: String,
@@ -352,7 +353,7 @@ export default {
           class: "a_datepicker_range__content",
         }, [
           h("div", {
-            class: "a_datepicker_range__group a_datepicker_range__group_min"
+            class: "a_datepicker_range__group a_datepicker_range__group_min",
           }, [
             h(ALabel, {
               id: this.idFrom,
@@ -388,7 +389,7 @@ export default {
             }),
           ]),
           h("div", {
-            class: "a_datepicker_range__group"
+            class: "a_datepicker_range__group",
           }, [
             h(ALabel, {
               id: this.idUntil,

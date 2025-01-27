@@ -3,8 +3,10 @@ import {
 } from "lodash-es";
 
 export default {
-  // called before bound element's attributes
-  // or event listeners are applied
+  /*
+   * called before bound element's attributes
+   * or event listeners are applied
+   */
   created(el, binding) {
     if (isFunction(binding.value?.created)) {
       binding.value.created(el, binding);
@@ -16,8 +18,11 @@ export default {
       binding.value.beforeMount(el, binding);
     }
   },
-  // called when the bound element's parent component
-  // and all its children are mounted.
+
+  /*
+   * called when the bound element's parent component
+   * and all its children are mounted.
+   */
   mounted(el, binding) {
     if (isFunction(binding.value?.mounted)) {
       binding.value.mounted(el, binding);
@@ -34,5 +39,5 @@ export default {
     if (isFunction(binding.value?.unmounted)) {
       binding.value.unmounted(el, binding);
     }
-  }
+  },
 };

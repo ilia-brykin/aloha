@@ -3,7 +3,8 @@ import {
 } from "vue";
 
 export default function ListenerAPI({
-  onScroll = () => {},
+  onScroll = () => {
+  },
   scrollContentRef = ref(undefined),
 }) {
   const addScrollListener = () => {

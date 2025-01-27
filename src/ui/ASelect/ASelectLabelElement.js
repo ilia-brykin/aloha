@@ -34,7 +34,7 @@ export default {
     });
 
     return {
-      currentLabel
+      currentLabel,
     };
   },
   render() {

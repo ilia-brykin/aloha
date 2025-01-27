@@ -121,7 +121,7 @@ export default {
     id: {
       type: String,
       required: false,
-      default: () => uniqueId("a_modal_form_")
+      default: () => uniqueId("a_modal_form_"),
     },
     idPrefix: {
       type: String,

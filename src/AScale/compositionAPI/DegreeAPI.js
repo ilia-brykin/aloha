@@ -9,8 +9,11 @@ export default function DegreeAPI(props) {
 
   const degree = computed(() => {
     return maxDegree.value * value.value / 100;
-    // 30 - 100
-    // x - value
+
+    /*
+     * 30 - 100
+     * x - value
+     */
   });
 
   return {

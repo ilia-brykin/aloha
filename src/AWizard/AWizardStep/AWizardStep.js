@@ -210,7 +210,8 @@ export default {
             stepIndex: this.stepIndex,
             stepNumber: this.stepNumber,
             stepTextId: this.stepTextId,
-          }) : [
+          })
+: [
             this.isStepNumberVisible ?
               h("span", {
                 class: "a_wizard__step__number",
@@ -249,9 +250,10 @@ export default {
                   textScreenReader: this.titleIconErrorWarning,
                   title: this.titleIconErrorWarning,
                   type: "text",
-                }) : ""
+                })
+: "",
             ]),
-          ]),
+]),
         h(ATranslation, {
           id: this.stepStatusTextId,
           class: "a_sr_only",

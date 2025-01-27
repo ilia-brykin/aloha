@@ -17,9 +17,12 @@ import {
 export default function ToggleAPI(props, { emit }, {
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
-  destroyPopover = () => {},
-  setFocusToFirstElement = () => {},
-  startPopper = () => {},
+  destroyPopover = () => {
+  },
+  setFocusToFirstElement = () => {
+  },
+  startPopper = () => {
+  },
 }) {
   const disabled = toRef(props, "disabled");
   const dropdownRenderDefault = toRef(props, "dropdownRenderDefault");

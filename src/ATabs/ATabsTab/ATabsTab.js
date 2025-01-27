@@ -165,7 +165,7 @@ export default {
           {
             a_tabs__list__link_active: this.isActive,
             a_tabs__list__link_disabled: this.isDisabled,
-          }
+          },
         ],
         classDefault: "",
         isTitleHtml: this.isTitleHtml,

@@ -11,7 +11,7 @@ export default function StatusTextAPI(props, {
       return "_A_WIZARD_STEP_ACTIVE_";
     } else if (isStepBeforeActive.value) {
       return "_A_WIZARD_STEP_VISITED_";
-    } 
+    }
     return "_A_WIZARD_STEP_UPCOMING_";
   });
 

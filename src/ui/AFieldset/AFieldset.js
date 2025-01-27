@@ -41,7 +41,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     children: {
       type: Array,

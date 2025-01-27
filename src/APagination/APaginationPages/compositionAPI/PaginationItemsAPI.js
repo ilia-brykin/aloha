@@ -88,7 +88,7 @@ export default function PaginationItemsAPI(props) {
       indexEnd,
     } = getIndexStartAndEndForPagination({
       currentItemIndex,
-      paginationLength: PAGINATION_ITEMS.length
+      paginationLength: PAGINATION_ITEMS.length,
     });
     return PAGINATION_ITEMS.slice(indexStart, indexEnd);
   });

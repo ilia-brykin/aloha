@@ -24,9 +24,10 @@ import {
 } from "lodash-es";
 
 export default function UiDataFromServerAPI(props, {
-  changeModel = () => {},
+  changeModel = () => {
+  },
   dataExtraLocal = computed(() => []),
-  dataFromServer = ref([])
+  dataFromServer = ref([]),
 } = {}) {
   const apiSaveId = toRef(props, "apiSaveId");
   const isDataSimpleArray = toRef(props, "isDataSimpleArray");
@@ -71,11 +72,11 @@ export default function UiDataFromServerAPI(props, {
     }).then(
       response => {
         dataFromServer.value = response;
-      }
+      },
     ).finally(
       () => {
         loadingDataFromServer.value = false;
-      }
+      },
     );
   };
 
@@ -165,7 +166,7 @@ export default function UiDataFromServerAPI(props, {
     ).then(
       () => {
         loadingSearchApi.value = false;
-      }
+      },
     );
   };
 
@@ -197,7 +198,7 @@ export default function UiDataFromServerAPI(props, {
     }).then(
       response => {
         dataFromServer.value = response || [];
-      }
+      },
     ).finally(() => {
       loadingDataFromServer.value = false;
     });

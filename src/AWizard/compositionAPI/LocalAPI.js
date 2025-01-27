@@ -10,7 +10,8 @@ import {
 } from "lodash-es";
 
 export default function LocalAPI(props, {
-  setFocusToActiveStep = () => {},
+  setFocusToActiveStep = () => {
+  },
 }) {
   const stepActive = toRef(props, "stepActive");
   const stepsVisited = toRef(props, "stepsVisited");

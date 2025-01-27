@@ -10,7 +10,7 @@ export default function ClassAPI(props) {
     if (size.value) {
       return `a_spinner_size_${ size.value }`;
     }
-    
+
     return undefined;
   });
 

@@ -119,7 +119,7 @@ export default {
         [
 
           h("div", {
-            class: ["a_cloak__box", this.classForBox]
+            class: ["a_cloak__box", this.classForBox],
           }, [
             IS_TEXT_LEFT ?
               BOX_TEXT :

@@ -229,14 +229,14 @@ export default {
         onMousemove: event => this.onMouseMoveIcon(event, index),
         color: this.computedColor[index],
         size: this.size,
-        key: index
+        key: index,
       })),
       this.showScore && h("span", { class: "a_rate_score" }, this.modelValue.toString()),
       h(ATranslation, {
         class: "a_rate_label",
         text: this.text,
         extra: this.extra,
-      })
+      }),
     ]);
   },
 };

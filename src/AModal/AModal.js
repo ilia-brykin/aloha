@@ -355,7 +355,7 @@ export default {
         class: [
           "a_modal_footer",
           {
-            a_modal_footer_sticky: this.isFooterSticky
+            a_modal_footer_sticky: this.isFooterSticky,
           },
         ],
       }, [
@@ -412,7 +412,7 @@ export default {
           id: this.id,
           class: ["a_modal", this.modalClass, {
             a_modal_confirm: this.isConfirm,
-            a_modal_show: !this.isModalHidden
+            a_modal_show: !this.isModalHidden,
           }],
           role: "dialog",
           ariaModal: true,
@@ -431,7 +431,7 @@ export default {
               class: [
                 "a_modal_content",
                 {
-                  a_modal_content_with_footer_sticky: this.isFooterSticky
+                  a_modal_content_with_footer_sticky: this.isFooterSticky,
                 },
               ],
             }, [

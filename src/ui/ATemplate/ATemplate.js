@@ -84,7 +84,7 @@ export default {
         }), [
           [ASafeHtml, this.html],
         ]) :
-        ""
+        "",
     ]);
   },
 };

@@ -334,8 +334,10 @@ export default {
         isOutside: false,
         outside: false,
         modes: {
-          // perPage: inline / select
-          // pagination: normal / short / loadMore
+          /*
+           * perPage: inline / select
+           * pagination: normal / short / loadMore
+           */
           desktop: {
             pagination: {
               mode: "normal",
@@ -861,9 +863,9 @@ export default {
       }],
     }, [
       this.$slots.tablePrepend &&
-        this.$slots.tablePrepend({
-          id: this.id,
-        }),
+      this.$slots.tablePrepend({
+        id: this.id,
+      }),
       h("div", {
         ref: "aTableRef",
         class: ["a_table__parent", {
@@ -1007,7 +1009,7 @@ export default {
                     ],
                     ...this.$slots,
                   });
-                })
+                }),
               }),
               (this.isViewTableVisible && !this.hasRows) && h(ATranslation, {
                 class: "a_table__empty_text",

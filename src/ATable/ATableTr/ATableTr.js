@@ -238,7 +238,7 @@ export default {
             row: this.row,
             rowIndex: this.rowIndex,
             isFooter: this.isFooter,
-          }, this.$slots)
+          }, this.$slots),
         );
       });
     } else {

@@ -18,7 +18,8 @@ export default function AttributesAPI(props, {
   rowClassChildren = computed(() => undefined),
   rowClassLevelChildren = computed(() => undefined),
   rowClassPreview = computed(() => undefined),
-  toggleChildren = () => {},
+  toggleChildren = () => {
+  },
 }) {
   const disabledPreview = toRef(props, "disabledPreview");
   const disabledPreviewRowCallback = toRef(props, "disabledPreviewRowCallback");
@@ -55,7 +56,7 @@ export default function AttributesAPI(props, {
       rowClassChildren.value,
       rowClassLevelChildren.value,
       rowClassPreview.value,
-      rowClassLocal.value
+      rowClassLocal.value,
     ];
   });
 

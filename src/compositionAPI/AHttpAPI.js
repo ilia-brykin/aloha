@@ -405,11 +405,11 @@ export function callHttpRequestAndCheckSavedApi({
         if (ignoreErrorHandler || checkErrorStatus({ error: error.response, showError, client: API, reject, resolve })) {
           return reject(error.response);
         }
-      }
+      },
     ).finally(
       () => {
         removeAbortGroupCurrent({ abortGroup, abortable });
-      }
+      },
     );
   });
 

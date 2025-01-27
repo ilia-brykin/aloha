@@ -100,7 +100,7 @@ export default {
           type: "info",
           isVisible: true,
           safeHtml: "_A_FILTERS_SAVE_MODAL_BODY_PREPEND_",
-        })
+        }),
       ],
     });
   },

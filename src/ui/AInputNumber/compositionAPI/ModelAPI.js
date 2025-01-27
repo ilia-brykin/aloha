@@ -11,8 +11,10 @@ import {
 } from "lodash-es";
 
 export default function ModelAPI(props, {
-  verifyValue = () => {},
-  changeModel = () => {},
+  verifyValue = () => {
+  },
+  changeModel = () => {
+  },
 }) {
   const precision = toRef(props, "precision");
   const modelValue = toRef(props, "modelValue");
@@ -26,11 +28,11 @@ export default function ModelAPI(props, {
     }
     let currentValueLocal = currentValue.value;
     if (isNil(currentValueLocal)) {
-      return ""; 
+      return "";
     }
     if (isNumber(currentValueLocal)) {
       if (Number.isNaN(currentValueLocal)) {
-        return ""; 
+        return "";
       }
       if (!isUndefined(precision.value)) {
         currentValueLocal = currentValueLocal.toFixed(precision.value);
@@ -41,7 +43,7 @@ export default function ModelAPI(props, {
 
   const setCurrentValue = (
     value,
-    emitChange = true
+    emitChange = true,
   ) => {
     const oldVal = currentValue.value;
     const newVal = verifyValue(value);

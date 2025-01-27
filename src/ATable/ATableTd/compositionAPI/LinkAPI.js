@@ -19,7 +19,7 @@ export default function LinkAPI(props) {
   const isLink = computed(() => {
     return !!column.value.to;
   });
-  
+
   const toLocal = computed(() => {
     if (isString(column.value.to)) {
       return column.value.to;

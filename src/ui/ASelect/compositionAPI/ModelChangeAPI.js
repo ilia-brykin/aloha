@@ -13,11 +13,13 @@ import {
 } from "lodash-es";
 
 export default function ModelChangeAPI(props, {
-  changeModel = () => {},
+  changeModel = () => {
+  },
   dataAll = computed(() => []),
   dataKeyByKeyIdLocal = computed(() => ({})),
   isMultiselect = computed(() => false),
-  togglePopover = () => {},
+  togglePopover = () => {
+  },
 }) {
   const countMultiselect = toRef(props, "countMultiselect");
   const isCloseByClick = toRef(props, "isCloseByClick");

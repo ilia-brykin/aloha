@@ -46,7 +46,7 @@ export default {
     backButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: "a_btn a_btn_secondary"
+      default: "a_btn a_btn_secondary",
     },
     backButtonIconLeft: {
       type: String,
@@ -81,7 +81,7 @@ export default {
     forwardButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: "a_btn a_btn_secondary"
+      default: "a_btn a_btn_secondary",
     },
     forwardButtonIconLeft: {
       type: String,
@@ -392,7 +392,7 @@ export default {
         {
           a_wizard_mobile: this.isMobileLocal,
           a_wizard_show_only_active_step_mobile: this.showOnlyActiveStepMobile,
-        }
+        },
       ],
       ...this.ariaLabelAttributes,
     }, [

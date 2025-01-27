@@ -12,7 +12,7 @@ describe("ATableSortingAdditional ColumnsAPI", () => {
         { label: "Mocked Ordered 1", sortId: "3" },
         { label: "Mocked Ordered 2", sortId: "4" },
         { label: "Mocked Ordered without sort" },
-      ]
+      ],
     });
 
     // Dynamically import CompositionAPI after mocks are set up

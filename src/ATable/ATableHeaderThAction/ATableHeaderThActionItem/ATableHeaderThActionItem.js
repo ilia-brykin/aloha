@@ -128,7 +128,7 @@ export default {
         }, [
           h(AButton, this.buttonVisibleProps),
           h("span", {
-            class: "a_position_relative"
+            class: "a_position_relative",
           }, [
             this.column.icon && h(AIcon, {
               icon: this.column.icon,
@@ -176,7 +176,7 @@ export default {
         ]),
         (!this.isLocked && this.isColumnsDnd) && h(AIcon, {
           icon: GripVertical,
-          class: "a_table__th__dropdown_item__icon_dnd"
+          class: "a_table__th__dropdown_item__icon_dnd",
         }),
       ]),
     ]);

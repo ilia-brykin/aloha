@@ -11,7 +11,7 @@ import {
 export default function GoToAPI(props) {
   const filter = toRef(props, "filter");
   const id = toRef(props, "id");
-  
+
   const eventName = computed(() => {
     return `eventATableFilterTopOnOpen_${ id.value }`;
   });

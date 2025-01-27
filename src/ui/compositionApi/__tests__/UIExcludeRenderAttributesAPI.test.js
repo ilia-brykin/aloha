@@ -7,7 +7,7 @@ import UIExcludeRenderAttributesAPI from "../UIExcludeRenderAttributesAPI";
 describe("UIExcludeRenderAttributesAPI", () => {
   it("returns attributes with undefined values for exclusion", () => {
     const props = reactive({
-      excludeRenderAttributes: ["data-test", "aria-label"]
+      excludeRenderAttributes: ["data-test", "aria-label"],
     });
 
     const {
@@ -16,13 +16,13 @@ describe("UIExcludeRenderAttributesAPI", () => {
 
     expect(attributesToExcludeFromRender.value).toEqual({
       "data-test": undefined,
-      "aria-label": undefined
+      "aria-label": undefined,
     });
   });
 
   it("returns empty attributes for empty array", () => {
     const props = reactive({
-      excludeRenderAttributes: []
+      excludeRenderAttributes: [],
     });
 
     const {

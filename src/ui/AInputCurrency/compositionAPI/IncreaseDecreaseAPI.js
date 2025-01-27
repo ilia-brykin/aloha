@@ -8,9 +8,12 @@ import {
 } from "lodash-es";
 
 export default function IncreaseDecreaseAPI(props, {
-  ensurePrecision = () => {},
-  getCleanIntValue = () => {},
-  setCurrentValue = () => {},
+  ensurePrecision = () => {
+  },
+  getCleanIntValue = () => {
+  },
+  setCurrentValue = () => {
+  },
   modelNumber = computed(() => undefined),
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
@@ -79,7 +82,7 @@ export default function IncreaseDecreaseAPI(props, {
 
   const decrease = () => {
     if (disabled.value || minDisabled.value) {
-      return; 
+      return;
     }
     const value = modelNumber.value;
     const newValue = ensurePrecision({

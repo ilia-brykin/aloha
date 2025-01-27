@@ -12,7 +12,8 @@ import {
 export default function AttributesAPI(props, {
   classButtonLocal = computed(() => undefined),
   isOpen = computed(() => false),
-  toggleLocal = () => {},
+  toggleLocal = () => {
+  },
   currentId = computed(() => ""),
 }) {
   const item = toRef(props, "item");

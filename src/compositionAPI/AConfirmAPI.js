@@ -8,18 +8,21 @@ import {
 
 const isModalHidden = ref(true);
 const confirmOptions = ref({});
-// bodyHtml
-// close
-// closeButtonClass
-// closeButtonText
-// disabled
-// headerTag
-// headerText
-// save
-// saveButtonClass
-// saveButtonText
-// selectorClose
-// size
+
+/*
+ * bodyHtml
+ * close
+ * closeButtonClass
+ * closeButtonText
+ * disabled
+ * headerTag
+ * headerText
+ * save
+ * saveButtonClass
+ * saveButtonText
+ * selectorClose
+ * size
+ */
 
 export default function AConfirmAPI() {
   const changeConfirmOptions = (args = {}) => {

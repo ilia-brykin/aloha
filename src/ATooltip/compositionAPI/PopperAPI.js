@@ -41,7 +41,7 @@ export default function PopperAPI(props) {
   });
 
   const isAutoPlacement = computed(() => {
-    return placement.value && placement.value.includes("auto") ;
+    return placement.value && placement.value.includes("auto");
   });
 
   const floatingUiMiddleware = computed(() => {
@@ -133,7 +133,7 @@ export default function PopperAPI(props) {
           top: "bottom",
           right: "left",
           bottom: "top",
-          left: "right"
+          left: "right",
         }[side];
         if (middlewareData.arrow) {
           const { x, y } = middlewareData.arrow;

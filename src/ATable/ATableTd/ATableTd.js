@@ -95,13 +95,15 @@ export default {
             this.column.classRow,
           ],
         }, [
-          this.showIconChildren ? h(AElement, {
-            "aria-hidden": true,
-            class: "a_table__row_level__icon",
-            classDefault: "",
-            iconLeft: CaretRightFill,
-            type: "text",
-          }) : "",
+          this.showIconChildren
+? h(AElement, {
+  "aria-hidden": true,
+  class: "a_table__row_level__icon",
+  classDefault: "",
+  iconLeft: CaretRightFill,
+  type: "text",
+})
+: "",
           (this.hasSlot && this.$slots[this.slotName]) ?
             this.$slots[this.slotName]({
               column: this.column,
@@ -124,7 +126,7 @@ export default {
               ]) :
               this.textOrHtmlRender,
         ]),
-      ]
+      ],
     );
 
     if (!this.isMobile) {

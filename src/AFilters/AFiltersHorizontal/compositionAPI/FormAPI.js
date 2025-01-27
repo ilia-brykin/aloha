@@ -44,7 +44,7 @@ export default function FormAPI(props) {
         id: `group_${ filter.id }`,
         classColumns: CLASS_COLUMNS,
         children: [
-          FILTER
+          FILTER,
         ],
       });
     });
@@ -64,7 +64,7 @@ export default function FormAPI(props) {
         id: `group_${ filter.id }`,
         classColumns: CLASS_COLUMNS,
         children: [
-          FILTER
+          FILTER,
         ],
       });
     });

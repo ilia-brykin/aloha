@@ -110,7 +110,7 @@ describe("filterList", () => {
     expect(filterList(LIST, {
       keyLabel: "label",
       keyChildren: "children",
-      listClass: "a_list_without_styles"
+      listClass: "a_list_without_styles",
     })).toBe("<ul class=\"a_list_without_styles\"><li>Level 1<ul class=\"a_list_without_styles\"><li>Level 1.1<ul class=\"a_list_without_styles\"><li>Level 1.1.1</li><li>Level 1.1.2</li></ul></li><li>Level 1.2</li></ul></li><li>Level 2<ul class=\"a_list_without_styles\"><li>Level 2.1</li><li>Level 2.2</li></ul></li></ul>");
     expect(filterList(LIST, {
       keyLabel: "label",
@@ -122,7 +122,7 @@ describe("filterList", () => {
   test("tree isSimpleArray=true", () => {
     const LIST = ["Level 1", ["Level 2", ["Level 2.1", "Level 2.2"]], ["Level 3", ["Level 3.1", ["Level 3.2", ["Level 3.2.1", "Level 3.2.2"]]]]];
 
-    expect(filterList(LIST, { isSimpleArray: true, })).toBe("<ul><li>Level 1</li><li>Level 2<ul><li>Level 2.1</li><li>Level 2.2</li></ul></li><li>Level 3<ul><li>Level 3.1</li><li>Level 3.2<ul><li>Level 3.2.1</li><li>Level 3.2.2</li></ul></li></ul></li></ul>");
+    expect(filterList(LIST, { isSimpleArray: true })).toBe("<ul><li>Level 1</li><li>Level 2<ul><li>Level 2.1</li><li>Level 2.2</li></ul></li><li>Level 3<ul><li>Level 3.1</li><li>Level 3.2<ul><li>Level 3.2.1</li><li>Level 3.2.2</li></ul></li></ul></li></ul>");
 
     expect(filterList(LIST, {
       isSimpleArray: true,

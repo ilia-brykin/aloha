@@ -60,9 +60,11 @@ export default function ColumnsGroupedAPI(props, {
   });
 
   const getRecursiveChildrenForGroup = ({ groups, group, level, columnsOrderedFromGroups, firstLevelGroupObject }) => {
-    const foundGroupsForCurrentLevel = group ? filter(groups, _group => {
-      return includes(_group, group[level - 1]);
-    }) : groups;
+    const foundGroupsForCurrentLevel = group
+? filter(groups, _group => {
+  return includes(_group, group[level - 1]);
+})
+: groups;
 
     const uniqGroupsForCurrentLevel = uniqBy(foundGroupsForCurrentLevel, _group => _group[level]);
 
@@ -88,7 +90,7 @@ export default function ColumnsGroupedAPI(props, {
             columnsOrderedFromGroups,
             firstLevelGroupObject: _firstLevelGroupObject,
           }),
-          "recursiveGroup"
+          "recursiveGroup",
         );
       } else if (_group.length === level + 1) {
         groupObjectToReturn.columns = filter(columnsWithIndexedGroups.value, column => includes(column.group, _group[level]));

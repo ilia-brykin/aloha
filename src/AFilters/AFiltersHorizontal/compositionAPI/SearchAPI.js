@@ -3,7 +3,8 @@ import {
 } from "vue";
 
 export default function SearchAPI(props, { emit }, {
-  closeDropdown = () => {},
+  closeDropdown = () => {
+  },
 }) {
   const disabled = toRef(props, "disabled");
 

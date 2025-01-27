@@ -64,7 +64,7 @@ export default {
 
     return {
       closeModel,
-      currentLabel
+      currentLabel,
     };
   },
   render() {

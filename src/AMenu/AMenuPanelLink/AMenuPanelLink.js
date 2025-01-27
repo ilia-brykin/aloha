@@ -237,7 +237,7 @@ export default {
               h(AIcon, {
                 class: "a_menu__link__counter__icon",
                 icon: ChevronRight,
-              })
+              }),
             ]),
           ]),
     ]);

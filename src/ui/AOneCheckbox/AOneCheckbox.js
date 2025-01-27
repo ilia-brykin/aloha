@@ -28,7 +28,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     dependencies: {
       type: [Array, Object],
@@ -62,7 +63,7 @@ export default {
     helpText: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     htmlId: {
       type: String,

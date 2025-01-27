@@ -9,7 +9,8 @@ import {
 
 export default function TableColumnsVisibleFunctionAPI(props, { emit }, {
   modelColumnsVisibleLocal = ref({}),
-  checkVisibleColumns = () => {},
+  checkVisibleColumns = () => {
+  },
 }) {
   const changeModelColumnsVisible = value => {
     modelColumnsVisibleLocal.value = value;

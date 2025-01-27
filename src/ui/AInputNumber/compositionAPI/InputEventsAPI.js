@@ -10,11 +10,15 @@ import {
 } from "lodash-es";
 
 export default function InputEventsAPI(props, {
-  decrease = () => {},
-  increase = () => {},
+  decrease = () => {
+  },
+  increase = () => {
+  },
   inputRef = ref({}),
-  onBlur = () => {},
-  setCurrentValue = () => {},
+  onBlur = () => {
+  },
+  setCurrentValue = () => {
+  },
   userInput = ref(null),
   currentValue = ref(undefined),
   displayValue = computed(() => ""),
@@ -25,39 +29,47 @@ export default function InputEventsAPI(props, {
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
 
-  // const isInteger = computed(() => {
-  //   return type.value === "integer";
-  // });
+  /*
+   * const isInteger = computed(() => {
+   *   return type.value === "integer";
+   * });
+   */
 
-  // const reWithPointSymbol = computed(() => {
-  //   if (isInteger.value) {
-  //     if (min.value >= 0) {
-  //       return /^\d+$/; // integer positiv
-  //     }
-  //     return /^-$|^-?\d+$/; // minus or integer negativ or integer positiv
-  //   }
-  //   if (min.value >= 0) {
-  //     return /^\d+[.,]?$|^-?\d+([.,]\d+)?$/; // float or integer positiv
-  //   }
-  //   return /^-$|^-?\d+[.,]?$|^-?\d+([.,]\d+)?$/; // float or integer negativ
-  // });
+  /*
+   * const reWithPointSymbol = computed(() => {
+   *   if (isInteger.value) {
+   *     if (min.value >= 0) {
+   *       return /^\d+$/; // integer positiv
+   *     }
+   *     return /^-$|^-?\d+$/; // minus or integer negativ or integer positiv
+   *   }
+   *   if (min.value >= 0) {
+   *     return /^\d+[.,]?$|^-?\d+([.,]\d+)?$/; // float or integer positiv
+   *   }
+   *   return /^-$|^-?\d+[.,]?$|^-?\d+([.,]\d+)?$/; // float or integer negativ
+   * });
+   */
 
-  // const reWithoutPointSymbol = computed(() => {
-  //   if (isInteger.value) {
-  //     if (min.value >= 0) {
-  //       return /^\d+$/; // integer positiv
-  //     }
-  //     return /^-$|^-?\d+$/; // minus or integer negativ or integer positiv
-  //   }
-  //   if (min.value >= 0) {
-  //     return /^\d+[.,]?$|^\d+([.,]\d+)?$/; // float or integer positiv
-  //   }
-  //   return /^-$|^-?\d+[.,]?$|^-?\d+([.,]\d+)?$/; // float or integer negativ
-  // });
+  /*
+   * const reWithoutPointSymbol = computed(() => {
+   *   if (isInteger.value) {
+   *     if (min.value >= 0) {
+   *       return /^\d+$/; // integer positiv
+   *     }
+   *     return /^-$|^-?\d+$/; // minus or integer negativ or integer positiv
+   *   }
+   *   if (min.value >= 0) {
+   *     return /^\d+[.,]?$|^\d+([.,]\d+)?$/; // float or integer positiv
+   *   }
+   *   return /^-$|^-?\d+[.,]?$|^-?\d+([.,]\d+)?$/; // float or integer negativ
+   * });
+   */
 
-  // const isTextValid = ({ text, re }) => {
-  //   return re.test(text);
-  // };
+  /*
+   * const isTextValid = ({ text, re }) => {
+   *   return re.test(text);
+   * };
+   */
 
   const handleInput = $event => {
     if (isTypeNumber.value) {
@@ -161,29 +173,31 @@ export default function InputEventsAPI(props, {
     onBlur($event);
   };
 
-  // function getRawText(input) {
-  //   const sel = saveSelection();
-  //   input.select();
-  //   const text = getSelection().toString();
-  //   restoreSelection(sel);
-  //   return text;
-  // }
-  //
-  // function restoreSelection(range) {
-  //   const selection = getSelection();
-  //   selection.removeAllRanges();
-  //   selection.addRange(range);
-  // }
-  //
-  // function saveSelection() {
-  //   const selection = getSelection();
-  //   return selection.rangeCount === 0 ? null : selection.getRangeAt(0);
-  // }
+  /*
+   * function getRawText(input) {
+   *   const sel = saveSelection();
+   *   input.select();
+   *   const text = getSelection().toString();
+   *   restoreSelection(sel);
+   *   return text;
+   * }
+   *
+   * function restoreSelection(range) {
+   *   const selection = getSelection();
+   *   selection.removeAllRanges();
+   *   selection.addRange(range);
+   * }
+   *
+   * function saveSelection() {
+   *   const selection = getSelection();
+   *   return selection.rangeCount === 0 ? null : selection.getRangeAt(0);
+   * }
+   */
 
   return {
     handleInput,
     handleInputChange,
     handleKeydown,
-    onBlurNumber
+    onBlurNumber,
   };
 }

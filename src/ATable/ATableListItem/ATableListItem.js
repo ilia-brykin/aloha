@@ -67,7 +67,7 @@ export default {
         tag: "dt",
       }),
       h(
-        "dd", 
+        "dd",
         null,
         (this.hasSlot && this.$slots[this.slotName]) ?
         this.$slots[this.slotName]({
@@ -92,8 +92,8 @@ export default {
           ] :
           [
             this.textOrHtmlRender,
-          ]
-      )
+          ],
+      ),
     ];
   },
 };

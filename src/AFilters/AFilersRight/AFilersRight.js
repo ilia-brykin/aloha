@@ -73,7 +73,7 @@ export default {
             unappliedModel: this.appliedModel,
             updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
           }, this.$slots);
-        })
+        }),
       ]),
     ]);
   },

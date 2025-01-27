@@ -98,7 +98,7 @@ export default {
   },
   render() {
     return h(this.listItemTag, {
-      class: this.classItem
+      class: this.classItem,
     }, [
       this.$slots.listItem ?
         this.$slots.listItem({
@@ -106,29 +106,33 @@ export default {
           itemIndex: this.itemIndex,
         }) :
         withDirectives(h(this.labelTag), [
-          [ASafeHtml, this.label]
+          [ASafeHtml, this.label],
         ]),
       this.separator ?
         h("span", {}, this.separator) :
         "",
-      this.hasChildren ? h(AList, {
-        classItem: this.classItem,
-        classMain: this.classMain,
-        data: this.children,
-        isDataSimpleArray: this.isDataSimpleArray,
-        keyChildren: this.keyChildren,
-        keyId: this.keyId,
-        keyLabel: this.keyLabel,
-        keyLabelCallback: this.keyLabelCallback,
-        labelTag: this.labelTag,
-        listItemTag: this.listItemTag,
-        separator: this.separator,
-        separatorHtml: this.separatorHtml,
-        tag: this.tag,
-      }, this.$slots) : "",
-      this.separatorHtml ? withDirectives(h("div"), [
-        [ASafeHtml, this.separatorHtml]
-      ]) : "",
+      this.hasChildren
+? h(AList, {
+  classItem: this.classItem,
+  classMain: this.classMain,
+  data: this.children,
+  isDataSimpleArray: this.isDataSimpleArray,
+  keyChildren: this.keyChildren,
+  keyId: this.keyId,
+  keyLabel: this.keyLabel,
+  keyLabelCallback: this.keyLabelCallback,
+  labelTag: this.labelTag,
+  listItemTag: this.listItemTag,
+  separator: this.separator,
+  separatorHtml: this.separatorHtml,
+  tag: this.tag,
+}, this.$slots)
+: "",
+      this.separatorHtml
+? withDirectives(h("div"), [
+  [ASafeHtml, this.separatorHtml],
+])
+: "",
     ]);
   },
 };

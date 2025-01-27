@@ -37,7 +37,7 @@ export default function ObservingAPI(props, {
     observer.value = new ResizeObserver(
       debounce(() => {
         checkHeight();
-      }, 300)
+      }, 300),
     );
     observer.value.observe(containerRef.value);
   };

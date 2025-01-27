@@ -44,7 +44,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     clearButtonClass: {
       type: [String, Object],
@@ -308,7 +309,7 @@ export default {
     if (!this.isRender) {
       return null;
     }
-    
+
     return h("div", {
       ...this.$attrs,
       style: this.componentStyleHide,
@@ -369,7 +370,7 @@ export default {
           }),
           (this.isBtnShowPasswordVisible || this.isClearButtonLocal) ?
             h("div", {
-              class: "a_form_control__actions"
+              class: "a_form_control__actions",
             }, [
               this.isBtnShowPasswordVisible ?
                 h(AButton, {

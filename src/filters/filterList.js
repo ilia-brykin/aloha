@@ -73,7 +73,7 @@ function filterList(value, {
     }
     forEach(value, (item, index) => {
       let itemText = getItemText({
-        keyLabel, keyLabelCallback, index, item, isSimpleArray
+        keyLabel, keyLabelCallback, index, item, isSimpleArray,
       });
 
       let children;
@@ -118,7 +118,7 @@ function filterList(value, {
     const isLastItem = value.length === index + 1;
 
     const itemLocal = getItemText({
-      keyLabel, keyLabelCallback, index, item, isSimpleArray
+      keyLabel, keyLabelCallback, index, item, isSimpleArray,
     });
 
     let children;

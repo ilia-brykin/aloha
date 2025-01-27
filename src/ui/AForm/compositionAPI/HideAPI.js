@@ -9,7 +9,7 @@ export default function HideAPI(props) {
   const styleFormHide = computed(() => {
     return isHide.value ? "display: none;" : "";
   });
-  
+
   return {
     styleFormHide,
   };

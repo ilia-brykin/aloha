@@ -19,9 +19,12 @@ import {
 
 export default function EventsAPI(props, { emit }, {
   calendarPanelRef = ref(undefined),
-  changeModel = () => {},
-  closePopover = () => {},
-  setCloseFocus = () => {},
+  changeModel = () => {
+  },
+  closePopover = () => {
+  },
+  setCloseFocus = () => {
+  },
 }) {
   const range = toRef(props, "range");
   const confirm = toRef(props, "confirm");
@@ -78,9 +81,12 @@ export default function EventsAPI(props, { emit }, {
       }
       return "";
     }
-    // return this.isValidRangeValue(this.modelValue)
-    //   ? `${ this.stringify(value2date(this.modelValue[0])) } ${ this.rangeSeparator } ${ this.stringify(value2date(this.modelValue[1])) }`
-    //   : "";
+
+    /*
+     * return this.isValidRangeValue(this.modelValue)
+     *   ? `${ this.stringify(value2date(this.modelValue[0])) } ${ this.rangeSeparator } ${ this.stringify(value2date(this.modelValue[1])) }`
+     *   : "";
+     */
     return ""; // TODO: range
   });
 
@@ -197,19 +203,21 @@ export default function EventsAPI(props, { emit }, {
         return;
       }
       if (range.value) {
-        // const range = value.split(` ${ this.rangeSeparator } `); // TODO: range
-        // if (range.length === 2) {
-        //   const start = this.parse(range[0]);
-        //   const end = this.parse(range[1]);
-        //   if (start && end && !checkDate(start, null, end) && !checkDate(end, start, null)) {
-        //     this.currentValue = [start, end];
-        //     this.updateDate(true);
-        //     this.closePopover();
-        //     return;
-        //   }
-        // }
+        /*
+         * const range = value.split(` ${ this.rangeSeparator } `); // TODO: range
+         * if (range.length === 2) {
+         *   const start = this.parse(range[0]);
+         *   const end = this.parse(range[1]);
+         *   if (start && end && !checkDate(start, null, end) && !checkDate(end, start, null)) {
+         *     this.currentValue = [start, end];
+         *     this.updateDate(true);
+         *     this.closePopover();
+         *     return;
+         *   }
+         * }
+         */
         return;
-      } 
+      }
       if (type.value === "time") {
         value = `${ moment().format("DD.MM.YYYY") } ${ value }`;
       }
@@ -220,7 +228,7 @@ export default function EventsAPI(props, { emit }, {
         closePopover();
         return;
       }
-      
+
       emit("inputError", value);
     }
   };

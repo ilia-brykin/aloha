@@ -122,7 +122,7 @@ export default {
 
     minutes() {
       return Array.apply(null, { length: this.minuteLength }).map(
-        (_, i) => i * this.minuteStepLocal
+        (_, i) => i * this.minuteStepLocal,
       );
     },
 
@@ -286,7 +286,7 @@ export default {
               class: ["cell", {
                 actived: time.isActive,
                 disabled: time.isDisabled,
-                pux_datepicker__panel__cell_focus: timeListIndex + "_" + timeIndex === this.fullIndexForFocus
+                pux_datepicker__panel__cell_focus: timeListIndex + "_" + timeIndex === this.fullIndexForFocus,
               }],
               tabindex: -1,
               role: "option",

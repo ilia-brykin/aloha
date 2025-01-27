@@ -12,7 +12,7 @@ export default function ModelAPI(props) {
   const initModel = () => {
     if (modelFiltersSaved.value && !isModelFilterSavedNew.value) {
       model.value = {
-        name: modelFiltersSaved.value
+        name: modelFiltersSaved.value,
       };
     }
   };

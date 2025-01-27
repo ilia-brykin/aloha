@@ -4,7 +4,8 @@ import {
 } from "vue";
 
 export default function ModelAPI(props, {
-  changeModel = () => {},
+  changeModel = () => {
+  },
 }) {
   const disabled = toRef(props, "disabled");
   const type = toRef(props, "type");

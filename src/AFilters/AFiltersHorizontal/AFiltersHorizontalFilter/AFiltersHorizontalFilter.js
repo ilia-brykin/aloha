@@ -70,7 +70,7 @@ export default {
   },
   render() {
     return this.isFilter && h("div", {
-      class: "a_filters_top__filter_ui_group"
+      class: "a_filters_top__filter_ui_group",
     }, [
       h("div", {
         class: "a_filters_top__filter_ui_subgroup",
@@ -91,7 +91,7 @@ export default {
           iconLeft: XLg,
           onClick: () => this.$emit("deleteFiltersVisible", { filter: this.filter }),
         }),
-      ])
+      ]),
     ]);
   },
 };

@@ -137,7 +137,7 @@ export function getUniqueSelector({ element }) {
       path.unshift(tag);
     } else {
       path.unshift(
-        element.className ? `${ tag }.${ element.className.replace(/\s+/g, ".") }` : tag
+        element.className ? `${ tag }.${ element.className.replace(/\s+/g, ".") }` : tag,
       );
     }
 

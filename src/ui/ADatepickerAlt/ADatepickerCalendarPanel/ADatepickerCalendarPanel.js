@@ -374,7 +374,7 @@ export default {
           time.setHours(
             this.value.getHours(),
             this.value.getMinutes(),
-            this.value.getSeconds()
+            this.value.getSeconds(),
           );
         }
         if (this.isDisabledTime(time)) {
@@ -441,7 +441,7 @@ export default {
         PANELS.push(this.$parent.$refs.calendarPanel2);
       }
       const calendars = PANELS.filter(
-        v => v.$options.name === this.$options.name
+        v => v.$options.name === this.$options.name,
       );
       const index = calendars.indexOf(this);
       return calendars[index ^ 1];

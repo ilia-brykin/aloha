@@ -75,16 +75,16 @@ describe("ATableSortingAdditional FormAPI", () => {
     expect(dataForForm.value[0].children[0].data).toStrictEqual([
       { label: "Column 1", sortId: "1" },
       { label: "Column 3", sortId: "3" },
-      { label: "Column 4", sortId: "4" }
+      { label: "Column 4", sortId: "4" },
     ]);
     expect(dataForForm.value[1].children[0].data).toStrictEqual([
       { label: "Column 2", sortId: "2" },
       { label: "Column 3", sortId: "3" },
-      { label: "Column 4", sortId: "4" }
+      { label: "Column 4", sortId: "4" },
     ]);
     expect(dataForForm.value[2].children[0].data).toStrictEqual([
       { label: "Column 3", sortId: "3" },
-      { label: "Column 4", sortId: "4" }
+      { label: "Column 4", sortId: "4" },
     ]);
   });
 });

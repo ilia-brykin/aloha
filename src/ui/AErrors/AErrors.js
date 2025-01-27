@@ -113,7 +113,7 @@ export default {
         class: "a_errors",
       }, [
         h("div", {
-          class: "a_errors__header"
+          class: "a_errors__header",
         }, [
           h("strong", null, this.textErrorHeader),
         ]),
@@ -130,7 +130,7 @@ export default {
               isErrorLink: this.isErrorLink,
             });
           }),
-        ])
+        ]),
       ]),
     ]);
   },

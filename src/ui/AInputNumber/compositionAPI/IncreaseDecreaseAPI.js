@@ -11,8 +11,10 @@ import {
 export default function IncreaseDecreaseAPI(props, {
   currentValue = ref(0),
   displayValue = computed(() => ""),
-  ensurePrecision = () => {},
-  setCurrentValue = () => {},
+  ensurePrecision = () => {
+  },
+  setCurrentValue = () => {
+  },
   minLocal = computed(() => undefined),
 }) {
   const disabled = toRef(props, "disabled");
@@ -30,7 +32,7 @@ export default function IncreaseDecreaseAPI(props, {
 
   const increase = () => {
     if (readonly.value || disabled.value || maxDisabled.value) {
-      return; 
+      return;
     }
     const value = Number(displayValue.value) || 0;
     const newValue = ensurePrecision({ value, currentValue: currentValue.value });
@@ -39,7 +41,7 @@ export default function IncreaseDecreaseAPI(props, {
 
   const decrease = () => {
     if (readonly.value || disabled.value || minDisabled.value) {
-      return; 
+      return;
     }
     const value = Number(displayValue.value) || 0;
     const newValue = ensurePrecision({ value, currentValue: currentValue.value, coefficient: -1 });

@@ -12,6 +12,7 @@ import {
 
 export const dompurify = DOMPurify;
 export const sanitize = DOMPurify.sanitize;
+
 /**
  * Sanitizes a local value using DOMPurify with additional attribute "target" added.
  *

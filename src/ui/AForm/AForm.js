@@ -34,12 +34,12 @@ export default {
     classColumns: {
       type: [String, Object],
       required: false,
-      default: "a_columns a_columns_count_12 a_columns_gap_2"
+      default: "a_columns a_columns_count_12 a_columns_gap_2",
     },
     classColumnDefault: {
       type: [String, Object],
       required: false,
-      default: "a_column a_column_12"
+      default: "a_column a_column_12",
     },
     data: {
       type: Array,
@@ -150,9 +150,11 @@ export default {
         this.$slots.formPrepend() :
         "",
 
-      this.isRequiredLocal ? h(ARequired, {
-        text: this.textRequired,
-      }) : "",
+      this.isRequiredLocal
+? h(ARequired, {
+  text: this.textRequired,
+})
+: "",
       this.$slots.formPrependAfterRequired ?
         this.$slots.formPrependAfterRequired() :
         "",

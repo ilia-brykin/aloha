@@ -15,7 +15,7 @@ export const iconPluginOptions = ref({
 
 export default {
   install: (app, {
-    icons = {}
+    icons = {},
   } = {}) => {
     iconPluginOptions.value.icons = {
       ...iconPluginOptions.value.icons,

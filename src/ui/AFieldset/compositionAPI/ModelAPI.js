@@ -11,7 +11,8 @@ import {
 } from "lodash-es";
 
 export default function ModelAPI(props, context, {
-  changeModel = () => {},
+  changeModel = () => {
+  },
 }) {
   const modelValue = toRef(props, "modelValue");
 

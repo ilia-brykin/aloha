@@ -5,11 +5,14 @@ import {
 } from "vue";
 
 export default function LinkClickAPI(props, {
-  closeAllPanels = () => {},
+  closeAllPanels = () => {
+  },
   isMenuOpen = computed(() => false),
   isMobileWidth = ref(false),
-  resetSearch = () => {},
-  toggleMenu = () => {},
+  resetSearch = () => {
+  },
+  toggleMenu = () => {
+  },
 }) {
   const isBodyFocusAfterClick = toRef(props, "isBodyFocusAfterClick");
 

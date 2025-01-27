@@ -14,7 +14,8 @@ export default function RowsAPI(props, {
   dataSorted = computed(() => []),
   limit = ref(0),
   offset = ref(0),
-  setEmptySelectedRowsIndexes = () => {},
+  setEmptySelectedRowsIndexes = () => {
+  },
   usePaginationLocal = computed(() => false),
 }) {
   const clearSelectedRowsOnDataChange = toRef(props, "clearSelectedRowsOnDataChange");

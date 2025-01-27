@@ -34,7 +34,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
     const countColumnsAll = computed(() => 2);
 
     const {
-      updateUnappliedModelSort
+      updateUnappliedModelSort,
     } = ModelAPI({
       isSortingMultiColumn: ref(true),
       modelSort: modelSortProvided,
@@ -173,7 +173,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
     expect(unappliedModelSort.value[0].sortId).toBeUndefined();
     expect(unappliedModelSort.value[0].sortMode).toBe("asc");
 
-    let model = [
+    const model = [
       { sortId: "1", sortMode: "asc" },
     ];
     updateUnappliedModelSort({ model });

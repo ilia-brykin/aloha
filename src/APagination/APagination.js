@@ -66,8 +66,10 @@ export default {
       type: Object,
       required: false,
       default: () => ({
-        // perPage: inline / group / select
-        // pagination: normal / short / loadMore
+        /*
+         * perPage: inline / group / select
+         * pagination: normal / short / loadMore
+         */
         desktop: {
           perPage: {
             mode: "group",

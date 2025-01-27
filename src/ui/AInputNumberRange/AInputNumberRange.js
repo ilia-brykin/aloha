@@ -34,7 +34,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     controlsType: {
       type: String,
@@ -338,7 +339,7 @@ export default {
           class: "a_input_number_range__content",
         }, [
           h("div", {
-            class: "a_input_number_range__group a_input_number_range__group_min"
+            class: "a_input_number_range__group a_input_number_range__group_min",
           }, [
             h(ALabel, {
               id: this.idMin,
@@ -372,7 +373,7 @@ export default {
             }),
           ]),
           h("div", {
-            class: "a_input_number_range__group a_input_number_range__group_max"
+            class: "a_input_number_range__group a_input_number_range__group_max",
           }, [
             h(ALabel, {
               id: this.idMax,

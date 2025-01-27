@@ -27,7 +27,7 @@ describe("filterDate function", () => {
         input: "2023-03-01",
         format: "date",
         expected: moment("2023-03-01").format("DD.MM.YYYY"),
-      }
+      },
     ];
     testCases.forEach(tc => {
       expect(filterDate(tc.input, { format: tc.format })).toEqual(tc.expected);

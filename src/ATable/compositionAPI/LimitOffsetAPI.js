@@ -9,9 +9,12 @@ import {
 } from "lodash-es";
 
 export default function LimitOffsetAPI(props, { emit }, {
-  closePreviewAll = () => {},
-  scrollToTable = () => {},
-  setFocusToTable = () => {},
+  closePreviewAll = () => {
+  },
+  scrollToTable = () => {
+  },
+  setFocusToTable = () => {
+  },
   viewCurrent = computed(() => ({})),
 }) {
   const isTree = toRef(props, "isTree");

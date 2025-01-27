@@ -46,7 +46,7 @@ export default {
     "mouseleave",
     "click",
     "dblclick",
-    "mousemove"
+    "mousemove",
   ],
   setup(props, { emit }) {
     return {
@@ -98,7 +98,7 @@ export default {
             size: this.size,
           }),
         ]),
-      ]
+      ],
     );
   },
 };

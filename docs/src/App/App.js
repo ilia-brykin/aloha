@@ -10,6 +10,7 @@ import {
 import TheMenu from "../components/TheMenu/TheMenu.vue";
 import TheNavbar from "../components/TheNavbar/TheNavbar.vue";
 
+
 export default defineComponent({
   components: {
     AModalConfirm,

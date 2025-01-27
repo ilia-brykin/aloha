@@ -25,7 +25,7 @@ export default function ModelAPI(props, { emit }) {
     } else {
       const MODEL_VALUE = cloneDeep(modelValueLocal.value);
       const MODEL_ID = item.id;
-      
+
       set(MODEL_VALUE, MODEL_ID, cloneDeep(model));
       emit("update:modelValue", MODEL_VALUE);
       emit("change", { model: MODEL_VALUE });

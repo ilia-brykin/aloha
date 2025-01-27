@@ -257,7 +257,7 @@ export default {
           userInput.value = null;
         }
       },
-      { immediate: true }
+      { immediate: true },
     );
 
     return {
@@ -380,7 +380,7 @@ export default {
               }),
               this.isClearButtonLocal ?
                 h("div", {
-                  class: "a_form_control__actions"
+                  class: "a_form_control__actions",
                 }, [
                   h(AFormElementBtnClear, {
                     alwaysTranslate: this.alwaysTranslate,

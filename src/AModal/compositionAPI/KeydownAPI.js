@@ -1,8 +1,10 @@
 import AKeysCode from "../../const/AKeysCode";
 
 export default function KeydownAPI({
-  pressEscape = () => {},
-  trapFocus = () => {},
+  pressEscape = () => {
+  },
+  trapFocus = () => {
+  },
 }) {
   const keydown = $event => {
     const EVENT = $event || window.$event;

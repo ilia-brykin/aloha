@@ -33,7 +33,8 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {},
+      default: () => {
+      },
     },
     defaultLabel: {
       type: String,
@@ -86,7 +87,7 @@ export default {
     helpText: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     htmlId: {
       type: String,

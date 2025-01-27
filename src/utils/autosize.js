@@ -1,4 +1,6 @@
-const map = typeof Map === "function" ? new Map() : function() {
+const map = typeof Map === "function"
+? new Map()
+: function() {
   const keys = [];
   const values = [];
 
@@ -21,7 +23,7 @@ const map = typeof Map === "function" ? new Map() : function() {
         keys.splice(index, 1);
         values.splice(index, 1);
       }
-    }
+    },
   };
 }();
 
@@ -72,9 +74,11 @@ function assign(ta) {
 
   function changeOverflow(value) {
     {
-      // Chrome/Safari-specific fix:
-      // When the textarea y-overflow is hidden, Chrome/Safari do not reflow the text to account for the space
-      // made available by removing the scrollbar. The following forces the necessary text reflow.
+      /*
+       * Chrome/Safari-specific fix:
+       * When the textarea y-overflow is hidden, Chrome/Safari do not reflow the text to account for the space
+       * made available by removing the scrollbar. The following forces the necessary text reflow.
+       */
       const width = ta.style.width;
       ta.style.width = "0px";
       // Force reflow:
@@ -94,7 +98,7 @@ function assign(ta) {
       if (el.parentNode.scrollTop) {
         arr.push({
           node: el.parentNode,
-          scrollTop: el.parentNode.scrollTop
+          scrollTop: el.parentNode.scrollTop,
         });
       }
       el = el.parentNode;
@@ -137,8 +141,10 @@ function assign(ta) {
     // Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
     let actualHeight = computed.boxSizing === "content-box" ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
 
-    // The actual height not matching the style height (set via the resize method) indicates that
-    // the max-height has been exceeded, in which case the overflow should be allowed.
+    /*
+     * The actual height not matching the style height (set via the resize method) indicates that
+     * the max-height has been exceeded, in which case the overflow should be allowed.
+     */
     if (actualHeight < styleHeight) {
       if (computed.overflowY === "hidden") {
         changeOverflow("scroll");
@@ -160,8 +166,10 @@ function assign(ta) {
       try {
         ta.dispatchEvent(evt);
       } catch (err) {
-        // Firefox will throw an error on dispatchEvent for a detached element
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=889376
+        /*
+         * Firefox will throw an error on dispatchEvent for a detached element
+         * https://bugzilla.mozilla.org/show_bug.cgi?id=889376
+         */
       }
     }
   }
@@ -189,14 +197,16 @@ function assign(ta) {
     resize: ta.style.resize,
     overflowY: ta.style.overflowY,
     overflowX: ta.style.overflowX,
-    wordWrap: ta.style.wordWrap
+    wordWrap: ta.style.wordWrap,
   });
 
   ta.addEventListener("autosize:destroy", destroy, false);
 
-  // IE9 does not fire onpropertychange or oninput for deletions,
-  // so binding to onkeyup to catch most of those events.
-  // There is no way that I know of to detect something like "cut" in IE9.
+  /*
+   * IE9 does not fire onpropertychange or oninput for deletions,
+   * so binding to onkeyup to catch most of those events.
+   * There is no way that I know of to detect something like "cut" in IE9.
+   */
   if ("onpropertychange" in ta && "oninput" in ta) {
     ta.addEventListener("keyup", update, false);
   }
@@ -209,7 +219,7 @@ function assign(ta) {
 
   map.set(ta, {
     destroy: destroy,
-    update: update
+    update: update,
   });
 
   init();
