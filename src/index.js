@@ -33,6 +33,7 @@ export { default as ALinkCopy } from "./ALinkCopy/ALinkCopy";
 export { default as AList } from "./AList/AList";
 export { default as ALoading } from "./ALoading/ALoading";
 export { default as AMenu } from "./AMenu/AMenu";
+export { default as AMenuButtonToggle } from "./AMenu/AMenuButtonToggle/AMenuButtonToggle";
 export { default as AModal } from "./AModal/AModal";
 export { default as AModalConfirm } from "./AModalConfirm/AModalConfirm";
 export { default as AModalForm } from "./AModalForm/AModalForm";
@@ -158,10 +159,11 @@ export { default as AKeyId } from "./const/AKeyId";
 export { default as AKeyLabel } from "./const/AKeyLabel";
 export { default as AKeyParent } from "./const/AKeyParent";
 export { default as AKeysCode } from "./const/AKeysCode";
+export { default as APlacements } from "./const/placements";
 
 // translations
 export {
-  default as i18n,
+  default as i18nAll,
   ar as i18nAR,
   de as i18nDE,
   en as i18nEN,
@@ -197,3 +199,16 @@ export { default as ARadioI18n } from "./ui/ARadio/i18n/ARadioI18n";
 export { default as ARequiredI18n } from "./ui/ARequired/i18n/ARequiredI18n";
 export { default as ASelectI18n } from "./ui/ASelect/i18n/ASelectI18n";
 export { default as ASwitchI18n } from "./ui/ASwitch/i18n/ASwitchI18n";
+export {
+  getTranslatedText,
+  isPlaceholderTranslate,
+} from "./ATranslation/compositionAPI/UtilsAPI";
+export {
+  i18n,
+  isTranslate,
+  setI18n,
+  setLanguage,
+  timeTranslationLastChanged,
+  toggleTranslate,
+  updateTranslation,
+} from "./ATranslation/compositionAPI/ATranslationAPI";
