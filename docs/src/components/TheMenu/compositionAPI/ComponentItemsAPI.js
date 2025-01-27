@@ -76,21 +76,21 @@ export default function ComponentItemsAPI() {
             label: "Checkbox",
             to: {
               name: "PageCheckbox",
-            }
+            },
           },
           {
             id: "datepicker",
             label: "Datepicker",
             to: {
               name: "PageDatepicker",
-            }
+            },
           },
           {
             id: "datepicker-range",
             label: "DatepickerRange",
             to: {
               name: "PageDatepickerRange",
-            }
+            },
           },
           {
             id: "fieldset",
@@ -117,7 +117,7 @@ export default function ComponentItemsAPI() {
             label: "Form",
             to: {
               name: "PageForm",
-            }
+            },
           },
           {
             id: "PageGroup",
@@ -317,49 +317,49 @@ export default function ComponentItemsAPI() {
             label: "Table complex",
             to: {
               name: "PageTableComplex",
-            }
+            },
           },
           {
             id: "PageTablePagination",
             label: "Table pagination",
             to: {
               name: "PageTablePagination",
-            }
+            },
           },
           {
             id: "PageTableSimple",
             label: "Table simple",
             to: {
               name: "PageTableSimple",
-            }
+            },
           },
           {
             id: "PageTableSort",
             label: "Table sort",
             to: {
               name: "PageTableSort",
-            }
+            },
           },
           {
             id: "PageTablePreview",
             label: "Table preview",
             to: {
               name: "PageTablePreview",
-            }
+            },
           },
           {
             id: "PageTablePreviewDown",
             label: "Table preview down",
             to: {
               name: "PageTablePreviewDown",
-            }
+            },
           },
           {
             id: "PageTableTree",
             label: "Table tree",
             to: {
               name: "PageTableTree",
-            }
+            },
           },
         ],
       },

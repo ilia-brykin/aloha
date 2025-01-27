@@ -1,7 +1,8 @@
-import AList from "../../../../src/AList/AList";
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageListBasic from "./PageListBasic/PageListBasic.vue";
 import PageListClassGroup from "./PageListClassGroup/PageListClassGroup.vue";
 import PageListIsDataSimpleArray from "./PageListIsDataSimpleArray/PageListIsDataSimpleArray.vue";
@@ -21,7 +22,6 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageList",
   components: {
-    AList,
     AlohaPage,
     AlohaTableProps,
     ATranslation,

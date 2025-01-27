@@ -1,6 +1,6 @@
 import {
   isArrayOfArrays,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `isArrayOfArrays([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);

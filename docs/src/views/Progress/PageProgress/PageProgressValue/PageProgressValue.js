@@ -2,9 +2,11 @@ import {
   ref,
 } from "vue";
 
-import AInputNumber from "../../../../../../src/ui/AInputNumber/AInputNumber";
+import {
+  AInputNumber,
+  AProgress,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import AProgress from "../../../../../../src/AProgress/AProgress";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

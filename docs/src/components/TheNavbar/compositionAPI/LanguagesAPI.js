@@ -1,10 +1,9 @@
 import {
   ref,
 } from "vue";
-
 import {
   setLanguage,
-} from "../../../../../src/ATranslation/compositionAPI/ATranslationAPI";
+} from "aloha-vue";
 
 export const modelLanguage = ref("de");
 

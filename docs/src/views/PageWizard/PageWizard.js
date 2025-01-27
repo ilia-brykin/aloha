@@ -1,7 +1,9 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageWizardBasic from "./PageWizardBasic/PageWizardBasic.vue";
 import PageWizardButtons from "./PageWizardButtons/PageWizardButtons.vue";
 import PageWizardButtonsDisabled from "./PageWizardButtonsDisabled/PageWizardButtonsDisabled.vue";

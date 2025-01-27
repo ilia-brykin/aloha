@@ -1,8 +1,10 @@
+import {
+  AIcon,
+  ASelect,
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import AIcon from "../../../../../src/AIcon/AIcon";
-import ASelect from "../../../../../src/ui/ASelect/ASelect";
 import PageSelectBasic from "./PageSelectBasic/PageSelectBasic.vue";
 import PageSelectDataExtra from "./PageSelectDataExtra/PageSelectDataExtra.vue";
 import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
@@ -19,16 +21,16 @@ import ExposesAPI from "./compositionAPI/ExposesAPI";
 export default {
   name: "PageSelect",
   components: {
+    AIcon,
     AlohaPage,
     AlohaTableProps,
-    ATranslation,
-    AIcon,
     ASelect,
+    ATranslation,
     PageSelectBasic,
     PageSelectDataExtra,
     PageSelectGroup,
-    PageSelectSearch,
     PageSelectKeyDisabled,
+    PageSelectSearch,
     PageSelectTranslateData,
   },
   setup() {

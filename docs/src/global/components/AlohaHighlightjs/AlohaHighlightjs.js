@@ -56,7 +56,7 @@ export default {
     const className = computed(() => {
       if (cannotDetectLanguage.value) {
         return "";
-      } 
+      }
       return `hljs ${ language.value }`;
     });
 
@@ -69,7 +69,7 @@ export default {
       if (autodetect.value) {
         const result = hljs.highlightAuto(props.code);
         return result.value;
-      } 
+      }
       const result = hljs.highlight(props.code, {
         language: language.value,
         ignoreIllegals: props.ignoreIllegals,

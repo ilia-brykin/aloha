@@ -1,6 +1,6 @@
 import {
   filterDefaultForEmpty,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterDefaultForEmpty(undefined);

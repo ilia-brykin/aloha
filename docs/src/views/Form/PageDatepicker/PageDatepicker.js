@@ -1,4 +1,6 @@
-import ADatepicker from "../../../../../src/ui/ADatepicker/ADatepicker";
+import {
+  ADatepicker,
+} from "aloha-vue";
 
 export default {
   name: "PageDatepicker",

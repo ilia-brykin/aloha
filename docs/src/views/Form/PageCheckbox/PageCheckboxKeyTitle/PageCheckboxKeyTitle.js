@@ -2,7 +2,9 @@ import {
   ref,
 } from "vue";
 
-import ACheckbox from "../../../../../../src/ui/ACheckbox/ACheckbox";
+import {
+  ACheckbox,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

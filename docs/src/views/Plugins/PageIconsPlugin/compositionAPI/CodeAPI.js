@@ -42,7 +42,7 @@ export default {
   },
 };
 </script>`;
-  
+
   const useAIconCode = `<template>
   <div>
     <a-icon icon="ArrowsCollapse" class="icon-large"></a-icon>

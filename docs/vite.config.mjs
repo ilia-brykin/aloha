@@ -42,6 +42,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      "aloha-vue": path.resolve(__dirname, "../src/index.js"),
       axios: path.resolve(__dirname, "node_modules/axios"),
       fecha: path.resolve(__dirname, "node_modules/fecha"),
       "lodash-es": path.resolve(__dirname, "node_modules/lodash-es"),

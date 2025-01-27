@@ -1,4 +1,6 @@
-import APageTabTitle from "../../../../../src/APageTabTitle/APageTabTitle";
+import {
+  APageTabTitle,
+} from "aloha-vue";
 
 export default {
   name: "AlohaPage",

@@ -1,6 +1,6 @@
 import {
   filterMask,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterMask("1234567812345678");

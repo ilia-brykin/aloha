@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  ATable,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import ATable from "../../../../../../src/ATable/ATable";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

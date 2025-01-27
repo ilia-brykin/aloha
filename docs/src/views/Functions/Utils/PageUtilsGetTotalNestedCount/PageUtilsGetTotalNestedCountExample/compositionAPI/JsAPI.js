@@ -1,6 +1,6 @@
 import {
   getTotalNestedCount,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `getTotalNestedCount({ array: ["hello", "Aloha"], keyChildren: "" });

@@ -1,6 +1,6 @@
 import {
   filterPropertyByValue,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterPropertyByValue("111", { mapping: { aloha: "1", holla: "2" }, defaultValue: "not found" });

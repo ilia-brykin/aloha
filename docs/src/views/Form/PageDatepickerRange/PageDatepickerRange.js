@@ -1,6 +1,9 @@
+import {
+  ATranslation,
+} from "aloha-vue";
+
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageDatepickerRangeBasic from "./PageDatepickerRangeBasic/PageDatepickerRangeBasic.vue";
 import PageDatepickerRangeCustomFirstDay from "./PageDatepickerRangeCustomFirstDay/PageDatepickerRangeCustomFirstDay.vue";
 import PageDatepickerRangeDisabledVariants from "./PageDatepickerRangeDisabledVariants/PageDatepickerRangeDisabledVariants.vue";

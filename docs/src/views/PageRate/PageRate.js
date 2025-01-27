@@ -1,6 +1,8 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageRateModelValue from "./PageRateModelValue/PageRateModelValue.vue";
 import PageRateReadonly from "./PageRateReadonly/PageRateReadonly.vue";
 import PageRateHalfIcon from "./PageRateHalfIcon/PageRateHalfIcon.vue";

@@ -1,6 +1,6 @@
 import {
   filterKeyValue,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterKeyValue({ x: "aloha", y: 2 });

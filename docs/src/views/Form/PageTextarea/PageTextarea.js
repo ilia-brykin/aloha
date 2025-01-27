@@ -1,7 +1,9 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageTextareaBasic from "./PageTextareaBasic/PageTextareaBasic.vue";
 import PageTextareaChange from "./PageTextareaChange/PageTextareaChange.vue";
 import PageTextareaErrors from "./PageTextareaErrors/PageTextareaErrors.vue";

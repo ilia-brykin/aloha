@@ -1,7 +1,10 @@
+import {
+  ATranslation,
+} from "aloha-vue";
+
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageCheckboxBasic from "./PageCheckboxBasic/PageCheckboxBasic.vue";
 import PageCheckboxChange from "./PageCheckboxChange/PageCheckboxChange.vue";
 import PageCheckboxCollapse from "./PageCheckboxCollapse/PageCheckboxCollapse.vue";

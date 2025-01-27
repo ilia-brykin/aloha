@@ -1,4 +1,6 @@
-import AGroupButtonDropdown from "../../../../../src/AGroupButtonDropdown/AGroupButtonDropdown";
+import {
+  AGroupButtonDropdown,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -24,7 +26,8 @@ export default {
         text: "Action 1",
         type: "button",
         classButton: "a_btn a_btn_primary",
-        callback: () => {},
+        callback: () => {
+        },
       },
     ];
 
@@ -33,13 +36,15 @@ export default {
         text: "Action 1",
         type: "button",
         classButton: "a_btn a_btn_primary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 2",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
     ];
 
@@ -48,19 +53,22 @@ export default {
         text: "Action 1",
         type: "button",
         classButton: "a_btn a_btn_primary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 2",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 3",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
     ];
 
@@ -69,37 +77,43 @@ export default {
         text: "Action 1",
         type: "button",
         classButton: "a_btn a_btn_primary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 2",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 3",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 4",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 5",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 6",
         type: "button",
         classButton: "a_btn a_btn_secondary",
-        callback: () => {},
+        callback: () => {
+        },
       },
     ];
 

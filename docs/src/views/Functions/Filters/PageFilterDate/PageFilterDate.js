@@ -1,5 +1,7 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
-import ATranslation from "../../../../../../src/ATranslation/ATranslation";
 import PageFilterArguments from "../../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterDateExample from "./PageFilterDateExample/PageFilterDateExample.vue";
 import PageFilterDateFormat from "./PageFilterDateFormat/PageFilterDateFormat.vue";

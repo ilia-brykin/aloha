@@ -1,5 +1,7 @@
+import {
+  ASpinner,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ASpinner from "../../../../../src/ASpinner/ASpinner";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

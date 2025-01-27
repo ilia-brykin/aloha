@@ -1,5 +1,7 @@
+import {
+  AProgressCircle,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import AProgressCircle from "../../../../../../src/AProgressCircle/AProgressCircle";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

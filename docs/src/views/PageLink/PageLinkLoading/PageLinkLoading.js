@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
-import AButton from "../../../../../src/AButton/AButton";
-import ALink from "../../../../../src/ALink/ALink";
+import {
+  AButton,
+  ALink,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

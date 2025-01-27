@@ -1,6 +1,6 @@
 import {
   filterCapitalize,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterCapitalize("foobar");

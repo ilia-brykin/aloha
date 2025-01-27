@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  ACheckbox,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import ACheckbox from "../../../../../../src/ui/ACheckbox/ACheckbox";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
@@ -11,8 +13,8 @@ import JsAPI from "./compositionAPI/JsAPI";
 export default {
   name: "PageCheckboxDataExtra",
   components: {
-    AlohaExample,
     ACheckbox,
+    AlohaExample,
   },
   setup() {
     const {

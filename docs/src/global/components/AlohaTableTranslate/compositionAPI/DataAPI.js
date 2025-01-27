@@ -21,7 +21,7 @@ export default function DataAPI(props) {
         placeholder: item,
         translate: getTranslatedText({
           placeholder: item,
-        })
+        }),
       });
     });
 

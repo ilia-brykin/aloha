@@ -1,6 +1,8 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageProgressCircleBasic from "./PageProgressCircleBasic/PageProgressCircleBasic.vue";
 import PageProgressCircleIndeterminate from "./PageProgressCircleIndeterminate/PageProgressCircleIndeterminate.vue";
 

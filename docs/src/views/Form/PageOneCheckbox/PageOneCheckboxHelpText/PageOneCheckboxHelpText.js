@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  AOneCheckbox,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import AOneCheckbox from "../../../../../../src/ui/AOneCheckbox/AOneCheckbox";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

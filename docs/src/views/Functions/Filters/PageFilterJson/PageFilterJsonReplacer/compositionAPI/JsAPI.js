@@ -1,6 +1,6 @@
 import {
   filterJson,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   function replacer(key, value) {

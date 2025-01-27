@@ -1,6 +1,6 @@
 import {
   filterLowerCase,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterLowerCase("--Foo-Bar--");

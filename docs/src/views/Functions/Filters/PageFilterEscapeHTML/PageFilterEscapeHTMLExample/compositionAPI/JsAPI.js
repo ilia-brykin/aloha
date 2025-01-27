@@ -1,6 +1,6 @@
 import {
   filterEscapeHtml,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterEscapeHtml("<script>alert('XSS Attack')</script>");

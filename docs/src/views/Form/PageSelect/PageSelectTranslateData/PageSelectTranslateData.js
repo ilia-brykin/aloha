@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  ASelect,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import ASelect from "../../../../../../src/ui/ASelect/ASelect";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

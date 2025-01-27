@@ -1,10 +1,9 @@
-import ASafeHtml from "../../../../src/directives/ASafeHtml";
+import {
+  ASafeHtml,
+} from "aloha-vue";
 
 export default {
   name: "PageSvg",
-  components: {
-
-  },
   directives: {
     ASafeHtml,
   },

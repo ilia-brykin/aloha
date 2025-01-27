@@ -1,6 +1,6 @@
 import {
   AAlert,
-} from "../../../../../src";
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

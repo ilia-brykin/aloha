@@ -1,6 +1,9 @@
-import AButton from "../../../../../src/AButton/AButton";
+import {
+  AButton,
+  ATranslation,
+} from "aloha-vue";
+
 import AlohaHighlightjs from "../AlohaHighlightjs/AlohaHighlightjs";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 
 import ClipboardAPI from "./compositionAPI/ClipboardAPI";
 import CodeToggleAPI from "./compositionAPI/CodeToggleAPI";

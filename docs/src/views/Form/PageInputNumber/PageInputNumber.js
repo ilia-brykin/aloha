@@ -1,4 +1,6 @@
-import AInputNumber from "../../../../../src/ui/AInputNumber/AInputNumber";
+import {
+  AInputNumber,
+} from "aloha-vue";
 
 export default {
   name: "PageInputNumber",

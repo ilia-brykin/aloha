@@ -2,10 +2,12 @@ import {
   ref,
 } from "vue";
 
+import {
+  ASelect,
+  ASwitch,
+  AWizard,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ASelect from "../../../../../src/ui/ASelect/ASelect";
-import ASwitch from "../../../../../src/ui/ASwitch/ASwitch";
-import AWizard from "../../../../../src/AWizard/AWizard";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

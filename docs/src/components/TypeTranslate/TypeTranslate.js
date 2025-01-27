@@ -1,4 +1,6 @@
-import ATranslation from "../../../../src/ATranslation/ATranslation";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import TypeAPI from "./compositionAPI/TypeAPI";
 

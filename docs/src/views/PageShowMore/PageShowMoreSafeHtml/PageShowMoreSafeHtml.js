@@ -1,5 +1,7 @@
+import {
+  AShowMore,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import AShowMore from "../../../../../src/AShowMore/AShowMore";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

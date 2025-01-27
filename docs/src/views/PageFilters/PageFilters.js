@@ -1,6 +1,8 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageFiltersExample from "./PageFiltersExample/PageFiltersExample.vue";
 import PageFiltersDefaultHide from "./PageFiltersDefaultHide/PageFiltersDefaultHide.vue";
 import PageFiltersModelId from "./PageFiltersModelId/PageFiltersModelId.vue";

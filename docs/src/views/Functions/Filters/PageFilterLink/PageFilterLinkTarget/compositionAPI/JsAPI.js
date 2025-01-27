@@ -1,6 +1,6 @@
 import {
   filterLink,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterLink("example.com", { target: "_blank" });

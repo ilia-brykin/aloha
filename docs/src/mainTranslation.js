@@ -1,4 +1,13 @@
-import allLanguages from "../../src/i18n/allLanguages";
+import {
+  i18nAR,
+  i18nDE,
+  i18nEN,
+  i18nES,
+  i18nFR,
+  i18nHR,
+  i18nIT,
+  i18nRU,
+} from "aloha-vue";
 
 import ar from "./i18n/ar.json";
 import de from "./i18n/de.json";
@@ -95,7 +104,7 @@ import PageMigrationsVersion1To2I18n from "./views/Migrations/PageMigrationsVers
 
 export const mainTranslation = {
   ar: {
-    ...allLanguages.ar,
+    ...i18nAR,
     ...ar,
     ...PageAAlertI18n.ar,
     ...PageARateI18n.ar,
@@ -182,7 +191,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion1To2I18n.ar,
   },
   de: {
-    ...allLanguages.de,
+    ...i18nDE,
     ...de,
     ...PageAAlertI18n.de,
     ...PageARateI18n.de,
@@ -269,7 +278,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion1To2I18n.de,
   },
   en: {
-    ...allLanguages.en,
+    ...i18nEN,
     ...en,
     ...PageAAlertI18n.en,
     ...PageARateI18n.en,
@@ -356,7 +365,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion1To2I18n.en,
   },
   es: {
-    ...allLanguages.es,
+    ...i18nES,
     ...es,
     ...PageAAlertI18n.es,
     ...PageARateI18n.es,
@@ -443,7 +452,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion1To2I18n.es,
   },
   fr: {
-    ...allLanguages.fr,
+    ...i18nFR,
     ...fr,
     ...PageAAlertI18n.fr,
     ...PageARateI18n.fr,
@@ -530,7 +539,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion1To2I18n.fr,
   },
   hr: {
-    ...allLanguages.hr,
+    ...i18nHR,
     ...hr,
     ...PageAAlertI18n.hr,
     ...PageARateI18n.hr,
@@ -617,7 +626,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion1To2I18n.hr,
   },
   it: {
-    ...allLanguages.it,
+    ...i18nIT,
     ...it,
     ...PageAAlertI18n.it,
     ...PageARateI18n.it,
@@ -704,7 +713,7 @@ export const mainTranslation = {
     ...PageMigrationsVersion1To2I18n.it,
   },
   ru: {
-    ...allLanguages.ru,
+    ...i18nRU,
     ...ru,
     ...PageAAlertI18n.ru,
     ...PageARateI18n.ru,

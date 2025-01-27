@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  ATextarea,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import ATextarea from "../../../../../../src/ui/ATextarea/ATextarea";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

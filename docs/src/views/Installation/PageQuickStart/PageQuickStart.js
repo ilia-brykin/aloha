@@ -1,7 +1,7 @@
 import {
   APageTabTitle,
   ATranslation,
-} from "../../../../../src";
+} from "aloha-vue";
 import AlohaHighlightjs from "../../../global/components/AlohaHighlightjs/AlohaHighlightjs";
 
 import CodeAPI from "./compositionAPI/CodeAPI";

@@ -1,4 +1,6 @@
-import AButton from "../../../../../src/AButton/AButton";
+import {
+  AButton,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

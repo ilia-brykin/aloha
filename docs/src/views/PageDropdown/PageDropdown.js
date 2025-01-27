@@ -1,7 +1,9 @@
-import ADropdown from "../../../../src/ADropdown/ADropdown";
+import {
+  ADropdown,
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageDropdownBasic from "./PageDropdownBasic/PageDropdownBasic.vue";
 import PageDropdownButtonClass from "./PageDropdownButtonClass/PageDropdownButtonClass.vue";
 import PageDropdownButtonIcons from "./PageDropdownButtonIcons/PageDropdownButtonIcons.vue";
@@ -61,13 +63,15 @@ export default {
       {
         text: "Actions 0",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
         isHidden: true,
       },
       {
         text: "Actions 1",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
         disabled: true,
       },
       {
@@ -79,7 +83,8 @@ export default {
       {
         text: "Actions 2",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         type: "link",

@@ -4,9 +4,11 @@ import {
   ref,
 } from "vue";
 
-import AButton from "../../../../../src/AButton/AButton";
+import {
+  AButton,
+  AShowMore,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import AShowMore from "../../../../../src/AShowMore/AShowMore";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
@@ -65,7 +67,7 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.</p>`
       nextTick().then(
         () => {
           showMoreRef.value.buttonRef.$el.setAttribute("class", "a_btn a_btn_primary");
-        }
+        },
       );
     });
 

@@ -1,6 +1,6 @@
 import {
   filterEmail,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterEmail("example@example.com");

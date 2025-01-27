@@ -4,9 +4,11 @@ import {
   ref,
 } from "vue";
 
-import AButton from "../../../../../src/AButton/AButton";
+import {
+  AButton,
+  ADisclosure,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ADisclosure from "../../../../../src/ADisclosure/ADisclosure";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
@@ -15,8 +17,8 @@ export default {
   name: "PageDisclosureExposes",
   components: {
     AButton,
-    AlohaExample,
     ADisclosure,
+    AlohaExample,
   },
   setup() {
     const {
@@ -55,7 +57,7 @@ non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.`;
       nextTick().then(
         () => {
           disclosureRef.value.buttonRef.$el.setAttribute("class", "a_btn a_btn_primary");
-        }
+        },
       );
     });
 

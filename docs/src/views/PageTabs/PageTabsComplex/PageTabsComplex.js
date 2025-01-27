@@ -3,15 +3,17 @@ import {
   ref,
 } from "vue";
 
-import AElement from "../../../../../src/AElement/AElement";
-import AForm from "../../../../../src/ui/AForm/AForm";
+import {
+  AElement,
+  AForm,
+  ATabs,
+  APlacements,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ATabs from "../../../../../src/ATabs/ATabs";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
-import placements from "../../../../../src/const/placements";
 import {
   findIndex,
 } from "lodash-es";
@@ -121,7 +123,7 @@ export default {
           id: "titlePlacement",
           label: "_A_TABS_LABEL_TITLE_PLACEMENT_",
           type: "select",
-          data: placements,
+          data: APlacements,
           isDataSimpleArray: true,
           deselectable: false,
           isLabelFloat: false,

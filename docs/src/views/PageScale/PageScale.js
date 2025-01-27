@@ -1,5 +1,7 @@
-import AInput from "../../../../src/ui/AInput/AInput";
-import AScale from "../../../../src/AScale/AScale";
+import {
+  AInput,
+  AScale,
+} from "aloha-vue";
 
 export default {
   name: "PageScale",

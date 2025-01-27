@@ -7,11 +7,12 @@
     "dev": "vite",
     "build-production": "vite build --config vite.config.mjs",
     "serve": "vite preview",
-    "i": "npm i --scope=@npm"
+    "i": "npm i --scope=@npm",
+    "lint": "eslint src/"
   },
   "dependencies": {
     "@floating-ui/vue": "1.1.5",
-    "aloha-svg": "1.2.0",
+    "aloha-svg": "^1.4.0",
     "axios": "1.7.9",
     "dompurify": "3.2.3",
     "fecha": "4.2.3",
@@ -23,17 +24,19 @@
     "vue-router": "4.5.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "@vitejs/plugin-vue": "5.2.1",
+    "@eslint/js": "^9.19.0",
+    "@stylistic/eslint-plugin": "^2.13.0",
+    "@vitejs/plugin-vue": "^5.2.1",
     "esbuild": "0.24.2",
-    "eslint": "^9.17.0",
+    "eslint": "^9.19.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-vue": "^9.32.0",
     "globals": "^15.14.0",
     "pug": "3.0.3",
     "sass-embedded": "1.83.0",
-    "vite": "6.0.4",
-    "vite-plugin-static-copy": "2.2.0",
+    "vite":"^6.0.11",
     "vite-plugin-eslint2": "5.0.3",
+    "vite-plugin-static-copy": "2.2.0",
     "vue-eslint-parser": "9.4.3",
     "vue-loader": "17.4.2",
     "vue-pug-loader": "1.1.29"

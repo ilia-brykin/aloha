@@ -1,7 +1,9 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageModalBasic from "./PageModalBasic/PageModalBasic.vue";
 import PageModalBodyHtml from "./PageModalBodyHtml/PageModalBodyHtml.vue";
 import PageModalCloseButton from "./PageModalCloseButton/PageModalCloseButton.vue";

@@ -1,5 +1,7 @@
+import {
+  ATabs,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ATabs from "../../../../../src/ATabs/ATabs";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

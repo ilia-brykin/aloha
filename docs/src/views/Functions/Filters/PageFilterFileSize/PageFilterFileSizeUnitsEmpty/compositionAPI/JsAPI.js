@@ -4,7 +4,7 @@ import {
 
 import {
   filterFileSize,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = computed(() => {

@@ -4,7 +4,7 @@ import {
 
 import {
   AAlert,
-} from "../../../../../src";
+} from "aloha-vue";
 import AButton from "../../../../../src/AButton/AButton";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 

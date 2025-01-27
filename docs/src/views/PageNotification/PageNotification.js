@@ -1,6 +1,7 @@
-import AButton from "../../../../src/AButton/AButton";
-
-import ANotificationAPI from "../../../../src/compositionAPI/ANotificationAPI";
+import {
+  AButton,
+  ANotificationAPI,
+} from "aloha-vue";
 
 export default {
   name: "PageNotification",

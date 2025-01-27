@@ -1,4 +1,6 @@
-import ALinkCopy from "../../../../../src/ALinkCopy/ALinkCopy";
+import {
+  ALinkCopy,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

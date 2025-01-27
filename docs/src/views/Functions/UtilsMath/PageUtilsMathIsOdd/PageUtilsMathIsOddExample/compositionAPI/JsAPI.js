@@ -1,6 +1,6 @@
 import {
   isOdd,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `isOdd(1);

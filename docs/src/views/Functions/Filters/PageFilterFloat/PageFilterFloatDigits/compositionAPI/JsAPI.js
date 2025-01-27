@@ -1,6 +1,6 @@
 import {
   filterFloat,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterFloat(2000, { digits: 0 });

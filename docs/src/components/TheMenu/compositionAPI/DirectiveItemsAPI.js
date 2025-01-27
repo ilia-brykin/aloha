@@ -9,7 +9,7 @@ export default function DirectiveItemsAPI() {
         label: "OnHooks",
         to: {
           name: "PageOnHooks",
-        }
+        },
       },
     ],
   };

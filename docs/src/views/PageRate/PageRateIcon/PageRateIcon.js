@@ -1,4 +1,6 @@
-import ARate from "../../../../../src/ARate/ARate";
+import {
+  ARate,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

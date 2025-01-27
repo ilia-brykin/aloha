@@ -1,7 +1,7 @@
 import {
   APageTabTitle,
   ATranslation,
-} from "../../../../src";
+} from "aloha-vue";
 
 export default {
   name: "PageStart",

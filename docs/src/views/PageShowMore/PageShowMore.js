@@ -1,8 +1,9 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import AShowMore from "../../../../src/AShowMore/AShowMore";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageShowMoreBasic from "./PageShowMoreBasic/PageShowMoreBasic.vue";
 import PageShowMoreBtnClass from "./PageShowMoreBtnClass/PageShowMoreBtnClass.vue";
 import PageShowMoreBtnIcons from "./PageShowMoreBtnIcons/PageShowMoreBtnIcons.vue";
@@ -34,7 +35,6 @@ export default {
     AlohaPage,
     AlohaTableProps,
     AlohaTableTranslate,
-    AShowMore,
     ATranslation,
     PageShowMoreBasic,
     PageShowMoreBtnClass,

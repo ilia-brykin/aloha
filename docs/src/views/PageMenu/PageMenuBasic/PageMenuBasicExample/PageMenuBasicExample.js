@@ -1,5 +1,7 @@
+import {
+  AMenu,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import AMenu2 from "../../../../../../src/AMenu/AMenu";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
@@ -8,7 +10,7 @@ export default {
   name: "PageMenuBasicExample",
   components: {
     AlohaExample,
-    AMenu2,
+    AMenu,
   },
   setup() {
     const {
@@ -38,9 +40,9 @@ export default {
             label: "Accordion seeeeeehr lange name",
             to: {
               name: "PageAccordion",
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         id: "alert",
@@ -118,7 +120,7 @@ export default {
             label: "OnHooks",
             to: {
               name: "PageOnHooks",
-            }
+            },
           },
         ],
       },
@@ -164,14 +166,14 @@ export default {
             label: "Checkbox",
             to: {
               name: "PageCheckbox",
-            }
+            },
           },
           {
             id: "fieldset",
             label: "Fieldset",
             to: {
               name: "PageFieldset",
-            }
+            },
           },
           {
             id: "ui-child",
@@ -183,29 +185,29 @@ export default {
                   name: "PageInput",
                 },
                 label: "Input",
-              }
-            ]
+              },
+            ],
           },
           {
             id: "datepicker",
             label: "Datepicker",
             to: {
               name: "PageDatepicker",
-            }
+            },
           },
           {
             id: "datepicker-range",
             label: "DatepickerRange",
             to: {
               name: "PageDatepickerRange",
-            }
+            },
           },
           {
             id: "form",
             label: "Form",
             to: {
               name: "PageForm",
-            }
+            },
           },
           {
             id: "input",
@@ -233,14 +235,14 @@ export default {
             label: "JSON",
             to: {
               name: "PageAJson",
-            }
+            },
           },
           {
             id: "radio",
             label: "Radio",
             to: {
               name: "PageRadio",
-            }
+            },
           },
           {
             id: "rate",
@@ -254,7 +256,7 @@ export default {
             label: "Select",
             to: {
               name: "PageSelect",
-            }
+            },
           },
         ],
       },
@@ -393,42 +395,42 @@ export default {
             label: "Table complex",
             to: {
               name: "PageTableComplex",
-            }
+            },
           },
           {
             id: "PageTablePagination",
             label: "Table pagination",
             to: {
               name: "PageTablePagination",
-            }
+            },
           },
           {
             id: "PageTableSimple",
             label: "Table simple",
             to: {
               name: "PageTableSimple",
-            }
+            },
           },
           {
             id: "PageTableSort",
             label: "Table sort",
             to: {
               name: "PageTableSort",
-            }
+            },
           },
           {
             id: "PageTablePreview",
             label: "Table preview",
             to: {
               name: "PageTablePreview",
-            }
+            },
           },
           {
             id: "PageTablePreviewDown",
             label: "Table preview down",
             to: {
               name: "PageTablePreviewDown",
-            }
+            },
           },
         ],
       },

@@ -1,7 +1,8 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import AShowMore from "../../../../src/AShowMore/AShowMore";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageTranslationAriaLabel from "./PageTranslationAriaLabel/PageTranslationAriaLabel.vue";
 import PageTranslationBasic from "./PageTranslationBasic/PageTranslationBasic.vue";
 import PageTranslationExtra from "./PageTranslationExtra/PageTranslationExtra.vue";
@@ -27,7 +28,6 @@ export default {
   components: {
     AlohaPage,
     AlohaTableProps,
-    AShowMore,
     ATranslation,
     PageTranslationAriaLabel,
     PageTranslationBasic,

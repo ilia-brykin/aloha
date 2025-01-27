@@ -2,7 +2,9 @@ import {
   ref,
 } from "vue";
 
-import AFieldset from "../../../../../../src/ui/AFieldset/AFieldset";
+import {
+  AFieldset,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -20,7 +22,7 @@ export default {
         type: "text",
         label: "Text",
         id: "aloha1.text",
-        classColumn: "a_column a_column_12"
+        classColumn: "a_column a_column_12",
       },
       {
         type: "oneCheckbox",

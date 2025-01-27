@@ -1,7 +1,8 @@
-import AModal from "../../../../src/AModal/AModal";
-
-import AConfirmAPI from "../../../../src/compositionAPI/AConfirmAPI";
-import EventBus from "../../../../src/utils/EventBus";
+import {
+  AConfirmAPI,
+  AModal,
+  EventBus,
+} from "aloha-vue";
 
 export default {
   name: "PageConfirm",

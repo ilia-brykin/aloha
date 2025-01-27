@@ -1,4 +1,6 @@
-import ATable from "../../../../../src/ATable/ATable";
+import {
+  ATable,
+} from "aloha-vue";
 
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import DataAPI from "./compositionAPI/DataAPI";

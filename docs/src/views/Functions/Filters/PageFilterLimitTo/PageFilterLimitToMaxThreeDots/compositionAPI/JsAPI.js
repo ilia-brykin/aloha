@@ -1,6 +1,6 @@
 import {
   filterLimitTo,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const TEXT = "Aloha...";

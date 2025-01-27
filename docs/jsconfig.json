@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "aloha-vue": ["../src/index.js"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

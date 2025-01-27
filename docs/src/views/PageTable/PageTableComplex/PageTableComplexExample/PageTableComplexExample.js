@@ -1,7 +1,9 @@
-import AIcon from "../../../../../../src/AIcon/AIcon";
+import {
+  AIcon,
+  ASwitch,
+  ATable,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import ASwitch from "../../../../../../src/ui/ASwitch/ASwitch";
-import ATable from "../../../../../../src/ATable/ATable";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
@@ -273,7 +275,7 @@ export default {
           type: "button",
           classButton: "a_btn a_btn_primary",
           iconLeft: "PlusLg",
-          id: "aloha_1"
+          id: "aloha_1",
         },
         {
           type: "divider",
@@ -412,7 +414,7 @@ export default {
               hideFilterCenter: true,
               trueLabel: "Eins",
               falseLabel: "Alle",
-              title: "Alohadsfdsfdsf sdfsdfdsffds"
+              title: "Alohadsfdsfdsf sdfsdfdsffds",
             },
           ],
         },
@@ -458,7 +460,8 @@ export default {
           aloha: "dffdg",
         },
         test: "<div>aloha123</div>",
-      }, rowIndex: 1 });
+      },
+                                   rowIndex: 1 });
     }, 1000);
   },
   methods: {
@@ -493,7 +496,7 @@ export default {
     },
 
     clickMeModal({ rows, close }) {
-      console.log("rows", rows,);
+      console.log("rows", rows);
       setTimeout(() => {
         close();
       }, 5000);

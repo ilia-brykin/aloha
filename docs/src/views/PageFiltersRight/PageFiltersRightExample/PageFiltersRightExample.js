@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  AFilters,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import AFilters from "../../../../../src/AFilters/AFilters/AFilters";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
@@ -11,8 +13,8 @@ import JsAPI from "./compositionAPI/JsAPI";
 export default {
   name: "PageFiltersRightExample",
   components: {
-    AlohaExample,
     AFilters,
+    AlohaExample,
   },
   setup() {
     const {

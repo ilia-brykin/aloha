@@ -1,8 +1,9 @@
-
-import AHttpAPI from "../../../../src/compositionAPI/AHttpAPI";
+import {
+  AHttpAPI,
+} from "aloha-vue";
 
 export default {
-  name: "PageCloak",
+  name: "PageApi",
   setup() {
     const {
       abortHttp,
@@ -19,7 +20,7 @@ export default {
         },
         error => {
           console.log("error", error);
-        }
+        },
       );
       setTimeout(() => {
         abortHttp({

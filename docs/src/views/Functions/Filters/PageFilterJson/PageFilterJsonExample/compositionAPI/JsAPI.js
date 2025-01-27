@@ -1,6 +1,6 @@
 import {
   filterJson,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterJson({ x: 5, y: 6 });

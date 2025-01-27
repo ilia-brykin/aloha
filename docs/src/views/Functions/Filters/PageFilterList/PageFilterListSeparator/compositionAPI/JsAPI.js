@@ -1,6 +1,6 @@
 import {
   filterList,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const ITEMS = ["label 1", "label 2", "label 3"];
@@ -12,7 +12,7 @@ filterList(ITEMS, {
   isSimpleArray: true,
   separator: "; ",
 });
-// ${ filterList(ITEMS, { isHtml: false, isSimpleArray: true, separator: "; ", }) }
+// ${ filterList(ITEMS, { isHtml: false, isSimpleArray: true, separator: "; " }) }
 
 filterList(ITEMS, {
   isHtml: false,
@@ -20,7 +20,7 @@ filterList(ITEMS, {
   lastSeparator: " & ",
   separator: ", ",
 });
-// ${ filterList(ITEMS, { isHtml: false, isSimpleArray: true, lastSeparator: " & ", separator: ", ", }) }
+// ${ filterList(ITEMS, { isHtml: false, isSimpleArray: true, lastSeparator: " & ", separator: ", " }) }
 
 
 filterList(ITEMS, {
@@ -28,7 +28,7 @@ filterList(ITEMS, {
   isSimpleArray: true,
   separator: ";",
 });
-// ${ filterList(ITEMS, { isHtml: true, isSimpleArray: true, separator: ";", }) }`;
+// ${ filterList(ITEMS, { isHtml: true, isSimpleArray: true, separator: ";" }) }`;
 
   return {
     codeJs,

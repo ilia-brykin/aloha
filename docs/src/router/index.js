@@ -63,11 +63,6 @@ const ROUTES = [
     component: () => import("../views/Plugins/PagePageTabTitlePlugin/PagePageTabTitlePlugin.vue"),
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue"),
-  },
-  {
     path: "/table-complex",
     name: "PageTableComplex",
     component: () => import("../views/PageTable/PageTableComplex/PageTableComplex.vue"),
@@ -478,8 +473,10 @@ const ROUTES = [
     component: () => import("../views/Functions/Utils/PageUtilsGetTotalNestedCount/PageUtilsGetTotalNestedCount.vue"),
   },
   {
-    // If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
-    // caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
+    /*
+     * If the routing configuration '*' reports an error, replace it with '/: catchAll(. *)'
+     * caught Error: Catch all routes ("*") must now be defined using a param with a custom regexp
+     */
     path: "/:catchAll(.*)", // Special attention should be paid to the bottom
     redirect: "/404",
   },

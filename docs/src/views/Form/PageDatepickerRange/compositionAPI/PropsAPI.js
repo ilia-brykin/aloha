@@ -36,7 +36,8 @@ export default function PropsAPI() {
       name: "change",
       description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_CHANGE_",
       type: "Function",
-      default: () => {},
+      default: () => {
+      },
       required: false,
     },
     {

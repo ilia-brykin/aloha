@@ -1,4 +1,6 @@
-import AAccordion from "../../../../src/AAccordion/AAccordion";
+import {
+  AAccordion,
+} from "aloha-vue";
 
 export default {
   name: "PageAccordion",

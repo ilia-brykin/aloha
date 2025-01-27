@@ -1,5 +1,7 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import ATranslation from "../../../../../../src/ATranslation/ATranslation";
 import TypeTranslate from "../../../../components/TypeTranslate/TypeTranslate.vue";
 
 import JsAPI from "./compositionAPI/JsAPI";

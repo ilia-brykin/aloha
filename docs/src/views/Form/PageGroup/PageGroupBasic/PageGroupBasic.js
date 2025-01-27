@@ -2,7 +2,9 @@ import {
   ref,
 } from "vue";
 
-import AGroup from "../../../../../../src/ui/AGroup/AGroup";
+import {
+  AGroup,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

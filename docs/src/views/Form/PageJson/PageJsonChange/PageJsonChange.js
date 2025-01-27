@@ -2,7 +2,9 @@ import {
   ref,
 } from "vue";
 
-import AJson from "../../../../../../src/ui/AJson/AJson";
+import {
+  AJson,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -29,13 +31,13 @@ export default {
               Abbrev: "ISO 8879:1986",
               GlossDef: {
                 para: "A meta-markup language, used to create markup languages such as DocBook.",
-                GlossSeeAlso: ["GML", "XML"]
+                GlossSeeAlso: ["GML", "XML"],
               },
-              GlossSee: "markup"
-            }
-          }
-        }
-      }
+              GlossSee: "markup",
+            },
+          },
+        },
+      },
     });
 
     const changeModel = ({ model: _model, id, props }) => {

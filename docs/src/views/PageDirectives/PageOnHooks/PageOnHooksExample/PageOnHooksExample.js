@@ -1,6 +1,7 @@
+import {
+  AOnHooks,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-
-import AOnHooks from "../../../../../../src/directives/AOnHooks";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

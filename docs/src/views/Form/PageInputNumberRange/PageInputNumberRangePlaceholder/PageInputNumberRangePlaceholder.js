@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  AInputNumberRange,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import AInputNumberRange from "../../../../../../src/ui/AInputNumberRange/AInputNumberRange";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

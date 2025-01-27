@@ -2,8 +2,10 @@ import {
   ref,
 } from "vue";
 
+import {
+  ARadio,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import ARadio from "../../../../../../src/ui/ARadio/ARadio";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

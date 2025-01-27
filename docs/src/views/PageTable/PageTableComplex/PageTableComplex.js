@@ -1,5 +1,7 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageTableComplexExample from "./PageTableComplexExample/PageTableComplexExample.vue";
 import PageTableComplexSlotRowActions from "./PageTableComplexSlotRowActions/PageTableComplexSlotRowActions.vue";
 

@@ -1,6 +1,6 @@
 import {
   filterUpperCase,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterUpperCase("--foo-bar--");

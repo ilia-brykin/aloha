@@ -1,4 +1,6 @@
-import AGroupButtonDropdown from "../../../../../src/AGroupButtonDropdown/AGroupButtonDropdown";
+import {
+  AGroupButtonDropdown,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -23,17 +25,20 @@ export default {
       {
         text: "Action 1",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 2",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Action 3",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
       },
     ];
 

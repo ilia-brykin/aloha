@@ -1,7 +1,9 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaHighlightjs from "../../global/components/AlohaHighlightjs/AlohaHighlightjs";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageButtonAriaDisabled from "./PageButtonAriaDisabled/PageButtonAriaDisabled.vue";
 import PageButtonBasic from "./PageButtonBasic/PageButtonBasic.vue";
 import PageButtonComplex from "./PageButtonComplex/PageButtonComplex.vue";

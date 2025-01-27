@@ -1,6 +1,6 @@
 import {
   AMenu,
-} from "../../../../src/index";
+} from "aloha-vue";
 
 import MenuItemsAPI from "./compositionAPI/MenuItemsAPI";
 

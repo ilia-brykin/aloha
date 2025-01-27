@@ -1,4 +1,6 @@
-import AForm from "../../../../../src/ui/AForm/AForm";
+import {
+  AForm,
+} from "aloha-vue";
 
 export default {
   name: "PageForm",

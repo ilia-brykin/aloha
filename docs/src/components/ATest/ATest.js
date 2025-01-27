@@ -5,7 +5,7 @@ import {
 
 import {
   ASafeHtml,
-} from "../../../../src";
+} from "aloha-vue";
 
 import UIExcludeRenderAttributesAPI from "../../../../src/ui/compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../../../../src/ui/compositionApi/UiStyleHideAPI";
@@ -87,7 +87,7 @@ export default {
         }), [
           [ASafeHtml, this.html],
         ]) :
-        ""
+        "",
     ]);
   },
 };

@@ -1,9 +1,11 @@
-import AElement from "../../../../../src/AElement/AElement";
-import AList from "../../../../../src/AList/AList";
+import {
+  AElement,
+  AList,
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 import PageFieldsetChildrenBasic from "./PageFieldsetChildrenBasic/PageFieldsetChildrenBasic.vue";
 import PageFieldsetChildrenClassColumn from "./PageFieldsetChildrenClassColumn/PageFieldsetChildrenClassColumn.vue";
 import PageFieldsetChildrenClassColumns from "./PageFieldsetChildrenClassColumns/PageFieldsetChildrenClassColumns.vue";

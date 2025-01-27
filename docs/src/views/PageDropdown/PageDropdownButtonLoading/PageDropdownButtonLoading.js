@@ -1,4 +1,6 @@
-import ADropdown from "../../../../../src/ADropdown/ADropdown";
+import {
+  ADropdown,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -23,12 +25,14 @@ export default {
       {
         text: "Actions 0",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
       },
       {
         text: "Actions 1",
         type: "button",
-        callback: () => {},
+        callback: () => {
+        },
       },
     ];
 

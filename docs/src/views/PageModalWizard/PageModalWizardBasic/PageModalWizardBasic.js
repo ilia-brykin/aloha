@@ -2,10 +2,12 @@ import {
   ref,
 } from "vue";
 
-import AButton from "../../../../../src/AButton/AButton";
+import {
+  AButton,
+  AModalWizard,
+  ATranslation,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import AModalWizard from "../../../../../src/AModalWizard/AModalWizard";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

@@ -1,6 +1,6 @@
 import {
   filterDate,
-} from "../../../../../../../../src";
+} from "aloha-vue";
 
 export default function JsAPI() {
   const codeJs = `filterDate("2014-09-08T08:02:17-05:00" { format: "datetime" });

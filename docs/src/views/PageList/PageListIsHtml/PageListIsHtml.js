@@ -2,9 +2,11 @@ import {
   ref,
 } from "vue";
 
-import AList from "../../../../../src/AList/AList";
+import {
+  AList,
+  ASwitch,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ASwitch from "../../../../../src/ui/ASwitch/ASwitch";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

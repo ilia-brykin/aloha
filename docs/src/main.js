@@ -11,7 +11,7 @@ import {
   AModalPlugin,
   APageTabTitlePlugin,
   ASafeHtml,
-} from "../../src/index";
+} from "aloha-vue";
 import ATest from "./components/ATest/ATest";
 import mainIcons from "./mainIcons";
 
@@ -67,12 +67,15 @@ APP.use(AFormPlugin, {
     test: ATest,
   },
 }),
-// APP.use(AGroupButtonDropdownPlugin, {
-//   propsDefault: {
-//     dropdownAttributes: {
-//       buttonText: "Weitere Aktionen",
-//     },
-//   },
-// });
+
+/*
+ * APP.use(AGroupButtonDropdownPlugin, {
+ *   propsDefault: {
+ *     dropdownAttributes: {
+ *       buttonText: "Weitere Aktionen",
+ *     },
+ *   },
+ * });
+ */
 APP.directive("SafeHtml", ASafeHtml);
 APP.use(router).mount("#app");

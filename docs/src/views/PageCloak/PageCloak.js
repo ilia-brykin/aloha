@@ -1,7 +1,9 @@
+import {
+  ATranslation,
+} from "aloha-vue";
 import AlohaPage from "../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import ATranslation from "../../../../src/ATranslation/ATranslation";
 import PageCloakAlign from "./PageCloakAlign/PageCloakAlign.vue";
 import PageCloakBasic from "./PageCloakBasic/PageCloakBasic.vue";
 import PageCloakSizes from "./PageCloakSizes/PageCloakSizes.vue";

@@ -1,5 +1,7 @@
+import {
+  ATooltip,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ATooltip from "../../../../../src/ATooltip/ATooltip";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

@@ -1,4 +1,6 @@
-import AList from "../../../../../src/AList/AList";
+import {
+  AList,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -12,10 +14,10 @@ export default {
   },
   setup() {
     const {
-      codeHtml
+      codeHtml,
     } = HtmlAPI();
     const {
-      codeJs
+      codeJs,
     } = JsAPI();
 
     const items1 = [

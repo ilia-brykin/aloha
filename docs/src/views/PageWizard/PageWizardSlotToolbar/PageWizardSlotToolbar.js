@@ -1,7 +1,9 @@
-import AButton from "../../../../../src/AButton/AButton";
+import {
+  AButton,
+  ATranslation,
+  AWizard,
+} from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
-import ATranslation from "../../../../../src/ATranslation/ATranslation";
-import AWizard from "../../../../../src/AWizard/AWizard";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";

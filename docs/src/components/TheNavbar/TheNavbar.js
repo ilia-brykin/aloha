@@ -1,8 +1,10 @@
-import ALink from "../../../../src/ALink/ALink";
-import AButton from "../../../../src/AButton/AButton";
-import AIcon from "../../../../src/AIcon/AIcon";
-import ASelect from "../../../../src/ui/ASelect/ASelect";
-import AMenuButtonToggle from "../../../../src/AMenu/AMenuButtonToggle/AMenuButtonToggle";
+import {
+  AButton,
+  AIcon,
+  ALink,
+  AMenuButtonToggle,
+  ASelect,
+} from "aloha-vue";
 
 import LanguagesAPI from "./compositionAPI/LanguagesAPI";
 import ATranslationAPI from "../../../../src/ATranslation/compositionAPI/ATranslationAPI";
@@ -12,9 +14,9 @@ export default {
   components: {
     AButton,
     AIcon,
+    ALink,
     AMenuButtonToggle,
     ASelect,
-    ALink,
   },
   setup() {
     const {

@@ -2,7 +2,9 @@ import {
   ref,
 } from "vue";
 
-import ADatepickerRange from "../../../../../../src/ui/ADatepickerRange/ADatepickerRange";
+import {
+  ADatepickerRange,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";

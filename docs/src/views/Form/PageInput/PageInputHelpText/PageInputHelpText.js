@@ -2,7 +2,9 @@ import {
   ref,
 } from "vue";
 
-import AInput from "../../../../../../src/ui/AInput/AInput";
+import {
+  AInput,
+} from "aloha-vue";
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
 
 import HtmlAPI from "./compositionAPI/HtmlAPI";
