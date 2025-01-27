@@ -10,8 +10,7 @@ import {
 } from "lodash-es";
 
 export default function ModelAPI(props, {
-  changeModel = () => {
-  },
+  changeModel = () => {},
 }) {
   const required = toRef(props, "required");
   const modelValue = toRef(props, "modelValue");
@@ -42,7 +41,7 @@ export default function ModelAPI(props, {
 
   const setCurrentValue = (value, updateOutside = false) => {
     displayValue.value = isNil(value) ? "" : value;
-    let newVal = value;
+    let newVal;
     if (!required.value && isNil(value)) {
       newVal = modelUndefinedLocal.value;
     } else {

@@ -48,8 +48,7 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {
-      },
+      default: () => {},
     },
     clearButtonClass: {
       type: [String, Object],

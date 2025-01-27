@@ -9,14 +9,10 @@ import {
 } from "lodash-es";
 
 export default function EventsAPI(props, {
-  onToggle = () => {
-  },
-  onKeydown = () => {
-  },
-  onOpen = () => {
-  },
-  onClose = () => {
-  },
+  onToggle = () => {},
+  onKeydown = () => {},
+  onOpen = () => {},
+  onClose = () => {},
   timerCloseHover = ref(undefined),
   triggerOpen = ref(undefined),
 }) {

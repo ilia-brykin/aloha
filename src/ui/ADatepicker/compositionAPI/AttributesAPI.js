@@ -9,8 +9,8 @@ import {
 } from "../../../ATranslation/compositionAPI/UtilsAPI";
 
 import {
-  isString,
   isNumber,
+  isString,
 } from "lodash-es";
 
 export default function AttributesAPI(props, {

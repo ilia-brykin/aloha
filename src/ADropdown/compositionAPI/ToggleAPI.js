@@ -17,12 +17,9 @@ import {
 export default function ToggleAPI(props, { emit }, {
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
-  destroyPopover = () => {
-  },
-  setFocusToFirstElement = () => {
-  },
-  startPopper = () => {
-  },
+  destroyPopover = () => {},
+  setFocusToFirstElement = () => {},
+  startPopper = () => {},
 }) {
   const disabled = toRef(props, "disabled");
   const dropdownRenderDefault = toRef(props, "dropdownRenderDefault");
@@ -66,10 +63,8 @@ export default function ToggleAPI(props, { emit }, {
           if (index < ELEMENTS.length - 1) {
             ELEMENTS[index + 1].focus();
           }
-        } else {
-          if (index > 0) {
-            ELEMENTS[index - 1].focus();
-          }
+        } else if (index > 0) {
+          ELEMENTS[index - 1].focus();
         }
         return false;
       }

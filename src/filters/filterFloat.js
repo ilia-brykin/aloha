@@ -1,13 +1,13 @@
 import {
+  forEachRight,
   isNil,
+  isUndefined,
+  padStart,
+  repeat,
+  round,
+  size,
   toNumber,
   toString,
-  forEachRight,
-  padStart,
-  isUndefined,
-  round,
-  repeat,
-  size,
 } from "lodash-es";
 
 /**

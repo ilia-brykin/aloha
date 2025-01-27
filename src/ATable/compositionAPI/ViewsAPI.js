@@ -9,8 +9,7 @@ import {
 } from "lodash-es";
 
 export default function ViewsAPI(props, { emit }, {
-  closePreviewAll = () => {
-  },
+  closePreviewAll = () => {},
 }) {
   const views = toRef(props, "views");
   const modelFilters = toRef(props, "modelFilters");

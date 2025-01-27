@@ -6,8 +6,8 @@ import {
 import AFiltersAPI from "../../../../compositionAPI/AFiltersAPI";
 
 import {
-  isPlaceholderTranslate,
   getTranslatedText,
+  isPlaceholderTranslate,
 } from "../../../../ATranslation/compositionAPI/UtilsAPI";
 
 export default function LabelAPI(props) {

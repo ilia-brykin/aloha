@@ -10,15 +10,11 @@ import {
 } from "lodash-es";
 
 export default function InputEventsAPI(props, {
-  decrease = () => {
-  },
-  increase = () => {
-  },
+  decrease = () => {},
+  increase = () => {},
   inputRef = ref({}),
-  onBlur = () => {
-  },
-  setCurrentValue = () => {
-  },
+  onBlur = () => {},
+  setCurrentValue = () => {},
   userInput = ref(null),
   currentValue = ref(undefined),
   displayValue = computed(() => ""),
@@ -83,9 +79,8 @@ export default function InputEventsAPI(props, {
     if (type.value === "integerNonNegative") {
       // Extract all digits from the input value
       const matches = newValue.match(/\d+/g);
-      let extractedValue = 0;
       if (matches !== null) {
-        extractedValue = parseInt(matches.join(""), 10);
+        let extractedValue = parseInt(matches.join(""), 10);
         extractedValue = Math.max(extractedValue, 0);
         newValue = extractedValue;
       } else {
@@ -99,9 +94,8 @@ export default function InputEventsAPI(props, {
         newValue = null;
       } else {
         const matches = newValue.match(/\d+/g);
-        let extractedValue = 0;
         if (matches !== null) {
-          extractedValue = parseInt(matches.join(""), 10);
+          let extractedValue = parseInt(matches.join(""), 10);
           extractedValue = Math.max(extractedValue, 1);
           newValue = extractedValue;
         } else {
@@ -113,9 +107,8 @@ export default function InputEventsAPI(props, {
       inputRef.value.value = newValue;
     } else if (type.value === "integer") {
       const matches = newValue.match(/\d+/g);
-      let extractedValue = 0;
       if (matches !== null) {
-        extractedValue = parseInt(matches.join(""), 10);
+        let extractedValue = parseInt(matches.join(""), 10);
         if (newValue.indexOf("-") !== -1) {
           extractedValue = -extractedValue;
         }

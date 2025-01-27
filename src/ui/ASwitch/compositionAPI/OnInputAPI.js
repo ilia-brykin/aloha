@@ -6,8 +6,7 @@ import {
 import AKeysCode from "../../../const/AKeysCode";
 
 export default function OnInputAPI(props, {
-  changeModel = () => {
-  },
+  changeModel = () => {},
   isModelFalse = computed(() => false),
   isModelTrue = computed(() => false),
 }) {

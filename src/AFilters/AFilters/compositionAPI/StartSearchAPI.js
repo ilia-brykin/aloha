@@ -3,8 +3,7 @@ import {
 } from "vue";
 
 export default function StartSearchAPI(props, { emit }, {
-  onUpdateModelFilters = () => {
-  },
+  onUpdateModelFilters = () => {},
 }) {
   const appliedModel = toRef(props, "appliedModel");
   const unappliedModel = toRef(props, "unappliedModel");

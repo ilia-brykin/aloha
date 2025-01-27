@@ -444,6 +444,7 @@ export default {
         v => v.$options.name === this.$options.name,
       );
       const index = calendars.indexOf(this);
+      /* eslint-disable-next-line no-bitwise */
       return calendars[index ^ 1];
     },
 

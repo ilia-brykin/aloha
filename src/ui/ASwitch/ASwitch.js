@@ -33,8 +33,7 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {
-      },
+      default: () => {},
     },
     defaultLabel: {
       type: String,

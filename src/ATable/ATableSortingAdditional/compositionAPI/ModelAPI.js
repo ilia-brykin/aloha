@@ -14,11 +14,9 @@ import {
 } from "lodash-es";
 
 export default function ModelAPI(props, {
-  closeDropdown = () => {
-  },
+  closeDropdown = () => {},
   countColumnsAll = computed(() => 0),
-  initDataForForm = () => {
-  },
+  initDataForForm = () => {},
   unappliedModelSort = ref([]),
   wasOpenDropdown = ref(false),
 }) {

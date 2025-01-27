@@ -11,8 +11,7 @@ import {
 
 
 export default function ColumnsOrderingAPI(props, { emit }, {
-  checkVisibleColumns = () => {
-  },
+  checkVisibleColumns = () => {},
   columnIdsGroupByLocked = computed(() => ({
     true: [],
     false: [],
@@ -35,7 +34,7 @@ export default function ColumnsOrderingAPI(props, { emit }, {
       columnIndexDraggable = columnsFilteredForRenderIndexesMapping.value[columnIndexDraggable];
       columnIndexOver = columnsFilteredForRenderIndexesMapping.value[columnIndexOver];
     }
-    let modelColumnsOrderingLocal = [];
+    let modelColumnsOrderingLocal;
     if (reset) {
       modelColumnsOrderingLocal = [...columnIdsGroupByLocked.value.true, ...columnIdsGroupByLocked.value.false];
     } else {

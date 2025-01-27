@@ -9,8 +9,7 @@ import {
 
 export default function SearchBtnAPI({
   searchInputId = computed(() => undefined),
-  toggleMenu = () => {
-  },
+  toggleMenu = () => {},
 }) {
   const clickOnSearchBtn = () => {
     toggleMenu({ isOpen: true });

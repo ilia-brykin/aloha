@@ -7,8 +7,7 @@ import EyeClose from "../../../AIcon/Icons/EyeClose";
 import EyeOpen from "../../../AIcon/Icons/EyeOpen";
 
 export default function PasswordAPI(props, {
-  setTypeLocal = () => {
-  },
+  setTypeLocal = () => {},
   typeForInput = computed(() => ""),
 }) {
   const showPassword = toRef(props, "showPassword");

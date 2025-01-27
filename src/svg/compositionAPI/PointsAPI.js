@@ -4,9 +4,9 @@ import {
 } from "vue";
 
 import {
-  map,
   isArray,
   isString,
+  map,
 } from "lodash-es";
 
 export default function PointsAPI(props) {

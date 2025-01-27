@@ -37,8 +37,7 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {
-      },
+      default: () => {},
     },
     clearable: {
       type: Boolean,

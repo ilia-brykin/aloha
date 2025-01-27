@@ -72,10 +72,8 @@ export default function ToggleAPI(props, {
           if (index < ELEMENTS.length - 1) {
             ELEMENTS[index + 1].focus();
           }
-        } else {
-          if (index > 0) {
-            ELEMENTS[index - 1].focus();
-          }
+        } else if (index > 0) {
+          ELEMENTS[index - 1].focus();
         }
         return false;
       }

@@ -21,6 +21,7 @@ export default function PaginationItemsAPI(props) {
   });
 
   const currentItem = computed(() => {
+    /* eslint-disable-next-line no-bitwise */
     return (offset.value / limit.value >> 0) + 1;
   });
 
@@ -37,8 +38,8 @@ export default function PaginationItemsAPI(props) {
   });
 
   const getIndexStartAndEndForPagination = ({ currentItemIndex, paginationLength }) => {
-    let indexStart = -1;
-    let indexEnd = paginationLength + 1;
+    let indexStart;
+    let indexEnd;
     const MIN_INDEX = paginationMinIndex.value;
     const MAX_INDEX = paginationMaxIndex.value;
     if (currentItemIndex <= MIN_INDEX) {

@@ -7,8 +7,7 @@ import {
 } from "lodash-es";
 
 export default function ObserverAPI({
-  checkScroll = () => {
-  },
+  checkScroll = () => {},
   containerRef = ref(undefined),
   scrollContentChildRef = ref(undefined),
 }) {

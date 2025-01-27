@@ -8,8 +8,7 @@ import AMobileAPI from "../../compositionAPI/AMobileAPI";
 
 export default function MenuAttributesAPI(props, {
   isMenuOpen = ref(false),
-  toggleMenu = () => {
-  },
+  toggleMenu = () => {},
 }) {
   const isBlockerClickable = toRef(props, "isBlockerClickable");
   const menuId = toRef(props, "menuId");

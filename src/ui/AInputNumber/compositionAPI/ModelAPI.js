@@ -11,10 +11,8 @@ import {
 } from "lodash-es";
 
 export default function ModelAPI(props, {
-  verifyValue = () => {
-  },
-  changeModel = () => {
-  },
+  verifyValue = () => {},
+  changeModel = () => {},
 }) {
   const precision = toRef(props, "precision");
   const modelValue = toRef(props, "modelValue");

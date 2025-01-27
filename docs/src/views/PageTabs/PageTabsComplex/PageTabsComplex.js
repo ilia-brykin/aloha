@@ -6,8 +6,8 @@ import {
 import {
   AElement,
   AForm,
-  ATabs,
   APlacements,
+  ATabs,
 } from "aloha-vue";
 import AlohaExample from "../../../global/components/AlohaExample/AlohaExample.vue";
 

@@ -11,8 +11,7 @@ import {
 
 export default function SortChangeAPI(props, { emit }, {
   modelSortLocal = ref([]),
-  closePreviewAll = () => {
-  },
+  closePreviewAll = () => {},
 }) {
   const id = toRef(props, "id");
   const isSortingMultiColumn = toRef(props, "isSortingMultiColumn");

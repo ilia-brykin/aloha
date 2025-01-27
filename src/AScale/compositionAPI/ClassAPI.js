@@ -18,10 +18,8 @@ export default function ClassAPI(props) {
       if (classNegative.value) {
         return classNegative.value;
       }
-    } else {
-      if (classPositive.value) {
-        return classPositive.value;
-      }
+    } else if (classPositive.value) {
+      return classPositive.value;
     }
     return undefined;
   });

@@ -8,8 +8,7 @@ import AConfirmAPI from "../../../compositionAPI/AConfirmAPI";
 import ANotificationAPI from "../../../compositionAPI/ANotificationAPI";
 
 export default function FiltersSavedDeleteAPI(props, {
-  changeModelFiltersSaved = () => {
-  },
+  changeModelFiltersSaved = () => {},
   idFilterTop = computed(() => ""),
   isModelFilterSavedNew = computed(() => false),
   modelFiltersSaved = ref(undefined),

@@ -11,10 +11,8 @@ import {
 export default function IncreaseDecreaseAPI(props, {
   currentValue = ref(0),
   displayValue = computed(() => ""),
-  ensurePrecision = () => {
-  },
-  setCurrentValue = () => {
-  },
+  ensurePrecision = () => {},
+  setCurrentValue = () => {},
   minLocal = computed(() => undefined),
 }) {
   const disabled = toRef(props, "disabled");

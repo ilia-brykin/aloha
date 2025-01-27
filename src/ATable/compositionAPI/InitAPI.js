@@ -12,10 +12,8 @@ import {
 } from "lodash-es";
 
 export default function InitAPI(props, { emit }, {
-  checkColumnsOrdering = () => {
-  },
-  checkVisibleColumns = () => {
-  },
+  checkColumnsOrdering = () => {},
+  checkVisibleColumns = () => {},
   modelColumnsVisibleLocal = ref({}),
 }) {
   const modelColumnsVisible = toRef(props, "modelColumnsVisible");

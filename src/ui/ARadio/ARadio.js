@@ -50,8 +50,7 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {
-      },
+      default: () => {},
     },
     classButtonGroupDefault: {
       type: [String, Object, Array],

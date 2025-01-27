@@ -57,11 +57,9 @@ export default function FocusAPI(props) {
         LAST_FOCUSABLE_ELEMENT.focus();
         EVENT.preventDefault();
       }
-    } else { // Tab
-      if (document.activeElement === LAST_FOCUSABLE_ELEMENT) {
-        FIRST_FOCUSABLE_ELEMENT.focus();
-        EVENT.preventDefault();
-      }
+    } else if (document.activeElement === LAST_FOCUSABLE_ELEMENT) { // Tab
+      FIRST_FOCUSABLE_ELEMENT.focus();
+      EVENT.preventDefault();
     }
   };
 

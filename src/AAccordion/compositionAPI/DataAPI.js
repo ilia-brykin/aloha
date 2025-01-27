@@ -20,7 +20,7 @@ export default function DataAPI(props) {
   const setIdForItems = ({ items, parentIds = "" }) => {
     forEach(items, (item, itemIndex) => {
       const ID_FROM_KEY_ID = get(item, keyId.value);
-      let id = "";
+      let id;
       if (isNil(ID_FROM_KEY_ID)) {
         id = `${ parentIds }${ itemIndex }`;
       } else {

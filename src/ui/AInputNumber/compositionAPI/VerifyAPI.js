@@ -14,8 +14,7 @@ import {
 } from "lodash-es";
 
 export default function VerifyAPI(props, {
-  changeModel = () => {
-  },
+  changeModel = () => {},
   minLocal = computed(() => undefined),
 }) {
   const modelUndefined = toRef(props, "modelUndefined");

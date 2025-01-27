@@ -1,8 +1,6 @@
 export default function HideModalAPI({
-  removeListenerForKeydown = () => {
-  },
-  setFocusByDestroy = () => {
-  },
+  removeListenerForKeydown = () => {},
+  setFocusByDestroy = () => {},
 }) {
   const hideModal = () => {
     document.body.classList.remove("a_modal_open");

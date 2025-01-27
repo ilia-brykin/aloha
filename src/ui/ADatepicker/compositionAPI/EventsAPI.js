@@ -19,12 +19,9 @@ import {
 
 export default function EventsAPI(props, { emit }, {
   calendarPanelRef = ref(undefined),
-  changeModel = () => {
-  },
-  closePopover = () => {
-  },
-  setCloseFocus = () => {
-  },
+  changeModel = () => {},
+  closePopover = () => {},
+  setCloseFocus = () => {},
 }) {
   const range = toRef(props, "range");
   const confirm = toRef(props, "confirm");

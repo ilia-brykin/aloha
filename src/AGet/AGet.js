@@ -53,8 +53,7 @@ export default {
     filterParameters: {
       type: [Object, String, Number, Boolean],
       required: false,
-      default: () => {
-      },
+      default: () => {},
     },
     replacedWithDefault: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],

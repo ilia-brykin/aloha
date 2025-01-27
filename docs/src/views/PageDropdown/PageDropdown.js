@@ -63,15 +63,13 @@ export default {
       {
         text: "Actions 0",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
         isHidden: true,
       },
       {
         text: "Actions 1",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
         disabled: true,
       },
       {
@@ -83,8 +81,7 @@ export default {
       {
         text: "Actions 2",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
       {
         type: "link",

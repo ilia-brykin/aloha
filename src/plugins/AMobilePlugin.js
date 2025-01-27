@@ -13,10 +13,8 @@ export default {
         if (isMobileWidth.value) {
           setIsMobileWidth(false);
         }
-      } else {
-        if (!isMobileWidth.value) {
-          setIsMobileWidth(true);
-        }
+      } else if (!isMobileWidth.value) {
+        setIsMobileWidth(true);
       }
     };
 

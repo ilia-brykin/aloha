@@ -86,8 +86,7 @@ export default {
     change: {
       type: Function,
       required: false,
-      default: () => {
-      },
+      default: () => {},
     },
     class: {
       type: [String, Object],

@@ -25,38 +25,32 @@ export default {
       {
         text: "Action 1",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
       {
         text: "Action 2",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
       {
         text: "Action 3",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
       {
         text: "Action 4",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
       {
         text: "Action 5",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
       {
         text: "Action 6",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
     ];
 

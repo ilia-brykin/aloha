@@ -25,14 +25,12 @@ export default {
       {
         text: "Actions 0",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
       {
         text: "Actions 1",
         type: "button",
-        callback: () => {
-        },
+        callback: () => {},
       },
     ];
 

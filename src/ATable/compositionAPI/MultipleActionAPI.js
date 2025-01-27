@@ -19,8 +19,7 @@ import {
 } from "lodash-es";
 
 export default function MultipleActionAPI(props, { emit }, {
-  checkVisibleColumns = () => {
-  },
+  checkVisibleColumns = () => {},
   isMultipleActionsActive = ref(undefined),
   rowsLocalAll = computed(() => []),
   rowsLocalLength = computed(() => 0),

@@ -22,8 +22,7 @@ export default function UiSearchAPI(props, { emit }, {
   hasKeyGroup = computed(() => false),
   htmlIdLocal = computed(() => ""),
   keyGroupArray = computed(() => []),
-  onSearchInApi = () => {
-  },
+  onSearchInApi = () => {},
   searchApiLocal = computed(() => false),
 }) {
   const searchTimeout = toRef(props, "searchTimeout");

@@ -9,8 +9,8 @@ import {
   typesModelObject,
 } from "../../../ui/const/AUiTypes";
 import {
-  cloneDeep,
   filter as _filter,
+  cloneDeep,
   forEach,
   isPlainObject,
 } from "lodash-es";
@@ -18,8 +18,7 @@ import {
 export default function CloseFilterAPI(props, { emit }, {
   filtersHorizontalRef = ref(undefined),
   filtersVisibleAll = computed(() => []),
-  onUpdateModelFilters = () => {
-  },
+  onUpdateModelFilters = () => {},
 }) {
   const appliedModel = toRef(props, "appliedModel");
   const unappliedModel = toRef(props, "unappliedModel");

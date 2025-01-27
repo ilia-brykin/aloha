@@ -48,11 +48,9 @@ export function togglePopup({ id, statusOpen }) {
     } else {
       openPopup({ id });
     }
+  } else if (statusOpen) {
+    openPopup({ id });
   } else {
-    if (statusOpen) {
-      openPopup({ id });
-    } else {
-      closePopup({ id });
-    }
+    closePopup({ id });
   }
 }

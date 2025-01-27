@@ -3,12 +3,9 @@ import {
 } from "vue";
 
 export default function ToggleAPI(props, {
-  showTitle = () => {
-  },
-  closeTitle = () => {
-  },
-  closeTitleWithTimer = () => {
-  },
+  showTitle = () => {},
+  closeTitle = () => {},
+  closeTitleWithTimer = () => {},
 }) {
   const isHide = toRef(props, "isHide");
 

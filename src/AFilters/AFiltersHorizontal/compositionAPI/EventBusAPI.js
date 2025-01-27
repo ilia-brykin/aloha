@@ -5,8 +5,7 @@ import {
 import EventBus from "../../../utils/EventBus";
 
 export default function EventBusAPI(props, {
-  openDropdown = () => {
-  },
+  openDropdown = () => {},
 }) {
   const id = toRef(props, "id");
 

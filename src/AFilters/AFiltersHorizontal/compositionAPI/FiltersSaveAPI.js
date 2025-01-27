@@ -74,14 +74,12 @@ export default function FiltersSaveAPI(props, {
         });
         openDropdown();
       }
-    } else {
-      if (item) {
-        onUpdateModelFilters.value({
-          model: item.data || {},
-          isUpdateFiltersVisible: true,
-        });
-        openDropdown();
-      }
+    } else if (item) {
+      onUpdateModelFilters.value({
+        model: item.data || {},
+        isUpdateFiltersVisible: true,
+      });
+      openDropdown();
     }
   };
 

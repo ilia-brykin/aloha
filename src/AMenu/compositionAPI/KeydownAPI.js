@@ -18,13 +18,11 @@ import {
 } from "lodash-es";
 
 export default function KeydownAPI(props, {
-  closeMenu = () => {
-  },
+  closeMenu = () => {},
   isMenuOpen = computed(() => false),
   isSubMenuOpen = computed(() => false),
   panelParentsOpen = ref([]),
-  togglePanel = () => {
-  },
+  togglePanel = () => {},
 }) {
   const menuId = toRef(props, "menuId");
   const useEscapeForMobile = toRef(props, "useEscapeForMobile");
@@ -57,11 +55,9 @@ export default function KeydownAPI(props, {
         LAST_FOCUSABLE_ELEMENT.focus();
         EVENT.preventDefault();
       }
-    } else { // Tab
-      if (document.activeElement === LAST_FOCUSABLE_ELEMENT) {
-        FIRST_FOCUSABLE_ELEMENT.focus();
-        EVENT.preventDefault();
-      }
+    } else if (document.activeElement === LAST_FOCUSABLE_ELEMENT) { // Tab
+      FIRST_FOCUSABLE_ELEMENT.focus();
+      EVENT.preventDefault();
     }
   };
 
@@ -137,17 +133,15 @@ export default function KeydownAPI(props, {
         }
         EVENT.preventDefault();
       }
-    } else { // Tab
-      if (document.activeElement === LINKS[LINKS.length - 1]) {
-        if (panelIndex < panelParentsOpen.value.length - 1) {
-          setFocusToLinkInNextSubPanel({ panelIndex });
-        } else if (panelIndex > 0) {
-          setFocusToLinkInPreviousSubPanel({ panelIndex, panelId });
-        } else {
-          setFocusToParentLinkInMainPanel({ panelId });
-        }
-        EVENT.preventDefault();
+    } else if (document.activeElement === LINKS[LINKS.length - 1]) { // Tab
+      if (panelIndex < panelParentsOpen.value.length - 1) {
+        setFocusToLinkInNextSubPanel({ panelIndex });
+      } else if (panelIndex > 0) {
+        setFocusToLinkInPreviousSubPanel({ panelIndex, panelId });
+      } else {
+        setFocusToParentLinkInMainPanel({ panelId });
       }
+      EVENT.preventDefault();
     }
   };
 

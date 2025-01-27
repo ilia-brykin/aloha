@@ -8,8 +8,7 @@ import {
 } from "lodash-es";
 
 export default function JsonAPI(props, {
-  changeModel = () => {
-  },
+  changeModel = () => {},
 }) {
   const disabled = toRef(props, "disabled");
   const modelUndefined = toRef(props, "modelUndefined");

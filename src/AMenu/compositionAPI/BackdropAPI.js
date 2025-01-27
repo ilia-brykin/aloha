@@ -7,8 +7,7 @@ import {
 export default function BackdropAPI(props, {
   isMenuOpen = computed(() => false),
   isMobileWidth = ref(undefined),
-  toggleMenu = () => {
-  },
+  toggleMenu = () => {},
 }) {
   const isBackdropMobileClickable = toRef(props, "isBackdropMobileClickable");
   const useBackdropMobile = toRef(props, "useBackdropMobile");

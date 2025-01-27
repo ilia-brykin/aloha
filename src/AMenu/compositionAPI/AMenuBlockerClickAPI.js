@@ -4,8 +4,7 @@ import {
 } from "vue";
 
 export default function AMenuBlockerClickAPI(props, {
-  closeAllPanels = () => {
-  },
+  closeAllPanels = () => {},
 }) {
   const isBlockerClickable = toRef(props, "isBlockerClickable");
 

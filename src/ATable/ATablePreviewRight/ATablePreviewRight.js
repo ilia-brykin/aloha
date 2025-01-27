@@ -31,8 +31,7 @@ export default {
     disabledPreviewRowCallback: {
       type: Function,
       required: false,
-      default: () => {
-      },
+      default: () => {},
     },
     isLoadingTable: {
       type: Boolean,

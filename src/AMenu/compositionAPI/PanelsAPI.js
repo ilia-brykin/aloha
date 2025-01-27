@@ -14,8 +14,7 @@ import {
 
 export default function PanelsAPI(props, {
   dataKeyById = computed(() => ({})),
-  resetSearch = () => {
-  },
+  resetSearch = () => {},
 }) {
   const menuId = toRef(props, "menuId");
 

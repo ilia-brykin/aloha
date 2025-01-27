@@ -13,20 +13,14 @@ import {
 } from "lodash-es";
 
 export default function InputEventsAPI(props, {
-  adjustFloatPartAndDivider = () => {
-  },
-  decrease = () => {
-  },
-  getCleanIntValue = () => {
-  },
-  increase = () => {
-  },
+  adjustFloatPartAndDivider = () => {},
+  decrease = () => {},
+  getCleanIntValue = () => {},
+  increase = () => {},
   modelNumber = computed(() => undefined),
   modelUndefinedLocal = computed(() => undefined),
-  onBlur = () => {
-  },
-  setCurrentValue = () => {
-  },
+  onBlur = () => {},
+  setCurrentValue = () => {},
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
   const inputRef = ref(undefined);
@@ -86,7 +80,8 @@ export default function InputEventsAPI(props, {
       setMaximumValue();
 
       return true;
-    } else if (numValue < min.value) {
+    }
+    if (numValue < min.value) {
       setMinimumValue();
 
       return true;

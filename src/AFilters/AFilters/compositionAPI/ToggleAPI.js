@@ -4,15 +4,14 @@ import {
 } from "vue";
 
 import {
-  cloneDeep,
   filter as _filter,
+  cloneDeep,
 } from "lodash-es";
 
 export default function ToggleAPI(props, {
   dataKeyByKeyIdPerFilter = ref({}),
   filtersVisibleIds = ref([]),
-  onUpdateModelFilters = () => {
-  },
+  onUpdateModelFilters = () => {},
 }) {
   const unappliedModel = toRef(props, "unappliedModel");
 

@@ -8,8 +8,7 @@ import {
 } from "lodash-es";
 
 export default function ChangeAPI(props, {
-  changeModel = () => {
-  },
+  changeModel = () => {},
   dataKeyByKeyIdLocal = computed(() => ({})),
 }) {
   const disabled = toRef(props, "disabled");

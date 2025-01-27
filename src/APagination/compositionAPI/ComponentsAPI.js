@@ -15,10 +15,8 @@ import {
 
 export default function ComponentsAPI(props, {
   isMobile = ref(false),
-  updateLimit = () => {
-  },
-  updateOffset = () => {
-  },
+  updateLimit = () => {},
+  updateOffset = () => {},
 }) {
   const modes = toRef(props, "modes");
   const countAllRows = toRef(props, "countAllRows");

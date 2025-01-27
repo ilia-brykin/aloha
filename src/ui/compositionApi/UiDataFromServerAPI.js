@@ -24,8 +24,7 @@ import {
 } from "lodash-es";
 
 export default function UiDataFromServerAPI(props, {
-  changeModel = () => {
-  },
+  changeModel = () => {},
   dataExtraLocal = computed(() => []),
   dataFromServer = ref([]),
 } = {}) {
