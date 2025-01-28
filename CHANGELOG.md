@@ -7,6 +7,37 @@
 ---
 # Versions
 
+## 2.1.4
+
+- **New Exports Added**
+  - **AHttpAPI**
+    - `AHttpAPI_abortHttp`
+    - `AHttpAPI_API_CONFIG`
+    - `AHttpAPI_callHttpRequestAndCheckSavedApi`
+    - `AHttpAPI_clearAllApiSaved`
+    - `AHttpAPI_clearApiSaved`
+    - `AHttpAPI_deleteHttp`
+    - `AHttpAPI_getHttp`
+    - `AHttpAPI_getListHttp`
+    - `AHttpAPI_getOptionsHttp`
+    - `AHttpAPI_getUrlParams`
+    - `AHttpAPI_patchHttp`
+    - `AHttpAPI_postHttp`
+    - `AHttpAPI_putHttp`
+    - `AHttpAPI_setBaseUrl`
+    - `AHttpAPI_setErrorCallbacks`
+    - `AHttpAPI_setHeaderParams`
+    - `AHttpAPI_setUrlForArray`
+    - `AHttpAPI_setUrlWithParams`
+  - **AMobileAPI**
+    - `AMobileAPI_isMobileWidth`
+    - `AMobileAPI_setIsMobileWidth`
+  - **ANotificationAPI**
+    - `ANotificationAPI_addNotification`
+    - `ANotificationAPI_setNotificationTimeout`
+  - **APageTabTitleAPI**
+    - `APageTabTitleAPI_setBaseTitle` 
+
 ## 2.1.3
 
 - New Imports:
