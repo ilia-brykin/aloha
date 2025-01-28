@@ -19,7 +19,11 @@ export default function ToggleAPI(props, { emit }) {
   const prevent = toRef(props, "prevent");
   const stop = toRef(props, "stop");
 
-  const idsForOpen = ref(idsForOpenDefault.value);
+  const idsForOpen = ref(undefined);
+
+  const initIdsForOpen = () => {
+    idsForOpen.value = idsForOpenDefault.value;
+  };
 
   const toggleWithAlwaysOpen = ({ currentId, isOpen }) => {
     if (isOpen) {
@@ -69,6 +73,7 @@ export default function ToggleAPI(props, { emit }) {
 
   return {
     idsForOpen,
+    initIdsForOpen,
     toggleLocal,
   };
 }

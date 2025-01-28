@@ -3,6 +3,7 @@ import importPlugin from "eslint-plugin-import";
 import pluginJest from "eslint-plugin-jest";
 import pluginJs from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
+import pluginVuePug from "eslint-plugin-vue-pug";
 import stylistic from "@stylistic/eslint-plugin";
 
 const OFF = 0;
@@ -24,6 +25,7 @@ export default [
     plugins: {
       jest: pluginJest,
       "@stylistic": stylistic,
+      "vue-pug": pluginVuePug
     },
     languageOptions: {
       globals: {
@@ -33,11 +35,11 @@ export default [
     },
   },
   pluginJs.configs.recommended,
-  // ...pluginVue.configs["flat/essential"],
   ...pluginVue.configs['flat/recommended'],
   // importPlugin.flatConfigs.recommended,
   {
     rules: {
+      ...pluginVuePug.configs['vue3-recommended'].rules,
       // @stylistic
       "@stylistic/array-bracket-newline": [WARN, "consistent"],
       "@stylistic/array-bracket-spacing": [WARN, "never"],
@@ -300,6 +302,7 @@ export default [
         ignoreCase: true,
         ignoreDeclarationSort: true,
       }],
+      "sort-keys": OFF,
       strict: OFF,
       yoda: [WARN, "never", { exceptRange: true }],
 
@@ -389,8 +392,83 @@ export default [
       "vue/valid-v-is": WARN,
       "vue/valid-v-memo": WARN,
       // - Priority B: Strongly Recommended
-
+      "vue/attribute-hyphenation": WARN,
       "vue/component-definition-name-casing": WARN,
+      "vue/first-attribute-linebreak": WARN,
+      "vue/html-closing-bracket-newline": WARN,
+      "vue/html-closing-bracket-spacing": WARN,
+      "vue/html-end-tags": WARN,
+      "vue/html-indent": WARN,
+      "vue/html-quotes": WARN,
+      "vue/html-self-closing": WARN,
+      "vue/max-attributes-per-line": WARN,
+      "vue/multiline-html-element-content-newline": WARN,
+      "vue/mustache-interpolation-spacing": [WARN, "always"],
+      "vue/no-multi-spaces": WARN,
+      "vue/no-spaces-around-equal-signs-in-attribute": WARN,
+      "vue/no-template-shadow": WARN,
+      "vue/one-component-per-file": WARN,
+      "vue/prop-name-casing": WARN,
+      "vue/require-default-prop": WARN,
+      "vue/require-prop-types": WARN,
+      "vue/singleline-html-element-content-newline": WARN,
+      "vue/v-bind-style": WARN,
+      "vue/v-on-style": WARN,
+      "vue/v-slot-style": WARN,
+      // - Priority B: Strongly Recommended for Vue.js 3.x
+      "vue/require-explicit-emits": WARN,
+      "vue/v-on-event-hyphenation": WARN,
+      // - Priority C: Recommended
+      "vue/attributes-order": WARN,
+      "vue/no-lone-template": WARN,
+      "vue/no-multiple-slot-args": WARN,
+      "vue/no-v-html": WARN,
+      "vue/order-in-components": WARN,
+      "vue/this-in-template": WARN,
+      // - Uncategorized
+      "vue/block-order": [WARN, {
+        "order": ["template", "script", "style"],
+      }],
+      "vue/block-tag-newline": WARN,
+      "vue/component-api-style": OFF,
+      // "vue/component-name-in-template-casing": [WARN, {
+      //   "kebab-case": {
+      //     registeredComponentsOnly: true,
+      //   },
+      // }],
+      "vue/match-component-file-name": WARN,
+      "vue/match-component-import-name": WARN,
+      "vue/next-tick-style": WARN,
+      "vue/no-deprecated-delete-set": WARN,
+      "vue/no-duplicate-attr-inheritance": WARN,
+      "vue/no-empty-component-block": WARN,
+      "vue/no-multiple-objects-in-class": WARN,
+      "vue/no-potential-component-option-typo": WARN,
+      "vue/no-ref-object-reactivity-loss": WARN,
+      "vue/no-required-prop-with-default": WARN,
+      "vue/no-root-v-if": WARN,
+      "vue/no-setup-props-reactivity-loss": WARN,
+      "vue/no-template-target-blank": OFF,
+      "vue/no-this-in-before-route-enter": WARN,
+      "vue/no-unused-refs": WARN,
+      "vue/no-use-v-else-with-v-for": WARN,
+      "vue/no-useless-mustaches": WARN,
+      "vue/no-useless-v-bind": WARN,
+      "vue/prefer-true-attribute-shorthand": WARN,
+      "vue/prefer-use-template-ref": WARN,
+      "vue/require-name-property": WARN,
+      "vue/sort-keys": OFF,
+      // "vue/sort-keys": [WARN, "asc", {
+      //   "caseSensitive": false,
+      //   "ignoreChildrenOf": ["model"],
+      //   "ignoreGrandchildrenOf": ["computed", "directives", "inject", "props", "watch"],
+      //   "minKeys": 2,
+      //   "natural": false
+      // }],
+
+
+
+
 
       // Jest
       "jest/no-disabled-tests": WARN,

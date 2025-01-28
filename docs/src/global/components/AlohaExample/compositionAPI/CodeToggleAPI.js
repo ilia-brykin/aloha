@@ -6,7 +6,11 @@ import {
 export default function CodeToggleAPI(props) {
   const isCodeVisibleDefault = toRef(props, "isCodeVisibleDefault");
 
-  const isCodeVisible = ref(isCodeVisibleDefault.value);
+  const isCodeVisible = ref(undefined);
+
+  const initIsCodeVisible = () => {
+    isCodeVisible.value = isCodeVisibleDefault.value;
+  };
 
   const toggleCode = () => {
     isCodeVisible.value = !isCodeVisible.value;
@@ -20,6 +24,7 @@ export default function CodeToggleAPI(props) {
 
   return {
     btnToggleCodeTitle,
+    initIsCodeVisible,
     isCodeVisible,
     toggleCode,
   };

@@ -18,8 +18,13 @@ export default function LimitOffsetAPI(props, { emit }, {
   const offsetStart = toRef(props, "offsetStart");
   const pagination = toRef(props, "pagination");
 
-  const limit = ref(pagination.value.limitStart || 10);
-  const offset = ref(offsetStart.value);
+  const limit = ref(undefined);
+  const offset = ref(undefined);
+
+  const initLocalVars = () => {
+    limit.value = pagination.value.limitStart || 10;
+    offset.value = offsetStart.value;
+  };
 
   const usePaginationLocal = computed(() => {
     if (isTree.value) {
@@ -73,6 +78,7 @@ export default function LimitOffsetAPI(props, { emit }, {
   return {
     changeLimit,
     changeOffset,
+    initLocalVars,
     limit,
     offset,
     usePaginationLocal,

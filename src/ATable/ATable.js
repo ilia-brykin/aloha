@@ -499,6 +499,7 @@ export default {
   },
   setup(props, context) {
     const {
+      initModelIsTableWithoutScroll,
       isActionColumnVisibleLocal,
       isActionIconVisibleLocal,
       isColumnsDndLocal,
@@ -571,6 +572,7 @@ export default {
     const {
       changeLimit,
       changeOffset,
+      initLocalVars,
       limit,
       offset,
       usePaginationLocal,
@@ -770,6 +772,8 @@ export default {
     provide("modelColumnsVisibleLocal", modelColumnsVisibleLocal);
     provide("changeColumnsOrdering", changeColumnsOrdering);
 
+    initLocalVars();
+    initModelIsTableWithoutScroll();
     initViewCurrent();
     initTable();
     initModelSort();

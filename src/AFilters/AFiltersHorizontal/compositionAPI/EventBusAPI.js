@@ -9,7 +9,11 @@ export default function EventBusAPI(props, {
 }) {
   const id = toRef(props, "id");
 
-  const eventName = `eventATableFilterTopOnOpen_${ id.value }`;
+  let eventName;
+
+  const initEventName = () => {
+    eventName = `eventATableFilterTopOnOpen_${ id.value }`;
+  };
 
   const initEventBus = () => {
     EventBus.$on(eventName, openDropdown);
@@ -22,5 +26,6 @@ export default function EventBusAPI(props, {
   return {
     destroyEventBus,
     initEventBus,
+    initEventName,
   };
 }

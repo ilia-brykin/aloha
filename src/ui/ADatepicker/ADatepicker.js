@@ -1,3 +1,4 @@
+/* eslint vue/component-api-style: off */
 import {
   h,
   Teleport,
@@ -266,6 +267,7 @@ export default {
       handleChange,
       handleInput,
       handleKeydown,
+      initCurrentValue,
       onModelValueChange,
       parse,
       selectDate,
@@ -288,6 +290,8 @@ export default {
     const blur = () => {
       inputRef.value && inputRef.value.blur();
     };
+
+    initCurrentValue();
 
     watch(modelValue, onModelValueChange, {
       immediate: true,

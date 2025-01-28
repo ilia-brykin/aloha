@@ -1,3 +1,4 @@
+/* eslint vue/no-ref-object-reactivity-loss: off */
 import {
   computed,
   ref,

@@ -37,12 +37,16 @@ export default function ToggleAPI(props, { emit }, {
   const statusExpanded = ref(false);
   const timerCloseHover = ref(undefined);
   const triggerOpen = ref(undefined);
-  const wasOpened = ref(dropdownRenderDefault.value || false);
+  const wasOpened = ref(false);
 
   const {
     closeDropdownGlobal,
     openDropdownGlobal,
   } = ADropdownGlobalAPI();
+
+  const initWasOpened = () => {
+    wasOpened.value = dropdownRenderDefault.value || false;
+  };
 
   const pressArrows = ({ down }) => {
     const ELEMENTS = dropdownRef.value.querySelectorAll(elementsForArrows.value);
@@ -258,6 +262,7 @@ export default function ToggleAPI(props, { emit }, {
     buttonWidth,
     destroyEventCloseClick,
     destroyEventPressArrows,
+    initWasOpened,
     onClose,
     onKeydown,
     onOpen,

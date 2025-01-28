@@ -86,9 +86,14 @@ export default {
       size,
     } = toRefs(props);
 
-    const localValue = ref(modelValue.value);
-    const hoveredValue = ref(modelValue.value);
+    const localValue = ref(undefined);
+    const hoveredValue = ref(undefined);
     const hoveredIndex = ref(-1);
+
+    const initLocalVars = () => {
+      localValue.value = modelValue.value;
+      hoveredValue.value = modelValue.value;
+    };
 
     const iconFillValue = computed(() => {
       return props.iconFill ? props.iconFill : `${ props.icon }Fill`;
@@ -194,6 +199,8 @@ export default {
         hoveredIndex.value = index;
       }
     };
+
+    initLocalVars();
 
     return {
       rating,

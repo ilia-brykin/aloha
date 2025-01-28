@@ -309,6 +309,7 @@ export default {
     const {
       clearModel,
       displayValue,
+      initLocalVars,
       isInternalChange,
       localModel,
       modelNumber,
@@ -350,6 +351,7 @@ export default {
       setCurrentValue,
     });
 
+    initLocalVars();
     initFirstCheck();
     watch(modelValue, newVal => {
       if (!isInternalChange.value) {

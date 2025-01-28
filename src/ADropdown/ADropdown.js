@@ -314,6 +314,7 @@ export default {
       buttonWidth,
       destroyEventCloseClick,
       destroyEventPressArrows,
+      initWasOpened,
       onClose,
       onKeydown,
       onOpen,
@@ -368,6 +369,7 @@ export default {
       buttonClassLocal,
     } = ClassAPI(props);
 
+    initWasOpened();
     addPopperContainerInBody();
 
     onBeforeUnmount(() => {

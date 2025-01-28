@@ -117,6 +117,7 @@ export default {
     const {
       destroyEventBus,
       initEventBus,
+      initEventName,
     } = EventBusAPI(props, {
       openDropdown,
     });
@@ -156,6 +157,7 @@ export default {
       modelFiltersSaved,
     });
 
+    initEventName();
     initModelFiltersSaved();
     initEventBus();
 

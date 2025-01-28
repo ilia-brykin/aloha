@@ -15,7 +15,11 @@ export default function SimpleTableAPI(props) {
   const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
   const rowActions = toRef(props, "rowActions");
 
-  const modelIsTableWithoutScroll = ref(modelIsTableWithoutScrollStart.value);
+  const modelIsTableWithoutScroll = ref(undefined);
+
+  const initModelIsTableWithoutScroll = () => {
+    modelIsTableWithoutScroll.value = modelIsTableWithoutScrollStart.value;
+  };
 
   const {
     isMobileWidth,
@@ -54,6 +58,7 @@ export default function SimpleTableAPI(props) {
   });
 
   return {
+    initModelIsTableWithoutScroll,
     isActionColumnVisibleLocal,
     isActionIconVisibleLocal,
     isColumnsDndLocal,

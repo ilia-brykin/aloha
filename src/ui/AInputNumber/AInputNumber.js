@@ -212,6 +212,7 @@ export default {
     const {
       currentValue,
       displayValue,
+      initCurrentValue,
       setCurrentValue,
       userInput,
     } = ModelAPI(props, {
@@ -246,6 +247,8 @@ export default {
       userInput,
       isTypeNumber,
     });
+
+    initCurrentValue();
 
     watch(
       () => props.modelValue,

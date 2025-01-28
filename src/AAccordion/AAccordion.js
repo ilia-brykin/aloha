@@ -154,6 +154,7 @@ export default {
   setup(props, context) {
     const {
       idsForOpen,
+      initIdsForOpen,
       toggleLocal,
     } = ToggleAPI(props, context);
 
@@ -168,6 +169,7 @@ export default {
       dataWithIds,
     });
 
+    initIdsForOpen();
     initIdsFromIndexesForOpen();
 
     return {

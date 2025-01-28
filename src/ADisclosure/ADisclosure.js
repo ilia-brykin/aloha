@@ -152,6 +152,7 @@ export default {
     } = context;
 
     const {
+      initIsOpen,
       isOpen,
     } = IsOpenAPI(props);
 
@@ -181,6 +182,8 @@ export default {
     } = BtnAttributesAPI(props, {
       isOpen,
     });
+
+    initIsOpen();
 
     expose({
       buttonRef,

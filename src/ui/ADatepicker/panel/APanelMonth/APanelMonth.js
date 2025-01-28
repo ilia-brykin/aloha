@@ -1,3 +1,4 @@
+/* eslint vue/component-api-style: off */
 import {
   h,
 } from "vue";

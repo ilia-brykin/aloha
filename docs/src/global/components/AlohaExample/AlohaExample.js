@@ -71,6 +71,7 @@ export default {
   setup(props) {
     const {
       btnToggleCodeTitle,
+      initIsCodeVisible,
       isCodeVisible,
       toggleCode,
     } = CodeToggleAPI(props);
@@ -91,6 +92,8 @@ export default {
       propsLocal,
       slotsLocal,
     } = ParametersAPI(props);
+
+    initIsCodeVisible();
 
     return {
       btnToggleCodeTitle,

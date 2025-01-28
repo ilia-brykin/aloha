@@ -1,5 +1,7 @@
+/* eslint vue/component-api-style: off */
 import {
   h,
+  nextTick,
 } from "vue";
 
 import APanelDate from "../panel/APanelDate/APanelDate";
@@ -240,13 +242,15 @@ export default {
       if (panel === "YEAR") {
         this.firstYear = Math.floor(this.calendarYear / 10) * 10;
       } else if (panel === "TIME") {
-        this.$nextTick(() => {
-          const list = this.$el.querySelectorAll(".pux_datepicker__panel_time .pux_datepicker__time_list");
-          for (let i = 0, len = list.length; i < len; i++) {
-            const el = list[i];
-            scrollIntoView(el, el.querySelector(".actived"));
-          }
-        });
+        nextTick().then(
+          () => {
+            const list = this.$el.querySelectorAll(".pux_datepicker__panel_time .pux_datepicker__time_list");
+            for (let i = 0, len = list.length; i < len; i++) {
+              const el = list[i];
+              scrollIntoView(el, el.querySelector(".actived"));
+            }
+          },
+        );
       }
     },
 

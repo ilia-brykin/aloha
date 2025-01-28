@@ -21,9 +21,14 @@ export default function ModelAPI(props, {
   const decimalPartLength = toRef(props, "decimalPartLength");
   const thousandDivider = toRef(props, "thousandDivider");
 
-  const displayValue = ref(modelValue.value);
+  const displayValue = ref(undefined);
   const isInternalChange = ref(false);
-  const localModel = ref(modelValue.value);
+  const localModel = ref(undefined);
+
+  const initLocalVars = () => {
+    displayValue.value = modelValue.value;
+    localModel.value = modelValue.value;
+  };
 
   const modelNumber = computed(() => {
     return Number(`${ displayValue.value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."));
@@ -66,6 +71,7 @@ export default function ModelAPI(props, {
   return {
     clearModel,
     displayValue,
+    initLocalVars,
     isInternalChange,
     localModel,
     modelNumber,

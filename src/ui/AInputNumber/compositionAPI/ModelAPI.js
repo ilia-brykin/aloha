@@ -18,7 +18,11 @@ export default function ModelAPI(props, {
   const modelValue = toRef(props, "modelValue");
 
   const userInput = ref(null);
-  const currentValue = ref(modelValue.value);
+  const currentValue = ref(null);
+
+  const initCurrentValue = () => {
+    currentValue.value = modelValue.value;
+  };
 
   const displayValue = computed(() => {
     if (userInput.value !== null) {
@@ -61,6 +65,7 @@ export default function ModelAPI(props, {
   return {
     currentValue,
     displayValue,
+    initCurrentValue,
     setCurrentValue,
     userInput,
   };

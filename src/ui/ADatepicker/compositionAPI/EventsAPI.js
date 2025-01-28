@@ -32,8 +32,12 @@ export default function EventsAPI(props, { emit }, {
   const format = toRef(props, "format");
   const type = toRef(props, "type");
 
-  const currentValue = ref(range.value ? [null, null] : null);
+  const currentValue = ref(null);
   const userInput = ref(null);
+
+  const initCurrentValue = () => {
+    currentValue.value = range.value ? [null, null] : null;
+  };
 
   const isValidValueText = value => {
     return !!parseDate(value, format.value, formatSave.value);
@@ -277,6 +281,7 @@ export default function EventsAPI(props, { emit }, {
     handleChange,
     handleInput,
     handleKeydown,
+    initCurrentValue,
     onModelValueChange,
     parse,
     selectDate,
