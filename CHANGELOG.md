@@ -7,6 +7,19 @@
 ---
 # Versions
 
+## 2.1.2
+
+- Linting Enhancements:
+  - Implemented linting for Vue.js components and codebase using ESLint
+- Documentation Updates:
+  - Updated configuration and import examples in the documentation.
+- New Imports:
+  - Added imports for the following components, functions, and constants:
+    - Components: `AMenuButtonToggle`, `APlacements`.
+    - Functions: `getTranslatedText`, `isPlaceholderTranslate`, `setI18n`, `setLanguage`, `toggleTranslate`, `updateTranslation`
+    - Constants: `i18n`, `focusableList`, `focusableSelector`, `AKeyChildren`, `AKeyId`, `AKeyLabel`, `AKeyParent`, `AKeysCode`, `timeTranslationLastChanged`, `isTranslate`.
+  - Renamed `i18n` to `i18nAll` for better clarity.
+
 ## 2.1.1
 
 - `AOneCheckbox`: Fixed warnings related to the slot usage.
