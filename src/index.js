@@ -66,7 +66,10 @@ export { default as AWizard } from "./AWizard/AWizard";
 export { default as AConfirmAPI } from "./compositionAPI/AConfirmAPI";
 export { default as ADropdownGlobalAPI } from "./compositionAPI/ADropdownGlobalAPI";
 export { default as AEventOutsideAPI } from "./compositionAPI/AEventOutsideAPI";
-export { default as AFiltersAPI } from "./compositionAPI/AFiltersAPI";
+export {
+  default as AFiltersAPI,
+  additionFilters as AFiltersAPI_additionFilters,
+} from "./compositionAPI/AFiltersAPI";
 export {
   default as AHttpAPI,
   abortHttp as AHttpAPI_abortHttp,
