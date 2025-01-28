@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 2.1.5
+
+- **New Export Added**
+  - **AFiltersAPI**
+    - `AFiltersAPI_additionFilters`
+
 ## 2.1.4
 
 - **New Exports Added**

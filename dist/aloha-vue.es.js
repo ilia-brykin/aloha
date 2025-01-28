@@ -48018,6 +48018,7 @@ export {
   Ta as AFieldsetI18n,
   VAe as AFilters,
   gr as AFiltersAPI,
+  HH as AFiltersAPI_additionFilters,
   n4 as AFiltersHorizontal,
   ma as AFiltersI18n,
   lEe as AFiltersPlugin,
