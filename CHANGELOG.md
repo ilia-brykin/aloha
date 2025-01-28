@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.1.6
+
+- **New Exports Added**
+  - **Utils**
+    - `dompurify`
+    - `sanitize`
+
 ## 2.1.5
 
 - **New Export Added**
