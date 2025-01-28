@@ -67,10 +67,41 @@ export { default as AConfirmAPI } from "./compositionAPI/AConfirmAPI";
 export { default as ADropdownGlobalAPI } from "./compositionAPI/ADropdownGlobalAPI";
 export { default as AEventOutsideAPI } from "./compositionAPI/AEventOutsideAPI";
 export { default as AFiltersAPI } from "./compositionAPI/AFiltersAPI";
-export { default as AHttpAPI } from "./compositionAPI/AHttpAPI";
-export { default as AMobileAPI } from "./compositionAPI/AMobileAPI";
-export { default as ANotificationAPI } from "./compositionAPI/ANotificationAPI";
-export { default as APageTabTitleAPI } from "./compositionAPI/APageTabTitleAPI";
+export {
+  default as AHttpAPI,
+  abortHttp as AHttpAPI_abortHttp,
+  API_CONFIG as AHttpAPI_API_CONFIG,
+  callHttpRequestAndCheckSavedApi as AHttpAPI_callHttpRequestAndCheckSavedApi,
+  clearAllApiSaved as AHttpAPI_clearAllApiSaved,
+  clearApiSaved as AHttpAPI_clearApiSaved,
+  deleteHttp as AHttpAPI_deleteHttp,
+  getHttp as AHttpAPI_getHttp,
+  getListHttp as AHttpAPI_getListHttp,
+  getOptionsHttp as AHttpAPI_getOptionsHttp,
+  getUrlParams as AHttpAPI_getUrlParams,
+  patchHttp as AHttpAPI_patchHttp,
+  postHttp as AHttpAPI_postHttp,
+  putHttp as AHttpAPI_putHttp,
+  setBaseUrl as AHttpAPI_setBaseUrl,
+  setErrorCallbacks as AHttpAPI_setErrorCallbacks,
+  setHeaderParams as AHttpAPI_setHeaderParams,
+  setUrlForArray as AHttpAPI_setUrlForArray,
+  setUrlWithParams as AHttpAPI_setUrlWithParams,
+} from "./compositionAPI/AHttpAPI";
+export {
+  default as AMobileAPI,
+  isMobileWidth as AMobileAPI_isMobileWidth,
+  setIsMobileWidth as AMobileAPI_setIsMobileWidth,
+} from "./compositionAPI/AMobileAPI";
+export {
+  default as ANotificationAPI,
+  addNotification as ANotificationAPI_addNotification,
+  setNotificationTimeout as ANotificationAPI_setNotificationTimeout,
+} from "./compositionAPI/ANotificationAPI";
+export {
+  default as APageTabTitleAPI,
+  setBaseTitle as APageTabTitleAPI_setBaseTitle,
+} from "./compositionAPI/APageTabTitleAPI";
 
 // directives
 export { default as AOnHooks } from "./directives/AOnHooks";
