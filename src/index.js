@@ -165,9 +165,11 @@ export {
 } from "./utils/colors";
 export { default as EventBus } from "./utils/EventBus";
 export {
+  dompurify,
   getTotalNestedCount,
   isArrayOfArrays,
   isArrayOfStrings,
+  sanitize,
   sanitizeLocal,
 } from "./utils/utils";
 export {
