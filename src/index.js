@@ -34,6 +34,7 @@ export { default as AList } from "./AList/AList";
 export { default as ALoading } from "./ALoading/ALoading";
 export { default as AMenu } from "./AMenu/AMenu";
 export { default as AMenuButtonToggle } from "./AMenu/AMenuButtonToggle/AMenuButtonToggle";
+export { default as AMenuButtonToggle_ToggleAPI } from "./AMenu/AMenuButtonToggle/compositionAPI/ToggleAPI";
 export { default as AModal } from "./AModal/AModal";
 export { default as AModalConfirm } from "./AModalConfirm/AModalConfirm";
 export { default as AModalForm } from "./AModalForm/AModalForm";
@@ -246,5 +247,6 @@ export {
   setLanguage,
   timeTranslationLastChanged,
   toggleTranslate,
+  translation,
   updateTranslation,
 } from "./ATranslation/compositionAPI/ATranslationAPI";
