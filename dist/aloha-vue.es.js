@@ -48083,6 +48083,7 @@ export {
   ZAe as AMenu,
   Ca as AMenu2I18n,
   R4 as AMenuButtonToggle,
+  Hv as AMenuButtonToggle_ToggleAPI,
   Cn as AMobileAPI,
   Qu as AMobileAPI_isMobileWidth,
   ku as AMobileAPI_setIsMobileWidth,
@@ -48200,5 +48201,6 @@ export {
   rh as timeTranslationLastChanged,
   ju as toPrecision,
   JM as toggleTranslate,
+  NS as translation,
   PS as updateTranslation
 };

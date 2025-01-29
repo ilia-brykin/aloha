@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.1.7
+
+- **New Exports Added**
+  - **ATranslationAPI**
+    - `translation`
+  - **AMenuButtonToggle**
+    - `AMenuButtonToggle_ToggleAPI`
+
 ## 2.1.6
 
 - **New Exports Added**
