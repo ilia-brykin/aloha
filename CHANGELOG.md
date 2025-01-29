@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.1.8
+
+- **New Exports Added**
+  - `UiAPI`, `UIExcludeRenderAttributesAPI`, `UiStyleHideAPI`, `AErrorsText`
+
 ## 2.1.7
 
 - **New Exports Added**
