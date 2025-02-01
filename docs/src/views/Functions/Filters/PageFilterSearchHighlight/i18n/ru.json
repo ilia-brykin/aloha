@@ -1,6 +1,9 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Значение, в котором следует выделить поисковый запрос",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Поисковый запрос, который следует выделить в значении",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "CSS-класс, стилизующий выделенную часть значения",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Функция <strong>filterSearchHighlight</strong> предназначена для выделения поискового запроса в значении, обрамляя его HTML-тегами. Она позволяет настраивать поисковый запрос и CSS-класс для выделения."
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Список дополнительных атрибутов в формате <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Определяет, должен ли поиск учитывать регистр",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Класс <strong lang=\"en\">CSS</strong>, который будет использоваться для стилизации выделенной части значения",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Термин для поиска, который должен быть выделен в значении",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "Тег <strong lang=\"en\">HTML</strong>, который будет использоваться вместо <mark>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Значение, в котором должен быть выделен искомый термин",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Функция <strong lang=\"en\">filterSearchHighlight</strong> используется для выделения искомого термина в значении, оборачивая его в теги <strong lang=\"en\">HTML</strong>. Позволяет настроить искомый термин и класс <strong lang=\"en\">CSS</strong> для выделения."
 }

@@ -1,6 +1,9 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "القيمة التي يجب أن يتم تمييز مصطلح البحث فيها",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "مصطلح البحث الذي يجب أن يتم تمييزه في القيمة",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "فئة CSS يجب أن تنسق الجزء المميز من القيمة",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "تُستخدم وظيفة <strong>filterSearchHighlight</strong> لتمييز مصطلح بحث في قيمة عبر تغليف مصطلح البحث بعلامات HTML. تتيح تخصيص مصطلح البحث وفئة CSS للتمييز."
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "قائمة بالسمات الإضافية بتنسيق <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "تحديد ما إذا كان البحث يجب أن يكون حساسًا لحالة الأحرف",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "فئة <strong lang=\"en\">CSS</strong> تُستخدم لتنسيق الجزء المميز من القيمة",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "مصطلح البحث الذي يجب تمييزه في القيمة",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "علامة <strong lang=\"en\">HTML</strong> لاستخدامها بدلاً من <mark>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "القيمة التي يجب تمييز مصطلح البحث فيها",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "تُستخدم وظيفة <strong lang=\"en\">filterSearchHighlight</strong> لتحديد مصطلح البحث في القيمة من خلال إحاطته بعلامات <strong lang=\"en\">HTML</strong>. تتيح هذه الوظيفة تخصيص مصطلح البحث وفئة <strong lang=\"en\">CSS</strong> للتمييز."
 }

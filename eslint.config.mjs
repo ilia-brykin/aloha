@@ -23,14 +23,12 @@ export default [
     ],
     // vite.config.mjs
     plugins: {
-      jest: pluginJest,
       "@stylistic": stylistic,
       "vue-pug": pluginVuePug,
     },
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...pluginJest.environments.globals.globals,
         __dirname: false,
         module: false,
         require: false,
@@ -478,14 +476,24 @@ export default [
        *   "natural": false
        * }],
        */
-
-
-      // Jest
-      "jest/no-disabled-tests": WARN,
-      "jest/no-focused-tests": ERROR,
-      "jest/no-identical-title": ERROR,
-      "jest/prefer-to-have-length": WARN,
-      "jest/valid-expect": ERROR,
+    },
+  },
+  // Jest
+  {
+    // update this to match your test files
+    files: ["**/*.spec.js", "**/*.test.js"],
+    ...pluginJest.configs["flat/recommended"],
+    plugins: { jest: pluginJest },
+    languageOptions: {
+      globals: pluginJest.environments.globals.globals,
+      describe: false,
+    },
+    rules: {
+      "jest/no-disabled-tests": "warn",
+      "jest/no-focused-tests": "error",
+      "jest/no-identical-title": "error",
+      "jest/prefer-to-have-length": "warn",
+      "jest/valid-expect": "error",
     },
   },
 ];

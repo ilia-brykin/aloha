@@ -5,8 +5,11 @@ import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import PageFilterArguments from "../../Components/PageFilterArguments/PageFilterArguments.vue";
 import PageFilterImportCompositionApi from "../../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
+import PageFilterSearchHighlightAttributes from "./PageFilterSearchHighlightAttributes/PageFilterSearchHighlightAttributes.vue";
+import PageFilterSearchHighlightCaseSensitive from "./PageFilterSearchHighlightCaseSensitive/PageFilterSearchHighlightCaseSensitive.vue";
 import PageFilterSearchHighlightSearchClass from "./PageFilterSearchHighlightSearchClass/PageFilterSearchHighlightSearchClass.vue";
 import PageFilterSearchHighlightSearchModel from "./PageFilterSearchHighlightSearchModel/PageFilterSearchHighlightSearchModel.vue";
+import PageFilterSearchHighlightTag from "./PageFilterSearchHighlightTag/PageFilterSearchHighlightTag.vue";
 import PageFilterTest from "../../Components/PageFilterTest/PageFilterTest.vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
@@ -22,8 +25,11 @@ export default {
     PageFilterArguments,
     PageFilterImportCompositionApi,
     PageFilterImportFunction,
+    PageFilterSearchHighlightAttributes,
+    PageFilterSearchHighlightCaseSensitive,
     PageFilterSearchHighlightSearchClass,
     PageFilterSearchHighlightSearchModel,
+    PageFilterSearchHighlightTag,
     PageFilterTest,
   },
   setup() {

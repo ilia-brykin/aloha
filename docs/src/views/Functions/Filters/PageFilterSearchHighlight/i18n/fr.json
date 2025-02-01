@@ -1,6 +1,9 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "La valeur dans laquelle le terme de recherche doit être surligné",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Le terme de recherche qui doit être surligné dans la valeur",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Une classe CSS qui doit styliser la partie surlignée de la valeur",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "La fonction <strong>filterSearchHighlight</strong> est utilisée pour marquer un terme de recherche dans une valeur en entourant le terme de recherche avec des balises HTML. Elle permet la personnalisation du terme de recherche et de la classe CSS pour la mise en évidence."
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Liste des attributs supplémentaires au format <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Définit si la recherche doit être sensible à la casse",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Une classe <strong lang=\"en\">CSS</strong> utilisée pour styliser la partie mise en évidence de la valeur",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Le terme de recherche qui doit être mis en évidence dans la valeur",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "La balise <strong lang=\"en\">HTML</strong> à utiliser à la place de <mark>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "La valeur dans laquelle le terme de recherche doit être mis en évidence",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "La fonction <strong lang=\"en\">filterSearchHighlight</strong> est utilisée pour mettre en évidence un terme de recherche dans une valeur en l'entourant de balises <strong lang=\"en\">HTML</strong>. Elle permet de personnaliser le terme de recherche et la classe <strong lang=\"en\">CSS</strong> pour la mise en évidence."
 }

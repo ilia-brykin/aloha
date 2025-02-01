@@ -1,6 +1,9 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Il valore in cui il termine di ricerca dovrebbe essere evidenziato",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Il termine di ricerca che dovrebbe essere evidenziato nel valore",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Una classe CSS che dovrebbe stilizzare la parte evidenziata del valore",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "La funzione <strong>filterSearchHighlight</strong> viene utilizzata per evidenziare un termine di ricerca in un valore incapsulando il termine di ricerca con tag HTML. Permette la personalizzazione del termine di ricerca e della classe CSS per l'evidenziazione."
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Elenco di attributi aggiuntivi nel formato <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Indica se la ricerca deve essere sensibile alle maiuscole e minuscole",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Una classe <strong lang=\"en\">CSS</strong> utilizzata per stilizzare la parte evidenziata del valore",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Il termine di ricerca da evidenziare nel valore",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "Il tag <strong lang=\"en\">HTML</strong> da usare al posto di <mark>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Il valore in cui evidenziare il termine di ricerca",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "La funzione <strong lang=\"en\">filterSearchHighlight</strong> viene utilizzata per evidenziare un termine di ricerca in un valore racchiudendolo tra tag <strong lang=\"en\">HTML</strong>. Consente la personalizzazione del termine di ricerca e della classe <strong lang=\"en\">CSS</strong> per l'evidenziazione."
 }

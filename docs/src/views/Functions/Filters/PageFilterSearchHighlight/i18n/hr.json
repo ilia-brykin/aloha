@@ -1,6 +1,9 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Vrijednost u kojoj bi se trebao nalaziti traženi pojam.",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Traženi pojam koji će biti istaknut.",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "CSS klasa koja bi trebala stilizirati istaknuti dio vrijednosti.",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Funkcija <strong>filterSearchHighlight</strong> koristi se za isticanje traženog pojma unutar neke vrijednosti omotavanjem traženog pojma HTML oznakama. Omogućuje prilagodbu traženog pojma i CSS klase za isticanje."
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Popis dodatnih atributa u formatu <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Određuje treba li pretraga razlikovati velika i mala slova",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Klasa <strong lang=\"en\">CSS</strong> koja se koristi za stiliziranje istaknutog dijela vrijednosti",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Pojam za pretragu koji treba istaknuti u vrijednosti",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "Tag <strong lang=\"en\">HTML</strong> koji se koristi umjesto <mark>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Vrijednost u kojoj treba istaknuti pojam za pretragu",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Funkcija <strong lang=\"en\">filterSearchHighlight</strong> koristi se za označavanje pojma pretrage u vrijednosti tako da ga okruži <strong lang=\"en\">HTML</strong> oznakama. Omogućuje prilagodbu pojma pretrage i klase <strong lang=\"en\">CSS</strong> za isticanje."
 }

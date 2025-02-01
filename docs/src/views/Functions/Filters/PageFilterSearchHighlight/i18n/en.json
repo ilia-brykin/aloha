@@ -1,6 +1,9 @@
 {
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "The value in which the search term should be highlighted",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "List of additional attributes in the format <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Whether the search should be case-sensitive",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "A <strong lang=\"en\">CSS</strong> class that should style the highlighted part of the value",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "The search term that should be highlighted in the value",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "A CSS class that should style the highlighted part of the value",
-  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "The function <strong>filterSearchHighlight</strong> is used to mark a search term in a value by enclosing the search term with HTML tags. It allows customization of the search term and the CSS class for highlighting."
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "The <strong lang=\"en\">HTML</strong> tag to use instead of mark",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "The value in which the search term should be highlighted",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "The function <strong lang=\"en\">filterSearchHighlight</strong> is used to mark a search term in a value by enclosing the search term with <strong lang=\"en\">HTML</strong> tags. It allows customization of the search term and the <strong lang=\"en\">CSS</strong> class for highlighting."
 }

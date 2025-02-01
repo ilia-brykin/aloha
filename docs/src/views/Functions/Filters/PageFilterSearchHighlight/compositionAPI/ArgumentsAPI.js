@@ -21,6 +21,27 @@ export default function ArgumentsAPI() {
       ],
       text: "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_",
     },
+    {
+      value: "[tag=\"mark\"]",
+      types: [
+        "String",
+      ],
+      text: "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_",
+    },
+    {
+      value: "[attributes=[]]",
+      types: [
+        "String",
+      ],
+      text: "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_",
+    },
+    {
+      value: "[caseSensitive=false]",
+      types: [
+        "Boolean",
+      ],
+      text: "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_",
+    },
   ];
 
   return {

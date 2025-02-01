@@ -67,6 +67,7 @@
     "@babel/core": "7.26.0",
     "@babel/preset-env": "7.26.0",
     "@eslint/js": "^9.17.0",
+    "@jest/globals": "^29.7.0",
     "@stylistic/eslint-plugin": "^2.13.0",
     "@vitejs/plugin-vue": "5.2.1",
     "@vue/test-utils": "2.4.6",
