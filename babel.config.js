@@ -2,19 +2,19 @@ const path = require("path");
 
 module.exports = {
   presets: [
-    ["@babel/env"]
+    ["@babel/env"],
   ],
   env: {
     test: {
-      presets: [["@babel/env"]]
-    }
+      presets: [["@babel/env"]],
+    },
   },
   plugins: [
     ["module-resolver", {
       root: ["./src"],
       alias: {
-        "@": path.resolve(__dirname, "./src")
-      }
-    }]
-  ]
+        "@": path.resolve(__dirname, "./src"),
+      },
+    }],
+  ],
 };

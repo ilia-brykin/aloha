@@ -1,5 +1,5 @@
 import globals from "globals";
-import importPlugin from "eslint-plugin-import";
+// import importPlugin from "eslint-plugin-import";
 import pluginJest from "eslint-plugin-jest";
 import pluginJs from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
@@ -25,21 +25,24 @@ export default [
     plugins: {
       jest: pluginJest,
       "@stylistic": stylistic,
-      "vue-pug": pluginVuePug
+      "vue-pug": pluginVuePug,
     },
     languageOptions: {
       globals: {
         ...globals.browser,
         ...pluginJest.environments.globals.globals,
-      }
+        __dirname: false,
+        module: false,
+        require: false,
+      },
     },
   },
   pluginJs.configs.recommended,
-  ...pluginVue.configs['flat/recommended'],
+  ...pluginVue.configs["flat/recommended"],
   // importPlugin.flatConfigs.recommended,
   {
     rules: {
-      ...pluginVuePug.configs['vue3-recommended'].rules,
+      ...pluginVuePug.configs["vue3-recommended"].rules,
       // @stylistic
       "@stylistic/array-bracket-newline": [WARN, "consistent"],
       "@stylistic/array-bracket-spacing": [WARN, "never"],
@@ -69,25 +72,25 @@ export default [
       "@stylistic/comma-style": [WARN, "last"],
       "@stylistic/computed-property-spacing": [WARN, "never"],
       "@stylistic/curly-newline": [WARN, {
-        "IfStatementConsequent": "always",
-        "IfStatementAlternative": "always",
-        "ForStatement": "always",
-        "ForInStatement": "always",
-        "ForOfStatement": "always",
-        "WhileStatement": "always",
-        "DoWhileStatement": "always",
-        "SwitchStatement": "always",
-        "SwitchCase": "always",
-        "TryStatementBlock": "always",
-        "TryStatementHandler": "always",
-        "TryStatementFinalizer": "always",
-        "BlockStatement": "always",
-        "ArrowFunctionExpression": { minElements: 1 },
-        "FunctionDeclaration": { minElements: 1 },
-        "FunctionExpression": "always",
-        "Property": "always",
-        "ClassBody": "always",
-        "StaticBlock": "always",
+        IfStatementConsequent: "always",
+        IfStatementAlternative: "always",
+        ForStatement: "always",
+        ForInStatement: "always",
+        ForOfStatement: "always",
+        WhileStatement: "always",
+        DoWhileStatement: "always",
+        SwitchStatement: "always",
+        SwitchCase: "always",
+        TryStatementBlock: "always",
+        TryStatementHandler: "always",
+        TryStatementFinalizer: "always",
+        BlockStatement: "always",
+        ArrowFunctionExpression: { minElements: 1 },
+        FunctionDeclaration: { minElements: 1 },
+        FunctionExpression: "always",
+        Property: "always",
+        ClassBody: "always",
+        StaticBlock: "always",
       }],
       "@stylistic/dot-location": [WARN, "property"],
       "@stylistic/eol-last": [WARN, "always"],
@@ -96,8 +99,8 @@ export default [
       "@stylistic/generator-star-spacing": [
         WARN,
         {
-          "before": true,
-          "after": false,
+          before: true,
+          after: false,
         },
       ],
       "@stylistic/implicit-arrow-linebreak": [WARN, "beside"],
@@ -136,7 +139,7 @@ export default [
         },
       ],
       "@stylistic/max-len": OFF,
-      "@stylistic/max-statements-per-line": [WARN, { "max": 2 }],
+      "@stylistic/max-statements-per-line": [WARN, { max: 2 }],
       "@stylistic/multiline-comment-style": [WARN, "starred-block"],
       "@stylistic/multiline-ternary": [WARN, "always-multiline"],
       "@stylistic/new-parens": WARN,
@@ -166,44 +169,46 @@ export default [
       "@stylistic/switch-colon-spacing": WARN,
       "@stylistic/template-curly-spacing": [WARN, "always"],
 
-      // import
-      // "import/namespace": OFF,
-      // "import/no-unresolved": OFF,
-      // "import/export": WARN,
-      // "import/no-empty-named-blocks": WARN,
-      // "import/no-mutable-exports": WARN,
-      // "import/no-named-as-default": WARN,
-      // "import/no-named-as-default-member": WARN,
-      // "import/order": [
-      //   "error",
-      //   {
-      //     groups: [
-      //       "builtin", // 1. Imports from "vue" and other built-in modules
-      //       "external", // 2. Imports from external libraries like "aloha-vue"
-      //     ],
-      //     pathGroups: [
-      //       {
-      //         pattern: "vue", // Group for "vue" imports
-      //         group: "builtin",
-      //         position: "before",
-      //       },
-      //       {
-      //         pattern: "aloha-vue", // Group for "aloha-vue" imports
-      //         group: "builtin",
-      //         position: "before", // Ensure it's in the same group as "vue"
-      //       },
-      //     ],
-      //     pathGroupsExcludedImportTypes: [
-      //       "builtin",
-      //       // "builtin", "unknown"
-      //     ], // Exclude "builtin" from path group checks
-      //     alphabetize: {
-      //       order: "asc", // Alphabetize imports within each group
-      //       caseInsensitive: true, // Ignore case sensitivity while sorting
-      //     },
-      //     "newlines-between": "always-and-inside-groups", // Enforce a blank line after "aloha-vue" but not between related imports
-      //   },
-      // ],
+      /*
+       * import
+       * "import/namespace": OFF,
+       * "import/no-unresolved": OFF,
+       * "import/export": WARN,
+       * "import/no-empty-named-blocks": WARN,
+       * "import/no-mutable-exports": WARN,
+       * "import/no-named-as-default": WARN,
+       * "import/no-named-as-default-member": WARN,
+       * "import/order": [
+       *   "error",
+       *   {
+       *     groups: [
+       *       "builtin", // 1. Imports from "vue" and other built-in modules
+       *       "external", // 2. Imports from external libraries like "aloha-vue"
+       *     ],
+       *     pathGroups: [
+       *       {
+       *         pattern: "vue", // Group for "vue" imports
+       *         group: "builtin",
+       *         position: "before",
+       *       },
+       *       {
+       *         pattern: "aloha-vue", // Group for "aloha-vue" imports
+       *         group: "builtin",
+       *         position: "before", // Ensure it's in the same group as "vue"
+       *       },
+       *     ],
+       *     pathGroupsExcludedImportTypes: [
+       *       "builtin",
+       *       // "builtin", "unknown"
+       *     ], // Exclude "builtin" from path group checks
+       *     alphabetize: {
+       *       order: "asc", // Alphabetize imports within each group
+       *       caseInsensitive: true, // Ignore case sensitivity while sorting
+       *     },
+       *     "newlines-between": "always-and-inside-groups", // Enforce a blank line after "aloha-vue" but not between related imports
+       *   },
+       * ],
+       */
 
       // Possible Problems
       "constructor-super": WARN,
@@ -306,8 +311,10 @@ export default [
       strict: OFF,
       yoda: [WARN, "never", { exceptRange: true }],
 
-      // Vue.js
-      // - Base Rules
+      /*
+       * Vue.js
+       * - Base Rules
+       */
       "vue/comment-directive": WARN,
       // - Priority A: Essential
       "vue/multi-word-component-names": WARN,
@@ -427,15 +434,18 @@ export default [
       "vue/this-in-template": WARN,
       // - Uncategorized
       "vue/block-order": [WARN, {
-        "order": ["template", "script", "style"],
+        order: ["template", "script", "style"],
       }],
       "vue/block-tag-newline": WARN,
       "vue/component-api-style": OFF,
-      // "vue/component-name-in-template-casing": [WARN, {
-      //   "kebab-case": {
-      //     registeredComponentsOnly: true,
-      //   },
-      // }],
+
+      /*
+       * "vue/component-name-in-template-casing": [WARN, {
+       *   "kebab-case": {
+       *     registeredComponentsOnly: true,
+       *   },
+       * }],
+       */
       "vue/match-component-file-name": WARN,
       "vue/match-component-import-name": WARN,
       "vue/next-tick-style": WARN,
@@ -458,16 +468,16 @@ export default [
       "vue/prefer-use-template-ref": WARN,
       "vue/require-name-property": WARN,
       "vue/sort-keys": OFF,
-      // "vue/sort-keys": [WARN, "asc", {
-      //   "caseSensitive": false,
-      //   "ignoreChildrenOf": ["model"],
-      //   "ignoreGrandchildrenOf": ["computed", "directives", "inject", "props", "watch"],
-      //   "minKeys": 2,
-      //   "natural": false
-      // }],
 
-
-
+      /*
+       * "vue/sort-keys": [WARN, "asc", {
+       *   "caseSensitive": false,
+       *   "ignoreChildrenOf": ["model"],
+       *   "ignoreGrandchildrenOf": ["computed", "directives", "inject", "props", "watch"],
+       *   "minKeys": 2,
+       *   "natural": false
+       * }],
+       */
 
 
       // Jest

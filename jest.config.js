@@ -1,10 +1,12 @@
-// For a detailed explanation regarding each configuration property, visit:
-// https://jestjs.io/docs/en/configuration.html
+/*
+ * For a detailed explanation regarding each configuration property, visit:
+ * https://jestjs.io/docs/en/configuration.html
+ */
 
 module.exports = {
   coverageDirectory: "coverage",
   transformIgnorePatterns: [
-    "<rootDir>/node_modules/(?!lodash-es)"
+    "<rootDir>/node_modules/(?!lodash-es)",
   ],
   globals: {},
   testEnvironment: "jsdom",
@@ -12,7 +14,7 @@ module.exports = {
     customExportConditions: ["node", "node-addons"],
   },
   transform: {
-    "^.+\\js$": "babel-jest"
+    "^.+\\js$": "babel-jest",
   },
-  moduleFileExtensions: ["vue", "js", "json", "jsx", "ts", "tsx", "node"]
+  moduleFileExtensions: ["vue", "js", "json", "jsx", "ts", "tsx", "node"],
 };
