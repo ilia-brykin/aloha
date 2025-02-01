@@ -1,3 +1,8 @@
+import {
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
 /* eslint vue/no-ref-object-reactivity-loss: off */
 import {
   computed,

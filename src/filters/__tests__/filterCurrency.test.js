@@ -1,3 +1,9 @@
+import {
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
+
 import filterCurrency from "../filterCurrency";
 
 describe("filterCurrency", () => {

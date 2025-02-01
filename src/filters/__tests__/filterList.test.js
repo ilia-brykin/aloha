@@ -1,14 +1,20 @@
+import {
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
+
 import filterList from "../filterList";
 
 describe("filterList", () => {
-  test("isSimpleArray=true", () => {
+  it("isSimpleArray=true", () => {
     expect(filterList(["label 1", "label 2", "label 3"])).toBe("<ul><li>label 1</li><li>label 2</li><li>label 3</li></ul>");
     expect(filterList(["label 1", "label 2", "label 3"], { isSimpleArray: true })).toBe("<ul><li>label 1</li><li>label 2</li><li>label 3</li></ul>");
     expect(filterList(["label 1"])).toBe("<ul><li>label 1</li></ul>");
     expect(filterList([])).toBe("");
   });
 
-  test("keyLabel", () => {
+  it("keyLabel", () => {
     const LIST = [
       { label: "label 1" },
       { label: "label 2" },
@@ -20,7 +26,7 @@ describe("filterList", () => {
     expect(filterList(LIST, { keyLabel: "aloha" })).toBe("<ul><li></li><li></li><li></li><li></li></ul>");
   });
 
-  test("keyLabelCallback", () => {
+  it("keyLabelCallback", () => {
     const LIST = [
       { label: "label 1" },
       { label: "label 2" },
@@ -36,40 +42,40 @@ describe("filterList", () => {
     expect(filterList(LIST, { keyLabelCallback: () => "Aloha" })).toBe("<ul><li>Aloha</li><li>Aloha</li><li>Aloha</li><li>Aloha</li></ul>");
   });
 
-  test("isHtml=false", () => {
+  it("isHtml=false", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: false })).toBe("label 1, label 2, label 3");
     expect(filterList(["aloha"], { isHtml: false })).toBe("aloha");
     expect(filterList(["x", "y", "z"], { isHtml: false })).toBe("x, y, z");
     expect(filterList(123, { isHtml: false })).toBe("");
   });
 
-  test("separator isHtml=false", () => {
+  it("separator isHtml=false", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: false, separator: "," })).toBe("label 1,label 2,label 3");
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: false, separator: "; " })).toBe("label 1; label 2; label 3");
     expect(filterList(["x", "y", "z"], { isHtml: false, separator: " - " })).toBe("x - y - z");
   });
 
-  test("separator isHtml=true", () => {
+  it("separator isHtml=true", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separator: "," })).toBe("<ul><li>label 1,</li><li>label 2,</li><li>label 3</li></ul>");
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separator: ";" })).toBe("<ul><li>label 1;</li><li>label 2;</li><li>label 3</li></ul>");
   });
 
-  test("separatorHtml", () => {
+  it("separatorHtml", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separatorHtml: "<hr>" })).toBe("<ul><li>label 1<hr></li><li>label 2<hr></li><li>label 3</li></ul>");
     expect(filterList(["label 1", "label 2", "label 3"], { isHtml: true, separatorHtml: "<div>Aloha</div>" })).toBe("<ul><li>label 1<div>Aloha</div></li><li>label 2<div>Aloha</div></li><li>label 3</li></ul>");
   });
 
-  test("tag", () => {
+  it("tag", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { tag: "ul" })).toBe("<ul><li>label 1</li><li>label 2</li><li>label 3</li></ul>");
     expect(filterList(["label 1", "label 2", "label 3"], { tag: "ol" })).toBe("<ol><li>label 1</li><li>label 2</li><li>label 3</li></ol>");
   });
 
-  test("listClass", () => {
+  it("listClass", () => {
     expect(filterList(["label 1", "label 2", "label 3"], { listClass: "test" })).toBe("<ul class=\"test\"><li>label 1</li><li>label 2</li><li>label 3</li></ul>");
     expect(filterList(["label 1", "label 2", "label 3"], { listClass: "a_list_without_styles" })).toBe("<ul class=\"a_list_without_styles\"><li>label 1</li><li>label 2</li><li>label 3</li></ul>");
   });
 
-  test("keyChildren", () => {
+  it("keyChildren", () => {
     const LIST = [
       {
         label: "Level 1",
@@ -119,7 +125,7 @@ describe("filterList", () => {
     })).toBe("<ol><li>Level 1<ol><li>Level 1.1<ol><li>Level 1.1.1</li><li>Level 1.1.2</li></ol></li><li>Level 1.2</li></ol></li><li>Level 2<ol><li>Level 2.1</li><li>Level 2.2</li></ol></li></ol>");
   });
 
-  test("tree isSimpleArray=true", () => {
+  it("tree isSimpleArray=true", () => {
     const LIST = ["Level 1", ["Level 2", ["Level 2.1", "Level 2.2"]], ["Level 3", ["Level 3.1", ["Level 3.2", ["Level 3.2.1", "Level 3.2.2"]]]]];
 
     expect(filterList(LIST, { isSimpleArray: true })).toBe("<ul><li>Level 1</li><li>Level 2<ul><li>Level 2.1</li><li>Level 2.2</li></ul></li><li>Level 3<ul><li>Level 3.1</li><li>Level 3.2<ul><li>Level 3.2.1</li><li>Level 3.2.2</li></ul></li></ul></li></ul>");

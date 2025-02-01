@@ -1,16 +1,22 @@
 import {
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
+
+import {
   isArrayOfStrings,
 } from "../utils";
 
 describe("isArrayOfStrings function", () => {
-  test("should return true when input is an array of strings", () => {
+  it("should return true when input is an array of strings", () => {
     const array = ["hello", "world"];
     const result = isArrayOfStrings(array);
 
     expect(result).toBe(true);
   });
 
-  test("should return false when input is not an array", () => {
+  it("should return false when input is not an array", () => {
     const notArray = "hello world";
     const result = isArrayOfStrings(notArray);
 
@@ -21,7 +27,7 @@ describe("isArrayOfStrings function", () => {
     expect(isArrayOfStrings([])).toBe(false);
   });
 
-  test("should return false when input is an array but not all elements are strings", () => {
+  it("should return false when input is an array but not all elements are strings", () => {
     expect(isArrayOfStrings(["hello", 1234])).toBe(false);
     expect(isArrayOfStrings(["hello", false])).toBe(false);
     expect(isArrayOfStrings(["hello", undefined])).toBe(false);

@@ -1,11 +1,16 @@
 import {
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
+import {
   mount,
 } from "@vue/test-utils";
 
 import AList from "../AList";
 
 describe("AList", () => {
-  test("keyLabel", () => {
+  it("keyLabel", () => {
     const ITEMS = [
       { label: "label 1" },
       { label: "label 2" },

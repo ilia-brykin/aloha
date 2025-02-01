@@ -1,43 +1,49 @@
+import {
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
+
 import filterKeyValue from "../filterKeyValue";
 
 describe("filterKeyValue", () => {
-  test("single key-value pair", () => {
+  it("single key-value pair", () => {
     expect(filterKeyValue({ greeting: "aloha" })).toBe("greeting: aloha");
   });
 
-  test("multiple key-value pairs", () => {
+  it("multiple key-value pairs", () => {
     expect(filterKeyValue({ greeting: "aloha", farewell: "aloha" })).toBe("greeting: aloha, farewell: aloha");
   });
 
-  test("empty object", () => {
+  it("empty object", () => {
     expect(filterKeyValue({})).toBe("");
   });
 
-  test("null input", () => {
+  it("null input", () => {
     expect(filterKeyValue(null)).toBe("");
   });
 
-  test("undefined input", () => {
+  it("undefined input", () => {
     expect(filterKeyValue(undefined)).toBe("");
   });
 
-  test("numeric and string values", () => {
+  it("numeric and string values", () => {
     expect(filterKeyValue({ alohaCount: 3, message: "aloha" })).toBe("alohaCount: 3, message: aloha");
   });
 
-  test("nested object", () => {
+  it("nested object", () => {
     expect(filterKeyValue({ level1: { greeting: "aloha" } })).toBe("level1: [object Object]");
   });
 
-  test("object with array values", () => {
+  it("object with array values", () => {
     expect(filterKeyValue({ alohas: ["aloha", "hello", "hi"] })).toBe("alohas: aloha,hello,hi");
   });
 
-  test("object with boolean and null values", () => {
+  it("object with boolean and null values", () => {
     expect(filterKeyValue({ isActive: true, isEmpty: null })).toBe("isActive: true, isEmpty: null");
   });
 
-  test("complex object", () => {
+  it("complex object", () => {
     expect(filterKeyValue({ greeting: "aloha", number: 42, nested: { key: "value" }, list: [1, 2, 3] }))
       .toBe("greeting: aloha, number: 42, nested: [object Object], list: 1,2,3");
   });

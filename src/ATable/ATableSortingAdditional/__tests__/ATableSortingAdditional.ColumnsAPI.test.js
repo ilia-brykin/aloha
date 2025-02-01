@@ -1,4 +1,12 @@
 import {
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
+
+import {
   mockVueInject,
 } from "../../../../utilsTests/utilsTests";
 
