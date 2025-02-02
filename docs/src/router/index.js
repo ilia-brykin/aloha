@@ -110,7 +110,7 @@ const ROUTES = [
   {
     path: "/cloak",
     name: "PageCloak",
-    component: () => import("../views/components/PageCloak/PageCloak.vue"),
+    component: () => import("../views/Components/PageCloak/PageCloak.vue"),
   },
   {
     path: "/input",
