@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 1.4.0
+
+### New Arguments for `filterSearchHighlight`
+- `tag`
+- `attributes`
+- `caseSensitive`
+- `isHtml`
+
 ## 1.3.1
 
 - `AOneCheckbox`: Fixed warnings related to the slot usage.
