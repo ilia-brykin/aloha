@@ -3,10 +3,9 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TRANSLATION_GROUP_EXTRA_HEADER_"
   description="_A_TRANSLATION_GROUP_EXTRA_DESCRIPTION_"
+  props="extra"
 )
-  .a_columns.a_columns_count_12
-    .a_column.a_column_4.a_column_12_tablet
-      a-translation(
-        :html="'_A_TRANSLATION_EXAMPLE_EXTRA_{{aloha}}_{{a}}_{{b}}_'"
-        :extra="{ aloha: 'ALOHA', a: 10, b: 123 }"
-      )
+  a-translation(
+    html="_A_TRANSLATION_EXAMPLE_EXTRA_{{aloha}}_{{a}}_{{b}}_"
+    :extra="{ aloha: 'ALOHA', a: 10, b: 123 }"
+  )

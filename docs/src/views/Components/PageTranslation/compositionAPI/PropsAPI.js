@@ -8,6 +8,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "aria-label",
+      description: "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_",
+      type: "String / Number / Object",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "extra",
       description: "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_",
       type: "Object",
