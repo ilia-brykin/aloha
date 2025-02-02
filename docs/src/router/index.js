@@ -150,7 +150,7 @@ const ROUTES = [
   {
     path: "/alert",
     name: "PageAlert",
-    component: () => import("../views/components/PageAlert/PageAlert.vue"),
+    component: () => import("../views/Components/PageAlert/PageAlert.vue"),
   },
   {
     path: "/rate",
@@ -295,7 +295,7 @@ const ROUTES = [
   {
     path: "/button",
     name: "PageButton",
-    component: () => import("../views/components/PageButton/PageButton.vue"),
+    component: () => import("../views/Components/PageButton/PageButton.vue"),
   },
   {
     path: "/group",
