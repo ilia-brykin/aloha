@@ -32,7 +32,17 @@
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_DESCRIPTION_": "Демонстрация использования <code>title</code> как объекта для перевода в зависимости от устройства. Текст <code>title</code> не отображается, если ширина экрана меньше значения, установленного в <a href=\"/aloha/mobile-plugin\" target=\"_blank\" lang=\"en\">AMobilePlugin</a>.",
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_HEADER_": "Перевод <code>title</code> для разных устройств",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Принудительно выполняет перевод независимо от флага <code>is-translate</code>.",
-  "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "Переводимый текст для функции <strong lang=\"en\">ARIA</strong>-меток. (<code>Object -> <strong lang=\"en\">mobile</strong> и <strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "Переводимый текст для функции маркировки <strong lang=\"en\">ARIA</strong>. (<code>Object -> <strong lang=\"en\">mobile</strong> и <strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_": "Переменные для переводов.",
+  "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "Переводимое содержимое, которое может содержать теги <strong lang=\"en\">HTML</strong>, проходит проверку безопасности и отображается. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> и <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Конкатенация)",
+  "_A_TRANSLATION_PROPS_PLACEHOLDER_DESCRIPTION_": "Переводимый текст плейсхолдера, например, для тега <code>input</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> и <strong lang=\"en\">desktop</strong>)",
+  "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_": "Вставляет переданный <strong lang=\"en\">HTML</strong>-контент без изменений через <code>innerHTML</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> и <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Конкатенация)",
+  "_A_TRANSLATION_PROPS_TAG_DESCRIPTION_": "Тег <strong lang=\"en\">HTML</strong>, используемый для оберточного элемента. Значение по умолчанию: <code>div</code>.",
+  "_A_TRANSLATION_PROPS_TEXT_AFTER_DESCRIPTION_": "Статический текст, добавляемый после основного содержимого без перевода.",
+  "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "Статический текст, добавляемый перед основным содержимым без перевода.",
+  "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "Переводимый текст. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> и <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Конкатенация)",
+  "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "Переводимый текст <code>title</code>, отображаемый в виде всплывающей подсказки. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> и <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Конкатенация)",
   "_A_TRANSLATION_SHOW_LESS_": "Показать меньше",
-  "_A_TRANSLATION_SHOW_MORE_": "Показать больше"
+  "_A_TRANSLATION_SHOW_MORE_": "Показать больше",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "Слот по умолчанию для основного содержимого компонента."
 }

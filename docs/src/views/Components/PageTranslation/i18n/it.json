@@ -25,6 +25,16 @@
   "_A_TRANSLATION_GROUP_TEXT_BEFORE_HEADER_": "Estensione del testo con <code>text-before</code>",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Forza la traduzione indipendentemente dal flag <code>is-translate</code>.",
   "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "Testo traducibile per la funzione di etichettatura <strong lang=\"en\">ARIA</strong>. (<code>Object -> <strong lang=\"en\">mobile</strong> e <strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_": "Variabili per le traduzioni.",
+  "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "Un contenuto traducibile che può contenere tag <strong lang=\"en\">HTML</strong> viene verificato per la sicurezza e reso. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> e <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenazione)",
+  "_A_TRANSLATION_PROPS_PLACEHOLDER_DESCRIPTION_": "Testo segnaposto traducibile, ad esempio per un tag <code>input</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> e <strong lang=\"en\">desktop</strong>)",
+  "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_": "Inserisce il contenuto <strong lang=\"en\">HTML</strong> fornito così com'è tramite <code>innerHTML</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> e <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenazione)",
+  "_A_TRANSLATION_PROPS_TAG_DESCRIPTION_": "Il tag <strong lang=\"en\">HTML</strong> utilizzato per l'elemento contenitore. Valore predefinito: <code>div</code>.",
+  "_A_TRANSLATION_PROPS_TEXT_AFTER_DESCRIPTION_": "Testo statico aggiunto dopo il contenuto principale senza essere tradotto.",
+  "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "Testo statico aggiunto prima del contenuto principale senza essere tradotto.",
+  "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "Testo traducibile. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> e <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenazione)",
+  "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "Testo <code>title</code> traducibile visualizzato come tooltip. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> e <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenazione)",
   "_A_TRANSLATION_SHOW_LESS_": "Mostra meno",
-  "_A_TRANSLATION_SHOW_MORE_": "Mostra di più"
+  "_A_TRANSLATION_SHOW_MORE_": "Mostra di più",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "Slot predefinito per il contenuto principale del componente."
 }

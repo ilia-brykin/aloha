@@ -23,8 +23,18 @@
   "_A_TRANSLATION_GROUP_TEXT_AFTER_HEADER_": "Proširenje teksta s <code>text-after</code>",
   "_A_TRANSLATION_GROUP_TEXT_BEFORE_DESCRIPTION_": "Ovaj primjer prikazuje kako se dodatni tekst, poput <strong lang=\"en\">\"$Aloha$ \"</strong>, prikazuje prije glavnog prevedenog teksta.",
   "_A_TRANSLATION_GROUP_TEXT_BEFORE_HEADER_": "Proširenje teksta s <code>text-before</code>",
-  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Prisiljava prijevod bez obzira na zastavicu <code>is-translate</code>.",
+  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Prisilno prevodi bez obzira na zastavicu <code>is-translate</code>.",
   "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "Prijevodni tekst za funkciju označavanja <strong lang=\"en\">ARIA</strong>. (<code>Object -> <strong lang=\"en\">mobile</strong> i <strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_": "Varijable za prijevode.",
+  "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "Prijevodni sadržaj koji može sadržavati <strong lang=\"en\">HTML</strong> oznake provjerava se sigurnosno i prikazuje. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> i <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Konkatenacija)",
+  "_A_TRANSLATION_PROPS_PLACEHOLDER_DESCRIPTION_": "Prijevodni tekst rezerviranog mjesta, npr. za oznaku <code>input</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> i <strong lang=\"en\">desktop</strong>)",
+  "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_": "Umeće dostavljeni <strong lang=\"en\">HTML</strong> sadržaj takav kakav jest putem <code>innerHTML</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> i <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Konkatenacija)",
+  "_A_TRANSLATION_PROPS_TAG_DESCRIPTION_": "Oznaka <strong lang=\"en\">HTML</strong> koja se koristi za omotavajući element. Zadana vrijednost: <code>div</code>.",
+  "_A_TRANSLATION_PROPS_TEXT_AFTER_DESCRIPTION_": "Statistički tekst koji se dodaje nakon glavnog sadržaja bez prevođenja.",
+  "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "Statistički tekst koji se dodaje prije glavnog sadržaja bez prevođenja.",
+  "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "Prijevodni tekst. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> i <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Konkatenacija)",
+  "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "Prijevodni <code>title</code> tekst prikazan kao tooltip. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> i <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Konkatenacija)",
   "_A_TRANSLATION_SHOW_LESS_": "Prikaži manje",
-  "_A_TRANSLATION_SHOW_MORE_": "Prikaži više"
+  "_A_TRANSLATION_SHOW_MORE_": "Prikaži više",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "Zadani slot za glavni sadržaj komponente."
 }

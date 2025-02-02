@@ -31,6 +31,16 @@
   "_A_TRANSLATION_GROUP_TITLE_HEADER_": "Traduction de <code>title</code>",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Force la traduction indépendamment du drapeau <code>is-translate</code>.",
   "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "Texte traduisible pour la fonction d'étiquetage <strong lang=\"en\">ARIA</strong>. (<code>Object -> <strong lang=\"en\">mobile</strong> et <strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_": "Variables pour les traductions.",
+  "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "Un contenu traduisible pouvant contenir des balises <strong lang=\"en\">HTML</strong> est vérifié et rendu. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> et <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concaténation)",
+  "_A_TRANSLATION_PROPS_PLACEHOLDER_DESCRIPTION_": "Texte de remplacement traduisible, par exemple pour une balise <code>input</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> et <strong lang=\"en\">desktop</strong>)",
+  "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_": "Insère le contenu <strong lang=\"en\">HTML</strong> fourni tel quel via <code>innerHTML</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> et <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concaténation)",
+  "_A_TRANSLATION_PROPS_TAG_DESCRIPTION_": "La balise <strong lang=\"en\">HTML</strong> utilisée pour l'élément conteneur. Valeur par défaut : <code>div</code>.",
+  "_A_TRANSLATION_PROPS_TEXT_AFTER_DESCRIPTION_": "Texte statique ajouté après le contenu principal sans être traduit.",
+  "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "Texte statique ajouté avant le contenu principal sans être traduit.",
+  "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "Texte traduisible. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> et <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concaténation)",
+  "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "Texte <code>title</code> traduisible affiché comme infobulle. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> et <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concaténation)",
   "_A_TRANSLATION_SHOW_LESS_": "Afficher moins",
-  "_A_TRANSLATION_SHOW_MORE_": "Afficher plus"
+  "_A_TRANSLATION_SHOW_MORE_": "Afficher plus",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "Slot par défaut pour le contenu principal du composant."
 }

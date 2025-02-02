@@ -31,8 +31,18 @@
   "_A_TRANSLATION_GROUP_TITLE_HEADER_": "Traducción de <code>title</code>",
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_DESCRIPTION_": "Demostración del uso de <code>title</code> como un objeto para traducciones específicas de dispositivos. El texto de <code>title</code> no se muestra si el ancho de la pantalla es menor que el valor definido en <a href=\"/aloha/mobile-plugin\" target=\"_blank\" lang=\"en\">AMobilePlugin</a>.",
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_HEADER_": "Traducción de <code>title</code> específica para dispositivos",
-  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Forza la traducción independientemente de la bandera <code>is-translate</code>.",
+  "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "Fuerza la traducción independientemente del indicador <code>is-translate</code>.",
   "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "Texto traducible para la función de etiquetado <strong lang=\"en\">ARIA</strong>. (<code>Object -> <strong lang=\"en\">mobile</strong> y <strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_": "Variables para traducciones.",
+  "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "Contenido traducible que puede contener etiquetas <strong lang=\"en\">HTML</strong> es validado y renderizado. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> y <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenación)",
+  "_A_TRANSLATION_PROPS_PLACEHOLDER_DESCRIPTION_": "Texto de marcador de posición traducible, por ejemplo, para una etiqueta <code>input</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> y <strong lang=\"en\">desktop</strong>)",
+  "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_": "Inserta el contenido de <strong lang=\"en\">HTML</strong> proporcionado tal cual a través de <code>innerHTML</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> y <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenación)",
+  "_A_TRANSLATION_PROPS_TAG_DESCRIPTION_": "Etiqueta <strong lang=\"en\">HTML</strong> utilizada para el elemento contenedor. Valor predeterminado: <code>div</code>.",
+  "_A_TRANSLATION_PROPS_TEXT_AFTER_DESCRIPTION_": "Texto estático añadido después del contenido principal sin traducirlo.",
+  "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "Texto estático añadido antes del contenido principal sin traducirlo.",
+  "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "Texto traducible. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> y <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenación)",
+  "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "Texto <code>title</code> traducible mostrado como un tooltip. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> y <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenación)",
   "_A_TRANSLATION_SHOW_LESS_": "Mostrar menos",
-  "_A_TRANSLATION_SHOW_MORE_": "Mostrar más"
+  "_A_TRANSLATION_SHOW_MORE_": "Mostrar más",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "Ranura predeterminada para el contenido principal del componente."
 }

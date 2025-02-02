@@ -32,7 +32,17 @@
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_DESCRIPTION_": "يوضح كيفية استخدام <code>title</code> ككائن لترجمة العنوان حسب نوع الجهاز. لا يتم عرض نص <code>title</code> إذا كان عرض الشاشة أقل من القيمة المحددة في <a href=\"/aloha/mobile-plugin\" target=\"_blank\" lang=\"en\">AMobilePlugin</a>.",
   "_A_TRANSLATION_GROUP_TITLE_OBJECT_HEADER_": "ترجمة <code>title</code> حسب نوع الجهاز",
   "_A_TRANSLATION_PROPS_ALWAYS_TRANSLATE_DESCRIPTION_": "يفرض الترجمة بغض النظر عن علامة <code>is-translate</code>.",
-  "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "نص قابل للترجمة لوظيفة وضع العلامات <strong lang=\"en\">ARIA</strong>. (<code>Object -> <strong lang=\"en\">mobile</strong> و<strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_ARIA_LABEL_DESCRIPTION_": "نص قابل للترجمة لوظيفة التسمية <strong lang=\"en\">ARIA</strong>. (<code>Object -> <strong lang=\"en\">mobile</strong> و <strong lang=\"en\">desktop</strong></code>)",
+  "_A_TRANSLATION_PROPS_EXTRA_DESCRIPTION_": "متغيرات للترجمات.",
+  "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "محتوى قابل للترجمة قد يحتوي على علامات <strong lang=\"en\">HTML</strong> يتم فحصه أمنيًا وعرضه. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> و <strong lang=\"en\">desktop</strong>، <code>Array</code> -> دمج النصوص)",
+  "_A_TRANSLATION_PROPS_PLACEHOLDER_DESCRIPTION_": "نص عنصر نائب قابل للترجمة، مثل حقل <code>input</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> و <strong lang=\"en\">desktop</strong>)",
+  "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_": "يدرج محتوى <strong lang=\"en\">HTML</strong> المقدم كما هو عبر <code>innerHTML</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> و <strong lang=\"en\">desktop</strong>، <code>Array</code> -> دمج النصوص)",
+  "_A_TRANSLATION_PROPS_TAG_DESCRIPTION_": "علامة <strong lang=\"en\">HTML</strong> المستخدمة للعنصر المغلف. القيمة الافتراضية: <code>div</code>.",
+  "_A_TRANSLATION_PROPS_TEXT_AFTER_DESCRIPTION_": "نص ثابت يضاف بعد المحتوى الرئيسي دون ترجمته.",
+  "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "نص ثابت يضاف قبل المحتوى الرئيسي دون ترجمته.",
+  "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "نص قابل للترجمة. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> و <strong lang=\"en\">desktop</strong>، <code>Array</code> -> دمج النصوص)",
+  "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "نص <code>title</code> قابل للترجمة يتم عرضه كأداة تلميح. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> و <strong lang=\"en\">desktop</strong>، <code>Array</code> -> دمج النصوص)",
   "_A_TRANSLATION_SHOW_LESS_": "عرض أقل",
-  "_A_TRANSLATION_SHOW_MORE_": "عرض المزيد"
+  "_A_TRANSLATION_SHOW_MORE_": "عرض المزيد",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "الفتحة الافتراضية للمحتوى الرئيسي للمكون."
 }

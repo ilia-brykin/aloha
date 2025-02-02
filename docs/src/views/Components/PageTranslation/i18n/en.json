@@ -37,6 +37,12 @@
   "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_": "A translatable content that may contain <strong lang=\"en\">HTML</strong> tags is sanitized and rendered. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> and <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenation)",
   "_A_TRANSLATION_PROPS_PLACEHOLDER_DESCRIPTION_": "A translatable placeholder text, e.g., for an <code>input</code> tag. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> and <strong lang=\"en\">desktop</strong>)",
   "_A_TRANSLATION_PROPS_SAFE_HTML_DESCRIPTION_": "Inserts the provided <strong lang=\"en\">HTML</strong> content as is via <code>innerHTML</code>. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> and <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenation)",
+  "_A_TRANSLATION_PROPS_TAG_DESCRIPTION_": "The <strong lang=\"en\">HTML</strong> tag used for the wrapping element. Default value: <code>div</code>.",
+  "_A_TRANSLATION_PROPS_TEXT_AFTER_DESCRIPTION_": "A static text appended after the main content without being translated.",
+  "_A_TRANSLATION_PROPS_TEXT_BEFORE_DESCRIPTION_": "A static text prepended before the main content without being translated.",
+  "_A_TRANSLATION_PROPS_TEXT_DESCRIPTION_": "A translatable text. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> and <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenation)",
+  "_A_TRANSLATION_PROPS_TITLE_DESCRIPTION_": "A translatable <code>title</code> text displayed as a tooltip. (<code>Object</code> -> <strong lang=\"en\">mobile</strong> and <strong lang=\"en\">desktop</strong>, <code>Array</code> -> Concatenation)",
   "_A_TRANSLATION_SHOW_LESS_": "Show less",
-  "_A_TRANSLATION_SHOW_MORE_": "Show more"
+  "_A_TRANSLATION_SHOW_MORE_": "Show more",
+  "_A_TRANSLATION_SLOT_DEFAULT_DESCRIPTION_": "Default slot for the main content of the component."
 }
