@@ -18,12 +18,12 @@ import hr from "./i18n/hr.json";
 import it from "./i18n/it.json";
 import ru from "./i18n/ru.json";
 
-import PageAAlertI18n from "./views/components/PageAlert/i18n/PageAAlertI18n";
+import PageAAlertI18n from "./views/Components/PageAlert/i18n/PageAAlertI18n";
 import PageARateI18n from "./views/Components/PageRate/i18n/PageARateI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageShowMoreI18n from "./views/Components/PageShowMore/i18n/PageShowMoreI18n";
 import PageTranslationI18n from "./views/Components/PageTranslation/i18n/PageTranslationI18n";
-import PageButtonI18n from "./views/components/PageButton/i18n/PageButtonI18n";
+import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
 import PageLinkI18n from "./views/Components/PageLink/i18n/PageLinkI18n";
 import PageTableI18n from "./views/Components/PageTable/i18n/PageTableI18n";
 import PageTableSimpleI18n from "./views/Components/PageTable/PageTableSimple/i18n/PageTableSimpleI18n";
@@ -87,7 +87,7 @@ import PageOneCheckboxI18n from "./views/Components/Form/PageOneCheckbox/i18n/Pa
 import PageSwitchI18n from "./views/Components/Form/PageSwitch/i18n/PageSwitchI18n";
 import PageTemplateI18n from "./views/Components/Form/PageTemplate/i18n/PageTemplateI18n";
 import PageSpinnerI18n from "./views/Components/PageSpinner/i18n/PageSpinnerI18n";
-import PageCloakI18n from "./views/components/PageCloak/i18n/PageCloakI18n";
+import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageLoadingI18n from "./views/Components/PageLoading/i18n/PageLoadingI18n";
 import PageTabsI18n from "./views/Components/PageTabs/i18n/PageTabsI18n";
 import PageGroupI18n from "./views/Components/Form/PageGroup/i18n/PageGroupI18n";
