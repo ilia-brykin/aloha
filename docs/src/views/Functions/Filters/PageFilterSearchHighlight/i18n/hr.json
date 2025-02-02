@@ -1,6 +1,7 @@
 {
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Popis dodatnih atributa u formatu <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Određuje treba li pretraga razlikovati velika i mala slova",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_": "Određuje treba li vrijednost interpretirati kao <strong lang=\"en\">HTML</strong> i pretraživati samo unutar tekstualnog sadržaja.",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Klasa <strong lang=\"en\">CSS</strong> koja se koristi za stiliziranje istaknutog dijela vrijednosti",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Pojam za pretragu koji treba istaknuti u vrijednosti",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "Tag <strong lang=\"en\">HTML</strong> koji se koristi umjesto <mark>",

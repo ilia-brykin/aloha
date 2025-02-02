@@ -1,6 +1,7 @@
 {
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "قائمة بالسمات الإضافية بتنسيق <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "تحديد ما إذا كان البحث يجب أن يكون حساسًا لحالة الأحرف",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_": "تحديد ما إذا كان يجب تفسير القيمة كـ <strong lang=\"en\">HTML</strong> والبحث داخل محتوى النص فقط.",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "فئة <strong lang=\"en\">CSS</strong> تُستخدم لتنسيق الجزء المميز من القيمة",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "مصطلح البحث الذي يجب تمييزه في القيمة",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "علامة <strong lang=\"en\">HTML</strong> لاستخدامها بدلاً من <mark>",

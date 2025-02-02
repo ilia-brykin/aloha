@@ -20,7 +20,7 @@ aloha-page(
 
     page-filter-arguments(
       :arguments-text="argumentsText"
-      function-description="filterSearchHighlight(value, { [searchModel=\"\"], [searchClass=\"a_search_highlight\"] })"
+      function-description="filterSearchHighlight(value, { [searchModel=\"\"], [searchClass=\"a_search_highlight\"], [tag=\"mark\"], [attributes=[]], [caseSensitive=false], [isHtml=false] })"
     )
 
     page-filter-search-highlight-search-model
@@ -32,6 +32,8 @@ aloha-page(
     page-filter-search-highlight-attributes
 
     page-filter-search-highlight-case-sensitive
+
+    page-filter-search-highlight-is-html
 
     page-filter-test(
       :test="test"

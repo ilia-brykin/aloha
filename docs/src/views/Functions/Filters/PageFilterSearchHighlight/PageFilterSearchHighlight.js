@@ -7,6 +7,7 @@ import PageFilterImportCompositionApi from "../../Components/PageFilterImportCom
 import PageFilterImportFunction from "../../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 import PageFilterSearchHighlightAttributes from "./PageFilterSearchHighlightAttributes/PageFilterSearchHighlightAttributes.vue";
 import PageFilterSearchHighlightCaseSensitive from "./PageFilterSearchHighlightCaseSensitive/PageFilterSearchHighlightCaseSensitive.vue";
+import PageFilterSearchHighlightIsHtml from "./PageFilterSearchHighlightIsHtml/PageFilterSearchHighlightIsHtml.vue";
 import PageFilterSearchHighlightSearchClass from "./PageFilterSearchHighlightSearchClass/PageFilterSearchHighlightSearchClass.vue";
 import PageFilterSearchHighlightSearchModel from "./PageFilterSearchHighlightSearchModel/PageFilterSearchHighlightSearchModel.vue";
 import PageFilterSearchHighlightTag from "./PageFilterSearchHighlightTag/PageFilterSearchHighlightTag.vue";
@@ -27,6 +28,7 @@ export default {
     PageFilterImportFunction,
     PageFilterSearchHighlightAttributes,
     PageFilterSearchHighlightCaseSensitive,
+    PageFilterSearchHighlightIsHtml,
     PageFilterSearchHighlightSearchClass,
     PageFilterSearchHighlightSearchModel,
     PageFilterSearchHighlightTag,

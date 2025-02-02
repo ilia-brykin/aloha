@@ -1,6 +1,7 @@
 {
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Liste des attributs supplémentaires au format <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Définit si la recherche doit être sensible à la casse",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_": "Détermine si la valeur doit être interprétée comme <strong lang=\"en\">HTML</strong> et si la recherche doit être effectuée uniquement dans le contenu textuel.",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Une classe <strong lang=\"en\">CSS</strong> utilisée pour styliser la partie mise en évidence de la valeur",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Le terme de recherche qui doit être mis en évidence dans la valeur",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "La balise <strong lang=\"en\">HTML</strong> à utiliser à la place de <mark>",

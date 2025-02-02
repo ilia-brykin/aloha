@@ -42,6 +42,13 @@ export default function ArgumentsAPI() {
       ],
       text: "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_",
     },
+    {
+      value: "[isHtml=false]",
+      types: [
+        "Boolean",
+      ],
+      text: "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_",
+    },
   ];
 
   return {

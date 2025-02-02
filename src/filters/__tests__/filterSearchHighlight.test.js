@@ -90,3 +90,40 @@ describe("filterSearchHighlight function", () => {
     expect(result).toBe("Aloha <mark class=\"a_search_highlight\">Vue</mark> <mark class=\"a_search_highlight\">vue</mark>");
   });
 });
+
+describe("filterSearchHighlight with isHtml=true", () => {
+  it("should highlight 'Vue' inside strong tag and ignore href attribute", () => {
+    const input = "Aloha <strong>Vue</strong> is a <a href=\"https://vue.com\">framework</a>";
+    const result = filterSearchHighlight(input, { searchModel: "vue", isHtml: true });
+
+    expect(result).toBe("Aloha <strong><mark class=\"a_search_highlight\">Vue</mark></strong> is a <a href=\"https://vue.com\">framework</a>");
+  });
+
+  it("should highlight multiple occurrences of 'Vue' across different tags", () => {
+    const input = "<div><p>Vue is amazing.</p><span>Vue framework</span></div>";
+    const result = filterSearchHighlight(input, { searchModel: "Vue", isHtml: true });
+
+    expect(result).toBe("<div><p><mark class=\"a_search_highlight\">Vue</mark> is amazing.</p><span><mark class=\"a_search_highlight\">Vue</mark> framework</span></div>");
+  });
+
+  it("should not break HTML structure when highlighting text", () => {
+    const input = "<div><h1>Vue.js</h1><p>This is a Vue framework.</p></div>";
+    const result = filterSearchHighlight(input, { searchModel: "Vue", isHtml: true });
+
+    expect(result).toBe("<div><h1><mark class=\"a_search_highlight\">Vue</mark>.js</h1><p>This is a <mark class=\"a_search_highlight\">Vue</mark> framework.</p></div>");
+  });
+
+  it("should NOT highlight 'Vue.js' if it is split across multiple tags", () => {
+    const input = "<p>Welcome to <strong>Vue</strong><span>.js</span> world.</p>";
+    const result = filterSearchHighlight(input, { searchModel: "Vue.js", isHtml: true });
+
+    expect(result).toBe("<p>Welcome to <strong>Vue</strong><span>.js</span> world.</p>");
+  });
+
+  it("should NOT highlight text inside HTML attributes", () => {
+    const input = "<a href=\"https://vue.com\" title=\"Vue framework\">Click here</a>";
+    const result = filterSearchHighlight(input, { searchModel: "Vue", isHtml: true });
+
+    expect(result).toBe("<a href=\"https://vue.com\" title=\"Vue framework\">Click here</a>");
+  });
+});

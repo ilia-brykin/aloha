@@ -1,6 +1,7 @@
 {
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Список дополнительных атрибутов в формате <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Определяет, должен ли поиск учитывать регистр",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_": "Определяет, следует ли интерпретировать значение как <strong lang=\"en\">HTML</strong> и выполнять поиск только внутри текстового содержимого.",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Класс <strong lang=\"en\">CSS</strong>, который будет использоваться для стилизации выделенной части значения",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Термин для поиска, который должен быть выделен в значении",
   "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "Тег <strong lang=\"en\">HTML</strong>, который будет использоваться вместо <mark>",
