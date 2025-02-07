@@ -111,8 +111,22 @@ export default function AFiltersAPI() {
     return _filterPropertyByValue(value, { mapping, defaultValue });
   };
 
-  const filterSearchHighlight = (value, { searchModel = "", searchClass = "a_search_highlight" } = {}) => {
-    return _filterSearchHighlight(value, { searchModel, searchClass });
+  const filterSearchHighlight = (value, {
+    searchModel = "",
+    searchClass = "a_search_highlight",
+    tag = "mark",
+    attributes = [],
+    caseSensitive = false,
+    isHtml = false,
+  } = {}) => {
+    return _filterSearchHighlight(value, {
+      searchModel,
+      searchClass,
+      tag,
+      attributes,
+      caseSensitive,
+      isHtml,
+    });
   };
 
   const filterUpperCase = value => {
