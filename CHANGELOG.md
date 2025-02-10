@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.1.9
+
+- Fixed arguments for `filterSearchHighlight` in CompositionAPI.
+- Added documentation for the `ATranslation` component.
+
 ## 2.1.8
 
 - **New Exports Added**
