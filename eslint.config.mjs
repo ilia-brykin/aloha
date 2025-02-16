@@ -5,6 +5,7 @@ import pluginJs from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
 import pluginVuePug from "eslint-plugin-vue-pug";
 import stylistic from "@stylistic/eslint-plugin";
+import groupImportsPlugin from "eslint-plugin-import-group";
 
 const OFF = 0;
 const WARN = 1;
@@ -25,6 +26,7 @@ export default [
     plugins: {
       "@stylistic": stylistic,
       "vue-pug": pluginVuePug,
+      "group-imports": groupImportsPlugin,
     },
     languageOptions: {
       globals: {
@@ -167,6 +169,55 @@ export default [
       "@stylistic/switch-colon-spacing": WARN,
       "@stylistic/template-curly-spacing": [WARN, "always"],
 
+      // import-simple
+      "group-imports/named-imports": ["warn", {
+        sort: "asc",
+        newline: true,
+      }],
+      "group-imports/group-imports": [
+        WARN,
+        {
+          groups: [
+            {
+              name: "Core Imports",
+              patterns: [
+                {
+                  exact: "vue", // Полный импорт
+                },
+                {
+                  exact: "vue-router", // Полный импорт
+                },
+                {
+                  exact: "aloha-vue", // Полный импорт
+                },
+              ],
+            },
+            {
+              name: "Components",
+              patterns: [
+                {
+                  regex: ".vue$", // RegExp для всех .vue файлов
+                },
+              ],
+              sort: "asc",
+            },
+            {
+              name: "Third-Party Libraries",
+              patterns: [
+                {
+                  exact: "_rest_", // Оставшиеся импорты
+                  sort: "desc",
+                },
+                {
+                  exact: "lodash-es", // Полный импорт
+                },
+              ],
+            },
+          ],
+          newlineBetweenGroups: 1,
+        },
+      ],
+
       /*
        * import
        * "import/namespace": OFF,
@@ -299,12 +350,12 @@ export default [
       "no-with": WARN,
       "prefer-const": WARN,
       "require-await": WARN,
-      "sort-imports": [WARN, {
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
-        ignoreCase: true,
-        ignoreDeclarationSort: true,
-      }],
+      // "sort-imports": [WARN, {
+      //   ignoreMemberSort: false,
+      //   memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+      //   ignoreCase: true,
+      //   ignoreDeclarationSort: true,
+      // }],
       "sort-keys": OFF,
       strict: OFF,
       yoda: [WARN, "never", { exceptRange: true }],
