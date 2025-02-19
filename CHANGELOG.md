@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.1.10
+
+- **Fix:** Corrected SCSS import order.
+
 ## 2.1.9
 
 - Fixed arguments for `filterSearchHighlight` in CompositionAPI.
