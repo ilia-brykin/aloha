@@ -11,11 +11,11 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ["vue"],
-      output: {
-        globals: {
-          vue: "Vue",
-        },
-      },
+      // output: {
+      //   globals: {
+      //     vue: "Vue",
+      //   },
+      // },
     },
   },
   plugins: [vue()],
