@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
 import path from "path";
 
 export default defineConfig({
@@ -11,12 +10,12 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ["vue"],
-      // output: {
-      //   globals: {
-      //     vue: "Vue",
-      //   },
-      // },
+      output: {
+        globals: {
+          vue: "Vue",
+        },
+      },
+      treeshake: false,
     },
   },
-  plugins: [vue()],
 });
