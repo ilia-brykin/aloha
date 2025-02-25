@@ -6,7 +6,7 @@ import {
 import PanelMixin from "../../mixins/PanelMixin";
 
 import AKeysCode from "../../../../const/AKeysCode";
-import moment from "moment";
+import moment from "moment/dist/moment";
 import {
   formatDate,
 } from "../../utils";

@@ -5,7 +5,7 @@ import {
 } from "@jest/globals";
 
 import filterDate from "../filterDate";
-import moment from "moment";
+import moment from "moment/dist/moment";
 
 describe("filterDate function", () => {
   it("returns empty string when input is null, undefined or an empty string", () => {
