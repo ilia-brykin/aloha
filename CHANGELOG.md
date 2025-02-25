@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.1.12
+
+- Fix import from moment.js
+
+## 2.1.11
+
+- Test version
+
 ## 2.1.10
 
 - **Fix:** Corrected SCSS import order.
