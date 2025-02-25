@@ -32,7 +32,7 @@ import {
 import {
   transformDate,
 } from "./utils/transform";
-import moment from "moment/dist/moment";
+import moment from "moment";
 
 
 // @vue/component

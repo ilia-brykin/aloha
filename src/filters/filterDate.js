@@ -1,4 +1,4 @@
-import moment from "moment/dist/moment";
+import moment from "moment";
 import {
   isFunction,
   isNil,

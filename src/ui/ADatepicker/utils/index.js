@@ -1,5 +1,5 @@
 // import fecha from "fecha";
-import moment from "moment/dist/moment";
+import moment from "moment";
 
 export function isPlainObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";

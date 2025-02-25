@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.1.13
+
+- Fix 2 import from moment.js
+
 ## 2.1.12
 
 - Fix import from moment.js

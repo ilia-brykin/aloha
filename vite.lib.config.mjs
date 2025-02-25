@@ -3,7 +3,6 @@ import path from "path";
 
 export default defineConfig({
   build: {
-    target: "es2022",
     lib: {
       entry: path.resolve(__dirname, "src/index.js"),
       name: "AlohaVue",
@@ -12,7 +11,7 @@ export default defineConfig({
     rollupOptions: {
       external: [
         "vue",
-        "moment/dist/moment",
+        "moment",
       ],
       output: {
         globals: {

@@ -4,7 +4,7 @@ import {
   toRef,
 } from "vue";
 
-import moment from "moment/dist/moment";
+import moment from "moment";
 
 import AKeysCode from "../../../const/AKeysCode";
 import {
