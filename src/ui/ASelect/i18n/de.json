@@ -2,5 +2,6 @@
   "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Keine Auswahl]",
   "_A_SELECT_SEARCH_": "Suche",
   "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} ausgewählt",
-  "_A_SELECT_SELECTED_{{count}}_": "{{count}} ausgewählt"
+  "_A_SELECT_SELECTED_{{count}}_": "{{count}} ausgewählt",
+  "_A_SELECT_EXCLUSIVE_": "Nur diese Option auswählen"
 }

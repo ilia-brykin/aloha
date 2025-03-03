@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SELECT_EXCLUSIVE_OPTION_HEADER_"
+  description="_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_"
+  :props="['exclusive-option-label', 'exclusive-option-value', 'is-exclusive-option-enabled']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-select(
+        v-model="model"
+        :data="data"
+        :exclusive-option-label="exclusiveOptionLabel"
+        :exclusive-option-value="exclusiveOptionValue"
+        :is-exclusive-option-enabled="true"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+        type="multiselect"
+      )
+      div model: {{ model }}

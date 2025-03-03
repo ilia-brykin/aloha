@@ -20,7 +20,9 @@ export default function ModelChangeAPI(props, {
   togglePopover = () => {},
 }) {
   const countMultiselect = toRef(props, "countMultiselect");
+  const exclusiveOptionValue = toRef(props, "exclusiveOptionValue");
   const isCloseByClick = toRef(props, "isCloseByClick");
+  const isExclusiveOptionEnabled = toRef(props, "isExclusiveOptionEnabled");
   const deselectable = toRef(props, "deselectable");
   const maxCountMultiselect = toRef(props, "maxCountMultiselect");
   const modelValue = toRef(props, "modelValue");
@@ -47,6 +49,11 @@ export default function ModelChangeAPI(props, {
       if (isSelected) {
         const INDEX = modelValueLocal.indexOf(currentValue);
         modelValueLocal.splice(INDEX, 1);
+        if (isExclusiveOptionEnabled.value && currentValue === exclusiveOptionValue.value) {
+          modelValueLocal = [];
+        }
+      } else if (isExclusiveOptionEnabled.value && currentValue === exclusiveOptionValue.value) {
+        modelValueLocal = [currentValue];
       } else {
         if (isMaxSelected.value) {
           return;
