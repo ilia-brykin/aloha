@@ -10,6 +10,8 @@
   "_A_SELECT_ELEMENT_6_": "Element 6",
   "_A_SELECT_ELEMENT_7_": "Element 7",
   "_A_SELECT_ELEMENT_8_": "Element 8",
+  "_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_": "Eine exklusive Option kann als eine besondere Wahl definiert werden, die, wenn sie ausgewählt wird, die Auswahl anderer Optionen verhindert oder alle zuvor ausgewählten Optionen abwählt. Dies ist nützlich, wenn eine Auswahl alle anderen überschreibt, wie bei \"Keines davon\" oder \"Alle auswählen\".",
+  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Exklusive Option",
   "_A_SELECT_GROUP_GROUPS_DESCRIPTION_": "Auswahlmöglichkeiten in einem Dropdown können durch Gruppierung nach einem oder mehreren Schlüsseln angepasst werden.",
   "_A_SELECT_GROUP_GROUPS_HEADER_": "Gruppierung",
   "_A_SELECT_GROUP_KEY_DISABLED_DESCRIPTION_": "Werte von Auswahlmöglichkeiten in einem Dropdown können anhand des Objektschlüssels für jede Option deaktiviert werden.",

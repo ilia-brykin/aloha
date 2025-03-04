@@ -10,6 +10,8 @@
   "_A_SELECT_ELEMENT_6_": "Element 6",
   "_A_SELECT_ELEMENT_7_": "Element 7",
   "_A_SELECT_ELEMENT_8_": "Element 8",
+  "_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_": "Moguće je definirati posebnu opciju koja, kada se odabere, sprječava odabir drugih opcija ili poništava sve prethodno odabrane opcije. Ovo je korisno u slučajevima kada jedan odabir poništava sve ostale, na primjer \"Nijedno od navedenog\" ili \"Odaberi sve\".",
+  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Posebna opcija",
   "_A_SELECT_GROUP_GROUPS_DESCRIPTION_": "Opcije u padajućem izborniku mogu se prilagoditi grupiranjem po jednom ili više ključeva.",
   "_A_SELECT_GROUP_GROUPS_HEADER_": "Grupiranje",
   "_A_SELECT_GROUP_KEY_DISABLED_DESCRIPTION_": "Izbor opcije u padajućem izborniku može se onemogućiti na temelju atributa svake od opcija.",

@@ -18,6 +18,7 @@ import {
 export default function UiSearchAPI(props, { emit }, {
   data = computed(() => []),
   dataExtra = computed(() => []),
+  exclusiveOption = computed(() => undefined),
   groupsForLever = computed(() => undefined),
   hasKeyGroup = computed(() => false),
   htmlIdLocal = computed(() => ""),
@@ -35,6 +36,7 @@ export default function UiSearchAPI(props, { emit }, {
   const searching = ref(false);
   const searchingElements = ref({});
   const searchingElementsExtra = ref({});
+  const searchingElementsExclusive = ref({});
   const searchingGroups = ref({});
   const searchingGroupsWithSearchInGroup = ref({});
   const searchOutsideRef = ref(undefined);
@@ -107,6 +109,7 @@ export default function UiSearchAPI(props, { emit }, {
   const setElementsVisibleWithSearch = () => {
     const ELEMENTS_EXTRA_VISIBLE = {};
     const ELEMENTS_VISIBLE = {};
+    const ELEMENTS_EXCLUSIVE_VISIBLE = {};
     const GROUPS_VISIBLE = {};
     if (modelSearch.value) {
       searching.value = true;
@@ -144,13 +147,26 @@ export default function UiSearchAPI(props, { emit }, {
           ELEMENTS_EXTRA_VISIBLE[ELEMENT_ID] = true;
         }
       });
+      if (exclusiveOption.value) {
+        const ELEMENT_LABEL = exclusiveOption.value[AKeyLabel];
+        const ELEMENT_ID = exclusiveOption.value[AKeyId];
+        if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
+          ELEMENTS_EXCLUSIVE_VISIBLE[ELEMENT_ID] = true;
+        }
+      }
     } else {
       searching.value = false;
     }
     searchingElements.value = ELEMENTS_VISIBLE;
     searchingElementsExtra.value = ELEMENTS_EXTRA_VISIBLE;
+    searchingElementsExclusive.value = ELEMENTS_EXCLUSIVE_VISIBLE;
     searchingGroups.value = GROUPS_VISIBLE;
   };
+
+  const hasNotElementsExclusiveWithSearch = computed(() => {
+    return !!(searching.value &&
+      isEmpty(searchingElementsExclusive.value));
+  });
 
   const hasNotElementsExtraWithSearch = computed(() => {
     return !!(searching.value &&
@@ -161,6 +177,7 @@ export default function UiSearchAPI(props, { emit }, {
     return !!(searching.value &&
       isEmpty(searchingElements.value) &&
       hasNotElementsExtraWithSearch.value &&
+      hasNotElementsExclusiveWithSearch.value &&
       !hasAtLeastOneElementInGroupSearch.value);
   });
 
@@ -193,6 +210,7 @@ export default function UiSearchAPI(props, { emit }, {
   };
 
   return {
+    hasNotElementsExclusiveWithSearch,
     hasNotElementsExtraWithSearch,
     hasNotElementsWithSearch,
     idForButtonSearchOutside,
@@ -202,6 +220,7 @@ export default function UiSearchAPI(props, { emit }, {
     onSearchOutside,
     searching,
     searchingElements,
+    searchingElementsExclusive,
     searchingElementsExtra,
     searchingGroups,
     searchingGroupsWithSearchInGroup,

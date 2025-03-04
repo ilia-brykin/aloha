@@ -7,6 +7,7 @@ import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageSelectBasic from "./PageSelectBasic/PageSelectBasic.vue";
 import PageSelectDataExtra from "./PageSelectDataExtra/PageSelectDataExtra.vue";
+import PageSelectExclusiveOption from "./PageSelectExclusiveOption/PageSelectExclusiveOption.vue";
 import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
 import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
@@ -28,6 +29,7 @@ export default {
     ATranslation,
     PageSelectBasic,
     PageSelectDataExtra,
+    PageSelectExclusiveOption,
     PageSelectGroup,
     PageSelectKeyDisabled,
     PageSelectSearch,
