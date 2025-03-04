@@ -7,6 +7,17 @@
 ---
 # Versions
 
+## 1.5.0
+
+### Enhancements:
+- Expanded `ASelect` component by adding three new props:
+  - `exclusive-option-label`
+  - `exclusive-option-value`
+  - `is-exclusive-option-enabled`
+
+### Description:
+An exclusive option can be defined as a special choice that, when selected, prevents the selection of any other options or deselects all previously chosen options.
+
 ## 1.4.0
 
 ### New Arguments for `filterSearchHighlight`
