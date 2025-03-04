@@ -1,7 +1,7 @@
 {
+  "_A_SELECT_EXCLUSIVE_": "اختر هذا الخيار فقط",
   "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[No choices]",
-  "_A_SELECT_SEARCH_": "Search",
   "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} selected",
-  "_A_SELECT_SELECTED_{{count}}_": "{{count}} selected",
-  "_A_SELECT_EXCLUSIVE_": "اختر هذا الخيار فقط"
+  "_A_SELECT_SEARCH_": "Search",
+  "_A_SELECT_SELECTED_{{count}}_": "{{count}} selected"
 }

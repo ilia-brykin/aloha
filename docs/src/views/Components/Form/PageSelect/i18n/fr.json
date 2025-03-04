@@ -1,3 +1,4 @@
 {
-
+  "_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_": "Une option exclusive peut être définie comme un choix spécial qui, une fois sélectionné, empêche la sélection d'autres options ou désélectionne toutes les options précédemment choisies.",
+  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Option exclusive"
 }

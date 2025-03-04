@@ -9,14 +9,30 @@ export default function DisabledAPI(props) {
   const isExclusiveOptionEnabled = toRef(props, "isExclusiveOptionEnabled");
   const modelValue = toRef(props, "modelValue");
 
-  const disabledLocal = computed(() => {
+  const isExclusiveOptionSelected = computed(() => {
     if (isExclusiveOptionEnabled.value) {
       return modelValue.value && modelValue.value.indexOf(exclusiveOptionValue.value) !== -1;
     }
-    return disabled.value;
+
+    return false;
+  });
+
+  const disabledLocal = computed(() => {
+    return isExclusiveOptionSelected.value || disabled.value;
+  });
+
+  const disabledLocalAttribut = computed(() => {
+    return disabledLocal.value || undefined;
+  });
+
+  const disabledAttribut = computed(() => {
+    return disabled.value || undefined;
   });
 
   return {
+    disabledAttribut,
     disabledLocal,
+    disabledLocalAttribut,
+    isExclusiveOptionSelected,
   };
 }

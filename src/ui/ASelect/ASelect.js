@@ -501,7 +501,10 @@ export default {
     });
 
     const {
+      disabledAttribut,
       disabledLocal,
+      disabledLocalAttribut,
+      isExclusiveOptionSelected,
     } = DisabledAPI(props);
 
     const {
@@ -518,7 +521,6 @@ export default {
       modelValueMultiselectFiltered,
     } = ModelAPI(props, {
       dataKeyByKeyIdLocal,
-      exclusiveOption,
     });
 
     const {
@@ -546,6 +548,7 @@ export default {
     });
 
     const {
+      hasNotElementsExclusiveWithSearch,
       hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       idForButtonSearchOutside,
@@ -555,6 +558,7 @@ export default {
       onSearchOutside,
       searching,
       searchingElements,
+      searchingElementsExclusive,
       searchingElementsExtra,
       searchingGroups,
       searchingGroupsWithSearchInGroup,
@@ -565,6 +569,7 @@ export default {
     } = UiSearchAPI(props, context, {
       data: dataSort,
       dataExtra: dataExtraLocal,
+      exclusiveOption,
       groupsForLever,
       hasKeyGroup,
       htmlIdLocal,
@@ -593,6 +598,7 @@ export default {
       changeModel,
       dataAll,
       dataKeyByKeyIdLocal,
+      disabledLocal,
       isMultiselect,
       togglePopover,
     });
@@ -650,13 +656,17 @@ export default {
       dataLocal,
       dataSort,
       deleteExceededItems,
+      disabledAttribut,
       disabledLocal,
+      disabledLocalAttribut,
       errorsId,
+      exclusiveDataKeyByKeyIdLocal,
       exclusiveOption,
       groupsForLever,
       handleKeydown,
       hasDataExtra,
       hasKeyGroup,
+      hasNotElementsExclusiveWithSearch,
       hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       hasSelectedTitle,
@@ -666,11 +676,11 @@ export default {
       idForList,
       isDividerSelectDeselectVisible,
       isErrors,
+      isExclusiveOptionSelected,
       isModelLengthLimitExceeded,
       isModelValue,
       isMultiselect,
       isOpen,
-      exclusiveDataKeyByKeyIdLocal,
       limitExceededModelData,
       loadingLocal,
       loadingSearchApi,
@@ -692,6 +702,7 @@ export default {
       popperContainerIdSelector,
       searching,
       searchingElements,
+      searchingElementsExclusive,
       searchingElementsExtra,
       searchingGroups,
       searchingGroupsWithSearchInGroup,
@@ -903,7 +914,13 @@ export default {
                       class: "a_select_menu__child",
                     }, [
                       (this.isMultiselect && this.isSelectAll) && h("div", {
-                        class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        class: [
+                          "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                          {
+                            a_select__menu__link_disabled: this.disabledLocal,
+                          },
+                        ],
+                        disabled: this.disabledLocalAttribut,
                         role: "option",
                         tabindex: "-1",
                         onClick: this.onSelectAll,
@@ -919,7 +936,13 @@ export default {
                         h("span", null, this.textSelectAll),
                       ]),
                       (this.isMultiselect && this.isDeselectAll) && h("div", {
-                        class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        class: [
+                          "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                          {
+                            a_select__menu__link_disabled: this.disabled,
+                          },
+                        ],
+                        disabled: this.disabledAttribut,
                         role: "option",
                         tabindex: "-1",
                         onClick: this.onDeselectAll,
@@ -952,7 +975,7 @@ export default {
                           itemIndex: 0,
                           modelSearch: this.modelSearchLowerCase,
                           modelValue: this.modelValue,
-                          searchingElements: this.searchingElements,
+                          searchingElements: this.searchingElementsExclusive,
                           searchingGroups: this.searchingGroups,
                           type: this.type,
                           onChangeModelValue: this.onChangeModelValue,
@@ -977,7 +1000,7 @@ export default {
                             onChangeModelValue: this.onChangeModelValue,
                           }, this.$slots);
                         }),
-                        !this.hasNotElementsExtraWithSearch && h("div", {
+                        !this.hasNotElementsExtraWithSearch && !this.hasNotElementsExclusiveWithSearch && h("div", {
                           class: "a_select__divider",
                           ariaHidden: true,
                         }),

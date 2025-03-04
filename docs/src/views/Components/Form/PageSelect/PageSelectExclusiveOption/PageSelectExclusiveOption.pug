@@ -15,7 +15,22 @@ aloha-example(
         :is-exclusive-option-enabled="true"
         key-id="id"
         key-label="label"
-        label="Aloha"
+        label="Aloha 1"
+        type="multiselect"
+      )
+      div model: {{ model }}
+      a-select.a_mt_3(
+        v-model="model"
+        :data="data"
+        :exclusive-option-label="exclusiveOptionLabel"
+        :exclusive-option-value="exclusiveOptionValue"
+        :is-deselect-all="true"
+        :is-exclusive-option-enabled="true"
+        :is-select-all="true"
+        :search="true"
+        key-id="id"
+        key-label="label"
+        label="Aloha 2"
         type="multiselect"
       )
       div model: {{ model }}

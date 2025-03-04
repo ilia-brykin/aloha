@@ -1,7 +1,6 @@
 import {
   ref,
 } from "vue";
-
 import {
   ASelect,
 } from "aloha-vue";
@@ -47,10 +46,8 @@ export default {
         id: "aloha_5",
       },
     ];
-
     const exclusiveOptionLabel = "_A_SELECT_EXCLUSIVE_";
     const exclusiveOptionValue = "aloha_exclusive";
-
     const model = ref(undefined);
 
     return {
