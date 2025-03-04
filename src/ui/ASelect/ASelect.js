@@ -19,7 +19,9 @@ import ASelectValueCloseable from "./ASelectValueCloseable";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import DisabledAPI from "./compositionAPI/DisabledAPI";
 import DividerAPI from "./compositionAPI/DividerAPI";
+import ExclusiveOptionsAPI from "./compositionAPI/ExclusiveOptionsAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
@@ -138,6 +140,16 @@ export default {
       required: false,
       default: () => [],
     },
+    exclusiveOptionLabel: {
+      type: String,
+      required: false,
+      default: "_A_SELECT_EXCLUSIVE_",
+    },
+    exclusiveOptionValue: {
+      type: [String, Number, Boolean],
+      required: false,
+      default: "_exclusive_",
+    },
     extra: {
       type: Object,
       required: false,
@@ -194,6 +206,18 @@ export default {
       type: Boolean,
       required: false,
       default: () => selectPluginOptions.value.propsDefault.isDeselectAll,
+    },
+    isExclusiveOptionEnabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+      validator: (value, props) => {
+        const type = props?.type;
+        if (type !== "multiselect") {
+          return value === false;
+        }
+        return true;
+      },
     },
     isHide: {
       type: Boolean,
@@ -474,6 +498,18 @@ export default {
     });
 
     const {
+      disabledAttribut,
+      disabledLocal,
+      disabledLocalAttribut,
+      isExclusiveOptionSelected,
+    } = DisabledAPI(props);
+
+    const {
+      exclusiveOption,
+      exclusiveDataKeyByKeyIdLocal,
+    } = ExclusiveOptionsAPI(props);
+
+    const {
       isModelLengthLimitExceeded,
       isModelValue,
       isMultiselect,
@@ -509,6 +545,7 @@ export default {
     });
 
     const {
+      hasNotElementsExclusiveWithSearch,
       hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       idForButtonSearchOutside,
@@ -518,6 +555,7 @@ export default {
       onSearchOutside,
       searching,
       searchingElements,
+      searchingElementsExclusive,
       searchingElementsExtra,
       searchingGroups,
       searchingGroupsWithSearchInGroup,
@@ -528,6 +566,7 @@ export default {
     } = UiSearchAPI(props, context, {
       data: dataSort,
       dataExtra: dataExtraLocal,
+      exclusiveOption,
       groupsForLever,
       hasKeyGroup,
       htmlIdLocal,
@@ -556,6 +595,7 @@ export default {
       changeModel,
       dataAll,
       dataKeyByKeyIdLocal,
+      disabledLocal,
       isMultiselect,
       togglePopover,
     });
@@ -613,11 +653,17 @@ export default {
       dataLocal,
       dataSort,
       deleteExceededItems,
+      disabledAttribut,
+      disabledLocal,
+      disabledLocalAttribut,
       errorsId,
+      exclusiveDataKeyByKeyIdLocal,
+      exclusiveOption,
       groupsForLever,
       handleKeydown,
       hasDataExtra,
       hasKeyGroup,
+      hasNotElementsExclusiveWithSearch,
       hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
       hasSelectedTitle,
@@ -627,6 +673,7 @@ export default {
       idForList,
       isDividerSelectDeselectVisible,
       isErrors,
+      isExclusiveOptionSelected,
       isModelLengthLimitExceeded,
       isModelValue,
       isMultiselect,
@@ -652,6 +699,7 @@ export default {
       popperContainerIdSelector,
       searching,
       searchingElements,
+      searchingElementsExclusive,
       searchingElementsExtra,
       searchingGroups,
       searchingGroupsWithSearchInGroup,
@@ -717,7 +765,7 @@ export default {
               "aria-haspopup": "listbox",
               ariaExpanded: this.isOpen,
               ariaRequired: this.required,
-              ariaDisabled: this.disabled,
+              ariaDisabled: this.disabledLocal,
               ariaInvalid: this.isErrors,
               "aria-describedby": this.ariaDescribedbyLocal,
               title: this.hasSelectedTitle ? this.selectedTitle : undefined, // TODO: title
@@ -741,7 +789,7 @@ export default {
                           return h(ASelectValueCloseable, {
                             key: index,
                             alwaysTranslate: this.alwaysTranslate,
-                            data: this.dataKeyByKeyIdLocal[item] || {},
+                            data: this.dataKeyByKeyIdLocal[item] || this.exclusiveDataKeyByKeyIdLocal[item] || {},
                             slotName: this.slotName,
                             disabled: this.disabled,
                             onChangeModelValue: this.onChangeModelValue,
@@ -751,7 +799,7 @@ export default {
                           key: this.countMultiselect,
                           alwaysTranslate: this.alwaysTranslate,
                           data: this.limitExceededModelData,
-                          disabled: this.disabled,
+                          disabled: this.disabledLocal,
                           hideDeleteButton: !this.exceededItemsDeletable,
                           onChangeModelValue: this.deleteExceededItems,
                         }),
@@ -834,7 +882,7 @@ export default {
                           h(AButton, {
                             alwaysTranslate: this.alwaysTranslate,
                             ariaDisabled: this.loadingSearchApi,
-                            disabled: this.disabled,
+                            disabled: this.disabledLocal,
                             class: "a_btn a_btn_primary a_select__element_clickable",
                             type: "submit",
                             iconLeft: "Search",
@@ -863,7 +911,13 @@ export default {
                       class: "a_select_menu__child",
                     }, [
                       (this.isMultiselect && this.isSelectAll) && h("div", {
-                        class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        class: [
+                          "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                          {
+                            a_select__menu__link_disabled: this.disabledLocal,
+                          },
+                        ],
+                        disabled: this.disabledLocalAttribut,
                         role: "option",
                         tabindex: "-1",
                         onClick: this.onSelectAll,
@@ -879,7 +933,13 @@ export default {
                         h("span", null, this.textSelectAll),
                       ]),
                       (this.isMultiselect && this.isDeselectAll) && h("div", {
-                        class: "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                        class: [
+                          "a_select__menu__link a_select__menu__link_selected a_select__element_clickable",
+                          {
+                            a_select__menu__link_disabled: this.disabled,
+                          },
+                        ],
+                        disabled: this.disabledAttribut,
                         role: "option",
                         tabindex: "-1",
                         onClick: this.onDeselectAll,
@@ -901,6 +961,23 @@ export default {
                       (this.loadingLocal || this.loadingSearchApi) ?
                         h(ACloak) :
                         "",
+                      (this.isMultiselect && this.isExclusiveOptionEnabled) && h("div", {}, [
+                        h(ASelectElement, {
+                          key: this.exclusiveOptionValue,
+                          id: this.htmlIdLocal,
+                          alwaysTranslate: true,
+                          dataItem: this.exclusiveOption,
+                          disabled: false,
+                          searching: this.searching,
+                          itemIndex: 0,
+                          modelSearch: this.modelSearchLowerCase,
+                          modelValue: this.modelValue,
+                          searchingElements: this.searchingElementsExclusive,
+                          searchingGroups: this.searchingGroups,
+                          type: this.type,
+                          onChangeModelValue: this.onChangeModelValue,
+                        }, this.$slots),
+                      ]),
                       this.hasDataExtra && h("div", {}, [
                         ...this.dataExtraLocal.map((item, itemIndex) => {
                           return h(ASelectElement, {
@@ -908,10 +985,10 @@ export default {
                             id: this.htmlIdLocal,
                             alwaysTranslate: this.alwaysTranslate,
                             dataItem: item,
-                            disabled: this.disabled,
+                            disabled: this.disabledLocal,
                             searching: this.searching,
                             searchingElements: this.searchingElementsExtra,
-                            itemIndex,
+                            itemIndex: this.isExclusiveOptionEnabled ? itemIndex + 1 : itemIndex,
                             keyDisabled: this.keyDisabled,
                             modelSearch: this.modelSearchLowerCase,
                             modelValue: this.modelValue,
@@ -920,7 +997,7 @@ export default {
                             onChangeModelValue: this.onChangeModelValue,
                           }, this.$slots);
                         }),
-                        !this.hasNotElementsExtraWithSearch && h("div", {
+                        !this.hasNotElementsExtraWithSearch && !this.hasNotElementsExclusiveWithSearch && h("div", {
                           class: "a_select__divider",
                           ariaHidden: true,
                         }),
@@ -931,7 +1008,7 @@ export default {
                             id: `${ this.htmlIdLocal }_lev_0`,
                             alwaysTranslate: this.alwaysTranslate,
                             dataGrouped: this.dataGrouped,
-                            disabled: this.disabled,
+                            disabled: this.disabledLocal,
                             groupsForLever: this.groupsForLever,
                             isErrors: this.isErrors,
                             keyDisabled: this.keyDisabled,
@@ -955,7 +1032,7 @@ export default {
                                 id: this.htmlIdLocal,
                                 alwaysTranslate: this.alwaysTranslate,
                                 dataItem: item,
-                                disabled: this.disabled,
+                                disabled: this.disabledLocal,
                                 searching: this.searching,
                                 searchingElements: this.searchingElements,
                                 itemIndex,

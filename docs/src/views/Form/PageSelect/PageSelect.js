@@ -5,6 +5,7 @@ import AIcon from "../../../../../src/AIcon/AIcon";
 import ASelect from "../../../../../src/ui/ASelect/ASelect";
 import PageSelectBasic from "./PageSelectBasic/PageSelectBasic.vue";
 import PageSelectDataExtra from "./PageSelectDataExtra/PageSelectDataExtra.vue";
+import PageSelectExclusiveOption from "./PageSelectExclusiveOption/PageSelectExclusiveOption.vue";
 import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
 import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
@@ -26,6 +27,7 @@ export default {
     ASelect,
     PageSelectBasic,
     PageSelectDataExtra,
+    PageSelectExclusiveOption,
     PageSelectGroup,
     PageSelectSearch,
     PageSelectKeyDisabled,
