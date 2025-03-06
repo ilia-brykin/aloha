@@ -212,6 +212,10 @@ export default {
       required: false,
       default: false,
       validator: (value, props) => {
+        if (!props) {
+          return true;
+        }
+
         const type = props?.type;
         if (type !== "multiselect") {
           return value === false;
