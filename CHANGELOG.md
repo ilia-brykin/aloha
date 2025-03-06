@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.5.1
+
+- `ASelect`: Fixed validator for isExclusiveOptionEnabled.
+
 ## 1.5.0
 
 ### Enhancements:
