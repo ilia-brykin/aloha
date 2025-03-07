@@ -402,7 +402,11 @@ export function callHttpRequestAndCheckSavedApi({
         if (error?.code === "ERR_CANCELED") { // workaround. we'll remake this in v2.0.0
           return reject(error);
         }
-        if (ignoreErrorHandler || checkErrorStatus({ error: error.response, showError, client: API, reject, resolve })) {
+        if (isFunction(ignoreErrorHandler)) {
+          if (ignoreErrorHandler({ error: error.response, showError, client: API })) {
+            return reject(error.response);
+          }
+        } else if (ignoreErrorHandler || checkErrorStatus({ error: error.response, showError, client: API, reject, resolve })) {
           return reject(error.response);
         }
       },
