@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.6.0
+
+- `AHttpAPI`: ignoreErrorHandler as function
+
 ## 1.5.1
 
 - `ASelect`: Fixed validator for isExclusiveOptionEnabled.
