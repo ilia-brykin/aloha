@@ -1,4 +1,6 @@
 {
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Visualizza messaggi di avviso importanti.",
   "_A_ALERT_COMPONENT_NAME_": "avviso",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Emesso quando l'avviso viene chiuso.",

@@ -22,6 +22,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "aria-atomic",
+      description: "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "btn-close-attributes",
       description: "_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_",
       type: "Object",
@@ -75,6 +82,13 @@ export default function PropsAPI() {
       description: "_A_ALERT_PROPS_REMOVE_ALERT_ON_CLOSE_DESCRIPTION_",
       type: "Boolean",
       default: false,
+      required: false,
+    },
+    {
+      name: "role",
+      description: "_A_ALERT_PROPS_ROLE_DESCRIPTION_",
+      type: "String",
+      default: "alert",
       required: false,
     },
     {
