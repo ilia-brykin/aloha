@@ -6,6 +6,7 @@ import AButton from "../AButton/AButton";
 import AIcon from "../AIcon/AIcon";
 import ATranslation from "../ATranslation/ATranslation";
 
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import CloseAPI from "./compositionAPI/CloseAPI";
 import IconAPI from "./compositionAPI/IconAPI";
@@ -30,6 +31,11 @@ export default {
     alwaysTranslate: {
       type: Boolean,
       required: false,
+    },
+    ariaAtomic: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     btnCloseAttributes: {
       type: Object,
@@ -70,6 +76,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => alertPluginOptions.value.propsDefault.removeAlertOnClose,
+    },
+    role: {
+      type: String,
+      required: false,
+      default: "alert",
     },
     safeHtml: {
       type: String,
@@ -118,6 +129,11 @@ export default {
       iconLocal,
     } = IconAPI(props);
 
+    const {
+      ariaAtomicLocal,
+      roleLocal,
+    } = AttributesAPI(props);
+
     expose({
       close,
       isHidden,
@@ -125,9 +141,11 @@ export default {
 
     return {
       alertClassLocal,
+      ariaAtomicLocal,
       close,
       iconLocal,
       isHidden,
+      roleLocal,
     };
   },
   render() {
@@ -143,8 +161,8 @@ export default {
       ],
     }, [
       h("div", {
-        role: "alert",
-        ariaAtomic: true,
+        role: this.roleLocal,
+        ariaAtomic: this.ariaAtomicLocal,
       }, [
         this.isVisible && h("div", {
           class: [this.alertClass, this.alertClassLocal],

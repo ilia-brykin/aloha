@@ -1,4 +1,6 @@
 {
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Komponenta koja služi za prikaz važnih upozorenja.",
   "_A_ALERT_COMPONENT_NAME_": "Upozorenje",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Aktivira se zatvaranjem upozorenja.",
