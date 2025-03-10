@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.7.0
+
+- `AAlert`: new props ariaAtomic and role
+
 ## 1.6.0
 
 - `AHttpAPI`: ignoreErrorHandler as function
