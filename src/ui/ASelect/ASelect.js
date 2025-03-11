@@ -18,6 +18,7 @@ import ASelectLabelElement from "./ASelectLabelElement";
 import ASelectValueCloseable from "./ASelectValueCloseable";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import APopupAPI from "../../compositionAPI/APopupAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import DividerAPI from "./compositionAPI/DividerAPI";
@@ -462,6 +463,11 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      closePopup,
+      openPopup,
+    } = APopupAPI();
+
+    const {
       dataAll,
       dataFromServer,
       dataExtraLocal,
@@ -586,7 +592,11 @@ export default {
       menuParentRef,
       menuRef,
       togglePopover,
-    } = ToggleAPI(props, context);
+    } = ToggleAPI(props, context, {
+      closePopup,
+      htmlIdLocal,
+      openPopup,
+    });
     
     const {
       deleteExceededItems,
@@ -641,6 +651,9 @@ export default {
 
     onBeforeUnmount(() => {
       destroyEventBusClickLabel();
+      closePopup({
+        id: htmlIdLocal.value,
+      });
     });
 
     return {
