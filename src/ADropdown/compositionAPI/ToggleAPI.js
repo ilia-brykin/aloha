@@ -15,15 +15,18 @@ import {
 } from "lodash-es";
 
 export default function ToggleAPI(props, { emit }, {
+  closePopup = () => {},
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
   destroyPopover = () => {},
+  openPopup = () => {},
   setFocusToFirstElement = () => {},
   startPopper = () => {},
 }) {
   const disabled = toRef(props, "disabled");
   const dropdownRenderDefault = toRef(props, "dropdownRenderDefault");
   const elementsForArrows = toRef(props, "elementsForArrows");
+  const id = toRef(props, "id");
   const isCloseByClickInside = toRef(props, "isCloseByClickInside");
   const isCloseByClickOutside = toRef(props, "isCloseByClickOutside");
   const isListWidthSameWithButton = toRef(props, "isListWidthSameWithButton");
@@ -183,6 +186,9 @@ export default function ToggleAPI(props, { emit }, {
         });
       }
       openDropdownGlobal();
+      openPopup({
+        id: id.value,
+      });
       emit("open");
     });
   };
@@ -227,6 +233,9 @@ export default function ToggleAPI(props, { emit }, {
       setFocusToButton();
     }
     triggerOpen.value = undefined;
+    closePopup({
+      id: id.value,
+    });
     emit("close");
   }
 

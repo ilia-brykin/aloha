@@ -25,6 +25,10 @@ const ELEMENTS_FOR_ARROWS = ".a_select__element_clickable:not([disabled]):not([d
 
 export default function ToggleAPI(props, {
   emit,
+}, {
+  closePopup = () => {},
+  htmlIdLocal = computed(() => ""),
+  openPopup = () => {},
 }) {
   const disabled = toRef(props, "disabled");
   const menuWidthType = toRef(props, "menuWidthType");
@@ -113,6 +117,9 @@ export default function ToggleAPI(props, {
   };
 
   const onOpen = () => {
+    openPopup({
+      id: htmlIdLocal.value,
+    });
     emit("open");
   };
 
@@ -228,6 +235,9 @@ export default function ToggleAPI(props, {
     destroyPopover();
     destroyEventClickOutside();
     destroyEventPressArrows();
+    closePopup({
+      id: htmlIdLocal.value,
+    });
   }
 
   onBeforeUnmount(() => destroyEventPressArrows());

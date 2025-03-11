@@ -1,7 +1,7 @@
 import {
   h,
   onBeforeUnmount,
-  Teleport,
+  Teleport, toRef,
   withDirectives,
 } from "vue";
 
@@ -12,6 +12,7 @@ import AIcon from "../AIcon/AIcon";
 import AOnHooks from "../directives/AOnHooks";
 
 import ActionsAPI from "./compositionAPI/ActionsAPI";
+import APopupAPI from "../compositionAPI/APopupAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -291,6 +292,13 @@ export default {
     "close",
   ],
   setup(props, context) {
+    const id = toRef(props, "id");
+
+    const {
+      closePopup,
+      openPopup,
+    } = APopupAPI();
+
     const {
       dropdownButtonRef,
       dropdownRef,
@@ -324,9 +332,11 @@ export default {
       triggerOpen,
       wasOpened,
     } = ToggleAPI(props, context, {
+      closePopup,
+      destroyPopover,
       dropdownButtonRef,
       dropdownRef,
-      destroyPopover,
+      openPopup,
       setFocusToFirstElement,
       startPopper,
     });
@@ -376,6 +386,9 @@ export default {
       destroyEventCloseClick();
       destroyEventPressArrows();
       destroyPopover();
+      closePopup({
+        id: id.value,
+      });
     });
 
     return {
