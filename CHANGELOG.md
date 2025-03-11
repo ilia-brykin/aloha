@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.3.0
+
+- `AModal`: don't close modal if popup opened
+- `AAlert`: new props ariaAtomic and role
+- `AHttpAPI`: ignoreErrorHandler as function
+- `ASelect`: Fixed validator for isExclusiveOptionEnabled.
+
 ## 2.2.0
 
 ### Enhancements:
@@ -144,6 +151,22 @@ An exclusive option can be defined as a special choice that, when selected, prev
 - Dependency updates for compatibility.
 
 ***
+
+## 1.8.0
+
+- `AModal`: don't close modal if popup opened
+
+## 1.7.0
+
+- `AAlert`: new props ariaAtomic and role
+
+## 1.6.0
+
+- `AHttpAPI`: ignoreErrorHandler as function
+
+## 1.5.1
+
+- `ASelect`: Fixed validator for isExclusiveOptionEnabled.
 
 ## 1.5.0
 
