@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.3.1
+
+- Fix: import `APopupAPI` and functions
+
 ## 2.3.0
 
 - `AModal`: don't close modal if popup opened
