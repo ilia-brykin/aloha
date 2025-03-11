@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.8.0
+
+- `AModal`: don't close modal if popup opened
+
 ## 1.7.0
 
 - `AAlert`: new props ariaAtomic and role
