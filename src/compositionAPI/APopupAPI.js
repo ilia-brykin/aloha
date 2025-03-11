@@ -49,11 +49,11 @@ export function isCurrentPopupOpen({ id }) {
   return !!popupOpenIds.value[id];
 }
 
-function openPopup({ id }) {
+export function openPopup({ id }) {
   popupOpenIds.value[id] = true;
 }
 
-function closePopup({ id }) {
+export function closePopup({ id }) {
   if (id in popupOpenIds.value) {
     delete popupOpenIds.value[id];
   }

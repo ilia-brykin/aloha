@@ -107,6 +107,13 @@ export {
   default as APageTabTitleAPI,
   setBaseTitle as APageTabTitleAPI_setBaseTitle,
 } from "./compositionAPI/APageTabTitleAPI";
+export {
+  default as APopupAPI,
+  closePopup as APopupAPI_closePopup,
+  isCurrentPopupOpen as APopupAPI_isCurrentPopupOpen,
+  openPopup as APopupAPI_openPopup,
+  togglePopup as APopupAPI_togglePopup,
+} from "./compositionAPI/APopupAPI";
 export { default as UiAPI } from "./ui/compositionApi/UiAPI";
 export { default as UIExcludeRenderAttributesAPI } from "./ui/compositionApi/UIExcludeRenderAttributesAPI";
 export { default as UiStyleHideAPI } from "./ui/compositionApi/UiStyleHideAPI";
