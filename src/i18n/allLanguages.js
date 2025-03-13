@@ -33,6 +33,7 @@ import ACloakI18n from "../ACloak/i18n/ACloakI18n";
 import ARequiredI18n from "../ui/ARequired/i18n/ARequiredI18n";
 import AInputNumberI18n from "../ui/AInputNumber/i18n/AInputNumberI18n";
 import AInputCurrencyI18n from "../ui/AInputCurrency/i18n/AInputCurrencyI18n";
+import ARouterLinkConfigI18n from "../ui/ARouterLinkConfig/i18n/ARouterLinkConfigI18n";
 
 export const ar = {
   ...arJson,
@@ -62,6 +63,7 @@ export const ar = {
   ...ARequiredI18n.ar,
   ...AInputNumberI18n.ar,
   ...AInputCurrencyI18n.ar,
+  ...ARouterLinkConfigI18n.ar,
 };
 export const de = {
   ...deJson,
@@ -91,6 +93,7 @@ export const de = {
   ...ARequiredI18n.de,
   ...AInputNumberI18n.de,
   ...AInputCurrencyI18n.de,
+  ...ARouterLinkConfigI18n.de,
 };
 export const en = {
   ...enJson,
@@ -120,6 +123,7 @@ export const en = {
   ...ARequiredI18n.en,
   ...AInputNumberI18n.en,
   ...AInputCurrencyI18n.en,
+  ...ARouterLinkConfigI18n.en,
 };
 export const es = {
   ...esJson,
@@ -149,6 +153,7 @@ export const es = {
   ...ARequiredI18n.es,
   ...AInputNumberI18n.es,
   ...AInputCurrencyI18n.es,
+  ...ARouterLinkConfigI18n.es,
 };
 export const fr = {
   ...frJson,
@@ -178,6 +183,7 @@ export const fr = {
   ...ARequiredI18n.fr,
   ...AInputNumberI18n.fr,
   ...AInputCurrencyI18n.fr,
+  ...ARouterLinkConfigI18n.fr,
 };
 export const hr = {
   ...hrJson,
@@ -207,6 +213,7 @@ export const hr = {
   ...ARequiredI18n.hr,
   ...AInputNumberI18n.hr,
   ...AInputCurrencyI18n.hr,
+  ...ARouterLinkConfigI18n.hr,
 };
 export const it = {
   ...itJson,
@@ -236,6 +243,7 @@ export const it = {
   ...ARequiredI18n.it,
   ...AInputNumberI18n.it,
   ...AInputCurrencyI18n.it,
+  ...ARouterLinkConfigI18n.it,
 };
 export const ru = {
   ...ruJson,
@@ -265,6 +273,7 @@ export const ru = {
   ...ARequiredI18n.ru,
   ...AInputNumberI18n.ru,
   ...AInputCurrencyI18n.ru,
+  ...ARouterLinkConfigI18n.ru,
 };
 
 export default {

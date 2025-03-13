@@ -10,6 +10,7 @@ import {
   AMobilePlugin,
   AModalPlugin,
   APageTabTitlePlugin,
+  ARouterLinkConfigPlugin,
   ASafeHtml,
 } from "aloha-vue";
 import ATest from "./components/ATest/ATest";
@@ -61,6 +62,14 @@ APP.use(AFiltersPlugin, {
     ],
   },
 });
+
+APP.use(ARouterLinkConfigPlugin, {
+  propsDefault: {
+    routes: router.getRoutes(),
+  },
+  // excludedPathRoutes: ["/:catchAll(.*)"],
+});
+
 APP.use(APageTabTitlePlugin, "_PAGE_TITLE_BASE_");
 APP.use(AFormPlugin, {
   components: {

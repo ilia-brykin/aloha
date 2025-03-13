@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_": "Dinamički parametri koriste se u rutama za prijenos podataka unutar putanje. Označeni su dvotočkom <code>:</code> ispred naziva parametra, primjer: <code>/user/:id</code>. Prilikom navigacije, ovaj parametar zamjenjuje se specifičnom vrijednošću, primjer: <code>/user/123</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_": "Parametri <span lang=\"en\">URL</span> omogućuju prijenos dodatnih informacija u zahtjevu. Dodaju se nakon simbola <code>?</code> u adresnoj traci i zapisani su u formatu \"ključ=vrijednost\". Na primjer: <code>?limit=10&sort=asc</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_": "Adresa određuje kamo će veza voditi. Može biti statična (npr. <code>/home</code>) ili sadržavati dinamičke parametre (npr. <code>/user/:id</code>). Odaberite adresu za navigaciju.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_": "Određuje gdje će se veza otvoriti. Dostupne opcije: u istom prozoru (<code>_self</code>), u novom prozoru ili kartici (<code>_blank</code>), u roditeljskom okviru (<code>_parent</code>) ili u najvišem okviru (<code>_top</code>).",
+  "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_": "Dinamički parametri",
+  "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_": "Parametri <span lang=\"en\">URL</span>",
+  "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_": "Odaberi adresu",
+  "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_": "Atribut <span lang=\"en\">target</span>",
+  "_A_TARGET_BLANK_": "Otvori u novoj kartici <strong lang=\"en\">_blank</strong>",
+  "_A_TARGET_PARENT_": "Otvori u roditeljskom okviru <strong lang=\"en\">_parent</strong>",
+  "_A_TARGET_SELF_": "Otvori u istom prozoru <strong lang=\"en\">_self</strong>",
+  "_A_TARGET_TOP_": "Otvori u najvišem okviru <strong lang=\"en\">_top</strong>"
+}

@@ -1,0 +1,10 @@
+{
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "Die <strong lang=\"en\">AInput</strong>-Komponente bietet eine Daten-Eingabefunktion mit Unterstützung für verschiedene Datentypen wie <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> und andere. Die Komponente unterstützt die Anzeige von Symbolen, eine Löschtaste und die Möglichkeit, das Passwort anzuzeigen/zu verbergen.",
+  "_A_INPUT_COMPONENT_NAME_": "Textfeld",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Dieses Beispiel zeigt, wie man ein Eingabefeld mit dem Typ <strong lang=\"en\">password</strong> und die Möglichkeit zur Umschaltung der Passwortsichtbarkeit mithilfe von <strong lang=\"en\">show-password</strong> verwendet. Im ersten Feld kann der Benutzer zwischen der Anzeige und dem Verbergen des Passworts wechseln, während diese Funktion im zweiten Feld deaktiviert ist.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Passwort-Eingabefeld",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Legt das Symbol fest, das vor dem Eingabefeld angezeigt wird. Dieses Symbol kann verwendet werden, um die visuelle Wahrnehmung zu verbessern oder den Typ der Eingabedaten anzuzeigen.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Funktioniert, wenn der Eingabetyp auf <strong lang=\"en\">password</strong> gesetzt ist. Ermöglicht das Umschalten der Sichtbarkeit des eingegebenen Passworts, sodass der Benutzer das eingegebene Passwort sehen kann.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Wird für die Typen <strong lang=\"en\">number</strong> oder <strong lang=\"en\">integer</strong> verwendet. Gibt den Schritt zum Ändern des Werts an, zum Beispiel beim Erhöhen oder Verringern der Zahl mit den Pfeiltasten der Tastatur.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Definiert den Typ des Eingabewerts. Verschiedene Datentypen werden unterstützt, wie z.B. <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> und andere."
+}

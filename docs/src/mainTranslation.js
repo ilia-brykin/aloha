@@ -101,6 +101,7 @@ import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakP
 import PageLoadingPluginI18n from "./views/Plugins/PageLoadingPlugin/i18n/PageLoadingPluginI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
 import PageMigrationsVersion1To2I18n from "./views/Migrations/PageMigrationsVersion1To2/i18n/PageMigrationsVersion1To2I18n";
+import PageRouterLinkConfigI18n from "./views/Components/Form/PageRouterLinkConfig/i18n/PageRouterLinkConfigI18n";
 
 export const mainTranslation = {
   ar: {
@@ -189,6 +190,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.ar,
     ...PageAlertPluginI18n.ar,
     ...PageMigrationsVersion1To2I18n.ar,
+    ...PageRouterLinkConfigI18n.ar,
   },
   de: {
     ...i18nDE,
@@ -276,6 +278,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.de,
     ...PageAlertPluginI18n.de,
     ...PageMigrationsVersion1To2I18n.de,
+    ...PageRouterLinkConfigI18n.de,
   },
   en: {
     ...i18nEN,
@@ -363,6 +366,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.en,
     ...PageAlertPluginI18n.en,
     ...PageMigrationsVersion1To2I18n.en,
+    ...PageRouterLinkConfigI18n.en,
   },
   es: {
     ...i18nES,
@@ -450,6 +454,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.es,
     ...PageAlertPluginI18n.es,
     ...PageMigrationsVersion1To2I18n.es,
+    ...PageRouterLinkConfigI18n.es,
   },
   fr: {
     ...i18nFR,
@@ -537,6 +542,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.fr,
     ...PageAlertPluginI18n.fr,
     ...PageMigrationsVersion1To2I18n.fr,
+    ...PageRouterLinkConfigI18n.fr,
   },
   hr: {
     ...i18nHR,
@@ -624,6 +630,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.hr,
     ...PageAlertPluginI18n.hr,
     ...PageMigrationsVersion1To2I18n.hr,
+    ...PageRouterLinkConfigI18n.hr,
   },
   it: {
     ...i18nIT,
@@ -711,6 +718,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.it,
     ...PageAlertPluginI18n.it,
     ...PageMigrationsVersion1To2I18n.it,
+    ...PageRouterLinkConfigI18n.it,
   },
   ru: {
     ...i18nRU,
@@ -798,5 +806,6 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.ru,
     ...PageAlertPluginI18n.ru,
     ...PageMigrationsVersion1To2I18n.ru,
+    ...PageRouterLinkConfigI18n.ru,
   },
 };

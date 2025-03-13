@@ -50,6 +50,7 @@ export { default as ARadio } from "./ui/ARadio/ARadio";
 export { default as ARate } from "./ARate/ARate";
 export { default as ARequired } from "./ui/ARequired/ARequired";
 export { default as AResizer } from "./AResizer/AResizer";
+export { default as ARouterLinkConfig } from "./ui/ARouterLinkConfig/ARouterLinkConfig";
 export { default as AScale } from "./AScale/AScale";
 export { default as ASelect } from "./ui/ASelect/ASelect";
 export { default as AShowMore } from "./AShowMore/AShowMore";
@@ -138,6 +139,7 @@ export { default as AlohaPlugin } from "./plugins/alohaPlugin";
 export { default as AMobilePlugin } from "./plugins/AMobilePlugin";
 export { default as AModalPlugin } from "./plugins/AModalPlugin";
 export { default as APageTabTitlePlugin } from "./plugins/APageTabTitlePlugin";
+export { default as ARouterLinkConfigPlugin } from "./plugins/ARouterLinkConfigPlugin";
 export { default as ASelectPlugin } from "./plugins/ASelectPlugin";
 export { default as ASpinnerPlugin } from "./plugins/ASpinnerPlugin";
 export { default as ATablePlugin } from "./plugins/ATablePlugin";
@@ -221,32 +223,33 @@ export {
   it as i18nIT,
   ru as i18nRU,
 } from "./i18n/allLanguages";
+export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
 export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";
+export { default as ADatepickerRangeI18n } from "./ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 export { default as ADisclosureI18n } from "./ADisclosure/i18n/ADisclosureI18n";
+export { default as AFieldsetI18n } from "./ui/AFieldset/i18n/AFieldsetI18n";
 export { default as AFiltersI18n } from "./AFilters/i18n/AFiltersI18n";
+export { default as AInputCurrencyI18n } from "./ui/AInputCurrency/i18n/AInputCurrencyI18n";
+export { default as AInputI18n } from "./ui/AInput/i18n/AInputI18n";
+export { default as AInputNumberI18n } from "./ui/AInputNumber/i18n/AInputNumberI18n";
+export { default as AInputNumberRangeI18n } from "./ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
+export { default as AJsonI18n } from "./ui/AJson/i18n/AJsonI18n";
 export { default as ALinkCopyI18n } from "./ALinkCopy/i18n/ALinkCopyI18n";
 export { default as ALoadingI18n } from "./ALoading/i18n/ALoadingI18n";
 export { default as AMenu2I18n } from "./AMenu/i18n/AMenu2I18n";
 export { default as AModalI18n } from "./AModal/i18n/AModalI18n";
 export { default as APaginationI18n } from "./APagination/i18n/APaginationI18n";
+export { default as ARadioI18n } from "./ui/ARadio/i18n/ARadioI18n";
+export { default as ARequiredI18n } from "./ui/ARequired/i18n/ARequiredI18n";
+export { default as ARouterLinkConfigI18n } from "./ui/ARouterLinkConfig/i18n/ARouterLinkConfigI18n";
+export { default as ASelectI18n } from "./ui/ASelect/i18n/ASelectI18n";
 export { default as AShowMoreI18n } from "./AShowMore/i18n/AShowMoreI18n";
 export { default as ASpinnerI18n } from "./ASpinner/i18n/ASpinnerI18n";
+export { default as ASwitchI18n } from "./ui/ASwitch/i18n/ASwitchI18n";
 export { default as ATableI18n } from "./ATable/i18n/ATableI18n";
 export { default as AVerticalScrollI18n } from "./AVerticalScroll/i18n/AVerticalScrollI18n";
 export { default as AWizardI18n } from "./AWizard/i18n/AWizardI18n";
 export { default as Filters18n } from "./filters/i18n/Filters18n";
-export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
-export { default as ADatepickerRangeI18n } from "./ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
-export { default as AFieldsetI18n } from "./ui/AFieldset/i18n/AFieldsetI18n";
-export { default as AInputI18n } from "./ui/AInput/i18n/AInputI18n";
-export { default as AInputCurrencyI18n } from "./ui/AInputCurrency/i18n/AInputCurrencyI18n";
-export { default as AInputNumberI18n } from "./ui/AInputNumber/i18n/AInputNumberI18n";
-export { default as AInputNumberRangeI18n } from "./ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
-export { default as AJsonI18n } from "./ui/AJson/i18n/AJsonI18n";
-export { default as ARadioI18n } from "./ui/ARadio/i18n/ARadioI18n";
-export { default as ARequiredI18n } from "./ui/ARequired/i18n/ARequiredI18n";
-export { default as ASelectI18n } from "./ui/ASelect/i18n/ASelectI18n";
-export { default as ASwitchI18n } from "./ui/ASwitch/i18n/ASwitchI18n";
 export {
   getTranslatedText,
   isPlaceholderTranslate,
