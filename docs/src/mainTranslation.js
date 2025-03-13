@@ -82,6 +82,7 @@ import PageCloakI18n from "./views/PageCloak/i18n/PageCloakI18n";
 import PageLoadingI18n from "./views/PageLoading/i18n/PageLoadingI18n";
 import PageTabsI18n from "./views/PageTabs/i18n/PageTabsI18n";
 import PageGroupI18n from "./views/Form/PageGroup/i18n/PageGroupI18n";
+import PageRouterLinkConfigI18n from "./views/Form/PageRouterLinkConfig/i18n/PageRouterLinkConfigI18n";
 
 export const mainTranslation = {
   ar: {
@@ -160,6 +161,7 @@ export const mainTranslation = {
     ...PageLoadingI18n.ar,
     ...PageTabsI18n.ar,
     ...PageGroupI18n.ar,
+    ...PageRouterLinkConfigI18n.ar,
   },
   de: {
     ...allLanguages.de,
@@ -237,6 +239,7 @@ export const mainTranslation = {
     ...PageLoadingI18n.de,
     ...PageTabsI18n.de,
     ...PageGroupI18n.de,
+    ...PageRouterLinkConfigI18n.de,
   },
   en: {
     ...allLanguages.en,
@@ -314,6 +317,7 @@ export const mainTranslation = {
     ...PageLoadingI18n.en,
     ...PageTabsI18n.en,
     ...PageGroupI18n.en,
+    ...PageRouterLinkConfigI18n.en,
   },
   es: {
     ...allLanguages.es,
@@ -391,6 +395,7 @@ export const mainTranslation = {
     ...PageLoadingI18n.es,
     ...PageTabsI18n.es,
     ...PageGroupI18n.es,
+    ...PageRouterLinkConfigI18n.es,
   },
   fr: {
     ...allLanguages.fr,
@@ -468,6 +473,7 @@ export const mainTranslation = {
     ...PageLoadingI18n.fr,
     ...PageTabsI18n.fr,
     ...PageGroupI18n.fr,
+    ...PageRouterLinkConfigI18n.fr,
   },
   hr: {
     ...allLanguages.hr,
@@ -545,6 +551,7 @@ export const mainTranslation = {
     ...PageLoadingI18n.hr,
     ...PageTabsI18n.hr,
     ...PageGroupI18n.hr,
+    ...PageRouterLinkConfigI18n.hr,
   },
   it: {
     ...allLanguages.it,
@@ -622,6 +629,7 @@ export const mainTranslation = {
     ...PageLoadingI18n.it,
     ...PageTabsI18n.it,
     ...PageGroupI18n.it,
+    ...PageRouterLinkConfigI18n.it,
   },
   ru: {
     ...allLanguages.ru,
@@ -699,5 +707,6 @@ export const mainTranslation = {
     ...PageLoadingI18n.ru,
     ...PageTabsI18n.ru,
     ...PageGroupI18n.ru,
+    ...PageRouterLinkConfigI18n.ru,
   },
 };

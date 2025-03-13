@@ -9,6 +9,7 @@ import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
 import AJson from "./AJson/AJson";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
+import ARouterLinkConfig from "./ARouterLinkConfig/ARouterLinkConfig";
 import ASelect from "./ASelect/ASelect";
 import ASwitch from "./ASwitch/ASwitch";
 import ATemplate from "./ATemplate/ATemplate";
@@ -38,6 +39,7 @@ export default {
   oneCheckbox: AOneCheckbox,
   password: AInput,
   radio: ARadio,
+  routerLinkConfig: ARouterLinkConfig,
   select: ASelect,
   switch: ASwitch,
   template: ATemplate,

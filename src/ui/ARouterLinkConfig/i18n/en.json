@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_": "Dynamic parameters are used in routes to pass data within the path. They are denoted by a colon <code>:</code> before the parameter name, for example: <code>/user/:id</code>. When navigating, this parameter is replaced with a specific value, such as: <code>/user/123</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_": "<span lang=\"en\">URL</span> parameters allow passing additional information in the request. They are added after the <code>?</code> symbol in the address bar and follow the format \"key=value\". For example: <code>?limit=10&sort=asc</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_": "The address determines where the link will navigate. It can be static (e.g., <code>/home</code>) or contain dynamic parameters (e.g., <code>/user/:id</code>). Select the address for navigation.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_": "Defines where the link will open. Available options: in the same window (<code>_self</code>), in a new window or tab (<code>_blank</code>), in the parent frame (<code>_parent</code>), or in the outermost frame (<code>_top</code>).",
+  "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_": "Dynamic parameters",
+  "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_": "<span lang=\"en\">URL</span> parameters",
+  "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_": "Select address",
+  "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_": "<span lang=\"en\">target</span> attribute",
+  "_A_TARGET_BLANK_": "Open in a new tab <strong lang=\"en\">_blank</strong>",
+  "_A_TARGET_PARENT_": "Open in the parent frame <strong lang=\"en\">_parent</strong>",
+  "_A_TARGET_SELF_": "Open in the same window <strong lang=\"en\">_self</strong>",
+  "_A_TARGET_TOP_": "Open in the outermost frame <strong lang=\"en\">_top</strong>"
+}

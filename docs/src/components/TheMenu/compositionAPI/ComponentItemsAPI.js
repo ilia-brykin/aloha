@@ -183,6 +183,13 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageRouterLinkConfig",
+            label: "RouterLinkConfig",
+            to: {
+              name: "PageRouterLinkConfig",
+            },
+          },
+          {
             id: "select",
             label: "Select",
             to: {

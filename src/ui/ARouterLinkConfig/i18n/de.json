@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_": "Dynamische Parameter werden in Routen verwendet, um Daten innerhalb des Pfads zu übergeben. Sie werden durch einen Doppelpunkt <code>:</code> vor dem Parameternamen gekennzeichnet, zum Beispiel: <code>/user/:id</code>. Beim Navigieren wird dieser Parameter durch einen bestimmten Wert ersetzt, z. B.: <code>/user/123</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_": "<span lang=\"en\">URL</span>-Parameter ermöglichen das Übertragen zusätzlicher Informationen in der Anfrage. Sie werden nach dem <code>?</code>-Zeichen in der Adressleiste hinzugefügt und im Format \"Schlüssel=Wert\" geschrieben. Zum Beispiel: <code>?limit=10&sort=asc</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_": "Die Adresse bestimmt, wohin der Link führt. Sie kann statisch sein (z. B. <code>/home</code>) oder dynamische Parameter enthalten (z. B. <code>/user/:id</code>). Wählen Sie die Adresse für die Navigation.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_": "Legt fest, wo der Link geöffnet wird. Verfügbare Optionen: im selben Fenster (<code>_self</code>), in einem neuen Fenster oder Tab (<code>_blank</code>), im übergeordneten Frame (<code>_parent</code>) oder im äußersten Frame (<code>_top</code>).",
+  "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_": "Dynamische Parameter",
+  "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_": "<span lang=\"en\">URL</span>-Parameter",
+  "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_": "Adresse auswählen",
+  "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_": "<span lang=\"en\">target</span>-Attribut",
+  "_A_TARGET_BLANK_": "In einem neuen Tab öffnen <strong lang=\"en\">_blank</strong>",
+  "_A_TARGET_PARENT_": "Im übergeordneten Frame öffnen <strong lang=\"en\">_parent</strong>",
+  "_A_TARGET_SELF_": "Im selben Fenster öffnen <strong lang=\"en\">_self</strong>",
+  "_A_TARGET_TOP_": "Im äußersten Frame öffnen <strong lang=\"en\">_top</strong>"
+}

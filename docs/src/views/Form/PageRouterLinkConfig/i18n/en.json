@@ -1,0 +1,10 @@
+{
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">AInput</strong> component provides data input functionality with support for various data types such as <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong>, and others. The component supports icon display, a clear button, and the ability to show/hide the password.",
+  "_A_INPUT_COMPONENT_NAME_": "Text field",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "This example shows how to use an input field with the type <strong lang=\"en\">password</strong> and the ability to toggle password visibility using <strong lang=\"en\">show-password</strong>. In the first field, the user can switch between showing and hiding the password, while in the second field this feature is disabled.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Password input field",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Specifies the icon that will be displayed before the input field. This icon can be used to enhance the visual perception or indicate the type of input data.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Works when the input type is <strong lang=\"en\">password</strong>. Allows toggling the visibility of the entered password, giving the user the option to see the password being typed.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Used for <strong lang=\"en\">number</strong> or <strong lang=\"en\">integer</strong> types. Specifies the step for changing the value, for example, when increasing or decreasing the number using keyboard arrows.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Defines the type of input value. Various data types are supported, such as <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong>, and others."
+}

@@ -2,6 +2,7 @@ import App from "./App/App.vue";
 import { createApp } from "vue";
 import router from "./router/index";
 // import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
+import ARouterLinkConfigPlugin from "../../src/plugins/ARouterLinkConfigPlugin";
 import AFiltersPlugin from "../../src/plugins/AFiltersPlugin";
 import {
   AIconPlugin,
@@ -58,6 +59,14 @@ APP.use(AFiltersPlugin, {
     ],
   },
 });
+
+APP.use(ARouterLinkConfigPlugin, {
+  propsDefault: {
+    routes: router.getRoutes(),
+  },
+  // excludedPathRoutes: ["/:catchAll(.*)"],
+});
+
 // APP.use(AGroupButtonDropdownPlugin, {
 //   propsDefault: {
 //     dropdownAttributes: {

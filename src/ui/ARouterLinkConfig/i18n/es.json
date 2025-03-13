@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_": "Los parámetros dinámicos se utilizan en las rutas para transmitir datos dentro de la ruta. Se denotan con dos puntos <code>:</code> antes del nombre del parámetro, por ejemplo: <code>/user/:id</code>. Al navegar, este parámetro se reemplaza con un valor específico, como: <code>/user/123</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_": "Los parámetros de <span lang=\"en\">URL</span> permiten enviar información adicional en la solicitud. Se agregan después del símbolo <code>?</code> en la barra de direcciones y tienen el formato \"clave=valor\". Por ejemplo: <code>?limit=10&sort=asc</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_": "La dirección determina a dónde llevará el enlace. Puede ser estática (por ejemplo, <code>/home</code>) o contener parámetros dinámicos (por ejemplo, <code>/user/:id</code>). Seleccione la dirección de navegación.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_": "Define dónde se abrirá el enlace. Opciones disponibles: en la misma ventana (<code>_self</code>), en una nueva ventana o pestaña (<code>_blank</code>), en el marco padre (<code>_parent</code>) o en el marco superior (<code>_top</code>).",
+  "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_": "Parámetros dinámicos",
+  "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_": "Parámetros de <span lang=\"en\">URL</span>",
+  "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_": "Seleccionar dirección",
+  "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_": "Atributo <span lang=\"en\">target</span>",
+  "_A_TARGET_BLANK_": "Abrir en una nueva pestaña <strong lang=\"en\">_blank</strong>",
+  "_A_TARGET_PARENT_": "Abrir en el marco padre <strong lang=\"en\">_parent</strong>",
+  "_A_TARGET_SELF_": "Abrir en la misma ventana <strong lang=\"en\">_self</strong>",
+  "_A_TARGET_TOP_": "Abrir en el marco superior <strong lang=\"en\">_top</strong>"
+}

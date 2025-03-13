@@ -10,6 +10,11 @@ const ROUTES = [
     component: () => import("../views/NotFound.vue"),
   },
   {
+    path: "/aloha/:id/:aloha",
+    name: "NotFound",
+    component: () => import("../views/NotFound.vue"),
+  },
+  {
     path: "/",
     name: "PageStart",
     component: () => import("../views/PageStart/PageStart.vue"),
@@ -313,6 +318,11 @@ const ROUTES = [
     path: "/menu-basic",
     name: "PageMenuBasic",
     component: () => import("../views/PageMenu/PageMenuBasic/PageMenuBasic.vue"),
+  },
+  {
+    path: "/router-link-config",
+    name: "PageRouterLinkConfig",
+    component: () => import("../views/Form/PageRouterLinkConfig/PageRouterLinkConfig.vue"),
   },
   {
     path: "/filter-list",
