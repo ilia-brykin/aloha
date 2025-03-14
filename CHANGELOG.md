@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.9.0
+
+- New component `ARouterLinkConfig`
+
 ## 1.8.0
 
 - `AModal`: don't close modal if popup opened
