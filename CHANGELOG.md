@@ -156,6 +156,14 @@ An exclusive option can be defined as a special choice that, when selected, prev
 
 ***
 
+## 1.9.1
+
+- `ARouterLinkConfig`: Improvements
+
+## 1.9.0
+
+- New component `ARouterLinkConfig`
+
 ## 1.8.0
 
 - `AModal`: don't close modal if popup opened
