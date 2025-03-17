@@ -12,6 +12,7 @@ export default function ParamAPI(props, {
   routePathKeyByKeyId = computed(() => ({})),
 }) {
   const modelValue = toRef(props, "modelValue");
+  const required = toRef(props, "required");
 
   const extractRouteParams = path => {
     const regex = /:([a-zA-Z0-9_]+)/g;
@@ -46,6 +47,7 @@ export default function ParamAPI(props, {
         label: _id,
         type: "text",
         idPrefix: htmlIdLocal.value,
+        required: required.value,
       };
 
       CHILDREN.push(CHILD);

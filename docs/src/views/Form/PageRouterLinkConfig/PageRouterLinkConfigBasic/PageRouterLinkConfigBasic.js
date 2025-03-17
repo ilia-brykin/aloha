@@ -16,7 +16,7 @@ export default {
   },
   setup() {
     const model = ref({
-      route: "NotFound",
+      route: "NotFoundTest",
       query: {
         key: "Aloha",
       },

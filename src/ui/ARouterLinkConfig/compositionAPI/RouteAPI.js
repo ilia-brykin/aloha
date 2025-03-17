@@ -4,9 +4,6 @@ import {
 } from "vue";
 
 import {
-  routerLinkConfigPluginOptions,
-} from "../../../plugins/ARouterLinkConfigPlugin";
-import {
   forEach,
   get,
 } from "lodash-es";
@@ -16,19 +13,7 @@ export default function RouteAPI(props) {
   const routes = toRef(props, "routes");
 
   const routesLocal = computed(() => {
-    const ROUTES = [];
-    forEach(routes.value, route => {
-      const PATH = route.path;
-      if (route.name &&
-        !routerLinkConfigPluginOptions.value.excludedPathRoutes[PATH]) {
-        ROUTES.push({
-          path: route.path,
-          name: route.name,
-          meta: route.meta,
-        });
-      }
-    });
-    return ROUTES;
+    return routes.value;
   });
 
   const routePathKeyByKeyId = computed(() => {

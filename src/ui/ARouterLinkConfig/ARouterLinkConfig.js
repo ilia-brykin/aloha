@@ -13,7 +13,6 @@ import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelLocalAPI from "./compositionAPI/ModelLocalAPI";
 import ParamAPI from "./compositionAPI/ParamAPI";
 import RouteAPI from "./compositionAPI/RouteAPI";
-import TargetAPI from "./compositionAPI/TargetAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
@@ -43,12 +42,12 @@ export default {
     classColumn: {
       type: [String, Object],
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.classColumn,
+      default: () => routerLinkConfigPluginOptions.propsDefault.classColumn,
     },
     classColumns: {
       type: [String, Object],
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.classColumns,
+      default: () => routerLinkConfigPluginOptions.propsDefault.classColumns,
     },
     classFieldset: {
       type: [String, Object],
@@ -87,22 +86,22 @@ export default {
     helpTextParam: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.helpTextParam,
+      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextParam,
     },
     helpTextQuery: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.helpTextQuery,
+      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextQuery,
     },
     helpTextRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.helpTextRoute,
+      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextRoute,
     },
     helpTextTarget: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.helpTextTarget,
+      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextTarget,
     },
     htmlId: {
       type: String,
@@ -136,7 +135,7 @@ export default {
     keyIdRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.keyIdRoute,
+      default: () => routerLinkConfigPluginOptions.propsDefault.keyIdRoute,
     },
     keyLabelCallbackRoute: {
       type: Function,
@@ -146,7 +145,7 @@ export default {
     keyLabelRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.keyLabelRoute,
+      default: () => routerLinkConfigPluginOptions.propsDefault.keyLabelRoute,
     },
     label: {
       type: [String, Number],
@@ -161,17 +160,17 @@ export default {
     labelParam: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.labelParam,
+      default: () => routerLinkConfigPluginOptions.propsDefault.labelParam,
     },
     labelQuery: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.labelQuery,
+      default: () => routerLinkConfigPluginOptions.propsDefault.labelQuery,
     },
     labelRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.labelRoute,
+      default: () => routerLinkConfigPluginOptions.propsDefault.labelRoute,
     },
     labelScreenReader: {
       type: [String, Number],
@@ -181,7 +180,7 @@ export default {
     labelTarget: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.labelTarget,
+      default: () => routerLinkConfigPluginOptions.propsDefault.labelTarget,
     },
     modelUndefined: {
       type: [String, Number, Object, Array, Boolean],
@@ -191,7 +190,7 @@ export default {
     modelValue: {
       type: Object,
       required: false,
-      default: undefined,
+      default: () => ({}),
     },
     required: {
       type: Boolean,
@@ -201,7 +200,7 @@ export default {
     routes: {
       type: Array,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.routes,
+      default: () => routerLinkConfigPluginOptions.propsDefault.routes,
     },
     slotName: {
       type: String,
@@ -211,8 +210,13 @@ export default {
     sortOrderRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.value.propsDefault.sortOrderRoute,
+      default: () => routerLinkConfigPluginOptions.propsDefault.sortOrderRoute,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
+    },
+    targets: {
+      type: Array,
+      required: false,
+      default: () => routerLinkConfigPluginOptions.propsDefault.targets,
     },
   },
   emits: [
@@ -277,10 +281,6 @@ export default {
       routePathKeyByKeyId,
     });
 
-    const {
-      targets,
-    } = TargetAPI();
-
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
@@ -301,7 +301,6 @@ export default {
       onBlur,
       onFocus,
       routesLocal,
-      targets,
       textAfterLabel,
     };
   },
@@ -356,7 +355,7 @@ export default {
               class: this.classColumn,
             }, [
               h(ASelect, {
-                id: "query",
+                id: "route",
                 change: this.changeRouteModel,
                 data: this.routesLocal,
                 deselectable: true,
@@ -386,6 +385,7 @@ export default {
                   idPrefix: this.htmlIdLocal,
                   label: this.labelParam,
                   modelValue: this.modelValue.param || {},
+                  required: this.required,
                 }),
               ]) :
               "",
