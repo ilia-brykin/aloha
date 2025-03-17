@@ -156,6 +156,10 @@ An exclusive option can be defined as a special choice that, when selected, prev
 
 ***
 
+## 1.9.2
+
+-  Fix padding for `a_search_highlight`
+
 ## 1.9.1
 
 - `ARouterLinkConfig`: Improvements
