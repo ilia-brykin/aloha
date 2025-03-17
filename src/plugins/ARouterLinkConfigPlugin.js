@@ -1,12 +1,8 @@
 import {
-  ref,
-} from "vue";
-
-import {
   forEach,
 } from "lodash-es";
 
-export const routerLinkConfigPluginOptions = ref({
+export const routerLinkConfigPluginOptions = {
   propsDefault: {
     classColumn: "a_column a_column_12",
     classColumns: "a_columns a_columns_count_12 a_columns_gap_y_1",
@@ -22,9 +18,49 @@ export const routerLinkConfigPluginOptions = ref({
     labelTarget: "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_",
     routes: [],
     sortOrderRoute: "asc",
+    targets: [
+      {
+        id: "_blank",
+        label: "_A_TARGET_BLANK_",
+      },
+      {
+        id: "_self",
+        label: "_A_TARGET_SELF_",
+      },
+      {
+        id: "_parent",
+        label: "_A_TARGET_PARENT_",
+      },
+      {
+        id: "_top",
+        label: "_A_TARGET_TOP_",
+      },
+    ],
   },
-  excludedPathRoutes: {},
-});
+};
+
+function setRoutes({ routes = [], excludedPathRoutes = [] }) {
+  const ROUTES = [];
+  const EXCLUDED_PATH_ROUTES_MAP = {};
+  if (excludedPathRoutes.length) {
+    forEach(excludedPathRoutes, path => {
+      EXCLUDED_PATH_ROUTES_MAP[path] = true;
+    });
+  }
+  forEach(routes, route => {
+    const PATH = route.path;
+    if (route.name &&
+      !EXCLUDED_PATH_ROUTES_MAP[PATH]) {
+      ROUTES.push({
+        path: route.path,
+        name: route.name,
+        meta: route.meta,
+      });
+    }
+  });
+
+  return ROUTES;
+}
 
 
 export default {
@@ -32,14 +68,10 @@ export default {
     propsDefault = {},
     excludedPathRoutes = [],
   } = {}) => {
-    if (excludedPathRoutes.length) {
-      forEach(excludedPathRoutes, path => {
-        routerLinkConfigPluginOptions.value.excludedPathRoutes[path] = true;
-      });
-    }
-    routerLinkConfigPluginOptions.value.propsDefault = {
-      ...routerLinkConfigPluginOptions.value.propsDefault,
+    routerLinkConfigPluginOptions.propsDefault = {
+      ...routerLinkConfigPluginOptions.propsDefault,
       ...propsDefault,
+      routes: setRoutes({ routes: propsDefault.routes, excludedPathRoutes }),
     };
   },
 };

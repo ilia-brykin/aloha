@@ -11,7 +11,7 @@ const ROUTES = [
   },
   {
     path: "/aloha/:id/:aloha",
-    name: "NotFound",
+    name: "NotFoundTest",
     component: () => import("../views/NotFound.vue"),
   },
   {
