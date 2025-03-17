@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.9.2
+
+- Fix padding for `a_search_highlight`
+
 ## 1.9.1
 
 - `ARouterLinkConfig`: Improvements
