@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.9.1
+
+- `ARouterLinkConfig`: Improvements
+
 ## 1.9.0
 
 - New component `ARouterLinkConfig`
