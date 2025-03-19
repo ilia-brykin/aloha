@@ -27,7 +27,7 @@ export default function(value, { replacer, space = 2, isHtml = false, jsonClass 
     const RESULT_STRING = JSON.stringify(value, replacer, space);
     if (isHtml) {
       const CLASS = jsonClass ?
-        ` class="${ jsonClass }` :
+        ` class="${ jsonClass }"` :
         "";
       return `<${ tag }${ CLASS }>${ RESULT_STRING }</${ tag }>`;
     }
