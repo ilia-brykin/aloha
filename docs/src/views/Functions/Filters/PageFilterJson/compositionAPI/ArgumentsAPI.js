@@ -23,6 +23,27 @@ export default function ArgumentsAPI() {
       ],
       text: "_PAGE_FILTER_JSON_ARGUMENTS_SPACE_",
     },
+    {
+      value: "[isHtml=false]",
+      types: [
+        "Boolean",
+      ],
+      text: "_PAGE_FILTER_JSON_ARGUMENTS_IS_HTML_",
+    },
+    {
+      value: "[jsonClass=a_code_content]",
+      types: [
+        "String",
+      ],
+      text: "_PAGE_FILTER_JSON_ARGUMENTS_JSON_CLASS_",
+    },
+    {
+      value: "[tag=pre]",
+      types: [
+        "String",
+      ],
+      text: "_PAGE_FILTER_JSON_ARGUMENTS_TAG_",
+    },
   ];
 
   return {

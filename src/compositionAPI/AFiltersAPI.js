@@ -67,8 +67,14 @@ export default function AFiltersAPI() {
     return _filterFileSize(value, { units, sourceUnits, digits });
   };
 
-  const filterJson = (value, { replacer, space = 2 } = {}) => {
-    return _filterJson(value, { replacer, space });
+  const filterJson = (value, {
+    replacer,
+    space = 2,
+    isHtml = false,
+    jsonClass = "a_code_content",
+    tag = "pre",
+  } = {}) => {
+    return _filterJson(value, { replacer, space, isHtml, jsonClass, tag });
   };
 
   const filterKeyValue = value => {
