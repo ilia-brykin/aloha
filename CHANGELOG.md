@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.10.0
+
+- `filterJson`: new arguments `isHtml`, `jsonClass`, `tag`
+
 ## 1.9.2
 
 - Fix padding for `a_search_highlight`
