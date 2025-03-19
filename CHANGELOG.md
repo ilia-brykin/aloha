@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.10.1
+
+- `filterJson`: fix for `jsonClass`
+
 ## 1.10.0
 
 - `filterJson`: new arguments `isHtml`, `jsonClass`, `tag`
