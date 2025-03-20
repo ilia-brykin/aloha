@@ -7550,6 +7550,7 @@ h6 {
 .a_search_highlight {
   color: red;
   background-color: inherit;
+  padding: 0;
 }
 
 .a_popup_container,
@@ -7582,6 +7583,14 @@ h6 {
 
 * + .a_dropdown__caret {
   margin-left: 0.5rem;
+}
+
+.a_code_content {
+  overflow: auto;
+  max-height: 200px;
+  white-space: pre;
+  font-family: monospace;
+  width: 100%;
 }
 
 .a_icon {

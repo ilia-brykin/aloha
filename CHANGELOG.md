@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.4.0
+
+- New component `ARouterLinkConfig`
+- `ARouterLinkConfig`: Improvements
+-  Fix padding for `a_search_highlight`
+- `filterJson`: new arguments `isHtml`, `jsonClass`, `tag`
+- `filterJson`: fix for `jsonClass`
+
 ## 2.3.1
 
 - Fix: import `APopupAPI` and functions
