@@ -140,7 +140,10 @@ export { default as AlohaPlugin } from "./plugins/alohaPlugin";
 export { default as AMobilePlugin } from "./plugins/AMobilePlugin";
 export { default as AModalPlugin } from "./plugins/AModalPlugin";
 export { default as APageTabTitlePlugin } from "./plugins/APageTabTitlePlugin";
-export { default as ARouterLinkConfigPlugin } from "./plugins/ARouterLinkConfigPlugin";
+export {
+  default as ARouterLinkConfigPlugin,
+  ARouterLinkConfigPluginOptions,
+} from "./plugins/ARouterLinkConfigPlugin";
 export { default as ASelectPlugin } from "./plugins/ASelectPlugin";
 export { default as ASpinnerPlugin } from "./plugins/ASpinnerPlugin";
 export { default as ATablePlugin } from "./plugins/ATablePlugin";

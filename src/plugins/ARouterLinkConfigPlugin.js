@@ -2,7 +2,7 @@ import {
   forEach,
 } from "lodash-es";
 
-export const routerLinkConfigPluginOptions = {
+export const ARouterLinkConfigPluginOptions = {
   propsDefault: {
     classColumn: "a_column a_column_12",
     classColumns: "a_columns a_columns_count_12 a_columns_gap_y_1",
@@ -68,8 +68,8 @@ export default {
     propsDefault = {},
     excludedPathRoutes = [],
   } = {}) => {
-    routerLinkConfigPluginOptions.propsDefault = {
-      ...routerLinkConfigPluginOptions.propsDefault,
+    ARouterLinkConfigPluginOptions.propsDefault = {
+      ...ARouterLinkConfigPluginOptions.propsDefault,
       ...propsDefault,
       routes: setRoutes({ routes: propsDefault.routes, excludedPathRoutes }),
     };

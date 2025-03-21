@@ -20,7 +20,7 @@ import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
-  routerLinkConfigPluginOptions,
+  ARouterLinkConfigPluginOptions,
 } from "../../plugins/ARouterLinkConfigPlugin";
 import {
   uniqueId,
@@ -42,12 +42,12 @@ export default {
     classColumn: {
       type: [String, Object],
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.classColumn,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.classColumn,
     },
     classColumns: {
       type: [String, Object],
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.classColumns,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.classColumns,
     },
     classFieldset: {
       type: [String, Object],
@@ -86,22 +86,22 @@ export default {
     helpTextParam: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextParam,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextParam,
     },
     helpTextQuery: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextQuery,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextQuery,
     },
     helpTextRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextRoute,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextRoute,
     },
     helpTextTarget: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.helpTextTarget,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.helpTextTarget,
     },
     htmlId: {
       type: String,
@@ -135,7 +135,7 @@ export default {
     keyIdRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.keyIdRoute,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.keyIdRoute,
     },
     keyLabelCallbackRoute: {
       type: Function,
@@ -145,7 +145,7 @@ export default {
     keyLabelRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.keyLabelRoute,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.keyLabelRoute,
     },
     label: {
       type: [String, Number],
@@ -160,17 +160,17 @@ export default {
     labelParam: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.labelParam,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelParam,
     },
     labelQuery: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.labelQuery,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelQuery,
     },
     labelRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.labelRoute,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelRoute,
     },
     labelScreenReader: {
       type: [String, Number],
@@ -180,7 +180,7 @@ export default {
     labelTarget: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.labelTarget,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelTarget,
     },
     modelUndefined: {
       type: [String, Number, Object, Array, Boolean],
@@ -200,7 +200,7 @@ export default {
     routes: {
       type: Array,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.routes,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.routes,
     },
     slotName: {
       type: String,
@@ -210,13 +210,13 @@ export default {
     sortOrderRoute: {
       type: String,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.sortOrderRoute,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.sortOrderRoute,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     targets: {
       type: Array,
       required: false,
-      default: () => routerLinkConfigPluginOptions.propsDefault.targets,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.targets,
     },
   },
   emits: [
