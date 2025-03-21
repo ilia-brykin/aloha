@@ -108,6 +108,8 @@
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "Vrijednost koja se koristi za vraćanje modela u neodređeno stanje. Korisno za brisanje vrijednosti modela.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "Trenutna vrijednost modela povezana s komponentom. Koristi se za upravljanje podacima prikazanim u komponenti.",
   "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Određuje tekst rezerviranog mjesta koji će se prikazati u polju za unos dok korisnik ne unese podatke. Rezervirano mjesto pomaže korisniku razumjeti koji se podaci očekuju u polju.",
+  "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_": "Zadani tekst koji se prikazuje ako vrijednost nedostaje u načinu samo za čitanje.",
+  "_A_UI_PROPS_READONLY_DESCRIPTION_": "Omogućuje način samo za čitanje, u kojem se vrijednost prikazuje kao tekst bez mogućnosti uređivanja.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Naznačuje je li komponenta obvezna. Ako je postavljeno na <strong lang=\"en\">true</strong>, komponenta zahtijeva unos korisnika.",
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Naznačuje hoće li se pretraživanje elemenata provoditi putem <strong lang=\"en\">API</strong> sučelja. Ako je postavljeno na <strong lang=\"en\">true</strong>, podaci će se učitavati sa servera kako se unosi upit.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "Ključ koji se koristi za provođenje pretraživanja putem <strong lang=\"en\">API</strong> sučelja. Obično je to parametar koji se prosljeđuje u zahtjevu serveru za filtriranje podataka.",

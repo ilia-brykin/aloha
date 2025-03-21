@@ -108,6 +108,8 @@
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "La valeur utilisée pour réinitialiser le modèle à un état indéfini. Utile pour effacer la valeur du modèle.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "La valeur actuelle du modèle associée à la composante. Utilisée pour gérer les données affichées dans la composante.",
   "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Spécifie le texte de l'espace réservé qui sera affiché dans le champ de saisie jusqu'à ce que l'utilisateur entre des données. L'espace réservé aide l'utilisateur à comprendre quelles données sont attendues dans le champ.",
+  "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_": "Le texte par défaut affiché si la valeur est absente en mode lecture seule.",
+  "_A_UI_PROPS_READONLY_DESCRIPTION_": "Active le mode lecture seule, dans lequel la valeur est affichée sous forme de texte sans possibilité de modification.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indique si la composante est obligatoire. Si la valeur est définie sur <strong lang=\"en\">true</strong>, la composante nécessite une entrée utilisateur.",
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Indique si la recherche d'éléments sera effectuée à l'aide d'une <strong lang=\"en\">API</strong>. Si défini sur <strong lang=\"en\">true</strong>, les données seront chargées à partir du serveur au fur et à mesure de la saisie de la requête.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "La clé utilisée pour effectuer la recherche via une <strong lang=\"en\">API</strong>. Il s'agit généralement d'un paramètre transmis dans la requête au serveur pour filtrer les données.",

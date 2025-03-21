@@ -8,6 +8,8 @@ import PageInputHelpText from "./PageInputHelpText/PageInputHelpText.vue";
 import PageInputLabelFloat from "./PageInputLabelFloat/PageInputLabelFloat.vue";
 import PageInputLabelScreenReader from "./PageInputLabelScreenReader/PageInputLabelScreenReader.vue";
 import PageInputPassword from "./PageInputPassword/PageInputPassword.vue";
+import PageInputReadonly from "./PageInputReadonly/PageInputReadonly.vue";
+import PageInputReadonlyPassword from "./PageInputReadonlyPassword/PageInputReadonlyPassword.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -31,6 +33,8 @@ export default {
     PageInputLabelFloat,
     PageInputLabelScreenReader,
     PageInputPassword,
+    PageInputReadonly,
+    PageInputReadonlyPassword,
   },
   setup() {
     const {

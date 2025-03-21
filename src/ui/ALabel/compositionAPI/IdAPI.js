@@ -9,6 +9,7 @@ export default function IdAPI(props, {
 }) {
   const id = toRef(props, "id");
   const idSuffix = toRef(props, "idSuffix");
+  const readonly = toRef(props, "readonly");
 
   const idLabelLocal = computed(() => {
     if (hideIdLocal.value) {
@@ -19,7 +20,8 @@ export default function IdAPI(props, {
   });
 
   const forLabelLocal = computed(() => {
-    if (hideForLocal.value) {
+    if (hideForLocal.value ||
+      readonly.value) {
       return undefined;
     }
 

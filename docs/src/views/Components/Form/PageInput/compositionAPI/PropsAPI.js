@@ -197,6 +197,34 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "readonly",
+      description: "_A_UI_PROPS_READONLY_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "readonly-default",
+      description: "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_",
+      type: "String",
+      default: "",
+      required: false,
+    },
+    {
+      name: "readonly-password-length",
+      description: "_A_INPUT_PROPS_READONLY_PASSWORD_LENGTH_DESCRIPTION_",
+      type: "Number",
+      default: 8,
+      required: false,
+    },
+    {
+      name: "readonly-password-symbol",
+      description: "_A_INPUT_PROPS_READONLY_PASSWORD_SYMBOL_DESCRIPTION_",
+      type: "String",
+      default: "*",
+      required: false,
+    },
+    {
       name: "required",
       description: "_A_UI_PROPS_REQUIRED_DESCRIPTION_",
       type: "Boolean",
@@ -204,7 +232,7 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "showPassword",
+      name: "show-password",
       description: "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_",
       type: "Boolean",
       default: true,

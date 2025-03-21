@@ -108,6 +108,8 @@
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "The value used to reset the model to an undefined state. Useful for clearing the model value.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "The current model value associated with the component. Used to manage the data displayed in the component.",
   "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Specifies the placeholder text that will be displayed in the input field until the user enters data. The placeholder helps the user understand what data is expected in the field.",
+  "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_": "The default text that is shown if the value is missing in read-only mode.",
+  "_A_UI_PROPS_READONLY_DESCRIPTION_": "Enables read-only mode, where the value is displayed as text without the possibility of editing.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indicates whether the component is required. If set to <strong lang=\"en\">true</strong>, the component requires user input.",
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Specifies whether item searches will be performed using an <strong lang=\"en\">API</strong>. If set to <strong lang=\"en\">true</strong>, data will be loaded from the server as the query is entered.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "The key used to perform the search via <strong lang=\"en\">API</strong>. Typically, this is a parameter passed in the server request to filter the data.",

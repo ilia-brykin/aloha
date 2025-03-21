@@ -108,6 +108,8 @@
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "Il valore utilizzato per reimpostare il modello in uno stato indefinito. Utile per cancellare il valore del modello.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "Il valore corrente del modello associato alla componente. Usato per gestire i dati visualizzati nella componente.",
   "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Specifica il testo del segnaposto che verrà visualizzato nel campo di input fino a quando l'utente non inserisce i dati. Il segnaposto aiuta l'utente a capire quali dati sono richiesti nel campo.",
+  "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_": "Il testo predefinito che viene mostrato se il valore è assente in modalità di sola lettura.",
+  "_A_UI_PROPS_READONLY_DESCRIPTION_": "Abilita la modalità di sola lettura, in cui il valore viene visualizzato come testo senza possibilità di modifica.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indica se la componente è obbligatoria. Se impostato su <strong lang=\"en\">true</strong>, la componente richiede l'input dell'utente.",
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Indica se la ricerca degli elementi verrà eseguita utilizzando un'<strong lang=\"en\">API</strong>. Se impostato su <strong lang=\"en\">true</strong>, i dati verranno caricati dal server man mano che viene inserita la query.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "La chiave utilizzata per eseguire la ricerca tramite un'<strong lang=\"en\">API</strong>. Di solito è un parametro passato nella richiesta al server per filtrare i dati.",

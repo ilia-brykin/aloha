@@ -108,6 +108,8 @@
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "El valor que se utiliza para restablecer el modelo a un estado indefinido. Útil para borrar el valor del modelo.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "El valor actual del modelo asociado con el componente. Se utiliza para gestionar los datos mostrados en el componente.",
   "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Especifica el texto de marcador de posición que se mostrará en el campo de entrada hasta que el usuario ingrese datos. El marcador de posición ayuda al usuario a entender qué datos se esperan en el campo.",
+  "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_": "El texto predeterminado que se muestra si falta el valor en modo de solo lectura.",
+  "_A_UI_PROPS_READONLY_DESCRIPTION_": "Activa el modo de solo lectura, donde el valor se muestra como texto sin posibilidad de edición.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Indica si el componente es obligatorio. Si se establece en <strong lang=\"en\">true</strong>, el componente requiere la entrada del usuario.",
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Indica si la búsqueda de elementos se realizará mediante una <strong lang=\"en\">API</strong>. Si se establece en <strong lang=\"en\">true</strong>, los datos se cargarán desde el servidor a medida que se introduzca la consulta.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "La clave que se utiliza para realizar la búsqueda a través de una <strong lang=\"en\">API</strong>. Normalmente, es un parámetro que se pasa en la solicitud al servidor para filtrar los datos.",

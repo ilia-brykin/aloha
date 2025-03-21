@@ -1,0 +1,28 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_GROUP_READONLY_HEADER_"
+  description="_A_INPUT_GROUP_READONLY_DESCRIPTION_"
+  :props="['readonly', 'readonly-default']"
+)
+  a-input(
+    :model-value="model1"
+    :readonly="true"
+    label="Input1"
+    type="text"
+  )
+  a-input(
+    :model-value="model2"
+    :readonly="true"
+    class="a_mt_3"
+    label="Input2"
+    type="text"
+  )
+  a-input(
+    :model-value="model3"
+    :readonly="true"
+    class="a_mt_3"
+    label="Input3"
+    readonly-default="-"
+    type="text"
+  )

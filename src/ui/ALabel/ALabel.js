@@ -84,6 +84,10 @@ export default {
       required: false,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
     required: {
       type: Boolean,
       required: false,
@@ -157,7 +161,7 @@ export default {
       class: [
         "a_form_element_label",
         this.labelClass,
-        this.isLabelFloat ?
+        this.isLabelFloat && !this.readonly ?
           "a_form_element_label_float" :
           "a_form_element_label_static",
         {
@@ -176,7 +180,7 @@ export default {
       textAriaHidden: !!this.labelScreenReader,
       title: this.titleLocal,
       type: "text",
-      onClick: this.onClick,
+      onClick: this.readonly ? this.onClick : undefined,
       ...this.attributesToExcludeFromRender,
     });
   },

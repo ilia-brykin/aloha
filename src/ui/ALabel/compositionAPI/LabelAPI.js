@@ -10,6 +10,7 @@ import {
 export default function LabelAPI(props) {
   const isLabelFloat = toRef(props, "isLabelFloat");
   const label = toRef(props, "label");
+  const readonly = toRef(props, "readonly");
   const required = toRef(props, "required");
 
   const isLabel = computed(() => {
@@ -23,13 +24,15 @@ export default function LabelAPI(props) {
   });
 
   const textAfterLabel = computed(() => {
-    return required.value && isLabel.value ?
+    return required.value &&
+      isLabel.value &&
+      !readonly.value ?
       "*" :
       "";
   });
 
   const titleLocal = computed(() => {
-    if (isLabelFloat.value) {
+    if (isLabelFloat.value && !readonly.value) {
       return labelLocal.value;
     }
 

@@ -108,6 +108,8 @@
   "_A_UI_PROPS_MODEL_UNDEFINED_DESCRIPTION_": "Der Wert, der verwendet wird, um das Modell in einen undefinierten Zustand zurückzusetzen. Nützlich, um den Modellwert zu löschen.",
   "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_": "Der aktuelle Modellwert, der mit der Komponente verknüpft ist. Wird verwendet, um die in der Komponente angezeigten Daten zu verwalten.",
   "_A_UI_PROPS_PLACEHOLDER_DESCRIPTION_": "Legt den Platzhaltertext fest, der im Eingabefeld angezeigt wird, bis der Benutzer Daten eingibt. Der Platzhalter hilft dem Benutzer zu verstehen, welche Daten im Feld erwartet werden.",
+  "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_": "Der Standardtext, der angezeigt wird, wenn im Nur-Lesen-Modus kein Wert vorhanden ist.",
+  "_A_UI_PROPS_READONLY_DESCRIPTION_": "Aktiviert den Nur-Lesen-Modus, bei dem der Wert als Text angezeigt wird und nicht bearbeitet werden kann.",
   "_A_UI_PROPS_REQUIRED_DESCRIPTION_": "Gibt an, ob die Komponente erforderlich ist. Wenn auf <strong lang=\"en\">true</strong> gesetzt, erfordert die Komponente eine Benutzereingabe.",
   "_A_UI_PROPS_SEARCH_API_DESCRIPTION_": "Gibt an, ob die Suche nach Elementen mit <strong lang=\"en\">API</strong> ausgeführt wird. Wenn auf <strong lang=\"en\">true</strong> gesetzt, werden die Daten während der Eingabe der Suchanfrage vom Server geladen.",
   "_A_UI_PROPS_SEARCH_API_KEY_DESCRIPTION_": "Der Schlüssel, der für die Ausführung der Suche über <strong lang=\"en\">API</strong> verwendet wird. Dies ist normalerweise ein Parameter, der in der Anforderung an den Server übergeben wird, um die Daten zu filtern.",

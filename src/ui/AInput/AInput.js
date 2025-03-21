@@ -3,19 +3,21 @@ import {
   toRef,
   watch,
 } from "vue";
-
-import AButton from "../../AButton/AButton";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AIcon from "../../AIcon/AIcon";
-import ALabel from "../ALabel/ALabel";
+import {
+  AButton,
+  AErrorsText,
+  AFormElementBtnClear,
+  AFormHelpText,
+  AIcon,
+  ALabel,
+} from "../../index";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
 import ColorAPI from "./compositionAPI/ColorAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import PasswordAPI from "./compositionAPI/PasswordAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
+import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
@@ -25,6 +27,7 @@ import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
+  isInteger,
   uniqueId,
 } from "lodash-es";
 
@@ -169,6 +172,26 @@ export default {
       required: false,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyPasswordLength: {
+      type: Number,
+      required: false,
+      default: 8,
+      validator: value => value > 0 && isInteger(value),
+    },
+    readonlyPasswordSymbol: {
+      type: String,
+      required: false,
+      default: "*",
+    },
     required: {
       type: Boolean,
       required: false,
@@ -271,6 +294,13 @@ export default {
       modelValueLocal,
     } = ColorAPI(props);
 
+    const {
+      labelIdReadonly,
+      modelValueReadonly,
+    } = ReadonlyAPI(props, {
+      htmlIdLocal,
+    });
+
     watch(type, () => {
       setTypeLocal();
     });
@@ -294,7 +324,9 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
+      labelIdReadonly,
       modelValueLocal,
+      modelValueReadonly,
       onBlur,
       onFocus,
       onInput,
@@ -307,6 +339,35 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h("div", {
+        ...this.$attrs,
+        "aria-labelledby": this.labelIdReadonly,
+        role: "group",
+        style: this.componentStyleHide,
+        ...this.attributesToExcludeFromRender,
+      }, [
+        (this.label || this.labelScreenReader) ?
+          h(ALabel, {
+            id: this.htmlIdLocal,
+            alwaysTranslate: this.alwaysTranslate,
+            isError: this.isErrors,
+            isLabelFloat: this.isLabelFloat,
+            label: this.label,
+            labelClass: this.labelClass,
+            labelScreenReader: this.labelScreenReader,
+            readonly: this.readonly,
+            required: this.required,
+            tag: "div",
+            type: this.type,
+          }) :
+          "",
+        h("div", {
+          class: "a_form_readonly_value",
+        }, this.modelValueReadonly),
+      ]);
     }
 
     return h("div", {
@@ -325,13 +386,13 @@ export default {
           h(ALabel, {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
+            isError: this.isErrors,
+            isLabelFloat: this.isLabelFloat,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,
             required: this.required,
             type: this.type,
-            isLabelFloat: this.isLabelFloat,
-            isError: this.isErrors,
           }) :
           "",
         h("div", {
