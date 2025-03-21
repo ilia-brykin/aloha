@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.4.1
+
+- `ASelect`: fix `watch` for `url`, `apiSaveId`, `urlParams`
+
 ## 2.4.0
 
 - New component `ARouterLinkConfig`
