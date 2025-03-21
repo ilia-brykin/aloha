@@ -1,12 +1,12 @@
 import {
+  computed,
+  ref,
+} from "vue";
+import {
   describe,
   expect,
   it,
 } from "@jest/globals";
-import {
-  computed,
-  ref,
-} from "vue";
 
 import FormAPI from "../compositionAPI/FormAPI";
 

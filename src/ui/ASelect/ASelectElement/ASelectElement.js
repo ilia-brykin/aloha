@@ -5,14 +5,13 @@ import {
 
 import AIcon from "../../../AIcon/AIcon";
 
-import ASafeHtml from "../../../directives/ASafeHtml";
-
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI";
 import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
 
+import ASafeHtml from "../../../directives/ASafeHtml";
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
 
 export default {

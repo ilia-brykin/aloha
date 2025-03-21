@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -13,6 +10,9 @@ import PageLinkCopyLinkOptions from "./PageLinkCopyLinkOptions/PageLinkCopyLinkO
 import PageLinkCopySlotButton from "./PageLinkCopySlotButton/PageLinkCopySlotButton.vue";
 import PageLinkCopySlotLink from "./PageLinkCopySlotLink/PageLinkCopySlotLink.vue";
 import PageLinkCopyTextCopy from "./PageLinkCopyTextCopy/PageLinkCopyTextCopy.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";

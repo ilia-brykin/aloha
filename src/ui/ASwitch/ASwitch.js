@@ -12,9 +12,9 @@ import CheckedAPI from "./compositionAPI/CheckedAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import OnInputAPI from "./compositionAPI/OnInputAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import placements from "../../const/placements";

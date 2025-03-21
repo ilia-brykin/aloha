@@ -1,7 +1,7 @@
+import ATranslation from "../../../../../../src/ATranslation/ATranslation";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
-import ATranslation from "../../../../../../src/ATranslation/ATranslation";
 import PageRouterLinkConfigBasic from "./PageRouterLinkConfigBasic/PageRouterLinkConfigBasic.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";

@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -12,6 +9,9 @@ import PageTextareaIsScalable from "./PageTextareaIsScalable/PageTextareaIsScala
 import PageTextareaLabelFloat from "./PageTextareaLabelFloat/PageTextareaLabelFloat.vue";
 import PageTextareaLabelScreenReader from "./PageTextareaLabelScreenReader/PageTextareaLabelScreenReader.vue";
 import PageTextareaResize from "./PageTextareaResize/PageTextareaResize.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

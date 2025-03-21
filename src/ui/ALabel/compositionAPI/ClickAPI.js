@@ -3,10 +3,11 @@ import {
   toRef,
 } from "vue";
 
-import EventBus from "../../../utils/EventBus";
 import {
   getLabelClickEventName,
 } from "../../utils/utils";
+
+import EventBus from "../../../utils/EventBus";
 import {
   isFunction,
 } from "lodash-es";

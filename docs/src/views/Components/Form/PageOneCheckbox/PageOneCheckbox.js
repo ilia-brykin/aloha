@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageOneCheckboxBasic from "./PageOneCheckboxBasic/PageOneCheckboxBasic.vue";
@@ -12,6 +9,9 @@ import PageOneCheckboxIndeterminate from "./PageOneCheckboxIndeterminate/PageOne
 import PageOneCheckboxSlotName from "./PageOneCheckboxSlotName/PageOneCheckboxSlotName.vue";
 import PageOneCheckboxTrueValue from "./PageOneCheckboxTrueValue/PageOneCheckboxTrueValue.vue";
 import PageOneCheckboxWidthAuto from "./PageOneCheckboxWidthAuto/PageOneCheckboxWidthAuto.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

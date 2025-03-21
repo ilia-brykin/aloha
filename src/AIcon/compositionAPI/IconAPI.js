@@ -10,7 +10,8 @@ import {
 } from "../../plugins/AIconPlugin";
 import {
   isNil,
-  isPlainObject, isString,
+  isPlainObject,
+  isString,
 } from "lodash-es";
 
 export default function IconAPI(props) {

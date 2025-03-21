@@ -4,7 +4,6 @@ import {
 } from "vue";
 
 import AFiltersAPI from "../../../../compositionAPI/AFiltersAPI";
-
 import {
   getTranslatedText,
   isPlaceholderTranslate,

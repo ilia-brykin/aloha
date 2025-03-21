@@ -2,7 +2,8 @@ import {
   forEach,
   get,
   isArray,
-  isFunction, isUndefined,
+  isFunction,
+  isUndefined,
 } from "lodash-es";
 
 export default filterList;

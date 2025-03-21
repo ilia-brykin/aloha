@@ -14,9 +14,9 @@ import ModelLocalAPI from "./compositionAPI/ModelLocalAPI";
 import ParamAPI from "./compositionAPI/ParamAPI";
 import RouteAPI from "./compositionAPI/RouteAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
@@ -308,7 +308,7 @@ export default {
     if (!this.isRender) {
       return null;
     }
-    
+
     return h("div", {
       ...this.$attrs,
       style: this.componentStyleHide,

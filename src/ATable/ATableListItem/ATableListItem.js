@@ -1,12 +1,13 @@
 import {
-  h, resolveComponent,
+  h,
+  resolveComponent,
 } from "vue";
 
 import ATranslation from "../../ATranslation/ATranslation";
 
-import TextAPI from "../ATableTd/compositionAPI/TextAPI";
-import SlotAPI from "../ATableTd/compositionAPI/SlotAPI";
 import LinkAPI from "../ATableTd/compositionAPI/LinkAPI";
+import SlotAPI from "../ATableTd/compositionAPI/SlotAPI";
+import TextAPI from "../ATableTd/compositionAPI/TextAPI";
 
 export default {
   name: "ATableListItem",

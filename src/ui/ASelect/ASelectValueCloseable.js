@@ -4,11 +4,11 @@ import {
   toRef,
 } from "vue";
 
-import AKeyLabel from "../../const/AKeyLabel";
-import AKeyId from "../../const/AKeyId";
 import AIcon from "../../AIcon/AIcon";
 import ATranslation from "../../ATranslation/ATranslation";
 
+import AKeyId from "../../const/AKeyId";
+import AKeyLabel from "../../const/AKeyLabel";
 import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 
 export default {

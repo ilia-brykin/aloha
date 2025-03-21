@@ -7,16 +7,16 @@ import AElement from "../../AElement/AElement";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AGroup from "../AGroup/AGroup";
-import AUiComponents from "../AUiComponents";
 
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import AUiComponents from "../AUiComponents";
 import {
   formPluginOptions,
 } from "../../plugins/AFormPlugin";

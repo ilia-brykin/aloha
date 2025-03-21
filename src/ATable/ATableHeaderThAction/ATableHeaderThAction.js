@@ -7,6 +7,9 @@ import AIcon from "../../AIcon/AIcon";
 import AInput from "../../ui/AInput/AInput";
 import ASwitch from "../../ui/ASwitch/ASwitch";
 import ATableHeaderThActionItem from "./ATableHeaderThActionItem/ATableHeaderThActionItem";
+import {
+  getModelColumnsVisibleDefault,
+} from "../utils/utils";
 
 import ColumnSearchAPI from "../compositionAPI/ColumnSearchAPI";
 import DragAndDropParentAPI from "../compositionAPI/DragAndDropParentAPI";
@@ -16,9 +19,6 @@ import ArrowCounterclockwise from "aloha-svg/dist/js/bootstrap/ArrowCounterclock
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
 import GearFill from "aloha-svg/dist/js/bootstrap/GearFill";
 import XLg from "aloha-svg/dist/js/bootstrap/XLg";
-import {
-  getModelColumnsVisibleDefault,
-} from "../utils/utils";
 import {
   forEach,
 } from "lodash-es";

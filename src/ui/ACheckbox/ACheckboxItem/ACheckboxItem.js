@@ -5,8 +5,6 @@ import {
 
 import AElement from "../../../AElement/AElement";
 
-import ASafeHtml from "../../../directives/ASafeHtml";
-
 import ButtonGroupAPI from "./compositionAPI/ButtonGroupAPI";
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -14,6 +12,8 @@ import UiCheckboxRadioItemAPI from "../../compositionApi/UiCheckboxRadioItemAPI"
 import UiDisabledElementAPI from "../../compositionApi/UiDisabledElementAPI";
 import UiTitleElementAPI from "../../compositionApi/UiTitleElementAPI";
 import UiVisibleElementWithSearchAPI from "../../compositionApi/UiVisibleElementWithSearchAPI";
+
+import ASafeHtml from "../../../directives/ASafeHtml";
 
 export default {
   name: "ACheckboxItem",

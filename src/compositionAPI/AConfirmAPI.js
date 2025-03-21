@@ -3,7 +3,8 @@ import {
 } from "vue";
 
 import {
-  forEach, isFunction,
+  forEach,
+  isFunction,
 } from "lodash-es";
 
 const isModalHidden = ref(true);

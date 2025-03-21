@@ -3,13 +3,12 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../../const/AKeyId";
-import AKeyLabel from "../../../const/AKeyLabel";
-
 import {
   getTranslatedText,
 } from "../../../ATranslation/compositionAPI/UtilsAPI";
 
+import AKeyId from "../../../const/AKeyId";
+import AKeyLabel from "../../../const/AKeyLabel";
 import {
   keyBy,
 } from "lodash-es";

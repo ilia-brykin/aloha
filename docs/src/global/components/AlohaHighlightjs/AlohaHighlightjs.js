@@ -5,13 +5,12 @@ import {
   watch,
 } from "vue";
 
+import "highlight.js/styles/a11y-dark.css";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
-import xml from "highlight.js/lib/languages/xml";
 import markdown from "highlight.js/lib/languages/markdown";
 import scss from "highlight.js/lib/languages/scss";
-
-import "highlight.js/styles/a11y-dark.css";
+import xml from "highlight.js/lib/languages/xml";
 
 hljs.registerLanguage("javascript", javascript);
 hljs.registerLanguage("html", xml);

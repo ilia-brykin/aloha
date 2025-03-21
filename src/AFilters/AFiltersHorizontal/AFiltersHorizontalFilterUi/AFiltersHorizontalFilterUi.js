@@ -1,13 +1,15 @@
 import {
   h,
 } from "vue";
+import {
+  UIExcludeRenderAttributesAPI,
+} from "../../../index";
 
 import ComponentTypesAPI from "./compositionAPI/ComponentTypesAPI";
 import ContainerAPI from "./compositionAPI/ContainerAPI";
 import FilterSpecificTypeAPI from "./compositionAPI/FilterSpecificTypeAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
-import UIExcludeRenderAttributesAPI from "../../../ui/compositionApi/UIExcludeRenderAttributesAPI";
 import UpdateDataAPI from "./compositionAPI/UpdateDataAPI";
 
 export default {

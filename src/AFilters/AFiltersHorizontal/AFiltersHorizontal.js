@@ -2,14 +2,16 @@ import {
   h,
   onBeforeUnmount,
 } from "vue";
+import {
+  ADropdown,
+  AElement,
+  AForm,
+  AIcon,
+  ASelect,
+  ATranslation,
+} from "../../index";
 
-import ADropdown from "../../ADropdown/ADropdown";
-import AElement from "../../AElement/AElement";
 import AFiltersSaveModal from "../AFiltersSaveModal/AFiltersSaveModal";
-import AForm from "../../ui/AForm/AForm";
-import AIcon from "../../AIcon/AIcon";
-import ASelect from "../../ui/ASelect/ASelect";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import DropdownAPI from "./compositionAPI/DropdownAPI";
 import EventBusAPI from "./compositionAPI/EventBusAPI";

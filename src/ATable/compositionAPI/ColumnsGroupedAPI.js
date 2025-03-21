@@ -7,10 +7,10 @@ import {
 
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 import ATranslation from "../../ATranslation/ATranslation";
-
 import {
   isColumnVisibleWithoutModel,
 } from "../utils/utils";
+
 import {
   filter,
   get,

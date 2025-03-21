@@ -9,12 +9,11 @@ import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 
-import UiMixinProps from "../mixins/UiMixinProps";
-
-import UiAPI from "../compositionApi/UiAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiAPI from "../compositionApi/UiAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import UiMixinProps from "../mixins/UiMixinProps";
 import {
   forEach,
   isArray,

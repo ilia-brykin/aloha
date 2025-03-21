@@ -5,11 +5,11 @@ import {
 } from "vue";
 
 import {
-  typesContainer,
-} from "../../../ui/const/AUiTypes";
-import {
   isModelForFilterNotEmpty,
 } from "../../../utils/utilsUi";
+import {
+  typesContainer,
+} from "../../../ui/const/AUiTypes";
 import {
   cloneDeep,
   forEach,

@@ -12,8 +12,8 @@ import ListenerAPI from "./compositionAPI/ListenerAPI";
 import ObserverAPI from "./compositionAPI/ObserverAPI";
 import ScrollAPI from "./compositionAPI/ScrollAPI";
 
-import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 
 export default {
   name: "AVerticalScroll",

@@ -1,18 +1,22 @@
 import {
   h,
   onBeforeUnmount,
-  Teleport, toRef,
+  Teleport,
+  toRef,
   withDirectives,
 } from "vue";
+import {
+  AElement,
+  AIcon,
+  AOnHooks,
+  APlacements,
+  focusableSelector,
+} from "../index";
 
 import ADropdownAction from "./ADropdownAction/ADropdownAction";
-import AElement from "../AElement/AElement";
-import AIcon from "../AIcon/AIcon";
 
-import AOnHooks from "../directives/AOnHooks";
-
-import ActionsAPI from "./compositionAPI/ActionsAPI";
 import APopupAPI from "../compositionAPI/APopupAPI";
+import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -23,10 +27,6 @@ import RefsAPI from "./compositionAPI/RefsAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
-import placements from "../const/placements";
-import {
-  focusableSelector,
-} from "../const/AFocusableElements";
 import {
   difference,
   uniqueId,
@@ -268,7 +268,7 @@ export default {
       type: String,
       required: false,
       default: "bottom-start",
-      validator: placement => placements.indexOf(placement) !== -1,
+      validator: placement => APlacements.indexOf(placement) !== -1,
     },
     popperContainerId: {
       type: String,

@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
+
 import EventBus from "../../utils/EventBus";
 
 export default function ResizeAPI(props, {

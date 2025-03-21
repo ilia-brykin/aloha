@@ -5,9 +5,8 @@ import {
 
 import APanelYearItem from "../APanelYearItem/APanelYearItem";
 
-import PanelMixin from "../../mixins/PanelMixin";
-
 import AKeysCode from "../../../../const/AKeysCode";
+import PanelMixin from "../../mixins/PanelMixin";
 import {
   isUndefined,
   range,

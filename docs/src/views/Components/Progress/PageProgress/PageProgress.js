@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageProgressBasic from "./PageProgressBasic/PageProgressBasic.vue";
@@ -18,6 +15,9 @@ import PageProgressStriped from "./PageProgressStriped/PageProgressStriped.vue";
 import PageProgressStripedFlow from "./PageProgressStripedFlow/PageProgressStripedFlow.vue";
 import PageProgressValue from "./PageProgressValue/PageProgressValue.vue";
 import PageProgressValueTextInteger from "./PageProgressValueTextInteger/PageProgressValueTextInteger.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";

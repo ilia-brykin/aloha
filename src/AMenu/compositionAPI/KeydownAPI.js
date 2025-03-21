@@ -4,12 +4,13 @@ import {
   toRef,
 } from "vue";
 
-import AMobileAPI from "../../compositionAPI/AMobileAPI";
-
-import AKeysCode from "../../const/AKeysCode";
 import {
   getElementId,
 } from "../utils/utils";
+
+import AMobileAPI from "../../compositionAPI/AMobileAPI";
+
+import AKeysCode from "../../const/AKeysCode";
 import {
   focusableSelector,
 } from "../../const/AFocusableElements";

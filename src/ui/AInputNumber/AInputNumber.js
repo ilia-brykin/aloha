@@ -12,18 +12,15 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AIcon from "../../AIcon/AIcon";
 import ALabel from "../ALabel/ALabel";
 
-import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
-import UiMixinProps from "../mixins/UiMixinProps";
-
 import IncreaseDecreaseAPI from "./compositionAPI/IncreaseDecreaseAPI";
 import InputEventsAPI from "./compositionAPI/InputEventsAPI";
 import MinAPI from "./compositionAPI/MinAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import NumberAttributesAPI from "./compositionAPI/NumberAttributesAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
@@ -31,6 +28,8 @@ import WidthAPI from "./compositionAPI/WidthAPI";
 
 import Dash from "aloha-svg/dist/js/bootstrap/Dash";
 import Plus from "aloha-svg/dist/js/bootstrap/Plus";
+import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
+import UiMixinProps from "../mixins/UiMixinProps";
 import {
   inputNumberPluginOptions,
 } from "../../plugins/AInputNumberPlugin";

@@ -1,9 +1,10 @@
 import {
   h,
 } from "vue";
-
-import AAlert from "../../AAlert/AAlert";
-import AModalForm from "../../AModalForm/AModalForm";
+import {
+  AAlert,
+  AModalForm,
+} from "../../index";
 
 import DataFormAPI from "./compositionAPI/DataFormAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";

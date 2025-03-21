@@ -13,8 +13,8 @@ import IdAPI from "./compositionAPI/IdAPI";
 import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
-import UiAPI from "../compositionApi/UiAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiAPI from "../compositionApi/UiAPI";
 import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 

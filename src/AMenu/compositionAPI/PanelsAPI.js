@@ -4,10 +4,11 @@ import {
   toRef,
 } from "vue";
 
-import AKeyParent from "../../const/AKeyParent";
 import {
   setFocusToFirstLinkInPanel,
 } from "../utils/utils";
+
+import AKeyParent from "../../const/AKeyParent";
 import {
   last,
 } from "lodash-es";

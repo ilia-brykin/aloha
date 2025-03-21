@@ -6,16 +6,14 @@ import {
 } from "vue";
 
 import AButton from "../../AButton/AButton";
-import ACloak from "../../ACloak/ACloak";
 import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
+import ACloak from "../../ACloak/ACloak";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import AIcon from "../../AIcon/AIcon";
 import AInput from "../AInput/AInput";
 import ALabel from "../ALabel/ALabel";
 import ASelectElement from "./ASelectElement/ASelectElement";
-import ASelectLabelElement from "./ASelectLabelElement";
-import ASelectValueCloseable from "./ASelectValueCloseable";
 import ATranslation from "../../ATranslation/ATranslation";
 
 import APopupAPI from "../../compositionAPI/APopupAPI";
@@ -28,23 +26,25 @@ import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
 import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
+import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
-import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
 import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
 import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
 import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
 import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
 import UiSearchAPI from "../compositionApi/UiSearchAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AKeyId from "../../const/AKeyId";
+import ASelectLabelElement from "./ASelectLabelElement";
+import ASelectValueCloseable from "./ASelectValueCloseable";
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
-import placements from "../../const/placements";
 import Search from "aloha-svg/dist/js/bootstrap/Search";
 import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+import placements from "../../const/placements";
 import {
   selectPluginOptions,
 } from "../../plugins/ASelectPlugin";
@@ -596,7 +596,7 @@ export default {
       htmlIdLocal,
       openPopup,
     });
-    
+
     const {
       deleteExceededItems,
       onChangeModelValue,

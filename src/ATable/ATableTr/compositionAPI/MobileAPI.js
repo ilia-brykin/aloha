@@ -1,6 +1,8 @@
 import {
-  computed, inject,
-  ref, toRef,
+  computed,
+  inject,
+  ref,
+  toRef,
 } from "vue";
 
 export default function MobileAPI(props) {

@@ -3,7 +3,6 @@ import {
   toRef,
 } from "vue";
 
-
 import Languages from "../locale/languages";
 
 export default function LanguagesAPI(props) {

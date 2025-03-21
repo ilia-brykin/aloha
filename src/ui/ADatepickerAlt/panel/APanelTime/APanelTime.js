@@ -3,9 +3,8 @@ import {
   h,
 } from "vue";
 
-import PanelMixin from "../../mixins/PanelMixin";
-
 import AKeysCode from "../../../../const/AKeysCode";
+import PanelMixin from "../../mixins/PanelMixin";
 
 // @vue/component
 export default {

@@ -5,8 +5,8 @@ import {
   toRef,
 } from "vue";
 
-import APaginationPages from "../APaginationPages/APaginationPages";
 import APaginationCountPerPage from "../APaginationCountPerPage/APaginationCountPerPage";
+import APaginationPages from "../APaginationPages/APaginationPages";
 
 import {
   forEach,

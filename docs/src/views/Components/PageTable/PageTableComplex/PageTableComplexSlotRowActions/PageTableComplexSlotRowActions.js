@@ -1,3 +1,4 @@
+import AlohaExample from "../../../../../global/components/AlohaExample/AlohaExample.vue";
 import {
   AButton,
   AIcon,
@@ -5,13 +6,12 @@ import {
   ATable,
 } from "aloha-vue";
 
-import AlohaExample from "../../../../../global/components/AlohaExample/AlohaExample.vue";
-
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import JsAPI from "./compositionAPI/JsAPI";
 
 import {
-  cloneDeep, times,
+  cloneDeep,
+  times,
 } from "lodash-es";
 
 export default {

@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -9,6 +6,9 @@ import PageJsonChange from "./PageJsonChange/PageJsonChange.vue";
 import PageJsonErrors from "./PageJsonErrors/PageJsonErrors.vue";
 import PageJsonHelpText from "./PageJsonHelpText/PageJsonHelpText.vue";
 import PageJsonLabelScreenReader from "./PageJsonLabelScreenReader/PageJsonLabelScreenReader.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

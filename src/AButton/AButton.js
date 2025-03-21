@@ -1,8 +1,9 @@
 import {
   h,
 } from "vue";
-
-import AElement from "../AElement/AElement";
+import {
+  AElement,
+} from "../index";
 
 import EmitsAPI from "./compositionAPI/EmitsAPI";
 

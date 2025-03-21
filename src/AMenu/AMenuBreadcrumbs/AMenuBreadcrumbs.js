@@ -8,12 +8,11 @@ import AButton from "../../AButton/AButton";
 import ADropdown from "../../ADropdown/ADropdown";
 import ATranslation from "../../ATranslation/ATranslation";
 
-import AOnHooks from "../../directives/AOnHooks";
-
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ItemsAPI from "./compositionAPI/ItemsAPI";
 import RenderTruncatedAPI from "./compositionAPI/RenderTruncatedAPI";
 
+import AOnHooks from "../../directives/AOnHooks";
 import ThreeDots from "aloha-svg/dist/js/bootstrap/ThreeDots";
 
 export default {

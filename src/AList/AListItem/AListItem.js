@@ -3,12 +3,11 @@ import {
   withDirectives,
 } from "vue";
 
-import AList from "../AList";
-
-import ASafeHtml from "../../directives/ASafeHtml";
-
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
+
+import AList from "../AList";
+import ASafeHtml from "../../directives/ASafeHtml";
 
 export default {
   name: "AListItem",

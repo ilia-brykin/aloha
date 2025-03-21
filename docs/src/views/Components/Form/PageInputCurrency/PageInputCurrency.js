@@ -1,7 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
-
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -20,6 +16,9 @@ import PageInputCurrencyStep from "./PageInputCurrencyStep/PageInputCurrencyStep
 import PageInputCurrencySymbol from "./PageInputCurrencySymbol/PageInputCurrencySymbol.vue";
 import PageInputCurrencyThousandDivider from "./PageInputCurrencyThousandDivider/PageInputCurrencyThousandDivider.vue";
 import PageInputCurrencyValidationOnChange from "./PageInputCurrencyValidationOnChange/PageInputCurrencyValidationOnChange.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

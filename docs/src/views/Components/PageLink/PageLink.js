@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageLinkBasic from "./PageLinkBasic/PageLinkBasic.vue";
@@ -27,6 +24,9 @@ import PageLinkTextTag from "./PageLinkTextTag/PageLinkTextTag.vue";
 import PageLinkTitleArray from "./PageLinkTitleArray/PageLinkTitleArray.vue";
 import PageLinkTitleHtml from "./PageLinkTitleHtml/PageLinkTitleHtml.vue";
 import PageLinkTransparent from "./PageLinkTransparent/PageLinkTransparent.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

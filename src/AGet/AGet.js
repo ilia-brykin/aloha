@@ -2,10 +2,10 @@ import {
   h,
   withDirectives,
 } from "vue";
-
-import AFiltersAPI from "../compositionAPI/AFiltersAPI";
-
-import ASafeHtml from "../directives/ASafeHtml";
+import {
+  AFiltersAPI,
+  ASafeHtml,
+} from "../index";
 
 import {
   forEach,

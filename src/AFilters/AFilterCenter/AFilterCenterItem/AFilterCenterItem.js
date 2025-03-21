@@ -3,9 +3,10 @@ import {
   onBeforeUnmount,
   watch,
 } from "vue";
-
-import AElement from "../../../AElement/AElement";
-import ATranslation from "../../../ATranslation/ATranslation";
+import {
+  AElement,
+  ATranslation,
+} from "../../../index";
 
 import CloseFilterValueAPI from "./compositionAPI/CloseFilterValueAPI";
 import FilterVisibleAPI from "./compositionAPI/FilterVisibleAPI";
@@ -15,8 +16,8 @@ import IsDataLoadingAPI from "./compositionAPI/IsDataLoadingAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import ModelValuesAPI from "./compositionAPI/ModelValuesAPI";
 
-import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 import PinFill from "aloha-svg/dist/js/bootstrap/PinFill";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 
 export default {
   name: "AFilterCenterItem",

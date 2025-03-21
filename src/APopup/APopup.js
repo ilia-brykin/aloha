@@ -4,11 +4,10 @@ import {
   withDirectives,
 } from "vue";
 
-import AOnHooks from "../directives/AOnHooks";
-
 import ContainerAPI from "./compositionAPI/ContainerAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
+import AOnHooks from "../directives/AOnHooks";
 import placements from "../const/placements";
 
 export default {

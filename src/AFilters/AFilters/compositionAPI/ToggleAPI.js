@@ -4,8 +4,8 @@ import {
 } from "vue";
 
 import {
-  filter as _filter,
   cloneDeep,
+  filter as _filter,
 } from "lodash-es";
 
 export default function ToggleAPI(props, {

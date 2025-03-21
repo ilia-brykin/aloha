@@ -2,7 +2,6 @@ import {
   typesModelArray,
   typesModelObject,
 } from "../ui/const/AUiTypes";
-
 import {
   isEmpty,
 } from "lodash-es";

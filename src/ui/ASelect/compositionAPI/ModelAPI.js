@@ -3,13 +3,12 @@ import {
   toRef,
 } from "vue";
 
+import AKeyLabel from "../../../const/AKeyLabel";
 import {
   filter,
   isArray,
   isNil,
 } from "lodash-es";
-
-import AKeyLabel from "../../../const/AKeyLabel";
 
 export default function ModelAPI(props, {
   dataKeyByKeyIdLocal = computed(() => ({})),

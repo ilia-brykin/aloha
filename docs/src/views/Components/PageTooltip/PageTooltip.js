@@ -1,18 +1,18 @@
+import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
+import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import PageTooltipArrowPadding from "./PageTooltipArrowPadding/PageTooltipArrowPadding.vue";
+import PageTooltipArrowPaddingFunction from "./PageTooltipArrowPaddingFunction/PageTooltipArrowPaddingFunction.vue";
+import PageTooltipBasic from "./PageTooltipBasic/PageTooltipBasic.vue";
+import PageTooltipHideArrow from "./PageTooltipHideArrow/PageTooltipHideArrow.vue";
+import PageTooltipMaxWidth from "./PageTooltipMaxWidth/PageTooltipMaxWidth.vue";
+import PageTooltipOffsetDistance from "./PageTooltipOffsetDistance/PageTooltipOffsetDistance.vue";
+import PageTooltipOffsetSkidding from "./PageTooltipOffsetSkidding/PageTooltipOffsetSkidding.vue";
+import PageTooltipTag from "./PageTooltipTag/PageTooltipTag.vue";
+import PageTooltipTimeClose from "./PageTooltipTimeClose/PageTooltipTimeClose.vue";
+import PageTooltipWidth from "./PageTooltipWidth/PageTooltipWidth.vue";
 import {
   ATranslation,
 } from "aloha-vue";
-import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
-import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
-import PageTooltipBasic from "./PageTooltipBasic/PageTooltipBasic.vue";
-import PageTooltipTag from "./PageTooltipTag/PageTooltipTag.vue";
-import PageTooltipMaxWidth from "./PageTooltipMaxWidth/PageTooltipMaxWidth.vue";
-import PageTooltipWidth from "./PageTooltipWidth/PageTooltipWidth.vue";
-import PageTooltipTimeClose from "./PageTooltipTimeClose/PageTooltipTimeClose.vue";
-import PageTooltipHideArrow from "./PageTooltipHideArrow/PageTooltipHideArrow.vue";
-import PageTooltipOffsetSkidding from "./PageTooltipOffsetSkidding/PageTooltipOffsetSkidding.vue";
-import PageTooltipOffsetDistance from "./PageTooltipOffsetDistance/PageTooltipOffsetDistance.vue";
-import PageTooltipArrowPadding from "./PageTooltipArrowPadding/PageTooltipArrowPadding.vue";
-import PageTooltipArrowPaddingFunction from "./PageTooltipArrowPaddingFunction/PageTooltipArrowPaddingFunction.vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageTabsActiveTabId from "./PageTabsActiveTabId/PageTabsActiveTabId.vue";
@@ -19,6 +16,9 @@ import PageTabsKeyLabel from "./PageTabsKeyLabel/PageTabsKeyLabel.vue";
 import PageTabsKeyTitle from "./PageTabsKeyTitle/PageTabsKeyTitle.vue";
 import PageTabsStaticSlots from "./PageTabsStaticSlots/PageTabsStaticSlots.vue";
 import PageTabsTitleHtml from "./PageTabsTitleHtml/PageTabsTitleHtml.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

@@ -8,12 +8,15 @@ import {
 import AGet from "../AGet/AGet";
 import ALoading from "../ALoading/ALoading";
 import APagination from "../APagination/APagination";
-import ATableHeader from "./ATableHeader/ATableHeader";
 import ATableGroupedHeader from "./ATableGroupedHeader/ATableGroupedHeader";
+import ATableHeader from "./ATableHeader/ATableHeader";
 import ATablePreviewRight from "./ATablePreviewRight/ATablePreviewRight";
 import ATableTopPanel from "./ATableTopPanel/ATableTopPanel";
 import ATableTr from "./ATableTr/ATableTr";
 import ATranslation from "../ATranslation/ATranslation";
+import {
+  getRowIdOrIndex,
+} from "./utils/utils";
 
 import ColumnActionAPI from "./compositionAPI/ColumnActionAPI";
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
@@ -41,10 +44,6 @@ import ViewsAPI from "./compositionAPI/ViewsAPI";
 import {
   tablePluginOptions,
 } from "../plugins/ATablePlugin";
-
-import {
-  getRowIdOrIndex,
-} from "./utils/utils";
 import {
   isInteger,
   uniqueId,

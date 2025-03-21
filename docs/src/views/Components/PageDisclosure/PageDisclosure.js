@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -18,6 +15,9 @@ import PageDisclosureNotLess from "./PageDisclosureNotLess/PageDisclosureNotLess
 import PageDisclosureOpenDefault from "./PageDisclosureOpenDefault/PageDisclosureOpenDefault.vue";
 import PageDisclosureSafeHtml from "./PageDisclosureSafeHtml/PageDisclosureSafeHtml.vue";
 import PageDisclosureSlots from "./PageDisclosureSlots/PageDisclosureSlots.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";

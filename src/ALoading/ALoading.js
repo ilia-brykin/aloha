@@ -2,11 +2,11 @@ import {
   h,
 } from "vue";
 
-import ASpinner from "../ASpinner/ASpinner.js";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ClassAPI from "../ACloak/compositionAPI/ClassAPI";
 
+import ASpinner from "../ASpinner/ASpinner.js";
 import {
   loadingPluginOptions,
 } from "../plugins/ALoadingPlugin";

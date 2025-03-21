@@ -3,10 +3,10 @@ import {
   Teleport,
 } from "vue";
 
+import ATranslation from "../ATranslation/ATranslation";
 import AWizardStep from "./AWizardStep/AWizardStep";
 import AWizardTab from "./AWizardTab/AWizardTab";
 import AWizardToolbar from "./AWizardToolbar/AWizardToolbar";
-import ATranslation from "../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";

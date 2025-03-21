@@ -1,6 +1,5 @@
 import AUiComponents from "../../../../ui/AUiComponents";
 import AUiContainerComponents from "../../../../ui/AUiContainerComponents";
-
 import {
   formPluginOptions,
 } from "../../../../plugins/AFormPlugin";

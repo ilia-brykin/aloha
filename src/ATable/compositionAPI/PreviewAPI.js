@@ -4,16 +4,17 @@ import {
   toRef,
 } from "vue";
 
+import {
+  getPreviewRightId,
+  getRowIdOrIndex,
+} from "../utils/utils";
+
 import ADropdownGlobalAPI from "../../compositionAPI/ADropdownGlobalAPI";
 import PreviewRightResizeAPI from "./PreviewRightResizeAPI";
 
 import {
   setFocusToElement,
 } from "../../utils/utilsDOM";
-import {
-  getPreviewRightId,
-  getRowIdOrIndex,
-} from "../utils/utils";
 import {
   isNil,
   isUndefined,

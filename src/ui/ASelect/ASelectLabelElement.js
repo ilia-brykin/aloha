@@ -5,9 +5,8 @@ import {
   withDirectives,
 } from "vue";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
 import AKeyLabel from "../../const/AKeyLabel";
+import ASafeHtml from "../../directives/ASafeHtml";
 
 
 export default {

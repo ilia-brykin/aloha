@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -21,6 +18,9 @@ import PageShowMoreSlots from "./PageShowMoreSlots/PageShowMoreSlots.vue";
 import PageShowMoreText from "./PageShowMoreText/PageShowMoreText.vue";
 import PageShowMoreTextLength from "./PageShowMoreTextLength/PageShowMoreTextLength.vue";
 import PageShowMoreTexts from "./PageShowMoreTexts/PageShowMoreTexts.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";

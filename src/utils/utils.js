@@ -1,5 +1,4 @@
 import DOMPurify from "dompurify";
-
 import {
   every,
   forEach,

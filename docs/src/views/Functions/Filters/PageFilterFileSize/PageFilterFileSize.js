@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageFilterArguments from "../../Components/PageFilterArguments/PageFilterArguments.vue";
@@ -12,6 +9,9 @@ import PageFilterFileSizeUnitsEmpty from "./PageFilterFileSizeUnitsEmpty/PageFil
 import PageFilterImportCompositionApi from "../../Components/PageFilterImportCompositionApi/PageFilterImportCompositionApi.vue";
 import PageFilterImportFunction from "../../Components/PageFilterImportFunction/PageFilterImportFunction.vue";
 import PageFilterTest from "../../Components/PageFilterTest/PageFilterTest.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

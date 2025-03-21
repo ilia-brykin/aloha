@@ -5,11 +5,12 @@ import {
 } from "vue";
 
 import {
-  setFocusToElement,
-} from "../../utils/utilsDOM";
-import {
   getMultiplePanelId,
 } from "../utils/utils";
+
+import {
+  setFocusToElement,
+} from "../../utils/utilsDOM";
 import {
   filter,
   get,

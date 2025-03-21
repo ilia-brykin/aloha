@@ -1,10 +1,12 @@
 import {
   h,
 } from "vue";
+import {
+  AButton,
+  ASpinner,
+} from "../../index";
 
-import AButton from "../../AButton/AButton";
 import AFilterCenterItem from "./AFilterCenterItem/AFilterCenterItem";
-import ASpinner from "../../ASpinner/ASpinner";
 
 import LoadingFiltersAPI from "./compositionAPI/LoadingFiltersAPI";
 import VisibleFiltersAPI from "./compositionAPI/VisibleFiltersAPI";

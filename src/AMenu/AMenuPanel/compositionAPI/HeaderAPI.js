@@ -5,7 +5,6 @@ import {
 } from "vue";
 
 import AKeyLabel from "../../../const/AKeyLabel";
-
 import {
   get,
 } from "lodash-es";

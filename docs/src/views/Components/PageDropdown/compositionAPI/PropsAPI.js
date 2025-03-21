@@ -1,4 +1,6 @@
-import { focusableSelector } from "../../../../../../src/const/AFocusableElements";
+import {
+  focusableSelector,
+} from "../../../../../../src/const/AFocusableElements";
 
 export default function PropsAPI() {
   const dataProps = [

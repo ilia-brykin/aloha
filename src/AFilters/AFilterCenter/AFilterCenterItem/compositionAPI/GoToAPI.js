@@ -3,10 +3,11 @@ import {
   toRef,
 } from "vue";
 
-import EventBus from "../../../../utils/EventBus";
 import {
   getHtmlId,
 } from "../../../../ui/compositionApi/UiAPI";
+
+import EventBus from "../../../../utils/EventBus";
 
 export default function GoToAPI(props) {
   const filter = toRef(props, "filter");

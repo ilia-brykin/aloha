@@ -2,10 +2,11 @@ import {
   computed,
 } from "vue";
 
-import EventBus from "../../utils/EventBus";
 import {
   getLabelClickEventName,
 } from "../utils/utils";
+
+import EventBus from "../../utils/EventBus";
 
 export default function UiLabelClickEventBusAPI({
   htmlIdLocal = computed(() => ""),

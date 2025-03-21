@@ -3,9 +3,9 @@ import {
 } from "vue";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
+import ContentIdAPI from "./compositionAPI/ContentIdAPI";
 import FocusIdAPI from "./compositionAPI/FocusIdAPI";
 import VisibilityAPI from "./compositionAPI/VisibilityAPI";
-import ContentIdAPI from "./compositionAPI/ContentIdAPI";
 
 export default {
   name: "AWizardTab",

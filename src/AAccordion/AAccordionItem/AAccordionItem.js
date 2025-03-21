@@ -1,18 +1,19 @@
 import {
-  h, onBeforeUnmount,
+  h,
+  onBeforeUnmount,
   resolveComponent,
   watch,
   withDirectives,
 } from "vue";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
-import VisibleAPI from "./compositionAPI/VisibleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
+import VisibleAPI from "./compositionAPI/VisibleAPI";
+
 import AKeyId from "../../const/AKeyId";
+import ASafeHtml from "../../directives/ASafeHtml";
 
 export default {
   name: "AAccordionItem",

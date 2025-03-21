@@ -14,10 +14,10 @@ import ModelAPI from "./compositionAPI/ModelAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import ResizeClass from "./compositionAPI/ResizeClass";
 import RowsAPI from "./compositionAPI/RowsAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {

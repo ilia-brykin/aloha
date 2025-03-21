@@ -1,6 +1,7 @@
 import {
   computed,
 } from "vue";
+
 import {
   getTranslatedText,
 } from "aloha-vue";

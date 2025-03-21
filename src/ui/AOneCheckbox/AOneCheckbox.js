@@ -8,9 +8,9 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 
 import LabelAPI from "./compositionAPI/LabelAPI";
 import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {

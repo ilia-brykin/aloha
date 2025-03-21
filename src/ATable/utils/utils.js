@@ -1,4 +1,8 @@
-import { get, isFunction, isNil } from "lodash-es";
+import {
+  get,
+  isFunction,
+  isNil,
+} from "lodash-es";
 
 export function getModelColumnsVisibleDefault(columns) {
   const MODEL_COLUMNS_VISIBLE = {};

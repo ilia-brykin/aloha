@@ -1,10 +1,11 @@
 import {
   h,
 } from "vue";
-
-import AButton from "../AButton/AButton";
-import AIcon from "../AIcon/AIcon";
-import ATranslation from "../ATranslation/ATranslation";
+import {
+  AButton,
+  AIcon,
+  ATranslation,
+} from "../index";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";

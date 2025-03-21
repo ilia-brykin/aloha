@@ -6,8 +6,8 @@ import {
 } from "vue";
 
 import AIcon from "../AIcon/AIcon";
-import ATranslation from "../ATranslation/ATranslation";
 import ARateIcon from "./ARateIcon/ARateIcon";
+import ATranslation from "../ATranslation/ATranslation";
 
 import Star from "aloha-svg/dist/js/bootstrap/Star";
 import StarFill from "aloha-svg/dist/js/bootstrap/StarFill";

@@ -4,11 +4,11 @@ import {
   toRef,
 } from "vue";
 
-import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
-
 import {
   getMultiplePanelId,
 } from "../../utils/utils";
+
+import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
 
 export default function MultipleAPI(props, { emit }) {
   const areAllRowsSelected = toRef(props, "areAllRowsSelected");

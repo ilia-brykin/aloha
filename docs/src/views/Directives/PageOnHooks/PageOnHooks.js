@@ -1,8 +1,8 @@
+import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
+import PageOnHooksExample from "./PageOnHooksExample/PageOnHooksExample.vue";
 import {
   ATranslation,
 } from "aloha-vue";
-import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
-import PageOnHooksExample from "./PageOnHooksExample/PageOnHooksExample.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 

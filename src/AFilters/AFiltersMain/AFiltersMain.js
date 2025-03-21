@@ -1,9 +1,10 @@
 import {
   h,
 } from "vue";
-
-import AButton from "../../AButton/AButton";
-import AForm from "../../ui/AForm/AForm";
+import {
+  AButton,
+  AForm,
+} from "../../index";
 
 import IdAPI from "./compositionAPI/IdAPI";
 import MainFilterAPI from "./compositionAPI/MainFilterAPI";

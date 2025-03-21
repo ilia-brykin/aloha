@@ -10,8 +10,8 @@ import ARadio from "../../ui/ARadio/ARadio";
 import ATableSortingAdditional from "../ATableSortingAdditional/ATableSortingAdditional";
 import ATranslation from "../../ATranslation/ATranslation";
 
-import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AFiltersAPI from "../../compositionAPI/AFiltersAPI";
+import ActionsAPI from "./compositionAPI/ActionsAPI";
 import CountAllRowsAPI from "./compositionAPI/CountAllRowsAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import MultipleAPI from "./compositionAPI/MultipleAPI";

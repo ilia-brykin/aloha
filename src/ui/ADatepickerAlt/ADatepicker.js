@@ -10,16 +10,15 @@ import ADatepickerIcon from "./ADatepickerIcon/ADatepickerIcon";
 import AErrorsText from "../AErrorsText/AErrorsText";
 import ALabel from "../ALabel/ALabel";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
-import UiMixinProps from "../mixins/UiMixinProps";
-
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
+import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AKeysCode from "../../const/AKeysCode";
+import ASafeHtml from "../../directives/ASafeHtml";
 import Languages from "./locale/languages";
+import UiMixinProps from "../mixins/UiMixinProps";
+import moment from "moment";
 import {
   formatDate,
   isDateObject,
@@ -32,7 +31,6 @@ import {
 import {
   transformDate,
 } from "./utils/transform";
-import moment from "moment";
 
 
 // @vue/component

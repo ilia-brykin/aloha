@@ -5,9 +5,9 @@ import {
 
 import ACheckboxLegend from "../ACheckbox/ACheckboxLegend/ACheckboxLegend";
 
-import DataAPI from "./compostionAPI/DataAPI";
-import ComponentAPI from "./compostionAPI/ComponentAPI";
 import ChangeModelAPI from "./compostionAPI/ChangeModelAPI";
+import ComponentAPI from "./compostionAPI/ComponentAPI";
+import DataAPI from "./compostionAPI/DataAPI";
 
 export default {
   name: "ACheckboxRadioGroups",

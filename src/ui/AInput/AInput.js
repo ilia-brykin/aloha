@@ -17,10 +17,10 @@ import ModelAPI from "./compositionAPI/ModelAPI";
 import PasswordAPI from "./compositionAPI/PasswordAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
 import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 

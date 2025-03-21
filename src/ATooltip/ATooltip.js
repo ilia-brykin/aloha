@@ -5,14 +5,13 @@ import {
   withDirectives,
 } from "vue";
 
-import AOnHooks from "../directives/AOnHooks";
-
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import PopperAPI from "./compositionAPI/PopperAPI";
 import PopperContainerAPI from "./compositionAPI/PopperContainerAPI";
 import TagAPI from "./compositionAPI/TagAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
+import AOnHooks from "../directives/AOnHooks";
 import placements from "../const/placements";
 import {
   uniqueId,

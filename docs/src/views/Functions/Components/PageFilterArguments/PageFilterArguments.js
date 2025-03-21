@@ -1,8 +1,8 @@
+import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
+import TypeTranslate from "../../../../components/TypeTranslate/TypeTranslate.vue";
 import {
   ATranslation,
 } from "aloha-vue";
-import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
-import TypeTranslate from "../../../../components/TypeTranslate/TypeTranslate.vue";
 
 import JsAPI from "./compositionAPI/JsAPI";
 

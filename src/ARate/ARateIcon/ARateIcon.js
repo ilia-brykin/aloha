@@ -2,8 +2,8 @@ import {
   h,
 } from "vue";
 
-import AIcon from "../../AIcon/AIcon";
 import ADecimalIcon from "./ADecimalIcon/ADecimalIcon";
+import AIcon from "../../AIcon/AIcon";
 
 import Star from "aloha-svg/dist/js/bootstrap/Star";
 import StarFill from "aloha-svg/dist/js/bootstrap/StarFill";

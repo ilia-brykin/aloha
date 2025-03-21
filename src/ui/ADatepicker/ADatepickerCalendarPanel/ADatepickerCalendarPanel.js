@@ -8,9 +8,8 @@ import APanelMonth from "../panel/APanelMonth/APanelMonth";
 import APanelTime from "../panel/APanelTime/APanelTime";
 import APanelYear from "../panel/APanelYear/APanelYear";
 
-import PanelMixin from "../mixins/PanelMixin";
-
 import AKeysCode from "../../../const/AKeysCode";
+import PanelMixin from "../mixins/PanelMixin";
 import scrollIntoView from "../utils/scroll-into-view";
 import {
   formatDate,

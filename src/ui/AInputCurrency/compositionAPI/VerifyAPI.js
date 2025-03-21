@@ -5,7 +5,6 @@ import {
 import {
   toPrecision,
 } from "../../../utils/utilsMath";
-
 import {
   isNumber,
 } from "lodash-es";

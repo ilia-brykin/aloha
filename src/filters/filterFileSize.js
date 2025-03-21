@@ -1,7 +1,8 @@
-import filterFloat from "./filterFloat";
 import {
   getTranslatedText,
 } from "../ATranslation/compositionAPI/UtilsAPI";
+
+import filterFloat from "./filterFloat";
 import {
   isNaN,
   toNumber,

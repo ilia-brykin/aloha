@@ -1,6 +1,7 @@
 import {
   computed,
-  h, onBeforeUnmount,
+  h,
+  onBeforeUnmount,
 } from "vue";
 
 import AModal from "../AModal/AModal";

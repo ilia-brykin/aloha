@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageTranslationAriaLabel from "./PageTranslationAriaLabel/PageTranslationAriaLabel.vue";
@@ -18,6 +15,9 @@ import PageTranslationTextObject from "./PageTranslationTextObject/PageTranslati
 import PageTranslationTitle from "./PageTranslationTitle/PageTranslationTitle.vue";
 import PageTranslationTitleArray from "./PageTranslationTitleArray/PageTranslationTitleArray.vue";
 import PageTranslationTitleObject from "./PageTranslationTitleObject/PageTranslationTitleObject.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";

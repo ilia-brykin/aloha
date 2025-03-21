@@ -1,9 +1,10 @@
 import {
   h,
 } from "vue";
-
-import AButton from "../../AButton/AButton";
-import ALink from "../../ALink/ALink";
+import {
+  AButton,
+  ALink,
+} from "../../index";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 

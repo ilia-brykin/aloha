@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageGroupButtonDropdownActionsClasses from "./PageGroupButtonDropdownActionsClasses/PageGroupButtonDropdownActionsClasses.vue";
@@ -11,9 +8,12 @@ import PageGroupButtonDropdownExtraClasses from "./PageGroupButtonDropdownExtraC
 import PageGroupButtonDropdownHasDividerBeforeDropdown from "./PageGroupButtonDropdownHasDividerBeforeDropdown/PageGroupButtonDropdownHasDividerBeforeDropdown.vue";
 import PageGroupButtonDropdownIndexFirstDropdownAction from "./PageGroupButtonDropdownIndexFirstDropdownAction/PageGroupButtonDropdownIndexFirstDropdownAction.vue";
 import PageGroupButtonDropdownIndexFirstDropdownActionOne from "./PageGroupButtonDropdownIndexFirstDropdownActionOne/PageGroupButtonDropdownIndexFirstDropdownActionOne.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";

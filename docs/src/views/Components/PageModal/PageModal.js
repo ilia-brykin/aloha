@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -13,6 +10,9 @@ import PageModalSelectorClose from "./PageModalSelectorClose/PageModalSelectorCl
 import PageModalSelectorCloseIds from "./PageModalSelectorCloseIds/PageModalSelectorCloseIds.vue";
 import PageModalSize from "./PageModalSize/PageModalSize.vue";
 import PageModalSlots from "./PageModalSlots/PageModalSlots.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

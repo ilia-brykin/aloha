@@ -2,8 +2,8 @@ import {
   ref,
 } from "vue";
 
-import _NoImage from "../AIcon/Icons/_NoImage";
 import Aloha from "../AIcon/Icons/Aloha";
+import _NoImage from "../AIcon/Icons/_NoImage";
 
 export const iconPluginOptions = ref({
   icons: {

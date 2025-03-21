@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaHighlightjs from "../../../global/components/AlohaHighlightjs/AlohaHighlightjs";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
@@ -31,9 +28,12 @@ import PageButtonTitleArray from "./PageButtonTitleArray/PageButtonTitleArray.vu
 import PageButtonTitleHtml from "./PageButtonTitleHtml/PageButtonTitleHtml.vue";
 import PageButtonTitleHtmlExtra from "./PageButtonTitleHtmlExtra/PageButtonTitleHtmlExtra.vue";
 import PageButtonTransparent from "./PageButtonTransparent/PageButtonTransparent.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";

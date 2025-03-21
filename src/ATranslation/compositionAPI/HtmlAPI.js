@@ -3,13 +3,14 @@ import {
   toRef,
 } from "vue";
 
+import {
+  sanitizeLocal,
+} from "../../utils/utils";
+
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
 import ATranslationAPI from "./ATranslationAPI";
 import UtilsAPI from "./UtilsAPI";
 
-import {
-  sanitizeLocal,
-} from "../../utils/utils";
 import {
   forEach,
   isArray,

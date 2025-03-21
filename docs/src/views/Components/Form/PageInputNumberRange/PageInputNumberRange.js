@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageInputNumberRangeBasic from "./PageInputNumberRangeBasic/PageInputNumberRangeBasic.vue";
@@ -8,12 +5,15 @@ import PageInputNumberRangePlaceholder from "./PageInputNumberRangePlaceholder/P
 import PageInputNumberRangeTypeInteger from "./PageInputNumberRangeTypeInteger/PageInputNumberRangeTypeInteger.vue";
 import PageInputNumberRangeTypeIntegerNonNegative from "./PageInputNumberRangeTypeIntegerNonNegative/PageInputNumberRangeTypeIntegerNonNegative.vue";
 import PageInputNumberRangeTypeIntegerPositive from "./PageInputNumberRangeTypeIntegerPositive/PageInputNumberRangeTypeIntegerPositive.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
+import EventsAPI from "./compositionAPI/EventsAPI";
+import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
-import EventsAPI from "./compositionAPI/EventsAPI";
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 
 export default {
   name: "PageInputNumberRange",

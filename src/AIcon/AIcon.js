@@ -3,11 +3,11 @@ import {
   withDirectives,
 } from "vue";
 
-import ASafeHtml from "../directives/ASafeHtml";
-
 import AriaLabelHiddenAPI from "./compositionAPI/AriaLabelHiddenAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import IconAPI from "./compositionAPI/IconAPI";
+
+import ASafeHtml from "../directives/ASafeHtml";
 
 export default {
   name: "AIcon",

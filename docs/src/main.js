@@ -1,7 +1,10 @@
-import App from "./App/App.vue";
-import { createApp } from "vue";
+import {
+  createApp,
+} from "vue";
 import router from "./router/index";
-// import AGroupButtonDropdownPlugin from "../../src/plugins/AGroupButtonDropdownPlugin";
+
+import ATest from "./components/ATest/ATest";
+import App from "./App/App.vue";
 import {
   AFiltersPlugin,
   AFormPlugin,
@@ -13,17 +16,17 @@ import {
   ARouterLinkConfigPlugin,
   ASafeHtml,
 } from "aloha-vue";
-import ATest from "./components/ATest/ATest";
-import mainIcons from "./mainIcons";
 
-import {
-  mainTranslation,
-} from "./mainTranslation";
 import {
   modelLanguage,
   setLanguageFromLocalStorage,
 } from "./components/TheNavbar/compositionAPI/LanguagesAPI";
+
 import "../styles/styles.scss";
+import mainIcons from "./mainIcons";
+import {
+  mainTranslation,
+} from "./mainTranslation";
 
 setLanguageFromLocalStorage();
 

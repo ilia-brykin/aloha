@@ -5,15 +5,16 @@ import {
 } from "vue";
 
 import {
-  getElementId,
-} from "../utils/utils";
-import {
   autoUpdate,
   computePosition,
   flip,
   limitShift,
   shift,
 } from "@floating-ui/vue";
+import {
+  getElementId,
+} from "../utils/utils";
+
 import {
   clone,
   forEach,

@@ -1,5 +1,4 @@
 import globals from "globals";
-// import importPlugin from "eslint-plugin-import";
 import pluginJest from "eslint-plugin-jest";
 import pluginJs from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
@@ -182,13 +181,19 @@ export default [
               name: "Core Imports",
               patterns: [
                 {
-                  exact: "vue", // Полный импорт
+                  exact: "vue",
                 },
                 {
-                  exact: "vue-router", // Полный импорт
+                  exact: "vue-router",
                 },
                 {
-                  exact: "aloha-vue", // Полный импорт
+                  exact: "@jest/globals",
+                },
+                {
+                  exact: "@vue/test-utils",
+                },
+                {
+                  regex: "/index$",
                 },
               ],
             },
@@ -196,7 +201,19 @@ export default [
               name: "Components",
               patterns: [
                 {
-                  regex: ".vue$", // RegExp для всех .vue файлов
+                  regex: ".vue$",
+                },
+                {
+                  regex: "([A-Za-z0-9_]+)/\\1$",
+                },
+              ],
+              sort: "asc",
+            },
+            {
+              name: "CompositionAPI",
+              patterns: [
+                {
+                  includes: "API",
                 },
               ],
               sort: "asc",
@@ -205,16 +222,16 @@ export default [
               name: "Third-Party Libraries",
               patterns: [
                 {
-                  exact: "_rest_", // Оставшиеся импорты
-                  sort: "desc",
+                  exact: "_rest_",
+                  sort: "asc",
                 },
                 {
-                  exact: "lodash-es", // Полный импорт
+                  exact: "lodash-es",
                 },
               ],
             },
           ],
-          newlineBetweenGroups: 1,
+          emptyLinesBetweenGroups: 1,
         },
       ],
 
@@ -503,7 +520,7 @@ export default [
       "vue/no-empty-component-block": WARN,
       "vue/no-multiple-objects-in-class": WARN,
       "vue/no-potential-component-option-typo": WARN,
-      "vue/no-ref-object-reactivity-loss": WARN,
+      "vue/no-ref-object-reactivity-loss": OFF,
       "vue/no-required-prop-with-default": WARN,
       "vue/no-root-v-if": WARN,
       "vue/no-setup-props-reactivity-loss": WARN,
@@ -537,7 +554,6 @@ export default [
     plugins: { jest: pluginJest },
     languageOptions: {
       globals: pluginJest.environments.globals.globals,
-      describe: false,
     },
     rules: {
       "jest/no-disabled-tests": "warn",

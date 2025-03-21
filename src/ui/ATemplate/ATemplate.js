@@ -3,10 +3,10 @@ import {
   withDirectives,
 } from "vue";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+
+import ASafeHtml from "../../directives/ASafeHtml";
 
 export default {
   name: "ATemplate",

@@ -1,13 +1,12 @@
 import {
+  computed,
+  ref,
+} from "vue";
+import {
   describe,
   expect,
   it,
 } from "@jest/globals";
-/* eslint vue/no-ref-object-reactivity-loss: off */
-import {
-  computed,
-  ref,
-} from "vue";
 
 import ModelAPI from "../compositionAPI/ModelAPI";
 

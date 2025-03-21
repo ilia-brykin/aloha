@@ -8,7 +8,8 @@
     "build-production": "vite build --config vite.config.mjs",
     "serve": "vite preview",
     "i": "npm i --scope=@npm",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "lint-fix": "eslint src/ --fix"
   },
   "dependencies": {
     "@floating-ui/vue": "1.1.5",

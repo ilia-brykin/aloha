@@ -1,9 +1,10 @@
 import {
   h,
 } from "vue";
-
-import ASpinner from "../ASpinner/ASpinner.js";
-import ATranslation from "../ATranslation/ATranslation";
+import {
+  ASpinner,
+  ATranslation,
+} from "../index";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
 

@@ -1,12 +1,11 @@
 import {
+  reactive,
+} from "vue";
+import {
   describe,
   expect,
   it,
 } from "@jest/globals";
-
-import {
-  reactive,
-} from "vue";
 
 import UIExcludeRenderAttributesAPI from "../UIExcludeRenderAttributesAPI";
 

@@ -1,17 +1,20 @@
 import {
-  computed, ref,
+  computed,
+  ref,
   toRef,
 } from "vue";
 
-import AKeyId from "../../const/AKeyId";
-import AKeyLabel from "../../const/AKeyLabel";
+import {
+  isArrayOfArrays,
+} from "../../utils/utils";
+
 import {
   getTranslatedText,
   isPlaceholderTranslate,
 } from "../../ATranslation/compositionAPI/UtilsAPI";
-import {
-  isArrayOfArrays,
-} from "../../utils/utils";
+
+import AKeyId from "../../const/AKeyId";
+import AKeyLabel from "../../const/AKeyLabel";
 import {
   cloneDeep,
   forEach,

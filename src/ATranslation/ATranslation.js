@@ -7,8 +7,8 @@ import AttributesAPI from "./compositionAPI/AttributesAPI";
 import HtmlAPI from "./compositionAPI/HtmlAPI";
 import PlaceholderAPI from "./compositionAPI/PlaceholderAPI";
 import RestAttributesAPI from "./compositionAPI/RestAttributesAPI";
-import TextAfterBeforeAPI from "./compositionAPI/TextAfterBeforeAPI";
 import TextAPI from "./compositionAPI/TextAPI";
+import TextAfterBeforeAPI from "./compositionAPI/TextAfterBeforeAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 
 export default {

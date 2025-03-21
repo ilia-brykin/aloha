@@ -1,7 +1,3 @@
-import {
-  ADropdown,
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageDropdownBasic from "./PageDropdownBasic/PageDropdownBasic.vue";
@@ -13,6 +9,10 @@ import PageDropdownCaretIcon from "./PageDropdownCaretIcon/PageDropdownCaretIcon
 import PageDropdownHasCaret from "./PageDropdownHasCaret/PageDropdownHasCaret.vue";
 import PageDropdownInBody from "./PageDropdownInBody/PageDropdownInBody.vue";
 import PageDropdownTriggers from "./PageDropdownTriggers/PageDropdownTriggers.vue";
+import {
+  ADropdown,
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";

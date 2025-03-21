@@ -1,8 +1,10 @@
 import {
   h,
 } from "vue";
+import {
+  AButton,
+} from "../../../index";
 
-import AButton from "../../../AButton/AButton";
 import AFiltersHorizontalFilterUi from "../AFiltersHorizontalFilterUi/AFiltersHorizontalFilterUi";
 
 import IdAPI from "./compositionAPI/IdAPI";

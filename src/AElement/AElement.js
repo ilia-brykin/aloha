@@ -1,10 +1,12 @@
 import {
   h,
 } from "vue";
-
-import AIcon from "../AIcon/AIcon";
-import ASpinner from "../ASpinner/ASpinner";
-import ATranslation from "../ATranslation/ATranslation";
+import {
+  AIcon,
+  APlacements,
+  ASpinner,
+  ATranslation,
+} from "../index";
 
 import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
 import AttributesAPI from "./comositionAPI/AttributesAPI";
@@ -20,7 +22,6 @@ import TextAPI from "./comositionAPI/TextAPI";
 import TitleAPI from "./comositionAPI/TitleAPI";
 import UIExcludeRenderAttributesAPI from "../ui/compositionApi/UIExcludeRenderAttributesAPI";
 
-import placements from "../const/placements";
 import {
   isInteger,
   isString,
@@ -250,7 +251,7 @@ export default {
       type: String,
       required: false,
       default: "top",
-      validator: placement => placements.indexOf(placement) !== -1,
+      validator: placement => APlacements.indexOf(placement) !== -1,
     },
     titleZIndex: {
       type: [Number, String],

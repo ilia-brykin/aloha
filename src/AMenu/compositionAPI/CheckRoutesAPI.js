@@ -1,13 +1,15 @@
 import {
   computed,
   getCurrentInstance,
-  ref, toRef,
+  ref,
+  toRef,
 } from "vue";
 
 import AKeyId from "../../const/AKeyId";
 import AKeyParent from "../../const/AKeyParent";
 import {
-  forEach, isFunction,
+  forEach,
+  isFunction,
 } from "lodash-es";
 
 export default function CheckRoutesAPI(props, {

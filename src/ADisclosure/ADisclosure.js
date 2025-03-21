@@ -1,9 +1,10 @@
 import {
   h,
 } from "vue";
-
-import AElement from "../AElement/AElement";
-import ATranslation from "../ATranslation/ATranslation";
+import {
+  AElement,
+  ATranslation,
+} from "../index";
 
 import BtnAttributesAPI from "./compositionAPI/BtnAttributesAPI";
 import IsOpenAPI from "./compositionAPI/IsOpenAPI";

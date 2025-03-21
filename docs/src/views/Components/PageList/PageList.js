@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageListBasic from "./PageListBasic/PageListBasic.vue";
@@ -14,6 +11,9 @@ import PageListSeparator from "./PageListSeparator/PageListSeparator.vue";
 import PageListSeparatorHtml from "./PageListSeparatorHtml/PageListSeparatorHtml.vue";
 import PageListTag from "./PageListTag/PageListTag.vue";
 import PageListWithSlot from "./PageListWithSlot/PageListWithSlot.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";

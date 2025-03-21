@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageAlertBasic from "./PageAlertBasic/PageAlertBasic.vue";
@@ -16,6 +13,9 @@ import PageAlertSafeHtml from "./PageAlertSafeHtml/PageAlertSafeHtml.vue";
 import PageAlertSlot from "./PageAlertSlot/PageAlertSlot.vue";
 import PageAlertText from "./PageAlertText/PageAlertText.vue";
 import PageAlertTypes from "./PageAlertTypes/PageAlertTypes.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";

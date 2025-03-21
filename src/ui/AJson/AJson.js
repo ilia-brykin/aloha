@@ -9,15 +9,14 @@ import AFormHelpText from "../AFormHelpText/AFormHelpText";
 import ALabel from "../ALabel/ALabel";
 import ATranslation from "../../ATranslation/ATranslation";
 
-import ASafeHtml from "../../directives/ASafeHtml";
-
 import HeightAPI from "./compositionAPI/HeightAPI";
 import JsonAPI from "./compositionAPI/JsonAPI";
+import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiAPI from "../compositionApi/UiAPI";
 import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
+import ASafeHtml from "../../directives/ASafeHtml";
 import ArrowRepeat from "aloha-svg/dist/js/bootstrap/ArrowRepeat";
 import Braces from "aloha-svg/dist/js/bootstrap/Braces";
 import Trash from "aloha-svg/dist/js/bootstrap/Trash";

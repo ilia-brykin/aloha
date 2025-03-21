@@ -1,6 +1,3 @@
-import {
-  ATranslation,
-} from "aloha-vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -13,6 +10,9 @@ import PageSwitchThreeState from "./PageSwitchThreeState/PageSwitchThreeState.vu
 import PageSwitchTitle from "./PageSwitchTitle/PageSwitchTitle.vue";
 import PageSwitchTrueFalseLabel from "./PageSwitchTrueFalseLabel/PageSwitchTrueFalseLabel.vue";
 import PageSwitchTrueFalseValue from "./PageSwitchTrueFalseValue/PageSwitchTrueFalseValue.vue";
+import {
+  ATranslation,
+} from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";

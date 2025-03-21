@@ -1,6 +1,7 @@
 import {
   computed,
-  ref, toRef,
+  ref,
+  toRef,
 } from "vue";
 
 export default function CodeToggleAPI(props) {

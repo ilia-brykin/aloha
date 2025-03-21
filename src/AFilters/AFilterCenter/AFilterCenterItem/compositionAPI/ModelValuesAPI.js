@@ -4,15 +4,15 @@ import {
 } from "vue";
 
 import AFiltersAPI from "../../../../compositionAPI/AFiltersAPI";
-
-import AKeyLabel from "../../../../const/AKeyLabel";
-import {
-  typesModelArray,
-} from "../../../../ui/const/AUiTypes";
-import TypesNumberRange from "../../../../ui/AInputNumberRange/utils/Types";
 import {
   getTranslatedText,
 } from "../../../../ATranslation/compositionAPI/UtilsAPI";
+
+import AKeyLabel from "../../../../const/AKeyLabel";
+import TypesNumberRange from "../../../../ui/AInputNumberRange/utils/Types";
+import {
+  typesModelArray,
+} from "../../../../ui/const/AUiTypes";
 import {
   filter as _filter,
   get,
