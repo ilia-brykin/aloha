@@ -639,9 +639,7 @@ export default {
       clickLabel: togglePopover,
     });
 
-    watch(urlPropsComputed, updateUrlPropsComputed, {
-      deep: true,
-    });
+    watch(urlPropsComputed, updateUrlPropsComputed);
 
     addPopperContainerInBody({ className: "a_select_container" });
     initEventBusClickLabel();

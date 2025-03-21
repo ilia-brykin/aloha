@@ -13,7 +13,7 @@ import {
   find,
   forEach,
   get,
-  isArray,
+  isArray, isEqual,
   isMatch,
   isNil,
   isNumber,
@@ -52,9 +52,9 @@ export default function UiDataFromServerAPI(props, {
 
   const urlPropsComputed = computed(() => {
     return [
-      apiSaveId,
-      url,
-      urlParams,
+      apiSaveId.value,
+      url.value,
+      urlParams.value,
     ];
   });
 
@@ -84,7 +84,7 @@ export default function UiDataFromServerAPI(props, {
   });
 
   const updateUrlPropsComputed = (newVal, oldVal) => {
-    if (!isNil(oldVal) && !isMatch(oldVal, newVal)) {
+    if (!isEqual(oldVal, newVal)) {
       loadDataFromServer();
       if (isTypeList.value) {
         changeModel({
