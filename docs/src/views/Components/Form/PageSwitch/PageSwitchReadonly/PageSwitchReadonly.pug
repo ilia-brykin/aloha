@@ -3,26 +3,29 @@ aloha-example(
   :code-js="codeJs"
   header="_A_UI_GROUP_READONLY_HEADER_"
   description="_A_UI_GROUP_READONLY_DESCRIPTION_"
-  :props="['readonly', 'readonly-default']"
+  :props="['readonly', 'default-label']"
 )
-  a-input(
+  a-switch(
     :model-value="model1"
     :readonly="true"
-    label="Input1"
-    type="text"
+    label="Switch 1"
   )
-  a-input(
+  a-switch(
     :model-value="model2"
     :readonly="true"
     class="a_mt_3"
-    label="Input2"
-    type="text"
+    label="Switch 2"
   )
-  a-input(
+  a-switch(
     :model-value="model3"
     :readonly="true"
     class="a_mt_3"
-    label="Input3"
-    readonly-default="-"
-    type="text"
+    label="Switch 3"
+  )
+  a-switch(
+    :model-value="model3"
+    :readonly="true"
+    class="a_mt_3"
+    default-label="default"
+    label="Switch 4"
   )

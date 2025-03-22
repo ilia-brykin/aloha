@@ -3,8 +3,6 @@
   "_A_INPUT_COMPONENT_NAME_": "Champ de Texte",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Cet exemple montre comment utiliser un champ de saisie avec le type <strong lang=\"en\">password</strong> et la possibilité de basculer la visibilité du mot de passe en utilisant <strong lang=\"en\">show-password</strong>. Dans le premier champ, l'utilisateur peut basculer entre l'affichage et la masquage du mot de passe, tandis que dans le deuxième champ, cette fonction est désactivée.",
   "_A_INPUT_GROUP_PASSWORD_HEADER_": "Champ de Saisie de Mot de Passe",
-  "_A_INPUT_GROUP_READONLY_DESCRIPTION_": "Cet exemple montre des champs de saisie avec le mode <strong lang=\"en\">readonly</strong> activé, où la valeur est en lecture seule et ne peut pas être modifiée par l'utilisateur.",
-  "_A_INPUT_GROUP_READONLY_HEADER_": "Champs de saisie en <strong lang=\"en\">readonly</strong>",
   "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "Exemple d'affichage de champs de type <strong lang=\"en\">password</strong> en mode <strong lang=\"en\">readonly</strong>. La valeur du mot de passe est masquée à l'aide d'un symbole défini, le nombre de caractères est contrôlé via <strong lang=\"en\">readonly-password-length</strong> et le symbole lui-même via <strong lang=\"en\">readonly-password-symbol</strong>. Le dernier champ montre une variante avec <strong lang=\"en\">show-password</strong> activé, affichant la valeur complète.",
   "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "Champs de mot de passe en <strong lang=\"en\">readonly</strong>",
   "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Spécifie l'icône qui sera affichée avant le champ de saisie. Cette icône peut être utilisée pour améliorer la perception visuelle ou indiquer le type de données saisies.",

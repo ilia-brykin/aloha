@@ -52,6 +52,8 @@
   "_A_UI_GROUP_KEY_TITLE_HEADER_": "Impostazione dei titoli",
   "_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">label-screen-reader</strong>. Consente di impostare un'etichetta nascosta che sarà visibile solo ai lettori di schermo.",
   "_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_": "Etichetta per screen reader",
+  "_A_UI_GROUP_READONLY_DESCRIPTION_": "In questo esempio, il componente è utilizzato in modalità <strong lang=\"en\">readonly</strong>, dove il valore è mostrato come testo e non può essere modificato dall'utente.",
+  "_A_UI_GROUP_READONLY_HEADER_": "Modalità di visualizzazione <strong lang=\"en\">readonly</strong>",
   "_A_UI_GROUP_SEARCH_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">search</strong> per aggiungere la funzionalità di ricerca negli elementi del componente. Questa funzionalità consente agli utenti di trovare facilmente gli elementi desiderati in un ampio insieme di dati.",
   "_A_UI_GROUP_SEARCH_HEADER_": "Ricerca negli elementi",
   "_A_UI_GROUP_SORT_ORDER_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">sort-order</strong> per impostare l'ordine di ordinamento degli elementi. Nel primo caso, non è specificato alcun ordine di ordinamento, nel secondo gli elementi sono ordinati in ordine crescente (<strong lang=\"en\">asc</strong>), mentre nel terzo in ordine decrescente (<strong lang=\"en\">desc</strong>). Ciò consente di personalizzare la visualizzazione degli elementi nell'ordine desiderato.",

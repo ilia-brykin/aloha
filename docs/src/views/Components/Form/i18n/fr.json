@@ -52,6 +52,8 @@
   "_A_UI_GROUP_KEY_TITLE_HEADER_": "Configuration des titres",
   "_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">label-screen-reader</strong>. Il permet de définir une étiquette cachée qui ne sera visible que pour les lecteurs d'écran.",
   "_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_": "Étiquette pour lecteur d'écran",
+  "_A_UI_GROUP_READONLY_DESCRIPTION_": "Dans cet exemple, le composant est utilisé en mode <strong lang=\"en\">readonly</strong>, où la valeur est affichée sous forme de texte et ne peut pas être modifiée par l'utilisateur.",
+  "_A_UI_GROUP_READONLY_HEADER_": "Mode d'affichage <strong lang=\"en\">readonly</strong>",
   "_A_UI_GROUP_SEARCH_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">search</strong> pour ajouter une fonctionnalité de recherche dans les éléments du composant. Cette fonctionnalité permet aux utilisateurs de trouver facilement les éléments souhaités dans un grand ensemble de données.",
   "_A_UI_GROUP_SEARCH_HEADER_": "Recherche dans les éléments",
   "_A_UI_GROUP_SORT_ORDER_DESCRIPTION_": "Cet exemple montre comment utiliser <strong lang=\"en\">sort-order</strong> pour définir l'ordre de tri des éléments. Dans le premier cas, aucun ordre de tri n'est spécifié, dans le deuxième les éléments sont triés par ordre croissant (<strong lang=\"en\">asc</strong>), et dans le troisième par ordre décroissant (<strong lang=\"en\">desc</strong>). Cela permet de personnaliser l'affichage des éléments dans l'ordre souhaité.",

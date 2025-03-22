@@ -3,8 +3,6 @@
   "_A_INPUT_COMPONENT_NAME_": "Textfeld",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Dieses Beispiel zeigt, wie man ein Eingabefeld mit dem Typ <strong lang=\"en\">password</strong> und die Möglichkeit zur Umschaltung der Passwortsichtbarkeit mithilfe von <strong lang=\"en\">show-password</strong> verwendet. Im ersten Feld kann der Benutzer zwischen der Anzeige und dem Verbergen des Passworts wechseln, während diese Funktion im zweiten Feld deaktiviert ist.",
   "_A_INPUT_GROUP_PASSWORD_HEADER_": "Passwort-Eingabefeld",
-  "_A_INPUT_GROUP_READONLY_DESCRIPTION_": "Dieses Beispiel zeigt Eingabefelder mit aktiviertem <strong lang=\"en\">readonly</strong>-Modus, bei dem der Wert nur angezeigt, aber nicht bearbeitet werden kann.",
-  "_A_INPUT_GROUP_READONLY_HEADER_": "<strong lang=\"en\">Readonly</strong>-Eingabefelder",
   "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "Beispiel für die Anzeige von <strong lang=\"en\">password</strong>-Eingabefeldern im <strong lang=\"en\">readonly</strong>-Modus. Der Passwortwert wird mit einem festgelegten Symbol maskiert. Die Anzahl der Zeichen wird über <strong lang=\"en\">readonly-password-length</strong> gesteuert und das Symbol selbst über <strong lang=\"en\">readonly-password-symbol</strong>. Im letzten Feld wird eine Variante mit aktiviertem <strong lang=\"en\">show-password</strong> angezeigt, bei der der Wert vollständig sichtbar ist.",
   "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "<strong lang=\"en\">Readonly</strong>-Felder für Passwort",
   "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Legt das Symbol fest, das vor dem Eingabefeld angezeigt wird. Dieses Symbol kann verwendet werden, um die visuelle Wahrnehmung zu verbessern oder den Typ der Eingabedaten anzuzeigen.",

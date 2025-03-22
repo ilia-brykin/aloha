@@ -3,8 +3,6 @@
   "_A_INPUT_COMPONENT_NAME_": "Campo di Testo",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Questo esempio mostra come utilizzare un campo di input con il tipo <strong lang=\"en\">password</strong> e la possibilità di alternare la visibilità della password utilizzando <strong lang=\"en\">show-password</strong>. Nel primo campo, l'utente può alternare tra la visualizzazione e la mascheratura della password, mentre nel secondo campo questa funzione è disabilitata.",
   "_A_INPUT_GROUP_PASSWORD_HEADER_": "Campo di Input della Password",
-  "_A_INPUT_GROUP_READONLY_DESCRIPTION_": "Questo esempio mostra campi di input con modalità <strong lang=\"en\">readonly</strong> attiva, in cui il valore è solo visualizzabile e non modificabile dall'utente.",
-  "_A_INPUT_GROUP_READONLY_HEADER_": "Campi input in modalità <strong lang=\"en\">readonly</strong>",
   "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "Esempio di visualizzazione dei campi di tipo <strong lang=\"en\">password</strong> in modalità <strong lang=\"en\">readonly</strong>. Il valore viene nascosto con un simbolo specificato, il numero di simboli è controllato tramite <strong lang=\"en\">readonly-password-length</strong> e il simbolo tramite <strong lang=\"en\">readonly-password-symbol</strong>. Nell'ultimo campo è attivato <strong lang=\"en\">show-password</strong> e il valore è completamente visibile.",
   "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "Campi <strong lang=\"en\">readonly</strong> per password",
   "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Specifica l'icona che verrà visualizzata prima del campo di input. Questa icona può essere utilizzata per migliorare la percezione visiva o indicare il tipo di dati in input.",

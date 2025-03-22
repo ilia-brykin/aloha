@@ -3,11 +3,12 @@ import {
 } from "vue";
 import {
   ALabel,
+  ATranslation,
+  UIExcludeRenderAttributesAPI,
 } from "../../index";
 
 import LabelAPI from "./compositionAPI/LabelAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
 
 export default {
   name: "AFormReadonly",
@@ -109,7 +110,11 @@ export default {
       h("div", {
         class: "a_form_readonly_value",
       }, [
-        h("span", this.modelValueReadonly),
+        h(ATranslation, {
+          extra: this.extra,
+          html: this.modelValueReadonly,
+          tag: "span",
+        }),
         this.$slots.default ?
           this.$slots.default() :
           "",

@@ -197,6 +197,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "readonly",
+      description: "_A_UI_PROPS_READONLY_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "required",
       description: "_A_UI_PROPS_REQUIRED_DESCRIPTION_",
       type: "Boolean",

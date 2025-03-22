@@ -3,8 +3,6 @@
   "_A_INPUT_COMPONENT_NAME_": "Tekstualno Polje",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti polje za unos s tipom <strong lang=\"en\">password</strong> i mogućnost prebacivanja vidljivosti lozinke pomoću <strong lang=\"en\">show-password</strong>. U prvom polju korisnik može mijenjati između prikazivanja i sakrivanja lozinke, dok je u drugom polju ta funkcija onemogućena.",
   "_A_INPUT_GROUP_PASSWORD_HEADER_": "Polje za Unos Lozinke",
-  "_A_INPUT_GROUP_READONLY_DESCRIPTION_": "Ovaj primjer prikazuje ulazna polja s aktiviranim <strong lang=\"en\">readonly</strong> načinom, gdje je vrijednost samo za čitanje i korisnik je ne može mijenjati.",
-  "_A_INPUT_GROUP_READONLY_HEADER_": "<strong lang=\"en\">Readonly</strong> ulazna polja",
   "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "Primjer prikaza <strong lang=\"en\">password</strong> polja u <strong lang=\"en\">readonly</strong> načinu rada. Vrijednost lozinke skriva se pomoću zadanog simbola, broj simbola kontrolira se putem <strong lang=\"en\">readonly-password-length</strong>, a sam simbol putem <strong lang=\"en\">readonly-password-symbol</strong>. U posljednjem polju prikazana je varijanta u kojoj je omogućeno <strong lang=\"en\">show-password</strong> i vrijednost je potpuno vidljiva.",
   "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "<strong lang=\"en\">Readonly</strong> polja za lozinku",
   "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Određuje ikonu koja će se prikazati prije polja za unos. Ova ikona može se koristiti za poboljšanje vizualne percepcije ili za označavanje vrste unesnih podataka.",

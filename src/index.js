@@ -120,6 +120,7 @@ export {
 export { default as UiAPI } from "./ui/compositionApi/UiAPI";
 export { default as UIExcludeRenderAttributesAPI } from "./ui/compositionApi/UIExcludeRenderAttributesAPI";
 export { default as UiStyleHideAPI } from "./ui/compositionApi/UiStyleHideAPI";
+export { default as UiDisabledAPI } from "./ui/compositionApi/UiDisabledAPI";
 
 // directives
 export { default as AOnHooks } from "./directives/AOnHooks";

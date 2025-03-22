@@ -3,8 +3,6 @@
   "_A_INPUT_COMPONENT_NAME_": "حقل النص",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام حقل إدخال من النوع <strong lang=\"en\">password</strong> وإمكانية تبديل عرض كلمة المرور باستخدام <strong lang=\"en\">show-password</strong>. في الحقل الأول، يمكن للمستخدم التبديل بين إظهار وإخفاء كلمة المرور، بينما يتم تعطيل هذه الميزة في الحقل الثاني.",
   "_A_INPUT_GROUP_PASSWORD_HEADER_": "حقل إدخال كلمة المرور",
-  "_A_INPUT_GROUP_READONLY_DESCRIPTION_": "يعرض هذا المثال حقول الإدخال التي تم تفعيل وضع <strong lang=\"en\">readonly</strong> فيها، حيث يتم عرض القيمة للقراءة فقط ولا يمكن تعديلها من قبل المستخدم.",
-  "_A_INPUT_GROUP_READONLY_HEADER_": "حقول الإدخال في وضع <strong lang=\"en\">readonly</strong>",
   "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "مثال على عرض حقول الإدخال من نوع <strong lang=\"en\">password</strong> في وضع <strong lang=\"en\">readonly</strong>. يتم إخفاء قيمة كلمة المرور باستخدام رمز محدد، ويتم التحكم في عدد الرموز من خلال <strong lang=\"en\">readonly-password-length</strong>، بينما يتم تحديد الرمز نفسه باستخدام <strong lang=\"en\">readonly-password-symbol</strong>. في الحقل الأخير يتم تفعيل <strong lang=\"en\">show-password</strong> وتظهر القيمة كاملة.",
   "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "حقول <strong lang=\"en\">readonly</strong> لكلمة المرور",
   "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "يحدد الأيقونة التي ستظهر قبل حقل الإدخال. يمكن استخدام هذه الأيقونة لتحسين الفهم البصري أو للإشارة إلى نوع البيانات المدخلة.",

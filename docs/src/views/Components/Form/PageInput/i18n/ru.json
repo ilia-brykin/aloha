@@ -3,8 +3,6 @@
   "_A_INPUT_COMPONENT_NAME_": "Текстовое поле",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "В этом примере показано, как использовать поле ввода с типом <strong lang=\"en\">password</strong> и возможность отображения/скрытия пароля с помощью <strong lang=\"en\">show-password</strong>. В первом поле пользователь может переключаться между отображением и скрытием пароля, во втором поле эта возможность отключена.",
   "_A_INPUT_GROUP_PASSWORD_HEADER_": "Поле ввода пароля",
-  "_A_INPUT_GROUP_READONLY_DESCRIPTION_": "В этом примере показаны поля ввода с активным режимом <strong lang=\"en\">readonly</strong>, при котором значение отображается только для чтения и не может быть изменено пользователем.",
-  "_A_INPUT_GROUP_READONLY_HEADER_": "<strong lang=\"en\">Readonly</strong> поля ввода",
   "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "Пример отображения полей ввода с типом <strong lang=\"en\">password</strong> в режиме <strong lang=\"en\">readonly</strong>. Значение пароля скрывается при помощи заданного символа, количество символов контролируется через <strong lang=\"en\">readonly-password-length</strong>, а сам символ — через <strong lang=\"en\">readonly-password-symbol</strong>. В последнем поле показан вариант, где включён <strong lang=\"en\">show-password</strong>, и значение видно полностью",
   "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "<strong lang=\"en\">Readonly</strong> поля для пароля",
   "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Определяет иконку, которая будет отображаться перед полем ввода. Эта иконка может быть использована для улучшения визуального восприятия или указания типа вводимых данных.",

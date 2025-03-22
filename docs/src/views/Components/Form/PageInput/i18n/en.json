@@ -3,8 +3,6 @@
   "_A_INPUT_COMPONENT_NAME_": "Text field",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "This example shows how to use an input field with the type <strong lang=\"en\">password</strong> and the ability to toggle password visibility using <strong lang=\"en\">show-password</strong>. In the first field, the user can switch between showing and hiding the password, while in the second field this feature is disabled.",
   "_A_INPUT_GROUP_PASSWORD_HEADER_": "Password input field",
-  "_A_INPUT_GROUP_READONLY_DESCRIPTION_": "This example shows input fields with <strong lang=\"en\">readonly</strong> mode enabled, where the value is displayed as read-only and cannot be edited by the user.",
-  "_A_INPUT_GROUP_READONLY_HEADER_": "<strong lang=\"en\">Readonly</strong> input fields",
   "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "An example of how <strong lang=\"en\">password</strong> input fields are displayed in <strong lang=\"en\">readonly</strong> mode. The password value is hidden using a specified symbol, the number of symbols is controlled via <strong lang=\"en\">readonly-password-length</strong>, and the symbol itself via <strong lang=\"en\">readonly-password-symbol</strong>. The last field shows a variant where <strong lang=\"en\">show-password</strong> is enabled and the value is fully visible.",
   "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "<strong lang=\"en\">Readonly</strong> fields for password",
   "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Specifies the icon that will be displayed before the input field. This icon can be used to enhance the visual perception or indicate the type of input data.",

@@ -52,6 +52,8 @@
   "_A_UI_GROUP_KEY_TITLE_HEADER_": "Anpassung der Titel",
   "_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_": "Dieses Beispiel zeigt, wie man <strong lang=\"en\">label-screen-reader</strong> verwendet. Es ermöglicht das Festlegen eines versteckten Etiketts, das nur für Bildschirmleser sichtbar ist.",
   "_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_": "Beschriftung für Bildschirmleser",
+  "_A_UI_GROUP_READONLY_DESCRIPTION_": "In diesem Beispiel wird die Komponente im <strong lang=\"en\">readonly</strong>-Modus verwendet, bei dem der Wert als Text angezeigt wird und vom Benutzer nicht geändert werden kann.",
+  "_A_UI_GROUP_READONLY_HEADER_": "<strong lang=\"en\">Readonly</strong>-Anzeigemodus",
   "_A_UI_GROUP_SEARCH_DESCRIPTION_": "In diesem Beispiel wird gezeigt, wie Sie <strong lang=\"en\">search</strong> verwenden, um eine Suchfunktion für Elemente im Komponent hinzuzufügen. Diese Funktion ermöglicht es Benutzern, die gewünschten Elemente in einem großen Datensatz leicht zu finden.",
   "_A_UI_GROUP_SEARCH_HEADER_": "Suche in Elementen",
   "_A_UI_GROUP_SORT_ORDER_DESCRIPTION_": "In diesem Beispiel wird gezeigt, wie Sie <strong lang=\"en\">sort-order</strong> verwenden, um die Sortierreihenfolge von Elementen festzulegen. Im ersten Fall ist keine Sortierung festgelegt, im zweiten Fall werden die Elemente in aufsteigender Reihenfolge (<strong lang=\"en\">asc</strong>) und im dritten in absteigender Reihenfolge (<strong lang=\"en\">desc</strong>) sortiert. Dies ermöglicht es Ihnen, die Darstellung von Elementen in der gewünschten Reihenfolge anzupassen.",

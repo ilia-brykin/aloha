@@ -52,6 +52,8 @@
   "_A_UI_GROUP_KEY_TITLE_HEADER_": "تكوين العناوين",
   "_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">label-screen-reader</strong>. يتيح لك تعيين تسمية مخفية تظهر فقط لقارئات الشاشة.",
   "_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_": "تسمية لقارئ الشاشة",
+  "_A_UI_GROUP_READONLY_DESCRIPTION_": "في هذا المثال، يتم استخدام المكون في وضع <strong lang=\"en\">readonly</strong>، حيث يتم عرض القيمة كنص ولا يمكن تعديلها من قبل المستخدم.",
+  "_A_UI_GROUP_READONLY_HEADER_": "وضع العرض <strong lang=\"en\">readonly</strong>",
   "_A_UI_GROUP_SEARCH_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">search</strong> لإضافة وظيفة البحث في العناصر في المكون. هذه الميزة تتيح للمستخدمين العثور بسهولة على العناصر المطلوبة في مجموعة كبيرة من البيانات.",
   "_A_UI_GROUP_SEARCH_HEADER_": "البحث في العناصر",
   "_A_UI_GROUP_SORT_ORDER_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">sort-order</strong> لتعيين ترتيب فرز العناصر. في الحالة الأولى، لم يتم تعيين ترتيب الفرز، في الثانية تم فرز العناصر بترتيب تصاعدي (<strong lang=\"en\">asc</strong>)، وفي الثالثة بترتيب تنازلي (<strong lang=\"en\">desc</strong>). يتيح لك هذا تخصيص ترتيب عرض العناصر.",

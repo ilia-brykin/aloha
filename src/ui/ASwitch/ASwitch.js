@@ -1,23 +1,25 @@
 import {
   h,
 } from "vue";
-
-import AElement from "../../AElement/AElement";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import ALabel from "../ALabel/ALabel";
-import ATranslation from "../../ATranslation/ATranslation";
+import {
+  AElement,
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  ALabel,
+  APlacements,
+  ATranslation,
+  UiAPI,
+  UiDisabledAPI,
+  UIExcludeRenderAttributesAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import CheckedAPI from "./compositionAPI/CheckedAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import OnInputAPI from "./compositionAPI/OnInputAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import placements from "../../const/placements";
 import {
   uniqueId,
 } from "lodash-es";
@@ -162,6 +164,10 @@ export default {
       required: false,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
     required: {
       type: Boolean,
       required: false,
@@ -176,7 +182,7 @@ export default {
       type: String,
       required: false,
       default: "top",
-      validator: placement => placements.indexOf(placement) !== -1,
+      validator: placement => APlacements.indexOf(placement) !== -1,
     },
     trueLabel: {
       type: String,
@@ -272,6 +278,23 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: this.labelValueLocal,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "switch",
+      });
     }
 
     return h("div", {

@@ -52,6 +52,8 @@
   "_A_UI_GROUP_KEY_TITLE_HEADER_": "Настройка заголовков",
   "_A_UI_GROUP_LABEL_SCREEN_READER_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">label-screen-reader</strong>. Позволяет задать скрытую метку, которая будет видна только для скринридеров.",
   "_A_UI_GROUP_LABEL_SCREEN_READER_HEADER_": "Метка для скринридера",
+  "_A_UI_GROUP_READONLY_DESCRIPTION_": "В этом примере компонент используется в режиме <strong lang=\"en\">readonly</strong>, при котором значение отображается в текстовом виде и не может быть изменено пользователем.",
+  "_A_UI_GROUP_READONLY_HEADER_": "<strong lang=\"en\">Readonly</strong> режим отображения",
   "_A_UI_GROUP_SEARCH_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">search</strong> для добавления функциональности поиска по элементам в компоненте. Эта возможность позволяет пользователям легко находить нужные элементы в большом наборе данных.",
   "_A_UI_GROUP_SEARCH_HEADER_": "Поиск по элементам",
   "_A_UI_GROUP_SORT_ORDER_DESCRIPTION_": "В этом примере показано, как использовать <strong lang=\"en\">sort-order</strong> для задания порядка сортировки элементов. В первом случае сортировка не задана, во втором элементы отсортированы в порядке возрастания (<strong lang=\"en\">asc</strong>), а в третьем — в порядке убывания (<strong lang=\"en\">desc</strong>). Это позволяет настроить отображение элементов в нужном порядке.",
