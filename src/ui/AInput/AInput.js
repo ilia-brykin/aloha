@@ -8,6 +8,7 @@ import {
   AErrorsText,
   AFormElementBtnClear,
   AFormHelpText,
+  AFormReadonly,
   AIcon,
   ALabel,
 } from "../../index";
@@ -295,11 +296,8 @@ export default {
     } = ColorAPI(props);
 
     const {
-      labelIdReadonly,
       modelValueReadonly,
-    } = ReadonlyAPI(props, {
-      htmlIdLocal,
-    });
+    } = ReadonlyAPI(props);
 
     watch(type, () => {
       setTypeLocal();
@@ -324,7 +322,6 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
-      labelIdReadonly,
       modelValueLocal,
       modelValueReadonly,
       onBlur,
@@ -342,32 +339,21 @@ export default {
     }
 
     if (this.readonly) {
-      return h("div", {
+      return h(AFormReadonly, {
         ...this.$attrs,
-        "aria-labelledby": this.labelIdReadonly,
-        role: "group",
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: this.modelValueReadonly,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
         style: this.componentStyleHide,
-        ...this.attributesToExcludeFromRender,
-      }, [
-        (this.label || this.labelScreenReader) ?
-          h(ALabel, {
-            id: this.htmlIdLocal,
-            alwaysTranslate: this.alwaysTranslate,
-            isError: this.isErrors,
-            isLabelFloat: this.isLabelFloat,
-            label: this.label,
-            labelClass: this.labelClass,
-            labelScreenReader: this.labelScreenReader,
-            readonly: this.readonly,
-            required: this.required,
-            tag: "div",
-            type: this.type,
-          }) :
-          "",
-        h("div", {
-          class: "a_form_readonly_value",
-        }, this.modelValueReadonly),
-      ]);
+        type: this.type,
+      });
     }
 
     return h("div", {
@@ -386,6 +372,7 @@ export default {
           h(ALabel, {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
+            extra: this.extra,
             isError: this.isErrors,
             isLabelFloat: this.isLabelFloat,
             label: this.label,

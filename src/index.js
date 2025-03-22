@@ -18,6 +18,7 @@ export { default as AFiltersRight } from "./AFilters/AFilersRight/AFilersRight";
 export { default as AForm } from "./ui/AForm/AForm";
 export { default as AFormElementBtnClear } from "./AFormElement/AFormElementBtnClear/AFormElementBtnClear";
 export { default as AFormHelpText } from "./ui/AFormHelpText/AFormHelpText";
+export { default as AFormReadonly } from "./ui/AFormReadonly/AFormReadonly";
 export { default as AGet } from "./AGet/AGet";
 export { default as AGroup } from "./ui/AGroup/AGroup";
 export { default as AGroupButtonDropdown } from "./AGroupButtonDropdown/AGroupButtonDropdown";

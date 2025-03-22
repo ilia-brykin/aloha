@@ -3,15 +3,8 @@ import {
   toRef,
 } from "vue";
 
-import {
-  isNil,
-} from "lodash-es";
-
-export default function ReadonlyAPI(props, {
-  htmlIdLocal = computed(() => ""),
-}) {
+export default function ReadonlyAPI(props) {
   const modelValue = toRef(props, "modelValue");
-  const readonlyDefault = toRef(props, "readonlyDefault");
   const readonlyPasswordLength = toRef(props, "readonlyPasswordLength");
   const readonlyPasswordSymbol = toRef(props, "readonlyPasswordSymbol");
   const showPassword = toRef(props, "showPassword");
@@ -24,19 +17,11 @@ export default function ReadonlyAPI(props, {
       }
       return readonlyPasswordSymbol.value.repeat(readonlyPasswordLength.value);
     }
-    if (isNil(modelValue.value) || modelValue.value === "") {
-      return readonlyDefault.value;
-    }
 
     return modelValue.value;
   });
 
-  const labelIdReadonly = computed(() => {
-    return `${ htmlIdLocal.value }_label`;
-  });
-
   return {
-    labelIdReadonly,
     modelValueReadonly,
   };
 }
