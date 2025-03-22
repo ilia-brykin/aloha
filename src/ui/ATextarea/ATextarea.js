@@ -302,7 +302,7 @@ export default {
         readonlyDefault: this.readonlyDefault,
         required: this.required,
         style: this.componentStyleHide,
-        type: this.type,
+        type: "textarea",
         valueClass: "a_code_content",
         valueTag: "div",
       });
