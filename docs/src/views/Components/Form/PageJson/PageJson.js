@@ -33,6 +33,7 @@ export default {
   setup() {
     const {
       pageTitle,
+      pageTitleH1,
     } = PageTitleAPI();
 
     const {
@@ -52,6 +53,7 @@ export default {
       dataProps,
       dataTranslate,
       pageTitle,
+      pageTitleH1,
     };
   },
 };

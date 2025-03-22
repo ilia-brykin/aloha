@@ -12,5 +12,10 @@ export default {
       type: String,
       required: true,
     },
+    pageTitleH1: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
 };

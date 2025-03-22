@@ -1,5 +1,6 @@
 {
   "_A_JSON_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AJson</strong> je Vue.js komponenta dizajnirana za prikaz i uređivanje <strong lang=\"en\">JSON</strong> podataka. Uključuje tekstualno polje za unos <strong lang=\"en\">JSON</strong>, gumbe za formatiranje, resetiranje i odbacivanje promjena te područje za prikaz trenutne vrijednosti <strong lang=\"en\">JSON</strong>.",
-  "_A_JSON_COMPONENT_NAME_": "Uređivač <span lang=\"en\">JSON</span>",
+  "_A_JSON_COMPONENT_NAME_": "Uređivač JSON",
+  "_A_JSON_COMPONENT_NAME_H1_": "Uređivač <span lang=\"en\">JSON</span>",
   "_A_JSON_PROPS_HEIGHT_CSS_DESCRIPTION_": "Postavlja visinu komponente putem <span lang=\"en\">CSS</span>. Prihvaća niz s vrijednošću visine, npr. <strong lang=\"en\">400px;</strong>."
 }
