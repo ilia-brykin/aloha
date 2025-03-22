@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_READONLY_HEADER_"
+  description="_A_UI_GROUP_READONLY_DESCRIPTION_"
+  :props="['readonly', 'readonly-default']"
+)
+  a-textarea(
+    :model-value="model1"
+    :readonly="true"
+    label="Textarea 1"
+  )
+  a-textarea(
+    :model-value="model2"
+    :readonly="true"
+    class="a_mt_3"
+    label="Textarea 2"
+  )
+  a-textarea(
+    :model-value="model2"
+    :readonly="true"
+    class="a_mt_3"
+    label="Textarea 3"
+    readonly-default="-"
+  )

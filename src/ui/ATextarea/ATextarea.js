@@ -3,22 +3,24 @@ import {
   onBeforeUnmount,
   onMounted,
 } from "vue";
-
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import ALabel from "../ALabel/ALabel";
+import {
+  AErrorsText,
+  AFormElementBtnClear,
+  AFormHelpText,
+  AFormReadonly,
+  ALabel,
+  UiAPI,
+  UiClearButtonAPI,
+  UiDisabledAPI,
+  UIExcludeRenderAttributesAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import AutosizeAPI from "./compositionAPI/AutosizeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import ResizeClass from "./compositionAPI/ResizeClass";
 import RowsAPI from "./compositionAPI/RowsAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
-import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
   uniqueId,
@@ -162,6 +164,15 @@ export default {
       required: false,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
     required: {
       type: Boolean,
       required: false,
@@ -275,6 +286,26 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: this.modelValue,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: this.type,
+        valueClass: "a_code_content",
+        valueTag: "div",
+      });
     }
 
     return h("div", {

@@ -66,6 +66,16 @@ export default {
       required: false,
       default: undefined,
     },
+    valueClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    valueTag: {
+      type: String,
+      required: false,
+      default: "span",
+    },
   },
   setup(props) {
     const {
@@ -113,9 +123,10 @@ export default {
         this.$slots.default ?
           this.$slots.default() :
           h(ATranslation, {
+            class: this.valueClass,
             extra: this.extra,
             html: this.modelValueReadonly,
-            tag: "span",
+            tag: this.valueTag,
           }),
       ]),
     ]);

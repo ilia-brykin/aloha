@@ -8,6 +8,7 @@ import PageTextareaHelpText from "./PageTextareaHelpText/PageTextareaHelpText.vu
 import PageTextareaIsScalable from "./PageTextareaIsScalable/PageTextareaIsScalable.vue";
 import PageTextareaLabelFloat from "./PageTextareaLabelFloat/PageTextareaLabelFloat.vue";
 import PageTextareaLabelScreenReader from "./PageTextareaLabelScreenReader/PageTextareaLabelScreenReader.vue";
+import PageTextareaReadonly from "./PageTextareaReadonly/PageTextareaReadonly.vue";
 import PageTextareaResize from "./PageTextareaResize/PageTextareaResize.vue";
 import {
   ATranslation,
@@ -31,6 +32,7 @@ export default {
     PageTextareaIsScalable,
     PageTextareaLabelFloat,
     PageTextareaLabelScreenReader,
+    PageTextareaReadonly,
     PageTextareaResize,
   },
   setup() {
