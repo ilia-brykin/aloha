@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_READONLY_HEADER_"
+  description="_A_UI_GROUP_READONLY_DESCRIPTION_"
+  :props="['readonly', 'default-label']"
+)
+  a-json(
+    :model-value="model1"
+    :readonly="true"
+    label="JSON 1"
+  )
+  a-json(
+    :model-value="model2"
+    :readonly="true"
+    class="a_mt_3"
+    label="JSON 2"
+  )
+  a-json(
+    :model-value="model3"
+    :readonly="true"
+    class="a_mt_3"
+    label="JSON 3"
+    readonly-default="-"
+  )

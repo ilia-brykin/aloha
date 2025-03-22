@@ -110,14 +110,13 @@ export default {
       h("div", {
         class: "a_form_readonly_value",
       }, [
-        h(ATranslation, {
-          extra: this.extra,
-          html: this.modelValueReadonly,
-          tag: "span",
-        }),
         this.$slots.default ?
           this.$slots.default() :
-          "",
+          h(ATranslation, {
+            extra: this.extra,
+            html: this.modelValueReadonly,
+            tag: "span",
+          }),
       ]),
     ]);
   },

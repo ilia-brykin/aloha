@@ -2,21 +2,24 @@ import {
   h,
   withDirectives,
 } from "vue";
-
-import AElement from "../../AElement/AElement";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import ALabel from "../ALabel/ALabel";
-import ATranslation from "../../ATranslation/ATranslation";
+import {
+  AElement,
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  ALabel,
+  ASafeHtml,
+  ATranslation,
+  UiAPI,
+  UiDisabledAPI,
+  UIExcludeRenderAttributesAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import HeightAPI from "./compositionAPI/HeightAPI";
 import JsonAPI from "./compositionAPI/JsonAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 
-import ASafeHtml from "../../directives/ASafeHtml";
 import ArrowRepeat from "aloha-svg/dist/js/bootstrap/ArrowRepeat";
 import Braces from "aloha-svg/dist/js/bootstrap/Braces";
 import Trash from "aloha-svg/dist/js/bootstrap/Trash";
@@ -134,6 +137,15 @@ export default {
       required: false,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
     required: {
       type: Boolean,
       required: false,
@@ -190,6 +202,10 @@ export default {
       changeModel,
     });
 
+    const {
+      modelValueReadonly,
+    } = ReadonlyAPI(props);
+
     initInitialValue();
     JSONtoString();
 
@@ -212,6 +228,7 @@ export default {
       jsonString,
       jsonStringInput,
       JSONtoString,
+      modelValueReadonly,
       onBlur,
       onFocus,
       parseError,
@@ -223,6 +240,30 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "json",
+      }, () => [
+        withDirectives(h("pre", {
+          class: "a_code_content",
+          style: this.styleMaxHeight,
+        }), [
+          [ASafeHtml, this.modelValueReadonly],
+        ]),
+      ]);
     }
 
     return h("div", {

@@ -6,6 +6,7 @@ import PageJsonChange from "./PageJsonChange/PageJsonChange.vue";
 import PageJsonErrors from "./PageJsonErrors/PageJsonErrors.vue";
 import PageJsonHelpText from "./PageJsonHelpText/PageJsonHelpText.vue";
 import PageJsonLabelScreenReader from "./PageJsonLabelScreenReader/PageJsonLabelScreenReader.vue";
+import PageJsonReadonly from "./PageJsonReadonly/PageJsonReadonly.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -27,6 +28,7 @@ export default {
     PageJsonErrors,
     PageJsonHelpText,
     PageJsonLabelScreenReader,
+    PageJsonReadonly,
   },
   setup() {
     const {
