@@ -249,21 +249,18 @@ export default {
         alwaysTranslate: this.alwaysTranslate,
         excludeRenderAttributes: this.excludeRenderAttributes,
         extra: this.extra,
+        helpText: this.helpText,
         label: this.label,
         labelClass: this.labelClass,
         labelScreenReader: this.labelScreenReader,
+        modelValue: this.modelValueReadonly,
         readonlyDefault: this.readonlyDefault,
         required: this.required,
         style: this.componentStyleHide,
         type: "json",
-      }, () => [
-        withDirectives(h("pre", {
-          class: "a_code_content",
-          style: this.styleMaxHeight,
-        }), [
-          [ASafeHtml, this.modelValueReadonly],
-        ]),
-      ]);
+        valueClass: "a_code_content",
+        valueTag: "pre",
+      });
     }
 
     return h("div", {

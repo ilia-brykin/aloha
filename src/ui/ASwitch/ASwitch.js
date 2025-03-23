@@ -287,6 +287,7 @@ export default {
         alwaysTranslate: this.alwaysTranslate,
         excludeRenderAttributes: this.excludeRenderAttributes,
         extra: this.extra,
+        helpText: this.helpText,
         label: this.label,
         labelClass: this.labelClass,
         labelScreenReader: this.labelScreenReader,

@@ -11,6 +11,12 @@ import {
   AFormReadonly,
   AIcon,
   ALabel,
+  UiAPI,
+  UiClearButtonAPI,
+  UiDisabledAPI,
+  UIExcludeRenderAttributesAPI,
+  UiInputAutofillAPI,
+  UiStyleHideAPI,
 } from "../../index";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
@@ -20,12 +26,6 @@ import PasswordAPI from "./compositionAPI/PasswordAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
 import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
-import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
   isInteger,
@@ -345,6 +345,7 @@ export default {
         alwaysTranslate: this.alwaysTranslate,
         excludeRenderAttributes: this.excludeRenderAttributes,
         extra: this.extra,
+        helpText: this.helpText,
         label: this.label,
         labelClass: this.labelClass,
         labelScreenReader: this.labelScreenReader,
