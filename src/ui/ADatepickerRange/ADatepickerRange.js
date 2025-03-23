@@ -2,22 +2,25 @@ import {
   h,
   onBeforeUnmount,
 } from "vue";
-
-import ADatepicker from "../ADatepicker/ADatepicker";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import ALabel from "../ALabel/ALabel";
+import {
+  ADatepicker,
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  ALabel,
+  APlacements,
+  UiAPI,
+  UIExcludeRenderAttributesAPI,
+  UiLabelClickEventBusAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import FocusAPI from "./compositionAPI/FocusAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
+import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 
-import placements from "../../const/placements";
 import {
   uniqueId,
 } from "lodash-es";
@@ -217,7 +220,7 @@ export default {
       type: String,
       required: false,
       default: "bottom-start",
-      validator: placement => placements.indexOf(placement) !== -1,
+      validator: placement => APlacements.indexOf(placement) !== -1,
     },
     popupStyle: {
       type: Object,
@@ -227,6 +230,21 @@ export default {
     readonly: {
       type: Boolean,
       required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyDefaultFrom: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    readonlyDefaultUntil: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     required: {
       type: Boolean,
@@ -299,6 +317,11 @@ export default {
       clickLabel: setFocusToFromInput,
     });
 
+    const {
+      readonlyDefaultFromLocal,
+      readonlyDefaultUntilLocal,
+    } = ReadonlyAPI(props);
+
     initEventBusClickLabel();
 
     onBeforeUnmount(() => {
@@ -319,11 +342,61 @@ export default {
       isErrors,
       modelValueFrom,
       modelValueUntil,
+      readonlyDefaultFromLocal,
+      readonlyDefaultUntilLocal,
     };
   },
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "dateRange",
+        valueParentClass: "a_form_element_readonly_value_range",
+      }, () => [
+        h(ADatepicker, {
+          id: this.idFrom,
+          alwaysTranslate: this.alwaysTranslate,
+          format: this.format,
+          formatSave: this.formatSave,
+          iconDay: this.iconDay,
+          label: this.labelFrom,
+          lang: this.lang,
+          modelValue: this.modelValueFrom,
+          readonly: true,
+          readonlyDefault: this.readonlyDefaultFromLocal,
+          shortcuts: this.shortcuts,
+          type: "date",
+        }),
+        h(ADatepicker, {
+          id: this.idUntil,
+          alwaysTranslate: this.alwaysTranslate,
+          format: this.format,
+          formatSave: this.formatSave,
+          iconDay: this.iconDay,
+          lang: this.lang,
+          label: this.labelUntil,
+          modelValue: this.modelValueUntil,
+          readonly: true,
+          readonlyDefault: this.readonlyDefaultUntilLocal,
+          shortcuts: this.shortcuts,
+          type: "date",
+        }),
+      ]);
     }
 
     return h("div", {

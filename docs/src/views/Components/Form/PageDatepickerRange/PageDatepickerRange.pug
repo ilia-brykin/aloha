@@ -1,5 +1,5 @@
 aloha-page(
-  page-title="DatepickerRange"
+  :page-title="pageTitle"
 )
   template(
     v-slot:body
@@ -19,6 +19,12 @@ aloha-page(
 
     page-datepicker-range-help-text
 
+    page-datepicker-range-readonly
+
     aloha-table-props(
       :data="dataProps"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
     )

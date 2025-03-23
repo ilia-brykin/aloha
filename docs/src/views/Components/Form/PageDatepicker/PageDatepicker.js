@@ -22,14 +22,6 @@ export default {
     PageDatepickerBasic,
     PageDatepickerReadonly,
   },
-  data() {
-    return {
-      model1: "",
-      model2: "",
-      model3: "",
-      modelNew: "2022-10-18",
-    };
-  },
   setup() {
     const {
       pageTitle,

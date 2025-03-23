@@ -279,9 +279,16 @@ export default function PropsAPI() {
     },
     {
       name: "readonly",
-      description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_READONLY_",
+      description: "_A_UI_PROPS_READONLY_DESCRIPTION_",
       type: "Boolean",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "readonly-default",
+      description: "_A_UI_PROPS_READONLY_DEFAULT_DESCRIPTION_",
+      type: "String",
+      default: "",
       required: false,
     },
     {
