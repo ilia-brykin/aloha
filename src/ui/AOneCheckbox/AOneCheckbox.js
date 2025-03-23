@@ -1,17 +1,20 @@
 import {
   h,
 } from "vue";
-
-import AElement from "../../AElement/AElement";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
+import {
+  AElement,
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  UiAPI,
+  UiDisabledAPI,
+  UIExcludeRenderAttributesAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import LabelAPI from "./compositionAPI/LabelAPI";
+import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import TrueFalseValueAPI from "./compositionAPI/TrueFalseValueAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import {
   uniqueId,
@@ -145,6 +148,15 @@ export default {
       required: false,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
     required: {
       type: Boolean,
       required: false,
@@ -202,6 +214,10 @@ export default {
       hasLabel,
     } = LabelAPI(props);
 
+    const {
+      modelValueReadonly,
+    } = ReadonlyAPI(props);
+
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
@@ -213,6 +229,7 @@ export default {
       htmlIdLocal,
       isChecked,
       isErrors,
+      modelValueReadonly,
       onBlur,
       onClick,
       onFocus,
@@ -222,6 +239,25 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: this.modelValueReadonly,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "oneCheckbox",
+      });
     }
 
     return h("div", {

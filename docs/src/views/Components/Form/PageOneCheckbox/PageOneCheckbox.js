@@ -6,6 +6,7 @@ import PageOneCheckboxErrors from "./PageOneCheckboxErrors/PageOneCheckboxErrors
 import PageOneCheckboxFalseValue from "./PageOneCheckboxFalseValue/PageOneCheckboxFalseValue.vue";
 import PageOneCheckboxHelpText from "./PageOneCheckboxHelpText/PageOneCheckboxHelpText.vue";
 import PageOneCheckboxIndeterminate from "./PageOneCheckboxIndeterminate/PageOneCheckboxIndeterminate.vue";
+import PageOneCheckboxReadonly from "./PageOneCheckboxReadonly/PageOneCheckboxReadonly.vue";
 import PageOneCheckboxSlotName from "./PageOneCheckboxSlotName/PageOneCheckboxSlotName.vue";
 import PageOneCheckboxTrueValue from "./PageOneCheckboxTrueValue/PageOneCheckboxTrueValue.vue";
 import PageOneCheckboxWidthAuto from "./PageOneCheckboxWidthAuto/PageOneCheckboxWidthAuto.vue";
@@ -29,6 +30,7 @@ export default {
     PageOneCheckboxFalseValue,
     PageOneCheckboxHelpText,
     PageOneCheckboxIndeterminate,
+    PageOneCheckboxReadonly,
     PageOneCheckboxSlotName,
     PageOneCheckboxTrueValue,
     PageOneCheckboxWidthAuto,
