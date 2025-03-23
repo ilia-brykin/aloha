@@ -4,18 +4,18 @@ import {
 
 import {
   getTranslatedText,
-} from "aloha-vue";
+} from "../../../../../../../src/ATranslation/compositionAPI/UtilsAPI";
 
 
 export default function PageTitleAPI() {
   const componentNameTranslated = computed(() => {
     return getTranslatedText({
-      placeholder: "_A_INPUT_NUMBER_COMPONENT_NAME_",
+      placeholder: "_A_INPUT_COMPONENT_NAME_",
     });
   });
 
   const pageTitle = computed(() => {
-    return `AInputNumber${ componentNameTranslated.value ? ` (${ componentNameTranslated.value })` : "" }`;
+    return `AInput${ componentNameTranslated.value ? ` (${ componentNameTranslated.value })` : "" }`;
   });
 
   return {

@@ -50,6 +50,7 @@ import PageGroupI18n from "./views/Components/Form/PageGroup/i18n/PageGroupI18n"
 import PageIconsPluginI18n from "./views/Plugins/PageIconsPlugin/i18n/PageIconsPluginI18n";
 import PageInputCurrencyI18n from "./views/Components/Form/PageInputCurrency/i18n/PageInputCurrencyI18n";
 import PageInputI18n from "./views/Components/Form/PageInput/i18n/PageInputI18n";
+import PageInputNumberI18n from "./views/Components/Form/PageInputNumber/i18n/PageInputNumberI18n";
 import PageInputNumberRangeI18n from "./views/Components/Form/PageInputNumberRange/i18n/PageInputNumberRangeI18n";
 import PageJsonI18n from "./views/Components/Form/PageJson/i18n/PageJsonI18n";
 import PageLinkCopyI18n from "./views/Components/PageLinkCopy/i18n/PageLinkCopyI18n";
@@ -171,6 +172,7 @@ export const mainTranslation = {
     ...FormI18n.ar,
     ...PageTextareaI18n.ar,
     ...PageInputI18n.ar,
+    ...PageInputNumberI18n.ar,
     ...PageOneCheckboxI18n.ar,
     ...PageSwitchI18n.ar,
     ...PageTemplateI18n.ar,
@@ -259,6 +261,7 @@ export const mainTranslation = {
     ...FormI18n.de,
     ...PageTextareaI18n.de,
     ...PageInputI18n.de,
+    ...PageInputNumberI18n.de,
     ...PageOneCheckboxI18n.de,
     ...PageSwitchI18n.de,
     ...PageTemplateI18n.de,
@@ -347,6 +350,7 @@ export const mainTranslation = {
     ...FormI18n.en,
     ...PageTextareaI18n.en,
     ...PageInputI18n.en,
+    ...PageInputNumberI18n.en,
     ...PageOneCheckboxI18n.en,
     ...PageSwitchI18n.en,
     ...PageTemplateI18n.en,
@@ -435,6 +439,7 @@ export const mainTranslation = {
     ...FormI18n.es,
     ...PageTextareaI18n.es,
     ...PageInputI18n.es,
+    ...PageInputNumberI18n.es,
     ...PageOneCheckboxI18n.es,
     ...PageSwitchI18n.es,
     ...PageTemplateI18n.es,
@@ -523,6 +528,7 @@ export const mainTranslation = {
     ...FormI18n.fr,
     ...PageTextareaI18n.fr,
     ...PageInputI18n.fr,
+    ...PageInputNumberI18n.fr,
     ...PageOneCheckboxI18n.fr,
     ...PageSwitchI18n.fr,
     ...PageTemplateI18n.fr,
@@ -611,6 +617,7 @@ export const mainTranslation = {
     ...FormI18n.hr,
     ...PageTextareaI18n.hr,
     ...PageInputI18n.hr,
+    ...PageInputNumberI18n.hr,
     ...PageOneCheckboxI18n.hr,
     ...PageSwitchI18n.hr,
     ...PageTemplateI18n.hr,
@@ -699,6 +706,7 @@ export const mainTranslation = {
     ...FormI18n.it,
     ...PageTextareaI18n.it,
     ...PageInputI18n.it,
+    ...PageInputNumberI18n.it,
     ...PageOneCheckboxI18n.it,
     ...PageSwitchI18n.it,
     ...PageTemplateI18n.it,
@@ -787,6 +795,7 @@ export const mainTranslation = {
     ...FormI18n.ru,
     ...PageTextareaI18n.ru,
     ...PageInputI18n.ru,
+    ...PageInputNumberI18n.ru,
     ...PageOneCheckboxI18n.ru,
     ...PageSwitchI18n.ru,
     ...PageTemplateI18n.ru,

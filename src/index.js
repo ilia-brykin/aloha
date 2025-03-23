@@ -141,7 +141,10 @@ export {
   default as AInputCurrencyPlugin,
   AInputCurrencyPluginOptions,
 } from "./plugins/AInputCurrencyPlugin";
-export { default as AInputNumberPlugin } from "./plugins/AInputNumberPlugin";
+export {
+  default as AInputNumberPlugin,
+  AInputNumberPluginOptions,
+} from "./plugins/AInputNumberPlugin";
 export { default as ALoadingPlugin } from "./plugins/ALoadingPlugin";
 export { default as AlohaPlugin } from "./plugins/alohaPlugin";
 export { default as AMobilePlugin } from "./plugins/AMobilePlugin";

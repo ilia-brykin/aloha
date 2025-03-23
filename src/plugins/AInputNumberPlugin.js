@@ -2,7 +2,7 @@ import {
   ref,
 } from "vue";
 
-export const inputNumberPluginOptions = ref({
+export const AInputNumberPluginOptions = {
   propsDefault: {
     controlsType: "plus-minus",
     eAllowed: false,
@@ -14,20 +14,19 @@ export const inputNumberPluginOptions = ref({
     modelUndefined: undefined,
     placeholder: undefined,
     precision: undefined,
-    readonly: undefined,
     step: 1,
     stepStrictly: undefined,
     type: "number",
   },
-});
+};
 
 
 export default {
   install: (app, {
     propsDefault = {},
   } = {}) => {
-    inputNumberPluginOptions.value.propsDefault = {
-      ...inputNumberPluginOptions.value.propsDefault,
+    AInputNumberPluginOptions.propsDefault = {
+      ...AInputNumberPluginOptions.propsDefault,
       ...propsDefault,
     };
   },

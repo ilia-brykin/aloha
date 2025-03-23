@@ -1,51 +1,77 @@
-div
-  h1 Input number
-  h2 type "number"
-  a-input-number(
-    id="input1"
-    v-model="model1"
-    type="number"
-    label="Input langeeeeeeeeeeeeeeeeeee textdffdgfdgdsfdsfdsfdsfdsfdsfsdfsfdd"
-    :required="true"
-    :step="2"
-    errors="not valid"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
-  div model1: {{ model1 }}
-  h2 type "integerNonNegative"
-  a-input-number(
-    id="input2"
-    v-model="model2"
-    type="integerNonNegative"
-    label="Input 2"
-    :required="true"
-    :step="2"
-    :disabled="true"
-  )
-  div model2: {{ model2 }}
-  h2 type "integerPositive"
-  a-input-number(
-    id="input3"
-    v-model="model3"
-    type="integerPositive"
-    label="Input 3"
-    :required="true"
-    :step="3"
-    controls-type="none"
-  )
-  div model3: {{ model3 }}
-  h2 type "integer"
-  a-input-number(
-    id="input4"
-    v-model="model4"
-    type="integer"
-    label="Input 4"
-    :required="true"
-    :step="4"
-  )
-  div model4: {{ model4 }}
-  input(
-    type="number"
-  )
-  button.a_btn.a_btn_primary() Temp
+    a-translation(
+      tag="p"
+      html="_A_INPUT_NUMBER_COMPONENT_DESCRIPTION_"
+    )
+
+    page-input-number-basic
+
+    page-input-number-readonly
+
+    //aloha-table-props(
+    //  :data="dataProps"
+    //)
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    a-input-number(
+      id="input1"
+      v-model="model1"
+      type="number"
+      label="Input langeeeeeeeeeeeeeeeeeee textdffdgfdgdsfdsfdsfdsfdsfdsfsdfsfdd"
+      :required="true"
+      :step="2"
+      errors="not valid"
+    )
+    div model1: {{ model1 }}
+    h2 type "integerNonNegative"
+    a-input-number(
+      id="input2"
+      v-model="model2"
+      type="integerNonNegative"
+      label="Input 2"
+      :required="true"
+      :step="2"
+      :disabled="true"
+    )
+    div model2: {{ model2 }}
+    h2 type "integerPositive"
+    a-input-number(
+      id="input3"
+      v-model="model3"
+      type="integerPositive"
+      label="Input 3"
+      :required="true"
+      :step="3"
+      controls-type="none"
+    )
+    div model3: {{ model3 }}
+    h2 type "integer"
+    a-input-number(
+      id="input4"
+      v-model="model4"
+      type="integer"
+      label="Input 4"
+      :required="true"
+      :step="4"
+    )
+    div model4: {{ model4 }}
+    input(
+      type="number"
+    )
+    button.a_btn.a_btn_primary() Temp
 
 

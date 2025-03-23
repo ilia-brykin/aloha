@@ -4,13 +4,21 @@ import {
   toRef,
   watch,
 } from "vue";
-
-import AButton from "../../AButton/AButton";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AIcon from "../../AIcon/AIcon";
-import ALabel from "../ALabel/ALabel";
+import {
+  AElement,
+  AErrorsText,
+  AFormElementBtnClear,
+  AFormHelpText,
+  AFormReadonly,
+  AIcon,
+  AInputNumberPluginOptions,
+  ALabel,
+  UiAPI,
+  UiClearButtonAPI,
+  UIExcludeRenderAttributesAPI,
+  UiInputAutofillAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import IncreaseDecreaseAPI from "./compositionAPI/IncreaseDecreaseAPI";
 import InputEventsAPI from "./compositionAPI/InputEventsAPI";
@@ -18,21 +26,12 @@ import MinAPI from "./compositionAPI/MinAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import NumberAttributesAPI from "./compositionAPI/NumberAttributesAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
-import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
 import Dash from "aloha-svg/dist/js/bootstrap/Dash";
 import Plus from "aloha-svg/dist/js/bootstrap/Plus";
-import UiClearButtonMixinProps from "../mixins/UiClearButtonMixinProps";
 import UiMixinProps from "../mixins/UiMixinProps";
-import {
-  inputNumberPluginOptions,
-} from "../../plugins/AInputNumberPlugin";
 import {
   isNumber,
 } from "lodash-es";
@@ -41,7 +40,6 @@ export default {
   name: "AInputNumber",
   inheritAttrs: false,
   mixins: [
-    UiClearButtonMixinProps,
     UiMixinProps,
   ],
   props: {
@@ -54,17 +52,22 @@ export default {
       required: false,
       default: undefined,
     },
+    clearButtonClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     controlsType: {
       type: String,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.controlsType,
+      default: () => AInputNumberPluginOptions.propsDefault.controlsType,
       validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
     eAllowed: {
       type: Boolean,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.eAllowed,
+      default: () => AInputNumberPluginOptions.propsDefault.eAllowed,
     },
     excludeRenderAttributes: {
       type: Array,
@@ -74,17 +77,22 @@ export default {
     iconPrepend: {
       type: String,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.iconPrepend,
+      default: () => AInputNumberPluginOptions.propsDefault.iconPrepend,
     },
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.inputWidth,
+      default: () => AInputNumberPluginOptions.propsDefault.inputWidth,
+    },
+    isClearButton: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.isLabelFloat,
+      default: () => AInputNumberPluginOptions.propsDefault.isLabelFloat,
     },
     labelScreenReader: {
       type: String,
@@ -94,46 +102,50 @@ export default {
     max: {
       type: Number,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.max,
+      default: () => AInputNumberPluginOptions.propsDefault.max,
     },
     min: {
       type: Number,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.min,
+      default: () => AInputNumberPluginOptions.propsDefault.min,
     },
     modelUndefined: {
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.modelUndefined,
+      default: () => AInputNumberPluginOptions.propsDefault.modelUndefined,
     },
     placeholder: {
       type: [String, Number, Object],
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.placeholder,
+      default: () => AInputNumberPluginOptions.propsDefault.placeholder,
     },
     precision: {
       type: Number,
       validator: value => value >= 0 && value === Number.parseInt(`${ value }`, 10),
-      default: () => inputNumberPluginOptions.value.propsDefault.precision,
+      default: () => AInputNumberPluginOptions.propsDefault.precision,
     },
     readonly: {
       type: Boolean,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.readonly,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
     },
     step: {
       type: Number,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.step,
+      default: () => AInputNumberPluginOptions.propsDefault.step,
     },
     stepStrictly: {
       type: Boolean,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.stepStrictly,
+      default: () => AInputNumberPluginOptions.propsDefault.stepStrictly,
     },
     type: {
       type: String,
       required: false,
-      default: () => inputNumberPluginOptions.value.propsDefault.type,
+      default: () => AInputNumberPluginOptions.propsDefault.type,
       validator: value => ["number", "integerNonNegative", "integerPositive", "integer"].indexOf(value) !== -1,
       // TODO: "float", "floatPositiv", "floatNonNegative"
     },
@@ -297,6 +309,25 @@ export default {
       return null;
     }
 
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: this.displayValue,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: this.type,
+      });
+    }
+
     return h("div", {
       ...this.$attrs,
       style: this.componentStyleHide,
@@ -396,7 +427,7 @@ export default {
             this.controlsType === "plus-minus" && h("div", {
               class: "a_btn_group",
             }, [
-              h(AButton, {
+              h(AElement, {
                 alwaysTranslate: this.alwaysTranslate,
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: Dash,
@@ -404,9 +435,10 @@ export default {
                 disabled: this.disabled,
                 title: "_A_INPUT_NUMBER_BTN_DECREASE_",
                 textScreenReader: "_A_INPUT_NUMBER_BTN_DECREASE_",
+                type: "button",
                 onClick: this.decrease,
               }),
-              h(AButton, {
+              h(AElement, {
                 alwaysTranslate: this.alwaysTranslate,
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: Plus,
@@ -414,6 +446,7 @@ export default {
                 disabled: this.disabled,
                 title: "_A_INPUT_NUMBER_BTN_INCREASE_",
                 textScreenReader: "_A_INPUT_NUMBER_BTN_INCREASE_",
+                type: "button",
                 onClick: this.increase,
               }),
             ]),
