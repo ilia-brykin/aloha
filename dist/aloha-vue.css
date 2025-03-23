@@ -8646,6 +8646,25 @@ h6 {
   margin-bottom: 1rem;
 }
 
+.a_form_element_readonly_value_range {
+  display: flex;
+  flex-wrap: wrap;
+}
+.a_form_element_readonly_value_range .a_form_element_readonly {
+  display: flex;
+  flex-wrap: wrap;
+}
+.a_form_element_readonly_value_range .a_form_element_readonly + .a_form_element_readonly {
+  margin-left: 0.5rem;
+}
+.a_form_element_readonly_value_range .a_form_element_readonly_label + .a_form_element_readonly_value {
+  margin-left: 0.5rem;
+}
+
+.a_form_element_readonly_value_fieldset {
+  margin-left: 0.5rem;
+}
+
 input:-webkit-autofill {
   animation-name: onAutoFillStart;
   transition: background-color 50000s ease-in-out 0s;

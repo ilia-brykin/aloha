@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.5.0
+
+- readonly for ui-components
+
 ## 2.4.1
 
 - `ASelect`: fix `watch` for `url`, `apiSaveId`, `urlParams`
