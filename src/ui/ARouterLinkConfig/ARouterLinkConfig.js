@@ -2,24 +2,15 @@ import {
   h,
 } from "vue";
 import {
-  AElement,
-  AErrorsText,
   AFieldset,
-  AFormHelpText,
-  AJson,
   ARouterLinkConfigPluginOptions,
-  ASelect,
   UiAPI,
-  UiDisabledAPI,
-  UIExcludeRenderAttributesAPI,
-  UiStyleHideAPI,
 } from "../../index";
 
-import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
+import DataFormAPI from "./compositionAPI/DataFormAPI";
 import ModelLocalAPI from "./compositionAPI/ModelLocalAPI";
 import ParamAPI from "./compositionAPI/ParamAPI";
 import RouteAPI from "./compositionAPI/RouteAPI";
-import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 
 import {
   uniqueId,
@@ -203,22 +194,22 @@ export default {
     readonlyDefaultParam: {
       type: String,
       required: false,
-      default: "",
+      default: undefined,
     },
     readonlyDefaultQuery: {
       type: String,
       required: false,
-      default: "",
+      default: undefined,
     },
     readonlyDefaultRoute: {
       type: String,
       required: false,
-      default: "",
+      default: undefined,
     },
     readonlyDefaultTarget: {
       type: String,
       required: false,
-      default: "",
+      default: undefined,
     },
     required: {
       type: Boolean,
@@ -254,38 +245,9 @@ export default {
   ],
   setup(props, context) {
     const {
-      disabledAttribut,
-    } = UiDisabledAPI(props);
-
-    const {
-      attributesToExcludeFromRender,
-    } = UIExcludeRenderAttributesAPI(props);
-
-    const {
-      componentStyleHide,
-    } = UiStyleHideAPI(props);
-
-    const {
-      textAfterLabel,
-    } = TextAfterLabelAPI(props);
-
-    const {
-      ariaDescribedbyLocal,
       changeModel,
-      errorsId,
-      helpTextId,
       htmlIdLocal,
-      isErrors,
-      isModel,
-      onBlur,
-      onFocus,
     } = UiAPI(props, context);
-
-    const {
-      groupId,
-    } = AttributesAPI(props, {
-      htmlIdLocal,
-    });
 
     const {
       changeParamModel,
@@ -305,177 +267,59 @@ export default {
       childrenForParam,
       hasParam,
     } = ParamAPI(props, {
+      changeParamModel,
       htmlIdLocal,
       routePathKeyByKeyId,
     });
 
-    return {
-      ariaDescribedbyLocal,
-      attributesToExcludeFromRender,
-      changeParamModel,
+    const {
+      dataFormChildren,
+    } = DataFormAPI(props, {
       changeQueryModel,
       changeRouteModel,
       changeTargetModel,
       childrenForParam,
-      componentStyleHide,
-      disabledAttribut,
-      errorsId,
-      groupId,
       hasParam,
-      helpTextId,
       htmlIdLocal,
-      isErrors,
-      isModel,
-      onBlur,
-      onFocus,
       routesLocal,
-      textAfterLabel,
+    });
+
+    return {
+      dataFormChildren,
+      hasParam,
+      htmlIdLocal,
     };
   },
   render() {
-    if (!this.isRender) {
-      return null;
-    }
-
-    return h("div", {
+    return h(AFieldset, {
       ...this.$attrs,
-      style: this.componentStyleHide,
-      ...this.attributesToExcludeFromRender,
-    }, [
-      h("div", {
-        class: "a_form_element__parent",
-      }, [
-        h("fieldset", {
-          id: this.htmlIdLocal,
-          tabindex: -1,
-          class: ["a_fieldset", this.classFieldset, {
-            a_fieldset_invalid: this.isErrors,
-            a_fieldset_no_border: !this.hasBorder,
-          }],
-          "aria-describedby": this.ariaDescribedbyLocal,
-        }, [
-          (this.label || this.labelScreenReader) ?
-            h(AElement, {
-              type: "text",
-              alwaysTranslate: this.alwaysTranslate,
-              tag: "legend",
-              class: [
-                "a_legend",
-                {
-                  a_legend_invalid: this.isErrors,
-                },
-                this.labelClass,
-              ],
-              extra: this.extra,
-              html: this.label,
-              textScreenReader: this.labelScreenReader,
-              textAfter: this.textAfterLabel,
-            }) :
-            "",
-          h("div", {
-            id: this.groupId,
-            class: [
-              this.classColumns,
-              "a_fieldset__content",
-            ],
-          }, [
-            h("div", {
-              class: this.classColumn,
-            }, [
-              h(ASelect, {
-                id: "route",
-                change: this.changeRouteModel,
-                data: this.routesLocal,
-                deselectable: true,
-                helpText: this.helpTextRoute,
-                idPrefix: this.htmlIdLocal,
-                isLabelFloat: false,
-                keyId: this.keyIdRoute,
-                keyLabel: this.keyLabelRoute,
-                keyLabelCallback: this.keyLabelCallbackRoute,
-                label: this.labelRoute,
-                modelValue: this.modelValue.route,
-                required: this.required,
-                search: true,
-                sortOrder: this.sortOrderRoute,
-                type: "select",
-              }),
-            ]),
-            this.hasParam ?
-              h("div", {
-                class: this.classColumn,
-              }, [
-                h(AFieldset, {
-                  id: "param",
-                  change: this.changeParamModel,
-                  children: this.childrenForParam,
-                  helpText: this.helpTextParam,
-                  idPrefix: this.htmlIdLocal,
-                  label: this.labelParam,
-                  modelValue: this.modelValue.param || {},
-                  required: this.required,
-                }),
-              ]) :
-              "",
-            this.modelValue.route ?
-              h("div", {
-                class: this.classColumn,
-              }, [
-                h(AJson, {
-                  id: "query",
-                  change: this.changeQueryModel,
-                  heightCss: "100px",
-                  helpText: this.helpTextQuery,
-                  idPrefix: this.htmlIdLocal,
-                  label: this.labelQuery,
-                  modelValue: this.modelValue.query,
-                }),
-              ]) :
-              "",
-            this.modelValue.route ?
-              h("div", {
-                class: this.classColumn,
-              }, [
-                h(ASelect, {
-                  id: "target",
-                  change: this.changeTargetModel,
-                  data: this.targets,
-                  deselectable: true,
-                  helpText: this.helpTextTarget,
-                  idPrefix: this.htmlIdLocal,
-                  isLabelFloat: false,
-                  keyId: "id",
-                  keyLabel: "label",
-                  label: this.labelTarget,
-                  modelValue: this.modelValue.target,
-                  translateData: true,
-                  type: "select",
-                }),
-              ]) :
-              "",
-
-            (this.slotName &&
-              this.$slots[this.slotName]) ?
-              this.$slots[this.slotName]({
-                id: this.htmlIdLocal,
-                props: this.$props,
-              }) :
-              "",
-          ]),
-        ]),
-
-        h(AFormHelpText, {
-          id: this.helpTextId,
-          alwaysTranslate: this.alwaysTranslate,
-          html: this.helpText,
-          extra: this.extra,
-        }),
-        this.isErrors && h(AErrorsText, {
-          id: this.errorsId,
-          alwaysTranslate: this.alwaysTranslate,
-          errors: this.errors,
-        }),
-      ]),
-    ]);
+      alwaysTranslate: this.alwaysTranslate,
+      classColumn: this.classColumn,
+      classColumns: this.classColumns,
+      classFieldset: this.classFieldset,
+      disabled: this.disabled,
+      errors: this.errors,
+      excludeRenderAttributes: this.excludeRenderAttributes,
+      extra: this.extra,
+      hasBorder: this.hasBorder,
+      helpText: this.helpText,
+      htmlId: this.htmlId,
+      id: this.id,
+      idPrefix: this.idPrefix,
+      inputAttributes: this.inputAttributes,
+      isHide: this.isHide,
+      isRender: this.isRender,
+      label: this.label,
+      labelClass: this.labelClass,
+      labelScreenReader: this.labelScreenReader,
+      modelUndefined: this.modelUndefined,
+      modelValue: this.modelValue,
+      readonly: this.readonly,
+      readonlyDefault: this.readonlyDefault,
+      required: this.required,
+      slotName: this.slotName,
+      children: this.dataFormChildren,
+      "onUpdate:modelValue": this.$emit["update:modelValue"],
+    });
   },
 };

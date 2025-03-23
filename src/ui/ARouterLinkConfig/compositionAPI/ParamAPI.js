@@ -8,6 +8,7 @@ import {
 } from "lodash-es";
 
 export default function ParamAPI(props, {
+  changeParamModel = () => {},
   htmlIdLocal = computed(() => ""),
   routePathKeyByKeyId = computed(() => ({})),
 }) {
@@ -43,7 +44,8 @@ export default function ParamAPI(props, {
     const CHILDREN = [];
     forEach(idParamsForRoute.value, _id => {
       const CHILD = {
-        id: _id,
+        id: `param.${ _id }`,
+        change: ({ model }) => changeParamModel({ model, id: _id }),
         label: _id,
         type: "text",
         idPrefix: htmlIdLocal.value,

@@ -40,9 +40,10 @@ export default function ModelLocalAPI(props, {
     changeModel({ model: MODEL });
   };
 
-  const changeParamModel = ({ model }) => {
+  const changeParamModel = ({ model, id }) => {
     const MODEL = cloneDeep(modelValue.value) || {};
-    MODEL.param = model;
+    MODEL.param = MODEL.param || {};
+    MODEL.param[id] = model;
 
     changeModel({ model: MODEL });
   };
