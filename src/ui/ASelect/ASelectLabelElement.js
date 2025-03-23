@@ -25,6 +25,11 @@ export default {
       required: false,
       default: undefined,
     },
+    tag: {
+      type: String,
+      required: false,
+      default: "span",
+    },
   },
   setup(props) {
     const data = toRef(props, "data");
@@ -37,7 +42,7 @@ export default {
     };
   },
   render() {
-    return h("span", {
+    return h(this.tag, {
 
     }, [
       this.slotName && this.$slots[this.slotName] ?

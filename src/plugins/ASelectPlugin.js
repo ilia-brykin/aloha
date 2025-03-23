@@ -1,10 +1,6 @@
-import {
-  ref,
-} from "vue";
-
 import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
 
-export const selectPluginOptions = ref({
+export const ASelectPluginOptions = {
   propsDefault: {
     buttonClass: undefined,
     caretIcon: ChevronDown,
@@ -27,6 +23,7 @@ export const selectPluginOptions = ref({
     modelValue: undefined,
     placement: "bottom-end",
     popperContainerId: "a_select_container",
+    readonlyDefault: "",
     search: false,
     searchApi: false,
     searchApiKey: undefined,
@@ -40,15 +37,15 @@ export const selectPluginOptions = ref({
     translateData: false,
     type: "select",
   },
-});
+};
 
 
 export default {
   install: (app, {
     propsDefault = {},
   } = {}) => {
-    selectPluginOptions.value.propsDefault = {
-      ...selectPluginOptions.value.propsDefault,
+    ASelectPluginOptions.propsDefault = {
+      ...ASelectPluginOptions.propsDefault,
       ...propsDefault,
     };
   },

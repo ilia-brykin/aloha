@@ -4,19 +4,35 @@ import {
   Teleport,
   watch,
 } from "vue";
+import {
+  ACheckboxRadioGroups,
+  ACloak,
+  AElement,
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  AIcon,
+  AInput,
+  AKeyId,
+  ALabel,
+  APlacements,
+  APopupAPI,
+  ATranslation,
+  UiAPI,
+  UiDataFromServerAPI,
+  UIDataGroupAPI,
+  UiDataSortAPI,
+  UiDataWatchEmitAPI,
+  UiDataWithKeyIdAndLabelAPI,
+  UIExcludeRenderAttributesAPI,
+  UiLabelClickEventBusAPI,
+  UiLoadingAPI,
+  UiSearchAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
-import AButton from "../../AButton/AButton";
-import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
-import ACloak from "../../ACloak/ACloak";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AIcon from "../../AIcon/AIcon";
-import AInput from "../AInput/AInput";
-import ALabel from "../ALabel/ALabel";
 import ASelectElement from "./ASelectElement/ASelectElement";
-import ATranslation from "../../ATranslation/ATranslation";
 
-import APopupAPI from "../../compositionAPI/APopupAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import DividerAPI from "./compositionAPI/DividerAPI";
@@ -26,27 +42,14 @@ import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
 import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
-import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
-import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
-import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
-import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
-import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
-import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
-import UiSearchAPI from "../compositionApi/UiSearchAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import AKeyId from "../../const/AKeyId";
 import ASelectLabelElement from "./ASelectLabelElement";
 import ASelectValueCloseable from "./ASelectValueCloseable";
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
 import Search from "aloha-svg/dist/js/bootstrap/Search";
 import XLg from "aloha-svg/dist/js/bootstrap/XLg";
-import placements from "../../const/placements";
 import {
-  selectPluginOptions,
+  ASelectPluginOptions,
 } from "../../plugins/ASelectPlugin";
 import {
   take,
@@ -74,7 +77,7 @@ export default {
     buttonClass: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.buttonClass,
+      default: () => ASelectPluginOptions.propsDefault.buttonClass,
     },
     buttonClassDefault: {
       type: [String, Object],
@@ -84,7 +87,7 @@ export default {
     caretIcon: {
       type: [String, Object],
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.caretIcon,
+      default: () => ASelectPluginOptions.propsDefault.caretIcon,
     },
     change: {
       type: Function,
@@ -98,7 +101,7 @@ export default {
     countMultiselect: {
       type: Number,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.countMultiselect,
+      default: () => ASelectPluginOptions.propsDefault.countMultiselect,
     },
     data: {
       type: Array,
@@ -108,7 +111,7 @@ export default {
     dataExtra: {
       type: Array,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.dataExtra,
+      default: () => ASelectPluginOptions.propsDefault.dataExtra,
     },
     dependencies: {
       type: [Array, Object],
@@ -118,7 +121,7 @@ export default {
     deselectable: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.deselectable,
+      default: () => ASelectPluginOptions.propsDefault.deselectable,
     },
     disabled: {
       type: Boolean,
@@ -137,7 +140,7 @@ export default {
     exceededItemsDeletable: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.exceededItemsDeletable,
+      default: () => ASelectPluginOptions.propsDefault.exceededItemsDeletable,
     },
     excludeRenderAttributes: {
       type: Array,
@@ -186,7 +189,7 @@ export default {
     inBody: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.inBody,
+      default: () => ASelectPluginOptions.propsDefault.inBody,
     },
     inputAttributes: {
       type: Object,
@@ -199,17 +202,17 @@ export default {
     isCloseByClick: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.isCloseByClick,
+      default: () => ASelectPluginOptions.propsDefault.isCloseByClick,
     },
     isDataSimpleArray: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.isDataSimpleArray,
+      default: () => ASelectPluginOptions.propsDefault.isDataSimpleArray,
     },
     isDeselectAll: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.isDeselectAll,
+      default: () => ASelectPluginOptions.propsDefault.isDeselectAll,
     },
     isExclusiveOptionEnabled: {
       type: Boolean,
@@ -240,22 +243,22 @@ export default {
     isSelectAll: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.isSelectAll,
+      default: () => ASelectPluginOptions.propsDefault.isSelectAll,
     },
     isSelectionCloseable: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.isSelectionCloseable,
+      default: () => ASelectPluginOptions.propsDefault.isSelectionCloseable,
     },
     keyDisabled: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.keyDisabled,
+      default: () => ASelectPluginOptions.propsDefault.keyDisabled,
     },
     keyGroup: {
       type: [String, Number, Array],
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.keyGroup,
+      default: () => ASelectPluginOptions.propsDefault.keyGroup,
     },
     keyGroupLabelCallback: {
       type: Function,
@@ -265,12 +268,12 @@ export default {
     keyId: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.keyId,
+      default: () => ASelectPluginOptions.propsDefault.keyId,
     },
     keyLabel: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.keyLabel,
+      default: () => ASelectPluginOptions.propsDefault.keyLabel,
     },
     keyLabelCallback: {
       type: Function,
@@ -299,13 +302,13 @@ export default {
     maxCountMultiselect: {
       type: Number,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.maxCountMultiselect,
+      default: () => ASelectPluginOptions.propsDefault.maxCountMultiselect,
       validator: value => value > 0,
     },
     menuWidthType: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.menuWidthType,
+      default: () => ASelectPluginOptions.propsDefault.menuWidthType,
       validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
     modelDependencies: {
@@ -320,7 +323,7 @@ export default {
     modelValue: {
       type: [String, Number, Boolean, Array],
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.modelValue,
+      default: () => ASelectPluginOptions.propsDefault.modelValue,
     },
     options: {
       type: Object,
@@ -335,13 +338,22 @@ export default {
     placement: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.placement,
-      validator: placement => placements.indexOf(placement) !== -1,
+      default: () => ASelectPluginOptions.propsDefault.placement,
+      validator: placement => APlacements.indexOf(placement) !== -1,
     },
     popperContainerId: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.popperContainerId,
+      default: () => ASelectPluginOptions.propsDefault.popperContainerId,
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.readonlyDefault,
     },
     required: {
       type: Boolean,
@@ -351,17 +363,17 @@ export default {
     search: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.search,
+      default: () => ASelectPluginOptions.propsDefault.search,
     },
     searchApi: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.searchApi,
+      default: () => ASelectPluginOptions.propsDefault.searchApi,
     },
     searchApiKey: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.searchApiKey,
+      default: () => ASelectPluginOptions.propsDefault.searchApiKey,
     },
     searchInGroup: {
       type: Boolean,
@@ -371,12 +383,12 @@ export default {
     searchOutside: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.searchOutside,
+      default: () => ASelectPluginOptions.propsDefault.searchOutside,
     },
     searchTimeout: {
       type: Number,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.searchTimeout,
+      default: () => ASelectPluginOptions.propsDefault.searchTimeout,
     },
     selectMenuClass: {
       type: [String, Object],
@@ -386,39 +398,39 @@ export default {
     slotName: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.slotName,
+      default: () => ASelectPluginOptions.propsDefault.slotName,
     },
     sortOrder: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.sortOrder,
+      default: () => ASelectPluginOptions.propsDefault.sortOrder,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     sortOrderGroup: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.sortOrderGroup,
+      default: () => ASelectPluginOptions.propsDefault.sortOrderGroup,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     textDeselectAll: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.textDeselectAll,
+      default: () => ASelectPluginOptions.propsDefault.textDeselectAll,
     },
     textSelectAll: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.textSelectAll,
+      default: () => ASelectPluginOptions.propsDefault.textSelectAll,
     },
     translateData: {
       type: Boolean,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.translateData,
+      default: () => ASelectPluginOptions.propsDefault.translateData,
     },
     type: {
       type: String,
       required: false,
-      default: () => selectPluginOptions.value.propsDefault.type,
+      default: () => ASelectPluginOptions.propsDefault.type,
       validator: value => ["select", "multiselect"].indexOf(value) !== -1,
     },
     url: {
@@ -731,6 +743,47 @@ export default {
       return null;
     }
 
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: undefined,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: this.type,
+      }, this.isModelValue ?
+        () => [
+          this.isMultiselect ?
+            this.modelValueMultiselectFiltered.length ?
+              h("ul", {}, [
+                this.modelValueMultiselectFiltered.map(item => {
+                  return h(ASelectLabelElement, {
+                    key: item[AKeyId],
+                    alwaysTranslate: this.alwaysTranslate,
+                    data: this.dataKeyByKeyIdLocal[item] || {},
+                    slotName: this.slotName,
+                    tag: "li",
+                  }, this.$slots);
+                }),
+              ]) :
+              "" :
+            h(ASelectLabelElement, {
+              alwaysTranslate: this.alwaysTranslate,
+              data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
+              slotName: this.slotName,
+            }, this.$slots),
+        ] :
+        "");
+    }
+
     return h("div", {
       ...this.$attrs,
       class: this.class,
@@ -893,7 +946,7 @@ export default {
                             modelUndefined: "",
                             "onUpdate:modelValue": this.updateModelSearchOutside,
                           }),
-                          h(AButton, {
+                          h(AElement, {
                             alwaysTranslate: this.alwaysTranslate,
                             ariaDisabled: this.loadingSearchApi,
                             disabled: this.disabledLocal,
@@ -1018,7 +1071,7 @@ export default {
                       ]),
                       h("div", {}, this.hasKeyGroup ?
                         [
-                          h(ACheckboxRadioGroup, {
+                          h(ACheckboxRadioGroups, {
                             id: `${ this.htmlIdLocal }_lev_0`,
                             alwaysTranslate: this.alwaysTranslate,
                             dataGrouped: this.dataGrouped,
