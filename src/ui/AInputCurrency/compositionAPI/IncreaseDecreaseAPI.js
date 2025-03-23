@@ -3,13 +3,9 @@ import {
   toRef,
 } from "vue";
 
-import {
-  times,
-} from "lodash-es";
-
 export default function IncreaseDecreaseAPI(props, {
+  adjustFloatPartAndDivider = () => {},
   ensurePrecision = () => {},
-  getCleanIntValue = () => {},
   setCurrentValue = () => {},
   modelNumber = computed(() => undefined),
 }) {
@@ -18,9 +14,7 @@ export default function IncreaseDecreaseAPI(props, {
   const modelValue = toRef(props, "modelValue");
   const max = toRef(props, "max");
   const min = toRef(props, "min");
-  const decimalPartLength = toRef(props, "decimalPartLength");
   const step = toRef(props, "step");
-  const thousandDivider = toRef(props, "thousandDivider");
 
   const minDisabled = computed(() => {
     return modelNumber.value <= min.value;
@@ -29,26 +23,6 @@ export default function IncreaseDecreaseAPI(props, {
   const maxDisabled = computed(() => {
     return modelNumber.value >= max.value;
   });
-
-  const adjustFloatPartAndDivider = val => {
-    if (decimalDivider.value) {
-      const splitVal = typeof val === "number"
-        ? val.toString().split(".")
-        : val.toString().split(decimalDivider.value);
-      const intPart = splitVal[0];
-      const setMinusSymbol = intPart[0] === "-" ? "-" : "";
-      const intPartWithDivider = thousandDivider.value
-        ? getCleanIntValue({ value: intPart, thousandDivider: thousandDivider.value })
-        : intPart;
-      const floatPart = splitVal.length > 1 ? splitVal[1] : "";
-      const floatPartLength = floatPart.length;
-      const zerosToAdd = times(decimalPartLength.value - floatPartLength, () => "0").join("");
-
-      return `${ setMinusSymbol }${ intPartWithDivider }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
-    }
-
-    return val;
-  };
 
   const setMaximumValue = () => {
     const newVal = adjustFloatPartAndDivider(max.value);
@@ -96,7 +70,6 @@ export default function IncreaseDecreaseAPI(props, {
   };
 
   return {
-    adjustFloatPartAndDivider,
     increase,
     decrease,
   };

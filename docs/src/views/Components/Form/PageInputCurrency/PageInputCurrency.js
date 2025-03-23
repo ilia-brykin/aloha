@@ -12,6 +12,7 @@ import PageInputCurrencyLabelFloat from "./PageInputCurrencyLabelFloat/PageInput
 import PageInputCurrencyLabelScreenReader from "./PageInputCurrencyLabelScreenReader/PageInputCurrencyLabelScreenReader.vue";
 import PageInputCurrencyMaxMin from "./PageInputCurrencyMaxMin/PageInputCurrencyMaxMin.vue";
 import PageInputCurrencyModelType from "./PageInputCurrencyModelType/PageInputCurrencyModelType.vue";
+import PageInputCurrencyReadonly from "./PageInputCurrencyReadonly/PageInputCurrencyReadonly.vue";
 import PageInputCurrencyStep from "./PageInputCurrencyStep/PageInputCurrencyStep.vue";
 import PageInputCurrencySymbol from "./PageInputCurrencySymbol/PageInputCurrencySymbol.vue";
 import PageInputCurrencyThousandDivider from "./PageInputCurrencyThousandDivider/PageInputCurrencyThousandDivider.vue";
@@ -42,6 +43,7 @@ export default {
     PageInputCurrencyLabelScreenReader,
     PageInputCurrencyMaxMin,
     PageInputCurrencyModelType,
+    PageInputCurrencyReadonly,
     PageInputCurrencyStep,
     PageInputCurrencySymbol,
     PageInputCurrencyThousandDivider,

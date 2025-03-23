@@ -1,8 +1,4 @@
-import {
-  ref,
-} from "vue";
-
-export const inputCurrencyPluginOptions = ref({
+export const AInputCurrencyPluginOptions = {
   propsDefault: {
     controlsType: "none",
     currencySymbol: "€",
@@ -19,15 +15,15 @@ export const inputCurrencyPluginOptions = ref({
     step: 1,
     thousandDivider: ".",
   },
-});
+};
 
 
 export default {
   install: (app, {
     propsDefault = {},
   } = {}) => {
-    inputCurrencyPluginOptions.value.propsDefault = {
-      ...inputCurrencyPluginOptions.value.propsDefault,
+    AInputCurrencyPluginOptions.propsDefault = {
+      ...AInputCurrencyPluginOptions.propsDefault,
       ...propsDefault,
     };
   },

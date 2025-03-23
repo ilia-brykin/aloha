@@ -10,6 +10,7 @@ import {
 } from "lodash-es";
 
 export default function ModelAPI(props, {
+  adjustFloatPartAndDivider = () => {},
   changeModel = () => {},
 }) {
   const required = toRef(props, "required");
@@ -26,7 +27,7 @@ export default function ModelAPI(props, {
   const localModel = ref(undefined);
 
   const initLocalVars = () => {
-    displayValue.value = modelValue.value;
+    displayValue.value = adjustFloatPartAndDivider(modelValue.value);
     localModel.value = modelValue.value;
   };
 
@@ -50,9 +51,9 @@ export default function ModelAPI(props, {
     if (!required.value && isNil(value)) {
       newVal = modelUndefinedLocal.value;
     } else {
-      newVal = modelType.value === "number"
-        ? Number(`${ value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."))
-        : value;
+      newVal = modelType.value === "number" ?
+        Number(`${ value }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, ".")) :
+        value;
     }
     if (!updateOutside) {
       isInternalChange.value = true;

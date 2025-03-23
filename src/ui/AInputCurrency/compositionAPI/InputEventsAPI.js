@@ -26,6 +26,7 @@ export default function InputEventsAPI(props, {
   const max = toRef(props, "max");
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
+  const readonly = toRef(props, "readonly");
   const required = toRef(props, "required");
   const decimalPartLength = toRef(props, "decimalPartLength");
   const thousandDivider = toRef(props, "thousandDivider");
@@ -101,7 +102,7 @@ export default function InputEventsAPI(props, {
     }
     const decimalDividerIndex = value.indexOf(decimalDivider.value);
     const hasDecimalDivider = decimalDividerIndex !== -1;
-    const cursorPosition = inputRef.value.selectionStart;
+    const cursorPosition = inputRef.value?.selectionStart;
     const splitVal = value.split(decimalDivider.value);
     const setMinusSymbol = splitVal[0].length && splitVal[0][0] === "-" ? "-" : "";
     const intVal = Number(splitVal[0].replace(/[^0-9]/g, "")).toString();
@@ -558,6 +559,10 @@ export default function InputEventsAPI(props, {
   };
 
   const initFirstCheck = () => {
+    if (readonly.value) {
+      return;
+    }
+
     setTimeout(() => {
       let valueToSet;
       if (modelValue.value || modelValue.value === 0) {
@@ -573,13 +578,13 @@ export default function InputEventsAPI(props, {
           valueToSet = `${ setMinusSymbol }${ intPart }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
         }
       } else {
-        valueToSet = required.value
-? [
-  "0",
-  decimalDivider.value,
-  times(decimalPartLength.value, () => "0").join(""),
-].join("")
-: modelUndefinedLocal.value;
+        valueToSet = required.value ?
+          [
+            "0",
+            decimalDivider.value,
+            times(decimalPartLength.value, () => "0").join(""),
+          ].join("") :
+          modelUndefinedLocal.value;
       }
       handleInput(null, valueToSet, true);
     });

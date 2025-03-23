@@ -137,7 +137,10 @@ export { default as AGroupButtonDropdownPlugin } from "./plugins/AGroupButtonDro
 export { default as AHttpPlugin } from "./plugins/AHttpPlugin";
 export { default as AI18nPlugin } from "./plugins/AI18nPlugin";
 export { default as AIconPlugin } from "./plugins/AIconPlugin";
-export { default as AInputCurrencyPlugin } from "./plugins/AInputCurrencyPlugin";
+export {
+  default as AInputCurrencyPlugin,
+  AInputCurrencyPluginOptions,
+} from "./plugins/AInputCurrencyPlugin";
 export { default as AInputNumberPlugin } from "./plugins/AInputNumberPlugin";
 export { default as ALoadingPlugin } from "./plugins/ALoadingPlugin";
 export { default as AlohaPlugin } from "./plugins/alohaPlugin";

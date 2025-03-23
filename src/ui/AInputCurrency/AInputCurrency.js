@@ -3,31 +3,31 @@ import {
   toRef,
   watch,
 } from "vue";
-
-import AButton from "../../AButton/AButton";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormElementBtnClear from "../../AFormElement/AFormElementBtnClear/AFormElementBtnClear";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AIcon from "../../AIcon/AIcon";
-import ALabel from "../ALabel/ALabel";
+import {
+  AElement,
+  AErrorsText,
+  AFormElementBtnClear,
+  AFormHelpText,
+  AFormReadonly,
+  AIcon,
+  AInputCurrencyPluginOptions,
+  ALabel,
+  UiAPI,
+  UiClearButtonAPI,
+  UIExcludeRenderAttributesAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import IncreaseDecreaseAPI from "./compositionAPI/IncreaseDecreaseAPI";
 import InputEventsAPI from "./compositionAPI/InputEventsAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiClearButtonAPI from "../compositionApi/UiClearButtonAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 import UtilsAPI from "./compositionAPI/UtilsAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
 import Dash from "aloha-svg/dist/js/bootstrap/Dash";
 import Plus from "aloha-svg/dist/js/bootstrap/Plus";
-import {
-  inputCurrencyPluginOptions,
-} from "../../plugins/AInputCurrencyPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -58,25 +58,25 @@ export default {
     controlsType: {
       type: String,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.controlsType,
+      default: () => AInputCurrencyPluginOptions.propsDefault.controlsType,
       validator: value => ["plus-minus", "arrows", "none"].indexOf(value) !== -1,
       // TODO: "arrows",
     },
     currencySymbol: {
       type: String,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.currencySymbol,
+      default: () => AInputCurrencyPluginOptions.propsDefault.currencySymbol,
     },
     currencySymbolPosition: {
       type: String,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.currencySymbolPosition,
+      default: () => AInputCurrencyPluginOptions.propsDefault.currencySymbolPosition,
       validator: value => ["right", "left"].indexOf(value) !== -1,
     },
     decimalDivider: {
       type: String,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.decimalDivider,
+      default: () => AInputCurrencyPluginOptions.propsDefault.decimalDivider,
       validator: (value, props) => {
         const thousandDivider = props?.thousandDivider;
 
@@ -90,7 +90,7 @@ export default {
     decimalPartLength: {
       type: Number,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.decimalPartLength,
+      default: () => AInputCurrencyPluginOptions.propsDefault.decimalPartLength,
       validator: value => value >= 0,
     },
     dependencies: {
@@ -130,7 +130,7 @@ export default {
     iconPrepend: {
       type: String,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.iconPrepend,
+      default: () => AInputCurrencyPluginOptions.propsDefault.iconPrepend,
     },
     id: {
       type: [String, Number],
@@ -155,7 +155,7 @@ export default {
     inputWidth: {
       type: [String, Number],
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.inputWidth,
+      default: () => AInputCurrencyPluginOptions.propsDefault.inputWidth,
     },
     isClearButton: {
       type: Boolean,
@@ -169,7 +169,7 @@ export default {
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.isLabelFloat,
+      default: () => AInputCurrencyPluginOptions.propsDefault.isLabelFloat,
     },
     isRender: {
       type: Boolean,
@@ -194,12 +194,12 @@ export default {
     max: {
       type: Number,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.max,
+      default: () => AInputCurrencyPluginOptions.propsDefault.max,
     },
     min: {
       type: Number,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.min,
+      default: () => AInputCurrencyPluginOptions.propsDefault.min,
     },
     modelDependencies: {
       type: Object,
@@ -214,7 +214,7 @@ export default {
     },
     modelUndefined: {
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.modelUndefined,
+      default: () => AInputCurrencyPluginOptions.propsDefault.modelUndefined,
     },
     modelValue: {
       type: [String, Number],
@@ -223,7 +223,16 @@ export default {
     placeholder: {
       type: [String, Number, Object],
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.placeholder,
+      default: () => AInputCurrencyPluginOptions.propsDefault.placeholder,
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
     },
     required: {
       type: Boolean,
@@ -233,13 +242,13 @@ export default {
     step: {
       type: Number,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.step,
+      default: () => AInputCurrencyPluginOptions.propsDefault.step,
       validator: value => value > 0,
     },
     thousandDivider: {
       type: String,
       required: false,
-      default: () => inputCurrencyPluginOptions.value.propsDefault.thousandDivider,
+      default: () => AInputCurrencyPluginOptions.propsDefault.thousandDivider,
       validator: (value, props) => {
         const decimalDivider = props?.decimalDivider;
 
@@ -273,8 +282,9 @@ export default {
     } = UiStyleHideAPI(props);
 
     const {
+      adjustFloatPartAndDivider,
       getCleanIntValue,
-    } = UtilsAPI();
+    } = UtilsAPI(props);
 
     const {
       ariaDescribedbyLocal,
@@ -316,17 +326,16 @@ export default {
       modelUndefinedLocal,
       setCurrentValue,
     } = ModelAPI(props, {
+      adjustFloatPartAndDivider,
       changeModel,
     });
 
     const {
-      adjustFloatPartAndDivider,
       increase,
       decrease,
     } = IncreaseDecreaseAPI(props, {
-      displayValue,
+      adjustFloatPartAndDivider,
       ensurePrecision,
-      getCleanIntValue,
       setCurrentValue,
       modelNumber,
     });
@@ -389,6 +398,25 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: this.displayValue,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "currency",
+      });
     }
 
     return h("div", {
@@ -497,22 +525,24 @@ export default {
             this.controlsType === "plus-minus" && h("div", {
               class: "a_btn_group",
             }, [
-              h(AButton, {
+              h(AElement, {
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: Dash,
                 tabindex: -1,
                 disabled: this.disabled,
                 title: "_A_INPUT_CURRENCY_BTN_DECREASE_",
                 textScreenReader: "_A_INPUT_CURRENCY_BTN_DECREASE_",
+                type: "button",
                 onClick: this.decrease,
               }),
-              h(AButton, {
+              h(AElement, {
                 class: "a_btn a_btn_outline_secondary",
                 iconLeft: Plus,
                 tabindex: -1,
                 disabled: this.disabled,
                 title: "_A_INPUT_CURRENCY_BTN_INCREASE_",
                 textScreenReader: "_A_INPUT_CURRENCY_BTN_INCREASE_",
+                type: "button",
                 onClick: this.increase,
               }),
             ]),
