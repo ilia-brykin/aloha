@@ -2,32 +2,36 @@ import {
   h,
   watch,
 } from "vue";
+import {
+  ACheckboxRadioGroups,
+  ACloak,
+  AElement,
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  AInput,
+  AKeyId,
+  ATranslation,
+  UiAPI,
+  UiCollapseAPI,
+  UiDataFromServerAPI,
+  UIDataGroupAPI,
+  UiDataSortAPI,
+  UiDataWatchEmitAPI,
+  UiDataWithKeyIdAndLabelAPI,
+  UIExcludeRenderAttributesAPI,
+  UiLoadingAPI,
+  UiSearchAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
-import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
-import ACloak from "../../ACloak/ACloak";
-import AElement from "../../AElement/AElement";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AInput from "../AInput/AInput";
 import ARadioItem from "./ARadioItem/ARadioItem";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
+import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
-import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
-import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
-import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
-import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
-import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
-import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
-import UiSearchAPI from "../compositionApi/UiSearchAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import AKeyId from "../../const/AKeyId";
 import Search from "aloha-svg/dist/js/bootstrap/Search";
 import {
   uniqueId,
@@ -247,6 +251,15 @@ export default {
       required: false,
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
     required: {
       type: Boolean,
       required: false,
@@ -459,9 +472,13 @@ export default {
       htmlIdLocal,
     });
 
-    watch(urlPropsComputed, updateUrlPropsComputed, {
-      deep: true,
+    const {
+      modelValueItemReadonly,
+    } = ReadonlyAPI(props, {
+      dataKeyByKeyIdLocal,
     });
+
+    watch(urlPropsComputed, updateUrlPropsComputed);
 
     initIsCollapsedLocal();
     loadDataFromServer();
@@ -492,6 +509,7 @@ export default {
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
+      modelValueItemReadonly,
       onBlur,
       onChangeModelValue,
       onFocus,
@@ -513,6 +531,38 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: undefined,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "radio",
+      }, this.modelValueItemReadonly ?
+        () => [
+          h(ARadioItem, {
+            id: this.htmlIdLocal,
+            alwaysTranslate: this.alwaysTranslate,
+            dataItem: this.modelValueItemReadonly,
+            itemIndex: -1,
+            modelValue: this.modelValue,
+            readonly: true,
+            slotAppendName: this.slotAppendName,
+            slotName: this.slotName,
+          }, this.$slots),
+        ] :
+        undefined);
     }
 
     return h("div", {
@@ -663,7 +713,7 @@ export default {
                 "",
               h("div", {}, this.hasKeyGroup ?
                 [
-                  h(ACheckboxRadioGroup, {
+                  h(ACheckboxRadioGroups, {
                     id: `${ this.htmlIdLocal }_lev_0`,
                     alwaysTranslate: this.alwaysTranslate,
                     classButtonGroupDefault: this.classButtonGroupDefault,

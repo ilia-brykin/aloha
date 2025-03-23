@@ -81,10 +81,15 @@ export default {
     },
     modelSearch: {
       type: String,
-      required: true,
+      required: false,
+      default: "",
     },
     modelValue: {
       type: [String, Number, Boolean, Array],
+      required: false,
+    },
+    readonly: {
+      type: Boolean,
       required: false,
     },
     searching: {
@@ -93,7 +98,8 @@ export default {
     },
     searchingElements: {
       type: Object,
-      required: true,
+      required: false,
+      default: () => ({}),
     },
     showElementWennGroupFound: {
       type: Boolean,
@@ -174,6 +180,35 @@ export default {
     };
   },
   render() {
+    if (this.readonly) {
+      return h(AElement, {
+        alwaysTranslate: this.alwaysTranslate,
+        classDefault: "",
+        extra: {
+          label: this.labelLocal,
+          labelFiltered: this.currentLabelFiltered,
+        },
+        for: this.idLocal,
+        tag: "span",
+        title: this.titleLocal,
+        type: "text",
+      }, () => [
+        this.slotName && this.$slots[this.slotName] ?
+          this.$slots[this.slotName]({
+            id: this.id,
+            item: this.dataItem,
+            itemIndex: this.itemIndex,
+            label: this.labelLocal,
+            labelFiltered: this.currentLabelFiltered,
+          }) :
+          this.labelLocal && withDirectives(h("span", {
+            class: "a_custom_control_label__text",
+          }), [
+            [ASafeHtml, this.currentLabelFiltered],
+          ]),
+      ]);
+    }
+
     if (this.isButtonGroup) {
       return [
         h("input", {
@@ -272,8 +307,8 @@ export default {
           isChecked: this.isChecked,
           label: this.labelLocal,
           labelFiltered: this.currentLabelFiltered,
-        })
-: "",
+        }) :
+        "",
     ];
   },
 };

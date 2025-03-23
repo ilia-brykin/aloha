@@ -3,6 +3,7 @@ export { default as AAccordion } from "./AAccordion/AAccordion";
 export { default as AAlert } from "./AAlert/AAlert";
 export { default as AButton } from "./AButton/AButton";
 export { default as ACheckbox } from "./ui/ACheckbox/ACheckbox";
+export { default as ACheckboxRadioGroups } from "./ui/ACheckboxRadioGroups/ACheckboxRadioGroups";
 export { default as ACloak } from "./ACloak/ACloak";
 export { default as ADatepicker } from "./ui/ADatepicker/ADatepicker";
 export { default as ADatepickerRange } from "./ui/ADatepickerRange/ADatepickerRange";
@@ -124,6 +125,14 @@ export { default as UiDisabledAPI } from "./ui/compositionApi/UiDisabledAPI";
 export { default as UiClearButtonAPI } from "./ui/compositionApi/UiClearButtonAPI";
 export { default as UiInputAutofillAPI } from "./ui/compositionApi/UiInputAutofillAPI";
 export { default as UiLabelClickEventBusAPI } from "./ui/compositionApi/UiLabelClickEventBusAPI";
+export { default as UIDataGroupAPI } from "./ui/compositionApi/UIDataGroupAPI";
+export { default as UiCollapseAPI } from "./ui/compositionApi/UiCollapseAPI";
+export { default as UiDataFromServerAPI } from "./ui/compositionApi/UiDataFromServerAPI";
+export { default as UiDataSortAPI } from "./ui/compositionApi/UiDataSortAPI";
+export { default as UiDataWatchEmitAPI } from "./ui/compositionApi/UiDataWatchEmitAPI";
+export { default as UiDataWithKeyIdAndLabelAPI } from "./ui/compositionApi/UiDataWithKeyIdAndLabelAPI";
+export { default as UiLoadingAPI } from "./ui/compositionApi/UiLoadingAPI";
+export { default as UiSearchAPI } from "./ui/compositionApi/UiSearchAPI";
 
 // directives
 export { default as AOnHooks } from "./directives/AOnHooks";
