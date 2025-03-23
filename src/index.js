@@ -123,6 +123,7 @@ export { default as UiStyleHideAPI } from "./ui/compositionApi/UiStyleHideAPI";
 export { default as UiDisabledAPI } from "./ui/compositionApi/UiDisabledAPI";
 export { default as UiClearButtonAPI } from "./ui/compositionApi/UiClearButtonAPI";
 export { default as UiInputAutofillAPI } from "./ui/compositionApi/UiInputAutofillAPI";
+export { default as UiLabelClickEventBusAPI } from "./ui/compositionApi/UiLabelClickEventBusAPI";
 
 // directives
 export { default as AOnHooks } from "./directives/AOnHooks";

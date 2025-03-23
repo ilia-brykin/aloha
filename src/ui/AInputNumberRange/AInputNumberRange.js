@@ -2,21 +2,24 @@ import {
   h,
   onBeforeUnmount,
 } from "vue";
-
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AInputNumber from "../AInputNumber/AInputNumber";
-import ALabel from "../ALabel/ALabel";
+import {
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  AInputNumber,
+  ALabel,
+  UiAPI,
+  UIExcludeRenderAttributesAPI,
+  UiLabelClickEventBusAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import FocusAPI from "./compositionAPI/FocusAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiLabelClickEventBusAPI from "../compositionApi/UiLabelClickEventBusAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import Types from "./utils/Types";
 import {
@@ -196,6 +199,21 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyDefaultMax: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    readonlyDefaultMin: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     required: {
       type: Boolean,
       required: false,
@@ -281,6 +299,11 @@ export default {
       clickLabel: setFocusToMinInput,
     });
 
+    const {
+      readonlyDefaultMaxLocal,
+      readonlyDefaultMinLocal,
+    } = ReadonlyAPI(props);
+
     initEventBusClickLabel();
 
     onBeforeUnmount(() => {
@@ -302,12 +325,62 @@ export default {
       isErrors,
       modelValueMax,
       modelValueMin,
+      readonlyDefaultMaxLocal,
+      readonlyDefaultMinLocal,
       typeLocal,
     };
   },
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "numberRange",
+        valueParentClass: "a_form_element_readonly_value_range",
+      }, () => [
+        h(AInputNumber, {
+          id: this.idMin,
+          alwaysTranslate: this.alwaysTranslate,
+          inputWidth: this.inputWidth,
+          label: this.labelMin,
+          max: this.max,
+          min: this.min,
+          precision: this.precision,
+          readonly: true,
+          readonlyDefault: this.readonlyDefaultMinLocal,
+          type: this.typeLocal,
+          required: this.required,
+          modelValue: this.modelValueMin,
+        }),
+        h(AInputNumber, {
+          id: this.idMax,
+          alwaysTranslate: this.alwaysTranslate,
+          inputWidth: this.inputWidth,
+          label: this.labelMax,
+          max: this.max,
+          min: this.min,
+          precision: this.precision,
+          readonly: true,
+          readonlyDefault: this.readonlyDefaultMaxLocal,
+          type: this.typeLocal,
+          required: this.required,
+          modelValue: this.modelValueMax,
+        }),
+      ]);
     }
 
     return h("div", {
@@ -359,7 +432,6 @@ export default {
               min: this.min,
               modelUndefined: this.modelUndefined,
               precision: this.precision,
-              readonly: this.readonly,
               step: this.step,
               stepStrictly: this.stepStrictly,
               type: this.typeLocal,
@@ -393,7 +465,6 @@ export default {
               min: this.min,
               modelUndefined: this.modelUndefined,
               precision: this.precision,
-              readonly: this.readonly,
               step: this.step,
               stepStrictly: this.stepStrictly,
               type: this.typeLocal,

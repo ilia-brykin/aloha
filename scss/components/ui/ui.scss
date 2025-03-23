@@ -170,6 +170,21 @@
   margin-bottom: 1rem;
 }
 
+.a_form_element_readonly_value_range {
+  display: flex;
+  flex-wrap: wrap;
+  .a_form_element_readonly {
+    display: flex;
+    flex-wrap: wrap;
+    + .a_form_element_readonly {
+      margin-left: .5rem;
+    }
+  }
+  .a_form_element_readonly_label + .a_form_element_readonly_value {
+    margin-left: .5rem;
+  }
+}
+
 // fix für autofill
 input:-webkit-autofill {
   // Expose a hook for JavaScript when auto fill is shown.

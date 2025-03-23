@@ -166,6 +166,7 @@ export default {
           "a_form_element_label_static",
         {
           a_form_element_label_error: this.isError,
+          a_form_element_readonly_label: this.readonly,
         },
       ],
       extra: this.extra,

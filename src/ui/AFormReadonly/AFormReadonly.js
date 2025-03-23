@@ -71,6 +71,11 @@ export default {
       required: false,
       default: undefined,
     },
+    valueParentClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     valueTag: {
       type: String,
       required: false,
@@ -99,6 +104,7 @@ export default {
   render() {
     return h("div", {
       "aria-labelledby": this.labelId,
+      class: "a_form_element_readonly",
       role: "group",
       ...this.attributesToExcludeFromRender,
     }, [
@@ -118,7 +124,10 @@ export default {
         }) :
         "",
       h("div", {
-        class: "a_form_readonly_value",
+        class: [
+          "a_form_element_readonly_value",
+          this.valueParentClass,
+        ],
       }, [
         this.$slots.default ?
           this.$slots.default() :

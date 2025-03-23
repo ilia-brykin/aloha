@@ -1,7 +1,9 @@
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageInputNumberRangeBasic from "./PageInputNumberRangeBasic/PageInputNumberRangeBasic.vue";
 import PageInputNumberRangePlaceholder from "./PageInputNumberRangePlaceholder/PageInputNumberRangePlaceholder.vue";
+import PageInputNumberRangeReadonly from "./PageInputNumberRangeReadonly/PageInputNumberRangeReadonly.vue";
 import PageInputNumberRangeTypeInteger from "./PageInputNumberRangeTypeInteger/PageInputNumberRangeTypeInteger.vue";
 import PageInputNumberRangeTypeIntegerNonNegative from "./PageInputNumberRangeTypeIntegerNonNegative/PageInputNumberRangeTypeIntegerNonNegative.vue";
 import PageInputNumberRangeTypeIntegerPositive from "./PageInputNumberRangeTypeIntegerPositive/PageInputNumberRangeTypeIntegerPositive.vue";
@@ -14,15 +16,18 @@ import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
 import SlotsAPI from "./compositionAPI/SlotsAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageInputNumberRange",
   components: {
     AlohaPage,
     AlohaTableProps,
+    AlohaTableTranslate,
     ATranslation,
     PageInputNumberRangeBasic,
     PageInputNumberRangePlaceholder,
+    PageInputNumberRangeReadonly,
     PageInputNumberRangeTypeInteger,
     PageInputNumberRangeTypeIntegerNonNegative,
     PageInputNumberRangeTypeIntegerPositive,
@@ -48,11 +53,16 @@ export default {
       dataExposes,
     } = ExposesAPI();
 
+    const {
+      dataTranslate,
+    } = TranslateAPI();
+
     return {
       dataEvents,
       dataExposes,
       dataProps,
       dataSlots,
+      dataTranslate,
       pageTitle,
     };
   },
