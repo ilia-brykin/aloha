@@ -68,6 +68,8 @@ export default {
       alwaysTranslate: undefined,
       type: undefined,
       modelValue: undefined,
+      readonly: undefined,
+      readonlyDefault: undefined,
       ...this.attributesToExcludeFromRender,
     }, [
       this.$slots[this.slotName] ?
