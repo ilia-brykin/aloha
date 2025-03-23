@@ -17,7 +17,7 @@ import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AUiComponents from "../AUiComponents";
 import {
-  formPluginOptions,
+  AFormPluginOptions,
 } from "../../plugins/AFormPlugin";
 import {
   typesContainer,
@@ -168,8 +168,8 @@ export default {
 
     const componentTypesMapping = () => ({
       ...AUiComponents,
-      ...formPluginOptions.components,
-      ...formPluginOptions.containerComponents,
+      ...AFormPluginOptions.components,
+      ...AFormPluginOptions.containerComponents,
     });
 
     const {

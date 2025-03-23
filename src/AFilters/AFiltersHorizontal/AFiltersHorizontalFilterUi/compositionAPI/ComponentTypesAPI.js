@@ -1,15 +1,15 @@
 import AUiComponents from "../../../../ui/AUiComponents";
 import AUiContainerComponents from "../../../../ui/AUiContainerComponents";
 import {
-  formPluginOptions,
+  AFormPluginOptions,
 } from "../../../../plugins/AFormPlugin";
 
 export default function ComponentTypesAPI() {
   const componentTypesMapping = () => ({
     ...AUiComponents,
     ...AUiContainerComponents,
-    ...formPluginOptions.components,
-    ...formPluginOptions.containerComponents,
+    ...AFormPluginOptions.components,
+    ...AFormPluginOptions.containerComponents,
   });
 
   return {

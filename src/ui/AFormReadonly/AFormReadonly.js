@@ -17,6 +17,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    collapsible: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
     excludeRenderAttributes: {
       type: Array,
       required: false,
@@ -30,6 +35,11 @@ export default {
     id: {
       type: String,
       required: true,
+    },
+    isCollapsed: {
+      type: Boolean,
+      required: false,
+      default: undefined,
     },
     label: {
       type: [String, Number],
@@ -118,7 +128,7 @@ export default {
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
           readonly: true,
-          required: this.required,
+          required: false,
           tag: "div",
           type: this.type,
         }) :

@@ -1,4 +1,4 @@
-export const formPluginOptions = {
+export const AFormPluginOptions = {
   components: {},
   containerComponents: {},
 };
@@ -9,7 +9,7 @@ export default {
     components = {},
     containerComponents = {},
   } = {}) => {
-    formPluginOptions.components = components;
-    formPluginOptions.containerComponents = containerComponents;
+    AFormPluginOptions.components = components;
+    AFormPluginOptions.containerComponents = containerComponents;
   },
 };

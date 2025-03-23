@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_READONLY_HEADER_"
+  description="_A_UI_GROUP_READONLY_DESCRIPTION_"
+  :props="['readonly', 'readonly-default']"
+)
+  a-fieldset(
+    :model-value="model1"
+    :children="children1"
+    :readonly="true"
+    label="Fieldset 1"
+  )
+  a-fieldset(
+    :model-value="model2"
+    :children="children2"
+    :readonly="true"
+    class="a_mt_3"
+    label="Fieldset 2"
+    readonly-default="-"
+  )

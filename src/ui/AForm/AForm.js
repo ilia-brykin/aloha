@@ -13,7 +13,7 @@ import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttri
 import AUiComponents from "../AUiComponents";
 import AUiContainerComponents from "../AUiContainerComponents";
 import {
-  formPluginOptions,
+  AFormPluginOptions,
 } from "../../plugins/AFormPlugin";
 import {
   typesContainer,
@@ -123,8 +123,8 @@ export default {
     const componentTypesMapping = () => ({
       ...AUiComponents,
       ...AUiContainerComponents,
-      ...formPluginOptions.components,
-      ...formPluginOptions.containerComponents,
+      ...AFormPluginOptions.components,
+      ...AFormPluginOptions.containerComponents,
     });
 
     return {

@@ -2,27 +2,25 @@ import {
   h,
   resolveComponent,
 } from "vue";
-
-import AElement from "../../AElement/AElement";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AGroup from "../AGroup/AGroup";
+import {
+  AElement,
+  AErrorsText,
+  AFormHelpText,
+  AFormPluginOptions,
+  AFormReadonly,
+  AGroup,
+  AUiTypes_typesContainer,
+  UiAPI,
+  UiCollapseAPI,
+  UIExcludeRenderAttributesAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AUiComponents from "../AUiComponents";
-import {
-  formPluginOptions,
-} from "../../plugins/AFormPlugin";
-import {
-  typesContainer,
-} from "../const/AUiTypes";
 import {
   get,
   isNil,
@@ -163,6 +161,15 @@ export default {
       required: false,
       default: () => ({}),
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
     required: {
       type: Boolean,
       required: false,
@@ -196,8 +203,8 @@ export default {
       ...AUiComponents,
       group: AGroup,
       fieldset: resolveComponent("AFieldset"),
-      ...formPluginOptions.components,
-      ...formPluginOptions.containerComponents,
+      ...AFormPluginOptions.components,
+      ...AFormPluginOptions.containerComponents,
     });
 
     const {
@@ -267,6 +274,79 @@ export default {
       return null;
     }
 
+    const CONTENT = [
+      this.children.map((item, itemIndex) => {
+        if (item.isRender !== false) {
+          const IS_CONTAINER = AUiTypes_typesContainer.value[item.type];
+          let classColumn;
+          if (isNil(item.classColumn)) {
+            classColumn = this.classColumnDefault;
+          } else if (item.classColumn) {
+            classColumn = item.classColumn;
+          }
+          let style;
+          if (item.isHide) {
+            style = "display: none;";
+          }
+          const COMPONENT = this.componentTypesMapping()[item.type];
+
+          return h("div", {
+            class: classColumn,
+            style,
+          }, [
+            h(COMPONENT, {
+              key: itemIndex,
+              alwaysTranslate: this.alwaysTranslate,
+              modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
+              modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
+              errors: get(this.errorsAll, item.id),
+              errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
+              idPrefix: this.idPrefix,
+              "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
+              onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
+              ...item,
+              readonly: this.readonly || item.readonly,
+              readonlyDefault: "readonlyDefault" in item ? item.readonlyDefault : this.readonlyDefault,
+              disabled: this.disabled || item.disabled,
+              classColumn: undefined,
+              slotAppend: undefined,
+              ...this.attributesToExcludeFromRender,
+            }, this.$slots),
+            (item.slotAppend && this.$slots[item.slotAppend]) ?
+              this.$slots[item.slotAppend]({ item, itemIndex }) :
+              "",
+          ]);
+        }
+      }),
+      (this.slotName &&
+        this.$slots[this.slotName]) ?
+        this.$slots[this.slotName]({
+          id: this.htmlIdLocal,
+          props: this.$props,
+        }) :
+        "",
+    ];
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        collapsible: this.collapsible,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        isCollapsed: this.isCollapsed,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "fieldset",
+        valueParentClass: this.classColumns,
+      }, () => CONTENT);
+    }
+
     return h("div", {
       ...this.$attrs,
       style: this.componentStyleHide,
@@ -323,56 +403,7 @@ export default {
               this.classColumns,
               "a_fieldset__content",
             ],
-          }, [
-            this.children.map((item, itemIndex) => {
-              if (item.isRender !== false) {
-                const IS_CONTAINER = typesContainer.value[item.type];
-                let classColumn;
-                if (isNil(item.classColumn)) {
-                  classColumn = this.classColumnDefault;
-                } else if (item.classColumn) {
-                  classColumn = item.classColumn;
-                }
-                let style;
-                if (item.isHide) {
-                  style = "display: none;";
-                }
-                const COMPONENT = this.componentTypesMapping()[item.type];
-
-                return h("div", {
-                  class: classColumn,
-                  style,
-                }, [
-                  h(COMPONENT, {
-                    key: itemIndex,
-                    alwaysTranslate: this.alwaysTranslate,
-                    modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
-                    modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
-                    errors: get(this.errorsAll, item.id),
-                    errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
-                    idPrefix: this.idPrefix,
-                    "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
-                    onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
-                    ...item,
-                    disabled: this.disabled || item.disabled,
-                    classColumn: undefined,
-                    slotAppend: undefined,
-                    ...this.attributesToExcludeFromRender,
-                  }, this.$slots),
-                  (item.slotAppend && this.$slots[item.slotAppend]) ?
-                    this.$slots[item.slotAppend]({ item, itemIndex }) :
-                    "",
-                ]);
-              }
-            }),
-            (this.slotName &&
-              this.$slots[this.slotName]) ?
-              this.$slots[this.slotName]({
-                id: this.htmlIdLocal,
-                props: this.$props,
-              }) :
-              "",
-          ]),
+          }, CONTENT),
         ]),
         h(AFormHelpText, {
           id: this.helpTextId,

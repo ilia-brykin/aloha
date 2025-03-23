@@ -5,6 +5,7 @@ import PageFieldsetChildrenBasic from "./PageFieldsetChildrenBasic/PageFieldsetC
 import PageFieldsetChildrenClassColumn from "./PageFieldsetChildrenClassColumn/PageFieldsetChildrenClassColumn.vue";
 import PageFieldsetChildrenClassColumns from "./PageFieldsetChildrenClassColumns/PageFieldsetChildrenClassColumns.vue";
 import PageFieldsetChildrenErrorsAll from "./PageFieldsetChildrenErrorsAll/PageFieldsetChildrenErrorsAll.vue";
+import PageFieldsetChildrenReadonly from "./PageFieldsetChildrenReadonly/PageFieldsetChildrenReadonly.vue";
 import PageFieldsetChildrenTree from "./PageFieldsetChildrenTree/PageFieldsetChildrenTree.vue";
 import {
   AElement,
@@ -29,6 +30,7 @@ export default {
     PageFieldsetChildrenClassColumn,
     PageFieldsetChildrenClassColumns,
     PageFieldsetChildrenErrorsAll,
+    PageFieldsetChildrenReadonly,
     PageFieldsetChildrenTree,
   },
   setup() {
