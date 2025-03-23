@@ -18,6 +18,7 @@ import {
 
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 
 import AUiComponents from "../AUiComponents";
@@ -248,11 +249,16 @@ export default {
       toggleCollapse,
     } = UiCollapseAPI(props, context);
 
+    const {
+      classColumnsReadonly,
+    } = ReadonlyAPI(props);
+
     initIsCollapsedLocal();
 
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
+      classColumnsReadonly,
       componentStyleHide,
       componentTypesMapping,
       errorsId,
@@ -343,7 +349,7 @@ export default {
         required: this.required,
         style: this.componentStyleHide,
         type: "fieldset",
-        valueParentClass: this.classColumns,
+        valueParentClass: this.classColumnsReadonly,
       }, () => CONTENT);
     }
 

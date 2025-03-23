@@ -1,27 +1,26 @@
 import {
   h,
 } from "vue";
-
-import AElement from "../../AElement/AElement";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFieldset from "../AFieldset/AFieldset";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AJson from "../AJson/AJson";
-import ASelect from "../ASelect/ASelect";
+import {
+  AElement,
+  AErrorsText,
+  AFieldset,
+  AFormHelpText,
+  AJson,
+  ARouterLinkConfigPluginOptions,
+  ASelect,
+  UiAPI,
+  UiDisabledAPI,
+  UIExcludeRenderAttributesAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelLocalAPI from "./compositionAPI/ModelLocalAPI";
 import ParamAPI from "./compositionAPI/ParamAPI";
 import RouteAPI from "./compositionAPI/RouteAPI";
 import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiDisabledAPI from "../compositionApi/UiDisabledAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
-import {
-  ARouterLinkConfigPluginOptions,
-} from "../../plugins/ARouterLinkConfigPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -191,6 +190,35 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyDefaultParam: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyDefaultQuery: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyDefaultRoute: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyDefaultTarget: {
+      type: String,
+      required: false,
+      default: "",
     },
     required: {
       type: Boolean,
