@@ -1,11 +1,14 @@
-div
-  h1 Form datepicker
-  h2 Input
-  a-datepicker(
-    id="input1"
-    v-model="modelNew"
-    type="text"
-    label="Input 1"
-    :required="true"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
-  div modelNew: {{ modelNew }}
+    a-translation(
+      tag="p"
+      html="_A_DATEPICKER_COMPONENT_DESCRIPTION_"
+    )
+
+    page-datepicker-basic
+
+    page-datepicker-readonly

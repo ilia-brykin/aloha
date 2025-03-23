@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['model-value', 'label']"
+)
+  a-datepicker(
+    v-model="model1"
+    label="Input 1"
+  )
+  div model1: {{ model1 }}
+  a-datepicker(
+    v-model="model2"
+    label="Input 2"
+  )
+  div model2: {{ model2 }}
+  a-datepicker(
+    v-model="model3"
+    label="Input 3"
+  )
+  div model3: {{ model3 }}

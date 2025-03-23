@@ -18,6 +18,7 @@ import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
 import PageCheckboxI18n from "./views/Components/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
+import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/PageDatepickerI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
 import PageDropdownI18n from "./views/Components/PageDropdown/i18n/PageDropdownI18n";
@@ -188,6 +189,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.ar,
     ...PageSpinnerPluginI18n.ar,
     ...PageCloakPluginI18n.ar,
+    ...PageDatepickerI18n.ar,
     ...PageLoadingPluginI18n.ar,
     ...PageAlertPluginI18n.ar,
     ...PageMigrationsVersion1To2I18n.ar,
@@ -277,6 +279,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.de,
     ...PageSpinnerPluginI18n.de,
     ...PageCloakPluginI18n.de,
+    ...PageDatepickerI18n.de,
     ...PageLoadingPluginI18n.de,
     ...PageAlertPluginI18n.de,
     ...PageMigrationsVersion1To2I18n.de,
@@ -366,6 +369,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.en,
     ...PageSpinnerPluginI18n.en,
     ...PageCloakPluginI18n.en,
+    ...PageDatepickerI18n.en,
     ...PageLoadingPluginI18n.en,
     ...PageAlertPluginI18n.en,
     ...PageMigrationsVersion1To2I18n.en,
@@ -455,6 +459,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.es,
     ...PageSpinnerPluginI18n.es,
     ...PageCloakPluginI18n.es,
+    ...PageDatepickerI18n.es,
     ...PageLoadingPluginI18n.es,
     ...PageAlertPluginI18n.es,
     ...PageMigrationsVersion1To2I18n.es,
@@ -544,6 +549,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.fr,
     ...PageSpinnerPluginI18n.fr,
     ...PageCloakPluginI18n.fr,
+    ...PageDatepickerI18n.fr,
     ...PageLoadingPluginI18n.fr,
     ...PageAlertPluginI18n.fr,
     ...PageMigrationsVersion1To2I18n.fr,
@@ -633,6 +639,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.hr,
     ...PageSpinnerPluginI18n.hr,
     ...PageCloakPluginI18n.hr,
+    ...PageDatepickerI18n.hr,
     ...PageLoadingPluginI18n.hr,
     ...PageAlertPluginI18n.hr,
     ...PageMigrationsVersion1To2I18n.hr,
@@ -722,6 +729,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.it,
     ...PageSpinnerPluginI18n.it,
     ...PageCloakPluginI18n.it,
+    ...PageDatepickerI18n.it,
     ...PageLoadingPluginI18n.it,
     ...PageAlertPluginI18n.it,
     ...PageMigrationsVersion1To2I18n.it,
@@ -811,6 +819,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.ru,
     ...PageSpinnerPluginI18n.ru,
     ...PageCloakPluginI18n.ru,
+    ...PageDatepickerI18n.ru,
     ...PageLoadingPluginI18n.ru,
     ...PageAlertPluginI18n.ru,
     ...PageMigrationsVersion1To2I18n.ru,

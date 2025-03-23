@@ -6,26 +6,29 @@ import {
   watch,
   withDirectives,
 } from "vue";
+import {
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  ALabel,
+  APlacements,
+  UiAPI,
+  UIExcludeRenderAttributesAPI,
+  UiInputAutofillAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import ADatepickerCalendarPanel from "./ADatepickerCalendarPanel/ADatepickerCalendarPanel";
 import ADatepickerIcon from "./ADatepickerIcon/ADatepickerIcon";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import ALabel from "../ALabel/ALabel";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import LanguagesAPI from "./compositionAPI/LanguagesAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
 import RefsAPI from "./compositionAPI/RefsAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiInputAutofillAPI from "../compositionApi/UiInputAutofillAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AOnHooks from "../../directives/AOnHooks";
 import UiMixinProps from "../mixins/UiMixinProps";
-import placements from "../../const/placements";
 import {
   isPlainObject,
   isValidDate,
@@ -143,7 +146,7 @@ export default {
       type: String,
       required: false,
       default: "bottom-start",
-      validator: placement => placements.indexOf(placement) !== -1,
+      validator: placement => APlacements.indexOf(placement) !== -1,
     },
     popupStyle: {
       type: Object,
@@ -157,6 +160,15 @@ export default {
     rangeSeparator: {
       type: String,
       default: "~",
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
     },
     shortcuts: {
       type: [Boolean, Array],
@@ -468,6 +480,25 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: this.text,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: this.type,
+      });
     }
 
     return h("div", {
