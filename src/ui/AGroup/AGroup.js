@@ -25,6 +25,7 @@ import {
 import {
   cloneDeep,
   get,
+  isFunction,
   isNil,
   set,
   uniqueId,
@@ -195,13 +196,18 @@ export default {
       isErrors,
     } = UiAPI(props, context);
 
+    const change = toRef(props, "change");
     const modelValue = toRef(props, "modelValue");
 
-    const onUpdateModelLocal = ({ item, model }) => {
-      const MODEL_ID = item.id;
-      const MODEL_VALUE = cloneDeep(modelValue.value);
-      set(MODEL_VALUE, MODEL_ID, cloneDeep(model));
+    const onUpdateModelLocal = ({ currentModel, id, item, model, props, component }) => {
+      const MODEL_VALUE = cloneDeep(modelValue.value || {});
+
+      set(MODEL_VALUE, id, cloneDeep(model));
       context.emit("update:modelValue", MODEL_VALUE);
+      change.value({ currentModel, id, item, fullModel: MODEL_VALUE, model, props });
+      if (isFunction(component.change)) {
+        component.change({ currentModel, id, item, fullModel: MODEL_VALUE, model, props });
+      }
     };
 
     const onUpdateDataLocal = ({ item, dataKeyByKeyId }) => {
@@ -306,9 +312,11 @@ export default {
                 errors: this.errorsAll[item.id],
                 errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
                 idPrefix: this.idPrefix,
-                "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
                 onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
                 ...item,
+                change: ({ currentModel, id, item: _item, model, props }) => this.onUpdateModelLocal({
+                  currentModel, id, item: _item, model, props, component: item,
+                }),
                 disabled: this.disabled || item.disabled,
                 ...this.specificAttributes[item.id],
                 label: itemIndex === 0 ? undefined : item.label,

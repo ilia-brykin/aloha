@@ -2,6 +2,7 @@ import {
   computed,
   ref,
   toRef,
+  toRefs,
 } from "vue";
 
 import UiErrorsAPI from "./UiErrorsAPI";
@@ -40,7 +41,7 @@ export default function UiAPI(props, { emit }) {
       id: id.value,
       item,
       model,
-      props,
+      props: toRefs(props),
     });
   };
 

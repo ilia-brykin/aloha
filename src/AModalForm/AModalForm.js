@@ -257,6 +257,7 @@ export default {
     },
   },
   emits: [
+    "change",
     "update:modelValue",
   ],
   setup(props, context) {
@@ -341,6 +342,7 @@ export default {
           isHide: this.isDataFormHide,
           isRender: this.isDataFormRender,
           "onUpdate:modelValue": this.updateModelLocal,
+          onChange: this.changeLocal,
         }, this.$slots),
         this.$slots.modalBodyAppend && this.$slots.modalBodyAppend(),
       ],

@@ -351,5 +351,9 @@ export default {
     changeAloha(arg) {
       console.log("arg", arg);
     },
+
+    changeForm(arg) {
+      console.log("changeForm arg", arg);
+    },
   },
 };

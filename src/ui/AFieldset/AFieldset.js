@@ -214,7 +214,6 @@ export default {
 
     const {
       ariaDescribedbyLocal,
-      changeModel,
       errorsId,
       helpTextId,
       htmlIdLocal,
@@ -227,9 +226,7 @@ export default {
 
     const {
       onUpdateModelLocal,
-    } = ModelAPI(props, context, {
-      changeModel,
-    });
+    } = ModelAPI(props, context);
 
     const onUpdateDataLocal = ({ item, dataKeyByKeyId }) => {
       context.emit("updateData", { item, dataKeyByKeyId });
@@ -308,9 +305,11 @@ export default {
               errors: get(this.errorsAll, item.id),
               errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
               idPrefix: this.idPrefix,
-              "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
               onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
               ...item,
+              change: ({ currentModel, id, item: _item, model, props }) => this.onUpdateModelLocal({
+                currentModel, id, item: _item, model, props, component: item,
+              }),
               readonly: this.readonly || item.readonly,
               readonlyDefault: "readonlyDefault" in item ? item.readonlyDefault : this.readonlyDefault,
               disabled: this.disabled || item.disabled,

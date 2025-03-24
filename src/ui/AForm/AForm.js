@@ -149,11 +149,11 @@ export default {
         this.$slots.formPrepend() :
         "",
 
-      this.isRequiredLocal
-? h(ARequired, {
-  text: this.textRequired,
-})
-: "",
+      this.isRequiredLocal ?
+        h(ARequired, {
+          text: this.textRequired,
+        }) :
+        "",
       this.$slots.formPrependAfterRequired ?
         this.$slots.formPrependAfterRequired() :
         "",
@@ -192,8 +192,10 @@ export default {
             errorsAll: IS_CONTAINER ? this.errors : undefined,
             idPrefix: this.idPrefix,
             excludeRenderAttributes: this.excludeRenderAttributes,
-            "onUpdate:modelValue": model => this.onUpdateModelLocal({ item, model }),
             ...item,
+            change: ({ currentModel, id, item: _item, model, props }) => this.onUpdateModelLocal({
+              currentModel, id, item: _item, model, props, component: item,
+            }),
             classColumn: undefined,
             ...this.attributesToExcludeFromRender,
           }, this.$slots);

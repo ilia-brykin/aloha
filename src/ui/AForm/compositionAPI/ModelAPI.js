@@ -4,10 +4,8 @@ import {
 } from "vue";
 
 import {
-  typesContainer,
-} from "../../const/AUiTypes";
-import {
   cloneDeep,
+  isFunction,
   set,
 } from "lodash-es";
 
@@ -18,17 +16,14 @@ export default function ModelAPI(props, { emit }) {
     return modelValue.value || {};
   });
 
-  const onUpdateModelLocal = ({ item, model }) => {
-    if (typesContainer.value[item.type]) {
-      emit("update:modelValue", model);
-      emit("change", { model });
-    } else {
-      const MODEL_VALUE = cloneDeep(modelValueLocal.value);
-      const MODEL_ID = item.id;
+  const onUpdateModelLocal = ({ currentModel, id, item, model, props, component }) => {
+    const MODEL_VALUE = cloneDeep(modelValueLocal.value);
 
-      set(MODEL_VALUE, MODEL_ID, cloneDeep(model));
-      emit("update:modelValue", MODEL_VALUE);
-      emit("change", { model: MODEL_VALUE });
+    set(MODEL_VALUE, id, cloneDeep(model));
+    emit("update:modelValue", MODEL_VALUE);
+    emit("change", { currentModel, id, item, fullModel: MODEL_VALUE, model, props });
+    if (isFunction(component.change)) {
+      component.change({ currentModel, id, item, fullModel: MODEL_VALUE, model, props });
     }
   };
 

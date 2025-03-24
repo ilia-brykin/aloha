@@ -3,7 +3,12 @@ export default function UpdateModalAPI({ emit }) {
     emit("update:modelValue", model);
   };
 
+  const changeLocal = arg => {
+    emit("change", arg);
+  };
+
   return {
+    changeLocal,
     updateModelLocal,
   };
 }
