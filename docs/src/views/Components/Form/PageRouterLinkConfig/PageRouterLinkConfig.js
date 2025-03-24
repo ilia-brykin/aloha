@@ -3,6 +3,7 @@ import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageRouterLinkConfigBasic from "./PageRouterLinkConfigBasic/PageRouterLinkConfigBasic.vue";
+import PageRouterLinkConfigReadonly from "./PageRouterLinkConfigReadonly/PageRouterLinkConfigReadonly.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -17,6 +18,7 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageRouterLinkConfigBasic,
+    PageRouterLinkConfigReadonly,
   },
   setup() {
     const {

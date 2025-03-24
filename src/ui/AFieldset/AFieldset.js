@@ -25,6 +25,7 @@ import AUiComponents from "../AUiComponents";
 import {
   get,
   isNil,
+  isUndefined,
   uniqueId,
 } from "lodash-es";
 
@@ -311,7 +312,7 @@ export default {
                 currentModel, id, item: _item, model, props, component: item,
               }),
               readonly: this.readonly || item.readonly,
-              readonlyDefault: "readonlyDefault" in item ? item.readonlyDefault : this.readonlyDefault,
+              readonlyDefault: "readonlyDefault" in item && !isUndefined(item.readonlyDefault) ? item.readonlyDefault : this.readonlyDefault,
               disabled: this.disabled || item.disabled,
               classColumn: undefined,
               slotAppend: undefined,

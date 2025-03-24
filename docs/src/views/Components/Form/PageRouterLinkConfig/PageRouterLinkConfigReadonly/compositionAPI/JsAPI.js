@@ -13,15 +13,25 @@ export default {
     ARouterLinkConfig,
   },
   setup() {
-    const model = ref({
+    const model1 = ref({
       route: "NotFoundTest",
+      param: {
+        id: 123,
+      },
       query: {
         key: "Aloha",
       },
+      target: "_self",
     });
+    const model2 = ref({
+      route: "PageQuickStart",
+    });
+    const model3 = ref(undefined);
     
     return {
-      model,
+      model1,
+      model2,
+      model3,
     };
   },
 };`;

@@ -1,8 +1,9 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-input
+  const codeHtml = `<a-router-link-config
   v-model="model"
-  label="Input"
-></a-input>
+  :required="true"
+  label="Aloha"
+></a-router-link-config>
 <div>model: {{ model }}</div>`;
 
   return {
