@@ -1,7 +1,3 @@
-import {
-  ref,
-} from "vue";
-
 export const AInputNumberPluginOptions = {
   propsDefault: {
     controlsType: "plus-minus",
