@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.6.0
+
+- Update logic model change in ui-components
+
 ## 2.5.0
 
 - readonly for ui-components
