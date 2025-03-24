@@ -21,6 +21,7 @@ import {
 import {
   get,
   isNil,
+  isUndefined,
 } from "lodash-es";
 
 export default {
@@ -76,6 +77,15 @@ export default {
       type: Object,
       required: false,
       default: undefined,
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
     },
     showErrors: {
       type: Boolean,
@@ -196,6 +206,8 @@ export default {
             change: ({ currentModel, id, item: _item, model, props }) => this.onUpdateModelLocal({
               currentModel, id, item: _item, model, props, component: item,
             }),
+            readonly: this.readonly || item.readonly,
+            readonlyDefault: "readonlyDefault" in item && !isUndefined(item.readonlyDefault) ? item.readonlyDefault : this.readonlyDefault,
             classColumn: undefined,
             ...this.attributesToExcludeFromRender,
           }, this.$slots);
