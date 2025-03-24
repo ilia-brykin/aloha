@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.6.1
+
+- Fix model in AModalForm
+
 ## 2.6.0
 
 - Update logic model change in ui-components

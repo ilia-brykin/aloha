@@ -34244,12 +34244,14 @@ const GU = {
     } = Ym(e), {
       hasDataForm: r
     } = VU(e), {
-      updateModelLocal: s
+      changeLocal: s,
+      updateModelLocal: l
     } = WU(t);
     return {
       bodyHtmlId: n,
+      changeLocal: s,
       hasDataForm: r,
-      updateModelLocal: s
+      updateModelLocal: l
     };
   },
   render() {
