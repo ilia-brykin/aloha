@@ -43,6 +43,7 @@ export default function HtmlAPI() {
   :data="data"
   :readonly="true"
   class="a_mt_3"
+  help-text="Aloha"
   key-id="id"
   key-label="label"
   label="Select 5"

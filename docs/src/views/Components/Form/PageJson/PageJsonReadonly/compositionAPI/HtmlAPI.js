@@ -14,6 +14,7 @@ export default function HtmlAPI() {
   :model-value="model3"
   :readonly="true"
   class="a_mt_3"
+  help-text="Aloha"
   label="JSON 3"
   readonly-default="-"
 ></a-json>`;

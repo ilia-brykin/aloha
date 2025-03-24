@@ -3,7 +3,7 @@ aloha-example(
   :code-js="codeJs"
   header="_A_UI_GROUP_READONLY_HEADER_"
   description="_A_UI_GROUP_READONLY_DESCRIPTION_"
-  :props="['readonly', 'default-label']"
+  :props="['readonly', 'readonly-default']"
 )
   a-switch(
     :model-value="model1"
@@ -26,6 +26,7 @@ aloha-example(
     :model-value="model3"
     :readonly="true"
     class="a_mt_3"
-    default-label="default"
+    help-text="Aloha"
     label="Switch 4"
+    readonly-default="-"
   )

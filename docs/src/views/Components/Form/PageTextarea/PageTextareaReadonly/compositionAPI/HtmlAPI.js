@@ -14,6 +14,7 @@ export default function HtmlAPI() {
   :model-value="model2"
   :readonly="true"
   class="a_mt_3"
+  help-text="Aloha"
   label="Textarea 3"
   readonly-default="-"
 ></a-textarea>`;

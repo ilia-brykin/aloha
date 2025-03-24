@@ -10,6 +10,7 @@ export default function HtmlAPI() {
   :children="children2"
   :readonly="true"
   class="a_mt_3"
+  help-text="Aloha"
   label="Fieldset 2"
   readonly-default="-"
 ></a-fieldset>`;

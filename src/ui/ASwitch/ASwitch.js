@@ -168,6 +168,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
     required: {
       type: Boolean,
       required: false,

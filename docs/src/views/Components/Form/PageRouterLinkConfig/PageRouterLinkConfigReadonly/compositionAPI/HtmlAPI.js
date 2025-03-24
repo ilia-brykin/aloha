@@ -30,6 +30,7 @@ export default function HtmlAPI() {
   :model-value="model3"
   :readonly="true"
   class="a_mt_3"
+  help-text="Aloha"
   label="Router 5"
   readonly-default-route="-"
 ></a-router-link-config>`;

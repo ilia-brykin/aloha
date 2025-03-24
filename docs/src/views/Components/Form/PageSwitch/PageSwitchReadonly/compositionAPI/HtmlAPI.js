@@ -20,8 +20,9 @@ export default function HtmlAPI() {
   :model-value="model3"
   :readonly="true"
   class="a_mt_3"
-  default-label="default"
+  help-text="Aloha"
   label="Switch 4"
+  readonly-default="-"
 ></a-switch>`;
 
   return {

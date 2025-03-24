@@ -1,13 +1,16 @@
 import {
   h,
+  provide,
+  toRef,
 } from "vue";
 import {
+  AFormHelpText,
   ALabel,
   ATranslation,
   UIExcludeRenderAttributesAPI,
 } from "../../index";
 
-import LabelAPI from "./compositionAPI/LabelAPI";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 
 export default {
@@ -32,11 +35,21 @@ export default {
       required: false,
       default: undefined,
     },
+    helpText: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     id: {
       type: String,
       required: true,
     },
     isCollapsed: {
+      type: Boolean,
+      required: false,
+      default: undefined,
+    },
+    isRange: {
       type: Boolean,
       required: false,
       default: undefined,
@@ -93,29 +106,44 @@ export default {
     },
   },
   setup(props) {
+    const isRange = toRef(props, "isRange");
+
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
     const {
+      ariaDescribedby,
+      ariaLabelledby,
+      helpTextId,
       labelId,
-    } = LabelAPI(props);
+      role,
+      valueId,
+    } = AttributesAPI(props);
 
     const {
       modelValueReadonly,
     } = ModelAPI(props);
 
+    provide("isRangeProvide", isRange);
+
     return {
+      ariaDescribedby,
+      ariaLabelledby,
       attributesToExcludeFromRender,
+      helpTextId,
       labelId,
       modelValueReadonly,
+      role,
+      valueId,
     };
   },
   render() {
     return h("div", {
-      "aria-labelledby": this.labelId,
+      "aria-labelledby": this.ariaLabelledby,
+      "aria-describedby": this.ariaDescribedby,
       class: "a_form_element_readonly",
-      role: "group",
+      role: this.role,
       ...this.attributesToExcludeFromRender,
     }, [
       (this.label || this.labelScreenReader) ?
@@ -134,6 +162,7 @@ export default {
         }) :
         "",
       h("div", {
+        id: this.valueId,
         class: [
           "a_form_element_readonly_value",
           this.valueParentClass,
@@ -148,6 +177,12 @@ export default {
             tag: this.valueTag,
           }),
       ]),
+      h(AFormHelpText, {
+        id: this.helpTextId,
+        alwaysTranslate: this.alwaysTranslate,
+        html: this.helpText,
+        extra: this.extra,
+      }),
     ]);
   },
 };

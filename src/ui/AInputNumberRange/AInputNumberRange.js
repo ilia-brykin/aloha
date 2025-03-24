@@ -343,6 +343,7 @@ export default {
         excludeRenderAttributes: this.excludeRenderAttributes,
         extra: this.extra,
         helpText: this.helpText,
+        isRange: true,
         label: this.label,
         labelClass: this.labelClass,
         labelScreenReader: this.labelScreenReader,

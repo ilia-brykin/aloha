@@ -16,6 +16,7 @@ export default function HtmlAPI() {
   :model-value="model3"
   :readonly="true"
   class="a_mt_3"
+  help-text="Aloha"
   label="Input3"
   readonly-default="-"
   type="text"
