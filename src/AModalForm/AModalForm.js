@@ -270,11 +270,13 @@ export default {
     } = DataFormAPI(props);
 
     const {
+      changeLocal,
       updateModelLocal,
     } = UpdateModalAPI(context);
 
     return {
       bodyHtmlId,
+      changeLocal,
       hasDataForm,
       updateModelLocal,
     };
