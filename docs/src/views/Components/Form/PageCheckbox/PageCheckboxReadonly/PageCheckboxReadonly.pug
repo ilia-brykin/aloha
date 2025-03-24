@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_READONLY_HEADER_"
+  description="_A_UI_GROUP_READONLY_DESCRIPTION_"
+  :props="['readonly', 'readonly-default']"
+)
+  a-checkbox(
+    :model-value="model1"
+    :data="data"
+    :readonly="true"
+    label="Checkbox 1"
+  )
+  a-checkbox(
+    :model-value="model2"
+    :data="data"
+    :readonly="true"
+    class="a_mt_3"
+    label="Checkbox 2"
+  )
+  a-checkbox(
+    :model-value="model2"
+    :data="data"
+    :readonly="true"
+    class="a_mt_3"
+    help-text="Aloha"
+    label="Checkbox 3"
+    readonly-default="-"
+  )

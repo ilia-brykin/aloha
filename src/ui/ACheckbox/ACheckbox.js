@@ -2,32 +2,35 @@ import {
   h,
   watch,
 } from "vue";
+import {
+  ACheckboxRadioGroups,
+  ACloak,
+  AElement,
+  AErrorsText,
+  AFormHelpText,
+  AFormReadonly,
+  AInput,
+  ATranslation,
+  UiAPI,
+  UiCollapseAPI,
+  UiDataFromServerAPI,
+  UIDataGroupAPI,
+  UiDataSortAPI,
+  UiDataWatchEmitAPI,
+  UiDataWithKeyIdAndLabelAPI,
+  UIExcludeRenderAttributesAPI,
+  UiLoadingAPI,
+  UiSearchAPI,
+  UiStyleHideAPI,
+} from "../../index";
 
 import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
 import ACheckboxLegend from "./ACheckboxLegend/ACheckboxLegend";
-import ACheckboxRadioGroup from "../ACheckboxRadioGroups/ACheckboxRadioGroups";
-import ACloak from "../../ACloak/ACloak";
-import AElement from "../../AElement/AElement";
-import AErrorsText from "../AErrorsText/AErrorsText";
-import AFormHelpText from "../AFormHelpText/AFormHelpText";
-import AInput from "../AInput/AInput";
-import ATranslation from "../../ATranslation/ATranslation";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
-import ModelObjAPI from "./compositionAPI/ModelObjAPI";
+import ModelAPI from "./compositionAPI/ModelAPI";
 import TextAfterLabelAPI from "./compositionAPI/TextAfterLabelAPI";
-import UIDataGroupAPI from "../compositionApi/UIDataGroupAPI";
-import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
-import UiAPI from "../compositionApi/UiAPI";
-import UiCollapseAPI from "../compositionApi/UiCollapseAPI";
-import UiDataFromServerAPI from "../compositionApi/UiDataFromServerAPI";
-import UiDataSortAPI from "../compositionApi/UiDataSortAPI";
-import UiDataWatchEmitAPI from "../compositionApi/UiDataWatchEmitAPI";
-import UiDataWithKeyIdAndLabelAPI from "../compositionApi/UiDataWithKeyIdAndLabelAPI";
-import UiLoadingAPI from "../compositionApi/UiLoadingAPI";
-import UiSearchAPI from "../compositionApi/UiSearchAPI";
-import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import Search from "aloha-svg/dist/js/bootstrap/Search";
 import {
@@ -458,8 +461,12 @@ export default {
     } = UiCollapseAPI(props, context);
 
     const {
+      isModelValue,
+      modelValueFiltered,
       modelValueObj,
-    } = ModelObjAPI(props);
+    } = ModelAPI(props, {
+      dataKeyByKeyIdLocal,
+    });
 
     const {
       groupId,
@@ -497,11 +504,13 @@ export default {
       idForButtonSearchOutside,
       isCollapsedLocal,
       isErrors,
+      isModelValue,
       loadingLocal,
       loadingSearchApi,
       modelSearch,
       modelSearchLowerCase,
       modelSearchOutside,
+      modelValueFiltered,
       modelValueObj,
       onBlur,
       onChangeModelValue,
@@ -524,6 +533,42 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        modelValue: undefined,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        style: this.componentStyleHide,
+        type: "checkbox",
+      }, this.isModelValue ?
+        () => [
+          h("ul", {}, [
+            this.modelValueFiltered.map((item, itemIndex) => {
+              return h(ACheckboxItem, {
+                key: itemIndex,
+                id: this.htmlIdLocal,
+                alwaysTranslate: this.alwaysTranslate,
+                dataItem: this.dataKeyByKeyIdLocal[item] || {},
+                isButtonGroup: this.isButtonGroup,
+                itemIndex,
+                readonly: true,
+                slotName: this.slotName,
+              }, this.$slots);
+            }),
+          ]),
+        ] :
+        "");
     }
 
     return h("div", {
@@ -676,7 +721,7 @@ export default {
                 "",
               h("div", {}, this.hasKeyGroup ?
                 [
-                  h(ACheckboxRadioGroup, {
+                  h(ACheckboxRadioGroups, {
                     id: `${ this.htmlIdLocal }_lev_0`,
                     alwaysTranslate: this.alwaysTranslate,
                     classButtonGroupDefault: this.classButtonGroupDefault,

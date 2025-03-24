@@ -188,7 +188,6 @@ export default {
           label: this.labelLocal,
           labelFiltered: this.currentLabelFiltered,
         },
-        for: this.idLocal,
         tag: "span",
         title: this.titleLocal,
         type: "text",
