@@ -180,6 +180,10 @@ An exclusive option can be defined as a special choice that, when selected, prev
 
 ***
 
+## 1.11.1
+
+- Fix in `keyDisabledCallback`
+
 ## 1.11.0
 
 - Props `keyDisabledCallback` for `ASelect`, `ACheckbox`, `ARadio´
