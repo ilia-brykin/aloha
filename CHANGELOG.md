@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.11.0
+
+- Props `keyDisabledCallback` for `ASelect`, `ACheckbox`, `ARadio´
+
 ## 1.10.1
 
 - `filterJson`: fix for `jsonClass`
