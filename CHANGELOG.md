@@ -180,6 +180,10 @@ An exclusive option can be defined as a special choice that, when selected, prev
 
 ***
 
+## 1.11.0
+
+- Props `keyDisabledCallback` for `ASelect`, `ACheckbox`, `ARadio´
+
 ## 1.10.1
 
 - `filterJson`: fix for `jsonClass`
@@ -190,7 +194,7 @@ An exclusive option can be defined as a special choice that, when selected, prev
 
 ## 1.9.2
 
--  Fix padding for `a_search_highlight`
+- Fix padding for `a_search_highlight`
 
 ## 1.9.1
 
