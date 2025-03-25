@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.11.1
+
+- Fix in `keyDisabledCallback`
+
 ## 1.11.0
 
 - Props `keyDisabledCallback` for `ASelect`, `ACheckbox`, `ARadio´
