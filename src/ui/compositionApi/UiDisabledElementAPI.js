@@ -15,7 +15,7 @@ export default function UiDisabledElementAPI(props) {
 
   const disabledElement = computed(() => {
     if (disabled.value ||
-      (isFunction(keyDisabledCallback.value) && keyDisabledCallback.value({ item: dataItem.value }))
+      (isFunction(keyDisabledCallback.value) && keyDisabledCallback.value({ item: dataItem.value })) ||
       (keyDisabled.value && get(dataItem.value, keyDisabled.value))) {
       return true;
     }
