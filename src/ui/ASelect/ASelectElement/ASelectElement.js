@@ -46,6 +46,11 @@ export default {
       required: false,
       default: undefined,
     },
+    keyDisabledCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     modelSearch: {
       type: String,
       required: false,

@@ -69,6 +69,11 @@ export default {
       required: false,
       default: undefined,
     },
+    keyDisabledCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     keyTitle: {
       type: String,
       required: false,
