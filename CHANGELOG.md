@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 2.7.0
+
+- New component `AFormElement`
+- Props `keyDisabledCallback` for `ASelect`, `ACheckbox`, `ARadio`
+- Fix in `keyDisabledCallback`
+
 ## 2.6.1
 
 - Fix model in AModalForm
@@ -186,7 +192,7 @@ An exclusive option can be defined as a special choice that, when selected, prev
 
 ## 1.11.0
 
-- Props `keyDisabledCallback` for `ASelect`, `ACheckbox`, `ARadio´
+- Props `keyDisabledCallback` for `ASelect`, `ACheckbox`, `ARadio`
 
 ## 1.10.1
 
