@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Omotni (wrapper) komponent za dinamički prikaz različitih elemenata forme na temelju zadanog tipa. Omogućuje prikaz različitih komponenti (elemenata forme) uz prosljeđivanje potrebnih parametara, događaja i slotova. Pojednostavljuje izradu formi temeljenih na konfiguracijskim podacima.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Element forme",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Objekt s dodatnim parametrima koji će se proslijediti komponenti definiranoj u svojstvu <strong lang=\"en\">type</strong>. Koristan za prosljeđivanje bilo kojih <strong lang=\"en\">props</strong> koji nisu izričito definirani u <strong lang=\"en\">AFormElement</strong>, ali ih renderirana komponenta podržava.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Tip komponente koja će se prikazati. Koristi se za odabir odgovarajućeg elementa forme, npr.: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong> itd."
+}

@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Wrapper-Komponente zur dynamischen Darstellung verschiedener Formularelemente basierend auf dem angegebenen Typ. Ermöglicht das Rendern verschiedener Komponenten (Formularelemente), indem die benötigten Parameter, Events und Slots übergeben werden. Vereinfacht den Aufbau von Formularen auf Basis von Konfigurationsdaten.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Formularelement",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Ein Objekt mit zusätzlichen Parametern, die an die Komponente übergeben werden, die im Parameter <strong lang=\"en\">type</strong> angegeben ist. Nützlich zum Weitergeben von <strong lang=\"en\">props</strong>, die nicht explizit in <strong lang=\"en\">AFormElement</strong> beschrieben, aber vom gerenderten Element unterstützt werden.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Der Komponententyp, der angezeigt werden soll. Wird verwendet, um das passende Formularelement zu wählen, z. B.: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong> usw."
+}

@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "عنصر تغليف لعرض عناصر نموذج مختلفة ديناميكيًا بناءً على النوع المحدد. يتيح عرض مكونات مختلفة (عناصر نموذج) من خلال تمرير المعلمات والأحداث والمنافذ المطلوبة. يُسهّل بناء النماذج بناءً على بيانات التكوين.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "عنصر نموذج",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "كائن يحتوي على معلمات إضافية يتم تمريرها إلى المكون المحدد في خاصية <strong lang=\"en\">type</strong>. مفيد لتمرير <strong lang=\"en\">props</strong> غير المعرّفة صراحةً في <strong lang=\"en\">AFormElement</strong> ولكن مدعومة من قبل المكون المعروض.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "نوع المكون الذي يجب عرضه. يُستخدم لاختيار عنصر النموذج المناسب، مثل: <strong lang=\"en\">input</strong>، <strong lang=\"en\">select</strong>، <strong lang=\"en\">checkbox</strong>، <strong lang=\"en\">group</strong>، <strong lang=\"en\">fieldset</strong>، وغيرها."
+}

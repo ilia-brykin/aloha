@@ -1,0 +1,28 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_"
+    )
+
+    aloha-form-types
+
+    page-form-element-basic
+
+    page-form-element-readonly
+
+    //page-router-link-config-readonly
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )

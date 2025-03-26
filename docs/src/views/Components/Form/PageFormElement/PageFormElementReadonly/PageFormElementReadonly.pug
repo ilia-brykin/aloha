@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_READONLY_HEADER_"
+  description="_A_UI_GROUP_READONLY_DESCRIPTION_"
+  :props="['readonly', 'readonly-default']"
+)
+  a-form-element(
+    :model-value="model1"
+    :readonly="true"
+    label="Input"
+    type="text"
+  )
+  a-form-element(
+    :model-value="model2"
+    :readonly="true"
+    class="a_mt_3"
+    label="Checkbox"
+    help-text="Aloha"
+    type="oneCheckbox"
+  )
+  a-form-element(
+    :model-value="model3"
+    :readonly="true"
+    class="a_mt_3"
+    label="Textarea"
+    readonly-default="-"
+    type="textarea"
+  )

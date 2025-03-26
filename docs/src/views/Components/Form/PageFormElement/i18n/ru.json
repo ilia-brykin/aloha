@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Компонент-обёртка для динамического отображения различных формовых элементов на основе переданного типа. Позволяет рендерить различные компоненты (элементы формы), передавая им нужные параметры, события и слоты. Упрощает построение форм на основе конфигурационных данных.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Элемент формы",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Объект с дополнительными параметрами, которые будут переданы в компонент, указанным в параметре <strong lang=\"en\">type</strong>. Полезен для передачи любых <strong lang=\"en\">props</strong>, не описанных явно в <strong lang=\"en\">AFormElement</strong>, но поддерживаемых рендерящимся компонентом.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Тип компонента, который нужно отобразить. Используется для выбора соответствующего элемента формы, например: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong> и т.д."
+}

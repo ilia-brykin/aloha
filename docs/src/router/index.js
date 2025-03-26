@@ -208,6 +208,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageForm/PageForm.vue"),
   },
   {
+    path: "/form-element",
+    name: "PageFormElement",
+    component: () => import("../views/Components/Form/PageFormElement/PageFormElement.vue"),
+  },
+  {
     path: "/dropdown",
     name: "PageDropdown",
     component: () => import("../views/Components/PageDropdown/PageDropdown.vue"),

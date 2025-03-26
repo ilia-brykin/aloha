@@ -1,0 +1,16 @@
+div
+  a-translation(
+    tag="h2"
+    html="_A_UI_TYPES_FOR_USE_"
+  )
+  a-list.a_list_without_styles(
+    :data="types"
+  )
+    template(
+      v-slot:listItem="{ item }"
+    )
+      a-element(
+        :text="item.text"
+        :to="item.to"
+        :type="item.type"
+      )

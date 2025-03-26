@@ -45,6 +45,7 @@ import PageFilterSearchHighlightI18n from "./views/Functions/Filters/PageFilterS
 import PageFilterUpperCaseI18n from "./views/Functions/Filters/PageFilterUpperCase/i18n/PageFilterUpperCaseI18n";
 import PageFiltersI18n from "./views/Components/PageFilters/i18n/PageFiltersI18n";
 import PageFiltersRightI18n from "./views/Components/PageFiltersRight/i18n/PageFiltersRightI18n";
+import PageFormElementI18n from "./views/Components/Form/PageFormElement/i18n/PageFormElementI18n";
 import PageFunctionsI18n from "./views/Functions/i18n/PageFunctionsI18n";
 import PageGroupButtonDropdownI18n from "./views/Components/PageGroupButtonDropdown/i18n/PageGroupButtonDropdownI18n";
 import PageGroupI18n from "./views/Components/Form/PageGroup/i18n/PageGroupI18n";
@@ -194,6 +195,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.ar,
     ...PageMigrationsVersion1To2I18n.ar,
     ...PageRouterLinkConfigI18n.ar,
+    ...PageFormElementI18n.ar,
   },
   de: {
     ...i18nDE,
@@ -284,6 +286,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.de,
     ...PageMigrationsVersion1To2I18n.de,
     ...PageRouterLinkConfigI18n.de,
+    ...PageFormElementI18n.de,
   },
   en: {
     ...i18nEN,
@@ -374,6 +377,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.en,
     ...PageMigrationsVersion1To2I18n.en,
     ...PageRouterLinkConfigI18n.en,
+    ...PageFormElementI18n.en,
   },
   es: {
     ...i18nES,
@@ -464,6 +468,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.es,
     ...PageMigrationsVersion1To2I18n.es,
     ...PageRouterLinkConfigI18n.es,
+    ...PageFormElementI18n.es,
   },
   fr: {
     ...i18nFR,
@@ -554,6 +559,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.fr,
     ...PageMigrationsVersion1To2I18n.fr,
     ...PageRouterLinkConfigI18n.fr,
+    ...PageFormElementI18n.fr,
   },
   hr: {
     ...i18nHR,
@@ -644,6 +650,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.hr,
     ...PageMigrationsVersion1To2I18n.hr,
     ...PageRouterLinkConfigI18n.hr,
+    ...PageFormElementI18n.hr,
   },
   it: {
     ...i18nIT,
@@ -734,6 +741,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.it,
     ...PageMigrationsVersion1To2I18n.it,
     ...PageRouterLinkConfigI18n.it,
+    ...PageFormElementI18n.it,
   },
   ru: {
     ...i18nRU,
@@ -824,5 +832,6 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.ru,
     ...PageMigrationsVersion1To2I18n.ru,
     ...PageRouterLinkConfigI18n.ru,
+    ...PageFormElementI18n.ru,
   },
 };

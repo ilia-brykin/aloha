@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Componente contenedor para mostrar dinámicamente distintos elementos de formulario según el tipo proporcionado. Permite renderizar distintos componentes (elementos del formulario) pasando los parámetros, eventos y slots necesarios. Facilita la construcción de formularios basados en datos de configuración.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Elemento de formulario",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Objeto con parámetros adicionales que se pasarán al componente definido en la propiedad <strong lang=\"en\">type</strong>. Útil para pasar <strong lang=\"en\">props</strong> no definidos explícitamente en <strong lang=\"en\">AFormElement</strong> pero que son compatibles con el componente renderizado.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Tipo de componente a renderizar. Se utiliza para seleccionar el elemento de formulario adecuado, por ejemplo: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong>, etc."
+}

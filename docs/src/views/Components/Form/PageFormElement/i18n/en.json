@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "A wrapper component for dynamically displaying various form elements based on the provided type. It allows rendering different components (form elements) by passing the required parameters, events, and slots. Simplifies form building based on configuration data.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Form element",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "An object with additional parameters to be passed to the component specified in the <strong lang=\"en\">type</strong> parameter. Useful for passing any <strong lang=\"en\">props</strong> not explicitly described in <strong lang=\"en\">AFormElement</strong> but supported by the rendered component.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "The type of component to render. Used to select the appropriate form element, for example: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong>, etc."
+}

@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['model-value', 'label', 'type']"
+)
+  a-form-element(
+    v-model="model1"
+    :required="true"
+    label="Input"
+    type="text"
+  )
+  div model1: {{ model1 }}
+  a-form-element(
+    v-model="model2"
+    :required="true"
+    class="a_mt_3"
+    label="Checkbox"
+    help-text="Aloha"
+    type="oneCheckbox"
+  )
+  div model2: {{ model2 }}

@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Componente wrapper per visualizzare dinamicamente diversi elementi di form in base al tipo specificato. Consente di renderizzare diversi componenti (elementi di form) passando i parametri, eventi e slot necessari. Semplifica la costruzione di moduli basati su dati di configurazione.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Elemento del modulo",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Oggetto con parametri aggiuntivi da passare al componente specificato nella proprietà <strong lang=\"en\">type</strong>. Utile per passare <strong lang=\"en\">props</strong> non definite esplicitamente in <strong lang=\"en\">AFormElement</strong> ma supportate dal componente renderizzato.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Tipo di componente da visualizzare. Utilizzato per selezionare l'elemento del modulo appropriato, ad esempio: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong>, ecc."
+}

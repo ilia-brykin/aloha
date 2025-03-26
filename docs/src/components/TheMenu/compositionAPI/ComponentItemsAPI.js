@@ -120,6 +120,13 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageFormElement",
+            label: "Form-Element",
+            to: {
+              name: "PageFormElement",
+            },
+          },
+          {
             id: "PageGroup",
             to: {
               name: "PageGroup",

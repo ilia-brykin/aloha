@@ -2,8 +2,8 @@ import {
   computed,
 } from "vue";
 
-import AUiComponents from "../../../../../../../src/ui/AUiComponents";
-import AUiContainerComponents from "../../../../../../../src/ui/AUiContainerComponents";
+import AUiComponents from "../../../../../../src/ui/AUiComponents";
+import AUiContainerComponents from "../../../../../../src/ui/AUiContainerComponents";
 import {
   forEach,
 } from "lodash";
@@ -40,6 +40,9 @@ export default function TypesAPI() {
     },
     ARadio: {
       name: "PageRadio",
+    },
+    ARouterLinkConfig: {
+      name: "PageRouterLinkConfig",
     },
     ASelect: {
       name: "PageSelect",

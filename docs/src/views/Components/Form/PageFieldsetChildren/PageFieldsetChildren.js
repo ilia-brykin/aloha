@@ -1,3 +1,4 @@
+import AlohaFormTypes from "../../../../global/components/AlohaFormTypes/AlohaFormTypes.vue";
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
@@ -8,20 +9,16 @@ import PageFieldsetChildrenErrorsAll from "./PageFieldsetChildrenErrorsAll/PageF
 import PageFieldsetChildrenReadonly from "./PageFieldsetChildrenReadonly/PageFieldsetChildrenReadonly.vue";
 import PageFieldsetChildrenTree from "./PageFieldsetChildrenTree/PageFieldsetChildrenTree.vue";
 import {
-  AElement,
-  AList,
   ATranslation,
 } from "aloha-vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import TypesAPI from "./compositionAPI/TypesAPI";
 
 export default {
   name: "PageFieldsetChildren",
   components: {
-    AElement,
-    AList,
+    AlohaFormTypes,
     AlohaPage,
     AlohaTableProps,
     AlohaTableTranslate,
@@ -42,14 +39,9 @@ export default {
       dataProps,
     } = PropsAPI();
 
-    const {
-      types,
-    } = TypesAPI();
-
     return {
       dataProps,
       pageTitle,
-      types,
     };
   },
 };

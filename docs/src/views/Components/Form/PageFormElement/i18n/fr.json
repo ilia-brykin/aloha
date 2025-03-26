@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Composant d'encapsulation pour l'affichage dynamique de différents éléments de formulaire selon le type fourni. Permet de rendre divers composants (éléments de formulaire) en leur passant les paramètres, événements et slots requis. Simplifie la création de formulaires à partir de données de configuration.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Élément de formulaire",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Objet contenant des paramètres supplémentaires à transmettre au composant défini dans la propriété <strong lang=\"en\">type</strong>. Utile pour transmettre des <strong lang=\"en\">props</strong> non définies explicitement dans <strong lang=\"en\">AFormElement</strong> mais prises en charge par le composant rendu.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Type de composant à afficher. Utilisé pour choisir l'élément de formulaire approprié, par exemple : <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong>, etc."
+}
