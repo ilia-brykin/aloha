@@ -4,7 +4,8 @@ import {
 } from "vue";
 
 import {
-  get, isFunction,
+  get,
+  isFunction,
 } from "lodash-es";
 
 export default function UiDisabledElementAPI(props) {
