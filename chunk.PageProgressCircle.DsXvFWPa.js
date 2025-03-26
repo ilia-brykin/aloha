@@ -1,0 +1,38 @@
+import{A,a as h}from"./chunk.AlohaExample.pGkjdQW8.js";import{A as E}from"./chunk.AlohaTableProps.BumXiwHn.js";import{_ as m,g as R,A as C}from"./bundle.index.jVg4bcl9.js";import{t as p,d as n,h as d,U as f,aS as P,e as l,V as g,Z as _}from"./chunk.vendor.YBdBFhvS.js";import{b as I}from"./chunk.vendor-lodash.fC0_u3pc.js";import{W as O,V as v}from"./chunk.WidthAPI.CdVL3WWA.js";import"./chunk.APageTabTitle.BBE1_YUM.js";import"./chunk.AlohaHighlightjs.BcqcN4_H.js";import"./chunk.ATable.COLDAyzD.js";import"./chunk.translations-ar.DUgPHK6b.js";import"./chunk.translations-de.BwNts-rr.js";import"./chunk.translations-en.CFe-oKBT.js";import"./chunk.translations-es.DMO-xBXo.js";import"./chunk.translations-fr.D3AzaZd0.js";import"./chunk.translations-hr.Bt2Zs4oz.js";import"./chunk.translations-it.BrZql0Fa.js";import"./chunk.translations-ru.CjiVmT3b.js";function y(e,{widthPercent:t=n(()=>0)}){const s=p(e,"strokeWidth"),o=50,c=2*Math.PI*o,a=n(()=>t.value*c/100),r=n(()=>`${a.value}px ${c-a.value}px`),i=n(()=>`stroke-dasharray: ${r.value};`),u=n(()=>o+s.value/2);return{circleStyles:i,cxCy:u,radius:o}}function N(e){const t=p(e,"width");return{sizesLocal:n(()=>I(t.value)?`height: ${t.value}px; width: ${t.value}px;`:`height: ${t.value}; width: ${t.value};`)}}function L(e){const t=p(e,"rotate"),s=p(e,"strokeWidth"),o=n(()=>{const a=100+s.value;return`0 0 ${a} ${a}`});return{svgTransform:n(()=>`transform: rotate(${t.value-90}deg);`),svgViewBox:o}}const S={name:"AProgressCircle",props:{duration:{type:Number,required:!1,default:void 0},indeterminate:{type:Boolean,required:!1,default:!1},max:{type:Number,required:!1,default:100},min:{type:Number,required:!1,default:0},rotate:{type:Number,required:!1,default:0,validator:e=>e>=0&&e<=360},showValue:{type:Boolean,required:!1,default:!0},strokeWidth:{type:Number,required:!1,default:5,validator:e=>e>0},value:{type:Number,required:!1,default:0},valueTextClass:{type:[String,Object],required:!1,default:void 0},valueTextInteger:{type:Boolean,required:!1,default:!1},width:{type:[Number,String],required:!1,default:125}},setup(e){const{widthPercent:t}=O(e),{valuePercent:s}=v(e,{widthPercent:t}),{circleStyles:o,cxCy:c,radius:a}=y(e,{widthPercent:t}),{svgTransform:r,svgViewBox:i}=L(e),{sizesLocal:u}=N(e);return{circleStyles:o,cxCy:c,radius:a,sizesLocal:u,svgTransform:r,svgViewBox:i,valuePercent:s,widthPercent:t}},render(){let e;return this.$slots.progressText?e=d("span",{class:["a_progress_circle__text",this.valueTextClass]},[this.$slots.progressText&&this.$slots.progressText({valuePercent:this.valuePercent})]):this.showValue&&(e=d("span",{class:["a_progress_circle__text",this.valueTextClass]},this.valuePercent)),d("div",{class:"a_progress_circle",style:this.sizesLocal,role:"progressbar","aria-valuenow":this.value,"aria-valuemin":this.min,"aria-valuemax":this.max},[d("svg",{viewBox:this.svgViewBox,style:this.svgTransform},[d("circle",{class:"a_progress_circle__base",cx:this.cxCy,cy:this.cxCy,r:this.radius,"stroke-width":this.strokeWidth}),d("circle",{class:["a_progress_circle__scale",{a_progress_circle__scale_indeterminate:this.indeterminate}],cx:this.cxCy,cy:this.cxCy,r:this.radius,"stroke-width":this.strokeWidth,style:this.circleStyles})]),e])}};function x(){return{codeHtml:`<a-progress-circle
+  :value="20"
+></a-progress-circle>
+<a-progress-circle
+  class="a_mt_3"
+  :value="50"
+></a-progress-circle>`}}function $(){return{codeJs:`import { 
+  AProgressCircle,
+} from "aloha-vue";";
+    
+export default {
+  name: "PageProgressBasic",
+  components: {
+    AProgressCircle,
+  },
+};`}}const q={name:"PageProgressCircleBasic",components:{AlohaExample:A,AProgressCircle:S},setup(){const{codeHtml:e}=x(),{codeJs:t}=$();return{codeHtml:e,codeJs:t}}};function D(e,t,s,o,c,a){const r=l("a-progress-circle"),i=l("aloha-example");return g(),f(i,{"code-html":e.codeHtml,"code-js":e.codeJs,header:"_A_BASIC_USAGE_",props:"value"},{default:P(()=>[_(r,{value:20}),_(r,{class:"a_mt_3",value:50})]),_:1},8,["code-html","code-js"])}const b=m(q,[["render",D]]);function B(){return{codeHtml:`<a-progress-circle
+  :value="20"
+  :indeterminate="true"
+></a-progress-circle>
+<a-progress-circle
+  class="a_mt_3"
+  :value="50"
+  :indeterminate="true"
+></a-progress-circle>
+<a-progress-circle
+  class="a_mt_3"
+  :value="80"
+  :indeterminate="true"
+></a-progress-circle>`}}function w(){return{codeJs:`import { 
+  AProgressCircle,
+} from "aloha-vue";";
+    
+export default {
+  name: "PageProgressCircleIndeterminate",
+  components: {
+    AProgressCircle,
+  },
+};`}}const H={name:"PageProgressCircleIndeterminate",components:{AlohaExample:A,AProgressCircle:S},setup(){const{codeHtml:e}=B(),{codeJs:t}=w();return{codeHtml:e,codeJs:t}}};function k(e,t,s,o,c,a){const r=l("a-progress-circle"),i=l("aloha-example");return g(),f(i,{"code-html":e.codeHtml,"code-js":e.codeJs,header:"_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_",description:"_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_",props:"indeterminate"},{default:P(()=>[_(r,{value:20,indeterminate:!0}),_(r,{class:"a_mt_3",value:50,indeterminate:!0}),_(r,{class:"a_mt_3",value:80,indeterminate:!0})]),_:1},8,["code-html","code-js"])}const V=m(H,[["render",k]]);function J(){const e=n(()=>R({placeholder:"_A_PROGRESS_CIRCLE_COMPONENT_NAME_"}));return{pageTitle:n(()=>`AProgressCircle${e.value?` (${e.value})`:""}`)}}function W(){return{dataProps:[{name:"alert-class",description:"_A_ALERT_PROPS_ALERT_CLASS_DESCRIPTION_",type:"String / Object",default:void 0,required:!1},{name:"alert-content-class",description:"_A_ALERT_PROPS_ALERT_CONTENT_CLASS_DESCRIPTION_",type:"String / Object",default:void 0,required:!1},{name:"btn-close-attributes",description:"_A_ALERT_PROPS_BTN_CLOSE_ATTRIBUTES_DESCRIPTION_",type:"Object",default:"{}",required:!1},{name:"closable",description:"_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_",type:"Boolean",default:!1,required:!1},{name:"show-icon",description:"_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_",type:"Boolean",default:!1,required:!1},{name:"html",description:"_A_ALERT_PROPS_HTML_DESCRIPTION_",type:"String",default:void 0,required:!1},{name:"icon",description:"_A_ALERT_PROPS_ICON_DESCRIPTION_",type:"String",default:void 0,required:!1},{name:"icon-class",description:"_A_ALERT_PROPS_ICON_CLASS_DESCRIPTION_",type:"String",default:void 0,required:!1},{name:"is-visible",description:"_A_ALERT_PROPS_IS_VISIBLE_DESCRIPTION_",type:"Boolean",default:!1,required:!1},{name:"removeAlertOnClose",description:"_A_ALERT_PROPS_REMOVE_ALERT_ON_CLOSE_DESCRIPTION_",type:"Boolean",default:!1,required:!1},{name:"safe-html",description:"_A_ALERT_PROPS_SAFE_HTML_DESCRIPTION_",type:"String",default:void 0,required:!1},{name:"text",description:"_A_ALERT_PROPS_TEXT_DESCRIPTION_",type:"String",default:void 0,required:!1},{name:"text-close",description:"_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_",type:"String",default:"_ALERT_CLOSE_",required:!1},{name:"type",description:"_A_ALERT_PROPS_TYPE_DESCRIPTION_",type:"String",default:"danger",required:!1}]}}function G(){return{dataSlots:[{name:"default",description:"_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_"}]}}const M={name:"PageProgressCircle",components:{AlohaPage:h,AlohaTableProps:E,ATranslation:C,PageProgressCircleBasic:b,PageProgressCircleIndeterminate:V},setup(){const{pageTitle:e}=J(),{dataProps:t}=W(),{dataSlots:s}=G();return{dataProps:t,dataSlots:s,pageTitle:e}}};function j(e,t,s,o,c,a){const r=l("a-translation"),i=l("page-progress-circle-basic"),u=l("page-progress-circle-indeterminate"),T=l("aloha-page");return g(),f(T,{"page-title":e.pageTitle},{body:P(()=>[_(r,{tag:"p",html:"_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_"}),_(i),_(u)]),_:1},8,["page-title"])}const le=m(M,[["render",j]]);export{le as default};
