@@ -88,7 +88,7 @@ export default function CloseFilterAPI(props, { emit }, {
     emit("update:appliedModel", appliedModelLocal);
 
     setTimeout(() => {
-      onUpdateModelFilters({ model: appliedModel.value });
+      onUpdateModelFilters({ fullModel: appliedModel.value });
     });
   };
 
@@ -113,7 +113,7 @@ export default function CloseFilterAPI(props, { emit }, {
     emit("update:appliedModel", appliedModelLocal);
 
     setTimeout(() => {
-      onUpdateModelFilters({ model: appliedModel.value });
+      onUpdateModelFilters({ fullModel: appliedModel.value });
     });
   };
 

@@ -12,7 +12,7 @@ export default function StartSearchAPI(props, { emit }, {
     emit("update:appliedModel", unappliedModel.value);
 
     setTimeout(() => {
-      onUpdateModelFilters({ model: appliedModel.value });
+      onUpdateModelFilters({ fullModel: appliedModel.value });
     });
   };
 

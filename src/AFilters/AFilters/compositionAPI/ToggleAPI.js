@@ -37,7 +37,7 @@ export default function ToggleAPI(props, {
       } else {
         unappliedModelLocal[filterId] = undefined;
       }
-      onUpdateModelFilters({ model: unappliedModelLocal });
+      onUpdateModelFilters({ fullModel: unappliedModelLocal });
     }
   };
 

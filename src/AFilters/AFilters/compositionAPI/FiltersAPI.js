@@ -98,8 +98,8 @@ export default function FiltersAPI(props, { emit }) {
     filtersVisibleIds.value = FILTERS_VISIBLE_IDS;
   };
 
-  const onUpdateModelFilters = ({ model, isUpdateFiltersVisible }) => {
-    emit("update:unappliedModel", model);
+  const onUpdateModelFilters = ({ fullModel, isUpdateFiltersVisible }) => {
+    emit("update:unappliedModel", fullModel);
 
     if (isUpdateFiltersVisible) {
       setTimeout(() => {
@@ -112,8 +112,8 @@ export default function FiltersAPI(props, { emit }) {
     emit("update:appliedModel", model);
   };
 
-  const updateMainModel = ({ model }) => {
-    emit("update:mainModel", model);
+  const updateMainModel = ({ fullModel }) => {
+    emit("update:mainModel", fullModel);
   };
 
   return {
