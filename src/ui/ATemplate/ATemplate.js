@@ -90,7 +90,6 @@ export default {
       default: undefined,
     },
     modelValue: {
-      type: [String, Number],
       required: false,
     },
     options: {
