@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.7.1
+
+- `ATemplate`: fix `props`
+
 ## 2.7.0
 
 - New component `AFormElement`
