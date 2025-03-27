@@ -23662,7 +23662,6 @@ const lm = {
       default: void 0
     },
     modelValue: {
-      type: [String, Number],
       required: !1
     },
     options: {

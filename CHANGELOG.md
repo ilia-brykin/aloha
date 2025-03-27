@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.7.2
+
+- `ATemplate`: fix `type` for `modelValue`
+
 ## 2.7.1
 
 - `ATemplate`: fix `props`
