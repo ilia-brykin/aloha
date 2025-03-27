@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.7.3
+
+- `AFilters`: fix `changeModel` functions
+
 ## 2.7.2
 
 - `ATemplate`: fix `type` for `modelValue`
