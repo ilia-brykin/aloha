@@ -14,12 +14,12 @@ import {
   UiCollapseAPI,
   UIExcludeRenderAttributesAPI,
   UiStyleHideAPI,
+  UiTextAfterLabelAPI,
 } from "../../index";
 
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
-import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 
 import AUiComponents from "../AUiComponents";
 import {
@@ -214,16 +214,16 @@ export default {
     } = UiStyleHideAPI(props);
 
     const {
+      textAfterLabel,
+    } = UiTextAfterLabelAPI(props);
+
+    const {
       ariaDescribedbyLocal,
       errorsId,
       helpTextId,
       htmlIdLocal,
       isErrors,
     } = UiAPI(props, context);
-
-    const {
-      textAfterLabel,
-    } = TextAfterLabelAPI(props);
 
     const {
       onUpdateModelLocal,

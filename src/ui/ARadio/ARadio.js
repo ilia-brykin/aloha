@@ -23,6 +23,7 @@ import {
   UiLoadingAPI,
   UiSearchAPI,
   UiStyleHideAPI,
+  UiTextAfterLabelAPI,
 } from "../../index";
 
 import ARadioItem from "./ARadioItem/ARadioItem";
@@ -30,7 +31,6 @@ import ARadioItem from "./ARadioItem/ARadioItem";
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
 import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
-import TextAfterLabelAPI from "../ACheckbox/compositionAPI/TextAfterLabelAPI";
 
 import Search from "aloha-svg/dist/js/bootstrap/Search";
 import {
@@ -377,7 +377,7 @@ export default {
 
     const {
       textAfterLabel,
-    } = TextAfterLabelAPI(props);
+    } = UiTextAfterLabelAPI(props);
 
     const {
       dataFromServer,

@@ -22,6 +22,7 @@ import {
   UiLoadingAPI,
   UiSearchAPI,
   UiStyleHideAPI,
+  UiTextAfterLabelAPI,
 } from "../../index";
 
 import ACheckboxItem from "./ACheckboxItem/ACheckboxItem";
@@ -30,7 +31,6 @@ import ACheckboxLegend from "./ACheckboxLegend/ACheckboxLegend";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
-import TextAfterLabelAPI from "./compositionAPI/TextAfterLabelAPI";
 
 import Search from "aloha-svg/dist/js/bootstrap/Search";
 import {
@@ -371,7 +371,7 @@ export default {
 
     const {
       textAfterLabel,
-    } = TextAfterLabelAPI(props);
+    } = UiTextAfterLabelAPI(props);
 
     const {
       dataAll,

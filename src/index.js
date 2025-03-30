@@ -134,6 +134,7 @@ export { default as UiDataWatchEmitAPI } from "./ui/compositionApi/UiDataWatchEm
 export { default as UiDataWithKeyIdAndLabelAPI } from "./ui/compositionApi/UiDataWithKeyIdAndLabelAPI";
 export { default as UiLoadingAPI } from "./ui/compositionApi/UiLoadingAPI";
 export { default as UiSearchAPI } from "./ui/compositionApi/UiSearchAPI";
+export { default as UiTextAfterLabelAPI } from "./ui/compositionApi/UiTextAfterLabelAPI";
 
 // directives
 export { default as AOnHooks } from "./directives/AOnHooks";
