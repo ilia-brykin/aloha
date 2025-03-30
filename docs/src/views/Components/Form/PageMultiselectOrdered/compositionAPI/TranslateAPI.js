@@ -1,0 +1,15 @@
+export default function TranslateAPI() {
+  const dataTranslate = [
+    "_A_MULTISELECT_ORDERED_BTN_DELETE_",
+    "_A_MULTISELECT_ORDERED_BTN_DOWN_",
+    "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_",
+    "_A_MULTISELECT_ORDERED_BTN_UP_",
+    "_A_MULTISELECT_ORDERED_LABEL_SELECT_",
+    "_A_MULTISELECT_ORDERED_MODEL_EMPTY_",
+    "_A_MULTISELECT_ORDERED_SELECT_ALL_",
+  ];
+
+  return {
+    dataTranslate,
+  };
+}

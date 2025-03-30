@@ -1,20 +1,20 @@
 import {
   computed,
+  inject,
   ref,
   toRef,
 } from "vue";
-
 import {
-  isArrayOfArrays,
-} from "../../utils/utils";
-
-import {
+  AKeyId,
+  AKeyLabel,
   getTranslatedText,
+  isArrayOfArrays,
   isPlaceholderTranslate,
-} from "../../ATranslation/compositionAPI/UtilsAPI";
+} from "../../index";
 
-import AKeyId from "../../const/AKeyId";
-import AKeyLabel from "../../const/AKeyLabel";
+import {
+  AIsDataPreparedInjection,
+} from "../const/UiInjectionKeys";
 import {
   cloneDeep,
   forEach,
@@ -32,6 +32,8 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   const keyLabelCallback = toRef(props, "keyLabelCallback");
   const translateData = toRef(props, "translateData");
 
+  const isDataPrepared = inject(AIsDataPreparedInjection, false);
+
   const dataFromServer = ref([]);
 
   const isArrayOfArraysDataExtra = computed(() => {
@@ -39,6 +41,10 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   });
 
   const prepareData = ({ _data, _isArrayOfArrays = false }) => {
+    if (isDataPrepared.value) {
+      return _data;
+    }
+
     const DATA = cloneDeep(_data);
     if (_isArrayOfArrays) {
       const DATA_LOCAL = [];

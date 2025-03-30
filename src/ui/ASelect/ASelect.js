@@ -191,14 +191,6 @@ export default {
       required: false,
       default: () => ASelectPluginOptions.propsDefault.inBody,
     },
-    inputAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    inputClass: {
-      required: false,
-    },
     isCloseByClick: {
       type: Boolean,
       required: false,
@@ -291,6 +283,7 @@ export default {
       default: undefined,
     },
     labelClass: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -771,7 +764,7 @@ export default {
               h("ul", {}, [
                 this.modelValueMultiselectFiltered.map(item => {
                   return h(ASelectLabelElement, {
-                    key: item[AKeyId],
+                    key: item,
                     alwaysTranslate: this.alwaysTranslate,
                     data: this.dataKeyByKeyIdLocal[item] || {},
                     slotName: this.slotName,

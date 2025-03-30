@@ -35,6 +35,9 @@ export default function TypesAPI() {
     AJson: {
       name: "PageJson",
     },
+    AMultiselectOrdered: {
+      name: "PageMultiselectOrdered",
+    },
     AOneCheckbox: {
       name: "PageOneCheckbox",
     },

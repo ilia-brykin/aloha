@@ -8,8 +8,9 @@ export const typesContainer = ref({
 });
 
 export const typesModelArray = ref({
-  multiselect: true,
   checkbox: true,
+  multiselect: true,
+  multiselectOrdered: true,
 });
 
 export const typesModelObject = ref({
@@ -23,6 +24,7 @@ export const typesModelObject = ref({
 export const typesWithData = ref({
   checkbox: true,
   multiselect: true,
+  multiselectOrdered: true,
   radio: true,
   select: true,
 });

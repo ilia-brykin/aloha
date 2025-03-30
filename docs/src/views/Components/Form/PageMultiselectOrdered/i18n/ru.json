@@ -1,0 +1,18 @@
+{
+  "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Упорядоченный множественный выбор",
+  "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Компонент позволяет выбрать несколько элементов с возможностью задания их порядка. Поддерживает сортировку, удаление и перемещение элементов внутри списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс кнопки удаления элемента из выбранного списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Иконка для кнопки удаления элемента.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_TITLE_DESCRIPTION_": "Текст всплывающей подсказки и текст для скринридеров у кнопки удаления элемента.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс кнопки перемещения элемента ближе к концу списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "Иконка для кнопки перемещения элемента ближе к концу списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_TITLE_DESCRIPTION_": "Текст всплывающей подсказки и текст для скринридеров у кнопки перемещения элемента ближе к концу списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_ARIA_LABEL_DESCRIPTION_": "Описание группы кнопок управления элементом для скринридеров.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс контейнера кнопок управления выбранным элементом.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс кнопки перемещения элемента ближе к началу списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Иконка для кнопки перемещения элемента ближе к началу списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_TITLE_DESCRIPTION_": "Текст всплывающей подсказки и текст для скринридеров у кнопки перемещения элемента ближе к началу списка.",
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс элемента списка выбранных значений.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_MODEL_EMPTY_DESCRIPTION_": "Текст, отображаемый при отсутствии выбранных элементов.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Текст кнопки «Выбрать все» в выпадающем списке выбора."
+}

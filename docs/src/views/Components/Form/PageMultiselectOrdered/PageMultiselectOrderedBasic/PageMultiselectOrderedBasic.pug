@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['data', 'model-value', 'label']"
+)
+  a-multiselect-ordered(
+    v-model="model1"
+    :data="data"
+    key-id="value"
+    key-label="label"
+    label="Select 1"
+  )
+  div model1: {{ model1 }}
+  a-multiselect-ordered(
+    v-model="model2"
+    :data="data"
+    class="a_mt_3"
+    key-id="value"
+    key-label="label"
+    label="Select 2"
+  )
+  div model2: {{ model2 }}

@@ -1,0 +1,18 @@
+{
+  "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Ordered Multiselect",
+  "_A_MULTISELECT_ORDERED_DESCRIPTION_": "The component allows selecting multiple items with the ability to set their order. Supports sorting, deleting, and moving items within the list.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the delete button of an item in the selected list.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Icon for the item delete button.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_TITLE_DESCRIPTION_": "Tooltip text and screen reader text for the item delete button.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the button to move an item closer to the end of the list.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "Icon for the button to move an item closer to the end of the list.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_TITLE_DESCRIPTION_": "Tooltip text and screen reader text for the button to move an item closer to the end of the list.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_ARIA_LABEL_DESCRIPTION_": "Description of the item control button group for screen readers.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the container of the control buttons for the selected item.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the button to move an item closer to the beginning of the list.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Icon for the button to move an item closer to the beginning of the list.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_TITLE_DESCRIPTION_": "Tooltip text and screen reader text for the button to move an item closer to the beginning of the list.",
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the list item of selected values.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_MODEL_EMPTY_DESCRIPTION_": "Text displayed when no items are selected.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Text for the 'Select All' button in the dropdown selection list."
+}

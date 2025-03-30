@@ -288,6 +288,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageGroupButtonDropdown/PageGroupButtonDropdown.vue"),
   },
   {
+    path: "/multiselect-ordered",
+    name: "PageMultiselectOrdered",
+    component: () => import("../views/Components/Form/PageMultiselectOrdered/PageMultiselectOrdered.vue"),
+  },
+  {
     path: "/show-more",
     name: "PageShowMore",
     component: () => import("../views/Components/PageShowMore/PageShowMore.vue"),

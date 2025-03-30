@@ -1,0 +1,34 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_READONLY_HEADER_"
+  description="_A_UI_GROUP_READONLY_DESCRIPTION_"
+  :props="['readonly', 'readonly-default']"
+)
+  a-multiselect-ordered(
+    v-model="model1"
+    :data="data"
+    :readonly="true"
+    key-id="value"
+    key-label="label"
+    label="Select 1"
+  )
+  a-multiselect-ordered(
+    v-model="model2"
+    :data="data"
+    :readonly="true"
+    class="a_mt_3"
+    key-id="value"
+    key-label="label"
+    label="Select 2"
+  )
+  a-multiselect-ordered(
+    v-model="model2"
+    :data="data"
+    :readonly="true"
+    class="a_mt_3"
+    key-id="value"
+    key-label="label"
+    label="Select 3"
+    readonly-default="-"
+  )

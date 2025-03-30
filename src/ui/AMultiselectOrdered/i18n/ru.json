@@ -1,0 +1,9 @@
+{
+  "_A_MULTISELECT_ORDERED_BTN_DELETE_": "Удалить из списка",
+  "_A_MULTISELECT_ORDERED_BTN_DOWN_": "Переместить ближе к концу списка",
+  "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_": "Действия с",
+  "_A_MULTISELECT_ORDERED_BTN_UP_": "Переместить ближе к началу списка",
+  "_A_MULTISELECT_ORDERED_LABEL_SELECT_": "Выберите элемент",
+  "_A_MULTISELECT_ORDERED_MODEL_EMPTY_": "Элементы не выбраны",
+  "_A_MULTISELECT_ORDERED_SELECT_ALL_": "Выбрать все"
+}

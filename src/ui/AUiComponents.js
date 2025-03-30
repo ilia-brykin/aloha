@@ -7,6 +7,7 @@ import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
 import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
 import AJson from "./AJson/AJson";
+import AMultiselectOrdered from "./AMultiselectOrdered/AMultiselectOrdered";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
 import ARouterLinkConfig from "./ARouterLinkConfig/ARouterLinkConfig";
@@ -32,6 +33,7 @@ export default {
   integerRange: AInputNumberRange,
   json: AJson,
   multiselect: ASelect,
+  multiselectOrdered: AMultiselectOrdered,
   natural: AInput,
   number: AInputNumber,
   numberRange: AInputNumberRange,

@@ -1,0 +1,18 @@
+{
+  "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Geordnete Mehrfachauswahl",
+  "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Die Komponente ermöglicht die Auswahl mehrerer Elemente mit der Möglichkeit, deren Reihenfolge festzulegen. Unterstützt Sortieren, Löschen und Verschieben von Elementen innerhalb der Liste.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für die Löschtaste eines Elements in der ausgewählten Liste.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Symbol für die Löschtaste des Elements.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_TITLE_DESCRIPTION_": "Tooltip-Text und Screenreader-Text für die Löschtaste des Elements.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für die Schaltfläche, um ein Element näher ans Listenende zu verschieben.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "Symbol für die Schaltfläche, um ein Element näher ans Listenende zu verschieben.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_TITLE_DESCRIPTION_": "Tooltip-Text und Screenreader-Text für die Schaltfläche, um ein Element näher ans Listenende zu verschieben.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_ARIA_LABEL_DESCRIPTION_": "Beschreibung der Steuerungs-Schaltflächengruppe für Screenreader.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für den Container der Steuerungsschaltflächen des ausgewählten Elements.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für die Schaltfläche, um ein Element näher an den Listenanfang zu verschieben.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Symbol für die Schaltfläche, um ein Element näher an den Listenanfang zu verschieben.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_TITLE_DESCRIPTION_": "Tooltip-Text und Screenreader-Text für die Schaltfläche, um ein Element näher an den Listenanfang zu verschieben.",
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für das Listenelement der ausgewählten Werte.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_MODEL_EMPTY_DESCRIPTION_": "Text, der angezeigt wird, wenn keine Elemente ausgewählt sind.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Text für die 'Alle auswählen'-Schaltfläche in der Dropdown-Auswahlliste."
+}

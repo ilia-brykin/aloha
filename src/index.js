@@ -44,6 +44,7 @@ export { default as AModal } from "./AModal/AModal";
 export { default as AModalConfirm } from "./AModalConfirm/AModalConfirm";
 export { default as AModalForm } from "./AModalForm/AModalForm";
 export { default as AModalWizard } from "./AModalWizard/AModalWizard";
+export { default as AMultiselectOrdered } from "./ui/AMultiselectOrdered/AMultiselectOrdered";
 export { default as ANotification } from "./ANotification/ANotification";
 export { default as AOneCheckbox } from "./ui/AOneCheckbox/AOneCheckbox";
 export { default as APageTabTitle } from "./APageTabTitle/APageTabTitle";
@@ -160,6 +161,10 @@ export {
   default as AInputNumberPlugin,
   AInputNumberPluginOptions,
 } from "./plugins/AInputNumberPlugin";
+export {
+  default as AMultiselectOrderedPlugin,
+  AMultiselectOrderedPluginOptions,
+} from "./plugins/AMultiselectOrderedPlugin";
 export { default as ALoadingPlugin } from "./plugins/ALoadingPlugin";
 export { default as AlohaPlugin } from "./plugins/alohaPlugin";
 export { default as AMobilePlugin } from "./plugins/AMobilePlugin";
@@ -274,6 +279,7 @@ export { default as ALinkCopyI18n } from "./ALinkCopy/i18n/ALinkCopyI18n";
 export { default as ALoadingI18n } from "./ALoading/i18n/ALoadingI18n";
 export { default as AMenu2I18n } from "./AMenu/i18n/AMenu2I18n";
 export { default as AModalI18n } from "./AModal/i18n/AModalI18n";
+export { default as AMultiselectOrderedI18n } from "./ui/AMultiselectOrdered/i18n/AMultiselectOrderedI18n";
 export { default as APaginationI18n } from "./APagination/i18n/APaginationI18n";
 export { default as ARadioI18n } from "./ui/ARadio/i18n/ARadioI18n";
 export { default as ARequiredI18n } from "./ui/ARequired/i18n/ARequiredI18n";
@@ -288,6 +294,7 @@ export { default as AWizardI18n } from "./AWizard/i18n/AWizardI18n";
 export { default as Filters18n } from "./filters/i18n/Filters18n";
 export {
   getTranslatedText,
+  getTranslationAttributes,
   isPlaceholderTranslate,
 } from "./ATranslation/compositionAPI/UtilsAPI";
 export {

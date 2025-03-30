@@ -1,0 +1,18 @@
+{
+  "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Multiselezione ordinata",
+  "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Il componente consente di selezionare più elementi con la possibilità di definirne l'ordine. Supporta ordinamento, eliminazione e spostamento all'interno della lista.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> per il pulsante di eliminazione di un elemento selezionato.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Icona per il pulsante di eliminazione.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_TITLE_DESCRIPTION_": "Testo tooltip e per screen reader del pulsante di eliminazione.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> del pulsante per spostare l'elemento verso il fondo della lista.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "Icona del pulsante per spostare l'elemento verso il fondo.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_TITLE_DESCRIPTION_": "Testo tooltip e per screen reader del pulsante per spostare l'elemento verso il fondo.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_ARIA_LABEL_DESCRIPTION_": "Descrizione del gruppo di pulsanti per i lettori di schermo.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> del contenitore dei pulsanti di controllo.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> del pulsante per spostare l'elemento verso l'inizio.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Icona del pulsante per spostare l'elemento verso l'inizio.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_TITLE_DESCRIPTION_": "Testo tooltip e per screen reader del pulsante per spostare l'elemento verso l'inizio.",
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> dell'elemento della lista dei valori selezionati.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_MODEL_EMPTY_DESCRIPTION_": "Testo mostrato quando non ci sono elementi selezionati.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Testo del pulsante 'Seleziona tutto' nel menu a discesa."
+}

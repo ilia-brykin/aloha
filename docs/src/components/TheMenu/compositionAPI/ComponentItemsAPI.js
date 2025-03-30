@@ -169,6 +169,13 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageMultiselectOrdered",
+            label: "Multiselect ordered",
+            to: {
+              name: "PageMultiselectOrdered",
+            },
+          },
+          {
             id: "PageOneCheckbox",
             label: "One checkbox",
             to: {

@@ -1,0 +1,34 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_MULTISELECT_ORDERED_DESCRIPTION_"
+    )
+
+    page-multiselect-ordered-basic
+
+    page-multiselect-ordered-change
+
+    page-multiselect-ordered-help-text
+
+    page-multiselect-ordered-errors
+
+    page-multiselect-ordered-readonly
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    //aloha-table-props(
+    //  table-label="Events"
+    //  :data="dataEvents"
+    //  :columns="['name', 'type', 'description']"
+    //)
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

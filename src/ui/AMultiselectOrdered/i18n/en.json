@@ -1,0 +1,9 @@
+{
+  "_A_MULTISELECT_ORDERED_BTN_DELETE_": "Remove from list",
+  "_A_MULTISELECT_ORDERED_BTN_DOWN_": "Move closer to the end of the list",
+  "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_": "Actions for",
+  "_A_MULTISELECT_ORDERED_BTN_UP_": "Move closer to the beginning of the list",
+  "_A_MULTISELECT_ORDERED_LABEL_SELECT_": "Select an item",
+  "_A_MULTISELECT_ORDERED_MODEL_EMPTY_": "No items selected",
+  "_A_MULTISELECT_ORDERED_SELECT_ALL_": "Select all"
+}
