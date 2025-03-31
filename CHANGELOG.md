@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.8.0
+
+- New component `AMultiselectOrdered`
+- Props `attributesFieldset` for `ACheckbox`, `ARadio`, `AFieldset`, `AMultiselectOrdered`, `ARouterLinkConfig`
+
 ## 2.7.3
 
 - `AFilters`: fix `changeModel` functions
