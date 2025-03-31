@@ -38,6 +38,11 @@ export default {
       required: false,
       default: undefined,
     },
+    attributesFieldset: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     change: {
       type: Function,
       required: false,
@@ -371,6 +376,7 @@ export default {
             a_fieldset_collapsed: this.isCollapsedLocal,
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
+          ...this.attributesFieldset,
         }, [
           (this.label || this.labelScreenReader) ?
             h(AElement, {

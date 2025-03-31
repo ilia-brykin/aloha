@@ -15,6 +15,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "attributes-fieldset",
+      description: "_A_UI_PROPS_ATTRIBUTES_FIELDSET_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
       name: "change",
       description: "_A_UI_PROPS_CHANGE_DESCRIPTION_",
       type: "Function",
@@ -193,6 +200,13 @@ export default function PropsAPI() {
       name: "key-disabled",
       description: "_A_UI_PROPS_KEY_DISABLED_DESCRIPTION_",
       type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "key-disabled-callback",
+      description: "_A_UI_PROPS_KEY_DISABLED_CALLBACK_DESCRIPTION_",
+      type: "Function",
       default: undefined,
       required: false,
     },

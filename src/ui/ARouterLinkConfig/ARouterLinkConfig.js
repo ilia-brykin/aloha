@@ -24,6 +24,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    attributesFieldset: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     change: {
       type: Function,
       required: false,
@@ -294,6 +299,7 @@ export default {
     return h(AFieldset, {
       ...this.$attrs,
       alwaysTranslate: this.alwaysTranslate,
+      attributesFieldset: this.attributesFieldset,
       classColumn: this.classColumn,
       classColumns: this.classColumns,
       classFieldset: this.classFieldset,

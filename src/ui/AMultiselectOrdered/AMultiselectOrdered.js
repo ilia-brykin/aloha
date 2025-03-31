@@ -50,6 +50,11 @@ export default {
       required: false,
       default: undefined,
     },
+    attributesFieldset: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     btnDeleteClass: {
       type: [String, Object],
       required: false,
@@ -622,6 +627,7 @@ export default {
             a_fieldset_no_border: !this.hasBorder,
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
+          ...this.attributesFieldset,
         }, [
           (this.label || this.labelScreenReader) ?
             h(AElement, {

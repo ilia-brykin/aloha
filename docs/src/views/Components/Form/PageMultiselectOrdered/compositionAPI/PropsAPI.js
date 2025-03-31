@@ -15,6 +15,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "attributes-fieldset",
+      description: "_A_UI_PROPS_ATTRIBUTES_FIELDSET_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
       name: "btn-delete-class",
       description: "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_",
       type: "String / Object",

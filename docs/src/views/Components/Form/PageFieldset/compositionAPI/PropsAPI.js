@@ -8,6 +8,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "attributes-fieldset",
+      description: "_A_UI_PROPS_ATTRIBUTES_FIELDSET_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
       name: "change",
       description: "_A_UI_PROPS_CHANGE_DESCRIPTION_",
       type: "Function",

@@ -51,6 +51,11 @@ export default {
       required: false,
       default: undefined,
     },
+    attributesFieldset: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     change: {
       type: Function,
       required: false,
@@ -600,6 +605,7 @@ export default {
               },
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
+            ...this.attributesFieldset,
           }, [
             (this.label || this.labelScreenReader) ?
               h(AElement, {
