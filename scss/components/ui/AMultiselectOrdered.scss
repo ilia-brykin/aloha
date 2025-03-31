@@ -7,5 +7,15 @@
   }
 }
 .a_m_select_ordered__empty {
+  margin-right: .5rem;
+}
+.a_m_select_ordered__panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
+  text-align: right;
+  .a_btn_group {
+    margin-left: auto;
+  }
 }

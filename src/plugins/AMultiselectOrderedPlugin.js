@@ -2,21 +2,32 @@ import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
 import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 import Trash from "aloha-svg/dist/js/bootstrap/Trash";
 
+export const AMultiselectOrderedPluginTexts = {
+  btnDeleteTitle: "_A_MULTISELECT_ORDERED_BTN_DELETE_",
+  btnDownTitle: "_A_MULTISELECT_ORDERED_BTN_DOWN_",
+  btnGroupAriaLabel: "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_",
+  btnUpTitle: "_A_MULTISELECT_ORDERED_BTN_UP_",
+  deselectAll: "_A_MULTISELECT_ORDERED_DESELECT_ALL_",
+  groupAllAriaLabel: "_A_MULTISELECT_ORDERED_GROUP_ALL_",
+  modelEmpty: "_A_MULTISELECT_ORDERED_MODEL_EMPTY_",
+  selectAll: "_A_MULTISELECT_ORDERED_SELECT_ALL_",
+};
+
 export const AMultiselectOrderedPluginOptions = {
   propsDefault: {
+    attributesBtnDeselectAll: {},
+    attributesBtnSelectAll: {},
+    attributesFieldset: {},
     btnDeleteClass: "a_btn a_btn_primary",
     btnDeleteIcon: Trash,
-    btnDeleteTitle: "_A_MULTISELECT_ORDERED_BTN_DELETE_",
     btnDownClass: "a_btn a_btn_outline_secondary",
     btnDownIcon: ChevronDown,
-    btnDownTitle: "_A_MULTISELECT_ORDERED_BTN_DOWN_",
-    btnGroupAriaLabel: "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_",
     btnGroupClass: "a_btn_group",
     btnUpClass: "a_btn a_btn_outline_secondary",
     btnUpIcon: ChevronUp,
-    btnUpTitle: "_A_MULTISELECT_ORDERED_BTN_UP_",
     classFieldset: undefined,
     hasBorder: true,
+    isDeselectAll: false,
     isSelectAll: false,
     keyDisabled: undefined,
     keyGroup: undefined,
@@ -48,8 +59,9 @@ export const AMultiselectOrderedPluginOptions = {
     slotName: undefined,
     sortOrder: "asc",
     sortOrderGroup: "asc",
-    textModelEmpty: "_A_MULTISELECT_ORDERED_MODEL_EMPTY_",
-    textSelectAll: "_A_MULTISELECT_ORDERED_SELECT_ALL_",
+    texts: {
+      ...AMultiselectOrderedPluginTexts,
+    },
     translateData: false,
   },
 };

@@ -6,6 +6,7 @@ import PageMultiselectOrderedChange from "./PageMultiselectOrderedChange/PageMul
 import PageMultiselectOrderedErrors from "./PageMultiselectOrderedErrors/PageMultiselectOrderedErrors.vue";
 import PageMultiselectOrderedHelpText from "./PageMultiselectOrderedHelpText/PageMultiselectOrderedHelpText.vue";
 import PageMultiselectOrderedReadonly from "./PageMultiselectOrderedReadonly/PageMultiselectOrderedReadonly.vue";
+import PageMultiselectOrderedSelectDeselectAll from "./PageMultiselectOrderedSelectDeselectAll/PageMultiselectOrderedSelectDeselectAll.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -27,6 +28,7 @@ export default {
     PageMultiselectOrderedErrors,
     PageMultiselectOrderedHelpText,
     PageMultiselectOrderedReadonly,
+    PageMultiselectOrderedSelectDeselectAll,
   },
   setup() {
     const {

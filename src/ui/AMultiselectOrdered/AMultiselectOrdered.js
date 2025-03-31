@@ -25,9 +25,11 @@ import {
 
 import AMultiselectOrderedItem from "./AMultiselectOrderedItem/AMultiselectOrderedItem";
 
+import AllAPI from "./compositionAPI/AllAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import TextsAPI from "./compositionAPI/TextsAPI";
 
 import ASelectLabelElement from "../ASelect/ASelectLabelElement";
 import {
@@ -50,10 +52,20 @@ export default {
       required: false,
       default: undefined,
     },
+    attributesBtnDeselectAll: {
+      type: Object,
+      required: false,
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.attributesBtnDeselectAll,
+    },
+    attributesBtnSelectAll: {
+      type: Object,
+      required: false,
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.attributesBtnSelectAll,
+    },
     attributesFieldset: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.attributesFieldset,
     },
     btnDeleteClass: {
       type: [String, Object],
@@ -65,11 +77,6 @@ export default {
       required: false,
       default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDeleteIcon,
     },
-    btnDeleteTitle: {
-      type: String,
-      required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDeleteTitle,
-    },
     btnDownClass: {
       type: [String, Object],
       required: false,
@@ -79,16 +86,6 @@ export default {
       type: String,
       required: false,
       default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDownIcon,
-    },
-    btnDownTitle: {
-      type: String,
-      required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnDownTitle,
-    },
-    btnGroupAriaLabel: {
-      type: String,
-      required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnGroupAriaLabel,
     },
     btnGroupClass: {
       type: [String, Object, Array],
@@ -104,11 +101,6 @@ export default {
       type: String,
       required: false,
       default: () => AMultiselectOrderedPluginOptions.propsDefault.btnUpIcon,
-    },
-    btnUpTitle: {
-      type: String,
-      required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.btnUpTitle,
     },
     change: {
       type: Function,
@@ -182,6 +174,11 @@ export default {
       type: Boolean,
       required: false,
       default: undefined,
+    },
+    isDeselectAll: {
+      type: Boolean,
+      required: false,
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.isDeselectAll,
     },
     isHide: {
       type: Boolean,
@@ -414,15 +411,10 @@ export default {
       default: () => AMultiselectOrderedPluginOptions.propsDefault.sortOrderGroup,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
-    textModelEmpty: {
-      type: String,
+    texts: {
+      type: Object,
       required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.textModelEmpty,
-    },
-    textSelectAll: {
-      type: String,
-      required: false,
-      default: () => AMultiselectOrderedPluginOptions.propsDefault.textSelectAll,
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.texts,
     },
     translateData: {
       type: Boolean,
@@ -460,6 +452,17 @@ export default {
     const {
       textAfterLabel,
     } = UiTextAfterLabelAPI(props);
+
+    const {
+      textBtnDeleteTitle,
+      textBtnDownTitle,
+      textBtnGroupAriaLabel,
+      textBtnUpTitle,
+      textDeselectAll,
+      textGroupAllAriaLabel,
+      textModelEmpty,
+      textSelectAll,
+    } = TextsAPI(props);
 
     const {
       ariaDescribedbyLocal,
@@ -537,6 +540,18 @@ export default {
       modelValueFiltered,
     });
 
+    const {
+      deselectAll,
+      disabledDeselectAll,
+      disabledSelectAll,
+      selectAll,
+    } = AllAPI(props, {
+      changeModel,
+      dataExtraLocalFiltered,
+      dataSortFiltered,
+      modelValueFiltered,
+    });
+
 
     watch(urlPropsComputed, updateUrlPropsComputed);
     provide(AIsDataPreparedInjection, true);
@@ -556,6 +571,9 @@ export default {
       dataLocal,
       dataSortFiltered,
       deleteItem,
+      deselectAll,
+      disabledDeselectAll,
+      disabledSelectAll,
       errorsId,
       hasDataExtra,
       helpTextId,
@@ -569,7 +587,16 @@ export default {
       onDownItem,
       onFocus,
       onUpItem,
+      selectAll,
       textAfterLabel,
+      textBtnDeleteTitle,
+      textBtnDownTitle,
+      textBtnGroupAriaLabel,
+      textBtnUpTitle,
+      textDeselectAll,
+      textGroupAllAriaLabel,
+      textModelEmpty,
+      textSelectAll,
     };
   },
   render() {
@@ -662,15 +689,15 @@ export default {
                   alwaysTranslate: this.alwaysTranslate,
                   btnDeleteClass: this.btnDeleteClass,
                   btnDeleteIcon: this.btnDeleteIcon,
-                  btnDeleteTitle: this.btnDeleteTitle,
+                  btnDeleteTitle: this.textBtnDeleteTitle,
                   btnDownClass: this.btnDownClass,
                   btnDownIcon: this.btnDownIcon,
-                  btnDownTitle: this.btnDownTitle,
-                  btnGroupAriaLabel: this.btnGroupAriaLabel,
+                  btnDownTitle: this.textBtnDownTitle,
+                  btnGroupAriaLabel: this.textBtnGroupAriaLabel,
                   btnGroupClass: this.btnGroupClass,
                   btnUpClass: this.btnUpClass,
                   btnUpIcon: this.btnUpIcon,
-                  btnUpTitle: this.btnUpTitle,
+                  btnUpTitle: this.textBtnUpTitle,
                   listItemClass: this.listItemClass,
                   data: this.dataKeyByKeyIdLocal[item] || {},
                   disabled: this.disabled,
@@ -683,11 +710,58 @@ export default {
                   onDownItem: this.onDownItem,
                 }, this.$slots);
               })) :
-              h(ATranslation, {
-                class: "a_m_select_ordered__empty",
-                tag: "div",
-                html: this.textModelEmpty,
-              }),
+              "",
+            this.isDeselectAll || this.isSelectAll || !this.modelValueFiltered.length ?
+              h("div", {
+                class: "a_m_select_ordered__panel",
+              }, [
+                !this.modelValueFiltered.length ?
+                  h(ATranslation, {
+                    class: "a_m_select_ordered__empty",
+                    tag: "div",
+                    html: this.textModelEmpty,
+                  }) :
+                  "",
+
+                h(ATranslation, {
+                  ariaLabel: this.textGroupAllAriaLabel,
+                  role: "group",
+                  class: "a_btn_group",
+                  tag: "div",
+                }, () => [
+                  this.isSelectAll ?
+                    h(AElement, {
+                      ariaDisabled: this.disabledSelectAll,
+                      type: "button",
+                      text: this.textSelectAll,
+                      onClick: this.selectAll,
+                      ...this.attributesBtnSelectAll,
+                      class: [
+                        this.attributesBtnDeselectAll.class || "a_btn a_btn_outline_secondary",
+                        {
+                          disabled: this.disabledSelectAll,
+                        },
+                      ],
+                    }) :
+                    "",
+                  this.isDeselectAll ?
+                    h(AElement, {
+                      ariaDisabled: this.disabledDeselectAll,
+                      type: "button",
+                      text: this.textDeselectAll,
+                      onClick: this.deselectAll,
+                      ...this.attributesBtnDeselectAll,
+                      class: [
+                        this.attributesBtnDeselectAll.class || "a_btn a_btn_outline_secondary",
+                        {
+                          disabled: this.disabledDeselectAll,
+                        },
+                      ],
+                    }) :
+                    "",
+                ]),
+              ]) :
+              "",
             h(ASelect, {
               alwaysTranslate: this.alwaysTranslate,
               buttonClass: this.selectButtonClass,
@@ -704,7 +778,6 @@ export default {
               isCloseByClick: this.selectIsCloseByClick,
               isDataSimpleArray: this.isDataSimpleArray,
               isLabelFloat: this.selectIsLabelFloat,
-              isSelectAll: this.isSelectAll,
               isSelectionCloseable: this.selectIsSelectionCloseable,
               keyDisabled: this.keyDisabled,
               keyDisabledCallback: this.keyDisabledCallback,
@@ -727,7 +800,6 @@ export default {
               searchTimeout: this.searchTimeout,
               selectMenuClass: this.selectMenuClass,
               slotName: this.slotName,
-              textSelectAll: this.textSelectAll,
               type: "multiselect",
             }, this.$slots),
           ]),

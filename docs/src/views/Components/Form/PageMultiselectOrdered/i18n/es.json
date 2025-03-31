@@ -3,16 +3,10 @@
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "El componente permite seleccionar varios elementos con la posibilidad de definir su orden. Soporta ordenación, eliminación y movimiento dentro de la lista.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> del botón para eliminar un elemento de la lista seleccionada.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Ícono para el botón de eliminación de un elemento.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_TITLE_DESCRIPTION_": "Texto emergente y texto para lectores de pantalla del botón de eliminación.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> para el botón que mueve un elemento hacia el final de la lista.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "Ícono para el botón que mueve un elemento hacia el final de la lista.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_TITLE_DESCRIPTION_": "Texto emergente y texto para lectores de pantalla del botón que mueve un elemento hacia el final.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_ARIA_LABEL_DESCRIPTION_": "Descripción del grupo de botones de control para lectores de pantalla.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> del contenedor de botones de control.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> del botón que mueve un elemento hacia el inicio de la lista.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Ícono para el botón que mueve un elemento hacia el inicio.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_TITLE_DESCRIPTION_": "Texto emergente y texto para lectores de pantalla del botón que mueve un elemento hacia el inicio.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> del elemento de la lista de valores seleccionados.",
-  "_A_MULTISELECT_ORDERED_PROPS_TEXT_MODEL_EMPTY_DESCRIPTION_": "Texto mostrado cuando no hay elementos seleccionados.",
-  "_A_MULTISELECT_ORDERED_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Texto del botón 'Seleccionar todo' en la lista desplegable."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> del elemento de la lista de valores seleccionados."
 }

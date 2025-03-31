@@ -3,6 +3,8 @@
   "_A_MULTISELECT_ORDERED_BTN_DOWN_": "Sposta verso la fine dell'elenco",
   "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_": "Azioni per",
   "_A_MULTISELECT_ORDERED_BTN_UP_": "Sposta verso l'inizio dell'elenco",
+  "_A_MULTISELECT_ORDERED_DESELECT_ALL_": "Deseleziona tutto",
+  "_A_MULTISELECT_ORDERED_GROUP_ALL_": "Controllo della selezione",
   "_A_MULTISELECT_ORDERED_LABEL_SELECT_": "Seleziona un elemento",
   "_A_MULTISELECT_ORDERED_MODEL_EMPTY_": "Nessun elemento selezionato",
   "_A_MULTISELECT_ORDERED_SELECT_ALL_": "Seleziona tutto"

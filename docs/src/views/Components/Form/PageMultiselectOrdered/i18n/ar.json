@@ -3,16 +3,10 @@
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "يتيح المكون تحديد عناصر متعددة مع إمكانية تحديد ترتيبها. يدعم الفرز، الحذف، وتحريك العناصر داخل القائمة.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لزر حذف العنصر من القائمة المحددة.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "أيقونة زر حذف العنصر.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_TITLE_DESCRIPTION_": "نص التلميح ونص قارئ الشاشة لزر حذف العنصر.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لزر نقل العنصر نحو نهاية القائمة.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "أيقونة لزر نقل العنصر نحو نهاية القائمة.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_TITLE_DESCRIPTION_": "نص التلميح ونص قارئ الشاشة لزر نقل العنصر نحو نهاية القائمة.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_ARIA_LABEL_DESCRIPTION_": "وصف مجموعة أزرار التحكم في العنصر لقارئات الشاشة.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لحاوية أزرار التحكم في العنصر المحدد.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لزر نقل العنصر نحو بداية القائمة.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "أيقونة زر نقل العنصر نحو بداية القائمة.",
-  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_TITLE_DESCRIPTION_": "نص التلميح ونص قارئ الشاشة لزر نقل العنصر نحو بداية القائمة.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لعنصر القائمة في القيم المحددة.",
-  "_A_MULTISELECT_ORDERED_PROPS_TEXT_MODEL_EMPTY_DESCRIPTION_": "النص المعروض عند عدم وجود عناصر محددة.",
-  "_A_MULTISELECT_ORDERED_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "نص زر \"تحديد الكل\" في قائمة الاختيار المنسدلة."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لعنصر القائمة في القيم المحددة."
 }

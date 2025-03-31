@@ -15,6 +15,20 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "attributes-btn-deselect-all",
+      description: "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
+      name: "attributes-btn-select-all",
+      description: "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
       name: "attributes-fieldset",
       description: "_A_UI_PROPS_ATTRIBUTES_FIELDSET_DESCRIPTION_",
       type: "Object",
@@ -36,13 +50,6 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "btn-delete-title",
-      description: "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_TITLE_DESCRIPTION_",
-      type: "String",
-      default: "_A_MULTISELECT_ORDERED_BTN_DELETE_",
-      required: false,
-    },
-    {
       name: "btn-down-class",
       description: "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_",
       type: "String / Object",
@@ -54,20 +61,6 @@ export default function PropsAPI() {
       description: "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_",
       type: "String",
       default: "ChevronDown",
-      required: false,
-    },
-    {
-      name: "btn-down-title",
-      description: "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_TITLE_DESCRIPTION_",
-      type: "String",
-      default: "_A_MULTISELECT_ORDERED_BTN_DOWN_",
-      required: false,
-    },
-    {
-      name: "btn-group-aria-label",
-      description: "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_ARIA_LABEL_DESCRIPTION_",
-      type: "String",
-      default: "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_",
       required: false,
     },
     {
@@ -89,13 +82,6 @@ export default function PropsAPI() {
       description: "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_",
       type: "String",
       default: "ChevronUp",
-      required: false,
-    },
-    {
-      name: "btn-up-title",
-      description: "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_TITLE_DESCRIPTION_",
-      type: "String",
-      default: "_A_MULTISELECT_ORDERED_BTN_UP_",
       required: false,
     },
     {
@@ -211,6 +197,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-deselect-all",
+      description: "_A_UI_PROPS_IS_DESELECT_ALL_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "is-hide",
       description: "_A_UI_PROPS_IS_HIDE_DESCRIPTION_",
       type: "Boolean",
@@ -227,7 +220,7 @@ export default function PropsAPI() {
     {
       name: "is-select-all",
       description: "_A_UI_PROPS_IS_SELECT_ALL_DESCRIPTION_",
-      type: "String",
+      type: "Boolean",
       default: false,
       required: false,
     },
@@ -533,17 +526,19 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "text-model-empty",
-      description: "_A_MULTISELECT_ORDERED_PROPS_TEXT_MODEL_EMPTY_DESCRIPTION_",
+      name: "texts",
+      description: "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_",
       type: "String",
-      default: "_A_MULTISELECT_ORDERED_MODEL_EMPTY_",
-      required: false,
-    },
-    {
-      name: "text-select-all",
-      description: "_A_MULTISELECT_ORDERED_PROPS_TEXT_SELECT_ALL_DESCRIPTION_",
-      type: "String",
-      default: "_A_MULTISELECT_ORDERED_SELECT_ALL_",
+      default: `{
+        btnDeleteTitle: "_A_MULTISELECT_ORDERED_BTN_DELETE_",
+        btnDownTitle: "_A_MULTISELECT_ORDERED_BTN_DOWN_",
+        btnGroupAriaLabel: "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_",
+        btnUpTitle: "_A_MULTISELECT_ORDERED_BTN_UP_",
+        deselectAll: "_A_MULTISELECT_ORDERED_DESELECT_ALL_",
+        groupAllAriaLabel: "_A_MULTISELECT_ORDERED_GROUP_ALL_",
+        modelEmpty: "_A_MULTISELECT_ORDERED_MODEL_EMPTY_",
+        selectAll: "_A_MULTISELECT_ORDERED_SELECT_ALL_",
+      }`,
       required: false,
     },
     {
