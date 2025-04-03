@@ -363,8 +363,10 @@ export function callHttpRequestAndCheckSavedApi({
       }
     }
     const URL_NEW = setUrlWithParams({ url, params: urlParams });
-    let url_full = `${ isNil(urlBase) ? BASE_URL.value : urlBase }${ URL_NEW }`;
-    url_full = url_full.replace(/\/\//g, "/");
+    let urlFull = `${ isNil(urlBase) ? BASE_URL.value : urlBase }${ URL_NEW }`;
+    urlFull = urlFull.replace(/^(https?:\/\/)|(\/){2,}/g, (match, protocol) => {
+      return protocol || "/";
+    });
     const HEADER_PARAMS_LOCAL = {
       ...HEADER_PARAMS.value,
       ...headerParams,
@@ -375,7 +377,7 @@ export function callHttpRequestAndCheckSavedApi({
 
     API.value({
       method: methodHttp,
-      url: url_full,
+      url: urlFull,
       data,
       headers: HEADER_PARAMS_LOCAL,
       responseType,
