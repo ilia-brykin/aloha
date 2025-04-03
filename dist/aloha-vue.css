@@ -8493,7 +8493,18 @@ h6 {
 }
 
 .a_m_select_ordered__empty {
+  margin-right: 0.5rem;
+}
+
+.a_m_select_ordered__panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
+  text-align: right;
+}
+.a_m_select_ordered__panel .a_btn_group {
+  margin-left: auto;
 }
 
 .a_form_element__parent {
