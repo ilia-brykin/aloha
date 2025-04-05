@@ -309,7 +309,8 @@ export default {
     },
     searchTextInHtml: {
       type: Boolean,
-      required: () => AMultiselectOrderedPluginOptions.propsDefault.searchTextInHtml,
+      required: false,
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.searchTextInHtml,
     },
     searchTimeout: {
       type: Number,
