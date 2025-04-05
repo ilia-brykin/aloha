@@ -1,12 +1,10 @@
 {
-  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "",
-  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "",
-  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "",
-  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "",
-  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "",
-
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Упорядоченный множественный выбор",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Компонент позволяет выбрать несколько элементов с возможностью задания их порядка. Поддерживает сортировку, удаление и перемещение элементов внутри списка.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Пример отображения кнопок для массового выбора или снятия выбора. Можно показать обе кнопки или только одну из них, в зависимости от нужд интерфейса.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Кнопки «Выбрать все элементы» и «Очистить выбор»",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Атрибуты и пропсы, передаваемые в компонент <strong lang=\"en\">AElement</strong>, используемый для кнопки «Очистить выбор». Позволяют изменить поведение, внешний вид и доступность кнопки.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Атрибуты и пропсы, передаваемые в компонент <strong lang=\"en\">AElement</strong>, используемый для кнопки «Выбрать все элементы». Позволяют кастомизировать отображение, поведение и доступность кнопки.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс кнопки удаления элемента из выбранного списка.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Иконка для кнопки удаления элемента.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс кнопки перемещения элемента ближе к концу списка.",
@@ -14,5 +12,6 @@
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс контейнера кнопок управления выбранным элементом.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс кнопки перемещения элемента ближе к началу списка.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Иконка для кнопки перемещения элемента ближе к началу списка.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс элемента списка выбранных значений."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класс элемента списка выбранных значений.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "Объект с пользовательскими текстами для замены стандартных надписей, таких как «Выбрать все элементы», «Очистить выбор», «Элементы не выбраны» и других."
 }

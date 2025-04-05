@@ -1,6 +1,10 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "تحديد متعدد مع ترتيب",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "يتيح المكون تحديد عناصر متعددة مع إمكانية تحديد ترتيبها. يدعم الفرز، الحذف، وتحريك العناصر داخل القائمة.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "مثال على عرض الأزرار لتحديد أو إلغاء تحديد الكل. يمكن عرض كلا الزرين أو أحدهما فقط حسب احتياجات الواجهة.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "أزرار «تحديد الكل» و«إلغاء التحديد»",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "السمات وخصائص <strong lang=\"en\">HTML</strong> التي يتم تمريرها إلى مكون <strong lang=\"en\">AElement</strong> المستخدم في زر «إلغاء التحديد». تتيح تخصيص السلوك والمظهر وإمكانية الوصول.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "السمات وخصائص <strong lang=\"en\">HTML</strong> التي يتم تمريرها إلى مكون <strong lang=\"en\">AElement</strong> المستخدم في زر «تحديد الكل». تتيح تخصيص العرض والسلوك وإمكانية الوصول.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لزر حذف العنصر من القائمة المحددة.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "أيقونة زر حذف العنصر.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لزر نقل العنصر نحو نهاية القائمة.",
@@ -8,5 +12,6 @@
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لحاوية أزرار التحكم في العنصر المحدد.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لزر نقل العنصر نحو بداية القائمة.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "أيقونة زر نقل العنصر نحو بداية القائمة.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لعنصر القائمة في القيم المحددة."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> لعنصر القائمة في القيم المحددة.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "كائن يحتوي على نصوص مخصصة لاستبدال التسميات الافتراضية مثل «تحديد الكل»، «إلغاء التحديد»، «لم يتم تحديد أي عناصر»، وغيرها."
 }

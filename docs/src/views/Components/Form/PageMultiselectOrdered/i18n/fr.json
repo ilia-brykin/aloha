@@ -1,6 +1,10 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Sélection multiple ordonnée",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Ce composant permet de sélectionner plusieurs éléments avec la possibilité de définir leur ordre. Il prend en charge le tri, la suppression et le déplacement des éléments dans la liste.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Exemple d’affichage des boutons pour sélectionner ou désélectionner tous les éléments. Il est possible d’afficher les deux boutons ou seulement l’un d’eux selon les besoins de l’interface.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Boutons « Tout sélectionner » et « Tout désélectionner »",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attributs et props transmis au composant <strong lang=\"en\">AElement</strong> utilisé pour le bouton « Tout désélectionner ». Permettent de personnaliser le comportement, l’apparence et l’accessibilité.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Attributs et props transmis au composant <strong lang=\"en\">AElement</strong> utilisé pour le bouton « Tout sélectionner ». Permettent de personnaliser l’affichage, le comportement et l’accessibilité.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> du bouton de suppression d’un élément dans la liste sélectionnée.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Icône du bouton de suppression d’un élément.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> du bouton pour déplacer un élément vers la fin de la liste.",
@@ -8,5 +12,6 @@
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> du conteneur des boutons de contrôle.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> du bouton pour déplacer un élément vers le début de la liste.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Icône du bouton pour déplacer un élément vers le début.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> de l’élément de la liste des valeurs sélectionnées."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> de l’élément de la liste des valeurs sélectionnées.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "Objet contenant des textes personnalisés pour remplacer les libellés standards tels que « Tout sélectionner », « Tout désélectionner », « Aucun élément sélectionné », etc."
 }

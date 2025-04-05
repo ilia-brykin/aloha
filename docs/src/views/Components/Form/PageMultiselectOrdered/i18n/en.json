@@ -1,6 +1,10 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Ordered Multiselect",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "The component allows selecting multiple items with the ability to set their order. Supports sorting, deleting, and moving items within the list.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "An example of displaying buttons for bulk selection or deselection. You can show both buttons or only one, depending on the interface needs.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Buttons for “Select All” and “Deselect All”",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attributes and props passed to the <strong lang=\"en\">AElement</strong> component used for the “Deselect All” button. They allow customizing the behavior, appearance, and accessibility of the button.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Attributes and props passed to the <strong lang=\"en\">AElement</strong> component used for the “Select All” button. They allow customizing the display, behavior, and accessibility of the button.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the delete button of an item in the selected list.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Icon for the item delete button.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the button to move an item closer to the end of the list.",
@@ -8,5 +12,6 @@
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the container of the control buttons for the selected item.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the button to move an item closer to the beginning of the list.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Icon for the button to move an item closer to the beginning of the list.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the list item of selected values."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> class for the list item of selected values.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "An object with custom texts to replace default labels such as “Select All”, “Deselect All”, “No items selected”, and others."
 }

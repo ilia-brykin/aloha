@@ -1,6 +1,10 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Poredani višestruki odabir",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Komponenta omogućuje odabir više elemenata s mogućnošću određivanja njihovog redoslijeda. Podržava sortiranje, uklanjanje i premještanje unutar popisa.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Primjer prikaza gumba za masovni odabir ili poništavanje odabira. Ovisno o potrebama sučelja, mogu se prikazati oba gumba ili samo jedan.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Gumbi „Odaberi sve“ i „Poništi odabir“",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Atributi i propsi koji se prosljeđuju komponenti <strong lang=\"en\">AElement</strong> za gumb „Poništi odabir“. Omogućuju prilagodbu ponašanja, izgleda i pristupačnosti gumba.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Atributi i propsi koji se prosljeđuju komponenti <strong lang=\"en\">AElement</strong> za gumb „Odaberi sve“. Omogućuju prilagodbu prikaza, ponašanja i pristupačnosti gumba.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klasa za gumb za brisanje elementa iz odabranog popisa.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Ikona za gumb za brisanje.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klasa za gumb za pomicanje elementa bliže kraju popisa.",
@@ -8,5 +12,6 @@
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klasa spremnika kontrolnih gumba.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klasa za gumb za pomicanje elementa prema početku popisa.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Ikona za gumb za pomicanje prema gore.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klasa za element u popisu odabranih vrijednosti."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klasa za element u popisu odabranih vrijednosti.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "Objekt s prilagođenim tekstovima za zamjenu zadanih natpisa kao što su „Odaberi sve“, „Poništi odabir“, „Nema odabranih elemenata“ i drugi."
 }

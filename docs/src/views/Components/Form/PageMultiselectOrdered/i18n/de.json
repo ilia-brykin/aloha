@@ -1,6 +1,10 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Geordnete Mehrfachauswahl",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Die Komponente ermöglicht die Auswahl mehrerer Elemente mit der Möglichkeit, deren Reihenfolge festzulegen. Unterstützt Sortieren, Löschen und Verschieben von Elementen innerhalb der Liste.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Beispiel zur Anzeige von Schaltflächen für die Massen-Auswahl oder -Abwahl. Je nach Bedarf der Benutzeroberfläche können beide oder nur eine Schaltfläche angezeigt werden.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Schaltflächen „Alle auswählen“ und „Alle abwählen“",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attribute und Props, die an die <strong lang=\"en\">AElement</strong>-Komponente übergeben werden, die für die Schaltfläche „Auswahl aufheben“ verwendet wird. Sie ermöglichen die Anpassung des Verhaltens, des Aussehens und der Zugänglichkeit.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Attribute und Props, die an die <strong lang=\"en\">AElement</strong>-Komponente übergeben werden, die für die Schaltfläche „Alle auswählen“ verwendet wird. Damit lässt sich die Darstellung, das Verhalten und die Barrierefreiheit anpassen.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für die Löschtaste eines Elements in der ausgewählten Liste.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Symbol für die Löschtaste des Elements.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für die Schaltfläche, um ein Element näher ans Listenende zu verschieben.",
@@ -8,5 +12,6 @@
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für den Container der Steuerungsschaltflächen des ausgewählten Elements.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für die Schaltfläche, um ein Element näher an den Listenanfang zu verschieben.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Symbol für die Schaltfläche, um ein Element näher an den Listenanfang zu verschieben.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für das Listenelement der ausgewählten Werte."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klasse für das Listenelement der ausgewählten Werte.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "Ein Objekt mit benutzerdefinierten Texten zum Ersetzen der Standardbeschriftungen wie „Alle auswählen“, „Alle abwählen“, „Keine Elemente ausgewählt“ und weiteren."
 }

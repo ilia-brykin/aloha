@@ -1,6 +1,10 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Multiselezione ordinata",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Il componente consente di selezionare più elementi con la possibilità di definirne l'ordine. Supporta ordinamento, eliminazione e spostamento all'interno della lista.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Esempio che mostra i pulsanti per selezionare o deselezionare tutti gli elementi. È possibile mostrare entrambi i pulsanti o solo uno a seconda delle esigenze dell’interfaccia.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Pulsanti “Seleziona tutto” e “Deseleziona tutto”",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attributi e props passati al componente <strong lang=\"en\">AElement</strong> utilizzato per il pulsante “Deseleziona tutto”. Permettono di personalizzare comportamento, aspetto e accessibilità del pulsante.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Attributi e props passati al componente <strong lang=\"en\">AElement</strong> utilizzato per il pulsante “Seleziona tutto”. Consentono la personalizzazione dell’aspetto, del comportamento e dell’accessibilità.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> per il pulsante di eliminazione di un elemento selezionato.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Icona per il pulsante di eliminazione.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> del pulsante per spostare l'elemento verso il fondo della lista.",
@@ -8,5 +12,6 @@
   "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> del contenitore dei pulsanti di controllo.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> del pulsante per spostare l'elemento verso l'inizio.",
   "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Icona del pulsante per spostare l'elemento verso l'inizio.",
-  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> dell'elemento della lista dei valori selezionati."
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> dell'elemento della lista dei valori selezionati.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "Oggetto con testi personalizzati per sostituire le etichette predefinite come “Seleziona tutto”, “Deseleziona tutto”, “Nessun elemento selezionato” e altri."
 }
