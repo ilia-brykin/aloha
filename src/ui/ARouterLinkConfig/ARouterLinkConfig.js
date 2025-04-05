@@ -27,7 +27,7 @@ export default {
     attributesFieldset: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.attributesFieldset,
     },
     change: {
       type: Function,
@@ -47,7 +47,7 @@ export default {
     classFieldset: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.classFieldset,
     },
     disabled: {
       type: Boolean,
@@ -61,17 +61,17 @@ export default {
     excludeRenderAttributes: {
       type: Array,
       required: false,
-      default: () => [],
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.excludeRenderAttributes,
     },
     extra: {
       type: Object,
       required: false,
-      default: undefined,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.extra,
     },
     hasBorder: {
       type: Boolean,
       required: false,
-      default: true,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.hasBorder,
     },
     helpText: {
       type: String,
@@ -150,7 +150,7 @@ export default {
     labelClass: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.labelClass,
     },
     labelParam: {
       type: String,
@@ -194,27 +194,27 @@ export default {
     readonlyDefault: {
       type: String,
       required: false,
-      default: "",
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefault,
     },
     readonlyDefaultParam: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultParam,
     },
     readonlyDefaultQuery: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultQuery,
     },
     readonlyDefaultRoute: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultRoute,
     },
     readonlyDefaultTarget: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => ARouterLinkConfigPluginOptions.propsDefault.readonlyDefaultTarget,
     },
     required: {
       type: Boolean,
