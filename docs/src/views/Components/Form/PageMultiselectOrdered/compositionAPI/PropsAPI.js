@@ -386,6 +386,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "search-text-in-html",
+      description: "_A_UI_PROPS_SEARCH_SEARCH_TEXT_IN_HTML_DESCRIPTION_",
+      type: "Boolean",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "search-timeout",
       description: "_A_UI_PROPS_SEARCH_TIMEOUT_DESCRIPTION_",
       type: "Number",

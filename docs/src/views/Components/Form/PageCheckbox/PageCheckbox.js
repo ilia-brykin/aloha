@@ -20,6 +20,7 @@ import PageCheckboxKeyTitle from "./PageCheckboxKeyTitle/PageCheckboxKeyTitle.vu
 import PageCheckboxLabelScreenReader from "./PageCheckboxLabelScreenReader/PageCheckboxLabelScreenReader.vue";
 import PageCheckboxReadonly from "./PageCheckboxReadonly/PageCheckboxReadonly.vue";
 import PageCheckboxSearch from "./PageCheckboxSearch/PageCheckboxSearch.vue";
+import PageCheckboxSearchTextInHtml from "./PageCheckboxSearchTextInHtml/PageCheckboxSearchTextInHtml.vue";
 import PageCheckboxSortOrder from "./PageCheckboxSortOrder/PageCheckboxSortOrder.vue";
 import PageCheckboxSortOrderGroup from "./PageCheckboxSortOrderGroup/PageCheckboxSortOrderGroup.vue";
 import PageCheckboxTranslateData from "./PageCheckboxTranslateData/PageCheckboxTranslateData.vue";
@@ -59,6 +60,7 @@ export default {
     PageCheckboxLabelScreenReader,
     PageCheckboxReadonly,
     PageCheckboxSearch,
+    PageCheckboxSearchTextInHtml,
     PageCheckboxSortOrder,
     PageCheckboxSortOrderGroup,
     PageCheckboxTranslateData,

@@ -3,9 +3,13 @@ import {
   toRef,
 } from "vue";
 
-import AKeyLabel from "../../../const/AKeyLabel";
+import {
+  AKeyLabel,
+} from "../../../const/AKeys";
 import {
   forEach,
+  get,
+  isFunction,
 } from "lodash-es";
 
 export default function SelectedTitleAPI(props, {
@@ -16,8 +20,21 @@ export default function SelectedTitleAPI(props, {
   modelValueLength,
   modelValueMultiselectFiltered = computed(() => []),
 }) {
-  const modelValue = toRef(props, "modelValue");
   const isSelectionCloseable = toRef(props, "isSelectionCloseable");
+  const keyTitle = toRef(props, "keyTitle");
+  const keyTitleCallback = toRef(props, "keyTitleCallback");
+  const modelValue = toRef(props, "modelValue");
+
+  const getTitleForItem = ({ item }) => {
+    if (isFunction(keyTitleCallback.value)) {
+      return keyTitleCallback.value({ item, inDropdown: false }) || "";
+    }
+    if (keyTitle.value) {
+      return get(item, keyTitle.value) || "";
+    }
+
+    return item[AKeyLabel];
+  };
 
   const selectedTitle = computed(() => {
     if (!isModelValue.value) {
@@ -28,14 +45,14 @@ export default function SelectedTitleAPI(props, {
       if (isSelectionCloseable.value || !isModelLengthLimitExceeded.value) {
         forEach(modelValueMultiselectFiltered.value, (item, index) => {
           const DATA = dataKeyByKeyIdLocal.value[item] || {};
-          title += `${ index > 0 ? ", " : "" }${ DATA[AKeyLabel] }`;
+          title += `${ index > 0 ? ", " : "" }${ getTitleForItem({ item: DATA }) }`;
         });
       } else {
         title = `${ modelValueLength.value } ausgewählt`;
       }
     } else {
       const DATA = dataKeyByKeyIdLocal.value[modelValue.value] || {};
-      title = DATA[AKeyLabel];
+      title = getTitleForItem({ item: DATA });
     }
 
     return title;

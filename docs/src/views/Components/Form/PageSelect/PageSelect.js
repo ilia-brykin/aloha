@@ -7,6 +7,7 @@ import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
 import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
 import PageSelectReadonly from "./PageSelectReadonly/PageSelectReadonly.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
+import PageSelectSearchTextInHtml from "./PageSelectSearchTextInHtml/PageSelectSearchTextInHtml.vue";
 import PageSelectTranslateData from "./PageSelectTranslateData/PageSelectTranslateData.vue";
 import {
   AIcon,
@@ -35,6 +36,7 @@ export default {
     PageSelectKeyDisabled,
     PageSelectReadonly,
     PageSelectSearch,
+    PageSelectSearchTextInHtml,
     PageSelectTranslateData,
   },
   setup() {

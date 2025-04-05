@@ -9,10 +9,12 @@ import {
 } from "../../ATranslation/compositionAPI/UtilsAPI";
 
 import AKeyBreadcrumbs from "../const/AKeyBreadcrumbs";
-import AKeyChildren from "../../const/AKeyChildren";
-import AKeyId from "../../const/AKeyId";
-import AKeyLabel from "../../const/AKeyLabel";
-import AKeyParent from "../../const/AKeyParent";
+import {
+  AKeyChildren,
+  AKeyId,
+  AKeyLabel,
+  AKeyParent,
+} from "../../const/AKeys";
 import {
   clone,
   cloneDeep,

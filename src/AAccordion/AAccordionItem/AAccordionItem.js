@@ -12,8 +12,10 @@ import ClassAPI from "./compositionAPI/ClassAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
-import AKeyId from "../../const/AKeyId";
 import ASafeHtml from "../../directives/ASafeHtml";
+import {
+  AKeyId,
+} from "../../const/AKeys";
 
 export default {
   name: "AAccordionItem",

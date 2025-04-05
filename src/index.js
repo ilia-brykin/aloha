@@ -214,6 +214,7 @@ export {
 export { default as EventBus } from "./utils/EventBus";
 export {
   dompurify,
+  extractTextFromHtml,
   getTotalNestedCount,
   isArrayOfArrays,
   isArrayOfStrings,
@@ -238,10 +239,13 @@ export {
   focusableList,
   focusableSelector,
 } from "./const/AFocusableElements";
-export { default as AKeyChildren } from "./const/AKeyChildren";
-export { default as AKeyId } from "./const/AKeyId";
-export { default as AKeyLabel } from "./const/AKeyLabel";
-export { default as AKeyParent } from "./const/AKeyParent";
+export {
+  AKeyChildren,
+  AKeyId,
+  AKeyLabel,
+  AKeyLabelSearch,
+  AKeyParent,
+} from "./const/AKeys";
 export { default as AKeysCode } from "./const/AKeysCode";
 export { default as APlacements } from "./const/placements";
 export {

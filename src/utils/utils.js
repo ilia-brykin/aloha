@@ -93,3 +93,24 @@ function _getTotalNestedCount({ array, keyChildren, count = 0 }) {
 
   return count;
 }
+
+/**
+ * Extracts visible text content from an HTML string, removing all tags.
+ *
+ * This function parses the input HTML using DOMParser and returns the plain
+ * text content, preserving only what would be visible to the user.
+ *
+ * @param {string} htmlString - A string containing HTML markup.
+ * @returns {string} The extracted plain text content.
+ *
+ * @example
+ * const html = '<div><strong>Hello</strong> <em>world</em>!</div>';
+ * const text = extractTextFromHtml(html);
+ * console.log(text); // "Hello world!"
+ */
+export function extractTextFromHtml(htmlString) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, "text/html");
+
+  return doc.body.textContent || "";
+}

@@ -7,6 +7,8 @@ import {
 import {
   AKeyId,
   AKeyLabel,
+  AKeyLabelSearch,
+  extractTextFromHtml,
   getTranslatedText,
   isArrayOfArrays,
   isPlaceholderTranslate,
@@ -30,6 +32,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   const keyId = toRef(props, "keyId");
   const keyLabel = toRef(props, "keyLabel");
   const keyLabelCallback = toRef(props, "keyLabelCallback");
+  const searchTextInHtml = toRef(props, "searchTextInHtml");
   const translateData = toRef(props, "translateData");
 
   const isDataPrepared = inject(AIsDataPreparedInjection, false);
@@ -39,6 +42,13 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   const isArrayOfArraysDataExtra = computed(() => {
     return isArrayOfArrays(dataExtra.value);
   });
+
+  const prepareDataLabelSearch = ({ _data }) => {
+    forEach(_data, item => {
+      item[AKeyLabelSearch] = extractTextFromHtml(item[AKeyLabel]);
+    });
+    return _data;
+  };
 
   const prepareData = ({ _data, _isArrayOfArrays = false }) => {
     if (isDataPrepared.value) {
@@ -116,17 +126,29 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   });
 
   const dataLocal = computed(() => {
-    return prepareData({
+    let _data = prepareData({
       _data: dataComputed.value,
       _isArrayOfArrays: false,
     });
+
+    if (searchTextInHtml.value) {
+      _data = prepareDataLabelSearch({ _data });
+    }
+
+    return _data;
   });
 
   const dataExtraLocal = computed(() => {
-    return prepareData({
+    let _data = prepareData({
       _data: dataExtra.value,
       _isArrayOfArrays: isArrayOfArraysDataExtra.value,
     });
+
+    if (searchTextInHtml.value) {
+      _data = prepareDataLabelSearch({ _data });
+    }
+
+    return _data;
   });
 
   const dataExtraKeyByKeyId = computed(() => {

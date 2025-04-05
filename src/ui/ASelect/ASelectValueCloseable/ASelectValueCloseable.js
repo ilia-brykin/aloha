@@ -3,13 +3,15 @@ import {
   h,
   toRef,
 } from "vue";
+import {
+  AElement,
+  AKeyId,
+  AKeyLabel,
+  ATranslation,
+} from "../../../index";
 
-import AIcon from "../../AIcon/AIcon";
-import ATranslation from "../../ATranslation/ATranslation";
-
-import AKeyId from "../../const/AKeyId";
-import AKeyLabel from "../../const/AKeyLabel";
 import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+
 
 export default {
   name: "ASelectValueCloseable",
@@ -80,20 +82,17 @@ export default {
         h(ATranslation, {
           alwaysTranslate: this.alwaysTranslate,
           tag: "span",
-          text: this.currentLabel,
+          html: this.currentLabel,
           extra: this.data.extra,
         }),
-      !this.hideDeleteButton && h("button", {
+      !this.hideDeleteButton && h(AElement, {
         class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
         type: "button",
         tabindex: -1,
+        iconLeft: XLg,
         disabled: this.disabled,
         onClick: this.closeModel,
-      }, [
-        h(AIcon, {
-          icon: XLg,
-        }),
-      ]),
+      }),
     ]);
   },
 };

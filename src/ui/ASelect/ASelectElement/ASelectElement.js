@@ -68,6 +68,10 @@ export default {
       type: Object,
       required: true,
     },
+    searchTextInHtml: {
+      type: Boolean,
+      required: false,
+    },
     showElementWennGroupFound: {
       type: Boolean,
       required: false,

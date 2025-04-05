@@ -4,8 +4,11 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../const/AKeyId";
-import AKeyLabel from "../../const/AKeyLabel";
+import {
+  AKeyId,
+  AKeyLabel,
+  AKeyLabelSearch,
+} from "../../const/AKeys";
 import {
   escapeRegExp,
   forEach,
@@ -26,9 +29,10 @@ export default function UiSearchAPI(props, { emit }, {
   onSearchInApi = () => {},
   searchApiLocal = computed(() => false),
 }) {
-  const searchTimeout = toRef(props, "searchTimeout");
   const searchInGroup = toRef(props, "searchInGroup");
   const searchOutside = toRef(props, "searchOutside");
+  const searchTextInHtml = toRef(props, "searchTextInHtml");
+  const searchTimeout = toRef(props, "searchTimeout");
 
   const hasAtLeastOneElementInGroupSearch = ref(false);
   const modelSearch = ref("");
@@ -75,7 +79,9 @@ export default function UiSearchAPI(props, { emit }, {
 
     forEach(groupsForLever.value, level => {
       forEach(level, group => {
-        const GROUP_LABEL = group.groupLabel;
+        const GROUP_LABEL = searchTextInHtml.value ?
+          group.groupLabelSearch :
+          group.groupLabel;
         if (GROUP_LABEL === "_not_grouped" &&
           !group.groupParentKey) {
           return;
@@ -116,7 +122,9 @@ export default function UiSearchAPI(props, { emit }, {
       if (hasKeyGroup.value) {
         setSearchingGroupsWithSearchInGroup();
         forEach(data.value, element => {
-          const ELEMENT_LABEL = element[AKeyLabel];
+          const ELEMENT_LABEL = searchTextInHtml.value ?
+            element[AKeyLabelSearch] :
+            element[AKeyLabel];
           const ELEMENT_ID = element[AKeyId];
           if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
             ELEMENTS_VISIBLE[ELEMENT_ID] = true;
@@ -133,7 +141,9 @@ export default function UiSearchAPI(props, { emit }, {
         });
       } else {
         forEach(data.value, element => {
-          const ELEMENT_LABEL = element[AKeyLabel];
+          const ELEMENT_LABEL = searchTextInHtml.value ?
+            element[AKeyLabelSearch] :
+            element[AKeyLabel];
           const ELEMENT_ID = element[AKeyId];
           if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
             ELEMENTS_VISIBLE[ELEMENT_ID] = true;
@@ -141,14 +151,18 @@ export default function UiSearchAPI(props, { emit }, {
         });
       }
       forEach(dataExtra.value, element => {
-        const ELEMENT_LABEL = element[AKeyLabel];
+        const ELEMENT_LABEL = searchTextInHtml.value ?
+          element[AKeyLabelSearch] :
+          element[AKeyLabel];
         const ELEMENT_ID = element[AKeyId];
         if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
           ELEMENTS_EXTRA_VISIBLE[ELEMENT_ID] = true;
         }
       });
       if (exclusiveOption.value) {
-        const ELEMENT_LABEL = exclusiveOption.value[AKeyLabel];
+        const ELEMENT_LABEL = searchTextInHtml.value ?
+          exclusiveOption.value[AKeyLabelSearch] :
+          exclusiveOption.value[AKeyLabel];
         const ELEMENT_ID = exclusiveOption.value[AKeyId];
         if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
           ELEMENTS_EXCLUSIVE_VISIBLE[ELEMENT_ID] = true;

@@ -1,0 +1,62 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_SEARCH_TEXT_IN_HTML_HEADER_"
+  description="_A_UI_GROUP_SEARCH_TEXT_IN_HTML_DESCRIPTION_"
+  :props="['search', 'search-text-in-html', 'key-title', 'key-title-callback']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-select(
+        v-model="model1"
+        :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        :search-in-group="true"
+        :search-text-in-html="true"
+        :search="true"
+        key-id="id"
+        key-label="label"
+        key-title="title"
+        label="Aloha group 1"
+        type="multiselect"
+      )
+      a-select(
+        v-model="model1"
+        :data="data"
+        :key-title-callback="keyTitleCallback"
+        :search-text-in-html="true"
+        :search="true"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        label="Aloha 1"
+        type="multiselect"
+      )
+      div model1: {{ model1 }}
+      a-select(
+        v-model="model2"
+        :data="data"
+        :key-group="['alohaBR', 'aloha']"
+        :search-in-group="true"
+        :search-text-in-html="true"
+        :search="true"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        key-title="title"
+        label="Aloha group 2"
+        type="select"
+      )
+      a-select(
+        v-model="model2"
+        :data="data"
+        :key-title-callback="keyTitleCallback"
+        :search-text-in-html="true"
+        :search="true"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        label="Aloha 2"
+        type="select"
+      )
+      div model2: {{ model2 }}

@@ -3,8 +3,10 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../const/AKeyId";
-import AKeyLabel from "../../const/AKeyLabel";
+import {
+  AKeyId,
+  AKeyLabel,
+} from "../../const/AKeys";
 
 export default function UiCheckboxRadioItemAPI(props) {
   const dataItem = toRef(props, "dataItem");

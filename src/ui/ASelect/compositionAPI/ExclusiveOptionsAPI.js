@@ -4,11 +4,18 @@ import {
 } from "vue";
 
 import {
+  extractTextFromHtml,
+} from "../../../utils/utils";
+
+import {
   getTranslatedText,
 } from "../../../ATranslation/compositionAPI/UtilsAPI";
 
-import AKeyId from "../../../const/AKeyId";
-import AKeyLabel from "../../../const/AKeyLabel";
+import {
+  AKeyId,
+  AKeyLabel,
+  AKeyLabelSearch,
+} from "../../../const/AKeys";
 import {
   keyBy,
 } from "lodash-es";
@@ -18,16 +25,24 @@ export default function ExclusiveOptionsAPI(props) {
   const exclusiveOptionValue = toRef(props, "exclusiveOptionValue");
   const extra = toRef(props, "extra");
   const isExclusiveOptionEnabled = toRef(props, "isExclusiveOptionEnabled");
+  const searchTextInHtml = toRef(props, "searchTextInHtml");
 
   const exclusiveOption = computed(() => {
     if (isExclusiveOptionEnabled.value) {
-      return {
+      const LABEL = getTranslatedText({
+        placeholder: exclusiveOptionLabel.value,
+        extra: extra.value,
+      });
+      const OPTIONS = {
         [AKeyId]: exclusiveOptionValue.value,
-        [AKeyLabel]: getTranslatedText({
-          placeholder: exclusiveOptionLabel.value,
-          extra: extra.value,
-        }),
+        [AKeyLabel]: LABEL,
       };
+
+      if (searchTextInHtml.value) {
+        OPTIONS[AKeyLabelSearch] = extractTextFromHtml(LABEL);
+      }
+
+      return OPTIONS;
     }
 
     return undefined;

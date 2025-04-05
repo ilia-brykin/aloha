@@ -5,8 +5,10 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../const/AKeyId";
-import AKeyParent from "../../const/AKeyParent";
+import {
+  AKeyId,
+  AKeyParent,
+} from "../../const/AKeys";
 import {
   forEach,
   isFunction,

@@ -3,7 +3,13 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../const/AKeyId";
+import {
+  extractTextFromHtml,
+} from "../../utils/utils";
+
+import {
+  AKeyId,
+} from "../../const/AKeys";
 import {
   cloneDeep,
   forEach,
@@ -21,6 +27,7 @@ export default function UIDataGroupAPI(props, {
 }) {
   const keyGroup = toRef(props, "keyGroup");
   const keyGroupLabelCallback = toRef(props, "keyGroupLabelCallback");
+  const searchTextInHtml = toRef(props, "searchTextInHtml");
   const sortOrderGroup = toRef(props, "sortOrderGroup");
 
   const keyGroupArray = computed(() => {
@@ -58,15 +65,21 @@ export default function UIDataGroupAPI(props, {
         }
         allGroupKeys += `${ allGroupKeys ? "_" : "" }${ group }`;
         if (!GROUPS_FOR_LEVER[leverIndex][allGroupKeys]) {
+          const GROUP_LABEL = isFunction(keyGroupLabelCallback.value) ?
+            keyGroupLabelCallback.value({ group: group, item }) :
+            group;
           GROUPS_FOR_LEVER[leverIndex][allGroupKeys] = {
             groupKey: group,
-            groupLabel: isFunction(keyGroupLabelCallback.value) ? keyGroupLabelCallback.value({ group: group, item }) : group,
+            groupLabel: GROUP_LABEL,
             groupParentKey: groupParentKey,
             allGroupKeys: allGroupKeys,
             allParentKeys: cloneDeep(allParentKeys),
             data: [],
             dataKeyByKeyId: {},
           };
+          if (searchTextInHtml.value) {
+            GROUPS_FOR_LEVER[leverIndex][allGroupKeys].groupLabelSearch = extractTextFromHtml(GROUP_LABEL);
+          }
         }
         GROUPS_FOR_LEVER[leverIndex][allGroupKeys].data.push(item);
         GROUPS_FOR_LEVER[leverIndex][allGroupKeys].dataKeyByKeyId[item[AKeyId]] = item;

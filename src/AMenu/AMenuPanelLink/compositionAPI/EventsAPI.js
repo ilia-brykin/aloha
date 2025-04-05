@@ -4,8 +4,10 @@ import {
   toRef,
 } from "vue";
 
-import AKeyParent from "../../../const/AKeyParent";
 import AKeysCode from "../../../const/AKeysCode";
+import {
+  AKeyParent,
+} from "../../../const/AKeys";
 
 export default function EventsAPI(props, {
   id = computed(() => undefined),

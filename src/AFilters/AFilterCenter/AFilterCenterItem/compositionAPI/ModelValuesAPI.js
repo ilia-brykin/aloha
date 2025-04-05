@@ -8,8 +8,10 @@ import {
   getTranslatedText,
 } from "../../../../ATranslation/compositionAPI/UtilsAPI";
 
-import AKeyLabel from "../../../../const/AKeyLabel";
 import TypesNumberRange from "../../../../ui/AInputNumberRange/utils/Types";
+import {
+  AKeyLabel,
+} from "../../../../const/AKeys";
 import {
   typesModelArray,
 } from "../../../../ui/const/AUiTypes";

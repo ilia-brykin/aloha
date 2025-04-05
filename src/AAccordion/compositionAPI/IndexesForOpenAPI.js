@@ -4,7 +4,9 @@ import {
   watch,
 } from "vue";
 
-import AKeyId from "../../const/AKeyId";
+import {
+  AKeyId,
+} from "../../const/AKeys";
 import {
   forEach,
   get,

@@ -4,7 +4,9 @@ import {
   toRef,
 } from "vue";
 
-import AKeyLabel from "../../../const/AKeyLabel";
+import {
+  AKeyLabel,
+} from "../../../const/AKeys";
 import {
   get,
 } from "lodash-es";

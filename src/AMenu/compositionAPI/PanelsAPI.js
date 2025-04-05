@@ -8,7 +8,9 @@ import {
   setFocusToFirstLinkInPanel,
 } from "../utils/utils";
 
-import AKeyParent from "../../const/AKeyParent";
+import {
+  AKeyParent,
+} from "../../const/AKeys";
 import {
   last,
 } from "lodash-es";

@@ -41,6 +41,7 @@ export const AMultiselectOrderedPluginOptions = {
     searchApiKey: undefined,
     searchInGroup: false,
     searchOutside: false,
+    searchTextInHtml: false,
     searchTimeout: 0,
     selectButtonClass: undefined,
     selectButtonClassDefault: "a_form_control a_select_toggle",

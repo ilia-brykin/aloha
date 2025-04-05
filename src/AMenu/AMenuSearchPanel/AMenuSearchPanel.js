@@ -9,7 +9,9 @@ import ATranslation from "../../ATranslation/ATranslation";
 import NoneFoundAPI from "./compositionAPI/NoneFoundAPI";
 import TextAPI from "./compositionAPI/TextAPI";
 
-import AKeyId from "../../const/AKeyId";
+import {
+  AKeyId,
+} from "../../const/AKeys";
 
 export default {
   name: "AMenuSearchPanel",

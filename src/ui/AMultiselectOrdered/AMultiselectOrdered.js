@@ -24,6 +24,7 @@ import {
 } from "../../index";
 
 import AMultiselectOrderedItem from "./AMultiselectOrderedItem/AMultiselectOrderedItem";
+import ASelectLabelElement from "../ASelect/ASelectLabelElement/ASelectLabelElement";
 
 import AllAPI from "./compositionAPI/AllAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
@@ -31,7 +32,6 @@ import DataAPI from "./compositionAPI/DataAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
 
-import ASelectLabelElement from "../ASelect/ASelectLabelElement";
 import {
   AIsDataPreparedInjection,
 } from "../const/UiInjectionKeys";
@@ -306,6 +306,10 @@ export default {
       type: Boolean,
       required: false,
       default: () => AMultiselectOrderedPluginOptions.propsDefault.searchOutside,
+    },
+    searchTextInHtml: {
+      type: Boolean,
+      required: () => AMultiselectOrderedPluginOptions.propsDefault.searchTextInHtml,
     },
     searchTimeout: {
       type: Number,
@@ -798,6 +802,7 @@ export default {
               search: this.search,
               searchInGroup: this.searchInGroup,
               searchTimeout: this.searchTimeout,
+              searchTextInHtml: this.searchTextInHtml,
               selectMenuClass: this.selectMenuClass,
               slotName: this.slotName,
               type: "multiselect",

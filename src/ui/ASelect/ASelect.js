@@ -32,6 +32,8 @@ import {
 } from "../../index";
 
 import ASelectElement from "./ASelectElement/ASelectElement";
+import ASelectLabelElement from "./ASelectLabelElement/ASelectLabelElement";
+import ASelectValueCloseable from "./ASelectValueCloseable/ASelectValueCloseable";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
@@ -43,8 +45,6 @@ import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI
 import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
-import ASelectLabelElement from "./ASelectLabelElement";
-import ASelectValueCloseable from "./ASelectValueCloseable";
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
 import Search from "aloha-svg/dist/js/bootstrap/Search";
 import XLg from "aloha-svg/dist/js/bootstrap/XLg";
@@ -277,6 +277,16 @@ export default {
       required: false,
       default: undefined,
     },
+    keyTitle: {
+      type: String,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.keyTitle,
+    },
+    keyTitleCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     label: {
       type: [String, Number],
       required: false,
@@ -382,6 +392,11 @@ export default {
       type: Boolean,
       required: false,
       default: () => ASelectPluginOptions.propsDefault.searchOutside,
+    },
+    searchTextInHtml: {
+      type: Boolean,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.searchTextInHtml,
     },
     searchTimeout: {
       type: Number,
@@ -1033,12 +1048,13 @@ export default {
                           alwaysTranslate: true,
                           dataItem: this.exclusiveOption,
                           disabled: false,
-                          searching: this.searching,
                           itemIndex: 0,
                           modelSearch: this.modelSearchLowerCase,
                           modelValue: this.modelValue,
+                          searching: this.searching,
                           searchingElements: this.searchingElementsExclusive,
                           searchingGroups: this.searchingGroups,
+                          searchTextInHtml: this.searchTextInHtml,
                           type: this.type,
                           onChangeModelValue: this.onChangeModelValue,
                         }, this.$slots),
@@ -1053,6 +1069,7 @@ export default {
                             disabled: this.disabledLocal,
                             searching: this.searching,
                             searchingElements: this.searchingElementsExtra,
+                            searchTextInHtml: this.searchTextInHtml,
                             itemIndex: this.isExclusiveOptionEnabled ? itemIndex + 1 : itemIndex,
                             keyDisabled: this.keyDisabled,
                             keyDisabledCallback: this.keyDisabledCallback,
@@ -1086,6 +1103,7 @@ export default {
                             searchingElements: this.searchingElements,
                             searchingGroups: this.searchingGroups,
                             searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
+                            searchTextInHtml: this.searchTextInHtml,
                             slotName: this.slotName,
                             type: this.type,
                             onChangeModelValue: this.onChangeModelValue,
@@ -1100,13 +1118,14 @@ export default {
                                 alwaysTranslate: this.alwaysTranslate,
                                 dataItem: item,
                                 disabled: this.disabledLocal,
-                                searching: this.searching,
-                                searchingElements: this.searchingElements,
                                 itemIndex,
                                 keyDisabled: this.keyDisabled,
                                 keyDisabledCallback: this.keyDisabledCallback,
                                 modelSearch: this.modelSearchLowerCase,
                                 modelValue: this.modelValue,
+                                searching: this.searching,
+                                searchingElements: this.searchingElements,
+                                searchTextInHtml: this.searchTextInHtml,
                                 slotName: this.slotName,
                                 type: this.type,
                                 onChangeModelValue: this.onChangeModelValue,

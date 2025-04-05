@@ -3,8 +3,10 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../../../const/AKeyId";
 import AKeysCode from "../../../../const/AKeysCode";
+import {
+  AKeyId,
+} from "../../../../const/AKeys";
 import {
   filter,
   forEach,

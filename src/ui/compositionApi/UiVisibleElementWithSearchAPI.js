@@ -13,6 +13,7 @@ export default function UiVisibleElementWithSearchAPI(props, {
   const modelSearch = toRef(props, "modelSearch");
   const searching = toRef(props, "searching");
   const searchingElements = toRef(props, "searchingElements");
+  const searchTextInHtml = toRef(props, "searchTextInHtml");
   const showElementWennGroupFound = toRef(props, "showElementWennGroupFound");
 
   const {
@@ -28,7 +29,10 @@ export default function UiVisibleElementWithSearchAPI(props, {
     if (isHiddenWithSearchLocal.value) {
       return labelLocal.value;
     }
-    return filterSearchHighlight(labelLocal.value, { searchModel: modelSearch.value });
+    return filterSearchHighlight(labelLocal.value, {
+      searchModel: modelSearch.value,
+      isHtml: searchTextInHtml.value,
+    });
   });
 
   const styleWithSearch = computed(() => {

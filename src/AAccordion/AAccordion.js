@@ -9,7 +9,9 @@ import DataAPI from "./compositionAPI/DataAPI";
 import IndexesForOpenAPI from "./compositionAPI/IndexesForOpenAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
-import AKeyId from "../const/AKeyId";
+import {
+  AKeyId,
+} from "../const/AKeys";
 import {
   uniqueId,
 } from "lodash-es";

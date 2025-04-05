@@ -5,7 +5,10 @@ import {
 
 import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
 
-import AKeyLabel from "../../../const/AKeyLabel";
+import {
+  AKeyLabel,
+} from "../../../const/AKeys";
+
 
 export default function LabelAPI(props) {
   const isLinkInSearchPanel = toRef(props, "isLinkInSearchPanel");

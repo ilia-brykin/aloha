@@ -5,10 +5,10 @@ import {
   AElement,
 } from "../../../index";
 
+import ASelectLabelElement from "../../ASelect/ASelectLabelElement/ASelectLabelElement";
+
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
-
-import ASelectLabelElement from "../../ASelect/ASelectLabelElement";
 
 export default {
   name: "AMultiselectOrderedItem",
