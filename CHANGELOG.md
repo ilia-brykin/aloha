@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.8.2
+
+- Fix buttons ids in `ATableTdAction`
+
 ## 2.8.1
 
 - Fix `//` in `AHttpAPI` 
