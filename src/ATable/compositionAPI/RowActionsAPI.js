@@ -337,9 +337,9 @@ export default function RowActionsAPI(props) {
             });
           }
           replacePropertiesByRowAction(rowAction);
+          rowActionIndexVisible++;
         }
 
-        rowActionIndexVisible++;
         ROW_ACTIONS.push(rowAction);
       }
     });
