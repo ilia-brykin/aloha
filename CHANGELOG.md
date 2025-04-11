@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.8.3
+
+- Fix model update in `AFilters`
+
 ## 2.8.2
 
 - Fix buttons ids in `ATableTdAction`

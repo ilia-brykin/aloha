@@ -26195,10 +26195,10 @@ function F1(e, {
   return {
     onUpdateModelFiltersLocal: (o) => {
       if (t.value)
-        r.value({ model: o });
+        r.value({ fullModel: o });
       else {
         const u = he(s.value);
-        u[n.value.id] = he(o), r.value({ model: u });
+        u[n.value.id] = he(o), r.value({ fullModel: u });
       }
     }
   };
@@ -27164,16 +27164,16 @@ function cq(e, {
       }
       if ((I == null ? void 0 : I.label) === i || g) {
         s.value({
-          model: {},
+          fullModel: {},
           isUpdateFiltersVisible: !0
         }), u.value = i;
         return;
       }
       v ? (u.value = v, I && (s.value({
-        model: I.data || {},
+        fullModel: I.data || {},
         isUpdateFiltersVisible: !0
       }), t())) : I && (s.value({
-        model: I.data || {},
+        fullModel: I.data || {},
         isUpdateFiltersVisible: !0
       }), t());
     },
