@@ -58,7 +58,7 @@ export default function FiltersSaveAPI(props, {
 
     if (item?.label === NEW_FILTER_LABEL || isDelete) {
       onUpdateModelFilters.value({
-        model: {},
+        fullModel: {},
         isUpdateFiltersVisible: true,
       });
       modelFiltersSaved.value = NEW_FILTER_LABEL;
@@ -69,14 +69,14 @@ export default function FiltersSaveAPI(props, {
       modelFiltersSaved.value = model;
       if (item) {
         onUpdateModelFilters.value({
-          model: item.data || {},
+          fullModel: item.data || {},
           isUpdateFiltersVisible: true,
         });
         openDropdown();
       }
     } else if (item) {
       onUpdateModelFilters.value({
-        model: item.data || {},
+        fullModel: item.data || {},
         isUpdateFiltersVisible: true,
       });
       openDropdown();

@@ -16,11 +16,11 @@ export default function ModelAPI(props, {
 
   const onUpdateModelFiltersLocal = model => {
     if (isContainer.value) {
-      onUpdateModelFilters.value({ model });
+      onUpdateModelFilters.value({ fullModel: model });
     } else {
       const UNAPPLIED_MODEL = cloneDeep(unappliedModel.value);
       UNAPPLIED_MODEL[filter.value.id] = cloneDeep(model);
-      onUpdateModelFilters.value({ model: UNAPPLIED_MODEL });
+      onUpdateModelFilters.value({ fullModel: UNAPPLIED_MODEL });
     }
   };
 
