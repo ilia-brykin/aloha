@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.9.0
+
+- Added `.column_offset_right_*` classes to grid utilities for right column offsets with dynamic margin-right
+  calculations
+
 ## 2.8.4
 
 - `ADatePicker`: Added customizable class prop and fixed `SCSS` indentation
