@@ -53,6 +53,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    class: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     clearable: {
       type: Boolean,
       default: true,
@@ -503,7 +508,10 @@ export default {
 
     return h("div", {
       ...this.$attrs,
-      class: "a_form_element__container",
+      class: [
+        this.class,
+        "a_form_element__container",
+      ],
       style: this.componentStyleHide,
       ...this.attributesToExcludeFromRender,
     }, [
