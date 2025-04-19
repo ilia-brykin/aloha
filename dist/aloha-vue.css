@@ -8171,8 +8171,7 @@ h6 {
 .pux_datepicker__input_wrapper:hover .pux_datepicker__input_wrapper__clear_wrapper + .pux_datepicker__input_wrapper__append {
   display: none;
 }
-
-.pux_datepicker__input {
+.pux_datepicker__input_wrapper .pux_datepicker__input {
   padding-right: 27px;
 }
 

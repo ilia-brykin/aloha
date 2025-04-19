@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.8.4
+
+- `ADatePicker`: Added customizable class prop and fixed `SCSS` indentation
+
 ## 2.8.3
 
 - Fix model update in `AFilters`
