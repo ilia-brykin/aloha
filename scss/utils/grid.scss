@@ -83,6 +83,13 @@ $a_breakpoints_grid: funktions.prepend(breakpoint.$a_breakpoints, (class: null))
           margin-left: calc(100% / var(--#{aloha.$aloha-prefix}column_count) * #{$i});
         }
       }
+      .#{aloha.$aloha-prefix}column_offset_right_#{$i}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
+        @if $i == 0 {
+          margin-right: 0;
+        } @else {
+          margin-right: calc(100% / var(--#{aloha.$aloha-prefix}column_count) * #{$i});
+        }
+      }
     }
   }
 }
