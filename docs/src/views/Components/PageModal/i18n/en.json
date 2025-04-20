@@ -7,6 +7,8 @@
   "_A_MODAL_GROUP_CLOSE_BUTTON_HEADER_": "Customizing the Close Button",
   "_A_MODAL_GROUP_FOOTER_STICKY_DESCRIPTION_": "Example of a modal window with a footer fixed at the bottom that remains in place as the content scrolls.",
   "_A_MODAL_GROUP_FOOTER_STICKY_HEADER_": "Modal Window with Sticky Footer",
+  "_A_MODAL_GROUP_IN_MODAL_DESCRIPTION_": "This example demonstrates the ability to open one modal window inside another. All modals can be correctly stacked by <strong lang=\"en\">z-index</strong> and function independently of each other.",
+  "_A_MODAL_GROUP_IN_MODAL_HEADER_": "Modal inside a modal",
   "_A_MODAL_GROUP_SAVE_BUTTON_DESCRIPTION_": "<p>This example demonstrates various options for customizing the save button.</p><p>Here, the props <strong>save</strong>, <strong>save-button-attributes</strong>, <strong>save-button-class</strong>, and <strong>save-button-id</strong> are used to customize the save button. The save button is given a custom text tag, custom classes, and a custom ID.</p>",
   "_A_MODAL_GROUP_SAVE_BUTTON_HEADER_": "Customizing the Save Button",
   "_A_MODAL_GROUP_SELECTOR_CLOSE_DESCRIPTION_": "<p>This example demonstrates the use of <strong>selector-close</strong> to set focus on specific elements after closing the modal.</p><p>Focus is set to the elements with IDs 'btn_aloha' and 'btn_open_modal' after closing the modal. This helps to maintain focus in the browser.</p>",

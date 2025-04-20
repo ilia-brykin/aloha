@@ -7,6 +7,8 @@
   "_A_MODAL_GROUP_CLOSE_BUTTON_HEADER_": "Personnalisation du Bouton de Fermeture",
   "_A_MODAL_GROUP_FOOTER_STICKY_DESCRIPTION_": "Exemple de fenêtre modale avec un pied de page fixé en bas qui reste en place lors du défilement du contenu.",
   "_A_MODAL_GROUP_FOOTER_STICKY_HEADER_": "Fenêtre modale avec pied de page fixe",
+  "_A_MODAL_GROUP_IN_MODAL_DESCRIPTION_": "Cet exemple démontre la possibilité d’ouvrir une fenêtre modale à l’intérieur d’une autre. Toutes les modales peuvent être correctement empilées grâce au <strong lang=\"en\">z-index</strong> et fonctionner indépendamment les unes des autres.",
+  "_A_MODAL_GROUP_IN_MODAL_HEADER_": "Modale dans une modale",
   "_A_MODAL_GROUP_SAVE_BUTTON_DESCRIPTION_": "<p>Cet exemple présente diverses options de personnalisation du bouton de sauvegarde.</p><p>Ici, les propriétés <strong>save</strong>, <strong>save-button-attributes</strong>, <strong>save-button-class</strong> et <strong>save-button-id</strong> sont utilisées pour personnaliser le bouton de sauvegarde. Le bouton de sauvegarde reçoit une étiquette de texte personnalisée, des classes personnalisées et un ID personnalisé.</p>",
   "_A_MODAL_GROUP_SAVE_BUTTON_HEADER_": "Personnalisation du Bouton de Sauvegarde",
   "_A_MODAL_GROUP_SELECTOR_CLOSE_DESCRIPTION_": "<p>Cet exemple montre l'utilisation de <strong>selector-close</strong> pour définir le focus sur des éléments spécifiques après la fermeture de la fenêtre modale.</p><p>Le focus est défini sur les éléments ayant les ID 'btn_aloha' et 'btn_open_modal' après la fermeture de la fenêtre modale. Cela contribue à maintenir le focus dans le navigateur.</p>",

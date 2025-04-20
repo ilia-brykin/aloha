@@ -15,7 +15,7 @@ export default function ZIndexAPI(props) {
 
     if (zIndex.value) {
       STYLES["--a_modal_zindex"] = zIndex.value;
-    } else if (countOpenedModals.value > 2) {
+    } else if (countOpenedModals.value > 1) {
       STYLES["--a_modal_zindex"] = 1055 + countOpenedModals.value - 1;
     }
 
@@ -27,8 +27,8 @@ export default function ZIndexAPI(props) {
 
     if (backdropZIndex.value) {
       STYLES["--a__backdrop_zindex"] = backdropZIndex.value;
-    } else if (countOpenedModals.value > 2) {
-      STYLES["--a__backdrop_zindex"] = 1050 + countOpenedModals.value - 1;
+    } else if (countOpenedModals.value > 1) {
+      STYLES["--a__backdrop_zindex"] = 1054 + countOpenedModals.value - 1;
     }
 
     return STYLES;

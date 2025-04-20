@@ -7,6 +7,8 @@
   "_A_MODAL_GROUP_CLOSE_BUTTON_HEADER_": "Anpassung des Schließen-Buttons",
   "_A_MODAL_GROUP_FOOTER_STICKY_DESCRIPTION_": "Beispiel für ein modales Fenster mit fixiertem Fußbereich, der beim Scrollen des Inhalts an Ort und Stelle bleibt.",
   "_A_MODAL_GROUP_FOOTER_STICKY_HEADER_": "Modales Fenster mit fixiertem Fußbereich",
+  "_A_MODAL_GROUP_IN_MODAL_DESCRIPTION_": "Dieses Beispiel zeigt die Möglichkeit, ein modales Fenster innerhalb eines anderen zu öffnen. Alle modalen Fenster können korrekt über den <strong lang=\"en\">z-index</strong> gestapelt werden und unabhängig voneinander funktionieren.",
+  "_A_MODAL_GROUP_IN_MODAL_HEADER_": "Modales Fenster im modalen Fenster",
   "_A_MODAL_GROUP_SAVE_BUTTON_DESCRIPTION_": "<p>In diesem Beispiel werden die verschiedenen Optionen für die Anpassung des Speichern-Buttons veranschaulicht.</p><p>Hier werden die Props <strong>save</strong>, <strong>save-button-attributes</strong>, <strong>save-button-class</strong> und <strong>save-button-id</strong> verwendet, um den Speichern-Button anzupassen. Der Speichern-Button erhält ein benutzerdefiniertes Text-Tag, benutzerdefinierte Klassen und eine benutzerdefinierte ID.</p>",
   "_A_MODAL_GROUP_SAVE_BUTTON_HEADER_": "Anpassung des Speichern-Buttons",
   "_A_MODAL_GROUP_SELECTOR_CLOSE_DESCRIPTION_": "<p>In diesem Beispiel wird die Verwendung von <strong>selector-close</strong> demonstriert, um den Fokus nach dem Schließen des Modals auf bestimmte Elemente zu setzen.</p><p>Der Fokus wird nach dem Schließen des Modals auf die Elemente mit den IDs 'btn_aloha' und 'btn_open_modal' gesetzt. Dies hilft, den Fokus im Browser nicht zu verlieren.</p>",

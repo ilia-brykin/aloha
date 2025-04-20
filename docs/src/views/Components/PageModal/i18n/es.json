@@ -7,6 +7,8 @@
   "_A_MODAL_GROUP_CLOSE_BUTTON_HEADER_": "Personalización del Botón de Cierre",
   "_A_MODAL_GROUP_FOOTER_STICKY_DESCRIPTION_": "Ejemplo de una ventana modal con un pie de página fijado en la parte inferior que permanece en su lugar mientras se desplaza el contenido.",
   "_A_MODAL_GROUP_FOOTER_STICKY_HEADER_": "Ventana Modal con Pie de Página Fijo",
+  "_A_MODAL_GROUP_IN_MODAL_DESCRIPTION_": "Este ejemplo demuestra la capacidad de abrir una ventana modal dentro de otra. Todas las ventanas modales pueden apilarse correctamente mediante <strong lang=\"en\">z-index</strong> y funcionar de forma independiente entre sí.",
+  "_A_MODAL_GROUP_IN_MODAL_HEADER_": "Modal dentro de un modal",
   "_A_MODAL_GROUP_SAVE_BUTTON_DESCRIPTION_": "<p>Este ejemplo demuestra diversas opciones para personalizar el botón de guardar.</p><p>Aquí, se utilizan las propiedades <strong>save</strong>, <strong>save-button-attributes</strong>, <strong>save-button-class</strong> y <strong>save-button-id</strong> para personalizar el botón de guardar. Se le asigna un texto personalizado, clases personalizadas y un ID personalizado.</p>",
   "_A_MODAL_GROUP_SAVE_BUTTON_HEADER_": "Personalización del Botón de Guardar",
   "_A_MODAL_GROUP_SELECTOR_CLOSE_DESCRIPTION_": "<p>Este ejemplo demuestra el uso de <strong>selector-close</strong> para establecer el enfoque en elementos específicos después de cerrar la ventana modal.</p><p>Se establece el enfoque en los elementos con los ID 'btn_aloha' y 'btn_open_modal' después de cerrar la ventana modal. Esto ayuda a mantener el enfoque en el navegador.</p>",

@@ -7,6 +7,8 @@
   "_A_MODAL_GROUP_CLOSE_BUTTON_HEADER_": "تخصيص زر الإغلاق",
   "_A_MODAL_GROUP_FOOTER_STICKY_DESCRIPTION_": "مثال على نافذة حوارية مع تذييل مثبت في الأسفل يبقى في مكانه أثناء تمرير المحتوى.",
   "_A_MODAL_GROUP_FOOTER_STICKY_HEADER_": "نافذة حوارية مع تذييل مثبت",
+  "_A_MODAL_GROUP_IN_MODAL_DESCRIPTION_": "يوضح هذا المثال إمكانية فتح نافذة منبثقة داخل نافذة منبثقة أخرى. يمكن ترتيب جميع النوافذ المنبثقة بشكل صحيح باستخدام <strong lang=\"en\">z-index</strong> والعمل بشكل مستقل عن بعضها البعض.",
+  "_A_MODAL_GROUP_IN_MODAL_HEADER_": "نافذة منبثقة داخل نافذة منبثقة",
   "_A_MODAL_GROUP_SAVE_BUTTON_DESCRIPTION_": "<p>تُظهر هذه النموذج الخيارات المتنوعة لتخصيص زر الحفظ.</p><p>هنا، تُستخدم الخصائص <strong>save</strong>، <strong>save-button-attributes</strong>، <strong>save-button-class</strong>، و <strong>save-button-id</strong> لتخصيص زر الحفظ. يُعطى الزر الحفظ علامة نص مخصصة وفئات مخصصة ومعرف مخصص.</p>",
   "_A_MODAL_GROUP_SAVE_BUTTON_HEADER_": "تخصيص زر الحفظ",
   "_A_MODAL_GROUP_SELECTOR_CLOSE_DESCRIPTION_": "<p>تُظهر هذه النموذج استخدام <strong>selector-close</strong> لتحديد التركيز على عناصر معينة بعد إغلاق العرض المودال.</p><p>يتم تعيين التركيز على العناصر ذات المعرفات 'btn_aloha' و 'btn_open_modal' بعد إغلاق العرض المودال. يساعد ذلك في الحفاظ على التركيز في المستعرض.</p>",

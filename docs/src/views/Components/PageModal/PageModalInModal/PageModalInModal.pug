@@ -1,0 +1,32 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_MODAL_GROUP_IN_MODAL_HEADER_"
+  description="_A_MODAL_GROUP_IN_MODAL_DESCRIPTION_"
+)
+  a-button(
+    class="a_btn a_btn_primary"
+    text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+    @click="openModal"
+  )
+
+  a-modal(
+    v-if="isModalVisible"
+    :close="closeModal"
+    header-text="Modal 1"
+    size="xl"
+  )
+    template(
+      v-slot:modalBody
+    )
+      a-button(
+        class="a_btn a_btn_primary"
+        text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+        @click="openModal2"
+      )
+
+  a-modal(
+    v-if="isModal2Visible"
+    :close="closeModal2"
+    header-text="Modal 2"
+  )
