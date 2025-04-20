@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.9.1
+
+- `AModal`: added "modal inside a modal" feature with proper `z-index` stacking support
+
 ## 2.9.0
 
 - Added `.column_offset_right_*` classes to grid utilities for right column offsets with dynamic margin-right

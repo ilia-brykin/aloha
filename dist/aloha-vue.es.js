@@ -32583,10 +32583,10 @@ function nU(e) {
 function rU(e) {
   const t = d(e, "backdropZIndex"), n = d(e, "zIndex"), r = B(0), s = _(() => {
     const u = {};
-    return n.value ? u["--a_modal_zindex"] = n.value : r.value > 2 && (u["--a_modal_zindex"] = 1055 + r.value - 1), u;
+    return n.value ? u["--a_modal_zindex"] = n.value : r.value > 1 && (u["--a_modal_zindex"] = 1055 + r.value - 1), u;
   }), i = _(() => {
     const u = {};
-    return t.value ? u["--a__backdrop_zindex"] = t.value : r.value > 2 && (u["--a__backdrop_zindex"] = 1050 + r.value - 1), u;
+    return t.value ? u["--a__backdrop_zindex"] = t.value : r.value > 1 && (u["--a__backdrop_zindex"] = 1054 + r.value - 1), u;
   });
   return {
     checkOpenedModals: () => {
