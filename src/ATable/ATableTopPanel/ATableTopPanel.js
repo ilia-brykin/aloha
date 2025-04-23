@@ -238,11 +238,11 @@ export default {
         class: "a_table__top_panel",
       }, [
         this.isLabelVisible ?
-          this.$slots.tableLabel
-? this.$slots.tableLabel({
-  countAllRows: this.countAllRows,
-  tableLabelId: this.tableLabelId,
-}) :
+          this.$slots.tableLabel ?
+            this.$slots.tableLabel({
+              countAllRows: this.countAllRows,
+              tableLabelId: this.tableLabelId,
+            }) :
             h(this.labelTag, {
               class: ["a_table__top_panel__label", this.labelClass],
             }, [
@@ -253,20 +253,20 @@ export default {
                 text: this.label,
                 extra: this.extra,
               }),
-              this.showCount
-? h(AElement, {
-  class: "a_table__top_panel__label__count",
-  extra: {
-    count: this.countAllRows,
-  },
-  tag: "span",
-  text: this.countAllRowsFormatted,
-  textAriaHidden: true,
-  textScreenReader: "_A_TABLE_ALL_ROWS_{{count}}_",
-  title: "_A_TABLE_ALL_ROWS_{{count}}_",
-  type: "text",
-})
-: "",
+              this.showCount ?
+                h(AElement, {
+                  class: "a_table__top_panel__label__count",
+                  extra: {
+                    count: this.countAllRows,
+                  },
+                  tag: "span",
+                  text: this.countAllRowsFormatted,
+                  textAriaHidden: true,
+                  textScreenReader: "_A_TABLE_ALL_ROWS_{{count}}_",
+                  title: "_A_TABLE_ALL_ROWS_{{count}}_",
+                  type: "text",
+                }) :
+                "",
             ]) :
           "",
         h("div", {
@@ -359,72 +359,74 @@ export default {
             "",
         ]),
       ]),
-      this.isMultipleActionsActive && h("div", {
-        id: this.multiplePanelId,
-        class: "a_table__multiple_panel",
-      }, [
+      (this.isMultipleActionsActive && this.currentMultipleActions) ?
         h("div", {
-          class: "a_table__multiple_panel__header",
+          id: this.multiplePanelId,
+          class: "a_table__multiple_panel",
         }, [
-          h(ATranslation, {
-            class: "a_table__multiple_panel__header__text",
-            tag: "strong",
-            text: "_A_TABLE_MULTIPLE_ACTIONS_",
-          }),
           h("div", {
-            class: "a_table__multiple_panel__items",
+            class: "a_table__multiple_panel__header",
           }, [
             h(ATranslation, {
-              class: "a_table__multiple_panel__items__selected",
-              tag: "span",
-              text: "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_{{countSelectedRowsFiltered}}_{{countAllRowsFiltered}}_",
-              extra: this.textMultipleSelectedTranslateExtra,
+              class: "a_table__multiple_panel__header__text",
+              tag: "strong",
+              text: "_A_TABLE_MULTIPLE_ACTIONS_",
             }),
-            this.currentMultipleActions.isAllRowsSelected &&
+            h("div", {
+              class: "a_table__multiple_panel__items",
+            }, [
+              h(ATranslation, {
+                class: "a_table__multiple_panel__items__selected",
+                tag: "span",
+                text: "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_{{countSelectedRowsFiltered}}_{{countAllRowsFiltered}}_",
+                extra: this.textMultipleSelectedTranslateExtra,
+              }),
+              this.currentMultipleActions?.isAllRowsSelected &&
+              h(AButton, {
+                class: "a_btn a_btn_secondary a_table__multiple_panel__btn_all_rows",
+                type: "button",
+                text: this.textMultipleBtnAllRowsTranslate,
+                extra: this.textMultipleSelectedTranslateExtra,
+                disabled: this.isBtnSelectAllRowsDisabled || this.disabledMultipleActions,
+                loading: this.isLoadingMultipleActions,
+                onClick: this.toggleBtnAllRows,
+              }),
+            ]),
+          ]),
+          h("div", {
+            class: "a_table__multiple_panel__actions",
+          }, [
+            this.currentMultipleActions?.slot && this.$slots.multipleActionActiveSlot ?
+              this.$slots.multipleActionActiveSlot({
+                disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
+                loading: this.isLoadingMultipleActions,
+                text: this.currentMultipleActions?.text,
+                action: this.currentMultipleActions,
+                onClick: this.onOpenModalMultipleActions,
+                close: this.closeMultipleActionsActive,
+                rows: this.selectedRows,
+                rowsVisible: this.rowsLocalAll,
+                id: this.buttonMultipleId,
+                areAllRowsSelected: this.areAllRowsSelected,
+              }) :
+              h(AButton, {
+                class: "a_btn a_btn_primary a_table__action",
+                type: "button",
+                disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
+                text: this.currentMultipleActions?.text,
+                loading: this.isLoadingMultipleActions,
+                loadingAlign: "left",
+                onClick: this.onOpenModalMultipleActions,
+              }),
             h(AButton, {
-              class: "a_btn a_btn_secondary a_table__multiple_panel__btn_all_rows",
+              class: "a_btn a_btn_secondary a_table__action",
               type: "button",
-              text: this.textMultipleBtnAllRowsTranslate,
-              extra: this.textMultipleSelectedTranslateExtra,
-              disabled: this.isBtnSelectAllRowsDisabled || this.disabledMultipleActions,
-              loading: this.isLoadingMultipleActions,
-              onClick: this.toggleBtnAllRows,
+              text: "_A_TABLE_MULTIPLE_CANCEL_",
+              onClick: this.onCancelMultipleActions,
             }),
           ]),
-        ]),
-        h("div", {
-          class: "a_table__multiple_panel__actions",
-        }, [
-          this.currentMultipleActions.slot && this.$slots.multipleActionActiveSlot ?
-            this.$slots.multipleActionActiveSlot({
-              disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
-              loading: this.isLoadingMultipleActions,
-              text: this.currentMultipleActions.text,
-              action: this.currentMultipleActions,
-              onClick: this.onOpenModalMultipleActions,
-              close: this.closeMultipleActionsActive,
-              rows: this.selectedRows,
-              rowsVisible: this.rowsLocalAll,
-              id: this.buttonMultipleId,
-              areAllRowsSelected: this.areAllRowsSelected,
-            }) :
-            h(AButton, {
-              class: "a_btn a_btn_primary a_table__action",
-              type: "button",
-              disabled: this.isBtnMultipleActionDisabled || this.isLoadingMultipleActions || this.disabledMultipleActions,
-              text: this.currentMultipleActions.text,
-              loading: this.isLoadingMultipleActions,
-              loadingAlign: "left",
-              onClick: this.onOpenModalMultipleActions,
-            }),
-          h(AButton, {
-            class: "a_btn a_btn_secondary a_table__action",
-            type: "button",
-            text: "_A_TABLE_MULTIPLE_CANCEL_",
-            onClick: this.onCancelMultipleActions,
-          }),
-        ]),
-      ]),
+        ]) :
+        "",
     ];
   },
 };
