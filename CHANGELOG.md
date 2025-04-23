@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.9.2
+
+- `ATableTopPanel`: fix `currentMultipleActions`
+
 ## 2.9.1
 
 - `AModal`: added "modal inside a modal" feature with proper `z-index` stacking support
