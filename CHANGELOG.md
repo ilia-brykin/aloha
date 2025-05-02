@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.10.0
+
+- Add utility classes for vertical alignment
+
 ## 2.9.2
 
 - `ATableTopPanel`: fix `currentMultipleActions`
