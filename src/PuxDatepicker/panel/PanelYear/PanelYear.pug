@@ -1,0 +1,16 @@
+ul.pux_datepicker__panel.pux_datepicker__panel_year.pux_datepicker__panel__list(
+  role="listbox"
+  :aria-labelledby="idForHeader"
+  v-bind="attributesForMainElement"
+)
+  panel-year-item(
+    v-for="(e, index) in 10"
+    :key="index"
+    :class="{ pux_datepicker__panel__cell_focus: index === yearIndexForFocus }"
+    :year="firstYearLocal + index"
+    :year-from-value="yearFromValue"
+    :year-index="index"
+    :prefix-for-id="prefixForId"
+    :is-disabled="isDisabled"
+    @selectYear="selectYear"
+  )
