@@ -1,0 +1,16 @@
+ul.pux_datepicker__panel.pux_datepicker__panel_month.pux_datepicker__panel__list(
+  role="listbox"
+  :aria-labelledby="idForHeader"
+  v-bind="attributesForMainElement"
+)
+  li.cell(
+    v-for="(month, monthIndex) in months"
+    :id="month.id"
+    :key="month.id"
+    :class="{ actived: month.isActive, disabled: month.isDisabled, pux_datepicker__panel__cell_focus: monthIndex === monthIndexForFocus }"
+    role="option"
+    :aria-selected="month.isActive ? 'true' : 'false'"
+    tabindex="-1"
+    @click="selectMonth(monthIndex)"
+    @keypress.enter.space.prevent.stop="selectMonth(monthIndex, true)"
+  ) {{ month.label }}

@@ -1,0 +1,41 @@
+table.pux_datepicker__panel.pux_datepicker__panel_date(
+  role="grid"
+  aria-readonly="true"
+  :aria-labelledby="idForHeader"
+  v-bind="attributesForMainElement"
+)
+  thead(
+  )
+    tr(
+    )
+      th(
+        v-for="(thData, thIndex) in ths"
+        :key="thIndex"
+        scope="col"
+        :aria-label="thData.longName"
+      ) {{ thData.shortName }}
+  tbody(
+  )
+    tr(
+      v-for="(tdList, tdListIndex) in trsWithTds"
+      :key="tdListIndex"
+    )
+      td.cell(
+        v-for="(tdData, tdDataIndex) in tdList"
+        :key="tdDataIndex"
+        :class="[tdData.class, { pux_datepicker__panel__cell_focus: tdData.id === idForFocus }]"
+      )
+        a-button.pux_datepicker__panel__button(
+          :id="tdData.id"
+          tabindex="-1"
+          aria-hidden="true"
+          :aria-selected="tdData.isCurrentMonth && tdData.label === dayFromValue ? 'true' : 'false'"
+          @click="selectDate(tdData.date)"
+        )
+          span(
+            aria-hidden="true"
+          ) {{ tdData.label }}
+          span.sr-only {{ tdData.fullDate }}
+          span.sr-only(
+            v-if="tdData.isToday"
+          ) {{ todayTranslate }}

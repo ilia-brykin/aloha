@@ -1,0 +1,20 @@
+.pux_datepicker__panel.pux_datepicker__panel_time
+  ul.pux_datepicker__time_list(
+    v-for="(timeList, timeListIndex) in timesFiltered"
+    :key="timeListIndex"
+    role="listbox"
+    :aria-labelledby="idForHeader"
+    :style="{ width: 100 / timesFiltered.length + '%' }"
+  )
+    li.cell(
+      v-for="(time, timeIndex) in timeList"
+      :id="time.id"
+      :key="timeIndex"
+      :class="{ actived: time.isActive, disabled: time.isDisabled, pux_datepicker__panel__cell_focus: timeListIndex + '_' + timeIndex === fullIndexForFocus }"
+      tabindex="-1"
+      role="option"
+      :aria-selected="time.isActive ? 'true' : 'false'"
+      :aria-label="time.ariaLabel"
+      @click="selectTime(time.time)"
+      @keypress.enter.space.prevent.stop="selectTime(time.time, timeListIndex === timesFiltered.length - 1)"
+    ) {{ time.label }}

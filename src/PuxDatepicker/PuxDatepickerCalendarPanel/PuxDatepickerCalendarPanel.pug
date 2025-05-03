@@ -1,0 +1,136 @@
+.pux_datepicker__calendar(
+  role="region"
+  :class="'pux_datepicker__calendar_' + panel.toLowerCase()"
+  :aria-labelledby="idForHeaderParent"
+)
+  .sr-only(
+    role="header"
+    :id="idForHeaderParent"
+  )
+    div(
+      :id="idForHeader"
+      aria-live="polite"
+    )
+      span(
+        v-if="panel === 'DATE'"
+      ) {{ months[calendarMonth] }}
+      span(
+        v-if="panel === 'DATE' || panel === 'MONTH'"
+      ) {{ calendarYear }}
+      span(
+        v-if="panel === 'YEAR'"
+      ) {{ yearHeader }}
+      span(
+        v-if="panel === 'TIME'"
+      ) {{ timeHeader }}
+    div {{ suffixForHeader }}
+
+  .pux_datepicker__calendar__header
+    div
+      a-button.pux_datepicker__icon_last_year.pux_datepicker__calendar__tab(
+        v-if="panel !== 'TIME'"
+        :aria-label="ariaLabelForButtonLastYear"
+        @click="handleIconYear(-1)"
+      ) &laquo;
+      a-button.pux_datepicker__icon_last_month.pux_datepicker__calendar__tab(
+        v-if="panel === 'DATE'"
+        :aria-label="ariaLabelForButtonLastMonth"
+        @click="handleIconMonth(-1)"
+      ) &lsaquo;
+    div
+      a-button.pux_datepicker__current_month.pux_datepicker__calendar__tab(
+        v-if="panel === 'DATE'"
+        :aria-label="ariaLabelForButtonCurrentMonth"
+        @click="handleBtnMonth"
+      ) {{ months[calendarMonth] }}
+      a-button.pux_datepicker__current_year.pux_datepicker__calendar__tab(
+        v-if="panel === 'DATE' || panel === 'MONTH'"
+        :aria-label="ariaLabelForButtonCurrentYear"
+        @click="handleBtnYear"
+      ) {{ calendarYear }}
+      span.pux_datepicker__current_year(
+        v-if="panel === 'YEAR'"
+      ) {{ yearHeader }}
+      template(
+        v-if="panel === 'TIME'"
+      )
+        span.pux_datepicker__time_header(
+          v-if="type === 'time'"
+        ) {{ timeHeader }}
+        a-button.pux_datepicker__time_header.pux_datepicker__calendar__tab(
+          v-else
+          :aria-label="ariaLabelForButtonToDays"
+          @click="handleTimeHeader"
+        ) {{ timeHeader }}
+    div
+      a-button.pux_datepicker__icon_next_month.pux_datepicker__calendar__tab(
+        v-if="panel === 'DATE'"
+        :aria-label="ariaLabelForButtonNextMonth"
+        @click="handleIconMonth(1)"
+      ) &rsaquo;
+      a-button.pux_datepicker__icon_next_year.pux_datepicker__calendar__tab(
+        v-if="panel !== 'TIME'"
+        :aria-label="ariaLabelForButtonNextYear"
+        @click="handleIconYear(1)"
+      ) &raquo;
+    a-button.a_btn_close.a_m_2.absolute-top-right(
+      @click="closePopup"
+      aria-label="Close"
+    )
+
+  .pux_datepicker__calendar__content(
+    role="application"
+  )
+    panel-date(
+      v-show="panel === 'DATE'"
+      :id="id"
+      ref="panelDate"
+      tabindex="0"
+      :class="{ pux_datepicker__panel_focus: isFocusPanelChild, pux_datepicker__calendar__tab: panel === 'DATE' }"
+      :value="value"
+      :date-format="dateFormat"
+      :calendar-month="calendarMonth"
+      :calendar-year="calendarYear"
+      :start-at="startAt"
+      :end-at="endAt"
+      :first-day-of-week="firstDayOfWeek"
+      :disabled-date="isDisabledDate"
+      :current-language="currentLanguage"
+      @select="selectDate"
+      @handleIconMonth="handleIconMonth"
+    )
+    panel-year(
+      v-show="panel === 'YEAR'"
+      :id="id"
+      ref="panelYear"
+      :class="{ pux_datepicker__panel_focus: isFocusPanelChild, pux_datepicker__calendar__tab: panel === 'YEAR' }"
+      :value="value"
+      :disabled-year="isDisabledYear"
+      :first-year="firstYear"
+      @select="selectYear"
+      @handleIconYear="handleIconYear"
+    )
+    panel-month(
+      v-show="panel === 'MONTH'"
+      :id="id"
+      ref="panelMonth"
+      :class="{ pux_datepicker__panel_focus: isFocusPanelChild, pux_datepicker__calendar__tab: panel === 'MONTH' }"
+      :value="value"
+      :disabled-month="isDisabledMonth"
+      :calendar-year="calendarYear"
+      :current-language="currentLanguage"
+      @select="selectMonth"
+      @handleIconYear="handleIconYear"
+    )
+    panel-time(
+      v-show="panel === 'TIME'"
+      :id="id"
+      ref="panelTime"
+      :class="{ pux_datepicker__panel_focus: isFocusPanelChild, pux_datepicker__calendar__tab: panel === 'TIME' }"
+      :minute-step="minuteStep"
+      :value="value"
+      :disabled-time="isDisabledTime"
+      :time-type="timeType"
+      :current-language="currentLanguage"
+      @select="selectTime"
+    )
