@@ -27915,7 +27915,7 @@ function Oq(e, { emit: t }) {
       });
     },
     setFiltersVisibleIds: S,
-    updateAppliedModel: ({ model: I }) => {
+    updateAppliedModel: ({ fullModel: I }) => {
       t("update:appliedModel", I);
     },
     updateMainModel: ({ fullModel: I }) => {

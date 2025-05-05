@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.10.1
+
+- Fix model update in `AFilters`
+
 ## 2.10.0
 
 - Add utility classes for vertical alignment
