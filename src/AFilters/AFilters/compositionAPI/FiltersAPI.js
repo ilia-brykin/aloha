@@ -108,8 +108,8 @@ export default function FiltersAPI(props, { emit }) {
     }
   };
 
-  const updateAppliedModel = ({ model }) => {
-    emit("update:appliedModel", model);
+  const updateAppliedModel = ({ fullModel }) => {
+    emit("update:appliedModel", fullModel);
   };
 
   const updateMainModel = ({ fullModel }) => {
