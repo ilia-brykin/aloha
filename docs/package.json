@@ -19,7 +19,7 @@
     "lodash-es": "4.17.21",
     "moment": "2.29.4",
     "tiny-emitter": "2.1.0",
-    "tinymce": "6.6.1",
+    "tinymce": "6.8.5",
     "vue": "3.4.8",
     "vue-router": "4.2.5"
   },
