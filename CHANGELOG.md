@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.12.0
+
+- TinyMCE update to version 6.8.5
+
 ## 1.11.1
 
 - Fix in `keyDisabledCallback`
