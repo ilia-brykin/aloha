@@ -33,41 +33,13 @@ export default {
     PanelMixin,
   ],
   props: {
-    id: {
-      type: String,
+    currentLanguage: {
+      type: Object,
       required: true,
-    },
-    value: {
-      default: null,
-      validator: function(val) {
-        return val === null || isValidDate(val);
-      },
-    },
-    startAt: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      required: false,
-      default: undefined,
-    },
-    endAt: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      required: false,
-      default: undefined,
-    },
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-    type: {
-      type: String,
-      default: "date", // ["date", "datetime"]
     },
     dateFormat: {
       type: String,
       default: "YYYY-MM-DD",
-    },
-    index: {
-      type: Number,
-      default: undefined,
     },
     defaultValue: {
       validator: function(val) {
@@ -75,16 +47,34 @@ export default {
       },
       default: undefined,
     },
+    disabledDays: {
+      type: [Array, Function],
+      default: function() {
+        return [];
+      },
+    },
+    endAt: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      required: false,
+      default: undefined,
+    },
     firstDayOfWeek: {
       default: 1,
       type: Number,
       validator: val => val >= 1 && val <= 7,
     },
-    notBefore: {
-      default: null,
-      validator: function(val) {
-        return !val || isValidDate(val);
-      },
+    id: {
+      type: String,
+      required: true,
+    },
+    index: {
+      type: Number,
+      default: undefined,
+    },
+    minuteStep: {
+      type: Number,
+      default: 0,
+      validator: val => val >= 0 && val <= 60,
     },
     notAfter: {
       default: null,
@@ -92,20 +82,30 @@ export default {
         return !val || isValidDate(val);
       },
     },
-    disabledDays: {
-      type: [Array, Function],
-      default: function() {
-        return [];
+    notBefore: {
+      default: null,
+      validator: function(val) {
+        return !val || isValidDate(val);
       },
     },
-    minuteStep: {
-      type: Number,
-      default: 0,
-      validator: val => val >= 0 && val <= 60,
+    startAt: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      required: false,
+      default: undefined,
     },
-    currentLanguage: {
-      type: Object,
-      required: true,
+    type: {
+      type: String,
+      default: "date", // ["date", "datetime"]
+    },
+    value: {
+      default: null,
+      validator: function(val) {
+        return val === null || isValidDate(val);
+      },
+    },
+    visible: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [

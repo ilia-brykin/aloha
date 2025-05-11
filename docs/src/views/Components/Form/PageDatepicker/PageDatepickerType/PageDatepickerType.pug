@@ -1,0 +1,30 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_PAGE_DATEPICKER_TYPE_HEADER_"
+  description="_PAGE_DATEPICKER_TYPE_DESCRIPTION_"
+  :props="['type']"
+)
+  a-datepicker(
+    v-model="model1"
+    label="Date"
+    type="date"
+  )
+  div model1: {{ model1 }}
+  a-datepicker(
+    v-model="model2"
+    :minute-step="1"
+    format-save="YYYY-MM-DD[T]HH:mm:ss.SSS[Z]"
+    format="HH:mm"
+    label="Time"
+    type="time"
+  )
+  div model2: {{ model2 }}
+  a-datepicker(
+    v-model="model3"
+    label="Datetime"
+    format="DD.MM.YYYY HH:mm"
+    format-save="YYYY-MM-DD[T]HH:mm:ss.SSS[Z]"
+    type="datetime"
+  )
+  div model3: {{ model3 }}
