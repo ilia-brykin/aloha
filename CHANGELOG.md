@@ -7,7 +7,17 @@
 ---
 # Versions
 
-## 2.10.1
+## 2.11.0
+
+- Add `focusin` and `focusout` event handling to `ARadio` component
+- Add `focusin` and `focusout` event handling to `ACheckbox` component
+- Add support for `type` prop and `minuteStep` in `ADatepicker`
+- Refactor `ADatepicker` format handling with `TypeAPI` integration
+- Refactor focus handling in `ADatepicker` components.
+- Refactor `APanelYear` to composition API
+- Refactor `APanelTime` to composition API
+
+## 2.10.1 
 
 - Fix model update in `AFilters`
 
