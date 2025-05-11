@@ -6,6 +6,7 @@ import PageCheckboxChange from "./PageCheckboxChange/PageCheckboxChange.vue";
 import PageCheckboxCollapse from "./PageCheckboxCollapse/PageCheckboxCollapse.vue";
 import PageCheckboxDataExtra from "./PageCheckboxDataExtra/PageCheckboxDataExtra.vue";
 import PageCheckboxError from "./PageCheckboxError/PageCheckboxError.vue";
+import PageCheckboxFocusBlur from "./PageCheckboxFocusBlur/PageCheckboxFocusBlur.vue";
 import PageCheckboxGroup from "./PageCheckboxGroup/PageCheckboxGroup.vue";
 import PageCheckboxHasBorder from "./PageCheckboxHasBorder/PageCheckboxHasBorder.vue";
 import PageCheckboxHasControlCheckbox from "./PageCheckboxHasControlCheckbox/PageCheckboxHasControlCheckbox.vue";
@@ -46,6 +47,7 @@ export default {
     PageCheckboxCollapse,
     PageCheckboxDataExtra,
     PageCheckboxError,
+    PageCheckboxFocusBlur,
     PageCheckboxGroup,
     PageCheckboxHasBorder,
     PageCheckboxHasControlCheckbox,

@@ -353,6 +353,8 @@ export default {
     },
   },
   emits: [
+    "focusin",
+    "focusout",
     "onSearchOutside",
     "toggleCollapse",
     "updateData",
@@ -374,8 +376,9 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
-      onBlur,
-      onFocus,
+      onFocusin,
+      onFocusout,
+      rootRef,
     } = UiAPI(props, context);
 
     const {
@@ -526,10 +529,11 @@ export default {
       modelSearchOutside,
       modelValueFiltered,
       modelValueObj,
-      onBlur,
       onChangeModelValue,
-      onFocus,
+      onFocusin,
+      onFocusout,
       onSearchOutside,
+      rootRef,
       searching,
       searchingElements,
       searchingElementsExtra,
@@ -586,9 +590,12 @@ export default {
     }
 
     return h("div", {
+      ref: "rootRef",
       ...this.$attrs,
       style: this.componentStyleHide,
       type: undefined,
+      onFocusin: this.onFocusin,
+      onFocusout: this.onFocusout,
       ...this.attributesToExcludeFromRender,
     }, [
       h("div", {
