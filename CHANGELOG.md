@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.11.1
+
+- Add export for `AFilterCenter` component
+
 ## 2.11.0
 
 - Add `focusin` and `focusout` event handling to `ARadio` component
