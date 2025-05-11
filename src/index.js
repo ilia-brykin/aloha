@@ -14,6 +14,7 @@ export { default as AErrors } from "./ui/AErrors/AErrors";
 export { default as AErrorsText } from "./ui/AErrorsText/AErrorsText";
 export { default as AFieldset } from "./ui/AFieldset/AFieldset";
 export { default as AFilters } from "./AFilters/AFilters/AFilters";
+export { default as AFilterCenter } from "./AFilters/AFilterCenter/AFilterCenter";
 export { default as AFiltersHorizontal } from "./AFilters/AFiltersHorizontal/AFiltersHorizontal";
 export { default as AFiltersRight } from "./AFilters/AFilersRight/AFilersRight";
 export { default as AForm } from "./ui/AForm/AForm";
