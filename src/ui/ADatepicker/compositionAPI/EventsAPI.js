@@ -20,15 +20,15 @@ export default function EventsAPI(props, { emit }, {
   calendarPanelRef = ref(undefined),
   changeModel = () => {},
   closePopover = () => {},
+  formatLocal = computed(() => ""),
+  formatSaveLocal = computed(() => ""),
   setCloseFocus = () => {},
 }) {
   const range = toRef(props, "range");
   const confirm = toRef(props, "confirm");
   const disabled = toRef(props, "disabled");
   const modelValue = toRef(props, "modelValue");
-  const formatSave = toRef(props, "formatSave");
   const editable = toRef(props, "editable");
-  const format = toRef(props, "format");
   const type = toRef(props, "type");
 
   const currentValue = ref(null);
@@ -39,13 +39,13 @@ export default function EventsAPI(props, { emit }, {
   };
 
   const isValidValueText = value => {
-    return !!parseDate(value, format.value, formatSave.value);
+    return !!parseDate(value, formatLocal.value, formatSaveLocal.value);
   };
 
   const valueToText = value => {
     try {
-      if (moment(value, formatSave.value).isValid()) {
-        return moment(value, formatSave.value).format(format.value) || "";
+      if (moment(value, formatSaveLocal.value).isValid()) {
+        return moment(value, formatSaveLocal.value).format(formatLocal.value) || "";
       }
       return "";
     } catch (e) {
@@ -55,7 +55,7 @@ export default function EventsAPI(props, { emit }, {
 
   const isValidModelValue = value => {
     try {
-      if (moment(value, formatSave.value).isValid()) {
+      if (moment(value, formatSaveLocal.value).isValid()) {
         return true;
       }
       return false;
@@ -65,9 +65,9 @@ export default function EventsAPI(props, { emit }, {
   };
 
   const stringify = date => {
-    return (isPlainObject(format.value) && typeof this.format.stringify === "function")
-      ? format.value.stringify(date)
-      : formatDate(date, format.value);
+    return (isPlainObject(formatLocal.value) && typeof this.format.stringify === "function")
+      ? formatLocal.value.stringify(date)
+      : formatDate(date, formatLocal.value);
   };
 
   const text = computed(() => {
@@ -101,7 +101,7 @@ export default function EventsAPI(props, { emit }, {
   const emitDate = eventName => {
     const value = range.value ?
       "" : // TODO: range this.currentValue.map(date2value)
-      formatDate(currentValue.value, formatSave.value);
+      formatDate(currentValue.value, formatSaveLocal.value);
     changeModel({
       model: value,
     });
@@ -167,15 +167,15 @@ export default function EventsAPI(props, { emit }, {
   };
 
   const parse = value => {
-    return (isPlainObject(format.value) && typeof format.value.parse === "function")
-      ? format.value.parse(value)
-      : parseDate(value, format.value, formatSave.value);
+    return (isPlainObject(formatLocal.value) && typeof formatLocal.value.parse === "function")
+      ? formatLocal.value.parse(value)
+      : parseDate(value, formatLocal.value, formatSaveLocal.value);
   };
 
   const fromValueToDate = value => {
     try {
-      if (moment(value, format.value).isValid()) {
-        return moment(value, format.value).format() || null;
+      if (moment(value, formatLocal.value).isValid()) {
+        return moment(value, formatLocal.value).format() || null;
       }
       return null;
     } catch (e) {
@@ -185,8 +185,8 @@ export default function EventsAPI(props, { emit }, {
 
   const fromModalValueToDate = value => {
     try {
-      if (moment(value, formatSave.value).isValid()) {
-        return moment(value, formatSave.value).format() || null;
+      if (moment(value, formatSaveLocal.value).isValid()) {
+        return moment(value, formatSaveLocal.value).format() || null;
       }
       return null;
     } catch (e) {

@@ -26,6 +26,7 @@ import EventsAPI from "./compositionAPI/EventsAPI";
 import LanguagesAPI from "./compositionAPI/LanguagesAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
 import RefsAPI from "./compositionAPI/RefsAPI";
+import TypeAPI from "./compositionAPI/TypeAPI";
 
 import AOnHooks from "../../directives/AOnHooks";
 import UiMixinProps from "../mixins/UiMixinProps";
@@ -95,12 +96,13 @@ export default {
     },
     format: {
       type: [String, Object],
-      default: "DD.MM.YYYY",
+      required: false,
+      default: undefined,
     },
     formatSave: {
       type: String,
       required: false,
-      default: "YYYY-MM-DD",
+      default: undefined,
     },
     iconDay: {
       type: [Number, String],
@@ -216,6 +218,11 @@ export default {
     const modelValue = toRef(props, "modelValue");
 
     const {
+      formatLocal,
+      formatSaveLocal,
+    } = TypeAPI(props);
+
+    const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
 
@@ -304,6 +311,8 @@ export default {
       calendarPanelRef,
       changeModel,
       closePopover,
+      formatLocal,
+      formatSaveLocal,
       setCloseFocus,
     });
 
@@ -341,6 +350,7 @@ export default {
       errorsId,
       text,
       focusByCloseRef,
+      formatLocal,
       handleChange,
       handleInput,
       handleKeydown,
@@ -436,13 +446,13 @@ export default {
       if (this.dateFormat) {
         return this.dateFormat;
       }
-      if (typeof this.format !== "string") {
+      if (typeof this.formatLocal !== "string") {
         return "YYYY-MM-DD";
       }
       if (this.innerType === "date") {
-        return this.format;
+        return this.formatLocal;
       }
-      return this.format.replace(/[Hh]+.*[msSaAZ]|\[.*?\]/g, "").trim() || "YYYY-MM-DD";
+      return this.formatLocal.replace(/[Hh]+.*[msSaAZ]|\[.*?\]/g, "").trim() || "YYYY-MM-DD";
     },
   },
   watch: {
