@@ -6,6 +6,7 @@ import PageRadioChange from "./PageRadioChange/PageRadioChange.vue";
 import PageRadioCollapse from "./PageRadioCollapse/PageRadioCollapse.vue";
 import PageRadioDataExtra from "./PageRadioDataExtra/PageRadioDataExtra.vue";
 import PageRadioError from "./PageRadioError/PageRadioError.vue";
+import PageRadioFocusBlur from "./PageRadioFocusBlur/PageRadioFocusBlur.vue";
 import PageRadioGroup from "./PageRadioGroup/PageRadioGroup.vue";
 import PageRadioHasBorder from "./PageRadioHasBorder/PageRadioHasBorder.vue";
 import PageRadioHelpText from "./PageRadioHelpText/PageRadioHelpText.vue";
@@ -46,6 +47,7 @@ export default {
     PageRadioCollapse,
     PageRadioDataExtra,
     PageRadioError,
+    PageRadioFocusBlur,
     PageRadioGroup,
     PageRadioHasBorder,
     PageRadioHelpText,

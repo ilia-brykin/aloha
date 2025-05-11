@@ -18,6 +18,9 @@ export default function UiAPI(props, { emit }) {
   const modelValue = toRef(props, "modelValue");
 
   const isFocus = ref(false);
+  const isFocusIn = ref(false);
+  const rootRef = ref(undefined);
+  let blurTimeout;
 
   const htmlIdLocal = computed(() => {
     return getHtmlId({
@@ -92,6 +95,32 @@ export default function UiAPI(props, { emit }) {
     });
   };
 
+  const onFocusin = $event => {
+    if (!isFocusIn.value) {
+      isFocusIn.value = true;
+      emit("focusin", {
+        event: $event,
+        props,
+      });
+      clearTimeout(blurTimeout);
+    }
+  };
+
+  const onFocusout = $event => {
+    if (isFocusIn.value) {
+      blurTimeout = setTimeout(() => {
+        if (rootRef.value && !rootRef.value.contains(document.activeElement)) {
+          isFocusIn.value = false;
+          emit("focusout", {
+            event: $event,
+            props,
+          });
+        }
+      });
+    }
+  };
+
+
   return {
     ariaDescribedbyLocal,
     changeModel,
@@ -101,9 +130,13 @@ export default function UiAPI(props, { emit }) {
     htmlIdLocal,
     isErrors,
     isFocus,
+    isFocusIn,
     isModel,
     onBlur,
     onFocus,
+    onFocusin,
+    onFocusout,
+    rootRef,
   };
 }
 

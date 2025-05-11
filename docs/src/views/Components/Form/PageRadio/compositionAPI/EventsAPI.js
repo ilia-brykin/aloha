@@ -1,8 +1,13 @@
 export default function EventsAPI() {
   const dataEvents = [
     {
-      name: "on-search-outside",
-      description: "_A_UI_EVENTS_ON_SEARCH_OUTSIDE_DESCRIPTION_",
+      name: "focusin",
+      description: "_A_UI_EVENTS_FOCUSIN_DESCRIPTION_",
+      type: "Function",
+    },
+    {
+      name: "focusout",
+      description: "_A_UI_EVENTS_FOCUSOUT_DESCRIPTION_",
       type: "Function",
     },
     {
