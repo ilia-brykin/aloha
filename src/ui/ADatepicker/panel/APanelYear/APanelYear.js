@@ -1,26 +1,26 @@
 /* eslint vue/component-api-style: off */
 import {
   h,
+  onBeforeUnmount,
 } from "vue";
 
 import APanelYearItem from "../APanelYearItem/APanelYearItem";
 
-import AKeysCode from "../../../../const/AKeysCode";
-import PanelMixin from "../../mixins/PanelMixin";
+import FocusAPI from "./compositionAPI/FocusAPI";
+import FocusActiveAPI from "./compositionAPI/FocusActiveAPI";
+import PanelAPI from "../compositionAPI/PanelAPI";
+import SelectAPI from "./compositionAPI/SelectAPI";
+
 import {
-  isUndefined,
   range,
 } from "lodash-es";
 
 // @vue/component
 export default {
   name: "APanelYear",
-  mixins: [
-    PanelMixin,
-  ],
   props: {
-    value: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+    disabledYear: {
+      type: Function,
       required: false,
       default: undefined,
     },
@@ -28,8 +28,12 @@ export default {
       type: Number,
       required: true,
     },
-    disabledYear: {
-      type: Function,
+    id: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       required: false,
       default: undefined,
     },
@@ -38,103 +42,60 @@ export default {
     "handleIconYear",
     "select",
   ],
-  data() {
+  setup(props, context) {
+    const {
+      isDisabled,
+      selectYear,
+    } = SelectAPI(props, context);
+
+    const {
+      idForFocus,
+      prefixForId,
+      pressButton,
+      yearIndexForFocus,
+    } = FocusAPI(props, context);
+
+    const {
+      attributesForMainElement,
+      destroyEventBus,
+      destroyListenerForPressButtons,
+      idForHeader,
+      setEventBus,
+      setListenerForPressButtons,
+    } = PanelAPI(props, {
+      idForFocus,
+      pressButton,
+    });
+
+    const {
+      firstYearLocal,
+      setFocusToActiveYear,
+      yearFromValue,
+    } = FocusActiveAPI(props, {
+      idForFocus,
+      setListenerForPressButtons,
+      yearIndexForFocus,
+    });
+
+    setEventBus();
+
+    onBeforeUnmount(() => {
+      destroyEventBus();
+      destroyListenerForPressButtons();
+    });
+
     return {
-      yearIndexForFocus: undefined,
+      attributesForMainElement,
+      firstYearLocal,
+      idForFocus,
+      idForHeader,
+      isDisabled,
+      prefixForId,
+      selectYear,
+      setFocusToActiveYear,
+      yearFromValue,
+      yearIndexForFocus,
     };
-  },
-  computed: {
-    firstYearLocal() {
-      return Math.floor(this.firstYear / 10) * 10;
-    },
-
-    yearFromValue() {
-      return this.value && new Date(this.value).getFullYear();
-    },
-
-    idForFocus() {
-      if (!isUndefined(this.yearIndexForFocus)) {
-        return this.getIdForYear(this.yearIndexForFocus);
-      }
-      return "";
-    },
-
-    yearIndexFromValueOrToday() {
-      const DIFF_FIRST_AND_VALUE_YEAR = this.yearFromValueOrToday - this.firstYearLocal;
-      if (DIFF_FIRST_AND_VALUE_YEAR <= 9 && DIFF_FIRST_AND_VALUE_YEAR >= 0) {
-        return DIFF_FIRST_AND_VALUE_YEAR;
-      }
-      return 0;
-    },
-
-    yearFromValueOrToday() {
-      return this.yearFromValue || new Date().getFullYear();
-    },
-
-    prefixForId() {
-      return `${ this.id }_year_`;
-    },
-  },
-  methods: {
-    isDisabled(year) {
-      return !!(typeof this.disabledYear === "function" && this.disabledYear(year));
-    },
-
-    selectYear({ year, isButtonClick }) {
-      if (this.isDisabled(year)) {
-        return;
-      }
-      this.$emit("select", ({ year, isButtonClick }));
-    },
-
-    getIdForYear(yearIndex) {
-      return `${ this.prefixForId }${ yearIndex }`;
-    },
-
-    setFocusToActiveYear() {
-      setTimeout(() => {
-        this.setDefaultYearForFocus();
-        document.getElementById(this.idForFocus).focus();
-        this.setListenerForPressButtons();
-      });
-    },
-
-    setDefaultYearForFocus() {
-      this.yearIndexForFocus = this.yearIndexFromValueOrToday;
-    },
-
-    pressButton($event) {
-      const KEY_CODE = $event.keyCode;
-      if (KEY_CODE === AKeysCode.arrowUp || KEY_CODE === AKeysCode.arrowLeft) {
-        this.setFocusToLastYear();
-        this.stopCurrentEvent($event);
-      } else if (KEY_CODE === AKeysCode.arrowDown || KEY_CODE === AKeysCode.arrowRight) {
-        this.setFocusToNextYear();
-        this.stopCurrentEvent($event);
-      }
-    },
-
-    setFocusToLastYear() {
-      const NEW_YEAR_FOR_FOCUS = this.yearIndexForFocus - 1;
-      if (NEW_YEAR_FOR_FOCUS >= 0 && NEW_YEAR_FOR_FOCUS <= 9) {
-        this.yearIndexForFocus = NEW_YEAR_FOR_FOCUS;
-      } else {
-        this.$emit("handleIconYear", -1);
-        this.yearIndexForFocus = 9;
-      }
-      this.setFocusToElementWithTimeout(this.idForFocus);
-    },
-
-    setFocusToNextYear() {
-      const NEW_YEAR_FOR_FOCUS = this.yearIndexForFocus + 1;
-      if (NEW_YEAR_FOR_FOCUS <= 9 && NEW_YEAR_FOR_FOCUS >= 0) {
-        this.yearIndexForFocus = NEW_YEAR_FOR_FOCUS;
-      } else {
-        this.$emit("handleIconYear", 1);
-        this.yearIndexForFocus = 0;
-      }
-      this.setFocusToElementWithTimeout(this.idForFocus);
-    },
   },
   render() {
     return h("ul", {
