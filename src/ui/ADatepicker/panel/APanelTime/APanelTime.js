@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import FocusAPI from "./compositionAPI/FocusAPI";
+import FocusActiveAPI from "./compositionAPI/FocusActiveAPI";
 import PanelAPI from "../compositionAPI/PanelAPI";
 import SelectAPI from "./compositionAPI/SelectAPI";
 import TimesAPI from "./compositionAPI/TimesAPI";
@@ -55,6 +56,7 @@ export default {
       fullIndexForFocus,
       idForFocus,
       pressButton,
+      setDefaultTimeForFocus,
     } = FocusAPI(props, {
       getCurrentId,
       timesFiltered,
@@ -77,8 +79,15 @@ export default {
       pressButton,
     });
 
+    const {
+      setFocusToActiveTime,
+    } = FocusActiveAPI({
+      idForFocus,
+      setDefaultTimeForFocus,
+      setListenerForPressButtons,
+    });
+
     setEventBus();
-    setListenerForPressButtons();
 
     onBeforeUnmount(() => {
       destroyEventBus();
@@ -91,6 +100,7 @@ export default {
       fullIndexForFocus,
       keypress,
       selectTime,
+      setFocusToActiveTime,
       timesFiltered,
     };
   },

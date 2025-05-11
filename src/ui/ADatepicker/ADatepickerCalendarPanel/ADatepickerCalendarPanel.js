@@ -549,13 +549,13 @@ export default {
 
     setFocusToActiveElementInChild() {
       if (this.panel === "DATE") {
-        this.$refs.panelDate.setFocusToActiveDay();
+        this.$refs?.panelDate?.setFocusToActiveDay();
       } else if (this.panel === "TIME") {
-        this.$refs.panelTime.setFocusToActiveTime();
+        this.$refs?.panelTime?.setFocusToActiveTime();
       } else if (this.panel === "YEAR") {
-        this.$refs.panelYear.setFocusToActiveYear();
+        this.$refs?.panelYear?.setFocusToActiveYear();
       } else if (this.panel === "MONTH") {
-        this.$refs.panelMonth.setFocusToActiveMonth();
+        this.$refs?.panelMonth?.setFocusToActiveMonth();
       }
     },
 

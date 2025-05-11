@@ -92,9 +92,15 @@ export default function FocusAPI(props, {
     }
   };
 
+  const setDefaultTimeForFocus = () => {
+    timeIndexForFocus.value = 0;
+    columnIndexForFocus.value = 0;
+  };
+
   return {
     fullIndexForFocus,
     idForFocus,
     pressButton,
+    setDefaultTimeForFocus,
   };
 }
