@@ -20,7 +20,6 @@ export default function UiAPI(props, { emit }) {
   const isFocus = ref(false);
   const isFocusIn = ref(false);
   const rootRef = ref(undefined);
-  let blurTimeout;
 
   const htmlIdLocal = computed(() => {
     return getHtmlId({
@@ -102,21 +101,18 @@ export default function UiAPI(props, { emit }) {
         event: $event,
         props,
       });
-      clearTimeout(blurTimeout);
     }
   };
 
   const onFocusout = $event => {
     if (isFocusIn.value) {
-      blurTimeout = setTimeout(() => {
-        if (rootRef.value && !rootRef.value.contains(document.activeElement)) {
-          isFocusIn.value = false;
-          emit("focusout", {
-            event: $event,
-            props,
-          });
-        }
-      });
+      if (rootRef.value && !rootRef.value.contains($event.relatedTarget)) {
+        isFocusIn.value = false;
+        emit("focusout", {
+          event: $event,
+          props,
+        });
+      }
     }
   };
 
