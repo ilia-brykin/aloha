@@ -103,7 +103,11 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   };
 
   const dataComputed = computed(() => {
-    return data.value || dataFromServer.value;
+    if (dataFromServer.value.length) {
+      return dataFromServer.value;
+    }
+
+    return data.value;
   });
 
   const dataLocal = computed(() => {
