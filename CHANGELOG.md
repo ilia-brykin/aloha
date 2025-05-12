@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.12.1
+
+- Prioritize data from server for ASelect
+
 ## 1.12.0
 
 - TinyMCE update to version 6.8.5
