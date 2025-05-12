@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.11.2
+
+- Refactor focus handling in `UiAPI`
+
 ## 2.11.1
 
 - Add export for `AFilterCenter` component
