@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.11.3
+
+- Prioritize data from server for ASelect
+
 ## 2.11.2
 
 - Refactor focus handling in `UiAPI`
@@ -257,6 +261,10 @@ An exclusive option can be defined as a special choice that, when selected, prev
 - Dependency updates for compatibility.
 
 ***
+
+## 1.12.1
+
+- Prioritize data from server for ASelect
 
 ## 1.11.1
 

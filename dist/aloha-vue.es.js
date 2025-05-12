@@ -46220,7 +46220,7 @@ function Zu(e) {
       });
     }
     return O;
-  }, b = _(() => n.value || p.value), I = _(() => {
+  }, b = _(() => p.value.length ? p.value : n.value), I = _(() => {
     let P = L({
       _data: b.value,
       _isArrayOfArrays: !1
