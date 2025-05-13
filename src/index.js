@@ -59,6 +59,7 @@ export { default as AResizer } from "./AResizer/AResizer";
 export { default as ARouterLinkConfig } from "./ui/ARouterLinkConfig/ARouterLinkConfig";
 export { default as AScale } from "./AScale/AScale";
 export { default as ASelect } from "./ui/ASelect/ASelect";
+export { default as ASelectIcon } from "./ui/ASelectIcon/ASelectIcon";
 export { default as AShowMore } from "./AShowMore/AShowMore";
 export { default as ASpinner } from "./ASpinner/ASpinner";
 export { default as ASwitch } from "./ui/ASwitch/ASwitch";
