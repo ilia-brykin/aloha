@@ -287,7 +287,7 @@ export default {
     search: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.search,
+      default: true,
     },
     searchInGroup: {
       type: Boolean,
@@ -356,7 +356,7 @@ export default {
   ],
   setup(props, context) {
     const {
-      iconsFromPlugin,
+      iconsLocal,
     } = IconsAPI(props);
 
     const {
@@ -373,7 +373,7 @@ export default {
     return {
       blur,
       focus,
-      iconsFromPlugin,
+      iconsLocal,
       open,
       typeLocal,
       updateModelValue,
@@ -381,13 +381,13 @@ export default {
   },
   render() {
     return h(ASelect, {
-      data: this.iconsFromPlugin,
+      ...this.$props,
+      type: this.typeLocal,
+      data: this.iconsLocal,
       onBlur: this.blur,
       onFocus: this.focus,
       onOpen: this.open,
       "onUpdate:modelValue": this.updateModelValue,
-      ...this.$props,
-      type: this.typeLocal,
     }, {
       icon: ({ item, label, labelFiltered, inDropdown }) => {
         return h(ASelectIconSlot, {

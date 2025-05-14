@@ -12,9 +12,12 @@ import {
 } from "lodash-es";
 
 export default function IconsAPI(props) {
+  const data = toRef(props, "data");
+
   const iconsFromPlugin = computed(() => {
     const ICONS_MAP = cloneDeep(iconPluginOptions.value.icons);
     delete ICONS_MAP.Aloha;
+    delete ICONS_MAP._NoImage;
     const ICONS = [];
     forEach(ICONS_MAP, (_, iconKey) => {
       ICONS.push({
@@ -26,7 +29,11 @@ export default function IconsAPI(props) {
     return ICONS;
   });
 
+  const iconsLocal = computed(() => {
+    return data.value || iconsFromPlugin.value;
+  });
+
   return {
-    iconsFromPlugin,
+    iconsLocal,
   };
 }
