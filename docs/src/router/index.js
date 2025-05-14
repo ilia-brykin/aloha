@@ -203,6 +203,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageSelect/PageSelect.vue"),
   },
   {
+    path: "/select-icon",
+    name: "PageSelectIcon",
+    component: () => import("../views/Components/Form/PageSelectIcon/PageSelectIcon.vue"),
+  },
+  {
     path: "/form",
     name: "PageForm",
     component: () => import("../views/Components/Form/PageForm/PageForm.vue"),

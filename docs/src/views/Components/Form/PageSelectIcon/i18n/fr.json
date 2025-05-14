@@ -1,0 +1,4 @@
+{
+  "_A_SELECT_ICON_COMPONENT_NAME_": "Sélecteur d’icônes",
+  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Composant basé sur <strong lang=\"en\">ASelect</strong> permettant de sélectionner une ou plusieurs icônes disponibles dans le système. Prend en charge la recherche, le regroupement, la personnalisation de l'affichage et la gestion des icônes."
+}

@@ -211,6 +211,13 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageSelectIcon",
+            label: "Select icon",
+            to: {
+              name: "PageSelectIcon",
+            },
+          },
+          {
             id: "PageSwitch",
             label: "Switch",
             to: {
