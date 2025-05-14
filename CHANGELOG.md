@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.12.0
+
+- Add `ASelectIcon` component
+
 ## 2.11.3
 
 - Prioritize data from server for ASelect
