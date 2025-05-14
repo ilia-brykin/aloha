@@ -9,6 +9,10 @@
 
 ## 2.12.0
 
+- ASelect Fix
+
+## 2.12.0
+
 - Add `ASelectIcon` component
 
 ## 2.11.3
@@ -265,6 +269,10 @@ An exclusive option can be defined as a special choice that, when selected, prev
 - Dependency updates for compatibility.
 
 ***
+
+## 1.12.2
+
+- ASelect Fix
 
 ## 1.12.1
 
