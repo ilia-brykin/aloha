@@ -12,6 +12,7 @@ import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
 import ARouterLinkConfig from "./ARouterLinkConfig/ARouterLinkConfig";
 import ASelect from "./ASelect/ASelect";
+import ASelectIcon from "./ASelectIcon/ASelectIcon";
 import ASwitch from "./ASwitch/ASwitch";
 import ATemplate from "./ATemplate/ATemplate";
 import ATextarea from "./ATextarea/ATextarea";
@@ -33,6 +34,7 @@ export default {
   integerRange: AInputNumberRange,
   json: AJson,
   multiselect: ASelect,
+  multiselectIcon: ASelectIcon,
   multiselectOrdered: AMultiselectOrdered,
   natural: AInput,
   number: AInputNumber,
@@ -42,6 +44,7 @@ export default {
   radio: ARadio,
   routerLinkConfig: ARouterLinkConfig,
   select: ASelect,
+  selectIcon: ASelectIcon,
   switch: ASwitch,
   template: ATemplate,
   text: AInput,

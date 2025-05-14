@@ -10,6 +10,7 @@ import ASelectIconSlot from "./ASelectIconSlot/ASelectIconSlot";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import IconsAPI from "./compositionAPI/IconsAPI";
+import TypeAPI from "./compositionAPI/TypeAPI";
 
 import {
   ASelectPluginOptions,
@@ -344,7 +345,7 @@ export default {
       type: String,
       required: false,
       default: () => ASelectPluginOptions.propsDefault.type,
-      validator: value => ["select", "multiselect"].indexOf(value) !== -1,
+      validator: value => ["select", "selectIcon", "multiselect", "multiselectIcon"].indexOf(value) !== -1,
     },
   },
   emits: [
@@ -365,11 +366,16 @@ export default {
       updateModelValue,
     } = EventsAPI(context);
 
+    const {
+      typeLocal,
+    } = TypeAPI(props);
+
     return {
       blur,
       focus,
       iconsFromPlugin,
       open,
+      typeLocal,
       updateModelValue,
     };
   },
@@ -381,6 +387,7 @@ export default {
       onOpen: this.open,
       "onUpdate:modelValue": this.updateModelValue,
       ...this.$props,
+      type: this.typeLocal,
     }, {
       icon: ({ item, label, labelFiltered, inDropdown }) => {
         return h(ASelectIconSlot, {
