@@ -7,9 +7,9 @@
 ---
 # Versions
 
-## 2.12.0
+## 2.12.1
 
-- ASelect Fix
+- `ASelect` Fix
 
 ## 2.12.0
 
