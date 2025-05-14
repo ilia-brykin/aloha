@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 1.12.2
+
+- ASelect Fix
+
 ## 1.12.1
 
 - Prioritize data from server for ASelect
