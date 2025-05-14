@@ -107,7 +107,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
       return dataFromServer.value;
     }
 
-    return data.value;
+    return data.value || [];
   });
 
   const dataLocal = computed(() => {
