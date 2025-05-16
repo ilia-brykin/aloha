@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.13.1
+
+- Add `updateI18nForLanguage` function to `ATranslationAPI`
+
 ## 2.13.0
 
 - Add `updateI18n` function to support dynamic `i18n` updates
