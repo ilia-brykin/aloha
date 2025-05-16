@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.13.0
+
+- Add `updateI18n` function to support dynamic `i18n` updates
+
 ## 2.12.1
 
 - `ASelect` Fix
