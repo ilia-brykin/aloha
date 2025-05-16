@@ -37,12 +37,20 @@ export default function ATranslationAPI() {
     setLanguage,
     toggleTranslate,
     translationChanges: timeTranslationLastChanged,
+    updateI18n,
     updateTranslation,
   };
 }
 
 export function setI18n(i18nLocal = {}) {
   i18n = i18nLocal;
+}
+
+export function updateI18n(i18nLocal = {}) {
+  i18n = {
+    ...i18n,
+    ...i18nLocal,
+  };
 }
 
 export function setLanguage(languageLocal = "") {

@@ -311,5 +311,6 @@ export {
   timeTranslationLastChanged,
   toggleTranslate,
   translation,
+  updateI18n,
   updateTranslation,
 } from "./ATranslation/compositionAPI/ATranslationAPI";
