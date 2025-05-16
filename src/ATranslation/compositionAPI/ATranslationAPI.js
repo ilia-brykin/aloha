@@ -38,6 +38,7 @@ export default function ATranslationAPI() {
     toggleTranslate,
     translationChanges: timeTranslationLastChanged,
     updateI18n,
+    updateI18nForLanguage,
     updateTranslation,
   };
 }
@@ -49,6 +50,14 @@ export function setI18n(i18nLocal = {}) {
 export function updateI18n(i18nLocal = {}) {
   i18n = {
     ...i18n,
+    ...i18nLocal,
+  };
+}
+
+export function updateI18nForLanguage({ i18n: i18nLocal = {}, language }) {
+  i18n[language] = i18n[language] || {};
+  i18n[language] = {
+    ...(i18n[language] || {}),
     ...i18nLocal,
   };
 }

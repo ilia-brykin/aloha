@@ -312,5 +312,6 @@ export {
   toggleTranslate,
   translation,
   updateI18n,
+  updateI18nForLanguage,
   updateTranslation,
 } from "./ATranslation/compositionAPI/ATranslationAPI";
