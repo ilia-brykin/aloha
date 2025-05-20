@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 2.14.0
+
+- Change Styles for `Errors`, `Legend` and `Fieldset`
+- `ALabel`: Fix für `onClick`
+- `AErrors`: extension `goTo` function
+
 ## 2.13.1
 
 - Add `updateI18nForLanguage` function to `ATranslationAPI`
