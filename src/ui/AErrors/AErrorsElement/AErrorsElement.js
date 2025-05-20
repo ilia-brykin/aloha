@@ -10,6 +10,9 @@ import ATranslation from "../../../ATranslation/ATranslation";
 
 import AKeysCode from "../../../const/AKeysCode";
 import {
+  AFormPluginOptions,
+} from "../../../plugins/AFormPlugin";
+import {
   get,
   isArray,
   isFunction,
@@ -111,6 +114,14 @@ export default {
         idStr = `${ idStr }_${ errorKey.value }`;
       }
       if (size(idStr) > 0) {
+        if (isFunction(AFormPluginOptions.goToErrorCallback)) {
+          AFormPluginOptions.goToErrorCallback({
+            idStr,
+          });
+
+          return;
+        }
+
         const ELEMENT = document.getElementById(idStr);
         if (ELEMENT) {
           ELEMENT.focus();
