@@ -181,7 +181,7 @@ export default {
       textAriaHidden: !!this.labelScreenReader,
       title: this.titleLocal,
       type: "text",
-      onClick: this.readonly ? this.onClick : undefined,
+      onClick: this.readonly ? undefined : this.onClick,
       ...this.attributesToExcludeFromRender,
     });
   },
