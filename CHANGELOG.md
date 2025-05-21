@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.15.0
+
+- Add a new function `getTranslatedAttributes`
+- `AModal`: Fix Styles
+
 ## 2.14.0
 
 - Change Styles for `Errors`, `Legend` and `Fieldset`
