@@ -17,6 +17,7 @@ import {
 
 export default function UtilsAPI() {
   return {
+    getTranslatedAttributes,
     getTranslatedText,
     getTranslationAttributes,
     isPlaceholderTranslate,
@@ -131,6 +132,16 @@ function spliceString({
   return `${ text.slice(0, firstIndex) }${ replaceText }${ text.slice(lastindex, text.length) }`;
 }
 
+/**
+ * Generates an object containing translation-related attributes and optional translation data.
+ *
+ * @param {Object} params - The parameters for generating translation attributes.
+ * @param {string} [params.attr=""] - The attribute name to be used for translation.
+ * @param {string} [params.value=""] - The attribute value associated with the translation attribute.
+ * @param {string} [params.translation=""] - The translation string to be applied to the attribute.
+ * @param {boolean} [params.isTranslate=true] - A flag indicating whether the translation attribute should be included.
+ * @return {Object} An object containing the translation attributes and their corresponding values.
+ */
 export function getTranslationAttributes({ attr = "", value = "", translation = "", isTranslate = true }) {
   const ATTRIBUTES = {};
   if (!isNil(translation)) {
