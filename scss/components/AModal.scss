@@ -25,6 +25,7 @@
 .a_modal_content_with_footer_sticky {
   .a_modal_body {
     padding-bottom: 0;
+    scroll-padding-bottom: 100px;
   }
   .a_modal_body__content {
     padding-bottom: var(--a_modal_padding);
