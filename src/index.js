@@ -299,6 +299,7 @@ export { default as AVerticalScrollI18n } from "./AVerticalScroll/i18n/AVertical
 export { default as AWizardI18n } from "./AWizard/i18n/AWizardI18n";
 export { default as Filters18n } from "./filters/i18n/Filters18n";
 export {
+  getTranslatedAttributes,
   getTranslatedText,
   getTranslationAttributes,
   isPlaceholderTranslate,

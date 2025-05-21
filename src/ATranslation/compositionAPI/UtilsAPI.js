@@ -142,3 +142,35 @@ export function getTranslationAttributes({ attr = "", value = "", translation = 
 
   return ATTRIBUTES;
 }
+
+/**
+ * Generates translated attributes for a given input.
+ *
+ * @param {Object} params - An object containing the configuration parameters.
+ * @param {string} [params.attr=""] - The attribute name to be used.
+ * @param {string} [params.placeholder=""] - The placeholder or text to be translated.
+ * @param {Object} [params.extra] - Additional information or data passed for translation.
+ * @param {Object} [params.translationObj=translation] - The translation object used for retrieving translations.
+ * @return {Object} An object containing the translated attributes including the original and translated text.
+ */
+export function getTranslatedAttributes({
+  attr = "",
+  placeholder = "",
+  extra,
+  translationObj = translation,
+}) {
+  const isTranslate = isPlaceholderTranslate(placeholder);
+  const translated = getTranslatedText({
+    placeholder,
+    extra,
+    translationObj,
+    alwaysTranslate: true,
+  });
+
+  return getTranslationAttributes({
+    attr,
+    value: placeholder,
+    translation: translated,
+    isTranslate,
+  });
+}
