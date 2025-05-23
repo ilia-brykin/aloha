@@ -30,6 +30,10 @@ export default defineConfig({
           dest: "./",            // директория назначения
           rename: "404.html",    // переименование файла
         },
+        {
+          src: "assets",
+          dest: "./",
+        },
       ],
     }),
   ],

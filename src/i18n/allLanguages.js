@@ -1,3 +1,4 @@
+import ACarouselI18n from "../ACarousel/i18n/ACarouselI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
 import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
@@ -37,6 +38,7 @@ import ruJson from "./ru.json";
 
 export const ar = {
   ...arJson,
+  ...ACarouselI18n.ar,
   ...ACheckboxI18n.ar,
   ...ACloakI18n.ar,
   ...ADatepickerRangeI18n.ar,
@@ -68,6 +70,7 @@ export const ar = {
 };
 export const de = {
   ...deJson,
+  ...ACarouselI18n.de,
   ...ACheckboxI18n.de,
   ...ACloakI18n.de,
   ...ADatepickerRangeI18n.de,
@@ -99,6 +102,7 @@ export const de = {
 };
 export const en = {
   ...enJson,
+  ...ACarouselI18n.en,
   ...ACheckboxI18n.en,
   ...ACloakI18n.en,
   ...ADatepickerRangeI18n.en,
@@ -130,6 +134,7 @@ export const en = {
 };
 export const es = {
   ...esJson,
+  ...ACarouselI18n.es,
   ...ACheckboxI18n.es,
   ...ACloakI18n.es,
   ...ADatepickerRangeI18n.es,
@@ -161,6 +166,7 @@ export const es = {
 };
 export const fr = {
   ...frJson,
+  ...ACarouselI18n.fr,
   ...ACheckboxI18n.fr,
   ...ACloakI18n.fr,
   ...ADatepickerRangeI18n.fr,
@@ -192,6 +198,7 @@ export const fr = {
 };
 export const hr = {
   ...hrJson,
+  ...ACarouselI18n.hr,
   ...ACheckboxI18n.hr,
   ...ACloakI18n.hr,
   ...ADatepickerRangeI18n.hr,
@@ -223,6 +230,7 @@ export const hr = {
 };
 export const it = {
   ...itJson,
+  ...ACarouselI18n.it,
   ...ACheckboxI18n.it,
   ...ACloakI18n.it,
   ...ADatepickerRangeI18n.it,
@@ -254,6 +262,7 @@ export const it = {
 };
 export const ru = {
   ...ruJson,
+  ...ACarouselI18n.ru,
   ...ACheckboxI18n.ru,
   ...ACloakI18n.ru,
   ...ADatepickerRangeI18n.ru,

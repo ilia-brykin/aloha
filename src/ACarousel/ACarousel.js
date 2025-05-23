@@ -1,13 +1,22 @@
 import {
   h,
 } from "vue";
+import {
+  AElement,
+} from "../index";
 
 import ACarouselControls from "./ACarouselControls/ACarouselControls";
+import ACarouselItem from "./ACarouselItem/ACarouselItem";
 
+import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+import DataAPI from "./compositionAPI/DataAPI";
 
 import ChevronLeft from "aloha-svg/dist/js/bootstrap/ChevronLeft";
 import ChevronRight from "aloha-svg/dist/js/bootstrap/ChevronRight";
+import {
+  AKeyId,
+} from "../const/AKeys";
 import {
   castArray,
   every,
@@ -91,6 +100,10 @@ export default {
       required: false,
       default: () => [],
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+    },
     extra: {
       type: Object,
       required: false,
@@ -134,36 +147,88 @@ export default {
       ariaLabelAttributes,
     } = AriaLabelAPI(props);
 
+    const {
+      dataLocal,
+    } = DataAPI(props);
+
+    const {
+      activeId,
+      changeActiveId,
+      initActiveId,
+      toNextSlide,
+      toPreviousSlide,
+    } = ActiveAPI(props, {
+      dataLocal,
+    });
+
+    initActiveId();
+
     return {
+      activeId,
       ariaLabelAttributes,
+      changeActiveId,
+      dataLocal,
+      toNextSlide,
+      toPreviousSlide,
     };
   },
   render() {
     return h("section", {
       id: this.id,
-      ariaRoledescription: "carousel",
+      "aria-roledescription": "carousel",
       class: "a_carousel",
       ...this.ariaLabelAttributes,
     }, [
       h("div", {
         class: "a_carousel__inner",
       }, [
+        this.arrowsShow ?
+          h(AElement, {
+            disabled: this.disabled,
+            iconLeft: this.arrowLeftIcon,
+            type: "button",
+            onClick: this.toPreviousSlide,
+            ...this.arrowLeftAttributes,
+          }) :
+          undefined,
         h(ACarouselControls, {
-          arrowLeftAttributes: this.arrowLeftAttributes,
-          arrowLeftIcon: this.arrowLeftIcon,
-          arrowRightAttributes: this.arrowRightAttributes,
-          arrowRightIcon: this.arrowRightIcon,
-          arrowsShow: this.arrowsShow,
-          arrowsTrigger: this.arrowsTrigger,
-          arrowsPosition: this.arrowsPosition,
+          activeId: this.activeId,
           autoplayInterval: this.autoplayInterval,
           autoplayShow: this.autoplayShow,
-          data: this.data,
+          data: this.dataLocal,
+          disabled: this.disabled,
           extra: this.extra,
           parentId: this.id,
           indicatorsShow: this.indicatorsShow,
           indicatorType: this.indicatorType,
+          onChangeActiveId: this.changeActiveId,
+          onToNextSlide: this.toNextSlide,
+          onToPreviousSlide: this.toPreviousSlide,
         }),
+        h("div", {
+          "aria-live": "polite",
+          class: "a_carousel__items",
+        }, [
+          ...this.dataLocal.map((item, index) => {
+            return h(ACarouselItem, {
+              key: item[AKeyId],
+              activeId: this.activeId,
+              dataCount: this.dataLocal.length,
+              item,
+              itemIndex: index,
+              parentId: this.id,
+            }, this.$slots);
+          }),
+        ]),
+        this.arrowsShow ?
+          h(AElement, {
+            disabled: this.disabled,
+            iconLeft: this.arrowRightIcon,
+            type: "button",
+            onClick: this.toNextSlide,
+            ...this.arrowRightAttributes,
+          }) :
+          undefined,
       ]),
     ]);
   },

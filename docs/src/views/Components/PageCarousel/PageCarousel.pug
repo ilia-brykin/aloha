@@ -1,0 +1,20 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_CAROUSEL_COMPONENT_DESCRIPTION_"
+    )
+
+    page-carousel-basic
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

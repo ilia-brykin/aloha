@@ -26,6 +26,13 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageCarousel",
+        label: "Carousel",
+        to: {
+          name: "PageCarousel",
+        },
+      },
+      {
         id: "cloak",
         label: "Cloak",
         to: {

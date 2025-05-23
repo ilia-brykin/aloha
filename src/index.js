@@ -5,6 +5,7 @@ export { default as AButton } from "./AButton/AButton";
 export { default as ACheckbox } from "./ui/ACheckbox/ACheckbox";
 export { default as ACheckboxRadioGroups } from "./ui/ACheckboxRadioGroups/ACheckboxRadioGroups";
 export { default as ACloak } from "./ACloak/ACloak";
+export { default as ACarousel } from "./ACarousel/ACarousel";
 export { default as ADatepicker } from "./ui/ADatepicker/ADatepicker";
 export { default as ADatepickerRange } from "./ui/ADatepickerRange/ADatepickerRange";
 export { default as ADisclosure } from "./ADisclosure/ADisclosure";
@@ -270,6 +271,7 @@ export {
   it as i18nIT,
   ru as i18nRU,
 } from "./i18n/allLanguages";
+export { default as ACarouselI18n } from "./ACarousel/i18n/ACarouselI18n";
 export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
 export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";
 export { default as ADatepickerRangeI18n } from "./ui/ADatepickerRange/i18n/ADatepickerRangeI18n";

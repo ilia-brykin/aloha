@@ -15,6 +15,7 @@ import PageAOnHooksI18n from "./views/Directives/PageOnHooks/i18n/PageAOnHooksI1
 import PageARateI18n from "./views/Components/PageRate/i18n/PageARateI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
+import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI18n";
 import PageCheckboxI18n from "./views/Components/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
@@ -117,6 +118,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.ar,
     ...PageARateI18n.ar,
     ...PageButtonI18n.ar,
+    ...PageCarouselI18n.ar,
     ...PageCheckboxI18n.ar,
     ...PageCloakI18n.ar,
     ...PageCloakPluginI18n.ar,
@@ -210,6 +212,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.de,
     ...PageARateI18n.de,
     ...PageButtonI18n.de,
+    ...PageCarouselI18n.de,
     ...PageCheckboxI18n.de,
     ...PageCloakI18n.de,
     ...PageCloakPluginI18n.de,
@@ -303,6 +306,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.en,
     ...PageARateI18n.en,
     ...PageButtonI18n.en,
+    ...PageCarouselI18n.en,
     ...PageCheckboxI18n.en,
     ...PageCloakI18n.en,
     ...PageCloakPluginI18n.en,
@@ -396,6 +400,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.es,
     ...PageARateI18n.es,
     ...PageButtonI18n.es,
+    ...PageCarouselI18n.es,
     ...PageCheckboxI18n.es,
     ...PageCloakI18n.es,
     ...PageCloakPluginI18n.es,
@@ -489,6 +494,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.fr,
     ...PageARateI18n.fr,
     ...PageButtonI18n.fr,
+    ...PageCarouselI18n.fr,
     ...PageCheckboxI18n.fr,
     ...PageCloakI18n.fr,
     ...PageCloakPluginI18n.fr,
@@ -582,6 +588,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.hr,
     ...PageARateI18n.hr,
     ...PageButtonI18n.hr,
+    ...PageCarouselI18n.hr,
     ...PageCheckboxI18n.hr,
     ...PageCloakI18n.hr,
     ...PageCloakPluginI18n.hr,
@@ -675,6 +682,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.it,
     ...PageARateI18n.it,
     ...PageButtonI18n.it,
+    ...PageCarouselI18n.it,
     ...PageCheckboxI18n.it,
     ...PageCloakI18n.it,
     ...PageCloakPluginI18n.it,
@@ -768,6 +776,7 @@ export const mainTranslation = {
     ...PageAOnHooksI18n.ru,
     ...PageARateI18n.ru,
     ...PageButtonI18n.ru,
+    ...PageCarouselI18n.ru,
     ...PageCheckboxI18n.ru,
     ...PageCloakI18n.ru,
     ...PageCloakPluginI18n.ru,

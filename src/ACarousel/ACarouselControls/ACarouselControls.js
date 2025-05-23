@@ -3,47 +3,22 @@ import {
 } from "vue";
 import {
   AElement,
+  AKeyId,
 } from "../../index";
 
 import AriaLabelAPI from "./AriaLabelAPI";
+import EventsAPI from "./EventsAPI";
+
+import {
+  ACarouselPluginOptions,
+} from "../../plugins/ACarouselPlugin";
 
 export default {
   name: "ACarouselControls",
   props: {
-    arrowLeftAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    arrowLeftIcon: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    arrowRightAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    arrowRightIcon: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
-    arrowsShow: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    arrowsTrigger: {
-      type: [String, Array],
-      required: false,
-      default: "always",
-    },
-    arrowsPosition: {
-      type: String,
-      required: false,
-      default: "sides-center",
+    activeId: {
+      type: [String, Number],
+      required: true,
     },
     autoplayInterval: {
       type: Number,
@@ -63,6 +38,10 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
     },
     extra: {
       type: Object,
@@ -85,13 +64,25 @@ export default {
       validator: value => ["dots"].indexOf(value) !== -1,
     },
   },
-  setup() {
+  emits: [
+    "changeActiveId",
+    "toNextSlide",
+    "toPreviousSlide",
+  ],
+  setup(props, context) {
     const {
       ariaLabelTabsAttributes,
     } = AriaLabelAPI();
 
+    const {
+      changeActiveId,
+      onPressBtn,
+    } = EventsAPI(context);
+
     return {
       ariaLabelTabsAttributes,
+      changeActiveId,
+      onPressBtn,
     };
   },
   render() {
@@ -100,18 +91,40 @@ export default {
         class: "a_carousel__tabs__wrapper",
       }, [
         h("div", {
-          class: "a_carousel__tabs",
+          class: [
+            "a_carousel__tabs",
+            this.indicatorType ?
+              `a_carousel__tabs_${ this.indicatorType }` :
+              "a_carousel__tabs_custom",
+          ],
           role: "tablist",
           ...this.ariaLabelTabsAttributes,
         }, [
           ...this.data.map((item, itemIndex) => {
+            const NUMBER = itemIndex + 1;
+            const IS_ACTIVE = this.activeId === item[AKeyId];
+
             return h(AElement, {
+              id: `${ this.parentId }_tab_${ NUMBER }`,
+              "aria-selected": false,
+              "aria-controls": `${ this.parentId }_item_${ NUMBER }`,
+              class: [
+                "a_carousel__tabs__btn",
+                {
+                  a_carousel__tabs__btn_active: IS_ACTIVE,
+                },
+              ],
+              iconLeft: ACarouselPluginOptions.icons.dots,
+              disabled: this.disabled,
               type: "button",
+              tabindex: IS_ACTIVE ? 0 : -1,
               role: "tab",
-              ariaLabel: "_A_CAROUSEL_TAB_LABEL_{{number}}_",
+              ariaLabel: "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_",
               extra: {
-                number: itemIndex + 1,
+                number: NUMBER,
               },
+              onClick: () => this.changeActiveId({ item }),
+              onKeydown: this.onPressBtn,
             });
           }),
         ]),
