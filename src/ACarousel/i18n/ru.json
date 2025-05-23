@@ -1,0 +1,9 @@
+{
+  "_A_CAROUSEL_CONTROLS_NEXT_SLIDE_": "Следующий слайд",
+  "_A_CAROUSEL_CONTROLS_PREVIOUS_SLIDE_": "Предыдущий слайд",
+  "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_": "Слайд {{ number }}",
+  "_A_CAROUSEL_CONTROLS_SLIDES_": "Слайды",
+  "_A_CAROUSEL_CONTROLS_START_": "Запустить автоматическое пролистывание",
+  "_A_CAROUSEL_CONTROLS_STOP_": "Остановить автоматическое пролистывание",
+  "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_": "{{ number }} из {{ count }}"
+}

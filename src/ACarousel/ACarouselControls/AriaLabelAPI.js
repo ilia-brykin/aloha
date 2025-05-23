@@ -10,7 +10,7 @@ export default function AriaLabelAPI() {
   const ariaLabelTabsAttributes = computed(() => {
     return getTranslatedAttributes({
       attr: "aria-label",
-      placeholder: "Slides",
+      placeholder: "_A_CAROUSEL_CONTROLS_SLIDES_",
     });
   });
 

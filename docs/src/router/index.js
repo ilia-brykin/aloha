@@ -118,6 +118,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageCloak/PageCloak.vue"),
   },
   {
+    path: "/carousel",
+    name: "PageCarousel",
+    component: () => import("../views/Components/PageCarousel/PageCarousel.vue"),
+  },
+  {
     path: "/input",
     name: "PageInput",
     component: () => import("../views/Components/Form/PageInput/PageInput.vue"),

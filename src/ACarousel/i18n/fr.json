@@ -1,0 +1,9 @@
+{
+  "_A_CAROUSEL_CONTROLS_NEXT_SLIDE_": "Diapositive suivante",
+  "_A_CAROUSEL_CONTROLS_PREVIOUS_SLIDE_": "Diapositive précédente",
+  "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_": "Diapositive {{ number }}",
+  "_A_CAROUSEL_CONTROLS_SLIDES_": "Diapositives",
+  "_A_CAROUSEL_CONTROLS_START_": "Démarrer le diaporama automatique",
+  "_A_CAROUSEL_CONTROLS_STOP_": "Arrêter le diaporama automatique",
+  "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_": "{{ number }} sur {{ count }}"
+}
