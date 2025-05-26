@@ -1,14 +1,13 @@
 import {
-  computed,
   h,
-  toRef,
 } from "vue";
 import {
   AElement,
-  AKeyId,
-  AKeyLabel,
   ATranslation,
 } from "../../../index";
+
+import CloseAPI from "./compositionAPI/CloseAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
 
 import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 
@@ -42,27 +41,14 @@ export default {
   emits: [
     "changeModelValue",
   ],
-  setup(props, { emit }) {
-    const data = toRef(props, "data");
-    const currentLabel = computed(() => {
-      return data.value[AKeyLabel];
-    });
+  setup(props, context) {
+    const {
+      currentLabel,
+    } = LabelAPI(props);
 
-    const currentValue = computed(() => {
-      return data.value[AKeyId];
-    });
-
-
-    const closeModel = $event => {
-      emit("changeModelValue", {
-        currentValue: currentValue.value,
-        $event,
-        isSelected: true,
-      });
-
-      $event.stopPropagation();
-      $event.preventDefault();
-    };
+    const {
+      closeModel,
+    } = CloseAPI(props, context);
 
     return {
       closeModel,
@@ -85,14 +71,18 @@ export default {
           html: this.currentLabel,
           extra: this.data.extra,
         }),
-      !this.hideDeleteButton && h(AElement, {
-        class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
-        type: "button",
-        tabindex: -1,
-        iconLeft: XLg,
-        disabled: this.disabled,
-        onClick: this.closeModel,
-      }),
+      !this.hideDeleteButton ?
+        h(AElement, {
+          class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
+          disabled: this.disabled,
+          iconLeft: XLg,
+          prevent: true,
+          stop: true,
+          tabindex: -1,
+          type: "button",
+          onClick: this.closeModel,
+        }) :
+        "",
     ]);
   },
 };
