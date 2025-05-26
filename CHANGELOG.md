@@ -12,6 +12,10 @@
 - Add a new function `getTranslatedAttributes`
 - `AModal`: Fix Styles
 
+## 2.14.1
+
+- `ASelectValueCloseable`: Fix in close function
+
 ## 2.14.0
 
 - Change Styles for `Errors`, `Legend` and `Fieldset`

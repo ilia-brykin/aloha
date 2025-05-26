@@ -12130,4 +12130,111 @@ input[type=text]::-ms-clear {
   hyphens: auto;
 }
 
+.a_carousel__inner {
+  position: relative;
+}
+
+.a_carousel__items {
+  padding: 0.5rem;
+}
+
+.a_carousel__item {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100px;
+}
+
+.a_carousel__item_active {
+  display: block;
+}
+
+.a_carousel__tabs__wrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.a_carousel__tabs {
+  box-sizing: border-box;
+  border: 0 transparent solid;
+  border-radius: 13px;
+  display: inline-block;
+  padding-top: 2px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.a_carousel__tabs:focus-within {
+  border-width: 2px;
+  border-color: white;
+  padding-top: 0;
+  background-color: #005a9c;
+}
+
+.a_carousel__tabs_dots:focus-within circle.tab-background {
+  stroke: #005a9c;
+  fill: #005a9c;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn {
+  position: relative;
+  top: -2px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 34px;
+  color: #fff;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn .a_icon {
+  width: 34px;
+  height: 34px;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn:focus circle.border {
+  display: block;
+  fill: #005a9c;
+  stroke: #fff;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn:focus circle.tab-background {
+  stroke: #005a9c;
+  fill: #005a9c;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn:hover circle.tab-background {
+  fill: white;
+  stroke: white;
+  opacity: 1;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn:hover circle.tab, .a_carousel__tabs_dots .a_carousel__tabs__btn:hover circle.border {
+  fill: #005a9c;
+  stroke: #005a9c;
+  opacity: 1;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_active:hover circle.tab {
+  fill: white;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_active circle.tab {
+  fill: white;
+}
+.a_carousel__tabs_dots circle.tab, .a_carousel__tabs_dots circle.border {
+  stroke: white;
+  fill: transparent;
+  stroke-width: 2px;
+}
+.a_carousel__tabs_dots circle.border {
+  display: none;
+  z-index: 12;
+}
+.a_carousel__tabs_dots circle.tab-background {
+  stroke: black;
+  fill: black;
+  stroke-width: 2px;
+  opacity: 0.6;
+  z-index: 14;
+}
+.a_carousel__tabs_dots circle.tab {
+  z-index: 16;
+}
+
 /*# sourceMappingURL=aloha-vue.css.map */
