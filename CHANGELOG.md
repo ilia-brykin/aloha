@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.16.0
+
+- New component: `ACarousel`
+
 ## 2.15.0
 
 - Add a new function `getTranslatedAttributes`
