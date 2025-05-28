@@ -11,6 +11,7 @@ export default function AttributesAPI(props) {
   const dataCount = toRef(props, "dataCount");
   const itemIndex = toRef(props, "itemIndex");
   const parentId = toRef(props, "parentId");
+  const texts = toRef(props, "texts");
 
   const itemNumber = computed(() => {
     return itemIndex.value + 1;
@@ -23,7 +24,7 @@ export default function AttributesAPI(props) {
   const ariaLabelAttributes = computed(() => {
     return getTranslatedAttributes({
       attr: "aria-label",
-      placeholder: "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_",
+      placeholder: texts.value.itemAriaLabel,
       extra: {
         count: dataCount.value,
         number: itemNumber.value,

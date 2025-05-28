@@ -29,6 +29,10 @@ export default {
       type: String,
       required: true,
     },
+    texts: {
+      type: Object,
+      required: true,
+    },
   },
   emits: [
     "change",

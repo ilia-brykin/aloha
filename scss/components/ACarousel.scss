@@ -1,11 +1,11 @@
 .a_carousel {
-
+  background-color: var(--a_color_gray_200);
 }
 .a_carousel__inner {
   position: relative;
 }
 .a_carousel__items {
-  padding: .5rem;
+  padding: 0;
 }
 .a_carousel__item {
   display: none;
@@ -17,11 +17,164 @@
 .a_carousel__item_active {
   display: block;
 }
+.a_carousel_tabs_top {
+  .a_carousel__tabs__wrapper {
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.a_carousel_tabs_top-start {
+  .a_carousel__tabs__wrapper {
+    top: 2rem;
+    left: 1rem;
+  }
+}
+.a_carousel_tabs_top-end {
+  .a_carousel__tabs__wrapper {
+    top: 2rem;
+    right: 1rem;
+  }
+}
+.a_carousel_tabs_bottom {
+  .a_carousel__tabs__wrapper {
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.a_carousel_tabs_bottom-start {
+  .a_carousel__tabs__wrapper {
+    bottom: 2rem;
+    left: 1rem;
+  }
+}
+.a_carousel_tabs_bottom-end {
+  .a_carousel__tabs__wrapper {
+    bottom: 2rem;
+    right: 1rem;
+  }
+}
+.a_carousel_arrows_sides-center {
+  .a_carousel__arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: hsla(0, 0%, 8%, .5);
+    color: #fff;
+    outline: none;
+    border: none;
+    &:hover {
+      background-color: hsla(0, 0%, 8%, .7);
+    }
+    &:focus {
+      outline: 2px solid white !important;
+      box-shadow: 0 0 0 2px black;
+      outline-offset: -2px;
+      background-color: hsla(0, 0%, 8%, .7);
+    }
+    .a_icon {
+      width: 2rem;
+      height: auto;
+    }
+  }
+  .a_carousel__arrow_previous {
+    left: 0;
+  }
+  .a_carousel__arrow_next {
+    right: 0;
+  }
+}
+.a_carousel_arrows_sides-top {
+  .a_carousel__arrow {
+    position: absolute;
+    top: 2rem;
+    z-index: 1;
+  }
+  .a_carousel__arrow_previous {
+    left: 1rem;
+  }
+  .a_carousel__arrow_next {
+    right: 1rem;
+  }
+}
+.a_carousel_arrows_sides-bottom {
+  .a_carousel__arrow {
+    position: absolute;
+    bottom: 2rem;
+    z-index: 1;
+  }
+  .a_carousel__arrow_previous {
+    left: 1rem;
+  }
+  .a_carousel__arrow_next {
+    right: 1rem;
+  }
+}
+.a_carousel_arrows_top-left {
+  .a_carousel__arrow {
+    position: absolute;
+    top: 2rem;
+    z-index: 1;
+  }
+  .a_carousel__arrow__wrapper {
+    left: 1rem;
+  }
+}
+.a_carousel_arrows_top-right {
+  .a_carousel__arrow {
+    position: absolute;
+    top: 2rem;
+    z-index: 1;
+  }
+  .a_carousel__arrow__wrapper {
+    right: 1rem;
+  }
+}
+.a_carousel_arrows_bottom-left {
+  .a_carousel__arrow {
+    position: absolute;
+    bottom: 2rem;
+    z-index: 1;
+  }
+  .a_carousel__arrow__wrapper {
+    left: 1rem;
+  }
+}
+.a_carousel_arrows_bottom-right {
+  .a_carousel__arrow {
+    position: absolute;
+    bottom: 2rem;
+    z-index: 1;
+  }
+  .a_carousel__arrow__wrapper {
+    right: 1rem;
+  }
+}
+.a_carousel_trigger_hover {
+  &:hover {
+    .a_carousel__arrow {
+      display: block;
+    }
+  }
+  .a_carousel__arrow {
+    display: none;
+  }
+}
+.a_carousel_trigger_focus {
+  &:focus-within {
+    .a_carousel__arrow {
+      display: block;
+    }
+  }
+  .a_carousel__arrow {
+    display: none;
+  }
+}
 .a_carousel__tabs__wrapper {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  z-index: 1;
 }
 .a_carousel__tabs {
   box-sizing: border-box;

@@ -1,16 +1,16 @@
 import {
   h,
 } from "vue";
-import {
-  AElement,
-} from "../index";
 
+import ACarouselBtn from "./ACarouselBtn/ACarouselBtn";
 import ACarouselControls from "./ACarouselControls/ACarouselControls";
 import ACarouselItem from "./ACarouselItem/ACarouselItem";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+import ClassAPI from "./compositionAPI/ClassAPI";
 import DataAPI from "./compositionAPI/DataAPI";
+import TextsAPI from "./compositionAPI/TextsAPI";
 
 import ChevronLeft from "aloha-svg/dist/js/bootstrap/ChevronLeft";
 import ChevronRight from "aloha-svg/dist/js/bootstrap/ChevronRight";
@@ -31,22 +31,26 @@ export default {
       type: String,
       required: true,
     },
-    arrowLeftAttributes: {
+    ariaDisabled: {
+      type: Boolean,
+      required: false,
+    },
+    arrowPreviousAttributes: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    arrowLeftIcon: {
+    arrowPreviousIcon: {
       type: String,
       required: false,
       default: ChevronLeft,
     },
-    arrowRightAttributes: {
+    arrowNextAttributes: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    arrowRightIcon: {
+    arrowNextIcon: {
       type: String,
       required: false,
       default: ChevronRight,
@@ -65,20 +69,22 @@ export default {
         return isArray(values) && every(values, v => ["always", "hover", "focus"].includes(v));
       },
     },
-    arrowsPosition: {
+    arrowsPlacement: {
       type: String,
       default: "sides-center", // positioned at the sides, vertically centered
       validator: value => [
         "sides-center", // arrows on the left and right sides, vertically centered (default)
-        "sides-top", // arrows on the sides at the top
-        "sides-bottom", // arrows on the sides at the bottom
-        "with-indicators-before", // arrows before the indicator panel
-        "with-indicators-after", // arrows after the indicator panel
-        "with-indicators-sides", // arrows on the left and right of the indicator panel
-        "top-left", // absolutely positioned in the top-left corner
-        "top-right", // absolutely positioned in the top-right corner
-        "bottom-left", // absolutely positioned in the bottom-left corner
-        "bottom-right", // absolutely positioned in the bottom-right corner
+        /*
+         * "sides-top", // arrows on the sides at the top
+         * "sides-bottom", // arrows on the sides at the bottom
+         * "with-indicators-before", // arrows before the indicator panel
+         * "with-indicators-after", // arrows after the indicator panel
+         * "with-indicators-sides", // arrows on the left and right of the indicator panel
+         * "top-left", // absolutely positioned in the top-left corner
+         * "top-right", // absolutely positioned in the top-right corner
+         * "bottom-left", // absolutely positioned in the bottom-left corner
+         * "bottom-right", // absolutely positioned in the bottom-right corner
+         */
       ].includes(value),
     },
     autoplayInterval: {
@@ -93,6 +99,7 @@ export default {
     },
     autoplayStart: {
       type: Boolean,
+      required: false,
       default: false,
     },
     data: {
@@ -112,18 +119,31 @@ export default {
     id: {
       type: String,
       required: false,
-      default: uniqueId("a_carousel_"),
+      default: () => uniqueId("a_carousel_"),
     },
     indicatorsShow: {
       type: Boolean,
       required: false,
       default: true,
     },
-    indicatorType: {
+    indicatorsType: {
       type: String,
       required: false,
       default: "dots",
       validator: value => ["dots"].indexOf(value) !== -1,
+    },
+    indicatorsPlacement: {
+      type: String,
+      required: false,
+      default: "bottom",
+      validator: value => [
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+      ].indexOf(value) !== -1,
     },
     keyId: {
       type: String,
@@ -135,6 +155,19 @@ export default {
       required: false,
       default: undefined,
     },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        nextSlide: "_A_CAROUSEL_NEXT_SLIDE_",
+        previousSlide: "_A_CAROUSEL_PREVIOUS_SLIDE_",
+        controlsSlide: "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_",
+        controlsSlides: "_A_CAROUSEL_CONTROLS_SLIDES_",
+        controlsStart: "_A_CAROUSEL_CONTROLS_START_",
+        controlsStop: "_A_CAROUSEL_CONTROLS_STOP_",
+        itemAriaLabel: "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_",
+      }),
+    },
   },
   emits: [
     "change",
@@ -144,8 +177,18 @@ export default {
   ],
   setup(props) {
     const {
+      textsLocal,
+    } = TextsAPI(props);
+
+    const {
       ariaLabelAttributes,
     } = AriaLabelAPI(props);
+
+    const {
+      arrowsPlacementClass,
+      arrowsTriggerClass,
+      indicatorsPlacementClass,
+    } = ClassAPI(props);
 
     const {
       dataLocal,
@@ -166,8 +209,12 @@ export default {
     return {
       activeId,
       ariaLabelAttributes,
+      arrowsPlacementClass,
+      arrowsTriggerClass,
       changeActiveId,
       dataLocal,
+      indicatorsPlacementClass,
+      textsLocal,
       toNextSlide,
       toPreviousSlide,
     };
@@ -176,19 +223,25 @@ export default {
     return h("section", {
       id: this.id,
       "aria-roledescription": "carousel",
-      class: "a_carousel",
+      class: [
+        "a_carousel",
+        this.indicatorsPlacementClass,
+        this.arrowsPlacementClass,
+        this.arrowsTriggerClass,
+      ],
       ...this.ariaLabelAttributes,
     }, [
       h("div", {
         class: "a_carousel__inner",
       }, [
         this.arrowsShow ?
-          h(AElement, {
+          h(ACarouselBtn, {
+            btnAttributes: this.arrowPreviousAttributes,
             disabled: this.disabled,
-            iconLeft: this.arrowLeftIcon,
-            type: "button",
-            onClick: this.toPreviousSlide,
-            ...this.arrowLeftAttributes,
+            icon: this.arrowPreviousIcon,
+            texts: this.textsLocal,
+            type: "previous",
+            onToSlide: this.toPreviousSlide,
           }) :
           undefined,
         h(ACarouselControls, {
@@ -200,7 +253,8 @@ export default {
           extra: this.extra,
           parentId: this.id,
           indicatorsShow: this.indicatorsShow,
-          indicatorType: this.indicatorType,
+          indicatorsType: this.indicatorsType,
+          texts: this.texts,
           onChangeActiveId: this.changeActiveId,
           onToNextSlide: this.toNextSlide,
           onToPreviousSlide: this.toPreviousSlide,
@@ -217,16 +271,18 @@ export default {
               item,
               itemIndex: index,
               parentId: this.id,
+              texts: this.textsLocal,
             }, this.$slots);
           }),
         ]),
         this.arrowsShow ?
-          h(AElement, {
+          h(ACarouselBtn, {
+            btnAttributes: this.arrowNextAttributes,
             disabled: this.disabled,
-            iconLeft: this.arrowRightIcon,
-            type: "button",
-            onClick: this.toNextSlide,
-            ...this.arrowRightAttributes,
+            icon: this.arrowNextIcon,
+            texts: this.textsLocal,
+            type: "next",
+            onToSlide: this.toNextSlide,
           }) :
           undefined,
       ]),

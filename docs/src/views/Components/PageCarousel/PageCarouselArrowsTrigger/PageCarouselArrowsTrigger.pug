@@ -1,0 +1,80 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CAROUSEL_GROUP_ARROWS_TRIGGER_HEADER_"
+  description="_A_CAROUSEL_GROUP_ARROWS_TRIGGER_DESCRIPTION_"
+  props="arrows-trigger"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_"
+      )
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        arrows-trigger="hover"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_FOCUS_"
+      )
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        arrows-trigger="focus"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_FOCUS_"
+      )
+      a-carousel(
+        :arrows-trigger="['hover', 'focus']"
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      a-translation(
+        tag="h3"
+        text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_ALWAYS_"
+      )
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        arrows-trigger="always"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )

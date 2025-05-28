@@ -1,6 +1,6 @@
 {
-  "_A_CAROUSEL_CONTROLS_NEXT_SLIDE_": "Siguiente diapositiva",
-  "_A_CAROUSEL_CONTROLS_PREVIOUS_SLIDE_": "Diapositiva anterior",
+  "_A_CAROUSEL_NEXT_SLIDE_": "Siguiente diapositiva",
+  "_A_CAROUSEL_PREVIOUS_SLIDE_": "Diapositiva anterior",
   "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_": "Diapositiva {{ number }}",
   "_A_CAROUSEL_CONTROLS_SLIDES_": "Diapositivas",
   "_A_CAROUSEL_CONTROLS_START_": "Iniciar presentación automática",

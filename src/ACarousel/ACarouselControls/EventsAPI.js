@@ -9,7 +9,6 @@ export default function EventsAPI({ emit }) {
   };
 
   const onPressBtn = $event => {
-    console.log("onPressBtn");
     if ($event.keyCode === AKeysCode.arrowLeft) {
       $event.preventDefault();
       emit("toPreviousSlide");

@@ -57,11 +57,15 @@ export default {
       required: false,
       default: true,
     },
-    indicatorType: {
+    indicatorsType: {
       type: String,
       required: false,
       default: "dots",
       validator: value => ["dots"].indexOf(value) !== -1,
+    },
+    texts: {
+      type: Object,
+      required: true,
     },
   },
   emits: [
@@ -93,8 +97,8 @@ export default {
         h("div", {
           class: [
             "a_carousel__tabs",
-            this.indicatorType ?
-              `a_carousel__tabs_${ this.indicatorType }` :
+            this.indicatorsType ?
+              `a_carousel__tabs_${ this.indicatorsType }` :
               "a_carousel__tabs_custom",
           ],
           role: "tablist",
@@ -119,7 +123,8 @@ export default {
               type: "button",
               tabindex: IS_ACTIVE ? 0 : -1,
               role: "tab",
-              ariaLabel: "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_",
+              title: this.texts.controlsSlide,
+              textScreenReader: this.texts.controlsSlide,
               extra: {
                 number: NUMBER,
               },

@@ -1,6 +1,6 @@
 {
-  "_A_CAROUSEL_CONTROLS_NEXT_SLIDE_": "Nächste Folie",
-  "_A_CAROUSEL_CONTROLS_PREVIOUS_SLIDE_": "Vorherige Folie",
+  "_A_CAROUSEL_NEXT_SLIDE_": "Nächste Folie",
+  "_A_CAROUSEL_PREVIOUS_SLIDE_": "Vorherige Folie",
   "_A_CAROUSEL_CONTROLS_SLIDE_{{number}}_": "Folie {{ number }}",
   "_A_CAROUSEL_CONTROLS_SLIDES_": "Folien",
   "_A_CAROUSEL_CONTROLS_START_": "Automatische Diashow starten",
