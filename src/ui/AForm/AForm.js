@@ -107,6 +107,11 @@ export default {
       required: false,
       default: undefined,
     },
+    useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "update:modelValue",
@@ -175,6 +180,7 @@ export default {
           optionsList: this.data,
           idPrefix: this.idPrefix,
           textErrorHeader: this.textErrorHeader,
+          useFlatErrors: this.useFlatErrors,
         }) :
         "",
       h("div", {
@@ -200,6 +206,7 @@ export default {
             class: classColumn,
             errors: this.errors[item.id],
             errorsAll: IS_CONTAINER ? this.errors : undefined,
+            useFlatErrors: IS_CONTAINER ? this.useFlatErrors : undefined,
             idPrefix: this.idPrefix,
             excludeRenderAttributes: this.excludeRenderAttributes,
             ...item,

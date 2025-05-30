@@ -8,6 +8,12 @@ import {
 } from "../../compositionApi/UiAPI";
 
 import {
+  AKeyChildren,
+  AKeyId,
+  AKeyLabel,
+  AKeyLink,
+} from "../../../const/AKeys";
+import {
   forEach,
   isUndefined,
 } from "lodash-es";
@@ -15,24 +21,29 @@ import {
 export default function LabelsAPI(props) {
   const optionsList = toRef(props, "optionsList");
   const idPrefix = toRef(props, "idPrefix");
+  const useFlatErrors = toRef(props, "useFlatErrors");
 
-  const getLabelsFromChildren = children => {
+  const getLabelsFromChildren = ({ children }) => {
     let labelsFromChildren = {};
     forEach(children, childOptions => {
       labelsFromChildren[childOptions.id] = {
-        label: childOptions.labelError || childOptions.label,
-        link: !isUndefined(childOptions.isErrorLink) ? childOptions.isErrorLink : true,
-        id: getHtmlId({
+        [AKeyLabel]: childOptions.labelError || childOptions.label,
+        [AKeyLink]: !isUndefined(childOptions.isErrorLink) ? childOptions.isErrorLink : true,
+        [AKeyId]: getHtmlId({
           id: childOptions.id,
           idPrefix: childOptions.idPrefix || idPrefix.value,
           htmlId: childOptions.htmlId,
         }),
       };
-      if (childOptions.children && childOptions.children.length) {
-        labelsFromChildren = {
-          ...labelsFromChildren,
-          ...getLabelsFromChildren(childOptions.children),
-        };
+      if (childOptions?.children?.length) {
+        if (useFlatErrors.value) {
+          labelsFromChildren = {
+            ...labelsFromChildren,
+            ...getLabelsFromChildren(childOptions.children),
+          };
+        } else {
+          labelsFromChildren[childOptions.id][AKeyChildren] = getLabelsFromChildren(childOptions.children);
+        }
       }
     });
 
@@ -43,21 +54,30 @@ export default function LabelsAPI(props) {
     let labelsFromOptionsList = {};
     optionsList.value.forEach(options => {
       labelsFromOptionsList[options.id] = {
-        label: options.labelError || options.label,
-        link: !isUndefined(options.isErrorLink) ? options.isErrorLink : true,
-        id: getHtmlId({
+        [AKeyLabel]: options.labelError || options.label,
+        [AKeyLink]: !isUndefined(options.isErrorLink) ? options.isErrorLink : true,
+        [AKeyId]: getHtmlId({
           id: options.id,
           idPrefix: options.idPrefix || idPrefix.value,
           htmlId: options.htmlId,
         }),
       };
       if (options.children && options.children.length) {
-        labelsFromOptionsList = {
-          ...labelsFromOptionsList,
-          ...getLabelsFromChildren(options.children),
-        };
+        if (useFlatErrors.value) {
+          labelsFromOptionsList = {
+            ...labelsFromOptionsList,
+            ...getLabelsFromChildren({
+              children: options.children,
+            }),
+          };
+        } else {
+          labelsFromOptionsList[options.id][AKeyChildren] = getLabelsFromChildren({
+            children: options.children,
+          });
+        }
       }
     });
+
     return labelsFromOptionsList;
   });
 

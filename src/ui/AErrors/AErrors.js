@@ -19,45 +19,50 @@ export default {
       type: Boolean,
       required: false,
     },
-    errors: {
-      type: Object,
+    autoFocus: {
+      type: Boolean,
       required: false,
-      default: () => ({}),
+      default: true,
     },
     closable: {
       type: Boolean,
       required: false,
       default: true,
     },
+    errors: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     goToError: {
       type: Function,
       required: false,
       default: undefined,
     },
-    optionsList: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    autoFocus: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-    textErrorHeader: {
+    idPrefix: {
       type: String,
       required: false,
-      default: "Bitte überprüfen Sie Ihre Eingaben.",
+      default: undefined,
     },
     isErrorLink: {
       type: Boolean,
       required: false,
       default: true,
     },
-    idPrefix: {
+    optionsList: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    textErrorHeader: {
       type: String,
       required: false,
-      default: undefined,
+      default: "Bitte überprüfen Sie Ihre Eingaben.",
+    },
+    useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
   emits: [
@@ -128,6 +133,7 @@ export default {
               errorLabels: this.labelsLocal[key] || this.labelsLocal,
               goToError: this.goToError,
               isErrorLink: this.isErrorLink,
+              useFlatErrors: this.useFlatErrors,
             });
           }),
         ]),

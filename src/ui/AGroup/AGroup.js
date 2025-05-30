@@ -71,7 +71,7 @@ export default {
       default: undefined,
     },
     errors: {
-      type: [String, Array],
+      type: [String, Array, Object],
       required: false,
       default: undefined,
     },
@@ -149,6 +149,11 @@ export default {
       type: [String, Number, Array, Object, Boolean],
       required: false,
       default: undefined,
+    },
+    useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     readonly: {
       type: Boolean,
@@ -299,6 +304,9 @@ export default {
               style = "display: none;";
             }
             const COMPONENT = this.componentTypesMapping()[item.type];
+            const ERRORS = this.useFlatErrors ?
+              get(this.errorsAll, item.id) :
+              get(this.errors, item.id);
 
             return h("div", {
               class: classColumn,
@@ -309,7 +317,7 @@ export default {
                 alwaysTranslate: this.alwaysTranslate,
                 modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
                 modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
-                errors: this.errorsAll[item.id],
+                errors: ERRORS,
                 errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
                 idPrefix: this.idPrefix,
                 onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),

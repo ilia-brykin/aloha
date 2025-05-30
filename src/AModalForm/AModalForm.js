@@ -245,6 +245,11 @@ export default {
       required: false,
       default: () => modalPluginOptions.value.propsDefault.useEscape,
     },
+    useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     useFocusOnStart: {
       type: Boolean,
       required: false,
@@ -343,6 +348,7 @@ export default {
           textErrorHeader: this.textErrorHeader,
           isHide: this.isDataFormHide,
           isRender: this.isDataFormRender,
+          useFlatErrors: this.useFlatErrors,
           "onUpdate:modelValue": this.updateModelLocal,
           onChange: this.changeLocal,
         }, this.$slots),

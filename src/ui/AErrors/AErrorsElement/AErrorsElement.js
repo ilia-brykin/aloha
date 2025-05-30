@@ -1,25 +1,19 @@
 import {
-  computed,
   h,
   resolveComponent,
-  toRef,
 } from "vue";
 
 import AElement from "../../../AElement/AElement";
 import ATranslation from "../../../ATranslation/ATranslation";
 
-import AKeysCode from "../../../const/AKeysCode";
+import ErrorTypeAPI from "./compositionAPI/ErrorTypeAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
+import LinkAPI from "./compositionAPI/LinkAPI";
+
 import {
-  AFormPluginOptions,
-} from "../../../plugins/AFormPlugin";
+  AKeyChildren,
+} from "../../../const/AKeys";
 import {
-  get,
-  isArray,
-  isFunction,
-  isNil,
-  isPlainObject,
-  isString,
-  size,
   uniqueId,
 } from "lodash-es";
 
@@ -59,84 +53,30 @@ export default {
       type: Boolean,
       required: true,
     },
+    useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props) {
-    const errorLabels = toRef(props, "errorLabels");
-    const currentLabel = computed(() => {
-      if (isString(errorLabels.value)) {
-        return errorLabels.value;
-      } else if (isPlainObject(errorLabels.value)) {
-        return errorLabels.value.label;
-      }
-      return "";
-    });
+    const {
+      currentLabel,
+      isErrorLabelsArray,
+    } = LabelAPI(props);
 
-    const isErrorLink = toRef(props, "isErrorLink");
-    const isErrorLinkLocal = computed(() => {
-      return isPlainObject(errorLabels.value) &&
-        errorLabels.value.link &&
-        isErrorLink.value;
-    });
+    const {
+      isErrorArray,
+      isErrorObject,
+      isErrorString,
+    } = ErrorTypeAPI(props);
 
-    const error = toRef(props, "error");
-    const isErrorString = computed(() => {
-      return isString(error.value);
-    });
+    const {
+      goToErrorLocal,
+      isErrorLinkLocal,
+      onKeydown,
+    } = LinkAPI(props);
 
-    const isErrorArray = computed(() => {
-      return isArray(error.value);
-    });
-
-    const isErrorObject = computed(() => {
-      return isPlainObject(error.value);
-    });
-
-    const isErrorLabelsArray = computed(() => {
-      return isArray(errorLabels.value);
-    });
-
-    const id = toRef(props, "id");
-    const idLocal = computed(() => {
-      return get(errorLabels.value, "id") || id.value;
-    });
-
-    const goToError = toRef(props, "goToError");
-    const errorKey = toRef(props, "errorKey");
-    const goToErrorLocal = () => {
-      if (isFunction(goToError.value)) {
-        return goToError.value({
-          id: idLocal.value,
-          key: errorKey.value,
-        });
-      }
-      let idStr = idLocal.value;
-      if (!isNil(errorKey.value)) {
-        idStr = `${ idStr }_${ errorKey.value }`;
-      }
-      if (size(idStr) > 0) {
-        if (isFunction(AFormPluginOptions.goToErrorCallback)) {
-          AFormPluginOptions.goToErrorCallback({
-            idStr,
-          });
-
-          return;
-        }
-
-        const ELEMENT = document.getElementById(idStr);
-        if (ELEMENT) {
-          ELEMENT.focus();
-        }
-      }
-    };
-
-    const onKeydown = $event => {
-      if ($event.keyCode === AKeysCode.enter ||
-        $event.keyCode === AKeysCode.space) {
-        goToErrorLocal();
-        $event.stopPropagation();
-        $event.preventDefault();
-      }
-    };
 
     return {
       currentLabel,
@@ -150,12 +90,12 @@ export default {
     };
   },
   render() {
-    return h("div", {
-      class: "a_error__list__li",
-    }, [
-      this.isErrorString ?
-        this.isErrorLinkLocal ?
-          h(AElement, {
+    let label = "";
+    if (this.currentLabel) {
+      if (this.isErrorString ||
+        (this.isErrorObject && !this.useFlatErrors)) {
+        if (this.isErrorLinkLocal) {
+          label = h(AElement, {
             type: "link",
             class: "a_errors__label a_btn a_btn_link a_p_0",
             tabindex: 0,
@@ -165,8 +105,9 @@ export default {
             textAfter: ":",
             onClick: this.goToErrorLocal,
             onKeydown: this.onKeydown,
-          }) :
-          h("div", {
+          });
+        } else {
+          label = h("div", {
             class: "a_errors__label",
             "aria-describedby": this.id,
           }, [
@@ -174,8 +115,16 @@ export default {
               tag: "strong",
               safeHtml: this.currentLabel,
             }),
-          ])
-: "",
+          ]);
+        }
+      }
+    }
+
+
+    return h("div", {
+      class: "a_error__list__li",
+    }, [
+      label,
       h(
         "div",
         {
@@ -190,17 +139,18 @@ export default {
               html: this.error,
             }),
           ] :
-          this.isErrorArray
-? [...this.error.map((error, erIndex) => {
-  return h(resolveComponent("AErrorsElement"), {
-    key: erIndex,
-    error,
-    alwaysTranslate: this.alwaysTranslate,
-    errorLabels: this.isErrorLabelsArray ? this.errorLabels[erIndex] || this.errorLabels : this.errorLabels,
-    goToError: this.goToError,
-    isErrorLink: this.isErrorLink,
-  });
-})] :
+          this.isErrorArray ?
+            [...this.error.map((error, erIndex) => {
+              return h(resolveComponent("AErrorsElement"), {
+                key: erIndex,
+                error,
+                alwaysTranslate: this.alwaysTranslate,
+                errorLabels: this.isErrorLabelsArray ? this.errorLabels[erIndex] || this.errorLabels : this.errorLabels,
+                goToError: this.goToError,
+                isErrorLink: this.isErrorLink,
+                useFlatErrors: this.useFlatErrors,
+              });
+            })] :
           this.isErrorObject ?
             [
               h("div", {
@@ -211,9 +161,12 @@ export default {
                     key: key,
                     alwaysTranslate: this.alwaysTranslate,
                     error: this.error[key],
-                    errorLabels: this.errorLabels[key] || this.errorLabels,
+                    errorLabels: this.useFlatErrors ?
+                      this.errorLabels[key] || this.errorLabels :
+                      this.errorLabels?.[AKeyChildren]?.[key] || this.errorLabels[key] || this.errorLabels,
                     goToError: this.goToError,
                     isErrorLink: this.isErrorLink,
+                    useFlatErrors: this.useFlatErrors,
                   });
                 }),
               ]),
