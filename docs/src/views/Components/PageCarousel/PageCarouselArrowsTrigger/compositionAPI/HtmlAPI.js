@@ -3,7 +3,7 @@ export default function HtmlAPI() {
   <div class="a_column a_column_12_touch a_column_4">
     <a-translation
       tag="h3"
-      text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_"
+      html="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_"
     ></a-translation>
     <a-carousel
       :data="data"
@@ -24,7 +24,7 @@ export default function HtmlAPI() {
   <div class="a_column a_column_12_touch a_column_4">
     <a-translation
       tag="h3"
-      text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_FOCUS_"
+      html="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_FOCUS_"
     ></a-translation>
     <a-carousel
       :data="data"
@@ -45,7 +45,7 @@ export default function HtmlAPI() {
   <div class="a_column a_column_12_touch a_column_4">
     <a-translation
       tag="h3"
-      text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_FOCUS_"
+      html="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_FOCUS_"
     ></a-translation>
     <a-carousel
       :arrows-trigger="['hover', 'focus']"
@@ -66,7 +66,7 @@ export default function HtmlAPI() {
   <div class="a_column a_column_12_touch a_column_4">
     <a-translation
       tag="h3"
-      text="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_ALWAYS_"
+      html="_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_ALWAYS_"
     ></a-translation>
     <a-carousel
       :data="data"
