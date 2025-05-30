@@ -210,6 +210,13 @@ export default function PropsAPI() {
       default: "text",
       required: false,
     },
+    {
+      name: "use-flat-errors",
+      description: "_A_PROPS_USE_FLAT_ERRORS_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
   ];
 
   return {
