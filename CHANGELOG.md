@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.17.0
+
+- Add props: `useFlatErrors` for `AForm`, `AModalForm`, `AErrors`, `AFieldset`, `AGroup`
+
 ## 2.16.0
 
 - New component: `ACarousel`
