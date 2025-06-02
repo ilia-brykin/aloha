@@ -1,6 +1,7 @@
 import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
+import PageCarouselAriaDisabled from "./PageCarouselAriaDisabled/PageCarouselAriaDisabled.vue";
 import PageCarouselArrowsTrigger from "./PageCarouselArrowsTrigger/PageCarouselArrowsTrigger.vue";
 import PageCarouselBasic from "./PageCarouselBasic/PageCarouselBasic.vue";
 import {
@@ -18,6 +19,7 @@ export default {
     AlohaTableProps,
     AlohaTableTranslate,
     ATranslation,
+    PageCarouselAriaDisabled,
     PageCarouselArrowsTrigger,
     PageCarouselBasic,
   },

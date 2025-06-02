@@ -15,6 +15,8 @@
   "_A_CAROUSEL_PREVIOUS_SLIDE_": "Prethodni slajd",
   "_A_CAROUSEL_GROUP_ARROWS_TRIGGER_HEADER_": "Okidač strelica",
   "_A_CAROUSEL_GROUP_ARROWS_TRIGGER_DESCRIPTION_": "Komponenta vrtuljka može prikazati navigacijske strelice na različite načine: uvijek vidljive, samo pri prelasku mišem, samo pri fokusu, ili i pri prelasku mišem i pri fokusu.",
+  "_A_CAROUSEL_GROUP_ARIA_DISABLED_HEADER_": "Atribut <strong lang=\"en\">aria-disabled</strong>",
+  "_A_CAROUSEL_GROUP_ARIA_DISABLED_DESCRIPTION_": "Komponenta vrtuljka može biti označena kao onemogućena za pomoćne tehnologije korištenjem atributa <strong lang=\"en\">aria-disabled</strong>.",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_": "Pri prelasku mišem (<strong lang=\"en\">hover</strong>)",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_FOCUS_": "Pri fokusu (<strong lang=\"en\">focus</strong>)",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_FOCUS_": "Pri prelasku mišem i fokusu (<strong lang=\"en\">hover</strong> i <strong lang=\"en\">focus</strong>)",

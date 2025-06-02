@@ -15,6 +15,8 @@
   "_A_CAROUSEL_PREVIOUS_SLIDE_": "Vorherige Folie",
   "_A_CAROUSEL_GROUP_ARROWS_TRIGGER_HEADER_": "Pfeil-Trigger",
   "_A_CAROUSEL_GROUP_ARROWS_TRIGGER_DESCRIPTION_": "Die Karussell-Komponente kann Navigationspfeile auf verschiedene Arten anzeigen: immer sichtbar, nur beim Hover, nur beim Fokus oder sowohl beim Hover als auch beim Fokus.",
+  "_A_CAROUSEL_GROUP_ARIA_DISABLED_HEADER_": "Attribut <strong lang=\"en\">aria-disabled</strong>",
+  "_A_CAROUSEL_GROUP_ARIA_DISABLED_DESCRIPTION_": "Die Karussell-Komponente kann für Hilfstechnologien als deaktiviert markiert werden, indem das Attribut <strong lang=\"en\">aria-disabled</strong> verwendet wird.",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_": "Beim Hover (<strong lang=\"en\">hover</strong>)",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_FOCUS_": "Beim Fokus (<strong lang=\"en\">focus</strong>)",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_FOCUS_": "Beim Hover und Fokus (<strong lang=\"en\">hover</strong> und <strong lang=\"en\">focus</strong>)",

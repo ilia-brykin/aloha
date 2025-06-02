@@ -15,6 +15,8 @@
   "_A_CAROUSEL_PREVIOUS_SLIDE_": "Diapositiva anterior",
   "_A_CAROUSEL_GROUP_ARROWS_TRIGGER_HEADER_": "Activador de flechas",
   "_A_CAROUSEL_GROUP_ARROWS_TRIGGER_DESCRIPTION_": "El componente de carrusel puede mostrar flechas de navegación de diferentes maneras: siempre visibles, solo al pasar el cursor, solo al enfocar, o tanto al pasar el cursor como al enfocar.",
+  "_A_CAROUSEL_GROUP_ARIA_DISABLED_HEADER_": "Atributo <strong lang=\"en\">aria-disabled</strong>",
+  "_A_CAROUSEL_GROUP_ARIA_DISABLED_DESCRIPTION_": "El componente de carrusel puede marcarse como deshabilitado para tecnologías de asistencia utilizando el atributo <strong lang=\"en\">aria-disabled</strong>.",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_": "Al pasar el cursor (<strong lang=\"en\">hover</strong>)",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_FOCUS_": "Al enfocar (<strong lang=\"en\">focus</strong>)",
   "_A_CAROUSEL_COMPONENT_ARROWS_TRIGGER_HOVER_FOCUS_": "Al pasar el cursor y enfocar (<strong lang=\"en\">hover</strong> y <strong lang=\"en\">focus</strong>)",
