@@ -234,6 +234,13 @@ export default function PropsAPI() {
       default: true,
       required: false,
     },
+    {
+      name: "use-flat-model",
+      description: "_A_PROPS_USE_FLAT_MODEL_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
   ];
 
   return {
