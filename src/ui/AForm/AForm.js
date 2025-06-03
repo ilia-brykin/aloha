@@ -112,6 +112,11 @@ export default {
       required: false,
       default: true,
     },
+    useFlatModel: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "update:modelValue",
@@ -198,20 +203,28 @@ export default {
             classColumn = item.classColumn;
           }
           const COMPONENT = this.componentTypesMapping()[item.type];
+
+          const MODEL_VALUE = (IS_CONTAINER && !this.useFlatModel) ||
+            !IS_CONTAINER ?
+            get(this.modelValueLocal, item.id) :
+            this.modelValueLocal;
+
           return h(COMPONENT, {
             key: itemIndex,
             alwaysTranslate: this.alwaysTranslate,
-            modelValue: IS_CONTAINER ? this.modelValueLocal : get(this.modelValueLocal, item.id),
+            modelValue: MODEL_VALUE,
+            modelAll: IS_CONTAINER ? this.modelValueLocal : undefined,
             modelDependencies: IS_CONTAINER ? this.modelValueLocal : undefined,
             class: classColumn,
             errors: this.errors[item.id],
             errorsAll: IS_CONTAINER ? this.errors : undefined,
             useFlatErrors: IS_CONTAINER ? this.useFlatErrors : undefined,
+            useFlatModel: IS_CONTAINER ? this.useFlatModel : undefined,
             idPrefix: this.idPrefix,
             excludeRenderAttributes: this.excludeRenderAttributes,
             ...item,
-            change: ({ currentModel, id, item: _item, model, props }) => this.onUpdateModelLocal({
-              currentModel, id, item: _item, model, props, component: item,
+            change: ({ currentModel, id, item: _item, model, props, fullModel }) => this.onUpdateModelLocal({
+              currentModel, id, item: _item, model, props, component: item, fullModel,
             }),
             readonly: this.readonly || item.readonly,
             readonlyDefault: "readonlyDefault" in item && !isUndefined(item.readonlyDefault) ? item.readonlyDefault : this.readonlyDefault,

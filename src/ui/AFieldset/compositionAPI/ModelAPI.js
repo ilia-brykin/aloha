@@ -10,16 +10,39 @@ import {
 
 export default function ModelAPI(props, { emit }) {
   const change = toRef(props, "change");
+  const id = toRef(props, "id");
+  const modelAll = toRef(props, "modelAll");
   const modelValue = toRef(props, "modelValue");
+  const parentId = toRef(props, "parentId");
+  const useFlatModel = toRef(props, "useFlatModel");
 
-  const onUpdateModelLocal = ({ currentModel, id, item, model, props, component }) => {
-    const MODEL_VALUE = cloneDeep(modelValue.value || {});
+  const onUpdateModelLocal = ({ currentModel, id: idChild, item, model, props, component, fullModel }) => {
+    if (fullModel) {
+      const MODEL_VALUE = cloneDeep(fullModel);
+      emit("update:modelValue", MODEL_VALUE);
+      change.value({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
+      if (isFunction(component.change)) {
+        component.change({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
+      }
 
-    set(MODEL_VALUE, id, cloneDeep(model));
+      return;
+    }
+
+    const MODEL_VALUE = useFlatModel.value ?
+      cloneDeep(modelValue.value || {}) :
+      cloneDeep(modelAll.value || {});
+
+    if (useFlatModel.value) {
+      set(MODEL_VALUE, idChild, cloneDeep(model));
+    } else {
+      const IDS = [...parentId.value, id.value, idChild];
+      const path = IDS.join(".");
+      set(MODEL_VALUE, path, cloneDeep(model));
+    }
     emit("update:modelValue", MODEL_VALUE);
-    change.value({ currentModel, id, item, fullModel: MODEL_VALUE, model, props });
+    change.value({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
     if (isFunction(component.change)) {
-      component.change({ currentModel, id, item, fullModel: MODEL_VALUE, model, props });
+      component.change({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
     }
   };
 

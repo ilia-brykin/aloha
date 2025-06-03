@@ -140,6 +140,11 @@ export default {
       required: false,
       default: undefined,
     },
+    modelAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     modelDependencies: {
       type: Object,
       required: false,
@@ -150,10 +155,10 @@ export default {
       required: false,
       default: undefined,
     },
-    useFlatErrors: {
-      type: Boolean,
+    parentId: {
+      type: Array,
       required: false,
-      default: true,
+      default: () => [],
     },
     readonly: {
       type: Boolean,
@@ -168,6 +173,16 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    useFlatModel: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
   emits: [
@@ -202,16 +217,39 @@ export default {
     } = UiAPI(props, context);
 
     const change = toRef(props, "change");
+    const id = toRef(props, "id");
+    const modelAll = toRef(props, "modelAll");
     const modelValue = toRef(props, "modelValue");
+    const parentId = toRef(props, "parentId");
+    const useFlatModel = toRef(props, "useFlatModel");
 
-    const onUpdateModelLocal = ({ currentModel, id, item, model, props, component }) => {
-      const MODEL_VALUE = cloneDeep(modelValue.value || {});
+    const onUpdateModelLocal = ({ currentModel, id: idChild, item, model, props, component, fullModel }) => {
+      if (fullModel) {
+        const MODEL_VALUE = cloneDeep(fullModel);
+        context.emit("update:modelValue", MODEL_VALUE);
+        change.value({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
+        if (isFunction(component.change)) {
+          component.change({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
+        }
 
-      set(MODEL_VALUE, id, cloneDeep(model));
+        return;
+      }
+
+      const MODEL_VALUE = useFlatModel.value ?
+        cloneDeep(modelValue.value || {}) :
+        cloneDeep(modelAll.value || {});
+
+      if (useFlatModel.value) {
+        set(MODEL_VALUE, idChild, cloneDeep(model));
+      } else {
+        const IDS = [...parentId.value, id.value, idChild];
+        const path = IDS.join(".");
+        set(MODEL_VALUE, path, cloneDeep(model));
+      }
       context.emit("update:modelValue", MODEL_VALUE);
-      change.value({ currentModel, id, item, fullModel: MODEL_VALUE, model, props });
+      change.value({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
       if (isFunction(component.change)) {
-        component.change({ currentModel, id, item, fullModel: MODEL_VALUE, model, props });
+        component.change({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
       }
     };
 
@@ -308,6 +346,17 @@ export default {
               get(this.errorsAll, item.id) :
               get(this.errors, item.id);
 
+            let parentId = undefined;
+            if (IS_CONTAINER) {
+              parentId = cloneDeep(this.parentId);
+              parentId.push(this.id);
+            }
+
+            const MODEL_VALUE = (IS_CONTAINER && !this.useFlatModel) ||
+              !IS_CONTAINER ?
+                get(this.modelValue, item.id) :
+                this.modelValue;
+
             return h("div", {
               class: classColumn,
               style,
@@ -315,10 +364,12 @@ export default {
               h(COMPONENT, {
                 key: itemIndex,
                 alwaysTranslate: this.alwaysTranslate,
-                modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
+                modelAll: IS_CONTAINER ? this.modelAll : undefined,
+                modelValue: MODEL_VALUE,
                 modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
                 errors: ERRORS,
                 errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
+                parentId,
                 idPrefix: this.idPrefix,
                 onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
                 ...item,

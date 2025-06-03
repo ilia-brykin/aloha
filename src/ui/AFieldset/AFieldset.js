@@ -23,6 +23,7 @@ import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 
 import AUiComponents from "../AUiComponents";
 import {
+  cloneDeep,
   get,
   isNil,
   isUndefined,
@@ -158,6 +159,11 @@ export default {
       required: false,
       default: undefined,
     },
+    modelAll: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     modelDependencies: {
       type: Object,
       required: false,
@@ -182,12 +188,22 @@ export default {
       required: false,
       default: false,
     },
+    parentId: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     slotName: {
       type: String,
       required: false,
       default: undefined,
     },
     useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    useFlatModel: {
       type: Boolean,
       required: false,
       default: true,
@@ -307,6 +323,17 @@ export default {
             get(this.errorsAll, item.id) :
             get(this.errors, item.id);
 
+          let parentId = undefined;
+          if (IS_CONTAINER) {
+            parentId = cloneDeep(this.parentId);
+            parentId.push(this.id);
+          }
+
+          const MODEL_VALUE = (IS_CONTAINER && !this.useFlatModel) ||
+            !IS_CONTAINER ?
+                get(this.modelValue, item.id) :
+                this.modelValue;
+
           return h("div", {
             class: classColumn,
             style,
@@ -314,15 +341,17 @@ export default {
             h(COMPONENT, {
               key: itemIndex,
               alwaysTranslate: this.alwaysTranslate,
-              modelValue: IS_CONTAINER ? this.modelValue : get(this.modelValue, item.id),
+              modelValue: MODEL_VALUE,
+              modelAll: IS_CONTAINER ? this.modelAll : undefined,
               modelDependencies: IS_CONTAINER ? this.modelValue : undefined,
               errors: ERRORS,
               errorsAll: IS_CONTAINER ? this.errorsAll : undefined,
+              parentId,
               idPrefix: this.idPrefix,
               onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
               ...item,
-              change: ({ currentModel, id, item: _item, model, props }) => this.onUpdateModelLocal({
-                currentModel, id, item: _item, model, props, component: item,
+              change: ({ currentModel, id, item: _item, model, props, fullModel }) => this.onUpdateModelLocal({
+                currentModel, id, item: _item, model, props, component: item, fullModel,
               }),
               readonly: this.readonly || item.readonly,
               readonlyDefault: "readonlyDefault" in item && !isUndefined(item.readonlyDefault) ? item.readonlyDefault : this.readonlyDefault,

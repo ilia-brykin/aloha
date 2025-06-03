@@ -250,6 +250,11 @@ export default {
       required: false,
       default: true,
     },
+    useFlatModel: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     useFocusOnStart: {
       type: Boolean,
       required: false,
@@ -349,6 +354,7 @@ export default {
           isHide: this.isDataFormHide,
           isRender: this.isDataFormRender,
           useFlatErrors: this.useFlatErrors,
+          useFlatModel: this.useFlatModel,
           "onUpdate:modelValue": this.updateModelLocal,
           onChange: this.changeLocal,
         }, this.$slots),
