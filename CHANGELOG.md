@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.18.0
+
+- Add Props: `useFlatModel` for `AForm`, `AModalForm`, `AFieldset`, `AGroup`
+
 ## 2.17.0
 
 - Add props: `useFlatErrors` for `AForm`, `AModalForm`, `AErrors`, `AFieldset`, `AGroup`
