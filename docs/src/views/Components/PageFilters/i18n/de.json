@@ -1,11 +1,21 @@
 {
-  "_A_FILTERS_COMPONENT_DESCRIPTION_": "_A_FILTERS_COMPONENT_DESCRIPTION_",
+  "_A_FILTERS_COMPONENT_DESCRIPTION_": "Ermöglicht das Filtern von Daten nach verschiedenen Kriterien.",
   "_A_FILTERS_COMPONENT_NAME_": "Filters",
+  "_A_PAGE_FILTERS_HEADER_": "Filter-Komponente",
+  "_A_PAGE_FILTERS_DESCRIPTION_": "Die Filter-Komponente ermöglicht es Benutzern, Daten nach verschiedenen Kriterien zu filtern.",
+  "_A_FILTERS_PAGE_DEFAULT_HIDE_HEADER_": "Filter mit standardmäßig ausgeblendeten Filtern",
+  "_A_FILTERS_PAGE_FILTERS_DEFAULT_HIDE_DESCRIPTION_": "Filter können standardmäßig ausgeblendet werden und bei Bedarf angezeigt werden.",
+  "_A_FILTERS_PAGE_MODEL_ID_HEADER_": "Filter mit Modell-<strong lang=\"en\">ID</strong>",
+  "_A_FILTERS_PAGE_MODEL_ID_DESCRIPTION_": "Filter können mit einer Modell-<strong lang=\"en\">ID</strong> konfiguriert werden, um die Filterung zu steuern.",
   "_A_PAGE_FILTER_SEARCH_": "Schnellsuche",
   "_A_PAGE_FILTER_SEARCH_SCREEN_READER_": "Schnellsuche für Screen Reader",
   "_A_PAGE_FILTER_TEXT_": "Text",
   "_A_PAGE_FILTER_DATE_": "Datum",
   "_A_PAGE_FILTER_INTEGER_": "Ganze Zahl",
   "_A_TABLE_FILTER_INPUT_DATE_RANGE_": "Zeitraum",
-  "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_": "Zahlenbereich"
+  "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_": "Zahlenbereich",
+  "_A_TABLE_FILTER_SEARCH_": "Suche",
+  "_A_TABLE_FILTER_TEXT_": "Text",
+  "_A_TABLE_FILTER_DATE_": "Datum",
+  "_A_TABLE_FILTER_EXTRA_": "Zusätzlich"
 }

@@ -4,7 +4,7 @@ import {
 
 import {
   getTranslatedText,
-} from "../../../../../../src/ATranslation/compositionAPI/UtilsAPI";
+} from "aloha-vue";
 
 
 export default function PageTitleAPI() {
