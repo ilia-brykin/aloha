@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.19.0
+
+- Translations: `AErrors`, `AAlert`, `APagination`, `AFilters`, `AFormElementBtnClear`
+
 ## 2.18.0
 
 - Add Props: `useFlatModel` for `AForm`, `AModalForm`, `AFieldset`, `AGroup`
