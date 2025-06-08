@@ -1,3 +1,4 @@
+import AAlert18n from "../AAlert/i18n/AAlert18n";
 import ACarouselI18n from "../ACarousel/i18n/ACarouselI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
@@ -38,6 +39,7 @@ import ruJson from "./ru.json";
 
 export const ar = {
   ...arJson,
+  ...AAlert18n.ar,
   ...ACarouselI18n.ar,
   ...ACheckboxI18n.ar,
   ...ACloakI18n.ar,
@@ -70,6 +72,7 @@ export const ar = {
 };
 export const de = {
   ...deJson,
+  ...AAlert18n.de,
   ...ACarouselI18n.de,
   ...ACheckboxI18n.de,
   ...ACloakI18n.de,
@@ -102,6 +105,7 @@ export const de = {
 };
 export const en = {
   ...enJson,
+  ...AAlert18n.en,
   ...ACarouselI18n.en,
   ...ACheckboxI18n.en,
   ...ACloakI18n.en,
@@ -134,6 +138,7 @@ export const en = {
 };
 export const es = {
   ...esJson,
+  ...AAlert18n.es,
   ...ACarouselI18n.es,
   ...ACheckboxI18n.es,
   ...ACloakI18n.es,
@@ -166,6 +171,7 @@ export const es = {
 };
 export const fr = {
   ...frJson,
+  ...AAlert18n.fr,
   ...ACarouselI18n.fr,
   ...ACheckboxI18n.fr,
   ...ACloakI18n.fr,
@@ -198,6 +204,7 @@ export const fr = {
 };
 export const hr = {
   ...hrJson,
+  ...AAlert18n.hr,
   ...ACarouselI18n.hr,
   ...ACheckboxI18n.hr,
   ...ACloakI18n.hr,
@@ -230,6 +237,7 @@ export const hr = {
 };
 export const it = {
   ...itJson,
+  ...AAlert18n.it,
   ...ACarouselI18n.it,
   ...ACheckboxI18n.it,
   ...ACloakI18n.it,
@@ -262,6 +270,7 @@ export const it = {
 };
 export const ru = {
   ...ruJson,
+  ...AAlert18n.ru,
   ...ACarouselI18n.ru,
   ...ACheckboxI18n.ru,
   ...ACloakI18n.ru,

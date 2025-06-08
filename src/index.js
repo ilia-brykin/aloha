@@ -272,6 +272,7 @@ export {
   it as i18nIT,
   ru as i18nRU,
 } from "./i18n/allLanguages";
+export { default as AAlert18n } from "./AAlert/i18n/AAlert18n";
 export { default as ACarouselI18n } from "./ACarousel/i18n/ACarouselI18n";
 export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
 export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";

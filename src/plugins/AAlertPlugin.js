@@ -22,7 +22,7 @@ export const alertPluginOptions = ref({
     safeHtml: undefined,
     showIcon: false,
     text: undefined,
-    textClose: "_ALERT_CLOSE_",
+    textClose: "_A_ALERT_CLOSE_",
     type: "danger",
   },
   icons: {
