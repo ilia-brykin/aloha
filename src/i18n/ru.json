@@ -1,16 +1,4 @@
 {
-  "_ADD_NOTIFICATION_{{type}}_": "Добавить Уведомление {{ type }}",
-  "_CONTINUE_": "Продолжать",
-  "_ITEMS_PER_PAGE_": "Элементов на странице",
-  "_MORE_ACTIONS_": "Дальнейшие действия",
-  "_NEXT_": "Следующий",
   "_NO_": "Нет",
-  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} из {{ count}}",
-  "_PREVIOUS_": "Предыдущий",
-  "_REMOVE_FIELD_CONTENT_": "Удалить содержимое поля",
-  "_REMOVE_SELECTION_": "удалить выделение",
-  "_SCHNELLSUCHE_": "Быстрый поиск",
-  "_SEARCH_MENU_": "поиск в меню",
-  "_SELECT_TEXT_EMPTY_": "[Нет элементов]",
   "_YES_": "Да"
 }

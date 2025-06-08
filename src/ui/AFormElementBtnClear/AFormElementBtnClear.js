@@ -33,12 +33,12 @@ export default {
     title: {
       type: String,
       required: false,
-      default: "_REMOVE_FIELD_CONTENT_",
+      default: "_A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_",
     },
     textScreenReader: {
       type: String,
       required: false,
-      default: "_REMOVE_FIELD_CONTENT_",
+      default: "_A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_",
     },
     tabindex: {
       type: Number,

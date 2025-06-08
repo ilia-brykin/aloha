@@ -1,15 +1,4 @@
 {
-  "_ADD_NOTIFICATION_{{type}}_": "Benachrichtigung hinzufügen {{ type }}",
-  "_CONTINUE_": "Fortfahren",
-  "_ITEMS_PER_PAGE_": "Objekte pro Seite",
-  "_MORE_ACTIONS_": "Weitere Aktionen",
-  "_NEXT_": "Nächste",
   "_NO_": "Nein",
-  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} von {{ count}}",
-  "_PREVIOUS_": "Vorherige",
-  "_REMOVE_FIELD_CONTENT_": "Feldinhalt entfernen",
-  "_REMOVE_SELECTION_": "Auswahl entfernen",
-  "_SEARCH_MENU_": "Menüsuche",
-  "_SELECT_TEXT_EMPTY_": "[Keine Auswahl]",
   "_YES_": "Ja"
 }

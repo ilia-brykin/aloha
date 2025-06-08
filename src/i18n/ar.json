@@ -1,14 +1,4 @@
 {
-  "_ADD_NOTIFICATION_{{type}}_": "إضافة إشعار {{ type }}",
-  "_CONTINUE_": "يكمل",
-  "_ITEMS_PER_PAGE_": "مواد لكل صفحة",
-  "_MORE_ACTIONS_": "مزيد من الإجراءات",
-  "_NEXT_": "التالي",
   "_NO_": "لا",
-  "_PAGINATION_FROM_TO_{{start}}_{{current}}_{{count}}_": "{{ count}} من {{ current }} - {{ start }}",
-  "_PREVIOUS_": "سابق",
-  "_REMOVE_FIELD_CONTENT_": "إزالة المحتوى",
-  "_REMOVE_SELECTION_": "إزالة التحديد",
-  "_SEARCH_MENU_": "قائمة البحث",
   "_YES_": "نعم"
 }

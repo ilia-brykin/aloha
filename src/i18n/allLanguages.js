@@ -1,4 +1,4 @@
-import AAlert18n from "../AAlert/i18n/AAlert18n";
+import AAlertI18n from "../AAlert/i18n/AAlertI18n";
 import ACarouselI18n from "../ACarousel/i18n/ACarouselI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
@@ -6,6 +6,7 @@ import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI1
 import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
 import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import AFiltersI18n from "../AFilters/i18n/AFiltersI18n";
+import AFormElementBtnClearI18n from "../ui/AFormElementBtnClear/i18n/AFormElementBtnClearI18n";
 import AInputCurrencyI18n from "../ui/AInputCurrency/i18n/AInputCurrencyI18n";
 import AInputI18n from "../ui/AInput/i18n/AInputI18n";
 import AInputNumberI18n from "../ui/AInputNumber/i18n/AInputNumberI18n";
@@ -39,7 +40,7 @@ import ruJson from "./ru.json";
 
 export const ar = {
   ...arJson,
-  ...AAlert18n.ar,
+  ...AAlertI18n.ar,
   ...ACarouselI18n.ar,
   ...ACheckboxI18n.ar,
   ...ACloakI18n.ar,
@@ -47,6 +48,7 @@ export const ar = {
   ...ADisclosureI18n.ar,
   ...AFieldsetI18n.ar,
   ...AFiltersI18n.ar,
+  ...AFormElementBtnClearI18n.ar,
   ...AInputCurrencyI18n.ar,
   ...AInputI18n.ar,
   ...AInputNumberI18n.ar,
@@ -72,7 +74,7 @@ export const ar = {
 };
 export const de = {
   ...deJson,
-  ...AAlert18n.de,
+  ...AAlertI18n.de,
   ...ACarouselI18n.de,
   ...ACheckboxI18n.de,
   ...ACloakI18n.de,
@@ -80,6 +82,7 @@ export const de = {
   ...ADisclosureI18n.de,
   ...AFieldsetI18n.de,
   ...AFiltersI18n.de,
+  ...AFormElementBtnClearI18n.de,
   ...AInputCurrencyI18n.de,
   ...AInputI18n.de,
   ...AInputNumberI18n.de,
@@ -105,7 +108,7 @@ export const de = {
 };
 export const en = {
   ...enJson,
-  ...AAlert18n.en,
+  ...AAlertI18n.en,
   ...ACarouselI18n.en,
   ...ACheckboxI18n.en,
   ...ACloakI18n.en,
@@ -113,6 +116,7 @@ export const en = {
   ...ADisclosureI18n.en,
   ...AFieldsetI18n.en,
   ...AFiltersI18n.en,
+  ...AFormElementBtnClearI18n.en,
   ...AInputCurrencyI18n.en,
   ...AInputI18n.en,
   ...AInputNumberI18n.en,
@@ -138,7 +142,7 @@ export const en = {
 };
 export const es = {
   ...esJson,
-  ...AAlert18n.es,
+  ...AAlertI18n.es,
   ...ACarouselI18n.es,
   ...ACheckboxI18n.es,
   ...ACloakI18n.es,
@@ -146,6 +150,7 @@ export const es = {
   ...ADisclosureI18n.es,
   ...AFieldsetI18n.es,
   ...AFiltersI18n.es,
+  ...AFormElementBtnClearI18n.es,
   ...AInputCurrencyI18n.es,
   ...AInputI18n.es,
   ...AInputNumberI18n.es,
@@ -171,7 +176,7 @@ export const es = {
 };
 export const fr = {
   ...frJson,
-  ...AAlert18n.fr,
+  ...AAlertI18n.fr,
   ...ACarouselI18n.fr,
   ...ACheckboxI18n.fr,
   ...ACloakI18n.fr,
@@ -179,6 +184,7 @@ export const fr = {
   ...ADisclosureI18n.fr,
   ...AFieldsetI18n.fr,
   ...AFiltersI18n.fr,
+  ...AFormElementBtnClearI18n.fr,
   ...AInputCurrencyI18n.fr,
   ...AInputI18n.fr,
   ...AInputNumberI18n.fr,
@@ -204,7 +210,7 @@ export const fr = {
 };
 export const hr = {
   ...hrJson,
-  ...AAlert18n.hr,
+  ...AAlertI18n.hr,
   ...ACarouselI18n.hr,
   ...ACheckboxI18n.hr,
   ...ACloakI18n.hr,
@@ -212,6 +218,7 @@ export const hr = {
   ...ADisclosureI18n.hr,
   ...AFieldsetI18n.hr,
   ...AFiltersI18n.hr,
+  ...AFormElementBtnClearI18n.hr,
   ...AInputCurrencyI18n.hr,
   ...AInputI18n.hr,
   ...AInputNumberI18n.hr,
@@ -237,7 +244,7 @@ export const hr = {
 };
 export const it = {
   ...itJson,
-  ...AAlert18n.it,
+  ...AAlertI18n.it,
   ...ACarouselI18n.it,
   ...ACheckboxI18n.it,
   ...ACloakI18n.it,
@@ -245,6 +252,7 @@ export const it = {
   ...ADisclosureI18n.it,
   ...AFieldsetI18n.it,
   ...AFiltersI18n.it,
+  ...AFormElementBtnClearI18n.it,
   ...AInputCurrencyI18n.it,
   ...AInputI18n.it,
   ...AInputNumberI18n.it,
@@ -270,7 +278,7 @@ export const it = {
 };
 export const ru = {
   ...ruJson,
-  ...AAlert18n.ru,
+  ...AAlertI18n.ru,
   ...ACarouselI18n.ru,
   ...ACheckboxI18n.ru,
   ...ACloakI18n.ru,
@@ -278,6 +286,7 @@ export const ru = {
   ...ADisclosureI18n.ru,
   ...AFieldsetI18n.ru,
   ...AFiltersI18n.ru,
+  ...AFormElementBtnClearI18n.ru,
   ...AInputCurrencyI18n.ru,
   ...AInputI18n.ru,
   ...AInputNumberI18n.ru,

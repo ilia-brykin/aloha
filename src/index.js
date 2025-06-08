@@ -272,13 +272,14 @@ export {
   it as i18nIT,
   ru as i18nRU,
 } from "./i18n/allLanguages";
-export { default as AAlert18n } from "./AAlert/i18n/AAlert18n";
+export { default as AAlertI18n } from "./AAlert/i18n/AAlertI18n";
 export { default as ACarouselI18n } from "./ACarousel/i18n/ACarouselI18n";
 export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
 export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";
 export { default as ADatepickerRangeI18n } from "./ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 export { default as ADisclosureI18n } from "./ADisclosure/i18n/ADisclosureI18n";
 export { default as AFieldsetI18n } from "./ui/AFieldset/i18n/AFieldsetI18n";
+export { default as AFormElementBtnClearI18n } from "./ui/AFormElementBtnClear/i18n/AFormElementBtnClearI18n";
 export { default as AFiltersI18n } from "./AFilters/i18n/AFiltersI18n";
 export { default as AInputCurrencyI18n } from "./ui/AInputCurrency/i18n/AInputCurrencyI18n";
 export { default as AInputI18n } from "./ui/AInput/i18n/AInputI18n";
