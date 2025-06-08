@@ -1,12 +1,12 @@
 {
-  "_A_COUNT_PER_PAGE_": "[ALOHA]",
-  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "[ALOHA]",
-  "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "[ALOHA]",
-  "_A_PAGINATION_FIRST_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_LAST_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} Di {{ allPages }}",
+  "_A_COUNT_PER_PAGE_": "Per pagina:",
+  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "Elementi per pagina: {{ count }}",
+  "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} a {{ current }} di {{ count }}",
+  "_A_PAGINATION_FIRST_PAGE_": "Alla prima pagina",
+  "_A_PAGINATION_LAST_PAGE_": "All'ultima pagina",
+  "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} di {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Navigazione dell'impaginazione",
-  "_A_PAGINATION_NEXT_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_PREVIOUS_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]"
+  "_A_PAGINATION_NEXT_PAGE_": "Alla pagina successiva",
+  "_A_PAGINATION_PREVIOUS_PAGE_": "Alla pagina precedente",
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "Alla pagina {{ page }}"
 }

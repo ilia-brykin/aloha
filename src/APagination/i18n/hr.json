@@ -2,11 +2,11 @@
   "_A_COUNT_PER_PAGE_": "Po stranici:",
   "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "Broj redaka po stranici: {{ count }}",
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} od {{ count }}",
-  "_A_PAGINATION_FIRST_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_LAST_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} iz {{ allPages }}",
+  "_A_PAGINATION_FIRST_PAGE_": "Na prvu stranicu",
+  "_A_PAGINATION_LAST_PAGE_": "Na zadnju stranicu",
+  "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} od {{ allPages }}",
   "_A_PAGINATION_NAVIGATION_": "Navigacija po stranicama",
-  "_A_PAGINATION_NEXT_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_PREVIOUS_PAGE_": "[ALOHA]",
-  "_A_PAGINATION_TO_PAGE_{{page}}_": "[ALOHA]"
+  "_A_PAGINATION_NEXT_PAGE_": "Na sljedeću stranicu",
+  "_A_PAGINATION_PREVIOUS_PAGE_": "Na prethodnu stranicu",
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "Na stranicu {{ page }}"
 }

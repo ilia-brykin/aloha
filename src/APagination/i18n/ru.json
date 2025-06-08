@@ -1,6 +1,6 @@
 {
   "_A_COUNT_PER_PAGE_": "На странице:",
-  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "Строк на странице: {{ cont }}",
+  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "Строк на странице: {{ count }}",
   "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} - {{ current }} из {{ count }}",
   "_A_PAGINATION_FIRST_PAGE_": "К первой странице",
   "_A_PAGINATION_LAST_PAGE_": "К последней странице",
