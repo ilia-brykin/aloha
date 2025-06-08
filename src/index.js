@@ -279,6 +279,7 @@ export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";
 export { default as ADatepickerRangeI18n } from "./ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 export { default as ADisclosureI18n } from "./ADisclosure/i18n/ADisclosureI18n";
 export { default as AFieldsetI18n } from "./ui/AFieldset/i18n/AFieldsetI18n";
+export { default as AErrorsI18n } from "./ui/AErrors/i18n/AErrorsI18n";
 export { default as AFormElementBtnClearI18n } from "./ui/AFormElementBtnClear/i18n/AFormElementBtnClearI18n";
 export { default as AFiltersI18n } from "./AFilters/i18n/AFiltersI18n";
 export { default as AInputCurrencyI18n } from "./ui/AInputCurrency/i18n/AInputCurrencyI18n";

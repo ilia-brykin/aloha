@@ -4,6 +4,7 @@ import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
 import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
+import AErrorsI18n from "../ui/AErrors/i18n/AErrorsI18n";
 import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import AFiltersI18n from "../AFilters/i18n/AFiltersI18n";
 import AFormElementBtnClearI18n from "../ui/AFormElementBtnClear/i18n/AFormElementBtnClearI18n";
@@ -46,6 +47,7 @@ export const ar = {
   ...ACloakI18n.ar,
   ...ADatepickerRangeI18n.ar,
   ...ADisclosureI18n.ar,
+  ...AErrorsI18n.ar,
   ...AFieldsetI18n.ar,
   ...AFiltersI18n.ar,
   ...AFormElementBtnClearI18n.ar,
@@ -80,6 +82,7 @@ export const de = {
   ...ACloakI18n.de,
   ...ADatepickerRangeI18n.de,
   ...ADisclosureI18n.de,
+  ...AErrorsI18n.de,
   ...AFieldsetI18n.de,
   ...AFiltersI18n.de,
   ...AFormElementBtnClearI18n.de,
@@ -114,6 +117,7 @@ export const en = {
   ...ACloakI18n.en,
   ...ADatepickerRangeI18n.en,
   ...ADisclosureI18n.en,
+  ...AErrorsI18n.en,
   ...AFieldsetI18n.en,
   ...AFiltersI18n.en,
   ...AFormElementBtnClearI18n.en,
@@ -148,6 +152,7 @@ export const es = {
   ...ACloakI18n.es,
   ...ADatepickerRangeI18n.es,
   ...ADisclosureI18n.es,
+  ...AErrorsI18n.es,
   ...AFieldsetI18n.es,
   ...AFiltersI18n.es,
   ...AFormElementBtnClearI18n.es,
@@ -182,6 +187,7 @@ export const fr = {
   ...ACloakI18n.fr,
   ...ADatepickerRangeI18n.fr,
   ...ADisclosureI18n.fr,
+  ...AErrorsI18n.fr,
   ...AFieldsetI18n.fr,
   ...AFiltersI18n.fr,
   ...AFormElementBtnClearI18n.fr,
@@ -216,6 +222,7 @@ export const hr = {
   ...ACloakI18n.hr,
   ...ADatepickerRangeI18n.hr,
   ...ADisclosureI18n.hr,
+  ...AErrorsI18n.hr,
   ...AFieldsetI18n.hr,
   ...AFiltersI18n.hr,
   ...AFormElementBtnClearI18n.hr,
@@ -250,6 +257,7 @@ export const it = {
   ...ACloakI18n.it,
   ...ADatepickerRangeI18n.it,
   ...ADisclosureI18n.it,
+  ...AErrorsI18n.it,
   ...AFieldsetI18n.it,
   ...AFiltersI18n.it,
   ...AFormElementBtnClearI18n.it,
@@ -284,6 +292,7 @@ export const ru = {
   ...ACloakI18n.ru,
   ...ADatepickerRangeI18n.ru,
   ...ADisclosureI18n.ru,
+  ...AErrorsI18n.ru,
   ...AFieldsetI18n.ru,
   ...AFiltersI18n.ru,
   ...AFormElementBtnClearI18n.ru,

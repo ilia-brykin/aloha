@@ -57,7 +57,7 @@ export default {
     textErrorHeader: {
       type: String,
       required: false,
-      default: "Bitte überprüfen Sie Ihre Eingaben.",
+      default: "_A_ERRORS_TEXT_HEADER_",
     },
     useFlatErrors: {
       type: Boolean,
