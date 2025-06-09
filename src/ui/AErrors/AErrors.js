@@ -3,8 +3,11 @@ import {
   onMounted,
   watch,
 } from "vue";
+import {
+  AAlert,
+  ATranslation,
+} from "../../index";
 
-import AAlert from "../../AAlert/AAlert";
 import AErrorsElement from "./AErrorsElement/AErrorsElement";
 
 import CloseAPI from "./compositionAPI/CloseAPI";
@@ -120,7 +123,10 @@ export default {
         h("div", {
           class: "a_errors__header",
         }, [
-          h("strong", null, this.textErrorHeader),
+          h(ATranslation, {
+            tag: "strong",
+            html: this.textErrorHeader,
+          }),
         ]),
         h("div", {
           class: "a_errors__list",
