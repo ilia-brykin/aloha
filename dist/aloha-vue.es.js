@@ -13940,7 +13940,10 @@ const F0 = {
         f("div", {
           class: "a_errors__header"
         }, [
-          f("strong", null, this.textErrorHeader)
+          f(Ee, {
+            tag: "strong",
+            html: this.textErrorHeader
+          })
         ]),
         f("div", {
           class: "a_errors__list"

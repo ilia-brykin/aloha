@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.19.1
+
+- Fix translation in `AErrors`
+
 ## 2.19.0
 
 - Translations: `AErrors`, `AAlert`, `APagination`, `AFilters`, `AFormElementBtnClear`
