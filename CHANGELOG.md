@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.20.0
+
+- Feature: Introduced `pagination.position` (`top`, `bottom`, `y`) for `ATable`
+
 ## 2.19.1
 
 - Fix translation in `AErrors`

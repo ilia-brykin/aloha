@@ -12086,6 +12086,10 @@ input[type=text]::-ms-clear {
   transform: rotate(90deg);
 }
 
+.a_table__pagination_top {
+  border-bottom: var(--a_table_row_border_bottom_width) solid var(--a_table_row_border_bottom_color);
+}
+
 .a_modal_footer_sticky {
   --a_modal_footer_sticky_gap: var(--a_modal_footer_gap) * 0.5;
   position: sticky;
