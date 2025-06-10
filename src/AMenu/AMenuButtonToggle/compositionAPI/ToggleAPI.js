@@ -4,9 +4,7 @@ import {
   toRef,
 } from "vue";
 
-import {
-  setFocusToFirstLinkInPanel,
-} from "../../utils/utils";
+import FocusByDestroyAPI from "./FocusByDestroyAPI";
 
 import {
   isUndefined,
@@ -15,8 +13,13 @@ import {
 const isMenuOpenMap = ref({});
 
 export default function ToggleAPI(props) {
-  const menuId = toRef(props, "menuId");
+  const buttonToggleProps = toRef(props, "buttonToggleProps");
   const canChangeBodyClass = toRef(props, "canChangeBodyClass");
+  const menuId = toRef(props, "menuId");
+
+  const {
+    setFocusByDestroy,
+  } = FocusByDestroyAPI(props);
 
   const openMenu = () => {
     if (canChangeBodyClass.value) {
@@ -61,6 +64,17 @@ export default function ToggleAPI(props) {
 
   const toggleMenuObButton = () => {
     toggleMenu();
+    setTimeout(() => {
+      if (isMenuOpen.value) {
+        const BTN_TOGGLE_ID = buttonToggleProps.value?.id || `${ menuId.value }__btn_toggle`;
+        const BTN_TOGGLE_ELEMENT = document.querySelector(`#${ BTN_TOGGLE_ID }`);
+        if (BTN_TOGGLE_ELEMENT) {
+          BTN_TOGGLE_ELEMENT.focus();
+        }
+      } else {
+        setFocusByDestroy();
+      }
+    });
   };
 
   const btnToggleTitle = computed(() => {

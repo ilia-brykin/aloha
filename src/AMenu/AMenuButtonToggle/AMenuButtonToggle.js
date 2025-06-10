@@ -32,6 +32,16 @@ export default {
       type: String,
       required: true,
     },
+    selectorClose: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    selectorCloseIds: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
   },
   setup(props) {
     const {
@@ -48,6 +58,7 @@ export default {
   },
   render() {
     return h(AButton, {
+      id: `${ this.menuId }__btn_toggle`,
       class: ["a_menu__btn_toggle", this.class, {
         a_menu__btn_toggle_open: this.isMenuOpen,
         a_menu__btn_toggle_close: !this.isMenuOpen,

@@ -175,6 +175,16 @@ export default {
       required: false,
       default: () => uniqueId("a_menu_"),
     },
+    selectorClose: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    selectorCloseIds: {
+      type: [String, Array],
+      required: false,
+      default: undefined,
+    },
     showCountChildren: {
       type: Boolean,
       required: false,
@@ -440,6 +450,8 @@ export default {
           class: this.buttonToggleClass,
           insideMenu: true,
           menuId: this.menuId,
+          selectorClose: this.selectorClose,
+          selectorCloseIds: this.selectorCloseIds,
         }),
         this.$slots.menuSearch && this.$slots.menuSearch(),
         this.hasSearch && h(AInput, {
