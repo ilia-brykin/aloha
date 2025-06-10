@@ -332,6 +332,7 @@ export default {
         disabled: false,
         isOutside: false,
         outside: false,
+        position: "bottom",
         modes: {
           /*
            * perPage: inline / select
@@ -574,7 +575,9 @@ export default {
       initLocalVars,
       limit,
       offset,
+      usePaginationBottom,
       usePaginationLocal,
+      usePaginationTop,
     } = LimitOffsetAPI(props, context, {
       closePreviewAll,
       scrollToTable,
@@ -837,7 +840,9 @@ export default {
       updateRow,
       updateViewCurrent,
       useAdditionalSortingLocal,
+      usePaginationBottom,
       usePaginationLocal,
+      usePaginationTop,
       viewCurrent,
     };
   },
@@ -912,7 +917,25 @@ export default {
           onToggleMultipleActionsActive: this.toggleMultipleActionsActive,
           onToggleBtnAllRows: this.toggleBtnAllRows,
         }, this.$slots),
-        this.$slots.topPanelAppend ? this.$slots.topPanelAppend() : "",
+        this.$slots.topPanelAppend ?
+          this.$slots.topPanelAppend() :
+          "",
+        (this.usePaginationLocal && this.usePaginationTop) ?
+          h(APagination, {
+            class: "a_table__pagination_top",
+            countAllRows: this.countAllRowsLocal,
+            disabled: this.pagination.disabled,
+            hasRows: this.hasRows,
+            limit: this.limit,
+            limitsPerPage: this.pagination.limitsPerPage,
+            maxPages: this.pagination.maxPages,
+            offset: this.offset,
+            rowsLength: this.rowsLocalLength,
+            totalRowsCount: this.totalRowsCount,
+            "onUpdate:limit": this.changeLimit,
+            "onUpdate:offset": this.changeOffset,
+          }) :
+          "",
         this.isViewTableVisible && h("div", {
           ref: "tableRef",
           "aria-labelledby": this.isLabelVisible ?
@@ -1071,39 +1094,43 @@ export default {
           isLoading: this.isLoadingTable,
           rows: this.rowsLocalAll,
         }),
-        (this.usePaginationLocal) &&
-        h(APagination, {
-          countAllRows: this.countAllRowsLocal,
-          disabled: this.pagination.disabled,
-          hasRows: this.hasRows,
-          limit: this.limit,
-          limitsPerPage: this.pagination.limitsPerPage,
-          maxPages: this.pagination.maxPages,
-          offset: this.offset,
-          rowsLength: this.rowsLocalLength,
-          totalRowsCount: this.totalRowsCount,
-          "onUpdate:limit": this.changeLimit,
-          "onUpdate:offset": this.changeOffset,
-        }),
-        this.isPreviewRightOpen && h(ATablePreviewRight, {
-          countAllRows: this.countAllRowsLocal,
-          isMobile: this.isMobile,
-          isLoadingTable: this.isLoadingTable,
-          limitPagination: this.limit,
-          offsetPagination: this.offset,
-          previewStyles: this.previewStyles,
-          rowIndex: this.previewRightRowIndex,
-          rows: this.rowsLocalAll,
-          disabledPreviewRowCallback: this.disabledPreviewRowCallback,
-          usePagination: !!this.usePaginationLocal,
-          onClosePreview: this.closePreview,
-          onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
-          onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
-          onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
-          onTogglePreview: this.onTogglePreview,
-          onTogglePreviewResize: this.togglePreviewResize,
-          "onUpdate:offset": this.changeOffset,
-        }, this.$slots),
+        (this.usePaginationLocal && this.usePaginationBottom) ?
+          h(APagination, {
+            class: "a_table__pagination_bottom",
+            countAllRows: this.countAllRowsLocal,
+            disabled: this.pagination.disabled,
+            hasRows: this.hasRows,
+            limit: this.limit,
+            limitsPerPage: this.pagination.limitsPerPage,
+            maxPages: this.pagination.maxPages,
+            offset: this.offset,
+            rowsLength: this.rowsLocalLength,
+            totalRowsCount: this.totalRowsCount,
+            "onUpdate:limit": this.changeLimit,
+            "onUpdate:offset": this.changeOffset,
+          }) :
+          "",
+        this.isPreviewRightOpen ?
+          h(ATablePreviewRight, {
+            countAllRows: this.countAllRowsLocal,
+            isMobile: this.isMobile,
+            isLoadingTable: this.isLoadingTable,
+            limitPagination: this.limit,
+            offsetPagination: this.offset,
+            previewStyles: this.previewStyles,
+            rowIndex: this.previewRightRowIndex,
+            rows: this.rowsLocalAll,
+            disabledPreviewRowCallback: this.disabledPreviewRowCallback,
+            usePagination: !!this.usePaginationLocal,
+            onClosePreview: this.closePreview,
+            onMousedownResizePreviewRight: this.mousedownResizePreviewRight,
+            onMousemoveResizePreviewRight: this.mousemoveResizePreviewRight,
+            onMouseupResizePreviewRight: this.mouseupResizePreviewRight,
+            onTogglePreview: this.onTogglePreview,
+            onTogglePreviewResize: this.togglePreviewResize,
+            "onUpdate:offset": this.changeOffset,
+          }, this.$slots) :
+          "",
       ]),
     ]);
   },

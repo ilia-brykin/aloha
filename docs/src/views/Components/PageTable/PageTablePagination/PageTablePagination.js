@@ -6,6 +6,7 @@ import PageTablePaginationLimit from "./PageTablePaginationLimit/PageTablePagina
 import PageTablePaginationLimitStart from "./PageTablePaginationLimitStart/PageTablePaginationLimitStart.vue";
 import PageTablePaginationMaxItems from "./PageTablePaginationMaxItems/PageTablePaginationMaxItems.vue";
 import PageTablePaginationOutside from "./PageTablePaginationOutside/PageTablePaginationOutside.vue";
+import PageTablePaginationPosition from "./PageTablePaginationPosition/PageTablePaginationPosition.vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import TranslateAPI from "./compositionAPI/TranslateAPI";
@@ -21,6 +22,7 @@ export default {
     PageTablePaginationLimitStart,
     PageTablePaginationMaxItems,
     PageTablePaginationOutside,
+    PageTablePaginationPosition,
   },
   setup() {
     const {

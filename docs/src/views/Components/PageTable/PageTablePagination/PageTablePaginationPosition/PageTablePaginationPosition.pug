@@ -1,0 +1,30 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_GROUP_PAGINATION_POSITION_HEADER_"
+  description="_A_TABLE_GROUP_PAGINATION_POSITION_DESCRIPTION_"
+  props="pagination.position"
+)
+  a-table(
+    :columns="columns"
+    :data="data"
+    :pagination="{ use: true, position: 'top' }"
+    key-id="id"
+    label="_A_TABLE_GROUP_PAGINATION_POSITION_TOP_LABEL_"
+  )
+  a-table(
+    :columns="columns"
+    :data="data"
+    :pagination="{ use: true, position: 'bottom' }"
+    class="a_mt_5"
+    key-id="id"
+    label="_A_TABLE_GROUP_PAGINATION_POSITION_BOTTOM_LABEL_"
+  )
+  a-table(
+    :columns="columns"
+    :data="data"
+    :pagination="{ use: true, position: 'y' }"
+    class="a_mt_5"
+    key-id="id"
+    label="_A_TABLE_GROUP_PAGINATION_POSITION_Y_LABEL_"
+  )

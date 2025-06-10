@@ -39,6 +39,17 @@ export default function LimitOffsetAPI(props, { emit }, {
     return false;
   });
 
+  const usePaginationTop = computed(() => {
+    return pagination.value.position === "top" ||
+      pagination.value.position === "y";
+  });
+
+  const usePaginationBottom = computed(() => {
+    return pagination.value.position === "bottom" ||
+      pagination.value.position === "y" ||
+      !usePaginationTop.value;
+  });
+
   const changeOffset = _offset => {
     let offsetLocal;
     let reloadLocal;
@@ -81,6 +92,8 @@ export default function LimitOffsetAPI(props, { emit }, {
     initLocalVars,
     limit,
     offset,
+    usePaginationBottom,
     usePaginationLocal,
+    usePaginationTop,
   };
 }

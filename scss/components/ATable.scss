@@ -813,3 +813,6 @@
     }
   }
 }
+.a_table__pagination_top {
+  border-bottom: var(--a_table_row_border_bottom_width) solid var(--a_table_row_border_bottom_color);
+}
