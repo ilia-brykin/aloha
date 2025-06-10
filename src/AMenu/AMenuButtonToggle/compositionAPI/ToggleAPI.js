@@ -61,12 +61,6 @@ export default function ToggleAPI(props) {
 
   const toggleMenuObButton = () => {
     toggleMenu();
-    if (isMenuOpen.value) {
-      setFocusToFirstLinkInPanel({
-        menuId: menuId.value,
-        panelId: "",
-      });
-    }
   };
 
   const btnToggleTitle = computed(() => {
