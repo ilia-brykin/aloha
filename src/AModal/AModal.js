@@ -18,7 +18,7 @@ import CloseFromOutsideAPI from "./compositionAPI/CloseFromOutsideAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import EscapeAPI from "./compositionAPI/EscapeAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
-import FocusByDestroyAPI from "./compositionAPI/FocusByDestroyAPI";
+import FocusByDestroyAPI from "../compositionAPI/FocusByDestroyAPI";
 import HideModalAPI from "./compositionAPI/HideModalAPI";
 import KeydownAPI from "./compositionAPI/KeydownAPI";
 import ShowModalAPI from "./compositionAPI/ShowModalAPI";
