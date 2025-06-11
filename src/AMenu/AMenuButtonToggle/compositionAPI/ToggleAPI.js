@@ -4,7 +4,7 @@ import {
   toRef,
 } from "vue";
 
-import FocusByDestroyAPI from "./FocusByDestroyAPI";
+import FocusByDestroyAPI from "../../../compositionAPI/FocusByDestroyAPI";
 
 import {
   isUndefined,
