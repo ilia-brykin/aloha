@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.21.3
+
+- Fix: ATable, Sorting for columns defect
+
 ## 2.21.2
 
 - Refactor badge `SCSS` variables for `.a_badge` to use consistent naming convention
