@@ -3,8 +3,14 @@
     v-if="pageTitle"
     :title="pageTitle"
   )
+  a-translation(
+    v-if="pageTitleH1"
+    :html="pageTitleH1"
+    tag="h1"
+  )
   h1(
-    v-html="pageTitleH1 || pageTitle"
+    v-else-if="pageTitle"
+    v-html="pageTitle"
   )
 
   slot(

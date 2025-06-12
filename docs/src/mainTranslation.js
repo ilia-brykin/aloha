@@ -14,6 +14,7 @@ import PageAAlertI18n from "./views/Components/PageAlert/i18n/PageAAlertI18n";
 import PageAOnHooksI18n from "./views/Directives/PageOnHooks/i18n/PageAOnHooksI18n";
 import PageARateI18n from "./views/Components/PageRate/i18n/PageARateI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
+import PageBadgeI18n from "./views/CSS/PageBadge/i18n/PageBadgeI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
 import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI18n";
 import PageCheckboxI18n from "./views/Components/Form/PageCheckbox/i18n/PageCheckboxI18n";
@@ -115,6 +116,7 @@ export const mainTranslation = {
     ...FormI18n.ar,
     ...PageAAlertI18n.ar,
     ...PageAlertPluginI18n.ar,
+    ...PageBadgeI18n.ar,
     ...PageAOnHooksI18n.ar,
     ...PageARateI18n.ar,
     ...PageButtonI18n.ar,
@@ -209,6 +211,7 @@ export const mainTranslation = {
     ...FormI18n.de,
     ...PageAAlertI18n.de,
     ...PageAlertPluginI18n.de,
+    ...PageBadgeI18n.de,
     ...PageAOnHooksI18n.de,
     ...PageARateI18n.de,
     ...PageButtonI18n.de,
@@ -303,6 +306,7 @@ export const mainTranslation = {
     ...FormI18n.en,
     ...PageAAlertI18n.en,
     ...PageAlertPluginI18n.en,
+    ...PageBadgeI18n.en,
     ...PageAOnHooksI18n.en,
     ...PageARateI18n.en,
     ...PageButtonI18n.en,
@@ -397,6 +401,7 @@ export const mainTranslation = {
     ...FormI18n.es,
     ...PageAAlertI18n.es,
     ...PageAlertPluginI18n.es,
+    ...PageBadgeI18n.es,
     ...PageAOnHooksI18n.es,
     ...PageARateI18n.es,
     ...PageButtonI18n.es,
@@ -491,6 +496,7 @@ export const mainTranslation = {
     ...FormI18n.fr,
     ...PageAAlertI18n.fr,
     ...PageAlertPluginI18n.fr,
+    ...PageBadgeI18n.fr,
     ...PageAOnHooksI18n.fr,
     ...PageARateI18n.fr,
     ...PageButtonI18n.fr,
@@ -585,6 +591,7 @@ export const mainTranslation = {
     ...FormI18n.hr,
     ...PageAAlertI18n.hr,
     ...PageAlertPluginI18n.hr,
+    ...PageBadgeI18n.hr,
     ...PageAOnHooksI18n.hr,
     ...PageARateI18n.hr,
     ...PageButtonI18n.hr,
@@ -679,6 +686,7 @@ export const mainTranslation = {
     ...FormI18n.it,
     ...PageAAlertI18n.it,
     ...PageAlertPluginI18n.it,
+    ...PageBadgeI18n.it,
     ...PageAOnHooksI18n.it,
     ...PageARateI18n.it,
     ...PageButtonI18n.it,
@@ -773,6 +781,7 @@ export const mainTranslation = {
     ...FormI18n.ru,
     ...PageAAlertI18n.ru,
     ...PageAlertPluginI18n.ru,
+    ...PageBadgeI18n.ru,
     ...PageAOnHooksI18n.ru,
     ...PageARateI18n.ru,
     ...PageButtonI18n.ru,

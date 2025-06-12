@@ -1,11 +1,13 @@
 import {
   APageTabTitle,
+  ATranslation,
 } from "aloha-vue";
 
 export default {
   name: "AlohaPage",
   components: {
     APageTabTitle,
+    ATranslation,
   },
   props: {
     pageTitle: {

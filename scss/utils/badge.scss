@@ -1,8 +1,13 @@
+@use "sass:map";
+
 @use "aloha_prefix" as aloha;
+@use "vars_global";
+@use "color_utils";
 
 $a_badge_font_size:                   .75em;
 $a_badge_font_weight:                 700;
 $a_badge_color:                       var(--#{aloha.$aloha-prefix}color_white);
+$a_badge_bg:                          var(--#{aloha.$aloha-prefix}color_black);
 $a_badge_padding_y:                   .35em;
 $a_badge_padding_x:                   .65em;
 $a_badge_border_radius:               var(--#{aloha.$aloha-prefix}border_radius);
@@ -13,6 +18,7 @@ $a_badge_border_radius:               var(--#{aloha.$aloha-prefix}border_radius)
   --#{aloha.$aloha-prefix}badge-font-size: #{$a_badge_font_size};
   --#{aloha.$aloha-prefix}badge-font-weight: #{$a_badge_font_weight};
   --#{aloha.$aloha-prefix}badge-color: #{$a_badge_color};
+  --#{aloha.$aloha-prefix}badge-bg: #{$a_badge_bg};
   --#{aloha.$aloha-prefix}badge-border-radius: #{$a_badge_border_radius};
 
   display: inline-block;
@@ -21,6 +27,7 @@ $a_badge_border_radius:               var(--#{aloha.$aloha-prefix}border_radius)
   font-weight: var(--#{aloha.$aloha-prefix}badge-font-weight);
   line-height: 1;
   color: var(--#{aloha.$aloha-prefix}badge-color);
+  background-color: var(--#{aloha.$aloha-prefix}badge-bg);
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -29,4 +36,11 @@ $a_badge_border_radius:               var(--#{aloha.$aloha-prefix}border_radius)
 
 .#{aloha.$aloha-prefix}pill_rounded {
   border-radius: var(--#{aloha.$aloha-prefix}border_radius_pill) !important;
+}
+
+@each $state in map.keys(color_utils.$a_theme_colors) {
+  .#{aloha.$aloha-prefix}badge_#{$state} {
+    --#{aloha.$aloha-prefix}badge-color: var(--a_color_#{$state}_text_emphasis);
+    --#{aloha.$aloha-prefix}badge-bg: var(--a_color_#{$state}_bg_subtle);
+  }
 }

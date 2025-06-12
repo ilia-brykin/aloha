@@ -5,7 +5,14 @@ export default function CssItemsAPI() {
     icon: "FiletypeCss",
     children: [
       {
-        id: "columns",
+        id: "PageBadge",
+        label: "Badge",
+        to: {
+          name: "PageBadge",
+        },
+      },
+      {
+        id: "PageColumns",
         label: "Columns",
         to: {
           name: "PageColumns",
