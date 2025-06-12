@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.21.2
+
+- Refactor badge `SCSS` variables for `.a_badge` to use consistent naming convention
+
+## 2.21.1
+
+- Broken version
+
 ## 2.21.0
 
 - Add badge styles, documentation, and localization
