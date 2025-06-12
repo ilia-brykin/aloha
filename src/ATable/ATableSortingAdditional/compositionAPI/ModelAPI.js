@@ -67,14 +67,14 @@ export default function ModelAPI(props, {
     return !!MODEL_LAST_ITEM.sortId;
   };
 
-  const updateUnappliedModelSort = ({ model }) => {
-    if (needAddModelUndefined({ model })) {
-      model.push({
+  const updateUnappliedModelSort = ({ fullModel }) => {
+    if (needAddModelUndefined({ model: fullModel })) {
+      fullModel.push({
         sortId: undefined,
         sortMode: "asc",
       });
     }
-    unappliedModelSort.value = model;
+    unappliedModelSort.value = fullModel;
     initDataForForm({ unappliedModelSort: unappliedModelSort.value });
   };
 
