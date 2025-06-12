@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.21.0
+
+- Add badge styles, documentation, and localization
+
 ## 2.20.0
 
 - Feature: Introduced `pagination.position` (`top`, `bottom`, `y`) for `ATable`
