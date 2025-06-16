@@ -48,7 +48,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
       unappliedModelSort,
     });
 
-    updateUnappliedModelSort({ model: modelSortProvided.value });
+    updateUnappliedModelSort({ fullModel: modelSortProvided.value });
 
     expect(unappliedModelSort.value).toHaveLength(2);
     expect(unappliedModelSort.value[0]).toEqual({ sortId: "1", sortMode: "desc" });
@@ -115,7 +115,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
     let model = [
       { sortId: "1", sortMode: "asc" },
     ];
-    updateUnappliedModelSort({ model });
+    updateUnappliedModelSort({ fullModel: model });
 
     expect(unappliedModelSort.value).toHaveLength(2);
     expect(unappliedModelSort.value).toStrictEqual([
@@ -124,7 +124,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
     ]);
 
     model[1].sortMode = "desc";
-    updateUnappliedModelSort({ model });
+    updateUnappliedModelSort({ fullModel: model });
 
     expect(unappliedModelSort.value).toHaveLength(2);
     expect(unappliedModelSort.value).toStrictEqual([
@@ -133,7 +133,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
     ]);
 
     model[1].sortId = "2";
-    updateUnappliedModelSort({ model });
+    updateUnappliedModelSort({ fullModel: model });
 
     expect(unappliedModelSort.value).toHaveLength(3);
     expect(unappliedModelSort.value).toStrictEqual([
@@ -147,7 +147,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
       { sortId: "2", sortMode: "desc" },
       { sortId: "3", sortMode: "asc" },
     ];
-    updateUnappliedModelSort({ model });
+    updateUnappliedModelSort({ fullModel: model });
 
     expect(unappliedModelSort.value).toHaveLength(3);
     expect(unappliedModelSort.value).toStrictEqual([
@@ -181,7 +181,7 @@ describe("ATableSortingAdditional ModelAPI", () => {
     const model = [
       { sortId: "1", sortMode: "asc" },
     ];
-    updateUnappliedModelSort({ model });
+    updateUnappliedModelSort({ fullModel: model });
 
     expect(unappliedModelSort.value).toHaveLength(1);
     expect(unappliedModelSort.value).toStrictEqual([
