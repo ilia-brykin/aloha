@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.21.5
+
+- Adjust padding-right in `ASelect` dropdown for improved spacing.
+
 ## 2.21.4
 
 - Fix toggle behavior in `ASelect` to prevent premature closing when interacting with HTML elements
