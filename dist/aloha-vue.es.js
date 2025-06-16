@@ -24274,7 +24274,9 @@ function aq(e, {
       }
     ), O());
   }, U = () => {
-    i.value || (h.value = !0, I(), F());
+    i.value || (h.value = !0, F(), setTimeout(() => {
+      I();
+    }, 100));
   }, G = () => {
     h.value ? (oe(), y()) : U();
   }, ne = (se) => {

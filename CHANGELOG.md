@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.21.4
+
+- Fix toggle behavior in `ASelect` to prevent premature closing when interacting with HTML elements
+
 ## 2.21.3
 
 - Fix: ATable, Sorting for columns defect
