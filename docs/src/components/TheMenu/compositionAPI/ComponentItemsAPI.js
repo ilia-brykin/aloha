@@ -3,10 +3,12 @@ export default function ComponentItemsAPI() {
     id: "components",
     label: "Components",
     icon: "Boxes",
+    class: "test_menu_components",
     children: [
       {
         id: "accordion",
         label: "Accordion",
+        class: "test_menu_accordion",
         to: {
           name: "PageAccordion",
         },
@@ -14,6 +16,7 @@ export default function ComponentItemsAPI() {
       {
         id: "alert",
         label: "Alert",
+        class: "test_menu_alert",
         to: {
           name: "PageAlert",
         },
@@ -21,6 +24,7 @@ export default function ComponentItemsAPI() {
       {
         id: "Button",
         label: "Button",
+        class: "test_menu_button",
         to: {
           name: "PageButton",
         },
@@ -28,6 +32,7 @@ export default function ComponentItemsAPI() {
       {
         id: "PageCarousel",
         label: "Carousel",
+        class: "test_menu_carousel",
         to: {
           name: "PageCarousel",
         },
@@ -35,6 +40,7 @@ export default function ComponentItemsAPI() {
       {
         id: "cloak",
         label: "Cloak",
+        class: "test_menu_cloak",
         to: {
           name: "PageCloak",
         },
@@ -42,6 +48,7 @@ export default function ComponentItemsAPI() {
       {
         id: "confirm",
         label: "Confirm",
+        class: "test_menu_confirm",
         to: {
           name: "PageConfirm",
         },
@@ -49,6 +56,7 @@ export default function ComponentItemsAPI() {
       {
         id: "disclosure",
         label: "Disclosure",
+        class: "test_menu_disclosure",
         to: {
           name: "PageDisclosure",
         },
@@ -56,6 +64,7 @@ export default function ComponentItemsAPI() {
       {
         id: "filters",
         label: "filters",
+        class: "test_menu_filters",
         to: {
           name: "PageFilters",
         },
@@ -63,6 +72,7 @@ export default function ComponentItemsAPI() {
       {
         id: "filtersRight",
         label: "filtersRight",
+        class: "test_menu_filters_right",
         to: {
           name: "PageFiltersRight",
         },
@@ -70,6 +80,7 @@ export default function ComponentItemsAPI() {
       {
         id: "dropdown",
         label: "Dropdown",
+        class: "test_menu_dropdown",
         to: {
           name: "PageDropdown",
         },
@@ -77,10 +88,12 @@ export default function ComponentItemsAPI() {
       {
         id: "form_parent",
         label: "Form",
+        class: "test_menu_form_parent",
         children: [
           {
             id: "checkbox",
             label: "Checkbox",
+            class: "test_menu_checkbox",
             to: {
               name: "PageCheckbox",
             },
@@ -88,6 +101,7 @@ export default function ComponentItemsAPI() {
           {
             id: "datepicker",
             label: "Datepicker",
+            class: "test_menu_datepicker",
             to: {
               name: "PageDatepicker",
             },
@@ -95,6 +109,7 @@ export default function ComponentItemsAPI() {
           {
             id: "datepicker-range",
             label: "DatepickerRange",
+            class: "test_menu_datepicker_range",
             to: {
               name: "PageDatepickerRange",
             },
@@ -102,10 +117,12 @@ export default function ComponentItemsAPI() {
           {
             id: "fieldset",
             label: "Fieldset",
+            class: "test_menu_fieldset",
             children: [
               {
                 id: "fieldsetBasic",
                 label: "Fieldset",
+                class: "test_menu_fieldset_basic",
                 to: {
                   name: "PageFieldset",
                 },
@@ -113,6 +130,7 @@ export default function ComponentItemsAPI() {
               {
                 id: "fieldsetChildren",
                 label: "Fieldset (children)",
+                class: "test_menu_fieldset_children",
                 to: {
                   name: "PageFieldsetChildren",
                 },
@@ -122,6 +140,7 @@ export default function ComponentItemsAPI() {
           {
             id: "form",
             label: "Form",
+            class: "test_menu_form",
             to: {
               name: "PageForm",
             },
@@ -129,6 +148,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageFormElement",
             label: "Form-Element",
+            class: "test_menu_form_element",
             to: {
               name: "PageFormElement",
             },
@@ -138,6 +158,7 @@ export default function ComponentItemsAPI() {
             to: {
               name: "PageGroup",
             },
+            class: "test_menu_group",
             label: "Group",
           },
           {
@@ -145,6 +166,7 @@ export default function ComponentItemsAPI() {
             to: {
               name: "PageInput",
             },
+            class: "test_menu_input",
             label: "Input",
           },
           {
@@ -152,6 +174,7 @@ export default function ComponentItemsAPI() {
             to: {
               name: "PageInputCurrency",
             },
+            class: "test_menu_input_currency",
             label: "Input currency",
           },
           {
@@ -159,6 +182,7 @@ export default function ComponentItemsAPI() {
             to: {
               name: "PageInputNumber",
             },
+            class: "test_menu_input_number",
             label: "Input number",
           },
           {
@@ -166,11 +190,13 @@ export default function ComponentItemsAPI() {
             to: {
               name: "PageInputNumberRange",
             },
+            class: "test_menu_input_number_range",
             label: "Input number range",
           },
           {
             id: "json",
             label: "JSON",
+            class: "test_menu_json",
             to: {
               name: "PageJson",
             },
@@ -178,6 +204,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageMultiselectOrdered",
             label: "Multiselect ordered",
+            class: "test_menu_multiselect_ordered",
             to: {
               name: "PageMultiselectOrdered",
             },
@@ -185,6 +212,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageOneCheckbox",
             label: "One checkbox",
+            class: "test_menu_one_checkbox",
             to: {
               name: "PageOneCheckbox",
             },
@@ -192,6 +220,7 @@ export default function ComponentItemsAPI() {
           {
             id: "radio",
             label: "Radio",
+            class: "test_menu_radio",
             to: {
               name: "PageRadio",
             },
@@ -199,6 +228,7 @@ export default function ComponentItemsAPI() {
           {
             id: "rate",
             label: "Rate",
+            class: "test_menu_rate",
             to: {
               name: "PageRate",
             },
@@ -206,6 +236,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageRouterLinkConfig",
             label: "RouterLinkConfig",
+            class: "test_menu_router_link_config",
             to: {
               name: "PageRouterLinkConfig",
             },
@@ -213,6 +244,7 @@ export default function ComponentItemsAPI() {
           {
             id: "select",
             label: "Select",
+            class: "test_menu_select",
             to: {
               name: "PageSelect",
             },
@@ -220,6 +252,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageSelectIcon",
             label: "Select icon",
+            class: "test_menu_select_icon",
             to: {
               name: "PageSelectIcon",
             },
@@ -227,6 +260,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageSwitch",
             label: "Switch",
+            class: "test_menu_switch",
             to: {
               name: "PageSwitch",
             },
@@ -234,6 +268,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageTextarea",
             label: "Textarea",
+            class: "test_menu_textarea",
             to: {
               name: "PageTextarea",
             },
@@ -241,6 +276,7 @@ export default function ComponentItemsAPI() {
           {
             id: "PageTemplate",
             label: "Template",
+            class: "test_menu_template",
             to: {
               name: "PageTemplate",
             },
@@ -250,6 +286,7 @@ export default function ComponentItemsAPI() {
       {
         id: "GroupButtonDropdown",
         label: "GroupButtonDropdown",
+        class: "test_menu_group_button_dropdown",
         to: {
           name: "PageGroupButtonDropdown",
         },
@@ -257,6 +294,7 @@ export default function ComponentItemsAPI() {
       {
         id: "Link",
         label: "Link",
+        class: "test_menu_link",
         to: {
           name: "PageLink",
         },
@@ -264,6 +302,7 @@ export default function ComponentItemsAPI() {
       {
         id: "LinkCopy",
         label: "Link copy",
+        class: "test_menu_link_copy",
         to: {
           name: "PageLinkCopy",
         },
@@ -271,6 +310,7 @@ export default function ComponentItemsAPI() {
       {
         id: "list",
         label: "List",
+        class: "test_menu_list",
         to: {
           name: "PageList",
         },
@@ -278,6 +318,7 @@ export default function ComponentItemsAPI() {
       {
         id: "loading",
         label: "Loading",
+        class: "test_menu_loading",
         to: {
           name: "PageLoading",
         },
@@ -285,10 +326,12 @@ export default function ComponentItemsAPI() {
       {
         id: "menu",
         label: "Menu",
+        class: "test_menu_menu",
         children: [
           {
             id: "PageMenuBasic",
             label: "Menu basic",
+            class: "test_menu_menu_basic",
             to: {
               name: "PageMenuBasic",
             },
@@ -298,6 +341,7 @@ export default function ComponentItemsAPI() {
       {
         id: "modal",
         label: "Modal",
+        class: "test_menu_modal",
         to: {
           name: "PageModal",
         },
@@ -305,6 +349,7 @@ export default function ComponentItemsAPI() {
       {
         id: "notification",
         label: "Notification",
+        class: "test_menu_notification",
         to: {
           name: "PageNotification",
         },
@@ -312,10 +357,12 @@ export default function ComponentItemsAPI() {
       {
         id: "progress",
         label: "Progress",
+        class: "test_menu_progress",
         children: [
           {
             id: "progressBar",
             label: "Progress bar",
+            class: "test_menu_progress_bar",
             to: {
               name: "PageProgress",
             },
@@ -323,6 +370,7 @@ export default function ComponentItemsAPI() {
           {
             id: "progressCircle",
             label: "Progress circle",
+            class: "test_menu_progress_circle",
             to: {
               name: "PageProgressCircle",
             },
@@ -332,6 +380,7 @@ export default function ComponentItemsAPI() {
       {
         id: "ShowMore",
         label: "Show more",
+        class: "test_menu_show_more",
         to: {
           name: "PageShowMore",
         },
@@ -339,6 +388,7 @@ export default function ComponentItemsAPI() {
       {
         id: "spinner",
         label: "Spinner",
+        class: "test_menu_spinner",
         to: {
           name: "PageSpinner",
         },
@@ -346,6 +396,7 @@ export default function ComponentItemsAPI() {
       {
         id: "Table",
         label: "Tables",
+        class: "test_menu_tables",
         children: [
           {
             id: "PageTableComplex",

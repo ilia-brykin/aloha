@@ -3,10 +3,12 @@ export default function CssItemsAPI() {
     id: "css",
     label: "CSS",
     icon: "FiletypeCss",
+    class: "test_menu_css",
     children: [
       {
         id: "PageBadge",
         label: "Badge",
+        class: "test_menu_badge",
         to: {
           name: "PageBadge",
         },
@@ -14,6 +16,7 @@ export default function CssItemsAPI() {
       {
         id: "PageColumns",
         label: "Columns",
+        class: "test_menu_columns",
         to: {
           name: "PageColumns",
         },

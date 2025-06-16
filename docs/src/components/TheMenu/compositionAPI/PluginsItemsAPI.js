@@ -3,10 +3,12 @@ export default function PluginsItemsAPI() {
     id: "plugins",
     label: "Plugins",
     icon: "Plugin",
+    class: "test_menu_plugins",
     children: [
       {
         id: "PageAlertPlugin",
         label: "Alert plugin",
+        class: "test_menu_alert_plugin",
         to: {
           name: "PageAlertPlugin",
         },
@@ -15,6 +17,7 @@ export default function PluginsItemsAPI() {
       {
         id: "PageIconsPlugin",
         label: "Icons plugin",
+        class: "test_menu_icons_plugin",
         to: {
           name: "PageIconsPlugin",
         },
@@ -22,6 +25,7 @@ export default function PluginsItemsAPI() {
       {
         id: "PageLoadingPlugin",
         label: "Loading plugin",
+        class: "test_menu_loading_plugin",
         to: {
           name: "PageLoadingPlugin",
         },
@@ -29,6 +33,7 @@ export default function PluginsItemsAPI() {
       {
         id: "PageMobilePlugin",
         label: "Mobile plugin",
+        class: "test_menu_mobile_plugin",
         to: {
           name: "PageMobilePlugin",
         },
@@ -36,6 +41,7 @@ export default function PluginsItemsAPI() {
       {
         id: "PageSpinnerPlugin",
         label: "Spinner plugin",
+        class: "test_menu_spinner_plugin",
         to: {
           name: "PageSpinnerPlugin",
         },
@@ -43,6 +49,7 @@ export default function PluginsItemsAPI() {
       {
         id: "PagePageTabTitlePlugin",
         label: "Page tab title plugin",
+        class: "test_menu_tab_title_plugin",
         to: {
           name: "PagePageTabTitlePlugin",
         },

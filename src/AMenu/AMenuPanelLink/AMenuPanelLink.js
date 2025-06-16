@@ -183,11 +183,15 @@ export default {
         this.isItemLink ?
           h(ALink, {
             id: this.linkId,
-            class: ["a_menu__link a_menu__link__text_truncated", {
-              a_menu__link_disabled: this.isLinkDisabled,
-              a_menu__link_active: this.isLinkActive,
-              a_menu__link_panel_main: this.isPanelMain,
-            }],
+            class: [
+              "a_menu__link a_menu__link__text_truncated",
+              this.item.class,
+              {
+                a_menu__link_disabled: this.isLinkDisabled,
+                a_menu__link_active: this.isLinkActive,
+                a_menu__link_panel_main: this.isPanelMain,
+              },
+            ],
             html: this.label,
             iconClass: this.iconClassLocal,
             iconLeft: this.icon,
@@ -206,6 +210,7 @@ export default {
             id: this.linkId,
             class: [
               "a_menu__link a_menu__link_btn a_menu__link__text_truncated",
+              this.item.class,
               {
                 a_menu__link_open: this.isLinkOpen,
                 a_menu__link_active: this.isLinkActive,
