@@ -194,8 +194,11 @@ export default function ToggleAPI(props, {
       return;
     }
     isOpen.value = true;
-    setEventClickOutside();
     openPopoverWithFloatingUi();
+    // Timeout is needed to prevent closing the select when clicking on an element that contains HTML
+    setTimeout(() => {
+      setEventClickOutside();
+    }, 100);
   };
 
   const togglePopover = () => {
