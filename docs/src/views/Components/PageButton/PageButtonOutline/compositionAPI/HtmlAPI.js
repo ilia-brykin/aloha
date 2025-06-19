@@ -1,58 +1,53 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-button
-  class="a_btn a_btn_outline_primary"
-  text="outline-primary"
-  @click="onAlert('outline-primary')"
+  const codeHtml = `<div 
+  class="a_d_flex a_flex_wrap gap_1"
 >
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_secondary a_ml_2"
-  text="outline-secondary"
-  @click="onAlert('outline-secondary')"
->
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_tertiary a_ml_2"
-  text="outline-tertiary"
-  @click="onAlert('outline-tertiary')"
->
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_success a_ml_2"
-  text="outline-success"
-  @click="onAlert('outline-success')"
->
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_info a_ml_2"
-  text="outline-info"
-  @click="onAlert('outline-info')"
->
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_warning a_ml_2"
-  text="outline-warning"
-  @click="onAlert('outline-warning')"
->
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_danger a_ml_2"
-  text="outline-danger"
-  @click="onAlert('outline-danger')"
->
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_dark a_ml_2"
-  text="outline-dark"
-  @click="onAlert('outline-dark')"
->
-</a-button>
-<a-button
-  class="a_btn a_btn_outline_light a_ml_2"
-  text="outline-light"
-  @click="onAlert('outline-light')"
->
-</a-button>`;
+  <a-button
+    class="a_btn a_btn_outline_primary"
+    text="outline-primary"
+    @click="onAlert('outline-primary')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_secondary"
+    text="outline-secondary"
+    @click="onAlert('outline-secondary')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_tertiary"
+    text="outline-tertiary"
+    @click="onAlert('outline-tertiary')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_success"
+    text="outline-success"
+    @click="onAlert('outline-success')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_info"
+    text="outline-info"
+    @click="onAlert('outline-info')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_warning"
+    text="outline-warning"
+    @click="onAlert('outline-warning')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_danger"
+    text="outline-danger"
+    @click="onAlert('outline-danger')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_dark"
+    text="outline-dark"
+    @click="onAlert('outline-dark')"
+  ></a-button>
+  <a-button
+    class="a_btn a_btn_outline_light"
+    text="outline-light"
+    @click="onAlert('outline-light')"
+  ></a-button>
+</div>`;
 
   return {
     codeHtml,
