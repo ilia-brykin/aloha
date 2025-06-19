@@ -5,13 +5,14 @@ aloha-example(
   description="_A_BUTTON_GROUP_SIZES_DESCRIPTION_"
   props="class"
 )
-  a-button(
-    class="a_btn a_btn_primary a_btn_large"
-    text="large"
-    @click="onAlert('large')"
-  )
-  a-button(
-    class="a_btn a_btn_primary a_btn_small a_ml_2"
-    text="small"
-    @click="onAlert('small')"
-  )
+  .a_d_flex.a_flex_wrap.gap_1
+    a-button(
+      class="a_btn a_btn_primary a_btn_large"
+      text="large"
+      @click="onAlert('large')"
+    )
+    a-button(
+      class="a_btn a_btn_primary a_btn_small"
+      text="small"
+      @click="onAlert('small')"
+    )
