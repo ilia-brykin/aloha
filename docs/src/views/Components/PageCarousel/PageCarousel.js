@@ -4,6 +4,8 @@ import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/
 import PageCarouselAriaDisabled from "./PageCarouselAriaDisabled/PageCarouselAriaDisabled.vue";
 import PageCarouselArrowsTrigger from "./PageCarouselArrowsTrigger/PageCarouselArrowsTrigger.vue";
 import PageCarouselBasic from "./PageCarouselBasic/PageCarouselBasic.vue";
+import PageCarouselIndicatorsAutoLimit from "./PageCarouselIndicatorsAutoLimit/PageCarouselIndicatorsAutoLimit.vue";
+import PageCarouselIndicatorsLimit from "./PageCarouselIndicatorsLimit/PageCarouselIndicatorsLimit.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -22,6 +24,8 @@ export default {
     PageCarouselAriaDisabled,
     PageCarouselArrowsTrigger,
     PageCarouselBasic,
+    PageCarouselIndicatorsAutoLimit,
+    PageCarouselIndicatorsLimit,
   },
   setup() {
     const {

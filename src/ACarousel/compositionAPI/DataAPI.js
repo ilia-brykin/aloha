@@ -5,6 +5,7 @@ import {
 
 import {
   AKeyId,
+  AKeyIndex,
 } from "../../const/AKeys";
 import {
   cloneDeep,
@@ -22,10 +23,12 @@ export default function DataAPI(props) {
     if (keyId.value) {
       forEach(DATA, (item, index) => {
         item[AKeyId] = get(item, keyId.value) || index;
+        item[AKeyIndex] = index;
       });
     } else {
       forEach(DATA, (item, index) => {
         item[AKeyId] = index;
+        item[AKeyIndex] = index;
       });
     }
 

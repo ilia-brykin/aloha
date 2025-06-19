@@ -1,5 +1,8 @@
 import {
   h,
+  onBeforeUnmount,
+  onMounted,
+  watch,
 } from "vue";
 
 import ACarouselBtn from "./ACarouselBtn/ACarouselBtn";
@@ -10,6 +13,7 @@ import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import DataAPI from "./compositionAPI/DataAPI";
+import IndicatorsAPI from "./compositionAPI/IndicatorsAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
 
 import ChevronLeft from "aloha-svg/dist/js/bootstrap/ChevronLeft";
@@ -27,23 +31,13 @@ import {
 export default {
   name: "ACarousel",
   props: {
-    ariaLabel: {
-      type: String,
-      required: true,
-    },
     ariaDisabled: {
       type: Boolean,
       required: false,
     },
-    arrowPreviousAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    arrowPreviousIcon: {
+    ariaLabel: {
       type: String,
-      required: false,
-      default: ChevronLeft,
+      required: true,
     },
     arrowNextAttributes: {
       type: Object,
@@ -55,19 +49,15 @@ export default {
       required: false,
       default: ChevronRight,
     },
-    arrowsShow: {
-      type: Boolean,
+    arrowPreviousAttributes: {
+      type: Object,
       required: false,
-      default: true,
+      default: () => ({}),
     },
-    arrowsTrigger: {
-      type: [String, Array],
-      default: "always",
-      validator: value => {
-        const values = castArray(value);
-
-        return isArray(values) && every(values, v => ["always", "hover", "focus"].includes(v));
-      },
+    arrowPreviousIcon: {
+      type: String,
+      required: false,
+      default: ChevronLeft,
     },
     arrowsPlacement: {
       type: String,
@@ -86,6 +76,20 @@ export default {
          * "bottom-right", // absolutely positioned in the bottom-right corner
          */
       ].includes(value),
+    },
+    arrowsShow: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    arrowsTrigger: {
+      type: [String, Array],
+      default: "always",
+      validator: value => {
+        const values = castArray(value);
+
+        return isArray(values) && every(values, v => ["always", "hover", "focus"].includes(v));
+      },
     },
     autoplayInterval: {
       type: Number,
@@ -121,16 +125,15 @@ export default {
       required: false,
       default: () => uniqueId("a_carousel_"),
     },
-    indicatorsShow: {
+    indicatorsAutoLimit: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
-    indicatorsType: {
-      type: String,
+    indicatorsLimit: {
+      type: Number,
       required: false,
-      default: "dots",
-      validator: value => ["dots"].indexOf(value) !== -1,
+      default: undefined,
     },
     indicatorsPlacement: {
       type: String,
@@ -144,6 +147,22 @@ export default {
         "bottom-start",
         "bottom-end",
       ].indexOf(value) !== -1,
+    },
+    indicatorsShow: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    indicatorsType: {
+      type: String,
+      required: false,
+      default: "dots",
+      validator: value => ["dots"].indexOf(value) !== -1,
+    },
+    indicatorWidth: {
+      type: Number,
+      required: false,
+      default: 34,
     },
     keyId: {
       type: String,
@@ -195,6 +214,16 @@ export default {
     } = DataAPI(props);
 
     const {
+      carouselRef,
+      indicatorsData,
+      initObserver,
+      removeObserver,
+      useObserver,
+    } = IndicatorsAPI(props, {
+      dataLocal,
+    });
+
+    const {
       activeId,
       changeActiveId,
       initActiveId,
@@ -206,13 +235,31 @@ export default {
 
     initActiveId();
 
+    watch(useObserver, newValue => {
+      if (newValue) {
+        initObserver();
+      } else {
+        removeObserver();
+      }
+    });
+
+    onMounted(() => {
+      initObserver();
+    });
+
+    onBeforeUnmount(() => {
+      removeObserver();
+    });
+
     return {
       activeId,
       ariaLabelAttributes,
       arrowsPlacementClass,
       arrowsTriggerClass,
+      carouselRef,
       changeActiveId,
       dataLocal,
+      indicatorsData,
       indicatorsPlacementClass,
       textsLocal,
       toNextSlide,
@@ -232,6 +279,7 @@ export default {
       ...this.ariaLabelAttributes,
     }, [
       h("div", {
+        ref: "carouselRef",
         class: "a_carousel__inner",
       }, [
         this.arrowsShow ?
@@ -248,7 +296,7 @@ export default {
           activeId: this.activeId,
           autoplayInterval: this.autoplayInterval,
           autoplayShow: this.autoplayShow,
-          data: this.dataLocal,
+          data: this.indicatorsData,
           disabled: this.disabled,
           extra: this.extra,
           parentId: this.id,

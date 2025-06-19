@@ -245,6 +245,7 @@ export {
 export {
   AKeyChildren,
   AKeyId,
+  AKeyIndex,
   AKeyLabel,
   AKeyLabelSearch,
   AKeyLink,

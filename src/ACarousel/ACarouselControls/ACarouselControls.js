@@ -4,10 +4,11 @@ import {
 import {
   AElement,
   AKeyId,
+  AKeyIndex,
 } from "../../index";
 
-import AriaLabelAPI from "./AriaLabelAPI";
-import EventsAPI from "./EventsAPI";
+import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+import EventsAPI from "./compositionAPI/EventsAPI";
 
 import {
   ACarouselPluginOptions,
@@ -90,6 +91,10 @@ export default {
     };
   },
   render() {
+    if (this.data.length <= 1) {
+      return null;
+    }
+
     return [
       h("div", {
         class: "a_carousel__tabs__wrapper",
@@ -104,9 +109,10 @@ export default {
           role: "tablist",
           ...this.ariaLabelTabsAttributes,
         }, [
-          ...this.data.map((item, itemIndex) => {
-            const NUMBER = itemIndex + 1;
+          ...this.data.map(item => {
             const IS_ACTIVE = this.activeId === item[AKeyId];
+            const INDEX = item[AKeyIndex];
+            const NUMBER = INDEX + 1;
 
             return h(AElement, {
               id: `${ this.parentId }_tab_${ NUMBER }`,

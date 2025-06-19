@@ -4,7 +4,7 @@ import {
 
 import {
   getTranslatedAttributes,
-} from "../../ATranslation/compositionAPI/UtilsAPI";
+} from "../../../ATranslation/compositionAPI/UtilsAPI";
 
 export default function AriaLabelAPI() {
   const ariaLabelTabsAttributes = computed(() => {

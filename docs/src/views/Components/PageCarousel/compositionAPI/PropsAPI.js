@@ -113,6 +113,27 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "indicators-auto-limit",
+      description: "_A_CAROUSEL_PROPS_INDICATORS_AUTO_LIMIT_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
+      name: "indicators-limit",
+      description: "_A_CAROUSEL_PROPS_INDICATORS_LIMIT_DESCRIPTION_",
+      type: "Number",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "indicators-placement",
+      description: "_A_CAROUSEL_PROPS_INDICATORS_PLACEMENT_DESCRIPTION_",
+      type: "String",
+      default: "bottom",
+      required: false,
+    },
+    {
       name: "indicators-show",
       description: "_A_CAROUSEL_PROPS_INDICATORS_SHOW_DESCRIPTION_",
       type: "Boolean",
@@ -127,17 +148,10 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "indicators-placement",
-      description: "_A_CAROUSEL_PROPS_INDICATORS_PLACEMENT_DESCRIPTION_",
-      type: "String",
-      default: "bottom",
-      required: false,
-    },
-    {
-      name: "indicators-placement",
-      description: "_A_CAROUSEL_PROPS_INDICATORS_PLACEMENT_DESCRIPTION_",
-      type: "String",
-      default: "bottom",
+      name: "indicator-width",
+      description: "_A_CAROUSEL_PROPS_INDICATOR_WIDTH_DESCRIPTION_",
+      type: "Number",
+      default: 34,
       required: false,
     },
     {
@@ -156,7 +170,7 @@ export default function PropsAPI() {
     },
     {
       name: "texts",
-      description: "_A_CAROUSEL_PROPS_texts_DESCRIPTION_",
+      description: "_A_CAROUSEL_PROPS_TEXTS_DESCRIPTION_",
       type: "Object",
       default: "{\n" +
         "        nextSlide: \"_A_CAROUSEL_NEXT_SLIDE_\",\n" +
