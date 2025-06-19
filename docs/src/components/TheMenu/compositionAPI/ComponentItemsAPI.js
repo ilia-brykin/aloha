@@ -87,7 +87,7 @@ export default function ComponentItemsAPI() {
       },
       {
         id: "PageElement",
-        label: "PageElement",
+        label: "Element",
         class: "test_menu_element",
         to: {
           name: "PageElement",
