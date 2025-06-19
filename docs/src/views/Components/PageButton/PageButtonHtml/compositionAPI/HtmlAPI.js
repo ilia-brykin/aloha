@@ -8,7 +8,7 @@ export default function HtmlAPI() {
     html="_A_BUTTON_EXAMPLE_HTML_"
   ></a-button>
   <a-button
-    class="a_btn a_btn_primary a_ml_2"
+    class="a_btn a_btn_primary"
     html="<span onclick='alert(\"Aloha\")'>Aloha</span>"
   ></a-button>
 </div>`;
