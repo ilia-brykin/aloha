@@ -1,8 +1,8 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-button
+  :is-title-html="true"
   class="a_btn a_btn_primary"
   text="Aloha"
-  :is-title-html="true"
 >
   <template
     v-slot:buttonTitle
