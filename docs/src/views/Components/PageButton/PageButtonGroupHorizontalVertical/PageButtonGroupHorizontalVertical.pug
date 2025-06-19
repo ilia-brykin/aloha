@@ -5,8 +5,12 @@ aloha-example(
   description="_A_BUTTON_GROUP_GROUP_HORIZONTAL_VERTICAL_DESCRIPTION_"
   props="class"
 )
-  .a_btn_group_vertical
-    .a_btn_group
+  .a_btn_group_vertical(
+    role="group"
+  )
+    .a_btn_group(
+      role="group"
+    )
       a-button(
         class="a_btn a_btn_outline_primary"
         text="outline-primary"
@@ -27,7 +31,9 @@ aloha-example(
         text="outline-info"
         @click="onAlert('outline-info')"
       )
-    .a_btn_group
+    .a_btn_group(
+      role="group"
+    )
       a-button(
         class="a_btn a_btn_outline_primary"
         text="outline-primary"
@@ -48,7 +54,9 @@ aloha-example(
         text="outline-info"
         @click="onAlert('outline-info')"
       )
-    .a_btn_group
+    .a_btn_group(
+      role="group"
+    )
       a-button(
         class="a_btn a_btn_outline_primary"
         text="outline-primary"
