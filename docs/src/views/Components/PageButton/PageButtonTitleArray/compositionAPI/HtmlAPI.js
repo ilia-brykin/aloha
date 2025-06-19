@@ -3,8 +3,7 @@ export default function HtmlAPI() {
   class="a_btn a_btn_primary"
   :title="['Aloha', '$(Aloha)']"
   text="Aloha"
->
-</a-button>`;
+></a-button>`;
 
   return {
     codeHtml,
