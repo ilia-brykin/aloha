@@ -1,18 +1,18 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-button
   class="a_btn a_btn_primary"
-  :loading="loading"
-  loading-align="left"
-  :text="{ desktop: 'Aloha' }"
-  :text-before="{ desktop: '$ ' }"
   :icon-left="{ desktop: 'EyeFill', mobile: 'EyeSlash' }"
   :icon-right="{ mobile: 'EyeSlash' }"
-  :title="{ desktop: 'Aloha' }"
+  :loading="loading"
   :text-aria-hidden="true"
+  :text-before="{ desktop: '$ ' }"
   :text-screen-reader="{ desktop: 'Aloha', mobile: 'Aloha-mobile' }"
+  :text="{ desktop: 'Aloha' }"
+  :title="{ desktop: 'Aloha' }"
+  class="a_btn a_btn_primary"
+  loading-align="left"
   @click="toggleLoading"
->
-</a-button>`;
+></a-button>`;
 
   return {
     codeHtml,
