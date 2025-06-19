@@ -228,6 +228,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageDropdown/PageDropdown.vue"),
   },
   {
+    path: "/element",
+    name: "PageElement",
+    component: () => import("../views/Components/PageElement/PageElement.vue"),
+  },
+  {
     path: "/tabs",
     name: "PageTabs",
     component: () => import("../views/Components/PageTabs/PageTabs.vue"),

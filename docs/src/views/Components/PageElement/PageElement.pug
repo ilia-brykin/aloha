@@ -1,0 +1,94 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_ELEMENT_COMPONENT_DESCRIPTION_"
+    )
+
+    page-element-basic
+
+    page-element-basic-class
+
+    page-element-outline
+
+    page-element-transparent
+
+    page-element-sizes
+
+    page-element-group
+
+    page-element-group-vertical
+
+    page-element-group-horizontal-vertical
+
+    page-element-group-sizes
+
+    page-element-icons
+
+    page-element-disabled
+
+    page-element-aria-disabled
+
+    page-element-loading
+
+    page-element-text-after-before
+
+    page-element-text-tag
+
+    page-element-safe-html
+
+    page-element-html
+
+    page-element-text-object
+
+    page-element-title-array
+
+    page-element-title-html
+
+    page-element-title-html-extra
+
+    page-element-stop
+
+    page-element-slot-default
+
+    page-element-slot-prepend
+
+    page-element-slot-append
+
+    page-element-slot-title
+
+    page-element-switch
+
+    page-element-complex
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+      template(
+        v-slot:class-default="{ row }"
+      )
+        aloha-highlightjs(
+          :code="row.scss"
+        )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    //-aloha-table-props( TODO: Exposes
+    //-  table-label="Exposes"
+    //-  :data="dataExposes"
+    //-  :columns="['name', 'type', 'description']"
+    //-)

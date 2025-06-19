@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ELEMENT_GROUP_TEXT_OBJECT_HEADER_"
+  description="_A_ELEMENT_GROUP_TEXT_OBJECT_DESCRIPTION_"
+  props="text (as object)"
+)
+  a-element(
+    class="a_btn a_btn_primary"
+    :text="{ mobile: 'Aloha', desktop: 'Aloha-desktop' }"
+    type="button"
+  )

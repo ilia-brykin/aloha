@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ELEMENT_GROUP_SIZES_HEADER_"
+  description="_A_ELEMENT_GROUP_SIZES_DESCRIPTION_"
+  props="class"
+)
+  .a_d_flex.a_flex_wrap.a_align_items_start.gap_1
+    a-element(
+      class="a_btn a_btn_primary a_btn_large"
+      text="large"
+      type="button"
+      @click="onAlert('large')"
+    )
+    a-element(
+      class="a_btn a_btn_primary a_btn_small"
+      text="small"
+      type="button"
+      @click="onAlert('small')"
+    )

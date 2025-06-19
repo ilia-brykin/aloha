@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ELEMENT_GROUP_COMPLEX_HEADER_"
+  description="_A_ELEMENT_GROUP_COMPLEX_DESCRIPTION_"
+  :props="['class', 'loading', 'loading-align', 'text', 'text-before', 'icon-left', 'icon-right', 'title', 'text-aria-hidden', 'text-screen-reader']"
+)
+  a-element(
+    :icon-left="{ desktop: 'EyeFill', mobile: 'EyeSlash' }"
+    :icon-right="{ mobile: 'EyeSlash' }"
+    :loading="loading"
+    :text-aria-hidden="true"
+    :text-before="{ desktop: '$ ' }"
+    :text-screen-reader="{ desktop: 'Aloha', mobile: 'Aloha-mobile' }"
+    :text="{ desktop: 'Aloha' }"
+    :title="{ desktop: 'Aloha' }"
+    class="a_btn a_btn_primary"
+    loading-align="left"
+    type="button"
+    @click="toggleLoading"
+  )

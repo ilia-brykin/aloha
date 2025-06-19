@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ELEMENT_GROUP_SLOT_PREPEND_HEADER_"
+  description="_A_ELEMENT_GROUP_SLOT_PREPEND_DESCRIPTION_"
+  slots="buttonPrepend"
+)
+  a-element(
+    class="a_btn a_btn_primary"
+    text="Aloha"
+    type="text"
+  )
+    template(
+      v-slot:buttonPrepend
+    )
+      span (***)

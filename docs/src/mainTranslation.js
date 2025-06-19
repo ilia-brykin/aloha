@@ -24,6 +24,7 @@ import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/Page
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
 import PageDropdownI18n from "./views/Components/PageDropdown/i18n/PageDropdownI18n";
+import PageElementI18n from "./views/Components/PageElement/i18n/PageElementI18n";
 import PageFieldsetChildrenI18n from "./views/Components/Form/PageFieldsetChildren/i18n/PageFieldsetChildrenI18n";
 import PageFieldsetI18n from "./views/Components/Form/PageFieldset/i18n/PageFieldsetI18n";
 import PageFilterBooleanI18n from "./views/Functions/Filters/PageFilterBoolean/i18n/PageFilterBooleanI18n";
@@ -128,6 +129,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.ar,
     ...PageDisclosureI18n.ar,
     ...PageDropdownI18n.ar,
+    ...PageElementI18n.ar,
     ...PageFieldsetChildrenI18n.ar,
     ...PageFieldsetI18n.ar,
     ...PageFilterBooleanI18n.ar,
@@ -223,6 +225,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.de,
     ...PageDisclosureI18n.de,
     ...PageDropdownI18n.de,
+    ...PageElementI18n.de,
     ...PageFieldsetChildrenI18n.de,
     ...PageFieldsetI18n.de,
     ...PageFilterBooleanI18n.de,
@@ -318,6 +321,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.en,
     ...PageDisclosureI18n.en,
     ...PageDropdownI18n.en,
+    ...PageElementI18n.en,
     ...PageFieldsetChildrenI18n.en,
     ...PageFieldsetI18n.en,
     ...PageFilterBooleanI18n.en,
@@ -413,6 +417,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.es,
     ...PageDisclosureI18n.es,
     ...PageDropdownI18n.es,
+    ...PageElementI18n.es,
     ...PageFieldsetChildrenI18n.es,
     ...PageFieldsetI18n.es,
     ...PageFilterBooleanI18n.es,
@@ -508,6 +513,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.fr,
     ...PageDisclosureI18n.fr,
     ...PageDropdownI18n.fr,
+    ...PageElementI18n.fr,
     ...PageFieldsetChildrenI18n.fr,
     ...PageFieldsetI18n.fr,
     ...PageFilterBooleanI18n.fr,
@@ -603,6 +609,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.hr,
     ...PageDisclosureI18n.hr,
     ...PageDropdownI18n.hr,
+    ...PageElementI18n.hr,
     ...PageFieldsetChildrenI18n.hr,
     ...PageFieldsetI18n.hr,
     ...PageFilterBooleanI18n.hr,
@@ -698,6 +705,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.it,
     ...PageDisclosureI18n.it,
     ...PageDropdownI18n.it,
+    ...PageElementI18n.it,
     ...PageFieldsetChildrenI18n.it,
     ...PageFieldsetI18n.it,
     ...PageFilterBooleanI18n.it,
@@ -793,6 +801,7 @@ export const mainTranslation = {
     ...PageDatepickerRangeI18n.ru,
     ...PageDisclosureI18n.ru,
     ...PageDropdownI18n.ru,
+    ...PageElementI18n.ru,
     ...PageFieldsetChildrenI18n.ru,
     ...PageFieldsetI18n.ru,
     ...PageFilterBooleanI18n.ru,

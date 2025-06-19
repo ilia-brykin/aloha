@@ -86,6 +86,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "PageElement",
+        label: "PageElement",
+        class: "test_menu_element",
+        to: {
+          name: "PageElement",
+        },
+      },
+      {
         id: "form_parent",
         label: "Form",
         class: "test_menu_form_parent",
