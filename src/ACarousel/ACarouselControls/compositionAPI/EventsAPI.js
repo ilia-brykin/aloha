@@ -11,10 +11,10 @@ export default function EventsAPI({ emit }) {
   const onPressBtn = $event => {
     if ($event.keyCode === AKeysCode.arrowLeft) {
       $event.preventDefault();
-      emit("toPreviousSlide");
+      emit("toPreviousSlide", { withFocus: true });
     } else if ($event.keyCode === AKeysCode.arrowRight) {
       $event.preventDefault();
-      emit("toNextSlide");
+      emit("toNextSlide", { withFocus: true });
     }
   };
 

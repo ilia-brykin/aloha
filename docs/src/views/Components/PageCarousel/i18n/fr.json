@@ -22,6 +22,8 @@
   "_A_CAROUSEL_GROUP_INDICATORS_AUTO_LIMIT_HEADER_": "Limitation automatique des indicateurs",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_DESCRIPTION_": "Exemple de limitation du nombre d'indicateurs affichés",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_HEADER_": "Limitation des indicateurs",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_DESCRIPTION_": "Exemple de différents types d'indicateurs de diapositives",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_HEADER_": "Type d'indicateurs",
   "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_": "Diapositive {{number}} sur {{count}}",
   "_A_CAROUSEL_NEXT_SLIDE_": "Diapositive suivante",
   "_A_CAROUSEL_PREVIOUS_SLIDE_": "Diapositive précédente",

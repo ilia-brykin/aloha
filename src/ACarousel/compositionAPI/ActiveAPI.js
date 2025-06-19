@@ -8,6 +8,9 @@ import {
   AKeyId,
 } from "../../const/AKeys";
 import {
+  setFocusToElement,
+} from "../../utils/utilsDOM";
+import {
   findIndex,
   isNil,
 } from "lodash-es";
@@ -15,6 +18,7 @@ import {
 export default function ActiveAPI(props, {
   dataLocal = computed(() => []),
 }) {
+  const id = toRef(props, "id");
   const modelValue = toRef(props, "modelValue");
 
   const activeId = ref(undefined);
@@ -31,7 +35,16 @@ export default function ActiveAPI(props, {
     activeId.value = id;
   };
 
-  const toNextSlide = () => {
+  const setFocus = ({ nextSlideIndex }) => {
+    setTimeout(() => {
+      const HTML_ID = `${ id.value }_tab_${ nextSlideIndex + 1 }`;
+      setFocusToElement({
+        selector: `#${ HTML_ID }`,
+      });
+    });
+  };
+
+  const toNextSlide = ({ withFocus } = {}) => {
     const ACTIVE_INDEX = findIndex(dataLocal.value, [AKeyId, activeId.value]);
     let nextSlideIndex;
 
@@ -44,9 +57,13 @@ export default function ActiveAPI(props, {
     changeActiveId({
       id: dataLocal.value?.[nextSlideIndex]?.[AKeyId],
     });
+
+    if (withFocus) {
+      setFocus({ nextSlideIndex });
+    }
   };
 
-  const toPreviousSlide = () => {
+  const toPreviousSlide = ({ withFocus } = {}) => {
     const ACTIVE_INDEX = findIndex(dataLocal.value, [AKeyId, activeId.value]);
     let nextSlideIndex;
 
@@ -59,6 +76,10 @@ export default function ActiveAPI(props, {
     changeActiveId({
       id: dataLocal.value?.[nextSlideIndex]?.[AKeyId],
     });
+
+    if (withFocus) {
+      setFocus({ nextSlideIndex });
+    }
   };
 
   return {

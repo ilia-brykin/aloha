@@ -6,6 +6,7 @@ import PageCarouselArrowsTrigger from "./PageCarouselArrowsTrigger/PageCarouselA
 import PageCarouselBasic from "./PageCarouselBasic/PageCarouselBasic.vue";
 import PageCarouselIndicatorsAutoLimit from "./PageCarouselIndicatorsAutoLimit/PageCarouselIndicatorsAutoLimit.vue";
 import PageCarouselIndicatorsLimit from "./PageCarouselIndicatorsLimit/PageCarouselIndicatorsLimit.vue";
+import PageCarouselIndicatorsType from "./PageCarouselIndicatorsType/PageCarouselIndicatorsType.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -26,6 +27,7 @@ export default {
     PageCarouselBasic,
     PageCarouselIndicatorsAutoLimit,
     PageCarouselIndicatorsLimit,
+    PageCarouselIndicatorsType,
   },
   setup() {
     const {

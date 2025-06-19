@@ -191,9 +191,10 @@
     background-color: #005a9c;
   }
 }
-.a_carousel__tabs_dots {
+.a_carousel__tabs_dots,
+.a_carousel__tabs_squares {
   &:focus-within {
-    circle.tab-background {
+    .tab-background {
       stroke: #005a9c;
       fill: #005a9c;
     }
@@ -213,65 +214,59 @@
     width: 34px;
     color: #fff;
     &:focus {
-      circle {
-        &.border {
-          display: block;
-          fill: #005a9c;
-          stroke: #fff;
-        }
-        &.tab-background {
-          stroke: #005a9c;
-          fill: #005a9c;
-        }
+      .border {
+        display: block;
+        fill: #005a9c;
+        stroke: #fff;
+      }
+      .tab-background {
+        stroke: #005a9c;
+        fill: #005a9c;
       }
     }
     &:hover {
-      circle {
-        &.tab-background {
-          fill: white;
-          stroke: white;
-          opacity: 1;
-        }
-        &.tab,
-        &.border {
-          fill: #005a9c;
-          stroke: #005a9c;
-          opacity: 1;
-        }
+      .tab-background {
+        fill: white;
+        stroke: white;
+        opacity: 1;
+      }
+      .tab,
+      .border {
+        fill: #005a9c;
+        stroke: #005a9c;
+        opacity: 1;
       }
     }
   }
   .a_carousel__tabs__btn_active {
     &:hover {
-      circle.tab {
+      .tab {
         fill: white;
       }
     }
-    circle.tab {
+    .tab {
       fill: white;
     }
   }
-  circle {
-    &.tab,
-    &.border {
-      stroke: white;
-      fill: transparent;
-      stroke-width: 2px;
-    }
-    &.border {
-      display: none;
-      z-index: 12;
-    }
-    &.tab-background {
-      stroke: black;
-      fill: black;
-      stroke-width: 2px;
-      opacity: 0.6;
-      z-index: 14;
-    }
-    &.tab {
-      z-index: 16;
-    }
+  .tab,
+  .border {
+    stroke: white;
+    fill: transparent;
+    stroke-width: 2px;
+  }
+  .border {
+    display: none;
+    z-index: 12;
+  }
+  .tab-background {
+    stroke: black;
+    fill: black;
+    stroke-width: 2px;
+    opacity: 0.6;
+    z-index: 14;
+  }
+  .tab {
+    z-index: 16;
   }
 }
 

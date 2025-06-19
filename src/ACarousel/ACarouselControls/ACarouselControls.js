@@ -9,6 +9,7 @@ import {
 
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import IconAPI from "./compositionAPI/IconAPI";
 
 import {
   ACarouselPluginOptions,
@@ -62,7 +63,7 @@ export default {
       type: String,
       required: false,
       default: "dots",
-      validator: value => ["dots"].indexOf(value) !== -1,
+      validator: value => ["dots", "squares"].indexOf(value) !== -1,
     },
     texts: {
       type: Object,
@@ -80,6 +81,10 @@ export default {
     } = AriaLabelAPI();
 
     const {
+      indicatorIcon,
+    } = IconAPI(props);
+
+    const {
       changeActiveId,
       onPressBtn,
     } = EventsAPI(context);
@@ -87,6 +92,7 @@ export default {
     return {
       ariaLabelTabsAttributes,
       changeActiveId,
+      indicatorIcon,
       onPressBtn,
     };
   },
@@ -124,7 +130,7 @@ export default {
                   a_carousel__tabs__btn_active: IS_ACTIVE,
                 },
               ],
-              iconLeft: ACarouselPluginOptions.icons.dots,
+              iconLeft: this.indicatorIcon,
               disabled: this.disabled,
               type: "button",
               tabindex: IS_ACTIVE ? 0 : -1,

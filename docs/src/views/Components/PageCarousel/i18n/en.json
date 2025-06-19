@@ -22,6 +22,8 @@
   "_A_CAROUSEL_GROUP_INDICATORS_AUTO_LIMIT_HEADER_": "Automatic indicator limitation",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_DESCRIPTION_": "Example of limiting the number of displayed indicators",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_HEADER_": "Indicator limitation",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_DESCRIPTION_": "Example of different types of slide indicators",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_HEADER_": "Indicators type",
   "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_": "Slide {{number}} of {{count}}",
   "_A_CAROUSEL_NEXT_SLIDE_": "Next slide",
   "_A_CAROUSEL_PREVIOUS_SLIDE_": "Previous slide",

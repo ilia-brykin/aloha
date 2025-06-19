@@ -22,6 +22,8 @@
   "_A_CAROUSEL_GROUP_INDICATORS_AUTO_LIMIT_HEADER_": "تحديد المؤشرات التلقائي",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_DESCRIPTION_": "مثال على تحديد عدد المؤشرات المعروضة",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_HEADER_": "تحديد المؤشرات",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_DESCRIPTION_": "مثال على أنواع مختلفة من مؤشرات الشرائح",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_HEADER_": "نوع المؤشرات",
   "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_": "الشريحة {{number}} من {{count}}",
   "_A_CAROUSEL_NEXT_SLIDE_": "الشريحة التالية",
   "_A_CAROUSEL_PREVIOUS_SLIDE_": "الشريحة السابقة",

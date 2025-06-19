@@ -1,0 +1,48 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CAROUSEL_GROUP_INDICATORS_TYPE_HEADER_"
+  description="_A_CAROUSEL_GROUP_INDICATORS_TYPE_DESCRIPTION_"
+  props="indicators-type"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_12_touch.a_column_4
+      h3
+        strong(
+          lang="en"
+        ) dots
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        arrows-trigger="hover"
+        indicators-type="dots"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          div {{ item.id }}
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )
+    .a_column.a_column_12_touch.a_column_4
+      h3
+        strong(
+          lang="en"
+        ) squares
+      a-carousel(
+        :data="data"
+        aria-label="_A_CAROUSEL_COMPONENT_BALLS_ARIA_LABEL_"
+        arrows-trigger="hover"
+        indicators-type="squares"
+        key-id="id"
+      )
+        template(
+          v-slot:item="{ item }"
+        )
+          div {{ item.id }}
+          img.a_height_auto.a_width_100(
+            :src="item.src"
+            :alt="item.alt"
+          )

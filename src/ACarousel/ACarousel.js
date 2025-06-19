@@ -157,7 +157,7 @@ export default {
       type: String,
       required: false,
       default: "dots",
-      validator: value => ["dots"].indexOf(value) !== -1,
+      validator: value => ["dots", "squares"].indexOf(value) !== -1,
     },
     indicatorWidth: {
       type: Number,

@@ -22,6 +22,8 @@
   "_A_CAROUSEL_GROUP_INDICATORS_AUTO_LIMIT_HEADER_": "Автоматическое ограничение индикаторов",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_DESCRIPTION_": "Пример ограничения количества отображаемых индикаторов",
   "_A_CAROUSEL_GROUP_INDICATORS_LIMIT_HEADER_": "Ограничение индикаторов",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_DESCRIPTION_": "Пример различных типов индикаторов слайдов",
+  "_A_CAROUSEL_GROUP_INDICATORS_TYPE_HEADER_": "Тип индикаторов",
   "_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_": "Слайд {{number}} из {{count}}",
   "_A_CAROUSEL_NEXT_SLIDE_": "Следующий слайд",
   "_A_CAROUSEL_PREVIOUS_SLIDE_": "Предыдущий слайд",
