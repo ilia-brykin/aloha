@@ -5,11 +5,12 @@ aloha-example(
   description="_A_BUTTON_GROUP_HTML_DESCRIPTION_"
   props="html"
 )
-  a-button(
-    class="a_btn a_btn_primary"
-    html="_A_BUTTON_EXAMPLE_HTML_"
-  )
-  a-button(
-    class="a_btn a_btn_primary a_ml_2"
-    html="<span onclick='alert(\"Aloha\")'>Aloha</button>"
-  )
+  .a_d_flex.a_flex_wrap.gap_1
+    a-button(
+      class="a_btn a_btn_primary"
+      html="_A_BUTTON_EXAMPLE_HTML_"
+    )
+    a-button(
+      class="a_btn a_btn_primary"
+      html="<span onclick='alert(\"Aloha\")'>Aloha</span>"
+    )
