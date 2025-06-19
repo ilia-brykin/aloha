@@ -4,8 +4,7 @@ export default function HtmlAPI() {
   text="_SHOW_MORE_"
   text-after=" €"
   text-before="$ "
->
-</a-button>`;
+></a-button>`;
 
   return {
     codeHtml,
