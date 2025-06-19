@@ -7,6 +7,15 @@
 ---
 # Versions
 
+## 2.22.0
+
+- Documentation `AElement`
+- Add-ons for `ACarousel`
+  - `indicators-type`: `squares`
+  - `indicatorsAutoLimit`
+  - `indicatorsLimit`
+  - `indicatorWidth`
+
 ## 2.21.5
 
 - Adjust padding-right in `ASelect` dropdown for improved spacing.

@@ -12343,14 +12343,14 @@ input[type=text]::-ms-clear {
 
 .a_carousel__tabs__wrapper {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 }
 
 .a_carousel__tabs {
   box-sizing: border-box;
   border: 0 transparent solid;
   border-radius: 13px;
-  display: inline-block;
+  display: flex;
   padding-top: 2px;
   height: 30px;
   background-color: rgba(0, 0, 0, 0.65);
@@ -12362,11 +12362,13 @@ input[type=text]::-ms-clear {
   background-color: #005a9c;
 }
 
-.a_carousel__tabs_dots:focus-within circle.tab-background {
+.a_carousel__tabs_dots:focus-within .tab-background,
+.a_carousel__tabs_squares:focus-within .tab-background {
   stroke: #005a9c;
   fill: #005a9c;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn {
+.a_carousel__tabs_dots .a_carousel__tabs__btn,
+.a_carousel__tabs_squares .a_carousel__tabs__btn {
   position: relative;
   top: -2px;
   padding: 0;
@@ -12377,52 +12379,67 @@ input[type=text]::-ms-clear {
   width: 34px;
   color: #fff;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn .a_icon {
+.a_carousel__tabs_dots .a_carousel__tabs__btn .a_icon,
+.a_carousel__tabs_squares .a_carousel__tabs__btn .a_icon {
   width: 34px;
   height: 34px;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn:focus circle.border {
+.a_carousel__tabs_dots .a_carousel__tabs__btn:focus .border,
+.a_carousel__tabs_squares .a_carousel__tabs__btn:focus .border {
   display: block;
   fill: #005a9c;
   stroke: #fff;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn:focus circle.tab-background {
+.a_carousel__tabs_dots .a_carousel__tabs__btn:focus .tab-background,
+.a_carousel__tabs_squares .a_carousel__tabs__btn:focus .tab-background {
   stroke: #005a9c;
   fill: #005a9c;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn:hover circle.tab-background {
+.a_carousel__tabs_dots .a_carousel__tabs__btn:hover .tab-background,
+.a_carousel__tabs_squares .a_carousel__tabs__btn:hover .tab-background {
   fill: white;
   stroke: white;
   opacity: 1;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn:hover circle.tab, .a_carousel__tabs_dots .a_carousel__tabs__btn:hover circle.border {
+.a_carousel__tabs_dots .a_carousel__tabs__btn:hover .tab,
+.a_carousel__tabs_dots .a_carousel__tabs__btn:hover .border,
+.a_carousel__tabs_squares .a_carousel__tabs__btn:hover .tab,
+.a_carousel__tabs_squares .a_carousel__tabs__btn:hover .border {
   fill: #005a9c;
   stroke: #005a9c;
   opacity: 1;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn_active:hover circle.tab {
+.a_carousel__tabs_dots .a_carousel__tabs__btn_active:hover .tab,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_active:hover .tab {
   fill: white;
 }
-.a_carousel__tabs_dots .a_carousel__tabs__btn_active circle.tab {
+.a_carousel__tabs_dots .a_carousel__tabs__btn_active .tab,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_active .tab {
   fill: white;
 }
-.a_carousel__tabs_dots circle.tab, .a_carousel__tabs_dots circle.border {
+.a_carousel__tabs_dots .tab,
+.a_carousel__tabs_dots .border,
+.a_carousel__tabs_squares .tab,
+.a_carousel__tabs_squares .border {
   stroke: white;
   fill: transparent;
   stroke-width: 2px;
 }
-.a_carousel__tabs_dots circle.border {
+.a_carousel__tabs_dots .border,
+.a_carousel__tabs_squares .border {
   display: none;
   z-index: 12;
 }
-.a_carousel__tabs_dots circle.tab-background {
+.a_carousel__tabs_dots .tab-background,
+.a_carousel__tabs_squares .tab-background {
   stroke: black;
   fill: black;
   stroke-width: 2px;
   opacity: 0.6;
   z-index: 14;
 }
-.a_carousel__tabs_dots circle.tab {
+.a_carousel__tabs_dots .tab,
+.a_carousel__tabs_squares .tab {
   z-index: 16;
 }
 
