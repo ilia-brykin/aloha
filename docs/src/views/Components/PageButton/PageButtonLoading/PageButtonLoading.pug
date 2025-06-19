@@ -5,17 +5,18 @@ aloha-example(
   description="_A_BUTTON_GROUP_LOADING_DESCRIPTION_"
   :props="['loading', 'loading-align']"
 )
-  a-button(
-    class="a_btn a_btn_primary"
-    :loading="loading"
-    loading-align="left"
-    text="loading-align=\"left\""
-    @click="toggleLoading"
-  )
-  a-button(
-    class="a_btn a_btn_primary a_ml_2"
-    :loading="loading"
-    loading-align="right"
-    text="loading-align=\"right\""
-    @click="toggleLoading"
-  )
+  .a_d_flex.a_flex_wrap.gap_1
+    a-button(
+      :loading="loading"
+      class="a_btn a_btn_primary"
+      loading-align="left"
+      text="loading-align=\"left\""
+      @click="toggleLoading"
+    )
+    a-button(
+      :loading="loading"
+      class="a_btn a_btn_primary"
+      loading-align="right"
+      text="loading-align=\"right\""
+      @click="toggleLoading"
+    )
