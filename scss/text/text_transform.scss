@@ -3,17 +3,20 @@
 .#{aloha.$aloha-prefix}text_lowercase {
   text-transform: lowercase !important;
 }
-
 .#{aloha.$aloha-prefix}text_uppercase {
   text-transform: uppercase !important;
 }
-
 .#{aloha.$aloha-prefix}text_capitalize {
   text-transform: capitalize !important;
 }
-
 .#{aloha.$aloha-prefix}text_underline {
   text-decoration: underline !important;
+}
+.#{aloha.$aloha-prefix}text_line_through {
+  text-decoration: line-through !important;
+}
+.#{aloha.$aloha-prefix}text_decoration_none {
+  text-decoration: none !important;
 }
 
 .#{aloha.$aloha-prefix}text_italic {
