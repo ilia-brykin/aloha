@@ -23,3 +23,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.#{aloha.$aloha-prefix}text_clamp {
+  --a_text_clamp_lines: 1;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--a_text_clamp_lines);
+  overflow: hidden;
+}
+
+@for $i from 2 through 5 {
+  .#{aloha.$aloha-prefix}text_clamp_#{$i} {
+    --a_text_clamp_lines: #{$i};
+  }
+}
