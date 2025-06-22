@@ -1,7 +1,3 @@
-import {
-  ref,
-} from "vue";
-
 export default function JsAPI() {
   const codeJs = `import {
   ref,
