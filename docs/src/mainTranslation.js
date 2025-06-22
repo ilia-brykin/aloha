@@ -92,6 +92,7 @@ import PageTableSortI18n from "./views/Components/PageTable/PageTableSort/i18n/P
 import PageTableTreeI18n from "./views/Components/PageTable/PageTableTree/i18n/PageTableTreeI18n";
 import PageTabsI18n from "./views/Components/PageTabs/i18n/PageTabsI18n";
 import PageTemplateI18n from "./views/Components/Form/PageTemplate/i18n/PageTemplateI18n";
+import PageTextI18n from "./views/CSS/PageText/i18n/PageTextI18n";
 import PageTextareaI18n from "./views/Components/Form/PageTextarea/i18n/PageTextareaI18n";
 import PageTooltipI18n from "./views/Components/PageTooltip/i18n/PageTooltipI18n";
 import PageTranslationI18n from "./views/Components/PageTranslation/i18n/PageTranslationI18n";
@@ -197,6 +198,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.ar,
     ...PageTabsI18n.ar,
     ...PageTemplateI18n.ar,
+    ...PageTextI18n.ar,
     ...PageTextareaI18n.ar,
     ...PageTooltipI18n.ar,
     ...PageTranslationI18n.ar,
@@ -293,6 +295,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.de,
     ...PageTabsI18n.de,
     ...PageTemplateI18n.de,
+    ...PageTextI18n.de,
     ...PageTextareaI18n.de,
     ...PageTooltipI18n.de,
     ...PageTranslationI18n.de,
@@ -389,6 +392,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.en,
     ...PageTabsI18n.en,
     ...PageTemplateI18n.en,
+    ...PageTextI18n.en,
     ...PageTextareaI18n.en,
     ...PageTooltipI18n.en,
     ...PageTranslationI18n.en,
@@ -485,6 +489,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.es,
     ...PageTabsI18n.es,
     ...PageTemplateI18n.es,
+    ...PageTextI18n.es,
     ...PageTextareaI18n.es,
     ...PageTooltipI18n.es,
     ...PageTranslationI18n.es,
@@ -581,6 +586,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.fr,
     ...PageTabsI18n.fr,
     ...PageTemplateI18n.fr,
+    ...PageTextI18n.fr,
     ...PageTextareaI18n.fr,
     ...PageTooltipI18n.fr,
     ...PageTranslationI18n.fr,
@@ -677,6 +683,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.hr,
     ...PageTabsI18n.hr,
     ...PageTemplateI18n.hr,
+    ...PageTextI18n.hr,
     ...PageTextareaI18n.hr,
     ...PageTooltipI18n.hr,
     ...PageTranslationI18n.hr,
@@ -773,6 +780,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.it,
     ...PageTabsI18n.it,
     ...PageTemplateI18n.it,
+    ...PageTextI18n.it,
     ...PageTextareaI18n.it,
     ...PageTooltipI18n.it,
     ...PageTranslationI18n.it,
@@ -869,6 +877,7 @@ export const mainTranslation = {
     ...PageTableTreeI18n.ru,
     ...PageTabsI18n.ru,
     ...PageTemplateI18n.ru,
+    ...PageTextI18n.ru,
     ...PageTextareaI18n.ru,
     ...PageTooltipI18n.ru,
     ...PageTranslationI18n.ru,

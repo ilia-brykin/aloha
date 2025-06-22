@@ -1,0 +1,15 @@
+{
+  "_A_TEXT_STYLES_NAME_": "Textstile",
+  "_A_TEXT_STYLES_FONT_SIZE_NAME_": "Schriftgröße",
+  "_A_TEXT_STYLES_FONT_SIZE_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klassen zur Steuerung der Schriftgröße. Verwenden Sie Klassen von <strong lang=\"en\">.a_fs_1</strong> bis <strong lang=\"en\">.a_fs_7</strong>, um verschiedene Textgrößen in Ihrer Anwendung festzulegen.",
+  "_A_TEXT_STYLES_ALIGNMENT_NAME_": "Textausrichtung",
+  "_A_TEXT_STYLES_ALIGNMENT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klassen zur Steuerung der Textausrichtung. Grundlegende Klassen (<strong lang=\"en\">.a_text_left</strong>, <strong lang=\"en\">.a_text_right</strong>, <strong lang=\"en\">.a_text_center</strong>, <strong lang=\"en\">.a_text_justify</strong>) und ihre responsiven Varianten für verschiedene Bildschirmgrößen (<strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong>).",
+  "_A_TEXT_STYLES_TRANSFORMATION_NAME_": "Texttransformation",
+  "_A_TEXT_STYLES_TRANSFORMATION_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klassen zum Ändern der Textformatierung. Verwenden Sie <strong lang=\"en\">.a_text_lowercase</strong> für Kleinbuchstaben, <strong lang=\"en\">.a_text_uppercase</strong> für Großbuchstaben, <strong lang=\"en\">.a_text_capitalize</strong> für die Großschreibung des ersten Buchstabens jedes Wortes sowie Klassen zum Unterstreichen und Durchstreichen von Text.",
+  "_A_TEXT_STYLES_FONT_WEIGHT_NAME_": "Schriftstärke",
+  "_A_TEXT_STYLES_FONT_WEIGHT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klassen zur Steuerung der Schriftstärke und des Schriftstils. Enthält Optionen von leicht (<strong lang=\"en\">.a_text_light</strong>) bis fett (<strong lang=\"en\">.a_text_bold</strong>, <strong lang=\"en\">.a_text_bolder</strong>) sowie kursiv (<strong lang=\"en\">.a_text_italic</strong>) und normalen Stil (<strong lang=\"en\">.a_text_normal</strong>).",
+  "_A_TEXT_STYLES_WRAP_NAME_": "Textumbruch",
+  "_A_TEXT_STYLES_WRAP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klassen zur Steuerung des Textumbruchs. Umfasst normalen Umbruch (<strong lang=\"en\">.a_text_wrap</strong>), keinen Umbruch (<strong lang=\"en\">.a_text_nowrap</strong>), erzwungenen Umbruch langer Wörter (<strong lang=\"en\">.a_text_break</strong>), Umbruch mit Bindestrichen (<strong lang=\"en\">.a_text_wrap_hyphens</strong>) und Kürzung mit Auslassungszeichen (<strong lang=\"en\">.a_text_truncate</strong>).",
+  "_A_TEXT_STYLES_CLAMP_NAME_": "Textzeilen-Begrenzung",
+  "_A_TEXT_STYLES_CLAMP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-Klassen zur Begrenzung der Anzahl der angezeigten Textzeilen mit Auslassungszeichen am Ende. Die Basisklasse <strong lang=\"en\">.a_text_clamp</strong> begrenzt Text auf eine Zeile, während Modifikatoren <strong lang=\"en\">.a_text_clamp_2</strong> - <strong lang=\"en\">.a_text_clamp_5</strong> die Anzeige der entsprechenden Anzahl von Zeilen ermöglichen."
+}

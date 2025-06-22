@@ -1,0 +1,15 @@
+{
+  "_A_TEXT_STYLES_NAME_": "Estilos de texto",
+  "_A_TEXT_STYLES_FONT_SIZE_NAME_": "Tamaño de fuente",
+  "_A_TEXT_STYLES_FONT_SIZE_DESCRIPTION_": "Clases <strong lang=\"en\">CSS</strong> para controlar el tamaño de fuente. Utilice clases desde <strong lang=\"en\">.a_fs_1</strong> hasta <strong lang=\"en\">.a_fs_7</strong> para establecer varios tamaños de texto en su aplicación.",
+  "_A_TEXT_STYLES_ALIGNMENT_NAME_": "Alineación de texto",
+  "_A_TEXT_STYLES_ALIGNMENT_DESCRIPTION_": "Clases <strong lang=\"en\">CSS</strong> para controlar la alineación del texto. Clases básicas (<strong lang=\"en\">.a_text_left</strong>, <strong lang=\"en\">.a_text_right</strong>, <strong lang=\"en\">.a_text_center</strong>, <strong lang=\"en\">.a_text_justify</strong>) y sus variantes responsivas para diferentes tamaños de pantalla (<strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong>).",
+  "_A_TEXT_STYLES_TRANSFORMATION_NAME_": "Transformación de texto",
+  "_A_TEXT_STYLES_TRANSFORMATION_DESCRIPTION_": "Clases <strong lang=\"en\">CSS</strong> para cambiar el formato y las mayúsculas del texto. Utilice <strong lang=\"en\">.a_text_lowercase</strong> para minúsculas, <strong lang=\"en\">.a_text_uppercase</strong> para mayúsculas, <strong lang=\"en\">.a_text_capitalize</strong> para capitalizar la primera letra de cada palabra, así como clases para subrayar y tachar texto.",
+  "_A_TEXT_STYLES_FONT_WEIGHT_NAME_": "Peso de fuente",
+  "_A_TEXT_STYLES_FONT_WEIGHT_DESCRIPTION_": "Clases <strong lang=\"en\">CSS</strong> para controlar el peso y el estilo de la fuente. Incluye opciones desde ligero (<strong lang=\"en\">.a_text_light</strong>) hasta negrita (<strong lang=\"en\">.a_text_bold</strong>, <strong lang=\"en\">.a_text_bolder</strong>), así como cursiva (<strong lang=\"en\">.a_text_italic</strong>) y estilo normal (<strong lang=\"en\">.a_text_normal</strong>).",
+  "_A_TEXT_STYLES_WRAP_NAME_": "Ajuste de texto",
+  "_A_TEXT_STYLES_WRAP_DESCRIPTION_": "Clases <strong lang=\"en\">CSS</strong> para controlar el ajuste del texto. Incluye ajuste normal (<strong lang=\"en\">.a_text_wrap</strong>), sin ajuste (<strong lang=\"en\">.a_text_nowrap</strong>), ajuste forzado de palabras largas (<strong lang=\"en\">.a_text_break</strong>), ajuste con guiones (<strong lang=\"en\">.a_text_wrap_hyphens</strong>) y truncamiento con puntos suspensivos (<strong lang=\"en\">.a_text_truncate</strong>).",
+  "_A_TEXT_STYLES_CLAMP_NAME_": "Limitación de líneas de texto",
+  "_A_TEXT_STYLES_CLAMP_DESCRIPTION_": "Clases <strong lang=\"en\">CSS</strong> para limitar el número de líneas de texto mostradas con puntos suspensivos al final. La clase base <strong lang=\"en\">.a_text_clamp</strong> limita el texto a una línea, mientras que los modificadores <strong lang=\"en\">.a_text_clamp_2</strong> - <strong lang=\"en\">.a_text_clamp_5</strong> permiten mostrar el número correspondiente de líneas."
+}

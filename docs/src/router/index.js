@@ -363,6 +363,11 @@ const ROUTES = [
     component: () => import("../views/CSS/PageBadge/PageBadge.vue"),
   },
   {
+    path: "/text",
+    name: "PageText",
+    component: () => import("../views/CSS/PageText/PageText.vue"),
+  },
+  {
     path: "/input-number-range",
     name: "PageInputNumberRange",
     component: () => import("../views/Components/Form/PageInputNumberRange/PageInputNumberRange.vue"),

@@ -21,6 +21,14 @@ export default function CssItemsAPI() {
           name: "PageColumns",
         },
       },
+      {
+        id: "PageText",
+        label: "Text",
+        class: "test_menu_text",
+        to: {
+          name: "PageText",
+        },
+      },
     ],
   };
 

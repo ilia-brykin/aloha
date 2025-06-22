@@ -1,0 +1,15 @@
+{
+  "_A_TEXT_STYLES_NAME_": "Stilovi teksta",
+  "_A_TEXT_STYLES_FONT_SIZE_NAME_": "Veličina fonta",
+  "_A_TEXT_STYLES_FONT_SIZE_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klase za kontrolu veličine fonta. Koristite klase od <strong lang=\"en\">.a_fs_1</strong> do <strong lang=\"en\">.a_fs_7</strong> za postavljanje različitih veličina teksta u vašoj aplikaciji.",
+  "_A_TEXT_STYLES_ALIGNMENT_NAME_": "Poravnanje teksta",
+  "_A_TEXT_STYLES_ALIGNMENT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klase za kontrolu poravnanja teksta. Osnovne klase (<strong lang=\"en\">.a_text_left</strong>, <strong lang=\"en\">.a_text_right</strong>, <strong lang=\"en\">.a_text_center</strong>, <strong lang=\"en\">.a_text_justify</strong>) i njihove responzivne varijante za različite veličine zaslona (<strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong>).",
+  "_A_TEXT_STYLES_TRANSFORMATION_NAME_": "Transformacija teksta",
+  "_A_TEXT_STYLES_TRANSFORMATION_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klase za promjenu veličine slova i formatiranje teksta. Koristite <strong lang=\"en\">.a_text_lowercase</strong> za mala slova, <strong lang=\"en\">.a_text_uppercase</strong> za velika slova, <strong lang=\"en\">.a_text_capitalize</strong> za velika početna slova svake riječi, kao i klase za podvlačenje i precrtavanje teksta.",
+  "_A_TEXT_STYLES_FONT_WEIGHT_NAME_": "Debljina fonta",
+  "_A_TEXT_STYLES_FONT_WEIGHT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klase za kontrolu debljine i stila fonta. Uključuje opcije od laganog (<strong lang=\"en\">.a_text_light</strong>) do podebljanih (<strong lang=\"en\">.a_text_bold</strong>, <strong lang=\"en\">.a_text_bolder</strong>), kao i kurziv (<strong lang=\"en\">.a_text_italic</strong>) i normalni stil (<strong lang=\"en\">.a_text_normal</strong>).",
+  "_A_TEXT_STYLES_WRAP_NAME_": "Prijelom teksta",
+  "_A_TEXT_STYLES_WRAP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klase za kontrolu prijeloma teksta. Uključuje normalni prijelom (<strong lang=\"en\">.a_text_wrap</strong>), bez prijeloma (<strong lang=\"en\">.a_text_nowrap</strong>), prisilni prijelom dugih riječi (<strong lang=\"en\">.a_text_break</strong>), prijelom s crticama (<strong lang=\"en\">.a_text_wrap_hyphens</strong>) i skraćivanje s trotočkom (<strong lang=\"en\">.a_text_truncate</strong>).",
+  "_A_TEXT_STYLES_CLAMP_NAME_": "Ograničenje redaka teksta",
+  "_A_TEXT_STYLES_CLAMP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> klase za ograničavanje broja prikazanih redaka teksta s trotočkom na kraju. Osnovna klasa <strong lang=\"en\">.a_text_clamp</strong> ograničava tekst na jedan redak, dok modifikatori <strong lang=\"en\">.a_text_clamp_2</strong> - <strong lang=\"en\">.a_text_clamp_5</strong> omogućuju prikaz odgovarajućeg broja redaka."
+}

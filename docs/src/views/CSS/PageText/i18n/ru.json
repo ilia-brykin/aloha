@@ -1,0 +1,15 @@
+{
+  "_A_TEXT_STYLES_NAME_": "Стили текста",
+  "_A_TEXT_STYLES_FONT_SIZE_NAME_": "Размер шрифта",
+  "_A_TEXT_STYLES_FONT_SIZE_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> классы для управления размером шрифта. Используйте классы от <strong lang=\"en\">.a_fs_1</strong> до <strong lang=\"en\">.a_fs_7</strong> для установки различных размеров текста в вашем приложении.",
+  "_A_TEXT_STYLES_ALIGNMENT_NAME_": "Выравнивание текста",
+  "_A_TEXT_STYLES_ALIGNMENT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> классы для управления выравниванием текста. Базовые классы (<strong lang=\"en\">.a_text_left</strong>, <strong lang=\"en\">.a_text_right</strong>, <strong lang=\"en\">.a_text_center</strong>, <strong lang=\"en\">.a_text_justify</strong>) и их адаптивные варианты для разных размеров экрана (<strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong>).",
+  "_A_TEXT_STYLES_TRANSFORMATION_NAME_": "Трансформация текста",
+  "_A_TEXT_STYLES_TRANSFORMATION_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> классы для изменения регистра и оформления текста. Используйте <strong lang=\"en\">.a_text_lowercase</strong> для нижнего регистра, <strong lang=\"en\">.a_text_uppercase</strong> для верхнего регистра, <strong lang=\"en\">.a_text_capitalize</strong> для заглавных букв в начале каждого слова, а также классы для подчеркивания и зачеркивания текста.",
+  "_A_TEXT_STYLES_FONT_WEIGHT_NAME_": "Насыщенность шрифта",
+  "_A_TEXT_STYLES_FONT_WEIGHT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> классы для управления насыщенностью и стилем шрифта. Включают варианты от светлого (<strong lang=\"en\">.a_text_light</strong>) до жирного (<strong lang=\"en\">.a_text_bold</strong>, <strong lang=\"en\">.a_text_bolder</strong>), а также курсив (<strong lang=\"en\">.a_text_italic</strong>) и нормальный стиль (<strong lang=\"en\">.a_text_normal</strong>).",
+  "_A_TEXT_STYLES_WRAP_NAME_": "Перенос текста",
+  "_A_TEXT_STYLES_WRAP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> классы для управления переносом текста. Включают обычный перенос (<strong lang=\"en\">.a_text_wrap</strong>), запрет переноса (<strong lang=\"en\">.a_text_nowrap</strong>), принудительный перенос длинных слов (<strong lang=\"en\">.a_text_break</strong>), перенос с дефисами (<strong lang=\"en\">.a_text_wrap_hyphens</strong>) и обрезание с многоточием (<strong lang=\"en\">.a_text_truncate</strong>).",
+  "_A_TEXT_STYLES_CLAMP_NAME_": "Ограничение строк текста",
+  "_A_TEXT_STYLES_CLAMP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong> классы для ограничения количества отображаемых строк текста с добавлением многоточия в конце. Базовый класс <strong lang=\"en\">.a_text_clamp</strong> ограничивает текст одной строкой, а модификаторы <strong lang=\"en\">.a_text_clamp_2</strong> - <strong lang=\"en\">.a_text_clamp_5</strong> позволяют отображать соответствующее количество строк."
+}
