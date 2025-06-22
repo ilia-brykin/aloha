@@ -11,9 +11,6 @@ import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import IconAPI from "./compositionAPI/IconAPI";
 
-import {
-  ACarouselPluginOptions,
-} from "../../plugins/ACarouselPlugin";
 
 export default {
   name: "ACarouselControls",
