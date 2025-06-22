@@ -1,4 +1,9 @@
 .a_carousel {
+  --a_carousel_tab_primary_color: #005a9c;
+  --a_carousel_tab_width: 34px;
+  --a_carousel_tab_height: 34px;
+  --a_carousel_tabs_height: 30px;
+
   background-color: var(--a_color_gray_200);
 }
 .a_carousel__inner {
@@ -69,7 +74,7 @@
       background-color: hsla(0, 0%, 8%, .7);
     }
     &:focus {
-      outline: 2px solid white !important;
+      outline: 2px solid #fff !important;
       box-shadow: 0 0 0 2px black;
       outline-offset: -2px;
       background-color: hsla(0, 0%, 8%, .7);
@@ -182,27 +187,27 @@
   border-radius: 13px;
   display: flex;
   padding-top: 2px;
-  height: 30px;
+  height: var(--a_carousel_tabs_height);
   background-color: rgb(0 0 0 / 65%);
   &:focus-within {
     border-width: 2px;
-    border-color: white;
+    border-color: #fff;
     padding-top: 0;
-    background-color: #005a9c;
+    background-color: var(--a_carousel_tab_primary_color);
   }
 }
 .a_carousel__tabs_dots,
 .a_carousel__tabs_squares {
   &:focus-within {
     .tab-background {
-      stroke: #005a9c;
-      fill: #005a9c;
+      stroke: var(--a_carousel_tab_primary_color);
+      fill: var(--a_carousel_tab_primary_color);
     }
   }
   .a_carousel__tabs__btn {
     .a_icon {
-      width: 34px;
-      height: 34px;
+      width: var(--a_carousel_tab_width);
+      height: var(--a_carousel_tab_height);
     }
     position: relative;
     top: -2px;
@@ -211,29 +216,29 @@
     background-color: transparent;
     border: none;
     outline: none;
-    width: 34px;
+    width: var(--a_carousel_tab_width);
     color: #fff;
     &:focus {
       .border {
         display: block;
-        fill: #005a9c;
+        fill: var(--a_carousel_tab_primary_color);
         stroke: #fff;
       }
       .tab-background {
-        stroke: #005a9c;
-        fill: #005a9c;
+        stroke: var(--a_carousel_tab_primary_color);
+        fill: var(--a_carousel_tab_primary_color);
       }
     }
     &:hover {
       .tab-background {
-        fill: white;
-        stroke: white;
+        fill: #fff;
+        stroke: #fff;
         opacity: 1;
       }
       .tab,
       .border {
-        fill: #005a9c;
-        stroke: #005a9c;
+        fill: var(--a_carousel_tab_primary_color);
+        stroke: var(--a_carousel_tab_primary_color);
         opacity: 1;
       }
     }
@@ -241,16 +246,16 @@
   .a_carousel__tabs__btn_active {
     &:hover {
       .tab {
-        fill: white;
+        fill: #fff;
       }
     }
     .tab {
-      fill: white;
+      fill: #fff;
     }
   }
   .tab,
   .border {
-    stroke: white;
+    stroke: #fff;
     fill: transparent;
     stroke-width: 2px;
   }
