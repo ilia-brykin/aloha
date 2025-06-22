@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.23.0
+
+- Documentation `CSS`: `Text`
+- Refactor `ACarousel` styles
+- Add `text_line_through` and `text_decoration_none` utilities for text decoration styling
+- Add `text_justify` utility for text alignment and responsive breakpoint support in text styles
+- Add `text_clamp` utility to support multiline text truncation with CSS clamp technique
+
 ## 2.22.0
 
 - Documentation `AElement`
