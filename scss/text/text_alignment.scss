@@ -7,14 +7,16 @@
 .#{aloha.$aloha-prefix}text_left {
   text-align: left !important;
 }
-
 .#{aloha.$aloha-prefix}text_center {
   text-align: center !important;
 }
-
 .#{aloha.$aloha-prefix}text_right {
   text-align: right !important;
 }
+.#{aloha.$aloha-prefix}text_justify {
+  text-align: justify !important;
+}
+
 @each $breakpoint in breakpoint.$a_breakpoints {
   $breakpoint-class: map.get($breakpoint, "class");
   $breakpoint-min: map.get($breakpoint, "min");
@@ -29,6 +31,9 @@
     }
     .a_text_right#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
       text-align: right !important;
+    }
+    .a_text_justify#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
+      text-align: justify !important;
     }
   }
 }
