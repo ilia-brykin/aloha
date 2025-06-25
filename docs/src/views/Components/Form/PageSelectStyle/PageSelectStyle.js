@@ -2,6 +2,7 @@ import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageSelectStyleBasic from "./PageSelectStyleBasic/PageSelectStyleBasic.vue";
 import PageSelectStyleFilterGroups from "./PageSelectStyleFilterGroups/PageSelectStyleFilterGroups.vue";
+import PageSelectStyleReadonly from "./PageSelectStyleReadonly/PageSelectStyleReadonly.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -18,6 +19,7 @@ export default {
     ATranslation,
     PageSelectStyleBasic,
     PageSelectStyleFilterGroups,
+    PageSelectStyleReadonly,
   },
   setup() {
     const {
