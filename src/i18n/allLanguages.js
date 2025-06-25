@@ -23,6 +23,7 @@ import ARadioI18n from "../ui/ARadio/i18n/ARadioI18n";
 import ARequiredI18n from "../ui/ARequired/i18n/ARequiredI18n";
 import ARouterLinkConfigI18n from "../ui/ARouterLinkConfig/i18n/ARouterLinkConfigI18n";
 import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
+import ASelectStyleI18n from "../ui/ASelectStyle/i18n/ASelectStyleI18n";
 import AShowMoreI18n from "../AShowMore/i18n/AShowMoreI18n";
 import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 import ASwitchI18n from "../ui/ASwitch/i18n/ASwitchI18n";
@@ -66,6 +67,7 @@ export const ar = {
   ...ARequiredI18n.ar,
   ...ARouterLinkConfigI18n.ar,
   ...ASelectI18n.ar,
+  ...ASelectStyleI18n.ar,
   ...AShowMoreI18n.ar,
   ...ASpinnerI18n.ar,
   ...ASwitchI18n.ar,
@@ -101,6 +103,7 @@ export const de = {
   ...ARequiredI18n.de,
   ...ARouterLinkConfigI18n.de,
   ...ASelectI18n.de,
+  ...ASelectStyleI18n.de,
   ...AShowMoreI18n.de,
   ...ASpinnerI18n.de,
   ...ASwitchI18n.de,
@@ -136,6 +139,7 @@ export const en = {
   ...ARequiredI18n.en,
   ...ARouterLinkConfigI18n.en,
   ...ASelectI18n.en,
+  ...ASelectStyleI18n.en,
   ...AShowMoreI18n.en,
   ...ASpinnerI18n.en,
   ...ASwitchI18n.en,
@@ -171,6 +175,7 @@ export const es = {
   ...ARequiredI18n.es,
   ...ARouterLinkConfigI18n.es,
   ...ASelectI18n.es,
+  ...ASelectStyleI18n.es,
   ...AShowMoreI18n.es,
   ...ASpinnerI18n.es,
   ...ASwitchI18n.es,
@@ -206,6 +211,7 @@ export const fr = {
   ...ARequiredI18n.fr,
   ...ARouterLinkConfigI18n.fr,
   ...ASelectI18n.fr,
+  ...ASelectStyleI18n.fr,
   ...AShowMoreI18n.fr,
   ...ASpinnerI18n.fr,
   ...ASwitchI18n.fr,
@@ -241,6 +247,7 @@ export const hr = {
   ...ARequiredI18n.hr,
   ...ARouterLinkConfigI18n.hr,
   ...ASelectI18n.hr,
+  ...ASelectStyleI18n.hr,
   ...AShowMoreI18n.hr,
   ...ASpinnerI18n.hr,
   ...ASwitchI18n.hr,
@@ -276,6 +283,7 @@ export const it = {
   ...ARequiredI18n.it,
   ...ARouterLinkConfigI18n.it,
   ...ASelectI18n.it,
+  ...ASelectStyleI18n.it,
   ...AShowMoreI18n.it,
   ...ASpinnerI18n.it,
   ...ASwitchI18n.it,
@@ -311,6 +319,7 @@ export const ru = {
   ...ARequiredI18n.ru,
   ...ARouterLinkConfigI18n.ru,
   ...ASelectI18n.ru,
+  ...ASelectStyleI18n.ru,
   ...AShowMoreI18n.ru,
   ...ASpinnerI18n.ru,
   ...ASwitchI18n.ru,

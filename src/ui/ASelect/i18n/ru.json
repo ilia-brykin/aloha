@@ -3,5 +3,7 @@
   "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Нет элементов для выбора]",
   "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} выбрано",
   "_A_SELECT_SEARCH_": "Поиск",
-  "_A_SELECT_SELECTED_{{count}}_": "{{count}} выбрано"
+  "_A_SELECT_SELECTED_{{count}}_": "{{count}} выбрано",
+  "_A_SELECT_DESELECT_ALL_": "Снять выделение со всех",
+  "_A_SELECT_SELECT_ALL_": "Выбрать все"
 }

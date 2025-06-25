@@ -61,6 +61,7 @@ export { default as ARouterLinkConfig } from "./ui/ARouterLinkConfig/ARouterLink
 export { default as AScale } from "./AScale/AScale";
 export { default as ASelect } from "./ui/ASelect/ASelect";
 export { default as ASelectIcon } from "./ui/ASelectIcon/ASelectIcon";
+export { default as ASelectStyle } from "./ui/ASelectStyle/ASelectStyle";
 export { default as AShowMore } from "./AShowMore/AShowMore";
 export { default as ASpinner } from "./ASpinner/ASpinner";
 export { default as ASwitch } from "./ui/ASwitch/ASwitch";
@@ -177,6 +178,10 @@ export {
   default as ARouterLinkConfigPlugin,
   ARouterLinkConfigPluginOptions,
 } from "./plugins/ARouterLinkConfigPlugin";
+export {
+  default as ASelectStylesPlugin,
+  ASelectStylePluginOptions,
+} from "./plugins/ASelectStylesPlugin";
 export { default as ASelectPlugin } from "./plugins/ASelectPlugin";
 export { default as ASpinnerPlugin } from "./plugins/ASpinnerPlugin";
 export { default as ATablePlugin } from "./plugins/ATablePlugin";
@@ -298,6 +303,7 @@ export { default as ARadioI18n } from "./ui/ARadio/i18n/ARadioI18n";
 export { default as ARequiredI18n } from "./ui/ARequired/i18n/ARequiredI18n";
 export { default as ARouterLinkConfigI18n } from "./ui/ARouterLinkConfig/i18n/ARouterLinkConfigI18n";
 export { default as ASelectI18n } from "./ui/ASelect/i18n/ASelectI18n";
+export { default as ASelectStyleI18n } from "./ui/ASelectStyle/i18n/ASelectStyleI18n";
 export { default as AShowMoreI18n } from "./AShowMore/i18n/AShowMoreI18n";
 export { default as ASpinnerI18n } from "./ASpinner/i18n/ASpinnerI18n";
 export { default as ASwitchI18n } from "./ui/ASwitch/i18n/ASwitchI18n";

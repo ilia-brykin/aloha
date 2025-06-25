@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['model-value', 'type']"
+)
+  a-select-style(
+    v-model="model1"
+    label="Select"
+    type="select"
+  )
+  div model1: {{ model1 }}
+  a-select-style(
+    v-model="model2"
+    class="a_mt_3"
+    label="Multiselect"
+    type="multiselect"
+  )
+  div model2: {{ model2 }}

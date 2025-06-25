@@ -3,5 +3,7 @@
   "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[No choices]",
   "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} selected",
   "_A_SELECT_SEARCH_": "Search",
-  "_A_SELECT_SELECTED_{{count}}_": "{{count}} selected"
+  "_A_SELECT_SELECTED_{{count}}_": "{{count}} selected",
+  "_A_SELECT_DESELECT_ALL_": "Tout désélectionner",
+  "_A_SELECT_SELECT_ALL_": "Tout sélectionner"
 }

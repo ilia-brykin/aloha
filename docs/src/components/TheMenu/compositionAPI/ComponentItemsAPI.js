@@ -266,6 +266,14 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageSelectStyle",
+            label: "Select style",
+            class: "test_menu_select_style",
+            to: {
+              name: "PageSelectStyle",
+            },
+          },
+          {
             id: "PageSwitch",
             label: "Switch",
             class: "test_menu_switch",

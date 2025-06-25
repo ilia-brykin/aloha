@@ -1,0 +1,16 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_SELECT_STYLE_COMPONENT_DESCRIPTION_"
+    )
+
+    page-select-style-basic
+
+    aloha-table-props(
+      :data="dataProps"
+    )

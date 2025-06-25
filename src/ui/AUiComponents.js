@@ -13,6 +13,7 @@ import ARadio from "./ARadio/ARadio";
 import ARouterLinkConfig from "./ARouterLinkConfig/ARouterLinkConfig";
 import ASelect from "./ASelect/ASelect";
 import ASelectIcon from "./ASelectIcon/ASelectIcon";
+import ASelectStyle from "./ASelectStyle/ASelectStyle";
 import ASwitch from "./ASwitch/ASwitch";
 import ATemplate from "./ATemplate/ATemplate";
 import ATextarea from "./ATextarea/ATextarea";
@@ -35,6 +36,7 @@ export default {
   json: AJson,
   multiselect: ASelect,
   multiselectIcon: ASelectIcon,
+  multiselectStyle: ASelectStyle,
   multiselectOrdered: AMultiselectOrdered,
   natural: AInput,
   number: AInputNumber,
@@ -45,6 +47,7 @@ export default {
   routerLinkConfig: ARouterLinkConfig,
   select: ASelect,
   selectIcon: ASelectIcon,
+  selectStyle: ASelectStyle,
   switch: ASwitch,
   template: ATemplate,
   text: AInput,
