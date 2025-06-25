@@ -4,13 +4,13 @@ export default function JsAPI() {
 } from "vue";
 
 import { 
-  ASelectIcon,
+  ASelectStyle,
 } from "aloha-vue";
     
 export default {
-  name: "PageSelectIconBasic",
+  name: "PageSelectStyleBasic",
   components: {
-    ASelectIcon,
+    ASelectStyle,
   },
   setup() {
     const model1 = ref(undefined);
