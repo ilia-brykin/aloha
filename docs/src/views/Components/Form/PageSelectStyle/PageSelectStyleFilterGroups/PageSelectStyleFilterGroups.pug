@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_"
+  description="_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_"
+  :props="['filter-groups']"
+)
+  a-select-style(
+    v-model="model1"
+    :filter-groups="['display', 'color']"
+    label="Select"
+    type="select"
+  )
+  div model1: {{ model1 }}
+  a-select-style(
+    v-model="model2"
+    :filter-groups="{ flex: ['align_items', 'justify_content'], background_color: true}"
+    class="a_mt_3"
+    label="Multiselect"
+    type="multiselect"
+  )
+  div model2: {{ model2 }}
