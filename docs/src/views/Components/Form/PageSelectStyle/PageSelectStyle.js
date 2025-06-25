@@ -1,5 +1,6 @@
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageSelectStyleBasic from "./PageSelectStyleBasic/PageSelectStyleBasic.vue";
 import PageSelectStyleDataExtended from "./PageSelectStyleDataExtended/PageSelectStyleDataExtended.vue";
 import PageSelectStyleFilterGroups from "./PageSelectStyleFilterGroups/PageSelectStyleFilterGroups.vue";
@@ -11,12 +12,14 @@ import {
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 export default {
   name: "PageSelectStyle",
   components: {
     AlohaPage,
     AlohaTableProps,
+    AlohaTableTranslate,
     ATranslation,
     PageSelectStyleBasic,
     PageSelectStyleDataExtended,
@@ -33,12 +36,17 @@ export default {
     } = PropsAPI();
 
     const {
+      dataTranslate,
+    } = TranslateAPI();
+
+    const {
       dataEvents,
     } = EventsAPI();
 
     return {
       dataEvents,
       dataProps,
+      dataTranslate,
       pageTitle,
     };
   },
