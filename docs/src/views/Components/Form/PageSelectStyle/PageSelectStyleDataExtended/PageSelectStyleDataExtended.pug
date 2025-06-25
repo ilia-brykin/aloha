@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SELECT_STYLE_GROUP_DATA_EXTENDED_HEADER_"
+  description="_A_SELECT_STYLE_GROUP_DATA_EXTENDED_DESCRIPTION_"
+  :props="['data-extended']"
+)
+  a-select-style(
+    v-model="model1"
+    :data-extended="dataExtended"
+    :filter-groups="['background_color']"
+    label="Select"
+    type="select"
+  )
+  div model1: {{ model1 }}

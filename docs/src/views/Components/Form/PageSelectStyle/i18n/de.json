@@ -1,1 +1,12 @@
-{}
+{
+  "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_": "Komponente zur Auswahl von Stilen aus einem vordefinierten Stilsatz",
+  "_A_SELECT_STYLE_COMPONENT_NAME_": "Stilauswahl",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_DESCRIPTION_": "Erweiterte Daten ermöglichen das Hinzufügen zusätzlicher Stile zur Komponente",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_HEADER_": "Erweiterte Daten",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_": "Gruppenfilterung ermöglicht die Anzeige nur bestimmter Stilgruppen",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_": "Gruppenfilterung",
+  "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_": "Array von Objekten mit zusätzlichen Stilen für die Komponente",
+  "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_": "Array oder Objekt zur Filterung von Stilgruppen",
+  "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_": "Komponententyp: <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectStyle</strong>, <strong lang=\"en\">multiselect</strong>, <strong lang=\"en\">multiselectStyle</strong>",
+  "_A_SELECT_STYLES_VALUE_BG_ALOHA_": "Aloha Hintergrund"
+}

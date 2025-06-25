@@ -1,1 +1,12 @@
-{}
+{
+  "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_": "Componente para seleccionar estilos de un conjunto predefinido de estilos",
+  "_A_SELECT_STYLE_COMPONENT_NAME_": "Selección de estilo",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_DESCRIPTION_": "Los datos extendidos permiten agregar estilos adicionales al componente",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_HEADER_": "Datos extendidos",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_": "El filtrado de grupos permite mostrar solo grupos de estilos específicos",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_": "Filtrado de grupos",
+  "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_": "Array de objetos con estilos adicionales para el componente",
+  "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_": "Array u objeto para filtrar grupos de estilos",
+  "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_": "Tipo de componente: <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectStyle</strong>, <strong lang=\"en\">multiselect</strong>, <strong lang=\"en\">multiselectStyle</strong>",
+  "_A_SELECT_STYLES_VALUE_BG_ALOHA_": "Fondo Aloha"
+}

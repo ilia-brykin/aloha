@@ -1,9 +1,12 @@
 {
-  "_A_SELECT_STYLE_COMPONENT_NAME_": "_A_SELECT_STYLE_COMPONENT_NAME_",
-  "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_": "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_",
-  "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_": "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_",
-  "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_": "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_",
-  "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_": "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_",
-  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_": "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_",
-  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_": "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_"
+  "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_": "Компонент для выбора стилей из предопределенного набора стилей",
+  "_A_SELECT_STYLE_COMPONENT_NAME_": "Выбор стиля",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_DESCRIPTION_": "Расширенные данные позволяют добавить дополнительные стили к компоненту",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_HEADER_": "Расширенные данные",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_": "Фильтрация групп позволяет отображать только определенные группы стилей",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_": "Фильтрация групп",
+  "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_": "Массив объектов с дополнительными стилями для компонента",
+  "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_": "Массив или объект для фильтрации групп стилей",
+  "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_": "Тип компонента: <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectStyle</strong>, <strong lang=\"en\">multiselect</strong>, <strong lang=\"en\">multiselectStyle</strong>",
+  "_A_SELECT_STYLES_VALUE_BG_ALOHA_": "Фон Алоха"
 }

@@ -1,1 +1,12 @@
-{}
+{
+  "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_": "Composant pour sélectionner des styles à partir d'un ensemble prédéfini de styles",
+  "_A_SELECT_STYLE_COMPONENT_NAME_": "Sélection de style",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_DESCRIPTION_": "Les données étendues permettent d'ajouter des styles supplémentaires au composant",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_HEADER_": "Données étendues",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_": "Le filtrage des groupes permet d'afficher uniquement des groupes de styles spécifiques",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_": "Filtrage des groupes",
+  "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_": "Tableau d'objets avec des styles supplémentaires pour le composant",
+  "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_": "Tableau ou objet pour filtrer les groupes de styles",
+  "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_": "Type de composant: <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectStyle</strong>, <strong lang=\"en\">multiselect</strong>, <strong lang=\"en\">multiselectStyle</strong>",
+  "_A_SELECT_STYLES_VALUE_BG_ALOHA_": "Arrière-plan Aloha"
+}
