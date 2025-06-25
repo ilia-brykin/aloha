@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.24.0
+
+- Add new component `ASelectStyle` with docu
+
 ## 2.23.0
 
 - Documentation `CSS`: `Text`
