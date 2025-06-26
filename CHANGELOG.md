@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.25.0
+
+- Add button style groups and translations to `ASelectStyle`, update plugin and documentation
+
 ## 2.24.0
 
 - Add new component `ASelectStyle` with docu
