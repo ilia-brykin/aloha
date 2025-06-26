@@ -1,0 +1,15 @@
+.border.a_px_4
+  .a_text_right.a_py_2
+    ui-one-checkbox-read-only(
+      v-if="!isRequired"
+      :options="showFormField"
+      :model="showForm"
+    )
+  parameter-formular(
+    v-if="showForm"
+    :data="model",
+    :config="fieldsReadonly"
+    :show-readonly="true"
+    :readonly="true"
+    :hide-help-text="true"
+  )

@@ -102,6 +102,7 @@ import PageUtilsIsArrayOfArraysI18n from "./views/Functions/Utils/PageUtilsIsArr
 import PageUtilsIsArrayOfStringsI18n from "./views/Functions/Utils/PageUtilsIsArrayOfStrings/i18n/PageUtilsIsArrayOfStringsI18n";
 import PageUtilsMathIsEvenI18n from "./views/Functions/UtilsMath/PageUtilsMathIsEven/i18n/PageUtilsMathIsEvenI18n";
 import PageUtilsMathIsOddI18n from "./views/Functions/UtilsMath/PageUtilsMathIsOdd/i18n/PageUtilsMathIsOddI18n";
+import PageValidatedJsonI18n from "./views/Components/Form/PageValidatedJson/i18n/PageValidatedJsonI18n";
 import PageWizardI18n from "./views/Components/PageWizard/i18n/PageWizardI18n";
 import ar from "./i18n/ar.json";
 import de from "./i18n/de.json";
@@ -209,6 +210,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.ar,
     ...PageUtilsMathIsEvenI18n.ar,
     ...PageUtilsMathIsOddI18n.ar,
+    ...PageValidatedJsonI18n.ar,
     ...PageWizardI18n.ar,
   },
   de: {
@@ -307,6 +309,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.de,
     ...PageUtilsMathIsEvenI18n.de,
     ...PageUtilsMathIsOddI18n.de,
+    ...PageValidatedJsonI18n.de,
     ...PageWizardI18n.de,
   },
   en: {
@@ -405,6 +408,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.en,
     ...PageUtilsMathIsEvenI18n.en,
     ...PageUtilsMathIsOddI18n.en,
+    ...PageValidatedJsonI18n.en,
     ...PageWizardI18n.en,
   },
   es: {
@@ -503,6 +507,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.es,
     ...PageUtilsMathIsEvenI18n.es,
     ...PageUtilsMathIsOddI18n.es,
+    ...PageValidatedJsonI18n.es,
     ...PageWizardI18n.es,
   },
   fr: {
@@ -601,6 +606,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.fr,
     ...PageUtilsMathIsEvenI18n.fr,
     ...PageUtilsMathIsOddI18n.fr,
+    ...PageValidatedJsonI18n.fr,
     ...PageWizardI18n.fr,
   },
   hr: {
@@ -699,6 +705,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.hr,
     ...PageUtilsMathIsEvenI18n.hr,
     ...PageUtilsMathIsOddI18n.hr,
+    ...PageValidatedJsonI18n.hr,
     ...PageWizardI18n.hr,
   },
   it: {
@@ -797,6 +804,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.it,
     ...PageUtilsMathIsEvenI18n.it,
     ...PageUtilsMathIsOddI18n.it,
+    ...PageValidatedJsonI18n.it,
     ...PageWizardI18n.it,
   },
   ru: {
@@ -895,6 +903,7 @@ export const mainTranslation = {
     ...PageUtilsIsArrayOfStringsI18n.ru,
     ...PageUtilsMathIsEvenI18n.ru,
     ...PageUtilsMathIsOddI18n.ru,
+    ...PageValidatedJsonI18n.ru,
     ...PageWizardI18n.ru,
   },
 };

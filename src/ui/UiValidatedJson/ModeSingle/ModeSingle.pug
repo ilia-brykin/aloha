@@ -1,0 +1,19 @@
+.border.a_p_4
+  .a_text_right
+    ui-one-checkbox(
+      v-if="!isRequired"
+      :options="showFormField"
+      :model="showForm"
+      :change="toggleShowForm"
+    )
+  parameter-formular(
+    v-if="showForm"
+    :class="paramFormClass"
+    :data="localModel"
+    :config="fields"
+    :id-prefix="idPrefix"
+    :errors="errors"
+    :remove-not-present-fields="isTypedForm"
+    :on-change="changeAfterInit"
+    :show-readonly="showReadonly"
+  )

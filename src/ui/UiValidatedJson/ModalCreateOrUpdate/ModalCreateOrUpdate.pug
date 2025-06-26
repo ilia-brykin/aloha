@@ -1,0 +1,31 @@
+pux-modal(
+  :close="close"
+  :options="modalOptions"
+  :model="modelLocal"
+  :errors="currentErrors"
+  :errors-clone="currentErrorsClone"
+  :header="modalHeader"
+  :extra="translateExtra"
+  :change="update"
+)
+  template(
+    v-slot:footer
+  )
+    a-button.a_btn.a_btn_primary.test_modal_save(
+      @click="save"
+      id="modal_save"
+      :disabled="isDisabledSaveButton"
+      :text="btnText"
+      :extra="translateExtra"
+      type="submit"
+    )
+
+  template(
+    v-for="(_, name) in $slots"
+    :key="name"
+    v-slot:[name]="data"
+  )
+    slot(
+      :name="name"
+      v-bind="data || {}"
+    )

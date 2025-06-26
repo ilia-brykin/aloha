@@ -1,0 +1,25 @@
+div(
+  v-if="isModeList"
+)
+  mode-list-read-only(
+    :model="localModel"
+    :options="options"
+    :id-prefix="subIdPrefix"
+  )
+div(
+  v-else-if="isModeJson"
+)
+  mode-json-read-only(
+    :model="localModel"
+    :options="options"
+    :id-prefix="subIdPrefix"
+  )
+div(
+  v-else-if="isModeSingle"
+)
+  mode-single-read-only(
+    :model="localModel"
+    :options="options"
+    :id-prefix="subIdPrefix"
+    :change="() => {}"
+  )

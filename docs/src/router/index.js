@@ -218,6 +218,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageSelectStyle/PageSelectStyle.vue"),
   },
   {
+    path: "/validated-json",
+    name: "PageValidatedJson",
+    component: () => import("../views/Components/Form/PageValidatedJson/PageValidatedJson.vue"),
+  },
+  {
     path: "/form",
     name: "PageForm",
     component: () => import("../views/Components/Form/PageForm/PageForm.vue"),

@@ -198,6 +198,11 @@ export default {
       required: false,
       default: undefined,
     },
+    slotNamePrepend: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     useFlatErrors: {
       type: Boolean,
       required: false,
@@ -305,6 +310,13 @@ export default {
     }
 
     const CONTENT = [
+      (this.slotNamePrepend &&
+        this.$slots[this.slotNamePrepend]) ?
+        this.$slots[this.slotNamePrepend]({
+          id: this.htmlIdLocal,
+          props: this.$props,
+        }) :
+        "",
       this.children.map((item, itemIndex) => {
         if (item.isRender !== false) {
           const IS_CONTAINER = AUiTypes_typesContainer.value[item.type];

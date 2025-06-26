@@ -1,0 +1,109 @@
+mixin slots()
+  template(
+    v-for="(_, name) in $slots"
+    :key="name"
+    v-slot:[name]="data"
+  )
+    slot(
+      :name="name"
+      v-bind="data || {}"
+    )
+
+div
+  .a_list_group
+    template(
+      v-if="modelSize"
+    )
+      .a_list_group__item(
+        v-for="key, idx in iterationModel"
+        :key="getIterationKey(key)"
+        :id="getElementId(key)"
+        :class="getElementCls(key)"
+        tabindex="-1"
+      )
+        .a_d_flex.a_justify_content_between.a_align_items_center
+          .a_btn_group.a_mr_4(
+            v-if="!deactivatePreview"
+          )
+            a-button.a_btn.a_btn_secondary.test_toggle_details(
+              :id="getBtnId('btn_toggle', key)"
+              :title="getElementDetailsToggleTitle(key)"
+              :icon-left="getElementDetailsToggleIcon(key)"
+              @click="toggleElement(key)"
+            )
+          .col.a_list_group__item_label
+            strong
+              span {{ elementLabels[key] }}
+          .a_btn_group.a_ml_4
+            a-button.a_btn.a_btn_secondary.test_move_up(
+              v-if="canMove"
+              :id="getBtnId('btn_move_up', key)"
+              title="_BTN_MOVE_ITEM_OBEN_"
+              @click="moveUpElement(key)"
+              :disabled="isFirstElement(idx)"
+              icon-left="chevron-up"
+            )
+            a-button.a_btn.a_btn_secondary.test_move_down(
+              v-if="canMove"
+              :id="getBtnId('btn_move_down', key)"
+              title="_BTN_MOVE_ITEM_UNTEN_"
+              @click="moveDownElement(key)"
+              :disabled="isLastElement(idx)"
+              icon-left="chevron-down"
+            )
+            a-button.a_btn.a_btn_secondary.test_edit(
+              title="_BTN_EDIT_"
+              :id="getBtnId('btn_edit', key)"
+              @click="openModalUpdate(key)"
+              icon-left="pencil"
+            )
+            a-button.a_btn.a_btn_danger.test_remove(
+              title="_BTN_REMOVE_"
+              :id="getBtnId('btn_remove', key)"
+              @click="openConfirmDelete(key)"
+              icon-left="trash"
+            )
+        .a_ml_6.a_mt_2.a_px_4.no-error(
+          v-show="isElementDetailsVisible(key)"
+        )
+          parameter-formular(
+            :data="localModel[key]"
+            :config="fieldsReadonly"
+            :id-prefix="getElementId(key)"
+            :errors="getErrors(key)"
+            :show-readonly="true"
+          )
+            +slots()
+    .a_list_group__item(
+      v-else
+    )
+      a-translation(
+        text="_TXT_UI_VALIDATED_JSON_NO_ELEMENTS_"
+      )
+
+    .a_list_group__item
+      a-button.a_btn.a_btn_secondary.test_add.a_d_block.a_width_100(
+        @click="openModalCreate"
+        :id="getBtnId('btn_add')"
+        icon-left="plus"
+        :text="btnAddText"
+        :extra="btnExtra"
+      )
+
+  modal-create-or-update(
+    v-if="statusModal"
+    :model="currentModel"
+    :elements="localModel"
+    :element-labels="elementLabels"
+    :options="options"
+    :errors="getErrors(currentKey)"
+    :id-prefix="idPrefix"
+    :nextPos="nextPos"
+    :close="closeModal"
+  )
+    +slots()
+
+  pux-modal(
+    v-if="confirmShow"
+    :confirm-options="confirmOptions"
+  )

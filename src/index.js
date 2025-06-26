@@ -71,6 +71,7 @@ export { default as ATemplate } from "./ui/ATemplate/ATemplate";
 export { default as ATextarea } from "./ui/ATextarea/ATextarea";
 export { default as ATooltip } from "./ATooltip/ATooltip";
 export { default as ATranslation } from "./ATranslation/ATranslation";
+export { default as AValidatedJson } from "./ui/AValidatedJson/AValidatedJson";
 export { default as AVerticalScroll } from "./AVerticalScroll/AVerticalScroll";
 export { default as AWizard } from "./AWizard/AWizard";
 

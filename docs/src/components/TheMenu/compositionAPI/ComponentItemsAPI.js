@@ -282,6 +282,14 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageTemplate",
+            label: "Template",
+            class: "test_menu_template",
+            to: {
+              name: "PageTemplate",
+            },
+          },
+          {
             id: "PageTextarea",
             label: "Textarea",
             class: "test_menu_textarea",
@@ -290,11 +298,11 @@ export default function ComponentItemsAPI() {
             },
           },
           {
-            id: "PageTemplate",
-            label: "Template",
-            class: "test_menu_template",
+            id: "PageValidatedJson",
+            label: "Validated JSON",
+            class: "test_menu_validated_json",
             to: {
-              name: "PageTemplate",
+              name: "PageValidatedJson",
             },
           },
         ],

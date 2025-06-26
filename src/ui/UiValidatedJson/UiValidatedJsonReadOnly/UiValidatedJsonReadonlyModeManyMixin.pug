@@ -1,0 +1,43 @@
+div
+  .a_list_group
+    template(
+      v-if="modelSize"
+    )
+      .a_list_group__item(
+        v-for="key, idx in iterationModel"
+        :key="getIterationKey(key)"
+        :id="getElementId(key)"
+        tabindex="-1"
+      )
+        .a_d_flex.a_justify_content_between.a_align_items_center
+          .a_btn_group.a_mr_4(
+            v-if="!deactivatePreview"
+          )
+            a-button.test_toggle_details(
+              :id="getBtnId('btn_toggle', key)"
+              :title="getElementDetailsToggleTitle(key)"
+              :icon-left="getElementDetailsToggleIcon(key)"
+              :is-switch="true"
+              :stop="true"
+              @click="toggleElement(key)"
+            )
+          .col.a_list_group__item_label
+            strong
+              span {{ elementLabels[key] }}
+        .a_ml_6.a_mt_2.a_px_4.no-error(
+          v-if="isElementDetailsVisible(key)"
+        )
+          parameter-formular(
+            :data="localModel[key]"
+            :config="fieldsReadonly"
+            :id-prefix="idPrefix"
+            :show-readonly="true"
+            :readonly="true"
+            :hide-help-text="true"
+          )
+    .a_list_group__item(
+      v-else
+    )
+      a-translation(
+        text="_TXT_UI_VALIDATED_JSON_NO_ELEMENTS_"
+      )
