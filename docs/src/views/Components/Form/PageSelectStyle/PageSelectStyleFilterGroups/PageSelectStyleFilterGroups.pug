@@ -5,6 +5,14 @@ aloha-example(
   description="_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_"
   :props="['filter-groups']"
 )
+  template(
+    v-slot:prepend
+  )
+    a-list(
+      :data="groups"
+      :is-data-simple-array="true"
+    )
+
   a-select-style(
     v-model="model1"
     :filter-groups="['display', 'color']"
