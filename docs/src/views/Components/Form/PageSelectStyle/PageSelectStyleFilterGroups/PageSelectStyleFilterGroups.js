@@ -40,6 +40,10 @@ export default {
         "text_align",
         ["mobile", "tablet", "touch", "desktop", "widescreen", "fullhd", "large"],
       ],
+      [
+        "button",
+        ["basic", "outline", "transparent", "size"],
+      ],
       "text_wrapping",
       "line_limiting",
       "text_transform",

@@ -260,5 +260,22 @@
   "_A_SELECT_STYLES_VALUE_BG_GRAY_700_": "Sfondo grigio 700",
   "_A_SELECT_STYLES_VALUE_BG_GRAY_800_": "Sfondo grigio 800",
   "_A_SELECT_STYLES_VALUE_BG_GRAY_900_": "Sfondo grigio 900",
-  "_A_SELECT_STYLES_VALUE_BG_TRANSPARENT_": "Sfondo trasparente"
+  "_A_SELECT_STYLES_VALUE_BG_TRANSPARENT_": "Sfondo trasparente",
+  "_A_SELECT_STYLES_GROUP_BUTTON_": "Pulsante <code>button</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_BASIC_": "Base <code>basic</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_OUTLINE_": "Contorno <code>outline</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_TRANSPARENT_": "Trasparente <code>transparent</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_SIZE_": "Dimensione <code>size</code>",
+  "_A_SELECT_STYLES_VALUE_BTN_PRIMARY_": "Primario",
+  "_A_SELECT_STYLES_VALUE_BTN_SECONDARY_": "Secondario",
+  "_A_SELECT_STYLES_VALUE_BTN_TERTIARY_": "Terziario",
+  "_A_SELECT_STYLES_VALUE_BTN_SUCCESS_": "Successo",
+  "_A_SELECT_STYLES_VALUE_BTN_INFO_": "Informazione",
+  "_A_SELECT_STYLES_VALUE_BTN_WARNING_": "Avviso",
+  "_A_SELECT_STYLES_VALUE_BTN_DANGER_": "Pericolo",
+  "_A_SELECT_STYLES_VALUE_BTN_LIGHT_": "Chiaro",
+  "_A_SELECT_STYLES_VALUE_BTN_DARK_": "Scuro",
+  "_A_SELECT_STYLES_VALUE_BTN_LINK_": "Link",
+  "_A_SELECT_STYLES_VALUE_BTN_LARGE_": "Grande",
+  "_A_SELECT_STYLES_VALUE_BTN_SMALL_": "Piccolo"
 }

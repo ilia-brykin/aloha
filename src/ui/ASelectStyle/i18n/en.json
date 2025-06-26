@@ -260,5 +260,22 @@
   "_A_SELECT_STYLES_VALUE_BG_GRAY_700_": "Gray background 700",
   "_A_SELECT_STYLES_VALUE_BG_GRAY_800_": "Gray background 800",
   "_A_SELECT_STYLES_VALUE_BG_GRAY_900_": "Gray background 900",
-  "_A_SELECT_STYLES_VALUE_BG_TRANSPARENT_": "Transparent background"
+  "_A_SELECT_STYLES_VALUE_BG_TRANSPARENT_": "Transparent background",
+  "_A_SELECT_STYLES_GROUP_BUTTON_": "Button <code>button</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_BASIC_": "Basic <code>basic</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_OUTLINE_": "Outline <code>outline</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_TRANSPARENT_": "Transparent <code>transparent</code>",
+  "_A_SELECT_STYLES_SUB_GROUP_SIZE_": "Size <code>size</code>",
+  "_A_SELECT_STYLES_VALUE_BTN_PRIMARY_": "Primary",
+  "_A_SELECT_STYLES_VALUE_BTN_SECONDARY_": "Secondary",
+  "_A_SELECT_STYLES_VALUE_BTN_TERTIARY_": "Tertiary",
+  "_A_SELECT_STYLES_VALUE_BTN_SUCCESS_": "Success",
+  "_A_SELECT_STYLES_VALUE_BTN_INFO_": "Info",
+  "_A_SELECT_STYLES_VALUE_BTN_WARNING_": "Warning",
+  "_A_SELECT_STYLES_VALUE_BTN_DANGER_": "Danger",
+  "_A_SELECT_STYLES_VALUE_BTN_LIGHT_": "Light",
+  "_A_SELECT_STYLES_VALUE_BTN_DARK_": "Dark",
+  "_A_SELECT_STYLES_VALUE_BTN_LINK_": "Link",
+  "_A_SELECT_STYLES_VALUE_BTN_LARGE_": "Large",
+  "_A_SELECT_STYLES_VALUE_BTN_SMALL_": "Small"
 }
