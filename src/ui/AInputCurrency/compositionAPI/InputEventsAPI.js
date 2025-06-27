@@ -23,6 +23,7 @@ export default function InputEventsAPI(props, {
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
   const inputRef = ref(undefined);
+  const integerPartMaxLength = toRef(props, "integerPartMaxLength");
   const max = toRef(props, "max");
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
@@ -59,7 +60,7 @@ export default function InputEventsAPI(props, {
   };
 
   const setCursorPosition = position => {
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       inputRef.value.setSelectionRange(position, position);
     });
   };
@@ -146,7 +147,7 @@ export default function InputEventsAPI(props, {
     }
     if (value[0] !== "-") {
       isTimeoutActive.value++;
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         const newVal = `-${ value }`;
 
         if (validationOnChange.value) {
@@ -165,7 +166,7 @@ export default function InputEventsAPI(props, {
   const handlePlus = ({ value }) => {
     if (value[0] === "-") {
       isTimeoutActive.value++;
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         const newVal = value.replace("-", "");
 
         if (validationOnChange.value) {
@@ -181,9 +182,12 @@ export default function InputEventsAPI(props, {
     }
   };
 
-  const handleArrowLeft = ({ value }) => {
+  const handleArrowLeft = ({ value }, $event) => {
+    if ($event.shiftKey) {
+      return;
+    }
     isTimeoutActive.value++;
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       const cursorPositionAfterPress = inputRef.value.selectionStart;
       if (thousandDivider.value && value[cursorPositionAfterPress - 1] === thousandDivider.value) {
         const positionToSet = cursorPositionAfterPress - 1;
@@ -193,8 +197,11 @@ export default function InputEventsAPI(props, {
     }, timeoutDelay);
   };
 
-  const handleArrowRight = ({ value }) => {
-    setTimeout(() => {
+  const handleArrowRight = ({ value }, $event) => {
+    if ($event.shiftKey) {
+      return;
+    }
+    requestAnimationFrame(() => {
       isTimeoutActive.value++;
       const cursorPositionAfterPress = inputRef.value.selectionStart;
       if (thousandDivider.value && value[cursorPositionAfterPress - 1] === thousandDivider.value) {
@@ -206,7 +213,7 @@ export default function InputEventsAPI(props, {
   };
 
   const setDecimalDivider = ({ value, cursorPosition }, isLastPosition) => {
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       isTimeoutActive.value++;
       let valueAfterKeyPress = inputRef.value.value;
       if (isLastPosition) {
@@ -255,7 +262,7 @@ export default function InputEventsAPI(props, {
         const splitVal = value.split(decimalDivider.value);
         const intVal = splitVal[0];
         isTimeoutActive.value++;
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           setCursorPositionForBackspace({ cursorPosition, numberOfSymbols });
           setValueLocal(intVal);
           isTimeoutActive.value--;
@@ -264,7 +271,7 @@ export default function InputEventsAPI(props, {
         return;
       }
       isTimeoutActive.value++;
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         setCursorPositionForBackspace({ cursorPosition, numberOfSymbols });
         isTimeoutActive.value--;
       }, timeoutDelay);
@@ -310,7 +317,7 @@ export default function InputEventsAPI(props, {
         setValueLocal(newVal);
         setCursorPosition(positionToSet + 1);
       } else {
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           isTimeoutActive.value++;
           const valueAfterKeyPress = inputRef.value.value;
           if (valueAfterKeyPress.length < value.length - 1) {
@@ -328,6 +335,9 @@ export default function InputEventsAPI(props, {
 
       return;
     }
+    const start = inputRef.value.selectionStart;
+    const end = inputRef.value.selectionEnd;
+    const hasSelection = (end - start) > 0;
     const value = $event.target.value;
     const keyCode = $event.keyCode;
     const keyValue = $event.key;
@@ -373,12 +383,12 @@ export default function InputEventsAPI(props, {
       return;
     }
     if (keyCode === AKeysCode.arrowLeft) {
-      handleArrowLeft(valueProps);
+      handleArrowLeft(valueProps, $event);
 
       return;
     }
     if (keyCode === AKeysCode.arrowRight) {
-      handleArrowRight(valueProps);
+      handleArrowRight(valueProps, $event);
 
       return;
     }
@@ -414,10 +424,10 @@ export default function InputEventsAPI(props, {
     if (keyIsNumber && !$event.ctrlKey) {
       if (hasDecimalDivider) {
         const decimalDividerPosition = value.indexOf(decimalDivider.value);
+        const splitVal = value.split(decimalDivider.value);
+        const intVal = splitVal[0];
+        const floatVal = splitVal[1];
         if (cursorPosition > decimalDividerPosition) {
-          const splitVal = value.split(decimalDivider.value);
-          const floatVal = splitVal[1];
-
           if (floatVal.length === decimalPartLength.value) {
             if (isLastPosition) {
               $event.preventDefault();
@@ -431,13 +441,27 @@ export default function InputEventsAPI(props, {
             const newVal = splitVal.join("");
             setValueLocal(newVal);
             isTimeoutActive.value++;
-            setTimeout(() => {
+            requestAnimationFrame(() => {
               setCursorPosition(cursorPosition + 1);
               isTimeoutActive.value--;
             }, timeoutDelay);
 
             return;
           }
+        } else {
+          const intValWithoutDivider = intVal.replaceAll(thousandDivider.value, "");
+          if (intValWithoutDivider.length >= integerPartMaxLength.value && !hasSelection) {
+            $event.preventDefault();
+
+            return;
+          }
+        }
+      } else {
+        const intValWithoutDivider = value.replaceAll(thousandDivider.value, "");
+        if (intValWithoutDivider.length >= integerPartMaxLength.value && !hasSelection) {
+          $event.preventDefault();
+
+          return;
         }
       }
     }
@@ -455,7 +479,7 @@ export default function InputEventsAPI(props, {
       } else {
         const numberOfSymbols = value.length;
         isTimeoutActive.value++;
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           let positionToSet = cursorPosition + 1;
           const numberOfSymbolsAfterEvent = inputRef.value.value.length;
           if (numberOfSymbolsAfterEvent - 1 > numberOfSymbols) {
@@ -479,9 +503,15 @@ export default function InputEventsAPI(props, {
     let modifiedData;
     const start = inputRef.value.selectionStart;
     const end = inputRef.value.selectionEnd;
-    const text = inputRef.value.value;
-    const hasDecimalDivider = text.indexOf(decimalDivider.value) !== -1;
-    const selectedPart = text.substring(start, end);
+    const currentValue = inputRef.value.value;
+    const currentSplitVal = currentValue.split(decimalDivider.value);
+    const currentIntVal = currentSplitVal[0];
+    const currentIntValWithoutDivider = currentIntVal.replaceAll(thousandDivider.value, "");
+    if (currentIntValWithoutDivider.length >= integerPartMaxLength.value && (end - start) === 0) {
+      return;
+    }
+    const hasDecimalDivider = currentValue.indexOf(decimalDivider.value) !== -1;
+    const selectedPart = currentValue.substring(start, end);
     const selectedPartHasDecimalDivider = selectedPart.indexOf(decimalDivider.value) !== -1;
 
     if (hasDecimalDivider && !selectedPartHasDecimalDivider) {
@@ -494,8 +524,18 @@ export default function InputEventsAPI(props, {
         pastedIntPart;
     }
 
-    const newVal = text.slice(0, start) + modifiedData + text.slice(end);
-    handleInput(null, newVal);
+    const newVal = currentValue.slice(0, start) + modifiedData + currentValue.slice(end);
+    const splitVal = newVal.split(decimalDivider.value);
+    const intVal = splitVal[0];
+    const floatVal = splitVal[1];
+    const intValWithoutDivider = intVal.replaceAll(thousandDivider.value, "");
+    const intValToPaste = intValWithoutDivider.substring(0, integerPartMaxLength.value)
+      .split("")
+      .reverse().join("")
+      .match(/.{1,3}/g).join(thousandDivider.value)
+      .split("").reverse().join("");
+    const valueToPaste = [intValToPaste, floatVal].join(decimalDivider.value);
+    handleInput(null, valueToPaste);
   };
 
   const onBlurNumber = $event => {
@@ -548,7 +588,7 @@ export default function InputEventsAPI(props, {
 
   const onClickNumber = $event => {
     isTimeoutActive.value++;
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       const cursorPosition = $event.target.selectionStart;
       const value = $event.target.value;
       if (thousandDivider.value && thousandDivider.value === value[cursorPosition - 1]) {
@@ -563,7 +603,7 @@ export default function InputEventsAPI(props, {
       return;
     }
 
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       let valueToSet;
       if (modelValue.value || modelValue.value === 0) {
         valueToSet = modelValue.value.toString().replace(".", decimalDivider.value);

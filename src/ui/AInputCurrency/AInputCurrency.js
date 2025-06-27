@@ -2,6 +2,7 @@ import {
   h,
   toRef,
   watch,
+  withDirectives,
 } from "vue";
 import {
   AElement,
@@ -26,6 +27,7 @@ import UtilsAPI from "./compositionAPI/UtilsAPI";
 import VerifyAPI from "./compositionAPI/VerifyAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
 
+import ASafeHtml from "../../directives/ASafeHtml";
 import Dash from "aloha-svg/dist/js/bootstrap/Dash";
 import Plus from "aloha-svg/dist/js/bootstrap/Plus";
 import {
@@ -157,6 +159,12 @@ export default {
       required: false,
       default: () => AInputCurrencyPluginOptions.propsDefault.inputWidth,
     },
+    integerPartMaxLength: {
+      type: Number,
+      required: false,
+      default: () => AInputCurrencyPluginOptions.propsDefault.integerPartMaxLength,
+      validator: value => value > 0 && value <= 15,
+    },
     isClearButton: {
       type: Boolean,
       required: false,
@@ -195,6 +203,7 @@ export default {
       type: Number,
       required: false,
       default: () => AInputCurrencyPluginOptions.propsDefault.max,
+      validator: value => value <= 999999999999999,
     },
     min: {
       type: Number,
@@ -546,9 +555,11 @@ export default {
                 onClick: this.increase,
               }),
             ]),
-            this.currencySymbol && this.currencySymbolPosition === "right" && h("div", {
+            this.currencySymbol && this.currencySymbolPosition === "right" && withDirectives(h("div", {
               class: "a_form_element_number__currency_symbol",
-            }, this.currencySymbol),
+            }), [
+              [ASafeHtml, this.currencySymbol],
+            ]),
           ]),
           h(AFormHelpText, {
             id: this.helpTextId,
