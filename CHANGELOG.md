@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 2.25.1
+
+- Added selector-close for AMenu, to set focus on a desired element after the menu close
+- Added integerPartMaxLength prop for AInputCurrency to set custom length for integer part of the value
+- Minor fixes to AInputCurrency
+
 ## 2.25.0
 
 - Add button style groups and translations to `ASelectStyle`, update plugin and documentation
