@@ -13,6 +13,7 @@ import {
   UiStyleHideAPI,
 } from "../../index";
 
+import EventsAPI from "./compositionAPI/EventsAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import OptionsAPI from "./compositionAPI/OptionsAPI";
 import SingleModeAPI from "./compositionAPI/SingleModeAPI";
@@ -121,6 +122,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    modelAll: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     modelValue: {
       type: [String, Number, Boolean, Object, Array],
       required: false,
@@ -137,6 +143,21 @@ export default {
       default: undefined,
     },
     required: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    showReadonlyChildren: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    useFlatErrors: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    useFlatModel: {
       type: Boolean,
       required: false,
       default: false,
@@ -182,15 +203,30 @@ export default {
     } = ModelAPI(props, context);
 
     const {
-      modelSingleModeCheckbox,
-      singleChildren,
-      singleDataFormCheckbox,
-    } = SingleModeAPI(props);
+      blur,
+      focus,
+      open,
+      updateModelValue,
+    } = EventsAPI(context);
+
+    const {
+      initSingleModeModelCheckbox,
+      singleModeChildren,
+      singleModeDataFormCheckbox,
+    } = SingleModeAPI(props, {
+      htmlIdLocal,
+      updateModelValue,
+    });
+
+    initSingleModeModelCheckbox();
 
     return {
-      modelSingleModeCheckbox,
-      singleChildren,
-      singleDataFormCheckbox,
+      blur,
+      focus,
+      open,
+      updateModelValue,
+      singleModeChildren,
+      singleModeDataFormCheckbox,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       checkUndefinedValue,
@@ -216,8 +252,9 @@ export default {
   render() {
     if (this.mode === "single") {
       return h(AFieldset, {
+        ...this.$attrs,
         alwaysTranslate: this.alwaysTranslate,
-        children: this.singleChildren,
+        children: this.singleModeChildren,
         disabled: this.disabled,
         errors: this.errors,
         excludeRenderAttributes: this.excludeRenderAttributes,
@@ -231,14 +268,21 @@ export default {
         label: this.label,
         labelClass: this.labelClass,
         labelScreenReader: this.labelScreenReader,
+        modelAll: this.modelAll,
         modelValue: this.modelValue,
         readonly: this.readonly,
         required: this.required,
+        skipOwnIdInModelPath: true,
         slotNamePrepend: "singlePrepend",
+        useFlatErrors: this.useFlatErrors,
+        useFlatModel: this.useFlatModel,
+        "onUpdate:modelValue": this.updateModelValue,
       }, {
-        singlePrepend: () => {
-          return h(AOneCheckbox, this.singleDataFormCheckbox);
-        },
+        singlePrepend: !this.required ?
+          () => {
+            return h(AOneCheckbox, this.singleModeDataFormCheckbox);
+          } :
+          undefined,
         ...this.$slots,
       });
     }

@@ -162,7 +162,7 @@ export default {
     modelAll: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: undefined,
     },
     modelDependencies: {
       type: Object,
@@ -173,6 +173,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    parentId: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     readonly: {
       type: Boolean,
@@ -188,10 +193,10 @@ export default {
       required: false,
       default: false,
     },
-    parentId: {
-      type: Array,
+    skipOwnIdInModelPath: {
+      type: Boolean,
       required: false,
-      default: () => [],
+      default: false,
     },
     slotName: {
       type: String,
@@ -203,6 +208,14 @@ export default {
       required: false,
       default: undefined,
     },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        collapseClose: "_A_FIELDSET_COLLAPSE_CLOSE_",
+        collapseOpen: "_A_FIELDSET_COLLAPSE_OPEN_",
+      }),
+    },
     useFlatErrors: {
       type: Boolean,
       required: false,
@@ -212,14 +225,6 @@ export default {
       type: Boolean,
       required: false,
       default: true,
-    },
-    texts: {
-      type: Object,
-      required: false,
-      default: () => ({
-        collapseClose: "_A_FIELDSET_COLLAPSE_CLOSE_",
-        collapseOpen: "_A_FIELDSET_COLLAPSE_OPEN_",
-      }),
     },
   },
   emits: [
@@ -338,13 +343,15 @@ export default {
           let parentId = undefined;
           if (IS_CONTAINER) {
             parentId = cloneDeep(this.parentId);
-            parentId.push(this.id);
+            if (!this.skipOwnIdInModelPath) {
+              parentId.push(this.id);
+            }
           }
 
           const MODEL_VALUE = (IS_CONTAINER && !this.useFlatModel) ||
             !IS_CONTAINER ?
-                get(this.modelValue, item.id) :
-                this.modelValue;
+              get(this.modelValue, item.id) :
+              this.modelValue;
 
           return h("div", {
             class: classColumn,

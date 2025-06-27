@@ -14,6 +14,7 @@ export default function ModelAPI(props, { emit }) {
   const modelAll = toRef(props, "modelAll");
   const modelValue = toRef(props, "modelValue");
   const parentId = toRef(props, "parentId");
+  const skipOwnIdInModelPath = toRef(props, "skipOwnIdInModelPath");
   const useFlatModel = toRef(props, "useFlatModel");
 
   const onUpdateModelLocal = ({ currentModel, id: idChild, item, model, props, component, fullModel }) => {
@@ -30,13 +31,15 @@ export default function ModelAPI(props, { emit }) {
 
     const MODEL_VALUE = useFlatModel.value ?
       cloneDeep(modelValue.value || {}) :
-      cloneDeep(modelAll.value || {});
+      cloneDeep(modelAll.value || modelValue.value || {});
 
     if (useFlatModel.value) {
       set(MODEL_VALUE, idChild, cloneDeep(model));
     } else {
-      const IDS = [...parentId.value, id.value, idChild];
-      const path = IDS.join(".");
+      const ids = skipOwnIdInModelPath.value ?
+        [...parentId.value, idChild] :
+        [...parentId.value, id.value, idChild];
+      const path = ids.join(".");
       set(MODEL_VALUE, path, cloneDeep(model));
     }
     emit("update:modelValue", MODEL_VALUE);

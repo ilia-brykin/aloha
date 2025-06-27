@@ -29,26 +29,30 @@ export default {
       {
         type: "text",
         label: "Text",
-        id: "aloha.text",
+        id: "text",
       },
       {
         type: "oneCheckbox",
         label: "Checkbox",
-        id: "aloha.checkbox",
+        id: "checkbox",
       },
       {
         type: "currency",
         label: "Currency",
-        id: "aloha.currency",
+        id: "currency",
       },
     ];
     const model1 = ref(undefined);
+    const model2 = ref({
+      text: "s",
+    });
 
     return {
       children,
       codeHtml,
       codeJs,
       model1,
+      model2,
     };
   },
 };
