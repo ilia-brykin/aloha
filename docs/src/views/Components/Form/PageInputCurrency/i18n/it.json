@@ -25,6 +25,7 @@
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_DIVIDER_DESCRIPTION_": "Definisce il simbolo che verrà utilizzato come separatore decimale. Valori possibili: <strong>.</strong> (punto) o <strong>,</strong> (virgola).",
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_PART_LENGTH_DESCRIPTION_": "Determina il numero di cifre dopo il separatore decimale che verranno visualizzate nel valore.",
   "_A_INPUT_CURRENCY_PROPS_INPUT_WIDTH_DESCRIPTION_": "Definisce la larghezza del campo di input. Il valore può essere specificato in pixel o in percentuale.",
+  "_A_INPUT_CURRENCY_PROPS_INTEGER_PART_MAX_LENGTH_DESCRIPTION_": "Definisce la lunghezza massima della parte intera del valore, espressa in numero di cifre.",
   "_A_INPUT_CURRENCY_PROPS_MAX_DESCRIPTION_": "Definisce il valore massimo che può essere inserito nel campo.",
   "_A_INPUT_CURRENCY_PROPS_MIN_DESCRIPTION_": "Definisce il valore minimo che può essere inserito nel campo.",
   "_A_INPUT_CURRENCY_PROPS_MODEL_TYPE_DESCRIPTION_": "Definisce il tipo di dati che verrà memorizzato nel modello. Valori possibili: <strong lang=\"en\">number</strong> (valore numerico) o <strong lang=\"en\">string</strong> (valore stringa).",

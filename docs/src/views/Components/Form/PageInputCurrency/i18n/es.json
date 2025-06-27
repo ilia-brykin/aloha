@@ -25,6 +25,7 @@
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_DIVIDER_DESCRIPTION_": "Define el símbolo que se utilizará como separador decimal. Valores posibles: <strong>.</strong> (punto) o <strong>,</strong> (coma).",
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_PART_LENGTH_DESCRIPTION_": "Determina la cantidad de dígitos después del separador decimal que se mostrarán en el valor.",
   "_A_INPUT_CURRENCY_PROPS_INPUT_WIDTH_DESCRIPTION_": "Define el ancho del campo de entrada. El valor se puede especificar en píxeles o en porcentajes.",
+  "_A_INPUT_CURRENCY_PROPS_INTEGER_PART_MAX_LENGTH_DESCRIPTION_": "Define la longitud máxima de la parte entera del valor, expresada en número de dígitos.",
   "_A_INPUT_CURRENCY_PROPS_MAX_DESCRIPTION_": "Define el valor máximo que se puede ingresar en el campo.",
   "_A_INPUT_CURRENCY_PROPS_MIN_DESCRIPTION_": "Define el valor mínimo que se puede ingresar en el campo.",
   "_A_INPUT_CURRENCY_PROPS_MODEL_TYPE_DESCRIPTION_": "Define el tipo de datos que se almacenará en el modelo. Valores posibles: <strong lang=\"en\">number</strong> (valor numérico) o <strong lang=\"en\">string</strong> (valor de cadena).",

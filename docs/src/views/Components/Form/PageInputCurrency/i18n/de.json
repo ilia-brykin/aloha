@@ -25,6 +25,7 @@
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_DIVIDER_DESCRIPTION_": "Legt das Symbol fest, das als Dezimaltrennzeichen verwendet wird. Mögliche Werte sind <strong>.</strong> (Punkt) oder <strong>,</strong> (Komma).",
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_PART_LENGTH_DESCRIPTION_": "Bestimmt die Anzahl der Stellen nach dem Dezimaltrennzeichen, die im Wert angezeigt werden.",
   "_A_INPUT_CURRENCY_PROPS_INPUT_WIDTH_DESCRIPTION_": "Legt die Breite des Eingabefelds fest. Der Wert kann in Pixeln oder in Prozent angegeben werden.",
+  "_A_INPUT_CURRENCY_PROPS_INTEGER_PART_MAX_LENGTH_DESCRIPTION_": "Legt die maximale Länge des ganzzahligen Teils eines Wertes fest, ausgedrückt in der Anzahl der Ziffern (Stellen).",
   "_A_INPUT_CURRENCY_PROPS_MAX_DESCRIPTION_": "Legt den maximalen Wert fest, der in das Feld eingegeben werden kann.",
   "_A_INPUT_CURRENCY_PROPS_MIN_DESCRIPTION_": "Legt den minimalen Wert fest, der in das Feld eingegeben werden kann.",
   "_A_INPUT_CURRENCY_PROPS_MODEL_TYPE_DESCRIPTION_": "Bestimmt den Datentyp, der im Modell gespeichert wird. Mögliche Werte sind <strong lang=\"en\">number</strong> (Zahlenwert) oder <strong lang=\"en\">string</strong> (Zeichenkettenwert).",
