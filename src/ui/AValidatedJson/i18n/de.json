@@ -1,0 +1,10 @@
+{
+  "_A_VALIDATED_JSON_SINGLE_LABEL_CHECKBOX_": "Optionales Formular ausfüllen",
+  "_A_VALIDATED_JSON_NO_ELEMENTS_": "[Keine Daten hinterlegt]",
+  "_A_VALIDATED_JSON_NO_ELEMENTS_ADD_ELEMENT_{{elementLabel}}_": "{{ elementLabel }} hinzufügen",
+  "_A_VALIDATED_JSON_ELEMENTS_": "Element",
+  "_A_VALIDATED_JSON_MODAL_CREATE_HEADER_{{elementLabel}}_": "{{ elementLabel }} erstellen",
+  "_A_VALIDATED_JSON_MODAL_UPDATE_HEADER_{{elementLabel}}_": "{{ elementLabel }} bearbeiten",
+  "_A_VALIDATED_JSON_MODAL_CREATE_BTN_SAVE_{{elementLabel}}_": "{{ elementLabel }} hinzufügen",
+  "_A_VALIDATED_JSON_MODAL_UPDATE_BTN_SAVE_{{elementLabel}}_": "{{ elementLabel }} übernehmen"
+}

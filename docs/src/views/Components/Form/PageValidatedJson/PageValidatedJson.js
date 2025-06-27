@@ -1,5 +1,6 @@
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import PageValidatedJsonModeList from "./PageValidatedJsonModeList/PageValidatedJsonModeList.vue";
 import PageValidatedJsonModeSingle from "./PageValidatedJsonModeSingle/PageValidatedJsonModeSingle.vue";
 import {
   ATranslation,
@@ -16,6 +17,7 @@ export default {
     AlohaPage,
     AlohaTableProps,
     ATranslation,
+    PageValidatedJsonModeList,
     PageValidatedJsonModeSingle,
   },
   setup() {

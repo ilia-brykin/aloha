@@ -1,0 +1,46 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['model-value', 'type']"
+)
+  a-validated-json(
+    v-model="model1"
+    id-prefix="aloha1"
+    :children="children"
+    label="_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_"
+    mode="list"
+  )
+  div model1:
+  pre {{ model1 }}
+  //a-validated-json(
+  //  v-model="model1"
+  //  id-prefix="aloha2"
+  //  :children="children"
+  //  :required="true"
+  //  class="a_mt_5"
+  //  label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
+  //  mode="single"
+  //)
+  //a-validated-json(
+  //  v-model="model1"
+  //  id-prefix="aloha3"
+  //  :children="children"
+  //  :mode-options="{ optionalSingleDefault: true }"
+  //  class="a_mt_5"
+  //  label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
+  //  mode="single"
+  //)
+  //div model1:
+  //pre {{ model1 }}
+  //a-validated-json(
+  //  v-model="model2"
+  //  id-prefix="aloha3"
+  //  :children="children"
+  //  class="a_mt_5"
+  //  label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
+  //  mode="single"
+  //)
+  //div model2:
+  //pre {{ model2 }}
+

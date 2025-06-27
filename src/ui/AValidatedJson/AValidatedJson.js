@@ -1,23 +1,29 @@
 import {
-  defineAsyncComponent,
   h,
 } from "vue";
 import {
+  AElement,
   AErrorsText,
   AFieldset,
   AFormHelpText,
   ALabel,
   AOneCheckbox,
+  ATranslation,
   UiAPI,
   UIExcludeRenderAttributesAPI,
   UiStyleHideAPI,
 } from "../../index";
 
+import AValidatedJsonModalCreateOrUpdate from "./AValidatedJsonModalCreateOrUpdate/AValidatedJsonModalCreateOrUpdate";
+
+import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
+import ListModeAPI from "./compositionAPI/ListModeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import OptionsAPI from "./compositionAPI/OptionsAPI";
 import SingleModeAPI from "./compositionAPI/SingleModeAPI";
 
+import Plus from "aloha-svg/dist/js/bootstrap/Plus";
 import {
   uniqueId,
 } from "lodash-es";
@@ -25,11 +31,6 @@ import {
 export default {
   name: "AValidatedJson",
   inheritAttrs: false,
-  components: {
-    ModeJson: defineAsyncComponent(() => import("../UiValidatedJson/ModeJson/ModeJson.vue")),
-    ModeList: defineAsyncComponent(() => import("../UiValidatedJson/ModeList/ModeList.vue")),
-    ModeSingle: defineAsyncComponent(() => import("../UiValidatedJson/ModeSingle/ModeSingle.vue")),
-  },
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -210,23 +211,44 @@ export default {
     } = EventsAPI(context);
 
     const {
+      childrenFiltered,
+    } = ChildrenAPI(props);
+
+    const {
       initSingleModeModelCheckbox,
       singleModeChildren,
       singleModeDataFormCheckbox,
     } = SingleModeAPI(props, {
+      childrenFiltered,
       htmlIdLocal,
       updateModelValue,
+    });
+
+    const {
+      closeModalCreateListMode,
+      isModalCreateListModeVisible,
+      listModeBtnIdAdd,
+      listModeElementLabelTranslated,
+      openModalCreateListMode,
+    } = ListModeAPI(props, {
+      htmlIdLocal,
     });
 
     initSingleModeModelCheckbox();
 
     return {
+      childrenFiltered,
       blur,
       focus,
       open,
+      closeModalCreateListMode,
+      isModalCreateListModeVisible,
+      listModeBtnIdAdd,
+      listModeElementLabelTranslated,
       updateModelValue,
       singleModeChildren,
       singleModeDataFormCheckbox,
+      openModalCreateListMode,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       checkUndefinedValue,
@@ -250,6 +272,10 @@ export default {
     };
   },
   render() {
+    if (!this.isRender) {
+      return null;
+    }
+
     if (this.mode === "single") {
       return h(AFieldset, {
         ...this.$attrs,
@@ -287,8 +313,49 @@ export default {
       });
     }
 
-    if (!this.isRender) {
-      return null;
+    if (this.mode === "list") {
+      return h("div", {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        class: [
+          "a_validated_json a_validated_json_list",
+          this.$attrs.class,
+        ],
+      }, [
+        h("ul", {
+          class: "a_list_group",
+        }, [
+          h(ATranslation, {
+            class: "a_list_group__item",
+            tag: "li",
+            text: "_A_VALIDATED_JSON_NO_ELEMENTS_",
+          }),
+          h("li", {
+            class: "a_list_group__item",
+          }, [
+            h(AElement, {
+              id: this.listModeBtnIdAdd,
+              class: "a_btn a_btn_secondary test_add a_width_100",
+              extra: {
+                elementLabel: this.listModeElementLabelTranslated,
+              },
+              iconLeft: Plus,
+              text: "_A_VALIDATED_JSON_NO_ELEMENTS_ADD_ELEMENT_{{elementLabel}}_",
+              type: "button",
+              onClick: this.openModalCreateListMode,
+            }),
+          ]),
+        ]),
+
+        this.isModalCreateListModeVisible ?
+          h(AValidatedJsonModalCreateOrUpdate, {
+            children: this.childrenFiltered,
+            close: this.closeModalCreateListMode,
+            elementLabelTranslated: this.listModeElementLabelTranslated,
+            isCreate: true,
+          }) :
+          "",
+      ]);
     }
 
     const CONTENT = h("div", {

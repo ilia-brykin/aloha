@@ -28,6 +28,7 @@ import AShowMoreI18n from "../AShowMore/i18n/AShowMoreI18n";
 import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 import ASwitchI18n from "../ui/ASwitch/i18n/ASwitchI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
+import AValidatedJsonI18n from "../ui/AValidatedJson/i18n/AValidatedJsonI18n";
 import AVerticalScrollI18n from "../AVerticalScroll/i18n/AVerticalScrollI18n";
 import AWizardI18n from "../AWizard/i18n/AWizardI18n";
 import Filters18n from "../filters/i18n/Filters18n";
@@ -72,6 +73,7 @@ export const ar = {
   ...ASpinnerI18n.ar,
   ...ASwitchI18n.ar,
   ...ATableI18n.ar,
+  ...AValidatedJsonI18n.ar,
   ...AVerticalScrollI18n.ar,
   ...AWizardI18n.ar,
   ...Filters18n.ar,
@@ -108,6 +110,7 @@ export const de = {
   ...ASpinnerI18n.de,
   ...ASwitchI18n.de,
   ...ATableI18n.de,
+  ...AValidatedJsonI18n.de,
   ...AVerticalScrollI18n.de,
   ...AWizardI18n.de,
   ...Filters18n.de,
@@ -144,6 +147,7 @@ export const en = {
   ...ASpinnerI18n.en,
   ...ASwitchI18n.en,
   ...ATableI18n.en,
+  ...AValidatedJsonI18n.en,
   ...AVerticalScrollI18n.en,
   ...AWizardI18n.en,
   ...Filters18n.en,
@@ -180,6 +184,7 @@ export const es = {
   ...ASpinnerI18n.es,
   ...ASwitchI18n.es,
   ...ATableI18n.es,
+  ...AValidatedJsonI18n.es,
   ...AVerticalScrollI18n.es,
   ...AWizardI18n.es,
   ...Filters18n.es,
@@ -216,6 +221,7 @@ export const fr = {
   ...ASpinnerI18n.fr,
   ...ASwitchI18n.fr,
   ...ATableI18n.fr,
+  ...AValidatedJsonI18n.fr,
   ...AVerticalScrollI18n.fr,
   ...AWizardI18n.fr,
   ...Filters18n.fr,
@@ -252,6 +258,7 @@ export const hr = {
   ...ASpinnerI18n.hr,
   ...ASwitchI18n.hr,
   ...ATableI18n.hr,
+  ...AValidatedJsonI18n.hr,
   ...AVerticalScrollI18n.hr,
   ...AWizardI18n.hr,
   ...Filters18n.hr,
@@ -288,6 +295,7 @@ export const it = {
   ...ASpinnerI18n.it,
   ...ASwitchI18n.it,
   ...ATableI18n.it,
+  ...AValidatedJsonI18n.it,
   ...AVerticalScrollI18n.it,
   ...AWizardI18n.it,
   ...Filters18n.it,
@@ -324,6 +332,7 @@ export const ru = {
   ...ASpinnerI18n.ru,
   ...ASwitchI18n.ru,
   ...ATableI18n.ru,
+  ...AValidatedJsonI18n.ru,
   ...AVerticalScrollI18n.ru,
   ...AWizardI18n.ru,
   ...Filters18n.ru,

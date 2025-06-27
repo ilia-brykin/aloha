@@ -5,25 +5,20 @@ import {
 } from "vue";
 
 import {
-  isArray,
-} from "lodash";
-import {
-  cloneDeep,
   isNil,
   size,
 } from "lodash-es";
 
 export default function SingleModeAPI(props, {
+  childrenFiltered = computed(() => []),
   htmlIdLocal = computed(() => undefined),
   updateModelValue = () => {},
 }) {
-  const children = toRef(props, "children");
   const mode = toRef(props, "mode");
   const modelValue = toRef(props, "modelValue");
   const modeOptions = toRef(props, "modeOptions");
   const readonly = toRef(props, "readonly");
   const required = toRef(props, "required");
-  const showReadonlyChildren = toRef(props, "showReadonlyChildren");
 
   const singleModeModelCheckbox = ref(undefined);
 
@@ -59,26 +54,6 @@ export default function SingleModeAPI(props, {
       label: labelCheckbox.value,
       change: changeModelSingleModeCheckbox,
     };
-  });
-
-  const filterReadonlyRecursive = childrenLocal => {
-    return childrenLocal.reduce((acc, child) => {
-      if (!child.readonly) {
-        if (isArray(child.children) && child.children.length) {
-          child.children = filterReadonlyRecursive(child.children);
-        }
-        acc.push(child);
-      }
-      return acc;
-    }, []);
-  };
-
-  const childrenFiltered = computed(() => {
-    if (readonly.value || showReadonlyChildren.value) {
-      return children.value;
-    }
-
-    return filterReadonlyRecursive(cloneDeep(children.value));
   });
 
   const singleModeChildren = computed(() => {

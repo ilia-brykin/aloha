@@ -312,6 +312,7 @@ export { default as ATableI18n } from "./ATable/i18n/ATableI18n";
 export { default as AVerticalScrollI18n } from "./AVerticalScroll/i18n/AVerticalScrollI18n";
 export { default as AWizardI18n } from "./AWizard/i18n/AWizardI18n";
 export { default as Filters18n } from "./filters/i18n/Filters18n";
+export { default as AValidatedJsonI18n } from "./ui/AValidatedJson/i18n/AValidatedJsonI18n";
 export {
   getTranslatedAttributes,
   getTranslatedText,
