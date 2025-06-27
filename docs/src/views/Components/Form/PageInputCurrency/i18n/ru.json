@@ -25,6 +25,7 @@
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_DIVIDER_DESCRIPTION_": "Определяет символ, который будет использоваться в качестве разделителя десятичных дробей. Возможные значения: <strong>.</strong> (точка) или <strong>,</strong> (запятая).",
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_PART_LENGTH_DESCRIPTION_": "Определяет количество символов после десятичного разделителя, которые будут отображаться в значении.",
   "_A_INPUT_CURRENCY_PROPS_INPUT_WIDTH_DESCRIPTION_": "Задает ширину поля ввода. Значение может быть указано в пикселях или в процентах.",
+  "_A_INPUT_CURRENCY_PROPS_INTEGER_PART_MAX_LENGTH_DESCRIPTION_": "Задаёт максимальную длину целочисленной части значения, выраженную в количестве цифр (разрядов).",
   "_A_INPUT_CURRENCY_PROPS_MAX_DESCRIPTION_": "Задает максимальное значение, которое может быть введено в поле.",
   "_A_INPUT_CURRENCY_PROPS_MIN_DESCRIPTION_": "Задает минимальное значение, которое может быть введено в поле.",
   "_A_INPUT_CURRENCY_PROPS_MODEL_TYPE_DESCRIPTION_": "Определяет тип данных, который будет сохранен в модели. Возможные значения: <strong lang=\"en\">number</strong> (числовое значение) или <strong lang=\"en\">string</strong> (строковое значение).",

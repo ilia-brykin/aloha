@@ -155,6 +155,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "integer-part-max-length",
+      description: "_A_INPUT_CURRENCY_PROPS_INTEGER_PART_MAX_LENGTH_DESCRIPTION_",
+      type: "Number",
+      default: 15,
+      required: false,
+    },
+    {
       name: "is-clear-button",
       description: "_A_UI_PROPS_IS_CLEAR_BUTTON_DESCRIPTION_",
       type: "Boolean",

@@ -25,6 +25,7 @@
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_DIVIDER_DESCRIPTION_": "يحدد الرمز الذي سيتم استخدامه كفاصل للأجزاء العشرية. القيم المحتملة <strong>.</strong> (نقطة) أو <strong>,</strong> (فاصلة).",
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_PART_LENGTH_DESCRIPTION_": "يحدد عدد الأرقام بعد الفاصل العشري التي سيتم عرضها في القيمة.",
   "_A_INPUT_CURRENCY_PROPS_INPUT_WIDTH_DESCRIPTION_": "يحدد عرض حقل الإدخال. يمكن تحديد القيمة بالبكسل أو بالنسبة المئوية.",
+  "_A_INPUT_CURRENCY_PROPS_INTEGER_PART_MAX_LENGTH_DESCRIPTION_": "يحدد الحد الأقصى لطول الجزء الصحيح من القيمة، معبرًا عنه بعدد الأرقام (الخانات).",
   "_A_INPUT_CURRENCY_PROPS_MAX_DESCRIPTION_": "يحدد القيمة القصوى التي يمكن إدخالها في الحقل.",
   "_A_INPUT_CURRENCY_PROPS_MIN_DESCRIPTION_": "يحدد القيمة الدنيا التي يمكن إدخالها في الحقل.",
   "_A_INPUT_CURRENCY_PROPS_MODEL_TYPE_DESCRIPTION_": "يحدد نوع البيانات التي سيتم تخزينها في النموذج. القيم المحتملة <strong lang=\"en\">number</strong> (قيمة عددية) أو <strong lang=\"en\">string</strong> (قيمة نصية).",

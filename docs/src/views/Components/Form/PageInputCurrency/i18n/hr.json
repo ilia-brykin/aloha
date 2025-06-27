@@ -25,6 +25,7 @@
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_DIVIDER_DESCRIPTION_": "Definira simbol koji će se koristiti kao decimalni razdjelnik. Moguće vrijednosti: <strong>.</strong> (točka) ili <strong>,</strong> (zarez).",
   "_A_INPUT_CURRENCY_PROPS_DECIMAL_PART_LENGTH_DESCRIPTION_": "Određuje broj znamenki nakon decimalnog razdjelnika koji će biti prikazani u vrijednosti.",
   "_A_INPUT_CURRENCY_PROPS_INPUT_WIDTH_DESCRIPTION_": "Definira širinu polja za unos. Vrijednost se može navesti u pikselima ili u postotcima.",
+  "_A_INPUT_CURRENCY_PROPS_INTEGER_PART_MAX_LENGTH_DESCRIPTION_": "Određuje maksimalnu duljinu cijelog broja vrijednosti, izraženu u broju znamenki.",
   "_A_INPUT_CURRENCY_PROPS_MAX_DESCRIPTION_": "Definira maksimalnu vrijednost koja se može unijeti u polje.",
   "_A_INPUT_CURRENCY_PROPS_MIN_DESCRIPTION_": "Definira minimalnu vrijednost koja se može unijeti u polje.",
   "_A_INPUT_CURRENCY_PROPS_MODEL_TYPE_DESCRIPTION_": "Definira vrstu podataka koja će se pohraniti u modelu. Moguće vrijednosti: <strong lang=\"en\">number</strong> (numerička vrijednost) ili <strong lang=\"en\">string</strong> (vrijednost niza).",

@@ -494,22 +494,29 @@ export default function InputEventsAPI(props, {
     }
   };
 
+  const shouldIgnorePasteEvent = (currentValue, start, end) => {
+    const hasNoSelection = end - start === 0;
+    const currentSplitVal = currentValue.split(decimalDivider.value);
+    const currentIntVal = currentSplitVal[0];
+    const currentIntValWithoutDivider = currentIntVal.replaceAll(thousandDivider.value, "");
+    const maxLengthLimitAlreadyReached = currentIntValWithoutDivider.length >= integerPartMaxLength.value;
+
+    return maxLengthLimitAlreadyReached && hasNoSelection;
+  };
+
   const handlePaste = $event => {
     $event.preventDefault();
+    const currentValue = inputRef.value.value;
+    const start = inputRef.value.selectionStart;
+    const end = inputRef.value.selectionEnd;
+    if (shouldIgnorePasteEvent(currentValue, start, end)) {
+      return;
+    }
     const pasteData = ($event.clipboardData || window.clipboardData).getData("text");
     const pastedDataArray = pasteData.split(decimalDivider.value);
     const pastedIntPart = pastedDataArray[0].replace(/[^0-9]/g, "");
     const pastedFloatPart = pastedDataArray[1]?.replace(/[^0-9]/g, "") || "";
     let modifiedData;
-    const start = inputRef.value.selectionStart;
-    const end = inputRef.value.selectionEnd;
-    const currentValue = inputRef.value.value;
-    const currentSplitVal = currentValue.split(decimalDivider.value);
-    const currentIntVal = currentSplitVal[0];
-    const currentIntValWithoutDivider = currentIntVal.replaceAll(thousandDivider.value, "");
-    if (currentIntValWithoutDivider.length >= integerPartMaxLength.value && (end - start) === 0) {
-      return;
-    }
     const hasDecimalDivider = currentValue.indexOf(decimalDivider.value) !== -1;
     const selectedPart = currentValue.substring(start, end);
     const selectedPartHasDecimalDivider = selectedPart.indexOf(decimalDivider.value) !== -1;
