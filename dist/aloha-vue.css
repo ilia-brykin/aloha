@@ -10741,6 +10741,10 @@ input[type=text]::-ms-clear {
   right: 1.2rem;
 }
 
+.a_validated_json_list__item__label {
+  flex-grow: 1;
+}
+
 .a_form_element_number_controls {
   --a_input_number_width: 100%;
   --a_input_number_max_width: 100%;

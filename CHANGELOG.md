@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.25.2
+
+- Add `AValidatedJson` list mode functionality with composition API
+
 ## 2.25.1
 
 - Added selector-close for AMenu, to set focus on a desired element after the menu close
