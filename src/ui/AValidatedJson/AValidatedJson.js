@@ -6,7 +6,6 @@ import {
   AErrorsText,
   AFieldset,
   AFormHelpText,
-  ALabel,
   AOneCheckbox,
   ATranslation,
   UiAPI,
@@ -15,6 +14,7 @@ import {
 } from "../../index";
 
 import AValidatedJsonModalCreateOrUpdate from "./AValidatedJsonModalCreateOrUpdate/AValidatedJsonModalCreateOrUpdate";
+import AValidatedJsonModeListItem from "./AValidatedJsonModeListItem/AValidatedJsonModeListItem";
 
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
@@ -226,12 +226,17 @@ export default {
 
     const {
       closeModalCreateListMode,
+      deleteListMode,
       isModalCreateListModeVisible,
       listModeBtnIdAdd,
       listModeElementLabelTranslated,
+      moveListMode,
+      modelListMode,
       openModalCreateListMode,
+      updateListMode,
     } = ListModeAPI(props, {
       htmlIdLocal,
+      updateModelValue,
     });
 
     initSingleModeModelCheckbox();
@@ -240,14 +245,18 @@ export default {
       childrenFiltered,
       blur,
       focus,
+      deleteListMode,
+      updateListMode,
       open,
       closeModalCreateListMode,
       isModalCreateListModeVisible,
+      modelListMode,
       listModeBtnIdAdd,
       listModeElementLabelTranslated,
       updateModelValue,
       singleModeChildren,
       singleModeDataFormCheckbox,
+      moveListMode,
       openModalCreateListMode,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
@@ -314,38 +323,161 @@ export default {
     }
 
     if (this.mode === "list") {
-      return h("div", {
+      return h(AFieldset, {
         ...this.$attrs,
         id: this.htmlIdLocal,
         class: [
           "a_validated_json a_validated_json_list",
           this.$attrs.class,
         ],
-      }, [
-        h("ul", {
-          class: "a_list_group",
-        }, [
-          h(ATranslation, {
-            class: "a_list_group__item",
-            tag: "li",
-            text: "_A_VALIDATED_JSON_NO_ELEMENTS_",
-          }),
-          h("li", {
-            class: "a_list_group__item",
+        extra: this.extra,
+        helpText: this.helpText,
+        isHide: this.isHide,
+        isRender: this.isRender,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        required: this.required,
+        slotName: "slotAppend",
+      }, {
+        slotAppend: () => {
+          return h("div", {
+            class: "a_column a_column_12",
           }, [
-            h(AElement, {
-              id: this.listModeBtnIdAdd,
-              class: "a_btn a_btn_secondary test_add a_width_100",
-              extra: {
-                elementLabel: this.listModeElementLabelTranslated,
-              },
-              iconLeft: Plus,
-              text: "_A_VALIDATED_JSON_NO_ELEMENTS_ADD_ELEMENT_{{elementLabel}}_",
-              type: "button",
-              onClick: this.openModalCreateListMode,
+            h("ul", {
+              class: "a_list_group",
+            }, [
+              this.modelListMode.length > 0 ?
+                this.modelListMode.map((item, index) => {
+                  return h(AValidatedJsonModeListItem, {
+                    key: index,
+                    children: this.childrenFiltered,
+                    elementLabel: this.listModeElementLabelTranslated,
+                    isLast: index === this.modelListMode.length - 1,
+                    modelIndex: index,
+                    modelItem: item,
+                    modeOptions: this.modeOptions,
+                    parentId: this.htmlIdLocal,
+                    readonly: this.readonly,
+                    useFlatModel: this.useFlatModel,
+                    onDelete: this.deleteListMode,
+                    onMove: this.moveListMode,
+                    onUpdate: this.updateListMode,
+                  });
+                }) :
+                h(ATranslation, {
+                  class: "a_list_group__item",
+                  tag: "li",
+                  text: "_A_VALIDATED_JSON_NO_ELEMENTS_",
+                }),
+              !this.readonly ?
+                h("li", {
+                  class: "a_list_group__item",
+                }, [
+                  h(AElement, {
+                    id: this.listModeBtnIdAdd,
+                    class: "a_btn a_btn_secondary test_add a_width_100",
+                    disabled: this.disabled,
+                    extra: {
+                      elementLabel: this.listModeElementLabelTranslated,
+                    },
+                    iconLeft: Plus,
+                    text: "_A_VALIDATED_JSON_NO_ELEMENTS_ADD_ELEMENT_{{elementLabel}}_",
+                    type: "button",
+                    onClick: this.openModalCreateListMode,
+                  }),
+                ]) :
+                "",
+            ]),
+
+            this.helpText && h(AFormHelpText, {
+              id: this.helpTextId,
+              text: this.helpText,
             }),
-          ]),
-        ]),
+            this.isErrors && h(AErrorsText, {
+              id: this.errorsId,
+              errors: this.errors,
+            }),
+
+
+            this.isModalCreateListModeVisible ?
+              h(AValidatedJsonModalCreateOrUpdate, {
+                children: this.childrenFiltered,
+                close: this.closeModalCreateListMode,
+                elementLabelTranslated: this.listModeElementLabelTranslated,
+                isCreate: true,
+              }) :
+              "",
+          ]);
+        },
+      });
+    }
+
+    if (this.mode === "json") {
+      return h("div", {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        class: [
+          "a_validated_json a_validated_json_json",
+          this.$attrs.class,
+        ],
+      }, [
+        h("div", "TODO"),
+
+        /*
+         * h("ul", {
+         *   class: "a_list_group",
+         * }, [
+         *   this.modelListMode.length > 0 ?
+         *     this.modelListMode.map((item, index) => {
+         *       return h(AValidatedJsonModeListItem, {
+         *         key: index,
+         *         children: this.childrenFiltered,
+         *         elementLabel: this.listModeElementLabelTranslated,
+         *         isLast: index === this.modelListMode.length - 1,
+         *         modelIndex: index,
+         *         modelItem: item,
+         *         modeOptions: this.modeOptions,
+         *         parentId: this.htmlIdLocal,
+         *         useFlatModel: this.useFlatModel,
+         *         onDelete: this.deleteListMode,
+         *         onMove: this.moveListMode,
+         *         onUpdate: this.updateListMode,
+         *       });
+         *     }) :
+         *     h(ATranslation, {
+         *       class: "a_list_group__item",
+         *       tag: "li",
+         *       text: "_A_VALIDATED_JSON_NO_ELEMENTS_",
+         *     }),
+         *   h("li", {
+         *     class: "a_list_group__item",
+         *   }, [
+         *     h(AElement, {
+         *       id: this.listModeBtnIdAdd,
+         *       class: "a_btn a_btn_secondary test_add a_width_100",
+         *       disabled: this.disabled,
+         *       extra: {
+         *         elementLabel: this.listModeElementLabelTranslated,
+         *       },
+         *       iconLeft: Plus,
+         *       text: "_A_VALIDATED_JSON_NO_ELEMENTS_ADD_ELEMENT_{{elementLabel}}_",
+         *       type: "button",
+         *       onClick: this.openModalCreateListMode,
+         *     }),
+         *   ]),
+         * ]),
+         */
+
+        this.helpText && h(AFormHelpText, {
+          id: this.helpTextId,
+          text: this.helpText,
+        }),
+        this.isErrors && h(AErrorsText, {
+          id: this.errorsId,
+          errors: this.errors,
+        }),
+
 
         this.isModalCreateListModeVisible ?
           h(AValidatedJsonModalCreateOrUpdate, {
@@ -357,79 +489,5 @@ export default {
           "",
       ]);
     }
-
-    const CONTENT = h("div", {
-      id: this.htmlIdLocal,
-      tabindex: -1,
-      class: "a_validated_json",
-    }, [
-      /*
-       * this.mode === "list" ?
-       *   h("ModeList", {
-       *     model: this.modelValue,
-       *     options: this.options,
-       *     errors: this.errorsObj,
-       *     idPrefix: this.subIdPrefix,
-       *     change: this.onChange,
-       *   }, this.$slots) :
-       *   "",
-       *
-       * this.mode === "json" ?
-       *   h("ModeJson", {
-       *     model: this.modelValue,
-       *     options: this.options,
-       *     errors: this.errorsObj,
-       *     idPrefix: this.subIdPrefix,
-       *     change: this.onChange,
-       *   }, this.$slots) :
-       *   "",
-       */
-    ]);
-
-    if (this.readonly) {
-      /*
-       * return h(AFormReadonly, {
-       *   ...this.$attrs,
-       *   id: this.htmlIdLocal,
-       *   alwaysTranslate: this.alwaysTranslate,
-       *   excludeRenderAttributes: this.excludeRenderAttributes,
-       *   extra: this.extra,
-       *   helpText: this.helpText,
-       *   label: this.label,
-       *   labelClass: this.labelClass,
-       *   required: this.required,
-       *   style: this.componentStyleHide,
-       *   type: "validated_json",
-       * }, () => CONTENT);
-       */
-    }
-
-    return h("div", {
-      ...this.$attrs,
-      style: this.componentStyleHide,
-      type: undefined,
-      ...this.attributesToExcludeFromRender,
-    }, [
-      h("div", {
-        class: "a_form_element__parent",
-      }, [
-        this.label && h(ALabel, {
-          id: this.htmlIdLocal,
-          label: this.label,
-          labelClass: this.labelClass,
-          labelScreenReader: this.labelScreenReader,
-          required: this.isRequired,
-        }),
-        CONTENT,
-        this.helpText && h(AFormHelpText, {
-          id: this.helpTextId,
-          text: this.helpText,
-        }),
-        this.isErrors && h(AErrorsText, {
-          id: this.errorsId,
-          errors: this.errors,
-        }),
-      ]),
-    ]);
   },
 };

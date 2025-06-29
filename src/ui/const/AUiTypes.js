@@ -11,6 +11,8 @@ export const typesModelArray = ref({
   checkbox: true,
   multiselect: true,
   multiselectOrdered: true,
+  multiselectIcon: true,
+  multiselectStyle: true,
 });
 
 export const typesModelObject = ref({

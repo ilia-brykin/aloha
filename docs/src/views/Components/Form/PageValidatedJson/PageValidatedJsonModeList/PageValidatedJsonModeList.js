@@ -43,7 +43,14 @@ export default {
         id: "currency",
       },
     ];
-    const model1 = ref(undefined);
+    const model1 = ref([
+      {
+        text: "Aloha1",
+      },
+      {
+        text: "Aloha2",
+      },
+    ]);
     const model2 = ref(undefined);
 
     return {

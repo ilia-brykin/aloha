@@ -6,5 +6,14 @@
   "_A_VALIDATED_JSON_MODAL_CREATE_HEADER_{{elementLabel}}_": "{{ elementLabel }} erstellen",
   "_A_VALIDATED_JSON_MODAL_UPDATE_HEADER_{{elementLabel}}_": "{{ elementLabel }} bearbeiten",
   "_A_VALIDATED_JSON_MODAL_CREATE_BTN_SAVE_{{elementLabel}}_": "{{ elementLabel }} hinzufügen",
-  "_A_VALIDATED_JSON_MODAL_UPDATE_BTN_SAVE_{{elementLabel}}_": "{{ elementLabel }} übernehmen"
+  "_A_VALIDATED_JSON_MODAL_UPDATE_BTN_SAVE_{{elementLabel}}_": "Änderungen übernehmen",
+  "_A_VALIDATED_JSON_MOVE_UP_": "Nach oben schieben",
+  "_A_VALIDATED_JSON_MOVE_DOWN_": "Nach unten schieben",
+  "_A_VALIDATED_JSON_CONFIRM_DELETE_HEADER_{{elementLabel}}_": "{{ elementLabel }} löschen",
+  "_A_VALIDATED_JSON_CONFIRM_DELETE_BODY_": "Sind Sie sicher, dass Sie dieses Element löschen wollen?",
+  "_A_VALIDATED_JSON_ELEMENT_REMOVE_": "Entfernen",
+  "_A_VALIDATED_JSON_CONFIRM_DELETE_BTN_": "Entfernen",
+  "_A_VALIDATED_JSON_ELEMENT_UPDATE_": "Bearbeiten",
+  "_A_VALIDATED_JSON_BTN_DETAILS_HIDE_": "Details ausblenden",
+  "_A_VALIDATED_JSON_BTN_DETAILS_SHOW_": "Details einblenden"
 }

@@ -13,6 +13,14 @@ aloha-example(
   )
   div model1:
   pre {{ model1 }}
+  a-validated-json(
+    v-model="model1"
+    id-prefix="aloha2"
+    :children="children"
+    :readonly="true"
+    label="_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_"
+    mode="list"
+  )
   //a-validated-json(
   //  v-model="model1"
   //  id-prefix="aloha2"
