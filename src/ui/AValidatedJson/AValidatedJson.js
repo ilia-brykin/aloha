@@ -20,7 +20,6 @@ import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import ListModeAPI from "./compositionAPI/ListModeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
-import OptionsAPI from "./compositionAPI/OptionsAPI";
 import SingleModeAPI from "./compositionAPI/SingleModeAPI";
 
 import Plus from "aloha-svg/dist/js/bootstrap/Plus";
@@ -185,20 +184,6 @@ export default {
     } = UiAPI(props, context);
 
     const {
-      keyField,
-      posField,
-      minLength,
-      maxLength,
-      elementLabel,
-      elementTemplate,
-      fields,
-      fieldsReadonly,
-      translateExtra,
-      isRequired,
-      showReadonly,
-    } = OptionsAPI(props);
-
-    const {
       onChange,
       checkUndefinedValue,
     } = ModelAPI(props, context);
@@ -262,22 +247,11 @@ export default {
       attributesToExcludeFromRender,
       checkUndefinedValue,
       componentStyleHide,
-      elementLabel,
-      elementTemplate,
       errorsId,
-      fields,
-      fieldsReadonly,
       helpTextId,
       htmlIdLocal,
       isErrors,
-      isRequired,
-      keyField,
-      maxLength,
-      minLength,
       onChange,
-      posField,
-      showReadonly,
-      translateExtra,
     };
   },
   render() {
