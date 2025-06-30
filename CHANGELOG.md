@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.26.0
+
+- Refactor `ACarousel` controls: introduce `ACarouselControlsIndicator` component, update related indicators handling logic, and add support for nested children and new margin property.
+
 ## 2.25.2
 
 - Add `AValidatedJson` list mode functionality with composition API

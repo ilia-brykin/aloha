@@ -12427,10 +12427,24 @@ input[type=text]::-ms-clear {
   background-color: var(--a_carousel_tab_primary_color);
 }
 
+.a_carousel__tabs__btn__children {
+  display: none;
+  align-items: center;
+  height: 100%;
+}
+
+.a_carousel__tabs__btn__children_active {
+  display: flex;
+}
+
 .a_carousel__tabs_dots:focus-within .tab-background,
 .a_carousel__tabs_squares:focus-within .tab-background {
   stroke: var(--a_carousel_tab_primary_color);
   fill: var(--a_carousel_tab_primary_color);
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn__wrapper,
+.a_carousel__tabs_squares .a_carousel__tabs__btn__wrapper {
+  display: flex;
 }
 .a_carousel__tabs_dots .a_carousel__tabs__btn,
 .a_carousel__tabs_squares .a_carousel__tabs__btn {
@@ -12481,6 +12495,55 @@ input[type=text]::-ms-clear {
 .a_carousel__tabs_dots .a_carousel__tabs__btn_active .tab,
 .a_carousel__tabs_squares .a_carousel__tabs__btn_active .tab {
   fill: #fff;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide {
+  --a_carousel_tab_width: 6px;
+  --a_carousel_tab_height: 8px;
+  top: 0;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide.a_carousel__tabs__btn_active:hover .border,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide.a_carousel__tabs__btn_active:hover .border {
+  stroke: #fff;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide.a_carousel__tabs__btn_active .tab,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide.a_carousel__tabs__btn_active .tab {
+  fill: #fff;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide.a_carousel__tabs__btn_active .border,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide.a_carousel__tabs__btn_active .border {
+  display: inline;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide:hover .tab,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide:hover .tab {
+  fill: #fff;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide:hover .border,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide:hover .border {
+  display: inline;
+  stroke: #fff;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide .tab,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide .tab {
+  r: 2px;
+  fill: #fff;
+  stroke-width: 0;
+  stroke: #fff;
+  cx: 3px;
+  cy: 3px;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide .border,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide .border {
+  r: 2px;
+  fill: #fff;
+  stroke-width: 2px;
+  stroke: #fff;
+  cx: 3px;
+  cy: 3px;
+}
+.a_carousel__tabs_dots .a_carousel__tabs__btn_hide .tab-background,
+.a_carousel__tabs_squares .a_carousel__tabs__btn_hide .tab-background {
+  display: none;
 }
 .a_carousel__tabs_dots .tab,
 .a_carousel__tabs_dots .border,
