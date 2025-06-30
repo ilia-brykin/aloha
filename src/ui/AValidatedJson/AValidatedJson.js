@@ -152,6 +152,11 @@ export default {
       required: false,
       default: false,
     },
+    uniqueChildrenIds: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     useFlatErrors: {
       type: Boolean,
       required: false,
@@ -328,11 +333,13 @@ export default {
                     children: this.childrenFiltered,
                     elementLabel: this.listModeElementLabelTranslated,
                     isLast: index === this.modelListMode.length - 1,
+                    modelAll: this.modelListMode,
                     modelIndex: index,
                     modelItem: item,
                     modeOptions: this.modeOptions,
                     parentId: this.htmlIdLocal,
                     readonly: this.readonly,
+                    uniqueChildrenIds: this.uniqueChildrenIds,
                     useFlatModel: this.useFlatModel,
                     onDelete: this.deleteListMode,
                     onMove: this.moveListMode,
@@ -380,6 +387,8 @@ export default {
                 close: this.closeModalCreateListMode,
                 elementLabelTranslated: this.listModeElementLabelTranslated,
                 isCreate: true,
+                modelAll: this.modelListMode,
+                uniqueChildrenIds: this.uniqueChildrenIds,
               }) :
               "",
           ]);
@@ -459,6 +468,8 @@ export default {
             close: this.closeModalCreateListMode,
             elementLabelTranslated: this.listModeElementLabelTranslated,
             isCreate: true,
+            modelAll: this.modelListMode,
+            uniqueChildrenIds: this.uniqueChildrenIds,
           }) :
           "",
       ]);

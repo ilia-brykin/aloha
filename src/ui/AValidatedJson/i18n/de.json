@@ -15,5 +15,6 @@
   "_A_VALIDATED_JSON_CONFIRM_DELETE_BTN_": "Entfernen",
   "_A_VALIDATED_JSON_ELEMENT_UPDATE_": "Bearbeiten",
   "_A_VALIDATED_JSON_BTN_DETAILS_HIDE_": "Details ausblenden",
-  "_A_VALIDATED_JSON_BTN_DETAILS_SHOW_": "Details einblenden"
+  "_A_VALIDATED_JSON_BTN_DETAILS_SHOW_": "Details einblenden",
+  "_A_VALIDATED_JSON_MODAL_CREATE_ERROR_ID_UNIQUE_": "Der Feldwert muss eindeutig sein. Der ausgewählte Wert wird bereits in einem anderen Element verwendet."
 }

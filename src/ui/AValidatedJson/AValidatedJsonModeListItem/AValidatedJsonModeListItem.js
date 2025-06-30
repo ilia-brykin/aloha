@@ -35,6 +35,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    modelAll: {
+      type: Array,
+      required: true,
+    },
     modelItem: {
       type: Object,
       required: true,
@@ -55,6 +59,11 @@ export default {
       type: Boolean,
       required: false,
       default: undefined,
+    },
+    uniqueChildrenIds: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     useFlatModel: {
       type: Boolean,
@@ -216,10 +225,13 @@ export default {
         h(AValidatedJsonModalCreateOrUpdate, {
           children: this.children,
           close: this.closeModalUpdate,
+          currentIndex: this.modelIndex,
           currentModel: this.modelItem,
           elementLabelTranslated: this.elementLabel,
           isCreate: false,
+          modelAll: this.modelAll,
           selectorCloseIds: this.btnOpenModalUpdateId,
+          uniqueChildrenIds: this.uniqueChildrenIds,
         }) :
         "",
     ]);

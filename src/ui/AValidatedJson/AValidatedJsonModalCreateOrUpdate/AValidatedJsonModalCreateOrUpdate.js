@@ -22,6 +22,11 @@ export default {
       type: Array,
       required: true,
     },
+    currentIndex: {
+      type: Number,
+      required: false,
+      default: undefined,
+    },
     currentModel: {
       type: Object,
       required: false,
@@ -36,10 +41,19 @@ export default {
       type: Boolean,
       required: true,
     },
+    modelAll: {
+      type: Array,
+      required: true,
+    },
     selectorCloseIds: {
       type: String,
       required: false,
       default: undefined,
+    },
+    uniqueChildrenIds: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
   },
   setup(props) {
@@ -61,6 +75,7 @@ export default {
     });
 
     const {
+      errorsLocal,
       save,
     } = SaveAPI(props, {
       isAnyRequiredElementEmpty,
@@ -70,6 +85,7 @@ export default {
     initModel();
 
     return {
+      errorsLocal,
       headerText,
       isAnyRequiredElementEmpty,
       model,
@@ -87,6 +103,7 @@ export default {
       extra: {
         elementLabel: this.elementLabelTranslated,
       },
+      errors: this.errorsLocal,
       modelValue: this.model,
       save: this.save,
       saveButtonText: this.saveButtonText,
