@@ -1,16 +1,10 @@
 import {
   h,
 } from "vue";
-import {
-  AElement,
-  AKeyId,
-  AKeyIndex,
-} from "../../index";
+
+import ACarouselControlsIndicator from "./ACarouselControlsIndicator/ACarouselControlsIndicator";
 
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
-import EventsAPI from "./compositionAPI/EventsAPI";
-import IconAPI from "./compositionAPI/IconAPI";
-
 
 export default {
   name: "ACarouselControls",
@@ -72,25 +66,13 @@ export default {
     "toNextSlide",
     "toPreviousSlide",
   ],
-  setup(props, context) {
+  setup() {
     const {
       ariaLabelTabsAttributes,
     } = AriaLabelAPI();
 
-    const {
-      indicatorIcon,
-    } = IconAPI(props);
-
-    const {
-      changeActiveId,
-      onPressBtn,
-    } = EventsAPI(context);
-
     return {
       ariaLabelTabsAttributes,
-      changeActiveId,
-      indicatorIcon,
-      onPressBtn,
     };
   },
   render() {
@@ -113,32 +95,16 @@ export default {
           ...this.ariaLabelTabsAttributes,
         }, [
           ...this.data.map(item => {
-            const IS_ACTIVE = this.activeId === item[AKeyId];
-            const INDEX = item[AKeyIndex];
-            const NUMBER = INDEX + 1;
-
-            return h(AElement, {
-              id: `${ this.parentId }_tab_${ NUMBER }`,
-              "aria-selected": false,
-              "aria-controls": `${ this.parentId }_item_${ NUMBER }`,
-              class: [
-                "a_carousel__tabs__btn",
-                {
-                  a_carousel__tabs__btn_active: IS_ACTIVE,
-                },
-              ],
-              iconLeft: this.indicatorIcon,
+            return h(ACarouselControlsIndicator, {
+              activeId: this.activeId,
+              data: item,
               disabled: this.disabled,
-              type: "button",
-              tabindex: IS_ACTIVE ? 0 : -1,
-              role: "tab",
-              title: this.texts.controlsSlide,
-              textScreenReader: this.texts.controlsSlide,
-              extra: {
-                number: NUMBER,
-              },
-              onClick: () => this.changeActiveId({ item }),
-              onKeydown: this.onPressBtn,
+              indicatorsType: this.indicatorsType,
+              parentId: this.parentId,
+              texts: this.texts,
+              onChangeActiveId: arg => this.$emit("changeActiveId", arg),
+              onToNextSlide: arg => this.$emit("toNextSlide", arg),
+              onToPreviousSlide: arg => this.$emit("toPreviousSlide", arg),
             });
           }),
         ]),

@@ -196,6 +196,14 @@
     background-color: var(--a_carousel_tab_primary_color);
   }
 }
+.a_carousel__tabs__btn__children {
+  display: none;
+  align-items: center;
+  height: 100%;
+}
+.a_carousel__tabs__btn__children_active {
+  display: flex;
+}
 .a_carousel__tabs_dots,
 .a_carousel__tabs_squares {
   &:focus-within {
@@ -203,6 +211,9 @@
       stroke: var(--a_carousel_tab_primary_color);
       fill: var(--a_carousel_tab_primary_color);
     }
+  }
+  .a_carousel__tabs__btn__wrapper {
+    display: flex;
   }
   .a_carousel__tabs__btn {
     .a_icon {
@@ -251,6 +262,53 @@
     }
     .tab {
       fill: #fff;
+    }
+  }
+
+  .a_carousel__tabs__btn_hide {
+    --a_carousel_tab_width: 6px;
+    --a_carousel_tab_height: 8px;
+    top: 0;
+    &.a_carousel__tabs__btn_active {
+      &:hover {
+        .border {
+          stroke: #fff;
+        }
+      }
+      .tab {
+        fill: #fff;
+      }
+      .border {
+        display: inline;
+      }
+    }
+    &:hover {
+      .tab {
+        fill: #fff;
+      }
+      .border {
+        display: inline;
+        stroke: #fff;
+      }
+    }
+    .tab {
+      r: 2px;
+      fill: #fff;
+      stroke-width: 0;
+      stroke: #fff;
+      cx: 3px;
+      cy: 3px;
+    }
+    .border {
+      r: 2px;
+      fill: #fff;
+      stroke-width: 2px;
+      stroke: #fff;
+      cx: 3px;
+      cy: 3px;
+    }
+    .tab-background {
+      display: none;
     }
   }
   .tab,

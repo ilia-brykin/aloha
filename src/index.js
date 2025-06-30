@@ -250,6 +250,7 @@ export {
 } from "./const/AFocusableElements";
 export {
   AKeyChildren,
+  AKeyHide,
   AKeyId,
   AKeyIndex,
   AKeyLabel,

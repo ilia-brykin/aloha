@@ -1,7 +1,7 @@
-import AKeysCode from "../../../const/AKeysCode";
+import AKeysCode from "../../../../const/AKeysCode";
 import {
   AKeyId,
-} from "../../../const/AKeys";
+} from "../../../../const/AKeys";
 
 export default function EventsAPI({ emit }) {
   const changeActiveId = ({ item }) => {

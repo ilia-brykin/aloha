@@ -5,7 +5,7 @@ import {
 
 import {
   ACarouselPluginOptions,
-} from "../../../plugins/ACarouselPlugin";
+} from "../../../../plugins/ACarouselPlugin";
 
 export default function IconAPI(props) {
   const indicatorsType = toRef(props, "indicatorsType");

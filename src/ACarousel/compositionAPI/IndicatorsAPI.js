@@ -5,15 +5,18 @@ import {
 } from "vue";
 
 import {
+  AKeyChildren,
+  AKeyIndex,
+} from "../../const/AKeys";
+import {
   floor,
+  forEach,
 } from "lodash";
 import {
-  get,
+  cloneDeep,
   isNil,
-  map,
   min,
   round,
-  uniqBy,
 } from "lodash-es";
 
 export default function IndicatorsAPI(props, {
@@ -21,6 +24,7 @@ export default function IndicatorsAPI(props, {
 }) {
   const indicatorsAutoLimit = toRef(props, "indicatorsAutoLimit");
   const indicatorsLimit = toRef(props, "indicatorsLimit");
+  const indicatorsMargin = toRef(props, "indicatorsMargin");
   const indicatorsShow = toRef(props, "indicatorsShow");
   const indicatorWidth = toRef(props, "indicatorWidth");
 
@@ -37,7 +41,7 @@ export default function IndicatorsAPI(props, {
       return indicatorsLimit.value;
     }
 
-    const INDICATORS_LIMIT = floor(carouselWidth.value / indicatorWidth.value);
+    const INDICATORS_LIMIT = floor((carouselWidth.value - indicatorsMargin.value) / (indicatorWidth.value));
     if (indicatorsLimit.value) {
       return min([INDICATORS_LIMIT, indicatorsLimit.value]);
     }
@@ -79,29 +83,43 @@ export default function IndicatorsAPI(props, {
     const countMiddle = max - 2;
     const step = (lastIndex) / (countMiddle + 1);
 
-    const result = [];
-
-    result.push({
-      index: firstIndex,
-      item: get(dataLocal.value, firstIndex),
-    });
+    // Create a set of visible indices
+    const visibleIndices = new Set();
+    visibleIndices.add(firstIndex);
+    visibleIndices.add(lastIndex);
 
     for (let i = 1; i <= countMiddle; i++) {
       const index = round(i * step);
-      result.push({
-        index,
-        item: get(dataLocal.value, index),
-      });
+      visibleIndices.add(index);
     }
 
-    result.push({
-      index: lastIndex,
-      item: get(dataLocal.value, lastIndex),
+    // Create a new array with visible elements and _a_children property
+    const result = [];
+    let lastVisibleIndex = -1;
+    let children = [];
+
+    forEach(cloneDeep(dataLocal.value), (item, index) => {
+      item[AKeyIndex] = index;
+      if (visibleIndices.has(index)) {
+        // If this is a visible element
+        if (lastVisibleIndex !== -1) {
+          // Add accumulated children to the previous visible element
+          if (children.length > 0) {
+            result[result.length - 1][AKeyChildren] = children;
+            children = [];
+          }
+        }
+
+        // Add the current visible element
+        result.push(item);
+        lastVisibleIndex = index;
+      } else {
+        // This is an invisible element, add it to children
+        children.push(item);
+      }
     });
 
-    const unique = uniqBy(result, "index");
-
-    return map(unique, "item");
+    return result;
   });
 
   return {

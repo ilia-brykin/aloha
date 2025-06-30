@@ -135,6 +135,12 @@ export default {
       required: false,
       default: undefined,
     },
+    indicatorsMargin: {
+      type: Number,
+      required: false,
+      default: 100,
+      validator: value => value >= 0,
+    },
     indicatorsPlacement: {
       type: String,
       required: false,

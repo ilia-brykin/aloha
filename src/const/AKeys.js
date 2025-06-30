@@ -1,4 +1,5 @@
 export const AKeyChildren = "_a_children";
+export const AKeyHide = "_a_hide";
 export const AKeyId = "_a_id";
 export const AKeyIndex = "_a_index";
 export const AKeyLabel = "_a_label";
