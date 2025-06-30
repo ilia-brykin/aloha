@@ -5,6 +5,7 @@ import {
   AModalForm,
 } from "../../../index";
 
+import DataFormAPI from "./composiitionAPI/DataFormAPI";
 import DisabledAPI from "./composiitionAPI/DisabledAPI";
 import ModelAPI from "./composiitionAPI/ModelAPI";
 import SaveAPI from "./composiitionAPI/SaveAPI";
@@ -50,6 +51,16 @@ export default {
       required: false,
       default: undefined,
     },
+    typedBaseId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    typedChildren: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     uniqueChildrenIds: {
       type: Array,
       required: false,
@@ -69,8 +80,17 @@ export default {
     } = ModelAPI(props);
 
     const {
+      changeDataForm,
+      dataForm,
+    } = DataFormAPI(props, {
+      model,
+      updateModel,
+    });
+
+    const {
       isAnyRequiredElementEmpty,
     } = DisabledAPI(props, {
+      dataForm,
       model,
     });
 
@@ -85,19 +105,20 @@ export default {
     initModel();
 
     return {
+      changeDataForm,
+      dataForm,
       errorsLocal,
       headerText,
       isAnyRequiredElementEmpty,
       model,
       save,
       saveButtonText,
-      updateModel,
     };
   },
   render() {
     return h(AModalForm, {
       close: this.close,
-      dataForm: this.children,
+      dataForm: this.dataForm,
       disabledSave: this.isAnyRequiredElementEmpty,
       headerText: this.headerText,
       extra: {
@@ -109,7 +130,7 @@ export default {
       saveButtonText: this.saveButtonText,
       selectorCloseIds: this.selectorCloseIds,
       size: "large",
-      "onUpdate:modelValue": this.updateModel,
+      onChange: this.changeDataForm,
     });
   },
 };

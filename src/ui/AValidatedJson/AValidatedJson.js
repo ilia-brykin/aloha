@@ -152,6 +152,16 @@ export default {
       required: false,
       default: false,
     },
+    typedBaseId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    typedChildren: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     uniqueChildrenIds: {
       type: Array,
       required: false,
@@ -339,6 +349,8 @@ export default {
                     modeOptions: this.modeOptions,
                     parentId: this.htmlIdLocal,
                     readonly: this.readonly,
+                    typedBaseId: this.typedBaseId,
+                    typedChildren: this.typedChildren,
                     uniqueChildrenIds: this.uniqueChildrenIds,
                     useFlatModel: this.useFlatModel,
                     onDelete: this.deleteListMode,
@@ -388,6 +400,8 @@ export default {
                 elementLabelTranslated: this.listModeElementLabelTranslated,
                 isCreate: true,
                 modelAll: this.modelListMode,
+                typedBaseId: this.typedBaseId,
+                typedChildren: this.typedChildren,
                 uniqueChildrenIds: this.uniqueChildrenIds,
               }) :
               "",

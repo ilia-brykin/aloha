@@ -60,6 +60,16 @@ export default {
       required: false,
       default: undefined,
     },
+    typedBaseId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    typedChildren: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     uniqueChildrenIds: {
       type: Array,
       required: false,
@@ -231,6 +241,8 @@ export default {
           isCreate: false,
           modelAll: this.modelAll,
           selectorCloseIds: this.btnOpenModalUpdateId,
+          typedBaseId: this.typedBaseId,
+          typedChildren: this.typedChildren,
           uniqueChildrenIds: this.uniqueChildrenIds,
         }) :
         "",

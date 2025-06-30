@@ -1,7 +1,6 @@
 import {
   computed,
   ref,
-  toRef,
 } from "vue";
 
 import {
@@ -10,19 +9,18 @@ import {
 } from "../../../utils/utils";
 
 export default function DisabledAPI(props, {
+  dataForm = computed(() => []),
   model = ref({}),
 }) {
-  const children = toRef(props, "children");
-
-  const childrenVisibleRequired = computed(() => {
+  const dataFormVisibleRequired = computed(() => {
     return filterVisibleRequiredUiElements({
-      elements: children.value,
+      elements: dataForm.value,
     });
   });
 
   const isAnyRequiredElementEmpty = computed(() => {
     return isAnyRequiredUiElementEmpty({
-      elements: childrenVisibleRequired.value,
+      elements: dataFormVisibleRequired.value,
       model: model.value,
     });
   });

@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['model-value', 'type']"
+)
+  a-validated-json(
+    v-model="model1"
+    id-prefix="aloha1"
+    :children="children"
+    :typed-children="typedChildren"
+    :unique-children-ids="['text']"
+    label="_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_"
+    mode="list"
+    typed-base-id="aloha"
+  )
+  div model1:
+  pre {{ model1 }}
