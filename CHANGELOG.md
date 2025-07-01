@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.27.0
+
+- Refactor `SCSS`: Convert all pixel-based units to `rem`
+- Refactor `ACarousel`: Introduce rem-based unit mapping for consistent scaling, integrate global `ARemPxAPI`, and update `ACarousel` `SCSS`, composition APIs, and plugins accordingly.
+
 ## 2.26.0
 
 - Refactor `ACarousel` controls: introduce `ACarouselControlsIndicator` component, update related indicators handling logic, and add support for nested children and new margin property.
