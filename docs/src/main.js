@@ -13,6 +13,7 @@ import {
   AMobilePlugin,
   AModalPlugin,
   APageTabTitlePlugin,
+  ARemPxPlugin,
   ARouterLinkConfigPlugin,
   ASafeHtml,
 } from "aloha-vue";
@@ -39,6 +40,7 @@ APP.use(AIconPlugin, {
 APP.use(AMobilePlugin, {
   breakpoint: 1023,
 });
+APP.use(ARemPxPlugin);
 APP.use(AModalPlugin, {
   propsDefault: {
     closeButtonClass: "a_btn a_btn_link",

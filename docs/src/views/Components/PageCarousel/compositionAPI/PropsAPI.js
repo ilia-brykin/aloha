@@ -151,7 +151,7 @@ export default function PropsAPI() {
       name: "indicator-width",
       description: "_A_CAROUSEL_PROPS_INDICATOR_WIDTH_DESCRIPTION_",
       type: "Number",
-      default: 34,
+      default: 2.125,
       required: false,
     },
     {

@@ -138,7 +138,7 @@ export default {
     indicatorsMargin: {
       type: Number,
       required: false,
-      default: 100,
+      default: 6,
       validator: value => value >= 0,
     },
     indicatorsPlacement: {
@@ -168,7 +168,8 @@ export default {
     indicatorWidth: {
       type: Number,
       required: false,
-      default: 34,
+      default: 2.125,
+      validator: value => value >= 0,
     },
     keyId: {
       type: String,

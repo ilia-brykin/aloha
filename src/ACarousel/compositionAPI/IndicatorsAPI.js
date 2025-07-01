@@ -4,6 +4,8 @@ import {
   toRef,
 } from "vue";
 
+import ARemPxAPI from "../../compositionAPI/ARemPxAPI";
+
 import {
   AKeyChildren,
   AKeyIndex,
@@ -32,6 +34,18 @@ export default function IndicatorsAPI(props, {
   const carouselWidth = ref(0);
   let observer = null;
 
+  const {
+    remPx,
+  } = ARemPxAPI();
+
+  const indicatorWidthLocal = computed(() => {
+    return indicatorWidth.value * remPx.value;
+  });
+
+  const indicatorsMarginLocal = computed(() => {
+    return indicatorsMargin.value * remPx.value;
+  });
+
   const useObserver = computed(() => {
     return indicatorsShow.value && indicatorsAutoLimit.value;
   });
@@ -41,7 +55,7 @@ export default function IndicatorsAPI(props, {
       return indicatorsLimit.value;
     }
 
-    const INDICATORS_LIMIT = floor((carouselWidth.value - indicatorsMargin.value) / (indicatorWidth.value));
+    const INDICATORS_LIMIT = floor((carouselWidth.value - indicatorsMarginLocal.value) / (indicatorWidthLocal.value));
     if (indicatorsLimit.value) {
       return min([INDICATORS_LIMIT, indicatorsLimit.value]);
     }
@@ -56,7 +70,9 @@ export default function IndicatorsAPI(props, {
 
     observer = new ResizeObserver(entries => {
       for (const entry of entries) {
-        carouselWidth.value = entry.contentRect.width;
+        if (entry.contentRect.width !== carouselWidth.value) {
+          carouselWidth.value = entry.contentRect.width;
+        }
       }
     });
 
