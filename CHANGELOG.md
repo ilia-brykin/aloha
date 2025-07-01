@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.27.1
+
+- Fix casing in `ARemPxAPI` export path for consistency with compositionAPI folder structure.
+
 ## 2.27.0
 
 - Refactor `SCSS`: Convert all pixel-based units to `rem`
