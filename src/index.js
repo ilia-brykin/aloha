@@ -125,6 +125,7 @@ export {
   openPopup as APopupAPI_openPopup,
   togglePopup as APopupAPI_togglePopup,
 } from "./compositionAPI/APopupAPI";
+export { default as ARemPxAPI } from "./compositionApi/ARemPxAPI";
 export { default as UiAPI } from "./ui/compositionApi/UiAPI";
 export { default as UIExcludeRenderAttributesAPI } from "./ui/compositionApi/UIExcludeRenderAttributesAPI";
 export { default as UiStyleHideAPI } from "./ui/compositionApi/UiStyleHideAPI";
