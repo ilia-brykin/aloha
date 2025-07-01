@@ -122,11 +122,11 @@
   display: flex;
   align-items: center;
   .a_select {
-    --a_select_min_width: 50px;
-    --a_select_toggle_padding_right: 5px;
+    --a_select_min_width: 3.125rem;
+    --a_select_toggle_padding_right: 0.3125rem;
   }
   .a_select_toggle {
-    width: 70px;
+    width: 4.375rem;
   }
 }
 .a_pagination__count_from_to {

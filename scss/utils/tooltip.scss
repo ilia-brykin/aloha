@@ -7,10 +7,10 @@
   --#{aloha.$aloha-prefix}tooltip_padding_x: 0.5rem;
   --#{aloha.$aloha-prefix}tooltip_padding_y: 0.3rem;
   --#{aloha.$aloha-prefix}tooltip_font_size: 0.8rem;
-  --#{aloha.$aloha-prefix}tooltip_arrow_width: 8px;
-  --#{aloha.$aloha-prefix}tooltip_arrow_height: 8px;
-  --#{aloha.$aloha-prefix}tooltip_arrow_shift: -4px;
-  --#{aloha.$aloha-prefix}tooltip_max_height: 400px;
+  --#{aloha.$aloha-prefix}tooltip_arrow_width: 0.5rem;
+  --#{aloha.$aloha-prefix}tooltip_arrow_height: 0.5rem;
+  --#{aloha.$aloha-prefix}tooltip_arrow_shift: -0.25rem;
+  --#{aloha.$aloha-prefix}tooltip_max_height: 25rem;
   --#{aloha.$aloha-prefix}tooltip_box_shadow_color: var(--#{aloha.$aloha-prefix}color_gray_400);
   --#{aloha.$aloha-prefix}tooltip_box_shadow: 1px 1px 0 0 var(--#{aloha.$aloha-prefix}tooltip_box_shadow_color);
 

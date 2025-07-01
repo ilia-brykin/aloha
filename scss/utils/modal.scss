@@ -4,12 +4,12 @@
 
 .#{aloha.$aloha-prefix}modal_open {
   overflow: hidden;
-  padding-right: 15px;
+  padding-right: 0.9375rem;
 }
 
 .#{aloha.$aloha-prefix}modal {
   --#{aloha.$aloha-prefix}modal_zindex: var(--a_z_index_modal);
-  --#{aloha.$aloha-prefix}modal_width: 500px;
+  --#{aloha.$aloha-prefix}modal_width: 31.25rem;
   --#{aloha.$aloha-prefix}modal_padding: 1rem;
   --#{aloha.$aloha-prefix}modal_margin: 0.5rem;
   --#{aloha.$aloha-prefix}modal_color: inherit;
@@ -18,7 +18,7 @@
   --#{aloha.$aloha-prefix}modal_border_width: 1px;
   --#{aloha.$aloha-prefix}modal_border_radius: var(--#{aloha.$aloha-prefix}border_radius_large);
   --#{aloha.$aloha-prefix}modal_box_shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --#{aloha.$aloha-prefix}modal_inner_border_radius: calc(0.5rem - 1px);
+  --#{aloha.$aloha-prefix}modal_inner_border_radius: calc(0.5rem - 0.0625rem);
   --#{aloha.$aloha-prefix}modal_header_padding_x: 1rem;
   --#{aloha.$aloha-prefix}modal_header_padding_y: 1rem;
   --#{aloha.$aloha-prefix}modal_header_padding: 1rem 1rem;

@@ -28,6 +28,9 @@ $a_sizing_width: (
         50:     50%,
         75:     75%,
         100:    100%,
+        1rem:   1rem,
+        2rem:   2rem,
+        3rem:   3rem,
         auto:   auto,
     ),
 ) !default;
@@ -66,6 +69,9 @@ $a_sizing_height: (
         50: 50%,
         75: 75%,
         100: 100%,
+        1rem:   1rem,
+        2rem:   2rem,
+        3rem:   3rem,
         auto: auto,
     ),
 ) !default;

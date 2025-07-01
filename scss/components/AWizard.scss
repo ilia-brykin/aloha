@@ -56,14 +56,14 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       position: relative;
       height: 100%;
       min-height: 100%;
-      margin-right: 5px;
+      margin-right: 0.3125rem;
       &::after {
         content: "";
         position: absolute;
         pointer-events: none;
-        height: 2px;
+        height: 0.125rem;
         left: 0;
-        bottom: -1px;
+        bottom: -0.0625rem;
         transition: all .35s ease .15s;
         width: 100%;
       }
@@ -120,7 +120,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
     margin-top: .5rem;
   }
   > .a_wizard__steps {
-    margin-left: 60px;
+    margin-left: 3.75rem;
     .a_wizard__step {
       position: relative;
     }
@@ -128,21 +128,21 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
     .a_wizard__step__divider {
       position: absolute;
       display: none;
-      left: -68px;
-      top: -3px;
-      width: calc(100% + 42px);
-      height: calc(100% + 6px);
-      clip-path: polygon(0 0, calc(100% - 33px) 0, 100% 50%, calc(100% - 33px) 100%, 0 100%, 33px 50%);
+      left: -4.25rem;
+      top: -0.1875rem;
+      width: calc(100% + 2.625rem);
+      height: calc(100% + 0.375rem);
+      clip-path: polygon(0 0, calc(100% - 2.0625rem) 0, 100% 50%, calc(100% - 2.0625rem) 100%, 0 100%, 2.0625rem 50%);
       z-index: 3;
       background-color: rgba(var(--a_wizard_step_focus_shadow_rgb), .5);
     }
     .a_wizard__step__link {
       position: relative;
       height: 100%;
-      padding: 10px 50px 10px 30px;
-      margin-right: 30px;
-      margin-left: -60px;
-      clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
+      padding: 0.625rem 3.125rem 0.625rem 1.875rem;
+      margin-right: 1.875rem;
+      margin-left: -3.75rem;
+      clip-path: polygon(0 0, calc(100% - 1.875rem) 0, 100% 50%, calc(100% - 1.875rem) 100%, 0 100%, 1.875rem 50%);
       z-index: 2;
       &:focus {
         box-shadow: none;
@@ -163,9 +163,9 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
         top: 0;
         background-color: transparent;
         z-index: -1;
-        width: calc(100% - 2px);
+        width: calc(100% - 0.125rem);
         height: 100%;
-        clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
+        clip-path: polygon(0 0, calc(100% - 1.875rem) 0, 100% 50%, calc(100% - 1.875rem) 100%, 0 100%, 1.875rem 50%);
       }
 
       &.default {
@@ -279,7 +279,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
 
   .a_wizard__steps {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
   .a_wizard__step {
     text-align: center;
@@ -288,10 +288,10 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       position: absolute;
       left: 0;
       width: 100%;
-      border-radius: 8px;
+      border-radius: 0.5rem;
       z-index: 0;
       border: 3px dashed var(--a_wizard_border_color);
-      margin-top: 25px;
+      margin-top: 1.5625rem;
     }
   }
   .a_wizard__step__link {
@@ -307,7 +307,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       width: 100%;
       z-index: 1;
       border: 3px solid var(--a_wizard_step_active_primary_color);
-      margin-top: 17px;
+      margin-top: 1.0625rem;
     }
 
     & > .a_wizard__step__number {
@@ -317,11 +317,11 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       margin-right: auto;
       margin-bottom: .5rem;
       transition: all 0.5s ease-in-out;
-      height: 40px;
-      min-width: 40px;
+      height: 2.5rem;
+      min-width: 2.5rem;
       background: var(--a_wizard_border_color);
       border-radius: var(--a_wizard_border_radius);
-      padding: 0 12px;
+      padding: 0 0.75rem;
       z-index: 1;
     }
 
@@ -414,7 +414,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
   --a_wizard_line_step_active_number_additional_border_width: 2px;
   --a_wizard_line_step_active_number_additional_border_style: solid;
   --a_wizard_line_step_active_number_additional_border_color: var(--a_wizard_step_active_primary_color);
-  --a_wizard_line_step_active_number_additional_border_space: 5px;
+  --a_wizard_line_step_active_number_additional_border_space: 0.3125rem;
   --a_wizard_line_step_active_number_box_shadow: none;
 
   .a_wizard__step__link.active > .a_wizard__step__number{
@@ -445,7 +445,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
     height: 100%;
     min-height: 100%;
     border-radius: 10em;
-    margin-right: 4px;
+    margin-right: 0.25rem;
     transition: all 0.5s ease-in-out;
 
     &.default {
@@ -577,7 +577,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
   }
   &.a_wizard_arrows > .a_wizard__steps {
     .a_wizard__step__divider {
-      width: calc(100% + 72px);
+      width: calc(100% + 4.5rem);
     }
     .a_wizard__step__link {
       overflow: hidden;
@@ -615,10 +615,10 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
         left: 0;
         width: 0;
         height: 100%;
-        border-radius: 8px;
+        border-radius: 0.5rem;
         z-index: 0;
         border: 3px dashed var(--a_wizard_border_color);
-        margin-left: 33px;
+        margin-left: 2.0625rem;
       }
     }
     .a_wizard__step {
@@ -634,7 +634,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
         top: 0;
         width: 0;
         height: 100%;
-        margin-left: 33px;
+        margin-left: 2.0625rem;
       }
       & > .a_wizard__step__number {
         margin: 0 .5rem 0 0;

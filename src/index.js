@@ -150,6 +150,7 @@ export { default as ASafeHtml } from "./directives/ASafeHtml";
 export { default as AAlertPlugin } from "./plugins/AAlertPlugin";
 export { default as ACloakPlugin } from "./plugins/ACloakPlugin";
 export { default as AFiltersPlugin } from "./plugins/AFiltersPlugin";
+export { default as ARemPxPlugin } from "./plugins/ARemPxPlugin";
 export {
   default as AFormPlugin,
   AFormPluginOptions,

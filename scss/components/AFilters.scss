@@ -3,7 +3,7 @@ $a_breakpoint_touch: 1023px !default;
 .a_filters_top {
   --a_filters_top_padding: 0.5rem;
   --a_filters_top_form_width: 50%;
-  --a_filters_top_form_max_width: 500px;
+  --a_filters_top_form_max_width: 31.25rem;
   --a_filters_top_label_padding_left: 2rem;
   --a_filters_top_label_width: 34%;
   --a_filters_top_subgroup_width: 66%;
@@ -34,12 +34,12 @@ $a_breakpoint_touch: 1023px !default;
 .a_filter_horizontal__wrapper {
   --a_filter_hor_divider_border_width: 1px;
   --a_filter_hor_divider_border_color: var(--a_color_gray_600);
-  --a_filter_hor_width: 800px;
+  --a_filter_hor_width: 50rem;
   --a_filter_hor_max_width: calc(100vw - 3rem);
   --a_filter_max_height: calc(100vh - 3rem);
   --a_filter_hor_padding_x: 1rem;
   --a_filter_hor_padding_y: 1rem;
-  --a_filter_hor_body_max_height: calc(100vh - 1rem - 113px);
+  --a_filter_hor_body_max_height: calc(100vh - 1rem - 7.0625rem);
   --a_filter_hor_footer_bg: rgba(255, 255, 255, 0.7);
   --a_filter_hor_footer_actions_bg: var(--a_color_white);
 
@@ -86,7 +86,7 @@ $a_breakpoint_touch: 1023px !default;
 
   .a_form_element__container {
     display: flex;
-    flex-basis: 181px;
+    flex-basis: 11.3125rem;
     flex-grow: 1;
     width: 100%;
   }
@@ -144,7 +144,7 @@ $a_breakpoint_touch: 1023px !default;
   padding: 0;
 }
 .a_filters_top__save_select {
-  width: 250px;
+  width: 15.625rem;
   margin-right: 0.5rem;
 }
 .a_filters_top__delete_filter_saved {
