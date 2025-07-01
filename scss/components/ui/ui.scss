@@ -13,7 +13,7 @@
 .a_form_element__parent {
   width: 100%;
   --a_form_element_error_color: var(--a_color_danger);
-  --a_form_element_label_float_top: 18px;
+  --a_form_element_label_float_top: 1.125rem;
 }
 .a_fieldset__content {
   --a_form_element_error_color: var(--a_color_danger);
@@ -23,15 +23,15 @@
   position: relative;
   .a_form_element_label {
     position: absolute;
-    left: 10px;
+    left: 0.625rem;
     top: var(--a_form_element_label_float_top);
     transform: translateY(-50%);
     color: #9f9185;
-    font-size: 14px;
+    font-size: 1rem;
     background: #fff;
     padding: 0 0.2rem;
     z-index: 4;
-    max-width: calc(100% - 20px);
+    max-width: calc(100% - 1.25rem);
     width: auto !important;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,7 +47,7 @@
       transition: all .3s;
       top: 0;
       color: #555;
-      font-size: 12px;
+      font-size: 0.875rem;
 
       &_error {
         color: var(--a_form_element_error_color);
@@ -75,10 +75,10 @@
 .a_form_element {
   position: relative;
   .a_form_element_with_one_btn {
-    padding-right: 30px;
+    padding-right: 1.875rem;
   }
   .a_form_element_with_two_btns {
-    padding-right: 50px;
+    padding-right: 3.125rem;
   }
 }
 
