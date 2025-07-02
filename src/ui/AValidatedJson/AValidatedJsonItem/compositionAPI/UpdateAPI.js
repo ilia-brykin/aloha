@@ -4,8 +4,15 @@ import {
   toRef,
 } from "vue";
 
+import {
+  AKeyId,
+} from "../../../../const/AKeys";
+
 export default function UpdateAPI(props, { emit }) {
+  const keyId = toRef(props, "keyId");
+  const mode = toRef(props, "mode");
   const modelIndex = toRef(props, "modelIndex");
+  const modelItem = toRef(props, "modelItem");
   const parentId = toRef(props, "parentId");
 
   const isModalUpdateVisible = ref(false);
@@ -22,7 +29,13 @@ export default function UpdateAPI(props, { emit }) {
     isModalUpdateVisible.value = false;
 
     if (model) {
-      emit("update", { index: modelIndex.value, model });
+      if (mode.value === "list") {
+        emit("update", { index: modelIndex.value, model });
+      } else {
+        const oldKey = modelItem.value[keyId.value || AKeyId];
+        const key = model[keyId.value || AKeyId];
+        emit("update", { model, key, oldKey });
+      }
     }
   };
 

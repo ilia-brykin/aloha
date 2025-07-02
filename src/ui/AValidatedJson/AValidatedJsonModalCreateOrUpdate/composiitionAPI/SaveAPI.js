@@ -5,6 +5,9 @@ import {
 } from "vue";
 
 import {
+  AKeyId,
+} from "../../../../const/AKeys";
+import {
   cloneDeep,
   forEach,
   get,
@@ -18,10 +21,31 @@ export default function SaveAPI(props, {
   const close = toRef(props, "close");
   const currentIndex = toRef(props, "currentIndex");
   const isCreate = toRef(props, "isCreate");
+  const keyId = toRef(props, "keyId");
+  const mode = toRef(props, "mode");
   const modelAll = toRef(props, "modelAll");
   const uniqueChildrenIds = toRef(props, "uniqueChildrenIds");
 
   const errorsLocal = ref(undefined);
+
+  const uniqueChildrenIdsLocal = computed(() => {
+    if (mode.value === "json") {
+      if (keyId.value) {
+        if (!uniqueChildrenIds.value.includes(keyId.value)) {
+          return [
+            ...uniqueChildrenIds.value,
+            keyId.value,
+          ];
+        }
+      }
+      return [
+        ...uniqueChildrenIds.value,
+        AKeyId,
+      ];
+    }
+
+    return uniqueChildrenIds.value;
+  });
 
   const deleteErrorsLocal = () => {
     errorsLocal.value = undefined;
@@ -50,13 +74,13 @@ export default function SaveAPI(props, {
   const validate = () => {
     let isValid = true;
     const ERRORS = {};
-    if (!uniqueChildrenIds.value.length) {
+    if (!uniqueChildrenIdsLocal.value.length) {
       return {
         isValid,
       };
     }
 
-    forEach(uniqueChildrenIds.value, id => {
+    forEach(uniqueChildrenIdsLocal.value, id => {
       if (isModelForIdUnique(id)) {
         isValid = false;
         ERRORS[id] = ["_A_VALIDATED_JSON_MODAL_CREATE_ERROR_ID_UNIQUE_"];

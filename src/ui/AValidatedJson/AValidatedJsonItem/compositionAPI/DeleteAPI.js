@@ -5,12 +5,15 @@ import {
 } from "vue";
 import {
   AConfirmAPI,
+  AKeyId,
   setFocusToElement,
 } from "../../../../index";
 
 export default function DeleteAPI(props, { emit }) {
   const elementLabel = toRef(props, "elementLabel");
+  const mode = toRef(props, "mode");
   const modelIndex = toRef(props, "modelIndex");
+  const modelItem = toRef(props, "modelItem");
   const parentId = toRef(props, "parentId");
 
   const {
@@ -23,7 +26,12 @@ export default function DeleteAPI(props, { emit }) {
   });
 
   const onDelete = () => {
-    emit("delete", { index: modelIndex.value });
+    if (mode.value === "list") {
+      emit("delete", { index: modelIndex.value });
+    } else {
+      emit("delete", { key: modelItem.value[AKeyId] });
+    }
+
     closeConfirm();
   };
 

@@ -6,13 +6,11 @@ import {
 } from "vue";
 
 import {
-  isArray,
-} from "lodash";
-import {
   setFocusToElement,
 } from "../../../utils/utilsDOM";
 import {
   cloneDeep,
+  isArray,
 } from "lodash-es";
 
 export default function ListModeAPI(props, {
@@ -27,10 +25,6 @@ export default function ListModeAPI(props, {
     return isArray(modelValue.value) ?
       modelValue.value :
       [];
-  });
-
-  const listModeBtnIdAdd = computed(() => {
-    return `${ htmlIdLocal.value }_btn_add`;
   });
 
   const openModalCreateListMode = () => {
@@ -116,7 +110,6 @@ export default function ListModeAPI(props, {
     closeModalCreateListMode,
     deleteListMode,
     isModalCreateListModeVisible,
-    listModeBtnIdAdd,
     modelListMode,
     moveListMode,
     openModalCreateListMode,

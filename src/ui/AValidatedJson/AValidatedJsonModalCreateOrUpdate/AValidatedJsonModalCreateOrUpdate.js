@@ -42,6 +42,16 @@ export default {
       type: Boolean,
       required: true,
     },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    mode: {
+      type: String,
+      required: true,
+      validator: value => ["list", "json"].includes(value),
+    },
     modelAll: {
       type: Array,
       required: true,

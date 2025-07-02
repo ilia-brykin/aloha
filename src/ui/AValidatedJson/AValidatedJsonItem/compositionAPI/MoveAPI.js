@@ -4,12 +4,12 @@ import {
 } from "vue";
 
 export default function MoveAPI(props, { emit }) {
+  const deactivateOrdering = toRef(props, "deactivateOrdering");
+  const hidePosition = toRef(props, "hidePosition");
   const isLast = toRef(props, "isLast");
   const modelIndex = toRef(props, "modelIndex");
-  const modeOptions = toRef(props, "modeOptions");
   const parentId = toRef(props, "parentId");
 
-  // deactivateOrdering
   const btnMoveUpId = computed(() => {
     return `${ parentId.value }_btn_move_up_${ modelIndex.value }`;
   });
@@ -19,7 +19,7 @@ export default function MoveAPI(props, { emit }) {
   });
 
   const canMove = computed(() => {
-    return !modeOptions.value.deactivateOrdering && !modeOptions.value.hidePosition;
+    return !deactivateOrdering.value && !hidePosition.value;
   });
 
   const disabledMoveUp = computed(() => {

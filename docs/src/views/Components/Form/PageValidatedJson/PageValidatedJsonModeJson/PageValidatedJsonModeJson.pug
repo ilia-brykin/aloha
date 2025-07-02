@@ -1,0 +1,66 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['model-value', 'type']"
+)
+  a-validated-json(
+    v-model="model1"
+    id-prefix="aloha4"
+    :children="children"
+    key-id="key"
+    :unique-children-ids="['key']"
+    label="_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_"
+    mode="json"
+  )
+  div model1:
+  pre {{ model1 }}
+  a-validated-json(
+    v-model="model2"
+    id-prefix="aloha5"
+    :children="children"
+    :unique-children-ids="['key']"
+    label="_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_"
+    mode="json"
+  )
+  div model2:
+  pre {{ model2 }}
+  //a-validated-json(
+  //  v-model="model1"
+  //  id-prefix="aloha2"
+  //  :children="children"
+  //  :readonly="true"
+  //  label="_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_"
+  //  mode="list"
+  //)
+  //a-validated-json(
+  //  v-model="model1"
+  //  id-prefix="aloha2"
+  //  :children="children"
+  //  :required="true"
+  //  class="a_mt_5"
+  //  label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
+  //  mode="single"
+  //)
+  //a-validated-json(
+  //  v-model="model1"
+  //  id-prefix="aloha3"
+  //  :children="children"
+  //  :mode-options="{ optionalSingleDefault: true }"
+  //  class="a_mt_5"
+  //  label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
+  //  mode="single"
+  //)
+  //div model1:
+  //pre {{ model1 }}
+  //a-validated-json(
+  //  v-model="model2"
+  //  id-prefix="aloha3"
+  //  :children="children"
+  //  class="a_mt_5"
+  //  label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
+  //  mode="single"
+  //)
+  //div model2:
+  //pre {{ model2 }}
+

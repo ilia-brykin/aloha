@@ -9,13 +9,10 @@ import {
 
 export default function LabelAPI(props) {
   const elementLabel = toRef(props, "elementLabel");
+  const elementTemplate = toRef(props, "elementTemplate");
+  const hidePosition = toRef(props, "hidePosition");
   const modelIndex = toRef(props, "modelIndex");
   const modelItem = toRef(props, "modelItem");
-  const modeOptions = toRef(props, "modeOptions");
-
-  const elementTemplate = computed(() => {
-    return modeOptions.value.elementTemplate || "{{ elementLabel }}";
-  });
 
   const label = computed(() => {
     let currentLabel = getTranslatedText({
@@ -26,7 +23,7 @@ export default function LabelAPI(props) {
       },
     });
 
-    if (!modeOptions.value.hidePosition) {
+    if (!hidePosition.value) {
       currentLabel = `${ modelIndex.value + 1 }. ${ currentLabel }`;
     }
 

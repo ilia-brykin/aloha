@@ -21,33 +21,56 @@ import Trash from "aloha-svg/dist/js/bootstrap/Trash";
 
 // @vue/component
 export default {
-  name: "AValidatedJsonModeListItem",
+  name: "AValidatedJsonItem",
   props: {
     children: {
       type: Array,
       required: true,
     },
+    deactivateOrdering: {
+      type: Boolean,
+      required: false,
+    },
+    deactivatePreview: {
+      type: Boolean,
+      required: false,
+    },
     elementLabel: {
       type: String,
       required: true,
     },
+    elementTemplate: {
+      type: String,
+      required: false,
+      default: "{{ elementLabel }}",
+    },
+    hidePosition: {
+      type: Boolean,
+      required: false,
+    },
     isLast: {
       type: Boolean,
+      required: false,
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    mode: {
+      type: String,
       required: true,
+      validator: value => ["list", "json"].includes(value),
     },
     modelAll: {
       type: Array,
-      required: true,
-    },
-    modelItem: {
-      type: Object,
       required: true,
     },
     modelIndex: {
       type: Number,
       required: true,
     },
-    modeOptions: {
+    modelItem: {
       type: Object,
       required: true,
     },
@@ -152,7 +175,7 @@ export default {
       h("div", {
         class: "a_d_flex a_justify_content_between a_align_items_center",
       }, [
-        !this.modeOptions.deactivatePreview ?
+        !this.deactivatePreview ?
           h(AElement, {
             id: this.btnToggleDetailsId,
             class: "a_btn a_btn_secondary a_mr_4 test_toggle_details",
@@ -239,6 +262,8 @@ export default {
           currentModel: this.modelItem,
           elementLabelTranslated: this.elementLabel,
           isCreate: false,
+          keyId: this.keyId,
+          mode: this.mode,
           modelAll: this.modelAll,
           selectorCloseIds: this.btnOpenModalUpdateId,
           typedBaseId: this.typedBaseId,
