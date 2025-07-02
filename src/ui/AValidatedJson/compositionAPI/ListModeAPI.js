@@ -6,10 +6,6 @@ import {
 } from "vue";
 
 import {
-  getTranslatedText,
-} from "../../../ATranslation/compositionAPI/UtilsAPI";
-
-import {
   isArray,
 } from "lodash";
 import {
@@ -24,7 +20,6 @@ export default function ListModeAPI(props, {
   updateModelValue = () => {},
 }) {
   const modelValue = toRef(props, "modelValue");
-  const modeOptions = toRef(props, "modeOptions");
 
   const isModalCreateListModeVisible = ref(false);
 
@@ -36,12 +31,6 @@ export default function ListModeAPI(props, {
 
   const listModeBtnIdAdd = computed(() => {
     return `${ htmlIdLocal.value }_btn_add`;
-  });
-
-  const listModeElementLabelTranslated = computed(() => {
-    return getTranslatedText({
-      placeholder: modeOptions.value.elementLabel || "_A_VALIDATED_JSON_ELEMENTS_",
-    });
   });
 
   const openModalCreateListMode = () => {
@@ -128,7 +117,6 @@ export default function ListModeAPI(props, {
     deleteListMode,
     isModalCreateListModeVisible,
     listModeBtnIdAdd,
-    listModeElementLabelTranslated,
     modelListMode,
     moveListMode,
     openModalCreateListMode,

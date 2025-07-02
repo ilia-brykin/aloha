@@ -21,6 +21,7 @@ import EventsAPI from "./compositionAPI/EventsAPI";
 import ListModeAPI from "./compositionAPI/ListModeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import SingleModeAPI from "./compositionAPI/SingleModeAPI";
+import TranslateAPI from "./compositionAPI/TranslateAPI";
 
 import Plus from "aloha-svg/dist/js/bootstrap/Plus";
 import {
@@ -51,6 +52,11 @@ export default {
       required: false,
       default: undefined,
     },
+    elementLabel: {
+      type: String,
+      required: false,
+      default: "_A_VALIDATED_JSON_ELEMENTS_",
+    },
     errors: {
       type: [String, Array, Object],
       required: false,
@@ -72,6 +78,16 @@ export default {
       default: undefined,
     },
     htmlId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    sortId: {
       type: String,
       required: false,
       default: undefined,
@@ -204,6 +220,10 @@ export default {
     } = ModelAPI(props, context);
 
     const {
+      elementLabelTranslated,
+    } = TranslateAPI(props);
+
+    const {
       blur,
       focus,
       open,
@@ -229,7 +249,6 @@ export default {
       deleteListMode,
       isModalCreateListModeVisible,
       listModeBtnIdAdd,
-      listModeElementLabelTranslated,
       moveListMode,
       modelListMode,
       openModalCreateListMode,
@@ -252,7 +271,7 @@ export default {
       isModalCreateListModeVisible,
       modelListMode,
       listModeBtnIdAdd,
-      listModeElementLabelTranslated,
+      elementLabelTranslated,
       updateModelValue,
       singleModeChildren,
       singleModeDataFormCheckbox,
@@ -341,7 +360,7 @@ export default {
                   return h(AValidatedJsonModeListItem, {
                     key: index,
                     children: this.childrenFiltered,
-                    elementLabel: this.listModeElementLabelTranslated,
+                    elementLabel: this.elementLabelTranslated,
                     isLast: index === this.modelListMode.length - 1,
                     modelAll: this.modelListMode,
                     modelIndex: index,
@@ -372,7 +391,7 @@ export default {
                     class: "a_btn a_btn_secondary test_add a_width_100",
                     disabled: this.disabled,
                     extra: {
-                      elementLabel: this.listModeElementLabelTranslated,
+                      elementLabel: this.elementLabelTranslated,
                     },
                     iconLeft: Plus,
                     text: "_A_VALIDATED_JSON_NO_ELEMENTS_ADD_ELEMENT_{{elementLabel}}_",
@@ -397,7 +416,7 @@ export default {
               h(AValidatedJsonModalCreateOrUpdate, {
                 children: this.childrenFiltered,
                 close: this.closeModalCreateListMode,
-                elementLabelTranslated: this.listModeElementLabelTranslated,
+                elementLabelTranslated: this.elementLabelTranslated,
                 isCreate: true,
                 modelAll: this.modelListMode,
                 typedBaseId: this.typedBaseId,
@@ -430,7 +449,7 @@ export default {
          *       return h(AValidatedJsonModeListItem, {
          *         key: index,
          *         children: this.childrenFiltered,
-         *         elementLabel: this.listModeElementLabelTranslated,
+         *         elementLabel: this.elementLabelTranslated,
          *         isLast: index === this.modelListMode.length - 1,
          *         modelIndex: index,
          *         modelItem: item,
@@ -455,7 +474,7 @@ export default {
          *       class: "a_btn a_btn_secondary test_add a_width_100",
          *       disabled: this.disabled,
          *       extra: {
-         *         elementLabel: this.listModeElementLabelTranslated,
+         *         elementLabel: this.elementLabelTranslated,
          *       },
          *       iconLeft: Plus,
          *       text: "_A_VALIDATED_JSON_NO_ELEMENTS_ADD_ELEMENT_{{elementLabel}}_",
@@ -480,7 +499,7 @@ export default {
           h(AValidatedJsonModalCreateOrUpdate, {
             children: this.childrenFiltered,
             close: this.closeModalCreateListMode,
-            elementLabelTranslated: this.listModeElementLabelTranslated,
+            elementLabelTranslated: this.elementLabelTranslated,
             isCreate: true,
             modelAll: this.modelListMode,
             uniqueChildrenIds: this.uniqueChildrenIds,
