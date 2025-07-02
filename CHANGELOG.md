@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.28.0
+
+- Add component `AValidatedJson`
+
 ## 2.27.1
 
 - Fix casing in `ARemPxAPI` export path for consistency with compositionAPI folder structure.
