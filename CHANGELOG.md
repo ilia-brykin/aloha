@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.28.2
+
+- Add `AValidatedJson` to `AFieldset` and ´AUiContainerComponents´ for extended component support.
+
 ## 2.28.1
 
 - Refactor `ACarousel`: Introduce `ArrowsAPI` to manage arrow visibility logic and update related components for improved reusability and maintainability.
