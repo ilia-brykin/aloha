@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.28.3
+
+- Refactor: Update component mappings to include `AValidatedJson` only in `AUiComponents`
+
+
 ## 2.28.2
 
 - Add `AValidatedJson` to `AFieldset` and ´AUiContainerComponents´ for extended component support.
