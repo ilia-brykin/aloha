@@ -10,6 +10,7 @@ import {
   AFormReadonly,
   AGroup,
   AUiTypes_typesContainer,
+  AValidatedJson,
   UiAPI,
   UiCollapseAPI,
   UIExcludeRenderAttributesAPI,
@@ -240,6 +241,7 @@ export default {
     const componentTypesMapping = () => ({
       ...AUiComponents,
       group: AGroup,
+      validatedJson: AValidatedJson,
       fieldset: resolveComponent("AFieldset"),
       ...AFormPluginOptions.components,
       ...AFormPluginOptions.containerComponents,

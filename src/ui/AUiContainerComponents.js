@@ -1,5 +1,8 @@
-import AFieldset from "./AFieldset/AFieldset";
-import AGroup from "./AGroup/AGroup";
+import {
+  AFieldset,
+  AGroup,
+  AValidatedJson,
+} from "../index";
 
 import {
   AFormPluginOptions,
@@ -8,5 +11,6 @@ import {
 export default {
   fieldset: AFieldset,
   group: AGroup,
+  validatedJson: AValidatedJson,
   ...AFormPluginOptions.containerComponents,
 };
