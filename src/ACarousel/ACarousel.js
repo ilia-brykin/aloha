@@ -11,6 +11,7 @@ import ACarouselItem from "./ACarouselItem/ACarouselItem";
 
 import ActiveAPI from "./compositionAPI/ActiveAPI";
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
+import ArrowsAPI from "./compositionAPI/ArrowsAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import IndicatorsAPI from "./compositionAPI/IndicatorsAPI";
@@ -231,6 +232,10 @@ export default {
     });
 
     const {
+      arrowsShowLocal,
+    } = ArrowsAPI(props);
+
+    const {
       activeId,
       changeActiveId,
       initActiveId,
@@ -262,6 +267,7 @@ export default {
       activeId,
       ariaLabelAttributes,
       arrowsPlacementClass,
+      arrowsShowLocal,
       arrowsTriggerClass,
       carouselRef,
       changeActiveId,
@@ -289,7 +295,7 @@ export default {
         ref: "carouselRef",
         class: "a_carousel__inner",
       }, [
-        this.arrowsShow ?
+        this.arrowsShowLocal ?
           h(ACarouselBtn, {
             btnAttributes: this.arrowPreviousAttributes,
             disabled: this.disabled,
@@ -330,7 +336,7 @@ export default {
             }, this.$slots);
           }),
         ]),
-        this.arrowsShow ?
+        this.arrowsShowLocal ?
           h(ACarouselBtn, {
             btnAttributes: this.arrowNextAttributes,
             disabled: this.disabled,

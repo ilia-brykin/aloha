@@ -42,9 +42,21 @@ export default {
         },
       ];
     });
+    const dataOne = computed(() => {
+      return [
+        {
+          id: 4,
+          src: "./assets/Volleyball_ball_red_background.png",
+          alt: getTranslatedText({
+            placeholder: "_A_CAROUSEL_COMPONENT_ALT_VOLLEY_BALL_",
+          }),
+        },
+      ];
+    });
     
     return {
       data,
+      dataOne,
     };
   },
 };`;
