@@ -1,8 +1,6 @@
-import {
-  AFieldset,
-  AGroup,
-  AValidatedJson,
-} from "../index";
+import AFieldset from "./AFieldset/AFieldset";
+import AGroup from "./AGroup/AGroup";
+import AValidatedJson from "./AValidatedJson/AValidatedJson";
 
 import {
   AFormPluginOptions,
