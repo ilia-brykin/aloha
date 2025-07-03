@@ -17,6 +17,7 @@ import ASelectStyle from "./ASelectStyle/ASelectStyle";
 import ASwitch from "./ASwitch/ASwitch";
 import ATemplate from "./ATemplate/ATemplate";
 import ATextarea from "./ATextarea/ATextarea";
+import AValidatedJson from "./AValidatedJson/AValidatedJson";
 
 export default {
   checkbox: ACheckbox,
@@ -52,4 +53,5 @@ export default {
   template: ATemplate,
   text: AInput,
   textarea: ATextarea,
+  validatedJson: AValidatedJson,
 };

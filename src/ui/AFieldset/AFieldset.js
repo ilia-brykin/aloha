@@ -241,7 +241,6 @@ export default {
     const componentTypesMapping = () => ({
       ...AUiComponents,
       group: AGroup,
-      validatedJson: AValidatedJson,
       fieldset: resolveComponent("AFieldset"),
       ...AFormPluginOptions.components,
       ...AFormPluginOptions.containerComponents,
