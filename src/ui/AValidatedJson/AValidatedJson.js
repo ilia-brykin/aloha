@@ -1,5 +1,5 @@
 import {
-  h,
+  h, toRef,
 } from "vue";
 import {
   AElement,
@@ -361,13 +361,14 @@ export default {
         modelValue: this.modelValue,
         readonly: this.readonly,
         required: this.required,
-        skipOwnIdInModelPath: true,
-        slotNamePrepend: "singlePrepend",
+        skipOwnIdInModelPath: false,
+        slotNamePrepend: `singlePrepend_${ this.id }`,
         useFlatErrors: this.useFlatErrors,
         useFlatModel: this.useFlatModel,
-        "onUpdate:modelValue": this.updateModelValue,
+        change: this.onChange,
+        // "onUpdate:modelValue": this.updateModelValue,
       }, {
-        singlePrepend: !this.required ?
+        [`singlePrepend_${ this.id }`]: !this.required ?
           () => {
             return h(AOneCheckbox, this.singleModeDataFormCheckbox);
           } :
@@ -392,9 +393,9 @@ export default {
         labelClass: this.labelClass,
         labelScreenReader: this.labelScreenReader,
         required: this.required,
-        slotName: "slotAppend",
+        slotName: `slotAppend_${ this.id }`,
       }, {
-        slotAppend: () => {
+        [`slotAppend_${ this.id }`]: () => {
           return h("div", {
             class: "a_column a_column_12",
           }, [

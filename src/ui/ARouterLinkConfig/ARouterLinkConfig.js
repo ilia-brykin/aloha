@@ -250,18 +250,16 @@ export default {
   ],
   setup(props, context) {
     const {
-      changeModel,
       htmlIdLocal,
     } = UiAPI(props, context);
 
     const {
+      changeModel,
       changeParamModel,
       changeQueryModel,
       changeRouteModel,
       changeTargetModel,
-    } = ModelLocalAPI(props, {
-      changeModel,
-    });
+    } = ModelLocalAPI(props, context);
 
     const {
       routePathKeyByKeyId,
@@ -290,6 +288,7 @@ export default {
     });
 
     return {
+      changeModel,
       dataFormChildren,
       hasParam,
       htmlIdLocal,
@@ -325,7 +324,8 @@ export default {
       required: this.required,
       slotName: this.slotName,
       children: this.dataFormChildren,
-      "onUpdate:modelValue": this.$emit["update:modelValue"],
+      change: this.changeModel,
+      // "onUpdate:modelValue": this.$emit["update:modelValue"],
     });
   },
 };

@@ -20,7 +20,6 @@ export default function ModelAPI(props, { emit }) {
   const onUpdateModelLocal = ({ currentModel, id: idChild, item, model, props, component, fullModel }) => {
     if (fullModel) {
       const MODEL_VALUE = cloneDeep(fullModel);
-      emit("update:modelValue", MODEL_VALUE);
       change.value({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });
       if (isFunction(component.change)) {
         component.change({ currentModel, id: idChild, item, fullModel: MODEL_VALUE, model, props });

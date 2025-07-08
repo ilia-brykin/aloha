@@ -1,15 +1,27 @@
 import {
   toRef,
+  toRefs,
 } from "vue";
 
 import {
   cloneDeep,
 } from "lodash-es";
 
-export default function ModelLocalAPI(props, {
-  changeModel = () => {},
-}) {
+export default function ModelLocalAPI(props, { emit }) {
+  const change = toRef(props, "change");
+  const id = toRef(props, "id");
   const modelValue = toRef(props, "modelValue");
+
+  const changeModel = ({ model, item }) => {
+    emit("update:modelValue", model);
+    change.value({
+      currentModel: model,
+      id: id.value,
+      item,
+      model,
+      props: toRefs(props),
+    });
+  };
 
   const changeRouteModel = ({ model }) => {
     if (model) {

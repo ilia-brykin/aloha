@@ -10,6 +10,7 @@ import {
   filter,
   forEach,
   get,
+  isBoolean,
   isEmpty,
   isNil,
 } from "lodash-es";
@@ -43,7 +44,8 @@ export function filterVisibleRequiredUiElements({ elements }) {
       }
     }
 
-    return element.required;
+    // TODO Ilia VORSICHT
+    return !isBoolean(element.required) || element.required;
   });
 }
 

@@ -17,6 +17,8 @@ export default function ListModeAPI(props, {
   htmlIdLocal = computed(() => undefined),
   updateModelValue = () => {},
 }) {
+  const change = toRef(props, "change");
+  const id = toRef(props, "id");
   const modelValue = toRef(props, "modelValue");
 
   const isModalCreateListModeVisible = ref(false);
@@ -35,7 +37,11 @@ export default function ListModeAPI(props, {
     if (model) {
       const MODEL_VALUE = cloneDeep(modelListMode.value);
       MODEL_VALUE.push(model);
-      updateModelValue(MODEL_VALUE);
+      change.value({
+        currentModel: MODEL_VALUE,
+        model: MODEL_VALUE,
+        id: id.value,
+      });
     }
     isModalCreateListModeVisible.value = false;
   };
@@ -49,7 +55,11 @@ export default function ListModeAPI(props, {
     const ITEM_MODEL = MODEL[index];
     MODEL.splice(index, 1);
     MODEL.splice(index - 1, 0, ITEM_MODEL);
-    updateModelValue(MODEL);
+    change.value({
+      currentModel: MODEL,
+      model: MODEL,
+      id: id.value,
+    });
     nextTick().then(
       () => {
         const ID = `#${ htmlIdLocal.value }_btn_move_up_${ index - 1 }`;
@@ -68,7 +78,11 @@ export default function ListModeAPI(props, {
     const ITEM_MODEL = MODEL[index];
     MODEL.splice(index, 1);
     MODEL.splice(index + 1, 0, ITEM_MODEL);
-    updateModelValue(MODEL);
+    change.value({
+      currentModel: MODEL,
+      model: MODEL,
+      id: id.value,
+    });
     nextTick().then(
       () => {
         const ID = `#${ htmlIdLocal.value }_btn_move_down_${ index + 1 }`;
@@ -90,7 +104,11 @@ export default function ListModeAPI(props, {
   const deleteListMode = ({ index }) => {
     const MODEL = cloneDeep(modelListMode.value);
     MODEL.splice(index, 1);
-    updateModelValue(MODEL);
+    change.value({
+      currentModel: MODEL,
+      model: MODEL,
+      id: id.value,
+    });
     nextTick().then(
       () => {
         setFocusToElement({
@@ -103,7 +121,11 @@ export default function ListModeAPI(props, {
   const updateListMode = ({ index, model }) => {
     const MODEL = cloneDeep(modelListMode.value);
     MODEL.splice(index, 1, model);
-    updateModelValue(MODEL);
+    change.value({
+      currentModel: MODEL,
+      model: MODEL,
+      id: id.value,
+    });
   };
 
   return {

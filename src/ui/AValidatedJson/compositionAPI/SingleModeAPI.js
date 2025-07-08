@@ -5,6 +5,8 @@ import {
 } from "vue";
 
 import {
+  get,
+  isEmpty,
   isNil,
   size,
 } from "lodash-es";
@@ -19,11 +21,30 @@ export default function SingleModeAPI(props, {
   const modeOptions = toRef(props, "modeOptions");
   const readonly = toRef(props, "readonly");
   const required = toRef(props, "required");
+  const typedBaseId = toRef(props, "typedBaseId");
+  const typedChildren = toRef(props, "typedChildren");
 
   const singleModeModelCheckbox = ref(undefined);
 
   const labelCheckbox = computed(() => {
     return modeOptions.value?.labelCheckbox || "_A_VALIDATED_JSON_SINGLE_LABEL_CHECKBOX_";
+  });
+
+  const isFormTyped = computed(() => {
+    return !(isEmpty(typedChildren.value) || !typedBaseId.value);
+  });
+
+  const modelTyped = computed(() => {
+    return get(modelValue.value, typedBaseId.value);
+  });
+
+  const dataFormTyped = computed(() => {
+    if (modelTyped.value &&
+      typedChildren.value[modelTyped.value]?.length) {
+      return typedChildren.value[modelTyped.value];
+    }
+
+    return [];
   });
 
   const changeModelSingleModeCheckbox = ({ model }) => {
@@ -58,7 +79,16 @@ export default function SingleModeAPI(props, {
 
   const singleModeChildren = computed(() => {
     if (showSingleModeChildren.value) {
-      return childrenFiltered.value;
+      if (!isFormTyped.value) {
+        return childrenFiltered.value;
+      }
+
+      const CHILDREN = [
+        ...childrenFiltered.value,
+        ...dataFormTyped.value,
+      ];
+
+      return CHILDREN;
     }
 
     return [];
