@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.28.4
+
+- fixed `AValidatedJson`
+
 ## 2.28.3
 
 - Refactor: Update component mappings to include `AValidatedJson` only in `AUiComponents`
