@@ -8,13 +8,17 @@ import {
   isAnyRequiredUiElementEmpty,
 } from "../../../utils/utils";
 
+import {
+  cloneDeep,
+} from "lodash-es";
+
 export default function DisabledAPI(props, {
   dataForm = computed(() => []),
   model = ref({}),
 }) {
   const dataFormVisibleRequired = computed(() => {
     return filterVisibleRequiredUiElements({
-      elements: dataForm.value,
+      elements: cloneDeep(dataForm.value),
     });
   });
 

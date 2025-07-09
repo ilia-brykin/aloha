@@ -44,8 +44,7 @@ export function filterVisibleRequiredUiElements({ elements }) {
       }
     }
 
-    // TODO Ilia VORSICHT
-    return !isBoolean(element.required) || element.required;
+    return element.required;
   });
 }
 
