@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.28.5
+
+- fixed `AValidatedJson`
+- 
 ## 2.28.4
 
 - fixed `AValidatedJson`
