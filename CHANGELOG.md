@@ -7,10 +7,14 @@
 ---
 # Versions
 
+## 2.28.6
+
+- `AValidatedJson` code cleanup
+
 ## 2.28.5
 
 - fixed `AValidatedJson`
-- 
+
 ## 2.28.4
 
 - fixed `AValidatedJson`
