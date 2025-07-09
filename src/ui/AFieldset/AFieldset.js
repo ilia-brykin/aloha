@@ -10,7 +10,6 @@ import {
   AFormReadonly,
   AGroup,
   AUiTypes_typesContainer,
-  AValidatedJson,
   UiAPI,
   UiCollapseAPI,
   UIExcludeRenderAttributesAPI,

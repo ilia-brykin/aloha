@@ -15,7 +15,6 @@ import {
 
 export default function ListModeAPI(props, {
   htmlIdLocal = computed(() => undefined),
-  updateModelValue = () => {},
 }) {
   const change = toRef(props, "change");
   const id = toRef(props, "id");

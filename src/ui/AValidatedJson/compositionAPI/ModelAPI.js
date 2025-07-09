@@ -7,9 +7,8 @@ import {
   isNil,
 } from "lodash-es";
 
-export default function ModelAPI(props, { emit }) {
+export default function ModelAPI(props) {
   const modelValue = toRef(props, "modelValue");
-  const options = toRef(props, "options");
   const change = toRef(props, "change");
   const id = toRef(props, "id");
 
@@ -17,7 +16,7 @@ export default function ModelAPI(props, { emit }) {
     return isNil(value) ? undefined : value;
   };
 
-  const onChange = ({ currentModel, id: idChild, fullModel: _fullModel, model }) => {
+  const onChange = ({ currentModel, id: idChild, model }) => {
     const VALUE_LOCAL = checkUndefinedValue({ value: cloneDeep(currentModel || model) })
     if (VALUE_LOCAL === modelValue.value) {
       return;

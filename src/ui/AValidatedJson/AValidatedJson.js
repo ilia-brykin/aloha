@@ -1,5 +1,5 @@
 import {
-  h, toRef,
+  h,
 } from "vue";
 import {
   AElement,
@@ -236,7 +236,7 @@ export default {
     const {
       onChange,
       checkUndefinedValue,
-    } = ModelAPI(props, context);
+    } = ModelAPI(props);
 
     const {
       elementLabelTranslated,
