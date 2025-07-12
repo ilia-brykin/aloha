@@ -1,6 +1,7 @@
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageSelectIconBasic from "./PageSelectIconBasic/PageSelectIconBasic.vue";
+import PageSelectIconChange from "./PageSelectIconChange/PageSelectIconChange.vue";
 import PageSelectIconReadonly from "./PageSelectIconReadonly/PageSelectIconReadonly.vue";
 import {
   ATranslation,
@@ -17,6 +18,7 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageSelectIconBasic,
+    PageSelectIconChange,
     PageSelectIconReadonly,
   },
   setup() {
