@@ -1,11 +1,11 @@
 export default function HtmlAPI() {
-  const codeHtml = `<a-a-select-icon
+  const codeHtml = `<a-select-icon
   :change="changeModel1"
   :model-value="model1"
   label="Select 1"
-></a-a-select-icon>
+></a-select-icon>
 <div>model1: {{ model1 }}</div>
-<a-a-select-icon
+<a-select-icon
   :change="changeModel2"
   :model-value="model2"
   class="a_mt_3"
