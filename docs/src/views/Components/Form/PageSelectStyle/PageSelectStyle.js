@@ -5,6 +5,7 @@ import PageSelectStyleBasic from "./PageSelectStyleBasic/PageSelectStyleBasic.vu
 import PageSelectStyleChange from "./PageSelectStyleChange/PageSelectStyleChange.vue";
 import PageSelectStyleDataExtended from "./PageSelectStyleDataExtended/PageSelectStyleDataExtended.vue";
 import PageSelectStyleFilterGroups from "./PageSelectStyleFilterGroups/PageSelectStyleFilterGroups.vue";
+import PageSelectStyleHelpText from "./PageSelectStyleHelpText/PageSelectStyleHelpText.vue";
 import PageSelectStyleLabelDescription from "./PageSelectStyleLabelDescription/PageSelectStyleLabelDescription.vue";
 import PageSelectStyleReadonly from "./PageSelectStyleReadonly/PageSelectStyleReadonly.vue";
 import {
@@ -27,6 +28,7 @@ export default {
     PageSelectStyleChange,
     PageSelectStyleDataExtended,
     PageSelectStyleFilterGroups,
+    PageSelectStyleHelpText,
     PageSelectStyleLabelDescription,
     PageSelectStyleReadonly,
   },
