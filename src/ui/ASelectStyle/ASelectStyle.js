@@ -248,7 +248,7 @@ export default {
       default: () => ({}),
     },
     modelValue: {
-      type: [String, Number, Boolean, Array],
+      type: [String, Array],
       required: false,
       default: () => ASelectPluginOptions.propsDefault.modelValue,
     },

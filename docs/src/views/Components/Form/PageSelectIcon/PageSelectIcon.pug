@@ -10,3 +10,15 @@ aloha-page(
     )
 
     page-select-icon-basic
+
+    page-select-icon-readonly
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )

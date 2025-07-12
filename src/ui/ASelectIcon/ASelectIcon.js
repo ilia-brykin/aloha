@@ -245,7 +245,7 @@ export default {
       default: null,
     },
     modelValue: {
-      type: [String, Number, Boolean, Array],
+      type: [String, Array],
       required: false,
       default: () => ASelectPluginOptions.propsDefault.modelValue,
     },
@@ -289,11 +289,6 @@ export default {
       required: false,
       default: true,
     },
-    searchInGroup: {
-      type: Boolean,
-      required: false,
-      default: undefined,
-    },
     searchTextInHtml: {
       type: Boolean,
       required: false,
@@ -320,12 +315,6 @@ export default {
       default: () => ASelectPluginOptions.propsDefault.sortOrder,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
-    sortOrderGroup: {
-      type: String,
-      required: false,
-      default: () => ASelectPluginOptions.propsDefault.sortOrderGroup,
-      validator: value => ["asc", "desc"].indexOf(value) !== -1,
-    },
     textDeselectAll: {
       type: String,
       required: false,
@@ -335,11 +324,6 @@ export default {
       type: String,
       required: false,
       default: () => ASelectPluginOptions.propsDefault.textSelectAll,
-    },
-    translateData: {
-      type: Boolean,
-      required: false,
-      default: () => ASelectPluginOptions.propsDefault.translateData,
     },
     type: {
       type: String,

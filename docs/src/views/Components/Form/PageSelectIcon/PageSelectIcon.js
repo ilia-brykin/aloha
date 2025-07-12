@@ -1,15 +1,14 @@
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageSelectIconBasic from "./PageSelectIconBasic/PageSelectIconBasic.vue";
+import PageSelectIconReadonly from "./PageSelectIconReadonly/PageSelectIconReadonly.vue";
 import {
   ATranslation,
 } from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import SlotsAPI from "./compositionAPI/SlotsAPI";
 
 export default {
   name: "PageSelectIcon",
@@ -18,6 +17,7 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageSelectIconBasic,
+    PageSelectIconReadonly,
   },
   setup() {
     const {
@@ -29,22 +29,12 @@ export default {
     } = PropsAPI();
 
     const {
-      dataSlots,
-    } = SlotsAPI();
-
-    const {
       dataEvents,
     } = EventsAPI();
 
-    const {
-      dataExposes,
-    } = ExposesAPI();
-
     return {
       dataEvents,
-      dataExposes,
       dataProps,
-      dataSlots,
       pageTitle,
     };
   },

@@ -313,7 +313,7 @@ export default function PropsAPI() {
     {
       name: "model-value",
       description: "_A_UI_PROPS_MODEL_VALUE_DESCRIPTION_",
-      type: "Array",
+      type: "String / Array",
       default: undefined,
       required: false,
     },
@@ -332,7 +332,7 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "placeholder",
+      name: "placement",
       description: "_A_UI_PROPS_PLACEMENT_DESCRIPTION_",
       type: "String",
       default: "bottom-end",

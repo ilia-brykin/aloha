@@ -15,6 +15,11 @@ export default function EventsAPI() {
       description: "_A_UI_EVENTS_BLUR_DESCRIPTION_",
       type: "Function",
     },
+    {
+      name: "open",
+      description: "_A_SELECT_EVENTS_OPEN_DESCRIPTION_",
+      type: "Function",
+    },
   ];
 
   return {
