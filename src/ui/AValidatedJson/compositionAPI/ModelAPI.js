@@ -17,7 +17,7 @@ export default function ModelAPI(props) {
   };
 
   const onChange = ({ currentModel, id: idChild, model }) => {
-    const VALUE_LOCAL = checkUndefinedValue({ value: cloneDeep(currentModel || model) })
+    const VALUE_LOCAL = checkUndefinedValue({ value: cloneDeep(currentModel || model) });
     if (VALUE_LOCAL === modelValue.value) {
       return;
     }
