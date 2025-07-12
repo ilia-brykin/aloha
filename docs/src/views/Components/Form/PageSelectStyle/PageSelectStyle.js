@@ -4,6 +4,7 @@ import AlohaTableTranslate from "../../../../global/components/AlohaTableTransla
 import PageSelectStyleBasic from "./PageSelectStyleBasic/PageSelectStyleBasic.vue";
 import PageSelectStyleChange from "./PageSelectStyleChange/PageSelectStyleChange.vue";
 import PageSelectStyleDataExtended from "./PageSelectStyleDataExtended/PageSelectStyleDataExtended.vue";
+import PageSelectStyleErrors from "./PageSelectStyleErrors/PageSelectStyleErrors.vue";
 import PageSelectStyleFilterGroups from "./PageSelectStyleFilterGroups/PageSelectStyleFilterGroups.vue";
 import PageSelectStyleHelpText from "./PageSelectStyleHelpText/PageSelectStyleHelpText.vue";
 import PageSelectStyleLabelDescription from "./PageSelectStyleLabelDescription/PageSelectStyleLabelDescription.vue";
@@ -27,6 +28,7 @@ export default {
     PageSelectStyleBasic,
     PageSelectStyleChange,
     PageSelectStyleDataExtended,
+    PageSelectStyleErrors,
     PageSelectStyleFilterGroups,
     PageSelectStyleHelpText,
     PageSelectStyleLabelDescription,
