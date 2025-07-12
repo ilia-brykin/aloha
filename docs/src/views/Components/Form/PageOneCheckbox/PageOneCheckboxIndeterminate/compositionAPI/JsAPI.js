@@ -10,7 +10,7 @@ import {
 export default {
   name: "PageOneCheckboxIndeterminate",
   components: {
-    AInput,
+    AOneCheckbox,
   },
   setup() {
     const model = ref(undefined);

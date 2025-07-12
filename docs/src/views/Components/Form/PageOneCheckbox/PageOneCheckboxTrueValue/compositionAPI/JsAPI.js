@@ -10,7 +10,7 @@ import {
 export default {
   name: "PageOneCheckboxTrueValue",
   components: {
-    AInput,
+    AOneCheckbox,
   },
   setup() {
     const model = ref(undefined);

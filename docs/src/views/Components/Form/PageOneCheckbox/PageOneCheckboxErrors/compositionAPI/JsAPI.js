@@ -10,7 +10,7 @@ import {
 export default {
   name: "PageOneCheckboxErrors",
   components: {
-    AInput,
+    AOneCheckbox,
   },
   setup() {
     const model = ref(undefined);
