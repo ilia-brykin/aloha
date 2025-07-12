@@ -16,13 +16,13 @@ export default {
     const model1 = ref(undefined);
     const model2 = ref(undefined);
 
-    const changeModel1 = ({ model: _model, id, props, item }) => {
+    const changeModel1 = ({ model: _model, id, props, item, currentModel }) => {
       model1.value = _model;
-      console.log(id, props, item);
+      console.log(id, props, item, currentModel);
     };
-    const changeModel2 = ({ model: _model, id, props, item }) => {
+    const changeModel2 = ({ model: _model, id, props, item, currentModel }) => {
       model2.value = _model;
-      console.log(id, props, item);
+      console.log(id, props, item, currentModel);
     };
     
     return {
