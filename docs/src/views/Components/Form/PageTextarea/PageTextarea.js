@@ -6,6 +6,7 @@ import PageTextareaChange from "./PageTextareaChange/PageTextareaChange.vue";
 import PageTextareaErrors from "./PageTextareaErrors/PageTextareaErrors.vue";
 import PageTextareaHelpText from "./PageTextareaHelpText/PageTextareaHelpText.vue";
 import PageTextareaIsScalable from "./PageTextareaIsScalable/PageTextareaIsScalable.vue";
+import PageTextareaLabelDescription from "./PageTextareaLabelDescription/PageTextareaLabelDescription.vue";
 import PageTextareaLabelFloat from "./PageTextareaLabelFloat/PageTextareaLabelFloat.vue";
 import PageTextareaLabelScreenReader from "./PageTextareaLabelScreenReader/PageTextareaLabelScreenReader.vue";
 import PageTextareaReadonly from "./PageTextareaReadonly/PageTextareaReadonly.vue";
@@ -30,6 +31,7 @@ export default {
     PageTextareaErrors,
     PageTextareaHelpText,
     PageTextareaIsScalable,
+    PageTextareaLabelDescription,
     PageTextareaLabelFloat,
     PageTextareaLabelScreenReader,
     PageTextareaReadonly,

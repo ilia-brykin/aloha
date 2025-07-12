@@ -8,6 +8,7 @@ import {
   AErrorsText,
   AFormElementBtnClear,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   AIcon,
   ALabel,
@@ -143,6 +144,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelScreenReader: {
       type: [String, Number],
       required: false,
@@ -249,6 +255,7 @@ export default {
       htmlIdLocal,
       isErrors,
       isModel,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -322,6 +329,7 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
+      labelDescriptionId,
       modelValueLocal,
       modelValueReadonly,
       onBlur,
@@ -383,6 +391,13 @@ export default {
             type: this.type,
           }) :
           "",
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
+          isLabelFloat: this.isLabelFloat,
+        }),
         h("div", {
           class: "a_form_element",
         }, [

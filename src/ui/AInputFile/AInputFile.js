@@ -4,6 +4,9 @@ import {
   ref,
   toRef,
 } from "vue";
+import {
+  AFormLabelDescription,
+} from "../../index";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
 import AFormHelpText from "../AFormHelpText/AFormHelpText";
@@ -82,6 +85,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -148,6 +152,7 @@ export default {
       isErrors,
       isModel,
       modelValueListLocal,
+      labelDescriptionId,
       onBlur,
       onFocus,
       onInput,
@@ -177,6 +182,12 @@ export default {
           hideId: true,
           type: this.type,
           isError: this.isErrors,
+        }),
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
         }),
         h("div", {}, [
           h("label", {

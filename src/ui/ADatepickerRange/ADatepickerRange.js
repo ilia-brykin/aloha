@@ -6,6 +6,7 @@ import {
   ADatepicker,
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   ALabel,
   APlacements,
@@ -172,6 +173,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelFrom: {
       type: String,
       required: false,
@@ -276,6 +282,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      labelDescriptionId,
     } = UiAPI(props, context);
 
     const {
@@ -341,6 +348,7 @@ export default {
       inputAttributesFromLocal,
       inputAttributesUntilLocal,
       isErrors,
+      labelDescriptionId,
       modelValueFrom,
       modelValueUntil,
       readonlyDefaultFromLocal,
@@ -422,6 +430,12 @@ export default {
           type: this.type,
           isLabelFloat: false,
           isError: this.isErrors,
+        }),
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
         }),
         h("div", {
           class: "a_datepicker_range__content",

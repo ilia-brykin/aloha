@@ -5,6 +5,7 @@ import PageSwitchBasic from "./PageSwitchBasic/PageSwitchBasic.vue";
 import PageSwitchChange from "./PageSwitchChange/PageSwitchChange.vue";
 import PageSwitchErrors from "./PageSwitchErrors/PageSwitchErrors.vue";
 import PageSwitchHelpText from "./PageSwitchHelpText/PageSwitchHelpText.vue";
+import PageSwitchLabelDescription from "./PageSwitchLabelDescription/PageSwitchLabelDescription.vue";
 import PageSwitchLabelScreenReader from "./PageSwitchLabelScreenReader/PageSwitchLabelScreenReader.vue";
 import PageSwitchReadonly from "./PageSwitchReadonly/PageSwitchReadonly.vue";
 import PageSwitchThreeState from "./PageSwitchThreeState/PageSwitchThreeState.vue";
@@ -31,6 +32,7 @@ export default {
     PageSwitchChange,
     PageSwitchErrors,
     PageSwitchHelpText,
+    PageSwitchLabelDescription,
     PageSwitchLabelScreenReader,
     PageSwitchReadonly,
     PageSwitchThreeState,

@@ -155,6 +155,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "label-description",
+      description: "_A_UI_PROPS_LABEL_DESCRIPTION_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "label-screen-reader",
       description: "_A_UI_PROPS_LABEL_SCREEN_READER_DESCRIPTION_",
       type: "String / Number",

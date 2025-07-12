@@ -11,6 +11,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     html: {
       type: [String, Number],
       required: false,
@@ -18,11 +23,6 @@ export default {
     id: {
       type: String,
       required: true,
-    },
-    extra: {
-      type: Object,
-      required: false,
-      default: undefined,
     },
   },
   render() {

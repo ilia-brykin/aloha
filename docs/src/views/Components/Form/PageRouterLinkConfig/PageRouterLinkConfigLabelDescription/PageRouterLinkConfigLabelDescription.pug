@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_LABEL_DESCRIPTION_HEADER_"
+  description="_A_UI_GROUP_LABEL_DESCRIPTION_DESCRIPTION_"
+  :props="['label-description']"
+)
+  a-router-link-config(
+    v-model="model"
+    label="Router"
+    label-description="Aloha"
+  )
+  div model: {{ model }}

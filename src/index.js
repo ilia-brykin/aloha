@@ -22,6 +22,7 @@ export { default as AForm } from "./ui/AForm/AForm";
 export { default as AFormElement } from "./ui/AFormElement/AFormElement";
 export { default as AFormElementBtnClear } from "./ui/AFormElementBtnClear/AFormElementBtnClear";
 export { default as AFormHelpText } from "./ui/AFormHelpText/AFormHelpText";
+export { default as AFormLabelDescription } from "./ui/AFormLabelDescription/AFormLabelDescription";
 export { default as AFormReadonly } from "./ui/AFormReadonly/AFormReadonly";
 export { default as AGet } from "./AGet/AGet";
 export { default as AGroup } from "./ui/AGroup/AGroup";

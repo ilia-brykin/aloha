@@ -6,6 +6,7 @@ import {
   AElement,
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormPluginOptions,
   AFormReadonly,
   AGroup,
@@ -154,6 +155,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelScreenReader: {
       type: [String, Number],
       required: false,
@@ -259,6 +265,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      labelDescriptionId,
     } = UiAPI(props, context);
 
     const {
@@ -302,6 +309,7 @@ export default {
       iconCollapse,
       isCollapsedLocal,
       isErrors,
+      labelDescriptionId,
       onUpdateDataLocal,
       onUpdateModelLocal,
       textAfterLabel,
@@ -315,6 +323,12 @@ export default {
     }
 
     const CONTENT = [
+      h(AFormLabelDescription, {
+        id: this.labelDescriptionId,
+        alwaysTranslate: this.alwaysTranslate,
+        html: this.labelDescription,
+        extra: this.extra,
+      }),
       (this.slotNamePrepend &&
         this.$slots[this.slotNamePrepend]) ?
         this.$slots[this.slotNamePrepend]({

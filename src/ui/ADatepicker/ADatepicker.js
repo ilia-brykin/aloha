@@ -9,6 +9,7 @@ import {
 import {
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   ALabel,
   APlacements,
@@ -247,6 +248,7 @@ export default {
       htmlIdLocal,
       isErrors,
       isModel,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -366,6 +368,7 @@ export default {
       isAutofill,
       isErrors,
       isModel,
+      labelDescriptionId,
       onBlur,
       onFocus,
       openPopoverWithFloatingUi,
@@ -548,6 +551,13 @@ export default {
           type: this.type,
           isLabelFloat: this.isLabelFloat,
           isError: this.isErrors,
+        }),
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
+          isLabelFloat: this.isLabelFloat,
         }),
         h("div", {
           class: "a_form_element",

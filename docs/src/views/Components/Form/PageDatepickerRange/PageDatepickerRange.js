@@ -6,6 +6,7 @@ import PageDatepickerRangeCustomFirstDay from "./PageDatepickerRangeCustomFirstD
 import PageDatepickerRangeDisabledVariants from "./PageDatepickerRangeDisabledVariants/PageDatepickerRangeDisabledVariants.vue";
 import PageDatepickerRangeFormatCustomization from "./PageDatepickerRangeFormatCustomization/PageDatepickerRangeFormatCustomization.vue";
 import PageDatepickerRangeHelpText from "./PageDatepickerRangeHelpText/PageDatepickerRangeHelpText.vue";
+import PageDatepickerRangeLabelDescription from "./PageDatepickerRangeLabelDescription/PageDatepickerRangeLabelDescription.vue";
 import PageDatepickerRangeReadonly from "./PageDatepickerRangeReadonly/PageDatepickerRangeReadonly.vue";
 import {
   ATranslation,
@@ -27,6 +28,7 @@ export default {
     PageDatepickerRangeDisabledVariants,
     PageDatepickerRangeFormatCustomization,
     PageDatepickerRangeHelpText,
+    PageDatepickerRangeLabelDescription,
     PageDatepickerRangeReadonly,
   },
   setup() {

@@ -9,6 +9,7 @@ import {
   AErrorsText,
   AFormElementBtnClear,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   AIcon,
   AInputNumberPluginOptions,
@@ -168,6 +169,7 @@ export default {
       htmlIdLocal,
       isErrors,
       isModel,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -296,6 +298,7 @@ export default {
       isClearButtonLocal,
       isErrors,
       isModel,
+      labelDescriptionId,
       numberAttributes,
       onBlurNumber,
       onFocus,
@@ -354,6 +357,13 @@ export default {
             type: this.type,
             isLabelFloat: this.isLabelFloat,
             isError: this.isErrors,
+          }),
+          h(AFormLabelDescription, {
+            id: this.labelDescriptionId,
+            alwaysTranslate: this.alwaysTranslate,
+            html: this.labelDescription,
+            extra: this.extra,
+            isLabelFloat: this.isLabelFloat,
           }),
           h("div", {
             class: [

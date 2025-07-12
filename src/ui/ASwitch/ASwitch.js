@@ -5,6 +5,7 @@ import {
   AElement,
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   ALabel,
   APlacements,
@@ -144,6 +145,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelScreenReader: {
       type: [String, Number],
       required: false,
@@ -227,6 +233,7 @@ export default {
       htmlIdLocal,
       isErrors,
       isModel,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -273,6 +280,7 @@ export default {
       isErrors,
       isModel,
       isModelDefault,
+      labelDescriptionId,
       labelValueLocal,
       onBlur,
       onFocus,
@@ -325,6 +333,12 @@ export default {
             isError: this.isErrors,
           }) :
           "",
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
+        }),
         h("div", {
           class: "switch_button__wrapper",
         }, [

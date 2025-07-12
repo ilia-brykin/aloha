@@ -5,6 +5,7 @@ import PageJsonBasic from "./PageJsonBasic/PageJsonBasic.vue";
 import PageJsonChange from "./PageJsonChange/PageJsonChange.vue";
 import PageJsonErrors from "./PageJsonErrors/PageJsonErrors.vue";
 import PageJsonHelpText from "./PageJsonHelpText/PageJsonHelpText.vue";
+import PageJsonLabelDescription from "./PageJsonLabelDescription/PageJsonLabelDescription.vue";
 import PageJsonLabelScreenReader from "./PageJsonLabelScreenReader/PageJsonLabelScreenReader.vue";
 import PageJsonReadonly from "./PageJsonReadonly/PageJsonReadonly.vue";
 import {
@@ -27,6 +28,7 @@ export default {
     PageJsonChange,
     PageJsonErrors,
     PageJsonHelpText,
+    PageJsonLabelDescription,
     PageJsonLabelScreenReader,
     PageJsonReadonly,
   },

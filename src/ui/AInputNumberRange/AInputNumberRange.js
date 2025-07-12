@@ -5,6 +5,7 @@ import {
 import {
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   AInputNumber,
   ALabel,
@@ -142,6 +143,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelMax: {
       type: String,
       required: false,
@@ -254,6 +260,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      labelDescriptionId,
     } = UiAPI(props, context);
 
     const {
@@ -323,6 +330,7 @@ export default {
       inputAttributesMaxLocal,
       inputAttributesMinLocal,
       isErrors,
+      labelDescriptionId,
       modelValueMax,
       modelValueMin,
       readonlyDefaultMaxLocal,
@@ -408,6 +416,12 @@ export default {
             isError: this.isErrors,
           }) :
           "",
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
+        }),
         h("div", {
           class: "a_input_number_range__content",
         }, [

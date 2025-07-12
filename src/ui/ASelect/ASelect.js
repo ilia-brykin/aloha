@@ -10,6 +10,7 @@ import {
   AElement,
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   AIcon,
   AInput,
@@ -297,6 +298,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelScreenReader: {
       type: String,
       required: false,
@@ -482,6 +488,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -717,6 +724,7 @@ export default {
       isModelValue,
       isMultiselect,
       isOpen,
+      labelDescriptionId,
       limitExceededModelData,
       loadingLocal,
       loadingSearchApi,
@@ -820,6 +828,13 @@ export default {
           required: this.required,
           type: this.type,
           isError: this.isErrors,
+        }),
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
+          isLabelFloat: this.isLabelFloat,
         }),
         h("div", {
           class: "a_form_element",

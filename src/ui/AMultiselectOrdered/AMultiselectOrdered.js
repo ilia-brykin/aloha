@@ -7,6 +7,7 @@ import {
   AElement,
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   AMultiselectOrderedPluginOptions,
   APlacements,
@@ -237,6 +238,11 @@ export default {
     labelClass: {
       required: false,
       default: () => AMultiselectOrderedPluginOptions.propsDefault.labelClass,
+    },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     labelScreenReader: {
       type: String,
@@ -477,6 +483,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -585,6 +592,7 @@ export default {
       htmlIdLocal,
       idForSelect,
       isErrors,
+      labelDescriptionId,
       loadingLocal,
       loadingSearchApi,
       modelValueFiltered,
@@ -679,6 +687,13 @@ export default {
               textAfter: this.textAfterLabel,
             }) :
             "",
+          h(AFormLabelDescription, {
+            id: this.labelDescriptionId,
+            alwaysTranslate: this.alwaysTranslate,
+            html: this.labelDescription,
+            extra: this.extra,
+            isLabelFloat: this.isLabelFloat,
+          }),
           h("div", {
             class: [
               "a_fieldset__content",

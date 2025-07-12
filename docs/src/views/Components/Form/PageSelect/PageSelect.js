@@ -5,6 +5,7 @@ import PageSelectDataExtra from "./PageSelectDataExtra/PageSelectDataExtra.vue";
 import PageSelectExclusiveOption from "./PageSelectExclusiveOption/PageSelectExclusiveOption.vue";
 import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
 import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
+import PageSelectLabelDescription from "./PageSelectLabelDescription/PageSelectLabelDescription.vue";
 import PageSelectReadonly from "./PageSelectReadonly/PageSelectReadonly.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 import PageSelectSearchTextInHtml from "./PageSelectSearchTextInHtml/PageSelectSearchTextInHtml.vue";
@@ -34,6 +35,7 @@ export default {
     PageSelectExclusiveOption,
     PageSelectGroup,
     PageSelectKeyDisabled,
+    PageSelectLabelDescription,
     PageSelectReadonly,
     PageSelectSearch,
     PageSelectSearchTextInHtml,

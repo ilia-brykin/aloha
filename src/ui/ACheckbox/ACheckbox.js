@@ -8,6 +8,7 @@ import {
   AElement,
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   AInput,
   ATranslation,
@@ -235,6 +236,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelScreenReader: {
       type: [String, Number],
       required: false,
@@ -376,6 +382,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       isErrors,
+      labelDescriptionId,
       onFocusin,
       onFocusout,
       rootRef,
@@ -522,6 +529,7 @@ export default {
       isCollapsedLocal,
       isErrors,
       isModelValue,
+      labelDescriptionId,
       loadingLocal,
       loadingSearchApi,
       modelSearch,
@@ -661,6 +669,12 @@ export default {
               id: this.groupId,
               class: "a_fieldset__content",
             }, [
+              h(AFormLabelDescription, {
+                id: this.labelDescriptionId,
+                alwaysTranslate: this.alwaysTranslate,
+                html: this.labelDescription,
+                extra: this.extra,
+              }),
               this.searchOutsideOrApi ?
                 h("div", {
                   class: "a_fieldset__search",

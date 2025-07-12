@@ -14,6 +14,8 @@ export default function UiAPI(props, { emit }) {
   const htmlId = toRef(props, "htmlId");
   const id = toRef(props, "id");
   const idPrefix = toRef(props, "idPrefix");
+  const isLabelFloat = toRef(props, "isLabelFloat");
+  const labelDescription = toRef(props, "labelDescription");
   const modelUndefined = toRef(props, "modelUndefined");
   const modelValue = toRef(props, "modelValue");
 
@@ -64,18 +66,23 @@ export default function UiAPI(props, { emit }) {
     return `${ htmlIdLocal.value }_help_text`;
   });
 
+  const labelDescriptionId = computed(() => {
+    return `${ htmlIdLocal.value }_label_description`;
+  });
+
   const ariaDescribedbyLocal = computed(() => {
-    let ariaDescribedby = "";
+    const ariaDescribedby = [];
+    if (labelDescription.value && !isLabelFloat.value) {
+      ariaDescribedby.push(labelDescriptionId.value);
+    }
     if (helpText.value) {
-      ariaDescribedby += helpTextId.value;
+      ariaDescribedby.push(helpTextId.value);
     }
     if (isErrors.value) {
-      if (ariaDescribedby) {
-        ariaDescribedby += " ";
-      }
-      ariaDescribedby += errorsId.value;
+      ariaDescribedby.push(errorsId.value);
     }
-    return ariaDescribedby || undefined;
+
+    return ariaDescribedby.join(" ") || undefined;
   });
 
   const onFocus = $event => {
@@ -128,6 +135,7 @@ export default function UiAPI(props, { emit }) {
     isFocus,
     isFocusIn,
     isModel,
+    labelDescriptionId,
     onBlur,
     onFocus,
     onFocusin,

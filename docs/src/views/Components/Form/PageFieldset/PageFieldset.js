@@ -7,6 +7,7 @@ import PageFieldsetCollapse from "./PageFieldsetCollapse/PageFieldsetCollapse.vu
 import PageFieldsetError from "./PageFieldsetError/PageFieldsetError.vue";
 import PageFieldsetHasBorder from "./PageFieldsetHasBorder/PageFieldsetHasBorder.vue";
 import PageFieldsetHelpText from "./PageFieldsetHelpText/PageFieldsetHelpText.vue";
+import PageFieldsetLabelDescription from "./PageFieldsetLabelDescription/PageFieldsetLabelDescription.vue";
 import PageFieldsetLabelScreenReader from "./PageFieldsetLabelScreenReader/PageFieldsetLabelScreenReader.vue";
 import {
   ATranslation,
@@ -30,6 +31,7 @@ export default {
     PageFieldsetError,
     PageFieldsetHasBorder,
     PageFieldsetHelpText,
+    PageFieldsetLabelDescription,
     PageFieldsetLabelScreenReader,
   },
   setup() {

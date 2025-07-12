@@ -6,6 +6,7 @@ import {
   AElement,
   AErrorsText,
   AFormHelpText,
+  AFormLabelDescription,
   AFormReadonly,
   ALabel,
   ASafeHtml,
@@ -117,6 +118,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelScreenReader: {
       type: [String, Number],
       required: false,
@@ -178,6 +184,7 @@ export default {
       htmlIdLocal,
       isErrors,
       isModel,
+      labelDescriptionId,
       onBlur,
       onFocus,
     } = UiAPI(props, context);
@@ -220,7 +227,6 @@ export default {
       formatJson,
       helpTextId,
       htmlIdLocal,
-      onInput,
       initialValue,
       initInitialValue,
       isErrors,
@@ -228,9 +234,11 @@ export default {
       jsonString,
       jsonStringInput,
       JSONtoString,
+      labelDescriptionId,
       modelValueReadonly,
       onBlur,
       onFocus,
+      onInput,
       parseError,
       resetModel,
       styleHeight,
@@ -287,6 +295,12 @@ export default {
             required: this.required,
           }) :
           "",
+        h(AFormLabelDescription, {
+          id: this.labelDescriptionId,
+          alwaysTranslate: this.alwaysTranslate,
+          html: this.labelDescription,
+          extra: this.extra,
+        }),
         h("div", {
           class: "a_columns a_columns_count_12",
         }, [

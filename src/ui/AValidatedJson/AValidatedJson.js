@@ -5,7 +5,6 @@ import {
   AElement,
   AErrorsText,
   AFieldset,
-  AFormHelpText,
   AOneCheckbox,
   ATranslation,
   UiAPI,
@@ -138,6 +137,11 @@ export default {
     },
     labelClass: {
       type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    labelDescription: {
+      type: String,
       required: false,
       default: undefined,
     },
@@ -356,6 +360,7 @@ export default {
         isRender: this.isRender,
         label: this.label,
         labelClass: this.labelClass,
+        labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
         modelAll: this.modelAll,
         modelValue: this.modelValue,
@@ -391,6 +396,7 @@ export default {
         isRender: this.isRender,
         label: this.label,
         labelClass: this.labelClass,
+        labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
         required: this.required,
         slotName: `slotAppend_${ this.id }`,
@@ -452,11 +458,6 @@ export default {
                 ]) :
                 "",
             ]),
-
-            this.helpText && h(AFormHelpText, {
-              id: this.helpTextId,
-              text: this.helpText,
-            }),
             this.isErrors && h(AErrorsText, {
               id: this.errorsId,
               errors: this.errors,
@@ -495,6 +496,7 @@ export default {
         isRender: this.isRender,
         label: this.label,
         labelClass: this.labelClass,
+        labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
         required: this.required,
         slotName: "slotAppend",
@@ -556,15 +558,10 @@ export default {
                 "",
             ]),
 
-            this.helpText && h(AFormHelpText, {
-              id: this.helpTextId,
-              text: this.helpText,
-            }),
             this.isErrors && h(AErrorsText, {
               id: this.errorsId,
               errors: this.errors,
             }),
-
 
             this.isModalCreateJsonModeVisible ?
               h(AValidatedJsonModalCreateOrUpdate, {

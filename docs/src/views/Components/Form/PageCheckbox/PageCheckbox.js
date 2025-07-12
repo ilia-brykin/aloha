@@ -18,6 +18,7 @@ import PageCheckboxIsWidthAuto from "./PageCheckboxIsWidthAuto/PageCheckboxIsWid
 import PageCheckboxKeyDisabled from "./PageCheckboxKeyDisabled/PageCheckboxKeyDisabled.vue";
 import PageCheckboxKeyLabelCallback from "./PageCheckboxKeyLabelCallback/PageCheckboxKeyLabelCallback.vue";
 import PageCheckboxKeyTitle from "./PageCheckboxKeyTitle/PageCheckboxKeyTitle.vue";
+import PageCheckboxLabelDescription from "./PageCheckboxLabelDescription/PageCheckboxLabelDescription.vue";
 import PageCheckboxLabelScreenReader from "./PageCheckboxLabelScreenReader/PageCheckboxLabelScreenReader.vue";
 import PageCheckboxReadonly from "./PageCheckboxReadonly/PageCheckboxReadonly.vue";
 import PageCheckboxSearch from "./PageCheckboxSearch/PageCheckboxSearch.vue";
@@ -59,6 +60,7 @@ export default {
     PageCheckboxKeyDisabled,
     PageCheckboxKeyLabelCallback,
     PageCheckboxKeyTitle,
+    PageCheckboxLabelDescription,
     PageCheckboxLabelScreenReader,
     PageCheckboxReadonly,
     PageCheckboxSearch,

@@ -83,6 +83,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     modelDependencies: {
       type: Object,
       required: false,

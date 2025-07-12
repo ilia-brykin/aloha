@@ -8,6 +8,7 @@ import PageInputCurrencyDecimalDivider from "./PageInputCurrencyDecimalDivider/P
 import PageInputCurrencyDecimalPartLength from "./PageInputCurrencyDecimalPartLength/PageInputCurrencyDecimalPartLength.vue";
 import PageInputCurrencyErrors from "./PageInputCurrencyErrors/PageInputCurrencyErrors.vue";
 import PageInputCurrencyHelpText from "./PageInputCurrencyHelpText/PageInputCurrencyHelpText.vue";
+import PageInputCurrencyLabelDescription from "./PageInputCurrencyLabelDescription/PageInputCurrencyLabelDescription.vue";
 import PageInputCurrencyLabelFloat from "./PageInputCurrencyLabelFloat/PageInputCurrencyLabelFloat.vue";
 import PageInputCurrencyLabelScreenReader from "./PageInputCurrencyLabelScreenReader/PageInputCurrencyLabelScreenReader.vue";
 import PageInputCurrencyMaxMin from "./PageInputCurrencyMaxMin/PageInputCurrencyMaxMin.vue";
@@ -39,6 +40,7 @@ export default {
     PageInputCurrencyDecimalPartLength,
     PageInputCurrencyErrors,
     PageInputCurrencyHelpText,
+    PageInputCurrencyLabelDescription,
     PageInputCurrencyLabelFloat,
     PageInputCurrencyLabelScreenReader,
     PageInputCurrencyMaxMin,

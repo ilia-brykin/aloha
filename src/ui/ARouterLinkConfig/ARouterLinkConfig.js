@@ -152,6 +152,11 @@ export default {
       required: false,
       default: () => ARouterLinkConfigPluginOptions.propsDefault.labelClass,
     },
+    labelDescription: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     labelParam: {
       type: String,
       required: false,
@@ -316,6 +321,7 @@ export default {
       isRender: this.isRender,
       label: this.label,
       labelClass: this.labelClass,
+      labelDescription: this.labelDescription,
       labelScreenReader: this.labelScreenReader,
       modelUndefined: this.modelUndefined,
       modelValue: this.modelValue,

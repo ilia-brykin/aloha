@@ -4,6 +4,7 @@ import PageSelectIconBasic from "./PageSelectIconBasic/PageSelectIconBasic.vue";
 import PageSelectIconChange from "./PageSelectIconChange/PageSelectIconChange.vue";
 import PageSelectIconErrors from "./PageSelectIconErrors/PageSelectIconErrors.vue";
 import PageSelectIconHelpText from "./PageSelectIconHelpText/PageSelectIconHelpText.vue";
+import PageSelectIconLabelDescription from "./PageSelectIconLabelDescription/PageSelectIconLabelDescription.vue";
 import PageSelectIconReadonly from "./PageSelectIconReadonly/PageSelectIconReadonly.vue";
 import {
   ATranslation,
@@ -23,6 +24,7 @@ export default {
     PageSelectIconChange,
     PageSelectIconErrors,
     PageSelectIconHelpText,
+    PageSelectIconLabelDescription,
     PageSelectIconReadonly,
   },
   setup() {
