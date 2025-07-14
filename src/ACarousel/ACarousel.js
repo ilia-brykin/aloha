@@ -198,11 +198,12 @@ export default {
   },
   emits: [
     "change",
+    "init",
     "play",
     "stop",
     "update:modelValue",
   ],
-  setup(props) {
+  setup(props, context) {
     const {
       textsLocal,
     } = TextsAPI(props);
@@ -238,10 +239,12 @@ export default {
     const {
       activeId,
       changeActiveId,
+      hasActiveItem,
       initActiveId,
+      toFirstSlide,
       toNextSlide,
       toPreviousSlide,
-    } = ActiveAPI(props, {
+    } = ActiveAPI(props, context, {
       dataLocal,
     });
 
@@ -252,6 +255,12 @@ export default {
         initObserver();
       } else {
         removeObserver();
+      }
+    });
+
+    watch(hasActiveItem, newValue => {
+      if (!newValue) {
+        toFirstSlide();
       }
     });
 

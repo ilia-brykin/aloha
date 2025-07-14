@@ -11,11 +11,12 @@ import {
   setFocusToElement,
 } from "../../utils/utilsDOM";
 import {
+  find,
   findIndex,
   isNil,
 } from "lodash-es";
 
-export default function ActiveAPI(props, {
+export default function ActiveAPI(props, { emit }, {
   dataLocal = computed(() => []),
 }) {
   const id = toRef(props, "id");
@@ -23,16 +24,26 @@ export default function ActiveAPI(props, {
 
   const activeId = ref(undefined);
 
+  const activeItem = computed(() => {
+    return find(dataLocal.value, [AKeyId, activeId.value]);
+  });
+
+  const hasActiveItem = computed(() => {
+    return !!activeItem.value;
+  });
+
   const initActiveId = () => {
     if (isNil(modelValue.value)) {
       activeId.value = dataLocal.value?.[0]?.[AKeyId];
     } else {
       activeId.value = modelValue.value;
     }
+    emit("init", { id: activeId.value, item: activeItem.value });
   };
 
   const changeActiveId = ({ id }) => {
     activeId.value = id;
+    emit("change", { id: activeId.value, item: activeItem.value });
   };
 
   const setFocus = ({ nextSlideIndex }) => {
@@ -82,10 +93,18 @@ export default function ActiveAPI(props, {
     }
   };
 
+  const toFirstSlide = () => {
+    activeId.value = dataLocal.value?.[0]?.[AKeyId];
+    emit("change", { id: activeId.value, item: activeItem.value });
+  };
+
   return {
     activeId,
+    activeItem,
     changeActiveId,
+    hasActiveItem,
     initActiveId,
+    toFirstSlide,
     toNextSlide,
     toPreviousSlide,
   };
