@@ -108,6 +108,7 @@ export {
 export {
   default as AMobileAPI,
   isMobileWidth as AMobileAPI_isMobileWidth,
+  mobileBreakpoint as AMobileAPI_mobileBreakpoint,
   setIsMobileWidth as AMobileAPI_setIsMobileWidth,
 } from "./compositionAPI/AMobileAPI";
 export {

@@ -5,6 +5,7 @@ import {
 import EventBus from "../utils/EventBus";
 
 export const isMobileWidth = ref(undefined);
+export const mobileBreakpoint = ref(undefined);
 
 export function setIsMobileWidth(isMobileWidthLocal) {
   isMobileWidth.value = isMobileWidthLocal;
@@ -19,6 +20,7 @@ export function setIsMobileWidth(isMobileWidthLocal) {
 export default function AMobileAPI() {
   return {
     isMobileWidth,
+    mobileBreakpoint,
     setIsMobileWidth,
   };
 }
