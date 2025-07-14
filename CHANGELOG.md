@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.30.0
+
+- Feature: Add `mobileBreakpoint` ref for better breakpoint management in AMobilePlugin and AMobileAPI
+
 ## 2.29.0
 
 - Add `labelDescription` prop across components and examples
