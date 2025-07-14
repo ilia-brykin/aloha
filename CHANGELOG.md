@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.30.2
+
+- Feature: Add `changeFontSize` callback to ARemPxPlugin for dynamic font size updates
+
 ## 2.30.1
 
 - Feature: Export `remPx` from ARemPxAPI for enhanced utility

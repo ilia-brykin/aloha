@@ -52417,12 +52417,15 @@ const xKe = {
     };
   }
 }, GKe = {
-  install() {
-    const e = document.createElement("div");
-    e.style.position = "absolute", e.style.visibility = "hidden", e.style.height = "1rem", e.style.width = "1rem", document.body.appendChild(e), new ResizeObserver(() => {
-      const _ = e.offsetHeight;
-      _ !== Rd.value && (Rd.value = _);
-    }).observe(e);
+  install(e, {
+    changeFontSize: t = () => {
+    }
+  } = {}) {
+    const _ = document.createElement("div");
+    _.style.position = "absolute", _.style.visibility = "hidden", _.style.height = "1rem", _.style.width = "1rem", document.body.appendChild(_), new ResizeObserver(() => {
+      const r = _.offsetHeight;
+      r !== Rd.value && (Rd.value = r, t(r));
+    }).observe(_);
   }
 }, qKe = {
   install: (e, { axiosCreateOptions: t = {}, baseUrl: _ = "/api/", errorCallbacks: n = {}, headerParams: r = {}, setUrlForArray: s = void 0 } = {}) => {
