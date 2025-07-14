@@ -3,7 +3,9 @@ import {
 } from "../compositionAPI/ARemPxAPI";
 
 export default {
-  install() {
+  install(app, {
+    changeFontSize = () => {},
+  } = {}) {
     const probe = document.createElement("div");
     probe.style.position = "absolute";
     probe.style.visibility = "hidden";
@@ -15,6 +17,7 @@ export default {
       const newRem = probe.offsetHeight;
       if (newRem !== remPx.value) {
         remPx.value = newRem;
+        changeFontSize(newRem);
       }
     });
 
