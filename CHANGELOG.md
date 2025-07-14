@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.30.1
+
+- Feature: Export `remPx` from ARemPxAPI for enhanced utility
+
 ## 2.30.0
 
 - Feature: Add `mobileBreakpoint` ref for better breakpoint management in AMobilePlugin and AMobileAPI
