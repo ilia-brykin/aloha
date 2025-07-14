@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.29.0
+
+- Add `labelDescription` prop across components and examples
+- Feature: Add support for `init` and `change` events in `ACarousel` with related documentation and examples
+
 ## 2.28.6
 
 - `AValidatedJson` code cleanup
