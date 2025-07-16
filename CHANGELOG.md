@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.30.3
+
+- Style: Add support for `border-radius` in ATable preview down styles
+
 ## 2.30.2
 
 - Feature: Add `changeFontSize` callback to ARemPxPlugin for dynamic font size updates
