@@ -15,6 +15,8 @@ import {
 } from "lodash-es";
 
 export default function SaveAPI(props, {
+  deleteErrorsLocal = () => {},
+  errorsLocal = ref(undefined),
   isAnyRequiredElementEmpty = computed(() => false),
   model = ref({}),
 }) {
@@ -25,8 +27,6 @@ export default function SaveAPI(props, {
   const mode = toRef(props, "mode");
   const modelAll = toRef(props, "modelAll");
   const uniqueChildrenIds = toRef(props, "uniqueChildrenIds");
-
-  const errorsLocal = ref(undefined);
 
   const uniqueChildrenIdsLocal = computed(() => {
     if (mode.value === "json") {
@@ -46,10 +46,6 @@ export default function SaveAPI(props, {
 
     return uniqueChildrenIds.value;
   });
-
-  const deleteErrorsLocal = () => {
-    errorsLocal.value = undefined;
-  };
 
   const modelAllFiltered = computed(() => {
     if (isCreate.value) {
@@ -114,7 +110,6 @@ export default function SaveAPI(props, {
   };
 
   return {
-    errorsLocal,
     save,
   };
 }

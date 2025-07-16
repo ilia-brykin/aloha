@@ -41,9 +41,33 @@ export default {
         label: "Currency",
         id: "currency",
       },
+      {
+        type: "validatedJson",
+        mode: "single",
+        id: "validated_json",
+        children: [
+          {
+            type: "text",
+            label: "Text",
+            id: "text",
+          },
+          {
+            type: "oneCheckbox",
+            label: "Checkbox",
+            id: "checkbox",
+          },
+          {
+            type: "currency",
+            label: "Currency",
+            id: "currency",
+          },
+        ],
+      },
     ];
     const model1 = ref(undefined);
-    const model2 = ref({
+    const model2 = ref(undefined);
+    const model3 = ref(undefined);
+    const model4 = ref({
       text: "s",
     });
 
@@ -53,6 +77,8 @@ export default {
       codeJs,
       model1,
       model2,
+      model3,
+      model4,
     };
   },
 };

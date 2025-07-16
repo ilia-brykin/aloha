@@ -11,8 +11,10 @@ aloha-example(
     label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
     mode="single"
   )
+  div model1:
+  pre {{ model1 }}
   a-validated-json(
-    v-model="model1"
+    v-model="model2"
     id-prefix="aloha2"
     :children="children"
     :required="true"
@@ -20,8 +22,10 @@ aloha-example(
     label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
     mode="single"
   )
+  div model2:
+  pre {{ model2 }}
   a-validated-json(
-    v-model="model1"
+    v-model="model3"
     id-prefix="aloha3"
     :children="children"
     :mode-options="{ optionalSingleDefault: true }"
@@ -29,16 +33,16 @@ aloha-example(
     label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
     mode="single"
   )
-  div model1:
-  pre {{ model1 }}
+  div model3:
+  pre {{ model3 }}
   a-validated-json(
-    v-model="model2"
+    v-model="model4"
     id-prefix="aloha3"
     :children="children"
     class="a_mt_5"
     label="_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_"
     mode="single"
   )
-  div model2:
-  pre {{ model2 }}
+  div model4:
+  pre {{ model4 }}
 

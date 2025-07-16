@@ -7,6 +7,7 @@ import {
 
 import DataFormAPI from "./composiitionAPI/DataFormAPI";
 import DisabledAPI from "./composiitionAPI/DisabledAPI";
+import ErrorsAPI from "./composiitionAPI/ErrorsAPI";
 import ModelAPI from "./composiitionAPI/ModelAPI";
 import SaveAPI from "./composiitionAPI/SaveAPI";
 import TextAPI from "./composiitionAPI/TextAPI";
@@ -35,6 +36,11 @@ export default {
     },
     elementLabelTranslated: {
       type: String,
+      required: false,
+      default: undefined,
+    },
+    errors: {
+      type: [Array, Object],
       required: false,
       default: undefined,
     },
@@ -105,9 +111,16 @@ export default {
     });
 
     const {
+      deleteErrorsLocal,
+      errorsComputed,
       errorsLocal,
+    } = ErrorsAPI(props);
+
+    const {
       save,
     } = SaveAPI(props, {
+      deleteErrorsLocal,
+      errorsLocal,
       isAnyRequiredElementEmpty,
       model,
     });
@@ -117,7 +130,7 @@ export default {
     return {
       changeDataForm,
       dataForm,
-      errorsLocal,
+      errorsComputed,
       headerText,
       isAnyRequiredElementEmpty,
       model,
@@ -134,7 +147,7 @@ export default {
       extra: {
         elementLabel: this.elementLabelTranslated,
       },
-      errors: this.errorsLocal,
+      errors: this.errorsComputed,
       modelValue: this.model,
       save: this.save,
       saveButtonText: this.saveButtonText,

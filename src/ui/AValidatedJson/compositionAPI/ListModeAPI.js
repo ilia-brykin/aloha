@@ -13,7 +13,7 @@ import {
   isArray,
 } from "lodash-es";
 
-export default function ListModeAPI(props, {
+export default function ListModeAPI(props, { emit }, {
   htmlIdLocal = computed(() => undefined),
 }) {
   const change = toRef(props, "change");
@@ -36,6 +36,7 @@ export default function ListModeAPI(props, {
     if (model) {
       const MODEL_VALUE = cloneDeep(modelListMode.value);
       MODEL_VALUE.push(model);
+      emit("update:modelValue", cloneDeep(MODEL_VALUE));
       change.value({
         currentModel: MODEL_VALUE,
         model: MODEL_VALUE,
@@ -54,6 +55,7 @@ export default function ListModeAPI(props, {
     const ITEM_MODEL = MODEL[index];
     MODEL.splice(index, 1);
     MODEL.splice(index - 1, 0, ITEM_MODEL);
+    emit("update:modelValue", cloneDeep(MODEL));
     change.value({
       currentModel: MODEL,
       model: MODEL,
@@ -77,6 +79,7 @@ export default function ListModeAPI(props, {
     const ITEM_MODEL = MODEL[index];
     MODEL.splice(index, 1);
     MODEL.splice(index + 1, 0, ITEM_MODEL);
+    emit("update:modelValue", cloneDeep(MODEL));
     change.value({
       currentModel: MODEL,
       model: MODEL,
@@ -103,6 +106,7 @@ export default function ListModeAPI(props, {
   const deleteListMode = ({ index }) => {
     const MODEL = cloneDeep(modelListMode.value);
     MODEL.splice(index, 1);
+    emit("update:modelValue", cloneDeep(MODEL));
     change.value({
       currentModel: MODEL,
       model: MODEL,
@@ -120,6 +124,7 @@ export default function ListModeAPI(props, {
   const updateListMode = ({ index, model }) => {
     const MODEL = cloneDeep(modelListMode.value);
     MODEL.splice(index, 1, model);
+    emit("update:modelValue", cloneDeep(MODEL));
     change.value({
       currentModel: MODEL,
       model: MODEL,

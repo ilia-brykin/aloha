@@ -44,6 +44,11 @@ export default {
       required: false,
       default: "{{ elementLabel }}",
     },
+    errors: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
     hidePosition: {
       type: Boolean,
       required: false,
@@ -187,7 +192,12 @@ export default {
           }) :
           "",
         h("strong", {
-          class: "a_validated_json_list__item__label",
+          class: [
+            "a_validated_json_list__item__label",
+            {
+              a_validated_json_list__item__label_error: this.errors,
+            },
+          ],
         }, this.label),
         !this.readonly ?
           h("div", {
@@ -261,6 +271,7 @@ export default {
           currentIndex: this.modelIndex,
           currentModel: this.modelItem,
           elementLabelTranslated: this.elementLabel,
+          errors: this.errors,
           isCreate: false,
           keyId: this.keyId,
           mode: this.mode,

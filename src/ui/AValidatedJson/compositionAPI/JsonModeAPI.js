@@ -19,10 +19,11 @@ import {
   sortBy,
 } from "lodash-es";
 
-export default function JsonModeAPI(props, {
+export default function JsonModeAPI(props, { emit }, {
   htmlIdLocal = computed(() => undefined),
-  updateModelValue = () => {},
 }) {
+  const change = toRef(props, "change");
+  const id = toRef(props, "id");
   const keyId = toRef(props, "keyId");
   const modelValue = toRef(props, "modelValue");
   const sortId = toRef(props, "sortId");
@@ -62,7 +63,12 @@ export default function JsonModeAPI(props, {
       const MODEL_VALUE = cloneDeep(modelJsonMode.value);
       const CURRENT_KEY = model[keyId.value || AKeyId];
       MODEL_VALUE[CURRENT_KEY] = model;
-      updateModelValue(MODEL_VALUE);
+      emit("update:modelValue", cloneDeep(MODEL_VALUE));
+      change.value({
+        currentModel: MODEL_VALUE,
+        model: MODEL_VALUE,
+        id: id.value,
+      });
     }
     isModalCreateJsonModeVisible.value = false;
   };
@@ -70,7 +76,12 @@ export default function JsonModeAPI(props, {
   const deleteJsonMode = ({ key }) => {
     const MODEL = cloneDeep(modelJsonMode.value);
     delete MODEL[key];
-    updateModelValue(MODEL);
+    emit("update:modelValue", cloneDeep(MODEL));
+    change.value({
+      currentModel: MODEL,
+      model: MODEL,
+      id: id.value,
+    });
     nextTick().then(
       () => {
         setFocusToElement({
@@ -84,7 +95,12 @@ export default function JsonModeAPI(props, {
     const MODEL = cloneDeep(modelJsonMode.value);
     delete MODEL[oldKey];
     MODEL[key] = model;
-    updateModelValue(MODEL);
+    emit("update:modelValue", cloneDeep(MODEL));
+    change.value({
+      currentModel: MODEL,
+      model: MODEL,
+      id: id.value,
+    });
   };
 
   return {

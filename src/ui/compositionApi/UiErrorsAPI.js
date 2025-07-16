@@ -13,6 +13,7 @@ export default function UiErrorsAPI(props, {
   htmlIdLocal = computed(() => ""),
 }) {
   const errors = toRef(props, "errors");
+
   const isErrors = computed(() => {
     if (!errors.value) {
       return false;

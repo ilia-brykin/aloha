@@ -3,6 +3,9 @@ import {
   h,
   toRef,
 } from "vue";
+import {
+  ATranslation,
+} from "../../index";
 
 import {
   isString,
@@ -44,7 +47,10 @@ export default {
       class: "a_form_element__invalid_text",
     }, [
       this.errorsLocal.map(error => {
-        return h("li", null, error);
+        return h(ATranslation, {
+          tag: "li",
+          html: error,
+        });
       }),
     ]);
   },

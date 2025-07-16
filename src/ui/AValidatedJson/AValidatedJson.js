@@ -5,6 +5,7 @@ import {
   AElement,
   AErrorsText,
   AFieldset,
+  AKeyId,
   AOneCheckbox,
   ATranslation,
   UiAPI,
@@ -240,7 +241,7 @@ export default {
     const {
       onChange,
       checkUndefinedValue,
-    } = ModelAPI(props);
+    } = ModelAPI(props, context);
 
     const {
       elementLabelTranslated,
@@ -256,7 +257,6 @@ export default {
       blur,
       focus,
       open,
-      updateModelValue,
     } = EventsAPI(context);
 
     const {
@@ -270,7 +270,7 @@ export default {
     } = SingleModeAPI(props, {
       childrenFiltered,
       htmlIdLocal,
-      updateModelValue,
+      onChange,
     });
 
     const {
@@ -281,9 +281,8 @@ export default {
       modelListMode,
       openModalCreateListMode,
       updateListMode,
-    } = ListModeAPI(props, {
+    } = ListModeAPI(props, context, {
       htmlIdLocal,
-      updateModelValue,
     });
 
     const {
@@ -295,9 +294,8 @@ export default {
       modelJsonModeSorted,
       openModalCreateJsonMode,
       updateJsonMode,
-    } = JsonModeAPI(props, {
+    } = JsonModeAPI(props, context, {
       htmlIdLocal,
-      updateModelValue,
     });
 
     initSingleModeModelCheckbox();
@@ -315,7 +313,6 @@ export default {
       modelJsonModeSorted,
       btnIdAdd,
       elementLabelTranslated,
-      updateModelValue,
       singleModeChildren,
       singleModeDataFormCheckbox,
       moveListMode,
@@ -355,7 +352,7 @@ export default {
         helpText: this.helpText,
         htmlId: this.htmlId,
         id: this.id,
-        idPrefix: this.idPrefix,
+        idPrefix: this.htmlIdLocal,
         isHide: this.isHide,
         isRender: this.isRender,
         label: this.label,
@@ -366,12 +363,11 @@ export default {
         modelValue: this.modelValue,
         readonly: this.readonly,
         required: this.required,
-        skipOwnIdInModelPath: false,
+        skipOwnIdInModelPath: true,
         slotNamePrepend: `singlePrepend_${ this.id }`,
         useFlatErrors: this.useFlatErrors,
         useFlatModel: this.useFlatModel,
         change: this.onChange,
-        // "onUpdate:modelValue": this.updateModelValue,
       }, {
         [`singlePrepend_${ this.id }`]: !this.required ?
           () => {
@@ -390,6 +386,7 @@ export default {
           "a_validated_json a_validated_json_list",
           this.$attrs.class,
         ],
+        errors: this.errors ? "_A_VALIDATED_JSON_ERROR_FIELDSET_" : undefined,
         extra: this.extra,
         helpText: this.helpText,
         isHide: this.isHide,
@@ -417,6 +414,7 @@ export default {
                     deactivatePreview: this.deactivatePreview,
                     elementLabel: this.elementLabelTranslated,
                     elementTemplate: this.elementTemplate,
+                    errors: this.errors?.[index],
                     hidePosition: this.hidePosition,
                     isLast: index === this.modelListMode.length - 1,
                     mode: this.mode,
@@ -491,6 +489,7 @@ export default {
           this.$attrs.class,
         ],
         extra: this.extra,
+        errors: this.errors ? "_A_VALIDATED_JSON_ERROR_FIELDSET_" : undefined,
         helpText: this.helpText,
         isHide: this.isHide,
         isRender: this.isRender,
@@ -522,6 +521,7 @@ export default {
                     deactivatePreview: this.deactivatePreview,
                     elementLabel: this.elementLabelTranslated,
                     elementTemplate: this.elementTemplate,
+                    errors: this.errors?.[item[AKeyId]],
                     hidePosition: this.hidePosition,
                     keyId: this.keyId,
                     mode: this.mode,

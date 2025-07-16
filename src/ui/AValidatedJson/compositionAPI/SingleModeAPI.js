@@ -14,7 +14,7 @@ import {
 export default function SingleModeAPI(props, {
   childrenFiltered = computed(() => []),
   htmlIdLocal = computed(() => undefined),
-  updateModelValue = () => {},
+  onChange = () => {},
 }) {
   const mode = toRef(props, "mode");
   const modelValue = toRef(props, "modelValue");
@@ -51,7 +51,7 @@ export default function SingleModeAPI(props, {
     singleModeModelCheckbox.value = model;
 
     if (!model) {
-      updateModelValue(undefined);
+      onChange({ currentModel: undefined, model: undefined, fullModel: undefined });
     }
   };
 

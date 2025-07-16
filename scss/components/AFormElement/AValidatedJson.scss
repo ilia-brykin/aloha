@@ -1,3 +1,6 @@
 .a_validated_json_list__item__label {
   flex-grow: 1;
 }
+.a_validated_json_list__item__label_error {
+  color: var(--a_form_element_error_color);
+}
