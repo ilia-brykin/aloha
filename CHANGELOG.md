@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.30.4
+
+- Feature: Add error handling, improved validation, and extended `AValidatedJson` API functionality
+- Feature: Extend `AValidatedJson` functionality with `parentHtmlId`, improved error labels, and IdAPI integration
+
 ## 2.30.3
 
 - Style: Add support for `border-radius` in ATable preview down styles
