@@ -10,6 +10,7 @@ import AValidatedJsonModalCreateOrUpdate from "../AValidatedJsonModalCreateOrUpd
 
 import DeleteAPI from "./compositionAPI/DeleteAPI";
 import DetailsAPI from "./compositionAPI/DetailsAPI";
+import IdAPI from "./compositionAPI/IdAPI";
 import LabelAPI from "./compositionAPI/LabelAPI";
 import MoveAPI from "./compositionAPI/MoveAPI";
 import UpdateAPI from "./compositionAPI/UpdateAPI";
@@ -79,6 +80,10 @@ export default {
       type: Object,
       required: true,
     },
+    parentHtmlId: {
+      type: String,
+      required: true,
+    },
     parentId: {
       type: String,
       required: true,
@@ -115,6 +120,10 @@ export default {
     "update",
   ],
   setup(props, context) {
+    const {
+      idLocal,
+    } = IdAPI(props);
+
     const {
       label,
     } = LabelAPI(props);
@@ -162,6 +171,7 @@ export default {
       disabledMoveDown,
       disabledMoveUp,
       iconBtnToggleDetails,
+      idLocal,
       isDetailsVisible,
       isModalUpdateVisible,
       label,
@@ -175,6 +185,7 @@ export default {
   },
   render() {
     return h("li", {
+      id: this.idLocal,
       class: "a_list_group__item",
     }, [
       h("div", {
@@ -255,7 +266,7 @@ export default {
         }, [
           h(AFieldset, {
             children: this.children,
-            idPrefix: this.parentId,
+            idPrefix: this.parentHtmlId,
             modelValue: this.modelItem,
             readonly: true,
             skipOwnIdInModelPath: true,

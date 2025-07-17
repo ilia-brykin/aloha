@@ -8,14 +8,14 @@ export default function MoveAPI(props, { emit }) {
   const hidePosition = toRef(props, "hidePosition");
   const isLast = toRef(props, "isLast");
   const modelIndex = toRef(props, "modelIndex");
-  const parentId = toRef(props, "parentId");
+  const parentHtmlId = toRef(props, "parentHtmlId");
 
   const btnMoveUpId = computed(() => {
-    return `${ parentId.value }_btn_move_up_${ modelIndex.value }`;
+    return `${ parentHtmlId.value }_btn_move_up_${ modelIndex.value }`;
   });
 
   const btnMoveDownId = computed(() => {
-    return `${ parentId.value }_btn_move_down_${ modelIndex.value }`;
+    return `${ parentHtmlId.value }_btn_move_down_${ modelIndex.value }`;
   });
 
   const canMove = computed(() => {

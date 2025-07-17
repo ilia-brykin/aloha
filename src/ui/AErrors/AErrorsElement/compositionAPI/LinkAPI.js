@@ -12,6 +12,9 @@ import {
   AKeyLink,
 } from "../../../../const/AKeys";
 import {
+  setFocusToElement,
+} from "../../../../utils/utilsDOM";
+import {
   get,
   isFunction,
   isNil,
@@ -58,7 +61,7 @@ export default function LinkAPI(props) {
 
       const ELEMENT = document.getElementById(idStr);
       if (ELEMENT) {
-        ELEMENT.focus();
+        setFocusToElement({ element: ELEMENT });
       }
     }
   };

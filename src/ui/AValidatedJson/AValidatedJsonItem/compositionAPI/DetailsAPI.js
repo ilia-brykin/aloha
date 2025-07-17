@@ -13,12 +13,12 @@ import {
 
 export default function DetailsAPI(props) {
   const modelIndex = toRef(props, "modelIndex");
-  const parentId = toRef(props, "parentId");
+  const parentHtmlId = toRef(props, "parentHtmlId");
 
   const isDetailsVisible = ref(false);
 
   const btnToggleDetailsId = computed(() => {
-    return `${ parentId.value }_btn_toggle_details_${ modelIndex.value }`;
+    return `${ parentHtmlId.value }_btn_toggle_details_${ modelIndex.value }`;
   });
 
   const titleBtnToggleDetails = computed(() => {
@@ -34,7 +34,7 @@ export default function DetailsAPI(props) {
   });
 
   const detailsId = computed(() => {
-    return `${ parentId.value }_details_${ modelIndex.value }`;
+    return `${ parentHtmlId.value }_details_${ modelIndex.value }`;
   });
 
   const toggleDetails = () => {

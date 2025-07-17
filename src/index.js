@@ -264,6 +264,7 @@ export {
   AKeyLabelSearch,
   AKeyLink,
   AKeyParent,
+  AKeyType,
 } from "./const/AKeys";
 export { default as AKeysCode } from "./const/AKeysCode";
 export { default as APlacements } from "./const/placements";

@@ -14,7 +14,7 @@ export default function DeleteAPI(props, { emit }) {
   const mode = toRef(props, "mode");
   const modelIndex = toRef(props, "modelIndex");
   const modelItem = toRef(props, "modelItem");
-  const parentId = toRef(props, "parentId");
+  const parentHtmlId = toRef(props, "parentHtmlId");
 
   const {
     closeConfirm,
@@ -22,7 +22,7 @@ export default function DeleteAPI(props, { emit }) {
   } = AConfirmAPI();
 
   const btnDeleteId = computed(() => {
-    return `${ parentId.value }_btn_delete_${ modelIndex.value }`;
+    return `${ parentHtmlId.value }_btn_delete_${ modelIndex.value }`;
   });
 
   const onDelete = () => {

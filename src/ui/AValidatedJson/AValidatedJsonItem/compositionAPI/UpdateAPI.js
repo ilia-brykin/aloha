@@ -13,12 +13,12 @@ export default function UpdateAPI(props, { emit }) {
   const mode = toRef(props, "mode");
   const modelIndex = toRef(props, "modelIndex");
   const modelItem = toRef(props, "modelItem");
-  const parentId = toRef(props, "parentId");
+  const parentHtmlId = toRef(props, "parentHtmlId");
 
   const isModalUpdateVisible = ref(false);
 
   const btnOpenModalUpdateId = computed(() => {
-    return `${ parentId.value }_btn_open_modal_update_${ modelIndex.value }`;
+    return `${ parentHtmlId.value }_btn_open_modal_update_${ modelIndex.value }`;
   });
 
   const openModalUpdate = () => {
