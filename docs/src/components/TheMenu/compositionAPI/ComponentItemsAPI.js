@@ -274,6 +274,14 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "slider",
+            label: "Slider",
+            class: "test_menu_slider",
+            to: {
+              name: "PageSlider",
+            },
+          },
+          {
             id: "PageSwitch",
             label: "Switch",
             class: "test_menu_switch",

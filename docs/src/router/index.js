@@ -218,6 +218,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageSelectStyle/PageSelectStyle.vue"),
   },
   {
+    path: "/slider",
+    name: "PageSlider",
+    component: () => import("../views/Components/Form/PageSlider/PageSlider.vue"),
+  },
+  {
     path: "/validated-json",
     name: "PageValidatedJson",
     component: () => import("../views/Components/Form/PageValidatedJson/PageValidatedJson.vue"),
