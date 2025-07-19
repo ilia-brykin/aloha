@@ -63,6 +63,7 @@ export { default as AScale } from "./AScale/AScale";
 export { default as ASelect } from "./ui/ASelect/ASelect";
 export { default as ASelectIcon } from "./ui/ASelectIcon/ASelectIcon";
 export { default as ASelectStyle } from "./ui/ASelectStyle/ASelectStyle";
+export { default as ASlider } from "./ui/ASlider/ASlider";
 export { default as AShowMore } from "./AShowMore/AShowMore";
 export { default as ASpinner } from "./ASpinner/ASpinner";
 export { default as ASwitch } from "./ui/ASwitch/ASwitch";
