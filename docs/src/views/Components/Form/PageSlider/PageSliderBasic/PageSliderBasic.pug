@@ -9,6 +9,13 @@ aloha-example(
     label="Basic Slider"
   )
   .a_mt_2 model1: {{ model1 }}
+
+  a-slider(
+    v-model="model1"
+    label="Basic Slider"
+    :disabled="true"
+  )
+  .a_mt_2 model1: {{ model1 }}
   
   a-slider(
     v-model="model2"
