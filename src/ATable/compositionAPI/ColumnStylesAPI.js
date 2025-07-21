@@ -4,17 +4,28 @@ import {
   toRef,
 } from "vue";
 
+import ARemPxAPI from "../../compositionAPI/ARemPxAPI";
 import ColumnAdditionalSpaceAPI from "./ColumnAdditionalSpaceAPI";
 
 export default function ColumnStylesAPI(props) {
   const column = toRef(props, "column");
+
   const columnWidthDefault = inject("columnWidthDefault");
+  const useRem = inject("useRem");
 
   const {
     additionalWidthForCurrentColumn,
   } = ColumnAdditionalSpaceAPI(props);
 
+  const {
+    scalePxWithRem,
+  } = ARemPxAPI();
+
   const columnWidth = computed(() => {
+    if (useRem.value) {
+      return scalePxWithRem(column.value.width) || columnWidthDefault.value;
+    }
+
     return column.value.width || columnWidthDefault.value;
   });
 

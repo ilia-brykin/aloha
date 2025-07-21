@@ -40,6 +40,7 @@ import TableColumnsVisibleFunctionAPI from "./compositionAPI/TableColumnsVisible
 import TextsAPI from "./compositionAPI/TextsAPI";
 import VariablesAPI from "./compositionAPI/VariablesAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
+import WidthAPI from "./compositionAPI/WidthAPI";
 
 import {
   tablePluginOptions,
@@ -455,6 +456,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    useRem: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     valuesForColumnDefault: {
       type: Array,
       required: false,
@@ -488,16 +494,24 @@ export default {
       columnActionsOnePlusDropdownOptions: computed(() => this.columnActionsOnePlusDropdownOptions),
       columns: computed(() => this.columns),
       columnsDefaultValue: computed(() => this.columnsDefaultValue),
-      columnWidthDefault: computed(() => this.columnWidthDefault),
       isLoadingOptions: computed(() => this.isLoadingOptions),
       isLoadingTable: computed(() => this.isLoadingTable),
       keyId: computed(() => this.keyId),
       rowActions: computed(() => this.rowActions),
       tableId: computed(() => this.id),
       valuesForColumnDefault: computed(() => this.valuesForColumnDefault),
+      useRem: computed(() => this.useRem),
     };
   },
   setup(props, context) {
+    const {
+      columnActionsWidthDefaultsRemLocal,
+      columnActionsWidthMinRemLocal,
+      columnActionsWidthRemLocal,
+      columnWidthDefaultRemLocal,
+      previewBoxWidthRemLocal,
+    } = WidthAPI(props);
+
     const {
       initModelIsTableWithoutScroll,
       isActionColumnVisibleLocal,
@@ -608,6 +622,9 @@ export default {
       columnActionsWidthMinLocal,
       isColumnActionWide,
     } = ColumnActionAPI(props, {
+      columnActionsWidthDefaultsRemLocal,
+      columnActionsWidthMinRemLocal,
+      columnActionsWidthRemLocal,
       isMobile,
       rowsLocal,
     });
@@ -619,10 +636,11 @@ export default {
       columnsVisibleAdditionalSpaceForOneGrow,
       onWatchMobileScrollControl,
     } = ScrollControlAPI(props, context, {
-      columnActionsWidth: columnActionsWidthLocal,
-      columnActionsWidthMin: columnActionsWidthMinLocal,
+      columnActionsWidthLocal,
+      columnActionsWidthMinLocal,
       columnsOrdered,
       columnsScrollInvisible,
+      columnWidthDefaultRemLocal,
       indexFirstScrollInvisibleColumn,
       isMobile,
       isMultipleActionsActive,
@@ -690,6 +708,7 @@ export default {
     } = PreviewAPI(props, context, {
       aTableRef,
       isMobile,
+      previewBoxWidthRemLocal,
       rowsLocalAll,
       tableGrandparentRef,
     });
@@ -754,6 +773,7 @@ export default {
     provide("columnsOrdered", columnsOrdered);
     provide("columnsFilteredForRender", columnsFilteredForRender);
     provide("columnsScrollInvisible", columnsScrollInvisible);
+    provide("columnWidthDefault", columnWidthDefaultRemLocal);
     provide("columnsVisibleAdditionalSpaceForOneGrow", columnsVisibleAdditionalSpaceForOneGrow);
     provide("columnActionsWidthLocal", columnActionsWidthLocal);
     provide("columnActionsWidthMinLocal", columnActionsWidthMinLocal);

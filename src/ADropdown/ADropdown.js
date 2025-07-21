@@ -286,6 +286,11 @@ export default {
       required: false,
       default: true,
     },
+    useRem: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   emits: [
     "open",

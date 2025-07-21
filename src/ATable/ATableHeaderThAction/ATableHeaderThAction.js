@@ -34,6 +34,7 @@ export default {
     "columnsOrdered",
     "isActionIconVisible",
     "modelIsTableWithoutScroll",
+    "useRem",
   ],
   props: {
     disabledOptions: {
@@ -133,6 +134,7 @@ export default {
         placement: "left",
         menuWidth: 320,
         inBody: true,
+        useRem: this.useRem,
       }, {
         button: () => h(AIcon, {
           icon: GearFill,

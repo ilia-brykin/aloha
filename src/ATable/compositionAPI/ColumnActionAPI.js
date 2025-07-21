@@ -13,13 +13,13 @@ import {
 } from "lodash-es";
 
 export default function ColumnActionAPI(props, {
+  columnActionsWidthDefaultsRemLocal = computed(() => ({})),
+  columnActionsWidthMinRemLocal = () => undefined,
+  columnActionsWidthRemLocal = () => undefined,
   isMobile = computed(() => false),
   rowsLocal = ref([]),
 }) {
   const columnActionsView = toRef(props, "columnActionsView");
-  const columnActionsWidth = toRef(props, "columnActionsWidth");
-  const columnActionsWidthDefaults = toRef(props, "columnActionsWidthDefaults");
-  const columnActionsWidthMin = toRef(props, "columnActionsWidthMin");
   const rowActions = toRef(props, "rowActions");
 
   const shouldChangeActionWidth = computed(() => {
@@ -54,39 +54,39 @@ export default function ColumnActionAPI(props, {
   });
 
   const columnActionsWidthLocal = computed(() => {
-    if (!isUndefined(columnActionsWidth.value)) {
-      return columnActionsWidth.value;
+    if (!isUndefined(columnActionsWidthRemLocal.value)) {
+      return columnActionsWidthRemLocal.value;
     }
 
     if (!isColumnActionWide.value) {
-      return columnActionsWidthDefaults.value.default;
+      return columnActionsWidthDefaultsRemLocal.value.default;
     }
 
     if (columnActionsView.value === "onePlusDropdown") {
-      return columnActionsWidthDefaults.value.onePlusDropdown;
+      return columnActionsWidthDefaultsRemLocal.value.onePlusDropdown;
     }
 
-    return columnActionsWidthDefaults.value.default;
+    return columnActionsWidthDefaultsRemLocal.value.default;
   });
 
   const columnActionsWidthMinLocal = computed(() => {
-    if (!isUndefined(columnActionsWidthMin.value)) {
-      return columnActionsWidthMin.value;
+    if (!isUndefined(columnActionsWidthMinRemLocal.value)) {
+      return columnActionsWidthMinRemLocal.value;
     }
 
     if (!isColumnActionWide.value) {
-      return columnActionsWidthDefaults.value.min;
+      return columnActionsWidthDefaultsRemLocal.value.min;
     }
 
     if (columnActionsView.value === "onePlusDropdown") {
-      return columnActionsWidthDefaults.value.onePlusDropdownMin;
+      return columnActionsWidthDefaultsRemLocal.value.onePlusDropdownMin;
     }
 
-    return columnActionsWidthDefaults.value.min;
+    return columnActionsWidthDefaultsRemLocal.value.min;
   });
 
   const columnActionsBtnGroupMaxWidthStyle = computed(() => {
-    const MAX_WIDTH = columnActionsWidthDefaults.value.btnGroupMaxWidth;
+    const MAX_WIDTH = columnActionsWidthDefaultsRemLocal.value.btnGroupMaxWidth;
     if (!isMobile.value &&
       columnActionsView.value !== "dropdown" &&
       !isUndefined(MAX_WIDTH)) {

@@ -23,6 +23,7 @@ import {
 export default function PreviewAPI(props, context, {
   aTableRef = ref({}),
   isMobile = ref(undefined),
+  previewBoxWidthRemLocal = computed(() => 0),
   rowsLocalAll = computed(() => []),
   tableGrandparentRef = ref({}),
 }) {
@@ -39,6 +40,7 @@ export default function PreviewAPI(props, context, {
     togglePreviewResize,
   } = PreviewRightResizeAPI(props, context, {
     aTableRef,
+    previewBoxWidthRemLocal,
     tableGrandparentRef,
   });
   const keyId = toRef(props, "keyId");

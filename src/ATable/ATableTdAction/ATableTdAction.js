@@ -4,7 +4,6 @@ import {
 
 import ADropdown from "../../ADropdown/ADropdown";
 import AGroupButtonDropdown from "../../AGroupButtonDropdown/AGroupButtonDropdown";
-import AIcon from "../../AIcon/AIcon";
 import ATableListItem from "../ATableListItem/ATableListItem";
 
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
@@ -22,10 +21,6 @@ import {
 
 export default {
   name: "ATableTdAction",
-  components: {
-    AIcon,
-    ATableListItem,
-  },
   props: {
     columnActionsBtnGroupMaxWidthStyle: {
       type: String,
@@ -66,6 +61,7 @@ export default {
     "columnActionsOnePlusDropdownOptions",
     "columnsScrollInvisible",
     "tableId",
+    "useRem",
   ],
   setup(props) {
     const {
@@ -144,6 +140,7 @@ export default {
           placement: "bottom-end",
           menuWidth: 600,
           isCloseByClickInside: false,
+          useRem: this.useRem,
         }, {
           dropdown: () => [
             h("dl", {
@@ -190,6 +187,7 @@ export default {
                   hasCaret: false,
                   inBody: true,
                   placement: "bottom-end",
+                  useRem: this.useRem,
                 }, this.$slots) :
                 h(AGroupButtonDropdown, {
                   class: "a_d_inline_block",

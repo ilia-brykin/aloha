@@ -7,6 +7,8 @@ import {
   watch,
 } from "vue";
 
+import ARemPxAPI from "../../compositionAPI/ARemPxAPI";
+
 import {
   isColumnVisibleFromModel,
 } from "../utils/utils.js";
@@ -19,10 +21,11 @@ import {
 } from "lodash-es";
 
 export default function ScrollControlAPI(props, { emit }, {
-  columnActionsWidth = computed(() => 0),
-  columnActionsWidthMin = computed(() => 0),
+  columnActionsWidthLocal = computed(() => 0),
+  columnActionsWidthMinLocal = computed(() => 0),
   columnsOrdered = computed(() => []),
   columnsScrollInvisible = ref([]),
+  columnWidthDefaultRemLocal = computed(() => 0),
   indexFirstScrollInvisibleColumn = ref(undefined),
   isMobile = ref(false),
   isMultipleActionsActive = ref(undefined),
@@ -30,9 +33,13 @@ export default function ScrollControlAPI(props, { emit }, {
   modelIsTableWithoutScroll = ref(false),
   modelIsTableWithoutScrollComputed = computed(() => false),
 }) {
-  const columnWidthDefault = toRef(props, "columnWidthDefault");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const isSimpleTable = toRef(props, "isSimpleTable");
+  const useRem = toRef(props, "useRem");
+
+  const {
+    scalePxWithRem,
+  } = ARemPxAPI();
 
   const aTableRef = ref(undefined);
   const columnsVisibleAdditionalSpaceForOneGrow = ref(0);
@@ -40,16 +47,24 @@ export default function ScrollControlAPI(props, { emit }, {
   let changingTableWidth = false;
   const delta = 20; // approx scrollbar width + 2px for <tr> border
 
-  const columnActionsWidthMinLocal = computed(() => {
+  const scaleWidthPxWithRemLocal = width => {
+    if (useRem.value) {
+      return scalePxWithRem(width);
+    }
+
+    return width;
+  };
+
+  const _columnActionsWidthMinLocal = computed(() => {
     if (isActionColumnVisible.value) {
-      return columnActionsWidthMin.value;
+      return columnActionsWidthMinLocal.value;
     }
 
     return 0;
   });
 
   const columnsSpecialWidth = computed(() => {
-    const columnMultipleActionsWidth = isMultipleActionsActive.value ? columnActionsWidthMin.value : 0;
+    const columnMultipleActionsWidth = isMultipleActionsActive.value ? columnActionsWidthMinLocal.value : 0;
     const scrollBarWidth = isSimpleTable.value ? 0 : delta; // delta for table resize when scrollbar appears
 
     return columnMultipleActionsWidth + scrollBarWidth;
@@ -103,8 +118,8 @@ export default function ScrollControlAPI(props, { emit }, {
     if (isUndefined(tableWidth.value)) {
       return;
     }
-    const TABLE_WIDTH_WITHOUT_ACTIONS_MIN = tableWidth.value - columnsSpecialWidth.value - columnActionsWidthMinLocal.value;
-    const TABLE_WIDTH_WITHOUT_ACTIONS_MAX = tableWidth.value - columnsSpecialWidth.value - columnActionsWidth.value;
+    const TABLE_WIDTH_WITHOUT_ACTIONS_MIN = tableWidth.value - columnsSpecialWidth.value - _columnActionsWidthMinLocal.value;
+    const TABLE_WIDTH_WITHOUT_ACTIONS_MAX = tableWidth.value - columnsSpecialWidth.value - columnActionsWidthLocal.value;
 
     let columnsWidthInOrder = 0;
     let indexFirstScrollInvisibleColumnLocal = 0;
@@ -118,7 +133,7 @@ export default function ScrollControlAPI(props, { emit }, {
         indexFirstScrollInvisibleColumnLocal++;
         return;
       }
-      const COLUMN_WIDTH = +column.width || columnWidthDefault.value;
+      const COLUMN_WIDTH = +scaleWidthPxWithRemLocal(column.width) || columnWidthDefaultRemLocal.value;
       if (columnsWidthInOrder + COLUMN_WIDTH > TABLE_WIDTH_WITHOUT_ACTIONS_MIN) {
         isMinOneColumnHide = true;
         return false;
@@ -137,7 +152,7 @@ export default function ScrollControlAPI(props, { emit }, {
         })) {
           continue;
         }
-        const COLUMN_WIDTH = +COLUMN.width || columnWidthDefault.value;
+        const COLUMN_WIDTH = +scaleWidthPxWithRemLocal(COLUMN.width) || columnWidthDefaultRemLocal.value;
 
         columnsWidthInOrder -= COLUMN_WIDTH;
         sumGrows -= isNil(COLUMN.grow) ? 1 : COLUMN.grow;

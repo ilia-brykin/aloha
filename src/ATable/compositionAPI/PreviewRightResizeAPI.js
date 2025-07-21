@@ -1,7 +1,7 @@
 import {
+  computed,
   onBeforeUnmount,
   ref,
-  toRef,
 } from "vue";
 
 import PreviewRightRewAPI from "./PreviewRightRewAPI";
@@ -13,6 +13,7 @@ import {
 
 export default function PreviewRightResizeAPI(props, { emit }, {
   aTableRef = ref({}),
+  previewBoxWidthRemLocal = computed(() => 0),
   tableGrandparentRef = ref({}),
 }) {
   const {
@@ -20,7 +21,6 @@ export default function PreviewRightResizeAPI(props, { emit }, {
     removePreviewRef,
   } = PreviewRightRewAPI();
 
-  const previewBoxWidth = toRef(props, "previewBoxWidth");
   const PREVIEW_BOX_MIN_WIDTH_PX = 200;
   const PREVIEW_BOX_MAX_WIDTH_PERCENT = 50;
   let previewBoxMaxWidthPx = undefined;
@@ -69,7 +69,7 @@ export default function PreviewRightResizeAPI(props, { emit }, {
     setClientXTableParent();
     mousemoveResizePreviewRight({
       previewRef,
-      previewBoxWidth: previewBoxWidth.value,
+      previewBoxWidth: previewBoxWidthRemLocal.value,
     });
   };
 

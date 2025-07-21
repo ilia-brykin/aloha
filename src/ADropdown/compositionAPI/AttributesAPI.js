@@ -4,6 +4,8 @@ import {
   toRef,
 } from "vue";
 
+import ARemPxAPI from "../../compositionAPI/ARemPxAPI";
+
 import {
   assign,
   cloneDeep,
@@ -22,6 +24,11 @@ export default function AttributesAPI(props, {
   const id = toRef(props, "id");
   const menuWidth = toRef(props, "menuWidth");
   const persist = toRef(props, "persist");
+  const useRem = toRef(props, "useRem");
+
+  const {
+    scalePxWithRem,
+  } = ARemPxAPI();
 
   const idLocal = computed(() => {
     return buttonAttributes.value.id || id.value;
@@ -56,7 +63,11 @@ export default function AttributesAPI(props, {
       a_dropdown__menu_show: statusExpanded.value,
     }];
     if (menuWidth.value) {
-      DROPDOWN_ATTRIBUTES.style = `width: ${ menuWidth.value }px`;
+      if (useRem.value) {
+        DROPDOWN_ATTRIBUTES.style = `width: ${ scalePxWithRem(menuWidth.value) }px`;
+      } else {
+        DROPDOWN_ATTRIBUTES.style = `width: ${ menuWidth.value }px`;
+      }
     }
     return assign({}, DROPDOWN_ATTRIBUTES, eventsMenu.value);
   });
