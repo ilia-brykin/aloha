@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.31.0
+
+- Feature: Add `useRem` support and adjustments across `ATable` and `ADropdown` components for REM-based scaling
+
 ## 2.30.4
 
 - Feature: Add error handling, improved validation, and extended `AValidatedJson` API functionality
