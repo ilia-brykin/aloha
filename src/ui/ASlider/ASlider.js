@@ -13,8 +13,10 @@ import {
   UiStyleHideAPI,
 } from "../../index";
 
-import ModelAPI from "./compositionAPI/ModelAPI";
+import AElement from "../../AElement/AElement";
+
 import SliderAPI from "./compositionAPI/SliderAPI";
+import StylesAPI from "./compositionAPI/StylesAPI";
 
 import {
   uniqueId,
@@ -218,43 +220,43 @@ export default {
     } = UiAPI(props, context);
 
     const {
-      modelValueLocal,
-      onInput,
-      onChange,
-    } = ModelAPI(props, {
-      changeModel,
-    });
-
-    const {
-      sliderRef,
-      firstButtonRef,
-      secondButtonRef,
-      firstValue,
-      secondValue,
-      minValue,
-      maxValue,
-      precision,
       dragging,
-      hovering,
-      tooltipVisible,
-      runwayStyle,
-      barStyle,
-      firstButtonStyle,
-      secondButtonStyle,
-      stops,
-      getStopStyle,
-      markList,
+      firstButtonRef,
+      firstValue,
       formatValue,
-      resetSize,
-      onSliderClick,
+      getStopStyle,
+      hovering,
+      markList,
+      maxValue,
+      minValue,
+      modelValueLocal,
+      onButtonKeyDown,
       onButtonMouseDown,
       onButtonMouseEnter,
       onButtonMouseLeave,
       onMarkerClick,
-      onButtonKeyDown,
+      onSliderClick,
+      precision,
+      resetSize,
+      secondButtonRef,
+      secondValue,
+      sliderRef,
+      stops,
+      tooltipVisible,
     } = SliderAPI(props, {
-      modelValueLocal,
       changeModel,
+    });
+
+    const {
+      barStyle,
+      firstButtonStyle,
+      runwayStyle,
+      secondButtonStyle,
+    } = StylesAPI(props, {
+      firstValue,
+      secondValue,
+      maxValue,
+      minValue,
     });
 
     // Format the model value for readonly display
@@ -299,12 +301,9 @@ export default {
       onButtonMouseDown,
       onButtonMouseEnter,
       onButtonMouseLeave,
-      onChange,
       onFocus,
-      onInput,
       onMarkerClick,
       onSliderClick,
-      placeholderAttributes,
       precision,
       resetSize,
       runwayStyle,
@@ -375,7 +374,7 @@ export default {
           h("div", {
             class: ["a_slider", {
               "a_slider--vertical": this.vertical,
-              "a_slider--disabled": this.disabledAttribut,
+              a_slider_disabled: this.disabled,
             }],
             role: this.range ? "group" : undefined,
             "aria-label": this.range ? `Range slider between ${ this.min } and ${ this.max }` : undefined,
@@ -383,9 +382,7 @@ export default {
             // Slider runway (track)
             h("div", {
               ref: "sliderRef",
-              class: ["a_slider__runway", {
-                "is-disabled": this.disabledAttribut,
-              }],
+              class: "a_slider__runway",
               style: this.runwayStyle,
               onClick: this.onSliderClick,
             }, [
@@ -396,9 +393,13 @@ export default {
               }),
 
               // First button (handle)
-              h("div", {
+              h(AElement, {
                 ref: "firstButtonRef",
-                class: ["a_slider__button-wrapper", {
+                type: "button",
+                tag: "div",
+                ariaDisabled: this.disabled,
+                classDefault: "",
+                class: ["a_slider__button", {
                   dragging: this.dragging,
                   hover: this.hovering,
                 }],
@@ -418,22 +419,29 @@ export default {
                 onKeydown: event => this.onButtonKeyDown(event, true),
                 onFocus: this.onFocus,
                 onBlur: this.onBlur,
-              }, [
+              }, () => [
                 h("div", {
-                  class: "a_slider__button",
+                  class: "a_slider__button__child",
                 }),
-                // Tooltip for first button
-                this.showTooltip && h("div", {
-                  class: ["a_slider__tooltip", {
-                    "is-visible": this.tooltipVisible,
-                  }],
-                }, this.formatValue(this.firstValue)),
+
+                /*
+                 * Tooltip for first button
+                 * this.showTooltip && h("div", {
+                 *   class: ["a_slider__tooltip", {
+                 *     "is-visible": this.tooltipVisible,
+                 *   }],
+                 * }, this.formatValue(this.firstValue)),
+                 */
               ]),
 
               // Second button (handle) for range mode
-              this.range && h("div", {
+              this.range && h(AElement, {
                 ref: "secondButtonRef",
-                class: ["a_slider__button-wrapper", {
+                type: "button",
+                tag: "div",
+                ariaDisabled: this.disabled,
+                classDefault: "",
+                class: ["a_slider__button", {
                   dragging: this.dragging,
                   hover: this.hovering,
                 }],
@@ -453,16 +461,19 @@ export default {
                 onKeydown: event => this.onButtonKeyDown(event, false),
                 onFocus: this.onFocus,
                 onBlur: this.onBlur,
-              }, [
+              }, () => [
                 h("div", {
-                  class: "a_slider__button",
+                  class: "a_slider__button__child",
                 }),
-                // Tooltip for second button
-                this.showTooltip && h("div", {
-                  class: ["a_slider__tooltip", {
-                    "is-visible": this.tooltipVisible,
-                  }],
-                }, this.formatValue(this.secondValue)),
+
+                /*
+                 * Tooltip for second button
+                 * this.showTooltip && h("div", {
+                 *   class: ["a_slider__tooltip", {
+                 *     "is-visible": this.tooltipVisible,
+                 *   }],
+                 * }, this.formatValue(this.secondValue)),
+                 */
               ]),
 
               // Stops (step markers)
