@@ -22,7 +22,6 @@ export default function SliderAPI(props, {
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
   const range = toRef(props, "range");
-  const showStops = toRef(props, "showStops");
   const showTooltip = toRef(props, "showTooltip");
   const step = toRef(props, "step");
   const vertical = toRef(props, "vertical");
@@ -76,29 +75,6 @@ export default function SliderAPI(props, {
     });
     return Math.max(...precisions);
   });
-
-  // Stops
-  const stops = computed(() => {
-    if (!showStops.value || min.value > max.value || step.value === 0) {
-      return [];
-    }
-
-    const stopCount = (max.value - min.value) / step.value;
-    const stepWidth = 100 * step.value / (max.value - min.value);
-    const result = Array.from({ length: stopCount - 1 }).map((_, index) => (index + 1) * stepWidth);
-
-    if (range.value) {
-      return result.filter(stop => {
-        return stop < 100 * (minValue.value - min.value) / (max.value - min.value) ||
-          stop > 100 * (maxValue.value - min.value) / (max.value - min.value);
-      });
-    }
-    return result.filter(stop => stop > 100 * (firstValue.value - min.value) / (max.value - min.value));
-  });
-
-  const getStopStyle = position => {
-    return vertical.value ? { bottom: `${ position }%` } : { left: `${ position }%` };
-  };
 
   // Marks
   const markList = computed(() => {
@@ -442,7 +418,6 @@ export default function SliderAPI(props, {
     firstButtonRef,
     firstValue,
     formatValue,
-    getStopStyle,
     hovering,
     markList,
     maxValue,
@@ -459,7 +434,6 @@ export default function SliderAPI(props, {
     secondButtonRef,
     secondValue,
     sliderRef,
-    stops,
     tooltipVisible,
   };
 }
