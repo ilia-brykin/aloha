@@ -1,6 +1,7 @@
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import PageSliderBasic from "./PageSliderBasic/PageSliderBasic.vue";
 import PageSliderChange from "./PageSliderChange/PageSliderChange.vue";
+import PageSliderHelpText from "./PageSliderHelpText/PageSliderHelpText.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -14,6 +15,7 @@ export default {
     ATranslation,
     PageSliderBasic,
     PageSliderChange,
+    PageSliderHelpText,
   },
   setup() {
     const {
