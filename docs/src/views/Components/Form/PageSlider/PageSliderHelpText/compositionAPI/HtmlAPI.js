@@ -2,7 +2,7 @@ export default function HtmlAPI() {
   const codeHtml = `<a-slider
   v-model="model"
   help-text="Aloha"
-  label="_A_SLIDER_BASIC_LABEL"
+  label="_A_SLIDER_BASIC_LABEL_"
 ></a-slider>`;
 
   return {
