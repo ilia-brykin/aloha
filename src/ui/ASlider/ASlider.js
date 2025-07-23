@@ -16,6 +16,7 @@ import {
 import AElement from "../../AElement/AElement";
 
 import SliderAPI from "./compositionAPI/SliderAPI";
+import StopsAPI from "./compositionAPI/StopsAPI";
 import StylesAPI from "./compositionAPI/StylesAPI";
 
 import {
@@ -224,7 +225,6 @@ export default {
       firstButtonRef,
       firstValue,
       formatValue,
-      getStopStyle,
       hovering,
       markList,
       maxValue,
@@ -241,7 +241,6 @@ export default {
       secondButtonRef,
       secondValue,
       sliderRef,
-      stops,
       tooltipVisible,
     } = SliderAPI(props, {
       changeModel,
@@ -255,6 +254,15 @@ export default {
     } = StylesAPI(props, {
       firstValue,
       secondValue,
+      maxValue,
+      minValue,
+    });
+
+    const {
+      getStopStyle,
+      stops,
+    } = StopsAPI(props, {
+      firstValue,
       maxValue,
       minValue,
     });
