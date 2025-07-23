@@ -9,6 +9,7 @@ import {
 
 import {
   isArray,
+  isNumber,
 } from "lodash-es";
 
 export default function SliderAPI(props, {
@@ -122,7 +123,12 @@ export default function SliderAPI(props, {
     if (formatTooltip.value && typeof formatTooltip.value === "function") {
       return formatTooltip.value(value);
     }
-    return value.toFixed(precision.value);
+
+    if (isNumber(value)) {
+      return value.toFixed(precision.value);
+    }
+
+    return "";
   };
 
   // Reset size
