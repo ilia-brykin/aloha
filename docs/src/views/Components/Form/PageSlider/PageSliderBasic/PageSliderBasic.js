@@ -17,9 +17,7 @@ export default {
     AlohaExample,
   },
   setup() {
-    const model1 = ref(50);
-    const model2 = ref(0);
-    const model3 = ref([20, 80]);
+    const model = ref(50);
 
     const {
       codeHtml,
@@ -32,9 +30,7 @@ export default {
     return {
       codeHtml,
       codeJs,
-      model1,
-      model2,
-      model3,
+      model,
     };
   },
 };
