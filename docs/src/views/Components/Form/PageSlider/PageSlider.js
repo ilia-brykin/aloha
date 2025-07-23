@@ -3,6 +3,7 @@ import PageSliderBasic from "./PageSliderBasic/PageSliderBasic.vue";
 import PageSliderChange from "./PageSliderChange/PageSliderChange.vue";
 import PageSliderErrors from "./PageSliderErrors/PageSliderErrors.vue";
 import PageSliderHelpText from "./PageSliderHelpText/PageSliderHelpText.vue";
+import PageSliderLabelDescription from "./PageSliderLabelDescription/PageSliderLabelDescription.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -18,6 +19,7 @@ export default {
     PageSliderChange,
     PageSliderErrors,
     PageSliderHelpText,
+    PageSliderLabelDescription,
   },
   setup() {
     const {
