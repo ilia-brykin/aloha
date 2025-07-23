@@ -375,6 +375,7 @@ export default {
             class: ["a_slider", {
               "a_slider--vertical": this.vertical,
               a_slider_disabled: this.disabled,
+              a_slider_invalid: this.isErrors,
             }],
             role: this.range ? "group" : undefined,
             "aria-label": this.range ? `Range slider between ${ this.min } and ${ this.max }` : undefined,
