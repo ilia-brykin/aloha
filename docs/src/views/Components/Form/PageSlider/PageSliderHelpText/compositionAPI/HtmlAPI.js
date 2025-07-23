@@ -1,10 +1,9 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-slider
-  :change="changeModel"
-  :model-value="model"
+  v-model="model"
+  help-text="Aloha"
   label="_A_SLIDER_BASIC_LABEL"
-></a-input>
-<div>model: {{ model }}</div>`;
+></a-slider>`;
 
   return {
     codeHtml,
