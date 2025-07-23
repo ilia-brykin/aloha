@@ -2,35 +2,16 @@ aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
   header="_A_BASIC_USAGE_"
-  :props="['model-value', 'min', 'max', 'step', 'range', 'label']"
+  :props="['model-value', 'disabled']"
 )
   a-slider(
-    v-model="model1"
-    label="Basic Slider"
+    v-model="model"
+    label="_A_SLIDER_BASIC_LABEL"
   )
-  .a_mt_2 model1: {{ model1 }}
+  .a_mt_2 model: {{ model }}
 
   a-slider(
-    v-model="model1"
-    label="Basic Slider"
+    v-model="model"
     :disabled="true"
+    label="_A_SLIDER_DISABLED_LABEL"
   )
-  .a_mt_2 model1: {{ model1 }}
-  
-  a-slider(
-    v-model="model2"
-    :max="20"
-    :min="-20"
-    :step="5"
-    class="a_mt_3"
-    label="Custom Min/Max/Step"
-  )
-  .a_mt_2 model2: {{ model2 }}
-  
-  a-slider(
-    v-model="model3"
-    :range="true"
-    class="a_mt_3"
-    label="Range Slider"
-  )
-  .a_mt_2 model3: {{ model3 }}

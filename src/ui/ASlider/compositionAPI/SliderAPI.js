@@ -52,8 +52,6 @@ export default function SliderAPI(props, {
     return modelValue.value;
   });
 
-
-  // Computed values
   const firstValue = computed(() => {
     return range.value ? modelValueLocal.value[0] : modelValueLocal.value;
   });
@@ -77,9 +75,6 @@ export default function SliderAPI(props, {
     });
     return Math.max(...precisions);
   });
-
-  // Styles
-
 
   // Stops
   const stops = computed(() => {
