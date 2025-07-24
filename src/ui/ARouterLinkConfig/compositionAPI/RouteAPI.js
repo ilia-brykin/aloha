@@ -9,11 +9,27 @@ import {
 } from "lodash-es";
 
 export default function RouteAPI(props) {
+  const filterRoutes = toRef(props, "filterRoutes");
   const keyIdRoute = toRef(props, "keyIdRoute");
   const routes = toRef(props, "routes");
+  const type = toRef(props, "type");
 
   const routesLocal = computed(() => {
+    if (filterRoutes.value) {
+      return filterRoutes.value({ routes: routes.value });
+    }
+
     return routes.value;
+  });
+
+  const routeType = computed(() => {
+    if (type.value === "selectRoute") {
+      return "select";
+    }
+    if (type.value === "multiselectRoute") {
+      return "multiselect";
+    }
+    return undefined;
   });
 
   const routePathKeyByKeyId = computed(() => {
@@ -30,5 +46,6 @@ export default function RouteAPI(props) {
   return {
     routePathKeyByKeyId,
     routesLocal,
+    routeType,
   };
 }

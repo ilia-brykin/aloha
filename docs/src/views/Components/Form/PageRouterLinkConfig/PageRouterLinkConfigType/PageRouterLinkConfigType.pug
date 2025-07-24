@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_"
+  description="_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_"
+  :props="['type']"
+)
+  a-router-link-config(
+    v-model="model1"
+    :required="true"
+    label="Select"
+    type="selectRoute"
+  )
+  div model1: {{ model1 }}
+  a-router-link-config(
+    v-model="model2"
+    :required="true"
+    class="a_mt_3"
+    label="Select"
+    type="multiselectRoute"
+  )
+  div model2: {{ model2 }}

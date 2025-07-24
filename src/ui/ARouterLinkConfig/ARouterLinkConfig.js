@@ -4,6 +4,7 @@ import {
 import {
   AFieldset,
   ARouterLinkConfigPluginOptions,
+  ASelect,
   UiAPI,
 } from "../../index";
 
@@ -28,6 +29,11 @@ export default {
       type: Object,
       required: false,
       default: () => ARouterLinkConfigPluginOptions.propsDefault.attributesFieldset,
+    },
+    attributesRoute: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     change: {
       type: Function,
@@ -67,6 +73,11 @@ export default {
       type: Object,
       required: false,
       default: () => ARouterLinkConfigPluginOptions.propsDefault.extra,
+    },
+    filterRoutes: {
+      type: Function,
+      required: false,
+      default: undefined,
     },
     hasBorder: {
       type: Boolean,
@@ -112,11 +123,6 @@ export default {
       type: String,
       required: false,
       default: undefined,
-    },
-    inputAttributes: {
-      type: Object,
-      required: false,
-      default: () => ({}),
     },
     isHide: {
       type: Boolean,
@@ -188,9 +194,9 @@ export default {
       default: "",
     },
     modelValue: {
-      type: Object,
+      type: [String, Array, Object],
       required: false,
-      default: () => ({}),
+      default: undefined,
     },
     readonly: {
       type: Boolean,
@@ -247,6 +253,12 @@ export default {
       required: false,
       default: () => ARouterLinkConfigPluginOptions.propsDefault.targets,
     },
+    type: {
+      type: String,
+      required: false,
+      default: "routerLinkConfig",
+      validator: value => ["routerLinkConfig", "selectRoute", "multiselectRoute"].indexOf(value) !== -1,
+    },
   },
   emits: [
     "update:modelValue",
@@ -263,12 +275,15 @@ export default {
       changeParamModel,
       changeQueryModel,
       changeRouteModel,
+      changeRouteModelSelect,
       changeTargetModel,
+      modelLocal,
     } = ModelLocalAPI(props, context);
 
     const {
       routePathKeyByKeyId,
       routesLocal,
+      routeType,
     } = RouteAPI(props);
 
     const {
@@ -294,44 +309,83 @@ export default {
 
     return {
       changeModel,
+      changeRouteModelSelect,
       dataFormChildren,
       hasParam,
       htmlIdLocal,
+      modelLocal,
+      routesLocal,
+      routeType,
     };
   },
   render() {
-    return h(AFieldset, {
-      ...this.$attrs,
-      alwaysTranslate: this.alwaysTranslate,
-      attributesFieldset: this.attributesFieldset,
-      classColumn: this.classColumn,
-      classColumns: this.classColumns,
-      classFieldset: this.classFieldset,
-      disabled: this.disabled,
-      errors: this.errors,
-      excludeRenderAttributes: this.excludeRenderAttributes,
-      extra: this.extra,
-      hasBorder: this.hasBorder,
-      helpText: this.helpText,
-      htmlId: this.htmlId,
-      id: this.id,
-      idPrefix: this.idPrefix,
-      inputAttributes: this.inputAttributes,
-      isHide: this.isHide,
-      isRender: this.isRender,
-      label: this.label,
-      labelClass: this.labelClass,
-      labelDescription: this.labelDescription,
-      labelScreenReader: this.labelScreenReader,
-      modelUndefined: this.modelUndefined,
-      modelValue: this.modelValue,
-      readonly: this.readonly,
-      readonlyDefault: this.readonlyDefault,
-      required: this.required,
-      slotName: this.slotName,
-      children: this.dataFormChildren,
-      change: this.changeModel,
-      // "onUpdate:modelValue": this.$emit["update:modelValue"],
-    });
+    if (this.type === "routerLinkConfig") {
+      return h(AFieldset, {
+        ...this.$attrs,
+        id: this.id,
+        alwaysTranslate: this.alwaysTranslate,
+        attributesFieldset: this.attributesFieldset,
+        change: this.changeModel,
+        children: this.dataFormChildren,
+        classColumn: this.classColumn,
+        classColumns: this.classColumns,
+        classFieldset: this.classFieldset,
+        disabled: this.disabled,
+        errors: this.errors,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        hasBorder: this.hasBorder,
+        helpText: this.helpText,
+        htmlId: this.htmlId,
+        idPrefix: this.idPrefix,
+        isHide: this.isHide,
+        isRender: this.isRender,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelDescription: this.labelDescription,
+        labelScreenReader: this.labelScreenReader,
+        modelUndefined: this.modelUndefined,
+        modelValue: this.modelLocal,
+        readonly: this.readonly,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        slotName: this.slotName,
+      }, this.$slots);
+    }
+
+    if (this.type === "selectRoute" || this.type === "multiselectRoute") {
+      return h(ASelect, {
+        ...this.$attrs,
+        id: this.id,
+        alwaysTranslate: this.alwaysTranslate,
+        change: this.changeRouteModelSelect,
+        data: this.routesLocal,
+        disabled: this.disabled,
+        errors: this.errors,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        htmlId: this.htmlId,
+        idPrefix: this.idPrefix,
+        isHide: this.isHide,
+        isRender: this.isRender,
+        keyId: this.keyIdRoute,
+        keyLabel: this.keyLabelRoute,
+        keyLabelCallback: this.keyLabelCallbackRoute,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelDescription: this.labelDescription,
+        labelScreenReader: this.labelScreenReader,
+        modelUndefined: this.modelUndefined,
+        modelValue: this.modelLocal,
+        readonly: this.readonly,
+        readonlyDefault: this.readonlyDefault,
+        required: this.required,
+        search: true,
+        sortOrder: this.sortOrderRoute,
+        type: this.routeType,
+        ...this.attributesRoute,
+      }, this.$slots);
+    }
   },
 };

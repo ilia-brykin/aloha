@@ -1,4 +1,5 @@
 import {
+  computed,
   toRef,
   toRefs,
 } from "vue";
@@ -11,11 +12,35 @@ export default function ModelLocalAPI(props, { emit }) {
   const change = toRef(props, "change");
   const id = toRef(props, "id");
   const modelValue = toRef(props, "modelValue");
+  const type = toRef(props, "type");
+
+  const modelLocal = computed(() => {
+    if (modelValue.value) {
+      return modelValue.value;
+    }
+
+    if (type.value === "routerLinkConfig") {
+      return {};
+    }
+
+    return undefined;
+  });
 
   const changeModel = ({ model, item }) => {
     emit("update:modelValue", model);
     change.value({
       currentModel: model,
+      id: id.value,
+      item,
+      model,
+      props: toRefs(props),
+    });
+  };
+
+  const changeRouteModelSelect = ({ currentModel, model, item }) => {
+    emit("update:modelValue", model);
+    change.value({
+      currentModel,
       id: id.value,
       item,
       model,
@@ -64,6 +89,8 @@ export default function ModelLocalAPI(props, { emit }) {
     changeParamModel,
     changeQueryModel,
     changeRouteModel,
+    changeRouteModelSelect,
     changeTargetModel,
+    modelLocal,
   };
 }

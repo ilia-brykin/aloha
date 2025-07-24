@@ -12,6 +12,7 @@ export default function DataFormAPI(props, {
   htmlIdLocal = computed(() => ""),
   routesLocal = computed(() => []),
 }) {
+  const attributesRoute = toRef(props, "attributesRoute");
   const helpTextParam = toRef(props, "helpTextParam");
   const helpTextQuery = toRef(props, "helpTextQuery");
   const helpTextRoute = toRef(props, "helpTextRoute");
@@ -52,6 +53,7 @@ export default function DataFormAPI(props, {
         search: true,
         sortOrder: sortOrderRoute.value,
         type: "select",
+        ...attributesRoute.value,
       },
       {
         id: "param",

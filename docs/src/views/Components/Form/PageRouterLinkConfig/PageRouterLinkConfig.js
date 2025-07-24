@@ -5,6 +5,7 @@ import AlohaTableTranslate from "../../../../global/components/AlohaTableTransla
 import PageRouterLinkConfigBasic from "./PageRouterLinkConfigBasic/PageRouterLinkConfigBasic.vue";
 import PageRouterLinkConfigLabelDescription from "./PageRouterLinkConfigLabelDescription/PageRouterLinkConfigLabelDescription.vue";
 import PageRouterLinkConfigReadonly from "./PageRouterLinkConfigReadonly/PageRouterLinkConfigReadonly.vue";
+import PageRouterLinkConfigType from "./PageRouterLinkConfigType/PageRouterLinkConfigType.vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
@@ -21,6 +22,7 @@ export default {
     PageRouterLinkConfigBasic,
     PageRouterLinkConfigLabelDescription,
     PageRouterLinkConfigReadonly,
+    PageRouterLinkConfigType,
   },
   setup() {
     const {
