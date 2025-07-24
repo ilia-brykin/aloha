@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.32.0
+
+- Feature: Add `selectRoute` and `multiselectRoute` types to `ARouterLinkConfig`
+
 ## 2.31.0
 
 - Feature: Add `useRem` support and adjustments across `ATable` and `ADropdown` components for REM-based scaling
