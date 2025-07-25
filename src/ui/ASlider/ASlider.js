@@ -15,6 +15,8 @@ import {
 
 import AElement from "../../AElement/AElement";
 
+import DataAPI from "./compositionAPI/DataAPI";
+import MarksAPI from "./compositionAPI/MarksAPI";
 import SliderAPI from "./compositionAPI/SliderAPI";
 import StopsAPI from "./compositionAPI/StopsAPI";
 import StylesAPI from "./compositionAPI/StylesAPI";
@@ -35,6 +37,11 @@ export default {
       type: Function,
       required: false,
       default: () => {},
+    },
+    data: {
+      type: Array,
+      required: false,
+      default: undefined,
     },
     dependencies: {
       type: [Array, Object],
@@ -90,6 +97,10 @@ export default {
       required: false,
       default: undefined,
     },
+    isDataSimpleArray: {
+      type: Boolean,
+      required: false,
+    },
     isHide: {
       type: Boolean,
       required: false,
@@ -98,6 +109,21 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    keyId: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyLabel: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    keyTitle: {
+      type: String,
+      required: false,
+      default: undefined,
     },
     label: {
       type: [String, Number],
@@ -150,6 +176,11 @@ export default {
       default: undefined,
     },
     range: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    rangeAllowCross: {
       type: Boolean,
       required: false,
       default: false,
@@ -221,12 +252,15 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      dataLocal,
+    } = DataAPI(props);
+
+    const {
       dragging,
       firstButtonRef,
       firstValue,
       formatValue,
       hovering,
-      markList,
       maxValue,
       minValue,
       modelValueLocal,
@@ -247,15 +281,18 @@ export default {
     });
 
     const {
+      markList,
+    } = MarksAPI(props);
+
+    const {
       barStyle,
       firstButtonStyle,
       runwayStyle,
       secondButtonStyle,
     } = StylesAPI(props, {
+      dataLocal,
       firstValue,
       secondValue,
-      maxValue,
-      minValue,
     });
 
     const {
@@ -281,6 +318,7 @@ export default {
     };
 
     return {
+      dataLocal,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       barStyle,
