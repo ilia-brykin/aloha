@@ -4,6 +4,7 @@ import PageSliderChange from "./PageSliderChange/PageSliderChange.vue";
 import PageSliderErrors from "./PageSliderErrors/PageSliderErrors.vue";
 import PageSliderHelpText from "./PageSliderHelpText/PageSliderHelpText.vue";
 import PageSliderLabelDescription from "./PageSliderLabelDescription/PageSliderLabelDescription.vue";
+import PageSliderMinMax from "./PageSliderMinMax/PageSliderMinMax.vue";
 import PageSliderRange from "./PageSliderRange/PageSliderRange.vue";
 import {
   ATranslation,
@@ -21,6 +22,7 @@ export default {
     PageSliderErrors,
     PageSliderHelpText,
     PageSliderLabelDescription,
+    PageSliderMinMax,
     PageSliderRange,
   },
   setup() {
