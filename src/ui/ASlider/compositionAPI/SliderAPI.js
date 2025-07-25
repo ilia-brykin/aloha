@@ -17,11 +17,12 @@ export default function SliderAPI(props, {
 }) {
   const disabled = toRef(props, "disabled");
   const formatTooltip = toRef(props, "formatTooltip");
-  const marks = toRef(props, "marks");
+  const height = toRef(props, "height");
   const max = toRef(props, "max");
   const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
   const range = toRef(props, "range");
+  const rangeAllowCross = toRef(props, "rangeAllowCross");
   const showTooltip = toRef(props, "showTooltip");
   const step = toRef(props, "step");
   const vertical = toRef(props, "vertical");
@@ -77,22 +78,7 @@ export default function SliderAPI(props, {
   });
 
   // Marks
-  const markList = computed(() => {
-    if (!marks.value) {
-      return [];
-    }
 
-    const marksKeys = Object.keys(marks.value);
-    return marksKeys
-      .map(parseFloat)
-      .sort((a, b) => a - b)
-      .filter(point => point <= max.value && point >= min.value)
-      .map(point => ({
-        point,
-        position: (point - min.value) * 100 / (max.value - min.value),
-        mark: marks.value[point],
-      }));
-  });
 
   // Format tooltip value
   const formatValue = value => {
@@ -142,7 +128,7 @@ export default function SliderAPI(props, {
         newValue[1] = value;
       }
       // Ensure values are in correct order if needed
-      if (props.range && !props.rangeAllowCross) {
+      if (range.value && !rangeAllowCross.value) {
         if (isFirstButton && value > newValue[1]) {
           newValue[0] = newValue[1];
         } else if (!isFirstButton && value < newValue[0]) {
@@ -409,7 +395,7 @@ export default function SliderAPI(props, {
   });
 
   // Watch for window resize
-  watch(() => [vertical.value, props.height], () => {
+  watch(() => [vertical.value, height.value], () => {
     nextTick(resetSize);
   });
 
@@ -419,7 +405,6 @@ export default function SliderAPI(props, {
     firstValue,
     formatValue,
     hovering,
-    markList,
     maxValue,
     minValue,
     modelValueLocal,
