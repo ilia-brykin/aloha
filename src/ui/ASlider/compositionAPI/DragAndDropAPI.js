@@ -14,7 +14,6 @@ export default function DragAndDropAPI(props, {
   sliderSize = ref(1),
 }) {
   const disabled = toRef(props, "disabled");
-  const showTooltip = toRef(props, "showTooltip");
   const vertical = toRef(props, "vertical");
 
   const currentX = ref(0);
@@ -24,16 +23,10 @@ export default function DragAndDropAPI(props, {
   const startPosition = ref(0);
   const startX = ref(0);
   const startY = ref(0);
-  const tooltipVisible = ref(false);
 
   const onFirstButtonDragging = event => {
     if (!dragging.value) {
       return;
-    }
-
-    // Show tooltip during dragging
-    if (showTooltip.value) {
-      tooltipVisible.value = true;
     }
 
     // Calculate new position
@@ -55,11 +48,6 @@ export default function DragAndDropAPI(props, {
   const onSecondButtonDragging = event => {
     if (!dragging.value) {
       return;
-    }
-
-    // Show tooltip during dragging
-    if (showTooltip.value) {
-      tooltipVisible.value = true;
     }
 
     // Calculate new position
@@ -86,9 +74,6 @@ export default function DragAndDropAPI(props, {
     // End dragging
     setTimeout(() => {
       dragging.value = false;
-      if (!hovering.value && showTooltip.value) {
-        tooltipVisible.value = false;
-      }
     }, 0);
 
     removeEventListenersFirstButton();
@@ -102,9 +87,6 @@ export default function DragAndDropAPI(props, {
     // End dragging
     setTimeout(() => {
       dragging.value = false;
-      if (!hovering.value && showTooltip.value) {
-        tooltipVisible.value = false;
-      }
     }, 0);
 
     removeEventListenersSecondButton();
@@ -166,16 +148,10 @@ export default function DragAndDropAPI(props, {
 
   const onButtonMouseEnter = () => {
     hovering.value = true;
-    if (showTooltip.value) {
-      tooltipVisible.value = true;
-    }
   };
 
   const onButtonMouseLeave = () => {
     hovering.value = false;
-    if (!dragging.value && showTooltip.value) {
-      tooltipVisible.value = false;
-    }
   };
 
   return {
@@ -185,6 +161,5 @@ export default function DragAndDropAPI(props, {
     onButtonMouseLeave,
     removeEventListenersFirstButton,
     removeEventListenersSecondButton,
-    tooltipVisible,
   };
 }

@@ -11,7 +11,6 @@ import {
   findIndex,
   isArray,
   isNil,
-  isNumber,
 } from "lodash-es";
 
 export default function SliderAPI(props, {
@@ -21,7 +20,6 @@ export default function SliderAPI(props, {
   minValueDataLocal = computed(() => 0),
 }) {
   const disabled = toRef(props, "disabled");
-  const formatTooltip = toRef(props, "formatTooltip");
   const height = toRef(props, "height");
   const modelValue = toRef(props, "modelValue");
   const range = toRef(props, "range");
@@ -84,19 +82,6 @@ export default function SliderAPI(props, {
   const maxValue = computed(() => {
     return range.value ? Math.max(firstValue.value, secondValue.value) : firstValue.value;
   });
-
-  // Format tooltip value
-  const formatValue = value => {
-    if (formatTooltip.value && typeof formatTooltip.value === "function") {
-      return formatTooltip.value(value);
-    }
-
-    if (isNumber(value)) {
-      return value.toFixed();
-    }
-
-    return "";
-  };
 
   // Reset size
   const resetSize = () => {
@@ -286,7 +271,6 @@ export default function SliderAPI(props, {
     dragging,
     firstButtonRef,
     firstValue,
-    formatValue,
     getPosition,
     initSlider,
     maxValue,
