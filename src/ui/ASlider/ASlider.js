@@ -123,11 +123,6 @@ export default {
       required: false,
       default: undefined,
     },
-    keyTitle: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     label: {
       type: [String, Number],
       required: false,
