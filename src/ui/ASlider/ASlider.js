@@ -23,6 +23,7 @@ import MarksAPI from "./compositionAPI/MarksAPI";
 import SliderAPI from "./compositionAPI/SliderAPI";
 import StopsAPI from "./compositionAPI/StopsAPI";
 import StylesAPI from "./compositionAPI/StylesAPI";
+import TitleAPI from "./compositionAPI/TitleAPI";
 
 import {
   uniqueId,
@@ -70,17 +71,17 @@ export default {
       required: false,
       default: undefined,
     },
-    formatTooltip: {
+    formatValue: {
       type: Function,
       required: false,
       default: undefined,
     },
-    helpText: {
+    height: {
       type: String,
       required: false,
       default: undefined,
     },
-    height: {
+    helpText: {
       type: String,
       required: false,
       default: undefined,
@@ -109,6 +110,11 @@ export default {
       required: false,
     },
     isRender: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    isTitleHtml: {
       type: Boolean,
       required: false,
       default: true,
@@ -200,12 +206,6 @@ export default {
     showStops: {
       type: Boolean,
       required: false,
-      default: false,
-    },
-    showTooltip: {
-      type: Boolean,
-      required: false,
-      default: true,
     },
     step: {
       type: Number,
@@ -282,13 +282,20 @@ export default {
     });
 
     const {
+      firstButtonTitle,
+      secondButtonTitle,
+    } = TitleAPI(props, {
+      firstValue,
+      secondValue,
+    });
+
+    const {
       hovering,
       onButtonMouseDown,
       onButtonMouseEnter,
       onButtonMouseLeave,
       removeEventListenersFirstButton,
       removeEventListenersSecondButton,
-      tooltipVisible,
     } = DragAndDropAPI(props, {
       dragging,
       firstValue,
@@ -346,16 +353,17 @@ export default {
     });
 
     return {
-      dataLocal,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       barStyle,
       componentStyleHide,
+      dataLocal,
       disabledAttribut,
       dragging,
       errorsId,
       firstButtonRef,
       firstButtonStyle,
+      firstButtonTitle,
       firstValue,
       formatValue,
       getStopStyle,
@@ -382,10 +390,10 @@ export default {
       runwayStyle,
       secondButtonRef,
       secondButtonStyle,
+      secondButtonTitle,
       secondValue,
       sliderRef,
       stops,
-      tooltipVisible,
     };
   },
   render() {
@@ -479,11 +487,13 @@ export default {
                 }],
                 style: this.firstButtonStyle,
                 tabindex: this.disabled ? -1 : 0,
+                title: this.firstButtonTitle,
+                isTitleHtml: this.isTitleHtml,
                 role: "slider",
                 "aria-valuemin": this.min,
                 "aria-valuemax": this.range ? this.secondValue : this.max,
                 "aria-valuenow": this.firstValue,
-                "aria-valuetext": this.formatValue(this.firstValue),
+                // "aria-valuetext": this.formatValue(this.firstValue),
                 "aria-orientation": this.vertical ? "vertical" : "horizontal",
                 "aria-disabled": this.disabledAttribut,
                 "aria-label": this.range ? "Minimum value" : "Value",
@@ -497,15 +507,6 @@ export default {
                 h("div", {
                   class: "a_slider__button__child",
                 }),
-
-                /*
-                 * Tooltip for first button
-                 * this.showTooltip && h("div", {
-                 *   class: ["a_slider__tooltip", {
-                 *     "is-visible": this.tooltipVisible,
-                 *   }],
-                 * }, this.formatValue(this.firstValue)),
-                 */
               ]),
 
               // Second button (handle) for range mode
@@ -521,11 +522,13 @@ export default {
                 }],
                 style: this.secondButtonStyle,
                 tabindex: this.disabled ? -1 : 0,
+                title: this.secondButtonTitle,
+                isTitleHtml: this.isTitleHtml,
                 role: "slider",
                 "aria-valuemin": this.firstValue,
                 "aria-valuemax": this.max,
                 "aria-valuenow": this.secondValue,
-                "aria-valuetext": this.formatValue(this.secondValue),
+                // "aria-valuetext": this.formatValue(this.secondValue),
                 "aria-orientation": this.vertical ? "vertical" : "horizontal",
                 "aria-disabled": this.disabledAttribut,
                 "aria-label": "Maximum value",
@@ -539,15 +542,6 @@ export default {
                 h("div", {
                   class: "a_slider__button__child",
                 }),
-
-                /*
-                 * Tooltip for second button
-                 * this.showTooltip && h("div", {
-                 *   class: ["a_slider__tooltip", {
-                 *     "is-visible": this.tooltipVisible,
-                 *   }],
-                 * }, this.formatValue(this.secondValue)),
-                 */
               ]),
 
               // Stops (step markers)
