@@ -1,45 +1,61 @@
 import {
   computed,
   nextTick,
-  onMounted,
   ref,
   toRef,
   watch,
 } from "vue";
 
+import AKeyId from "../../../const/AKeyId";
 import {
+  findIndex,
   isArray,
+  isNil,
   isNumber,
 } from "lodash-es";
 
 export default function SliderAPI(props, {
   changeModel = () => {},
+  dataLocal = computed(() => []),
+  maxValueDataLocal = computed(() => 0),
+  minValueDataLocal = computed(() => 0),
 }) {
   const disabled = toRef(props, "disabled");
   const formatTooltip = toRef(props, "formatTooltip");
   const height = toRef(props, "height");
-  const max = toRef(props, "max");
-  const min = toRef(props, "min");
   const modelValue = toRef(props, "modelValue");
   const range = toRef(props, "range");
   const rangeAllowCross = toRef(props, "rangeAllowCross");
-  const showTooltip = toRef(props, "showTooltip");
-  const step = toRef(props, "step");
   const vertical = toRef(props, "vertical");
 
-  const currentX = ref(0);
-  const currentY = ref(0);
   const dragging = ref(false);
   const firstButtonRef = ref(null);
-  const hovering = ref(false);
-  const newPosition = ref(0);
   const secondButtonRef = ref(null);
   const sliderRef = ref(null);
   const sliderSize = ref(1);
-  const startPosition = ref(0);
-  const startX = ref(0);
-  const startY = ref(0);
-  const tooltipVisible = ref(false);
+
+  const lastIndexDataLocal = computed(() => {
+    return dataLocal.value.length - 1;
+  });
+
+  const stepsPerPercent = computed(() => {
+    return lastIndexDataLocal.value / 100;
+  });
+
+  const getPosition = ({ value }) => {
+    if (!dataLocal.value.length) {
+      return 0;
+    }
+
+    const valueIndex = findIndex(dataLocal.value, item => item[AKeyId] === value);
+    if (valueIndex === -1) {
+      return 0;
+    }
+
+    const percentage = (valueIndex / (lastIndexDataLocal.value)) * 100;
+
+    return percentage;
+  };
 
   const modelValueLocal = computed(() => {
     if (range.value) {
@@ -62,23 +78,12 @@ export default function SliderAPI(props, {
   });
 
   const minValue = computed(() => {
-    return range.value ? Math.min(firstValue.value, secondValue.value) : min.value;
+    return range.value ? Math.min(firstValue.value, secondValue.value) : minValueDataLocal.value;
   });
 
   const maxValue = computed(() => {
     return range.value ? Math.max(firstValue.value, secondValue.value) : firstValue.value;
   });
-
-  const precision = computed(() => {
-    const precisions = [min.value, max.value, step.value].map(item => {
-      const decimal = String(item).split(".")[1];
-      return decimal ? decimal.length : 0;
-    });
-    return Math.max(...precisions);
-  });
-
-  // Marks
-
 
   // Format tooltip value
   const formatValue = value => {
@@ -87,7 +92,7 @@ export default function SliderAPI(props, {
     }
 
     if (isNumber(value)) {
-      return value.toFixed(precision.value);
+      return value.toFixed();
     }
 
     return "";
@@ -100,25 +105,18 @@ export default function SliderAPI(props, {
     }
   };
 
-  // Set position
-  const setPosition = (percent, isFirstButton = true) => {
-    if (percent === null || isNaN(percent)) {
+  const setValue = ({ index, isFirstButton = true }) => {
+    if (isNil(index) || index === -1) {
       return;
     }
 
-    // Limit percent to 0-100
-    if (percent < 0) {
-      percent = 0;
-    } else if (percent > 100) {
-      percent = 100;
+    if (index < 0) {
+      index = 0;
+    } else if (index > lastIndexDataLocal.value) {
+      index = lastIndexDataLocal.value;
     }
 
-    // Calculate value based on percent
-    const lengthPerStep = 100 / ((max.value - min.value) / step.value);
-    const steps = Math.round(percent / lengthPerStep);
-    let value = steps * lengthPerStep * (max.value - min.value) * 0.01 + min.value;
-    value = parseFloat(value.toFixed(precision.value));
-
+    const value = dataLocal.value?.[index][AKeyId];
     // Update model value
     if (range.value) {
       const newValue = [...modelValueLocal.value];
@@ -139,6 +137,22 @@ export default function SliderAPI(props, {
     } else {
       changeModel({ model: value });
     }
+  };
+
+  // Set position
+  const setPosition = ({ percent, isFirstButton = true }) => {
+    if (percent === null || isNaN(percent)) {
+      return;
+    }
+
+    // Limit percent to 0-100
+    if (percent < 0) {
+      percent = 0;
+    } else if (percent > 100) {
+      percent = 100;
+    }
+    const INDEX = (percent * stepsPerPercent.value).toFixed();
+    setValue({ index: INDEX, isFirstButton });
   };
 
   // Event handlers
@@ -164,151 +178,19 @@ export default function SliderAPI(props, {
     // Determine which button to move in range mode
     if (range.value) {
       // Calculate distances to both buttons
-      const firstValuePercent = ((firstValue.value - min.value) / (max.value - min.value)) * 100;
-      const secondValuePercent = ((secondValue.value - min.value) / (max.value - min.value)) * 100;
+      const firstValuePercent = getPosition({ value: firstValue.value });
+      const secondValuePercent = getPosition({ value: secondValue.value });
 
       const distToFirst = Math.abs(newPercent - firstValuePercent);
       const distToSecond = Math.abs(newPercent - secondValuePercent);
 
       if (distToFirst <= distToSecond) {
-        setPosition(newPercent, true);
+        setPosition({ percent: newPercent, isFirstButton: true });
       } else {
-        setPosition(newPercent, false);
+        setPosition({ percent: newPercent, isFirstButton: false });
       }
     } else {
-      setPosition(newPercent);
-    }
-  };
-
-  const onFirstButtonDragging = event => {
-    if (!dragging.value) {
-      return;
-    }
-
-    // Show tooltip during dragging
-    if (showTooltip.value) {
-      tooltipVisible.value = true;
-    }
-
-    // Calculate new position
-    resetSize();
-
-    let diff;
-    if (vertical.value) {
-      currentY.value = event.clientY;
-      diff = ((startY.value - currentY.value) / sliderSize.value) * 100;
-    } else {
-      currentX.value = event.clientX;
-      diff = ((currentX.value - startX.value) / sliderSize.value) * 100;
-    }
-
-    newPosition.value = startPosition.value + diff;
-    setPosition(newPosition.value, true);
-  };
-
-  const onSecondButtonDragging = event => {
-    if (!dragging.value) {
-      return;
-    }
-
-    // Show tooltip during dragging
-    if (showTooltip.value) {
-      tooltipVisible.value = true;
-    }
-
-    // Calculate new position
-    resetSize();
-
-    let diff;
-    if (vertical.value) {
-      currentY.value = event.clientY;
-      diff = ((startY.value - currentY.value) / sliderSize.value) * 100;
-    } else {
-      currentX.value = event.clientX;
-      diff = ((currentX.value - startX.value) / sliderSize.value) * 100;
-    }
-
-    newPosition.value = startPosition.value + diff;
-    setPosition(newPosition.value, false);
-  };
-
-  const onFirstButtonDragEnd = () => {
-    if (!dragging.value) {
-      return;
-    }
-
-    // End dragging
-    setTimeout(() => {
-      dragging.value = false;
-      if (!hovering.value && showTooltip.value) {
-        tooltipVisible.value = false;
-      }
-    }, 0);
-
-    // Remove event listeners
-    document.removeEventListener("mousemove", onFirstButtonDragging);
-    document.removeEventListener("mouseup", onFirstButtonDragEnd);
-    document.removeEventListener("contextmenu", onFirstButtonDragEnd);
-  };
-
-  const onSecondButtonDragEnd = () => {
-    if (!dragging.value) {
-      return;
-    }
-
-    // End dragging
-    setTimeout(() => {
-      dragging.value = false;
-      if (!hovering.value && showTooltip.value) {
-        tooltipVisible.value = false;
-      }
-    }, 0);
-
-    // Remove event listeners
-    document.removeEventListener("mousemove", onSecondButtonDragging);
-    document.removeEventListener("mouseup", onSecondButtonDragEnd);
-    document.removeEventListener("contextmenu", onSecondButtonDragEnd);
-  };
-
-  const onButtonMouseDown = (event, isFirstButton = true) => {
-    if (disabled.value) {
-      return;
-    }
-
-    event.preventDefault();
-
-    // Start dragging
-    dragging.value = true;
-
-    // Record start position
-    if (vertical.value) {
-      startY.value = event.clientY;
-    } else {
-      startX.value = event.clientX;
-    }
-
-    // Calculate start position as percentage
-    startPosition.value = isFirstButton
-      ? ((firstValue.value - min.value) / (max.value - min.value)) * 100
-      : ((secondValue.value - min.value) / (max.value - min.value)) * 100;
-
-    // Add event listeners for dragging
-    document.addEventListener("mousemove", isFirstButton ? onFirstButtonDragging : onSecondButtonDragging);
-    document.addEventListener("mouseup", isFirstButton ? onFirstButtonDragEnd : onSecondButtonDragEnd);
-    document.addEventListener("contextmenu", isFirstButton ? onFirstButtonDragEnd : onSecondButtonDragEnd);
-  };
-
-  const onButtonMouseEnter = () => {
-    hovering.value = true;
-    if (showTooltip.value) {
-      tooltipVisible.value = true;
-    }
-  };
-
-  const onButtonMouseLeave = () => {
-    hovering.value = false;
-    if (!dragging.value && showTooltip.value) {
-      tooltipVisible.value = false;
+      setPosition({ percent: newPercent, isFirstButton: true });
     }
   };
 
@@ -323,19 +205,19 @@ export default function SliderAPI(props, {
     // Determine which button to move in range mode
     if (range.value) {
       // Calculate distances to both buttons
-      const firstValuePercent = ((firstValue.value - min.value) / (max.value - min.value)) * 100;
-      const secondValuePercent = ((secondValue.value - min.value) / (max.value - min.value)) * 100;
+      const firstValuePercent = getPosition({ value: firstValue.value });
+      const secondValuePercent = getPosition({ value: secondValue.value });
 
       const distToFirst = Math.abs(percent - firstValuePercent);
       const distToSecond = Math.abs(percent - secondValuePercent);
 
       if (distToFirst <= distToSecond) {
-        setPosition(percent, true);
+        setPosition({ percent, isFirstButton: true });
       } else {
-        setPosition(percent, false);
+        setPosition({ percent, isFirstButton: false });
       }
     } else {
-      setPosition(percent);
+      setPosition({ percent, isFirstButton: true });
     }
   };
 
@@ -346,30 +228,32 @@ export default function SliderAPI(props, {
     }
 
     let isPreventDefault = true;
-    let newPosition;
-    const currentValue = isFirstButton ? firstValue.value : secondValue.value;
-    const currentPercent = ((currentValue - min.value) / (max.value - min.value)) * 100;
+    let newIndex;
+    const currentValue = isFirstButton ?
+      firstValue.value :
+      secondValue.value;
+    const currentIndex = findIndex(dataLocal.value, item => item[AKeyId] === currentValue);
 
     switch (event.key) {
     case "ArrowLeft":
     case "ArrowDown":
-      newPosition = currentPercent - (step.value / (max.value - min.value)) * 100;
+      newIndex = currentIndex - 1;
       break;
     case "ArrowRight":
     case "ArrowUp":
-      newPosition = currentPercent + (step.value / (max.value - min.value)) * 100;
+      newIndex = currentIndex + 1;
       break;
     case "Home":
-      newPosition = 0;
+      newIndex = 0;
       break;
     case "End":
-      newPosition = 100;
+      newIndex = lastIndexDataLocal.value;
       break;
     case "PageDown":
-      newPosition = currentPercent - (step.value * 4 / (max.value - min.value)) * 100;
+      newIndex = currentIndex - 4;
       break;
     case "PageUp":
-      newPosition = currentPercent + (step.value * 4 / (max.value - min.value)) * 100;
+      newIndex = currentIndex + 4;
       break;
     default:
       isPreventDefault = false;
@@ -378,21 +262,20 @@ export default function SliderAPI(props, {
 
     if (isPreventDefault) {
       event.preventDefault();
-      if (newPosition !== undefined) {
-        setPosition(newPosition, isFirstButton);
+      if (newIndex !== currentIndex) {
+        setValue({ index: newIndex, isFirstButton });
       }
     }
   };
 
-  // Initialize
-  onMounted(() => {
+  const initSlider = () => {
     resetSize();
 
     // Initialize model value for range mode
-    if (range.value && (!Array.isArray(modelValueLocal.value) || modelValueLocal.value.length !== 2)) {
-      changeModel({ model: [min.value, max.value] });
+    if (range.value && (!isArray(modelValueLocal.value) || modelValueLocal.value.length !== 2)) {
+      changeModel({ model: [minValueDataLocal.value, maxValueDataLocal.value] });
     }
-  });
+  };
 
   // Watch for window resize
   watch(() => [vertical.value, height.value], () => {
@@ -404,21 +287,19 @@ export default function SliderAPI(props, {
     firstButtonRef,
     firstValue,
     formatValue,
-    hovering,
+    getPosition,
+    initSlider,
     maxValue,
     minValue,
     modelValueLocal,
     onButtonKeyDown,
-    onButtonMouseDown,
-    onButtonMouseEnter,
-    onButtonMouseLeave,
     onMarkerClick,
     onSliderClick,
-    precision,
     resetSize,
     secondButtonRef,
     secondValue,
+    setPosition,
     sliderRef,
-    tooltipVisible,
+    sliderSize,
   };
 }

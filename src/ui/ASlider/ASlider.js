@@ -1,5 +1,7 @@
 import {
   h,
+  onBeforeUnmount,
+  onMounted,
 } from "vue";
 import {
   AErrorsText,
@@ -16,6 +18,7 @@ import {
 import AElement from "../../AElement/AElement";
 
 import DataAPI from "./compositionAPI/DataAPI";
+import DragAndDropAPI from "./compositionAPI/DragAndDropAPI";
 import MarksAPI from "./compositionAPI/MarksAPI";
 import SliderAPI from "./compositionAPI/SliderAPI";
 import StopsAPI from "./compositionAPI/StopsAPI";
@@ -253,6 +256,8 @@ export default {
 
     const {
       dataLocal,
+      maxValueDataLocal,
+      minValueDataLocal,
     } = DataAPI(props);
 
     const {
@@ -260,24 +265,43 @@ export default {
       firstButtonRef,
       firstValue,
       formatValue,
-      hovering,
+      getPosition,
+      initSlider,
       maxValue,
       minValue,
       modelValueLocal,
       onButtonKeyDown,
-      onButtonMouseDown,
-      onButtonMouseEnter,
-      onButtonMouseLeave,
       onMarkerClick,
       onSliderClick,
-      precision,
       resetSize,
       secondButtonRef,
       secondValue,
+      setPosition,
       sliderRef,
-      tooltipVisible,
+      sliderSize,
     } = SliderAPI(props, {
       changeModel,
+      dataLocal,
+      maxValueDataLocal,
+      minValueDataLocal,
+    });
+
+    const {
+      hovering,
+      onButtonMouseDown,
+      onButtonMouseEnter,
+      onButtonMouseLeave,
+      removeEventListenersFirstButton,
+      removeEventListenersSecondButton,
+      tooltipVisible,
+    } = DragAndDropAPI(props, {
+      dragging,
+      firstValue,
+      getPosition,
+      resetSize,
+      secondValue,
+      setPosition,
+      sliderSize,
     });
 
     const {
@@ -290,8 +314,8 @@ export default {
       runwayStyle,
       secondButtonStyle,
     } = StylesAPI(props, {
-      dataLocal,
       firstValue,
+      getPosition,
       secondValue,
     });
 
@@ -316,6 +340,15 @@ export default {
 
       return formatValue(modelValueLocal.value);
     };
+
+    onMounted(() => {
+      initSlider();
+    });
+
+    onBeforeUnmount(() => {
+      removeEventListenersFirstButton();
+      removeEventListenersSecondButton();
+    });
 
     return {
       dataLocal,
@@ -350,7 +383,6 @@ export default {
       onFocus,
       onMarkerClick,
       onSliderClick,
-      precision,
       resetSize,
       runwayStyle,
       secondButtonRef,

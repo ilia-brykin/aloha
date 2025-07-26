@@ -5,7 +5,9 @@ import {
 
 import AKeyId from "../../../const/AKeyId";
 import {
+  first,
   forEach,
+  last,
   range,
 } from "lodash-es";
 
@@ -30,7 +32,17 @@ export default function DataAPI(props) {
     return dataMinMax.value;
   });
 
+  const minValueDataLocal = computed(() => {
+    return first(dataLocal.value)?.[AKeyId];
+  });
+
+  const maxValueDataLocal = computed(() => {
+    return last(dataLocal.value)?.[AKeyId];
+  });
+
   return {
     dataLocal,
+    maxValueDataLocal,
+    minValueDataLocal,
   };
 }
