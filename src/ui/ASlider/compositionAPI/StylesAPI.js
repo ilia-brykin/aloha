@@ -3,34 +3,14 @@ import {
   toRef,
 } from "vue";
 
-import AKeyId from "../../../const/AKeyId";
-import {
-  findIndex,
-} from "lodash-es";
-
 export default function StylesAPI(props, {
-  dataLocal = computed(() => []),
   firstValue = computed(() => 0),
+  getPosition = () => {},
   secondValue = computed(() => 0),
 }) {
   const height = toRef(props, "height");
   const range = toRef(props, "range");
   const vertical = toRef(props, "vertical");
-
-  const getPosition = ({ value }) => {
-    if (!dataLocal.value.length) {
-      return 0;
-    }
-
-    const valueIndex = findIndex(dataLocal.value, item => item[AKeyId] === value);
-    if (valueIndex === -1) {
-      return 0;
-    }
-
-    const percentage = (valueIndex / (dataLocal.value.length - 1)) * 100;
-
-    return percentage;
-  };
 
   const firstValuePosition = computed(() => {
     return getPosition({ value: firstValue.value });
@@ -50,7 +30,7 @@ export default function StylesAPI(props, {
 
   const barStyle = computed(() => {
     const barSize = range.value ?
-      `${ Math.abs(secondValuePosition.value - firstValue.value) }%` :
+      `${ Math.abs(secondValuePosition.value - firstValuePosition.value) }%` :
       `${ firstValuePosition.value }%`;
 
     const barStart = range.value ?
