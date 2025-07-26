@@ -8,5 +8,9 @@
   "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_",
   "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_",
   "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_",
-  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_"
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "_A_SLIDER_GROUP_DATA_HEADER_",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "_A_SLIDER_GROUP_DATA_DESCRIPTION_"
 }

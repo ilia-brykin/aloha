@@ -15,6 +15,7 @@ import {
   range,
   sortBy,
   toNumber,
+  uniqBy,
 } from "lodash-es";
 
 export default function DataAPI(props) {
@@ -52,13 +53,15 @@ export default function DataAPI(props) {
         const ID = get(item, keyId.value);
         if (!isNil(ID)) {
           DATA.push({
-            [AKeyId]: toNumber(item),
+            [AKeyId]: toNumber(ID),
           });
         }
       });
     }
-
     let sortedData = sortBy(DATA, AKeyId);
+    // Make data unique by AKeyId field
+    sortedData = uniqBy(sortedData, AKeyId);
+
 
     // Cutting from left based on min
     if (!isNil(min.value)) {
