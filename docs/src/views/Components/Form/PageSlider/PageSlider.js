@@ -8,6 +8,7 @@ import PageSliderLabelDescription from "./PageSliderLabelDescription/PageSliderL
 import PageSliderMinMax from "./PageSliderMinMax/PageSliderMinMax.vue";
 import PageSliderRange from "./PageSliderRange/PageSliderRange.vue";
 import PageSliderStops from "./PageSliderStops/PageSliderStops.vue";
+import PageSliderVertical from "./PageSliderVertical/PageSliderVertical.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -28,6 +29,7 @@ export default {
     PageSliderMinMax,
     PageSliderRange,
     PageSliderStops,
+    PageSliderVertical,
   },
   setup() {
     const {
