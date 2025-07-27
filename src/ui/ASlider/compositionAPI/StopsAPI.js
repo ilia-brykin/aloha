@@ -27,7 +27,7 @@ export default function StopsAPI(props, {
       if (index > 0 && index < dataLocal.value.length - 1) {
         const POSITION = index * percentInOneIndex.value;
         STOPS.push({
-          stylesVertikal: { bottom: `${ POSITION }%` },
+          stylesVertical: { bottom: `${ POSITION }%` },
           stylesHorizontal: { left: `${ POSITION }%` },
         });
       }

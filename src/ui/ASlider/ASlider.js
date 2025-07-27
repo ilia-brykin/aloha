@@ -522,7 +522,7 @@ export default {
           // Slider component
           h("div", {
             class: ["a_slider", {
-              "a_slider--vertical": this.vertical,
+              a_slider_vertical: this.vertical,
               a_slider_disabled: this.disabled,
               a_slider_invalid: this.isErrors,
             }],
@@ -618,7 +618,7 @@ export default {
                 }, this.stops.map(position => {
                   return h("div", {
                     class: "a_slider__stop",
-                    style: this.vertical ? position.stylesVertikal : position.stylesHorizontal,
+                    style: this.vertical ? position.stylesVertical : position.stylesHorizontal,
                   });
                 })) :
                 "",
