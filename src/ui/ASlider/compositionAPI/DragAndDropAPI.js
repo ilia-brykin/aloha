@@ -4,11 +4,17 @@ import {
   toRef,
 } from "vue";
 
+import {
+  setFocusToElement,
+} from "../../../utils/utilsDOM";
+
 export default function DragAndDropAPI(props, {
   dragging = ref(false),
   firstValue = computed(() => 0),
   getPosition = () => {},
+  htmlIdLocal = computed(() => ""),
   resetSize = () => {},
+  secondButtonHtmlId = computed(() => ""),
   secondValue = computed(() => 0),
   setPosition = () => {},
   sliderSize = ref(1),
@@ -18,7 +24,10 @@ export default function DragAndDropAPI(props, {
 
   const currentX = ref(0);
   const currentY = ref(0);
-  const hovering = ref(false);
+  const draggingFirst = ref(false);
+  const draggingSecond = ref(false);
+  const hoveringFirst = ref(false);
+  const hoveringSecond = ref(false);
   const newPosition = ref(0);
   const startPosition = ref(0);
   const startX = ref(0);
@@ -74,6 +83,10 @@ export default function DragAndDropAPI(props, {
     // End dragging
     setTimeout(() => {
       dragging.value = false;
+      draggingFirst.value = false;
+      setFocusToElement({
+        selector: `#${ htmlIdLocal.value }`,
+      });
     }, 0);
 
     removeEventListenersFirstButton();
@@ -87,6 +100,10 @@ export default function DragAndDropAPI(props, {
     // End dragging
     setTimeout(() => {
       dragging.value = false;
+      draggingSecond.value = false;
+      setFocusToElement({
+        selector: `#${ secondButtonHtmlId.value }`,
+      });
     }, 0);
 
     removeEventListenersSecondButton();
@@ -125,6 +142,11 @@ export default function DragAndDropAPI(props, {
 
     // Start dragging
     dragging.value = true;
+    if (isFirstButton) {
+      draggingFirst.value = true;
+    } else {
+      draggingSecond.value = true;
+    }
 
     // Record start position
     if (vertical.value) {
@@ -146,16 +168,27 @@ export default function DragAndDropAPI(props, {
     }
   };
 
-  const onButtonMouseEnter = () => {
-    hovering.value = true;
+  const onButtonMouseEnter = isFirstButton => {
+    if (isFirstButton) {
+      hoveringFirst.value = true;
+    } else {
+      hoveringSecond.value = true;
+    }
   };
 
-  const onButtonMouseLeave = () => {
-    hovering.value = false;
+  const onButtonMouseLeave = isFirstButton => {
+    if (isFirstButton) {
+      hoveringFirst.value = false;
+    } else {
+      hoveringSecond.value = false;
+    }
   };
 
   return {
-    hovering,
+    draggingFirst,
+    draggingSecond,
+    hoveringFirst,
+    hoveringSecond,
     onButtonMouseDown,
     onButtonMouseEnter,
     onButtonMouseLeave,
