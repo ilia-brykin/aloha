@@ -72,10 +72,6 @@
       }
     }
   }
-
-  &--disabled {
-    opacity: 0.5;
-  }
 }
 
 .a_slider__runway {
@@ -110,20 +106,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  &:hover,
-  &.hover {
-    cursor: grab;
-  }
-
-  &.dragging {
-    cursor: grabbing;
-  }
-  &:focus {
+  &:focus,
+  &.a_slider__button_dragging {
     .a_slider__button__child {
       box-shadow:
               0 0 0 var(--a_slider_btn_focus_width_inside) var(--a_slider_btn_focus_color_inside),
               0 0 0 var(--a_slider_btn_focus_width_outside) var(--a_slider_btn_focus_color_outside);
     }
+  }
+}
+.a_slider__button_hover {
+  cursor: grab;
+  .a_slider__button__child {
+    transform: scale(1.2);
+  }
+}
+.a_slider__button_dragging {
+  cursor: grabbing;
+  .a_slider__button__child {
+    transform: scale(1.2);
   }
 }
 .a_slider__button__child {
@@ -137,21 +138,6 @@
   box-sizing: border-box;
   transition: 0.2s;
   user-select: none;
-
-  &:hover,
-  &.hover,
-  &.dragging {
-    transform: scale(1.2);
-  }
-
-  &:hover,
-  &.hover {
-    cursor: grab;
-  }
-
-  &.dragging {
-    cursor: grabbing;
-  }
 }
 .a_slider__stop {
   position: absolute;
@@ -194,17 +180,12 @@
   .a_slider__runway {
     cursor: default;
   }
-  .a_slider__button {
-    &:hover,
-    &.dragging {
-      cursor: not-allowed;
-    }
-  }
-  .a_slider__button__child {
-    &:hover,
-    &.dragging {
+  .a_slider__button_hover,
+  .a_slider__button_dragging {
+    cursor: not-allowed;
+    .a_slider__button__child {
       transform: scale(1);
-      cursor: not-allowed;
+      box-shadow: none;
     }
   }
 }

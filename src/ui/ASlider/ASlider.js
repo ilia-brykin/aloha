@@ -18,8 +18,10 @@ import {
 import AElement from "../../AElement/AElement";
 
 import AriaAttributesAPI from "./compositionAPI/AriaAttributesAPI";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import DragAndDropAPI from "./compositionAPI/DragAndDropAPI";
+import LabelAPI from "./compositionAPI/LabelAPI";
 import MarksAPI from "./compositionAPI/MarksAPI";
 import SliderAPI from "./compositionAPI/SliderAPI";
 import StopsAPI from "./compositionAPI/StopsAPI";
@@ -266,10 +268,20 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      secondButtonHtmlId,
+    } = AttributesAPI(props, {
+      htmlIdLocal,
+    });
+
+    const {
       dataLocal,
       maxValueDataLocal,
       minValueDataLocal,
     } = DataAPI(props);
+
+    const {
+      clickLabel,
+    } = LabelAPI();
 
     const {
       dragging,
@@ -306,7 +318,10 @@ export default {
     });
 
     const {
-      hovering,
+      draggingFirst,
+      draggingSecond,
+      hoveringFirst,
+      hoveringSecond,
       onButtonMouseDown,
       onButtonMouseEnter,
       onButtonMouseLeave,
@@ -316,7 +331,9 @@ export default {
       dragging,
       firstValue,
       getPosition,
+      htmlIdLocal,
       resetSize,
+      secondButtonHtmlId,
       secondValue,
       setPosition,
       sliderSize,
@@ -394,14 +411,16 @@ export default {
       firstButtonAriaValueMax,
       firstButtonAriaValueMin,
       sliderAriaLabelObj,
+      draggingFirst,
+      draggingSecond,
       sliderRole,
       ariaDescribedbyLocal,
+      clickLabel,
       attributesToExcludeFromRender,
       barStyle,
       componentStyleHide,
       dataLocal,
       disabledAttribut,
-      dragging,
       firstButtonAriaLabelObj,
       errorsId,
       firstButtonRef,
@@ -412,9 +431,11 @@ export default {
       secondButtonAriaValueMax,
       secondButtonAriaValueMin,
       formatValueLocal,
+      secondButtonHtmlId,
       getStopStyle,
       helpTextId,
-      hovering,
+      hoveringFirst,
+      hoveringSecond,
       htmlIdLocal,
       isErrors,
       isModel,
@@ -479,6 +500,7 @@ export default {
           h(ALabel, {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
+            clickLabel: this.clickLabel,
             extra: this.extra,
             hideFor: true,
             isError: this.isErrors,
@@ -525,13 +547,14 @@ export default {
               // First button (handle)
               h(AElement, {
                 ref: "firstButtonRef",
+                id: this.htmlIdLocal,
                 type: "button",
                 tag: "div",
                 ariaDisabled: this.disabled,
                 classDefault: "",
                 class: ["a_slider__button", {
-                  dragging: this.dragging,
-                  hover: this.hovering,
+                  a_slider__button_dragging: this.draggingFirst,
+                  a_slider__button_hover: this.hoveringFirst,
                 }],
                 style: this.firstButtonStyle,
                 tabindex: this.disabled ? -1 : 0,
@@ -546,11 +569,9 @@ export default {
                 "aria-disabled": this.disabledAttribut,
                 ...this.firstButtonAriaLabelObj,
                 onMousedown: event => this.onButtonMouseDown(event, true),
-                onMouseenter: this.onButtonMouseEnter,
-                onMouseleave: this.onButtonMouseLeave,
+                onMouseenter: () => this.onButtonMouseEnter(true),
+                onMouseleave: () => this.onButtonMouseLeave(true),
                 onKeydown: event => this.onButtonKeyDown(event, true),
-                onFocus: this.onFocus,
-                onBlur: this.onBlur,
               }, () => [
                 h("div", {
                   class: "a_slider__button__child",
@@ -560,13 +581,14 @@ export default {
               // Second button (handle) for range mode
               this.range && h(AElement, {
                 ref: "secondButtonRef",
+                id: this.secondButtonHtmlId,
                 type: "button",
                 tag: "div",
                 ariaDisabled: this.disabled,
                 classDefault: "",
                 class: ["a_slider__button", {
-                  dragging: this.dragging,
-                  hover: this.hovering,
+                  a_slider__button_dragging: this.draggingSecond,
+                  a_slider__button_hover: this.hoveringSecond,
                 }],
                 style: this.secondButtonStyle,
                 tabindex: this.disabled ? -1 : 0,
@@ -581,11 +603,9 @@ export default {
                 "aria-disabled": this.disabledAttribut,
                 ...this.secondButtonAriaLabelObj,
                 onMousedown: event => this.onButtonMouseDown(event, false),
-                onMouseenter: this.onButtonMouseEnter,
-                onMouseleave: this.onButtonMouseLeave,
+                onMouseenter: () => this.onButtonMouseEnter(false),
+                onMouseleave: () => this.onButtonMouseLeave(false),
                 onKeydown: event => this.onButtonKeyDown(event, false),
-                onFocus: this.onFocus,
-                onBlur: this.onBlur,
               }, () => [
                 h("div", {
                   class: "a_slider__button__child",
