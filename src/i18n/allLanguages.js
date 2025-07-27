@@ -26,6 +26,7 @@ import ARouterLinkConfigI18n from "../ui/ARouterLinkConfig/i18n/ARouterLinkConfi
 import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
 import ASelectStyleI18n from "../ui/ASelectStyle/i18n/ASelectStyleI18n";
 import AShowMoreI18n from "../AShowMore/i18n/AShowMoreI18n";
+import ASliderI18n from "../ui/ASlider/i18n/ASliderI18n";
 import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 import ASwitchI18n from "../ui/ASwitch/i18n/ASwitchI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
@@ -72,6 +73,7 @@ export const ar = {
   ...ASelectI18n.ar,
   ...ASelectStyleI18n.ar,
   ...AShowMoreI18n.ar,
+  ...ASliderI18n.ar,
   ...ASpinnerI18n.ar,
   ...ASwitchI18n.ar,
   ...ATableI18n.ar,
@@ -110,6 +112,7 @@ export const de = {
   ...ASelectI18n.de,
   ...ASelectStyleI18n.de,
   ...AShowMoreI18n.de,
+  ...ASliderI18n.de,
   ...ASpinnerI18n.de,
   ...ASwitchI18n.de,
   ...ATableI18n.de,
@@ -148,6 +151,7 @@ export const en = {
   ...ASelectI18n.en,
   ...ASelectStyleI18n.en,
   ...AShowMoreI18n.en,
+  ...ASliderI18n.en,
   ...ASpinnerI18n.en,
   ...ASwitchI18n.en,
   ...ATableI18n.en,
@@ -186,6 +190,7 @@ export const es = {
   ...ASelectI18n.es,
   ...ASelectStyleI18n.es,
   ...AShowMoreI18n.es,
+  ...ASliderI18n.es,
   ...ASpinnerI18n.es,
   ...ASwitchI18n.es,
   ...ATableI18n.es,
@@ -224,6 +229,7 @@ export const fr = {
   ...ASelectI18n.fr,
   ...ASelectStyleI18n.fr,
   ...AShowMoreI18n.fr,
+  ...ASliderI18n.fr,
   ...ASpinnerI18n.fr,
   ...ASwitchI18n.fr,
   ...ATableI18n.fr,
@@ -262,6 +268,7 @@ export const hr = {
   ...ASelectI18n.hr,
   ...ASelectStyleI18n.hr,
   ...AShowMoreI18n.hr,
+  ...ASliderI18n.hr,
   ...ASpinnerI18n.hr,
   ...ASwitchI18n.hr,
   ...ATableI18n.hr,
@@ -300,6 +307,7 @@ export const it = {
   ...ASelectI18n.it,
   ...ASelectStyleI18n.it,
   ...AShowMoreI18n.it,
+  ...ASliderI18n.it,
   ...ASpinnerI18n.it,
   ...ASwitchI18n.it,
   ...ATableI18n.it,
@@ -338,6 +346,7 @@ export const ru = {
   ...ASelectI18n.ru,
   ...ASelectStyleI18n.ru,
   ...AShowMoreI18n.ru,
+  ...ASliderI18n.ru,
   ...ASpinnerI18n.ru,
   ...ASwitchI18n.ru,
   ...ATableI18n.ru,

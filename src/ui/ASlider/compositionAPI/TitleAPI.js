@@ -14,28 +14,29 @@ export default function TitleAPI(props, {
 }) {
   const formatValue = toRef(props, "formatValue");
 
-  const formatTitleLocal = ({ value }) => {
+  const formatValueLocal = ({ value }) => {
     if (isFunction(formatValue.value)) {
-      return formatValue.value({ value });
+      return `${ formatValue.value({ value }) }`;
     }
 
     if (isNumber(value)) {
-      return value;
+      return `${ value }`;
     }
 
     return "";
   };
 
   const firstButtonTitle = computed(() => {
-    return formatTitleLocal({ value: firstValue.value });
+    return formatValueLocal({ value: firstValue.value });
   });
 
   const secondButtonTitle = computed(() => {
-    return formatTitleLocal({ value: secondValue.value });
+    return formatValueLocal({ value: secondValue.value });
   });
 
   return {
     firstButtonTitle,
+    formatValueLocal,
     secondButtonTitle,
   };
 }

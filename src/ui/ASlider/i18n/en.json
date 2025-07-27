@@ -1,0 +1,5 @@
+{
+  "_A_SLIDER_RANGE_ARIA_LABEL_{{min}}_{{max}}_": "Range slider between {{ min }} and {{ max }}",
+  "_A_SLIDER_RANGE_FIRST_BUTTON_ARIA_LABEL_": "Pick start value",
+  "_A_SLIDER_RANGE_SECOND_BUTTON_ARIA_LABEL_": "Pick end value"
+}

@@ -17,6 +17,7 @@ import {
 
 import AElement from "../../AElement/AElement";
 
+import AriaAttributesAPI from "./compositionAPI/AriaAttributesAPI";
 import DataAPI from "./compositionAPI/DataAPI";
 import DragAndDropAPI from "./compositionAPI/DragAndDropAPI";
 import MarksAPI from "./compositionAPI/MarksAPI";
@@ -184,6 +185,21 @@ export default {
       required: false,
       default: false,
     },
+    rangeAriaLabel: {
+      type: String,
+      required: false,
+      default: "_A_SLIDER_RANGE_ARIA_LABEL_{{min}}_{{max}}_",
+    },
+    rangeFirstButtonAriaLabel: {
+      type: String,
+      required: false,
+      default: "_A_SLIDER_RANGE_FIRST_BUTTON_ARIA_LABEL_",
+    },
+    rangeSecondButtonAriaLabel: {
+      type: String,
+      required: false,
+      default: "_A_SLIDER_RANGE_SECOND_BUTTON_ARIA_LABEL_",
+    },
     rangeAllowCross: {
       type: Boolean,
       required: false,
@@ -259,7 +275,6 @@ export default {
       dragging,
       firstButtonRef,
       firstValue,
-      formatValue,
       getPosition,
       initSlider,
       maxValue,
@@ -283,6 +298,7 @@ export default {
 
     const {
       firstButtonTitle,
+      formatValueLocal,
       secondButtonTitle,
     } = TitleAPI(props, {
       firstValue,
@@ -322,6 +338,26 @@ export default {
     });
 
     const {
+      buttonAriaLabelledby,
+      buttonAriaOrientation,
+      firstButtonAriaLabelObj,
+      firstButtonAriaValueMax,
+      firstButtonAriaValueMin,
+      secondButtonAriaLabelObj,
+      secondButtonAriaValueMax,
+      secondButtonAriaValueMin,
+      sliderAriaLabelObj,
+      sliderRole,
+    } = AriaAttributesAPI(props, {
+      firstValue,
+      formatValueLocal,
+      htmlIdLocal,
+      maxValueDataLocal,
+      minValueDataLocal,
+      secondValue,
+    });
+
+    const {
       getStopStyle,
       stops,
     } = StopsAPI(props, {
@@ -337,10 +373,10 @@ export default {
       }
 
       if (props.range && Array.isArray(modelValueLocal.value)) {
-        return `${ formatValue(modelValueLocal.value[0]) } - ${ formatValue(modelValueLocal.value[1]) }`;
+        return `${ formatValueLocal(modelValueLocal.value[0]) } - ${ formatValueLocal(modelValueLocal.value[1]) }`;
       }
 
-      return formatValue(modelValueLocal.value);
+      return formatValueLocal(modelValueLocal.value);
     };
 
     onMounted(() => {
@@ -353,6 +389,12 @@ export default {
     });
 
     return {
+      buttonAriaLabelledby,
+      buttonAriaOrientation,
+      firstButtonAriaValueMax,
+      firstButtonAriaValueMin,
+      sliderAriaLabelObj,
+      sliderRole,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       barStyle,
@@ -360,12 +402,16 @@ export default {
       dataLocal,
       disabledAttribut,
       dragging,
+      firstButtonAriaLabelObj,
       errorsId,
       firstButtonRef,
       firstButtonStyle,
       firstButtonTitle,
+      secondButtonAriaLabelObj,
       firstValue,
-      formatValue,
+      secondButtonAriaValueMax,
+      secondButtonAriaValueMin,
+      formatValueLocal,
       getStopStyle,
       helpTextId,
       hovering,
@@ -434,11 +480,13 @@ export default {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
             extra: this.extra,
+            hideFor: true,
             isError: this.isErrors,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,
             required: this.required,
+            tag: "div",
           }) :
           "",
         h(AFormLabelDescription, {
@@ -458,8 +506,8 @@ export default {
               a_slider_disabled: this.disabled,
               a_slider_invalid: this.isErrors,
             }],
-            role: this.range ? "group" : undefined,
-            "aria-label": this.range ? `Range slider between ${ this.min } and ${ this.max }` : undefined,
+            role: this.sliderRole,
+            ...this.sliderAriaLabelObj,
           }, [
             // Slider runway (track)
             h("div", {
@@ -490,13 +538,13 @@ export default {
                 title: this.firstButtonTitle,
                 isTitleHtml: this.isTitleHtml,
                 role: "slider",
-                "aria-valuemin": this.min,
-                "aria-valuemax": this.range ? this.secondValue : this.max,
+                "aria-valuemin": this.firstButtonAriaValueMin,
+                "aria-valuemax": this.firstButtonAriaValueMax,
                 "aria-valuenow": this.firstValue,
-                // "aria-valuetext": this.formatValue(this.firstValue),
-                "aria-orientation": this.vertical ? "vertical" : "horizontal",
+                "aria-valuetext": this.firstButtonTitle,
+                "aria-orientation": this.buttonAriaOrientation,
                 "aria-disabled": this.disabledAttribut,
-                "aria-label": this.range ? "Minimum value" : "Value",
+                ...this.firstButtonAriaLabelObj,
                 onMousedown: event => this.onButtonMouseDown(event, true),
                 onMouseenter: this.onButtonMouseEnter,
                 onMouseleave: this.onButtonMouseLeave,
@@ -525,13 +573,13 @@ export default {
                 title: this.secondButtonTitle,
                 isTitleHtml: this.isTitleHtml,
                 role: "slider",
-                "aria-valuemin": this.firstValue,
-                "aria-valuemax": this.max,
+                "aria-valuemin": this.secondButtonAriaValueMin,
+                "aria-valuemax": this.secondButtonAriaValueMax,
                 "aria-valuenow": this.secondValue,
-                // "aria-valuetext": this.formatValue(this.secondValue),
-                "aria-orientation": this.vertical ? "vertical" : "horizontal",
+                "aria-valuetext": this.secondButtonTitle,
+                "aria-orientation": this.buttonAriaOrientation,
                 "aria-disabled": this.disabledAttribut,
-                "aria-label": "Maximum value",
+                ...this.secondButtonAriaLabelObj,
                 onMousedown: event => this.onButtonMouseDown(event, false),
                 onMouseenter: this.onButtonMouseEnter,
                 onMouseleave: this.onButtonMouseLeave,
