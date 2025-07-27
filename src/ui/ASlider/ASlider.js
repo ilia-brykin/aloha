@@ -378,9 +378,7 @@ export default {
       getStopStyle,
       stops,
     } = StopsAPI(props, {
-      firstValue,
-      maxValue,
-      minValue,
+      dataLocal,
     });
 
     // Format the model value for readonly display
@@ -613,14 +611,17 @@ export default {
               ]),
 
               // Stops (step markers)
-              this.showStops && this.stops.length > 0 && h("div", {
-                class: "a_slider__stops",
-              }, this.stops.map(position => {
-                return h("div", {
-                  class: "a_slider__stop",
-                  style: this.getStopStyle(position),
-                });
-              })),
+              this.stops.length > 0 ?
+                h("div", {
+                  "aria-hidden": "true",
+                  class: "a_slider__stops",
+                }, this.stops.map(position => {
+                  return h("div", {
+                    class: "a_slider__stop",
+                    style: this.vertical ? position.stylesVertikal : position.stylesHorizontal,
+                  });
+                })) :
+                "",
 
               // Marks (labeled positions)
               this.markList.length > 0 && [

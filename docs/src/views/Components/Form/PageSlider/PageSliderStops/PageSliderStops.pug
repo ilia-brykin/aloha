@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_SHOW_STOPS_HEADER_"
+  description="_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_"
+  :props="['show-stops']"
+)
+  a-slider(
+    v-model="model1"
+    :max="20"
+    :min="10"
+    :show-stops="false"
+    label="_A_SLIDER_LABEL_NOT_SHOW_STOPS_"
+  )
+  a-slider(
+    v-model="model2"
+    :max="20"
+    :min="10"
+    :show-stops="true"
+    label="_A_SLIDER_LABEL_SHOW_STOPS_"
+  )
