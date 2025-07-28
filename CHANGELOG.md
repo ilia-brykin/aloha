@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.32.1
+
+- Feature: Add `aria-hidden` attribute to divider type in `ADropdownAction` for improved accessibility
+
 ## 2.32.0
 
 - Feature: Add `selectRoute` and `multiselectRoute` types to `ARouterLinkConfig`

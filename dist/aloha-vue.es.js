@@ -16467,6 +16467,7 @@ const k0 = {
         onClick: this.action.callback
       })
     ]) : this.action.type === "divider" ? d("li", {
+      "aria-hidden": !0,
       class: [
         "a_dropdown__divider",
         this.action.liClass
