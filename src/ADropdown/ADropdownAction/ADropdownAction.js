@@ -49,6 +49,7 @@ export default {
     }
     if (this.action.type === "divider") {
       return h("li", {
+        "aria-hidden": true,
         class: [
           "a_dropdown__divider",
           this.action.liClass,
