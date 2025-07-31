@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.32.3
+
+- Fixed: Add null checks for `aTableRef` and `_previewRef` in `PreviewRightResizeAPI` to improve stability
+
 ## 2.32.2
 
 - Fixed: Add defensive checks for `getBoundingClientRect` across components to improve stability when handling DOM elements

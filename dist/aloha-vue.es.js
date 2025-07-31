@@ -48118,11 +48118,13 @@ function Nk(e, { emit: t }, {
   }, p = ({ clientWidth: U }) => {
     T = U, S = U / 100 * c, h();
   }, C = ({ clientWidthLocal: U, clientXTableParent: B, previewBoxWidth: w }) => {
+    if (!_.value)
+      return;
     const q = U - B - w;
     _.value.style.width = `${q}px`;
   }, b = ({ clientX: U = 0, previewRef: B, previewBoxWidth: w = 0 }) => {
     let q = w || T - U;
-    q < o ? q = o : q > S && (q = S), C({ clientWidthLocal: T, clientXTableParent: A, previewBoxWidth: q }), B.style.width = `${q}px`;
+    q < o ? q = o : q > S && (q = S), C({ clientWidthLocal: T, clientXTableParent: A, previewBoxWidth: q }), B && (B.style.width = `${q}px`);
   }, I = ({ previewRef: U }) => {
     ue(U, "style.removeProperty") && U.style.removeProperty("width"), ue(_, "value.style.removeProperty") && _.value.style.removeProperty("width");
   }, m = ({ previewRef: U }) => {
