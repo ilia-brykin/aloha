@@ -42,11 +42,15 @@ export default function PreviewRightResizeAPI(props, { emit }, {
   };
 
   const setTableParentWidth = ({ clientWidthLocal, clientXTableParent, previewBoxWidth }) => {
+    if (!aTableRef.value) {
+      return;
+    }
+
     const TABLE_PARENT_WIDTH = clientWidthLocal - clientXTableParent - previewBoxWidth;
     aTableRef.value.style.width = `${ TABLE_PARENT_WIDTH }px`;
   };
 
-  const mousemoveResizePreviewRight = ({ clientX = 0, previewRef, previewBoxWidth = 0 }) => {
+  const mousemoveResizePreviewRight = ({ clientX = 0, previewRef: _previewRef, previewBoxWidth = 0 }) => {
     let previewBoxWidthLocal = previewBoxWidth || clientWidthLocal - clientX;
     if (previewBoxWidthLocal < PREVIEW_BOX_MIN_WIDTH_PX) {
       previewBoxWidthLocal = PREVIEW_BOX_MIN_WIDTH_PX;
@@ -54,7 +58,9 @@ export default function PreviewRightResizeAPI(props, { emit }, {
       previewBoxWidthLocal = previewBoxMaxWidthPx;
     }
     setTableParentWidth({ clientWidthLocal, clientXTableParent, previewBoxWidth: previewBoxWidthLocal });
-    previewRef.style.width = `${ previewBoxWidthLocal }px`;
+    if (_previewRef) {
+      _previewRef.style.width = `${ previewBoxWidthLocal }px`;
+    }
   };
 
   const closePreviewResize = ({ previewRef }) => {
