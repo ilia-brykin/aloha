@@ -8780,6 +8780,8 @@ function zt({ element: e, selector: t }) {
   _ && (_.hasAttribute("tabindex") ? _.focus() : (_.setAttribute("tabindex", "-1"), _.focus(), _.removeAttribute("tabindex")));
 }
 function Bh(e) {
+  if (!(e != null && e.getBoundingClientRect))
+    return !1;
   const t = e.getBoundingClientRect();
   return t.width > 0 && t.height > 0;
 }
@@ -47949,9 +47951,10 @@ function mk({
 }) {
   return {
     scrollToTable: () => {
-      if (e.value) {
-        let r = e.value.getBoundingClientRect().top + window.scrollY - window.innerHeight / 2;
-        r < 0 && (r = 0), document.documentElement.scrollTop = r;
+      var n;
+      if (e.value && ((n = e.value) != null && n.getBoundingClientRect)) {
+        let s = e.value.getBoundingClientRect().top + window.scrollY - window.innerHeight / 2;
+        s < 0 && (s = 0), document.documentElement.scrollTop = s;
       }
     },
     setFocusToTable: () => {
@@ -48108,6 +48111,9 @@ function Nk(e, { emit: t }, {
   } = bp(), o = 200, c = 50;
   let S, T = 0, A = 0, f = 0;
   const h = () => {
+    var B;
+    if (!((B = _.value) != null && B.getBoundingClientRect))
+      return;
     A = _.value.getBoundingClientRect().left;
   }, p = ({ clientWidth: U }) => {
     T = U, S = U / 100 * c, h();

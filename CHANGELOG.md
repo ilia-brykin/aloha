@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.32.2
+
+- Fixed: Add defensive checks for `getBoundingClientRect` across components to improve stability when handling DOM elements
+
 ## 2.32.1
 
 - Feature: Add `aria-hidden` attribute to divider type in `ADropdownAction` for improved accessibility
