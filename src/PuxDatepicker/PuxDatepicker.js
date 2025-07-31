@@ -1,9 +1,8 @@
+import PuxDatepickerCalendarPanel from "./PuxDatepickerCalendarPanel/PuxDatepickerCalendarPanel.vue";
+import PuxDatepickerIcon from "./PuxDatepickerIcon/PuxDatepickerIcon.vue";
 import {
   AButton,
 } from "aloha-vue";
-
-import PuxDatepickerCalendarPanel from "./PuxDatepickerCalendarPanel/PuxDatepickerCalendarPanel.vue";
-import PuxDatepickerIcon from "./PuxDatepickerIcon/PuxDatepickerIcon.vue";
 
 import Languages from "./locale/languages";
 import keysCode from "./utils/keysCode";
@@ -551,6 +550,10 @@ export default {
     },
 
     displayPopup() {
+      if (!this.$el?.getBoundingClientRect) {
+        return;
+      }
+
       const dw = document.documentElement.clientWidth;
       const dh = document.documentElement.clientHeight;
       const InputRect = this.$el.getBoundingClientRect();

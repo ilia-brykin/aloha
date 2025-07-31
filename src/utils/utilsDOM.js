@@ -46,6 +46,10 @@ export function setFocusToElement({ element, selector }) {
 }
 
 function isElementVisible(element) {
+  if (!element?.getBoundingClientRect) {
+    return false;
+  }
+
   const rect = element.getBoundingClientRect();
   return rect.width > 0 && rect.height > 0;
 }

@@ -29,6 +29,9 @@ export default function PreviewRightResizeAPI(props, { emit }, {
   let tableGrandparentWidth = 0;
 
   const setClientXTableParent = () => {
+    if (!aTableRef.value?.getBoundingClientRect) {
+      return;
+    }
     const rectTableParent = aTableRef.value.getBoundingClientRect();
     clientXTableParent = rectTableParent.left;
   };

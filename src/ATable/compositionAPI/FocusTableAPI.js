@@ -14,7 +14,7 @@ export default function FocusTableAPI({
   };
 
   const scrollToTable = () => {
-    if (tableRef.value) {
+    if (tableRef.value && tableRef.value?.getBoundingClientRect) {
       const elementTop = tableRef.value.getBoundingClientRect().top + window.scrollY;
       let scrollToPosition = elementTop - (window.innerHeight / 2);
       if (scrollToPosition < 0) {
