@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.32.4
+
+- Refactor: Update AConfirmAPI to use named exports for improved modularity and adjust index.js for updated export structure
+
 ## 2.32.3
 
 - Fixed: Add null checks for `aTableRef` and `_previewRef` in `PreviewRightResizeAPI` to improve stability
