@@ -77,7 +77,14 @@ export { default as AVerticalScroll } from "./AVerticalScroll/AVerticalScroll";
 export { default as AWizard } from "./AWizard/AWizard";
 
 //  compositionAPI
-export { default as AConfirmAPI } from "./compositionAPI/AConfirmAPI";
+export {
+  default as AConfirmAPI,
+  changeConfirmOptions as AConfirmAPI_changeConfirmOptions,
+  closeConfirm as AConfirmAPI_closeConfirm,
+  confirmOptions as AConfirmAPI_confirmOptions,
+  isModalHidden as AConfirmAPI_isModalHidden,
+  openConfirm as AConfirmAPI_openConfirm,
+} from "./compositionAPI/AConfirmAPI";
 export { default as ADropdownGlobalAPI } from "./compositionAPI/ADropdownGlobalAPI";
 export { default as AEventOutsideAPI } from "./compositionAPI/AEventOutsideAPI";
 export {
