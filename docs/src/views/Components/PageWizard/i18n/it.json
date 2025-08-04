@@ -59,6 +59,7 @@
   "_A_WIZARD_PROPS_BACK_BUTTON_ICON_RIGHT_DESCRIPTION_": "Nome dell'icona che viene visualizzata a destra del nome per il pulsante che passa al passaggio precedente.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TEXT_DESCRIPTION_": "Nome personalizzato per il pulsante che passa al passaggio precedente.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TITLE_DESCRIPTION_": "Titolo personalizzato per il pulsante che passa al passaggio precedente.",
+  "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_": "Classe <strong lang=\"en\">CSS</strong> aggiuntiva per il wizard che può essere utilizzata per test automatizzati o come selettore aggiuntivo.",
   "_A_WIZARD_PROPS_EXTRA_DESCRIPTION_": "Valori aggiuntivi utilizzati nel Wizard.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attributi aggiuntivi per il pulsante che passa al passaggio successivo e non sono definiti esplicitamente come proprietà.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_CLASS_DESCRIPTION_": "Una o più classi CSS aggiuntive per il pulsante che passa al passaggio successivo.",

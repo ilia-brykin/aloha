@@ -59,6 +59,7 @@
   "_A_WIZARD_PROPS_BACK_BUTTON_ICON_RIGHT_DESCRIPTION_": "اسم الأيقونة التي تظهر على يمين اسم الزر الذي ينقل إلى الخطوة السابقة.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TEXT_DESCRIPTION_": "اسم مخصص للزر الذي ينقل إلى الخطوة السابقة.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TITLE_DESCRIPTION_": "عنوان مخصص للزر الذي ينقل إلى الخطوة السابقة.",
+  "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> إضافية للمعالج يمكن استخدامها للاختبارات الآلية أو كمحدد إضافي.",
   "_A_WIZARD_PROPS_EXTRA_DESCRIPTION_": "قيم إضافية تُستخدم في المعالج.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_ATTRIBUTES_DESCRIPTION_": "سمات إضافية للزر الذي ينقل إلى الخطوة التالية ولم يتم تعريفه بشكل صريح كخاصية.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_CLASS_DESCRIPTION_": "واحدة أو أكثر من فصول CSS الإضافية للزر الذي ينقل إلى الخطوة التالية.",

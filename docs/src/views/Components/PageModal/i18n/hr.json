@@ -24,6 +24,7 @@
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "Ako je postavljeno, ovo svojstvo određuje CSS z-index za pozadinu prozora modala.",
   "_A_MODAL_PROPS_BODY_HTML_CLASS_DESCRIPTION_": "Dodaje <strong lang=\"en\">CSS</strong> klasu za <strong lang=\"en\">HTML</strong> koja se može koristiti u prozoru modala. <strong lang=\"en\">body-html</strong>",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "HTML sadržaj modalnog prozora.",
+  "_A_MODAL_PROPS_CLASS_EXTRA_DESCRIPTION_": "Dodatna <strong lang=\"en\">CSS</strong> klasa za modalni prozor, koja se može koristiti za automatizirane testove ili kao dodatni selektor.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Atributi gumba za zatvaranje modalnog prozora. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_CLASS_DESCRIPTION_": "Jedna ili više klasa gumba za zatvaranje. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ID_DESCRIPTION_": "ID gumba za zatvaranje.",

@@ -24,6 +24,7 @@
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "Si se establece, esta propiedad especifica el z-index de CSS para el fondo de la ventana modal.",
   "_A_MODAL_PROPS_BODY_HTML_CLASS_DESCRIPTION_": "Añade una clase <strong lang=\"en\">CSS</strong> al <strong lang=\"en\">HTML</strong> que se puede usar en la ventana modal. <strong lang=\"en\">body-html</strong>",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "El contenido HTML de la ventana modal.",
+  "_A_MODAL_PROPS_CLASS_EXTRA_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> adicional para la ventana modal, que puede utilizarse para pruebas automatizadas o como selector adicional.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Atributos para el botón de cierre de la ventana modal. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_CLASS_DESCRIPTION_": "La clase o clases del botón de cierre. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ID_DESCRIPTION_": "El ID del botón de cierre.",

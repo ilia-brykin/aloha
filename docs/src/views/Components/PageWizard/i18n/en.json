@@ -1,4 +1,5 @@
 {
+  "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_": "Additional <strong lang=\"en\">CSS</strong> class for the wizard that can be used for automated tests or as an additional selector.",
   "_A_WIZARD_BTN_ADD_STEP_": "Add step",
   "_A_WIZARD_BTN_DELETE_STEP_": "Remove step",
   "_A_WIZARD_COMPONENT_DESCRIPTION_": "A wizard is a sequential, step-by-step interface designed to guide users through complex tasks or processes by breaking them into manageable steps. It includes clear instructions and often provides users with the ability to navigate forward and backward for a efficient and straightforward user experience.",

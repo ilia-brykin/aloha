@@ -57,6 +57,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "class-extra",
+      description: "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_",
+      type: "String / Object",
+      default: "a_wizard_class_extra",
+      required: false,
+    },
+    {
       name: "extra",
       description: "_A_WIZARD_PROPS_EXTRA_DESCRIPTION_",
       type: "Object",

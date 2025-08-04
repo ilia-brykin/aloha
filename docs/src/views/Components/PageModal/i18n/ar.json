@@ -24,6 +24,7 @@
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "إذا تم تعيينه، فإن هذا الخاصية تحدد z-index لـ CSS لخلفية نافذة المودال.",
   "_A_MODAL_PROPS_BODY_HTML_CLASS_DESCRIPTION_": "يضيف <strong lang=\"en\">CSS</strong> كلاس إلى <strong lang=\"en\">HTML</strong> الذي يمكن استخدامه في النافذة المنبثقة. <strong lang=\"en\">body-html</strong>",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "محتوى HTML لنافذة العرض المودال.",
+  "_A_MODAL_PROPS_CLASS_EXTRA_DESCRIPTION_": "فئة <strong lang=\"en\">CSS</strong> إضافية للنافذة المنبثقة، والتي يمكن استخدامها للاختبارات الآلية أو كمحدد إضافي.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "سمات زر الإغلاق في العرض المودال. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_CLASS_DESCRIPTION_": "الفئة أو الفئات لزر الإغلاق. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ID_DESCRIPTION_": "معرف زر الإغلاق.",

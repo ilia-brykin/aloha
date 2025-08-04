@@ -59,6 +59,7 @@
   "_A_WIZARD_PROPS_BACK_BUTTON_ICON_RIGHT_DESCRIPTION_": "Name des Icons, das rechts vom Namen für die Schaltfläche, die zum vorherigen Schritt navigiert, angezeigt werden soll.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TEXT_DESCRIPTION_": "Benutzerdefinierter Name für die Schaltfläche, die zum vorherigen Schritt navigiert.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TITLE_DESCRIPTION_": "Benutzerdefinierter Titel für die Schaltfläche, die zum vorherigen Schritt navigiert.",
+  "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_": "Zusätzliche <strong lang=\"en\">CSS</strong>-Klasse für den Wizard, die für automatisierte Tests oder als zusätzlicher Selektor verwendet werden kann.",
   "_A_WIZARD_PROPS_EXTRA_DESCRIPTION_": "Zusätzliche Werte, die im Assistenten verwendet werden.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_ATTRIBUTES_DESCRIPTION_": "Zusätzliche Attribute für die Schaltfläche, die zum nächsten Schritt navigiert und nicht explizit als Eigenschaften definiert sind.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_CLASS_DESCRIPTION_": "Eine oder mehrere zusätzliche CSS-Klassen für die Schaltfläche, die zum nächsten Schritt navigiert.",

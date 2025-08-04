@@ -1,6 +1,7 @@
 {
   "_A_MODAL_COMPONENT_DESCRIPTION_": "AModal is a component that enables the implementation of modal windows. It provides a multitude of customization options, including various parameters for content, button behavior, visibility controls, and size adjustments. With customizable slots for header, body, and footer, it allows for flexible styling of modal windows for various use cases.",
   "_A_MODAL_COMPONENT_NAME_": "Modal Window",
+  "_A_MODAL_PROPS_CLASS_EXTRA_DESCRIPTION_": "Additional <strong lang=\"en\">CSS</strong> class for the modal window, which can be used for automated tests or as an additional selector.",
   "_A_MODAL_GROUP_BODY_HTML_DESCRIPTION_": "The <strong>body-html</strong> prop is used to display custom HTML content in the modal window.",
   "_A_MODAL_GROUP_BODY_HTML_HEADER_": "Using <strong>body-html</strong>",
   "_A_MODAL_GROUP_CLOSE_BUTTON_DESCRIPTION_": "<p>This example demonstrates various options for customizing the close button.</p><p>Here, the props <strong>close-button-attributes</strong>, <strong>close-button-class</strong>, <strong>close-button-id</strong>, and <strong>close-button-text</strong> are used to customize the close button. The close button is given a custom text tag, custom classes, and a custom ID, and the button text is loaded from a translation file.</p>",

@@ -16,6 +16,20 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "class-extra",
+      description: "_A_MODAL_PROPS_CLASS_EXTRA_DESCRIPTION_",
+      type: "String / Object",
+      default: "a_modal_class_extra",
+      required: false,
+    },
+    {
+      name: "class-wizard-extra",
+      description: "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_",
+      type: "String / Object",
+      default: "a_wizard_class_extra",
+      required: false,
+    },
+    {
       name: "close",
       description: "_A_MODAL_PROPS_CLOSE_DESCRIPTION_",
       type: "Function",

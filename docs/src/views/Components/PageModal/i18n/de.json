@@ -24,6 +24,7 @@
   "_A_MODAL_PROPS_BACKDROP_Z_INDEX_DESCRIPTION_": "Wenn gesetzt, gibt diese Eigenschaft den CSS-z-index für den Hintergrund des Modalfensters an.",
   "_A_MODAL_PROPS_BODY_HTML_CLASS_DESCRIPTION_": "Fügt eine <strong lang=\"en\">CSS</strong>-Klasse zum <strong lang=\"en\">HTML</strong> hinzu, die im Modal-Fenster verwendet werden kann. <strong lang=\"en\">body-html</strong>",
   "_A_MODAL_PROPS_BODY_HTML_DESCRIPTION_": "Der HTML-Inhalt des Modal-Fensters.",
+  "_A_MODAL_PROPS_CLASS_EXTRA_DESCRIPTION_": "Zusätzliche <strong lang=\"en\">CSS</strong>-Klasse für das Modalfenster, die für automatisierte Tests oder als zusätzlicher Selektor verwendet werden kann.",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ATTRIBUTES_DESCRIPTION_": "Attribute für den Schließen-Button des Modals. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_CLASS_DESCRIPTION_": "Die Klasse oder Klassen des Schließen-Buttons. <a href=\"/#/button\">(AButton)</a>",
   "_A_MODAL_PROPS_CLOSE_BUTTON_ID_DESCRIPTION_": "Die ID des Schließen-Buttons.",

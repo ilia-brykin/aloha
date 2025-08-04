@@ -59,6 +59,7 @@
   "_A_WIZARD_PROPS_BACK_BUTTON_ICON_RIGHT_DESCRIPTION_": "Nombre del icono que se muestra a la derecha del nombre del botón que pasa al paso anterior.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TEXT_DESCRIPTION_": "Nombre personalizado para el botón que pasa al paso anterior.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TITLE_DESCRIPTION_": "Título personalizado para el botón que pasa al paso anterior.",
+  "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_": "Clase <strong lang=\"en\">CSS</strong> adicional para el asistente que puede utilizarse para pruebas automatizadas o como selector adicional.",
   "_A_WIZARD_PROPS_EXTRA_DESCRIPTION_": "Valores adicionales utilizados en el Asistente.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_ATTRIBUTES_DESCRIPTION_": "Atributos adicionales para el botón que pasa al siguiente paso y que no están definidos explícitamente como propiedades.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_CLASS_DESCRIPTION_": "Una o más clases CSS adicionales para el botón que pasa al siguiente paso.",

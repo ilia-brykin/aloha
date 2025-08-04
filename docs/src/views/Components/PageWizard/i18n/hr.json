@@ -59,6 +59,7 @@
   "_A_WIZARD_PROPS_BACK_BUTTON_ICON_RIGHT_DESCRIPTION_": "Naziv ikone koja će se prikazati s desne strane oznake za gumb natrag.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TEXT_DESCRIPTION_": "Prilagođeni naziv za gumb natrag.",
   "_A_WIZARD_PROPS_BACK_BUTTON_TITLE_DESCRIPTION_": "Prilagođeni naslov (tekst oblačića) za gumb natrag.",
+  "_A_WIZARD_PROPS_CLASS_EXTRA_DESCRIPTION_": "Dodatna <strong lang=\"en\">CSS</strong> klasa za čarobnjak koja se može koristiti za automatizirane testove ili kao dodatni selektor.",
   "_A_WIZARD_PROPS_EXTRA_DESCRIPTION_": "Dodatne vrijednosti koje se koriste u čarobnjaku.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_ATTRIBUTES_DESCRIPTION_": "Dodatni atributi za gumb naprijed, a koji nisu eksplicitno definirani kao svojstva.",
   "_A_WIZARD_PROPS_FORWARD_BUTTON_CLASS_DESCRIPTION_": "Jedna ili više dodatnih CSS klasa za gumb naprijed.",
