@@ -33,6 +33,16 @@ export default {
       required: false,
       default: undefined,
     },
+    classExtra: {
+      type: [String, Object],
+      required: false,
+      default: "a_modal_class_extra",
+    },
+    classWizardExtra: {
+      type: [String, Object],
+      required: false,
+      default: "a_wizard_class_extra",
+    },
     close: {
       type: Function,
       required: true,
@@ -451,6 +461,7 @@ export default {
     return h(AModal, {
       alwaysTranslate: this.alwaysTranslate,
       backdropZIndex: this.backdropZIndex,
+      classExtra: this.classExtra,
       close: this.close,
       closeButtonAttributes: this.closeButtonAttributes,
       closeButtonClass: this.closeButtonClass,
@@ -499,6 +510,7 @@ export default {
           backButtonIconRight: this.backButtonIconRight,
           backButtonText: this.backButtonText,
           backButtonTitle: this.backButtonTitle,
+          classExtra: this.classWizardExtra,
           forwardButtonAttributes: this.forwardButtonAttributes,
           forwardButtonClass: this.forwardButtonClass,
           forwardButtonIconLeft: this.forwardButtonIconLeft,

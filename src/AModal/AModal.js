@@ -57,6 +57,11 @@ export default {
       required: false,
       default: undefined,
     },
+    classExtra: {
+      type: [String, Object],
+      required: false,
+      default: "a_modal_class_extra",
+    },
     close: {
       type: Function,
       required: true,
@@ -410,10 +415,15 @@ export default {
         h("div", {
           ref: "modalRef",
           id: this.id,
-          class: ["a_modal", this.modalClass, {
-            a_modal_confirm: this.isConfirm,
-            a_modal_show: !this.isModalHidden,
-          }],
+          class: [
+            "a_modal",
+            this.modalClass,
+            this.classExtra,
+            {
+              a_modal_confirm: this.isConfirm,
+              a_modal_show: !this.isModalHidden,
+            },
+          ],
           role: "dialog",
           ariaModal: true,
           "aria-labelledby": this.headerId,

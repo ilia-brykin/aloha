@@ -38,6 +38,11 @@ export default {
       required: false,
       default: "_A_WIZARD_STEPS_ARIA_LABEL_",
     },
+    classExtra: {
+      type: [String, Object],
+      required: false,
+      default: "a_wizard_class_extra",
+    },
     backButtonAttributes: {
       type: Object,
       required: false,
@@ -389,6 +394,7 @@ export default {
       "aria-describedby": this.wizardAriaDescribedby,
       class: [
         this.classWizard,
+        this.classExtra,
         {
           a_wizard_mobile: this.isMobileLocal,
           a_wizard_show_only_active_step_mobile: this.showOnlyActiveStepMobile,

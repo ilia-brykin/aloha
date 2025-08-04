@@ -41,6 +41,11 @@ export default {
       required: false,
       default: undefined,
     },
+    classExtra: {
+      type: [String, Object],
+      required: false,
+      default: "a_modal_class_extra",
+    },
     close: {
       type: Function,
       required: true,
@@ -295,6 +300,7 @@ export default {
     return h(AModal, {
       alwaysTranslate: this.alwaysTranslate,
       backdropZIndex: this.backdropZIndex,
+      classExtra: this.classExtra,
       close: this.close,
       closeButtonClass: this.closeButtonClass,
       closeButtonId: this.closeButtonId,
