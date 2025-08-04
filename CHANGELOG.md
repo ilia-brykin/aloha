@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.32.5
+
+-  Add `classExtra` prop to components for customizable additional classes, update related logic in `AModal`, `AWizard`, and `AModalWizard` components
+
 ## 2.32.4
 
 - Refactor: Update AConfirmAPI to use named exports for improved modularity and adjust index.js for updated export structure
