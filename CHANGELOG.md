@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.33.0
+
+- Add customizable button class props to `AFilterCenter` and `AFilterCenterItem` components, refactor `AFilters` to use `filtersPluginOptions` defaults, and update plugin configuration for button styles.
+
 ## 2.32.5
 
 -  Add `classExtra` prop to components for customizable additional classes, update related logic in `AModal`, `AWizard`, and `AModalWizard` components
