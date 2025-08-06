@@ -20,6 +20,26 @@ export default {
       type: Object,
       required: true,
     },
+    btnCloseClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
+    btnGoToClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
+    btnNotCloseClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
+    btnCloseAllClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_link a_btn_small",
+    },
     closeAllFilters: {
       type: Function,
       required: true,
@@ -96,6 +116,9 @@ export default {
         return h(AFilterCenterItem, {
           key: filter.id,
           id: this.id,
+          btnCloseClass: this.btnCloseClass,
+          btnGoToClass: this.btnGoToClass,
+          btnNotCloseClass: this.btnNotCloseClass,
           disabled: this.disabled,
           filter,
           closeFilterValue: this.closeFilterValue,
@@ -120,7 +143,7 @@ export default {
         style: this.styleHide,
       }, [
         h(AButton, {
-          class: "a_btn a_btn_link a_btn_small",
+          class: this.btnCloseAllClass,
           iconLeft: ArrowClockwise,
           text: "_A_FILTERS_DESELECT_ALL_",
           onClick: this.closeAllFilters,

@@ -19,6 +19,9 @@ import StartSearchAPI from "./compositionAPI/StartSearchAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import {
+  filtersPluginOptions,
+} from "../../plugins/AFiltersPlugin";
+import {
   uniqueId,
 } from "lodash-es";
 
@@ -42,6 +45,26 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    filterCenterBtnCloseAllClass: {
+      type: [String, Object],
+      required: false,
+      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnCloseAllClass,
+    },
+    filterCenterBtnCloseClass: {
+      type: [String, Object],
+      required: false,
+      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnCloseClass,
+    },
+    filterCenterBtnGoToClass: {
+      type: [String, Object],
+      required: false,
+      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnGoToClass,
+    },
+    filterCenterBtnNotCloseClass: {
+      type: [String, Object],
+      required: false,
+      default: () => filtersPluginOptions.value.propsDefault.filterCenterBtnNotCloseClass,
     },
     filterMain: {
       type: Object,
@@ -220,6 +243,10 @@ export default {
         h(AFilterCenter, {
           id: this.id,
           appliedModel: this.appliedModel,
+          btnCloseClass: this.filterCenterBtnCloseClass,
+          btnGoToClass: this.filterCenterBtnGoToClass,
+          btnNotCloseClass: this.filterCenterBtnNotCloseClass,
+          btnCloseAllClass: this.filterCenterBtnCloseAllClass,
           closeAllFilters: this.closeAllFilters,
           closeFilterValue: this.closeFilterValue,
           dataKeyByKeyIdPerFilter: this.dataKeyByKeyIdPerFilter,

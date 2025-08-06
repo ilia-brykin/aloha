@@ -22,6 +22,21 @@ import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 export default {
   name: "AFilterCenterItem",
   props: {
+    btnCloseClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
+    btnGoToClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
+    btnNotCloseClass: {
+      type: [String, Object],
+      required: false,
+      default: "a_btn a_btn_secondary",
+    },
     closeFilterValue: {
       type: Function,
       required: true,
@@ -130,14 +145,14 @@ export default {
           class: "a_filters_center__item a_btn_group a_btn_group_small",
         }, [
           this.filter.hasNotClose && h(AElement, {
-            class: "a_btn a_btn_secondary",
+            class: this.btnNotCloseClass,
             ariaHidden: true,
             tabindex: -1,
             iconLeft: PinFill,
             type: "text",
           }),
           h(AElement, {
-            class: "a_btn a_btn_secondary",
+            class: this.btnGoToClass,
             title: "_A_FILTERS_HOR_GO_TO_TITLE_{{filterLabel}}_{{filterValue}}_",
             textScreenReader: "_A_FILTERS_HOR_GO_TO_TITLE_{{filterLabel}}_{{filterValue}}_",
             extra: {
@@ -172,7 +187,7 @@ export default {
           ]),
           !this.filter.hasNotClose ?
             h(AElement, {
-              class: "a_btn a_btn_secondary",
+              class: this.btnCloseClass,
               disabled: this.disabled,
               iconLeft: XLg,
               title: "_A_FILTERS_HOR_CLOSE_TITLE_{{filterLabel}}_{{filterValue}}_",

@@ -9,7 +9,10 @@ import {
 
 export const filtersPluginOptions = ref({
   propsDefault: {
-
+    filterCenterBtnCloseAllClass: "a_btn a_btn_link a_btn_small",
+    filterCenterBtnCloseClass: "a_btn a_btn_secondary",
+    filterCenterBtnGoToClass: "a_btn a_btn_secondary",
+    filterCenterBtnNotCloseClass: "a_btn a_btn_secondary",
   },
   config: {
     isHtmlTitleSort: false,
