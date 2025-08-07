@@ -1,6 +1,6 @@
 {
   "name": "aloha-vue",
-  "version": "2.33.0",
+  "version": "2.33.1",
   "description": "Aloha-vue is a JavaScript library that provides a wide range of accessible components and directives for Vue.js. Accessibility is of paramount importance to us, and we have designed all our components to meet accessibility compliance criteria. This library is a valuable tool for frontend developers and has already been used in three projects, including two large-scale ones",
   "keywords": [
     "accessibility compliance criteria",

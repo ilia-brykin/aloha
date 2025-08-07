@@ -2701,9 +2701,10 @@ function YB(e) {
   };
 }
 function BB(e) {
-  const t = u(e, "type");
+  const t = u(e, "type"), _ = E(() => `a_alert a_alert_${t.value}`), n = E(() => `a_alert__parent_${t.value}`);
   return {
-    alertClassLocal: E(() => `a_alert a_alert_${t.value}`)
+    alertClassLocal: _,
+    alertParentClassLocal: n
   };
 }
 function VB(e, { emit: t }) {
@@ -2870,32 +2871,35 @@ const oc = {
     const {
       expose: _
     } = t, {
-      alertClassLocal: n
+      alertClassLocal: n,
+      alertParentClassLocal: r
     } = BB(e), {
-      close: r,
-      isHidden: s
+      close: s,
+      isHidden: l
     } = VB(e, t), {
-      iconLocal: l
+      iconLocal: o
     } = wB(e), {
-      ariaAtomicLocal: o,
-      roleLocal: c
+      ariaAtomicLocal: c,
+      roleLocal: S
     } = YB(e);
     return _({
-      close: r,
-      isHidden: s
+      close: s,
+      isHidden: l
     }), {
       alertClassLocal: n,
-      ariaAtomicLocal: o,
-      close: r,
-      iconLocal: l,
-      isHidden: s,
-      roleLocal: c
+      alertParentClassLocal: r,
+      ariaAtomicLocal: c,
+      close: s,
+      iconLocal: o,
+      isHidden: l,
+      roleLocal: S
     };
   },
   render() {
     return this.isHidden ? null : d("div", {
       class: [
         "a_alert__parent",
+        this.alertParentClassLocal,
         {
           a_alert__parent_closable: this.closable
         }

@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.33.1
+
+- Add `alertParentClassLocal` to `AAlert` component
+
 ## 2.33.0
 
 - Add customizable button class props to `AFilterCenter` and `AFilterCenterItem` components, refactor `AFilters` to use `filtersPluginOptions` defaults, and update plugin configuration for button styles.
