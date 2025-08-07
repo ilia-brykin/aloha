@@ -119,6 +119,7 @@ export default {
 
     const {
       alertClassLocal,
+      alertParentClassLocal,
     } = ClassAPI(props);
 
     const {
@@ -142,6 +143,7 @@ export default {
 
     return {
       alertClassLocal,
+      alertParentClassLocal,
       ariaAtomicLocal,
       close,
       iconLocal,
@@ -153,9 +155,11 @@ export default {
     if (this.isHidden) {
       return null;
     }
+
     return h("div", {
       class: [
         "a_alert__parent",
+        this.alertParentClassLocal,
         {
           a_alert__parent_closable: this.closable,
         },

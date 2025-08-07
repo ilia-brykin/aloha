@@ -6,16 +6,65 @@ aloha-example(
   :props="['closable', 'remove-alert-on-close']"
 )
   a-alert(
-    html="Alert success"
-    :is-visible="true"
-    type="success"
     :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert success"
+    type="success"
   )
   a-alert(
-    html="Alert danger"
-    :is-visible="true"
-    type="danger"
     :closable="true"
+    :is-visible="true"
     :remove-alert-on-close="true"
+    html="Alert info"
+    type="info"
   )
-
+  a-alert(
+    :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert warning"
+    type="warning"
+  )
+  a-alert(
+    :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert danger"
+    type="danger"
+  )
+  a-alert(
+    :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert primary"
+    type="primary"
+  )
+  a-alert(
+    :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert secondary"
+    type="secondary"
+  )
+  a-alert(
+    :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert tertiary"
+    type="tertiary"
+  )
+  a-alert(
+    :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert dark"
+    type="dark"
+  )
+  a-alert(
+    :closable="true"
+    :is-visible="true"
+    :remove-alert-on-close="true"
+    html="Alert light"
+    type="light"
+  )

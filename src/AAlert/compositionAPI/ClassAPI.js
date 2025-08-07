@@ -10,7 +10,12 @@ export default function ClassAPI(props) {
     return `a_alert a_alert_${ type.value }`;
   });
 
+  const alertParentClassLocal = computed(() => {
+    return `a_alert__parent_${ type.value }`;
+  });
+
   return {
     alertClassLocal,
+    alertParentClassLocal,
   };
 }
