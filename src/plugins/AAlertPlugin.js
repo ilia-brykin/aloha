@@ -6,12 +6,14 @@ import CheckCircleFill from "aloha-svg/dist/js/bootstrap/CheckCircleFill";
 import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
 import InfoCircleFill from "aloha-svg/dist/js/bootstrap/InfoCircleFill";
 import XCircleFill from "aloha-svg/dist/js/bootstrap/XCircleFill";
+import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 
 export const alertPluginOptions = ref({
   propsDefault: {
     alertClass: undefined,
     alertContentClass: undefined,
     btnCloseAttributes: {},
+    btnCloseIcon: XLg,
     closable: false,
     extra: undefined,
     html: undefined,

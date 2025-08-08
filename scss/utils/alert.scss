@@ -63,6 +63,7 @@ $a_alert_closable_padding_r:      $a_alert_padding_x * 3 !default;
     right: 0;
     z-index: vars_global.$a_stretched_link_z_index + 1;
     padding: $a_alert_padding_y * 1.25 $a_alert_padding_x;
+    background: none;
   }
 }
 

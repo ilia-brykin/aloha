@@ -43,6 +43,11 @@ export default {
       required: false,
       default: () => alertPluginOptions.value.propsDefault.btnCloseAttributes,
     },
+    btnCloseIcon: {
+      type: String,
+      required: false,
+      default: () => alertPluginOptions.value.propsDefault.btnCloseIcon,
+    },
     closable: {
       type: Boolean,
       required: false,
@@ -199,6 +204,7 @@ export default {
       (this.isVisible && this.closable) && h(AButton, {
         alwaysTranslate: this.alwaysTranslate,
         class: "a_btn_close",
+        iconLeft: this.btnCloseIcon,
         textScreenReader: this.textClose,
         title: this.textClose,
         type: "button",

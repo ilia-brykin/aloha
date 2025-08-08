@@ -36,6 +36,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "btn-close-icon",
+      description: "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_",
+      type: "String",
+      default: "XLg",
+      required: false,
+    },
+    {
       name: "closable",
       description: "_A_ALERT_PROPS_CLOSABLE_DESCRIPTION_",
       type: "Boolean",
