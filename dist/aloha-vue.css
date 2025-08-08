@@ -7260,6 +7260,7 @@ h6 {
   right: 0;
   z-index: 2;
   padding: 1.25rem 1rem;
+  background: none;
 }
 
 .a_alert__content {

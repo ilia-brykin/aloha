@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.33.2
+
+- Add `btnCloseIcon` prop to AAlert for configurable close button icon and update associated SCSS
+
 ## 2.33.1
 
 - Add `alertParentClassLocal` to `AAlert` component
