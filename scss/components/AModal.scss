@@ -14,6 +14,8 @@
   .a_modal_footer_actions {
     background-color: #fff;
     margin: 0;
+    border-bottom-left-radius: var(--a_border_radius);
+    border-top-left-radius: var(--a_border_radius);
     > * {
       margin: calc(var(--a_modal_footer_sticky_gap));
     }
