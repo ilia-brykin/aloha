@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.33.3
+
+- Fixed: Add missing border radius to `.a_modal_footer_actions` for consistent styling
+
 ## 2.33.2
 
 - Add `btnCloseIcon` prop to AAlert for configurable close button icon and update associated SCSS

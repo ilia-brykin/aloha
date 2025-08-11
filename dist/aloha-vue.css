@@ -12455,6 +12455,8 @@ input[type=text]::-ms-clear {
 .a_modal_footer_sticky .a_modal_footer_actions {
   background-color: #fff;
   margin: 0;
+  border-bottom-left-radius: var(--a_border_radius);
+  border-top-left-radius: var(--a_border_radius);
 }
 .a_modal_footer_sticky .a_modal_footer_actions > * {
   margin: calc(var(--a_modal_footer_sticky_gap));
