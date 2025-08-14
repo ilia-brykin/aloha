@@ -1,11 +1,14 @@
 import {
+  defaultRemPx,
   remPx,
 } from "../compositionAPI/ARemPxAPI";
 
 export default {
   install(app, {
     changeFontSize = () => {},
+    defaultRemPx: _defaultRemPx = 16,
   } = {}) {
+    defaultRemPx.value = _defaultRemPx;
     const probe = document.createElement("div");
     probe.style.position = "absolute";
     probe.style.visibility = "hidden";

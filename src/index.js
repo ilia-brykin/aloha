@@ -137,6 +137,7 @@ export {
 export {
   default as ARemPxAPI,
   remPx as ARemPxAPI_remPx,
+  defaultRemPx as ARemPxAPI_defaultRemPx,
   scalePxWithRem as ARemPxAPI_scalePxWithRem,
 } from "./compositionAPI/ARemPxAPI";
 export { default as UiAPI } from "./ui/compositionApi/UiAPI";

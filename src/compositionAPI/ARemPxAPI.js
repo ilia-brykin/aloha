@@ -7,6 +7,7 @@ import {
 } from "lodash-es";
 
 export const remPx = ref(getRemPx());
+export const defaultRemPx = ref(16);
 
 export default function ARemPxAPI() {
   return {
@@ -28,7 +29,7 @@ function getRemPx() {
 }
 
 export function scalePxWithRem(value, {
-  baseRemPx = 16,
+  baseRemPx = defaultRemPx.value,
 } = {}) {
   if (!isNumber(value)) {
     return value;
