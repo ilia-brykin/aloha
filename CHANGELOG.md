@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.33.4
+
+- Default RemPx value in Plugin
+
 ## 2.33.3
 
 - Fixed: Add missing border radius to `.a_modal_footer_actions` for consistent styling
