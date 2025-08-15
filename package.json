@@ -55,7 +55,7 @@
     "@floating-ui/vue": "1.1.5",
     "aloha-svg": "1.2.0",
     "axios": "1.7.9",
-    "dompurify": "3.2.3",
+    "dompurify": "3.2.4",
     "fecha": "4.2.3",
     "lodash-es": "4.17.21",
     "moment": "2.30.1",
