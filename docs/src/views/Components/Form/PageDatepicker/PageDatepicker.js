@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../../global/components/AlohaTableProps/Aloha
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageDatepickerBasic from "./PageDatepickerBasic/PageDatepickerBasic.vue";
 import PageDatepickerLabelDescription from "./PageDatepickerLabelDescription/PageDatepickerLabelDescription.vue";
+import PageDatepickerMaxMinDate from "./PageDatepickerMaxMinDate/PageDatepickerMaxMinDate.vue";
 import PageDatepickerReadonly from "./PageDatepickerReadonly/PageDatepickerReadonly.vue";
 import PageDatepickerType from "./PageDatepickerType/PageDatepickerType.vue";
 import {
@@ -23,6 +24,7 @@ export default {
     ATranslation,
     PageDatepickerBasic,
     PageDatepickerLabelDescription,
+    PageDatepickerMaxMinDate,
     PageDatepickerReadonly,
     PageDatepickerType,
   },
