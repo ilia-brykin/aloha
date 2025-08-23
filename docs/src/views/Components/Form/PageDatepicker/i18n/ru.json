@@ -1,3 +1,7 @@
 {
-
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_HEADER_": "Максимальные и минимальные даты",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "Использование <strong lang=\"en\">max-date</strong> и <strong lang=\"en\">min-date</strong> для ограничения диапазона выбираемых дат.",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "Выбор даты не раньше минимальной",
+  "_PAGE_DATEPICKER_LBL_WITH_MAX_DATE_": "Выбор даты не позже максимальной",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "Выбор даты между минимальной и максимальной"
 }

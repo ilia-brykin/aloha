@@ -71,22 +71,22 @@ export default {
       type: Number,
       default: undefined,
     },
+    maxDate: {
+      default: null,
+      validator: function(val) {
+        return !val || isValidDate(val);
+      },
+    },
+    minDate: {
+      default: null,
+      validator: function(val) {
+        return !val || isValidDate(val);
+      },
+    },
     minuteStep: {
       type: Number,
       default: 0,
       validator: val => val >= 0 && val <= 60,
-    },
-    notAfter: {
-      default: null,
-      validator: function(val) {
-        return !val || isValidDate(val);
-      },
-    },
-    notBefore: {
-      default: null,
-      validator: function(val) {
-        return !val || isValidDate(val);
-      },
     },
     startAt: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
@@ -162,12 +162,12 @@ export default {
       return this.currentLanguage.months;
     },
 
-    notBeforeTime() {
-      return this.getCriticalTime(this.notBefore);
+    minDateTime() {
+      return this.getCriticalTime(this.minDate);
     },
 
-    notAfterTime() {
-      return this.getCriticalTime(this.notAfter);
+    maxDateTime() {
+      return this.getCriticalTime(this.maxDate);
     },
 
     suffixForHeader() {
@@ -303,7 +303,7 @@ export default {
         startAt = this.startAt;
       }
       return (
-        (this.notBeforeTime && time < this.notBeforeTime) ||
+        (this.minDateTime && time < this.minDateTime) ||
         (startAt && time < this.getCriticalTime(startAt))
       );
     },
@@ -313,7 +313,7 @@ export default {
         endAt = this.endAt;
       }
       return (
-        (this.notAfterTime && time > this.notAfterTime) ||
+        (this.maxDateTime && time > this.maxDateTime) ||
         (endAt && time > this.getCriticalTime(endAt))
       );
     },
@@ -380,10 +380,10 @@ export default {
         if (this.isDisabledTime(time)) {
           time.setHours(0, 0, 0, 0);
           if (
-            this.notBefore &&
-            time.getTime() < new Date(this.notBefore).getTime()
+            this.minDate &&
+            time.getTime() < new Date(this.minDate).getTime()
           ) {
-            time = new Date(this.notBefore);
+            time = new Date(this.minDate);
           }
           if (
             this.startAt &&
