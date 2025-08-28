@@ -408,6 +408,7 @@ export default {
           h("input", {
             ref: "inputRef",
             id: this.htmlIdLocal,
+            key: `${ this.htmlIdLocal }_${ this.typeForInput }`,
             autocomplete: this.autocomplete,
             value: this.modelValueLocal,
             type: this.typeForInput,
