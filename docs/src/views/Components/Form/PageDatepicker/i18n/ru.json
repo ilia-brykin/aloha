@@ -1,4 +1,9 @@
 {
+  "_PAGE_DATEPICKER_START_DATE_HEADER_": "Управление начальным фокусом календаря",
+  "_PAGE_DATEPICKER_START_DATE_DESCRIPTION_": "Использование <strong lang=\"en\">start-date</strong> и <strong lang=\"en\">focus-start-date</strong> для управления начальным фокусом календаря.",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_": "Установлена <strong lang=\"en\">start-date</strong> на следующий год, модель не задана",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_": "Установлена <strong lang=\"en\">start-date</strong> на следующий год, модель задана",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_AND_FOCUS_START_DATE_": "Установлена <strong lang=\"en\">start-date</strong> на следующий год, модель задана и <strong lang=\"en\">focus-start-date = true</strong>",
   "_PAGE_DATEPICKER_MAX_MIN_DATE_HEADER_": "Максимальные и минимальные даты",
   "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "Использование <strong lang=\"en\">max-date</strong> и <strong lang=\"en\">min-date</strong> для ограничения диапазона выбираемых дат.",
   "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "Выбор даты не раньше минимальной",

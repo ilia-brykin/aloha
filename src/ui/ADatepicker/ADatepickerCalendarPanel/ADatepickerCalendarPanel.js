@@ -8,6 +8,8 @@ import APanelMonth from "../panel/APanelMonth/APanelMonth";
 import APanelTime from "../panel/APanelTime/APanelTime";
 import APanelYear from "../panel/APanelYear/APanelYear";
 
+import CalendarAPI from "./compositionAPI/CalendarAPI";
+
 import AKeysCode from "../../../const/AKeysCode";
 import PanelMixin from "../mixins/PanelMixin";
 import scrollIntoView from "../utils/scroll-into-view";
@@ -63,6 +65,10 @@ export default {
       type: Number,
       validator: val => val >= 1 && val <= 7,
     },
+    focusStartDate: {
+      type: Boolean,
+      required: false,
+    },
     id: {
       type: String,
       required: true,
@@ -93,6 +99,11 @@ export default {
       required: false,
       default: undefined,
     },
+    startDate: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      required: false,
+      default: undefined,
+    },
     type: {
       type: String,
       default: "date", // ["date", "datetime"]
@@ -113,17 +124,28 @@ export default {
     "selectDate",
     "selectTime",
   ],
-  data() {
-    const now = this.getNow(this.value);
-    const calendarYear = now.getFullYear();
-    const calendarMonth = now.getMonth();
-    const firstYear = Math.floor(calendarYear / 10) * 10;
-    return {
-      panel: "NONE",
-      dates: [],
+  setup(props) {
+    const {
       calendarMonth,
       calendarYear,
       firstYear,
+      getNow,
+      initCalendarValues,
+    } = CalendarAPI(props);
+
+    initCalendarValues();
+
+    return {
+      calendarMonth,
+      calendarYear,
+      firstYear,
+      getNow,
+    };
+  },
+  data() {
+    return {
+      panel: "NONE",
+      dates: [],
       isFocusPanelChild: false,
       isWorkWithKeyboard: false,
     };
@@ -217,7 +239,6 @@ export default {
   },
   watch: {
     value: {
-      immediate: true,
       handler: "updateNow",
     },
     defaultValue: {
@@ -271,14 +292,6 @@ export default {
       this.emitEventBusDestroyAllListenerForPressButtonsForPanels();
     },
 
-    getNow(value) {
-      return value
-        ? new Date(value)
-        : this.defaultValue && isValidDate(this.defaultValue)
-          ? new Date(this.defaultValue)
-          : new Date();
-    },
-
     updateNow(value) {
       this.now = this.getNow(value);
     },
@@ -302,6 +315,7 @@ export default {
       if (startAt === undefined) {
         startAt = this.startAt;
       }
+
       return (
         (this.minDateTime && time < this.minDateTime) ||
         (startAt && time < this.getCriticalTime(startAt))
@@ -312,6 +326,7 @@ export default {
       if (endAt === undefined) {
         endAt = this.endAt;
       }
+
       return (
         (this.maxDateTime && time > this.maxDateTime) ||
         (endAt && time > this.getCriticalTime(endAt))
@@ -379,16 +394,12 @@ export default {
         }
         if (this.isDisabledTime(time)) {
           time.setHours(0, 0, 0, 0);
-          if (
-            this.minDate &&
-            time.getTime() < new Date(this.minDate).getTime()
-          ) {
-            time = new Date(this.minDate);
+          if (this.notBefore &&
+            time.getTime() < new Date(this.notBefore).getTime()) {
+            time = new Date(this.notBefore);
           }
-          if (
-            this.startAt &&
-            time.getTime() < new Date(this.startAt).getTime()
-          ) {
+          if (this.startAt &&
+            time.getTime() < new Date(this.startAt).getTime()) {
             time = new Date(this.startAt);
           }
         }
@@ -749,21 +760,22 @@ export default {
         h(APanelDate, {
           ref: "panelDate",
           id: this.id,
-          style: this.panel !== "DATE" ? "display: none;" : "",
+          calendarMonth: this.calendarMonth,
+          calendarYear: this.calendarYear,
           class: {
             pux_datepicker__panel_focus: this.isFocusPanelChild,
             pux_datepicker__calendar__tab: this.panel === "DATE",
           },
-          tabindex: 0,
-          value: this.value,
+          currentLanguage: this.currentLanguage,
           dateFormat: this.dateFormat,
-          calendarMonth: this.calendarMonth,
-          calendarYear: this.calendarYear,
-          startAt: this.startAt,
+          disabledDate: this.isDisabledDate,
           endAt: this.endAt,
           firstDayOfWeek: this.firstDayOfWeek,
-          disabledDate: this.isDisabledDate,
-          currentLanguage: this.currentLanguage,
+          startAt: this.startAt,
+          startDate: this.startDate,
+          style: this.panel !== "DATE" ? "display: none;" : "",
+          tabindex: 0,
+          value: this.value,
           onSelect: this.selectDate,
           onHandleIconMonth: this.handleIconMonth,
         }),

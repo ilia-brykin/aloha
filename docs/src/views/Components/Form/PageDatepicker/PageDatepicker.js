@@ -5,6 +5,7 @@ import PageDatepickerBasic from "./PageDatepickerBasic/PageDatepickerBasic.vue";
 import PageDatepickerLabelDescription from "./PageDatepickerLabelDescription/PageDatepickerLabelDescription.vue";
 import PageDatepickerMaxMinDate from "./PageDatepickerMaxMinDate/PageDatepickerMaxMinDate.vue";
 import PageDatepickerReadonly from "./PageDatepickerReadonly/PageDatepickerReadonly.vue";
+import PageDatepickerStartDate from "./PageDatepickerStartDate/PageDatepickerStartDate.vue";
 import PageDatepickerType from "./PageDatepickerType/PageDatepickerType.vue";
 import {
   ATranslation,
@@ -26,6 +27,7 @@ export default {
     PageDatepickerLabelDescription,
     PageDatepickerMaxMinDate,
     PageDatepickerReadonly,
+    PageDatepickerStartDate,
     PageDatepickerType,
   },
   setup() {

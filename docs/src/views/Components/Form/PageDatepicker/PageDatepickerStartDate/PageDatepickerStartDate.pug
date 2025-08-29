@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_PAGE_DATEPICKER_START_DATE_HEADER_"
+  description="_PAGE_DATEPICKER_START_DATE_DESCRIPTION_"
+  :props="['start-date', 'focus-start-date']"
+)
+  a-datepicker(
+    v-model="model1"
+    :start-date="dateNextYear"
+    label="_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_"
+    type="date"
+  )
+  div model1: {{ model1 }}
+  a-datepicker(
+    v-model="model2"
+    :start-date="dateNextYear"
+    label="_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_"
+    type="date"
+  )
+  div model2: {{ model2 }}
+  a-datepicker(
+    v-model="model3"
+    :focus-start-date="true"
+    :start-date="dateNextYear"
+    label="_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_AND_FOCUS_START_DATE_"
+    type="date"
+  )
+  div model3: {{ model3 }}
