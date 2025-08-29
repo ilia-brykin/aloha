@@ -1,14 +1,18 @@
-/* eslint vue/component-api-style: off */
 import {
   h,
 } from "vue";
 
-import AKeysCode from "../../../../const/AKeysCode";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
+import SelectAPI from "./compositionAPI/SelectAPI";
 
 // @vue/component
 export default {
   name: "APanelYearItem",
   props: {
+    isDisabled: {
+      type: Function,
+      required: true,
+    },
     prefixForId: {
       type: String,
       required: true,
@@ -26,47 +30,33 @@ export default {
       type: Number,
       required: true,
     },
-    isDisabled: {
-      type: Function,
-      required: true,
-    },
   },
   emits: [
     "selectYear",
   ],
-  computed: {
-    isDisabledLocal() {
-      return this.isDisabled(this.year);
-    },
+  setup(props, context) {
+    const {
+      ariaSelected,
+      idForList,
+      isDisabledLocal,
+      isYearActive,
+    } = AttributesAPI(props);
 
-    isYearActive() {
-      return this.yearFromValue === this.year;
-    },
+    const {
+      keypress,
+      selectYearLocal,
+    } = SelectAPI(props, context, {
+      isDisabledLocal,
+    });
 
-    idForList() {
-      return `${ this.prefixForId }${ this.yearIndex }`;
-    },
-
-    ariaSelected() {
-      return `${ this.isYearActive }`;
-    },
-  },
-  methods: {
-    selectYearLocal($event, isButtonClick) {
-      $event.stopPropagation();
-      $event.preventDefault();
-      if (this.isDisabledLocal) {
-        return;
-      }
-      this.$emit("selectYear", { year: this.year, isButtonClick });
-    },
-
-    keypress($event) {
-      if ($event.keyCode === AKeysCode.enter ||
-        $event.keyCode === AKeysCode.space) {
-        this.selectYearLocal($event, true);
-      }
-    },
+    return {
+      ariaSelected,
+      idForList,
+      isDisabledLocal,
+      isYearActive,
+      keypress,
+      selectYearLocal,
+    };
   },
   render() {
     return h("li", {
