@@ -47,3 +47,17 @@ $a_spacing_values: (
         }
     }
 }
+
+@each $name, $value in $a_spacing_values {
+  @if $name != "auto" {
+    .a_gap_#{$name} {
+      gap: #{$value};
+    }
+    .a_gap_x_#{$name} {
+      row-gap: #{$value};
+    }
+    .a_gap_y_#{$name} {
+      column-gap: #{$value};
+    }
+  }
+}
