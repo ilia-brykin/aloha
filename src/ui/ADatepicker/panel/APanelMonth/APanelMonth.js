@@ -1,163 +1,105 @@
-/* eslint vue/component-api-style: off */
 import {
   h,
+  onBeforeUnmount,
 } from "vue";
 
-import AKeysCode from "../../../../const/AKeysCode";
-import PanelMixin from "../../mixins/PanelMixin";
-import {
-  isUndefined,
-} from "lodash-es";
+import FocusAPI from "./compositionAPI/FocusAPI";
+import FocusActiveAPI from "./compositionAPI/FocusActiveAPI";
+import MonthsAPI from "./compositionAPI/MonthsAPI";
+import PanelAPI from "../compositionAPI/PanelAPI";
+import SelectAPI from "./compositionAPI/SelectAPI";
 
 // @vue/component
 export default {
   name: "APanelMonth",
-  mixins: [
-    PanelMixin,
-  ],
   props: {
-    value: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      required: false,
-      default: undefined,
-    },
     calendarYear: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       default: new Date().getFullYear(),
       required: false,
+    },
+    currentLanguage: {
+      type: Object,
+      required: true,
     },
     disabledMonth: {
       type: Function,
       required: false,
       default: undefined,
     },
-    currentLanguage: {
-      type: Object,
+    id: {
+      type: String,
       required: true,
+    },
+    value: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      required: false,
+      default: undefined,
     },
   },
   emits: [
     "handleIconYear",
     "select",
   ],
-  data() {
+  setup(props, context) {
+    const {
+      getIdForMonth,
+      isDisabled,
+      months,
+    } = MonthsAPI(props);
+
+    const {
+      keypress,
+      selectMonth,
+    } = SelectAPI(props, context, {
+      isDisabled,
+    });
+
+    const {
+      idForFocus,
+      monthIndexForFocus,
+      pressButton,
+      setDefaultMonthForFocus,
+    } = FocusAPI(props, context, {
+      getIdForMonth,
+    });
+
+    const {
+      attributesForMainElement,
+      destroyEventBus,
+      destroyListenerForPressButtons,
+      idForHeader,
+      setEventBus,
+      setListenerForPressButtons,
+    } = PanelAPI(props, {
+      idForFocus,
+      pressButton,
+    });
+
+    const {
+      setFocusToActiveMonth,
+    } = FocusActiveAPI({
+      idForFocus,
+      setDefaultMonthForFocus,
+      setListenerForPressButtons,
+    });
+
+    setEventBus();
+
+    onBeforeUnmount(() => {
+      destroyEventBus();
+      destroyListenerForPressButtons();
+    });
+
     return {
-      monthIndexForFocus: undefined,
+      attributesForMainElement,
+      idForHeader,
+      keypress,
+      monthIndexForFocus,
+      months,
+      selectMonth,
+      setFocusToActiveMonth,
     };
-  },
-  computed: {
-    currentYear() {
-      return this.value && new Date(this.value).getFullYear();
-    },
-
-    currentMonth() {
-      return this.value && new Date(this.value).getMonth();
-    },
-
-    monthsTranslate() {
-      return this.currentLanguage.months;
-    },
-
-    months() {
-      const MONTHS = [];
-      this.monthsTranslate.forEach((month, index) => {
-        MONTHS.push({
-          isActive: this.currentYear === this.calendarYear && this.currentMonth === index,
-          isDisabled: this.isDisabled(index),
-          label: month,
-          id: this.getIdForMonth(index),
-        });
-      });
-      return MONTHS;
-    },
-
-    idForFocus() {
-      if (!isUndefined(this.monthIndexForFocus)) {
-        return this.getIdForMonth(this.monthIndexForFocus);
-      }
-      return "";
-    },
-
-    monthFromValueOrToday() {
-      return this.monthFromValue || new Date().getMonth();
-    },
-
-    monthFromValue() {
-      if (this.value) {
-        return new Date(this.value).getMonth();
-      }
-      return "";
-    },
-  },
-  methods: {
-    isDisabled(month) {
-      return !!(typeof this.disabledMonth === "function" && this.disabledMonth(month));
-    },
-
-    selectMonth($event, month, isButtonClick) {
-      $event.stopPropagation();
-      $event.preventDefault();
-      if (this.isDisabled(month)) {
-        return;
-      }
-      this.$emit("select", { month, isButtonClick });
-    },
-
-    getIdForMonth(monthIndex) {
-      return `${ this.id }_month_${ monthIndex }`;
-    },
-
-    setFocusToActiveMonth() {
-      setTimeout(() => {
-        this.setDefaultMonthForFocus();
-        document.getElementById(this.idForFocus).focus();
-        this.setListenerForPressButtons();
-      });
-    },
-
-    setDefaultMonthForFocus() {
-      this.monthIndexForFocus = this.monthFromValueOrToday;
-    },
-
-    pressButton($event) {
-      const KEY_CODE = $event.keyCode;
-      if (KEY_CODE === AKeysCode.arrowUp || KEY_CODE === AKeysCode.arrowLeft) {
-        this.setFocusToLastMonth();
-        this.stopCurrentEvent($event);
-      } else if (KEY_CODE === AKeysCode.arrowDown || KEY_CODE === AKeysCode.arrowRight) {
-        this.setFocusToNextMonth();
-        this.stopCurrentEvent($event);
-      }
-    },
-
-    setFocusToLastMonth() {
-      const NEW_MONTH_FOR_FOCUS = this.monthIndexForFocus - 1;
-      if (NEW_MONTH_FOR_FOCUS >= 0) {
-        this.monthIndexForFocus = NEW_MONTH_FOR_FOCUS;
-      } else {
-        this.$emit("handleIconYear", -1);
-        this.monthIndexForFocus = 11;
-      }
-      this.setFocusToElementWithTimeout(this.idForFocus);
-    },
-
-    setFocusToNextMonth() {
-      const NEW_MONTH_FOR_FOCUS = this.monthIndexForFocus + 1;
-      if (NEW_MONTH_FOR_FOCUS <= 11) {
-        this.monthIndexForFocus = NEW_MONTH_FOR_FOCUS;
-      } else {
-        this.$emit("handleIconYear", 1);
-        this.monthIndexForFocus = 0;
-      }
-      this.setFocusToElementWithTimeout(this.idForFocus);
-    },
-
-    keypress($event, monthIndex) {
-      if ($event.keyCode === AKeysCode.enter ||
-        $event.keyCode === AKeysCode.space) {
-        this.selectMonth($event, monthIndex);
-      }
-    },
   },
   render() {
     return h("ul", {
