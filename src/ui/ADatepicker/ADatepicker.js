@@ -136,16 +136,6 @@ export default {
       required: false,
       default: undefined,
     },
-    lang: {
-      type: String,
-      default: "de",
-      required: false,
-    },
-    languages: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     maxDate: {
       type: [String, Date],
       required: false,
@@ -278,7 +268,7 @@ export default {
 
     const {
       currentLanguage,
-    } = LanguagesAPI(props);
+    } = LanguagesAPI();
 
     const {
       closePopover,

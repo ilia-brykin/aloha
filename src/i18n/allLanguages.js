@@ -2,6 +2,7 @@ import AAlertI18n from "../AAlert/i18n/AAlertI18n";
 import ACarouselI18n from "../ACarousel/i18n/ACarouselI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
+import ADatepickerI18n from "../ui/ADatepicker/i18n/ADatepickerI18n";
 import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
 import AErrorsI18n from "../ui/AErrors/i18n/AErrorsI18n";
@@ -47,6 +48,7 @@ export const ar = {
   ...ACarouselI18n.ar,
   ...ACheckboxI18n.ar,
   ...ACloakI18n.ar,
+  ...ADatepickerI18n.ar,
   ...ADatepickerRangeI18n.ar,
   ...ADisclosureI18n.ar,
   ...AErrorsI18n.ar,
@@ -84,6 +86,7 @@ export const de = {
   ...ACarouselI18n.de,
   ...ACheckboxI18n.de,
   ...ACloakI18n.de,
+  ...ADatepickerI18n.de,
   ...ADatepickerRangeI18n.de,
   ...ADisclosureI18n.de,
   ...AErrorsI18n.de,
@@ -121,6 +124,7 @@ export const en = {
   ...ACarouselI18n.en,
   ...ACheckboxI18n.en,
   ...ACloakI18n.en,
+  ...ADatepickerI18n.en,
   ...ADatepickerRangeI18n.en,
   ...ADisclosureI18n.en,
   ...AErrorsI18n.en,
@@ -158,6 +162,7 @@ export const es = {
   ...ACarouselI18n.es,
   ...ACheckboxI18n.es,
   ...ACloakI18n.es,
+  ...ADatepickerI18n.es,
   ...ADatepickerRangeI18n.es,
   ...ADisclosureI18n.es,
   ...AErrorsI18n.es,
@@ -195,6 +200,7 @@ export const fr = {
   ...ACarouselI18n.fr,
   ...ACheckboxI18n.fr,
   ...ACloakI18n.fr,
+  ...ADatepickerI18n.fr,
   ...ADatepickerRangeI18n.fr,
   ...ADisclosureI18n.fr,
   ...AErrorsI18n.fr,
@@ -232,6 +238,7 @@ export const hr = {
   ...ACarouselI18n.hr,
   ...ACheckboxI18n.hr,
   ...ACloakI18n.hr,
+  ...ADatepickerI18n.hr,
   ...ADatepickerRangeI18n.hr,
   ...ADisclosureI18n.hr,
   ...AErrorsI18n.hr,
@@ -269,6 +276,7 @@ export const it = {
   ...ACarouselI18n.it,
   ...ACheckboxI18n.it,
   ...ACloakI18n.it,
+  ...ADatepickerI18n.it,
   ...ADatepickerRangeI18n.it,
   ...ADisclosureI18n.it,
   ...AErrorsI18n.it,
@@ -306,6 +314,7 @@ export const ru = {
   ...ACarouselI18n.ru,
   ...ACheckboxI18n.ru,
   ...ACloakI18n.ru,
+  ...ADatepickerI18n.ru,
   ...ADatepickerRangeI18n.ru,
   ...ADisclosureI18n.ru,
   ...AErrorsI18n.ru,

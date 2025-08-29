@@ -304,6 +304,7 @@ export { default as ACarouselI18n } from "./ACarousel/i18n/ACarouselI18n";
 export { default as ACheckboxI18n } from "./ui/ACheckbox/i18n/ACheckboxI18n";
 export { default as ACloakI18n } from "./ACloak/i18n/ACloakI18n";
 export { default as ADatepickerRangeI18n } from "./ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
+export { default as ADatepickerI18n } from "./ui/ADatepicker/i18n/ADatepickerI18n";
 export { default as ADisclosureI18n } from "./ADisclosure/i18n/ADisclosureI18n";
 export { default as AFieldsetI18n } from "./ui/AFieldset/i18n/AFieldsetI18n";
 export { default as AErrorsI18n } from "./ui/AErrors/i18n/AErrorsI18n";
