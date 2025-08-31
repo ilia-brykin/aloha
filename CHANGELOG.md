@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.34.0
+
+- Add gap utilities for spacing, including `.a_gap_*`, `.a_gap_x_*`, and `.a_gap_y_*` classes based on `$a_spacing_values`.
+- Migrate `ADatepicker` localization to JSON-based i18n files, remove hardcoded language definitions, and refactor related APIs for improved modularity and maintainability.
+- Add `startDate` and `focusStartDate` props to `ADatepicker`
+- Add `maxDate` and `minDate` props to `ADatepicker`
+
 ## 2.33.4
 
 - Default RemPx value in Plugin
