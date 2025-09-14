@@ -7,6 +7,16 @@
 ---
 # Versions
 
+## 2.35.0
+
+- `ASlider`: added vertical slider support with updated styles, orientation logic, and a new example `PageSliderVertical` integrated into the documentation.
+- `ASlider`: improved stop rendering logic using `lodash.forEach` and computed positions; added SCSS variables for customizing stops and included a new `PageSliderStops` example in the documentation.
+- `ASlider`: implemented full ARIA attribute support via `AriaAttributesAPI` (`aria-valuemin`, `aria-valuemax`, `aria-valuenow`, `aria-valuetext`, `aria-orientation`) to improve accessibility.
+- `ASlider`: modularized internal logic by extracting `StopsAPI`, `DataAPI`, `LabelAPI`, `AttributesAPI`, `StylesAPI`, `DragAndDropAPI`, and `TitleAPI` to improve maintainability and clarity.
+- `ASlider`: enhanced dragging and keyboard accessibility, added support for `step`, and integrated proper focus management for accessible interactions.
+- `Documentation`: added new usage examples to the documentation, including `PageSliderVertical`, `PageSliderStops`, `PageSliderRange`, `PageSliderMinMax`, `PageSliderErrors`, `PageSliderHelpText`, `PageSliderLabelDescription`, and `PageSliderChange`, with accompanying Pug templates, JavaScript content, and i18n keys.
+
+
 ## 2.34.0
 
 - Add gap utilities for spacing, including `.a_gap_*`, `.a_gap_x_*`, and `.a_gap_y_*` classes based on `$a_spacing_values`.
