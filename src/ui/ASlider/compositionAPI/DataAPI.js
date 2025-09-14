@@ -27,11 +27,14 @@ export default function DataAPI(props) {
   const step = toRef(props, "step");
 
   const dataMinMax = computed(() => {
-    const LIST = range(min.value, max.value + 1, step.value);
+    const LIST = range(min.value, max.value + step.value, step.value);
+    const DECIMALS = step.value.toString().split(".")[1]?.length || 0;
+
     const DATA = [];
     forEach(LIST, item => {
+      const value = Number(item.toFixed(DECIMALS));
       DATA.push({
-        [AKeyId]: item,
+        [AKeyId]: value,
       });
     });
 

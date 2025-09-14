@@ -7,10 +7,10 @@ aloha-example(
 )
   a-slider(
     v-model="model1"
-    :extra="{ max: 40, min: 10, step: 2 }"
-    :max="40"
-    :min="10"
-    :step="2"
+    :extra="{ max: 100, min: 0, step: 0.1 }"
+    :max="100"
+    :min="0"
+    :step="0.1"
     label="_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_"
   )
   .a_mt_2 model1: {{ model1 }}
