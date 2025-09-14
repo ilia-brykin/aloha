@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.35.1
+
+- Enhance `ASlider`'s `DataAPI`: refine step value handling with decimal precision and update computed data to ensure accurate values using `toFixed`.
+
 ## 2.35.0
 
 - `ASlider`: added vertical slider support with updated styles, orientation logic, and a new example `PageSliderVertical` integrated into the documentation.
