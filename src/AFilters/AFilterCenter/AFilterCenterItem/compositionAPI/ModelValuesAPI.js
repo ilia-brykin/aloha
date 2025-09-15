@@ -18,6 +18,7 @@ import {
 import {
   filter as _filter,
   get,
+  isFunction,
   isNil,
 } from "lodash-es";
 
@@ -101,10 +102,20 @@ export default function ModelValuesAPI(props, {
         if (modelArrayReal.value.length === 1) {
           const item = filterDataKey.value?.[modelArrayReal.value[0]];
 
+          let label = item?.[AKeyLabel];
+          if (filter.value.mode === "one_per_group" && filter.value.keyGroup) {
+            const GROUP = get(item, filter.value.keyGroup);
+            if (isFunction(filter.value.keyGroupCallback)) {
+              label = `${ filter.value.keyGroupCallback({ item, inDropdown: false, group: GROUP }) } "${ label }"`;
+            } else {
+              label = `${ GROUP } "${ label }"`;
+            }
+          }
+
           return [{
             filterLabelTranslated: getTranslatedLabelWithSuffix({ label: filterLabel.value }),
             filterLabelForTitleTranslated: getTranslatedLabelWithSuffix({ label: filterLabelForTitle.value }),
-            label: item?.[AKeyLabel],
+            label,
             item,
             modelArray: modelArrayReal.value,
           }];
