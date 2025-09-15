@@ -40,6 +40,7 @@ import AttributesAPI from "./compositionAPI/AttributesAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import DividerAPI from "./compositionAPI/DividerAPI";
 import ExclusiveOptionsAPI from "./compositionAPI/ExclusiveOptionsAPI";
+import ModeAPI from "./compositionAPI/ModeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
@@ -325,6 +326,11 @@ export default {
       default: () => ASelectPluginOptions.propsDefault.menuWidthType,
       validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
+    mode: {
+      type: String,
+      default: "default",
+      validator: value => ["default", "one_per_group"].includes(value),
+    },
     modelDependencies: {
       type: Object,
       required: false,
@@ -494,6 +500,10 @@ export default {
     } = UiAPI(props, context);
 
     const {
+      isModeOnePerGroup,
+    } = ModeAPI(props);
+
+    const {
       closePopup,
       openPopup,
     } = APopupAPI();
@@ -639,9 +649,11 @@ export default {
     } = ModelChangeAPI(props, {
       changeModel,
       dataAll,
+      dataGrouped,
       dataKeyByKeyIdLocal,
       disabledLocal,
       isMultiselect,
+      isModeOnePerGroup,
       togglePopover,
     });
 
@@ -652,6 +664,7 @@ export default {
       dataKeyByKeyIdLocal,
       isModelLengthLimitExceeded,
       isModelValue,
+      isModeOnePerGroup,
       isMultiselect,
       modelValueLength,
       modelValueMultiselectFiltered,
@@ -722,6 +735,7 @@ export default {
       isExclusiveOptionSelected,
       isModelLengthLimitExceeded,
       isModelValue,
+      isModeOnePerGroup,
       isMultiselect,
       isOpen,
       labelDescriptionId,
@@ -885,8 +899,11 @@ export default {
                             key: index,
                             alwaysTranslate: this.alwaysTranslate,
                             data: this.dataKeyByKeyIdLocal[item] || this.exclusiveDataKeyByKeyIdLocal[item] || {},
-                            slotName: this.slotName,
                             disabled: this.disabled,
+                            keyGroup: this.keyGroup,
+                            keyGroupLabelCallback: this.keyGroupLabelCallback,
+                            mode: this.mode,
+                            slotName: this.slotName,
                             onChangeModelValue: this.onChangeModelValue,
                           }, this.$slots);
                         }),
@@ -895,6 +912,9 @@ export default {
                           alwaysTranslate: this.alwaysTranslate,
                           data: this.limitExceededModelData,
                           disabled: this.disabledLocal,
+                          keyGroup: this.keyGroup,
+                          keyGroupLabelCallback: this.keyGroupLabelCallback,
+                          mode: this.mode,
                           hideDeleteButton: !this.exceededItemsDeletable,
                           onChangeModelValue: this.deleteExceededItems,
                         }),

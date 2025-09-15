@@ -19,5 +19,8 @@
   "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Werte von Auswahlmöglichkeiten können basierend auf der Suchanfrage gefiltert werden. Dies ist nützlich für Komponenten mit einer langen Liste von Optionen, um Benutzern das Finden und Auswählen der benötigten Option zu erleichtern.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Suche",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Beschriftungsübersetzungen werden für Dropdown-Optionen unterstützt. Die Suche ist ebenfalls mit übersetzen Optionen möglich.",
-  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisierung"
+  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisierung",
+  "_TXT_POSITIVE_": "Positiv",
+  "_TXT_NEGATIVE_": "Negativ",
+  "_TXT_NEUTRAL_": "Neutral"
 }
