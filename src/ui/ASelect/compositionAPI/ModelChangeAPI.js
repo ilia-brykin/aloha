@@ -67,7 +67,6 @@ export default function ModelChangeAPI(props, {
   };
 
   const onChangeModelValue = ({ currentValue, $event, isSelected, dataItem }) => {
-    console.log("onChangeModelValue");
     let modelValueLocal;
     if (isMultiselect.value) {
       modelValueLocal = cloneDeep(modelValue.value) || [];
