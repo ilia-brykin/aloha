@@ -670,6 +670,7 @@ export default {
           class: ["a_fieldset", this.classFieldset, {
             a_fieldset_invalid: this.isErrors,
             a_fieldset_no_border: !this.hasBorder,
+            a_fieldset_with_legend: this.label,
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
           ...this.attributesFieldset,

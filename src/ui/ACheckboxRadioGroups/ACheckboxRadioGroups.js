@@ -228,7 +228,7 @@ export default {
           ]);
         }
         return h("fieldset", {
-          class: "a_fieldset",
+          class: "a_fieldset a_fieldset_with_legend",
           style: styleWithSearch,
         }, [
           h(ACheckboxLegend, {

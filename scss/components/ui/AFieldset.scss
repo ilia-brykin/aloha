@@ -37,6 +37,9 @@
     }
   }
 }
+.a_fieldset_with_legend {
+  --a_fieldset_padding_top: 0;
+}
 .a_fieldset_collapsible {
   .a_legend {
     max-width: calc(100% - 2rem);

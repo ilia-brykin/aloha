@@ -450,6 +450,7 @@ export default {
             a_fieldset_no_border: !this.hasBorder,
             a_fieldset_collapsed: this.isCollapsedLocal,
             a_fieldset_collapsible: this.collapsible,
+            a_fieldset_with_legend: this.label,
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
           ...this.attributesFieldset,

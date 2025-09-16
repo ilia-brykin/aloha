@@ -86,7 +86,7 @@ export default {
           label: this.currentLabel,
           inDropdown: false,
         }) :
-        [
+        h("span", [
           this.groupLabel ?
             h(ATranslation, {
               alwaysTranslate: this.alwaysTranslate,
@@ -102,7 +102,7 @@ export default {
             html: this.currentLabel,
             extra: this.data.extra,
           }),
-        ],
+        ]),
 
       !this.hideDeleteButton ?
         h(AElement, {
