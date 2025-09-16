@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_GROUP_DEFAULT_HEADER_"
+  description="_A_UI_GROUP_DEFAULT_DESCRIPTION_"
+  :props="['default']"
+)
+  a-switch(
+    v-model="model"
+    :change="changeModel"
+    :default="true"
+  )
+  div model: {{ model }}

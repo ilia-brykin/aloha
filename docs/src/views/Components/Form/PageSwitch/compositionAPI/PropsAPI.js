@@ -15,6 +15,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "default",
+      description: "_A_UI_PROPS_DEFAULT_DESCRIPTION_",
+      type: "Boolean / String / Number",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "default-label",
       description: "_A_SWITCH_PROPS_DEFAULT_LABEL_DESCRIPTION_",
       type: "String",

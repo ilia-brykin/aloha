@@ -7,8 +7,13 @@ import {
 
 import UiErrorsAPI from "./UiErrorsAPI";
 
+import {
+  isUndefined,
+} from "lodash-es";
+
 export default function UiAPI(props, { emit }) {
   const change = toRef(props, "change");
+  const defaultProps = toRef(props, "default");
   const disabled = toRef(props, "disabled");
   const helpText = toRef(props, "helpText");
   const htmlId = toRef(props, "htmlId");
@@ -38,7 +43,7 @@ export default function UiAPI(props, { emit }) {
     htmlIdLocal,
   });
 
-  const changeModel = ({ model, currentModel, item }) => {
+  const changeModel = ({ model, currentModel, item, init }) => {
     emit("update:modelValue", model);
     change.value({
       currentModel,
@@ -46,6 +51,7 @@ export default function UiAPI(props, { emit }) {
       item,
       model,
       props: toRefs(props),
+      init,
     });
   };
 
@@ -123,6 +129,18 @@ export default function UiAPI(props, { emit }) {
     }
   };
 
+  const initDefaultModel = () => {
+    if (isUndefined(defaultProps.value) ||
+      !isUndefined(modelValue.value)) {
+      return;
+    }
+
+    changeModel({
+      model: defaultProps.value,
+      currentModel: defaultProps.value,
+      init: true,
+    });
+  };
 
   return {
     ariaDescribedbyLocal,
@@ -131,6 +149,7 @@ export default function UiAPI(props, { emit }) {
     errorsId,
     helpTextId,
     htmlIdLocal,
+    initDefaultModel,
     isErrors,
     isFocus,
     isFocusIn,

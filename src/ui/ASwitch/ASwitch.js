@@ -38,6 +38,11 @@ export default {
       required: false,
       default: () => {},
     },
+    default: {
+      type: [Boolean, String, Number],
+      required: false,
+      default: undefined,
+    },
     defaultLabel: {
       type: String,
       required: false,
@@ -231,6 +236,7 @@ export default {
       errorsId,
       helpTextId,
       htmlIdLocal,
+      initDefaultModel,
       isErrors,
       isModel,
       labelDescriptionId,
@@ -266,6 +272,8 @@ export default {
       isModelFalse,
       isModelTrue,
     });
+
+    initDefaultModel();
 
     return {
       ariaDescribedbyLocal,
