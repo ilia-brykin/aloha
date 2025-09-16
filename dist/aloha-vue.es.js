@@ -7029,7 +7029,9 @@ const ri = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
               {
                 a_fieldset_no_border: !this.hasBorder,
                 a_fieldset_invalid: this.isErrors,
-                a_fieldset_collapsed: this.isCollapsedLocal
+                a_fieldset_collapsed: this.isCollapsedLocal,
+                a_fieldset_collapsible: this.collapsible,
+                a_fieldset_with_legend: this.label
               }
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
@@ -8090,7 +8092,7 @@ const $d = {
             onChangeModelValue: this.onChangeModelValue
           }, this.$slots))
         ]) : d("fieldset", {
-          class: "a_fieldset",
+          class: "a_fieldset a_fieldset_with_legend",
           style: _
         }, [
           d(Vh, {
@@ -22822,7 +22824,8 @@ const zh = "AIsDataPrepared", DF = {
           tabindex: -1,
           class: ["a_fieldset", this.classFieldset, {
             a_fieldset_invalid: this.isErrors,
-            a_fieldset_no_border: !this.hasBorder
+            a_fieldset_no_border: !this.hasBorder,
+            a_fieldset_with_legend: this.label
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
           ...this.attributesFieldset
@@ -23923,7 +23926,9 @@ const Jh = {
               {
                 a_fieldset_no_border: !this.hasBorder,
                 a_fieldset_invalid: this.isErrors,
-                a_fieldset_collapsed: this.isCollapsedLocal
+                a_fieldset_collapsed: this.isCollapsedLocal,
+                a_fieldset_collapsible: this.collapsible,
+                a_fieldset_with_legend: this.label
               }
             ],
             "aria-describedby": this.ariaDescribedbyLocal,
@@ -24759,7 +24764,7 @@ const vL = {
         item: this.data,
         label: this.currentLabel,
         inDropdown: !1
-      }) : [
+      }) : d("span", [
         this.groupLabel ? d(pe, {
           alwaysTranslate: this.alwaysTranslate,
           tag: "span",
@@ -24773,7 +24778,7 @@ const vL = {
           html: this.currentLabel,
           extra: this.data.extra
         })
-      ],
+      ]),
       this.hideDeleteButton ? "" : d(Ae, {
         class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
         disabled: this.disabled,
@@ -32209,7 +32214,8 @@ const xw = {
             a_fieldset_invalid: this.isErrors,
             a_fieldset_no_border: !this.hasBorder,
             a_fieldset_collapsed: this.isCollapsedLocal,
-            a_fieldset_collapsible: this.collapsible
+            a_fieldset_collapsible: this.collapsible,
+            a_fieldset_with_legend: this.label
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
           ...this.attributesFieldset

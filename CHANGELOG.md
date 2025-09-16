@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.38.1
+
+- Feature: Add `a_fieldset_with_legend` class for fieldsets with labels, enhance collapsible functionality and update related SCSS styles for AFieldset and other components.
+
 ## 2.38.0
 
 - Feature: Add `labelTitle` prop support and enhance title behavior in AMultiselectOrdered, ACheckboxLegend, and AFieldset. Update AFieldset styles for responsive legend text and improve collapsible fieldset functionality.

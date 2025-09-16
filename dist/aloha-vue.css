@@ -8527,6 +8527,10 @@ h6 {
   height: auto;
 }
 
+.a_fieldset_with_legend {
+  --a_fieldset_padding_top: 0;
+}
+
 .a_fieldset_collapsible .a_legend {
   max-width: calc(100% - 2rem);
 }
@@ -8689,8 +8693,7 @@ h6 {
   padding-right: var(--a_select_toggle_padding_right);
   text-align: left;
 }
-
-.a_select_toggle_closeable {
+.a_select_toggle.a_select_toggle_closeable {
   padding: 0 1.875rem 0 0;
 }
 
