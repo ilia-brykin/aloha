@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.36.0
+
+- Feature: Add "one_per_group" mode for ASelect component with grouped selection support and update associated documentation, examples, and translations.
+- Feature: Enhance PageFilters with "one_per_group" mode support in multiselect, update translations, examples, and logic in ModelValuesAPI for grouped selection handling.
+
 ## 2.35.1
 
 - Enhance `ASlider`'s `DataAPI`: refine step value handling with decimal precision and update computed data to ensure accurate values using `toFixed`.
