@@ -249,6 +249,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelTitle: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     listItemClass: {
       type: [String, Object, Array],
       required: false,
@@ -683,6 +688,7 @@ export default {
               ],
               extra: this.extra,
               html: this.label,
+              title: this.labelTitle || this.label,
               textScreenReader: this.labelScreenReader,
               textAfter: this.textAfterLabel,
             }) :

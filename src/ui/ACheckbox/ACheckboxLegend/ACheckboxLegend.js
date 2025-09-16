@@ -177,6 +177,7 @@ export default {
         this.legendClass,
       ],
       html: this.labelSearchHighlight,
+      title: this.label,
       tag: "legend",
       textAfter: this.textAfterLabel,
       textScreenReader: this.labelScreenReader,

@@ -165,6 +165,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelTitle: {
+      type: [String, Number],
+      required: false,
+      default: undefined,
+    },
     modelAll: {
       type: Object,
       required: false,
@@ -444,6 +449,7 @@ export default {
             a_fieldset_invalid: this.isErrors,
             a_fieldset_no_border: !this.hasBorder,
             a_fieldset_collapsed: this.isCollapsedLocal,
+            a_fieldset_collapsible: this.collapsible,
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
           ...this.attributesFieldset,
@@ -462,6 +468,7 @@ export default {
               ],
               extra: this.extra,
               html: this.label,
+              title: this.labelTitle || this.label,
               textScreenReader: this.labelScreenReader,
               textAfter: this.textAfterLabel,
             }) :
