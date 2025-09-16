@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.37.0
+
+- Feature: Add `default` prop support to `ASwitch` and integrate `initDefaultModel` logic. Update documentation, examples, and translations with `PageSwitchDefault` component.
+
 ## 2.36.0
 
 - Feature: Add "one_per_group" mode for ASelect component with grouped selection support and update associated documentation, examples, and translations.
