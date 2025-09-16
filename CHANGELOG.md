@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.38.0
+
+- Feature: Add `labelTitle` prop support and enhance title behavior in AMultiselectOrdered, ACheckboxLegend, and AFieldset. Update AFieldset styles for responsive legend text and improve collapsible fieldset functionality.
+
 ## 2.37.0
 
 - Feature: Add `default` prop support to `ASwitch` and integrate `initDefaultModel` logic. Update documentation, examples, and translations with `PageSwitchDefault` component.

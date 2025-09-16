@@ -6430,6 +6430,7 @@ const Vh = {
         this.legendClass
       ],
       html: this.labelSearchHighlight,
+      title: this.label,
       tag: "legend",
       textAfter: this.textAfterLabel,
       textScreenReader: this.labelScreenReader,
@@ -22446,6 +22447,11 @@ const zh = "AIsDataPrepared", DF = {
       required: !1,
       default: void 0
     },
+    labelTitle: {
+      type: [String, Number],
+      required: !1,
+      default: void 0
+    },
     listItemClass: {
       type: [String, Object, Array],
       required: !1,
@@ -22834,6 +22840,7 @@ const zh = "AIsDataPrepared", DF = {
             ],
             extra: this.extra,
             html: this.label,
+            title: this.labelTitle || this.label,
             textScreenReader: this.labelScreenReader,
             textAfter: this.textAfterLabel
           }) : "",
@@ -31968,6 +31975,11 @@ const xw = {
       required: !1,
       default: void 0
     },
+    labelTitle: {
+      type: [String, Number],
+      required: !1,
+      default: void 0
+    },
     modelAll: {
       type: Object,
       required: !1,
@@ -32196,7 +32208,8 @@ const xw = {
           class: ["a_fieldset", this.classFieldset, {
             a_fieldset_invalid: this.isErrors,
             a_fieldset_no_border: !this.hasBorder,
-            a_fieldset_collapsed: this.isCollapsedLocal
+            a_fieldset_collapsed: this.isCollapsedLocal,
+            a_fieldset_collapsible: this.collapsible
           }],
           "aria-describedby": this.ariaDescribedbyLocal,
           ...this.attributesFieldset
@@ -32214,6 +32227,7 @@ const xw = {
             ],
             extra: this.extra,
             html: this.label,
+            title: this.labelTitle || this.label,
             textScreenReader: this.labelScreenReader,
             textAfter: this.textAfterLabel
           }) : "",

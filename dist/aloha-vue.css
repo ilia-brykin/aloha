@@ -8502,27 +8502,33 @@ h6 {
   border-radius: var(--a_fieldset_border_radius);
   border: var(--a_fieldset_border_width) solid var(--a_fieldset_border_color);
   position: relative;
+  min-width: 0;
 }
 .a_fieldset .a_fieldset {
   margin-top: 1rem;
 }
 .a_fieldset .a_legend {
-  position: absolute;
-  top: 0;
-  transform: translateY(-50%);
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   background-color: #fff;
+  max-width: 100%;
 }
 .a_fieldset .a_fieldset__btn_collapse {
   position: absolute;
-  top: 0;
   right: var(--a_fieldset_padding_x);
-  transform: translateY(-50%);
+  bottom: calc(100% - 0.3rem);
   background-color: #fff;
   padding: 0 0.25rem;
 }
 .a_fieldset .a_fieldset__btn_collapse .a_icon {
   width: 1.8rem;
   height: auto;
+}
+
+.a_fieldset_collapsible .a_legend {
+  max-width: calc(100% - 2rem);
 }
 
 .a_fieldset_no_border {
