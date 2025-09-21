@@ -1,6 +1,7 @@
 import {
   h,
   onBeforeUnmount,
+  onMounted,
   Teleport,
   withDirectives,
 } from "vue";
@@ -132,7 +133,9 @@ export default {
       popperContainerIdSelector,
     } = PopperContainerAPI(props);
 
-    addPopperContainerInBody();
+    onMounted(() => {
+      addPopperContainerInBody();
+    });
 
     onBeforeUnmount(() => {
       closeTitle();

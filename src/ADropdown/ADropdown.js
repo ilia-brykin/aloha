@@ -1,6 +1,7 @@
 import {
   h,
   onBeforeUnmount,
+  onMounted,
   Teleport,
   toRef,
   withDirectives,
@@ -385,7 +386,10 @@ export default {
     } = ClassAPI(props);
 
     initWasOpened();
-    addPopperContainerInBody();
+
+    onMounted(() => {
+      addPopperContainerInBody();
+    });
 
     onBeforeUnmount(() => {
       destroyEventCloseClick();

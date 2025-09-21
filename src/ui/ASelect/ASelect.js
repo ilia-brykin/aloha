@@ -1,6 +1,7 @@
 import {
   h,
   onBeforeUnmount,
+  onMounted,
   Teleport,
   watch,
 } from "vue";
@@ -686,10 +687,13 @@ export default {
 
     watch(urlPropsComputed, updateUrlPropsComputed);
 
-    addPopperContainerInBody({ className: "a_select_container" });
     initEventBusClickLabel();
     loadDataFromServer();
     loadDataFromServerForSearchAPI();
+
+    onMounted(() => {
+      addPopperContainerInBody({ className: "a_select_container" });
+    });
 
     onBeforeUnmount(() => {
       destroyEventBusClickLabel();
