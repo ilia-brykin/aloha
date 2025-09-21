@@ -21,7 +21,7 @@ export default function ARemPxAPI() {
 
 function getRemPx() {
   if (!isBrowser()) {
-    return defaultRemPx.value;
+    return 16;
   }
 
   const testEl = document.createElement("div");
