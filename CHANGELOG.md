@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.39.1
+
+- SSR
+  - Update `getRemPx` in `ARemPxAPI`: replace `defaultRemPx.value` with static `16` for non-browser environments. 
+
 ## 2.39.0
 
 - SSR
