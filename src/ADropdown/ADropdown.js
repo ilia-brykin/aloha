@@ -2,6 +2,7 @@ import {
   h,
   onBeforeUnmount,
   onMounted,
+  ref,
   Teleport,
   toRef,
   withDirectives,
@@ -300,6 +301,8 @@ export default {
   setup(props, context) {
     const id = toRef(props, "id");
 
+    const isMounted = ref(false);
+
     const {
       closePopup,
       openPopup,
@@ -388,6 +391,7 @@ export default {
     initWasOpened();
 
     onMounted(() => {
+      isMounted.value = true;
       addPopperContainerInBody();
     });
 
@@ -413,6 +417,7 @@ export default {
       hasActions,
       idLocal,
       isMenuRendered,
+      isMounted,
       onClose,
       onOpen,
       popperContainerIdSelector,
@@ -421,6 +426,10 @@ export default {
     };
   },
   render() {
+    if (!this.isMounted) {
+      return null;
+    }
+
     if (this.isHideWithoutActionAndSlot &&
       !this.hasActions &&
       !this.$slots.dropdown) {

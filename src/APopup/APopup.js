@@ -1,5 +1,7 @@
 import {
   h,
+  onMounted,
+  ref,
   Teleport,
   withDirectives,
 } from "vue";
@@ -63,6 +65,8 @@ export default {
     },
   },
   setup(props) {
+    const isMounted = ref(false);
+
     const {
       addPopperContainerInBody,
       containerParentIdSelector,
@@ -72,15 +76,19 @@ export default {
       isOpenComputed,
     } = ToggleAPI();
 
-    addPopperContainerInBody();
+    onMounted(() => {
+      isMounted.value = true;
+      addPopperContainerInBody();
+    });
 
     return {
       containerParentIdSelector,
+      isMounted,
       isOpenComputed,
     };
   },
   render() {
-    if (!this.isOpenComputed) {
+    if (!this.isOpenComputed || !this.isMounted) {
       return null;
     }
 

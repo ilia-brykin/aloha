@@ -34,7 +34,7 @@ export default {
   render() {
     return h(Teleport, {
       to: "body",
-      disabled: !this.mounted,
+      disabled: !this.isMounted,
     }, [
       h("div", {
         class: "a_notification_parent",

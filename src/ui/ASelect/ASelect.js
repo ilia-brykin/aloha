@@ -2,6 +2,7 @@ import {
   h,
   onBeforeUnmount,
   onMounted,
+  ref,
   Teleport,
   watch,
 } from "vue";
@@ -479,6 +480,8 @@ export default {
     "updateData",
   ],
   setup(props, context) {
+    const isMounted = ref(false);
+
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
@@ -692,6 +695,7 @@ export default {
     loadDataFromServerForSearchAPI();
 
     onMounted(() => {
+      isMounted.value = true;
       addPopperContainerInBody({ className: "a_select_container" });
     });
 
@@ -740,6 +744,7 @@ export default {
       isModelLengthLimitExceeded,
       isModelValue,
       isModeOnePerGroup,
+      isMounted,
       isMultiselect,
       isOpen,
       labelDescriptionId,
@@ -778,7 +783,8 @@ export default {
     };
   },
   render() {
-    if (!this.isRender) {
+    if (!this.isRender ||
+      !this.isMounted) {
       return null;
     }
 

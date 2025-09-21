@@ -2,6 +2,7 @@ import {
   h,
   onBeforeUnmount,
   onMounted,
+  ref,
   Teleport,
   withDirectives,
 } from "vue";
@@ -93,6 +94,8 @@ export default {
     },
   },
   setup(props) {
+    const isMounted = ref(false);
+
     const {
       closeTitle,
       closeTitleWithTimer,
@@ -134,6 +137,7 @@ export default {
     } = PopperContainerAPI(props);
 
     onMounted(() => {
+      isMounted.value = true;
       addPopperContainerInBody();
     });
 
@@ -145,6 +149,7 @@ export default {
       ariaDescribedby,
       closeTitle,
       componentRef,
+      isMounted,
       isTitleVisible,
       mouseEnterTooltip,
       mouseLeaveTooltip,
@@ -162,6 +167,10 @@ export default {
     };
   },
   render() {
+    if (!this.isMounted) {
+      return null;
+    }
+
     return h(this.tagLocal, {
       ref: "componentRef",
       id: this.id,
