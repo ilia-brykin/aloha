@@ -250,6 +250,9 @@ export {
   sanitizeLocal,
 } from "./utils/utils";
 export {
+  isBrowser,
+} from "./utils/isBrowser";
+export {
   getUniqueSelector,
   scrollToElement,
   setFocusToElement,
