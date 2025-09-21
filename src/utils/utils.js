@@ -1,5 +1,8 @@
 import DOMPurify from "dompurify";
 import {
+  isBrowser,
+} from "./isBrowser";
+import {
   every,
   forEach,
   get,
@@ -109,6 +112,10 @@ function _getTotalNestedCount({ array, keyChildren, count = 0 }) {
  * console.log(text); // "Hello world!"
  */
 export function extractTextFromHtml(htmlString) {
+  if (!isBrowser()) {
+    return htmlString;
+  }
+
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, "text/html");
 

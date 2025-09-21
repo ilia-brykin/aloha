@@ -1,6 +1,9 @@
 import {
   focusableSelector,
 } from "../const/AFocusableElements";
+import {
+  isBrowser,
+} from "./isBrowser";
 
 /**
  * Scrolls the window to the specified element.
@@ -13,6 +16,10 @@ import {
  * @return {void}
  */
 export function scrollToElement({ element, isMiddleOfScreen = true, behavior = "smooth" }) {
+  if (!isBrowser()) {
+    return;
+  }
+
   if (isMiddleOfScreen) {
     window.scroll({
       top: element.offsetTop - window.innerHeight / 2,
@@ -33,6 +40,10 @@ export function scrollToElement({ element, isMiddleOfScreen = true, behavior = "
  * @return {void}
  */
 export function setFocusToElement({ element, selector }) {
+  if (!isBrowser()) {
+    return;
+  }
+
   const ELEMENT = element ? element : document.querySelector(selector);
   if (ELEMENT) {
     if (!ELEMENT.hasAttribute("tabindex")) {
@@ -63,6 +74,10 @@ function isElementVisible(element) {
  * @returns {void}
  */
 export function setFocusToNextFocusableElement({ element } = {}) {
+  if (!isBrowser()) {
+    return;
+  }
+
   const focusableElements = document.querySelectorAll(focusableSelector);
   const currentElement = element || document.activeElement;
   const currentIndex = Array.from(focusableElements).indexOf(currentElement);
@@ -97,6 +112,10 @@ export function setFocusToNextFocusableElement({ element } = {}) {
  * @return {void}
  */
 export function setFocusToPreviousFocusableElement({ element } = {}) {
+  if (!isBrowser()) {
+    return;
+  }
+
   const focusableElements = document.querySelectorAll(focusableSelector);
   const currentElement = element || document.activeElement;
   const currentIndex = Array.from(focusableElements).indexOf(currentElement);

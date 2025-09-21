@@ -1,47 +1,49 @@
-const map = typeof Map === "function"
-? new Map()
-: function() {
-  const keys = [];
-  const values = [];
+import {
+  isBrowser,
+} from "./isBrowser";
 
-  return {
-    has: function has(key) {
-      return keys.indexOf(key) > -1;
-    },
-    get: function get(key) {
-      return values[keys.indexOf(key)];
-    },
-    set: function set(key, value) {
-      if (keys.indexOf(key) === -1) {
-        keys.push(key);
-        values.push(value);
-      }
-    },
-    delete: function _delete(key) {
-      const index = keys.indexOf(key);
-      if (index > -1) {
-        keys.splice(index, 1);
-        values.splice(index, 1);
-      }
-    },
-  };
-}();
+const map = typeof Map === "function" ?
+  new Map() :
+  function() {
+    const keys = [];
+    const values = [];
 
-let createEvent = function createEvent(name) {
+    return {
+      has: function has(key) {
+        return keys.indexOf(key) > -1;
+      },
+      get: function get(key) {
+        return values[keys.indexOf(key)];
+      },
+      set: function set(key, value) {
+        if (keys.indexOf(key) === -1) {
+          keys.push(key);
+          values.push(value);
+        }
+      },
+      delete: function _delete(key) {
+        const index = keys.indexOf(key);
+        if (index > -1) {
+          keys.splice(index, 1);
+          values.splice(index, 1);
+        }
+      },
+    };
+  }();
+
+const createEvent = function createEvent(name) {
+  if (!isBrowser()) {
+    return;
+  }
+
   return new Event(name, { bubbles: true });
 };
-try {
-  new Event("test");
-} catch (e) {
-  // IE does not support `new Event()`
-  createEvent = function createEvent(name) {
-    const evt = document.createEvent("Event");
-    evt.initEvent(name, true, false);
-    return evt;
-  };
-}
 
 function assign(ta) {
+  if (!isBrowser()) {
+    return;
+  }
+
   if (!ta || !ta.nodeName || ta.nodeName !== "TEXTAREA" || map.has(ta)) {
     return;
   }
@@ -239,7 +241,7 @@ function update(ta) {
 let autosize;
 
 // Do nothing in Node.js environment and IE8 (or lower)
-if (typeof window === "undefined" || typeof window.getComputedStyle !== "function") {
+if (!isBrowser()) {
   autosize = function autosize(el) {
     return el;
   };
