@@ -4,11 +4,18 @@ import {
   setIsMobileWidth,
 } from "../compositionAPI/AMobileAPI";
 
+import {
+  isBrowser,
+} from "../utils/isBrowser";
+
 export default {
   install: (app, {
     breakpoint,
   } = {}) => {
     mobileBreakpoint.value = breakpoint;
+    if (!isBrowser()) {
+      return;
+    }
     setIsMobileWidth(window.innerWidth <= mobileBreakpoint.value);
     const resizeWindow = () => {
       if (window.innerWidth > mobileBreakpoint.value) {
