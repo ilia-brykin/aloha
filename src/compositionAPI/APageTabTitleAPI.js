@@ -1,5 +1,6 @@
 import {
   computed,
+  onMounted,
   ref,
   toRef,
   watch,
@@ -7,6 +8,10 @@ import {
 
 import ATranslationAPI from "../ATranslation/compositionAPI/ATranslationAPI";
 import UtilsAPI from "../ATranslation/compositionAPI/UtilsAPI";
+
+import {
+  isBrowser,
+} from "../utils/isBrowser";
 
 const baseTitle = ref("");
 
@@ -49,6 +54,9 @@ export default function APageTabTitleAPI(props) {
   });
 
   const setPageTabTitle = () => {
+    if (!isBrowser()) {
+      return;
+    }
     let pageTitle = "";
     if (titleTranslated.value) {
       pageTitle = titleTranslated.value;
@@ -61,7 +69,10 @@ export default function APageTabTitleAPI(props) {
     document.title = pageTitle;
   };
 
-  setPageTabTitle();
+  onMounted(() => {
+    setPageTabTitle();
+  });
+
 
   watch(titleTranslated, () => {
     setPageTabTitle();

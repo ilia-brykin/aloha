@@ -2,7 +2,9 @@ import {
   computed,
   h,
   onBeforeUnmount,
+  onMounted,
   provide,
+  ref,
   Teleport,
   toRef,
   watch,
@@ -206,6 +208,8 @@ export default {
     const showCountChildren = toRef(props, "showCountChildren");
     const breadcrumbsTruncatedOffset = toRef(props, "breadcrumbsTruncatedOffset");
 
+    const isMounted = ref(false);
+
     const {
       dataKeyById,
       dataProParent,
@@ -382,8 +386,11 @@ export default {
     provide("togglePanel", togglePanel);
     provide("breadcrumbsTruncatedOffset", computed(() => breadcrumbsTruncatedOffset.value));
 
-    initMenuOpenOrClose();
-    initEventBusUpdateViewOnResize();
+    onMounted(() => {
+      isMounted.value = true;
+      initMenuOpenOrClose();
+      initEventBusUpdateViewOnResize();
+    });
 
     onBeforeUnmount(() => {
       removeBodyClasses();
@@ -408,6 +415,7 @@ export default {
       isLeastOnePanelOpenAndMenuClosed,
       isMenuOpen,
       isMobileWidth,
+      isMounted,
       isSearchActive,
       isSubMenuOpen,
       itemsWithSearch,
@@ -425,6 +433,10 @@ export default {
     };
   },
   render() {
+    if (!this.isMounted) {
+      return "";
+    }
+
     return h("nav", {
       ref: "menuRef",
       id: this.menuId,

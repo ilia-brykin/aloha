@@ -3,6 +3,9 @@ import {
 } from "vue";
 
 import EventBus from "../utils/EventBus";
+import {
+  isBrowser,
+} from "../utils/isBrowser";
 
 export const isMobileWidth = ref(undefined);
 export const mobileBreakpoint = ref(undefined);
@@ -10,6 +13,9 @@ export const mobileBreakpoint = ref(undefined);
 export function setIsMobileWidth(isMobileWidthLocal) {
   isMobileWidth.value = isMobileWidthLocal;
   EventBus.$emit("updateViewOnResize", isMobileWidthLocal);
+  if (!isBrowser()) {
+    return;
+  }
   if (isMobileWidthLocal) {
     document.body.classList.add("a_mobile");
   } else {

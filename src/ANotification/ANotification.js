@@ -1,5 +1,7 @@
 import {
   h,
+  onMounted,
+  ref,
   Teleport,
 } from "vue";
 
@@ -12,12 +14,19 @@ import ANotificationAPI from "../compositionAPI/ANotificationAPI";
 export default {
   name: "ANotification",
   setup() {
+    const isMounted = ref(false);
+
     const {
       notifications,
       removeNotification,
     } = ANotificationAPI();
 
+    onMounted(() => {
+      isMounted.value = true;
+    });
+
     return {
+      isMounted,
       notifications,
       removeNotification,
     };
@@ -25,6 +34,7 @@ export default {
   render() {
     return h(Teleport, {
       to: "body",
+      disabled: !this.mounted,
     }, [
       h("div", {
         class: "a_notification_parent",

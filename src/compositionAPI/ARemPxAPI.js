@@ -3,6 +3,9 @@ import {
 } from "vue";
 
 import {
+  isBrowser,
+} from "../utils/isBrowser";
+import {
   isNumber,
 } from "lodash-es";
 
@@ -17,6 +20,10 @@ export default function ARemPxAPI() {
 }
 
 function getRemPx() {
+  if (!isBrowser()) {
+    return defaultRemPx.value;
+  }
+
   const testEl = document.createElement("div");
   testEl.style.height = "1rem";
   testEl.style.position = "absolute";
