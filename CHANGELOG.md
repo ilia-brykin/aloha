@@ -7,6 +7,16 @@
 ---
 # Versions
 
+## 2.39.0
+
+- SSR
+  - Refactor mounting logic: introduce `isMounted` state and move `addPopperContainerInBody` calls into `onMounted` lifecycle hook across components for consistent initialization timing. Adjust render methods to account for `isMounted` state. 
+  - Integrate `isBrowser` checks into `AMobileAPI`, `ANotification`, `AMenu`, `APageTabTitleAPI`, and `ARemPxAPI` to ensure compatibility with non-browser environments. Update lifecycle hooks for proper rendering and initialization timing.
+  - Refactor popper initialization: move `addPopperContainerInBody` calls into `onMounted` lifecycle hook in `ATooltip`, `ADropdown`, and `ASelect` for proper mounting timing.
+  - Integrate `isBrowser` checks into `AMobilePlugin` and `ARemPxPlugin` to ensure compatibility with non-browser environments.
+  - Refactor browser environment checks: integrate `isBrowser` utility into `autosize`, `utils`, and `utilsDOM` to improve maintainability and consistency.
+  - Add `isBrowser` utility function: detect browser environment and export through `index.js`.
+
 ## 2.38.1
 
 - Feature: Add `a_fieldset_with_legend` class for fieldsets with labels, enhance collapsible functionality and update related SCSS styles for AFieldset and other components.
