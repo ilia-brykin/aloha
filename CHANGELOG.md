@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.39.2
+
+- Minor fixes: ScrollAPI error, AMenu render
+
 ## 2.39.1
 
 - SSR
