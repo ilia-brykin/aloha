@@ -20,6 +20,9 @@ export default function ScrollAPI(props) {
   };
 
   const checkScroll = () => {
+    if (!scrollContentRef?.value) {
+      return;
+    }
     hasScroll.value = scrollContentRef.value.scrollHeight > scrollContentRef.value.clientHeight;
     if (!hasScroll.value) {
       return;

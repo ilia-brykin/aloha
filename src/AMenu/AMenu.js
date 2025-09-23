@@ -434,7 +434,7 @@ export default {
   },
   render() {
     if (!this.isMounted) {
-      return "";
+      return null;
     }
 
     return h("nav", {
