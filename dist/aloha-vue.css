@@ -5712,7 +5712,7 @@ body {
   position: relative;
   z-index: 1;
   min-height: 1.5rem;
-  color-adjust: exact;
+  print-color-adjust: exact;
   padding-left: 0;
   display: flex;
   hyphens: auto;

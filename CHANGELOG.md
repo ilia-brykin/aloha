@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.39.3
+
+- CSS Replace `color-adjust` to `print-color-adjust`
+
 ## 2.39.2
 
 - Minor fixes: ScrollAPI error, AMenu render
