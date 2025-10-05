@@ -95,15 +95,15 @@ export default {
             this.column.classRow,
           ],
         }, [
-          this.showIconChildren
-? h(AElement, {
-  "aria-hidden": true,
-  class: "a_table__row_level__icon",
-  classDefault: "",
-  iconLeft: CaretRightFill,
-  type: "text",
-})
-: "",
+          this.showIconChildren ?
+            h(AElement, {
+              "aria-hidden": true,
+              class: "a_table__row_level__icon",
+              classDefault: "",
+              iconLeft: CaretRightFill,
+              type: "text",
+            }) :
+            "",
           (this.hasSlot && this.$slots[this.slotName]) ?
             this.$slots[this.slotName]({
               column: this.column,
@@ -134,7 +134,7 @@ export default {
     }
     return [
       h(ATranslation, {
-        text: this.column.label,
+        html: this.column.label,
         tag: "dt",
       }),
       h("dd", {}, [
