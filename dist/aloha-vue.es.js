@@ -48095,7 +48095,7 @@ const UC = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     );
     return this.isMobile ? [
       d(Ce, {
-        text: this.column.label,
+        html: this.column.label,
         tag: "dt"
       }),
       d("dd", {}, [

@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.39.4
+
+- Refactor `ATableTd`: simplify ternary expressions for readability and update `ATranslation` prop from `text` to `html`.
+
 ## 2.39.3
 
 - CSS Replace `color-adjust` to `print-color-adjust`
