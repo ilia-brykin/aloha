@@ -47,7 +47,7 @@ export default function LabelsAPI(props) {
         if (useFlatErrors.value) {
           labelsFromChildren = {
             ...labelsFromChildren,
-            ...getLabelsFromChildren(childOptions.children),
+            ...getLabelsFromChildren({ children: childOptions.children }),
           };
         } else {
           labelsFromChildren[childOptions.id][AKeyChildren] = getLabelsFromChildren({ children: childOptions.children });
