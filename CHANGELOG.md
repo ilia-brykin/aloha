@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.39.5
+
+- Fix: Add optional chaining for `inputRef.value` to safely access DOM properties in InputEventsAPI.
+- Fix: Update `getLabelsFromChildren` call to use object destructuring for `children` parameter in LabelsAPI.
+
 ## 2.39.4
 
 - Refactor `ATableTd`: simplify ternary expressions for readability and update `ATranslation` prop from `text` to `html`.
