@@ -61,7 +61,7 @@ export default function InputEventsAPI(props, {
 
   const setCursorPosition = position => {
     requestAnimationFrame(() => {
-      inputRef.value.setSelectionRange(position, position);
+      inputRef.value?.setSelectionRange(position, position);
     });
   };
 
@@ -188,7 +188,7 @@ export default function InputEventsAPI(props, {
     }
     isTimeoutActive.value++;
     requestAnimationFrame(() => {
-      const cursorPositionAfterPress = inputRef.value.selectionStart;
+      const cursorPositionAfterPress = inputRef.value?.selectionStart;
       if (thousandDivider.value && value[cursorPositionAfterPress - 1] === thousandDivider.value) {
         const positionToSet = cursorPositionAfterPress - 1;
         setCursorPosition(positionToSet);
@@ -203,7 +203,7 @@ export default function InputEventsAPI(props, {
     }
     requestAnimationFrame(() => {
       isTimeoutActive.value++;
-      const cursorPositionAfterPress = inputRef.value.selectionStart;
+      const cursorPositionAfterPress = inputRef.value?.selectionStart;
       if (thousandDivider.value && value[cursorPositionAfterPress - 1] === thousandDivider.value) {
         const positionToSet = cursorPositionAfterPress + 1;
         setCursorPosition(positionToSet);
@@ -215,7 +215,7 @@ export default function InputEventsAPI(props, {
   const setDecimalDivider = ({ value, cursorPosition }, isLastPosition) => {
     requestAnimationFrame(() => {
       isTimeoutActive.value++;
-      let valueAfterKeyPress = inputRef.value.value;
+      let valueAfterKeyPress = inputRef.value?.value;
       if (isLastPosition) {
         const positionToSet = value.length + 1;
         if (valueAfterKeyPress[valueAfterKeyPress.length - 1] === decimalDivider.value) {
@@ -247,7 +247,7 @@ export default function InputEventsAPI(props, {
 
   const setCursorPositionForBackspace = ({ cursorPosition, numberOfSymbols }) => {
     let positionToSet = cursorPosition ? cursorPosition - 1 : cursorPosition;
-    const numberOfSymbolsAfterEvent = inputRef.value.value.length;
+    const numberOfSymbolsAfterEvent = inputRef.value?.value?.length;
     if (numberOfSymbolsAfterEvent < numberOfSymbols - 1 && positionToSet > 0) {
       positionToSet--;
     }
@@ -319,7 +319,7 @@ export default function InputEventsAPI(props, {
       } else {
         requestAnimationFrame(() => {
           isTimeoutActive.value++;
-          const valueAfterKeyPress = inputRef.value.value;
+          const valueAfterKeyPress = inputRef.value?.value;
           if (valueAfterKeyPress.length < value.length - 1) {
             setCursorPosition(cursorPosition > 0 ? cursorPosition - 1 : 0);
           }
@@ -335,8 +335,8 @@ export default function InputEventsAPI(props, {
 
       return;
     }
-    const start = inputRef.value.selectionStart;
-    const end = inputRef.value.selectionEnd;
+    const start = inputRef.value?.selectionStart;
+    const end = inputRef.value?.selectionEnd;
     const hasSelection = (end - start) > 0;
     const value = $event.target.value;
     const keyCode = $event.keyCode;
@@ -345,7 +345,7 @@ export default function InputEventsAPI(props, {
     const keyIsDecimalDivider = keyValue === decimalDivider.value && !!decimalPartLength.value;
     const decimalDividerIndex = $event.target.value.indexOf(decimalDivider.value);
     const hasDecimalDivider = decimalDividerIndex !== -1;
-    const cursorPosition = inputRef.value.selectionStart;
+    const cursorPosition = inputRef.value?.selectionStart;
     const isLastPosition = cursorPosition === value.length;
     const valueProps = {
       value,
@@ -407,7 +407,7 @@ export default function InputEventsAPI(props, {
       return;
     }
     if ($event.keyCode === AKeysCode.backspace) {
-      if (inputRef.value.selectionStart !== inputRef.value.selectionEnd) {
+      if (inputRef.value?.selectionStart !== inputRef.value?.selectionEnd) {
         return;
       }
       handleBackspace(valueProps);
@@ -481,7 +481,7 @@ export default function InputEventsAPI(props, {
         isTimeoutActive.value++;
         requestAnimationFrame(() => {
           let positionToSet = cursorPosition + 1;
-          const numberOfSymbolsAfterEvent = inputRef.value.value.length;
+          const numberOfSymbolsAfterEvent = inputRef.value?.value?.length;
           if (numberOfSymbolsAfterEvent - 1 > numberOfSymbols) {
             positionToSet++;
           } else if (numberOfSymbolsAfterEvent === numberOfSymbols) {
@@ -506,9 +506,9 @@ export default function InputEventsAPI(props, {
 
   const handlePaste = $event => {
     $event.preventDefault();
-    const currentValue = inputRef.value.value;
-    const start = inputRef.value.selectionStart;
-    const end = inputRef.value.selectionEnd;
+    const currentValue = inputRef.value?.value;
+    const start = inputRef.value?.selectionStart;
+    const end = inputRef.value?.selectionEnd;
     if (shouldIgnorePasteEvent(currentValue, start, end)) {
       return;
     }
