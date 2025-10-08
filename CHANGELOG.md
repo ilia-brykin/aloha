@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.39.6
+
+- Fix: Update modal responsive widths for large, XL, and XXL variants in SCSS.
+
 ## 2.39.5
 
 - Fix: Add optional chaining for `inputRef.value` to safely access DOM properties in InputEventsAPI.

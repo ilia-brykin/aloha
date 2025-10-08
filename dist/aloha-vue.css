@@ -7562,6 +7562,13 @@ h6 {
 }
 
 @media (min-width: 768px) {
+  .a_modal_large {
+    --a_modal_width: min(800px, 90vw);
+  }
+  .a_modal_xl,
+  .a_modal_xxl {
+    --a_modal_width: 90vw;
+  }
   .a_modal {
     --a_modal_margin: 1.75rem;
     --a_modal_box_shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -7576,10 +7583,10 @@ h6 {
   }
 }
 @media (min-width: 1023px) {
-  .a_modal_large,
-  .a_modal_xl {
+  .a_modal_large {
     --a_modal_width: 800px;
   }
+  .a_modal_xl,
   .a_modal_xxl {
     --a_modal_width: 90vw;
   }
