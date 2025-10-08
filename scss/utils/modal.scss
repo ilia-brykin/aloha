@@ -116,6 +116,13 @@
   }
 }
 @media (min-width: #{breakpoint.$a_breakpoint_mobile}) {
+  .#{aloha.$aloha-prefix}modal_large {
+    --#{aloha.$aloha-prefix}modal_width: min(800px, 90vw);
+  }
+  .#{aloha.$aloha-prefix}modal_xl,
+  .#{aloha.$aloha-prefix}modal_xxl {
+    --#{aloha.$aloha-prefix}modal_width: 90vw;
+  }
   .#{aloha.$aloha-prefix}modal {
     --#{aloha.$aloha-prefix}modal_margin: 1.75rem;
     --#{aloha.$aloha-prefix}modal_box_shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -130,10 +137,10 @@
   }
 }
 @media (min-width: #{breakpoint.$a_breakpoint_tablet}) {
-  .#{aloha.$aloha-prefix}modal_large,
-  .#{aloha.$aloha-prefix}modal_xl {
+  .#{aloha.$aloha-prefix}modal_large {
     --#{aloha.$aloha-prefix}modal_width: 800px;
   }
+  .#{aloha.$aloha-prefix}modal_xl,
   .#{aloha.$aloha-prefix}modal_xxl {
     --#{aloha.$aloha-prefix}modal_width: 90vw;
   }
