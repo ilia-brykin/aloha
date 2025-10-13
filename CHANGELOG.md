@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.40.0
+
+- Feature: Add `useHtmlIdAsKey` prop to support using `htmlId` instead of index as key for form elements across AForm, AGroup, AFieldset, AModalForm, and related components. Update i18n files with descriptions.
+
 ## 2.39.6
 
 - Fix: Update modal responsive widths for large, XL, and XXL variants in SCSS.
