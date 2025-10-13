@@ -265,6 +265,11 @@ export default {
       required: false,
       default: true,
     },
+    useHtmlIdAsKey: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     zIndex: {
       type: Number,
       required: false,
@@ -361,6 +366,7 @@ export default {
           isRender: this.isDataFormRender,
           useFlatErrors: this.useFlatErrors,
           useFlatModel: this.useFlatModel,
+          useHtmlIdAsKey: this.useHtmlIdAsKey,
           "onUpdate:modelValue": this.updateModelLocal,
           onChange: this.changeLocal,
         }, this.$slots),

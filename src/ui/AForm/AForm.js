@@ -9,6 +9,9 @@ import HideAPI from "./compositionAPI/HideAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import RequiredAPI from "./compositionAPI/RequiredAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import {
+  getHtmlId,
+} from "../compositionApi/UiAPI";
 
 import AUiComponents from "../AUiComponents";
 import AUiContainerComponents from "../AUiContainerComponents";
@@ -117,6 +120,11 @@ export default {
       required: false,
       default: true,
     },
+    useHtmlIdAsKey: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   emits: [
     "update:modelValue",
@@ -208,9 +216,17 @@ export default {
             !IS_CONTAINER ?
             get(this.modelValueLocal, item.id) :
             this.modelValueLocal;
+          let key = itemIndex;
+          if (this.useHtmlIdAsKey) {
+            key = getHtmlId({
+              id: item.id,
+              idPrefix: item.idPrefix || this.idPrefix,
+              htmlId: item.htmlId,
+            });
+          }
 
           return h(COMPONENT, {
-            key: itemIndex,
+            key,
             alwaysTranslate: this.alwaysTranslate,
             modelValue: MODEL_VALUE,
             modelAll: IS_CONTAINER ? this.modelValueLocal : undefined,

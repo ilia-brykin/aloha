@@ -21,6 +21,9 @@ import {
 import AttributesAPI from "../ACheckbox/compositionAPI/AttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
+import {
+  getHtmlId,
+} from "../compositionApi/UiAPI";
 
 import AUiComponents from "../AUiComponents";
 import {
@@ -237,6 +240,11 @@ export default {
       required: false,
       default: true,
     },
+    useHtmlIdAsKey: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   emits: [
     "toggleCollapse",
@@ -372,12 +380,21 @@ export default {
               get(this.modelValue, item.id) :
               this.modelValue;
 
+          let key = itemIndex;
+          if (this.useHtmlIdAsKey) {
+            key = getHtmlId({
+              id: item.id,
+              idPrefix: item.idPrefix || this.idPrefix,
+              htmlId: item.htmlId,
+            });
+          }
+
           return h("div", {
+            key,
             class: classColumn,
             style,
           }, [
             h(COMPONENT, {
-              key: itemIndex,
               alwaysTranslate: this.alwaysTranslate,
               modelValue: MODEL_VALUE,
               modelAll: IS_CONTAINER ? this.modelAll : undefined,

@@ -184,6 +184,11 @@ export default {
       required: false,
       default: true,
     },
+    useHtmlIdAsKey: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   emits: [
     "blur",
@@ -357,12 +362,21 @@ export default {
                 get(this.modelValue, item.id) :
                 this.modelValue;
 
+            let key = itemIndex;
+            if (this.useHtmlIdAsKey) {
+              key = getHtmlId({
+                id: item.id,
+                idPrefix: item.idPrefix || this.idPrefix,
+                htmlId: item.htmlId,
+              });
+            }
+
             return h("div", {
+              key,
               class: classColumn,
               style,
             }, [
               h(COMPONENT, {
-                key: itemIndex,
                 alwaysTranslate: this.alwaysTranslate,
                 modelAll: IS_CONTAINER ? this.modelAll : undefined,
                 modelValue: MODEL_VALUE,

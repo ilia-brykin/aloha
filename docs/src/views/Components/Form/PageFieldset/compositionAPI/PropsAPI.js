@@ -248,6 +248,13 @@ export default function PropsAPI() {
       default: true,
       required: false,
     },
+    {
+      name: "use-html-id-as-key",
+      description: "_A_PROPS_USE_HTML_ID_AS_KEY_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
   ];
 
   return {

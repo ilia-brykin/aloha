@@ -1,4 +1,5 @@
 {
+  "_A_PROPS_USE_HTML_ID_AS_KEY_DESCRIPTION_": "Использовать <strong lang=\"en\">htmlId</strong> вместо индекса в качестве ключа элементов формы",
   "_A_UI_ELEMENT_0_": "Элемент 0",
   "_A_UI_ELEMENT_1_": "Элемент 1",
   "_A_UI_ELEMENT_2_": "Элемент 2",
