@@ -23,7 +23,6 @@ import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
-import PopoverAPI from "./compositionAPI/PopoverAPI";
 import PopperContainerAPI from "../ATooltip/compositionAPI/PopperContainerAPI";
 import RefsAPI from "./compositionAPI/RefsAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
@@ -320,34 +319,26 @@ export default {
     });
 
     const {
-      destroyPopover,
-      startPopper,
-    } = PopoverAPI(props, {
-      dropdownButtonRef,
-      dropdownRef,
-    });
-
-    const {
       buttonWidth,
       destroyEventCloseClick,
       destroyEventPressArrows,
+      destroyPopover,
       initWasOpened,
       onClose,
       onKeydown,
       onOpen,
       onToggle,
+      startPopper,
       statusExpanded,
       timerCloseHover,
       triggerOpen,
       wasOpened,
     } = ToggleAPI(props, context, {
       closePopup,
-      destroyPopover,
       dropdownButtonRef,
       dropdownRef,
       openPopup,
       setFocusToFirstElement,
-      startPopper,
     });
 
     const {

@@ -10,10 +10,14 @@ import {
   autoUpdate,
   computePosition,
   flip,
+  hide,
   limitShift,
   offset,
   shift,
 } from "@floating-ui/vue";
+import {
+  isElementVisibleOrCoveredByPopover,
+} from "../../ui/utils/utils";
 
 import AKeysCode from "../../const/AKeysCode";
 import EventBus from "../../utils/EventBus";
@@ -56,6 +60,7 @@ export default function PopperAPI(props) {
         element: titleArrowRef.value,
         padding: 5,
       }),
+      hide({ strategy: "referenceHidden" }),
     ];
   });
 
@@ -123,6 +128,19 @@ export default function PopperAPI(props) {
           middleware: floatingUiMiddleware.value,
         },
       ).then(({ x, y, middlewareData, placement }) => {
+        const hiddenByMiddleware = middlewareData?.hide?.referenceHidden;
+        if (hiddenByMiddleware) {
+          closeTitle();
+
+          return;
+        }
+        const overlapped = !isElementVisibleOrCoveredByPopover({ element: element.value, popoverElement: titleRef.value });
+        if (overlapped) {
+          closeTitle();
+
+          return;
+        }
+
         Object.assign(titleRef.value.style, {
           left: `${ x }px`,
           top: `${ y }px`,

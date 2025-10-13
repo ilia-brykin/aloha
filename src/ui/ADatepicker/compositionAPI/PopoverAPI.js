@@ -8,9 +8,13 @@ import {
   autoUpdate,
   computePosition,
   flip,
+  hide,
   limitShift,
   shift,
 } from "@floating-ui/vue";
+import {
+  isElementVisibleOrCoveredByPopover,
+} from "../../utils/utils";
 
 export default function PopoverAPI(props, {
   calendarRef = ref(undefined),
@@ -29,42 +33,6 @@ export default function PopoverAPI(props, {
 
   const destroyEventCloseClick = () => {
     document.removeEventListener("click", onClickEvent);
-  };
-
-  const openPopoverWithFloatingUi = () => {
-    if (!cleanupPopper.value &&
-      !disabled.value &&
-      inputRef.value &&
-      calendarRef.value) {
-      cleanupPopper.value = autoUpdate(
-        inputRef.value,
-        calendarRef.value,
-        () => {
-          if (calendarRef.value && inputRef.value) {
-            computePosition(
-              inputRef.value,
-              calendarRef.value,
-              {
-                placement: placement.value,
-                middleware: [
-                  flip(),
-                  shift({ limiter: limitShift() }),
-                ],
-              },
-            ).then(({ x, y }) => {
-              Object.assign(calendarRef.value.style, {
-                left: `${ x }px`,
-                top: `${ y }px`,
-              });
-            });
-          }
-        },
-      );
-
-      setTimeout(() => {
-        setEventCloseClick();
-      }, 300);
-    }
   };
 
   const setCloseFocus = () => {
@@ -86,6 +54,51 @@ export default function PopoverAPI(props, {
     popupVisible.value = false;
     if (isSetFocusByClose) {
       setCloseFocus();
+    }
+  };
+
+  const openPopoverWithFloatingUi = () => {
+    if (!cleanupPopper.value &&
+      !disabled.value &&
+      inputRef.value &&
+      calendarRef.value) {
+      cleanupPopper.value = autoUpdate(
+        inputRef.value,
+        calendarRef.value,
+        () => {
+          if (calendarRef.value && inputRef.value) {
+            computePosition(
+              inputRef.value,
+              calendarRef.value,
+              {
+                placement: placement.value,
+                middleware: [
+                  flip(),
+                  shift({ limiter: limitShift() }),
+                  hide({ strategy: "referenceHidden" }),
+                ],
+              },
+            ).then(({ x, y, middlewareData }) => {
+              const hiddenByMiddleware = middlewareData?.hide?.referenceHidden;
+              const overlapped = !isElementVisibleOrCoveredByPopover({ element: inputRef.value, popoverElement: calendarRef.value });
+              if (hiddenByMiddleware || overlapped) {
+                closePopover();
+
+                return;
+              }
+
+              Object.assign(calendarRef.value.style, {
+                left: `${ x }px`,
+                top: `${ y }px`,
+              });
+            });
+          }
+        },
+      );
+
+      setTimeout(() => {
+        setEventCloseClick();
+      }, 300);
     }
   };
 
