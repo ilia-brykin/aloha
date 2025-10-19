@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.41.0
+
+- Replace `dompurify` with `isomorphic-dompurify` for improved isomorphic compatibility.
+
 ## 2.40.0
 
 - Feature: Add `useHtmlIdAsKey` prop to support using `htmlId` instead of index as key for form elements across AForm, AGroup, AFieldset, AModalForm, and related components. Update i18n files with descriptions.
