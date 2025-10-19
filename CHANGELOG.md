@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.41.1
+
+- Export `DOMPurify` from `utils.js` for enhanced modularity and clarify `isomorphic-dompurify` usage.
+
 ## 2.41.0
 
 - Replace `dompurify` with `isomorphic-dompurify` for improved isomorphic compatibility.
