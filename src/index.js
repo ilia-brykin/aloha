@@ -241,7 +241,6 @@ export {
 } from "./utils/colors";
 export { default as EventBus } from "./utils/EventBus";
 export {
-  DOMPurify,
   dompurify,
   extractTextFromHtml,
   getTotalNestedCount,

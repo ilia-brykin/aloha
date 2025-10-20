@@ -1,4 +1,4 @@
-import DOMPurifyInstance from "isomorphic-dompurify";
+import DOMPurify from "dompurify";
 import {
   isBrowser,
 } from "./isBrowser";
@@ -12,10 +12,8 @@ import {
   toString,
 } from "lodash-es";
 
-export const DOMPurify = DOMPurifyInstance;
-export const dompurify = DOMPurifyInstance;
-
-export const sanitize = (...args) => DOMPurifyInstance.sanitize(...args);
+export const dompurify = DOMPurify;
+export const sanitize = DOMPurify.sanitize;
 
 /**
  * Sanitizes a local value using DOMPurify with additional attribute "target" added.
@@ -24,7 +22,11 @@ export const sanitize = (...args) => DOMPurifyInstance.sanitize(...args);
  * @return {string} - The sanitized value.
  */
 export function sanitizeLocal(value) {
-  return DOMPurifyInstance.sanitize(toCorrectFormat(value), { ADD_ATTR: ["target"] });
+  if (!isBrowser()) {
+    return value;
+  }
+
+  return DOMPurify.sanitize(toCorrectFormat(value), { ADD_ATTR: ["target"] });
 }
 
 function toCorrectFormat(value) {
