@@ -9,9 +9,13 @@ import {
   autoUpdate,
   computePosition,
   flip,
+  hide,
   limitShift,
   shift,
 } from "@floating-ui/vue";
+import {
+  isElementVisibleOrCoveredByPopover,
+} from "../../utils/utils";
 
 import AEventOutsideAPI from "../../../compositionAPI/AEventOutsideAPI";
 
@@ -166,11 +170,20 @@ export default function ToggleAPI(props, {
               middleware: [
                 flip(),
                 shift({ limiter: limitShift() }),
+                hide({ strategy: "referenceHidden" }),
               ],
             },
-          ).then(({ x, y }) => {
+          ).then(({ x, y, middlewareData }) => {
+            const hiddenByMiddleware = middlewareData?.hide?.referenceHidden;
+            const overlapped = !isElementVisibleOrCoveredByPopover({ element: buttonRef.value, popoverElement: menuRef.value });
+            if (hiddenByMiddleware || overlapped) {
+              closePopover();
+
+              return;
+            }
             if (!buttonRef.value.clientWidth) { // if button hide
               closePopover();
+
               return;
             }
             const SOURCE = {
