@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.41.2
+
+- Revert to `dompurify` from `isomorphic-dompurify` for simplicity and update related imports and usage in `utils.js`.
+
 ## 2.41.1
 
 - Export `DOMPurify` from `utils.js` for enhanced modularity and clarify `isomorphic-dompurify` usage.
