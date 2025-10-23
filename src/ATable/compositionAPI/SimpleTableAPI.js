@@ -9,7 +9,7 @@ import AMobileAPI from "../../compositionAPI/AMobileAPI";
 export default function SimpleTableAPI(props) {
   const hasMobile = toRef(props, "hasMobile");
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
-  const isActionIconVisible = toRef(props, "isActionColumnVisible");
+  const isActionIconVisible = toRef(props, "isActionIconVisible");
   const isColumnsDnd = toRef(props, "isColumnsDnd");
   const isSimpleTable = toRef(props, "isSimpleTable");
   const modelIsTableWithoutScrollStart = toRef(props, "modelIsTableWithoutScrollStart");
