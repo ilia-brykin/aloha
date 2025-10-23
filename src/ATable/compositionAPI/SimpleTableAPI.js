@@ -30,7 +30,7 @@ export default function SimpleTableAPI(props) {
       return rowActions.value && !!rowActions.value.length && isActionColumnVisible.value;
     }
 
-    return isActionIconVisible.value;
+    return isActionColumnVisible.value;
   });
 
   const isActionIconVisibleLocal = computed(() => {
