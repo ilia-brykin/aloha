@@ -49885,7 +49885,7 @@ function Uk(e) {
     c.value = l.value;
   }, {
     isMobileWidth: A
-  } = D_(), L = E(() => s.value ? o.value && !!o.value.length && _.value : n.value), f = E(() => !!(n.value && !s.value)), h = E(() => !!(a.value && !s.value)), C = E(() => t.value ? !!A.value : !1), p = E(() => s.value ? !1 : c.value);
+  } = D_(), L = E(() => s.value ? o.value && !!o.value.length && _.value : _.value), f = E(() => !!(n.value && !s.value)), h = E(() => !!(a.value && !s.value)), C = E(() => t.value ? !!A.value : !1), p = E(() => s.value ? !1 : c.value);
   return {
     initModelIsTableWithoutScroll: S,
     isActionColumnVisibleLocal: L,

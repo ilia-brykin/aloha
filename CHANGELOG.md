@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.41.4
+
+- Fix `isActionColumnVisible` reference in `SimpleTableAPI` to ensure correct return logic.
+
 ## 2.41.3
 
 - Fix `isActionIconVisible` initialization in `SimpleTableAPI` to correctly reference its prop.
