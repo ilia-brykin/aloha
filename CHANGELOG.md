@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.41.3
+
+- Fix `isActionIconVisible` initialization in `SimpleTableAPI` to correctly reference its prop.
+
 ## 2.41.2
 
 - Revert to `dompurify` from `isomorphic-dompurify` for simplicity and update related imports and usage in `utils.js`.

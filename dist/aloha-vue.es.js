@@ -49881,7 +49881,7 @@ function Nk(e, { emit: t }, {
   };
 }
 function Uk(e) {
-  const t = u(e, "hasMobile"), _ = u(e, "isActionColumnVisible"), n = u(e, "isActionColumnVisible"), a = u(e, "isColumnsDnd"), s = u(e, "isSimpleTable"), l = u(e, "modelIsTableWithoutScrollStart"), o = u(e, "rowActions"), c = y(void 0), S = () => {
+  const t = u(e, "hasMobile"), _ = u(e, "isActionColumnVisible"), n = u(e, "isActionIconVisible"), a = u(e, "isColumnsDnd"), s = u(e, "isSimpleTable"), l = u(e, "modelIsTableWithoutScrollStart"), o = u(e, "rowActions"), c = y(void 0), S = () => {
     c.value = l.value;
   }, {
     isMobileWidth: A
