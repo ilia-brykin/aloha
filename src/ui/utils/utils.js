@@ -77,3 +77,23 @@ export function isAnyRequiredUiElementEmpty({ elements, model }) {
 
   return isAnyEmpty;
 }
+
+export function isElementVisibleOrCoveredByPopover({ element, popoverElement }) {
+  if (!element || !element.getBoundingClientRect) {
+    return false;
+  }
+  const rect = element.getBoundingClientRect();
+  if (rect.width === 0 || rect.height === 0) {
+    return false;
+  }
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const topEl = document.elementFromPoint(cx, cy);
+
+  const foundElement = element &&
+    (element.contains(topEl) || element === topEl);
+  const foundPopoverElement = popoverElement &&
+    (popoverElement.contains(topEl) || popoverElement === topEl);
+
+  return foundElement || foundPopoverElement;
+}
