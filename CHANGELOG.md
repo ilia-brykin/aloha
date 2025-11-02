@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.42.0
+
+- Add `onlyMobile` prop to `AMenu` for enhanced mobile-specific behavior support.
+
 ## 2.41.5
 
 - Wrap `textSelectAll` and `textDeselectAll` in `ATranslation` for improved localization support in `ASelect`.

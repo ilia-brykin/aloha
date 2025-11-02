@@ -10122,7 +10122,7 @@ input[type=text]::-ms-clear {
   margin-right: 1rem;
 }
 
-.a_menu__btn_toggle_outside_menu {
+.a_menu__btn_toggle_outside_menu:not(.a_menu__btn_toggle_only_mobile) {
   display: none;
 }
 
@@ -10181,6 +10181,16 @@ input[type=text]::-ms-clear {
 }
 .a_mobile .a_menu__btn_toggle_close.a_menu__btn_toggle_outside_menu {
   display: inline-block;
+}
+
+.a_menu_only_mobile.a_menu_close {
+  display: none;
+}
+.a_menu_only_mobile.a_menu_open {
+  max-width: 100vw;
+}
+.a_menu_only_mobile + .a_menu__page {
+  padding-left: 1rem;
 }
 
 .a_menu__panels {
