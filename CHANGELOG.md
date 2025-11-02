@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.41.5
+
+- Wrap `textSelectAll` and `textDeselectAll` in `ATranslation` for improved localization support in `ASelect`.
+
 ## 2.41.4
 
 - Fix `isActionColumnVisible` reference in `SimpleTableAPI` to ensure correct return logic.

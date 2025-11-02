@@ -31,11 +31,11 @@ function Hs(e, t) {
     a[_] = t(e[_], _, e);
   return a;
 }
-var Ce = Array.isArray, DT = pn ? pn.prototype : void 0, yT = DT ? DT.toString : void 0;
+var pe = Array.isArray, DT = pn ? pn.prototype : void 0, yT = DT ? DT.toString : void 0;
 function Zl(e) {
   if (typeof e == "string")
     return e;
-  if (Ce(e))
+  if (pe(e))
     return Hs(e, Zl) + "";
   if (ss(e))
     return yT ? yT.call(e) : "";
@@ -334,7 +334,7 @@ var Of = typeof exports == "object" && exports && !exports.nodeType && exports, 
   }
 })(), GT = Xs && Xs.isTypedArray, ed = GT ? Qo(GT) : ZN, eU = Object.prototype, tU = eU.hasOwnProperty;
 function bf(e, t) {
-  var _ = Ce(e), n = !_ && Zo(e), a = !_ && !n && $l(e), s = !_ && !n && !a && ed(e), l = _ || n || a || s, o = l ? pf(e.length, String) : [], c = o.length;
+  var _ = pe(e), n = !_ && Zo(e), a = !_ && !n && $l(e), s = !_ && !n && !a && ed(e), l = _ || n || a || s, o = l ? pf(e.length, String) : [], c = o.length;
   for (var S in e)
     (t || tU.call(e, S)) && !(l && // Safari 9 has enumerable `arguments.length` in strict mode.
     (S == "length" || // Node.js 0.10 has enumerable non-index properties on buffers.
@@ -389,7 +389,7 @@ function _d(e) {
 }
 var uU = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, cU = /^\w*$/;
 function nd(e, t) {
-  if (Ce(e))
+  if (pe(e))
     return !1;
   var _ = typeof e;
   return _ == "number" || _ == "symbol" || _ == "boolean" || e == null || ss(e) ? !0 : cU.test(e) || !uU.test(e) || t != null && e in Object(t);
@@ -546,7 +546,7 @@ function r_(e) {
   return e == null ? "" : Zl(e);
 }
 function _E(e, t) {
-  return Ce(e) ? e : nd(e, t) ? [e] : xU(r_(e));
+  return pe(e) ? e : nd(e, t) ? [e] : xU(r_(e));
 }
 function Qs(e) {
   if (typeof e == "string" || ss(e))
@@ -571,7 +571,7 @@ function rd(e, t) {
 }
 var xT = pn ? pn.isConcatSpreadable : void 0;
 function HU(e) {
-  return Ce(e) || Zo(e) || !!(xT && e && e[xT]);
+  return pe(e) || Zo(e) || !!(xT && e && e[xT]);
 }
 function sd(e, t, _, n, a) {
   var s = -1, l = e.length;
@@ -637,7 +637,7 @@ function Mf() {
   if (!arguments.length)
     return [];
   var e = arguments[0];
-  return Ce(e) ? e : [e];
+  return pe(e) ? e : [e];
 }
 var CD = On.isFinite, pD = Math.min;
 function $f(e) {
@@ -728,7 +728,7 @@ function MD(e, t) {
 }
 function qf(e, t, _) {
   var n = t(e);
-  return Ce(e) ? n : rd(n, _(e));
+  return pe(e) ? n : rd(n, _(e));
 }
 function Rc(e) {
   return qf(e, Ua, od);
@@ -835,7 +835,7 @@ function Ul(e, t, _, n, a, s) {
     return l;
   if (!an(e))
     return e;
-  var A = Ce(e);
+  var A = pe(e);
   if (A) {
     if (l = KD(e), !o)
       return aN(e, l);
@@ -1013,7 +1013,7 @@ function OP(e, t, _, n, a, s) {
 }
 var bP = 1, nL = "[object Arguments]", aL = "[object Array]", no = "[object Object]", mP = Object.prototype, rL = mP.hasOwnProperty;
 function gP(e, t, _, n, a, s) {
-  var l = Ce(e), o = Ce(t), c = l ? aL : Q_(e), S = o ? aL : Q_(t);
+  var l = pe(e), o = pe(t), c = l ? aL : Q_(e), S = o ? aL : Q_(t);
   c = c == nL ? no : c, S = S == nL ? no : S;
   var A = c == no, L = S == no, f = c == S;
   if (f && $l(e)) {
@@ -1091,7 +1091,7 @@ function YP(e, t, _) {
       break;
     e = e[l];
   }
-  return s || ++n != a ? s : (a = e == null ? 0 : e.length, !!a && Qc(a) && Xo(l, a) && (Ce(e) || Zo(e)));
+  return s || ++n != a ? s : (a = e == null ? 0 : e.length, !!a && Qc(a) && Xo(l, a) && (pe(e) || Zo(e)));
 }
 function BP(e, t) {
   return e != null && YP(e, t, PP);
@@ -1117,7 +1117,7 @@ function wP(e) {
   return nd(e) ? Qf(Qs(e)) : FP(e);
 }
 function wn(e) {
-  return typeof e == "function" ? e : e == null ? us : typeof e == "object" ? Ce(e) ? $P(e[0], e[1]) : yP(e) : wP(e);
+  return typeof e == "function" ? e : e == null ? us : typeof e == "object" ? pe(e) ? $P(e[0], e[1]) : yP(e) : wP(e);
 }
 function GP(e, t, _, n) {
   for (var a = -1, s = e == null ? 0 : e.length; ++a < s; ) {
@@ -1159,7 +1159,7 @@ function qP(e, t, _, n) {
 }
 function kP(e, t) {
   return function(_, n) {
-    var a = Ce(_) ? GP : qP, s = {};
+    var a = pe(_) ? GP : qP, s = {};
     return a(_, e, wn(n), s);
   };
 }
@@ -1245,7 +1245,7 @@ function dd(e) {
   return typeof e == "function" ? e : us;
 }
 function W(e, t) {
-  var _ = Ce(e) ? ff : Ss;
+  var _ = pe(e) ? ff : Ss;
   return _(e, dd(t));
 }
 function ZP(e, t) {
@@ -1259,7 +1259,7 @@ function eY(e, t) {
 }
 var tY = th(eY, !0);
 function _Y(e, t) {
-  var _ = Ce(e) ? ZP : tY;
+  var _ = pe(e) ? ZP : tY;
   return _(e, dd(t));
 }
 function nY(e, t, _) {
@@ -1286,7 +1286,7 @@ function sY(e, t) {
   }), _;
 }
 function Sd(e, t, _) {
-  var n = Ce(e) ? rY : sY;
+  var n = pe(e) ? rY : sY;
   return n(e, wn(t));
 }
 function lY(e, t) {
@@ -1296,7 +1296,7 @@ function lY(e, t) {
   }), _;
 }
 function Lt(e, t) {
-  var _ = Ce(e) ? Gf : lY;
+  var _ = pe(e) ? Gf : lY;
   return _(e, wn(t));
 }
 function iY(e) {
@@ -1338,7 +1338,7 @@ function nh(e, t) {
   }), n;
 }
 function J_(e, t) {
-  var _ = Ce(e) ? Hs : nh;
+  var _ = pe(e) ? Hs : nh;
   return _(e, wn(t));
 }
 function cY(e, t) {
@@ -1346,7 +1346,7 @@ function cY(e, t) {
 }
 var dY = "[object String]";
 function ut(e) {
-  return typeof e == "string" || !Ce(e) && Rn(e) && Na(e) == dY;
+  return typeof e == "string" || !pe(e) && Rn(e) && Na(e) == dY;
 }
 function SY(e, t) {
   return Hs(t, function(_) {
@@ -1369,7 +1369,7 @@ var LY = "[object Map]", fY = "[object Set]", hY = Object.prototype, CY = hY.has
 function a_(e) {
   if (e == null)
     return !0;
-  if (Fn(e) && (Ce(e) || typeof e == "string" || typeof e.splice == "function" || $l(e) || ed(e) || Zo(e)))
+  if (Fn(e) && (pe(e) || typeof e == "string" || typeof e.splice == "function" || $l(e) || ed(e) || Zo(e)))
     return !e.length;
   var t = Q_(e);
   if (t == LY || t == fY)
@@ -1469,7 +1469,7 @@ function NY(e, t, _) {
 }
 function sh(e, t, _) {
   t.length ? t = Hs(t, function(s) {
-    return Ce(s) ? function(l) {
+    return pe(s) ? function(l) {
       return nE(l, s.length === 1 ? s[0] : s);
     } : s;
   }) : t = [us];
@@ -1486,7 +1486,7 @@ function sh(e, t, _) {
   });
 }
 function Ld(e, t, _, n) {
-  return e == null ? [] : (Ce(t) || (t = t == null ? [] : [t]), _ = _, Ce(_) || (_ = _ == null ? [] : [_]), sh(e, t, _));
+  return e == null ? [] : (pe(t) || (t = t == null ? [] : [t]), _ = _, pe(_) || (_ = _ == null ? [] : [_]), sh(e, t, _));
 }
 var UY = 9007199254740991, DY = Math.floor;
 function mc(e, t) {
@@ -1539,7 +1539,7 @@ function ZY(e, t, _, n, a) {
   }), _;
 }
 function QY(e, t, _) {
-  var n = Ce(e) ? hD : ZY, a = arguments.length < 3;
+  var n = pe(e) ? hD : ZY, a = arguments.length < 3;
   return n(e, wn(t), _, a, Ss);
 }
 function eB(e, t, _) {
@@ -1565,7 +1565,7 @@ function nB(e, t) {
   }), !!_;
 }
 function Sh(e, t, _) {
-  var n = Ce(e) ? jf : nB;
+  var n = pe(e) ? jf : nB;
   return n(e, wn(t));
 }
 var ql = Jo(function(e, t) {
@@ -2289,10 +2289,10 @@ function FB(e) {
   return p_(e) ? r_(e) : e;
 }
 function b_t(e) {
-  return !Ce(e) || !e.length ? !1 : Sd(e, ut);
+  return !pe(e) || !e.length ? !1 : Sd(e, ut);
 }
 function wB(e) {
-  return !Ce(e) || !e.length ? !1 : Sd(e, Ce);
+  return !pe(e) || !e.length ? !1 : Sd(e, pe);
 }
 function GB(e) {
   const t = Object.keys(e);
@@ -2302,7 +2302,7 @@ function xB({ array: e, keyChildren: t }) {
   return Rh({ array: e, keyChildren: t, count: 0 });
 }
 function Rh({ array: e, keyChildren: t, count: _ = 0 }) {
-  return Ce(e) && W(e, (n) => {
+  return pe(e) && W(e, (n) => {
     _++;
     const a = ue(n, t);
     _ = Rh({ array: a, keyChildren: t, count: _ });
@@ -2974,7 +2974,7 @@ const Od = {
               this.alertContentClass
             ]
           }, [
-            (this.html || this.text || this.safeHtml) && d(pe, {
+            (this.html || this.text || this.safeHtml) && d(he, {
               alwaysTranslate: this.alwaysTranslate,
               extra: this.extra,
               html: this.html,
@@ -3398,7 +3398,7 @@ const yc = y({
 function As() {
   return {
     getTranslatedAttributes: ns,
-    getTranslatedText: he,
+    getTranslatedText: Ce,
     getTranslationAttributes: gd,
     isPlaceholderTranslate: pa,
     replaceText: vh,
@@ -3408,7 +3408,7 @@ function As() {
 function pa(e = "") {
   return !(!ut(e) || e[0] !== "_" || e[e.length - 1] !== "_");
 }
-function he({ placeholder: e, translationObj: t = md, extra: _, alwaysTranslate: n = !1 }) {
+function Ce({ placeholder: e, translationObj: t = md, extra: _, alwaysTranslate: n = !1 }) {
   if (!t || !bd.value)
     return e;
   let a;
@@ -3456,7 +3456,7 @@ function ns({
   extra: _,
   translationObj: n = md
 }) {
-  const a = pa(t), s = he({
+  const a = pa(t), s = Ce({
     placeholder: t,
     extra: _,
     translationObj: n,
@@ -5114,7 +5114,7 @@ function IM(e) {
 function OM(e) {
   const t = u(e, "title");
   return {
-    isTitleVisible: E(() => Ce(t.value) && t.value.length > 0 ? !0 : it(t.value) ? !a_(t.value) : !$e(t.value))
+    isTitleVisible: E(() => pe(t.value) && t.value.length > 0 ? !0 : it(t.value) ? !a_(t.value) : !$e(t.value))
   };
 }
 function Ut(e) {
@@ -5464,7 +5464,7 @@ const Te = {
       ...this.attributesToExcludeFromRender
     }, {
       default: () => [
-        !this.isTitleHtml && this.isTitleVisible ? d(pe, {
+        !this.isTitleHtml && this.isTitleVisible ? d(he, {
           tag: "span",
           alwaysTranslate: this.alwaysTranslate,
           ariaHidden: !0,
@@ -5479,7 +5479,7 @@ const Te = {
           },
           ...this.titleAttributes
         }) : "",
-        this.isTextOrHtmlScreenReaderVisible ? d(pe, {
+        this.isTextOrHtmlScreenReaderVisible ? d(he, {
           alwaysTranslate: this.alwaysTranslate,
           class: [
             "a_sr_only",
@@ -5508,7 +5508,7 @@ const Te = {
           ...this.iconAttributes
         }),
         this.$slots.default ? this.$slots.default({ extraData: this.extraData }) : "",
-        this.isTextOrHtmlVisible ? d(pe, {
+        this.isTextOrHtmlVisible ? d(he, {
           alwaysTranslate: this.alwaysTranslate,
           ariaHidden: this.textAriaHidden,
           class: this.textClass,
@@ -5538,7 +5538,7 @@ const Te = {
         this.$slots.buttonAppend ? this.$slots.buttonAppend({ extraData: this.extraData }) : ""
       ],
       title: !this.isTitleHtml || !this.title && !this.$slots.buttonTitle ? () => "" : () => [
-        this.isTitleVisible ? d(pe, {
+        this.isTitleVisible ? d(he, {
           alwaysTranslate: this.alwaysTranslate,
           html: this.title,
           tag: "span",
@@ -5631,7 +5631,7 @@ function gM(e, {
   falseValue: _ = "_NO_",
   useNil: n = !0
 } = {}) {
-  return n && oe(e) ? "" : he(e ? { placeholder: t } : { placeholder: _ });
+  return n && oe(e) ? "" : Ce(e ? { placeholder: t } : { placeholder: _ });
 }
 function vM(e) {
   return fD(e);
@@ -5715,7 +5715,7 @@ function YM(e, { units: t = "kb", sourceUnits: _ = "b", digits: n = 2 } = {}) {
     return "";
   const S = l * Math.pow(1024, o);
   c === -1 && (c = Math.floor(Math.log(S) / Math.log(1024)), c < 0 && (c = 0), t = s[c]);
-  const A = he({ placeholder: `_A_FILE_SIZE_${Lh(t)}_` });
+  const A = Ce({ placeholder: `_A_FILE_SIZE_${Lh(t)}_` });
   if (l === 0)
     return yl(0, { suffix: A, digits: n });
   if (o === c)
@@ -5782,7 +5782,7 @@ function Fo(e, {
   separatorHtml: L = "",
   tag: f = "ul"
 } = {}) {
-  if (!Ce(e) || !e.length)
+  if (!pe(e) || !e.length)
     return t;
   let h = "";
   return n === !1 || n === "false" ? ($e(A) && (A = ", "), W(e, (C, p) => {
@@ -5794,10 +5794,10 @@ function Fo(e, {
       isSimpleArray: a
     }), O;
     if (a) {
-      if (Ce(R)) {
+      if (pe(R)) {
         let b = "";
         W(R, (m) => {
-          Ce(m) ? O = m : b = m;
+          pe(m) ? O = m : b = m;
         }), R = b;
       }
     } else s && (O = ue(C, s));
@@ -5819,8 +5819,8 @@ function Fo(e, {
       isSimpleArray: a
     });
     let b, m = O;
-    a ? Ce(O) && W(O, (v) => {
-      Ce(v) ? b = v : m = v;
+    a ? pe(O) && W(O, (v) => {
+      pe(v) ? b = v : m = v;
     }) : s && (b = ue(C, s)), A && !R && (m += A), b != null && b.length && (m += Fo(b, {
       isChild: !0,
       isHtml: n,
@@ -7259,7 +7259,7 @@ const si = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
                   }, this.$slots))
                 ])
               ]),
-              !this.dataSort.length || this.hasNotElementsWithSearch ? d(pe, {
+              !this.dataSort.length || this.hasNotElementsWithSearch ? d(he, {
                 alwaysTranslate: this.alwaysTranslate,
                 class: "a_form__not_elements",
                 text: ((_ = this.texts) == null ? void 0 : _.notElementsWithSearch) || "_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_"
@@ -7295,7 +7295,7 @@ function e$(e, {
 }) {
   const _ = u(e, "modelValue");
   return {
-    isChecked: E(() => Ce(_.value) ? _.value.indexOf(t.value) !== -1 : _.value === t.value)
+    isChecked: E(() => pe(_.value) ? _.value.indexOf(t.value) !== -1 : _.value === t.value)
   };
 }
 function t$(e, { emit: t }, {
@@ -8351,7 +8351,7 @@ const ka = y({
     };
   },
   render() {
-    const e = this.textAlign === "left", t = d(pe, {
+    const e = this.textAlign === "left", t = d(he, {
       alwaysTranslate: this.alwaysTranslate,
       tag: "span",
       class: [
@@ -12814,7 +12814,7 @@ const Xh = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
       default: "always",
       validator: (e) => {
         const t = Mf(e);
-        return Ce(t) && Sd(t, (_) => ["always", "hover", "focus"].includes(_));
+        return pe(t) && Sd(t, (_) => ["always", "hover", "focus"].includes(_));
       }
     },
     autoplayInterval: {
@@ -14702,7 +14702,7 @@ function i0(e, {
   currentLanguage: t = E(() => ({})),
   popupVisible: _ = y(!1)
 }) {
-  const n = u(e, "extra"), a = u(e, "id"), s = u(e, "placeholder"), l = u(e, "range"), o = u(e, "type"), c = u(e, "width"), S = E(() => ut(s.value) ? he({ placeholder: s.value, extra: n.value }) : l.value ? t.value.placeholder.dateRange : o.value === "time" ? t.value.placeholder.time : t.value.placeholder.date), A = E(() => `${a.value}_panel`), L = E(() => [
+  const n = u(e, "extra"), a = u(e, "id"), s = u(e, "placeholder"), l = u(e, "range"), o = u(e, "type"), c = u(e, "width"), S = E(() => ut(s.value) ? Ce({ placeholder: s.value, extra: n.value }) : l.value ? t.value.placeholder.dateRange : o.value === "time" ? t.value.placeholder.time : t.value.placeholder.date), A = E(() => `${a.value}_panel`), L = E(() => [
     `${A.value}_0`,
     `${A.value}_1`
   ]), f = E(() => `${!_.value}`), h = E(() => `${_.value}`), C = E(() => `${a.value}_calendar`), p = E(() => p_(c.value) || ut(c.value) && /^\d+$/.test(c.value) ? c.value + "px" : c.value), R = E(() => String(o.value).toLowerCase());
@@ -14836,78 +14836,78 @@ function E0() {
     currentLanguage: E(() => ({
       days: [
         {
-          shortName: he({ placeholder: "_A_DATEPICKER_DAY_SHORT_SUNDAY_" }),
-          longName: he({ placeholder: "_A_DATEPICKER_DAY_LONG_SUNDAY_" })
+          shortName: Ce({ placeholder: "_A_DATEPICKER_DAY_SHORT_SUNDAY_" }),
+          longName: Ce({ placeholder: "_A_DATEPICKER_DAY_LONG_SUNDAY_" })
         },
         {
-          shortName: he({ placeholder: "_A_DATEPICKER_DAY_SHORT_MONDAY_" }),
-          longName: he({ placeholder: "_A_DATEPICKER_DAY_LONG_MONDAY_" })
+          shortName: Ce({ placeholder: "_A_DATEPICKER_DAY_SHORT_MONDAY_" }),
+          longName: Ce({ placeholder: "_A_DATEPICKER_DAY_LONG_MONDAY_" })
         },
         {
-          shortName: he({ placeholder: "_A_DATEPICKER_DAY_SHORT_TUESDAY_" }),
-          longName: he({ placeholder: "_A_DATEPICKER_DAY_LONG_TUESDAY_" })
+          shortName: Ce({ placeholder: "_A_DATEPICKER_DAY_SHORT_TUESDAY_" }),
+          longName: Ce({ placeholder: "_A_DATEPICKER_DAY_LONG_TUESDAY_" })
         },
         {
-          shortName: he({ placeholder: "_A_DATEPICKER_DAY_SHORT_WEDNESDAY_" }),
-          longName: he({ placeholder: "_A_DATEPICKER_DAY_LONG_WEDNESDAY_" })
+          shortName: Ce({ placeholder: "_A_DATEPICKER_DAY_SHORT_WEDNESDAY_" }),
+          longName: Ce({ placeholder: "_A_DATEPICKER_DAY_LONG_WEDNESDAY_" })
         },
         {
-          shortName: he({ placeholder: "_A_DATEPICKER_DAY_SHORT_THURSDAY_" }),
-          longName: he({ placeholder: "_A_DATEPICKER_DAY_LONG_THURSDAY_" })
+          shortName: Ce({ placeholder: "_A_DATEPICKER_DAY_SHORT_THURSDAY_" }),
+          longName: Ce({ placeholder: "_A_DATEPICKER_DAY_LONG_THURSDAY_" })
         },
         {
-          shortName: he({ placeholder: "_A_DATEPICKER_DAY_SHORT_FRIDAY_" }),
-          longName: he({ placeholder: "_A_DATEPICKER_DAY_LONG_FRIDAY_" })
+          shortName: Ce({ placeholder: "_A_DATEPICKER_DAY_SHORT_FRIDAY_" }),
+          longName: Ce({ placeholder: "_A_DATEPICKER_DAY_LONG_FRIDAY_" })
         },
         {
-          shortName: he({ placeholder: "_A_DATEPICKER_DAY_SHORT_SATURDAY_" }),
-          longName: he({ placeholder: "_A_DATEPICKER_DAY_LONG_SATURDAY_" })
+          shortName: Ce({ placeholder: "_A_DATEPICKER_DAY_SHORT_SATURDAY_" }),
+          longName: Ce({ placeholder: "_A_DATEPICKER_DAY_LONG_SATURDAY_" })
         }
       ],
       months: [
-        he({ placeholder: "_A_DATEPICKER_MONTH_JANUARY_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_FEBRUARY_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_MARCH_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_APRIL_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_MAY_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_JUNE_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_JULY_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_AUGUST_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_SEPTEMBER_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_OCTOBER_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_NOVEMBER_" }),
-        he({ placeholder: "_A_DATEPICKER_MONTH_DECEMBER_" })
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_JANUARY_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_FEBRUARY_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_MARCH_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_APRIL_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_MAY_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_JUNE_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_JULY_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_AUGUST_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_SEPTEMBER_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_OCTOBER_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_NOVEMBER_" }),
+        Ce({ placeholder: "_A_DATEPICKER_MONTH_DECEMBER_" })
       ],
       pickers: [
-        he({ placeholder: "_A_DATEPICKER_PICKER_NEXT_7_DAYS_" }),
-        he({ placeholder: "_A_DATEPICKER_PICKER_NEXT_30_DAYS_" }),
-        he({ placeholder: "_A_DATEPICKER_PICKER_PREVIOUS_7_DAYS_" }),
-        he({ placeholder: "_A_DATEPICKER_PICKER_PREVIOUS_30_DAYS_" })
+        Ce({ placeholder: "_A_DATEPICKER_PICKER_NEXT_7_DAYS_" }),
+        Ce({ placeholder: "_A_DATEPICKER_PICKER_NEXT_30_DAYS_" }),
+        Ce({ placeholder: "_A_DATEPICKER_PICKER_PREVIOUS_7_DAYS_" }),
+        Ce({ placeholder: "_A_DATEPICKER_PICKER_PREVIOUS_30_DAYS_" })
       ],
       placeholder: {
-        date: he({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATE_" }),
-        time: he({ placeholder: "_A_DATEPICKER_PLACEHOLDER_TIME_" }),
-        dateRange: he({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATE_RANGE_" }),
-        regionDate: he({ placeholder: "_A_DATEPICKER_PLACEHOLDER_REGION_DATE_" }),
-        regionTime: he({ placeholder: "_A_DATEPICKER_PLACEHOLDER_REGION_TIME_" })
+        date: Ce({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATE_" }),
+        time: Ce({ placeholder: "_A_DATEPICKER_PLACEHOLDER_TIME_" }),
+        dateRange: Ce({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATE_RANGE_" }),
+        regionDate: Ce({ placeholder: "_A_DATEPICKER_PLACEHOLDER_REGION_DATE_" }),
+        regionTime: Ce({ placeholder: "_A_DATEPICKER_PLACEHOLDER_REGION_TIME_" })
       },
-      today: he({ placeholder: "_A_DATEPICKER_TODAY_" }),
+      today: Ce({ placeholder: "_A_DATEPICKER_TODAY_" }),
       buttons: {
-        lastYear: he({ placeholder: "_A_DATEPICKER_BUTTON_LAST_YEAR_" }),
-        lastYears: he({ placeholder: "_A_DATEPICKER_BUTTON_LAST_YEARS_" }),
-        nextYear: he({ placeholder: "_A_DATEPICKER_BUTTON_NEXT_YEAR_" }),
-        nextYears: he({ placeholder: "_A_DATEPICKER_BUTTON_NEXT_YEARS_" }),
-        lastMonth: he({ placeholder: "_A_DATEPICKER_BUTTON_LAST_MONTH_" }),
-        nextMonth: he({ placeholder: "_A_DATEPICKER_BUTTON_NEXT_MONTH_" }),
-        monthsView: he({ placeholder: "_A_DATEPICKER_BUTTON_MONTHS_VIEW_" }),
-        toDaysView: he({ placeholder: "_A_DATEPICKER_BUTTON_TO_DAYS_VIEW_" }),
-        toMonthsView: he({ placeholder: "_A_DATEPICKER_BUTTON_TO_MONTHS_VIEW_" }),
-        toYearsView: he({ placeholder: "_A_DATEPICKER_BUTTON_TO_YEARS_VIEW_" })
+        lastYear: Ce({ placeholder: "_A_DATEPICKER_BUTTON_LAST_YEAR_" }),
+        lastYears: Ce({ placeholder: "_A_DATEPICKER_BUTTON_LAST_YEARS_" }),
+        nextYear: Ce({ placeholder: "_A_DATEPICKER_BUTTON_NEXT_YEAR_" }),
+        nextYears: Ce({ placeholder: "_A_DATEPICKER_BUTTON_NEXT_YEARS_" }),
+        lastMonth: Ce({ placeholder: "_A_DATEPICKER_BUTTON_LAST_MONTH_" }),
+        nextMonth: Ce({ placeholder: "_A_DATEPICKER_BUTTON_NEXT_MONTH_" }),
+        monthsView: Ce({ placeholder: "_A_DATEPICKER_BUTTON_MONTHS_VIEW_" }),
+        toDaysView: Ce({ placeholder: "_A_DATEPICKER_BUTTON_TO_DAYS_VIEW_" }),
+        toMonthsView: Ce({ placeholder: "_A_DATEPICKER_BUTTON_TO_MONTHS_VIEW_" }),
+        toYearsView: Ce({ placeholder: "_A_DATEPICKER_BUTTON_TO_YEARS_VIEW_" })
       },
-      hours: he({ placeholder: "_A_DATEPICKER_HOURS_" }),
-      minutes: he({ placeholder: "_A_DATEPICKER_MINUTES_" }),
-      seconds: he({ placeholder: "_A_DATEPICKER_SECONDS_" }),
-      headerYears: (t, _) => he({
+      hours: Ce({ placeholder: "_A_DATEPICKER_HOURS_" }),
+      minutes: Ce({ placeholder: "_A_DATEPICKER_MINUTES_" }),
+      seconds: Ce({ placeholder: "_A_DATEPICKER_SECONDS_" }),
+      headerYears: (t, _) => Ce({
         placeholder: "_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_",
         extra: {
           firstYear: t,
@@ -16555,7 +16555,7 @@ const B_t = {
           ariaExpanded: this.isOpen,
           ...this.$attrs
         }, [
-          this.isTextOrHtmlVisible && d(pe, {
+          this.isTextOrHtmlVisible && d(he, {
             alwaysTranslate: this.alwaysTranslate,
             html: this.htmlLocal,
             safeHtml: this.safeHtmlLocal,
@@ -17443,7 +17443,7 @@ function V0(e, {
     isMobileWidth: L
   } = D_(), {
     translationChanges: f
-  } = el(), h = E(() => it(c.value) ? L.value ? c.value.mobile : c.value.desktop : c.value), C = E(() => it(o.value) ? L.value ? o.value.mobile : o.value.desktop : o.value), p = E(() => Ce(c.value)), R = E(() => Ce(o.value)), O = E(() => p.value ? c.value.length > 0 : !$e(h.value)), b = E(() => R.value ? o.value.length > 0 : !$e(C.value)), m = E(() => _.value ? `<span>${a.value}</span>` : ""), v = E(() => t.value ? `<span>${n.value}</span>` : ""), D = E(() => {
+  } = el(), h = E(() => it(c.value) ? L.value ? c.value.mobile : c.value.desktop : c.value), C = E(() => it(o.value) ? L.value ? o.value.mobile : o.value.desktop : o.value), p = E(() => pe(c.value)), R = E(() => pe(o.value)), O = E(() => p.value ? c.value.length > 0 : !$e(h.value)), b = E(() => R.value ? o.value.length > 0 : !$e(C.value)), m = E(() => _.value ? `<span>${a.value}</span>` : ""), v = E(() => t.value ? `<span>${n.value}</span>` : ""), D = E(() => {
     const Y = {
       safeHtml: void 0,
       html: void 0,
@@ -17531,7 +17531,7 @@ function $0(e) {
     isMobileWidth: l
   } = D_(), {
     translationChanges: o
-  } = el(), c = E(() => it(n.value) ? l.value ? n.value.mobile : n.value.desktop : n.value), S = E(() => Ce(n.value)), A = E(() => S.value ? n.value.length > 0 : !$e(c.value)), L = E(() => {
+  } = el(), c = E(() => it(n.value) ? l.value ? n.value.mobile : n.value.desktop : n.value), S = E(() => pe(n.value)), A = E(() => S.value ? n.value.length > 0 : !$e(c.value)), L = E(() => {
     const f = {
       text: void 0,
       dataTranslateText: void 0
@@ -17575,7 +17575,7 @@ function w0(e) {
     isMobileWidth: l
   } = D_(), {
     translationChanges: o
-  } = el(), c = E(() => it(n.value) ? l.value ? n.value.mobile : n.value.desktop : n.value), S = E(() => Ce(n.value)), A = E(() => S.value ? n.value.length > 0 : !(oe(c.value) || c.value === ""));
+  } = el(), c = E(() => it(n.value) ? l.value ? n.value.mobile : n.value.desktop : n.value), S = E(() => pe(n.value)), A = E(() => S.value ? n.value.length > 0 : !(oe(c.value) || c.value === ""));
   return {
     titleLocalOptions: E(() => {
       if (!o.value)
@@ -17598,7 +17598,7 @@ function w0(e) {
     })
   };
 }
-const pe = {
+const he = {
   name: "ATranslation",
   props: {
     alwaysTranslate: {
@@ -17742,7 +17742,7 @@ const pe = {
   }
 };
 function G0(e) {
-  const t = u(e, "error"), _ = E(() => ut(t.value)), n = E(() => Ce(t.value)), a = E(() => it(t.value));
+  const t = u(e, "error"), _ = E(() => ut(t.value)), n = E(() => pe(t.value)), a = E(() => it(t.value));
   return {
     isErrorArray: n,
     isErrorObject: a,
@@ -17750,7 +17750,7 @@ function G0(e) {
   };
 }
 function x0(e) {
-  const t = u(e, "errorLabels"), _ = E(() => ut(t.value) ? t.value : it(t.value) ? t.value[dt] : ""), n = E(() => Ce(t.value));
+  const t = u(e, "errorLabels"), _ = E(() => ut(t.value) ? t.value : it(t.value) ? t.value[dt] : ""), n = E(() => pe(t.value));
   return {
     currentLabel: _,
     isErrorLabelsArray: n
@@ -17877,7 +17877,7 @@ const q0 = {
       class: "a_errors__label",
       "aria-describedby": this.id
     }, [
-      d(pe, {
+      d(he, {
         tag: "strong",
         safeHtml: this.currentLabel
       })
@@ -17892,7 +17892,7 @@ const q0 = {
           class: "a_errors__errors"
         },
         this.isErrorString ? [
-          d(pe, {
+          d(he, {
             alwaysTranslate: this.alwaysTranslate,
             tag: "span",
             html: this.error
@@ -17966,7 +17966,7 @@ function Jh() {
 function j0(e, {
   htmlIdLocal: t = E(() => "")
 }) {
-  const _ = u(e, "errors"), n = E(() => _.value ? ut(_.value) ? !0 : Ce(_.value) ? !!tr(_.value) : !1 : !1);
+  const _ = u(e, "errors"), n = E(() => _.value ? ut(_.value) ? !0 : pe(_.value) ? !!tr(_.value) : !1 : !1);
   return {
     errorsId: E(() => `${t.value}_errors_text`),
     isErrors: n
@@ -18208,7 +18208,7 @@ const J0 = {
         d("div", {
           class: "a_errors__header"
         }, [
-          d(pe, {
+          d(he, {
             tag: "strong",
             html: this.textErrorHeader
           })
@@ -18257,7 +18257,7 @@ const J0 = {
       id: this.id,
       class: "a_form_element__invalid_text"
     }, [
-      this.errorsLocal.map((e) => d(pe, {
+      this.errorsLocal.map((e) => d(he, {
         tag: "li",
         html: e
       }))
@@ -19757,7 +19757,7 @@ const Zh = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     }
   },
   render() {
-    return this.html && d(pe, {
+    return this.html && d(he, {
       id: this.id,
       alwaysTranslate: this.alwaysTranslate,
       class: "a_form_element__help_text",
@@ -20095,7 +20095,7 @@ function e_(e) {
       return !1;
     if (it(t.value))
       return !a(t.value);
-    if (Ce(t.value)) {
+    if (pe(t.value)) {
       let o = !1;
       return W(t.value, (c) => {
         if (!a(c))
@@ -20168,7 +20168,7 @@ const CF = {
       labelDescriptionId: L,
       onBlur: f,
       onFocus: h
-    } = Qt(e, t), C = u(e, "isMultiple"), p = u(e, "modelValue"), R = E(() => C.value ? !!(Ce(p.value) && p.value.length > 0) : !!(it(p.value) && tr(p.value) > 0)), O = E(() => R.value ? C.value ? p.value : [p.value] : []), b = y(void 0), m = u(e, "disabled"), v = (Y) => {
+    } = Qt(e, t), C = u(e, "isMultiple"), p = u(e, "modelValue"), R = E(() => C.value ? !!(pe(p.value) && p.value.length > 0) : !!(it(p.value) && tr(p.value) > 0)), O = E(() => R.value ? C.value ? p.value : [p.value] : []), b = y(void 0), m = u(e, "disabled"), v = (Y) => {
       if (m.value)
         return;
       const F = Y.target.files;
@@ -21816,7 +21816,7 @@ const MF = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
                 onBlur: this.onBlur
               })
             ]),
-            this.parseError ? d(pe, {
+            this.parseError ? d(he, {
               alwaysTranslate: this.alwaysTranslate,
               class: "a_form_element__invalid_text",
               html: "_A_JSON_ERROR_HTML_{{error}}_",
@@ -21828,7 +21828,7 @@ const MF = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
           d("div", {
             class: "a_column a_column_6 a_column_12_touch"
           }, [
-            d(pe, {
+            d(he, {
               tag: "div",
               text: "_A_JSON_CURRENT_VALUE_"
             }),
@@ -21900,7 +21900,7 @@ function wF(e) {
     ariaLabelAttributes: E(() => gd({
       attr: "aria-label",
       value: t.value,
-      translation: he({ placeholder: t.value })
+      translation: Ce({ placeholder: t.value })
     })),
     getIdBtnDown: s,
     getIdBtnUp: a,
@@ -22196,10 +22196,10 @@ function WF(e, {
   },
   dataKeyByKeyIdLocal: _ = E(() => ({}))
 }) {
-  const n = u(e, "modelValue"), a = E(() => !Ce(n.value) || !n.value.length ? [] : Lt(n.value, (S) => _.value[S]));
+  const n = u(e, "modelValue"), a = E(() => !pe(n.value) || !n.value.length ? [] : Lt(n.value, (S) => _.value[S]));
   return {
     changeModelFromSelect: ({ model: S }) => {
-      if (Ce(S) && S.length) {
+      if (pe(S) && S.length) {
         const A = se(n.value);
         A.push(...S), t({ model: A });
       }
@@ -22960,12 +22960,12 @@ const aC = "AIsDataPrepared", XF = {
             this.isDeselectAll || this.isSelectAll || !this.modelValueFiltered.length ? d("div", {
               class: "a_m_select_ordered__panel"
             }, [
-              this.modelValueFiltered.length ? "" : d(pe, {
+              this.modelValueFiltered.length ? "" : d(he, {
                 class: "a_m_select_ordered__empty",
                 tag: "div",
                 html: this.textModelEmpty
               }),
-              d(pe, {
+              d(he, {
                 ariaLabel: this.textGroupAllAriaLabel,
                 role: "group",
                 class: "a_btn_group",
@@ -24172,7 +24172,7 @@ const rC = {
                   }, this.$slots))
                 ])
               ]),
-              !this.dataSort.length || this.hasNotElementsWithSearch ? d(pe, {
+              !this.dataSort.length || this.hasNotElementsWithSearch ? d(he, {
                 alwaysTranslate: this.alwaysTranslate,
                 class: "a_form__not_elements",
                 text: ((_ = this.texts) == null ? void 0 : _.notElementsWithSearch) || "_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_"
@@ -24835,14 +24835,14 @@ const VL = {
         label: this.currentLabel,
         inDropdown: !1
       }) : d("span", [
-        this.groupLabel ? d(pe, {
+        this.groupLabel ? d(he, {
           alwaysTranslate: this.alwaysTranslate,
           tag: "span",
           html: this.groupLabel,
           extra: this.data.extra,
           textAfter: ":&nbsp;"
         }) : "",
-        d(pe, {
+        d(he, {
           alwaysTranslate: this.alwaysTranslate,
           tag: "span",
           html: this.currentLabel,
@@ -24893,7 +24893,7 @@ function ow(e, {
 function Ew(e) {
   const t = u(e, "exclusiveOptionLabel"), _ = u(e, "exclusiveOptionValue"), n = u(e, "extra"), a = u(e, "isExclusiveOptionEnabled"), s = u(e, "searchTextInHtml"), l = E(() => {
     if (a.value) {
-      const c = he({
+      const c = Ce({
         placeholder: t.value,
         extra: n.value
       }), S = {
@@ -24917,7 +24917,7 @@ function uw(e) {
 function cw(e, {
   dataKeyByKeyIdLocal: t = E(() => ({}))
 }) {
-  const _ = u(e, "countMultiselect"), n = u(e, "exclusiveOptionValue"), a = u(e, "modelValue"), s = u(e, "type"), l = E(() => s.value === "multiselect"), o = E(() => !l.value || !a.value || !Ce(a.value) ? [] : Lt(a.value, (f) => t.value[f] || f === n.value)), c = E(() => l.value ? o.value.length > 0 : !oe(a.value)), S = E(() => {
+  const _ = u(e, "countMultiselect"), n = u(e, "exclusiveOptionValue"), a = u(e, "modelValue"), s = u(e, "type"), l = E(() => s.value === "multiselect"), o = E(() => !l.value || !a.value || !pe(a.value) ? [] : Lt(a.value, (f) => t.value[f] || f === n.value)), c = E(() => l.value ? o.value.length > 0 : !oe(a.value)), S = E(() => {
     var f;
     return ((f = o.value) == null ? void 0 : f.length) || 0;
   }), A = E(() => S.value > _.value), L = E(() => ({
@@ -26022,7 +26022,7 @@ const Se = {
               ]) : d("span", {
                 class: "a_select__value__label"
               }, [
-                this.isModelLengthLimitExceeded ? d(pe, {
+                this.isModelLengthLimitExceeded ? d(he, {
                   alwaysTranslate: this.alwaysTranslate,
                   text: "_A_SELECT_SELECTED_{{count}}_",
                   extra: {
@@ -26043,7 +26043,7 @@ const Se = {
                 data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
                 class: "a_select__value__label",
                 slotName: this.slotName
-              }, this.$slots) : d(pe, {
+              }, this.$slots) : d(he, {
                 tag: "span",
                 text: this.placeholder
               }),
@@ -26139,7 +26139,10 @@ const Se = {
                             icon: xd
                           })
                         ]),
-                        d("span", null, this.textSelectAll)
+                        d(he, {
+                          html: this.textSelectAll,
+                          tag: "span"
+                        })
                       ]),
                       this.isMultiselect && this.isDeselectAll && d("div", {
                         class: [
@@ -26161,7 +26164,10 @@ const Se = {
                             icon: na
                           })
                         ]),
-                        d("span", null, this.textDeselectAll)
+                        d(he, {
+                          html: this.textDeselectAll,
+                          tag: "span"
+                        })
                       ]),
                       this.isDividerSelectDeselectVisible && d("div", {
                         class: "a_select__divider",
@@ -26254,7 +26260,7 @@ const Se = {
                           }, this.$slots))
                         ])
                       ]),
-                      !this.dataSort.length && !this.hasDataExtra || this.hasNotElementsWithSearch ? d(pe, {
+                      !this.dataSort.length && !this.hasDataExtra || this.hasNotElementsWithSearch ? d(he, {
                         alwaysTranslate: this.alwaysTranslate,
                         class: "a_form__not_elements",
                         text: "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_"
@@ -29034,10 +29040,10 @@ function pw(e) {
         ...vl.cssClasses,
         ..._.value
       ];
-      return n.value ? Ce(n.value) ? Lt(s, (l) => xl(n.value, l.group)) : it(n.value) ? Lt(s, (l) => {
+      return n.value ? pe(n.value) ? Lt(s, (l) => xl(n.value, l.group)) : it(n.value) ? Lt(s, (l) => {
         const o = l.group, c = l.subGroup;
         if (o in n.value)
-          return n.value[o] === !0 ? !0 : Ce(n.value[o]) ? xl(n.value[o], c) : !1;
+          return n.value[o] === !0 ? !0 : pe(n.value[o]) ? xl(n.value[o], c) : !1;
       }) : [] : s;
     })
   };
@@ -29060,7 +29066,7 @@ function Rw({ emit: e }) {
 }
 function Iw() {
   return {
-    keyLabelCallback: ({ item: t }) => `${he({
+    keyLabelCallback: ({ item: t }) => `${Ce({
       placeholder: t.label
     })} (<code>${t.value}</code>)`
   };
@@ -29264,7 +29270,7 @@ const FL = {
     keyTitleCallback: {
       type: Function,
       required: !1,
-      default: ({ item: e }) => he({
+      default: ({ item: e }) => Ce({
         placeholder: e.label
       })
     },
@@ -29827,7 +29833,7 @@ const sC = {
                 onFocus: this.onFocus,
                 onBlur: this.onBlur
               }),
-              d(pe, {
+              d(he, {
                 alwaysTranslate: this.alwaysTranslate,
                 tag: "label",
                 class: [
@@ -30832,7 +30838,7 @@ function Xw(e) {
   } = Jh();
   return {
     label: E(() => {
-      let A = he({
+      let A = Ce({
         placeholder: _.value,
         extra: {
           elementLabel: t.value,
@@ -31149,7 +31155,7 @@ function Qw(e) {
     required: !0,
     label: "_A_VALIDATED_JSON_ID_LABEL_",
     helpText: "_A_VALIDATED_JSON_ID_HELP_TEXT_"
-  })), o = (S) => S.reduce((A, L) => (L.readonly || (Ce(L.children) && L.children.length && (L.children = o(L.children)), A.push(L)), A), []);
+  })), o = (S) => S.reduce((A, L) => (L.readonly || (pe(L.children) && L.children.length && (L.children = o(L.children)), A.push(L)), A), []);
   return {
     childrenFiltered: E(() => {
       if (a.value || s.value)
@@ -31235,7 +31241,7 @@ function _G(e, { emit: t }, {
   htmlIdLocal: _ = E(() => {
   })
 }) {
-  const n = u(e, "change"), a = u(e, "id"), s = u(e, "modelValue"), l = y(!1), o = E(() => Ce(s.value) ? s.value : []), c = () => {
+  const n = u(e, "change"), a = u(e, "id"), s = u(e, "modelValue"), l = y(!1), o = E(() => pe(s.value) ? s.value : []), c = () => {
     l.value = !0;
   }, S = ({ model: p } = {}) => {
     if (p) {
@@ -31365,7 +31371,7 @@ function aG(e, {
 function rG(e) {
   const t = u(e, "elementLabel");
   return {
-    elementLabelTranslated: E(() => he({
+    elementLabelTranslated: E(() => Ce({
       placeholder: t.value || "_A_VALIDATED_JSON_ELEMENTS_"
     }))
   };
@@ -31741,7 +31747,7 @@ const sG = {
                 onMove: this.moveListMode,
                 onUpdate: this.updateListMode
               });
-            }) : d(pe, {
+            }) : d(he, {
               class: "a_list_group__item",
               tag: "li",
               text: "_A_VALIDATED_JSON_NO_ELEMENTS_"
@@ -31806,7 +31812,7 @@ const sG = {
           d("ul", {
             class: "a_list_group"
           }, [
-            this.isModelJsonModeEmpty ? d(pe, {
+            this.isModelJsonModeEmpty ? d(he, {
               class: "a_list_group__item",
               tag: "li",
               text: "_A_VALIDATED_JSON_NO_ELEMENTS_"
@@ -32949,7 +32955,7 @@ function CG(e) {
   };
 }
 function pG({ filter: e, currentModel: t }) {
-  return !(!e || e.hideFilterCenter || oe(t) || t === "" || Ce(t) && !t.length);
+  return !(!e || e.hideFilterCenter || oe(t) || t === "" || pe(t) && !t.length);
 }
 function RG(e) {
   const t = u(e, "filter"), _ = u(e, "model");
@@ -33001,7 +33007,7 @@ function bG(e, {
     var h;
     return (h = l.value) != null && h.length ? Lt(l.value, (C) => S.value && S.value[C]) : [];
   }), L = ({ label: h, suffixTranslated: C }) => {
-    const p = he({
+    const p = Ce({
       placeholder: h
     });
     return C ? `${p} ${C}` : p;
@@ -33051,7 +33057,7 @@ function bG(e, {
           return [{
             filterLabelTranslated: L({ label: t.value }),
             filterLabelForTitleTranslated: L({ label: _.value }),
-            label: he({
+            label: Ce({
               placeholder: "_A_FILTERS_SELECTED_{{count}}_",
               extra: {
                 count: A.value.length,
@@ -33070,7 +33076,7 @@ function bG(e, {
       if (s.value.type === "dateRange") {
         const B = s.value.keyFrom || "from", Y = s.value.keyUntil || "until", F = [];
         if (!oe((C = l.value) == null ? void 0 : C[B]) && ((p = l.value) == null ? void 0 : p[B]) !== "") {
-          const N = he({
+          const N = Ce({
             placeholder: s.value.labelFrom || "_A_DATEPICKER_RANGE_FROM_"
           });
           F.push({
@@ -33088,7 +33094,7 @@ function bG(e, {
           });
         }
         if (!oe((R = l.value) == null ? void 0 : R[Y]) && ((O = l.value) == null ? void 0 : O[Y]) !== "") {
-          const N = he({
+          const N = Ce({
             placeholder: s.value.labelUntil || "_A_DATEPICKER_RANGE_UNTIL_"
           });
           F.push({
@@ -33110,7 +33116,7 @@ function bG(e, {
       if (zd.indexOf(s.value.type) !== -1) {
         const B = s.value.keyMax || "max", Y = s.value.keyMin || "min", F = [];
         if (!oe((b = l.value) == null ? void 0 : b[Y]) && ((m = l.value) == null ? void 0 : m[Y]) !== "") {
-          const N = he({
+          const N = Ce({
             placeholder: s.value.labelMin || "_A_INPUT_NUMBER_RANGE_LABEL_MIN_"
           });
           F.push({
@@ -33128,7 +33134,7 @@ function bG(e, {
           });
         }
         if (!oe((v = l.value) == null ? void 0 : v[B]) && ((D = l.value) == null ? void 0 : D[B]) !== "") {
-          const N = he({
+          const N = Ce({
             placeholder: s.value.labelMax || "_A_INPUT_NUMBER_RANGE_LABEL_MAX_"
           });
           F.push({
@@ -33284,7 +33290,7 @@ const mG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
             class: "a_filters_center__item__label",
             ariaHidden: !0
           }, [
-            d(pe, {
+            d(he, {
               tag: "span",
               html: e.filterLabelTranslated,
               textAfter: ":"
@@ -34103,12 +34109,12 @@ const jG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
               d("div", {
                 class: "a_filter_horizontal__header__texts"
               }, [
-                d(pe, {
+                d(he, {
                   class: "a_filter_horizontal__header__texts__filter",
                   tag: "span",
                   text: "_A_FILTERS_HOR_FILTER_HEADER_"
                 }),
-                this.isModelFilterSavedNew ? d(pe, {
+                this.isModelFilterSavedNew ? d(he, {
                   class: "a_filter_horizontal__header__texts__new",
                   tag: "em",
                   text: this.modelFiltersSaved
@@ -34181,7 +34187,7 @@ const jG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
                     type: "select"
                   }, {
                     fixedPlaceholder: () => [
-                      d(pe, {
+                      d(he, {
                         tag: "span",
                         ariaHidden: !0,
                         class: "a_position_absolute_all",
@@ -34897,7 +34903,7 @@ const G_t = {
     }
   },
   render() {
-    return d(pe, {
+    return d(he, {
       alwaysTranslate: this.alwaysTranslate,
       class: "a_required",
       html: this.text
@@ -35375,7 +35381,7 @@ const RE = {
     }
   },
   render() {
-    return !this.isLabelFloat && this.html ? d(pe, {
+    return !this.isLabelFloat && this.html ? d(he, {
       id: this.id,
       alwaysTranslate: this.alwaysTranslate,
       class: "a_form_element__label_description",
@@ -35560,7 +35566,7 @@ const I_ = {
           this.valueParentClass
         ]
       }, [
-        this.$slots.default ? this.$slots.default() : d(pe, {
+        this.$slots.default ? this.$slots.default() : d(he, {
           class: this.valueClass,
           extra: this.extra,
           html: this.modelValueReadonly,
@@ -35636,7 +35642,7 @@ const I_ = {
       return e;
     },
     keyLabelLocal() {
-      return Ce(this.keyLabel) ? this.keyLabel.join(".") : this.keyLabel;
+      return pe(this.keyLabel) ? this.keyLabel.join(".") : this.keyLabel;
     }
   },
   methods: {
@@ -35644,7 +35650,7 @@ const I_ = {
       if ($e(this.replacedWithDefault))
         return !1;
       let t = !1;
-      return Ce(this.replacedWithDefault) ? W(this.replacedWithDefault, (_) => {
+      return pe(this.replacedWithDefault) ? W(this.replacedWithDefault, (_) => {
         if (_ === e)
           return t = !0, !1;
       }) : this.replacedWithDefault === e && (t = !0), t;
@@ -36385,7 +36391,7 @@ function I1(e) {
   const t = u(e, "isDataSimpleArray"), _ = u(e, "item"), n = u(e, "keyChildren"), a = E(() => an(_.value)), s = E(() => {
     var o;
     return t.value ? (o = _.value) == null ? void 0 : o[1] : !n.value || !a.value ? [] : ue(_.value, n.value) || [];
-  }), l = E(() => Ce(s.value) && s.value.length > 0);
+  }), l = E(() => pe(s.value) && s.value.length > 0);
   return {
     children: s,
     hasChildren: l
@@ -36396,7 +36402,7 @@ function O1(e) {
   return {
     label: E(() => {
       var o;
-      return t.value ? Ce(_.value) ? ((o = _.value) == null ? void 0 : o[0]) || "" : _.value : Be(s.value) ? s.value({ item: _.value, itemIndex: n.value }) : a.value ? ue(_.value, a.value) : _.value;
+      return t.value ? pe(_.value) ? ((o = _.value) == null ? void 0 : o[0]) || "" : _.value : Be(s.value) ? s.value({ item: _.value, itemIndex: n.value }) : a.value ? ue(_.value, a.value) : _.value;
     })
   };
 }
@@ -36804,7 +36810,7 @@ const zl = {
     };
   },
   render() {
-    const e = this.textAlign === "left", t = d(pe, {
+    const e = this.textAlign === "left", t = d(he, {
       alwaysTranslate: this.alwaysTranslate,
       tag: "span",
       class: [
@@ -36851,9 +36857,9 @@ const zl = {
 function TC(e) {
   const t = u(e, "selectorClose"), _ = u(e, "selectorCloseIds"), n = E(() => {
     const l = [];
-    return _.value && (ut(_.value) ? l.push(`#${_.value}`) : Ce(_.value) && W(_.value, (o) => {
+    return _.value && (ut(_.value) ? l.push(`#${_.value}`) : pe(_.value) && W(_.value, (o) => {
       l.push(`#${o}`);
-    })), t.value && (ut(t.value) ? l.push(t.value) : Ce(t.value) && l.push(...t.value)), l;
+    })), t.value && (ut(t.value) ? l.push(t.value) : pe(t.value) && l.push(...t.value)), l;
   }), a = ({ selector: l }) => {
     const o = document.querySelector(l);
     return o ? (o.focus(), !0) : !1;
@@ -37113,7 +37119,7 @@ const ci = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     if (this.isSearchActive || this.isPanelMain)
       return null;
     if (this.isBreadcrumbsTruncated)
-      return d(pe, {
+      return d(he, {
         ariaLabel: "_A_MENU_2_BREADCRUMB_",
         class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav"
@@ -37205,7 +37211,7 @@ const ci = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
         ])
       ]);
     if (!this.isBreadcrumbsTruncated)
-      return d(pe, {
+      return d(he, {
         ariaLabel: "_A_MENU_2_BREADCRUMB_",
         class: "a_menu__breadcrumb a_menu__breadcrumb_secondary",
         tag: "nav"
@@ -37877,7 +37883,7 @@ const HL = {
       this.isHeaderPanelVisible && d("div", {
         class: "a_menu__panel_header"
       }, [
-        d(pe, {
+        d(he, {
           class: "a_menu__panel_header__text",
           html: this.parentLabel,
           tag: "strong"
@@ -38118,7 +38124,7 @@ const rx = {
       d("div", {
         class: "a_menu__navbar_top_sub"
       }, [
-        d(pe, {
+        d(he, {
           class: "a_menu__navbar_top_sub__text",
           tag: "strong",
           text: this.textLocal,
@@ -38464,7 +38470,7 @@ function dx(e) {
       parentLabel: p
     });
     let b;
-    if (l.value ? b = l.value({ item: O }) : b = ue(O, s.value), _.value && pa(b) && (b = he({ placeholder: b })), O[dt] = b, n.value) {
+    if (l.value ? b = l.value({ item: O }) : b = ue(O, s.value), _.value && pa(b) && (b = Ce({ placeholder: b })), O[dt] = b, n.value) {
       const m = ue(O, n.value);
       m && m.length && (c({
         dataClone: m,
@@ -39176,7 +39182,7 @@ const Ix = 34, Ox = 20, X_t = {
         d("div", {
           class: "a_menu__navbar_top_sub"
         }, [
-          d(pe, {
+          d(he, {
             id: this.headerId,
             class: "a_menu__navbar_top_sub__text",
             tag: "strong",
@@ -39827,7 +39833,7 @@ const Me = y({
                   this.headerText ? d(this.headerTag, {
                     class: "a_modal_title"
                   }, [
-                    d(pe, {
+                    d(he, {
                       alwaysTranslate: this.alwaysTranslate,
                       tag: "span",
                       html: this.headerText,
@@ -39853,7 +39859,7 @@ const Me = y({
                   ref: "modal_body",
                   class: "a_modal_body__content"
                 }, [
-                  this.bodyHtml && d(pe, {
+                  this.bodyHtml && d(he, {
                     id: this.bodyHtmlId,
                     alwaysTranslate: this.alwaysTranslate,
                     class: this.bodyHtmlClass,
@@ -40264,7 +40270,7 @@ const hC = {
       ...this.$slots || {},
       modalBody: () => [
         this.$slots.modalBodyPrepend && this.$slots.modalBodyPrepend(),
-        this.bodyHtml && d(pe, {
+        this.bodyHtml && d(he, {
           id: this.bodyHtmlId,
           alwaysTranslate: this.alwaysTranslate,
           class: this.bodyHtmlClass,
@@ -40574,7 +40580,7 @@ const Kx = {
             this.step.icon ? d(At, {
               class: "a_wizard__step__number__icon",
               icon: this.step.icon
-            }) : d(pe, {
+            }) : d(he, {
               class: "a_wizard__step__number__text",
               tag: "span",
               text: this.stepNumberText,
@@ -40587,7 +40593,7 @@ const Kx = {
           d("span", {
             class: "a_wizard__step__text"
           }, [
-            d(pe, {
+            d(he, {
               id: this.stepTextId,
               class: "a_wizard__step__text__child",
               extra: this.extra,
@@ -40604,7 +40610,7 @@ const Kx = {
             }) : ""
           ])
         ]),
-        d(pe, {
+        d(he, {
           id: this.stepStatusTextId,
           class: "a_sr_only",
           tag: "span",
@@ -41442,7 +41448,7 @@ const cH = {
       ],
       ...this.ariaLabelAttributes
     }, [
-      d(pe, {
+      d(he, {
         id: this.idProgressbar,
         class: "a_sr_only",
         extra: {
@@ -42091,7 +42097,7 @@ const J_t = {
         alertClass: "a_notification",
         onClose: () => this.removeNotification(e.index)
       }, () => [
-        d(pe, {
+        d(he, {
           alwaysTranslate: e.alwaysTranslate,
           html: e.text,
           extra: e.extra
@@ -42243,12 +42249,12 @@ const CH = {
     return d("div", {
       class: "a_pagination__counts"
     }, this.mode === "inline" || this.mode === "group" ? [
-      this.showTextCountFromTo ? d(pe, {
+      this.showTextCountFromTo ? d(he, {
         class: "a_pagination__count_from_to",
         html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
         extra: this.extraForTranslate
       }) : "",
-      d(pe, {
+      d(he, {
         tag: "span",
         class: "a_pagination__count__text",
         html: "_A_COUNT_PER_PAGE_"
@@ -42312,7 +42318,7 @@ const CH = {
         })
       ])
     ] : [
-      this.showTextCountFromTo ? d(pe, {
+      this.showTextCountFromTo ? d(he, {
         class: "a_pagination__count_from_to",
         html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
         extra: this.extraForTranslate
@@ -42507,7 +42513,7 @@ const OH = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     };
   },
   render() {
-    return d(pe, {
+    return d(he, {
       tag: "nav",
       class: "a_pagination__nav",
       "aria-label": "_A_PAGINATION_NAVIGATION_"
@@ -42555,7 +42561,7 @@ const OH = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
           this.mode === "short" ? d("li", {
             class: "a_pagination__item"
           }, [
-            d(pe, {
+            d(he, {
               class: "a_pagination__item__link disabled",
               html: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
               extra: {
@@ -43264,7 +43270,7 @@ const tnt = {
   name: "ARate",
   components: {
     AIcon: At,
-    ATranslation: pe,
+    ATranslation: he,
     ARateIcon: WL
   },
   props: {
@@ -43409,7 +43415,7 @@ const tnt = {
         key: t
       })),
       this.showScore && d("span", { class: "a_rate_score" }, this.modelValue.toString()),
-      d(pe, {
+      d(he, {
         class: "a_rate_label",
         text: this.text,
         extra: this.extra
@@ -43854,10 +43860,10 @@ const KL = {
 function GH(e) {
   const t = u(e, "points"), _ = (a) => J_(a, (l) => {
     let o = "";
-    return ut(l) ? o = l : Ce(l) && (o = l.join(",")), o;
+    return ut(l) ? o = l : pe(l) && (o = l.join(",")), o;
   }).join(" ");
   return {
-    pointsLocal: E(() => ut(t.value) ? t.value : Ce(t.value) ? _(t.value) : "")
+    pointsLocal: E(() => ut(t.value) ? t.value : pe(t.value) ? _(t.value) : "")
   };
 }
 const xH = {
@@ -44443,7 +44449,7 @@ function _q(e, {
       return 0;
     const te = hn(_.value, (J) => J[Tn] === ee);
     return te === -1 ? 0 : te / R.value * 100;
-  }, m = E(() => c.value ? Ce(o.value) ? o.value : [] : o.value), v = E(() => c.value ? m.value[0] : m.value), D = E(() => c.value ? m.value[1] : 0), B = E(() => c.value ? Math.min(v.value, D.value) : a.value), Y = E(() => c.value ? Math.max(v.value, D.value) : v.value), F = () => {
+  }, m = E(() => c.value ? pe(o.value) ? o.value : [] : o.value), v = E(() => c.value ? m.value[0] : m.value), D = E(() => c.value ? m.value[1] : 0), B = E(() => c.value ? Math.min(v.value, D.value) : a.value), Y = E(() => c.value ? Math.max(v.value, D.value) : v.value), F = () => {
     C.value && (p.value = C.value[`client${A.value ? "Height" : "Width"}`]);
   }, N = ({ index: ee, isFirstButton: te = !0 }) => {
     var J;
@@ -44519,7 +44525,7 @@ function _q(e, {
     }
     k && (ee.preventDefault(), J !== ge && N({ index: J, isFirstButton: te }));
   }, z = () => {
-    F(), c.value && (!Ce(m.value) || m.value.length !== 2) && t({ model: [a.value, n.value] });
+    F(), c.value && (!pe(m.value) || m.value.length !== 2) && t({ model: [a.value, n.value] });
   };
   return nt(() => [A.value, l.value], () => {
     tn(F);
@@ -45550,7 +45556,7 @@ const rnt = {
           ariaExpanded: this.ariaExpanded,
           ...this.$attrs
         }, [
-          this.isTextOrHtmlVisible && d(pe, {
+          this.isTextOrHtmlVisible && d(he, {
             alwaysTranslate: this.alwaysTranslate,
             tag: "div",
             text: this.textLocal,
@@ -45692,7 +45698,7 @@ function OC(e, { emit: t }, {
 function fq(e) {
   const t = u(e, "column"), _ = u(e, "searchColumnModel"), {
     filterSearchHighlight: n
-  } = rn(), a = E(() => pa(t.value.label) ? he({
+  } = rn(), a = E(() => pa(t.value.label) ? Ce({
     placeholder: t.value.label
   }) : t.value.label);
   return {
@@ -45752,7 +45758,7 @@ const Cq = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
   name: "ATableHeaderThActionItem",
   components: {
     AIcon: At,
-    ATranslation: pe
+    ATranslation: he
   },
   props: {
     column: {
@@ -45854,18 +45860,18 @@ const Cq = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
               icon: this.column.icon,
               class: "a_table__th__icon"
             }),
-            d(pe, {
+            d(he, {
               tag: "span",
               class: "a_table__th__text",
               safeHtml: this.labelLocal
             }),
-            this.column.title && d(pe, {
+            this.column.title && d(he, {
               title: this.column.title,
               ariaHidden: !0,
               tag: "span",
               class: "a_position_absolute_all"
             }),
-            this.column.title && d(pe, {
+            this.column.title && d(he, {
               text: this.column.title,
               tag: "span",
               class: "a_sr_only"
@@ -46594,12 +46600,12 @@ const qc = {
           "a_table__cell__child"
         ]
       }, [
-        this.columnGroupNames && d(pe, {
+        this.columnGroupNames && d(he, {
           html: this.columnGroupNames,
           tag: "span",
           class: "a_sr_only"
         }),
-        d(pe, {
+        d(he, {
           id: this.columnTextScreenReaderId,
           text: this.titlesLocal,
           tag: "span",
@@ -46623,7 +46629,7 @@ const qc = {
           textScreenReader: this.column.textScreenReader || void 0,
           ...this.attributesForButtonSort
         }, () => [
-          this.column.label && d(pe, {
+          this.column.label && d(he, {
             html: this.column.label,
             tag: "span",
             extra: this.column.extra,
@@ -47022,7 +47028,7 @@ const wq = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
   render() {
     const e = [
       this.isLoadingTable ? d(jl) : d("div", {}, [
-        d(pe, {
+        d(he, {
           class: "a_table__preview_right__header__text",
           tag: "span",
           text: "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_",
@@ -47066,7 +47072,7 @@ const wq = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
       this.isLoadingTable ? d(jl) : this.$slots.preview ? this.$slots.preview({
         row: this.currentRow,
         rowIndex: this.rowIndex
-      }) : d(pe, {
+      }) : d(he, {
         text: "_A_TABLE_PREVIEW_RIGHT_HAS_NOT_SLOT_"
       })
     ];
@@ -47093,7 +47099,7 @@ const wq = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
         onMouseup: this.mouseup,
         onMouseoutDocument: this.mouseup
       }),
-      d(pe, {
+      d(he, {
         class: "a_sr_only",
         text: "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_"
       }),
@@ -47386,7 +47392,7 @@ const zL = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
             d("div", {
               class: "a_filter_horizontal__header__texts"
             }, [
-              d(pe, {
+              d(he, {
                 class: "a_filter_horizontal__header__texts__filter",
                 tag: "span",
                 text: "_A_TABLE_SORT_ADDITIONAL_HEADER_"
@@ -47504,7 +47510,7 @@ function jq(e, { emit: t }) {
         bodyHtml: "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BODY_HTML_{{action}}_{{selectedRows}}_",
         saveButtonText: "_A_TABLE_EXECUTE_MULTIPLE_ACTION_BTN_SAVE_",
         extra: {
-          action: he({
+          action: Ce({
             placeholder: c.value.text
           }),
           selectedRows: s.value.length
@@ -47779,7 +47785,7 @@ const ek = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
         }) : d(this.labelTag, {
           class: ["a_table__top_panel__label", this.labelClass]
         }, [
-          d(pe, {
+          d(he, {
             id: this.tableLabelId,
             tag: "span",
             class: "a_table__top_panel__label__text",
@@ -47886,7 +47892,7 @@ const ek = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
         d("div", {
           class: "a_table__multiple_panel__header"
         }, [
-          d(pe, {
+          d(he, {
             class: "a_table__multiple_panel__header__text",
             tag: "strong",
             text: "_A_TABLE_MULTIPLE_ACTIONS_"
@@ -47894,7 +47900,7 @@ const ek = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
           d("div", {
             class: "a_table__multiple_panel__items"
           }, [
-            d(pe, {
+            d(he, {
               class: "a_table__multiple_panel__items__selected",
               tag: "span",
               text: "_A_TABLE_MULTIPLE_ITEMS_SELECTED_{{countSelectedRows}}_{{countAllRows}}_{{countSelectedRowsFiltered}}_{{countAllRowsFiltered}}_",
@@ -47987,7 +47993,7 @@ const nk = {
       class: "a_table__preview_down",
       tabindex: -1
     }, [
-      d(pe, {
+      d(he, {
         class: "a_sr_only",
         text: "_A_TABLE_PREVIEW_DOWN_ARIA_LABEL_"
       }),
@@ -48212,7 +48218,7 @@ const FC = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
       ]
     );
     return this.isMobile ? [
-      d(pe, {
+      d(he, {
         html: this.column.label,
         tag: "dt"
       }),
@@ -48270,7 +48276,7 @@ const FC = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
   },
   render() {
     return [
-      d(pe, {
+      d(he, {
         text: this.column.label,
         tag: "dt"
       }),
@@ -48768,7 +48774,7 @@ function ck(e) {
     if (!_.value)
       return [];
     const f = ue(a.value, _.value);
-    return Ce(f) ? f : [];
+    return pe(f) ? f : [];
   }), c = E(() => o.value.length > 0), S = E(() => n.value + 1), A = E(() => t.value ? {
     "aria-level": n.value,
     "aria-posinset": s.value + 1,
@@ -48823,7 +48829,7 @@ function Sk(e) {
 function Ak(e, {
   hasChildren: t = E(() => !1)
 }) {
-  const _ = u(e, "isFooter"), n = u(e, "rowIndex"), a = fe("hasPreview"), s = fe("previewRightRowIndex"), l = fe("previewRightRowIndexLast"), o = E(() => !!(!t.value && a.value && !_.value)), c = E(() => n.value === s.value), S = E(() => !c.value && n.value === l.value), A = E(() => he({
+  const _ = u(e, "isFooter"), n = u(e, "rowIndex"), a = fe("hasPreview"), s = fe("previewRightRowIndex"), l = fe("previewRightRowIndexLast"), o = E(() => !!(!t.value && a.value && !_.value)), c = E(() => n.value === s.value), S = E(() => !c.value && n.value === l.value), A = E(() => Ce({
     placeholder: c.value ? "_A_TABLE_ROW_PREVIEW_CLOSE_" : "_A_TABLE_ROW_PREVIEW_OPEN_"
   })), L = E(() => o.value ? {
     "aria-label": A.value
@@ -49297,7 +49303,7 @@ function fk(e, {
       columnsOrderedFromGroups: v,
       recursiveGroup: F
     };
-  }, S = E(() => J_(o.value, (O) => ue(O, "group", O))), A = E(() => Lt(S.value, (O) => Ce(O))), L = E(() => Lt(S.value, (O) => !Ce(O))), f = E(() => {
+  }, S = E(() => J_(o.value, (O) => ue(O, "group", O))), A = E(() => Lt(S.value, (O) => pe(O))), L = E(() => Lt(S.value, (O) => !pe(O))), f = E(() => {
     const O = [];
     return c({ groups: A.value, group: null, level: 0, columnsOrderedFromGroups: O });
   }), h = E(() => ql([
@@ -49322,7 +49328,7 @@ function fk(e, {
       d("div", {
         class: "a_table__cell_group a_text_center"
       }, [
-        O.id && d(pe, {
+        O.id && d(he, {
           html: O.id,
           tag: "span",
           "aria-hidden": !0
@@ -49413,7 +49419,7 @@ function hk(e, { emit: t }, {
   };
 }
 function Ck(e) {
-  const t = u(e, "countAllRows"), _ = u(e, "data"), n = u(e, "isTree"), a = u(e, "keyChildren"), s = u(e, "keyCountAllRowsInData"), l = E(() => it(_.value)), o = E(() => Ce(_.value)), c = E(() => oe(t.value) ? l.value ? +ue(_.value, s.value) : o.value ? n.value ? xB({
+  const t = u(e, "countAllRows"), _ = u(e, "data"), n = u(e, "isTree"), a = u(e, "keyChildren"), s = u(e, "keyCountAllRowsInData"), l = E(() => it(_.value)), o = E(() => pe(_.value)), c = E(() => oe(t.value) ? l.value ? +ue(_.value, s.value) : o.value ? n.value ? xB({
     array: _.value,
     keyChildren: a.value
   }) : _.value.length : 0 : t.value), S = E(() => oe(t.value) ? _.value.length : t.value);
@@ -49900,7 +49906,7 @@ function Dk(e, {
   viewCurrent: t = E(() => ({}))
 }) {
   const _ = u(e, "data"), n = u(e, "isSortingOutside"), a = u(e, "modelSort"), s = u(e, "useAdditionalSorting"), l = y([]), o = E(() => s.value ? t.value ? t.value.useAdditionalSorting || !1 : !0 : !1), c = () => {
-    ut(a.value) ? l.value = [a.value] : Ce(a.value) && (l.value = se(a.value));
+    ut(a.value) ? l.value = [a.value] : pe(a.value) && (l.value = se(a.value));
   }, S = E(() => {
     const L = {
       models: [],
@@ -50973,7 +50979,7 @@ const lnt = {
                   });
                 })
               }),
-              this.isViewTableVisible && !this.hasRows && d(pe, {
+              this.isViewTableVisible && !this.hasRows && d(he, {
                 class: "a_table__empty_text",
                 text: this.emptyText
               }),
@@ -51147,7 +51153,7 @@ const Gk = {
       parentId: this.parentId,
       tab: this.tab,
       tabId: this.tabIdLocal
-    }) : this.contentLocal && (e = d(pe, {
+    }) : this.contentLocal && (e = d(he, {
       html: this.contentLocal
     })), d("div", {
       id: this.idForContent,
@@ -51324,7 +51330,7 @@ const Kk = {
       parentId: this.parentId,
       tab: this.tab,
       tabId: this.tabIdLocal
-    }) : this.labelLocal && (e = d(pe, {
+    }) : this.labelLocal && (e = d(he, {
       html: this.labelLocal,
       tag: "span"
     })), d("li", {
@@ -53251,7 +53257,7 @@ function NW({
     });
   else if (t) {
     let a = [];
-    ut(t) ? a.push(t) : Ce(t) && (a = t), W(a, (s) => {
+    ut(t) ? a.push(t) : pe(t) && (a = t), W(a, (s) => {
       n[s] || jn[s] && (jn[s].abort(), delete jn[s], Bn[t] && delete Bn[t]);
     });
   }
@@ -53561,7 +53567,7 @@ function GW({ url: e, params: t }) {
   const _ = e || "";
   let n = "";
   W(t, (s, l) => {
-    Ce(s) ? n = Sp.value.setUrlForArray({ id: l, array: s, url: n }) : it(s) ? W(s, (o, c) => {
+    pe(s) ? n = Sp.value.setUrlForArray({ id: l, array: s, url: n }) : it(s) ? W(s, (o, c) => {
       o && (n && (n += "&"), n += `${c}=${o}`);
     }) : oe(s) || (n && (n += "&"), n += `${l}=${s}`);
   });
@@ -53581,7 +53587,7 @@ function Sf({ data: e, keyId: t }) {
     return er(e, t);
 }
 function HW({ expectedList: e, response: t }) {
-  return e ? Ce(t.data) ? t.data : t.data.results ? t.data.results : [] : t.data;
+  return e ? pe(t.data) ? t.data : t.data.results ? t.data.results : [] : t.data;
 }
 function qW({ abortGroup: e = "_global", abortable: t } = {}) {
   if (t)
@@ -53589,7 +53595,7 @@ function qW({ abortGroup: e = "_global", abortable: t } = {}) {
 }
 function kW({ excludeAbortGroup: e }) {
   const t = {};
-  return e && (ut(e) ? t[e] = !0 : Ce(e) && W(e, (_) => {
+  return e && (ut(e) ? t[e] = !0 : pe(e) && W(e, (_) => {
     t[_] = !0;
   })), t;
 }
@@ -53616,7 +53622,7 @@ function gnt({ url: e, allCommasToArray: t = !1, keysCommaToArray: _ = [] } = {}
       } else if (o[1].indexOf(",") !== -1 && (t || _.indexOf(o[0]) !== -1)) {
         const c = o[1].split(",");
         s[o[0]] = c;
-      } else s[o[0]] ? ut(s[o[0]]) ? (s[o[0]] = [s[o[0]]], s[o[0]].push(o[1])) : Ce(s[o[0]]) && s[o[0]].push(o[1]) : s[o[0]] = o[1];
+      } else s[o[0]] ? ut(s[o[0]]) ? (s[o[0]] = [s[o[0]]], s[o[0]].push(o[1])) : pe(s[o[0]]) && s[o[0]].push(o[1]) : s[o[0]] = o[1];
   }), s;
 }
 function nl(e) {
@@ -53679,7 +53685,7 @@ function aS({
 function rS(e, {
   data: t = E(() => [])
 }) {
-  const _ = u(e, "keyGroup"), n = u(e, "keyGroupLabelCallback"), a = u(e, "searchTextInHtml"), s = u(e, "sortOrderGroup"), l = E(() => Ce(_.value) ? _.value : ut(_.value) ? [_.value] : []), o = E(() => l.value.length > 0), c = E(() => {
+  const _ = u(e, "keyGroup"), n = u(e, "keyGroupLabelCallback"), a = u(e, "searchTextInHtml"), s = u(e, "sortOrderGroup"), l = E(() => pe(_.value) ? _.value : ut(_.value) ? [_.value] : []), o = E(() => l.value.length > 0), c = E(() => {
     if (!o.value)
       return;
     const A = {};
@@ -53793,7 +53799,7 @@ function yE(e, {
     }));
   }, B = (x) => s.value ? EB(x) : pd(x, l.value), Y = (x) => _.value.length ? !lE(_.value, [me, x]) : ut(x) || p_(x), F = E(() => {
     let x = [];
-    return Ce(S.value) && S.value.length ? x = Lt(S.value, (Q) => Y(Q)) : Y(S.value) && (x = [S.value]), x;
+    return pe(S.value) && S.value.length ? x = Lt(S.value, (Q) => Y(Q)) : Y(S.value) && (x = [S.value]), x;
   }), N = ({ response: x }) => {
     const Q = se(n.value), z = [], ee = se(F.value);
     W(Q, (te) => {
@@ -53885,7 +53891,7 @@ function BE(e) {
       return W(N, (M) => {
         const x = M[0];
         let Q = M[1];
-        S.value && pa(Q) && (Q = he({ placeholder: Q, alwaysTranslate: t.value })), V.push({
+        S.value && pa(Q) && (Q = Ce({ placeholder: Q, alwaysTranslate: t.value })), V.push({
           [me]: x,
           [dt]: Q
         });
@@ -53896,7 +53902,7 @@ function BE(e) {
         const V = [];
         return W(N, (M) => {
           let x = o.value({ item: M });
-          S.value && pa(x) && (x = he({ placeholder: x, alwaysTranslate: t.value })), V.push({
+          S.value && pa(x) && (x = Ce({ placeholder: x, alwaysTranslate: t.value })), V.push({
             [me]: M,
             [dt]: x
           });
@@ -53904,14 +53910,14 @@ function BE(e) {
       }
       W(N, (V) => {
         let M = o.value({ item: V });
-        S.value && pa(M) && (M = he({ placeholder: M, alwaysTranslate: t.value })), V[me] = ue(V, s.value), V[dt] = M;
+        S.value && pa(M) && (M = Ce({ placeholder: M, alwaysTranslate: t.value })), V[me] = ue(V, s.value), V[dt] = M;
       });
     } else {
       if (a.value) {
         const V = [];
         return W(N, (M) => {
           let x = M;
-          S.value && pa(x) && (x = he({ placeholder: x, alwaysTranslate: t.value })), V.push({
+          S.value && pa(x) && (x = Ce({ placeholder: x, alwaysTranslate: t.value })), V.push({
             [me]: M,
             [dt]: x
           });
@@ -53919,7 +53925,7 @@ function BE(e) {
       }
       W(N, (V) => {
         let M = ue(V, l.value);
-        S.value && pa(M) && (M = he({ placeholder: M, alwaysTranslate: t.value })), V[me] = ue(V, s.value), V[dt] = M;
+        S.value && pa(M) && (M = Ce({ placeholder: M, alwaysTranslate: t.value })), V[me] = ue(V, s.value), V[dt] = M;
       });
     }
     return N;
@@ -59707,7 +59713,7 @@ export {
   Nw as ATemplate,
   $w as ATextarea,
   SM as ATooltip,
-  pe as ATranslation,
+  he as ATranslation,
   os as AUiTypes_typesContainer,
   AF as AUiTypes_typesLabelProps,
   LE as AUiTypes_typesModelArray,
@@ -59765,7 +59771,7 @@ export {
   Zs as focusableSelector,
   xB as getTotalNestedCount,
   ns as getTranslatedAttributes,
-  he as getTranslatedText,
+  Ce as getTranslatedText,
   gd as getTranslationAttributes,
   P_t as getUniqueSelector,
   Fnt as hexToRgb,
