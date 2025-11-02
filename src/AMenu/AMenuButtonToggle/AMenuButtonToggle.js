@@ -32,6 +32,11 @@ export default {
       type: String,
       required: true,
     },
+    onlyMobile: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     selectorClose: {
       type: [String, Array],
       required: false,
@@ -64,6 +69,7 @@ export default {
         a_menu__btn_toggle_close: !this.isMenuOpen,
         a_menu__btn_toggle_inside_menu: this.insideMenu,
         a_menu__btn_toggle_outside_menu: !this.insideMenu,
+        a_menu__btn_toggle_only_mobile: this.onlyMobile,
       }],
       type: "button",
       title: this.btnToggleTitle,

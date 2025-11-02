@@ -12,6 +12,7 @@ export default function LinkClickAPI(props, {
   toggleMenu = () => {},
 }) {
   const isBodyFocusAfterClick = toRef(props, "isBodyFocusAfterClick");
+  const onlyMobile = toRef(props, "onlyMobile");
 
   const isMenuLinkClicked = ref(false);
 
@@ -34,7 +35,8 @@ export default function LinkClickAPI(props, {
     if (!isMenuOpen.value || isPanelMain) {
       closeAllPanels();
     }
-    if (isMobileWidth.value && !ctrlKey) {
+    if ((isMobileWidth.value || onlyMobile.value) &&
+      !ctrlKey) {
       toggleMenu({ isOpen: false });
     }
   };

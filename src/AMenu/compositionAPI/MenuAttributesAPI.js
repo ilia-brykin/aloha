@@ -12,13 +12,14 @@ export default function MenuAttributesAPI(props, {
 }) {
   const isBlockerClickable = toRef(props, "isBlockerClickable");
   const menuId = toRef(props, "menuId");
+  const onlyMobile = toRef(props, "onlyMobile");
 
   const {
     isMobileWidth,
   } = AMobileAPI();
 
   const attributesMobile = computed(() => {
-    if (isMobileWidth.value) {
+    if (isMobileWidth.value || onlyMobile.value) {
       return {
         role: "dialog",
         ariaModal: true,

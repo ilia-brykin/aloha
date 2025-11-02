@@ -177,6 +177,11 @@ export default {
       required: false,
       default: () => uniqueId("a_menu_"),
     },
+    onlyMobile: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     selectorClose: {
       type: [String, Array],
       required: false,
@@ -447,7 +452,8 @@ export default {
           a_menu_sub_open: this.isSubMenuOpen,
           a_menu_open: this.isMenuOpen,
           a_menu_close: !this.isMenuOpen,
-          a_menu_mobile: this.isMobileWidth,
+          a_menu_only_mobile: this.onlyMobile,
+          a_menu_mobile: this.isMobileWidth || this.onlyMobile,
         },
       ],
       ...this.attributesMobile,

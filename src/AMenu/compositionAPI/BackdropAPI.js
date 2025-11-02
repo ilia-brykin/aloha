@@ -10,10 +10,13 @@ export default function BackdropAPI(props, {
   toggleMenu = () => {},
 }) {
   const isBackdropMobileClickable = toRef(props, "isBackdropMobileClickable");
+  const onlyMobile = toRef(props, "onlyMobile");
   const useBackdropMobile = toRef(props, "useBackdropMobile");
 
   const isBackdropVisible = computed(() => {
-    return useBackdropMobile.value && isMenuOpen.value && isMobileWidth.value;
+    return useBackdropMobile.value &&
+      isMenuOpen.value &&
+      (isMobileWidth.value || onlyMobile.value);
   });
 
   const clickBackdrop = () => {

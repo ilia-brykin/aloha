@@ -26,6 +26,7 @@ export default function KeydownAPI(props, {
   togglePanel = () => {},
 }) {
   const menuId = toRef(props, "menuId");
+  const onlyMobile = toRef(props, "onlyMobile");
   const useEscapeForMobile = toRef(props, "useEscapeForMobile");
 
   const menuRef = ref(undefined);
@@ -35,7 +36,9 @@ export default function KeydownAPI(props, {
   } = AMobileAPI();
 
   const isDesktopSubMenuVisibleWhenMenuClosed = computed(() => {
-    return !isMobileWidth.value && !isMenuOpen.value && isSubMenuOpen.value;
+    return (!isMobileWidth.value || onlyMobile.value) &&
+      !isMenuOpen.value &&
+      isSubMenuOpen.value;
   });
 
   const trapFocus = EVENT => {
@@ -166,7 +169,7 @@ export default function KeydownAPI(props, {
   };
 
   const setListenerForKeydownMobile = () => {
-    if (isMobileWidth.value) {
+    if (isMobileWidth.value || onlyMobile.value) {
       document.addEventListener("keydown", keydownMobile);
     }
   };
