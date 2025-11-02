@@ -1055,7 +1055,10 @@ export default {
                             icon: CheckLg,
                           }),
                         ]),
-                        h("span", null, this.textSelectAll),
+                        h(ATranslation, {
+                          html: this.textSelectAll,
+                          tag: "span",
+                        }),
                       ]),
                       (this.isMultiselect && this.isDeselectAll) && h("div", {
                         class: [
@@ -1077,7 +1080,10 @@ export default {
                             icon: XLg,
                           }),
                         ]),
-                        h("span", null, this.textDeselectAll),
+                        h(ATranslation, {
+                          html: this.textDeselectAll,
+                          tag: "span",
+                        }),
                       ]),
                       (this.isDividerSelectDeselectVisible) && h("div", {
                         class: "a_select__divider",
