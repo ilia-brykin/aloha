@@ -379,7 +379,8 @@ export default {
     initLocalVars();
     initFirstCheck();
     watch(modelValue, newVal => {
-      if (!isInternalChange.value) {
+      const isSameAsLocalModel = newVal === localModel.value;
+      if (!isInternalChange.value || !isSameAsLocalModel) {
         localModel.value = newVal;
         handleInput(null, newVal, true);
       }
