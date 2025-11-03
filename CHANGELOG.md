@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.42.1
+
+- Fixed bug when model is updated outside `AInputCurrency`
+
 ## 2.42.0
 
 - Add `onlyMobile` prop to `AMenu` for enhanced mobile-specific behavior support.
