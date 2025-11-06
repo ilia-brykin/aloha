@@ -518,6 +518,11 @@ const ROUTES = [
     component: () => import("../views/Functions/UtilsMath/PageUtilsMathIsEven/PageUtilsMathIsEven.vue"),
   },
   {
+    path: "/utils-a-sort-by",
+    name: "PageUtilsASortBy",
+    component: () => import("../views/Functions/Utils/PageUtilsASortBy/PageUtilsASortBy.vue"),
+  },
+  {
     path: "/utils-is-array-of-strings",
     name: "PageUtilsIsArrayOfStrings",
     component: () => import("../views/Functions/Utils/PageUtilsIsArrayOfStrings/PageUtilsIsArrayOfStrings.vue"),

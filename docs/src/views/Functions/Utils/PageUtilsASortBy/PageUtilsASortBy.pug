@@ -1,0 +1,26 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_UTILS_A_SORT_BY_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="aSortBy"
+      type-import="utils"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="aSortBy(collection, ...iteratees, options?)"
+    )
+
+    page-utils-a-sort-by-example
+
+    page-filter-test(
+      :test="test"
+    )

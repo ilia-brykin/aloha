@@ -1,0 +1,6 @@
+{
+  "_PAGE_UTILS_A_SORT_BY_DESCRIPTION_": "Estende sortBy di lodash con un confronto non sensibile alle maiuscole per impostazione predefinita mantenendo tutte le scorciatoie degli iteratee.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_COLLECTION_": "Collezione da iterare (array o oggetto).",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_ITERATEES_": "Iteratee che descrivono i criteri di ordinamento; accetta percorsi di proprietà, funzioni, array o oggetti abbreviati.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_OPTIONS_": "Oggetto di configurazione opzionale ({ caseSensitive?: boolean }) passato come ultimo argomento."
+}

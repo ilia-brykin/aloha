@@ -1,0 +1,6 @@
+{
+  "_PAGE_UTILS_A_SORT_BY_DESCRIPTION_": "Extends lodash's sortBy with case-insensitive comparison by default while keeping support for every iteratee shorthand.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_COLLECTION_": "Collection to iterate over (array or object).",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_ITERATEES_": "Iteratees that describe the sort criteria; accepts property paths, functions, arrays, or shorthand objects.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_OPTIONS_": "Optional configuration object ({ caseSensitive?: boolean }) passed as the last argument."
+}

@@ -170,6 +170,14 @@ export default function FunctionItemsAPI() {
         class: "test_menu_functions_utils",
         children: [
           {
+            id: "PageUtilsASortBy",
+            label: "aSortBy",
+            class: "test_menu_utils_a_sort_by",
+            to: {
+              name: "PageUtilsASortBy",
+            },
+          },
+          {
             id: "PageUtilsGetTotalNestedCount",
             label: "getTotalNestedCount",
             class: "test_menu_utils_get_total_nested_count",
