@@ -8,7 +8,10 @@ import {
   get,
   isArray,
   isNumber,
+  isPlainObject,
   isString,
+  iteratee,
+  sortBy,
   toString,
 } from "lodash-es";
 
@@ -124,4 +127,70 @@ export function extractTextFromHtml(htmlString) {
   const doc = parser.parseFromString(htmlString, "text/html");
 
   return doc.body.textContent || "";
+}
+
+
+/**
+ * Extended sortBy: adds support for case-insensitive sorting.
+ *
+ * Examples:
+ * aSortBy(users, "name") // sort by name, case-insensitive
+ * aSortBy(users, "name", "age") // sort by name (ci), then by age
+ * aSortBy(users, ["profile.lastName", u => u.age]) // mixed iteratees
+ * aSortBy(users, "name", { caseSensitive: true }) // behaves like lodash sortBy
+ *
+ * @param {Array|Object} collection
+ * @param  {...any} args  — iteratees (strings/functions/arrays) and optionally options
+ *                          where options = { caseSensitive: false }
+ * @returns {Array}
+ */
+export function aSortBy(collection, ...args) {
+  let options = { caseSensitive: false };
+  if (args.length && isPlainObject(args[args.length - 1]) && "caseSensitive" in args[args.length - 1]) {
+    options = { ...options, ...args.pop() };
+  }
+
+  const specs = normalizeSortByIterateeSpecs(args);
+
+  if (options.caseSensitive) {
+    // behaves exactly like lodash sortBy
+    return sortBy(collection, ...specs);
+  }
+
+  // if no iteratees are provided, behaves like sortBy(collection, _.identity)
+  const effectiveSpecs = specs.length > 0 ? specs : [undefined];
+
+  // wrap each iteratee so that string values are converted to lower case
+  const iterateeFns = effectiveSpecs.map(spec => createCaseAwareIteratee(spec, options));
+
+  return sortBy(collection, ...iterateeFns);
+}
+
+function normalizeSortByIterateeSpecs(iterateeArgs) {
+  if (!iterateeArgs || iterateeArgs.length === 0) {
+    return [];
+  }
+  // if a single array of iteratees is passed, use it as is
+  if (iterateeArgs.length === 1 && isArray(iterateeArgs[0])) {
+    return iterateeArgs[0];
+  }
+  // otherwise, treat it as a list of iteratees
+  return iterateeArgs;
+}
+
+function createCaseAwareIteratee(spec, options) {
+  const compiled = iteratee(spec); // converts path/function/etc. into an iteratee function
+  return (...iterArgs) => normalizeStringForSort(compiled(...iterArgs), options);
+}
+
+function normalizeStringForSort(value, { caseSensitive }) {
+  if (caseSensitive) {
+    return value;
+  }
+
+  /*
+   * Convert only string values to lower case, leave everything else unchanged.
+   * Using toLocaleLowerCase without specifying locale is the most reliable universal option.
+   */
+  return typeof value === "string" ? value.toLocaleLowerCase() : value;
 }
