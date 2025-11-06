@@ -7,10 +7,12 @@ import {
   forEach,
   get,
   isArray,
+  isNull,
   isNumber,
   isPlainObject,
   isString,
   iteratee,
+  orderBy,
   sortBy,
   toString,
 } from "lodash-es";
@@ -164,6 +166,57 @@ export function aSortBy(collection, ...args) {
   const iterateeFns = effectiveSpecs.map(spec => createCaseAwareIteratee(spec, options));
 
   return sortBy(collection, ...iterateeFns);
+}
+
+/**
+ * Extended orderBy: adds support for case-insensitive sorting.
+ *
+ * Examples:
+ * aOrderBy(users, "name", "desc") // by name (ci) desc
+ * aOrderBy(users, ["name", "age"], ["asc", "desc"]) // mixed orders, case-insensitive
+ * aOrderBy(users, "name", "asc", { caseSensitive: true }) // behaves like lodash orderBy
+ *
+ * @param {Array|Object} collection
+ * @param args
+ * @returns {Array}
+ */
+export function aOrderBy(collection, ...args) {
+  // extract options if present at the end
+  let options = { caseSensitive: false };
+  if (args.length && isPlainObject(args[args.length - 1]) && "caseSensitive" in args[args.length - 1]) {
+    options = { ...options, ...args.pop() };
+  }
+
+  const iterateesArg = args[0]; // could be single iteratee or array
+  const ordersArg = args[1]; // could be single order or array
+
+  const specs = toIterateeArray(iterateesArg);
+  const orders = toOrderArray(ordersArg);
+
+  if (options.caseSensitive) {
+    // behave exactly like lodash/orderBy
+    return orderBy(collection, specs.length ? specs : [undefined], orders);
+  }
+
+  // wrap iteratees to normalize strings for case-insensitive compare
+  const effectiveSpecs = specs.length ? specs : [undefined];
+  const iterateeFns = effectiveSpecs.map(spec => createCaseAwareIteratee(spec, options));
+
+  return orderBy(collection, iterateeFns, orders);
+}
+
+function toIterateeArray(iteratees) {
+  if (isNull(iteratees)) {
+    return [];
+  }
+  return isArray(iteratees) ? iteratees : [iteratees];
+}
+
+function toOrderArray(orders) {
+  if (isNull(orders)) {
+    return [];
+  }
+  return isArray(orders) ? orders : [orders];
 }
 
 function normalizeSortByIterateeSpecs(iterateeArgs) {
