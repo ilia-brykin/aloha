@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import {
+  aOrderBy,
   extractTextFromHtml,
 } from "../../utils/utils";
 
@@ -18,7 +19,6 @@ import {
   isFunction,
   isNil,
   isString,
-  orderBy,
   values,
 } from "lodash-es";
 
@@ -94,7 +94,7 @@ export default function UIDataGroupAPI(props, {
 
     if (sortOrderGroup.value) {
       forEach(GROUPS_FOR_LEVER, (level, levelIndex) => {
-        GROUPS_FOR_LEVER[levelIndex] = orderBy(level, ["groupLabel"], [sortOrderGroup.value]);
+        GROUPS_FOR_LEVER[levelIndex] = aOrderBy(level, ["groupLabel"], [sortOrderGroup.value]);
       });
     }
 
