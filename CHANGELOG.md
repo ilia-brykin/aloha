@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.43.0
+
+-  Feature: Introduce `aSortBy` utility with extended sorting capabilities, including case-insensitive sorting and mixed iteratee support. Add comprehensive test coverage.
+-  Feature: Add `aOrderBy` utility for extended ordering functionality with support for case-insensitive sorting, iteratee arrays, mixed orders, nested paths, and additional options. Include comprehensive test coverage.
+-  Refactor: Replace `lodash-es` `sortBy` with internal `aSortBy` utility across multiple components for consistency and enhanced functionality
+-  Refactor: Replace `lodash-es` `orderBy` with internal `aOrderBy` utility across composition APIs for consistency and extended functionality.
+
+
 ## 2.42.1
 
 - Fixed bug when model is updated outside `AInputCurrency`
