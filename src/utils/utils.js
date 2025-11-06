@@ -169,16 +169,20 @@ export function aSortBy(collection, ...args) {
 }
 
 /**
- * Extended orderBy: adds support for case-insensitive sorting.
+ * Sorts a collection based on one or more iteratees and orders. Optionally allows for case-insensitive sorting.
  *
  * Examples:
  * aOrderBy(users, "name", "desc") // by name (ci) desc
  * aOrderBy(users, ["name", "age"], ["asc", "desc"]) // mixed orders, case-insensitive
  * aOrderBy(users, "name", "asc", { caseSensitive: true }) // behaves like lodash orderBy
  *
- * @param {Array|Object} collection
- * @param args
- * @returns {Array}
+ * @param {Array|Object} collection - The collection to be sorted. It can be an array or an object.
+ * @param {...*} args - A sequence of arguments that specify how to sort the collection.
+ *   - The first argument is the iteratee(s), which can be a single function, property name, or an array of these.
+ *   - The second argument is the order(s), which can be a single string ('asc', 'desc') or an array of strings.
+ *   - An optional last argument may be an options object with the following properties:
+ *     - `caseSensitive` (boolean): If true, sorting is performed in a case-sensitive way. Defaults to false.
+ * @return {Array} - Returns the sorted collection as an array.
  */
 export function aOrderBy(collection, ...args) {
   // extract options if present at the end

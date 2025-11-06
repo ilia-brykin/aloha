@@ -241,6 +241,8 @@ export {
 } from "./utils/colors";
 export { default as EventBus } from "./utils/EventBus";
 export {
+  aOrderBy,
+  aSortBy,
   dompurify,
   extractTextFromHtml,
   getTotalNestedCount,
