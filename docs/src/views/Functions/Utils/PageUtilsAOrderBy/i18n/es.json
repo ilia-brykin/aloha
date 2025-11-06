@@ -1,0 +1,7 @@
+{
+  "_PAGE_UTILS_A_ORDER_BY_DESCRIPTION_": "Amplía orderBy de lodash con una comparación insensible a mayúsculas y minúsculas por defecto, manteniendo todas las combinaciones de iteratees y órdenes.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_COLLECTION_": "Colección a iterar (arreglo u objeto).",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ITERATEES_": "Iteratees que definen los criterios de ordenación; acepta rutas de propiedades, funciones, arreglos, objetos abreviados o null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ORDERS_": "Direcciones de orden que corresponden a los iteratees (por ejemplo, \"asc\", \"desc\"); acepta cadena, arreglo o null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_OPTIONS_": "Objeto de configuración opcional ({ caseSensitive?: boolean }) que se pasa como último argumento."
+}

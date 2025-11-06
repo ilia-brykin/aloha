@@ -1,0 +1,7 @@
+{
+  "_PAGE_UTILS_A_ORDER_BY_DESCRIPTION_": "Étend orderBy de lodash avec une comparaison insensible à la casse par défaut tout en conservant toutes les combinaisons d'itérateurs et d'ordres.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_COLLECTION_": "Collection à parcourir (tableau ou objet).",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ITERATEES_": "Itérateurs qui définissent les critères de tri ; accepte des chemins de propriété, des fonctions, des tableaux, des objets abrégés ou null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ORDERS_": "Sens de tri correspondant aux itérateurs (par ex. « asc », « desc ») ; accepte une chaîne, un tableau ou null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_OPTIONS_": "Objet de configuration optionnel ({ caseSensitive?: boolean }) passé en dernier argument."
+}

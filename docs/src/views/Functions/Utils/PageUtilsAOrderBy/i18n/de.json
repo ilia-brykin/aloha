@@ -1,0 +1,7 @@
+{
+  "_PAGE_UTILS_A_ORDER_BY_DESCRIPTION_": "Erweitert das lodash-orderBy um eine standardmäßig groß-/kleinschreibungsunabhängige Sortierung und behält alle Kombinationen aus Iteratees und Sortierreihenfolgen bei.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_COLLECTION_": "Zu durchlaufende Sammlung (Array oder Objekt).",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ITERATEES_": "Iteratees, die die Sortierkriterien festlegen; akzeptiert Pfadangaben, Funktionen, Arrays, Kurzschreibobjekte oder null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ORDERS_": "Sortierrichtungen passend zu den Iteratees (z. B. \"asc\", \"desc\"); akzeptiert String, Array oder null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_OPTIONS_": "Optionales Konfigurationsobjekt ({ caseSensitive?: boolean }), das als letztes Argument übergeben wird."
+}

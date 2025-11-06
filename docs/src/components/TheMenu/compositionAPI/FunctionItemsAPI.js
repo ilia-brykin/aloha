@@ -170,6 +170,14 @@ export default function FunctionItemsAPI() {
         class: "test_menu_functions_utils",
         children: [
           {
+            id: "PageUtilsAOrderBy",
+            label: "aOrderBy",
+            class: "test_menu_utils_a_order_by",
+            to: {
+              name: "PageUtilsAOrderBy",
+            },
+          },
+          {
             id: "PageUtilsASortBy",
             label: "aSortBy",
             class: "test_menu_utils_a_sort_by",

@@ -1,0 +1,7 @@
+{
+  "_PAGE_UTILS_A_ORDER_BY_DESCRIPTION_": "Proširuje lodashovu orderBy funkciju zadanim uspoređivanjem koje ne razlikuje velika i mala slova te zadržava sve kombinacije iteratee-a i smjerova sortiranja.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_COLLECTION_": "Zbirka kroz koju se iterira (polje ili objekt).",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ITERATEES_": "Iteratee-i koji definiraju kriterije sortiranja; prihvaćaju putanje svojstava, funkcije, polja, skraćene objekte ili null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ORDERS_": "Smjerovi sortiranja koji odgovaraju iteratee-ima (npr. \"asc\", \"desc\"); prihvaćaju string, polje ili null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_OPTIONS_": "Neobvezni konfiguracijski objekt ({ caseSensitive?: boolean }) koji se predaje kao zadnji argument."
+}
