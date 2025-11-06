@@ -8,6 +8,9 @@ import {
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 import ATranslation from "../../ATranslation/ATranslation";
 import {
+  aSortBy,
+} from "../../utils/utils";
+import {
   isColumnVisibleWithoutModel,
 } from "../utils/utils";
 
@@ -18,7 +21,6 @@ import {
   isArray,
   map,
   min,
-  sortBy,
   uniqBy,
 } from "lodash-es";
 
@@ -124,7 +126,7 @@ export default function ColumnsGroupedAPI(props, {
     return getRecursiveChildrenForGroup({ groups: onlyGroups.value, group: null, level: 0, columnsOrderedFromGroups: columnsOrderedFromGroupsLocal });
   });
   const columnsOrderedFromSimpleTable = computed(() => {
-    return sortBy([
+    return aSortBy([
       ...columnsGrouped.value.columnsOrderedFromGroups,
       ...onlyColumns.value,
     ], "_index");
@@ -168,7 +170,7 @@ export default function ColumnsGroupedAPI(props, {
     ]);
   };
   const renderedGroupedColumns = computed(() => {
-    const mixedColumnsAndGroups = sortBy([
+    const mixedColumnsAndGroups = aSortBy([
       ...columnsGrouped.value.recursiveGroup,
       ...onlyColumns.value,
     ], column => column.columnIndexes ? min(column.columnIndexes) : column._index);

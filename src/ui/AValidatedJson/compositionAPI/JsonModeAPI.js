@@ -6,6 +6,10 @@ import {
 } from "vue";
 
 import {
+  aSortBy,
+} from "../../../utils/utils";
+
+import {
   AKeyId,
 } from "../../../const/AKeys";
 import {
@@ -16,7 +20,6 @@ import {
   forEach,
   isEmpty,
   isPlainObject,
-  sortBy,
 } from "lodash-es";
 
 export default function JsonModeAPI(props, { emit }, {
@@ -44,7 +47,7 @@ export default function JsonModeAPI(props, { emit }, {
     });
 
     if (sortId.value) {
-      return sortBy(LIST, [sortId.value]);
+      return aSortBy(LIST, [sortId.value]);
     }
 
     return LIST;

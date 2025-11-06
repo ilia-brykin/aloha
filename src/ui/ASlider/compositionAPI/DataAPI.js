@@ -3,6 +3,10 @@ import {
   toRef,
 } from "vue";
 
+import {
+  aSortBy,
+} from "../../../utils/utils";
+
 import AKeyId from "../../../const/AKeyId";
 import {
   findIndex,
@@ -13,7 +17,6 @@ import {
   isNil,
   last,
   range,
-  sortBy,
   toNumber,
   uniqBy,
 } from "lodash-es";
@@ -61,7 +64,7 @@ export default function DataAPI(props) {
         }
       });
     }
-    let sortedData = sortBy(DATA, AKeyId);
+    let sortedData = aSortBy(DATA, AKeyId);
     // Make data unique by AKeyId field
     sortedData = uniqBy(sortedData, AKeyId);
 

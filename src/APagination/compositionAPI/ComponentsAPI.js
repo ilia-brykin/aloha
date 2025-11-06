@@ -7,10 +7,12 @@ import {
 
 import APaginationCountPerPage from "../APaginationCountPerPage/APaginationCountPerPage";
 import APaginationPages from "../APaginationPages/APaginationPages";
+import {
+  aSortBy,
+} from "../../utils/utils";
 
 import {
   forEach,
-  sortBy,
 } from "lodash-es";
 
 export default function ComponentsAPI(props, {
@@ -66,7 +68,7 @@ export default function ComponentsAPI(props, {
       });
     });
 
-    return sortBy(LIST, "position");
+    return aSortBy(LIST, "position");
   });
 
   const components = computed(() => {
