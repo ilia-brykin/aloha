@@ -408,6 +408,7 @@ export default {
                 rowsVisible: this.rowsLocalAll,
                 id: this.buttonMultipleId,
                 areAllRowsSelected: this.areAllRowsSelected,
+                countAllRows: this.countAllRows,
               }) :
               h(AButton, {
                 class: "a_btn a_btn_primary a_table__action",
