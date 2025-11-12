@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.43.1
+
+- Feature: `countAllRows` in ATableTopPanel multipleActionActiveSlot
+
+
 ## 2.43.0
 
 -  Feature: Introduce `aSortBy` utility with extended sorting capabilities, including case-insensitive sorting and mixed iteratee support. Add comprehensive test coverage.
