@@ -986,9 +986,9 @@ export default {
                       "a_select_menu",
                       {
                         a_select_menu_by_content: this.menuWidthType === "by_content",
-                        [this.classMenuSearch]: this.search || this.searchOutsideOrApi,
                       },
                       this.selectMenuClass,
+                      this.search || this.searchOutsideOrApi ? this.classMenuSearch : undefined,
                     ],
                     role: "listbox",
                     "aria-labelledby": this.htmlIdLocal,
