@@ -101,6 +101,12 @@ export default {
     class: {
       type: [String, Object],
       required: false,
+      default: () => ASelectPluginOptions.propsDefault.class,
+    },
+    classMenuSearch: {
+      type: [String, Object],
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.classMenuSearch,
     },
     countMultiselect: {
       type: Number,
@@ -980,6 +986,7 @@ export default {
                       "a_select_menu",
                       {
                         a_select_menu_by_content: this.menuWidthType === "by_content",
+                        [this.classMenuSearch]: this.search || this.searchOutsideOrApi,
                       },
                       this.selectMenuClass,
                     ],
@@ -1028,7 +1035,7 @@ export default {
                         "onUpdate:modelValue": this.updateModelSearch,
                       }),
                     ]),
-                    (this.searchOutside || this.search) && h("div", {
+                    (this.searchOutsideOrApi || this.search) && h("div", {
                       class: "a_select__divider",
                       ariaHidden: true,
                     }),

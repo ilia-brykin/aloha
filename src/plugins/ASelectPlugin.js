@@ -4,6 +4,8 @@ export const ASelectPluginOptions = {
   propsDefault: {
     buttonClass: undefined,
     caretIcon: ChevronDown,
+    class: undefined,
+    classMenuSearch: "a_select_menu_with_search",
     countMultiselect: 4,
     dataExtra: [],
     exceededItemsDeletable: true,
