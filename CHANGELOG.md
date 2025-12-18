@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.44.0
+
+- Feature: Add `class` and `classMenuSearch` props to `ASelect`, with default values in `ASelectPluginOptions`. Enhance menu class binding to support conditional styling for search functionality.
+
+
 ## 2.43.1
 
 - Feature: `countAllRows` in ATableTopPanel multipleActionActiveSlot
