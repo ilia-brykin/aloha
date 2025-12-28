@@ -940,12 +940,11 @@ export default {
         this.$slots.topPanelAppend ?
           this.$slots.topPanelAppend() :
           "",
-        (this.usePaginationLocal && this.usePaginationTop) ?
+        (this.usePaginationLocal && this.usePaginationTop && this.hasRows) ?
           h(APagination, {
             class: "a_table__pagination_top",
             countAllRows: this.countAllRowsLocal,
             disabled: this.pagination.disabled,
-            hasRows: this.hasRows,
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
             maxPages: this.pagination.maxPages,
@@ -1114,12 +1113,11 @@ export default {
           isLoading: this.isLoadingTable,
           rows: this.rowsLocalAll,
         }),
-        (this.usePaginationLocal && this.usePaginationBottom) ?
+        (this.usePaginationLocal && this.usePaginationBottom && this.hasRows) ?
           h(APagination, {
             class: "a_table__pagination_bottom",
             countAllRows: this.countAllRowsLocal,
             disabled: this.pagination.disabled,
-            hasRows: this.hasRows,
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
             maxPages: this.pagination.maxPages,

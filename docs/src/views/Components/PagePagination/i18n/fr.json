@@ -3,7 +3,6 @@
   "_A_PAGINATION_COMPONENT_NAME_": "Pagination",
   "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Nombre total de lignes disponibles dans l’ensemble des données. Sert à calculer l’indicateur <strong lang=\"en\">from-to</strong> et le nombre de pages.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Désactive tous les contrôles de pagination. Pratique pendant le rechargement ou lorsque la navigation doit être bloquée.",
-  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "Indique si des lignes sont disponibles. Avec <code>false</code>, le composant n’est pas rendu.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Nombre de lignes par page. Un changement déclenche l’événement <strong lang=\"en\">update:limit</strong>.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Liste des valeurs proposées dans le sélecteur \"par page\". Elles peuvent être des chaînes ou des nombres et représentent généralement les limites côté serveur.",
   "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Nombre maximal de boutons numérotés affichés avant de réduire la liste avec une ellipse.",

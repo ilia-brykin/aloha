@@ -1,7 +1,6 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-pagination
   :count-all-rows="countAllRows"
-  :has-rows="hasRows"
   :limit="limit"
   :limits-per-page="limitsPerPage"
   :max-pages="maxPages"

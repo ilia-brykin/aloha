@@ -10,15 +10,6 @@ import {
   isInteger,
 } from "lodash-es";
 
-/**
- * Pagination.
- * @component
- * @example
- * <a-pagination :count-all-rows="Wert" :disabled="Wert" />
- *
- * @param {Number} countAllRows - Beschreibung der countAllRows.
- * @param {Boolean} disabled - Beschreibung der disabled.
- */
 // @vue/component
 export default {
   name: "APagination",
@@ -30,10 +21,6 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
-    },
-    hasRows: {
-      type: Boolean,
-      required: true,
     },
     limit: {
       type: Number,
@@ -124,9 +111,6 @@ export default {
     };
   },
   render() {
-    if (!this.hasRows) {
-      return null;
-    }
     return h("div", {
       class: "a_pagination__parent",
     }, this.components);

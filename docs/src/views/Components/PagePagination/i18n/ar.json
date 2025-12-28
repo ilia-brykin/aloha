@@ -3,7 +3,6 @@
   "_A_PAGINATION_COMPONENT_NAME_": "ترقيم الصفحات",
   "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "إجمالي عدد الصفوف المتاحة في مجموعة البيانات كاملة. يُستخدم لحساب عدّاد <strong lang=\"en\">from-to</strong> وعدد الصفحات المتوفرة.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "يعطّل جميع عناصر التحكم في الترقيم. مفيد أثناء إعادة تحميل البيانات أو عندما يجب منع التنقّل.",
-  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "يحدد ما إذا كانت هناك صفوف لعرضها. عندما تكون القيمة <code>false</code> لن يتم رسم المكوّن.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "عدد الصفوف المعروضة في كل صفحة. عند تغييره يطلق المكوّن حدث <strong lang=\"en\">update:limit</strong>.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "قائمة القيم الظاهرة في محدد \"لكل صفحة\". يمكن أن تكون نصوصاً أو أرقاماً وغالباً ما تطابق حدود الواجهة الخلفية.",
   "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "أقصى عدد من أزرار الصفحات المرقمة التي تُعرض قبل إظهار علامة الحذف.",

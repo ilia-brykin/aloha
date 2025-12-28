@@ -31,10 +31,6 @@ export default {
       "100",
     ];
 
-    const hasRows = computed(() => {
-      return totalRowsCount.value > 0;
-    });
-
     const rowsLength = computed(() => {
       const remaining = totalRowsCount.value - offset.value;
 
@@ -66,7 +62,6 @@ export default {
       codeHtml,
       codeJs,
       countAllRows,
-      hasRows,
       limit,
       limitsPerPage,
       maxPages,

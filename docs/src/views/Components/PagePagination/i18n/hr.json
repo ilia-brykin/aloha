@@ -3,7 +3,6 @@
   "_A_PAGINATION_COMPONENT_NAME_": "Paginacija",
   "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Ukupan broj redaka koji postoje u cijelom skupu podataka. Iz tog broja izračunava se raspon <strong lang=\"en\">from-to</strong> i broj stranica.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Onemogućuje sve kontrole paginacije. Korisno tijekom ponovnog učitavanja podataka ili kada treba blokirati navigaciju.",
-  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "Određuje postoje li redci za prikaz. Ako je vrijednost <code>false</code>, komponenta se uopće ne renderira.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Broj redaka po stranici. Promjena vrijednosti emitira događaj <strong lang=\"en\">update:limit</strong>.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Popis vrijednosti koje se prikazuju u padajućem izborniku \"po stranici\". Vrijednosti mogu biti stringovi ili brojevi i obično prate ograničenja backend sustava.",
   "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maksimalan broj numeriranih gumba koji se prikazuju prije nego što se lista skrati elipsom.",
