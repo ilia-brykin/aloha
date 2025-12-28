@@ -36,6 +36,13 @@ export default {
       return Math.min(remaining, limit.value);
     });
     
+    const blockNumbers = computed(() => Array.from(
+      {
+        length: rowsLength.value,
+      },
+      (_, index) => offset.value + index + 1,
+    ));
+    
     const updateLimit = value => {
       limit.value = value;
       offset.value = 0;
@@ -46,6 +53,7 @@ export default {
     };
     
     return {
+      blockNumbers,
       countAllRows,
       limit,
       limitsPerPage,

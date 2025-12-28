@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 import AlohaExample from "../../../../global/components/AlohaExample/AlohaExample.vue";
+import AlohaPaginationItems from "../../../../global/components/AlohaPaginationItems/AlohaPaginationItems.vue";
 import {
   APagination,
 } from "aloha-vue";
@@ -15,6 +16,7 @@ export default {
   name: "PagePaginationBasic",
   components: {
     AlohaExample,
+    AlohaPaginationItems,
     APagination,
   },
   setup() {
@@ -40,6 +42,7 @@ export default {
 
       return Math.min(remaining, limit.value);
     });
+
 
     const updateLimit = value => {
       limit.value = value;

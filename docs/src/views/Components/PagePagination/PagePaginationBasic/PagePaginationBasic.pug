@@ -4,6 +4,10 @@ aloha-example(
   header="_A_BASIC_USAGE_"
   :props="['countAllRows', 'hasRows', 'limit', 'limitsPerPage', 'maxPages', 'offset', 'rowsLength', 'totalRowsCount']"
 )
+  aloha-pagination-items(
+    :length="rowsLength"
+    :offset="offset"
+  )
   a-pagination(
     :count-all-rows="countAllRows"
     :limit="limit"
@@ -15,3 +19,5 @@ aloha-example(
     @update:limit="updateLimit"
     @update:offset="updateOffset"
   )
+
+

@@ -1,0 +1,6 @@
+.page_pagination__items
+  .page_pagination__item(
+    v-for="blockNumber in blockNumbers"
+    :key="blockNumber"
+  )
+    span.page_pagination__item_index {{ blockNumber }}
