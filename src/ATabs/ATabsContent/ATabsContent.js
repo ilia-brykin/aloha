@@ -58,7 +58,7 @@ export default {
     };
   },
   render() {
-    let content = "";
+    let content = null;
     if (this.tab.slotContent && this.$slots[this.tab.slotContent]) {
       content = this.$slots[this.tab.slotContent]({
         activeTabId: this.activeTabIdLocal,
