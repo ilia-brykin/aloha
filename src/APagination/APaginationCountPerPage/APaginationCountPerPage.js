@@ -153,13 +153,13 @@ export default {
           ]),
       ] :
       [
-        this.showTextCountFromTo
-? h(ATranslation, {
-  class: "a_pagination__count_from_to",
-  html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
-  extra: this.extraForTranslate,
-})
-: "",
+        this.showTextCountFromTo ?
+          h(ATranslation, {
+            class: "a_pagination__count_from_to",
+            html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+            extra: this.extraForTranslate,
+          }) :
+          "",
         h(ASelect, {
           label: "_A_COUNT_PER_PAGE_",
           labelClass: "a_sr_only",

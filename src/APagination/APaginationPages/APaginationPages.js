@@ -160,7 +160,7 @@ export default {
                   class: "a_pagination__item",
                 }, [
                   h(ATranslation, {
-                    class: "a_pagination__item__link disabled",
+                    class: "a_pagination__item__text",
                     html: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
                     extra: {
                       currentPage: this.currentItem,

@@ -51,7 +51,14 @@
 .a_pagination__item {
   white-space: nowrap;
 }
-
+.a_pagination__item__text {
+  position: relative;
+  display: block;
+  padding: var(--a_pagination_link_padding_y) var(--a_pagination_link_padding_x);
+  font-size: var(--a_pagination_font_size);
+  background-color: var(--a_pagination_link_bg);
+  border: var(--a_pagination_link_border_width) solid var(--a_pagination_link_border_color);
+}
 .a_pagination__item__link {
   position: relative;
   display: block;
@@ -127,6 +134,9 @@
   }
   .a_select_toggle {
     width: 4.375rem;
+  }
+  .a_select__value__label {
+    padding-right: .75rem;
   }
 }
 .a_pagination__count_from_to {
