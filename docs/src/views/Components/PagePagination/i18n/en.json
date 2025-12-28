@@ -1,0 +1,14 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">APagination</strong> component renders navigation for large data sets. It combines per-page controls, desktop and mobile layouts, and emits <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> events so the consuming view can stay in sync with the current page.",
+  "_A_PAGINATION_COMPONENT_NAME_": "Pagination",
+  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Total amount of rows that exist in the entire data set. This value drives the <strong lang=\"en\">from-to</strong> counter and the number of available pages.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Disables all pagination controls. Useful while rows are being reloaded or when navigation must be blocked.",
+  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "Defines whether any rows are available. When set to <code>false</code>, the component does not render anything.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Number of rows that should be returned per page. The component emits <strong lang=\"en\">update:limit</strong> when the user selects a new value.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "List of options that appear in the per-page selector. Values can be strings or numbers and usually mirror the backend limits.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maximum amount of numbered page buttons that may be shown at once before truncation with ellipsis.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Index of the first row that belongs to the current page. The component emits <strong lang=\"en\">update:offset</strong> every time the user navigates.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "How many rows are actually rendered on the current page. Needed to correctly display the 'from-to' counter when the last page is incomplete.",
+  "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Number that is announced together with the counter and per-page text. Usually the same as <strong lang=\"en\">count-all-rows</strong>.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Display configuration for desktop and mobile layouts. Each platform can define how per-page controls and the pager should behave (grouped buttons, select dropdown, short navigation, etc.)."
+}

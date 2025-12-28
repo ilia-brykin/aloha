@@ -1,0 +1,14 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">APagination</strong> muestra la navegación para conjuntos de datos grandes. Combina controles de elementos por página, diseños específicos para escritorio y móvil y emite los eventos <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> para mantener sincronizada la vista que lo consume.",
+  "_A_PAGINATION_COMPONENT_NAME_": "Paginación",
+  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Cantidad total de filas disponibles en todo el conjunto de datos. Se utiliza para calcular el contador <strong lang=\"en\">from-to</strong> y el número de páginas.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Desactiva todos los controles de la paginación. Útil mientras se recargan los datos o cuando se debe impedir la navegación.",
+  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "Indica si existen filas para mostrar. Cuando es <code>false</code>, el componente no se renderiza.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Número de filas que se muestran por página. Al cambiar el valor se emite <strong lang=\"en\">update:limit</strong>.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Lista de opciones que aparece en el selector de \"por página\". Puede contener cadenas o números y suele reflejar los límites del backend.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Número máximo de botones numerados que se muestran antes de acortar la lista con puntos suspensivos.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Índice de la primera fila perteneciente a la página actual. Cada navegación emite <strong lang=\"en\">update:offset</strong>.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Cantidad de filas que realmente se muestran en la página actual. Necesario para mostrar correctamente el rango cuando la última página está incompleta.",
+  "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Número que se anuncia junto con el contador y el texto del selector. Normalmente coincide con <strong lang=\"en\">count-all-rows</strong>.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Configuración visual para los diseños de escritorio y móvil. Cada plataforma puede definir si los controles aparecen como grupos de botones, selectores o una navegación corta."
+}

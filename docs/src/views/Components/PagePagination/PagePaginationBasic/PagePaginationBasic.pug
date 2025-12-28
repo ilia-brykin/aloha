@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_BASIC_USAGE_"
+  :props="['countAllRows', 'hasRows', 'limit', 'limitsPerPage', 'maxPages', 'offset', 'rowsLength', 'totalRowsCount']"
+)
+  a-pagination(
+    :count-all-rows="countAllRows"
+    :has-rows="hasRows"
+    :limit="limit"
+    :limits-per-page="limitsPerPage"
+    :max-pages="maxPages"
+    :offset="offset"
+    :rows-length="rowsLength"
+    :total-rows-count="totalRowsCount"
+    @update:limit="updateLimit"
+    @update:offset="updateOffset"
+  )

@@ -1,0 +1,14 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">APagination</strong> gestisce la navigazione all’interno di insiemi di dati molto grandi. Unisce i controlli per gli elementi per pagina, layout dedicati per desktop e mobile ed emette gli eventi <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> così che la vista resti sincronizzata con la pagina corrente.",
+  "_A_PAGINATION_COMPONENT_NAME_": "Paginazione",
+  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Numero totale di righe presenti nell’intero dataset. Serve per calcolare il contatore <strong lang=\"en\">from-to</strong> e il numero di pagine disponibili.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Disattiva tutti i controlli della paginazione. Utile durante il ricaricamento o quando si vuole impedire la navigazione.",
+  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "Indica se esistono righe da mostrare. Quando vale <code>false</code> il componente non viene renderizzato.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Quantità di righe per pagina. Quando l’utente sceglie un valore diverso viene emesso l’evento <strong lang=\"en\">update:limit</strong>.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Elenco delle opzioni mostrate nel selettore \"per pagina\". Può contenere stringhe o numeri e in genere rispecchia i limiti del backend.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Numero massimo di pulsanti numerati visualizzati contemporaneamente prima di mostrare i puntini di omissione.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Indice della prima riga appartenente alla pagina corrente. Ogni spostamento emette l’evento <strong lang=\"en\">update:offset</strong>.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Totale di righe effettivamente renderizzate sulla pagina corrente. Necessario per mostrare correttamente l’intervallo sull’ultima pagina incompleta.",
+  "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Numero riportato insieme al contatore e al testo del selettore. Nella maggior parte dei casi coincide con <strong lang=\"en\">count-all-rows</strong>.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Configurazione di visualizzazione per layout desktop e mobile. Ogni piattaforma può definire se i controlli devono apparire come gruppo di pulsanti, menu a tendina o navigazione compatta."
+}

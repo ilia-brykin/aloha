@@ -1,0 +1,14 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "يوفّر المكوّن <strong lang=\"en\">APagination</strong> عناصر التنقّل لمجموعات البيانات الكبيرة. وهو يجمع بين عناصر التحكم بعدد الصفوف في الصفحة، وتصميمات خاصة لسطح المكتب والهواتف، ويطلق أحداث <strong lang=\"en\">update:limit</strong> و<strong lang=\"en\">update:offset</strong> حتى يبقى العرض المستهلك متزامناً مع الصفحة الحالية.",
+  "_A_PAGINATION_COMPONENT_NAME_": "ترقيم الصفحات",
+  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "إجمالي عدد الصفوف المتاحة في مجموعة البيانات كاملة. يُستخدم لحساب عدّاد <strong lang=\"en\">from-to</strong> وعدد الصفحات المتوفرة.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "يعطّل جميع عناصر التحكم في الترقيم. مفيد أثناء إعادة تحميل البيانات أو عندما يجب منع التنقّل.",
+  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "يحدد ما إذا كانت هناك صفوف لعرضها. عندما تكون القيمة <code>false</code> لن يتم رسم المكوّن.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "عدد الصفوف المعروضة في كل صفحة. عند تغييره يطلق المكوّن حدث <strong lang=\"en\">update:limit</strong>.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "قائمة القيم الظاهرة في محدد \"لكل صفحة\". يمكن أن تكون نصوصاً أو أرقاماً وغالباً ما تطابق حدود الواجهة الخلفية.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "أقصى عدد من أزرار الصفحات المرقمة التي تُعرض قبل إظهار علامة الحذف.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "فهرس الصف الأول في الصفحة الحالية. كل خطوة تنقّل تطلق حدث <strong lang=\"en\">update:offset</strong>.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "عدد الصفوف المعروضة فعلياً في الصفحة الحالية. ضروري لعرض نطاق العدّاد بشكل صحيح في الصفحة الأخيرة غير المكتملة.",
+  "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "القيمة التي تُذكر مع العدّاد ونص المحدد، وغالباً ما تساوي <strong lang=\"en\">count-all-rows</strong>.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "تهيئة العرض لتصميمات سطح المكتب والجوال. يمكن لكل منصة تحديد ما إذا كانت عناصر التحكم ستظهر كمجموعة أزرار أو قائمة اختيار أو تنقّل مختصر."
+}

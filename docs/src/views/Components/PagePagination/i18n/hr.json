@@ -1,0 +1,14 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">APagination</strong> prikazuje navigaciju za velike skupove podataka. Spaja kontrole za broj redaka po stranici, prilagođene rasporede za desktop i mobilne uređaje te emitira događaje <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> kako bi pogled ostao usklađen s trenutačnom stranicom.",
+  "_A_PAGINATION_COMPONENT_NAME_": "Paginacija",
+  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Ukupan broj redaka koji postoje u cijelom skupu podataka. Iz tog broja izračunava se raspon <strong lang=\"en\">from-to</strong> i broj stranica.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Onemogućuje sve kontrole paginacije. Korisno tijekom ponovnog učitavanja podataka ili kada treba blokirati navigaciju.",
+  "_A_PAGINATION_PROPS_HAS_ROWS_DESCRIPTION_": "Određuje postoje li redci za prikaz. Ako je vrijednost <code>false</code>, komponenta se uopće ne renderira.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Broj redaka po stranici. Promjena vrijednosti emitira događaj <strong lang=\"en\">update:limit</strong>.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Popis vrijednosti koje se prikazuju u padajućem izborniku \"po stranici\". Vrijednosti mogu biti stringovi ili brojevi i obično prate ograničenja backend sustava.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maksimalan broj numeriranih gumba koji se prikazuju prije nego što se lista skrati elipsom.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Indeks prvog retka na trenutačnoj stranici. Svaka promjena stranice emitira događaj <strong lang=\"en\">update:offset</strong>.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Broj redaka koji su zaista prikazani na trenutačnoj stranici. Važno za točan prikaz raspona na posljednjoj, nepotpunoj stranici.",
+  "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Vrijednost koja se ispisuje zajedno s brojačem i tekstom selektora. Najčešće je jednaka vrijednosti <strong lang=\"en\">count-all-rows</strong>.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Konfiguracija prikaza za desktop i mobilne rasporede. Za svaku se platformu može definirati hoće li se kontrole prikazati kao grupa tipki, padajući izbornik ili skraćena navigacija."
+}
