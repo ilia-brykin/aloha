@@ -699,7 +699,7 @@ export default {
             alwaysTranslate: this.alwaysTranslate,
             html: this.labelDescription,
             extra: this.extra,
-            isLabelFloat: this.isLabelFloat,
+            isLabelFloat: false,
           }),
           h("div", {
             class: [
@@ -803,7 +803,6 @@ export default {
               id: this.idForSelect,
               inBody: this.selectInBody,
               isCloseByClick: this.selectIsCloseByClick,
-              isDataSimpleArray: this.isDataSimpleArray,
               isLabelFloat: this.selectIsLabelFloat,
               isSelectionCloseable: this.selectIsSelectionCloseable,
               keyDisabled: this.keyDisabled,

@@ -1,0 +1,27 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_"
+  description="_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_"
+  :props="['limits-per-page']"
+)
+  a-multiselect-ordered.a_mb_4(
+    v-model="limitsPerPageModel"
+    :data="limitsPerPageOptions"
+    :is-data-simple-array="true"
+    label="_A_PAGINATION_LIMITS_PER_PAGE_LABEL_"
+  )
+  aloha-pagination-items(
+    :length="rowsLength"
+    :offset="offset"
+  )
+  a-pagination(
+    :count-all-rows="countAllRows"
+    :limit="limit"
+    :limits-per-page="limitsPerPageModel"
+    :max-pages="maxPages"
+    :offset="offset"
+    :rows-length="rowsLength"
+    @update:limit="updateLimit"
+    @update:offset="updateOffset"
+  )

@@ -1,14 +1,17 @@
 {
-  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">APagination</strong> prikazuje navigaciju za velike skupove podataka. Spaja kontrole za broj redaka po stranici, prilagođene rasporede za desktop i mobilne uređaje te emitira događaje <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> kako bi pogled ostao usklađen s trenutačnom stranicom.",
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">APagination</strong> prikazuje navigaciju za velike skupove podataka. Kombinira kontrole po stranici, rasporede za desktop i mobile te emitira dogadaje <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> kako bi prikaz ostao sinkroniziran s trenutnom stranicom.",
   "_A_PAGINATION_COMPONENT_NAME_": "Paginacija",
-  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Ukupan broj redaka koji postoje u cijelom skupu podataka. Iz tog broja izračunava se raspon <strong lang=\"en\">from-to</strong> i broj stranica.",
-  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Onemogućuje sve kontrole paginacije. Korisno tijekom ponovnog učitavanja podataka ili kada treba blokirati navigaciju.",
-  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Broj redaka po stranici. Promjena vrijednosti emitira događaj <strong lang=\"en\">update:limit</strong>.",
-  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Popis vrijednosti koje se prikazuju u padajućem izborniku \"po stranici\". Vrijednosti mogu biti stringovi ili brojevi i obično prate ograničenja backend sustava.",
-  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maksimalan broj numeriranih gumba koji se prikazuju prije nego što se lista skrati elipsom.",
-  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Indeks prvog retka na trenutačnoj stranici. Svaka promjena stranice emitira događaj <strong lang=\"en\">update:offset</strong>.",
-  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Broj redaka koji su zaista prikazani na trenutačnoj stranici. Važno za točan prikaz raspona na posljednjoj, nepotpunoj stranici.",
-  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Konfiguracija prikaza za desktop i mobilne rasporede. Za svaku se platformu može definirati hoće li se kontrole prikazati kao grupa tipki, padajući izbornik ili skraćena navigacija.",
-  "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Onemogućeno stanje",
-  "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Ovaj primjer prikazuje kako prebaciti prop <strong lang=\"en\">disabled</strong> i blokirati sve kontrole paginacije dok se podaci osvježavaju. Pomoću prekidača možete jednim klikom omogućiti ili onemogućiti navigaciju."
+  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Ukupan broj redaka u cijelom skupu podataka. Ova vrijednost upravlja brojacem <strong lang=\"en\">from-to</strong> i brojem dostupnih stranica.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Onemogucava sve kontrole paginacije. Korisno tijekom ponovnog ucitavanja ili kada navigaciju treba blokirati.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Broj redaka koji se prikazuju po stranici. Komponenta emitira <strong lang=\"en\">update:limit</strong> kada korisnik odabere novu vrijednost.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Popis opcija koje se pojavljuju u selektoru po stranici. Vrijednosti mogu biti stringovi ili brojevi i obicno odrazavaju ogranicenja backend-a.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maksimalan broj numeriranih gumbi stranica koji se mogu prikazati prije nego sto se pojavi elipsa.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Indeks prvog retka koji pripada trenutnoj stranici. Komponenta emitira <strong lang=\"en\">update:offset</strong> pri svakoj navigaciji.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Koliko je redaka stvarno prikazano na trenutnoj stranici. Potrebno za ispravan prikaz raspona kada je zadnja stranica nepotpuna.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Konfiguracija prikaza za desktop i mobile rasporede. Svaka platforma moze definirati kako se ponasaju kontrole po stranici i navigacija (grupa gumbi, select, kratka navigacija itd.).",
+  "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Onemoguceno stanje",
+  "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Ovaj primjer pokazuje kako prebaciti prop <strong lang=\"en\">disabled</strong> da bi se blokirale sve kontrole paginacije tijekom osvjezavanja redaka. Upotrijebite prekidac kako biste jednim klikom omogucili ili onemogucili navigaciju.",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Limiti po stranici",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Koristite uredeni multiselect za konfiguriranje vrijednosti za <strong lang=\"en\">limits-per-page</strong>. Odabir odreduje dostupne limite (5, 10, 25, 50, 75, 100).",
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limiti po stranici"
 }

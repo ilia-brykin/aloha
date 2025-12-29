@@ -51,7 +51,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   };
 
   const prepareData = ({ _data, _isArrayOfArrays = false }) => {
-    if (isDataPrepared.value) {
+    if (isDataPrepared) {
       return _data;
     }
 
