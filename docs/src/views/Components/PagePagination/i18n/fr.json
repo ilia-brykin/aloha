@@ -9,5 +9,7 @@
   "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Index de la première ligne de la page courante. Chaque navigation déclenche l’événement <strong lang=\"en\">update:offset</strong>.",
   "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Nombre de lignes réellement affichées sur la page courante. Utile pour présenter correctement l’intervalle sur la dernière page incomplète.",
   "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Valeur annoncée avec le compteur et le texte du sélecteur. Correspond le plus souvent à <strong lang=\"en\">count-all-rows</strong>.",
-  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Configuration d’affichage pour les variantes bureau et mobile. Chaque plateforme peut définir si les contrôles apparaissent en groupe de boutons, en sélecteur ou sous forme de navigation compacte."
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Configuration d’affichage pour les variantes bureau et mobile. Chaque plateforme peut définir si les contrôles apparaissent en groupe de boutons, en sélecteur ou sous forme de navigation compacte.",
+  "_A_PAGINATION_GROUP_DISABLED_HEADER_": "État désactivé",
+  "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Cet exemple montre comment basculer la prop <strong lang=\"en\">disabled</strong> afin de bloquer tous les contrôles de pagination pendant le rafraîchissement des données. Utilisez l'interrupteur pour activer ou désactiver la navigation en un clic."
 }

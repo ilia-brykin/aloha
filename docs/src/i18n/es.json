@@ -30,5 +30,6 @@
   "_JS_TYPE_STRING_": "Cadena",
   "_SUPPORT_FRAMEWORKS_": "Admitimos los siguientes marcos CSS",
   "_VIEW_SOURCE_": "Ver fuente",
-  "_WELCOME_": "Bienvenido"
+  "_WELCOME_": "Bienvenido",
+  "_LBL_DISABLED_": "Deshabilitado"
 }

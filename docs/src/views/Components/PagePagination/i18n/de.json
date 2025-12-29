@@ -9,5 +9,7 @@
   "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Index der ersten Zeile der aktuellen Seite. Jeder Navigationsschritt löst <strong lang=\"en\">update:offset</strong> aus.",
   "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Wie viele Zeilen aktuell auf der Seite dargestellt werden. Wichtig, um den Bereich auf der letzten, eventuell unvollständigen Seite korrekt zu zeigen.",
   "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Zahl, die gemeinsam mit dem Zähler und dem per-page-Text ausgegeben wird. Entspricht meist <strong lang=\"en\">count-all-rows</strong>.",
-  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Darstellungskonfiguration für Desktop und Mobile. Für jede Plattform lässt sich festlegen, ob die Elemente als Button-Gruppe, Auswahlfeld oder verkürzte Navigation angezeigt werden sollen."
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Darstellungskonfiguration für Desktop und Mobile. Für jede Plattform lässt sich festlegen, ob die Elemente als Button-Gruppe, Auswahlfeld oder verkürzte Navigation angezeigt werden sollen.",
+  "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Deaktivierter Zustand",
+  "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Dieses Beispiel zeigt, wie die Prop <strong lang=\"en\">disabled</strong> umgeschaltet wird, um alle Elemente der Pagination zu sperren, während die Daten aktualisiert werden. Verwenden Sie den Schalter, um die Navigation mit einem Klick zu aktivieren oder zu deaktivieren."
 }

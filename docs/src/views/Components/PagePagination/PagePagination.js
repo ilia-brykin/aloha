@@ -2,6 +2,7 @@ import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PagePaginationBasic from "./PagePaginationBasic/PagePaginationBasic.vue";
+import PagePaginationDisabled from "./PagePaginationDisabled/PagePaginationDisabled.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -18,6 +19,7 @@ export default {
     AlohaTableProps,
     AlohaTableTranslate,
     PagePaginationBasic,
+    PagePaginationDisabled,
   },
   setup() {
     const {

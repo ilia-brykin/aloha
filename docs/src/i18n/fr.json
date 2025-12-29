@@ -30,5 +30,6 @@
   "_JS_TYPE_STRING_": "Chaîne",
   "_SUPPORT_FRAMEWORKS_": "Nous supportons les frameworks CSS suivants",
   "_VIEW_SOURCE_": "Voir la source",
-  "_WELCOME_": "Bienvenu"
+  "_WELCOME_": "Bienvenu",
+  "_LBL_DISABLED_": "Desactive"
 }

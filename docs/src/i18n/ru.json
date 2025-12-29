@@ -29,5 +29,6 @@
   "_JS_TYPE_OBJECT_": "Объект",
   "_JS_TYPE_STRING_": "Строка",
   "_SUPPORT_FRAMEWORKS_": "Мы поддерживаем следующие CSS-фреймворки",
-  "_VIEW_SOURCE_": "Посмотреть исходный код"
+  "_VIEW_SOURCE_": "Посмотреть исходный код",
+  "_LBL_DISABLED_": "Отключено"
 }

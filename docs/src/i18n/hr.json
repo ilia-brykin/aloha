@@ -30,5 +30,6 @@
   "_JS_TYPE_STRING_": "string",
   "_SUPPORT_FRAMEWORKS_": "Podržavamo sljedeće CSS-frameworke",
   "_VIEW_SOURCE_": "Prikaži izvorni kod",
-  "_WELCOME_": "Dobrodošli!"
+  "_WELCOME_": "Dobrodošli!",
+  "_LBL_DISABLED_": "Onemoguceno"
 }

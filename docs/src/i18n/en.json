@@ -30,5 +30,6 @@
   "_JS_TYPE_STRING_": "String",
   "_SUPPORT_FRAMEWORKS_": "We support the following CSS-frameworks",
   "_VIEW_SOURCE_": "View source",
-  "_WELCOME_": "Welcome"
+  "_WELCOME_": "Welcome",
+  "_LBL_DISABLED_": "Disabled"
 }

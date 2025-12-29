@@ -127,6 +127,7 @@ export default {
                   "a_pagination__item",
                   {
                     active: IS_ACTIVE,
+                    disabled: this.disabled,
                   },
                 ],
               }, [
