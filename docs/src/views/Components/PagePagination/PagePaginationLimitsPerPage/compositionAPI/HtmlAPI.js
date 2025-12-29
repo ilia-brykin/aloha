@@ -1,10 +1,9 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-multiselect-ordered
-  class="a_mb_4"
   v-model="limitsPerPageModel"
   :data="limitsPerPageOptions"
-  key-id="value"
-  key-label="label"
+  :is-data-simple-array="true"
+  class="a_mb_4"
   label="_A_PAGINATION_LIMITS_PER_PAGE_LABEL_"
 ></a-multiselect-ordered>
 <div 
@@ -21,7 +20,7 @@ export default function HtmlAPI() {
 <a-pagination
   :count-all-rows="countAllRows"
   :limit="limit"
-  :limits-per-page="limitsPerPage"
+  :limits-per-page="limitsPerPageModel"
   :max-pages="maxPages"
   :offset="offset"
   :rows-length="rowsLength"

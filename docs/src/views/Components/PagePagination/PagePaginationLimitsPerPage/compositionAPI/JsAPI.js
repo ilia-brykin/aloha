@@ -19,50 +19,23 @@ export default {
     const limit = ref(10);
     const maxPages = ref(5);
     const offset = ref(0);
-        
     const limitsPerPageOptions = [
-      {
-        value: "5",
-        label: "5",
-      },
-      {
-        value: "10",
-        label: "10",
-      },
-      {
-        value: "25",
-        label: "25",
-      },
-      {
-        value: "50",
-        label: "50",
-      },
-      {
-        value: "75",
-        label: "75",
-      },
-      {
-        value: "100",
-        label: "100",
-      },
+      "5",
+      "10",
+      "25",
+      "50",
+      "75",
+      "100",
     ];
+    const limitsPerPageModel = ref([...limitsPerPageOptions]);
 
-    const defaultLimitsPerPage = limitsPerPageOptions.map(option => option.value);
-    const limitsPerPageModel = ref([...defaultLimitsPerPage]);
-
-    const limitsPerPage = computed(() => (
-      limitsPerPageModel.value.length
-        ? limitsPerPageModel.value
-        : defaultLimitsPerPage
-    ));
-    
     const rowsLength = computed(() => {
       const remaining = countAllRows.value - offset.value;
-    
+
       if (remaining <= 0) {
         return 0;
       }
-    
+
       return Math.min(remaining, limit.value);
     });
     
@@ -86,7 +59,6 @@ export default {
       blockNumbers,
       countAllRows,
       limit,
-      limitsPerPage,
       limitsPerPageModel,
       limitsPerPageOptions,
       maxPages,
