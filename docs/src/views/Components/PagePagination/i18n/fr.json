@@ -13,5 +13,8 @@
   "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Cet exemple montre comment basculer la prop <strong lang=\"en\">disabled</strong> afin de bloquer tous les controles de pagination pendant le rafraichissement des lignes. Utilisez l'interrupteur pour activer ou desactiver la navigation en un clic.",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Limites par page",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Utilisez le multiselect ordonne pour configurer les valeurs de <strong lang=\"en\">limits-per-page</strong>. La selection definit les limites disponibles (5, 10, 25, 50, 75, 100).",
-  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limites par page"
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limites par page",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Maximum de pages",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Ajustez le slider pour controler la valeur de <strong lang=\"en\">max-pages</strong> (1-10) et voir combien de boutons de page sont rendus a la fois.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Maximum de pages"
 }

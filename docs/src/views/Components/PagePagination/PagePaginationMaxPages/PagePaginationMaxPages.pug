@@ -1,0 +1,28 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_GROUP_MAX_PAGES_HEADER_"
+  description="_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_"
+  :props="['max-pages']"
+)
+  a-slider.a_mb_4(
+    v-model="maxPages"
+    :max="10"
+    :min="1"
+    :step="1"
+    label="_A_PAGINATION_MAX_PAGES_LABEL_"
+  )
+  aloha-pagination-items(
+    :length="rowsLength"
+    :offset="offset"
+  )
+  a-pagination(
+    :count-all-rows="countAllRows"
+    :limit="limit"
+    :limits-per-page="limitsPerPage"
+    :max-pages="maxPages"
+    :offset="offset"
+    :rows-length="rowsLength"
+    @update:limit="updateLimit"
+    @update:offset="updateOffset"
+  )

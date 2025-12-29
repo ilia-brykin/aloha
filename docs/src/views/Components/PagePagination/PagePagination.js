@@ -4,6 +4,7 @@ import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/
 import PagePaginationBasic from "./PagePaginationBasic/PagePaginationBasic.vue";
 import PagePaginationDisabled from "./PagePaginationDisabled/PagePaginationDisabled.vue";
 import PagePaginationLimitsPerPage from "./PagePaginationLimitsPerPage/PagePaginationLimitsPerPage.vue";
+import PagePaginationMaxPages from "./PagePaginationMaxPages/PagePaginationMaxPages.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -22,6 +23,7 @@ export default {
     PagePaginationBasic,
     PagePaginationDisabled,
     PagePaginationLimitsPerPage,
+    PagePaginationMaxPages,
   },
   setup() {
     const {

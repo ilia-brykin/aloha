@@ -13,5 +13,8 @@
   "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "This example shows how to toggle the <strong lang=\"en\">disabled</strong> prop to block all pagination controls while rows are being refreshed. Use the switch to enable or disable navigation with a single click.",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Limits per page",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Use the ordered multiselect to configure the values passed to <strong lang=\"en\">limits-per-page</strong>. The selection controls which per-page limits (5, 10, 25, 50, 75, 100) are available.",
-  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limits per page"
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limits per page",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Maximum pages",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Adjust the slider to control the <strong lang=\"en\">max-pages</strong> value (1-10) and see how many page buttons are rendered at once.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Maximum pages"
 }

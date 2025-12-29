@@ -13,5 +13,8 @@
   "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Ovaj primjer pokazuje kako prebaciti prop <strong lang=\"en\">disabled</strong> da bi se blokirale sve kontrole paginacije tijekom osvjezavanja redaka. Upotrijebite prekidac kako biste jednim klikom omogucili ili onemogucili navigaciju.",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Limiti po stranici",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Koristite uredeni multiselect za konfiguriranje vrijednosti za <strong lang=\"en\">limits-per-page</strong>. Odabir odreduje dostupne limite (5, 10, 25, 50, 75, 100).",
-  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limiti po stranici"
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limiti po stranici",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Maksimum stranica",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Pomaknite slider da biste kontrolirali vrijednost <strong lang=\"en\">max-pages</strong> (1-10) i vidjeli koliko se tipki stranica prikazuje odjednom.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Maksimum stranica"
 }

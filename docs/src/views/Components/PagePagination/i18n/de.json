@@ -13,5 +13,8 @@
   "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Dieses Beispiel zeigt, wie die Prop <strong lang=\"en\">disabled</strong> umgeschaltet wird, um alle Elemente der Pagination zu sperren, wahrend die Daten aktualisiert werden. Verwenden Sie den Schalter, um die Navigation mit einem Klick zu aktivieren oder zu deaktivieren.",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Eintrage pro Seite",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Verwenden Sie das geordnete Multiselect, um die Werte fur <strong lang=\"en\">limits-per-page</strong> zu konfigurieren. Die Auswahl bestimmt, welche Limits (5, 10, 25, 50, 75, 100) verfugbar sind.",
-  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Eintrage pro Seite"
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Eintrage pro Seite",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Maximale Seiten",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Passen Sie den Slider an, um den Wert von <strong lang=\"en\">max-pages</strong> (1-10) zu steuern und zu sehen, wie viele Seitenbuttons gleichzeitig gerendert werden.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Maximale Seiten"
 }

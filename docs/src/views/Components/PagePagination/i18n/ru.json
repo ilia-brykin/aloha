@@ -13,5 +13,8 @@
   "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "В этом примере показано, как переключать проп <strong lang=\"en\">disabled</strong>, чтобы заблокировать элементы управления пагинацией во время обновления данных. Используйте переключатель, чтобы одним кликом разрешить или запретить навигацию.",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Лимиты на страницу",
   "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Используйте упорядоченный мультиселект, чтобы настроить значения для <strong lang=\"en\">limits-per-page</strong>. Выбор определяет доступные лимиты (5, 10, 25, 50, 75, 100).",
-  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Лимиты на страницу"
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Лимиты на страницу",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Максимум страниц",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Сдвигайте ползунок, чтобы управлять значением <strong lang=\"en\">max-pages</strong> (1-10) и видеть, сколько кнопок страниц отображается одновременно.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Максимум страниц"
 }
