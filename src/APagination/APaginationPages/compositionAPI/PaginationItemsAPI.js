@@ -11,10 +11,10 @@ import {
 } from "lodash-es";
 
 export default function PaginationItemsAPI(props) {
-  const paginationMaxItems = toRef(props, "paginationMaxItems"); // 7
-  const offset = toRef(props, "offset");
+  const countAllRows = toRef(props, "countAllRows");
   const limit = toRef(props, "limit");
-  const totalRowsCount = toRef(props, "totalRowsCount");
+  const offset = toRef(props, "offset");
+  const paginationMaxItems = toRef(props, "paginationMaxItems"); // 7
 
   const isPaginationMaxItemsEven = computed(() => {
     return isEven(paginationMaxItems.value);
@@ -26,7 +26,7 @@ export default function PaginationItemsAPI(props) {
   });
 
   const maxItems = computed(() => {
-    return ceil(totalRowsCount.value / limit.value);
+    return ceil(countAllRows.value / limit.value);
   });
 
   const paginationMinIndex = computed(() => {

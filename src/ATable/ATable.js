@@ -524,7 +524,6 @@ export default {
 
     const {
       countAllRowsLocal,
-      totalRowsCount,
     } = CountAPI(props);
 
     const {
@@ -856,7 +855,6 @@ export default {
       toggleBtnAllRows,
       toggleMultipleActionsActive,
       togglePreviewResize,
-      totalRowsCount,
       updateRow,
       updateViewCurrent,
       useAdditionalSortingLocal,
@@ -950,7 +948,6 @@ export default {
             maxPages: this.pagination.maxPages,
             offset: this.offset,
             rowsLength: this.rowsLocalLength,
-            totalRowsCount: this.totalRowsCount,
             "onUpdate:limit": this.changeLimit,
             "onUpdate:offset": this.changeOffset,
           }) :
@@ -1123,7 +1120,6 @@ export default {
             maxPages: this.pagination.maxPages,
             offset: this.offset,
             rowsLength: this.rowsLocalLength,
-            totalRowsCount: this.totalRowsCount,
             "onUpdate:limit": this.changeLimit,
             "onUpdate:offset": this.changeOffset,
           }) :

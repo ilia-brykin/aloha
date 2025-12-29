@@ -20,8 +20,7 @@ export default {
     const limit = ref(10);
     const maxPages = ref(5);
     const offset = ref(0);
-    const totalRowsCount = ref(123);
-    
+        
     const limitsPerPage = [
       "10",
       "25",
@@ -30,7 +29,7 @@ export default {
     ];
     
     const rowsLength = computed(() => {
-      const remaining = totalRowsCount.value - offset.value;
+      const remaining = countAllRows.value - offset.value;
     
       if (remaining <= 0) {
         return 0;
@@ -64,7 +63,6 @@ export default {
       maxPages,
       offset,
       rowsLength,
-      totalRowsCount,
       updateLimit,
       updateOffset,
     };

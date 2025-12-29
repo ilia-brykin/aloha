@@ -45,10 +45,6 @@ export default {
       type: Number,
       required: true,
     },
-    totalRowsCount: {
-      type: Number,
-      required: true,
-    },
     modes: {
       type: Object,
       required: false,

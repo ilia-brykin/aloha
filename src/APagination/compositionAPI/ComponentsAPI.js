@@ -27,7 +27,6 @@ export default function ComponentsAPI(props, {
   const limit = toRef(props, "limit");
   const offset = toRef(props, "offset");
   const rowsLength = toRef(props, "rowsLength");
-  const totalRowsCount = toRef(props, "totalRowsCount");
   const maxPages = toRef(props, "maxPages");
 
   const currentMode = computed(() => {
@@ -88,12 +87,12 @@ export default function ComponentsAPI(props, {
         }));
       } else if (item.component === "pagination") {
         LIST.push(h(APaginationPages, {
-          limit: limit.value,
+          countAllRows: countAllRows.value,
           disabled: disabled.value,
-          totalRowsCount: totalRowsCount.value,
+          limit: limit.value,
+          mode: item.mode,
           offset: offset.value,
           paginationMaxItems: maxPages.value,
-          mode: item.mode,
           "onUpdate:offset": updateOffset,
         }));
       }

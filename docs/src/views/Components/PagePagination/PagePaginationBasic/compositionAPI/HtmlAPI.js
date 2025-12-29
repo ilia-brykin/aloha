@@ -17,7 +17,6 @@ export default function HtmlAPI() {
   :max-pages="maxPages"
   :offset="offset"
   :rows-length="rowsLength"
-  :total-rows-count="totalRowsCount"
   @update:limit="updateLimit"
   @update:offset="updateOffset"
 ></a-pagination>`;

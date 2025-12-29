@@ -20,6 +20,10 @@ import {
 export default {
   name: "APaginationPages",
   props: {
+    countAllRows: {
+      type: Number,
+      required: true,
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -43,10 +47,6 @@ export default {
       required: false,
       default: 5,
       validator: value => isInteger(value) && value > 0,
-    },
-    totalRowsCount: {
-      type: Number,
-      required: true,
     },
   },
   emits: [

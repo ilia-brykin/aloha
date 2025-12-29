@@ -8,7 +8,6 @@
   "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Número máximo de botones numerados que se muestran antes de acortar la lista con puntos suspensivos.",
   "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Índice de la primera fila perteneciente a la página actual. Cada navegación emite <strong lang=\"en\">update:offset</strong>.",
   "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Cantidad de filas que realmente se muestran en la página actual. Necesario para mostrar correctamente el rango cuando la última página está incompleta.",
-  "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Número que se anuncia junto con el contador y el texto del selector. Normalmente coincide con <strong lang=\"en\">count-all-rows</strong>.",
   "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Configuración visual para los diseños de escritorio y móvil. Cada plataforma puede definir si los controles aparecen como grupos de botones, selectores o una navegación corta.",
   "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Estado deshabilitado",
   "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Este ejemplo muestra cómo alternar la prop <strong lang=\"en\">disabled</strong> para bloquear todos los controles de paginación mientras se actualizan las filas. Usa el interruptor para activar o desactivar la navegación con un solo clic."

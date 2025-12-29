@@ -45,17 +45,10 @@ export default function CountAPI(props) {
       }
       return data.value.length;
     }
-    return 0;
-  });
-
-  const totalRowsCount = computed(() => {
-    return !isNil(countAllRows.value) ?
-      countAllRows.value :
-      data.value.length;
+    return data.value.length || 0;
   });
 
   return {
     countAllRowsLocal,
-    totalRowsCount,
   };
 }

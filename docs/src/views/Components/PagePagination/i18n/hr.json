@@ -8,7 +8,6 @@
   "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maksimalan broj numeriranih gumba koji se prikazuju prije nego što se lista skrati elipsom.",
   "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Indeks prvog retka na trenutačnoj stranici. Svaka promjena stranice emitira događaj <strong lang=\"en\">update:offset</strong>.",
   "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Broj redaka koji su zaista prikazani na trenutačnoj stranici. Važno za točan prikaz raspona na posljednjoj, nepotpunoj stranici.",
-  "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_": "Vrijednost koja se ispisuje zajedno s brojačem i tekstom selektora. Najčešće je jednaka vrijednosti <strong lang=\"en\">count-all-rows</strong>.",
   "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Konfiguracija prikaza za desktop i mobilne rasporede. Za svaku se platformu može definirati hoće li se kontrole prikazati kao grupa tipki, padajući izbornik ili skraćena navigacija.",
   "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Onemogućeno stanje",
   "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Ovaj primjer prikazuje kako prebaciti prop <strong lang=\"en\">disabled</strong> i blokirati sve kontrole paginacije dok se podaci osvježavaju. Pomoću prekidača možete jednim klikom omogućiti ili onemogućiti navigaciju."

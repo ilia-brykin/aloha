@@ -50,13 +50,6 @@ export default function PropsAPI() {
       required: true,
     },
     {
-      name: "total-rows-count",
-      description: "_A_PAGINATION_PROPS_TOTAL_ROWS_COUNT_DESCRIPTION_",
-      type: "Number",
-      default: undefined,
-      required: true,
-    },
-    {
       name: "modes",
       description: "_A_PAGINATION_PROPS_MODES_DESCRIPTION_",
       type: "Object",
