@@ -121,24 +121,24 @@ export default {
           h("ul", {
             class: "a_pagination",
           }, [
-            this.mode !== "short"
-? h("li", {
-  class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }],
-}, [
-  h(AElement, {
-    class: "a_pagination__item__link",
-    iconLeft: ChevronDoubleLeft,
-    role: "button",
-    tabindex: this.disabledButtonFirstPage ? -1 : 0,
-    tag: "a",
-    textScreenReader: "_A_PAGINATION_FIRST_PAGE_",
-    title: "_A_PAGINATION_FIRST_PAGE_",
-    type: "button",
-    onClick: this.updateOffsetFirst,
-    onKeydown: this.keyDownUpdateOffsetFirst,
-  }),
-])
-: "",
+            this.mode !== "short" ?
+              h("li", {
+                class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }],
+              }, [
+                h(AElement, {
+                  class: "a_pagination__item__link",
+                  iconLeft: ChevronDoubleLeft,
+                  role: "button",
+                  tabindex: this.disabledButtonFirstPage ? -1 : 0,
+                  tag: "a",
+                  textScreenReader: "_A_PAGINATION_FIRST_PAGE_",
+                  title: "_A_PAGINATION_FIRST_PAGE_",
+                  type: "button",
+                  onClick: this.updateOffsetFirst,
+                  onKeydown: this.keyDownUpdateOffsetFirst,
+                }),
+              ]) :
+              "",
             h("li", {
               class: ["a_pagination__item", { disabled: this.disabledButtonFirstPage }],
             }, [
@@ -212,24 +212,24 @@ export default {
                 onKeydown: this.keyDownUpdateOffsetNext,
               }),
             ]),
-            this.mode !== "short"
-? h("li", {
-  class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }],
-}, [
-  h(AElement, {
-    class: "a_pagination__item__link",
-    iconLeft: ChevronDoubleRight,
-    role: "button",
-    tabindex: this.disabledButtonLastPage ? -1 : 0,
-    tag: "a",
-    textScreenReader: "_A_PAGINATION_LAST_PAGE_",
-    title: "_A_PAGINATION_LAST_PAGE_",
-    type: "button",
-    onClick: this.updateOffsetLast,
-    onKeydown: this.keyDownUpdateOffsetLast,
-  }),
-])
-: "",
+            this.mode !== "short" ?
+              h("li", {
+                class: ["a_pagination__item", { disabled: this.disabledButtonLastPage }],
+              }, [
+                h(AElement, {
+                  class: "a_pagination__item__link",
+                  iconLeft: ChevronDoubleRight,
+                  role: "button",
+                  tabindex: this.disabledButtonLastPage ? -1 : 0,
+                  tag: "a",
+                  textScreenReader: "_A_PAGINATION_LAST_PAGE_",
+                  title: "_A_PAGINATION_LAST_PAGE_",
+                  type: "button",
+                  onClick: this.updateOffsetLast,
+                  onKeydown: this.keyDownUpdateOffsetLast,
+                }),
+              ]) :
+              "",
           ]),
         ];
       },
