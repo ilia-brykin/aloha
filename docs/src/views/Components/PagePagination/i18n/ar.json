@@ -1,7 +1,7 @@
 {
   "_A_PAGINATION_COMPONENT_DESCRIPTION_": "يعرض المكون <strong lang=\"en\">APagination</strong> التنقل لمجموعات البيانات الكبيرة. يجمع بين التحكم بعدد العناصر في الصفحة، وتخطيطات سطح المكتب والجوال، ويطلق أحداث <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> حتى تبقى الواجهة المستهلكة متزامنة مع الصفحة الحالية.",
   "_A_PAGINATION_COMPONENT_NAME_": "الترقيم",
-  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "إجمالي عدد الصفوف في مجموعة البيانات بالكامل. تتحكم هذه القيمة في عداد <strong lang=\"en\">from-to</strong> وعدد الصفحات المتاحة.",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "إجمالي عدد الصفوف في مجموعة البيانات بالكامل. تتحكم هذه القيمة في عداد <strong lang=\"en\">from-to</strong> وعدد الصفحات المتاحة.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "يعطل جميع عناصر التحكم بالترقيم. مفيد أثناء إعادة تحميل الصفوف أو عندما يجب حظر التنقل.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "عدد الصفوف المعروضة في كل صفحة. يصدر المكون الحدث <strong lang=\"en\">update:limit</strong> عند اختيار قيمة جديدة.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "قائمة الخيارات التي تظهر في محدد \"في الصفحة\". يمكن أن تكون القيم نصوصا أو أرقاما وعادة ما تعكس حدود الواجهة الخلفية.",

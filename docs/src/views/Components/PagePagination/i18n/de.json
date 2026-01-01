@@ -1,7 +1,7 @@
 {
   "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">APagination</strong> stellt die Navigation fur gro?e Datenmengen bereit. Sie kombiniert Auswahlfelder fur Eintrage pro Seite, eigene Layouts fur Desktop und Mobile und lost die Events <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> aus, damit die konsumierende Ansicht mit der aktuellen Seite synchron bleibt.",
   "_A_PAGINATION_COMPONENT_NAME_": "Seitennummerierung",
-  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Gesamtanzahl aller Zeilen im Datensatz. Aus diesem Wert werden der <strong lang=\"en\">from-to</strong>-Zahler und die Anzahl der verfugbaren Seiten berechnet.",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Gesamtanzahl aller Zeilen im Datensatz. Aus diesem Wert werden der <strong lang=\"en\">from-to</strong>-Zahler und die Anzahl der verfugbaren Seiten berechnet.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Deaktiviert samtliche Steuerelemente der Pagination - ideal wahrend einer Nachladung oder wenn Navigation verhindert werden soll.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Anzahl der Zeilen pro Seite. Bei Anderungen emittiert die Komponente das Event <strong lang=\"en\">update:limit</strong>.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Liste der Eintrage, die im Auswahlfeld \"pro Seite\" angezeigt werden. Werte konnen Strings oder Zahlen sein und spiegeln meist die Backend-Grenzen wider.",

@@ -11,7 +11,7 @@ import {
 } from "lodash-es";
 
 export default function PaginationItemsAPI(props) {
-  const countAllRows = toRef(props, "countAllRows");
+  const totalCount = toRef(props, "totalCount");
   const limit = toRef(props, "limit");
   const offset = toRef(props, "offset");
   const maxPages = toRef(props, "maxPages"); // 7
@@ -26,7 +26,7 @@ export default function PaginationItemsAPI(props) {
   });
 
   const maxItems = computed(() => {
-    return ceil(countAllRows.value / limit.value);
+    return ceil(totalCount.value / limit.value);
   });
 
   const paginationMinIndex = computed(() => {

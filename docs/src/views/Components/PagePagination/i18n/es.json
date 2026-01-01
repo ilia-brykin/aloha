@@ -1,7 +1,7 @@
 {
   "_A_PAGINATION_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">APagination</strong> representa la navegacion para grandes conjuntos de datos. Combina controles por pagina, disenos de escritorio y movil y emite eventos <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> para mantener sincronizada la vista que lo consume.",
   "_A_PAGINATION_COMPONENT_NAME_": "Paginacion",
-  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Cantidad total de filas existentes en el conjunto de datos. Este valor determina el contador <strong lang=\"en\">from-to</strong> y el numero de paginas disponibles.",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Cantidad total de filas existentes en el conjunto de datos. Este valor determina el contador <strong lang=\"en\">from-to</strong> y el numero de paginas disponibles.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Deshabilita todos los controles de paginacion. Es util mientras se recargan las filas o cuando la navegacion debe bloquearse.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Numero de filas que se deben devolver por pagina. El componente emite <strong lang=\"en\">update:limit</strong> cuando el usuario selecciona un nuevo valor.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Lista de opciones que aparecen en el selector por pagina. Los valores pueden ser cadenas o numeros y suelen reflejar los limites del backend.",

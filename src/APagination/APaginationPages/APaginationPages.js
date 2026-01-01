@@ -21,10 +21,6 @@ import {
 export default {
   name: "APaginationPages",
   props: {
-    countAllRows: {
-      type: Number,
-      required: true,
-    },
     disabled: {
       type: Boolean,
       required: false,
@@ -32,6 +28,13 @@ export default {
     limit: {
       type: Number,
       required: true,
+      validator: value => isInteger(value) && value > 0,
+    },
+    maxPages: {
+      type: Number,
+      required: false,
+      default: 5,
+      validator: value => isInteger(value) && value > 0,
     },
     mode: {
       type: String,
@@ -42,12 +45,7 @@ export default {
     offset: {
       type: Number,
       required: true,
-    },
-    maxPages: {
-      type: Number,
-      required: false,
-      default: 5,
-      validator: value => isInteger(value) && value > 0,
+      validator: value => isInteger(value) && value >= 0,
     },
     texts: {
       type: Object,
@@ -61,6 +59,11 @@ export default {
         pagesPreviousPage: "_A_PAGINATION_PREVIOUS_PAGE_",
         pagesToPage: "_A_PAGINATION_TO_PAGE_{{page}}_",
       }),
+    },
+    totalCount: {
+      type: Number,
+      required: true,
+      validator: value => isInteger(value) && value >= 0,
     },
   },
   emits: [

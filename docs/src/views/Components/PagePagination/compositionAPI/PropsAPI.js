@@ -1,13 +1,6 @@
 export default function PropsAPI() {
   const dataProps = [
     {
-      name: "count-all-rows",
-      description: "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_",
-      type: "Number",
-      default: undefined,
-      required: true,
-    },
-    {
       name: "disabled",
       description: "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_",
       type: "Boolean",
@@ -78,6 +71,13 @@ export default function PropsAPI() {
   },
 })`,
       required: false,
+    },
+    {
+      name: "total-count",
+      description: "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_",
+      type: "Number",
+      default: undefined,
+      required: true,
     },
   ];
 

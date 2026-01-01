@@ -12,7 +12,7 @@ import MainAPI from "./compositionAPI/MainAPI";
 export default {
   name: "APaginationCountPerPage",
   props: {
-    countAllRows: {
+    totalCount: {
       type: Number,
       required: true,
     },

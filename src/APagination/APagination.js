@@ -14,10 +14,6 @@ import {
 export default {
   name: "APagination",
   props: {
-    countAllRows: {
-      type: Number,
-      required: true,
-    },
     disabled: {
       type: Boolean,
       required: false,
@@ -36,14 +32,6 @@ export default {
       required: false,
       default: 5,
       validator: value => isInteger(value) && value > 0,
-    },
-    offset: {
-      type: Number,
-      required: true,
-    },
-    rowsLength: {
-      type: Number,
-      required: true,
     },
     modes: {
       type: Object,
@@ -76,6 +64,18 @@ export default {
           },
         },
       }),
+    },
+    offset: {
+      type: Number,
+      required: true,
+    },
+    rowsLength: {
+      type: Number,
+      required: true,
+    },
+    totalCount: {
+      type: Number,
+      required: true,
     },
   },
   emits: [

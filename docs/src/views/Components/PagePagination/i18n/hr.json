@@ -1,7 +1,7 @@
 {
   "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">APagination</strong> prikazuje navigaciju za velike skupove podataka. Kombinira kontrole po stranici, rasporede za desktop i mobile te emitira dogadaje <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> kako bi prikaz ostao sinkroniziran s trenutnom stranicom.",
   "_A_PAGINATION_COMPONENT_NAME_": "Paginacija",
-  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Ukupan broj redaka u cijelom skupu podataka. Ova vrijednost upravlja brojacem <strong lang=\"en\">from-to</strong> i brojem dostupnih stranica.",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Ukupan broj redaka u cijelom skupu podataka. Ova vrijednost upravlja brojacem <strong lang=\"en\">from-to</strong> i brojem dostupnih stranica.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Onemogucava sve kontrole paginacije. Korisno tijekom ponovnog ucitavanja ili kada navigaciju treba blokirati.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Broj redaka koji se prikazuju po stranici. Komponenta emitira <strong lang=\"en\">update:limit</strong> kada korisnik odabere novu vrijednost.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Popis opcija koje se pojavljuju u selektoru po stranici. Vrijednosti mogu biti stringovi ili brojevi i obicno odrazavaju ogranicenja backend-a.",

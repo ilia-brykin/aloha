@@ -21,7 +21,7 @@ export default function ComponentsAPI(props, {
   updateOffset = () => {},
 }) {
   const modes = toRef(props, "modes");
-  const countAllRows = toRef(props, "countAllRows");
+  const totalCount = toRef(props, "totalCount");
   const disabled = toRef(props, "disabled");
   const limitsPerPage = toRef(props, "limitsPerPage");
   const limit = toRef(props, "limit");
@@ -75,7 +75,7 @@ export default function ComponentsAPI(props, {
     forEach(currentModeSorted.value, item => {
       if (item.component === "perPage") {
         LIST.push(h(APaginationCountPerPage, {
-          countAllRows: countAllRows.value,
+          totalCount: totalCount.value,
           disabled: disabled.value,
           limitsPerPage: limitsPerPage.value,
           limit: limit.value,
@@ -87,7 +87,7 @@ export default function ComponentsAPI(props, {
         }));
       } else if (item.component === "pagination") {
         LIST.push(h(APaginationPages, {
-          countAllRows: countAllRows.value,
+          totalCount: totalCount.value,
           disabled: disabled.value,
           limit: limit.value,
           mode: item.mode,

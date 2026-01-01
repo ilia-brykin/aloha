@@ -1,7 +1,7 @@
 {
   "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">APagination</strong> rende la navigazione per grandi set di dati. Combina controlli per pagina, layout desktop e mobile ed emette gli eventi <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> cosi che la vista che lo consuma resti sincronizzata con la pagina corrente.",
   "_A_PAGINATION_COMPONENT_NAME_": "Paginazione",
-  "_A_PAGINATION_PROPS_COUNT_ALL_ROWS_DESCRIPTION_": "Numero totale di righe presenti nell'intero set di dati. Questo valore guida il contatore <strong lang=\"en\">from-to</strong> e il numero di pagine disponibili.",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Numero totale di righe presenti nell'intero set di dati. Questo valore guida il contatore <strong lang=\"en\">from-to</strong> e il numero di pagine disponibili.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Disabilita tutti i controlli di paginazione. Utile mentre le righe vengono ricaricate o quando la navigazione deve essere bloccata.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Numero di righe da restituire per pagina. Il componente emette <strong lang=\"en\">update:limit</strong> quando l'utente seleziona un nuovo valore.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Elenco di opzioni che compaiono nel selettore per pagina. I valori possono essere stringhe o numeri e di solito riflettono i limiti del backend.",

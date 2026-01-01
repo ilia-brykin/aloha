@@ -8,7 +8,7 @@ import AFiltersAPI from "../../../compositionAPI/AFiltersAPI";
 export default function MainAPI(props) {
   const offset = toRef(props, "offset");
   const rowsLength = toRef(props, "rowsLength");
-  const countAllRows = toRef(props, "countAllRows");
+  const totalCount = toRef(props, "totalCount");
 
   const {
     filterCurrency,
@@ -23,7 +23,7 @@ export default function MainAPI(props) {
   });
 
   const countFormatted = computed(() => {
-    return filterCurrency(countAllRows.value, { suffix: "", digits: 0 });
+    return filterCurrency(totalCount.value, { suffix: "", digits: 0 });
   });
 
   const extraForTranslate = computed(() => {
