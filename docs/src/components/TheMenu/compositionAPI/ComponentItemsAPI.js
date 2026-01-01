@@ -434,6 +434,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "paginationPages",
+        label: "Pagination pages",
+        class: "test_menu_pagination_pages",
+        to: {
+          name: "PagePaginationPages",
+        },
+      },
+      {
         id: "Table",
         label: "Tables",
         class: "test_menu_tables",

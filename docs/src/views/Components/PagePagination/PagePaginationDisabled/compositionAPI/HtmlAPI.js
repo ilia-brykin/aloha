@@ -16,13 +16,13 @@ export default function HtmlAPI() {
   </div>
 </div>
 <a-pagination
-  :count-all-rows="countAllRows"
   :disabled="isDisabled"
   :limit="limit"
   :limits-per-page="limitsPerPage"
   :max-pages="maxPages"
   :offset="offset"
   :rows-length="rowsLength"
+  :total-count="totalCount"
   @update:limit="updateLimit"
   @update:offset="updateOffset"
 ></a-pagination>`;

@@ -18,12 +18,12 @@ export default function HtmlAPI() {
   </div>
 </div>
 <a-pagination
-  :count-all-rows="countAllRows"
   :limit="limit"
   :limits-per-page="limitsPerPageModel"
   :max-pages="maxPages"
   :offset="offset"
   :rows-length="rowsLength"
+  :total-count="totalCount"
   @update:limit="updateLimit"
   @update:offset="updateOffset"
 ></a-pagination>`;

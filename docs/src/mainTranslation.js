@@ -72,6 +72,7 @@ import PageMultiselectOrderedI18n from "./views/Components/Form/PageMultiselectO
 import PageOneCheckboxI18n from "./views/Components/Form/PageOneCheckbox/i18n/PageOneCheckboxI18n";
 import PagePageTabTitlePluginI18n from "./views/Plugins/PagePageTabTitlePlugin/i18n/PagePageTabTitlePluginI18n";
 import PagePaginationI18n from "./views/Components/PagePagination/i18n/PagePaginationI18n";
+import PagePaginationPagesI18n from "./views/Components/PagePaginationPages/i18n/PagePaginationPagesI18n";
 import PageProgressCircleI18n from "./views/Components/Progress/PageProgressCircle/i18n/PageProgressCircleI18n";
 import PageProgressI18n from "./views/Components/Progress/PageProgress/i18n/PageProgressI18n";
 import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQuickStartI18n";
@@ -183,6 +184,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.ar,
     ...PageOneCheckboxI18n.ar,
     ...PagePaginationI18n.ar,
+    ...PagePaginationPagesI18n.ar,
     ...PagePageTabTitlePluginI18n.ar,
     ...PageProgressCircleI18n.ar,
     ...PageProgressI18n.ar,
@@ -286,6 +288,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.de,
     ...PageOneCheckboxI18n.de,
     ...PagePaginationI18n.de,
+    ...PagePaginationPagesI18n.de,
     ...PagePageTabTitlePluginI18n.de,
     ...PageProgressCircleI18n.de,
     ...PageProgressI18n.de,
@@ -389,6 +392,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.en,
     ...PageOneCheckboxI18n.en,
     ...PagePaginationI18n.en,
+    ...PagePaginationPagesI18n.en,
     ...PagePageTabTitlePluginI18n.en,
     ...PageProgressCircleI18n.en,
     ...PageProgressI18n.en,
@@ -492,6 +496,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.es,
     ...PageOneCheckboxI18n.es,
     ...PagePaginationI18n.es,
+    ...PagePaginationPagesI18n.es,
     ...PagePageTabTitlePluginI18n.es,
     ...PageProgressCircleI18n.es,
     ...PageProgressI18n.es,
@@ -595,6 +600,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.fr,
     ...PageOneCheckboxI18n.fr,
     ...PagePaginationI18n.fr,
+    ...PagePaginationPagesI18n.fr,
     ...PagePageTabTitlePluginI18n.fr,
     ...PageProgressCircleI18n.fr,
     ...PageProgressI18n.fr,
@@ -698,6 +704,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.hr,
     ...PageOneCheckboxI18n.hr,
     ...PagePaginationI18n.hr,
+    ...PagePaginationPagesI18n.hr,
     ...PagePageTabTitlePluginI18n.hr,
     ...PageProgressCircleI18n.hr,
     ...PageProgressI18n.hr,
@@ -801,6 +808,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.it,
     ...PageOneCheckboxI18n.it,
     ...PagePaginationI18n.it,
+    ...PagePaginationPagesI18n.it,
     ...PagePageTabTitlePluginI18n.it,
     ...PageProgressCircleI18n.it,
     ...PageProgressI18n.it,
@@ -904,6 +912,7 @@ export const mainTranslation = {
     ...PageMultiselectOrderedI18n.ru,
     ...PageOneCheckboxI18n.ru,
     ...PagePaginationI18n.ru,
+    ...PagePaginationPagesI18n.ru,
     ...PagePageTabTitlePluginI18n.ru,
     ...PageProgressCircleI18n.ru,
     ...PageProgressI18n.ru,

@@ -113,6 +113,11 @@ const ROUTES = [
     component: () => import("../views/Components/PagePagination/PagePagination.vue"),
   },
   {
+    path: "/pagination-pages",
+    name: "PagePaginationPages",
+    component: () => import("../views/Components/PagePaginationPages/PagePaginationPages.vue"),
+  },
+  {
     path: "/collapse",
     name: "PageCollapse",
     component: () => import("../views/Components/PageCollapse/PageCollapse.vue"),

@@ -22,7 +22,7 @@ export default {
     ASlider,
   },
   setup() {
-    const countAllRows = ref(143);
+    const totalCount = ref(143);
     const limit = ref(10);
     const maxPages = ref(5);
     const offset = ref(0);
@@ -34,7 +34,7 @@ export default {
     ];
 
     const rowsLength = computed(() => {
-      const remaining = countAllRows.value - offset.value;
+      const remaining = totalCount.value - offset.value;
 
       if (remaining <= 0) {
         return 0;
@@ -63,7 +63,7 @@ export default {
     return {
       codeHtml,
       codeJs,
-      countAllRows,
+      totalCount,
       limit,
       limitsPerPage,
       maxPages,

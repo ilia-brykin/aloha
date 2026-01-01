@@ -941,13 +941,13 @@ export default {
         (this.usePaginationLocal && this.usePaginationTop && this.hasRows) ?
           h(APagination, {
             class: "a_table__pagination_top",
-            countAllRows: this.countAllRowsLocal,
             disabled: this.pagination.disabled,
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
             maxPages: this.pagination.maxPages,
             offset: this.offset,
             rowsLength: this.rowsLocalLength,
+            totalCount: this.countAllRowsLocal,
             "onUpdate:limit": this.changeLimit,
             "onUpdate:offset": this.changeOffset,
           }) :
@@ -1113,13 +1113,13 @@ export default {
         (this.usePaginationLocal && this.usePaginationBottom && this.hasRows) ?
           h(APagination, {
             class: "a_table__pagination_bottom",
-            countAllRows: this.countAllRowsLocal,
             disabled: this.pagination.disabled,
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
             maxPages: this.pagination.maxPages,
             offset: this.offset,
             rowsLength: this.rowsLocalLength,
+            totalCount: this.countAllRowsLocal,
             "onUpdate:limit": this.changeLimit,
             "onUpdate:offset": this.changeOffset,
           }) :
