@@ -7,6 +7,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import PaginationItemsAPI from "./compositionAPI/PaginationItemsAPI";
+import TextsAPI from "./compositionAPI/TextsAPI";
 import UpdateOffsetAPI from "./compositionAPI/UpdateOffsetAPI";
 
 import ChevronDoubleLeft from "aloha-svg/dist/js/bootstrap/ChevronDoubleLeft";
@@ -48,6 +49,19 @@ export default {
       default: 5,
       validator: value => isInteger(value) && value > 0,
     },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",
+        pagesLastPage: "_A_PAGINATION_LAST_PAGE_",
+        pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
+        pagesNavigation: "_A_PAGINATION_NAVIGATION_",
+        pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",
+        pagesPreviousPage: "_A_PAGINATION_PREVIOUS_PAGE_",
+        pagesToPage: "_A_PAGINATION_TO_PAGE_{{page}}_",
+      }),
+    },
   },
   emits: [
     "update:offset",
@@ -85,10 +99,27 @@ export default {
       maxItems,
     });
 
+    const {
+      getTextToPage,
+      isTextToPageFunction,
+      textFirstPage,
+      textLastPage,
+      textMobile,
+      textNavigation,
+      textNextPage,
+      textPreviousPage,
+      textToPage,
+    } = TextsAPI(props, {
+      currentItem,
+      maxItems,
+    });
+
     return {
       currentItem,
       disabledButtonFirstPage,
       disabledButtonLastPage,
+      getTextToPage,
+      isTextToPageFunction,
       keyDownUpdateOffset,
       keyDownUpdateOffsetFirst,
       keyDownUpdateOffsetLast,
@@ -96,6 +127,13 @@ export default {
       keyDownUpdateOffsetPrevious,
       maxItems,
       paginationItems,
+      textFirstPage,
+      textLastPage,
+      textMobile,
+      textNavigation,
+      textNextPage,
+      textPreviousPage,
+      textToPage,
       updateOffset,
       updateOffsetFirst,
       updateOffsetLast,
@@ -107,13 +145,13 @@ export default {
     return h(ATranslation, {
       tag: "nav",
       class: "a_pagination__nav",
-      "aria-label": "_A_PAGINATION_NAVIGATION_",
+      "aria-label": this.textNavigation,
     }, {
       default: () => {
         if (this.mode === "loadMore") {
           return h(AElement, {
             class: "a_btn a_btn_primary",
-            text: "Load more",
+            text: "Load more", // TODO:
             type: "button",
           });
         }
@@ -131,8 +169,8 @@ export default {
                   role: "button",
                   tabindex: this.disabledButtonFirstPage ? -1 : 0,
                   tag: "a",
-                  textScreenReader: "_A_PAGINATION_FIRST_PAGE_",
-                  title: "_A_PAGINATION_FIRST_PAGE_",
+                  textScreenReader: this.textFirstPage,
+                  title: this.textFirstPage,
                   type: "button",
                   onClick: this.updateOffsetFirst,
                   onKeydown: this.keyDownUpdateOffsetFirst,
@@ -148,8 +186,8 @@ export default {
                 role: "button",
                 tabindex: this.disabledButtonFirstPage ? -1 : 0,
                 tag: "a",
-                textScreenReader: "_A_PAGINATION_PREVIOUS_PAGE_",
-                title: "_A_PAGINATION_PREVIOUS_PAGE_",
+                textScreenReader: this.textPreviousPage,
+                title: this.textPreviousPage,
                 type: "button",
                 onClick: this.updateOffsetPrevious,
                 onKeydown: this.keyDownUpdateOffsetPrevious,
@@ -161,7 +199,7 @@ export default {
                 }, [
                   h(ATranslation, {
                     class: "a_pagination__item__text",
-                    html: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
+                    html: this.textMobile,
                     extra: {
                       currentPage: this.currentItem,
                       allPages: this.maxItems,
@@ -170,6 +208,9 @@ export default {
                 ]) :
                 this.paginationItems.map(item => {
                   const IS_ACTIVE = item === this.currentItem;
+                  const TITLE = this.isTextToPageFunction ?
+                    this.getTextToPage({ page: item }) :
+                    this.textToPage;
 
                   return h("li", {
                     class: ["a_pagination__item", {
@@ -188,8 +229,8 @@ export default {
                       tag: "a",
                       text: item,
                       textAriaHidden: true,
-                      textScreenReader: "_A_PAGINATION_TO_PAGE_{{page}}_",
-                      title: "_A_PAGINATION_TO_PAGE_{{page}}_",
+                      textScreenReader: TITLE,
+                      title: TITLE,
                       type: "button",
                       onClick: () => this.updateOffset(item),
                       onKeydown: $event => this.keyDownUpdateOffset($event, item),
@@ -205,8 +246,8 @@ export default {
                 role: "button",
                 tabindex: this.disabledButtonLastPage ? -1 : 0,
                 tag: "a",
-                textScreenReader: "_A_PAGINATION_NEXT_PAGE_",
-                title: "_A_PAGINATION_NEXT_PAGE_",
+                textScreenReader: this.textNextPage,
+                title: this.textNextPage,
                 type: "button",
                 onClick: this.updateOffsetNext,
                 onKeydown: this.keyDownUpdateOffsetNext,
@@ -222,8 +263,8 @@ export default {
                   role: "button",
                   tabindex: this.disabledButtonLastPage ? -1 : 0,
                   tag: "a",
-                  textScreenReader: "_A_PAGINATION_LAST_PAGE_",
-                  title: "_A_PAGINATION_LAST_PAGE_",
+                  textScreenReader: this.textLastPage,
+                  title: this.textLastPage,
                   type: "button",
                   onClick: this.updateOffsetLast,
                   onKeydown: this.keyDownUpdateOffsetLast,
