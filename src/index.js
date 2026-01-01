@@ -52,6 +52,7 @@ export { default as ANotification } from "./ANotification/ANotification";
 export { default as AOneCheckbox } from "./ui/AOneCheckbox/AOneCheckbox";
 export { default as APageTabTitle } from "./APageTabTitle/APageTabTitle";
 export { default as APagination } from "./APagination/APagination";
+export { default as APaginationPages } from "./APagination/APaginationPages/APaginationPages";
 export { default as AProgress } from "./AProgress/AProgress";
 export { default as AProgressCircle } from "./AProgressCircle/AProgressCircle";
 export { default as ARadio } from "./ui/ARadio/ARadio";
