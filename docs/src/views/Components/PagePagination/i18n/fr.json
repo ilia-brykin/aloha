@@ -1,7 +1,7 @@
 {
   "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">APagination</strong> affiche la navigation pour les grands ensembles de donnees. Il combine les controles par page, des mises en page bureau et mobile, et emet les evenements <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong> afin que la vue consommatrice reste synchronisee avec la page courante.",
   "_A_PAGINATION_COMPONENT_NAME_": "Pagination",
-  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Nombre total de lignes existant dans l'ensemble de donnees. Cette valeur pilote le compteur <strong lang=\"en\">from-to</strong> et le nombre de pages disponibles.",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Nombre total d'elements existant dans l'ensemble de donnees. Cette valeur pilote le compteur <strong lang=\"en\">from-to</strong> et le nombre de pages disponibles.",
   "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Desactive tous les controles de pagination. Utile pendant le rechargement des lignes ou lorsque la navigation doit etre bloquee.",
   "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Nombre de lignes a retourner par page. Le composant emet <strong lang=\"en\">update:limit</strong> lorsque l'utilisateur selectionne une nouvelle valeur.",
   "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Liste des options affichees dans le selecteur par page. Les valeurs peuvent etre des chaines ou des nombres et refletent generalement les limites du backend.",
