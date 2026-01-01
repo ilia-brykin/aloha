@@ -14,10 +14,10 @@ export default function PaginationItemsAPI(props) {
   const countAllRows = toRef(props, "countAllRows");
   const limit = toRef(props, "limit");
   const offset = toRef(props, "offset");
-  const paginationMaxItems = toRef(props, "paginationMaxItems"); // 7
+  const maxPages = toRef(props, "maxPages"); // 7
 
-  const isPaginationMaxItemsEven = computed(() => {
-    return isEven(paginationMaxItems.value);
+  const isMaxPagesEven = computed(() => {
+    return isEven(maxPages.value);
   });
 
   const currentItem = computed(() => {
@@ -30,11 +30,11 @@ export default function PaginationItemsAPI(props) {
   });
 
   const paginationMinIndex = computed(() => {
-    return Math.floor(paginationMaxItems.value / 2);
+    return Math.floor(maxPages.value / 2);
   });
 
   const paginationMaxIndex = computed(() => {
-    return paginationMaxItems.value * 2 - 1;
+    return maxPages.value * 2 - 1;
   });
 
   const getIndexStartAndEndForPagination = ({ currentItemIndex, paginationLength }) => {
@@ -44,11 +44,11 @@ export default function PaginationItemsAPI(props) {
     const MAX_INDEX = paginationMaxIndex.value;
     if (currentItemIndex <= MIN_INDEX) {
       indexStart = 0;
-      indexEnd = paginationMaxItems.value;
+      indexEnd = maxPages.value;
     } else if (currentItemIndex >= (MAX_INDEX - (MIN_INDEX + 1))) {
-      indexStart = MAX_INDEX - paginationMaxItems.value;
+      indexStart = MAX_INDEX - maxPages.value;
       indexEnd = MAX_INDEX;
-    } else if (isPaginationMaxItemsEven.value) {
+    } else if (isMaxPagesEven.value) {
       indexStart = currentItemIndex - MIN_INDEX + 1;
       indexEnd = currentItemIndex + MIN_INDEX + 1;
     } else {
@@ -74,7 +74,7 @@ export default function PaginationItemsAPI(props) {
   const paginationItems = computed(() => {
     const PAGINATION_ITEMS = [];
     let currentItemIndex = -1;
-    for (let i = paginationMaxItems.value - 1; i > -paginationMaxItems.value; i--) {
+    for (let i = maxPages.value - 1; i > -maxPages.value; i--) {
       const NUMBER = currentItem.value - i;
       if (NUMBER > 0 && NUMBER <= maxItems.value) {
         PAGINATION_ITEMS.push(NUMBER);

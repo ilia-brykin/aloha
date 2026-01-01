@@ -92,7 +92,7 @@ export default function ComponentsAPI(props, {
           limit: limit.value,
           mode: item.mode,
           offset: offset.value,
-          paginationMaxItems: maxPages.value,
+          maxPages: maxPages.value,
           "onUpdate:offset": updateOffset,
         }));
       }

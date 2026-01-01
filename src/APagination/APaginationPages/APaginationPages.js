@@ -43,7 +43,7 @@ export default {
       type: Number,
       required: true,
     },
-    paginationMaxItems: {
+    maxPages: {
       type: Number,
       required: false,
       default: 5,
