@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">APaginationPages</strong> rendert nur die Seitennavigation. Sie lost <strong lang=\"en\">update:offset</strong> aus, damit der Parent den nachsten Elementbereich laden und die aktuelle Seite synchron halten kann.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Seitennavigation",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Gesamtanzahl der Elemente im Datensatz. Wird verwendet, um die Seitenanzahl und den Button-Bereich zu berechnen.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Deaktiviert Seitenbuttons und Navigationssteuerungen.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Anzahl der Elemente pro Seite. Zusammen mit <strong lang=\"en\">offset</strong> bestimmt dies die aktuelle Seite.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Maximale Anzahl von Seitenbuttons, die gleichzeitig angezeigt werden.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Navigationsmodus: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong> oder <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Index des ersten Elements der aktuellen Seite. Die Komponente lost <strong lang=\"en\">update:offset</strong> aus, wenn sich die Navigation andert.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Objekt mit Ubersetzungsschlusseln oder Texten fur Labels und aria-Texte des Pagers.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Maximale Seiten",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Nutzen Sie den Slider, um <strong lang=\"en\">max-pages</strong> zu andern und zu sehen, wie der Button-Bereich gekurzt wird.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maximale Seiten",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Deaktivierter Zustand",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Schalten Sie <strong lang=\"en\">disabled</strong> um, um die Seitennavigation zu blockieren.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Kurzmodus",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "Der Modus <strong lang=\"en\">short</strong> ersetzt Nummern durch eine kompakte Anzeige \"aktuell / gesamt\"."
+}

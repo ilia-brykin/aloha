@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">APaginationPages</strong> prikazuje samo navigaciju po stranicama. Emitira <strong lang=\"en\">update:offset</strong> kako bi parent mogao ucitati sljedeci blok elemenata i zadrzati trenutnu stranicu sinkroniziranom.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Paginacija stranica",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Ukupan broj elemenata u skupu podataka. Koristi se za izracun broja stranica i raspona tipki.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Onemogucava tipke stranica i kontrole navigacije.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Broj elemenata po stranici. Zajedno s <strong lang=\"en\">offset</strong> odreduje trenutnu stranicu.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Maksimalan broj tipki stranica koji se mogu prikazati odjednom.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Nacin navigacije: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong> ili <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Indeks prvog elementa na trenutnoj stranici. Komponenta emitira <strong lang=\"en\">update:offset</strong> kada se navigacija promijeni.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Objekt s prijevodnim kljucevima ili tekstovima za oznake i aria paginacije.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Maksimum stranica",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Koristite slider za promjenu <strong lang=\"en\">max-pages</strong> i pogledajte kako se skracuje raspon tipki.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maksimum stranica",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Onemoguceno stanje",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Prebacite <strong lang=\"en\">disabled</strong> kako biste blokirali navigaciju po stranicama.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Kratki nacin",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "Nacin <strong lang=\"en\">short</strong> zamjenjuje brojeve kompaktnom oznakom \"trenutna / ukupno\"."
+}

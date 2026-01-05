@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">APaginationPages</strong> component renders page navigation only. It emits <strong lang=\"en\">update:offset</strong> so the parent can load the next slice of items while keeping the current page in sync.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Pagination pages",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Total number of items in the data set. Used to calculate the number of pages and the button range.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Disables page buttons and navigation controls.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Number of items per page. Together with <strong lang=\"en\">offset</strong> it defines the current page.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Maximum amount of page buttons that may be shown at once.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Navigation layout mode: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong>, or <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Index of the first item on the current page. The component emits <strong lang=\"en\">update:offset</strong> when navigation changes.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Object with translation keys or text labels used by the pager.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Maximum pages",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Use the slider to change <strong lang=\"en\">max-pages</strong> and see how the button range is trimmed.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maximum pages",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Disabled state",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Toggle <strong lang=\"en\">disabled</strong> to block all page navigation.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Short mode",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "The <strong lang=\"en\">short</strong> mode replaces numbered buttons with a compact \"current / total\" label."
+}

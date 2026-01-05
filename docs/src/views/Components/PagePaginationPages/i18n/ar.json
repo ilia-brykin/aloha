@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "يعرض مكون <strong lang=\"en\">APaginationPages</strong> تنقل الصفحات فقط. يصدر <strong lang=\"en\">update:offset</strong> لكي يتمكن المكون الاب من تحميل الجزء التالي من العناصر مع الحفاظ على تزامن الصفحة الحالية.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "ترقيم الصفحات",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "العدد الاجمالي للعناصر في مجموعة البيانات. يستخدم لحساب عدد الصفحات ونطاق الازرار.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "يعطل ازرار الصفحات وعناصر التنقل.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "عدد العناصر في الصفحة. مع <strong lang=\"en\">offset</strong> يحدد الصفحة الحالية.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "الحد الاقصى لعدد ازرار الصفحات التي يمكن عرضها في الوقت نفسه.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "نمط التنقل: <strong lang=\"en\">normal</strong> او <strong lang=\"en\">short</strong> او <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "فهرس اول عنصر في الصفحة الحالية. يصدر المكون <strong lang=\"en\">update:offset</strong> عند تغيير التنقل.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "كائن يحتوي على مفاتيح الترجمة او نصوص لتسميات و aria للمُرقم.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "الحد الاقصى للصفحات",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "استخدم شريط التمرير لتغيير <strong lang=\"en\">max-pages</strong> ومشاهدة تقصير نطاق الازرار.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "الحد الاقصى للصفحات",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "حالة التعطيل",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "بدل <strong lang=\"en\">disabled</strong> لتعطيل تنقل الصفحات.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "الوضع المختصر",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "يستبدل وضع <strong lang=\"en\">short</strong> الارقام بوسم موجز \"الحالي / الكلي\"."
+}

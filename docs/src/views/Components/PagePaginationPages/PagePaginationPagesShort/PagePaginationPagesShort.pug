@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_"
+  description="_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_"
+  :props="['mode']"
+)
+  aloha-pagination-items(
+    :length="rowsLength"
+    :offset="offset"
+  )
+  a-pagination-pages(
+    mode="short"
+    :limit="limit"
+    :offset="offset"
+    :total-count="totalCount"
+    @update:offset="updateOffset"
+  )

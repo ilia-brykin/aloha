@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_"
+  description="_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_"
+  :props="['disabled']"
+)
+  a-switch.a_mb_4(
+    v-model="isDisabled"
+    label="_LBL_DISABLED_"
+  )
+  aloha-pagination-items(
+    :length="rowsLength"
+    :offset="offset"
+  )
+  a-pagination-pages(
+    :disabled="isDisabled"
+    :limit="limit"
+    :max-pages="maxPages"
+    :offset="offset"
+    :total-count="totalCount"
+    @update:offset="updateOffset"
+  )

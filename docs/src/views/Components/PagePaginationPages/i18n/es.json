@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">APaginationPages</strong> muestra solo la navegacion de paginas. Emite <strong lang=\"en\">update:offset</strong> para que el contenedor cargue el siguiente bloque de elementos y mantenga la pagina actual sincronizada.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Paginacion de paginas",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Numero total de elementos del conjunto de datos. Se usa para calcular el numero de paginas y el rango de botones.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Desactiva los botones de pagina y los controles de navegacion.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Numero de elementos por pagina. Junto con <strong lang=\"en\">offset</strong> define la pagina actual.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Cantidad maxima de botones de pagina que se pueden mostrar a la vez.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Modo de navegacion: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong> o <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Indice del primer elemento de la pagina actual. El componente emite <strong lang=\"en\">update:offset</strong> cuando cambia la navegacion.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Objeto con claves de traduccion o textos para las etiquetas y aria del paginador.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Maximo de paginas",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Usa el slider para cambiar <strong lang=\"en\">max-pages</strong> y ver como se recorta el rango de botones.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maximo de paginas",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Estado deshabilitado",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Alterna <strong lang=\"en\">disabled</strong> para bloquear toda la navegacion de paginas.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Modo corto",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "El modo <strong lang=\"en\">short</strong> reemplaza los numeros por una etiqueta compacta \"actual / total\"."
+}

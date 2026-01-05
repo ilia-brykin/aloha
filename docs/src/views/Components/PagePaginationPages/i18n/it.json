@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">APaginationPages</strong> rende solo la navigazione delle pagine. Emette <strong lang=\"en\">update:offset</strong> cosi che il parent possa caricare il prossimo blocco di elementi e mantenere la pagina corrente sincronizzata.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Paginazione delle pagine",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Numero totale di elementi nel set di dati. Usato per calcolare il numero di pagine e l'intervallo dei pulsanti.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Disabilita i pulsanti di pagina e i controlli di navigazione.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Numero di elementi per pagina. Insieme a <strong lang=\"en\">offset</strong> definisce la pagina corrente.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Numero massimo di pulsanti di pagina che possono essere mostrati contemporaneamente.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Modalita di navigazione: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong> o <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Indice del primo elemento della pagina corrente. Il componente emette <strong lang=\"en\">update:offset</strong> quando cambia la navigazione.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Oggetto con chiavi di traduzione o testi per le etichette e le aria del paginatore.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Numero massimo di pagine",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Usa lo slider per cambiare <strong lang=\"en\">max-pages</strong> e vedere come si riduce l'intervallo dei pulsanti.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Numero massimo di pagine",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Stato disabilitato",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Attiva/disattiva <strong lang=\"en\">disabled</strong> per bloccare la navigazione delle pagine.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Modalita breve",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "La modalita <strong lang=\"en\">short</strong> sostituisce i numeri con un'etichetta compatta \"corrente / totale\"."
+}

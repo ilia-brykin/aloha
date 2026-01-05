@@ -1,0 +1,23 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_"
+    )
+
+    page-pagination-pages-basic
+    page-pagination-pages-max-pages
+    page-pagination-pages-short
+    page-pagination-pages-disabled
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

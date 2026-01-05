@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">APaginationPages</strong> отображает только навигацию по страницам. Он эмитит <strong lang=\"en\">update:offset</strong>, чтобы родитель мог загружать следующую порцию элементов и синхронизировать текущую страницу.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Пагинация страниц",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Общее количество элементов в наборе данных. Используется для расчета числа страниц и диапазона кнопок.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Отключает кнопки страниц и элементы навигации.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Количество элементов на странице. Вместе с <strong lang=\"en\">offset</strong> определяет текущую страницу.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Максимальное количество кнопок страниц, которое может отображаться одновременно.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Режим отображения: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong> или <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Индекс первого элемента на текущей странице. Компонент эмитит <strong lang=\"en\">update:offset</strong> при смене страницы.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Объект с ключами перевода или текстами для подписей и aria-строк пагинатора.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Максимум страниц",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Используйте слайдер, чтобы менять <strong lang=\"en\">max-pages</strong> и видеть, как сокращается диапазон кнопок.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Максимум страниц",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Отключенное состояние",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Переключайте <strong lang=\"en\">disabled</strong>, чтобы заблокировать навигацию по страницам.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Короткий режим",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "Режим <strong lang=\"en\">short</strong> заменяет номера страниц компактной строкой «текущая / всего»."
+}

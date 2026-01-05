@@ -1,0 +1,18 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">APaginationPages</strong> affiche uniquement la navigation de pages. Il emet <strong lang=\"en\">update:offset</strong> pour que le parent charge le prochain lot d'elements et synchronise la page courante.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Pagination des pages",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Nombre total d'elements du jeu de donnees. Utilise pour calculer le nombre de pages et la plage de boutons.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Desactive les boutons de page et les controles de navigation.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Nombre d'elements par page. Avec <strong lang=\"en\">offset</strong>, cela definit la page courante.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Nombre maximal de boutons de page pouvant etre affiches en meme temps.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Mode de navigation: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong> ou <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Index du premier element de la page courante. Le composant emet <strong lang=\"en\">update:offset</strong> lors des changements de navigation.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Objet contenant des cles de traduction ou des textes pour les libelles et les aria du pagineur.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Maximum de pages",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Utilisez le slider pour modifier <strong lang=\"en\">max-pages</strong> et voir comment la plage de boutons est reduite.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maximum de pages",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Etat desactive",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Basculez <strong lang=\"en\">disabled</strong> pour bloquer toute navigation de pages.",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Mode court",
+  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "Le mode <strong lang=\"en\">short</strong> remplace les numeros par un libelle compact \"actuel / total\"."
+}
