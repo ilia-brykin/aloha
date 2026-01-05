@@ -7,6 +7,15 @@
 ---
 # Versions
 
+## 2.45.0
+
+- Feature: Add `APaginationPages` component and export it, with new documentation pages, examples, and localized translations.
+- Feature: Add `TextsAPI` to improve text customization and i18n support in `APaginationPages`.
+- Refactor: Rename pagination props for clarity (`countAllRows` -> `totalCount`, `paginationMaxItems` -> `maxPages`), remove `totalRowsCount`, and update related logic, docs, and translations.
+- Refactor: Align pagination markup/styles by sharing SCSS variables and simplifying rendering (including removal of `hasRows`).
+- Doc/UX: Add `AlohaPaginationItems` helper and refresh pagination demo examples (basic, disabled, max pages, limits per page, short/mode).
+- Refactor: Use `null` instead of empty strings in `ATabsContent` and `ATabsTab` render defaults.
+
 ## 2.44.0
 
 - Feature: Add `class` and `classMenuSearch` props to `ASelect`, with default values in `ASelectPluginOptions`. Enhance menu class binding to support conditional styling for search functionality.
