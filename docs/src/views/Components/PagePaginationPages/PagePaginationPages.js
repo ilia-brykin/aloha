@@ -4,7 +4,7 @@ import AlohaTableTranslate from "../../../global/components/AlohaTableTranslate/
 import PagePaginationPagesBasic from "./PagePaginationPagesBasic/PagePaginationPagesBasic.vue";
 import PagePaginationPagesDisabled from "./PagePaginationPagesDisabled/PagePaginationPagesDisabled.vue";
 import PagePaginationPagesMaxPages from "./PagePaginationPagesMaxPages/PagePaginationPagesMaxPages.vue";
-import PagePaginationPagesShort from "./PagePaginationPagesShort/PagePaginationPagesShort.vue";
+import PagePaginationPagesMode from "./PagePaginationPagesMode/PagePaginationPagesMode.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -23,7 +23,7 @@ export default {
     PagePaginationPagesBasic,
     PagePaginationPagesDisabled,
     PagePaginationPagesMaxPages,
-    PagePaginationPagesShort,
+    PagePaginationPagesMode,
   },
   setup() {
     const {

@@ -5,17 +5,30 @@ export default function JsAPI() {
 } from "vue";
 import {
   APaginationPages,
+  ASelect,
 } from "aloha-vue";
     
 export default {
-  name: "PagePaginationPagesShort",
+  name: "PagePaginationPagesMode",
   components: {
     APaginationPages,
+    ASelect,
   },
   setup() {
     const totalCount = ref(87);
     const limit = ref(10);
     const offset = ref(0);
+    const mode = ref("short");
+    const modeOptions = [
+      {
+        id: "short",
+        label: "_A_PAGINATION_PAGES_MODE_SHORT_",
+      },
+      {
+        id: "normal",
+        label: "_A_PAGINATION_PAGES_MODE_NORMAL_",
+      },
+    ];
 
     const rowsLength = computed(() => {
       const remaining = totalCount.value - offset.value;
@@ -41,6 +54,8 @@ export default {
     return {
       blockNumbers,
       limit,
+      mode,
+      modeOptions,
       offset,
       rowsLength,
       totalCount,

@@ -13,6 +13,9 @@
   "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maximale Seiten",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Deaktivierter Zustand",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Schalten Sie <strong lang=\"en\">disabled</strong> um, um die Seitennavigation zu blockieren.",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Kurzmodus",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "Der Modus <strong lang=\"en\">short</strong> ersetzt Nummern durch eine kompakte Anzeige \"aktuell / gesamt\"."
+  "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Navigationsmodus",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Wähle zwischen den Layouts <strong lang=\"en\">short</strong> und <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_MODE_LABEL_": "Modus",
+  "_A_PAGINATION_PAGES_MODE_SHORT_": "Kurz",
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal"
 }

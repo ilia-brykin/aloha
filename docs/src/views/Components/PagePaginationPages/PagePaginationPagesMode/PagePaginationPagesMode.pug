@@ -1,0 +1,30 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGINATION_PAGES_GROUP_MODE_HEADER_"
+  description="_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_"
+  :props="['mode']"
+)
+  .a_columns.a_columns_count_12.a_mb_3
+    .a_column.a_column_6.a_column_12_touch
+      a-select(
+        v-model="mode"
+        :data="modeOptions"
+        :deselectable="false"
+        :translate-data="true"
+        key-id="id"
+        key-label="label"
+        label="_A_PAGINATION_PAGES_MODE_LABEL_"
+        type="select"
+      )
+  aloha-pagination-items(
+    :length="rowsLength"
+    :offset="offset"
+  )
+  a-pagination-pages(
+    :mode="mode"
+    :limit="limit"
+    :offset="offset"
+    :total-count="totalCount"
+    @update:offset="updateOffset"
+  )

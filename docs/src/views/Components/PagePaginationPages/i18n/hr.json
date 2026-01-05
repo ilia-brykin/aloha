@@ -13,6 +13,9 @@
   "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maksimum stranica",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Onemoguceno stanje",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Prebacite <strong lang=\"en\">disabled</strong> kako biste blokirali navigaciju po stranicama.",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Kratki nacin",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "Nacin <strong lang=\"en\">short</strong> zamjenjuje brojeve kompaktnom oznakom \"trenutna / ukupno\"."
+  "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Nacin navigacije",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Odaberite izmedu <strong lang=\"en\">short</strong> i <strong lang=\"en\">normal</strong> nacina.",
+  "_A_PAGINATION_PAGES_MODE_LABEL_": "Nacin",
+  "_A_PAGINATION_PAGES_MODE_SHORT_": "Kratko",
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normalno"
 }

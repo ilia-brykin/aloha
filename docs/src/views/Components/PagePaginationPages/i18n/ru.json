@@ -13,6 +13,9 @@
   "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Максимум страниц",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Отключенное состояние",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Переключайте <strong lang=\"en\">disabled</strong>, чтобы заблокировать навигацию по страницам.",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Короткий режим",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "Режим <strong lang=\"en\">short</strong> заменяет номера страниц компактной строкой «текущая / всего»."
+  "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Режим навигации",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Выберите между режимами <strong lang=\"en\">short</strong> и <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_MODE_LABEL_": "Режим",
+  "_A_PAGINATION_PAGES_MODE_SHORT_": "Короткий",
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Обычный"
 }

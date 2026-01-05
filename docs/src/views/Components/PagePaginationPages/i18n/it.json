@@ -13,6 +13,9 @@
   "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Numero massimo di pagine",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Stato disabilitato",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Attiva/disattiva <strong lang=\"en\">disabled</strong> per bloccare la navigazione delle pagine.",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Modalita breve",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "La modalita <strong lang=\"en\">short</strong> sostituisce i numeri con un'etichetta compatta \"corrente / totale\"."
+  "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Modalità di navigazione",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Scegli tra le modalità <strong lang=\"en\">short</strong> e <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_MODE_LABEL_": "Modalità",
+  "_A_PAGINATION_PAGES_MODE_SHORT_": "Corto",
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normale"
 }

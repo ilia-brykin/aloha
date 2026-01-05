@@ -13,6 +13,9 @@
   "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maximum pages",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Disabled state",
   "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Toggle <strong lang=\"en\">disabled</strong> to block all page navigation.",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_HEADER_": "Short mode",
-  "_A_PAGINATION_PAGES_GROUP_SHORT_DESCRIPTION_": "The <strong lang=\"en\">short</strong> mode replaces numbered buttons with a compact \"current / total\" label."
+  "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Navigation mode",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Choose between the <strong lang=\"en\">short</strong> and <strong lang=\"en\">normal</strong> layouts.",
+  "_A_PAGINATION_PAGES_MODE_LABEL_": "Mode",
+  "_A_PAGINATION_PAGES_MODE_SHORT_": "Short",
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normal"
 }
