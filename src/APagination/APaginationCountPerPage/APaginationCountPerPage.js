@@ -74,7 +74,7 @@ export default {
   },
   render() {
     return h("div", {
-      class: "a_pagination__counts",
+      class: "a_pagination__counts a_pagination_vars",
     }, (this.mode === "inline" || this.mode === "group") ?
       [
         this.showTextCountFromTo ?

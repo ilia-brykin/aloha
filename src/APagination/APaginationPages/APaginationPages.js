@@ -147,7 +147,7 @@ export default {
   render() {
     return h(ATranslation, {
       tag: "nav",
-      class: "a_pagination__nav",
+      class: "a_pagination_vars a_pagination__nav",
       "aria-label": this.textNavigation,
     }, {
       default: () => {
