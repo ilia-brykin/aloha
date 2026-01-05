@@ -1,0 +1,391 @@
+import{A as I,a as T}from"./chunk.AlohaExample.PU4bTb1R.js";import{A as L}from"./chunk.AlohaTableProps.6YmNB8xX.js";import{A as E}from"./chunk.AlohaTableTranslate.CgFqrQuQ.js";import{A as N}from"./chunk.AlohaPaginationItems.CMAsvO_P.js";import{_ as g,a as G,e as w,g as S,A as C}from"./bundle.index.CDkdMM-I.js";import{r as s,d as f,V as P,aT as A,e as o,W as h,_ as i}from"./chunk.vendor.BNArDUz4.js";import"./chunk.vendor-lodash.qxhehls9.js";import{a as v}from"./chunk.ATable.C0gIMt3z.js";import{A as R}from"./chunk.ASlider.BwJRL-Gf.js";import"./chunk.APageTabTitle.D5q11-7Q.js";import"./chunk.AlohaHighlightjs.C24k7nGh.js";import"./chunk.translations-ar.BsodmRds.js";import"./chunk.translations-de.B7bf6-7X.js";import"./chunk.translations-en.Dh_ZxlGi.js";import"./chunk.translations-es.CG4MYp3Z.js";import"./chunk.translations-fr.BfC2aZmD.js";import"./chunk.translations-hr.DPcWEdfG.js";import"./chunk.translations-it.C8OClNna.js";import"./chunk.translations-ru.dVGyYZiP.js";function M(){return{codeHtml:`<div 
+  class="page_pagination__items"
+>
+  <div 
+    v-for="blockNumber in blockNumbers"
+    :key="blockNumber"
+    class="page_pagination__item"
+  >
+    <span class="page_pagination__item_index">{{ blockNumber }}</span>
+  </div>
+</div>
+<a-pagination
+  :limit="limit"
+  :limits-per-page="limitsPerPage"
+  :max-pages="maxPages"
+  :offset="offset"
+  :rows-length="rowsLength"
+  :total-count="totalCount"
+  @update:limit="updateLimit"
+  @update:offset="updateOffset"
+></a-pagination>`}}function D(){return{codeJs:`import {
+  computed,
+  ref,
+} from "vue";
+import {
+  APagination,
+} from "aloha-vue";
+    
+export default {
+  name: "PagePaginationBasic",
+  components: {
+    APagination,
+  },
+  setup() {
+    const totalCount = ref(87);
+    const limit = ref(10);
+    const maxPages = ref(5);
+    const offset = ref(0);
+    
+    const limitsPerPage = [
+      "10",
+      "25",
+      "50",
+      "100",
+    ];
+    
+    const rowsLength = computed(() => {
+      const remaining = totalCount.value - offset.value;
+    
+      if (remaining <= 0) {
+        return 0;
+      }
+    
+      return Math.min(remaining, limit.value);
+    });
+    
+    const blockNumbers = computed(() => Array.from(
+      {
+        length: rowsLength.value,
+      },
+      (_, index) => offset.value + index + 1,
+    ));
+    
+    const updateLimit = value => {
+      limit.value = value;
+      offset.value = 0;
+    };
+    
+    const updateOffset = value => {
+      offset.value = value;
+    };
+    
+    return {
+      blockNumbers,
+      totalCount,
+      limit,
+      limitsPerPage,
+      maxPages,
+      offset,
+      rowsLength,
+      updateLimit,
+      updateOffset,
+    };
+  },
+};`}}const $={name:"PagePaginationBasic",components:{AlohaExample:I,AlohaPaginationItems:N,APagination:v},setup(){const e=s(87),t=s(10),p=s(5),n=s(0),u=["10","25","50","100"],c=f(()=>{const a=e.value-n.value;return a<=0?0:Math.min(a,t.value)}),l=a=>{t.value=a,n.value=0},r=a=>{n.value=a},{codeHtml:m}=M(),{codeJs:d}=D();return{codeHtml:m,codeJs:d,totalCount:e,limit:t,limitsPerPage:u,maxPages:p,offset:n,rowsLength:c,updateLimit:l,updateOffset:r}}};function k(e,t,p,n,u,c){const l=o("aloha-pagination-items"),r=o("a-pagination"),m=o("aloha-example");return h(),P(m,{"code-html":e.codeHtml,"code-js":e.codeJs,header:"_A_BASIC_USAGE_"},{default:A(()=>[i(l,{length:e.rowsLength,offset:e.offset},null,8,["length","offset"]),i(r,{limit:e.limit,"limits-per-page":e.limitsPerPage,"max-pages":e.maxPages,offset:e.offset,"rows-length":e.rowsLength,"total-count":e.totalCount,"onUpdate:limit":e.updateLimit,"onUpdate:offset":e.updateOffset},null,8,["limit","limits-per-page","max-pages","offset","rows-length","total-count","onUpdate:limit","onUpdate:offset"])]),_:1},8,["code-html","code-js"])}const U=g($,[["render",k]]);function H(){return{codeHtml:`<a-switch
+  class="a_mb_4"
+  v-model="isDisabled"
+  label="_LBL_DISABLED_"
+></a-switch>
+<div 
+  class="page_pagination__items"
+>
+  <div 
+    v-for="blockNumber in blockNumbers"
+    :key="blockNumber"
+    class="page_pagination__item"
+  >
+    <span class="page_pagination__item_index">{{ blockNumber }}</span>
+  </div>
+</div>
+<a-pagination
+  :disabled="isDisabled"
+  :limit="limit"
+  :limits-per-page="limitsPerPage"
+  :max-pages="maxPages"
+  :offset="offset"
+  :rows-length="rowsLength"
+  :total-count="totalCount"
+  @update:limit="updateLimit"
+  @update:offset="updateOffset"
+></a-pagination>`}}function x(){return{codeJs:`import {
+  computed,
+  ref,
+} from "vue";
+import {
+  APagination,
+  ASwitch,
+} from "aloha-vue";
+    
+export default {
+  name: "PagePaginationDisabled",
+  components: {
+    APagination,
+    ASwitch,
+  },
+  setup() {
+    const totalCount = ref(123);
+    const isDisabled = ref(true);
+    const limit = ref(10);
+    const maxPages = ref(5);
+    const offset = ref(0);
+        
+    const limitsPerPage = [
+      "10",
+      "25",
+      "50",
+      "100",
+    ];
+    
+    const rowsLength = computed(() => {
+      const remaining = totalCount.value - offset.value;
+    
+      if (remaining <= 0) {
+        return 0;
+      }
+    
+      return Math.min(remaining, limit.value);
+    });
+    
+    const blockNumbers = computed(() => Array.from(
+      {
+        length: rowsLength.value,
+      },
+      (_, index) => offset.value + index + 1,
+    ));
+    
+    const updateLimit = value => {
+      limit.value = value;
+      offset.value = 0;
+    };
+    
+    const updateOffset = value => {
+      offset.value = value;
+    };
+    
+    return {
+      blockNumbers,
+      totalCount,
+      isDisabled,
+      limit,
+      limitsPerPage,
+      maxPages,
+      offset,
+      rowsLength,
+      updateLimit,
+      updateOffset,
+    };
+  },
+};`}}const y={name:"PagePaginationDisabled",components:{AlohaExample:I,AlohaPaginationItems:N,APagination:v,ASwitch:G},setup(){const e=s(123),t=s(!0),p=s(10),n=s(5),u=s(0),c=["10","25","50","100"],l=f(()=>{const _=e.value-u.value;return _<=0?0:Math.min(_,p.value)}),r=_=>{p.value=_,u.value=0},m=_=>{u.value=_},{codeHtml:d}=H(),{codeJs:a}=x();return{codeHtml:d,codeJs:a,totalCount:e,isDisabled:t,limit:p,limitsPerPage:c,maxPages:n,offset:u,rowsLength:l,updateLimit:r,updateOffset:m}}};function J(e,t,p,n,u,c){const l=o("a-switch"),r=o("aloha-pagination-items"),m=o("a-pagination"),d=o("aloha-example");return h(),P(d,{"code-html":e.codeHtml,"code-js":e.codeJs,header:"_A_PAGINATION_GROUP_DISABLED_HEADER_",description:"_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_",props:["disabled"]},{default:A(()=>[i(l,{class:"a_mb_4",modelValue:e.isDisabled,"onUpdate:modelValue":t[0]||(t[0]=a=>e.isDisabled=a),label:"_LBL_DISABLED_"},null,8,["modelValue"]),i(r,{length:e.rowsLength,offset:e.offset},null,8,["length","offset"]),i(m,{disabled:e.isDisabled,limit:e.limit,"limits-per-page":e.limitsPerPage,"max-pages":e.maxPages,offset:e.offset,"rows-length":e.rowsLength,"total-count":e.totalCount,"onUpdate:limit":e.updateLimit,"onUpdate:offset":e.updateOffset},null,8,["disabled","limit","limits-per-page","max-pages","offset","rows-length","total-count","onUpdate:limit","onUpdate:offset"])]),_:1},8,["code-html","code-js"])}const B=g(y,[["render",J]]);function V(){return{codeHtml:`<a-multiselect-ordered
+  v-model="limitsPerPageModel"
+  :data="limitsPerPageOptions"
+  :is-data-simple-array="true"
+  class="a_mb_4"
+  label="_A_PAGINATION_LIMITS_PER_PAGE_LABEL_"
+></a-multiselect-ordered>
+<div 
+  class="page_pagination__items"
+>
+  <div 
+    v-for="blockNumber in blockNumbers"
+    :key="blockNumber"
+    class="page_pagination__item"
+  >
+    <span class="page_pagination__item_index">{{ blockNumber }}</span>
+  </div>
+</div>
+<a-pagination
+  :limit="limit"
+  :limits-per-page="limitsPerPageModel"
+  :max-pages="maxPages"
+  :offset="offset"
+  :rows-length="rowsLength"
+  :total-count="totalCount"
+  @update:limit="updateLimit"
+  @update:offset="updateOffset"
+></a-pagination>`}}function j(){return{codeJs:`import {
+  computed,
+  ref,
+} from "vue";
+import {
+  AMultiselectOrdered,
+  APagination,
+} from "aloha-vue";
+    
+export default {
+  name: "PagePaginationLimitsPerPage",
+  components: {
+    AMultiselectOrdered,
+    APagination,
+  },
+  setup() {
+    const totalCount = ref(143);
+    const limit = ref(10);
+    const maxPages = ref(5);
+    const offset = ref(0);
+    const limitsPerPageOptions = [
+      "5",
+      "10",
+      "25",
+      "50",
+      "75",
+      "100",
+    ];
+    const limitsPerPageModel = ref([...limitsPerPageOptions]);
+
+    const rowsLength = computed(() => {
+      const remaining = totalCount.value - offset.value;
+
+      if (remaining <= 0) {
+        return 0;
+      }
+
+      return Math.min(remaining, limit.value);
+    });
+    
+    const blockNumbers = computed(() => Array.from(
+      {
+        length: rowsLength.value,
+      },
+      (_, index) => offset.value + index + 1,
+    ));
+    
+    const updateLimit = value => {
+      limit.value = value;
+      offset.value = 0;
+    };
+    
+    const updateOffset = value => {
+      offset.value = value;
+    };
+    
+    return {
+      blockNumbers,
+      totalCount,
+      limit,
+      limitsPerPageModel,
+      limitsPerPageOptions,
+      maxPages,
+      offset,
+      rowsLength,
+      updateLimit,
+      updateOffset,
+    };
+  },
+};`}}const q={name:"PagePaginationLimitsPerPage",components:{AlohaExample:I,AlohaPaginationItems:N,AMultiselectOrdered:w,APagination:v},setup(){const e=s(143),t=s(10),p=s(5),n=s(0),u=["5","10","25","50","75","100"],c=s([...u]),l=f(()=>{const _=e.value-n.value;return _<=0?0:Math.min(_,t.value)}),r=_=>{t.value=_,n.value=0},m=_=>{n.value=_},{codeHtml:d}=V(),{codeJs:a}=j();return{codeHtml:d,codeJs:a,totalCount:e,limit:t,limitsPerPageModel:c,limitsPerPageOptions:u,maxPages:p,offset:n,rowsLength:l,updateLimit:r,updateOffset:m}}};function X(e,t,p,n,u,c){const l=o("a-multiselect-ordered"),r=o("aloha-pagination-items"),m=o("a-pagination"),d=o("aloha-example");return h(),P(d,{"code-html":e.codeHtml,"code-js":e.codeJs,header:"_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_",description:"_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_",props:["limits-per-page"]},{default:A(()=>[i(l,{class:"a_mb_4",modelValue:e.limitsPerPageModel,"onUpdate:modelValue":t[0]||(t[0]=a=>e.limitsPerPageModel=a),data:e.limitsPerPageOptions,"is-data-simple-array":!0,label:"_A_PAGINATION_LIMITS_PER_PAGE_LABEL_"},null,8,["modelValue","data"]),i(r,{length:e.rowsLength,offset:e.offset},null,8,["length","offset"]),i(m,{limit:e.limit,"limits-per-page":e.limitsPerPageModel,"max-pages":e.maxPages,offset:e.offset,"rows-length":e.rowsLength,"total-count":e.totalCount,"onUpdate:limit":e.updateLimit,"onUpdate:offset":e.updateOffset},null,8,["limit","limits-per-page","max-pages","offset","rows-length","total-count","onUpdate:limit","onUpdate:offset"])]),_:1},8,["code-html","code-js"])}const F=g(q,[["render",X]]);function W(){return{codeHtml:`<a-slider
+  v-model="maxPages"
+  :max="10"
+  :min="1"
+  :step="1"
+  class="a_mb_4"
+  label="_A_PAGINATION_MAX_PAGES_LABEL_"
+></a-slider>
+<div 
+  class="page_pagination__items"
+>
+  <div 
+    v-for="blockNumber in blockNumbers"
+    :key="blockNumber"
+    class="page_pagination__item"
+  >
+    <span class="page_pagination__item_index">{{ blockNumber }}</span>
+  </div>
+</div>
+<a-pagination
+  :limit="limit"
+  :limits-per-page="limitsPerPage"
+  :max-pages="maxPages"
+  :offset="offset"
+  :rows-length="rowsLength"
+  :total-count="totalCount"
+  @update:limit="updateLimit"
+  @update:offset="updateOffset"
+></a-pagination>`}}function z(){return{codeJs:`import {
+  computed,
+  ref,
+} from "vue";
+import {
+  APagination,
+  ASlider,
+} from "aloha-vue";
+    
+export default {
+  name: "PagePaginationMaxPages",
+  components: {
+    APagination,
+    ASlider,
+  },
+  setup() {
+    const totalCount = ref(143);
+    const limit = ref(10);
+    const maxPages = ref(5);
+    const offset = ref(0);
+    const limitsPerPage = [
+      "10",
+      "25",
+      "50",
+      "100",
+    ];
+    
+    const rowsLength = computed(() => {
+      const remaining = totalCount.value - offset.value;
+    
+      if (remaining <= 0) {
+        return 0;
+      }
+    
+      return Math.min(remaining, limit.value);
+    });
+    
+    const blockNumbers = computed(() => Array.from(
+      {
+        length: rowsLength.value,
+      },
+      (_, index) => offset.value + index + 1,
+    ));
+    
+    const updateLimit = value => {
+      limit.value = value;
+      offset.value = 0;
+    };
+    
+    const updateOffset = value => {
+      offset.value = value;
+    };
+    
+    return {
+      blockNumbers,
+      totalCount,
+      limit,
+      limitsPerPage,
+      maxPages,
+      offset,
+      rowsLength,
+      updateLimit,
+      updateOffset,
+    };
+  },
+};`}}const K={name:"PagePaginationMaxPages",components:{AlohaExample:I,AlohaPaginationItems:N,APagination:v,ASlider:R},setup(){const e=s(143),t=s(10),p=s(5),n=s(0),u=["10","25","50","100"],c=f(()=>{const a=e.value-n.value;return a<=0?0:Math.min(a,t.value)}),l=a=>{t.value=a,n.value=0},r=a=>{n.value=a},{codeHtml:m}=W(),{codeJs:d}=z();return{codeHtml:m,codeJs:d,totalCount:e,limit:t,limitsPerPage:u,maxPages:p,offset:n,rowsLength:c,updateLimit:l,updateOffset:r}}};function Q(e,t,p,n,u,c){const l=o("a-slider"),r=o("aloha-pagination-items"),m=o("a-pagination"),d=o("aloha-example");return h(),P(d,{"code-html":e.codeHtml,"code-js":e.codeJs,header:"_A_PAGINATION_GROUP_MAX_PAGES_HEADER_",description:"_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_",props:["max-pages"]},{default:A(()=>[i(l,{class:"a_mb_4",modelValue:e.maxPages,"onUpdate:modelValue":t[0]||(t[0]=a=>e.maxPages=a),max:10,min:1,step:1,label:"_A_PAGINATION_MAX_PAGES_LABEL_"},null,8,["modelValue"]),i(r,{length:e.rowsLength,offset:e.offset},null,8,["length","offset"]),i(m,{limit:e.limit,"limits-per-page":e.limitsPerPage,"max-pages":e.maxPages,offset:e.offset,"rows-length":e.rowsLength,"total-count":e.totalCount,"onUpdate:limit":e.updateLimit,"onUpdate:offset":e.updateOffset},null,8,["limit","limits-per-page","max-pages","offset","rows-length","total-count","onUpdate:limit","onUpdate:offset"])]),_:1},8,["code-html","code-js"])}const Y=g(K,[["render",Q]]);function Z(){const e=f(()=>S({placeholder:"_A_PAGINATION_COMPONENT_NAME_"}));return{pageTitle:f(()=>`APagination${e.value?` (${e.value})`:""}`)}}function ee(){return{dataProps:[{name:"disabled",description:"_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_",type:"Boolean",default:void 0,required:!1},{name:"limit",description:"_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_",type:"Number",default:void 0,required:!0},{name:"limits-per-page",description:"_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_",type:"Array",default:'() => ["10", "25", "50", "100"]',required:!1},{name:"max-pages",description:"_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_",type:"Number",default:5,required:!1},{name:"offset",description:"_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_",type:"Number",default:void 0,required:!0},{name:"rows-length",description:"_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_",type:"Number",default:void 0,required:!0},{name:"modes",description:"_A_PAGINATION_PROPS_MODES_DESCRIPTION_",type:"Object",default:`() => ({
+  desktop: {
+    perPage: {
+      mode: "group",
+      position: 0,
+      showTextCountFromTo: true,
+    },
+    pagination: {
+      mode: "normal",
+      position: 1,
+    },
+  },
+  mobile: {
+    perPage: {
+      mode: "select",
+      position: 0,
+      showTextCountFromTo: false,
+    },
+    pagination: {
+      mode: "short",
+      position: 1,
+    },
+  },
+})`,required:!1},{name:"total-count",description:"_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_",type:"Number",default:void 0,required:!0}]}}function te(){return{dataTranslate:["_A_COUNT_PER_PAGE_","_A_COUNT_PER_PAGE_ITEM_{{count}}_","_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_","_A_PAGINATION_FIRST_PAGE_","_A_PAGINATION_LAST_PAGE_","_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_","_A_PAGINATION_NAVIGATION_","_A_PAGINATION_NEXT_PAGE_","_A_PAGINATION_PREVIOUS_PAGE_","_A_PAGINATION_TO_PAGE_{{page}}_"]}}const ae={name:"PagePagination",components:{ATranslation:C,AlohaPage:T,AlohaTableProps:L,AlohaTableTranslate:E,PagePaginationBasic:U,PagePaginationDisabled:B,PagePaginationLimitsPerPage:F,PagePaginationMaxPages:Y},setup(){const{pageTitle:e}=Z(),{dataProps:t}=ee(),{dataTranslate:p}=te();return{dataProps:t,dataTranslate:p,pageTitle:e}}};function oe(e,t,p,n,u,c){const l=o("a-translation"),r=o("page-pagination-basic"),m=o("page-pagination-limits-per-page"),d=o("page-pagination-max-pages"),a=o("page-pagination-disabled"),_=o("aloha-table-props"),O=o("aloha-table-translate"),b=o("aloha-page");return h(),P(b,{"page-title":e.pageTitle},{body:A(()=>[i(l,{tag:"p",html:"_A_PAGINATION_COMPONENT_DESCRIPTION_"}),i(r),i(m),i(d),i(a),i(_,{data:e.dataProps},null,8,["data"]),i(O,{data:e.dataTranslate},null,8,["data"])]),_:1},8,["page-title"])}const Oe=g(ae,[["render",oe]]);export{Oe as default};
