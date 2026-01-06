@@ -65,6 +65,7 @@
   font-size: var(--a_pagination_font_size);
   background-color: var(--a_pagination_link_bg);
   border: var(--a_pagination_link_border_width) solid var(--a_pagination_link_border_color);
+  height: 100%;
 }
 .a_pagination__item__link {
   position: relative;
@@ -77,6 +78,7 @@
   border: var(--a_pagination_link_border_width) solid var(--a_pagination_link_border_color);
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   cursor: pointer;
+  height: 100%;
   .a_pagination__item:first-child & {
     border-top-left-radius: var(--a_pagination_link_border_radius);
     border-bottom-left-radius: var(--a_pagination_link_border_radius);
