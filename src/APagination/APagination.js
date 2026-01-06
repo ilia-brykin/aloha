@@ -2,7 +2,6 @@ import {
   h,
 } from "vue";
 
-import AMobileAPI from "../compositionAPI/AMobileAPI";
 import ComponentsAPI from "./compositionAPI/ComponentsAPI";
 import EmitsAPI from "./compositionAPI/EmitsAPI";
 
@@ -41,27 +40,14 @@ export default {
          * perPage: inline / group / select
          * pagination: normal / short / loadMore
          */
-        desktop: {
-          perPage: {
-            mode: "group",
-            position: 0,
-            showTextCountFromTo: true,
-          },
-          pagination: {
-            mode: "normal",
-            position: 1,
-          },
+        perPage: {
+          mode: "group",
+          position: 0,
+          showTextCountFromTo: true,
         },
-        mobile: {
-          perPage: {
-            mode: "select",
-            position: 0,
-            showTextCountFromTo: false,
-          },
-          pagination: {
-            mode: "short",
-            position: 1,
-          },
+        pagination: {
+          mode: "normal",
+          position: 1,
         },
       }),
     },
@@ -100,10 +86,6 @@ export default {
   ],
   setup(props, context) {
     const {
-      isMobileWidth: isMobile,
-    } = AMobileAPI();
-
-    const {
       updateLimit,
       updateOffset,
     } = EmitsAPI(props, context);
@@ -111,7 +93,6 @@ export default {
     const {
       components,
     } = ComponentsAPI(props, {
-      isMobile,
       updateLimit,
       updateOffset,
     });

@@ -1,7 +1,6 @@
 import {
   computed,
   h,
-  ref,
   toRef,
 } from "vue";
 
@@ -16,7 +15,6 @@ import {
 } from "lodash-es";
 
 export default function ComponentsAPI(props, {
-  isMobile = ref(false),
   updateLimit = () => {},
   updateOffset = () => {},
 }) {
@@ -30,38 +28,9 @@ export default function ComponentsAPI(props, {
   const texts = toRef(props, "texts");
   const totalCount = toRef(props, "totalCount");
 
-  const currentMode = computed(() => {
-    if (isMobile.value) {
-      return modes.value.mobile ||
-        {
-          perPage: {
-            mode: "select",
-            position: 0,
-            showTextCountFromTo: false,
-          },
-          pagination: {
-            mode: "short",
-            position: 1,
-          },
-        };
-    }
-    return modes.value.desktop ||
-      {
-        perPage: {
-          mode: "inline",
-          position: 0,
-          showTextCountFromTo: true,
-        },
-        pagination: {
-          mode: "normal",
-          position: 1,
-        },
-      };
-  });
-
   const currentModeSorted = computed(() => {
     const LIST = [];
-    forEach(currentMode.value, (item, component) => {
+    forEach(modes.value, (item, component) => {
       LIST.push({
         ...item,
         component,

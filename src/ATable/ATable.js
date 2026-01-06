@@ -41,6 +41,9 @@ import TextsAPI from "./compositionAPI/TextsAPI";
 import VariablesAPI from "./compositionAPI/VariablesAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
+import {
+  PaginationModesAPI,
+} from "./compositionAPI/PaginationModesAPI";
 
 import {
   tablePluginOptions,
@@ -737,6 +740,12 @@ export default {
     });
 
     const {
+      paginationModes,
+    } = PaginationModesAPI(props, {
+      isMobile,
+    });
+
+    const {
       initTable,
     } = InitAPI(props, context, {
       checkColumnsOrdering,
@@ -836,6 +845,7 @@ export default {
       mouseupResizePreviewRight,
       offset,
       onTogglePreview,
+      paginationModes,
       previewDownRowIds,
       previewRightRowIndex,
       renderedGroupedColumns,
@@ -944,6 +954,7 @@ export default {
             disabled: this.pagination.disabled,
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
+            modes: this.paginationModes,
             maxPages: this.pagination.maxPages,
             offset: this.offset,
             rowsLength: this.rowsLocalLength,
@@ -1117,6 +1128,7 @@ export default {
             limit: this.limit,
             limitsPerPage: this.pagination.limitsPerPage,
             maxPages: this.pagination.maxPages,
+            modes: this.paginationModes,
             offset: this.offset,
             rowsLength: this.rowsLocalLength,
             totalCount: this.countAllRowsLocal,
