@@ -11500,6 +11500,7 @@ input[type=text]::-ms-clear {
   font-size: var(--a_pagination_font_size);
   background-color: var(--a_pagination_link_bg);
   border: var(--a_pagination_link_border_width) solid var(--a_pagination_link_border_color);
+  height: 100%;
 }
 
 .a_pagination__item__link {
@@ -11513,6 +11514,7 @@ input[type=text]::-ms-clear {
   border: var(--a_pagination_link_border_width) solid var(--a_pagination_link_border_color);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   cursor: pointer;
+  height: 100%;
 }
 .a_pagination__item:first-child .a_pagination__item__link {
   border-top-left-radius: var(--a_pagination_link_border_radius);

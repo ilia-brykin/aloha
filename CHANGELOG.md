@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.45.2
+
+- Fix: Ensure consistent height for `APagination` links by adding `height: 100%` to styles.
+
 ## 2.45.1
 
 - Feature: Add `TextsAPI` for dynamic text handling in `APaginationCountPerPage`, enabling customizable text properties and translation support.
