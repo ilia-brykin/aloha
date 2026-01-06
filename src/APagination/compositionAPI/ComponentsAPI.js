@@ -20,14 +20,15 @@ export default function ComponentsAPI(props, {
   updateLimit = () => {},
   updateOffset = () => {},
 }) {
-  const modes = toRef(props, "modes");
-  const totalCount = toRef(props, "totalCount");
   const disabled = toRef(props, "disabled");
-  const limitsPerPage = toRef(props, "limitsPerPage");
   const limit = toRef(props, "limit");
+  const limitsPerPage = toRef(props, "limitsPerPage");
+  const maxPages = toRef(props, "maxPages");
+  const modes = toRef(props, "modes");
   const offset = toRef(props, "offset");
   const rowsLength = toRef(props, "rowsLength");
-  const maxPages = toRef(props, "maxPages");
+  const texts = toRef(props, "texts");
+  const totalCount = toRef(props, "totalCount");
 
   const currentMode = computed(() => {
     if (isMobile.value) {
@@ -75,24 +76,26 @@ export default function ComponentsAPI(props, {
     forEach(currentModeSorted.value, item => {
       if (item.component === "perPage") {
         LIST.push(h(APaginationCountPerPage, {
-          totalCount: totalCount.value,
           disabled: disabled.value,
-          limitsPerPage: limitsPerPage.value,
           limit: limit.value,
+          limitsPerPage: limitsPerPage.value,
+          mode: item.mode,
           offset: offset.value,
           rowsLength: rowsLength.value,
-          mode: item.mode,
           showTextCountFromTo: item.showTextCountFromTo,
+          texts: texts.value,
+          totalCount: totalCount.value,
           "onUpdate:limit": updateLimit,
         }));
       } else if (item.component === "pagination") {
         LIST.push(h(APaginationPages, {
-          totalCount: totalCount.value,
           disabled: disabled.value,
           limit: limit.value,
+          maxPages: maxPages.value,
           mode: item.mode,
           offset: offset.value,
-          maxPages: maxPages.value,
+          texts: texts.value,
+          totalCount: totalCount.value,
           "onUpdate:offset": updateOffset,
         }));
       }

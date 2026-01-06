@@ -73,6 +73,22 @@ export default {
       type: Number,
       required: true,
     },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        pagesFirstPage: "_A_PAGINATION_FIRST_PAGE_",
+        pagesLastPage: "_A_PAGINATION_LAST_PAGE_",
+        pagesMobile: "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_",
+        pagesNavigation: "_A_PAGINATION_NAVIGATION_",
+        pagesNextPage: "_A_PAGINATION_NEXT_PAGE_",
+        pagesPreviousPage: "_A_PAGINATION_PREVIOUS_PAGE_",
+        pagesToPage: "_A_PAGINATION_TO_PAGE_{{page}}_",
+        countFromTo: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+        countPerPage: "_A_COUNT_PER_PAGE_",
+        countPerPageItem: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+      }),
+    },
     totalCount: {
       type: Number,
       required: true,
