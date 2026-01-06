@@ -8,6 +8,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import LimitAPI from "./compositionAPI/LimitAPI";
 import MainAPI from "./compositionAPI/MainAPI";
+import TextsAPI from "./compositionAPI/TextsAPI";
 
 export default {
   name: "APaginationCountPerPage",
@@ -48,6 +49,15 @@ export default {
       required: false,
       default: true,
     },
+    texts: {
+      type: Object,
+      required: false,
+      default: () => ({
+        countFromTo: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+        countPerPage: "_A_COUNT_PER_PAGE_",
+        countPerPageItem: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+      }),
+    },
   },
   emits: [
     "update:limit",
@@ -64,12 +74,27 @@ export default {
       extraForTranslate,
     } = MainAPI(props);
 
+    const {
+      getTextCountPerPageItem,
+      isTextCountPerPageItemFunction,
+      textCountFromTo,
+      textCountPerPage,
+      textCountPerPageItem,
+    } = TextsAPI(props, {
+      extraForTranslate,
+    });
+
     return {
       changeLimit,
       changeLimitFromSelect,
       extraForTranslate,
+      getTextCountPerPageItem,
+      isTextCountPerPageItemFunction,
       keyDownChangeLimit,
       limitString,
+      textCountFromTo,
+      textCountPerPage,
+      textCountPerPageItem,
     };
   },
   render() {
@@ -80,14 +105,14 @@ export default {
         this.showTextCountFromTo ?
           h(ATranslation, {
             class: "a_pagination__count_from_to",
-            html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+            html: this.textCountFromTo,
             extra: this.extraForTranslate,
           }) :
           "",
         h(ATranslation, {
           tag: "span",
           class: "a_pagination__count__text",
-          html: "_A_COUNT_PER_PAGE_",
+          html: this.textCountPerPage,
         }),
         this.mode === "inline" ?
           h("div", {
@@ -95,6 +120,9 @@ export default {
           }, [
             this.limitsPerPage.map(count => {
               const IS_ACTIVE = +count === this.limit;
+              const TITLE = this.isTextCountPerPageItemFunction ?
+                this.getTextCountPerPageItem({ count }) :
+                this.textCountPerPageItem;
 
               return h("div", {
                 class: "a_pagination__count__item",
@@ -108,8 +136,8 @@ export default {
                   },
                   text: count,
                   textAriaHidden: true,
-                  textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
-                  title: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  textScreenReader: TITLE,
+                  title: TITLE,
                   type: "button",
                   onClick: () => this.changeLimit(count),
                 }),
@@ -121,6 +149,9 @@ export default {
           }, [
             this.limitsPerPage.map(count => {
               const IS_ACTIVE = +count === this.limit;
+              const TITLE = this.isTextCountPerPageItemFunction ?
+                this.getTextCountPerPageItem({ count }) :
+                this.textCountPerPageItem;
 
               return h("li", {
                 class: [
@@ -143,8 +174,8 @@ export default {
                   tag: "a",
                   text: count,
                   textAriaHidden: true,
-                  textScreenReader: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
-                  title: "_A_COUNT_PER_PAGE_ITEM_{{count}}_",
+                  textScreenReader: TITLE,
+                  title: TITLE,
                   type: "button",
                   onClick: () => this.changeLimit(count),
                   onKeydown: $event => this.keyDownChangeLimit($event, count),
@@ -157,12 +188,12 @@ export default {
         this.showTextCountFromTo ?
           h(ATranslation, {
             class: "a_pagination__count_from_to",
-            html: "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_",
+            html: this.textCountFromTo,
             extra: this.extraForTranslate,
           }) :
           "",
         h(ASelect, {
-          label: "_A_COUNT_PER_PAGE_",
+          label: this.textCountPerPage,
           labelClass: "a_sr_only",
           data: this.limitsPerPage,
           isDataSimpleArray: true,
