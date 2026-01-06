@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.45.1
+
+- Feature: Add `TextsAPI` for dynamic text handling in `APaginationCountPerPage`, enabling customizable text properties and translation support.
+- Feature: Add `texts` prop to `APagination` and update `ComponentsAPI` to consume dynamic text settings.
+- Refactor: Move mobile mode handling out of `APagination` into `PaginationModesAPI`, and integrate it into `ATable`.
+- Docs: Update `APagination` props and i18n to include `texts` and clarify the `modes` description.
+
 ## 2.45.0
 
 - Feature: Add `APaginationPages` component and export it, with new documentation pages, examples, and localized translations.
