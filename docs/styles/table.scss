@@ -1,0 +1,30 @@
+.aloha_table_properties {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  background-color: var(--a_color_white);
+  border: 1px solid var(--a_color_gray_300);
+  box-shadow: 0 8px 18px rgba(24, 32, 38, 0.06);
+  thead,
+  tfoot {
+    th {
+      font-weight: 700;
+    }
+  }
+  th,
+  td {
+    border: 1px solid var(--a_color_gray_300);
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: var(--a_color_gray_100);
+    font-weight: 600;
+    text-align: left;
+  }
+
+  tbody tr:nth-child(even) td {
+    background-color: var(--a_color_gray_50);
+  }
+}

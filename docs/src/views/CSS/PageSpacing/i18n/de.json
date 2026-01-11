@@ -1,0 +1,10 @@
+{
+  "_A_SPACING_CONFIG_DESCRIPTION_": "Sie können Abkürzungen, Richtungen und die Werteskala über <strong lang=\"en\">SCSS</strong>-Variablen anpassen.",
+  "_A_SPACING_CONFIG_NAME_": "SCSS-Konfiguration",
+  "_A_SPACING_HTML_EXAMPLE_": "<!-- Fügt 1rem Außenabstand unten hinzu -->\n<p class=\"a_mb_4\">Unterer Abstand (margin)</p>\n\n<!-- Fügt 0.25rem Innenabstand links und rechts hinzu -->\n<p class=\"a_px_1\">Horizontaler Abstand (padding)</p>\n\n<!-- Entfernt den Außenabstand rechts und fügt 0.75rem Innenabstand oben hinzu -->\n<p class=\"a_mr_0 a_pt_3\">Beides</p>",
+  "_A_SPACING_NAME_": "Abstände",
+  "_A_SPACING_TABLE_DESCRIPTION_": "Spickzettel zu den wichtigsten Abstands-Klassenmustern. Werte <strong lang=\"en\">0-6</strong> entsprechen 0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.5rem, 3rem.",
+  "_A_SPACING_TABLE_USAGE_": "Um diese Klassen zu verwenden, fügen Sie sie einfach zu jedem <span lang=\"en\">HTML</span>-Element hinzu:",
+  "_A_SPACING_TABLE_LABEL_": "Klassen",
+  "_A_SPACING_TABLE_NAME_": "Klassentabelle"
+}

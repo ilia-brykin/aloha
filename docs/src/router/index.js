@@ -377,16 +377,21 @@ const ROUTES = [
     name: "PageDisclosure",
     component: () => import("../views/Components/PageDisclosure/PageDisclosure.vue"),
   },
-  {
-    path: "/columns",
-    name: "PageColumns",
-    component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
-  },
-  {
-    path: "/badge",
-    name: "PageBadge",
-    component: () => import("../views/CSS/PageBadge/PageBadge.vue"),
-  },
+    {
+      path: "/columns",
+      name: "PageColumns",
+      component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
+    },
+    {
+      path: "/spacing",
+      name: "PageSpacing",
+      component: () => import("../views/CSS/PageSpacing/PageSpacing.vue"),
+    },
+    {
+      path: "/badge",
+      name: "PageBadge",
+      component: () => import("../views/CSS/PageBadge/PageBadge.vue"),
+    },
   {
     path: "/text",
     name: "PageText",

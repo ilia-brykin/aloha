@@ -61,7 +61,9 @@
   .aloha_example__body
     slot
 
-  .aloha_example__actions
+  .aloha_example__actions(
+    v-if="useActions"
+  )
     .a_btn_group
       a-button.a_btn.a_btn_secondary(
         v-if="codeJs"

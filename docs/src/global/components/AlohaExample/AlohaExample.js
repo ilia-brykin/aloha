@@ -66,6 +66,11 @@ export default {
       required: false,
       default: undefined,
     },
+    useActions: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   setup(props) {
     const {

@@ -1,5 +1,6 @@
 @use "../../scss/aloha-vue";
 @use "Example";
+@use "table";
 
 .a_menu__page {
   padding: 0 1rem 0 2.5rem;
@@ -14,4 +15,12 @@
   .a_menu__btn_toggle_outside_menu {
     display: inline-block;
   }
+}
+code {
+  background-color: var(--a_color_gray_200);
+  border-radius: .5em;
+  color: #d7002c;
+  font-size: 0.875em;
+  font-weight: normal;
+  padding: 0.25em 0.5em 0.25em;
 }

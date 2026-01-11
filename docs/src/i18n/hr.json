@@ -1,5 +1,6 @@
 {
   "_PAGE_TITLE_BASE_": "Dokumentacija za aloha-vue",
+  "_AND_": "i",
   "_A_BASIC_USAGE_": "Osnovna uporaba",
   "_A_GLOBAL_ADD_": "Dodaj",
   "_A_GLOBAL_DELETE_": "Izbriši",
@@ -17,6 +18,10 @@
   "_ALOHA_TABLE_COLUMN_TRANSLATE_PLACEHOLDER_": "Ključ prijevoda",
   "_ALOHA_TABLE_COLUMN_TYPE_": "Tip",
   "_ALOHA_TABLE_TRANSLATE_LABEL_": "Prijevodi",
+  "_A_TABLE_PROPERTY_": "Svojstvo",
+  "_A_TABLE_SHORTCUT_": "Skracenica",
+  "_A_TABLE_CLASSES_": "Klase",
+  "_A_TABLE_VALUES_": "Vrijednosti",
   "_COPIED_TO_CLIPBOARD_": "Kopirano u međuspremnik!",
   "_COPY_CODE_HTML_": "Kopiraj HTML kod",
   "_COPY_CODE_JS_": "Kopiraj JS kod",

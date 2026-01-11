@@ -1,5 +1,6 @@
 {
   "_PAGE_TITLE_BASE_": "Dokumentation für aloha-vue",
+  "_AND_": "und",
   "_A_BASIC_USAGE_": "Grundlegende Verwendung",
   "_A_GLOBAL_ADD_": "Hinzufügen",
   "_A_GLOBAL_DELETE_": "Löschen",
@@ -17,6 +18,10 @@
   "_ALOHA_TABLE_COLUMN_TRANSLATE_PLACEHOLDER_": "Platzhalter",
   "_ALOHA_TABLE_COLUMN_TYPE_": "Typ",
   "_ALOHA_TABLE_TRANSLATE_LABEL_": "Übersetzungen",
+  "_A_TABLE_PROPERTY_": "Eigenschaft",
+  "_A_TABLE_SHORTCUT_": "Abkürzung",
+  "_A_TABLE_CLASSES_": "Klassen",
+  "_A_TABLE_VALUES_": "Werte",
   "_COPIED_TO_CLIPBOARD_": "In die Zwischenablage kopiert",
   "_COPY_CODE_HTML_": "Code kopieren HTML",
   "_COPY_CODE_JS_": "Code kopieren JS",

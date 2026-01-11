@@ -1,0 +1,10 @@
+{
+  "_A_SPACING_CONFIG_DESCRIPTION_": "يمكنك تغيير الاختصارات والاتجاهات ونطاق القيم عبر متغيرات <strong lang=\"en\">SCSS</strong>.",
+  "_A_SPACING_CONFIG_NAME_": "إعدادات SCSS",
+  "_A_SPACING_HTML_EXAMPLE_": "<!-- يضيف 1rem من الهامش السفلي -->\n<p class=\"a_mb_4\">هامش سفلي (margin)</p>\n\n<!-- يضيف 0.25rem من الحشوة يسارًا ويمينًا -->\n<p class=\"a_px_1\">حشوة أفقية (padding)</p>\n\n<!-- يزيل الهامش الأيمن ويضيف 0.75rem من الحشوة العلوية -->\n<p class=\"a_mr_0 a_pt_3\">كلاهما</p>",
+  "_A_SPACING_NAME_": "المسافات",
+  "_A_SPACING_TABLE_DESCRIPTION_": "ملخص لأهم أنماط فئات المسافات. القيم <strong lang=\"en\">0-6</strong> تقابل 0، 0.25rem، 0.5rem، 0.75rem، 1rem، 1.5rem، 3rem.",
+  "_A_SPACING_TABLE_USAGE_": "لاستخدام هذه الفئات، أضفها ببساطة إلى أي عنصر <span lang=\"en\">HTML</span>:",
+  "_A_SPACING_TABLE_LABEL_": "الفئات",
+  "_A_SPACING_TABLE_NAME_": "جدول الفئات"
+}

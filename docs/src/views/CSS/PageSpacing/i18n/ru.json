@@ -1,0 +1,10 @@
+{
+  "_A_SPACING_CONFIG_DESCRIPTION_": "Вы можете изменить сокращения, направления и шкалу значений через переменные <strong lang=\"en\">SCSS</strong>.",
+  "_A_SPACING_CONFIG_NAME_": "Настройка SCSS",
+  "_A_SPACING_HTML_EXAMPLE_": "<!-- Добавляет 1rem внешнего отступа снизу -->\n<p class=\"a_mb_4\">Отступ снизу (margin)</p>\n\n<!-- Добавляет 0.25rem внутреннего отступа слева и справа -->\n<p class=\"a_px_1\">Горизонтальный отступ (padding)</p>\n\n<!-- Убирает внешний отступ справа и добавляет 0.75rem внутреннего отступа сверху -->\n<p class=\"a_mr_0 a_pt_3\">Оба</p>",
+  "_A_SPACING_NAME_": "Отступы",
+  "_A_SPACING_TABLE_DESCRIPTION_": "Шпаргалка по основным шаблонам классов для отступов. Значения <strong lang=\"en\">0-6</strong> соответствуют 0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.5rem, 3rem.",
+  "_A_SPACING_TABLE_USAGE_": "Чтобы использовать эти классы, просто добавьте их к любому <span lang=\"en\">HTML</span>-элементу:",
+  "_A_SPACING_TABLE_LABEL_": "Классы",
+  "_A_SPACING_TABLE_NAME_": "Таблица классов"
+}

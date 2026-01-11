@@ -22,6 +22,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageSpacing",
+        label: "Spacing",
+        class: "test_menu_spacing",
+        to: {
+          name: "PageSpacing",
+        },
+      },
+      {
         id: "PageText",
         label: "Text",
         class: "test_menu_text",

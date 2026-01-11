@@ -1,0 +1,10 @@
+{
+  "_A_SPACING_CONFIG_DESCRIPTION_": "Vous pouvez modifier les abréviations, les directions et l'échelle des valeurs via des variables <strong lang=\"en\">SCSS</strong>.",
+  "_A_SPACING_CONFIG_NAME_": "Configuration SCSS",
+  "_A_SPACING_HTML_EXAMPLE_": "<!-- Ajoute 1rem de marge en bas -->\n<p class=\"a_mb_4\">Marge basse (margin)</p>\n\n<!-- Ajoute 0.25rem de padding à gauche et à droite -->\n<p class=\"a_px_1\">Padding horizontal (padding)</p>\n\n<!-- Supprime la marge à droite et ajoute 0.75rem de padding en haut -->\n<p class=\"a_mr_0 a_pt_3\">Les deux</p>",
+  "_A_SPACING_NAME_": "Espacements",
+  "_A_SPACING_TABLE_DESCRIPTION_": "Aide-mémoire des principaux modèles de classes d'espacement. Les valeurs <strong lang=\"en\">0-6</strong> correspondent à 0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.5rem, 3rem.",
+  "_A_SPACING_TABLE_USAGE_": "Pour utiliser ces classes, ajoutez-les simplement à n'importe quel élément <span lang=\"en\">HTML</span> :",
+  "_A_SPACING_TABLE_LABEL_": "Classes",
+  "_A_SPACING_TABLE_NAME_": "Table des classes"
+}
