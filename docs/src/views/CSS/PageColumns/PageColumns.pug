@@ -1,23 +1,17 @@
-div
-  h1 Columns
+aloha-page(
+  page-title="_A_COLUMNS_NAME_"
+  page-title-h1="_A_COLUMNS_NAME_"
+)
+  template(
+    v-slot:body
+  )
+    page-columns-basic
 
-  .a_columns.a_columns_count_12
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
+    page-columns-count
 
-  .a_columns.a_columns_count_12
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
-    .a_column.a_column_6
-      .a_height_6.a_bg_gray_400 a_column_6
+    page-columns-gap
+
+    page-columns-offset
+
+    page-columns-breakpoints
 

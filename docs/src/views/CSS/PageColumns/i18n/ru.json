@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Колонки",
+  "_A_COLUMNS_BASIC_NAME_": "Базовые колонки",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "Контейнер <strong lang=\"en\">.a_columns</strong> распределяет вложенные <strong lang=\"en\">.a_column</strong> по ширине. Без явной ширины колонки растягиваются равномерно.",
+  "_A_COLUMNS_COUNT_NAME_": "Сетка и размеры",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "Класс <strong lang=\"en\">.a_columns_count_{n}</strong> задает количество колонок (1-12), включает перенос строк и задает переменную <strong lang=\"en\">--a_column_count</strong>. Ширина колонки задается классом <strong lang=\"en\">.a_column_{n}</strong> и рассчитывается относительно выбранного количества.",
+  "_A_COLUMNS_GAP_NAME_": "Расстояния между колонками",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Промежутки задаются через <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> и <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. По умолчанию обе оси используют 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Смещения",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Смещение слева: <strong lang=\"en\">.a_column_offset_{n}</strong>, смещение справа: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, где <strong lang=\"en\">n</strong> от 0 до 11.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Адаптивные классы",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Добавляйте суффиксы <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> к <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong>. Брейкпоинты: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

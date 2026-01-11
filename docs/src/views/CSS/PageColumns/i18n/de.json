@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Spalten",
+  "_A_COLUMNS_BASIC_NAME_": "Grundlegende Spalten",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "Der <strong lang=\"en\">.a_columns</strong>-Container verteilt verschachtelte <strong lang=\"en\">.a_column</strong> über die Breite. Ohne feste Breiten werden die Spalten gleichmäßig gestreckt.",
+  "_A_COLUMNS_COUNT_NAME_": "Raster und Größen",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "Die Klasse <strong lang=\"en\">.a_columns_count_{n}</strong> legt die Anzahl der Spalten (1-12) fest, aktiviert den Umbruch und setzt die Variable <strong lang=\"en\">--a_column_count</strong>. Die Spaltenbreite wird mit <strong lang=\"en\">.a_column_{n}</strong> festgelegt und relativ zur gewählten Anzahl berechnet.",
+  "_A_COLUMNS_GAP_NAME_": "Abstände zwischen Spalten",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Abstände werden über <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> und <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong> gesetzt. Standardmäßig verwenden beide Achsen 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Offsets",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Linker Offset: <strong lang=\"en\">.a_column_offset_{n}</strong>, rechter Offset: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, wobei <strong lang=\"en\">n</strong> von 0 bis 11 reicht.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Responsive Klassen",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Fügen Sie die Suffixe <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> zu <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong> hinzu. Breakpoints: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

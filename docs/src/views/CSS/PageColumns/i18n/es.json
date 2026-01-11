@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Columnas",
+  "_A_COLUMNS_BASIC_NAME_": "Columnas básicas",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "El contenedor <strong lang=\"en\">.a_columns</strong> distribuye los <strong lang=\"en\">.a_column</strong> anidados a lo ancho. Sin anchos explícitos, las columnas se estiran de forma uniforme.",
+  "_A_COLUMNS_COUNT_NAME_": "Cuadrícula y tamaños",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "La clase <strong lang=\"en\">.a_columns_count_{n}</strong> establece el número de columnas (1-12), habilita el ajuste de línea y define la variable <strong lang=\"en\">--a_column_count</strong>. El ancho de la columna se establece con <strong lang=\"en\">.a_column_{n}</strong> y se calcula en relación con el número elegido.",
+  "_A_COLUMNS_GAP_NAME_": "Espacios entre columnas",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Los espacios se establecen con <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> y <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. De forma predeterminada ambos ejes usan 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Desplazamientos",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Desplazamiento a la izquierda: <strong lang=\"en\">.a_column_offset_{n}</strong>, desplazamiento a la derecha: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, donde <strong lang=\"en\">n</strong> va de 0 a 11.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Clases responsivas",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Agregue los sufijos <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> a <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong>. Puntos de ruptura: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

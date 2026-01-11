@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "الأعمدة",
+  "_A_COLUMNS_BASIC_NAME_": "أعمدة أساسية",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "حاوية <strong lang=\"en\">.a_columns</strong> توزع العناصر <strong lang=\"en\">.a_column</strong> المتداخلة عبر العرض. من دون تحديد عرض صريح، تتمدد الأعمدة بالتساوي.",
+  "_A_COLUMNS_COUNT_NAME_": "الشبكة والأحجام",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "تحدد الفئة <strong lang=\"en\">.a_columns_count_{n}</strong> عدد الأعمدة (1-12)، وتفعل الالتفاف، وتحدد المتغير <strong lang=\"en\">--a_column_count</strong>. يتم تحديد عرض العمود عبر <strong lang=\"en\">.a_column_{n}</strong> ويحسب نسبة إلى العدد المختار.",
+  "_A_COLUMNS_GAP_NAME_": "المسافات بين الأعمدة",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "يتم تحديد المسافات عبر <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> و <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. افتراضيا يستخدم كلا المحورين 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "الإزاحات",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "إزاحة لليسار: <strong lang=\"en\">.a_column_offset_{n}</strong>، وإزاحة لليمين: <strong lang=\"en\">.a_column_offset_right_{n}</strong>، حيث <strong lang=\"en\">n</strong> من 0 إلى 11.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "الفئات المتجاوبة",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "أضف اللاحقات <strong lang=\"en\">_mobile</strong> و <strong lang=\"en\">_tablet</strong> و <strong lang=\"en\">_touch</strong> و <strong lang=\"en\">_desktop</strong> و <strong lang=\"en\">_widescreen</strong> و <strong lang=\"en\">_fullhd</strong> و <strong lang=\"en\">_large</strong> إلى <strong lang=\"en\">.a_columns_count_*</strong> و <strong lang=\"en\">.a_columns_gap_*</strong> و <strong lang=\"en\">.a_column_*</strong> و <strong lang=\"en\">.a_column_offset_*</strong>. نقاط التوقف: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

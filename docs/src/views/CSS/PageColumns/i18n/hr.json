@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Stupci",
+  "_A_COLUMNS_BASIC_NAME_": "Osnovni stupci",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "Kontejner <strong lang=\"en\">.a_columns</strong> raspodjeljuje ugniježđene <strong lang=\"en\">.a_column</strong> po širini. Bez izričitih širina, stupci se ravnomjerno rastežu.",
+  "_A_COLUMNS_COUNT_NAME_": "Mreža i veličine",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "Klasa <strong lang=\"en\">.a_columns_count_{n}</strong> postavlja broj stupaca (1-12), uključuje prijelom reda i postavlja varijablu <strong lang=\"en\">--a_column_count</strong>. Širina stupca postavlja se klasom <strong lang=\"en\">.a_column_{n}</strong> i računa se u odnosu na odabrani broj.",
+  "_A_COLUMNS_GAP_NAME_": "Razmaci između stupaca",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Razmaci se postavljaju pomoću <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> i <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. Zadano obje osi koriste 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Pomaci",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Pomak lijevo: <strong lang=\"en\">.a_column_offset_{n}</strong>, pomak desno: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, gdje je <strong lang=\"en\">n</strong> od 0 do 11.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Responsive klase",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Dodajte sufikse <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> na <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong>. Točke prekida: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

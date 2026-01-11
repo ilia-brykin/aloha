@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Colonne",
+  "_A_COLUMNS_BASIC_NAME_": "Colonne di base",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "Il contenitore <strong lang=\"en\">.a_columns</strong> distribuisce le <strong lang=\"en\">.a_column</strong> annidate lungo la larghezza. Senza larghezze esplicite, le colonne si espandono in modo uniforme.",
+  "_A_COLUMNS_COUNT_NAME_": "Griglia e dimensioni",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "La classe <strong lang=\"en\">.a_columns_count_{n}</strong> imposta il numero di colonne (1-12), abilita l'andare a capo e imposta la variabile <strong lang=\"en\">--a_column_count</strong>. La larghezza della colonna si imposta con <strong lang=\"en\">.a_column_{n}</strong> ed è calcolata rispetto al numero scelto.",
+  "_A_COLUMNS_GAP_NAME_": "Spazi tra colonne",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Gli spazi si impostano con <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> e <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. Per impostazione predefinita entrambi gli assi usano 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Offset",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Offset a sinistra: <strong lang=\"en\">.a_column_offset_{n}</strong>, offset a destra: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, dove <strong lang=\"en\">n</strong> va da 0 a 11.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Classi responsive",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Aggiungi i suffissi <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> a <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong>. Breakpoint: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}
