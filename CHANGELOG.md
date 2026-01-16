@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.46.0
+
+- Chore: Update dependencies to latest compatible versions.
+
 ## 2.45.2
 
 - Fix: Ensure consistent height for `APagination` links by adding `height: 100%` to styles.
