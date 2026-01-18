@@ -35,5 +35,8 @@
   "_JS_TYPE_STRING_": "Строка",
   "_SUPPORT_FRAMEWORKS_": "Мы поддерживаем следующие CSS-фреймворки",
   "_VIEW_SOURCE_": "Посмотреть исходный код",
+  "_TXT_EXAMPLE_": "Пример",
+  "_TXT_CLASS_": "Класс",
+  "_TXT_COLOR_": "Цвет",
   "_LBL_DISABLED_": "Отключено"
 }
