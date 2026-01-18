@@ -26,16 +26,21 @@
         color: var(#{ color_utils.getColorVar($color) }) !important;
     }
 }
+.a_color_transparent {
+  color: transparent !important;
+}
+.a_color_inherit {
+  color: inherit !important;
+}
 
 @each $bg_color in color_utils.$a_bg_colors {
     .#{ aloha.$aloha-prefix }bg_#{ "" + $bg_color } {
         background-color: var(#{ color_utils.getColorVar($bg_color) }) !important;
     }
 }
-
-.a_color_transparent {
-    color: transparent !important;
-}
 .a_bg_transparent {
     background-color: transparent !important;
+}
+.a_bg_inherit {
+    background-color: inherit !important;
 }
