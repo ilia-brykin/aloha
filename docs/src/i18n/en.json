@@ -42,6 +42,7 @@
   "_TXT_PRIMARY_": "Primary",
   "_TXT_SECONDARY_": "Secondary",
   "_TXT_TERTIARY_": "Tertiary",
+  "_TXT_BREAKPOINT_VALUE_": "Breakpoint + value",
   "_TXT_SUCCESS_": "Success",
   "_TXT_INFO_": "Info",
   "_TXT_WARNING_": "Warning",

@@ -42,6 +42,7 @@
   "_TXT_PRIMARY_": "أساسي",
   "_TXT_SECONDARY_": "ثانوي",
   "_TXT_TERTIARY_": "ثالثي",
+  "_TXT_BREAKPOINT_VALUE_": "نقطة توقف + القيمة",
   "_TXT_SUCCESS_": "نجاح",
   "_TXT_INFO_": "معلومات",
   "_TXT_WARNING_": "تحذير",
