@@ -62,6 +62,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageVerticalAlign",
+        label: "Vertical align",
+        class: "test_menu_vertical_align",
+        to: {
+          name: "PageVerticalAlign",
+        },
+      },
+      {
         id: "PagePosition",
         label: "Position",
         class: "test_menu_position",

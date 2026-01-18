@@ -1,0 +1,46 @@
+aloha-example(
+  :use-actions="false"
+  header="_A_VERTICAL_ALIGN_TABLE_NAME_"
+  description="_A_VERTICAL_ALIGN_TABLE_DESCRIPTION_"
+)
+  table.aloha_table_properties
+    thead
+      tr
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_CLASS_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_A_TABLE_VALUES_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_EXAMPLE_"
+            tag="span"
+          )
+    tbody
+      tr(
+        v-for="row in rows"
+        :key="row.className"
+      )
+        td
+          code {{ row.className }}
+        td
+          code {{ row.value }}
+        td(
+          :class="[row.className]"
+          style="height: 6rem;"
+        )
+          a-translation.a_bg_gray_300.a_p_1(
+            html="_TXT_EXAMPLE_"
+            tag="span"
+          )

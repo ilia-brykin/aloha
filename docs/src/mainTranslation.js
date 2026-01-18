@@ -85,6 +85,7 @@ import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQui
 import PageRadioI18n from "./views/Components/Form/PageRadio/i18n/PageRadioI18n";
 import PageRouterLinkConfigI18n from "./views/Components/Form/PageRouterLinkConfig/i18n/PageRouterLinkConfigI18n";
 import PageScreenreaderI18n from "./views/CSS/PageScreenreader/i18n/PageScreenreaderI18n";
+import PageVerticalAlignI18n from "./views/CSS/PageVerticalAlign/i18n/PageVerticalAlignI18n";
 import PageSelectI18n from "./views/Components/Form/PageSelect/i18n/PageSelectI18n";
 import PageSelectIconI18n from "./views/Components/Form/PageSelectIcon/i18n/PageSelectIconI18n";
 import PageSelectStyleI18n from "./views/Components/Form/PageSelectStyle/i18n/PageSelectStyleI18n";
@@ -140,6 +141,7 @@ export const mainTranslation = {
     ...PageFloatI18n.ar,
     ...PageOverflowI18n.ar,
     ...PageScreenreaderI18n.ar,
+    ...PageVerticalAlignI18n.ar,
     ...PagePositionI18n.ar,
     ...PageSpacingI18n.ar,
     ...PageAOnHooksI18n.ar,
@@ -252,6 +254,7 @@ export const mainTranslation = {
     ...PageFloatI18n.de,
     ...PageOverflowI18n.de,
     ...PageScreenreaderI18n.de,
+    ...PageVerticalAlignI18n.de,
     ...PagePositionI18n.de,
     ...PageSpacingI18n.de,
     ...PageAOnHooksI18n.de,
@@ -364,6 +367,7 @@ export const mainTranslation = {
     ...PageFloatI18n.en,
     ...PageOverflowI18n.en,
     ...PageScreenreaderI18n.en,
+    ...PageVerticalAlignI18n.en,
     ...PagePositionI18n.en,
     ...PageSpacingI18n.en,
     ...PageAOnHooksI18n.en,
@@ -476,6 +480,7 @@ export const mainTranslation = {
     ...PageFloatI18n.es,
     ...PageOverflowI18n.es,
     ...PageScreenreaderI18n.es,
+    ...PageVerticalAlignI18n.es,
     ...PagePositionI18n.es,
     ...PageSpacingI18n.es,
     ...PageAOnHooksI18n.es,
@@ -588,6 +593,7 @@ export const mainTranslation = {
     ...PageFloatI18n.fr,
     ...PageOverflowI18n.fr,
     ...PageScreenreaderI18n.fr,
+    ...PageVerticalAlignI18n.fr,
     ...PagePositionI18n.fr,
     ...PageSpacingI18n.fr,
     ...PageAOnHooksI18n.fr,
@@ -700,6 +706,7 @@ export const mainTranslation = {
     ...PageFloatI18n.hr,
     ...PageOverflowI18n.hr,
     ...PageScreenreaderI18n.hr,
+    ...PageVerticalAlignI18n.hr,
     ...PagePositionI18n.hr,
     ...PageSpacingI18n.hr,
     ...PageAOnHooksI18n.hr,
@@ -812,6 +819,7 @@ export const mainTranslation = {
     ...PageFloatI18n.it,
     ...PageOverflowI18n.it,
     ...PageScreenreaderI18n.it,
+    ...PageVerticalAlignI18n.it,
     ...PagePositionI18n.it,
     ...PageSpacingI18n.it,
     ...PageAOnHooksI18n.it,
@@ -924,6 +932,7 @@ export const mainTranslation = {
     ...PageFloatI18n.ru,
     ...PageOverflowI18n.ru,
     ...PageScreenreaderI18n.ru,
+    ...PageVerticalAlignI18n.ru,
     ...PagePositionI18n.ru,
     ...PageSpacingI18n.ru,
     ...PageAOnHooksI18n.ru,

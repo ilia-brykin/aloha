@@ -408,6 +408,11 @@ const ROUTES = [
       component: () => import("../views/CSS/PageScreenreader/PageScreenreader.vue"),
     },
     {
+      path: "/vertical-align",
+      name: "PageVerticalAlign",
+      component: () => import("../views/CSS/PageVerticalAlign/PageVerticalAlign.vue"),
+    },
+    {
       path: "/position",
       name: "PagePosition",
       component: () => import("../views/CSS/PagePosition/PagePosition.vue"),
