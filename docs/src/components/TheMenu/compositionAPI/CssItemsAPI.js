@@ -38,6 +38,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageFloat",
+        label: "Float",
+        class: "test_menu_float",
+        to: {
+          name: "PageFloat",
+        },
+      },
+      {
         id: "PagePosition",
         label: "Position",
         class: "test_menu_position",

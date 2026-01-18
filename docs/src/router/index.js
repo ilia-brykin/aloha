@@ -393,6 +393,11 @@ const ROUTES = [
       component: () => import("../views/CSS/PageDisplay/PageDisplay.vue"),
     },
     {
+      path: "/float",
+      name: "PageFloat",
+      component: () => import("../views/CSS/PageFloat/PageFloat.vue"),
+    },
+    {
       path: "/position",
       name: "PagePosition",
       component: () => import("../views/CSS/PagePosition/PagePosition.vue"),
