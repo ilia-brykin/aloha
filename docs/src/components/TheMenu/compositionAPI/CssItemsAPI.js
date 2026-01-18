@@ -54,6 +54,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageScreenreader",
+        label: "Screen reader",
+        class: "test_menu_screenreader",
+        to: {
+          name: "PageScreenreader",
+        },
+      },
+      {
         id: "PagePosition",
         label: "Position",
         class: "test_menu_position",

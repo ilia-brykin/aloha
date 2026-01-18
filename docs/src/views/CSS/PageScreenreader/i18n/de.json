@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "Screenreader",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "Blendet das Element visuell aus und laesst es fuer den Screenreader verfuegbar.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "Blendet das Element visuell aus und laesst es fuer den Screenreader verfuegbar, zeigt es jedoch bei Fokus auf dem Element oder einem seiner Nachfahren.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "Klassen blenden Elemente visuell aus, lassen sie jedoch fuer den Screenreader verfuegbar.",
+  "_A_SCREENREADER_TABLE_NAME_": "Klassen fuer den Screenreader"
+}

@@ -23,12 +23,9 @@ import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakP
 import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
 import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/PageDatepickerI18n";
-import PageDisplayI18n from "./views/CSS/PageDisplay/i18n/PageDisplayI18n";
-import PageFloatI18n from "./views/CSS/PageFloat/i18n/PageFloatI18n";
-import PageOverflowI18n from "./views/CSS/PageOverflow/i18n/PageOverflowI18n";
-import PagePositionI18n from "./views/CSS/PagePosition/i18n/PagePositionI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
+import PageDisplayI18n from "./views/CSS/PageDisplay/i18n/PageDisplayI18n";
 import PageDropdownI18n from "./views/Components/PageDropdown/i18n/PageDropdownI18n";
 import PageElementI18n from "./views/Components/PageElement/i18n/PageElementI18n";
 import PageFieldsetChildrenI18n from "./views/Components/Form/PageFieldsetChildren/i18n/PageFieldsetChildrenI18n";
@@ -54,6 +51,7 @@ import PageFilterSearchHighlightI18n from "./views/Functions/Filters/PageFilterS
 import PageFilterUpperCaseI18n from "./views/Functions/Filters/PageFilterUpperCase/i18n/PageFilterUpperCaseI18n";
 import PageFiltersI18n from "./views/Components/PageFilters/i18n/PageFiltersI18n";
 import PageFiltersRightI18n from "./views/Components/PageFiltersRight/i18n/PageFiltersRightI18n";
+import PageFloatI18n from "./views/CSS/PageFloat/i18n/PageFloatI18n";
 import PageFormElementI18n from "./views/Components/Form/PageFormElement/i18n/PageFormElementI18n";
 import PageFunctionsI18n from "./views/Functions/i18n/PageFunctionsI18n";
 import PageGroupButtonDropdownI18n from "./views/Components/PageGroupButtonDropdown/i18n/PageGroupButtonDropdownI18n";
@@ -76,14 +74,17 @@ import PageModalI18n from "./views/Components/PageModal/i18n/PageModalI18n";
 import PageModalWizardI18n from "./views/Components/PageModalWizard/i18n/PageModalWizardI18n";
 import PageMultiselectOrderedI18n from "./views/Components/Form/PageMultiselectOrdered/i18n/PageMultiselectOrderedI18n";
 import PageOneCheckboxI18n from "./views/Components/Form/PageOneCheckbox/i18n/PageOneCheckboxI18n";
+import PageOverflowI18n from "./views/CSS/PageOverflow/i18n/PageOverflowI18n";
 import PagePageTabTitlePluginI18n from "./views/Plugins/PagePageTabTitlePlugin/i18n/PagePageTabTitlePluginI18n";
 import PagePaginationI18n from "./views/Components/PagePagination/i18n/PagePaginationI18n";
 import PagePaginationPagesI18n from "./views/Components/PagePaginationPages/i18n/PagePaginationPagesI18n";
+import PagePositionI18n from "./views/CSS/PagePosition/i18n/PagePositionI18n";
 import PageProgressCircleI18n from "./views/Components/Progress/PageProgressCircle/i18n/PageProgressCircleI18n";
 import PageProgressI18n from "./views/Components/Progress/PageProgress/i18n/PageProgressI18n";
 import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQuickStartI18n";
 import PageRadioI18n from "./views/Components/Form/PageRadio/i18n/PageRadioI18n";
 import PageRouterLinkConfigI18n from "./views/Components/Form/PageRouterLinkConfig/i18n/PageRouterLinkConfigI18n";
+import PageScreenreaderI18n from "./views/CSS/PageScreenreader/i18n/PageScreenreaderI18n";
 import PageSelectI18n from "./views/Components/Form/PageSelect/i18n/PageSelectI18n";
 import PageSelectIconI18n from "./views/Components/Form/PageSelectIcon/i18n/PageSelectIconI18n";
 import PageSelectStyleI18n from "./views/Components/Form/PageSelectStyle/i18n/PageSelectStyleI18n";
@@ -138,6 +139,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.ar,
     ...PageFloatI18n.ar,
     ...PageOverflowI18n.ar,
+    ...PageScreenreaderI18n.ar,
     ...PagePositionI18n.ar,
     ...PageSpacingI18n.ar,
     ...PageAOnHooksI18n.ar,
@@ -249,6 +251,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.de,
     ...PageFloatI18n.de,
     ...PageOverflowI18n.de,
+    ...PageScreenreaderI18n.de,
     ...PagePositionI18n.de,
     ...PageSpacingI18n.de,
     ...PageAOnHooksI18n.de,
@@ -360,6 +363,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.en,
     ...PageFloatI18n.en,
     ...PageOverflowI18n.en,
+    ...PageScreenreaderI18n.en,
     ...PagePositionI18n.en,
     ...PageSpacingI18n.en,
     ...PageAOnHooksI18n.en,
@@ -471,6 +475,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.es,
     ...PageFloatI18n.es,
     ...PageOverflowI18n.es,
+    ...PageScreenreaderI18n.es,
     ...PagePositionI18n.es,
     ...PageSpacingI18n.es,
     ...PageAOnHooksI18n.es,
@@ -582,6 +587,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.fr,
     ...PageFloatI18n.fr,
     ...PageOverflowI18n.fr,
+    ...PageScreenreaderI18n.fr,
     ...PagePositionI18n.fr,
     ...PageSpacingI18n.fr,
     ...PageAOnHooksI18n.fr,
@@ -693,6 +699,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.hr,
     ...PageFloatI18n.hr,
     ...PageOverflowI18n.hr,
+    ...PageScreenreaderI18n.hr,
     ...PagePositionI18n.hr,
     ...PageSpacingI18n.hr,
     ...PageAOnHooksI18n.hr,
@@ -804,6 +811,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.it,
     ...PageFloatI18n.it,
     ...PageOverflowI18n.it,
+    ...PageScreenreaderI18n.it,
     ...PagePositionI18n.it,
     ...PageSpacingI18n.it,
     ...PageAOnHooksI18n.it,
@@ -915,6 +923,7 @@ export const mainTranslation = {
     ...PageDisplayI18n.ru,
     ...PageFloatI18n.ru,
     ...PageOverflowI18n.ru,
+    ...PageScreenreaderI18n.ru,
     ...PagePositionI18n.ru,
     ...PageSpacingI18n.ru,
     ...PageAOnHooksI18n.ru,

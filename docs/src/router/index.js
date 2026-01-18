@@ -403,6 +403,11 @@ const ROUTES = [
       component: () => import("../views/CSS/PageOverflow/PageOverflow.vue"),
     },
     {
+      path: "/screenreader",
+      name: "PageScreenreader",
+      component: () => import("../views/CSS/PageScreenreader/PageScreenreader.vue"),
+    },
+    {
       path: "/position",
       name: "PagePosition",
       component: () => import("../views/CSS/PagePosition/PagePosition.vue"),

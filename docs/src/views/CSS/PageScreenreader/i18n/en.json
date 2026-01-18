@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "Screen reader",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "Visually hides the element while keeping it available to the screen reader.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "Visually hides the element and keeps it available to the screen reader, but shows it when the element or any of its descendants receives focus.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "Classes visually hide elements but keep them available to the screen reader.",
+  "_A_SCREENREADER_TABLE_NAME_": "Screen reader classes"
+}

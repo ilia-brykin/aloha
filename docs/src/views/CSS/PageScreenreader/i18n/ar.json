@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "قارئ الشاشة",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "يخفي العنصر بصريا ويُبقيه متاحا لقارئ الشاشة.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "يخفي العنصر بصريا ويُبقيه متاحا لقارئ الشاشة، لكنه يُظهره عند حصول العنصر او اي من عناصره التابعة على التركيز.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "تخفي الاصناف العناصر بصريا لكنها تُبقيها متاحة لقارئ الشاشة.",
+  "_A_SCREENREADER_TABLE_NAME_": "اصناف لقارئ الشاشة"
+}

@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "Lector de pantalla",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "Oculta el elemento visualmente y lo mantiene disponible para el lector de pantalla.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "Oculta el elemento visualmente y lo mantiene disponible para el lector de pantalla, pero lo muestra cuando el elemento o cualquiera de sus descendientes recibe el foco.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "Las clases ocultan los elementos visualmente pero los mantienen disponibles para el lector de pantalla.",
+  "_A_SCREENREADER_TABLE_NAME_": "Clases para lector de pantalla"
+}

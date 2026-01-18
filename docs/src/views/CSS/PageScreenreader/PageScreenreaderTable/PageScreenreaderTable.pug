@@ -1,0 +1,34 @@
+aloha-example(
+  :use-actions="false"
+  header="_A_SCREENREADER_TABLE_NAME_"
+  description="_A_SCREENREADER_TABLE_DESCRIPTION_"
+)
+  table.aloha_table_properties
+    thead
+      tr
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_CLASS_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_ALOHA_TABLE_COLUMN_DESCRIPTION_"
+            tag="span"
+          )
+    tbody
+      tr(
+        v-for="row in rows"
+        :key="row.name"
+      )
+        td
+          code {{ row.className }}
+        td
+          a-translation(
+            :html="row.descriptionKey"
+            tag="span"
+          )

@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "Citac ekrana",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "Vizualno skriva element i ostavlja ga dostupnim za citac ekrana.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "Vizualno skriva element i ostavlja ga dostupnim za citac ekrana, ali ga prikazuje kada element ili bilo koji njegov potomak primi fokus.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "Klase vizualno skrivaju elemente, ali ih ostavljaju dostupnima za citac ekrana.",
+  "_A_SCREENREADER_TABLE_NAME_": "Klase za citac ekrana"
+}

@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "Lecteur d'ecran",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "Masque l'element visuellement tout en le laissant disponible pour le lecteur d'ecran.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "Masque l'element visuellement et le laisse disponible pour le lecteur d'ecran, mais l'affiche lorsque l'element ou l'un de ses descendants recoit le focus.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "Les classes masquent les elements visuellement mais les laissent disponibles pour le lecteur d'ecran.",
+  "_A_SCREENREADER_TABLE_NAME_": "Classes pour le lecteur d'ecran"
+}
