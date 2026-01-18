@@ -46,6 +46,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageOverflow",
+        label: "Overflow",
+        class: "test_menu_overflow",
+        to: {
+          name: "PageOverflow",
+        },
+      },
+      {
         id: "PagePosition",
         label: "Position",
         class: "test_menu_position",

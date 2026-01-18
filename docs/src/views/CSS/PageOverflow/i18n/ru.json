@@ -1,0 +1,6 @@
+{
+  "_A_OVERFLOW_PAGE_NAME_": "Переполнение",
+  "_A_OVERFLOW_PAGE_TITLE_H1_": "Переполнение <span lang=\"en\">(Overflow)</span>",
+  "_A_OVERFLOW_TABLE_NAME_": "Свойство: <span lang=\"en\">overflow</span>",
+  "_A_OVERFLOW_TABLE_DESCRIPTION_": "Классы задают значения свойств <code>overflow</code>, <code>overflow-x</code> и <code>overflow-y</code>."
+}

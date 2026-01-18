@@ -25,6 +25,7 @@ import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
 import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/PageDatepickerI18n";
 import PageDisplayI18n from "./views/CSS/PageDisplay/i18n/PageDisplayI18n";
 import PageFloatI18n from "./views/CSS/PageFloat/i18n/PageFloatI18n";
+import PageOverflowI18n from "./views/CSS/PageOverflow/i18n/PageOverflowI18n";
 import PagePositionI18n from "./views/CSS/PagePosition/i18n/PagePositionI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
@@ -136,6 +137,7 @@ export const mainTranslation = {
     ...PageColorsI18n.ar,
     ...PageDisplayI18n.ar,
     ...PageFloatI18n.ar,
+    ...PageOverflowI18n.ar,
     ...PagePositionI18n.ar,
     ...PageSpacingI18n.ar,
     ...PageAOnHooksI18n.ar,
@@ -246,6 +248,7 @@ export const mainTranslation = {
     ...PageColorsI18n.de,
     ...PageDisplayI18n.de,
     ...PageFloatI18n.de,
+    ...PageOverflowI18n.de,
     ...PagePositionI18n.de,
     ...PageSpacingI18n.de,
     ...PageAOnHooksI18n.de,
@@ -356,6 +359,7 @@ export const mainTranslation = {
     ...PageColorsI18n.en,
     ...PageDisplayI18n.en,
     ...PageFloatI18n.en,
+    ...PageOverflowI18n.en,
     ...PagePositionI18n.en,
     ...PageSpacingI18n.en,
     ...PageAOnHooksI18n.en,
@@ -466,6 +470,7 @@ export const mainTranslation = {
     ...PageColorsI18n.es,
     ...PageDisplayI18n.es,
     ...PageFloatI18n.es,
+    ...PageOverflowI18n.es,
     ...PagePositionI18n.es,
     ...PageSpacingI18n.es,
     ...PageAOnHooksI18n.es,
@@ -576,6 +581,7 @@ export const mainTranslation = {
     ...PageColorsI18n.fr,
     ...PageDisplayI18n.fr,
     ...PageFloatI18n.fr,
+    ...PageOverflowI18n.fr,
     ...PagePositionI18n.fr,
     ...PageSpacingI18n.fr,
     ...PageAOnHooksI18n.fr,
@@ -686,6 +692,7 @@ export const mainTranslation = {
     ...PageColorsI18n.hr,
     ...PageDisplayI18n.hr,
     ...PageFloatI18n.hr,
+    ...PageOverflowI18n.hr,
     ...PagePositionI18n.hr,
     ...PageSpacingI18n.hr,
     ...PageAOnHooksI18n.hr,
@@ -796,6 +803,7 @@ export const mainTranslation = {
     ...PageColorsI18n.it,
     ...PageDisplayI18n.it,
     ...PageFloatI18n.it,
+    ...PageOverflowI18n.it,
     ...PagePositionI18n.it,
     ...PageSpacingI18n.it,
     ...PageAOnHooksI18n.it,
@@ -906,6 +914,7 @@ export const mainTranslation = {
     ...PageColorsI18n.ru,
     ...PageDisplayI18n.ru,
     ...PageFloatI18n.ru,
+    ...PageOverflowI18n.ru,
     ...PagePositionI18n.ru,
     ...PageSpacingI18n.ru,
     ...PageAOnHooksI18n.ru,

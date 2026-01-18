@@ -398,6 +398,11 @@ const ROUTES = [
       component: () => import("../views/CSS/PageFloat/PageFloat.vue"),
     },
     {
+      path: "/overflow",
+      name: "PageOverflow",
+      component: () => import("../views/CSS/PageOverflow/PageOverflow.vue"),
+    },
+    {
       path: "/position",
       name: "PagePosition",
       component: () => import("../views/CSS/PagePosition/PagePosition.vue"),

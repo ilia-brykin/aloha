@@ -1,0 +1,6 @@
+{
+  "_A_OVERFLOW_PAGE_NAME_": "Ueberlauf",
+  "_A_OVERFLOW_PAGE_TITLE_H1_": "Ueberlauf <span lang=\"en\">(Overflow)</span>",
+  "_A_OVERFLOW_TABLE_NAME_": "Eigenschaft: <span lang=\"en\">overflow</span>",
+  "_A_OVERFLOW_TABLE_DESCRIPTION_": "Klassen setzen die Werte von <code>overflow</code>, <code>overflow-x</code> und <code>overflow-y</code>."
+}
