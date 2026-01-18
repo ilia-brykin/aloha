@@ -3,21 +3,26 @@ aloha-example(
   header="_A_SPACING_TABLE_NAME_"
   description="_A_SPACING_TABLE_DESCRIPTION_"
 )
-  table.aloha_table_properties
+  table.aloha_table_properties.a_mt_2
     thead
       tr
-        th
+        th(
+          scope="col"
+        )
           a-translation(
             tag="span"
             html="_A_TABLE_PROPERTY_"
           )
-        th
+        th(
+          scope="col"
+        )
           a-translation(
             tag="span"
             html="_A_TABLE_SHORTCUT_"
           )
         th(
           colspan="8"
+          scope="col"
         )
           a-translation(
             tag="span"

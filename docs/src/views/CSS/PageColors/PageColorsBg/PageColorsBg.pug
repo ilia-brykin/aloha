@@ -1,0 +1,42 @@
+aloha-example(
+  :use-actions="false"
+  header="_A_COLORS_BG_NAME_"
+  description="_A_COLORS_BG_DESCRIPTION_"
+)
+  table.aloha_table_properties
+    thead
+      tr
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_CLASS_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_COLOR_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_EXAMPLE_"
+            tag="span"
+          )
+    tbody
+      tr(
+        v-for="color in colors"
+        :key="color.className"
+      )
+        td
+          code {{ color.className }}
+        td
+          code {{ color.color }}
+        td
+          .a_height_6.a_p_2.a_border(
+            :class="color.className"
+          )

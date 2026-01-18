@@ -383,6 +383,11 @@ const ROUTES = [
       component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
     },
     {
+      path: "/colors",
+      name: "PageColors",
+      component: () => import("../views/CSS/PageColors/PageColors.vue"),
+    },
+    {
       path: "/spacing",
       name: "PageSpacing",
       component: () => import("../views/CSS/PageSpacing/PageSpacing.vue"),

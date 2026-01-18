@@ -16,6 +16,7 @@ import PageARateI18n from "./views/Components/PageRate/i18n/PageARateI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
 import PageBadgeI18n from "./views/CSS/PageBadge/i18n/PageBadgeI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
+import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageSpacingI18n from "./views/CSS/PageSpacing/i18n/PageSpacingI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
 import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI18n";
@@ -129,6 +130,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.ar,
     ...PageBadgeI18n.ar,
     ...PageColumnsI18n.ar,
+    ...PageColorsI18n.ar,
     ...PageSpacingI18n.ar,
     ...PageAOnHooksI18n.ar,
     ...PageARateI18n.ar,
@@ -235,6 +237,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.de,
     ...PageBadgeI18n.de,
     ...PageColumnsI18n.de,
+    ...PageColorsI18n.de,
     ...PageSpacingI18n.de,
     ...PageAOnHooksI18n.de,
     ...PageARateI18n.de,
@@ -341,6 +344,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.en,
     ...PageBadgeI18n.en,
     ...PageColumnsI18n.en,
+    ...PageColorsI18n.en,
     ...PageSpacingI18n.en,
     ...PageAOnHooksI18n.en,
     ...PageARateI18n.en,
@@ -447,6 +451,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.es,
     ...PageBadgeI18n.es,
     ...PageColumnsI18n.es,
+    ...PageColorsI18n.es,
     ...PageSpacingI18n.es,
     ...PageAOnHooksI18n.es,
     ...PageARateI18n.es,
@@ -553,6 +558,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.fr,
     ...PageBadgeI18n.fr,
     ...PageColumnsI18n.fr,
+    ...PageColorsI18n.fr,
     ...PageSpacingI18n.fr,
     ...PageAOnHooksI18n.fr,
     ...PageARateI18n.fr,
@@ -659,6 +665,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.hr,
     ...PageBadgeI18n.hr,
     ...PageColumnsI18n.hr,
+    ...PageColorsI18n.hr,
     ...PageSpacingI18n.hr,
     ...PageAOnHooksI18n.hr,
     ...PageARateI18n.hr,
@@ -765,6 +772,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.it,
     ...PageBadgeI18n.it,
     ...PageColumnsI18n.it,
+    ...PageColorsI18n.it,
     ...PageSpacingI18n.it,
     ...PageAOnHooksI18n.it,
     ...PageARateI18n.it,
@@ -871,6 +879,7 @@ export const mainTranslation = {
     ...PageAlertPluginI18n.ru,
     ...PageBadgeI18n.ru,
     ...PageColumnsI18n.ru,
+    ...PageColorsI18n.ru,
     ...PageSpacingI18n.ru,
     ...PageAOnHooksI18n.ru,
     ...PageARateI18n.ru,

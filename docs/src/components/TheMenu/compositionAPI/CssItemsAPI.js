@@ -22,6 +22,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageColors",
+        label: "Colors",
+        class: "test_menu_colors",
+        to: {
+          name: "PageColors",
+        },
+      },
+      {
         id: "PageSpacing",
         label: "Spacing",
         class: "test_menu_spacing",
