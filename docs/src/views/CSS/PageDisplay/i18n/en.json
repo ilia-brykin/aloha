@@ -1,0 +1,7 @@
+{
+  "_A_DISPLAY_BASIC_DESCRIPTION_": "Classes set the <code>display</code> property value.",
+  "_A_DISPLAY_BASIC_NAME_": "Display",
+  "_A_DISPLAY_MOBILE_DESCRIPTION_": "Suffixes <code>_mobile</code>, <code>_tablet</code>, <code>_touch</code>, <code>_desktop</code>, <code>_widescreen</code>, <code>_fullhd</code>, <code>_large</code> enable classes at their width ranges.",
+  "_A_DISPLAY_MOBILE_NAME_": "Display at breakpoints",
+  "_A_DISPLAY_PAGE_NAME_": "Display"
+}

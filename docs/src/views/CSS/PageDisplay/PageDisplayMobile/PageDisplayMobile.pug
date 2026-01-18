@@ -1,0 +1,43 @@
+aloha-example(
+  :use-actions="false"
+  header="_A_DISPLAY_MOBILE_NAME_"
+  description="_A_DISPLAY_MOBILE_DESCRIPTION_"
+)
+  table.aloha_table_properties
+    thead
+      tr
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_CLASS_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_A_TABLE_VALUES_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_BREAKPOINT_VALUE_"
+            tag="span"
+          )
+    tbody
+      tr(
+        v-for="row in rows"
+        :key="row.className"
+      )
+        td
+          code {{ row.className }}
+        td
+          code {{ row.value }}
+        td.a_align_middle(
+          v-if="row.breakpointValue"
+          :rowspan="displaysLength"
+        )
+          code {{ row.breakpointValue }}

@@ -30,6 +30,14 @@ export default function CssItemsAPI() {
         },
       },
       {
+        id: "PageDisplay",
+        label: "Display",
+        class: "test_menu_display",
+        to: {
+          name: "PageDisplay",
+        },
+      },
+      {
         id: "PagePosition",
         label: "Position",
         class: "test_menu_position",

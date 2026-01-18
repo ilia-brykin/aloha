@@ -1,0 +1,7 @@
+{
+  "_A_DISPLAY_BASIC_DESCRIPTION_": "Las clases establecen el valor de la propiedad <code>display</code>.",
+  "_A_DISPLAY_BASIC_NAME_": "Visualizacion",
+  "_A_DISPLAY_MOBILE_DESCRIPTION_": "Los sufijos <code>_mobile</code>, <code>_tablet</code>, <code>_touch</code>, <code>_desktop</code>, <code>_widescreen</code>, <code>_fullhd</code>, <code>_large</code> activan las clases en los rangos de ancho correspondientes.",
+  "_A_DISPLAY_MOBILE_NAME_": "Visualizacion en breakpoints",
+  "_A_DISPLAY_PAGE_NAME_": "Visualizacion"
+}
