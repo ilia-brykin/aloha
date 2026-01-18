@@ -1,1 +1,7 @@
-{}
+{
+  "_A_COLORS_BG_DESCRIPTION_": "Die Klassen <code>.a_bg_*</code> legen die Hintergrundfarbe fest.",
+  "_A_COLORS_BG_NAME_": "Hintergrundfarbe",
+  "_A_COLORS_NAME_": "Farben",
+  "_A_COLORS_TEXT_DESCRIPTION_": "Die Klassen <code>.a_color_*</code> legen die Textfarbe fest.",
+  "_A_COLORS_TEXT_NAME_": "Textfarbe"
+}

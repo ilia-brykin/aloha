@@ -1,1 +1,7 @@
-{}
+{
+  "_A_COLORS_BG_DESCRIPTION_": "Klase <code>.a_bg_*</code> postavljaju boju pozadine.",
+  "_A_COLORS_BG_NAME_": "Boja pozadine",
+  "_A_COLORS_NAME_": "Boje",
+  "_A_COLORS_TEXT_DESCRIPTION_": "Klase <code>.a_color_*</code> postavljaju boju teksta.",
+  "_A_COLORS_TEXT_NAME_": "Boja teksta"
+}

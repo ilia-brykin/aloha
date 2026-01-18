@@ -1,1 +1,7 @@
-{}
+{
+  "_A_COLORS_BG_DESCRIPTION_": "تحدد الأصناف <code>.a_bg_*</code> لون الخلفية.",
+  "_A_COLORS_BG_NAME_": "لون الخلفية",
+  "_A_COLORS_NAME_": "الألوان",
+  "_A_COLORS_TEXT_DESCRIPTION_": "تحدد الأصناف <code>.a_color_*</code> لون النص.",
+  "_A_COLORS_TEXT_NAME_": "لون النص"
+}
