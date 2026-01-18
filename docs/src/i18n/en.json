@@ -39,5 +39,14 @@
   "_TXT_EXAMPLE_": "Example",
   "_TXT_CLASS_": "Class",
   "_TXT_COLOR_": "Color",
+  "_TXT_PRIMARY_": "Primary",
+  "_TXT_SECONDARY_": "Secondary",
+  "_TXT_TERTIARY_": "Tertiary",
+  "_TXT_SUCCESS_": "Success",
+  "_TXT_INFO_": "Info",
+  "_TXT_WARNING_": "Warning",
+  "_TXT_DANGER_": "Danger",
+  "_TXT_LIGHT_": "Light",
+  "_TXT_DARK_": "Dark",
   "_LBL_DISABLED_": "Disabled"
 }

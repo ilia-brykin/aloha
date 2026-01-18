@@ -39,5 +39,14 @@
   "_TXT_EXAMPLE_": "مثال",
   "_TXT_CLASS_": "فئة",
   "_TXT_COLOR_": "لون",
+  "_TXT_PRIMARY_": "أساسي",
+  "_TXT_SECONDARY_": "ثانوي",
+  "_TXT_TERTIARY_": "ثالثي",
+  "_TXT_SUCCESS_": "نجاح",
+  "_TXT_INFO_": "معلومات",
+  "_TXT_WARNING_": "تحذير",
+  "_TXT_DANGER_": "خطر",
+  "_TXT_LIGHT_": "فاتح",
+  "_TXT_DARK_": "داكن",
   "_LBL_DISABLED_": "معطل"
 }

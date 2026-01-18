@@ -39,5 +39,14 @@
   "_TXT_EXAMPLE_": "Primjer",
   "_TXT_CLASS_": "Klasa",
   "_TXT_COLOR_": "Boja",
+  "_TXT_PRIMARY_": "Primarno",
+  "_TXT_SECONDARY_": "Sekundarno",
+  "_TXT_TERTIARY_": "Tercijarno",
+  "_TXT_SUCCESS_": "Uspjeh",
+  "_TXT_INFO_": "Info",
+  "_TXT_WARNING_": "Upozorenje",
+  "_TXT_DANGER_": "Opasnost",
+  "_TXT_LIGHT_": "Svijetlo",
+  "_TXT_DARK_": "Tamno",
   "_LBL_DISABLED_": "Onemoguceno"
 }

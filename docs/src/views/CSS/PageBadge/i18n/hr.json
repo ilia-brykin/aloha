@@ -1,4 +1,7 @@
 {
-  "_A_BADGE_STYLES_NAME_": "Stilovi značke",
-  "_A_BADGE_ROUNDED_STYLES_NAME_": "Zaobljeni stilovi značke"
+  "_A_BADGE_PAGE_NAME_": "Znacke",
+  "_A_BADGE_ROUNDED_STYLES_DESCRIPTION_": "Dodajte <code>.a_pill_rounded</code> za zaobljavanje znacki.",
+  "_A_BADGE_ROUNDED_STYLES_NAME_": "Zaobljene znacke",
+  "_A_BADGE_STYLES_DESCRIPTION_": "Klase <code>.a_badge_*</code> postavljaju stil znacki.",
+  "_A_BADGE_STYLES_NAME_": "Osnovne znacke"
 }

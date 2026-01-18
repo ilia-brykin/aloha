@@ -38,5 +38,14 @@
   "_TXT_EXAMPLE_": "Пример",
   "_TXT_CLASS_": "Класс",
   "_TXT_COLOR_": "Цвет",
+  "_TXT_PRIMARY_": "Основной",
+  "_TXT_SECONDARY_": "Вторичный",
+  "_TXT_TERTIARY_": "Дополнительный",
+  "_TXT_SUCCESS_": "Успех",
+  "_TXT_INFO_": "Инфо",
+  "_TXT_WARNING_": "Предупреждение",
+  "_TXT_DANGER_": "Опасность",
+  "_TXT_LIGHT_": "Светлый",
+  "_TXT_DARK_": "Темный",
   "_LBL_DISABLED_": "Отключено"
 }

@@ -1,4 +1,7 @@
 {
-  "_A_BADGE_STYLES_NAME_": "أنماط الشارة",
-  "_A_BADGE_ROUNDED_STYLES_NAME_": "أنماط الشارة المستديرة"
+  "_A_BADGE_PAGE_NAME_": "الشارات",
+  "_A_BADGE_ROUNDED_STYLES_DESCRIPTION_": "أضف <code>.a_pill_rounded</code> لتدوير الشارات.",
+  "_A_BADGE_ROUNDED_STYLES_NAME_": "شارات مستديرة",
+  "_A_BADGE_STYLES_DESCRIPTION_": "تحدد الأصناف <code>.a_badge_*</code> نمط الشارات.",
+  "_A_BADGE_STYLES_NAME_": "شارات بسيطة"
 }

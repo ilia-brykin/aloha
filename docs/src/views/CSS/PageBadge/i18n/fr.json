@@ -1,4 +1,7 @@
 {
-  "_A_BADGE_STYLES_NAME_": "Styles de badge",
-  "_A_BADGE_ROUNDED_STYLES_NAME_": "Styles de badge arrondis"
+  "_A_BADGE_PAGE_NAME_": "Badges",
+  "_A_BADGE_ROUNDED_STYLES_DESCRIPTION_": "Ajoutez <code>.a_pill_rounded</code> pour arrondir les badges.",
+  "_A_BADGE_ROUNDED_STYLES_NAME_": "Badges arrondis",
+  "_A_BADGE_STYLES_DESCRIPTION_": "Les classes <code>.a_badge_*</code> definissent le style des badges.",
+  "_A_BADGE_STYLES_NAME_": "Badges simples"
 }

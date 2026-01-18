@@ -39,5 +39,14 @@
   "_TXT_EXAMPLE_": "Beispiel",
   "_TXT_CLASS_": "Klasse",
   "_TXT_COLOR_": "Farbe",
+  "_TXT_PRIMARY_": "Primär",
+  "_TXT_SECONDARY_": "Sekundär",
+  "_TXT_TERTIARY_": "Tertiär",
+  "_TXT_SUCCESS_": "Erfolg",
+  "_TXT_INFO_": "Info",
+  "_TXT_WARNING_": "Warnung",
+  "_TXT_DANGER_": "Gefahr",
+  "_TXT_LIGHT_": "Hell",
+  "_TXT_DARK_": "Dunkel",
   "_LBL_DISABLED_": "Deaktiviert"
 }

@@ -15,14 +15,13 @@ import PageAOnHooksI18n from "./views/Directives/PageOnHooks/i18n/PageAOnHooksI1
 import PageARateI18n from "./views/Components/PageRate/i18n/PageARateI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
 import PageBadgeI18n from "./views/CSS/PageBadge/i18n/PageBadgeI18n";
-import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
-import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
-import PageSpacingI18n from "./views/CSS/PageSpacing/i18n/PageSpacingI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
 import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI18n";
 import PageCheckboxI18n from "./views/Components/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
+import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
+import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
 import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/PageDatepickerI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
@@ -86,6 +85,7 @@ import PageSelectIconI18n from "./views/Components/Form/PageSelectIcon/i18n/Page
 import PageSelectStyleI18n from "./views/Components/Form/PageSelectStyle/i18n/PageSelectStyleI18n";
 import PageShowMoreI18n from "./views/Components/PageShowMore/i18n/PageShowMoreI18n";
 import PageSliderI18n from "./views/Components/Form/PageSlider/i18n/PageSliderI18n";
+import PageSpacingI18n from "./views/CSS/PageSpacing/i18n/PageSpacingI18n";
 import PageSpinnerI18n from "./views/Components/PageSpinner/i18n/PageSpinnerI18n";
 import PageSpinnerPluginI18n from "./views/Plugins/PageSpinnerPlugin/i18n/PageSpinnerPluginI18n";
 import PageStartI18n from "./views/PageStart/i18n/PageStartI18n";

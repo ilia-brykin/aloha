@@ -1,4 +1,7 @@
 {
-  "_A_BADGE_STYLES_NAME_": "Стили значков",
-  "_A_BADGE_ROUNDED_STYLES_NAME_": "Стили закругленных значков"
+  "_A_BADGE_PAGE_NAME_": "Бейджи",
+  "_A_BADGE_ROUNDED_STYLES_DESCRIPTION_": "Добавьте <code>.a_pill_rounded</code>, чтобы скруглить бейджи.",
+  "_A_BADGE_ROUNDED_STYLES_NAME_": "Скругленные бейджи",
+  "_A_BADGE_STYLES_DESCRIPTION_": "Классы <code>.a_badge_*</code> задают стиль бейджей.",
+  "_A_BADGE_STYLES_NAME_": "Простые бейджи"
 }
