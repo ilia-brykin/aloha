@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "التموضع",
+  "_A_POSITION_TYPES_NAME_": "أنواع التموضع",
+  "_A_POSITION_TYPES_DESCRIPTION_": "تحدد الأصناف قيمة الخاصية <code>position</code>.",
+  "_A_POSITION_OFFSETS_NAME_": "الإزاحات",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "تحدد الأصناف قيم <code>top</code> و<code>bottom</code> و<code>left</code> و<code>right</code>.",
+  "_A_POSITION_TRANSLATE_NAME_": "الإزاحة عبر transform",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "تحدد الأصناف قيمة <code>transform</code> من أجل التمركز."
+}

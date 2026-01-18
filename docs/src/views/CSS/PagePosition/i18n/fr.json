@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "Positionnement",
+  "_A_POSITION_TYPES_NAME_": "Types de position",
+  "_A_POSITION_TYPES_DESCRIPTION_": "Les classes definissent la valeur de la propriete <code>position</code>.",
+  "_A_POSITION_OFFSETS_NAME_": "Decalages",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "Les classes definissent les valeurs de <code>top</code>, <code>bottom</code>, <code>left</code> et <code>right</code>.",
+  "_A_POSITION_TRANSLATE_NAME_": "Decalage via transform",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "Les classes definissent la valeur de <code>transform</code> pour centrer."
+}

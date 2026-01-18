@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "Pozicioniranje",
+  "_A_POSITION_TYPES_NAME_": "Tipovi pozicioniranja",
+  "_A_POSITION_TYPES_DESCRIPTION_": "Klase postavljaju vrijednost svojstva <code>position</code>.",
+  "_A_POSITION_OFFSETS_NAME_": "Pomaci",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "Klase postavljaju vrijednosti <code>top</code>, <code>bottom</code>, <code>left</code> i <code>right</code>.",
+  "_A_POSITION_TRANSLATE_NAME_": "Pomak pomocu transform",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "Klase postavljaju vrijednost <code>transform</code> za centriranje."
+}

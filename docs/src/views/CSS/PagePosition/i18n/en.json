@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "Positioning",
+  "_A_POSITION_TYPES_NAME_": "Position types",
+  "_A_POSITION_TYPES_DESCRIPTION_": "Classes set the <code>position</code> property value.",
+  "_A_POSITION_OFFSETS_NAME_": "Offsets",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "Classes set <code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code> values.",
+  "_A_POSITION_TRANSLATE_NAME_": "Translate for centering",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "Classes set the <code>transform</code> value for centering."
+}

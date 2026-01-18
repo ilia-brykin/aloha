@@ -1,0 +1,38 @@
+aloha-example(
+  :use-actions="false"
+  header="_A_POSITION_TYPES_NAME_"
+  description="_A_POSITION_TYPES_DESCRIPTION_"
+)
+  table.aloha_table_properties
+    thead
+      tr
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_CLASS_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_A_TABLE_VALUES_"
+            tag="span"
+          )
+    tbody
+      tr(
+        v-for="row in rows"
+        :key="row.name"
+      )
+        td
+          code {{ row.className }}
+        td
+          template(
+            v-for="(line, index) in row.valueLines"
+            :key="`${row.name}-${index}`"
+          )
+            code {{ line }}
+            br(
+              v-if="index < row.valueLines.length - 1"
+            )

@@ -23,6 +23,7 @@ import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakP
 import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
 import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/PageDatepickerI18n";
+import PagePositionI18n from "./views/CSS/PagePosition/i18n/PagePositionI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
 import PageDropdownI18n from "./views/Components/PageDropdown/i18n/PageDropdownI18n";
@@ -131,6 +132,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.ar,
     ...PageColumnsI18n.ar,
     ...PageColorsI18n.ar,
+    ...PagePositionI18n.ar,
     ...PageSpacingI18n.ar,
     ...PageAOnHooksI18n.ar,
     ...PageARateI18n.ar,
@@ -238,6 +240,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.de,
     ...PageColumnsI18n.de,
     ...PageColorsI18n.de,
+    ...PagePositionI18n.de,
     ...PageSpacingI18n.de,
     ...PageAOnHooksI18n.de,
     ...PageARateI18n.de,
@@ -345,6 +348,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.en,
     ...PageColumnsI18n.en,
     ...PageColorsI18n.en,
+    ...PagePositionI18n.en,
     ...PageSpacingI18n.en,
     ...PageAOnHooksI18n.en,
     ...PageARateI18n.en,
@@ -452,6 +456,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.es,
     ...PageColumnsI18n.es,
     ...PageColorsI18n.es,
+    ...PagePositionI18n.es,
     ...PageSpacingI18n.es,
     ...PageAOnHooksI18n.es,
     ...PageARateI18n.es,
@@ -559,6 +564,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.fr,
     ...PageColumnsI18n.fr,
     ...PageColorsI18n.fr,
+    ...PagePositionI18n.fr,
     ...PageSpacingI18n.fr,
     ...PageAOnHooksI18n.fr,
     ...PageARateI18n.fr,
@@ -666,6 +672,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.hr,
     ...PageColumnsI18n.hr,
     ...PageColorsI18n.hr,
+    ...PagePositionI18n.hr,
     ...PageSpacingI18n.hr,
     ...PageAOnHooksI18n.hr,
     ...PageARateI18n.hr,
@@ -773,6 +780,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.it,
     ...PageColumnsI18n.it,
     ...PageColorsI18n.it,
+    ...PagePositionI18n.it,
     ...PageSpacingI18n.it,
     ...PageAOnHooksI18n.it,
     ...PageARateI18n.it,
@@ -880,6 +888,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.ru,
     ...PageColumnsI18n.ru,
     ...PageColorsI18n.ru,
+    ...PagePositionI18n.ru,
     ...PageSpacingI18n.ru,
     ...PageAOnHooksI18n.ru,
     ...PageARateI18n.ru,
@@ -979,5 +988,3 @@ export const mainTranslation = {
     ...PageWizardI18n.ru,
   },
 };
-
-

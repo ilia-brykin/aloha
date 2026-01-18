@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "Positionierung",
+  "_A_POSITION_TYPES_NAME_": "Positionstypen",
+  "_A_POSITION_TYPES_DESCRIPTION_": "Klassen legen den Wert der Eigenschaft <code>position</code> fest.",
+  "_A_POSITION_OFFSETS_NAME_": "Verschiebungen",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "Klassen legen Werte für <code>top</code>, <code>bottom</code>, <code>left</code> und <code>right</code> fest.",
+  "_A_POSITION_TRANSLATE_NAME_": "Verschiebung per transform",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "Klassen legen den Wert von <code>transform</code> zum Zentrieren fest."
+}

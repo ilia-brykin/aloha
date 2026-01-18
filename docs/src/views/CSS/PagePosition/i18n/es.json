@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "Posicionamiento",
+  "_A_POSITION_TYPES_NAME_": "Tipos de posición",
+  "_A_POSITION_TYPES_DESCRIPTION_": "Las clases establecen el valor de la propiedad <code>position</code>.",
+  "_A_POSITION_OFFSETS_NAME_": "Desplazamientos",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "Las clases establecen los valores de <code>top</code>, <code>bottom</code>, <code>left</code> y <code>right</code>.",
+  "_A_POSITION_TRANSLATE_NAME_": "Traslación con transform",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "Las clases establecen el valor de <code>transform</code> para centrar."
+}

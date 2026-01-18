@@ -1,0 +1,31 @@
+aloha-example(
+  :use-actions="false"
+  header="_A_POSITION_TRANSLATE_NAME_"
+  description="_A_POSITION_TRANSLATE_DESCRIPTION_"
+)
+  table.aloha_table_properties
+    thead
+      tr
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_TXT_CLASS_"
+            tag="span"
+          )
+        th(
+          scope="col"
+        )
+          a-translation(
+            html="_A_TABLE_VALUES_"
+            tag="span"
+          )
+    tbody
+      tr(
+        v-for="row in rows"
+        :key="row.name"
+      )
+        td
+          code {{ row.className }}
+        td
+          code {{ row.value }}
