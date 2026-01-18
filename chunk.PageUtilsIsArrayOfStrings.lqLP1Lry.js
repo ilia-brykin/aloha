@@ -1,0 +1,63 @@
+import{A as h,a as S}from"./chunk.AlohaExample.BfAhXQnA.js";import{P as d,a as O,b as x}from"./chunk.PageFilterTest.x7QP9RBf.js";import{aY as e,_ as i,A as $}from"./bundle.index.BitqS8Bp.js";import{V as l,e as r,W as p,aT as T,_ as n}from"./chunk.vendor.tcMGz7j_.js";import"./chunk.vendor-lodash.rFt76tyK.js";import"./chunk.APageTabTitle.BiN3La9f.js";import"./chunk.AlohaHighlightjs.BwPt1uu6.js";import"./chunk.translations-ar.vM3kqniP.js";import"./chunk.translations-de.D7UTVu2S.js";import"./chunk.translations-en.PIDC1_fO.js";import"./chunk.translations-es.C1LP3JQh.js";import"./chunk.translations-fr.BIV0A7kr.js";import"./chunk.translations-hr.CPtDEDO-.js";import"./chunk.translations-it.jslLUyys.js";import"./chunk.translations-ru.D9BmU6Nz.js";function I(){return{codeJs:`isArrayOfStrings(["hello", "Aloha"]);
+// ${e(["hello","Aloha"])}
+
+isArrayOfStrings("hello Aloha");
+// ${e("hello Aloha")}
+
+isArrayOfStrings(["Aloha", 1]);
+// ${e(["Aloha",1])}
+isArrayOfStrings(["Aloha", false]);
+// ${e(["Aloha",!1])}
+isArrayOfStrings(["Aloha", undefined]);
+// ${e(["Aloha",void 0])}
+isArrayOfStrings(["Aloha", null]);
+// ${e(["Aloha",null])}
+
+isArrayOfStrings([]);
+// ${e([])}
+isArrayOfStrings("Aloha");
+// ${e("Aloha")}
+isArrayOfStrings(1);
+// ${e(1)}
+isArrayOfStrings(undefined);
+// ${e(void 0)}
+isArrayOfStrings(null);
+// ${e(null)}
+isArrayOfStrings({});
+// ${e({})}`}}const P={name:"PageUtilsIsArrayOfStringsExample",components:{AlohaExample:h},setup(){const{codeJs:t}=I();return{codeJs:t}}};function B(t,s,o,f,u,c){const a=r("aloha-example");return p(),l(a,{"code-js":t.codeJs,header:"_A_BASIC_USAGE_","is-code-visible-default":!0},null,8,["code-js"])}const E=i(P,[["render",B]]);function U(){return{argumentsText:[{value:"value",types:["Array"],text:"_PAGE_UTILS_IS_ARRAY_OF_STRINGS_ARGUMENTS_VALUE_"}]}}function R(){return{pageTitle:"isArrayOfStrings"}}const b=`import {
+  describe,
+  expect,
+  it,
+} from "@jest/globals";
+
+import {
+  isArrayOfStrings,
+} from "../utils";
+
+describe("isArrayOfStrings function", () => {
+  it("should return true when input is an array of strings", () => {
+    const array = ["hello", "world"];
+    const result = isArrayOfStrings(array);
+
+    expect(result).toBe(true);
+  });
+
+  it("should return false when input is not an array", () => {
+    const notArray = "hello world";
+    const result = isArrayOfStrings(notArray);
+
+    expect(result).toBe(false);
+  });
+
+  it("should return false if provided with a empty array", () => {
+    expect(isArrayOfStrings([])).toBe(false);
+  });
+
+  it("should return false when input is an array but not all elements are strings", () => {
+    expect(isArrayOfStrings(["hello", 1234])).toBe(false);
+    expect(isArrayOfStrings(["hello", false])).toBe(false);
+    expect(isArrayOfStrings(["hello", undefined])).toBe(false);
+    expect(isArrayOfStrings(["hello", null])).toBe(false);
+  });
+});
+`,w={name:"PageUtilsIsArrayOfStrings",components:{AlohaPage:S,ATranslation:$,PageFilterArguments:x,PageFilterImportFunction:O,PageFilterTest:d,PageUtilsIsArrayOfStringsExample:E},setup(){const{pageTitle:t}=R(),{argumentsText:s}=U();return{argumentsText:s,pageTitle:t,test:b}}};function F(t,s,o,f,u,c){const a=r("a-translation"),g=r("page-filter-import-function"),A=r("page-filter-arguments"),m=r("page-utils-is-array-of-strings-example"),_=r("page-filter-test"),y=r("aloha-page");return p(),l(y,{"page-title":t.pageTitle},{body:T(()=>[n(a,{tag:"p",html:"_PAGE_UTILS_IS_ARRAY_OF_STRINGS_DESCRIPTION_"}),n(g,{"function-name":"isArrayOfStrings","type-import":"utils"}),n(A,{"arguments-text":t.argumentsText,"function-description":"isArrayOfStrings(value)"},null,8,["arguments-text"]),n(m),n(_,{test:t.test},null,8,["test"])]),_:1},8,["page-title"])}const H=i(w,[["render",F]]);export{H as default};
