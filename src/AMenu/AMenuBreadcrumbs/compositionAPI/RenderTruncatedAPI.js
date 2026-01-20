@@ -4,8 +4,9 @@ import {
 } from "vue";
 
 import {
-  last,
-} from "lodash-es";
+  aLast,
+} from "../../../utils/utilsArray";
+
 
 export default function RenderTruncatedAPI({
   breadcrumbsItems = computed(() => []),
@@ -41,7 +42,7 @@ export default function RenderTruncatedAPI({
     }
     breadcrumbsItemsTruncated.value.splice(0, 1);
     indexRenderedItem.value++;
-    itemsWidth.value -= last(itemsWidthList.value);
+    itemsWidth.value -= aLast(itemsWidthList.value);
     itemsWidthList.value.pop();
     removeItem();
   };

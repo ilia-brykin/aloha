@@ -7,9 +7,11 @@ import {
 
 import EventBus from "../../../utils/EventBus";
 import {
+  aLast,
+} from "../../../utils/utilsArray";
+import {
   cloneDeep,
   forEach,
-  last,
   startsWith,
 } from "lodash-es";
 
@@ -63,7 +65,7 @@ export default function ModelAPI(props, {
     if (!isSortingMultiColumn.value || model.length >= countColumnsAll.value) {
       return false;
     }
-    const MODEL_LAST_ITEM = last(model);
+    const MODEL_LAST_ITEM = aLast(model);
     return !!MODEL_LAST_ITEM.sortId;
   };
 

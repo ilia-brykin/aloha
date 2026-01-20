@@ -9,13 +9,15 @@ import {
 
 import AKeyId from "../../../const/AKeyId";
 import {
+  aFirst,
+  aLast,
+} from "../../../utils/utilsArray";
+import {
   findIndex,
   findLastIndex,
-  first,
   forEach,
   get,
   isNil,
-  last,
   range,
   toNumber,
   uniqBy,
@@ -98,11 +100,11 @@ export default function DataAPI(props) {
   });
 
   const minValueDataLocal = computed(() => {
-    return first(dataLocal.value)?.[AKeyId];
+    return aFirst(dataLocal.value)?.[AKeyId];
   });
 
   const maxValueDataLocal = computed(() => {
-    return last(dataLocal.value)?.[AKeyId];
+    return aLast(dataLocal.value)?.[AKeyId];
   });
 
   return {

@@ -6,13 +6,15 @@ import {
 import AMobileAPI from "../../compositionAPI/AMobileAPI";
 
 import {
+  aLast,
+} from "../../utils/utilsArray";
+import {
   concatTwoStringsWithSpace,
   filterActionsHiddenAndDivider,
 } from "../../utils/actions";
 import {
   cloneDeep,
   forEach,
-  last,
 } from "lodash-es";
 
 export default function ActionsAPI(props) {
@@ -112,7 +114,7 @@ export default function ActionsAPI(props) {
             children: [action],
           });
         } else {
-          last(ACTIONS_GROUPED.buttons).children.push(action);
+          aLast(ACTIONS_GROUPED.buttons).children.push(action);
         }
         isPreviousActionDivider = false;
       } else {

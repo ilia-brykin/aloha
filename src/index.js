@@ -267,6 +267,10 @@ export {
   isEven,
   toPrecision,
 } from "./utils/utilsMath";
+export {
+  aFirst,
+  aLast,
+} from "./utils/utilsArray";
 
 // const
 export {

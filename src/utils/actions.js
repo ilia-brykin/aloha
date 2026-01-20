@@ -1,7 +1,9 @@
 import {
+  aLast,
+} from "./utilsArray";
+import {
   filter,
   forEach,
-  last,
 } from "lodash-es";
 
 export function filterActionsHiddenAndDivider({ actions }) {
@@ -13,11 +15,11 @@ export function filterActionsHiddenAndDivider({ actions }) {
   forEach(ACTIONS_FILTERED, action => {
     if (action.type !== "divider" ||
       (ACTIONS_DIVIDER_FILTERED.length > 0 &&
-        last(ACTIONS_DIVIDER_FILTERED).type !== "divider")) {
+        aLast(ACTIONS_DIVIDER_FILTERED).type !== "divider")) {
       ACTIONS_DIVIDER_FILTERED.push(action);
     }
   });
-  const LAST_ACTION = last(ACTIONS_DIVIDER_FILTERED);
+  const LAST_ACTION = aLast(ACTIONS_DIVIDER_FILTERED);
   if (LAST_ACTION && LAST_ACTION.type === "divider") {
     ACTIONS_DIVIDER_FILTERED.pop();
   }
@@ -30,11 +32,11 @@ export function filterActionsDivider({ actions }) {
   forEach(actions, action => {
     if (action.type !== "divider" ||
       (ACTIONS_DIVIDER_FILTERED.length > 0 &&
-        last(ACTIONS_DIVIDER_FILTERED).type !== "divider")) {
+        aLast(ACTIONS_DIVIDER_FILTERED).type !== "divider")) {
       ACTIONS_DIVIDER_FILTERED.push(action);
     }
   });
-  const LAST_ACTION = last(ACTIONS_DIVIDER_FILTERED);
+  const LAST_ACTION = aLast(ACTIONS_DIVIDER_FILTERED);
   if (LAST_ACTION && LAST_ACTION.type === "divider") {
     ACTIONS_DIVIDER_FILTERED.pop();
   }

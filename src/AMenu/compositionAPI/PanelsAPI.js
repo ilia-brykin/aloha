@@ -12,8 +12,9 @@ import {
   AKeyParent,
 } from "../../const/AKeys";
 import {
-  last,
-} from "lodash-es";
+  aLast,
+} from "../../utils/utilsArray";
+
 
 export default function PanelsAPI(props, {
   dataKeyById = computed(() => ({})),
@@ -56,7 +57,7 @@ export default function PanelsAPI(props, {
     if (!withoutFocus) {
       setFocusToFirstLinkInPanel({
         menuId: menuId.value,
-        panelId: last(panelParentsOpen.value) || "",
+        panelId: aLast(panelParentsOpen.value) || "",
       });
     }
     resetSearch();
