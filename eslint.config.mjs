@@ -1,10 +1,11 @@
+import pluginVue from "eslint-plugin-vue";
+
 import globals from "globals";
+import groupImportsPlugin from "eslint-plugin-import-group";
 import pluginJest from "eslint-plugin-jest";
 import pluginJs from "@eslint/js";
-import pluginVue from "eslint-plugin-vue";
 import pluginVuePug from "eslint-plugin-vue-pug";
 import stylistic from "@stylistic/eslint-plugin";
-import groupImportsPlugin from "eslint-plugin-import-group";
 
 const OFF = 0;
 const WARN = 1;
@@ -33,6 +34,7 @@ export default [
         __dirname: false,
         module: false,
         require: false,
+        Buffer: false,
       },
     },
   },
@@ -367,12 +369,15 @@ export default [
       "no-with": WARN,
       "prefer-const": WARN,
       "require-await": WARN,
-      // "sort-imports": [WARN, {
-      //   ignoreMemberSort: false,
-      //   memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
-      //   ignoreCase: true,
-      //   ignoreDeclarationSort: true,
-      // }],
+
+      /*
+       * "sort-imports": [WARN, {
+       *   ignoreMemberSort: false,
+       *   memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+       *   ignoreCase: true,
+       *   ignoreDeclarationSort: true,
+       * }],
+       */
       "sort-keys": OFF,
       strict: OFF,
       yoda: [WARN, "never", { exceptRange: true }],
