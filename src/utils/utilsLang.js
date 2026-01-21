@@ -2,6 +2,20 @@ export function isArray(value) {
   return Array.isArray(value);
 }
 
+export function isArguments(value) {
+  if (!isObjectLike(value)) {
+    return false;
+  }
+
+  const tag = Object.prototype.toString.call(value);
+  if (tag === "[object Arguments]") {
+    return true;
+  }
+
+  return Object.prototype.hasOwnProperty.call(value, "callee")
+    && !Object.prototype.propertyIsEnumerable.call(value, "callee");
+}
+
 export function isFunction(value) {
   return typeof value === "function";
 }
@@ -61,6 +75,12 @@ export function isMap(value) {
 export function isObject(value) {
   const type = typeof value;
   return value !== null && (type === "object" || type === "function");
+}
+
+export function isPromise(value) {
+  return isObject(value)
+    && typeof value.then === "function"
+    && typeof value.catch === "function";
 }
 
 export function isSet(value) {
