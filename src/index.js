@@ -271,6 +271,35 @@ export {
   aFirst,
   aLast,
 } from "./utils/utilsArray";
+export {
+  isArguments,
+  isArray,
+  isArrayBuffer,
+  isBoolean,
+  isBuffer,
+  isDate,
+  isElement,
+  isError,
+  isFinite,
+  isFunction,
+  isInteger,
+  isMap,
+  isNaN,
+  isNil,
+  isNull,
+  isNumber,
+  isObject,
+  isObjectLike,
+  isPlainObject,
+  isPromise,
+  isRegExp,
+  isSet,
+  isString,
+  isSymbol,
+  isUndefined,
+  isWeakMap,
+  isWeakSet,
+} from "./utils/utilsLang";
 
 // const
 export {
