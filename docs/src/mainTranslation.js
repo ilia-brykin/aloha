@@ -85,7 +85,6 @@ import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQui
 import PageRadioI18n from "./views/Components/Form/PageRadio/i18n/PageRadioI18n";
 import PageRouterLinkConfigI18n from "./views/Components/Form/PageRouterLinkConfig/i18n/PageRouterLinkConfigI18n";
 import PageScreenreaderI18n from "./views/CSS/PageScreenreader/i18n/PageScreenreaderI18n";
-import PageVerticalAlignI18n from "./views/CSS/PageVerticalAlign/i18n/PageVerticalAlignI18n";
 import PageSelectI18n from "./views/Components/Form/PageSelect/i18n/PageSelectI18n";
 import PageSelectIconI18n from "./views/Components/Form/PageSelectIcon/i18n/PageSelectIconI18n";
 import PageSelectStyleI18n from "./views/Components/Form/PageSelectStyle/i18n/PageSelectStyleI18n";
@@ -117,6 +116,7 @@ import PageUtilsIsArrayOfStringsI18n from "./views/Functions/Utils/PageUtilsIsAr
 import PageUtilsMathIsEvenI18n from "./views/Functions/UtilsMath/PageUtilsMathIsEven/i18n/PageUtilsMathIsEvenI18n";
 import PageUtilsMathIsOddI18n from "./views/Functions/UtilsMath/PageUtilsMathIsOdd/i18n/PageUtilsMathIsOddI18n";
 import PageValidatedJsonI18n from "./views/Components/Form/PageValidatedJson/i18n/PageValidatedJsonI18n";
+import PageVerticalAlignI18n from "./views/CSS/PageVerticalAlign/i18n/PageVerticalAlignI18n";
 import PageWizardI18n from "./views/Components/PageWizard/i18n/PageWizardI18n";
 import ar from "./i18n/ar.json";
 import de from "./i18n/de.json";
