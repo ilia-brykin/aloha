@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.47.0
+
+- Feature: Add `labelNotFound` and `showNotFound` props to `ASelect` for improved handling of missing options, with translations and documentation updates.
+
 ## 2.46.0
 
 - Chore: Update dependencies to latest compatible versions.
