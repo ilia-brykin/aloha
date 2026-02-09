@@ -18,6 +18,7 @@ export default function ModelAPI(props, {
   const countMultiselect = toRef(props, "countMultiselect");
   const exclusiveOptionValue = toRef(props, "exclusiveOptionValue");
   const modelValue = toRef(props, "modelValue");
+  const showNotFound = toRef(props, "showNotFound");
   const type = toRef(props, "type");
 
   const isMultiselect = computed(() => {
@@ -30,7 +31,11 @@ export default function ModelAPI(props, {
     }
 
     return filter(modelValue.value, currentModel => {
-      return dataKeyByKeyIdLocal.value[currentModel] || currentModel === exclusiveOptionValue.value;
+      if (currentModel in dataKeyByKeyIdLocal.value || currentModel === exclusiveOptionValue.value) {
+        return true;
+      }
+
+      return showNotFound.value;
     });
   });
 

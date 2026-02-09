@@ -317,6 +317,11 @@ export default {
       required: false,
       default: undefined,
     },
+    labelNotFound: {
+      type: String,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.labelNotFound,
+    },
     loading: {
       type: Boolean,
       required: false,
@@ -427,6 +432,11 @@ export default {
       type: [String, Object],
       required: false,
       default: undefined,
+    },
+    showNotFound: {
+      type: Boolean,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.showNotFound,
     },
     slotName: {
       type: String,
@@ -820,6 +830,8 @@ export default {
                     key: item,
                     alwaysTranslate: this.alwaysTranslate,
                     data: this.dataKeyByKeyIdLocal[item] || {},
+                    labelNotFound: this.labelNotFound,
+                    showNotFound: this.showNotFound,
                     slotName: this.slotName,
                     tag: "li",
                   }, this.$slots);
@@ -829,6 +841,8 @@ export default {
             h(ASelectLabelElement, {
               alwaysTranslate: this.alwaysTranslate,
               data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
+              labelNotFound: this.labelNotFound,
+              showNotFound: this.showNotFound,
               slotName: this.slotName,
             }, this.$slots),
         ] :
@@ -918,6 +932,8 @@ export default {
                             disabled: this.disabled,
                             keyGroup: this.keyGroup,
                             keyGroupLabelCallback: this.keyGroupLabelCallback,
+                            labelNotFound: this.labelNotFound,
+                            showNotFound: this.showNotFound,
                             mode: this.mode,
                             slotName: this.slotName,
                             onChangeModelValue: this.onChangeModelValue,
@@ -954,6 +970,8 @@ export default {
                               h(ASelectLabelElement, {
                                 alwaysTranslate: this.alwaysTranslate,
                                 data: this.dataKeyByKeyIdLocal[item] || {},
+                                labelNotFound: this.labelNotFound,
+                                showNotFound: this.showNotFound,
                                 slotName: this.slotName,
                               }, this.$slots),
                             ]);
@@ -963,6 +981,8 @@ export default {
                       alwaysTranslate: this.alwaysTranslate,
                       data: this.dataKeyByKeyIdLocal[this.modelValue] || {},
                       class: "a_select__value__label",
+                      labelNotFound: this.labelNotFound,
+                      showNotFound: this.showNotFound,
                       slotName: this.slotName,
                     }, this.$slots)
                   : h(ATranslation, {

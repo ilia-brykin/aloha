@@ -5,6 +5,10 @@ import {
   withDirectives,
 } from "vue";
 
+import {
+  getTranslatedText,
+} from "../../../ATranslation/compositionAPI/UtilsAPI";
+
 import ASafeHtml from "../../../directives/ASafeHtml";
 import {
   AKeyLabel,
@@ -22,6 +26,16 @@ export default {
       type: Object,
       required: true,
     },
+    labelNotFound: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    showNotFound: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     slotName: {
       type: String,
       required: false,
@@ -35,8 +49,19 @@ export default {
   },
   setup(props) {
     const data = toRef(props, "data");
+    const labelNotFound = toRef(props, "labelNotFound");
+    const showNotFound = toRef(props, "showNotFound");
+
     const currentLabel = computed(() => {
-      return data.value[AKeyLabel];
+      if (AKeyLabel in data.value) {
+        return data.value[AKeyLabel];
+      }
+
+      if (showNotFound.value) {
+        return getTranslatedText({ placeholder: labelNotFound.value });
+      }
+
+      return "";
     });
 
     return {

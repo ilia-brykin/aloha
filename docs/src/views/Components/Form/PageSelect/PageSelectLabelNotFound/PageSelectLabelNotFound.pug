@@ -1,0 +1,31 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SELECT_GROUP_LABEL_NOT_FOUND_HEADER_"
+  description="_A_SELECT_GROUP_LABEL_NOT_FOUND_DESCRIPTION_"
+  props="labelNotFound"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-select(
+        v-model="model1"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Select"
+        label-not-found="_A_SELECT_LABEL_NOT_FOUND_"
+        type="select"
+      )
+      div model1: {{ model1 }}
+      a-select(
+        v-model="model2"
+        :data="data"
+        :show-not-found="true"
+        class="a_mt_3"
+        key-id="id"
+        key-label="label"
+        label="Multiselect"
+        label-not-found="_A_SELECT_LABEL_NOT_FOUND_"
+        type="multiselect"
+      )
+      div model2: {{ model2 }}

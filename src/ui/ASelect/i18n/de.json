@@ -1,4 +1,5 @@
 {
+  "_A_SELECT_LABEL_NOT_FOUND_": "[Auswahl nicht gefunden]",
   "_A_SELECT_EXCLUSIVE_": "Nur diese Option auswählen",
   "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Keine Auswahl]",
   "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} ausgewählt",

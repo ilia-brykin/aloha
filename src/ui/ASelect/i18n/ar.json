@@ -1,4 +1,5 @@
 {
+  "_A_SELECT_LABEL_NOT_FOUND_": "[لم يتم العثور على التحديد]",
   "_A_SELECT_EXCLUSIVE_": "اختر هذا الخيار فقط",
   "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[No choices]",
   "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} selected",

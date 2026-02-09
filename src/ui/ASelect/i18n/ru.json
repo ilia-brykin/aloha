@@ -1,4 +1,5 @@
 {
+  "_A_SELECT_LABEL_NOT_FOUND_": "[Вариант не найден]",
   "_A_SELECT_EXCLUSIVE_": "Выбрать только этот вариант",
   "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Нет элементов для выбора]",
   "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} выбрано",

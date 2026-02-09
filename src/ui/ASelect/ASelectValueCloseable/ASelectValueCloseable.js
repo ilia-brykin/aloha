@@ -43,10 +43,20 @@ export default {
       required: false,
       default: undefined,
     },
+    labelNotFound: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     mode: {
       type: String,
       default: "default",
       validator: value => ["default", "one_per_group"].includes(value),
+    },
+    showNotFound: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     slotName: {
       type: String,
