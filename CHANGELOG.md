@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.47.1
+
+- Fix: Move cursor after the last decimal when focused on the last position in `AInputCurrency`
+
 ## 2.47.0
 
 - Feature: Add `labelNotFound` and `showNotFound` props to `ASelect` for improved handling of missing options, with translations and documentation updates.
