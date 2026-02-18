@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.47.2
+
+- Fix: Correct model handling when required and the model is empty in `AInputCurrency`
+
 ## 2.47.1
 
 - Fix: Move cursor after the last decimal when focused on the last position in `AInputCurrency`
