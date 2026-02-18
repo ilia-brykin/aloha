@@ -621,8 +621,9 @@ export default function InputEventsAPI(props, {
     }
 
     requestAnimationFrame(() => {
+      const hasModel = modelValue.value || modelValue.value === 0;
       let valueToSet;
-      if (modelValue.value || modelValue.value === 0) {
+      if (hasModel) {
         valueToSet = modelValue.value.toString().replace(".", decimalDivider.value);
         if (decimalDivider.value) {
           const splitVal = valueToSet.toString().split(decimalDivider.value);
@@ -643,7 +644,8 @@ export default function InputEventsAPI(props, {
           ].join("") :
           modelUndefinedLocal.value;
       }
-      handleInput(null, valueToSet, true);
+      const shouldInitModel = required.value && !hasModel;
+      handleInput(null, valueToSet, !shouldInitModel);
     });
   };
 
