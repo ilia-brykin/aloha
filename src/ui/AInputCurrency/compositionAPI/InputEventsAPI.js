@@ -19,6 +19,7 @@ export default function InputEventsAPI(props, {
   modelNumber = computed(() => undefined),
   modelUndefinedLocal = computed(() => undefined),
   onBlur = () => {},
+  onFocus = () => {},
   setCurrentValue = () => {},
 }) {
   const decimalDivider = toRef(props, "decimalDivider");
@@ -593,12 +594,21 @@ export default function InputEventsAPI(props, {
     onBlur($event);
   };
 
-  const onClickNumber = $event => {
+  const onFocusNumber = $event => {
+    onFocus($event);
     isTimeoutActive.value++;
     requestAnimationFrame(() => {
+      const inputEl = inputRef.value;
       const cursorPosition = $event.target.selectionStart;
       const value = $event.target.value;
-      if (thousandDivider.value && thousandDivider.value === value[cursorPosition - 1]) {
+      const start = inputEl.selectionStart;
+      const end = inputEl.selectionEnd;
+      if (start === end && start === value.length) {
+        const decimalDividerIndex = value.indexOf(decimalDivider.value);
+        if (decimalDividerIndex !== -1) {
+          setCursorPosition(decimalDividerIndex);
+        }
+      } else if (thousandDivider.value && thousandDivider.value === value[cursorPosition - 1]) {
         setCursorPosition(cursorPosition - 1);
       }
       isTimeoutActive.value--;
@@ -644,6 +654,6 @@ export default function InputEventsAPI(props, {
     initFirstCheck,
     inputRef,
     onBlurNumber,
-    onClickNumber,
+    onFocusNumber,
   };
 }

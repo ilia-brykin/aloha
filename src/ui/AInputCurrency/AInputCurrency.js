@@ -363,7 +363,7 @@ export default {
       initFirstCheck,
       inputRef,
       onBlurNumber,
-      onClickNumber,
+      onFocusNumber,
     } = InputEventsAPI(props, {
       adjustFloatPartAndDivider,
       decrease,
@@ -373,6 +373,7 @@ export default {
       modelNumber,
       modelUndefinedLocal,
       onBlur,
+      onFocus,
       setCurrentValue,
     });
 
@@ -408,8 +409,7 @@ export default {
       isModel,
       labelDescriptionId,
       onBlurNumber,
-      onClickNumber,
-      onFocus,
+      onFocusNumber,
       placeholderAttributes,
     };
   },
@@ -529,9 +529,8 @@ export default {
                 ...this.inputAttributes,
                 onInput: this.handleInput,
                 onKeydown: this.handleKeydown,
-                onFocus: this.onFocus,
+                onFocus: this.onFocusNumber,
                 onBlur: this.onBlurNumber,
-                onClick: this.onClickNumber,
                 onPaste: this.handlePaste,
               }),
               this.isClearButtonLocal ?
