@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.47.3
+
+- Fix: Correct model handling when min and max are not set, thousandDivider validator adjusted `AInputCurrency`
+- Fix: Correct display value, when decimal part is not set in `AInputCurrency`
+- Fix: validator for thousandDivider now accepts empty string in `AInputCurrency`
+
+
 ## 2.47.2
 
 - Fix: Correct model handling when required and the model is empty in `AInputCurrency`
