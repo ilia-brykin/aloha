@@ -38,8 +38,9 @@ export default function UtilsAPI(props) {
       const floatPart = splitVal.length > 1 ? splitVal[1] : "";
       const floatPartLength = floatPart.length;
       const zerosToAdd = times(decimalPartLength.value - floatPartLength, () => "0").join("");
+      const fullFloatPart = `${ floatPart }${ zerosToAdd }`;
 
-      return `${ setMinusSymbol }${ intPartWithDivider }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
+      return `${ setMinusSymbol }${ intPartWithDivider }${ fullFloatPart ? decimalDivider.value : "" }${ fullFloatPart }`;
     }
 
     return val;

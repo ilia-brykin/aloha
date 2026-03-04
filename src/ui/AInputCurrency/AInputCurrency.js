@@ -265,6 +265,9 @@ export default {
       required: false,
       default: () => AInputCurrencyPluginOptions.propsDefault.thousandDivider,
       validator: (value, props) => {
+        if (value === "") {
+          return true;
+        }
         const decimalDivider = props?.decimalDivider;
 
         if (decimalDivider) {

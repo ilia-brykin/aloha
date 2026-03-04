@@ -571,11 +571,11 @@ export default function InputEventsAPI(props, {
       onBlur($event);
 
       return;
-    } else if (modelNumber.value < min.value) {
+    } else if (!isNil(min.value) && modelNumber.value < min.value) {
       setMinimumValue();
 
       return;
-    } else if (modelNumber.value > max.value) {
+    } else if (!isNil(max.value) && modelNumber.value > max.value) {
       setMaximumValue();
 
       return;
