@@ -16,7 +16,6 @@ export default {
     const model = ref(undefined);
     
     return {
-      data,
       model,
     };
   },

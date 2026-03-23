@@ -1,4 +1,6 @@
 {
+  "_A_DATEPICKER_COMPONENT_NAME_": "Выбор даты",
+  "_A_DATEPICKER_COMPONENT_DESCRIPTION_": "Позволяет интерактивно выбирать дату и, в зависимости от конфигурации, также время. Компонент поддерживает разные режимы отображения, такие как дата, время или дата со временем, и предоставляет дополнительные возможности для ограничения диапазона выбора и управления начальным фокусом календаря.",
   "_PAGE_DATEPICKER_START_DATE_HEADER_": "Управление начальным фокусом календаря",
   "_PAGE_DATEPICKER_START_DATE_DESCRIPTION_": "Использование <strong lang=\"en\">start-date</strong> и <strong lang=\"en\">focus-start-date</strong> для управления начальным фокусом календаря.",
   "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_": "Установлена <strong lang=\"en\">start-date</strong> на следующий год, модель не задана",
@@ -8,5 +10,15 @@
   "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "Использование <strong lang=\"en\">max-date</strong> и <strong lang=\"en\">min-date</strong> для ограничения диапазона выбираемых дат.",
   "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "Выбор даты не раньше минимальной",
   "_PAGE_DATEPICKER_LBL_WITH_MAX_DATE_": "Выбор даты не позже максимальной",
-  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "Выбор даты между минимальной и максимальной"
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "Выбор даты между минимальной и максимальной",
+  "_PAGE_DATEPICKER_TYPE_HEADER_": "Типы datepicker",
+  "_PAGE_DATEPICKER_TYPE_DESCRIPTION_": "Использование свойства <strong lang=\"en\">type</strong> для переключения между режимами выбора даты, времени и даты со временем.",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATE_": "Дата",
+  "_PAGE_DATEPICKER_LBL_TYPE_TIME_": "Время",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATETIME_": "Дата и время",
+  "_PAGE_DATEPICKER_LBL_INPUT_1_": "Поле 1",
+  "_PAGE_DATEPICKER_LBL_INPUT_2_": "Поле 2",
+  "_PAGE_DATEPICKER_LBL_INPUT_3_": "Поле 3",
+  "_PAGE_DATEPICKER_LBL_INPUT_4_": "Поле 4",
+  "_PAGE_DATEPICKER_TXT_ALOHA_": "Aloha"
 }

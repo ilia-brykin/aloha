@@ -1,5 +1,6 @@
 export default function JsAPI() {
   const codeJs = `import {
+  computed,
   ref,
 } from "vue";
 

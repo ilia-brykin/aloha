@@ -1,3 +1,24 @@
 {
-
+  "_A_DATEPICKER_COMPONENT_NAME_": "منتقي التاريخ",
+  "_A_DATEPICKER_COMPONENT_DESCRIPTION_": "يتيح الاختيار التفاعلي لتاريخ، ووفقًا للإعدادات، أيضًا لوقت. يدعم المكوّن أوضاع عرض مختلفة مثل التاريخ أو الوقت أو التاريخ مع الوقت، ويوفر خيارات إضافية لتقييد النطاق القابل للاختيار والتحكم في التركيز الأولي للتقويم.",
+  "_PAGE_DATEPICKER_START_DATE_HEADER_": "التركيز الأولي للتقويم",
+  "_PAGE_DATEPICKER_START_DATE_DESCRIPTION_": "استخدم الخاصيتين <strong lang=\"en\">start-date</strong> و <strong lang=\"en\">focus-start-date</strong> للتحكم في التركيز الأولي للتقويم.",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_": "تم تعيين <strong lang=\"en\">start-date</strong> للسنة القادمة، ولم يتم تعيين النموذج",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_": "تم تعيين <strong lang=\"en\">start-date</strong> للسنة القادمة، والنموذج معيّن",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_AND_FOCUS_START_DATE_": "تم تعيين <strong lang=\"en\">start-date</strong> للسنة القادمة، والنموذج معيّن و <strong lang=\"en\">focus-start-date = true</strong>",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_HEADER_": "الحد الأقصى والأدنى للتواريخ",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "استخدم الخاصيتين <strong lang=\"en\">max-date</strong> و <strong lang=\"en\">min-date</strong> لتقييد نطاق التواريخ القابلة للاختيار.",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "اختر تاريخًا لا يسبق الحد الأدنى",
+  "_PAGE_DATEPICKER_LBL_WITH_MAX_DATE_": "اختر تاريخًا لا يتجاوز الحد الأقصى",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "اختر تاريخًا بين الحد الأدنى والحد الأقصى",
+  "_PAGE_DATEPICKER_TYPE_HEADER_": "أنواع منتقي التاريخ",
+  "_PAGE_DATEPICKER_TYPE_DESCRIPTION_": "استخدم الخاصية <strong lang=\"en\">type</strong> للتبديل بين أوضاع اختيار التاريخ والوقت والتاريخ مع الوقت.",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATE_": "التاريخ",
+  "_PAGE_DATEPICKER_LBL_TYPE_TIME_": "الوقت",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATETIME_": "التاريخ والوقت",
+  "_PAGE_DATEPICKER_LBL_INPUT_1_": "الحقل 1",
+  "_PAGE_DATEPICKER_LBL_INPUT_2_": "الحقل 2",
+  "_PAGE_DATEPICKER_LBL_INPUT_3_": "الحقل 3",
+  "_PAGE_DATEPICKER_LBL_INPUT_4_": "الحقل 4",
+  "_PAGE_DATEPICKER_TXT_ALOHA_": "Aloha"
 }

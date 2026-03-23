@@ -1,3 +1,24 @@
 {
-
+  "_A_DATEPICKER_COMPONENT_NAME_": "Selettore data",
+  "_A_DATEPICKER_COMPONENT_DESCRIPTION_": "Consente la selezione interattiva di una data e, a seconda della configurazione, anche dell'ora. Il componente supporta diverse modalità di visualizzazione, come data, ora o data con ora, e offre opzioni aggiuntive per limitare l'intervallo selezionabile e controllare il focus iniziale del calendario.",
+  "_PAGE_DATEPICKER_START_DATE_HEADER_": "Focus iniziale del calendario",
+  "_PAGE_DATEPICKER_START_DATE_DESCRIPTION_": "Usa le proprietà <strong lang=\"en\">start-date</strong> e <strong lang=\"en\">focus-start-date</strong> per controllare il focus iniziale del calendario.",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_": "<strong lang=\"en\">start-date</strong> è impostata all'anno successivo, il modello non è impostato",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_": "<strong lang=\"en\">start-date</strong> è impostata all'anno successivo, il modello è impostato",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_AND_FOCUS_START_DATE_": "<strong lang=\"en\">start-date</strong> è impostata all'anno successivo, il modello è impostato e <strong lang=\"en\">focus-start-date = true</strong>",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_HEADER_": "Date massime e minime",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "Usa le proprietà <strong lang=\"en\">max-date</strong> e <strong lang=\"en\">min-date</strong> per limitare l'intervallo di date selezionabili.",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "Seleziona una data non precedente al minimo",
+  "_PAGE_DATEPICKER_LBL_WITH_MAX_DATE_": "Seleziona una data non successiva al massimo",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "Seleziona una data tra il minimo e il massimo",
+  "_PAGE_DATEPICKER_TYPE_HEADER_": "Tipi di selettore data",
+  "_PAGE_DATEPICKER_TYPE_DESCRIPTION_": "Usa la proprietà <strong lang=\"en\">type</strong> per passare tra le modalità di selezione data, ora e data con ora.",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATE_": "Data",
+  "_PAGE_DATEPICKER_LBL_TYPE_TIME_": "Ora",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATETIME_": "Data e ora",
+  "_PAGE_DATEPICKER_LBL_INPUT_1_": "Campo 1",
+  "_PAGE_DATEPICKER_LBL_INPUT_2_": "Campo 2",
+  "_PAGE_DATEPICKER_LBL_INPUT_3_": "Campo 3",
+  "_PAGE_DATEPICKER_LBL_INPUT_4_": "Campo 4",
+  "_PAGE_DATEPICKER_TXT_ALOHA_": "Aloha"
 }

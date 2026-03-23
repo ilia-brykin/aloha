@@ -1,3 +1,24 @@
 {
-
+  "_A_DATEPICKER_COMPONENT_NAME_": "Datepicker",
+  "_A_DATEPICKER_COMPONENT_DESCRIPTION_": "Allows interactive selection of a date and, depending on the configuration, also time. The component supports different display modes such as date, time, or datetime and offers additional options for limiting the selectable range and controlling the initial calendar focus.",
+  "_PAGE_DATEPICKER_START_DATE_HEADER_": "Initial calendar focus",
+  "_PAGE_DATEPICKER_START_DATE_DESCRIPTION_": "Use the <strong lang=\"en\">start-date</strong> and <strong lang=\"en\">focus-start-date</strong> props to control the initial focus of the calendar.",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_": "<strong lang=\"en\">start-date</strong> is set to next year, model is not set",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_": "<strong lang=\"en\">start-date</strong> is set to next year, model is set",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_AND_FOCUS_START_DATE_": "<strong lang=\"en\">start-date</strong> is set to next year, model is set and <strong lang=\"en\">focus-start-date = true</strong>",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_HEADER_": "Maximum and minimum dates",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "Use the <strong lang=\"en\">max-date</strong> and <strong lang=\"en\">min-date</strong> props to limit the selectable date range.",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "Select a date not earlier than the minimum",
+  "_PAGE_DATEPICKER_LBL_WITH_MAX_DATE_": "Select a date not later than the maximum",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "Select a date between the minimum and maximum",
+  "_PAGE_DATEPICKER_TYPE_HEADER_": "Datepicker types",
+  "_PAGE_DATEPICKER_TYPE_DESCRIPTION_": "Use the <strong lang=\"en\">type</strong> prop to switch between date, time, and datetime selection modes.",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATE_": "Date",
+  "_PAGE_DATEPICKER_LBL_TYPE_TIME_": "Time",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATETIME_": "Datetime",
+  "_PAGE_DATEPICKER_LBL_INPUT_1_": "Input 1",
+  "_PAGE_DATEPICKER_LBL_INPUT_2_": "Input 2",
+  "_PAGE_DATEPICKER_LBL_INPUT_3_": "Input 3",
+  "_PAGE_DATEPICKER_LBL_INPUT_4_": "Input 4",
+  "_PAGE_DATEPICKER_TXT_ALOHA_": "Aloha"
 }

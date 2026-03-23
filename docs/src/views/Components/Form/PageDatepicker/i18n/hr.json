@@ -1,3 +1,24 @@
 {
-
+  "_A_DATEPICKER_COMPONENT_NAME_": "Birač datuma",
+  "_A_DATEPICKER_COMPONENT_DESCRIPTION_": "Omogućuje interaktivni odabir datuma i, ovisno o konfiguraciji, također vremena. Komponenta podržava različite načine prikaza kao što su datum, vrijeme ili datum s vremenom te nudi dodatne opcije za ograničavanje raspona koji se može odabrati i upravljanje početnim fokusom kalendara.",
+  "_PAGE_DATEPICKER_START_DATE_HEADER_": "Početni fokus kalendara",
+  "_PAGE_DATEPICKER_START_DATE_DESCRIPTION_": "Koristite svojstva <strong lang=\"en\">start-date</strong> i <strong lang=\"en\">focus-start-date</strong> za upravljanje početnim fokusom kalendara.",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_": "<strong lang=\"en\">start-date</strong> postavljen je na sljedeću godinu, model nije postavljen",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_": "<strong lang=\"en\">start-date</strong> postavljen je na sljedeću godinu, model je postavljen",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_AND_FOCUS_START_DATE_": "<strong lang=\"en\">start-date</strong> postavljen je na sljedeću godinu, model je postavljen i <strong lang=\"en\">focus-start-date = true</strong>",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_HEADER_": "Maksimalni i minimalni datumi",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "Koristite svojstva <strong lang=\"en\">max-date</strong> i <strong lang=\"en\">min-date</strong> za ograničavanje raspona datuma koji se mogu odabrati.",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "Odaberite datum koji nije raniji od minimalnog",
+  "_PAGE_DATEPICKER_LBL_WITH_MAX_DATE_": "Odaberite datum koji nije kasniji od maksimalnog",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "Odaberite datum između minimalnog i maksimalnog",
+  "_PAGE_DATEPICKER_TYPE_HEADER_": "Vrste birača datuma",
+  "_PAGE_DATEPICKER_TYPE_DESCRIPTION_": "Koristite svojstvo <strong lang=\"en\">type</strong> za prebacivanje između načina odabira datuma, vremena i datuma s vremenom.",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATE_": "Datum",
+  "_PAGE_DATEPICKER_LBL_TYPE_TIME_": "Vrijeme",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATETIME_": "Datum i vrijeme",
+  "_PAGE_DATEPICKER_LBL_INPUT_1_": "Polje 1",
+  "_PAGE_DATEPICKER_LBL_INPUT_2_": "Polje 2",
+  "_PAGE_DATEPICKER_LBL_INPUT_3_": "Polje 3",
+  "_PAGE_DATEPICKER_LBL_INPUT_4_": "Polje 4",
+  "_PAGE_DATEPICKER_TXT_ALOHA_": "Aloha"
 }

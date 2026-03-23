@@ -1,3 +1,24 @@
 {
-
+  "_A_DATEPICKER_COMPONENT_NAME_": "Datepicker",
+  "_A_DATEPICKER_COMPONENT_DESCRIPTION_": "Ermöglicht die interaktive Auswahl eines Datums und je nach Konfiguration auch einer Uhrzeit. Die Komponente unterstützt verschiedene Anzeigemodi wie Datum, Uhrzeit oder Datum mit Uhrzeit und bietet zusätzliche Optionen zur Begrenzung des auswählbaren Bereichs sowie zur Steuerung des anfänglichen Kalenderfokus.",
+  "_PAGE_DATEPICKER_START_DATE_HEADER_": "Anfänglicher Kalenderfokus",
+  "_PAGE_DATEPICKER_START_DATE_DESCRIPTION_": "Verwenden Sie die Eigenschaften <strong lang=\"en\">start-date</strong> und <strong lang=\"en\">focus-start-date</strong>, um den anfänglichen Fokus des Kalenders zu steuern.",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_": "<strong lang=\"en\">start-date</strong> ist auf das nächste Jahr gesetzt, das Modell ist nicht gesetzt",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_": "<strong lang=\"en\">start-date</strong> ist auf das nächste Jahr gesetzt, das Modell ist gesetzt",
+  "_PAGE_DATEPICKER_LBL_START_DATE_NEXT_YEAR_AND_MODEL_AND_FOCUS_START_DATE_": "<strong lang=\"en\">start-date</strong> ist auf das nächste Jahr gesetzt, das Modell ist gesetzt und <strong lang=\"en\">focus-start-date = true</strong>",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_HEADER_": "Maximale und minimale Daten",
+  "_PAGE_DATEPICKER_MAX_MIN_DATE_DESCRIPTION_": "Verwenden Sie die Eigenschaften <strong lang=\"en\">max-date</strong> und <strong lang=\"en\">min-date</strong>, um den auswählbaren Datumsbereich zu begrenzen.",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_DATE_": "Wählen Sie ein Datum, das nicht vor dem Minimum liegt",
+  "_PAGE_DATEPICKER_LBL_WITH_MAX_DATE_": "Wählen Sie ein Datum, das nicht nach dem Maximum liegt",
+  "_PAGE_DATEPICKER_LBL_WITH_MIN_AND_MAX_DATE_": "Wählen Sie ein Datum zwischen Minimum und Maximum",
+  "_PAGE_DATEPICKER_TYPE_HEADER_": "Datepicker-Typen",
+  "_PAGE_DATEPICKER_TYPE_DESCRIPTION_": "Verwenden Sie die Eigenschaft <strong lang=\"en\">type</strong>, um zwischen den Auswahlmodi Datum, Uhrzeit und Datum mit Uhrzeit zu wechseln.",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATE_": "Datum",
+  "_PAGE_DATEPICKER_LBL_TYPE_TIME_": "Uhrzeit",
+  "_PAGE_DATEPICKER_LBL_TYPE_DATETIME_": "Datum und Uhrzeit",
+  "_PAGE_DATEPICKER_LBL_INPUT_1_": "Eingabe 1",
+  "_PAGE_DATEPICKER_LBL_INPUT_2_": "Eingabe 2",
+  "_PAGE_DATEPICKER_LBL_INPUT_3_": "Eingabe 3",
+  "_PAGE_DATEPICKER_LBL_INPUT_4_": "Eingabe 4",
+  "_PAGE_DATEPICKER_TXT_ALOHA_": "Aloha"
 }

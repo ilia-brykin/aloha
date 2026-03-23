@@ -1,7 +1,7 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-datepicker
   v-model="model1"
-  label="Date"
+  label="_PAGE_DATEPICKER_LBL_TYPE_DATE_"
   type="date"
 ></a-datepicker>
 <div>model1: {{ model1 }}</div>
@@ -9,13 +9,13 @@ export default function HtmlAPI() {
   v-model="model2"
   :minute-step="1"
   format="HH:mm"
-  label="Time"
+  label="_PAGE_DATEPICKER_LBL_TYPE_TIME_"
   type="time"
 ></a-datepicker>
 <div>model2: {{ model2 }}</div>
 <a-datepicker
   v-model="model3"
-  label="Datetime"
+  label="_PAGE_DATEPICKER_LBL_TYPE_DATETIME_"
   type="datetime"
 ></a-datepicker>
 <div>model3: {{ model3 }}</div>`;
