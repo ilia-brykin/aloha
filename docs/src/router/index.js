@@ -377,56 +377,56 @@ const ROUTES = [
     name: "PageDisclosure",
     component: () => import("../views/Components/PageDisclosure/PageDisclosure.vue"),
   },
-    {
-      path: "/columns",
-      name: "PageColumns",
-      component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
-    },
-    {
-      path: "/colors",
-      name: "PageColors",
-      component: () => import("../views/CSS/PageColors/PageColors.vue"),
-    },
-    {
-      path: "/display",
-      name: "PageDisplay",
-      component: () => import("../views/CSS/PageDisplay/PageDisplay.vue"),
-    },
-    {
-      path: "/float",
-      name: "PageFloat",
-      component: () => import("../views/CSS/PageFloat/PageFloat.vue"),
-    },
-    {
-      path: "/overflow",
-      name: "PageOverflow",
-      component: () => import("../views/CSS/PageOverflow/PageOverflow.vue"),
-    },
-    {
-      path: "/screenreader",
-      name: "PageScreenreader",
-      component: () => import("../views/CSS/PageScreenreader/PageScreenreader.vue"),
-    },
-    {
-      path: "/vertical-align",
-      name: "PageVerticalAlign",
-      component: () => import("../views/CSS/PageVerticalAlign/PageVerticalAlign.vue"),
-    },
-    {
-      path: "/position",
-      name: "PagePosition",
-      component: () => import("../views/CSS/PagePosition/PagePosition.vue"),
-    },
-    {
-      path: "/spacing",
-      name: "PageSpacing",
-      component: () => import("../views/CSS/PageSpacing/PageSpacing.vue"),
-    },
-    {
-      path: "/badge",
-      name: "PageBadge",
-      component: () => import("../views/CSS/PageBadge/PageBadge.vue"),
-    },
+  {
+    path: "/columns",
+    name: "PageColumns",
+    component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
+  },
+  {
+    path: "/colors",
+    name: "PageColors",
+    component: () => import("../views/CSS/PageColors/PageColors.vue"),
+  },
+  {
+    path: "/display",
+    name: "PageDisplay",
+    component: () => import("../views/CSS/PageDisplay/PageDisplay.vue"),
+  },
+  {
+    path: "/float",
+    name: "PageFloat",
+    component: () => import("../views/CSS/PageFloat/PageFloat.vue"),
+  },
+  {
+    path: "/overflow",
+    name: "PageOverflow",
+    component: () => import("../views/CSS/PageOverflow/PageOverflow.vue"),
+  },
+  {
+    path: "/screenreader",
+    name: "PageScreenreader",
+    component: () => import("../views/CSS/PageScreenreader/PageScreenreader.vue"),
+  },
+  {
+    path: "/vertical-align",
+    name: "PageVerticalAlign",
+    component: () => import("../views/CSS/PageVerticalAlign/PageVerticalAlign.vue"),
+  },
+  {
+    path: "/position",
+    name: "PagePosition",
+    component: () => import("../views/CSS/PagePosition/PagePosition.vue"),
+  },
+  {
+    path: "/spacing",
+    name: "PageSpacing",
+    component: () => import("../views/CSS/PageSpacing/PageSpacing.vue"),
+  },
+  {
+    path: "/badge",
+    name: "PageBadge",
+    component: () => import("../views/CSS/PageBadge/PageBadge.vue"),
+  },
   {
     path: "/text",
     name: "PageText",
