@@ -19,8 +19,8 @@ export default {
   },
   setup() {
     const model1 = ref(undefined);
-    const model2 = ref("2025-05-16T06:03:05.000Z");
-    const model3 = ref("2025-05-16T06:03:05.000Z");
+    const model2 = ref("2025-05-16");
+    const model3 = ref("2025-05-16");
 
     const dateNextYear = computed(() => {
       const date = new Date();

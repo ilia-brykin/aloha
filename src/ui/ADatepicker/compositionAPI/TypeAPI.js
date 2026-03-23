@@ -18,10 +18,10 @@ export default function TypeAPI(props) {
   };
   const formatSaveDefaultKeyByType = {
     date: "YYYY-MM-DD",
-    time: "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]",
-    datetime: "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]",
-    month: "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]",
-    year: "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]",
+    time: "YYYY-MM-DD[T]HH:mm:ss.SSSZ",
+    datetime: "YYYY-MM-DD[T]HH:mm:ss.SSSZ",
+    month: "YYYY-MM-DD[T]HH:mm:ss.SSSZ",
+    year: "YYYY-MM-DD[T]HH:mm:ss.SSSZ",
   };
 
   const formatSaveLocal = computed(() => {

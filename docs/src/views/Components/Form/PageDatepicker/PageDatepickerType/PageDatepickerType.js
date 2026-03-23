@@ -17,8 +17,8 @@ export default {
     AlohaExample,
   },
   setup() {
-    const model1 = ref("2025-05-16T06:03:05.000Z");
-    const model2 = ref("2025-05-16T06:03:05.000Z");
+    const model1 = ref("2025-05-16");
+    const model2 = ref("2026-03-23T03:05:00.000+01:00");
     const model3 = ref(undefined);
 
     const {
