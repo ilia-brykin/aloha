@@ -5,23 +5,29 @@ aloha-example(
   description="_PAGE_DATEPICKER_TYPE_DESCRIPTION_"
   :props="['type']"
 )
-  a-datepicker(
-    v-model="model1"
-    label="_PAGE_DATEPICKER_LBL_TYPE_DATE_"
-    type="date"
-  )
-  div model1: {{ model1 }}
-  a-datepicker(
-    v-model="model2"
-    :minute-step="1"
-    format="HH:mm"
-    label="_PAGE_DATEPICKER_LBL_TYPE_TIME_"
-    type="time"
-  )
-  div model2: {{ model2 }}
-  a-datepicker(
-    v-model="model3"
-    label="_PAGE_DATEPICKER_LBL_TYPE_DATETIME_"
-    type="datetime"
-  )
-  div model3: {{ model3 }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="model1"
+        label="_PAGE_DATEPICKER_LBL_TYPE_DATE_"
+        type="date"
+      )
+      div model1: {{ model1 }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="model2"
+        :minute-step="1"
+        format="HH:mm"
+        label="_PAGE_DATEPICKER_LBL_TYPE_TIME_"
+        type="time"
+      )
+      div model2: {{ model2 }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="model3"
+        label="_PAGE_DATEPICKER_LBL_TYPE_DATETIME_"
+        type="datetime"
+      )
+      div model3: {{ model3 }}

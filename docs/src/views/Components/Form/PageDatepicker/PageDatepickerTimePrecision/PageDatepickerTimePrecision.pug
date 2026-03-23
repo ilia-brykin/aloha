@@ -5,50 +5,62 @@ aloha-example(
   description="_PAGE_DATEPICKER_TIME_PRECISION_DESCRIPTION_"
   :props="['type', 'time-precision']"
 )
-  a-datepicker(
-    v-model="modelDatetimeHour"
-    label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_DATETIME_HOUR_"
-    time-precision="hour"
-    type="datetime"
-  )
-  div modelDatetimeHour: {{ modelDatetimeHour }}
-  a-datepicker(
-    v-model="modelDatetimeMinute"
-    class="a_mt_3"
-    label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_DATETIME_MINUTE_"
-    time-precision="minute"
-    type="datetime"
-  )
-  div modelDatetimeMinute: {{ modelDatetimeMinute }}
-  a-datepicker(
-    v-model="modelDatetimeSecond"
-    class="a_mt_3"
-    label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_DATETIME_SECOND_"
-    time-precision="second"
-    type="datetime"
-  )
-  div modelDatetimeSecond: {{ modelDatetimeSecond }}
-  a-datepicker(
-    v-model="modelTimeHour"
-    class="a_mt_3"
-    label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_TIME_HOUR_"
-    time-precision="hour"
-    type="time"
-  )
-  div modelTimeHour: {{ modelTimeHour }}
-  a-datepicker(
-    v-model="modelTimeMinute"
-    class="a_mt_3"
-    label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_TIME_MINUTE_"
-    time-precision="minute"
-    type="time"
-  )
-  div modelTimeMinute: {{ modelTimeMinute }}
-  a-datepicker(
-    v-model="modelTimeSecond"
-    class="a_mt_3"
-    label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_TIME_SECOND_"
-    time-precision="second"
-    type="time"
-  )
-  div modelTimeSecond: {{ modelTimeSecond }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="modelDatetimeHour"
+        label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_DATETIME_HOUR_"
+        time-precision="hour"
+        type="datetime"
+      )
+      div modelDatetimeHour: {{ modelDatetimeHour }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="modelDatetimeMinute"
+        class="a_mt_3"
+        label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_DATETIME_MINUTE_"
+        time-precision="minute"
+        type="datetime"
+      )
+      div modelDatetimeMinute: {{ modelDatetimeMinute }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="modelDatetimeSecond"
+        class="a_mt_3"
+        label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_DATETIME_SECOND_"
+        time-precision="second"
+        type="datetime"
+      )
+      div modelDatetimeSecond: {{ modelDatetimeSecond }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="modelTimeHour"
+        class="a_mt_3"
+        label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_TIME_HOUR_"
+        time-precision="hour"
+        type="time"
+      )
+      div modelTimeHour: {{ modelTimeHour }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="modelTimeMinute"
+        class="a_mt_3"
+        label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_TIME_MINUTE_"
+        time-precision="minute"
+        type="time"
+      )
+      div modelTimeMinute: {{ modelTimeMinute }}
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-datepicker(
+        v-model="modelTimeSecond"
+        class="a_mt_3"
+        label="_PAGE_DATEPICKER_LBL_TIME_PRECISION_TIME_SECOND_"
+        time-precision="second"
+        type="time"
+      )
+      div modelTimeSecond: {{ modelTimeSecond }}
