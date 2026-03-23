@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit Selected Files"
+  short_description: "Generate a commit message for specifically selected files"
+  default_prompt: "Use $commit-selected-files and first show all uncommitted files as a numbered list for selection."
