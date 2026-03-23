@@ -25,6 +25,7 @@ import ADatepickerIcon from "./ADatepickerIcon/ADatepickerIcon";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import LanguagesAPI from "./compositionAPI/LanguagesAPI";
+import PlaceholderAPI from "./compositionAPI/PlaceholderAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
 import RefsAPI from "./compositionAPI/RefsAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
@@ -155,7 +156,7 @@ export default {
     timePrecision: {
       type: String,
       required: false,
-      default: undefined,
+      default: "minute",
       validator: value => ["hour", "minute", "second"].indexOf(value) !== -1,
     },
     modelValue: {
@@ -169,7 +170,16 @@ export default {
     placeholdersDefault: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: () => ({
+        date: "_A_DATEPICKER_PLACEHOLDER_DATE_",
+        dateRange: "_A_DATEPICKER_PLACEHOLDER_DATE_RANGE_",
+        timeHour: "_A_DATEPICKER_PLACEHOLDER_TIME_HOUR_",
+        timeMinute: "_A_DATEPICKER_PLACEHOLDER_TIME_MINUTE_",
+        timeSecond: "_A_DATEPICKER_PLACEHOLDER_TIME_SECOND_",
+        datetimeHour: "_A_DATEPICKER_PLACEHOLDER_DATETIME_HOUR_",
+        datetimeMinute: "_A_DATEPICKER_PLACEHOLDER_DATETIME_MINUTE_",
+        datetimeSecond: "_A_DATEPICKER_PLACEHOLDER_DATETIME_SECOND_",
+      }),
     },
     placement: {
       type: String,
@@ -300,13 +310,16 @@ export default {
       idForCalendar,
       idForPanel,
       idsForPanelRange,
-      innerPlaceholder,
       innerType,
       widthLocal,
     } = AttributesAPI(props, {
       currentLanguage,
       popupVisible,
     });
+
+    const {
+      innerPlaceholder,
+    } = PlaceholderAPI(props);
 
     const {
       clearDate,
