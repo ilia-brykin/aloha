@@ -1,5 +1,6 @@
 import {
   computed,
+  ref,
   toRef,
 } from "vue";
 
@@ -11,8 +12,12 @@ import {
   isString,
 } from "lodash-es";
 
-export default function PlaceholderAPI(props) {
+export default function PlaceholderAPI(props, {
+  isInputFocused = ref(false),
+  text = computed(() => ""),
+} = {}) {
   const extra = toRef(props, "extra");
+  const isLabelFloat = toRef(props, "isLabelFloat");
   const placeholder = toRef(props, "placeholder");
   const placeholdersDefault = toRef(props, "placeholdersDefault");
   const range = toRef(props, "range");
@@ -53,7 +58,19 @@ export default function PlaceholderAPI(props) {
     return "date";
   });
 
+  const isShowPlaceholder = computed(() => {
+    if (!isLabelFloat.value) {
+      return true;
+    }
+
+    return isInputFocused.value || !!text.value;
+  });
+
   const innerPlaceholder = computed(() => {
+    if (!isShowPlaceholder.value) {
+      return "";
+    }
+
     if (isString(placeholder.value)) {
       return getTranslatedText({ placeholder: placeholder.value, extra: extra.value }) || "";
     }

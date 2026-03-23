@@ -1,6 +1,7 @@
 /* eslint vue/component-api-style: off */
 import {
   h,
+  ref,
   Teleport,
   toRef,
   watch,
@@ -130,7 +131,7 @@ export default {
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: false,
+      default: true,
     },
     labelScreenReader: {
       type: String,
@@ -247,6 +248,7 @@ export default {
   ],
   setup(props, context) {
     const modelValue = toRef(props, "modelValue");
+    const isInputFocused = ref(false);
 
     const {
       formatLocal,
@@ -318,10 +320,6 @@ export default {
     });
 
     const {
-      innerPlaceholder,
-    } = PlaceholderAPI(props);
-
-    const {
       clearDate,
       confirmDate,
       currentValue,
@@ -349,6 +347,13 @@ export default {
       formatLocal,
       formatSaveLocal,
       setCloseFocus,
+    });
+
+    const {
+      innerPlaceholder,
+    } = PlaceholderAPI(props, {
+      isInputFocused,
+      text,
     });
 
     const blur = () => {
@@ -395,6 +400,7 @@ export default {
       idForPanel,
       idsForPanelRange,
       initCalendar,
+      isInputFocused,
       innerPlaceholder,
       innerType,
       inputRef,
@@ -527,10 +533,12 @@ export default {
     },
 
     handleBlur(event) {
+      this.isInputFocused = false;
       this.$emit("blur", event);
     },
 
     handleFocus(event) {
+      this.isInputFocused = true;
       this.initCalendar();
       this.$emit("focus", event);
     },
