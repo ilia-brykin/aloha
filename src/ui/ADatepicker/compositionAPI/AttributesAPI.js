@@ -10,6 +10,7 @@ import {
 
 import {
   isNumber,
+  isPlainObject,
   isString,
 } from "lodash-es";
 
@@ -19,22 +20,72 @@ export default function AttributesAPI(props, {
 }) {
   const extra = toRef(props, "extra");
   const id = toRef(props, "id");
+  const minuteStep = toRef(props, "minuteStep");
   const placeholder = toRef(props, "placeholder");
+  const placeholdersDefault = toRef(props, "placeholdersDefault");
   const range = toRef(props, "range");
+  const timePrecision = toRef(props, "timePrecision");
   const type = toRef(props, "type");
   const width = toRef(props, "width");
+
+  const timePrecisionLocal = computed(() => {
+    if (timePrecision.value) {
+      return timePrecision.value;
+    }
+
+    return minuteStep.value === 0 ? "second" : "minute";
+  });
+
+  const placeholderScenario = computed(() => {
+    const TYPE = String(type.value).toLowerCase();
+
+    if (range.value) {
+      return "dateRange";
+    }
+
+    if (TYPE === "time") {
+      if (timePrecisionLocal.value === "hour") {
+        return "timeHour";
+      }
+
+      if (timePrecisionLocal.value === "minute") {
+        return "timeMinute";
+      }
+
+      return "timeSecond";
+    }
+
+    if (TYPE === "datetime") {
+      if (timePrecisionLocal.value === "hour") {
+        return "datetimeHour";
+      }
+
+      if (timePrecisionLocal.value === "minute") {
+        return "datetimeMinute";
+      }
+
+      return "datetimeSecond";
+    }
+
+    return "date";
+  });
+
+  const getTranslatedPlaceholder = value => {
+    return isString(value) ?
+      getTranslatedText({ placeholder: value, extra: extra.value }) :
+      value;
+  };
 
   const innerPlaceholder = computed(() => {
     if (isString(placeholder.value)) {
       return getTranslatedText({ placeholder: placeholder.value, extra: extra.value });
     }
-    if (range.value) {
-      return currentLanguage.value.placeholder.dateRange;
+
+    if (isPlainObject(placeholdersDefault.value) && placeholdersDefault.value[placeholderScenario.value]) {
+      return getTranslatedPlaceholder(placeholdersDefault.value[placeholderScenario.value]);
     }
-    if (type.value === "time") {
-      return currentLanguage.value.placeholder.time;
-    }
-    return currentLanguage.value.placeholder.date;
+
+    return currentLanguage.value.placeholder[placeholderScenario.value];
   });
 
   const idForPanel = computed(() => {

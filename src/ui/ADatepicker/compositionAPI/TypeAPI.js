@@ -6,6 +6,7 @@ import {
 export default function TypeAPI(props) {
   const format = toRef(props, "format");
   const formatSave = toRef(props, "formatSave");
+  const timePrecision = toRef(props, "timePrecision");
   const type = toRef(props, "type");
 
   const formatDefaultKeyByType = {
@@ -34,6 +35,16 @@ export default function TypeAPI(props) {
   const formatLocal = computed(() => {
     if (format.value) {
       return format.value;
+    }
+
+    if (type.value === "time" || type.value === "datetime") {
+      if (timePrecision.value === "hour") {
+        return type.value === "time" ? "HH" : "DD.MM.YYYY HH";
+      }
+
+      if (timePrecision.value === "minute") {
+        return type.value === "time" ? "HH:mm" : "DD.MM.YYYY HH:mm";
+      }
     }
 
     return formatDefaultKeyByType[type.value];

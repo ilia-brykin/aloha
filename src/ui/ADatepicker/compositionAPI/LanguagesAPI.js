@@ -63,6 +63,12 @@ export default function LanguagesAPI() {
       placeholder: {
         date: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATE_" }),
         time: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_TIME_" }),
+        timeHour: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_TIME_HOUR_" }),
+        timeMinute: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_TIME_MINUTE_" }),
+        timeSecond: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_TIME_SECOND_" }),
+        datetimeHour: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATETIME_HOUR_" }),
+        datetimeMinute: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATETIME_MINUTE_" }),
+        datetimeSecond: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATETIME_SECOND_" }),
         dateRange: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_DATE_RANGE_" }),
         regionDate: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_REGION_DATE_" }),
         regionTime: getTranslatedText({ placeholder: "_A_DATEPICKER_PLACEHOLDER_REGION_TIME_" }),

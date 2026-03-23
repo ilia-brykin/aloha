@@ -1,0 +1,46 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_PAGE_DATEPICKER_PLACEHOLDER_DEFAULT_HEADER_"
+  description="_PAGE_DATEPICKER_PLACEHOLDER_DEFAULT_DESCRIPTION_"
+  :props="['placeholder', 'placeholders-default', 'type', 'time-precision']"
+)
+  a-datepicker(
+    v-model="modelDate"
+    label="_PAGE_DATEPICKER_LBL_PLACEHOLDER_DEFAULT_DATE_"
+    type="date"
+  )
+  div modelDate: {{ modelDate }}
+  a-datepicker(
+    v-model="modelTimeHour"
+    class="a_mt_3"
+    label="_PAGE_DATEPICKER_LBL_PLACEHOLDER_DEFAULT_TIME_HOUR_"
+    time-precision="hour"
+    type="time"
+  )
+  div modelTimeHour: {{ modelTimeHour }}
+  a-datepicker(
+    v-model="modelTimeMinute"
+    class="a_mt_3"
+    label="_PAGE_DATEPICKER_LBL_PLACEHOLDER_DEFAULT_TIME_MINUTE_"
+    time-precision="minute"
+    type="time"
+  )
+  div modelTimeMinute: {{ modelTimeMinute }}
+  a-datepicker(
+    v-model="modelDatetimeSecond"
+    class="a_mt_3"
+    label="_PAGE_DATEPICKER_LBL_PLACEHOLDER_DEFAULT_DATETIME_SECOND_"
+    time-precision="second"
+    type="datetime"
+  )
+  div modelDatetimeSecond: {{ modelDatetimeSecond }}
+  a-datepicker(
+    v-model="modelOverride"
+    :placeholders-default="placeholdersCustom"
+    class="a_mt_3"
+    label="_PAGE_DATEPICKER_LBL_PLACEHOLDER_DEFAULT_OVERRIDE_"
+    time-precision="minute"
+    type="datetime"
+  )
+  div modelOverride: {{ modelOverride }}

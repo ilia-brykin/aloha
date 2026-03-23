@@ -204,6 +204,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "placeholders-default",
+      description: "_A_DATEPICKER_PROP_PLACEHOLDERS_DEFAULT_DESCRIPTION_",
+      type: "Object",
+      default: "() => ({})",
+      required: false,
+    },
+    {
       name: "readonly",
       description: "_A_UI_PROPS_READONLY_DESCRIPTION_",
       type: "Boolean",
@@ -249,6 +256,13 @@ export default function PropsAPI() {
       name: "step",
       description: "_A_INPUT_PROPS_STEP_DESCRIPTION_",
       type: "String / Number",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "time-precision",
+      description: "_A_DATEPICKER_PROP_TIME_PRECISION_DESCRIPTION_",
+      type: "String",
       default: undefined,
       required: false,
     },

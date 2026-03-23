@@ -13,6 +13,7 @@ export default function TimesAPI(props) {
   const disabledTime = toRef(props, "disabledTime");
   const id = toRef(props, "id");
   const minuteStep = toRef(props, "minuteStep");
+  const timePrecision = toRef(props, "timePrecision");
   const value = toRef(props, "value");
 
   const isDisabledTimeFunction = computed(() => {
@@ -43,6 +44,14 @@ export default function TimesAPI(props) {
       0;
   });
 
+  const timePrecisionLocal = computed(() => {
+    if (timePrecision.value) {
+      return timePrecision.value;
+    }
+
+    return minuteStep.value === 0 ? "second" : "minute";
+  });
+
   const minuteStepLocal = computed(() => {
     return minuteStep.value || 1;
   });
@@ -52,6 +61,10 @@ export default function TimesAPI(props) {
   });
 
   const minutes = computed(() => {
+    if (timePrecisionLocal.value === "hour") {
+      return [];
+    }
+
     return range(0, minuteLength.value * minuteStepLocal.value, minuteStepLocal.value);
   });
 
@@ -62,10 +75,22 @@ export default function TimesAPI(props) {
   });
 
   const seconds = computed(() => {
-    return minuteStep.value === 0 ?
+    return timePrecisionLocal.value === "second" ?
       range(0, 60) :
       [];
   });
+
+  const normalizeTimeByPrecision = time => {
+    const TIME_LOCAL = new Date(time);
+
+    if (timePrecisionLocal.value === "hour") {
+      TIME_LOCAL.setMinutes(0, 0, 0);
+    } else if (timePrecisionLocal.value === "minute") {
+      TIME_LOCAL.setSeconds(0, 0);
+    }
+
+    return TIME_LOCAL;
+  };
 
   const currentSeconds = computed(() => {
     return value.value ?
@@ -76,7 +101,9 @@ export default function TimesAPI(props) {
   const setColumn = ({ times, timeFunctionName, currentTime, ariaLabel, columnIndex }) => {
     const TIMES_COLUMN = [];
     times.forEach((time, timeIndex) => {
-      const CURRENT_TIME = new Date(date.value)[timeFunctionName](time);
+      const CURRENT_TIME_LOCAL = new Date(date.value);
+      CURRENT_TIME_LOCAL[timeFunctionName](time);
+      const CURRENT_TIME = normalizeTimeByPrecision(CURRENT_TIME_LOCAL).getTime();
       const IS_ACTIVE = time === currentTime;
       const IS_DISABLED = isDisabledTimeFunction.value && disabledTime.value(CURRENT_TIME);
       const LABEL = stringifyText(time);

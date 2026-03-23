@@ -94,6 +94,12 @@ export default {
       default: 0,
       validator: val => val >= 0 && val <= 60,
     },
+    timePrecision: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["hour", "minute", "second"].indexOf(value) !== -1,
+    },
     startAt: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       required: false,
@@ -162,15 +168,29 @@ export default {
       },
     },
 
+    formatForTimePanel() {
+      return typeof this.$parent.formatLocal === "string" ?
+        this.$parent.formatLocal :
+        this.$parent.format;
+    },
+
     timeType() {
-      const h = /h+/.test(this.$parent.format) ? "12" : "24";
-      const a = /A/.test(this.$parent.format) ? "A" : "a";
+      const h = /h+/.test(this.formatForTimePanel) ? "12" : "24";
+      const a = /A/.test(this.formatForTimePanel) ? "A" : "a";
       return [h, a];
+    },
+
+    timePrecisionLocal() {
+      if (this.timePrecision) {
+        return this.timePrecision;
+      }
+
+      return this.minuteStep === 0 ? "second" : "minute";
     },
 
     timeHeader() {
       if (this.type === "time") {
-        return this.$parent.format;
+        return this.formatForTimePanel;
       }
       return this.value && formatDate(this.value, this.dateFormat);
     },
@@ -392,6 +412,7 @@ export default {
             this.value.getSeconds(),
           );
         }
+        time = this.normalizeTimeByPrecision(time);
         if (this.isDisabledTime(time)) {
           time.setHours(0, 0, 0, 0);
           if (this.notBefore &&
@@ -408,6 +429,18 @@ export default {
         return;
       }
       this.$emit("selectDate", date);
+    },
+
+    normalizeTimeByPrecision(time) {
+      const TIME_LOCAL = new Date(time);
+
+      if (this.timePrecisionLocal === "hour") {
+        TIME_LOCAL.setMinutes(0, 0, 0);
+      } else if (this.timePrecisionLocal === "minute") {
+        TIME_LOCAL.setSeconds(0, 0);
+      }
+
+      return TIME_LOCAL;
     },
 
     selectYear({ year, isButtonClick }) {
@@ -817,6 +850,7 @@ export default {
             pux_datepicker__calendar__tab: this.panel === "TIME",
           },
           minuteStep: this.minuteStep,
+          timePrecision: this.timePrecision,
           value: this.value,
           disabledTime: this.isDisabledTime,
           timeType: this.timeType,

@@ -32,6 +32,12 @@ export default {
       default: 0,
       validator: val => val >= 0 && val <= 60,
     },
+    timePrecision: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["hour", "minute", "second"].indexOf(value) !== -1,
+    },
     timeType: {
       type: Array,
       default() {

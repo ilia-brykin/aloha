@@ -152,6 +152,12 @@ export default {
       default: 0,
       validator: val => val >= 0 && val <= 60,
     },
+    timePrecision: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["hour", "minute", "second"].indexOf(value) !== -1,
+    },
     modelValue: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       default: undefined,
@@ -159,6 +165,11 @@ export default {
     placeholder: {
       type: String,
       default: null,
+    },
+    placeholdersDefault: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     placement: {
       type: String,
@@ -661,6 +672,7 @@ export default {
                     minDate: this.minDate,
                     minuteStep: this.minuteStep,
                     startDate: this.startDate,
+                    timePrecision: this.timePrecision,
                     type: this.innerType,
                     value: this.currentValue,
                     visible: this.popupVisible,
@@ -685,6 +697,7 @@ export default {
                       minuteStep: this.minuteStep,
                       startAt: null,
                       startDate: this.startDate,
+                      timePrecision: this.timePrecision,
                       style: "box-shadow: 1px 0 rgba(0, 0, 0, .1);",
                       type: this.innerType,
                       value: this.currentValue[0],
@@ -704,6 +717,7 @@ export default {
                       minuteStep: this.minuteStep,
                       startAt: this.currentValue[0],
                       startDate: this.currentValue[0],
+                      timePrecision: this.timePrecision,
                       type: this.innerType,
                       value: this.currentValue[1],
                       visible: this.popupVisible,
