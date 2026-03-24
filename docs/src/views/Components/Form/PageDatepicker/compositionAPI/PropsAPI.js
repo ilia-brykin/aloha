@@ -360,7 +360,7 @@ export default function PropsAPI() {
     {
       name: "type",
       description: "_A_DATEPICKER_PROP_TYPE_DESCRIPTION_",
-      type: "String", 
+      type: "String",
       default: "\"date\"",
       required: false,
     },

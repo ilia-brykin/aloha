@@ -34,6 +34,9 @@ import TypeAPI from "./compositionAPI/TypeAPI";
 import AOnHooks from "../../directives/AOnHooks";
 import UiMixinProps from "../mixins/UiMixinProps";
 import {
+  ADatepickerPluginOptions,
+} from "../../plugins/ADatepickerPlugin";
+import {
   isPlainObject,
   isValidDate,
 } from "./utils";
@@ -55,28 +58,28 @@ export default {
     },
     appendToBody: {
       type: Boolean,
-      default: false,
+      default: () => ADatepickerPluginOptions.propsDefault.appendToBody,
     },
     class: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.class,
     },
     clearable: {
       type: Boolean,
-      default: true,
+      default: () => ADatepickerPluginOptions.propsDefault.clearable,
     },
     confirm: {
       type: Boolean,
-      default: false,
+      default: () => ADatepickerPluginOptions.propsDefault.confirm,
     },
     confirmText: {
       type: String,
-      default: "OK",
+      default: () => ADatepickerPluginOptions.propsDefault.confirmText,
     },
     dateFormat: {
       type: String, // format the time header and date tooltip
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.dateFormat,
     },
     disabled: {
       type: Boolean,
@@ -84,7 +87,7 @@ export default {
     },
     editable: {
       type: Boolean,
-      default: true,
+      default: () => ADatepickerPluginOptions.propsDefault.editable,
     },
     excludeRenderAttributes: {
       type: Array,
@@ -94,44 +97,44 @@ export default {
     firstDayOfWeek: {
       type: Number,
       required: false,
-      default: 1,
+      default: () => ADatepickerPluginOptions.propsDefault.firstDayOfWeek,
       validator: val => val >= 1 && val <= 7,
     },
     focusStartDate: {
       type: Boolean,
-      required: false,
+      default: () => ADatepickerPluginOptions.propsDefault.focusStartDate,
     },
     format: {
       type: [String, Object],
       required: false,
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.format,
     },
     formatSave: {
       type: String,
       required: false,
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.formatSave,
     },
     iconDay: {
       type: [Number, String],
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.iconDay,
     },
     inputAttr: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: () => ADatepickerPluginOptions.propsDefault.inputAttr,
     },
     inputClass: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      default: "pux_datepicker__input",
+      default: () => ADatepickerPluginOptions.propsDefault.inputClass,
     },
     inputName: {
       type: String,
-      default: "date",
+      default: () => ADatepickerPluginOptions.propsDefault.inputName,
     },
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: true,
+      default: () => ADatepickerPluginOptions.propsDefault.isLabelFloat,
     },
     labelScreenReader: {
       type: String,
@@ -141,23 +144,23 @@ export default {
     maxDate: {
       type: [String, Date],
       required: false,
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.maxDate,
     },
     minDate: {
       type: [String, Date],
       required: false,
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.minDate,
     },
     minuteStep: {
       type: Number,
       required: false,
-      default: 0,
+      default: () => ADatepickerPluginOptions.propsDefault.minuteStep,
       validator: val => val >= 0 && val <= 60,
     },
     timePrecision: {
       type: String,
       required: false,
-      default: "minute",
+      default: () => ADatepickerPluginOptions.propsDefault.timePrecision,
       validator: value => ["hour", "minute", "second"].indexOf(value) !== -1,
     },
     modelValue: {
@@ -166,40 +169,31 @@ export default {
     },
     placeholder: {
       type: String,
-      default: null,
+      default: () => ADatepickerPluginOptions.propsDefault.placeholder,
     },
     placeholdersDefault: {
       type: Object,
       required: false,
-      default: () => ({
-        date: "_A_DATEPICKER_PLACEHOLDER_DATE_",
-        dateRange: "_A_DATEPICKER_PLACEHOLDER_DATE_RANGE_",
-        timeHour: "_A_DATEPICKER_PLACEHOLDER_TIME_HOUR_",
-        timeMinute: "_A_DATEPICKER_PLACEHOLDER_TIME_MINUTE_",
-        timeSecond: "_A_DATEPICKER_PLACEHOLDER_TIME_SECOND_",
-        datetimeHour: "_A_DATEPICKER_PLACEHOLDER_DATETIME_HOUR_",
-        datetimeMinute: "_A_DATEPICKER_PLACEHOLDER_DATETIME_MINUTE_",
-        datetimeSecond: "_A_DATEPICKER_PLACEHOLDER_DATETIME_SECOND_",
-      }),
+      default: () => ADatepickerPluginOptions.propsDefault.placeholdersDefault,
     },
     placement: {
       type: String,
       required: false,
-      default: "bottom-start",
+      default: () => ADatepickerPluginOptions.propsDefault.placement,
       validator: placement => APlacements.indexOf(placement) !== -1,
     },
     popupStyle: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: () => ADatepickerPluginOptions.propsDefault.popupStyle,
     },
     range: {
       type: Boolean,
-      default: false,
+      default: () => ADatepickerPluginOptions.propsDefault.range,
     },
     rangeSeparator: {
       type: String,
-      default: "~",
+      default: () => ADatepickerPluginOptions.propsDefault.rangeSeparator,
     },
     readonly: {
       type: Boolean,
@@ -208,31 +202,31 @@ export default {
     readonlyDefault: {
       type: String,
       required: false,
-      default: "",
+      default: () => ADatepickerPluginOptions.propsDefault.readonlyDefault,
     },
     shortcuts: {
       type: [Boolean, Array],
-      default: true,
+      default: () => ADatepickerPluginOptions.propsDefault.shortcuts,
     },
     startDate: {
       type: [String, Date],
       required: false,
-      default: undefined,
+      default: () => ADatepickerPluginOptions.propsDefault.startDate,
     },
     type: {
       type: String,
-      default: "date", // ["date", "datetime"] zendy added "month", "year", mxie added "time"
+      default: () => ADatepickerPluginOptions.propsDefault.type, // ["date", "datetime"] zendy added "month", "year", mxie added "time"
       validator: value => ["date", "datetime", "month", "year", "time"].indexOf(value) !== -1,
     },
     valueType: {
-      default: "format",
+      default: () => ADatepickerPluginOptions.propsDefault.valueType,
       validator: function(value) {
         return ["timestamp", "format", "date"].indexOf(value) !== -1 || isPlainObject(value);
       },
     },
     width: {
       type: [String, Number],
-      default: null,
+      default: () => ADatepickerPluginOptions.propsDefault.width,
     },
   },
   emits: [
