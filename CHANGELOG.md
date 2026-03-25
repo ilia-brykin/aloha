@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.48.0
+
+- Feature: Enhance `ADatepicker` placeholder logic with `isInputFocused` state and improved `PlaceholderAPI` integration. Adjust default `isLabelFloat` prop to `true`.
+- Feature: Add `ADataRetrievePlugin` and examples demonstrating option retrieval with fallback for missing values. Include i18n support and UI updates for retrieve functionality.
+
 ## 2.47.3
 
 - Fix: Correct model handling when min and max are not set, thousandDivider validator adjusted `AInputCurrency`
