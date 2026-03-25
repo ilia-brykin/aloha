@@ -141,6 +141,8 @@
   "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Specifies the sort order of groups if the items are grouped. Possible values: <strong lang=\"en\">asc</strong> (ascending) or <strong lang=\"en\">desc</strong> (descending).",
   "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_": "Indicates whether the data should be translated before display. If set to <strong lang=\"en\">true</strong>, text values will be translated according to the current language settings.",
   "_A_UI_PROPS_URL_DESCRIPTION_": "The <strong lang=\"en\">URL</strong> from which an external data source will be loaded to populate the checkbox or radio button group.",
+  "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "An optional <strong lang=\"en\">URL</strong> used specifically to retrieve already selected values that are missing from the main loaded list.",
+  "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "Optional parameters that will be added only to the retrieve request used for loading missing selected values.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "Parameters that will be added to the <strong lang=\"en\">URL</strong> request when loading data from the server. These parameters allow filtering or modifying the data retrieved from the <strong lang=\"en\">API</strong>.",
   "_A_UI_TYPES_FOR_USE_": "Types available for use."
 }

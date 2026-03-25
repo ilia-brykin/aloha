@@ -21,7 +21,9 @@ import {
   cloneDeep,
   forEach,
   get,
+  isPlainObject,
   keyBy,
+  uniqBy,
 } from "lodash-es";
 
 export default function UiDataWithKeyIdAndLabelAPI(props) {
@@ -38,6 +40,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   const isDataPrepared = inject(AIsDataPreparedInjection, false);
 
   const dataFromServer = ref([]);
+  const dataFromRetrieve = ref([]);
 
   const isArrayOfArraysDataExtra = computed(() => {
     return isArrayOfArrays(dataExtra.value);
@@ -56,6 +59,12 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
     }
 
     const DATA = cloneDeep(_data);
+    const isPreparedSimpleArrayItem = item => {
+      return isPlainObject(item) &&
+        AKeyId in item &&
+        AKeyLabel in item;
+    };
+
     if (_isArrayOfArrays) {
       const DATA_LOCAL = [];
       forEach(DATA, item => {
@@ -75,6 +84,17 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
       if (isDataSimpleArray.value) {
         const DATA_LOCAL = [];
         forEach(DATA, item => {
+          if (isPreparedSimpleArrayItem(item)) {
+            let label = item[AKeyLabel];
+            if (translateData.value && isPlaceholderTranslate(label)) {
+              label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
+            }
+            DATA_LOCAL.push({
+              ...item,
+              [AKeyLabel]: label,
+            });
+            return;
+          }
           let label = keyLabelCallback.value({ item });
           if (translateData.value && isPlaceholderTranslate(label)) {
             label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
@@ -98,6 +118,17 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
       if (isDataSimpleArray.value) {
         const DATA_LOCAL = [];
         forEach(DATA, item => {
+          if (isPreparedSimpleArrayItem(item)) {
+            let label = item[AKeyLabel];
+            if (translateData.value && isPlaceholderTranslate(label)) {
+              label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
+            }
+            DATA_LOCAL.push({
+              ...item,
+              [AKeyLabel]: label,
+            });
+            return;
+          }
           let label = item;
           if (translateData.value && isPlaceholderTranslate(label)) {
             label = getTranslatedText({ placeholder: label, alwaysTranslate: alwaysTranslate.value });
@@ -122,11 +153,20 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   };
 
   const dataComputed = computed(() => {
+    let DATA_LOCAL = data.value || [];
+
     if (dataFromServer.value.length) {
-      return dataFromServer.value;
+      DATA_LOCAL = dataFromServer.value;
     }
 
-    return data.value || [];
+    if (!dataFromRetrieve.value.length) {
+      return DATA_LOCAL;
+    }
+
+    return uniqBy([
+      ...DATA_LOCAL,
+      ...dataFromRetrieve.value,
+    ], item => get(item, AKeyId, item));
   });
 
   const dataLocal = computed(() => {
@@ -184,6 +224,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   return {
     dataAll,
     dataExtraLocal,
+    dataFromRetrieve,
     dataFromServer,
     dataKeyByKeyIdLocal,
     dataLocal,

@@ -88,7 +88,12 @@ export default {
   },
   render() {
     return h("li", {
-      class: "a_select__ul_closeable__item",
+      class: [
+        "a_select__ul_closeable__item",
+        {
+          a_select__ul_closeable__item_invalid: this.data.__invalidEntry__,
+        },
+      ],
     }, [
       this.slotName && this.$slots[this.slotName] ?
         this.$slots[this.slotName]({

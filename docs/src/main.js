@@ -6,8 +6,11 @@ import router from "./router/index";
 import ATest from "./components/ATest/ATest";
 import App from "./App/App.vue";
 import {
+  ADataRetrievePlugin,
+  ADataRetrievePlugin_defaultRetrieve,
   AFiltersPlugin,
   AFormPlugin,
+  AHttpPlugin,
   AI18nPlugin,
   AIconPlugin,
   AMobilePlugin,
@@ -34,6 +37,31 @@ setLanguageFromLocalStorage();
 const APP = createApp(App);
 
 APP.use(AI18nPlugin, mainTranslation, modelLanguage.value, {});
+APP.use(AHttpPlugin, {
+  baseUrl: "",
+});
+APP.use(ADataRetrievePlugin, {
+  callbacks: {
+    retrieve: async options => {
+      const {
+        keyId = "id",
+        modelArray = [],
+        url = "",
+      } = options || {};
+
+      if (url.includes("/assets/mock/")) {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        return data.filter(item => {
+          return modelArray.includes(item[keyId]);
+        });
+      }
+
+      return ADataRetrievePlugin_defaultRetrieve(options);
+    },
+  },
+});
 APP.use(AIconPlugin, {
   icons: mainIcons,
 });

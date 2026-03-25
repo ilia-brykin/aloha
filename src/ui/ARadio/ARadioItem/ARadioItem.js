@@ -262,6 +262,7 @@ export default {
       h("div", {
         class: ["a_custom_control a_custom_radio", {
           a_custom_control_invalid: this.isErrors,
+          a_custom_control_invalid_entry: this.dataItem.__invalidEntry__,
         }],
         style: this.styleWithSearch,
       }, [
@@ -281,6 +282,7 @@ export default {
           class: {
             a_custom_control_label: true,
             a_custom_control_label_width_auto: this.isWidthAuto,
+            a_custom_control_label_invalid_entry: this.dataItem.__invalidEntry__,
           },
           classDefault: "",
           extra: {

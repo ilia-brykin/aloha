@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   onBeforeUnmount,
   onMounted,
@@ -481,7 +482,17 @@ export default {
       required: false,
       default: undefined,
     },
+    urlRetrieve: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    urlRetrieveParams: {
       type: Object,
       required: false,
       default: undefined,
@@ -530,6 +541,7 @@ export default {
 
     const {
       dataAll,
+      dataFromRetrieve,
       dataFromServer,
       dataExtraLocal,
       dataKeyByKeyIdLocal,
@@ -539,6 +551,7 @@ export default {
 
     const {
       loadDataFromServer,
+      loadDataFromServerForRetrieve,
       loadDataFromServerForSearchAPI,
       loadingDataFromServer,
       loadingSearchApi,
@@ -549,6 +562,7 @@ export default {
     } = UiDataFromServerAPI(props, {
       changeModel,
       dataExtraLocal,
+      dataFromRetrieve,
       dataFromServer,
     });
 
@@ -613,6 +627,21 @@ export default {
       keyGroupArray,
     } = UIDataGroupAPI(props, {
       data: dataSort,
+    });
+
+    const validDataSort = computed(() => {
+      return dataSort.value.filter(item => !item.__invalidEntry__);
+    });
+
+    const invalidDataSort = computed(() => {
+      return dataSort.value.filter(item => item.__invalidEntry__);
+    });
+
+    const {
+      dataGrouped: dataGroupedValid,
+      groupsForLever: groupsForLeverValid,
+    } = UIDataGroupAPI(props, {
+      data: validDataSort,
     });
 
     const {
@@ -709,6 +738,9 @@ export default {
     initEventBusClickLabel();
     loadDataFromServer();
     loadDataFromServerForSearchAPI();
+    if (!props.url || props.searchApi) {
+      loadDataFromServerForRetrieve();
+    }
 
     onMounted(() => {
       isMounted.value = true;
@@ -732,6 +764,7 @@ export default {
       containerId,
       dataExtraLocal,
       dataGrouped,
+      dataGroupedValid,
       dataKeyByKeyIdLocal,
       dataLocal,
       dataSort,
@@ -743,9 +776,11 @@ export default {
       exclusiveDataKeyByKeyIdLocal,
       exclusiveOption,
       groupsForLever,
+      groupsForLeverValid,
       handleKeydown,
       hasDataExtra,
       hasKeyGroup,
+      invalidDataSort,
       hasNotElementsExclusiveWithSearch,
       hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
@@ -796,6 +831,7 @@ export default {
       togglePopover,
       updateModelSearch,
       updateModelSearchOutside,
+      validDataSort,
     };
   },
   render() {
@@ -848,6 +884,59 @@ export default {
         ] :
         "");
     }
+
+    const hasInvalidEntries = this.invalidDataSort.length > 0;
+    const hasEntriesBeforeInvalid = !!(
+      this.validDataSort.length ||
+      this.hasDataExtra ||
+      (this.isMultiselect && this.isExclusiveOptionEnabled) ||
+      (this.isMultiselect && this.isSelectAll) ||
+      (this.isMultiselect && this.isDeselectAll)
+    );
+    const renderInvalidEntries = () => {
+      if (!hasInvalidEntries) {
+        return null;
+      }
+
+      return h("div", {
+        class: "a_select__invalid_entries",
+      }, [
+        hasEntriesBeforeInvalid && h("div", {
+          class: "a_select__divider",
+          ariaHidden: true,
+        }),
+        h(ATranslation, {
+          alwaysTranslate: this.alwaysTranslate,
+          class: "text-muted",
+          tag: "strong",
+          text: "_A_SELECT_GROUP_INVALID_ENTRIES_",
+        }),
+        h("div", {
+          class: "text-muted",
+        }, [
+          ...this.invalidDataSort.map((item, itemIndex) => {
+            return h(ASelectElement, {
+              key: item[AKeyId],
+              id: this.htmlIdLocal,
+              alwaysTranslate: this.alwaysTranslate,
+              dataItem: item,
+              disabled: this.disabledLocal,
+              itemIndex: this.validDataSort.length + itemIndex,
+              keyDisabled: this.keyDisabled,
+              keyDisabledCallback: this.keyDisabledCallback,
+              modelSearch: this.modelSearchLowerCase,
+              modelValue: this.modelValue,
+              searching: this.searching,
+              searchingElements: this.searchingElements,
+              searchTextInHtml: this.searchTextInHtml,
+              slotName: this.slotName,
+              type: this.type,
+              onChangeModelValue: this.onChangeModelValue,
+            }, this.$slots);
+          }),
+        ]),
+      ]);
+    };
 
     return h("div", {
       ...this.$attrs,
@@ -1168,9 +1257,9 @@ export default {
                           h(ACheckboxRadioGroups, {
                             id: `${ this.htmlIdLocal }_lev_0`,
                             alwaysTranslate: this.alwaysTranslate,
-                            dataGrouped: this.dataGrouped,
+                            dataGrouped: this.dataGroupedValid,
                             disabled: this.disabledLocal,
-                            groupsForLever: this.groupsForLever,
+                            groupsForLever: this.groupsForLeverValid,
                             isErrors: this.isErrors,
                             keyDisabled: this.keyDisabled,
                             keyDisabledCallback: this.keyDisabledCallback,
@@ -1189,7 +1278,7 @@ export default {
                         ] :
                         [
                           h("div", {}, [
-                            ...this.dataSort.map((item, itemIndex) => {
+                            ...this.validDataSort.map((item, itemIndex) => {
                               return h(ASelectElement, {
                                 key: item[AKeyId],
                                 id: this.htmlIdLocal,
@@ -1211,6 +1300,7 @@ export default {
                             }),
                           ]),
                         ]),
+                      renderInvalidEntries(),
                       ((!this.dataSort.length && !this.hasDataExtra) || this.hasNotElementsWithSearch) ?
                         h(ATranslation, {
                           alwaysTranslate: this.alwaysTranslate,

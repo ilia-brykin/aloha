@@ -141,6 +141,8 @@
   "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Determina el orden de clasificación de los grupos si los elementos están agrupados. Valores posibles: <strong lang=\"en\">asc</strong> (ascendente) o <strong lang=\"en\">desc</strong> (descendente).",
   "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_": "Indica si los datos deben ser traducidos antes de mostrarse. Si se establece en <strong lang=\"en\">true</strong>, los valores de texto se traducen de acuerdo con la configuración de idioma actual.",
   "_A_UI_PROPS_URL_DESCRIPTION_": "La dirección <strong lang=\"en\">URL</strong> desde la cual se cargará la fuente de datos externa para llenar los grupos de casillas de verificación o botones de opción.",
+  "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "Una <strong lang=\"en\">URL</strong> opcional utilizada específicamente para recuperar valores ya seleccionados que faltan en la lista principal cargada.",
+  "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "Parámetros opcionales que se agregarán solo a la solicitud retrieve utilizada para cargar valores seleccionados faltantes.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "Parámetros que se agregarán a la solicitud de <strong lang=\"en\">URL</strong> al cargar datos desde el servidor. Estos parámetros permiten filtrar o modificar los datos obtenidos de la <strong lang=\"en\">API</strong>.",
   "_A_UI_TYPES_FOR_USE_": "Tipos disponibles para su uso."
 }

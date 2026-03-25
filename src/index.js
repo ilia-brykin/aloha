@@ -165,6 +165,11 @@ export { default as ASafeHtml } from "./directives/ASafeHtml";
 
 // plugins
 export { default as AAlertPlugin } from "./plugins/AAlertPlugin";
+export {
+  default as ADataRetrievePlugin,
+  ADataRetrievePluginOptions,
+  defaultRetrieve as ADataRetrievePlugin_defaultRetrieve,
+} from "./plugins/ADataRetrievePlugin";
 export { default as ACloakPlugin } from "./plugins/ACloakPlugin";
 export {
   default as AFiltersPlugin,

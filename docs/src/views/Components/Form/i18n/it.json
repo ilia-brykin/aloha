@@ -141,6 +141,8 @@
   "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Determina l'ordine di ordinamento dei gruppi se gli elementi sono raggruppati. Valori possibili: <strong lang=\"en\">asc</strong> (crescente) o <strong lang=\"en\">desc</strong> (decrescente).",
   "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_": "Indica se i dati devono essere tradotti prima della visualizzazione. Se impostato su <strong lang=\"en\">true</strong>, i valori testuali verranno tradotti in base alle impostazioni della lingua corrente.",
   "_A_UI_PROPS_URL_DESCRIPTION_": "L'indirizzo <strong lang=\"en\">URL</strong> da cui verrà caricata la fonte di dati esterna per popolare i gruppi di caselle di controllo o pulsanti di opzione.",
+  "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "Un <strong lang=\"en\">URL</strong> opzionale utilizzato specificamente per recuperare i valori già selezionati che mancano nell'elenco principale caricato.",
+  "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "Parametri opzionali che verranno aggiunti solo alla richiesta retrieve usata per caricare i valori selezionati mancanti.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "I parametri che verranno aggiunti alla richiesta <strong lang=\"en\">URL</strong> durante il caricamento dei dati dal server. Questi parametri consentono di filtrare o modificare i dati ottenuti tramite l'<strong lang=\"en\">API</strong>.",
   "_A_UI_TYPES_FOR_USE_": "Tipi disponibili per l'uso."
 }

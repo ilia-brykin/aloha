@@ -1,4 +1,7 @@
 {
   "_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_": "Una opción exclusiva se puede definir como una elección especial que, al seleccionarla, impide la selección de cualquier otra opción o anula todas las opciones previamente seleccionadas.",
-  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Opción exclusiva"
+  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Opción exclusiva",
+  "_A_SELECT_GROUP_INVALID_ENTRIES_LABEL_": "Entradas no válidas",
+  "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Carga la lista base y los candidatos de retrieve desde archivos JSON locales sin backend. Los valores seleccionados que faltan se obtienen mediante el callback retrieve y se marcan como entradas no válidas cuando no están presentes en la lista base.",
+  "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve desde JSON local"
 }

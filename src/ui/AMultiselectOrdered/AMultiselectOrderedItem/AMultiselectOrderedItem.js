@@ -147,7 +147,12 @@ export default {
   },
   render() {
     return h("li", {
-      class: this.listItemClass,
+      class: [
+        this.listItemClass,
+        {
+          a_m_select_ordered__item_invalid: this.data.__invalidEntry__,
+        },
+      ],
     }, [
       h(ASelectLabelElement, {
         id: this.idSelectLabel,

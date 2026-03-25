@@ -70,7 +70,9 @@ export default {
   },
   render() {
     return h(this.tag, {
-
+      class: {
+        a_select__label_invalid: this.data.__invalidEntry__,
+      },
     }, [
       this.slotName && this.$slots[this.slotName] ?
         this.$slots[this.slotName]({

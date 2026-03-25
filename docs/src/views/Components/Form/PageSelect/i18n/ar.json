@@ -1,4 +1,7 @@
 {
   "_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_": "يمكن تعريف الخيار الحصري على أنه اختيار خاص يمنع عند تحديده تحديد أي خيارات أخرى أو يقوم بإلغاء تحديد جميع الخيارات المختارة مسبقًا.",
-  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "خيار حصري"
+  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "خيار حصري",
+  "_A_SELECT_GROUP_INVALID_ENTRIES_LABEL_": "ادخالات غير صالحة",
+  "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "يقوم بتحميل القائمة الأساسية وعناصر retrieve من ملفات JSON محلية بدون backend. يتم جلب القيم المحددة المفقودة عبر callback retrieve ويتم تمييزها كادخالات غير صالحة عندما لا تكون موجودة في القائمة الأساسية.",
+  "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve من JSON محلي"
 }

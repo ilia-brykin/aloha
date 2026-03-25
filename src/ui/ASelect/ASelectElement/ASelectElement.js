@@ -140,6 +140,7 @@ export default {
     return h("div", {
       ariaSelected: this.isChecked,
       class: ["a_select__menu__link a_select__element_clickable", {
+        a_select__menu__link_invalid: this.dataItem.__invalidEntry__,
         a_select__menu__link_selected: this.isChecked,
         a_select__menu__link_disabled: this.disabledElement,
       }],

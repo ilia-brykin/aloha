@@ -21,6 +21,7 @@ import PageRadioKeyTitle from "./PageRadioKeyTitle/PageRadioKeyTitle.vue";
 import PageRadioLabelDescription from "./PageRadioLabelDescription/PageRadioLabelDescription.vue";
 import PageRadioLabelScreenReader from "./PageRadioLabelScreenReader/PageRadioLabelScreenReader.vue";
 import PageRadioReadonly from "./PageRadioReadonly/PageRadioReadonly.vue";
+import PageRadioRetrieve from "./PageRadioRetrieve/PageRadioRetrieve.vue";
 import PageRadioSearch from "./PageRadioSearch/PageRadioSearch.vue";
 import PageRadioSearchTextInHtml from "./PageRadioSearchTextInHtml/PageRadioSearchTextInHtml.vue";
 import PageRadioSortOrder from "./PageRadioSortOrder/PageRadioSortOrder.vue";
@@ -63,6 +64,7 @@ export default {
     PageRadioLabelDescription,
     PageRadioLabelScreenReader,
     PageRadioReadonly,
+    PageRadioRetrieve,
     PageRadioSearch,
     PageRadioSearchTextInHtml,
     PageRadioSortOrder,

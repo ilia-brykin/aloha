@@ -141,6 +141,8 @@
   "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "يحدد ترتيب فرز المجموعات إذا كانت العناصر مجمعة. القيم الممكنة: <strong lang=\"en\">asc</strong> (تصاعدي) أو <strong lang=\"en\">desc</strong> (تنازلي).",
   "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_": "يشير إلى ما إذا كان يجب ترجمة البيانات قبل العرض. إذا تم تعيينه على <strong lang=\"en\">true</strong>، سيتم ترجمة القيم النصية وفقًا لإعدادات اللغة الحالية.",
   "_A_UI_PROPS_URL_DESCRIPTION_": "عنوان <strong lang=\"en\">URL</strong> الذي سيتم تحميل مصدر البيانات الخارجي منه لملء مجموعة الفحص أو الأزرار الدائرية.",
+  "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "عنوان <strong lang=\"en\">URL</strong> اختياري يستخدم خصيصا لاسترجاع القيم المحددة مسبقا والمفقودة من القائمة الرئيسية المحملة.",
+  "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "معلمات اختيارية ستضاف فقط إلى طلب retrieve المستخدم لتحميل القيم المحددة المفقودة.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "المعلمات التي سيتم إضافتها إلى طلب <strong lang=\"en\">URL</strong> عند تحميل البيانات من الخادم. تتيح هذه المعلمات تصفية البيانات المستردة من <strong lang=\"en\">API</strong> أو تعديلها.",
   "_A_UI_TYPES_FOR_USE_": "الأنواع المتاحة للاستخدام."
 }

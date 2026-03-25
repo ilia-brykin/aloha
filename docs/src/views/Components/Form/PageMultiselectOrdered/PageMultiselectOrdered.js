@@ -7,6 +7,7 @@ import PageMultiselectOrderedErrors from "./PageMultiselectOrderedErrors/PageMul
 import PageMultiselectOrderedHelpText from "./PageMultiselectOrderedHelpText/PageMultiselectOrderedHelpText.vue";
 import PageMultiselectOrderedLabelDescription from "./PageMultiselectOrderedLabelDescription/PageMultiselectOrderedLabelDescription.vue";
 import PageMultiselectOrderedReadonly from "./PageMultiselectOrderedReadonly/PageMultiselectOrderedReadonly.vue";
+import PageMultiselectOrderedRetrieve from "./PageMultiselectOrderedRetrieve/PageMultiselectOrderedRetrieve.vue";
 import PageMultiselectOrderedSearchTextInHtml from "./PageMultiselectOrderedSearchTextInHtml/PageMultiselectOrderedSearchTextInHtml.vue";
 import PageMultiselectOrderedSelectDeselectAll from "./PageMultiselectOrderedSelectDeselectAll/PageMultiselectOrderedSelectDeselectAll.vue";
 import {
@@ -31,6 +32,7 @@ export default {
     PageMultiselectOrderedHelpText,
     PageMultiselectOrderedLabelDescription,
     PageMultiselectOrderedReadonly,
+    PageMultiselectOrderedRetrieve,
     PageMultiselectOrderedSearchTextInHtml,
     PageMultiselectOrderedSelectDeselectAll,
   },

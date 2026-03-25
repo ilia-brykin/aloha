@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   watch,
 } from "vue";
@@ -352,7 +353,17 @@ export default {
       required: false,
       default: undefined,
     },
+    urlRetrieve: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    urlRetrieveParams: {
       type: Object,
       required: false,
       default: undefined,
@@ -394,6 +405,7 @@ export default {
 
     const {
       dataAll,
+      dataFromRetrieve,
       dataFromServer,
       dataExtraLocal,
       dataKeyByKeyIdLocal,
@@ -403,6 +415,7 @@ export default {
 
     const {
       loadDataFromServer,
+      loadDataFromServerForRetrieve,
       loadDataFromServerForSearchAPI,
       loadingDataFromServer,
       loadingSearchApi,
@@ -413,6 +426,7 @@ export default {
     } = UiDataFromServerAPI(props, {
       changeModel,
       dataExtraLocal,
+      dataFromRetrieve,
       dataFromServer,
     });
 
@@ -440,6 +454,21 @@ export default {
       keyGroupArray,
     } = UIDataGroupAPI(props, {
       data: dataSort,
+    });
+
+    const validDataSort = computed(() => {
+      return dataSort.value.filter(item => !item.__invalidEntry__);
+    });
+
+    const invalidDataSort = computed(() => {
+      return dataSort.value.filter(item => item.__invalidEntry__);
+    });
+
+    const {
+      dataGrouped: dataGroupedValid,
+      groupsForLever: groupsForLeverValid,
+    } = UIDataGroupAPI(props, {
+      data: validDataSort,
     });
 
     const {
@@ -505,6 +534,9 @@ export default {
     initIsCollapsedLocal();
     loadDataFromServer();
     loadDataFromServerForSearchAPI();
+    if (!props.url || props.searchApi) {
+      loadDataFromServerForRetrieve();
+    }
 
     return {
       ariaDescribedbyLocal,
@@ -513,11 +545,13 @@ export default {
       dataAll,
       dataExtraLocal,
       dataGrouped,
+      dataGroupedValid,
       dataKeyByKeyIdLocal,
       dataSort,
       errorsId,
       groupId,
       groupsForLever,
+      groupsForLeverValid,
       hasDataExtra,
       hasKeyGroup,
       hasNotElementsExtraWithSearch,
@@ -526,6 +560,7 @@ export default {
       htmlIdLocal,
       iconCollapse,
       idForButtonSearchOutside,
+      invalidDataSort,
       isCollapsedLocal,
       isErrors,
       isModelValue,
@@ -554,6 +589,7 @@ export default {
       toggleCollapse,
       updateModelSearch,
       updateModelSearchOutside,
+      validDataSort,
     };
   },
   render() {
@@ -596,6 +632,67 @@ export default {
         ] :
         "");
     }
+
+    const hasInvalidEntries = this.invalidDataSort.length > 0;
+    const hasEntriesBeforeInvalid = !!(this.validDataSort.length || this.hasDataExtra);
+    const renderInvalidEntries = () => {
+      if (!hasInvalidEntries) {
+        return null;
+      }
+
+      return h("div", {
+        class: "a_checkbox__invalid_entries",
+      }, [
+        hasEntriesBeforeInvalid ?
+          h("div", {
+            class: "a_divider",
+            ariaHidden: true,
+          }) :
+          "",
+        h(ATranslation, {
+          alwaysTranslate: this.alwaysTranslate,
+          class: "text-muted",
+          tag: "strong",
+          text: "_A_CHECKBOX_GROUP_INVALID_ENTRIES_",
+        }),
+        h("div", {
+          class: [
+            "a_checkbox_data",
+            {
+              a_btn_group: this.isButtonGroup,
+            },
+            this.classDataParent,
+            "text-muted",
+          ],
+        }, [
+          ...this.invalidDataSort.map((item, itemIndex) => {
+            return h(ACheckboxItem, {
+              key: `${ itemIndex }_invalid`,
+              id: this.htmlIdLocal,
+              alwaysTranslate: this.alwaysTranslate,
+              classButtonGroupDefault: this.classButtonGroupDefault,
+              dataItem: item,
+              disabled: this.disabled,
+              isButtonGroup: this.isButtonGroup,
+              isErrors: this.isErrors,
+              isWidthAuto: this.isWidthAuto,
+              itemIndex: this.validDataSort.length + itemIndex,
+              keyDisabled: this.keyDisabled,
+              keyTitle: this.keyTitle,
+              keyTitleCallback: this.keyTitleCallback,
+              modelSearch: this.modelSearchLowerCase,
+              modelValue: this.modelValue,
+              searching: this.searching,
+              searchingElements: this.searchingElements,
+              searchTextInHtml: this.searchTextInHtml,
+              slotAppendName: this.slotAppendName,
+              slotName: this.slotName,
+              onChangeModelValue: this.onChangeModelValue,
+            }, this.$slots);
+          }),
+        ]),
+      ]);
+    };
 
     return h("div", {
       ref: "rootRef",
@@ -764,10 +861,10 @@ export default {
                     id: `${ this.htmlIdLocal }_lev_0`,
                     alwaysTranslate: this.alwaysTranslate,
                     classButtonGroupDefault: this.classButtonGroupDefault,
-                    dataGrouped: this.dataGrouped,
+                    dataGrouped: this.dataGroupedValid,
                     disabled: this.disabled,
                     hasControlCheckbox: this.hasControlCheckbox,
-                    groupsForLever: this.groupsForLever,
+                    groupsForLever: this.groupsForLeverValid,
                     isButtonGroup: this.isButtonGroup,
                     isErrors: this.isErrors,
                     isWidthAuto: this.isWidthAuto,
@@ -799,7 +896,7 @@ export default {
                       this.classDataParent,
                     ],
                   }, [
-                    ...this.dataSort.map((item, itemIndex) => {
+                    ...this.validDataSort.map((item, itemIndex) => {
                       return h(ACheckboxItem, {
                         key: itemIndex,
                         id: this.htmlIdLocal,
@@ -826,6 +923,7 @@ export default {
                     }),
                   ]),
                 ]),
+              renderInvalidEntries(),
               (!this.dataSort.length || this.hasNotElementsWithSearch) ?
                 h(ATranslation, {
                   alwaysTranslate: this.alwaysTranslate,

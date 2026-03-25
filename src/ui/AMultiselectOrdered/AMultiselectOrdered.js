@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   provide,
   watch,
@@ -442,7 +443,17 @@ export default {
       required: false,
       default: undefined,
     },
+    urlRetrieve: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     urlParams: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    urlRetrieveParams: {
       type: Object,
       required: false,
       default: undefined,
@@ -500,6 +511,7 @@ export default {
     });
 
     const {
+      dataFromRetrieve,
       dataFromServer,
       dataExtraLocal,
       dataKeyByKeyIdLocal,
@@ -509,6 +521,7 @@ export default {
 
     const {
       loadDataFromServer,
+      loadDataFromServerForRetrieve,
       loadDataFromServerForSearchAPI,
       loadingDataFromServer,
       loadingSearchApi,
@@ -517,6 +530,7 @@ export default {
     } = UiDataFromServerAPI(props, {
       changeModel,
       dataExtraLocal,
+      dataFromRetrieve,
       dataFromServer,
     });
 
@@ -557,6 +571,27 @@ export default {
       modelValueFiltered,
     });
 
+    const orderedItems = computed(() => {
+      return modelValueFiltered.value.map((item, index) => {
+        const data = dataKeyByKeyIdLocal.value[item] || {};
+
+        return {
+          data,
+          index,
+          isInvalid: !!data.__invalidEntry__,
+          modelValue: item,
+        };
+      });
+    });
+
+    const validOrderedItems = computed(() => {
+      return orderedItems.value.filter(item => !item.isInvalid);
+    });
+
+    const invalidOrderedItems = computed(() => {
+      return orderedItems.value.filter(item => item.isInvalid);
+    });
+
     const {
       deselectAll,
       disabledDeselectAll,
@@ -575,6 +610,9 @@ export default {
 
     loadDataFromServer();
     loadDataFromServerForSearchAPI();
+    if (!props.url || props.searchApi) {
+      loadDataFromServerForRetrieve();
+    }
 
 
     return {
@@ -596,6 +634,7 @@ export default {
       helpTextId,
       htmlIdLocal,
       idForSelect,
+      invalidOrderedItems,
       isErrors,
       labelDescriptionId,
       loadingLocal,
@@ -615,6 +654,7 @@ export default {
       textGroupAllAriaLabel,
       textModelEmpty,
       textSelectAll,
+      validOrderedItems,
     };
   },
   render() {
@@ -706,13 +746,13 @@ export default {
               "a_fieldset__content",
             ],
           }, [
-            this.modelValueFiltered.length ?
+            this.validOrderedItems.length ?
               h("ul", {
                 class: "a_list_group a_m_select_ordered__ul",
-              }, this.modelValueFiltered.map((item, index) => {
+              }, this.validOrderedItems.map(item => {
                 return h(AMultiselectOrderedItem, {
                   id: this.htmlIdLocal,
-                  key: item,
+                  key: `${ item.modelValue }_${ item.index }`,
                   alwaysTranslate: this.alwaysTranslate,
                   btnDeleteClass: this.btnDeleteClass,
                   btnDeleteIcon: this.btnDeleteIcon,
@@ -726,17 +766,65 @@ export default {
                   btnUpIcon: this.btnUpIcon,
                   btnUpTitle: this.textBtnUpTitle,
                   listItemClass: this.listItemClass,
-                  data: this.dataKeyByKeyIdLocal[item] || {},
+                  data: item.data,
                   disabled: this.disabled,
-                  index,
-                  isLastItem: index === this.modelValueFiltered.length - 1,
-                  modelValue: item,
+                  index: item.index,
+                  isLastItem: item.index === this.modelValueFiltered.length - 1,
+                  modelValue: item.modelValue,
                   slotName: this.slotName,
                   onDeleteItem: this.deleteItem,
                   onUpItem: this.onUpItem,
                   onDownItem: this.onDownItem,
                 }, this.$slots);
               })) :
+              "",
+            this.invalidOrderedItems.length ?
+              h("div", {
+                class: "a_m_select_ordered__invalid_entries",
+              }, [
+                this.validOrderedItems.length ?
+                  h("div", {
+                    class: "a_divider",
+                    ariaHidden: true,
+                  }) :
+                  "",
+                h(ATranslation, {
+                  alwaysTranslate: this.alwaysTranslate,
+                  class: "text-muted",
+                  tag: "strong",
+                  text: "_A_MULTISELECT_ORDERED_GROUP_INVALID_ENTRIES_",
+                }),
+                h("ul", {
+                  class: "a_list_group a_m_select_ordered__ul text-muted",
+                }, this.invalidOrderedItems.map(item => {
+                  return h(AMultiselectOrderedItem, {
+                    id: this.htmlIdLocal,
+                    key: `${ item.modelValue }_${ item.index }_invalid`,
+                    alwaysTranslate: this.alwaysTranslate,
+                    btnDeleteClass: this.btnDeleteClass,
+                    btnDeleteIcon: this.btnDeleteIcon,
+                    btnDeleteTitle: this.textBtnDeleteTitle,
+                    btnDownClass: this.btnDownClass,
+                    btnDownIcon: this.btnDownIcon,
+                    btnDownTitle: this.textBtnDownTitle,
+                    btnGroupAriaLabel: this.textBtnGroupAriaLabel,
+                    btnGroupClass: this.btnGroupClass,
+                    btnUpClass: this.btnUpClass,
+                    btnUpIcon: this.btnUpIcon,
+                    btnUpTitle: this.textBtnUpTitle,
+                    listItemClass: this.listItemClass,
+                    data: item.data,
+                    disabled: this.disabled,
+                    index: item.index,
+                    isLastItem: item.index === this.modelValueFiltered.length - 1,
+                    modelValue: item.modelValue,
+                    slotName: this.slotName,
+                    onDeleteItem: this.deleteItem,
+                    onUpItem: this.onUpItem,
+                    onDownItem: this.onDownItem,
+                  }, this.$slots);
+                })),
+              ]) :
               "",
             this.isDeselectAll || this.isSelectAll || !this.modelValueFiltered.length ?
               h("div", {

@@ -1,4 +1,7 @@
 {
   "_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_": "Эксклюзивный вариант можно определить как особый выбор, который при выборе предотвращает выбор любых других вариантов или снимает выбор со всех ранее выбранных вариантов.",
-  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Эксклюзивный вариант"
+  "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Эксклюзивный вариант",
+  "_A_SELECT_GROUP_INVALID_ENTRIES_LABEL_": "Недопустимые записи",
+  "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Загружает базовый список и retrieve-кандидаты из локальных JSON-файлов без backend. Отсутствующие выбранные значения подтягиваются через retrieve callback и помечаются как недопустимые записи, если их нет в базовом списке.",
+  "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve из локального JSON"
 }

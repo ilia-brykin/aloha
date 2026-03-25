@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="Retrieve invalid entries"
+  description="Loads checkbox options from local JSON files and renders missing selected values inside a separate invalid entries group."
+  :props="['url', 'url-retrieve']"
+)
+  a-checkbox(
+    v-model="model1"
+    key-id="id"
+    key-label="label"
+    label="Checkbox with retrieve"
+    :url="url"
+    :url-retrieve="urlRetrieve"
+  )
+  div model1: {{ model1 }}

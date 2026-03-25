@@ -9,6 +9,7 @@ import PageSelectLabelDescription from "./PageSelectLabelDescription/PageSelectL
 import PageSelectLabelNotFound from "./PageSelectLabelNotFound/PageSelectLabelNotFound.vue";
 import PageSelectModeOnePerGroup from "./PageSelectModeOnePerGroup/PageSelectModeOnePerGroup.vue";
 import PageSelectReadonly from "./PageSelectReadonly/PageSelectReadonly.vue";
+import PageSelectRetrieve from "./PageSelectRetrieve/PageSelectRetrieve.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 import PageSelectSearchTextInHtml from "./PageSelectSearchTextInHtml/PageSelectSearchTextInHtml.vue";
 import PageSelectTranslateData from "./PageSelectTranslateData/PageSelectTranslateData.vue";
@@ -41,6 +42,7 @@ export default {
     PageSelectLabelNotFound,
     PageSelectModeOnePerGroup,
     PageSelectReadonly,
+    PageSelectRetrieve,
     PageSelectSearch,
     PageSelectSearchTextInHtml,
     PageSelectTranslateData,

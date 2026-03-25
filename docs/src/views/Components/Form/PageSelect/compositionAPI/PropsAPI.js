@@ -98,6 +98,20 @@ export default function PropsAPI() {
       default: "danger",
       required: false,
     },
+    {
+      name: "url-retrieve",
+      description: "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "url-retrieve-params",
+      description: "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_",
+      type: "Object",
+      default: undefined,
+      required: false,
+    },
   ];
 
   return {
