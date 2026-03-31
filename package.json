@@ -1,6 +1,6 @@
 {
   "name": "aloha-vue",
-  "version": "2.48.0",
+  "version": "2.48.1",
   "description": "Aloha-vue is a JavaScript library that provides a wide range of accessible components and directives for Vue.js. Accessibility is of paramount importance to us, and we have designed all our components to meet accessibility compliance criteria. This library is a valuable tool for frontend developers and has already been used in three projects, including two large-scale ones",
   "keywords": [
     "accessibility compliance criteria",
@@ -54,7 +54,7 @@
   "dependencies": {
     "@floating-ui/vue": "1.1.5",
     "aloha-svg": "1.2.0",
-    "axios": "1.7.9",
+    "axios": "1.14.0",
     "dompurify": "3.3.0",
     "fecha": "4.2.3",
     "lodash-es": "4.17.21",

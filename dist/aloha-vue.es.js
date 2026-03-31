@@ -26394,6 +26394,7 @@ const he = {
         ...this.$attrs,
         id: this.htmlIdLocal,
         alwaysTranslate: this.alwaysTranslate,
+        class: this.class,
         excludeRenderAttributes: this.excludeRenderAttributes,
         extra: this.extra,
         helpText: this.helpText,

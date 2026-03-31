@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.48.1
+
+- Fix: Add `class` binding to `ASelect` for dynamic class support.
+
+
 ## 2.48.0
 
 - Feature: Enhance `ADatepicker` placeholder logic with `isInputFocused` state and improved `PlaceholderAPI` integration. Adjust default `isLabelFloat` prop to `true`.
