@@ -231,6 +231,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    teleportSelector: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.teleportSelector,
+    },
     useEscape: {
       type: Boolean,
       required: false,
@@ -406,7 +411,7 @@ export default {
       "";
 
     return h(Teleport, {
-      to: "body",
+      to: this.teleportSelector,
     }, [
       h("div", {
         ref: "modalWrapperRef",

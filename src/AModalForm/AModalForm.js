@@ -235,6 +235,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    teleportSelector: {
+      type: String,
+      required: false,
+      default: () => modalPluginOptions.value.propsDefault.teleportSelector,
+    },
     textErrorHeader: {
       type: String,
       required: false,
@@ -338,6 +343,7 @@ export default {
       selectorCloseIds: this.selectorCloseIds,
       size: this.size,
       stop: this.stop,
+      teleportSelector: this.teleportSelector,
       useEscape: this.useEscape,
       useFocusOnStart: this.useFocusOnStart,
       zIndex: this.zIndex,

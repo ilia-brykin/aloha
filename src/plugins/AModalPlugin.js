@@ -25,6 +25,7 @@ export const modalPluginOptions = ref({
     selectorCloseIds: undefined,
     size: undefined,
     textRequired: undefined,
+    teleportSelector: "body",
     useEscape: true,
   },
 });
