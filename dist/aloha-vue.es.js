@@ -40004,6 +40004,7 @@ const $e = D({
     selectorCloseIds: void 0,
     size: void 0,
     textRequired: void 0,
+    teleportSelector: "body",
     useEscape: !0
   }
 }), Zat = {
@@ -40212,6 +40213,11 @@ const $e = D({
       type: Boolean,
       required: !1
     },
+    teleportSelector: {
+      type: String,
+      required: !1,
+      default: () => $e.value.propsDefault.teleportSelector
+    },
     useEscape: {
       type: Boolean,
       required: !1,
@@ -40342,7 +40348,7 @@ const $e = D({
       ])
     ]);
     return d(Pa, {
-      to: "body"
+      to: this.teleportSelector
     }, [
       d("div", {
         ref: "modalWrapperRef",
@@ -40723,6 +40729,11 @@ const mC = {
       type: Boolean,
       required: !1
     },
+    teleportSelector: {
+      type: String,
+      required: !1,
+      default: () => $e.value.propsDefault.teleportSelector
+    },
     textErrorHeader: {
       type: String,
       required: !1,
@@ -40821,6 +40832,7 @@ const mC = {
       selectorCloseIds: this.selectorCloseIds,
       size: this.size,
       stop: this.stop,
+      teleportSelector: this.teleportSelector,
       useEscape: this.useEscape,
       useFocusOnStart: this.useFocusOnStart,
       zIndex: this.zIndex,

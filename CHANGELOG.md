@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.49.0
+
+- Feature: Add `teleportSelector` prop to `AModal` and `AModalForm` for customizable teleport target with default plugin option.
+
+
 ## 2.48.1
 
 - Fix: Add `class` binding to `ASelect` for dynamic class support.
