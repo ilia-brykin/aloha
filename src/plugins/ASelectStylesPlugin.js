@@ -2294,6 +2294,67 @@ export const ASelectStylePluginOptions = {
       subGroup: "size",
       subGroupName: "_A_SELECT_STYLES_SUB_GROUP_SIZE_",
     },
+
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_PRIMARY_",
+      value: "a_badge a_badge_primary",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_SECONDARY_",
+      value: "a_badge a_badge_secondary",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_TERTIARY_",
+      value: "a_badge a_badge_tertiary",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_SUCCESS_",
+      value: "a_badge a_badge_success",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_INFO_",
+      value: "a_badge a_badge_info",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_WARNING_",
+      value: "a_badge a_badge_warning",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_DANGER_",
+      value: "a_badge a_badge_danger",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_LIGHT_",
+      value: "a_badge a_badge_light",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_BADGE_DARK_",
+      value: "a_badge a_badge_dark",
+      group: "button",
+      groupName: "_A_SELECT_STYLES_GROUP_BADGE_",
+    },
+    {
+      label: "_A_SELECT_STYLES_VALUE_PILL_ROUNDED_",
+      value: "a_pill_rounded",
+      group: "border",
+      groupName: "_A_SELECT_STYLES_GROUP_BORDER_",
+    },
   ],
 };
 
