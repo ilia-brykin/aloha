@@ -54,6 +54,8 @@ export default {
       "padding",
       "color",
       "background_color",
+      "badge",
+      "border",
     ];
     const model1 = ref(undefined);
     const model2 = ref(undefined);
