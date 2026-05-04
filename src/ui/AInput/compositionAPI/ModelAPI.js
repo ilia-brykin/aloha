@@ -5,11 +5,10 @@ import {
 
 export default function ModelAPI(props, {
   changeModel = () => {},
+  inputRef = ref(undefined),
 }) {
   const disabled = toRef(props, "disabled");
   const type = toRef(props, "type");
-
-  const inputRef = ref(undefined);
 
   const onInput = $event => {
     if (disabled.value) {
@@ -33,8 +32,8 @@ export default function ModelAPI(props, {
     });
   };
 
+
   return {
-    inputRef,
     onInput,
   };
 }

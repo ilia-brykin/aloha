@@ -22,6 +22,7 @@ import {
 
 import ClassAPI from "./compositionAPI/ClassAPI";
 import ColorAPI from "./compositionAPI/ColorAPI";
+import FocusAPI from "./compositionAPI/FocusAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import PasswordAPI from "./compositionAPI/PasswordAPI";
 import PlaceholderAPI from "../../ATranslation/compositionAPI/PlaceholderAPI";
@@ -237,7 +238,6 @@ export default {
       typeForInput,
     } = TypeAPI(props);
 
-
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
@@ -245,6 +245,11 @@ export default {
     const {
       componentStyleHide,
     } = UiStyleHideAPI(props);
+
+    const {
+      inputRef,
+      setFocusToInput,
+    } = FocusAPI();
 
     const {
       ariaDescribedbyLocal,
@@ -258,7 +263,9 @@ export default {
       labelDescriptionId,
       onBlur,
       onFocus,
-    } = UiAPI(props, context);
+    } = UiAPI(props, context, {
+      setFocus: setFocusToInput,
+    });
 
     const {
       isClearButtonLocal,
@@ -267,10 +274,10 @@ export default {
     });
 
     const {
-      inputRef,
       onInput,
     } = ModelAPI(props, {
       changeModel,
+      inputRef,
     });
 
     const {

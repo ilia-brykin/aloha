@@ -11,7 +11,9 @@ import {
   isUndefined,
 } from "lodash-es";
 
-export default function UiAPI(props, { emit }) {
+export default function UiAPI(props, { emit }, {
+  setFocus = () => {},
+} = {}) {
   const change = toRef(props, "change");
   const defaultProps = toRef(props, "default");
   const disabled = toRef(props, "disabled");
@@ -63,9 +65,12 @@ export default function UiAPI(props, { emit }) {
     if (disabled.value) {
       return;
     }
+
     changeModel({
       model: modelUndefined.value,
     });
+
+    setFocus();
   };
 
   const helpTextId = computed(() => {
