@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.49.2
+
+- Feature: Add badge and border style options to `ASelectStylesPlugin` with i18n updates for supported languages.
+
 ## 2.49.1
 
 - Fix: `AInput` focus for on close button click. 
