@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.49.1
+
+- Fix: `AInput` focus for on close button click. 
+
 ## 2.49.0
 
 - Feature: Add `teleportSelector` prop to `AModal` and `AModalForm` for customizable teleport target with default plugin option.
