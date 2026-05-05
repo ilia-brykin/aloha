@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.49.3
+
+- Fix: Update `group` values from `button` to `badge` in `ASelectStylesPlugin`.
+
 ## 2.49.2
 
 - Feature: Add badge and border style options to `ASelectStylesPlugin` with i18n updates for supported languages.
