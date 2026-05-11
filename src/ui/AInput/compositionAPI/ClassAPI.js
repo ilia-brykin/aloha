@@ -1,21 +1,30 @@
 import {
   computed,
+  toRef,
 } from "vue";
 
-export default function ClassAPI({
+export default function ClassAPI(props, {
   isBtnShowPasswordVisible = computed(() => false),
   isClearButtonLocal = computed(() => false),
 }) {
-  const inputClassBtns = computed(() => {
-    if (isBtnShowPasswordVisible.value) {
-      if (isClearButtonLocal.value) {
-        return "a_form_element_with_two_btns";
-      }
+  const iconAppend = toRef(props, "iconAppend");
 
-      return "a_form_element_with_one_btn";
+  const inputClassBtns = computed(() => {
+    const actionsCount = [
+      iconAppend.value,
+      isBtnShowPasswordVisible.value,
+      isClearButtonLocal.value,
+    ].filter(Boolean).length;
+
+    if (actionsCount === 3) {
+      return "a_form_element_with_three_btns";
     }
 
-    if (isClearButtonLocal.value) {
+    if (actionsCount === 2) {
+      return "a_form_element_with_two_btns";
+    }
+
+    if (actionsCount === 1) {
       return "a_form_element_with_one_btn";
     }
 
@@ -26,4 +35,3 @@ export default function ClassAPI({
     inputClassBtns,
   };
 }
-
