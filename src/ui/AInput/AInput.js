@@ -91,6 +91,11 @@ export default {
       required: false,
       default: undefined,
     },
+    iconAppend: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     iconPrepend: {
       type: String,
       required: false,
@@ -296,7 +301,7 @@ export default {
 
     const {
       inputClassBtns,
-    } = ClassAPI({
+    } = ClassAPI(props, {
       isBtnShowPasswordVisible,
       isClearButtonLocal,
     });
@@ -439,10 +444,15 @@ export default {
             onFocus: this.onFocus,
             onBlur: this.onBlur,
           }),
-          (this.isBtnShowPasswordVisible || this.isClearButtonLocal) ?
+          (this.iconAppend || this.isBtnShowPasswordVisible || this.isClearButtonLocal) ?
             h("div", {
               class: "a_form_control__actions",
             }, [
+              this.iconAppend ? h(AIcon, {
+                icon: this.iconAppend,
+                class: "a_input__icon_append",
+              }) :
+                "",
               this.isBtnShowPasswordVisible ?
                 h(AButton, {
                   alwaysTranslate: this.alwaysTranslate,
