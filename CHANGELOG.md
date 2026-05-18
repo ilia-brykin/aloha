@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.50.0
+
+- Feature: `iconAppend` prop for `AInput`
+
 ## 2.49.3
 
 - Fix: Update `group` values from `button` to `badge` in `ASelectStylesPlugin`.
