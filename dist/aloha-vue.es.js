@@ -16571,14 +16571,14 @@ const B0 = {
 function V0(e, {
   isOpen: t = D(!1)
 }) {
-  const _ = u(e, "btnIconLeftLess"), n = u(e, "btnIconLeftMore"), a = u(e, "btnIconRightLess"), s = u(e, "btnIconRightMore"), l = u(e, "btnTextLess"), o = u(e, "btnTextMore"), c = u(e, "btnTitleLess"), A = u(e, "btnTitleMore"), S = u(e, "showLess"), L = D(void 0), f = E(() => t.value ? l.value : o.value), h = E(() => t.value ? c.value : A.value), C = E(() => t.value ? _.value : n.value), p = E(() => t.value ? a.value : s.value), R = E(() => t.value ? S.value : !0);
+  const _ = u(e, "btnIconLeftLess"), n = u(e, "btnIconLeftMore"), a = u(e, "btnIconRightLess"), s = u(e, "btnIconRightMore"), l = u(e, "btnTextLess"), o = u(e, "btnTextMore"), c = u(e, "btnTitleLess"), A = u(e, "btnTitleMore"), S = u(e, "showLess"), L = u(e, "showMore"), f = D(void 0), h = E(() => t.value ? l.value : o.value), C = E(() => t.value ? c.value : A.value), p = E(() => t.value ? _.value : n.value), R = E(() => t.value ? a.value : s.value), O = E(() => t.value ? S.value : L.value);
   return {
-    btnIconLeft: C,
-    btnIconRight: p,
-    btnText: f,
-    btnTitle: h,
-    buttonRef: L,
-    isButtonVisible: R
+    btnIconLeft: p,
+    btnIconRight: R,
+    btnText: h,
+    btnTitle: C,
+    buttonRef: f,
+    isButtonVisible: O
   };
 }
 function M0(e) {
@@ -16729,6 +16729,11 @@ const gst = {
       default: void 0
     },
     showLess: {
+      type: Boolean,
+      required: !1,
+      default: !0
+    },
+    showMore: {
       type: Boolean,
       required: !1,
       default: !0

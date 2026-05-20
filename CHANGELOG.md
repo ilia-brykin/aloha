@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.51.0
+
+- Feature: Add `showMore` prop for toggle button control in `ADisclosure` with i18n updates for supported languages.
+
 ## 2.50.0
 
 - Feature: `iconAppend` prop for `AInput`
