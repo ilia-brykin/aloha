@@ -1,7 +1,19 @@
 import {
+  computed,
   ref,
   toRef,
 } from "vue";
+
+import {
+  autoUpdate,
+  computePosition,
+  flip,
+  hide,
+  shift,
+} from "@floating-ui/vue";
+import {
+  isElementVisibleOrCoveredByPopover,
+} from "../../ui/utils/utils";
 
 import ADropdownGlobalAPI from "../../compositionAPI/ADropdownGlobalAPI";
 
@@ -18,14 +30,14 @@ export default function ToggleAPI(props, { emit }, {
   closePopup = () => {},
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
-  destroyPopover = () => {},
   openPopup = () => {},
   setFocusToFirstElement = () => {},
-  startPopper = () => {},
 }) {
   const disabled = toRef(props, "disabled");
   const dropdownRenderDefault = toRef(props, "dropdownRenderDefault");
   const elementsForArrows = toRef(props, "elementsForArrows");
+  const floatingFlip = toRef(props, "floatingFlip");
+  const floatingShift = toRef(props, "floatingShift");
   const id = toRef(props, "id");
   const isCloseByClickInside = toRef(props, "isCloseByClickInside");
   const isCloseByClickOutside = toRef(props, "isCloseByClickOutside");
@@ -33,9 +45,11 @@ export default function ToggleAPI(props, { emit }, {
   const lockArrowsNavigation = toRef(props, "lockArrowsNavigation");
   const lockTabNavigation = toRef(props, "lockTabNavigation");
   const persist = toRef(props, "persist");
+  const placement = toRef(props, "placement");
   const useEscape = toRef(props, "useEscape");
 
   const buttonWidth = ref(undefined);
+  const cleanupPopper = ref(undefined);
   const statusEventPressArrows = ref(false);
   const statusExpanded = ref(false);
   const timerCloseHover = ref(undefined);
@@ -46,6 +60,24 @@ export default function ToggleAPI(props, { emit }, {
     closeDropdownGlobal,
     openDropdownGlobal,
   } = ADropdownGlobalAPI();
+
+  const middleware = computed(() => {
+    const MIDDLEWARE = [
+      hide({ strategy: "referenceHidden" }),
+    ];
+    if (floatingFlip.value?.use) {
+      MIDDLEWARE.push(
+        flip(floatingFlip.value),
+      );
+    }
+    if (floatingShift.value?.use) {
+      MIDDLEWARE.push(
+        shift(floatingShift.value),
+      );
+    }
+
+    return MIDDLEWARE;
+  });
 
   const initWasOpened = () => {
     wasOpened.value = dropdownRenderDefault.value || false;
@@ -149,6 +181,52 @@ export default function ToggleAPI(props, { emit }, {
     }
     statusEventPressArrows.value = false;
     document.body.removeEventListener("keydown", pressButton);
+  };
+
+  const destroyPopover = () => {
+    if (cleanupPopper.value) {
+      cleanupPopper.value();
+      cleanupPopper.value = undefined;
+    }
+  };
+
+  const startPopper = () => {
+    if (!cleanupPopper.value &&
+      dropdownButtonRef.value.$el &&
+      dropdownRef.value) {
+      cleanupPopper.value = autoUpdate(
+        dropdownButtonRef.value.$el,
+        dropdownRef.value,
+        () => {
+          if (!dropdownButtonRef.value.$el ||
+            !dropdownRef.value) {
+            return;
+          }
+
+          computePosition(
+            dropdownButtonRef.value.$el,
+            dropdownRef.value,
+            {
+              placement: placement.value,
+              middleware: middleware.value,
+            },
+          ).then(({ x, y, middlewareData }) => {
+            const hiddenByMiddleware = middlewareData?.hide?.referenceHidden;
+            const overlapped = !isElementVisibleOrCoveredByPopover({ element: dropdownButtonRef.value.$el, popoverElement: dropdownRef.value });
+            if (hiddenByMiddleware || overlapped) {
+              onClose();
+
+              return;
+            }
+
+            Object.assign(dropdownRef.value.style, {
+              left: `${ x }px`,
+              top: `${ y }px`,
+            });
+          });
+        },
+      );
+    }
   };
 
   const setButtonWidth = () => {
@@ -271,11 +349,13 @@ export default function ToggleAPI(props, { emit }, {
     buttonWidth,
     destroyEventCloseClick,
     destroyEventPressArrows,
+    destroyPopover,
     initWasOpened,
     onClose,
     onKeydown,
     onOpen,
     onToggle,
+    startPopper,
     statusExpanded,
     timerCloseHover,
     triggerOpen,
