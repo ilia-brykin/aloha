@@ -162,6 +162,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "show-more",
+      description: "_A_DISCLOSURE_PROPS_SHOW_MORE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "text-less",
       description: "_A_DISCLOSURE_PROPS_TEXT_LESS_DESCRIPTION_",
       type: "String",

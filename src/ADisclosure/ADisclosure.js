@@ -133,6 +133,11 @@ export default {
       required: false,
       default: true,
     },
+    showMore: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     textLess: {
       type: String,
       required: false,
