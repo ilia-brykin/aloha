@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.52.0
+
+- Feature: Add `readonly` prop to `ADropdown` with i18n support and examples.
+
 ## 2.51.0
 
 - Feature: Add `showMore` prop for toggle button control in `ADisclosure` with i18n updates for supported languages.

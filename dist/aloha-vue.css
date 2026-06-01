@@ -6630,37 +6630,41 @@ h6 {
   border-radius: var(--a_btn_border_radius);
   background-color: var(--a_btn_bg);
 }
-.a_btn:hover {
+.a_btn.readonly {
+  cursor: default;
+  user-select: auto;
+}
+.a_btn:not(.readonly):hover {
   color: var(--a_btn_hover_color);
   background-color: var(--a_btn_hover_bg);
   border-color: var(--a_btn_hover_border_color);
 }
-.a_btn_check + .a_btn:hover {
+.a_btn_check + .a_btn:not(.readonly):hover {
   color: var(--a_btn_color);
   background-color: var(--a_btn_bg);
   border-color: var(--a_btn_border_color);
 }
-.a_btn:not(.a_btn_link):hover {
+.a_btn:not(.readonly):not(.a_btn_link):hover {
   text-decoration: none;
 }
-.a_btn:focus {
+.a_btn:not(.readonly):focus {
   color: var(--a_btn_focus_color, var(--a_btn_hover_color));
   background-color: var(--a_btn_hover_bg);
   border-color: var(--a_btn_hover_border_color);
   outline: 0;
   box-shadow: var(--a_btn_focus_box_shadow);
 }
-.a_btn_check:focus-visible + .a_btn {
+.a_btn_check:focus-visible + .a_btn:not(.readonly) {
   border-color: var(--a_btn_hover_border_color);
   outline: 0;
   box-shadow: var(--a_btn_focus_box_shadow);
 }
-.a_btn_check:checked + .a_btn, :not(.a_btn_check) + .a_btn:active, .a_btn:first-child:active, .a_btn.active {
+.a_btn_check:checked + .a_btn:not(.readonly), :not(.a_btn_check) + .a_btn:not(.readonly):active, .a_btn:not(.readonly):first-child:active, .a_btn:not(.readonly).active {
   color: var(--a_btn_active_color);
   background-color: var(--a_btn_active_bg);
   border-color: var(--a_btn_active_border_color);
 }
-.a_btn.disabled, .a_btn:disabled, fieldset:disabled .a_btn {
+.a_btn:not(.readonly).disabled, .a_btn:not(.readonly):disabled, fieldset:disabled .a_btn:not(.readonly) {
   color: var(--a_btn_disabled_color);
   background-color: var(--a_btn_disabled_bg);
   border-color: var(--a_btn_disabled_border_color);
