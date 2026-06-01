@@ -45,16 +45,26 @@ export default function UiAPI(props, { emit }, {
     htmlIdLocal,
   });
 
-  const changeModel = ({ model, currentModel, item, init }) => {
+  const changeModel = ({ model, currentModel, item, init, trigger = "change", triggerDetails } = {}) => {
     emit("update:modelValue", model);
-    change.value({
+    const RETURN_ARGS = {
       currentModel,
       id: id.value,
       item,
       model,
       props: toRefs(props),
       init,
-    });
+    };
+
+    if (trigger) {
+      RETURN_ARGS.trigger = trigger;
+    }
+
+    if (triggerDetails) {
+      RETURN_ARGS.triggerDetails = triggerDetails;
+    }
+
+    change.value(RETURN_ARGS);
   };
 
   const isModel = computed(() => {
@@ -68,6 +78,7 @@ export default function UiAPI(props, { emit }, {
 
     changeModel({
       model: modelUndefined.value,
+      triggerDetails: "clear",
     });
 
     setFocus();
@@ -144,6 +155,7 @@ export default function UiAPI(props, { emit }, {
       model: defaultProps.value,
       currentModel: defaultProps.value,
       init: true,
+      triggerDetails: "init",
     });
   };
 

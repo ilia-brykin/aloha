@@ -56,8 +56,8 @@ export default function InputEventsAPI(props, {
     return Number(`${ val }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."));
   };
 
-  const setValueLocal = (val, updateOutside) => {
-    setCurrentValue(val, updateOutside);
+  const setValueLocal = ({ value, updateOutside, trigger, triggerDetails }) => {
+    setCurrentValue({ value, updateOutside, trigger, triggerDetails });
   };
 
   const setCursorPosition = position => {
@@ -66,14 +66,14 @@ export default function InputEventsAPI(props, {
     });
   };
 
-  const setMaximumValue = () => {
+  const setMaximumValue = ({ trigger, triggerDetails } = {}) => {
     const newVal = adjustFloatPartAndDivider(max.value);
-    setValueLocal(newVal);
+    setValueLocal({ value: newVal, trigger, triggerDetails });
   };
 
-  const setMinimumValue = () => {
+  const setMinimumValue = ({ trigger, triggerDetails } = {}) => {
     const newVal = adjustFloatPartAndDivider(min.value);
-    setValueLocal(newVal);
+    setValueLocal({ value: newVal, trigger, triggerDetails });
   };
 
   const validateMinMax = val => {
@@ -90,9 +90,9 @@ export default function InputEventsAPI(props, {
     }
   };
 
-  const handleInput = ($event, _value, updateOutside = false) => {
+  const handleInput = ($event, { value: _value, updateOutside = false, triggerDetails = "keydown" } = {}) => {
     if (!required.value && isNil(_value) && !$event?.target?.value) {
-      setValueLocal(_value, updateOutside);
+      setValueLocal({ value: _value, updateOutside, triggerDetails });
 
       return;
     }
@@ -138,7 +138,7 @@ export default function InputEventsAPI(props, {
         return;
       }
     }
-    setValueLocal(newVal, updateOutside);
+    setValueLocal({ value: newVal, updateOutside, triggerDetails });
     setCursorPosition(cursorPosition);
   };
 
@@ -158,7 +158,7 @@ export default function InputEventsAPI(props, {
           }
         }
 
-        setValueLocal(newVal);
+        setValueLocal({ value: newVal, triggerDetails: "decrement" });
         isTimeoutActive.value--;
       }, timeoutDelay);
     }
@@ -177,7 +177,7 @@ export default function InputEventsAPI(props, {
           }
         }
 
-        setValueLocal(newVal);
+        setValueLocal({ value: newVal, triggerDetails: "increment" });
         isTimeoutActive.value--;
       }, timeoutDelay);
     }
@@ -221,7 +221,7 @@ export default function InputEventsAPI(props, {
         const positionToSet = value.length + 1;
         if (valueAfterKeyPress[valueAfterKeyPress.length - 1] === decimalDivider.value) {
           valueAfterKeyPress += times(decimalPartLength.value, () => "0").join("");
-          setValueLocal(valueAfterKeyPress);
+          setValueLocal({ value: valueAfterKeyPress, triggerDetails: "keydown" });
           setCursorPosition(positionToSet);
         }
       } else {
@@ -239,7 +239,7 @@ export default function InputEventsAPI(props, {
           intVal,
           floatVal,
         ].join(decimalDivider.value);
-        setValueLocal(result);
+        setValueLocal({ value: result, triggerDetails: "keydown" });
         setCursorPosition(intVal.length + 1);
       }
       isTimeoutActive.value--;
@@ -265,7 +265,7 @@ export default function InputEventsAPI(props, {
         isTimeoutActive.value++;
         requestAnimationFrame(() => {
           setCursorPositionForBackspace({ cursorPosition, numberOfSymbols });
-          setValueLocal(intVal);
+          setValueLocal({ value: intVal, triggerDetails: "backspace" });
           isTimeoutActive.value--;
         }, timeoutDelay);
 
@@ -283,7 +283,7 @@ export default function InputEventsAPI(props, {
     if (!isInteger.value && hasDecimalDivider && value[cursorPosition] === decimalDivider.value) {
       const splitVal = value.split(decimalDivider.value);
       const intVal = splitVal[0];
-      setValueLocal(intVal);
+      setValueLocal({ value: intVal, triggerDetails: "delete" });
       setCursorPosition(cursorPosition);
 
       return;
@@ -315,7 +315,7 @@ export default function InputEventsAPI(props, {
         } else {
           newVal = valWithDivider;
         }
-        setValueLocal(newVal);
+        setValueLocal({ value: newVal, triggerDetails: "delete" });
         setCursorPosition(positionToSet + 1);
       } else {
         requestAnimationFrame(() => {
@@ -440,7 +440,7 @@ export default function InputEventsAPI(props, {
             const splitVal = value.split("");
             splitVal[cursorPosition] = keyValue;
             const newVal = splitVal.join("");
-            setValueLocal(newVal);
+            setValueLocal({ value: newVal, triggerDetails: "keydown" });
             isTimeoutActive.value++;
             requestAnimationFrame(() => {
               setCursorPosition(cursorPosition + 1);
@@ -475,7 +475,7 @@ export default function InputEventsAPI(props, {
       if (cursorPosition === 0 && value.length && value[0] === "0") {
         $event.preventDefault();
         const newVal = `${ keyValue }${ value.slice(1) }`;
-        setValueLocal(newVal);
+        setValueLocal({ value: newVal, triggerDetails: "keydown" });
         setCursorPosition(1);
       } else {
         const numberOfSymbols = value.length;
@@ -543,7 +543,7 @@ export default function InputEventsAPI(props, {
       .match(/.{1,3}/g).join(thousandDivider.value)
       .split("").reverse().join("");
     const valueToPaste = [intValToPaste, floatVal].join(decimalDivider.value);
-    handleInput(null, valueToPaste);
+    handleInput(null, { value: valueToPaste, triggerDetails: "paste" });
   };
 
   const onBlurNumber = $event => {
@@ -558,25 +558,25 @@ export default function InputEventsAPI(props, {
           const value = decimalDivider.value
             ? `0${ decimalDivider.value }${ times(decimalPartLength.value, () => "0").join("") }`
             : "0";
-          setValueLocal(value);
+          setValueLocal({ value, trigger: "blur", triggerDetails: "blur" });
         } else {
-          setMinimumValue();
+          setMinimumValue({ trigger: "blur", triggerDetails: "blur" });
         }
         onBlur($event);
 
         return;
       }
       const value = modelUndefinedLocal.value;
-      setValueLocal(value);
+      setValueLocal({ value, trigger: "blur", triggerDetails: "blur" });
       onBlur($event);
 
       return;
     } else if (!isNil(min.value) && modelNumber.value < min.value) {
-      setMinimumValue();
+      setMinimumValue({ trigger: "blur", triggerDetails: "blur" });
 
       return;
     } else if (!isNil(max.value) && modelNumber.value > max.value) {
-      setMaximumValue();
+      setMaximumValue({ triggerDetails: "blur" });
 
       return;
     }
@@ -589,7 +589,7 @@ export default function InputEventsAPI(props, {
       } else if (floatVal.length < decimalPartLength.value) {
         value += `${ times(decimalPartLength.value - floatVal.length, () => "0").join("") }`;
       }
-      setValueLocal(value);
+      setValueLocal({ value, trigger: "blur", triggerDetails: "blur" });
     }
     onBlur($event);
   };
@@ -645,7 +645,7 @@ export default function InputEventsAPI(props, {
           modelUndefinedLocal.value;
       }
       const shouldInitModel = required.value && !hasModel;
-      handleInput(null, valueToSet, !shouldInitModel);
+      handleInput(null, { value: valueToSet, updateOutside: !shouldInitModel, triggerDetails: "init" });
     });
   };
 

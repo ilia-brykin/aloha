@@ -26,12 +26,12 @@ export default function IncreaseDecreaseAPI(props, {
 
   const setMaximumValue = () => {
     const newVal = adjustFloatPartAndDivider(max.value);
-    setCurrentValue(newVal);
+    setCurrentValue({ value: newVal });
   };
 
   const setMinimumValue = () => {
     const newVal = adjustFloatPartAndDivider(min.value);
-    setCurrentValue(newVal);
+    setCurrentValue({ value: newVal });
   };
 
   const increase = () => {
@@ -48,7 +48,7 @@ export default function IncreaseDecreaseAPI(props, {
 
       return;
     }
-    setCurrentValue(adjustFloatPartAndDivider(newValue));
+    setCurrentValue({ value: adjustFloatPartAndDivider(newValue) });
   };
 
   const decrease = () => {
@@ -66,7 +66,7 @@ export default function IncreaseDecreaseAPI(props, {
 
       return;
     }
-    setCurrentValue(adjustFloatPartAndDivider(newValue));
+    setCurrentValue({ value: adjustFloatPartAndDivider(newValue) });
   };
 
   return {

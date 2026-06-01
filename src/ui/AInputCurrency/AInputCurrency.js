@@ -386,7 +386,7 @@ export default {
       const isSameAsLocalModel = newVal === localModel.value;
       if (!isInternalChange.value || !isSameAsLocalModel) {
         localModel.value = newVal;
-        handleInput(null, newVal, true);
+        handleInput(null, { value: newVal, updateOutside: true, triggerDetails: "modelChange" });
       }
       isInternalChange.value = false;
     });

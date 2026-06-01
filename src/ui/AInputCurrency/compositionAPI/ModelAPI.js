@@ -45,7 +45,7 @@ export default function ModelAPI(props, {
       : modelUndefined.value;
   });
 
-  const setCurrentValue = (value, updateOutside = false) => {
+  const setCurrentValue = ({ value, updateOutside = false, trigger, triggerDetails } = {}) => {
     displayValue.value = isNil(value) ? "" : value;
     let newVal;
     if (!required.value && isNil(value)) {
@@ -58,7 +58,7 @@ export default function ModelAPI(props, {
     if (!updateOutside) {
       isInternalChange.value = true;
       localModel.value = newVal;
-      changeModel({ model: newVal });
+      changeModel({ model: newVal, trigger, triggerDetails });
     }
   };
 
@@ -66,7 +66,7 @@ export default function ModelAPI(props, {
     if (disabled.value) {
       return;
     }
-    setCurrentValue(modelUndefinedLocal.value);
+    setCurrentValue({ value: modelUndefinedLocal.value, triggerDetails: "clear" });
   };
 
   return {
