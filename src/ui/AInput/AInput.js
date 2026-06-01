@@ -448,10 +448,11 @@ export default {
             h("div", {
               class: "a_form_control__actions",
             }, [
-              this.iconAppend ? h(AIcon, {
-                icon: this.iconAppend,
-                class: "a_input__icon_append",
-              }) :
+              this.iconAppend
+? h(AIcon, {
+  icon: this.iconAppend,
+  class: "a_input__icon_append",
+}) :
                 "",
               this.isBtnShowPasswordVisible ?
                 h(AButton, {
