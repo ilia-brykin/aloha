@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.53.0
+
+- Feature: add `trigger` and `triggerDetails` to returned arguments for `AInputCurrency`
+
 ## 2.52.0
 
 - Feature: Add `readonly` prop to `ADropdown` with i18n support and examples.
