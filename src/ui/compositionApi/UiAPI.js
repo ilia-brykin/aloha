@@ -54,11 +54,8 @@ export default function UiAPI(props, { emit }, {
       model,
       props: toRefs(props),
       init,
+      trigger,
     };
-
-    if (trigger) {
-      RETURN_ARGS.trigger = trigger;
-    }
 
     if (triggerDetails) {
       RETURN_ARGS.triggerDetails = triggerDetails;
