@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_READONLY_HEADER_"
+  description="_A_DROPDOWN_GROUP_READONLY_DESCRIPTION_"
+  props="has-caret"
+)
+  a-dropdown(
+    :actions="dropdownActions"
+    :readonly="true"
+    button-text="readonly=true"
+  )
+  a-dropdown(
+    class="a_ml_2"
+    :actions="dropdownActions"
+    :readonly="false"
+    button-text="readonly=false"
+  )

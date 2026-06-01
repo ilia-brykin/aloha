@@ -12,6 +12,7 @@ import {
 export default function ClassAPI(props) {
   const buttonClass = toRef(props, "buttonClass");
   const classProps = toRef(props, "class");
+  const readonly = toRef(props, "readonly");
 
   const buttonClassLocal = computed(() => {
     let classLocal = {};
@@ -29,6 +30,9 @@ export default function ClassAPI(props) {
       } else if (isPlainObject(classProps.value)) {
         classLocal = assign(classLocal, classProps.value);
       }
+    }
+    if (readonly.value) {
+      classLocal.readonly = true;
     }
 
     return classLocal;

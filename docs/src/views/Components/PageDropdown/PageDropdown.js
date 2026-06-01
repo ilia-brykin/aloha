@@ -8,9 +8,9 @@ import PageDropdownButtonText from "./PageDropdownButtonText/PageDropdownButtonT
 import PageDropdownCaretIcon from "./PageDropdownCaretIcon/PageDropdownCaretIcon.vue";
 import PageDropdownHasCaret from "./PageDropdownHasCaret/PageDropdownHasCaret.vue";
 import PageDropdownInBody from "./PageDropdownInBody/PageDropdownInBody.vue";
+import PageDropdownReadonly from "./PageDropdownReadonly/PageDropdownReadonly.vue";
 import PageDropdownTriggers from "./PageDropdownTriggers/PageDropdownTriggers.vue";
 import {
-  ADropdown,
   ATranslation,
 } from "aloha-vue";
 
@@ -23,7 +23,6 @@ import SlotsAPI from "./compositionAPI/SlotsAPI";
 export default {
   name: "PageDropdown",
   components: {
-    ADropdown,
     AlohaPage,
     AlohaTableProps,
     ATranslation,
@@ -35,6 +34,7 @@ export default {
     PageDropdownCaretIcon,
     PageDropdownHasCaret,
     PageDropdownInBody,
+    PageDropdownReadonly,
     PageDropdownTriggers,
   },
   setup() {

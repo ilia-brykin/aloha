@@ -277,6 +277,11 @@ export default {
       required: false,
       default: "a_tooltip_container",
     },
+    readonly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     triggers: {
       type: Array,
       required: false,
@@ -366,6 +371,7 @@ export default {
       idLocal,
       buttonAttributesDisabled,
       buttonAttributesLocal,
+      buttonTagLocal,
       dropdownAttributesLocal,
       isMenuRendered,
     } = AttributesAPI(props, {
@@ -409,6 +415,7 @@ export default {
       buttonAttributesDisabled,
       buttonAttributesLocal,
       buttonClassLocal,
+      buttonTagLocal,
       buttonWidth,
       dropdownAttributesLocal,
       dropdownButtonRef,
@@ -441,7 +448,7 @@ export default {
         ...this.$attrs,
         id: this.idLocal,
         alwaysTranslate: this.alwaysTranslate,
-        tag: this.buttonTag,
+        tag: this.buttonTagLocal,
         class: this.buttonClassLocal,
         text: this.buttonText,
         textScreenReader: this.buttonTextScreenReader,
@@ -470,7 +477,7 @@ export default {
           return this.$slots.button && this.$slots.button();
         },
         buttonAppend: () => {
-          return this.hasCaret && h(AIcon, {
+          return this.hasCaret && !this.readonly && h(AIcon, {
             class: "a_dropdown__caret",
             icon: this.caretIcon,
           });

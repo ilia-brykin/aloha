@@ -320,6 +320,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "readonly",
+      description: "_A_DROPDOWN_PROPS_READONLY_DESCRIPTION_",
+      type: "Boolean",
+      default: "false",
+      required: false,
+    },
+    {
       name: "triggers",
       description: "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_",
       type: "Array",

@@ -27,87 +27,8 @@ aloha-page(
 
     page-dropdown-has-caret
 
+    page-dropdown-readonly
+
     aloha-table-props(
       :data="dataProps"
     )
-    //
-    //aloha-table-props(
-    //  table-label="Slots"
-    //  :data="dataSlots"
-    //  :columns="['name', 'description']"
-    //)
-    //
-    //aloha-table-props(
-    //  table-label="Events"
-    //  :data="dataEvents"
-    //  :columns="['name', 'type', 'description']"
-    //)
-    //
-    //aloha-table-props(
-    //  table-label="Exposes"
-    //  :data="dataExposes"
-    //  :columns="['name', 'type', 'description']"
-    //)
-
-
-  a-dropdown(
-    button-class="a_btn a_btn_link"
-    :is-render-default="true"
-  )
-    template(
-      v-slot:button
-    )
-      span Click me
-
-    template(
-      v-slot:dropdown
-    )
-      li
-        button.a_dropdown__item(
-          type="button"
-        ) Item 1
-      li.a_dropdown__divider
-      li
-        button.a_dropdown__item(
-          type="button"
-        ) Item 2
-      li
-        a.a_dropdown__item(
-          href="#"
-        ) Item 3
-
-  a-dropdown.ml_3(
-    button-class="a_btn a_btn_primary"
-    :is-render-default="true"
-    :actions="dropdownActions"
-    button-text="_MORE_ACTIONS_"
-  )
-  a-dropdown.ml_3(
-    button-class="a_btn a_btn_primary"
-    :is-render-default="true"
-    :actions="dropdownActions"
-    button-text="Weitere Aktionen"
-  )
-  a-dropdown.ml_3(
-    button-class="a_btn a_btn_primary"
-    :is-render-default="true"
-    :actions="dropdownActions"
-    button-text="Weitere Aktionen"
-  )
-  a-dropdown.ml_3(
-    button-class="a_btn a_btn_primary"
-    :is-render-default="true"
-    :actions="dropdownActions"
-    button-text="Weitere Aktionen"
-  )
-
-  a-dropdown.ml_3(
-    button-class="a_btn a_btn_primary"
-    :is-render-default="true"
-
-  )
-    template(
-      v-slot:button
-    )
-      span Weitere Aktionen2
-

@@ -16,6 +16,7 @@ export default function EventsAPI(props, {
   timerCloseHover = ref(undefined),
   triggerOpen = ref(undefined),
 }) {
+  const readonly = toRef(props, "readonly");
   const triggers = toRef(props, "triggers");
 
   const triggersObject = computed(() => {
@@ -29,6 +30,10 @@ export default function EventsAPI(props, {
 
   const eventsLocal = computed(() => {
     const EVENTS = {};
+    if (readonly.value) {
+      return EVENTS;
+    }
+
     if (triggersObject.value.click) {
       EVENTS.onClick = onToggle;
       EVENTS.onKeydown = onKeydown;

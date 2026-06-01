@@ -1,3 +1,5 @@
 {
-
+  "_A_DROPDOWN_GROUP_READONLY_HEADER_": "Кнопка выпадающего списка в режиме только для чтения",
+  "_A_DROPDOWN_GROUP_READONLY_DESCRIPTION_": "В этой документации описывается свойство <strong>readonly</strong>, которое делает кнопку выпадающего списка неинтерактивной.",
+  "_A_DROPDOWN_PROPS_READONLY_DESCRIPTION_": "Определяет, находится ли кнопка выпадающего списка в режиме только для чтения без эффектов hover и focus."
 }

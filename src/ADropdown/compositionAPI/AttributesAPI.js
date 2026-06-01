@@ -1,5 +1,6 @@
 import {
   computed,
+  readonly,
   ref,
   toRef,
 } from "vue";
@@ -24,11 +25,19 @@ export default function AttributesAPI(props, {
   const id = toRef(props, "id");
   const menuWidth = toRef(props, "menuWidth");
   const persist = toRef(props, "persist");
+  const readonly = toRef(props, "readonly");
   const useRem = toRef(props, "useRem");
 
   const {
     scalePxWithRem,
   } = ARemPxAPI();
+
+  const buttonTagLocal = computed(() => {
+    if (readonly.value) {
+      return "span";
+    }
+    return buttonTag.value;
+  });
 
   const idLocal = computed(() => {
     return buttonAttributes.value.id || id.value;
@@ -36,6 +45,10 @@ export default function AttributesAPI(props, {
 
   const buttonAttributesLocal = computed(() => {
     const BUTTON_ATTRIBUTES = cloneDeep(buttonAttributes.value);
+    if (readonly.value) {
+      return BUTTON_ATTRIBUTES;
+    }
+
     BUTTON_ATTRIBUTES["aria-haspopup"] = "true";
     BUTTON_ATTRIBUTES["aria-expanded"] = statusExpanded.value;
 
@@ -54,6 +67,7 @@ export default function AttributesAPI(props, {
         ATTRIBUTES.ariaDisabled = true;
       }
     }
+
     return ATTRIBUTES;
   });
 
@@ -80,6 +94,7 @@ export default function AttributesAPI(props, {
     idLocal,
     buttonAttributesDisabled,
     buttonAttributesLocal,
+    buttonTagLocal,
     dropdownAttributesLocal,
     isMenuRendered,
   };
