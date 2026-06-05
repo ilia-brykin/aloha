@@ -30,6 +30,7 @@
   "_A_DISCLOSURE_GROUP_SAFE_HTML_HEADER_": "Visualizzazione di contenuti HTML attendibili",
   "_A_DISCLOSURE_GROUP_SLOTS_DESCRIPTION_": "In questo esempio viene mostrato come utilizzare gli slot per personalizzare individualmente le diverse parti del componente. Usa tre slot: <strong>button</strong>, <strong>less</strong> e <strong>more</strong> per personalizzare il pulsante e le sezioni di testo sottostanti.",
   "_A_DISCLOSURE_GROUP_SLOTS_HEADER_": "Utilizzo degli slot per personalizzazioni personalizzate",
+  "_A_DISCLOSURE_GROUP_TITLE_MORE_": "Mostra testo esteso",
   "_A_DISCLOSURE_PROPS_BTN_CLASS_DESCRIPTION_": "Le classi CSS per il pulsante \"Mostra di più/Mostra di meno\".",
   "_A_DISCLOSURE_PROPS_BTN_ICON_LEFT_LESS_DESCRIPTION_": "L'icona visualizzata a sinistra del pulsante \"Mostra meno\".",
   "_A_DISCLOSURE_PROPS_BTN_ICON_LEFT_MORE_DESCRIPTION_": "L'icona visualizzata a sinistra del pulsante \"Mostra di più\".",

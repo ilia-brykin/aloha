@@ -30,6 +30,7 @@
   "_A_DISCLOSURE_GROUP_SAFE_HTML_HEADER_": "Отображение доверенного HTML-контента",
   "_A_DISCLOSURE_GROUP_SLOTS_DESCRIPTION_": "В этом примере показано, как использовать слоты для индивидуальной настройки частей компонента. Используются три слота: <strong>button</strong>, <strong>less</strong> и <strong>more</strong> для настройки кнопки и текстовых разделов под ней.",
   "_A_DISCLOSURE_GROUP_SLOTS_HEADER_": "Использование слотов для индивидуальной настройки",
+  "_A_DISCLOSURE_GROUP_TITLE_MORE_": "Показать расширенный текст",
   "_A_DISCLOSURE_PROPS_BTN_CLASS_DESCRIPTION_": "CSS-классы для кнопки \"Показать больше/Показать меньше\"",
   "_A_DISCLOSURE_PROPS_BTN_ICON_LEFT_LESS_DESCRIPTION_": "Иконка, отображаемая с левой стороны кнопки \"Показать меньше\".",
   "_A_DISCLOSURE_PROPS_BTN_ICON_LEFT_MORE_DESCRIPTION_": "Иконка, отображаемая с левой стороны кнопки \"Показать больше\".",

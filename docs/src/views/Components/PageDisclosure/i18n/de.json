@@ -30,6 +30,7 @@
   "_A_DISCLOSURE_GROUP_SAFE_HTML_HEADER_": "Vertrauenswürdige HTML-Inhalte anzeigen",
   "_A_DISCLOSURE_GROUP_SLOTS_DESCRIPTION_": "In diesem Beispiel wird gezeigt, wie Sie Slots verwenden können, um die einzelnen Teile der Komponente individuell zu gestalten. Es werden drei Slots verwendet: <strong>button</strong>, <strong>less</strong> und <strong>more</strong>, um den Button und die darunterliegenden Textabschnitte anzupassen.",
   "_A_DISCLOSURE_GROUP_SLOTS_HEADER_": "Verwendung von Slots für individuelle Gestaltung",
+  "_A_DISCLOSURE_GROUP_TITLE_MORE_": "Erweiterten Text anzeigen",
   "_A_DISCLOSURE_PROPS_BTN_CLASS_DESCRIPTION_": "die CSS-Klassen für den \"Mehr anzeigen/Weniger anzeigen\"-Button",
   "_A_DISCLOSURE_PROPS_BTN_ICON_LEFT_LESS_DESCRIPTION_": "Das Icon, das auf der linken Seite des \"Weniger anzeigen\"-Buttons angezeigt wird.",
   "_A_DISCLOSURE_PROPS_BTN_ICON_LEFT_MORE_DESCRIPTION_": "Das Icon, das auf der linken Seite des \"Mehr anzeigen\"-Buttons angezeigt wird.",
