@@ -1,4 +1,6 @@
 {
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Specifica se l'intera area di avviso deve essere annunciata dalle tecnologie assistive quando il suo contenuto cambia.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Definisce il ruolo ARIA del componente di avviso.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Visualizza messaggi di avviso importanti.",
   "_A_ALERT_COMPONENT_NAME_": "avviso",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Emesso quando l'avviso viene chiuso.",

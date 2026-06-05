@@ -3,6 +3,7 @@
   "_A_LINK_COMPONENT_NAME_": "رابط",
   "_A_LINK_EXAMPLE_BIG_TITLE_": "<div>هذا هو <strong>تلميح HTML الخاص بي!!!!</strong></div><div>السطر الثاني</div><div>السطر الثالث</div>",
   "_A_LINK_EXAMPLE_HTML_": "<span onclick='alert(\"Aloha\")'>Aloha</button>",
+  "_A_LINK_GROUP_BASIC_DESCRIPTION_": "يتم تعريف الرابط بواسطة النص المرئي ومرجع داخلي (<strong>to</strong>) أو خارجي (<strong>href</strong>) يشير إليه الرابط.",
   "_A_LINK_GROUP_CLASS_DESCRIPTION_": "مكون ALink هو مكون Vue.js يوفر أنماطًا مخصصة للروابط. مع هذا المكون، يمكنك استخدام فئات محددة مسبقًا لتخصيص نمط الرابط بناءً على التصميم المطلوب. تتيح لك هذه المرونة دمج الروابط بسلاسة في مشروع Vue.js الخاص بك والحفاظ على جمالية بصرية متسقة.",
   "_A_LINK_GROUP_CLASS_HEADER_": "روابط بأنماط مخصصة",
   "_A_LINK_GROUP_COMPLEX_DESCRIPTION_": "يسمح لك مكون ALink باستخدام العديد من الخصائص المعقدة لتخصيص الرابط والتحكم فيه بوظائف متقدمة. في المثال التالي، يتم استخدام عدة خصائص لتكوين الرابط والتحكم في التحميل.",

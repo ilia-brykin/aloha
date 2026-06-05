@@ -3,6 +3,7 @@
   "_A_LINK_COMPONENT_NAME_": "Link",
   "_A_LINK_EXAMPLE_BIG_TITLE_": "<div>DAS IST MEIN <strong>HTML-TOOLTIP!!!!</strong></div><div>Zweite Zeile</div><div>Dritte Zeile</div>",
   "_A_LINK_EXAMPLE_HTML_": "<span onclick='alert(\"Aloha\")'>Aloha</button>",
+  "_A_LINK_GROUP_BASIC_DESCRIPTION_": "Der Link wird durch den sichtbaren Text und eine interne Referenz (<strong>to</strong>) oder externe Referenz (<strong>href</strong>) definiert, auf die der Link verweist.",
   "_A_LINK_GROUP_CLASS_DESCRIPTION_": "Die ALink-Komponente ist eine Vue.js-Komponente, die benutzerdefinierte Stile für Links bereitstellt. Mit dieser Komponente können Sie verschiedene vordefinierte Klassen verwenden, um den Link-Stil basierend auf dem gewünschten Design anzupassen. Diese Flexibilität ermöglicht es Ihnen, Links nahtlos in Ihr Vue.js-Projekt zu integrieren und eine konsistente visuelle Ästhetik beizubehalten.",
   "_A_LINK_GROUP_CLASS_HEADER_": "Links mit individuellen Stilen",
   "_A_LINK_GROUP_COMPLEX_DESCRIPTION_": "Die ALink-Komponente ermöglicht es Ihnen, verschiedene komplexe Props zu verwenden, um den Link mit erweiterten Funktionen anzupassen und zu steuern. Im folgenden Beispiel werden mehrere Props verwendet, um den Link zu konfigurieren und das Laden zu steuern.",

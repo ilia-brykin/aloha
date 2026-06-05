@@ -3,6 +3,7 @@
   "_A_LINK_COMPONENT_NAME_": "Enlace",
   "_A_LINK_EXAMPLE_BIG_TITLE_": "<div>¡ESTE ES MI <strong>TOOLTIP HTML!!!!</strong></div><div>Segunda línea</div><div>Tercera línea</div>",
   "_A_LINK_EXAMPLE_HTML_": "<span onclick='alert(\"Aloha\")'>Aloha</button>",
+  "_A_LINK_GROUP_BASIC_DESCRIPTION_": "El enlace se define mediante el texto visible y una referencia interna (<strong>to</strong>) o externa (<strong>href</strong>) a la que apunta el enlace.",
   "_A_LINK_GROUP_CLASS_DESCRIPTION_": "El componente ALink es un componente de Vue.js que proporciona estilos personalizados para los enlaces. Con este componente, puede utilizar varias clases predefinidas para personalizar el estilo del enlace según el diseño deseado. Esta flexibilidad le permite integrar enlaces sin problemas en su proyecto Vue.js y mantener una estética visual coherente.",
   "_A_LINK_GROUP_CLASS_HEADER_": "Enlaces con estilos personalizados",
   "_A_LINK_GROUP_COMPLEX_DESCRIPTION_": "El componente ALink le permite utilizar varias propiedades complejas para personalizar y controlar el enlace con funciones avanzadas. En el siguiente ejemplo, se utilizan varias propiedades para configurar el enlace y controlar la carga.",

@@ -1,4 +1,6 @@
 {
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Especifica si toda la región de alerta debe ser anunciada por las tecnologías de asistencia cuando cambie su contenido.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Define el rol ARIA del componente de alerta.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Muestra mensajes de alerta importantes.",
   "_A_ALERT_COMPONENT_NAME_": "advertencia",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Se desencadena cuando se cierra la alerta.",

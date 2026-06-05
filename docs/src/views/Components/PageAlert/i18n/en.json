@@ -1,4 +1,6 @@
 {
+  "_A_ALERT_PROPS_ARIA_ATOMIC_DESCRIPTION_": "Specifies whether the entire alert region should be announced by assistive technologies when its content changes.",
+  "_A_ALERT_PROPS_ROLE_DESCRIPTION_": "Defines the ARIA role of the alert component.",
   "_A_ALERT_COMPONENT_DESCRIPTION_": "Displays important alert messages.",
   "_A_ALERT_COMPONENT_NAME_": "warning",
   "_A_ALERT_EVENTS_CLOSE_DESCRIPTION_": "Trigger when alert is closed",
