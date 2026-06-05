@@ -1,3 +1,18 @@
 {
-
+  "_A_BUTTON_DROPDOWN_COMPONENT_COMPONENT_NAME_": "Agrupación de botones y enlaces",
+  "_A_GROUP_BUTTON_DROPDOWN_COMPONENT_DESCRIPTION_": "Este componente permite configurar de forma flexible una agrupación de botones y enlaces.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_BASIC_DESCRIPTION_": "Este ejemplo muestra tres botones sin configuración adicional.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_HEADER_": "Diferentes representaciones",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Las acciones se pueden mostrar de distintas maneras: como una fila simple, como un desplegable o como una combinación de botones y un desplegable.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_HEADER_": "Uno o dos botones",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_DESCRIPTION_": "El componente se renderiza de forma diferente según la cantidad de acciones.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_HEADER_": "Espaciado entre botón y desplegable",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "El desplegable puede mostrarse con o sin separación respecto a los botones.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_HEADER_": "Clases de botones",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "Puedes asignar clases a los botones en un orden específico. Por ejemplo, el primer botón puede ser siempre <strong>primary</strong>, el segundo siempre <strong>secondary</strong> y así sucesivamente.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_HEADER_": "Deshabilitado",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Se pueden deshabilitar todos los botones y el desplegable.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Configuración del botón desplegable",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "El botón desplegable se puede configurar. Todas las props de <strong>ADropdown</strong> se pueden usar dentro del objeto <strong>dropdown-attributes</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Otras acciones"
 }

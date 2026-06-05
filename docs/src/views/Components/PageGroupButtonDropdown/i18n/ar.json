@@ -1,3 +1,18 @@
 {
-
+  "_A_BUTTON_DROPDOWN_COMPONENT_COMPONENT_NAME_": "تجميع الأزرار والروابط",
+  "_A_GROUP_BUTTON_DROPDOWN_COMPONENT_DESCRIPTION_": "يتيح هذا المكوّن ضبط تجميع الأزرار والروابط بشكل مرن.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_BASIC_DESCRIPTION_": "يوضح هذا المثال ثلاثة أزرار بدون إعدادات إضافية.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_HEADER_": "أنماط عرض مختلفة",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "يمكن عرض الإجراءات بطرق مختلفة: كسطر بسيط، أو كقائمة منسدلة، أو كمزيج من الأزرار والقائمة المنسدلة.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_HEADER_": "زر واحد أو زران",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_DESCRIPTION_": "يتم عرض المكوّن بشكل مختلف حسب عدد الإجراءات.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_HEADER_": "المسافة بين الزر والقائمة المنسدلة",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "يمكن عرض القائمة المنسدلة مع مسافة فاصلة عن الأزرار أو بدونها.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_HEADER_": "فئات الأزرار",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "يمكنك تعيين فئات الأزرار بترتيب محدد. على سبيل المثال، يمكن أن يكون الزر الأول دائمًا <strong>primary</strong>، والثاني دائمًا <strong>secondary</strong>، وهكذا.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_HEADER_": "معطّل",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "يمكن تعطيل جميع الأزرار والقائمة المنسدلة.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "إعداد زر القائمة المنسدلة",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "يمكن إعداد زر القائمة المنسدلة. يمكن استخدام جميع خصائص <strong>ADropdown</strong> داخل الكائن <strong>dropdown-attributes</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "إجراءات أخرى"
 }

@@ -1,3 +1,18 @@
 {
-
+  "_A_BUTTON_DROPDOWN_COMPONENT_COMPONENT_NAME_": "Grupiranje gumba i poveznica",
+  "_A_GROUP_BUTTON_DROPDOWN_COMPONENT_DESCRIPTION_": "Ova komponenta omogućuje fleksibilno podešavanje grupiranja gumba i poveznica.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_BASIC_DESCRIPTION_": "Ovaj primjer prikazuje tri gumba bez dodatne konfiguracije.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_HEADER_": "Različiti prikazi",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Akcije se mogu prikazati na različite načine: kao jednostavan red, kao padajući izbornik ili kao kombinacija gumba i padajućeg izbornika.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_HEADER_": "Jedan ili dva gumba",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_DESCRIPTION_": "Komponenta se prikazuje različito ovisno o broju akcija.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_HEADER_": "Razmak između gumba i padajućeg izbornika",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Padajući izbornik može se prikazati s razmakom od gumba ili bez njega.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_HEADER_": "Klase gumba",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "Klasama gumba može se upravljati u određenom redoslijedu. Na primjer, prvi gumb uvijek može biti <strong>primary</strong>, drugi uvijek <strong>secondary</strong> i tako dalje.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_HEADER_": "Onemogućeno",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Mogu se onemogućiti svi gumbi i padajući izbornik.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Konfiguracija gumba padajućeg izbornika",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Gumb padajućeg izbornika može se konfigurirati. Svi propsi komponente <strong>ADropdown</strong> mogu se koristiti unutar objekta <strong>dropdown-attributes</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Ostale akcije"
 }

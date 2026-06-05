@@ -1,3 +1,18 @@
 {
-
+  "_A_BUTTON_DROPDOWN_COMPONENT_COMPONENT_NAME_": "Grouped buttons and links",
+  "_A_GROUP_BUTTON_DROPDOWN_COMPONENT_DESCRIPTION_": "This component allows you to flexibly configure a group of buttons and links.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_BASIC_DESCRIPTION_": "This example shows three buttons without additional configuration.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_HEADER_": "Different renderings",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "The actions can be displayed in different ways: as a simple row, as a dropdown, or as a combination of buttons and a dropdown.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_HEADER_": "One or two buttons",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_DESCRIPTION_": "The component is rendered differently depending on the number of actions.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_HEADER_": "Spacing between button and dropdown",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "The dropdown can be displayed with or without spacing from the buttons.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_HEADER_": "Button classes",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "You can assign button classes in a specific order. For example, the first button can always be <strong>primary</strong>, the second always <strong>secondary</strong>, and so on.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_HEADER_": "Disabled",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "All buttons and the dropdown can be disabled.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Dropdown button configuration",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "The dropdown button can be configured. All props of <strong>ADropdown</strong> can be used inside the <strong>dropdown-attributes</strong> object.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Other actions"
 }

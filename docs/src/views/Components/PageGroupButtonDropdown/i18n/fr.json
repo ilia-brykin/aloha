@@ -1,3 +1,18 @@
 {
-
+  "_A_BUTTON_DROPDOWN_COMPONENT_COMPONENT_NAME_": "Regroupement de boutons et de liens",
+  "_A_GROUP_BUTTON_DROPDOWN_COMPONENT_DESCRIPTION_": "Ce composant permet de configurer de manière flexible un groupe de boutons et de liens.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_BASIC_DESCRIPTION_": "Cet exemple montre trois boutons sans configuration supplémentaire.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_HEADER_": "Différents rendus",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Les actions peuvent être affichées de différentes manières : sous forme d'une simple ligne, d'un menu déroulant ou d'une combinaison de boutons et de menu déroulant.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_HEADER_": "Un ou deux boutons",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_INDEX_FIRST_DROPDOWN_ACTION_ONE_DESCRIPTION_": "Le composant est rendu différemment selon le nombre d'actions.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_HEADER_": "Espacement entre le bouton et le menu déroulant",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Le menu déroulant peut être affiché avec ou sans espace par rapport aux boutons.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_HEADER_": "Classes des boutons",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_ACTIONS_CLASSES_DESCRIPTION_": "Vous pouvez attribuer des classes aux boutons dans un ordre précis. Par exemple, le premier bouton peut toujours être <strong>primary</strong>, le second toujours <strong>secondary</strong>, et ainsi de suite.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_HEADER_": "Désactivé",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Tous les boutons et le menu déroulant peuvent être désactivés.",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Configuration du bouton du menu déroulant",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Le bouton du menu déroulant peut être configuré. Toutes les props de <strong>ADropdown</strong> peuvent être utilisées dans l'objet <strong>dropdown-attributes</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Autres actions"
 }
