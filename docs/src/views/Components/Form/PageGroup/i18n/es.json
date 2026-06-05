@@ -1,3 +1,4 @@
 {
-
+  "_A_GROUP_COMPONENT_NAME_": "Grupo",
+  "_A_GROUP_COMPONENT_DESCRIPTION_": "AGroup es un componente para mostrar y gestionar elementos de formulario u opciones agrupadas. Admite etiquetas, texto de ayuda, errores, agrupacion, ordenacion, busqueda y otras configuraciones para una presentacion flexible de los datos."
 }

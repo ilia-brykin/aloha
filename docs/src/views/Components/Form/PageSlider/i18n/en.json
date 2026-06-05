@@ -1,3 +1,20 @@
 {
-
+  "_A_SLIDER_COMPONENT_NAME_": "Slider",
+  "_A_SLIDER_COMPONENT_DESCRIPTION_": "ASlider is a component for selecting a numeric value or a range within a specified interval. It supports minimum and maximum limits, step values, ranges, stop markers, and display customization.",
+  "_A_SLIDER_BASIC_LABEL_": "Slider",
+  "_A_SLIDER_DISABLED_LABEL_": "Disabled slider",
+  "_A_SLIDER_GROUP_RANGE_HEADER_": "Range selection",
+  "_A_SLIDER_GROUP_RANGE_DESCRIPTION_": "This example shows how to use the <strong lang=\"en\">range</strong> prop so the slider can select a range between two values.",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "Minimum, maximum, and step",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "This example shows how to configure the slider with custom <strong lang=\"en\">min</strong>, <strong lang=\"en\">max</strong>, and <strong lang=\"en\">step</strong> values.",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "Slider (min: {{ min }}, max: {{ max }}, step: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "Range slider (min: {{ min }}, max: {{ max }}, step: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "Range slider (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "Slider (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "Data-based values",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "This example shows how to use the <strong lang=\"en\">data</strong> prop together with <strong lang=\"en\">key-id</strong> so the slider values are derived from predefined data entries.",
+  "_A_SLIDER_LABEL_NOT_SHOW_STOPS_": "Slider without stop markers",
+  "_A_SLIDER_LABEL_SHOW_STOPS_": "Slider with stop markers",
+  "_A_UI_GROUP_SHOW_STOPS_HEADER_": "Stop markers",
+  "_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">show-stops</strong> to display intermediate stop markers on the slider."
 }

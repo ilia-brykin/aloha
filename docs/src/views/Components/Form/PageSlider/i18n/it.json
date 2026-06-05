@@ -1,3 +1,20 @@
 {
-
+  "_A_SLIDER_COMPONENT_NAME_": "Slider",
+  "_A_SLIDER_COMPONENT_DESCRIPTION_": "ASlider e un componente per selezionare un valore numerico o un intervallo all'interno di un range definito. Supporta limiti minimi e massimi, passi, intervalli, indicatori intermedi e personalizzazione della visualizzazione.",
+  "_A_SLIDER_BASIC_LABEL_": "Slider",
+  "_A_SLIDER_DISABLED_LABEL_": "Slider disabilitato",
+  "_A_SLIDER_GROUP_RANGE_HEADER_": "Selezione dell'intervallo",
+  "_A_SLIDER_GROUP_RANGE_DESCRIPTION_": "Questo esempio mostra come utilizzare la proprieta <strong lang=\"en\">range</strong> in modo che lo slider possa selezionare un intervallo tra due valori.",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "Minimo, massimo e passo",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "Questo esempio mostra come configurare lo slider con valori personalizzati per <strong lang=\"en\">min</strong>, <strong lang=\"en\">max</strong> e <strong lang=\"en\">step</strong>.",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "Slider (min: {{ min }}, max: {{ max }}, passo: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "Slider intervallo (min: {{ min }}, max: {{ max }}, passo: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "Slider intervallo (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "Slider (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "Valori basati sui dati",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "Questo esempio mostra come utilizzare la proprieta <strong lang=\"en\">data</strong> insieme a <strong lang=\"en\">key-id</strong> in modo che i valori dello slider derivino da voci di dati predefinite.",
+  "_A_SLIDER_LABEL_NOT_SHOW_STOPS_": "Slider senza indicatori",
+  "_A_SLIDER_LABEL_SHOW_STOPS_": "Slider con indicatori",
+  "_A_UI_GROUP_SHOW_STOPS_HEADER_": "Indicatori intermedi",
+  "_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_": "Questo esempio mostra come utilizzare <strong lang=\"en\">show-stops</strong> per visualizzare indicatori intermedi sullo slider."
 }

@@ -144,5 +144,8 @@
   "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "عنوان <strong lang=\"en\">URL</strong> اختياري يستخدم خصيصا لاسترجاع القيم المحددة مسبقا والمفقودة من القائمة الرئيسية المحملة.",
   "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "معلمات اختيارية ستضاف فقط إلى طلب retrieve المستخدم لتحميل القيم المحددة المفقودة.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "المعلمات التي سيتم إضافتها إلى طلب <strong lang=\"en\">URL</strong> عند تحميل البيانات من الخادم. تتيح هذه المعلمات تصفية البيانات المستردة من <strong lang=\"en\">API</strong> أو تعديلها.",
-  "_A_UI_TYPES_FOR_USE_": "الأنواع المتاحة للاستخدام."
+  "_A_UI_TYPES_FOR_USE_": "الأنواع المتاحة للاستخدام.",
+  "_A_UI_GROUP_DEFAULT_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام الخاصية <strong lang=\"en\">default</strong> لتعيين القيمة الأولية للمكون عندما لا يتم تمرير قيمة للنموذج.",
+  "_A_UI_PROPS_DEFAULT_DESCRIPTION_": "يعين القيمة الافتراضية التي تستخدم لتهيئة المكون عندما يكون <strong lang=\"en\">model-value</strong> غير معرف.",
+  "_A_UI_GROUP_DEFAULT_HEADER_": "القيمة الافتراضية"
 }

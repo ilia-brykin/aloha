@@ -1,4 +1,5 @@
 {
+  "_A_SELECT_ICON_PROPS_TYPE_DESCRIPTION_": "Definira vrstu selektora. Podrzane vrijednosti su <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectIcon</strong>, <strong lang=\"en\">multiselect</strong> i <strong lang=\"en\">multiselectIcon</strong>.",
   "_A_SELECT_ICON_COMPONENT_NAME_": "Odabir ikone",
-  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Komponenta temeljena na <strong lang=\"en\">ASelect</strong> koja omogućuje odabir jedne ili više ikona dostupnih u sustavu. Podržava pretraživanje, grupiranje, prilagodbu prikaza i upravljanje ikonama."
+  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Komponenta temeljena na <strong lang=\"en\">ASelect</strong> koja omogucuje odabir jedne ili vise ikona dostupnih u sustavu. Podrzava pretrazivanje, grupiranje, prilagodbu prikaza i upravljanje ikonama."
 }

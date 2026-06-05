@@ -1,3 +1,20 @@
 {
-
+  "_A_SLIDER_COMPONENT_NAME_": "Slider",
+  "_A_SLIDER_COMPONENT_DESCRIPTION_": "ASlider ist eine Komponente zur Auswahl eines numerischen Werts oder eines Bereichs innerhalb eines festgelegten Intervalls. Sie unterstutzt minimale und maximale Grenzen, Schrittwerte, Bereiche, Markierungen und die Anpassung der Darstellung.",
+  "_A_SLIDER_BASIC_LABEL_": "Slider",
+  "_A_SLIDER_DISABLED_LABEL_": "Deaktivierter Slider",
+  "_A_SLIDER_GROUP_RANGE_HEADER_": "Bereichsauswahl",
+  "_A_SLIDER_GROUP_RANGE_DESCRIPTION_": "Dieses Beispiel zeigt, wie die Eigenschaft <strong lang=\"en\">range</strong> verwendet wird, damit der Slider einen Bereich zwischen zwei Werten auswahlen kann.",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "Minimum, Maximum und Schritt",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "Dieses Beispiel zeigt, wie der Slider mit benutzerdefinierten Werten fur <strong lang=\"en\">min</strong>, <strong lang=\"en\">max</strong> und <strong lang=\"en\">step</strong> konfiguriert wird.",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "Slider (Min: {{ min }}, Max: {{ max }}, Schritt: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "Bereichs-Slider (Min: {{ min }}, Max: {{ max }}, Schritt: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "Bereichs-Slider (Min: {{ min }}, Max: {{ max }})",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "Slider (Min: {{ min }}, Max: {{ max }})",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "Datenbasierte Werte",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "Dieses Beispiel zeigt, wie die Eigenschaft <strong lang=\"en\">data</strong> zusammen mit <strong lang=\"en\">key-id</strong> verwendet wird, damit die Slider-Werte aus vordefinierten Dateneintragen abgeleitet werden.",
+  "_A_SLIDER_LABEL_NOT_SHOW_STOPS_": "Slider ohne Markierungen",
+  "_A_SLIDER_LABEL_SHOW_STOPS_": "Slider mit Markierungen",
+  "_A_UI_GROUP_SHOW_STOPS_HEADER_": "Markierungen",
+  "_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_": "Dieses Beispiel zeigt, wie <strong lang=\"en\">show-stops</strong> verwendet wird, um Zwischenmarkierungen auf dem Slider anzuzeigen."
 }

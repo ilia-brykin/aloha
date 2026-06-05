@@ -1,4 +1,8 @@
 {
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "Router link config",
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">ARouterLinkConfig</strong> component provides an interface for configuring navigation links with route, query, params, and target values. It is useful when links need to be built dynamically from form data.",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_": "Type",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_": "This example shows how to use the <strong lang=\"en\">type</strong> prop to switch between single-route and multi-route selection modes.",
   "_A_INPUT_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">AInput</strong> component provides data input functionality with support for various data types such as <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong>, and others. The component supports icon display, a clear button, and the ability to show/hide the password.",
   "_A_INPUT_COMPONENT_NAME_": "Text field",
   "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "This example shows how to use an input field with the type <strong lang=\"en\">password</strong> and the ability to toggle password visibility using <strong lang=\"en\">show-password</strong>. In the first field, the user can switch between showing and hiding the password, while in the second field this feature is disabled.",

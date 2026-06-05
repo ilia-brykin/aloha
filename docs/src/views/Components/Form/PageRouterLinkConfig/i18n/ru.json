@@ -1,6 +1,14 @@
 {
-  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_",
-  "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_": "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_",
-  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_": "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_",
-  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_": "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_"
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "Конфигурация router-ссылки",
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ARouterLinkConfig</strong> предоставляет интерфейс для настройки навигационных ссылок со значениями route, query, params и target. Он полезен, когда ссылки нужно динамически собирать из данных формы.",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_": "Тип",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_": "В этом примере показано, как использовать свойство <strong lang=\"en\">type</strong> для переключения между режимами выбора одного маршрута и нескольких маршрутов.",
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AInput</strong> предоставляет функциональность ввода данных с поддержкой различных типов данных, таких как <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> и другие. Компонент поддерживает отображение иконок, кнопку очистки и возможность показывать/скрывать пароль.",
+  "_A_INPUT_COMPONENT_NAME_": "Текстовое поле",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "В этом примере показано, как использовать поле ввода с типом <strong lang=\"en\">password</strong> и возможностью переключения видимости пароля с помощью <strong lang=\"en\">show-password</strong>. В первом поле пользователь может переключаться между отображением и скрытием пароля, а во втором это поведение отключено.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Поле ввода пароля",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Определяет иконку, которая будет отображаться перед полем ввода. Эта иконка может использоваться для улучшения визуального восприятия или указания типа вводимых данных.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Работает, когда тип поля ввода установлен в <strong lang=\"en\">password</strong>. Позволяет переключать видимость введенного пароля, давая пользователю возможность видеть пароль во время ввода.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Используется для типов <strong lang=\"en\">number</strong> или <strong lang=\"en\">integer</strong>. Задает шаг изменения значения, например, при увеличении или уменьшении числа с помощью стрелок клавиатуры.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Определяет тип вводимого значения. Поддерживаются различные типы данных, такие как <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> и другие."
 }

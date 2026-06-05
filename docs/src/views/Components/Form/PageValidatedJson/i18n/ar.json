@@ -1,1 +1,7 @@
-{}
+{
+  "_A_VALIDATED_JSON_COMPONENT_NAME_": "JSON متحقق منه",
+  "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson هو مكون لتحرير البيانات المهيكلة مع قواعد تحقق. يدعم اوضاع العنصر المفرد، والقائمة، وJSON، ويساعد المستخدمين على ادارة بيانات النماذج المعقدة بشكل آمن.",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "عنصر",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "عناصر",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "كائن JSON"
+}

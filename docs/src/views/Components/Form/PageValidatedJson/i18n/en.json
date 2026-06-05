@@ -1,1 +1,7 @@
-{}
+{
+  "_A_VALIDATED_JSON_COMPONENT_NAME_": "Validated JSON",
+  "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson is a component for editing structured data with validation rules. It supports single-item, list, and JSON modes and helps users manage complex form data safely.",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Element",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Elements",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "JSON object"
+}

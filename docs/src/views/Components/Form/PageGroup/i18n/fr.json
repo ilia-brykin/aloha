@@ -1,3 +1,4 @@
 {
-
+  "_A_GROUP_COMPONENT_NAME_": "Groupe",
+  "_A_GROUP_COMPONENT_DESCRIPTION_": "AGroup est un composant permettant d'afficher et de gerer des elements de formulaire ou des options groupes. Il prend en charge les libelles, les textes d'aide, les erreurs, le regroupement, le tri, la recherche et d'autres reglages pour une presentation flexible des donnees."
 }

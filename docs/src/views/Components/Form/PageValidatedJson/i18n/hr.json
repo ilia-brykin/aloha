@@ -1,1 +1,7 @@
-{}
+{
+  "_A_VALIDATED_JSON_COMPONENT_NAME_": "Validirani JSON",
+  "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson je komponenta za uredivanje strukturiranih podataka s pravilima validacije. Podrzava nacine rada za jedan element, listu i JSON te pomaze korisnicima da sigurno upravljaju slozenim podacima obrasca.",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Element",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Elementi",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "JSON objekt"
+}

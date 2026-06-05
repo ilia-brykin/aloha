@@ -1,4 +1,5 @@
 {
-  "_A_SELECT_ICON_COMPONENT_NAME_": "Sélecteur d’icônes",
-  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Composant basé sur <strong lang=\"en\">ASelect</strong> permettant de sélectionner une ou plusieurs icônes disponibles dans le système. Prend en charge la recherche, le regroupement, la personnalisation de l'affichage et la gestion des icônes."
+  "_A_SELECT_ICON_PROPS_TYPE_DESCRIPTION_": "Definit le type du selecteur. Les valeurs prises en charge sont <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectIcon</strong>, <strong lang=\"en\">multiselect</strong> et <strong lang=\"en\">multiselectIcon</strong>.",
+  "_A_SELECT_ICON_COMPONENT_NAME_": "Selecteur d'icones",
+  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Composant base sur <strong lang=\"en\">ASelect</strong> permettant de selectionner une ou plusieurs icones disponibles dans le systeme. Prend en charge la recherche, le regroupement, la personnalisation de l'affichage et la gestion des icones."
 }

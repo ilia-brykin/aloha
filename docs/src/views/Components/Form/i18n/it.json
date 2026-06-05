@@ -144,5 +144,8 @@
   "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "Un <strong lang=\"en\">URL</strong> opzionale utilizzato specificamente per recuperare i valori già selezionati che mancano nell'elenco principale caricato.",
   "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "Parametri opzionali che verranno aggiunti solo alla richiesta retrieve usata per caricare i valori selezionati mancanti.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "I parametri che verranno aggiunti alla richiesta <strong lang=\"en\">URL</strong> durante il caricamento dei dati dal server. Questi parametri consentono di filtrare o modificare i dati ottenuti tramite l'<strong lang=\"en\">API</strong>.",
-  "_A_UI_TYPES_FOR_USE_": "Tipi disponibili per l'uso."
+  "_A_UI_TYPES_FOR_USE_": "Tipi disponibili per l'uso.",
+  "_A_UI_GROUP_DEFAULT_DESCRIPTION_": "Questo esempio mostra come utilizzare la proprietà <strong lang=\"en\">default</strong> per impostare il valore iniziale del componente quando non viene fornito alcun valore di modello.",
+  "_A_UI_PROPS_DEFAULT_DESCRIPTION_": "Imposta il valore predefinito utilizzato per inizializzare il componente quando <strong lang=\"en\">model-value</strong> non è definito.",
+  "_A_UI_GROUP_DEFAULT_HEADER_": "Valore predefinito"
 }

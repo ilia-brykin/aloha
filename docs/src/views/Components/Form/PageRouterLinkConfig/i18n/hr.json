@@ -1,10 +1,14 @@
 {
-  "_A_INPUT_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">AInput</strong> pruža funkcionalnost unosa podataka s podrškom za različite vrste podataka kao što su <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> i druge. Komponenta podržava prikaz ikona, gumb za brisanje te mogućnost prikazivanja/sakrivanja lozinke.",
-  "_A_INPUT_COMPONENT_NAME_": "Tekstualno Polje",
-  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti polje za unos s tipom <strong lang=\"en\">password</strong> i mogućnost prebacivanja vidljivosti lozinke pomoću <strong lang=\"en\">show-password</strong>. U prvom polju korisnik može mijenjati između prikazivanja i sakrivanja lozinke, dok je u drugom polju ta funkcija onemogućena.",
-  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Polje za Unos Lozinke",
-  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Određuje ikonu koja će se prikazati prije polja za unos. Ova ikona može se koristiti za poboljšanje vizualne percepcije ili za označavanje vrste unesnih podataka.",
-  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Radi kada je tip unosa <strong lang=\"en\">password</strong>. Omogućuje prebacivanje vidljivosti unesene lozinke, dajući korisniku mogućnost da vidi unos lozinke.",
-  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Koristi se za tipove <strong lang=\"en\">number</strong> ili <strong lang=\"en\">integer</strong>. Određuje korak za promjenu vrijednosti, na primjer, pri povećanju ili smanjenju broja pomoću strelica na tipkovnici.",
-  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Definira vrstu unosa. Podržane su različite vrste podataka kao što su <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> i druge."
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "Konfiguracija router poveznice",
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">ARouterLinkConfig</strong> pruza sucelje za konfiguriranje navigacijskih poveznica s vrijednostima rute, queryja, parametara i odredista. Korisna je kada se poveznice trebaju dinamicki graditi iz podataka obrasca.",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_": "Vrsta",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti svojstvo <strong lang=\"en\">type</strong> za prebacivanje izmedu nacina odabira jedne rute i vise ruta.",
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">AInput</strong> pruza funkcionalnost unosa podataka s podrskom za razlicite vrste podataka kao sto su <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> i druge. Komponenta podrzava prikaz ikona, gumb za brisanje te mogucnost prikazivanja/sakrivanja lozinke.",
+  "_A_INPUT_COMPONENT_NAME_": "Tekstualno polje",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti polje za unos s tipom <strong lang=\"en\">password</strong> i mogucnost prebacivanja vidljivosti lozinke pomocu <strong lang=\"en\">show-password</strong>. U prvom polju korisnik moze mijenjati izmedu prikazivanja i sakrivanja lozinke, dok je u drugom polju ta funkcija onemogucena.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Polje za unos lozinke",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Odreduje ikonu koja ce se prikazati prije polja za unos. Ova ikona moze se koristiti za poboljsanje vizualne percepcije ili za oznacavanje vrste unesenih podataka.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Radi kada je tip unosa <strong lang=\"en\">password</strong>. Omogucuje prebacivanje vidljivosti unesene lozinke, dajuci korisniku mogucnost da vidi unos lozinke.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Koristi se za tipove <strong lang=\"en\">number</strong> ili <strong lang=\"en\">integer</strong>. Odreduje korak za promjenu vrijednosti, na primjer, pri povecanju ili smanjenju broja pomocu strelica na tipkovnici.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Definira vrstu unosa. Podrzane su razlicite vrste podataka kao sto su <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> i druge."
 }

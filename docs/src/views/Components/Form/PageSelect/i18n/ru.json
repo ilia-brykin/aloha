@@ -1,7 +1,26 @@
 {
+  "_A_SELECT_COMPONENT_DESCRIPTION_": "ASelect - это компонент, который позволяет пользователям сделать один или несколько выборов из заранее заданного списка вариантов.",
+  "_A_SELECT_COMPONENT_NAME_": "Выбор",
+  "_A_SELECT_ELEMENT_0_": "Элемент 0",
+  "_A_SELECT_ELEMENT_1_": "Элемент 1",
+  "_A_SELECT_ELEMENT_2_": "Элемент 2",
+  "_A_SELECT_ELEMENT_3_": "Элемент 3",
+  "_A_SELECT_ELEMENT_4_": "Элемент 4",
+  "_A_SELECT_ELEMENT_5_": "Элемент 5",
+  "_A_SELECT_ELEMENT_6_": "Элемент 6",
+  "_A_SELECT_ELEMENT_7_": "Элемент 7",
+  "_A_SELECT_ELEMENT_8_": "Элемент 8",
   "_A_SELECT_EXCLUSIVE_OPTION_DESCRIPTION_": "Эксклюзивный вариант можно определить как особый выбор, который при выборе предотвращает выбор любых других вариантов или снимает выбор со всех ранее выбранных вариантов.",
   "_A_SELECT_EXCLUSIVE_OPTION_HEADER_": "Эксклюзивный вариант",
+  "_A_SELECT_GROUP_GROUPS_DESCRIPTION_": "Параметры выбора в выпадающем списке можно настраивать, группируя их по одному или нескольким ключам. Это удобно в случаях, когда один выбор должен переопределять все остальные, например \"Ничего из перечисленного\" или \"Выбрать все\".",
+  "_A_SELECT_GROUP_GROUPS_HEADER_": "Группировка",
   "_A_SELECT_GROUP_INVALID_ENTRIES_LABEL_": "Недопустимые записи",
+  "_A_SELECT_GROUP_KEY_DISABLED_DESCRIPTION_": "Значения вариантов в выпадающем списке можно отключать на основе ключа объекта для каждой опции.",
+  "_A_SELECT_GROUP_KEY_DISABLED_HEADER_": "Отключение по ключу",
   "_A_SELECT_GROUP_RETRIEVE_DESCRIPTION_": "Загружает базовый список и retrieve-кандидаты из локальных JSON-файлов без backend. Отсутствующие выбранные значения подтягиваются через retrieve callback и помечаются как недопустимые записи, если их нет в базовом списке.",
-  "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve из локального JSON"
+  "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve из локального JSON",
+  "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Значения вариантов в выпадающем списке можно фильтровать по поисковому запросу. Это полезно для компонентов с длинным списком вариантов, так как пользователям проще найти и выбрать нужный вариант.",
+  "_A_SELECT_GROUP_SEARCH_HEADER_": "Поиск",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Для вариантов выпадающего списка поддерживается перевод меток. Поиск также работает с локализованными и переведенными вариантами.",
+  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Интернационализация"
 }

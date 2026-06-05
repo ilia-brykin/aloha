@@ -1,3 +1,20 @@
 {
-
+  "_A_SLIDER_COMPONENT_NAME_": "Deslizador",
+  "_A_SLIDER_COMPONENT_DESCRIPTION_": "ASlider es un componente para seleccionar un valor numerico o un rango dentro de un intervalo definido. Admite limites minimo y maximo, pasos, rangos, marcas intermedias y personalizacion de la visualizacion.",
+  "_A_SLIDER_BASIC_LABEL_": "Deslizador",
+  "_A_SLIDER_DISABLED_LABEL_": "Deslizador deshabilitado",
+  "_A_SLIDER_GROUP_RANGE_HEADER_": "Seleccion de rango",
+  "_A_SLIDER_GROUP_RANGE_DESCRIPTION_": "Este ejemplo muestra como usar la propiedad <strong lang=\"en\">range</strong> para que el deslizador pueda seleccionar un rango entre dos valores.",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "Minimo, maximo y paso",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "Este ejemplo muestra como configurar el deslizador con valores personalizados de <strong lang=\"en\">min</strong>, <strong lang=\"en\">max</strong> y <strong lang=\"en\">step</strong>.",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "Deslizador (min: {{ min }}, max: {{ max }}, paso: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "Deslizador de rango (min: {{ min }}, max: {{ max }}, paso: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "Deslizador de rango (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "Deslizador (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "Valores basados en datos",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "Este ejemplo muestra como usar la propiedad <strong lang=\"en\">data</strong> junto con <strong lang=\"en\">key-id</strong> para que los valores del deslizador se obtengan de entradas de datos predefinidas.",
+  "_A_SLIDER_LABEL_NOT_SHOW_STOPS_": "Deslizador sin marcas",
+  "_A_SLIDER_LABEL_SHOW_STOPS_": "Deslizador con marcas",
+  "_A_UI_GROUP_SHOW_STOPS_HEADER_": "Marcas intermedias",
+  "_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_": "Este ejemplo muestra como usar <strong lang=\"en\">show-stops</strong> para mostrar marcas intermedias en el deslizador."
 }
