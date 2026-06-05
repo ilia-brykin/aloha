@@ -1,4 +1,8 @@
 {
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_HEADER_": "Missing active slide",
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_DESCRIPTION_": "This example shows how the carousel behaves when the initially active slide is missing from the provided data.",
+  "_A_CAROUSEL_GROUP_EMITS_HEADER_": "Events",
+  "_A_CAROUSEL_GROUP_EMITS_DESCRIPTION_": "This example demonstrates the <strong lang=\"en\">change</strong> and <strong lang=\"en\">init</strong> events emitted by the carousel component.",
   "_A_CAROUSEL_COMPONENT_ALT_BASKETBALL_BALL_": "Basketball ball on blue background",
   "_A_CAROUSEL_COMPONENT_ALT_SOCCER_BALL_": "Soccer ball on a red background",
   "_A_CAROUSEL_COMPONENT_ALT_TENNIS_BALL_": "Tennis ball on purple background",

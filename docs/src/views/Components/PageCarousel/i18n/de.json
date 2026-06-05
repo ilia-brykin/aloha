@@ -1,4 +1,8 @@
 {
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_HEADER_": "Fehlende aktive Folie",
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_DESCRIPTION_": "Dieses Beispiel zeigt, wie sich das Karussell verhält, wenn die anfangs aktive Folie in den bereitgestellten Daten fehlt.",
+  "_A_CAROUSEL_GROUP_EMITS_HEADER_": "Ereignisse",
+  "_A_CAROUSEL_GROUP_EMITS_DESCRIPTION_": "Dieses Beispiel zeigt die Ereignisse <strong lang=\"en\">change</strong> und <strong lang=\"en\">init</strong>, die von der Karussell-Komponente ausgelöst werden.",
   "_A_CAROUSEL_COMPONENT_ALT_BASKETBALL_BALL_": "Basketball auf blauem Hintergrund",
   "_A_CAROUSEL_COMPONENT_ALT_SOCCER_BALL_": "Fußball auf rotem Hintergrund",
   "_A_CAROUSEL_COMPONENT_ALT_TENNIS_BALL_": "Tennisball auf lila Hintergrund",

@@ -1,4 +1,8 @@
 {
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_HEADER_": "Nedostaje aktivni slajd",
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_DESCRIPTION_": "Ovaj primjer pokazuje kako se vrtuljak ponaša kada početno aktivni slajd nedostaje u proslijeđenim podacima.",
+  "_A_CAROUSEL_GROUP_EMITS_HEADER_": "Događaji",
+  "_A_CAROUSEL_GROUP_EMITS_DESCRIPTION_": "Ovaj primjer prikazuje događaje <strong lang=\"en\">change</strong> i <strong lang=\"en\">init</strong> koje emitira komponenta vrtuljka.",
   "_A_CAROUSEL_COMPONENT_ALT_BASKETBALL_BALL_": "Košarkaška lopta na plavoj pozadini",
   "_A_CAROUSEL_COMPONENT_ALT_SOCCER_BALL_": "Nogometna lopta na crvenoj pozadini",
   "_A_CAROUSEL_COMPONENT_ALT_TENNIS_BALL_": "Teniska loptica na ljubičastoj pozadini",

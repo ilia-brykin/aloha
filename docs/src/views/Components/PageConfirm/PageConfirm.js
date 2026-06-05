@@ -1,8 +1,15 @@
 import {
+  computed,
+} from "vue";
+
+import {
   AConfirmAPI,
   AModal,
   EventBus,
+  getTranslatedText,
 } from "aloha-vue";
+
+import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 export default {
   name: "PageConfirm",
@@ -11,9 +18,25 @@ export default {
   },
   setup() {
     const {
+      pageTitle,
+    } = PageTitleAPI();
+
+    const {
       closeConfirm,
       openConfirm,
     } = AConfirmAPI();
+
+    const openConfirmText = computed(() => {
+      return getTranslatedText({
+        placeholder: "_A_CONFIRM_OPEN_",
+      });
+    });
+
+    const openConfirmTimeoutText = computed(() => {
+      return getTranslatedText({
+        placeholder: "_A_CONFIRM_OPEN_TIMEOUT_",
+      });
+    });
 
     const save = () => {
       console.log("save");
@@ -22,8 +45,12 @@ export default {
 
     const openConfirmLocal = () => {
       openConfirm({
-        headerText: "Aloha",
-        bodyHtml: "<div>Aloha <strong>Hola</strong></div>",
+        headerText: getTranslatedText({
+          placeholder: "_A_CONFIRM_MODAL_HEADER_",
+        }),
+        bodyHtml: getTranslatedText({
+          placeholder: "_A_CONFIRM_MODAL_BODY_HTML_",
+        }),
         save: save,
         close: () => {
           console.log("close");
@@ -34,8 +61,12 @@ export default {
 
     const openConfirmWithTimeout = () => {
       openConfirm({
-        headerText: "Aloha",
-        bodyHtml: "<div>Aloha <strong>Hola</strong></div>",
+        headerText: getTranslatedText({
+          placeholder: "_A_CONFIRM_MODAL_HEADER_",
+        }),
+        bodyHtml: getTranslatedText({
+          placeholder: "_A_CONFIRM_MODAL_BODY_HTML_",
+        }),
         save: save,
         selectorClose: "#btn_confirm_timeout",
       });
@@ -46,8 +77,11 @@ export default {
     };
 
     return {
+      openConfirmText,
       openConfirmLocal,
+      openConfirmTimeoutText,
       openConfirmWithTimeout,
+      pageTitle,
     };
   },
 };

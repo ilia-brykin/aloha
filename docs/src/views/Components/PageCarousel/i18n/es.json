@@ -1,4 +1,8 @@
 {
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_HEADER_": "Diapositiva activa ausente",
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_DESCRIPTION_": "Este ejemplo muestra cómo se comporta el carrusel cuando la diapositiva activa inicial no está presente en los datos proporcionados.",
+  "_A_CAROUSEL_GROUP_EMITS_HEADER_": "Eventos",
+  "_A_CAROUSEL_GROUP_EMITS_DESCRIPTION_": "Este ejemplo muestra los eventos <strong lang=\"en\">change</strong> e <strong lang=\"en\">init</strong> emitidos por el componente de carrusel.",
   "_A_CAROUSEL_COMPONENT_ALT_BASKETBALL_BALL_": "Balón de baloncesto sobre fondo azul",
   "_A_CAROUSEL_COMPONENT_ALT_SOCCER_BALL_": "Balón de fútbol sobre fondo rojo",
   "_A_CAROUSEL_COMPONENT_ALT_TENNIS_BALL_": "Pelota de tenis sobre fondo morado",

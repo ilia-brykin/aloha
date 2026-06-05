@@ -22,6 +22,7 @@ import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
 import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
+import PageConfirmI18n from "./views/Components/PageConfirm/i18n/PageConfirmI18n";
 import PageDatepickerI18n from "./views/Components/Form/PageDatepicker/i18n/PageDatepickerI18n";
 import PageDatepickerRangeI18n from "./views/Components/Form/PageDatepickerRange/i18n/PageDatepickerRangeI18n";
 import PageDisclosureI18n from "./views/Components/PageDisclosure/i18n/PageDisclosureI18n";
@@ -150,6 +151,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.ar,
     ...PageCheckboxI18n.ar,
     ...PageCloakI18n.ar,
+    ...PageConfirmI18n.ar,
     ...PageCloakPluginI18n.ar,
     ...PageDatepickerI18n.ar,
     ...PageDatepickerRangeI18n.ar,
@@ -263,6 +265,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.de,
     ...PageCheckboxI18n.de,
     ...PageCloakI18n.de,
+    ...PageConfirmI18n.de,
     ...PageCloakPluginI18n.de,
     ...PageDatepickerI18n.de,
     ...PageDatepickerRangeI18n.de,
@@ -376,6 +379,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.en,
     ...PageCheckboxI18n.en,
     ...PageCloakI18n.en,
+    ...PageConfirmI18n.en,
     ...PageCloakPluginI18n.en,
     ...PageDatepickerI18n.en,
     ...PageDatepickerRangeI18n.en,
@@ -489,6 +493,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.es,
     ...PageCheckboxI18n.es,
     ...PageCloakI18n.es,
+    ...PageConfirmI18n.es,
     ...PageCloakPluginI18n.es,
     ...PageDatepickerI18n.es,
     ...PageDatepickerRangeI18n.es,
@@ -602,6 +607,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.fr,
     ...PageCheckboxI18n.fr,
     ...PageCloakI18n.fr,
+    ...PageConfirmI18n.fr,
     ...PageCloakPluginI18n.fr,
     ...PageDatepickerI18n.fr,
     ...PageDatepickerRangeI18n.fr,
@@ -715,6 +721,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.hr,
     ...PageCheckboxI18n.hr,
     ...PageCloakI18n.hr,
+    ...PageConfirmI18n.hr,
     ...PageCloakPluginI18n.hr,
     ...PageDatepickerI18n.hr,
     ...PageDatepickerRangeI18n.hr,
@@ -828,6 +835,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.it,
     ...PageCheckboxI18n.it,
     ...PageCloakI18n.it,
+    ...PageConfirmI18n.it,
     ...PageCloakPluginI18n.it,
     ...PageDatepickerI18n.it,
     ...PageDatepickerRangeI18n.it,
@@ -941,6 +949,7 @@ export const mainTranslation = {
     ...PageCarouselI18n.ru,
     ...PageCheckboxI18n.ru,
     ...PageCloakI18n.ru,
+    ...PageConfirmI18n.ru,
     ...PageCloakPluginI18n.ru,
     ...PageDatepickerI18n.ru,
     ...PageDatepickerRangeI18n.ru,

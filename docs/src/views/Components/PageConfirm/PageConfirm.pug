@@ -1,14 +1,14 @@
 div
-  h1 AConfirm
+  h1 {{ pageTitle }}
   button.a_btn.a_btn_primary(
     id="btn_confirm"
     type="button"
     @click="openConfirmLocal"
-  ) Open confirm
+  ) {{ openConfirmText }}
 
   button.a_btn.a_btn_primary(
     id="btn_confirm_timeout"
     type="button"
     @click="openConfirmWithTimeout"
-  ) Open confirm with timeout
+  ) {{ openConfirmTimeoutText }}
 

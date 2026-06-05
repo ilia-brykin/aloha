@@ -1,8 +1,8 @@
 {
-  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_HEADER_": "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_HEADER_",
-  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_DESCRIPTION_": "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_DESCRIPTION_",
-  "_A_CAROUSEL_GROUP_EMITS_HEADER_": "_A_CAROUSEL_GROUP_EMITS_HEADER_",
-  "_A_CAROUSEL_GROUP_EMITS_DESCRIPTION_": "_A_CAROUSEL_GROUP_EMITS_DESCRIPTION_",
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_HEADER_": "Отсутствующий активный слайд",
+  "_A_CAROUSEL_GROUP_DELETE_ACTIVE_SLIDE_DESCRIPTION_": "В этом примере показано, как ведет себя карусель, если изначально активный слайд отсутствует в переданных данных.",
+  "_A_CAROUSEL_GROUP_EMITS_HEADER_": "События",
+  "_A_CAROUSEL_GROUP_EMITS_DESCRIPTION_": "В этом примере показаны события <strong lang=\"en\">change</strong> и <strong lang=\"en\">init</strong>, которые испускает компонент карусели.",
   "_A_CAROUSEL_COMPONENT_ALT_BASKETBALL_BALL_": "Баскетбольный мяч на синем фоне",
   "_A_CAROUSEL_COMPONENT_ALT_SOCCER_BALL_": "Футбольный мяч на красном фоне",
   "_A_CAROUSEL_COMPONENT_ALT_TENNIS_BALL_": "Теннисный мяч на фиолетовом фоне",
