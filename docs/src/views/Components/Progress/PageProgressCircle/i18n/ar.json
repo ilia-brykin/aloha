@@ -1,3 +1,4 @@
 {
-
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "دائرة التقدم",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "يعرض المكوّن <strong lang=\"en\">AProgressCircle</strong> التقدم على شكل مؤشر دائري. وهو يدعم الحالتين العادية وغير المحددة، ويكون مفيدًا عندما تريد عرض نسبة الإنجاز ضمن مساحة مدمجة."
 }

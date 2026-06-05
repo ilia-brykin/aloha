@@ -1,4 +1,4 @@
 {
-  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "_A_PROGRESS_CIRCLE_COMPONENT_NAME_",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_"
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Fortschrittskreis",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">AProgressCircle</strong> zeigt den Fortschritt als kreisförmigen Indikator an. Sie unterstützt normale und unbestimmte Zustände und eignet sich, wenn der Fortschritt auf engem Raum visualisiert werden soll."
 }

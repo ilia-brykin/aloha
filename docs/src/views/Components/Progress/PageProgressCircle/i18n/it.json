@@ -1,3 +1,4 @@
 {
-
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Cerchio di avanzamento",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">AProgressCircle</strong> mostra il progresso come indicatore circolare. Supporta stati standard e indeterminato ed è utile quando si vuole visualizzare il completamento in uno spazio compatto."
 }

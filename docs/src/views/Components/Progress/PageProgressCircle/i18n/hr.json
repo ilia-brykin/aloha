@@ -1,3 +1,4 @@
 {
-
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Kružni pokazivač napretka",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">AProgressCircle</strong> prikazuje napredak kao kružni indikator. Podržava standardno i neodređeno stanje te je korisna kada želite prikazati napredak u kompaktnom prostoru."
 }

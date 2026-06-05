@@ -1,3 +1,4 @@
 {
-
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Cercle de progression",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">AProgressCircle</strong> affiche la progression sous forme d'indicateur circulaire. Il prend en charge les états standard et indéterminé et convient lorsque vous souhaitez visualiser l'avancement dans une zone compacte."
 }
