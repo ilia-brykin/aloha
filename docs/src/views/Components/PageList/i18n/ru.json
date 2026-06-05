@@ -12,6 +12,8 @@
   "_A_LIST_GROUP_IS_HTML_HEADER_": "Отображение списка в текстовом или HTML-формате",
   "_A_LIST_GROUP_SEPARATOR_DESCRIPTION_": "Этот пример показывает использование свойства <strong>separator</strong> в компоненте для установки пользовательских разделителей между элементами списка.",
   "_A_LIST_GROUP_SEPARATOR_HEADER_": "Пользовательские разделители между элементами",
+  "_A_LIST_GROUP_SEPARATOR_HTML_DESCRIPTION_": "Содержимое, используемое для разделения элементов списка, также можно задать в формате HTML. Это содержимое будет очищено.",
+  "_A_LIST_GROUP_SEPARATOR_HTML_HEADER_": "Пользовательские HTML-разделители между элементами",
   "_A_LIST_GROUP_TAG_DESCRIPTION_": "Использование компонента для динамической настройки HTML-тега между упорядоченным (<strong>ol</strong>) и неупорядоченным (<strong>ul</strong>) списками с помощью свойства <strong>tag</strong>.",
   "_A_LIST_GROUP_TAG_HEADER_": "Динамическое изменение HTML-тега",
   "_A_LIST_IS_DATA_SIMPLE_ARRAY_PROP_DESCRIPTION_": "Указывает, используется ли только простой массив без объектов",
