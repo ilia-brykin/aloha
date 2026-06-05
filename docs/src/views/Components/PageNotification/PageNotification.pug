@@ -1,16 +1,16 @@
 div
-  h1 ANotification
+  h1 {{ pageTitle }}
   a-button.a_btn.a_mr_2(
     v-for="type in types"
     :key="type"
     :class="'a_btn_' + type"
     type="button"
-    :text="'_ADD_NOTIFICATION_{{type}}_'"
+    :text="'_A_NOTIFICATION_ADD_{{type}}_'"
     :extra="{type: type}"
     @click="addNotificationLocal(type)"
   )
   .a_mt_4
     a-button.a_btn.a_btn_primary(
-      text="Object"
+      text="_A_NOTIFICATION_OBJECT_"
       @click="addNotificationLocal({ sdf: 'x', abc: 'y', aloha: 'z' })"
     )

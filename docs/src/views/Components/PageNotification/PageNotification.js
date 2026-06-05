@@ -1,7 +1,10 @@
 import {
   AButton,
   ANotificationAPI,
+  getTranslatedText,
 } from "aloha-vue";
+
+import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
 export default {
   name: "PageNotification",
@@ -10,12 +13,27 @@ export default {
   },
   setup() {
     const {
+      pageTitle,
+    } = PageTitleAPI();
+
+    const {
       addNotification,
     } = ANotificationAPI();
 
     const addNotificationLocal = type => {
+      const extra = typeof type === "string"
+        ? {
+          type,
+        }
+        : undefined;
+
       addNotification({
-        text: type,
+        text: typeof type === "string"
+          ? getTranslatedText({
+            placeholder: "_A_NOTIFICATION_TYPE_{{type}}_",
+            extra,
+          })
+          : type,
         type,
         timeout: 0,
       });
@@ -23,6 +41,7 @@ export default {
 
     return {
       addNotificationLocal,
+      pageTitle,
     };
   },
   data() {

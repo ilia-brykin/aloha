@@ -74,6 +74,7 @@ import PageMobilePluginI18n from "./views/Plugins/PageMobilePlugin/i18n/PageMobi
 import PageModalI18n from "./views/Components/PageModal/i18n/PageModalI18n";
 import PageModalWizardI18n from "./views/Components/PageModalWizard/i18n/PageModalWizardI18n";
 import PageMultiselectOrderedI18n from "./views/Components/Form/PageMultiselectOrdered/i18n/PageMultiselectOrderedI18n";
+import PageNotificationI18n from "./views/Components/PageNotification/i18n/PageNotificationI18n";
 import PageOneCheckboxI18n from "./views/Components/Form/PageOneCheckbox/i18n/PageOneCheckboxI18n";
 import PageOverflowI18n from "./views/CSS/PageOverflow/i18n/PageOverflowI18n";
 import PagePageTabTitlePluginI18n from "./views/Plugins/PagePageTabTitlePlugin/i18n/PagePageTabTitlePluginI18n";
@@ -201,6 +202,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.ar,
     ...PageModalI18n.ar,
     ...PageModalWizardI18n.ar,
+    ...PageNotificationI18n.ar,
     ...PageMultiselectOrderedI18n.ar,
     ...PageOneCheckboxI18n.ar,
     ...PagePaginationI18n.ar,
@@ -315,6 +317,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.de,
     ...PageModalI18n.de,
     ...PageModalWizardI18n.de,
+    ...PageNotificationI18n.de,
     ...PageMultiselectOrderedI18n.de,
     ...PageOneCheckboxI18n.de,
     ...PagePaginationI18n.de,
@@ -429,6 +432,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.en,
     ...PageModalI18n.en,
     ...PageModalWizardI18n.en,
+    ...PageNotificationI18n.en,
     ...PageMultiselectOrderedI18n.en,
     ...PageOneCheckboxI18n.en,
     ...PagePaginationI18n.en,
@@ -543,6 +547,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.es,
     ...PageModalI18n.es,
     ...PageModalWizardI18n.es,
+    ...PageNotificationI18n.es,
     ...PageMultiselectOrderedI18n.es,
     ...PageOneCheckboxI18n.es,
     ...PagePaginationI18n.es,
@@ -657,6 +662,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.fr,
     ...PageModalI18n.fr,
     ...PageModalWizardI18n.fr,
+    ...PageNotificationI18n.fr,
     ...PageMultiselectOrderedI18n.fr,
     ...PageOneCheckboxI18n.fr,
     ...PagePaginationI18n.fr,
@@ -771,6 +777,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.hr,
     ...PageModalI18n.hr,
     ...PageModalWizardI18n.hr,
+    ...PageNotificationI18n.hr,
     ...PageMultiselectOrderedI18n.hr,
     ...PageOneCheckboxI18n.hr,
     ...PagePaginationI18n.hr,
@@ -885,6 +892,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.it,
     ...PageModalI18n.it,
     ...PageModalWizardI18n.it,
+    ...PageNotificationI18n.it,
     ...PageMultiselectOrderedI18n.it,
     ...PageOneCheckboxI18n.it,
     ...PagePaginationI18n.it,
@@ -999,6 +1007,7 @@ export const mainTranslation = {
     ...PageMobilePluginI18n.ru,
     ...PageModalI18n.ru,
     ...PageModalWizardI18n.ru,
+    ...PageNotificationI18n.ru,
     ...PageMultiselectOrderedI18n.ru,
     ...PageOneCheckboxI18n.ru,
     ...PagePaginationI18n.ru,
