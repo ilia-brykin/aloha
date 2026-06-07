@@ -1,4 +1,18 @@
 {
   "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Cerchio di avanzamento",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">AProgressCircle</strong> mostra il progresso come indicatore circolare. Supporta stati standard e indeterminato ed è utile quando si vuole visualizzare il completamento in uno spazio compatto."
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Il componente <strong lang=\"en\">AProgressCircle</strong> mostra il progresso come indicatore circolare. Supporta stati standard e indeterminato ed è utile quando si vuole visualizzare il completamento in uno spazio compatto.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "Il componente <strong lang=\"en\">AProgressCircle</strong> consente di mostrare un indicatore di avanzamento circolare indeterminato con animazione. Utilizzando la prop <strong>indeterminate</strong>, puoi indicare che un'attività è in corso senza mostrare un valore di avanzamento specifico.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Avanzamento circolare indeterminato con animazione",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Controlla la durata dell'animazione dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Abilita la modalità indeterminata dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Limite superiore, valore massimo dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Limite inferiore, valore minimo dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Ruota l'indicatore di avanzamento circolare del numero di gradi specificato.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Specifica se il valore di avanzamento deve essere visualizzato all'interno dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Imposta lo spessore del tratto dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "Il valore corrente dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Una o più classi per personalizzare il testo del valore di avanzamento visualizzato.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Specifica come formattare il valore di avanzamento visualizzato. Se abilitato, il valore viene mostrato come percentuale intera.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Imposta larghezza e altezza dell'indicatore di avanzamento circolare.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Consente di personalizzare il valore di avanzamento visualizzato. Lo scope dello slot fornisce il valore <strong>valuePercent</strong>."
 }

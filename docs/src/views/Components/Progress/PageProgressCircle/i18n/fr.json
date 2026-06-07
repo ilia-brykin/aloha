@@ -1,4 +1,18 @@
 {
   "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Cercle de progression",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">AProgressCircle</strong> affiche la progression sous forme d'indicateur circulaire. Il prend en charge les états standard et indéterminé et convient lorsque vous souhaitez visualiser l'avancement dans une zone compacte."
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Le composant <strong lang=\"en\">AProgressCircle</strong> affiche la progression sous forme d'indicateur circulaire. Il prend en charge les états standard et indéterminé et convient lorsque vous souhaitez visualiser l'avancement dans une zone compacte.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "Le composant <strong lang=\"en\">AProgressCircle</strong> permet d'afficher un indicateur de progression circulaire indéterminé avec animation. En utilisant la prop <strong>indeterminate</strong>, vous pouvez indiquer qu'une activité est en cours sans afficher de valeur d'avancement précise.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Progression circulaire indéterminée avec animation",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Contrôle la durée de l'animation de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Active le mode indéterminé de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Limite supérieure, valeur maximale de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Limite inférieure, valeur minimale de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Fait pivoter l'indicateur de progression circulaire du nombre de degrés spécifié.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Indique si la valeur de progression doit être affichée à l'intérieur de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Définit l'épaisseur du trait de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "La valeur actuelle de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Une ou plusieurs classes pour personnaliser le texte de la valeur de progression affichée.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Définit le format de la valeur de progression affichée. Si activé, la valeur est affichée sous forme de pourcentage entier.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Définit la largeur et la hauteur de l'indicateur de progression circulaire.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Permet de personnaliser la valeur de progression affichée. La portée du slot fournit la valeur <strong>valuePercent</strong>."
 }

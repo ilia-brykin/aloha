@@ -1,4 +1,18 @@
 {
   "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Progress circle",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">AProgressCircle</strong> component displays progress as a circular indicator. It supports standard and indeterminate states and is useful when you want to visualize completion within a compact area."
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "The <strong lang=\"en\">AProgressCircle</strong> component displays progress as a circular indicator. It supports standard and indeterminate states and is useful when you want to visualize completion within a compact area.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "The <strong lang=\"en\">AProgressCircle</strong> component allows you to display an indeterminate circular progress indicator with animation. By using the <strong>indeterminate</strong> prop, you can indicate that an activity is ongoing without showing a specific completion value.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Indeterminate circular progress with animation",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Controls the animation duration of the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Enables the indeterminate mode of the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Upper bound, maximum value for the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Lower bound, minimum value for the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Rotates the circular progress indicator by the specified number of degrees.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Specifies whether the progress value should be displayed inside the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Sets the stroke width of the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "The current progress value of the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "One or more classes for customizing the displayed progress value text.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Specifies how to format the displayed progress value. If enabled, the value is shown as an integer percentage.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Sets the width and height of the circular progress indicator.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Allows customizing the displayed progress value. The slot scope provides the <strong>valuePercent</strong> value."
 }

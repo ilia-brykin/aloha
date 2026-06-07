@@ -1,4 +1,18 @@
 {
   "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "دائرة التقدم",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "يعرض المكوّن <strong lang=\"en\">AProgressCircle</strong> التقدم على شكل مؤشر دائري. وهو يدعم الحالتين العادية وغير المحددة، ويكون مفيدًا عندما تريد عرض نسبة الإنجاز ضمن مساحة مدمجة."
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "يعرض المكوّن <strong lang=\"en\">AProgressCircle</strong> التقدم على شكل مؤشر دائري. وهو يدعم الحالتين العادية وغير المحددة، ويكون مفيدًا عندما تريد عرض نسبة الإنجاز ضمن مساحة مدمجة.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "يتيح لك المكوّن <strong lang=\"en\">AProgressCircle</strong> عرض مؤشر تقدم دائري غير محدد مع حركة. باستخدام الخاصية <strong>indeterminate</strong>، يمكنك الإشارة إلى أن هناك عملية جارية دون عرض قيمة تقدم محددة.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "تقدم دائري غير محدد مع حركة",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "تتحكم في مدة حركة مؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "تفعّل الوضع غير المحدد لمؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "الحد الأعلى، وهو القيمة القصوى لمؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "الحد الأدنى، وهو القيمة الدنيا لمؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "تدير مؤشر التقدم الدائري بعدد الدرجات المحدد.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "تحدد ما إذا كان يجب عرض قيمة التقدم داخل مؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "تحدد سماكة الخط لمؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "قيمة التقدم الحالية لمؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "فئة واحدة أو أكثر لتخصيص نص قيمة التقدم المعروضة.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "تحدد كيفية تنسيق قيمة التقدم المعروضة. عند التفعيل، تُعرض القيمة كنسبة مئوية صحيحة.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "تحدد عرض وارتفاع مؤشر التقدم الدائري.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "يتيح تخصيص قيمة التقدم المعروضة. يوفّر نطاق الـ slot القيمة <strong>valuePercent</strong>."
 }

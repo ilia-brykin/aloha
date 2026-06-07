@@ -1,4 +1,18 @@
 {
   "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Fortschrittskreis",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">AProgressCircle</strong> zeigt den Fortschritt als kreisförmigen Indikator an. Sie unterstützt normale und unbestimmte Zustände und eignet sich, wenn der Fortschritt auf engem Raum visualisiert werden soll."
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Die Komponente <strong lang=\"en\">AProgressCircle</strong> zeigt den Fortschritt als kreisförmigen Indikator an. Sie unterstützt normale und unbestimmte Zustände und eignet sich, wenn der Fortschritt auf engem Raum visualisiert werden soll.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "Die Komponente <strong lang=\"en\">AProgressCircle</strong> ermöglicht die Darstellung eines unbestimmten kreisförmigen Fortschrittsindikators mit Animation. Mit der Prop <strong>indeterminate</strong> können Sie anzeigen, dass ein Vorgang läuft, ohne einen konkreten Fortschrittswert darzustellen.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Unbestimmter kreisförmiger Fortschritt mit Animation",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Steuert die Animationsdauer des kreisförmigen Fortschrittsindikators.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Aktiviert den unbestimmten Modus des kreisförmigen Fortschrittsindikators.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Obere Grenze, maximaler Wert des kreisförmigen Fortschrittsindikators.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Untere Grenze, minimaler Wert des kreisförmigen Fortschrittsindikators.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Dreht den kreisförmigen Fortschrittsindikator um die angegebene Gradzahl.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Gibt an, ob der Fortschrittswert innerhalb des kreisförmigen Fortschrittsindikators angezeigt werden soll.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Legt die Strichbreite des kreisförmigen Fortschrittsindikators fest.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "Der aktuelle Fortschrittswert des kreisförmigen Fortschrittsindikators.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Eine oder mehrere Klassen zum Anpassen des angezeigten Fortschrittswert-Texts.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Legt fest, wie der angezeigte Fortschrittswert formatiert wird. Wenn aktiviert, wird der Wert als ganzzahliger Prozentwert angezeigt.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Legt Breite und Höhe des kreisförmigen Fortschrittsindikators fest.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Ermöglicht die Anpassung des angezeigten Fortschrittswerts. Im Slot-Scope steht der Wert <strong>valuePercent</strong> zur Verfügung."
 }

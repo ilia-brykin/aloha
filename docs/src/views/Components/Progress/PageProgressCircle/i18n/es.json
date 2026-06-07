@@ -1,4 +1,18 @@
 {
   "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Círculo de progreso",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">AProgressCircle</strong> muestra el progreso como un indicador circular. Admite estados estándar e indeterminado y resulta útil cuando quieres visualizar el avance en un espacio compacto."
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "El componente <strong lang=\"en\">AProgressCircle</strong> muestra el progreso como un indicador circular. Admite estados estándar e indeterminado y resulta útil cuando quieres visualizar el avance en un espacio compacto.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "El componente <strong lang=\"en\">AProgressCircle</strong> le permite mostrar un indicador circular de progreso indeterminado con animación. Utilizando la prop <strong>indeterminate</strong>, puede indicar que una actividad está en curso sin mostrar un valor de progreso específico.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Progreso circular indeterminado con animación",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Controla la duración de la animación del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Activa el modo indeterminado del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Límite superior, valor máximo del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Límite inferior, valor mínimo del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Gira el indicador circular de progreso el número de grados especificado.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Especifica si el valor del progreso debe mostrarse dentro del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Establece el grosor del trazo del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "El valor actual del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Una o varias clases para personalizar el texto del valor de progreso mostrado.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Especifica cómo formatear el valor de progreso mostrado. Si está activado, el valor se muestra como un porcentaje entero.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Establece el ancho y la altura del indicador circular de progreso.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Permite personalizar el valor de progreso mostrado. El alcance del slot proporciona el valor <strong>valuePercent</strong>."
 }

@@ -1,4 +1,18 @@
 {
   "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Kružni pokazivač napretka",
-  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">AProgressCircle</strong> prikazuje napredak kao kružni indikator. Podržava standardno i neodređeno stanje te je korisna kada želite prikazati napredak u kompaktnom prostoru."
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Komponenta <strong lang=\"en\">AProgressCircle</strong> prikazuje napredak kao kružni indikator. Podržava standardno i neodređeno stanje te je korisna kada želite prikazati napredak u kompaktnom prostoru.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "Komponenta <strong lang=\"en\">AProgressCircle</strong> omogućuje prikaz neodređenog kružnog indikatora napretka s animacijom. Korištenjem propa <strong>indeterminate</strong> možete pokazati da je aktivnost u tijeku bez prikaza određene vrijednosti napretka.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Neodređeni kružni napredak s animacijom",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Kontrolira trajanje animacije kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Omogućuje neodređeni način rada kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Gornja granica, maksimalna vrijednost kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Donja granica, minimalna vrijednost kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Rotira kružni indikator napretka za zadani broj stupnjeva.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Određuje treba li prikazati vrijednost napretka unutar kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Postavlja debljinu linije kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "Trenutna vrijednost kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Jedna ili više klasa za prilagodbu prikazanog teksta vrijednosti napretka.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Određuje kako se formatira prikazana vrijednost napretka. Ako je omogućeno, vrijednost se prikazuje kao cijeli postotak.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Postavlja širinu i visinu kružnog indikatora napretka.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Omogućuje prilagodbu prikazane vrijednosti napretka. U dosegu slota dostupan je <strong>valuePercent</strong>."
 }
