@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_GROUPS_HIDE_EMPTY_HEADER_"
+  description="_A_DROPDOWN_GROUP_GROUPS_HIDE_EMPTY_DESCRIPTION_"
+  props="actions, key-group"
+)
+  .a_flex.a_align_items_center.a_gap_2.a_mb_3.a_flex_wrap
+    a-one-checkbox(
+      v-model="isDevelopmentVisible"
+      :is-width-auto="true"
+      label="_A_DROPDOWN_BUTTON_TEXT_TOGGLE_DEVELOPMENT_"
+    )
+    a-one-checkbox(
+      v-model="isSettingsVisible"
+      :is-width-auto="true"
+      label="_A_DROPDOWN_BUTTON_TEXT_TOGGLE_SETTINGS_"
+    )
+  a-dropdown(
+    :actions="dropdownActions"
+    :key-group="['group', 'section']"
+    button-text="_A_DROPDOWN_BUTTON_TEXT_HIDE_EMPTY_GROUPS_"
+  )

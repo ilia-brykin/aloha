@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_GROUPS_HEADER_"
+  description="_A_DROPDOWN_GROUP_GROUPS_DESCRIPTION_"
+  props="actions, key-group"
+)
+  a-dropdown(
+    :actions="dropdownActions"
+    :key-group="['group', 'section', 'subsection']"
+    button-text="_A_DROPDOWN_BUTTON_TEXT_GROUPED_ACTIONS_"
+  )

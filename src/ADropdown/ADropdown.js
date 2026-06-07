@@ -15,8 +15,6 @@ import {
   focusableSelector,
 } from "../index";
 
-import ADropdownAction from "./ADropdownAction/ADropdownAction";
-
 import APopupAPI from "../compositionAPI/APopupAPI";
 import ActionsAPI from "./compositionAPI/ActionsAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
@@ -28,6 +26,7 @@ import PopperContainerAPI from "../ATooltip/compositionAPI/PopperContainerAPI";
 import RefsAPI from "./compositionAPI/RefsAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
+import ADropdownGroup from "./ADropdownGroup";
 import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
 import {
   difference,
@@ -189,6 +188,16 @@ export default {
       required: false,
       default: undefined,
     },
+    keyGroup: {
+      type: [String, Number, Array],
+      required: false,
+      default: undefined,
+    },
+    keyGroupLabelCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     floatingFlip: {
       type: Object,
       required: false,
@@ -220,7 +229,7 @@ export default {
     id: {
       type: String,
       required: false,
-      default: () => uniqueId("a_dropdown_btn_"),
+      default: () => uniqueId("a_dropdown_"),
     },
     inBody: {
       type: Boolean,
@@ -281,6 +290,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    sortOrderGroup: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["asc", "desc"].indexOf(value) !== -1,
     },
     triggers: {
       type: Array,
@@ -491,7 +506,6 @@ export default {
           "div",
           {
             ref: "dropdownRef",
-            role: "application",
             "aria-labelledby": this.idLocal,
             ariaHidden: !this.statusExpanded,
             ...this.dropdownAttributesLocal,
@@ -499,13 +513,11 @@ export default {
           [
             h(this.dropdownTag, {}, [
               this.$slots.dropdown && this.$slots.dropdown(),
-              this.hasActions && this.actionsFiltered.map((action, actionIndex) => {
-                return h(ADropdownAction, {
-                  key: actionIndex,
-                  action,
-                  alwaysTranslate: this.alwaysTranslate,
-                }, this.$slots);
-              }),
+              this.hasActions && h(ADropdownGroup, {
+                actions: this.actionsFiltered,
+                alwaysTranslate: this.alwaysTranslate,
+                dropdownId: this.idLocal,
+              }, this.$slots),
             ]),
           ],
         ), [

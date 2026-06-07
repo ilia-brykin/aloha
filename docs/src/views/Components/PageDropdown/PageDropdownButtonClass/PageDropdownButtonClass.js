@@ -23,12 +23,12 @@ export default {
 
     const dropdownActions = [
       {
-        text: "Actions 0",
+        text: "_A_DROPDOWN_ACTION_0_",
         type: "button",
         callback: () => {},
       },
       {
-        text: "Actions 1",
+        text: "_A_DROPDOWN_ACTION_1_",
         type: "button",
         callback: () => {},
       },

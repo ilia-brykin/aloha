@@ -6,6 +6,9 @@ import PageDropdownButtonIcons from "./PageDropdownButtonIcons/PageDropdownButto
 import PageDropdownButtonLoading from "./PageDropdownButtonLoading/PageDropdownButtonLoading.vue";
 import PageDropdownButtonText from "./PageDropdownButtonText/PageDropdownButtonText.vue";
 import PageDropdownCaretIcon from "./PageDropdownCaretIcon/PageDropdownCaretIcon.vue";
+import PageDropdownGroup from "./PageDropdownGroup/PageDropdownGroup.vue";
+import PageDropdownGroupHideEmpty from "./PageDropdownGroupHideEmpty/PageDropdownGroupHideEmpty.vue";
+import PageDropdownGroupSort from "./PageDropdownGroupSort/PageDropdownGroupSort.vue";
 import PageDropdownHasCaret from "./PageDropdownHasCaret/PageDropdownHasCaret.vue";
 import PageDropdownInBody from "./PageDropdownInBody/PageDropdownInBody.vue";
 import PageDropdownReadonly from "./PageDropdownReadonly/PageDropdownReadonly.vue";
@@ -32,6 +35,9 @@ export default {
     PageDropdownButtonLoading,
     PageDropdownButtonText,
     PageDropdownCaretIcon,
+    PageDropdownGroup,
+    PageDropdownGroupHideEmpty,
+    PageDropdownGroupSort,
     PageDropdownHasCaret,
     PageDropdownInBody,
     PageDropdownReadonly,
@@ -61,13 +67,13 @@ export default {
 
     const dropdownActions = [
       {
-        text: "Actions 0",
+        text: "_A_DROPDOWN_ACTION_0_",
         type: "button",
         callback: () => {},
         isHidden: true,
       },
       {
-        text: "Actions 1",
+        text: "_A_DROPDOWN_ACTION_1_",
         type: "button",
         callback: () => {},
         disabled: true,
@@ -79,13 +85,13 @@ export default {
         type: "divider",
       },
       {
-        text: "Actions 2",
+        text: "_A_DROPDOWN_ACTION_2_",
         type: "button",
         callback: () => {},
       },
       {
         type: "link",
-        text: "Link 1",
+        text: "_A_DROPDOWN_ACTION_LINK_1_",
         href: "#",
       },
       {

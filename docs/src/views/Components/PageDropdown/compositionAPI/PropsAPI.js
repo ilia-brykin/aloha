@@ -222,6 +222,20 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "key-group",
+      description: "_A_DROPDOWN_PROPS_KEY_GROUP_DESCRIPTION_",
+      type: "String / Number / Array",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "key-group-label-callback",
+      description: "_A_DROPDOWN_PROPS_KEY_GROUP_LABEL_CALLBACK_DESCRIPTION_",
+      type: "Function",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "floating-flip",
       description: "_A_DROPDOWN_PROPS_FLOATING_FLIP_DESCRIPTION_",
       type: "Object",
@@ -324,6 +338,13 @@ export default function PropsAPI() {
       description: "_A_DROPDOWN_PROPS_READONLY_DESCRIPTION_",
       type: "Boolean",
       default: "false",
+      required: false,
+    },
+    {
+      name: "sort-order-group",
+      description: "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_",
+      type: "String",
+      default: undefined,
       required: false,
     },
     {
