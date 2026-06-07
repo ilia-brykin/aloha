@@ -1,20 +1,26 @@
+import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
+import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
+import PageConfirmAsync from "./PageConfirmAsync/PageConfirmAsync.vue";
+import PageConfirmBasic from "./PageConfirmBasic/PageConfirmBasic.vue";
+import PageConfirmButtons from "./PageConfirmButtons/PageConfirmButtons.vue";
+import PageConfirmFocus from "./PageConfirmFocus/PageConfirmFocus.vue";
 import {
-  computed,
-} from "vue";
-
-import {
-  AConfirmAPI,
-  AModal,
-  EventBus,
-  getTranslatedText,
+  ATranslation,
 } from "aloha-vue";
 
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
+import PropsAPI from "./compositionAPI/PropsAPI";
 
 export default {
   name: "PageConfirm",
   components: {
-    AModal,
+    AlohaPage,
+    AlohaTableProps,
+    ATranslation,
+    PageConfirmAsync,
+    PageConfirmBasic,
+    PageConfirmButtons,
+    PageConfirmFocus,
   },
   setup() {
     const {
@@ -22,65 +28,11 @@ export default {
     } = PageTitleAPI();
 
     const {
-      closeConfirm,
-      openConfirm,
-    } = AConfirmAPI();
-
-    const openConfirmText = computed(() => {
-      return getTranslatedText({
-        placeholder: "_A_CONFIRM_OPEN_",
-      });
-    });
-
-    const openConfirmTimeoutText = computed(() => {
-      return getTranslatedText({
-        placeholder: "_A_CONFIRM_OPEN_TIMEOUT_",
-      });
-    });
-
-    const save = () => {
-      console.log("save");
-      closeConfirm();
-    };
-
-    const openConfirmLocal = () => {
-      openConfirm({
-        headerText: getTranslatedText({
-          placeholder: "_A_CONFIRM_MODAL_HEADER_",
-        }),
-        bodyHtml: getTranslatedText({
-          placeholder: "_A_CONFIRM_MODAL_BODY_HTML_",
-        }),
-        save: save,
-        close: () => {
-          console.log("close");
-        },
-        selectorClose: "#btn_confirm",
-      });
-    };
-
-    const openConfirmWithTimeout = () => {
-      openConfirm({
-        headerText: getTranslatedText({
-          placeholder: "_A_CONFIRM_MODAL_HEADER_",
-        }),
-        bodyHtml: getTranslatedText({
-          placeholder: "_A_CONFIRM_MODAL_BODY_HTML_",
-        }),
-        save: save,
-        selectorClose: "#btn_confirm_timeout",
-      });
-
-      setTimeout(() => {
-        EventBus.$emit("closeModalConfirm");
-      }, 5000);
-    };
+      dataProps,
+    } = PropsAPI();
 
     return {
-      openConfirmText,
-      openConfirmLocal,
-      openConfirmTimeoutText,
-      openConfirmWithTimeout,
+      dataProps,
       pageTitle,
     };
   },

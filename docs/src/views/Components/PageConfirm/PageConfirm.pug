@@ -1,14 +1,22 @@
-div
-  h1 {{ pageTitle }}
-  button.a_btn.a_btn_primary(
-    id="btn_confirm"
-    type="button"
-    @click="openConfirmLocal"
-  ) {{ openConfirmText }}
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_CONFIRM_COMPONENT_DESCRIPTION_"
+    )
 
-  button.a_btn.a_btn_primary(
-    id="btn_confirm_timeout"
-    type="button"
-    @click="openConfirmWithTimeout"
-  ) {{ openConfirmTimeoutText }}
+    page-confirm-basic
 
+    page-confirm-buttons
+
+    page-confirm-focus
+
+    page-confirm-async
+
+    aloha-table-props(
+      :data="dataProps"
+    )
