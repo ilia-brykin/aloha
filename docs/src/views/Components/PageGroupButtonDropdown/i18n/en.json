@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "All buttons and the dropdown can be disabled.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Dropdown button configuration",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "The dropdown button can be configured. All props of <strong>ADropdown</strong> can be used inside the <strong>dropdown-attributes</strong> object.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Other actions"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "Extra classes for actions",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "Each action can define its own additional CSS class via the <strong>classExtra</strong> field.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Other actions",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "An array of CSS classes applied to inline actions by position.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "An array of IDs assigned to actions by position when the action itself does not define an <code>id</code>.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "CSS classes for the wrapper that groups inline buttons and links.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Determines whether spacing is added before the dropdown part when both inline actions and dropdown actions are rendered.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "The index of the first action that should be moved into the dropdown on desktop. A value of <code>-1</code> disables dropdown grouping.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "The index of the first action that should be moved into the dropdown on mobile. A value of <code>-1</code> disables dropdown grouping.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Internal flag updated via <code>v-model:inner-flag-has-actions</code> to indicate whether the component has visible actions after filtering.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Minimum number of actions required to render the dropdown part. If there are fewer actions, they remain inline."
 }

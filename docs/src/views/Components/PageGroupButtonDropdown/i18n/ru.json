@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Можно отключить все кнопки и выпадающий список.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Настройка кнопки выпадающего списка",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Кнопку выпадающего списка можно настроить. В объекте <strong>dropdown-attributes</strong> можно использовать все свойства <strong>ADropdown</strong>.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Другие действия"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "Дополнительные классы для действий",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "Для каждого действия можно задать собственный дополнительный CSS-класс через поле <strong>classExtra</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Другие действия",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "Массив CSS-классов, который применяется к встроенным действиям по их позиции.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "Массив идентификаторов, назначаемых действиям по позиции, если у самого действия не задан <code>id</code>.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "CSS-классы для обёртки, которая группирует встроенные кнопки и ссылки.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Определяет, добавлять ли отступ перед частью с выпадающим списком, когда одновременно отображаются встроенные действия и действия в выпадающем списке.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Индекс первого действия, которое должно быть перенесено в выпадающий список на десктопе. Значение <code>-1</code> отключает группировку через выпадающий список.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "Индекс первого действия, которое должно быть перенесено в выпадающий список на мобильных устройствах. Значение <code>-1</code> отключает группировку через выпадающий список.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Внутренний флаг, обновляемый через <code>v-model:inner-flag-has-actions</code>, который показывает, есть ли у компонента видимые действия после фильтрации.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Минимальное количество действий, необходимое для отображения части с выпадающим списком. Если действий меньше, они остаются встроенными."
 }

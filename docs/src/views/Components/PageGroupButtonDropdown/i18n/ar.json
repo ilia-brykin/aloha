@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "يمكن تعطيل جميع الأزرار والقائمة المنسدلة.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "إعداد زر القائمة المنسدلة",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "يمكن إعداد زر القائمة المنسدلة. يمكن استخدام جميع خصائص <strong>ADropdown</strong> داخل الكائن <strong>dropdown-attributes</strong>.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "إجراءات أخرى"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "فئات إضافية للإجراءات",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "يمكن لكل إجراء تحديد فئة CSS إضافية خاصة به عبر الحقل <strong>classExtra</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "إجراءات أخرى",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "مصفوفة من فئات CSS يتم تطبيقها على الإجراءات المضمنة حسب ترتيبها.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "مصفوفة من المعرفات تُسنَد إلى الإجراءات حسب ترتيبها عندما لا يحدد الإجراء نفسه قيمة <code>id</code>.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "فئات CSS للحاوية التي تجمع الأزرار والروابط المضمنة.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "يحدد ما إذا كان يجب إضافة مسافة قبل جزء القائمة المنسدلة عند عرض إجراءات مضمنة وإجراءات داخل القائمة المنسدلة معًا.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "فهرس أول إجراء يجب نقله إلى القائمة المنسدلة على سطح المكتب. تؤدي القيمة <code>-1</code> إلى تعطيل التجميع داخل القائمة المنسدلة.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "فهرس أول إجراء يجب نقله إلى القائمة المنسدلة على الأجهزة المحمولة. تؤدي القيمة <code>-1</code> إلى تعطيل التجميع داخل القائمة المنسدلة.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "علامة داخلية يتم تحديثها عبر <code>v-model:inner-flag-has-actions</code> للإشارة إلى ما إذا كان المكون يحتوي على إجراءات مرئية بعد التصفية.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "الحد الأدنى لعدد الإجراءات المطلوبة لعرض جزء القائمة المنسدلة. إذا كان عدد الإجراءات أقل، فستظل معروضة بشكل مضمن."
 }

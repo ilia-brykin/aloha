@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Tutti i pulsanti e il menu a discesa possono essere disabilitati.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Configurazione del pulsante del menu a discesa",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Il pulsante del menu a discesa può essere configurato. Tutte le props di <strong>ADropdown</strong> possono essere usate nell'oggetto <strong>dropdown-attributes</strong>.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Altre azioni"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "Classi extra per le azioni",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "Ogni azione può definire una propria classe CSS aggiuntiva tramite il campo <strong>classExtra</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Altre azioni",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "Un array di classi CSS applicate alle azioni inline in base alla loro posizione.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "Un array di ID assegnati alle azioni in base alla loro posizione quando l'azione stessa non definisce un <code>id</code>.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Classi CSS per il contenitore che raggruppa pulsanti e link inline.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Determina se aggiungere uno spazio prima della parte a discesa quando vengono renderizzate sia azioni inline sia azioni nel menu a discesa.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "L'indice della prima azione che deve essere spostata nel menu a discesa su desktop. Il valore <code>-1</code> disabilita il raggruppamento nel menu a discesa.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "L'indice della prima azione che deve essere spostata nel menu a discesa su mobile. Il valore <code>-1</code> disabilita il raggruppamento nel menu a discesa.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Flag interno aggiornato tramite <code>v-model:inner-flag-has-actions</code> per indicare se il componente ha azioni visibili dopo il filtraggio.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Numero minimo di azioni richiesto per renderizzare la parte a discesa. Se le azioni sono meno, restano inline."
 }

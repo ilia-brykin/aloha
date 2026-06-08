@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Se pueden deshabilitar todos los botones y el desplegable.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Configuración del botón desplegable",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "El botón desplegable se puede configurar. Todas las props de <strong>ADropdown</strong> se pueden usar dentro del objeto <strong>dropdown-attributes</strong>.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Otras acciones"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "Clases extra para acciones",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "Cada acción puede definir su propia clase CSS adicional mediante el campo <strong>classExtra</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Otras acciones",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "Un arreglo de clases CSS que se aplica a las acciones en línea según su posición.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "Un arreglo de IDs asignados a las acciones según su posición cuando la propia acción no define un <code>id</code>.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Clases CSS para el contenedor que agrupa botones y enlaces en línea.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Determina si se añade un espacio antes de la parte desplegable cuando se renderizan tanto acciones en línea como acciones del desplegable.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "El índice de la primera acción que debe moverse al desplegable en escritorio. El valor <code>-1</code> desactiva la agrupación en desplegable.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "El índice de la primera acción que debe moverse al desplegable en móvil. El valor <code>-1</code> desactiva la agrupación en desplegable.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Indicador interno actualizado mediante <code>v-model:inner-flag-has-actions</code> para indicar si el componente tiene acciones visibles después del filtrado.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Número mínimo de acciones requerido para renderizar la parte desplegable. Si hay menos acciones, permanecen en línea."
 }

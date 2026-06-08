@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Mogu se onemogućiti svi gumbi i padajući izbornik.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Konfiguracija gumba padajućeg izbornika",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Gumb padajućeg izbornika može se konfigurirati. Svi propsi komponente <strong>ADropdown</strong> mogu se koristiti unutar objekta <strong>dropdown-attributes</strong>.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Ostale akcije"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "Dodatne klase za radnje",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "Svaka radnja može definirati vlastitu dodatnu CSS klasu putem polja <strong>classExtra</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Ostale akcije",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "Polje CSS klasa koje se primjenjuju na inline radnje prema njihovoj poziciji.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "Polje identifikatora dodijeljenih radnjama prema njihovoj poziciji kada sama radnja nema definiran <code>id</code>.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "CSS klase za omotač koji grupira inline gumbe i poveznice.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Određuje dodaje li se razmak prije padajućeg dijela kada se zajedno prikazuju inline radnje i radnje u padajućem izborniku.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Indeks prve radnje koja se na desktopu treba premjestiti u padajući izbornik. Vrijednost <code>-1</code> onemogućuje grupiranje u padajući izbornik.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "Indeks prve radnje koja se na mobilnim uređajima treba premjestiti u padajući izbornik. Vrijednost <code>-1</code> onemogućuje grupiranje u padajući izbornik.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Interna zastavica koja se ažurira putem <code>v-model:inner-flag-has-actions</code> i označava ima li komponenta vidljive radnje nakon filtriranja.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Minimalan broj radnji potreban za prikaz padajućeg dijela. Ako je radnji manje, ostaju prikazane inline."
 }

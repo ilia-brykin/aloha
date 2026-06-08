@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Alle Schaltflächen und die Dropdown-Liste können deaktiviert werden.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Konfiguration der Dropdown-Schaltfläche",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Die Dropdown-Schaltfläche kann konfiguriert werden. Alle Props von <strong>ADropdown</strong> können im Objekt <strong>dropdown-attributes</strong> verwendet werden.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Weitere Aktionen"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "Zusätzliche Klassen für Aktionen",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "Jede Aktion kann über das Feld <strong>classExtra</strong> eine eigene zusätzliche CSS-Klasse definieren.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Weitere Aktionen",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "Ein Array von CSS-Klassen, das positionsbasiert auf Inline-Aktionen angewendet wird.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "Ein Array von IDs, das Aktionen positionsbasiert zugewiesen wird, wenn die Aktion selbst keine <code>id</code> definiert.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "CSS-Klassen für den Wrapper, der Inline-Schaltflächen und Links gruppiert.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Bestimmt, ob vor dem Dropdown-Bereich ein Abstand eingefügt wird, wenn sowohl Inline-Aktionen als auch Dropdown-Aktionen gerendert werden.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Der Index der ersten Aktion, die auf dem Desktop in das Dropdown verschoben werden soll. Der Wert <code>-1</code> deaktiviert die Dropdown-Gruppierung.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "Der Index der ersten Aktion, die auf Mobilgeräten in das Dropdown verschoben werden soll. Der Wert <code>-1</code> deaktiviert die Dropdown-Gruppierung.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Ein interner Status, der über <code>v-model:inner-flag-has-actions</code> aktualisiert wird und angibt, ob die Komponente nach dem Filtern sichtbare Aktionen hat.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Die Mindestanzahl von Aktionen, die erforderlich ist, damit der Dropdown-Bereich gerendert wird. Bei weniger Aktionen bleiben sie inline."
 }

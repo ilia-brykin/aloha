@@ -14,5 +14,15 @@
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DISABLED_DESCRIPTION_": "Tous les boutons et le menu déroulant peuvent être désactivés.",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_HEADER_": "Configuration du bouton du menu déroulant",
   "_A_GROUP_BUTTON_DROPDOWN_GROUP_DROPDOWN_ATTRIBUTES_DESCRIPTION_": "Le bouton du menu déroulant peut être configuré. Toutes les props de <strong>ADropdown</strong> peuvent être utilisées dans l'objet <strong>dropdown-attributes</strong>.",
-  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Autres actions"
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_HEADER_": "Classes supplémentaires pour les actions",
+  "_A_GROUP_BUTTON_DROPDOWN_GROUP_EXTRA_CLASSES_DESCRIPTION_": "Chaque action peut définir sa propre classe CSS supplémentaire via le champ <strong>classExtra</strong>.",
+  "_A_GROUP_BUTTON_DROPDOWN_OTHER_ACTIONS_": "Autres actions",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_CLASSES_DESCRIPTION_": "Un tableau de classes CSS appliquées aux actions en ligne selon leur position.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_ACTIONS_IDS_DESCRIPTION_": "Un tableau d'identifiants attribués aux actions selon leur position lorsque l'action elle-même ne définit pas de <code>id</code>.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Classes CSS pour l'élément conteneur qui regroupe les boutons et liens en ligne.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_HAS_DIVIDER_BEFORE_DROPDOWN_DESCRIPTION_": "Détermine si un espacement est ajouté avant la partie déroulante lorsque des actions en ligne et des actions de menu déroulant sont affichées ensemble.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "L'index de la première action qui doit être déplacée dans le menu déroulant sur ordinateur. La valeur <code>-1</code> désactive le regroupement dans le menu déroulant.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "L'index de la première action qui doit être déplacée dans le menu déroulant sur mobile. La valeur <code>-1</code> désactive le regroupement dans le menu déroulant.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Indicateur interne mis à jour via <code>v-model:inner-flag-has-actions</code> pour indiquer si le composant possède des actions visibles après filtrage.",
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Nombre minimal d'actions requis pour afficher la partie déroulante. S'il y a moins d'actions, elles restent en ligne."
 }
