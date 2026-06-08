@@ -24,5 +24,6 @@
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "El índice de la primera acción que debe moverse al desplegable en escritorio. El valor <code>-1</code> desactiva la agrupación en desplegable.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "El índice de la primera acción que debe moverse al desplegable en móvil. El valor <code>-1</code> desactiva la agrupación en desplegable.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Indicador interno actualizado mediante <code>v-model:inner-flag-has-actions</code> para indicar si el componente tiene acciones visibles después del filtrado.",
-  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Número mínimo de acciones requerido para renderizar la parte desplegable. Si hay menos acciones, permanecen en línea."
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Número mínimo de acciones requerido para renderizar la parte desplegable. Si hay menos acciones, permanecen en línea.",
+  "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Se emite cuando cambia el indicador interno de visibilidad de las acciones después del filtrado."
 }

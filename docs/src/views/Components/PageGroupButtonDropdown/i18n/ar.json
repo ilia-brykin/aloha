@@ -24,5 +24,6 @@
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "فهرس أول إجراء يجب نقله إلى القائمة المنسدلة على سطح المكتب. تؤدي القيمة <code>-1</code> إلى تعطيل التجميع داخل القائمة المنسدلة.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "فهرس أول إجراء يجب نقله إلى القائمة المنسدلة على الأجهزة المحمولة. تؤدي القيمة <code>-1</code> إلى تعطيل التجميع داخل القائمة المنسدلة.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "علامة داخلية يتم تحديثها عبر <code>v-model:inner-flag-has-actions</code> للإشارة إلى ما إذا كان المكون يحتوي على إجراءات مرئية بعد التصفية.",
-  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "الحد الأدنى لعدد الإجراءات المطلوبة لعرض جزء القائمة المنسدلة. إذا كان عدد الإجراءات أقل، فستظل معروضة بشكل مضمن."
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "الحد الأدنى لعدد الإجراءات المطلوبة لعرض جزء القائمة المنسدلة. إذا كان عدد الإجراءات أقل، فستظل معروضة بشكل مضمن.",
+  "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "يتم إطلاقه عندما تتغير علامة الرؤية الداخلية للإجراءات بعد التصفية."
 }

@@ -24,5 +24,6 @@
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Индекс первого действия, которое должно быть перенесено в выпадающий список на десктопе. Значение <code>-1</code> отключает группировку через выпадающий список.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "Индекс первого действия, которое должно быть перенесено в выпадающий список на мобильных устройствах. Значение <code>-1</code> отключает группировку через выпадающий список.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Внутренний флаг, обновляемый через <code>v-model:inner-flag-has-actions</code>, который показывает, есть ли у компонента видимые действия после фильтрации.",
-  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Минимальное количество действий, необходимое для отображения части с выпадающим списком. Если действий меньше, они остаются встроенными."
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Минимальное количество действий, необходимое для отображения части с выпадающим списком. Если действий меньше, они остаются встроенными.",
+  "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Срабатывает, когда после фильтрации изменяется внутренний флаг видимости действий."
 }

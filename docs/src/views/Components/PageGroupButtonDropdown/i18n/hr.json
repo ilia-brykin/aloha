@@ -24,5 +24,6 @@
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Indeks prve radnje koja se na desktopu treba premjestiti u padajući izbornik. Vrijednost <code>-1</code> onemogućuje grupiranje u padajući izbornik.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "Indeks prve radnje koja se na mobilnim uređajima treba premjestiti u padajući izbornik. Vrijednost <code>-1</code> onemogućuje grupiranje u padajući izbornik.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Interna zastavica koja se ažurira putem <code>v-model:inner-flag-has-actions</code> i označava ima li komponenta vidljive radnje nakon filtriranja.",
-  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Minimalan broj radnji potreban za prikaz padajućeg dijela. Ako je radnji manje, ostaju prikazane inline."
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Minimalan broj radnji potreban za prikaz padajućeg dijela. Ako je radnji manje, ostaju prikazane inline.",
+  "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Aktivira se kada se nakon filtriranja promijeni interna zastavica vidljivosti radnji."
 }

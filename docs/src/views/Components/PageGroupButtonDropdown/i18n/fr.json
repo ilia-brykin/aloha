@@ -24,5 +24,6 @@
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "L'index de la première action qui doit être déplacée dans le menu déroulant sur ordinateur. La valeur <code>-1</code> désactive le regroupement dans le menu déroulant.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "L'index de la première action qui doit être déplacée dans le menu déroulant sur mobile. La valeur <code>-1</code> désactive le regroupement dans le menu déroulant.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Indicateur interne mis à jour via <code>v-model:inner-flag-has-actions</code> pour indiquer si le composant possède des actions visibles après filtrage.",
-  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Nombre minimal d'actions requis pour afficher la partie déroulante. S'il y a moins d'actions, elles restent en ligne."
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Nombre minimal d'actions requis pour afficher la partie déroulante. S'il y a moins d'actions, elles restent en ligne.",
+  "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Émis lorsque l'indicateur interne de visibilité des actions change après le filtrage."
 }

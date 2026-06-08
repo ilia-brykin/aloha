@@ -13,10 +13,8 @@ import {
 } from "aloha-vue";
 
 import EventsAPI from "./compositionAPI/EventsAPI";
-import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
-import SlotsAPI from "./compositionAPI/SlotsAPI";
 
 export default {
   name: "PageGroupButtonDropdown",
@@ -43,22 +41,12 @@ export default {
     } = PropsAPI();
 
     const {
-      dataSlots,
-    } = SlotsAPI();
-
-    const {
       dataEvents,
     } = EventsAPI();
 
-    const {
-      dataExposes,
-    } = ExposesAPI();
-
     return {
-      dataExposes,
       dataEvents,
       dataProps,
-      dataSlots,
       pageTitle,
     };
   },

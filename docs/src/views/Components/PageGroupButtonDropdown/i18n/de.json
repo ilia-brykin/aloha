@@ -24,5 +24,6 @@
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "Der Index der ersten Aktion, die auf dem Desktop in das Dropdown verschoben werden soll. Der Wert <code>-1</code> deaktiviert die Dropdown-Gruppierung.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "Der Index der ersten Aktion, die auf Mobilgeräten in das Dropdown verschoben werden soll. Der Wert <code>-1</code> deaktiviert die Dropdown-Gruppierung.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Ein interner Status, der über <code>v-model:inner-flag-has-actions</code> aktualisiert wird und angibt, ob die Komponente nach dem Filtern sichtbare Aktionen hat.",
-  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Die Mindestanzahl von Aktionen, die erforderlich ist, damit der Dropdown-Bereich gerendert wird. Bei weniger Aktionen bleiben sie inline."
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Die Mindestanzahl von Aktionen, die erforderlich ist, damit der Dropdown-Bereich gerendert wird. Bei weniger Aktionen bleiben sie inline.",
+  "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Wird ausgelöst, wenn sich das interne Sichtbarkeits-Flag der Aktionen nach dem Filtern ändert."
 }

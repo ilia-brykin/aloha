@@ -24,5 +24,6 @@
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_DESCRIPTION_": "L'indice della prima azione che deve essere spostata nel menu a discesa su desktop. Il valore <code>-1</code> disabilita il raggruppamento nel menu a discesa.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INDEX_FIRST_DROPDOWN_ACTION_MOBILE_DESCRIPTION_": "L'indice della prima azione che deve essere spostata nel menu a discesa su mobile. Il valore <code>-1</code> disabilita il raggruppamento nel menu a discesa.",
   "_A_GROUP_BUTTON_DROPDOWN_PROPS_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Flag interno aggiornato tramite <code>v-model:inner-flag-has-actions</code> per indicare se il componente ha azioni visibili dopo il filtraggio.",
-  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Numero minimo di azioni richiesto per renderizzare la parte a discesa. Se le azioni sono meno, restano inline."
+  "_A_GROUP_BUTTON_DROPDOWN_PROPS_MIN_DROPDOWN_ACTIONS_DESCRIPTION_": "Numero minimo di azioni richiesto per renderizzare la parte a discesa. Se le azioni sono meno, restano inline.",
+  "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_": "Viene emesso quando il flag interno di visibilità delle azioni cambia dopo il filtraggio."
 }

@@ -1,8 +1,8 @@
 export default function EventsAPI() {
   const dataEvents = [
     {
-      name: "click",
-      description: "_A_BUTTON_EVENTS_CLICK_DESCRIPTION_",
+      name: "update:innerFlagHasActions",
+      description: "_A_GROUP_BUTTON_DROPDOWN_EVENTS_UPDATE_INNER_FLAG_HAS_ACTIONS_DESCRIPTION_",
       type: "Function",
     },
   ];
