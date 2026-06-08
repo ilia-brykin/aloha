@@ -1,3 +1,22 @@
 {
-
+  "_A_TOOLTIP_COMPONENT_NAME_": "Tooltip",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip muestra información adicional cuando el usuario pasa el cursor sobre un elemento o le da foco.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Etiqueta personalizada",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "Puedes cambiar la etiqueta HTML utilizada para el elemento activador del tooltip.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Ancho máximo",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Limita el ancho máximo del contenido del tooltip.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Ancho fijo",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Establece un ancho fijo para el contenido del tooltip.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Retraso de cierre",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Controla cuánto tiempo permanece visible el tooltip después de que el cursor sale del activador o del área del tooltip.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Ocultar flecha",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "La flecha del tooltip se puede ocultar.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Desplazamiento horizontal",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Mueve el tooltip a lo largo del eje del elemento de referencia.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Distancia al activador",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Cambia la distancia entre el tooltip y el elemento activador.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Padding de la flecha",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Define el padding que limita lo cerca que la flecha puede estar de los bordes del tooltip.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback para el padding de la flecha",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "El padding de la flecha también se puede calcular dinámicamente con una función callback."
 }

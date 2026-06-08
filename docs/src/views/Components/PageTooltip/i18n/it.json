@@ -1,3 +1,22 @@
 {
-
+  "_A_TOOLTIP_COMPONENT_NAME_": "Tooltip",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip mostra informazioni aggiuntive quando l'utente passa il cursore sopra un elemento o gli dà il focus.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Tag personalizzato",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "Puoi cambiare il tag HTML usato per l'elemento che attiva il tooltip.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Larghezza massima",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Limita la larghezza massima del contenuto del tooltip.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Larghezza fissa",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Imposta una larghezza fissa per il contenuto del tooltip.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Ritardo di chiusura",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Controlla per quanto tempo il tooltip rimane visibile dopo che il puntatore lascia il trigger o l'area del tooltip.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Nascondi freccia",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "La freccia del tooltip può essere nascosta.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Spostamento orizzontale",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Sposta il tooltip lungo l'asse dell'elemento di riferimento.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Distanza dal trigger",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Modifica la distanza tra il tooltip e l'elemento trigger.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Padding della freccia",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Imposta il padding che limita quanto la freccia può avvicinarsi ai bordi del tooltip.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback per il padding della freccia",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Il padding della freccia può anche essere calcolato dinamicamente con una funzione callback."
 }

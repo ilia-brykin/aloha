@@ -1,3 +1,22 @@
 {
-
+  "_A_TOOLTIP_COMPONENT_NAME_": "تلميح",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "يعرض ATooltip معلومات إضافية عندما يمرر المستخدم المؤشر فوق عنصر أو يركز عليه.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "وسم مخصص",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "يمكنك تغيير وسم HTML المستخدم لعنصر تشغيل التلميح.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "العرض الأقصى",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "يحدد العرض الأقصى لمحتوى التلميح.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "عرض ثابت",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "يضبط عرضًا ثابتًا لمحتوى التلميح.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "تأخير الإغلاق",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "يتحكم في مدة بقاء التلميح ظاهرًا بعد مغادرة المؤشر لعنصر التشغيل أو منطقة التلميح.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "إخفاء السهم",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "يمكن إخفاء سهم التلميح.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "إزاحة أفقية",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "ينقل التلميح على طول محور العنصر المرجعي.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "المسافة عن عنصر التشغيل",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "يغيّر المسافة بين التلميح وعنصر التشغيل.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "حشوة السهم",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "تحدد الحشوة التي تقيد مدى اقتراب السهم من حواف التلميح.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "دالة callback لحشوة السهم",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "يمكن أيضًا حساب حشوة السهم بشكل ديناميكي باستخدام دالة callback."
 }

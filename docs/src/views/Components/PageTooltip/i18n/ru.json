@@ -1,3 +1,22 @@
 {
-
+  "_A_TOOLTIP_COMPONENT_NAME_": "Подсказка",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip отображает дополнительную информацию при наведении курсора или фокусе на элементе.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Пользовательский тег",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "Можно изменить HTML-тег, который используется для элемента-триггера подсказки.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Максимальная ширина",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Ограничивает максимальную ширину содержимого подсказки.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Фиксированная ширина",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Задаёт фиксированную ширину для содержимого подсказки.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Задержка закрытия",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Управляет тем, как долго подсказка остаётся видимой после ухода курсора с триггера или области подсказки.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Скрыть стрелку",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "Стрелку подсказки можно скрыть.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Горизонтальное смещение",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Смещает подсказку вдоль оси опорного элемента.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Расстояние от триггера",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Изменяет расстояние между подсказкой и элементом-триггером.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Отступ стрелки",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Задаёт отступ, который ограничивает, насколько близко стрелка может подходить к краям подсказки.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback для отступа стрелки",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Отступ стрелки также можно вычислять динамически с помощью callback-функции."
 }

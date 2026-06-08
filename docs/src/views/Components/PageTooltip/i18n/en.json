@@ -1,3 +1,22 @@
 {
-
+  "_A_TOOLTIP_COMPONENT_NAME_": "Tooltip",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip displays additional information when the user hovers over or focuses an element.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Custom tag",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "You can change the HTML tag used for the tooltip trigger element.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Maximum width",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Limits the maximum width of the tooltip content.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Fixed width",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Sets a fixed width for the tooltip content.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Close delay",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Controls how long the tooltip remains visible after the pointer leaves the trigger or tooltip area.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Hide arrow",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "The tooltip arrow can be hidden.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Horizontal offset",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Moves the tooltip along the reference element axis.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Distance from trigger",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Changes the distance between the tooltip and the trigger element.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Arrow padding",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Sets the padding that limits how close the arrow can get to the tooltip edges.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Arrow padding callback",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Arrow padding can also be calculated dynamically with a callback function."
 }

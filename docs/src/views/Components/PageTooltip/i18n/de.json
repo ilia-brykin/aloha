@@ -1,3 +1,22 @@
 {
-
+  "_A_TOOLTIP_COMPONENT_NAME_": "Tooltip",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip zeigt zusätzliche Informationen an, wenn der Benutzer mit der Maus über ein Element fährt oder es fokussiert.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Benutzerdefiniertes Tag",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "Sie können das HTML-Tag ändern, das für das Tooltip-Auslöseelement verwendet wird.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Maximale Breite",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Begrenzt die maximale Breite des Tooltip-Inhalts.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Feste Breite",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Legt eine feste Breite für den Tooltip-Inhalt fest.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Schließverzögerung",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Steuert, wie lange das Tooltip sichtbar bleibt, nachdem der Mauszeiger den Auslöser oder den Tooltip-Bereich verlassen hat.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Pfeil ausblenden",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "Der Tooltip-Pfeil kann ausgeblendet werden.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Horizontale Verschiebung",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Verschiebt das Tooltip entlang der Achse des Referenzelements.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Abstand zum Auslöser",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Ändert den Abstand zwischen dem Tooltip und dem Auslöseelement.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Pfeilabstand",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Legt den Abstand fest, der begrenzt, wie nah der Pfeil an die Ränder des Tooltips gelangen kann.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback für Pfeilabstand",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Der Pfeilabstand kann auch dynamisch mit einer Callback-Funktion berechnet werden."
 }
