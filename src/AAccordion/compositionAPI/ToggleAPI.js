@@ -18,6 +18,7 @@ export default function ToggleAPI(props, { emit }) {
   const alwaysOpen = toRef(props, "alwaysOpen");
   const disabled = toRef(props, "disabled");
   const idsForOpenDefault = toRef(props, "idsForOpenDefault");
+  const oneItemAlwaysOpen = toRef(props, "oneItemAlwaysOpen");
   const prevent = toRef(props, "prevent");
   const stop = toRef(props, "stop");
 
@@ -40,6 +41,9 @@ export default function ToggleAPI(props, { emit }) {
 
   const toggleWithoutAlwaysOpen = ({ currentId, parentsIds, isOpen }) => {
     if (isOpen) {
+      if (oneItemAlwaysOpen.value) {
+        return;
+      }
       idsForOpen.value = parentsIds;
     } else {
       idsForOpen.value = [...parentsIds, currentId];

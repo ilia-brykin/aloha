@@ -9,6 +9,7 @@ import {
 } from "../../../const/AKeys";
 import {
   cloneDeep,
+  filter,
 } from "lodash-es";
 
 export default function ToggleAPI(props) {
@@ -68,7 +69,9 @@ export default function ToggleAPI(props) {
 
   const closeItemIfOpen = () => {
     if (isOpen.value && keyId.value) {
-      toggleLocal();
+      idsForOpen.value = filter(idsForOpen.value, id => {
+        return id !== currentId.value;
+      });
     }
   };
 

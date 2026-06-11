@@ -1,6 +1,7 @@
 import {
   computed,
   h,
+  watch,
 } from "vue";
 
 import AAccordionItem from "./AAccordionItem/AAccordionItem";
@@ -20,6 +21,7 @@ export default {
   name: "AAccordion",
   provide() {
     return {
+      alwaysOpen: computed(() => this.alwaysOpen),
       classBody: computed(() => this.classBody),
       classButton: computed(() => this.classButton),
       classHeader: computed(() => this.classHeader),
@@ -35,6 +37,7 @@ export default {
       keyIsRender: computed(() => this.keyIsRender),
       keyIsRenderBodyByFirstOpen: computed(() => this.keyIsRenderBodyByFirstOpen),
       keyLabel: computed(() => this.keyLabel),
+      oneItemAlwaysOpen: computed(() => this.oneItemAlwaysOpen),
       readonly: computed(() => this.readonly),
       withGap: computed(() => this.withGap),
       toggle: this.toggleLocal,
@@ -44,6 +47,7 @@ export default {
     alwaysOpen: {
       type: Boolean,
       required: false,
+      default: false,
     },
     classBody: {
       type: [String, Object],
@@ -122,6 +126,11 @@ export default {
       type: String,
       required: false,
       default: "label",
+    },
+    oneItemAlwaysOpen: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     keyChildren: {
       type: String,

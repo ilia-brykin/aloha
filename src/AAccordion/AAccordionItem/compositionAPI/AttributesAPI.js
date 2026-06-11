@@ -17,12 +17,14 @@ export default function AttributesAPI(props, {
 }) {
   const item = toRef(props, "item");
 
+  const alwaysOpen = inject("alwaysOpen");
   const classButton = inject("classButton");
   const disabled = inject("disabled");
   const id = inject("id");
   const isCaret = inject("isCaret");
   const keyContent = inject("keyContent");
   const keyLabel = inject("keyLabel");
+  const oneItemAlwaysOpen = inject("oneItemAlwaysOpen");
   const readonly = inject("readonly");
   const withGap = inject("withGap");
 
@@ -41,12 +43,16 @@ export default function AttributesAPI(props, {
     return readonly.value || item.value.readonly;
   });
 
+  const isDisabledByOneItemAlwaysOpen = computed(() => {
+    return !alwaysOpen.value && oneItemAlwaysOpen.value && isOpen.value;
+  });
+
   const idForCollapse = computed(() => {
     return `${ id.value }_${ currentId.value }`;
   });
 
   const buttonTag = computed(() => {
-    return readonlyLocal.value ? "div" : "a";
+    return readonlyLocal.value || isDisabledByOneItemAlwaysOpen.value ? "div" : "a";
   });
 
   const buttonAttributes = computed(() => {
@@ -61,12 +67,17 @@ export default function AttributesAPI(props, {
     };
 
     if (!readonlyLocal.value) {
-      ATTRIBUTES.ariaExpanded = isOpen.value;
+      ATTRIBUTES["aria-expanded"] = isOpen.value;
       ATTRIBUTES["aria-controls"] = idForCollapse.value;
-      ATTRIBUTES.rolw = "button";
-      ATTRIBUTES.tabindex = 0;
-      ATTRIBUTES.disabled = disabledLocal.value;
-      ATTRIBUTES.onClick = toggleLocal;
+      ATTRIBUTES.role = "button";
+
+      if (isDisabledByOneItemAlwaysOpen.value) {
+        ATTRIBUTES["aria-disabled"] = true;
+      } else {
+        ATTRIBUTES.tabindex = 0;
+        ATTRIBUTES.disabled = disabledLocal.value;
+        ATTRIBUTES.onClick = toggleLocal;
+      }
     }
 
     return ATTRIBUTES;
