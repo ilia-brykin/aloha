@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.54.0
+
+- Feature: Introduce `oneItemAlwaysOpen` prop to `AAccordion` with logic updates in `ToggleAPI` and `AttributesAPI`.
+
 ## 2.53.0
 
 - Feature: add `trigger` and `triggerDetails` to returned arguments for `AInputCurrency`
