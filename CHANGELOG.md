@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.55.0
+
+- Feature: Add `isCloseByButtonInvisibleInViewport` prop to `ADropdown` and implement `onReferenceHidden` logic in `PopoverAPI`. Optimize `ToggleAPI` with `getDropdownButtonElement` abstraction and improve focus behavior.
+
 ## 2.54.0
 
 - Feature: Introduce `oneItemAlwaysOpen` prop to `AAccordion` with logic updates in `ToggleAPI` and `AttributesAPI`.
