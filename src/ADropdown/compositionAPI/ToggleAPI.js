@@ -78,8 +78,12 @@ export default function ToggleAPI(props, { emit }, {
     });
   };
 
+  const getDropdownButtonElement = () => {
+    return dropdownButtonRef.value?.$el || dropdownButtonRef.value;
+  };
+
   const setFocusToButton = () => {
-    dropdownButtonRef.value?.$el?.focus();
+    getDropdownButtonElement()?.focus?.();
   };
 
   const pressButton = $event => {
@@ -152,9 +156,10 @@ export default function ToggleAPI(props, { emit }, {
   };
 
   const setButtonWidth = () => {
+    const BUTTON = getDropdownButtonElement();
     if (isListWidthSameWithButton.value &&
-      dropdownButtonRef.value) {
-      buttonWidth.value = dropdownButtonRef.value.clientWidth;
+      BUTTON) {
+      buttonWidth.value = BUTTON.clientWidth;
     }
   };
 
@@ -221,7 +226,7 @@ export default function ToggleAPI(props, { emit }, {
     }
   };
 
-  function onCloseLocal({ trigger }) {
+  function onCloseLocal({ isFocusButton = true, trigger }) {
     destroyEventCloseClick();
     destroyEventPressArrows();
     destroyPopover();
@@ -229,7 +234,8 @@ export default function ToggleAPI(props, { emit }, {
 
     closeDropdownGlobal();
     if (trigger && trigger !== "hover" && // the event did not come from outside
-      triggerOpen.value !== "hover") {
+      triggerOpen.value !== "hover" &&
+      isFocusButton) {
       setFocusToButton();
     }
     triggerOpen.value = undefined;
@@ -239,7 +245,7 @@ export default function ToggleAPI(props, { emit }, {
     emit("close");
   }
 
-  function onClose({ trigger } = {}) {
+  function onClose({ isFocusButton = true, trigger } = {}) {
     if (!statusExpanded.value) {
       return;
     }
@@ -249,10 +255,16 @@ export default function ToggleAPI(props, { emit }, {
         return;
       }
       timerCloseHover.value = setTimeout(() => {
-        onCloseLocal({ trigger });
+        onCloseLocal({
+          isFocusButton,
+          trigger,
+        });
       }, 120);
     } else {
-      onCloseLocal({ trigger });
+      onCloseLocal({
+        isFocusButton,
+        trigger,
+      });
     }
   }
 

@@ -246,6 +246,11 @@ export default {
       required: false,
       default: true,
     },
+    isCloseByButtonInvisibleInViewport: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isHideWithoutActionAndSlot: {
       type: Boolean,
       required: false,
@@ -345,6 +350,7 @@ export default {
     } = PopoverAPI(props, {
       dropdownButtonRef,
       dropdownRef,
+      onReferenceHidden,
     });
 
     const {
@@ -408,6 +414,13 @@ export default {
     const {
       buttonClassLocal,
     } = ClassAPI(props);
+
+    function onReferenceHidden() {
+      onClose({
+        isFocusButton: false,
+        trigger: "referenceHidden",
+      });
+    }
 
     initWasOpened();
 

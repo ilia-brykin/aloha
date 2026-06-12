@@ -8,15 +8,18 @@ import {
   autoUpdate,
   computePosition,
   flip,
+  hide,
   shift,
 } from "@floating-ui/vue";
 
 export default function PopoverAPI(props, {
   dropdownButtonRef = ref(undefined),
   dropdownRef = ref(undefined),
+  onReferenceHidden = () => {},
 }) {
   const floatingFlip = toRef(props, "floatingFlip");
   const floatingShift = toRef(props, "floatingShift");
+  const isCloseByButtonInvisibleInViewport = toRef(props, "isCloseByButtonInvisibleInViewport");
   const placement = toRef(props, "placement");
 
   const cleanupPopper = ref(undefined);
@@ -31,6 +34,13 @@ export default function PopoverAPI(props, {
     if (floatingShift.value?.use) {
       MIDDLEWARE.push(
         shift(floatingShift.value),
+      );
+    }
+    if (isCloseByButtonInvisibleInViewport.value) {
+      MIDDLEWARE.push(
+        hide({
+          strategy: "referenceHidden",
+        }),
       );
     }
 
@@ -57,7 +67,12 @@ export default function PopoverAPI(props, {
               placement: placement.value,
               middleware: middleware.value,
             },
-          ).then(({ x, y }) => {
+          ).then(({ middlewareData, x, y }) => {
+            if (middlewareData.hide?.referenceHidden) {
+              onReferenceHidden();
+              return;
+            }
+
             Object.assign(dropdownRef.value.style, {
               left: `${ x }px`,
               top: `${ y }px`,
