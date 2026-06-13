@@ -1,0 +1,34 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_"
+  description="_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_"
+  props="is-close-by-button-invisible-in-viewport"
+)
+  div(
+    style="max-height: 14rem; overflow: auto; padding: 1rem;"
+  )
+    div(
+      style="height: 26rem;"
+    )
+      p
+        a-translation(
+          tag="span"
+          text="_A_DROPDOWN_SCROLL_HELP_"
+        )
+      div(
+        style="margin-top: 6rem;"
+      )
+        a-dropdown(
+          :actions="dropdownActions"
+          :is-close-by-button-invisible-in-viewport="true"
+          button-text="_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_"
+        )
+      div(
+        style="margin-top: 6rem;"
+      )
+        a-dropdown(
+          :actions="dropdownActions"
+          :is-close-by-button-invisible-in-viewport="false"
+          button-text="_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_"
+        )

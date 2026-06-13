@@ -285,6 +285,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-close-by-button-invisible-in-viewport",
+      description: "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "is-hide-without-action-and-slot",
       description: "_A_DROPDOWN_PROPS_IS_HIDE_WITHOUT_ACTION_AND_SLOT_DESCRIPTION_",
       type: "Boolean",

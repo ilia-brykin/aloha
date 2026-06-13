@@ -161,5 +161,11 @@
   "_A_DROPDOWN_GROUP_SETTINGS_": "Настройки",
   "_A_DROPDOWN_GROUP_TEAM_": "Команда",
   "_A_DROPDOWN_GROUP_THEME_": "Тема",
-  "_A_DROPDOWN_GROUP_WORKSPACE_": "Рабочее пространство"
+  "_A_DROPDOWN_GROUP_WORKSPACE_": "Рабочее пространство",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "Закрытие при выходе кнопки из области видимости",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Откройте выпадающий список и прокрутите контейнер так, чтобы его кнопка вышла из видимой области. Если <strong>is-close-by-button-invisible-in-viewport</strong> равно <strong>true</strong>, список закроется автоматически; если <strong>false</strong>, он останется открытым.",
+  "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Определяет, будет ли выпадающий список автоматически закрываться, когда его кнопка-триггер выходит из видимой области прокручиваемого контейнера.",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "закрывать при скрытии = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "закрывать при скрытии = false",
+  "_A_DROPDOWN_SCROLL_HELP_": "Откройте выпадающий список, затем прокрутите этот блок."
 }

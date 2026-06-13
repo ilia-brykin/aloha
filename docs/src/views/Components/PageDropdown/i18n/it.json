@@ -161,5 +161,11 @@
   "_A_DROPDOWN_GROUP_SETTINGS_": "Impostazioni",
   "_A_DROPDOWN_GROUP_TEAM_": "Team",
   "_A_DROPDOWN_GROUP_THEME_": "Tema",
-  "_A_DROPDOWN_GROUP_WORKSPACE_": "Spazio di lavoro"
+  "_A_DROPDOWN_GROUP_WORKSPACE_": "Spazio di lavoro",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "Chiudi quando il trigger esce dall'area visibile",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Apri un menu a discesa e scorri il contenitore finché il suo pulsante non esce dall'area visibile. Con <strong>is-close-by-button-invisible-in-viewport</strong> impostato su <strong>true</strong>, il menu si chiude automaticamente; con <strong>false</strong>, resta aperto.",
+  "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Determina se il menu a discesa si chiude automaticamente quando il suo pulsante trigger esce dall'area visibile del contenitore scorrevole.",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "chiudi quando invisibile = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "chiudi quando invisibile = false",
+  "_A_DROPDOWN_SCROLL_HELP_": "Apri un menu a discesa e poi scorri questo blocco."
 }

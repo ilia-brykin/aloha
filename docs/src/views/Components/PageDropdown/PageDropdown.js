@@ -6,6 +6,7 @@ import PageDropdownButtonIcons from "./PageDropdownButtonIcons/PageDropdownButto
 import PageDropdownButtonLoading from "./PageDropdownButtonLoading/PageDropdownButtonLoading.vue";
 import PageDropdownButtonText from "./PageDropdownButtonText/PageDropdownButtonText.vue";
 import PageDropdownCaretIcon from "./PageDropdownCaretIcon/PageDropdownCaretIcon.vue";
+import PageDropdownCloseByButtonInvisibleInViewport from "./PageDropdownCloseByButtonInvisibleInViewport/PageDropdownCloseByButtonInvisibleInViewport.vue";
 import PageDropdownGroup from "./PageDropdownGroup/PageDropdownGroup.vue";
 import PageDropdownGroupHideEmpty from "./PageDropdownGroupHideEmpty/PageDropdownGroupHideEmpty.vue";
 import PageDropdownGroupSort from "./PageDropdownGroupSort/PageDropdownGroupSort.vue";
@@ -35,6 +36,7 @@ export default {
     PageDropdownButtonLoading,
     PageDropdownButtonText,
     PageDropdownCaretIcon,
+    PageDropdownCloseByButtonInvisibleInViewport,
     PageDropdownGroup,
     PageDropdownGroupHideEmpty,
     PageDropdownGroupSort,

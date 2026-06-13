@@ -161,5 +161,11 @@
   "_A_DROPDOWN_GROUP_SETTINGS_": "Configuración",
   "_A_DROPDOWN_GROUP_TEAM_": "Equipo",
   "_A_DROPDOWN_GROUP_THEME_": "Tema",
-  "_A_DROPDOWN_GROUP_WORKSPACE_": "Espacio de trabajo"
+  "_A_DROPDOWN_GROUP_WORKSPACE_": "Espacio de trabajo",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "Cerrar cuando el disparador salga del viewport",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Abra un desplegable y desplace el contenedor hasta que su botón salga del área visible. Con <strong>is-close-by-button-invisible-in-viewport</strong> en <strong>true</strong>, el desplegable se cierra automáticamente; con <strong>false</strong>, permanece abierto.",
+  "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Determina si el desplegable se cierra automáticamente cuando su botón disparador sale del viewport visible del área desplazable.",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "cerrar al ocultarse = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "cerrar al ocultarse = false",
+  "_A_DROPDOWN_SCROLL_HELP_": "Abra un desplegable y luego desplace este bloque."
 }

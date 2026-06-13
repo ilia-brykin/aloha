@@ -161,5 +161,11 @@
   "_A_DROPDOWN_GROUP_SETTINGS_": "الإعدادات",
   "_A_DROPDOWN_GROUP_TEAM_": "الفريق",
   "_A_DROPDOWN_GROUP_THEME_": "السمة",
-  "_A_DROPDOWN_GROUP_WORKSPACE_": "مساحة العمل"
+  "_A_DROPDOWN_GROUP_WORKSPACE_": "مساحة العمل",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "الإغلاق عند خروج زر التشغيل من نطاق الرؤية",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "افتح القائمة المنسدلة ثم مرر الحاوية حتى يخرج زرها من المنطقة المرئية. عند ضبط <strong>is-close-by-button-invisible-in-viewport</strong> على <strong>true</strong> ستغلق القائمة تلقائيًا، وعند ضبطه على <strong>false</strong> ستبقى مفتوحة.",
+  "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "يحدد ما إذا كانت القائمة المنسدلة تُغلق تلقائيًا عندما يخرج زر التشغيل الخاص بها من نطاق الرؤية داخل المنطقة القابلة للتمرير.",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "الإغلاق عند الاختفاء = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "الإغلاق عند الاختفاء = false",
+  "_A_DROPDOWN_SCROLL_HELP_": "افتح قائمة منسدلة ثم مرر هذا المربع."
 }

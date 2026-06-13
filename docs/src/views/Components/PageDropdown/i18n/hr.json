@@ -161,5 +161,11 @@
   "_A_DROPDOWN_GROUP_SETTINGS_": "Postavke",
   "_A_DROPDOWN_GROUP_TEAM_": "Tim",
   "_A_DROPDOWN_GROUP_THEME_": "Tema",
-  "_A_DROPDOWN_GROUP_WORKSPACE_": "Radni prostor"
+  "_A_DROPDOWN_GROUP_WORKSPACE_": "Radni prostor",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "Zatvori kada okidač izađe iz vidljivog područja",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Otvorite padajući izbornik i skrolajte spremnik dok njegov gumb ne izađe iz vidljivog područja. Kada je <strong>is-close-by-button-invisible-in-viewport</strong> postavljen na <strong>true</strong>, izbornik se automatski zatvara; kada je <strong>false</strong>, ostaje otvoren.",
+  "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Određuje zatvara li se padajući izbornik automatski kada njegov gumb okidača izađe iz vidljivog područja skrolajućeg spremnika.",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "zatvori kad je nevidljiv = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "zatvori kad je nevidljiv = false",
+  "_A_DROPDOWN_SCROLL_HELP_": "Otvorite padajući izbornik pa zatim skrolajte ovaj blok."
 }

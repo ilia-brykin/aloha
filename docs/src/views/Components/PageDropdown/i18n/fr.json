@@ -161,5 +161,11 @@
   "_A_DROPDOWN_GROUP_SETTINGS_": "Paramètres",
   "_A_DROPDOWN_GROUP_TEAM_": "Équipe",
   "_A_DROPDOWN_GROUP_THEME_": "Thème",
-  "_A_DROPDOWN_GROUP_WORKSPACE_": "Espace de travail"
+  "_A_DROPDOWN_GROUP_WORKSPACE_": "Espace de travail",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "Fermer lorsque le déclencheur quitte la zone visible",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Ouvrez une liste déroulante puis faites défiler le conteneur jusqu'à ce que son bouton quitte la zone visible. Avec <strong>is-close-by-button-invisible-in-viewport</strong> à <strong>true</strong>, la liste se ferme automatiquement ; avec <strong>false</strong>, elle reste ouverte.",
+  "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Détermine si la liste déroulante se ferme automatiquement lorsque son bouton déclencheur quitte la zone visible de la zone défilable.",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "fermer si invisible = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "fermer si invisible = false",
+  "_A_DROPDOWN_SCROLL_HELP_": "Ouvrez une liste déroulante puis faites défiler ce bloc."
 }

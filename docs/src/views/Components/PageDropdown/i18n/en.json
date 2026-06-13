@@ -161,5 +161,11 @@
   "_A_DROPDOWN_GROUP_SETTINGS_": "Settings",
   "_A_DROPDOWN_GROUP_TEAM_": "Team",
   "_A_DROPDOWN_GROUP_THEME_": "Theme",
-  "_A_DROPDOWN_GROUP_WORKSPACE_": "Workspace"
+  "_A_DROPDOWN_GROUP_WORKSPACE_": "Workspace",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "Close When Trigger Leaves Viewport",
+  "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Open a dropdown and scroll the container so its button leaves the visible area. With <strong>is-close-by-button-invisible-in-viewport</strong> set to <strong>true</strong>, the dropdown closes automatically; with <strong>false</strong>, it stays open.",
+  "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Determines whether the dropdown closes automatically when its trigger button leaves the visible viewport of the scrollable area.",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "close on invisible = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "close on invisible = false",
+  "_A_DROPDOWN_SCROLL_HELP_": "Open a dropdown and then scroll this block."
 }
