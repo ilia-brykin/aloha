@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Управляет сортировкой заголовков групп. Возможные значения: <strong>asc</strong> и <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "Список событий, которые вызывают открытие или закрытие выпадающего меню.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "Определяет, можно ли использовать клавишу Esc для закрытия выпадающего меню.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "Задаёт фиксированную ширину выпадающего меню в пикселях.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "Определяет, должно ли значение <strong>menu-width</strong> масштабироваться в соответствии с размером корневого шрифта перед применением.",
   "_A_DROPDOWN_ACTION_0_": "Действие 0",
   "_A_DROPDOWN_ACTION_1_": "Действие 1",
   "_A_DROPDOWN_ACTION_2_": "Действие 2",

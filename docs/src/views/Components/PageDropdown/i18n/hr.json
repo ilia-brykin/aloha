@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Upravlja sortiranjem oznaka grupa. Moguće vrijednosti: <strong>asc</strong> i <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "Lsita događaja koji okidaju otvaranje ili zatvaranje padajućeg izbornika.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "Određuje može li se tipka Esc koristiti za zatvaranje padajućeg izbornika.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "Postavlja fiksnu širinu padajućeg izbornika u pikselima.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "Određuje treba li se vrijednost <strong>menu-width</strong> skalirati prema veličini korijenskog fonta prije primjene.",
   "_A_DROPDOWN_ACTION_0_": "Akcija 0",
   "_A_DROPDOWN_ACTION_1_": "Akcija 1",
   "_A_DROPDOWN_ACTION_2_": "Akcija 2",

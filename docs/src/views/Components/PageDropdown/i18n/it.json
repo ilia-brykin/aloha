@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Controlla l'ordinamento delle etichette dei gruppi. Valori possibili: <strong>asc</strong> e <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "Elenco di eventi che attivano l'apertura o la chiusura del menu a discesa.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "Determina se il tasto Esc può essere usato per chiudere il menu a discesa.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "Imposta una larghezza fissa del menu a discesa in pixel.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "Determina se il valore di <strong>menu-width</strong> deve essere scalato in base alla dimensione del font radice prima di essere applicato.",
   "_A_DROPDOWN_ACTION_0_": "Azione 0",
   "_A_DROPDOWN_ACTION_1_": "Azione 1",
   "_A_DROPDOWN_ACTION_2_": "Azione 2",

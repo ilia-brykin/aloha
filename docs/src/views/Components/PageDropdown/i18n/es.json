@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Controla la ordenación de las etiquetas de grupo. Valores posibles: <strong>asc</strong> y <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "Una lista de eventos que activan la apertura o el cierre del menú desplegable.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "Determina si se puede usar la tecla Esc para cerrar el menú desplegable.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "Establece un ancho fijo para el menú desplegable en píxeles.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "Determina si el valor de <strong>menu-width</strong> debe escalarse según el tamaño de fuente raíz antes de aplicarse.",
   "_A_DROPDOWN_ACTION_0_": "Acción 0",
   "_A_DROPDOWN_ACTION_1_": "Acción 1",
   "_A_DROPDOWN_ACTION_2_": "Acción 2",

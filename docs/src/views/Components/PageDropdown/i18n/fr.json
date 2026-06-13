@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Contrôle le tri des libellés de groupe. Valeurs possibles : <strong>asc</strong> et <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "Liste d'événements qui déclenchent l'ouverture ou la fermeture du menu déroulant.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "Détermine si la touche Esc peut être utilisée pour fermer le menu déroulant.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "Définit une largeur fixe du menu déroulant en pixels.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "Détermine si la valeur de <strong>menu-width</strong> doit être mise à l'échelle selon la taille de police racine avant d'être appliquée.",
   "_A_DROPDOWN_ACTION_0_": "Action 0",
   "_A_DROPDOWN_ACTION_1_": "Action 1",
   "_A_DROPDOWN_ACTION_2_": "Action 2",

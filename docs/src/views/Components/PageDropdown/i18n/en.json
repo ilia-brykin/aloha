@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Controls sorting of group labels. Possible values: <strong>asc</strong> and <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "A list of events that trigger the opening or closing of the dropdown menu.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "Determines whether the Esc key can be used to close the dropdown menu.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "Sets a fixed width for the dropdown menu in pixels.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "Determines whether the <strong>menu-width</strong> value should be scaled according to the root font size before being applied.",
   "_A_DROPDOWN_ACTION_0_": "Actions 0",
   "_A_DROPDOWN_ACTION_1_": "Actions 1",
   "_A_DROPDOWN_ACTION_2_": "Actions 2",

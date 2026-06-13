@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Steuert die Sortierung der Gruppenbeschriftungen. Mögliche Werte: <strong>asc</strong> und <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "Eine Liste von Ereignissen, die das Öffnen oder Schließen des Dropdown-Menüs auslösen.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "Bestimmt, ob die Esc-Taste zum Schließen des Dropdown-Menüs verwendet werden kann.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "Legt eine feste Breite für das Dropdown-Menü in Pixeln fest.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "Bestimmt, ob der Wert von <strong>menu-width</strong> vor der Anwendung entsprechend der Root-Schriftgröße skaliert werden soll.",
   "_A_DROPDOWN_ACTION_0_": "Aktion 0",
   "_A_DROPDOWN_ACTION_1_": "Aktion 1",
   "_A_DROPDOWN_ACTION_2_": "Aktion 2",

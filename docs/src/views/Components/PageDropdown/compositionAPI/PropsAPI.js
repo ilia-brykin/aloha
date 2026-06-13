@@ -320,6 +320,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "menu-width",
+      description: "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_",
+      type: "Number",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "persist",
       description: "_A_DROPDOWN_PROPS_PERSIST_DESCRIPTION_",
       type: "Boolean",
@@ -364,6 +371,13 @@ export default function PropsAPI() {
     {
       name: "use-escape",
       description: "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
+      name: "use-rem",
+      description: "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_",
       type: "Boolean",
       default: true,
       required: false,

@@ -85,6 +85,8 @@
   "_A_DROPDOWN_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "يتحكم في فرز تسميات المجموعات. القيم الممكنة: <strong>asc</strong> و <strong>desc</strong>.",
   "_A_DROPDOWN_PROPS_TRIGGERS_DESCRIPTION_": "قائمة بالأحداث التي تُشغّل فتح أو إغلاق القائمة المنسدلة.",
   "_A_DROPDOWN_PROPS_USE_ESCAPE_DESCRIPTION_": "يحدد ما إذا كان يمكن استخدام مفتاح Esc لإغلاق القائمة المنسدلة.",
+  "_A_DROPDOWN_PROPS_MENU_WIDTH_DESCRIPTION_": "يضبط عرضًا ثابتًا للقائمة المنسدلة بالبكسل.",
+  "_A_DROPDOWN_PROPS_USE_REM_DESCRIPTION_": "يحدد ما إذا كان يجب تحجيم قيمة <strong>menu-width</strong> وفقًا لحجم خط الجذر قبل تطبيقها.",
   "_A_DROPDOWN_ACTION_0_": "إجراء 0",
   "_A_DROPDOWN_ACTION_1_": "إجراء 1",
   "_A_DROPDOWN_ACTION_2_": "إجراء 2",
