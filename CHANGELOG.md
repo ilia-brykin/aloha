@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.56.0
+
+- Feature: Replace icon-based approach in `AAccordion` with `AIcon` component for better flexibility. Add `ChevronUp` and `ChevronDown` icons, introduce `isCaretLocal` handling, and update class structure for open/close states.
+
 ## 2.55.0
 
 - Feature: Add `isCloseByButtonInvisibleInViewport` prop to `ADropdown` and implement `onReferenceHidden` logic in `PopoverAPI`. Optimize `ToggleAPI` with `getDropdownButtonElement` abstraction and improve focus behavior.

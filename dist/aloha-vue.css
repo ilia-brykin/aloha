@@ -7868,11 +7868,7 @@ h6 {
   --a_accordion_btn_padding_y: 1rem;
   --a_accordion_btn_color: var(--a_color_text);
   --a_accordion_btn_bg: var(--a_accordion_bg);
-  --a_accordion_btn_icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='var%28--a_color_text%29'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --a_accordion_btn_icon_width: 1.25rem;
-  --a_accordion_btn_icon_transform: rotate(-180deg);
-  --a_accordion_btn_icon_transition: transform 0.2s ease-in-out;
-  --a_accordion_btn_active_icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='rgb%2811.7, 99, 227.7%29'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --a_accordion_btn_focus_border_color: rgb(134, 182.5, 254);
   --a_accordion_btn_focus_box_shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
   --a_accordion_btn_hover_bg: var(--a_color_gray_100);
@@ -7887,6 +7883,7 @@ h6 {
 .a_accordion__button {
   position: relative;
   display: flex;
+  gap: 0.5rem;
   align-items: center;
   width: 100%;
   padding: var(--a_accordion_btn_padding_y) var(--a_accordion_btn_padding_x);
@@ -7901,24 +7898,16 @@ h6 {
 .a_accordion__button.readonly, .a_accordion__button.disabled {
   cursor: inherit;
 }
-.a_accordion__button:not(.a_accordion__button_collapsed) {
+.a_accordion__button:not(.a_accordion__button_close) {
   color: var(--a_accordion_active_color);
   background-color: var(--a_accordion_active_bg);
   box-shadow: inset 0 calc(var(--a_accordion_border_width) * -1) 0 var(--a_accordion_border_color);
 }
-.a_accordion__button:not(.a_accordion__button_collapsed):not(.a_accordion__button_has_not_caret)::after {
-  background-image: var(--a_accordion_btn_active_icon);
-  transform: var(--a_accordion_btn_icon_transform);
-}
-.a_accordion__button:not(.a_accordion__button_has_not_caret)::after {
+.a_accordion__button .a_accordion__button__icon {
   flex-shrink: 0;
   width: var(--a_accordion_btn_icon_width);
   height: var(--a_accordion_btn_icon_width);
   margin-left: auto;
-  content: "";
-  background-image: var(--a_accordion_btn_icon);
-  background-repeat: no-repeat;
-  background-size: var(--a_accordion_btn_icon_width);
 }
 .a_accordion__button:hover {
   z-index: 2;
@@ -7955,7 +7944,7 @@ h6 {
   border-bottom-right-radius: var(--a_accordion_border_radius);
   border-bottom-left-radius: var(--a_accordion_border_radius);
 }
-.a_accordion__item:last-of-type .a_accordion__button_collapsed {
+.a_accordion__item:last-of-type .a_accordion__button_close {
   border-bottom-right-radius: var(--a_accordion_border_radius);
   border-bottom-left-radius: var(--a_accordion_border_radius);
 }
