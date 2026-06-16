@@ -195,8 +195,10 @@ export default function UiDataFromServerAPI(props, {
 
   const modelArrayWithoutDataExtra = computed(() => {
     let model = [];
-    if (isArray(modelValue.value) && modelValue.value.length) {
-      model = filter(modelValue.value, currentModel => isValidModelValue(currentModel));
+    if (isArray(modelValue.value)) {
+      if (modelValue.value.length) {
+        model = filter(modelValue.value, currentModel => isValidModelValue(currentModel));
+      }
     } else if (isValidModelValue(modelValue.value)) {
       model = [modelValue.value];
     }
@@ -384,7 +386,7 @@ export default function UiDataFromServerAPI(props, {
   }
 
   watch(modelArrayWithoutDataExtra, (newVal, oldVal) => {
-    if (!isEqual(newVal, oldVal)) {
+    if (!isEqual(newVal, oldVal) && newVal?.length) {
       syncDataFromRetrieve();
       loadDataFromServerForRetrieve();
     }
