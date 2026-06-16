@@ -6,6 +6,8 @@ import {
   withDirectives,
 } from "vue";
 
+import AIcon from "../../AIcon/AIcon";
+
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChildrenAPI from "./compositionAPI/ChildrenAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
@@ -13,6 +15,8 @@ import ToggleAPI from "./compositionAPI/ToggleAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import ASafeHtml from "../../directives/ASafeHtml";
+import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
+import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 import {
   AKeyId,
 } from "../../const/AKeys";
@@ -86,6 +90,7 @@ export default {
       buttonTag,
       contentLocal,
       idForCollapse,
+      isCaretLocal,
       labelLocal,
     } = AttributesAPI(props, {
       classButtonLocal,
@@ -117,6 +122,7 @@ export default {
       currentId,
       hasChildren,
       idForCollapse,
+      isCaretLocal,
       isBodyVisible,
       isOpen,
       isRender,
@@ -137,8 +143,8 @@ export default {
             parentIndexes: this.parentIndexes,
             id: this.id,
             currentId: this.currentId,
-          })
-: this.$slots.accordionContent ?
+          }) :
+          this.$slots.accordionContent ?
             this.$slots.accordionContent({
               item: this.item,
               itemIndex: this.itemIndex,
@@ -174,6 +180,8 @@ export default {
         "a_accordion__item",
         {
           a_accordion__item_with_gap: this.withGap,
+          a_accordion__item_open: this.isOpen,
+          a_accordion__item_close: !this.isOpen,
         },
       ],
     }, [
@@ -201,6 +209,10 @@ export default {
           this.labelLocal && withDirectives(h("span"), [
             [ASafeHtml, this.labelLocal],
           ]),
+          this.isCaretLocal && h(AIcon, {
+            class: "a_accordion__button__icon",
+            icon: this.isOpen ? ChevronUp : ChevronDown,
+          }),
         ]),
       ]),
       h("div", {

@@ -58,7 +58,8 @@ export default function AttributesAPI(props, {
   const buttonAttributes = computed(() => {
     const ATTRIBUTES = {
       class: ["a_accordion__button", classButton.value, classButtonLocal.value, {
-        a_accordion__button_collapsed: !isOpen.value,
+        a_accordion__button_open: isOpen.value,
+        a_accordion__button_close: !isOpen.value,
         a_accordion__button_has_not_caret: !isCaretLocal.value,
         a_accordion__button_with_gap: withGap.value,
         readonly: readonlyLocal.value,
@@ -102,6 +103,7 @@ export default function AttributesAPI(props, {
     buttonTag,
     contentLocal,
     idForCollapse,
+    isCaretLocal,
     labelLocal,
   };
 }

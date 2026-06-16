@@ -191,7 +191,7 @@ export default {
   },
   render() {
     return h("div", {
-      class: ["a_accordion"],
+      class: ["a_accordion", { a_accordion_one_always_open: this.oneItemAlwaysOpen && !this.alwaysOpen }],
     }, [
       this.dataWithIds.map((item, itemIndex) => {
         return h(AAccordionItem, {
