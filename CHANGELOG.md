@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.56.1
+
+- Fix: Refactor `modelArrayWithoutDataExtra` logic for better handling of empty arrays and improve efficiency of watch comparison in `UiDataFromServerAPI`.
+
 ## 2.56.0
 
 - Feature: Replace icon-based approach in `AAccordion` with `AIcon` component for better flexibility. Add `ChevronUp` and `ChevronDown` icons, introduce `isCaretLocal` handling, and update class structure for open/close states.
