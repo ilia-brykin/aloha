@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_FORM_COLUMN_NAME_": "Name",
+  "_A_TABLE_FORM_COLUMN_POSITION_": "Platz",
+  "_A_TABLE_FORM_COLUMN_SCORE_": "Punkte",
+  "_A_TABLE_FORM_COLUMN_TEAM_": "Team",
+  "_A_TABLE_FORM_TEAM_NORTH_": "Nord",
+  "_A_TABLE_FORM_TEAM_WEST_": "West",
+  "_A_TABLE_FORM_TEAM_SOUTH_": "Süd",
+  "_A_TABLE_FORM_TEAM_EAST_": "Ost",
+  "_A_TABLE_FORM_DND_DESCRIPTION_": "Das Beispiel zeigt die barrierefreie Änderung der Reihenfolge von Zeilen mithilfe von <strong lang=\"en\">drag-and-drop</strong> sowie Schaltflächen zum Verschieben nach oben und unten.",
+  "_A_TABLE_FORM_DND_HEADER_": "Reihenfolge der Zeilen ändern",
+  "_A_TABLE_FORM_EDIT_DESCRIPTION_": "Das Beispiel zeigt das Bearbeiten von Zeilen, das Hinzufügen einer neuen Zeile und das Löschen von Zeilen mit Bestätigung.",
+  "_A_TABLE_FORM_EDIT_HEADER_": "Zeilen bearbeiten",
+  "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
+  "_A_TABLE_FORM_EXAMPLE_LABEL_": "Teilnehmerrangliste",
+  "_A_TABLE_FORM_FOOTER_TOTAL_": "Gesamt",
+  "_A_TABLE_FORM_STICKY_DESCRIPTION_": "Das Beispiel zeigt eine breite Tabelle mit einer fixierten Aktionsspalte auf der rechten Seite.",
+  "_A_TABLE_FORM_STICKY_HEADER_": "Fixierte Aktionen",
+  "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"
+}

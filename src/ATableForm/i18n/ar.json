@@ -1,0 +1,17 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "إضافة صف جديد",
+  "_A_TABLE_FORM_ACTIONS_": "الإجراءات",
+  "_A_TABLE_FORM_DELETE_": "حذف الصف",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>هل تريد بالتأكيد حذف هذا الصف؟</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "إلغاء",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "حذف الصف",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "حذف",
+  "_A_TABLE_FORM_EDIT_": "تعديل الصف",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "إلغاء التعديل",
+  "_A_TABLE_FORM_EDIT_SAVE_": "حفظ الصف",
+  "_A_TABLE_FORM_EMPTY_": "لا توجد بيانات لعرضها.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "نقل الصف إلى الأسفل",
+  "_A_TABLE_FORM_MOVE_UP_": "نقل الصف إلى الأعلى",
+  "_A_TABLE_FORM_REORDER_": "سحب الصف لإعادة ترتيبه",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "إعادة ترتيب الصفوف"
+}

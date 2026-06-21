@@ -4,6 +4,7 @@ import AlohaTableTranslate from "../../../../global/components/AlohaTableTransla
 import PageSwitchBasic from "./PageSwitchBasic/PageSwitchBasic.vue";
 import PageSwitchChange from "./PageSwitchChange/PageSwitchChange.vue";
 import PageSwitchDefault from "./PageSwitchDefault/PageSwitchDefault.vue";
+import PageSwitchErrorIcon from "./PageSwitchErrorIcon/PageSwitchErrorIcon.vue";
 import PageSwitchErrors from "./PageSwitchErrors/PageSwitchErrors.vue";
 import PageSwitchHelpText from "./PageSwitchHelpText/PageSwitchHelpText.vue";
 import PageSwitchLabelDescription from "./PageSwitchLabelDescription/PageSwitchLabelDescription.vue";
@@ -32,6 +33,7 @@ export default {
     PageSwitchBasic,
     PageSwitchChange,
     PageSwitchDefault,
+    PageSwitchErrorIcon,
     PageSwitchErrors,
     PageSwitchHelpText,
     PageSwitchLabelDescription,

@@ -29,6 +29,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "error-icon",
+      description: "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_",
+      type: "String / Object",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "show-icon",
       description: "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_",
       type: "Boolean",

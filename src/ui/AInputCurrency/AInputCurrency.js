@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   toRef,
   watch,
@@ -107,6 +108,16 @@ export default {
     },
     errors: {
       type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorIcon: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    errorsClass: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -290,6 +301,7 @@ export default {
   ],
   setup(props, context) {
     const modelValue = toRef(props, "modelValue");
+    const errorIcon = toRef(props, "errorIcon");
 
     const {
       attributesToExcludeFromRender,
@@ -390,6 +402,7 @@ export default {
       }
       isInternalChange.value = false;
     });
+    const hasErrorIcon = computed(() => !!(isErrors.value && errorIcon.value));
 
     return {
       ariaDescribedbyLocal,
@@ -399,6 +412,7 @@ export default {
       decrease,
       displayValue,
       errorsId,
+      hasErrorIcon,
       handleInput,
       handleKeydown,
       handlePaste,
@@ -451,9 +465,11 @@ export default {
       }, [
         h("div", {
           class: ["a_form_element__parent", {
+            a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
             a_form_element__parent_float: this.isLabelFloat,
             a_form_element__parent_not_empty: this.isModel,
             a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
+            a_form_element__parent_float_has_two_icons_prepend: this.iconPrepend && this.hasErrorIcon,
             a_form_element__parent_invalid: this.isErrors,
           }],
         }, [
@@ -509,6 +525,10 @@ export default {
               this.iconPrepend && h(AIcon, {
                 icon: this.iconPrepend,
                 class: "a_input__icon_prepend",
+              }),
+              this.hasErrorIcon && h(AIcon, {
+                icon: this.errorIcon,
+                class: "a_input__icon_error",
               }),
               h("input", {
                 ref: "inputRef",
@@ -587,6 +607,7 @@ export default {
           this.isErrors && h(AErrorsText, {
             id: this.errorsId,
             errors: this.errors,
+            errorsClass: this.errorsClass,
           }),
         ]),
       ]),

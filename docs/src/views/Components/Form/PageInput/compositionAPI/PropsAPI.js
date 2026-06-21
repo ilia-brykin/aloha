@@ -50,6 +50,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "error-icon",
+      description: "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_",
+      type: "String / Object",
+      default: undefined,
+      required: false,
+    },
+    {
       name: "exclude-render-attributes",
       description: "_A_UI_PROPS_EXCLUDE_RENDER_ATTRIBUTES_DESCRIPTION_",
       type: "Array",

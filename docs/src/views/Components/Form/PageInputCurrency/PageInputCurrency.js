@@ -6,6 +6,7 @@ import PageInputCurrencyChange from "./PageInputCurrencyChange/PageInputCurrency
 import PageInputCurrencyControlsType from "./PageInputCurrencyControlsType/PageInputCurrencyControlsType.vue";
 import PageInputCurrencyDecimalDivider from "./PageInputCurrencyDecimalDivider/PageInputCurrencyDecimalDivider.vue";
 import PageInputCurrencyDecimalPartLength from "./PageInputCurrencyDecimalPartLength/PageInputCurrencyDecimalPartLength.vue";
+import PageInputCurrencyErrorIcon from "./PageInputCurrencyErrorIcon/PageInputCurrencyErrorIcon.vue";
 import PageInputCurrencyErrors from "./PageInputCurrencyErrors/PageInputCurrencyErrors.vue";
 import PageInputCurrencyHelpText from "./PageInputCurrencyHelpText/PageInputCurrencyHelpText.vue";
 import PageInputCurrencyLabelDescription from "./PageInputCurrencyLabelDescription/PageInputCurrencyLabelDescription.vue";
@@ -38,6 +39,7 @@ export default {
     PageInputCurrencyControlsType,
     PageInputCurrencyDecimalDivider,
     PageInputCurrencyDecimalPartLength,
+    PageInputCurrencyErrorIcon,
     PageInputCurrencyErrors,
     PageInputCurrencyHelpText,
     PageInputCurrencyLabelDescription,

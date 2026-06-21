@@ -64,6 +64,16 @@
     padding-left: 1.5rem;
   }
 }
+.a_form_element__parent_float_has_error_icon {
+  .a_form_control {
+    padding-left: 1.5rem;
+  }
+}
+.a_form_element__parent_float_has_two_icons_prepend {
+  .a_form_control {
+    padding-left: 2.35rem;
+  }
+}
 
 .a_form_element_label__spinner {
   margin-left: .5rem;
@@ -80,6 +90,12 @@
   }
   .a_form_element_with_two_btns {
     padding-right: 3.125rem;
+  }
+  .a_form_element_with_three_btns {
+    padding-right: 4.375rem;
+  }
+  .a_form_element_with_four_btns {
+    padding-right: 5.625rem;
   }
 }
 
@@ -144,12 +160,25 @@
   border-radius: 0.25rem;
 }
 
-.a_input__icon_prepend {
+.a_input__icon_prepend,
+.a_input__icon_error {
   position: absolute;
-  left: .4rem;
   top: 50%;
   transform: translateY(-50%);
 }
+.a_input__icon_error {
+  left: .4rem;
+  color: var(--a_form_element_error_color);
+}
+.a_input__icon_prepend {
+  left: .4rem;
+}
+.a_form_element__parent_float_has_error_icon {
+  .a_input__icon_prepend {
+    left: 1.5rem;
+  }
+}
+
 
 .a_form_element__help_text {
   width: 100%;

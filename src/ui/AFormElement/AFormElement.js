@@ -26,8 +26,18 @@ export default {
       required: false,
       default: undefined,
     },
+    errorIcon: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     errors: {
       type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsClass: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },

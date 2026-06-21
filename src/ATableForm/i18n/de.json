@@ -1,0 +1,17 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Neue Zeile hinzufügen",
+  "_A_TABLE_FORM_ACTIONS_": "Aktionen",
+  "_A_TABLE_FORM_DELETE_": "Zeile löschen",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Möchten Sie diese Zeile wirklich löschen?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Abbrechen",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Zeile löschen",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Löschen",
+  "_A_TABLE_FORM_EDIT_": "Zeile bearbeiten",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Bearbeitung abbrechen",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Zeile speichern",
+  "_A_TABLE_FORM_EMPTY_": "Keine Daten zum Anzeigen vorhanden.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Zeile nach unten verschieben",
+  "_A_TABLE_FORM_MOVE_UP_": "Zeile nach oben verschieben",
+  "_A_TABLE_FORM_REORDER_": "Zeile zum Neuordnen ziehen",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Reihenfolge der Zeilen ändern"
+}

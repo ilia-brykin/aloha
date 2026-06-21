@@ -4,6 +4,7 @@ import AlohaTableTranslate from "../../../../global/components/AlohaTableTransla
 import PageTextareaBasic from "./PageTextareaBasic/PageTextareaBasic.vue";
 import PageTextareaChange from "./PageTextareaChange/PageTextareaChange.vue";
 import PageTextareaErrors from "./PageTextareaErrors/PageTextareaErrors.vue";
+import PageTextareaErrorIcon from "./PageTextareaErrorIcon/PageTextareaErrorIcon.vue";
 import PageTextareaHelpText from "./PageTextareaHelpText/PageTextareaHelpText.vue";
 import PageTextareaIsScalable from "./PageTextareaIsScalable/PageTextareaIsScalable.vue";
 import PageTextareaLabelDescription from "./PageTextareaLabelDescription/PageTextareaLabelDescription.vue";
@@ -29,6 +30,7 @@ export default {
     PageTextareaBasic,
     PageTextareaChange,
     PageTextareaErrors,
+    PageTextareaErrorIcon,
     PageTextareaHelpText,
     PageTextareaIsScalable,
     PageTextareaLabelDescription,

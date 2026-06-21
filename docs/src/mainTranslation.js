@@ -97,6 +97,7 @@ import PageSpinnerI18n from "./views/Components/PageSpinner/i18n/PageSpinnerI18n
 import PageSpinnerPluginI18n from "./views/Plugins/PageSpinnerPlugin/i18n/PageSpinnerPluginI18n";
 import PageStartI18n from "./views/PageStart/i18n/PageStartI18n";
 import PageSwitchI18n from "./views/Components/Form/PageSwitch/i18n/PageSwitchI18n";
+import PageTableFormI18n from "./views/Components/PageTableForm/i18n/PageTableFormI18n";
 import PageTableI18n from "./views/Components/PageTable/i18n/PageTableI18n";
 import PageTablePaginationI18n from "./views/Components/PageTable/PageTablePagination/i18n/PageTablePaginationI18n";
 import PageTablePreviewDownI18n from "./views/Components/PageTable/PageTablePreviewDown/i18n/PageTablePreviewDownI18n";
@@ -217,6 +218,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.ar,
     ...PageSelectStyleI18n.ar,
     ...PageShowMoreI18n.ar,
+    ...PageTableFormI18n.ar,
     ...PageSliderI18n.ar,
     ...PageSpinnerI18n.ar,
     ...PageSpinnerPluginI18n.ar,
@@ -332,6 +334,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.de,
     ...PageSelectStyleI18n.de,
     ...PageShowMoreI18n.de,
+    ...PageTableFormI18n.de,
     ...PageSliderI18n.de,
     ...PageSpinnerI18n.de,
     ...PageSpinnerPluginI18n.de,
@@ -447,6 +450,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.en,
     ...PageSelectStyleI18n.en,
     ...PageShowMoreI18n.en,
+    ...PageTableFormI18n.en,
     ...PageSliderI18n.en,
     ...PageSpinnerI18n.en,
     ...PageSpinnerPluginI18n.en,
@@ -562,6 +566,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.es,
     ...PageSelectStyleI18n.es,
     ...PageShowMoreI18n.es,
+    ...PageTableFormI18n.es,
     ...PageSliderI18n.es,
     ...PageSpinnerI18n.es,
     ...PageSpinnerPluginI18n.es,
@@ -677,6 +682,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.fr,
     ...PageSelectStyleI18n.fr,
     ...PageShowMoreI18n.fr,
+    ...PageTableFormI18n.fr,
     ...PageSliderI18n.fr,
     ...PageSpinnerI18n.fr,
     ...PageSpinnerPluginI18n.fr,
@@ -792,6 +798,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.hr,
     ...PageSelectStyleI18n.hr,
     ...PageShowMoreI18n.hr,
+    ...PageTableFormI18n.hr,
     ...PageSliderI18n.hr,
     ...PageSpinnerI18n.hr,
     ...PageSpinnerPluginI18n.hr,
@@ -907,6 +914,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.it,
     ...PageSelectStyleI18n.it,
     ...PageShowMoreI18n.it,
+    ...PageTableFormI18n.it,
     ...PageSliderI18n.it,
     ...PageSpinnerI18n.it,
     ...PageSpinnerPluginI18n.it,
@@ -1022,6 +1030,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.ru,
     ...PageSelectStyleI18n.ru,
     ...PageShowMoreI18n.ru,
+    ...PageTableFormI18n.ru,
     ...PageSliderI18n.ru,
     ...PageSpinnerI18n.ru,
     ...PageSpinnerPluginI18n.ru,

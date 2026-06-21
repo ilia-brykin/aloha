@@ -1,5 +1,6 @@
 /* eslint vue/component-api-style: off */
 import {
+  computed,
   h,
   ref,
   Teleport,
@@ -12,6 +13,7 @@ import {
   AFormHelpText,
   AFormLabelDescription,
   AFormReadonly,
+  AIcon,
   ALabel,
   APlacements,
   UiAPI,
@@ -88,6 +90,11 @@ export default {
     editable: {
       type: Boolean,
       default: () => ADatepickerPluginOptions.propsDefault.editable,
+    },
+    errorIcon: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     excludeRenderAttributes: {
       type: Array,
@@ -283,6 +290,8 @@ export default {
       isAutofill,
     } = UiInputAutofillAPI({ inputRef });
 
+    const hasErrorIcon = computed(() => !!(isErrors.value && props.errorIcon));
+
     const {
       currentLanguage,
     } = LanguagesAPI();
@@ -382,6 +391,7 @@ export default {
       destroyPopover,
       emitDate,
       errorsId,
+      hasErrorIcon,
       text,
       focusByCloseRef,
       formatLocal,
@@ -573,6 +583,7 @@ export default {
       h("div", {
         class: ["a_form_element__parent", {
           a_form_element__parent_float: this.isLabelFloat,
+          a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
           a_form_element__parent_not_empty: this.isModel || this.isAutofill,
         }],
       }, [
@@ -597,9 +608,16 @@ export default {
         h("div", {
           class: "a_form_element",
         }, [
+          this.hasErrorIcon ?
+            h(AIcon, {
+              icon: this.errorIcon,
+              class: "a_input__icon_error pux_datepicker__error_icon",
+            }) :
+            "",
           h("div", {
             class: ["pux_datepicker", {
               pux_datepicker_range: this.range,
+              pux_datepicker_has_error_icon: this.hasErrorIcon,
               disabled: this.disabled,
             }],
             style: { width: this.widthLocal },
@@ -781,6 +799,7 @@ export default {
           id: this.errorsId,
           alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
+          errorsClass: this.errorsClass,
         }),
       ]),
     ]);

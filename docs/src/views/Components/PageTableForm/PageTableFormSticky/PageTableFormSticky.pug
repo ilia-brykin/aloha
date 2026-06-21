@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_FORM_STICKY_HEADER_"
+  description="_A_TABLE_FORM_STICKY_DESCRIPTION_"
+  :props="['is-actions-sticky', 'is-deletable-confirm', 'is-editable']"
+)
+  a-one-checkbox(
+    v-model="isActionsSticky"
+    class="a_mb_4"
+    label="isActionsSticky"
+  )
+  a-table-form(
+    :columns="columns"
+    :is-actions-sticky="isActionsSticky"
+    :is-deletable-confirm="true"
+    :is-editable="true"
+    :rows="rows"
+    key-id="id"
+    label="20 columns"
+  )

@@ -1,0 +1,17 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Agregar nueva fila",
+  "_A_TABLE_FORM_ACTIONS_": "Acciones",
+  "_A_TABLE_FORM_DELETE_": "Eliminar fila",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>¿Seguro que desea eliminar esta fila?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Cancelar",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Eliminar fila",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Eliminar",
+  "_A_TABLE_FORM_EDIT_": "Editar fila",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Cancelar edición",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Guardar fila",
+  "_A_TABLE_FORM_EMPTY_": "No hay datos para mostrar.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Mover fila hacia abajo",
+  "_A_TABLE_FORM_MOVE_UP_": "Mover fila hacia arriba",
+  "_A_TABLE_FORM_REORDER_": "Arrastrar fila para reordenar",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Cambiar el orden de las filas"
+}

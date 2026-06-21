@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   onBeforeUnmount,
   onMounted,
@@ -9,6 +10,7 @@ import {
   AFormHelpText,
   AFormLabelDescription,
   AFormReadonly,
+  AIcon,
   ALabel,
   UiAPI,
   UiClearButtonAPI,
@@ -61,6 +63,16 @@ export default {
     },
     errors: {
       type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorIcon: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    errorsClass: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -260,6 +272,8 @@ export default {
       placeholderAttributes,
     } = PlaceholderAPI(props);
 
+    const hasErrorIcon = computed(() => !!(isErrors.value && props.errorIcon));
+
     onMounted(() => {
       initAutosize();
     });
@@ -276,6 +290,7 @@ export default {
       componentStyleHide,
       disabledAttribut,
       errorsId,
+      hasErrorIcon,
       helpTextId,
       htmlIdLocal,
       isClearButtonLocal,
@@ -326,6 +341,7 @@ export default {
       h("div", {
         class: ["a_form_element__parent", {
           a_form_element__parent_float: this.isLabelFloat,
+          a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
           a_form_element__parent_not_empty: this.isModel,
         }],
       }, [
@@ -357,6 +373,12 @@ export default {
             },
           ],
         }, [
+          this.hasErrorIcon ?
+            h(AIcon, {
+              icon: this.errorIcon,
+              class: "a_input__icon_error",
+            }) :
+            "",
           h("textarea", {
             ref: "textareaRef",
             id: this.htmlIdLocal,
@@ -407,6 +429,7 @@ export default {
           id: this.errorsId,
           alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
+          errorsClass: this.errorsClass,
         }),
       ]),
     ]);

@@ -147,5 +147,8 @@
   "_A_UI_TYPES_FOR_USE_": "الأنواع المتاحة للاستخدام.",
   "_A_UI_GROUP_DEFAULT_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام الخاصية <strong lang=\"en\">default</strong> لتعيين القيمة الأولية للمكون عندما لا يتم تمرير قيمة للنموذج.",
   "_A_UI_PROPS_DEFAULT_DESCRIPTION_": "يعين القيمة الافتراضية التي تستخدم لتهيئة المكون عندما يكون <strong lang=\"en\">model-value</strong> غير معرف.",
-  "_A_UI_GROUP_DEFAULT_HEADER_": "القيمة الافتراضية"
+  "_A_UI_GROUP_DEFAULT_HEADER_": "القيمة الافتراضية",
+  "_A_UI_GROUP_ERROR_ICON_HEADER_": "أيقونة الخطأ",
+  "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "يوضح هذا المثال كيفية عرض أيقونة خطأ مخصصة عند وجود أخطاء تحقق في المكون. إذا كان للمكون حقل إدخال، فستظهر الأيقونة داخله، وإلا فسيتم عرضها بجانب عنصر التحكم. لا يتم عرض الأيقونة إلا إذا تم تمرير <strong lang=\"en\">errors</strong> و <strong lang=\"en\">error-icon</strong> معًا.",
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "يحدد الأيقونة التي يتم عرضها عند وجود أخطاء تحقق في المكون. إذا كان للمكون حقل إدخال، فستظهر الأيقونة داخله، وإلا فسيتم عرضها بجانب عنصر التحكم. لا يتم عرض الأيقونة إلا عند تمرير <strong lang=\"en\">errors</strong>."
 }

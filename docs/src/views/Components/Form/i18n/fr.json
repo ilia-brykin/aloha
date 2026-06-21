@@ -147,5 +147,8 @@
   "_A_UI_TYPES_FOR_USE_": "Types disponibles à utiliser.",
   "_A_UI_GROUP_DEFAULT_DESCRIPTION_": "Cet exemple montre comment utiliser la propriété <strong lang=\"en\">default</strong> pour définir la valeur initiale du composant lorsqu'aucune valeur de modèle n'est fournie.",
   "_A_UI_PROPS_DEFAULT_DESCRIPTION_": "Définit la valeur par défaut utilisée pour initialiser le composant lorsque <strong lang=\"en\">model-value</strong> n'est pas défini.",
-  "_A_UI_GROUP_DEFAULT_HEADER_": "Valeur par défaut"
+  "_A_UI_GROUP_DEFAULT_HEADER_": "Valeur par défaut",
+  "_A_UI_GROUP_ERROR_ICON_HEADER_": "Icône d'erreur",
+  "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "Cet exemple montre comment afficher une icône d'erreur personnalisée lorsque le composant a des erreurs de validation. Si le composant possède un champ de saisie, l'icône est affichée à l'intérieur, sinon elle est affichée à côté du contrôle. L'icône n'est affichée que si <strong lang=\"en\">errors</strong> et <strong lang=\"en\">error-icon</strong> sont tous deux fournis.",
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Définit l'icône affichée lorsque le composant a des erreurs de validation. Si le composant possède un champ de saisie, l'icône est affichée à l'intérieur, sinon elle est affichée à côté du contrôle. L'icône n'est affichée que lorsque <strong lang=\"en\">errors</strong> est présent."
 }

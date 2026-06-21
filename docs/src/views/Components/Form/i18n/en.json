@@ -147,5 +147,8 @@
   "_A_UI_TYPES_FOR_USE_": "Types available for use.",
   "_A_UI_GROUP_DEFAULT_DESCRIPTION_": "This example demonstrates how to use the <strong lang=\"en\">default</strong> prop to set the initial value of the component when no model value is provided.",
   "_A_UI_PROPS_DEFAULT_DESCRIPTION_": "Sets the default value used to initialize the component when <strong lang=\"en\">model-value</strong> is undefined.",
-  "_A_UI_GROUP_DEFAULT_HEADER_": "Default value"
+  "_A_UI_GROUP_DEFAULT_HEADER_": "Default value",
+  "_A_UI_GROUP_ERROR_ICON_HEADER_": "Error icon",
+  "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "This example shows how to display a custom error icon when the component has validation errors. If the component has an input field, the icon is shown inside it; otherwise, it is displayed next to the control. The icon is rendered only if both <strong lang=\"en\">errors</strong> and <strong lang=\"en\">error-icon</strong> are provided.",
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Specifies the icon displayed when the component has validation errors. If the component has an input field, the icon is shown inside it; otherwise, it is displayed next to the control. The icon is shown only when <strong lang=\"en\">errors</strong> is present."
 }

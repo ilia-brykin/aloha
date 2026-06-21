@@ -1,5 +1,7 @@
 import {
+  computed,
   h,
+  toRef,
 } from "vue";
 import {
   AElement,
@@ -7,6 +9,7 @@ import {
   AFormHelpText,
   AFormLabelDescription,
   AFormReadonly,
+  AIcon,
   ALabel,
   APlacements,
   ATranslation,
@@ -64,6 +67,16 @@ export default {
     },
     errors: {
       type: [String, Array],
+      required: false,
+      default: undefined,
+    },
+    errorsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    errorIcon: {
+      type: [String, Object],
       required: false,
       default: undefined,
     },
@@ -217,6 +230,8 @@ export default {
     "update:modelValue",
   ],
   setup(props, context) {
+    const errorIcon = toRef(props, "errorIcon");
+
     const {
       disabledAttribut,
     } = UiDisabledAPI(props);
@@ -274,6 +289,7 @@ export default {
     });
 
     initDefaultModel();
+    const hasErrorIcon = computed(() => !!(isErrors.value && errorIcon.value));
 
     return {
       ariaDescribedbyLocal,
@@ -282,6 +298,7 @@ export default {
       componentStyleHide,
       disabledAttribut,
       errorsId,
+      hasErrorIcon,
       helpTextId,
       htmlIdLocal,
       isChecked,
@@ -348,8 +365,14 @@ export default {
           extra: this.extra,
         }),
         h("div", {
-          class: "switch_button__wrapper",
+          class: ["switch_button__wrapper", {
+            switch_button__wrapper_has_error_icon: this.hasErrorIcon,
+          }],
         }, [
+          this.hasErrorIcon && h(AIcon, {
+            icon: this.errorIcon,
+            class: "a_input__icon_error switch_button__error_icon",
+          }),
           h(AElement, {
             class: [
               "switch_button",
@@ -411,6 +434,7 @@ export default {
           id: this.errorsId,
           alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
+          errorsClass: this.errorsClass,
         }),
       ]),
     ]);

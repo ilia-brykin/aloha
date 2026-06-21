@@ -28,6 +28,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    errorsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     extra: {
       type: Object,
       required: false,

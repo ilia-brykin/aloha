@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_FORM_COLUMN_NAME_": "Name",
+  "_A_TABLE_FORM_COLUMN_POSITION_": "Position",
+  "_A_TABLE_FORM_COLUMN_SCORE_": "Score",
+  "_A_TABLE_FORM_COLUMN_TEAM_": "Team",
+  "_A_TABLE_FORM_TEAM_NORTH_": "North",
+  "_A_TABLE_FORM_TEAM_WEST_": "West",
+  "_A_TABLE_FORM_TEAM_SOUTH_": "South",
+  "_A_TABLE_FORM_TEAM_EAST_": "East",
+  "_A_TABLE_FORM_DND_DESCRIPTION_": "The example shows accessible row reordering using <strong lang=\"en\">drag-and-drop</strong> and move up and down buttons.",
+  "_A_TABLE_FORM_DND_HEADER_": "Row reordering",
+  "_A_TABLE_FORM_EDIT_DESCRIPTION_": "The example shows row editing, adding a new row, and deleting rows with confirmation.",
+  "_A_TABLE_FORM_EDIT_HEADER_": "Row editing",
+  "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
+  "_A_TABLE_FORM_EXAMPLE_LABEL_": "Participant ranking",
+  "_A_TABLE_FORM_FOOTER_TOTAL_": "Total",
+  "_A_TABLE_FORM_STICKY_DESCRIPTION_": "The example shows a wide table with a sticky actions column on the right.",
+  "_A_TABLE_FORM_STICKY_HEADER_": "Sticky actions",
+  "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"
+}

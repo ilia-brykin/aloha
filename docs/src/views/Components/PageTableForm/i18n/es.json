@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_FORM_COLUMN_NAME_": "Nombre",
+  "_A_TABLE_FORM_COLUMN_POSITION_": "Posición",
+  "_A_TABLE_FORM_COLUMN_SCORE_": "Puntos",
+  "_A_TABLE_FORM_COLUMN_TEAM_": "Equipo",
+  "_A_TABLE_FORM_TEAM_NORTH_": "Norte",
+  "_A_TABLE_FORM_TEAM_WEST_": "Oeste",
+  "_A_TABLE_FORM_TEAM_SOUTH_": "Sur",
+  "_A_TABLE_FORM_TEAM_EAST_": "Este",
+  "_A_TABLE_FORM_DND_DESCRIPTION_": "El ejemplo muestra el cambio accesible del orden de las filas mediante <strong lang=\"en\">drag-and-drop</strong> y botones para mover hacia arriba y hacia abajo.",
+  "_A_TABLE_FORM_DND_HEADER_": "Cambio del orden de las filas",
+  "_A_TABLE_FORM_EDIT_DESCRIPTION_": "El ejemplo muestra la edición de filas, la adición de una nueva fila y la eliminación de filas con confirmación.",
+  "_A_TABLE_FORM_EDIT_HEADER_": "Edición de filas",
+  "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
+  "_A_TABLE_FORM_EXAMPLE_LABEL_": "Clasificación de participantes",
+  "_A_TABLE_FORM_FOOTER_TOTAL_": "Total",
+  "_A_TABLE_FORM_STICKY_DESCRIPTION_": "El ejemplo muestra una tabla ancha con una columna de acciones fija a la derecha.",
+  "_A_TABLE_FORM_STICKY_HEADER_": "Acciones fijas",
+  "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"
+}

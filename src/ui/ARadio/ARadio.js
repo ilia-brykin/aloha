@@ -108,6 +108,11 @@ export default {
       required: false,
       default: undefined,
     },
+    errorsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     excludeRenderAttributes: {
       type: Array,
       required: false,
@@ -934,6 +939,7 @@ export default {
           id: this.errorsId,
           alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
+          errorsClass: this.errorsClass,
         }),
       ]),
     ]);

@@ -1,4 +1,5 @@
 import {
+  computed,
   h,
   ref,
   toRef,
@@ -74,6 +75,11 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+    },
+    errorIcon: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     iconPrepend: {
       type: String,
@@ -173,6 +179,8 @@ export default {
       onBlur,
       onFocus,
     } = UiAPI(props, context);
+
+    const errorIcon = toRef(props, "errorIcon");
 
     const {
       isClearButtonLocal,
@@ -276,6 +284,8 @@ export default {
       { immediate: true },
     );
 
+    const hasErrorIcon = computed(() => !!(isErrors.value && errorIcon.value));
+
     return {
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
@@ -285,6 +295,7 @@ export default {
       decrease,
       displayValue,
       errorsId,
+      hasErrorIcon,
       handleInput,
       handleInputChange,
       handleKeydown,
@@ -341,9 +352,11 @@ export default {
       }, [
         h("div", {
           class: ["a_form_element__parent", {
+            a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
             a_form_element__parent_float: this.isLabelFloat,
             a_form_element__parent_not_empty: this.isModel || this.isAutofill,
             a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
+            a_form_element__parent_float_has_two_icons_prepend: this.iconPrepend && this.hasErrorIcon,
             a_form_element__parent_invalid: this.isErrors,
           }],
         }, [
@@ -393,6 +406,10 @@ export default {
               this.iconPrepend && h(AIcon, {
                 icon: this.iconPrepend,
                 class: "a_input__icon_prepend",
+              }),
+              this.hasErrorIcon && h(AIcon, {
+                icon: this.errorIcon,
+                class: "a_input__icon_error",
               }),
               h("input", {
                 ref: "inputRef",
@@ -471,6 +488,7 @@ export default {
             id: this.errorsId,
             alwaysTranslate: this.alwaysTranslate,
             errors: this.errors,
+            errorsClass: this.errorsClass,
           }),
         ]),
       ]),

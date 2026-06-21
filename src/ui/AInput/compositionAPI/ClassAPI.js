@@ -4,10 +4,15 @@ import {
 } from "vue";
 
 export default function ClassAPI(props, {
+  isErrors = computed(() => false),
   isBtnShowPasswordVisible = computed(() => false),
   isClearButtonLocal = computed(() => false),
 }) {
+  const errorIcon = toRef(props, "errorIcon");
   const iconAppend = toRef(props, "iconAppend");
+  const hasErrorIcon = computed(() => {
+    return !!(isErrors.value && errorIcon.value);
+  });
 
   const inputClassBtns = computed(() => {
     const actionsCount = [
@@ -32,6 +37,7 @@ export default function ClassAPI(props, {
   });
 
   return {
+    hasErrorIcon,
     inputClassBtns,
   };
 }

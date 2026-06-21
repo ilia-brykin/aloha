@@ -103,6 +103,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageTable/PageTableTree/PageTableTree.vue"),
   },
   {
+    path: "/table-form",
+    name: "PageTableForm",
+    component: () => import("../views/Components/PageTableForm/PageTableForm.vue"),
+  },
+  {
     path: "/spinner",
     name: "PageSpinner",
     component: () => import("../views/Components/PageSpinner/PageSpinner.vue"),

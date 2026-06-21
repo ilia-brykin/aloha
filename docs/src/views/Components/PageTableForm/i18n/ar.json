@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_FORM_COLUMN_NAME_": "الاسم",
+  "_A_TABLE_FORM_COLUMN_POSITION_": "المركز",
+  "_A_TABLE_FORM_COLUMN_SCORE_": "النقاط",
+  "_A_TABLE_FORM_COLUMN_TEAM_": "الفريق",
+  "_A_TABLE_FORM_TEAM_NORTH_": "الشمال",
+  "_A_TABLE_FORM_TEAM_WEST_": "الغرب",
+  "_A_TABLE_FORM_TEAM_SOUTH_": "الجنوب",
+  "_A_TABLE_FORM_TEAM_EAST_": "الشرق",
+  "_A_TABLE_FORM_DND_DESCRIPTION_": "يوضح المثال إعادة ترتيب الصفوف بشكل متاح باستخدام <strong lang=\"en\">drag-and-drop</strong> وأزرار النقل إلى الأعلى والأسفل.",
+  "_A_TABLE_FORM_DND_HEADER_": "إعادة ترتيب الصفوف",
+  "_A_TABLE_FORM_EDIT_DESCRIPTION_": "يوضح المثال تحرير الصفوف، وإضافة صف جديد، وحذف الصفوف مع التأكيد.",
+  "_A_TABLE_FORM_EDIT_HEADER_": "تحرير الصفوف",
+  "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
+  "_A_TABLE_FORM_EXAMPLE_LABEL_": "تصنيف المشاركين",
+  "_A_TABLE_FORM_FOOTER_TOTAL_": "الإجمالي",
+  "_A_TABLE_FORM_STICKY_DESCRIPTION_": "يوضح المثال جدولا عريضا مع عمود إجراءات ثابت على اليمين.",
+  "_A_TABLE_FORM_STICKY_HEADER_": "إجراءات ثابتة",
+  "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"
+}

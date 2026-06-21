@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_FORM_COLUMN_NAME_": "Ime",
+  "_A_TABLE_FORM_COLUMN_POSITION_": "Mjesto",
+  "_A_TABLE_FORM_COLUMN_SCORE_": "Bodovi",
+  "_A_TABLE_FORM_COLUMN_TEAM_": "Tim",
+  "_A_TABLE_FORM_TEAM_NORTH_": "Sjever",
+  "_A_TABLE_FORM_TEAM_WEST_": "Zapad",
+  "_A_TABLE_FORM_TEAM_SOUTH_": "Jug",
+  "_A_TABLE_FORM_TEAM_EAST_": "Istok",
+  "_A_TABLE_FORM_DND_DESCRIPTION_": "Primjer prikazuje pristupačnu promjenu redoslijeda redaka pomoću <strong lang=\"en\">drag-and-drop</strong> funkcionalnosti i tipki za pomicanje gore i dolje.",
+  "_A_TABLE_FORM_DND_HEADER_": "Promjena redoslijeda redaka",
+  "_A_TABLE_FORM_EDIT_DESCRIPTION_": "Primjer prikazuje uređivanje redaka, dodavanje novog retka i brisanje redaka uz potvrdu.",
+  "_A_TABLE_FORM_EDIT_HEADER_": "Uređivanje redaka",
+  "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
+  "_A_TABLE_FORM_EXAMPLE_LABEL_": "Poredak sudionika",
+  "_A_TABLE_FORM_FOOTER_TOTAL_": "Ukupno",
+  "_A_TABLE_FORM_STICKY_DESCRIPTION_": "Primjer prikazuje široku tablicu s fiksnim stupcem radnji na desnoj strani.",
+  "_A_TABLE_FORM_STICKY_HEADER_": "Fiksne radnje",
+  "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"
+}

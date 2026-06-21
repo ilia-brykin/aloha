@@ -23,6 +23,11 @@ export default {
       required: false,
       default: undefined,
     },
+    errorsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     id: {
       type: String,
       required: true,
@@ -44,7 +49,7 @@ export default {
   render() {
     return h("ul", {
       id: this.id,
-      class: "a_form_element__invalid_text",
+      class: ["a_form_element__invalid_text", this.errorsClass],
     }, [
       this.errorsLocal.map(error => {
         return h(ATranslation, {

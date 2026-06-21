@@ -1,0 +1,17 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Add new row",
+  "_A_TABLE_FORM_ACTIONS_": "Actions",
+  "_A_TABLE_FORM_DELETE_": "Delete row",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Are you sure you want to delete this row?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Cancel",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Delete row",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Delete",
+  "_A_TABLE_FORM_EDIT_": "Edit row",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Cancel editing",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Save row",
+  "_A_TABLE_FORM_EMPTY_": "No data to display.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Move row down",
+  "_A_TABLE_FORM_MOVE_UP_": "Move row up",
+  "_A_TABLE_FORM_REORDER_": "Drag row to reorder",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Change row order"
+}

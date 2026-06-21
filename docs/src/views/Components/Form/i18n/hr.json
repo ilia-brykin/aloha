@@ -147,5 +147,8 @@
   "_A_UI_TYPES_FOR_USE_": "Tipovi dostupni za korištenje.",
   "_A_UI_GROUP_DEFAULT_DESCRIPTION_": "Ovaj primjer pokazuje kako koristiti svojstvo <strong lang=\"en\">default</strong> za postavljanje početne vrijednosti komponente kada vrijednost modela nije proslijeđena.",
   "_A_UI_PROPS_DEFAULT_DESCRIPTION_": "Postavlja zadanu vrijednost koja se koristi za inicijalizaciju komponente kada <strong lang=\"en\">model-value</strong> nije definiran.",
-  "_A_UI_GROUP_DEFAULT_HEADER_": "Zadana vrijednost"
+  "_A_UI_GROUP_DEFAULT_HEADER_": "Zadana vrijednost",
+  "_A_UI_GROUP_ERROR_ICON_HEADER_": "Ikona greške",
+  "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "Ovaj primjer pokazuje kako prikazati prilagođenu ikonu greške kada komponenta ima validacijske greške. Ako komponenta ima polje za unos, ikona se prikazuje unutar njega; u suprotnom se prikazuje pored kontrole. Ikona se prikazuje samo ako su istovremeno proslijeđeni <strong lang=\"en\">errors</strong> i <strong lang=\"en\">error-icon</strong>.",
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Određuje ikonu koja se prikazuje kada komponenta ima validacijske greške. Ako komponenta ima polje za unos, ikona se prikazuje unutar njega; u suprotnom se prikazuje pored kontrole. Ikona se prikazuje samo kada je proslijeđen <strong lang=\"en\">errors</strong>."
 }

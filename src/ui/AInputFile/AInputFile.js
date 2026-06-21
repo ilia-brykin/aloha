@@ -239,6 +239,7 @@ export default {
           id: this.errorsId,
           alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
+          errorsClass: this.errorsClass,
         }),
       ]),
     ]);

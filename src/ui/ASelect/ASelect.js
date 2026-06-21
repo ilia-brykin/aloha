@@ -5,6 +5,7 @@ import {
   onMounted,
   ref,
   Teleport,
+  toRef,
   watch,
 } from "vue";
 import {
@@ -147,6 +148,16 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    errorsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    errorIcon: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
     },
     exceededItemsDeletable: {
       type: Boolean,
@@ -508,6 +519,7 @@ export default {
   ],
   setup(props, context) {
     const isMounted = ref(false);
+    const errorIcon = toRef(props, "errorIcon");
 
     const {
       attributesToExcludeFromRender,
@@ -529,6 +541,8 @@ export default {
       onBlur,
       onFocus,
     } = UiAPI(props, context);
+
+    const hasErrorIcon = computed(() => !!(isErrors.value && errorIcon.value));
 
     const {
       isModeOnePerGroup,
@@ -773,6 +787,7 @@ export default {
       disabledLocal,
       disabledLocalAttribut,
       errorsId,
+      hasErrorIcon,
       exclusiveDataKeyByKeyIdLocal,
       exclusiveOption,
       groupsForLever,
@@ -947,6 +962,8 @@ export default {
     }, [
       h("div", {
         class: ["a_form_element__parent", {
+          a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
+          a_select__parent_has_error_icon: this.hasErrorIcon,
           a_form_element__parent_float: this.isLabelFloat,
           a_form_element__parent_not_empty: this.isModelValue || this.isOpen,
         }],
@@ -986,6 +1003,7 @@ export default {
               class: [this.buttonClassDefault, this.buttonClass, {
                 disabled: this.disabled,
                 a_select_toggle_closeable: this.isMultiselect && this.isSelectionCloseable && this.isModelValue,
+                a_select_toggle_has_error_icon: this.hasErrorIcon,
                 a_form_control_invalid: this.isErrors,
               }],
               "aria-labelledby": this.ariaLabelledby,
@@ -1003,6 +1021,12 @@ export default {
               onFocus: this.onFocus,
               onBlur: this.onBlur,
             }, [
+              this.hasErrorIcon ?
+                h(AIcon, {
+                  icon: this.errorIcon,
+                  class: "a_input__icon_error a_select__error_icon",
+                }) :
+                "",
               this.$slots.fixedPlaceholder ?
                 this.$slots.fixedPlaceholder({
                   dataKeyByKeyId: this.dataKeyByKeyIdLocal,
@@ -1335,6 +1359,7 @@ export default {
           id: this.errorsId,
           alwaysTranslate: this.alwaysTranslate,
           errors: this.errors,
+          errorsClass: this.errorsClass,
         }),
       ]),
     ]);

@@ -1,0 +1,17 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Dodaj novi redak",
+  "_A_TABLE_FORM_ACTIONS_": "Radnje",
+  "_A_TABLE_FORM_DELETE_": "Obriši redak",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Jeste li sigurni da želite obrisati ovaj redak?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Odustani",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Obriši redak",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Obriši",
+  "_A_TABLE_FORM_EDIT_": "Uredi redak",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Odustani od uređivanja",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Spremi redak",
+  "_A_TABLE_FORM_EMPTY_": "Nema podataka za prikaz.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Premjesti redak dolje",
+  "_A_TABLE_FORM_MOVE_UP_": "Premjesti redak gore",
+  "_A_TABLE_FORM_REORDER_": "Povuci redak za promjenu redoslijeda",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Promjena redoslijeda redaka"
+}

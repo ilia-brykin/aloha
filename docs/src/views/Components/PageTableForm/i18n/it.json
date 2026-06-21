@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_FORM_COLUMN_NAME_": "Nome",
+  "_A_TABLE_FORM_COLUMN_POSITION_": "Posizione",
+  "_A_TABLE_FORM_COLUMN_SCORE_": "Punti",
+  "_A_TABLE_FORM_COLUMN_TEAM_": "Squadra",
+  "_A_TABLE_FORM_TEAM_NORTH_": "Nord",
+  "_A_TABLE_FORM_TEAM_WEST_": "Ovest",
+  "_A_TABLE_FORM_TEAM_SOUTH_": "Sud",
+  "_A_TABLE_FORM_TEAM_EAST_": "Est",
+  "_A_TABLE_FORM_DND_DESCRIPTION_": "L'esempio mostra la modifica accessibile dell'ordine delle righe tramite <strong lang=\"en\">drag-and-drop</strong> e pulsanti per spostare verso l'alto e verso il basso.",
+  "_A_TABLE_FORM_DND_HEADER_": "Modifica dell'ordine delle righe",
+  "_A_TABLE_FORM_EDIT_DESCRIPTION_": "L'esempio mostra la modifica delle righe, l'aggiunta di una nuova riga e l'eliminazione delle righe con conferma.",
+  "_A_TABLE_FORM_EDIT_HEADER_": "Modifica delle righe",
+  "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
+  "_A_TABLE_FORM_EXAMPLE_LABEL_": "Classifica dei partecipanti",
+  "_A_TABLE_FORM_FOOTER_TOTAL_": "Totale",
+  "_A_TABLE_FORM_STICKY_DESCRIPTION_": "L'esempio mostra una tabella ampia con una colonna delle azioni fissa sulla destra.",
+  "_A_TABLE_FORM_STICKY_HEADER_": "Azioni fisse",
+  "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"
+}

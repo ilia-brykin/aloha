@@ -66,6 +66,7 @@ export { default as ASelectIcon } from "./ui/ASelectIcon/ASelectIcon";
 export { default as ASelectStyle } from "./ui/ASelectStyle/ASelectStyle";
 export { default as ASlider } from "./ui/ASlider/ASlider";
 export { default as AShowMore } from "./AShowMore/AShowMore";
+export { default as ATableForm } from "./ATableForm/ATableForm";
 export { default as ASpinner } from "./ASpinner/ASpinner";
 export { default as ASwitch } from "./ui/ASwitch/ASwitch";
 export { default as ATable } from "./ATable/ATable";
@@ -372,6 +373,7 @@ export { default as ARouterLinkConfigI18n } from "./ui/ARouterLinkConfig/i18n/AR
 export { default as ASelectI18n } from "./ui/ASelect/i18n/ASelectI18n";
 export { default as ASelectStyleI18n } from "./ui/ASelectStyle/i18n/ASelectStyleI18n";
 export { default as AShowMoreI18n } from "./AShowMore/i18n/AShowMoreI18n";
+export { default as ATableFormI18n } from "./ATableForm/i18n/ATableFormI18n";
 export { default as ASpinnerI18n } from "./ASpinner/i18n/ASpinnerI18n";
 export { default as ASwitchI18n } from "./ui/ASwitch/i18n/ASwitchI18n";
 export { default as ATableI18n } from "./ATable/i18n/ATableI18n";

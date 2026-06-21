@@ -495,6 +495,13 @@ export default function ComponentItemsAPI() {
               name: "PageTableTree",
             },
           },
+          {
+            id: "PageTableForm",
+            label: "Table form",
+            to: {
+              name: "PageTableForm",
+            },
+          },
         ],
       },
       {

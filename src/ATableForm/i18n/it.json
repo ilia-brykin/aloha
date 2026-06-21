@@ -1,0 +1,17 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Aggiungi nuova riga",
+  "_A_TABLE_FORM_ACTIONS_": "Azioni",
+  "_A_TABLE_FORM_DELETE_": "Elimina riga",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Vuoi davvero eliminare questa riga?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Annulla",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Elimina riga",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Elimina",
+  "_A_TABLE_FORM_EDIT_": "Modifica riga",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Annulla modifica",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Salva riga",
+  "_A_TABLE_FORM_EMPTY_": "Nessun dato da visualizzare.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Sposta riga in basso",
+  "_A_TABLE_FORM_MOVE_UP_": "Sposta riga in alto",
+  "_A_TABLE_FORM_REORDER_": "Trascina la riga per riordinare",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Modifica l'ordine delle righe"
+}

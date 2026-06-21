@@ -147,5 +147,8 @@
   "_A_UI_TYPES_FOR_USE_": "Tipos disponibles para su uso.",
   "_A_UI_GROUP_DEFAULT_DESCRIPTION_": "Este ejemplo muestra cómo usar la propiedad <strong lang=\"en\">default</strong> para establecer el valor inicial del componente cuando no se proporciona un valor de modelo.",
   "_A_UI_PROPS_DEFAULT_DESCRIPTION_": "Establece el valor predeterminado que se usa para inicializar el componente cuando <strong lang=\"en\">model-value</strong> no está definido.",
-  "_A_UI_GROUP_DEFAULT_HEADER_": "Valor predeterminado"
+  "_A_UI_GROUP_DEFAULT_HEADER_": "Valor predeterminado",
+  "_A_UI_GROUP_ERROR_ICON_HEADER_": "Icono de error",
+  "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "Este ejemplo muestra cómo mostrar un icono de error personalizado cuando el componente tiene errores de validación. Si el componente tiene un campo de entrada, el icono se muestra dentro de él; de lo contrario, se muestra junto al control. El icono solo se muestra si se proporcionan tanto <strong lang=\"en\">errors</strong> como <strong lang=\"en\">error-icon</strong>.",
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Especifica el icono que se muestra cuando el componente tiene errores de validación. Si el componente tiene un campo de entrada, el icono se muestra dentro de él; de lo contrario, se muestra junto al control. El icono solo se muestra cuando está presente <strong lang=\"en\">errors</strong>."
 }

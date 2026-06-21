@@ -1,0 +1,17 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Ajouter une ligne",
+  "_A_TABLE_FORM_ACTIONS_": "Actions",
+  "_A_TABLE_FORM_DELETE_": "Supprimer la ligne",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Voulez-vous vraiment supprimer cette ligne ?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Annuler",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Supprimer la ligne",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Supprimer",
+  "_A_TABLE_FORM_EDIT_": "Modifier la ligne",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Annuler la modification",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Enregistrer la ligne",
+  "_A_TABLE_FORM_EMPTY_": "Aucune donnée à afficher.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Déplacer la ligne vers le bas",
+  "_A_TABLE_FORM_MOVE_UP_": "Déplacer la ligne vers le haut",
+  "_A_TABLE_FORM_REORDER_": "Faire glisser la ligne pour la réorganiser",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Modifier l'ordre des lignes"
+}

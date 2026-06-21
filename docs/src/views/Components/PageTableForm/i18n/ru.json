@@ -1,0 +1,20 @@
+{
+  "_A_TABLE_FORM_COLUMN_NAME_": "Имя",
+  "_A_TABLE_FORM_COLUMN_POSITION_": "Место",
+  "_A_TABLE_FORM_COLUMN_SCORE_": "Очки",
+  "_A_TABLE_FORM_COLUMN_TEAM_": "Команда",
+  "_A_TABLE_FORM_TEAM_NORTH_": "Север",
+  "_A_TABLE_FORM_TEAM_WEST_": "Запад",
+  "_A_TABLE_FORM_TEAM_SOUTH_": "Юг",
+  "_A_TABLE_FORM_TEAM_EAST_": "Восток",
+  "_A_TABLE_FORM_DND_DESCRIPTION_": "Пример показывает доступное изменение порядка строк с помощью <strong lang=\"en\">drag-and-drop</strong> и кнопок перемещения вверх и вниз.",
+  "_A_TABLE_FORM_DND_HEADER_": "Изменение порядка строк",
+  "_A_TABLE_FORM_EDIT_DESCRIPTION_": "Пример показывает редактирование строк, добавление новой строки и удаление строк с подтверждением.",
+  "_A_TABLE_FORM_EDIT_HEADER_": "Редактирование строк",
+  "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
+  "_A_TABLE_FORM_EXAMPLE_LABEL_": "Рейтинг участников",
+  "_A_TABLE_FORM_FOOTER_TOTAL_": "Итого",
+  "_A_TABLE_FORM_STICKY_DESCRIPTION_": "Пример показывает широкую таблицу с фиксированным столбцом действий справа.",
+  "_A_TABLE_FORM_STICKY_HEADER_": "Фиксированные действия",
+  "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"
+}

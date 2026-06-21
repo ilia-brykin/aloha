@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../../global/components/AlohaTableProps/Aloha
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageInputBasic from "./PageInputBasic/PageInputBasic.vue";
 import PageInputChange from "./PageInputChange/PageInputChange.vue";
+import PageInputErrorIcon from "./PageInputErrorIcon/PageInputErrorIcon.vue";
 import PageInputErrors from "./PageInputErrors/PageInputErrors.vue";
 import PageInputHelpText from "./PageInputHelpText/PageInputHelpText.vue";
 import PageInputLabelDescription from "./PageInputLabelDescription/PageInputLabelDescription.vue";
@@ -29,6 +30,7 @@ export default {
     ATranslation,
     PageInputBasic,
     PageInputChange,
+    PageInputErrorIcon,
     PageInputErrors,
     PageInputHelpText,
     PageInputLabelDescription,
