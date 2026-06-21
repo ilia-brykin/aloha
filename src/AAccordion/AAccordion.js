@@ -1,7 +1,6 @@
 import {
   computed,
   h,
-  watch,
 } from "vue";
 
 import AAccordionItem from "./AAccordionItem/AAccordionItem";
