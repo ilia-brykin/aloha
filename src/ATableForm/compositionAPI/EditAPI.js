@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import {
+  cloneDeep,
   isFunction,
 } from "lodash-es";
 
@@ -15,8 +16,11 @@ export default function EditAPI(props, {
   const columns = toRef(props, "columns");
   const isAddable = toRef(props, "isAddable");
   const isEditable = toRef(props, "isEditable");
+  const prepareEditModel = toRef(props, "prepareEditModel");
+  const rows = toRef(props, "rows");
 
   const activeEditRowKey = ref(undefined);
+  const activeEditModel = ref(undefined);
   const isAddRowActive = ref(false);
 
   const hasActiveEditRow = computed(() => {
@@ -41,17 +45,35 @@ export default function EditAPI(props, {
     });
   });
 
+  const getPreparedEditModel = params => {
+    if (!isFunction(prepareEditModel.value)) {
+      return undefined;
+    }
+
+    const result = prepareEditModel.value(params);
+
+    if (result?.model === undefined) {
+      return undefined;
+    }
+
+    return cloneDeep(result.model);
+  };
+
   const onAddRow = () => {
     if (hasActiveEditRow.value || !canAddRow.value) {
       return;
     }
 
     activeEditRowKey.value = undefined;
+    activeEditModel.value = getPreparedEditModel({
+      rows: rows.value,
+    });
     isAddRowActive.value = true;
   };
 
   const onCancelEditRow = () => {
     activeEditRowKey.value = undefined;
+    activeEditModel.value = undefined;
     isAddRowActive.value = false;
   };
 
@@ -60,6 +82,11 @@ export default function EditAPI(props, {
       return;
     }
 
+    activeEditModel.value = getPreparedEditModel({
+      row,
+      rowIndex,
+      rows: rows.value,
+    });
     activeEditRowKey.value = getRowKey({
       row,
       rowIndex,
@@ -68,6 +95,7 @@ export default function EditAPI(props, {
 
   return {
     activeEditRowKey,
+    activeEditModel,
     canAddRow,
     hasActiveEditRow,
     hasRequiredEditableColumns,

@@ -107,6 +107,11 @@ export default {
       required: false,
       default: "h2",
     },
+    prepareEditModel: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     rows: {
       type: Array,
       required: false,
@@ -155,6 +160,7 @@ export default {
 
     const {
       activeEditRowKey,
+      activeEditModel,
       canAddRow,
       hasActiveEditRow,
       hasRequiredEditableColumns,
@@ -189,6 +195,7 @@ export default {
 
     return {
       activeEditRowKey,
+      activeEditModel,
       allColumnsLength,
       canAddRow,
       canMoveRowDown,
@@ -296,6 +303,7 @@ export default {
                   canMoveRowUp: this.canMoveRowUp,
                   columns: this.columns,
                   draggedRowIndex: this.draggedRowIndex,
+                  editModel: this.activeEditRowKey === rowKey ? this.activeEditModel : undefined,
                   errorIcon: this.errorIcon,
                   hasActionsColumn: this.hasActionsColumn,
                   hasActiveEditRow: this.hasActiveEditRow,
@@ -342,6 +350,7 @@ export default {
                 canMoveRowDown: this.canMoveRowDown,
                 canMoveRowUp: this.canMoveRowUp,
                 columns: this.columns,
+                editModel: this.activeEditModel,
                 errorIcon: this.errorIcon,
                 draggedRowIndex: this.draggedRowIndex,
                 hasActionsColumn: this.hasActionsColumn,

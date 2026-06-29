@@ -50,6 +50,11 @@ export default {
       required: false,
       default: undefined,
     },
+    editModel: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     errorIcon: {
       type: String,
       required: false,
@@ -250,7 +255,7 @@ export default {
       immediate: true,
       handler(isActiveEditMode) {
         if (isActiveEditMode) {
-          this.modelLocal = cloneDeep(this.row);
+          this.modelLocal = cloneDeep(this.editModel === undefined ? this.row : this.editModel);
           this.errorsLocal = {};
           nextTick(() => {
             this.focusFirstEditableElement();
