@@ -43,7 +43,7 @@ export default {
     ];
     const modelCheckbox = ref(["is-deletable", "is-editable"]);
 
-    const columns = [
+    const columns1 = [
       {
         id: "position",
         label: "_A_TABLE_FORM_COLUMN_POSITION_",
@@ -111,6 +111,29 @@ export default {
         grow: 1,
       },
     ];
+    const columns2 = [
+      {
+        id: "position",
+        label: "_A_TABLE_FORM_COLUMN_POSITION_",
+        minWidth: 96,
+        width: 96,
+        grow: 1,
+        formElement: {
+          controlsType: "none",
+          type: "integer",
+        },
+      },
+      {
+        id: "name",
+        formElement: {
+          type: "text",
+        },
+        label: "_A_TABLE_FORM_COLUMN_NAME_",
+        minWidth: "12rem",
+        width: "16rem",
+        grow: 3,
+      },
+    ];
 
     const rows = ref([
       {
@@ -165,7 +188,8 @@ export default {
     return {
       codeHtml,
       codeJs,
-      columns,
+      columns1,
+      columns2,
       dataCheckbox,
       deleteRow,
       modelCheckbox,

@@ -14,7 +14,7 @@ aloha-example(
   )
   .a_mb_4
     a-table-form(
-      :columns="columns"
+      :columns="columns1"
       :is-columns-grow="true"
       :is-deletable="modelCheckbox.includes('is-deletable')"
       :is-drag-and-drop="modelCheckbox.includes('is-drag-and-drop')"
@@ -28,7 +28,7 @@ aloha-example(
       @delete-row="deleteRow"
     )
   a-table-form(
-    :columns="columns"
+    :columns="columns2"
     :is-columns-grow="true"
     :is-deletable="modelCheckbox.includes('is-deletable')"
     :is-drag-and-drop="modelCheckbox.includes('is-drag-and-drop')"
