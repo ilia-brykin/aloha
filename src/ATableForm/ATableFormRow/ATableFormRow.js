@@ -198,6 +198,11 @@ export default {
       required: false,
       default: undefined,
     },
+    widths: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   setup(props) {
     const {
@@ -319,6 +324,7 @@ export default {
           onDragstart: this.onDragstart,
           rowIndex: this.rowIndex,
           texts: this.texts,
+          widths: this.widths,
         }) :
         null,
       ...this.columns.map((column, columnIndex) => {
@@ -367,6 +373,7 @@ export default {
           row: this.row,
           rowIndex: this.rowIndex,
           texts: this.texts,
+          widths: this.widths,
         }) :
         null,
     ]));

@@ -13,8 +13,6 @@ import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
 import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 import GripVertical from "aloha-svg/dist/js/bootstrap/GripVertical";
 
-const COLUMN_WIDTH = 56;
-
 export default {
   name: "ATableFormCellDnd",
   props: {
@@ -75,6 +73,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    widths: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   setup(props) {
     const {
@@ -84,9 +87,9 @@ export default {
 
     return {
       columnStyles: computed(() => ({
-        maxWidth: `${ COLUMN_WIDTH }px`,
-        minWidth: `${ COLUMN_WIDTH }px`,
-        width: `${ COLUMN_WIDTH }px`,
+        maxWidth: `${ props.widths.dndColumn }px`,
+        minWidth: `${ props.widths.dndColumn }px`,
+        width: `${ props.widths.dndColumn }px`,
       })),
       idBtnDown,
       idBtnUp,

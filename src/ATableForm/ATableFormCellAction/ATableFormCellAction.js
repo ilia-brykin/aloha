@@ -96,6 +96,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    widths: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   setup(props) {
     const {

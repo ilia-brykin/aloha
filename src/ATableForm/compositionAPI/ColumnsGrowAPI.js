@@ -1,7 +1,5 @@
 import {
   computed,
-  onBeforeUnmount,
-  onMounted,
   ref,
   toRef,
   watch,
@@ -11,14 +9,14 @@ import ARemPxAPI from "../../compositionAPI/ARemPxAPI";
 
 import {
   debounce,
+  isNil,
+  isNumber,
+  isString,
 } from "lodash-es";
-
-const ACTIONS_COLUMN_WIDTH_SINGLE = 56;
-const ACTIONS_COLUMN_WIDTH_DOUBLE = 112;
-const DND_COLUMN_WIDTH = 56;
 
 export default function ColumnsGrowAPI(props, {
   hasActionsColumn = computed(() => false),
+  widthsLocal = computed(() => ({})),
 }) {
   const columns = toRef(props, "columns");
   const id = toRef(props, "id");
@@ -35,6 +33,8 @@ export default function ColumnsGrowAPI(props, {
 
   const tableWidth = ref(undefined);
   const columnsStylesGrow = ref({});
+  let resizeObserver;
+  let observedElement;
 
   const actionsColumnWidth = computed(() => {
     if (!hasActionsColumn.value) {
@@ -42,18 +42,18 @@ export default function ColumnsGrowAPI(props, {
     }
 
     if (isEditable.value) {
-      return ACTIONS_COLUMN_WIDTH_DOUBLE;
+      return widthsLocal.value.actionsColumnDouble;
     }
 
     if (isDeletable.value || isDeletableConfirm.value) {
-      return ACTIONS_COLUMN_WIDTH_SINGLE;
+      return widthsLocal.value.actionsColumnSingle;
     }
 
     return 0;
   });
 
   const dndColumnWidth = computed(() => {
-    return isDragAndDrop.value ? DND_COLUMN_WIDTH : 0;
+    return isDragAndDrop.value ? widthsLocal.value.dndColumn : 0;
   });
 
   const getObservedElement = () => {
@@ -61,15 +61,15 @@ export default function ColumnsGrowAPI(props, {
   };
 
   const parseWidthToPx = value => {
-    if (value === undefined || value === null || value === "") {
+    if (isNil(value) || value === "") {
       return 0;
     }
 
-    if (typeof value === "number") {
+    if (isNumber(value)) {
       return +scalePxWithRem(value) || 0;
     }
 
-    if (typeof value !== "string") {
+    if (!isString(value)) {
       return 0;
     }
 
@@ -145,47 +145,55 @@ export default function ColumnsGrowAPI(props, {
     columnsStylesGrow.value = styles;
   };
 
-  const resizeObserver = new ResizeObserver(debounce(entries => {
-    const width = entries[0]?.contentRect?.width;
-
-    if (!width) {
+  const initColumnsGrowObserver = () => {
+    if (!isColumnsGrow.value || resizeObserver) {
       return;
     }
 
-    tableWidth.value = width;
-    updateColumnsGrowStyles();
-  }, 100));
-
-  onMounted(() => {
     const element = getObservedElement();
-
     if (!element) {
       return;
     }
+
+    observedElement = element;
+    resizeObserver = new ResizeObserver(debounce(entries => {
+      const width = entries[0]?.contentRect?.width;
+
+      if (!width) {
+        return;
+      }
+
+      tableWidth.value = width;
+      updateColumnsGrowStyles();
+    }, 100));
 
     tableWidth.value = element.getBoundingClientRect().width;
     updateColumnsGrowStyles();
     resizeObserver.observe(element);
-  });
+  };
 
-  onBeforeUnmount(() => {
-    const element = getObservedElement();
-
-    if (!element) {
+  const destroyColumnsGrowObserver = () => {
+    if (!resizeObserver) {
       return;
     }
 
-    resizeObserver.unobserve(element);
-  });
+    if (observedElement) {
+      resizeObserver.unobserve(observedElement);
+    }
+
+    resizeObserver.disconnect();
+    resizeObserver = undefined;
+    observedElement = undefined;
+  };
 
   watch([
     columns,
     hasActionsColumn,
-    isColumnsGrow,
     isDeletable,
     isDeletableConfirm,
     isDragAndDrop,
     isEditable,
+    widthsLocal,
   ], () => {
     updateColumnsGrowStyles();
   }, {
@@ -194,5 +202,7 @@ export default function ColumnsGrowAPI(props, {
 
   return {
     columnsStylesGrow,
+    destroyColumnsGrowObserver,
+    initColumnsGrowObserver,
   };
 }

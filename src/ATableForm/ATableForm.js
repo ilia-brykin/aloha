@@ -1,5 +1,7 @@
 import {
   h,
+  onBeforeUnmount,
+  onMounted,
 } from "vue";
 
 import AButton from "../AButton/AButton";
@@ -15,6 +17,7 @@ import EditAPI from "./compositionAPI/EditAPI";
 import IconsAPI from "./compositionAPI/IconsAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
+import WidthsAPI from "./compositionAPI/WidthsAPI";
 
 import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
 import {
@@ -138,6 +141,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    widths: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   emits: [
     "deleteRow",
@@ -161,13 +169,28 @@ export default {
     } = TextsAPI(props);
 
     const {
+      widthsLocal,
+    } = WidthsAPI(props);
+
+    const {
       iconsLocal,
     } = IconsAPI(props);
 
     const {
       columnsStylesGrow,
+      destroyColumnsGrowObserver,
+      initColumnsGrowObserver,
     } = ColumnsGrowAPI(props, {
       hasActionsColumn,
+      widthsLocal,
+    });
+
+    onMounted(() => {
+      initColumnsGrowObserver();
+    });
+
+    onBeforeUnmount(() => {
+      destroyColumnsGrowObserver();
     });
 
     const {
@@ -236,6 +259,7 @@ export default {
       onDrop,
       onEditRow,
       textsLocal,
+      widthsLocal,
     };
   },
   render() {
@@ -297,6 +321,7 @@ export default {
               rows: this.rows,
               saveRow: this.saveRow,
               texts: this.textsLocal,
+              widths: this.widthsLocal,
               trClass: "a_table_form__row a_table_form__row_head",
             }, this.$slots),
           ]),
@@ -346,6 +371,7 @@ export default {
                   rows: this.rows,
                   saveRow: this.saveRow,
                   texts: this.textsLocal,
+                  widths: this.widthsLocal,
                   trClass: [
                     "a_table_form__row",
                     {
@@ -395,6 +421,7 @@ export default {
                 rows: this.rows,
                 saveRow: this.addRow,
                 texts: this.textsLocal,
+                widths: this.widthsLocal,
                 trClass: "a_table_form__row a_table_form__row_create",
               }, this.$slots),
             ] :
@@ -449,6 +476,7 @@ export default {
               rows: this.rowsFooter,
               saveRow: this.saveRow,
               texts: this.textsLocal,
+              widths: this.widthsLocal,
               trClass: "a_table_form__row a_table_form__row_footer",
             }, this.$slots);
           })),
