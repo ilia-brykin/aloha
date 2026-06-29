@@ -23,6 +23,11 @@ export default {
       required: false,
       default: false,
     },
+    disabledCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     id: {
       type: String,
       required: true,
@@ -104,14 +109,15 @@ export default {
   },
   setup(props) {
     const {
-      isActionsDisabled,
+      isDeleteDisabled,
+      isEditDisabled,
     } = DisabledAPI(props);
 
     const {
       idBtnDelete,
       onDeleteClick,
     } = DeleteAPI(props, {
-      isActionsDisabled,
+      isActionsDisabled: isDeleteDisabled,
     });
 
     const {
@@ -121,7 +127,8 @@ export default {
     return {
       columnStyles,
       idBtnDelete,
-      isActionsDisabled,
+      isDeleteDisabled,
+      isEditDisabled,
       onDeleteClick,
     };
   },
@@ -182,7 +189,7 @@ export default {
               (this.isDeletable || this.isDeletableConfirm) && h(AButton, {
                 id: this.idBtnDelete,
                 class: "a_btn a_btn_transparent_danger a_table_form__action_button",
-                disabled: this.isActionsDisabled,
+                disabled: this.isDeleteDisabled,
                 iconLeft: Trash,
                 title: this.texts.actionDelete,
                 textScreenReader: this.texts.actionDelete,
@@ -190,7 +197,7 @@ export default {
               }),
               this.isEditable && h(AButton, {
                 class: "a_btn a_btn_transparent_primary a_table_form__action_button",
-                disabled: this.isActionsDisabled,
+                disabled: this.isEditDisabled,
                 iconLeft: PencilFill,
                 title: this.texts.actionEdit,
                 textScreenReader: this.texts.actionEdit,

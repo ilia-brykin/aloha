@@ -50,6 +50,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    disabledCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     draggedRowIndex: {
       type: Number,
       required: false,
@@ -356,6 +361,7 @@ export default {
       }),
       this.hasActionsColumn ?
         h(ATableFormCellAction, {
+          disabledCallback: this.disabledCallback,
           id: this.idTr,
           hasActiveEditRow: this.hasActiveEditRow,
           isActiveEditMode: this.isActiveEditMode,

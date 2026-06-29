@@ -1,7 +1,9 @@
 import {
+  computed,
   h,
   onBeforeUnmount,
   onMounted,
+  toRef,
 } from "vue";
 
 import AButton from "../AButton/AButton";
@@ -21,6 +23,8 @@ import WidthsAPI from "./compositionAPI/WidthsAPI";
 
 import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
 import {
+  get,
+  isFunction,
   uniqueId,
 } from "lodash-es";
 
@@ -40,6 +44,11 @@ export default {
       type: [String, Number],
       required: false,
       default: "",
+    },
+    disabledCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     errorIcon: {
       type: String,
@@ -153,6 +162,8 @@ export default {
     "updateRows",
   ],
   setup(props, context) {
+    const disabledCallback = toRef(props, "disabledCallback");
+
     const {
       allColumnsLength,
       hasActionsColumn,
@@ -228,6 +239,20 @@ export default {
       onDeleteRow,
     } = DeleteAPI(props, context);
 
+    const isAddDisabled = computed(() => {
+      if (hasActiveEditRow.value) {
+        return true;
+      }
+
+      const addDisabledCallback = get(disabledCallback.value, "add");
+
+      if (isFunction(addDisabledCallback)) {
+        return addDisabledCallback();
+      }
+
+      return false;
+    });
+
     return {
       activeEditRowKey,
       activeEditModel,
@@ -246,6 +271,7 @@ export default {
       hasRows,
       hasRowsFooter,
       iconsLocal,
+      isAddDisabled,
       isAddRowActive,
       moveRowDown,
       moveRowUp,
@@ -303,6 +329,7 @@ export default {
               hasActiveEditRow: false,
               isActiveEditMode: false,
               isActionsSticky: this.isActionsSticky,
+              disabledCallback: this.disabledCallback,
               isDeletable: this.isDeletable,
               isDeletableConfirm: this.isDeletableConfirm,
               isDndDisabled: this.hasActiveEditRow,
@@ -349,6 +376,7 @@ export default {
                   hasActiveEditRow: this.hasActiveEditRow,
                   isActiveEditMode: this.activeEditRowKey === rowKey,
                   isActionsSticky: this.isActionsSticky,
+                  disabledCallback: this.disabledCallback,
                   isCreateMode: false,
                   isDeletable: this.isDeletable,
                   isDeletableConfirm: this.isDeletableConfirm,
@@ -399,6 +427,7 @@ export default {
                 hasActiveEditRow: this.hasActiveEditRow,
                 isActiveEditMode: true,
                 isActionsSticky: this.isActionsSticky,
+                disabledCallback: this.disabledCallback,
                 isCreateMode: true,
                 isDeletable: false,
                 isDeletableConfirm: false,
@@ -453,6 +482,7 @@ export default {
               hasActiveEditRow: this.hasActiveEditRow,
               isActiveEditMode: false,
               isActionsSticky: this.isActionsSticky,
+              disabledCallback: this.disabledCallback,
               isDeletable: this.isDeletable,
               isDeletableConfirm: this.isDeletableConfirm,
               isDndDisabled: this.hasActiveEditRow,
@@ -487,7 +517,7 @@ export default {
       }, [
         h(AButton, {
           class: "a_btn a_btn_outline_primary",
-          disabled: this.hasActiveEditRow,
+          disabled: this.isAddDisabled,
           extra: this.extra,
           iconLeft: this.iconsLocal.actionAddRow,
           text: this.textsLocal.actionAddRow,
