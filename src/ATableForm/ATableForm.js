@@ -45,6 +45,11 @@ export default {
       required: false,
       default: "",
     },
+    titleCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     disabledCallback: {
       type: Object,
       required: false,
@@ -163,6 +168,7 @@ export default {
   ],
   setup(props, context) {
     const disabledCallback = toRef(props, "disabledCallback");
+    const titleCallback = toRef(props, "titleCallback");
 
     const {
       allColumnsLength,
@@ -253,10 +259,21 @@ export default {
       return false;
     });
 
+    const addTitle = computed(() => {
+      const addTitleCallback = get(titleCallback.value, "add");
+
+      if (isFunction(addTitleCallback)) {
+        return addTitleCallback();
+      }
+
+      return textsLocal.value.actionAddRow;
+    });
+
     return {
       activeEditRowKey,
       activeEditModel,
       allColumnsLength,
+      addTitle,
       canAddRow,
       canMoveRowDown,
       canMoveRowUp,
@@ -330,6 +347,7 @@ export default {
               isActiveEditMode: false,
               isActionsSticky: this.isActionsSticky,
               disabledCallback: this.disabledCallback,
+              titleCallback: this.titleCallback,
               isDeletable: this.isDeletable,
               isDeletableConfirm: this.isDeletableConfirm,
               isDndDisabled: this.hasActiveEditRow,
@@ -377,6 +395,7 @@ export default {
                   isActiveEditMode: this.activeEditRowKey === rowKey,
                   isActionsSticky: this.isActionsSticky,
                   disabledCallback: this.disabledCallback,
+                  titleCallback: this.titleCallback,
                   isCreateMode: false,
                   isDeletable: this.isDeletable,
                   isDeletableConfirm: this.isDeletableConfirm,
@@ -428,6 +447,7 @@ export default {
                 isActiveEditMode: true,
                 isActionsSticky: this.isActionsSticky,
                 disabledCallback: this.disabledCallback,
+                titleCallback: this.titleCallback,
                 isCreateMode: true,
                 isDeletable: false,
                 isDeletableConfirm: false,
@@ -483,6 +503,7 @@ export default {
               isActiveEditMode: false,
               isActionsSticky: this.isActionsSticky,
               disabledCallback: this.disabledCallback,
+              titleCallback: this.titleCallback,
               isDeletable: this.isDeletable,
               isDeletableConfirm: this.isDeletableConfirm,
               isDndDisabled: this.hasActiveEditRow,
@@ -521,6 +542,8 @@ export default {
           extra: this.extra,
           iconLeft: this.iconsLocal.actionAddRow,
           text: this.textsLocal.actionAddRow,
+          textScreenReader: this.addTitle,
+          title: this.addTitle,
           onClick: this.onAddRow,
         }),
       ]),

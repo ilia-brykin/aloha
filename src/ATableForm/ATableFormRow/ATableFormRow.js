@@ -55,6 +55,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    titleCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     draggedRowIndex: {
       type: Number,
       required: false,
@@ -379,6 +384,7 @@ export default {
           row: this.row,
           rowIndex: this.rowIndex,
           texts: this.texts,
+          titleCallback: this.titleCallback,
           widths: this.widths,
         }) :
         null,

@@ -8,6 +8,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 import DeleteAPI from "./compositionAPI/DeleteAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import StylesAPI from "./compositionAPI/StylesAPI";
+import TitleAPI from "./compositionAPI/TitleAPI";
 
 import Floppy2Fill from "aloha-svg/dist/js/bootstrap/Floppy2Fill";
 import PencilFill from "aloha-svg/dist/js/bootstrap/PencilFill";
@@ -24,6 +25,11 @@ export default {
       default: false,
     },
     disabledCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    titleCallback: {
       type: Object,
       required: false,
       default: () => ({}),
@@ -124,8 +130,15 @@ export default {
       columnStyles,
     } = StylesAPI(props);
 
+    const {
+      deleteTitle,
+      editTitle,
+    } = TitleAPI(props);
+
     return {
       columnStyles,
+      deleteTitle,
+      editTitle,
       idBtnDelete,
       isDeleteDisabled,
       isEditDisabled,
@@ -191,16 +204,16 @@ export default {
                 class: "a_btn a_btn_transparent_danger a_table_form__action_button",
                 disabled: this.isDeleteDisabled,
                 iconLeft: Trash,
-                title: this.texts.actionDelete,
-                textScreenReader: this.texts.actionDelete,
+                title: this.deleteTitle,
+                textScreenReader: this.deleteTitle,
                 onClick: this.onDeleteClick,
               }),
               this.isEditable && h(AButton, {
                 class: "a_btn a_btn_transparent_primary a_table_form__action_button",
                 disabled: this.isEditDisabled,
                 iconLeft: PencilFill,
-                title: this.texts.actionEdit,
-                textScreenReader: this.texts.actionEdit,
+                title: this.editTitle,
+                textScreenReader: this.editTitle,
                 onClick: () => this.onEditRow({
                   row: this.row,
                   rowIndex: this.rowIndex,
