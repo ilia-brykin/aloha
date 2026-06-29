@@ -14,6 +14,8 @@
   "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
   "_A_TABLE_FORM_EXAMPLE_LABEL_": "Teilnehmerrangliste",
   "_A_TABLE_FORM_FOOTER_TOTAL_": "Gesamt",
+  "_A_TABLE_FORM_GROW_DESCRIPTION_": "Das Beispiel zeigt, wie Spalten mit width und grow freien Tabellenplatz teilen, auch zusammen mit Aktions- und Drag-and-drop-Spalten.",
+  "_A_TABLE_FORM_GROW_HEADER_": "Spaltenwachstum",
   "_A_TABLE_FORM_STICKY_DESCRIPTION_": "Das Beispiel zeigt eine breite Tabelle mit einer fixierten Aktionsspalte auf der rechten Seite.",
   "_A_TABLE_FORM_STICKY_HEADER_": "Fixierte Aktionen",
   "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"

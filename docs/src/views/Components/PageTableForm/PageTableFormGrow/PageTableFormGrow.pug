@@ -1,0 +1,43 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_FORM_GROW_HEADER_"
+  description="_A_TABLE_FORM_GROW_DESCRIPTION_"
+  :props="['is-columns-grow', 'is-deletable', 'is-drag-and-drop', 'is-editable']"
+)
+  a-checkbox(
+    v-model="modelCheckbox"
+    :data="dataCheckbox"
+    class="a_mb_4"
+    key-id="value"
+    key-label="label"
+  )
+  .a_mb_4
+    a-table-form(
+      :columns="columns"
+      :is-columns-grow="true"
+      :is-deletable="modelCheckbox.includes('is-deletable')"
+      :is-drag-and-drop="modelCheckbox.includes('is-drag-and-drop')"
+      :is-editable="modelCheckbox.includes('is-editable')"
+      :rows-footer="rowsFooter"
+      :rows="rows"
+      :save-row="saveRow"
+      :texts="texts"
+      key-id="id"
+      label="_A_TABLE_FORM_EXAMPLE_LABEL_"
+      @delete-row="deleteRow"
+    )
+  a-table-form(
+    :columns="columns"
+    :is-columns-grow="true"
+    :is-deletable="modelCheckbox.includes('is-deletable')"
+    :is-drag-and-drop="modelCheckbox.includes('is-drag-and-drop')"
+    :is-editable="modelCheckbox.includes('is-editable')"
+    :rows-footer="rowsFooter"
+    :rows="rows"
+    :save-row="saveRow"
+    :texts="texts"
+    key-id="id"
+    label="_A_TABLE_FORM_EXAMPLE_LABEL_"
+    @delete-row="deleteRow"
+  )

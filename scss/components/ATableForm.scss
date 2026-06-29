@@ -40,6 +40,7 @@
 
 .a_table_form__table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   background-color: var(--a_table_form_bg);
 }

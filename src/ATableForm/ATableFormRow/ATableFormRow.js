@@ -45,6 +45,11 @@ export default {
       type: Array,
       required: true,
     },
+    columnsStylesGrow: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     draggedRowIndex: {
       type: Number,
       required: false,
@@ -320,6 +325,7 @@ export default {
         if (this.isHeader) {
           return h(ATableFormTh, {
             column,
+            columnStyle: this.columnsStylesGrow[column.id],
             isEditable: this.isEditable,
           });
         }
@@ -328,6 +334,7 @@ export default {
           id: this.idTr,
           column,
           columnIndex,
+          columnStyle: this.columnsStylesGrow[column.id],
           errorIcon: this.errorIcon,
           errors: this.errorsLocal,
           isEditable: this.isEditable,

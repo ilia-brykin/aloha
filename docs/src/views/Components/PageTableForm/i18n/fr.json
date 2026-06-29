@@ -14,6 +14,8 @@
   "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
   "_A_TABLE_FORM_EXAMPLE_LABEL_": "Classement des participants",
   "_A_TABLE_FORM_FOOTER_TOTAL_": "Total",
+  "_A_TABLE_FORM_GROW_DESCRIPTION_": "L'exemple montre comment les colonnes avec width et grow se partagent l'espace libre du tableau, y compris avec des colonnes d'actions et de glisser-deposer.",
+  "_A_TABLE_FORM_GROW_HEADER_": "Croissance des colonnes",
   "_A_TABLE_FORM_STICKY_DESCRIPTION_": "L'exemple montre un tableau large avec une colonne d'actions fixée à droite.",
   "_A_TABLE_FORM_STICKY_HEADER_": "Actions fixées",
   "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"

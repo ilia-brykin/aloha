@@ -14,6 +14,8 @@
   "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
   "_A_TABLE_FORM_EXAMPLE_LABEL_": "Poredak sudionika",
   "_A_TABLE_FORM_FOOTER_TOTAL_": "Ukupno",
+  "_A_TABLE_FORM_GROW_DESCRIPTION_": "Primjer prikazuje kako stupci s width i grow dijele slobodan prostor tablice, ukljucujuci scenarije sa stupcima radnji i drag-and-drop.",
+  "_A_TABLE_FORM_GROW_HEADER_": "Rast stupaca",
   "_A_TABLE_FORM_STICKY_DESCRIPTION_": "Primjer prikazuje široku tablicu s fiksnim stupcem radnji na desnoj strani.",
   "_A_TABLE_FORM_STICKY_HEADER_": "Fiksne radnje",
   "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"

@@ -24,6 +24,11 @@ export default {
       type: Number,
       required: true,
     },
+    columnStyle: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     errorIcon: {
       type: String,
       required: false,
@@ -126,7 +131,10 @@ export default {
         this.column.class,
         this.isFooter ? this.column.classFooter : this.column.classRow,
       ],
-      style: this.columnStyles,
+      style: [
+        this.columnStyles,
+        this.columnStyle,
+      ],
     }, [
       h(AFormElement, {
         id: this.column.id,

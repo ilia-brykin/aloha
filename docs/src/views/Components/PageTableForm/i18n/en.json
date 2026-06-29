@@ -14,6 +14,8 @@
   "_A_TABLE_FORM_EXAMPLE_HEADER_": "ATableForm",
   "_A_TABLE_FORM_EXAMPLE_LABEL_": "Participant ranking",
   "_A_TABLE_FORM_FOOTER_TOTAL_": "Total",
+  "_A_TABLE_FORM_GROW_DESCRIPTION_": "The example shows how columns with width and grow share extra table space, including scenarios with actions and drag-and-drop columns.",
+  "_A_TABLE_FORM_GROW_HEADER_": "Column grow",
   "_A_TABLE_FORM_STICKY_DESCRIPTION_": "The example shows a wide table with a sticky actions column on the right.",
   "_A_TABLE_FORM_STICKY_HEADER_": "Sticky actions",
   "_A_TABLE_FORM_PAGE_TITLE_": "ATableForm"

@@ -8,6 +8,7 @@ import ATableFormRow from "./ATableFormRow/ATableFormRow";
 import ATranslation from "../ATranslation/ATranslation";
 
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
+import ColumnsGrowAPI from "./compositionAPI/ColumnsGrowAPI";
 import DeleteAPI from "./compositionAPI/DeleteAPI";
 import DragAndDropAPI from "./compositionAPI/DragAndDropAPI";
 import EditAPI from "./compositionAPI/EditAPI";
@@ -78,6 +79,11 @@ export default {
       default: false,
     },
     isDragAndDrop: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isColumnsGrow: {
       type: Boolean,
       required: false,
       default: false,
@@ -159,6 +165,12 @@ export default {
     } = IconsAPI(props);
 
     const {
+      columnsStylesGrow,
+    } = ColumnsGrowAPI(props, {
+      hasActionsColumn,
+    });
+
+    const {
       activeEditRowKey,
       activeEditModel,
       canAddRow,
@@ -200,6 +212,7 @@ export default {
       canAddRow,
       canMoveRowDown,
       canMoveRowUp,
+      columnsStylesGrow,
       draggedRowIndex,
       dragOverPosition,
       dragOverRowIndex,
@@ -260,6 +273,7 @@ export default {
               canMoveRowUp: this.canMoveRowUp,
               cellTag: "th",
               columns: this.columns,
+              columnsStylesGrow: this.columnsStylesGrow,
               draggedRowIndex: this.draggedRowIndex,
               hasActionsColumn: this.hasActionsColumn,
               hasActiveEditRow: false,
@@ -302,6 +316,7 @@ export default {
                   canMoveRowDown: this.canMoveRowDown,
                   canMoveRowUp: this.canMoveRowUp,
                   columns: this.columns,
+                  columnsStylesGrow: this.columnsStylesGrow,
                   draggedRowIndex: this.draggedRowIndex,
                   editModel: this.activeEditRowKey === rowKey ? this.activeEditModel : undefined,
                   errorIcon: this.errorIcon,
@@ -350,6 +365,7 @@ export default {
                 canMoveRowDown: this.canMoveRowDown,
                 canMoveRowUp: this.canMoveRowUp,
                 columns: this.columns,
+                columnsStylesGrow: this.columnsStylesGrow,
                 editModel: this.activeEditModel,
                 errorIcon: this.errorIcon,
                 draggedRowIndex: this.draggedRowIndex,
@@ -404,6 +420,7 @@ export default {
               canMoveRowDown: this.canMoveRowDown,
               canMoveRowUp: this.canMoveRowUp,
               columns: this.columns,
+              columnsStylesGrow: this.columnsStylesGrow,
               draggedRowIndex: this.draggedRowIndex,
               hasActionsColumn: this.hasActionsColumn,
               hasActiveEditRow: this.hasActiveEditRow,

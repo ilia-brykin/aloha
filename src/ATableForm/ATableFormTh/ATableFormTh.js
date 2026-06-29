@@ -13,6 +13,11 @@ export default {
       type: Object,
       required: true,
     },
+    columnStyle: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
     isEditable: {
       type: Boolean,
       required: false,
@@ -37,7 +42,10 @@ export default {
         "a_table_form__cell_th",
         this.column.class,
       ],
-      style: this.columnStyles,
+      style: [
+        this.columnStyles,
+        this.columnStyle,
+      ],
     }, [
       this.column.label && h(ATranslation, {
         html: this.column.label,
