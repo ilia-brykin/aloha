@@ -44,9 +44,8 @@ export default {
         tag: "span",
       }),
       this.isEditable && this.column.formElement?.required && h("span", {
-        "aria-hidden": true,
         class: "a_label__required",
-      }, " *"),
+      }, "*"),
     ]);
   },
 };

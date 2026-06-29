@@ -11,11 +11,11 @@ import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import DeleteAPI from "./compositionAPI/DeleteAPI";
 import DragAndDropAPI from "./compositionAPI/DragAndDropAPI";
 import EditAPI from "./compositionAPI/EditAPI";
+import IconsAPI from "./compositionAPI/IconsAPI";
 import RowsAPI from "./compositionAPI/RowsAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
 
 import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
-import Plus from "aloha-svg/dist/js/bootstrap/Plus";
 import {
   uniqueId,
 } from "lodash-es";
@@ -41,6 +41,16 @@ export default {
       type: String,
       required: false,
       default: ExclamationCircleFill,
+    },
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
+    icons: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     id: {
       type: String,
@@ -140,6 +150,10 @@ export default {
     } = TextsAPI(props);
 
     const {
+      iconsLocal,
+    } = IconsAPI(props);
+
+    const {
       activeEditRowKey,
       canAddRow,
       hasActiveEditRow,
@@ -188,6 +202,7 @@ export default {
       hasRequiredEditableColumns,
       hasRows,
       hasRowsFooter,
+      iconsLocal,
       isAddRowActive,
       moveRowDown,
       moveRowUp,
@@ -412,17 +427,18 @@ export default {
             }, this.$slots);
           })),
         ]),
-        this.canAddRow && h("div", {
-          class: "a_mt_3 a_text_right",
-        }, [
-          h(AButton, {
-            class: "a_btn a_btn_outline_primary",
-            disabled: this.hasActiveEditRow,
-            iconLeft: Plus,
-            text: this.textsLocal.actionAddRow,
-            onClick: this.onAddRow,
-          }),
-        ]),
+      ]),
+      this.canAddRow && h("div", {
+        class: "a_mt_3 a_text_right",
+      }, [
+        h(AButton, {
+          class: "a_btn a_btn_outline_primary",
+          disabled: this.hasActiveEditRow,
+          extra: this.extra,
+          iconLeft: this.iconsLocal.actionAddRow,
+          text: this.textsLocal.actionAddRow,
+          onClick: this.onAddRow,
+        }),
       ]),
     ]);
   },
