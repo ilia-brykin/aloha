@@ -28,6 +28,11 @@ export default {
       type: String,
       required: true,
     },
+    isCreateMode: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isDragAndDrop: {
       type: Boolean,
       required: false,
@@ -116,6 +121,8 @@ export default {
             text: this.texts.reorderColumn,
           }),
         ]) :
+        this.isCreateMode ?
+          null :
         this.isFooter ?
           null :
           h("div", {

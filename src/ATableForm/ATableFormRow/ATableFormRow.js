@@ -329,6 +329,7 @@ export default {
           id: this.idTr,
           canMoveRowDown: this.canMoveRowDown,
           canMoveRowUp: this.canMoveRowUp,
+          isCreateMode: this.isCreateMode,
           isDndDisabled: this.isDndDisabled,
           isDragAndDrop: this.isDragAndDrop,
           isFooter: this.isFooter,

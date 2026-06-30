@@ -460,7 +460,7 @@ export default {
                 isDeletable: false,
                 isDeletableConfirm: false,
                 isDndDisabled: true,
-                isDragAndDrop: false,
+                isDragAndDrop: this.isDragAndDrop,
                 isEditable: this.isEditable,
                 key: "body_create",
                 moveRowDown: this.moveRowDown,
