@@ -7,6 +7,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 
 import DeleteAPI from "./compositionAPI/DeleteAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
+import HiddenAPI from "./compositionAPI/HiddenAPI";
 import StylesAPI from "./compositionAPI/StylesAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 
@@ -24,12 +25,17 @@ export default {
       required: false,
       default: false,
     },
-    disabledCallback: {
+    actionsDisabledCallback: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    titleCallback: {
+    actionsHideCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    actionsTitleCallback: {
       type: Object,
       required: false,
       default: () => ({}),
@@ -120,6 +126,11 @@ export default {
     } = DisabledAPI(props);
 
     const {
+      isDeleteHidden,
+      isEditHidden,
+    } = HiddenAPI(props);
+
+    const {
       idBtnDelete,
       onDeleteClick,
     } = DeleteAPI(props, {
@@ -141,7 +152,9 @@ export default {
       editTitle,
       idBtnDelete,
       isDeleteDisabled,
+      isDeleteHidden,
       isEditDisabled,
+      isEditHidden,
       onDeleteClick,
     };
   },
@@ -199,7 +212,7 @@ export default {
               }),
             ] :
             [
-              (this.isDeletable || this.isDeletableConfirm) && h(AButton, {
+              (this.isDeletable || this.isDeletableConfirm) && !this.isDeleteHidden && h(AButton, {
                 id: this.idBtnDelete,
                 class: "a_btn a_btn_transparent_danger a_table_form__action_button",
                 disabled: this.isDeleteDisabled,
@@ -208,7 +221,7 @@ export default {
                 textScreenReader: this.deleteTitle,
                 onClick: this.onDeleteClick,
               }),
-              this.isEditable && h(AButton, {
+              this.isEditable && !this.isEditHidden && h(AButton, {
                 class: "a_btn a_btn_transparent_primary a_table_form__action_button",
                 disabled: this.isEditDisabled,
                 iconLeft: PencilFill,

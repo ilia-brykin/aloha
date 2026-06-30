@@ -9,7 +9,7 @@ import {
 } from "lodash-es";
 
 export default function DisabledAPI(props) {
-  const disabledCallback = toRef(props, "disabledCallback");
+  const actionsDisabledCallback = toRef(props, "actionsDisabledCallback");
   const hasActiveEditRow = toRef(props, "hasActiveEditRow");
   const isActiveEditMode = toRef(props, "isActiveEditMode");
   const row = toRef(props, "row");
@@ -24,7 +24,7 @@ export default function DisabledAPI(props) {
       return true;
     }
 
-    const deleteDisabledCallback = get(disabledCallback.value, "delete");
+    const deleteDisabledCallback = get(actionsDisabledCallback.value, "delete");
 
     if (isFunction(deleteDisabledCallback)) {
       return deleteDisabledCallback({
@@ -41,7 +41,7 @@ export default function DisabledAPI(props) {
       return true;
     }
 
-    const editDisabledCallback = get(disabledCallback.value, "edit");
+    const editDisabledCallback = get(actionsDisabledCallback.value, "edit");
 
     if (isFunction(editDisabledCallback)) {
       return editDisabledCallback({

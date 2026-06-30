@@ -54,6 +54,14 @@
   vertical-align: top;
   text-align: left;
   word-break: break-word;
+  .a_select_toggle {
+    min-width: 100%;
+  }
+  .pux_datepicker {
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .a_table_form__row > .a_table_form__cell:first-child {

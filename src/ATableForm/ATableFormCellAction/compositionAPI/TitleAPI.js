@@ -12,10 +12,10 @@ export default function TitleAPI(props) {
   const row = toRef(props, "row");
   const rowIndex = toRef(props, "rowIndex");
   const texts = toRef(props, "texts");
-  const titleCallback = toRef(props, "titleCallback");
+  const actionsTitleCallback = toRef(props, "actionsTitleCallback");
 
   const deleteTitle = computed(() => {
-    const deleteTitleCallback = get(titleCallback.value, "delete");
+    const deleteTitleCallback = get(actionsTitleCallback.value, "delete");
 
     if (isFunction(deleteTitleCallback)) {
       return deleteTitleCallback({
@@ -28,7 +28,7 @@ export default function TitleAPI(props) {
   });
 
   const editTitle = computed(() => {
-    const editTitleCallback = get(titleCallback.value, "edit");
+    const editTitleCallback = get(actionsTitleCallback.value, "edit");
 
     if (isFunction(editTitleCallback)) {
       return editTitleCallback({

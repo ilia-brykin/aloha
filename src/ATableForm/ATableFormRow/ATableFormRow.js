@@ -50,12 +50,17 @@ export default {
       required: false,
       default: () => ({}),
     },
-    disabledCallback: {
+    actionsDisabledCallback: {
       type: Object,
       required: false,
       default: () => ({}),
     },
-    titleCallback: {
+    actionsHideCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    actionsTitleCallback: {
       type: Object,
       required: false,
       default: () => ({}),
@@ -366,7 +371,8 @@ export default {
       }),
       this.hasActionsColumn ?
         h(ATableFormCellAction, {
-          disabledCallback: this.disabledCallback,
+          actionsDisabledCallback: this.actionsDisabledCallback,
+          actionsHideCallback: this.actionsHideCallback,
           id: this.idTr,
           hasActiveEditRow: this.hasActiveEditRow,
           isActiveEditMode: this.isActiveEditMode,
@@ -384,7 +390,7 @@ export default {
           row: this.row,
           rowIndex: this.rowIndex,
           texts: this.texts,
-          titleCallback: this.titleCallback,
+          actionsTitleCallback: this.actionsTitleCallback,
           widths: this.widths,
         }) :
         null,

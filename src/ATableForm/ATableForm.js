@@ -31,6 +31,21 @@ import {
 export default {
   name: "ATableForm",
   props: {
+    actionsDisabledCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    actionsHideCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    actionsTitleCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     addRow: {
       type: Function,
       required: false,
@@ -44,16 +59,6 @@ export default {
       type: [String, Number],
       required: false,
       default: "",
-    },
-    titleCallback: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    disabledCallback: {
-      type: Object,
-      required: false,
-      default: () => ({}),
     },
     errorIcon: {
       type: String,
@@ -75,16 +80,6 @@ export default {
       required: false,
       default: () => uniqueId("a_table_form_"),
     },
-    isDeletable: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    isDeletableConfirm: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     isActionsSticky: {
       type: Boolean,
       required: false,
@@ -95,12 +90,22 @@ export default {
       required: false,
       default: false,
     },
-    isDragAndDrop: {
+    isColumnsGrow: {
       type: Boolean,
       required: false,
       default: false,
     },
-    isColumnsGrow: {
+    isDeletable: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isDeletableConfirm: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isDragAndDrop: {
       type: Boolean,
       required: false,
       default: false,
@@ -167,8 +172,8 @@ export default {
     "updateRows",
   ],
   setup(props, context) {
-    const disabledCallback = toRef(props, "disabledCallback");
-    const titleCallback = toRef(props, "titleCallback");
+    const actionsDisabledCallback = toRef(props, "actionsDisabledCallback");
+    const actionsTitleCallback = toRef(props, "actionsTitleCallback");
 
     const {
       allColumnsLength,
@@ -250,7 +255,7 @@ export default {
         return true;
       }
 
-      const addDisabledCallback = get(disabledCallback.value, "add");
+      const addDisabledCallback = get(actionsDisabledCallback.value, "add");
 
       if (isFunction(addDisabledCallback)) {
         return addDisabledCallback();
@@ -260,7 +265,7 @@ export default {
     });
 
     const addTitle = computed(() => {
-      const addTitleCallback = get(titleCallback.value, "add");
+      const addTitleCallback = get(actionsTitleCallback.value, "add");
 
       if (isFunction(addTitleCallback)) {
         return addTitleCallback();
@@ -346,8 +351,9 @@ export default {
               hasActiveEditRow: false,
               isActiveEditMode: false,
               isActionsSticky: this.isActionsSticky,
-              disabledCallback: this.disabledCallback,
-              titleCallback: this.titleCallback,
+              actionsDisabledCallback: this.actionsDisabledCallback,
+              actionsHideCallback: this.actionsHideCallback,
+              actionsTitleCallback: this.actionsTitleCallback,
               isDeletable: this.isDeletable,
               isDeletableConfirm: this.isDeletableConfirm,
               isDndDisabled: this.hasActiveEditRow,
@@ -394,8 +400,9 @@ export default {
                   hasActiveEditRow: this.hasActiveEditRow,
                   isActiveEditMode: this.activeEditRowKey === rowKey,
                   isActionsSticky: this.isActionsSticky,
-                  disabledCallback: this.disabledCallback,
-                  titleCallback: this.titleCallback,
+                  actionsDisabledCallback: this.actionsDisabledCallback,
+                  actionsHideCallback: this.actionsHideCallback,
+                  actionsTitleCallback: this.actionsTitleCallback,
                   isCreateMode: false,
                   isDeletable: this.isDeletable,
                   isDeletableConfirm: this.isDeletableConfirm,
@@ -446,8 +453,9 @@ export default {
                 hasActiveEditRow: this.hasActiveEditRow,
                 isActiveEditMode: true,
                 isActionsSticky: this.isActionsSticky,
-                disabledCallback: this.disabledCallback,
-                titleCallback: this.titleCallback,
+                actionsDisabledCallback: this.actionsDisabledCallback,
+                actionsHideCallback: this.actionsHideCallback,
+                actionsTitleCallback: this.actionsTitleCallback,
                 isCreateMode: true,
                 isDeletable: false,
                 isDeletableConfirm: false,
@@ -502,8 +510,9 @@ export default {
               hasActiveEditRow: this.hasActiveEditRow,
               isActiveEditMode: false,
               isActionsSticky: this.isActionsSticky,
-              disabledCallback: this.disabledCallback,
-              titleCallback: this.titleCallback,
+              actionsDisabledCallback: this.actionsDisabledCallback,
+              actionsHideCallback: this.actionsHideCallback,
+              actionsTitleCallback: this.actionsTitleCallback,
               isDeletable: this.isDeletable,
               isDeletableConfirm: this.isDeletableConfirm,
               isDndDisabled: this.hasActiveEditRow,
