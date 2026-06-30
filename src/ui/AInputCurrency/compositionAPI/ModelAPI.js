@@ -36,13 +36,18 @@ export default function ModelAPI(props, {
   });
 
   const modelUndefinedLocal = computed(() => {
-    return required.value
-      ? [
-        "0",
-        decimalDivider.value,
-        times(decimalPartLength.value, () => "0").join(""),
-      ].join("")
-      : modelUndefined.value;
+    if (!required.value) {
+      return modelUndefined.value;
+    }
+    if (!decimalPartLength.value) {
+      return "0";
+    }
+
+    return [
+      "0",
+      decimalDivider.value,
+      times(decimalPartLength.value, () => "0").join(""),
+    ].join("");
   });
 
   const setCurrentValue = ({ value, updateOutside = false, trigger, triggerDetails } = {}) => {

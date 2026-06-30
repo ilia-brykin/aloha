@@ -56,6 +56,10 @@ export default function InputEventsAPI(props, {
     return Number(`${ val }`.replaceAll(thousandDivider.value, "").replace(decimalDivider.value, "."));
   };
 
+  const getValueWithReplacement = ({ value, start, end, replacement = "" }) => {
+    return `${ value.slice(0, start) }${ replacement }${ value.slice(end) }`;
+  };
+
   const setValueLocal = ({ value, updateOutside, trigger, triggerDetails }) => {
     setCurrentValue({ value, updateOutside, trigger, triggerDetails });
   };
@@ -64,6 +68,12 @@ export default function InputEventsAPI(props, {
     requestAnimationFrame(() => {
       inputRef.value?.setSelectionRange(position, position);
     });
+  };
+
+  const setCursorPositionBeforeFloatPart = value => {
+    const decimalDividerIndex = value.indexOf(decimalDivider.value);
+
+    setCursorPosition(decimalDividerIndex === -1 ? value.length : decimalDividerIndex);
   };
 
   const setMaximumValue = ({ trigger, triggerDetails } = {}) => {
@@ -76,18 +86,34 @@ export default function InputEventsAPI(props, {
     setValueLocal({ value: newVal, trigger, triggerDetails });
   };
 
-  const validateMinMax = val => {
+  const validateValueOnChange = val => {
+    if (!validationOnChange.value) {
+      return false;
+    }
+    if (!required.value && (isNil(val) || val === "")) {
+      return false;
+    }
     const numValue = getNumValue(val);
-    if (numValue > max.value) {
-      setMaximumValue();
+    if (Number.isNaN(numValue)) {
+      return false;
+    }
+
+    if (!isNil(max.value) && numValue > max.value) {
+      if (modelNumber.value < max.value) {
+        setMaximumValue();
+      }
 
       return true;
     }
-    if (numValue < min.value) {
-      setMinimumValue();
+    if (!isNil(min.value) && numValue < min.value) {
+      if (modelNumber.value > min.value) {
+        setMinimumValue();
+      }
 
       return true;
     }
+
+    return false;
   };
 
   const handleInput = ($event, { value: _value, updateOutside = false, triggerDetails = "keydown" } = {}) => {
@@ -133,7 +159,7 @@ export default function InputEventsAPI(props, {
     }
 
     if (validationOnChange.value) {
-      const validationTriggered = validateMinMax(newVal);
+      const validationTriggered = validateValueOnChange(newVal);
       if (validationTriggered) {
         return;
       }
@@ -142,8 +168,20 @@ export default function InputEventsAPI(props, {
     setCursorPosition(cursorPosition);
   };
 
-  const handleMinus = ({ value }) => {
+  const handleMinus = ({ value, cursorPosition }) => {
     if (min.value >= 0) {
+      return;
+    }
+    if (isNil(value) || value === "") {
+      const newVal = adjustFloatPartAndDivider("-0");
+
+      if (validateValueOnChange(newVal)) {
+        return;
+      }
+
+      setValueLocal({ value: newVal, triggerDetails: "decrement" });
+      setCursorPositionBeforeFloatPart(newVal);
+
       return;
     }
     if (value[0] !== "-") {
@@ -151,33 +189,33 @@ export default function InputEventsAPI(props, {
       requestAnimationFrame(() => {
         const newVal = `-${ value }`;
 
-        if (validationOnChange.value) {
-          const validationTriggered = validateMinMax(newVal);
-          if (validationTriggered) {
-            return;
-          }
+        if (validateValueOnChange(newVal)) {
+          isTimeoutActive.value--;
+
+          return;
         }
 
         setValueLocal({ value: newVal, triggerDetails: "decrement" });
+        setCursorPosition(cursorPosition + 1);
         isTimeoutActive.value--;
       }, timeoutDelay);
     }
   };
 
-  const handlePlus = ({ value }) => {
+  const handlePlus = ({ value, cursorPosition }) => {
     if (value[0] === "-") {
       isTimeoutActive.value++;
       requestAnimationFrame(() => {
         const newVal = value.replace("-", "");
 
-        if (validationOnChange.value) {
-          const validationTriggered = validateMinMax(newVal);
-          if (validationTriggered) {
-            return;
-          }
+        if (validateValueOnChange(newVal)) {
+          isTimeoutActive.value--;
+
+          return;
         }
 
         setValueLocal({ value: newVal, triggerDetails: "increment" });
+        setCursorPosition(cursorPosition > 0 ? cursorPosition - 1 : 0);
         isTimeoutActive.value--;
       }, timeoutDelay);
     }
@@ -408,6 +446,16 @@ export default function InputEventsAPI(props, {
       return;
     }
     if ($event.keyCode === AKeysCode.backspace) {
+      const valueAfterBackspace = !isInteger.value && hasDecimalDivider && decimalDividerIndex === cursorPosition - 1
+        ? value.split(decimalDivider.value)[0]
+        : hasSelection
+          ? getValueWithReplacement({ value, start, end })
+          : getValueWithReplacement({ value, start: Math.max(start - 1, 0), end });
+      if (validateValueOnChange(valueAfterBackspace)) {
+        $event.preventDefault();
+
+        return;
+      }
       if (inputRef.value?.selectionStart !== inputRef.value?.selectionEnd) {
         return;
       }
@@ -417,6 +465,16 @@ export default function InputEventsAPI(props, {
     }
 
     if ($event.keyCode === AKeysCode.del) {
+      const valueAfterDelete = !isInteger.value && hasDecimalDivider && value[cursorPosition] === decimalDivider.value
+        ? value.split(decimalDivider.value)[0]
+        : hasSelection
+          ? getValueWithReplacement({ value, start, end })
+          : getValueWithReplacement({ value, start, end: Math.min(end + 1, value.length) });
+      if (validateValueOnChange(valueAfterDelete)) {
+        $event.preventDefault();
+
+        return;
+      }
       handleDelete(valueProps);
 
       return;
@@ -440,6 +498,9 @@ export default function InputEventsAPI(props, {
             const splitVal = value.split("");
             splitVal[cursorPosition] = keyValue;
             const newVal = splitVal.join("");
+            if (validateValueOnChange(newVal)) {
+              return;
+            }
             setValueLocal({ value: newVal, triggerDetails: "keydown" });
             isTimeoutActive.value++;
             requestAnimationFrame(() => {
@@ -465,6 +526,14 @@ export default function InputEventsAPI(props, {
           return;
         }
       }
+      const valueAfterKeyPress = cursorPosition === 0 && value.length && value[0] === "0"
+        ? `${ keyValue }${ value.slice(1) }`
+        : getValueWithReplacement({ value, start, end, replacement: keyValue });
+      if (validateValueOnChange(valueAfterKeyPress)) {
+        $event.preventDefault();
+
+        return;
+      }
     }
 
     if (!keyIsNumber && !$event.ctrlKey && !includes(allowedButtons, $event.keyCode)) {
@@ -475,6 +544,9 @@ export default function InputEventsAPI(props, {
       if (cursorPosition === 0 && value.length && value[0] === "0") {
         $event.preventDefault();
         const newVal = `${ keyValue }${ value.slice(1) }`;
+        if (validateValueOnChange(newVal)) {
+          return;
+        }
         setValueLocal({ value: newVal, triggerDetails: "keydown" });
         setCursorPosition(1);
       } else {
@@ -543,6 +615,9 @@ export default function InputEventsAPI(props, {
       .match(/.{1,3}/g).join(thousandDivider.value)
       .split("").reverse().join("");
     const valueToPaste = [intValToPaste, floatVal].join(decimalDivider.value);
+    if (validateValueOnChange(valueToPaste)) {
+      return;
+    }
     handleInput(null, { value: valueToPaste, triggerDetails: "paste" });
   };
 
