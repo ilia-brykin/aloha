@@ -12,6 +12,7 @@ import ATableFormCellAction from "../ATableFormCellAction/ATableFormCellAction";
 import ATableFormCellDnd from "../ATableFormCellDnd/ATableFormCellDnd";
 import ATableFormTh from "../ATableFormTh/ATableFormTh";
 
+import ClassAPI from "./compositionAPI/ClassAPI";
 import EditAPI from "./compositionAPI/EditAPI";
 import ErrorsAPI from "./compositionAPI/ErrorsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
@@ -191,6 +192,11 @@ export default {
       type: Object,
       required: true,
     },
+    rowClass: {
+      type: [String, Object, Array, Function],
+      required: false,
+      default: undefined,
+    },
     rowIndex: {
       type: Number,
       required: true,
@@ -237,6 +243,14 @@ export default {
     } = ErrorsAPI(props);
 
     const {
+      rowClassLocal,
+      trClassLocal,
+    } = ClassAPI(props, {
+      hasActiveEditRow,
+      hasErrors,
+    });
+
+    const {
       cancelEditRow,
       isSaving,
       modelLocal,
@@ -251,28 +265,19 @@ export default {
       errorsLocal,
       focusFirstEditableElement,
       hasErrors,
+      rowClassLocal,
       idTr,
       isSaving,
       modelLocal,
       optionsListForErrors,
       saveEditRow,
+      trClassLocal,
       updateModelLocal,
     };
   },
   computed: {
     currentRowData() {
       return this.isActiveEditMode && this.modelLocal ? this.modelLocal : this.row;
-    },
-
-    trClassLocal() {
-      return [
-        this.trClass,
-        {
-          a_table_form__row_active: !this.isHeader && !this.isFooter && this.isActiveEditMode,
-          a_table_form__row_errors: !this.isHeader && !this.isFooter && this.hasErrors,
-          a_table_form__row_inactive: !this.isHeader && !this.isFooter && this.hasActiveEditRow && !this.isActiveEditMode,
-        },
-      ];
     },
   },
   watch: {
