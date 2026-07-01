@@ -102,7 +102,9 @@ export default {
 
     const {
       hasSlot,
+      hasSlotAfter,
       slotName,
+      slotNameAfter,
     } = SlotAPI(props);
 
     const rowDataLocal = computed(() => {
@@ -113,9 +115,11 @@ export default {
       columnStyles,
       disabledLocal,
       hasSlot,
+      hasSlotAfter,
       readonlyLocal,
       rowDataLocal,
       slotName,
+      slotNameAfter,
     };
   },
   methods: {
@@ -132,6 +136,14 @@ export default {
       ...formElement
     } = this.column.formElement || {};
 
+    const slotProps = {
+      column: this.column,
+      columnIndex: this.columnIndex,
+      row: this.row,
+      rowIndex: this.rowIndex,
+      rows: this.rows,
+    };
+
     return h(this.tag, {
       class: [
         "a_table_form__cell",
@@ -145,13 +157,7 @@ export default {
       ],
     }, [
       (this.hasSlot && this.$slots[this.slotName]) ?
-        this.$slots[this.slotName]({
-          column: this.column,
-          columnIndex: this.columnIndex,
-          row: this.row,
-          rowIndex: this.rowIndex,
-          rows: this.rows,
-        }) :
+        this.$slots[this.slotName](slotProps) :
         h(AFormElement, {
           id: this.column.id,
           errorIcon: this.errorIcon,
@@ -165,6 +171,9 @@ export default {
           readonly: this.readonlyLocal,
           type,
         }),
+      (this.hasSlotAfter && this.$slots[this.slotNameAfter]) ?
+        this.$slots[this.slotNameAfter](slotProps) :
+        null,
     ]);
   },
 };
