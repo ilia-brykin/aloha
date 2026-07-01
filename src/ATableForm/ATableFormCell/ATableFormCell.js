@@ -7,6 +7,7 @@ import AFormElement from "../../ui/AFormElement/AFormElement";
 
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
+import SlotAPI from "./compositionAPI/SlotAPI";
 import StylesAPI from "../compositionAPI/StylesAPI";
 
 import {
@@ -99,6 +100,11 @@ export default {
       disabledLocal,
     } = DisabledAPI(props);
 
+    const {
+      hasSlot,
+      slotName,
+    } = SlotAPI(props);
+
     const rowDataLocal = computed(() => {
       return props.rowData || props.row;
     });
@@ -106,8 +112,10 @@ export default {
     return {
       columnStyles,
       disabledLocal,
+      hasSlot,
       readonlyLocal,
       rowDataLocal,
+      slotName,
     };
   },
   methods: {
@@ -136,19 +144,27 @@ export default {
         this.columnStyle,
       ],
     }, [
-      h(AFormElement, {
-        id: this.column.id,
-        errorIcon: this.errorIcon,
-        idPrefix: this.id,
-        ...formElement,
-        change: this.updateRowData,
-        disabled: this.disabledLocal,
-        errors: get(this.errors, this.column.id),
-        errorsClass: "a_sr_only",
-        modelValue: get(this.rowDataLocal, this.column.id),
-        readonly: this.readonlyLocal,
-        type,
-      }),
+      (this.hasSlot && this.$slots[this.slotName]) ?
+        this.$slots[this.slotName]({
+          column: this.column,
+          columnIndex: this.columnIndex,
+          row: this.row,
+          rowIndex: this.rowIndex,
+          rows: this.rows,
+        }) :
+        h(AFormElement, {
+          id: this.column.id,
+          errorIcon: this.errorIcon,
+          idPrefix: this.id,
+          ...formElement,
+          change: this.updateRowData,
+          disabled: this.disabledLocal,
+          errors: get(this.errors, this.column.id),
+          errorsClass: "a_sr_only",
+          modelValue: get(this.rowDataLocal, this.column.id),
+          readonly: this.readonlyLocal,
+          type,
+        }),
     ]);
   },
 };
