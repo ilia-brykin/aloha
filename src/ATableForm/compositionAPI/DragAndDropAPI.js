@@ -97,7 +97,7 @@ export default function DragAndDropAPI(props, { emit }, {
     const [movedRow] = ROWS_LOCAL.splice(fromIndex, 1);
     ROWS_LOCAL.splice(toIndex, 0, movedRow);
 
-    emit("updateRows", { rows: ROWS_LOCAL, trigger });
+    emit("updateRows", { rows: ROWS_LOCAL, trigger, fromIndex, toIndex });
     emit("moveRow", {
       fromIndex,
       row: movedRow,
