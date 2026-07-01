@@ -246,7 +246,6 @@ export default {
       rowClassLocal,
       trClassLocal,
     } = ClassAPI(props, {
-      hasActiveEditRow,
       hasErrors,
     });
 

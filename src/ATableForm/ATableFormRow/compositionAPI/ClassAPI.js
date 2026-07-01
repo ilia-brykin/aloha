@@ -9,8 +9,8 @@ import {
 
 export default function ClassAPI(props, {
   hasErrors = computed(() => false),
-  hasActiveEditRow = computed(() => false),
 }) {
+  const hasActiveEditRow = toRef(props, "hasActiveEditRow");
   const isActiveEditMode = toRef(props, "isActiveEditMode");
   const isCreateMode = toRef(props, "isCreateMode");
   const isFooter = toRef(props, "isFooter");
