@@ -353,7 +353,7 @@ export default {
             column,
             columnStyle: this.columnsStylesGrow[column.id],
             isEditable: this.isEditable,
-          });
+          }, this.$slots);
         }
 
         return h(ATableFormCell, {

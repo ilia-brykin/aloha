@@ -36,6 +36,12 @@ export default {
     };
   },
   render() {
+    const slotHeader = this.column.slotHeader;
+    const slotProps = {
+      column: this.column,
+      isEditable: this.isEditable,
+    };
+
     return h("th", {
       class: [
         "a_table_form__cell",
@@ -47,10 +53,15 @@ export default {
         this.columnStyle,
       ],
     }, [
-      this.column.label && h(ATranslation, {
-        html: this.column.label,
-        tag: "span",
-      }),
+      (this.column.slotHeader && this.$slots[this.column.slotHeader]) ?
+        this.$slots[this.column.slotHeader]({
+          column: this.column,
+          isEditable: this.isEditable,
+        }) :
+        this.column.label && h(ATranslation, {
+          html: this.column.label,
+          tag: "span",
+        }),
       this.isEditable && this.column.formElement?.required && h("span", {
         class: "a_label__required",
       }, "*"),
