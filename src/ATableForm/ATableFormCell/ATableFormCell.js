@@ -123,10 +123,13 @@ export default {
     };
   },
   methods: {
-    updateRowData({ model }) {
+    updateRowData({ item, model }) {
       this.$emit("updateRowData", {
+        column: this.column,
         columnId: this.column.id,
+        item,
         model,
+        value: model,
       });
     },
   },

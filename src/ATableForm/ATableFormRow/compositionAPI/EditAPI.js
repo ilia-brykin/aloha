@@ -5,6 +5,7 @@ import {
 
 import {
   cloneDeep,
+  isPlainObject,
   set,
   unset,
 } from "lodash-es";
@@ -12,6 +13,7 @@ import {
 export default function EditAPI(props, {
   errorsLocal = ref(undefined),
 }) {
+  const changeModel = toRef(props, "changeModel");
   const onCancelEditRow = toRef(props, "onCancelEditRow");
   const row = toRef(props, "row");
   const rows = toRef(props, "rows");
@@ -21,12 +23,31 @@ export default function EditAPI(props, {
   const isSaving = ref(false);
   const modelLocal = ref(undefined);
 
-  const updateModelLocal = ({ columnId, model }) => {
+  const updateModelLocal = ({
+    column,
+    columnId,
+    item,
+    model,
+  }) => {
     if (!modelLocal.value) {
       modelLocal.value = cloneDeep(row.value) || {};
     }
+    let changedModel;
 
-    set(modelLocal.value, columnId, model);
+    if (changeModel.value) {
+      changedModel = changeModel.value({
+        modelAll: modelLocal.value,
+        row: row.value,
+        column,
+        model: model,
+        item,
+      });
+    }
+    if (changedModel?.model) {
+      modelLocal.value = cloneDeep(changedModel.model);
+    } else {
+      set(modelLocal.value, columnId, model);
+    }
     unset(errorsLocal.value, columnId);
   };
 

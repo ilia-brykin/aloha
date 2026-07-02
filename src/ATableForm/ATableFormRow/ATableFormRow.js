@@ -42,6 +42,11 @@ export default {
       required: false,
       default: undefined,
     },
+    changeModel: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     columns: {
       type: Array,
       required: true,
