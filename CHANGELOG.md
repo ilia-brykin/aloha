@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.57.1
+
+- Feature: Add `ClassesAPI` to `ATableForm` and related components for customizable action button styling via `actionsClasses` prop.
+
 ## 2.57.0
 
 - Add `ATableForm` component with drag-and-drop functionality, SCSS styles, and localized translations across supported languages
