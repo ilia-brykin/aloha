@@ -11,6 +11,7 @@ import ARequired from "../ui/ARequired/ARequired";
 import ATableFormRow from "./ATableFormRow/ATableFormRow";
 import ATranslation from "../ATranslation/ATranslation";
 
+import ClassesAPI from "./compositionAPI/ClassesAPI";
 import ColumnsAPI from "./compositionAPI/ColumnsAPI";
 import ColumnsGrowAPI from "./compositionAPI/ColumnsGrowAPI";
 import DeleteAPI from "./compositionAPI/DeleteAPI";
@@ -31,6 +32,11 @@ import {
 export default {
   name: "ATableForm",
   props: {
+    actionsClasses: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     actionsDisabledCallback: {
       type: Object,
       required: false,
@@ -209,6 +215,10 @@ export default {
     } = IconsAPI(props);
 
     const {
+      classesLocal,
+    } = ClassesAPI(props);
+
+    const {
       columnsStylesGrow,
       destroyColumnsGrowObserver,
       initColumnsGrowObserver,
@@ -292,6 +302,7 @@ export default {
       canAddRow,
       canMoveRowDown,
       canMoveRowUp,
+      classesLocal,
       columnsStylesGrow,
       draggedRowIndex,
       dragOverPosition,
@@ -355,6 +366,7 @@ export default {
               canMoveRowUp: this.canMoveRowUp,
               cellTag: "th",
               changeModel: this.changeModel,
+              actionsClasses: this.actionsClasses,
               columns: this.columns,
               columnsStylesGrow: this.columnsStylesGrow,
               draggedRowIndex: this.draggedRowIndex,
@@ -403,6 +415,7 @@ export default {
                   canMoveRowDown: this.canMoveRowDown,
                   canMoveRowUp: this.canMoveRowUp,
                   changeModel: this.changeModel,
+                  actionsClasses: this.actionsClasses,
                   columns: this.columns,
                   columnsStylesGrow: this.columnsStylesGrow,
                   draggedRowIndex: this.draggedRowIndex,
@@ -458,6 +471,7 @@ export default {
                 canMoveRowDown: this.canMoveRowDown,
                 canMoveRowUp: this.canMoveRowUp,
                 changeModel: this.changeModel,
+                actionsClasses: this.actionsClasses,
                 columns: this.columns,
                 columnsStylesGrow: this.columnsStylesGrow,
                 editModel: this.activeEditModel,
@@ -519,6 +533,7 @@ export default {
               canMoveRowDown: this.canMoveRowDown,
               canMoveRowUp: this.canMoveRowUp,
               changeModel: this.changeModel,
+              actionsClasses: this.actionsClasses,
               columns: this.columns,
               columnsStylesGrow: this.columnsStylesGrow,
               draggedRowIndex: this.draggedRowIndex,
@@ -563,7 +578,7 @@ export default {
         class: "a_mt_3 a_text_right",
       }, [
         h(AButton, {
-          class: "a_btn a_btn_outline_primary",
+          class: this.classesLocal.actionAddRow,
           disabled: this.isAddDisabled,
           extra: this.extra,
           iconLeft: this.iconsLocal.actionAddRow,

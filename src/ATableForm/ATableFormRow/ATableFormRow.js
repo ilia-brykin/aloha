@@ -25,6 +25,11 @@ import {
 export default {
   name: "ATableFormRow",
   props: {
+    actionsClasses: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     allColumnsLength: {
       type: Number,
       required: true,
@@ -381,6 +386,7 @@ export default {
       }),
       this.hasActionsColumn ?
         h(ATableFormCellAction, {
+          actionsClasses: this.actionsClasses,
           actionsDisabledCallback: this.actionsDisabledCallback,
           actionsHideCallback: this.actionsHideCallback,
           id: this.idTr,

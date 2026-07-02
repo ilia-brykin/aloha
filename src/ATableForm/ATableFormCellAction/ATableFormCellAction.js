@@ -25,6 +25,11 @@ export default {
       required: false,
       default: false,
     },
+    actionsClasses: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     actionsDisabledCallback: {
       type: Object,
       required: false,
@@ -189,7 +194,10 @@ export default {
           }, this.isActiveEditMode ?
             [
               h(AButton, {
-                class: "a_btn a_btn_transparent_primary a_table_form__action_button",
+                class: [
+                  "a_table_form__action_button",
+                  this.classes.actionEditCancel,
+                ],
                 disabled: this.isSaving,
                 iconLeft: XLg,
                 title: this.texts.actionEditCancel,
@@ -200,7 +208,10 @@ export default {
                 }),
               }),
               h(AButton, {
-                class: "a_btn a_btn_transparent_primary a_table_form__action_button",
+                class: [
+                  "a_table_form__action_button",
+                  this.classes.actionEditSave,
+                ],
                 disabled: this.isSaving,
                 iconLeft: Floppy2Fill,
                 title: this.texts.actionEditSave,
@@ -214,7 +225,10 @@ export default {
             [
               (this.isDeletable || this.isDeletableConfirm) && !this.isDeleteHidden && h(AButton, {
                 id: this.idBtnDelete,
-                class: "a_btn a_btn_transparent_danger a_table_form__action_button",
+                class: [
+                  "a_table_form__action_button",
+                  this.classes.actionDelete,
+                ],
                 disabled: this.isDeleteDisabled,
                 iconLeft: Trash,
                 title: this.deleteTitle,
@@ -222,7 +236,10 @@ export default {
                 onClick: this.onDeleteClick,
               }),
               this.isEditable && !this.isEditHidden && h(AButton, {
-                class: "a_btn a_btn_transparent_primary a_table_form__action_button",
+                class: [
+                  "a_table_form__action_button",
+                  this.classes.actionEdit,
+                ],
                 disabled: this.isEditDisabled,
                 iconLeft: PencilFill,
                 title: this.editTitle,
