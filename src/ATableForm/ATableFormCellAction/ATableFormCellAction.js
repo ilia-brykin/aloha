@@ -196,7 +196,7 @@ export default {
               h(AButton, {
                 class: [
                   "a_table_form__action_button",
-                  this.classes.editCancel,
+                  this.actionsClasses.editCancel,
                 ],
                 disabled: this.isSaving,
                 iconLeft: XLg,
@@ -210,7 +210,7 @@ export default {
               h(AButton, {
                 class: [
                   "a_table_form__action_button",
-                  this.classes.editSave,
+                  this.actionsClasses.editSave,
                 ],
                 disabled: this.isSaving,
                 iconLeft: Floppy2Fill,
@@ -227,7 +227,7 @@ export default {
                 id: this.idBtnDelete,
                 class: [
                   "a_table_form__action_button",
-                  this.classes.delete,
+                  this.actionsClasses.delete,
                 ],
                 disabled: this.isDeleteDisabled,
                 iconLeft: Trash,
@@ -238,7 +238,7 @@ export default {
               this.isEditable && !this.isEditHidden && h(AButton, {
                 class: [
                   "a_table_form__action_button",
-                  this.classes.edit,
+                  this.actionsClasses.edit,
                 ],
                 disabled: this.isEditDisabled,
                 iconLeft: PencilFill,
