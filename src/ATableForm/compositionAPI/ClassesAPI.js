@@ -8,11 +8,11 @@ export default function ClassesAPI(props) {
 
   const classesLocal = computed(() => {
     return {
-      actionDelete: "a_btn a_btn_transparent_danger",
-      actionEdit: "a_btn a_btn_transparent_primary",
-      actionEditCancel: "a_btn a_btn_transparent_primary",
-      actionEditSave: "a_btn a_btn_transparent_primary",
-      actionAddRow: "a_btn a_btn_outline_primary",
+      delete: "a_btn a_btn_transparent_danger",
+      edit: "a_btn a_btn_transparent_primary",
+      editCancel: "a_btn a_btn_transparent_primary",
+      editSave: "a_btn a_btn_transparent_primary",
+      addRow: "a_btn a_btn_outline_primary",
       ...classes.value,
     };
   });

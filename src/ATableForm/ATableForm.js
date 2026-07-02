@@ -578,7 +578,7 @@ export default {
         class: "a_mt_3 a_text_right",
       }, [
         h(AButton, {
-          class: this.classesLocal.actionAddRow,
+          class: this.classesLocal.addRow,
           disabled: this.isAddDisabled,
           extra: this.extra,
           iconLeft: this.iconsLocal.actionAddRow,
