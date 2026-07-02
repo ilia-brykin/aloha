@@ -8670,6 +8670,34 @@ h6 {
   width: 100%;
 }
 
+.switch_button__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.switch_button__wrapper_has_error_icon {
+  gap: 0.375rem;
+}
+
+.switch_button__error_icon.a_input__icon_error {
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.switch_button__error_icon.a_input__icon_error > svg {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+}
+
 .switch_button {
   --a_switch_button_border_radius: var(--a_border_radius);
   --a_switch_button_bg: var(--a_color_gray_700);
@@ -8773,6 +8801,21 @@ h6 {
   display: inline-block;
 }
 
+.a_form_element__parent_float.a_select__parent_has_error_icon > .a_form_element_label,
+.a_form_element__parent_float.a_select__parent_has_error_icon > .a_form_element_label.a_form_element_label_float,
+.a_form_element__parent_float.a_select__parent_has_error_icon > .a_form_element_label.a_form_element_label_error {
+  left: 2rem;
+  max-width: calc(100% - 2.625rem);
+}
+.a_form_element__parent_float.a_select__parent_has_error_icon:focus-within > .a_form_element_label,
+.a_form_element__parent_float.a_select__parent_has_error_icon:focus-within > .a_form_element_label.a_form_element_label_float,
+.a_form_element__parent_float.a_select__parent_has_error_icon:focus-within > .a_form_element_label.a_form_element_label_error, .a_form_element__parent_float.a_select__parent_has_error_icon.a_form_element__parent_not_empty > .a_form_element_label,
+.a_form_element__parent_float.a_select__parent_has_error_icon.a_form_element__parent_not_empty > .a_form_element_label.a_form_element_label_float,
+.a_form_element__parent_float.a_select__parent_has_error_icon.a_form_element__parent_not_empty > .a_form_element_label.a_form_element_label_error {
+  left: 0.625rem;
+  max-width: calc(100% - 1.25rem);
+}
+
 .a_select {
   --a_select_border_radius: var(--a_border_radius);
   --a_select_close_hover_color: --a_color_primary;
@@ -8790,8 +8833,19 @@ h6 {
   padding-right: var(--a_select_toggle_padding_right);
   text-align: left;
 }
+.a_select_toggle.a_select_toggle_has_error_icon.a_form_control {
+  padding-left: 1.75rem;
+}
 .a_select_toggle.a_select_toggle_closeable {
   padding: 0 1.875rem 0 0;
+}
+.a_select_toggle.a_select_toggle_closeable.a_select_toggle_has_error_icon.a_form_control {
+  padding-left: 1.75rem;
+}
+
+.a_select__error_icon.a_input__icon_error {
+  left: 0.625rem;
+  z-index: 1;
 }
 
 .a_caret {
@@ -8943,6 +8997,13 @@ h6 {
   padding-right: 1.5625rem;
 }
 
+.a_select_toggle_has_error_icon .a_select__value__label {
+  padding-left: 0.25rem;
+}
+.a_select_toggle_has_error_icon .a_select__ul_closeable {
+  padding-left: 0.25rem;
+}
+
 .a_select__ul_closeable {
   display: flex;
   flex-wrap: wrap;
@@ -9030,6 +9091,15 @@ h6 {
 }
 .pux_datepicker__input_wrapper .pux_datepicker__input {
   padding-right: 1.6875rem;
+}
+
+.pux_datepicker_has_error_icon .pux_datepicker__input {
+  padding-left: 1.75rem;
+}
+
+.pux_datepicker__error_icon.a_input__icon_error {
+  left: 0.625rem;
+  z-index: 1;
 }
 
 .pux_datepicker__input_wrapper__clear_wrapper {
@@ -9597,6 +9667,14 @@ h6 {
   padding-left: 1.5rem;
 }
 
+.a_form_element__parent_float_has_error_icon .a_form_control {
+  padding-left: 1.5rem;
+}
+
+.a_form_element__parent_float_has_two_icons_prepend .a_form_control {
+  padding-left: 2.35rem;
+}
+
 .a_form_element_label__spinner {
   margin-left: 0.5rem;
 }
@@ -9613,6 +9691,12 @@ h6 {
 }
 .a_form_element .a_form_element_with_two_btns {
   padding-right: 3.125rem;
+}
+.a_form_element .a_form_element_with_three_btns {
+  padding-right: 4.375rem;
+}
+.a_form_element .a_form_element_with_four_btns {
+  padding-right: 5.625rem;
 }
 
 .a_form_control {
@@ -9680,11 +9764,24 @@ h6 {
   border-radius: 0.25rem;
 }
 
-.a_input__icon_prepend {
+.a_input__icon_prepend,
+.a_input__icon_error {
   position: absolute;
-  left: 0.4rem;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.a_input__icon_error {
+  left: 0.4rem;
+  color: var(--a_form_element_error_color);
+}
+
+.a_input__icon_prepend {
+  left: 0.4rem;
+}
+
+.a_form_element__parent_float_has_error_icon .a_input__icon_prepend {
+  left: 1.5rem;
 }
 
 .a_form_element__help_text {
@@ -12020,6 +12117,219 @@ input[type=text]::-ms-clear {
     padding-top: 0;
   }
 }
+.a_table_form {
+  --a_table_form_bg: var(--a_color_white);
+  --a_table_form_border_color: var(--a_color_gray_300);
+  --a_table_form_drop_indicator_color: var(--a_color_primary);
+  --a_table_form_head_bg: var(--a_color_gray_200);
+  --a_table_form_head_color: inherit;
+  --a_table_form_row_dragging_bg: #e9eef5;
+  --a_table_form_row_dragging_opacity: .65;
+  --a_table_form_row_dragging_outline: 2px dashed var(--a_color_gray_700);
+  --a_table_form_row_hover_bg: #eef6ff;
+  --a_table_form_row_drag_bg: #dfefff;
+  --a_table_form_footer_bg: var(--a_color_gray_100);
+  --a_table_form_cell_padding_y: .75rem;
+  --a_table_form_cell_padding_x: .75rem;
+  width: 100%;
+}
+.a_table_form .a_alert {
+  --a_alert_border-radius: 0;
+  margin-bottom: 0;
+}
+
+.a_table_form__wrapper {
+  overflow-x: auto;
+}
+
+.a_table_form__drag_preview {
+  opacity: var(--a_table_form_row_dragging_opacity);
+}
+.a_table_form__drag_preview .a_table_form__row {
+  outline: 0;
+}
+.a_table_form__drag_preview .a_table_form__cell {
+  opacity: 1;
+}
+
+.a_table_form__table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: var(--a_table_form_bg);
+}
+
+.a_table_form__cell {
+  padding: var(--a_table_form_cell_padding_y) var(--a_table_form_cell_padding_x);
+  border-top: 1px solid var(--a_table_form_border_color);
+  border-bottom: 1px solid var(--a_table_form_border_color);
+  border-left: 0;
+  border-right: 0;
+  vertical-align: top;
+  text-align: left;
+  word-break: break-word;
+}
+.a_table_form__cell .a_select_toggle {
+  min-width: 100%;
+}
+.a_table_form__cell .pux_datepicker {
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.a_table_form__row > .a_table_form__cell:first-child {
+  border-left: 1px solid var(--a_table_form_border_color);
+}
+
+.a_table_form__row > .a_table_form__cell:last-child {
+  border-right: 1px solid var(--a_table_form_border_color);
+}
+
+.a_table_form__cell_info {
+  padding: 0;
+}
+
+.a_table_form__cell_errors {
+  padding: 0;
+}
+.a_table_form__cell_errors .a_error__list__li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.a_table_form__cell_th {
+  background-color: var(--a_table_form_head_bg);
+  color: var(--a_table_form_head_color);
+  font-weight: 700;
+}
+
+.a_table_form__table:not(.a_table_form_drag_active) .a_table_form__row:hover .a_table_form__cell_td,
+.a_table_form__table:not(.a_table_form_drag_active) .a_table_form__row:focus-within .a_table_form__cell_td {
+  background-color: var(--a_table_form_row_hover_bg);
+}
+
+.a_table_form__table:not(.a_table_form_drag_active) .a_table_form__row_errors:hover .a_table_form__cell_td,
+.a_table_form__table:not(.a_table_form_drag_active) .a_table_form__row_errors:focus-within .a_table_form__cell_td {
+  background-color: var(--a_color_danger_bg_subtle);
+}
+
+.a_table_form__row_dragging:hover .a_table_form__cell_td,
+.a_table_form__row_dragging:focus-within .a_table_form__cell_td {
+  background-color: var(--a_table_form_row_dragging_bg);
+}
+
+.a_table_form_drag_active .a_table_form__row_drag_over .a_table_form__cell_td,
+.a_table_form_drag_active .a_table_form__row_dragging .a_table_form__cell_td {
+  background-color: var(--a_table_form_row_drag_bg);
+}
+.a_table_form_drag_active .a_table_form__row_dragging .a_table_form__cell_td {
+  background-color: var(--a_table_form_row_dragging_bg);
+}
+
+.a_table_form__row {
+  position: relative;
+}
+
+.a_table_form__row_drag_over .a_table_form__cell_td,
+.a_table_form__row_dragging .a_table_form__cell_td {
+  background-color: var(--a_table_form_row_drag_bg);
+}
+
+.a_table_form__row_dragging {
+  outline: var(--a_table_form_row_dragging_outline);
+  outline-offset: -2px;
+}
+.a_table_form__row_dragging .a_table_form__cell_td {
+  background-color: var(--a_table_form_row_dragging_bg);
+  opacity: var(--a_table_form_row_dragging_opacity);
+}
+.a_table_form__row_dragging .a_table_form__reorder_handle {
+  color: var(--a_color_black);
+}
+
+.a_table_form__row_drag_before .a_table_form__cell_td {
+  border-top: 3px solid var(--a_table_form_drop_indicator_color);
+}
+
+.a_table_form__row_drag_after .a_table_form__cell_td {
+  border-bottom: 3px solid var(--a_table_form_drop_indicator_color);
+}
+
+.a_table_form__row_footer .a_table_form__cell {
+  background-color: var(--a_table_form_footer_bg);
+  font-weight: 700;
+}
+
+.a_table_form__row_errors .a_table_form__cell_td {
+  background-color: var(--a_color_danger_bg_subtle);
+}
+
+.a_table_form__cell_reorder {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  max-width: 3.5rem;
+  text-align: center;
+}
+
+.a_table_form__reorder_actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.a_table_form__reorder_actions:focus-within .a_table_form__reorder_handle {
+  display: none;
+}
+
+.a_table_form__reorder_handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--a_color_gray_700);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: element;
+  padding-top: 0.3rem;
+}
+.a_table_form__reorder_handle:active {
+  cursor: grabbing;
+}
+
+.a_table_form__reorder_button.a_btn {
+  --a_btn_padding_y: 0;
+  --a_btn_padding_x: 0.35rem;
+}
+
+.a_table_form__empty {
+  text-align: left;
+}
+
+.a_table_form__cell_actions_sticky {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  background: var(--a_table_form_bg);
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.12), -8px 0 14px -8px rgba(17, 24, 39, 0.34), -18px 0 24px -20px rgba(17, 24, 39, 0.55);
+}
+
+.a_table_form__cell_actions_sticky.a_table_form__cell_th {
+  background: var(--a_table_form_head_bg);
+  color: var(--a_table_form_head_color);
+}
+
+.a_table_form__row_footer .a_table_form__cell_actions_sticky {
+  background: var(--a_table_form_footer_bg);
+}
+
+.a_table_form__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .a_table__parent {
   --a_table_bg: var(--a_color_white);
   --a_table_th_bg: var(--a_color_gray_300);

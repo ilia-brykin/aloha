@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.57.0
+
+- Add `ATableForm` component with drag-and-drop functionality, SCSS styles, and localized translations across supported languages
+- UICurrency fixes (handle minus, validationOnChange, clearModel unnecessary comma)
+
 ## 2.56.1
 
 - Fix: Refactor `modelArrayWithoutDataExtra` logic for better handling of empty arrays and improve efficiency of watch comparison in `UiDataFromServerAPI`.
