@@ -47337,7 +47337,7 @@ const tk = {
         d(Tt, {
           class: [
             "a_table_form__action_button",
-            this.classes.actionEditCancel
+            this.actionsClasses.editCancel
           ],
           disabled: this.isSaving,
           iconLeft: Wn,
@@ -47351,7 +47351,7 @@ const tk = {
         d(Tt, {
           class: [
             "a_table_form__action_button",
-            this.classes.actionEditSave
+            this.actionsClasses.editSave
           ],
           disabled: this.isSaving,
           iconLeft: NC,
@@ -47367,7 +47367,7 @@ const tk = {
           id: this.idBtnDelete,
           class: [
             "a_table_form__action_button",
-            this.classes.actionDelete
+            this.actionsClasses.delete
           ],
           disabled: this.isDeleteDisabled,
           iconLeft: Rl,
@@ -47378,7 +47378,7 @@ const tk = {
         this.isEditable && !this.isEditHidden && d(Tt, {
           class: [
             "a_table_form__action_button",
-            this.classes.actionEdit
+            this.actionsClasses.edit
           ],
           disabled: this.isEditDisabled,
           iconLeft: pC,
@@ -48100,11 +48100,11 @@ function Ek(e) {
   const t = u(e, "actionsClasses");
   return {
     classesLocal: E(() => ({
-      actionDelete: "a_btn a_btn_transparent_danger",
-      actionEdit: "a_btn a_btn_transparent_primary",
-      actionEditCancel: "a_btn a_btn_transparent_primary",
-      actionEditSave: "a_btn a_btn_transparent_primary",
-      actionAddRow: "a_btn a_btn_outline_primary",
+      delete: "a_btn a_btn_transparent_danger",
+      edit: "a_btn a_btn_transparent_primary",
+      editCancel: "a_btn a_btn_transparent_primary",
+      editSave: "a_btn a_btn_transparent_primary",
+      addRow: "a_btn a_btn_outline_primary",
       ...t.value
     }))
   };
@@ -48930,7 +48930,7 @@ const _Et = {
         class: "a_mt_3 a_text_right"
       }, [
         d(Tt, {
-          class: this.classesLocal.actionAddRow,
+          class: this.classesLocal.addRow,
           disabled: this.isAddDisabled,
           extra: this.extra,
           iconLeft: this.iconsLocal.actionAddRow,

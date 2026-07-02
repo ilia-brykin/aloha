@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.57.2
+
+- Refactor: Simplify class names in `ClassesAPI` and update related components in `ATableForm` for consistency.
+- Refactor: Replace `classes` with `actionsClasses` in `ATableFormCellAction` for consistent naming
+
 ## 2.57.1
 
 - Feature: Add `ClassesAPI` to `ATableForm` and related components for customizable action button styling via `actionsClasses` prop.
