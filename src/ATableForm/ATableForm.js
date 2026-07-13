@@ -215,7 +215,7 @@ export default {
     } = IconsAPI(props);
 
     const {
-      classesLocal,
+      actionsClassesLocal,
     } = ClassesAPI(props);
 
     const {
@@ -302,7 +302,7 @@ export default {
       canAddRow,
       canMoveRowDown,
       canMoveRowUp,
-      classesLocal,
+      actionsClassesLocal,
       columnsStylesGrow,
       draggedRowIndex,
       dragOverPosition,
@@ -413,7 +413,7 @@ export default {
                 return h(ATableFormRow, {
                   key: rowKey,
                   id: this.id,
-                  actionsClasses: this.actionsClasses,
+                  actionsClasses: this.actionsClassesLocal,
                   actionsDisabledCallback: this.actionsDisabledCallback,
                   actionsHideCallback: this.actionsHideCallback,
                   actionsTitleCallback: this.actionsTitleCallback,
@@ -469,7 +469,7 @@ export default {
               }),
               this.isAddRowActive && h(ATableFormRow, {
                 id: this.id,
-                actionsClasses: this.actionsClasses,
+                actionsClasses: this.actionsClassesLocal,
                 actionsDisabledCallback: this.actionsDisabledCallback,
                 actionsHideCallback: this.actionsHideCallback,
                 actionsTitleCallback: this.actionsTitleCallback,
@@ -532,7 +532,7 @@ export default {
           }, this.rowsFooter.map((row, rowIndex) => {
             return h(ATableFormRow, {
               id: this.id,
-              actionsClasses: this.actionsClasses,
+              actionsClasses: this.actionsClassesLocal,
               actionsDisabledCallback: this.actionsDisabledCallback,
               actionsHideCallback: this.actionsHideCallback,
               actionsTitleCallback: this.actionsTitleCallback,
@@ -582,7 +582,7 @@ export default {
         class: "a_mt_3 a_text_right",
       }, [
         h(AButton, {
-          class: this.classesLocal.addRow,
+          class: this.actionsClassesLocal.addRow,
           disabled: this.isAddDisabled,
           extra: this.extra,
           iconLeft: this.iconsLocal.actionAddRow,
