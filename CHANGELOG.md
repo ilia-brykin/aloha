@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.57.3
+
+- Refactor: Reorder and add props (`extra`, `actions*`) in `ATableForm` and related components for improved clarity and consistency
+- `UICurrency`: Fix input currency zero key handling
+
 ## 2.57.2
 
 - Refactor: Simplify class names in `ClassesAPI` and update related components in `ATableForm` for consistency.
