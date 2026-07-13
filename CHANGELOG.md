@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 2.57.4
+
+- Prevent required currency init from resetting empty model
+- Refactor: Rename `classesLocal` to `actionsClassesLocal` in `ClassesAPI` and update references for consistent naming
+- Feature: Add `IdsAPI` for managing button IDs in `ATableFormCellAction` and update related logic for improved focus handling after edit actions
+
 ## 2.57.3
 
 - Refactor: Reorder and add props (`extra`, `actions*`) in `ATableForm` and related components for improved clarity and consistency
