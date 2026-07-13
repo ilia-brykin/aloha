@@ -30,6 +30,21 @@ export default {
       required: false,
       default: () => ({}),
     },
+    actionsDisabledCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    actionsHideCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    actionsTitleCallback: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     allColumnsLength: {
       type: Number,
       required: true,
@@ -61,21 +76,6 @@ export default {
       required: false,
       default: () => ({}),
     },
-    actionsDisabledCallback: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    actionsHideCallback: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
-    actionsTitleCallback: {
-      type: Object,
-      required: false,
-      default: () => ({}),
-    },
     draggedRowIndex: {
       type: Number,
       required: false,
@@ -88,6 +88,11 @@ export default {
     },
     errorIcon: {
       type: String,
+      required: false,
+      default: undefined,
+    },
+    extra: {
+      type: Object,
       required: false,
       default: undefined,
     },
@@ -105,12 +110,12 @@ export default {
       type: String,
       required: true,
     },
-    isActiveEditMode: {
+    isActionsSticky: {
       type: Boolean,
       required: false,
       default: false,
     },
-    isActionsSticky: {
+    isActiveEditMode: {
       type: Boolean,
       required: false,
       default: false,
@@ -386,13 +391,15 @@ export default {
       }),
       this.hasActionsColumn ?
         h(ATableFormCellAction, {
+          id: this.idTr,
           actionsClasses: this.actionsClasses,
           actionsDisabledCallback: this.actionsDisabledCallback,
           actionsHideCallback: this.actionsHideCallback,
-          id: this.idTr,
+          actionsTitleCallback: this.actionsTitleCallback,
+          extra: this.extra,
           hasActiveEditRow: this.hasActiveEditRow,
-          isActiveEditMode: this.isActiveEditMode,
           isActionsSticky: this.isActionsSticky,
+          isActiveEditMode: this.isActiveEditMode,
           isDeletable: this.isDeletable,
           isDeletableConfirm: this.isDeletableConfirm,
           isEditable: this.isEditable,
@@ -406,7 +413,6 @@ export default {
           row: this.row,
           rowIndex: this.rowIndex,
           texts: this.texts,
-          actionsTitleCallback: this.actionsTitleCallback,
           widths: this.widths,
         }) :
         null,

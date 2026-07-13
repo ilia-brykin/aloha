@@ -20,11 +20,6 @@ import XLg from "aloha-svg/dist/js/bootstrap/XLg";
 export default {
   name: "ATableFormCellAction",
   props: {
-    hasActiveEditRow: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     actionsClasses: {
       type: Object,
       required: false,
@@ -45,16 +40,26 @@ export default {
       required: false,
       default: () => ({}),
     },
-    id: {
-      type: String,
-      required: true,
+    extra: {
+      type: Object,
+      required: false,
+      default: undefined,
     },
-    isActiveEditMode: {
+    hasActiveEditRow: {
       type: Boolean,
       required: false,
       default: false,
     },
+    id: {
+      type: String,
+      required: true,
+    },
     isActionsSticky: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isActiveEditMode: {
       type: Boolean,
       required: false,
       default: false,
@@ -199,6 +204,7 @@ export default {
                   this.actionsClasses.editCancel,
                 ],
                 disabled: this.isSaving,
+                extra: this.extra,
                 iconLeft: XLg,
                 title: this.texts.actionEditCancel,
                 textScreenReader: this.texts.actionEditCancel,
@@ -213,6 +219,7 @@ export default {
                   this.actionsClasses.editSave,
                 ],
                 disabled: this.isSaving,
+                extra: this.extra,
                 iconLeft: Floppy2Fill,
                 title: this.texts.actionEditSave,
                 textScreenReader: this.texts.actionEditSave,
@@ -230,6 +237,7 @@ export default {
                   this.actionsClasses.delete,
                 ],
                 disabled: this.isDeleteDisabled,
+                extra: this.extra,
                 iconLeft: Trash,
                 title: this.deleteTitle,
                 textScreenReader: this.deleteTitle,
@@ -241,6 +249,7 @@ export default {
                   this.actionsClasses.edit,
                 ],
                 disabled: this.isEditDisabled,
+                extra: this.extra,
                 iconLeft: PencilFill,
                 title: this.editTitle,
                 textScreenReader: this.editTitle,
