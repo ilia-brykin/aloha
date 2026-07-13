@@ -30,6 +30,7 @@ export default function InputEventsAPI(props, {
   const modelValue = toRef(props, "modelValue");
   const readonly = toRef(props, "readonly");
   const required = toRef(props, "required");
+  const skipRequiredModelInit = toRef(props, "skipRequiredModelInit");
   const decimalPartLength = toRef(props, "decimalPartLength");
   const thousandDivider = toRef(props, "thousandDivider");
   const validationOnChange = toRef(props, "validationOnChange");
@@ -121,7 +122,7 @@ export default function InputEventsAPI(props, {
   };
 
   const handleInput = ($event, { value: _value, updateOutside = false, triggerDetails = "keydown" } = {}) => {
-    if (!required.value && isNil(_value) && !$event?.target?.value) {
+    if ((!required.value || skipRequiredModelInit.value) && isNil(_value) && !$event?.target?.value) {
       setValueLocal({ value: _value, updateOutside, triggerDetails });
 
       return;
@@ -726,7 +727,7 @@ export default function InputEventsAPI(props, {
           valueToSet = `${ setMinusSymbol }${ intPart }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
         }
       } else {
-        valueToSet = required.value ?
+        valueToSet = required.value && !skipRequiredModelInit.value ?
           [
             "0",
             decimalDivider.value,
@@ -734,7 +735,7 @@ export default function InputEventsAPI(props, {
           ].join("") :
           modelUndefinedLocal.value;
       }
-      const shouldInitModel = required.value && !hasModel;
+      const shouldInitModel = required.value && !skipRequiredModelInit.value && !hasModel;
       handleInput(null, { value: valueToSet, updateOutside: !shouldInitModel, triggerDetails: "init" });
     });
   };

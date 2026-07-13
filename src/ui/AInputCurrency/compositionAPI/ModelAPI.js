@@ -17,6 +17,7 @@ export default function ModelAPI(props, {
   const modelValue = toRef(props, "modelValue");
   const modelType = toRef(props, "modelType");
   const modelUndefined = toRef(props, "modelUndefined");
+  const skipRequiredModelInit = toRef(props, "skipRequiredModelInit");
   const decimalDivider = toRef(props, "decimalDivider");
   const disabled = toRef(props, "disabled");
   const decimalPartLength = toRef(props, "decimalPartLength");
@@ -36,7 +37,7 @@ export default function ModelAPI(props, {
   });
 
   const modelUndefinedLocal = computed(() => {
-    if (!required.value) {
+    if (!required.value || skipRequiredModelInit.value) {
       return modelUndefined.value;
     }
     if (!decimalPartLength.value) {
@@ -53,7 +54,7 @@ export default function ModelAPI(props, {
   const setCurrentValue = ({ value, updateOutside = false, trigger, triggerDetails } = {}) => {
     displayValue.value = isNil(value) ? "" : value;
     let newVal;
-    if (!required.value && isNil(value)) {
+    if ((!required.value || skipRequiredModelInit.value) && isNil(value)) {
       newVal = modelUndefinedLocal.value;
     } else {
       newVal = modelType.value === "number" ?

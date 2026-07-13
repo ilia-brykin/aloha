@@ -242,6 +242,10 @@ export default {
       required: false,
       default: () => AInputCurrencyPluginOptions.propsDefault.modelUndefined,
     },
+    skipRequiredModelInit: {
+      type: Boolean,
+      required: false,
+    },
     modelValue: {
       type: [String, Number],
       required: false,
