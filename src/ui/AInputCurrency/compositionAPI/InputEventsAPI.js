@@ -60,6 +60,10 @@ export default function InputEventsAPI(props, {
     return `${ value.slice(0, start) }${ replacement }${ value.slice(end) }`;
   };
 
+  const isZeroIntegerPart = value => {
+    return value === "0" || value === "-0";
+  };
+
   const setValueLocal = ({ value, updateOutside, trigger, triggerDetails }) => {
     setCurrentValue({ value, updateOutside, trigger, triggerDetails });
   };
@@ -381,6 +385,7 @@ export default function InputEventsAPI(props, {
     const keyCode = $event.keyCode;
     const keyValue = $event.key;
     const keyIsNumber = keyCode >= 48 && keyCode <= 57 || keyCode >= 96 && keyCode <= 105;
+    const keyIsZero = keyCode === 48 || keyCode === 96;
     const keyIsDecimalDivider = keyValue === decimalDivider.value && !!decimalPartLength.value;
     const decimalDividerIndex = $event.target.value.indexOf(decimalDivider.value);
     const hasDecimalDivider = decimalDividerIndex !== -1;
@@ -512,6 +517,11 @@ export default function InputEventsAPI(props, {
           }
         } else {
           const intValWithoutDivider = intVal.replaceAll(thousandDivider.value, "");
+          if (keyIsZero && isZeroIntegerPart(intValWithoutDivider) && !hasSelection) {
+            $event.preventDefault();
+
+            return;
+          }
           if (intValWithoutDivider.length >= integerPartMaxLength.value && !hasSelection) {
             $event.preventDefault();
 
@@ -520,6 +530,11 @@ export default function InputEventsAPI(props, {
         }
       } else {
         const intValWithoutDivider = value.replaceAll(thousandDivider.value, "");
+        if (keyIsZero && isZeroIntegerPart(intValWithoutDivider) && !hasSelection) {
+          $event.preventDefault();
+
+          return;
+        }
         if (intValWithoutDivider.length >= integerPartMaxLength.value && !hasSelection) {
           $event.preventDefault();
 
@@ -540,7 +555,7 @@ export default function InputEventsAPI(props, {
       $event.preventDefault();
     }
 
-    if ($event.keyCode !== AKeysCode.home && $event.keyCode !== AKeysCode.end && !$event.ctrlKey && $event.keyCode) {
+    if (keyIsNumber && !$event.ctrlKey && $event.keyCode) {
       if (cursorPosition === 0 && value.length && value[0] === "0") {
         $event.preventDefault();
         const newVal = `${ keyValue }${ value.slice(1) }`;
