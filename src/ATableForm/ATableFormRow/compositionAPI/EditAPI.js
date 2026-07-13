@@ -50,14 +50,16 @@ export default function EditAPI(props, {
     unset(errorsLocal.value, columnId);
   };
 
-  const cancelEditRow = () => {
+  const cancelEditRow = ({ trigger, id } = {}) => {
     onCancelEditRow.value({
       row: row.value,
       rowIndex: rowIndex.value,
+      trigger,
+      id,
     });
   };
 
-  const saveEditRow = async() => {
+  const saveEditRow = async({ id } = {}) => {
     if (isSaving.value) {
       return;
     }
@@ -78,7 +80,7 @@ export default function EditAPI(props, {
         return;
       }
 
-      cancelEditRow();
+      cancelEditRow({ trigger: "save", id });
     } catch (error) {
       errorsLocal.value = error;
     } finally {

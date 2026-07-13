@@ -5,6 +5,9 @@ import {
 } from "vue";
 
 import {
+  setFocusToElement,
+} from "../../utils/utilsDOM";
+import {
   cloneDeep,
   isFunction,
 } from "lodash-es";
@@ -71,10 +74,19 @@ export default function EditAPI(props, {
     isAddRowActive.value = true;
   };
 
-  const onCancelEditRow = () => {
+  const onCancelEditRow = ({ trigger, id } = {}) => {
     activeEditRowKey.value = undefined;
     activeEditModel.value = undefined;
     isAddRowActive.value = false;
+    if (trigger === "cancel") {
+      setTimeout(() => {
+        setFocusToElement({ selector: `#${ id }_edit` });
+      });
+    } else if (trigger === "save") {
+      setTimeout(() => {
+        setFocusToElement({ selector: `#${ id }` });
+      });
+    }
   };
 
   const onEditRow = ({ row, rowIndex }) => {

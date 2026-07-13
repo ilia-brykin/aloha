@@ -8,6 +8,7 @@ import ATranslation from "../../ATranslation/ATranslation";
 import DeleteAPI from "./compositionAPI/DeleteAPI";
 import DisabledAPI from "./compositionAPI/DisabledAPI";
 import HiddenAPI from "./compositionAPI/HiddenAPI";
+import IdsAPI from "./compositionAPI/IdsAPI";
 import StylesAPI from "./compositionAPI/StylesAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
 
@@ -141,9 +142,16 @@ export default {
     } = HiddenAPI(props);
 
     const {
+      idBtnCancel,
       idBtnDelete,
+      idBtnEdit,
+      idBtnSave,
+    } = IdsAPI(props);
+
+    const {
       onDeleteClick,
     } = DeleteAPI(props, {
+      idBtnDelete,
       isActionsDisabled: isDeleteDisabled,
     });
 
@@ -160,7 +168,10 @@ export default {
       columnStyles,
       deleteTitle,
       editTitle,
+      idBtnCancel,
       idBtnDelete,
+      idBtnEdit,
+      idBtnSave,
       isDeleteDisabled,
       isDeleteHidden,
       isEditDisabled,
@@ -199,6 +210,7 @@ export default {
           }, this.isActiveEditMode ?
             [
               h(AButton, {
+                id: this.idBtnCancel,
                 class: [
                   "a_table_form__action_button",
                   this.actionsClasses.editCancel,
@@ -209,11 +221,14 @@ export default {
                 title: this.texts.actionEditCancel,
                 textScreenReader: this.texts.actionEditCancel,
                 onClick: () => this.onCancelEditRow({
+                  id: this.id,
                   row: this.row,
                   rowIndex: this.rowIndex,
+                  trigger: "cancel",
                 }),
               }),
               h(AButton, {
+                id: this.idBtnSave,
                 class: [
                   "a_table_form__action_button",
                   this.actionsClasses.editSave,
@@ -224,6 +239,7 @@ export default {
                 title: this.texts.actionEditSave,
                 textScreenReader: this.texts.actionEditSave,
                 onClick: () => this.onSaveEditRow({
+                  id: this.id,
                   row: this.row,
                   rowIndex: this.rowIndex,
                 }),
@@ -244,6 +260,7 @@ export default {
                 onClick: this.onDeleteClick,
               }),
               this.isEditable && !this.isEditHidden && h(AButton, {
+                id: this.idBtnEdit,
                 class: [
                   "a_table_form__action_button",
                   this.actionsClasses.edit,
@@ -254,6 +271,7 @@ export default {
                 title: this.editTitle,
                 textScreenReader: this.editTitle,
                 onClick: () => this.onEditRow({
+                  id: this.id,
                   row: this.row,
                   rowIndex: this.rowIndex,
                 }),

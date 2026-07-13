@@ -9,9 +9,9 @@ import {
 } from "../../../index";
 
 export default function DeleteAPI(props, {
+  idBtnDelete = computed(() => ""),
   isActionsDisabled = computed(() => false),
 }) {
-  const id = toRef(props, "id");
   const isDeletable = toRef(props, "isDeletable");
   const isDeletableConfirm = toRef(props, "isDeletableConfirm");
   const onDeleteRow = toRef(props, "onDeleteRow");
@@ -23,10 +23,6 @@ export default function DeleteAPI(props, {
     closeConfirm,
     openConfirm,
   } = AConfirmAPI();
-
-  const idBtnDelete = computed(() => {
-    return `${ id.value }_delete`;
-  });
 
   const closeConfirmLocal = () => {
     closeConfirm();
@@ -74,7 +70,6 @@ export default function DeleteAPI(props, {
   };
 
   return {
-    idBtnDelete,
     onDeleteClick,
   };
 }
