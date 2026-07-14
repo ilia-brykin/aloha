@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.57.5
+
+- Feature: Pass `rowId` and `btnDeleteId` in `onDeleteRow` emit and update `DeleteAPI` for enhanced deletion context in `ATableForm`
+- Feature: Add `focusAfterMove` prop in `ATableForm` and update `DragAndDropAPI` to support focus management after row movements
+- Add preventKeyboardRepeat: Introduce `preventKeyboardRepeat` prop to AElement-related components and enhance keydown handling logic to prevent repeated activations.
+- Adjust ColumnsGrowAPI: Introduce TABLE_WIDTH_SAFE_DELTA to prevent subpixel overflow and avoid unnecessary scrollbar rendering.
+
 ## 2.57.4
 
 - Prevent required currency init from resetting empty model
