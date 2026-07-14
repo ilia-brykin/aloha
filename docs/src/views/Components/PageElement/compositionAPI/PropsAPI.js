@@ -191,6 +191,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "prevent-keyboard-repeat",
+      description: "_A_ELEMENT_PROPS_PREVENT_KEYBOARD_REPEAT_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "prevent",
       description: "_A_ELEMENT_PROPS_PREVENT_DESCRIPTION_",
       type: "Boolean",

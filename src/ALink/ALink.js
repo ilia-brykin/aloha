@@ -137,6 +137,11 @@ export default {
       required: false,
       default: "a_spinner_small",
     },
+    preventKeyboardRepeat: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     safeHtml: {
       type: [String, Number, Object, Array],
       required: false,

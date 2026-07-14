@@ -9,17 +9,18 @@ import {
 } from "../index";
 
 import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
-import AttributesAPI from "./comositionAPI/AttributesAPI";
-import ClickAPI from "./comositionAPI/ClickAPI";
-import ComponentLocalAPI from "./comositionAPI/ComponentLocalAPI";
-import DisabledAPI from "./comositionAPI/DisabledAPI";
-import HtmlTitleAPI from "./comositionAPI/HtmlTitleAPI";
-import LoadingAPI from "./comositionAPI/LoadingAPI";
-import RouterLinkAPI from "./comositionAPI/RouterLinkAPI";
-import SwitchAPI from "./comositionAPI/SwitchAPI";
-import TagAPI from "./comositionAPI/TagAPI";
-import TextAPI from "./comositionAPI/TextAPI";
-import TitleAPI from "./comositionAPI/TitleAPI";
+import AttributesAPI from "./compositionAPI/AttributesAPI";
+import ClickAPI from "./compositionAPI/ClickAPI";
+import ComponentLocalAPI from "./compositionAPI/ComponentLocalAPI";
+import DisabledAPI from "./compositionAPI/DisabledAPI";
+import HtmlTitleAPI from "./compositionAPI/HtmlTitleAPI";
+import KeydownAPI from "./compositionAPI/KeydownAPI";
+import LoadingAPI from "./compositionAPI/LoadingAPI";
+import RouterLinkAPI from "./compositionAPI/RouterLinkAPI";
+import SwitchAPI from "./compositionAPI/SwitchAPI";
+import TagAPI from "./compositionAPI/TagAPI";
+import TextAPI from "./compositionAPI/TextAPI";
+import TitleAPI from "./compositionAPI/TitleAPI";
 import UIExcludeRenderAttributesAPI from "../ui/compositionApi/UIExcludeRenderAttributesAPI";
 
 import {
@@ -171,6 +172,11 @@ export default {
       type: Boolean,
       required: false,
       default: undefined,
+    },
+    preventKeyboardRepeat: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     safeHtml: {
       type: [String, Number, Object, Array],
@@ -346,6 +352,10 @@ export default {
       switchClass,
     } = SwitchAPI(props);
 
+    const {
+      onKeydown,
+    } = KeydownAPI(props, context);
+
 
     return {
       ariaLabelAttributes,
@@ -361,6 +371,7 @@ export default {
       isTextOrHtmlVisible,
       isTitleVisible,
       onClick,
+      onKeydown,
       switchClass,
       tagLocal,
       toHrefAttributes,
@@ -390,6 +401,7 @@ export default {
       "aria-pressed": this.isSwitchActive,
       isAllRowsSelected: undefined, // TODO: ATable
       onClick: this.onClick,
+      onKeydown: this.onKeydown,
       ...this.attributes,
       ...this.attributesToExcludeFromRender,
     }, {

@@ -84,6 +84,7 @@
   "_A_ELEMENT_PROPS_LOADING_CLASS_DESCRIPTION_": "Specifies the <strong lang=\"en\">CSS</strong> class used when the element is in a loading state. Accepts a string or an object for different state styles.",
   "_A_ELEMENT_PROPS_LOADING_DESCRIPTION_": "Determines whether the element is in a loading state. If set to <strong lang=\"en\">true</strong>, a loading indicator will be shown.",
   "_A_ELEMENT_PROPS_MODEL_SWITCH_DESCRIPTION_": "The model value that controls the toggle state of the element. If set to <strong lang=\"en\">true</strong>, the element is active (<strong lang=\"en\">pressed=true</strong>); otherwise, it is inactive (<strong lang=\"en\">pressed=false</strong>).",
+  "_A_ELEMENT_PROPS_PREVENT_KEYBOARD_REPEAT_DESCRIPTION_": "Prevents repeated activation while a keyboard key is held down. When enabled, repeated <strong lang=\"en\">Enter</strong> and <strong lang=\"en\">Space</strong> key events are ignored after the first press.",
   "_A_ELEMENT_PROPS_PREVENT_DESCRIPTION_": "Determines whether to prevent the default behavior of event handlers for the element (<strong lang=\"en\">preventDefault</strong>).",
   "_A_ELEMENT_PROPS_SAFE_HTML_DESCRIPTION_": "Enables trust for the provided <strong lang=\"en\">HTML</strong> string, allowing it to be rendered inside the element.",
   "_A_ELEMENT_PROPS_SAFE_HTML_SCREEN_READER_DESCRIPTION_": "Defines safe <strong lang=\"en\">HTML</strong> content for screen reader regions. Accepts a string, number, or object for different states.",

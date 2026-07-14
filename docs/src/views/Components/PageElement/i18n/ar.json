@@ -84,6 +84,7 @@
   "_A_ELEMENT_PROPS_LOADING_CLASS_DESCRIPTION_": "يحدد فئة <strong lang=\"en\">CSS</strong> لحالة تحميل العنصر. يمكنك تحديد سلسلة بفئة <strong lang=\"en\">CSS</strong> أو استخدام كائن لتحديد فئات <strong lang=\"en\">CSS</strong> مختلفة لحالات مختلفة.",
   "_A_ELEMENT_PROPS_LOADING_DESCRIPTION_": "يحدد ما إذا كان العنصر في حالة تحميل. إذا تم تعيينه على <strong lang=\"en\">true</strong>، سيتم عرض العنصر كـ \"<strong lang=\"en\">loading</strong>\".",
   "_A_ELEMENT_PROPS_MODEL_SWITCH_DESCRIPTION_": "قيمة النموذج التي تتحكم في حالة تبديل العنصر. إذا تم تعيينها على <strong lang=\"en\">true</strong>، سيكون العنصر نشطًا (<strong lang=\"en\">pressed=true</strong>)، وإلا سيكون العنصر غير نشط (<strong lang=\"en\">pressed=false</strong>).",
+  "_A_ELEMENT_PROPS_PREVENT_KEYBOARD_REPEAT_DESCRIPTION_": "يمنع التفعيل المتكرر أثناء الاستمرار في الضغط على مفتاح من لوحة المفاتيح. عند تفعيله، يتم تجاهل الأحداث المتكررة لمفاتيح <strong lang=\"en\">Enter</strong> و <strong lang=\"en\">Space</strong> بعد الضغطة الأولى.",
   "_A_ELEMENT_PROPS_PREVENT_DESCRIPTION_": "يحدد ما إذا كان يجب منع السلوك القياسي لمعالجات الأحداث للعنصر (<strong lang=\"en\">preventDefault</strong>).",
   "_A_ELEMENT_PROPS_SAFE_HTML_DESCRIPTION_": "يمكّن الثقة في سلسلة <strong lang=\"en\">HTML</strong> المقدمة ويسمح بعرضها داخل العنصر.",
   "_A_ELEMENT_PROPS_SAFE_HTML_SCREEN_READER_DESCRIPTION_": "يحدد محتوى <strong lang=\"en\">HTML</strong> آمنًا لمنطقة قارئ الشاشة. يمكنك تحديد سلسلة أو رقم أو كائن لتعيين محتوى مختلف لحالات مختلفة.",

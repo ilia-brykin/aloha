@@ -153,6 +153,11 @@ export default {
       required: false,
       default: undefined,
     },
+    preventKeyboardRepeat: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     safeHtml: {
       type: [String, Number, Object, Array],
       required: false,
