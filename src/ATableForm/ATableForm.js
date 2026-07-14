@@ -81,6 +81,11 @@ export default {
       required: false,
       default: undefined,
     },
+    focusAfterMove: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     icons: {
       type: Object,
       required: false,

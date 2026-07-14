@@ -12,6 +12,7 @@ import {
 export default function DragAndDropAPI(props, { emit }, {
   isDndDisabled = computed(() => false),
 } = {}) {
+  const focusAfterMove = toRef(props, "focusAfterMove");
   const id = toRef(props, "id");
   const isDragAndDrop = toRef(props, "isDragAndDrop");
   const rows = toRef(props, "rows");
@@ -82,7 +83,7 @@ export default function DragAndDropAPI(props, { emit }, {
     };
   };
 
-  const moveRow = ({ fromIndex, toIndex, trigger }) => {
+  const moveRow = ({ focusId, fromIndex, toIndex, trigger }) => {
     if (!isDragAndDrop.value ||
       isDndDisabled.value ||
       fromIndex === toIndex ||
@@ -97,8 +98,9 @@ export default function DragAndDropAPI(props, { emit }, {
     const [movedRow] = ROWS_LOCAL.splice(fromIndex, 1);
     ROWS_LOCAL.splice(toIndex, 0, movedRow);
 
-    emit("updateRows", { rows: ROWS_LOCAL, trigger, fromIndex, toIndex });
+    emit("updateRows", { focusId, rows: ROWS_LOCAL, trigger, fromIndex, toIndex });
     emit("moveRow", {
+      focusId,
       fromIndex,
       row: movedRow,
       toIndex,
@@ -128,34 +130,42 @@ export default function DragAndDropAPI(props, { emit }, {
     });
   };
 
+  const setFocusAfterMoveLocal = ({ focusId }) => {
+    if (!focusAfterMove.value) {
+      return;
+    }
+
+    nextTick().then(
+      () => {
+        setFocusToElement({ selector: `#${ focusId }` });
+      },
+    );
+  };
+
   const moveRowUp = rowIndex => {
+    const focusIndex = Math.max(1, rowIndex - 1);
+    const focusId = `${ id.value }_${ focusIndex }_up`;
     moveRow({
+      focusId,
       fromIndex: rowIndex,
       toIndex: rowIndex - 1,
       trigger: "moveRowUp",
     });
 
-    nextTick().then(
-      () => {
-        const INDEX = Math.max(1, rowIndex - 1);
-        setFocusToElement({ selector: `#${ id.value }_${ INDEX }_up` });
-      },
-    );
+    setFocusAfterMoveLocal({ focusId });
   };
 
   const moveRowDown = rowIndex => {
+    const focusIndex = Math.min(rows.value.length - 2, rowIndex + 1);
+    const focusId = `${ id.value }_${ focusIndex }_down`;
     moveRow({
+      focusId,
       fromIndex: rowIndex,
       toIndex: rowIndex + 1,
       trigger: "moveRowDown",
     });
 
-    nextTick().then(
-      () => {
-        const INDEX = Math.min(rows.value.length - 2, rowIndex + 1);
-        setFocusToElement({ selector: `#${ id.value }_${ INDEX }_down` });
-      },
-    );
+    setFocusAfterMoveLocal({ focusId });
   };
 
   const onDragstart = ($event, rowIndex) => {
