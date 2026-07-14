@@ -14,6 +14,8 @@ import {
   isString,
 } from "lodash-es";
 
+const TABLE_WIDTH_SAFE_DELTA = 2;
+
 export default function ColumnsGrowAPI(props, {
   hasActionsColumn = computed(() => false),
   widthsLocal = computed(() => ({})),
@@ -106,7 +108,8 @@ export default function ColumnsGrowAPI(props, {
     }
 
     const columnsLocal = columns.value || [];
-    const tableWidthAvailable = tableWidth.value - actionsColumnWidth.value - dndColumnWidth.value;
+    // Leave a small buffer to avoid subpixel overflow triggering a useless scrollbar.
+    const tableWidthAvailable = tableWidth.value - actionsColumnWidth.value - dndColumnWidth.value - TABLE_WIDTH_SAFE_DELTA;
 
     if (tableWidthAvailable <= 0) {
       columnsStylesGrow.value = {};
