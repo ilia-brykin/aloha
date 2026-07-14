@@ -36,12 +36,6 @@ export default {
     };
   },
   render() {
-    const slotHeader = this.column.slotHeader;
-    const slotProps = {
-      column: this.column,
-      isEditable: this.isEditable,
-    };
-
     return h("th", {
       class: [
         "a_table_form__cell",
