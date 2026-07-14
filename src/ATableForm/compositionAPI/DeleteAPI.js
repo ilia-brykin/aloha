@@ -1,6 +1,6 @@
 export default function DeleteAPI(props, { emit }) {
-  const onDeleteRow = ({ row, rowIndex }) => {
-    emit("deleteRow", { row, rowIndex });
+  const onDeleteRow = ({ row, rowIndex, rowId, btnDeleteId }) => {
+    emit("deleteRow", { row, rowIndex, rowId, btnDeleteId });
   };
 
   return {

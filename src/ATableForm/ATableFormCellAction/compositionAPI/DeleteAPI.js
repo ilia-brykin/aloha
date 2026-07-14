@@ -12,6 +12,7 @@ export default function DeleteAPI(props, {
   idBtnDelete = computed(() => ""),
   isActionsDisabled = computed(() => false),
 }) {
+  const id = toRef(props, "id");
   const isDeletable = toRef(props, "isDeletable");
   const isDeletableConfirm = toRef(props, "isDeletableConfirm");
   const onDeleteRow = toRef(props, "onDeleteRow");
@@ -40,8 +41,10 @@ export default function DeleteAPI(props, {
       headerText: texts.value.actionDeleteConfirmHeader,
       save: async() => {
         await onDeleteRow.value({
+          btnDeleteId: idBtnDelete.value,
           row: row.value,
           rowIndex: rowIndex.value,
+          rowId: id.value,
         });
         closeConfirm();
       },
@@ -63,8 +66,10 @@ export default function DeleteAPI(props, {
 
     if (isDeletable.value) {
       onDeleteRow.value({
+        btnDeleteId: idBtnDelete.value,
         row: row.value,
         rowIndex: rowIndex.value,
+        rowId: id.value,
       });
     }
   };
