@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.57.6
+
+- Fix: Fix duplicate minus in currency `AInputCurrency` formatting
+
 ## 2.57.5
 
 - Feature: Pass `rowId` and `btnDeleteId` in `onDeleteRow` emit and update `DeleteAPI` for enhanced deletion context in `ATableForm`
