@@ -32,9 +32,10 @@ export default function UtilsAPI(props) {
         : val.toString().split(decimalDivider.value);
       const intPart = splitVal[0];
       const setMinusSymbol = intPart[0] === "-" ? "-" : "";
+      const intPartWithoutMinus = setMinusSymbol ? intPart.slice(1) : intPart;
       const intPartWithDivider = thousandDivider.value
-        ? getCleanIntValue({ value: intPart, thousandDivider: thousandDivider.value })
-        : intPart;
+        ? getCleanIntValue({ value: intPartWithoutMinus, thousandDivider: thousandDivider.value })
+        : intPartWithoutMinus;
       const floatPart = splitVal.length > 1 ? splitVal[1] : "";
       const floatPartLength = floatPart.length;
       const zerosToAdd = times(decimalPartLength.value - floatPartLength, () => "0").join("");

@@ -720,11 +720,12 @@ export default function InputEventsAPI(props, {
           const splitVal = valueToSet.toString().split(decimalDivider.value);
           const intPart = splitVal[0];
           const setMinusSymbol = intPart[0] === "-" ? "-" : "";
+          const intPartWithoutMinus = setMinusSymbol ? intPart.slice(1) : intPart;
           const floatPart = splitVal.length > 1 ? splitVal[1] : "";
           const floatPartLength = floatPart.length;
           const zerosToAdd = times(decimalPartLength.value - floatPartLength, () => "0").join("");
 
-          valueToSet = `${ setMinusSymbol }${ intPart }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
+          valueToSet = `${ setMinusSymbol }${ intPartWithoutMinus }${ decimalDivider.value }${ floatPart }${ zerosToAdd }`;
         }
       } else {
         valueToSet = required.value && !skipRequiredModelInit.value ?
