@@ -95,7 +95,7 @@ export default function InputEventsAPI(props, {
     if (!validationOnChange.value) {
       return false;
     }
-    if (!required.value && (isNil(val) || val === "")) {
+    if ((!required.value || skipRequiredModelInit.value) && (isNil(val) || val === "")) {
       return false;
     }
     const numValue = getNumValue(val);
@@ -644,7 +644,7 @@ export default function InputEventsAPI(props, {
       valueToCheck = splitVal[0];
     }
     if (isNil(valueToCheck) || valueToCheck === "") {
-      if (required.value) {
+      if (required.value && !skipRequiredModelInit.value) {
         if (min.value > 0) {
           const value = decimalDivider.value
             ? `0${ decimalDivider.value }${ times(decimalPartLength.value, () => "0").join("") }`
@@ -653,12 +653,10 @@ export default function InputEventsAPI(props, {
         } else {
           setMinimumValue({ trigger: "blur", triggerDetails: "blur" });
         }
-        onBlur($event);
-
-        return;
+      } else {
+        const value = modelUndefinedLocal.value;
+        setValueLocal({ value, trigger: "blur", triggerDetails: "blur" });
       }
-      const value = modelUndefinedLocal.value;
-      setValueLocal({ value, trigger: "blur", triggerDetails: "blur" });
       onBlur($event);
 
       return;
