@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.57.7
+
+- Fix: Respect `skipRequiredModelInit` on blur and validation in `AInputCurrency`
+
 ## 2.57.6
 
 - Fix: Fix duplicate minus in currency `AInputCurrency` formatting
