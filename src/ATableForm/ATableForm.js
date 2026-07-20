@@ -198,6 +198,7 @@ export default {
 
     const {
       allColumnsLength,
+      columnsVisible,
       hasActionsColumn,
     } = ColumnsAPI(props);
 
@@ -228,6 +229,7 @@ export default {
       destroyColumnsGrowObserver,
       initColumnsGrowObserver,
     } = ColumnsGrowAPI(props, {
+      columnsVisible,
       hasActionsColumn,
       widthsLocal,
     });
@@ -251,6 +253,7 @@ export default {
       onCancelEditRow,
       onEditRow,
     } = EditAPI(props, {
+      columnsVisible,
       getRowKey,
     });
 
@@ -309,6 +312,7 @@ export default {
       canMoveRowUp,
       actionsClassesLocal,
       columnsStylesGrow,
+      columnsVisible,
       draggedRowIndex,
       dragOverPosition,
       dragOverRowIndex,
@@ -375,7 +379,7 @@ export default {
               canMoveRowUp: this.canMoveRowUp,
               cellTag: "th",
               changeModel: this.changeModel,
-              columns: this.columns,
+              columns: this.columnsVisible,
               columnsStylesGrow: this.columnsStylesGrow,
               draggedRowIndex: this.draggedRowIndex,
               extra: this.extra,
@@ -426,7 +430,7 @@ export default {
                   canMoveRowDown: this.canMoveRowDown,
                   canMoveRowUp: this.canMoveRowUp,
                   changeModel: this.changeModel,
-                  columns: this.columns,
+                  columns: this.columnsVisible,
                   columnsStylesGrow: this.columnsStylesGrow,
                   draggedRowIndex: this.draggedRowIndex,
                   editModel: this.activeEditRowKey === rowKey ? this.activeEditModel : undefined,
@@ -482,7 +486,7 @@ export default {
                 canMoveRowDown: this.canMoveRowDown,
                 canMoveRowUp: this.canMoveRowUp,
                 changeModel: this.changeModel,
-                columns: this.columns,
+                columns: this.columnsVisible,
                 columnsStylesGrow: this.columnsStylesGrow,
                 draggedRowIndex: this.draggedRowIndex,
                 editModel: this.activeEditModel,
@@ -545,7 +549,7 @@ export default {
               canMoveRowDown: this.canMoveRowDown,
               canMoveRowUp: this.canMoveRowUp,
               changeModel: this.changeModel,
-              columns: this.columns,
+              columns: this.columnsVisible,
               columnsStylesGrow: this.columnsStylesGrow,
               draggedRowIndex: this.draggedRowIndex,
               extra: this.extra,

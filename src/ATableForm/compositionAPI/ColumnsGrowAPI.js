@@ -17,10 +17,10 @@ import {
 const TABLE_WIDTH_SAFE_DELTA = 2;
 
 export default function ColumnsGrowAPI(props, {
+  columnsVisible = computed(() => []),
   hasActionsColumn = computed(() => false),
   widthsLocal = computed(() => ({})),
 }) {
-  const columns = toRef(props, "columns");
   const id = toRef(props, "id");
   const isColumnsGrow = toRef(props, "isColumnsGrow");
   const isDeletable = toRef(props, "isDeletable");
@@ -107,7 +107,7 @@ export default function ColumnsGrowAPI(props, {
       return;
     }
 
-    const columnsLocal = columns.value || [];
+    const columnsLocal = columnsVisible.value || [];
     // Leave a small buffer to avoid subpixel overflow triggering a useless scrollbar.
     const tableWidthAvailable = tableWidth.value - actionsColumnWidth.value - dndColumnWidth.value - TABLE_WIDTH_SAFE_DELTA;
 
@@ -190,7 +190,7 @@ export default function ColumnsGrowAPI(props, {
   };
 
   watch([
-    columns,
+    columnsVisible,
     hasActionsColumn,
     isDeletable,
     isDeletableConfirm,

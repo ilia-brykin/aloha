@@ -13,10 +13,10 @@ import {
 } from "lodash-es";
 
 export default function EditAPI(props, {
+  columnsVisible = computed(() => []),
   getRowKey = () => {},
 }) {
   const addRow = toRef(props, "addRow");
-  const columns = toRef(props, "columns");
   const isAddable = toRef(props, "isAddable");
   const isEditable = toRef(props, "isEditable");
   const prepareEditModel = toRef(props, "prepareEditModel");
@@ -43,7 +43,7 @@ export default function EditAPI(props, {
       return false;
     }
 
-    return columns.value.some(column => {
+    return columnsVisible.value.some(column => {
       return !!column.formElement?.required;
     });
   });

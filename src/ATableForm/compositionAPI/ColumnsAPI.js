@@ -15,8 +15,12 @@ export default function ColumnsAPI(props) {
     return !!(isEditable.value || isDeletable.value || isDeletableConfirm.value);
   });
 
+  const columnsVisible = computed(() => {
+    return columns.value.filter(column => column.isRender !== false);
+  });
+
   const allColumnsLength = computed(() => {
-    let length = columns.value?.length || 0;
+    let length = columnsVisible.value.length;
     if (isDragAndDrop.value) {
       length += 1;
     }
@@ -29,6 +33,7 @@ export default function ColumnsAPI(props) {
 
   return {
     allColumnsLength,
+    columnsVisible,
     hasActionsColumn,
   };
 }
