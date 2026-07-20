@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.57.8
+
+- Fix: Preserve programmatic focus and add visible focus styles for `ATableForm` rows and tables
+- Fix: Exclude `ATableForm` columns with `isRender: false` from headers, cells, validation, colspan, and width calculations
+
 ## 2.57.7
 
 - Fix: Respect `skipRequiredModelInit` on blur and validation in `AInputCurrency`
