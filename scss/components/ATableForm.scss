@@ -7,6 +7,8 @@
   --a_table_form_row_dragging_bg: #e9eef5;
   --a_table_form_row_dragging_opacity: .65;
   --a_table_form_row_dragging_outline: 2px dashed var(--a_color_gray_700);
+  --a_table_form_focus_color: var(--a_color_primary);
+  --a_table_form_focus_box_shadow: 0 0 0 2px var(--a_table_form_focus_color);
   --a_table_form_row_hover_bg: #eef6ff;
   --a_table_form_row_drag_bg: #dfefff;
   --a_table_form_footer_bg: var(--a_color_gray_100);
@@ -24,6 +26,12 @@
 
 .a_table_form__wrapper {
   overflow-x: auto;
+
+  &:has(> .a_table_form__table:focus) {
+    position: relative;
+    z-index: 3;
+    box-shadow: var(--a_table_form_focus_box_shadow);
+  }
 }
 
 .a_table_form__drag_preview {
@@ -68,7 +76,7 @@
   border-left: 1px solid var(--a_table_form_border_color);
 }
 
-.a_table_form__row > .a_table_form__cell:last-child {
+.a_table_form__row > .a_table_form__cell:last-child:not(.a_table_form__cell_actions_sticky) {
   border-right: 1px solid var(--a_table_form_border_color);
 }
 
@@ -120,6 +128,20 @@
 
 .a_table_form__row {
   position: relative;
+
+  &:focus {
+    z-index: 3;
+    box-shadow: var(--a_table_form_focus_box_shadow);
+
+    > .a_table_form__cell:first-child {
+      box-shadow: inset 1px 0 0 var(--a_table_form_focus_color);
+    }
+
+    > .a_table_form__cell_actions_sticky {
+      --a_table_form_cell_actions_edge_box_shadow:
+        inset -2px 0 0 var(--a_table_form_focus_color);
+    }
+  }
 }
 
 .a_table_form__row_drag_over .a_table_form__cell_td,
@@ -204,11 +226,15 @@
 }
 
 .a_table_form__cell_actions_sticky {
+  --a_table_form_cell_actions_edge_box_shadow:
+    inset -1px 0 0 var(--a_table_form_border_color);
+
   position: sticky;
   right: 0;
   z-index: 2;
   background: var(--a_table_form_bg);
   box-shadow:
+    var(--a_table_form_cell_actions_edge_box_shadow),
     inset 1px 0 0 rgba(0, 0, 0, .12),
     -8px 0 14px -8px rgba(17, 24, 39, .34),
     -18px 0 24px -20px rgba(17, 24, 39, .55);

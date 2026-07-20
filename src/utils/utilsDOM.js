@@ -46,12 +46,25 @@ export function setFocusToElement({ element, selector }) {
 
   const ELEMENT = element ? element : document.querySelector(selector);
   if (ELEMENT) {
-    if (!ELEMENT.hasAttribute("tabindex")) {
+    if (ELEMENT.matches(focusableSelector)) {
+      ELEMENT.focus();
+
+      return;
+    }
+
+    const hasTabindex = ELEMENT.hasAttribute("tabindex");
+    const removeTemporaryTabindex = () => ELEMENT.removeAttribute("tabindex");
+    if (!hasTabindex) {
       ELEMENT.setAttribute("tabindex", "-1");
-      ELEMENT.focus();
-      ELEMENT.removeAttribute("tabindex");
-    } else {
-      ELEMENT.focus();
+      ELEMENT.addEventListener("blur", removeTemporaryTabindex, { once: true });
+    }
+
+    ELEMENT.focus();
+
+    // For example disabled button
+    if (!hasTabindex && document.activeElement !== ELEMENT) {
+      ELEMENT.removeEventListener("blur", removeTemporaryTabindex);
+      removeTemporaryTabindex();
     }
   }
 }
