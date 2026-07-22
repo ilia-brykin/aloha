@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.58.0
+
+- Feature: Add `key-group` support in `data-extra` for grouped item configurations across multiple components and update translations accordingly
+
 ## 2.57.8
 
 - Fix: Preserve programmatic focus and add visible focus styles for `ATableForm` rows and tables
