@@ -1,6 +1,8 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Упорядоченный множественный выбор",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Компонент позволяет выбрать несколько элементов с возможностью задания их порядка. Поддерживает сортировку, удаление и перемещение элементов внутри списка.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "В этом примере показано, как группировать элементы из <strong lang=\"en\">data-extra</strong> с помощью <strong lang=\"en\">key-group</strong>. Массивы <strong lang=\"en\">data</strong> и <strong lang=\"en\">data-extra</strong> используют одинаковую конфигурацию группировки и могут содержать отдельные группы.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "Сгруппированные дополнительные данные",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Пример отображения кнопок для массового выбора или снятия выбора. Можно показать обе кнопки или только одну из них, в зависимости от нужд интерфейса.",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Кнопки «Выбрать все элементы» и «Очистить выбор»",
   "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Атрибуты и пропсы, передаваемые в компонент <strong lang=\"en\">AElement</strong>, используемый для кнопки «Очистить выбор». Позволяют изменить поведение, внешний вид и доступность кнопки.",

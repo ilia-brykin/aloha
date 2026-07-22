@@ -17,7 +17,8 @@ export default function HtmlAPI() {
   class="a_mt_3"
   key-id="id"
   key-label="label"
-  label="Data extra (Array of Objects)"
+  key-group="group"
+  label="Grouped data extra (Array of Objects)"
 ></a-radio>
 <div>model2: {{ model2 }}</div>`;
 

@@ -23,6 +23,7 @@ export default function UiSearchAPI(props, { emit }, {
   dataExtra = computed(() => []),
   exclusiveOption = computed(() => undefined),
   groupsForLever = computed(() => undefined),
+  groupsForLeverExtra = computed(() => undefined),
   hasKeyGroup = computed(() => false),
   htmlIdLocal = computed(() => ""),
   keyGroupArray = computed(() => []),
@@ -68,7 +69,7 @@ export default function UiSearchAPI(props, { emit }, {
   const setSearchingGroupsWithSearchInGroup = () => {
     let _hasAtLeastOneElementInGroupSearch = false;
     if (!searchInGroup.value ||
-      !groupsForLever.value) {
+      (!groupsForLever.value && !groupsForLeverExtra.value)) {
       searchingGroupsWithSearchInGroup.value = {};
       hasAtLeastOneElementInGroupSearch.value = _hasAtLeastOneElementInGroupSearch;
       return;
@@ -77,31 +78,33 @@ export default function UiSearchAPI(props, { emit }, {
     const SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP = {};
     const SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP_FOR_PARENT = {};
 
-    forEach(groupsForLever.value, level => {
-      forEach(level, group => {
-        const GROUP_LABEL = searchTextInHtml.value ?
-          group.groupLabelSearch :
-          group.groupLabel;
-        if (GROUP_LABEL === "_not_grouped" &&
-          !group.groupParentKey) {
-          return;
-        }
-        if (SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.groupParentKey]) {
-          SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.allGroupKeys] = true;
-          if (group.data.length) {
-            _hasAtLeastOneElementInGroupSearch = true;
+    forEach([groupsForLever.value, groupsForLeverExtra.value], groups => {
+      forEach(groups, level => {
+        forEach(level, group => {
+          const GROUP_LABEL = searchTextInHtml.value ?
+            group.groupLabelSearch :
+            group.groupLabel;
+          if (GROUP_LABEL === "_not_grouped" &&
+            !group.groupParentKey) {
+            return;
           }
-        } else if (`${ GROUP_LABEL }`.search(modelSearchRE.value) !== -1) {
-          SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.allGroupKeys] = true;
-          if (group.data.length) {
-            _hasAtLeastOneElementInGroupSearch = true;
+          if (SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.groupParentKey]) {
+            SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.allGroupKeys] = true;
+            if (group.data.length) {
+              _hasAtLeastOneElementInGroupSearch = true;
+            }
+          } else if (`${ GROUP_LABEL }`.search(modelSearchRE.value) !== -1) {
+            SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP[group.allGroupKeys] = true;
+            if (group.data.length) {
+              _hasAtLeastOneElementInGroupSearch = true;
+            }
+            if (group.allParentKeys.length) {
+              forEach(group.allParentKeys, parentKey => {
+                SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP_FOR_PARENT[parentKey] = true;
+              });
+            }
           }
-          if (group.allParentKeys.length) {
-            forEach(group.allParentKeys, parentKey => {
-              SEARCHING_GROUPS_WITH_SEARCH_IN_GROUP_FOR_PARENT[parentKey] = true;
-            });
-          }
-        }
+        });
       });
     });
 
@@ -157,6 +160,17 @@ export default function UiSearchAPI(props, { emit }, {
         const ELEMENT_ID = element[AKeyId];
         if (`${ ELEMENT_LABEL }`.search(modelSearchRE.value) !== -1) {
           ELEMENTS_EXTRA_VISIBLE[ELEMENT_ID] = true;
+          if (hasKeyGroup.value) {
+            let allGroupKeys = "";
+            forEach(keyGroupArray.value, keyGroup => {
+              let group = get(element, keyGroup);
+              if (isNil(group) || group === "") {
+                group = "_not_grouped";
+              }
+              allGroupKeys += `${ allGroupKeys ? "_" : "" }${ group }`;
+              GROUPS_VISIBLE[allGroupKeys] = true;
+            });
+          }
         }
       });
       if (exclusiveOption.value) {

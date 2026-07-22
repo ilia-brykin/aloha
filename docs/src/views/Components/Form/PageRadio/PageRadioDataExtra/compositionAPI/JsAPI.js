@@ -77,10 +77,17 @@ export default {
       {
         label: "Extra 1",
         id: "extra_id_1",
+        group: "Recommended",
       },
       {
         label: "Extra 2",
         id: "extra_id_2",
+        group: "Other",
+      },
+      {
+        label: "Extra 3",
+        id: "extra_id_3",
+        group: "Other",
       },
     ];
     const model1 = ref(undefined);

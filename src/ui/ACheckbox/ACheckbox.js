@@ -456,6 +456,13 @@ export default {
       data: dataSort,
     });
 
+    const {
+      dataGrouped: dataExtraGrouped,
+      groupsForLever: groupsForLeverExtra,
+    } = UIDataGroupAPI(props, {
+      data: dataExtraLocal,
+    });
+
     const validDataSort = computed(() => {
       return dataSort.value.filter(item => !item.__invalidEntry__);
     });
@@ -492,6 +499,7 @@ export default {
       data: dataSort,
       dataExtra: dataExtraLocal,
       groupsForLever,
+      groupsForLeverExtra,
       htmlIdLocal,
       hasKeyGroup,
       keyGroupArray,
@@ -544,6 +552,7 @@ export default {
       componentStyleHide,
       dataAll,
       dataExtraLocal,
+      dataExtraGrouped,
       dataGrouped,
       dataGroupedValid,
       dataKeyByKeyIdLocal,
@@ -551,6 +560,7 @@ export default {
       errorsId,
       groupId,
       groupsForLever,
+      groupsForLeverExtra,
       groupsForLeverValid,
       hasDataExtra,
       hasKeyGroup,
@@ -821,32 +831,61 @@ export default {
                 h("div", {
                   class: "a_checkbox__data_extra",
                 }, [
-                  ...this.dataExtraLocal.map((item, itemIndex) => {
-                    return h(ACheckboxItem, {
-                      key: itemIndex,
-                      id: this.htmlIdLocal,
+                  ...(this.hasKeyGroup ?
+                    [h(ACheckboxRadioGroups, {
+                      id: `${ this.htmlIdLocal }_extra_lev_0`,
                       alwaysTranslate: this.alwaysTranslate,
-                      idSuffix: "extra",
                       classButtonGroupDefault: this.classButtonGroupDefault,
-                      dataItem: item,
+                      dataGrouped: this.dataExtraGrouped,
                       disabled: this.disabled,
+                      groupsForLever: this.groupsForLeverExtra,
+                      hasControlCheckbox: this.hasControlCheckbox,
                       isButtonGroup: this.isButtonGroup,
                       isErrors: this.isErrors,
                       isWidthAuto: this.isWidthAuto,
-                      itemIndex,
                       keyDisabled: this.keyDisabled,
                       keyTitle: this.keyTitle,
                       keyTitleCallback: this.keyTitleCallback,
+                      levelIndex: 0,
                       modelSearch: this.modelSearchLowerCase,
                       modelValue: this.modelValue,
+                      modelValueObj: this.modelValueObj,
                       searching: this.searching,
                       searchingElements: this.searchingElementsExtra,
+                      searchingGroups: this.searchingGroups,
+                      searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
                       searchTextInHtml: this.searchTextInHtml,
                       slotAppendName: this.slotAppendName,
                       slotName: this.slotName,
+                      type: "checkbox",
                       onChangeModelValue: this.onChangeModelValue,
-                    }, this.$slots);
-                  }),
+                    }, this.$slots)] :
+                    this.dataExtraLocal.map((item, itemIndex) => {
+                      return h(ACheckboxItem, {
+                        key: itemIndex,
+                        id: this.htmlIdLocal,
+                        alwaysTranslate: this.alwaysTranslate,
+                        idSuffix: "extra",
+                        classButtonGroupDefault: this.classButtonGroupDefault,
+                        dataItem: item,
+                        disabled: this.disabled,
+                        isButtonGroup: this.isButtonGroup,
+                        isErrors: this.isErrors,
+                        isWidthAuto: this.isWidthAuto,
+                        itemIndex,
+                        keyDisabled: this.keyDisabled,
+                        keyTitle: this.keyTitle,
+                        keyTitleCallback: this.keyTitleCallback,
+                        modelSearch: this.modelSearchLowerCase,
+                        modelValue: this.modelValue,
+                        searching: this.searching,
+                        searchingElements: this.searchingElementsExtra,
+                        searchTextInHtml: this.searchTextInHtml,
+                        slotAppendName: this.slotAppendName,
+                        slotName: this.slotName,
+                        onChangeModelValue: this.onChangeModelValue,
+                      }, this.$slots);
+                    })),
                   !this.hasNotElementsExtraWithSearch ?
                     h("div", {
                       class: "a_divider",

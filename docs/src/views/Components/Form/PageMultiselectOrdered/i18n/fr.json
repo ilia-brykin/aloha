@@ -1,6 +1,8 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Sélection multiple ordonnée",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Ce composant permet de sélectionner plusieurs éléments avec la possibilité de définir leur ordre. Il prend en charge le tri, la suppression et le déplacement des éléments dans la liste.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "Cet exemple montre comment regrouper les éléments de <strong lang=\"en\">data-extra</strong> avec <strong lang=\"en\">key-group</strong>. Les tableaux <strong lang=\"en\">data</strong> et <strong lang=\"en\">data-extra</strong> utilisent la même configuration de regroupement et peuvent contenir des groupes distincts.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "Données supplémentaires regroupées",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Exemple d’affichage des boutons pour sélectionner ou désélectionner tous les éléments. Il est possible d’afficher les deux boutons ou seulement l’un d’eux selon les besoins de l’interface.",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Boutons « Tout sélectionner » et « Tout désélectionner »",
   "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attributs et props transmis au composant <strong lang=\"en\">AElement</strong> utilisé pour le bouton « Tout désélectionner ». Permettent de personnaliser le comportement, l’apparence et l’accessibilité.",

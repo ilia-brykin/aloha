@@ -1,6 +1,8 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Multiselezione ordinata",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Il componente consente di selezionare più elementi con la possibilità di definirne l'ordine. Supporta ordinamento, eliminazione e spostamento all'interno della lista.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "Questo esempio mostra come raggruppare gli elementi di <strong lang=\"en\">data-extra</strong> con <strong lang=\"en\">key-group</strong>. Gli array <strong lang=\"en\">data</strong> e <strong lang=\"en\">data-extra</strong> usano la stessa configurazione di raggruppamento e possono contenere gruppi separati.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "Dati aggiuntivi raggruppati",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Esempio che mostra i pulsanti per selezionare o deselezionare tutti gli elementi. È possibile mostrare entrambi i pulsanti o solo uno a seconda delle esigenze dell’interfaccia.",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Pulsanti “Seleziona tutto” e “Deseleziona tutto”",
   "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attributi e props passati al componente <strong lang=\"en\">AElement</strong> utilizzato per il pulsante “Deseleziona tutto”. Permettono di personalizzare comportamento, aspetto e accessibilità del pulsante.",

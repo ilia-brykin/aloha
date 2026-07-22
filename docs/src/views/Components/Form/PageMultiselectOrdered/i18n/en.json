@@ -1,6 +1,8 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Ordered Multiselect",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "The component allows selecting multiple items with the ability to set their order. Supports sorting, deleting, and moving items within the list.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "This example shows how to group items from <strong lang=\"en\">data-extra</strong> with <strong lang=\"en\">key-group</strong>. The <strong lang=\"en\">data</strong> and <strong lang=\"en\">data-extra</strong> arrays use the same grouping configuration and may contain separate groups.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "Grouped extra data",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "An example of displaying buttons for bulk selection or deselection. You can show both buttons or only one, depending on the interface needs.",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Buttons for “Select All” and “Deselect All”",
   "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attributes and props passed to the <strong lang=\"en\">AElement</strong> component used for the “Deselect All” button. They allow customizing the behavior, appearance, and accessibility of the button.",

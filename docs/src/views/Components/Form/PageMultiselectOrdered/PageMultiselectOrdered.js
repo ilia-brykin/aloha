@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../../global/components/AlohaTableProps/Aloha
 import AlohaTableTranslate from "../../../../global/components/AlohaTableTranslate/AlohaTableTranslate.vue";
 import PageMultiselectOrderedBasic from "./PageMultiselectOrderedBasic/PageMultiselectOrderedBasic.vue";
 import PageMultiselectOrderedChange from "./PageMultiselectOrderedChange/PageMultiselectOrderedChange.vue";
+import PageMultiselectOrderedDataExtra from "./PageMultiselectOrderedDataExtra/PageMultiselectOrderedDataExtra.vue";
 import PageMultiselectOrderedErrors from "./PageMultiselectOrderedErrors/PageMultiselectOrderedErrors.vue";
 import PageMultiselectOrderedHelpText from "./PageMultiselectOrderedHelpText/PageMultiselectOrderedHelpText.vue";
 import PageMultiselectOrderedLabelDescription from "./PageMultiselectOrderedLabelDescription/PageMultiselectOrderedLabelDescription.vue";
@@ -28,6 +29,7 @@ export default {
     ATranslation,
     PageMultiselectOrderedBasic,
     PageMultiselectOrderedChange,
+    PageMultiselectOrderedDataExtra,
     PageMultiselectOrderedErrors,
     PageMultiselectOrderedHelpText,
     PageMultiselectOrderedLabelDescription,

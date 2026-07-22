@@ -1,6 +1,8 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "تحديد متعدد مع ترتيب",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "يتيح المكون تحديد عناصر متعددة مع إمكانية تحديد ترتيبها. يدعم الفرز، الحذف، وتحريك العناصر داخل القائمة.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "يوضح هذا المثال كيفية تجميع عناصر <strong lang=\"en\">data-extra</strong> باستخدام <strong lang=\"en\">key-group</strong>. تستخدم مصفوفتا <strong lang=\"en\">data</strong> و<strong lang=\"en\">data-extra</strong> إعداد التجميع نفسه ويمكن أن تحتوي كل منهما على مجموعات منفصلة.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "بيانات إضافية مجمعة",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "مثال على عرض الأزرار لتحديد أو إلغاء تحديد الكل. يمكن عرض كلا الزرين أو أحدهما فقط حسب احتياجات الواجهة.",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "أزرار «تحديد الكل» و«إلغاء التحديد»",
   "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "السمات وخصائص <strong lang=\"en\">HTML</strong> التي يتم تمريرها إلى مكون <strong lang=\"en\">AElement</strong> المستخدم في زر «إلغاء التحديد». تتيح تخصيص السلوك والمظهر وإمكانية الوصول.",

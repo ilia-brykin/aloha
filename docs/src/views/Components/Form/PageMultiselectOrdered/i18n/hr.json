@@ -1,6 +1,8 @@
 {
   "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Poredani višestruki odabir",
   "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Komponenta omogućuje odabir više elemenata s mogućnošću određivanja njihovog redoslijeda. Podržava sortiranje, uklanjanje i premještanje unutar popisa.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "Ovaj primjer pokazuje kako grupirati stavke iz <strong lang=\"en\">data-extra</strong> pomoću <strong lang=\"en\">key-group</strong>. Nizovi <strong lang=\"en\">data</strong> i <strong lang=\"en\">data-extra</strong> koriste istu konfiguraciju grupiranja i mogu sadržavati odvojene grupe.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "Grupirani dodatni podaci",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Primjer prikaza gumba za masovni odabir ili poništavanje odabira. Ovisno o potrebama sučelja, mogu se prikazati oba gumba ili samo jedan.",
   "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Gumbi „Odaberi sve“ i „Poništi odabir“",
   "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Atributi i propsi koji se prosljeđuju komponenti <strong lang=\"en\">AElement</strong> za gumb „Poništi odabir“. Omogućuju prilagodbu ponašanja, izgleda i pristupačnosti gumba.",

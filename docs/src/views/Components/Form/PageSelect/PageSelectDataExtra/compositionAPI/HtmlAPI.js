@@ -16,7 +16,8 @@ export default function HtmlAPI() {
   :data-extra="dataExtraArrayOfObjects"
   key-id="id"
   key-label="label"
-  label="Data extra (Array of Objects)"
+  key-group="group"
+  label="Grouped data extra (Array of Objects)"
   :search="true"
 ></a-select>
 <div>model2: {{ model2 }}</div>`;

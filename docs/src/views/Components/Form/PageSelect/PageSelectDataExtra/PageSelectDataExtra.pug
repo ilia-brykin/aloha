@@ -1,9 +1,9 @@
 aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
-  header="_A_SELECT_GROUP_DATA_EXTRA_HEADER_"
-  description="_A_SELECT_GROUP_DATA_EXTRA_DESCRIPTION_"
-  props="data-extra"
+  header="_A_UI_GROUP_DATA_EXTRA_HEADER_"
+  description="_A_UI_GROUP_DATA_EXTRA_DESCRIPTION_"
+  :props="['data-extra', 'key-group']"
 )
   .a_columns.a_columns_count_12
     .a_column.a_column_6.a_columns_count_12_touch
@@ -24,7 +24,8 @@ aloha-example(
         :data-extra="dataExtraArrayOfObjects"
         key-id="id"
         key-label="label"
-        label="Data extra (Array of Objects)"
+        key-group="group"
+        label="Grouped data extra (Array of Objects)"
         :search="true"
       )
       div model2: {{ model2 }}

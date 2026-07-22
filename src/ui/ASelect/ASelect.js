@@ -643,6 +643,19 @@ export default {
       data: dataSort,
     });
 
+    const {
+      dataGrouped: dataExtraGrouped,
+      groupsForLever: groupsForLeverExtra,
+    } = UIDataGroupAPI(props, {
+      data: dataExtraLocal,
+    });
+
+    const {
+      dataGrouped: dataGroupedAll,
+    } = UIDataGroupAPI(props, {
+      data: dataAll,
+    });
+
     const validDataSort = computed(() => {
       return dataSort.value.filter(item => !item.__invalidEntry__);
     });
@@ -682,6 +695,7 @@ export default {
       dataExtra: dataExtraLocal,
       exclusiveOption,
       groupsForLever,
+      groupsForLeverExtra,
       hasKeyGroup,
       htmlIdLocal,
       keyGroupArray,
@@ -712,7 +726,7 @@ export default {
     } = ModelChangeAPI(props, {
       changeModel,
       dataAll,
-      dataGrouped,
+      dataGrouped: dataGroupedAll,
       dataKeyByKeyIdLocal,
       disabledLocal,
       isMultiselect,
@@ -777,6 +791,7 @@ export default {
       componentStyleHide,
       containerId,
       dataExtraLocal,
+      dataExtraGrouped,
       dataGrouped,
       dataGroupedValid,
       dataKeyByKeyIdLocal,
@@ -791,6 +806,7 @@ export default {
       exclusiveDataKeyByKeyIdLocal,
       exclusiveOption,
       groupsForLever,
+      groupsForLeverExtra,
       groupsForLeverValid,
       handleKeydown,
       hasDataExtra,
@@ -1252,26 +1268,48 @@ export default {
                         }, this.$slots),
                       ]),
                       this.hasDataExtra && h("div", {}, [
-                        ...this.dataExtraLocal.map((item, itemIndex) => {
-                          return h(ASelectElement, {
-                            key: item[AKeyId],
-                            id: this.htmlIdLocal,
+                        ...(this.hasKeyGroup ?
+                          [h(ACheckboxRadioGroups, {
+                            id: `${ this.htmlIdLocal }_extra_lev_0`,
                             alwaysTranslate: this.alwaysTranslate,
-                            dataItem: item,
+                            dataGrouped: this.dataExtraGrouped,
                             disabled: this.disabledLocal,
-                            searching: this.searching,
-                            searchingElements: this.searchingElementsExtra,
-                            searchTextInHtml: this.searchTextInHtml,
-                            itemIndex: this.isExclusiveOptionEnabled ? itemIndex + 1 : itemIndex,
+                            groupsForLever: this.groupsForLeverExtra,
+                            isErrors: this.isErrors,
                             keyDisabled: this.keyDisabled,
                             keyDisabledCallback: this.keyDisabledCallback,
+                            levelIndex: 0,
                             modelSearch: this.modelSearchLowerCase,
                             modelValue: this.modelValue,
+                            searching: this.searching,
+                            searchingElements: this.searchingElementsExtra,
+                            searchingGroups: this.searchingGroups,
+                            searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
+                            searchTextInHtml: this.searchTextInHtml,
                             slotName: this.slotName,
                             type: this.type,
                             onChangeModelValue: this.onChangeModelValue,
-                          }, this.$slots);
-                        }),
+                          }, this.$slots)] :
+                          this.dataExtraLocal.map((item, itemIndex) => {
+                            return h(ASelectElement, {
+                              key: item[AKeyId],
+                              id: this.htmlIdLocal,
+                              alwaysTranslate: this.alwaysTranslate,
+                              dataItem: item,
+                              disabled: this.disabledLocal,
+                              searching: this.searching,
+                              searchingElements: this.searchingElementsExtra,
+                              searchTextInHtml: this.searchTextInHtml,
+                              itemIndex: this.isExclusiveOptionEnabled ? itemIndex + 1 : itemIndex,
+                              keyDisabled: this.keyDisabled,
+                              keyDisabledCallback: this.keyDisabledCallback,
+                              modelSearch: this.modelSearchLowerCase,
+                              modelValue: this.modelValue,
+                              slotName: this.slotName,
+                              type: this.type,
+                              onChangeModelValue: this.onChangeModelValue,
+                            }, this.$slots);
+                          })),
                         !this.hasNotElementsExtraWithSearch && !this.hasNotElementsExclusiveWithSearch && h("div", {
                           class: "a_select__divider",
                           ariaHidden: true,
