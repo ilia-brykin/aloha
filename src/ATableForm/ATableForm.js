@@ -37,6 +37,12 @@ export default {
       required: false,
       default: () => ({}),
     },
+
+    /*
+     * Supported callbacks:
+     * add: () => boolean
+     * delete, dnd, edit: ({ row, rowIndex }) => boolean
+     */
     actionsDisabledCallback: {
       type: Object,
       required: false,
@@ -65,11 +71,6 @@ export default {
       type: [String, Number],
       required: false,
       default: "",
-    },
-    dndDisabledCallback: {
-      type: Function,
-      required: false,
-      default: undefined,
     },
     changeModel: {
       type: Function,

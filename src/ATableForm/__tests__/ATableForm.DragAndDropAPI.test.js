@@ -62,7 +62,9 @@ describe("ATableForm DragAndDropAPI", () => {
   it("prevents dragging, dropping on, and moving across a disabled row", () => {
     const emit = jest.fn();
     const props = reactive({
-      dndDisabledCallback: ({ row }) => row.dndDisabled,
+      actionsDisabledCallback: {
+        dnd: ({ row }) => row.dndDisabled,
+      },
       focusAfterMove: false,
       id: "table",
       isDragAndDrop: true,

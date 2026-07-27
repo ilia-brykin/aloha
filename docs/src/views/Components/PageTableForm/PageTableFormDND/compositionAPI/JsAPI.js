@@ -82,7 +82,9 @@ export default {
       },
     ];
 
-    const dndDisabledCallback = ({ row }) => row.dndDisabled;
+    const actionsDisabledCallback = {
+      dnd: ({ row }) => row.dndDisabled,
+    };
 
     const updateRows = ({ rows: _rows, trigger }) => {
       rows.value = _rows;
@@ -90,8 +92,8 @@ export default {
     };
 
     return {
+      actionsDisabledCallback,
       columns,
-      dndDisabledCallback,
       rows,
       rowsFooter,
       updateRows,

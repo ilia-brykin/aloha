@@ -1,7 +1,7 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-table-form
+  :actions-disabled-callback="actionsDisabledCallback"
   :columns="columns"
-  :dnd-disabled-callback="dndDisabledCallback"
   :is-drag-and-drop="true"
   :rows-footer="rowsFooter"
   :rows="rows"

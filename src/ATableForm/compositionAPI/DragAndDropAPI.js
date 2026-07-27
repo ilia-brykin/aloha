@@ -9,13 +9,14 @@ import {
   setFocusToElement,
 } from "../../utils/utilsDOM";
 import {
+  get,
   isFunction,
 } from "lodash-es";
 
 export default function DragAndDropAPI(props, { emit }, {
   isDndDisabled = computed(() => false),
 } = {}) {
-  const dndDisabledCallback = toRef(props, "dndDisabledCallback");
+  const actionsDisabledCallback = toRef(props, "actionsDisabledCallback");
   const focusAfterMove = toRef(props, "focusAfterMove");
   const id = toRef(props, "id");
   const isDragAndDrop = toRef(props, "isDragAndDrop");
@@ -31,8 +32,10 @@ export default function DragAndDropAPI(props, { emit }, {
       return true;
     }
 
-    if (isFunction(dndDisabledCallback.value)) {
-      return !!dndDisabledCallback.value({
+    const dndCallback = get(actionsDisabledCallback.value, "dnd");
+
+    if (isFunction(dndCallback)) {
+      return !!dndCallback({
         row: rows.value[rowIndex],
         rowIndex,
       });
