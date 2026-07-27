@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.60.0
+
+- Feature: Add `dndDisabledCallback` prop to `ATableForm` for disabling drag-and-drop on specific rows and update `DragAndDropAPI` to respect row-level drag-and-drop restrictions
+
 ## 2.59.0
 
 - Feature: Add `translateGroup` prop support across multiple components and update APIs to handle translation of group labels
