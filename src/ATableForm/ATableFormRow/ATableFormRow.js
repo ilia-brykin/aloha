@@ -10,6 +10,7 @@ import {
 import ATableFormCell from "../ATableFormCell/ATableFormCell";
 import ATableFormCellAction from "../ATableFormCellAction/ATableFormCellAction";
 import ATableFormCellDnd from "../ATableFormCellDnd/ATableFormCellDnd";
+import ATableFormCellList from "../ATableFormCellList/ATableFormCellList";
 import ATableFormTh from "../ATableFormTh/ATableFormTh";
 
 import ClassAPI from "./compositionAPI/ClassAPI";
@@ -220,6 +221,11 @@ export default {
       type: Array,
       required: true,
     },
+    rowView: {
+      type: String,
+      required: false,
+      default: "table",
+    },
     saveRow: {
       type: Function,
       required: true,
@@ -362,21 +368,10 @@ export default {
           widths: this.widths,
         }) :
         null,
-      ...this.columns.map((column, columnIndex) => {
-        if (this.isHeader) {
-          return h(ATableFormTh, {
-            column,
-            columnStyle: this.columnsStylesGrow[column.id],
-            isEditable: this.isEditable,
-          }, this.$slots);
-        }
-
-        return h(ATableFormCell, {
+      ...(this.rowView === "list" && !this.isHeader ?
+        [h(ATableFormCellList, {
           id: this.idTr,
-          column,
-          columnIndex,
-          columnStyle: this.columnsStylesGrow[column.id],
-          errorIcon: this.errorIcon,
+          columns: this.columns,
           errors: this.errorsLocal,
           isEditable: this.isEditable,
           isEditMode: this.isActiveEditMode,
@@ -386,9 +381,34 @@ export default {
           rowData: this.currentRowData,
           rowIndex: this.rowIndex,
           rows: this.rows,
-          tag: this.cellTag,
-        }, this.$slots);
-      }),
+        }, this.$slots)] :
+        this.columns.map((column, columnIndex) => {
+          if (this.isHeader) {
+            return h(ATableFormTh, {
+              column,
+              columnStyle: this.columnsStylesGrow[column.id],
+              isEditable: this.isEditable,
+            }, this.$slots);
+          }
+
+          return h(ATableFormCell, {
+            id: this.idTr,
+            column,
+            columnIndex,
+            columnStyle: this.columnsStylesGrow[column.id],
+            errorIcon: this.errorIcon,
+            errors: this.errorsLocal,
+            isEditable: this.isEditable,
+            isEditMode: this.isActiveEditMode,
+            isFooter: this.isFooter,
+            onUpdateRowData: this.updateModelLocal,
+            row: this.row,
+            rowData: this.currentRowData,
+            rowIndex: this.rowIndex,
+            rows: this.rows,
+            tag: this.cellTag,
+          }, this.$slots);
+        })),
       this.hasActionsColumn ?
         h(ATableFormCellAction, {
           id: this.idTr,
@@ -418,7 +438,7 @@ export default {
         null,
     ]));
 
-    if (this.isActiveEditMode && this.hasErrors) {
+    if (this.rowView === "table" && this.isActiveEditMode && this.hasErrors) {
       rows.push(h("tr", {
         class: "a_table_form__row a_table_form__row_errors",
         key: `errors_${ this.rowIndex }`,

@@ -10,6 +10,7 @@ export default function ColumnsAPI(props) {
   const isDeletableConfirm = toRef(props, "isDeletableConfirm");
   const isDragAndDrop = toRef(props, "isDragAndDrop");
   const isEditable = toRef(props, "isEditable");
+  const rowView = toRef(props, "rowView");
 
   const hasActionsColumn = computed(() => {
     return !!(isEditable.value || isDeletable.value || isDeletableConfirm.value);
@@ -20,7 +21,7 @@ export default function ColumnsAPI(props) {
   });
 
   const allColumnsLength = computed(() => {
-    let length = columnsVisible.value.length;
+    let length = rowView.value === "list" ? 1 : columnsVisible.value.length;
     if (isDragAndDrop.value) {
       length += 1;
     }

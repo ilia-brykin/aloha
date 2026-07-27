@@ -12,6 +12,14 @@ import {
   isFunction,
 } from "lodash-es";
 
+const hasRequiredElement = element => {
+  if (element?.required) {
+    return true;
+  }
+
+  return element?.children?.some(hasRequiredElement) || false;
+};
+
 export default function EditAPI(props, {
   columnsVisible = computed(() => []),
   getRowKey = () => {},
@@ -44,7 +52,7 @@ export default function EditAPI(props, {
     }
 
     return columnsVisible.value.some(column => {
-      return !!column.formElement?.required;
+      return hasRequiredElement(column.formElement);
     });
   });
 

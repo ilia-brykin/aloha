@@ -167,6 +167,12 @@ export default {
       required: false,
       default: undefined,
     },
+    rowView: {
+      type: String,
+      required: false,
+      default: "table",
+      validator: value => ["list", "table"].includes(value),
+    },
     rows: {
       type: Array,
       required: false,
@@ -370,10 +376,11 @@ export default {
             "a_table_form__table",
             {
               a_table_form_drag_active: this.draggedRowIndex !== undefined,
+              a_table_form__table_list: this.rowView === "list",
             },
           ],
         }, [
-          h("thead", {
+          this.rowView === "table" && h("thead", {
             class: "a_table_form__head",
           }, [
             h(ATableFormRow, {
@@ -410,6 +417,7 @@ export default {
               onEditRow: this.onEditRow,
               row: {},
               rowIndex: 0,
+              rowView: this.rowView,
               rows: this.rows,
               saveRow: this.saveRow,
               texts: this.textsLocal,
@@ -467,6 +475,7 @@ export default {
                   row,
                   rowClass: this.rowClass,
                   rowIndex,
+                  rowView: this.rowView,
                   rows: this.rows,
                   saveRow: this.saveRow,
                   texts: this.textsLocal,
@@ -524,6 +533,7 @@ export default {
                 row: {},
                 rowClass: this.rowClass,
                 rowIndex: this.rows.length,
+                rowView: this.rowView,
                 rows: this.rows,
                 saveRow: this.addRow,
                 texts: this.textsLocal,
@@ -586,6 +596,7 @@ export default {
               row,
               rowClass: this.rowClass,
               rowIndex,
+              rowView: this.rowView,
               rows: this.rowsFooter,
               saveRow: this.saveRow,
               texts: this.textsLocal,

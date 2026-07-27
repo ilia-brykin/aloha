@@ -95,6 +95,11 @@ export default {
       required: false,
       default: true,
     },
+    showRequiredText: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     tag: {
       type: String,
       required: false,
@@ -177,7 +182,7 @@ export default {
         this.$slots.formPrepend() :
         "",
 
-      this.isRequiredLocal ?
+      this.showRequiredText && this.isRequiredLocal ?
         h(ARequired, {
           text: this.textRequired,
         }) :

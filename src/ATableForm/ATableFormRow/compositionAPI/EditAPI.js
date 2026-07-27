@@ -25,6 +25,7 @@ export default function EditAPI(props, {
   const updateModelLocal = ({
     column,
     columnId,
+    fullModel,
     item,
     model,
   }) => {
@@ -38,12 +39,15 @@ export default function EditAPI(props, {
         modelAll: modelLocal.value,
         row: row.value,
         column,
+        fullModel,
         model: model,
         item,
       });
     }
     if (changedModel?.model) {
       modelLocal.value = cloneDeep(changedModel.model);
+    } else if (fullModel !== undefined) {
+      modelLocal.value = cloneDeep(fullModel);
     } else {
       set(modelLocal.value, columnId, model);
     }
