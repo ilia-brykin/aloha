@@ -64,6 +64,7 @@ export const AMultiselectOrderedPluginOptions = {
       ...AMultiselectOrderedPluginTexts,
     },
     translateData: false,
+    translateGroup: false,
   },
 };
 

@@ -330,6 +330,11 @@ export default {
       required: false,
       default: () => ASelectPluginOptions.propsDefault.textSelectAll,
     },
+    translateGroup: {
+      type: Boolean,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.translateGroup,
+    },
     type: {
       type: String,
       required: false,

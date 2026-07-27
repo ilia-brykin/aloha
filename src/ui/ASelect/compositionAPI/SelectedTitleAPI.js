@@ -4,6 +4,11 @@ import {
 } from "vue";
 
 import {
+  getTranslatedText,
+  isPlaceholderTranslate,
+} from "../../../ATranslation/compositionAPI/UtilsAPI";
+
+import {
   AKeyLabel,
 } from "../../../const/AKeys";
 import {
@@ -21,12 +26,14 @@ export default function SelectedTitleAPI(props, {
   modelValueLength,
   modelValueMultiselectFiltered = computed(() => []),
 }) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const isSelectionCloseable = toRef(props, "isSelectionCloseable");
   const keyGroup = toRef(props, "keyGroup");
   const keyGroupLabelCallback = toRef(props, "keyGroupLabelCallback");
   const keyTitle = toRef(props, "keyTitle");
   const keyTitleCallback = toRef(props, "keyTitleCallback");
   const modelValue = toRef(props, "modelValue");
+  const translateGroup = toRef(props, "translateGroup");
 
   const getTitleForItem = ({ item, _isModeOnePerGroup }) => {
     if (isFunction(keyTitleCallback.value)) {
@@ -40,11 +47,19 @@ export default function SelectedTitleAPI(props, {
     if (_isModeOnePerGroup) {
       const groupKey = get(item, keyGroup.value);
       if (groupKey) {
+        let groupLabel = groupKey;
         if (isFunction(keyGroupLabelCallback.value)) {
-          return `${ keyGroupLabelCallback.value({ item, inDropdown: false, group: groupKey }) }: ${ item[AKeyLabel] }`;
+          groupLabel = keyGroupLabelCallback.value({ item, inDropdown: false, group: groupKey });
         }
 
-        return `${ groupKey }: ${ item[AKeyLabel] }`;
+        if (translateGroup.value && isPlaceholderTranslate(groupLabel)) {
+          groupLabel = getTranslatedText({
+            placeholder: groupLabel,
+            alwaysTranslate: alwaysTranslate.value,
+          });
+        }
+
+        return `${ groupLabel }: ${ item[AKeyLabel] }`;
       }
     }
 

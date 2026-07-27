@@ -63,6 +63,11 @@ export default {
       required: false,
       default: undefined,
     },
+    translateGroup: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   emits: [
     "changeModelValue",

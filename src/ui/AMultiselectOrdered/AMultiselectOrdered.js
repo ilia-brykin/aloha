@@ -443,6 +443,11 @@ export default {
       required: false,
       default: () => AMultiselectOrderedPluginOptions.propsDefault.translateData,
     },
+    translateGroup: {
+      type: Boolean,
+      required: false,
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.translateGroup,
+    },
     url: {
       type: String,
       required: false,
@@ -920,6 +925,7 @@ export default {
               searchTextInHtml: this.searchTextInHtml,
               selectMenuClass: this.selectMenuClass,
               slotName: this.slotName,
+              translateGroup: this.translateGroup,
               type: "multiselect",
             }, this.$slots),
           ]),

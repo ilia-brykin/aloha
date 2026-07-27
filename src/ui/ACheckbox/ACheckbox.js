@@ -348,6 +348,11 @@ export default {
       required: false,
       default: undefined,
     },
+    translateGroup: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     url: {
       type: String,
       required: false,

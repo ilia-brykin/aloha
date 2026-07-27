@@ -482,6 +482,11 @@ export default {
       required: false,
       default: () => ASelectPluginOptions.propsDefault.translateData,
     },
+    translateGroup: {
+      type: Boolean,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.translateGroup,
+    },
     type: {
       type: String,
       required: false,
@@ -1066,6 +1071,7 @@ export default {
                             showNotFound: this.showNotFound,
                             mode: this.mode,
                             slotName: this.slotName,
+                            translateGroup: this.translateGroup,
                             onChangeModelValue: this.onChangeModelValue,
                           }, this.$slots);
                         }),
@@ -1078,6 +1084,7 @@ export default {
                           keyGroupLabelCallback: this.keyGroupLabelCallback,
                           mode: this.mode,
                           hideDeleteButton: !this.exceededItemsDeletable,
+                          translateGroup: this.translateGroup,
                           onChangeModelValue: this.deleteExceededItems,
                         }),
                       ]) :

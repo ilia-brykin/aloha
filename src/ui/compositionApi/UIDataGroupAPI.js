@@ -9,6 +9,11 @@ import {
 } from "../../utils/utils";
 
 import {
+  getTranslatedText,
+  isPlaceholderTranslate,
+} from "../../ATranslation/compositionAPI/UtilsAPI";
+
+import {
   AKeyId,
 } from "../../const/AKeys";
 import {
@@ -25,10 +30,12 @@ import {
 export default function UIDataGroupAPI(props, {
   data = computed(() => []),
 }) {
+  const alwaysTranslate = toRef(props, "alwaysTranslate");
   const keyGroup = toRef(props, "keyGroup");
   const keyGroupLabelCallback = toRef(props, "keyGroupLabelCallback");
   const searchTextInHtml = toRef(props, "searchTextInHtml");
   const sortOrderGroup = toRef(props, "sortOrderGroup");
+  const translateGroup = toRef(props, "translateGroup");
 
   const keyGroupArray = computed(() => {
     if (isArray(keyGroup.value)) {
@@ -65,12 +72,18 @@ export default function UIDataGroupAPI(props, {
         }
         allGroupKeys += `${ allGroupKeys ? "_" : "" }${ group }`;
         if (!GROUPS_FOR_LEVER[leverIndex][allGroupKeys]) {
-          const GROUP_LABEL = isFunction(keyGroupLabelCallback.value) ?
+          let groupLabel = isFunction(keyGroupLabelCallback.value) ?
             keyGroupLabelCallback.value({ group: group, item }) :
             group;
+          if (translateGroup.value && isPlaceholderTranslate(groupLabel)) {
+            groupLabel = getTranslatedText({
+              placeholder: groupLabel,
+              alwaysTranslate: alwaysTranslate.value,
+            });
+          }
           GROUPS_FOR_LEVER[leverIndex][allGroupKeys] = {
             groupKey: group,
-            groupLabel: GROUP_LABEL,
+            groupLabel,
             groupParentKey: groupParentKey,
             allGroupKeys: allGroupKeys,
             allParentKeys: cloneDeep(allParentKeys),
@@ -78,7 +91,7 @@ export default function UIDataGroupAPI(props, {
             dataKeyByKeyId: {},
           };
           if (searchTextInHtml.value) {
-            GROUPS_FOR_LEVER[leverIndex][allGroupKeys].groupLabelSearch = extractTextFromHtml(GROUP_LABEL);
+            GROUPS_FOR_LEVER[leverIndex][allGroupKeys].groupLabelSearch = extractTextFromHtml(groupLabel);
           }
         }
         GROUPS_FOR_LEVER[leverIndex][allGroupKeys].data.push(item);

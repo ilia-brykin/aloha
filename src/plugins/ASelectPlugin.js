@@ -41,6 +41,7 @@ export const ASelectPluginOptions = {
     textDeselectAll: "_A_SELECT_DESELECT_ALL_",
     textSelectAll: "_A_SELECT_SELECT_ALL_",
     translateData: false,
+    translateGroup: false,
     type: "select",
   },
 };
