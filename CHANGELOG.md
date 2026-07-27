@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.61.0
+
+- Feature: Add `rowView` prop to `ATableForm` for toggling between "list" and "table" view modes, implement `ATableFormCellList` for list view rendering, and update related components, tests, and documentation
+
 ## 2.60.1
 
 - Refactor: Replace `dndDisabledCallback` with `actionsDisabledCallback` in `ATableForm` to support multiple action-specific callbacks and update related components and APIs
