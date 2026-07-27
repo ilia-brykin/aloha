@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.59.0
+
+- Feature: Add `translateGroup` prop support across multiple components and update APIs to handle translation of group labels
+
 ## 2.58.0
 
 - Feature: Add `key-group` support in `data-extra` for grouped item configurations across multiple components and update translations accordingly
