@@ -21,6 +21,7 @@ export default function TextsAPI(props) {
       editInfoText: undefined,
       emptyText: "_A_TABLE_FORM_EMPTY_",
       reorderColumn: "_A_TABLE_FORM_REORDER_COLUMN_",
+      reorderDisabled: "_A_TABLE_FORM_REORDER_DISABLED_",
       reorderDown: "_A_TABLE_FORM_MOVE_DOWN_",
       reorderHandle: "_A_TABLE_FORM_REORDER_",
       reorderUp: "_A_TABLE_FORM_MOVE_UP_",

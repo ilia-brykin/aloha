@@ -13,5 +13,6 @@
   "_A_TABLE_FORM_MOVE_DOWN_": "نقل الصف إلى الأسفل",
   "_A_TABLE_FORM_MOVE_UP_": "نقل الصف إلى الأعلى",
   "_A_TABLE_FORM_REORDER_": "سحب الصف لإعادة ترتيبه",
-  "_A_TABLE_FORM_REORDER_COLUMN_": "إعادة ترتيب الصفوف"
+  "_A_TABLE_FORM_REORDER_COLUMN_": "إعادة ترتيب الصفوف",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "تم تعطيل إعادة ترتيب الصف"
 }

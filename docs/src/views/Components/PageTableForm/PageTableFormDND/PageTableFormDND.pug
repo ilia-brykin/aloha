@@ -3,10 +3,11 @@ aloha-example(
   :code-js="codeJs"
   header="_A_TABLE_FORM_DND_HEADER_"
   description="_A_TABLE_FORM_DND_DESCRIPTION_"
-  props="is-drag-and-drop"
+  :props="['dnd-disabled-callback', 'is-drag-and-drop']"
 )
   a-table-form(
     :columns="columns"
+    :dnd-disabled-callback="dndDisabledCallback"
     :is-drag-and-drop="true"
     :rows-footer="rowsFooter"
     :rows="rows"

@@ -12,6 +12,7 @@ import IdAPI from "./compositionAPI/IdAPI";
 import ChevronDown from "aloha-svg/dist/js/bootstrap/ChevronDown";
 import ChevronUp from "aloha-svg/dist/js/bootstrap/ChevronUp";
 import GripVertical from "aloha-svg/dist/js/bootstrap/GripVertical";
+import LockFill from "aloha-svg/dist/js/bootstrap/LockFill";
 
 export default {
   name: "ATableFormCellDnd",
@@ -141,14 +142,19 @@ export default {
             }),
             h("span", {
               ariaHidden: true,
-              class: "a_table_form__reorder_handle",
+              class: [
+                "a_table_form__reorder_handle",
+                {
+                  a_table_form__reorder_handle_disabled: this.isDndDisabled,
+                },
+              ],
               draggable: isHandleDraggable,
               onDragend: isHandleDraggable ? this.onDragend : undefined,
               onDragstart: isHandleDraggable ? ($event => this.onDragstart($event, this.rowIndex)) : undefined,
             }, [
               h(AIcon, {
                 class: "a_table_form__reorder_icon",
-                icon: GripVertical,
+                icon: this.isDndDisabled ? LockFill : GripVertical,
               }),
             ]),
             h("span", {
@@ -156,7 +162,7 @@ export default {
             }, [
               h(ATranslation, {
                 tag: "span",
-                text: this.texts.reorderHandle,
+                text: this.isDndDisabled ? this.texts.reorderDisabled : this.texts.reorderHandle,
               }),
             ]),
             this.canMoveRowDown(this.rowIndex) && h(AButton, {

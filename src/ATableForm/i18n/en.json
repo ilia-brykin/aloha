@@ -13,5 +13,6 @@
   "_A_TABLE_FORM_MOVE_DOWN_": "Move row down",
   "_A_TABLE_FORM_MOVE_UP_": "Move row up",
   "_A_TABLE_FORM_REORDER_": "Drag row to reorder",
-  "_A_TABLE_FORM_REORDER_COLUMN_": "Change row order"
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Change row order",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Row reordering disabled"
 }

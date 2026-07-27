@@ -13,5 +13,6 @@
   "_A_TABLE_FORM_MOVE_DOWN_": "Sposta riga in basso",
   "_A_TABLE_FORM_MOVE_UP_": "Sposta riga in alto",
   "_A_TABLE_FORM_REORDER_": "Trascina la riga per riordinare",
-  "_A_TABLE_FORM_REORDER_COLUMN_": "Modifica l'ordine delle righe"
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Modifica l'ordine delle righe",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Riordinamento della riga disabilitato"
 }

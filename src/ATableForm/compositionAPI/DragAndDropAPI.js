@@ -8,10 +8,14 @@ import {
 import {
   setFocusToElement,
 } from "../../utils/utilsDOM";
+import {
+  isFunction,
+} from "lodash-es";
 
 export default function DragAndDropAPI(props, { emit }, {
   isDndDisabled = computed(() => false),
 } = {}) {
+  const dndDisabledCallback = toRef(props, "dndDisabledCallback");
   const focusAfterMove = toRef(props, "focusAfterMove");
   const id = toRef(props, "id");
   const isDragAndDrop = toRef(props, "isDragAndDrop");
@@ -21,6 +25,34 @@ export default function DragAndDropAPI(props, { emit }, {
   const dragOverRowIndex = ref(undefined);
   const dragOverPosition = ref(undefined);
   const dragPreviewElement = ref(undefined);
+
+  const isDndDisabledForRow = rowIndex => {
+    if (isDndDisabled.value) {
+      return true;
+    }
+
+    if (isFunction(dndDisabledCallback.value)) {
+      return !!dndDisabledCallback.value({
+        row: rows.value[rowIndex],
+        rowIndex,
+      });
+    }
+
+    return false;
+  };
+
+  const hasDisabledRowBetween = (fromIndex, toIndex) => {
+    const indexFrom = Math.min(fromIndex, toIndex);
+    const indexTo = Math.max(fromIndex, toIndex);
+
+    for (let rowIndex = indexFrom; rowIndex <= indexTo; rowIndex++) {
+      if (isDndDisabledForRow(rowIndex)) {
+        return true;
+      }
+    }
+
+    return false;
+  };
 
   const removeDragPreview = () => {
     dragPreviewElement.value?.remove();
@@ -90,7 +122,8 @@ export default function DragAndDropAPI(props, { emit }, {
       fromIndex < 0 ||
       toIndex < 0 ||
       fromIndex >= rows.value.length ||
-      toIndex >= rows.value.length) {
+      toIndex >= rows.value.length ||
+      hasDisabledRowBetween(fromIndex, toIndex)) {
       return;
     }
 
@@ -169,7 +202,7 @@ export default function DragAndDropAPI(props, { emit }, {
   };
 
   const onDragstart = ($event, rowIndex) => {
-    if (!isDragAndDrop.value || isDndDisabled.value) {
+    if (!isDragAndDrop.value || isDndDisabledForRow(rowIndex)) {
       return;
     }
 
@@ -188,7 +221,7 @@ export default function DragAndDropAPI(props, { emit }, {
   };
 
   const onDragover = ($event, rowIndex) => {
-    if (!isDragAndDrop.value || isDndDisabled.value) {
+    if (!isDragAndDrop.value || isDndDisabledForRow(rowIndex)) {
       return;
     }
 
@@ -206,7 +239,7 @@ export default function DragAndDropAPI(props, { emit }, {
   };
 
   const onDragleave = ($event, rowIndex) => {
-    if (!isDragAndDrop.value || isDndDisabled.value) {
+    if (!isDragAndDrop.value || isDndDisabledForRow(rowIndex)) {
       return;
     }
 
@@ -222,7 +255,7 @@ export default function DragAndDropAPI(props, { emit }, {
   };
 
   const onDrop = ($event, rowIndex) => {
-    if (!isDragAndDrop.value || isDndDisabled.value) {
+    if (!isDragAndDrop.value || isDndDisabledForRow(rowIndex)) {
       return;
     }
 
@@ -257,6 +290,7 @@ export default function DragAndDropAPI(props, { emit }, {
     dragOverPosition,
     dragOverRowIndex,
     draggedRowIndex,
+    isDndDisabledForRow,
     onDragleave,
     moveRowDown,
     moveRowUp,

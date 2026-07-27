@@ -213,6 +213,11 @@
   }
 }
 
+.a_table_form__reorder_handle_disabled {
+  cursor: not-allowed;
+  -webkit-user-drag: none;
+}
+
 .a_table_form__reorder_button {
   //min-width: auto;
   &.a_btn {

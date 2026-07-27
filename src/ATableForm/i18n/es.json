@@ -13,5 +13,6 @@
   "_A_TABLE_FORM_MOVE_DOWN_": "Mover fila hacia abajo",
   "_A_TABLE_FORM_MOVE_UP_": "Mover fila hacia arriba",
   "_A_TABLE_FORM_REORDER_": "Arrastrar fila para reordenar",
-  "_A_TABLE_FORM_REORDER_COLUMN_": "Cambiar el orden de las filas"
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Cambiar el orden de las filas",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Reordenación de fila desactivada"
 }

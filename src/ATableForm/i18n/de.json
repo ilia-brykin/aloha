@@ -13,5 +13,6 @@
   "_A_TABLE_FORM_MOVE_DOWN_": "Zeile nach unten verschieben",
   "_A_TABLE_FORM_MOVE_UP_": "Zeile nach oben verschieben",
   "_A_TABLE_FORM_REORDER_": "Zeile zum Neuordnen ziehen",
-  "_A_TABLE_FORM_REORDER_COLUMN_": "Reihenfolge der Zeilen ändern"
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Reihenfolge der Zeilen ändern",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Neuanordnung der Zeile deaktiviert"
 }

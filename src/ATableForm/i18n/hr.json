@@ -13,5 +13,6 @@
   "_A_TABLE_FORM_MOVE_DOWN_": "Premjesti redak dolje",
   "_A_TABLE_FORM_MOVE_UP_": "Premjesti redak gore",
   "_A_TABLE_FORM_REORDER_": "Povuci redak za promjenu redoslijeda",
-  "_A_TABLE_FORM_REORDER_COLUMN_": "Promjena redoslijeda redaka"
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Promjena redoslijeda redaka",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Promjena redoslijeda retka onemogućena"
 }

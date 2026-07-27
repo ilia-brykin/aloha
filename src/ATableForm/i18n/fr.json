@@ -13,5 +13,6 @@
   "_A_TABLE_FORM_MOVE_DOWN_": "Déplacer la ligne vers le bas",
   "_A_TABLE_FORM_MOVE_UP_": "Déplacer la ligne vers le haut",
   "_A_TABLE_FORM_REORDER_": "Faire glisser la ligne pour la réorganiser",
-  "_A_TABLE_FORM_REORDER_COLUMN_": "Modifier l'ordre des lignes"
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Modifier l'ordre des lignes",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Réorganisation de la ligne désactivée"
 }

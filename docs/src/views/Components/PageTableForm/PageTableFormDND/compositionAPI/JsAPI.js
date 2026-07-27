@@ -66,6 +66,7 @@ export default {
 
     const rows = ref([
       {
+        dndDisabled: true,
         id: 1,
         name: "Марта Иванова",
         position: 1,
@@ -81,6 +82,8 @@ export default {
       },
     ];
 
+    const dndDisabledCallback = ({ row }) => row.dndDisabled;
+
     const updateRows = ({ rows: _rows, trigger }) => {
       rows.value = _rows;
       console.log("trigger", trigger);
@@ -88,6 +91,7 @@ export default {
 
     return {
       columns,
+      dndDisabledCallback,
       rows,
       rowsFooter,
       updateRows,

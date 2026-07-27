@@ -98,6 +98,7 @@ export default {
         team: "north",
       },
       {
+        dndDisabled: true,
         id: 2,
         name: "Олег Сидоров",
         position: 2,
@@ -127,6 +128,8 @@ export default {
       },
     ];
 
+    const dndDisabledCallback = ({ row }) => row.dndDisabled;
+
     const updateRows = ({ rows: _rows, trigger }) => {
       rows.value = _rows;
       console.log("trigger", trigger);
@@ -136,6 +139,7 @@ export default {
       codeHtml,
       codeJs,
       columns,
+      dndDisabledCallback,
       rows,
       rowsFooter,
       updateRows,
