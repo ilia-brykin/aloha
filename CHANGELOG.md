@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.60.1
+
+- Refactor: Replace `dndDisabledCallback` with `actionsDisabledCallback` in `ATableForm` to support multiple action-specific callbacks and update related components and APIs
+
 ## 2.60.0
 
 - Feature: Add `dndDisabledCallback` prop to `ATableForm` for disabling drag-and-drop on specific rows and update `DragAndDropAPI` to respect row-level drag-and-drop restrictions
