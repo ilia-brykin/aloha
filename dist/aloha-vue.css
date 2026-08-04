@@ -12260,6 +12260,23 @@ input[type=text]::-ms-clear {
     inset -2px 0 0 var(--a_table_form_focus_color);
 }
 
+.a_table_form__row_edit_on_click {
+  cursor: pointer;
+}
+.a_table_form__row_edit_on_click input:disabled,
+.a_table_form__row_edit_on_click input[readonly],
+.a_table_form__row_edit_on_click select:disabled,
+.a_table_form__row_edit_on_click textarea:disabled,
+.a_table_form__row_edit_on_click textarea[readonly],
+.a_table_form__row_edit_on_click [aria-disabled=true],
+.a_table_form__row_edit_on_click [aria-readonly=true] {
+  cursor: pointer;
+  pointer-events: none;
+}
+.a_table_form__row_edit_on_click [data-column-id] {
+  cursor: pointer;
+}
+
 .a_table_form__row_drag_over .a_table_form__cell_td,
 .a_table_form__row_dragging .a_table_form__cell_td {
   background-color: var(--a_table_form_row_drag_bg);

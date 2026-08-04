@@ -7,6 +7,12 @@
 ---
 # Versions
 
+## 2.62.0
+
+- Update UiClearButtonAPI: Enhance `isClearButtonLocal` logic to respect the `disabled` state.
+- `ATableForm`: add isEditOnRowClick: Introduce `isEditOnRowClick` functionality to ATableForm, enabling row edit mode activation by click when configured.
+- `ATableForm`: add focus-by-column-id: Introduce `focusEditableElementByColumnId` to support focusing specific columns during row edit mode, enhancing row click functionality.
+
 ## 2.61.0
 
 - Feature: Add `rowView` prop to `ATableForm` for toggling between "list" and "table" view modes, implement `ATableFormCellList` for list view rendering, and update related components, tests, and documentation
