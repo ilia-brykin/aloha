@@ -46,7 +46,16 @@ jest.mock("../../ui/AForm/AForm", () => {
         "change",
       ],
       render() {
-        return h("div");
+        return h(this.tag || "div", {}, this.data.map(item => {
+          return h("div", {
+            "data-column-id": item["data-column-id"],
+          }, [
+            h("input", {
+              disabled: this.readonly || item.disabled,
+              id: `${ this.idPrefix }${ item.id }`,
+            }),
+          ]);
+        }));
       },
     },
   };
@@ -230,6 +239,87 @@ describe("ATableForm list view", () => {
     expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(false);
   });
 
+  it("focuses the clicked column after entering edit mode by row click", async() => {
+    const wrapper = mount(ATableForm, {
+      attachTo: document.body,
+      props: {
+        columns: [
+          {
+            id: "number",
+            label: "Number",
+            formElement: {
+              type: "text",
+            },
+          },
+          {
+            id: "name",
+            label: "Name",
+            formElement: {
+              type: "text",
+            },
+          },
+        ],
+        isEditable: true,
+        isEditOnRowClick: true,
+        rows: [
+          {
+            name: "Marta Ivanova",
+            number: 1,
+          },
+        ],
+      },
+    });
+
+    await wrapper.find("tbody [data-column-id='name']").trigger("click");
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(true);
+    expect(document.activeElement.closest("[data-column-id]").dataset.columnId).toBe("name");
+
+    wrapper.unmount();
+  });
+
+  it("focuses the clicked form item in list view after entering edit mode by row click", async() => {
+    const wrapper = mount(ATableForm, {
+      attachTo: document.body,
+      props: {
+        columns: [
+          {
+            id: "number",
+            label: "Number",
+            formElement: {
+              type: "text",
+            },
+          },
+          {
+            id: "name",
+            label: "Name",
+            formElement: {
+              type: "text",
+            },
+          },
+        ],
+        isEditable: true,
+        isEditOnRowClick: true,
+        rowView: "list",
+        rows: [
+          {
+            name: "Marta Ivanova",
+            number: 1,
+          },
+        ],
+      },
+    });
+
+    await wrapper.find("tbody [data-column-id='name']").trigger("click");
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(true);
+    expect(document.activeElement.closest("[data-column-id]").dataset.columnId).toBe("name");
+
+    wrapper.unmount();
+  });
+
   it("uses one content column and finds required fields recursively", () => {
     const props = reactive({
       columns: [
@@ -318,6 +408,7 @@ describe("ATableForm list view", () => {
             useRowReadonly: true,
           },
         ],
+        "data-column-id": "limits",
         disabled: true,
         id: "limits",
         label: "Limits",

@@ -49,6 +49,7 @@ export default function DataAPI(props) {
       if (isNil(ITEM.label)) {
         ITEM.label = column.label;
       }
+      ITEM["data-column-id"] = column.id;
 
       return ITEM;
     });

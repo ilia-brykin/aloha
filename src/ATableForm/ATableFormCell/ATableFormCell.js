@@ -154,6 +154,7 @@ export default {
         this.column.class,
         this.isFooter ? this.column.classFooter : this.column.classRow,
       ],
+      "data-column-id": this.column.id,
       style: [
         this.columnStyles,
         this.columnStyle,

@@ -32,6 +32,7 @@ export default function EditAPI(props, {
 
   const activeEditRowKey = ref(undefined);
   const activeEditModel = ref(undefined);
+  const activeEditFocusColumnId = ref(undefined);
   const isAddRowActive = ref(false);
 
   const hasActiveEditRow = computed(() => {
@@ -79,12 +80,14 @@ export default function EditAPI(props, {
     activeEditModel.value = getPreparedEditModel({
       rows: rows.value,
     });
+    activeEditFocusColumnId.value = undefined;
     isAddRowActive.value = true;
   };
 
   const onCancelEditRow = ({ trigger, id } = {}) => {
     activeEditRowKey.value = undefined;
     activeEditModel.value = undefined;
+    activeEditFocusColumnId.value = undefined;
     isAddRowActive.value = false;
     if (trigger === "cancel") {
       setTimeout(() => {
@@ -97,7 +100,7 @@ export default function EditAPI(props, {
     }
   };
 
-  const onEditRow = ({ row, rowIndex }) => {
+  const onEditRow = ({ focusColumnId, row, rowIndex }) => {
     if (isAddRowActive.value) {
       return;
     }
@@ -107,6 +110,7 @@ export default function EditAPI(props, {
       rowIndex,
       rows: rows.value,
     });
+    activeEditFocusColumnId.value = focusColumnId;
     activeEditRowKey.value = getRowKey({
       row,
       rowIndex,
@@ -114,6 +118,7 @@ export default function EditAPI(props, {
   };
 
   return {
+    activeEditFocusColumnId,
     activeEditRowKey,
     activeEditModel,
     canAddRow,

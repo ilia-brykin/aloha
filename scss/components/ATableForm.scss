@@ -159,6 +159,21 @@
 
 .a_table_form__row_edit_on_click {
   cursor: pointer;
+
+  input:disabled,
+  input[readonly],
+  select:disabled,
+  textarea:disabled,
+  textarea[readonly],
+  [aria-disabled="true"],
+  [aria-readonly="true"] {
+    cursor: pointer;
+    pointer-events: none;
+  }
+
+  [data-column-id] {
+    cursor: pointer;
+  }
 }
 
 .a_table_form__row_drag_over .a_table_form__cell_td,

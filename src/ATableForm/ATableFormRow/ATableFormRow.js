@@ -28,9 +28,6 @@ import {
 const INTERACTIVE_ROW_CLICK_SELECTOR = [
   "a",
   "button",
-  "input",
-  "select",
-  "textarea",
   "[contenteditable]",
   "[role='button']",
   "[role='checkbox']",
@@ -42,6 +39,32 @@ const INTERACTIVE_ROW_CLICK_SELECTOR = [
   "[role='switch']",
   "[role='textbox']",
 ].join(",");
+
+const isDisabledOrReadonlyElement = element => {
+  return !!element && (
+    element.disabled ||
+    element.hasAttribute("readonly") ||
+    element.getAttribute("aria-disabled") === "true" ||
+    element.getAttribute("aria-readonly") === "true"
+  );
+};
+
+const getColumnIdFromRowClickEvent = ($event, idTr) => {
+  const columnElement = $event.target?.closest?.("[data-column-id]");
+
+  if (columnElement?.dataset.columnId) {
+    return columnElement.dataset.columnId;
+  }
+
+  const elementWithId = $event.target?.closest?.("[id]");
+  const elementId = elementWithId?.id;
+
+  if (elementId?.startsWith(idTr)) {
+    return elementId.slice(idTr.length);
+  }
+
+  return undefined;
+};
 
 export default {
   name: "ATableFormRow",
@@ -104,6 +127,11 @@ export default {
     },
     editModel: {
       type: Object,
+      required: false,
+      default: undefined,
+    },
+    editFocusColumnId: {
+      type: [String, Number],
       required: false,
       default: undefined,
     },
@@ -250,6 +278,7 @@ export default {
       type: String,
       required: false,
       default: "table",
+      validator: value => ["list", "table"].includes(value),
     },
     saveRow: {
       type: Function,
@@ -277,6 +306,7 @@ export default {
     } = IdAPI(props);
 
     const {
+      focusEditableElementByColumnId,
       focusFirstEditableElement,
     } = FocusAPI({
       idTr,
@@ -309,6 +339,7 @@ export default {
       cancelEditRow,
       errorsLocal,
       focusFirstEditableElement,
+      focusEditableElementByColumnId,
       hasErrors,
       rowClassLocal,
       idTr,
@@ -360,11 +391,22 @@ export default {
   },
   methods: {
     onRowClick($event) {
-      if (!this.canEditOnRowClick || $event.target?.closest?.(INTERACTIVE_ROW_CLICK_SELECTOR)) {
+      if (!this.canEditOnRowClick) {
+        return;
+      }
+
+      if ($event.target?.closest?.(".a_table_form__cell_actions, .a_table_form__cell_reorder")) {
+        return;
+      }
+
+      const interactiveElement = $event.target?.closest?.(INTERACTIVE_ROW_CLICK_SELECTOR);
+
+      if (interactiveElement && !isDisabledOrReadonlyElement(interactiveElement)) {
         return;
       }
 
       this.onEditRow({
+        focusColumnId: getColumnIdFromRowClickEvent($event, this.idTr),
         id: this.idTr,
         row: this.row,
         rowIndex: this.rowIndex,
@@ -379,7 +421,9 @@ export default {
           this.modelLocal = cloneDeep(this.editModel === undefined ? this.row : this.editModel);
           this.errorsLocal = {};
           nextTick(() => {
-            this.focusFirstEditableElement();
+            if (!this.focusEditableElementByColumnId(this.editFocusColumnId)) {
+              this.focusFirstEditableElement();
+            }
           });
           return;
         }

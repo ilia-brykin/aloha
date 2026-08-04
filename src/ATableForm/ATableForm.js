@@ -262,6 +262,7 @@ export default {
     const {
       activeEditRowKey,
       activeEditModel,
+      activeEditFocusColumnId,
       canAddRow,
       hasActiveEditRow,
       hasRequiredEditableColumns,
@@ -321,6 +322,7 @@ export default {
     });
 
     return {
+      activeEditFocusColumnId,
       activeEditRowKey,
       activeEditModel,
       allColumnsLength,
@@ -456,6 +458,7 @@ export default {
                   columnsStylesGrow: this.columnsStylesGrow,
                   draggedRowIndex: this.draggedRowIndex,
                   editModel: this.activeEditRowKey === rowKey ? this.activeEditModel : undefined,
+                  editFocusColumnId: this.activeEditRowKey === rowKey ? this.activeEditFocusColumnId : undefined,
                   errorIcon: this.errorIcon,
                   extra: this.extra,
                   hasActionsColumn: this.hasActionsColumn,
