@@ -157,6 +157,10 @@
   }
 }
 
+.a_table_form__row_edit_on_click {
+  cursor: pointer;
+}
+
 .a_table_form__row_drag_over .a_table_form__cell_td,
 .a_table_form__row_dragging .a_table_form__cell_td {
   background-color: var(--a_table_form_row_drag_bg);

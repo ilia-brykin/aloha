@@ -137,6 +137,11 @@ export default {
       required: false,
       default: false,
     },
+    isEditOnRowClick: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     keyId: {
       type: String,
       required: false,
@@ -407,6 +412,7 @@ export default {
               isDndDisabled: this.hasActiveEditRow,
               isDragAndDrop: this.isDragAndDrop,
               isEditable: this.isEditable,
+              isEditOnRowClick: false,
               isHeader: true,
               moveRowDown: this.moveRowDown,
               moveRowUp: this.moveRowUp,
@@ -462,6 +468,7 @@ export default {
                   isDndDisabled: this.isDndDisabledForRow(rowIndex),
                   isDragAndDrop: this.isDragAndDrop,
                   isEditable: this.isEditable,
+                  isEditOnRowClick: this.isEditOnRowClick,
                   moveRowDown: this.moveRowDown,
                   moveRowUp: this.moveRowUp,
                   onCancelEditRow: this.onCancelEditRow,
@@ -519,6 +526,7 @@ export default {
                 isDndDisabled: true,
                 isDragAndDrop: this.isDragAndDrop,
                 isEditable: this.isEditable,
+                isEditOnRowClick: false,
                 key: "body_create",
                 moveRowDown: this.moveRowDown,
                 moveRowUp: this.moveRowUp,
@@ -580,6 +588,7 @@ export default {
               isDndDisabled: this.hasActiveEditRow,
               isDragAndDrop: this.isDragAndDrop,
               isEditable: this.isEditable,
+              isEditOnRowClick: false,
               isFooter: true,
               key: this.getRowKey({
                 isFooter: true,

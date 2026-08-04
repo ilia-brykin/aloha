@@ -21,7 +21,27 @@ import IdAPI from "./compositionAPI/IdAPI";
 
 import {
   cloneDeep,
+  get,
+  isFunction,
 } from "lodash-es";
+
+const INTERACTIVE_ROW_CLICK_SELECTOR = [
+  "a",
+  "button",
+  "input",
+  "select",
+  "textarea",
+  "[contenteditable]",
+  "[role='button']",
+  "[role='checkbox']",
+  "[role='combobox']",
+  "[role='link']",
+  "[role='menuitem']",
+  "[role='option']",
+  "[role='radio']",
+  "[role='switch']",
+  "[role='textbox']",
+].join(",");
 
 export default {
   name: "ATableFormRow",
@@ -147,6 +167,11 @@ export default {
       default: false,
     },
     isEditable: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isEditOnRowClick: {
       type: Boolean,
       required: false,
       default: false,
@@ -296,8 +321,54 @@ export default {
     };
   },
   computed: {
+    canEditOnRowClick() {
+      if (
+        !this.isEditOnRowClick ||
+        !this.isEditable ||
+        this.isActiveEditMode ||
+        this.isCreateMode ||
+        this.isFooter ||
+        this.isHeader ||
+        this.hasActiveEditRow
+      ) {
+        return false;
+      }
+
+      const editHideCallback = get(this.actionsHideCallback, "edit");
+
+      if (isFunction(editHideCallback) && editHideCallback({
+        row: this.row,
+        rowIndex: this.rowIndex,
+      })) {
+        return false;
+      }
+
+      const editDisabledCallback = get(this.actionsDisabledCallback, "edit");
+
+      if (isFunction(editDisabledCallback) && editDisabledCallback({
+        row: this.row,
+        rowIndex: this.rowIndex,
+      })) {
+        return false;
+      }
+
+      return true;
+    },
     currentRowData() {
       return this.isActiveEditMode && this.modelLocal ? this.modelLocal : this.row;
+    },
+  },
+  methods: {
+    onRowClick($event) {
+      if (!this.canEditOnRowClick || $event.target?.closest?.(INTERACTIVE_ROW_CLICK_SELECTOR)) {
+        return;
+      }
+
+      this.onEditRow({
+        id: this.idTr,
+        row: this.row,
+        rowIndex: this.rowIndex,
+      });
     },
   },
   watch: {
@@ -343,8 +414,14 @@ export default {
     rows.push(h("tr", {
       id: this.idTr,
       "aria-grabbed": !this.isHeader && !this.isFooter ? this.draggedRowIndex === this.rowIndex : undefined,
-      class: this.trClassLocal,
+      class: [
+        this.trClassLocal,
+        {
+          a_table_form__row_edit_on_click: this.canEditOnRowClick,
+        },
+      ],
       key: `main_${ this.rowIndex }`,
+      onClick: this.onRowClick,
       onDragleave: this.onDragleave && ($event => this.onDragleave($event, this.rowIndex)),
       onDragover: this.onDragover && ($event => this.onDragover($event, this.rowIndex)),
       onDrop: this.onDrop && ($event => this.onDrop($event, this.rowIndex)),

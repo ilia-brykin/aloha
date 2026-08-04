@@ -13,6 +13,7 @@ import {
 } from "@vue/test-utils";
 
 import AForm from "../../ui/AForm/AForm";
+import ATableForm from "../ATableForm";
 import ATableFormCellList from "../ATableFormCellList/ATableFormCellList";
 
 import ColumnsAPI from "../compositionAPI/ColumnsAPI";
@@ -51,7 +52,184 @@ jest.mock("../../ui/AForm/AForm", () => {
   };
 });
 
+jest.mock("../../ui/AFormElement/AFormElement", () => {
+  const {
+    h,
+  } = require("vue");
+
+  return {
+    __esModule: true,
+    default: {
+      name: "AFormElement",
+      render() {
+        return h("input");
+      },
+    },
+  };
+});
+
+jest.mock("../../index", () => {
+  const {
+    h,
+  } = require("vue");
+
+  return {
+    AAlert: {
+      name: "AAlert",
+      render() {
+        return h("div");
+      },
+    },
+    AConfirmAPI: () => ({
+      closeConfirm: jest.fn(),
+      openConfirm: jest.fn(),
+    }),
+    AErrors: {
+      name: "AErrors",
+      render() {
+        return h("div");
+      },
+    },
+  };
+});
+
+jest.mock("../../AButton/AButton", () => {
+  const {
+    h,
+  } = require("vue");
+
+  return {
+    __esModule: true,
+    default: {
+      name: "AButton",
+      props: {
+        disabled: Boolean,
+        id: String,
+      },
+      emits: [
+        "click",
+      ],
+      render() {
+        return h("button", {
+          disabled: this.disabled,
+          id: this.id,
+          onClick: $event => this.$emit("click", $event),
+        });
+      },
+    },
+  };
+});
+
+jest.mock("aloha-svg/dist/js/bootstrap/ChevronDown", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/ChevronUp", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/ExclamationCircleFill", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/Floppy2Fill", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/GripVertical", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/LockFill", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/PencilFill", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/Plus", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/Trash", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+jest.mock("aloha-svg/dist/js/bootstrap/XLg", () => ({
+  __esModule: true,
+  default: "<svg></svg>",
+}));
+
 describe("ATableForm list view", () => {
+  it("enters edit mode by row click only when enabled and row edit is available", async() => {
+    const rows = [
+      {
+        id: 1,
+        name: "Editable",
+      },
+      {
+        id: 2,
+        name: "Disabled",
+      },
+    ];
+    const wrapper = mount(ATableForm, {
+      props: {
+        actionsDisabledCallback: {
+          edit: ({ row }) => row.id === 2,
+        },
+        columns: [
+          {
+            id: "name",
+            label: "Name",
+            formElement: {
+              type: "text",
+            },
+          },
+        ],
+        isEditable: true,
+        isEditOnRowClick: true,
+        keyId: "id",
+        rows,
+      },
+    });
+
+    const bodyRows = wrapper.findAll("tbody tr.a_table_form__row");
+
+    await bodyRows[1].trigger("click");
+    expect(wrapper.find("tbody tr.a_table_form__row_edit_on_click").exists()).toBe(true);
+
+    await bodyRows[0].trigger("click");
+    expect(wrapper.find("tbody tr.a_table_form__row_edit_on_click").exists()).toBe(false);
+    expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(true);
+  });
+
+  it("does not enter edit mode by row click when the prop is disabled", async() => {
+    const wrapper = mount(ATableForm, {
+      props: {
+        columns: [
+          {
+            id: "name",
+            label: "Name",
+            formElement: {
+              type: "text",
+            },
+          },
+        ],
+        isEditable: true,
+        rows: [
+          {
+            name: "Readonly row click",
+          },
+        ],
+      },
+    });
+
+    await wrapper.find("tbody tr.a_table_form__row").trigger("click");
+
+    expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(false);
+  });
+
   it("uses one content column and finds required fields recursively", () => {
     const props = reactive({
       columns: [

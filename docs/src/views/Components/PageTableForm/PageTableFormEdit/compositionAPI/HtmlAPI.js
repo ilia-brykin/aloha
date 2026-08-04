@@ -10,9 +10,10 @@ export default function HtmlAPI() {
 <a-simple-table
   :add-row="addRow"
   :columns="columns"
-  :is-addable="true"
+  :is-addable="modelCheckbox.includes('is-addable')"
   :is-deletable-confirm="modelCheckbox.includes('is-deletable-confirm')"
   :is-deletable="modelCheckbox.includes('is-deletable')"
+  :is-edit-on-row-click="modelCheckbox.includes('is-edit-on-row-click')"
   :is-editable="modelCheckbox.includes('is-editable')"
   :rows-footer="rowsFooter"
   :rows="rows"

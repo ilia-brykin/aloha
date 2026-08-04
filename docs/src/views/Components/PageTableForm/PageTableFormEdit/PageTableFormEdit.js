@@ -41,11 +41,15 @@ export default {
         value: "is-editable",
       },
       {
+        label: "is-edit-on-row-click",
+        value: "is-edit-on-row-click",
+      },
+      {
         label: "is-addable",
         value: "is-addable",
       },
     ];
-    const modelCheckbox = ref(["is-deletable-confirm", "is-deletable", "is-editable", "is-addable"]);
+    const modelCheckbox = ref(["is-deletable-confirm", "is-deletable", "is-editable", "is-edit-on-row-click", "is-addable"]);
 
     const texts = {
       actionEditCancel: "abbrechen",
