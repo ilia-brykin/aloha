@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.63.2
+
+- Fix: Correct `AInputCurrency` formatting for decimal strings received from external models
+
 ## 2.63.1
 
 - Fix: Swap "Save" and "Cancel" button attributes in `ATableFormCellAction` for consistent behavior and alignment with action logic
