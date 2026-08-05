@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.65.0
+
+- Feature: Add `showSelectedFirst` prop to `ASelect` for prioritizing selected options, update documentation, examples, localization, and add comprehensive tests
+
 ## 2.64.0
 
 - Feature: Add `formElementEditPropsCallback` support to `ATableForm` for row-specific form element properties in edit mode, update examples, localization, and related tests
