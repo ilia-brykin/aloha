@@ -47578,6 +47578,23 @@ const sk = {
         role: "group"
       }, this.isActiveEditMode ? [
         d(ft, {
+          id: this.idBtnSave,
+          class: [
+            "a_table_form__action_button",
+            this.actionsClasses.editSave
+          ],
+          disabled: this.isSaving,
+          extra: this.extra,
+          iconLeft: DC,
+          title: this.texts.actionEditSave,
+          textScreenReader: this.texts.actionEditSave,
+          onClick: () => this.onSaveEditRow({
+            id: this.id,
+            row: this.row,
+            rowIndex: this.rowIndex
+          })
+        }),
+        d(ft, {
           id: this.idBtnCancel,
           class: [
             "a_table_form__action_button",
@@ -47593,23 +47610,6 @@ const sk = {
             row: this.row,
             rowIndex: this.rowIndex,
             trigger: "cancel"
-          })
-        }),
-        d(ft, {
-          id: this.idBtnSave,
-          class: [
-            "a_table_form__action_button",
-            this.actionsClasses.editSave
-          ],
-          disabled: this.isSaving,
-          extra: this.extra,
-          iconLeft: DC,
-          title: this.texts.actionEditSave,
-          textScreenReader: this.texts.actionEditSave,
-          onClick: () => this.onSaveEditRow({
-            id: this.id,
-            row: this.row,
-            rowIndex: this.rowIndex
           })
         })
       ] : [

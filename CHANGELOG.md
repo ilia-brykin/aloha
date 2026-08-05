@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.63.1
+
+- Fix: Swap "Save" and "Cancel" button attributes in `ATableFormCellAction` for consistent behavior and alignment with action logic
+
 ## 2.63.0
 
 - Fix: Adjust `ATableForm` focus styles with inset box shadows for improved visual consistency
