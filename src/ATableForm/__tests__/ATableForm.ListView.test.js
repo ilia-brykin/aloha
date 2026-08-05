@@ -204,9 +204,9 @@ describe("ATableForm list view", () => {
 
   it.each([
     [true, true, 112],
-    [true, false, 56],
-    [false, true, 56],
-    [false, false, 56],
+    [true, false, 64],
+    [false, true, 64],
+    [false, false, 64],
   ])("uses the expected action width for editable=%s and deletable=%s", (isEditable, isDeletable, width) => {
     const props = reactive({
       hasActiveEditRow: false,
@@ -216,7 +216,7 @@ describe("ATableForm list view", () => {
       isEditable,
       widths: {
         actionsColumnDouble: 112,
-        actionsColumnSingle: 56,
+        actionsColumnSingle: 64,
       },
     });
     const {
@@ -296,7 +296,7 @@ describe("ATableForm list view", () => {
       hasActionsColumn: computed(() => true),
       widthsLocal: computed(() => ({
         actionsColumnDouble: 112,
-        actionsColumnSingle: 56,
+        actionsColumnSingle: 64,
         dndColumn: 56,
       })),
     });
@@ -305,14 +305,14 @@ describe("ATableForm list view", () => {
 
     expect(columnsStylesGrow.value).toEqual({
       first: {
-        maxWidth: "221px",
-        minWidth: "221px",
-        width: "221px",
+        maxWidth: "217px",
+        minWidth: "217px",
+        width: "217px",
       },
       second: {
-        maxWidth: "221px",
-        minWidth: "221px",
-        width: "221px",
+        maxWidth: "217px",
+        minWidth: "217px",
+        width: "217px",
       },
     });
 
@@ -322,7 +322,7 @@ describe("ATableForm list view", () => {
     ];
     await nextTick();
 
-    expect(columnsStylesGrow.value.first.width).toBe("342px");
+    expect(columnsStylesGrow.value.first.width).toBe("334px");
     expect(columnsStylesGrow.value.second.width).toBe("100px");
 
     destroyColumnsGrowObserver();

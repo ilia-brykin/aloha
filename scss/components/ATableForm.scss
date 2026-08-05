@@ -292,6 +292,8 @@
     inset 1px 0 0 rgba(0, 0, 0, .12),
     -8px 0 14px -8px rgba(17, 24, 39, .34),
     -18px 0 24px -20px rgba(17, 24, 39, .55);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .a_table_form__cell_actions_sticky.a_table_form__cell_th {
@@ -306,5 +308,7 @@
 .a_table_form__actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: .5rem;
+  width: 100%;
 }

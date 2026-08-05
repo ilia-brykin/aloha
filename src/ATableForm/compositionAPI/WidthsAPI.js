@@ -8,7 +8,7 @@ export default function WidthsAPI(props) {
 
   const widthsLocal = computed(() => {
     return {
-      actionsColumnSingle: 56,
+      actionsColumnSingle: 64,
       actionsColumnDouble: 112,
       dndColumn: 56,
       ...widths.value,
