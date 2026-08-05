@@ -189,6 +189,11 @@ export default {
       required: false,
       default: false,
     },
+    isDndLocked: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isDragAndDrop: {
       type: Boolean,
       required: false,
@@ -477,6 +482,7 @@ export default {
           canMoveRowUp: this.canMoveRowUp,
           isCreateMode: this.isCreateMode,
           isDndDisabled: this.isDndDisabled,
+          isDndLocked: this.isDndLocked,
           isDragAndDrop: this.isDragAndDrop,
           isFooter: this.isFooter,
           isHeader: this.isHeader,

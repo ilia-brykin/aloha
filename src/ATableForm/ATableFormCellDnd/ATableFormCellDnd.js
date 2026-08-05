@@ -44,6 +44,11 @@ export default {
       required: false,
       default: false,
     },
+    isDndLocked: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isFooter: {
       type: Boolean,
       required: false,
@@ -154,7 +159,7 @@ export default {
             }, [
               h(AIcon, {
                 class: "a_table_form__reorder_icon",
-                icon: this.isDndDisabled ? LockFill : GripVertical,
+                icon: this.isDndLocked ? LockFill : GripVertical,
               }),
             ]),
             h("span", {

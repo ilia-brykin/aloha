@@ -17,6 +17,7 @@ import ATableFormCellDnd from "../ATableFormCellDnd/ATableFormCellDnd";
 
 import DragAndDropAPI from "../compositionAPI/DragAndDropAPI";
 
+import GripVertical from "aloha-svg/dist/js/bootstrap/GripVertical";
 import LockFill from "aloha-svg/dist/js/bootstrap/LockFill";
 
 jest.mock("../../AButton/AButton", () => {
@@ -59,6 +60,25 @@ jest.mock("aloha-svg/dist/js/bootstrap/LockFill", () => ({
 }));
 
 describe("ATableForm DragAndDropAPI", () => {
+  it("temporarily disables DND without marking rows as locked", () => {
+    const props = reactive({
+      actionsDisabledCallback: {},
+      focusAfterMove: false,
+      id: "table",
+      isDragAndDrop: true,
+      rows: [{ id: 1 }],
+    });
+    const {
+      isDndDisabledForRow,
+      isDndLockedForRow,
+    } = DragAndDropAPI(props, { emit: jest.fn() }, {
+      isDndDisabled: computed(() => true),
+    });
+
+    expect(isDndDisabledForRow(0)).toBe(true);
+    expect(isDndLockedForRow(0)).toBe(false);
+  });
+
   it("prevents dragging, dropping on, and moving across a disabled row", () => {
     const emit = jest.fn();
     const props = reactive({
@@ -78,6 +98,7 @@ describe("ATableForm DragAndDropAPI", () => {
     const {
       draggedRowIndex,
       isDndDisabledForRow,
+      isDndLockedForRow,
       moveRowDown,
       onDragover,
       onDragstart,
@@ -88,6 +109,8 @@ describe("ATableForm DragAndDropAPI", () => {
 
     expect(isDndDisabledForRow(0)).toBe(false);
     expect(isDndDisabledForRow(1)).toBe(true);
+    expect(isDndLockedForRow(0)).toBe(false);
+    expect(isDndLockedForRow(1)).toBe(true);
 
     onDragstart({}, 1);
     expect(draggedRowIndex.value).toBeUndefined();
@@ -136,6 +159,7 @@ describe("ATableFormCellDnd", () => {
         canMoveRowUp: () => true,
         id: "table_1",
         isDndDisabled: true,
+        isDndLocked: true,
         isDragAndDrop: true,
         moveRowDown: jest.fn(),
         moveRowUp: jest.fn(),
@@ -159,6 +183,30 @@ describe("ATableFormCellDnd", () => {
     expect(wrapper.find(".a_table_form__reorder_handle_disabled").exists()).toBe(true);
     expect(wrapper.text()).toContain("Row reordering disabled");
     expect(wrapper.findAll("button")).toHaveLength(2);
+    expect(wrapper.findAll("button").every(button => button.attributes("disabled") !== undefined)).toBe(true);
+  });
+
+  it("keeps the drag handle icon while DND is temporarily disabled", () => {
+    const wrapper = mount(ATableFormCellDnd, {
+      props: {
+        canMoveRowDown: () => true,
+        canMoveRowUp: () => true,
+        id: "table_1",
+        isDndDisabled: true,
+        isDragAndDrop: true,
+        moveRowDown: jest.fn(),
+        moveRowUp: jest.fn(),
+        onDragend: jest.fn(),
+        onDragstart: jest.fn(),
+        rowIndex: 1,
+        widths: {
+          dndColumn: 56,
+        },
+      },
+    });
+
+    expect(wrapper.findComponent(AIcon).props("icon")).toBe(GripVertical);
+    expect(wrapper.find(".a_table_form__reorder_handle").attributes("draggable")).toBe("false");
     expect(wrapper.findAll("button").every(button => button.attributes("disabled") !== undefined)).toBe(true);
   });
 });

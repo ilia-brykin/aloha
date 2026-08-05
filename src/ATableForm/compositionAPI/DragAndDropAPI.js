@@ -27,11 +27,7 @@ export default function DragAndDropAPI(props, { emit }, {
   const dragOverPosition = ref(undefined);
   const dragPreviewElement = ref(undefined);
 
-  const isDndDisabledForRow = rowIndex => {
-    if (isDndDisabled.value) {
-      return true;
-    }
-
+  const isDndLockedForRow = rowIndex => {
     const dndCallback = get(actionsDisabledCallback.value, "dnd");
 
     if (isFunction(dndCallback)) {
@@ -42,6 +38,10 @@ export default function DragAndDropAPI(props, { emit }, {
     }
 
     return false;
+  };
+
+  const isDndDisabledForRow = rowIndex => {
+    return isDndDisabled.value || isDndLockedForRow(rowIndex);
   };
 
   const hasDisabledRowBetween = (fromIndex, toIndex) => {
@@ -294,6 +294,7 @@ export default function DragAndDropAPI(props, { emit }, {
     dragOverRowIndex,
     draggedRowIndex,
     isDndDisabledForRow,
+    isDndLockedForRow,
     onDragleave,
     moveRowDown,
     moveRowUp,
