@@ -15,17 +15,19 @@ import {
 } from "@vue/test-utils";
 
 import AForm from "../../ui/AForm/AForm";
-import ATableForm from "../ATableForm";
 import ATableFormCellList from "../ATableFormCellList/ATableFormCellList";
 
+import CellActionStylesAPI from "../ATableFormCellAction/compositionAPI/StylesAPI";
 import CellDisabledAPI from "../ATableFormCell/compositionAPI/DisabledAPI";
 import CellReadonlyAPI from "../ATableFormCell/compositionAPI/ReadonlyAPI";
-import CellActionStylesAPI from "../ATableFormCellAction/compositionAPI/StylesAPI";
 import ColumnsAPI from "../compositionAPI/ColumnsAPI";
 import ColumnsGrowAPI from "../compositionAPI/ColumnsGrowAPI";
 import DataAPI from "../ATableFormCellList/compositionAPI/DataAPI";
 import RowEditAPI from "../ATableFormRow/compositionAPI/EditAPI";
 import TableEditAPI from "../compositionAPI/EditAPI";
+
+import ATableForm from "../ATableForm";
+import getFormElement from "../utils/getFormElement";
 
 jest.mock("../../ui/AForm/AForm", () => {
   const {
@@ -200,6 +202,89 @@ describe("ATableForm list view", () => {
 
     expect(disabledLocal.value).toBe(false);
     expect(readonlyLocal.value).toBe(true);
+  });
+
+  it("merges row-specific form element props only in edit mode", () => {
+    const formElementEditPropsCallback = jest.fn(({ rowData }) => ({
+      disabled: rowData.locked,
+      min: rowData.minimum,
+      readonly: true,
+    }));
+    const props = reactive({
+      column: {
+        id: "score",
+        formElement: {
+          disabled: false,
+          min: 0,
+          type: "integer",
+        },
+        formElementEditPropsCallback,
+      },
+      columnIndex: 1,
+      isCreateMode: true,
+      isEditable: true,
+      isEditMode: false,
+      isFooter: false,
+      row: {
+        id: 1,
+        locked: true,
+        minimum: 10,
+      },
+      rowData: {
+        id: 1,
+        locked: true,
+        minimum: 20,
+      },
+      rowIndex: 2,
+      rows: [],
+    });
+    const formElement = computed(() => getFormElement({
+      column: props.column,
+      columnIndex: props.columnIndex,
+      isCreateMode: props.isCreateMode,
+      isEditMode: props.isEditMode,
+      row: props.row,
+      rowData: props.rowData,
+      rowIndex: props.rowIndex,
+      rows: props.rows,
+    }));
+    const {
+      disabledLocal,
+    } = CellDisabledAPI(props, {
+      formElement,
+    });
+    const {
+      readonlyLocal,
+    } = CellReadonlyAPI(props, {
+      formElement,
+    });
+
+    expect(formElement.value).toEqual(props.column.formElement);
+    expect(formElementEditPropsCallback).not.toHaveBeenCalled();
+
+    props.isEditMode = true;
+
+    expect(formElement.value).toEqual(props.column.formElement);
+    expect(formElementEditPropsCallback).not.toHaveBeenCalled();
+
+    props.isCreateMode = false;
+
+    expect(formElement.value).toEqual({
+      disabled: true,
+      min: 20,
+      readonly: true,
+      type: "integer",
+    });
+    expect(disabledLocal.value).toBe(true);
+    expect(readonlyLocal.value).toBe(true);
+    expect(formElementEditPropsCallback).toHaveBeenCalledWith({
+      column: props.column,
+      columnIndex: 1,
+      row: props.row,
+      rowData: props.rowData,
+      rowIndex: 2,
+      rows: props.rows,
+    });
   });
 
   it.each([
@@ -632,6 +717,49 @@ describe("ATableForm list view", () => {
 
     expect(dataForm.value[0].disabled).toBeUndefined();
     expect(dataForm.value[0].children[0].readonly).toBe(false);
+  });
+
+  it("applies row-specific form element props in list edit mode", () => {
+    const props = reactive({
+      columns: [
+        {
+          id: "score",
+          formElement: {
+            min: 0,
+            type: "integer",
+          },
+          formElementEditPropsCallback: ({ rowData }) => ({
+            disabled: rowData.locked,
+            min: rowData.minimum,
+          }),
+        },
+      ],
+      isEditable: true,
+      isEditMode: false,
+      row: {
+        locked: true,
+        minimum: 10,
+      },
+      rowData: {
+        locked: true,
+        minimum: 20,
+      },
+      rowIndex: 0,
+      rows: [],
+    });
+    const {
+      dataForm,
+    } = DataAPI(props);
+
+    expect(dataForm.value[0].min).toBe(0);
+
+    props.isEditMode = true;
+
+    expect(dataForm.value[0]).toEqual(expect.objectContaining({
+      disabled: true,
+      min: 20,
+      type: "integer",
+    }));
   });
 
   it("passes the complete errors object to AForm and emits its full model", async() => {

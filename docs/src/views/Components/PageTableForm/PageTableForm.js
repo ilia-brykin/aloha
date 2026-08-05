@@ -2,6 +2,7 @@ import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import PageTableFormBasic from "./PageTableFormBasic/PageTableFormBasic.vue";
 import PageTableFormDND from "./PageTableFormDND/PageTableFormDND.vue";
 import PageTableFormEdit from "./PageTableFormEdit/PageTableFormEdit.vue";
+import PageTableFormEditProps from "./PageTableFormEditProps/PageTableFormEditProps.vue";
 import PageTableFormGrow from "./PageTableFormGrow/PageTableFormGrow.vue";
 import PageTableFormList from "./PageTableFormList/PageTableFormList.vue";
 import PageTableFormSticky from "./PageTableFormSticky/PageTableFormSticky.vue";
@@ -15,6 +16,7 @@ export default {
     PageTableFormBasic,
     PageTableFormDND,
     PageTableFormEdit,
+    PageTableFormEditProps,
     PageTableFormGrow,
     PageTableFormList,
     PageTableFormSticky,

@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TABLE_FORM_EDIT_PROPS_HEADER_"
+  description="_A_TABLE_FORM_EDIT_PROPS_DESCRIPTION_"
+  :props="['is-editable', 'save-row']"
+)
+  a-table-form(
+    :columns="columns"
+    :is-editable="true"
+    :rows="rows"
+    :save-row="saveRow"
+    key-id="id"
+    label="_A_TABLE_FORM_EXAMPLE_LABEL_"
+  )

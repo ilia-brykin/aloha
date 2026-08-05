@@ -29,12 +29,17 @@ export default {
       type: String,
       required: true,
     },
-    isEditable: {
+    isCreateMode: {
       type: Boolean,
       required: false,
       default: false,
     },
     isEditMode: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isEditable: {
       type: Boolean,
       required: false,
       default: false,

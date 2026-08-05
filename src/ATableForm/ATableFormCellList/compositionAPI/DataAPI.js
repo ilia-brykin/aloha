@@ -3,6 +3,7 @@ import {
   toRef,
 } from "vue";
 
+import getFormElement from "../../utils/getFormElement";
 import {
   cloneDeep,
   isNil,
@@ -33,14 +34,29 @@ function normalizeItem(item, {
 
 export default function DataAPI(props) {
   const columns = toRef(props, "columns");
+  const isCreateMode = toRef(props, "isCreateMode");
   const isEditable = toRef(props, "isEditable");
   const isEditMode = toRef(props, "isEditMode");
+  const row = toRef(props, "row");
+  const rowData = toRef(props, "rowData");
+  const rowIndex = toRef(props, "rowIndex");
+  const rows = toRef(props, "rows");
 
   const dataForm = computed(() => {
     const isRowDisabled = isEditable.value && !isEditMode.value;
 
-    return columns.value.map(column => {
-      const ITEM = normalizeItem(column.formElement, {
+    return columns.value.map((column, columnIndex) => {
+      const formElement = getFormElement({
+        column,
+        columnIndex,
+        isCreateMode: isCreateMode.value,
+        isEditMode: isEditMode.value,
+        row: row.value,
+        rowData: rowData.value || row.value,
+        rowIndex: rowIndex.value,
+        rows: rows.value,
+      });
+      const ITEM = normalizeItem(formElement, {
         isEditMode: isEditMode.value,
         isRowDisabled,
       });

@@ -10,6 +10,7 @@ import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import SlotAPI from "./compositionAPI/SlotAPI";
 import StylesAPI from "../compositionAPI/StylesAPI";
 
+import getFormElement from "../utils/getFormElement";
 import {
   get,
 } from "lodash-es";
@@ -43,6 +44,11 @@ export default {
     id: {
       type: String,
       required: true,
+    },
+    isCreateMode: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     isEditMode: {
       type: Boolean,
@@ -86,6 +92,20 @@ export default {
     "updateRowData",
   ],
   setup(props) {
+    const rowDataLocal = computed(() => {
+      return props.rowData || props.row;
+    });
+    const formElementLocal = computed(() => getFormElement({
+      column: props.column,
+      columnIndex: props.columnIndex,
+      isCreateMode: props.isCreateMode,
+      isEditMode: props.isEditMode,
+      row: props.row,
+      rowData: rowDataLocal.value,
+      rowIndex: props.rowIndex,
+      rows: props.rows,
+    }));
+
     const {
       columnStyles,
     } = StylesAPI({
@@ -94,11 +114,15 @@ export default {
 
     const {
       readonlyLocal,
-    } = ReadonlyAPI(props);
+    } = ReadonlyAPI(props, {
+      formElement: formElementLocal,
+    });
 
     const {
       disabledLocal,
-    } = DisabledAPI(props);
+    } = DisabledAPI(props, {
+      formElement: formElementLocal,
+    });
 
     const {
       hasSlot,
@@ -107,13 +131,10 @@ export default {
       slotNameAfter,
     } = SlotAPI(props);
 
-    const rowDataLocal = computed(() => {
-      return props.rowData || props.row;
-    });
-
     return {
       columnStyles,
       disabledLocal,
+      formElementLocal,
       hasSlot,
       hasSlotAfter,
       readonlyLocal,
@@ -137,7 +158,7 @@ export default {
     const {
       type = "text",
       ...formElement
-    } = this.column.formElement || {};
+    } = this.formElementLocal;
 
     const slotProps = {
       column: this.column,
