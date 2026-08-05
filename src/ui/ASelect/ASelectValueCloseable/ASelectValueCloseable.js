@@ -124,7 +124,7 @@ export default {
           }),
         ]),
 
-      !this.hideDeleteButton ?
+      !this.hideDeleteButton && !this.disabled ?
         h(AElement, {
           class: "a_btn a_btn_link a_select__ul_closeable__item__btn",
           disabled: this.disabled,
