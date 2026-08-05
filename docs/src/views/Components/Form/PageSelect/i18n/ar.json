@@ -21,6 +21,9 @@
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve من JSON محلي",
   "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "يمكن تصفية قيم الخيارات في القائمة المنسدلة بناء على عبارة البحث. وهذا مفيد للمكونات التي تحتوي على قائمة طويلة من الخيارات، مما يسهل على المستخدمين العثور على الخيار المطلوب واختياره.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "بحث",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "عند تفعيل <strong lang=\"en\">show-selected-first</strong>، تظهر الخيارات المحددة مباشرة أسفل البحث وأزرار الإجراءات. تبقى المجموعات محفوظة، ويفصل خط واحد بينها وبين بقية الخيارات، ولا تتكرر في القائمة الرئيسية.",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "الخيارات المحددة أولاً",
+  "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_": "يعرض الخيارات المحددة قبل الخيارات المتبقية ويزيل تكرارها من القائمة الرئيسية مع الحفاظ على التجميع.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "يتم دعم ترجمة التسميات لخيار القائمة المنسدلة. كما يدعم البحث عند استخدام خيارات مترجمة ومحلية.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "التدويل"
 }

@@ -21,6 +21,9 @@
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve desde JSON local",
   "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Los valores de las opciones del desplegable pueden filtrarse en funcion de la consulta de busqueda. Esto es util para componentes con una larga lista de opciones, ya que facilita a los usuarios encontrar y elegir la opcion necesaria.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Busqueda",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Con <strong lang=\"en\">show-selected-first</strong>, las opciones seleccionadas aparecen directamente debajo de la búsqueda y los botones de acción. Se conservan sus grupos, una sola línea las separa de las demás opciones y no se duplican en la lista principal.",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Opciones seleccionadas primero",
+  "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_": "Muestra las opciones seleccionadas antes que las demás y elimina sus duplicados de la lista principal. Se conserva la agrupación.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Se admiten traducciones de etiquetas para las opciones del desplegable. La busqueda tambien es compatible con opciones traducidas y localizadas.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internacionalizacion"
 }

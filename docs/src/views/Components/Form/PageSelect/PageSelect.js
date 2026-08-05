@@ -13,6 +13,7 @@ import PageSelectReadonly from "./PageSelectReadonly/PageSelectReadonly.vue";
 import PageSelectRetrieve from "./PageSelectRetrieve/PageSelectRetrieve.vue";
 import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 import PageSelectSearchTextInHtml from "./PageSelectSearchTextInHtml/PageSelectSearchTextInHtml.vue";
+import PageSelectShowSelectedFirst from "./PageSelectShowSelectedFirst/PageSelectShowSelectedFirst.vue";
 import PageSelectTranslateData from "./PageSelectTranslateData/PageSelectTranslateData.vue";
 import {
   AIcon,
@@ -47,6 +48,7 @@ export default {
     PageSelectRetrieve,
     PageSelectSearch,
     PageSelectSearchTextInHtml,
+    PageSelectShowSelectedFirst,
     PageSelectTranslateData,
   },
   setup() {

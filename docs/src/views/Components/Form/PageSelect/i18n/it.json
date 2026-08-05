@@ -21,6 +21,9 @@
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve da JSON locale",
   "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "I valori delle opzioni del menu a discesa possono essere filtrati in base alla query di ricerca. Questo e utile per componenti con un lungo elenco di opzioni, rendendo piu semplice per gli utenti trovare e scegliere l'opzione necessaria.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Ricerca",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Con <strong lang=\"en\">show-selected-first</strong>, le opzioni selezionate vengono visualizzate direttamente sotto la ricerca e i pulsanti di azione. I gruppi vengono mantenuti, una sola linea le separa dalle altre opzioni e non vengono duplicate nell’elenco principale.",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Opzioni selezionate per prime",
+  "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_": "Mostra le opzioni selezionate prima delle altre e rimuove i duplicati dall’elenco principale. Il raggruppamento viene mantenuto.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Le traduzioni delle etichette sono supportate per le opzioni del menu a discesa. Anche la ricerca e supportata con opzioni localizzate e tradotte.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internazionalizzazione"
 }

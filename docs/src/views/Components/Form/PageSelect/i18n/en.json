@@ -21,6 +21,9 @@
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve from local JSON",
   "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Select options values can be filtered based on the search query. This is useful for components with a long list of options, makeing it easier for users for find and choose the needed option.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Search",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "With <strong lang=\"en\">show-selected-first</strong>, selected options are displayed directly below the search and action buttons. They keep their groups when grouping is enabled, are separated from the remaining options by one divider, and are not duplicated in the main list.",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Selected options first",
+  "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_": "Displays selected options before the remaining options and removes their duplicates from the main list. Grouping is preserved.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Translations of labels are supported for dropdown options. Search is also supported with localized, translated options.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalization"
 }

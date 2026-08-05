@@ -35,6 +35,7 @@ export const ASelectPluginOptions = {
     searchTextInHtml: false,
     searchTimeout: 0,
     showNotFound: true,
+    showSelectedFirst: false,
     slotName: undefined,
     sortOrder: undefined,
     sortOrderGroup: undefined,

@@ -48,7 +48,9 @@ import ModeAPI from "./compositionAPI/ModeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ModelChangeAPI from "./compositionAPI/ModelChangeAPI";
 import PopperContainerAPI from "../../ATooltip/compositionAPI/PopperContainerAPI";
+import SelectedFirstAPI from "./compositionAPI/SelectedFirstAPI";
 import SelectedTitleAPI from "./compositionAPI/SelectedTitleAPI";
+import SelectedVisibleAPI from "./compositionAPI/SelectedVisibleAPI";
 import ToggleAPI from "./compositionAPI/ToggleAPI";
 
 import CheckLg from "aloha-svg/dist/js/bootstrap/CheckLg";
@@ -450,6 +452,11 @@ export default {
       required: false,
       default: () => ASelectPluginOptions.propsDefault.showNotFound,
     },
+    showSelectedFirst: {
+      type: Boolean,
+      required: false,
+      default: () => ASelectPluginOptions.propsDefault.showSelectedFirst,
+    },
     slotName: {
       type: String,
       required: false,
@@ -640,17 +647,40 @@ export default {
     });
 
     const {
+      dataExtraWithoutSelected,
+      dataSelected,
+      dataWithoutSelected,
+      exclusiveOptionWithoutSelected,
+    } = SelectedFirstAPI(props, {
+      data: dataSort,
+      dataExtra: dataExtraLocal,
+      exclusiveOption,
+    });
+
+    const {
       dataGrouped,
       groupsForLever,
       hasKeyGroup,
       keyGroupArray,
     } = UIDataGroupAPI(props, {
-      data: dataSort,
+      data: dataWithoutSelected,
     });
 
     const {
       dataGrouped: dataExtraGrouped,
       groupsForLever: groupsForLeverExtra,
+    } = UIDataGroupAPI(props, {
+      data: dataExtraWithoutSelected,
+    });
+
+    const {
+      groupsForLever: groupsForLeverSearch,
+    } = UIDataGroupAPI(props, {
+      data: dataSort,
+    });
+
+    const {
+      groupsForLever: groupsForLeverExtraSearch,
     } = UIDataGroupAPI(props, {
       data: dataExtraLocal,
     });
@@ -662,11 +692,11 @@ export default {
     });
 
     const validDataSort = computed(() => {
-      return dataSort.value.filter(item => !item.__invalidEntry__);
+      return dataWithoutSelected.value.filter(item => !item.__invalidEntry__);
     });
 
     const invalidDataSort = computed(() => {
-      return dataSort.value.filter(item => item.__invalidEntry__);
+      return dataWithoutSelected.value.filter(item => item.__invalidEntry__);
     });
 
     const {
@@ -689,7 +719,6 @@ export default {
       searchingElements,
       searchingElementsExclusive,
       searchingElementsExtra,
-      searchingGroups,
       searchingGroupsWithSearchInGroup,
       searchOutsideOrApi,
       searchOutsideRef,
@@ -699,13 +728,88 @@ export default {
       data: dataSort,
       dataExtra: dataExtraLocal,
       exclusiveOption,
-      groupsForLever,
-      groupsForLeverExtra,
+      groupsForLever: groupsForLeverSearch,
+      groupsForLeverExtra: groupsForLeverExtraSearch,
       hasKeyGroup,
       htmlIdLocal,
       keyGroupArray,
       onSearchInApi,
       searchApiLocal,
+    });
+
+    const {
+      dataSelectedVisible,
+      searchingElementsSelected,
+      searchingGroupsVisible: searchingGroupsSelected,
+    } = SelectedVisibleAPI({
+      dataSelected,
+      keyGroupArray,
+      searching,
+      searchingElements,
+      searchingElementsExclusive,
+      searchingElementsExtra,
+      searchingGroupsWithSearchInGroup,
+    });
+
+    const dataOptionsWithoutSelected = computed(() => [
+      ...dataExtraWithoutSelected.value,
+      ...dataWithoutSelected.value,
+      exclusiveOptionWithoutSelected.value,
+    ].filter(Boolean));
+
+    const {
+      dataSelectedVisible: dataOptionsWithoutSelectedVisible,
+    } = SelectedVisibleAPI({
+      dataSelected: dataOptionsWithoutSelected,
+      keyGroupArray,
+      searching,
+      searchingElements,
+      searchingElementsExclusive,
+      searchingElementsExtra,
+      searchingGroupsWithSearchInGroup,
+    });
+
+    const {
+      dataSelectedVisible: dataWithoutSelectedVisible,
+    } = SelectedVisibleAPI({
+      dataSelected: dataWithoutSelected,
+      keyGroupArray,
+      searching,
+      searchingElements,
+      searchingElementsExclusive,
+      searchingElementsExtra,
+      searchingGroupsWithSearchInGroup,
+    });
+
+    const {
+      searchingGroupsVisible: searchingGroupsExtraWithoutSelected,
+    } = SelectedVisibleAPI({
+      dataSelected: dataExtraWithoutSelected,
+      keyGroupArray,
+      searching,
+      searchingElements,
+      searchingElementsExclusive,
+      searchingElementsExtra,
+      searchingGroupsWithSearchInGroup,
+    });
+
+    const {
+      searchingGroupsVisible: searchingGroupsValidWithoutSelected,
+    } = SelectedVisibleAPI({
+      dataSelected: validDataSort,
+      keyGroupArray,
+      searching,
+      searchingElements,
+      searchingElementsExclusive,
+      searchingElementsExtra,
+      searchingGroupsWithSearchInGroup,
+    });
+
+    const {
+      dataGrouped: dataSelectedGrouped,
+      groupsForLever: groupsForLeverSelected,
+    } = UIDataGroupAPI(props, {
+      data: dataSelectedVisible,
     });
 
     const {
@@ -798,6 +902,12 @@ export default {
       dataExtraLocal,
       dataExtraGrouped,
       dataGrouped,
+      dataSelected,
+      dataSelectedGrouped,
+      dataSelectedVisible,
+      dataWithoutSelected,
+      dataWithoutSelectedVisible,
+      dataOptionsWithoutSelectedVisible,
       dataGroupedValid,
       dataKeyByKeyIdLocal,
       dataLocal,
@@ -810,11 +920,14 @@ export default {
       hasErrorIcon,
       exclusiveDataKeyByKeyIdLocal,
       exclusiveOption,
+      exclusiveOptionWithoutSelected,
       groupsForLever,
       groupsForLeverExtra,
+      groupsForLeverSelected,
       groupsForLeverValid,
       handleKeydown,
       hasDataExtra,
+      dataExtraWithoutSelected,
       hasKeyGroup,
       invalidDataSort,
       hasNotElementsExclusiveWithSearch,
@@ -858,7 +971,10 @@ export default {
       searchingElements,
       searchingElementsExclusive,
       searchingElementsExtra,
-      searchingGroups,
+      searchingElementsSelected,
+      searchingGroupsExtraWithoutSelected,
+      searchingGroupsSelected,
+      searchingGroupsValidWithoutSelected,
       searchingGroupsWithSearchInGroup,
       searchOutsideOrApi,
       searchOutsideRef,
@@ -923,12 +1039,9 @@ export default {
     }
 
     const hasInvalidEntries = this.invalidDataSort.length > 0;
-    const hasEntriesBeforeInvalid = !!(
+    const isDividerBeforeInvalidVisible = !!(
       this.validDataSort.length ||
-      this.hasDataExtra ||
-      (this.isMultiselect && this.isExclusiveOptionEnabled) ||
-      (this.isMultiselect && this.isSelectAll) ||
-      (this.isMultiselect && this.isDeselectAll)
+      (this.exclusiveOptionWithoutSelected && !this.dataExtraWithoutSelected.length)
     );
     const renderInvalidEntries = () => {
       if (!hasInvalidEntries) {
@@ -938,7 +1051,7 @@ export default {
       return h("div", {
         class: "a_select__invalid_entries",
       }, [
-        hasEntriesBeforeInvalid && h("div", {
+        isDividerBeforeInvalidVisible && h("div", {
           class: "a_select__divider",
           ariaHidden: true,
         }),
@@ -1253,28 +1366,78 @@ export default {
                         class: "a_select__divider",
                         ariaHidden: true,
                       }),
+                      !!this.dataSelectedVisible.length && h("div", {
+                        class: "a_select__selected_first",
+                      }, [
+                        ...(this.hasKeyGroup ?
+                          [h(ACheckboxRadioGroups, {
+                            id: `${ this.htmlIdLocal }_selected_lev_0`,
+                            alwaysTranslate: this.alwaysTranslate,
+                            dataGrouped: this.dataSelectedGrouped,
+                            disabled: this.disabled,
+                            groupsForLever: this.groupsForLeverSelected,
+                            isErrors: this.isErrors,
+                            keyDisabled: this.keyDisabled,
+                            keyDisabledCallback: this.keyDisabledCallback,
+                            levelIndex: 0,
+                            modelSearch: this.modelSearchLowerCase,
+                            modelValue: this.modelValue,
+                            searching: this.searching,
+                            searchingElements: this.searchingElementsSelected,
+                            searchingGroups: this.searchingGroupsSelected,
+                            searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
+                            searchTextInHtml: this.searchTextInHtml,
+                            slotName: this.slotName,
+                            type: this.type,
+                            onChangeModelValue: this.onChangeModelValue,
+                          }, this.$slots)] :
+                          this.dataSelectedVisible.map((item, itemIndex) => {
+                            return h(ASelectElement, {
+                              key: item[AKeyId],
+                              id: this.htmlIdLocal,
+                              alwaysTranslate: this.alwaysTranslate,
+                              dataItem: item,
+                              disabled: this.disabled,
+                              itemIndex,
+                              keyDisabled: this.keyDisabled,
+                              keyDisabledCallback: this.keyDisabledCallback,
+                              modelSearch: this.modelSearchLowerCase,
+                              modelValue: this.modelValue,
+                              searching: this.searching,
+                              searchingElements: this.searchingElementsSelected,
+                              searchTextInHtml: this.searchTextInHtml,
+                              slotName: this.slotName,
+                              type: this.type,
+                              onChangeModelValue: this.onChangeModelValue,
+                            }, this.$slots);
+                          })),
+                      ]),
+                      (!!this.dataSelectedVisible.length &&
+                        !!this.dataOptionsWithoutSelectedVisible.length) && h("div", {
+                        class: "a_select__divider",
+                        ariaHidden: true,
+                      }),
                       (this.loadingLocal || this.loadingSearchApi) ?
                         h(ACloak) :
                         "",
-                      (this.isMultiselect && this.isExclusiveOptionEnabled) && h("div", {}, [
+                      (this.isMultiselect && this.exclusiveOptionWithoutSelected) && h("div", {}, [
                         h(ASelectElement, {
                           key: this.exclusiveOptionValue,
                           id: this.htmlIdLocal,
                           alwaysTranslate: true,
-                          dataItem: this.exclusiveOption,
+                          dataItem: this.exclusiveOptionWithoutSelected,
                           disabled: false,
                           itemIndex: 0,
                           modelSearch: this.modelSearchLowerCase,
                           modelValue: this.modelValue,
                           searching: this.searching,
                           searchingElements: this.searchingElementsExclusive,
-                          searchingGroups: this.searchingGroups,
                           searchTextInHtml: this.searchTextInHtml,
                           type: this.type,
                           onChangeModelValue: this.onChangeModelValue,
                         }, this.$slots),
                       ]),
-                      this.hasDataExtra && h("div", {}, [
+                      !!this.dataExtraWithoutSelected.length && h("div", {}, [
                         ...(this.hasKeyGroup ?
                           [h(ACheckboxRadioGroups, {
                             id: `${ this.htmlIdLocal }_extra_lev_0`,
@@ -1290,14 +1453,14 @@ export default {
                             modelValue: this.modelValue,
                             searching: this.searching,
                             searchingElements: this.searchingElementsExtra,
-                            searchingGroups: this.searchingGroups,
+                            searchingGroups: this.searchingGroupsExtraWithoutSelected,
                             searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
                             searchTextInHtml: this.searchTextInHtml,
                             slotName: this.slotName,
                             type: this.type,
                             onChangeModelValue: this.onChangeModelValue,
                           }, this.$slots)] :
-                          this.dataExtraLocal.map((item, itemIndex) => {
+                          this.dataExtraWithoutSelected.map((item, itemIndex) => {
                             return h(ASelectElement, {
                               key: item[AKeyId],
                               id: this.htmlIdLocal,
@@ -1317,7 +1480,9 @@ export default {
                               onChangeModelValue: this.onChangeModelValue,
                             }, this.$slots);
                           })),
-                        !this.hasNotElementsExtraWithSearch && !this.hasNotElementsExclusiveWithSearch && h("div", {
+                        !!this.dataWithoutSelectedVisible.length &&
+                        !this.hasNotElementsExtraWithSearch &&
+                        !this.hasNotElementsExclusiveWithSearch && h("div", {
                           class: "a_select__divider",
                           ariaHidden: true,
                         }),
@@ -1338,7 +1503,7 @@ export default {
                             modelValue: this.modelValue,
                             searching: this.searching,
                             searchingElements: this.searchingElements,
-                            searchingGroups: this.searchingGroups,
+                            searchingGroups: this.searchingGroupsValidWithoutSelected,
                             searchingGroupsWithSearchInGroup: this.searchingGroupsWithSearchInGroup,
                             searchTextInHtml: this.searchTextInHtml,
                             slotName: this.slotName,
@@ -1371,7 +1536,11 @@ export default {
                           ]),
                         ]),
                       renderInvalidEntries(),
-                      ((!this.dataSort.length && !this.hasDataExtra) || this.hasNotElementsWithSearch) ?
+                      ((!this.dataWithoutSelected.length &&
+                        !this.dataExtraWithoutSelected.length &&
+                        !this.exclusiveOptionWithoutSelected &&
+                        !this.dataSelected.length
+                      ) || this.hasNotElementsWithSearch) ?
                         h(ATranslation, {
                           alwaysTranslate: this.alwaysTranslate,
                           class: "a_form__not_elements",

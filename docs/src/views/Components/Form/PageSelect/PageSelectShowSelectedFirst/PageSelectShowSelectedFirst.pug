@@ -1,0 +1,65 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_"
+  description="_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_"
+  props="show-selected-first"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-select(
+        v-model="modelSelect"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Select"
+        :search="true"
+        :show-selected-first="true"
+        type="select"
+      )
+      div model: {{ modelSelect }}
+
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-select(
+        v-model="modelMultiselect"
+        :data="data"
+        key-id="id"
+        key-label="label"
+        label="Multiselect"
+        :is-deselect-all="true"
+        :is-select-all="true"
+        :search="true"
+        :show-selected-first="true"
+        type="multiselect"
+      )
+      div model: {{ modelMultiselect }}
+
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-select(
+        v-model="modelSelectGrouped"
+        :data="data"
+        key-group="group"
+        key-id="id"
+        key-label="label"
+        label="Select grouped"
+        :search="true"
+        :show-selected-first="true"
+        type="select"
+      )
+      div model: {{ modelSelectGrouped }}
+
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-select(
+        v-model="modelMultiselectGrouped"
+        :data="data"
+        key-group="group"
+        key-id="id"
+        key-label="label"
+        label="Multiselect grouped"
+        :is-deselect-all="true"
+        :is-select-all="true"
+        :search="true"
+        :show-selected-first="true"
+        type="multiselect"
+      )
+      div model: {{ modelMultiselectGrouped }}

@@ -21,6 +21,9 @@
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve depuis un JSON local",
   "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Les valeurs des options d'une liste deroulante peuvent etre filtrees selon la requete de recherche. C'est utile pour les composants contenant une longue liste d'options afin de permettre aux utilisateurs de trouver et de choisir plus facilement l'option necessaire.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Recherche",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Avec <strong lang=\"en\">show-selected-first</strong>, les options sélectionnées s’affichent directement sous la recherche et les boutons d’action. Leurs groupes sont conservés, une seule ligne les sépare des autres options et elles ne sont pas dupliquées dans la liste principale.",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Options sélectionnées en premier",
+  "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_": "Affiche les options sélectionnées avant les autres et supprime leurs doublons de la liste principale. Le regroupement est conservé.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Les traductions des libelles sont prises en charge pour les options de la liste deroulante. La recherche fonctionne egalement avec des options localisees et traduites.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisation"
 }

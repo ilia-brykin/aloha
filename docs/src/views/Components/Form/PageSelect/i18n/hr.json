@@ -21,6 +21,9 @@
   "_A_SELECT_GROUP_RETRIEVE_HEADER_": "Retrieve iz lokalnog JSON-a",
   "_A_SELECT_GROUP_SEARCH_DESCRIPTION_": "Vrijednosti opcija u padajucem izborniku mogu se filtrirati na temelju upita za pretragu. Ovo je korisno za komponente s dugim popisom opcija kako bi korisnicima olaksalo pronalazenje i odabir zeljene opcije.",
   "_A_SELECT_GROUP_SEARCH_HEADER_": "Pretraga",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_DESCRIPTION_": "Uz <strong lang=\"en\">show-selected-first</strong>, odabrane se opcije prikazuju neposredno ispod pretraživanja i akcijskih gumba. Grupe se zadržavaju, jedna ih linija odvaja od preostalih opcija i ne dupliciraju se na glavnom popisu.",
+  "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Najprije odabrane opcije",
+  "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_": "Prikazuje odabrane opcije prije preostalih i uklanja njihove duplikate s glavnog popisa. Grupiranje se zadržava.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Podrzani su prevedeni nazivi za opcije padajuceg izbornika. Pretraga je takoder podrzana s lokaliziranim opcijama.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internacionalizacija"
 }

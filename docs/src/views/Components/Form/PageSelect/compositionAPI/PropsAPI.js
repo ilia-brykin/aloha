@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "show-selected-first",
+      description: "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "alert-class",
       description: "_A_ALERT_PROPS_ALERT_CLASS_DESCRIPTION_",
       type: "String / Object",
