@@ -49,11 +49,7 @@ export default function ColumnsGrowAPI(props, {
       return widthsLocal.value.actionsColumnDouble;
     }
 
-    if (isDeletable.value || isDeletableConfirm.value) {
-      return widthsLocal.value.actionsColumnSingle;
-    }
-
-    return 0;
+    return widthsLocal.value.actionsColumnSingle;
   });
 
   const dndColumnWidth = computed(() => {
@@ -127,23 +123,25 @@ export default function ColumnsGrowAPI(props, {
       growSum += Math.max(0, +column.grow || 0);
     });
 
-    if (columnsWidthSum >= tableWidthAvailable || growSum <= 0) {
+    if (columnsWidthSum >= tableWidthAvailable || !columnsLocal.length) {
       columnsStylesGrow.value = {};
       return;
     }
 
     const freeWidth = tableWidthAvailable - columnsWidthSum;
+    const hasConfiguredGrow = growSum > 0;
+    const growSumLocal = hasConfiguredGrow ? growSum : columnsLocal.length;
     const styles = {};
 
     columnsLocal.forEach(column => {
       const columnWidth = parseWidthToPx(column.width);
-      const columnGrow = Math.max(0, +column.grow || 0);
+      const columnGrow = hasConfiguredGrow ? Math.max(0, +column.grow || 0) : 1;
 
-      if (!column.id || !columnWidth) {
+      if (!column.id || (hasConfiguredGrow && !columnWidth)) {
         return;
       }
 
-      const widthPx = columnWidth + (columnGrow > 0 ? freeWidth * columnGrow / growSum : 0);
+      const widthPx = columnWidth + (columnGrow > 0 ? freeWidth * columnGrow / growSumLocal : 0);
       styles[column.id] = toWidthStyle(widthPx);
     });
 

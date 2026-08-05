@@ -1,4 +1,6 @@
 import {
+  computed,
+  nextTick,
   reactive,
   ref,
 } from "vue";
@@ -20,6 +22,7 @@ import CellDisabledAPI from "../ATableFormCell/compositionAPI/DisabledAPI";
 import CellReadonlyAPI from "../ATableFormCell/compositionAPI/ReadonlyAPI";
 import CellActionStylesAPI from "../ATableFormCellAction/compositionAPI/StylesAPI";
 import ColumnsAPI from "../compositionAPI/ColumnsAPI";
+import ColumnsGrowAPI from "../compositionAPI/ColumnsGrowAPI";
 import DataAPI from "../ATableFormCellList/compositionAPI/DataAPI";
 import RowEditAPI from "../ATableFormRow/compositionAPI/EditAPI";
 import TableEditAPI from "../compositionAPI/EditAPI";
@@ -254,6 +257,77 @@ describe("ATableForm list view", () => {
     props.isDeletableConfirm = false;
     isAddRowActive.value = true;
     expect(hasActionsColumn.value).toBe(true);
+  });
+
+  it("grows all columns equally only when no column has a positive grow value", async() => {
+    const resizeObserverOriginal = global.ResizeObserver;
+    global.ResizeObserver = class {
+      disconnect() {}
+      observe() {}
+      unobserve() {}
+    };
+
+    const wrapperElement = document.createElement("div");
+    const tableElement = document.createElement("table");
+    tableElement.id = "table_grow_fallback";
+    wrapperElement.getBoundingClientRect = () => ({ width: 500 });
+    wrapperElement.appendChild(tableElement);
+    document.body.appendChild(wrapperElement);
+
+    const props = reactive({
+      id: "table_grow_fallback",
+      isColumnsGrow: true,
+      isDeletable: false,
+      isDeletableConfirm: false,
+      isDragAndDrop: false,
+      isEditable: true,
+    });
+    const columns = ref([
+      { grow: 0, id: "first", width: "100px" },
+      { id: "second", width: "100px" },
+    ]);
+    const columnsVisible = computed(() => columns.value);
+    const {
+      columnsStylesGrow,
+      destroyColumnsGrowObserver,
+      initColumnsGrowObserver,
+    } = ColumnsGrowAPI(props, {
+      columnsVisible,
+      hasActionsColumn: computed(() => true),
+      widthsLocal: computed(() => ({
+        actionsColumnDouble: 112,
+        actionsColumnSingle: 56,
+        dndColumn: 56,
+      })),
+    });
+
+    initColumnsGrowObserver();
+
+    expect(columnsStylesGrow.value).toEqual({
+      first: {
+        maxWidth: "221px",
+        minWidth: "221px",
+        width: "221px",
+      },
+      second: {
+        maxWidth: "221px",
+        minWidth: "221px",
+        width: "221px",
+      },
+    });
+
+    columns.value = [
+      { grow: 1, id: "first", width: "100px" },
+      { grow: 0, id: "second", width: "100px" },
+    ];
+    await nextTick();
+
+    expect(columnsStylesGrow.value.first.width).toBe("342px");
+    expect(columnsStylesGrow.value.second.width).toBe("100px");
+
+    destroyColumnsGrowObserver();
+    wrapperElement.remove();
+    global.ResizeObserver = resizeObserverOriginal;
   });
 
   it("allows adding editable data when row editing is disabled", async() => {
