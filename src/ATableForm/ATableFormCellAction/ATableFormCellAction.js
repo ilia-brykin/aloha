@@ -210,6 +210,23 @@ export default {
           }, this.isActiveEditMode ?
             [
               h(AButton, {
+                id: this.idBtnSave,
+                class: [
+                  "a_table_form__action_button",
+                  this.actionsClasses.editSave,
+                ],
+                disabled: this.isSaving,
+                extra: this.extra,
+                iconLeft: Floppy2Fill,
+                title: this.texts.actionEditSave,
+                textScreenReader: this.texts.actionEditSave,
+                onClick: () => this.onSaveEditRow({
+                  id: this.id,
+                  row: this.row,
+                  rowIndex: this.rowIndex,
+                }),
+              }),
+              h(AButton, {
                 id: this.idBtnCancel,
                 class: [
                   "a_table_form__action_button",
@@ -225,23 +242,6 @@ export default {
                   row: this.row,
                   rowIndex: this.rowIndex,
                   trigger: "cancel",
-                }),
-              }),
-              h(AButton, {
-                id: this.idBtnSave,
-                class: [
-                  "a_table_form__action_button",
-                  this.actionsClasses.editSave,
-                ],
-                disabled: this.isSaving,
-                extra: this.extra,
-                iconLeft: Floppy2Fill,
-                title: this.texts.actionEditSave,
-                textScreenReader: this.texts.actionEditSave,
-                onClick: () => this.onSaveEditRow({
-                  id: this.id,
-                  row: this.row,
-                  rowIndex: this.rowIndex,
                 }),
               }),
             ] :
