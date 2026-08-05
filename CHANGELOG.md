@@ -7,6 +7,15 @@
 ---
 # Versions
 
+## 2.63.0
+
+- Fix: Adjust `ATableForm` focus styles with inset box shadows for improved visual consistency
+- Fix: Prevent delete button display in `ASelectValueCloseable` when disabled
+- Feature: Add `isDndLockedForRow` to `ATableForm` for more granular drag-and-drop control, update related components and tests
+- Feature: Add `hasActiveEditRow` and `isAddRowActive` support across `ATableForm` components, refine column visibility logic, and enhance related tests
+- Fix: Simplify `ColumnsGrowAPI` grow logic, ensure equal column growth fallback when no grow values are set, and add corresponding test
+- Fix: Update `actionsColumnSingle` width to 64px across `ATableForm` components for consistency, adjust related styles, and update tests
+
 ## 2.62.0
 
 - Update UiClearButtonAPI: Enhance `isClearButtonLocal` logic to respect the `disabled` state.

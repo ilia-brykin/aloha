@@ -12127,7 +12127,7 @@ input[type=text]::-ms-clear {
   --a_table_form_row_dragging_opacity: .65;
   --a_table_form_row_dragging_outline: 2px dashed var(--a_color_gray_700);
   --a_table_form_focus_color: var(--a_color_primary);
-  --a_table_form_focus_box_shadow: 0 0 0 2px var(--a_table_form_focus_color);
+  --a_table_form_focus_box_shadow: inset 0 0 0 2px var(--a_table_form_focus_color);
   --a_table_form_row_hover_bg: #eef6ff;
   --a_table_form_row_drag_bg: #dfefff;
   --a_table_form_footer_bg: var(--a_color_gray_100);
@@ -12250,14 +12250,18 @@ input[type=text]::-ms-clear {
 }
 .a_table_form__row:focus {
   z-index: 3;
-  box-shadow: var(--a_table_form_focus_box_shadow);
+}
+.a_table_form__row:focus > .a_table_form__cell {
+  box-shadow: inset 0 2px 0 var(--a_table_form_focus_color), inset 0 -2px 0 var(--a_table_form_focus_color);
 }
 .a_table_form__row:focus > .a_table_form__cell:first-child {
-  box-shadow: inset 1px 0 0 var(--a_table_form_focus_color);
+  box-shadow: inset 0 2px 0 var(--a_table_form_focus_color), inset 0 -2px 0 var(--a_table_form_focus_color), inset 2px 0 0 var(--a_table_form_focus_color);
 }
-.a_table_form__row:focus > .a_table_form__cell_actions_sticky {
-  --a_table_form_cell_actions_edge_box_shadow:
-    inset -2px 0 0 var(--a_table_form_focus_color);
+.a_table_form__row:focus > .a_table_form__cell:last-child {
+  box-shadow: inset 0 2px 0 var(--a_table_form_focus_color), inset 0 -2px 0 var(--a_table_form_focus_color), inset -2px 0 0 var(--a_table_form_focus_color);
+}
+.a_table_form__row:focus > .a_table_form__cell:last-child.a_table_form__cell_actions_sticky {
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.12), inset 0 2px 0 var(--a_table_form_focus_color), inset 0 -2px 0 var(--a_table_form_focus_color), inset -2px 0 0 var(--a_table_form_focus_color);
 }
 
 .a_table_form__row_edit_on_click {
@@ -12364,6 +12368,8 @@ input[type=text]::-ms-clear {
   z-index: 2;
   background: var(--a_table_form_bg);
   box-shadow: var(--a_table_form_cell_actions_edge_box_shadow), inset 1px 0 0 rgba(0, 0, 0, 0.12), -8px 0 14px -8px rgba(17, 24, 39, 0.34), -18px 0 24px -20px rgba(17, 24, 39, 0.55);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .a_table_form__cell_actions_sticky.a_table_form__cell_th {
@@ -12378,7 +12384,9 @@ input[type=text]::-ms-clear {
 .a_table_form__actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .a_table__parent {
