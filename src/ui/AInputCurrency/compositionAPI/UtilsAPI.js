@@ -10,6 +10,7 @@ import {
 export default function UtilsAPI(props) {
   const decimalDivider = toRef(props, "decimalDivider");
   const decimalPartLength = toRef(props, "decimalPartLength");
+  const modelType = toRef(props, "modelType");
   const thousandDivider = toRef(props, "thousandDivider");
 
   const getCleanIntValue = ({ value, thousandDivider }) => {
@@ -21,15 +22,26 @@ export default function UtilsAPI(props) {
       .split("").reverse().join("");
   };
 
+  const normalizeValueFromModel = value => {
+    const valueString = `${ value }`;
+    const isNumberStringWithDot = modelType.value === "number" &&
+      decimalDivider.value !== "." &&
+      /^-?\d+\.\d+$/.test(valueString);
+
+    if (typeof value === "number" || isNumberStringWithDot) {
+      return valueString.replace(".", decimalDivider.value);
+    }
+
+    return valueString;
+  };
+
   const adjustFloatPartAndDivider = val => {
     if (isNil(val)) {
       return "";
     }
 
     if (decimalDivider.value) {
-      const splitVal = typeof val === "number"
-        ? val.toString().split(".")
-        : val.toString().split(decimalDivider.value);
+      const splitVal = normalizeValueFromModel(val).split(decimalDivider.value);
       const intPart = splitVal[0];
       const setMinusSymbol = intPart[0] === "-" ? "-" : "";
       const intPartWithoutMinus = setMinusSymbol ? intPart.slice(1) : intPart;
@@ -50,5 +62,6 @@ export default function UtilsAPI(props) {
   return {
     adjustFloatPartAndDivider,
     getCleanIntValue,
+    normalizeValueFromModel,
   };
 }

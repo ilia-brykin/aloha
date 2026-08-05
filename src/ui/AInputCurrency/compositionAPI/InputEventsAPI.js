@@ -18,6 +18,7 @@ export default function InputEventsAPI(props, {
   increase = () => {},
   modelNumber = computed(() => undefined),
   modelUndefinedLocal = computed(() => undefined),
+  normalizeValueFromModel = value => value,
   onBlur = () => {},
   onFocus = () => {},
   setCurrentValue = () => {},
@@ -129,7 +130,7 @@ export default function InputEventsAPI(props, {
     }
     let value;
     if (updateOutside) {
-      value = typeof _value === "number" ? `${ _value }`.replace(".", decimalDivider.value) : _value;
+      value = normalizeValueFromModel(_value);
     } else {
       value = isNil(_value) ? $event.target.value : `${ _value }`;
     }
@@ -713,7 +714,7 @@ export default function InputEventsAPI(props, {
       const hasModel = modelValue.value || modelValue.value === 0;
       let valueToSet;
       if (hasModel) {
-        valueToSet = modelValue.value.toString().replace(".", decimalDivider.value);
+        valueToSet = normalizeValueFromModel(modelValue.value);
         if (decimalDivider.value) {
           const splitVal = valueToSet.toString().split(decimalDivider.value);
           const intPart = splitVal[0];

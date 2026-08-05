@@ -318,6 +318,7 @@ export default {
     const {
       adjustFloatPartAndDivider,
       getCleanIntValue,
+      normalizeValueFromModel,
     } = UtilsAPI(props);
 
     const {
@@ -391,6 +392,7 @@ export default {
       increase,
       modelNumber,
       modelUndefinedLocal,
+      normalizeValueFromModel,
       onBlur,
       onFocus,
       setCurrentValue,
