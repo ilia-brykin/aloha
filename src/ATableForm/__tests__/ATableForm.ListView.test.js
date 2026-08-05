@@ -16,6 +16,9 @@ import AForm from "../../ui/AForm/AForm";
 import ATableForm from "../ATableForm";
 import ATableFormCellList from "../ATableFormCellList/ATableFormCellList";
 
+import CellDisabledAPI from "../ATableFormCell/compositionAPI/DisabledAPI";
+import CellReadonlyAPI from "../ATableFormCell/compositionAPI/ReadonlyAPI";
+import CellActionStylesAPI from "../ATableFormCellAction/compositionAPI/StylesAPI";
 import ColumnsAPI from "../compositionAPI/ColumnsAPI";
 import DataAPI from "../ATableFormCellList/compositionAPI/DataAPI";
 import RowEditAPI from "../ATableFormRow/compositionAPI/EditAPI";
@@ -171,6 +174,141 @@ jest.mock("aloha-svg/dist/js/bootstrap/XLg", () => ({
 }));
 
 describe("ATableForm list view", () => {
+  it("uses disabled fields for editable rows and readonly fields for non-editable rows", () => {
+    const props = reactive({
+      column: {
+        formElement: {},
+      },
+      isEditable: true,
+      isEditMode: false,
+      isFooter: false,
+    });
+    const {
+      disabledLocal,
+    } = CellDisabledAPI(props);
+    const {
+      readonlyLocal,
+    } = CellReadonlyAPI(props);
+
+    expect(disabledLocal.value).toBe(true);
+    expect(readonlyLocal.value).toBe(false);
+
+    props.isEditable = false;
+
+    expect(disabledLocal.value).toBe(false);
+    expect(readonlyLocal.value).toBe(true);
+  });
+
+  it.each([
+    [true, true, 112],
+    [true, false, 56],
+    [false, true, 56],
+    [false, false, 56],
+  ])("uses the expected action width for editable=%s and deletable=%s", (isEditable, isDeletable, width) => {
+    const props = reactive({
+      hasActiveEditRow: false,
+      isActiveEditMode: false,
+      isDeletable,
+      isDeletableConfirm: false,
+      isEditable,
+      widths: {
+        actionsColumnDouble: 112,
+        actionsColumnSingle: 56,
+      },
+    });
+    const {
+      columnStyles,
+    } = CellActionStylesAPI(props);
+
+    expect(columnStyles.value.width).toBe(`${ width }px`);
+  });
+
+  it("shows the actions column only for edit, delete, or an active add row", () => {
+    const isAddRowActive = ref(false);
+    const props = reactive({
+      columns: [{ id: "name" }],
+      isDeletable: false,
+      isDeletableConfirm: false,
+      isDragAndDrop: false,
+      isEditable: false,
+      rowView: "table",
+    });
+    const {
+      allColumnsLength,
+      hasActionsColumn,
+    } = ColumnsAPI(props, {
+      isAddRowActive,
+    });
+
+    expect(hasActionsColumn.value).toBe(false);
+    expect(allColumnsLength.value).toBe(1);
+
+    props.isEditable = true;
+    expect(hasActionsColumn.value).toBe(true);
+    expect(allColumnsLength.value).toBe(2);
+
+    props.isEditable = false;
+    props.isDeletableConfirm = true;
+    expect(hasActionsColumn.value).toBe(true);
+
+    props.isDeletableConfirm = false;
+    isAddRowActive.value = true;
+    expect(hasActionsColumn.value).toBe(true);
+  });
+
+  it("allows adding editable data when row editing is disabled", async() => {
+    const wrapper = mount(ATableForm, {
+      props: {
+        addRow: jest.fn(),
+        columns: [
+          {
+            id: "name",
+            formElement: {
+              type: "text",
+            },
+          },
+        ],
+        isAddable: true,
+        isEditable: false,
+        rowView: "list",
+        rows: [],
+      },
+    });
+
+    expect(wrapper.find(".a_table_form__cell_actions").exists()).toBe(false);
+
+    await wrapper.find(".a_mt_3 button").trigger("click");
+
+    expect(wrapper.find("tbody button[id$='_cancel']").exists()).toBe(true);
+    expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(true);
+    expect(wrapper.findComponent(AForm).props("readonly")).toBe(false);
+  });
+
+  it("allows DND but not row-click editing when rows are not editable", async() => {
+    const wrapper = mount(ATableForm, {
+      props: {
+        columns: [
+          {
+            id: "name",
+            formElement: {
+              type: "text",
+            },
+          },
+        ],
+        isDragAndDrop: true,
+        isEditable: false,
+        isEditOnRowClick: true,
+        rows: [{ name: "Readonly" }],
+      },
+    });
+
+    expect(wrapper.find("tbody .a_table_form__reorder_handle").attributes("draggable")).toBe("true");
+
+    await wrapper.find("tbody tr.a_table_form__row").trigger("click");
+
+    expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(false);
+  });
+
   it("enters edit mode by row click only when enabled and row edit is available", async() => {
     const rows = [
       {

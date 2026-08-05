@@ -19,6 +19,7 @@ const TABLE_WIDTH_SAFE_DELTA = 2;
 export default function ColumnsGrowAPI(props, {
   columnsVisible = computed(() => []),
   hasActionsColumn = computed(() => false),
+  hasActiveEditRow = computed(() => false),
   widthsLocal = computed(() => ({})),
 }) {
   const id = toRef(props, "id");
@@ -43,7 +44,8 @@ export default function ColumnsGrowAPI(props, {
       return 0;
     }
 
-    if (isEditable.value) {
+    if (hasActiveEditRow.value ||
+      (isEditable.value && (isDeletable.value || isDeletableConfirm.value))) {
       return widthsLocal.value.actionsColumnDouble;
     }
 
@@ -192,6 +194,7 @@ export default function ColumnsGrowAPI(props, {
   watch([
     columnsVisible,
     hasActionsColumn,
+    hasActiveEditRow,
     isDeletable,
     isDeletableConfirm,
     isDragAndDrop,

@@ -4,6 +4,7 @@ import {
 } from "vue";
 
 export default function StylesAPI(props) {
+  const hasActiveEditRow = toRef(props, "hasActiveEditRow");
   const isDeletable = toRef(props, "isDeletable");
   const isDeletableConfirm = toRef(props, "isDeletableConfirm");
   const isEditable = toRef(props, "isEditable");
@@ -12,7 +13,7 @@ export default function StylesAPI(props) {
 
   const columnStyles = computed(() => {
     const hasDeleteAction = isDeletable.value || isDeletableConfirm.value;
-    const width = isEditable.value || (isActiveEditMode.value && hasDeleteAction) ?
+    const width = hasActiveEditRow.value || isActiveEditMode.value || (isEditable.value && hasDeleteAction) ?
       widths.value.actionsColumnDouble :
       widths.value.actionsColumnSingle;
 

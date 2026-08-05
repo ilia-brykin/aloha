@@ -4,7 +4,9 @@ import {
 } from "vue";
 
 
-export default function ColumnsAPI(props) {
+export default function ColumnsAPI(props, {
+  isAddRowActive = computed(() => false),
+} = {}) {
   const columns = toRef(props, "columns");
   const isDeletable = toRef(props, "isDeletable");
   const isDeletableConfirm = toRef(props, "isDeletableConfirm");
@@ -13,7 +15,7 @@ export default function ColumnsAPI(props) {
   const rowView = toRef(props, "rowView");
 
   const hasActionsColumn = computed(() => {
-    return !!(isEditable.value || isDeletable.value || isDeletableConfirm.value);
+    return !!(isEditable.value || isDeletable.value || isDeletableConfirm.value || isAddRowActive.value);
   });
 
   const columnsVisible = computed(() => {

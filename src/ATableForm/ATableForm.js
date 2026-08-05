@@ -3,6 +3,7 @@ import {
   h,
   onBeforeUnmount,
   onMounted,
+  ref,
   toRef,
 } from "vue";
 
@@ -212,12 +213,15 @@ export default {
   setup(props, context) {
     const actionsDisabledCallback = toRef(props, "actionsDisabledCallback");
     const actionsTitleCallback = toRef(props, "actionsTitleCallback");
+    const isAddRowActive = ref(false);
 
     const {
       allColumnsLength,
       columnsVisible,
       hasActionsColumn,
-    } = ColumnsAPI(props);
+    } = ColumnsAPI(props, {
+      isAddRowActive,
+    });
 
     const {
       getRowKey,
@@ -242,12 +246,29 @@ export default {
     } = ClassesAPI(props);
 
     const {
+      activeEditRowKey,
+      activeEditModel,
+      activeEditFocusColumnId,
+      canAddRow,
+      hasActiveEditRow,
+      hasRequiredEditableColumns,
+      onAddRow,
+      onCancelEditRow,
+      onEditRow,
+    } = EditAPI(props, {
+      columnsVisible,
+      getRowKey,
+      isAddRowActive,
+    });
+
+    const {
       columnsStylesGrow,
       destroyColumnsGrowObserver,
       initColumnsGrowObserver,
     } = ColumnsGrowAPI(props, {
       columnsVisible,
       hasActionsColumn,
+      hasActiveEditRow,
       widthsLocal,
     });
 
@@ -257,22 +278,6 @@ export default {
 
     onBeforeUnmount(() => {
       destroyColumnsGrowObserver();
-    });
-
-    const {
-      activeEditRowKey,
-      activeEditModel,
-      activeEditFocusColumnId,
-      canAddRow,
-      hasActiveEditRow,
-      hasRequiredEditableColumns,
-      isAddRowActive,
-      onAddRow,
-      onCancelEditRow,
-      onEditRow,
-    } = EditAPI(props, {
-      columnsVisible,
-      getRowKey,
     });
 
     const {
@@ -408,7 +413,7 @@ export default {
               draggedRowIndex: this.draggedRowIndex,
               extra: this.extra,
               hasActionsColumn: this.hasActionsColumn,
-              hasActiveEditRow: false,
+              hasActiveEditRow: this.hasActiveEditRow,
               isActionsSticky: this.isActionsSticky,
               isActiveEditMode: false,
               isDeletable: this.isDeletable,
@@ -531,7 +536,7 @@ export default {
                 isDeletableConfirm: false,
                 isDndDisabled: true,
                 isDragAndDrop: this.isDragAndDrop,
-                isEditable: this.isEditable,
+                isEditable: true,
                 isEditOnRowClick: false,
                 key: "body_create",
                 moveRowDown: this.moveRowDown,

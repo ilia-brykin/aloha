@@ -23,6 +23,7 @@ const hasRequiredElement = element => {
 export default function EditAPI(props, {
   columnsVisible = computed(() => []),
   getRowKey = () => {},
+  isAddRowActive = ref(false),
 }) {
   const addRow = toRef(props, "addRow");
   const isAddable = toRef(props, "isAddable");
@@ -33,8 +34,6 @@ export default function EditAPI(props, {
   const activeEditRowKey = ref(undefined);
   const activeEditModel = ref(undefined);
   const activeEditFocusColumnId = ref(undefined);
-  const isAddRowActive = ref(false);
-
   const hasActiveEditRow = computed(() => {
     return !!activeEditRowKey.value || isAddRowActive.value;
   });
@@ -48,7 +47,7 @@ export default function EditAPI(props, {
   });
 
   const hasRequiredEditableColumns = computed(() => {
-    if (!isEditable.value) {
+    if (!isEditable.value && !isAddable.value) {
       return false;
     }
 
