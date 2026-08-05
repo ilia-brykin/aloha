@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.64.0
+
+- Feature: Add `formElementEditPropsCallback` support to `ATableForm` for row-specific form element properties in edit mode, update examples, localization, and related tests
+
 ## 2.63.2
 
 - Fix: Correct `AInputCurrency` formatting for decimal strings received from external models
