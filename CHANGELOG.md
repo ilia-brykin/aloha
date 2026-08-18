@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.66.0
+
+- Add `filterValueByCondition` function: Implement utility function to resolve values based on conditional logic. Add multilingual documentation, examples, and unit tests for comprehensive coverage.
+
 ## 2.65.0
 
 - Feature: Add `showSelectedFirst` prop to `ASelect` for prioritizing selected options, update documentation, examples, localization, and add comprehensive tests
