@@ -233,6 +233,7 @@ export { default as filterMask } from "./filters/filterMask";
 export { default as filterPropertyByValue } from "./filters/filterPropertyByValue";
 export { default as filterSearchHighlight } from "./filters/filterSearchHighlight";
 export { default as filterUpperCase } from "./filters/filterUpperCase";
+export { default as filterValueByCondition } from "./filters/filterValueByCondition";
 
 // functions
 export {

@@ -50,6 +50,7 @@ import PageFilterMaskI18n from "./views/Functions/Filters/PageFilterMask/i18n/Pa
 import PageFilterPropertyByValueI18n from "./views/Functions/Filters/PageFilterPropertyByValue/i18n/PageFilterPropertyByValueI18n";
 import PageFilterSearchHighlightI18n from "./views/Functions/Filters/PageFilterSearchHighlight/i18n/PageFilterSearchHighlightI18n";
 import PageFilterUpperCaseI18n from "./views/Functions/Filters/PageFilterUpperCase/i18n/PageFilterUpperCaseI18n";
+import PageFilterValueByConditionI18n from "./views/Functions/Filters/PageFilterValueByCondition/i18n/PageFilterValueByConditionI18n";
 import PageFiltersI18n from "./views/Components/PageFilters/i18n/PageFiltersI18n";
 import PageFiltersRightI18n from "./views/Components/PageFiltersRight/i18n/PageFiltersRightI18n";
 import PageFloatI18n from "./views/CSS/PageFloat/i18n/PageFloatI18n";
@@ -183,6 +184,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.ar,
     ...PageFiltersRightI18n.ar,
     ...PageFilterUpperCaseI18n.ar,
+    ...PageFilterValueByConditionI18n.ar,
     ...PageFormElementI18n.ar,
     ...PageFunctionsI18n.ar,
     ...PageGroupButtonDropdownI18n.ar,
@@ -299,6 +301,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.de,
     ...PageFiltersRightI18n.de,
     ...PageFilterUpperCaseI18n.de,
+    ...PageFilterValueByConditionI18n.de,
     ...PageFormElementI18n.de,
     ...PageFunctionsI18n.de,
     ...PageGroupButtonDropdownI18n.de,
@@ -415,6 +418,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.en,
     ...PageFiltersRightI18n.en,
     ...PageFilterUpperCaseI18n.en,
+    ...PageFilterValueByConditionI18n.en,
     ...PageFormElementI18n.en,
     ...PageFunctionsI18n.en,
     ...PageGroupButtonDropdownI18n.en,
@@ -531,6 +535,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.es,
     ...PageFiltersRightI18n.es,
     ...PageFilterUpperCaseI18n.es,
+    ...PageFilterValueByConditionI18n.es,
     ...PageFormElementI18n.es,
     ...PageFunctionsI18n.es,
     ...PageGroupButtonDropdownI18n.es,
@@ -647,6 +652,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.fr,
     ...PageFiltersRightI18n.fr,
     ...PageFilterUpperCaseI18n.fr,
+    ...PageFilterValueByConditionI18n.fr,
     ...PageFormElementI18n.fr,
     ...PageFunctionsI18n.fr,
     ...PageGroupButtonDropdownI18n.fr,
@@ -763,6 +769,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.hr,
     ...PageFiltersRightI18n.hr,
     ...PageFilterUpperCaseI18n.hr,
+    ...PageFilterValueByConditionI18n.hr,
     ...PageFormElementI18n.hr,
     ...PageFunctionsI18n.hr,
     ...PageGroupButtonDropdownI18n.hr,
@@ -879,6 +886,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.it,
     ...PageFiltersRightI18n.it,
     ...PageFilterUpperCaseI18n.it,
+    ...PageFilterValueByConditionI18n.it,
     ...PageFormElementI18n.it,
     ...PageFunctionsI18n.it,
     ...PageGroupButtonDropdownI18n.it,
@@ -995,6 +1003,7 @@ export const mainTranslation = {
     ...PageFiltersI18n.ru,
     ...PageFiltersRightI18n.ru,
     ...PageFilterUpperCaseI18n.ru,
+    ...PageFilterValueByConditionI18n.ru,
     ...PageFormElementI18n.ru,
     ...PageFunctionsI18n.ru,
     ...PageGroupButtonDropdownI18n.ru,

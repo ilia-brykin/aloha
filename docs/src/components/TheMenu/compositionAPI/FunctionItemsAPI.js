@@ -162,6 +162,14 @@ export default function FunctionItemsAPI() {
               name: "PageFilterUpperCase",
             },
           },
+          {
+            id: "PageFilterValueByCondition",
+            label: "filterValueByCondition",
+            class: "test_menu_filter_value_by_condition",
+            to: {
+              name: "PageFilterValueByCondition",
+            },
+          },
         ],
       },
       {

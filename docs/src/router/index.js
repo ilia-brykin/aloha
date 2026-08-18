@@ -503,6 +503,11 @@ const ROUTES = [
     component: () => import("../views/Functions/Filters/PageFilterPropertyByValue/PageFilterPropertyByValue.vue"),
   },
   {
+    path: "/filter-value-by-condition",
+    name: "PageFilterValueByCondition",
+    component: () => import("../views/Functions/Filters/PageFilterValueByCondition/PageFilterValueByCondition.vue"),
+  },
+  {
     path: "/filter-search-highlight",
     name: "PageFilterSearchHighlight",
     component: () => import("../views/Functions/Filters/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),

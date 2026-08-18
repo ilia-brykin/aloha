@@ -1,0 +1,39 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_"
+    )
+
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_"
+    )
+
+    page-filter-import-function(
+      function-name="filterValueByCondition"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterValueByCondition"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterValueByCondition(value, { [conditions=[]], [defaultValue=\"\"], [defaultTemplate] })"
+    )
+
+    page-filter-value-by-condition-function
+
+    page-filter-value-by-condition-string-expression
+
+    page-filter-value-by-condition-mixed
+
+    page-filter-test(
+      :test="test"
+    )

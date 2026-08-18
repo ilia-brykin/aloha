@@ -94,6 +94,7 @@
     - filterLowerCase
     - filterMask
     - filterPropertyByValue
+    - filterValueByCondition
     - filterSearchHighlight
     - filterUpperCase
   - Utils

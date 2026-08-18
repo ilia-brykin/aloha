@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "Il valore controllato dalle condizioni e utilizzabile in funzioni, espressioni e template.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "Un elenco ordinato di oggetti condizione. La prima condizione corrispondente definisce il valore restituito.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "Una funzione o una stringa con un'espressione JavaScript che riceve il valore corrente e decide se la condizione corrisponde.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "Un valore statico o una funzione restituita quando la condizione corrisponde.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "Una stringa template JavaScript usata quando la condizione corrisponde. Il valore corrente è disponibile come value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "Un valore statico o una funzione restituita quando nessuna condizione corrisponde.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "Una stringa template JavaScript restituita quando nessuna condizione corrisponde. Il valore corrente è disponibile come value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "La funzione <strong>filterValueByCondition</strong> restituisce un risultato in base alla prima condizione corrispondente. Le condizioni possono essere funzioni o stringhe con espressioni JavaScript. I risultati possono essere valori statici, funzioni o stringhe template.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Condizioni con funzioni",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Condizioni miste",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "Espressioni e template in stringhe",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "Le espressioni e i template in formato stringa vengono eseguiti come JavaScript. Usarli solo con configurazioni attendibili e mai con input utente non verificato."
+}

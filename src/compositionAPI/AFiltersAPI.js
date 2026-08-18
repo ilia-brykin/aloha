@@ -21,6 +21,7 @@ import _filterMask from "../filters/filterMask";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
 import _filterUpperCase from "../filters/filterUpperCase";
+import _filterValueByCondition from "../filters/filterValueByCondition";
 
 export const additionFilters = ref({});
 
@@ -139,6 +140,18 @@ export default function AFiltersAPI() {
     return _filterUpperCase(value);
   };
 
+  const filterValueByCondition = (value, {
+    conditions = [],
+    defaultValue = "",
+    defaultTemplate,
+  } = {}) => {
+    return _filterValueByCondition(value, {
+      conditions,
+      defaultValue,
+      defaultTemplate,
+    });
+  };
+
   return {
     filterBoolean,
     filterCapitalize,
@@ -159,6 +172,7 @@ export default function AFiltersAPI() {
     filterPropertyByValue,
     filterSearchHighlight,
     filterUpperCase,
+    filterValueByCondition,
     ...additionFilters.value,
   };
 }

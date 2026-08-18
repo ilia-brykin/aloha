@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "The value that is checked by conditions and can be used in functions, expressions, and templates.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "An ordered list of condition objects. The first matching condition defines the returned value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "A function or JavaScript expression string that receives the current value and decides whether the condition matches.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "A static value or function returned when the condition matches.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "A JavaScript template string used when the condition matches. The current value is available as value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "A static value or function returned when no condition matches.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "A JavaScript template string returned when no condition matches. The current value is available as value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "The function <strong>filterValueByCondition</strong> returns a result based on the first matching condition. Conditions can be functions or JavaScript expression strings. Results can be static values, functions, or template strings.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Function conditions",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Mixed conditions",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "String expressions and templates",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "String expressions and templates are executed as JavaScript. Use them only with trusted configuration and never with unchecked user input."
+}

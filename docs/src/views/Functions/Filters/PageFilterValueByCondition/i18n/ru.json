@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "Значение, которое проверяется условиями и может использоваться в функциях, выражениях и шаблонах.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "Упорядоченный список объектов условий. Первое подходящее условие определяет возвращаемое значение.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "Функция или строка с JavaScript-выражением, которая получает текущее значение и определяет, подходит ли условие.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "Статическое значение или функция, возвращаемая при совпадении условия.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "Строковый JavaScript-шаблон, используемый при совпадении условия. Текущее значение доступно как value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "Статическое значение или функция, возвращаемая, если ни одно условие не подошло.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "Строковый JavaScript-шаблон, возвращаемый, если ни одно условие не подошло. Текущее значение доступно как value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "Функция <strong>filterValueByCondition</strong> возвращает результат по первому подходящему условию. Условия могут быть функциями или строками с JavaScript-выражениями. Результаты могут быть статическими значениями, функциями или строковыми шаблонами.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Условия-функции",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Смешанные условия",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "Строковые выражения и шаблоны",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "Строковые выражения и шаблоны выполняются как JavaScript. Используйте их только с доверенной конфигурацией и никогда с непроверенным пользовательским вводом."
+}

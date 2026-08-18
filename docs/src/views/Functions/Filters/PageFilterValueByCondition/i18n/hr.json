@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "Vrijednost koja se provjerava uvjetima i može se koristiti u funkcijama, izrazima i predlošcima.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "Uređeni popis objekata uvjeta. Prvi odgovarajući uvjet određuje vraćenu vrijednost.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "Funkcija ili string s JavaScript izrazom koji prima trenutnu vrijednost i odlučuje odgovara li uvjet.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "Statična vrijednost ili funkcija koja se vraća kada uvjet odgovara.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "JavaScript template string koji se koristi kada uvjet odgovara. Trenutna vrijednost dostupna je kao value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "Statična vrijednost ili funkcija koja se vraća kada nijedan uvjet ne odgovara.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "JavaScript template string koji se vraća kada nijedan uvjet ne odgovara. Trenutna vrijednost dostupna je kao value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "Funkcija <strong>filterValueByCondition</strong> vraća rezultat prema prvom odgovarajućem uvjetu. Uvjeti mogu biti funkcije ili stringovi s JavaScript izrazima. Rezultati mogu biti statične vrijednosti, funkcije ili template stringovi.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Uvjeti kao funkcije",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Mješoviti uvjeti",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "String izrazi i predlošci",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "String izrazi i predlošci izvršavaju se kao JavaScript. Koristite ih samo s pouzdanom konfiguracijom i nikada s neprovjerenim korisničkim unosom."
+}

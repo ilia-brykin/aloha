@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "El valor que se comprueba con las condiciones y que puede usarse en funciones, expresiones y plantillas.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "Una lista ordenada de objetos de condición. La primera condición coincidente define el valor devuelto.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "Una función o una cadena con una expresión JavaScript que recibe el valor actual y decide si la condición coincide.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "Un valor estático o una función que se devuelve cuando la condición coincide.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "Una cadena de plantilla JavaScript usada cuando la condición coincide. El valor actual está disponible como value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "Un valor estático o una función que se devuelve cuando ninguna condición coincide.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "Una cadena de plantilla JavaScript que se devuelve cuando ninguna condición coincide. El valor actual está disponible como value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "La función <strong>filterValueByCondition</strong> devuelve un resultado según la primera condición coincidente. Las condiciones pueden ser funciones o cadenas con expresiones JavaScript. Los resultados pueden ser valores estáticos, funciones o cadenas de plantilla.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Condiciones de función",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Condiciones mixtas",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "Expresiones y plantillas en cadenas",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "Las expresiones y plantillas en cadenas se ejecutan como JavaScript. Úselas solo con configuración confiable y nunca con entradas de usuario sin comprobar."
+}

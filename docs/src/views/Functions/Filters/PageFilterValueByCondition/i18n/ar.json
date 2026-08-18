@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "القيمة التي يتم فحصها بالشروط ويمكن استخدامها في الدوال والتعابير والقوالب.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "قائمة مرتبة من كائنات الشروط. أول شرط مطابق يحدد القيمة المرجعة.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "دالة أو سلسلة تحتوي على تعبير JavaScript تستقبل القيمة الحالية وتحدد ما إذا كان الشرط مطابقا.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "قيمة ثابتة أو دالة يتم إرجاعها عند مطابقة الشرط.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "سلسلة قالب JavaScript تستخدم عند مطابقة الشرط. القيمة الحالية متاحة باسم value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "قيمة ثابتة أو دالة يتم إرجاعها عندما لا يطابق أي شرط.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "سلسلة قالب JavaScript يتم إرجاعها عندما لا يطابق أي شرط. القيمة الحالية متاحة باسم value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "تعيد الدالة <strong>filterValueByCondition</strong> نتيجة بناء على أول شرط مطابق. يمكن أن تكون الشروط دوالا أو سلاسل تحتوي على تعابير JavaScript. ويمكن أن تكون النتائج قيما ثابتة أو دوالا أو سلاسل قوالب.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "شروط الدوال",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "شروط مختلطة",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "التعابير والقوالب النصية",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "يتم تنفيذ التعابير والقوالب النصية ككود JavaScript. استخدمها فقط مع إعدادات موثوقة ولا تستخدمها أبدا مع إدخال مستخدم غير مفحوص."
+}

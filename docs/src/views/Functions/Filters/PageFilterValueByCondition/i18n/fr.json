@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "La valeur vérifiée par les conditions et utilisable dans les fonctions, expressions et modèles.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "Une liste ordonnée d'objets de condition. La première condition correspondante définit la valeur retournée.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "Une fonction ou une chaîne contenant une expression JavaScript qui reçoit la valeur actuelle et décide si la condition correspond.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "Une valeur statique ou une fonction retournée lorsque la condition correspond.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "Une chaîne de modèle JavaScript utilisée lorsque la condition correspond. La valeur actuelle est disponible sous le nom value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "Une valeur statique ou une fonction retournée lorsqu'aucune condition ne correspond.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "Une chaîne de modèle JavaScript retournée lorsqu'aucune condition ne correspond. La valeur actuelle est disponible sous le nom value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "La fonction <strong>filterValueByCondition</strong> retourne un résultat selon la première condition correspondante. Les conditions peuvent être des fonctions ou des chaînes contenant des expressions JavaScript. Les résultats peuvent être des valeurs statiques, des fonctions ou des chaînes de modèle.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Conditions sous forme de fonctions",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Conditions mixtes",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "Expressions et modèles sous forme de chaînes",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "Les expressions et modèles sous forme de chaînes sont exécutés comme du JavaScript. Utilisez-les uniquement avec une configuration fiable et jamais avec une saisie utilisateur non vérifiée."
+}
