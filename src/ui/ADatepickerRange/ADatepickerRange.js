@@ -428,6 +428,7 @@ export default {
         this.label && h(ALabel, {
           id: this.idFrom,
           alwaysTranslate: this.alwaysTranslate,
+          extra: this.extra,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
@@ -451,6 +452,7 @@ export default {
             h(ALabel, {
               id: this.idFrom,
               alwaysTranslate: this.alwaysTranslate,
+              extra: this.extra,
               labelClass: "a_datepicker_range__label a_datepicker_range__label_min",
               isLabelFloat: false,
               label: this.labelFrom,
@@ -487,6 +489,7 @@ export default {
             h(ALabel, {
               id: this.idUntil,
               alwaysTranslate: this.alwaysTranslate,
+              extra: this.extra,
               labelClass: "a_datepicker_range__label a_datepicker_range__label_max",
               isLabelFloat: false,
               label: this.labelUntil,

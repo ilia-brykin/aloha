@@ -412,6 +412,7 @@ export default {
           h(ALabel, {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
+            extra: this.extra,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,
@@ -436,6 +437,7 @@ export default {
             h(ALabel, {
               id: this.idMin,
               alwaysTranslate: this.alwaysTranslate,
+              extra: this.extra,
               labelClass: "a_input_number_range__label a_input_number_range__label_min",
               isLabelFloat: false,
               label: this.labelMin,
@@ -469,6 +471,7 @@ export default {
             h(ALabel, {
               id: this.idMax,
               alwaysTranslate: this.alwaysTranslate,
+              extra: this.extra,
               labelClass: "a_input_number_range__label a_input_number_range__label_max",
               isLabelFloat: false,
               label: this.labelMax,

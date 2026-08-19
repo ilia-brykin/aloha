@@ -739,6 +739,7 @@ export default {
       }, [
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
+          extra: this.extra,
           label: this.label,
           labelClass: this.labelClass,
           required: this.required,

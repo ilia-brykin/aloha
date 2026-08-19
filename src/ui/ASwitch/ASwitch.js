@@ -351,6 +351,7 @@ export default {
           h(ALabel, {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
+            extra: this.extra,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,

@@ -1105,6 +1105,7 @@ export default {
         this.label && h(ALabel, {
           id: this.htmlIdLocal,
           alwaysTranslate: this.alwaysTranslate,
+          extra: this.extra,
           isLabelFloat: this.isLabelFloat,
           label: this.label,
           labelClass: this.labelClass,

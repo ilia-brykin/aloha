@@ -363,6 +363,7 @@ export default {
           this.label && !this.isLabelFloat && h(ALabel, {
             id: this.htmlIdLocal,
             alwaysTranslate: this.alwaysTranslate,
+            extra: this.extra,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,
@@ -395,6 +396,7 @@ export default {
               this.label && this.isLabelFloat && h(ALabel, {
                 id: this.htmlIdLocal,
                 alwaysTranslate: this.alwaysTranslate,
+                extra: this.extra,
                 label: this.label,
                 labelClass: this.labelClass,
                 labelScreenReader: this.labelScreenReader,

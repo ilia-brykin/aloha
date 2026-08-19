@@ -519,6 +519,7 @@ export default {
               ((this.label || this.labelScreenReader) && this.isLabelFloat) ?
                 h(ALabel, {
                   id: this.htmlIdLocal,
+                  extra: this.extra,
                   isLabelFloat: this.isLabelFloat,
                   isError: this.isErrors,
                   label: this.label,
