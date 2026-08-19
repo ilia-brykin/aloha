@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.66.1
+
+- Fix: Add `extra` prop support to `ALabel` across multiple components (`AInputFile`, `AInputNumber`, `ASelect`, `ADatepicker`, etc.), enabling enhanced label customization
+
 ## 2.66.0
 
 - Add `filterValueByCondition` function: Implement utility function to resolve values based on conditional logic. Add multilingual documentation, examples, and unit tests for comprehensive coverage.
