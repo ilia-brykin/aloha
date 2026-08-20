@@ -29,6 +29,7 @@ export default function AttributesAPI(props, {
   const row = toRef(props, "row");
   const rowClass = toRef(props, "rowClass");
   const rowIndex = toRef(props, "rowIndex");
+  const rowIndexPath = toRef(props, "rowIndexPath");
 
   const isMobile = inject("isMobile");
   const onTogglePreview = inject("onTogglePreview");
@@ -36,7 +37,8 @@ export default function AttributesAPI(props, {
 
   const rowHtmlId = computed(() => {
     const FOOTER_ID = isFooter.value ? "_footer" : "";
-    return `${ tableId.value }${ FOOTER_ID }_${ rowIndex.value }`;
+    const ROW_INDEX_PATH = rowIndexPath.value || rowIndex.value;
+    return `${ tableId.value }${ FOOTER_ID }_${ ROW_INDEX_PATH }`;
   });
 
   const rowClassLocal = computed(() => {

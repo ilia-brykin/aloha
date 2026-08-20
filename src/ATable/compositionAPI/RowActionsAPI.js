@@ -24,13 +24,15 @@ export default function RowActionsAPI(props) {
   const isFooter = toRef(props, "isFooter");
   const row = toRef(props, "row");
   const rowIndex = toRef(props, "rowIndex");
+  const rowIndexPath = toRef(props, "rowIndexPath");
 
   const columnActionsOnePlusDropdownOptions = inject("columnActionsOnePlusDropdownOptions");
   const rowActions = inject("rowActions");
   const tableId = inject("tableId");
 
   const buttonActionsId = computed(() => {
-    return `${ tableId.value }_action_${ rowIndex.value }`;
+    const ROW_INDEX_PATH = rowIndexPath.value || rowIndex.value;
+    return `${ tableId.value }_action_${ ROW_INDEX_PATH }`;
   });
 
   const indexFirstDropdownActionLocal = computed(() => {

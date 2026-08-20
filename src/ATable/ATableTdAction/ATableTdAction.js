@@ -56,6 +56,11 @@ export default {
       type: Number,
       required: true,
     },
+    rowIndexPath: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   inject: [
     "columnActionsOnePlusDropdownOptions",

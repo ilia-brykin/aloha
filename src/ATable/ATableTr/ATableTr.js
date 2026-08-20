@@ -119,6 +119,11 @@ export default {
       type: Number,
       required: true,
     },
+    rowIndexPath: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     rowsLength: {
       type: Number,
       required: true,
@@ -222,6 +227,7 @@ export default {
     "isMobile",
   ],
   render() {
+    const ROW_INDEX_PATH = this.rowIndexPath || `${ this.rowIndex }`;
     let tds = [];
     if (this.isMobile && !this.isAllColumnsVisibleMobile) {
       forEach(this.allVisibleMobileColumns, (column, columnIndex) => {
@@ -264,6 +270,7 @@ export default {
         disabledRowActions: this.disabledRowActions,
         row: this.row,
         rowIndex: this.rowIndex,
+        rowIndexPath: ROW_INDEX_PATH,
         isFooter: this.isFooter,
         rowActionsClass: this.rowActionsClass,
         isRowActionsStickyLocal: this.isRowActionsStickyLocal,
@@ -375,6 +382,7 @@ export default {
             rowActionsClass: this.rowActionsClass,
             rowClass: this.rowClass,
             rowIndex,
+            rowIndexPath: `${ ROW_INDEX_PATH }_${ rowIndex }`,
             rowsLength: this.children.length,
             selectedRowsIndexes: this.selectedRowsIndexes,
           }, {
