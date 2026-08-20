@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.66.2
+
+- Fix: Add `rowIndexPath` prop to `ATable` components for improved handling of hierarchical row IDs, update implementation, and add comprehensive tests
+
 ## 2.66.1
 
 - Fix: Add `extra` prop support to `ALabel` across multiple components (`AInputFile`, `AInputNumber`, `ASelect`, `ADatepicker`, etc.), enabling enhanced label customization
