@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.67.0
+
+- Feature: Add step change tracking to `AWizard` and `AModalWizard`, including `changeStep` event, `scrollToTopOnStepChange` prop, updated API docs, localization, and comprehensive tests
+
 ## 2.66.2
 
 - Fix: Add `rowIndexPath` prop to `ATable` components for improved handling of hierarchical row IDs, update implementation, and add comprehensive tests
