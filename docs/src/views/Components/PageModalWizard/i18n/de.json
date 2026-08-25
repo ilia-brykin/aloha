@@ -1,6 +1,7 @@
 {
   "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Diese Komponente ist eine Kombination aus einem modalen Fenster (<a href='/#/modal'>AModal</a>) und einem Wizard (<a href='/#/wizard'>AWizard</a>). Man kann fast alle Props von <a href='/#/modal'>AModal</a> und <a href='/#/wizard'>AWizard</a> verwenden.",
   "_A_MODAL_WIZARD_COMPONENT_NAME_": "Wizard im modalen Fenster",
+  "_A_MODAL_WIZARD_PROPS_SCROLL_TO_TOP_ON_STEP_CHANGE_DESCRIPTION_": "Legt fest, ob der Inhalt des modalen Fensters nach oben gescrollt wird, wenn sich der aktive Schritt des Assistenten ändert.",
   "_A_MODAL_WIZARD_STEP_1_": "Step 1",
   "_A_MODAL_WIZARD_STEP_2_": "Step 2",
   "_A_MODAL_WIZARD_STEP_3_": "Step 3",

@@ -5,6 +5,7 @@ import {
   ATranslation,
 } from "aloha-vue";
 
+import EventsAPI from "./compositionAPI/EventsAPI";
 import ExposesAPI from "./compositionAPI/ExposesAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 import PropsAPI from "./compositionAPI/PropsAPI";
@@ -35,7 +36,12 @@ export default {
       dataExposes,
     } = ExposesAPI();
 
+    const {
+      dataEvents,
+    } = EventsAPI();
+
     return {
+      dataEvents,
       dataExposes,
       dataProps,
       dataSlots,

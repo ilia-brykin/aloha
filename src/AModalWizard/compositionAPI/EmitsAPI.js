@@ -1,4 +1,11 @@
-export default function EmitsAPI({ emit }) {
+export default function EmitsAPI({ emit }, {
+  scrollToTop = () => {},
+} = {}) {
+  const changeStepLocal = arg => {
+    scrollToTop();
+    emit("changeStep", arg);
+  };
+
   const goStepBackLocal = arg => {
     emit("goStepBack", arg);
   };
@@ -7,6 +14,7 @@ export default function EmitsAPI({ emit }) {
   };
 
   return {
+    changeStepLocal,
     goStepBackLocal,
     goStepForwardLocal,
   };

@@ -3,6 +3,7 @@
   "_A_WIZARD_BTN_DELETE_STEP_": "Ukloni korak",
   "_A_WIZARD_COMPONENT_DESCRIPTION_": "Čarobnjak je sekvencijalno sučelje dizajnirano za vođenje korisnika kroz kompleksne zadatke ili procese korak po korak, razbijajući ih na jednostavnije cjeline. Uključuje jasne upute i obično pruža korisnicima mogućnost navigacije naprijed i natrag radi učinkovitog korisničkog iskustva.",
   "_A_WIZARD_COMPONENT_NAME_": "Čarobnjak",
+  "_A_WIZARD_EVENTS_CHANGE_STEP_DESCRIPTION_": "Emitira se nakon promjene aktivnog koraka čarobnjaka. Podaci sadrže <strong>step</strong>, <strong>stepIndex</strong> i <strong>previousStepIndex</strong>.",
   "_A_WIZARD_EVENTS_GO_STEP_BACK_DESCRIPTION_": "Funkcija odgovorna za vraćanje korisnika na prethodni korak čarobnjaka i svaku dodatnu logiku relevantnu za prijelaz.",
   "_A_WIZARD_EVENTS_GO_STEP_FORWARD_DESCRIPTION_": "Funkcija odgovorna za premještanje korisnika na sljedeći korak čarobnjaka i svaku dodatnu logiku relevantnu za prijelaz.",
   "_A_WIZARD_GROUP_BUTTONS_DESCRIPTION_": "Navigacijski gumbi omogućuju korisnicima kretanje naprijed ili natrag kroz korake čarobnjaka. Mogu se potpuno prilagoditi korištenjem navedenih propova.",

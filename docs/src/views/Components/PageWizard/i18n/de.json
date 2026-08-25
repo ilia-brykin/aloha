@@ -3,6 +3,7 @@
   "_A_WIZARD_BTN_DELETE_STEP_": "Schritt entfernen",
   "_A_WIZARD_COMPONENT_DESCRIPTION_": "Ein Wizard ist eine sequenzielle, schrittweise Benutzerschnittstelle, die entwickelt wurde, um Benutzer durch komplexe Aufgaben oder Prozesse zu führen, indem sie in kleinere Schritte unterteilt werden. Assistent enthält klare Anweisungen und bietet Benutzern oft die Möglichkeit, weiter und zurück zu gehen, um eine effiziente und unkomplizierte Benutzererfahrung zu ermöglichen.",
   "_A_WIZARD_COMPONENT_NAME_": "Wizard",
+  "_A_WIZARD_EVENTS_CHANGE_STEP_DESCRIPTION_": "Wird ausgelöst, nachdem sich der aktive Schritt des Assistenten geändert hat. Die Nutzlast enthält <strong>step</strong>, <strong>stepIndex</strong> und <strong>previousStepIndex</strong>.",
   "_A_WIZARD_EVENTS_GO_STEP_BACK_DESCRIPTION_": "Eine Funktion, die dafür verantwortlich ist, den Benutzer zum vorherigen Schritt des Assistenten zu bewegen, und alle zusätzlichen logischen Übergänge.",
   "_A_WIZARD_EVENTS_GO_STEP_FORWARD_DESCRIPTION_": "Eine Funktion, die dafür verantwortlich ist, den Benutzer zum nächsten Schritt des Assistenten zu bewegen, und alle zusätzlichen logischen Übergänge.",
   "_A_WIZARD_GROUP_BUTTONS_DESCRIPTION_": "Navigationstasten ermöglichen es Benutzern, weiter oder zurück durch die Schritte des Assistenten zu navigieren. Diese können vollständig angepasst werden, indem man die aufgeführten Eigenschaften verwendet.",

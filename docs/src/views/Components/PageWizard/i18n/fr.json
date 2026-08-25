@@ -3,6 +3,7 @@
   "_A_WIZARD_BTN_DELETE_STEP_": "Supprimer une étape",
   "_A_WIZARD_COMPONENT_DESCRIPTION_": "Un Assistant est une interface utilisateur séquentielle, étape par étape, conçue pour guider les utilisateurs à travers des tâches ou des processus complexes en les divisant en étapes plus petites. L'Assistant contient des instructions claires et offre souvent aux utilisateurs la possibilité d'aller et venir pour fournir une expérience utilisateur efficace et simple.",
   "_A_WIZARD_COMPONENT_NAME_": "Assistant",
+  "_A_WIZARD_EVENTS_CHANGE_STEP_DESCRIPTION_": "Émis après le changement de l’étape active de l’assistant. La charge utile contient <strong>step</strong>, <strong>stepIndex</strong> et <strong>previousStepIndex</strong>.",
   "_A_WIZARD_EVENTS_GO_STEP_BACK_DESCRIPTION_": "Une fonction responsable de déplacer l'utilisateur à l'étape précédente de l'Assistant et pour toutes les transitions logiques supplémentaires.",
   "_A_WIZARD_EVENTS_GO_STEP_FORWARD_DESCRIPTION_": "Une fonction responsable de déplacer l'utilisateur à l'étape suivante de l'Assistant et pour toutes les transitions logiques supplémentaires.",
   "_A_WIZARD_GROUP_BUTTONS_DESCRIPTION_": "Les boutons de navigation permettent aux utilisateurs d'avancer ou de reculer à travers les étapes de l'Assistant. Ils peuvent être entièrement personnalisés en utilisant les propriétés listées.",

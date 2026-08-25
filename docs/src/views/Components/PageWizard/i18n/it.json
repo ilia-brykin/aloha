@@ -3,6 +3,7 @@
   "_A_WIZARD_BTN_DELETE_STEP_": "Elimina passaggio",
   "_A_WIZARD_COMPONENT_DESCRIPTION_": "Un Wizard è un'interfaccia utente sequenziale, passo dopo passo, progettata per guidare gli utenti attraverso compiti o processi complessi suddividendoli in passaggi più piccoli. Il Wizard contiene istruzioni chiare e spesso offre agli utenti la possibilità di andare avanti e indietro per fornire un'esperienza utente efficiente e semplice.",
   "_A_WIZARD_COMPONENT_NAME_": "Wizard",
+  "_A_WIZARD_EVENTS_CHANGE_STEP_DESCRIPTION_": "Emesso dopo la modifica del passaggio attivo della procedura guidata. Il payload contiene <strong>step</strong>, <strong>stepIndex</strong> e <strong>previousStepIndex</strong>.",
   "_A_WIZARD_EVENTS_GO_STEP_BACK_DESCRIPTION_": "Una funzione responsabile per spostare l'utente al passaggio precedente del Wizard e per tutte le transizioni logiche aggiuntive.",
   "_A_WIZARD_EVENTS_GO_STEP_FORWARD_DESCRIPTION_": "Una funzione responsabile per spostare l'utente al passaggio successivo del Wizard e per tutte le transizioni logiche aggiuntive.",
   "_A_WIZARD_GROUP_BUTTONS_DESCRIPTION_": "I pulsanti di navigazione consentono agli utenti di andare avanti o indietro attraverso i passaggi del Wizard. Possono essere completamente personalizzati utilizzando le proprietà elencate.",

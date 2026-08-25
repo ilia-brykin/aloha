@@ -3,6 +3,7 @@
   "_A_WIZARD_BTN_DELETE_STEP_": "Eliminar paso",
   "_A_WIZARD_COMPONENT_DESCRIPTION_": "Un Asistente es una interfaz de usuario secuencial, paso a paso, diseñada para guiar a los usuarios a través de tareas o procesos complejos dividiéndolos en pasos más pequeños. El Asistente contiene instrucciones claras y a menudo ofrece a los usuarios la posibilidad de avanzar y retroceder para proporcionar una experiencia de usuario eficiente y sencilla.",
   "_A_WIZARD_COMPONENT_NAME_": "Asistente",
+  "_A_WIZARD_EVENTS_CHANGE_STEP_DESCRIPTION_": "Se emite después de que cambia el paso activo del asistente. La carga contiene <strong>step</strong>, <strong>stepIndex</strong> y <strong>previousStepIndex</strong>.",
   "_A_WIZARD_EVENTS_GO_STEP_BACK_DESCRIPTION_": "Una función responsable de mover al usuario al paso anterior del Asistente y para todas las transiciones lógicas adicionales.",
   "_A_WIZARD_EVENTS_GO_STEP_FORWARD_DESCRIPTION_": "Una función responsable de mover al usuario al siguiente paso del Asistente y para todas las transiciones lógicas adicionales.",
   "_A_WIZARD_GROUP_BUTTONS_DESCRIPTION_": "Los botones de navegación permiten a los usuarios avanzar o retroceder a través de los pasos del Asistente. Pueden personalizarse completamente utilizando las propiedades listadas.",

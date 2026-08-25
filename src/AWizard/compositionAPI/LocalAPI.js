@@ -10,6 +10,7 @@ import {
 } from "lodash-es";
 
 export default function LocalAPI(props, {
+  changeStep = () => {},
   setFocusToActiveStep = () => {},
 }) {
   const stepActive = toRef(props, "stepActive");
@@ -44,9 +45,13 @@ export default function LocalAPI(props, {
     });
   };
 
-  watch(stepActiveComputed, newValue => {
+  watch(stepActiveComputed, (newValue, oldValue) => {
     if (isWatchActive.value) {
       setFocusToActiveStep({ stepActive: newValue });
+      changeStep({
+        stepIndex: newValue,
+        previousStepIndex: oldValue,
+      });
     }
   });
 

@@ -9,6 +9,7 @@ import AWizardTab from "./AWizardTab/AWizardTab";
 import AWizardToolbar from "./AWizardToolbar/AWizardToolbar";
 
 import AttributesAPI from "./compositionAPI/AttributesAPI";
+import ChangeStepAPI from "./compositionAPI/ChangeStepAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
@@ -274,6 +275,7 @@ export default {
     },
   },
   emits: [
+    "changeStep",
     "goStepBack",
     "goStepForward",
   ],
@@ -294,12 +296,17 @@ export default {
     } = FocusAPI(props);
 
     const {
+      changeStep,
+    } = ChangeStepAPI(props, context);
+
+    const {
       initStepActive,
       stepActiveComputed,
       stepActiveLocal,
       stepsVisitedComputed,
       stepsVisitedLocal,
     } = LocalAPI(props, {
+      changeStep,
       setFocusToActiveStep,
     });
 

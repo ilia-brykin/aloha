@@ -7,6 +7,7 @@ import AWizard from "../AWizard/AWizard";
 
 import EmitsAPI from "./compositionAPI/EmitsAPI";
 import IdsAPI from "./compositionAPI/IdsAPI";
+import ScrollAPI from "./compositionAPI/ScrollAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import ExclamationCircleFill from "aloha-svg/dist/js/bootstrap/ExclamationCircleFill";
@@ -355,6 +356,10 @@ export default {
       required: false,
       default: undefined,
     },
+    scrollToTopOnStepChange: {
+      type: Boolean,
+      default: true,
+    },
     showOnlyActiveStepMobile: {
       type: Boolean,
       required: false,
@@ -428,15 +433,11 @@ export default {
     },
   },
   emits: [
+    "changeStep",
     "goStepBack",
     "goStepForward",
   ],
   setup(props, context) {
-    const {
-      goStepBackLocal,
-      goStepForwardLocal,
-    } = EmitsAPI(context);
-
     const {
       footerId,
       wizardId,
@@ -447,18 +448,34 @@ export default {
       isWizardVisible,
     } = VisibleAPI();
 
+    const {
+      modalBodyRef,
+      scrollToTop,
+    } = ScrollAPI(props);
+
+    const {
+      changeStepLocal,
+      goStepBackLocal,
+      goStepForwardLocal,
+    } = EmitsAPI(context, {
+      scrollToTop,
+    });
+
     initWizard();
 
     return {
       footerId,
+      changeStepLocal,
       goStepBackLocal,
       goStepForwardLocal,
       isWizardVisible,
+      modalBodyRef,
       wizardId,
     };
   },
   render() {
     return h(AModal, {
+      ref: "modalBodyRef",
       alwaysTranslate: this.alwaysTranslate,
       backdropZIndex: this.backdropZIndex,
       classExtra: this.classExtra,
@@ -547,6 +564,7 @@ export default {
           subType: this.subType,
           toolbarBottomTeleportId: this.footerId,
           type: this.type,
+          onChangeStep: this.changeStepLocal,
           onGoStepBack: this.goStepBackLocal,
           onGoStepForward: this.goStepForwardLocal,
         }, this.$slots),

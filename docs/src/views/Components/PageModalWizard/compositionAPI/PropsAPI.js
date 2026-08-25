@@ -486,6 +486,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "scroll-to-top-on-step-change",
+      description: "_A_MODAL_WIZARD_PROPS_SCROLL_TO_TOP_ON_STEP_CHANGE_DESCRIPTION_",
+      type: "Boolean",
+      default: true,
+      required: false,
+    },
+    {
       name: "show-only-active-step-mobile",
       description: "_A_WIZARD_PROPS_SHOW_ONLY_ACTIVE_STEP_MOBILE_DESCRIPTION_",
       type: "Boolean",

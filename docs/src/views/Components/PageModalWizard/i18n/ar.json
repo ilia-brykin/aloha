@@ -1,6 +1,7 @@
 {
   "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "هذه المكوّن هو مزيج من نافذة منبثقة (<a href='/#/modal'>AModal</a>) وWizard (<a href='/#/wizard'>AWizard</a>). يمكنك استخدام معظم الخصائص من <a href='/#/modal'>AModal</a> و<a href='/#/wizard'>AWizard</a>.",
   "_A_MODAL_WIZARD_COMPONENT_NAME_": "Wizard في نافذة منبثقة",
+  "_A_MODAL_WIZARD_PROPS_SCROLL_TO_TOP_ON_STEP_CHANGE_DESCRIPTION_": "يحدد ما إذا كان محتوى النافذة المنبثقة ينتقل إلى الأعلى عند تغيير الخطوة النشطة في المعالج.",
   "_A_MODAL_WIZARD_STEP_1_": "الخطوة 1",
   "_A_MODAL_WIZARD_STEP_2_": "الخطوة 2",
   "_A_MODAL_WIZARD_STEP_3_": "الخطوة 3",

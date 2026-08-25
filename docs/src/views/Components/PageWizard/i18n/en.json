@@ -4,6 +4,7 @@
   "_A_WIZARD_BTN_DELETE_STEP_": "Remove step",
   "_A_WIZARD_COMPONENT_DESCRIPTION_": "A wizard is a sequential, step-by-step interface designed to guide users through complex tasks or processes by breaking them into manageable steps. It includes clear instructions and often provides users with the ability to navigate forward and backward for a efficient and straightforward user experience.",
   "_A_WIZARD_COMPONENT_NAME_": "Wizard",
+  "_A_WIZARD_EVENTS_CHANGE_STEP_DESCRIPTION_": "Emitted after the active wizard step changes. The payload contains <strong>step</strong>, <strong>stepIndex</strong>, and <strong>previousStepIndex</strong>.",
   "_A_WIZARD_EVENTS_GO_STEP_BACK_DESCRIPTION_": "A function responsible for moving the user back to the previous step of the wizard and any additional logic relevant to transition.",
   "_A_WIZARD_EVENTS_GO_STEP_FORWARD_DESCRIPTION_": "A function responsible for moving the user to the next step of the wizard and any additional logic relevant to transition.",
   "_A_WIZARD_GROUP_BUTTONS_DESCRIPTION_": "Navigation buttons allow users to move forward or backward through the steps of the wizard. They can be fully customized by using the listed props.",
