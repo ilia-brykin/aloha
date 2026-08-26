@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.68.0
+
+- Feature: Add `mergeData` prop to `ASelect`, `ACheckbox`, `ARadio`, and `AMultiselectOrdered` for merging external and internal data sources by ID, update related API, localization, and add comprehensive tests.
+
 ## 2.67.0
 
 - Feature: Add step change tracking to `AWizard` and `AModalWizard`, including `changeStep` event, `scrollToTopOnStepChange` prop, updated API docs, localization, and comprehensive tests
