@@ -86,6 +86,7 @@
   "_A_UI_PROPS_CLEAR_BUTTON_CLASS_DESCRIPTION_": "Određuje <strong lang=\"en\">CSS</strong> klasu koja će se primijeniti na gumb za brisanje. Ovo omogućuje prilagodbu izgleda gumba prema zahtjevima dizajna.",
   "_A_UI_PROPS_DATA_DESCRIPTION_": "Niz podataka koji se koristi za generiranje elemenata.",
   "_A_UI_PROPS_DATA_EXTRA_DESCRIPTION_": "Dodatni niz stavki koje nisu uključene u glavni niz podataka. Stavke podržavaju istu konfiguraciju grupiranja kao <strong lang=\"en\">data</strong> putem <strong lang=\"en\">key-group</strong> i povezanih svojstava grupe.",
+  "_A_UI_PROPS_MERGE_DATA_DESCRIPTION_": "Određuje spajaju li se interno učitani podaci s propom <strong lang=\"en\">data</strong>. Stavke se spajaju prema ID-u; ako oba izvora sadrže isti ID, prednost ima interno učitana stavka. Ako je postavljeno na <strong lang=\"en\">false</strong>, interni podaci zamjenjuju prop <strong lang=\"en\">data</strong>.",
   "_A_UI_PROPS_DEPENDENCIES_DESCRIPTION_": "Određuje ovisnosti koje mogu utjecati na vidljivost ili ponašanje komponente na temelju vrijednosti drugih elemenata.",
   "_A_UI_PROPS_DISABLED_DESCRIPTION_": "Određuje je li komponenta onemogućena. Ako je postavljeno na <strong lang=\"en\">true</strong>, komponenta postaje neaktivna i korisnik ne može komunicirati s njom.",
   "_A_UI_PROPS_ERRORS_ALL_DESCRIPTION_": "Objekt koji sadrži pogreške za sve podređene elemente proslijeđene putem <strong lang=\"en\">children</strong>. Svaka pogreška mora biti povezana s odgovarajućim elementom putem njegove <strong lang=\"en\">id</strong> vrijednosti.",

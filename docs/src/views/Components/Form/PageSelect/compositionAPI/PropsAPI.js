@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "merge-data",
+      description: "_A_UI_PROPS_MERGE_DATA_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "show-selected-first",
       description: "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_",
       type: "Boolean",

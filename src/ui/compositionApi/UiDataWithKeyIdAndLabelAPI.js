@@ -34,6 +34,7 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
   const keyId = toRef(props, "keyId");
   const keyLabel = toRef(props, "keyLabel");
   const keyLabelCallback = toRef(props, "keyLabelCallback");
+  const mergeData = toRef(props, "mergeData");
   const searchTextInHtml = toRef(props, "searchTextInHtml");
   const translateData = toRef(props, "translateData");
 
@@ -156,7 +157,14 @@ export default function UiDataWithKeyIdAndLabelAPI(props) {
     let DATA_LOCAL = data.value || [];
 
     if (dataFromServer.value.length) {
-      DATA_LOCAL = dataFromServer.value;
+      if (mergeData.value) {
+        DATA_LOCAL = uniqBy([
+          ...dataFromServer.value,
+          ...DATA_LOCAL,
+        ], item => get(item, keyId.value, item));
+      } else {
+        DATA_LOCAL = dataFromServer.value;
+      }
     }
 
     if (!dataFromRetrieve.value.length) {

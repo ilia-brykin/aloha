@@ -127,6 +127,11 @@ export default {
       required: false,
       default: () => ASelectPluginOptions.propsDefault.dataExtra,
     },
+    mergeData: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     dependencies: {
       type: [Array, Object],
       required: false,

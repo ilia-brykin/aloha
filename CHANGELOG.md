@@ -10,6 +10,7 @@
 ## 2.67.0
 
 - Feature: Add step change tracking to `AWizard` and `AModalWizard`, including `changeStep` event, `scrollToTopOnStepChange` prop, updated API docs, localization, and comprehensive tests
+- Feature: Add the `mergeData` prop to `ASelect`, `ACheckbox`, `ARadio`, and `AMultiselectOrdered` for merging prop and internally loaded data by ID
 
 ## 2.66.2
 

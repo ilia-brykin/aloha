@@ -120,6 +120,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "merge-data",
+      description: "_A_UI_PROPS_MERGE_DATA_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "dependencies",
       description: "_A_UI_PROPS_DEPENDENCIES_DESCRIPTION_",
       type: "Array / Object",
