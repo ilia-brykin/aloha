@@ -13,6 +13,7 @@ import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttri
 import UiAPI, {
   getHtmlId,
 } from "../compositionApi/UiAPI";
+import UiModelDependenciesProvideAPI from "../compositionApi/UiModelDependenciesProvideAPI";
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import AUiComponents from "../AUiComponents";
@@ -202,6 +203,8 @@ export default {
     "updateData",
   ],
   setup(props, context) {
+    UiModelDependenciesProvideAPI(toRef(props, "modelValue"));
+
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);

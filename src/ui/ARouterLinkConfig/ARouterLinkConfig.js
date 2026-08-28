@@ -13,6 +13,7 @@ import ModelLocalAPI from "./compositionAPI/ModelLocalAPI";
 import ParamAPI from "./compositionAPI/ParamAPI";
 import RouteAPI from "./compositionAPI/RouteAPI";
 
+import UiDependenciesMixinProps from "../mixins/UiDependenciesMixinProps";
 import {
   uniqueId,
 } from "lodash-es";
@@ -20,6 +21,9 @@ import {
 export default {
   name: "ARouterLinkConfig",
   inheritAttrs: false,
+  mixins: [
+    UiDependenciesMixinProps,
+  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -331,6 +335,7 @@ export default {
         classColumns: this.classColumns,
         classFieldset: this.classFieldset,
         disabled: this.disabled,
+        dependencies: this.dependencies,
         errors: this.errors,
         excludeRenderAttributes: this.excludeRenderAttributes,
         extra: this.extra,
@@ -345,6 +350,7 @@ export default {
         labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
         modelUndefined: this.modelUndefined,
+        modelDependencies: this.modelDependencies,
         modelValue: this.modelLocal,
         readonly: this.readonly,
         readonlyDefault: this.readonlyDefault,
@@ -361,6 +367,7 @@ export default {
         change: this.changeRouteModelSelect,
         data: this.routesLocal,
         disabled: this.disabled,
+        dependencies: this.dependencies,
         errors: this.errors,
         excludeRenderAttributes: this.excludeRenderAttributes,
         extra: this.extra,
@@ -377,6 +384,7 @@ export default {
         labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
         modelUndefined: this.modelUndefined,
+        modelDependencies: this.modelDependencies,
         modelValue: this.modelLocal,
         readonly: this.readonly,
         readonlyDefault: this.readonlyDefault,

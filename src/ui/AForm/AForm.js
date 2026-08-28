@@ -9,6 +9,7 @@ import HideAPI from "./compositionAPI/HideAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import RequiredAPI from "./compositionAPI/RequiredAPI";
 import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttributesAPI";
+import UiModelDependenciesProvideAPI from "../compositionApi/UiModelDependenciesProvideAPI";
 import {
   getHtmlId,
 } from "../compositionApi/UiAPI";
@@ -144,6 +145,8 @@ export default {
       modelValueLocal,
       onUpdateModelLocal,
     } = ModelAPI(props, content);
+
+    UiModelDependenciesProvideAPI(modelValueLocal);
 
     const {
       styleFormHide,

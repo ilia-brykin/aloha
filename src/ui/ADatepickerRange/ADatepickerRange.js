@@ -22,6 +22,7 @@ import InputAttributesAPI from "./compositionAPI/InputAttributesAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
 import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 
+import UiDependenciesMixinProps from "../mixins/UiDependenciesMixinProps";
 import {
   uniqueId,
 } from "lodash-es";
@@ -29,6 +30,9 @@ import {
 export default {
   name: "ADatepickerRange",
   inheritAttrs: false,
+  mixins: [
+    UiDependenciesMixinProps,
+  ],
   props: {
     alwaysTranslate: {
       type: Boolean,

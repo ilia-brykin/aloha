@@ -23,6 +23,7 @@ import ReadonlyAPI from "./compositionAPI/ReadonlyAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 
 import Types from "./utils/Types";
+import UiDependenciesMixinProps from "../mixins/UiDependenciesMixinProps";
 import {
   uniqueId,
 } from "lodash-es";
@@ -30,6 +31,9 @@ import {
 export default {
   name: "AInputNumberRange",
   inheritAttrs: false,
+  mixins: [
+    UiDependenciesMixinProps,
+  ],
   props: {
     alwaysTranslate: {
       type: Boolean,

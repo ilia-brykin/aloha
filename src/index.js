@@ -146,6 +146,7 @@ export {
 export { default as UiAPI } from "./ui/compositionApi/UiAPI";
 export { default as UIExcludeRenderAttributesAPI } from "./ui/compositionApi/UIExcludeRenderAttributesAPI";
 export { default as UiStyleHideAPI } from "./ui/compositionApi/UiStyleHideAPI";
+export { default as UiModelDependenciesProvideAPI } from "./ui/compositionApi/UiModelDependenciesProvideAPI";
 export { default as UiDisabledAPI } from "./ui/compositionApi/UiDisabledAPI";
 export { default as UiClearButtonAPI } from "./ui/compositionApi/UiClearButtonAPI";
 export { default as UiInputAutofillAPI } from "./ui/compositionApi/UiInputAutofillAPI";

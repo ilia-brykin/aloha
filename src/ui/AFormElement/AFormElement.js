@@ -21,6 +21,11 @@ export default {
       required: false,
       default: () => {},
     },
+    dependencies: {
+      type: [Array, Object],
+      required: false,
+      default: undefined,
+    },
     disabled: {
       type: Boolean,
       required: false,

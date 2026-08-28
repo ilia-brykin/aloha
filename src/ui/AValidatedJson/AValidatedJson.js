@@ -25,6 +25,7 @@ import ModelAPI from "./compositionAPI/ModelAPI";
 import SingleModeAPI from "./compositionAPI/SingleModeAPI";
 import TranslateAPI from "./compositionAPI/TranslateAPI";
 
+import UiDependenciesMixinProps from "../mixins/UiDependenciesMixinProps";
 import {
   uniqueId,
 } from "lodash-es";
@@ -36,6 +37,9 @@ const Plus = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fil
 export default {
   name: "AValidatedJson",
   inheritAttrs: false,
+  mixins: [
+    UiDependenciesMixinProps,
+  ],
   props: {
     alwaysTranslate: {
       type: Boolean,
@@ -353,6 +357,7 @@ export default {
         ...this.$attrs,
         alwaysTranslate: this.alwaysTranslate,
         children: this.singleModeChildren,
+        dependencies: this.dependencies,
         disabled: this.disabled,
         errors: this.errors,
         excludeRenderAttributes: this.excludeRenderAttributes,
@@ -368,6 +373,7 @@ export default {
         labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
         modelAll: this.modelAll,
+        modelDependencies: this.modelDependencies,
         modelValue: this.modelValue,
         readonly: this.readonly,
         required: this.required,
@@ -394,6 +400,7 @@ export default {
           "a_validated_json a_validated_json_list",
           this.$attrs.class,
         ],
+        dependencies: this.dependencies,
         errors: this.errors ? "_A_VALIDATED_JSON_ERROR_FIELDSET_" : undefined,
         extra: this.extra,
         helpText: this.helpText,
@@ -403,6 +410,7 @@ export default {
         labelClass: this.labelClass,
         labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
+        modelDependencies: this.modelDependencies,
         required: this.required,
         slotName: `slotAppend_${ this.id }`,
       }, {
@@ -498,6 +506,7 @@ export default {
           "a_validated_json a_validated_json_json",
           this.$attrs.class,
         ],
+        dependencies: this.dependencies,
         extra: this.extra,
         errors: this.errors ? "_A_VALIDATED_JSON_ERROR_FIELDSET_" : undefined,
         helpText: this.helpText,
@@ -507,6 +516,7 @@ export default {
         labelClass: this.labelClass,
         labelDescription: this.labelDescription,
         labelScreenReader: this.labelScreenReader,
+        modelDependencies: this.modelDependencies,
         required: this.required,
         slotName: "slotAppend",
       }, {

@@ -7,10 +7,14 @@ import UIExcludeRenderAttributesAPI from "../compositionApi/UIExcludeRenderAttri
 import UiStyleHideAPI from "../compositionApi/UiStyleHideAPI";
 
 import ASafeHtml from "../../directives/ASafeHtml";
+import UiDependenciesMixinProps from "../mixins/UiDependenciesMixinProps";
 
 export default {
   name: "ATemplate",
   inheritAttrs: false,
+  mixins: [
+    UiDependenciesMixinProps,
+  ],
   props: {
     alwaysTranslate: {
       type: Boolean,

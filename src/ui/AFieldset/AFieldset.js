@@ -2,6 +2,7 @@ import {
   Fragment,
   h,
   resolveComponent,
+  toRef,
 } from "vue";
 import {
   AElement,
@@ -15,6 +16,7 @@ import {
   UiAPI,
   UiCollapseAPI,
   UIExcludeRenderAttributesAPI,
+  UiModelDependenciesProvideAPI,
   UiStyleHideAPI,
   UiTextAfterLabelAPI,
 } from "../../index";
@@ -258,6 +260,8 @@ export default {
     "update:modelValue",
   ],
   setup(props, context) {
+    UiModelDependenciesProvideAPI(toRef(props, "modelValue"));
+
     const {
       attributesToExcludeFromRender,
     } = UIExcludeRenderAttributesAPI(props);
