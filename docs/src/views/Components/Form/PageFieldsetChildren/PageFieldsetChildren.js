@@ -5,6 +5,7 @@ import AlohaTableTranslate from "../../../../global/components/AlohaTableTransla
 import PageFieldsetChildrenBasic from "./PageFieldsetChildrenBasic/PageFieldsetChildrenBasic.vue";
 import PageFieldsetChildrenClassColumn from "./PageFieldsetChildrenClassColumn/PageFieldsetChildrenClassColumn.vue";
 import PageFieldsetChildrenClassColumns from "./PageFieldsetChildrenClassColumns/PageFieldsetChildrenClassColumns.vue";
+import PageFieldsetChildrenDependencies from "./PageFieldsetChildrenDependencies/PageFieldsetChildrenDependencies.vue";
 import PageFieldsetChildrenErrorsAll from "./PageFieldsetChildrenErrorsAll/PageFieldsetChildrenErrorsAll.vue";
 import PageFieldsetChildrenReadonly from "./PageFieldsetChildrenReadonly/PageFieldsetChildrenReadonly.vue";
 import PageFieldsetChildrenTree from "./PageFieldsetChildrenTree/PageFieldsetChildrenTree.vue";
@@ -26,6 +27,7 @@ export default {
     PageFieldsetChildrenBasic,
     PageFieldsetChildrenClassColumn,
     PageFieldsetChildrenClassColumns,
+    PageFieldsetChildrenDependencies,
     PageFieldsetChildrenErrorsAll,
     PageFieldsetChildrenReadonly,
     PageFieldsetChildrenTree,
