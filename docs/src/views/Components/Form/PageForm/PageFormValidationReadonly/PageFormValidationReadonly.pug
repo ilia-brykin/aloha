@@ -1,0 +1,28 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_FORM_VALIDATION_READONLY_HEADER_"
+  description="_A_FORM_VALIDATION_READONLY_DESCRIPTION_"
+  :props="['errors', 'readonly', 'show-errors', 'show-required-text', 'text-error-header', 'text-required']"
+)
+  .a_btn_group.a_mb_3
+    a-button(
+      text="_A_FORM_EXAMPLE_VALIDATE_"
+      @click="validate"
+    )
+    a-button(
+      text="_A_FORM_EXAMPLE_CLEAR_ERRORS_"
+      @click="clearErrors"
+    )
+    a-button(
+      :text="readonly ? '_A_FORM_EXAMPLE_EDIT_' : '_A_FORM_EXAMPLE_READONLY_'"
+      @click="toggleReadonly"
+    )
+  a-form(
+    v-model="model"
+    :data="data"
+    :errors="errors"
+    :readonly="readonly"
+    text-error-header="_A_FORM_EXAMPLE_ERROR_HEADER_"
+    text-required="_A_FORM_EXAMPLE_REQUIRED_TEXT_"
+  )

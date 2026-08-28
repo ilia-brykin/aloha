@@ -1,0 +1,51 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_FORM_EVENTS_SLOTS_HEADER_"
+  description="_A_FORM_EVENTS_SLOTS_DESCRIPTION_"
+  :emits="['update:model-value', 'change']"
+  :slots="['formPrepend', 'formPrependAfterRequired', 'formDataPrepend', 'formDataAppend', 'formAppend']"
+)
+  a-form(
+    v-model="model"
+    :data="data"
+    :show-errors="false"
+    @update:model-value="onUpdateModelValue"
+    @change="onChange"
+  )
+    template(
+      v-slot:formPrepend
+    )
+      a-translation.a_mb_2(
+        tag="strong"
+        text="_A_FORM_EXAMPLE_SLOT_FORM_PREPEND_"
+      )
+    template(
+      v-slot:formPrependAfterRequired
+    )
+      a-translation.a_mb_2(
+        tag="div"
+        text="_A_FORM_EXAMPLE_SLOT_AFTER_REQUIRED_"
+      )
+    template(
+      v-slot:formDataPrepend
+    )
+      a-translation.a_column.a_column_12(
+        tag="div"
+        text="_A_FORM_EXAMPLE_SLOT_DATA_PREPEND_"
+      )
+    template(
+      v-slot:formDataAppend
+    )
+      a-translation.a_column.a_column_12(
+        tag="div"
+        text="_A_FORM_EXAMPLE_SLOT_DATA_APPEND_"
+      )
+    template(
+      v-slot:formAppend
+    )
+      a-translation.a_mt_2(
+        tag="strong"
+        text="_A_FORM_EXAMPLE_SLOT_FORM_APPEND_"
+      )
+  pre {{ lastEvent }}

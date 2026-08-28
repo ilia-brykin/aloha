@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_FORM_BASIC_HEADER_"
+  description="_A_FORM_BASIC_DESCRIPTION_"
+  :props="['data', 'model-value', 'class-columns', 'class-column-default']"
+  emits="update:model-value"
+)
+  a-form(
+    v-model="model"
+    :data="data"
+    :show-errors="false"
+    :show-required-text="false"
+  )
+  pre {{ model }}

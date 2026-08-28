@@ -1,32 +1,36 @@
-div
-  h1 AForm
-
-  button.a_btn.a_btn_primary(
-    type="button"
-    @click="validate"
-  ) Validation
-  button.a_btn.a_btn_secondary.a_ml_2(
-    type="button"
-    @click="reset"
-  ) Reset
-  a-form(
-    v-model="model"
-    :data="data"
-    :errors="errors"
-    id-prefix="test_"
-    @change="changeForm"
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
   )
-    template(
-      v-slot:formPrepend
+    a-translation(
+      tag="p"
+      html="_A_FORM_COMPONENT_DESCRIPTION_"
     )
-      div
-        strong SLOT "formPrepend"
 
-    template(
-      v-slot:formAppend
+    aloha-form-types
+
+    page-form-basic
+
+    page-form-dependencies
+
+    page-form-validation-readonly
+
+    page-form-events-slots
+
+    aloha-table-props(
+      :data="dataProps"
     )
-      div
-        strong SLOT "formAppend"
 
-  br
-  pre {{ model }}
+    aloha-table-props(
+      table-label="Emits"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
