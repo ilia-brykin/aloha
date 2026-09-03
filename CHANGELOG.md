@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.69.0
+
+- Feature: Add readonly `displayValueReadonly` to `AInputCurrency` for formatted display handling, update API, and add comprehensive tests
+
 ## 2.68.0
 
 - Feature: Add `mergeData` prop to `ASelect`, `ACheckbox`, `ARadio`, and `AMultiselectOrdered` for merging external and internal data sources by ID, update related API, localization, and add comprehensive tests.
