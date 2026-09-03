@@ -1,5 +1,6 @@
 import {
   computed,
+  h,
   nextTick,
   reactive,
   ref,
@@ -466,6 +467,110 @@ describe("ATableForm list view", () => {
     await wrapper.find("tbody tr.a_table_form__row").trigger("click");
 
     expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(false);
+  });
+
+  it("renders a matching row as one full-width cell", async() => {
+    const rows = [
+      {
+        id: 1,
+        name: "Section",
+        type: "separator",
+      },
+      {
+        id: 2,
+        name: "Regular row",
+        type: "data",
+      },
+    ];
+    const fullWidthRowCallback = jest.fn(({ row }) => row.type === "separator");
+    const wrapper = mount(ATableForm, {
+      props: {
+        columns: [
+          {
+            id: "id",
+            label: "ID",
+          },
+          {
+            id: "name",
+            label: "Name",
+          },
+        ],
+        fullWidthRowCallback,
+        isDragAndDrop: true,
+        isEditable: true,
+        isEditOnRowClick: true,
+        keyId: "id",
+        rows,
+      },
+      slots: {
+        fullWidthRow: ({ isFooter, row, rowIndex, rows: rowsSlot }) => h("strong", {
+          class: "full-width-row-content",
+          "data-is-footer": `${ isFooter }`,
+          "data-row-index": rowIndex,
+          "data-rows-length": rowsSlot.length,
+        }, row.name),
+      },
+    });
+
+    const bodyRows = wrapper.findAll("tbody tr.a_table_form__row");
+    const fullWidthCell = bodyRows[0].find(".a_table_form__cell_full_width");
+
+    expect(bodyRows).toHaveLength(2);
+    expect(bodyRows[0].findAll("td")).toHaveLength(1);
+    expect(fullWidthCell.attributes("colspan")).toBe("4");
+    expect(fullWidthCell.text()).toBe("Section");
+    expect(fullWidthCell.find(".full-width-row-content").attributes()).toEqual(expect.objectContaining({
+      "data-is-footer": "false",
+      "data-row-index": "0",
+      "data-rows-length": "2",
+    }));
+    expect(bodyRows[0].find(".a_table_form__cell_reorder").exists()).toBe(false);
+    expect(bodyRows[0].find(".a_table_form__cell_actions").exists()).toBe(false);
+    expect(bodyRows[0].classes()).not.toContain("a_table_form__row_edit_on_click");
+    expect(bodyRows[1].findAll("td")).toHaveLength(4);
+    expect(bodyRows[1].classes()).toContain("a_table_form__row_edit_on_click");
+    expect(fullWidthRowCallback).toHaveBeenCalledWith({
+      isFooter: false,
+      row: rows[0],
+      rowIndex: 0,
+    });
+
+    await bodyRows[0].trigger("click");
+
+    expect(wrapper.find("tbody button[id$='_save']").exists()).toBe(false);
+  });
+
+  it("renders matching footer rows through the full-width slot", () => {
+    const footerRow = {
+      label: "Summary",
+      type: "summary",
+    };
+    const wrapper = mount(ATableForm, {
+      props: {
+        columns: [
+          {
+            id: "name",
+            label: "Name",
+          },
+          {
+            id: "value",
+            label: "Value",
+          },
+        ],
+        fullWidthRowCallback: ({ row }) => row.type === "summary",
+        rows: [{ name: "Item", value: 1 }],
+        rowsFooter: [footerRow],
+      },
+      slots: {
+        fullWidthRow: ({ isFooter, row }) => h("span", `${ isFooter }:${ row.label }`),
+      },
+    });
+
+    const footerCells = wrapper.findAll("tfoot td");
+
+    expect(footerCells).toHaveLength(1);
+    expect(footerCells[0].attributes("colspan")).toBe("2");
+    expect(footerCells[0].text()).toBe("true:Summary");
   });
 
   it("enters edit mode by row click only when enabled and row edit is available", async() => {

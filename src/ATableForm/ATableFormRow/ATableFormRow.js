@@ -145,6 +145,11 @@ export default {
       required: false,
       default: undefined,
     },
+    fullWidthRowCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     hasActionsColumn: {
       type: Boolean,
       required: false,
@@ -361,6 +366,7 @@ export default {
       if (
         !this.isEditOnRowClick ||
         !this.isEditable ||
+        this.isFullWidthRow ||
         this.isActiveEditMode ||
         this.isCreateMode ||
         this.isFooter ||
@@ -389,6 +395,22 @@ export default {
       }
 
       return true;
+    },
+    isFullWidthRow() {
+      if (
+        this.isHeader ||
+        this.isCreateMode ||
+        this.isActiveEditMode ||
+        !isFunction(this.fullWidthRowCallback)
+      ) {
+        return false;
+      }
+
+      return !!this.$slots.fullWidthRow && !!this.fullWidthRowCallback({
+        isFooter: this.isFooter,
+        row: this.row,
+        rowIndex: this.rowIndex,
+      });
     },
     currentRowData() {
       return this.isActiveEditMode && this.modelLocal ? this.modelLocal : this.row;
@@ -460,6 +482,19 @@ export default {
       ]));
     }
 
+    let fullWidthRowCells;
+    if (this.isFullWidthRow) {
+      fullWidthRowCells = [h("td", {
+        class: "a_table_form__cell a_table_form__cell_full_width",
+        colspan: this.allColumnsLength,
+      }, this.$slots.fullWidthRow({
+        isFooter: this.isFooter,
+        row: this.row,
+        rowIndex: this.rowIndex,
+        rows: this.rows,
+      }))];
+    }
+
     rows.push(h("tr", {
       id: this.idTr,
       "aria-grabbed": !this.isHeader && !this.isFooter ? this.draggedRowIndex === this.rowIndex : undefined,
@@ -474,7 +509,7 @@ export default {
       onDragleave: this.onDragleave && ($event => this.onDragleave($event, this.rowIndex)),
       onDragover: this.onDragover && ($event => this.onDragover($event, this.rowIndex)),
       onDrop: this.onDrop && ($event => this.onDrop($event, this.rowIndex)),
-    }, [
+    }, fullWidthRowCells || [
       this.isDragAndDrop ?
         h(ATableFormCellDnd, {
           id: this.idTr,

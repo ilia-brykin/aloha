@@ -93,6 +93,11 @@ export default {
       required: false,
       default: true,
     },
+    fullWidthRowCallback: {
+      type: Function,
+      required: false,
+      default: undefined,
+    },
     icons: {
       type: Object,
       required: false,
@@ -468,6 +473,7 @@ export default {
                   editFocusColumnId: this.activeEditRowKey === rowKey ? this.activeEditFocusColumnId : undefined,
                   errorIcon: this.errorIcon,
                   extra: this.extra,
+                  fullWidthRowCallback: this.fullWidthRowCallback,
                   hasActionsColumn: this.hasActionsColumn,
                   hasActiveEditRow: this.hasActiveEditRow,
                   isActionsSticky: this.isActionsSticky,
@@ -590,6 +596,7 @@ export default {
               columnsStylesGrow: this.columnsStylesGrow,
               draggedRowIndex: this.draggedRowIndex,
               extra: this.extra,
+              fullWidthRowCallback: this.fullWidthRowCallback,
               hasActionsColumn: this.hasActionsColumn,
               hasActiveEditRow: this.hasActiveEditRow,
               isActionsSticky: this.isActionsSticky,
