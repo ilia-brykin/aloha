@@ -13,19 +13,31 @@ export default function ModelAPI(props, {
   adjustFloatPartAndDivider = () => {},
   changeModel = () => {},
 }) {
-  const required = toRef(props, "required");
-  const modelValue = toRef(props, "modelValue");
+  const currencySymbol = toRef(props, "currencySymbol");
+  const currencySymbolPosition = toRef(props, "currencySymbolPosition");
+  const decimalDivider = toRef(props, "decimalDivider");
+  const decimalPartLength = toRef(props, "decimalPartLength");
+  const disabled = toRef(props, "disabled");
   const modelType = toRef(props, "modelType");
   const modelUndefined = toRef(props, "modelUndefined");
+  const modelValue = toRef(props, "modelValue");
+  const required = toRef(props, "required");
   const skipRequiredModelInit = toRef(props, "skipRequiredModelInit");
-  const decimalDivider = toRef(props, "decimalDivider");
-  const disabled = toRef(props, "disabled");
-  const decimalPartLength = toRef(props, "decimalPartLength");
   const thousandDivider = toRef(props, "thousandDivider");
 
   const displayValue = ref(undefined);
   const isInternalChange = ref(false);
   const localModel = ref(undefined);
+
+  const displayValueReadonly = computed(() => {
+    if (isNil(displayValue.value) || displayValue.value === "" || !currencySymbol.value) {
+      return displayValue.value;
+    }
+
+    return currencySymbolPosition.value === "left" ?
+      `${ currencySymbol.value } ${ displayValue.value }` :
+      `${ displayValue.value } ${ currencySymbol.value }`;
+  });
 
   const initLocalVars = () => {
     displayValue.value = adjustFloatPartAndDivider(modelValue.value);
@@ -78,6 +90,7 @@ export default function ModelAPI(props, {
   return {
     clearModel,
     displayValue,
+    displayValueReadonly,
     initLocalVars,
     isInternalChange,
     localModel,
