@@ -10,6 +10,7 @@
 ## 2.69.0
 
 - Feature: Add readonly `displayValueReadonly` to `AInputCurrency` for formatted display handling, update API, and add comprehensive tests
+- Feature: Extend slotProps in `ATableFormCell` with additional context (`change`, `errorIcon`, `errors`, `id`, `isCreateMode`, `isEditMode`, `isFooter`, `modelValue`) for enhanced slot flexibility
 
 ## 2.68.0
 
