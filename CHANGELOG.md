@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.70.0
+
+Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for rendering selected body and footer rows as a single full-width cell
+
 ## 2.69.0
 
 - Feature: Add readonly `displayValueReadonly` to `AInputCurrency` for formatted display handling, update API, and add comprehensive tests
