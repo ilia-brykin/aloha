@@ -161,8 +161,16 @@ export default {
     } = this.formElementLocal;
 
     const slotProps = {
+      change: this.updateRowData,
       column: this.column,
       columnIndex: this.columnIndex,
+      errorIcon: this.errorIcon,
+      errors: this.errors,
+      id: this.id,
+      isCreateMode: this.isCreateMode,
+      isEditMode: this.isEditMode,
+      isFooter: this.isFooter,
+      modelValue: get(this.rowDataLocal, this.column.id),
       row: this.row,
       rowIndex: this.rowIndex,
       rows: this.rows,
