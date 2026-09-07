@@ -388,6 +388,8 @@ export default function InputEventsAPI(props, {
     const keyValue = $event.key;
     const keyIsNumber = keyCode >= 48 && keyCode <= 57 || keyCode >= 96 && keyCode <= 105;
     const keyIsZero = keyCode === 48 || keyCode === 96;
+    const keyIsMinus = keyValue === "-";
+    const keyIsPlus = keyValue === "+";
     const keyIsDecimalDivider = keyValue === decimalDivider.value && !!decimalPartLength.value;
     const decimalDividerIndex = $event.target.value.indexOf(decimalDivider.value);
     const hasDecimalDivider = decimalDividerIndex !== -1;
@@ -416,13 +418,13 @@ export default function InputEventsAPI(props, {
 
       return;
     }
-    if (keyCode === AKeysCode.minus || keyCode === AKeysCode.numMinus) {
+    if (keyIsMinus) {
       handleMinus(valueProps);
       $event.preventDefault();
 
       return;
     }
-    if (keyCode === AKeysCode.plus && $event.shiftKey || keyCode === AKeysCode.numPlus) {
+    if (keyIsPlus) {
       handlePlus(valueProps);
       $event.preventDefault();
 
