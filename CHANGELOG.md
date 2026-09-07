@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.70.1
+
+- Fix: Recognize plus and minus keys in `AInputCurrency` via `KeyboardEvent.key` to support negative input in Firefox
+
 ## 2.70.0
 
 Feature: Add `fullWidthRowCallback` and `fullWidthRow` slot to `ATableForm` for rendering selected body and footer rows as a single full-width cell
