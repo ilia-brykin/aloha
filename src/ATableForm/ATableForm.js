@@ -377,15 +377,19 @@ export default {
     return h("div", {
       class: "a_table_form",
     }, [
-      this.label && h(ATranslation, {
-        class: [
-          "a_table_form__label",
-          this.labelClass,
-        ],
-        html: this.label,
-        tag: this.labelTag,
-      }),
+      this.$slots.label ?
+        this.$slots.label() :
+        this.label && h(ATranslation, {
+          class: [
+            "a_table_form__label",
+            this.labelClass,
+          ],
+          html: this.label,
+          tag: this.labelTag,
+        }),
+      this.$slots.requiredPrepend && this.$slots.requiredPrepend(),
       this.hasRequiredEditableColumns && h(ARequired),
+      this.$slots.requiredAppend && this.$slots.requiredAppend(),
       h("div", {
         class: "a_table_form__wrapper",
       }, [
