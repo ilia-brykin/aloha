@@ -47620,13 +47620,14 @@ const ok = {
     };
   },
   methods: {
-    updateRowData({ item: e, model: t }) {
+    updateRowData({ id: e, item: t, model: _ }) {
       this.$emit("updateRowData", {
         column: this.column,
         columnId: this.column.id,
-        item: e,
-        model: t,
-        value: t
+        id: e,
+        item: t,
+        model: _,
+        value: _
       });
     }
   },
@@ -48344,6 +48345,7 @@ const Rk = {
         column: a,
         columnId: t,
         fullModel: e,
+        id: t,
         item: _,
         model: n
       });
@@ -48457,19 +48459,21 @@ function Ok(e, {
     column: C,
     columnId: h,
     fullModel: R,
-    item: p,
-    model: O
+    id: p,
+    item: O,
+    model: b
   }) => {
     A.value || (A.value = ne(a.value) || {});
-    let b;
-    _.value && (b = _.value({
+    let m;
+    _.value && (m = _.value({
       modelAll: A.value,
       row: a.value,
       column: C,
       fullModel: R,
-      model: O,
-      item: p
-    })), b != null && b.model ? A.value = ne(b.model) : R !== void 0 ? A.value = ne(R) : oi(A.value, h, O), Ph(t.value, h);
+      model: b,
+      id: p,
+      item: O
+    })), m != null && m.model ? A.value = ne(m.model) : R !== void 0 ? A.value = ne(R) : oi(A.value, h, b), Ph(t.value, h);
   }, S = ({ trigger: C, id: h } = {}) => {
     n.value({
       row: a.value,

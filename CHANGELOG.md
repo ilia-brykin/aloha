@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.72.0
+
+- Feature: Pass `id` to `updateRowData` and related callbacks in `ATableForm` for improved contextual data handling.
+
 ## 2.71.0
 
 - Feature: Add support for `label`, `requiredPrepend`, and `requiredAppend` slots in `ATableForm` for enhanced content customization.
