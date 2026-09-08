@@ -26,6 +26,7 @@ export default function EditAPI(props, {
     column,
     columnId,
     fullModel,
+    id,
     item,
     model,
   }) => {
@@ -41,6 +42,7 @@ export default function EditAPI(props, {
         column,
         fullModel,
         model: model,
+        id,
         item,
       });
     }

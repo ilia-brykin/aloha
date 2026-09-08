@@ -96,6 +96,7 @@ export default {
         column,
         columnId: id,
         fullModel,
+        id,
         item,
         model,
       });

@@ -144,10 +144,11 @@ export default {
     };
   },
   methods: {
-    updateRowData({ item, model }) {
+    updateRowData({ id, item, model }) {
       this.$emit("updateRowData", {
         column: this.column,
         columnId: this.column.id,
+        id,
         item,
         model,
         value: model,
