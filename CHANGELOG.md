@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.71.0
+
+- Feature: Add support for `label`, `requiredPrepend`, and `requiredAppend` slots in `ATableForm` for enhanced content customization.
+
 ## 2.70.1
 
 - Fix: Recognize plus and minus keys in `AInputCurrency` via `KeyboardEvent.key` to support negative input in Firefox
