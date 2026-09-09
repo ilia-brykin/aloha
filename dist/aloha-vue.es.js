@@ -51012,7 +51012,10 @@ const rc = {
           textScreenReader: this.column.textScreenReader || void 0,
           ...this.attributesForButtonSort
         }, () => [
-          this.column.label && c(Ce, {
+          this.column.headerSlot && this.$slots[this.column.headerSlot] ? this.$slots[this.column.headerSlot]({
+            column: this.column,
+            columnIndex: this.columnIndex
+          }) : this.column.label && c(Ce, {
             html: this.column.label,
             tag: "span",
             extra: this.column.extra,
@@ -51187,7 +51190,7 @@ const rc = {
           onDragenterParent: this.dragenter,
           onDragleaveParent: this.dragleave,
           onDragendParent: this.dragend
-        })),
+        }, this.$slots)),
         this.isActionColumnVisible && c(ac, {
           disabledOptions: this.disabledOptions,
           isRowActionsStickyLocal: this.isRowActionsStickyLocal
@@ -53674,52 +53677,53 @@ function q2(e, {
   };
 }
 function k2(e, {
-  modelSort: t = N([])
+  modelSort: t = N([]),
+  slots: _ = {}
 }) {
-  const _ = u(e, "columns"), n = u(e, "showFirstSortingSequenceNumber"), a = u(e, "sortingSequenceNumberClass"), s = E(() => Rt(_.value, (O) => zk({ column: O }))), i = E(() => v_(s.value, (O, b) => ({
-    ...O,
-    _index: O.prio || b
-  }))), o = E(() => v_(i.value, (O) => (O.group && O.group.length && (O.group = v_(O.group, (b, m) => [
-    b,
-    m
-  ].join("%%%"))), O))), d = ({ groups: O, group: b, level: m, columnsOrderedFromGroups: g, firstLevelGroupObject: D }) => {
-    const V = b ? Rt(O, (P) => sl(P, b[m - 1])) : O, B = Zo(V, (P) => P[m]), w = v_(B, (P) => {
-      const y = {
-        id: P[m].split("%%%")[0]
+  const n = u(e, "columns"), a = u(e, "showFirstSortingSequenceNumber"), s = u(e, "sortingSequenceNumberClass"), i = E(() => Rt(n.value, (b) => zk({ column: b }))), o = E(() => v_(i.value, (b, m) => ({
+    ...b,
+    _index: b.prio || m
+  }))), d = E(() => v_(o.value, (b) => (b.group && b.group.length && (b.group = v_(b.group, (m, g) => [
+    m,
+    g
+  ].join("%%%"))), b))), A = ({ groups: b, group: m, level: g, columnsOrderedFromGroups: D, firstLevelGroupObject: V }) => {
+    const B = m ? Rt(b, (y) => sl(y, m[g - 1])) : b, w = Zo(B, (y) => y[g]), P = v_(w, (y) => {
+      const M = {
+        id: y[g].split("%%%")[0]
       };
-      let M;
-      return m === 0 ? (M = y, M.columnIndexes = []) : M = D, P.length > m + 1 ? y.children = re(
-        d({
-          groups: O,
-          group: P,
-          level: m + 1,
-          columnsOrderedFromGroups: g,
-          firstLevelGroupObject: M
+      let F;
+      return g === 0 ? (F = M, F.columnIndexes = []) : F = V, y.length > g + 1 ? M.children = re(
+        A({
+          groups: b,
+          group: y,
+          level: g + 1,
+          columnsOrderedFromGroups: D,
+          firstLevelGroupObject: F
         }),
         "recursiveGroup"
-      ) : P.length === m + 1 && (y.columns = Rt(o.value, (F) => sl(F.group, P[m])), M.columnIndexes.push(...v_(y.columns, "_index")), g.push(...y.columns)), y;
+      ) : y.length === g + 1 && (M.columns = Rt(d.value, (K) => sl(K.group, y[g])), F.columnIndexes.push(...v_(M.columns, "_index")), D.push(...M.columns)), M;
     });
     return {
-      columnsOrderedFromGroups: g,
-      recursiveGroup: w
+      columnsOrderedFromGroups: D,
+      recursiveGroup: P
     };
-  }, A = E(() => v_(o.value, (O) => re(O, "group", O))), T = E(() => Rt(A.value, (O) => ge(O))), S = E(() => Rt(A.value, (O) => !ge(O))), f = E(() => {
-    const O = [];
-    return d({ groups: T.value, group: null, level: 0, columnsOrderedFromGroups: O });
-  }), C = E(() => il([
-    ...f.value.columnsOrderedFromGroups,
-    ...S.value
-  ], "_index")), h = (O) => c(rc, {
+  }, T = E(() => v_(d.value, (b) => re(b, "group", b))), S = E(() => Rt(T.value, (b) => ge(b))), f = E(() => Rt(T.value, (b) => !ge(b))), C = E(() => {
+    const b = [];
+    return A({ groups: S.value, group: null, level: 0, columnsOrderedFromGroups: b });
+  }), h = E(() => il([
+    ...C.value.columnsOrderedFromGroups,
+    ...f.value
+  ], "_index")), R = (b) => c(rc, {
     ref: "th",
     class: "a_table__cell__child_group",
-    column: O,
-    columnGroupNames: v_(O.group, (b) => b.split("%%%")[0]),
-    columnIndex: O._index,
+    column: b,
+    columnGroupNames: v_(b.group, (m) => m.split("%%%")[0]),
+    columnIndex: b._index,
     hasMultipleActions: !1,
     modelSort: t.value,
-    showFirstSortingSequenceNumber: n.value,
-    sortingSequenceNumberClass: a.value
-  }), R = (O) => c("div", {
+    showFirstSortingSequenceNumber: a.value,
+    sortingSequenceNumberClass: s.value
+  }, _), p = (b) => c("div", {
     class: "a_table__th_group"
   }, [
     c("div", {
@@ -53728,26 +53732,26 @@ function k2(e, {
       c("div", {
         class: "a_table__cell_group a_text_center"
       }, [
-        O.id && c(Ce, {
-          html: O.id,
+        b.id && c(Ce, {
+          html: b.id,
           tag: "span",
           "aria-hidden": !0
         })
       ]),
       c("div", {
         class: "a_table__th_group_container"
-      }, O.children ? v_(O.children, (b) => R(b)) : v_(O.columns, (b) => h(b)))
+      }, b.children ? v_(b.children, (m) => p(m)) : v_(b.columns, (m) => R(m)))
     ])
-  ]), p = E(() => {
-    const O = il([
-      ...f.value.recursiveGroup,
-      ...S.value
-    ], (b) => b.columnIndexes ? Rh(b.columnIndexes) : b._index);
-    return v_(O, (b) => b.columnIndexes ? R(b) : h(b));
+  ]), O = E(() => {
+    const b = il([
+      ...C.value.recursiveGroup,
+      ...f.value
+    ], (m) => m.columnIndexes ? Rh(m.columnIndexes) : m._index);
+    return v_(b, (m) => m.columnIndexes ? p(m) : R(m));
   });
   return {
-    columnsOrderedFromSimpleTable: C,
-    renderedGroupedColumns: p
+    columnsOrderedFromSimpleTable: h,
+    renderedGroupedColumns: O
   };
 }
 function W2(e, { emit: t }, {
@@ -54999,7 +55003,8 @@ const BEt = {
       columnsOrderedFromSimpleTable: j,
       renderedGroupedColumns: k
     } = k2(e, {
-      modelSort: q
+      modelSort: q,
+      slots: t.slots
     }), {
       columnIdsGroupByLocked: z,
       columnsFilteredForRender: le,
@@ -55357,7 +55362,7 @@ const BEt = {
             showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
             sortingSequenceNumberClass: this.sortingSequenceNumberClass,
             onSetSelectedRowsIndexes: this.setSelectedRowsIndexes
-          }),
+          }, this.$slots),
           c("div", {
             class: "a_table__loading"
           }, [

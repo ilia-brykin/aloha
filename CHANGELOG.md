@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.74.0
+
+- Feature: Add header slot support in `ATable` for customizable column headers.
+
 ## 2.73.0
 
 - Feature: Add `classColumn` support in `AFieldset` to apply custom classes directly to child components without a wrapper element, improving layout customization options.
