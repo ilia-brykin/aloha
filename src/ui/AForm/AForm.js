@@ -235,7 +235,7 @@ export default {
             alwaysTranslate: this.alwaysTranslate,
             modelValue: MODEL_VALUE,
             modelAll: IS_CONTAINER ? this.modelValueLocal : undefined,
-            modelDependencies: IS_CONTAINER ? this.modelValueLocal : undefined,
+            modelDependencies: this.modelValueLocal,
             class: classColumn,
             errors: this.errors[item.id],
             errorsAll: IS_CONTAINER ? this.errors : undefined,
