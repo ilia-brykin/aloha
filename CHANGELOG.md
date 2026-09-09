@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.73.0
+
+- Feature: Add `classColumn` support in `AFieldset` to apply custom classes directly to child components without a wrapper element, improving layout customization options.
+- Fix: Remove unnecessary `IS_CONTAINER` condition for `modelDependencies` in `AForm`, `AFieldset`, and `AGroup` components to simplify logic.
+
 ## 2.72.0
 
 - Feature: Pass `id` to `updateRowData` and related callbacks in `ATableForm` for improved contextual data handling.
