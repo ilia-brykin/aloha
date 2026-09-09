@@ -1,4 +1,5 @@
 import {
+  Fragment,
   h,
   resolveComponent,
 } from "vue";
@@ -363,10 +364,6 @@ export default {
           } else if (item.classColumn) {
             classColumn = item.classColumn;
           }
-          let style;
-          if (item.isHide) {
-            style = "display: none;";
-          }
           const COMPONENT = this.componentTypesMapping()[item.type];
           const ERRORS = this.useFlatErrors ?
             get(this.errorsAll, item.id) :
@@ -394,10 +391,8 @@ export default {
             });
           }
 
-          return h("div", {
+          return h(Fragment, {
             key,
-            class: classColumn,
-            style,
           }, [
             h(COMPONENT, {
               alwaysTranslate: this.alwaysTranslate,
@@ -409,6 +404,7 @@ export default {
               parentId,
               idPrefix: this.idPrefix,
               onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
+              class: classColumn,
               ...item,
               change: ({ currentModel, id, item: _item, model, props, fullModel }) => this.onUpdateModelLocal({
                 currentModel, id, item: _item, model, props, component: item, fullModel,
