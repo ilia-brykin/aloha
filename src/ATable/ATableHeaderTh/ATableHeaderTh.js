@@ -154,13 +154,18 @@ export default {
           textScreenReader: this.column.textScreenReader || undefined,
           ...this.attributesForButtonSort,
         }, () => [
-          this.column.label && h(ATranslation, {
-            html: this.column.label,
-            tag: "span",
-            extra: this.column.extra,
-            class: "a_table__th__text aloha_element__ml_0",
-            ariaHidden: !!this.column.textScreenReader,
-          }),
+          (this.column.headerSlot && this.$slots[this.column.headerSlot]) ?
+            this.$slots[this.column.headerSlot]({
+              column: this.column,
+              columnIndex: this.columnIndex,
+            }) :
+            this.column.label && h(ATranslation, {
+              html: this.column.label,
+              tag: "span",
+              extra: this.column.extra,
+              class: "a_table__th__text aloha_element__ml_0",
+              ariaHidden: !!this.column.textScreenReader,
+            }),
           this.isSortable && h("span", {
             class: "a_table__th__sort__box aloha_element__ml_0",
           }, [

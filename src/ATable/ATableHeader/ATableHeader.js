@@ -165,7 +165,7 @@ export default {
             onDragenterParent: this.dragenter,
             onDragleaveParent: this.dragleave,
             onDragendParent: this.dragend,
-          });
+          }, this.$slots);
         }),
         this.isActionColumnVisible && h(ATableHeaderThAction, {
           disabledOptions: this.disabledOptions,

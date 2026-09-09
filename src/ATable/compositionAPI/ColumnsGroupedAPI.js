@@ -26,6 +26,7 @@ import {
 
 export default function ColumnsGroupedAPI(props, {
   modelSort = ref([]),
+  slots = {},
 }) {
   const columns = toRef(props, "columns");
   const showFirstSortingSequenceNumber = toRef(props, "showFirstSortingSequenceNumber");
@@ -143,7 +144,7 @@ export default function ColumnsGroupedAPI(props, {
       modelSort: modelSort.value,
       showFirstSortingSequenceNumber: showFirstSortingSequenceNumber.value,
       sortingSequenceNumberClass: sortingSequenceNumberClass.value,
-    });
+    }, slots);
   };
   const getRecursiveGroupForRender = group => {
     return h("div", {

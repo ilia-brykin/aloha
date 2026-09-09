@@ -569,6 +569,7 @@ export default {
       renderedGroupedColumns,
     } = ColumnsGroupedAPI(props, {
       modelSort: modelSortLocal,
+      slots: context.slots,
     });
 
     const {
@@ -1009,7 +1010,7 @@ export default {
             showFirstSortingSequenceNumber: this.showFirstSortingSequenceNumber,
             sortingSequenceNumberClass: this.sortingSequenceNumberClass,
             onSetSelectedRowsIndexes: this.setSelectedRowsIndexes,
-          }),
+          }, this.$slots),
           h("div", {
             class: "a_table__loading",
           }, [
