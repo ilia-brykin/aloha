@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.75.0
+
+- Migrate tests to Vitest, update dependencies, and remove unused packages
+- Refactor: Replace `tiny-emitter` with custom `EventBus` implementation and add comprehensive unit tests.
+- Chore: Replace `aloha-svg` package with inline SVG strings, update related components and documentation.
+- Standardize code formatting by removing extra spaces and aligning indentation across files.
+- Refactor: Replace standard `if` syntax with `sass()` shorthand across SCSS utilities for improved readability.
+
 ## 2.74.0
 
 - Feature: Add header slot support in `ATable` for customizable column headers.
