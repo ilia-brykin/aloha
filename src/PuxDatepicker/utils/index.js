@@ -64,7 +64,7 @@ export function formatDate(date, format) {
   }
   try {
     return fechaFormat(new Date(date), format);
-  } catch (e) {
+  } catch(e) {
     return "";
   }
 }
@@ -72,7 +72,7 @@ export function formatDate(date, format) {
 export function parseDate(value, format) {
   try {
     return fechaParse(value, format) || null;
-  } catch (e) {
+  } catch(e) {
     return null;
   }
 }

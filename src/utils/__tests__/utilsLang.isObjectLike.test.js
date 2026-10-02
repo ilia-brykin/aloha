@@ -23,9 +23,11 @@ describe("isObjectLike function", () => {
   });
 
   it("should return false for non-object-like values", () => {
-    const fn = function example() {};
+    const fn = function example() {
+    };
     const arrow = () => {};
-    class Example {}
+    class Example {
+    }
 
     expect(isObjectLike(fn)).toBe(false);
     expect(isObjectLike(arrow)).toBe(false);

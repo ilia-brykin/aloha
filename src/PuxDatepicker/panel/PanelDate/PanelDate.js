@@ -3,7 +3,6 @@ import {
 } from "aloha-vue";
 
 import PanelMixin from "../../mixins/PanelMixin";
-
 import keysCode from "../../utils/keysCode";
 import moment from "moment";
 import {

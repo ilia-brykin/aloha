@@ -35,7 +35,7 @@ export default function SaveAPI(props, { emit }, {
         action: isUpdateLocal ? "update" : "create",
         label: model.value.name,
       });
-    } catch (e) {
+    } catch(e) {
       addNotification({
         text: "_A_FILTERS_SAVE_MSG_ERROR_",
         type: "danger",

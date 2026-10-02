@@ -19,9 +19,11 @@ describe("isSymbol function", () => {
   });
 
   it("should return false for non-symbol types", () => {
-    const fn = function example() {};
+    const fn = function example() {
+    };
     const arrow = () => {};
-    class Example {}
+    class Example {
+    }
 
     expect(isSymbol("symbol")).toBe(false);
     expect(isSymbol(0)).toBe(false);

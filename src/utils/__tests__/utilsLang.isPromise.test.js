@@ -14,7 +14,10 @@ describe("isPromise function", () => {
     const resolved = Promise.resolve(123);
     const rejected = Promise.reject(new Error("fail"));
     const chained = Promise.resolve().then(() => 1);
-    const asyncResult = (async() => 1)();
+    const asyncResult = (async() => {
+      const value = await Promise.resolve(1);
+      return value;
+    })();
 
     rejected.catch(() => {});
 

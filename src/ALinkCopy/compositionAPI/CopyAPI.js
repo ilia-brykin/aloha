@@ -35,7 +35,7 @@ export default function CopyAPI(props) {
         addNotification({
           text: "_A_LINK_COPY_COPIED_TO_CLIPBOARD_",
         });
-      } catch (error) {
+      } catch(error) {
         console.error(error);
       }
     }

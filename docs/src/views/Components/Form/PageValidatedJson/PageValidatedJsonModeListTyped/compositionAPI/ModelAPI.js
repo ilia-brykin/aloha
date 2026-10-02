@@ -1,1 +1,1 @@
-export default function ModelAPI(props) {}
+export default function ModelAPI() {}

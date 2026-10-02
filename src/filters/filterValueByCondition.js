@@ -2,7 +2,7 @@ const executeExpression = ({ expression, value }) => {
   try {
     // eslint-disable-next-line no-new-func
     return Function("value", `"use strict"; return (${ expression });`)(value);
-  } catch (e) {
+  } catch(e) {
     return undefined;
   }
 };
@@ -11,7 +11,7 @@ const executeTemplate = ({ template, value }) => {
   try {
     // eslint-disable-next-line no-new-func
     return Function("value", `"use strict"; return \`${ template }\`;`)(value);
-  } catch (e) {
+  } catch(e) {
     return "";
   }
 };

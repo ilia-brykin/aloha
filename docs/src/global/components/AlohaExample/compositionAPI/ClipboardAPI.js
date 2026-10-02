@@ -18,7 +18,7 @@ export default function ClipboardAPI(props) {
       addNotification({
         text: "_COPIED_TO_CLIPBOARD_",
       });
-    } catch (error) {
+    } catch(error) {
       addNotification({
         text: error,
         type: "danger",

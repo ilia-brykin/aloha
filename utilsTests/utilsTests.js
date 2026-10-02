@@ -1,4 +1,6 @@
-import { vi } from "vitest";
+import {
+  vi,
+} from "vitest";
 
 export function mockVueInject(mock_injects) {
   vi.doMock("vue", async() => {

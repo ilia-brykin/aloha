@@ -2,8 +2,8 @@ import pluginVue from "eslint-plugin-vue";
 
 import globals from "globals";
 import groupImportsPlugin from "eslint-plugin-import-group";
-import pluginVitest from "@vitest/eslint-plugin";
 import pluginJs from "@eslint/js";
+import pluginVitest from "@vitest/eslint-plugin";
 import pluginVuePug from "eslint-plugin-vue-pug";
 import stylistic from "@stylistic/eslint-plugin";
 

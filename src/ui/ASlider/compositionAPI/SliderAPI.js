@@ -220,29 +220,29 @@ export default function SliderAPI(props, {
     const currentIndex = findIndex(dataLocal.value, item => item[AKeyId] === currentValue);
 
     switch (event.key) {
-    case "ArrowLeft":
-    case "ArrowDown":
-      newIndex = currentIndex - 1;
-      break;
-    case "ArrowRight":
-    case "ArrowUp":
-      newIndex = currentIndex + 1;
-      break;
-    case "Home":
-      newIndex = 0;
-      break;
-    case "End":
-      newIndex = lastIndexDataLocal.value;
-      break;
-    case "PageDown":
-      newIndex = currentIndex - 4;
-      break;
-    case "PageUp":
-      newIndex = currentIndex + 4;
-      break;
-    default:
-      isPreventDefault = false;
-      break;
+      case "ArrowLeft":
+      case "ArrowDown":
+        newIndex = currentIndex - 1;
+        break;
+      case "ArrowRight":
+      case "ArrowUp":
+        newIndex = currentIndex + 1;
+        break;
+      case "Home":
+        newIndex = 0;
+        break;
+      case "End":
+        newIndex = lastIndexDataLocal.value;
+        break;
+      case "PageDown":
+        newIndex = currentIndex - 4;
+        break;
+      case "PageUp":
+        newIndex = currentIndex + 4;
+        break;
+      default:
+        isPreventDefault = false;
+        break;
     }
 
     if (isPreventDefault) {

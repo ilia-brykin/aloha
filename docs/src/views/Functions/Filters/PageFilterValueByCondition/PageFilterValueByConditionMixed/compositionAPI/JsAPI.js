@@ -10,14 +10,14 @@ const OPTIONS = {
     },
     {
       if: "value > 3",
-      thenTemplate: "(${ value * 3 } Aloha)",
+      thenTemplate: `(\${ value * 3 } Aloha)`,
     },
     {
       if: value => value < 2,
       then: value => `small: ${ value }`,
     },
   ],
-  defaultTemplate: "${ value / 2 }",
+  defaultTemplate: `\${ value / 2 }`,
 };
 
 export default function JsAPI() {

@@ -164,7 +164,7 @@ function assign(ta) {
       const evt = createEvent("autosize:resized");
       try {
         ta.dispatchEvent(evt);
-      } catch (err) {
+      } catch(err) {
         /*
          * Firefox will throw an error on dispatchEvent for a detached element
          * https://bugzilla.mozilla.org/show_bug.cgi?id=889376

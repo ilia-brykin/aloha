@@ -26,7 +26,7 @@ describe("Filter value by condition", () => {
     const conditions = [
       {
         if: "value > 3",
-        thenTemplate: "(${ value * 3 } Aloha)",
+        thenTemplate: `(\${ value * 3 } Aloha)`,
       },
       {
         if: "value < 2",
@@ -62,7 +62,7 @@ describe("Filter value by condition", () => {
 
     expect(filterValueByCondition(2, {
       conditions,
-      defaultTemplate: "${ value / 2 }",
+      defaultTemplate: `\${ value / 2 }`,
     })).toBe("1");
   });
 

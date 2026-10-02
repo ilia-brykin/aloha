@@ -87,7 +87,7 @@ export default function EditAPI(props, {
       }
 
       cancelEditRow({ trigger: "save", id });
-    } catch (error) {
+    } catch(error) {
       errorsLocal.value = error;
     } finally {
       isSaving.value = false;

@@ -33,7 +33,7 @@ export default function(value, { replacer, space = 2, isHtml = false, jsonClass 
     }
 
     return RESULT_STRING;
-  } catch (e) {
+  } catch(e) {
     return "";
   }
 }

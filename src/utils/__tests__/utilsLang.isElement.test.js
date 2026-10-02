@@ -19,9 +19,11 @@ describe("isElement function", () => {
   });
 
   it("should return false for non-elements", () => {
-    const fn = function example() {};
+    const fn = function example() {
+    };
     const arrow = () => {};
-    class Example {}
+    class Example {
+    }
 
     expect(isElement(null)).toBe(false);
     expect(isElement(undefined)).toBe(false);

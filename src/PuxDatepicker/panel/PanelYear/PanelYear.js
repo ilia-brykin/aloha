@@ -1,7 +1,6 @@
 import PanelYearItem from "../PanelYearItem/PanelYearItem.vue";
 
 import PanelMixin from "../../mixins/PanelMixin";
-
 import keysCode from "../../utils/keysCode";
 import {
   isUndefined,

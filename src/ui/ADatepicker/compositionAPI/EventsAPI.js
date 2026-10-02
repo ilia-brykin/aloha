@@ -48,7 +48,7 @@ export default function EventsAPI(props, { emit }, {
         return moment(value, formatSaveLocal.value).format(formatLocal.value) || "";
       }
       return "";
-    } catch (e) {
+    } catch(e) {
       return "";
     }
   };
@@ -59,7 +59,7 @@ export default function EventsAPI(props, { emit }, {
         return true;
       }
       return false;
-    } catch (e) {
+    } catch(e) {
       return false;
     }
   };
@@ -178,7 +178,7 @@ export default function EventsAPI(props, { emit }, {
         return moment(value, formatLocal.value).format() || null;
       }
       return null;
-    } catch (e) {
+    } catch(e) {
       return null;
     }
   };
@@ -189,7 +189,7 @@ export default function EventsAPI(props, { emit }, {
         return moment(value, formatSaveLocal.value).format() || null;
       }
       return null;
-    } catch (e) {
+    } catch(e) {
       return null;
     }
   };

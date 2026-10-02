@@ -40,7 +40,8 @@ describe("isPlainObject function", () => {
   });
 
   it("should return false for non-object types", () => {
-    const fn = function example() {};
+    const fn = function example() {
+    };
     const arrow = () => {};
 
     expect(isPlainObject(null)).toBe(false);

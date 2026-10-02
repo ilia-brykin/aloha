@@ -41,7 +41,7 @@ export default function JsonAPI(props, {
       }
       jsonStringInput.value = jsonString.value;
       parseError.value = undefined;
-    } catch (e) {
+    } catch(e) {
     }
   };
 
@@ -64,7 +64,7 @@ export default function JsonAPI(props, {
         });
         jsonString.value = JSON.stringify(MODEL, undefined, 2);
         parseError.value = null;
-      } catch (e) {
+      } catch(e) {
         parseError.value = e.toString();
       }
     }
@@ -82,7 +82,7 @@ export default function JsonAPI(props, {
   const formatJson = () => {
     try {
       jsonStringInput.value = JSON.stringify(JSON.parse(jsonStringInput.value), undefined, 2);
-    } catch (e) {
+    } catch(e) {
       parseError.value = e.toString();
     }
   };

@@ -56,7 +56,7 @@ export default function FiltersSavedDeleteAPI(props, {
         action: "delete",
         label: modelFiltersSaved.value,
       });
-    } catch (e) {
+    } catch(e) {
       addNotification({
         text: "_A_FILTERS_DELETE_FILTER_MSG_ERROR_{{name}}_",
         type: "danger",

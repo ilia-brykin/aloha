@@ -718,7 +718,7 @@ export default {
       let dateValue = null;
       try {
         dateValue = moment(value, this.formatSave) || null;
-      } catch (e) {
+      } catch(e) {
 
       }
       if (dateValue && dateValue.isValid && !dateValue.isValid()) {

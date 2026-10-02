@@ -561,7 +561,7 @@ export function getUrlParams({ url, allCommasToArray = false, keysCommaToArray =
   let urlParamsString = url || window.location.search.substring(1);
   try {
     urlParamsString = decodeURI(urlParamsString);
-  } catch (e) {
+  } catch(e) {
     console.error(e);
   }
   const urlParamsArray = urlParamsString.split("&");

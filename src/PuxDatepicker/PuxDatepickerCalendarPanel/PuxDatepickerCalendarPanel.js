@@ -1,14 +1,12 @@
-import {
-  AButton,
-} from "aloha-vue";
-
 import PanelDate from "../panel/PanelDate/PanelDate.vue";
 import PanelMonth from "../panel/PanelMonth/PanelMonth.vue";
 import PanelTime from "../panel/PanelTime/PanelTime.vue";
 import PanelYear from "../panel/PanelYear/PanelYear.vue";
+import {
+  AButton,
+} from "aloha-vue";
 
 import PanelMixin from "../mixins/PanelMixin";
-
 import keysCode from "../utils/keysCode";
 import scrollIntoView from "../utils/scroll-into-view";
 import {

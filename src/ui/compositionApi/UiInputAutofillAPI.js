@@ -18,10 +18,10 @@ export default function UiInputAutofillAPI({
 
   const onAnimationstart = $event => {
     switch ($event.animationName) {
-    case "onAutoFillStart":
-      return onAutoFillStart();
-    case "onAutoFillCancel":
-      return onAutoFillCancel();
+      case "onAutoFillStart":
+        return onAutoFillStart();
+      case "onAutoFillCancel":
+        return onAutoFillCancel();
     }
   };
 

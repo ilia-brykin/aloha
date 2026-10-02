@@ -305,9 +305,12 @@ describe("ATableForm list view", () => {
   it("grows all columns equally only when no column has a positive grow value", async() => {
     const resizeObserverOriginal = global.ResizeObserver;
     global.ResizeObserver = class {
-      disconnect() {}
-      observe() {}
-      unobserve() {}
+      disconnect() {
+      }
+      observe() {
+      }
+      unobserve() {
+      }
     };
 
     const wrapperElement = document.createElement("div");

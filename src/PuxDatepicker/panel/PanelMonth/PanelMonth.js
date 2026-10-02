@@ -1,5 +1,4 @@
 import PanelMixin from "../../mixins/PanelMixin";
-
 import keysCode from "../../utils/keysCode";
 import {
   isUndefined,

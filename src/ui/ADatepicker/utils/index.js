@@ -62,7 +62,7 @@ export function formatDate(date, format) {
   try {
     return moment(date).format(format);
     // return fecha.format(new Date(date), format);
-  } catch (e) {
+  } catch(e) {
     return "";
   }
 }
@@ -70,7 +70,7 @@ export function formatDate(date, format) {
 export function parseDate(value, format, formatSave) {
   try {
     return moment(value, formatSave).format(format) || null;
-  } catch (e) {
+  } catch(e) {
     return null;
   }
 }
