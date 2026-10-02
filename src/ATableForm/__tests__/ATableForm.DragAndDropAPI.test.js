@@ -6,8 +6,8 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 import {
   mount,
 } from "@vue/test-utils";
@@ -20,13 +20,12 @@ import DragAndDropAPI from "../compositionAPI/DragAndDropAPI";
 import GripVertical from "aloha-svg/dist/js/bootstrap/GripVertical";
 import LockFill from "aloha-svg/dist/js/bootstrap/LockFill";
 
-jest.mock("../../AButton/AButton", () => {
+vi.mock("../../AButton/AButton", async() => {
   const {
     h,
-  } = require("vue");
+  } = await vi.importActual("vue");
 
   return {
-    __esModule: true,
     default: {
       name: "AButton",
       inheritAttrs: false,
@@ -42,20 +41,16 @@ jest.mock("../../AButton/AButton", () => {
     },
   };
 });
-jest.mock("aloha-svg/dist/js/bootstrap/ChevronDown", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/ChevronDown", () => ({
   default: "ChevronDown",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/ChevronUp", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/ChevronUp", () => ({
   default: "ChevronUp",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/GripVertical", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/GripVertical", () => ({
   default: "GripVertical",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/LockFill", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/LockFill", () => ({
   default: "LockFill",
 }));
 
@@ -71,7 +66,7 @@ describe("ATableForm DragAndDropAPI", () => {
     const {
       isDndDisabledForRow,
       isDndLockedForRow,
-    } = DragAndDropAPI(props, { emit: jest.fn() }, {
+    } = DragAndDropAPI(props, { emit: vi.fn() }, {
       isDndDisabled: computed(() => true),
     });
 
@@ -80,7 +75,7 @@ describe("ATableForm DragAndDropAPI", () => {
   });
 
   it("prevents dragging, dropping on, and moving across a disabled row", () => {
-    const emit = jest.fn();
+    const emit = vi.fn();
     const props = reactive({
       actionsDisabledCallback: {
         dnd: ({ row }) => row.dndDisabled,
@@ -118,7 +113,7 @@ describe("ATableForm DragAndDropAPI", () => {
     onDragstart({}, 0);
     expect(draggedRowIndex.value).toBe(0);
 
-    const preventDefaultDisabled = jest.fn();
+    const preventDefaultDisabled = vi.fn();
     onDragover({
       preventDefault: preventDefaultDisabled,
     }, 1);
@@ -129,7 +124,7 @@ describe("ATableForm DragAndDropAPI", () => {
     expect(preventDefaultDisabled).not.toHaveBeenCalled();
     expect(emit).not.toHaveBeenCalled();
 
-    const preventDefaultAfterLock = jest.fn();
+    const preventDefaultAfterLock = vi.fn();
     onDragover({
       currentTarget: undefined,
       preventDefault: preventDefaultAfterLock,
@@ -161,10 +156,10 @@ describe("ATableFormCellDnd", () => {
         isDndDisabled: true,
         isDndLocked: true,
         isDragAndDrop: true,
-        moveRowDown: jest.fn(),
-        moveRowUp: jest.fn(),
-        onDragend: jest.fn(),
-        onDragstart: jest.fn(),
+        moveRowDown: vi.fn(),
+        moveRowUp: vi.fn(),
+        onDragend: vi.fn(),
+        onDragstart: vi.fn(),
         rowIndex: 1,
         texts: {
           reorderDisabled: "Row reordering disabled",
@@ -194,10 +189,10 @@ describe("ATableFormCellDnd", () => {
         id: "table_1",
         isDndDisabled: true,
         isDragAndDrop: true,
-        moveRowDown: jest.fn(),
-        moveRowUp: jest.fn(),
-        onDragend: jest.fn(),
-        onDragstart: jest.fn(),
+        moveRowDown: vi.fn(),
+        moveRowUp: vi.fn(),
+        onDragend: vi.fn(),
+        onDragstart: vi.fn(),
         rowIndex: 1,
         widths: {
           dndColumn: 56,

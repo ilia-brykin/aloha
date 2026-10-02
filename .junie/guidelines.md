@@ -11,9 +11,9 @@
 
 - ESLint is used with the following plugins:
   - eslint-plugin-vue
-  - eslint-plugin-import
+  - eslint-plugin-import-group
   - @stylistic/eslint-plugin
-  - eslint-plugin-jest
+  - @vitest/eslint-plugin
   - eslint-plugin-vue-pug
 - Junie should follow the existing style rules.
 - Warnings are acceptable, but errors must be avoided.

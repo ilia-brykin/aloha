@@ -9,8 +9,8 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 import {
   mount,
 } from "@vue/test-utils";
@@ -30,13 +30,12 @@ import TableEditAPI from "../compositionAPI/EditAPI";
 import ATableForm from "../ATableForm";
 import getFormElement from "../utils/getFormElement";
 
-jest.mock("../../ui/AForm/AForm", () => {
+vi.mock("../../ui/AForm/AForm", async() => {
   const {
     h,
-  } = require("vue");
+  } = await vi.importActual("vue");
 
   return {
-    __esModule: true,
     default: {
       name: "AForm",
       props: {
@@ -70,13 +69,12 @@ jest.mock("../../ui/AForm/AForm", () => {
   };
 });
 
-jest.mock("../../ui/AFormElement/AFormElement", () => {
+vi.mock("../../ui/AFormElement/AFormElement", async() => {
   const {
     h,
-  } = require("vue");
+  } = await vi.importActual("vue");
 
   return {
-    __esModule: true,
     default: {
       name: "AFormElement",
       render() {
@@ -86,10 +84,10 @@ jest.mock("../../ui/AFormElement/AFormElement", () => {
   };
 });
 
-jest.mock("../../index", () => {
+vi.mock("../../index", async() => {
   const {
     h,
-  } = require("vue");
+  } = await vi.importActual("vue");
 
   return {
     AAlert: {
@@ -99,8 +97,8 @@ jest.mock("../../index", () => {
       },
     },
     AConfirmAPI: () => ({
-      closeConfirm: jest.fn(),
-      openConfirm: jest.fn(),
+      closeConfirm: vi.fn(),
+      openConfirm: vi.fn(),
     }),
     AErrors: {
       name: "AErrors",
@@ -111,13 +109,12 @@ jest.mock("../../index", () => {
   };
 });
 
-jest.mock("../../AButton/AButton", () => {
+vi.mock("../../AButton/AButton", async() => {
   const {
     h,
-  } = require("vue");
+  } = await vi.importActual("vue");
 
   return {
-    __esModule: true,
     default: {
       name: "AButton",
       props: {
@@ -138,44 +135,34 @@ jest.mock("../../AButton/AButton", () => {
   };
 });
 
-jest.mock("aloha-svg/dist/js/bootstrap/ChevronDown", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/ChevronDown", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/ChevronUp", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/ChevronUp", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/ExclamationCircleFill", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/ExclamationCircleFill", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/Floppy2Fill", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/Floppy2Fill", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/GripVertical", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/GripVertical", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/LockFill", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/LockFill", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/PencilFill", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/PencilFill", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/Plus", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/Plus", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/Trash", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/Trash", () => ({
   default: "<svg></svg>",
 }));
-jest.mock("aloha-svg/dist/js/bootstrap/XLg", () => ({
-  __esModule: true,
+vi.mock("aloha-svg/dist/js/bootstrap/XLg", () => ({
   default: "<svg></svg>",
 }));
 
@@ -206,7 +193,7 @@ describe("ATableForm list view", () => {
   });
 
   it("merges row-specific form element props only in edit mode", () => {
-    const formElementEditPropsCallback = jest.fn(({ rowData }) => ({
+    const formElementEditPropsCallback = vi.fn(({ rowData }) => ({
       disabled: rowData.locked,
       min: rowData.minimum,
       readonly: true,
@@ -419,7 +406,7 @@ describe("ATableForm list view", () => {
   it("allows adding editable data when row editing is disabled", async() => {
     const wrapper = mount(ATableForm, {
       props: {
-        addRow: jest.fn(),
+        addRow: vi.fn(),
         columns: [
           {
             id: "name",
@@ -482,7 +469,7 @@ describe("ATableForm list view", () => {
         type: "data",
       },
     ];
-    const fullWidthRowCallback = jest.fn(({ row }) => row.type === "separator");
+    const fullWidthRowCallback = vi.fn(({ row }) => row.type === "separator");
     const wrapper = mount(ATableForm, {
       props: {
         columns: [
@@ -762,7 +749,7 @@ describe("ATableForm list view", () => {
       hasRequiredEditableColumns,
     } = TableEditAPI(props, {
       columnsVisible,
-      getRowKey: jest.fn(),
+      getRowKey: vi.fn(),
     });
 
     expect(allColumnsLength.value).toBe(3);
@@ -937,14 +924,14 @@ describe("ATableForm list view", () => {
       updateModelLocal,
     } = RowEditAPI(reactive({
       changeModel: undefined,
-      onCancelEditRow: jest.fn(),
+      onCancelEditRow: vi.fn(),
       row: {
         negative: 10,
         positive: 10,
       },
       rowIndex: 0,
       rows: [],
-      saveRow: jest.fn(),
+      saveRow: vi.fn(),
     }), {
       errorsLocal,
     });

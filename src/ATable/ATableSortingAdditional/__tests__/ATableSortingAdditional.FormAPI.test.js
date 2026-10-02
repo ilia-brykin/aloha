@@ -6,7 +6,7 @@ import {
   describe,
   expect,
   it,
-} from "@jest/globals";
+} from "vitest";
 
 import FormAPI from "../compositionAPI/FormAPI";
 

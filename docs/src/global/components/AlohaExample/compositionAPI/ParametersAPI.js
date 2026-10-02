@@ -6,7 +6,7 @@ import {
 import {
   isArray,
   isString,
-} from "lodash";
+} from "lodash-es";
 
 export default function ParametersAPI(props) {
   const properties = toRef(props, "props");

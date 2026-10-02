@@ -6,22 +6,29 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 import {
   mount,
 } from "@vue/test-utils";
 
 import ATableHeaderTh from "../ATableHeaderTh/ATableHeaderTh";
 
-jest.mock("../../AButton/AButton", () => ({
-  name: "AButton",
-  render() {
-    return jest.requireActual("vue").h("span", this.$slots.default?.());
-  },
-}));
-jest.mock("aloha-svg/dist/js/bootstrap/CaretDownFill", () => "");
-jest.mock("aloha-svg/dist/js/bootstrap/CaretUpFill", () => "");
+vi.mock("../../AButton/AButton", async() => {
+  const {
+    h: render,
+  } = await vi.importActual("vue");
+  return {
+    default: {
+      name: "AButton",
+      render() {
+        return render("span", this.$slots.default?.());
+      },
+    },
+  };
+});
+vi.mock("aloha-svg/dist/js/bootstrap/CaretDownFill", () => ({ default: "" }));
+vi.mock("aloha-svg/dist/js/bootstrap/CaretUpFill", () => ({ default: "" }));
 
 const ATranslationStub = {
   name: "ATranslation",

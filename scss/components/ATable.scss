@@ -48,7 +48,7 @@
   --a_table_multiple_border: 1px solid var(--a_color_gray_600, #f1f4f7);
   --a_table_multiple_bg: var(--a_color_gray_100, #fff);
   --a_table_multiple_header_text_font_size: 1rem;
-  --a_table_multiple_items_selected_border: 1px solid var(-a_table_row_preview_focus_bg);
+  --a_table_multiple_items_selected_border: 1px solid var(--a_table_row_preview_focus_bg);
   --a_table_multiple_items_selected_bg: var(--a_table_row_preview_was_open_bg);
   --a_table_sort_sequence_num_bg: var(--a_color_primary);
   --a_table_sort_sequence_num_color: var(--a_color_white);

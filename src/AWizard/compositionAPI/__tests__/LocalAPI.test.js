@@ -7,32 +7,32 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 
 import LocalAPI from "../LocalAPI";
 
 describe("AWizard LocalAPI", () => {
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it("reports internal and external active-step changes", async() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const props = reactive({
       isControlOutside: false,
       stepActive: undefined,
       stepsVisited: undefined,
     });
-    const changeStep = jest.fn();
+    const changeStep = vi.fn();
     const {
       initStepActive,
       stepActiveLocal,
     } = LocalAPI(props, { changeStep });
 
     initStepActive();
-    jest.runOnlyPendingTimers();
+    vi.runOnlyPendingTimers();
 
     stepActiveLocal.value = 1;
     await nextTick();

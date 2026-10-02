@@ -2,7 +2,7 @@ import pluginVue from "eslint-plugin-vue";
 
 import globals from "globals";
 import groupImportsPlugin from "eslint-plugin-import-group";
-import pluginJest from "eslint-plugin-jest";
+import pluginVitest from "@vitest/eslint-plugin";
 import pluginJs from "@eslint/js";
 import pluginVuePug from "eslint-plugin-vue-pug";
 import stylistic from "@stylistic/eslint-plugin";
@@ -18,10 +18,6 @@ export default [
     files: [
       "**/*.{js,mjs,cjs,vue}",
     ],
-    ignores: [
-      "docs/vite.config.mjs",
-      "vite.lib.config.mjs",
-    ],
     // vite.config.mjs
     plugins: {
       "@stylistic": stylistic,
@@ -31,6 +27,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node,
         __dirname: false,
         module: false,
         require: false,
@@ -156,7 +153,7 @@ export default [
       "@stylistic/object-property-newline": [WARN, { allowAllPropertiesOnSameLine: true }],
       "@stylistic/padded-blocks": [WARN, "never"],
       "@stylistic/quote-props": [WARN, "as-needed"],
-      "@stylistic/quotes": [WARN, "double", { allowTemplateLiterals: true }],
+      "@stylistic/quotes": [WARN, "double", { allowTemplateLiterals: "always" }],
       "@stylistic/rest-spread-spacing": [WARN, "never"],
       "@stylistic/semi": [WARN, "always"],
       "@stylistic/semi-spacing": WARN,
@@ -189,7 +186,7 @@ export default [
                   exact: "vue-router",
                 },
                 {
-                  exact: "@jest/globals",
+                  exact: "vitest",
                 },
                 {
                   exact: "@vue/test-utils",
@@ -551,21 +548,21 @@ export default [
        */
     },
   },
-  // Jest
+  // Vitest
   {
     // update this to match your test files
     files: ["**/*.spec.js", "**/*.test.js"],
-    ...pluginJest.configs["flat/recommended"],
-    plugins: { jest: pluginJest },
+    plugins: { vitest: pluginVitest },
     languageOptions: {
-      globals: pluginJest.environments.globals.globals,
+      globals: pluginVitest.environments.env.globals,
     },
     rules: {
-      "jest/no-disabled-tests": "warn",
-      "jest/no-focused-tests": "error",
-      "jest/no-identical-title": "error",
-      "jest/prefer-to-have-length": "warn",
-      "jest/valid-expect": "error",
+      ...pluginVitest.configs.recommended.rules,
+      "vitest/no-disabled-tests": "warn",
+      "vitest/no-focused-tests": "error",
+      "vitest/no-identical-title": "error",
+      "vitest/prefer-to-have-length": "warn",
+      "vitest/valid-expect": "error",
     },
   },
 ];

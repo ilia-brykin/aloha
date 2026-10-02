@@ -1,12 +1,14 @@
+import { vi } from "vitest";
+
 export function mockVueInject(mock_injects) {
-  jest.mock("vue", () => {
-    const originalVue = jest.requireActual("vue");
+  vi.doMock("vue", async() => {
+    const originalVue = await vi.importActual("vue");
     const ref = originalVue.ref;
 
     return {
       ...originalVue,
-      inject: jest.fn((key, defaultValue) => {
-        if (mock_injects[key]) {
+      inject: vi.fn((key, defaultValue) => {
+        if (Object.hasOwn(mock_injects, key)) {
           return ref(mock_injects[key]);
         }
         return ref(defaultValue);

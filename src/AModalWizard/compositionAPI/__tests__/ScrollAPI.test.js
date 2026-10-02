@@ -5,8 +5,8 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 
 import ScrollAPI from "../ScrollAPI";
 
@@ -15,7 +15,7 @@ describe("AModalWizard ScrollAPI", () => {
     const props = reactive({
       scrollToTopOnStepChange: true,
     });
-    const scrollTo = jest.fn();
+    const scrollTo = vi.fn();
     const modalBody = {
       scrollTo,
     };
@@ -27,7 +27,7 @@ describe("AModalWizard ScrollAPI", () => {
 
     modalBodyRef.value = {
       modalRef: {
-        querySelector: jest.fn(() => modalBody),
+        querySelector: vi.fn(() => modalBody),
       },
     };
 

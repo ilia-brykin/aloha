@@ -1,14 +1,14 @@
 import { defineConfig } from "vite";
-import path from "path";
+import { fileURLToPath } from "node:url";
 
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.js"),
+      entry: fileURLToPath(new URL("./src/index.js", import.meta.url)),
       name: "AlohaVue",
       fileName: format => `aloha-vue.${ format }.js`,
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: [
         "vue",
         "moment",

@@ -10,6 +10,7 @@ import {
 
 
 const isDevelopment = process.env.DEV === "true";
+const docsRoot = import.meta.dirname;
 
 export default defineConfig({
   base: isDevelopment ? "/" : "/aloha/",
@@ -46,15 +47,15 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "aloha-vue": path.resolve(__dirname, "../src/index.js"),
-      axios: path.resolve(__dirname, "node_modules/axios"),
-      fecha: path.resolve(__dirname, "node_modules/fecha"),
-      "lodash-es": path.resolve(__dirname, "node_modules/lodash-es"),
-      moment: path.resolve(__dirname, "node_modules/moment"),
-      vue: path.resolve(__dirname, "node_modules/vue"),
-      "tiny-emitter": path.resolve(__dirname, "node_modules/tiny-emitter"),
-      dompurify: path.resolve(__dirname, "node_modules/dompurify"),
-      "@floating-ui/vue": path.resolve(__dirname, "node_modules/@floating-ui/vue"),
+      "aloha-vue": path.resolve(docsRoot, "../src/index.js"),
+      axios: path.resolve(docsRoot, "node_modules/axios"),
+      fecha: path.resolve(docsRoot, "node_modules/fecha"),
+      "lodash-es": path.resolve(docsRoot, "node_modules/lodash-es"),
+      moment: path.resolve(docsRoot, "node_modules/moment"),
+      vue: path.resolve(docsRoot, "node_modules/vue"),
+      "tiny-emitter": path.resolve(docsRoot, "node_modules/tiny-emitter"),
+      dompurify: path.resolve(docsRoot, "node_modules/dompurify"),
+      "@floating-ui/vue": path.resolve(docsRoot, "node_modules/@floating-ui/vue"),
     },
   },
   server: {
@@ -71,7 +72,7 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         entryFileNames: "bundle.[name].[hash].js",
         chunkFileNames: "chunk.[name].[hash].js",

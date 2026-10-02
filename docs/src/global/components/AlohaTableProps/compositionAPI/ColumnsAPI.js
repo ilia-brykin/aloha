@@ -5,7 +5,7 @@ import {
 
 import {
   forEach,
-} from "lodash";
+} from "lodash-es";
 
 export default function ColumnsAPI(props) {
   const columns = toRef(props, "columns");

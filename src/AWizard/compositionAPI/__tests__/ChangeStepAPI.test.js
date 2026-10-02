@@ -2,14 +2,14 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 
 import ChangeStepAPI from "../ChangeStepAPI";
 
 describe("AWizard ChangeStepAPI", () => {
   it("emits details about the changed step", () => {
-    const emit = jest.fn();
+    const emit = vi.fn();
     const steps = [
       { label: "Step 1" },
       { label: "Step 2" },

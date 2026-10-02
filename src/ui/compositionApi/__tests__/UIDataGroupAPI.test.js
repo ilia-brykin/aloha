@@ -7,7 +7,7 @@ import {
   describe,
   expect,
   it,
-} from "@jest/globals";
+} from "vitest";
 
 import UIDataGroupAPI from "../UIDataGroupAPI";
 import {

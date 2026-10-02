@@ -6,8 +6,8 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 
 import UiDataWithKeyIdAndLabelAPI from "../UiDataWithKeyIdAndLabelAPI";
 
@@ -16,7 +16,7 @@ import {
   AKeyLabel,
 } from "../../../const/AKeys";
 
-jest.mock("../../../index", () => ({
+vi.mock("../../../index", () => ({
   AKeyId: "_a_id",
   AKeyLabel: "_a_label",
   AKeyLabelSearch: "_a_label_search",

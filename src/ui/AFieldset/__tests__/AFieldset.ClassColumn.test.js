@@ -6,8 +6,8 @@ import {
   describe,
   expect,
   it,
-  jest,
-} from "@jest/globals";
+  vi,
+} from "vitest";
 import {
   mount,
 } from "@vue/test-utils";
@@ -17,15 +17,15 @@ import {
   AFormPluginOptions,
 } from "../../../plugins/AFormPlugin";
 
-jest.mock("../../../index", () => {
+vi.mock("../../../index", async() => {
   const {
     computed,
     h: hLocal,
     ref,
-  } = require("vue");
+  } = await vi.importActual("vue");
   const {
     AFormPluginOptions: pluginOptions,
-  } = require("../../../plugins/AFormPlugin");
+  } = await vi.importActual("../../../plugins/AFormPlugin");
 
   const componentStub = {
     render() {
@@ -69,8 +69,7 @@ jest.mock("../../../index", () => {
   };
 });
 
-jest.mock("../../AUiComponents", () => ({
-  __esModule: true,
+vi.mock("../../AUiComponents", () => ({
   default: {},
 }));
 

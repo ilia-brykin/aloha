@@ -2,7 +2,7 @@ import {
   describe,
   expect,
   it,
-} from "@jest/globals";
+} from "vitest";
 
 import filterDate from "../filterDate";
 import moment from "moment";

@@ -5,7 +5,7 @@ import {
   describe,
   expect,
   it,
-} from "@jest/globals";
+} from "vitest";
 
 import UIExcludeRenderAttributesAPI from "../UIExcludeRenderAttributesAPI";
 
