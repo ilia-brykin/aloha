@@ -53,7 +53,6 @@ export default defineConfig({
       "lodash-es": path.resolve(docsRoot, "node_modules/lodash-es"),
       moment: path.resolve(docsRoot, "node_modules/moment"),
       vue: path.resolve(docsRoot, "node_modules/vue"),
-      "tiny-emitter": path.resolve(docsRoot, "node_modules/tiny-emitter"),
       dompurify: path.resolve(docsRoot, "node_modules/dompurify"),
       "@floating-ui/vue": path.resolve(docsRoot, "node_modules/@floating-ui/vue"),
     },
