@@ -17,9 +17,17 @@ import IdAPI from "./compositionAPI/IdAPI";
 import MultipleAPI from "./compositionAPI/MultipleAPI";
 import ViewsAPI from "./compositionAPI/ViewsAPI";
 
-import Search from "aloha-svg/dist/js/bootstrap3/Search";
-import ThreeDots from "aloha-svg/dist/js/bootstrap/ThreeDots";
-import UiChecks from "aloha-svg/dist/js/bootstrap/UiChecks";
+const Search = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1024 1024">
+    <path d="M761.37 637.327l256.642 256.642q5.988 6.844 5.988 15.399t-5.988 15.399l-93.246 93.246q-6.844 5.988-15.399 5.988t-15.399-5.988l-256.642-256.642q-101.802 66.727-223.278 66.727-171.095 0-292.572-121.477t-121.477-292.572 121.477-292.572 292.572-121.477 292.572 121.477 121.477 292.572q0 121.477-66.727 223.278zM130.887 414.049q0 116.344 82.981 199.325t200.181 82.981 199.753-82.553 82.553-199.753-82.553-199.753-199.753-82.553-200.181 82.981-82.981 199.325z"></path>
+</svg>
+`;
+const ThreeDots = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>`;
+const UiChecks = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ui-checks" viewBox="0 0 16 16">
+  <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+</svg>`;
+
 
 export default {
   name: "ATableTopPanel",

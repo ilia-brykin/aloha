@@ -22,12 +22,28 @@ import FormAPI from "./compositionAPI/FormAPI";
 import IdAPI from "./compositionAPI/IdAPI";
 import SearchAPI from "./compositionAPI/SearchAPI";
 
-import Filter from "aloha-svg/dist/js/bootstrap/Filter";
-import Floppy2Fill from "aloha-svg/dist/js/bootstrap/Floppy2Fill";
-import PlusLg from "aloha-svg/dist/js/bootstrap//PlusLg";
-import Search from "aloha-svg/dist/js/bootstrap3/Search";
-import Trash from "aloha-svg/dist/js/bootstrap/Trash";
-import XLg from "aloha-svg/dist/js/bootstrap/XLg";
+const Filter = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+  <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+</svg>`;
+const Floppy2Fill = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy2-fill" viewBox="0 0 16 16">
+  <path d="M12 2h-2v3h2z"/>
+  <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v13A1.5 1.5 0 0 0 1.5 16h13a1.5 1.5 0 0 0 1.5-1.5V2.914a1.5 1.5 0 0 0-.44-1.06L14.147.439A1.5 1.5 0 0 0 13.086 0zM4 6a1 1 0 0 1-1-1V1h10v4a1 1 0 0 1-1 1zM3 9h10a1 1 0 0 1 1 1v5H2v-5a1 1 0 0 1 1-1"/>
+</svg>`;
+const PlusLg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+</svg>`;
+const Search = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1024 1024">
+    <path d="M761.37 637.327l256.642 256.642q5.988 6.844 5.988 15.399t-5.988 15.399l-93.246 93.246q-6.844 5.988-15.399 5.988t-15.399-5.988l-256.642-256.642q-101.802 66.727-223.278 66.727-171.095 0-292.572-121.477t-121.477-292.572 121.477-292.572 292.572-121.477 292.572 121.477 121.477 292.572q0 121.477-66.727 223.278zM130.887 414.049q0 116.344 82.981 199.325t200.181 82.981 199.753-82.553 82.553-199.753-82.553-199.753-199.753-82.553-200.181 82.981-82.981 199.325z"></path>
+</svg>
+`;
+const Trash = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg>`;
+const XLg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg>`;
+
 
 export default {
   name: "AFiltersHorizontal",

@@ -135,36 +135,6 @@ vi.mock("../../AButton/AButton", async() => {
   };
 });
 
-vi.mock("aloha-svg/dist/js/bootstrap/ChevronDown", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/ChevronUp", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/ExclamationCircleFill", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/Floppy2Fill", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/GripVertical", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/LockFill", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/PencilFill", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/Plus", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/Trash", () => ({
-  default: "<svg></svg>",
-}));
-vi.mock("aloha-svg/dist/js/bootstrap/XLg", () => ({
-  default: "<svg></svg>",
-}));
 
 describe("ATableForm list view", () => {
   it("uses disabled fields for editable rows and readonly fields for non-editable rows", () => {

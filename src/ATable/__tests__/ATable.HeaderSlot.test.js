@@ -27,8 +27,6 @@ vi.mock("../../AButton/AButton", async() => {
     },
   };
 });
-vi.mock("aloha-svg/dist/js/bootstrap/CaretDownFill", () => ({ default: "" }));
-vi.mock("aloha-svg/dist/js/bootstrap/CaretUpFill", () => ({ default: "" }));
 
 const ATranslationStub = {
   name: "ATranslation",

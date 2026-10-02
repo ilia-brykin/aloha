@@ -55,7 +55,6 @@
   },
   "dependencies": {
     "@floating-ui/vue": "2.0.1",
-    "aloha-svg": "1.8.0",
     "axios": "1.20.0",
     "dompurify": "3.4.16",
     "fecha": "4.2.3",
