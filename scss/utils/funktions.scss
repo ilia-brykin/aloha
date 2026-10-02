@@ -26,7 +26,7 @@
 
 // Shade the color if the weight is positive, else tint it
 @function shift-color($color, $weight) {
-    @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
+    @return if(sass($weight > 0): shade-color($color, $weight); else: tint-color($color, -$weight));
 }
 
 // Color contrast
@@ -60,7 +60,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     $l1: luminance($background);
     $l2: luminance(opaque($background, $foreground));
 
-    @return if($l1 > $l2, divide($l1 + .05, $l2 + .05), divide($l2 + .05, $l1 + .05));
+    @return if(sass($l1 > $l2): divide($l1 + .05, $l2 + .05); else: divide($l2 + .05, $l1 + .05));
 }
 
 // Return WCAG2.1 relative luminance
@@ -74,7 +74,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     );
 
     @each $name, $value in $rgb {
-        $value: if(divide($value, 255) < .03928, divide(divide($value, 255), 12.92), list.nth($_luminance-list, round($value + 1)));
+        $value: if(sass(divide($value, 255) < .03928): divide(divide($value, 255), 12.92); else: list.nth($_luminance-list, round($value + 1)));
         $rgb: map.merge($rgb, ($name: $value));
     }
 
@@ -88,7 +88,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 }
 
 @function divide($dividend, $divisor, $precision: 10) {
-    $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0, 1, -1);
+    $sign: if(sass($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0): 1; else: -1);
     $dividend: abs($dividend);
     $divisor: abs($divisor);
     @if $dividend == 0 {
