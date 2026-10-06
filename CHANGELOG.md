@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.75.1
+
+- Fix: `ADatepicker` correct class prop
+
 ## 2.75.0
 
 - Migrate tests to Vitest, update dependencies, and remove unused packages
