@@ -43,6 +43,7 @@ import frJson from "./fr.json";
 import hrJson from "./hr.json";
 import itJson from "./it.json";
 import ruJson from "./ru.json";
+import ukJson from "./uk.json";
 
 export const ar = {
   ...arJson,
@@ -364,6 +365,46 @@ export const ru = {
   ...AWizardI18n.ru,
   ...Filters18n.ru,
 };
+export const uk = {
+  ...ukJson,
+  ...AAlertI18n.uk,
+  ...ACarouselI18n.uk,
+  ...ACheckboxI18n.uk,
+  ...ACloakI18n.uk,
+  ...ADatepickerI18n.uk,
+  ...ADatepickerRangeI18n.uk,
+  ...ADisclosureI18n.uk,
+  ...AErrorsI18n.uk,
+  ...AFieldsetI18n.uk,
+  ...AFiltersI18n.uk,
+  ...AFormElementBtnClearI18n.uk,
+  ...AInputCurrencyI18n.uk,
+  ...AInputI18n.uk,
+  ...AInputNumberI18n.uk,
+  ...AInputNumberRangeI18n.uk,
+  ...AJsonI18n.uk,
+  ...ALinkCopyI18n.uk,
+  ...ALoadingI18n.uk,
+  ...AMenu2I18n.uk,
+  ...AModalI18n.uk,
+  ...AMultiselectOrderedI18n.uk,
+  ...APaginationI18n.uk,
+  ...ARadioI18n.uk,
+  ...ARequiredI18n.uk,
+  ...ARouterLinkConfigI18n.uk,
+  ...ASelectI18n.uk,
+  ...ASelectStyleI18n.uk,
+  ...AShowMoreI18n.uk,
+  ...ATableFormI18n.uk,
+  ...ASliderI18n.uk,
+  ...ASpinnerI18n.uk,
+  ...ASwitchI18n.uk,
+  ...ATableI18n.uk,
+  ...AValidatedJsonI18n.uk,
+  ...AVerticalScrollI18n.uk,
+  ...AWizardI18n.uk,
+  ...Filters18n.uk,
+};
 
 export default {
   ar,
@@ -374,4 +415,5 @@ export default {
   hr,
   it,
   ru,
+  uk,
 };

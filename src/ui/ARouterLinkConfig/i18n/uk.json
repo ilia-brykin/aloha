@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_": "Динамічні параметри використовуються в маршрутах для передавання даних у шляху. Вони позначаються двокрапкою <code>:</code> перед назвою параметра, наприклад: <code>/user/:id</code>. Під час переходу цей параметр замінюється конкретним значенням, наприклад: <code>/user/123</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_": "Параметри <span lang=\"en\">URL</span> дозволяють передавати додаткову інформацію в запиті. Вони додаються після символу <code>?</code> в адресному рядку і мають формат \"ключ=значення\". Наприклад: <code>?limit=10&sort=asc</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_": "Адреса визначає, куди веде посилання. Вона може бути статичною (наприклад, <code>/home</code>) або містити динамічні параметри (наприклад, <code>/user/:id</code>). Виберіть адресу для переходу.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_": "Визначає, де відкриється посилання. Доступні варіанти: у тому самому вікні (<code>_self</code>), у новому вікні або вкладці (<code>_blank</code>), у батьківському фреймі (<code>_parent</code>) або у фреймі верхнього рівня (<code>_top</code>).",
+  "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_": "Динамічні параметри",
+  "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_": "Параметри <span lang=\"en\">URL</span>",
+  "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_": "Виберіть адресу",
+  "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_": "Атрибут <span lang=\"en\">target</span>",
+  "_A_TARGET_BLANK_": "Відкрити в новій вкладці <strong lang=\"en\">_blank</strong>",
+  "_A_TARGET_PARENT_": "Відкрити в батьківському фреймі <strong lang=\"en\">_parent</strong>",
+  "_A_TARGET_SELF_": "Відкрити в тому самому вікні <strong lang=\"en\">_self</strong>",
+  "_A_TARGET_TOP_": "Відкрити у фреймі верхнього рівня <strong lang=\"en\">_top</strong>"
+}

@@ -1,0 +1,16 @@
+{
+  "_A_WIZARD_ARIA_LABEL_": "Майстер",
+  "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Крок {{ stepNumber }}:",
+  "_A_WIZARD_NEXT_": "Далі",
+  "_A_WIZARD_NEXT_TITLE_": "Наступний крок",
+  "_A_WIZARD_PREVIOUS_": "Назад",
+  "_A_WIZARD_PREVIOUS_TITLE_": "Попередній крок",
+  "_A_WIZARD_STEP_ACTIVE_": "Поточний крок",
+  "_A_WIZARD_STEP_ERROR_": "Крок з помилкою",
+  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "{{ stepActive }} з {{ stepsCount }}",
+  "_A_WIZARD_STEP_UPCOMING_": "Наступний крок",
+  "_A_WIZARD_STEP_VISITED_": "Пройдений крок",
+  "_A_WIZARD_STEP_WARNING_": "Крок з попередженням",
+  "_A_WIZARD_STEPS_ARIA_LABEL_": "Кроки майстра",
+  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Крок {{ stepActive }} з {{ stepsCount }}"
+}

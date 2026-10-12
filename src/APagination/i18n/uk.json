@@ -1,0 +1,12 @@
+{
+  "_A_COUNT_PER_PAGE_": "На сторінці:",
+  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "Елементів на сторінці:",
+  "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} – {{ current }} з {{ count }}",
+  "_A_PAGINATION_FIRST_PAGE_": "На першу сторінку",
+  "_A_PAGINATION_LAST_PAGE_": "На останню сторінку",
+  "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} з {{ allPages }}",
+  "_A_PAGINATION_NAVIGATION_": "Навігація сторінками",
+  "_A_PAGINATION_NEXT_PAGE_": "На наступну сторінку",
+  "_A_PAGINATION_PREVIOUS_PAGE_": "На попередню сторінку",
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "На сторінку {{ page }}"
+}

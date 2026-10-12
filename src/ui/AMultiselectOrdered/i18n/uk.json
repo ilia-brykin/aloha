@@ -1,0 +1,12 @@
+{
+  "_A_MULTISELECT_ORDERED_BTN_DELETE_": "Видалити зі списку",
+  "_A_MULTISELECT_ORDERED_BTN_DOWN_": "Перемістити ближче до кінця списку",
+  "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_": "Дії для",
+  "_A_MULTISELECT_ORDERED_BTN_UP_": "Перемістити ближче до початку списку",
+  "_A_MULTISELECT_ORDERED_DESELECT_ALL_": "Скасувати вибір усіх",
+  "_A_MULTISELECT_ORDERED_GROUP_ALL_": "Керування вибором",
+  "_A_MULTISELECT_ORDERED_GROUP_INVALID_ENTRIES_": "Недійсні записи",
+  "_A_MULTISELECT_ORDERED_LABEL_SELECT_": "Виберіть елемент",
+  "_A_MULTISELECT_ORDERED_MODEL_EMPTY_": "Жодного елемента не вибрано",
+  "_A_MULTISELECT_ORDERED_SELECT_ALL_": "Вибрати все"
+}

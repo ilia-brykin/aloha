@@ -1,0 +1,18 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Додати новий рядок",
+  "_A_TABLE_FORM_ACTIONS_": "Дії",
+  "_A_TABLE_FORM_DELETE_": "Видалити рядок",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Ви впевнені, що хочете видалити цей рядок?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Скасувати",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Видалити рядок",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Видалити",
+  "_A_TABLE_FORM_EDIT_": "Редагувати рядок",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Скасувати редагування",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Зберегти рядок",
+  "_A_TABLE_FORM_EMPTY_": "Немає даних для відображення.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Перемістити рядок вниз",
+  "_A_TABLE_FORM_MOVE_UP_": "Перемістити рядок вгору",
+  "_A_TABLE_FORM_REORDER_": "Перетягніть рядок, щоб змінити порядок",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Змінити порядок рядків",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Зміну порядку рядків вимкнено"
+}

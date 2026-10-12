@@ -1,0 +1,5 @@
+{
+  "_A_SLIDER_RANGE_ARIA_LABEL_{{min}}_{{max}}_": "Повзунок діапазону від {{ min }} до {{ max }}",
+  "_A_SLIDER_RANGE_FIRST_BUTTON_ARIA_LABEL_": "Виберіть початкове значення",
+  "_A_SLIDER_RANGE_SECOND_BUTTON_ARIA_LABEL_": "Виберіть кінцеве значення"
+}

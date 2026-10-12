@@ -346,6 +346,7 @@ export {
   hr as i18nHR,
   it as i18nIT,
   ru as i18nRU,
+  uk as i18nUK,
 } from "./i18n/allLanguages";
 export { default as AAlertI18n } from "./AAlert/i18n/AAlertI18n";
 export { default as ACarouselI18n } from "./ACarousel/i18n/ACarouselI18n";

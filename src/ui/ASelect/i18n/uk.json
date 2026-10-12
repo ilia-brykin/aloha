@@ -1,0 +1,11 @@
+{
+  "_A_SELECT_LABEL_NOT_FOUND_": "[Вибране значення не знайдено]",
+  "_A_SELECT_EXCLUSIVE_": "Вибрати лише цей варіант",
+  "_A_SELECT_GROUP_INVALID_ENTRIES_": "Недійсні записи",
+  "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Немає варіантів]",
+  "_A_SELECT_MORE_SELECTED_{{count}}_": "+ ще {{count}} вибрано",
+  "_A_SELECT_SEARCH_": "Пошук",
+  "_A_SELECT_SELECTED_{{count}}_": "Вибрано: {{count}}",
+  "_A_SELECT_DESELECT_ALL_": "Скасувати вибір усіх",
+  "_A_SELECT_SELECT_ALL_": "Вибрати все"
+}
