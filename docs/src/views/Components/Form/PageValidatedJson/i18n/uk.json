@@ -1,0 +1,7 @@
+{
+  "_A_VALIDATED_JSON_COMPONENT_NAME_": "Валідований JSON",
+  "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson — це компонент для редагування структурованих даних із правилами валідації. Він підтримує режими одного елемента, списку та JSON і допомагає користувачам безпечно керувати складними даними форми.",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Елемент",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Елементи",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "Об'єкт JSON"
+}

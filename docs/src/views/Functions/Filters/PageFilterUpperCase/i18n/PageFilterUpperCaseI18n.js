@@ -6,6 +6,7 @@ import fr from "./fr.json";
 import hr from "./hr.json";
 import it from "./it.json";
 import ru from "./ru.json";
+import uk from "./uk.json";
 
 export default {
   ar,
@@ -16,4 +17,5 @@ export default {
   hr,
   it,
   ru,
+  uk,
 };

@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "Конфігурація посилання маршрутизатора",
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ARouterLinkConfig</strong> надає інтерфейс для налаштування навігаційних посилань зі значеннями route, query, params і target. Він корисний, коли посилання потрібно формувати динамічно на основі даних форми.",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_": "Тип",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_": "Цей приклад показує, як використовувати проп <strong lang=\"en\">type</strong> для перемикання між режимами вибору одного та кількох маршрутів.",
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AInput</strong> забезпечує введення даних із підтримкою різних типів, як-от <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> та інших. Компонент підтримує відображення іконок, кнопку очищення та можливість показати/приховати пароль.",
+  "_A_INPUT_COMPONENT_NAME_": "Текстове поле",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Цей приклад показує, як використовувати поле введення з типом <strong lang=\"en\">password</strong> і можливістю перемикати видимість пароля за допомогою <strong lang=\"en\">show-password</strong>. У першому полі користувач може показувати й приховувати пароль, а в другому цю функцію вимкнено.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Поле введення пароля",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Визначає іконку, яка відображатиметься перед полем введення. Ця іконка може покращити візуальне сприйняття або вказувати на тип даних, що вводяться.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Працює, коли тип поля — <strong lang=\"en\">password</strong>. Дозволяє перемикати видимість введеного пароля, даючи користувачеві можливість бачити пароль під час введення.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Використовується для типів <strong lang=\"en\">number</strong> або <strong lang=\"en\">integer</strong>. Визначає крок зміни значення, наприклад під час збільшення або зменшення числа клавішами зі стрілками.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Визначає тип значення, що вводиться. Підтримуються різні типи даних, як-от <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> та інші."
+}

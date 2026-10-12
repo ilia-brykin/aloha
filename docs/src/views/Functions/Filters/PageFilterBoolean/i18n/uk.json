@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_FALSE_VALUE_": "Перекладений текст, який повертається, якщо значення <strong>False</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_TRUE_VALUE_": "Перекладений текст, який повертається, якщо значення <strong>True</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_USE_NIL_": "Вказує, чи слід повертати порожній рядок для <strong>undefined</strong> або <strong>null</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_VALUE_": "Значення, яке потрібно перетворити на перекладений текст",
+  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "Функція <strong>filterBoolean</strong> використовується для перетворення <strong>логічного значення</strong> на перекладений текст. Вона дозволяє налаштувати тексти для значень <strong>True</strong> і <strong>False</strong>, а також повертати порожній рядок для <strong>undefined</strong> або <strong>null</strong>."
+}

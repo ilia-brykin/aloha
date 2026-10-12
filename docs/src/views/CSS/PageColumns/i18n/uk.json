@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Колонки",
+  "_A_COLUMNS_BASIC_NAME_": "Базові колонки",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "Контейнер <strong lang=\"en\">.a_columns</strong> розподіляє вкладені <strong lang=\"en\">.a_column</strong> по ширині. Без явно заданої ширини колонки розтягуються рівномірно.",
+  "_A_COLUMNS_COUNT_NAME_": "Сітка та розміри",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "Клас <strong lang=\"en\">.a_columns_count_{n}</strong> задає кількість колонок (1-12), вмикає перенесення та визначає змінну <strong lang=\"en\">--a_column_count</strong>. Ширина колонки задається за допомогою <strong lang=\"en\">.a_column_{n}</strong> і обчислюється відносно вибраної кількості.",
+  "_A_COLUMNS_GAP_NAME_": "Відступи між колонками",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Відступи задаються за допомогою <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> і <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. За замовчуванням для обох осей використовується 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Зміщення",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Зміщення ліворуч: <strong lang=\"en\">.a_column_offset_{n}</strong>, зміщення праворуч: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, де <strong lang=\"en\">n</strong> — від 0 до 11.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Адаптивні класи",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Додайте суфікси <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> до <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong>. Контрольні точки: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

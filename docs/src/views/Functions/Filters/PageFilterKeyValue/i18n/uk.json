@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_VALUE_": "Об'єкт JavaScript, пари «ключ-значення» якого потрібно перетворити на відформатований рядок",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "Функція <strong>filterKeyValue</strong> створює відформатований рядок з пар «ключ-значення» об'єкта JavaScript. Вона використовує функцію reduce, щоб перебрати пари та перетворити їх у зручний для читання формат."
+}

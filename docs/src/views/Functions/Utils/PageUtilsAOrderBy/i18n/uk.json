@@ -1,0 +1,7 @@
+{
+  "_PAGE_UTILS_A_ORDER_BY_DESCRIPTION_": "Розширює orderBy з lodash, за замовчуванням виконуючи порівняння без урахування регістру та зберігаючи всі комбінації iteratee і порядку сортування.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_COLLECTION_": "Колекція для перебору (масив або об'єкт).",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ITERATEES_": "Iteratee, що визначають критерії сортування; приймає шляхи до властивостей, функції, масиви, скорочені об'єкти або null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ORDERS_": "Напрямки сортування, що відповідають iteratee (наприклад, \"asc\", \"desc\"); приймає рядок, масив або null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_OPTIONS_": "Необов'язковий об'єкт конфігурації ({ caseSensitive?: boolean }), що передається останнім аргументом."
+}

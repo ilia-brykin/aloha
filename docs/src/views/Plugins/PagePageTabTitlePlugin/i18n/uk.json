@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_PAGE_TITLE_": "Плагін APageTabTitlePlugin",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_H1_": "Плагін <span lang=\"en\">APageTabTitlePlugin</span>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Вступ</h2><p><strong lang=\"en\">APageTabTitlePlugin</strong> використовується для встановлення базового заголовка <strong lang=\"en\">baseTitle</strong> для тегу <strong lang=\"en\">&lt;title&gt;</strong> у вашому проєкті. Базова частина заголовка (наприклад, назва застосунку) задається один раз через плагін і автоматично додається в кінці заголовка кожної сторінки. Унікальна частина заголовка, специфічна для кожної сторінки, задається за допомогою компонента <strong lang=\"en\">APageTabTitle</strong> через проп <strong lang=\"en\">title</strong>.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_CONNECTION_": "<h2 class=\"a_mb_3\">Підключення</h2><p>Щоб підключити плагін, додайте його до свого проєкту:</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_NOTES_": "<h3 class=\"a_mb_3\">Примітки</h3><ul><li>Базовий заголовок <strong lang=\"en\">baseTitle</strong> задається під час ініціалізації плагіна і залишається незмінним для всього застосунку.</li><li>Унікальний заголовок для кожної сторінки додається за допомогою компонента <strong lang=\"en\">APageTabTitle</strong>.</li></ul>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_": "<h2 class=\"a_mb_3\">Приклад використання компонента <strong lang=\"en\">APageTabTitle</strong></h2><p>Компонент <strong lang=\"en\">APageTabTitle</strong> дозволяє задати унікальну частину заголовка для кожної сторінки.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_NOTES_": "<p>У цьому прикладі повний заголовок сторінки буде таким: <strong lang=\"en\">\"Home Page - Documentation aloha-vue\"</strong>.</p>"
+}

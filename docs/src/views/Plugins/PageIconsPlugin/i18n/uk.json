@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_ICON_PAGE_TITLE_": "Плагін AIconPlugin",
+  "_PAGE_PLUGIN_ICON_H1_": "Плагін <span lang=\"en\">AIconPlugin</span>",
+  "_PAGE_PLUGIN_ICON_INTRODUCTION_": "<h2 class=\"a_mb_3\">Вступ</h2><p><strong lang=\"en\">AIconPlugin</strong> дає змогу підключити набір іконок, які можна використовувати в компонентах <strong lang=\"en\">Aloha-Vue</strong>, наприклад <strong lang=\"en\">AButton</strong> і <strong lang=\"en\">AIcon</strong>. Рекомендуємо використовувати іконки з бібліотеки <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a>, яка об'єднує актуальні <strong lang=\"en\">SVG</strong>-іконки з різних джерел, таких як <strong lang=\"en\">Bootstrap</strong>, <strong lang=\"en\">Flag Icons</strong> і <strong lang=\"en\">Tabler Icons</strong>. Іконки імпортуються як <strong lang=\"en\">JavaScript</strong>-файли.</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_": "<h2 class=\"a_mb_3\">Підключення</h2><p>Почніть із підключення плагіна та іконок у вашому проєкті:</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Примітки</h3><ul><li>Ви можете імпортувати іконки з будь-якої бібліотеки, але для зручності та актуальності іконок рекомендуємо <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a>.</li><li>Усі зареєстровані іконки будуть доступні в компонентах, які їх підтримують, через відповідний проп.</li></ul>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_": "<h2 class=\"a_mb_3\">Приклади використання</h2><h3 class=\"a_mb_3\">Використання в <strong lang=\"en\">AButton</strong></h3><p>Компонент <strong lang=\"en\">AButton</strong> підтримує іконки через пропси <strong lang=\"en\">icon-left</strong> і <strong lang=\"en\">icon-right</strong>.</p>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_A_ICON_": "<h3 class=\"a_mb_3\">Використання в <strong lang=\"en\">AIcon</strong></h3><p>Компонент <strong lang=\"en\">AIcon</strong> дає змогу безпосередньо використовувати зареєстровані іконки.</p>"
+}

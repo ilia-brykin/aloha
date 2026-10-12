@@ -1,0 +1,21 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AOneCheckbox</strong> — це окремий чекбокс із можливістю прив'язки до моделі даних. Поруч із чекбоксом можна відображати текст; компонент підтримує різні стани та налаштування.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Окремий чекбокс",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">false-value</strong>, щоб задати значення, яке передається в модель, коли чекбокс не позначено. У першому випадку в модель передається значення <strong lang=\"en\">false</strong>, коли чекбокс не вибрано. У другому випадку, якщо чекбокс не вибрано, у модель передається значення <strong>0</strong>.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Значення, коли чекбокс не позначено",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">indeterminate</strong> для відображення невизначеного стану чекбокса. Коли <strong lang=\"en\">indeterminate</strong> має значення <strong lang=\"en\">true</strong>, чекбокс показує мінус замість стандартної позначки, що вказує на проміжний або невизначений стан.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Невизначений стан",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">true-value</strong>, щоб задати значення, яке передається в модель, коли чекбокс позначено. У цьому випадку, коли чекбокс вибрано, у модель передається значення <strong>1</strong>.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Значення, коли чекбокс позначено",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">is-width-auto</strong> для керування шириною <strong lang=\"en\">label</strong> поруч із чекбоксом. У першому чекбоксі для мітки встановлено ширину <strong lang=\"en\">auto</strong>, тож текст займає мінімально необхідний простір. У другому чекбоксі ширина мітки не змінюється, і вона займає фіксований простір.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Автоматична ширина для мітки",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "Значення, яке передається в модель, коли чекбокс не позначено.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Відображає невизначений стан <strong lang=\"en\">(indeterminate)</strong>, у якому замість позначки показується символ мінуса.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Визначає, чи відображатиметься текст мітки як <strong lang=\"en\">title</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Додає до <strong lang=\"en\">label</strong> спеціальний клас зі шириною <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Додаткові пропси та <strong lang=\"en\">HTML</strong>-атрибути для налаштування тегу <strong lang=\"en\">label</strong>, який відображається за допомогою компонента <strong lang=\"en\">AElement</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "Назва слота, який використовуватиметься замість тексту за замовчуванням, якщо компоненту передано слот із зазначеною назвою.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Значення, яке передається в модель, коли чекбокс позначено.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "У цьому прикладі <strong lang=\"en\">slot-name</strong> використовується, щоб замінити текст <strong lang=\"en\">label</strong> за замовчуванням власним вмістом. Слот із назвою <strong lang=\"en\">aloha</strong> надає шаблон, у якому текст і іконка <strong lang=\"en\">label</strong> відображаються з додатковими налаштуваннями. Такий підхід дає змогу гнучко налаштовувати вміст <strong lang=\"en\">label</strong> за допомогою стандартних атрибутів і компонентів, як-от <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Приклад використання <strong lang=\"en\">slot-name</strong>"
+}

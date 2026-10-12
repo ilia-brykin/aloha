@@ -1,0 +1,20 @@
+{
+  "_A_SLIDER_COMPONENT_NAME_": "Повзунок",
+  "_A_SLIDER_COMPONENT_DESCRIPTION_": "ASlider — це компонент для вибору числового значення або діапазону в межах заданого інтервалу. Він підтримує мінімальні й максимальні межі, крок, діапазони, позначки зупинки та налаштування відображення.",
+  "_A_SLIDER_BASIC_LABEL_": "Повзунок",
+  "_A_SLIDER_DISABLED_LABEL_": "Вимкнений повзунок",
+  "_A_SLIDER_GROUP_RANGE_HEADER_": "Вибір діапазону",
+  "_A_SLIDER_GROUP_RANGE_DESCRIPTION_": "Цей приклад показує, як використовувати проп <strong lang=\"en\">range</strong>, щоб повзунок міг вибирати діапазон між двома значеннями.",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "Мінімум, максимум і крок",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "Цей приклад показує, як налаштувати повзунок із власними значеннями <strong lang=\"en\">min</strong>, <strong lang=\"en\">max</strong> і <strong lang=\"en\">step</strong>.",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "Повзунок (мін.: {{ min }}, макс.: {{ max }}, крок: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "Повзунок діапазону (мін.: {{ min }}, макс.: {{ max }}, крок: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "Повзунок діапазону (мін.: {{ min }}, макс.: {{ max }})",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "Повзунок (мін.: {{ min }}, макс.: {{ max }})",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "Значення на основі даних",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "Цей приклад показує, як використовувати проп <strong lang=\"en\">data</strong> разом із <strong lang=\"en\">key-id</strong>, щоб значення повзунка формувалися з наперед визначених записів даних.",
+  "_A_SLIDER_LABEL_NOT_SHOW_STOPS_": "Повзунок без позначок зупинки",
+  "_A_SLIDER_LABEL_SHOW_STOPS_": "Повзунок із позначками зупинки",
+  "_A_UI_GROUP_SHOW_STOPS_HEADER_": "Позначки зупинки",
+  "_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">show-stops</strong> для відображення проміжних позначок зупинки на повзунку."
+}

@@ -1,0 +1,9 @@
+{
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Цей компонент поєднує модальне вікно (<a href='/#/modal'>AModal</a>) і майстер (<a href='/#/wizard'>AWizard</a>). Ви можете використовувати майже всі пропси з <a href='/#/modal'>AModal</a> і <a href='/#/wizard'>AWizard</a>.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Майстер у модальному вікні",
+  "_A_MODAL_WIZARD_PROPS_SCROLL_TO_TOP_ON_STEP_CHANGE_DESCRIPTION_": "Визначає, чи прокручується тіло модального вікна вгору, коли змінюється активний крок майстра.",
+  "_A_MODAL_WIZARD_STEP_1_": "Крок 1",
+  "_A_MODAL_WIZARD_STEP_2_": "Крок 2",
+  "_A_MODAL_WIZARD_STEP_3_": "Крок 3",
+  "_A_MODAL_WIZARD_STEP_4_": "Крок 4"
+}

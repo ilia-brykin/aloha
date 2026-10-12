@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "Позиціонування",
+  "_A_POSITION_TYPES_NAME_": "Типи позиціонування",
+  "_A_POSITION_TYPES_DESCRIPTION_": "Класи задають значення властивості <code>position</code>.",
+  "_A_POSITION_OFFSETS_NAME_": "Зміщення",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "Класи задають значення <code>top</code>, <code>bottom</code>, <code>left</code> і <code>right</code>.",
+  "_A_POSITION_TRANSLATE_NAME_": "Translate для центрування",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "Класи задають значення <code>transform</code> для центрування."
+}

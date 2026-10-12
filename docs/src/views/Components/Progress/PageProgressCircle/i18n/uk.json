@@ -1,0 +1,18 @@
+{
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Круговий індикатор прогресу",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AProgressCircle</strong> відображає прогрес у вигляді кругового індикатора. Він підтримує стандартний і невизначений стани та корисний, коли потрібно візуалізувати ступінь виконання на компактній ділянці.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "Компонент <strong lang=\"en\">AProgressCircle</strong> дозволяє відображати невизначений круговий індикатор прогресу з анімацією. За допомогою prop <strong>indeterminate</strong> можна показати, що дія триває, не відображаючи конкретного значення виконання.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Невизначений круговий прогрес з анімацією",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Керує тривалістю анімації кругового індикатора прогресу.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Вмикає невизначений режим кругового індикатора прогресу.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Верхня межа, максимальне значення кругового індикатора прогресу.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Нижня межа, мінімальне значення кругового індикатора прогресу.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Повертає круговий індикатор прогресу на вказану кількість градусів.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Визначає, чи потрібно відображати значення прогресу всередині кругового індикатора.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Встановлює товщину лінії кругового індикатора прогресу.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "Поточне значення прогресу кругового індикатора.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Один або кілька класів для налаштування тексту відображуваного значення прогресу.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Визначає, як форматувати відображуване значення прогресу. Якщо ввімкнено, значення показується як ціле число відсотків.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Встановлює ширину та висоту кругового індикатора прогресу.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Дозволяє налаштувати відображуване значення прогресу. Область видимості слота надає значення <strong>valuePercent</strong>."
+}

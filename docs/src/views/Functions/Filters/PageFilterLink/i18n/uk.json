@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "URL, який буде вставлено в HTML-посилання",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Текст, який відображатиметься в HTML-посиланні. Якщо не вказано, використовується URL",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Протокол, який буде додано перед URL",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Атрибут <strong>target</strong> для HTML-посилання, який керує поведінкою під час відкриття посилання",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "CSS-клас, який буде додано до HTML-посилання",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "Функція <strong>filterLink</strong> створює HTML-посилання на основі переданого URL. Вона дозволяє налаштувати протокол, target, CSS-клас і відображуваний текст посилання. Функція перевіряє коректність URL і гарантує його безпечну вставку в HTML-посилання."
+}

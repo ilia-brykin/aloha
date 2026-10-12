@@ -1,0 +1,5 @@
+{
+  "_A_SELECT_ICON_PROPS_TYPE_DESCRIPTION_": "Визначає тип селектора. Підтримувані значення: <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectIcon</strong>, <strong lang=\"en\">multiselect</strong> та <strong lang=\"en\">multiselectIcon</strong>.",
+  "_A_SELECT_ICON_COMPONENT_NAME_": "Вибір іконки",
+  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Компонент на основі <strong lang=\"en\">ASelect</strong>, що дає змогу вибрати одну або кілька іконок, доступних у системі. Підтримує пошук, групування, налаштування відображення та керування іконками."
+}

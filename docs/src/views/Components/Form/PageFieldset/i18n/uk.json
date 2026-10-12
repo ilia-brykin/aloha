@@ -1,0 +1,5 @@
+{
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">AFieldset</strong> використовується для групування елементів форми в логічний набір. Він підтримує різні можливості, зокрема відображення помилок, текст довідки, згортання/розгортання вмісту та налаштування стилів дочірніх елементів.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Група полів",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Дає змогу налаштувати текст для дій згортання та розгортання компонента. За замовчуванням для закриття використовується <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong>, а для відкриття — <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong>."
+}

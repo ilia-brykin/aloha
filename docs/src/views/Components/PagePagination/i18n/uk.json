@@ -1,0 +1,21 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">APagination</strong> відображає навігацію для великих наборів даних. Він поєднує елементи керування кількістю записів на сторінці, десктопний і мобільний макети, а також генерує події <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong>, щоб представлення, яке його використовує, залишалося синхронізованим із поточною сторінкою.",
+  "_A_PAGINATION_COMPONENT_NAME_": "Пагінація",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Загальна кількість елементів у всьому наборі даних. Це значення визначає лічильник <strong lang=\"en\">from-to</strong> і кількість доступних сторінок.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Вимикає всі елементи керування пагінацією. Корисно під час перезавантаження рядків або коли навігацію потрібно заблокувати.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Кількість рядків, які повертаються на сторінку. Компонент генерує <strong lang=\"en\">update:limit</strong>, коли користувач вибирає нове значення.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Список варіантів, що відображаються в селекторі кількості записів на сторінці. Значення можуть бути рядками або числами й зазвичай відповідають обмеженням бекенду.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Максимальна кількість кнопок із номерами сторінок, які можуть відображатися одночасно перед скороченням із трикрапкою.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Індекс першого рядка поточної сторінки. Компонент генерує <strong lang=\"en\">update:offset</strong> щоразу, коли користувач переходить між сторінками.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Скільки рядків фактично відображено на поточній сторінці. Потрібно для коректного відображення лічильника 'from-to', коли остання сторінка неповна.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Конфігурація елементів керування кількістю записів на сторінці та пейджера. Використовуйте <strong lang=\"en\">perPage</strong> і <strong lang=\"en\">pagination</strong>, щоб задати <strong lang=\"en\">mode</strong> (inline/group/select або normal/short/loadMore), <strong lang=\"en\">position</strong> і <strong lang=\"en\">showTextCountFromTo</strong>.",
+  "_A_PAGINATION_PROPS_TEXTS_DESCRIPTION_": "Об'єкт із ключами перекладів або користувацькими текстами для підписів навігації сторінками та лічильників записів на сторінці.",
+  "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Вимкнений стан",
+  "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Цей приклад показує, як перемикати пропс <strong lang=\"en\">disabled</strong>, щоб заблокувати всі елементи керування пагінацією під час оновлення рядків. Використовуйте перемикач, щоб увімкнути або вимкнути навігацію одним клацанням.",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Кількість записів на сторінці",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Використовуйте впорядкований мультиселект, щоб налаштувати значення, що передаються в <strong lang=\"en\">limits-per-page</strong>. Вибір визначає, які обмеження кількості записів на сторінці (5, 10, 25, 50, 75, 100) доступні.",
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Кількість записів на сторінці",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Максимальна кількість сторінок",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Переміщуйте повзунок, щоб змінити значення <strong lang=\"en\">max-pages</strong> (1-10), і подивіться, скільки кнопок сторінок відображається одночасно.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Максимальна кількість сторінок"
+}

@@ -1,0 +1,18 @@
+{
+  "_PAGE_MIGRATION_1_TO_2_PAGE_TITLE_": "Посібник з міграції з aloha-vue 1.2.x на 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_H1_": "Посібник з міграції з <span lang=\"en\">aloha-vue</span> 1.2.x на 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_HEADER_": "1. Видалені та перейменовані компоненти",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_HEADER_": "<strong lang=\"en\">AMenu2</strong> → <strong lang=\"en\">AMenu</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_DESCRIPTION_": "<ul><li>Компонент <code lang=\"en\">AMenu2</code> перейменовано на <code lang=\"en\">AMenu</code></li><li>Усі <strong lang=\"en\">CSS</strong>-класи перейменовано:<ul><li><code lang=\"en\">.a_menu_2</code> → <code lang=\"en\">.a_menu</code>.</li><li>CSS-змінні: <code lang=\"en\">--a_menu_2_</code> → <code lang=\"en\">--a_menu_</code>.</li></ul></li></ul><div class=\"a_mt_3\">Тепер компонент імпортується так:</div>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_HEADER_": "<strong lang=\"en\">TinyMCE</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_DESCRIPTION_": "<ul><li>Компонент <strong lang=\"en\">TinyMCE</strong> більше не підтримується через зміну ліцензії <strong lang=\"en\">TinyMCE</strong> з <strong lang=\"en\">MIT</strong> на <strong lang=\"en\">GPL-2.0-or-later</strong>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_HEADER_": "2. Зміни стилів",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_HEADER_": "Видалені класи",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_DESCRIPTION_": "<ul><li>Стилі <code lang=\"en\">.a_columns_gab_</code> видалено (помилка в назві). Натомість використовуйте <code lang=\"en\">.a_columns_gap_</code>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_HEADER_": "Інтеграція <strong lang=\"en\">aloha-css</strong>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>Стилі з <code lang=\"en\">aloha-css</code> тепер інтегровано в <code lang=\"en\">aloha-vue</code>.</li><li><code lang=\"en\">aloha-css</code> застарів і найближчим часом буде видалений.</li></ul><div class=\"a_mt_3\">Рекомендується підключати стилі так:</div>",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_HEADER_": "3. Покращена система імпорту",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_DESCRIPTION_": "Усі сутності, як-от компоненти, директиви, плагіни, функції та переклади, тепер можна імпортувати напряму:",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. Оновлення залежностей",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_DESCRIPTION_": "<div>Перевірте оновлення у своєму проєкті, щоб відповідати новим вимогам.</div>"
+}

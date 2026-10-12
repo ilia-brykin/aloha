@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_CLOAK_PAGE_TITLE_": "Плагін ACloakPlugin",
+  "_PAGE_PLUGIN_CLOAK_H1_": "Плагін <span lang=\"en\">ACloakPlugin</span>",
+  "_PAGE_PLUGIN_CLOAK_INTRODUCTION_": "<h2 class=\"a_mb_3\">Вступ</h2><p><strong lang=\"en\">ACloakPlugin</strong> використовується для встановлення значень за замовчуванням для пропсів компонента <strong lang=\"en\">ACloak</strong>. Це дає змогу централізовано налаштовувати вигляд і поведінку елемента, зокрема вирівнювання, розмір, текст та інші властивості.</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_": "<h2 class=\"a_mb_3\">Підключення</h2><p>Щоб підключити плагін, додайте його до свого проєкту та налаштуйте пропси за замовчуванням:</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Примітки</h3><p>Ви можете перевизначити такі властивості:</p><ul><li><strong lang=\"en\">align</strong>: вирівнювання вмісту (за замовчуванням: <strong lang=\"en\">\"center\"</strong>).</li><li><strong lang=\"en\">extra</strong>: об'єкт із параметрами для перекладів.</li><li><strong lang=\"en\">size</strong>: розмір елемента (за замовчуванням: 6).</li><li><strong lang=\"en\">tag</strong>: <strong lang=\"en\">HTML</strong>-тег для обгортання (за замовчуванням: <strong lang=\"en\">\"div\"</strong>).</li><li><strong lang=\"en\">text</strong>: текст, що відображається в елементі (за замовчуванням: <strong lang=\"en\">\"_A_CLOAK_LOADING_\"</strong>).</li><li><strong lang=\"en\">textAlign</strong>: вирівнювання тексту (за замовчуванням: <strong lang=\"en\">\"right\"</strong>).</li></ul>",
+  "_PAGE_PLUGIN_CLOAK_EXAMPLES_": "<h2 class=\"a_mb_3\">Приклад використання</h2><p>Після підключення плагіна компонент <strong lang=\"en\">ACloak</strong> використовуватиме задані значення за замовчуванням:</p>"
+}

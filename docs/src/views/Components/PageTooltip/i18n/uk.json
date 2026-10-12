@@ -1,0 +1,22 @@
+{
+  "_A_TOOLTIP_COMPONENT_NAME_": "Підказка",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip відображає додаткову інформацію, коли користувач наводить вказівник на елемент або фокусує його.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Власний тег",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "Можна змінити HTML-тег, що використовується для елемента, який викликає підказку.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Максимальна ширина",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Обмежує максимальну ширину вмісту підказки.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Фіксована ширина",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Задає фіксовану ширину вмісту підказки.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Затримка закриття",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Визначає, як довго підказка залишається видимою після того, як вказівник залишив елемент-тригер або область підказки.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Приховати стрілку",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "Стрілку підказки можна приховати.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Горизонтальний зсув",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Зсуває підказку вздовж осі опорного елемента.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Відстань від тригера",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Змінює відстань між підказкою та елементом-тригером.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Відступ стрілки",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Задає відступ, що обмежує, наскільки близько стрілка може підходити до країв підказки.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Функція зворотного виклику для відступу стрілки",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Відступ стрілки також можна обчислювати динамічно за допомогою функції зворотного виклику."
+}

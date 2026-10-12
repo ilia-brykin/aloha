@@ -1,0 +1,15 @@
+{
+  "_A_TEXT_STYLES_NAME_": "Стилі тексту",
+  "_A_TEXT_STYLES_FONT_SIZE_NAME_": "Розмір шрифту",
+  "_A_TEXT_STYLES_FONT_SIZE_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класи для керування розміром шрифту. Використовуйте класи від <strong lang=\"en\">.a_fs_1</strong> до <strong lang=\"en\">.a_fs_7</strong>, щоб задавати різні розміри тексту у вашому застосунку.",
+  "_A_TEXT_STYLES_ALIGNMENT_NAME_": "Вирівнювання тексту",
+  "_A_TEXT_STYLES_ALIGNMENT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класи для керування вирівнюванням тексту. Базові класи (<strong lang=\"en\">.a_text_left</strong>, <strong lang=\"en\">.a_text_right</strong>, <strong lang=\"en\">.a_text_center</strong>, <strong lang=\"en\">.a_text_justify</strong>) та їхні адаптивні варіанти для різних розмірів екрана (<strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong>).",
+  "_A_TEXT_STYLES_TRANSFORMATION_NAME_": "Перетворення тексту",
+  "_A_TEXT_STYLES_TRANSFORMATION_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класи для зміни регістру та форматування тексту. Використовуйте <strong lang=\"en\">.a_text_lowercase</strong> для нижнього регістру, <strong lang=\"en\">.a_text_uppercase</strong> для верхнього регістру, <strong lang=\"en\">.a_text_capitalize</strong> для великої першої літери кожного слова, а також класи для підкреслення та закреслення тексту.",
+  "_A_TEXT_STYLES_FONT_WEIGHT_NAME_": "Товщина шрифту",
+  "_A_TEXT_STYLES_FONT_WEIGHT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класи для керування товщиною та накресленням шрифту. Містять варіанти від тонкого (<strong lang=\"en\">.a_text_light</strong>) до жирного (<strong lang=\"en\">.a_text_bold</strong>, <strong lang=\"en\">.a_text_bolder</strong>), а також курсив (<strong lang=\"en\">.a_text_italic</strong>) і звичайне накреслення (<strong lang=\"en\">.a_text_normal</strong>).",
+  "_A_TEXT_STYLES_WRAP_NAME_": "Перенесення тексту",
+  "_A_TEXT_STYLES_WRAP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класи для керування перенесенням тексту. Містять звичайне перенесення (<strong lang=\"en\">.a_text_wrap</strong>), заборону перенесення (<strong lang=\"en\">.a_text_nowrap</strong>), примусове перенесення довгих слів (<strong lang=\"en\">.a_text_break</strong>), перенесення з дефісами (<strong lang=\"en\">.a_text_wrap_hyphens</strong>) та обрізання з трикрапкою (<strong lang=\"en\">.a_text_truncate</strong>).",
+  "_A_TEXT_STYLES_CLAMP_NAME_": "Обмеження кількості рядків тексту",
+  "_A_TEXT_STYLES_CLAMP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-класи для обмеження кількості відображуваних рядків тексту з трикрапкою в кінці. Базовий клас <strong lang=\"en\">.a_text_clamp</strong> обмежує текст одним рядком, а модифікатори <strong lang=\"en\">.a_text_clamp_2</strong> - <strong lang=\"en\">.a_text_clamp_5</strong> дають змогу відображати відповідну кількість рядків."
+}

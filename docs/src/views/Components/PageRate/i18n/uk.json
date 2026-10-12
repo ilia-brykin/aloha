@@ -1,0 +1,17 @@
+{
+  "_A_RATE_EVENT_DESCRIPTION_": "оновлює modelValue",
+  "_A_RATE_DESCRIPTION_MODEL_VALUE_": "використовується для відстеження кількості вибраних іконок",
+  "_A_RATE_DESCRIPTION_SIZE_": "визначає розмір іконки",
+  "_A_RATE_DESCRIPTION_HALF_ICON_": "дозволяє вибирати половину іконки",
+  "_A_RATE_DESCRIPTION_READONLY_": "вимикає функцію emit для зміни modelValue",
+  "_A_RATE_DESCRIPTION_COLOR_": "визначає колір заповненої іконки",
+  "_A_RATE_DESCRIPTION_HOVERED_COLOR_": "визначає колір заповнених іконок під час наведення на них курсора",
+  "_A_RATE_DESCRIPTION_RATING_": "визначає кількість іконок, що відображатимуться",
+  "_A_RATE_DESCRIPTION_ICON_": "визначає форму іконки, що відображатиметься",
+  "_A_RATE_DESCRIPTION_ICON_FILL_": "визначає заповнений варіант іконки",
+  "_A_RATE_DESCRIPTION_SHOW_SCORE_": "якщо встановлено true, дозволяє відображати modelValue",
+  "_A_RATE_DESCRIPTION_TEXT_": "визначає перекладний текст для відображення",
+  "_A_RATE_DESCRIPTION_EXTRA_": "визначає додаткові дані для перекладу",
+  "_A_RATE_DESCRIPTION_": "вбудовувати інтерактивні оцінки з налаштовуваними іконками, кольорами та розмірами",
+  "_A_RATE_DESCRIPTION_TEXT_EXTRA_": "визначає перекладний текст для відображення та додаткові дані для перекладу"
+}

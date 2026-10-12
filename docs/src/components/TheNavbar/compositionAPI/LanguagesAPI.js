@@ -42,6 +42,10 @@ export default function LanguagesAPI() {
       label: "Italiano",
       value: "it",
     },
+    {
+      label: "Українська",
+      value: "uk",
+    },
   ];
 
   const changeLanguage = () => {

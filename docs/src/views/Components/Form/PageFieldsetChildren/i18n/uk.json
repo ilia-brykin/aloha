@@ -1,0 +1,8 @@
+{
+  "_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_": "На цій сторінці розглядається використання <strong lang=\"en\">children</strong> у компоненті <strong lang=\"en\">AFieldset</strong>, а також пов'язані властивості, як-от <strong lang=\"en\">class-column-default</strong> для налаштування класів окремих дочірніх елементів, <strong lang=\"en\">class-columns</strong> для батьківського контейнера та <strong lang=\"en\">errors-all</strong> для відображення помилок дочірніх елементів.",
+  "_A_FIELDSET_CHILDREN_COMPONENT_NAME_": "Дочірні елементи <strong lang=\"en\">children</strong>",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_DESCRIPTION_": "Цей приклад демонструє можливість створення вкладеної структури елементів необмеженої глибини за допомогою компонента <strong lang=\"en\">AFieldset</strong>. Кожен дочірній елемент може містити власні вкладені елементи, що забезпечує гнучку структуру даних і контроль над рендерингом. Наприклад, тут перший і другий <strong lang=\"en\">fieldset</strong> містять власні дочірні елементи, як-от текстові поля та прапорці.",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_HEADER_": "Вкладена структура елементів",
+  "_A_FIELDSET_CHILDREN_DEPENDENCIES_HEADER_": "Залежності дочірніх компонентів",
+  "_A_FIELDSET_CHILDREN_DEPENDENCIES_DESCRIPTION_": "Використовуйте <strong lang=\"en\">dependencies</strong> як об'єкт для однієї умови або як масив, якщо мають виконуватися всі умови. Усередині <strong lang=\"en\">AFieldset</strong> поточна модель автоматично передається дочірнім UI-компонентам, тому <strong lang=\"en\">modelDependencies</strong> не потрібно передавати вручну."
+}

@@ -1,0 +1,12 @@
+{
+  "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_": "Компонент для вибору стилів із попередньо визначеного набору стилів",
+  "_A_SELECT_STYLE_COMPONENT_NAME_": "Вибір стилю",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_DESCRIPTION_": "Розширені дані дозволяють додавати до компонента додаткові стилі",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_HEADER_": "Розширені дані",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_": "Фільтрування груп дозволяє відображати лише певні групи стилів",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_": "Фільтрування груп",
+  "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_": "Масив об'єктів із додатковими стилями для компонента",
+  "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_": "Масив або об'єкт для фільтрування груп стилів",
+  "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_": "Тип компонента: <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectStyle</strong>, <strong lang=\"en\">multiselect</strong>, <strong lang=\"en\">multiselectStyle</strong>",
+  "_A_SELECT_STYLES_VALUE_BG_ALOHA_": "Фон Aloha"
+}

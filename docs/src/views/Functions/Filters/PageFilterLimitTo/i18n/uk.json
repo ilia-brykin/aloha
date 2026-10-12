@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "Вхідний рядок, який потрібно обрізати",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "Максимальна довжина рядка, що повертається",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Вказує, чи відображати в кінці рядка не більше трьох крапок",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "Функція <strong>filterLimitTo</strong> використовується для обмеження вхідного рядка певною максимальною довжиною та, за потреби, застосування спеціальної логіки для крапок у кінці рядка."
+}

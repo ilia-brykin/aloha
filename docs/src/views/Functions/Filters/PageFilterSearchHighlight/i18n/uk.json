@@ -1,0 +1,10 @@
+{
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Список додаткових атрибутів у форматі <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Чи має пошук враховувати регістр",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_": "Чи потрібно інтерпретувати значення як <strong lang=\"en\">HTML</strong> і шукати лише в текстовому вмісті.",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "<strong lang=\"en\">CSS</strong>-клас, яким стилізується виділена частина значення",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Пошуковий запит, який потрібно виділити в значенні",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "<strong lang=\"en\">HTML</strong>-тег, який використовується замість mark",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Значення, у якому потрібно виділити пошуковий запит",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Функція <strong lang=\"en\">filterSearchHighlight</strong> використовується для позначення пошукового запиту в значенні шляхом обгортання його <strong lang=\"en\">HTML</strong>-тегами. Вона дає змогу налаштувати пошуковий запит і <strong lang=\"en\">CSS</strong>-клас для виділення."
+}

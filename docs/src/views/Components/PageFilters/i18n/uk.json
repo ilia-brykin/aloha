@@ -1,0 +1,21 @@
+{
+  "_A_FILTERS_COMPONENT_DESCRIPTION_": "Дає змогу фільтрувати дані за різними критеріями.",
+  "_A_FILTERS_COMPONENT_NAME_": "Фільтри",
+  "_A_PAGE_FILTERS_HEADER_": "Компонент фільтрів",
+  "_A_PAGE_FILTERS_DESCRIPTION_": "Компонент фільтрів дає користувачам змогу фільтрувати дані за різними критеріями.",
+  "_A_FILTERS_PAGE_DEFAULT_HIDE_HEADER_": "Фільтри, приховані за замовчуванням",
+  "_A_FILTERS_PAGE_FILTERS_DEFAULT_HIDE_DESCRIPTION_": "Фільтри можна приховати за замовчуванням і показувати за потреби.",
+  "_A_FILTERS_PAGE_MODEL_ID_HEADER_": "Фільтри з <strong lang=\"en\">ID</strong> моделі",
+  "_A_FILTERS_PAGE_MODEL_ID_DESCRIPTION_": "Фільтри можна налаштувати з <strong lang=\"en\">ID</strong> моделі для керування фільтрацією.",
+  "_A_PAGE_FILTER_SEARCH_": "Швидкий пошук",
+  "_A_PAGE_FILTER_SEARCH_SCREEN_READER_": "Швидкий пошук для програми зчитування з екрана",
+  "_A_PAGE_FILTER_TEXT_": "Текст",
+  "_A_PAGE_FILTER_DATE_": "Дата",
+  "_A_PAGE_FILTER_INTEGER_": "Ціле число",
+  "_A_TABLE_FILTER_INPUT_DATE_RANGE_": "Діапазон дат",
+  "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_": "Діапазон чисел",
+  "_A_TABLE_FILTER_SEARCH_": "Пошук",
+  "_A_TABLE_FILTER_TEXT_": "Текст",
+  "_A_TABLE_FILTER_DATE_": "Дата",
+  "_A_TABLE_FILTER_EXTRA_": "Додатково"
+}

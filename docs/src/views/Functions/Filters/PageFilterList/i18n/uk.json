@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Масив для списку",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Якщо <strong>True</strong>, створюється HTML-список (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;). Інакше генерується текстовий список",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Вказує, чи використовується лише простий масив без об'єктів",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Ключ для дочірніх елементів (лише якщо <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Ключ для підпису, що відображається (лише якщо <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Функція для генерування підписів із двома параметрами (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "Задає роздільник, який використовується перед останнім елементом списку.",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Роздільник між елементами (лише якщо <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-тег для всього списку",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-клас, наприклад: (a_list_without_styles)",
+  "_PAGE_FILTER_LIST_DESCRIPTION_": "Функція створює список із масиву.",
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Деревоподібна структура isSimpleArray=true"
+}

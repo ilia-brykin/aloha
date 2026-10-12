@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "Значення, яке перевіряється умовами та може використовуватися у функціях, виразах і шаблонах.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "Упорядкований список об'єктів умов. Перша умова, що виконується, визначає значення, яке повертається.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "Функція або рядок із виразом JavaScript, який отримує поточне значення та визначає, чи виконується умова.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "Статичне значення або функція, що повертається, якщо умова виконується.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "Шаблонний рядок JavaScript, що використовується, якщо умова виконується. Поточне значення доступне як value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "Статичне значення або функція, що повертається, якщо жодна умова не виконується.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "Шаблонний рядок JavaScript, що повертається, якщо жодна умова не виконується. Поточне значення доступне як value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "Функція <strong>filterValueByCondition</strong> повертає результат на основі першої умови, що виконується. Умовами можуть бути функції або рядки з виразами JavaScript. Результатами можуть бути статичні значення, функції або шаблонні рядки.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Умови-функції",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Змішані умови",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "Рядкові вирази та шаблони",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "Рядкові вирази та шаблони виконуються як JavaScript. Використовуйте їх лише з довіреною конфігурацією і ніколи — з неперевіреними даними, введеними користувачем."
+}

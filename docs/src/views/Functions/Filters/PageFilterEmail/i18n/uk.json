@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_EMAIL_": "Адреса електронної пошти, для якої потрібно створити HTML-посилання",
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_LINK_CLASS_": "CSS-клас, який буде додано до створеного HTML-посилання",
+  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "Функція <strong>filterEmail</strong> створює HTML-посилання для адреси електронної пошти. Вона перевіряє, чи існує адреса і чи не є вона порожньою. Якщо умови виконано, повертається HTML-посилання у форматі <strong>&lt;a href=\"mailto:email\" class=\"linkClass\"&gt;email&lt;/a&gt;</strong>."
+}

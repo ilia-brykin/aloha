@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "Розмір, який потрібно перетворити",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "Бажана одиниця вимірювання розміру. Можливі одиниці: <strong>b</strong> (байти), <strong>kb</strong> (кілобайти), <strong>mb</strong> (мегабайти), <strong>gb</strong> (гігабайти), <strong>tb</strong> (терабайти), <strong>pb</strong> (петабайти), <strong>eb</strong> (ексабайти), <strong>zb</strong> (зетабайти), <strong>yb</strong> (йотабайти)",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "Одиниця вимірювання вихідного розміру. Можливі одиниці ті самі, що й для <strong>units</strong>",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "Кількість знаків після коми у відформатованому рядку",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "Функція <strong>filterFileSize</strong> перетворює розмір із вихідної одиниці (наприклад, байтів) у цільову одиницю (наприклад, кілобайти, мегабайти) і повертає результат як відформатований рядок."
+}

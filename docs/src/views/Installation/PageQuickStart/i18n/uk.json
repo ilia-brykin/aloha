@@ -1,0 +1,7 @@
+{
+  "_PAGE_QUICK_START_H1_": "Швидкий старт",
+  "_PAGE_QUICK_START_INSTALL_": "<h2 class=\"a_mb_3\">Встановлення</h2><p><strong lang=\"en\">Aloha-Vue</strong> можна встановити за допомогою <strong lang=\"en\">npm</strong>, <strong lang=\"en\">yarn</strong> або <strong lang=\"en\">pnpm</strong>:</p>",
+  "_PAGE_QUICK_START_STYLES_": "<h2 class=\"a_mb_3\">Стилі</h2><p><strong lang=\"en\">Aloha-Vue</strong> надає стилі у двох форматах:</p><ul><li>Попередньо скомпільований <strong lang=\"en\">CSS</strong>: <code>dist/aloha-vue.css</code></li><li>Вихідний <strong lang=\"en\">SCSS</strong>: <code>scss/aloha-vue.scss</code></li></ul><h3 class=\"a_mb_3\">Приклад: підключення стилів у <code>main.js</code></h3>",
+  "_PAGE_QUICK_START_USE_": "<h2 class=\"a_mb_3\">Використання</h2><h3 class=\"a_mb_3\">Приклад: імпорт і використання простого компонента <strong lang=\"en\">AButton</strong></h3>",
+  "_PAGE_QUICK_START_IN_TEMPLATE_": "У вашому шаблоні <strong lang=\"en\">Vue</strong>:"
+}

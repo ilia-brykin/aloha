@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "Значення для перевірки",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "Значення за замовчуванням, яке повертається, якщо перевірене значення вважається порожнім",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "Функція <strong>filterDefaultForEmpty</strong> використовується для перевірки значення та повернення значення за замовчуванням, якщо перевірене значення вважається порожнім. У цьому контексті значення вважається порожнім, якщо воно дорівнює <strong>undefined</strong>, <strong>null</strong> або є порожнім рядком."
+}

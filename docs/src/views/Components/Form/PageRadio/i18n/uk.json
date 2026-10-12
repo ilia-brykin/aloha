@@ -1,0 +1,8 @@
+{
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ARadio</strong> являє собою набір радіокнопок, серед яких користувач може вибрати лише один елемент із запропонованих варіантів. Компонент підтримує різні налаштування, як-от згортання групи, відображення у вигляді групи кнопок, функцію пошуку та багато інших.",
+  "_A_RADIO_COMPONENT_NAME_": "Радіокнопки",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Цей приклад демонструє, як використовувати <strong lang=\"en\">is-model-array</strong>. Він дає змогу задати масив як модель даних для радіокнопок. Вибраний елемент записується в масив моделі.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Використання масиву як моделі",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Дає змогу використовувати масив (<strong lang=\"en\">Array</strong>) як модель.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Дає змогу налаштувати текстові повідомлення для різних дій у компоненті. Сюди належать тексти для згортання/розгортання (<strong lang=\"en\">collapseClose</strong> та <strong lang=\"en\">collapseOpen</strong>), повідомлення про відсутність знайдених елементів під час пошуку (<strong lang=\"en\">notElementsWithSearch</strong>) і текст поля пошуку (<strong lang=\"en\">search</strong>)."
+}

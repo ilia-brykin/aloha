@@ -1,0 +1,21 @@
+{
+  "_A_TABLE_GROUP_PAGINATION_DESCRIPTION_": "Пагінацію можна налаштувати за допомогою <strong>:pagination=\"{ use: true }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_DESCRIPTION_": "Пагінацію можна вимкнути за допомогою <strong>:pagination=\"{ use: true, disabled: true }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_HEADER_": "Вимкнення пагінації",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_LABEL_": "Пагінація таблиці",
+  "_A_TABLE_GROUP_PAGINATION_HEADER_": "Проста пагінація",
+  "_A_TABLE_GROUP_PAGINATION_LABEL_": "Таблиця з пагінацією",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_DESCRIPTION_": "Кількість елементів на сторінці можна задати за допомогою <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'] }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_HEADER_": "Кількість елементів на сторінці",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_LABEL_": "Таблиця з пагінацією",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_DESCRIPTION_": "Кількість елементів на сторінці за замовчуванням можна задати за допомогою <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'], limitStart: 5 }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_HEADER_": "Кількість елементів на сторінці за замовчуванням",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_LABEL_": "Таблиця з пагінацією",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_DESCRIPTION_": "Максимальну кількість сторінок у пагінації можна задати за допомогою <strong>:pagination=\"{ use: true, maxPages: 7 }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_HEADER_": "Максимальна кількість сторінок у пагінації",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_LABEL_": "Таблиця з пагінацією",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_": "Серверну пагінацію можна задати за допомогою <strong>:pagination=\"{ use: true, isOutside: true }\"</strong>. Параметр <strong>:count-all-rows=\"999\"</strong> визначає загальну кількість елементів у таблиці. Emit <strong>change-limit</strong> викликається під час зміни кількості елементів на сторінці. Emit <strong>change-offset</strong> викликається під час зміни сторінки пагінації.",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_": "Пагінація поза компонентом (серверна пагінація)",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_LABEL_": "Таблиця з пагінацією",
+  "_A_TABLE_PAGINATION_": "(Таблиця з пагінацією)"
+}

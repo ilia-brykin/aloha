@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "Компонент <strong lang=\"en\">ACloak</strong> відображає індикатор завантаження з текстом, що вказує на поточне завантаження сторінки або великого компонента. Він підтримує різні можливості налаштування, зокрема вирівнювання тексту, розмір індикатора та можливість змінити <strong lang=\"en\">HTML</strong>-тег для рендерингу.",
+  "_A_CLOAK_COMPONENT_NAME_": "Екран завантаження",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">align</strong>. Він дозволяє вирівняти текст і спінер по центру, ліворуч або праворуч. Наприклад, перший спінер вирівняно ліворуч, другий — по центру, а третій — праворуч.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Вирівнювання компонента",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">size</strong> для керування розміром тексту та індикатора завантаження. Значення варіюються від <strong lang=\"en\">1</strong> (найбільший) до <strong lang=\"en\">7</strong> (найменший).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Розміри",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">text-align</strong>. Ця властивість дозволяє вирівняти текст, що супроводжує спінер завантаження, ліворуч або праворуч. У першому прикладі текст вирівняно ліворуч, а в другому — праворуч.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Вирівнювання тексту",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">text</strong> та <strong lang=\"en\">extra</strong>. Параметр <strong lang=\"en\">extra</strong> дозволяє динамічно змінювати текст. У цьому випадку текст відображає повідомлення 'Завантаження 1', де число <strong>{{ number }}</strong> береться з переданого об'єкта <strong lang=\"en\">extra</strong>.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Текст із параметром <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Визначає вирівнювання тексту та спінера в компоненті. Можливі значення: <strong lang=\"en\">left</strong>, <strong lang=\"en\">center</strong> і <strong lang=\"en\">right</strong>.",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Визначає розмір тексту та індикатора завантаження. Допустимі значення — від <strong lang=\"en\">1</strong> (найбільший) до <strong lang=\"en\">7</strong> (найменший).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-клас для налаштування зовнішнього вигляду індикатора завантаження.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "<strong lang=\"en\">HTML</strong>-тег, який використовується для рендерингу компонента.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Визначає вирівнювання тексту відносно спінера. Можливі значення: <strong lang=\"en\">left</strong> і <strong lang=\"en\">right</strong>. За замовчуванням текст вирівняно праворуч.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Текст, який відображатиметься поруч з індикатором завантаження.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Завантаження {{ number }}"
+}

@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "Компонент <strong>ALoading</strong> відображає спінер завантаження з текстом поверх вмісту, коли властивість <strong>is-loading</strong> має значення <strong>true</strong>. Він використовується, щоб заблокувати вміст і показувати спінер, доки триває завантаження.",
+  "_A_LOADING_COMPONENT_NAME_": "Екран завантаження поверх вмісту",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Визначає, чи потрібно відображати індикатор завантаження. Якщо встановлено <strong>true</strong>, індикатор завантаження з'явиться поверх вмісту компонента.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Завантаження {{ number }}"
+}
