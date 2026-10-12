@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.76.0
+
+- Feature: Add `UiModelDependenciesProvideAPI` and `UiDependenciesMixinProps` for passing reactive model dependencies from `AForm`, `AFieldset`, and `AGroup` to child UI elements.
+- Feature: Add Ukrainian (`uk`) translations for components.
+- Docs: Add `PageFieldsetChildrenDependencies` examples and `EventsAPI` for `PageForm`.
+- Chore: Update dependencies (`dompurify`, `vite`, `vue-router`, `@vitejs/plugin-vue`) and remove the unused `vue-eslint-parser` from docs.
+
 ## 2.75.1
 
 - Fix: `ADatepicker` correct class prop
