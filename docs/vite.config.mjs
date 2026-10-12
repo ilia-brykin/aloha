@@ -106,6 +106,9 @@ export default defineConfig({
           if (id.includes("ru.json")) {
             return "translations-ru";
           }
+          if (id.includes("uk.json")) {
+            return "translations-uk";
+          }
 
           return null;
         },
