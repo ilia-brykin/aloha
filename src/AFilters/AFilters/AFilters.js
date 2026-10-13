@@ -89,6 +89,11 @@ export default {
       type: Object,
       required: false,
     },
+    showAddFilterButtonWhenEmpty: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     unappliedModel: {
       type: Object,
       required: false,
@@ -266,6 +271,7 @@ export default {
               filtersKeyById: this.filtersKeyById,
               filtersSaved: this.filtersSavedLocal,
               filtersVisible: this.filtersVisible,
+              showAddFilterButtonWhenEmpty: this.showAddFilterButtonWhenEmpty,
               onUpdateModelFilters: this.onUpdateModelFilters,
               unappliedModel: this.unappliedModel,
               updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,

@@ -89,6 +89,11 @@ export default {
       type: Object,
       required: false,
     },
+    showAddFilterButtonWhenEmpty: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     onUpdateModelFilters: {
       type: Function,
       required: true,
@@ -305,41 +310,43 @@ export default {
                     stop: true,
                     onClick: () => this.deleteFiltersVisible({ filter: item }),
                   }),
-                  formDataAppend: () => h("div", {
-                    class: "a_filter_horizontal__add_filter__wrapper",
-                  }, [
-                    h(ASelect, {
-                      buttonClassDefault: "a_btn a_btn_primary a_filter_horizontal__add_filter",
-                      change: this.addFiltersVisible,
-                      data: this.filtersHidden,
-                      hasCaret: false,
-                      disabled: !this.filtersHidden.length,
-                      isLabelFloat: false,
-                      keyGroup: "group",
-                      keyId: "id",
-                      keyLabel: "label",
-                      label: "_A_FILTERS_ADD_FILTER_",
-                      labelClass: "a_sr_only",
-                      menuWidthType: "by_content",
-                      sortOrderGroup: "asc",
-                      placement: "bottom-start",
-                      search: true,
-                      translateData: true,
-                      type: "select",
-                    }, {
-                      fixedPlaceholder: () => [
-                        h(ATranslation, {
-                          tag: "span",
-                          ariaHidden: true,
-                          class: "a_position_absolute_all",
-                          title: "_A_FILTERS_ADD_FILTER_",
-                        }),
-                        h(AIcon, {
-                          icon: PlusLg,
-                        }),
-                      ],
-                    }),
-                  ]),
+                  formDataAppend: () => this.filtersHidden.length || this.showAddFilterButtonWhenEmpty ?
+                    h("div", {
+                      class: "a_filter_horizontal__add_filter__wrapper",
+                    }, [
+                      h(ASelect, {
+                        buttonClassDefault: "a_btn a_btn_primary a_filter_horizontal__add_filter",
+                        change: this.addFiltersVisible,
+                        data: this.filtersHidden,
+                        hasCaret: false,
+                        disabled: !this.filtersHidden.length,
+                        isLabelFloat: false,
+                        keyGroup: "group",
+                        keyId: "id",
+                        keyLabel: "label",
+                        label: "_A_FILTERS_ADD_FILTER_",
+                        labelClass: "a_sr_only",
+                        menuWidthType: "by_content",
+                        sortOrderGroup: "asc",
+                        placement: "bottom-start",
+                        search: true,
+                        translateData: true,
+                        type: "select",
+                      }, {
+                        fixedPlaceholder: () => [
+                          h(ATranslation, {
+                            tag: "span",
+                            ariaHidden: true,
+                            class: "a_position_absolute_all",
+                            title: "_A_FILTERS_ADD_FILTER_",
+                          }),
+                          h(AIcon, {
+                            icon: PlusLg,
+                          }),
+                        ],
+                      }),
+                    ]) :
+                    "",
                   formAppend: () => this.canSave ?
                   h("div", {
                     class: "a_filter_horizontal__save_actions",
