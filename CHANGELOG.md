@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.79.1
+
+- Migrate imports from `lodash` to `lodash-es` across multiple components for improved modularity and tree-shaking benefits.
+
 ## 2.79.0
 
 - Add `showAddFilterButtonWhenEmpty` prop to `AFilters` and `AFiltersHorizontal` for better customization
