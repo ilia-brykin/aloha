@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.79.0
+
+- Add `showAddFilterButtonWhenEmpty` prop to `AFilters` and `AFiltersHorizontal` for better customization
+
 ## 2.78.0
 
 - Add `resizeDebounce` prop to `ATable` for customizable debounce timing in table resize logic.

@@ -32849,6 +32849,11 @@ var JC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Object,
 			required: !1
 		},
+		showAddFilterButtonWhenEmpty: {
+			type: Boolean,
+			required: !1,
+			default: !0
+		},
 		onUpdateModelFilters: {
 			type: Function,
 			required: !0
@@ -32964,7 +32969,7 @@ var JC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 					stop: !0,
 					onClick: () => this.deleteFiltersVisible({ filter: e })
 				}),
-				formDataAppend: () => i("div", { class: "a_filter_horizontal__add_filter__wrapper" }, [i(Rx, {
+				formDataAppend: () => this.filtersHidden.length || this.showAddFilterButtonWhenEmpty ? i("div", { class: "a_filter_horizontal__add_filter__wrapper" }, [i(Rx, {
 					buttonClassDefault: "a_btn a_btn_primary a_filter_horizontal__add_filter",
 					change: this.addFiltersVisible,
 					data: this.filtersHidden,
@@ -32987,7 +32992,7 @@ var JC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 					ariaHidden: !0,
 					class: "a_position_absolute_all",
 					title: "_A_FILTERS_ADD_FILTER_"
-				}), i(tf, { icon: XC })] })]),
+				}), i(tf, { icon: XC })] })]) : "",
 				formAppend: () => this.canSave ? i("div", { class: "a_filter_horizontal__save_actions" }, [i(J, {
 					id: this.buttonSaveComponentId,
 					class: "a_btn a_btn_primary",
@@ -33451,6 +33456,11 @@ var hw = { install: (e, { propsDefault: t = {}, config: n = {} } = {}) => {
 			type: Object,
 			required: !1
 		},
+		showAddFilterButtonWhenEmpty: {
+			type: Boolean,
+			required: !1,
+			default: !0
+		},
 		unappliedModel: {
 			type: Object,
 			required: !1,
@@ -33566,6 +33576,7 @@ var hw = { install: (e, { propsDefault: t = {}, config: n = {} } = {}) => {
 					filtersKeyById: this.filtersKeyById,
 					filtersSaved: this.filtersSavedLocal,
 					filtersVisible: this.filtersVisible,
+					showAddFilterButtonWhenEmpty: this.showAddFilterButtonWhenEmpty,
 					onUpdateModelFilters: this.onUpdateModelFilters,
 					unappliedModel: this.unappliedModel,
 					updateDataKeyByIdFromFilter: this.updateDataKeyByIdFromFilter,
