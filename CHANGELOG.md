@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.77.0
+
+- Add `resizeDebounce` prop to `ATable` for customizable debounce timing in table resize logic.
+
 ## 2.76.0
 
 - Feature: Add `UiModelDependenciesProvideAPI` and `UiDependenciesMixinProps` for passing reactive model dependencies from `AForm`, `AFieldset`, and `AGroup` to child UI elements.
