@@ -5,7 +5,7 @@ import {
 
 import {
   forEach,
-} from "lodash";
+} from "lodash-es";
 
 export default function ReadonlyAPI(props, {
   dataKeyByKeyIdLocal = computed(() => ({})),

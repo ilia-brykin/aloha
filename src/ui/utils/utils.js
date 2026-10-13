@@ -1,7 +1,4 @@
 import {
-  isArray,
-} from "lodash";
-import {
   typesContainer,
   typesModelArray,
   typesModelObject,
@@ -10,6 +7,7 @@ import {
   filter,
   forEach,
   get,
+  isArray,
   isEmpty,
   isNil,
 } from "lodash-es";

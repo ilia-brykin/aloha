@@ -11,11 +11,9 @@ import {
   AKeyIndex,
 } from "../../const/AKeys";
 import {
+  cloneDeep,
   floor,
   forEach,
-} from "lodash";
-import {
-  cloneDeep,
   isNil,
   min,
   round,

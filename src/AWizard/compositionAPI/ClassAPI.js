@@ -5,7 +5,7 @@ import {
 
 import {
   snakeCase,
-} from "lodash";
+} from "lodash-es";
 
 export default function ClassAPI(props, {
   subTypeLocal = computed(() => undefined),
