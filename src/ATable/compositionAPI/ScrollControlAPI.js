@@ -35,6 +35,7 @@ export default function ScrollControlAPI(props, { emit }, {
 }) {
   const isActionColumnVisible = toRef(props, "isActionColumnVisible");
   const isSimpleTable = toRef(props, "isSimpleTable");
+  const resizeDebounce = toRef(props, "resizeDebounce");
   const useRem = toRef(props, "useRem");
 
   const {
@@ -202,7 +203,7 @@ export default function ScrollControlAPI(props, { emit }, {
       } else {
         adjustTableWidth({ entries });
       }
-    }, 300),
+    }, resizeDebounce.value),
   );
 
   const onWatchMobileScrollControl = newValue => {

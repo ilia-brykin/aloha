@@ -233,6 +233,11 @@ export default {
       required: false,
       default: false,
     },
+    resizeDebounce: {
+      type: Number,
+      required: false,
+      default: 300,
+    },
     isSortingMultiColumn: {
       type: Boolean,
       required: false,
