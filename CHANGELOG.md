@@ -7,7 +7,7 @@
 ---
 # Versions
 
-## 2.77.0
+## 2.78.0
 
 - Add `resizeDebounce` prop to `ATable` for customizable debounce timing in table resize logic.
 
