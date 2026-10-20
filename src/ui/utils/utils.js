@@ -12,6 +12,8 @@ import {
   isNil,
 } from "lodash-es";
 
+const isValidatedJsonList = element => element.type === "validatedJson" && element.mode === "list";
+
 export function getLabelClickEventName(id) {
   return `clickALabel_${ id }`;
 }
@@ -33,7 +35,7 @@ export function filterVisibleRequiredUiElements({ elements }) {
       return false;
     }
 
-    if (element?.children?.length) {
+    if (element?.children?.length && !isValidatedJsonList(element)) {
       element.children = filterVisibleRequiredUiElements({ elements: element.children });
 
       if (!element.children.length) {
@@ -50,7 +52,7 @@ export function isAnyRequiredUiElementEmpty({ elements, model }) {
 
   forEach(elements, element => {
     const CURREN_MODEL = get(model, element.id);
-    if (typesModelArray.value[element.type]) {
+    if (typesModelArray.value[element.type] || isValidatedJsonList(element)) {
       if (!isArray(CURREN_MODEL) || !CURREN_MODEL.length) {
         isAnyEmpty = true;
         return false;

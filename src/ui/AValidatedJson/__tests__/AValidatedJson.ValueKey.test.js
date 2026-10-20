@@ -118,4 +118,27 @@ describe("AValidatedJson valueKey rendering", () => {
     list.vm.closeModalCreateListMode({ model: { value: "Vue" } });
     expect(wrapper.emitted("update:modelValue").at(-1)).toEqual([{ tags: ["Aloha", "Vue"] }]);
   });
+
+  it("saves a parent item containing a required primitive list", async() => {
+    const wrapper = mountList({
+      valueKey: undefined,
+      modelValue: [{ tags: ["Aloha"] }],
+      children: [{
+        id: "tags",
+        type: "validatedJson",
+        mode: "list",
+        valueKey: "value",
+        required: true,
+        children: [{ id: "value", type: "text", required: true }],
+      }],
+    });
+    wrapper.findComponent(AValidatedJsonItem).vm.openModalUpdate();
+    await nextTick();
+    const modal = wrapper.findComponent(AValidatedJsonModalCreateOrUpdate);
+    expect(modal.vm.isAnyRequiredElementEmpty).toBe(false);
+    modal.vm.changeDataForm({ fullModel: { tags: ["Aloha", "Vue"] } });
+    await nextTick();
+    modal.vm.save();
+    expect(wrapper.emitted("update:modelValue").at(-1)).toEqual([[{ tags: ["Aloha", "Vue"] }]]);
+  });
 });
