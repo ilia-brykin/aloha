@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../../global/components/AlohaTableProps/Aloha
 import PageValidatedJsonModeJson from "./PageValidatedJsonModeJson/PageValidatedJsonModeJson.vue";
 import PageValidatedJsonModeList from "./PageValidatedJsonModeList/PageValidatedJsonModeList.vue";
 import PageValidatedJsonModeListTyped from "./PageValidatedJsonModeListTyped/PageValidatedJsonModeListTyped.vue";
+import PageValidatedJsonModePrimitiveList from "./PageValidatedJsonModePrimitiveList/PageValidatedJsonModePrimitiveList.vue";
 import PageValidatedJsonModeSingle from "./PageValidatedJsonModeSingle/PageValidatedJsonModeSingle.vue";
 import {
   ATranslation,
@@ -22,6 +23,7 @@ export default {
     PageValidatedJsonModeJson,
     PageValidatedJsonModeList,
     PageValidatedJsonModeListTyped,
+    PageValidatedJsonModePrimitiveList,
     PageValidatedJsonModeSingle,
   },
   setup() {

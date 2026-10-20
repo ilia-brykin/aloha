@@ -3,5 +3,8 @@
   "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson - это компонент для редактирования структурированных данных с правилами валидации. Он поддерживает режимы одного элемента, списка и JSON и помогает безопасно работать со сложными данными формы.",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Элемент",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Элементы",
-  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "JSON-объект"
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "JSON-объект",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_HEADER_": "valueKey: списки примитивных значений",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_VALUE_": "Значение",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_DESCRIPTION_": "Используйте <code>mode=\"list\"</code> вместе с <code>value-key=\"value\"</code> для редактирования массива примитивных значений, например строк. Дочернее поле с <code>id=\"value\"</code> задаёт редактор каждого элемента, а модель остаётся простым массивом, например <code>[\"Aloha\", \"Vue\"]</code>. Пример также показывает проверку дубликатов с помощью <code>unique-children-ids</code> и отображение тех же данных только для чтения."
 }

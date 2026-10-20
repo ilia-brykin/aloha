@@ -3,5 +3,8 @@
   "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson هو مكون لتحرير البيانات المهيكلة مع قواعد تحقق. يدعم اوضاع العنصر المفرد، والقائمة، وJSON، ويساعد المستخدمين على ادارة بيانات النماذج المعقدة بشكل آمن.",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "عنصر",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "عناصر",
-  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "كائن JSON"
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "كائن JSON",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_HEADER_": "valueKey: قوائم القيم الأولية",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_VALUE_": "القيمة",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_DESCRIPTION_": "استخدم <code>mode=\"list\"</code> مع <code>value-key=\"value\"</code> لتحرير مصفوفة من القيم الأولية، مثل السلاسل النصية. يحدد الحقل الفرعي ذو <code>id=\"value\"</code> محرر كل عنصر، بينما يظل النموذج مصفوفة بسيطة، مثل <code>[\"Aloha\", \"Vue\"]</code>. يوضح المثال أيضًا التحقق من القيم المكررة باستخدام <code>unique-children-ids</code> وعرض البيانات نفسها للقراءة فقط."
 }

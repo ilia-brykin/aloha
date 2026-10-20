@@ -1,0 +1,28 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_HEADER_"
+  description="_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_DESCRIPTION_"
+  :props="['mode', 'value-key', 'children', 'unique-children-ids']"
+)
+  a-validated-json(
+    v-model="model"
+    id="primitive-list"
+    mode="list"
+    value-key="value"
+    :children="children"
+    :unique-children-ids="['value']"
+    element-template="{{ value }}"
+    label="_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_"
+  )
+  pre {{ model }}
+  a-validated-json(
+    v-model="model"
+    id="primitive-list-readonly"
+    mode="list"
+    value-key="value"
+    :children="children"
+    :readonly="true"
+    element-template="{{ value }}"
+    label="_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_"
+  )

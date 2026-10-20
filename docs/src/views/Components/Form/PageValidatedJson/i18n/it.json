@@ -3,5 +3,8 @@
   "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson e un componente per modificare dati strutturati con regole di validazione. Supporta le modalita elemento singolo, elenco e JSON e aiuta gli utenti a gestire in modo sicuro dati di modulo complessi.",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Elemento",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Elementi",
-  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "Oggetto JSON"
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "Oggetto JSON",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_HEADER_": "valueKey: elenchi di valori primitivi",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_VALUE_": "Valore",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_DESCRIPTION_": "Utilizza <code>mode=\"list\"</code> con <code>value-key=\"value\"</code> per modificare un array di valori primitivi, come le stringhe. Il campo figlio con <code>id=\"value\"</code> definisce l’editor per ogni elemento, mentre il modello rimane un semplice array, come <code>[\"Aloha\", \"Vue\"]</code>. L’esempio mostra anche la validazione dei duplicati con <code>unique-children-ids</code> e una vista di sola lettura degli stessi dati."
 }

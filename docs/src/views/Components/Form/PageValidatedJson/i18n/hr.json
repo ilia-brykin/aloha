@@ -3,5 +3,8 @@
   "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson je komponenta za uredivanje strukturiranih podataka s pravilima validacije. Podrzava nacine rada za jedan element, listu i JSON te pomaze korisnicima da sigurno upravljaju slozenim podacima obrasca.",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Element",
   "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Elementi",
-  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "JSON objekt"
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "JSON objekt",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_HEADER_": "valueKey: liste primitivnih vrijednosti",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_VALUE_": "Vrijednost",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_DESCRIPTION_": "Koristite <code>mode=\"list\"</code> uz <code>value-key=\"value\"</code> za uređivanje niza primitivnih vrijednosti, poput tekstualnih nizova. Podređeno polje s <code>id=\"value\"</code> definira uređivač za svaku stavku, dok model ostaje jednostavan niz, poput <code>[\"Aloha\", \"Vue\"]</code>. Primjer također prikazuje provjeru duplikata pomoću <code>unique-children-ids</code> i prikaz istih podataka samo za čitanje."
 }

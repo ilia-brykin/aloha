@@ -219,6 +219,11 @@ export default {
       required: false,
       default: () => [],
     },
+    valueKey: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     useFlatErrors: {
       type: Boolean,
       required: false,
@@ -289,6 +294,8 @@ export default {
       closeModalCreateListMode,
       deleteListMode,
       isModalCreateListModeVisible,
+      getListModeErrors,
+      listModeItems,
       moveListMode,
       modelListMode,
       openModalCreateListMode,
@@ -321,6 +328,8 @@ export default {
       open,
       closeModalCreateListMode,
       isModalCreateListModeVisible,
+      getListModeErrors,
+      listModeItems,
       modelListMode,
       modelJsonModeSorted,
       btnIdAdd,
@@ -422,7 +431,7 @@ export default {
               class: "a_list_group",
             }, [
               this.modelListMode.length > 0 ?
-                this.modelListMode.map((item, index) => {
+                this.listModeItems.map((item, index) => {
                   return h(AValidatedJsonItem, {
                     key: index,
                     children: this.childrenFiltered,
@@ -430,11 +439,11 @@ export default {
                     deactivatePreview: this.deactivatePreview,
                     elementLabel: this.elementLabelTranslated,
                     elementTemplate: this.elementTemplate,
-                    errors: this.errors?.[index],
+                    errors: this.getListModeErrors(index),
                     hidePosition: this.hidePosition,
                     isLast: index === this.modelListMode.length - 1,
                     mode: this.mode,
-                    modelAll: this.modelListMode,
+                    modelAll: this.listModeItems,
                     modelIndex: index,
                     modelItem: item,
                     parentHtmlId: this.htmlIdLocal,
@@ -487,7 +496,7 @@ export default {
                 elementLabelTranslated: this.elementLabelTranslated,
                 isCreate: true,
                 mode: "list",
-                modelAll: this.modelListMode,
+                modelAll: this.listModeItems,
                 typedBaseId: this.typedBaseId,
                 typedChildren: this.typedChildren,
                 uniqueChildrenIds: this.uniqueChildrenIds,

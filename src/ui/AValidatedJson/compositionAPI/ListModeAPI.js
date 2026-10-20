@@ -10,7 +10,9 @@ import {
 } from "../../../utils/utilsDOM";
 import {
   cloneDeep,
+  get,
   isArray,
+  set,
 } from "lodash-es";
 
 export default function ListModeAPI(props, { emit }, {
@@ -18,6 +20,8 @@ export default function ListModeAPI(props, { emit }, {
 }) {
   const change = toRef(props, "change");
   const id = toRef(props, "id");
+  const errors = toRef(props, "errors");
+  const valueKey = toRef(props, "valueKey");
   const modelValue = toRef(props, "modelValue");
 
   const isModalCreateListModeVisible = ref(false);
@@ -28,6 +32,27 @@ export default function ListModeAPI(props, { emit }, {
       [];
   });
 
+  /*
+   * Forms, previews and uniqueness checks keep their object-based contract.
+   * Only the public model and change payloads contain primitive values.
+   */
+  const listModeItems = computed(() => {
+    if (!valueKey.value) {
+      return modelListMode.value;
+    }
+    return modelListMode.value.map(value => set({}, valueKey.value, value));
+  });
+
+  const getListModeValue = model => valueKey.value ? get(model, valueKey.value) : model;
+
+  const getListModeErrors = index => {
+    const ERRORS = errors.value?.[index];
+    if (valueKey.value && (typeof ERRORS === "string" || isArray(ERRORS))) {
+      return set({}, valueKey.value, ERRORS);
+    }
+    return ERRORS;
+  };
+
   const openModalCreateListMode = () => {
     isModalCreateListModeVisible.value = true;
   };
@@ -35,7 +60,7 @@ export default function ListModeAPI(props, { emit }, {
   const closeModalCreateListMode = ({ model } = {}) => {
     if (model) {
       const MODEL_VALUE = cloneDeep(modelListMode.value);
-      MODEL_VALUE.push(model);
+      MODEL_VALUE.push(getListModeValue(model));
       emit("update:modelValue", cloneDeep(MODEL_VALUE));
       change.value({
         currentModel: MODEL_VALUE,
@@ -123,7 +148,7 @@ export default function ListModeAPI(props, { emit }, {
 
   const updateListMode = ({ index, model }) => {
     const MODEL = cloneDeep(modelListMode.value);
-    MODEL.splice(index, 1, model);
+    MODEL.splice(index, 1, getListModeValue(model));
     emit("update:modelValue", cloneDeep(MODEL));
     change.value({
       currentModel: MODEL,
@@ -136,6 +161,8 @@ export default function ListModeAPI(props, { emit }, {
     closeModalCreateListMode,
     deleteListMode,
     isModalCreateListModeVisible,
+    getListModeErrors,
+    listModeItems,
     modelListMode,
     moveListMode,
     openModalCreateListMode,
