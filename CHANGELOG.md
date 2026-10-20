@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.80.0
+
+- Add `valueKey` to `AValidatedJson` list mode for editing primitive arrays directly, including integration with `AForm`.
+
 ## 2.79.1
 
 - Migrate imports from `lodash` to `lodash-es` across multiple components for improved modularity and tree-shaking benefits.

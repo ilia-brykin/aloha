@@ -27318,21 +27318,24 @@ function jC(e, { emit: t }, { htmlIdLocal: r = n(() => void 0) }) {
 //#endregion
 //#region src/ui/AValidatedJson/compositionAPI/ListModeAPI.js
 function MC(e, { emit: t }, { htmlIdLocal: r = n(() => void 0) }) {
-	let i = p(e, "change"), a = p(e, "id"), s = p(e, "modelValue"), c = d(!1), l = n(() => L(s.value) ? s.value : []), u = () => {
-		c.value = !0;
-	}, f = ({ model: e } = {}) => {
+	let i = p(e, "change"), a = p(e, "id"), s = p(e, "errors"), c = p(e, "valueKey"), l = p(e, "modelValue"), u = d(!1), f = n(() => L(l.value) ? l.value : []), m = n(() => c.value ? f.value.map((e) => Nu({}, c.value, e)) : f.value), h = (e) => c.value ? z(e, c.value) : e, g = (e) => {
+		let t = s.value?.[e];
+		return c.value && (typeof t == "string" || L(t)) ? Nu({}, c.value, t) : t;
+	}, _ = () => {
+		u.value = !0;
+	}, v = ({ model: e } = {}) => {
 		if (e) {
-			let n = B(l.value);
-			n.push(e), t("update:modelValue", B(n)), i.value({
+			let n = B(f.value);
+			n.push(h(e)), t("update:modelValue", B(n)), i.value({
 				currentModel: n,
 				model: n,
 				id: a.value
 			});
 		}
-		c.value = !1;
-	}, m = ({ index: e }) => {
+		u.value = !1;
+	}, y = ({ index: e }) => {
 		if (e === 0) return;
-		let n = B(l.value), s = n[e];
+		let n = B(f.value), s = n[e];
 		n.splice(e, 1), n.splice(e - 1, 0, s), t("update:modelValue", B(n)), i.value({
 			currentModel: n,
 			model: n,
@@ -27340,9 +27343,9 @@ function MC(e, { emit: t }, { htmlIdLocal: r = n(() => void 0) }) {
 		}), o().then(() => {
 			iv({ selector: `#${r.value}_btn_move_up_${e - 1}` });
 		});
-	}, h = ({ index: e }) => {
-		if (e >= l.value.length - 1) return;
-		let n = B(l.value), s = n[e];
+	}, b = ({ index: e }) => {
+		if (e >= f.value.length - 1) return;
+		let n = B(f.value), s = n[e];
 		n.splice(e, 1), n.splice(e + 1, 0, s), t("update:modelValue", B(n)), i.value({
 			currentModel: n,
 			model: n,
@@ -27352,9 +27355,9 @@ function MC(e, { emit: t }, { htmlIdLocal: r = n(() => void 0) }) {
 		});
 	};
 	return {
-		closeModalCreateListMode: f,
+		closeModalCreateListMode: v,
 		deleteListMode: ({ index: e }) => {
-			let n = B(l.value);
+			let n = B(f.value);
 			n.splice(e, 1), t("update:modelValue", B(n)), i.value({
 				currentModel: n,
 				model: n,
@@ -27363,15 +27366,17 @@ function MC(e, { emit: t }, { htmlIdLocal: r = n(() => void 0) }) {
 				iv({ selector: `#${r.value}` });
 			});
 		},
-		isModalCreateListModeVisible: c,
-		modelListMode: l,
+		isModalCreateListModeVisible: u,
+		getListModeErrors: g,
+		listModeItems: m,
+		modelListMode: f,
 		moveListMode: ({ action: e, index: t }) => {
-			e === "up" ? m({ index: t }) : h({ index: t });
+			e === "up" ? y({ index: t }) : b({ index: t });
 		},
-		openModalCreateListMode: u,
+		openModalCreateListMode: _,
 		updateListMode: ({ index: e, model: n }) => {
-			let r = B(l.value);
-			r.splice(e, 1, n), t("update:modelValue", B(r)), i.value({
+			let r = B(f.value);
+			r.splice(e, 1, h(n)), t("update:modelValue", B(r)), i.value({
 				currentModel: r,
 				model: r,
 				id: a.value
@@ -27627,6 +27632,11 @@ var IC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: !1,
 			default: () => []
 		},
+		valueKey: {
+			type: String,
+			required: !1,
+			default: void 0
+		},
 		useFlatErrors: {
 			type: Boolean,
 			required: !1,
@@ -27644,24 +27654,26 @@ var IC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			childrenFiltered: g,
 			htmlIdLocal: s,
 			onChange: l
-		}), { closeModalCreateListMode: b, deleteListMode: x, isModalCreateListModeVisible: S, moveListMode: C, modelListMode: w, openModalCreateListMode: T, updateListMode: E } = MC(e, t, { htmlIdLocal: s }), { closeModalCreateJsonMode: D, deleteJsonMode: O, isModelJsonModeEmpty: k, isModalCreateJsonModeVisible: A, modelJsonMode: j, modelJsonModeSorted: M, openModalCreateJsonMode: N, updateJsonMode: P } = jC(e, t, { htmlIdLocal: s });
+		}), { closeModalCreateListMode: b, deleteListMode: x, isModalCreateListModeVisible: S, getListModeErrors: C, listModeItems: w, moveListMode: T, modelListMode: E, openModalCreateListMode: D, updateListMode: O } = MC(e, t, { htmlIdLocal: s }), { closeModalCreateJsonMode: k, deleteJsonMode: A, isModelJsonModeEmpty: j, isModalCreateJsonModeVisible: M, modelJsonMode: N, modelJsonModeSorted: P, openModalCreateJsonMode: ee, updateJsonMode: te } = jC(e, t, { htmlIdLocal: s });
 		return _(), {
 			childrenFiltered: g,
 			blur: p,
 			focus: m,
 			deleteListMode: x,
-			updateListMode: E,
+			updateListMode: O,
 			open: h,
 			closeModalCreateListMode: b,
 			isModalCreateListModeVisible: S,
-			modelListMode: w,
-			modelJsonModeSorted: M,
+			getListModeErrors: C,
+			listModeItems: w,
+			modelListMode: E,
+			modelJsonModeSorted: P,
 			btnIdAdd: f,
 			elementLabelTranslated: d,
 			singleModeChildren: v,
 			singleModeDataFormCheckbox: y,
-			moveListMode: C,
-			openModalCreateListMode: T,
+			moveListMode: T,
+			openModalCreateListMode: D,
 			ariaDescribedbyLocal: i,
 			attributesToExcludeFromRender: n,
 			checkUndefinedValue: u,
@@ -27670,13 +27682,13 @@ var IC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			helpTextId: o,
 			htmlIdLocal: s,
 			isErrors: c,
-			closeModalCreateJsonMode: D,
-			deleteJsonMode: O,
-			isModelJsonModeEmpty: k,
-			isModalCreateJsonModeVisible: A,
-			modelJsonMode: j,
-			openModalCreateJsonMode: N,
-			updateJsonMode: P,
+			closeModalCreateJsonMode: k,
+			deleteJsonMode: A,
+			isModelJsonModeEmpty: j,
+			isModalCreateJsonModeVisible: M,
+			modelJsonMode: N,
+			openModalCreateJsonMode: ee,
+			updateJsonMode: te,
 			onChange: l
 		};
 	},
@@ -27733,18 +27745,18 @@ var IC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: this.required,
 			slotName: `slotAppend_${this.id}`
 		}, { [`slotAppend_${this.id}`]: () => i("div", { class: "a_column a_column_12" }, [
-			i("ul", { class: "a_list_group" }, [this.modelListMode.length > 0 ? this.modelListMode.map((e, t) => i(DC, {
+			i("ul", { class: "a_list_group" }, [this.modelListMode.length > 0 ? this.listModeItems.map((e, t) => i(DC, {
 				key: t,
 				children: this.childrenFiltered,
 				deactivateOrdering: this.deactivateOrdering,
 				deactivatePreview: this.deactivatePreview,
 				elementLabel: this.elementLabelTranslated,
 				elementTemplate: this.elementTemplate,
-				errors: this.errors?.[t],
+				errors: this.getListModeErrors(t),
 				hidePosition: this.hidePosition,
 				isLast: t === this.modelListMode.length - 1,
 				mode: this.mode,
-				modelAll: this.modelListMode,
+				modelAll: this.listModeItems,
 				modelIndex: t,
 				modelItem: e,
 				parentHtmlId: this.htmlIdLocal,
@@ -27782,7 +27794,7 @@ var IC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 				elementLabelTranslated: this.elementLabelTranslated,
 				isCreate: !0,
 				mode: "list",
-				modelAll: this.modelListMode,
+				modelAll: this.listModeItems,
 				typedBaseId: this.typedBaseId,
 				typedChildren: this.typedChildren,
 				uniqueChildrenIds: this.uniqueChildrenIds
