@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.80.1
+
+- Fix required-field validation of nested `AValidatedJson` lists in `AForm` and parent item dialogs.
+
 ## 2.80.0
 
 - Add `valueKey` to `AValidatedJson` list mode for editing primitive arrays directly, including integration with `AForm`.
