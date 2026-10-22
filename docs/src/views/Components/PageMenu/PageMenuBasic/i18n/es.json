@@ -4,5 +4,8 @@
   "_A_PAGE_MENU_NESTED_HEADER_": "Menú anidado con búsqueda",
   "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Abra Components → Form controls o busque Input. El menú se desplaza dentro de un contenedor de 24rem de altura. El botón superior abre y cierra el menú, también en móviles. Los ejemplos no cambian las clases de body ni muestran un fondo móvil. Establezca <code>is-inline</code> en true para colocar el menú en el flujo normal del documento y ocupar la altura del contenedor. Defina una altura explícita para el contenedor.",
   "_A_PAGE_MENU_GROUPS_HEADER_": "Grupos y enlaces desactivados",
-  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "El campo group agrupa los enlaces bajo encabezados. Notification está desactivado y has-search es false. Desplace el menú dentro del contenedor de 24rem y use el botón superior para abrirlo o cerrarlo."
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "El campo group agrupa los enlaces bajo encabezados. Notification está desactivado y has-search es false. Desplace el menú dentro del contenedor de 24rem y use el botón superior para abrirlo o cerrarlo.",
+  "_A_PAGE_MENU_DOM_HEADER_": "Buscar en el DOM traducido",
+  "_A_PAGE_MENU_DOM_TRANSLATE_": "Traducir el DOM al alemán",
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "<code>search-in-dom</code> es false por defecto. Con true, busca en las etiquetas de los paneles DOM originales en lugar de data. Active el interruptor de traducción y busque <strong>Eingabe</strong> o <strong>Auswahl</strong>: data conserva Input y Select. Los resultados, el resaltado y las etiquetas de los padres usan el texto DOM, que se vuelve a leer al cambiar la consulta, incluso en submenús cerrados. En slots personalizados, conserve el id proporcionado y envuelva la etiqueta en <code>.a_menu__link__text</code>. Desactívelo para restaurar las etiquetas originales en inglés."
 }

@@ -4,5 +4,8 @@
   "_A_PAGE_MENU_NESTED_HEADER_": "Menu imbriqué avec recherche",
   "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Ouvrez Components → Form controls ou recherchez Input. Le menu défile dans un conteneur de 24rem de haut. Le bouton au-dessus ouvre et ferme le menu, y compris sur mobile. Les exemples ne modifient pas les classes de body et n’affichent pas de fond mobile. Définissez <code>is-inline</code> sur true pour placer le menu dans le flux normal du document sur toute la hauteur du conteneur. Donnez une hauteur explicite au conteneur.",
   "_A_PAGE_MENU_GROUPS_HEADER_": "Groupes et liens désactivés",
-  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Le champ group regroupe les liens sous des titres. Notification est désactivé et has-search vaut false. Faites défiler le menu dans le conteneur de 24rem et utilisez le bouton au-dessus pour l’ouvrir ou le fermer."
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Le champ group regroupe les liens sous des titres. Notification est désactivé et has-search vaut false. Faites défiler le menu dans le conteneur de 24rem et utilisez le bouton au-dessus pour l’ouvrir ou le fermer.",
+  "_A_PAGE_MENU_DOM_HEADER_": "Recherche dans le DOM traduit",
+  "_A_PAGE_MENU_DOM_TRANSLATE_": "Traduire le DOM en allemand",
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "<code>search-in-dom</code> vaut false par défaut. Avec true, la recherche lit les libellés des panneaux DOM d’origine au lieu de data. Activez l’interrupteur de traduction puis recherchez <strong>Eingabe</strong> ou <strong>Auswahl</strong> : data conserve Input et Select. Résultats, surlignage et libellés parents utilisent le texte DOM, relu lorsque la requête change, même dans les sous-menus fermés. Dans les slots personnalisés, conservez l’id fourni et placez le libellé dans <code>.a_menu__link__text</code>. Désactivez-le pour rétablir les libellés anglais d’origine."
 }

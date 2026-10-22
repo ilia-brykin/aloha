@@ -4,5 +4,8 @@
   "_A_PAGE_MENU_NESTED_HEADER_": "قائمة متداخلة مع البحث",
   "_A_PAGE_MENU_NESTED_DESCRIPTION_": "افتح Components → Form controls أو ابحث عن Input. يتم تمرير القائمة داخل حاوية بارتفاع 24rem. يفتح الزر أعلاه القائمة ويغلقها، بما في ذلك على الأجهزة المحمولة. لا تغير الأمثلة أصناف body ولا تعرض خلفية للجوال. اضبط <code>is-inline</code> على true لوضع القائمة في التدفق العادي للمستند وملء ارتفاع الحاوية. حدد ارتفاعًا صريحًا للحاوية.",
   "_A_PAGE_MENU_GROUPS_HEADER_": "المجموعات والروابط المعطلة",
-  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "يجمع الحقل group الروابط تحت عناوين. رابط Notification معطل وقيمة has-search هي false. مرر القائمة داخل حاوية بارتفاع 24rem واستخدم الزر أعلاه لفتحها أو إغلاقها."
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "يجمع الحقل group الروابط تحت عناوين. رابط Notification معطل وقيمة has-search هي false. مرر القائمة داخل حاوية بارتفاع 24rem واستخدم الزر أعلاه لفتحها أو إغلاقها.",
+  "_A_PAGE_MENU_DOM_HEADER_": "البحث في نص DOM المترجم",
+  "_A_PAGE_MENU_DOM_TRANSLATE_": "ترجمة DOM إلى الألمانية",
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "القيمة الافتراضية لـ <code>search-in-dom</code> هي false. عند true يقرأ البحث تسميات لوحات DOM الأصلية بدلاً من data. فعّل مفتاح الترجمة ثم ابحث عن <strong>Eingabe</strong> أو <strong>Auswahl</strong>: تبقى Input وSelect في data. تستخدم النتائج والتمييز وتسميات الآباء نص DOM، ويُقرأ مجددًا عند تغيير الاستعلام، بما في ذلك القوائم الفرعية المغلقة. في الفتحات المخصصة احتفظ بمعرف الرابط الممرر وضع التسمية داخل <code>.a_menu__link__text</code>. عطّل المفتاح لاستعادة التسميات الإنجليزية الأصلية."
 }

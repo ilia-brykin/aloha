@@ -190,6 +190,11 @@ export default {
       required: false,
       default: false,
     },
+    searchInDom: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     selectorClose: {
       type: [String, Array],
       required: false,

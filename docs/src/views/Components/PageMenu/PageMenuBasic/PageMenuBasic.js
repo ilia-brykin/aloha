@@ -2,6 +2,7 @@ import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageMenuBasicExample from "./PageMenuBasicExample/PageMenuBasicExample.vue";
 import PageMenuGroups from "./PageMenuGroups/PageMenuGroups.vue";
+import PageMenuSearchInDom from "./PageMenuSearchInDom/PageMenuSearchInDom.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -20,6 +21,7 @@ export default {
     ATranslation,
     PageMenuBasicExample,
     PageMenuGroups,
+    PageMenuSearchInDom,
   },
   setup() {
     const {

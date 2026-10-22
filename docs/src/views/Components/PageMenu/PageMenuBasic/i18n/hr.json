@@ -4,5 +4,8 @@
   "_A_PAGE_MENU_NESTED_HEADER_": "Ugniježđeni izbornik s pretragom",
   "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Otvorite Components → Form controls ili potražite Input. Izbornik se pomiče unutar spremnika visine 24rem. Gumb iznad otvara i zatvara izbornik, uključujući na mobilnim uređajima. Primjeri ne mijenjaju klase elementa body i ne prikazuju mobilnu pozadinu. Postavite <code>is-inline</code> na true za smještaj izbornika u normalan tok dokumenta preko cijele visine spremnika. Spremniku zadajte izričitu visinu.",
   "_A_PAGE_MENU_GROUPS_HEADER_": "Grupe i onemogućene poveznice",
-  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Polje group grupira poveznice pod naslovima. Notification je onemogućen, a has-search je false. Pomičite izbornik unutar spremnika visine 24rem i koristite gumb iznad za otvaranje ili zatvaranje."
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Polje group grupira poveznice pod naslovima. Notification je onemogućen, a has-search je false. Pomičite izbornik unutar spremnika visine 24rem i koristite gumb iznad za otvaranje ili zatvaranje.",
+  "_A_PAGE_MENU_DOM_HEADER_": "Pretraga prevedenog DOM teksta",
+  "_A_PAGE_MENU_DOM_TRANSLATE_": "Prevedi DOM na njemački",
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "<code>search-in-dom</code> zadano je false. Uz true pretraga čita oznake iz izvornih DOM panela umjesto iz data. Uključite prekidač za prijevod pa potražite <strong>Eingabe</strong> ili <strong>Auswahl</strong>: data i dalje sadrži Input i Select. Rezultati, isticanje i nadređene oznake koriste DOM tekst, koji se ponovno čita pri promjeni upita, čak i u zatvorenim podizbornicima. U prilagođenim slotovima sačuvajte predani id poveznice i omotajte oznaku s <code>.a_menu__link__text</code>. Isključite prekidač za vraćanje izvornih engleskih oznaka."
 }

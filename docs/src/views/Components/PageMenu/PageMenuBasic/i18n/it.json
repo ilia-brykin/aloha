@@ -4,5 +4,8 @@
   "_A_PAGE_MENU_NESTED_HEADER_": "Menu annidato con ricerca",
   "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Apri Components → Form controls oppure cerca Input. Il menu scorre in un contenitore alto 24rem. Il pulsante sopra apre e chiude il menu anche sui dispositivi mobili. Gli esempi non modificano le classi di body e non mostrano uno sfondo mobile. Imposta <code>is-inline</code> su true per posizionare il menu nel normale flusso del documento e riempire l’altezza del contenitore. Assegna un’altezza esplicita al contenitore.",
   "_A_PAGE_MENU_GROUPS_HEADER_": "Gruppi e collegamenti disabilitati",
-  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Il campo group raggruppa i collegamenti sotto intestazioni. Notification è disabilitato e has-search è false. Scorri il menu nel contenitore di 24rem e usa il pulsante sopra per aprirlo o chiuderlo."
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Il campo group raggruppa i collegamenti sotto intestazioni. Notification è disabilitato e has-search è false. Scorri il menu nel contenitore di 24rem e usa il pulsante sopra per aprirlo o chiuderlo.",
+  "_A_PAGE_MENU_DOM_HEADER_": "Ricerca nel DOM tradotto",
+  "_A_PAGE_MENU_DOM_TRANSLATE_": "Traduci il DOM in tedesco",
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "<code>search-in-dom</code> è false per impostazione predefinita. Con true, cerca nelle etichette dei pannelli DOM originali anziché in data. Attiva l’interruttore di traduzione e cerca <strong>Eingabe</strong> o <strong>Auswahl</strong>: data mantiene Input e Select. Risultati, evidenziazione ed etichette dei genitori usano il testo DOM, riletto quando cambia la ricerca, anche nei sottomenu chiusi. Negli slot personalizzati conserva l’id fornito e racchiudi l’etichetta in <code>.a_menu__link__text</code>. Disattivalo per ripristinare le etichette inglesi originali."
 }

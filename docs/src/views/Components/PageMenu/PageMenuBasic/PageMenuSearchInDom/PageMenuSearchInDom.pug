@@ -1,0 +1,30 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGE_MENU_DOM_HEADER_"
+  description="_A_PAGE_MENU_DOM_DESCRIPTION_"
+  props="search-in-dom, is-inline, data, key-children"
+)
+  .a_mb_2
+    a-menu-button-toggle.a_me_2(
+      :can-change-body-class="false"
+      :button-toggle-props="{ id: 'docs_menu_dom_toggle' }"
+      menu-id="docs_menu_dom"
+    )
+    a-switch(
+      v-model="isTranslated"
+      label="_A_PAGE_MENU_DOM_TRANSLATE_"
+      @update:model-value="translateMenu"
+    )
+  div(
+    style="height: 24rem; overflow: hidden;"
+  )
+    a-menu(
+      :can-change-body-class="false"
+      :data="menuItems"
+      :is-inline="true"
+      :search-in-dom="true"
+      :use-backdrop-mobile="false"
+      key-children="children"
+      menu-id="docs_menu_dom"
+    )

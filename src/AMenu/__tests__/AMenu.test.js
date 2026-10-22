@@ -38,6 +38,7 @@ describe("AMenu inline placement", () => {
     });
     await nextTick();
 
+    expect(wrapper.vm.searchInDom).toBe(false);
     expect(wrapper.element.tagName).toBe("NAV");
     expect(wrapper.classes()).not.toContain("a_menu_inline");
 
