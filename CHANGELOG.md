@@ -7,6 +7,11 @@
 ---
 # Versions
 
+## 2.81.0
+
+- Add `search-in-dom` prop to `AMenu` with related tests, examples, and localization updates.
+- Add `isInline` prop to `AMenu` with related tests, examples, documentation, and localization updates
+
 ## 2.80.1
 
 - Fix required-field validation of nested `AValidatedJson` lists in `AForm` and parent item dialogs.

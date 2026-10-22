@@ -34227,28 +34227,50 @@ function QE(e, { removeListenerForKeydownMobile: t = () => {}, toggleMenu: n = (
 //#endregion
 //#region src/AMenu/compositionAPI/SearchAPI.js
 function $E(e, { dataKeyById: t = n(() => ({})) }) {
-	let r = p(e, "menuId"), i = d(""), a = n(() => `${r.value}_search`), o = (e) => {
-		i.value = e;
-	}, s = n(() => !!i.value), c = n(() => s.value ? "display: none;" : void 0), l = () => {
-		s.value && (i.value = "");
-	}, u = n(() => rl(i.value));
+	let r = p(e, "menuId"), i = p(e, "searchInDom"), a = d(""), o = n(() => `${r.value}_search`), s = (e) => {
+		a.value = e;
+	}, c = n(() => !!a.value), l = n(() => c.value ? "display: none;" : void 0), u = () => {
+		c.value && (a.value = "");
+	}, f = n(() => rl(a.value)), m = (e) => {
+		if (!O()) return;
+		let t = document.getElementById(lE({
+			menuId: r.value,
+			id: e,
+			suffix: "link"
+		}));
+		if (t?.closest(".a_menu__panels__main:not(.a_menu__panel_search)")) return (t.querySelector(".a_menu__link__text") || t).textContent;
+	};
 	return {
-		isSearchActive: s,
+		isSearchActive: c,
 		itemsWithSearch: n(() => {
 			let e = [];
-			if (s.value) {
-				let n = new RegExp(u.value, "gi");
+			if (c.value) {
+				let n = new RegExp(f.value, "gi");
 				V(t.value, (t) => {
-					`${t._a_label}`.search(n) !== -1 && e.push(t);
+					let r = i.value ? m(t[W]) : t[op];
+					if (!(i.value && r === void 0) && `${r}`.search(n) !== -1) {
+						if (!i.value) {
+							e.push(t);
+							return;
+						}
+						e.push({
+							...t,
+							[op]: r,
+							[OE]: _l(t[OE], (e) => ({
+								...e,
+								label: m(e.parentId) ?? e.label
+							}))
+						});
+					}
 				});
 			}
 			return e;
 		}),
-		modelSearch: i,
-		resetSearch: l,
-		searchInputId: a,
-		styleSearchPanelMain: c,
-		updateModelSearch: o
+		modelSearch: a,
+		resetSearch: u,
+		searchInputId: o,
+		styleSearchPanelMain: l,
+		updateModelSearch: s
 	};
 }
 //#endregion
@@ -34338,6 +34360,11 @@ var tD = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: !1,
 			default: !1
 		},
+		isInline: {
+			type: Boolean,
+			required: !1,
+			default: !1
+		},
 		isLinkTruncated: {
 			type: Boolean,
 			required: !1,
@@ -34403,6 +34430,11 @@ var tD = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			default: () => nd("a_menu_")
 		},
 		onlyMobile: {
+			type: Boolean,
+			required: !1,
+			default: !1
+		},
+		searchInDom: {
 			type: Boolean,
 			required: !1,
 			default: !1
@@ -34529,6 +34561,7 @@ var tD = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			id: this.menuId,
 			"aria-labelledby": this.headerId,
 			class: ["a_menu", {
+				a_menu_inline: this.isInline,
 				a_menu_sub_open: this.isSubMenuOpen,
 				a_menu_open: this.isMenuOpen,
 				a_menu_close: !this.isMenuOpen,

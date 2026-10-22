@@ -10106,6 +10106,13 @@ input[type=text]::-ms-clear {
   box-shadow: var(--a_menu_box_shadow_size) var(--a_menu_box_shadow_color);
 }
 
+.a_menu.a_menu_inline {
+  position: relative;
+  inset: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
 .a_menu__page {
   background-color: var(--a_menu_page_bg);
   box-sizing: border-box;
