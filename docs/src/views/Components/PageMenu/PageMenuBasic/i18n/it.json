@@ -1,3 +1,8 @@
 {
-
+  "_A_PAGE_MENU_BASIC_HEADER_": "Menu",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu offre navigazione con pannelli annidati, ricerca, gruppi e collegamenti disabilitati.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Menu annidato con ricerca",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Apri Components → Form controls oppure cerca Input. Il menu scorre in un contenitore alto 24rem. Il pulsante sopra apre e chiude il menu anche sui dispositivi mobili. Gli esempi non modificano le classi di body e non mostrano uno sfondo mobile. Imposta <code>is-inline</code> su true per posizionare il menu nel normale flusso del documento e riempire l’altezza del contenitore. Assegna un’altezza esplicita al contenitore.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Gruppi e collegamenti disabilitati",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Il campo group raggruppa i collegamenti sotto intestazioni. Notification è disabilitato e has-search è false. Scorri il menu nel contenitore di 24rem e usa il pulsante sopra per aprirlo o chiuderlo."
 }

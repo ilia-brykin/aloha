@@ -1,3 +1,8 @@
 {
-
+  "_A_PAGE_MENU_BASIC_HEADER_": "القائمة",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "يوفر AMenu التنقل بلوحات متداخلة وبحث ومجموعات وروابط معطلة.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "قائمة متداخلة مع البحث",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "افتح Components → Form controls أو ابحث عن Input. يتم تمرير القائمة داخل حاوية بارتفاع 24rem. يفتح الزر أعلاه القائمة ويغلقها، بما في ذلك على الأجهزة المحمولة. لا تغير الأمثلة أصناف body ولا تعرض خلفية للجوال. اضبط <code>is-inline</code> على true لوضع القائمة في التدفق العادي للمستند وملء ارتفاع الحاوية. حدد ارتفاعًا صريحًا للحاوية.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "المجموعات والروابط المعطلة",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "يجمع الحقل group الروابط تحت عناوين. رابط Notification معطل وقيمة has-search هي false. مرر القائمة داخل حاوية بارتفاع 24rem واستخدم الزر أعلاه لفتحها أو إغلاقها."
 }

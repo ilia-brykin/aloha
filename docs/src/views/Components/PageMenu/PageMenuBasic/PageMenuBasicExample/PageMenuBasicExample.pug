@@ -1,14 +1,23 @@
 aloha-example(
   :code-html="codeHtml"
   :code-js="codeJs"
-  header="_A_BASIC_USAGE_"
-  props="is-visible"
+  header="_A_PAGE_MENU_NESTED_HEADER_"
+  description="_A_PAGE_MENU_NESTED_DESCRIPTION_"
+  props="is-inline, data, key-children"
 )
-  .a_position_relative(
-    style="min-height: 600px;"
+  a-menu-button-toggle.a_mb_2(
+    :can-change-body-class="false"
+    :button-toggle-props="{ id: 'docs_menu_nested_toggle' }"
+    menu-id="docs_menu_nested"
+  )
+  div(
+    style="height: 24rem; overflow: hidden;"
   )
     a-menu(
+      :can-change-body-class="false"
       :data="menuItems"
+      :is-inline="true"
+      :use-backdrop-mobile="false"
+      menu-id="docs_menu_nested"
       key-children="children"
-      key-slot="slot"
     )

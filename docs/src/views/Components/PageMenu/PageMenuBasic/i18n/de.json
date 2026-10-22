@@ -1,3 +1,8 @@
 {
-
+  "_A_PAGE_MENU_BASIC_HEADER_": "Menü",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu bietet Navigation mit verschachtelten Bereichen, Suche, Gruppen und deaktivierten Links.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Verschachteltes Menü mit Suche",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Öffnen Sie Components → Form controls oder suchen Sie nach Input. Das Menü scrollt innerhalb eines 24rem hohen Containers. Die Schaltfläche darüber öffnet und schließt das Menü auch auf Mobilgeräten. Die Beispiele ändern keine body-Klassen und zeigen keinen mobilen Hintergrund. Setzen Sie <code>is-inline</code> auf true, um das Menü im normalen Dokumentfluss über die gesamte Höhe seines Containers anzuzeigen. Geben Sie dem Container eine feste Höhe.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Gruppen und deaktivierte Links",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Das Feld group fasst Links unter Überschriften zusammen. Notification ist deaktiviert und has-search ist false. Scrollen Sie im 24rem hohen Container und öffnen oder schließen Sie das Menü über die Schaltfläche darüber."
 }

@@ -1,3 +1,8 @@
 {
-
+  "_A_PAGE_MENU_BASIC_HEADER_": "Menu",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu provides navigation with nested panels, search, groups and disabled links.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Nested menu with search",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Open Components → Form controls to explore nested panels, or search for Input. Scroll the menu inside the container, which has a fixed height of 24rem. Use the button above to toggle the menu, including on mobile. The examples do not change body classes or show a mobile backdrop. Set <code>is-inline</code> to true to place the menu in the normal document flow and fill the height of its container. Give the container an explicit height.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Groups and disabled links",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "The group field groups links under headings. The Notification link is disabled, and has-search is false. Scroll the menu inside the 24rem container and use the button above to open or close it."
 }

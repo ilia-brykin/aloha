@@ -1,3 +1,8 @@
 {
-
+  "_A_PAGE_MENU_BASIC_HEADER_": "Menú",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu ofrece navegación con paneles anidados, búsqueda, grupos y enlaces desactivados.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Menú anidado con búsqueda",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Abra Components → Form controls o busque Input. El menú se desplaza dentro de un contenedor de 24rem de altura. El botón superior abre y cierra el menú, también en móviles. Los ejemplos no cambian las clases de body ni muestran un fondo móvil. Establezca <code>is-inline</code> en true para colocar el menú en el flujo normal del documento y ocupar la altura del contenedor. Defina una altura explícita para el contenedor.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Grupos y enlaces desactivados",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "El campo group agrupa los enlaces bajo encabezados. Notification está desactivado y has-search es false. Desplace el menú dentro del contenedor de 24rem y use el botón superior para abrirlo o cerrarlo."
 }

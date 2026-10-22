@@ -1,3 +1,8 @@
 {
-
+  "_A_PAGE_MENU_BASIC_HEADER_": "Menu",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu propose une navigation avec des panneaux imbriqués, une recherche, des groupes et des liens désactivés.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Menu imbriqué avec recherche",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Ouvrez Components → Form controls ou recherchez Input. Le menu défile dans un conteneur de 24rem de haut. Le bouton au-dessus ouvre et ferme le menu, y compris sur mobile. Les exemples ne modifient pas les classes de body et n’affichent pas de fond mobile. Définissez <code>is-inline</code> sur true pour placer le menu dans le flux normal du document sur toute la hauteur du conteneur. Donnez une hauteur explicite au conteneur.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Groupes et liens désactivés",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Le champ group regroupe les liens sous des titres. Notification est désactivé et has-search vaut false. Faites défiler le menu dans le conteneur de 24rem et utilisez le bouton au-dessus pour l’ouvrir ou le fermer."
 }

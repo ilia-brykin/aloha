@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGE_MENU_GROUPS_HEADER_"
+  description="_A_PAGE_MENU_GROUPS_DESCRIPTION_"
+  props="is-inline, data, key-group, has-search"
+)
+  a-menu-button-toggle.a_mb_2(
+    :can-change-body-class="false"
+    :button-toggle-props="{ id: 'docs_menu_groups_toggle' }"
+    menu-id="docs_menu_groups"
+  )
+  div(
+    style="height: 24rem; overflow: hidden;"
+  )
+    a-menu(
+      :can-change-body-class="false"
+      :data="menuItems"
+      :is-inline="true"
+      :use-backdrop-mobile="false"
+      menu-id="docs_menu_groups"
+      :has-search="false"
+    )

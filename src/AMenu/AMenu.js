@@ -116,6 +116,11 @@ export default {
       required: false,
       default: false,
     },
+    isInline: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isLinkTruncated: {
       type: Boolean,
       required: false,
@@ -452,6 +457,7 @@ export default {
       class: [
         "a_menu",
         {
+          a_menu_inline: this.isInline,
           a_menu_sub_open: this.isSubMenuOpen,
           a_menu_open: this.isMenuOpen,
           a_menu_close: !this.isMenuOpen,

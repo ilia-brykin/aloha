@@ -1,3 +1,8 @@
 {
-
+  "_A_PAGE_MENU_BASIC_HEADER_": "Izbornik",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu pruža navigaciju s ugniježđenim panelima, pretragom, grupama i onemogućenim poveznicama.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Ugniježđeni izbornik s pretragom",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Otvorite Components → Form controls ili potražite Input. Izbornik se pomiče unutar spremnika visine 24rem. Gumb iznad otvara i zatvara izbornik, uključujući na mobilnim uređajima. Primjeri ne mijenjaju klase elementa body i ne prikazuju mobilnu pozadinu. Postavite <code>is-inline</code> na true za smještaj izbornika u normalan tok dokumenta preko cijele visine spremnika. Spremniku zadajte izričitu visinu.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Grupe i onemogućene poveznice",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Polje group grupira poveznice pod naslovima. Notification je onemogućen, a has-search je false. Pomičite izbornik unutar spremnika visine 24rem i koristite gumb iznad za otvaranje ili zatvaranje."
 }
