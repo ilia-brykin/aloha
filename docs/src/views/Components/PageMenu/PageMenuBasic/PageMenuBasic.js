@@ -1,6 +1,8 @@
 import AlohaPage from "../../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageMenuBasicExample from "./PageMenuBasicExample/PageMenuBasicExample.vue";
+import PageMenuBreadcrumbs from "./PageMenuBreadcrumbs/PageMenuBreadcrumbs.vue";
+import PageMenuCustomKeys from "./PageMenuCustomKeys/PageMenuCustomKeys.vue";
 import PageMenuGroups from "./PageMenuGroups/PageMenuGroups.vue";
 import PageMenuSearchInDom from "./PageMenuSearchInDom/PageMenuSearchInDom.vue";
 import {
@@ -20,6 +22,8 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageMenuBasicExample,
+    PageMenuBreadcrumbs,
+    PageMenuCustomKeys,
     PageMenuGroups,
     PageMenuSearchInDom,
   },

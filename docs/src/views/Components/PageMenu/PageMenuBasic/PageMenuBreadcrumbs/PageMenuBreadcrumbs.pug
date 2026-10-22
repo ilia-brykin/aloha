@@ -1,0 +1,29 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_PAGE_MENU_BREADCRUMBS_HEADER_"
+  description="_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_"
+  props="is-breadcrumbs-truncated, show-count-children"
+)
+  a-menu-button-toggle.a_mb_2(
+    :can-change-body-class="false"
+    :button-toggle-props="{ id: 'docs_menu_breadcrumbs_toggle' }"
+    menu-id="docs_menu_breadcrumbs"
+  )
+  a-switch.a_mb_2(
+    v-model="showCountChildren"
+    label="_A_PAGE_MENU_SHOW_COUNTS_"
+  )
+  div(
+    style="height: 24rem; overflow: hidden;"
+  )
+    a-menu(
+      :can-change-body-class="false"
+      :data="menuItems"
+      :is-inline="true"
+      :use-backdrop-mobile="false"
+      menu-id="docs_menu_breadcrumbs"
+      key-children="children"
+      :is-breadcrumbs-truncated="true"
+      :show-count-children="showCountChildren"
+    )

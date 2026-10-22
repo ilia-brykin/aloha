@@ -7,5 +7,10 @@
   "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "يجمع الحقل group الروابط تحت عناوين. رابط Notification معطل وقيمة has-search هي false. مرر القائمة داخل حاوية بارتفاع 24rem واستخدم الزر أعلاه لفتحها أو إغلاقها.",
   "_A_PAGE_MENU_DOM_HEADER_": "البحث في نص DOM المترجم",
   "_A_PAGE_MENU_DOM_TRANSLATE_": "ترجمة DOM إلى الألمانية",
-  "_A_PAGE_MENU_DOM_DESCRIPTION_": "القيمة الافتراضية لـ <code>search-in-dom</code> هي false. عند true يقرأ البحث تسميات لوحات DOM الأصلية بدلاً من data. فعّل مفتاح الترجمة ثم ابحث عن <strong>Eingabe</strong> أو <strong>Auswahl</strong>: تبقى Input وSelect في data. تستخدم النتائج والتمييز وتسميات الآباء نص DOM، ويُقرأ مجددًا عند تغيير الاستعلام، بما في ذلك القوائم الفرعية المغلقة. في الفتحات المخصصة احتفظ بمعرف الرابط الممرر وضع التسمية داخل <code>.a_menu__link__text</code>. عطّل المفتاح لاستعادة التسميات الإنجليزية الأصلية."
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "القيمة الافتراضية لـ <code>search-in-dom</code> هي false. عند true يقرأ البحث تسميات لوحات DOM الأصلية بدلاً من data. فعّل مفتاح الترجمة ثم ابحث عن <strong>Eingabe</strong> أو <strong>Auswahl</strong>: تبقى Input وSelect في data. تستخدم النتائج والتمييز وتسميات الآباء نص DOM، ويُقرأ مجددًا عند تغيير الاستعلام، بما في ذلك القوائم الفرعية المغلقة. في الفتحات المخصصة احتفظ بمعرف الرابط الممرر وضع التسمية داخل <code>.a_menu__link__text</code>. عطّل المفتاح لاستعادة التسميات الإنجليزية الأصلية.",
+  "_A_PAGE_MENU_CUSTOM_KEYS_HEADER_": "مفاتيح بيانات مخصصة",
+  "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "اربط الحقول عبر <code>key-id</code> و<code>key-label</code> و<code>key-icon</code> و<code>key-group</code> و<code>key-children</code>. يستخدم المثال code وtitle وsymbol وsection وitems دون إعادة تسميتها. تبقى المسارات في <code>to</code>. افتح Form controls أو ابحث عن Input.",
+  "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "مسارات تنقل طويلة وعدادات القوائم الفرعية",
+  "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "افتح Components → Form controls → Text fields. مع <code>is-breadcrumbs-truncated</code> تنتقل روابط الآباء التي لا تتسع إلى قائمة التنقل المنسدلة. يتحكم المفتاح في <code>show-count-children</code> لإظهار عدد عناصر القوائم الفرعية أو إخفائه.",
+  "_A_PAGE_MENU_SHOW_COUNTS_": "إظهار عدد عناصر القوائم الفرعية"
 }
