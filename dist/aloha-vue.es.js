@@ -6862,6 +6862,15 @@ var p_ = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		searching: {
 			type: Boolean,
 			required: !1
@@ -6919,6 +6928,7 @@ var p_ = {
 	},
 	render() {
 		return this.readonly ? i(q, {
+			class: this.readonlyValueParentClass,
 			alwaysTranslate: this.alwaysTranslate,
 			classDefault: "",
 			extra: {
@@ -7493,6 +7503,15 @@ var S_ = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -7691,6 +7710,7 @@ var S_ = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		if (!this.isRender) return null;
 		if (this.readonly) return i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -8103,6 +8123,15 @@ var D_ = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		searching: {
 			type: Boolean,
 			required: !1
@@ -8161,6 +8190,7 @@ var D_ = {
 	},
 	render() {
 		return this.readonly ? i(q, {
+			class: this.readonlyValueParentClass,
 			alwaysTranslate: this.alwaysTranslate,
 			classDefault: "",
 			extra: {
@@ -11964,6 +11994,15 @@ var uy = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -12169,6 +12208,7 @@ var uy = {
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			class: this.class,
@@ -12659,6 +12699,15 @@ var yy = { props: {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -12736,7 +12785,7 @@ var yy = { props: {
 			required: this.required,
 			style: this.componentStyleHide,
 			type: "dateRange",
-			valueParentClass: "a_form_element_readonly_value_range"
+			valueParentClass: ["a_form_element_readonly_value_range", this.readonlyValueParentClass]
 		}, () => [i(py, {
 			id: this.idFrom,
 			alwaysTranslate: this.alwaysTranslate,
@@ -15035,6 +15084,15 @@ var Nb = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -15124,6 +15182,7 @@ var Nb = {
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -16040,6 +16099,15 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -16144,6 +16212,7 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -16654,6 +16723,24 @@ var ux = {
 			],
 			required: !1
 		},
+		readonly: {
+			type: Boolean,
+			required: !1
+		},
+		readonlyDefault: {
+			type: String,
+			required: !1,
+			default: ""
+		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		text: {
 			type: String,
 			required: !1,
@@ -16702,7 +16789,21 @@ var ux = {
 		};
 	},
 	render() {
-		return this.isRender ? i("div", {
+		return this.isRender ? this.readonly ? i(wT, {
+			...this.$attrs,
+			id: this.htmlIdLocal,
+			alwaysTranslate: this.alwaysTranslate,
+			excludeRenderAttributes: this.excludeRenderAttributes,
+			extra: this.extra,
+			helpText: this.helpText,
+			label: this.label,
+			labelClass: this.labelClass,
+			labelScreenReader: this.labelScreenReader,
+			readonlyDefault: this.readonlyDefault,
+			style: this.componentStyleHide,
+			type: this.type,
+			valueParentClass: this.readonlyValueParentClass
+		}, this.isModel ? () => i("ul", {}, this.modelValueListLocal.map((e) => i("li", {}, e.name))) : void 0) : i("div", {
 			...this.$attrs,
 			style: this.componentStyleHide,
 			...this.attributesToExcludeFromRender
@@ -17025,6 +17126,15 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -17118,6 +17228,7 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -17515,6 +17626,15 @@ var kx = Ox, Ax = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -17600,7 +17720,7 @@ var kx = Ox, Ax = {
 			required: this.required,
 			style: this.componentStyleHide,
 			type: "numberRange",
-			valueParentClass: "a_form_element_readonly_value_range"
+			valueParentClass: ["a_form_element_readonly_value_range", this.readonlyValueParentClass]
 		}, () => [i(bx, {
 			id: this.idMin,
 			alwaysTranslate: this.alwaysTranslate,
@@ -17934,6 +18054,15 @@ var Px = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -17984,6 +18113,7 @@ var Px = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -18799,6 +18929,15 @@ var Qx = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -19064,6 +19203,7 @@ var Qx = {
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -19457,6 +19597,15 @@ var nS = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -19510,6 +19659,7 @@ var nS = {
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -19889,6 +20039,15 @@ var aS = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -20086,6 +20245,7 @@ var aS = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		if (!this.isRender) return null;
 		if (this.readonly) return i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -20717,6 +20877,15 @@ var dS = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -20839,6 +21008,7 @@ var dS = {
 			modelDependencies: this.modelDependencies,
 			modelValue: this.modelLocal,
 			readonly: this.readonly,
+			readonlyValueParentClass: this.readonlyValueParentClass,
 			readonlyDefault: this.readonlyDefault,
 			required: this.required,
 			slotName: this.slotName
@@ -20870,6 +21040,7 @@ var dS = {
 			modelDependencies: this.modelDependencies,
 			modelValue: this.modelLocal,
 			readonly: this.readonly,
+			readonlyValueParentClass: this.readonlyValueParentClass,
 			readonlyDefault: this.readonlyDefault,
 			required: this.required,
 			search: !0,
@@ -21728,6 +21899,15 @@ var X = { propsDefault: {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -22058,6 +22238,7 @@ var X = { propsDefault: {
 		if (!this.isRender || !this.isMounted) return null;
 		if (this.readonly) return i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			class: this.class,
@@ -22803,6 +22984,15 @@ var zS = {
 		readonly: {
 			type: Boolean,
 			required: !1
+		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
 		},
 		readonlyDefault: {
 			type: String,
@@ -25563,6 +25753,15 @@ var KS = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -25898,6 +26097,15 @@ var ZS = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -25981,6 +26189,7 @@ var ZS = {
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -26164,6 +26373,15 @@ var ZS = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -26193,10 +26411,10 @@ var ZS = {
 			style: this.componentStyleHide,
 			type: void 0,
 			...this.attributesToExcludeFromRender
-		}, [this.$slots[this.slotName] ? i("div", { class: "a_template" }, this.$slots[this.slotName]({
+		}, [this.$slots[this.slotName] ? i("div", { class: ["a_template", this.readonly && this.readonlyValueParentClass] }, this.$slots[this.slotName]({
 			options: this.options,
 			props: this.$props
-		})) : "", this.html ? v(i("div", { class: "a_template" }), [[Qf, this.html]]) : ""]) : null;
+		})) : "", this.html ? v(i("div", { class: ["a_template", this.readonly && this.readonlyValueParentClass] }), [[Qf, this.html]]) : ""]) : null;
 	}
 }, $S = typeof Map == "function" ? /* @__PURE__ */ new Map() : function() {
 	let e = [], t = [];
@@ -26524,6 +26742,15 @@ var uC = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -26592,6 +26819,7 @@ var uC = {
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,
@@ -27089,6 +27317,15 @@ var wC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: !1,
 			default: void 0
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		typedBaseId: {
 			type: String,
 			required: !1,
@@ -27206,6 +27443,7 @@ var wC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 				idPrefix: this.parentHtmlId,
 				modelValue: this.modelItem,
 				readonly: !0,
+				readonlyValueParentClass: this.readonlyValueParentClass,
 				skipOwnIdInModelPath: !0,
 				slotNamePrepend: "singlePrepend",
 				useFlatModel: this.useFlatModel
@@ -27605,6 +27843,15 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: !1,
 			default: void 0
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		required: {
 			type: Boolean,
 			required: !1,
@@ -27715,6 +27962,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			modelDependencies: this.modelDependencies,
 			modelValue: this.modelValue,
 			readonly: this.readonly,
+			readonlyValueParentClass: this.readonlyValueParentClass,
 			required: this.required,
 			skipOwnIdInModelPath: !0,
 			slotNamePrepend: `singlePrepend_${this.id}`,
@@ -27743,7 +27991,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: this.required,
 			slotName: `slotAppend_${this.id}`
 		}, { [`slotAppend_${this.id}`]: () => i("div", { class: "a_column a_column_12" }, [
-			i("ul", { class: "a_list_group" }, [this.modelListMode.length > 0 ? this.listModeItems.map((e, t) => i(OC, {
+			i("ul", { class: ["a_list_group", this.readonly && this.readonlyValueParentClass] }, [this.modelListMode.length > 0 ? this.listModeItems.map((e, t) => i(OC, {
 				key: t,
 				children: this.childrenFiltered,
 				deactivateOrdering: this.deactivateOrdering,
@@ -27760,6 +28008,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 				parentHtmlId: this.htmlIdLocal,
 				parentId: this.id,
 				readonly: this.readonly,
+				readonlyValueParentClass: this.readonlyValueParentClass,
 				typedBaseId: this.typedBaseId,
 				typedChildren: this.typedChildren,
 				uniqueChildrenIds: this.uniqueChildrenIds,
@@ -27816,7 +28065,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: this.required,
 			slotName: "slotAppend"
 		}, { slotAppend: () => i("div", { class: "a_column a_column_12" }, [
-			i("ul", { class: "a_list_group" }, [this.isModelJsonModeEmpty ? i(J, {
+			i("ul", { class: ["a_list_group", this.readonly && this.readonlyValueParentClass] }, [this.isModelJsonModeEmpty ? i(J, {
 				class: "a_list_group__item",
 				tag: "li",
 				text: "_A_VALIDATED_JSON_NO_ELEMENTS_"
@@ -27837,6 +28086,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 				parentHtmlId: this.htmlIdLocal,
 				parentId: this.id,
 				readonly: this.readonly,
+				readonlyValueParentClass: this.readonlyValueParentClass,
 				typedBaseId: this.typedBaseId,
 				typedChildren: this.typedChildren,
 				uniqueChildrenIds: this.uniqueChildrenIds,
@@ -28081,6 +28331,15 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -28208,6 +28467,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 							dataKeyByKeyId: e
 						}),
 						class: a,
+						readonlyValueParentClass: this.readonlyValueParentClass,
 						...t,
 						change: ({ currentModel: e, id: n, item: r, model: i, props: a, fullModel: o }) => this.onUpdateModelLocal({
 							currentModel: e,
@@ -28250,7 +28510,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			required: this.required,
 			style: this.componentStyleHide,
 			type: "fieldset",
-			valueParentClass: this.classColumnsReadonly
+			valueParentClass: [this.classColumnsReadonly, this.readonlyValueParentClass]
 		}, () => t) : i("div", {
 			...this.$attrs,
 			style: this.componentStyleHide,
@@ -28494,6 +28754,15 @@ var KC = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -28613,7 +28882,7 @@ var KC = {
 				tabindex: -1,
 				class: [this.inputClass, { a_group_invalid: this.isErrors }],
 				"aria-describedby": this.ariaDescribedbyLocal
-			}, [i("div", { class: this.classColumns }, [this.firstChild.label && i(ox, {
+			}, [i("div", { class: [this.classColumns, this.readonly && this.readonlyValueParentClass] }, [this.firstChild.label && i(ox, {
 				id: this.htmlIdFirstChild,
 				alwaysTranslate: this.alwaysTranslate,
 				extra: this.extra,
@@ -28653,6 +28922,7 @@ var KC = {
 						item: e,
 						dataKeyByKeyId: t
 					}),
+					readonlyValueParentClass: this.readonlyValueParentClass,
 					...e,
 					change: ({ currentModel: t, id: n, item: r, model: i, props: a }) => this.onUpdateModelLocal({
 						currentModel: t,
@@ -28662,6 +28932,7 @@ var KC = {
 						props: a,
 						component: e
 					}),
+					readonly: this.readonly || e.readonly,
 					disabled: this.disabled || e.disabled,
 					...this.specificAttributes[e.id],
 					label: t === 0 ? void 0 : e.label,
@@ -30724,6 +30995,15 @@ var _T = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -30829,6 +31109,7 @@ var _T = {
 						useFlatModel: n ? this.useFlatModel : void 0,
 						idPrefix: this.idPrefix,
 						excludeRenderAttributes: this.excludeRenderAttributes,
+						readonlyValueParentClass: this.readonlyValueParentClass,
 						...e,
 						change: ({ currentModel: t, id: n, item: r, model: i, props: a, fullModel: o }) => this.onUpdateModelLocal({
 							currentModel: t,
@@ -30964,6 +31245,15 @@ var _T = {
 		readonly: {
 			type: Boolean,
 			required: !1
+		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
 		},
 		readonlyDefault: {
 			type: String,
@@ -31221,7 +31511,11 @@ var wT = {
 			default: void 0
 		},
 		valueParentClass: {
-			type: [String, Object],
+			type: [
+				String,
+				Object,
+				Array
+			],
 			required: !1,
 			default: void 0
 		},
@@ -39869,6 +40163,15 @@ var pk = {
 			type: Boolean,
 			required: !1
 		},
+		readonlyValueParentClass: {
+			type: [
+				String,
+				Object,
+				Array
+			],
+			required: !1,
+			default: void 0
+		},
 		readonlyDefault: {
 			type: String,
 			required: !1,
@@ -39995,6 +40298,7 @@ var pk = {
 	render() {
 		return this.isRender ? this.readonly ? i(wT, {
 			...this.$attrs,
+			valueParentClass: this.readonlyValueParentClass,
 			id: this.htmlIdLocal,
 			alwaysTranslate: this.alwaysTranslate,
 			excludeRenderAttributes: this.excludeRenderAttributes,

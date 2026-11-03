@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.82.0
+
+-  feat(ui): add readonly value wrapper classes
+
 ## 2.81.0
 
 - Add `search-in-dom` prop to `AMenu` with related tests, examples, and localization updates.
