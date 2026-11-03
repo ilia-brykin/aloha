@@ -105,6 +105,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     readonlyDefault: {
       type: String,
       required: false,
@@ -148,7 +153,7 @@ export default {
     }, [
       this.$slots[this.slotName] ?
         h("div", {
-          class: "a_template",
+          class: ["a_template", this.readonly && this.readonlyValueParentClass],
         }, this.$slots[this.slotName]({
           options: this.options,
           props: this.$props,
@@ -156,7 +161,7 @@ export default {
         "",
       this.html ?
         withDirectives(h("div", {
-          class: "a_template",
+          class: ["a_template", this.readonly && this.readonlyValueParentClass],
         }), [
           [ASafeHtml, this.html],
         ]) :

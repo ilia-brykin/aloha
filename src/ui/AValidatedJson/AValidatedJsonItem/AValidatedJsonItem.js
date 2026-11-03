@@ -103,6 +103,11 @@ export default {
       required: false,
       default: undefined,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     typedBaseId: {
       type: String,
       required: false,
@@ -279,6 +284,7 @@ export default {
             idPrefix: this.parentHtmlId,
             modelValue: this.modelItem,
             readonly: true,
+            readonlyValueParentClass: this.readonlyValueParentClass,
             skipOwnIdInModelPath: true,
             slotNamePrepend: "singlePrepend",
             useFlatModel: this.useFlatModel,

@@ -6,6 +6,7 @@ import {
 } from "vue";
 import {
   AFormLabelDescription,
+  AFormReadonly,
 } from "../../index";
 
 import AErrorsText from "../AErrorsText/AErrorsText";
@@ -56,6 +57,20 @@ export default {
     modelValue: {
       type: [String, Number, Object, Array],
       required: false,
+    },
+    readonly: {
+      type: Boolean,
+      required: false,
+    },
+    readonlyDefault: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
     },
     text: {
       type: String,
@@ -162,6 +177,26 @@ export default {
   render() {
     if (!this.isRender) {
       return null;
+    }
+
+    if (this.readonly) {
+      return h(AFormReadonly, {
+        ...this.$attrs,
+        id: this.htmlIdLocal,
+        alwaysTranslate: this.alwaysTranslate,
+        excludeRenderAttributes: this.excludeRenderAttributes,
+        extra: this.extra,
+        helpText: this.helpText,
+        label: this.label,
+        labelClass: this.labelClass,
+        labelScreenReader: this.labelScreenReader,
+        readonlyDefault: this.readonlyDefault,
+        style: this.componentStyleHide,
+        type: this.type,
+        valueParentClass: this.readonlyValueParentClass,
+      }, this.isModel ?
+        () => h("ul", {}, this.modelValueListLocal.map(model => h("li", {}, model.name))) :
+        undefined);
     }
 
     return h("div", {

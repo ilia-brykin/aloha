@@ -100,7 +100,7 @@ export default {
       default: undefined,
     },
     valueParentClass: {
-      type: [String, Object],
+      type: [String, Object, Array],
       required: false,
       default: undefined,
     },

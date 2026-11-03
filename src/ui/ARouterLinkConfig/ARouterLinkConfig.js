@@ -206,6 +206,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     readonlyDefault: {
       type: String,
       required: false,
@@ -353,6 +358,7 @@ export default {
         modelDependencies: this.modelDependencies,
         modelValue: this.modelLocal,
         readonly: this.readonly,
+        readonlyValueParentClass: this.readonlyValueParentClass,
         readonlyDefault: this.readonlyDefault,
         required: this.required,
         slotName: this.slotName,
@@ -387,6 +393,7 @@ export default {
         modelDependencies: this.modelDependencies,
         modelValue: this.modelLocal,
         readonly: this.readonly,
+        readonlyValueParentClass: this.readonlyValueParentClass,
         readonlyDefault: this.readonlyDefault,
         required: this.required,
         search: true,

@@ -170,6 +170,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     readonlyDefault: {
       type: String,
       required: false,
@@ -328,7 +333,7 @@ export default {
         "aria-describedby": this.ariaDescribedbyLocal,
       }, [
         h("div", {
-          class: this.classColumns,
+          class: [this.classColumns, this.readonly && this.readonlyValueParentClass],
         }, [
           this.firstChild.label && h(ALabel, {
             id: this.htmlIdFirstChild,
@@ -394,10 +399,12 @@ export default {
                 parentId,
                 idPrefix: this.idPrefix,
                 onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
+                readonlyValueParentClass: this.readonlyValueParentClass,
                 ...item,
                 change: ({ currentModel, id, item: _item, model, props }) => this.onUpdateModelLocal({
                   currentModel, id, item: _item, model, props, component: item,
                 }),
+                readonly: this.readonly || item.readonly,
                 disabled: this.disabled || item.disabled,
                 ...this.specificAttributes[item.id],
                 label: itemIndex === 0 ? undefined : item.label,

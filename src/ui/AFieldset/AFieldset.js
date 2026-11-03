@@ -205,6 +205,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     readonlyDefault: {
       type: String,
       required: false,
@@ -409,6 +414,7 @@ export default {
               idPrefix: this.idPrefix,
               onUpdateData: ({ dataKeyByKeyId }) => this.onUpdateDataLocal({ item, dataKeyByKeyId }),
               class: classColumn,
+              readonlyValueParentClass: this.readonlyValueParentClass,
               ...item,
               change: ({ currentModel, id, item: _item, model, props, fullModel }) => this.onUpdateModelLocal({
                 currentModel, id, item: _item, model, props, component: item, fullModel,
@@ -451,7 +457,7 @@ export default {
         required: this.required,
         style: this.componentStyleHide,
         type: "fieldset",
-        valueParentClass: this.classColumnsReadonly,
+        valueParentClass: [this.classColumnsReadonly, this.readonlyValueParentClass],
       }, () => CONTENT);
     }
 

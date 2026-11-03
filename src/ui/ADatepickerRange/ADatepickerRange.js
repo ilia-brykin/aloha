@@ -246,6 +246,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     readonlyDefault: {
       type: String,
       required: false,
@@ -385,7 +390,7 @@ export default {
         required: this.required,
         style: this.componentStyleHide,
         type: "dateRange",
-        valueParentClass: "a_form_element_readonly_value_range",
+        valueParentClass: ["a_form_element_readonly_value_range", this.readonlyValueParentClass],
       }, () => [
         h(ADatepicker, {
           id: this.idFrom,

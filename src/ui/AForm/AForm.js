@@ -86,6 +86,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     readonlyDefault: {
       type: String,
       required: false,
@@ -246,6 +251,7 @@ export default {
             useFlatModel: IS_CONTAINER ? this.useFlatModel : undefined,
             idPrefix: this.idPrefix,
             excludeRenderAttributes: this.excludeRenderAttributes,
+            readonlyValueParentClass: this.readonlyValueParentClass,
             ...item,
             change: ({ currentModel, id, item: _item, model, props, fullModel }) => this.onUpdateModelLocal({
               currentModel, id, item: _item, model, props, component: item, fullModel,

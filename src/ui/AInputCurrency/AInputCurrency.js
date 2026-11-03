@@ -264,6 +264,11 @@ export default {
       type: Boolean,
       required: false,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     readonlyDefault: {
       type: String,
       required: false,
@@ -451,6 +456,7 @@ export default {
     if (this.readonly) {
       return h(AFormReadonly, {
         ...this.$attrs,
+        valueParentClass: this.readonlyValueParentClass,
         id: this.htmlIdLocal,
         alwaysTranslate: this.alwaysTranslate,
         excludeRenderAttributes: this.excludeRenderAttributes,

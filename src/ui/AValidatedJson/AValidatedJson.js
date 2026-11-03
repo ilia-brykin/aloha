@@ -194,6 +194,11 @@ export default {
       required: false,
       default: undefined,
     },
+    readonlyValueParentClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: undefined,
+    },
     required: {
       type: Boolean,
       required: false,
@@ -385,6 +390,7 @@ export default {
         modelDependencies: this.modelDependencies,
         modelValue: this.modelValue,
         readonly: this.readonly,
+        readonlyValueParentClass: this.readonlyValueParentClass,
         required: this.required,
         skipOwnIdInModelPath: true,
         slotNamePrepend: `singlePrepend_${ this.id }`,
@@ -428,7 +434,7 @@ export default {
             class: "a_column a_column_12",
           }, [
             h("ul", {
-              class: "a_list_group",
+              class: ["a_list_group", this.readonly && this.readonlyValueParentClass],
             }, [
               this.modelListMode.length > 0 ?
                 this.listModeItems.map((item, index) => {
@@ -449,6 +455,7 @@ export default {
                     parentHtmlId: this.htmlIdLocal,
                     parentId: this.id,
                     readonly: this.readonly,
+                    readonlyValueParentClass: this.readonlyValueParentClass,
                     typedBaseId: this.typedBaseId,
                     typedChildren: this.typedChildren,
                     uniqueChildrenIds: this.uniqueChildrenIds,
@@ -534,7 +541,7 @@ export default {
             class: "a_column a_column_12",
           }, [
             h("ul", {
-              class: "a_list_group",
+              class: ["a_list_group", this.readonly && this.readonlyValueParentClass],
             }, [
               this.isModelJsonModeEmpty ?
                 h(ATranslation, {
@@ -560,6 +567,7 @@ export default {
                     parentHtmlId: this.htmlIdLocal,
                     parentId: this.id,
                     readonly: this.readonly,
+                    readonlyValueParentClass: this.readonlyValueParentClass,
                     typedBaseId: this.typedBaseId,
                     typedChildren: this.typedChildren,
                     uniqueChildrenIds: this.uniqueChildrenIds,
