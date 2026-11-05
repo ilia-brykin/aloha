@@ -133,6 +133,27 @@ export default function PropsAPI() {
       default: undefined,
       required: false,
     },
+    {
+      name: "url",
+      description: "_A_UI_PROPS_URL_DESCRIPTION_",
+      type: "String",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "url-params",
+      description: "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_",
+      type: "Object",
+      default: undefined,
+      required: false,
+    },
+    {
+      name: "url-template-data",
+      description: "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_",
+      type: "Object",
+      default: undefined,
+      required: false,
+    },
   ];
 
   return {

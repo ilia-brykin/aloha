@@ -28,6 +28,7 @@ import PageRadioSortOrder from "./PageRadioSortOrder/PageRadioSortOrder.vue";
 import PageRadioSortOrderGroup from "./PageRadioSortOrderGroup/PageRadioSortOrderGroup.vue";
 import PageRadioTranslateData from "./PageRadioTranslateData/PageRadioTranslateData.vue";
 import PageRadioTwoColumns from "./PageRadioTwoColumns/PageRadioTwoColumns.vue";
+import PageRadioUrlTemplate from "./PageRadioUrlTemplate/PageRadioUrlTemplate.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -65,6 +66,7 @@ export default {
     PageRadioLabelScreenReader,
     PageRadioReadonly,
     PageRadioRetrieve,
+    PageRadioUrlTemplate,
     PageRadioSearch,
     PageRadioSearchTextInHtml,
     PageRadioSortOrder,

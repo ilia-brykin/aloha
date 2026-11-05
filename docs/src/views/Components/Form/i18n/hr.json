@@ -141,7 +141,7 @@
   "_A_UI_PROPS_SORT_ORDER_DESCRIPTION_": "Određuje redoslijed sortiranja elemenata. Moguće vrijednosti: <strong lang=\"en\">asc</strong> (uzlazno) ili <strong lang=\"en\">desc</strong> (silazno).",
   "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Određuje redoslijed sortiranja grupa ako su elementi grupirani. Moguće vrijednosti: <strong lang=\"en\">asc</strong> (uzlazno) ili <strong lang=\"en\">desc</strong> (silazno).",
   "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_": "Naznačuje hoće li podaci biti prevedeni prije prikazivanja. Ako je postavljeno na <strong lang=\"en\">true</strong>, tekstualne vrijednosti će se prevesti u skladu s trenutnim jezičnim postavkama.",
-  "_A_UI_PROPS_URL_DESCRIPTION_": "<strong lang=\"en\">URL</strong> adresa s koje će se učitavati vanjski izvor podataka za popunjavanje grupa potvrdnih okvira ili radio gumba.",
+  "_A_UI_PROPS_URL_DESCRIPTION_": "URL za učitavanje opcija komponente. Podržava oznake mjesta <code>{{ path }}</code> koje se zamjenjuju vrijednostima iz svojstva <code>url-template-data</code>.",
   "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "Opcionalna <strong lang=\"en\">URL</strong> adresa koja se koristi posebno za dohvat već odabranih vrijednosti koje nedostaju u glavnom popisu.",
   "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "Opcionalni parametri koji će biti dodani samo retrieve zahtjevu za učitavanje nedostajućih odabranih vrijednosti.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "Parametri koji će biti dodani zahtjevu <strong lang=\"en\">URL</strong> adrese prilikom učitavanja podataka sa servera. Ovi parametri omogućuju filtriranje ili izmjenu podataka dobivenih putem <strong lang=\"en\">API</strong> sučelja.",
@@ -151,5 +151,16 @@
   "_A_UI_GROUP_DEFAULT_HEADER_": "Zadana vrijednost",
   "_A_UI_GROUP_ERROR_ICON_HEADER_": "Ikona greške",
   "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "Ovaj primjer pokazuje kako prikazati prilagođenu ikonu greške kada komponenta ima validacijske greške. Ako komponenta ima polje za unos, ikona se prikazuje unutar njega; u suprotnom se prikazuje pored kontrole. Ikona se prikazuje samo ako su istovremeno proslijeđeni <strong lang=\"en\">errors</strong> i <strong lang=\"en\">error-icon</strong>.",
-  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Određuje ikonu koja se prikazuje kada komponenta ima validacijske greške. Ako komponenta ima polje za unos, ikona se prikazuje unutar njega; u suprotnom se prikazuje pored kontrole. Ikona se prikazuje samo kada je proslijeđen <strong lang=\"en\">errors</strong>."
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Određuje ikonu koja se prikazuje kada komponenta ima validacijske greške. Ako komponenta ima polje za unos, ikona se prikazuje unutar njega; u suprotnom se prikazuje pored kontrole. Ikona se prikazuje samo kada je proslijeđen <strong lang=\"en\">errors</strong>.",
+  "_A_UI_URL_TEMPLATE_BASIC_HEADER_": "Predložak URL-a",
+  "_A_UI_URL_TEMPLATE_BASIC_DESCRIPTION_": "Vrijednost <code>file</code> zamjenjuje <code>{{ file }}</code> u svojstvu <code>url</code>. Odaberite drugi izvor podataka kako biste ponovno učitali opcije i poništili odabir. Primjeri učitavaju postojeće lokalne JSON datoteke.",
+  "_A_UI_URL_TEMPLATE_REACTIVE_HEADER_": "Ugniježđene putanje i reaktivni podaci",
+  "_A_UI_URL_TEMPLATE_REACTIVE_DESCRIPTION_": "Oznaka mjesta poput <code>{{ source.file }}</code> podržava ugniježđene putanje u objektu. Promjena izvora podataka mijenja konačni URL, ponovno učitava opcije i poništava odabir. Odaberite opciju pa uredite bilješku: ona se ne koristi u URL-u, pa se promatrač URL-a ne pokreće, ne šalje se novi zahtjev i odabir ostaje sačuvan. Zamjena objekta <code>urlTemplateData</code> drugim objektom koji daje isti URL ima isti učinak.",
+  "_A_UI_URL_TEMPLATE_SOURCE_": "Izvor podataka",
+  "_A_UI_URL_TEMPLATE_SOURCE_FIRST_": "Prvi popis",
+  "_A_UI_URL_TEMPLATE_SOURCE_SECOND_": "Drugi popis",
+  "_A_UI_URL_TEMPLATE_OPTIONS_": "Opcije učitane putem URL-a",
+  "_A_UI_URL_TEMPLATE_NOTE_": "Bilješka (ne koristi se u URL-u)",
+  "_A_UI_URL_TEMPLATE_ADD_": "Dodaj vrijednost",
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Objekt s vrijednostima za oznake mjesta <code>{{ path }}</code> u svojstvu <code>url</code>, uključujući ugniježđene putanje poput <code>{{ source.file }}</code>. Koristi istu sintaksu kao prijevodi. Promjena tih vrijednosti ponovno učitava opcije i poništava odabir samo ako se promijeni konačni URL. Ne utječe na URL-ove bez oznaka mjesta; parametri upita šalju se zasebno putem svojstva <code>url-params</code>."
 }

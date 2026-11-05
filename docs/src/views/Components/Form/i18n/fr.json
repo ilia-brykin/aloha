@@ -141,7 +141,7 @@
   "_A_UI_PROPS_SORT_ORDER_DESCRIPTION_": "Détermine l'ordre de tri des éléments. Valeurs possibles : <strong lang=\"en\">asc</strong> (croissant) ou <strong lang=\"en\">desc</strong> (décroissant).",
   "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "Détermine l'ordre de tri des groupes si les éléments sont regroupés. Valeurs possibles : <strong lang=\"en\">asc</strong> (croissant) ou <strong lang=\"en\">desc</strong> (décroissant).",
   "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_": "Indique si les données doivent être traduites avant d'être affichées. Si défini sur <strong lang=\"en\">true</strong>, les valeurs textuelles seront traduites en fonction des paramètres de langue actuels.",
-  "_A_UI_PROPS_URL_DESCRIPTION_": "L'adresse <strong lang=\"en\">URL</strong> à partir de laquelle la source de données externe sera chargée pour remplir les cases à cocher ou les boutons radio.",
+  "_A_UI_PROPS_URL_DESCRIPTION_": "URL utilisée pour charger les options du composant. Prend en charge les espaces réservés <code>{{ path }}</code>, remplacés par les valeurs de <code>url-template-data</code>.",
   "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "Une <strong lang=\"en\">URL</strong> optionnelle utilisée spécifiquement pour récupérer les valeurs déjà sélectionnées qui manquent dans la liste principale chargée.",
   "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "Paramètres optionnels ajoutés uniquement à la requête retrieve utilisée pour charger les valeurs sélectionnées manquantes.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "Les paramètres qui seront ajoutés à la requête <strong lang=\"en\">URL</strong> lors du chargement des données à partir du serveur. Ces paramètres permettent de filtrer ou de modifier les données obtenues via l'<strong lang=\"en\">API</strong>.",
@@ -151,5 +151,16 @@
   "_A_UI_GROUP_DEFAULT_HEADER_": "Valeur par défaut",
   "_A_UI_GROUP_ERROR_ICON_HEADER_": "Icône d'erreur",
   "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "Cet exemple montre comment afficher une icône d'erreur personnalisée lorsque le composant a des erreurs de validation. Si le composant possède un champ de saisie, l'icône est affichée à l'intérieur, sinon elle est affichée à côté du contrôle. L'icône n'est affichée que si <strong lang=\"en\">errors</strong> et <strong lang=\"en\">error-icon</strong> sont tous deux fournis.",
-  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Définit l'icône affichée lorsque le composant a des erreurs de validation. Si le composant possède un champ de saisie, l'icône est affichée à l'intérieur, sinon elle est affichée à côté du contrôle. L'icône n'est affichée que lorsque <strong lang=\"en\">errors</strong> est présent."
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "Définit l'icône affichée lorsque le composant a des erreurs de validation. Si le composant possède un champ de saisie, l'icône est affichée à l'intérieur, sinon elle est affichée à côté du contrôle. L'icône n'est affichée que lorsque <strong lang=\"en\">errors</strong> est présent.",
+  "_A_UI_URL_TEMPLATE_BASIC_HEADER_": "Modèle d’URL",
+  "_A_UI_URL_TEMPLATE_BASIC_DESCRIPTION_": "La valeur de <code>file</code> remplace <code>{{ file }}</code> dans <code>url</code>. Choisissez une autre source de données pour recharger les options et effacer la sélection. Les exemples chargent des fichiers JSON locaux existants.",
+  "_A_UI_URL_TEMPLATE_REACTIVE_HEADER_": "Chemins imbriqués et données réactives",
+  "_A_UI_URL_TEMPLATE_REACTIVE_DESCRIPTION_": "Un espace réservé tel que <code>{{ source.file }}</code> prend en charge les chemins d’objet imbriqués. Changer la source de données modifie l’URL résultante, recharge les options et efface la sélection. Sélectionnez une option, puis modifiez la note : elle n’est pas utilisée dans l’URL, donc l’observateur de l’URL ne s’exécute pas, aucune nouvelle requête n’est envoyée et la sélection est conservée. Remplacer <code>urlTemplateData</code> par un autre objet produisant la même URL a le même effet.",
+  "_A_UI_URL_TEMPLATE_SOURCE_": "Source de données",
+  "_A_UI_URL_TEMPLATE_SOURCE_FIRST_": "Première liste",
+  "_A_UI_URL_TEMPLATE_SOURCE_SECOND_": "Deuxième liste",
+  "_A_UI_URL_TEMPLATE_OPTIONS_": "Options chargées depuis l’URL",
+  "_A_UI_URL_TEMPLATE_NOTE_": "Note (non utilisée dans l’URL)",
+  "_A_UI_URL_TEMPLATE_ADD_": "Ajouter une valeur",
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Objet contenant les valeurs des espaces réservés <code>{{ path }}</code> dans <code>url</code>, y compris les chemins imbriqués tels que <code>{{ source.file }}</code>. Utilise la même syntaxe que les traductions. La modification de ces valeurs ne recharge les options et n’efface la sélection que si l’URL résultante change. Aucun effet sur les URL sans espaces réservés ; les paramètres de requête sont transmis séparément via <code>url-params</code>."
 }

@@ -28,6 +28,7 @@ import PageCheckboxSortOrder from "./PageCheckboxSortOrder/PageCheckboxSortOrder
 import PageCheckboxSortOrderGroup from "./PageCheckboxSortOrderGroup/PageCheckboxSortOrderGroup.vue";
 import PageCheckboxTranslateData from "./PageCheckboxTranslateData/PageCheckboxTranslateData.vue";
 import PageCheckboxTwoColumns from "./PageCheckboxTwoColumns/PageCheckboxTwoColumns.vue";
+import PageCheckboxUrlTemplate from "./PageCheckboxUrlTemplate/PageCheckboxUrlTemplate.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -65,6 +66,7 @@ export default {
     PageCheckboxLabelScreenReader,
     PageCheckboxReadonly,
     PageCheckboxRetrieve,
+    PageCheckboxUrlTemplate,
     PageCheckboxSearch,
     PageCheckboxSearchTextInHtml,
     PageCheckboxSortOrder,

@@ -15,6 +15,7 @@ import PageSelectSearch from "./PageSelectSearch/PageSelectSearch.vue";
 import PageSelectSearchTextInHtml from "./PageSelectSearchTextInHtml/PageSelectSearchTextInHtml.vue";
 import PageSelectShowSelectedFirst from "./PageSelectShowSelectedFirst/PageSelectShowSelectedFirst.vue";
 import PageSelectTranslateData from "./PageSelectTranslateData/PageSelectTranslateData.vue";
+import PageSelectUrlTemplate from "./PageSelectUrlTemplate/PageSelectUrlTemplate.vue";
 import {
   AIcon,
   ASelect,
@@ -46,6 +47,7 @@ export default {
     PageSelectModeOnePerGroup,
     PageSelectReadonly,
     PageSelectRetrieve,
+    PageSelectUrlTemplate,
     PageSelectSearch,
     PageSelectSearchTextInHtml,
     PageSelectShowSelectedFirst,

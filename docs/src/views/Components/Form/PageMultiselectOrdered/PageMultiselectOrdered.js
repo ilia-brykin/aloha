@@ -11,6 +11,7 @@ import PageMultiselectOrderedReadonly from "./PageMultiselectOrderedReadonly/Pag
 import PageMultiselectOrderedRetrieve from "./PageMultiselectOrderedRetrieve/PageMultiselectOrderedRetrieve.vue";
 import PageMultiselectOrderedSearchTextInHtml from "./PageMultiselectOrderedSearchTextInHtml/PageMultiselectOrderedSearchTextInHtml.vue";
 import PageMultiselectOrderedSelectDeselectAll from "./PageMultiselectOrderedSelectDeselectAll/PageMultiselectOrderedSelectDeselectAll.vue";
+import PageMultiselectOrderedUrlTemplate from "./PageMultiselectOrderedUrlTemplate/PageMultiselectOrderedUrlTemplate.vue";
 import {
   ATranslation,
 } from "aloha-vue";
@@ -35,6 +36,7 @@ export default {
     PageMultiselectOrderedLabelDescription,
     PageMultiselectOrderedReadonly,
     PageMultiselectOrderedRetrieve,
+    PageMultiselectOrderedUrlTemplate,
     PageMultiselectOrderedSearchTextInHtml,
     PageMultiselectOrderedSelectDeselectAll,
   },

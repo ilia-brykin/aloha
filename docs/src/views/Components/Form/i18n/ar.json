@@ -141,7 +141,7 @@
   "_A_UI_PROPS_SORT_ORDER_DESCRIPTION_": "يحدد ترتيب فرز العناصر. القيم الممكنة: <strong lang=\"en\">asc</strong> (تصاعدي) أو <strong lang=\"en\">desc</strong> (تنازلي).",
   "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_": "يحدد ترتيب فرز المجموعات إذا كانت العناصر مجمعة. القيم الممكنة: <strong lang=\"en\">asc</strong> (تصاعدي) أو <strong lang=\"en\">desc</strong> (تنازلي).",
   "_A_UI_PROPS_TRANSLATE_DATA_DESCRIPTION_": "يشير إلى ما إذا كان يجب ترجمة البيانات قبل العرض. إذا تم تعيينه على <strong lang=\"en\">true</strong>، سيتم ترجمة القيم النصية وفقًا لإعدادات اللغة الحالية.",
-  "_A_UI_PROPS_URL_DESCRIPTION_": "عنوان <strong lang=\"en\">URL</strong> الذي سيتم تحميل مصدر البيانات الخارجي منه لملء مجموعة الفحص أو الأزرار الدائرية.",
+  "_A_UI_PROPS_URL_DESCRIPTION_": "عنوان URL المستخدم لتحميل خيارات المكوّن. يدعم العناصر النائبة <code>{{ path }}</code> التي تُستبدل بقيم من <code>url-template-data</code>.",
   "_A_UI_PROPS_URL_RETRIEVE_DESCRIPTION_": "عنوان <strong lang=\"en\">URL</strong> اختياري يستخدم خصيصا لاسترجاع القيم المحددة مسبقا والمفقودة من القائمة الرئيسية المحملة.",
   "_A_UI_PROPS_URL_RETRIEVE_PARAMS_DESCRIPTION_": "معلمات اختيارية ستضاف فقط إلى طلب retrieve المستخدم لتحميل القيم المحددة المفقودة.",
   "_A_UI_PROPS_URL_PARAMS_DESCRIPTION_": "المعلمات التي سيتم إضافتها إلى طلب <strong lang=\"en\">URL</strong> عند تحميل البيانات من الخادم. تتيح هذه المعلمات تصفية البيانات المستردة من <strong lang=\"en\">API</strong> أو تعديلها.",
@@ -151,5 +151,16 @@
   "_A_UI_GROUP_DEFAULT_HEADER_": "القيمة الافتراضية",
   "_A_UI_GROUP_ERROR_ICON_HEADER_": "أيقونة الخطأ",
   "_A_UI_GROUP_ERROR_ICON_DESCRIPTION_": "يوضح هذا المثال كيفية عرض أيقونة خطأ مخصصة عند وجود أخطاء تحقق في المكون. إذا كان للمكون حقل إدخال، فستظهر الأيقونة داخله، وإلا فسيتم عرضها بجانب عنصر التحكم. لا يتم عرض الأيقونة إلا إذا تم تمرير <strong lang=\"en\">errors</strong> و <strong lang=\"en\">error-icon</strong> معًا.",
-  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "يحدد الأيقونة التي يتم عرضها عند وجود أخطاء تحقق في المكون. إذا كان للمكون حقل إدخال، فستظهر الأيقونة داخله، وإلا فسيتم عرضها بجانب عنصر التحكم. لا يتم عرض الأيقونة إلا عند تمرير <strong lang=\"en\">errors</strong>."
+  "_A_UI_PROPS_ERROR_ICON_DESCRIPTION_": "يحدد الأيقونة التي يتم عرضها عند وجود أخطاء تحقق في المكون. إذا كان للمكون حقل إدخال، فستظهر الأيقونة داخله، وإلا فسيتم عرضها بجانب عنصر التحكم. لا يتم عرض الأيقونة إلا عند تمرير <strong lang=\"en\">errors</strong>.",
+  "_A_UI_URL_TEMPLATE_BASIC_HEADER_": "قالب URL",
+  "_A_UI_URL_TEMPLATE_BASIC_DESCRIPTION_": "تحل قيمة <code>file</code> محل <code>{{ file }}</code> في <code>url</code>. اختر مصدر بيانات آخر لإعادة تحميل الخيارات ومسح التحديد. تُحمّل الأمثلة ملفات JSON محلية موجودة مسبقًا.",
+  "_A_UI_URL_TEMPLATE_REACTIVE_HEADER_": "المسارات المتداخلة والبيانات التفاعلية",
+  "_A_UI_URL_TEMPLATE_REACTIVE_DESCRIPTION_": "يدعم العنصر النائب مثل <code>{{ source.file }}</code> المسارات المتداخلة في الكائن. يؤدي تغيير مصدر البيانات إلى تغيير عنوان URL الناتج وإعادة تحميل الخيارات ومسح التحديد. حدّد خيارًا ثم عدّل الملاحظة: فهي لا تُستخدم في عنوان URL، لذلك لا يعمل مراقب URL ولا يُرسل طلب جديد ويُحتفظ بالتحديد. استبدال <code>urlTemplateData</code> بكائن آخر ينتج عنوان URL نفسه له التأثير ذاته.",
+  "_A_UI_URL_TEMPLATE_SOURCE_": "مصدر البيانات",
+  "_A_UI_URL_TEMPLATE_SOURCE_FIRST_": "القائمة الأولى",
+  "_A_UI_URL_TEMPLATE_SOURCE_SECOND_": "القائمة الثانية",
+  "_A_UI_URL_TEMPLATE_OPTIONS_": "الخيارات المُحمّلة من عنوان URL",
+  "_A_UI_URL_TEMPLATE_NOTE_": "ملاحظة (لا تُستخدم في عنوان URL)",
+  "_A_UI_URL_TEMPLATE_ADD_": "إضافة قيمة",
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "كائن يحتوي على قيم العناصر النائبة <code>{{ path }}</code> في <code>url</code>، بما في ذلك المسارات المتداخلة مثل <code>{{ source.file }}</code>. يستخدم الصيغة نفسها المستخدمة في الترجمات. يؤدي تغيير هذه القيم إلى إعادة تحميل الخيارات ومسح التحديد فقط عند تغيّر عنوان URL الناتج. لا يؤثر في العناوين التي لا تحتوي على عناصر نائبة؛ وتُمرّر معاملات الاستعلام بشكل منفصل عبر <code>url-params</code>."
 }
