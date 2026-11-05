@@ -41,6 +41,16 @@ export default {
       required: false,
       default: undefined,
     },
+    classColumns: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
+    classColumnDefault: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     classExtra: {
       type: [String, Object],
       required: false,
@@ -361,6 +371,8 @@ export default {
         }),
         this.hasDataForm && h(AForm, {
           alwaysTranslate: this.alwaysTranslate,
+          classColumns: this.classColumns,
+          classColumnDefault: this.classColumnDefault,
           modelValue: this.modelValue,
           data: this.dataForm,
           errors: this.errors,
