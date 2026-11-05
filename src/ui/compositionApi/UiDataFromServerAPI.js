@@ -6,6 +6,7 @@ import {
 } from "vue";
 
 import AHttpAPI from "../../compositionAPI/AHttpAPI";
+import UiUrlAPI from "./UiUrlAPI";
 
 import {
   ADataRetrievePluginOptions,
@@ -48,10 +49,13 @@ export default function UiDataFromServerAPI(props, {
   const modelValue = toRef(props, "modelValue");
   const searchApiKey = toRef(props, "searchApiKey");
   const type = toRef(props, "type");
-  const url = toRef(props, "url");
   const urlRetrieve = toRef(props, "urlRetrieve");
   const urlParams = toRef(props, "urlParams");
   const urlRetrieveParams = toRef(props, "urlRetrieveParams");
+
+  const {
+    urlLocal,
+  } = UiUrlAPI(props);
 
   const loadingSearchApi = ref(false);
   const loadingDataFromServer = ref(undefined);
@@ -72,7 +76,7 @@ export default function UiDataFromServerAPI(props, {
   };
 
   const searchApiLocal = computed(() => {
-    return !!(searchApi.value && searchApiKey.value && url.value);
+    return !!(searchApi.value && searchApiKey.value && urlLocal.value);
   });
 
   const retrieveCallback = computed(() => {
@@ -80,7 +84,7 @@ export default function UiDataFromServerAPI(props, {
   });
 
   const urlRetrieveLocal = computed(() => {
-    return urlRetrieve.value || url.value;
+    return urlRetrieve.value || urlLocal.value;
   });
 
   const urlRetrieveParamsLocal = computed(() => {
@@ -97,7 +101,7 @@ export default function UiDataFromServerAPI(props, {
   const urlPropsComputed = computed(() => {
     return [
       apiSaveId.value,
-      url.value,
+      urlLocal.value,
       urlParams.value,
     ];
   });
@@ -143,13 +147,13 @@ export default function UiDataFromServerAPI(props, {
   };
 
   const loadDataFromServer = () => {
-    if (!url.value || searchApiLocal.value) {
+    if (!urlLocal.value || searchApiLocal.value) {
       dataFromServer.value = [];
       return;
     }
     startLoading();
     getListHttp({
-      url: url.value,
+      url: urlLocal.value,
       urlParams: urlParams.value,
       apiSaveId: apiSaveId.value,
     }).then(
@@ -241,7 +245,7 @@ export default function UiDataFromServerAPI(props, {
 
   const isRetrieveInvalidEntries = computed(() => {
     return !searchApiLocal.value &&
-      !!(url.value || data.value?.length);
+      !!(urlLocal.value || data.value?.length);
   });
 
   const prepareRetrieveResponse = ({ response = [] } = {}) => {
@@ -291,7 +295,7 @@ export default function UiDataFromServerAPI(props, {
     }
     loadingSearchApi.value = true;
     getListHttp({
-      url: url.value,
+      url: urlLocal.value,
       urlParams: {
         ...(urlParams.value || {}),
         [searchApiKey.value]: search,
@@ -335,7 +339,7 @@ export default function UiDataFromServerAPI(props, {
       },
     };
     return getListHttp({
-      url: url.value,
+      url: urlLocal.value,
       urlParams: URL_PARAMS,
     }).then(
       response => {
@@ -400,7 +404,7 @@ export default function UiDataFromServerAPI(props, {
   });
 
   watch(data, (newVal, oldVal) => {
-    if (!url.value &&
+    if (!urlLocal.value &&
       !isEqual(newVal, oldVal)) {
       syncDataFromRetrieve();
       loadDataFromServerForRetrieve();

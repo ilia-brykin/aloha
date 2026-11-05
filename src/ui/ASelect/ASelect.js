@@ -537,6 +537,11 @@ export default {
       required: false,
       default: undefined,
     },
+    urlTemplateData: {
+      type: Object,
+      required: false,
+      default: undefined,
+    },
   },
   emits: [
     "blur",
