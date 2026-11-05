@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "Un emplacement contenant le contenu principal de la fenêtre modale.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Un emplacement affiché après les boutons de sauvegarde et de fermeture dans le pied de page de la fenêtre modale.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Un emplacement affiché avant les boutons de sauvegarde et de fermeture dans le pied de page de la fenêtre modale.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Un emplacement contenant le contenu de l'en-tête de la fenêtre modale."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Un emplacement contenant le contenu de l'en-tête de la fenêtre modale.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm : colonnes du formulaire",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Les propriétés <code>class-columns</code> et <code>class-column-default</code> sont transmises au composant <code>AForm</code> interne. Dans cet exemple, les champs de nom et d’adresse e-mail occupent chacun la moitié de la largeur et s’empilent sur les appareils tactiles. Le champ de notes définit sa propre <code>classColumn</code> et occupe toute la largeur. Si ces propriétés sont omises, les valeurs par défaut de <code>AForm</code> s’appliquent."
 }

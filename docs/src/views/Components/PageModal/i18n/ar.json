@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "فتحة تحتوي على المحتوى الرئيسي لنافذة العرض المودال.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "فتحة تُعرض بعد أزرار الحفظ والإغلاق في تذييل العرض المودال.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "فتحة تُعرض قبل أزرار الحفظ والإغلاق في تذييل العرض المودال.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "فتحة تحتوي على محتوى عنوان العرض المودال."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "فتحة تحتوي على محتوى عنوان العرض المودال.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: أعمدة النموذج",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "تُمرّر الخاصيتان <code>class-columns</code> و<code>class-column-default</code> إلى مكوّن <code>AForm</code> الداخلي. في هذا المثال، يشغل كل من حقلي الاسم والبريد الإلكتروني نصف العرض، ويظهران أحدهما أسفل الآخر على الأجهزة اللمسية. يحدّد حقل الملاحظات <code>classColumn</code> خاصًا به ويشغل العرض بالكامل. عند عدم تعيين هاتين الخاصيتين، تُستخدم القيم الافتراضية من <code>AForm</code>."
 }

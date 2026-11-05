@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "Una ranura que contiene el contenido principal de la ventana modal.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Una ranura que se muestra después de los botones de guardar y cerrar en el pie de página de la ventana modal.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Una ranura que se muestra antes de los botones de guardar y cerrar en el pie de página de la ventana modal.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Una ranura que contiene el contenido del encabezado de la ventana modal."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Una ranura que contiene el contenido del encabezado de la ventana modal.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: columnas del formulario",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Las propiedades <code>class-columns</code> y <code>class-column-default</code> se pasan al <code>AForm</code> interno. En este ejemplo, los campos de nombre y correo electrónico ocupan la mitad del ancho y se apilan en dispositivos táctiles. El campo de notas define su propia <code>classColumn</code> y ocupa todo el ancho. Si se omiten estas propiedades, se aplican los valores predeterminados de <code>AForm</code>."
 }

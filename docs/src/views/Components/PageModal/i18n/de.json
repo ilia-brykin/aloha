@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "Ein Slot, der den Hauptinhalt des Modal-Fensters enthält.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Ein Slot, der nach den Speichern- und Schließen-Buttons im Modal-Footer angezeigt wird.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Ein Slot, der vor den Speichern- und Schließen-Buttons im Modal-Footer angezeigt wird.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Ein Slot, der den Inhalt des Modal-Headers enthält."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Ein Slot, der den Inhalt des Modal-Headers enthält.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: Formularspalten",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Die Props <code>class-columns</code> und <code>class-column-default</code> werden an das enthaltene <code>AForm</code> weitergegeben. In diesem Beispiel belegen Name und E-Mail jeweils die halbe Breite und stehen auf Touch-Geräten untereinander. Das Notizfeld definiert eine eigene <code>classColumn</code> und erstreckt sich über die gesamte Breite. Ohne diese Props gelten die Standardwerte von <code>AForm</code>."
 }

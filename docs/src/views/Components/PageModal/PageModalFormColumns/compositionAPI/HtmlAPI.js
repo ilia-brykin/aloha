@@ -1,0 +1,24 @@
+export default function HtmlAPI() {
+  const codeHtml = `<a-button
+  class="a_btn a_btn_primary"
+  text="_A_MODAL_PAGE_BTN_OPEN_MODAL_"
+  @click="openModal"
+/>
+
+<a-modal-form
+  v-if="isModalVisible"
+  v-model="model"
+  :data-form="dataForm"
+  :close="closeModal"
+  :is-save-button-hide="true"
+  header-text="_A_MODAL_FORM_COLUMNS_HEADER_"
+  size="large"
+  class-columns="a_columns a_columns_count_12 a_columns_gap_3"
+  class-column-default="a_column a_column_6 a_column_12_touch"
+/>
+<pre>{{ model }}</pre>`;
+
+  return {
+    codeHtml,
+  };
+}

@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "Слот, що містить основний вміст модального вікна.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Слот, що відображається після кнопок збереження та закриття в нижній частині модального вікна.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Слот, що відображається перед кнопками збереження та закриття в нижній частині модального вікна.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Слот, що містить вміст заголовка модального вікна."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Слот, що містить вміст заголовка модального вікна.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: колонки форми",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Властивості <code>class-columns</code> і <code>class-column-default</code> передаються у вкладений <code>AForm</code>. У цьому прикладі поля імені та електронної пошти займають половину ширини й розташовуються одне під одним на сенсорних пристроях. Поле нотаток задає власний <code>classColumn</code> і займає всю ширину. Якщо ці властивості не задано, використовуються значення за замовчуванням із <code>AForm</code>."
 }

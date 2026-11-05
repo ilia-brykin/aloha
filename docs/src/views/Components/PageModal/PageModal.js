@@ -5,6 +5,7 @@ import PageModalBasic from "./PageModalBasic/PageModalBasic.vue";
 import PageModalBodyHtml from "./PageModalBodyHtml/PageModalBodyHtml.vue";
 import PageModalCloseButton from "./PageModalCloseButton/PageModalCloseButton.vue";
 import PageModalFooterSticky from "./PageModalFooterSticky/PageModalFooterSticky.vue";
+import PageModalFormColumns from "./PageModalFormColumns/PageModalFormColumns.vue";
 import PageModalInModal from "./PageModalInModal/PageModalInModal.vue";
 import PageModalSaveButton from "./PageModalSaveButton/PageModalSaveButton.vue";
 import PageModalSelectorClose from "./PageModalSelectorClose/PageModalSelectorClose.vue";
@@ -32,6 +33,7 @@ export default {
     PageModalBodyHtml,
     PageModalCloseButton,
     PageModalFooterSticky,
+    PageModalFormColumns,
     PageModalInModal,
     PageModalSaveButton,
     PageModalSelectorClose,

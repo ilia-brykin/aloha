@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "Uno slot che contiene il contenuto principale della finestra modale.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Uno slot visualizzato dopo i pulsanti di salvataggio e chiusura nel piè di pagina della finestra modale.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Uno slot visualizzato prima dei pulsanti di salvataggio e chiusura nel piè di pagina della finestra modale.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Uno slot che contiene il contenuto dell'intestazione della finestra modale."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Uno slot che contiene il contenuto dell'intestazione della finestra modale.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: colonne del modulo",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Le proprietà <code>class-columns</code> e <code>class-column-default</code> vengono passate al componente <code>AForm</code> interno. In questo esempio, i campi nome ed email occupano ciascuno metà della larghezza e vengono disposti uno sotto l’altro sui dispositivi touch. Il campo note definisce una propria <code>classColumn</code> e occupa tutta la larghezza. Se queste proprietà vengono omesse, si applicano i valori predefiniti di <code>AForm</code>."
 }

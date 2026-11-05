@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "Slot koji sadrži glavni sadržaj modalnog prozora.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "Slot koji se prikazuje nakon gumba za spremanje i zatvaranje u podnožju modalnog prozora.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "Slot koji se prikazuje prije gumba za spremanje i zatvaranje u podnožju modalnog prozora.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Slot koji sadrži sadržaj zaglavlja modalnog prozora."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "Slot koji sadrži sadržaj zaglavlja modalnog prozora.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: stupci obrasca",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "Svojstva <code>class-columns</code> i <code>class-column-default</code> prosljeđuju se unutarnjoj komponenti <code>AForm</code>. U ovom primjeru polja za ime i e-poštu zauzimaju po pola širine, a na dodirnim uređajima prikazuju se jedno ispod drugoga. Polje za bilješke definira vlastiti <code>classColumn</code> i zauzima cijelu širinu. Ako se ta svojstva izostave, primjenjuju se zadane vrijednosti komponente <code>AForm</code>."
 }

@@ -66,5 +66,7 @@
   "_A_MODAL_SLOTS_MODAL_BODY_DESCRIPTION_": "A slot containing the main content of the modal window.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_APPEND_DESCRIPTION_": "A slot displayed after the save and close buttons in the modal footer.",
   "_A_MODAL_SLOTS_MODAL_FOOTER_PREPEND_DESCRIPTION_": "A slot displayed before the save and close buttons in the modal footer.",
-  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "A slot containing the content of the modal header."
+  "_A_MODAL_SLOTS_MODAL_HEADER_DESCRIPTION_": "A slot containing the content of the modal header.",
+  "_A_MODAL_FORM_COLUMNS_HEADER_": "AModalForm: form columns",
+  "_A_MODAL_FORM_COLUMNS_DESCRIPTION_": "The <code>class-columns</code> and <code>class-column-default</code> props are passed to the inner <code>AForm</code>. In this example, the name and email fields occupy half the width and stack on touch devices. The notes field defines its own <code>classColumn</code> and spans the full width. If these props are omitted, the defaults from <code>AForm</code> apply."
 }
