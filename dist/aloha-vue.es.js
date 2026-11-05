@@ -7618,6 +7618,11 @@ var S_ = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Object,
 			required: !1,
 			default: void 0
+		},
+		urlTemplateData: {
+			type: Object,
+			required: !1,
+			default: void 0
 		}
 	},
 	emits: [
@@ -7629,17 +7634,17 @@ var S_ = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		"update:modelValue"
 	],
 	setup(e, t) {
-		let { attributesToExcludeFromRender: r } = Dg(e), { componentStyleHide: i } = lx(e), { ariaDescribedbyLocal: a, changeModel: o, errorsId: s, helpTextId: c, htmlIdLocal: l, isErrors: u, labelDescriptionId: d, onFocusin: f, onFocusout: p, rootRef: m } = _b(e, t), { textAfterLabel: h } = RL(e), { dataAll: g, dataFromRetrieve: v, dataFromServer: y, dataExtraLocal: b, dataKeyByKeyIdLocal: x, dataLocal: S, hasDataExtra: C } = FL(e), { loadDataFromServer: w, loadDataFromServerForRetrieve: T, loadDataFromServerForSearchAPI: E, loadingDataFromServer: D, loadingSearchApi: O, onSearchInApi: k, searchApiLocal: A, updateUrlPropsComputed: j, urlPropsComputed: M } = ML(e, {
+		let { attributesToExcludeFromRender: r } = Dg(e), { componentStyleHide: i } = lx(e), { ariaDescribedbyLocal: a, changeModel: o, errorsId: s, helpTextId: c, htmlIdLocal: l, isErrors: u, labelDescriptionId: d, onFocusin: f, onFocusout: p, rootRef: m } = _b(e, t), { textAfterLabel: h } = zL(e), { dataAll: g, dataFromRetrieve: v, dataFromServer: y, dataExtraLocal: b, dataKeyByKeyIdLocal: x, dataLocal: S, hasDataExtra: C } = IL(e), { loadDataFromServer: w, loadDataFromServerForRetrieve: T, loadDataFromServerForSearchAPI: E, loadingDataFromServer: D, loadingSearchApi: O, onSearchInApi: k, searchApiLocal: A, updateUrlPropsComputed: j, urlPropsComputed: M } = NL(e, {
 			changeModel: o,
 			dataExtraLocal: b,
 			dataFromRetrieve: v,
 			dataFromServer: y
-		}), { loadingLocal: N } = IL(e, { loadingDataFromServer: D });
-		PL(t, {
+		}), { loadingLocal: N } = LL(e, { loadingDataFromServer: D });
+		FL(t, {
 			dataKeyByKeyIdLocal: x,
 			dataLocal: S
 		});
-		let { dataSort: P } = NL(e, { data: S }), { dataGrouped: ee, groupsForLever: te, hasKeyGroup: ne, keyGroupArray: F } = TL(e, { data: P }), { dataGrouped: re, groupsForLever: I } = TL(e, { data: b }), ie = n(() => P.value.filter((e) => !e.__invalidEntry__)), ae = n(() => P.value.filter((e) => e.__invalidEntry__)), { dataGrouped: oe, groupsForLever: se } = TL(e, { data: ie }), { hasNotElementsExtraWithSearch: ce, hasNotElementsWithSearch: le, idForButtonSearchOutside: ue, modelSearch: de, modelSearchLowerCase: fe, modelSearchOutside: pe, onSearchOutside: me, searching: he, searchingElements: ge, searchingElementsExtra: L, searchingGroups: _e, searchingGroupsWithSearchInGroup: ve, searchOutsideOrApi: ye, searchOutsideRef: be, updateModelSearch: xe, updateModelSearchOutside: Se } = LL(e, t, {
+		let { dataSort: P } = PL(e, { data: S }), { dataGrouped: ee, groupsForLever: te, hasKeyGroup: ne, keyGroupArray: F } = TL(e, { data: P }), { dataGrouped: re, groupsForLever: I } = TL(e, { data: b }), ie = n(() => P.value.filter((e) => !e.__invalidEntry__)), ae = n(() => P.value.filter((e) => e.__invalidEntry__)), { dataGrouped: oe, groupsForLever: se } = TL(e, { data: ie }), { hasNotElementsExtraWithSearch: ce, hasNotElementsWithSearch: le, idForButtonSearchOutside: ue, modelSearch: de, modelSearchLowerCase: fe, modelSearchOutside: pe, onSearchOutside: me, searching: he, searchingElements: ge, searchingElementsExtra: L, searchingGroups: _e, searchingGroupsWithSearchInGroup: ve, searchOutsideOrApi: ye, searchOutsideRef: be, updateModelSearch: xe, updateModelSearchOutside: Se } = RL(e, t, {
 			data: P,
 			dataExtra: b,
 			groupsForLever: te,
@@ -15900,7 +15905,7 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		controlsType: {
 			type: String,
 			required: !1,
-			default: () => VL.propsDefault.controlsType,
+			default: () => HL.propsDefault.controlsType,
 			validator: (e) => [
 				"plus-minus",
 				"arrows",
@@ -15910,18 +15915,18 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		currencySymbol: {
 			type: String,
 			required: !1,
-			default: () => VL.propsDefault.currencySymbol
+			default: () => HL.propsDefault.currencySymbol
 		},
 		currencySymbolPosition: {
 			type: String,
 			required: !1,
-			default: () => VL.propsDefault.currencySymbolPosition,
+			default: () => HL.propsDefault.currencySymbolPosition,
 			validator: (e) => ["right", "left"].indexOf(e) !== -1
 		},
 		decimalDivider: {
 			type: String,
 			required: !1,
-			default: () => VL.propsDefault.decimalDivider,
+			default: () => HL.propsDefault.decimalDivider,
 			validator: (e, t) => {
 				let n = t?.thousandDivider;
 				return n ? [".", ","].indexOf(e) !== -1 && e !== n : [".", ","].indexOf(e) !== -1;
@@ -15930,7 +15935,7 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		decimalPartLength: {
 			type: Number,
 			required: !1,
-			default: () => VL.propsDefault.decimalPartLength,
+			default: () => HL.propsDefault.decimalPartLength,
 			validator: (e) => e >= 0
 		},
 		dependencies: {
@@ -15980,7 +15985,7 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		iconPrepend: {
 			type: String,
 			required: !1,
-			default: () => VL.propsDefault.iconPrepend
+			default: () => HL.propsDefault.iconPrepend
 		},
 		id: {
 			type: [String, Number],
@@ -16005,12 +16010,12 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		inputWidth: {
 			type: [String, Number],
 			required: !1,
-			default: () => VL.propsDefault.inputWidth
+			default: () => HL.propsDefault.inputWidth
 		},
 		integerPartMaxLength: {
 			type: Number,
 			required: !1,
-			default: () => VL.propsDefault.integerPartMaxLength,
+			default: () => HL.propsDefault.integerPartMaxLength,
 			validator: (e) => e > 0 && e <= 15
 		},
 		isClearButton: {
@@ -16025,7 +16030,7 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		isLabelFloat: {
 			type: Boolean,
 			required: !1,
-			default: () => VL.propsDefault.isLabelFloat
+			default: () => HL.propsDefault.isLabelFloat
 		},
 		isRender: {
 			type: Boolean,
@@ -16055,13 +16060,13 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		max: {
 			type: Number,
 			required: !1,
-			default: () => VL.propsDefault.max,
+			default: () => HL.propsDefault.max,
 			validator: (e) => e <= 999999999999999
 		},
 		min: {
 			type: Number,
 			required: !1,
-			default: () => VL.propsDefault.min
+			default: () => HL.propsDefault.min
 		},
 		modelDependencies: {
 			type: Object,
@@ -16076,7 +16081,7 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		},
 		modelUndefined: {
 			required: !1,
-			default: () => VL.propsDefault.modelUndefined
+			default: () => HL.propsDefault.modelUndefined
 		},
 		skipRequiredModelInit: {
 			type: Boolean,
@@ -16093,7 +16098,7 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 				Object
 			],
 			required: !1,
-			default: () => VL.propsDefault.placeholder
+			default: () => HL.propsDefault.placeholder
 		},
 		readonly: {
 			type: Boolean,
@@ -16121,13 +16126,13 @@ var Ub = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		step: {
 			type: Number,
 			required: !1,
-			default: () => VL.propsDefault.step,
+			default: () => HL.propsDefault.step,
 			validator: (e) => e > 0
 		},
 		thousandDivider: {
 			type: String,
 			required: !1,
-			default: () => VL.propsDefault.thousandDivider,
+			default: () => HL.propsDefault.thousandDivider,
 			validator: (e, t) => {
 				if (e === "") return !0;
 				let n = t?.decimalDivider;
@@ -17047,7 +17052,7 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		controlsType: {
 			type: String,
 			required: !1,
-			default: () => UL.propsDefault.controlsType,
+			default: () => WL.propsDefault.controlsType,
 			validator: (e) => [
 				"plus-minus",
 				"arrows",
@@ -17057,7 +17062,7 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		eAllowed: {
 			type: Boolean,
 			required: !1,
-			default: () => UL.propsDefault.eAllowed
+			default: () => WL.propsDefault.eAllowed
 		},
 		excludeRenderAttributes: {
 			type: Array,
@@ -17072,12 +17077,12 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		iconPrepend: {
 			type: String,
 			required: !1,
-			default: () => UL.propsDefault.iconPrepend
+			default: () => WL.propsDefault.iconPrepend
 		},
 		inputWidth: {
 			type: [String, Number],
 			required: !1,
-			default: () => UL.propsDefault.inputWidth
+			default: () => WL.propsDefault.inputWidth
 		},
 		isClearButton: {
 			type: Boolean,
@@ -17087,7 +17092,7 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		isLabelFloat: {
 			type: Boolean,
 			required: !1,
-			default: () => UL.propsDefault.isLabelFloat
+			default: () => WL.propsDefault.isLabelFloat
 		},
 		labelScreenReader: {
 			type: String,
@@ -17097,16 +17102,16 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		max: {
 			type: Number,
 			required: !1,
-			default: () => UL.propsDefault.max
+			default: () => WL.propsDefault.max
 		},
 		min: {
 			type: Number,
 			required: !1,
-			default: () => UL.propsDefault.min
+			default: () => WL.propsDefault.min
 		},
 		modelUndefined: {
 			required: !1,
-			default: () => UL.propsDefault.modelUndefined
+			default: () => WL.propsDefault.modelUndefined
 		},
 		placeholder: {
 			type: [
@@ -17115,12 +17120,12 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 				Object
 			],
 			required: !1,
-			default: () => UL.propsDefault.placeholder
+			default: () => WL.propsDefault.placeholder
 		},
 		precision: {
 			type: Number,
 			validator: (e) => e >= 0 && e === Number.parseInt(`${e}`, 10),
-			default: () => UL.propsDefault.precision
+			default: () => WL.propsDefault.precision
 		},
 		readonly: {
 			type: Boolean,
@@ -17143,17 +17148,17 @@ var vx = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		step: {
 			type: Number,
 			required: !1,
-			default: () => UL.propsDefault.step
+			default: () => WL.propsDefault.step
 		},
 		stepStrictly: {
 			type: Boolean,
 			required: !1,
-			default: () => UL.propsDefault.stepStrictly
+			default: () => WL.propsDefault.stepStrictly
 		},
 		type: {
 			type: String,
 			required: !1,
-			default: () => UL.propsDefault.type,
+			default: () => WL.propsDefault.type,
 			validator: (e) => [
 				"number",
 				"integerNonNegative",
@@ -19116,6 +19121,11 @@ var Qx = {
 			type: Object,
 			required: !1,
 			default: void 0
+		},
+		urlTemplateData: {
+			type: Object,
+			required: !1,
+			default: void 0
 		}
 	},
 	emits: [
@@ -19127,20 +19137,20 @@ var Qx = {
 		"updateData"
 	],
 	setup(e, t) {
-		let { attributesToExcludeFromRender: r } = Dg(e), { componentStyleHide: i } = lx(e), { textAfterLabel: a } = RL(e), { textBtnDeleteTitle: o, textBtnDownTitle: s, textBtnGroupAriaLabel: c, textBtnUpTitle: l, textDeselectAll: d, textGroupAllAriaLabel: f, textModelEmpty: p, textSelectAll: m } = Zx(e), { ariaDescribedbyLocal: h, changeModel: g, clearModel: v, errorsId: y, helpTextId: b, htmlIdLocal: x, isErrors: S, labelDescriptionId: C, onBlur: w, onFocus: T } = _b(e, t), { idForSelect: E } = Ux(e, { htmlIdLocal: x }), { dataFromRetrieve: D, dataFromServer: O, dataExtraLocal: k, dataKeyByKeyIdLocal: A, dataLocal: j, hasDataExtra: M } = FL(e), { loadDataFromServer: N, loadDataFromServerForRetrieve: P, loadDataFromServerForSearchAPI: ee, loadingDataFromServer: te, loadingSearchApi: ne, updateUrlPropsComputed: F, urlPropsComputed: re } = ML(e, {
+		let { attributesToExcludeFromRender: r } = Dg(e), { componentStyleHide: i } = lx(e), { textAfterLabel: a } = zL(e), { textBtnDeleteTitle: o, textBtnDownTitle: s, textBtnGroupAriaLabel: c, textBtnUpTitle: l, textDeselectAll: d, textGroupAllAriaLabel: f, textModelEmpty: p, textSelectAll: m } = Zx(e), { ariaDescribedbyLocal: h, changeModel: g, clearModel: v, errorsId: y, helpTextId: b, htmlIdLocal: x, isErrors: S, labelDescriptionId: C, onBlur: w, onFocus: T } = _b(e, t), { idForSelect: E } = Ux(e, { htmlIdLocal: x }), { dataFromRetrieve: D, dataFromServer: O, dataExtraLocal: k, dataKeyByKeyIdLocal: A, dataLocal: j, hasDataExtra: M } = IL(e), { loadDataFromServer: N, loadDataFromServerForRetrieve: P, loadDataFromServerForSearchAPI: ee, loadingDataFromServer: te, loadingSearchApi: ne, updateUrlPropsComputed: F, urlPropsComputed: re } = NL(e, {
 			changeModel: g,
 			dataExtraLocal: k,
 			dataFromRetrieve: D,
 			dataFromServer: O
-		}), { loadingLocal: I } = IL(e, { loadingDataFromServer: te });
-		PL(t, {
+		}), { loadingLocal: I } = LL(e, { loadingDataFromServer: te });
+		FL(t, {
 			dataKeyByKeyIdLocal: A,
 			dataLocal: j
 		});
 		let { changeModelFromSelect: ie, deleteItem: ae, modelValueFiltered: oe, onDownItem: se, onUpItem: ce } = Gx(e, {
 			changeModel: g,
 			dataKeyByKeyIdLocal: A
-		}), { dataSort: le } = NL(e, { data: j }), { dataExtraLocalFiltered: ue, dataSortFiltered: de } = Wx(e, {
+		}), { dataSort: le } = PL(e, { data: j }), { dataExtraLocalFiltered: ue, dataSortFiltered: de } = Wx(e, {
 			dataExtraLocal: k,
 			dataSort: le,
 			modelValueFiltered: oe
@@ -20154,6 +20164,11 @@ var aS = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			type: Object,
 			required: !1,
 			default: void 0
+		},
+		urlTemplateData: {
+			type: Object,
+			required: !1,
+			default: void 0
 		}
 	},
 	emits: [
@@ -20165,17 +20180,17 @@ var aS = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 		"updateData"
 	],
 	setup(e, t) {
-		let { attributesToExcludeFromRender: r } = Dg(e), { componentStyleHide: i } = lx(e), { ariaDescribedbyLocal: a, changeModel: o, errorsId: s, helpTextId: c, htmlIdLocal: l, isErrors: u, labelDescriptionId: d, onFocusin: f, onFocusout: p, rootRef: m } = _b(e, t), { textAfterLabel: h } = RL(e), { dataFromRetrieve: g, dataFromServer: v, dataExtraLocal: y, dataKeyByKeyIdLocal: b, dataLocal: x, hasDataExtra: S } = FL(e), { loadDataFromServer: C, loadDataFromServerForRetrieve: w, loadDataFromServerForSearchAPI: T, loadingDataFromServer: E, loadingSearchApi: D, onSearchInApi: O, searchApiLocal: k, updateUrlPropsComputed: A, urlPropsComputed: j } = ML(e, {
+		let { attributesToExcludeFromRender: r } = Dg(e), { componentStyleHide: i } = lx(e), { ariaDescribedbyLocal: a, changeModel: o, errorsId: s, helpTextId: c, htmlIdLocal: l, isErrors: u, labelDescriptionId: d, onFocusin: f, onFocusout: p, rootRef: m } = _b(e, t), { textAfterLabel: h } = zL(e), { dataFromRetrieve: g, dataFromServer: v, dataExtraLocal: y, dataKeyByKeyIdLocal: b, dataLocal: x, hasDataExtra: S } = IL(e), { loadDataFromServer: C, loadDataFromServerForRetrieve: w, loadDataFromServerForSearchAPI: T, loadingDataFromServer: E, loadingSearchApi: D, onSearchInApi: O, searchApiLocal: k, updateUrlPropsComputed: A, urlPropsComputed: j } = NL(e, {
 			changeModel: o,
 			dataExtraLocal: y,
 			dataFromRetrieve: g,
 			dataFromServer: v
-		}), { loadingLocal: M } = IL(e, { loadingDataFromServer: E });
-		PL(t, {
+		}), { loadingLocal: M } = LL(e, { loadingDataFromServer: E });
+		FL(t, {
 			dataKeyByKeyIdLocal: b,
 			dataLocal: x
 		});
-		let { dataSort: N } = NL(e, { data: x }), { dataGrouped: P, groupsForLever: ee, hasKeyGroup: te, keyGroupArray: ne } = TL(e, { data: N }), { dataGrouped: F, groupsForLever: re } = TL(e, { data: y }), I = n(() => N.value.filter((e) => !e.__invalidEntry__)), ie = n(() => N.value.filter((e) => e.__invalidEntry__)), { dataGrouped: ae, groupsForLever: oe } = TL(e, { data: I }), { hasNotElementsExtraWithSearch: se, hasNotElementsWithSearch: ce, idForButtonSearchOutside: le, modelSearch: ue, modelSearchLowerCase: de, modelSearchOutside: fe, onSearchOutside: pe, searching: me, searchingElements: he, searchingElementsExtra: ge, searchingGroups: L, searchingGroupsWithSearchInGroup: _e, searchOutsideOrApi: ve, searchOutsideRef: ye, updateModelSearch: be, updateModelSearchOutside: xe } = LL(e, t, {
+		let { dataSort: N } = PL(e, { data: x }), { dataGrouped: P, groupsForLever: ee, hasKeyGroup: te, keyGroupArray: ne } = TL(e, { data: N }), { dataGrouped: F, groupsForLever: re } = TL(e, { data: y }), I = n(() => N.value.filter((e) => !e.__invalidEntry__)), ie = n(() => N.value.filter((e) => e.__invalidEntry__)), { dataGrouped: ae, groupsForLever: oe } = TL(e, { data: I }), { hasNotElementsExtraWithSearch: se, hasNotElementsWithSearch: ce, idForButtonSearchOutside: le, modelSearch: ue, modelSearchLowerCase: de, modelSearchOutside: fe, onSearchOutside: pe, searching: me, searchingElements: he, searchingElementsExtra: ge, searchingGroups: L, searchingGroupsWithSearchInGroup: _e, searchOutsideOrApi: ve, searchOutsideRef: ye, updateModelSearch: be, updateModelSearchOutside: xe } = RL(e, t, {
 			data: N,
 			dataExtra: y,
 			groupsForLever: ee,
@@ -20693,7 +20708,7 @@ var dS = {
 		attributesFieldset: {
 			type: Object,
 			required: !1,
-			default: () => JL.propsDefault.attributesFieldset
+			default: () => YL.propsDefault.attributesFieldset
 		},
 		attributesRoute: {
 			type: Object,
@@ -20708,17 +20723,17 @@ var dS = {
 		classColumn: {
 			type: [String, Object],
 			required: !1,
-			default: () => JL.propsDefault.classColumn
+			default: () => YL.propsDefault.classColumn
 		},
 		classColumns: {
 			type: [String, Object],
 			required: !1,
-			default: () => JL.propsDefault.classColumns
+			default: () => YL.propsDefault.classColumns
 		},
 		classFieldset: {
 			type: [String, Object],
 			required: !1,
-			default: () => JL.propsDefault.classFieldset
+			default: () => YL.propsDefault.classFieldset
 		},
 		disabled: {
 			type: Boolean,
@@ -20732,12 +20747,12 @@ var dS = {
 		excludeRenderAttributes: {
 			type: Array,
 			required: !1,
-			default: () => JL.propsDefault.excludeRenderAttributes
+			default: () => YL.propsDefault.excludeRenderAttributes
 		},
 		extra: {
 			type: Object,
 			required: !1,
-			default: () => JL.propsDefault.extra
+			default: () => YL.propsDefault.extra
 		},
 		filterRoutes: {
 			type: Function,
@@ -20747,7 +20762,7 @@ var dS = {
 		hasBorder: {
 			type: Boolean,
 			required: !1,
-			default: () => JL.propsDefault.hasBorder
+			default: () => YL.propsDefault.hasBorder
 		},
 		helpText: {
 			type: String,
@@ -20757,22 +20772,22 @@ var dS = {
 		helpTextParam: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.helpTextParam
+			default: () => YL.propsDefault.helpTextParam
 		},
 		helpTextQuery: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.helpTextQuery
+			default: () => YL.propsDefault.helpTextQuery
 		},
 		helpTextRoute: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.helpTextRoute
+			default: () => YL.propsDefault.helpTextRoute
 		},
 		helpTextTarget: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.helpTextTarget
+			default: () => YL.propsDefault.helpTextTarget
 		},
 		htmlId: {
 			type: String,
@@ -20801,7 +20816,7 @@ var dS = {
 		keyIdRoute: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.keyIdRoute
+			default: () => YL.propsDefault.keyIdRoute
 		},
 		keyLabelCallbackRoute: {
 			type: Function,
@@ -20811,7 +20826,7 @@ var dS = {
 		keyLabelRoute: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.keyLabelRoute
+			default: () => YL.propsDefault.keyLabelRoute
 		},
 		label: {
 			type: [String, Number],
@@ -20821,7 +20836,7 @@ var dS = {
 		labelClass: {
 			type: [String, Object],
 			required: !1,
-			default: () => JL.propsDefault.labelClass
+			default: () => YL.propsDefault.labelClass
 		},
 		labelDescription: {
 			type: String,
@@ -20831,17 +20846,17 @@ var dS = {
 		labelParam: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.labelParam
+			default: () => YL.propsDefault.labelParam
 		},
 		labelQuery: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.labelQuery
+			default: () => YL.propsDefault.labelQuery
 		},
 		labelRoute: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.labelRoute
+			default: () => YL.propsDefault.labelRoute
 		},
 		labelScreenReader: {
 			type: [String, Number],
@@ -20851,7 +20866,7 @@ var dS = {
 		labelTarget: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.labelTarget
+			default: () => YL.propsDefault.labelTarget
 		},
 		modelUndefined: {
 			type: [
@@ -20889,27 +20904,27 @@ var dS = {
 		readonlyDefault: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.readonlyDefault
+			default: () => YL.propsDefault.readonlyDefault
 		},
 		readonlyDefaultParam: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.readonlyDefaultParam
+			default: () => YL.propsDefault.readonlyDefaultParam
 		},
 		readonlyDefaultQuery: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.readonlyDefaultQuery
+			default: () => YL.propsDefault.readonlyDefaultQuery
 		},
 		readonlyDefaultRoute: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.readonlyDefaultRoute
+			default: () => YL.propsDefault.readonlyDefaultRoute
 		},
 		readonlyDefaultTarget: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.readonlyDefaultTarget
+			default: () => YL.propsDefault.readonlyDefaultTarget
 		},
 		required: {
 			type: Boolean,
@@ -20919,7 +20934,7 @@ var dS = {
 		routes: {
 			type: Array,
 			required: !1,
-			default: () => JL.propsDefault.routes
+			default: () => YL.propsDefault.routes
 		},
 		slotName: {
 			type: String,
@@ -20929,13 +20944,13 @@ var dS = {
 		sortOrderRoute: {
 			type: String,
 			required: !1,
-			default: () => JL.propsDefault.sortOrderRoute,
+			default: () => YL.propsDefault.sortOrderRoute,
 			validator: (e) => ["asc", "desc"].indexOf(e) !== -1
 		},
 		targets: {
 			type: Array,
 			required: !1,
-			default: () => JL.propsDefault.targets
+			default: () => YL.propsDefault.targets
 		},
 		type: {
 			type: String,
@@ -22030,6 +22045,11 @@ var X = { propsDefault: {
 			type: Object,
 			required: !1,
 			default: void 0
+		},
+		urlTemplateData: {
+			type: Object,
+			required: !1,
+			default: void 0
 		}
 	},
 	emits: [
@@ -22041,21 +22061,21 @@ var X = { propsDefault: {
 		"updateData"
 	],
 	setup(e, t) {
-		let r = d(!1), i = p(e, "errorIcon"), { attributesToExcludeFromRender: a } = Dg(e), { componentStyleHide: o } = lx(e), { ariaDescribedbyLocal: l, changeModel: u, clearModel: f, errorsId: m, helpTextId: h, htmlIdLocal: g, isErrors: v, labelDescriptionId: y, onBlur: b, onFocus: x } = _b(e, t), S = n(() => !!(v.value && i.value)), { isModeOnePerGroup: C } = xS(e), { closePopup: w, openPopup: T } = Dy(), { dataAll: E, dataFromRetrieve: D, dataFromServer: O, dataExtraLocal: k, dataKeyByKeyIdLocal: A, dataLocal: j, hasDataExtra: M } = FL(e), { loadDataFromServer: N, loadDataFromServerForRetrieve: P, loadDataFromServerForSearchAPI: ee, loadingDataFromServer: te, loadingSearchApi: ne, onSearchInApi: F, searchApiLocal: re, updateUrlPropsComputed: I, urlPropsComputed: ie } = ML(e, {
+		let r = d(!1), i = p(e, "errorIcon"), { attributesToExcludeFromRender: a } = Dg(e), { componentStyleHide: o } = lx(e), { ariaDescribedbyLocal: l, changeModel: u, clearModel: f, errorsId: m, helpTextId: h, htmlIdLocal: g, isErrors: v, labelDescriptionId: y, onBlur: b, onFocus: x } = _b(e, t), S = n(() => !!(v.value && i.value)), { isModeOnePerGroup: C } = xS(e), { closePopup: w, openPopup: T } = Dy(), { dataAll: E, dataFromRetrieve: D, dataFromServer: O, dataExtraLocal: k, dataKeyByKeyIdLocal: A, dataLocal: j, hasDataExtra: M } = IL(e), { loadDataFromServer: N, loadDataFromServerForRetrieve: P, loadDataFromServerForSearchAPI: ee, loadingDataFromServer: te, loadingSearchApi: ne, onSearchInApi: F, searchApiLocal: re, updateUrlPropsComputed: I, urlPropsComputed: ie } = NL(e, {
 			changeModel: u,
 			dataExtraLocal: k,
 			dataFromRetrieve: D,
 			dataFromServer: O
-		}), { loadingLocal: ae } = IL(e, { loadingDataFromServer: te }), { addPopperContainerInBody: oe, popperContainerIdSelector: se } = lg(e);
-		PL(t, {
+		}), { loadingLocal: ae } = LL(e, { loadingDataFromServer: te }), { addPopperContainerInBody: oe, popperContainerIdSelector: se } = lg(e);
+		FL(t, {
 			dataKeyByKeyIdLocal: A,
 			dataLocal: j
 		});
-		let { disabledAttribut: ce, disabledLocal: le, disabledLocalAttribut: ue, isExclusiveOptionSelected: de } = vS(e), { exclusiveOption: fe, exclusiveDataKeyByKeyIdLocal: pe } = bS(e), { isModelLengthLimitExceeded: me, isModelValue: he, isMultiselect: ge, limitExceededModelData: L, modelValueLength: _e, modelValueMultiselectFiltered: ve } = SS(e, { dataKeyByKeyIdLocal: A }), { ariaLabelledby: ye, containerId: be, idForList: xe, tabindex: Se } = _S(e, { htmlIdLocal: g }), { dataSort: Ce } = NL(e, { data: j }), { dataExtraWithoutSelected: we, dataSelected: Te, dataWithoutSelected: Ee, exclusiveOptionWithoutSelected: De } = wS(e, {
+		let { disabledAttribut: ce, disabledLocal: le, disabledLocalAttribut: ue, isExclusiveOptionSelected: de } = vS(e), { exclusiveOption: fe, exclusiveDataKeyByKeyIdLocal: pe } = bS(e), { isModelLengthLimitExceeded: me, isModelValue: he, isMultiselect: ge, limitExceededModelData: L, modelValueLength: _e, modelValueMultiselectFiltered: ve } = SS(e, { dataKeyByKeyIdLocal: A }), { ariaLabelledby: ye, containerId: be, idForList: xe, tabindex: Se } = _S(e, { htmlIdLocal: g }), { dataSort: Ce } = PL(e, { data: j }), { dataExtraWithoutSelected: we, dataSelected: Te, dataWithoutSelected: Ee, exclusiveOptionWithoutSelected: De } = wS(e, {
 			data: Ce,
 			dataExtra: k,
 			exclusiveOption: fe
-		}), { dataGrouped: Oe, groupsForLever: ke, hasKeyGroup: Ae, keyGroupArray: je } = TL(e, { data: Ee }), { dataGrouped: Me, groupsForLever: Ne } = TL(e, { data: we }), { groupsForLever: Pe } = TL(e, { data: Ce }), { groupsForLever: Fe } = TL(e, { data: k }), { dataGrouped: Ie } = TL(e, { data: E }), Le = n(() => Ee.value.filter((e) => !e.__invalidEntry__)), Re = n(() => Ee.value.filter((e) => e.__invalidEntry__)), { dataGrouped: ze, groupsForLever: Be } = TL(e, { data: Le }), { hasNotElementsExclusiveWithSearch: R, hasNotElementsExtraWithSearch: Ve, hasNotElementsWithSearch: He, idForButtonSearchOutside: Ue, modelSearch: We, modelSearchLowerCase: Ge, modelSearchOutside: Ke, onSearchOutside: qe, searching: Je, searchingElements: Ye, searchingElementsExclusive: Xe, searchingElementsExtra: Ze, searchingGroupsWithSearchInGroup: Qe, searchOutsideOrApi: $e, searchOutsideRef: et, updateModelSearch: tt, updateModelSearchOutside: nt } = LL(e, t, {
+		}), { dataGrouped: Oe, groupsForLever: ke, hasKeyGroup: Ae, keyGroupArray: je } = TL(e, { data: Ee }), { dataGrouped: Me, groupsForLever: Ne } = TL(e, { data: we }), { groupsForLever: Pe } = TL(e, { data: Ce }), { groupsForLever: Fe } = TL(e, { data: k }), { dataGrouped: Ie } = TL(e, { data: E }), Le = n(() => Ee.value.filter((e) => !e.__invalidEntry__)), Re = n(() => Ee.value.filter((e) => e.__invalidEntry__)), { dataGrouped: ze, groupsForLever: Be } = TL(e, { data: Le }), { hasNotElementsExclusiveWithSearch: R, hasNotElementsExtraWithSearch: Ve, hasNotElementsWithSearch: He, idForButtonSearchOutside: Ue, modelSearch: We, modelSearchLowerCase: Ge, modelSearchOutside: Ke, onSearchOutside: qe, searching: Je, searchingElements: Ye, searchingElementsExclusive: Xe, searchingElementsExtra: Ze, searchingGroupsWithSearchInGroup: Qe, searchOutsideOrApi: $e, searchOutsideRef: et, updateModelSearch: tt, updateModelSearchOutside: nt } = RL(e, t, {
 			data: Ce,
 			dataExtra: k,
 			exclusiveOption: fe,
@@ -28402,7 +28422,7 @@ var LC = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" f
 			fieldset: f("AFieldset"),
 			...ob.components,
 			...ob.containerComponents
-		}), { componentStyleHide: i } = lx(e), { textAfterLabel: a } = RL(e), { ariaDescribedbyLocal: o, errorsId: s, helpTextId: c, htmlIdLocal: l, isErrors: u, labelDescriptionId: d } = _b(e, t), { onUpdateModelLocal: m } = Sb(e, t), h = ({ item: e, dataKeyByKeyId: n }) => {
+		}), { componentStyleHide: i } = lx(e), { textAfterLabel: a } = zL(e), { ariaDescribedbyLocal: o, errorsId: s, helpTextId: c, htmlIdLocal: l, isErrors: u, labelDescriptionId: d } = _b(e, t), { onUpdateModelLocal: m } = Sb(e, t), h = ({ item: e, dataKeyByKeyId: n }) => {
 			t.emit("updateData", {
 				item: e,
 				dataKeyByKeyId: n
@@ -35574,6 +35594,16 @@ var xD = {
 			required: !1,
 			default: void 0
 		},
+		classColumns: {
+			type: [String, Object],
+			required: !1,
+			default: void 0
+		},
+		classColumnDefault: {
+			type: [String, Object],
+			required: !1,
+			default: void 0
+		},
 		classExtra: {
 			type: [String, Object],
 			required: !1,
@@ -35893,6 +35923,8 @@ var xD = {
 				}),
 				this.hasDataForm && i(_T, {
 					alwaysTranslate: this.alwaysTranslate,
+					classColumns: this.classColumns,
+					classColumnDefault: this.classColumnDefault,
 					modelValue: this.modelValue,
 					data: this.dataForm,
 					errors: this.errors,
@@ -50534,8 +50566,17 @@ function OL(e, { emit: t }) {
 	};
 }
 //#endregion
+//#region src/ui/compositionApi/UiUrlAPI.js
+function kL(e) {
+	let t = p(e, "url"), r = p(e, "urlTemplateData"), { replaceText: i } = Jp();
+	return { urlLocal: n(() => !t.value?.includes("{{") || !t.value.includes("}}") ? t.value : i({
+		text: t.value,
+		object: r.value
+	})) };
+}
+//#endregion
 //#region src/plugins/ADataRetrievePlugin.js
-var kL = ({ getListHttp: e, isDataSimpleArray: t = !1, keyId: n = "value", keyLabel: r = "label", modelArray: i = [], url: a, urlParams: o = {} } = {}) => !a || !i.length ? Promise.resolve([]) : e({
+var AL = ({ getListHttp: e, isDataSimpleArray: t = !1, keyId: n = "value", keyLabel: r = "label", modelArray: i = [], url: a, urlParams: o = {} } = {}) => !a || !i.length ? Promise.resolve([]) : e({
 	url: a,
 	urlParams: {
 		...o || {},
@@ -50545,31 +50586,31 @@ var kL = ({ getListHttp: e, isDataSimpleArray: t = !1, keyId: n = "value", keyLa
 }).then((e) => t ? _l(e || [], (e) => ({
 	[W]: z(e, n, e),
 	[op]: z(e, r, z(e, n, e))
-})) : e || []), AL = d({ callbacks: { retrieve: kL } }), jL = { install: (e, { callbacks: t = {} } = {}) => {
-	AL.value.callbacks = {
-		...AL.value.callbacks,
+})) : e || []), jL = d({ callbacks: { retrieve: AL } }), ML = { install: (e, { callbacks: t = {} } = {}) => {
+	jL.value.callbacks = {
+		...jL.value.callbacks,
 		...t
 	};
 } };
 //#endregion
 //#region src/ui/compositionApi/UiDataFromServerAPI.js
-function ML(e, { changeModel: t = () => {}, dataExtraLocal: r = n(() => []), dataFromRetrieve: i = d([]), dataFromServer: a = d([]) } = {}) {
-	let o = p(e, "apiSaveId"), s = p(e, "data"), c = p(e, "isDataSimpleArray"), l = p(e, "keyId"), u = p(e, "keyLabel"), f = p(e, "searchApi"), m = p(e, "modelValue"), h = p(e, "searchApiKey"), g = p(e, "type"), v = p(e, "url"), y = p(e, "urlRetrieve"), b = p(e, "urlParams"), x = p(e, "urlRetrieveParams"), S = d(!1), C = d(void 0), w = d(0), { getListHttp: T } = nL(), E = () => {
+function NL(e, { changeModel: t = () => {}, dataExtraLocal: r = n(() => []), dataFromRetrieve: i = d([]), dataFromServer: a = d([]) } = {}) {
+	let o = p(e, "apiSaveId"), s = p(e, "data"), c = p(e, "isDataSimpleArray"), l = p(e, "keyId"), u = p(e, "keyLabel"), f = p(e, "searchApi"), m = p(e, "modelValue"), h = p(e, "searchApiKey"), g = p(e, "type"), v = p(e, "urlRetrieve"), y = p(e, "urlParams"), b = p(e, "urlRetrieveParams"), { urlLocal: x } = kL(e), S = d(!1), C = d(void 0), w = d(0), { getListHttp: T } = nL(), E = () => {
 		w.value += 1, C.value = !0;
 	}, D = () => {
 		w.value = Math.max(w.value - 1, 0), C.value = w.value > 0;
-	}, O = n(() => !!(f.value && h.value && v.value)), k = n(() => AL.value.callbacks.retrieve), A = n(() => y.value || v.value), j = n(() => H(x.value) ? b.value : x.value), M = n(() => !!(A.value && R(k.value))), N = n(() => [
+	}, O = n(() => !!(f.value && h.value && x.value)), k = n(() => jL.value.callbacks.retrieve), A = n(() => v.value || x.value), j = n(() => H(b.value) ? y.value : b.value), M = n(() => !!(A.value && R(k.value))), N = n(() => [
 		o.value,
-		v.value,
-		b.value
+		x.value,
+		y.value
 	]), P = n(() => [A.value, j.value]), ee = (e) => c.value ? Wr(e) ? z(e, W, z(e, l.value)) : e : z(e, l.value), te = () => a.value.length ? a.value : s.value || [], ne = (e) => $u(_l(e, (e) => Or(ee(e)))).map((t) => fl(e, (e) => Or(ee(e)) === t)), F = () => ne([...te(), ...i.value]), re = () => {
-		if (!v.value || O.value) {
+		if (!x.value || O.value) {
 			a.value = [];
 			return;
 		}
 		E(), T({
-			url: v.value,
-			urlParams: b.value,
+			url: x.value,
+			urlParams: y.value,
 			apiSaveId: o.value
 		}).then((e) => (a.value = e, de(), me())).finally(() => {
 			D();
@@ -50595,7 +50636,7 @@ function ML(e, { changeModel: t = () => {}, dataExtraLocal: r = n(() => []), dat
 			let t = ee(e), i = r.indexOf(t);
 			i !== -1 && (r.splice(i, 1), n.push(e));
 		}), n.push(...e), a.value = ne(n);
-	}, le = n(() => !O.value && !!(v.value || s.value?.length)), ue = ({ response: e = [] } = {}) => _l(e, (e) => le.value ? Wr(e) ? {
+	}, le = n(() => !O.value && !!(x.value || s.value?.length)), ue = ({ response: e = [] } = {}) => _l(e, (e) => le.value ? Wr(e) ? {
 		...e,
 		__invalidEntry__: !0
 	} : {
@@ -50612,9 +50653,9 @@ function ML(e, { changeModel: t = () => {}, dataExtraLocal: r = n(() => []), dat
 	}
 	let fe = ({ search: e, data: t = [] }) => {
 		O.value && (S.value = !0, T({
-			url: v.value,
+			url: x.value,
 			urlParams: {
-				...b.value || {},
+				...y.value || {},
 				[h.value]: e
 			}
 		}).then((e) => {
@@ -50631,12 +50672,12 @@ function ML(e, { changeModel: t = () => {}, dataExtraLocal: r = n(() => []), dat
 		if (e = l.value === "pk" ? cl(oe.value, (e) => !H(e)) : B(oe.value), !e.length) return;
 		E();
 		let t = {
-			...b.value,
+			...y.value,
 			[l.value]: e,
 			limit: e.length
 		};
 		return T({
-			url: v.value,
+			url: x.value,
 			urlParams: t
 		}).then((e) => {
 			i.value = [], a.value = e || [];
@@ -50672,7 +50713,7 @@ function ML(e, { changeModel: t = () => {}, dataExtraLocal: r = n(() => []), dat
 	}), _(P, (e, t) => {
 		jl(e, t) || (i.value = [], me());
 	}), _(s, (e, t) => {
-		!v.value && !jl(e, t) && (de(), me());
+		!x.value && !jl(e, t) && (de(), me());
 	}, { deep: !0 }), {
 		loadDataFromServer: re,
 		loadDataFromServerForRetrieve: me,
@@ -50687,13 +50728,13 @@ function ML(e, { changeModel: t = () => {}, dataExtraLocal: r = n(() => []), dat
 }
 //#endregion
 //#region src/ui/compositionApi/UiDataSortAPI.js
-function NL(e, { data: t = n(() => []) }) {
+function PL(e, { data: t = n(() => []) }) {
 	let r = p(e, "sortOrder");
 	return { dataSort: n(() => r.value ? Kf(t.value, [op], [r.value]) : t.value) };
 }
 //#endregion
 //#region src/ui/compositionApi/UiDataWatchEmitAPI.js
-function PL({ emit: e }, { dataKeyByKeyIdLocal: t = n(() => ({})), dataLocal: r = n(() => ({})) }) {
+function FL({ emit: e }, { dataKeyByKeyIdLocal: t = n(() => ({})), dataLocal: r = n(() => ({})) }) {
 	_(r, () => {
 		e("updateData", { dataKeyByKeyId: t.value });
 	}, {
@@ -50703,7 +50744,7 @@ function PL({ emit: e }, { dataKeyByKeyIdLocal: t = n(() => ({})), dataLocal: r 
 }
 //#endregion
 //#region src/ui/compositionApi/UiDataWithKeyIdAndLabelAPI.js
-function FL(e) {
+function IL(e) {
 	let t = p(e, "alwaysTranslate"), r = p(e, "data"), i = p(e, "dataExtra"), o = p(e, "isDataSimpleArray"), s = p(e, "keyId"), c = p(e, "keyLabel"), l = p(e, "keyLabelCallback"), u = p(e, "mergeData"), f = p(e, "searchTextInHtml"), m = p(e, "translateData"), h = a(sx, !1), g = d([]), _ = d([]), v = n(() => Bf(i.value)), y = ({ _data: e }) => (V(e, (e) => {
 		e[sp] = Wf(e[op]);
 	}), e), b = ({ _data: e, _isArrayOfArrays: n = !1 }) => {
@@ -50819,13 +50860,13 @@ function FL(e) {
 }
 //#endregion
 //#region src/ui/compositionApi/UiLoadingAPI.js
-function IL(e, { loadingDataFromServer: t = d(!1) }) {
+function LL(e, { loadingDataFromServer: t = d(!1) }) {
 	let r = p(e, "loading");
 	return { loadingLocal: n(() => !!(r.value || t.value)) };
 }
 //#endregion
 //#region src/ui/compositionApi/UiSearchAPI.js
-function LL(e, { emit: t }, { data: r = n(() => []), dataExtra: i = n(() => []), exclusiveOption: a = n(() => void 0), groupsForLever: o = n(() => void 0), groupsForLeverExtra: s = n(() => void 0), hasKeyGroup: c = n(() => !1), htmlIdLocal: l = n(() => ""), keyGroupArray: u = n(() => []), onSearchInApi: f = () => {}, searchApiLocal: m = n(() => !1) }) {
+function RL(e, { emit: t }, { data: r = n(() => []), dataExtra: i = n(() => []), exclusiveOption: a = n(() => void 0), groupsForLever: o = n(() => void 0), groupsForLeverExtra: s = n(() => void 0), hasKeyGroup: c = n(() => !1), htmlIdLocal: l = n(() => ""), keyGroupArray: u = n(() => []), onSearchInApi: f = () => {}, searchApiLocal: m = n(() => !1) }) {
 	let h = p(e, "searchInGroup"), g = p(e, "searchOutside"), _ = p(e, "searchTextInHtml"), v = p(e, "searchTimeout"), y = d(!1), b = d(""), x = d(""), S = d(!1), C = d({}), w = d({}), T = d({}), E = d({}), D = d({}), O = d(void 0), k = n(() => !!(g.value || m.value)), A = n(() => `${l.value}_search_global`), j = n(() => qu(b.value || "")), M = n(() => rl(j.value)), N = n(() => new RegExp(M.value, "gi")), P = () => {
 		let e = !1;
 		if (!h.value || !o.value && !s.value) {
@@ -50909,22 +50950,22 @@ function LL(e, { emit: t }, { data: r = n(() => []), dataExtra: i = n(() => []),
 }
 //#endregion
 //#region src/ui/compositionApi/UiTextAfterLabelAPI.js
-function RL(e) {
+function zL(e) {
 	let t = p(e, "required");
 	return { textAfterLabel: n(() => t.value ? "*" : "") };
 }
 //#endregion
 //#region src/plugins/ARemPxPlugin.js
-var zL = { install(e, { changeFontSize: t = () => {}, defaultRemPx: n = 16 } = {}) {
+var BL = { install(e, { changeFontSize: t = () => {}, defaultRemPx: n = 16 } = {}) {
 	if (hv.value = n, !O()) return;
 	let r = document.createElement("div");
 	r.style.position = "absolute", r.style.visibility = "hidden", r.style.height = "1rem", r.style.width = "1rem", document.body.appendChild(r), new ResizeObserver(() => {
 		let e = r.offsetHeight;
 		e !== mv.value && (mv.value = e, t(e));
 	}).observe(r);
-} }, BL = { install: (e, { axiosCreateOptions: t = {}, baseUrl: n = "/api/", errorCallbacks: r = {}, headerParams: i = {}, setUrlForArray: a = void 0 } = {}) => {
+} }, VL = { install: (e, { axiosCreateOptions: t = {}, baseUrl: n = "/api/", errorCallbacks: r = {}, headerParams: i = {}, setUrlForArray: a = void 0 } = {}) => {
 	YI({ axiosCreateOptions: t }), XI({ baseUrl: n }), ZI({ errorCallbacks: r }), QI({ headerParams: i }), R(a) && (JI.value.setUrlForArray = a);
-} }, VL = { propsDefault: {
+} }, HL = { propsDefault: {
 	controlsType: "none",
 	currencySymbol: "€",
 	currencySymbolPosition: "right",
@@ -50940,12 +50981,12 @@ var zL = { install(e, { changeFontSize: t = () => {}, defaultRemPx: n = 16 } = {
 	placeholder: void 0,
 	step: 1,
 	thousandDivider: "."
-} }, HL = { install: (e, { propsDefault: t = {} } = {}) => {
-	VL.propsDefault = {
-		...VL.propsDefault,
+} }, UL = { install: (e, { propsDefault: t = {} } = {}) => {
+	HL.propsDefault = {
+		...HL.propsDefault,
 		...t
 	};
-} }, UL = { propsDefault: {
+} }, WL = { propsDefault: {
 	controlsType: "plus-minus",
 	eAllowed: !1,
 	iconPrepend: void 0,
@@ -50959,20 +51000,20 @@ var zL = { install(e, { changeFontSize: t = () => {}, defaultRemPx: n = 16 } = {
 	step: 1,
 	stepStrictly: void 0,
 	type: "number"
-} }, WL = { install: (e, { propsDefault: t = {} } = {}) => {
-	UL.propsDefault = {
-		...UL.propsDefault,
+} }, GL = { install: (e, { propsDefault: t = {} } = {}) => {
+	WL.propsDefault = {
+		...WL.propsDefault,
 		...t
 	};
-} }, GL = { install: (e, t) => {
+} }, KL = { install: (e, t) => {
 	e.provide("$aloha", t);
-} }, KL = { install: (e, { breakpoint: t } = {}) => {
+} }, qL = { install: (e, { breakpoint: t } = {}) => {
 	A.value = t, O() && (j(window.innerWidth <= A.value), window.addEventListener("resize", () => {
 		window.innerWidth > A.value ? k.value && j(!1) : k.value || j(!0);
 	}));
-} }, qL = { install: (e, t = "") => {
+} }, JL = { install: (e, t = "") => {
 	oO(t);
-} }, JL = { propsDefault: {
+} }, YL = { propsDefault: {
 	attributesFieldset: {},
 	classColumn: "a_column a_column_12",
 	classColumns: "a_columns a_columns_count_12 a_columns_gap_y_1",
@@ -51017,7 +51058,7 @@ var zL = { install(e, { changeFontSize: t = () => {}, defaultRemPx: n = 16 } = {
 		}
 	]
 } };
-function YL({ routes: e = [], excludedPathRoutes: t = [] }) {
+function XL({ routes: e = [], excludedPathRoutes: t = [] }) {
 	let n = [], r = {};
 	return t.length && V(t, (e) => {
 		r[e] = !0;
@@ -51030,11 +51071,11 @@ function YL({ routes: e = [], excludedPathRoutes: t = [] }) {
 		});
 	}), n;
 }
-var XL = { install: (e, { propsDefault: t = {}, excludedPathRoutes: n = [] } = {}) => {
-	JL.propsDefault = {
-		...JL.propsDefault,
+var ZL = { install: (e, { propsDefault: t = {}, excludedPathRoutes: n = [] } = {}) => {
+	YL.propsDefault = {
+		...YL.propsDefault,
 		...t,
-		routes: YL({
+		routes: XL({
 			routes: t.routes,
 			excludedPathRoutes: n
 		})
@@ -51042,7 +51083,7 @@ var XL = { install: (e, { propsDefault: t = {}, excludedPathRoutes: n = [] } = {
 } };
 //#endregion
 //#region src/utils/colors.js
-function ZL(e, t, n) {
+function QL(e, t, n) {
 	function r(e) {
 		return e.toString(16);
 	}
@@ -51058,20 +51099,20 @@ function ZL(e, t, n) {
 	}
 	return a;
 }
-function QL(e, t) {
-	return ZL("#ffffff", e, t);
-}
 function $L(e, t) {
-	return ZL("#000000", e, t);
+	return QL("#ffffff", e, t);
 }
-function eR(e) {
+function eR(e, t) {
+	return QL("#000000", e, t);
+}
+function tR(e) {
 	let t = e.toString(16);
 	return t.length === 1 ? `0${t}` : t;
 }
-function tR(e, t, n) {
-	return `#${eR(e)}${eR(t)}${eR(n)}`;
+function nR(e, t, n) {
+	return `#${tR(e)}${tR(t)}${tR(n)}`;
 }
-function nR(e, t = !1) {
+function rR(e, t = !1) {
 	let n = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e);
 	if (!n) return null;
 	let r = parseInt(n[1], 16), i = parseInt(n[2], 16), a = parseInt(n[3], 16);
@@ -51083,93 +51124,93 @@ function nR(e, t = !1) {
 }
 //#endregion
 //#region src/utils/utilsLang.js
-function rR(e) {
-	return bR(e) ? Object.prototype.toString.call(e) === "[object Arguments]" || Object.prototype.hasOwnProperty.call(e, "callee") && !Object.prototype.propertyIsEnumerable.call(e, "callee") : !1;
-}
 function iR(e) {
-	return Array.isArray(e);
+	return xR(e) ? Object.prototype.toString.call(e) === "[object Arguments]" || Object.prototype.hasOwnProperty.call(e, "callee") && !Object.prototype.propertyIsEnumerable.call(e, "callee") : !1;
 }
 function aR(e) {
-	return e instanceof ArrayBuffer;
+	return Array.isArray(e);
 }
 function oR(e) {
-	return typeof e == "boolean";
+	return e instanceof ArrayBuffer;
 }
 function sR(e) {
-	return typeof Buffer < "u" && Buffer.isBuffer(e);
+	return typeof e == "boolean";
 }
 function cR(e) {
-	return e instanceof Date;
+	return typeof Buffer < "u" && Buffer.isBuffer(e);
 }
 function lR(e) {
-	return typeof e == "object" && !!e && e.nodeType === 1 && typeof e.nodeName == "string";
+	return e instanceof Date;
 }
 function uR(e) {
-	return e instanceof Error;
+	return typeof e == "object" && !!e && e.nodeType === 1 && typeof e.nodeName == "string";
 }
 function dR(e) {
-	return Number.isFinite(e);
+	return e instanceof Error;
 }
 function fR(e) {
-	return typeof e == "function";
+	return Number.isFinite(e);
 }
 function pR(e) {
-	return Number.isInteger(e);
+	return typeof e == "function";
 }
 function mR(e) {
-	return e instanceof Map;
+	return Number.isInteger(e);
 }
 function hR(e) {
-	return Number.isNaN(e);
+	return e instanceof Map;
 }
 function gR(e) {
-	return DR(e) || _R(e);
+	return Number.isNaN(e);
 }
 function _R(e) {
-	return e === null;
+	return OR(e) || vR(e);
 }
 function vR(e) {
-	return typeof e == "number";
+	return e === null;
 }
 function yR(e) {
+	return typeof e == "number";
+}
+function bR(e) {
 	let t = typeof e;
 	return e !== null && (t === "object" || t === "function");
 }
-function bR(e) {
+function xR(e) {
 	return typeof e == "object" && !!e;
 }
-function xR(e) {
+function SR(e) {
 	if (typeof e != "object" || !e) return !1;
 	let t = Object.getPrototypeOf(e);
 	return t === Object.prototype || t === null;
 }
-function SR(e) {
-	return yR(e) && typeof e.then == "function" && typeof e.catch == "function";
-}
 function CR(e) {
-	return e instanceof RegExp;
+	return bR(e) && typeof e.then == "function" && typeof e.catch == "function";
 }
 function wR(e) {
-	return e instanceof Set;
+	return e instanceof RegExp;
 }
 function TR(e) {
-	return typeof e == "string";
+	return e instanceof Set;
 }
 function ER(e) {
-	return typeof e == "symbol" || e instanceof Symbol;
+	return typeof e == "string";
 }
 function DR(e) {
-	return e === void 0;
+	return typeof e == "symbol" || e instanceof Symbol;
 }
 function OR(e) {
-	return e instanceof WeakMap;
+	return e === void 0;
 }
 function kR(e) {
+	return e instanceof WeakMap;
+}
+function AR(e) {
 	return e instanceof WeakSet;
 }
 //#endregion
 //#region src/AAlert/i18n/AAlertI18n.js
-var AR = {
+var jR = {
 	ar: { _A_ALERT_CLOSE_: "غلق" },
 	de: { _A_ALERT_CLOSE_: "Schließen" },
 	en: { _A_ALERT_CLOSE_: "Close" },
@@ -51179,7 +51220,7 @@ var AR = {
 	it: { _A_ALERT_CLOSE_: "Vicino" },
 	ru: { _A_ALERT_CLOSE_: "Закрыть" },
 	uk: { _A_ALERT_CLOSE_: "Закрити" }
-}, jR = {
+}, MR = {
 	ar: {
 		_A_CAROUSEL_NEXT_SLIDE_: "الشريحة التالية",
 		_A_CAROUSEL_PREVIOUS_SLIDE_: "الشريحة السابقة",
@@ -51261,7 +51302,7 @@ var AR = {
 		_A_CAROUSEL_CONTROLS_STOP_: "Зупинити автоматичний показ слайдів",
 		"_A_CAROUSEL_ITEM_ARIA_LABEL_{{number}}_{{count}}_": "{{ number }} з {{ count }}"
 	}
-}, MR = {
+}, NR = {
 	ar: {
 		_A_CHECKBOX_GROUP_INVALID_ENTRIES_: "ادخالات غير صالحة",
 		_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_: "[لا توجد عناصر متاحة للاختيار]",
@@ -51307,7 +51348,7 @@ var AR = {
 		_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_: "[Немає елементів для вибору]",
 		_A_CHECKBOX_SEARCH_: "Пошук"
 	}
-}, NR = {
+}, PR = {
 	ar: { _A_CLOAK_LOADING_: "تحميل" },
 	de: { _A_CLOAK_LOADING_: "Wird geladen" },
 	en: { _A_CLOAK_LOADING_: "Loading" },
@@ -51317,7 +51358,7 @@ var AR = {
 	it: { _A_CLOAK_LOADING_: "Caricamento" },
 	ru: { _A_CLOAK_LOADING_: "Загрузка" },
 	uk: { _A_CLOAK_LOADING_: "Завантаження" }
-}, PR = {
+}, FR = {
 	ar: {
 		_A_DATEPICKER_DAY_LONG_SUNDAY_: "الأحد",
 		_A_DATEPICKER_DAY_SHORT_SUNDAY_: "أحد",
@@ -51840,7 +51881,7 @@ var AR = {
 		_A_DATEPICKER_SECONDS_: "Секунди",
 		"_A_DATEPICKER_HEADER_YEARS_{{firstYear}}_{{lastYear}}_": "{{ firstYear }} – {{ lastYear }}"
 	}
-}, FR = {
+}, IR = {
 	ar: {
 		_A_DATEPICKER_RANGE_FROM_: "من",
 		_A_DATEPICKER_RANGE_UNTIL_: "إلى"
@@ -51877,7 +51918,7 @@ var AR = {
 		_A_DATEPICKER_RANGE_FROM_: "від",
 		_A_DATEPICKER_RANGE_UNTIL_: "до"
 	}
-}, IR = {
+}, LR = {
 	ar: {
 		_A_DISCLOSURE_LESS_: "إظهار أقل",
 		_A_DISCLOSURE_MORE_: "أظهر المزيد"
@@ -51914,7 +51955,7 @@ var AR = {
 		_A_DISCLOSURE_LESS_: "Показати менше",
 		_A_DISCLOSURE_MORE_: "Показати більше"
 	}
-}, LR = {
+}, RR = {
 	ar: { _A_ERRORS_TEXT_HEADER_: "يرجى التحقق من المدخلات الخاصة بك." },
 	de: { _A_ERRORS_TEXT_HEADER_: "Bitte überprüfen Sie Ihre Eingaben." },
 	en: { _A_ERRORS_TEXT_HEADER_: "Please check your entries." },
@@ -51924,7 +51965,7 @@ var AR = {
 	it: { _A_ERRORS_TEXT_HEADER_: "Si prega di controllare i dati inseriti." },
 	ru: { _A_ERRORS_TEXT_HEADER_: "Пожалуйста, проверьте введенные данные." },
 	uk: { _A_ERRORS_TEXT_HEADER_: "Будь ласка, перевірте введені дані." }
-}, RR = {
+}, zR = {
 	ar: {
 		_A_FIELDSET_COLLAPSE_OPEN_: "افتح",
 		_A_FIELDSET_COLLAPSE_CLOSE_: "اغلق"
@@ -51961,7 +52002,7 @@ var AR = {
 		_A_FIELDSET_COLLAPSE_OPEN_: "Відкрити",
 		_A_FIELDSET_COLLAPSE_CLOSE_: "Закрити"
 	}
-}, zR = {
+}, BR = {
 	ar: {
 		_A_FILTERS_ADD_FILTER_: "معيار تصفية جديد",
 		"_A_FILTERS_DELETE_FILTER_BODY_{{name}}_": "هل أنت متأكد أنك تريد حذف هذا الفلتر المحفوظ <strong>{{ name }}</strong>؟",
@@ -52232,7 +52273,7 @@ var AR = {
 		_A_FILTERS_START_SEARCH_: "Пошук",
 		_A_FILTERS_TOP_CLOSE_: "Видалити критерій фільтра"
 	}
-}, BR = {
+}, VR = {
 	ar: { _A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_: "إزالة المحتوى" },
 	de: { _A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_: "Feldinhalt entfernen" },
 	en: { _A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_: "Remove field content" },
@@ -52242,7 +52283,7 @@ var AR = {
 	it: { _A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_: "Rimuovi il contenuto del campo" },
 	ru: { _A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_: "Удалить содержимое поля" },
 	uk: { _A_FORM_ELEMENT_REMOVE_FIELD_CONTENT_: "Очистити вміст поля" }
-}, VR = {
+}, HR = {
 	ar: {
 		_A_INPUT_CURRENCY_BTN_DECREASE_: "تقليل القيمة",
 		_A_INPUT_CURRENCY_BTN_INCREASE_: "زيادة القيمة"
@@ -52279,7 +52320,7 @@ var AR = {
 		_A_INPUT_CURRENCY_BTN_DECREASE_: "Зменшити значення",
 		_A_INPUT_CURRENCY_BTN_INCREASE_: "Збільшити значення"
 	}
-}, HR = {
+}, UR = {
 	ar: {
 		_A_INPUT_SHOW_PASSWORD_: "عرض كلمة المرور",
 		_A_INPUT_HIDE_PASSWORD_: "إخفاء كلمة المرور"
@@ -52316,7 +52357,7 @@ var AR = {
 		_A_INPUT_SHOW_PASSWORD_: "Показати пароль",
 		_A_INPUT_HIDE_PASSWORD_: "Приховати пароль"
 	}
-}, UR = {
+}, WR = {
 	ar: {
 		_A_INPUT_NUMBER_BTN_DECREASE_: "تقليل القيمة",
 		_A_INPUT_NUMBER_BTN_INCREASE_: "زيادة القيمة"
@@ -52353,7 +52394,7 @@ var AR = {
 		_A_INPUT_NUMBER_BTN_DECREASE_: "Зменшити значення",
 		_A_INPUT_NUMBER_BTN_INCREASE_: "Збільшити значення"
 	}
-}, WR = {
+}, GR = {
 	ar: {
 		_A_INPUT_NUMBER_RANGE_LABEL_MIN_: "من",
 		_A_INPUT_NUMBER_RANGE_LABEL_MAX_: "إلى"
@@ -52390,7 +52431,7 @@ var AR = {
 		_A_INPUT_NUMBER_RANGE_LABEL_MIN_: "від",
 		_A_INPUT_NUMBER_RANGE_LABEL_MAX_: "до"
 	}
-}, GR = {
+}, KR = {
 	ar: {
 		_A_JSON_CURRENT_VALUE_: "القيمة الحالية",
 		_A_JSON_DISCARD_ALL_CHANGES_: "تجاهل جميع التغييرات",
@@ -52463,7 +52504,7 @@ var AR = {
 		_A_JSON_INPUT_: "Введення",
 		_A_JSON_RESET_INPUT_: "Скинути введені дані до поточного значення"
 	}
-}, KR = {
+}, qR = {
 	ar: {
 		_A_LINK_COPY_BTN_TITLE_: "نسخ إلى الحافظة",
 		_A_LINK_COPY_COPIED_TO_CLIPBOARD_: "تم النسخ إلى الحافظة"
@@ -52500,7 +52541,7 @@ var AR = {
 		_A_LINK_COPY_BTN_TITLE_: "Копіювати в буфер обміну",
 		_A_LINK_COPY_COPIED_TO_CLIPBOARD_: "Скопійовано в буфер обміну"
 	}
-}, qR = {
+}, JR = {
 	ar: { _A_LOADING_LOADING_: "تحميل" },
 	de: { _A_LOADING_LOADING_: "Wird geladen" },
 	en: { _A_LOADING_LOADING_: "Loading" },
@@ -52510,7 +52551,7 @@ var AR = {
 	it: { _A_LOADING_LOADING_: "Caricamento" },
 	ru: { _A_LOADING_LOADING_: "Загрузка" },
 	uk: { _A_LOADING_LOADING_: "Завантаження" }
-}, JR = {
+}, YR = {
 	ar: {
 		_A_MENU_2_BREADCRUMB_: "Breadcrumb",
 		_A_MENU_2_BREADCRUMB_SHOW_BTN_: "إظهار الروابط المخفية",
@@ -52637,7 +52678,7 @@ var AR = {
 		_A_MENU_2_SEARCH_NONE_FOUND_: "Пунктів меню не знайдено",
 		_A_MENU_2_TO_MAIN_MENU_: "До головного меню"
 	}
-}, YR = {
+}, XR = {
 	ar: {
 		_A_MODAL_BTN_CANCEL_: "قطع",
 		_A_MODAL_BTN_SAVE_: "حفظ",
@@ -52701,7 +52742,7 @@ var AR = {
 		_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_: "Закрити модальне вікно (розташовано в нижній частині)",
 		_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_: "Зберегти дані в модальному вікні"
 	}
-}, XR = {
+}, ZR = {
 	ar: {
 		_A_MULTISELECT_ORDERED_BTN_DELETE_: "إزالة من القائمة",
 		_A_MULTISELECT_ORDERED_BTN_DOWN_: "نقل إلى نهاية القائمة",
@@ -52810,7 +52851,7 @@ var AR = {
 		_A_MULTISELECT_ORDERED_MODEL_EMPTY_: "Жодного елемента не вибрано",
 		_A_MULTISELECT_ORDERED_SELECT_ALL_: "Вибрати все"
 	}
-}, ZR = {
+}, QR = {
 	ar: {
 		_A_COUNT_PER_PAGE_: "لكل صفحة:",
 		"_A_COUNT_PER_PAGE_ITEM_{{count}}_": "عناصر لكل صفحة: {{ count }}",
@@ -52919,7 +52960,7 @@ var AR = {
 		_A_PAGINATION_PREVIOUS_PAGE_: "На попередню сторінку",
 		"_A_PAGINATION_TO_PAGE_{{page}}_": "На сторінку {{ page }}"
 	}
-}, QR = {
+}, $R = {
 	ar: {
 		_A_RADIO_GROUP_INVALID_ENTRIES_: "ادخالات غير صالحة",
 		_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_: "[لا توجد عناصر متاحة للاختيار]",
@@ -52965,7 +53006,7 @@ var AR = {
 		_A_RADIO_HAS_NOT_ELEMENTS_WITH_SEARCH_: "[Немає елементів для вибору]",
 		_A_RADIO_SEARCH_: "Пошук"
 	}
-}, $R = {
+}, ez = {
 	ar: { _A_REQUIRED_TEXT_: "الحقول المميزة بعلامة النجمة * مطلوبة." },
 	de: { _A_REQUIRED_TEXT_: "Die mit *Sternchen versehenen Felder sind Pflichtfelder." },
 	en: { _A_REQUIRED_TEXT_: "Fields marked with an asterisk * are required." },
@@ -52975,7 +53016,7 @@ var AR = {
 	it: { _A_REQUIRED_TEXT_: "I campi contrassegnati con un asterisco * sono obbligatori." },
 	ru: { _A_REQUIRED_TEXT_: "Поля, отмеченные звездочкой *, являются обязательными." },
 	uk: { _A_REQUIRED_TEXT_: "Поля, позначені зірочкою *, є обов'язковими." }
-}, ez = {
+}, tz = {
 	ar: {
 		_A_INPUT_SHOW_PASSWORD_: "عرض كلمة المرور",
 		_A_INPUT_HIDE_PASSWORD_: "إخفاء كلمة المرور"
@@ -53092,7 +53133,7 @@ var AR = {
 		_A_TARGET_SELF_: "Відкрити в тому самому вікні <strong lang=\"en\">_self</strong>",
 		_A_TARGET_TOP_: "Відкрити у фреймі верхнього рівня <strong lang=\"en\">_top</strong>"
 	}
-}, tz = {
+}, nz = {
 	ar: {
 		_A_SELECT_LABEL_NOT_FOUND_: "[لم يتم العثور على التحديد]",
 		_A_SELECT_EXCLUSIVE_: "اختر هذا الخيار فقط",
@@ -53192,7 +53233,7 @@ var AR = {
 		_A_SELECT_DESELECT_ALL_: "Скасувати вибір усіх",
 		_A_SELECT_SELECT_ALL_: "Вибрати все"
 	}
-}, nz = {
+}, rz = {
 	ar: {
 		_A_SELECT_STYLES_GROUP_DISPLAY_: "العرض <code>display</code>",
 		_A_SELECT_STYLES_SUB_GROUP_MOBILE_: "الجوال <code>mobile</code>",
@@ -55821,7 +55862,7 @@ var AR = {
 		_A_SELECT_STYLES_GROUP_BORDER_: "Рамка <code>border</code>",
 		_A_SELECT_STYLES_VALUE_PILL_ROUNDED_: "Заокруглена пігулка"
 	}
-}, rz = {
+}, iz = {
 	ar: {
 		_A_SHOW_MORE_LESS_: "إظهار أقل",
 		_A_SHOW_MORE_MORE_: "أظهر المزيد",
@@ -55876,7 +55917,7 @@ var AR = {
 		_A_SHOW_MORE_LESS_SCREEN_READER_: "Показати менше – кнопку можна ігнорувати, оскільки весь вміст уже доступний для програм зчитування з екрана",
 		_A_SHOW_MORE_MORE_SCREEN_READER_: "Показати більше – кнопку можна ігнорувати, оскільки весь вміст уже доступний для програм зчитування з екрана"
 	}
-}, iz = {
+}, az = {
 	ar: {},
 	de: {},
 	en: {
@@ -55894,7 +55935,7 @@ var AR = {
 		_A_SLIDER_RANGE_FIRST_BUTTON_ARIA_LABEL_: "Виберіть початкове значення",
 		_A_SLIDER_RANGE_SECOND_BUTTON_ARIA_LABEL_: "Виберіть кінцеве значення"
 	}
-}, az = {
+}, oz = {
 	ar: { _A_SPINNER_LOADING_: "تحميل" },
 	de: { _A_SPINNER_LOADING_: "Wird geladen" },
 	en: { _A_SPINNER_LOADING_: "Loading" },
@@ -55904,7 +55945,7 @@ var AR = {
 	it: { _A_SPINNER_LOADING_: "Caricamento" },
 	ru: { _A_SPINNER_LOADING_: "Загрузка" },
 	uk: { _A_SPINNER_LOADING_: "Завантаження" }
-}, oz = {
+}, sz = {
 	ar: {
 		_A_SWITCH_DEFAULT_LABEL_: "غير محدد",
 		_A_SWITCH_FALSE_LABEL_: "لا",
@@ -55950,7 +55991,7 @@ var AR = {
 		_A_SWITCH_FALSE_LABEL_: "Ні",
 		_A_SWITCH_TRUE_LABEL_: "Так"
 	}
-}, sz = {
+}, cz = {
 	ar: {
 		_A_TABLE_FORM_ADD_ROW_: "إضافة صف جديد",
 		_A_TABLE_FORM_ACTIONS_: "الإجراءات",
@@ -56113,7 +56154,7 @@ var AR = {
 		_A_TABLE_FORM_REORDER_COLUMN_: "Змінити порядок рядків",
 		_A_TABLE_FORM_REORDER_DISABLED_: "Зміну порядку рядків вимкнено"
 	}
-}, cz = {
+}, lz = {
 	ar: {
 		_A_TABLE_ACTIONS_: "إجراءات",
 		"_A_TABLE_ALL_ROWS_{{count}}_": "إجمالي عدد الإدخالات: {{ count }}",
@@ -56600,7 +56641,7 @@ var AR = {
 		"_A_TABLE_SORT_ADDITIONAL_DROPDOWN_TITLE_{{count}}_": "Змінити сортування (вибрано стовпців: {{ count }})",
 		_A_TABLE_SORT_ADDITIONAL_BTN_DELETE_: "Видалити сортування"
 	}
-}, lz = {
+}, uz = {
 	ar: {
 		_A_FIELDSET_COLLAPSE_OPEN_: "افتح",
 		_A_FIELDSET_COLLAPSE_CLOSE_: "اغلق"
@@ -56658,7 +56699,7 @@ var AR = {
 		_A_FIELDSET_COLLAPSE_OPEN_: "Відкрити",
 		_A_FIELDSET_COLLAPSE_CLOSE_: "Закрити"
 	}
-}, uz = {
+}, dz = {
 	ar: {
 		_A_VERTICAL_SCROLL_BTN_UP_TITLE_: "_A_VERTICAL_SCROLL_BTN_UP_TITLE_",
 		_A_VERTICAL_SCROLL_BTN_DOWN_TITLE_: "_A_VERTICAL_SCROLL_BTN_DOWN_TITLE_"
@@ -56695,7 +56736,7 @@ var AR = {
 		_A_VERTICAL_SCROLL_BTN_UP_TITLE_: "Прокрутити вгору",
 		_A_VERTICAL_SCROLL_BTN_DOWN_TITLE_: "Прокрутити вниз"
 	}
-}, dz = {
+}, fz = {
 	ar: {
 		_A_WIZARD_ARIA_LABEL_: "معالج",
 		"_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "الخطوة {{ stepNumber }}:",
@@ -56840,7 +56881,7 @@ var AR = {
 		_A_WIZARD_STEPS_ARIA_LABEL_: "Кроки майстра",
 		"_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Крок {{ stepActive }} з {{ stepsCount }}"
 	}
-}, fz = {
+}, pz = {
 	ar: {
 		_A_FILE_SIZE_B_: "Bytes",
 		_A_FILE_SIZE_KB_: "KB",
@@ -56940,36 +56981,35 @@ var AR = {
 		_A_FILE_SIZE_ZB_: "ЗБ",
 		_A_FILE_SIZE_YB_: "ЙБ"
 	}
-}, pz = {
+}, mz = {
 	_NO_: "لا",
 	_YES_: "نعم"
-}, mz = {
+}, hz = {
 	_NO_: "Nein",
 	_YES_: "Ja"
-}, hz = {
-	_NO_: "No",
-	_YES_: "Yes"
 }, gz = {
 	_NO_: "No",
-	_YES_: "Sí"
+	_YES_: "Yes"
 }, _z = {
+	_NO_: "No",
+	_YES_: "Sí"
+}, vz = {
 	_NO_: "Non",
 	_YES_: "Oui"
-}, vz = {
+}, yz = {
 	_NO_: "Ne",
 	_YES_: "Da"
-}, yz = {
+}, bz = {
 	_NO_: "No",
 	_YES_: "Sì"
-}, bz = {
+}, xz = {
 	_NO_: "Нет",
 	_YES_: "Да"
-}, xz = {
+}, Sz = {
 	_NO_: "Ні",
 	_YES_: "Так"
-}, Sz = {
-	...pz,
-	...AR.ar,
+}, Cz = {
+	...mz,
 	...jR.ar,
 	...MR.ar,
 	...NR.ar,
@@ -56997,18 +57037,18 @@ var AR = {
 	...tz.ar,
 	...nz.ar,
 	...rz.ar,
-	...sz.ar,
 	...iz.ar,
+	...cz.ar,
 	...az.ar,
 	...oz.ar,
-	...cz.ar,
+	...sz.ar,
 	...lz.ar,
 	...uz.ar,
 	...dz.ar,
-	...fz.ar
-}, Cz = {
-	...mz,
-	...AR.de,
+	...fz.ar,
+	...pz.ar
+}, wz = {
+	...hz,
 	...jR.de,
 	...MR.de,
 	...NR.de,
@@ -57036,18 +57076,18 @@ var AR = {
 	...tz.de,
 	...nz.de,
 	...rz.de,
-	...sz.de,
 	...iz.de,
+	...cz.de,
 	...az.de,
 	...oz.de,
-	...cz.de,
+	...sz.de,
 	...lz.de,
 	...uz.de,
 	...dz.de,
-	...fz.de
-}, wz = {
-	...hz,
-	...AR.en,
+	...fz.de,
+	...pz.de
+}, Tz = {
+	...gz,
 	...jR.en,
 	...MR.en,
 	...NR.en,
@@ -57075,18 +57115,18 @@ var AR = {
 	...tz.en,
 	...nz.en,
 	...rz.en,
-	...sz.en,
 	...iz.en,
+	...cz.en,
 	...az.en,
 	...oz.en,
-	...cz.en,
+	...sz.en,
 	...lz.en,
 	...uz.en,
 	...dz.en,
-	...fz.en
-}, Tz = {
-	...gz,
-	...AR.es,
+	...fz.en,
+	...pz.en
+}, Ez = {
+	..._z,
 	...jR.es,
 	...MR.es,
 	...NR.es,
@@ -57114,18 +57154,18 @@ var AR = {
 	...tz.es,
 	...nz.es,
 	...rz.es,
-	...sz.es,
 	...iz.es,
+	...cz.es,
 	...az.es,
 	...oz.es,
-	...cz.es,
+	...sz.es,
 	...lz.es,
 	...uz.es,
 	...dz.es,
-	...fz.es
-}, Ez = {
-	..._z,
-	...AR.fr,
+	...fz.es,
+	...pz.es
+}, Dz = {
+	...vz,
 	...jR.fr,
 	...MR.fr,
 	...NR.fr,
@@ -57153,18 +57193,18 @@ var AR = {
 	...tz.fr,
 	...nz.fr,
 	...rz.fr,
-	...sz.fr,
 	...iz.fr,
+	...cz.fr,
 	...az.fr,
 	...oz.fr,
-	...cz.fr,
+	...sz.fr,
 	...lz.fr,
 	...uz.fr,
 	...dz.fr,
-	...fz.fr
-}, Dz = {
-	...vz,
-	...AR.hr,
+	...fz.fr,
+	...pz.fr
+}, Oz = {
+	...yz,
 	...jR.hr,
 	...MR.hr,
 	...NR.hr,
@@ -57192,18 +57232,18 @@ var AR = {
 	...tz.hr,
 	...nz.hr,
 	...rz.hr,
-	...sz.hr,
 	...iz.hr,
+	...cz.hr,
 	...az.hr,
 	...oz.hr,
-	...cz.hr,
+	...sz.hr,
 	...lz.hr,
 	...uz.hr,
 	...dz.hr,
-	...fz.hr
-}, Oz = {
-	...yz,
-	...AR.it,
+	...fz.hr,
+	...pz.hr
+}, kz = {
+	...bz,
 	...jR.it,
 	...MR.it,
 	...NR.it,
@@ -57231,18 +57271,18 @@ var AR = {
 	...tz.it,
 	...nz.it,
 	...rz.it,
-	...sz.it,
 	...iz.it,
+	...cz.it,
 	...az.it,
 	...oz.it,
-	...cz.it,
+	...sz.it,
 	...lz.it,
 	...uz.it,
 	...dz.it,
-	...fz.it
-}, kz = {
-	...bz,
-	...AR.ru,
+	...fz.it,
+	...pz.it
+}, Az = {
+	...xz,
 	...jR.ru,
 	...MR.ru,
 	...NR.ru,
@@ -57270,18 +57310,18 @@ var AR = {
 	...tz.ru,
 	...nz.ru,
 	...rz.ru,
-	...sz.ru,
 	...iz.ru,
+	...cz.ru,
 	...az.ru,
 	...oz.ru,
-	...cz.ru,
+	...sz.ru,
 	...lz.ru,
 	...uz.ru,
 	...dz.ru,
-	...fz.ru
-}, Az = {
-	...xz,
-	...AR.uk,
+	...fz.ru,
+	...pz.ru
+}, jz = {
+	...Sz,
 	...jR.uk,
 	...MR.uk,
 	...NR.uk,
@@ -57309,25 +57349,26 @@ var AR = {
 	...tz.uk,
 	...nz.uk,
 	...rz.uk,
-	...sz.uk,
 	...iz.uk,
+	...cz.uk,
 	...az.uk,
 	...oz.uk,
-	...cz.uk,
+	...sz.uk,
 	...lz.uk,
 	...uz.uk,
 	...dz.uk,
-	...fz.uk
-}, jz = {
-	ar: Sz,
-	de: Cz,
-	en: wz,
-	es: Tz,
-	fr: Ez,
-	hr: Dz,
-	it: Oz,
-	ru: kz,
-	uk: Az
+	...fz.uk,
+	...pz.uk
+}, Mz = {
+	ar: Cz,
+	de: wz,
+	en: Tz,
+	es: Ez,
+	fr: Dz,
+	hr: Oz,
+	it: kz,
+	ru: Az,
+	uk: jz
 };
 //#endregion
-export { yp as AAccordion, Ep as AAlert, AR as AAlertI18n, wp as AAlertPlugin, kp as AButton, xv as ACarousel, jR as ACarouselI18n, C_ as ACheckbox, MR as ACheckboxI18n, P_ as ACheckboxRadioGroups, B_ as ACloak, NR as ACloakI18n, L_ as ACloakPlugin, Iw as AConfirmAPI, Lw as AConfirmAPI_changeConfirmOptions, zw as AConfirmAPI_closeConfirm, Fw as AConfirmAPI_confirmOptions, Pw as AConfirmAPI_isModalHidden, Rw as AConfirmAPI_openConfirm, jL as ADataRetrievePlugin, AL as ADataRetrievePluginOptions, kL as ADataRetrievePlugin_defaultRetrieve, py as ADatepicker, PR as ADatepickerI18n, by as ADatepickerRange, FR as ADatepickerRangeI18n, Ty as ADisclosure, IR as ADisclosureI18n, Xy as ADropdown, Gy as ADropdownGlobalAPI, q as AElement, bb as AErrors, LR as AErrorsI18n, xb as AErrorsText, DS as AEventOutsideAPI, BC as AFieldset, RR as AFieldsetI18n, _w as AFilterCenter, fT as AFilters, d_ as AFiltersAPI, u_ as AFiltersAPI_additionFilters, Xw as AFiltersHorizontal, zR as AFiltersI18n, dT as AFiltersPlugin, nw as AFiltersRight, _T as AForm, vT as AFormElement, bT as AFormElementBtnClear, BR as AFormElementBtnClearI18n, Kb as AFormHelpText, xT as AFormLabelDescription, sb as AFormPlugin, ob as AFormPluginOptions, wT as AFormReadonly, TT as AGet, KC as AGroup, MT as AGroupButtonDropdown, jT as AGroupButtonDropdownPlugin, nL as AHttpAPI, JI as AHttpAPI_API_CONFIG, $I as AHttpAPI_abortHttp, uL as AHttpAPI_callHttpRequestAndCheckSavedApi, eL as AHttpAPI_clearAllApiSaved, tL as AHttpAPI_clearApiSaved, lL as AHttpAPI_deleteHttp, rL as AHttpAPI_getHttp, iL as AHttpAPI_getListHttp, aL as AHttpAPI_getOptionsHttp, bL as AHttpAPI_getUrlParams, cL as AHttpAPI_patchHttp, oL as AHttpAPI_postHttp, sL as AHttpAPI_putHttp, XI as AHttpAPI_setBaseUrl, ZI as AHttpAPI_setErrorCallbacks, QI as AHttpAPI_setHeaderParams, pL as AHttpAPI_setUrlForArray, fL as AHttpAPI_setUrlWithParams, BL as AHttpPlugin, qp as AI18nPlugin, $f as AIcon, P as AIconPlugin, PT as AInfiniteScroll, Nb as AInput, Gb as AInputCurrency, VR as AInputCurrencyI18n, HL as AInputCurrencyPlugin, VL as AInputCurrencyPluginOptions, ux as AInputFile, HR as AInputI18n, bx as AInputNumber, UR as AInputNumberI18n, WL as AInputNumberPlugin, UL as AInputNumberPluginOptions, Ax as AInputNumberRange, WR as AInputNumberRangeI18n, Lx as AJson, GR as AJsonI18n, rp as AKeyChildren, ip as AKeyHide, W as AKeyId, ap as AKeyIndex, op as AKeyLabel, sp as AKeyLabelSearch, cp as AKeyLink, lp as AKeyParent, up as AKeyType, K as AKeysCode, ox as ALabel, ET as ALink, LT as ALinkCopy, KR as ALinkCopyI18n, UT as AList, JT as ALoading, qR as ALoadingI18n, qT as ALoadingPlugin, nD as AMenu, JR as AMenu2I18n, QT as AMenuButtonToggle, ZT as AMenuButtonToggle_ToggleAPI, M as AMobileAPI, k as AMobileAPI_isMobileWidth, A as AMobileAPI_mobileBreakpoint, j as AMobileAPI_setIsMobileWidth, KL as AMobilePlugin, gD as AModal, vD as AModalConfirm, xD as AModalForm, YR as AModalI18n, hD as AModalPlugin, nO as AModalWizard, Qx as AMultiselectOrdered, XR as AMultiselectOrderedI18n, Xx as AMultiselectOrderedPlugin, Y as AMultiselectOrderedPluginOptions, rO as ANotification, ww as ANotificationAPI, Ew as ANotificationAPI_addNotification, Tw as ANotificationAPI_setNotificationTimeout, pg as AOnHooks, nS as AOneCheckbox, sO as APageTabTitle, aO as APageTabTitleAPI, oO as APageTabTitleAPI_setBaseTitle, qL as APageTabTitlePlugin, CO as APagination, ZR as APaginationI18n, bO as APaginationPages, Op as APlacements, Dy as APopupAPI, Ay as APopupAPI_closePopup, Oy as APopupAPI_isCurrentPopupOpen, ky as APopupAPI_openPopup, jy as APopupAPI_togglePopup, OO as AProgress, MO as AProgressCircle, oS as ARadio, QR as ARadioI18n, FO as ARate, gv as ARemPxAPI, hv as ARemPxAPI_defaultRemPx, mv as ARemPxAPI_remPx, vv as ARemPxAPI_scalePxWithRem, zL as ARemPxPlugin, pT as ARequired, $R as ARequiredI18n, RO as AResizer, dS as ARouterLinkConfig, ez as ARouterLinkConfigI18n, XL as ARouterLinkConfigPlugin, JL as ARouterLinkConfigPluginOptions, Qf as ASafeHtml, tk as AScale, PS as ASelect, tz as ASelectI18n, zS as ASelectIcon, AS as ASelectPlugin, KS as ASelectStyle, nz as ASelectStyleI18n, BS as ASelectStylePluginOptions, VS as ASelectStylesPlugin, Ck as AShowMore, rz as AShowMoreI18n, pk as ASlider, iz as ASliderI18n, GT as ASpinner, az as ASpinnerI18n, z_ as ASpinnerPlugin, ZS as ASwitch, oz as ASwitchI18n, PM as ATable, xA as ATableForm, sz as ATableFormI18n, cz as ATableI18n, aj as ATablePlugin, GM as ATabs, QS as ATemplate, uC as ATextarea, mg as ATooltip, J as ATranslation, qb as AUiTypes_typesContainer, Zb as AUiTypes_typesLabelProps, Jb as AUiTypes_typesModelArray, Yb as AUiTypes_typesModelObject, Xb as AUiTypes_typesWithData, RC as AValidatedJson, lz as AValidatedJsonI18n, VE as AVerticalScroll, uz as AVerticalScrollI18n, ZD as AWizard, dz as AWizardI18n, GL as AlohaPlugin, D as EventBus, fz as Filters18n, TL as UIDataGroupAPI, Dg as UIExcludeRenderAttributesAPI, _b as UiAPI, SL as UiClearButtonAPI, OL as UiCollapseAPI, ML as UiDataFromServerAPI, NL as UiDataSortAPI, PL as UiDataWatchEmitAPI, FL as UiDataWithKeyIdAndLabelAPI, xL as UiDisabledAPI, CL as UiInputAutofillAPI, wL as UiLabelClickEventBusAPI, IL as UiLoadingAPI, GC as UiModelDependenciesProvideAPI, LL as UiSearchAPI, lx as UiStyleHideAPI, RL as UiTextAfterLabelAPI, My as aFirst, Ny as aLast, Kf as aOrderBy, Gf as aSortBy, eR as colorToHex, Iy as concatTwoStringsWithSpace, Ff as dompurify, Wf as extractTextFromHtml, Pg as filterBoolean, Fg as filterCapitalize, Lg as filterCurrency, zg as filterDate, Bg as filterDefaultForEmpty, Vg as filterEmail, Hg as filterEscapeHtml, Ug as filterFileSize, Ig as filterFloat, Wg as filterJson, Gg as filterKeyValue, Kg as filterLimitTo, qg as filterLink, Jg as filterList, Qg as filterLowerCase, $g as filterMask, e_ as filterPropertyByValue, t_ as filterSearchHighlight, i_ as filterUpperCase, l_ as filterValueByCondition, tv as focusableList, nv as focusableSelector, Hf as getTotalNestedCount, $p as getTranslatedAttributes, G as getTranslatedText, Qp as getTranslationAttributes, cv as getUniqueSelector, nR as hexToRgb, jp as i18n, Sz as i18nAR, jz as i18nAll, Cz as i18nDE, wz as i18nEN, Tz as i18nES, Ez as i18nFR, Dz as i18nHR, Oz as i18nIT, kz as i18nRU, Az as i18nUK, rR as isArguments, iR as isArray, aR as isArrayBuffer, Bf as isArrayOfArrays, zf as isArrayOfStrings, oR as isBoolean, O as isBrowser, sR as isBuffer, cR as isDate, lR as isElement, uR as isError, zb as isEven, dR as isFinite, fR as isFunction, pR as isInteger, mR as isMap, hR as isNaN, gR as isNil, _R as isNull, vR as isNumber, yR as isObject, bR as isObjectLike, Rb as isOdd, Yp as isPlaceholderTranslate, xR as isPlainObject, SR as isPromise, CR as isRegExp, wR as isSet, TR as isString, ER as isSymbol, Fp as isTranslate, DR as isUndefined, OR as isWeakMap, kR as isWeakSet, $L as mixBlack, ZL as mixColor, QL as mixWhite, tR as rgbToHex, If as sanitize, Lf as sanitizeLocal, rv as scrollToElement, iv as setFocusToElement, ov as setFocusToNextFocusableElement, sv as setFocusToPreviousFocusableElement, Rp as setI18n, Vp as setLanguage, Np as timeTranslationLastChanged, Bb as toPrecision, Hp as toggleTranslate, Pp as translation, zp as updateI18n, Bp as updateI18nForLanguage, Wp as updateTranslation };
+export { yp as AAccordion, Ep as AAlert, jR as AAlertI18n, wp as AAlertPlugin, kp as AButton, xv as ACarousel, MR as ACarouselI18n, C_ as ACheckbox, NR as ACheckboxI18n, P_ as ACheckboxRadioGroups, B_ as ACloak, PR as ACloakI18n, L_ as ACloakPlugin, Iw as AConfirmAPI, Lw as AConfirmAPI_changeConfirmOptions, zw as AConfirmAPI_closeConfirm, Fw as AConfirmAPI_confirmOptions, Pw as AConfirmAPI_isModalHidden, Rw as AConfirmAPI_openConfirm, ML as ADataRetrievePlugin, jL as ADataRetrievePluginOptions, AL as ADataRetrievePlugin_defaultRetrieve, py as ADatepicker, FR as ADatepickerI18n, by as ADatepickerRange, IR as ADatepickerRangeI18n, Ty as ADisclosure, LR as ADisclosureI18n, Xy as ADropdown, Gy as ADropdownGlobalAPI, q as AElement, bb as AErrors, RR as AErrorsI18n, xb as AErrorsText, DS as AEventOutsideAPI, BC as AFieldset, zR as AFieldsetI18n, _w as AFilterCenter, fT as AFilters, d_ as AFiltersAPI, u_ as AFiltersAPI_additionFilters, Xw as AFiltersHorizontal, BR as AFiltersI18n, dT as AFiltersPlugin, nw as AFiltersRight, _T as AForm, vT as AFormElement, bT as AFormElementBtnClear, VR as AFormElementBtnClearI18n, Kb as AFormHelpText, xT as AFormLabelDescription, sb as AFormPlugin, ob as AFormPluginOptions, wT as AFormReadonly, TT as AGet, KC as AGroup, MT as AGroupButtonDropdown, jT as AGroupButtonDropdownPlugin, nL as AHttpAPI, JI as AHttpAPI_API_CONFIG, $I as AHttpAPI_abortHttp, uL as AHttpAPI_callHttpRequestAndCheckSavedApi, eL as AHttpAPI_clearAllApiSaved, tL as AHttpAPI_clearApiSaved, lL as AHttpAPI_deleteHttp, rL as AHttpAPI_getHttp, iL as AHttpAPI_getListHttp, aL as AHttpAPI_getOptionsHttp, bL as AHttpAPI_getUrlParams, cL as AHttpAPI_patchHttp, oL as AHttpAPI_postHttp, sL as AHttpAPI_putHttp, XI as AHttpAPI_setBaseUrl, ZI as AHttpAPI_setErrorCallbacks, QI as AHttpAPI_setHeaderParams, pL as AHttpAPI_setUrlForArray, fL as AHttpAPI_setUrlWithParams, VL as AHttpPlugin, qp as AI18nPlugin, $f as AIcon, P as AIconPlugin, PT as AInfiniteScroll, Nb as AInput, Gb as AInputCurrency, HR as AInputCurrencyI18n, UL as AInputCurrencyPlugin, HL as AInputCurrencyPluginOptions, ux as AInputFile, UR as AInputI18n, bx as AInputNumber, WR as AInputNumberI18n, GL as AInputNumberPlugin, WL as AInputNumberPluginOptions, Ax as AInputNumberRange, GR as AInputNumberRangeI18n, Lx as AJson, KR as AJsonI18n, rp as AKeyChildren, ip as AKeyHide, W as AKeyId, ap as AKeyIndex, op as AKeyLabel, sp as AKeyLabelSearch, cp as AKeyLink, lp as AKeyParent, up as AKeyType, K as AKeysCode, ox as ALabel, ET as ALink, LT as ALinkCopy, qR as ALinkCopyI18n, UT as AList, JT as ALoading, JR as ALoadingI18n, qT as ALoadingPlugin, nD as AMenu, YR as AMenu2I18n, QT as AMenuButtonToggle, ZT as AMenuButtonToggle_ToggleAPI, M as AMobileAPI, k as AMobileAPI_isMobileWidth, A as AMobileAPI_mobileBreakpoint, j as AMobileAPI_setIsMobileWidth, qL as AMobilePlugin, gD as AModal, vD as AModalConfirm, xD as AModalForm, XR as AModalI18n, hD as AModalPlugin, nO as AModalWizard, Qx as AMultiselectOrdered, ZR as AMultiselectOrderedI18n, Xx as AMultiselectOrderedPlugin, Y as AMultiselectOrderedPluginOptions, rO as ANotification, ww as ANotificationAPI, Ew as ANotificationAPI_addNotification, Tw as ANotificationAPI_setNotificationTimeout, pg as AOnHooks, nS as AOneCheckbox, sO as APageTabTitle, aO as APageTabTitleAPI, oO as APageTabTitleAPI_setBaseTitle, JL as APageTabTitlePlugin, CO as APagination, QR as APaginationI18n, bO as APaginationPages, Op as APlacements, Dy as APopupAPI, Ay as APopupAPI_closePopup, Oy as APopupAPI_isCurrentPopupOpen, ky as APopupAPI_openPopup, jy as APopupAPI_togglePopup, OO as AProgress, MO as AProgressCircle, oS as ARadio, $R as ARadioI18n, FO as ARate, gv as ARemPxAPI, hv as ARemPxAPI_defaultRemPx, mv as ARemPxAPI_remPx, vv as ARemPxAPI_scalePxWithRem, BL as ARemPxPlugin, pT as ARequired, ez as ARequiredI18n, RO as AResizer, dS as ARouterLinkConfig, tz as ARouterLinkConfigI18n, ZL as ARouterLinkConfigPlugin, YL as ARouterLinkConfigPluginOptions, Qf as ASafeHtml, tk as AScale, PS as ASelect, nz as ASelectI18n, zS as ASelectIcon, AS as ASelectPlugin, KS as ASelectStyle, rz as ASelectStyleI18n, BS as ASelectStylePluginOptions, VS as ASelectStylesPlugin, Ck as AShowMore, iz as AShowMoreI18n, pk as ASlider, az as ASliderI18n, GT as ASpinner, oz as ASpinnerI18n, z_ as ASpinnerPlugin, ZS as ASwitch, sz as ASwitchI18n, PM as ATable, xA as ATableForm, cz as ATableFormI18n, lz as ATableI18n, aj as ATablePlugin, GM as ATabs, QS as ATemplate, uC as ATextarea, mg as ATooltip, J as ATranslation, qb as AUiTypes_typesContainer, Zb as AUiTypes_typesLabelProps, Jb as AUiTypes_typesModelArray, Yb as AUiTypes_typesModelObject, Xb as AUiTypes_typesWithData, RC as AValidatedJson, uz as AValidatedJsonI18n, VE as AVerticalScroll, dz as AVerticalScrollI18n, ZD as AWizard, fz as AWizardI18n, KL as AlohaPlugin, D as EventBus, pz as Filters18n, TL as UIDataGroupAPI, Dg as UIExcludeRenderAttributesAPI, _b as UiAPI, SL as UiClearButtonAPI, OL as UiCollapseAPI, NL as UiDataFromServerAPI, PL as UiDataSortAPI, FL as UiDataWatchEmitAPI, IL as UiDataWithKeyIdAndLabelAPI, xL as UiDisabledAPI, CL as UiInputAutofillAPI, wL as UiLabelClickEventBusAPI, LL as UiLoadingAPI, GC as UiModelDependenciesProvideAPI, RL as UiSearchAPI, lx as UiStyleHideAPI, zL as UiTextAfterLabelAPI, My as aFirst, Ny as aLast, Kf as aOrderBy, Gf as aSortBy, tR as colorToHex, Iy as concatTwoStringsWithSpace, Ff as dompurify, Wf as extractTextFromHtml, Pg as filterBoolean, Fg as filterCapitalize, Lg as filterCurrency, zg as filterDate, Bg as filterDefaultForEmpty, Vg as filterEmail, Hg as filterEscapeHtml, Ug as filterFileSize, Ig as filterFloat, Wg as filterJson, Gg as filterKeyValue, Kg as filterLimitTo, qg as filterLink, Jg as filterList, Qg as filterLowerCase, $g as filterMask, e_ as filterPropertyByValue, t_ as filterSearchHighlight, i_ as filterUpperCase, l_ as filterValueByCondition, tv as focusableList, nv as focusableSelector, Hf as getTotalNestedCount, $p as getTranslatedAttributes, G as getTranslatedText, Qp as getTranslationAttributes, cv as getUniqueSelector, rR as hexToRgb, jp as i18n, Cz as i18nAR, Mz as i18nAll, wz as i18nDE, Tz as i18nEN, Ez as i18nES, Dz as i18nFR, Oz as i18nHR, kz as i18nIT, Az as i18nRU, jz as i18nUK, iR as isArguments, aR as isArray, oR as isArrayBuffer, Bf as isArrayOfArrays, zf as isArrayOfStrings, sR as isBoolean, O as isBrowser, cR as isBuffer, lR as isDate, uR as isElement, dR as isError, zb as isEven, fR as isFinite, pR as isFunction, mR as isInteger, hR as isMap, gR as isNaN, _R as isNil, vR as isNull, yR as isNumber, bR as isObject, xR as isObjectLike, Rb as isOdd, Yp as isPlaceholderTranslate, SR as isPlainObject, CR as isPromise, wR as isRegExp, TR as isSet, ER as isString, DR as isSymbol, Fp as isTranslate, OR as isUndefined, kR as isWeakMap, AR as isWeakSet, eR as mixBlack, QL as mixColor, $L as mixWhite, nR as rgbToHex, If as sanitize, Lf as sanitizeLocal, rv as scrollToElement, iv as setFocusToElement, ov as setFocusToNextFocusableElement, sv as setFocusToPreviousFocusableElement, Rp as setI18n, Vp as setLanguage, Np as timeTranslationLastChanged, Bb as toPrecision, Hp as toggleTranslate, Pp as translation, zp as updateI18n, Bp as updateI18nForLanguage, Wp as updateTranslation };

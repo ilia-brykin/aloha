@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.83.0
+
+- feat(ui): support reactive URL templates
+- docs(ui): add URL template examples in all languages
+- feat(modal-form): forward form column classes
+- docs(modal-form): add column layout example and prop docs
+
 ## 2.82.0
 
 -  feat(ui): add readonly value wrapper classes
