@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.84.0
+
+- feat(ATable): filter rows via isRowHiddenCallback
+
 ## 2.83.0
 
 - feat(ui): support reactive URL templates

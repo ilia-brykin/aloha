@@ -46198,12 +46198,12 @@ function fM(e, { emit: t }, { checkVisibleColumns: r = () => {}, columnIdsGroupB
 }
 //#endregion
 //#region src/ATable/compositionAPI/CountAPI.js
-function pM(e) {
-	let t = p(e, "countAllRows"), r = p(e, "data"), i = p(e, "isTree"), a = p(e, "keyChildren"), o = p(e, "keyCountAllRowsInData"), s = n(() => Wr(r.value)), c = n(() => L(r.value));
-	return { countAllRowsLocal: n(() => H(t.value) ? s.value ? +z(r.value, o.value) : c.value ? i.value ? Hf({
-		array: r.value,
+function pM(e, { data: t = p(e, "data") } = {}) {
+	let r = p(e, "countAllRows"), i = p(e, "isTree"), a = p(e, "keyChildren"), o = p(e, "keyCountAllRowsInData"), s = n(() => Wr(t.value)), c = n(() => L(t.value));
+	return { countAllRowsLocal: n(() => H(r.value) ? s.value ? +z(t.value, o.value) : c.value ? i.value ? Hf({
+		array: t.value,
 		keyChildren: a.value
-	}) : r.value.length : r.value.length || 0 : t.value) };
+	}) : t.value.length : t.value.length || 0 : r.value) };
 }
 //#endregion
 //#region src/ATable/compositionAPI/FocusTableAPI.js
@@ -46273,16 +46273,16 @@ function _M({ columnsOrdered: e = d([]), isMobile: t = d(!1), modelColumnsVisibl
 }
 //#endregion
 //#region src/ATable/compositionAPI/MultipleActionAPI.js
-function vM(e, { emit: t }, { checkVisibleColumns: r = () => {}, isMultipleActionsActive: i = d(void 0), rowsLocalAll: a = n(() => []), rowsLocalLength: o = n(() => 0) }) {
-	let s = p(e, "id"), c = p(e, "multipleActions"), l = d(void 0), u = d({}), f = d(!1), m = n(() => c.value.length > 0), h = n(() => R(z(l.value, "isHiddenCallback"))), g = n(() => cl(a.value, (e, t) => u.value[t])), _ = () => {
+function vM(e, { emit: t }, { checkVisibleColumns: r = () => {}, currentMultipleActions: i = d(void 0), isMultipleActionsActive: a = d(void 0), rowsLocalAll: o = n(() => []), rowsLocalLength: s = n(() => 0) }) {
+	let c = p(e, "id"), l = p(e, "multipleActions"), u = d({}), f = d(!1), m = n(() => l.value.length > 0), h = n(() => R(z(i.value, "isHiddenCallback"))), g = n(() => cl(o.value, (e, t) => u.value[t])), _ = () => {
 		u.value = {};
 	}, v = () => {
-		i.value = !1, l.value = void 0, f.value = !1, _();
+		a.value = !1, i.value = void 0, f.value = !1, _();
 	}, y = () => {
-		window.isScrollDisabled || iv({ selector: `#${VA({ tableId: s.value })}` });
+		window.isScrollDisabled || iv({ selector: `#${VA({ tableId: c.value })}` });
 	}, b = ({ isActive: e, action: n } = {}) => {
 		if (e) {
-			i.value = !0, l.value = n, setTimeout(() => {
+			a.value = !0, i.value = n, setTimeout(() => {
 				r(), y();
 			}), t("toggleMultipleActions", {
 				isActive: e,
@@ -46290,19 +46290,19 @@ function vM(e, { emit: t }, { checkVisibleColumns: r = () => {}, isMultipleActio
 			});
 			return;
 		}
-		i.value ? v() : i.value = !0, setTimeout(() => {
+		a.value ? v() : a.value = !0, setTimeout(() => {
 			r(), y();
 		}), t("toggleMultipleActions", {
 			isActive: e,
 			action: n
 		});
-	}, x = n(() => Iu(u.value)), S = n(() => o.value > 0 && o.value === x.value), C = n(() => x.value > 0);
+	}, x = n(() => Iu(u.value)), S = n(() => s.value > 0 && s.value === x.value), C = n(() => x.value > 0);
 	return {
 		areAllRowsSelected: f,
 		areAllVisibleRowsSelected: S,
 		areSomeRowsSelected: C,
 		closeMultipleActionsActive: v,
-		currentMultipleActions: l,
+		currentMultipleActions: i,
 		hasMultipleActions: m,
 		selectedRows: g,
 		selectedRowsIndexes: u,
@@ -46312,12 +46312,12 @@ function vM(e, { emit: t }, { checkVisibleColumns: r = () => {}, isMultipleActio
 				if (C.value) _();
 				else {
 					let e = {};
-					h.value ? Ku(o.value, (t) => {
-						l.value.isHiddenCallback({
-							row: a.value[t],
+					h.value ? Ku(s.value, (t) => {
+						i.value.isHiddenCallback({
+							row: o.value[t],
 							rowIndex: t
 						}) || (e[t] = !0);
-					}) : Ku(o.value, (t) => {
+					}) : Ku(s.value, (t) => {
 						e[t] = !0;
 					}), u.value = e;
 				}
@@ -46468,42 +46468,46 @@ function bM(e, t, { aTableRef: r = d({}), isMobile: i = d(void 0), previewBoxWid
 }
 //#endregion
 //#region src/ATable/compositionAPI/RowsAPI.js
-function xM(e, { dataSorted: t = n(() => []), limit: r = d(0), offset: i = d(0), setEmptySelectedRowsIndexes: a = () => {}, usePaginationLocal: o = n(() => !1) }) {
-	let s = p(e, "clearSelectedRowsOnDataChange"), c = p(e, "pagination"), l = p(e, "rowsCountRenderPerTick"), u = d([]), f = d([]), m = !0, h = 0, g, v = n(() => {
-		if (r.value && !c.value.isOutside && o.value) {
-			let e = i.value, n = e + r.value;
-			return t.value.slice(e, n);
+function xM(e, { currentMultipleActions: t = d(void 0), dataSorted: r = n(() => []), isMultipleActionsActive: i = d(void 0), limit: a = d(0), offset: o = d(0), setEmptySelectedRowsIndexes: s = () => {}, usePaginationLocal: c = n(() => !1) }) {
+	let l = p(e, "clearSelectedRowsOnDataChange"), u = p(e, "pagination"), f = p(e, "rowsCountRenderPerTick"), m = d([]), h = d([]), g = !0, v = 0, y, b = n(() => i.value && R(t.value?.isRowHiddenCallback) ? r.value.filter((e, n) => !t.value.isRowHiddenCallback({
+		row: e,
+		rowIndex: n
+	})) : r.value), x = n(() => {
+		if (a.value && !u.value.isOutside && c.value) {
+			let e = o.value, t = e + a.value;
+			return b.value.slice(e, t);
 		}
-		return t.value;
-	}), y = n(() => v.value), b = n(() => y.value.length), x = n(() => !!b.value), S = () => {
-		let e = h * l.value, t = e + l.value;
-		_l(v.value.slice(e, t), (e) => f.value.push(e)), h++;
-	}, C = () => {
-		g = setInterval(() => {
-			h * l.value >= v.value.length ? clearInterval(g) : S();
+		return b.value;
+	}), S = n(() => x.value), C = n(() => S.value.length), w = n(() => !!C.value), T = () => {
+		let e = v * f.value, t = e + f.value;
+		_l(x.value.slice(e, t), (e) => h.value.push(e)), v++;
+	}, E = () => {
+		y = setInterval(() => {
+			v * f.value >= x.value.length ? clearInterval(y) : T();
 		});
-	}, w = () => {
-		clearInterval(g);
+	}, D = () => {
+		clearInterval(y);
 	};
-	return _(v, (e) => {
-		jl(e, u.value) || (u.value = [...e], !m && s.value && a(), m = !1, f.value = [], h = 0, w(), l.value > 0 ? (S(), C()) : f.value = v.value);
+	return _(x, (e) => {
+		jl(e, m.value) || (m.value = [...e], !g && l.value && s(), g = !1, h.value = [], v = 0, D(), f.value > 0 ? (T(), E()) : h.value = x.value);
 	}, {
 		immediate: !0,
 		deep: !0
 	}), {
 		addRow: ({ row: e }) => {
-			f.value.unshift(e);
+			h.value.unshift(e);
 		},
+		dataFiltered: b,
 		deleteRow: ({ index: e }) => {
-			f.value.splice(e, 1);
+			h.value.splice(e, 1);
 		},
-		hasRows: x,
-		rowsLocal: f,
-		rowsLocalAll: y,
-		rowsLocalLength: b,
-		stopRenderRows: w,
+		hasRows: w,
+		rowsLocal: h,
+		rowsLocalAll: S,
+		rowsLocalLength: C,
+		stopRenderRows: D,
 		updateRow: ({ row: e, rowIndex: t }) => {
-			t > f.value.length - 1 || (f.value[t] = e);
+			t > h.value.length - 1 || (h.value[t] = e);
 		}
 	};
 }
@@ -46699,6 +46703,7 @@ function kM(e) {
 function AM() {
 	return {
 		columnsScrollInvisible: d([]),
+		currentMultipleActions: d(void 0),
 		indexFirstScrollInvisibleColumn: d(void 0),
 		isMultipleActionsActive: d(void 0),
 		modelColumnsVisibleLocal: d({}),
@@ -47249,37 +47254,39 @@ var PM = {
 		};
 	},
 	setup(e, t) {
-		let { columnActionsWidthDefaultsRemLocal: n, columnActionsWidthMinRemLocal: r, columnActionsWidthRemLocal: i, columnWidthDefaultRemLocal: a, previewBoxWidthRemLocal: o } = MM(e), { initModelIsTableWithoutScroll: s, isActionColumnVisibleLocal: c, isActionIconVisibleLocal: l, isColumnsDndLocal: d, isMobile: f, modelIsTableWithoutScroll: p, modelIsTableWithoutScrollComputed: m } = CM(e), { countAllRowsLocal: h } = pM(e), { columnsScrollInvisible: g, indexFirstScrollInvisibleColumn: v, isMultipleActionsActive: y, modelColumnsVisibleLocal: b, tableGrandparentRef: x, tableRef: S } = AM(e), { scrollToTable: C, setFocusToTable: w } = mM({ tableRef: S }), { hasViews: T, initViewCurrent: E, isViewTableVisible: D, updateViewCurrent: O, viewCurrent: k } = jM(e, t, { closePreviewAll: lt }), { dataSorted: A, initModelSort: j, modelSortLocal: M, useAdditionalSortingLocal: N } = wM(e, { viewCurrent: k }), { columnsOrderedFromSimpleTable: P, renderedGroupedColumns: ee } = dM(e, {
+		let { columnActionsWidthDefaultsRemLocal: n, columnActionsWidthMinRemLocal: r, columnActionsWidthRemLocal: i, columnWidthDefaultRemLocal: a, previewBoxWidthRemLocal: o } = MM(e), { initModelIsTableWithoutScroll: s, isActionColumnVisibleLocal: c, isActionIconVisibleLocal: l, isColumnsDndLocal: d, isMobile: f, modelIsTableWithoutScroll: p, modelIsTableWithoutScrollComputed: m } = CM(e), { columnsScrollInvisible: h, currentMultipleActions: g, indexFirstScrollInvisibleColumn: v, isMultipleActionsActive: y, modelColumnsVisibleLocal: b, tableGrandparentRef: x, tableRef: S } = AM(e), { scrollToTable: C, setFocusToTable: w } = mM({ tableRef: S }), { hasViews: T, initViewCurrent: E, isViewTableVisible: D, updateViewCurrent: O, viewCurrent: k } = jM(e, t, { closePreviewAll: ut }), { dataSorted: A, initModelSort: j, modelSortLocal: M, useAdditionalSortingLocal: N } = wM(e, { viewCurrent: k }), { columnsOrderedFromSimpleTable: P, renderedGroupedColumns: ee } = dM(e, {
 			modelSort: M,
 			slots: t.slots
 		}), { columnIdsGroupByLocked: te, columnsFilteredForRender: ne, columnsFilteredForRenderIndexesMapping: F, columnsOrdered: re, countNotHiddenColumns: I } = uM(e, {
-			columnsScrollInvisible: g,
+			columnsScrollInvisible: h,
 			indexFirstScrollInvisibleColumn: v,
 			modelColumnsVisibleLocal: b,
 			modelIsTableWithoutScrollComputed: m,
 			columnsOrderedFromSimpleTable: P
 		}), { changeLimit: ie, changeOffset: ae, initLocalVars: oe, limit: se, offset: ce, usePaginationBottom: le, usePaginationLocal: ue, usePaginationTop: de } = gM(e, t, {
-			closePreviewAll: lt,
+			closePreviewAll: ut,
 			scrollToTable: C,
 			setFocusToTable: w,
 			viewCurrent: k
-		}), { addRow: fe, deleteRow: pe, hasRows: me, rowsLocal: he, rowsLocalAll: ge, rowsLocalLength: L, stopRenderRows: _e, updateRow: ve } = xM(e, {
+		}), { addRow: fe, dataFiltered: pe, deleteRow: me, hasRows: he, rowsLocal: ge, rowsLocalAll: L, rowsLocalLength: _e, stopRenderRows: ve, updateRow: ye } = xM(e, {
+			currentMultipleActions: g,
 			dataSorted: A,
+			isMultipleActionsActive: y,
 			limit: se,
 			offset: ce,
-			setEmptySelectedRowsIndexes: ut,
+			setEmptySelectedRowsIndexes: dt,
 			usePaginationLocal: ue
-		}), { columnActionsBtnGroupMaxWidthStyle: ye, columnActionsWidthLocal: be, columnActionsWidthMinLocal: xe, isColumnActionWide: Se } = lM(e, {
+		}), { countAllRowsLocal: be } = pM(e, { data: pe }), { columnActionsBtnGroupMaxWidthStyle: xe, columnActionsWidthLocal: Se, columnActionsWidthMinLocal: Ce, isColumnActionWide: we } = lM(e, {
 			columnActionsWidthDefaultsRemLocal: n,
 			columnActionsWidthMinRemLocal: r,
 			columnActionsWidthRemLocal: i,
 			isMobile: f,
-			rowsLocal: he
-		}), { aTableRef: Ce, changeModelIsTableWithoutScroll: we, checkVisibleColumns: Te, columnsVisibleAdditionalSpaceForOneGrow: Ee, onWatchMobileScrollControl: De } = SM(e, t, {
-			columnActionsWidthLocal: be,
-			columnActionsWidthMinLocal: xe,
+			rowsLocal: ge
+		}), { aTableRef: Te, changeModelIsTableWithoutScroll: Ee, checkVisibleColumns: De, columnsVisibleAdditionalSpaceForOneGrow: Oe, onWatchMobileScrollControl: ke } = SM(e, t, {
+			columnActionsWidthLocal: Se,
+			columnActionsWidthMinLocal: Ce,
 			columnsOrdered: re,
-			columnsScrollInvisible: g,
+			columnsScrollInvisible: h,
 			columnWidthDefaultRemLocal: a,
 			indexFirstScrollInvisibleColumn: v,
 			isMobile: f,
@@ -47287,110 +47294,111 @@ var PM = {
 			modelColumnsVisibleLocal: b,
 			modelIsTableWithoutScroll: p,
 			modelIsTableWithoutScrollComputed: m
-		}), { changeColumnsOrdering: Oe, checkColumnsOrdering: ke } = fM(e, t, {
-			checkVisibleColumns: Te,
+		}), { changeColumnsOrdering: Ae, checkColumnsOrdering: je } = fM(e, t, {
+			checkVisibleColumns: De,
 			columnIdsGroupByLocked: te,
 			columnsFilteredForRenderIndexesMapping: F
-		}), { isRowActionsStickyLocal: Ae } = EM(e, {
+		}), { isRowActionsStickyLocal: Me } = EM(e, {
 			isMobile: f,
 			modelIsTableWithoutScrollComputed: m
-		}), { areAllRowsSelected: je, areAllVisibleRowsSelected: Me, areSomeRowsSelected: Ne, closeMultipleActionsActive: Pe, currentMultipleActions: Fe, hasMultipleActions: Ie, selectedRows: Le, selectedRowsIndexes: Re, setEmptySelectedRowsIndexes: ze, setSelectedRowsIndexes: Be, toggleBtnAllRows: R, toggleMultipleActionsActive: Ve } = vM(e, t, {
-			checkVisibleColumns: Te,
+		}), { areAllRowsSelected: Ne, areAllVisibleRowsSelected: Pe, areSomeRowsSelected: Fe, closeMultipleActionsActive: Ie, hasMultipleActions: Le, selectedRows: Re, selectedRowsIndexes: ze, setEmptySelectedRowsIndexes: Be, setSelectedRowsIndexes: R, toggleBtnAllRows: Ve, toggleMultipleActionsActive: He } = vM(e, t, {
+			checkVisibleColumns: De,
+			currentMultipleActions: g,
 			isMultipleActionsActive: y,
-			rowsLocalAll: ge,
-			rowsLocalLength: L
-		}), { changeModelColumnsVisible: He } = OM(e, t, {
+			rowsLocalAll: L,
+			rowsLocalLength: _e
+		}), { changeModelColumnsVisible: Ue } = OM(e, t, {
 			modelColumnsVisibleLocal: b,
-			checkVisibleColumns: Te
-		}), { closePreview: Ue, closePreviewAll: We, hasPreview: Ge, isPreviewRightOpen: Ke, onTogglePreview: qe, mousedownResizePreviewRight: Je, mousemoveResizePreviewRight: Ye, mouseupResizePreviewRight: Xe, previewDownRowIds: Ze, previewRightRowIndex: Qe, previewRightRowIndexLast: $e, togglePreviewResize: et } = bM(e, t, {
-			aTableRef: Ce,
+			checkVisibleColumns: De
+		}), { closePreview: We, closePreviewAll: Ge, hasPreview: Ke, isPreviewRightOpen: qe, onTogglePreview: Je, mousedownResizePreviewRight: Ye, mousemoveResizePreviewRight: Xe, mouseupResizePreviewRight: Ze, previewDownRowIds: Qe, previewRightRowIndex: $e, previewRightRowIndexLast: et, togglePreviewResize: tt } = bM(e, t, {
+			aTableRef: Te,
 			isMobile: f,
 			previewBoxWidthRemLocal: o,
-			rowsLocalAll: ge,
+			rowsLocalAll: L,
 			tableGrandparentRef: x
-		}), { tableChildRole: tt, tableLabelId: nt, tableRoleAttributes: rt } = DM(e, {
+		}), { tableChildRole: nt, tableLabelId: rt, tableRoleAttributes: it } = DM(e, {
 			countNotHiddenColumns: I,
 			isMobile: f
-		}), { allVisibleMobileColumns: it } = _M({
+		}), { allVisibleMobileColumns: at } = _M({
 			columnsOrdered: re,
 			isMobile: f,
 			modelColumnsVisibleLocal: b
-		}), { changeModelSort: at } = TM(e, t, {
+		}), { changeModelSort: ot } = TM(e, t, {
 			modelSortLocal: M,
-			closePreviewAll: lt
-		}), { paginationModes: ot } = NM(e, { isMobile: f }), { initTable: st } = hM(e, t, {
-			checkColumnsOrdering: ke,
-			checkVisibleColumns: Te,
+			closePreviewAll: ut
+		}), { paginationModes: st } = NM(e, { isMobile: f }), { initTable: ct } = hM(e, t, {
+			checkColumnsOrdering: je,
+			checkVisibleColumns: De,
 			modelColumnsVisibleLocal: b
-		}), { emptyText: ct } = kM(e);
-		function lt() {
-			We();
-		}
+		}), { emptyText: lt } = kM(e);
 		function ut() {
-			ze();
+			Ge();
+		}
+		function dt() {
+			Be();
 		}
 		return _(f, (e) => {
-			De(e), lt();
-		}), _(Se, (e, t) => {
-			e !== t && Te();
-		}), u("changeModelIsTableWithoutScroll", we), u("changeModelSort", at), u("columnsOrdered", re), u("columnsFilteredForRender", ne), u("columnsScrollInvisible", g), u("columnWidthDefault", a), u("columnsVisibleAdditionalSpaceForOneGrow", Ee), u("columnActionsWidthLocal", be), u("columnActionsWidthMinLocal", xe), u("currentMultipleActions", Fe), u("hasPreview", Ge), u("indexFirstScrollInvisibleColumn", v), u("isActionColumnVisible", c), u("isActionIconVisible", l), u("isColumnsDnd", d), u("isMobile", f), u("isMultipleActionsActive", y), u("modelIsTableWithoutScroll", m), u("onTogglePreview", qe), u("previewRightRowIndex", Qe), u("previewRightRowIndexLast", $e), u("rowsLocalAll", ge), u("modelColumnsVisibleLocal", b), u("changeColumnsOrdering", Oe), oe(), s(), E(), st(), j(), {
+			ke(e), ut();
+		}), _(we, (e, t) => {
+			e !== t && De();
+		}), u("changeModelIsTableWithoutScroll", Ee), u("changeModelSort", ot), u("columnsOrdered", re), u("columnsFilteredForRender", ne), u("columnsScrollInvisible", h), u("columnWidthDefault", a), u("columnsVisibleAdditionalSpaceForOneGrow", Oe), u("columnActionsWidthLocal", Se), u("columnActionsWidthMinLocal", Ce), u("currentMultipleActions", g), u("hasPreview", Ke), u("indexFirstScrollInvisibleColumn", v), u("isActionColumnVisible", c), u("isActionIconVisible", l), u("isColumnsDnd", d), u("isMobile", f), u("isMultipleActionsActive", y), u("modelIsTableWithoutScroll", m), u("onTogglePreview", Je), u("previewRightRowIndex", $e), u("previewRightRowIndexLast", et), u("rowsLocalAll", L), u("modelColumnsVisibleLocal", b), u("changeColumnsOrdering", Ae), oe(), s(), E(), ct(), j(), {
 			addRow: fe,
-			allVisibleMobileColumns: it,
-			areAllRowsSelected: je,
-			areAllVisibleRowsSelected: Me,
-			areSomeRowsSelected: Ne,
-			aTableRef: Ce,
+			allVisibleMobileColumns: at,
+			areAllRowsSelected: Ne,
+			areAllVisibleRowsSelected: Pe,
+			areSomeRowsSelected: Fe,
+			aTableRef: Te,
 			changeLimit: ie,
-			changeModelColumnsVisible: He,
+			changeModelColumnsVisible: Ue,
 			changeOffset: ae,
-			checkVisibleColumns: Te,
-			closeMultipleActionsActive: Pe,
-			closePreview: Ue,
-			closePreviewAll: lt,
-			columnActionsBtnGroupMaxWidthStyle: ye,
+			checkVisibleColumns: De,
+			closeMultipleActionsActive: Ie,
+			closePreview: We,
+			closePreviewAll: ut,
+			columnActionsBtnGroupMaxWidthStyle: xe,
 			columnsFilteredForRender: ne,
 			columnsOrdered: re,
-			countAllRowsLocal: h,
-			deleteRow: pe,
-			emptyText: ct,
-			hasMultipleActions: Ie,
-			hasRows: me,
+			countAllRowsLocal: be,
+			deleteRow: me,
+			emptyText: lt,
+			hasMultipleActions: Le,
+			hasRows: he,
 			hasViews: T,
 			isMobile: f,
 			isMultipleActionsActive: y,
-			isPreviewRightOpen: Ke,
-			isRowActionsStickyLocal: Ae,
+			isPreviewRightOpen: qe,
+			isRowActionsStickyLocal: Me,
 			isViewTableVisible: D,
 			limit: se,
 			modelColumnsVisibleLocal: b,
 			modelIsTableWithoutScrollComputed: m,
 			modelSortLocal: M,
-			mousedownResizePreviewRight: Je,
-			mousemoveResizePreviewRight: Ye,
-			mouseupResizePreviewRight: Xe,
+			mousedownResizePreviewRight: Ye,
+			mousemoveResizePreviewRight: Xe,
+			mouseupResizePreviewRight: Ze,
 			offset: ce,
-			onTogglePreview: qe,
-			paginationModes: ot,
-			previewDownRowIds: Ze,
-			previewRightRowIndex: Qe,
+			onTogglePreview: Je,
+			paginationModes: st,
+			previewDownRowIds: Qe,
+			previewRightRowIndex: $e,
 			renderedGroupedColumns: ee,
-			rowsLocal: he,
-			rowsLocalAll: ge,
-			rowsLocalLength: L,
-			selectedRows: Le,
-			selectedRowsIndexes: Re,
-			setEmptySelectedRowsIndexes: ut,
-			setSelectedRowsIndexes: Be,
-			stopRenderRows: _e,
-			tableChildRole: tt,
+			rowsLocal: ge,
+			rowsLocalAll: L,
+			rowsLocalLength: _e,
+			selectedRows: Re,
+			selectedRowsIndexes: ze,
+			setEmptySelectedRowsIndexes: dt,
+			setSelectedRowsIndexes: R,
+			stopRenderRows: ve,
+			tableChildRole: nt,
 			tableGrandparentRef: x,
-			tableLabelId: nt,
+			tableLabelId: rt,
 			tableRef: S,
-			tableRoleAttributes: rt,
-			toggleBtnAllRows: R,
-			toggleMultipleActionsActive: Ve,
-			togglePreviewResize: et,
-			updateRow: ve,
+			tableRoleAttributes: it,
+			toggleBtnAllRows: Ve,
+			toggleMultipleActionsActive: He,
+			togglePreviewResize: tt,
+			updateRow: ye,
 			updateViewCurrent: O,
 			useAdditionalSortingLocal: N,
 			usePaginationBottom: le,
