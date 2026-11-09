@@ -14,9 +14,10 @@ import {
   isPlainObject,
 } from "lodash-es";
 
-export default function CountAPI(props) {
+export default function CountAPI(props, {
+  data = toRef(props, "data"),
+} = {}) {
   const countAllRows = toRef(props, "countAllRows");
-  const data = toRef(props, "data");
   const isTree = toRef(props, "isTree");
   const keyChildren = toRef(props, "keyChildren");
   const keyCountAllRowsInData = toRef(props, "keyCountAllRowsInData");

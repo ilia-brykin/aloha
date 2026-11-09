@@ -7,11 +7,14 @@ import {
 
 import {
   isEqual,
+  isFunction,
   map,
 } from "lodash-es";
 
 export default function RowsAPI(props, {
+  currentMultipleActions = ref(undefined),
   dataSorted = computed(() => []),
+  isMultipleActionsActive = ref(undefined),
   limit = ref(0),
   offset = ref(0),
   setEmptySelectedRowsIndexes = () => {},
@@ -27,13 +30,22 @@ export default function RowsAPI(props, {
   let rowsLocalIndex = 0;
   let rowsLocalInterval = undefined;
 
+  const dataFiltered = computed(() => {
+    if (isMultipleActionsActive.value && isFunction(currentMultipleActions.value?.isRowHiddenCallback)) {
+      return dataSorted.value.filter((row, rowIndex) => {
+        return !currentMultipleActions.value.isRowHiddenCallback({ row, rowIndex });
+      });
+    }
+    return dataSorted.value;
+  });
+
   const dataPaginated = computed(() => {
     if (limit.value && !pagination.value.isOutside && usePaginationLocal.value) {
       const INDEX_START = offset.value;
       const INDEX_END = INDEX_START + limit.value;
-      return dataSorted.value.slice(INDEX_START, INDEX_END);
+      return dataFiltered.value.slice(INDEX_START, INDEX_END);
     }
-    return dataSorted.value;
+    return dataFiltered.value;
   });
 
   const rowsLocalAll = computed(() => {
@@ -110,6 +122,7 @@ export default function RowsAPI(props, {
 
   return {
     addRow,
+    dataFiltered,
     deleteRow,
     hasRows,
     rowsLocal,

@@ -4,6 +4,7 @@ import {
 
 export default function VariablesAPI() {
   const columnsScrollInvisible = ref([]);
+  const currentMultipleActions = ref(undefined);
   const indexFirstScrollInvisibleColumn = ref(undefined);
   const isMultipleActionsActive = ref(undefined);
   const modelColumnsVisibleLocal = ref({});
@@ -12,6 +13,7 @@ export default function VariablesAPI() {
 
   return {
     columnsScrollInvisible,
+    currentMultipleActions,
     indexFirstScrollInvisibleColumn,
     isMultipleActionsActive,
     modelColumnsVisibleLocal,

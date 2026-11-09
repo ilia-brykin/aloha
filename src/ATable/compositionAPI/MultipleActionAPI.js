@@ -21,6 +21,7 @@ import {
 
 export default function MultipleActionAPI(props, { emit }, {
   checkVisibleColumns = () => {},
+  currentMultipleActions = ref(undefined),
   isMultipleActionsActive = ref(undefined),
   rowsLocalAll = computed(() => []),
   rowsLocalLength = computed(() => 0),
@@ -28,7 +29,6 @@ export default function MultipleActionAPI(props, { emit }, {
   const id = toRef(props, "id");
   const multipleActions = toRef(props, "multipleActions");
 
-  const currentMultipleActions = ref(undefined);
   const selectedRowsIndexes = ref({});
   const areAllRowsSelected = ref(false);
 

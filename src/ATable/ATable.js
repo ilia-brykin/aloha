@@ -531,11 +531,8 @@ export default {
     } = SimpleTableAPI(props);
 
     const {
-      countAllRowsLocal,
-    } = CountAPI(props);
-
-    const {
       columnsScrollInvisible,
+      currentMultipleActions,
       indexFirstScrollInvisibleColumn,
       isMultipleActionsActive,
       modelColumnsVisibleLocal,
@@ -609,6 +606,7 @@ export default {
 
     const {
       addRow,
+      dataFiltered,
       deleteRow,
       hasRows,
       rowsLocal,
@@ -617,11 +615,19 @@ export default {
       stopRenderRows,
       updateRow,
     } = RowsAPI(props, {
+      currentMultipleActions,
       dataSorted,
+      isMultipleActionsActive,
       limit,
       offset,
       setEmptySelectedRowsIndexes,
       usePaginationLocal,
+    });
+
+    const {
+      countAllRowsLocal,
+    } = CountAPI(props, {
+      data: dataFiltered,
     });
 
     const {
@@ -678,7 +684,6 @@ export default {
       areAllVisibleRowsSelected,
       areSomeRowsSelected,
       closeMultipleActionsActive,
-      currentMultipleActions,
       hasMultipleActions,
       selectedRows,
       selectedRowsIndexes,
@@ -688,6 +693,7 @@ export default {
       toggleMultipleActionsActive,
     } = MultipleActionAPI(props, context, {
       checkVisibleColumns,
+      currentMultipleActions,
       isMultipleActionsActive,
       rowsLocalAll,
       rowsLocalLength,
