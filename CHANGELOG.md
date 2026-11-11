@@ -7,6 +7,10 @@
 ---
 # Versions
 
+## 2.85.0
+
+- feat(translation): add hide-without-translation prop
+
 ## 2.84.0
 
 - feat(ATable): filter rows via isRowHiddenCallback

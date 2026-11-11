@@ -14177,6 +14177,10 @@ var J = {
 			required: !1,
 			default: void 0
 		},
+		hideWithoutTranslation: {
+			type: Boolean,
+			required: !1
+		},
 		html: {
 			type: [
 				String,
@@ -14251,40 +14255,55 @@ var J = {
 		}
 	},
 	setup(e) {
-		let { hasTextAfter: t, hasTextBefore: n, textAfterForCurrentDevice: r, textBeforeForCurrentDevice: i } = nb(e), { hasText: a, textLocalOptions: o } = tb(e), { hasHtml: s, hasSafeHtml: c, htmlLocalOptions: l, htmlLocalWithBeforeAndAfter: u } = Qy(e, {
+		let { hasTextAfter: t, hasTextBefore: r, textAfterForCurrentDevice: i, textBeforeForCurrentDevice: a } = nb(e), { hasText: o, textLocalOptions: s } = tb(e), { hasHtml: c, hasSafeHtml: l, htmlLocalOptions: u, htmlLocalWithBeforeAndAfter: d } = Qy(e, {
 			hasTextAfter: t,
-			hasTextBefore: n,
-			textAfterForCurrentDevice: r,
-			textBeforeForCurrentDevice: i
-		}), { titleLocalOptions: d } = rb(e), { hasPlaceholder: f, placeholderAttributes: p } = $y(e), { ariaLabelAttributes: m, hasAriaLabel: h } = em(e), { attributesLocal: g, hasAttributesLocal: _ } = Zy({
-			htmlLocalOptions: l,
-			textLocalOptions: o,
-			titleLocalOptions: d
-		}), { hasRestAttributes: v } = eb({
-			hasAriaLabel: h,
-			hasAttributesLocal: _,
-			hasPlaceholder: f,
+			hasTextBefore: r,
+			textAfterForCurrentDevice: i,
+			textBeforeForCurrentDevice: a
+		}), { titleLocalOptions: f } = rb(e), { hasPlaceholder: p, placeholderAttributes: m } = $y(e), { ariaLabelAttributes: h, hasAriaLabel: g } = em(e), { attributesLocal: _, hasAttributesLocal: v } = Zy({
+			htmlLocalOptions: u,
+			textLocalOptions: s,
+			titleLocalOptions: f
+		}), { hasRestAttributes: y } = eb({
+			hasAriaLabel: g,
+			hasAttributesLocal: v,
+			hasPlaceholder: p,
 			hasTextAfter: t,
-			hasTextBefore: n
-		});
+			hasTextBefore: r
+		}), { isMobileWidth: b } = M();
 		return {
-			ariaLabelAttributes: m,
-			attributesLocal: g,
-			hasText: a,
+			ariaLabelAttributes: h,
+			attributesLocal: _,
+			hasMissingTranslation: n(() => !e.hideWithoutTranslation || !Np.value ? !1 : [
+				o.value ? e.text : l.value ? e.safeHtml : e.html,
+				e.textBefore,
+				e.textAfter,
+				e.title,
+				e.placeholder,
+				e.ariaLabel
+			].some((e) => {
+				let t = Wr(e) ? e[b.value ? "mobile" : "desktop"] : e;
+				return [].concat(t).some((e) => {
+					if (!Yp(e)) return !1;
+					let t = Pp?.[e];
+					return t == null || t === "";
+				});
+			})),
+			hasText: o,
 			hasTextAfter: t,
-			hasTextBefore: n,
-			hasHtml: s,
-			hasRestAttributes: v,
-			hasSafeHtml: c,
-			htmlLocalWithBeforeAndAfter: u,
-			placeholderAttributes: p,
-			textAfterForCurrentDevice: r,
-			textBeforeForCurrentDevice: i,
-			textLocalOptions: o
+			hasTextBefore: r,
+			hasHtml: c,
+			hasRestAttributes: y,
+			hasSafeHtml: l,
+			htmlLocalWithBeforeAndAfter: d,
+			placeholderAttributes: m,
+			textAfterForCurrentDevice: i,
+			textBeforeForCurrentDevice: a,
+			textLocalOptions: s
 		};
 	},
 	render() {
-		return this.hasText ? i(this.tag, {
+		return this.hasMissingTranslation ? null : this.hasText ? i(this.tag, {
 			...this.attributesLocal,
 			...this.ariaLabelAttributes,
 			...this.placeholderAttributes
