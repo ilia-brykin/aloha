@@ -1,7 +1,9 @@
 import {
+  computed,
   h,
 } from "vue";
 
+import AMobileAPI from "../compositionAPI/AMobileAPI";
 import AriaLabelAPI from "./compositionAPI/AriaLabelAPI";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import HtmlAPI from "./compositionAPI/HtmlAPI";
@@ -10,6 +12,17 @@ import RestAttributesAPI from "./compositionAPI/RestAttributesAPI";
 import TextAPI from "./compositionAPI/TextAPI";
 import TextAfterBeforeAPI from "./compositionAPI/TextAfterBeforeAPI";
 import TitleAPI from "./compositionAPI/TitleAPI";
+import {
+  isPlaceholderTranslate,
+} from "./compositionAPI/UtilsAPI";
+import {
+  timeTranslationLastChanged,
+  translation,
+} from "./compositionAPI/ATranslationAPI";
+
+import {
+  isPlainObject,
+} from "lodash-es";
 
 export default {
   name: "ATranslation",
@@ -27,6 +40,10 @@ export default {
       type: Object,
       required: false,
       default: undefined,
+    },
+    hideWithoutTranslation: {
+      type: Boolean,
+      required: false,
     },
     html: {
       type: [String, Number, Object, Array],
@@ -127,9 +144,34 @@ export default {
       hasTextBefore,
     });
 
+    const {
+      isMobileWidth,
+    } = AMobileAPI();
+
+    const hasMissingTranslation = computed(() => {
+      if (!props.hideWithoutTranslation || !timeTranslationLastChanged.value) {
+        return false;
+      }
+      const content = hasText.value ? props.text : hasSafeHtml.value ? props.safeHtml : props.html;
+      return [content, props.textBefore, props.textAfter, props.title, props.placeholder, props.ariaLabel]
+        .some(value => {
+          const valueForCurrentDevice = isPlainObject(value) ?
+            value[isMobileWidth.value ? "mobile" : "desktop"] :
+            value;
+          return [].concat(valueForCurrentDevice).some(text => {
+            if (!isPlaceholderTranslate(text)) {
+              return false;
+            }
+            const translated = translation?.[text];
+            return translated === undefined || translated === null || translated === "";
+          });
+        });
+    });
+
     return {
       ariaLabelAttributes,
       attributesLocal,
+      hasMissingTranslation,
       hasText,
       hasTextAfter,
       hasTextBefore,
@@ -144,6 +186,10 @@ export default {
     };
   },
   render() {
+    if (this.hasMissingTranslation) {
+      return null;
+    }
+
     if (this.hasText) {
       return h(this.tag, {
         ...this.attributesLocal,

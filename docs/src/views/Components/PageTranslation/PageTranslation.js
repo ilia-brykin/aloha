@@ -3,6 +3,7 @@ import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTab
 import PageTranslationAriaLabel from "./PageTranslationAriaLabel/PageTranslationAriaLabel.vue";
 import PageTranslationBasic from "./PageTranslationBasic/PageTranslationBasic.vue";
 import PageTranslationExtra from "./PageTranslationExtra/PageTranslationExtra.vue";
+import PageTranslationHideWithoutTranslation from "./PageTranslationHideWithoutTranslation/PageTranslationHideWithoutTranslation.vue";
 import PageTranslationHtml from "./PageTranslationHtml/PageTranslationHtml.vue";
 import PageTranslationHtmlAfterBefore from "./PageTranslationHtmlAfterBefore/PageTranslationHtmlAfterBefore.vue";
 import PageTranslationPlaceholder from "./PageTranslationPlaceholder/PageTranslationPlaceholder.vue";
@@ -32,6 +33,7 @@ export default {
     PageTranslationAriaLabel,
     PageTranslationBasic,
     PageTranslationExtra,
+    PageTranslationHideWithoutTranslation,
     PageTranslationHtml,
     PageTranslationHtmlAfterBefore,
     PageTranslationPlaceholder,

@@ -22,6 +22,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "hide-without-translation",
+      description: "_A_TRANSLATION_PROPS_HIDE_WITHOUT_TRANSLATION_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "html",
       description: "_A_TRANSLATION_PROPS_HTML_DESCRIPTION_",
       type: "String / Number / Object / Array",
