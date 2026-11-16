@@ -1,0 +1,7 @@
+// Secondary and emphasized text, readable in the light and the dark theme
+.a_text_muted {
+  color: var(--a_color_text_muted) !important;
+}
+.a_text_emphasis {
+  color: var(--a_color_emphasis_color) !important;
+}

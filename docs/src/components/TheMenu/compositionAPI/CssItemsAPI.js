@@ -101,6 +101,14 @@ export default function CssItemsAPI() {
           name: "PageText",
         },
       },
+      {
+        id: "PageUtilities",
+        label: "Utilities",
+        class: "test_menu_utilities",
+        to: {
+          name: "PageUtilities",
+        },
+      },
     ],
   };
 

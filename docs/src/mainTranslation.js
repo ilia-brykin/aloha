@@ -118,6 +118,7 @@ import PageTextareaI18n from "./views/Components/Form/PageTextarea/i18n/PageText
 import PageThemingI18n from "./views/CSS/PageTheming/i18n/PageThemingI18n";
 import PageTooltipI18n from "./views/Components/PageTooltip/i18n/PageTooltipI18n";
 import PageTranslationI18n from "./views/Components/PageTranslation/i18n/PageTranslationI18n";
+import PageUtilitiesI18n from "./views/CSS/PageUtilities/i18n/PageUtilitiesI18n";
 import PageUtilsAOrderByI18n from "./views/Functions/Utils/PageUtilsAOrderBy/i18n/PageUtilsAOrderByI18n";
 import PageUtilsASortByI18n from "./views/Functions/Utils/PageUtilsASortBy/i18n/PageUtilsASortByI18n";
 import PageUtilsGetTotalNestedCountI18n from "./views/Functions/Utils/PageUtilsGetTotalNestedCount/i18n/PageUtilsGetTotalNestedCountI18n";
@@ -151,6 +152,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.ar,
     ...PageColorsI18n.ar,
     ...PageThemingI18n.ar,
+    ...PageUtilitiesI18n.ar,
     ...PageDisplayI18n.ar,
     ...PageFloatI18n.ar,
     ...PageOverflowI18n.ar,
@@ -271,6 +273,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.de,
     ...PageColorsI18n.de,
     ...PageThemingI18n.de,
+    ...PageUtilitiesI18n.de,
     ...PageDisplayI18n.de,
     ...PageFloatI18n.de,
     ...PageOverflowI18n.de,
@@ -391,6 +394,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.en,
     ...PageColorsI18n.en,
     ...PageThemingI18n.en,
+    ...PageUtilitiesI18n.en,
     ...PageDisplayI18n.en,
     ...PageFloatI18n.en,
     ...PageOverflowI18n.en,
@@ -511,6 +515,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.es,
     ...PageColorsI18n.es,
     ...PageThemingI18n.es,
+    ...PageUtilitiesI18n.es,
     ...PageDisplayI18n.es,
     ...PageFloatI18n.es,
     ...PageOverflowI18n.es,
@@ -631,6 +636,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.fr,
     ...PageColorsI18n.fr,
     ...PageThemingI18n.fr,
+    ...PageUtilitiesI18n.fr,
     ...PageDisplayI18n.fr,
     ...PageFloatI18n.fr,
     ...PageOverflowI18n.fr,
@@ -751,6 +757,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.hr,
     ...PageColorsI18n.hr,
     ...PageThemingI18n.hr,
+    ...PageUtilitiesI18n.hr,
     ...PageDisplayI18n.hr,
     ...PageFloatI18n.hr,
     ...PageOverflowI18n.hr,
@@ -871,6 +878,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.it,
     ...PageColorsI18n.it,
     ...PageThemingI18n.it,
+    ...PageUtilitiesI18n.it,
     ...PageDisplayI18n.it,
     ...PageFloatI18n.it,
     ...PageOverflowI18n.it,
@@ -991,6 +999,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.nl,
     ...PageColorsI18n.nl,
     ...PageThemingI18n.nl,
+    ...PageUtilitiesI18n.nl,
     ...PageDisplayI18n.nl,
     ...PageFloatI18n.nl,
     ...PageOverflowI18n.nl,
@@ -1111,6 +1120,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.pl,
     ...PageColorsI18n.pl,
     ...PageThemingI18n.pl,
+    ...PageUtilitiesI18n.pl,
     ...PageDisplayI18n.pl,
     ...PageFloatI18n.pl,
     ...PageOverflowI18n.pl,
@@ -1231,6 +1241,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.ru,
     ...PageColorsI18n.ru,
     ...PageThemingI18n.ru,
+    ...PageUtilitiesI18n.ru,
     ...PageDisplayI18n.ru,
     ...PageFloatI18n.ru,
     ...PageOverflowI18n.ru,
@@ -1351,6 +1362,7 @@ export const mainTranslation = {
     ...PageColumnsI18n.uk,
     ...PageColorsI18n.uk,
     ...PageThemingI18n.uk,
+    ...PageUtilitiesI18n.uk,
     ...PageDisplayI18n.uk,
     ...PageFloatI18n.uk,
     ...PageOverflowI18n.uk,

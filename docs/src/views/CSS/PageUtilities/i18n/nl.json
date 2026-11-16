@@ -1,0 +1,15 @@
+{
+  "_A_UTILITIES_FOCUS_DESCRIPTION_": "De tweekleurige focusring van de componenten voor eigen focusbare elementen, bijv. een kaart met <code>tabindex=\"0\"</code>. Hij wordt alleen bij toetsenbordfocus getoond en via de focustokens geconfigureerd.",
+  "_A_UTILITIES_FOCUS_NAME_": "Focusring",
+  "_A_UTILITIES_OPACITY_DESCRIPTION_": "Klassen zetten <code>opacity</code> op 0, 25, 50, 75 of 100 %.",
+  "_A_UTILITIES_OPACITY_NAME_": "Dekking",
+  "_A_UTILITIES_ORDER_DESCRIPTION_": "Klassen zetten de <code>order</code> van flex- en grid-items: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). De suffixen <code>_mobile</code> … <code>_large</code> activeren ze op breakpoints.",
+  "_A_UTILITIES_ORDER_NAME_": "Volgorde",
+  "_A_UTILITIES_PAGE_NAME_": "Hulpklassen",
+  "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> verbergt een element bij het afdrukken, <code>a_print_block</code> toont het alleen bij het afdrukken (samen met <code>a_d_none</code>).",
+  "_A_UTILITIES_PRINT_NAME_": "Afdrukken",
+  "_A_UTILITIES_TEXT_DESCRIPTION_": "Secundaire en benadrukte tekst die leesbaar blijft in het lichte en het donkere thema.",
+  "_A_UTILITIES_TEXT_NAME_": "Tekstkleur",
+  "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Globale lagen gebruiken de <code>--a_z_index_*</code>-tokens, zodat eigen overlays in de juiste volgorde blijven ten opzichte van modals, dropdowns en popups.",
+  "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
+}

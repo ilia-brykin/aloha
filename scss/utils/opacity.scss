@@ -1,0 +1,7 @@
+@use "sass:math";
+
+@each $value in (0, 25, 50, 75, 100) {
+  .a_opacity_#{$value} {
+    opacity: math.div($value, 100) !important;
+  }
+}

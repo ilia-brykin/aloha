@@ -1,0 +1,15 @@
+{
+  "_A_UTILITIES_FOCUS_DESCRIPTION_": "The two-colored focus ring of the components for own focusable elements, e.g. a card with <code>tabindex=\"0\"</code>. It is shown for keyboard focus only and is configured with the focus tokens.",
+  "_A_UTILITIES_FOCUS_NAME_": "Focus ring",
+  "_A_UTILITIES_OPACITY_DESCRIPTION_": "Classes set <code>opacity</code> to 0, 25, 50, 75 or 100 %.",
+  "_A_UTILITIES_OPACITY_NAME_": "Opacity",
+  "_A_UTILITIES_ORDER_DESCRIPTION_": "Classes set the <code>order</code> of flex and grid items: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Suffixes <code>_mobile</code> … <code>_large</code> enable them at breakpoints.",
+  "_A_UTILITIES_ORDER_NAME_": "Order",
+  "_A_UTILITIES_PAGE_NAME_": "Utilities",
+  "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> hides an element when printing, <code>a_print_block</code> shows it only in print (together with <code>a_d_none</code>).",
+  "_A_UTILITIES_PRINT_NAME_": "Print",
+  "_A_UTILITIES_TEXT_DESCRIPTION_": "Secondary and emphasized text that stays readable in the light and the dark theme.",
+  "_A_UTILITIES_TEXT_NAME_": "Text color",
+  "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Global layers use the <code>--a_z_index_*</code> tokens, so own overlays stay in the right order with modals, dropdowns and popups.",
+  "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
+}

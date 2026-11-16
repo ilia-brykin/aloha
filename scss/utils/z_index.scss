@@ -1,0 +1,18 @@
+// Global layers (values come from the --a_z_index_* tokens)
+$layers: ("fixed", "backdrop", "menu_mobile", "modal", "backdrop_confirm", "confirm", "dropdown", "notification", "tooltip", "popup");
+
+@each $layer in $layers {
+  .a_z_index_#{$layer} {
+    z-index: var(--a_z_index_#{$layer}) !important;
+  }
+}
+
+// Local stacking inside a component
+@each $value in (0, 1, 2, 3) {
+  .a_z_index_#{$value} {
+    z-index: $value !important;
+  }
+}
+.a_z_index_auto {
+  z-index: auto !important;
+}

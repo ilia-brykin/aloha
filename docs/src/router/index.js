@@ -393,6 +393,11 @@ const ROUTES = [
     component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
   },
   {
+    path: "/utilities",
+    name: "PageUtilities",
+    component: () => import("../views/CSS/PageUtilities/PageUtilities.vue"),
+  },
+  {
     path: "/theming",
     name: "PageTheming",
     component: () => import("../views/CSS/PageTheming/PageTheming.vue"),

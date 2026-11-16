@@ -1,0 +1,29 @@
+@use "sass:map";
+
+@use "breakpoint";
+@use "mixins";
+@use "list_helpers";
+
+$orders: (
+  (class: "first", value: -1),
+  (class: "0", value: 0),
+  (class: "1", value: 1),
+  (class: "2", value: 2),
+  (class: "3", value: 3),
+  (class: "4", value: 4),
+  (class: "5", value: 5),
+  (class: "last", value: 6),
+);
+
+$breakpoints_order: list_helpers.prepend(breakpoint.$all, (class: null));
+
+@each $breakpoint in $breakpoints_order {
+  $breakpoint-class: map.get($breakpoint, "class");
+  @include mixins.media-width-all(map.get($breakpoint, "min"), map.get($breakpoint, "max")) {
+    @each $order in $orders {
+      .a_order_#{ map.get($order, "class") }#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
+        order: map.get($order, "value") !important;
+      }
+    }
+  }
+}

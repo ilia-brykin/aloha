@@ -82,9 +82,15 @@
   @include meta.load-css("utils/border_radius");
   @include meta.load-css("utils/border");
   @include meta.load-css("utils/vertical_align");
+  @include meta.load-css("utils/opacity");
+  @include meta.load-css("utils/order");
+  @include meta.load-css("utils/z_index");
+  @include meta.load-css("utils/focus_ring");
+  @include meta.load-css("utils/print");
   @include meta.load-css("text/text_size");
   @include meta.load-css("text/text_alignment");
   @include meta.load-css("text/text_wrapping");
   @include meta.load-css("text/text_transform");
   @include meta.load-css("text/text_line_height");
+  @include meta.load-css("text/text_color");
 }

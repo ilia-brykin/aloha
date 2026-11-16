@@ -1,0 +1,10 @@
+@use "focus";
+
+// Two-colored focus ring of the components for own focusable elements
+// (e.g. a card with tabindex). Shown for keyboard focus only.
+.a_focus_ring {
+  @include focus.focus-visible;
+}
+.a_focus_ring_inset {
+  @include focus.focus-visible(true);
+}
