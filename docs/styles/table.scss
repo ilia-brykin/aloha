@@ -2,9 +2,9 @@
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  background-color: var(--a_color_white);
+  background-color: var(--a_color_surface);
   border: 1px solid var(--a_color_gray_300);
-  box-shadow: 0 8px 18px rgba(24, 32, 38, 0.06);
+  box-shadow: var(--a_shadow_sm);
   thead,
   tfoot {
     th {

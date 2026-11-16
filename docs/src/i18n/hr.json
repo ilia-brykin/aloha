@@ -49,5 +49,11 @@
   "_TXT_DANGER_": "Opasnost",
   "_TXT_LIGHT_": "Svijetlo",
   "_TXT_DARK_": "Tamno",
-  "_LBL_DISABLED_": "Onemoguceno"
+  "_LBL_DISABLED_": "Onemoguceno",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "Prikaži ključeve prijevoda",
+  "_A_DOCS_THEME_": "Tema",
+  "_A_DOCS_THEME_LIGHT_": "Svijetla",
+  "_A_DOCS_THEME_DARK_": "Tamna",
+  "_A_DOCS_THEME_AUTO_": "Sustav",
+  "_A_DOCS_LANGUAGE_": "Jezik"
 }

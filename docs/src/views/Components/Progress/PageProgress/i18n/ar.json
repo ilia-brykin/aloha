@@ -40,5 +40,6 @@
   "_A_PROGRESS_PROPS_STRIPED_FLOW_": "يفعل هذا prop عرض شريط التقدم المخطط مع الرسوم المتحركة.",
   "_A_PROGRESS_PROPS_VALUE_": "التقدم الحالي لشريط التقدم",
   "_A_PROGRESS_PROPS_VALUE_TEXT_INTEGER_": "يشير هذا prop إلى تنسيق النص المستخدم لقيمة التقدم. عند تعيين valueTextInteger إلى true، يتم عرض القيمة كنسبة مئوية صحيحة. عند تعيين valueTextInteger إلى false أو عدم تعيينه، يتم عرض القيمة كنسبة مئوية بمرتين عشريتين.",
-  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "يتيح لك هذا slot تخصيص عرض قيمة شريط التقدم. يمكنك الوصول إلى المتغير valuePercent في النطاق slot لعرض التقدم الحالي بالنسبة المئوية."
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "يتيح لك هذا slot تخصيص عرض قيمة شريط التقدم. يمكنك الوصول إلى المتغير valuePercent في النطاق slot لعرض التقدم الحالي بالنسبة المئوية.",
+  "_A_PROGRESS_PROPS_ARIA_LABEL_": "الاسم الذي يمكن الوصول إليه لشريط التقدم لقارئات الشاشة (aria-label). يمكن أن يكون مفتاح ترجمة."
 }

@@ -40,5 +40,6 @@
   "_A_PROGRESS_PROPS_STRIPED_FLOW_": "Omogućuje animirani prikaz prugastih traka napredovanja.",
   "_A_PROGRESS_PROPS_VALUE_": "Trenutačni napredak trake napretka.",
   "_A_PROGRESS_PROPS_VALUE_TEXT_INTEGER_": "Određuje koji format teksta koristiti za vrijednost napretka. Ako valueTextInteger ima vrijednost true, tada se vrijednost trake napretka prikazuje kao cjelobrojni postotak. Ako je valueTextInteger false ili ga nema, vrijednost se prikazuje kao postotak s dvije decimale.",
-  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Omogućuje prilagodbu načina na koji se prikazuje vrijednost trake napretka. Varijabli valuePercent može se pristupiti u opsegu slot-a za prikaz trenutnog postotka napretka po želji."
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Omogućuje prilagodbu načina na koji se prikazuje vrijednost trake napretka. Varijabli valuePercent može se pristupiti u opsegu slot-a za prikaz trenutnog postotka napretka po želji.",
+  "_A_PROGRESS_PROPS_ARIA_LABEL_": "Pristupačan naziv trake napretka za čitače zaslona (aria-label). Može biti ključ prijevoda."
 }

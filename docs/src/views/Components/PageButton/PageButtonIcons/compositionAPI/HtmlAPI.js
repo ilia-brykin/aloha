@@ -5,6 +5,7 @@ export default function HtmlAPI() {
   <a-button
     class="a_btn a_btn_primary"
     icon-left="Upload"
+    title="Upload"
     @click="onAlert('icon-left')"
   ></a-button>
   <a-button
@@ -30,6 +31,7 @@ export default function HtmlAPI() {
     class="a_btn a_btn_primary"
     icon-left="Upload"
     icon-right="Upload"
+    title="Upload"
     @click="onAlert('icon-left & icon-right')"
   ></a-button>
 </div>`;

@@ -104,6 +104,10 @@ export default function GeneratorAPI() {
     radius.value = parseFloat(readToken(style, "--a_radius")) || 0;
     focusWidthInside.value = parseFloat(readToken(style, "--a_focus_width_inside")) || 0;
     focusWidthOutside.value = parseFloat(readToken(style, "--a_focus_width_outside")) || 0;
+    const pageTheme = document.documentElement.getAttribute("data-a-theme");
+    theme.value = pageTheme === "dark" || (pageTheme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) ?
+      "dark" :
+      "light";
   };
 
   const colorRows = computed(() => {

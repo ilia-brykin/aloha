@@ -48,5 +48,11 @@
   "_TXT_DANGER_": "Опасность",
   "_TXT_LIGHT_": "Светлый",
   "_TXT_DARK_": "Темный",
-  "_LBL_DISABLED_": "Отключено"
+  "_LBL_DISABLED_": "Отключено",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "Показать ключи перевода",
+  "_A_DOCS_THEME_": "Тема",
+  "_A_DOCS_THEME_LIGHT_": "Светлая",
+  "_A_DOCS_THEME_DARK_": "Тёмная",
+  "_A_DOCS_THEME_AUTO_": "Системная",
+  "_A_DOCS_LANGUAGE_": "Язык"
 }

@@ -49,5 +49,11 @@
   "_TXT_DANGER_": "Danger",
   "_TXT_LIGHT_": "Light",
   "_TXT_DARK_": "Dark",
-  "_LBL_DISABLED_": "Disabled"
+  "_LBL_DISABLED_": "Disabled",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "Show translation keys",
+  "_A_DOCS_THEME_": "Theme",
+  "_A_DOCS_THEME_LIGHT_": "Light",
+  "_A_DOCS_THEME_DARK_": "Dark",
+  "_A_DOCS_THEME_AUTO_": "System",
+  "_A_DOCS_LANGUAGE_": "Language"
 }

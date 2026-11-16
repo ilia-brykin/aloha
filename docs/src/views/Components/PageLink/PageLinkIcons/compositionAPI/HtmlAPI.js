@@ -2,6 +2,7 @@ export default function HtmlAPI() {
   const codeHtml = `<a-link
   class="a_btn a_btn_primary"
   icon-left="Gear"
+  title="GitHub"
   href="https://github.com/"
 >
 </a-link>
@@ -31,6 +32,7 @@ export default function HtmlAPI() {
   class="a_btn a_btn_primary a_ml_2"
   icon-left="Gear"
   icon-right="Gear"
+  title="GitHub"
   href="https://github.com/"
 >
 </a-link>`;

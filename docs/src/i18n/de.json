@@ -49,5 +49,11 @@
   "_TXT_DANGER_": "Gefahr",
   "_TXT_LIGHT_": "Hell",
   "_TXT_DARK_": "Dunkel",
-  "_LBL_DISABLED_": "Deaktiviert"
+  "_LBL_DISABLED_": "Deaktiviert",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "Übersetzungsschlüssel anzeigen",
+  "_A_DOCS_THEME_": "Farbschema",
+  "_A_DOCS_THEME_LIGHT_": "Hell",
+  "_A_DOCS_THEME_DARK_": "Dunkel",
+  "_A_DOCS_THEME_AUTO_": "System",
+  "_A_DOCS_LANGUAGE_": "Sprache"
 }

@@ -6,12 +6,14 @@ import {
 } from "vue";
 
 import "highlight.js/styles/a11y-dark.css";
+import css from "highlight.js/lib/languages/css";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import markdown from "highlight.js/lib/languages/markdown";
 import scss from "highlight.js/lib/languages/scss";
 import xml from "highlight.js/lib/languages/xml";
 
+hljs.registerLanguage("css", css);
 hljs.registerLanguage("javascript", javascript);
 hljs.registerLanguage("html", xml);
 hljs.registerLanguage("markdown", markdown);

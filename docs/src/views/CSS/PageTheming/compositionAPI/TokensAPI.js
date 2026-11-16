@@ -34,6 +34,7 @@ const GROUPS = [
       "--a_color_primary_bg_subtle",
       "--a_color_primary_border_subtle",
       "--a_color_primary_text_emphasis",
+      "--a_color_primary_text",
     ],
   },
   {

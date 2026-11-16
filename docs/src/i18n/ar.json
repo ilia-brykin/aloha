@@ -49,5 +49,11 @@
   "_TXT_DANGER_": "خطر",
   "_TXT_LIGHT_": "فاتح",
   "_TXT_DARK_": "داكن",
-  "_LBL_DISABLED_": "معطل"
+  "_LBL_DISABLED_": "معطل",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "إظهار مفاتيح الترجمة",
+  "_A_DOCS_THEME_": "السمة",
+  "_A_DOCS_THEME_LIGHT_": "فاتح",
+  "_A_DOCS_THEME_DARK_": "داكن",
+  "_A_DOCS_THEME_AUTO_": "النظام",
+  "_A_DOCS_LANGUAGE_": "اللغة"
 }

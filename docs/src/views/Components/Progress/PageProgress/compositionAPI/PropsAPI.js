@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "aria-label",
+      description: "_A_PROGRESS_PROPS_ARIA_LABEL_",
+      type: "String",
+      default: "\"_A_PROGRESS_ARIA_LABEL_\"",
+      required: "false",
+    },
+    {
       name: "class-progress-bar",
       description: "_A_PROGRESS_PROPS_CLASS_PROGRESS_BAR_",
       type: "String / Object / Function",

@@ -40,5 +40,6 @@
   "_A_PROGRESS_PROPS_STRIPED_FLOW_": "Schakelt de geanimeerde weergave voor gestreepte voortgangsbalken in.",
   "_A_PROGRESS_PROPS_VALUE_": "De huidige voortgang van de voortgangsbalk.",
   "_A_PROGRESS_PROPS_VALUE_TEXT_INTEGER_": "Geeft aan welke tekstindeling voor de voortgangswaarde wordt gebruikt. Als valueTextInteger true is, wordt de waarde weergegeven als een geheel percentage. Als valueTextInteger false is of ontbreekt, wordt de waarde weergegeven als een percentage met twee decimalen.",
-  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Maakt het mogelijk aan te passen hoe de waarde van de voortgangsbalk wordt weergegeven. De variabele valuePercent is beschikbaar in de slotscope om het huidige voortgangspercentage te tonen."
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Maakt het mogelijk aan te passen hoe de waarde van de voortgangsbalk wordt weergegeven. De variabele valuePercent is beschikbaar in de slotscope om het huidige voortgangspercentage te tonen.",
+  "_A_PROGRESS_PROPS_ARIA_LABEL_": "Toegankelijke naam van de voortgangsbalk voor schermlezers (aria-label). Kan een vertaalsleutel zijn."
 }
