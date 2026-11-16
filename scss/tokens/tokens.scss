@@ -19,6 +19,11 @@
   --a_tone_surface_raised_l: 100%;
   --a_tone_hover: -8%;
   --a_tone_active: -14%;
+  // share of black in hover / active, share of the color in subtle variants (color-mix)
+  --a_tone_hover_mix: 15%;
+  --a_tone_active_mix: 25%;
+  --a_tone_bg_subtle_mix: 12%;
+  --a_tone_border_subtle_mix: 35%;
   --a_tone_bg_subtle_l: 95%;
   --a_tone_border_subtle_l: 82%;
   --a_tone_text_emphasis_l: 28%;
@@ -41,6 +46,8 @@
   --a_tone_surface_raised_l: 16%;
   --a_tone_bg_subtle_l: 18%;
   --a_tone_border_subtle_l: 36%;
+  --a_tone_bg_subtle_mix: 22%;
+  --a_tone_border_subtle_mix: 45%;
   --a_tone_text_emphasis_l: 82%;
   --a_tone_text_min_l: 68%;
   --a_tone_text_max_l: 100%;
@@ -253,4 +260,22 @@
     background-color var(--a_duration_fast) var(--a_easing),
     border-color var(--a_duration_fast) var(--a_easing),
     box-shadow var(--a_duration_fast) var(--a_easing);
+}
+
+// Browsers with color-mix(): variants are mixed from --a_color_<name>, so overriding only
+// --a_color_<name> (e.g. with a hex value) on :root or .a_theme changes hover, active and
+// the subtle variants as well. Other browsers use the hsl() values above.
+// Contrast related tokens (_contrast, _text, _text_emphasis) stay on hsl() on purpose.
+@supports (color: color-mix(in oklab, red, blue)) {
+  #{settings.$derived-selectors} {
+    @each $name in settings.$variant-colors {
+      $color: var(--a_color_#{$name});
+      --a_color_#{$name}_hover: color-mix(in oklab, #{$color}, black var(--a_tone_hover_mix));
+      --a_color_#{$name}_active: color-mix(in oklab, #{$color}, black var(--a_tone_active_mix));
+      --a_color_#{$name}_50: color-mix(in oklab, #{$color}, var(--a_color_surface));
+      --a_color_#{$name}_bg_subtle: color-mix(in oklab, #{$color} var(--a_tone_bg_subtle_mix), var(--a_color_surface));
+      --a_color_#{$name}_border_subtle: color-mix(in oklab, #{$color} var(--a_tone_border_subtle_mix), var(--a_color_surface));
+    }
+    --a_color_link_hover: color-mix(in oklab, var(--a_color_link), var(--a_color_emphasis_color) var(--a_tone_hover_mix));
+  }
 }

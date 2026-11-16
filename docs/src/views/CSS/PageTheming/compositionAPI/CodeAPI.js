@@ -11,6 +11,13 @@ export default function CodeAPI() {
 
   /* one radius, all others are derived */
   --a_radius: .5rem;
+}
+
+/* Browsers with color-mix(): a single color is enough for hover, active
+   and the subtle variants. Text contrast (_contrast, _text, _text_emphasis)
+   is still calculated from --a_primary_h / _s / _l. */
+.a_theme.my_brand {
+  --a_color_primary: #e60000;
 }`;
 
   const codeDarkTheme = `<!-- always dark -->
