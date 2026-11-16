@@ -161,7 +161,7 @@ export default {
   },
   render() {
     return h("ul", {
-      class: "pux_datepicker__panel pux_datepicker__panel_month pux_datepicker__panel__list",
+      class: "a_datepicker__panel a_datepicker__panel_month a_datepicker__panel__list",
       role: "listbox",
       "aria-labelledby": this.idForHeader,
       ...this.attributesForMainElement,
@@ -173,7 +173,7 @@ export default {
           class: ["cell", {
             actived: month.isActive,
             disabled: month.isDisabled,
-            pux_datepicker__panel__cell_focus: monthIndex === this.monthIndexForFocus,
+            a_datepicker__panel__cell_focus: monthIndex === this.monthIndexForFocus,
           }],
           role: "option",
           ariaSelected: !!month.isActive,

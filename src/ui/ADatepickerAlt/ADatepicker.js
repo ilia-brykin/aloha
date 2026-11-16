@@ -118,7 +118,7 @@ export default {
     },
     inputClass: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      default: "pux_datepicker__input",
+      default: "a_datepicker__input",
     },
     inputAttr: {
       type: Object,
@@ -750,8 +750,8 @@ export default {
           class: "a_form_element",
         }, [
           h("div", {
-            class: ["pux_datepicker", {
-              pux_datepicker_range: this.range,
+            class: ["a_datepicker", {
+              a_datepicker_range_mode: this.range,
               disabled: this.disabled,
             }],
             style: { width: this.computedWidth },
@@ -759,14 +759,14 @@ export default {
             onTouchstart: this.showPopup,
           }, [
             h("div", {
-              class: "pux_datepicker__input_wrapper",
+              class: "a_datepicker__input_wrapper",
               role: "application",
             }, [
               h("input", {
                 ref: "inputRef",
                 id: this.htmlIdLocal,
                 class: [
-                  "a_form_control pux_datepicker__input",
+                  "a_form_control a_datepicker__input",
                   this.inputClass,
                   {
                     a_form_control_invalid: this.isErrors,
@@ -789,16 +789,16 @@ export default {
                 onChange: this.handleChange,
               }),
               this.showClearIcon && h("span", {
-                class: "pux_datepicker__input_wrapper__append pux_datepicker__input_wrapper__clear_wrapper",
+                class: "a_datepicker__input_wrapper__append a_datepicker__input_wrapper__clear_wrapper",
                 ariaHidden: true,
                 onMousedown: this.clearDate,
               }, [
                 h("i", {
-                  class: "pux_datepicker__input__icon pux_datepicker__input__clear_icon",
+                  class: "a_datepicker__input__icon a_datepicker__input__clear_icon",
                 }),
               ]),
               h("span", {
-                class: "pux_datepicker__input_wrapper__append",
+                class: "a_datepicker__input_wrapper__append",
               }, [
                 h(ADatepickerIcon),
               ]),
@@ -806,18 +806,18 @@ export default {
             h("div", {
               ref: "calendar",
               id: this.idForCalendar,
-              class: "pux_datepicker__popup",
+              class: "a_datepicker__popup",
               ariaHidden: this.ariaHiddenForCalendar,
               ariaExpanded: this.ariaExpandedForCalendar,
               style: [this.innerPopupStyle, !this.popupVisible ? "display: none;" : ""],
             }, [
               !!(this.range && this.innerShortcuts.length) && h("div", {
-                class: "pux_datepicker__shortcuts_wrapper",
+                class: "a_datepicker__shortcuts_wrapper",
               }, [
                 this.innerShortcuts.map((range, index) => {
                   return h("button", {
                     key: index,
-                    class: "pux_datepicker__shortcuts_wrapper__shortcuts",
+                    class: "a_datepicker__shortcuts_wrapper__shortcuts",
                     type: "button",
                     onClick: () => this.selectRange(range),
                   }, range.text);
@@ -838,7 +838,7 @@ export default {
                   onClosePopup: this.closePopup,
                 }) :
                 h("div", {
-                  class: "pux_datepicker__range_wrapper",
+                  class: "a_datepicker__range_wrapper",
                 }, [
                   h(ADatepickerCalendarPanel, {
                     ref: "calendarPanel",
@@ -873,10 +873,10 @@ export default {
                   }),
                 ]),
               this.confirm && h("div", {
-                class: "pux_datepicker__footer",
+                class: "a_datepicker__footer",
               }, [
                 h("button", {
-                  class: "pux_datepicker__footer__btn pux_datepicker__footer__btn_confirm",
+                  class: "a_datepicker__footer__btn a_datepicker__footer__btn_confirm",
                   type: "button",
                   onClick: this.confirmDate,
                 }, this.confirmText),

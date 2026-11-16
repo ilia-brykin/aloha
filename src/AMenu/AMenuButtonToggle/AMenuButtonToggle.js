@@ -79,15 +79,15 @@ export default {
     }, () => [
       h("span", {
         ariaHidden: true,
-        class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_1 aloha_element__ml_0",
+        class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_1 a_element__ml_0",
       }),
       h("span", {
         ariaHidden: true,
-        class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_2 aloha_element__ml_0",
+        class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_2 a_element__ml_0",
       }),
       h("span", {
         ariaHidden: true,
-        class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_3 aloha_element__ml_0",
+        class: "a_menu__btn_toggle__bar a_menu__btn_toggle__bar_3 a_element__ml_0",
       }),
     ]);
   },

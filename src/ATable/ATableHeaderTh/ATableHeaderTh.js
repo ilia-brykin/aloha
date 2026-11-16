@@ -163,11 +163,11 @@ export default {
               html: this.column.label,
               tag: "span",
               extra: this.column.extra,
-              class: "a_table__th__text aloha_element__ml_0",
+              class: "a_table__th__text a_element__ml_0",
               ariaHidden: !!this.column.textScreenReader,
             }),
           this.isSortable && h("span", {
-            class: "a_table__th__sort__box aloha_element__ml_0",
+            class: "a_table__th__sort__box a_element__ml_0",
           }, [
             this.sequenceNumberSort && h("span", {
               class: [

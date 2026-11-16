@@ -296,7 +296,7 @@ export default {
   },
   render() {
     return h("table", {
-      class: "pux_datepicker__panel pux_datepicker__panel_date",
+      class: "a_datepicker__panel a_datepicker__panel_date",
       role: "grid",
       ariaReadonly: true,
       "aria-labelledby": this.idForHeader,
@@ -321,12 +321,12 @@ export default {
               return h("td", {
                 key: tdDataIndex,
                 class: ["cell", tdData.class, {
-                  pux_datepicker__panel__cell_focus: tdData.id === this.idForFocus,
+                  a_datepicker__panel__cell_focus: tdData.id === this.idForFocus,
                 }],
               }, [
                 h("button", {
                   id: tdData.id,
-                  class: "pux_datepicker__panel__button",
+                  class: "a_datepicker__panel__button",
                   type: "button",
                   tabindex: -1,
                   ariaHidden: true,

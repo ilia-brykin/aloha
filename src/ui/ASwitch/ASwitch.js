@@ -372,21 +372,21 @@ export default {
           extra: this.extra,
         }),
         h("div", {
-          class: ["switch_button__wrapper", {
-            switch_button__wrapper_has_error_icon: this.hasErrorIcon,
+          class: ["a_switch__wrapper", {
+            a_switch__wrapper_has_error_icon: this.hasErrorIcon,
           }],
         }, [
           this.hasErrorIcon && h(AIcon, {
             icon: this.errorIcon,
-            class: "a_input__icon_error switch_button__error_icon",
+            class: "a_input__icon_error a_switch__error_icon",
           }),
           h(AElement, {
             class: [
-              "switch_button",
+              "a_switch",
               {
-                switch_button_undefined: this.isModelDefault,
-                switch_button_invalid: this.isErrors,
-                switch_button_auto: !this.fullWidth,
+                a_switch_undefined: this.isModelDefault,
+                a_switch_invalid: this.isErrors,
+                a_switch_auto: !this.fullWidth,
               },
             ],
             classDefault: "",
@@ -404,7 +404,7 @@ export default {
                 ariaRequired: this.required,
                 checked: this.isChecked,
                 class: [
-                  "switch_button__input",
+                  "a_switch__input",
                   this.inputClass,
                 ],
                 disabled: this.disabledAttribut,
@@ -419,9 +419,9 @@ export default {
                 alwaysTranslate: this.alwaysTranslate,
                 tag: "label",
                 class: [
-                  "switch_button__label",
+                  "a_switch__label",
                   {
-                    switch_button__label_full: this.fullWidth,
+                    a_switch__label_full: this.fullWidth,
                   },
                 ],
                 for: this.htmlIdLocal,

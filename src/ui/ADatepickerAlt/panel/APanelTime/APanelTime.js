@@ -269,12 +269,12 @@ export default {
   },
   render() {
     return h("div", {
-      class: "pux_datepicker__panel pux_datepicker__panel_time",
+      class: "a_datepicker__panel a_datepicker__panel_time",
     }, [
       this.timesFiltered.map((timeList, timeListIndex) => {
         return h("ul", {
           key: timeListIndex,
-          class: "pux_datepicker__time_list",
+          class: "a_datepicker__time_list",
           role: "listbox",
           "aria-labelledby": this.idForHeader,
           style: { width: `${ 100 / this.timesFiltered.length }%` },
@@ -286,7 +286,7 @@ export default {
               class: ["cell", {
                 actived: time.isActive,
                 disabled: time.isDisabled,
-                pux_datepicker__panel__cell_focus: timeListIndex + "_" + timeIndex === this.fullIndexForFocus,
+                a_datepicker__panel__cell_focus: timeListIndex + "_" + timeIndex === this.fullIndexForFocus,
               }],
               tabindex: -1,
               role: "option",

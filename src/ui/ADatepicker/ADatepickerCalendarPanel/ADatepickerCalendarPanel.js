@@ -282,7 +282,7 @@ export default {
         this.firstYear = Math.floor(this.calendarYear / 10) * 10;
       } else if (panel === "TIME") {
         this.$nextTick().then(() => {
-          const list = this.$el.querySelectorAll(".pux_datepicker__panel_time .pux_datepicker__time_list");
+          const list = this.$el.querySelectorAll(".a_datepicker__panel_time .a_datepicker__time_list");
           for (let i = 0, len = list.length; i < len; i++) {
             const el = list[i];
             scrollIntoView(el, el.querySelector(".actived"));
@@ -620,7 +620,7 @@ export default {
     },
 
     trapFocus(EVENT) {
-      const FOCUSABLE_ELEMENTS = this.$el.querySelectorAll(".pux_datepicker__calendar__tab");
+      const FOCUSABLE_ELEMENTS = this.$el.querySelectorAll(".a_datepicker__calendar__tab");
       if (FOCUSABLE_ELEMENTS.length <= 1) {
         return;
       }
@@ -688,7 +688,7 @@ export default {
   },
   render() {
     return h("div", {
-      class: ["pux_datepicker__calendar", `pux_datepicker__calendar_${ this.panel.toLowerCase() }`],
+      class: ["a_datepicker__calendar", `a_datepicker__calendar_${ this.panel.toLowerCase() }`],
       role: "region",
       "aria-labelledby": this.idForHeaderParent,
       onClick: $event => $event.stopPropagation(),
@@ -710,11 +710,11 @@ export default {
         h("div", null, this.suffixForHeader),
       ]),
       h("div", {
-        class: "pux_datepicker__calendar__header",
+        class: "a_datepicker__calendar__header",
       }, [
         h("div", null, [
           this.panel !== "TIME" && h("button", {
-            class: "pux_datepicker__icon_last_year pux_datepicker__calendar__tab",
+            class: "a_datepicker__icon_last_year a_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonLastYear,
             innerHTML: "&laquo;",
@@ -724,7 +724,7 @@ export default {
             },
           }),
           this.panel === "DATE" && h("button", {
-            class: "pux_datepicker__icon_last_month pux_datepicker__calendar__tab",
+            class: "a_datepicker__icon_last_month a_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonLastMonth,
             innerHTML: "&lsaquo;",
@@ -736,27 +736,27 @@ export default {
         ]),
         h("div", null, [
           this.panel === "DATE" && h("button", {
-            class: "pux_datepicker__current_month pux_datepicker__calendar__tab",
+            class: "a_datepicker__current_month a_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonCurrentMonth,
             onClick: this.handleBtnMonth,
           }, this.months[this.calendarMonth]),
           (this.panel === "DATE" || this.panel === "MONTH") && h("button", {
-            class: "pux_datepicker__current_year pux_datepicker__calendar__tab",
+            class: "a_datepicker__current_year a_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonCurrentYear,
             onClick: this.handleBtnYear,
           }, this.calendarYear),
           this.panel === "YEAR" && h("span", {
-            class: "pux_datepicker__current_year",
+            class: "a_datepicker__current_year",
           }, this.yearHeader),
           this.panel === "TIME" && h("span", null, [
             this.type === "time" ?
               h("span", {
-                class: "pux_datepicker__time_header",
+                class: "a_datepicker__time_header",
               }, this.timeHeader) :
               h("button", {
-                class: "pux_datepicker__time_header pux_datepicker__calendar__tab",
+                class: "a_datepicker__time_header a_datepicker__calendar__tab",
                 type: "button",
                 ariaLabel: this.ariaLabelForButtonToDays,
                 onClick: this.handleTimeHeader,
@@ -765,7 +765,7 @@ export default {
         ]),
         h("div", null, [
           this.panel === "DATE" && h("button", {
-            class: "pux_datepicker__icon_next_month pux_datepicker__calendar__tab",
+            class: "a_datepicker__icon_next_month a_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonNextMonth,
             innerHTML: "&rsaquo;",
@@ -775,7 +775,7 @@ export default {
             },
           }),
           this.panel !== "TIME" && h("button", {
-            class: "pux_datepicker__icon_next_year pux_datepicker__calendar__tab",
+            class: "a_datepicker__icon_next_year a_datepicker__calendar__tab",
             type: "button",
             ariaLabel: this.ariaLabelForButtonNextYear,
             innerHTML: "&raquo;",
@@ -787,7 +787,7 @@ export default {
         ]),
       ]),
       h("div", {
-        class: "pux_datepicker__calendar__content",
+        class: "a_datepicker__calendar__content",
         role: "application",
       }, [
         h(APanelDate, {
@@ -796,8 +796,8 @@ export default {
           calendarMonth: this.calendarMonth,
           calendarYear: this.calendarYear,
           class: {
-            pux_datepicker__panel_focus: this.isFocusPanelChild,
-            pux_datepicker__calendar__tab: this.panel === "DATE",
+            a_datepicker__panel_focus: this.isFocusPanelChild,
+            a_datepicker__calendar__tab: this.panel === "DATE",
           },
           currentLanguage: this.currentLanguage,
           dateFormat: this.dateFormat,
@@ -817,8 +817,8 @@ export default {
           id: this.id,
           style: this.panel !== "YEAR" ? "display: none;" : "",
           class: {
-            pux_datepicker__panel_focus: this.isFocusPanelChild,
-            pux_datepicker__calendar__tab: this.panel === "YEAR",
+            a_datepicker__panel_focus: this.isFocusPanelChild,
+            a_datepicker__calendar__tab: this.panel === "YEAR",
           },
           value: this.value,
           disabledYear: this.isDisabledYear,
@@ -831,8 +831,8 @@ export default {
           id: this.id,
           style: this.panel !== "MONTH" ? "display: none;" : "",
           class: {
-            pux_datepicker__panel_focus: this.isFocusPanelChild,
-            pux_datepicker__calendar__tab: this.panel === "MONTH",
+            a_datepicker__panel_focus: this.isFocusPanelChild,
+            a_datepicker__calendar__tab: this.panel === "MONTH",
           },
           value: this.value,
           disabledMonth: this.isDisabledMonth,
@@ -846,8 +846,8 @@ export default {
           id: this.id,
           style: this.panel !== "TIME" ? "display: none;" : "",
           class: {
-            pux_datepicker__panel_focus: this.isFocusPanelChild,
-            pux_datepicker__calendar__tab: this.panel === "TIME",
+            a_datepicker__panel_focus: this.isFocusPanelChild,
+            a_datepicker__calendar__tab: this.panel === "TIME",
           },
           minuteStep: this.minuteStep,
           timePrecision: this.timePrecision,

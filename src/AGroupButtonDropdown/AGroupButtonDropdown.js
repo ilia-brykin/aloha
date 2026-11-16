@@ -97,7 +97,7 @@ export default {
   render() {
     if (this.hasActionsAllFiltered) {
       return h("div", {
-        class: "aloha_group_btn_dropdown",
+        class: "a_group_btn_dropdown",
       }, [
         ...this.actionsGrouped.buttons.map((item, itemIndex) => {
           return h(AGroupButtonDropdownItem, {

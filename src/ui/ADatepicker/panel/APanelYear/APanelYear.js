@@ -99,7 +99,7 @@ export default {
   },
   render() {
     return h("ul", {
-      class: "pux_datepicker__panel pux_datepicker__panel_year pux_datepicker__panel__list",
+      class: "a_datepicker__panel a_datepicker__panel_year a_datepicker__panel__list",
       role: "listbox",
       "aria-labelledby": this.idForHeader,
       ...this.attributesForMainElement,
@@ -108,7 +108,7 @@ export default {
         return h(APanelYearItem, {
           key: index,
           class: {
-            pux_datepicker__panel__cell_focus: index === this.yearIndexForFocus,
+            a_datepicker__panel__cell_focus: index === this.yearIndexForFocus,
           },
           year: this.firstYearLocal + index,
           yearFromValue: this.yearFromValue,
