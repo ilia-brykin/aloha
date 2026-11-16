@@ -1,45 +1,18 @@
-@use "aloha_prefix" as aloha;
-@use "global_variables";
-
-:root {
-  --#{aloha.$aloha-prefix}font_sans_serif: #{global_variables.$a_font_family_sans_serif};
-  --#{aloha.$aloha-prefix}font_monospace: #{global_variables.$a_font_family_monospace};
-  --#{aloha.$aloha-prefix}body_font_family: var(--#{aloha.$aloha-prefix}font_sans_serif);
-  --#{aloha.$aloha-prefix}body_font_size: #{global_variables.$a_body_font_size};
-  --#{aloha.$aloha-prefix}body_font_weight: #{global_variables.$a_body_font_weight};
-  --#{aloha.$aloha-prefix}body_line_height: #{global_variables.$a_body_line_height};
-
-
-
-  --#{aloha.$aloha-prefix}border_width: #{global_variables.$a_border_width};
-  --#{aloha.$aloha-prefix}border_color: #{global_variables.$a_border_color};
-  --#{aloha.$aloha-prefix}border_style: #{global_variables.$a_border_style};
-  --#{aloha.$aloha-prefix}border_color_translucent: rgba(0, 0, 0, 0.175);
-
-  --#{aloha.$aloha-prefix}border_radius: #{global_variables.$a_border_radius};
-  --#{aloha.$aloha-prefix}border_radius_small: #{global_variables.$a_border_radius_small};
-  --#{aloha.$aloha-prefix}border_radius_large: #{global_variables.$a_border_radius_large};
-  --#{aloha.$aloha-prefix}border_radius_xl: #{global_variables.$a_border_radius_xl};
-  --#{aloha.$aloha-prefix}border_radius_2xl: #{global_variables.$a_border_radius_2xl};
-  --#{aloha.$aloha-prefix}border_radius_pill: #{global_variables.$a_border_radius_pill};
-
-
-  --#{aloha.$aloha-prefix}z_index_backdrop: #{global_variables.$a_z_index_backdrop};
-  --#{aloha.$aloha-prefix}z_index_modal: #{global_variables.$a_z_index_modal};
-  --#{aloha.$aloha-prefix}z_index_backdrop_confirm: #{global_variables.$a_z_index_backdrop_confirm};
-  --#{aloha.$aloha-prefix}z_index_confirm: #{global_variables.$a_z_index_confirm};
-  --#{aloha.$aloha-prefix}z_index_dropdown: #{global_variables.$a_z_index_dropdown};
-  --#{aloha.$aloha-prefix}z_index_tooltip: #{global_variables.$a_z_index_tooltip};
-}
+@use "focus";
 
 body {
   margin: 0;
-  font-family: var(--#{aloha.$aloha-prefix}body_font_family);
-  font-size: var(--#{aloha.$aloha-prefix}body_font_size);
-  font-weight: var(--#{aloha.$aloha-prefix}body_font_weight);
-  line-height: var(--#{aloha.$aloha-prefix}body_line_height);
-  color: var(--#{aloha.$aloha-prefix}color_text);
-  background-color: var(--#{aloha.$aloha-prefix}color_body_bg);
+  font-family: var(--a_body_font_family);
+  font-size: var(--a_body_font_size);
+  font-weight: var(--a_body_font_weight);
+  line-height: var(--a_body_line_height);
+  color: var(--a_color_text);
+  background-color: var(--a_color_body_bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// Accessible default focus for every focusable element (specificity 0, easy to override).
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  @include focus.focus-ring;
 }

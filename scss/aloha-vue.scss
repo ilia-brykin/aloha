@@ -1,68 +1,90 @@
-@use "utils/reset";
-@use "utils/global";
-@use "utils/display";
-@use "utils/spacing";
-@use "utils/sizing";
-@use "utils/color";
-@use "utils/flex";
-@use "utils/grid";
-@use "utils/screenreader";
-@use "utils/position";
-@use "utils/checkbox_radio";
-@use "utils/list";
-@use "utils/list_group";
-@use "utils/list_columns";
-@use "utils/dropdown";
-@use "text/text_size";
-@use "text/text_alignment";
-@use "text/text_wrapping";
-@use "text/text_transform";
-@use "text/text_line_height";
-@use "utils/button";
-@use "utils/button_group";
-@use "utils/button_close";
-@use "utils/float";
-@use "utils/alert";
-@use "utils/modal";
-@use "utils/notification";
-@use "utils/spinner";
-@use "utils/badge";
-@use "utils/acordion";
-@use "utils/progress";
-@use "utils/overflow";
-@use "utils/tooltip";
-@use "utils/border_radius";
-@use "utils/border";
-@use "utils/vertical_align";
-@use "base";
+// aloha-vue styles.
+//
+// Everything lives in cascade layers. CSS of the application without a layer always wins
+// over aloha, independent of specificity, so overriding needs no !important.
+@use "sass:meta";
 
-// Aloha-css
-@use "components/AIcon";
-@use "components/AButton";
-@use "components/AElement";
-@use "components/AResizer";
-@use "components/AVerticalScroll";
-@use "components/ui/ui";
-@use "components/ATabs";
-@use "components/AMenu";
-@use "components/ACloak";
-@use "components/ASpinner";
-@use "components/ARate";
-@use "components/ALoading";
-@use "components/AWizard";
-@use "components/AGroupButtonDropdown";
-@use "components/AShowMore";
-@use "components/AProgressCirle";
-@use "components/AFormElement/ATextarea";
-@use "components/AFormElement/AValidatedJson";
-@use "components/ui/AInputNumber";
-@use "components/ui/AInputNumberRange";
-@use "components/ui/ADatepickerRange";
-@use "components/AForm";
-@use "components/ADivider";
-@use "components/APagination";
-@use "components/AFilters";
-@use "components/ATableForm";
-@use "components/ATable";
-@use "components/AModal";
-@use "components/ACarousel";
+@layer aloha.reset, aloha.tokens, aloha.base, aloha.components, aloha.utilities;
+
+@layer aloha.reset {
+  @include meta.load-css("utils/reset");
+}
+
+@layer aloha.tokens {
+  @include meta.load-css("tokens/tokens");
+}
+
+@layer aloha.base {
+  @include meta.load-css("utils/global");
+  @include meta.load-css("base");
+}
+
+@layer aloha.components {
+  @include meta.load-css("utils/checkbox_radio");
+  @include meta.load-css("utils/list");
+  @include meta.load-css("utils/list_group");
+  @include meta.load-css("utils/list_columns");
+  @include meta.load-css("utils/dropdown");
+  @include meta.load-css("utils/button");
+  @include meta.load-css("utils/button_group");
+  @include meta.load-css("utils/button_close");
+  @include meta.load-css("utils/alert");
+  @include meta.load-css("utils/modal");
+  @include meta.load-css("utils/notification");
+  @include meta.load-css("utils/spinner");
+  @include meta.load-css("utils/badge");
+  @include meta.load-css("utils/accordion");
+  @include meta.load-css("utils/progress");
+  @include meta.load-css("utils/tooltip");
+
+  @include meta.load-css("components/AIcon");
+  @include meta.load-css("components/AButton");
+  @include meta.load-css("components/AElement");
+  @include meta.load-css("components/AResizer");
+  @include meta.load-css("components/AVerticalScroll");
+  @include meta.load-css("components/ui/ui");
+  @include meta.load-css("components/ATabs");
+  @include meta.load-css("components/AMenu");
+  @include meta.load-css("components/ACloak");
+  @include meta.load-css("components/ASpinner");
+  @include meta.load-css("components/ARate");
+  @include meta.load-css("components/ALoading");
+  @include meta.load-css("components/AWizard");
+  @include meta.load-css("components/AGroupButtonDropdown");
+  @include meta.load-css("components/AShowMore");
+  @include meta.load-css("components/AProgressCircle");
+  @include meta.load-css("components/AFormElement/ATextarea");
+  @include meta.load-css("components/AFormElement/AValidatedJson");
+  @include meta.load-css("components/ui/AInputNumber");
+  @include meta.load-css("components/ui/AInputNumberRange");
+  @include meta.load-css("components/ui/ADatepickerRange");
+  @include meta.load-css("components/AForm");
+  @include meta.load-css("components/ADivider");
+  @include meta.load-css("components/APagination");
+  @include meta.load-css("components/AFilters");
+  @include meta.load-css("components/ATableForm");
+  @include meta.load-css("components/ATable");
+  @include meta.load-css("components/AModal");
+  @include meta.load-css("components/ACarousel");
+}
+
+@layer aloha.utilities {
+  @include meta.load-css("utils/display");
+  @include meta.load-css("utils/spacing");
+  @include meta.load-css("utils/sizing");
+  @include meta.load-css("utils/color");
+  @include meta.load-css("utils/flex");
+  @include meta.load-css("utils/grid");
+  @include meta.load-css("utils/screenreader");
+  @include meta.load-css("utils/position");
+  @include meta.load-css("utils/float");
+  @include meta.load-css("utils/overflow");
+  @include meta.load-css("utils/border_radius");
+  @include meta.load-css("utils/border");
+  @include meta.load-css("utils/vertical_align");
+  @include meta.load-css("text/text_size");
+  @include meta.load-css("text/text_alignment");
+  @include meta.load-css("text/text_wrapping");
+  @include meta.load-css("text/text_transform");
+  @include meta.load-css("text/text_line_height");
+}
