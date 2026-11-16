@@ -43,6 +43,7 @@ import frJson from "./fr.json";
 import hrJson from "./hr.json";
 import itJson from "./it.json";
 import nlJson from "./nl.json";
+import plJson from "./pl.json";
 import ruJson from "./ru.json";
 import ukJson from "./uk.json";
 
@@ -366,6 +367,46 @@ export const nl = {
   ...AWizardI18n.nl,
   ...Filters18n.nl,
 };
+export const pl = {
+  ...plJson,
+  ...AAlertI18n.pl,
+  ...ACarouselI18n.pl,
+  ...ACheckboxI18n.pl,
+  ...ACloakI18n.pl,
+  ...ADatepickerI18n.pl,
+  ...ADatepickerRangeI18n.pl,
+  ...ADisclosureI18n.pl,
+  ...AErrorsI18n.pl,
+  ...AFieldsetI18n.pl,
+  ...AFiltersI18n.pl,
+  ...AFormElementBtnClearI18n.pl,
+  ...AInputCurrencyI18n.pl,
+  ...AInputI18n.pl,
+  ...AInputNumberI18n.pl,
+  ...AInputNumberRangeI18n.pl,
+  ...AJsonI18n.pl,
+  ...ALinkCopyI18n.pl,
+  ...ALoadingI18n.pl,
+  ...AMenu2I18n.pl,
+  ...AModalI18n.pl,
+  ...AMultiselectOrderedI18n.pl,
+  ...APaginationI18n.pl,
+  ...ARadioI18n.pl,
+  ...ARequiredI18n.pl,
+  ...ARouterLinkConfigI18n.pl,
+  ...ASelectI18n.pl,
+  ...ASelectStyleI18n.pl,
+  ...AShowMoreI18n.pl,
+  ...ATableFormI18n.pl,
+  ...ASliderI18n.pl,
+  ...ASpinnerI18n.pl,
+  ...ASwitchI18n.pl,
+  ...ATableI18n.pl,
+  ...AValidatedJsonI18n.pl,
+  ...AVerticalScrollI18n.pl,
+  ...AWizardI18n.pl,
+  ...Filters18n.pl,
+};
 export const ru = {
   ...ruJson,
   ...AAlertI18n.ru,
@@ -456,6 +497,7 @@ export default {
   hr,
   it,
   nl,
+  pl,
   ru,
   uk,
 };

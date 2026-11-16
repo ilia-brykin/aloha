@@ -1,0 +1,5 @@
+{
+  "_A_SLIDER_RANGE_ARIA_LABEL_{{min}}_{{max}}_": "Suwak zakresu od {{ min }} do {{ max }}",
+  "_A_SLIDER_RANGE_FIRST_BUTTON_ARIA_LABEL_": "Wybierz wartość początkową",
+  "_A_SLIDER_RANGE_SECOND_BUTTON_ARIA_LABEL_": "Wybierz wartość końcową"
+}

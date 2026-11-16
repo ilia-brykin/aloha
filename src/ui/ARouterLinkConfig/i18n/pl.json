@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_": "Parametry dynamiczne są używane w trasach do przekazywania danych w ścieżce. Oznacza się je dwukropkiem <code>:</code> przed nazwą parametru, na przykład: <code>/user/:id</code>. Podczas nawigacji parametr ten jest zastępowany konkretną wartością, na przykład: <code>/user/123</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_": "Parametry <span lang=\"en\">URL</span> umożliwiają przekazywanie dodatkowych informacji w żądaniu. Są dodawane po znaku <code>?</code> w pasku adresu i mają format \"klucz=wartość\". Na przykład: <code>?limit=10&sort=asc</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_": "Adres określa, dokąd prowadzi link. Może być statyczny (np. <code>/home</code>) lub zawierać parametry dynamiczne (np. <code>/user/:id</code>). Wybierz adres nawigacji.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_": "Określa, gdzie zostanie otwarty link. Dostępne opcje: w tym samym oknie (<code>_self</code>), w nowym oknie lub nowej karcie (<code>_blank</code>), w ramce nadrzędnej (<code>_parent</code>) lub w ramce najwyższego poziomu (<code>_top</code>).",
+  "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_": "Parametry dynamiczne",
+  "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_": "Parametry <span lang=\"en\">URL</span>",
+  "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_": "Wybierz adres",
+  "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_": "Atrybut <span lang=\"en\">target</span>",
+  "_A_TARGET_BLANK_": "Otwórz w nowej karcie <strong lang=\"en\">_blank</strong>",
+  "_A_TARGET_PARENT_": "Otwórz w ramce nadrzędnej <strong lang=\"en\">_parent</strong>",
+  "_A_TARGET_SELF_": "Otwórz w tym samym oknie <strong lang=\"en\">_self</strong>",
+  "_A_TARGET_TOP_": "Otwórz w ramce najwyższego poziomu <strong lang=\"en\">_top</strong>"
+}

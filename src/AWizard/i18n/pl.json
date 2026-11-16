@@ -1,0 +1,16 @@
+{
+  "_A_WIZARD_ARIA_LABEL_": "Kreator",
+  "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Krok {{ stepNumber }}:",
+  "_A_WIZARD_NEXT_": "Dalej",
+  "_A_WIZARD_NEXT_TITLE_": "Następny krok",
+  "_A_WIZARD_PREVIOUS_": "Wstecz",
+  "_A_WIZARD_PREVIOUS_TITLE_": "Poprzedni krok",
+  "_A_WIZARD_STEP_ACTIVE_": "Krok bieżący",
+  "_A_WIZARD_STEP_ERROR_": "Krok z błędem",
+  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "{{ stepActive }} z {{ stepsCount }}",
+  "_A_WIZARD_STEP_UPCOMING_": "Krok nadchodzący",
+  "_A_WIZARD_STEP_VISITED_": "Krok odwiedzony",
+  "_A_WIZARD_STEP_WARNING_": "Krok z ostrzeżeniem",
+  "_A_WIZARD_STEPS_ARIA_LABEL_": "Kroki kreatora",
+  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Krok {{ stepActive }} z {{ stepsCount }}"
+}

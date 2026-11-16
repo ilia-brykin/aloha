@@ -1,0 +1,18 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Dodaj nowy wiersz",
+  "_A_TABLE_FORM_ACTIONS_": "Akcje",
+  "_A_TABLE_FORM_DELETE_": "Usuń wiersz",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Czy na pewno chcesz usunąć ten wiersz?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Anuluj",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Usuń wiersz",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Usuń",
+  "_A_TABLE_FORM_EDIT_": "Edytuj wiersz",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Anuluj edycję",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Zapisz wiersz",
+  "_A_TABLE_FORM_EMPTY_": "Brak danych do wyświetlenia.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Przesuń wiersz w dół",
+  "_A_TABLE_FORM_MOVE_UP_": "Przesuń wiersz w górę",
+  "_A_TABLE_FORM_REORDER_": "Przeciągnij wiersz, aby zmienić kolejność",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Zmień kolejność wierszy",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Zmiana kolejności wierszy jest wyłączona"
+}
