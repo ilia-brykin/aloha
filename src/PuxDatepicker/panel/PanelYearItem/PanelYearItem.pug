@@ -1,9 +1,0 @@
-li.cell(
-  :id="idForList"
-  :class="{ actived: isYearActive, disabled: isDisabledLocal }"
-  role="option"
-  tabindex="-1"
-  :aria-selected="ariaSelected"
-  @click="selectYearLocal()"
-  @keypress.enter.space.prevent.stop="selectYearLocal(true)"
-) {{ year }}
