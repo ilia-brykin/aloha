@@ -7,6 +7,11 @@ import {
   ref,
 } from "vue";
 import {
+  describe,
+  expect,
+  it,
+} from "vitest";
+import {
   mount,
 } from "@vue/test-utils";
 
@@ -62,14 +67,14 @@ describe("UiStyleHideAPI", () => {
     });
     const wrapper = mount(Provider);
 
-    expect(wrapper.get("div").isVisible()).toBe(false);
+    expect(wrapper.get("div").attributes("style")).toContain("display: none");
 
     modelDependencies.value = {
       controller: true,
     };
     await nextTick();
 
-    expect(wrapper.get("div").isVisible()).toBe(true);
+    expect(wrapper.get("div").attributes("style") || "").not.toContain("display: none");
   });
 
   it("falls back to the modelDependencies prop without a provider", () => {
@@ -85,7 +90,7 @@ describe("UiStyleHideAPI", () => {
       },
     });
 
-    expect(wrapper.get("div").isVisible()).toBe(true);
+    expect(wrapper.get("div").attributes("style") || "").not.toContain("display: none");
   });
 
   it("allows an explicit modelDependencies prop to override an injected model", () => {
@@ -108,6 +113,6 @@ describe("UiStyleHideAPI", () => {
     });
     const wrapper = mount(Provider);
 
-    expect(wrapper.get("div").isVisible()).toBe(true);
+    expect(wrapper.get("div").attributes("style") || "").not.toContain("display: none");
   });
 });

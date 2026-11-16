@@ -60,6 +60,7 @@ vi.mock("../../../index", async() => {
     UIExcludeRenderAttributesAPI: () => ({
       attributesToExcludeFromRender: computed(() => ({})),
     }),
+    UiModelDependenciesProvideAPI: () => {},
     UiStyleHideAPI: () => ({
       componentStyleHide: computed(() => ""),
     }),

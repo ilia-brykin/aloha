@@ -116,6 +116,11 @@ export default {
       required: false,
       default: undefined,
     },
+    errorsClass: {
+      type: [String, Object],
+      required: false,
+      default: undefined,
+    },
     excludeRenderAttributes: {
       type: Array,
       required: false,

@@ -66,8 +66,12 @@
   }
 }
 @each $step, $l in settings.$gray-steps {
+  $text-step: 50;
+  @if $step <= 500 {
+    $text-step: 900;
+  }
   .a_progress__bar.a_bg_gray_#{$step} {
-    --a_progress_bar_color: var(--a_color_gray_#{if($step <= 500, 900, 50)});
+    --a_progress_bar_color: var(--a_color_gray_#{$text-step});
   }
 }
 
