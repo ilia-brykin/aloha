@@ -81,7 +81,7 @@
   display: block;
   min-width: 12.5rem;
   max-width: var(--a_select_menu_max_width);
-  z-index: 1055;
+  z-index: var(--a_z_index_popup);
   color: var(--a_select_menu_color);
   background-color: var(--a_select_menu_bg);
   border: var(--a_border_width) solid var(--a_select_menu_border_color);

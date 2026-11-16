@@ -320,5 +320,5 @@
   --a_table_form_cell_padding_y: calc(.75rem * var(--a_density));
   --a_table_form_cell_padding_x: calc(.75rem * var(--a_density));
   --a_table_form_cell_actions_edge_box_shadow: inset calc(var(--a_border_width) * -1) 0 0 var(--a_table_form_border_color);
-  --a_table_form_cell_actions_sticky_shadow: -8px 0 16px -8px var(--a_shadow_color);
+  --a_table_form_cell_actions_sticky_shadow: var(--a_shadow_edge_left);
 }

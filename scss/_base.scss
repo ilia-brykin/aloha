@@ -32,10 +32,10 @@
   top: 100%;
 }
 .a_popup_container {
-  z-index: 1900;
+  z-index: var(--a_z_index_popup);
 }
 .a_select_container {
-  z-index: 1901;
+  z-index: calc(var(--a_z_index_popup) + 1);
 }
 .a_dropdown__menu {
   > ul {

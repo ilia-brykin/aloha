@@ -557,7 +557,7 @@
   --a_menu_btn_toggle_margin_left: .5rem;
   --a_menu_mobile_btn_toggle_margin_left: .5rem;
   --a_menu_mobile_btn_toggle_margin_top: .5rem;
-  --a_menu_mobile_z_index: 1051;
+  --a_menu_mobile_z_index: var(--a_z_index_menu_mobile);
   --a_menu_close_opacity: .3;
   --a_menu_page_bg: var(--a_color_body_bg);
 }

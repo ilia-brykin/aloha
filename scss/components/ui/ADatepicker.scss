@@ -22,7 +22,7 @@
   border-radius: var(--a_datepicker_popup_border_radius);
   background-color: var(--a_datepicker_popup_bg);
   box-shadow: var(--a_datepicker_popup_box_shadow);
-  z-index: 1901;
+  z-index: calc(var(--a_z_index_popup) + 1);
 }
 
 .a_datepicker__input_wrapper {

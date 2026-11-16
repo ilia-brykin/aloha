@@ -406,7 +406,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--a_z_index_fixed);
   width: var(--a_table_preview_right_width);
   height: 100vh;
   overflow-y: auto;

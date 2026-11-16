@@ -47,7 +47,7 @@
 // ---------------------------------------------------------------------------
 :where(.a_modal_footer_sticky) {
   --a_modal_footer_sticky_gap: calc(var(--a_modal_footer_gap) * .5);
-  --a_modal_footer_sticky_bg: hsl(var(--a_gray_h) var(--a_gray_s) var(--a_tone_surface_raised_l) / .6);
+  --a_modal_footer_sticky_bg: var(--a_color_surface_raised_translucent);
   --a_modal_footer_sticky_blur: 3px;
   --a_modal_footer_sticky_actions_bg: var(--a_modal_bg);
 }

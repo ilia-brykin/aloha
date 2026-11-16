@@ -302,7 +302,7 @@
   --a_filter_hor_padding_x: var(--a_space_md);
   --a_filter_hor_padding_y: var(--a_space_md);
   --a_filter_hor_body_max_height: calc(100vh - 1rem - 7.0625rem);
-  --a_filter_hor_footer_bg: hsl(var(--a_gray_h) var(--a_gray_s) var(--a_tone_surface_l) / .8);
+  --a_filter_hor_footer_bg: var(--a_color_surface_translucent);
   --a_filter_hor_footer_actions_bg: var(--a_color_surface);
 }
 :where(.a_filters_center) {

@@ -22,6 +22,6 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_loading) {
-  --a_loading_bg: hsl(var(--a_gray_h) var(--a_gray_s) var(--a_tone_surface_l) / .75);
+  --a_loading_bg: var(--a_color_surface_translucent);
   --a_loading_z_index: 80;
 }

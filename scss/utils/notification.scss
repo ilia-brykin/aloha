@@ -35,6 +35,6 @@
   --a_notification_width: calc(100% - 2rem);
   --a_notification_left: 1rem;
   --a_notification_top: 1rem;
-  --a_notification_z_index: 1071;
+  --a_notification_z_index: var(--a_z_index_notification);
   --a_notification_text_align: center;
 }

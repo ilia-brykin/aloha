@@ -34,6 +34,7 @@
   --a_tone_emphasis_l: 0%;
   --a_tone_focus_l: 40%;
   --a_tone_shadow_alpha: .12;
+  --a_tone_translucent_alpha: .8;
 }
 
 @mixin dark-tones {
@@ -105,12 +106,17 @@
   --a_easing: cubic-bezier(.2, 0, 0, 1);
 
   // z-index
+  --a_z_index_fixed: 1000;
   --a_z_index_backdrop: 1050;
+  --a_z_index_menu_mobile: 1051;
   --a_z_index_modal: 1055;
   --a_z_index_backdrop_confirm: 1058;
   --a_z_index_confirm: 1059;
   --a_z_index_dropdown: 1060;
+  --a_z_index_notification: 1071;
   --a_z_index_tooltip: 1080;
+  // popups (select, datepicker, dropdown containers) must stay above modals
+  --a_z_index_popup: 1900;
 
   // Tones of the light theme (used to derive colors)
   @include light-tones;
@@ -195,6 +201,9 @@
   --a_color_surface: #{hsl-of(gray, var(--a_tone_surface_l))};
   --a_color_surface_subtle: #{hsl-of(gray, var(--a_tone_surface_subtle_l))};
   --a_color_surface_raised: #{hsl-of(gray, var(--a_tone_surface_raised_l))};
+  // for sticky bars and overlays above content
+  --a_color_surface_translucent: #{hsl-of(gray, var(--a_tone_surface_l), var(--a_tone_translucent_alpha))};
+  --a_color_surface_raised_translucent: #{hsl-of(gray, var(--a_tone_surface_raised_l), var(--a_tone_translucent_alpha))};
   --a_color_body_bg: var(--a_color_surface);
   --a_color_text: var(--a_color_gray_900);
   --a_color_text_muted: var(--a_color_gray_600);
@@ -253,6 +262,9 @@
   --a_shadow_sm: 0 1px 2px var(--a_shadow_color);
   --a_shadow_md: 0 4px 12px -2px var(--a_shadow_color), 0 2px 4px -2px var(--a_shadow_color);
   --a_shadow_lg: 0 12px 32px -8px var(--a_shadow_color), 0 4px 8px -4px var(--a_shadow_color);
+  // side shadow of panels that stick to an edge (shadow on the left / right side)
+  --a_shadow_edge_left: -8px 0 16px -8px var(--a_shadow_color);
+  --a_shadow_edge_right: 8px 0 16px -8px var(--a_shadow_color);
 
   // Motion
   --a_transition_colors:
