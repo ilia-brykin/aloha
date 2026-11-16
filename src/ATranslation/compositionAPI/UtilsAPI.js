@@ -50,7 +50,12 @@ export function isPlaceholderTranslate(text = "") {
  * @return {string} The translated text for the given placeholder.
  */
 export function getTranslatedText({ placeholder, translationObj = translation, extra, alwaysTranslate = false }) {
-  if (!translationObj || !timeTranslationLastChanged.value) {
+  /*
+   * Read the ref first, so that computed properties always track translation changes,
+   * even when they run before the translation is loaded.
+   */
+  const lastChanged = timeTranslationLastChanged.value;
+  if (!translationObj || !lastChanged) {
     return placeholder;
   }
 
