@@ -26,6 +26,7 @@ import SizeAPI from "./compositionAPI/SizeAPI";
 import WrapperAPI from "./compositionAPI/WrapperAPI";
 import ZIndexAPI from "./compositionAPI/ZIndexAPI";
 
+import Close from "../AIcon/Icons/Close";
 import {
   modalPluginOptions,
 } from "../plugins/AModalPlugin";
@@ -480,6 +481,7 @@ export default {
                       alwaysTranslate: this.alwaysTranslate,
                       class: "a_btn_close",
                       disabled: this.disabledLocal,
+                      iconLeft: Close,
                       textScreenReader: this.closeButtonTextScreenReaderHeader,
                       title: this.closeButtonTextScreenReaderHeader,
                       type: "button",

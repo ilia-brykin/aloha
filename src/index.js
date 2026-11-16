@@ -28,6 +28,7 @@ export { default as AGet } from "./AGet/AGet";
 export { default as AGroup } from "./ui/AGroup/AGroup";
 export { default as AGroupButtonDropdown } from "./AGroupButtonDropdown/AGroupButtonDropdown";
 export { default as AIcon } from "./AIcon/AIcon";
+export { default as AIconClose } from "./AIcon/Icons/Close";
 export { default as AInfiniteScroll } from "./AInfiniteScroll/AInfiniteScroll";
 export { default as AInput } from "./ui/AInput/AInput";
 export { default as AInputCurrency } from "./ui/AInputCurrency/AInputCurrency";
