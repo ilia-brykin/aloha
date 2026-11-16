@@ -1,5 +1,5 @@
 {
   "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_ARGUMENTS_ARRAY_": "De initiële array die voor het tellen wordt doorlopen",
   "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_ARGUMENTS_KEY_CHILDREN_": "De sleutel waarmee onderliggende elementen binnen elk object in de array worden geïdentificeerd",
-  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_DESCRIPTION_": "Berekent het totale aantal elementen binnen een geneste structuur, inclusief alle onderliggende en onderliggende sub-elementen, op basis van de opgegeven sleutel voor onderliggende elementen."
+  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_DESCRIPTION_": "Berekent het totale aantal elementen binnen een geneste structuur, inclusief alle onderliggende elementen en hun subelementen, op basis van de opgegeven sleutel voor onderliggende elementen."
 }

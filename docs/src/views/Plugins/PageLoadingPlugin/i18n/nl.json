@@ -1,5 +1,5 @@
 {
-  "_PAGE_PLUGIN_LOADING_PAGE_TITLE_": "ALoadingPlugin-plugin",
+  "_PAGE_PLUGIN_LOADING_PAGE_TITLE_": "Plugin ALoadingPlugin",
   "_PAGE_PLUGIN_LOADING_H1_": "Plugin <span lang=\"en\">ALoadingPlugin</span>",
   "_PAGE_PLUGIN_LOADING_INTRODUCTION_": "<h2 class=\"a_mb_3\">Inleiding</h2><p><strong lang=\"en\">ALoadingPlugin</strong> wordt gebruikt om standaardwaarden in te stellen voor de props van de component <strong lang=\"en\">ALoading</strong>. Zo kunt u het uiterlijk en gedrag van het element centraal aanpassen, inclusief uitlijning, grootte, tekst en andere eigenschappen.</p>",
   "_PAGE_PLUGIN_LOADING_CONNECTION_": "<h2 class=\"a_mb_3\">Koppeling</h2><p>Om de plugin te koppelen, voegt u deze toe aan uw project en configureert u de standaardprops:</p>",

@@ -25,5 +25,8 @@
   "_A_SELECT_GROUP_SHOW_SELECTED_FIRST_HEADER_": "Geselecteerde opties eerst",
   "_A_SELECT_PROPS_SHOW_SELECTED_FIRST_DESCRIPTION_": "Toont geselecteerde opties vóór de overige opties en verwijdert de duplicaten uit de hoofdlijst. Groepering blijft behouden.",
   "_A_SELECT_GROUP_TRANSLATE_DATA_DESCRIPTION_": "Vertalingen van labels worden ondersteund voor dropdownopties. Zoeken wordt ook ondersteund met gelokaliseerde, vertaalde opties.",
-  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisering"
+  "_A_SELECT_GROUP_TRANSLATE_DATA_HEADER_": "Internationalisering",
+  "_TXT_POSITIVE_": "Positief",
+  "_TXT_NEGATIVE_": "Negatief",
+  "_TXT_NEUTRAL_": "Neutraal"
 }

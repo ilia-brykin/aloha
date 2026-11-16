@@ -1,9 +1,9 @@
 {
   "_A_SPACING_CONFIG_DESCRIPTION_": "U kunt snelkoppelingen, richtingen en de waardeschaal wijzigen via <strong lang=\"en\">SCSS</strong>-variabelen.",
   "_A_SPACING_CONFIG_NAME_": "SCSS-configuratie",
-  "_A_SPACING_HTML_EXAMPLE_": "<!-- Adds 1rem of margin at the bottom -->\n<p class=\"a_mb_4\">Bottom margin</p>\n\n<!-- Adds 0.25rem of padding on the left and the right -->\n<p class=\"a_px_1\">Horizontal padding</p>\n\n<!-- Removes the margin on the right and adds 0.75rem padding at the top -->\n<p class=\"a_mr_0 a_pt_3\">Both</p>",
-  "_A_SPACING_NAME_": "Spacing",
-  "_A_SPACING_TABLE_DESCRIPTION_": "Spiekbriefje voor de belangrijkste spacing-klassepatronen. De waarden <strong lang=\"en\">0-6</strong> komen overeen met 0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.5rem, 3rem.",
+  "_A_SPACING_HTML_EXAMPLE_": "<!-- Voegt 1rem buitenmarge aan de onderkant toe -->\n<p class=\"a_mb_4\">Ondermarge (margin)</p>\n\n<!-- Voegt 0.25rem binnenruimte links en rechts toe -->\n<p class=\"a_px_1\">Horizontale binnenruimte (padding)</p>\n\n<!-- Verwijdert de buitenmarge rechts en voegt 0.75rem binnenruimte aan de bovenkant toe -->\n<p class=\"a_mr_0 a_pt_3\">Beide</p>",
+  "_A_SPACING_NAME_": "Afstanden",
+  "_A_SPACING_TABLE_DESCRIPTION_": "Overzicht van de belangrijkste patronen voor afstandsklassen. De waarden <strong lang=\"en\">0-6</strong> komen overeen met 0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.5rem, 3rem.",
   "_A_SPACING_TABLE_USAGE_": "Om deze klassen te gebruiken, voegt u ze eenvoudig toe aan een willekeurig <span lang=\"en\">HTML</span>-element:",
   "_A_SPACING_TABLE_LABEL_": "Klassen",
   "_A_SPACING_TABLE_NAME_": "Klassentabel"

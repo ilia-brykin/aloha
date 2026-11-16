@@ -1,6 +1,6 @@
 {
   "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">ATemplate</strong> wordt gebruikt als universele slot voor componenten zoals <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> en <strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong>. Hij breidt de functionaliteit van deze componenten uit door de flexibiliteit te bieden om aangepaste content weer te geven met slots en gegevens door te geven via properties.",
-  "_A_TEMPLATE_COMPONENT_NAME_": "Template",
+  "_A_TEMPLATE_COMPONENT_NAME_": "Sjabloon",
   "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "Dit voorbeeld laat zien hoe u de slot <strong lang=\"en\">template</strong> gebruikt in de component <strong lang=\"en\">AFieldset</strong>. Een van de onderliggende elementen is een template die via de slot <strong lang=\"en\">template</strong> wordt gerenderd. In dit voorbeeld wordt in de template een knop met de tekst <strong lang=\"en\">'Aloha'</strong> weergegeven.",
   "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "Een template gebruiken in <strong lang=\"en\">AFieldset</strong>",
   "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">html</strong> gebruikt om <strong lang=\"en\">HTML</strong>-content te renderen in de component <strong lang=\"en\">ATemplate</strong>. De <strong lang=\"en\">HTML</strong>-code wordt veilig weergegeven binnen de component.",

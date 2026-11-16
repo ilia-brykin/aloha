@@ -137,7 +137,7 @@
   "_A_DROPDOWN_GROUP_BUSINESS_": "Zakelijk",
   "_A_DROPDOWN_GROUP_CAMPAIGNS_": "Campagnes",
   "_A_DROPDOWN_GROUP_COMMUNICATION_": "Communicatie",
-  "_A_DROPDOWN_GROUP_DEVELOPMENT_": "Development",
+  "_A_DROPDOWN_GROUP_DEVELOPMENT_": "Ontwikkeling",
   "_A_DROPDOWN_GROUP_EMAIL_": "E-mail",
   "_A_DROPDOWN_GROUP_FINANCE_": "Financiën",
   "_A_DROPDOWN_GROUP_FRONTEND_": "Frontend",
@@ -167,7 +167,7 @@
   "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_HEADER_": "Sluiten wanneer de trigger de viewport verlaat",
   "_A_DROPDOWN_GROUP_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Open een dropdown en scroll de container zodat de knop het zichtbare gebied verlaat. Wanneer <strong>is-close-by-button-invisible-in-viewport</strong> op <strong>true</strong> is ingesteld, sluit de dropdown automatisch; bij <strong>false</strong> blijft hij open.",
   "_A_DROPDOWN_PROPS_IS_CLOSE_BY_BUTTON_INVISIBLE_IN_VIEWPORT_DESCRIPTION_": "Bepaalt of de dropdown automatisch sluit wanneer de triggerknop de zichtbare viewport van het scrollbare gebied verlaat.",
-  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "close on invisible = true",
-  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "close on invisible = false",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_TRUE_": "sluiten bij onzichtbaarheid = true",
+  "_A_DROPDOWN_BUTTON_TEXT_CLOSE_ON_INVISIBLE_FALSE_": "sluiten bij onzichtbaarheid = false",
   "_A_DROPDOWN_SCROLL_HELP_": "Open een dropdown en scroll vervolgens dit blok."
 }

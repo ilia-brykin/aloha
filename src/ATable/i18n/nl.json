@@ -28,7 +28,7 @@
   "_A_TABLE_PREVIEW_DOWN_CLOSE_": "Voorbeeld sluiten",
   "_A_TABLE_PREVIEW_RIGHT_ARIA_LABEL_": "Rijvoorbeeld",
   "_A_TABLE_PREVIEW_RIGHT_CLOSE_": "Voorbeeld sluiten",
-  "_A_TABLE_PREVIEW_HAS_NOT_SLOT_": "Gebruik de slot: 'preview'",
+  "_A_TABLE_PREVIEW_HAS_NOT_SLOT_": "Gebruik het slot: 'preview'",
   "_A_TABLE_PREVIEW_RIGHT_HEADER_{{rowNumber}}_{{rowNumberFormatted}}_{{countAllRows}}_{{countAllRowsFormatted}}_": "{{ rowNumberFormatted }} van {{ countAllRowsFormatted }}",
   "_A_TABLE_PREVIEW_RIGHT_NEXT_ROW_": "Naar de volgende rij",
   "_A_TABLE_PREVIEW_RIGHT_PREVIOUS_ROW_": "Naar de vorige rij",

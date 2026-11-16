@@ -1,4 +1,8 @@
 {
+  "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "Component voor de directe weergave van gegevens in tabelvorm zonder complexe functies zoals sorteren, filteren of rijacties.",
+  "_A_TABLE_GROUP_SIMPLE_HEADER_": "Eenvoudige tabel",
+  "_A_TABLE_GROUP_SIMPLE_LABEL_": "Eenvoudige tabel",
+  "_A_TABLE_SIMPLE_": "Tabel",
   "_A_TABLE_GROUP_TREE_DESCRIPTION_": "Dit voorbeeld toont een interactieve boomtabel waarmee hiërarchische gegevensstructuren visueel worden weergegeven. Met de component kunnen gebruikers gestructureerde informatie in een handig formaat bekijken en de weergave van subniveaus dynamisch beheren door onderliggende elementen uit te klappen of in te klappen. Ideaal voor het weergeven van complexe gegevensstructuren zoals organigrammen, productcategorieën of hiërarchische lijsten; het biedt eindgebruikers flexibele mogelijkheden om gegevens te verkennen en te analyseren.",
   "_A_TABLE_GROUP_TREE_HEADER_": "Eenvoudig voorbeeld",
   "_A_TABLE_GROUP_TREE_LABEL_": "Gegevenshiërarchie",

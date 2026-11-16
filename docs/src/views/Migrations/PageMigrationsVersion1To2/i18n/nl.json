@@ -10,9 +10,9 @@
   "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_HEADER_": "Verwijderde klassen",
   "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_DESCRIPTION_": "<ul><li>De stijlen <code lang=\"en\">.a_columns_gab_</code> zijn verwijderd (typefout). Gebruik in plaats daarvan <code lang=\"en\">.a_columns_gap_</code>.</li></ul>",
   "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_HEADER_": "Integratie van <strong lang=\"en\">aloha-css</strong>",
-  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>De stijlen van <code lang=\"en\">aloha-css</code> zijn nu geïntegreerd in <code lang=\"en\">aloha-vue</code>.</li><li><code lang=\"en\">aloha-css</code> is verouderd (deprecated) en wordt binnenkort verwijderd.</li></ul><div class=\"a_mt_3\">Aanbevolen wordt de stijlen als volgt op te nemen:</div>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>De stijlen van <code lang=\"en\">aloha-css</code> zijn nu geïntegreerd in <code lang=\"en\">aloha-vue</code>.</li><li><code lang=\"en\">aloha-css</code> is verouderd (deprecated) en wordt binnenkort verwijderd.</li></ul><div class=\"a_mt_3\">Het wordt aanbevolen de stijlen als volgt op te nemen:</div>",
   "_PAGE_MIGRATION_1_TO_2_IMPORTS_HEADER_": "3. Verbeterd importsysteem",
   "_PAGE_MIGRATION_1_TO_2_IMPORTS_DESCRIPTION_": "Alle entiteiten, zoals componenten, directives, plugins, functies en vertalingen, kunnen nu rechtstreeks worden geïmporteerd:",
-  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. Dependency-updates",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. Updates van afhankelijkheden",
   "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_DESCRIPTION_": "<div>Controleer uw project op updates om aan de nieuwe vereisten te voldoen.</div>"
 }

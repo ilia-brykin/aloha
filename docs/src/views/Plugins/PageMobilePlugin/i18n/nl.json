@@ -1,5 +1,5 @@
 {
-  "_PAGE_PLUGIN_MOBILE_PAGE_TITLE_": "AMobilePlugin-plugin",
+  "_PAGE_PLUGIN_MOBILE_PAGE_TITLE_": "Plugin AMobilePlugin",
   "_PAGE_PLUGIN_MOBILE_H1_": "Plugin <span lang=\"en\">AMobilePlugin</span>",
   "_PAGE_PLUGIN_MOBILE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Inleiding</h2><p><strong lang=\"en\">AMobilePlugin</strong> biedt de mogelijkheid een breekpunt in te stellen voor de breedte van mobiele apparaten. Hierdoor kunnen componenten zoals <strong lang=\"en\">ATable</strong> en <strong lang=\"en\">AButton</strong> reageren op wijzigingen in de schermbreedte. De plugin biedt ook een <strong lang=\"en\">compositionAPI</strong> genaamd <strong lang=\"en\">AMobileAPI</strong>, waaruit u de <strong lang=\"en\">ref</strong> <strong lang=\"en\">isMobileWidth</strong> kunt importeren en in uw componenten kunt gebruiken om de interface aan te passen.</p>",
   "_PAGE_PLUGIN_MOBILE_CONNECTION_": "<h2 class=\"a_mb_3\">Koppeling</h2><p>Om de plugin te koppelen, voegt u deze toe aan uw project:</p>",

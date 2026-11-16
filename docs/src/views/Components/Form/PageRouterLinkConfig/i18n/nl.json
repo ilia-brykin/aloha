@@ -1,5 +1,5 @@
 {
-  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "Router link config",
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "Routerlink-configuratie",
   "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">ARouterLinkConfig</strong> biedt een interface voor het configureren van navigatielinks met route-, query-, params- en target-waarden. Dit is handig wanneer links dynamisch op basis van formuliergegevens moeten worden opgebouwd.",
   "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_": "Type",
   "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_": "Dit voorbeeld laat zien hoe u de prop <strong lang=\"en\">type</strong> gebruikt om te schakelen tussen de selectiemodi voor één route en meerdere routes.",
