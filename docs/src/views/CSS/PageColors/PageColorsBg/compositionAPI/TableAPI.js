@@ -2,83 +2,103 @@ export default function TableAPI() {
   const colors = [
     {
       className: "a_bg_primary",
-      color: "#0d6efd",
+      color: "var(--a_color_primary)",
     },
     {
       className: "a_bg_secondary",
-      color: "#6c757d",
+      color: "var(--a_color_secondary)",
     },
     {
       className: "a_bg_tertiary",
-      color: "#da6c8e",
+      color: "var(--a_color_tertiary)",
     },
     {
       className: "a_bg_text",
-      color: "#212529",
+      color: "var(--a_color_text)",
+    },
+    {
+      className: "a_bg_text_muted",
+      color: "var(--a_color_text_muted)",
     },
     {
       className: "a_bg_info",
-      color: "#0dcaf0",
+      color: "var(--a_color_info)",
     },
     {
       className: "a_bg_success",
-      color: "#198754",
+      color: "var(--a_color_success)",
     },
     {
       className: "a_bg_warning",
-      color: "#ffc107",
+      color: "var(--a_color_warning)",
     },
     {
       className: "a_bg_danger",
-      color: "#dc3545",
+      color: "var(--a_color_danger)",
+    },
+    {
+      className: "a_bg_light",
+      color: "var(--a_color_light)",
+    },
+    {
+      className: "a_bg_dark",
+      color: "var(--a_color_dark)",
     },
     {
       className: "a_bg_link",
-      color: "#0d6efd",
+      color: "var(--a_color_link)",
     },
     {
       className: "a_bg_white",
-      color: "#ffffff",
+      color: "var(--a_color_white)",
     },
     {
       className: "a_bg_black",
-      color: "#000000",
+      color: "var(--a_color_black)",
+    },
+    {
+      className: "a_bg_surface",
+      color: "var(--a_color_surface)",
+    },
+    {
+      className: "a_bg_surface_subtle",
+      color: "var(--a_color_surface_subtle)",
     },
     {
       className: "a_bg_gray_100",
-      color: "#f8f9fa",
+      color: "var(--a_color_gray_100)",
     },
     {
       className: "a_bg_gray_200",
-      color: "#e9ecef",
+      color: "var(--a_color_gray_200)",
     },
     {
       className: "a_bg_gray_300",
-      color: "#dee2e6",
+      color: "var(--a_color_gray_300)",
     },
     {
       className: "a_bg_gray_400",
-      color: "#ced4da",
+      color: "var(--a_color_gray_400)",
     },
     {
       className: "a_bg_gray_500",
-      color: "#adb5bd",
+      color: "var(--a_color_gray_500)",
     },
     {
       className: "a_bg_gray_600",
-      color: "#6c757d",
+      color: "var(--a_color_gray_600)",
     },
     {
       className: "a_bg_gray_700",
-      color: "#495057",
+      color: "var(--a_color_gray_700)",
     },
     {
       className: "a_bg_gray_800",
-      color: "#343a40",
+      color: "var(--a_color_gray_800)",
     },
     {
       className: "a_bg_gray_900",
-      color: "#212529",
+      color: "var(--a_color_gray_900)",
     },
     {
       className: "a_bg_transparent",

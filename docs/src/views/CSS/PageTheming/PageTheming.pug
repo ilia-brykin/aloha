@@ -1,0 +1,385 @@
+aloha-page(
+  page-title="_A_THEMING_NAME_"
+  page-title-h1="_A_THEMING_NAME_"
+)
+  template(
+    v-slot:body
+  )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_INTRO_"
+    )
+
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_QUICK_START_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_QUICK_START_DESCRIPTION_"
+    )
+    aloha-highlightjs(
+      :code="codeQuickStart"
+      language="css"
+    )
+
+    //- Generator
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_GENERATOR_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_GENERATOR_DESCRIPTION_"
+    )
+    .docs_theming
+      .docs_theming__controls
+        fieldset.docs_theming__fieldset
+          a-translation.docs_theming__legend(
+            tag="legend"
+            html="_A_THEMING_GENERATOR_COLORS_"
+          )
+          .docs_theming__color(
+            v-for="row in colorRows"
+            :key="row.name"
+          )
+            input.docs_theming__color__input(
+              :id="`docs_theming_color_${ row.name }`"
+              v-model="colors[row.name]"
+              type="color"
+            )
+            label.docs_theming__color__label(
+              :for="`docs_theming_color_${ row.name }`"
+            )
+              code {{ row.name }}
+            span.docs_theming__color__contrast(
+              :class="row.isAA ? 'a_color_success_text_emphasis' : 'a_color_danger_text_emphasis'"
+            ) {{ row.ratio }}:1 {{ row.isAA ? "AA" : "✗" }}
+          .docs_theming__color
+            input.docs_theming__color__input(
+              id="docs_theming_color_gray"
+              v-model="gray"
+              type="color"
+            )
+            a-translation.docs_theming__color__label(
+              tag="label"
+              for="docs_theming_color_gray"
+              html="_A_THEMING_GENERATOR_GRAY_"
+            )
+
+        fieldset.docs_theming__fieldset
+          a-translation.docs_theming__legend(
+            tag="legend"
+            html="_A_THEMING_GENERATOR_SHAPE_"
+          )
+          .docs_theming__field
+            label.a_form_element_label(
+              for="docs_theming_radius"
+            )
+              code --a_radius
+              |  {{ radius }}rem
+            input.docs_theming__range(
+              id="docs_theming_radius"
+              v-model.number="radius"
+              type="range"
+              min="0"
+              max="1.25"
+              step="0.0625"
+            )
+          .docs_theming__field
+            label.a_form_element_label(
+              for="docs_theming_focus_inside"
+            )
+              code --a_focus_width_inside
+              |  {{ focusWidthInside }}px
+            input.docs_theming__range(
+              id="docs_theming_focus_inside"
+              v-model.number="focusWidthInside"
+              type="range"
+              min="0"
+              max="4"
+              step="1"
+            )
+          .docs_theming__field
+            label.a_form_element_label(
+              for="docs_theming_focus_outside"
+            )
+              code --a_focus_width_outside
+              |  {{ focusWidthOutside }}px
+            input.docs_theming__range(
+              id="docs_theming_focus_outside"
+              v-model.number="focusWidthOutside"
+              type="range"
+              min="1"
+              max="5"
+              step="1"
+            )
+          .docs_theming__field
+            a-translation.a_form_element_label(
+              tag="label"
+              for="docs_theming_theme"
+              html="_A_THEMING_GENERATOR_THEME_"
+            )
+            select.a_form_control(
+              id="docs_theming_theme"
+              v-model="theme"
+            )
+              option(value="light") light
+              option(value="dark") dark
+          .docs_theming__field
+            a-translation.a_form_element_label(
+              tag="label"
+              for="docs_theming_density"
+              html="_A_THEMING_GENERATOR_DENSITY_"
+            )
+            select.a_form_control(
+              id="docs_theming_density"
+              v-model="density"
+            )
+              option(value="compact") compact
+              option(value="default") default
+              option(value="comfortable") comfortable
+          button.a_btn.a_btn_outline_secondary.a_btn_small(
+            type="button"
+            @click="readDefaults"
+          )
+            a-translation(
+              tag="span"
+              html="_A_THEMING_GENERATOR_RESET_"
+            )
+
+      .a_theme.docs_theming__preview(
+        :data-a-theme="theme"
+        :data-a-density="density"
+        :style="previewStyle"
+      )
+        a-translation.docs_theming__preview__title(
+          tag="h3"
+          html="_A_THEMING_GENERATOR_PREVIEW_"
+        )
+        .docs_theming__preview__row
+          button.a_btn(
+            v-for="row in colorRows"
+            :key="row.name"
+            :class="`a_btn_${ row.name }`"
+            type="button"
+          ) {{ row.name }}
+        .docs_theming__preview__row
+          button.a_btn(
+            v-for="row in colorRows"
+            :key="row.name"
+            :class="`a_btn_outline_${ row.name }`"
+            type="button"
+          ) {{ row.name }}
+        .docs_theming__preview__row
+          button.a_btn(
+            v-for="row in colorRows"
+            :key="row.name"
+            :class="`a_btn_transparent_${ row.name }`"
+            type="button"
+          ) {{ row.name }}
+        .docs_theming__preview__row
+          span.a_badge(
+            v-for="row in colorRows"
+            :key="row.name"
+            :class="`a_badge_${ row.name }`"
+          ) {{ row.name }}
+        .a_alert.a_alert_info
+          a-translation(
+            tag="span"
+            html="_A_THEMING_GENERATOR_PREVIEW_ALERT_"
+          )
+        .a_alert.a_alert_warning
+          a-translation(
+            tag="span"
+            html="_A_THEMING_GENERATOR_PREVIEW_ALERT_"
+          )
+        .docs_theming__preview__form
+          .docs_theming__field
+            a-translation.a_form_element_label(
+              tag="label"
+              for="docs_theming_preview_input"
+              html="_A_THEMING_GENERATOR_PREVIEW_INPUT_"
+            )
+            input.a_form_control(
+              id="docs_theming_preview_input"
+              type="text"
+              value="aloha-vue"
+            )
+          .a_custom_control.a_custom_checkbox
+            input.a_custom_control_input(
+              id="docs_theming_preview_checkbox"
+              type="checkbox"
+              checked
+            )
+            label.a_custom_control_label(
+              for="docs_theming_preview_checkbox"
+            )
+              a-translation.a_custom_control_label__text(
+                tag="span"
+                html="_A_THEMING_GENERATOR_PREVIEW_CHECKBOX_"
+              )
+          .a_custom_control.a_custom_radio
+            input.a_custom_control_input(
+              id="docs_theming_preview_radio"
+              type="radio"
+              name="docs_theming_preview_radio"
+              checked
+            )
+            label.a_custom_control_label(
+              for="docs_theming_preview_radio"
+            )
+              a-translation.a_custom_control_label__text(
+                tag="span"
+                html="_A_THEMING_GENERATOR_PREVIEW_RADIO_"
+              )
+          .docs_theming__preview__row
+            button.a_btn.a_btn_switch.a_btn_switch_active(
+              type="button"
+              aria-pressed="true"
+            ) A
+            button.a_btn.a_btn_switch(
+              type="button"
+              aria-pressed="false"
+            ) B
+            button.a_btn.a_btn_switch(
+              type="button"
+              aria-pressed="false"
+            ) C
+          .a_progress
+            .a_progress__bar(
+              style="width: 60%"
+            )
+
+    a-translation.a_mt_3.a_mb_2(
+      tag="h3"
+      html="_A_THEMING_GENERATOR_CODE_"
+    )
+    aloha-highlightjs(
+      :code="generatedCode"
+      language="css"
+    )
+
+    //- Dark theme
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_DARK_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_DARK_DESCRIPTION_"
+    )
+    aloha-highlightjs(
+      :code="codeDarkTheme"
+      language="html"
+    )
+
+    //- Density
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_DENSITY_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_DENSITY_DESCRIPTION_"
+    )
+    aloha-highlightjs(
+      :code="codeDensity"
+      language="html"
+    )
+
+    //- Scoped
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_SCOPED_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_SCOPED_DESCRIPTION_"
+    )
+    aloha-highlightjs(
+      :code="codeScoped"
+      language="html"
+    )
+
+    //- Focus
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_FOCUS_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_FOCUS_DESCRIPTION_"
+    )
+    aloha-highlightjs(
+      :code="codeFocus"
+      language="css"
+    )
+
+    //- Component tokens
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_COMPONENT_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_COMPONENT_DESCRIPTION_"
+    )
+    aloha-highlightjs(
+      :code="codeComponent"
+      language="css"
+    )
+
+    //- Layers
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_LAYERS_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_LAYERS_DESCRIPTION_"
+    )
+    aloha-highlightjs(
+      :code="codeLayers"
+      language="css"
+    )
+
+    //- Tokens
+    a-translation.a_mt_5.a_mb_3(
+      tag="h2"
+      html="_A_THEMING_TOKENS_HEADER_"
+    )
+    a-translation.a_mb_3(
+      tag="div"
+      safe-html="_A_THEMING_TOKENS_DESCRIPTION_"
+    )
+    template(
+      v-for="group in tokenGroups"
+      :key="group.id"
+    )
+      a-translation.a_mt_4.a_mb_2(
+        tag="h3"
+        :html="group.header"
+      )
+      table.aloha_table_properties
+        thead
+          tr
+            a-translation(
+              tag="th"
+              scope="col"
+              html="_A_THEMING_TOKENS_TABLE_TOKEN_"
+            )
+            a-translation(
+              tag="th"
+              scope="col"
+              html="_A_THEMING_TOKENS_TABLE_VALUE_"
+            )
+        tbody
+          tr(
+            v-for="row in group.rows"
+            :key="row.name"
+          )
+            td
+              code {{ row.name }}
+            td
+              code {{ row.value }}

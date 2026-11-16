@@ -75,6 +75,7 @@ import PageLoadingI18n from "./views/Components/PageLoading/i18n/PageLoadingI18n
 import PageLoadingPluginI18n from "./views/Plugins/PageLoadingPlugin/i18n/PageLoadingPluginI18n";
 import PageMenuBasicI18n from "./views/Components/PageMenu/PageMenuBasic/i18n/PageMenuBasicI18n";
 import PageMigrationsVersion1To2I18n from "./views/Migrations/PageMigrationsVersion1To2/i18n/PageMigrationsVersion1To2I18n";
+import PageMigrationsVersion2To3I18n from "./views/Migrations/PageMigrationsVersion2To3/i18n/PageMigrationsVersion2To3I18n";
 import PageMobilePluginI18n from "./views/Plugins/PageMobilePlugin/i18n/PageMobilePluginI18n";
 import PageModalI18n from "./views/Components/PageModal/i18n/PageModalI18n";
 import PageModalWizardI18n from "./views/Components/PageModalWizard/i18n/PageModalWizardI18n";
@@ -114,6 +115,7 @@ import PageTabsI18n from "./views/Components/PageTabs/i18n/PageTabsI18n";
 import PageTemplateI18n from "./views/Components/Form/PageTemplate/i18n/PageTemplateI18n";
 import PageTextI18n from "./views/CSS/PageText/i18n/PageTextI18n";
 import PageTextareaI18n from "./views/Components/Form/PageTextarea/i18n/PageTextareaI18n";
+import PageThemingI18n from "./views/CSS/PageTheming/i18n/PageThemingI18n";
 import PageTooltipI18n from "./views/Components/PageTooltip/i18n/PageTooltipI18n";
 import PageTranslationI18n from "./views/Components/PageTranslation/i18n/PageTranslationI18n";
 import PageUtilsAOrderByI18n from "./views/Functions/Utils/PageUtilsAOrderBy/i18n/PageUtilsAOrderByI18n";
@@ -148,6 +150,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.ar,
     ...PageColumnsI18n.ar,
     ...PageColorsI18n.ar,
+    ...PageThemingI18n.ar,
     ...PageDisplayI18n.ar,
     ...PageFloatI18n.ar,
     ...PageOverflowI18n.ar,
@@ -210,6 +213,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.ar,
     ...PageMenuBasicI18n.ar,
     ...PageMigrationsVersion1To2I18n.ar,
+    ...PageMigrationsVersion2To3I18n.ar,
     ...PageMobilePluginI18n.ar,
     ...PageModalI18n.ar,
     ...PageModalWizardI18n.ar,
@@ -266,6 +270,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.de,
     ...PageColumnsI18n.de,
     ...PageColorsI18n.de,
+    ...PageThemingI18n.de,
     ...PageDisplayI18n.de,
     ...PageFloatI18n.de,
     ...PageOverflowI18n.de,
@@ -328,6 +333,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.de,
     ...PageMenuBasicI18n.de,
     ...PageMigrationsVersion1To2I18n.de,
+    ...PageMigrationsVersion2To3I18n.de,
     ...PageMobilePluginI18n.de,
     ...PageModalI18n.de,
     ...PageModalWizardI18n.de,
@@ -384,6 +390,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.en,
     ...PageColumnsI18n.en,
     ...PageColorsI18n.en,
+    ...PageThemingI18n.en,
     ...PageDisplayI18n.en,
     ...PageFloatI18n.en,
     ...PageOverflowI18n.en,
@@ -446,6 +453,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.en,
     ...PageMenuBasicI18n.en,
     ...PageMigrationsVersion1To2I18n.en,
+    ...PageMigrationsVersion2To3I18n.en,
     ...PageMobilePluginI18n.en,
     ...PageModalI18n.en,
     ...PageModalWizardI18n.en,
@@ -502,6 +510,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.es,
     ...PageColumnsI18n.es,
     ...PageColorsI18n.es,
+    ...PageThemingI18n.es,
     ...PageDisplayI18n.es,
     ...PageFloatI18n.es,
     ...PageOverflowI18n.es,
@@ -564,6 +573,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.es,
     ...PageMenuBasicI18n.es,
     ...PageMigrationsVersion1To2I18n.es,
+    ...PageMigrationsVersion2To3I18n.es,
     ...PageMobilePluginI18n.es,
     ...PageModalI18n.es,
     ...PageModalWizardI18n.es,
@@ -620,6 +630,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.fr,
     ...PageColumnsI18n.fr,
     ...PageColorsI18n.fr,
+    ...PageThemingI18n.fr,
     ...PageDisplayI18n.fr,
     ...PageFloatI18n.fr,
     ...PageOverflowI18n.fr,
@@ -682,6 +693,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.fr,
     ...PageMenuBasicI18n.fr,
     ...PageMigrationsVersion1To2I18n.fr,
+    ...PageMigrationsVersion2To3I18n.fr,
     ...PageMobilePluginI18n.fr,
     ...PageModalI18n.fr,
     ...PageModalWizardI18n.fr,
@@ -738,6 +750,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.hr,
     ...PageColumnsI18n.hr,
     ...PageColorsI18n.hr,
+    ...PageThemingI18n.hr,
     ...PageDisplayI18n.hr,
     ...PageFloatI18n.hr,
     ...PageOverflowI18n.hr,
@@ -800,6 +813,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.hr,
     ...PageMenuBasicI18n.hr,
     ...PageMigrationsVersion1To2I18n.hr,
+    ...PageMigrationsVersion2To3I18n.hr,
     ...PageMobilePluginI18n.hr,
     ...PageModalI18n.hr,
     ...PageModalWizardI18n.hr,
@@ -856,6 +870,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.it,
     ...PageColumnsI18n.it,
     ...PageColorsI18n.it,
+    ...PageThemingI18n.it,
     ...PageDisplayI18n.it,
     ...PageFloatI18n.it,
     ...PageOverflowI18n.it,
@@ -918,6 +933,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.it,
     ...PageMenuBasicI18n.it,
     ...PageMigrationsVersion1To2I18n.it,
+    ...PageMigrationsVersion2To3I18n.it,
     ...PageMobilePluginI18n.it,
     ...PageModalI18n.it,
     ...PageModalWizardI18n.it,
@@ -974,6 +990,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.nl,
     ...PageColumnsI18n.nl,
     ...PageColorsI18n.nl,
+    ...PageThemingI18n.nl,
     ...PageDisplayI18n.nl,
     ...PageFloatI18n.nl,
     ...PageOverflowI18n.nl,
@@ -1036,6 +1053,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.nl,
     ...PageMenuBasicI18n.nl,
     ...PageMigrationsVersion1To2I18n.nl,
+    ...PageMigrationsVersion2To3I18n.nl,
     ...PageMobilePluginI18n.nl,
     ...PageModalI18n.nl,
     ...PageModalWizardI18n.nl,
@@ -1092,6 +1110,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.pl,
     ...PageColumnsI18n.pl,
     ...PageColorsI18n.pl,
+    ...PageThemingI18n.pl,
     ...PageDisplayI18n.pl,
     ...PageFloatI18n.pl,
     ...PageOverflowI18n.pl,
@@ -1154,6 +1173,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.pl,
     ...PageMenuBasicI18n.pl,
     ...PageMigrationsVersion1To2I18n.pl,
+    ...PageMigrationsVersion2To3I18n.pl,
     ...PageMobilePluginI18n.pl,
     ...PageModalI18n.pl,
     ...PageModalWizardI18n.pl,
@@ -1210,6 +1230,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.ru,
     ...PageColumnsI18n.ru,
     ...PageColorsI18n.ru,
+    ...PageThemingI18n.ru,
     ...PageDisplayI18n.ru,
     ...PageFloatI18n.ru,
     ...PageOverflowI18n.ru,
@@ -1272,6 +1293,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.ru,
     ...PageMenuBasicI18n.ru,
     ...PageMigrationsVersion1To2I18n.ru,
+    ...PageMigrationsVersion2To3I18n.ru,
     ...PageMobilePluginI18n.ru,
     ...PageModalI18n.ru,
     ...PageModalWizardI18n.ru,
@@ -1328,6 +1350,7 @@ export const mainTranslation = {
     ...PageBadgeI18n.uk,
     ...PageColumnsI18n.uk,
     ...PageColorsI18n.uk,
+    ...PageThemingI18n.uk,
     ...PageDisplayI18n.uk,
     ...PageFloatI18n.uk,
     ...PageOverflowI18n.uk,
@@ -1390,6 +1413,7 @@ export const mainTranslation = {
     ...PageLoadingPluginI18n.uk,
     ...PageMenuBasicI18n.uk,
     ...PageMigrationsVersion1To2I18n.uk,
+    ...PageMigrationsVersion2To3I18n.uk,
     ...PageMobilePluginI18n.uk,
     ...PageModalI18n.uk,
     ...PageModalWizardI18n.uk,

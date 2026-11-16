@@ -6,6 +6,14 @@ export default function MigrationItemsAPI() {
     class: "test_menu_migrations",
     children: [
       {
+        id: "migration_2_x-3_0_x",
+        label: "Migration 2.x -> 3.0.x",
+        class: "test_menu_migration_2_x-3_0_x",
+        to: {
+          name: "PageMigrationsVersion2To3",
+        },
+      },
+      {
         id: "migration_1_2_x-2_0_x",
         label: "Migration 1.2.x -> 2.0.x",
         class: "test_menu_migration_1_2_x-2_0_x",
