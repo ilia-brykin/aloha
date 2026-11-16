@@ -1,0 +1,21 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">AOneCheckbox</strong> vertegenwoordigt één checkbox die aan een datamodel kan worden gebonden. De checkbox kan er tekst naast weergeven en ondersteunt diverse statussen en instellingen.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Enkele checkbox",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">false-value</strong> gebruikt om de waarde in te stellen die aan het model wordt doorgegeven wanneer de checkbox niet is aangevinkt. In het eerste geval wordt de waarde <strong lang=\"en\">false</strong> aan het model doorgegeven wanneer de checkbox niet is geselecteerd. In het tweede geval wordt de waarde <strong>0</strong> aan het model doorgegeven wanneer de checkbox niet is geselecteerd.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Waarden wanneer niet aangevinkt",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">indeterminate</strong> gebruikt om de onbepaalde status van de checkbox weer te geven. Wanneer <strong lang=\"en\">indeterminate</strong> op <strong lang=\"en\">true</strong> is ingesteld, toont de checkbox een min-teken in plaats van het standaard vinkje, wat een tussenstatus of onbepaalde status aangeeft.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Onbepaalde status",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">true-value</strong> gebruikt om de waarde in te stellen die aan het model wordt doorgegeven wanneer de checkbox is aangevinkt. In dit geval wordt de waarde <strong>1</strong> aan het model doorgegeven wanneer de checkbox is geselecteerd.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Waarden wanneer aangevinkt",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">is-width-auto</strong> gebruikt om de breedte van het <strong lang=\"en\">label</strong> naast de checkbox te bepalen. Bij de eerste checkbox heeft het label een breedte van <strong lang=\"en\">auto</strong>, zodat de tekst de minimaal benodigde ruimte inneemt. Bij de tweede checkbox verandert de breedte van het label niet en neemt het een vaste ruimte in.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Automatische breedte voor label",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "De waarde die aan het model wordt doorgegeven wanneer de checkbox niet is aangevinkt.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Toont de onbepaalde status <strong lang=\"en\">(indeterminate)</strong> waarbij een min-teken wordt weergegeven in plaats van een vinkje.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Geeft aan of de labeltekst als <strong lang=\"en\">title</strong> wordt weergegeven.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Voegt een speciale klasse toe aan het <strong lang=\"en\">label</strong> met de breedte ingesteld op <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Aanvullende props en <strong lang=\"en\">HTML</strong>-attributen voor het aanpassen van de <strong lang=\"en\">label</strong>-tag, die wordt gerenderd met de component <strong lang=\"en\">AElement</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "De naam van de slot die in plaats van de standaardtekst wordt gebruikt als een slot met de opgegeven naam aan de component wordt doorgegeven.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "De waarde die aan het model wordt doorgegeven wanneer de checkbox is aangevinkt.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "Dit voorbeeld gebruikt <strong lang=\"en\">slot-name</strong> om de standaardtekst van het <strong lang=\"en\">label</strong> te vervangen door aangepaste content. De slot met de naam <strong lang=\"en\">aloha</strong> biedt een template waarin de tekst en het icoon van het <strong lang=\"en\">label</strong> met aanvullende instellingen worden weergegeven. Met deze aanpak kunt u de content van het <strong lang=\"en\">label</strong> flexibel aanpassen met standaardattributen en componenten zoals <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Voorbeeld van het gebruik van <strong lang=\"en\">slot-name</strong>"
+}

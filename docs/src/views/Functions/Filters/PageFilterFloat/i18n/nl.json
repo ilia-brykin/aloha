@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "De numerieke waarde die moet worden opgemaakt",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Een achtervoegsel dat na de numerieke waarde wordt toegevoegd",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Het aantal decimalen na de komma",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Een vlag die aangeeft of cijfergroepering moet worden toegepast (duizendtalscheidingsteken)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "De functie <strong>filterFloat</strong> maakt numerieke waarden op volgens de opgegeven parameters. Ze neemt een numerieke waarde en retourneert deze als string met het opgegeven aantal decimalen, een achtervoegsel en optionele cijfergroepering (duizendtalscheidingsteken). Als de numerieke waarde niet is opgegeven (<strong>null</strong> of <strong>undefined</strong>), wordt een lege string geretourneerd."
+}

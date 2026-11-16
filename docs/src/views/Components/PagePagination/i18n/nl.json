@@ -1,0 +1,21 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">APagination</strong> rendert navigatie voor grote gegevenssets. Hij combineert besturingselementen per pagina, desktop- en mobiele weergaven en verzendt de gebeurtenissen <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong>, zodat de gebruikende weergave synchroon kan blijven met de huidige pagina.",
+  "_A_PAGINATION_COMPONENT_NAME_": "Paginering",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Totaal aantal items in de volledige gegevensset. Deze waarde bepaalt de teller <strong lang=\"en\">from-to</strong> en het aantal beschikbare pagina's.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Schakelt alle pagineringsbesturingselementen uit. Handig terwijl rijen opnieuw worden geladen of wanneer navigatie geblokkeerd moet worden.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Aantal rijen dat per pagina moet worden geretourneerd. De component verzendt <strong lang=\"en\">update:limit</strong> wanneer de gebruiker een nieuwe waarde selecteert.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Lijst met opties die in de selector voor het aantal per pagina verschijnen. Waarden kunnen strings of getallen zijn en komen meestal overeen met de limieten van de backend.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maximaal aantal genummerde paginaknoppen dat tegelijk kan worden getoond voordat het met een weglatingsteken wordt ingekort.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Index van de eerste rij die bij de huidige pagina hoort. De component verzendt <strong lang=\"en\">update:offset</strong> telkens wanneer de gebruiker navigeert.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Hoeveel rijen er daadwerkelijk op de huidige pagina worden gerenderd. Nodig om de teller 'from-to' correct weer te geven wanneer de laatste pagina onvolledig is.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Configuratie voor de besturingselementen per pagina en de pager. Gebruik <strong lang=\"en\">perPage</strong> en <strong lang=\"en\">pagination</strong> om <strong lang=\"en\">mode</strong> (inline/group/select of normal/short/loadMore), <strong lang=\"en\">position</strong> en <strong lang=\"en\">showTextCountFromTo</strong> te definiëren.",
+  "_A_PAGINATION_PROPS_TEXTS_DESCRIPTION_": "Object met vertaalsleutels of aangepaste teksten voor de paginanavigatielabels en de tellers per pagina.",
+  "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Uitgeschakelde status",
+  "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Dit voorbeeld laat zien hoe u de prop <strong lang=\"en\">disabled</strong> omschakelt om alle pagineringsbesturingselementen te blokkeren terwijl rijen worden vernieuwd. Gebruik de schakelaar om de navigatie met één klik in of uit te schakelen.",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Limieten per pagina",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Gebruik de geordende multiselect om de waarden te configureren die aan <strong lang=\"en\">limits-per-page</strong> worden doorgegeven. De selectie bepaalt welke limieten per pagina (5, 10, 25, 50, 75, 100) beschikbaar zijn.",
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limieten per pagina",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Maximaal aantal pagina's",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Pas de schuifregelaar aan om de waarde <strong lang=\"en\">max-pages</strong> (1-10) te beheren en te zien hoeveel paginaknoppen tegelijk worden gerenderd.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Maximaal aantal pagina's"
+}

@@ -1,0 +1,15 @@
+{
+  "_A_TEXT_STYLES_NAME_": "Tekststijlen",
+  "_A_TEXT_STYLES_FONT_SIZE_NAME_": "Lettergrootte",
+  "_A_TEXT_STYLES_FONT_SIZE_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klassen voor het beheren van de lettergrootte. Gebruik klassen van <strong lang=\"en\">.a_fs_1</strong> tot <strong lang=\"en\">.a_fs_7</strong> om verschillende tekstgroottes in uw applicatie in te stellen.",
+  "_A_TEXT_STYLES_ALIGNMENT_NAME_": "Tekstuitlijning",
+  "_A_TEXT_STYLES_ALIGNMENT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klassen voor het beheren van de tekstuitlijning. Basisklassen (<strong lang=\"en\">.a_text_left</strong>, <strong lang=\"en\">.a_text_right</strong>, <strong lang=\"en\">.a_text_center</strong>, <strong lang=\"en\">.a_text_justify</strong>) en hun responsieve varianten voor verschillende schermformaten (<strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong>).",
+  "_A_TEXT_STYLES_TRANSFORMATION_NAME_": "Teksttransformatie",
+  "_A_TEXT_STYLES_TRANSFORMATION_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klassen voor het wijzigen van hoofdletters en opmaak van tekst. Gebruik <strong lang=\"en\">.a_text_lowercase</strong> voor kleine letters, <strong lang=\"en\">.a_text_uppercase</strong> voor hoofdletters, <strong lang=\"en\">.a_text_capitalize</strong> om de eerste letter van elk woord met een hoofdletter te schrijven, evenals klassen voor onderstrepen en doorhalen van tekst.",
+  "_A_TEXT_STYLES_FONT_WEIGHT_NAME_": "Letterdikte",
+  "_A_TEXT_STYLES_FONT_WEIGHT_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klassen voor het beheren van letterdikte en lettertypestijl. Bevat opties van licht (<strong lang=\"en\">.a_text_light</strong>) tot vet (<strong lang=\"en\">.a_text_bold</strong>, <strong lang=\"en\">.a_text_bolder</strong>), evenals cursief (<strong lang=\"en\">.a_text_italic</strong>) en de normale stijl (<strong lang=\"en\">.a_text_normal</strong>).",
+  "_A_TEXT_STYLES_WRAP_NAME_": "Tekstomloop",
+  "_A_TEXT_STYLES_WRAP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klassen voor het beheren van tekstomloop. Bevat normale omloop (<strong lang=\"en\">.a_text_wrap</strong>), geen omloop (<strong lang=\"en\">.a_text_nowrap</strong>), geforceerde omloop van lange woorden (<strong lang=\"en\">.a_text_break</strong>), omloop met afbreekstreepjes (<strong lang=\"en\">.a_text_wrap_hyphens</strong>) en afkappen met weglatingstekens (<strong lang=\"en\">.a_text_truncate</strong>).",
+  "_A_TEXT_STYLES_CLAMP_NAME_": "Beperking van het aantal tekstregels",
+  "_A_TEXT_STYLES_CLAMP_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klassen voor het beperken van het aantal weergegeven tekstregels met weglatingstekens aan het einde. De basisklasse <strong lang=\"en\">.a_text_clamp</strong> beperkt de tekst tot één regel, terwijl de modifiers <strong lang=\"en\">.a_text_clamp_2</strong> - <strong lang=\"en\">.a_text_clamp_5</strong> het weergeven van het overeenkomstige aantal regels mogelijk maken."
+}

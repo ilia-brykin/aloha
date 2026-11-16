@@ -1,0 +1,21 @@
+{
+  "_A_TABLE_GROUP_PAGINATION_DESCRIPTION_": "De paginering kan worden geconfigureerd met <strong>:pagination=\"{ use: true }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_DESCRIPTION_": "De paginering kan worden uitgeschakeld met <strong>:pagination=\"{ use: true, disabled: true }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_HEADER_": "Paginering uitschakelen",
+  "_A_TABLE_GROUP_PAGINATION_DISABLED_LABEL_": "Tabelpaginering",
+  "_A_TABLE_GROUP_PAGINATION_HEADER_": "Eenvoudige paginering",
+  "_A_TABLE_GROUP_PAGINATION_LABEL_": "Tabel met paginering",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_DESCRIPTION_": "Het aantal items per pagina kan worden ingesteld met <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'] }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_HEADER_": "Aantal items per pagina",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_LABEL_": "Tabel met paginering",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_DESCRIPTION_": "Het standaardaantal items per pagina kan worden ingesteld met <strong>:pagination=\"{ use: true, limitsPerPage: ['5', '10', '25', '50', '100', '200'], limitStart: 5 }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_HEADER_": "Standaardaantal items per pagina",
+  "_A_TABLE_GROUP_PAGINATION_LIMIT_START_LABEL_": "Tabel met paginering",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_DESCRIPTION_": "Het maximale aantal pagina's in de paginering kan worden ingesteld met <strong>:pagination=\"{ use: true, maxPages: 7 }\"</strong>.",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_HEADER_": "Maximaal aantal pagina's in de paginering",
+  "_A_TABLE_GROUP_PAGINATION_MAX_ITEMS_LABEL_": "Tabel met paginering",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_": "De serverzijdige paginering kan worden opgegeven met <strong>:pagination=\"{ use: true, isOutside: true }\"</strong>. De parameter <strong>:count-all-rows=\"999\"</strong> geeft het totale aantal items in een tabel aan. De emit <strong>change-limit</strong> wordt aangeroepen wanneer het aantal items per pagina wordt gewijzigd. De emit <strong>change-offset</strong> wordt aangeroepen wanneer de paginering wordt gewijzigd.",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_": "Paginering buiten de component (serverzijdige paginering)",
+  "_A_TABLE_GROUP_PAGINATION_OUTSIDE_LABEL_": "Tabel met paginering",
+  "_A_TABLE_PAGINATION_": "(Tabel met paginering)"
+}

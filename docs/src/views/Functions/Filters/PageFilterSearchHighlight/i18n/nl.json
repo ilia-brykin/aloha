@@ -1,0 +1,10 @@
+{
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Lijst met extra attributen in het formaat <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"'</strong>]",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Of de zoekopdracht hoofdlettergevoelig moet zijn",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_": "Of de waarde als <strong lang=\"en\">HTML</strong> moet worden geïnterpreteerd en alleen in de tekstinhoud moet worden gezocht.",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Een <strong lang=\"en\">CSS</strong>-klasse waarmee het gemarkeerde deel van de waarde wordt opgemaakt",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "De zoekterm die in de waarde moet worden gemarkeerd",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "De <strong lang=\"en\">HTML</strong>-tag die in plaats van mark wordt gebruikt",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "De waarde waarin de zoekterm moet worden gemarkeerd",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "De functie <strong lang=\"en\">filterSearchHighlight</strong> wordt gebruikt om een zoekterm in een waarde te markeren door de zoekterm te omsluiten met <strong lang=\"en\">HTML</strong>-tags. Ze maakt aanpassing van de zoekterm en de <strong lang=\"en\">CSS</strong>-klasse voor de markering mogelijk."
+}

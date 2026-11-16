@@ -1,0 +1,21 @@
+{
+  "_A_FILTERS_COMPONENT_DESCRIPTION_": "Maakt het mogelijk gegevens te filteren op verschillende criteria.",
+  "_A_FILTERS_COMPONENT_NAME_": "Filters",
+  "_A_PAGE_FILTERS_HEADER_": "Filters-component",
+  "_A_PAGE_FILTERS_DESCRIPTION_": "De Filters-component stelt gebruikers in staat gegevens te filteren op verschillende criteria.",
+  "_A_FILTERS_PAGE_DEFAULT_HIDE_HEADER_": "Filters met standaard verborgen filters",
+  "_A_FILTERS_PAGE_FILTERS_DEFAULT_HIDE_DESCRIPTION_": "Filters kunnen standaard verborgen zijn en worden getoond wanneer dat nodig is.",
+  "_A_FILTERS_PAGE_MODEL_ID_HEADER_": "Filters met model-<strong lang=\"en\">ID</strong>",
+  "_A_FILTERS_PAGE_MODEL_ID_DESCRIPTION_": "Filters kunnen worden geconfigureerd met een model-<strong lang=\"en\">ID</strong> om het filteren te sturen.",
+  "_A_PAGE_FILTER_SEARCH_": "Snel zoeken",
+  "_A_PAGE_FILTER_SEARCH_SCREEN_READER_": "Snel zoeken voor schermlezer",
+  "_A_PAGE_FILTER_TEXT_": "Tekst",
+  "_A_PAGE_FILTER_DATE_": "Datum",
+  "_A_PAGE_FILTER_INTEGER_": "Geheel getal",
+  "_A_TABLE_FILTER_INPUT_DATE_RANGE_": "Datumbereik",
+  "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_": "Getalbereik",
+  "_A_TABLE_FILTER_SEARCH_": "Zoeken",
+  "_A_TABLE_FILTER_TEXT_": "Tekst",
+  "_A_TABLE_FILTER_DATE_": "Datum",
+  "_A_TABLE_FILTER_EXTRA_": "Extra"
+}

@@ -1,0 +1,16 @@
+{
+  "_A_WIZARD_ARIA_LABEL_": "Wizard",
+  "_A_WIZARD_HEADER_STEP_SCREEN_READER_{{stepNumber}}_": "Stap {{ stepNumber }}:",
+  "_A_WIZARD_NEXT_": "Volgende",
+  "_A_WIZARD_NEXT_TITLE_": "Volgende stap",
+  "_A_WIZARD_PREVIOUS_": "Vorige",
+  "_A_WIZARD_PREVIOUS_TITLE_": "Vorige stap",
+  "_A_WIZARD_STEP_ACTIVE_": "Huidige stap",
+  "_A_WIZARD_STEP_ERROR_": "Stap met fout",
+  "_A_WIZARD_STEP_NUMBER_OF_{{stepActive}}_{{stepsCount}}_": "{{ stepActive }} van {{ stepsCount }}",
+  "_A_WIZARD_STEP_UPCOMING_": "Komende stap",
+  "_A_WIZARD_STEP_VISITED_": "Bezochte stap",
+  "_A_WIZARD_STEP_WARNING_": "Stap met waarschuwing",
+  "_A_WIZARD_STEPS_ARIA_LABEL_": "Wizardstappen",
+  "_A_WIZARD_STEPS_PROGRESSBAR_TEXT_{{stepActive}}_{{stepsCount}}_": "Stap {{ stepActive }} van {{ stepsCount }}"
+}

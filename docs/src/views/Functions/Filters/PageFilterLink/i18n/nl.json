@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "De URL die in de HTML-link wordt ingevoegd",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "De tekst die in de HTML-link wordt weergegeven. Indien niet opgegeven, wordt de URL gebruikt",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Het protocol dat vóór de URL wordt toegevoegd",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Het attribuut <strong>target</strong> voor de HTML-link, dat bepaalt hoe de link wordt geopend",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Een CSS-klasse die aan de HTML-link wordt toegevoegd",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "De functie <strong>filterLink</strong> maakt een HTML-link op basis van de opgegeven URL. Hiermee kunnen het protocol, het target, de CSS-klasse en de weergegeven tekst van de link worden aangepast. De functie controleert de geldigheid van de URL en zorgt ervoor dat deze veilig in de HTML-link wordt ingevoegd."
+}

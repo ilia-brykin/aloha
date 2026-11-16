@@ -1,0 +1,5 @@
+{
+  "_A_SLIDER_RANGE_ARIA_LABEL_{{min}}_{{max}}_": "Bereikschuifregelaar tussen {{ min }} en {{ max }}",
+  "_A_SLIDER_RANGE_FIRST_BUTTON_ARIA_LABEL_": "Beginwaarde kiezen",
+  "_A_SLIDER_RANGE_SECOND_BUTTON_ARIA_LABEL_": "Eindwaarde kiezen"
+}

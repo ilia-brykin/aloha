@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "Het getal waarvan moet worden gecontroleerd of het oneven is",
+  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "<p>Bepaalt of een gegeven getal oneven is.</p><p>Deze functie controleert eerst of de opgegeven waarde een geheel getal is. Voor niet-gehele waarden retourneert de functie <strong>false</strong> om een nauwkeurige controle op oneven getallen te garanderen. Voor gehele getallen wordt gecontroleerd of het getal oneven is.</p>"
+}

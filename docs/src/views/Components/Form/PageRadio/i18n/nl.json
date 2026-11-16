@@ -1,0 +1,8 @@
+{
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">ARadio</strong> vertegenwoordigt een set radioknoppen waarbij de gebruiker slechts één item uit de opgegeven opties kan selecteren. De component ondersteunt diverse instellingen, zoals het inklappen van groepen, weergave als knoppengroep, zoekfunctionaliteit en nog veel meer.",
+  "_A_RADIO_COMPONENT_NAME_": "Radioknoppen",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">is-model-array</strong> gebruikt. Hiermee kunt u een array als gegevensmodel voor de radioknoppen instellen. Het geselecteerde item wordt in de modelarray vastgelegd.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Een array als model gebruiken",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Maakt het gebruik van een array (<strong lang=\"en\">Array</strong>) als model mogelijk.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Maakt het mogelijk tekstberichten voor diverse acties binnen de component aan te passen. Dit omvat teksten voor in- en uitklappen (<strong lang=\"en\">collapseClose</strong> en <strong lang=\"en\">collapseOpen</strong>), berichten wanneer bij het zoeken geen elementen worden gevonden (<strong lang=\"en\">notElementsWithSearch</strong>) en de tekst van het zoekveld (<strong lang=\"en\">search</strong>)."
+}

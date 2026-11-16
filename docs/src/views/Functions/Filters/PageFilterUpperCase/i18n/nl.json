@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_UPPER_CASE_ARGUMENTS_VALUE_": "De string die naar hoofdletters moet worden geconverteerd.",
+  "_PAGE_FILTER_UPPER_CASE_DESCRIPTION_": "<p>Converteert de invoerstring naar hoofdletters.</p><p>Deze functie gebruikt de methode <strong>toUpper</strong> van lodash om de opgegeven waarde naar hoofdletters te converteren. Ze is ontworpen om invoerstrings veilig en consistent te verwerken.</p>"
+}

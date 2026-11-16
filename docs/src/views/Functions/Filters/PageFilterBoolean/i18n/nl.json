@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_FALSE_VALUE_": "De vertaalde tekst die wordt geretourneerd als de waarde <strong>False</strong> is",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_TRUE_VALUE_": "De vertaalde tekst die wordt geretourneerd als de waarde <strong>True</strong> is",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_USE_NIL_": "Geeft aan of er een lege string moet worden geretourneerd voor <strong>undefined</strong> of <strong>null</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_VALUE_": "De waarde die naar vertaalde tekst moet worden omgezet",
+  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "De functie <strong>filterBoolean</strong> wordt gebruikt om een <strong>booleaanse waarde</strong> om te zetten naar vertaalde tekst. Hiermee kunnen de teksten voor de waarden <strong>True</strong> en <strong>False</strong> worden aangepast en kan een lege string worden geretourneerd voor <strong>undefined</strong> of <strong>null</strong>."
+}

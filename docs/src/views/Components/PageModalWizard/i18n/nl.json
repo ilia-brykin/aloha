@@ -1,0 +1,9 @@
+{
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Deze component is een combinatie van een modaal venster (<a href='/#/modal'>AModal</a>) en een wizard (<a href='/#/wizard'>AWizard</a>). U kunt vrijwel alle props van <a href='/#/modal'>AModal</a> en <a href='/#/wizard'>AWizard</a> gebruiken.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Wizard in een modaal venster",
+  "_A_MODAL_WIZARD_PROPS_SCROLL_TO_TOP_ON_STEP_CHANGE_DESCRIPTION_": "Bepaalt of de body van het modale venster naar boven scrolt wanneer de actieve wizardstap verandert.",
+  "_A_MODAL_WIZARD_STEP_1_": "Stap 1",
+  "_A_MODAL_WIZARD_STEP_2_": "Stap 2",
+  "_A_MODAL_WIZARD_STEP_3_": "Stap 3",
+  "_A_MODAL_WIZARD_STEP_4_": "Stap 4"
+}

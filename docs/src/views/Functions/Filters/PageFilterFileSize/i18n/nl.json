@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_VALUE_": "De grootte die moet worden omgerekend",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_UNITS_": "De gewenste eenheid voor de grootte-aanduiding. Mogelijke eenheden zijn <strong>b</strong> (bytes), <strong>kb</strong> (kilobytes), <strong>mb</strong> (megabytes), <strong>gb</strong> (gigabytes), <strong>tb</strong> (terabytes), <strong>pb</strong> (petabytes), <strong>eb</strong> (exabytes), <strong>zb</strong> (zettabytes), <strong>yb</strong> (yottabytes)",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_SOURCE_UNITS_": "De eenheid van de oorspronkelijke grootte. Mogelijke eenheden zijn dezelfde als bij <strong>units</strong>",
+  "_PAGE_FILTER_FILE_SIZE_ARGUMENTS_DIGITS_": "Het aantal decimalen in de opgemaakte string",
+  "_PAGE_FILTER_FILE_SIZE_DESCRIPTION_": "De functie <strong>filterFileSize</strong> rekent een grootte om van een broneenheid (bijv. bytes) naar een doelgrootte in een bepaalde eenheid (bijv. kilobytes, megabytes) en retourneert het resultaat als opgemaakte string."
+}

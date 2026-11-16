@@ -1,0 +1,16 @@
+{
+  "_A_PAGE_MENU_BASIC_HEADER_": "Menu",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu biedt navigatie met geneste panelen, zoeken, groepen en uitgeschakelde links.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Genest menu met zoekfunctie",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Open Components → Form controls om geneste panelen te verkennen, of zoek naar Input. Scroll het menu binnen de container, die een vaste hoogte van 24rem heeft. Gebruik de knop hierboven om het menu te openen of te sluiten, ook op mobiel. De voorbeelden wijzigen geen body-klassen en tonen geen mobiele backdrop. Stel <code>is-inline</code> in op true om het menu in de normale documentstroom te plaatsen en de hoogte van de container te laten vullen. Geef de container een expliciete hoogte.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Groepen en uitgeschakelde links",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Het veld group groepeert links onder kopteksten. De link Notification is uitgeschakeld en has-search is false. Scroll het menu binnen de container van 24rem en gebruik de knop hierboven om het te openen of te sluiten.",
+  "_A_PAGE_MENU_DOM_HEADER_": "Vertaalde DOM-tekst doorzoeken",
+  "_A_PAGE_MENU_DOM_TRANSLATE_": "DOM naar Duits vertalen",
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "De prop <code>search-in-dom</code> staat standaard op false. Indien true, leest de zoekfunctie de gerenderde labels in de bronmenupanelen in plaats van de labels in de data. Schakel de vertaalschakelaar in en zoek vervolgens naar <strong>Eingabe</strong> of <strong>Auswahl</strong>: de data bevat nog steeds Input en Select. Resultaten, markering en bovenliggende labels gebruiken de DOM-tekst. De tekst wordt opnieuw gelezen wanneer de zoekopdracht verandert, ook in gesloten submenu's. Aangepaste slots moeten de meegegeven link-id behouden en het label omsluiten met <code>.a_menu__link__text</code>. Schakel de schakelaar uit om de oorspronkelijke Engelse labels te herstellen.",
+  "_A_PAGE_MENU_CUSTOM_KEYS_HEADER_": "Aangepaste datasleutels",
+  "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Koppel bestaande datavelden met <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> en <code>key-children</code>. Dit voorbeeld gebruikt code, title, symbol, section en items zonder de bronvelden te hernoemen. Routes gebruiken nog steeds <code>to</code>. Open Form controls of zoek naar Input.",
+  "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Lange breadcrumbs en aantallen submenu-items",
+  "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Open Components → Form controls → Text fields. Met <code>is-breadcrumbs-truncated</code> worden bovenliggende links die niet passen verplaatst naar de breadcrumb-dropdown. De schakelaar bestuurt <code>show-count-children</code>, zodat u het aantal submenu-items kunt tonen of verbergen.",
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Aantal submenu-items tonen"
+}

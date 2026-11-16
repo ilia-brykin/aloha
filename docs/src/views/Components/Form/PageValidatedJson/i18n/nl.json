@@ -1,0 +1,10 @@
+{
+  "_A_VALIDATED_JSON_COMPONENT_NAME_": "Gevalideerde JSON",
+  "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson is een component voor het bewerken van gestructureerde gegevens met validatieregels. Het ondersteunt de modi enkel item, lijst en JSON en helpt gebruikers om complexe formuliergegevens veilig te beheren.",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Element",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Elementen",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "JSON-object",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_HEADER_": "valueKey: primitieve lijsten",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_VALUE_": "Waarde",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_DESCRIPTION_": "Gebruik <code>mode=\"list\"</code> met <code>value-key=\"value\"</code> om een array van primitieve waarden, zoals strings, te bewerken. Het onderliggende veld met <code>id=\"value\"</code> definieert de editor voor elk item, terwijl het model een eenvoudige array blijft, zoals <code>[\"Aloha\", \"Vue\"]</code>. Het voorbeeld toont ook duplicaatvalidatie met <code>unique-children-ids</code> en een alleen-lezenweergave van dezelfde gegevens."
+}

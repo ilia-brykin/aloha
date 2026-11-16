@@ -1,0 +1,8 @@
+{
+  "_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_": "Deze pagina behandelt het gebruik van <strong lang=\"en\">children</strong> in de component <strong lang=\"en\">AFieldset</strong>, evenals gerelateerde eigenschappen zoals <strong lang=\"en\">class-column-default</strong> voor het aanpassen van de klassen van afzonderlijke onderliggende elementen, <strong lang=\"en\">class-columns</strong> voor de bovenliggende container en <strong lang=\"en\">errors-all</strong> voor het weergeven van fouten van onderliggende elementen.",
+  "_A_FIELDSET_CHILDREN_COMPONENT_NAME_": "Onderliggende elementen <strong lang=\"en\">children</strong>",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_DESCRIPTION_": "Dit voorbeeld toont de mogelijkheid om met de component <strong lang=\"en\">AFieldset</strong> een geneste elementstructuur van onbeperkte diepte te maken. Elk onderliggend element kan zijn eigen geneste elementen bevatten, wat een flexibele datastructuur en controle over de weergave mogelijk maakt. Hier bevatten bijvoorbeeld de eerste en tweede <strong lang=\"en\">fieldset</strong> hun eigen onderliggende elementen, zoals tekstvelden en selectievakjes.",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_HEADER_": "Geneste elementstructuur",
+  "_A_FIELDSET_CHILDREN_DEPENDENCIES_HEADER_": "Afhankelijkheden van onderliggende componenten",
+  "_A_FIELDSET_CHILDREN_DEPENDENCIES_DESCRIPTION_": "Gebruik <strong lang=\"en\">dependencies</strong> als object voor één voorwaarde of als array wanneer aan alle voorwaarden moet worden voldaan. Binnen <strong lang=\"en\">AFieldset</strong> wordt het huidige model automatisch aan onderliggende UI-componenten doorgegeven, zodat <strong lang=\"en\">modelDependencies</strong> niet handmatig hoeft te worden doorgegeven."
+}

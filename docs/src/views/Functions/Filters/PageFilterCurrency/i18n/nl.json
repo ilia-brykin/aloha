@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGIT_GROUPING_": "Geeft aan of cijfergroepering is ingeschakeld om duizendtalscheidingstekens in de opgemaakte string in te voegen",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGITS_": "Het aantal decimalen in de opgemaakte string",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_SUFFIX_": "Het achtervoegsel dat aan de opgemaakte string wordt toegevoegd om de valuta aan te duiden",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_VALUE_": "De numerieke waarde die als valuta moet worden opgemaakt",
+  "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "De functie <strong>filterCurrency</strong> is een gespecialiseerde uitbreiding van de functie <a href=\"/#/filter-float\"><strong>filterFloat</strong></a> en dient om numerieke waarden als valuta op te maken. Ze accepteert een numerieke waarde en retourneert een string die de waarde weergeeft met de opgegeven valuta, het aantal decimalen, een achtervoegsel en optionele cijfergroepering (duizendtalscheidingsteken). Als de numerieke waarde niet is opgegeven (null of undefined), wordt een lege string geretourneerd. Deze functie is ontworpen om voor vele valuta's te worden uitgebreid."
+}

@@ -1,0 +1,18 @@
+{
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Voortgangscirkel",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">AProgressCircle</strong> toont voortgang als een cirkelvormige indicator. Hij ondersteunt standaard en onbepaalde toestanden en is handig wanneer u de voortgang binnen een compact gebied wilt visualiseren.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "Met de component <strong lang=\"en\">AProgressCircle</strong> kunt u een onbepaalde cirkelvormige voortgangsindicator met animatie weergeven. Met de prop <strong>indeterminate</strong> geeft u aan dat een activiteit bezig is zonder een specifieke voltooiingswaarde te tonen.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Onbepaalde cirkelvormige voortgang met animatie",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Bepaalt de animatieduur van de cirkelvormige voortgangsindicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Schakelt de onbepaalde modus van de cirkelvormige voortgangsindicator in.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Bovengrens, maximale waarde voor de cirkelvormige voortgangsindicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Ondergrens, minimale waarde voor de cirkelvormige voortgangsindicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Draait de cirkelvormige voortgangsindicator met het opgegeven aantal graden.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Geeft aan of de voortgangswaarde binnen de cirkelvormige voortgangsindicator moet worden weergegeven.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Stelt de lijndikte van de cirkelvormige voortgangsindicator in.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "De huidige voortgangswaarde van de cirkelvormige voortgangsindicator.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Een of meer klassen voor het aanpassen van de weergegeven tekst van de voortgangswaarde.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Bepaalt hoe de weergegeven voortgangswaarde wordt opgemaakt. Indien ingeschakeld, wordt de waarde als geheel percentage getoond.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Stelt de breedte en hoogte van de cirkelvormige voortgangsindicator in.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Maakt het mogelijk de weergegeven voortgangswaarde aan te passen. De slot-scope levert de waarde <strong>valuePercent</strong>."
+}

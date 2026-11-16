@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_LOWER_CASE_ARGUMENTS_VALUE_": "De string die naar kleine letters moet worden geconverteerd.",
+  "_PAGE_FILTER_LOWER_CASE_DESCRIPTION_": "<p>Converteert de invoerstring naar kleine letters.</p><p>Deze functie gebruikt de methode <strong>toLower</strong> van lodash om de opgegeven waarde naar kleine letters te converteren. Ze is ontworpen om invoerstrings veilig en consistent te verwerken.</p>"
+}

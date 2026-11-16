@@ -1,0 +1,7 @@
+{
+  "_PAGE_UTILS_A_ORDER_BY_DESCRIPTION_": "Breidt orderBy van lodash uit met standaard hoofdletterongevoelige vergelijking, met behoud van alle combinaties van iteratees en volgorde.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_COLLECTION_": "Collectie om doorheen te itereren (array of object).",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ITERATEES_": "Iteratees die de sorteercriteria bepalen; accepteert eigenschapspaden, functies, arrays, verkorte objecten of null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ORDERS_": "Sorteerrichtingen die overeenkomen met de iteratees (bijv. \"asc\", \"desc\"); accepteert string, array of null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_OPTIONS_": "Optioneel configuratieobject ({ caseSensitive?: boolean }) dat als laatste argument wordt doorgegeven."
+}

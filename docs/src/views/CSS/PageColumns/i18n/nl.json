@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Kolommen",
+  "_A_COLUMNS_BASIC_NAME_": "Basiskolommen",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "De container <strong lang=\"en\">.a_columns</strong> verdeelt de geneste <strong lang=\"en\">.a_column</strong> over de volledige breedte. Zonder expliciete breedtes worden de kolommen gelijkmatig uitgerekt.",
+  "_A_COLUMNS_COUNT_NAME_": "Raster en afmetingen",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "De klasse <strong lang=\"en\">.a_columns_count_{n}</strong> bepaalt het aantal kolommen (1-12), schakelt regelafbreking in en definieert de variabele <strong lang=\"en\">--a_column_count</strong>. De kolombreedte wordt ingesteld met <strong lang=\"en\">.a_column_{n}</strong> en berekend ten opzichte van het gekozen aantal.",
+  "_A_COLUMNS_GAP_NAME_": "Kolomafstanden",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Afstanden worden ingesteld met <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> en <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. Standaard gebruiken beide assen 0,75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Verschuivingen",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Linkerverschuiving: <strong lang=\"en\">.a_column_offset_{n}</strong>, rechterverschuiving: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, waarbij <strong lang=\"en\">n</strong> een waarde van 0 tot 11 is.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Responsieve klassen",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Voeg de achtervoegsels <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> toe aan <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong>. Breakpoints: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

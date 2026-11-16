@@ -1,0 +1,20 @@
+{
+  "_A_SLIDER_COMPONENT_NAME_": "Slider",
+  "_A_SLIDER_COMPONENT_DESCRIPTION_": "ASlider is een component voor het selecteren van een numerieke waarde of een bereik binnen een opgegeven interval. De component ondersteunt minimum- en maximumlimieten, stapwaarden, bereiken, stopmarkeringen en aanpassing van de weergave.",
+  "_A_SLIDER_BASIC_LABEL_": "Slider",
+  "_A_SLIDER_DISABLED_LABEL_": "Uitgeschakelde slider",
+  "_A_SLIDER_GROUP_RANGE_HEADER_": "Bereikselectie",
+  "_A_SLIDER_GROUP_RANGE_DESCRIPTION_": "Dit voorbeeld laat zien hoe u de prop <strong lang=\"en\">range</strong> gebruikt zodat de slider een bereik tussen twee waarden kan selecteren.",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "Minimum, maximum en stap",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "Dit voorbeeld laat zien hoe u de slider configureert met aangepaste waarden voor <strong lang=\"en\">min</strong>, <strong lang=\"en\">max</strong> en <strong lang=\"en\">step</strong>.",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "Slider (min: {{ min }}, max: {{ max }}, stap: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "Bereikslider (min: {{ min }}, max: {{ max }}, stap: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "Bereikslider (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "Slider (min: {{ min }}, max: {{ max }})",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "Op gegevens gebaseerde waarden",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "Dit voorbeeld laat zien hoe u de prop <strong lang=\"en\">data</strong> samen met <strong lang=\"en\">key-id</strong> gebruikt, zodat de slidewaarden worden afgeleid uit vooraf gedefinieerde gegevensitems.",
+  "_A_SLIDER_LABEL_NOT_SHOW_STOPS_": "Slider zonder stopmarkeringen",
+  "_A_SLIDER_LABEL_SHOW_STOPS_": "Slider met stopmarkeringen",
+  "_A_UI_GROUP_SHOW_STOPS_HEADER_": "Stopmarkeringen",
+  "_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">show-stops</strong> gebruikt om tussenliggende stopmarkeringen op de slider weer te geven."
+}

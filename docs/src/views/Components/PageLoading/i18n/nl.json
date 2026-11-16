@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "De component <strong>ALoading</strong> toont een laadspinner met tekst over de content wanneer de property <strong>is-loading</strong> op <strong>true</strong> is ingesteld. Hij wordt gebruikt om content te blokkeren en een spinner te tonen totdat het laadproces is voltooid.",
+  "_A_LOADING_COMPONENT_NAME_": "Laadscherm over content",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Bepaalt of de laadindicator moet worden weergegeven. Indien ingesteld op <strong>true</strong>, verschijnt de laadindicator over de content van de component.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Laden {{ number }}"
+}

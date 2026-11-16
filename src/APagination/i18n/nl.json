@@ -1,0 +1,12 @@
+{
+  "_A_COUNT_PER_PAGE_": "Per pagina:",
+  "_A_COUNT_PER_PAGE_ITEM_{{count}}_": "Items per pagina:",
+  "_A_COUNT_PER_PAGE_{{start}}_{{current}}_{{count}}_": "{{ start }} tot {{ current }} van {{ count }}",
+  "_A_PAGINATION_FIRST_PAGE_": "Naar eerste pagina",
+  "_A_PAGINATION_LAST_PAGE_": "Naar laatste pagina",
+  "_A_PAGINATION_MOBILE_{{currentPage}}_{{allPages}}_": "{{ currentPage }} van {{ allPages }}",
+  "_A_PAGINATION_NAVIGATION_": "Paginanavigatie",
+  "_A_PAGINATION_NEXT_PAGE_": "Naar volgende pagina",
+  "_A_PAGINATION_PREVIOUS_PAGE_": "Naar vorige pagina",
+  "_A_PAGINATION_TO_PAGE_{{page}}_": "Naar pagina {{ page }}"
+}

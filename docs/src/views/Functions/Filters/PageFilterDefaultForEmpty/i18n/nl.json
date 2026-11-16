@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "De waarde die moet worden gecontroleerd",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "De standaardwaarde die wordt geretourneerd als de gecontroleerde waarde als leeg wordt beschouwd",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "De functie <strong>filterDefaultForEmpty</strong> wordt gebruikt om een waarde te controleren en een standaardwaarde te retourneren als de gecontroleerde waarde als leeg wordt beschouwd. In deze context wordt een waarde als leeg beschouwd als deze <strong>undefined</strong>, <strong>null</strong> of een lege string is."
+}

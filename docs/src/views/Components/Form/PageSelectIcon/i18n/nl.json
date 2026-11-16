@@ -1,0 +1,5 @@
+{
+  "_A_SELECT_ICON_PROPS_TYPE_DESCRIPTION_": "Definieert het type selector. Ondersteunde waarden zijn <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectIcon</strong>, <strong lang=\"en\">multiselect</strong> en <strong lang=\"en\">multiselectIcon</strong>.",
+  "_A_SELECT_ICON_COMPONENT_NAME_": "Pictogramselector",
+  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Een component op basis van <strong lang=\"en\">ASelect</strong> waarmee een of meerdere in het systeem beschikbare pictogrammen kunnen worden geselecteerd. Ondersteunt zoeken, groeperen, aanpassing van de weergave en pictogrambeheer."
+}

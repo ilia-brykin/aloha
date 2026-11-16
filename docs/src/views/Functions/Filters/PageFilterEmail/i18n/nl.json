@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_EMAIL_": "Het e-mailadres waarvoor de HTML-link moet worden gemaakt",
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_LINK_CLASS_": "Een CSS-klasse die aan de gemaakte HTML-link wordt toegevoegd",
+  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "De functie <strong>filterEmail</strong> maakt een HTML-link voor een e-mailadres. Ze controleert of het e-mailadres bestaat en niet leeg is. Als aan de voorwaarden is voldaan, wordt een HTML-link in de indeling <strong>&lt;a href=\"mailto:email\" class=\"linkClass\"&gt;email&lt;/a&gt;</strong> geretourneerd."
+}

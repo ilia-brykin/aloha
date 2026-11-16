@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_NAME_": "Router link config",
+  "_A_ROUTER_LINK_CONFIG_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">ARouterLinkConfig</strong> biedt een interface voor het configureren van navigatielinks met route-, query-, params- en target-waarden. Dit is handig wanneer links dynamisch op basis van formuliergegevens moeten worden opgebouwd.",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_HEADER_": "Type",
+  "_A_ROUTER_LINK_CONFIG_GROUP_READONLY_DESCRIPTION_": "Dit voorbeeld laat zien hoe u de prop <strong lang=\"en\">type</strong> gebruikt om te schakelen tussen de selectiemodi voor één route en meerdere routes.",
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">AInput</strong> biedt functionaliteit voor gegevensinvoer met ondersteuning voor diverse gegevenstypen zoals <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> en andere. De component ondersteunt het weergeven van iconen, een wisknop en de mogelijkheid om het wachtwoord te tonen of te verbergen.",
+  "_A_INPUT_COMPONENT_NAME_": "Tekstveld",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Dit voorbeeld laat zien hoe u een invoerveld van het type <strong lang=\"en\">password</strong> gebruikt met de mogelijkheid om de zichtbaarheid van het wachtwoord om te schakelen via <strong lang=\"en\">show-password</strong>. In het eerste veld kan de gebruiker schakelen tussen het tonen en verbergen van het wachtwoord, terwijl deze functie in het tweede veld is uitgeschakeld.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Wachtwoordinvoerveld",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Geeft het icoon op dat vóór het invoerveld wordt weergegeven. Dit icoon kan worden gebruikt om de visuele herkenning te verbeteren of het type invoergegevens aan te geven.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Werkt wanneer het invoertype <strong lang=\"en\">password</strong> is. Maakt het mogelijk de zichtbaarheid van het ingevoerde wachtwoord om te schakelen, zodat de gebruiker kan zien welk wachtwoord wordt getypt.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Wordt gebruikt voor de types <strong lang=\"en\">number</strong> of <strong lang=\"en\">integer</strong>. Geeft de stapgrootte voor het wijzigen van de waarde op, bijvoorbeeld bij het verhogen of verlagen van het getal met de pijltoetsen.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Definieert het type van de invoerwaarde. Diverse gegevenstypen worden ondersteund, zoals <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> en andere."
+}

@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">ACloak</strong> toont een laadindicator met tekst die aangeeft dat de pagina of een grote component momenteel wordt geladen. Hij ondersteunt diverse aanpassingsopties, waaronder tekstuitlijning, de grootte van de indicator en de mogelijkheid om de <strong lang=\"en\">HTML</strong>-tag voor het renderen te wijzigen.",
+  "_A_CLOAK_COMPONENT_NAME_": "Laadscherm",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">align</strong> gebruikt. Hiermee kunt u de uitlijning van de tekst en de spinner instellen op gecentreerd, links of rechts. De eerste spinner is bijvoorbeeld links uitgelijnd, de tweede gecentreerd en de derde rechts.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Uitlijning van de component",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">size</strong> gebruikt om de grootte van zowel de tekst als de laadindicator te bepalen. De waarden lopen van <strong lang=\"en\">1</strong> (grootst) tot <strong lang=\"en\">7</strong> (kleinst).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Groottes",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">text-align</strong> gebruikt. Met deze property kunt u de tekst bij de laadspinner links of rechts uitlijnen. In het eerste voorbeeld is de tekst links uitgelijnd, in het tweede rechts.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Tekstuitlijning",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">text</strong> en <strong lang=\"en\">extra</strong> gebruikt. Met de parameter <strong lang=\"en\">extra</strong> kunt u de tekst dynamisch wijzigen. In dit geval toont de tekst het bericht 'Laden 1', waarbij het getal <strong>{{ number }}</strong> afkomstig is uit het doorgegeven object <strong lang=\"en\">extra</strong>.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Tekst met de parameter <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Bepaalt de uitlijning van de tekst en de spinner binnen de component. Mogelijke waarden: <strong lang=\"en\">left</strong>, <strong lang=\"en\">center</strong> en <strong lang=\"en\">right</strong>.",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Bepaalt de grootte van de tekst en de laadindicator. Geldige waarden lopen van <strong lang=\"en\">1</strong> (grootst) tot <strong lang=\"en\">7</strong> (kleinst).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klasse voor het aanpassen van het uiterlijk van de laadindicator.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "<strong lang=\"en\">HTML</strong>-tag waarmee de component wordt gerenderd.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Bepaalt de uitlijning van de tekst ten opzichte van de spinner. Mogelijke waarden: <strong lang=\"en\">left</strong> en <strong lang=\"en\">right</strong>. Standaard is de tekst rechts uitgelijnd.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Tekst die naast de laadindicator wordt weergegeven.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Laden {{ number }}"
+}

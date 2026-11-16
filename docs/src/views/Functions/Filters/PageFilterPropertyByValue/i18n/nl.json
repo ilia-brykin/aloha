@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_VALUE_": "De waarde die moet worden gekoppeld aan een eigenschap in het mappingobject",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_MAPPING_": "Een object dat de koppeling van waarden aan eigenschappen definieert",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_DEFAULT_VALUE_": "De standaardwaarde die wordt geretourneerd als de doorgegeven waarde niet in het mappingobject wordt gevonden",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "De functie <strong>filterPropertyByValue</strong> maakt het mogelijk waarden te koppelen aan vooraf gedefinieerde eigenschappen in een mappingobject. Ze controleert of de doorgegeven waarde als sleutel in het mappingobject voorkomt. Zo ja, dan wordt de bijbehorende eigenschap geretourneerd; anders wordt de standaardwaarde gebruikt."
+}

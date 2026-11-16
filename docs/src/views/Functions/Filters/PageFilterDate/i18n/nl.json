@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_DATE_ARGUMENTS_VALUE_": "De datum of tijd die moet worden opgemaakt",
+  "_PAGE_FILTER_DATE_ARGUMENTS_FORMAT_": "Het weergaveformaat voor de datum. Mogelijke waarden: \"date\" (datum), \"datetime\" (datum en tijd), \"fullDate\" (volledige datum en tijd), \"time\" (tijd), \"timeWithSeconds\" (tijd met seconden) of een geldig formaat van <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a>",
+  "_PAGE_FILTER_DATE_DESCRIPTION_": "De functie <strong>filterDate</strong> gebruikt de bibliotheek <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a> om datums en tijden op te maken. Ze neemt een datum- of tijdwaarde en geeft deze terug in het opgegeven formaat. Houd er rekening mee dat moment.js als een verouderde bibliotheek wordt beschouwd en in de toekomst door een andere oplossing zal worden vervangen. Er zijn ook plannen om de functie uit te breiden met ondersteuning voor verschillende talen."
+}

@@ -1,0 +1,14 @@
+{
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_PARAM_": "Dynamische parameters worden in routes gebruikt om gegevens binnen het pad door te geven. Ze worden aangeduid met een dubbele punt <code>:</code> vóór de parameternaam, bijvoorbeeld: <code>/user/:id</code>. Bij het navigeren wordt deze parameter vervangen door een specifieke waarde, bijvoorbeeld: <code>/user/123</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_QUERY_": "<span lang=\"en\">URL</span>-parameters maken het mogelijk extra informatie in het verzoek mee te sturen. Ze worden toegevoegd na het teken <code>?</code> in de adresbalk en volgen het formaat \"sleutel=waarde\". Bijvoorbeeld: <code>?limit=10&sort=asc</code>.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_ROUTE_": "Het adres bepaalt waarheen de link navigeert. Het kan statisch zijn (bijv. <code>/home</code>) of dynamische parameters bevatten (bijv. <code>/user/:id</code>). Selecteer het adres voor de navigatie.",
+  "_A_ROUTER_LINK_CONFIG_HELP_TEXT_TARGET_": "Bepaalt waar de link wordt geopend. Beschikbare opties: in hetzelfde venster (<code>_self</code>), in een nieuw venster of tabblad (<code>_blank</code>), in het bovenliggende frame (<code>_parent</code>) of in het buitenste frame (<code>_top</code>).",
+  "_A_ROUTER_LINK_CONFIG_LABEL_PARAM_": "Dynamische parameters",
+  "_A_ROUTER_LINK_CONFIG_LABEL_QUERY_": "<span lang=\"en\">URL</span>-parameters",
+  "_A_ROUTER_LINK_CONFIG_LABEL_ROUTE_": "Adres selecteren",
+  "_A_ROUTER_LINK_CONFIG_LABEL_TARGET_": "Attribuut <span lang=\"en\">target</span>",
+  "_A_TARGET_BLANK_": "Openen in een nieuw tabblad <strong lang=\"en\">_blank</strong>",
+  "_A_TARGET_PARENT_": "Openen in het bovenliggende frame <strong lang=\"en\">_parent</strong>",
+  "_A_TARGET_SELF_": "Openen in hetzelfde venster <strong lang=\"en\">_self</strong>",
+  "_A_TARGET_TOP_": "Openen in het buitenste frame <strong lang=\"en\">_top</strong>"
+}

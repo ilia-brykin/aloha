@@ -1,0 +1,12 @@
+{
+  "_A_MULTISELECT_ORDERED_BTN_DELETE_": "Uit lijst verwijderen",
+  "_A_MULTISELECT_ORDERED_BTN_DOWN_": "Dichter naar het einde van de lijst verplaatsen",
+  "_A_MULTISELECT_ORDERED_BTN_GROUP_ARIA_LABEL_": "Acties voor",
+  "_A_MULTISELECT_ORDERED_BTN_UP_": "Dichter naar het begin van de lijst verplaatsen",
+  "_A_MULTISELECT_ORDERED_DESELECT_ALL_": "Alles deselecteren",
+  "_A_MULTISELECT_ORDERED_GROUP_ALL_": "Selectiebeheer",
+  "_A_MULTISELECT_ORDERED_GROUP_INVALID_ENTRIES_": "Ongeldige items",
+  "_A_MULTISELECT_ORDERED_LABEL_SELECT_": "Een item selecteren",
+  "_A_MULTISELECT_ORDERED_MODEL_EMPTY_": "Geen items geselecteerd",
+  "_A_MULTISELECT_ORDERED_SELECT_ALL_": "Alles selecteren"
+}

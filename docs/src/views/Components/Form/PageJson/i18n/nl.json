@@ -1,0 +1,6 @@
+{
+  "_A_JSON_COMPONENT_DESCRIPTION_": "<strong lang=\"en\">AJson</strong> is een Vue.js-component voor het weergeven en bewerken van <strong lang=\"en\">JSON</strong>-gegevens. De component bevat een tekstveld voor <strong lang=\"en\">JSON</strong>-invoer, knoppen voor opmaken, resetten en verwerpen van wijzigingen, en een gebied waarin de huidige <strong lang=\"en\">JSON</strong>-waarde wordt weergegeven.",
+  "_A_JSON_COMPONENT_NAME_": "JSON-editor",
+  "_A_JSON_COMPONENT_NAME_H1_": "<span lang=\"en\">JSON</span>-editor",
+  "_A_JSON_PROPS_HEIGHT_CSS_DESCRIPTION_": "Stelt de hoogte van de component in via <span lang=\"en\">CSS</span>. Accepteert een string met de hoogtewaarde, bijv. <strong lang=\"en\">400px;</strong>."
+}

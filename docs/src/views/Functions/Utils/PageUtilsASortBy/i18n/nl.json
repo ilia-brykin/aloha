@@ -1,0 +1,6 @@
+{
+  "_PAGE_UTILS_A_SORT_BY_DESCRIPTION_": "Breidt de functie sortBy van lodash uit met standaard hoofdletterongevoelige vergelijking, met behoud van ondersteuning voor elke iteratee-verkorting.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_COLLECTION_": "Collectie om te doorlopen (array of object).",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_ITERATEES_": "Iteratees die de sorteercriteria beschrijven; accepteert eigenschapspaden, functies, arrays of verkorte objecten.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_OPTIONS_": "Optioneel configuratieobject ({ caseSensitive?: boolean }) dat als laatste argument wordt doorgegeven."
+}

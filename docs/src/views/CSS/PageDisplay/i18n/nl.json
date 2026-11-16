@@ -1,0 +1,7 @@
+{
+  "_A_DISPLAY_BASIC_DESCRIPTION_": "De klassen bepalen de waarde van de eigenschap <code>display</code>.",
+  "_A_DISPLAY_BASIC_NAME_": "Display",
+  "_A_DISPLAY_MOBILE_DESCRIPTION_": "De achtervoegsels <code>_mobile</code>, <code>_tablet</code>, <code>_touch</code>, <code>_desktop</code>, <code>_widescreen</code>, <code>_fullhd</code>, <code>_large</code> activeren klassen binnen hun breedtebereik.",
+  "_A_DISPLAY_MOBILE_NAME_": "Display bij breekpunten",
+  "_A_DISPLAY_PAGE_NAME_": "Display"
+}

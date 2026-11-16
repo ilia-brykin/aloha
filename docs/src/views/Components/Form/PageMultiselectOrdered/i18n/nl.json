@@ -1,0 +1,19 @@
+{
+  "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Geordende multiselect",
+  "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Met de component kunnen meerdere items worden geselecteerd, met de mogelijkheid hun volgorde in te stellen. Ondersteunt sorteren, verwijderen en verplaatsen van items binnen de lijst.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "Dit voorbeeld laat zien hoe items uit <strong lang=\"en\">data-extra</strong> met <strong lang=\"en\">key-group</strong> worden gegroepeerd. De arrays <strong lang=\"en\">data</strong> en <strong lang=\"en\">data-extra</strong> gebruiken dezelfde groepeerconfiguratie en kunnen afzonderlijke groepen bevatten.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "Gegroepeerde extra gegevens",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Een voorbeeld van het weergeven van knoppen voor het in één keer selecteren of deselecteren. U kunt beide knoppen of slechts één tonen, afhankelijk van de behoeften van de interface.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Knoppen voor “Alles selecteren” en “Alles deselecteren”",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Attributen en props die worden doorgegeven aan de component <strong lang=\"en\">AElement</strong> die voor de knop “Alles deselecteren” wordt gebruikt. Hiermee kunt u het gedrag, het uiterlijk en de toegankelijkheid van de knop aanpassen.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Attributen en props die worden doorgegeven aan de component <strong lang=\"en\">AElement</strong> die voor de knop “Alles selecteren” wordt gebruikt. Hiermee kunt u de weergave, het gedrag en de toegankelijkheid van de knop aanpassen.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klasse voor de verwijderknop van een item in de geselecteerde lijst.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Icoon voor de verwijderknop van een item.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klasse voor de knop waarmee een item dichter naar het einde van de lijst wordt verplaatst.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "Icoon voor de knop waarmee een item dichter naar het einde van de lijst wordt verplaatst.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klasse voor de container van de bedieningsknoppen van het geselecteerde item.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klasse voor de knop waarmee een item dichter naar het begin van de lijst wordt verplaatst.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Icoon voor de knop waarmee een item dichter naar het begin van de lijst wordt verplaatst.",
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "<strong lang=\"en\">CSS</strong>-klasse voor het lijstitem van geselecteerde waarden.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "Een object met aangepaste teksten ter vervanging van standaardlabels zoals “Alles selecteren”, “Alles deselecteren”, “Geen items geselecteerd” en andere."
+}

@@ -1,0 +1,22 @@
+{
+  "_A_TOOLTIP_COMPONENT_NAME_": "Tooltip",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip toont extra informatie wanneer de gebruiker met de muis over een element beweegt of de focus erop plaatst.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Aangepaste tag",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "U kunt de HTML-tag wijzigen die voor het triggerelement van de tooltip wordt gebruikt.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Maximale breedte",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Beperkt de maximale breedte van de tooltipinhoud.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Vaste breedte",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Stelt een vaste breedte in voor de tooltipinhoud.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Sluitvertraging",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Bepaalt hoelang de tooltip zichtbaar blijft nadat de aanwijzer de trigger of het tooltipgebied heeft verlaten.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Pijl verbergen",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "De pijl van de tooltip kan worden verborgen.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Horizontale verschuiving",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Verplaatst de tooltip langs de as van het referentie-element.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Afstand tot de trigger",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Wijzigt de afstand tussen de tooltip en het triggerelement.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Padding van de pijl",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Stelt de padding in die beperkt hoe dicht de pijl bij de randen van de tooltip kan komen.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback voor padding van de pijl",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "De padding van de pijl kan ook dynamisch worden berekend met een callbackfunctie."
+}

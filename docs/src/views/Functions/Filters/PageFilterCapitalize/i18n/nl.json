@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_CAPITALIZE_ARGUMENTS_VALUE_": "De string die moet worden omgezet naar een beginhoofdletter.",
+  "_PAGE_FILTER_CAPITALIZE_DESCRIPTION_": "<p>Zet het eerste teken van de string om naar een hoofdletter en de rest naar kleine letters.</p><p>Deze functie gebruikt de methode <strong>capitalize</strong> van lodash om de opgegeven waarde om te zetten. Ze is ontworpen om invoerstrings veilig en consistent te verwerken.</p>"
+}

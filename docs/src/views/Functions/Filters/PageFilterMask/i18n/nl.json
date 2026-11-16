@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "Het aantal tekens aan het einde van de string dat niet wordt gemaskeerd.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "Het teken dat voor het maskeren wordt gebruikt.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "De waarde die moet worden gemaskeerd. Deze wordt naar een string geconverteerd.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Maskeert een opgegeven waarde en toont alleen de laatste tekens."
+}

@@ -345,6 +345,7 @@ export {
   fr as i18nFR,
   hr as i18nHR,
   it as i18nIT,
+  nl as i18nNL,
   ru as i18nRU,
   uk as i18nUK,
 } from "./i18n/allLanguages";

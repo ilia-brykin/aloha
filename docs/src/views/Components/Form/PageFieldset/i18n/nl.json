@@ -1,0 +1,5 @@
+{
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">AFieldset</strong> wordt gebruikt om formulierelementen te groeperen in een logische set. Hij ondersteunt diverse functies, zoals foutweergave, helptekst, het in- en uitklappen van inhoud en het aanpassen van stijlen voor onderliggende elementen.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Fieldset-groep",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Hiermee kunt u de tekst voor de acties inklappen en uitklappen van de component aanpassen. Standaard wordt <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong> gebruikt voor sluiten en <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong> voor openen."
+}

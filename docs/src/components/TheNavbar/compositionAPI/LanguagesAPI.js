@@ -43,6 +43,10 @@ export default function LanguagesAPI() {
       value: "it",
     },
     {
+      label: "Nederlands",
+      value: "nl",
+    },
+    {
       label: "Українська",
       value: "uk",
     },

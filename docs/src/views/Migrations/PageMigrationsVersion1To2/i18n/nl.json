@@ -1,0 +1,18 @@
+{
+  "_PAGE_MIGRATION_1_TO_2_PAGE_TITLE_": "Migratiegids van aloha-vue 1.2.x naar 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_H1_": "Migratiegids van <span lang=\"en\">aloha-vue</span> 1.2.x naar 2.0.x",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_HEADER_": "1. Verwijderde en hernoemde componenten",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_HEADER_": "<strong lang=\"en\">AMenu2</strong> → <strong lang=\"en\">AMenu</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_AMENU_DESCRIPTION_": "<ul><li>De component <code lang=\"en\">AMenu2</code> is hernoemd naar <code lang=\"en\">AMenu</code></li><li>Alle <strong lang=\"en\">CSS</strong>-klassen zijn hernoemd:<ul><li><code lang=\"en\">.a_menu_2</code> → <code lang=\"en\">.a_menu</code>.</li><li>CSS-variabelen: <code lang=\"en\">--a_menu_2_</code> → <code lang=\"en\">--a_menu_</code>.</li></ul></li></ul><div class=\"a_mt_3\">De component wordt nu als volgt geïmporteerd:</div>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_HEADER_": "<strong lang=\"en\">TinyMCE</strong>",
+  "_PAGE_MIGRATION_1_TO_2_RENAME_TINYMCE_DESCRIPTION_": "<ul><li>De component <strong lang=\"en\">TinyMCE</strong> wordt niet meer ondersteund vanwege de licentiewijziging van <strong lang=\"en\">TinyMCE</strong> van <strong lang=\"en\">MIT</strong> naar <strong lang=\"en\">GPL-2.0-or-later</strong>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_HEADER_": "2. Stijlwijzigingen",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_HEADER_": "Verwijderde klassen",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_REMOVE_DESCRIPTION_": "<ul><li>De stijlen <code lang=\"en\">.a_columns_gab_</code> zijn verwijderd (typefout). Gebruik in plaats daarvan <code lang=\"en\">.a_columns_gap_</code>.</li></ul>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_HEADER_": "Integratie van <strong lang=\"en\">aloha-css</strong>",
+  "_PAGE_MIGRATION_1_TO_2_STYLES_ALOHA_CSS_DESCRIPTION_": "<ul><li>De stijlen van <code lang=\"en\">aloha-css</code> zijn nu geïntegreerd in <code lang=\"en\">aloha-vue</code>.</li><li><code lang=\"en\">aloha-css</code> is verouderd (deprecated) en wordt binnenkort verwijderd.</li></ul><div class=\"a_mt_3\">Aanbevolen wordt de stijlen als volgt op te nemen:</div>",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_HEADER_": "3. Verbeterd importsysteem",
+  "_PAGE_MIGRATION_1_TO_2_IMPORTS_DESCRIPTION_": "Alle entiteiten, zoals componenten, directives, plugins, functies en vertalingen, kunnen nu rechtstreeks worden geïmporteerd:",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_HEADER_": "4. Dependency-updates",
+  "_PAGE_MIGRATION_1_TO_2_DEPENDENCY_DESCRIPTION_": "<div>Controleer uw project op updates om aan de nieuwe vereisten te voldoen.</div>"
+}

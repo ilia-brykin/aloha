@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "Het getal waarvan moet worden gecontroleerd of het even is",
+  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "<p>Bepaalt of een opgegeven getal even is.</p><p>Deze functie controleert eerst of de opgegeven waarde een geheel getal is. Voor niet-gehele waarden geeft ze <strong>false</strong> terug om een nauwkeurige controle te garanderen. Voor gehele waarden wordt gecontroleerd of het getal even is.</p>"
+}

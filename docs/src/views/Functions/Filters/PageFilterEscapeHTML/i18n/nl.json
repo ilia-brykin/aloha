@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_ESCAPE_HTML_ARGUMENTS_VALUE_": "De string met mogelijk onveilige HTML",
+  "_PAGE_FILTER_ESCAPE_HTML_DESCRIPTION_": "<p>Escapet speciale HTML-tekens in een string om XSS-aanvallen te voorkomen.</p><p>Deze functie neemt een string als invoer en zet speciale tekens (zoals <, >, &, enz.) om naar de bijbehorende HTML-entiteiten (bijv. &amp;lt;, &amp;gt;, &amp;amp;, enz.), zodat de string veilig als HTML kan worden weergegeven.</p>"
+}

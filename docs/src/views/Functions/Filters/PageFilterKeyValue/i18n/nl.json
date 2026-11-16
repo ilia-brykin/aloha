@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_VALUE_": "Het JavaScript-object waarvan de sleutel-waardeparen naar een opgemaakte string moeten worden geconverteerd",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "De functie <strong>filterKeyValue</strong> maakt een opgemaakte string van de sleutel-waardeparen van een JavaScript-object. Ze gebruikt de functie reduce om de paren te doorlopen en om te zetten naar een leesbaar formaat."
+}

@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "De invoerstring die moet worden ingekort",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "De maximale lengte van de geretourneerde string",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Geeft aan of aan het einde van de string maximaal drie puntjes worden weergegeven",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "De functie <strong>filterLimitTo</strong> wordt gebruikt om een invoerstring te beperken tot een bepaalde maximale lengte en optioneel een speciale logica voor weglatingstekens aan het einde van de string toe te passen."
+}

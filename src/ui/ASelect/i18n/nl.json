@@ -1,0 +1,11 @@
+{
+  "_A_SELECT_LABEL_NOT_FOUND_": "[Selectie niet gevonden]",
+  "_A_SELECT_EXCLUSIVE_": "Alleen deze optie selecteren",
+  "_A_SELECT_GROUP_INVALID_ENTRIES_": "Ongeldige items",
+  "_A_SELECT_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Geen keuzes]",
+  "_A_SELECT_MORE_SELECTED_{{count}}_": "+ {{count}} geselecteerd",
+  "_A_SELECT_SEARCH_": "Zoeken",
+  "_A_SELECT_SELECTED_{{count}}_": "{{count}} geselecteerd",
+  "_A_SELECT_DESELECT_ALL_": "Alles deselecteren",
+  "_A_SELECT_SELECT_ALL_": "Alles selecteren"
+}

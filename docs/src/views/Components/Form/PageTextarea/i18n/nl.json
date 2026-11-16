@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "De component <strong lang=\"en\">ATextarea</strong> biedt de functionaliteit van een tekstveld met diverse instellingen, zoals schaalbaarheid, een wisknop en de mogelijkheid om het formaat aan te passen. De component ondersteunt ook labels, hulptekst en foutweergave.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Meerregelig tekstveld",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "Dit voorbeeld toont een tekstveld waarvan de hoogte zich automatisch aanpast aan de inhoud. Wanneer nieuwe regels worden toegevoegd, wordt het tekstveld groter, zodat alle ingevoerde tekst optimaal wordt weergegeven.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Schaalbaar tekstveld",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "Dit voorbeeld toont verschillende opties voor het instellen van de formaatwijziging van het tekstveld. U kunt verticaal vergroten of verkleinen instellen <strong lang=\"en\">(resize='v')</strong>, horizontaal <strong lang=\"en\">(resize='h')</strong>, formaatwijziging helemaal uitschakelen <strong lang=\"en\">(resize='none')</strong> of automatische formaatwijziging toestaan <strong lang=\"en\">(resize='auto')</strong>. Elke optie wordt gedemonstreerd met het bijbehorende tekstveld.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Formaat van tekstveld wijzigen",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Bepaalt of de hoogte van het tekstveld moet veranderen op basis van de inhoud. Als deze parameter is ingesteld op <strong lang=\"en\">true</strong>, past de hoogte van het tekstveld zich automatisch aan wanneer tekens worden toegevoegd of verwijderd.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Bepaalt hoe de gebruiker het formaat van het tekstveld kan wijzigen. Beschikbare opties: <strong lang=\"en\">'v'</strong> — verticaal, <strong lang=\"en\">'h'</strong> — horizontaal, <strong lang=\"en\">'none'</strong> — formaatwijziging is uitgeschakeld, <strong lang=\"en\">'auto'</strong> — formaatwijziging is automatisch.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Stelt het aantal rijen van het tekstveld in."
+}

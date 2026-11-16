@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Een wrapper-component voor het dynamisch weergeven van verschillende formulierelementen op basis van het opgegeven type. Hiermee kunt u verschillende componenten (formulierelementen) renderen door de vereiste parameters, events en slots door te geven. Vereenvoudigt het bouwen van formulieren op basis van configuratiegegevens.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Formulierelement",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Een object met aanvullende parameters die worden doorgegeven aan de component die in de parameter <strong lang=\"en\">type</strong> is opgegeven. Handig om <strong lang=\"en\">props</strong> door te geven die niet expliciet in <strong lang=\"en\">AFormElement</strong> zijn beschreven, maar wel door de gerenderde component worden ondersteund.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Het type component dat moet worden gerenderd. Wordt gebruikt om het juiste formulierelement te kiezen, bijvoorbeeld: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong>, enz."
+}

@@ -1,0 +1,9 @@
+{
+  "_A_POSITION_PAGE_NAME_": "Positionering",
+  "_A_POSITION_TYPES_NAME_": "Positietypen",
+  "_A_POSITION_TYPES_DESCRIPTION_": "Klassen stellen de waarde van de eigenschap <code>position</code> in.",
+  "_A_POSITION_OFFSETS_NAME_": "Verschuivingen",
+  "_A_POSITION_OFFSETS_DESCRIPTION_": "Klassen stellen de waarden <code>top</code>, <code>bottom</code>, <code>left</code> en <code>right</code> in.",
+  "_A_POSITION_TRANSLATE_NAME_": "Translate voor centreren",
+  "_A_POSITION_TRANSLATE_DESCRIPTION_": "Klassen stellen de waarde <code>transform</code> in voor centreren."
+}

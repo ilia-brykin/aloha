@@ -1,0 +1,18 @@
+{
+  "_A_TABLE_FORM_ADD_ROW_": "Nieuwe rij toevoegen",
+  "_A_TABLE_FORM_ACTIONS_": "Acties",
+  "_A_TABLE_FORM_DELETE_": "Rij verwijderen",
+  "_A_TABLE_FORM_DELETE_CONFIRM_BODY_": "<p>Weet u zeker dat u deze rij wilt verwijderen?</p>",
+  "_A_TABLE_FORM_DELETE_CONFIRM_CLOSE_": "Annuleren",
+  "_A_TABLE_FORM_DELETE_CONFIRM_HEADER_": "Rij verwijderen",
+  "_A_TABLE_FORM_DELETE_CONFIRM_SAVE_": "Verwijderen",
+  "_A_TABLE_FORM_EDIT_": "Rij bewerken",
+  "_A_TABLE_FORM_EDIT_CANCEL_": "Bewerken annuleren",
+  "_A_TABLE_FORM_EDIT_SAVE_": "Rij opslaan",
+  "_A_TABLE_FORM_EMPTY_": "Geen gegevens om weer te geven.",
+  "_A_TABLE_FORM_MOVE_DOWN_": "Rij omlaag verplaatsen",
+  "_A_TABLE_FORM_MOVE_UP_": "Rij omhoog verplaatsen",
+  "_A_TABLE_FORM_REORDER_": "Sleep de rij om de volgorde te wijzigen",
+  "_A_TABLE_FORM_REORDER_COLUMN_": "Rijvolgorde wijzigen",
+  "_A_TABLE_FORM_REORDER_DISABLED_": "Herschikken van rijen uitgeschakeld"
+}

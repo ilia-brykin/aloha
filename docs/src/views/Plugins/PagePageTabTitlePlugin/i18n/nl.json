@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_PAGE_TITLE_": "Plugin APageTabTitlePlugin",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_H1_": "Plugin <span lang=\"en\">APageTabTitlePlugin</span>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Inleiding</h2><p><strong lang=\"en\">APageTabTitlePlugin</strong> wordt gebruikt om een basistitel <strong lang=\"en\">baseTitle</strong> in te stellen voor de tag <strong lang=\"en\">&lt;title&gt;</strong> in uw project. Het basisgedeelte van de titel (bijvoorbeeld de naam van de applicatie) wordt eenmalig via de plugin ingesteld en automatisch aan het einde van elke paginatitel toegevoegd. Het unieke gedeelte van de titel, specifiek voor elke pagina, wordt ingesteld met de component <strong lang=\"en\">APageTabTitle</strong> via de prop <strong lang=\"en\">title</strong>.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_CONNECTION_": "<h2 class=\"a_mb_3\">Koppeling</h2><p>Om de plugin te koppelen, voegt u deze aan uw project toe:</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_NOTES_": "<h3 class=\"a_mb_3\">Opmerkingen</h3><ul><li>De basistitel <strong lang=\"en\">baseTitle</strong> wordt tijdens de initialisatie van de plugin ingesteld en blijft gedurende de hele applicatie ongewijzigd.</li><li>De unieke titel voor elke pagina wordt toegevoegd met de component <strong lang=\"en\">APageTabTitle</strong>.</li></ul>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_": "<h2 class=\"a_mb_3\">Voorbeeld van het gebruik van de component <strong lang=\"en\">APageTabTitle</strong></h2><p>Met de component <strong lang=\"en\">APageTabTitle</strong> kunt u het unieke gedeelte van de titel voor elke pagina instellen.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_NOTES_": "<p>In dit voorbeeld is de volledige paginatitel: <strong lang=\"en\">\"Home Page - Documentation aloha-vue\"</strong>.</p>"
+}

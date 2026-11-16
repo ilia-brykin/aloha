@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "Schermlezer",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "Verbergt het element visueel, maar houdt het beschikbaar voor de schermlezer.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "Verbergt het element visueel en houdt het beschikbaar voor de schermlezer, maar toont het zodra het element of een van de onderliggende elementen focus krijgt.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "Klassen die elementen visueel verbergen, maar beschikbaar houden voor de schermlezer.",
+  "_A_SCREENREADER_TABLE_NAME_": "Schermlezerklassen"
+}

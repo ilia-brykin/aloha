@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_CLOAK_PAGE_TITLE_": "Plugin ACloakPlugin",
+  "_PAGE_PLUGIN_CLOAK_H1_": "Plugin <span lang=\"en\">ACloakPlugin</span>",
+  "_PAGE_PLUGIN_CLOAK_INTRODUCTION_": "<h2 class=\"a_mb_3\">Inleiding</h2><p><strong lang=\"en\">ACloakPlugin</strong> wordt gebruikt om standaardwaarden in te stellen voor de props van de component <strong lang=\"en\">ACloak</strong>. Hiermee kunnen het uiterlijk en gedrag van het element centraal worden aangepast, waaronder uitlijning, grootte, tekst en andere eigenschappen.</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_": "<h2 class=\"a_mb_3\">Verbinding</h2><p>Om de plugin te verbinden, voegt u deze toe aan uw project en configureert u de standaard props:</p>",
+  "_PAGE_PLUGIN_CLOAK_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Opmerkingen</h3><p>U kunt de volgende eigenschappen overschrijven:</p><ul><li><strong lang=\"en\">align</strong>: uitlijning van de inhoud (standaard: <strong lang=\"en\">\"center\"</strong>).</li><li><strong lang=\"en\">extra</strong>: object met parameters voor vertalingen.</li><li><strong lang=\"en\">size</strong>: grootte van het element (standaard: 6).</li><li><strong lang=\"en\">tag</strong>: <strong lang=\"en\">HTML</strong>-tag voor de omhulling (standaard: <strong lang=\"en\">\"div\"</strong>).</li><li><strong lang=\"en\">text</strong>: tekst die in het element wordt weergegeven (standaard: <strong lang=\"en\">\"_A_CLOAK_LOADING_\"</strong>).</li><li><strong lang=\"en\">textAlign</strong>: uitlijning van de tekst (standaard: <strong lang=\"en\">\"right\"</strong>).</li></ul>",
+  "_PAGE_PLUGIN_CLOAK_EXAMPLES_": "<h2 class=\"a_mb_3\">Gebruiksvoorbeeld</h2><p>Nadat de plugin is verbonden, gebruikt de component <strong lang=\"en\">ACloak</strong> de opgegeven standaardwaarden:</p>"
+}

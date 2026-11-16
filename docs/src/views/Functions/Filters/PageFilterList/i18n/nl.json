@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "De array voor de lijst",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Als <strong>True</strong>, wordt een HTML-lijst (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;) gemaakt. Anders wordt een tekstlijst gegenereerd",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Geeft aan of alleen een eenvoudige array zonder objecten wordt gebruikt",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Sleutel voor onderliggende elementen (alleen als <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Sleutel voor het weer te geven label (alleen als <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Functie voor het genereren van labels met twee parameters (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "Geeft het scheidingsteken op dat vóór het laatste element in de lijst wordt gebruikt.",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Scheidingsteken tussen elementen (alleen als <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-tag voor de gehele lijst",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-klasse, bijv.: (a_list_without_styles)",
+  "_PAGE_FILTER_LIST_DESCRIPTION_": "De functie maakt een lijst op basis van een array.",
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Boomstructuur isSimpleArray=true"
+}
