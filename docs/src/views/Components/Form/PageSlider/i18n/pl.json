@@ -1,0 +1,20 @@
+{
+  "_A_SLIDER_COMPONENT_NAME_": "Suwak",
+  "_A_SLIDER_COMPONENT_DESCRIPTION_": "ASlider to komponent do wyboru wartości liczbowej lub zakresu w określonym przedziale. Obsługuje minimalne i maksymalne limity, wartości kroku, zakresy, znaczniki przystanków oraz dostosowywanie wyświetlania.",
+  "_A_SLIDER_BASIC_LABEL_": "Suwak",
+  "_A_SLIDER_DISABLED_LABEL_": "Wyłączony suwak",
+  "_A_SLIDER_GROUP_RANGE_HEADER_": "Wybór zakresu",
+  "_A_SLIDER_GROUP_RANGE_DESCRIPTION_": "Ten przykład pokazuje, jak użyć właściwości <strong lang=\"en\">range</strong>, aby suwak umożliwiał wybór zakresu między dwiema wartościami.",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_HEADER_": "Minimum, maksimum i krok",
+  "_A_SLIDER_GROUP_MIN_MAX_STEP_DESCRIPTION_": "Ten przykład pokazuje, jak skonfigurować suwak z niestandardowymi wartościami <strong lang=\"en\">min</strong>, <strong lang=\"en\">max</strong> i <strong lang=\"en\">step</strong>.",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_{{step}}_": "Suwak (min: {{ min }}, maks.: {{ max }}, krok: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_{{step}}_": "Suwak zakresu (min: {{ min }}, maks.: {{ max }}, krok: {{ step }})",
+  "_A_SLIDER_RANGE_LABEL_{{max}}_{{min}}_": "Suwak zakresu (min: {{ min }}, maks.: {{ max }})",
+  "_A_SLIDER_BASIC_LABEL_{{max}}_{{min}}_": "Suwak (min: {{ min }}, maks.: {{ max }})",
+  "_A_SLIDER_GROUP_DATA_HEADER_": "Wartości oparte na danych",
+  "_A_SLIDER_GROUP_DATA_DESCRIPTION_": "Ten przykład pokazuje, jak użyć właściwości <strong lang=\"en\">data</strong> razem z <strong lang=\"en\">key-id</strong>, aby wartości suwaka były pobierane z predefiniowanych wpisów danych.",
+  "_A_SLIDER_LABEL_NOT_SHOW_STOPS_": "Suwak bez znaczników przystanków",
+  "_A_SLIDER_LABEL_SHOW_STOPS_": "Suwak ze znacznikami przystanków",
+  "_A_UI_GROUP_SHOW_STOPS_HEADER_": "Znaczniki przystanków",
+  "_A_UI_GROUP_SHOW_STOPS_DESCRIPTION_": "Ten przykład pokazuje, jak użyć <strong lang=\"en\">show-stops</strong>, aby wyświetlić pośrednie znaczniki przystanków na suwaku."
+}

@@ -1,0 +1,13 @@
+{
+  "_A_COLUMNS_NAME_": "Kolumny",
+  "_A_COLUMNS_BASIC_NAME_": "Podstawowe kolumny",
+  "_A_COLUMNS_BASIC_DESCRIPTION_": "Kontener <strong lang=\"en\">.a_columns</strong> rozmieszcza zagnieżdżone elementy <strong lang=\"en\">.a_column</strong> na całej szerokości. Bez jawnie określonych szerokości kolumny rozciągają się równomiernie.",
+  "_A_COLUMNS_COUNT_NAME_": "Siatka i rozmiary",
+  "_A_COLUMNS_COUNT_DESCRIPTION_": "Klasa <strong lang=\"en\">.a_columns_count_{n}</strong> ustawia liczbę kolumn (1-12), włącza zawijanie i definiuje zmienną <strong lang=\"en\">--a_column_count</strong>. Szerokość kolumny ustawia się za pomocą <strong lang=\"en\">.a_column_{n}</strong> i jest obliczana względem wybranej liczby kolumn.",
+  "_A_COLUMNS_GAP_NAME_": "Odstępy między kolumnami",
+  "_A_COLUMNS_GAP_DESCRIPTION_": "Odstępy ustawia się za pomocą <strong lang=\"en\">.a_columns_gap_x_{0-8}</strong> i <strong lang=\"en\">.a_columns_gap_y_{0-8}</strong>. Domyślnie obie osie używają wartości 0.75rem.",
+  "_A_COLUMNS_OFFSET_NAME_": "Przesunięcia",
+  "_A_COLUMNS_OFFSET_DESCRIPTION_": "Przesunięcie z lewej: <strong lang=\"en\">.a_column_offset_{n}</strong>, przesunięcie z prawej: <strong lang=\"en\">.a_column_offset_right_{n}</strong>, gdzie <strong lang=\"en\">n</strong> przyjmuje wartości od 0 do 11.",
+  "_A_COLUMNS_BREAKPOINTS_NAME_": "Klasy responsywne",
+  "_A_COLUMNS_BREAKPOINTS_DESCRIPTION_": "Dodaj sufiksy <strong lang=\"en\">_mobile</strong>, <strong lang=\"en\">_tablet</strong>, <strong lang=\"en\">_touch</strong>, <strong lang=\"en\">_desktop</strong>, <strong lang=\"en\">_widescreen</strong>, <strong lang=\"en\">_fullhd</strong>, <strong lang=\"en\">_large</strong> do <strong lang=\"en\">.a_columns_count_*</strong>, <strong lang=\"en\">.a_columns_gap_*</strong>, <strong lang=\"en\">.a_column_*</strong>, <strong lang=\"en\">.a_column_offset_*</strong>. Punkty graniczne: mobile &lt;= 768px, tablet 769-1023px, touch &lt;= 1023px, desktop 1024-1215px, widescreen 1216-1407px, fullhd 1408-1599px, large &gt;= 1600px."
+}

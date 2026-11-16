@@ -1,0 +1,21 @@
+{
+  "_A_ONE_CHECKBOX_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">AOneCheckbox</strong> reprezentuje pojedynczy checkbox z możliwością powiązania z modelem danych. Checkbox może wyświetlać obok siebie tekst i obsługuje różne stany oraz ustawienia.",
+  "_A_ONE_CHECKBOX_COMPONENT_NAME_": "Pojedynczy checkbox",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_DESCRIPTION_": "Ten przykład pokazuje, jak użyć <strong lang=\"en\">false-value</strong> do ustawienia wartości przekazywanej do modelu, gdy checkbox jest odznaczony. W pierwszym przypadku do modelu przekazywana jest wartość <strong lang=\"en\">false</strong>, gdy checkbox nie jest zaznaczony. W drugim przypadku, gdy checkbox nie jest zaznaczony, do modelu przekazywana jest wartość <strong>0</strong>.",
+  "_A_ONE_CHECKBOX_GROUP_FALSE_VALUE_HEADER_": "Wartości po odznaczeniu",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_DESCRIPTION_": "Ten przykład pokazuje, jak użyć <strong lang=\"en\">indeterminate</strong> do wyświetlenia stanu pośredniego checkboxa. Gdy <strong lang=\"en\">indeterminate</strong> ma wartość <strong lang=\"en\">true</strong>, checkbox zamiast standardowego znaku zaznaczenia wyświetla minus, wskazując stan pośredni lub nieokreślony.",
+  "_A_ONE_CHECKBOX_GROUP_INDETERMINATE_HEADER_": "Stan pośredni",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_DESCRIPTION_": "Ten przykład pokazuje, jak użyć <strong lang=\"en\">true-value</strong> do ustawienia wartości przekazywanej do modelu, gdy checkbox jest zaznaczony. W tym przypadku, gdy checkbox jest zaznaczony, do modelu przekazywana jest wartość <strong>1</strong>.",
+  "_A_ONE_CHECKBOX_GROUP_TRUE_VALUE_HEADER_": "Wartości po zaznaczeniu",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_DESCRIPTION_": "Ten przykład pokazuje, jak użyć <strong lang=\"en\">is-width-auto</strong> do sterowania szerokością elementu <strong lang=\"en\">label</strong> obok checkboxa. W pierwszym checkboxie etykieta ma szerokość ustawioną na <strong lang=\"en\">auto</strong>, dzięki czemu tekst zajmuje minimalną niezbędną przestrzeń. W drugim checkboxie szerokość etykiety się nie zmienia i zajmuje ona stałą przestrzeń.",
+  "_A_ONE_CHECKBOX_GROUP_WIDTH_AUTO_HEADER_": "Automatyczna szerokość etykiety",
+  "_A_ONE_CHECKBOX_PROPS_FALSE_VALUE_DESCRIPTION_": "Wartość przekazywana do modelu, gdy checkbox jest odznaczony.",
+  "_A_ONE_CHECKBOX_PROPS_INDETERMINATE_DESCRIPTION_": "Wyświetla stan pośredni <strong lang=\"en\">(indeterminate)</strong>, w którym zamiast znaku zaznaczenia pokazywany jest minus.",
+  "_A_ONE_CHECKBOX_PROPS_IS_LABEL_TITLE_DESCRIPTION_": "Określa, czy tekst etykiety będzie wyświetlany jako <strong lang=\"en\">title</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Dodaje do elementu <strong lang=\"en\">label</strong> specjalną klasę z szerokością ustawioną na <strong lang=\"en\">auto</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_LABEL_ATTRIBUTES_DESCRIPTION_": "Dodatkowe właściwości i atrybuty <strong lang=\"en\">HTML</strong> do dostosowania znacznika <strong lang=\"en\">label</strong>, który jest renderowany za pomocą komponentu <strong lang=\"en\">AElement</strong>.",
+  "_A_ONE_CHECKBOX_PROPS_SLOT_NAME_DESCRIPTION_": "Nazwa slotu, który będzie użyty zamiast tekstu domyślnego, jeśli do komponentu zostanie przekazany slot o podanej nazwie.",
+  "_A_ONE_CHECKBOX_PROPS_TRUE_VALUE_DESCRIPTION_": "Wartość przekazywana do modelu, gdy checkbox jest zaznaczony.",
+  "_A_UI_GROUP_SLOT_NAME_DESCRIPTION_": "Ten przykład używa <strong lang=\"en\">slot-name</strong>, aby zastąpić domyślny tekst <strong lang=\"en\">label</strong> własną zawartością. Slot o nazwie <strong lang=\"en\">aloha</strong> udostępnia szablon, w którym tekst <strong lang=\"en\">label</strong> i ikona są wyświetlane z dodatkowymi ustawieniami. Takie podejście pozwala elastycznie dostosować zawartość <strong lang=\"en\">label</strong> za pomocą standardowych atrybutów i komponentów, takich jak <strong lang=\"en\">AElement</strong>.",
+  "_A_UI_GROUP_SLOT_NAME_HEADER_": "Przykład użycia <strong lang=\"en\">slot-name</strong>"
+}

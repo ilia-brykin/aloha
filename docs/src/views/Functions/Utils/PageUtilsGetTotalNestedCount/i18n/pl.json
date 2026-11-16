@@ -1,0 +1,5 @@
+{
+  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_ARGUMENTS_ARRAY_": "Początkowa tablica przeglądana w celu zliczania",
+  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_ARGUMENTS_KEY_CHILDREN_": "Klucz służący do identyfikacji elementów podrzędnych w każdym obiekcie tablicy",
+  "_PAGE_UTILS_GET_TOTAL_NESTED_COUNT_DESCRIPTION_": "Oblicza łączną liczbę elementów w strukturze zagnieżdżonej, w tym wszystkich elementów podrzędnych i ich potomków, na podstawie określonego klucza elementów podrzędnych."
+}

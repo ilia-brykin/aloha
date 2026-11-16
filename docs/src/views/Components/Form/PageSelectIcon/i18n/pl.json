@@ -1,0 +1,5 @@
+{
+  "_A_SELECT_ICON_PROPS_TYPE_DESCRIPTION_": "Definiuje typ selektora. Obsługiwane wartości to <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectIcon</strong>, <strong lang=\"en\">multiselect</strong> oraz <strong lang=\"en\">multiselectIcon</strong>.",
+  "_A_SELECT_ICON_COMPONENT_NAME_": "Selektor ikon",
+  "_A_SELECT_ICON_COMPONENT_DESCRIPTION_": "Komponent oparty na <strong lang=\"en\">ASelect</strong>, który umożliwia wybór jednej lub wielu ikon dostępnych w systemie. Obsługuje wyszukiwanie, grupowanie, dostosowanie wyświetlania i zarządzanie ikonami."
+}

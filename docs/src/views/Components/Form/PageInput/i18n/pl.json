@@ -1,0 +1,14 @@
+{
+  "_A_INPUT_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">AInput</strong> zapewnia funkcję wprowadzania danych z obsługą różnych typów danych, takich jak <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">email</strong> i inne. Komponent obsługuje wyświetlanie ikon, przycisk czyszczenia oraz możliwość pokazywania/ukrywania hasła.",
+  "_A_INPUT_COMPONENT_NAME_": "Pole tekstowe",
+  "_A_INPUT_GROUP_PASSWORD_DESCRIPTION_": "Ten przykład pokazuje, jak użyć pola wprowadzania typu <strong lang=\"en\">password</strong> z możliwością przełączania widoczności hasła za pomocą <strong lang=\"en\">show-password</strong>. W pierwszym polu użytkownik może przełączać się między wyświetlaniem a ukrywaniem hasła, natomiast w drugim polu ta funkcja jest wyłączona.",
+  "_A_INPUT_GROUP_PASSWORD_HEADER_": "Pole wprowadzania hasła",
+  "_A_INPUT_GROUP_READONLY_PASSWORD_DESCRIPTION_": "Przykład tego, jak pola wprowadzania <strong lang=\"en\">password</strong> są wyświetlane w trybie <strong lang=\"en\">readonly</strong>. Wartość hasła jest ukryta za pomocą określonego symbolu, liczbą symboli steruje się przez <strong lang=\"en\">readonly-password-length</strong>, a samym symbolem przez <strong lang=\"en\">readonly-password-symbol</strong>. Ostatnie pole pokazuje wariant, w którym włączono <strong lang=\"en\">show-password</strong>, a wartość jest w pełni widoczna.",
+  "_A_INPUT_GROUP_READONLY_PASSWORD_HEADER_": "Pola <strong lang=\"en\">Readonly</strong> dla hasła",
+  "_A_INPUT_PROPS_ICON_PREPEND_DESCRIPTION_": "Określa ikonę, która będzie wyświetlana przed polem wprowadzania. Ikona ta może służyć do poprawy percepcji wizualnej lub wskazywania typu wprowadzanych danych.",
+  "_A_INPUT_PROPS_READONLY_PASSWORD_LENGTH_DESCRIPTION_": "Liczba znaków wyświetlanych w trybie tylko do odczytu dla pola hasła. Nie zależy od rzeczywistej długości wartości.",
+  "_A_INPUT_PROPS_READONLY_PASSWORD_SYMBOL_DESCRIPTION_": "Symbol używany do maskowania wartości pola hasła w trybie tylko do odczytu.",
+  "_A_INPUT_PROPS_SHOW_PASSWORD_DESCRIPTION_": "Działa, gdy typem pola jest <strong lang=\"en\">password</strong>. Umożliwia przełączanie widoczności wprowadzanego hasła, dając użytkownikowi możliwość zobaczenia wpisywanego hasła.",
+  "_A_INPUT_PROPS_STEP_DESCRIPTION_": "Używane dla typów <strong lang=\"en\">number</strong> lub <strong lang=\"en\">integer</strong>. Określa krok zmiany wartości, na przykład podczas zwiększania lub zmniejszania liczby za pomocą strzałek na klawiaturze.",
+  "_A_INPUT_PROPS_TYPE_DESCRIPTION_": "Określa typ wprowadzanej wartości. Obsługiwane są różne typy danych, takie jak <strong lang=\"en\">text</strong>, <strong lang=\"en\">password</strong>, <strong lang=\"en\">number</strong>, <strong lang=\"en\">integer</strong>, <strong lang=\"en\">email</strong> i inne."
+}

@@ -1,0 +1,8 @@
+{
+  "_A_FIELDSET_CHILDREN_COMPONENT_DESCRIPTION_": "Ta strona opisuje użycie <strong lang=\"en\">children</strong> w komponencie <strong lang=\"en\">AFieldset</strong>, a także powiązane właściwości, takie jak <strong lang=\"en\">class-column-default</strong> do dostosowania klas poszczególnych elementów potomnych, <strong lang=\"en\">class-columns</strong> dla kontenera nadrzędnego oraz <strong lang=\"en\">errors-all</strong> do wyświetlania błędów elementów potomnych.",
+  "_A_FIELDSET_CHILDREN_COMPONENT_NAME_": "Elementy potomne <strong lang=\"en\">children</strong>",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_DESCRIPTION_": "Ten przykład pokazuje możliwość tworzenia zagnieżdżonej struktury elementów o nieograniczonej głębokości za pomocą komponentu <strong lang=\"en\">AFieldset</strong>. Każdy element potomny może zawierać własne zagnieżdżone elementy, co umożliwia elastyczną kontrolę nad strukturą danych i renderowaniem. Na przykład tutaj pierwszy i drugi <strong lang=\"en\">fieldset</strong> zawierają własne elementy potomne, takie jak pola tekstowe i pola wyboru.",
+  "_A_FIELDSET_CHILDREN_GROUP_TREE_HEADER_": "Zagnieżdżona struktura elementów",
+  "_A_FIELDSET_CHILDREN_DEPENDENCIES_HEADER_": "Zależności komponentów potomnych",
+  "_A_FIELDSET_CHILDREN_DEPENDENCIES_DESCRIPTION_": "Użyj <strong lang=\"en\">dependencies</strong> jako obiektu dla jednego warunku lub jako tablicy, gdy muszą być spełnione wszystkie warunki. Wewnątrz <strong lang=\"en\">AFieldset</strong> bieżący model jest automatycznie przekazywany do komponentów UI potomnych, więc <strong lang=\"en\">modelDependencies</strong> nie trzeba przekazywać ręcznie."
+}

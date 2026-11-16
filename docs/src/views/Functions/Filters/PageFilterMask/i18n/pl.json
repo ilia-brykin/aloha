@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_MASK_ARGUMENTS_CHARS_": "Liczba znaków wyświetlanych bez maskowania na końcu ciągu znaków.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_MASK_": "Znak używany do maskowania.",
+  "_PAGE_FILTER_MASK_ARGUMENTS_VALUE_": "Wartość do zamaskowania. Zostanie przekonwertowana na ciąg znaków.",
+  "_PAGE_FILTER_MASK_DESCRIPTION_": "Maskuje podaną wartość, wyświetlając tylko kilka ostatnich znaków."
+}

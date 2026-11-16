@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_KEY_VALUE_ARGUMENTS_VALUE_": "Obiekt JavaScript, którego pary klucz-wartość mają zostać przekształcone w sformatowany ciąg znaków",
+  "_PAGE_FILTER_KEY_VALUE_DESCRIPTION_": "Funkcja <strong>filterKeyValue</strong> tworzy sformatowany ciąg znaków z par klucz-wartość obiektu JavaScript. Używa funkcji reduce do iteracji po parach i przekształcenia ich do czytelnego formatu."
+}

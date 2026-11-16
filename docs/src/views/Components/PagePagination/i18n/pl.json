@@ -1,0 +1,21 @@
+{
+  "_A_PAGINATION_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">APagination</strong> renderuje nawigację dla dużych zbiorów danych. Łączy kontrolki liczby wpisów na stronę, układy dla desktopu i urządzeń mobilnych oraz emituje zdarzenia <strong lang=\"en\">update:limit</strong> / <strong lang=\"en\">update:offset</strong>, dzięki czemu widok korzystający z komponentu może pozostać zsynchronizowany z bieżącą stroną.",
+  "_A_PAGINATION_COMPONENT_NAME_": "Paginacja",
+  "_A_PAGINATION_PROPS_TOTAL_COUNT_DESCRIPTION_": "Łączna liczba elementów w całym zbiorze danych. Ta wartość wyznacza licznik <strong lang=\"en\">from-to</strong> oraz liczbę dostępnych stron.",
+  "_A_PAGINATION_PROPS_DISABLED_DESCRIPTION_": "Wyłącza wszystkie kontrolki paginacji. Przydatne podczas ponownego ładowania wierszy lub gdy nawigacja musi być zablokowana.",
+  "_A_PAGINATION_PROPS_LIMIT_DESCRIPTION_": "Liczba wierszy, które mają być zwracane na stronę. Komponent emituje <strong lang=\"en\">update:limit</strong>, gdy użytkownik wybierze nową wartość.",
+  "_A_PAGINATION_PROPS_LIMITS_PER_PAGE_DESCRIPTION_": "Lista opcji wyświetlanych w selektorze liczby wpisów na stronę. Wartości mogą być ciągami znaków lub liczbami i zwykle odzwierciedlają limity backendu.",
+  "_A_PAGINATION_PROPS_MAX_PAGES_DESCRIPTION_": "Maksymalna liczba numerowanych przycisków stron wyświetlanych jednocześnie, zanim zostaną skrócone wielokropkiem.",
+  "_A_PAGINATION_PROPS_OFFSET_DESCRIPTION_": "Indeks pierwszego wiersza należącego do bieżącej strony. Komponent emituje <strong lang=\"en\">update:offset</strong> przy każdej nawigacji użytkownika.",
+  "_A_PAGINATION_PROPS_ROWS_LENGTH_DESCRIPTION_": "Liczba wierszy faktycznie renderowanych na bieżącej stronie. Jest potrzebna do poprawnego wyświetlania licznika „from-to”, gdy ostatnia strona jest niepełna.",
+  "_A_PAGINATION_PROPS_MODES_DESCRIPTION_": "Konfiguracja kontrolek liczby wpisów na stronę oraz pagera. Użyj <strong lang=\"en\">perPage</strong> i <strong lang=\"en\">pagination</strong>, aby zdefiniować <strong lang=\"en\">mode</strong> (inline/group/select lub normal/short/loadMore), <strong lang=\"en\">position</strong> oraz <strong lang=\"en\">showTextCountFromTo</strong>.",
+  "_A_PAGINATION_PROPS_TEXTS_DESCRIPTION_": "Obiekt z kluczami tłumaczeń lub niestandardowymi tekstami etykiet nawigacji po stronach i liczników na stronę.",
+  "_A_PAGINATION_GROUP_DISABLED_HEADER_": "Stan wyłączenia",
+  "_A_PAGINATION_GROUP_DISABLED_DESCRIPTION_": "Ten przykład pokazuje, jak przełączać właściwość <strong lang=\"en\">disabled</strong>, aby zablokować wszystkie kontrolki paginacji podczas odświeżania wierszy. Użyj przełącznika, aby włączyć lub wyłączyć nawigację jednym kliknięciem.",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_HEADER_": "Limity na stronę",
+  "_A_PAGINATION_GROUP_LIMITS_PER_PAGE_DESCRIPTION_": "Użyj uporządkowanego multiselecta, aby skonfigurować wartości przekazywane do <strong lang=\"en\">limits-per-page</strong>. Wybór określa, które limity na stronę (5, 10, 25, 50, 75, 100) są dostępne.",
+  "_A_PAGINATION_LIMITS_PER_PAGE_LABEL_": "Limity na stronę",
+  "_A_PAGINATION_GROUP_MAX_PAGES_HEADER_": "Maksymalna liczba stron",
+  "_A_PAGINATION_GROUP_MAX_PAGES_DESCRIPTION_": "Dostosuj suwak, aby sterować wartością <strong lang=\"en\">max-pages</strong> (1-10) i zobaczyć, ile przycisków stron jest renderowanych jednocześnie.",
+  "_A_PAGINATION_MAX_PAGES_LABEL_": "Maksymalna liczba stron"
+}

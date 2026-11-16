@@ -1,0 +1,8 @@
+{
+  "_A_RADIO_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">ARadio</strong> przedstawia grupę przycisków opcji, w której użytkownik może wybrać tylko jedną pozycję spośród dostępnych opcji. Komponent obsługuje różne ustawienia, takie jak zwijanie grup, wyświetlanie w postaci grupy przycisków, funkcję wyszukiwania i wiele innych.",
+  "_A_RADIO_COMPONENT_NAME_": "Przyciski opcji",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">is-model-array</strong>. Pozwala ustawić tablicę jako model danych dla przycisków opcji. Wybrana pozycja jest zapisywana w tablicy modelu.",
+  "_A_RADIO_GROUP_IS_MODEL_ARRAY_HEADER_": "Użycie tablicy jako modelu",
+  "_A_RADIO_PROPS_IS_MODEL_ARRAY_DESCRIPTION_": "Umożliwia użycie tablicy (<strong lang=\"en\">Array</strong>) jako modelu.",
+  "_A_RADIO_PROPS_TEXTS_DESCRIPTION_": "Umożliwia dostosowanie komunikatów tekstowych dla różnych akcji w komponencie. Obejmuje to teksty zwijania/rozwijania (<strong lang=\"en\">collapseClose</strong> i <strong lang=\"en\">collapseOpen</strong>), komunikaty o braku znalezionych elementów podczas wyszukiwania (<strong lang=\"en\">notElementsWithSearch</strong>) oraz tekst pola wyszukiwania (<strong lang=\"en\">search</strong>)."
+}

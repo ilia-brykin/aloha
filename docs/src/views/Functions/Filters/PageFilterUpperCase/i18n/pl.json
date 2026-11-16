@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_UPPER_CASE_ARGUMENTS_VALUE_": "Ciąg znaków do zamiany na wielkie litery.",
+  "_PAGE_FILTER_UPPER_CASE_DESCRIPTION_": "<p>Zamienia wejściowy ciąg znaków na wielkie litery.</p><p>Ta funkcja używa metody <strong>toUpper</strong> biblioteki lodash do zamiany podanej wartości na wielkie litery. Została zaprojektowana tak, aby bezpiecznie i spójnie obsługiwać wejściowe ciągi znaków.</p>"
+}

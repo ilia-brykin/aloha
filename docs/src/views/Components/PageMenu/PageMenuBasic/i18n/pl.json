@@ -1,0 +1,16 @@
+{
+  "_A_PAGE_MENU_BASIC_HEADER_": "Menu",
+  "_A_PAGE_MENU_BASIC_COMPONENT_DESCRIPTION_": "AMenu zapewnia nawigację z zagnieżdżonymi panelami, wyszukiwaniem, grupami i wyłączonymi linkami.",
+  "_A_PAGE_MENU_NESTED_HEADER_": "Zagnieżdżone menu z wyszukiwaniem",
+  "_A_PAGE_MENU_NESTED_DESCRIPTION_": "Otwórz Components → Form controls, aby zobaczyć zagnieżdżone panele, lub wyszukaj Input. Przewijaj menu wewnątrz kontenera, który ma stałą wysokość 24rem. Użyj przycisku powyżej, aby przełączać menu, także na urządzeniach mobilnych. Przykłady nie zmieniają klas elementu body ani nie pokazują tła mobilnego. Ustaw <code>is-inline</code> na true, aby umieścić menu w normalnym przepływie dokumentu i wypełnić wysokość jego kontenera. Nadaj kontenerowi jawną wysokość.",
+  "_A_PAGE_MENU_GROUPS_HEADER_": "Grupy i wyłączone linki",
+  "_A_PAGE_MENU_GROUPS_DESCRIPTION_": "Pole group grupuje linki pod nagłówkami. Link Notification jest wyłączony, a has-search ma wartość false. Przewijaj menu wewnątrz kontenera 24rem i użyj przycisku powyżej, aby je otworzyć lub zamknąć.",
+  "_A_PAGE_MENU_DOM_HEADER_": "Wyszukiwanie w przetłumaczonym tekście DOM",
+  "_A_PAGE_MENU_DOM_TRANSLATE_": "Przetłumacz DOM na niemiecki",
+  "_A_PAGE_MENU_DOM_DESCRIPTION_": "Właściwość <code>search-in-dom</code> domyślnie ma wartość false. Gdy ma wartość true, wyszukiwanie odczytuje wyrenderowane etykiety w panelach źródłowego menu zamiast etykiet z danych. Włącz przełącznik tłumaczenia, a następnie wyszukaj <strong>Eingabe</strong> lub <strong>Auswahl</strong>: dane nadal zawierają Input i Select. Wyniki, podświetlenie i etykiety elementów nadrzędnych używają tekstu z DOM. Tekst jest odczytywany ponownie po zmianie zapytania wyszukiwania, także w zamkniętych podmenu. Własne sloty powinny zachować przekazany identyfikator linku i opakować etykietę w <code>.a_menu__link__text</code>. Wyłącz przełącznik, aby przywrócić oryginalne angielskie etykiety.",
+  "_A_PAGE_MENU_CUSTOM_KEYS_HEADER_": "Własne klucze danych",
+  "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Zmapuj istniejące pola danych za pomocą <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> i <code>key-children</code>. Ten przykład używa pól code, title, symbol, section i items bez zmieniania nazw pól źródłowych. Trasy nadal używają <code>to</code>. Otwórz Form controls lub wyszukaj Input.",
+  "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Długie ścieżki nawigacyjne i liczba elementów podmenu",
+  "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Otwórz Components → Form controls → Text fields. Przy <code>is-breadcrumbs-truncated</code> linki nadrzędne, które się nie mieszczą, są przenoszone do listy rozwijanej ścieżki nawigacyjnej. Przełącznik steruje <code>show-count-children</code>, dzięki czemu możesz pokazywać lub ukrywać liczbę elementów podmenu.",
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Pokaż liczbę elementów podmenu"
+}

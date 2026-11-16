@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_EMAIL_": "Adres e-mail, dla którego ma zostać utworzone łącze HTML",
+  "_PAGE_FILTER_EMAIL_ARGUMENTS_LINK_CLASS_": "Klasa CSS, która zostanie dodana do utworzonego łącza HTML",
+  "_PAGE_FILTER_EMAIL_DESCRIPTION_": "Funkcja <strong>filterEmail</strong> tworzy łącze HTML dla adresu e-mail. Sprawdza, czy adres e-mail istnieje i nie jest pusty. Jeśli warunki są spełnione, zwracane jest łącze HTML w formacie <strong>&lt;a href=\"mailto:email\" class=\"linkClass\"&gt;email&lt;/a&gt;</strong>."
+}

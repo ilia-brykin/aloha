@@ -1,0 +1,12 @@
+{
+  "_A_SELECT_STYLE_COMPONENT_DESCRIPTION_": "Komponent do wyboru stylów z predefiniowanego zestawu stylów",
+  "_A_SELECT_STYLE_COMPONENT_NAME_": "Wybór stylu",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_DESCRIPTION_": "Rozszerzone dane umożliwiają dodanie do komponentu dodatkowych stylów",
+  "_A_SELECT_STYLE_GROUP_DATA_EXTENDED_HEADER_": "Rozszerzone dane",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_DESCRIPTION_": "Filtrowanie grup umożliwia wyświetlanie tylko wybranych grup stylów",
+  "_A_SELECT_STYLE_GROUP_FILTER_GROUPS_HEADER_": "Filtrowanie grup",
+  "_A_SELECT_STYLE_PROPS_DATA_EXTENDED_DESCRIPTION_": "Tablica obiektów z dodatkowymi stylami dla komponentu",
+  "_A_SELECT_STYLE_PROPS_FILTER_GROUPS_DESCRIPTION_": "Tablica lub obiekt do filtrowania grup stylów",
+  "_A_SELECT_STYLE_PROPS_TYPE_DESCRIPTION_": "Typ komponentu: <strong lang=\"en\">select</strong>, <strong lang=\"en\">selectStyle</strong>, <strong lang=\"en\">multiselect</strong>, <strong lang=\"en\">multiselectStyle</strong>",
+  "_A_SELECT_STYLES_VALUE_BG_ALOHA_": "Tło Aloha"
+}

@@ -1,0 +1,8 @@
+{
+  "_PAGE_PLUGIN_MOBILE_PAGE_TITLE_": "Wtyczka AMobilePlugin",
+  "_PAGE_PLUGIN_MOBILE_H1_": "Wtyczka <span lang=\"en\">AMobilePlugin</span>",
+  "_PAGE_PLUGIN_MOBILE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Wprowadzenie</h2><p><strong lang=\"en\">AMobilePlugin</strong> umożliwia ustawienie punktu granicznego (breakpoint) dla szerokości urządzeń mobilnych. Dzięki temu komponenty takie jak <strong lang=\"en\">ATable</strong> i <strong lang=\"en\">AButton</strong> mogą reagować na zmiany szerokości ekranu. Wtyczka udostępnia także <strong lang=\"en\">compositionAPI</strong> o nazwie <strong lang=\"en\">AMobileAPI</strong>, z którego możesz zaimportować <strong lang=\"en\">ref</strong> <strong lang=\"en\">isMobileWidth</strong> i używać go w swoich komponentach do dostosowywania interfejsu.</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_": "<h2 class=\"a_mb_3\">Podłączenie</h2><p>Aby podłączyć wtyczkę, dodaj ją do swojego projektu:</p>",
+  "_PAGE_PLUGIN_MOBILE_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Uwagi</h3><ul><li>Wartość punktu granicznego <strong lang=\"en\">breakpoint</strong> jest podawana w pikselach i określa maksymalną szerokość ekranu dla urządzeń mobilnych.</li><li>Wtyczka współpracuje z komponentami <strong lang=\"en\">aloha-vue</strong>, które obsługują adaptację do urządzeń mobilnych.</li></ul>",
+  "_PAGE_PLUGIN_MOBILE_EXAMPLES_": "<h2 class=\"a_mb_3\">Przykład użycia <strong lang=\"en\">AMobilePlugin</strong></h2>"
+}

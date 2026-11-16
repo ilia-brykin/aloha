@@ -1,0 +1,21 @@
+{
+  "_A_PAGINATION_PAGES_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">APaginationPages</strong> renderuje wyłącznie nawigację po stronach. Emituje zdarzenie <strong lang=\"en\">update:offset</strong>, aby komponent nadrzędny mógł załadować kolejną porcję elementów, zachowując synchronizację z bieżącą stroną.",
+  "_A_PAGINATION_PAGES_COMPONENT_NAME_": "Nawigacja po stronach",
+  "_A_PAGINATION_PAGES_PROPS_TOTAL_COUNT_DESCRIPTION_": "Łączna liczba elementów w zbiorze danych. Służy do obliczenia liczby stron i zakresu przycisków.",
+  "_A_PAGINATION_PAGES_PROPS_DISABLED_DESCRIPTION_": "Wyłącza przyciski stron i elementy sterujące nawigacją.",
+  "_A_PAGINATION_PAGES_PROPS_LIMIT_DESCRIPTION_": "Liczba elementów na stronę. Razem z <strong lang=\"en\">offset</strong> określa bieżącą stronę.",
+  "_A_PAGINATION_PAGES_PROPS_MAX_PAGES_DESCRIPTION_": "Maksymalna liczba przycisków stron, które mogą być wyświetlane jednocześnie.",
+  "_A_PAGINATION_PAGES_PROPS_MODE_DESCRIPTION_": "Tryb układu nawigacji: <strong lang=\"en\">normal</strong>, <strong lang=\"en\">short</strong> lub <strong lang=\"en\">loadMore</strong>.",
+  "_A_PAGINATION_PAGES_PROPS_OFFSET_DESCRIPTION_": "Indeks pierwszego elementu na bieżącej stronie. Komponent emituje <strong lang=\"en\">update:offset</strong>, gdy nawigacja się zmienia.",
+  "_A_PAGINATION_PAGES_PROPS_TEXTS_DESCRIPTION_": "Obiekt z kluczami tłumaczeń lub tekstami etykiet oraz tekstami aria używanymi przez paginator.",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_HEADER_": "Maksymalna liczba stron",
+  "_A_PAGINATION_PAGES_GROUP_MAX_PAGES_DESCRIPTION_": "Użyj suwaka, aby zmienić <strong lang=\"en\">max-pages</strong> i zobaczyć, jak zakres przycisków jest skracany.",
+  "_A_PAGINATION_PAGES_MAX_PAGES_LABEL_": "Maksymalna liczba stron",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_HEADER_": "Stan wyłączony",
+  "_A_PAGINATION_PAGES_GROUP_DISABLED_DESCRIPTION_": "Przełącz <strong lang=\"en\">disabled</strong>, aby zablokować całą nawigację po stronach.",
+  "_A_PAGINATION_PAGES_GROUP_MODE_HEADER_": "Tryb nawigacji",
+  "_A_PAGINATION_PAGES_GROUP_MODE_DESCRIPTION_": "Wybierz między układami <strong lang=\"en\">short</strong> i <strong lang=\"en\">normal</strong>.",
+  "_A_PAGINATION_PAGES_MODE_LABEL_": "Tryb",
+  "_A_PAGINATION_PAGES_MODE_SHORT_": "Krótki",
+  "_A_PAGINATION_PAGES_MODE_NORMAL_": "Normalny\n"
+}

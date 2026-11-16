@@ -1,0 +1,21 @@
+{
+  "_A_FILTERS_COMPONENT_DESCRIPTION_": "Umożliwia filtrowanie danych według różnych kryteriów.",
+  "_A_FILTERS_COMPONENT_NAME_": "Filtry",
+  "_A_PAGE_FILTERS_HEADER_": "Komponent Filtry",
+  "_A_PAGE_FILTERS_DESCRIPTION_": "Komponent Filtry umożliwia użytkownikom filtrowanie danych według różnych kryteriów.",
+  "_A_FILTERS_PAGE_DEFAULT_HIDE_HEADER_": "Filtry z domyślnie ukrytymi filtrami",
+  "_A_FILTERS_PAGE_FILTERS_DEFAULT_HIDE_DESCRIPTION_": "Filtry mogą być domyślnie ukryte i pokazywane w razie potrzeby.",
+  "_A_FILTERS_PAGE_MODEL_ID_HEADER_": "Filtry z modelem <strong lang=\"en\">ID</strong>",
+  "_A_FILTERS_PAGE_MODEL_ID_DESCRIPTION_": "Filtry można skonfigurować z modelem <strong lang=\"en\">ID</strong>, aby kontrolować filtrowanie.",
+  "_A_PAGE_FILTER_SEARCH_": "Szybkie wyszukiwanie",
+  "_A_PAGE_FILTER_SEARCH_SCREEN_READER_": "Szybkie wyszukiwanie dla czytnika ekranu",
+  "_A_PAGE_FILTER_TEXT_": "Tekst",
+  "_A_PAGE_FILTER_DATE_": "Data",
+  "_A_PAGE_FILTER_INTEGER_": "Liczba całkowita",
+  "_A_TABLE_FILTER_INPUT_DATE_RANGE_": "Zakres dat",
+  "_A_TABLE_FILTER_INPUT_NUMBER_RANGE_": "Zakres liczb",
+  "_A_TABLE_FILTER_SEARCH_": "Szukaj",
+  "_A_TABLE_FILTER_TEXT_": "Tekst",
+  "_A_TABLE_FILTER_DATE_": "Data",
+  "_A_TABLE_FILTER_EXTRA_": "Dodatkowy"
+}

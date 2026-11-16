@@ -1,0 +1,5 @@
+{
+  "_A_FIELDSET_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">AFieldset</strong> służy do grupowania elementów formularza w logiczny zestaw. Obsługuje różne funkcje, takie jak wyświetlanie błędów, tekst pomocy, zwijanie i rozwijanie zawartości oraz dostosowywanie stylów elementów podrzędnych.",
+  "_A_FIELDSET_COMPONENT_NAME_": "Grupa pól",
+  "_A_FIELDSET_PROPS_TEXTS_DESCRIPTION_": "Pozwala dostosować tekst akcji zwijania i rozwijania komponentu. Domyślnie do zamykania używany jest <strong lang=\"en\">_A_FIELDSET_COLLAPSE_CLOSE_</strong>, a do otwierania <strong lang=\"en\">_A_FIELDSET_COLLAPSE_OPEN_</strong>."
+}

@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_VALUE_": "Wartość liczbowa do sformatowania",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_SUFFIX_": "Sufiks dodawany po wartości liczbowej",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGITS_": "Liczba miejsc dziesiętnych po przecinku",
+  "_PAGE_FILTER_FLOAT_ARGUMENTS_DIGIT_GROUPING_": "Flaga określająca, czy ma być zastosowane grupowanie cyfr (separator tysięcy)",
+  "_PAGE_FILTER_FLOAT_DESCRIPTION_": "Funkcja <strong>filterFloat</strong> formatuje wartości liczbowe zgodnie z podanymi parametrami. Przyjmuje wartość liczbową i zwraca ją jako ciąg znaków z określoną liczbą miejsc dziesiętnych, sufiksem oraz opcjonalnym grupowaniem cyfr (separator tysięcy). Jeśli wartość liczbowa nie została podana (<strong>null</strong> lub <strong>undefined</strong>), zwracany jest pusty ciąg znaków."
+}

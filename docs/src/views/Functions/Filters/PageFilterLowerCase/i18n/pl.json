@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_LOWER_CASE_ARGUMENTS_VALUE_": "Ciąg znaków, który ma zostać zamieniony na małe litery.",
+  "_PAGE_FILTER_LOWER_CASE_DESCRIPTION_": "<p>Zamienia wejściowy ciąg znaków na małe litery.</p><p>Funkcja używa metody <strong>toLower</strong> z biblioteki lodash, aby zamienić przekazaną wartość na małe litery. Została zaprojektowana tak, aby obsługiwać wejściowe ciągi znaków w sposób bezpieczny i spójny.</p>"
+}

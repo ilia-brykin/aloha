@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_LIST_ARGUMENTS_ARRAY_": "Tablica dla listy",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_HTML_": "Jeśli <strong>True</strong>, tworzona jest lista HTML (&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;). W przeciwnym razie generowana jest lista tekstowa",
+  "_PAGE_FILTER_LIST_ARGUMENTS_IS_SIMPLE_ARRAY_": "Wskazuje, czy używana jest tylko prosta tablica bez obiektów",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_CHILDREN_": "Klucz elementów podrzędnych (tylko jeśli <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_": "Klucz etykiety do wyświetlenia (tylko jeśli <strong>isSimpleArray=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_KEY_LABEL_CALLBACK_": "Funkcja generująca etykiety z dwoma parametrami (<strong>item</strong>, <strong>itemIndex</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LAST_SEPARATOR_": "Określa separator używany przed ostatnim elementem listy.",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_": "Separator między elementami (tylko jeśli <strong>isHtml=false</strong>)",
+  "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "Znacznik HTML dla całej listy",
+  "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "Klasa CSS, np.: (a_list_without_styles)",
+  "_PAGE_FILTER_LIST_DESCRIPTION_": "Funkcja tworzy listę na podstawie tablicy.",
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Struktura drzewa isSimpleArray=true"
+}

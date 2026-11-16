@@ -1,0 +1,7 @@
+{
+  "_A_SCREENREADER_PAGE_NAME_": "Czytnik ekranu",
+  "_A_SCREENREADER_SR_ONLY_DESCRIPTION_": "Ukrywa element wizualnie, pozostawiając go dostępnym dla czytnika ekranu.",
+  "_A_SCREENREADER_SR_ONLY_FOCUSABLE_DESCRIPTION_": "Ukrywa element wizualnie i pozostawia go dostępnym dla czytnika ekranu, ale wyświetla go, gdy element lub dowolny z jego potomków otrzyma fokus.",
+  "_A_SCREENREADER_TABLE_DESCRIPTION_": "Klasy ukrywają elementy wizualnie, pozostawiając je dostępne dla czytnika ekranu.",
+  "_A_SCREENREADER_TABLE_NAME_": "Klasy dla czytnika ekranu"
+}

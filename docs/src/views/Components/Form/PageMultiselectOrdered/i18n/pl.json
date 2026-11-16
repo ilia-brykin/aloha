@@ -1,0 +1,19 @@
+{
+  "_A_MULTISELECT_ORDERED_COMPONENT_NAME_": "Wielokrotny wybór z kolejnością",
+  "_A_MULTISELECT_ORDERED_DESCRIPTION_": "Komponent umożliwia wybranie wielu elementów z możliwością ustawienia ich kolejności. Obsługuje sortowanie, usuwanie i przenoszenie elementów na liście.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_DESCRIPTION_": "Ten przykład pokazuje, jak grupować elementy z <strong lang=\"en\">data-extra</strong> za pomocą <strong lang=\"en\">key-group</strong>. Tablice <strong lang=\"en\">data</strong> i <strong lang=\"en\">data-extra</strong> używają tej samej konfiguracji grupowania i mogą zawierać oddzielne grupy.",
+  "_A_MULTISELECT_ORDERED_GROUP_DATA_EXTRA_HEADER_": "Pogrupowane dane dodatkowe",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_DESCRIPTION_": "Przykład wyświetlania przycisków do zbiorczego zaznaczania lub odznaczania. Możesz pokazać oba przyciski lub tylko jeden, w zależności od potrzeb interfejsu.",
+  "_A_MULTISELECT_ORDERED_GROUP_SELECT_DESELECT_ALL_HEADER_": "Przyciski „Zaznacz wszystko” i „Odznacz wszystko”",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_DESELECT_ALL_DESCRIPTION_": "Atrybuty i właściwości przekazywane do komponentu <strong lang=\"en\">AElement</strong> używanego jako przycisk „Odznacz wszystko”. Pozwalają dostosować zachowanie, wygląd i dostępność przycisku.",
+  "_A_MULTISELECT_ORDERED_PROPS_ATTRIBUTES_BTN_SELECT_ALL_DESCRIPTION_": "Atrybuty i właściwości przekazywane do komponentu <strong lang=\"en\">AElement</strong> używanego jako przycisk „Zaznacz wszystko”. Pozwalają dostosować wygląd, zachowanie i dostępność przycisku.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_CLASS_DESCRIPTION_": "Klasa <strong lang=\"en\">CSS</strong> przycisku usuwania elementu na liście wybranych.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DELETE_ICON_DESCRIPTION_": "Ikona przycisku usuwania elementu.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_CLASS_DESCRIPTION_": "Klasa <strong lang=\"en\">CSS</strong> przycisku przesuwającego element bliżej końca listy.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_DOWN_ICON_DESCRIPTION_": "Ikona przycisku przesuwającego element bliżej końca listy.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_GROUP_CLASS_DESCRIPTION_": "Klasa <strong lang=\"en\">CSS</strong> kontenera przycisków sterujących wybranym elementem.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_CLASS_DESCRIPTION_": "Klasa <strong lang=\"en\">CSS</strong> przycisku przesuwającego element bliżej początku listy.",
+  "_A_MULTISELECT_ORDERED_PROPS_BTN_UP_ICON_DESCRIPTION_": "Ikona przycisku przesuwającego element bliżej początku listy.",
+  "_A_MULTISELECT_ORDERED_PROPS_LIST_ITEM_CLASS_DESCRIPTION_": "Klasa <strong lang=\"en\">CSS</strong> elementu listy wybranych wartości.",
+  "_A_MULTISELECT_ORDERED_PROPS_TEXTS_DESCRIPTION_": "Obiekt z własnymi tekstami zastępującymi domyślne etykiety, takie jak „Zaznacz wszystko”, „Odznacz wszystko”, „Nie wybrano żadnych elementów” i inne."
+}

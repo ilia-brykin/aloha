@@ -1,0 +1,13 @@
+{
+  "_A_TEMPLATE_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">ATemplate</strong> jest używany jako uniwersalny slot dla komponentów takich jak <strong lang=\"en\"><a href=\"/#/fieldset\">AFieldset</a></strong> i <strong lang=\"en\"><a href=\"/#/form\">AForm</a></strong>. Rozszerza ich funkcjonalność, zapewniając elastyczność wyświetlania własnej zawartości za pomocą slotów i przekazywania danych przez właściwości.",
+  "_A_TEMPLATE_COMPONENT_NAME_": "Szablon",
+  "_A_TEMPLATE_GROUP_FIELDSET_DESCRIPTION_": "Ten przykład pokazuje, jak używać slotu <strong lang=\"en\">template</strong> w komponencie <strong lang=\"en\">AFieldset</strong>. Jednym z elementów potomnych jest szablon renderowany przez slot <strong lang=\"en\">template</strong>. W tym przykładzie wewnątrz szablonu wyświetlany jest przycisk z tekstem <strong lang=\"en\">'Aloha'</strong>.",
+  "_A_TEMPLATE_GROUP_FIELDSET_HEADER_": "Użycie szablonu w <strong lang=\"en\">AFieldset</strong>",
+  "_A_TEMPLATE_GROUP_HTML_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">html</strong> do renderowania zawartości <strong lang=\"en\">HTML</strong> wewnątrz komponentu <strong lang=\"en\">ATemplate</strong>. Kod <strong lang=\"en\">HTML</strong> jest wyświetlany w komponencie w bezpieczny sposób.",
+  "_A_TEMPLATE_GROUP_HTML_HEADER_": "Użycie <strong lang=\"en\">HTML</strong>",
+  "_A_TEMPLATE_GROUP_SLOT_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">slot-name</strong> i <strong lang=\"en\">options</strong> w komponencie <strong lang=\"en\">ATemplate</strong>. Slot otrzymuje parametry <strong lang=\"en\">options</strong> oraz wszystkie właściwości komponentu, których można użyć do skonfigurowania wyświetlanej zawartości.",
+  "_A_TEMPLATE_GROUP_SLOT_HEADER_": "Slot",
+  "_A_TEMPLATE_PROPS_HTML_DESCRIPTION_": "Zawartość <strong lang=\"en\">HTML</strong>, która zostanie bezpiecznie wyrenderowana wewnątrz komponentu.",
+  "_A_TEMPLATE_PROPS_OPTIONS_DESCRIPTION_": "Dowolne dane do przekazania do slotu.",
+  "_A_TEMPLATE_PROPS_SLOT_NAME_DESCRIPTION_": "Nazwa slotu, do którego zostanie przekazana własna zawartość."
+}

@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_DATE_ARGUMENTS_VALUE_": "Data lub godzina do sformatowania",
+  "_PAGE_FILTER_DATE_ARGUMENTS_FORMAT_": "Format wyświetlania daty. Możliwe wartości: \"date\" (data), \"datetime\" (data i godzina), \"fullDate\" (pełna data i godzina), \"time\" (godzina), \"timeWithSeconds\" (godzina z sekundami) lub prawidłowy format z <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a>",
+  "_PAGE_FILTER_DATE_DESCRIPTION_": "Funkcja <strong>filterDate</strong> używa biblioteki <a href=\"https://momentjs.com/docs/#/displaying/format/\">moment.js</a> do formatowania dat i godzin. Przyjmuje wartość daty lub czasu i zwraca ją w podanym formacie. Zwróć uwagę, że moment.js jest uznawana za przestarzałą bibliotekę i w przyszłości ma zostać zastąpiona innym rozwiązaniem. Planowane jest również rozszerzenie funkcji o obsługę różnych języków."
+}

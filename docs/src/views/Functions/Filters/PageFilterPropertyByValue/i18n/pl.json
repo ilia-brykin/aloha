@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_VALUE_": "Wartość, która ma zostać zmapowana na właściwość w obiekcie mapowania",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_MAPPING_": "Obiekt definiujący mapowanie wartości na właściwości",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_ARGUMENTS_DEFAULT_VALUE_": "Wartość domyślna zwracana, jeśli przekazana wartość nie zostanie znaleziona w obiekcie mapowania",
+  "_PAGE_FILTER_PROPERTY_BY_VALUE_DESCRIPTION_": "Funkcja <strong>filterPropertyByValue</strong> pozwala mapować wartości na predefiniowane właściwości w obiekcie mapowania. Sprawdza, czy przekazana wartość istnieje jako klucz w obiekcie mapowania. Jeśli tak, zwracana jest powiązana właściwość; w przeciwnym razie używana jest wartość domyślna."
+}

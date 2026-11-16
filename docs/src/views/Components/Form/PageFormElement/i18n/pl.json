@@ -1,0 +1,6 @@
+{
+  "_A_FORM_ELEMENT_COMPONENT_DESCRIPTION_": "Komponent opakowujący do dynamicznego wyświetlania różnych elementów formularza na podstawie podanego typu. Umożliwia renderowanie różnych komponentów (elementów formularza) poprzez przekazanie wymaganych parametrów, zdarzeń i slotów. Upraszcza budowanie formularzy na podstawie danych konfiguracyjnych.",
+  "_A_FORM_ELEMENT_COMPONENT_NAME_": "Element formularza",
+  "_A_FORM_ELEMENT_PROPS_OPTIONS_DESCRIPTION_": "Obiekt z dodatkowymi parametrami przekazywanymi do komponentu określonego w parametrze <strong lang=\"en\">type</strong>. Przydatny do przekazywania wszelkich <strong lang=\"en\">props</strong>, które nie są jawnie opisane w <strong lang=\"en\">AFormElement</strong>, ale są obsługiwane przez renderowany komponent.",
+  "_A_FORM_ELEMENT_PROPS_TYPE_DESCRIPTION_": "Typ komponentu do wyrenderowania. Służy do wyboru odpowiedniego elementu formularza, na przykład: <strong lang=\"en\">input</strong>, <strong lang=\"en\">select</strong>, <strong lang=\"en\">checkbox</strong>, <strong lang=\"en\">group</strong>, <strong lang=\"en\">fieldset</strong> itp."
+}

@@ -1,0 +1,5 @@
+{
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_VALUE_": "Wartość do sprawdzenia",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_ARGUMENTS_EMPTY_VALUE_": "Wartość domyślna zwracana, jeśli sprawdzana wartość jest uznawana za pustą",
+  "_PAGE_FILTER_DEFAULT_FOR_EMPTY_DESCRIPTION_": "Funkcja <strong>filterDefaultForEmpty</strong> służy do sprawdzania wartości i zwracania wartości domyślnej, jeśli sprawdzana wartość jest uznawana za pustą. W tym kontekście wartość jest uznawana za pustą, jeśli jest <strong>undefined</strong>, <strong>null</strong> lub pustym ciągiem znaków."
+}

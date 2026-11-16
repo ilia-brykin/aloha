@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_PAGE_TITLE_": "Wtyczka APageTabTitlePlugin",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_H1_": "Wtyczka <span lang=\"en\">APageTabTitlePlugin</span>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_INTRODUCTION_": "<h2 class=\"a_mb_3\">Wprowadzenie</h2><p><strong lang=\"en\">APageTabTitlePlugin</strong> służy do ustawienia tytułu bazowego <strong lang=\"en\">baseTitle</strong> dla znacznika <strong lang=\"en\">&lt;title&gt;</strong> w Twoim projekcie. Bazowa część tytułu (np. nazwa aplikacji) jest ustawiana jednokrotnie za pomocą wtyczki i automatycznie dołączana na końcu tytułu każdej strony. Unikalna część tytułu, specyficzna dla każdej strony, jest ustawiana za pomocą komponentu <strong lang=\"en\">APageTabTitle</strong> przez właściwość <strong lang=\"en\">title</strong>.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_CONNECTION_": "<h2 class=\"a_mb_3\">Podłączenie</h2><p>Aby podłączyć wtyczkę, dodaj ją do swojego projektu:</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_NOTES_": "<h3 class=\"a_mb_3\">Uwagi</h3><ul><li>Tytuł bazowy <strong lang=\"en\">baseTitle</strong> jest ustawiany podczas inicjalizacji wtyczki i pozostaje niezmieniony w całej aplikacji.</li><li>Unikalny tytuł każdej strony jest dodawany za pomocą komponentu <strong lang=\"en\">APageTabTitle</strong>.</li></ul>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_": "<h2 class=\"a_mb_3\">Przykład użycia komponentu <strong lang=\"en\">APageTabTitle</strong></h2><p>Komponent <strong lang=\"en\">APageTabTitle</strong> pozwala ustawić unikalną część tytułu dla każdej strony.</p>",
+  "_PAGE_PLUGIN_PAGE_TAB_TITLE_EXAMPLES_NOTES_": "<p>W tym przykładzie pełny tytuł strony będzie brzmiał: <strong lang=\"en\">\"Home Page - Documentation aloha-vue\"</strong>.</p>"
+}

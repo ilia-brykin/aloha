@@ -1,0 +1,19 @@
+{
+  "_A_CLOAK_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">ACloak</strong> wyświetla wskaźnik ładowania z tekstem informującym o trwającym ładowaniu strony lub dużego komponentu. Obsługuje różne opcje dostosowania, w tym wyrównanie tekstu, rozmiar wskaźnika oraz możliwość zmiany znacznika <strong lang=\"en\">HTML</strong> używanego do renderowania.",
+  "_A_CLOAK_COMPONENT_NAME_": "Ekran ładowania",
+  "_A_CLOAK_GROUP_ALIGN_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">align</strong>. Pozwala ono wyrównać tekst i spinner do środka, do lewej lub do prawej. Na przykład pierwszy spinner jest wyrównany do lewej, drugi do środka, a trzeci do prawej.",
+  "_A_CLOAK_GROUP_ALIGN_HEADER_": "Wyrównanie komponentu",
+  "_A_CLOAK_GROUP_SIZES_DESCRIPTION_": "Ten przykład pokazuje, jak użyć <strong lang=\"en\">size</strong> do kontrolowania rozmiaru zarówno tekstu, jak i wskaźnika ładowania. Wartości mieszczą się w zakresie od <strong lang=\"en\">1</strong> (największy) do <strong lang=\"en\">7</strong> (najmniejszy).",
+  "_A_CLOAK_GROUP_SIZES_HEADER_": "Rozmiary",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">text-align</strong>. Ta właściwość pozwala wyrównać tekst towarzyszący spinnerowi ładowania do lewej lub do prawej. W pierwszym przykładzie tekst jest wyrównany do lewej, a w drugim do prawej.",
+  "_A_CLOAK_GROUP_TEXT_ALIGN_HEADER_": "Wyrównanie tekstu",
+  "_A_CLOAK_GROUP_TEXT_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">text</strong> i <strong lang=\"en\">extra</strong>. Parametr <strong lang=\"en\">extra</strong> pozwala dynamicznie zmieniać tekst. W tym przypadku tekst wyświetla komunikat 'Ładowanie 1', gdzie liczba <strong>{{ number }}</strong> pochodzi z przekazanego obiektu <strong lang=\"en\">extra</strong>.",
+  "_A_CLOAK_GROUP_TEXT_HEADER_": "Tekst z parametrem <strong lang=\"en\">extra</strong>",
+  "_A_CLOAK_PROPS_ALIGN_DESCRIPTION_": "Określa wyrównanie tekstu i spinnera wewnątrz komponentu. Możliwe wartości: <strong lang=\"en\">left</strong>, <strong lang=\"en\">center</strong> i <strong lang=\"en\">right</strong>.",
+  "_A_CLOAK_PROPS_SIZE_DESCRIPTION_": "Określa rozmiar tekstu i wskaźnika ładowania. Prawidłowe wartości mieszczą się w zakresie od <strong lang=\"en\">1</strong> (największy) do <strong lang=\"en\">7</strong> (najmniejszy).",
+  "_A_CLOAK_PROPS_SPINNER_CLASS_DESCRIPTION_": "Klasa <strong lang=\"en\">CSS</strong> do dostosowania wyglądu wskaźnika ładowania.",
+  "_A_CLOAK_PROPS_TAG_DESCRIPTION_": "Znacznik <strong lang=\"en\">HTML</strong> używany do renderowania komponentu.",
+  "_A_CLOAK_PROPS_TEXT_ALIGN_DESCRIPTION_": "Określa wyrównanie tekstu względem spinnera. Możliwe wartości: <strong lang=\"en\">left</strong> i <strong lang=\"en\">right</strong>. Domyślnie tekst jest wyrównany do prawej.",
+  "_A_CLOAK_PROPS_TEXT_DESCRIPTION_": "Tekst, który będzie wyświetlany obok wskaźnika ładowania.",
+  "_PAGE_CLOAK_TEXT_{{number}}_": "Ładowanie {{ number }}\n"
+}

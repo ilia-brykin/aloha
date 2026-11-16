@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_LINK_ARGUMENTS_URL_": "Adres URL, który ma zostać wstawiony do linku HTML",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_TEXT_": "Tekst, który będzie wyświetlany w linku HTML. Jeśli nie zostanie podany, używany jest adres URL",
+  "_PAGE_FILTER_LINK_ARGUMENTS_PROTOCOL_": "Protokół dodawany przed adresem URL",
+  "_PAGE_FILTER_LINK_ARGUMENTS_TARGET_": "Atrybut <strong>target</strong> linku HTML, który kontroluje zachowanie przy otwieraniu linku",
+  "_PAGE_FILTER_LINK_ARGUMENTS_LINK_CLASS_": "Klasa CSS, która zostanie dodana do linku HTML",
+  "_PAGE_FILTER_LINK_DESCRIPTION_": "Funkcja <strong>filterLink</strong> tworzy link HTML na podstawie podanego adresu URL. Umożliwia dostosowanie protokołu, celu (target), klasy CSS i wyświetlanego tekstu linku. Funkcja sprawdza poprawność adresu URL i zapewnia jego bezpieczne wstawienie do linku HTML."
+}

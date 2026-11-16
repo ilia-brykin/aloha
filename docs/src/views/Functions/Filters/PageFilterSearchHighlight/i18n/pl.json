@@ -1,0 +1,10 @@
+{
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_ATTRIBUTES_": "Lista dodatkowych atrybutów w formacie <strong lang=\"en\">['key=\"value\"', 'key2=\"value2\"']</strong>",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_CASE_SENSITIVE_": "Określa, czy wyszukiwanie ma uwzględniać wielkość liter",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_IS_HTML_": "Określa, czy wartość ma być interpretowana jako <strong lang=\"en\">HTML</strong> i czy wyszukiwanie ma obejmować wyłącznie zawartość tekstową.",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_CLASS_": "Klasa <strong lang=\"en\">CSS</strong>, która ma nadać styl wyróżnionej części wartości",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_SEARCH_MODEL_": "Szukana fraza, która ma zostać wyróżniona w wartości",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_TAG_": "Znacznik <strong lang=\"en\">HTML</strong>, który ma być użyty zamiast mark",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_ARGUMENTS_VALUE_": "Wartość, w której ma zostać wyróżniona szukana fraza",
+  "_PAGE_FILTER_SEARCH_HIGHLIGHT_DESCRIPTION_": "Funkcja <strong lang=\"en\">filterSearchHighlight</strong> służy do oznaczania szukanej frazy w wartości poprzez ujęcie jej w znaczniki <strong lang=\"en\">HTML</strong>. Umożliwia dostosowanie szukanej frazy oraz klasy <strong lang=\"en\">CSS</strong> użytej do wyróżnienia."
+}

@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_ODD_ARGUMENTS_VALUE_": "Liczba, która ma zostać sprawdzona pod kątem nieparzystości",
+  "_PAGE_UTILS_MATH_IS_ODD_DESCRIPTION_": "<p>Określa, czy podana liczba jest nieparzysta.</p><p>Funkcja najpierw sprawdza, czy podana wartość jest liczbą całkowitą. Dla wartości niecałkowitych zwraca <strong>false</strong>, aby zapewnić dokładne sprawdzenie nieparzystości. Dla wartości całkowitych sprawdza, czy liczba jest nieparzysta.</p>"
+}

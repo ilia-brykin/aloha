@@ -1,0 +1,4 @@
+{
+  "_PAGE_UTILS_MATH_IS_EVEN_ARGUMENTS_VALUE_": "Liczba, której parzystość ma zostać sprawdzona",
+  "_PAGE_UTILS_MATH_IS_EVEN_DESCRIPTION_": "<p>Określa, czy podana liczba jest parzysta.</p><p>Funkcja najpierw sprawdza, czy podana wartość jest liczbą całkowitą. Dla wartości niecałkowitych zwraca <strong>false</strong>, aby zapewnić dokładne sprawdzenie parzystości. Dla wartości całkowitych sprawdza, czy liczba jest parzysta.</p>"
+}

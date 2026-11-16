@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_CAPITALIZE_ARGUMENTS_VALUE_": "Ciąg znaków, który ma zostać zamieniony na postać z wielką pierwszą literą.",
+  "_PAGE_FILTER_CAPITALIZE_DESCRIPTION_": "<p>Zamienia pierwszy znak ciągu na wielką literę, a pozostałe na małe litery.</p><p>Ta funkcja używa metody <strong>capitalize</strong> biblioteki lodash do konwersji podanej wartości. Została zaprojektowana tak, aby bezpiecznie i spójnie obsługiwać ciągi wejściowe.</p>"
+}

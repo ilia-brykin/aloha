@@ -1,0 +1,7 @@
+{
+  "_PAGE_UTILS_A_ORDER_BY_DESCRIPTION_": "Rozszerza funkcję orderBy z lodash o porównywanie bez uwzględniania wielkości liter domyślnie, zachowując wszystkie kombinacje iteratorów i kierunków sortowania.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_COLLECTION_": "Kolekcja do iteracji (tablica lub obiekt).",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ITERATEES_": "Iteratory definiujące kryteria sortowania; akceptuje ścieżki właściwości, funkcje, tablice, obiekty skrótowe lub null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_ORDERS_": "Kierunki sortowania odpowiadające iteratorom (np. „asc”, „desc”); akceptuje ciąg znaków, tablicę lub null.",
+  "_PAGE_UTILS_A_ORDER_BY_ARGUMENTS_OPTIONS_": "Opcjonalny obiekt konfiguracji ({ caseSensitive?: boolean }) przekazywany jako ostatni argument."
+}

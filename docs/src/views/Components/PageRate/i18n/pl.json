@@ -1,0 +1,17 @@
+{
+  "_A_RATE_EVENT_DESCRIPTION_": "aktualizacja modelValue",
+  "_A_RATE_DESCRIPTION_MODEL_VALUE_": "służy do śledzenia liczby wybranych ikon",
+  "_A_RATE_DESCRIPTION_SIZE_": "określa rozmiar ikony",
+  "_A_RATE_DESCRIPTION_HALF_ICON_": "umożliwia wybór połowy ikony",
+  "_A_RATE_DESCRIPTION_READONLY_": "wyłącza emitowanie zdarzenia zmieniającego modelValue",
+  "_A_RATE_DESCRIPTION_COLOR_": "określa kolor wypełnionej ikony",
+  "_A_RATE_DESCRIPTION_HOVERED_COLOR_": "określa kolor wypełnionych ikon po najechaniu na nie kursorem myszy",
+  "_A_RATE_DESCRIPTION_RATING_": "określa liczbę wyświetlanych ikon",
+  "_A_RATE_DESCRIPTION_ICON_": "określa kształt wyświetlanej ikony",
+  "_A_RATE_DESCRIPTION_ICON_FILL_": "określa wypełnioną wersję ikony",
+  "_A_RATE_DESCRIPTION_SHOW_SCORE_": "gdy ma wartość true, umożliwia wyświetlenie modelValue",
+  "_A_RATE_DESCRIPTION_TEXT_": "określa tłumaczony tekst do wyświetlenia",
+  "_A_RATE_DESCRIPTION_EXTRA_": "określa dodatkowe dane do tłumaczenia",
+  "_A_RATE_DESCRIPTION_": "umożliwia osadzanie interaktywnych ocen z konfigurowalnymi ikonami, kolorami i rozmiarami",
+  "_A_RATE_DESCRIPTION_TEXT_EXTRA_": "określa tłumaczony tekst do wyświetlenia oraz dodatkowe dane do tłumaczenia"
+}

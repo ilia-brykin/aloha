@@ -1,0 +1,14 @@
+{
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_VALUE_": "Wartość sprawdzana przez warunki, którą można wykorzystywać w funkcjach, wyrażeniach i szablonach.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_CONDITIONS_": "Uporządkowana lista obiektów warunków. Pierwszy pasujący warunek określa zwracaną wartość.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_IF_": "Funkcja lub wyrażenie JavaScript w postaci ciągu znaków, które otrzymuje bieżącą wartość i decyduje, czy warunek jest spełniony.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_": "Wartość statyczna lub funkcja zwracana, gdy warunek jest spełniony.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_THEN_TEMPLATE_": "Szablon tekstowy JavaScript używany, gdy warunek jest spełniony. Bieżąca wartość jest dostępna jako value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_VALUE_": "Wartość statyczna lub funkcja zwracana, gdy żaden warunek nie jest spełniony.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_ARGUMENTS_DEFAULT_TEMPLATE_": "Szablon tekstowy JavaScript zwracany, gdy żaden warunek nie jest spełniony. Bieżąca wartość jest dostępna jako value.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_DESCRIPTION_": "Funkcja <strong>filterValueByCondition</strong> zwraca wynik na podstawie pierwszego pasującego warunku. Warunki mogą być funkcjami lub wyrażeniami JavaScript w postaci ciągów znaków. Wynikami mogą być wartości statyczne, funkcje lub szablony tekstowe.",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_FUNCTION_CONDITIONS_": "Warunki w postaci funkcji",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_MIXED_CONDITIONS_": "Warunki mieszane",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_STRING_EXPRESSIONS_AND_TEMPLATES_": "Wyrażenia tekstowe i szablony",
+  "_PAGE_FILTER_VALUE_BY_CONDITION_SECURITY_": "Wyrażenia tekstowe i szablony są wykonywane jako JavaScript. Używaj ich wyłącznie z zaufaną konfiguracją i nigdy z niesprawdzonymi danymi wprowadzonymi przez użytkownika."
+}

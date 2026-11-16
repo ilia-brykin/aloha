@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_FALSE_VALUE_": "Przetłumaczony tekst zwracany, gdy wartość to <strong>False</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_TRUE_VALUE_": "Przetłumaczony tekst zwracany, gdy wartość to <strong>True</strong>",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_USE_NIL_": "Określa, czy dla <strong>undefined</strong> lub <strong>null</strong> ma być zwracany pusty ciąg znaków",
+  "_PAGE_FILTER_BOOLEAN_ARGUMENTS_VALUE_": "Wartość, która ma zostać zamieniona na przetłumaczony tekst",
+  "_PAGE_FILTER_BOOLEAN_DESCRIPTION_": "Funkcja <strong>filterBoolean</strong> służy do zamiany <strong>wartości logicznej</strong> na przetłumaczony tekst. Umożliwia dostosowanie tekstów dla wartości <strong>True</strong> i <strong>False</strong> oraz zwracanie pustego ciągu znaków dla <strong>undefined</strong> lub <strong>null</strong>."
+}

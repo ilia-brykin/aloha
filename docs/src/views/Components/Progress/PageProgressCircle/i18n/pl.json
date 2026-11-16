@@ -1,0 +1,18 @@
+{
+  "_A_PROGRESS_CIRCLE_COMPONENT_NAME_": "Okrągły wskaźnik postępu",
+  "_A_PROGRESS_CIRCLE_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">AProgressCircle</strong> wyświetla postęp w postaci okrągłego wskaźnika. Obsługuje stan standardowy i nieokreślony, a przydaje się, gdy chcesz zwizualizować stopień ukończenia na niewielkiej przestrzeni.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_DESCRIPTION_": "Komponent <strong lang=\"en\">AProgressCircle</strong> pozwala wyświetlić animowany, nieokreślony okrągły wskaźnik postępu. Za pomocą właściwości <strong>indeterminate</strong> możesz zasygnalizować, że operacja trwa, bez pokazywania konkretnej wartości ukończenia.",
+  "_A_PROGRESS_CIRCLE_GROUP_INDETERMINATE_HEADER_": "Nieokreślony okrągły postęp z animacją",
+  "_A_PROGRESS_CIRCLE_PROPS_DURATION_": "Określa czas trwania animacji okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_INDETERMINATE_": "Włącza tryb nieokreślony okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_MAX_": "Górna granica, wartość maksymalna okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_MIN_": "Dolna granica, wartość minimalna okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_ROTATE_": "Obraca okrągły wskaźnik postępu o podaną liczbę stopni.",
+  "_A_PROGRESS_CIRCLE_PROPS_SHOW_VALUE_": "Określa, czy wartość postępu ma być wyświetlana wewnątrz okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_STROKE_WIDTH_": "Ustawia grubość linii okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_": "Bieżąca wartość postępu okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_CLASS_": "Jedna lub więcej klas do dostosowania tekstu wyświetlanej wartości postępu.",
+  "_A_PROGRESS_CIRCLE_PROPS_VALUE_TEXT_INTEGER_": "Określa sposób formatowania wyświetlanej wartości postępu. Po włączeniu wartość jest pokazywana jako całkowity procent.",
+  "_A_PROGRESS_CIRCLE_PROPS_WIDTH_": "Ustawia szerokość i wysokość okrągłego wskaźnika postępu.",
+  "_A_PROGRESS_CIRCLE_SLOT_PROGRESS_TEXT_": "Pozwala dostosować wyświetlaną wartość postępu. Zakres slotu udostępnia wartość <strong>valuePercent</strong>."
+}

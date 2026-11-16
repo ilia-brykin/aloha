@@ -47,6 +47,10 @@ export default function LanguagesAPI() {
       value: "nl",
     },
     {
+      label: "Polski",
+      value: "pl",
+    },
+    {
       label: "Українська",
       value: "uk",
     },

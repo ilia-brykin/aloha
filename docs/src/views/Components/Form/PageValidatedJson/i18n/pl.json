@@ -1,0 +1,10 @@
+{
+  "_A_VALIDATED_JSON_COMPONENT_NAME_": "Walidowany JSON",
+  "_A_VALIDATED_JSON_COMPONENT_DESCRIPTION_": "AValidatedJson to komponent do edycji danych strukturalnych z regułami walidacji. Obsługuje tryby pojedynczego elementu, listy i JSON oraz pomaga użytkownikom bezpiecznie zarządzać złożonymi danymi formularza.",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_SINGLE_": "Element",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_LIST_": "Elementy",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_JSON_": "Obiekt JSON",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_HEADER_": "valueKey: listy wartości prostych",
+  "_A_VALIDATED_JSON_COMPONENT_LABEL_VALUE_": "Wartość",
+  "_A_VALIDATED_JSON_COMPONENT_PRIMITIVE_LIST_DESCRIPTION_": "Użyj <code>mode=\"list\"</code> z <code>value-key=\"value\"</code>, aby edytować tablicę wartości prostych, na przykład ciągów znaków. Pole podrzędne z <code>id=\"value\"</code> definiuje edytor dla każdego elementu, a model pozostaje zwykłą tablicą, na przykład <code>[\"Aloha\", \"Vue\"]</code>. Przykład pokazuje także walidację duplikatów za pomocą <code>unique-children-ids</code> oraz widok tylko do odczytu tych samych danych."
+}

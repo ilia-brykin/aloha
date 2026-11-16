@@ -1,0 +1,6 @@
+{
+  "_PAGE_UTILS_A_SORT_BY_DESCRIPTION_": "Rozszerza funkcję sortBy z lodash o domyślne porównywanie bez uwzględniania wielkości liter, zachowując obsługę wszystkich skróconych form iteratee.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_COLLECTION_": "Kolekcja do przeiterowania (tablica lub obiekt).",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_ITERATEES_": "Iteratee opisujące kryteria sortowania; akceptuje ścieżki właściwości, funkcje, tablice lub obiekty w skróconej formie.",
+  "_PAGE_UTILS_A_SORT_BY_ARGUMENTS_OPTIONS_": "Opcjonalny obiekt konfiguracji ({ caseSensitive?: boolean }) przekazywany jako ostatni argument."
+}

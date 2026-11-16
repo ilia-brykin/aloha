@@ -1,0 +1,22 @@
+{
+  "_A_TOOLTIP_COMPONENT_NAME_": "Podpowiedź (tooltip)",
+  "_A_TOOLTIP_COMPONENT_DESCRIPTION_": "ATooltip wyświetla dodatkowe informacje, gdy użytkownik najedzie kursorem na element lub ustawi na nim fokus.",
+  "_A_TOOLTIP_GROUP_TAG_HEADER_": "Niestandardowy znacznik",
+  "_A_TOOLTIP_GROUP_TAG_DESCRIPTION_": "Możesz zmienić znacznik HTML używany dla elementu wyzwalającego podpowiedź.",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_HEADER_": "Maksymalna szerokość",
+  "_A_TOOLTIP_GROUP_MAX_WIDTH_DESCRIPTION_": "Ogranicza maksymalną szerokość zawartości podpowiedzi.",
+  "_A_TOOLTIP_GROUP_WIDTH_HEADER_": "Stała szerokość",
+  "_A_TOOLTIP_GROUP_WIDTH_DESCRIPTION_": "Ustawia stałą szerokość zawartości podpowiedzi.",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_HEADER_": "Opóźnienie zamknięcia",
+  "_A_TOOLTIP_GROUP_TIME_CLOSE_DESCRIPTION_": "Określa, jak długo podpowiedź pozostaje widoczna po tym, jak wskaźnik myszy opuści wyzwalacz lub obszar podpowiedzi.",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_HEADER_": "Ukrywanie strzałki",
+  "_A_TOOLTIP_GROUP_HIDE_ARROW_DESCRIPTION_": "Strzałkę podpowiedzi można ukryć.",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_HEADER_": "Przesunięcie poziome",
+  "_A_TOOLTIP_GROUP_OFFSET_SKIDDING_DESCRIPTION_": "Przesuwa podpowiedź wzdłuż osi elementu odniesienia.",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_HEADER_": "Odległość od wyzwalacza",
+  "_A_TOOLTIP_GROUP_OFFSET_DISTANCE_DESCRIPTION_": "Zmienia odległość między podpowiedzią a elementem wyzwalającym.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Margines strzałki",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Ustawia margines, który ogranicza, jak blisko krawędzi podpowiedzi może znaleźć się strzałka.",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Funkcja zwrotna marginesu strzałki",
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Margines strzałki można także obliczać dynamicznie za pomocą funkcji zwrotnej (callback)."
+}

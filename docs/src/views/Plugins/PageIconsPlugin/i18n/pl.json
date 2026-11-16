@@ -1,0 +1,9 @@
+{
+  "_PAGE_PLUGIN_ICON_PAGE_TITLE_": "Wtyczka AIconPlugin",
+  "_PAGE_PLUGIN_ICON_H1_": "Wtyczka <span lang=\"en\">AIconPlugin</span>",
+  "_PAGE_PLUGIN_ICON_INTRODUCTION_": "<h2 class=\"a_mb_3\">Wprowadzenie</h2><p><strong lang=\"en\">AIconPlugin</strong> umożliwia podłączenie zestawu ikon, które można używać w komponentach <strong lang=\"en\">Aloha-Vue</strong>, takich jak <strong lang=\"en\">AButton</strong> i <strong lang=\"en\">AIcon</strong>. Zalecamy używanie ikon z biblioteki <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a>, która łączy aktualne ikony <strong lang=\"en\">SVG</strong> z różnych źródeł, takich jak <strong lang=\"en\">Bootstrap</strong>, <strong lang=\"en\">Flag Icons</strong> i <strong lang=\"en\">Tabler Icons</strong>. Ikony są importowane jako pliki <strong lang=\"en\">JavaScript</strong>.</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_": "<h2 class=\"a_mb_3\">Podłączenie</h2><p>Zacznij od podłączenia wtyczki i ikon w swoim projekcie:</p>",
+  "_PAGE_PLUGIN_ICON_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Uwagi</h3><ul><li>Możesz importować ikony z dowolnej biblioteki, ale dla wygody i aktualności ikon zalecamy <a href=\"https://www.npmjs.com/package/aloha-svg\" lang=\"en\">aloha-svg</a>.</li><li>Wszystkie zarejestrowane ikony będą dostępne w komponentach, które je obsługują, za pośrednictwem odpowiedniej właściwości.</li></ul>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_": "<h2 class=\"a_mb_3\">Przykłady użycia</h2><h3 class=\"a_mb_3\">Użycie w <strong lang=\"en\">AButton</strong></h3><p>Komponent <strong lang=\"en\">AButton</strong> obsługuje ikony za pomocą właściwości <strong lang=\"en\">icon-left</strong> i <strong lang=\"en\">icon-right</strong>.</p>",
+  "_PAGE_PLUGIN_ICON_EXAMPLES_A_ICON_": "<h3 class=\"a_mb_3\">Użycie w <strong lang=\"en\">AIcon</strong></h3><p>Komponent <strong lang=\"en\">AIcon</strong> pozwala bezpośrednio używać zarejestrowanych ikon.</p>\n"
+}

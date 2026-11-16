@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGIT_GROUPING_": "Wskazuje, czy włączone jest grupowanie cyfr, wstawiające separatory tysięcy w sformatowanym ciągu znaków",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_DIGITS_": "Liczba miejsc dziesiętnych w sformatowanym ciągu znaków",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_SUFFIX_": "Sufiks dodawany do sformatowanego ciągu znaków w celu oznaczenia waluty",
+  "_PAGE_FILTER_CURRENCY_ARGUMENTS_VALUE_": "Wartość liczbowa do sformatowania jako waluta",
+  "_PAGE_FILTER_CURRENCY_DESCRIPTION_": "Funkcja <strong>filterCurrency</strong> jest wyspecjalizowanym rozszerzeniem funkcji <a href=\"/#/filter-float\"><strong>filterFloat</strong></a> i służy do formatowania wartości liczbowych jako waluty. Przyjmuje wartość liczbową i zwraca ciąg znaków reprezentujący wartość z określoną walutą, liczbą miejsc dziesiętnych, sufiksem i opcjonalnym grupowaniem cyfr (separatorem tysięcy). Jeśli wartość liczbowa nie jest określona (null lub undefined), zwracany jest pusty ciąg znaków. Funkcja została zaprojektowana tak, aby można ją było rozszerzać na wiele walut."
+}

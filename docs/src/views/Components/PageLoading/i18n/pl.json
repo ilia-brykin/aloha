@@ -1,0 +1,6 @@
+{
+  "_A_LOADING_COMPONENT_DESCRIPTION_": "Komponent <strong>ALoading</strong> wyświetla nad zawartością spinner ładowania z tekstem, gdy właściwość <strong>is-loading</strong> ma wartość <strong>true</strong>. Służy do blokowania zawartości i wyświetlania spinnera do czasu zakończenia procesu ładowania.",
+  "_A_LOADING_COMPONENT_NAME_": "Ekran ładowania nad zawartością",
+  "_A_LOADING_PROPS_IS_LOADING_DESCRIPTION_": "Określa, czy wskaźnik ładowania ma być wyświetlany. Jeśli ma wartość <strong>true</strong>, wskaźnik ładowania pojawi się nad zawartością komponentu.",
+  "_PAGE_LOADING_TEXT_{{number}}_": "Ładowanie {{ number }}"
+}

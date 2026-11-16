@@ -1,0 +1,4 @@
+{
+  "_PAGE_FILTER_ESCAPE_HTML_ARGUMENTS_VALUE_": "Ciąg znaków zawierający potencjalnie niebezpieczny kod HTML",
+  "_PAGE_FILTER_ESCAPE_HTML_DESCRIPTION_": "<p>Escapuje znaki specjalne HTML w ciągu znaków, aby zapobiec atakom XSS.</p><p>Ta funkcja przyjmuje ciąg znaków i zamienia znaki specjalne (takie jak <, >, &, itp.) na odpowiadające im encje HTML (np. &amp;lt;, &amp;gt;, &amp;amp;, itp.), dzięki czemu ciąg można bezpiecznie renderować jako HTML.</p>"
+}

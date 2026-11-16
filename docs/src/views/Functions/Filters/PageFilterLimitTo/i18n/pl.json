@@ -1,0 +1,6 @@
+{
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_TEXT_": "Wejściowy ciąg znaków, który ma zostać przycięty",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_LIMIT_": "Maksymalna długość zwracanego ciągu znaków",
+  "_PAGE_FILTER_LIMIT_TO_ARGUMENTS_MAX_THREE_DOTS_": "Określa, czy na końcu ciągu znaków ma być wyświetlane co najwyżej trzy kropki",
+  "_PAGE_FILTER_LIMIT_TO_DESCRIPTION_": "Funkcja <strong>filterLimitTo</strong> służy do ograniczenia wejściowego ciągu znaków do określonej maksymalnej długości oraz opcjonalnie do zastosowania specjalnej logiki dla wielokropka na końcu ciągu."
+}

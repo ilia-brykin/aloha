@@ -1,0 +1,11 @@
+{
+  "_A_TEXTAREA_COMPONENT_DESCRIPTION_": "Komponent <strong lang=\"en\">ATextarea</strong> zapewnia funkcjonalność pola tekstowego z różnymi ustawieniami, takimi jak skalowalność, przycisk czyszczenia i możliwość zmiany rozmiaru. Komponent obsługuje również etykiety, tekst pomocy i wyświetlanie błędów.",
+  "_A_TEXTAREA_COMPONENT_NAME_": "Wielowierszowe pole tekstowe",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_DESCRIPTION_": "Ten przykład przedstawia pole tekstowe, którego wysokość automatycznie dostosowuje się do zawartości. Wraz z dodawaniem nowych wierszy pole tekstowe powiększa się, zapewniając optymalny rozmiar do wyświetlenia całego wprowadzonego tekstu.",
+  "_A_TEXTAREA_GROUP_IS_SCALABLE_HEADER_": "Skalowalne pole tekstowe",
+  "_A_TEXTAREA_GROUP_RESIZE_DESCRIPTION_": "Ten przykład pokazuje różne opcje konfiguracji zmiany rozmiaru pola tekstowego. Możesz ustawić zmianę rozmiaru w pionie <strong lang=\"en\">(resize='v')</strong>, w poziomie <strong lang=\"en\">(resize='h')</strong>, całkowicie wyłączyć zmianę rozmiaru <strong lang=\"en\">(resize='none')</strong> lub włączyć automatyczną zmianę rozmiaru <strong lang=\"en\">(resize='auto')</strong>. Każda opcja jest zaprezentowana na odpowiednim polu tekstowym.",
+  "_A_TEXTAREA_GROUP_RESIZE_HEADER_": "Zmiana rozmiaru pola tekstowego",
+  "_A_TEXTAREA_PROPS_IS_SCALABLE_DESCRIPTION_": "Określa, czy wysokość pola tekstowego ma się zmieniać w zależności od zawartości. Jeśli ten parametr ma wartość <strong lang=\"en\">true</strong>, wysokość pola tekstowego będzie automatycznie dostosowywana podczas dodawania lub usuwania znaków.",
+  "_A_TEXTAREA_PROPS_RESIZE_DESCRIPTION_": "Określa, w jaki sposób użytkownik może zmieniać rozmiar pola tekstowego. Dostępne opcje: <strong lang=\"en\">'v'</strong> — zmiana rozmiaru w pionie, <strong lang=\"en\">'h'</strong> — zmiana rozmiaru w poziomie, <strong lang=\"en\">'none'</strong> — zmiana rozmiaru jest wyłączona, <strong lang=\"en\">'auto'</strong> — zmiana rozmiaru jest automatyczna.",
+  "_A_TEXTAREA_PROPS_ROWS_DESCRIPTION_": "Ustawia liczbę wierszy pola tekstowego."
+}

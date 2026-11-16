@@ -1,0 +1,9 @@
+{
+  "_A_MODAL_WIZARD_COMPONENT_DESCRIPTION_": "Ten komponent łączy okno modalne (<a href='/#/modal'>AModal</a>) i kreator (<a href='/#/wizard'>AWizard</a>). Możesz używać niemal wszystkich właściwości z <a href='/#/modal'>AModal</a> i <a href='/#/wizard'>AWizard</a>.",
+  "_A_MODAL_WIZARD_COMPONENT_NAME_": "Kreator w oknie modalnym",
+  "_A_MODAL_WIZARD_PROPS_SCROLL_TO_TOP_ON_STEP_CHANGE_DESCRIPTION_": "Określa, czy zawartość okna modalnego jest przewijana na górę, gdy zmienia się aktywny krok kreatora.",
+  "_A_MODAL_WIZARD_STEP_1_": "Krok 1",
+  "_A_MODAL_WIZARD_STEP_2_": "Krok 2",
+  "_A_MODAL_WIZARD_STEP_3_": "Krok 3",
+  "_A_MODAL_WIZARD_STEP_4_": "Krok 4"
+}
