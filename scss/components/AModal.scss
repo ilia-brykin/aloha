@@ -1,18 +1,16 @@
 .a_modal_footer_sticky {
-  --a_modal_footer_sticky_gap: var(--a_modal_footer_gap) * 0.5;
-
   position: sticky;
   bottom: 0;
   margin-left: calc(-1*var(--a_modal_padding));
   margin-right: calc(-1*var(--a_modal_padding));
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(3px);
+  background-color: var(--a_modal_footer_sticky_bg);
+  backdrop-filter: blur(var(--a_modal_footer_sticky_blur));
   z-index: 4;
   padding-right: calc(var(--a_modal_padding) - var(--a_modal_footer_gap));
   padding-top: calc(var(--a_modal_padding) - var(--a_modal_footer_gap));
   padding-bottom: calc(var(--a_modal_padding) - var(--a_modal_footer_gap));
   .a_modal_footer_actions {
-    background-color: #fff;
+    background-color: var(--a_modal_footer_sticky_actions_bg);
     margin: 0;
     border-bottom-left-radius: var(--a_border_radius);
     border-top-left-radius: var(--a_border_radius);
@@ -42,4 +40,14 @@
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_modal_footer_sticky) {
+  --a_modal_footer_sticky_gap: calc(var(--a_modal_footer_gap) * .5);
+  --a_modal_footer_sticky_bg: hsl(var(--a_gray_h) var(--a_gray_s) var(--a_tone_surface_raised_l) / .6);
+  --a_modal_footer_sticky_blur: 3px;
+  --a_modal_footer_sticky_actions_bg: var(--a_modal_bg);
 }

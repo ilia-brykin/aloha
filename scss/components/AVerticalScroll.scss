@@ -1,7 +1,6 @@
-.a_vertical_scroll {
-  --a_vertical_scroll_wrapper_bg: #fff;
-  --a_vertical_scroll_wrapper_height: 1.25rem;
+@use "../utils/focus";
 
+.a_vertical_scroll {
   position: relative;
   padding-top: var(--a_vertical_scroll_wrapper_height);
   padding-bottom: var(--a_vertical_scroll_wrapper_height);
@@ -42,7 +41,13 @@
 .a_vertical_scroll__btn {
   display: none;
   padding: 0;
-  &:focus {
-    box-shadow: none;
-  }
+  @include focus.focus-visible($inset: true);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_vertical_scroll) {
+  --a_vertical_scroll_wrapper_bg: var(--a_color_surface);
+  --a_vertical_scroll_wrapper_height: 1.25rem;
 }

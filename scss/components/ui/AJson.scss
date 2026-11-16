@@ -5,7 +5,7 @@
 .a_json__code,
 .a_json__textarea {
   white-space: pre;
-  font-family: monospace;
+  font-family: var(--a_font_monospace);
   overflow: auto;
 }
 

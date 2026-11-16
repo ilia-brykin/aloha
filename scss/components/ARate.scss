@@ -19,7 +19,7 @@
 
 .a_decimal_rate_icon.a_rate_decimal {
   position: relative;
-  color: grey;
+  color: var(--a_rate_empty_color);
 }
 
 .a_decimal_rate_icon.a_rate_decimal .a_decimal_rate_icon.a_rate_decimal {
@@ -54,12 +54,12 @@
 
 .a_rate_score {
   margin-left: 0.625rem;
-  font-size: 1rem;
+  font-size: var(--a_body_font_size);
 }
 
 .a_rate_label {
   margin-left: 0.625rem;
-  font-size: 1rem;
+  font-size: var(--a_body_font_size);
 }
 
 .a_rate_icon_align {
@@ -75,4 +75,11 @@
 
 .a_rate_label {
   margin-top: 0.5rem;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_rate_container) {
+  --a_rate_empty_color: var(--a_border_color_strong);
 }

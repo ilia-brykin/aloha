@@ -11,13 +11,10 @@
 @forward "AMultiselectOrdered";
 @forward "ASlider";
 
+@use "../../utils/focus";
+
 .a_form_element__parent {
   width: 100%;
-  --a_form_element_error_color: var(--a_color_danger);
-  --a_form_element_label_float_top: 1.125rem;
-}
-.a_fieldset__content {
-  --a_form_element_error_color: var(--a_color_danger);
 }
 
 .a_form_element__parent_float {
@@ -27,9 +24,10 @@
     left: 0.625rem;
     top: var(--a_form_element_label_float_top);
     transform: translateY(-50%);
-    color: #9f9185;
-    font-size: 1rem;
-    background: #fff;
+    color: var(--a_form_element_label_float_color);
+    font-size: var(--a_body_font_size);
+    background: var(--a_form_element_label_float_bg);
+    border-radius: var(--a_border_radius_small);
     padding: 0 0.2rem;
     z-index: 4;
     max-width: calc(100% - 1.25rem);
@@ -45,10 +43,10 @@
   &:focus-within,
   &.a_form_element__parent_not_empty {
     .a_form_element_label {
-      transition: all .3s;
+      transition: top var(--a_duration_normal) var(--a_easing), font-size var(--a_duration_normal) var(--a_easing), color var(--a_duration_normal) var(--a_easing);
       top: 0;
-      color: #555;
-      font-size: 0.875rem;
+      color: var(--a_form_element_label_float_active_color);
+      font-size: var(--a_font_size_sm);
 
       &_error {
         color: var(--a_form_element_error_color);
@@ -99,33 +97,45 @@
   }
 }
 
+
 .a_form_control {
   display: block;
   width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  min-height: var(--a_form_control_height);
+  padding: var(--a_form_control_padding_y) var(--a_form_control_padding_x);
+  font-size: var(--a_form_control_font_size);
+  font-weight: var(--a_font_weight_normal);
+  line-height: var(--a_body_line_height);
+  color: var(--a_form_control_color);
+  background-color: var(--a_form_control_bg);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: var(--a_form_control_border_width) solid var(--a_form_control_border_color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: var(--a_border_radius);
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border-radius: var(--a_form_control_border_radius);
+  transition: var(--a_transition_colors);
+  &::placeholder {
+    color: var(--a_form_control_placeholder_color);
+    opacity: 1;
+  }
+  &:hover:not(:disabled):not(.disabled) {
+    border-color: var(--a_form_control_hover_border_color);
+  }
   &:focus,
   &.a_file__label:focus-within {
-    color: #212529;
-    background-color: #fff;
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    color: var(--a_form_control_color);
+    background-color: var(--a_form_control_bg);
+    border-color: var(--a_form_control_focus_border_color);
+    @include focus.focus-ring;
   }
-  &:disabled, &.disabled {
-    background-color: #e9ecef;
+  &:disabled,
+  &.disabled {
+    color: var(--a_form_control_disabled_color);
+    background-color: var(--a_form_control_disabled_bg);
+    border-color: var(--a_form_control_disabled_border_color);
     opacity: 1;
+    cursor: not-allowed;
   }
 }
 .a_form_control__actions {
@@ -135,29 +145,30 @@
   right: .2rem;
 }
 .a_form_control__actions__btn {
-  --a_btn_padding_x: 0.2rem;
-  --a_btn_padding_y: 0.1rem;
+  --a_btn_padding_x: .2rem;
+  --a_btn_padding_y: .1rem;
 }
 
 .a_form_control_invalid,
 .a_group_invalid .a_form_control {
-  border-color: var(--a_form_element_error_color);
-  &:focus {
-    border-color: var(--a_form_element_error_color);
-    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
-  }
+  --a_form_control_border_color: var(--a_form_element_error_color);
+  --a_form_control_hover_border_color: var(--a_form_element_error_color);
+  --a_form_control_focus_border_color: var(--a_form_element_error_color);
+  --a_focus_color_outside: var(--a_form_element_error_color);
 }
-.a_form_control_lg {
-  min-height: calc(1.5em + 1rem + 2px);
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  border-radius: 0.5rem;
+.a_form_control_large {
+  --a_form_control_height: var(--a_control_height_lg);
+  --a_form_control_padding_y: calc(.5rem * var(--a_density));
+  --a_form_control_padding_x: calc(1rem * var(--a_density));
+  --a_form_control_font_size: var(--a_font_size_lg);
+  --a_form_control_border_radius: var(--a_border_radius_large);
 }
-.a_form_control_sm {
-  min-height: calc(1.5em + 0.5rem + 2px);
-  padding: 0.25rem 0.5rem;
-  font-size: .875rem;
-  border-radius: 0.25rem;
+.a_form_control_small {
+  --a_form_control_height: var(--a_control_height_sm);
+  --a_form_control_padding_y: calc(.25rem * var(--a_density));
+  --a_form_control_padding_x: calc(.5rem * var(--a_density));
+  --a_form_control_font_size: var(--a_font_size_sm);
+  --a_form_control_border_radius: var(--a_border_radius_small);
 }
 
 .a_input__icon_prepend,
@@ -182,19 +193,21 @@
 
 .a_form_element__help_text {
   width: 100%;
-  margin-top: 0.25rem;
-  font-size: .875em;
+  margin-top: var(--a_space_xs);
+  font-size: var(--a_font_size_sm);
+  color: var(--a_form_element_help_text_color);
 }
 .a_form_element__invalid_text {
   width: 100%;
-  font-size: .875em;
+  font-size: var(--a_font_size_sm);
   color: var(--a_form_element_error_color);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .a_form_element_label_static {
-  font-weight: bolder;
+  font-weight: var(--a_font_weight_semibold);
+  color: var(--a_color_label);
 }
 
 .a_required {
@@ -219,19 +232,14 @@
   margin-left: .5rem;
 }
 
-// fix für autofill
+// Autofill: the animations are hooks for JS ("animationstart"),
+// the long transition keeps the browser autofill background from showing.
 input:-webkit-autofill {
-  // Expose a hook for JavaScript when auto fill is shown.
-  // JavaScript can capture 'animationstart' events
   animation-name: onAutoFillStart;
-
-  // Make the background color become yellow _really slowly_
   transition: background-color 50000s ease-in-out 0s;
 }
 
 input:not(:-webkit-autofill) {
-  // Expose a hook for JS onAutoFillCancel
-  // JavaScript can capture 'animationstart' events
   animation-name: onAutoFillCancel;
 }
 
@@ -251,4 +259,36 @@ input[type="text"]::-ms-clear {
 @keyframes onAutoFillCancel {
   from {/**/}
   to {/**/}
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_form_element__parent) {
+  --a_form_element_error_color: var(--a_color_danger);
+  --a_form_element_label_float_top: 1.125rem;
+  --a_form_element_label_float_color: var(--a_color_text_muted);
+  --a_form_element_label_float_active_color: var(--a_color_label);
+  --a_form_element_label_float_bg: var(--a_color_surface);
+  --a_form_element_help_text_color: var(--a_color_text_muted);
+}
+:where(.a_fieldset__content) {
+  --a_form_element_error_color: var(--a_color_danger);
+}
+:where(.a_form_control) {
+  --a_form_control_height: var(--a_control_height);
+  --a_form_control_padding_x: var(--a_control_padding_x);
+  --a_form_control_padding_y: var(--a_control_padding_y);
+  --a_form_control_font_size: var(--a_body_font_size);
+  --a_form_control_color: var(--a_color_text);
+  --a_form_control_bg: var(--a_color_surface);
+  --a_form_control_border_width: var(--a_border_width);
+  --a_form_control_border_color: var(--a_border_color_strong);
+  --a_form_control_border_radius: var(--a_border_radius);
+  --a_form_control_hover_border_color: var(--a_color_gray_600);
+  --a_form_control_focus_border_color: var(--a_color_focus);
+  --a_form_control_placeholder_color: var(--a_color_text_muted);
+  --a_form_control_disabled_color: var(--a_color_text_muted);
+  --a_form_control_disabled_bg: var(--a_color_gray_100);
+  --a_form_control_disabled_border_color: var(--a_border_color);
 }

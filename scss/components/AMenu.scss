@@ -1,68 +1,6 @@
-:root {
-  --a_menu_width_expanded: 21.875rem;
-  --a_menu_width_collapsed: 3.75rem;
-  --a_menu_transition: 0.5s;
-  --a_menu_btn_toggle_top: 0.3125rem;
-  --a_menu_btn_toggle_margin_left: 0.5rem;
-  --a_menu_mobile_btn_toggle_margin_left: 0.5rem;
-  --a_menu_mobile_btn_toggle_margin_top: 0.5rem;
-  --a_menu_mobile_z_index: 1051;
-  --a_menu_close_opacity: .3;
-  --a_menu_page_bg: var(--a_color_white);
-}
+@use "../utils/focus";
 
 .a_menu {
-  --a_menu_width: var(--a_menu_width_expanded);
-  --a_menu_top: 0;
-  --a_menu_navbar_top_height: 3.125rem;
-  --a_menu_navbar_top_padding: .7rem .5rem .5rem .5rem;
-  --a_menu_navbar_top_margin_bottom: .5rem;
-  --a_menu_background: var(--a_color_white);
-  --a_menu_border_color: var(--a_color_gray_300);
-  --a_menu_box_shadow_color: var(--a_color_gray_600);
-  --a_menu_box_shadow_size: 2px 6px 6px 1px;
-  --a_menu_panel_child_offset: 100%;
-  --a_menu_panel_parent_offset: -30%;
-  --a_menu_panel_iconpanel_size: var(--a_menu_width_collapsed);
-  --a_menu_panel_color: var(--a_color_gray_600);
-  --a_menu_panel_secondary_bg: var(--a_color_white);
-  --a_menu_panel_main_link_hover_color: var(--a_color_gray_900);
-  --a_menu_panel_main_link_hover_bg: var(--a_color_gray_300);
-  --a_menu_panel_main_link_padding_left: 1.5625rem;
-  --a_menu_link_color: var(--a_color_gray_900);
-  --a_menu_link_hover_color: var(--a_color_gray_900);
-  --a_menu_link_hover_bg: var(--a_color_gray_300);
-  --a_menu_listitem_padding: .3rem;
-  --a_menu_listitem_panel_secondary_padding_x: .6rem;
-  --a_menu_listitem_panel_secondary_padding_y: .3rem;
-  --a_menu_link_padding_x: .7rem;
-  --a_menu_link_padding_y: .5rem;
-  --a_menu_link_selected_bg: var(--a_color_gray_200);
-  --a_menu_link_selected_color: inherit;
-  --a_menu_link_border_color: transparent;
-  --a_menu_link_border_radius: .3rem;
-  --a_menu_link_focus_size: 0 0 1px 3px;
-  --a_menu_icon_color: var(--a_menu_link_color);
-  --a_menu_focus_shadow_color: var(--a_color_focus);
-  --a_menu_list_header_bg: var(--a_color_gray_200);
-  --a_menu_breadcrumb_min_height: 4.0625rem;
-  --a_menu_breadcrumb_border_bottom_width: 1px;
-  --a_menu_submenu_open_bg: var(--a_color_primary);
-  --a_menu_submenu_open_color: var(--a_color_white);
-  --a_menu_submenu_border_radius: 1rem;
-  --a_menu_submenu_border_width: 2px;
-  --a_menu_search_height: 2.375rem;
-  --a_menu_search_link_focus_size: inset 0 0 1px 2px;
-  --a_menu_close_panel_width: 18.75rem;
-  --a_menu_close_panel_max_height: 25rem;
-  --a_menu_close_panel_border_radius: .3rem;
-  --a_menu_close_panel_box_shadow_color: var(--a_color_gray_600);
-  --a_menu_close_panel_box_shadow_size: 0 0 7px 3px;
-  --a_menu_close_panel_header_color: var(--a_color_gray_900);
-  --a_menu_close_panel_header_border_bottom_color: var(--a_color_gray_600);
-  --a_menu_close_panel_header_border_bottom_width: 1px;
-  --a_menu_link_line_horizontal_display: none;
-
   width: var(--a_menu_width);
   position: absolute;
   top: var(--a_menu_top);
@@ -73,7 +11,7 @@
   background-color: var(--a_menu_background);
   margin: 0;
   padding: 0;
-  border-right: 1px solid var(--a_menu_border_color);
+  border-right: var(--a_border_width) solid var(--a_menu_border_color);
   z-index: 2;
   box-shadow: var(--a_menu_box_shadow_size) var(--a_menu_box_shadow_color);
 }
@@ -149,8 +87,9 @@
   padding: var(--a_menu_link_padding_y) var(--a_menu_link_padding_x);
   cursor: pointer;
   color: var(--a_menu_link_color);
-  border: 1px solid var(--a_menu_link_border_color);
+  border: var(--a_border_width) solid var(--a_menu_link_border_color);
   border-radius: var(--a_menu_link_border_radius);
+  transition: var(--a_transition_colors);
   &,
   &:active,
   &:hover,
@@ -159,13 +98,12 @@
     text-decoration: none;
     color: var(--a_menu_link_color);
   }
-  &:focus {
-    outline: 0;
-    box-shadow: var(--a_menu_link_focus_size) var(--a_menu_focus_shadow_color);
+  @include focus.focus-visible($inset: true);
+  &:focus-visible {
+    box-shadow: var(--a_menu_link_focus_box_shadow);
     color: var(--a_menu_link_color);
   }
   &:hover {
-    outline: 0;
     color: var(--a_menu_link_hover_color);
     background-color: var(--a_menu_link_hover_bg);
   }
@@ -262,28 +200,11 @@
 }
 
 .a_menu__btn_toggle {
-  --a_menu_btn_toggle_width: 2.625rem;
-  --a_menu_btn_toggle_height: 2.375rem;
-  --a_menu_btn_toggle_bar_width: 1.125rem;
-  --a_menu_btn_toggle_bar_height: 2px;
-  --a_menu_btn_toggle_bar_1_top: 0.75rem;
-  --a_menu_btn_toggle_bar_2_top: calc(var(--a_menu_btn_toggle_height) / 2 - var(--a_menu_btn_toggle_bar_height) / 2);
-  --a_menu_btn_toggle_bar_3_top: 1.5rem;
-  --a_menu_btn_toggle_bar_bg: var(--a_btn_color, var(--a_color_white));
-
   min-height: var(--a_menu_btn_toggle_height);
   height: var(--a_menu_btn_toggle_height);
   min-width: var(--a_menu_btn_toggle_width);
   width: var(--a_menu_btn_toggle_width);
   position: relative;
-  &:active,
-  &.active {
-    --a_menu_btn_toggle_bar_bg: var(--a_btn_active_color, var(--a_color_white));
-  }
-  &:hover,
-  &:focus {
-    --a_menu_btn_toggle_bar_bg: var(--a_btn_hover_color, var(--a_color_white));
-  }
 }
 .a_menu__btn_toggle_inside_menu {
   margin-right: 1rem;
@@ -297,7 +218,7 @@
   background-color: var(--a_menu_btn_toggle_bar_bg);
   width: var(--a_menu_btn_toggle_bar_width);
   height: var(--a_menu_btn_toggle_bar_height);
-  border-radius: 0.0625rem;
+  border-radius: calc(var(--a_menu_btn_toggle_bar_height) / 2);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -348,10 +269,6 @@
     .a_menu__page {
       opacity: .5;
     }
-    //    .a_menu__backdrop {
-    //      opacity: .5;
-    //      z-index: var(--a__backdrop_zindex);
-    //    }
   }
   .a_menu__btn_toggle_close.a_menu__btn_toggle_outside_menu {
     display: inline-block;
@@ -527,8 +444,7 @@
       top: auto;
       border: none;
       border-radius: var(--a_menu_close_panel_border_radius);
-      // Aloha
-      box-shadow: var(--a_menu_close_panel_box_shadow_size) var(--a_color_gray_600);
+      box-shadow: var(--a_menu_close_panel_box_shadow_size) var(--a_menu_close_panel_box_shadow_color);
       max-height: var(--a_menu_close_panel_max_height);
       overflow-y: auto;
       z-index: 2;
@@ -591,10 +507,6 @@
   }
   .a_menu__link {
     padding: 0.2rem 0.3rem;
-    &:focus,
-    &:hover {
-      box-shadow: var(--a_menu_search_link_focus_size) var(--a_menu_focus_shadow_color);
-    }
   }
   .a_menu__breadcrumbs__item__divider {
     padding: 0.2rem;
@@ -608,7 +520,7 @@
 }
 .a_menu__breadcrumbs__link {
   padding: .2rem;
-  font-size: .8rem;
+  font-size: var(--a_font_size_sm);
 }
 .a_menu__breadcrumb__ul_truncated__btn {
   margin-right: .2rem;
@@ -631,4 +543,83 @@
   opacity: 0.5;
   z-index: 1;
   left: var(--a_menu_width_expanded);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+// Global: also used by .a_menu__page, which is outside of .a_menu
+:where(:root) {
+  --a_menu_width_expanded: 21.875rem;
+  --a_menu_width_collapsed: 3.75rem;
+  --a_menu_transition: var(--a_duration_slow);
+  --a_menu_btn_toggle_top: .3125rem;
+  --a_menu_btn_toggle_margin_left: .5rem;
+  --a_menu_mobile_btn_toggle_margin_left: .5rem;
+  --a_menu_mobile_btn_toggle_margin_top: .5rem;
+  --a_menu_mobile_z_index: 1051;
+  --a_menu_close_opacity: .3;
+  --a_menu_page_bg: var(--a_color_body_bg);
+}
+
+:where(.a_menu) {
+  --a_menu_width: var(--a_menu_width_expanded);
+  --a_menu_top: 0;
+  --a_menu_navbar_top_height: 3.125rem;
+  --a_menu_navbar_top_padding: .7rem .5rem .5rem .5rem;
+  --a_menu_navbar_top_margin_bottom: .5rem;
+  --a_menu_background: var(--a_color_surface);
+  --a_menu_border_color: var(--a_border_color);
+  --a_menu_box_shadow_color: var(--a_shadow_color);
+  --a_menu_box_shadow_size: 2px 0 12px -4px;
+  --a_menu_panel_child_offset: 100%;
+  --a_menu_panel_parent_offset: -30%;
+  --a_menu_panel_iconpanel_size: var(--a_menu_width_collapsed);
+  --a_menu_panel_color: var(--a_color_text_muted);
+  --a_menu_panel_secondary_bg: var(--a_color_surface);
+  --a_menu_panel_main_link_hover_color: var(--a_color_text);
+  --a_menu_panel_main_link_hover_bg: var(--a_color_gray_100);
+  --a_menu_panel_main_link_padding_left: 1.5625rem;
+  --a_menu_link_color: var(--a_color_text);
+  --a_menu_link_hover_color: var(--a_color_text);
+  --a_menu_link_hover_bg: var(--a_color_gray_100);
+  --a_menu_listitem_padding: calc(.3rem * var(--a_density));
+  --a_menu_listitem_panel_secondary_padding_x: calc(.6rem * var(--a_density));
+  --a_menu_listitem_panel_secondary_padding_y: calc(.3rem * var(--a_density));
+  --a_menu_link_padding_x: calc(.7rem * var(--a_density));
+  --a_menu_link_padding_y: calc(.5rem * var(--a_density));
+  --a_menu_link_selected_bg: var(--a_color_primary_bg_subtle);
+  --a_menu_link_selected_color: var(--a_color_primary_text_emphasis);
+  --a_menu_link_border_color: transparent;
+  --a_menu_link_border_radius: var(--a_border_radius);
+  --a_menu_link_focus_box_shadow: var(--a_focus_ring_inset);
+  --a_menu_icon_color: var(--a_menu_link_color);
+  --a_menu_list_header_bg: var(--a_color_gray_100);
+  --a_menu_breadcrumb_min_height: 4.0625rem;
+  --a_menu_breadcrumb_border_bottom_width: var(--a_border_width);
+  --a_menu_submenu_open_bg: var(--a_color_primary);
+  --a_menu_submenu_open_color: var(--a_color_primary_contrast);
+  --a_menu_submenu_border_radius: var(--a_border_radius_xl);
+  --a_menu_submenu_border_width: 2px;
+  --a_menu_search_height: 2.375rem;
+  --a_menu_close_panel_width: 18.75rem;
+  --a_menu_close_panel_max_height: 25rem;
+  --a_menu_close_panel_border_radius: var(--a_border_radius_large);
+  --a_menu_close_panel_box_shadow_color: var(--a_shadow_color);
+  --a_menu_close_panel_box_shadow_size: 0 12px 32px -8px;
+  --a_menu_close_panel_header_color: var(--a_color_text);
+  --a_menu_close_panel_header_border_bottom_color: var(--a_border_color);
+  --a_menu_close_panel_header_border_bottom_width: var(--a_border_width);
+  --a_menu_link_line_horizontal_display: none;
+}
+
+:where(.a_menu__btn_toggle) {
+  --a_menu_btn_toggle_width: 2.625rem;
+  --a_menu_btn_toggle_height: 2.375rem;
+  --a_menu_btn_toggle_bar_width: 1.125rem;
+  --a_menu_btn_toggle_bar_height: 2px;
+  --a_menu_btn_toggle_bar_1_top: .75rem;
+  --a_menu_btn_toggle_bar_2_top: calc(var(--a_menu_btn_toggle_height) / 2 - var(--a_menu_btn_toggle_bar_height) / 2);
+  --a_menu_btn_toggle_bar_3_top: 1.5rem;
+  --a_menu_btn_toggle_bar_bg: currentColor;
 }

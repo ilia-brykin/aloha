@@ -1,12 +1,4 @@
 .a_fieldset {
-  --a_fieldset_padding_x: 1rem;
-  --a_fieldset_padding_top: 1rem;
-  --a_fieldset_padding_bottom: .5rem;
-  --a_fieldset_border_radius: var(--a_border_radius);
-  --a_fieldset_border_color: #000;
-  --a_fieldset_border_width: var(--a_border_width);
-  --a_fieldset_invalid_color: var(--a_color_danger);
-
   margin-top: .5rem;
   padding: var(--a_fieldset_padding_top) var(--a_fieldset_padding_x) var(--a_fieldset_padding_bottom) var(--a_fieldset_padding_x);
   border-radius: var(--a_fieldset_border_radius);
@@ -22,15 +14,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    background-color: #fff;
+    background-color: var(--a_fieldset_legend_bg);
     max-width: 100%;
   }
   .a_fieldset__btn_collapse {
     position: absolute;
     right: var(--a_fieldset_padding_x);
     bottom: calc(100% - 0.3rem);
-    background-color: #fff;
     padding: 0 .25rem;
+    background-color: var(--a_fieldset_legend_bg);
     .a_icon {
       width: 1.8rem;
       height: auto;
@@ -61,12 +53,6 @@
 }
 
 .a_legend {
-  --a_legend_padding_x: .5rem;
-  --a_legend_color: inherit;
-  --a_legend_font_size: inherit;
-  --a_flegend_invalid_color: var(--a_color_danger);
-  --a_legend_font_weight: bold;
-
   padding: 0 var(--a_legend_padding_x);
   color: var(--a_legend_color);
   width: auto;
@@ -75,4 +61,25 @@
 }
 .a_legend_invalid {
   --a_legend_color: var(--a_flegend_invalid_color);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_fieldset) {
+  --a_fieldset_padding_x: var(--a_space_md);
+  --a_fieldset_padding_top: var(--a_space_md);
+  --a_fieldset_padding_bottom: var(--a_space_sm);
+  --a_fieldset_border_radius: var(--a_border_radius_large);
+  --a_fieldset_border_color: var(--a_border_color_strong);
+  --a_fieldset_border_width: var(--a_border_width);
+  --a_fieldset_invalid_color: var(--a_color_danger);
+  --a_fieldset_legend_bg: var(--a_color_surface);
+}
+:where(.a_legend) {
+  --a_legend_padding_x: .5rem;
+  --a_legend_color: var(--a_color_label);
+  --a_legend_font_size: inherit;
+  --a_flegend_invalid_color: var(--a_color_danger);
+  --a_legend_font_weight: var(--a_font_weight_semibold);
 }

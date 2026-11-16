@@ -4,8 +4,8 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(255,255,255,0.75);
-  z-index: 80;
+  background: var(--a_loading_bg);
+  z-index: var(--a_loading_z_index);
   margin-left: 0 !important;
   display: flex;
   align-items: center;
@@ -16,4 +16,12 @@
   &.a_text_right {
     justify-content: right;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_loading) {
+  --a_loading_bg: hsl(var(--a_gray_h) var(--a_gray_s) var(--a_tone_surface_l) / .75);
+  --a_loading_z_index: 80;
 }

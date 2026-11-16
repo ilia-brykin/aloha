@@ -1,8 +1,4 @@
 .a_progress_circle {
-  --a_progress_circle_color: var(--a_color_primary);
-  --a_progress_circle_base_color: var(--a_color_gray_300);
-  --a_progress_circle_text_color: var(--a_color_text);
-
   color: var(--a_progress_circle_color);
   position: relative;
 }
@@ -16,7 +12,10 @@
   stroke-dashoffset: 0;
   fill: none;
   stroke: currentColor;
-  transition: stroke-dasharray 0.6s ease 0s, stroke 0.6s ease 0s, opacity 0.6s ease 0s;
+  transition:
+    stroke-dasharray var(--a_duration_slow) var(--a_easing),
+    stroke var(--a_duration_slow) var(--a_easing),
+    opacity var(--a_duration_slow) var(--a_easing);
 }
 .a_progress_circle__scale_indeterminate {
   animation: 3s linear infinite a_progress_circle_indeterminate;
@@ -33,11 +32,19 @@
 }
 
 @keyframes a_progress_circle_indeterminate {
-  0% {
+  from {
     stroke-dashoffset: 0;
   }
-
   to {
     stroke-dashoffset: -300%;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_progress_circle) {
+  --a_progress_circle_color: var(--a_color_primary);
+  --a_progress_circle_base_color: var(--a_color_gray_200);
+  --a_progress_circle_text_color: var(--a_color_text);
 }
