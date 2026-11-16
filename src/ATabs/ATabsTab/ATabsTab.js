@@ -149,6 +149,7 @@ export default {
     }
 
     return h("li", {
+      role: "presentation",
       class: [
         "a_tabs__list__item",
         this.tab.classLi,

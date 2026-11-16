@@ -6,10 +6,18 @@ import ClassBarAPI from "./compositionAPI/ClassBarAPI";
 import DurationAPI from "./compositionAPI/DurationAPI";
 import ValuePercentAPI from "./compositionAPI/ValuePercentAPI";
 import WidthAPI from "./compositionAPI/WidthAPI";
+import {
+  getTranslatedAttributes,
+} from "../ATranslation/compositionAPI/UtilsAPI";
 
 export default {
   name: "AProgress",
   props: {
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: "_A_PROGRESS_ARIA_LABEL_",
+    },
     classProgressBar: {
       type: [String, Object, Function],
       required: false,
@@ -126,6 +134,7 @@ export default {
           this.classProgressBarLocal,
         ],
         role: "progressbar",
+        ...(this.ariaLabel ? getTranslatedAttributes({ attr: "aria-label", placeholder: this.ariaLabel }) : {}),
         "aria-valuenow": this.value,
         "aria-valuemin": this.min,
         "aria-valuemax": this.max,

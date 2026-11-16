@@ -313,10 +313,6 @@ export default {
     });
 
     const {
-      isTitleVisible,
-    } = TitleAPI(props);
-
-    const {
       isLoadingLeft,
       isLoadingRight,
     } = LoadingAPI(props);
@@ -325,6 +321,14 @@ export default {
       isTextOrHtmlVisible,
       isTextOrHtmlScreenReaderVisible,
     } = TextAPI(props);
+
+    const {
+      isTitleScreenReaderFallback,
+      isTitleVisible,
+    } = TitleAPI(props, {
+      isTextOrHtmlScreenReaderVisible,
+      isTextOrHtmlVisible,
+    });
 
     const {
       onClick,
@@ -369,6 +373,7 @@ export default {
       isSwitchActive,
       isTextOrHtmlScreenReaderVisible,
       isTextOrHtmlVisible,
+      isTitleScreenReaderFallback,
       isTitleVisible,
       onClick,
       onKeydown,
@@ -436,7 +441,19 @@ export default {
             safeHtml: this.safeHtmlScreenReader,
             extra: this.extra,
           }) :
-          "",
+          (this.isTitleScreenReaderFallback && !this.$slots.default) ?
+            h(ATranslation, {
+              alwaysTranslate: this.alwaysTranslate,
+              class: [
+                "a_sr_only",
+                this.classDefaultHidden,
+              ],
+              tag: "span",
+              text: this.isTitleHtml ? undefined : this.title,
+              safeHtml: this.isTitleHtml ? this.title : undefined,
+              extra: this.extra,
+            }) :
+            "",
         this.$slots.buttonPrepend ?
           this.$slots.buttonPrepend({ extraData: this.extraData }) :
           "",

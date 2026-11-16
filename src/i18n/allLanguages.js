@@ -5,6 +5,7 @@ import ACloakI18n from "../ACloak/i18n/ACloakI18n";
 import ADatepickerI18n from "../ui/ADatepicker/i18n/ADatepickerI18n";
 import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
+import ADropdownI18n from "../ADropdown/i18n/ADropdownI18n";
 import AErrorsI18n from "../ui/AErrors/i18n/AErrorsI18n";
 import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import AFiltersI18n from "../AFilters/i18n/AFiltersI18n";
@@ -20,6 +21,7 @@ import AMenu2I18n from "../AMenu/i18n/AMenu2I18n";
 import AModalI18n from "../AModal/i18n/AModalI18n";
 import AMultiselectOrderedI18n from "../ui/AMultiselectOrdered/i18n/AMultiselectOrderedI18n";
 import APaginationI18n from "../APagination/i18n/APaginationI18n.js";
+import AProgressI18n from "../AProgress/i18n/AProgressI18n";
 import ARadioI18n from "../ui/ARadio/i18n/ARadioI18n";
 import ARequiredI18n from "../ui/ARequired/i18n/ARequiredI18n";
 import ARouterLinkConfigI18n from "../ui/ARouterLinkConfig/i18n/ARouterLinkConfigI18n";
@@ -56,6 +58,7 @@ export const ar = {
   ...ADatepickerI18n.ar,
   ...ADatepickerRangeI18n.ar,
   ...ADisclosureI18n.ar,
+  ...ADropdownI18n.ar,
   ...AErrorsI18n.ar,
   ...AFieldsetI18n.ar,
   ...AFiltersI18n.ar,
@@ -71,6 +74,7 @@ export const ar = {
   ...AModalI18n.ar,
   ...AMultiselectOrderedI18n.ar,
   ...APaginationI18n.ar,
+  ...AProgressI18n.ar,
   ...ARadioI18n.ar,
   ...ARequiredI18n.ar,
   ...ARouterLinkConfigI18n.ar,
@@ -96,6 +100,7 @@ export const de = {
   ...ADatepickerI18n.de,
   ...ADatepickerRangeI18n.de,
   ...ADisclosureI18n.de,
+  ...ADropdownI18n.de,
   ...AErrorsI18n.de,
   ...AFieldsetI18n.de,
   ...AFiltersI18n.de,
@@ -111,6 +116,7 @@ export const de = {
   ...AModalI18n.de,
   ...AMultiselectOrderedI18n.de,
   ...APaginationI18n.de,
+  ...AProgressI18n.de,
   ...ARadioI18n.de,
   ...ARequiredI18n.de,
   ...ARouterLinkConfigI18n.de,
@@ -136,6 +142,7 @@ export const en = {
   ...ADatepickerI18n.en,
   ...ADatepickerRangeI18n.en,
   ...ADisclosureI18n.en,
+  ...ADropdownI18n.en,
   ...AErrorsI18n.en,
   ...AFieldsetI18n.en,
   ...AFiltersI18n.en,
@@ -151,6 +158,7 @@ export const en = {
   ...AModalI18n.en,
   ...AMultiselectOrderedI18n.en,
   ...APaginationI18n.en,
+  ...AProgressI18n.en,
   ...ARadioI18n.en,
   ...ARequiredI18n.en,
   ...ARouterLinkConfigI18n.en,
@@ -176,6 +184,7 @@ export const es = {
   ...ADatepickerI18n.es,
   ...ADatepickerRangeI18n.es,
   ...ADisclosureI18n.es,
+  ...ADropdownI18n.es,
   ...AErrorsI18n.es,
   ...AFieldsetI18n.es,
   ...AFiltersI18n.es,
@@ -191,6 +200,7 @@ export const es = {
   ...AModalI18n.es,
   ...AMultiselectOrderedI18n.es,
   ...APaginationI18n.es,
+  ...AProgressI18n.es,
   ...ARadioI18n.es,
   ...ARequiredI18n.es,
   ...ARouterLinkConfigI18n.es,
@@ -216,6 +226,7 @@ export const fr = {
   ...ADatepickerI18n.fr,
   ...ADatepickerRangeI18n.fr,
   ...ADisclosureI18n.fr,
+  ...ADropdownI18n.fr,
   ...AErrorsI18n.fr,
   ...AFieldsetI18n.fr,
   ...AFiltersI18n.fr,
@@ -231,6 +242,7 @@ export const fr = {
   ...AModalI18n.fr,
   ...AMultiselectOrderedI18n.fr,
   ...APaginationI18n.fr,
+  ...AProgressI18n.fr,
   ...ARadioI18n.fr,
   ...ARequiredI18n.fr,
   ...ARouterLinkConfigI18n.fr,
@@ -256,6 +268,7 @@ export const hr = {
   ...ADatepickerI18n.hr,
   ...ADatepickerRangeI18n.hr,
   ...ADisclosureI18n.hr,
+  ...ADropdownI18n.hr,
   ...AErrorsI18n.hr,
   ...AFieldsetI18n.hr,
   ...AFiltersI18n.hr,
@@ -271,6 +284,7 @@ export const hr = {
   ...AModalI18n.hr,
   ...AMultiselectOrderedI18n.hr,
   ...APaginationI18n.hr,
+  ...AProgressI18n.hr,
   ...ARadioI18n.hr,
   ...ARequiredI18n.hr,
   ...ARouterLinkConfigI18n.hr,
@@ -296,6 +310,7 @@ export const it = {
   ...ADatepickerI18n.it,
   ...ADatepickerRangeI18n.it,
   ...ADisclosureI18n.it,
+  ...ADropdownI18n.it,
   ...AErrorsI18n.it,
   ...AFieldsetI18n.it,
   ...AFiltersI18n.it,
@@ -311,6 +326,7 @@ export const it = {
   ...AModalI18n.it,
   ...AMultiselectOrderedI18n.it,
   ...APaginationI18n.it,
+  ...AProgressI18n.it,
   ...ARadioI18n.it,
   ...ARequiredI18n.it,
   ...ARouterLinkConfigI18n.it,
@@ -336,6 +352,7 @@ export const nl = {
   ...ADatepickerI18n.nl,
   ...ADatepickerRangeI18n.nl,
   ...ADisclosureI18n.nl,
+  ...ADropdownI18n.nl,
   ...AErrorsI18n.nl,
   ...AFieldsetI18n.nl,
   ...AFiltersI18n.nl,
@@ -351,6 +368,7 @@ export const nl = {
   ...AModalI18n.nl,
   ...AMultiselectOrderedI18n.nl,
   ...APaginationI18n.nl,
+  ...AProgressI18n.nl,
   ...ARadioI18n.nl,
   ...ARequiredI18n.nl,
   ...ARouterLinkConfigI18n.nl,
@@ -376,6 +394,7 @@ export const pl = {
   ...ADatepickerI18n.pl,
   ...ADatepickerRangeI18n.pl,
   ...ADisclosureI18n.pl,
+  ...ADropdownI18n.pl,
   ...AErrorsI18n.pl,
   ...AFieldsetI18n.pl,
   ...AFiltersI18n.pl,
@@ -391,6 +410,7 @@ export const pl = {
   ...AModalI18n.pl,
   ...AMultiselectOrderedI18n.pl,
   ...APaginationI18n.pl,
+  ...AProgressI18n.pl,
   ...ARadioI18n.pl,
   ...ARequiredI18n.pl,
   ...ARouterLinkConfigI18n.pl,
@@ -416,6 +436,7 @@ export const ru = {
   ...ADatepickerI18n.ru,
   ...ADatepickerRangeI18n.ru,
   ...ADisclosureI18n.ru,
+  ...ADropdownI18n.ru,
   ...AErrorsI18n.ru,
   ...AFieldsetI18n.ru,
   ...AFiltersI18n.ru,
@@ -431,6 +452,7 @@ export const ru = {
   ...AModalI18n.ru,
   ...AMultiselectOrderedI18n.ru,
   ...APaginationI18n.ru,
+  ...AProgressI18n.ru,
   ...ARadioI18n.ru,
   ...ARequiredI18n.ru,
   ...ARouterLinkConfigI18n.ru,
@@ -456,6 +478,7 @@ export const uk = {
   ...ADatepickerI18n.uk,
   ...ADatepickerRangeI18n.uk,
   ...ADisclosureI18n.uk,
+  ...ADropdownI18n.uk,
   ...AErrorsI18n.uk,
   ...AFieldsetI18n.uk,
   ...AFiltersI18n.uk,
@@ -471,6 +494,7 @@ export const uk = {
   ...AModalI18n.uk,
   ...AMultiselectOrderedI18n.uk,
   ...APaginationI18n.uk,
+  ...AProgressI18n.uk,
   ...ARadioI18n.uk,
   ...ARequiredI18n.uk,
   ...ARouterLinkConfigI18n.uk,

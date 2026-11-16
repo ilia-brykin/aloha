@@ -45,7 +45,7 @@
         }
       }
       &.active {
-        color: var(--a_wizard_step_active_primary_color);
+        color: var(--a_wizard_step_active_text_color);
         cursor: pointer;
         &::after {
           background: var(--a_wizard_step_active_primary_color);
@@ -61,7 +61,7 @@
       }
 
       &.error {
-        color: var(--a_wizard_step_error_primary_color) !important;
+        color: var(--a_wizard_step_error_text_color) !important;
 
         &::after {
           background: var(--a_wizard_step_error_primary_color) !important;
@@ -596,6 +596,7 @@
   --a_wizard_step_default_primary_color: var(--a_color_gray_100);
   --a_wizard_step_default_secondary_color: var(--a_color_text_muted);
   --a_wizard_step_active_primary_color: var(--a_color_primary);
+  --a_wizard_step_active_text_color: var(--a_color_primary_text);
   --a_wizard_step_active_secondary_color: var(--a_color_primary_contrast);
   --a_wizard_step_active_font_weight: var(--a_font_weight_bold);
   --a_wizard_step_done_primary_color: var(--a_color_primary_text_emphasis);
@@ -603,6 +604,7 @@
   --a_wizard_step_disabled_primary_color: var(--a_color_gray_500);
   --a_wizard_step_disabled_secondary_color: var(--a_color_gray_100);
   --a_wizard_step_error_primary_color: var(--a_color_danger);
+  --a_wizard_step_error_text_color: var(--a_color_danger_text);
   --a_wizard_step_error_secondary_color: var(--a_color_danger_contrast);
   --a_wizard_step_warning_primary_color: var(--a_color_warning);
   --a_wizard_step_warning_secondary_color: var(--a_color_warning_contrast);
@@ -620,7 +622,7 @@
   --a_wizard_line_step_default_number_border_style: none;
   --a_wizard_line_step_default_number_border_color: transparent;
   // active
-  --a_wizard_line_step_active_text_color: var(--a_wizard_step_active_primary_color);
+  --a_wizard_line_step_active_text_color: var(--a_wizard_step_active_text_color);
   --a_wizard_line_step_active_number_color: var(--a_wizard_step_active_secondary_color);
   --a_wizard_line_step_active_number_bg: var(--a_wizard_step_active_primary_color);
   --a_wizard_line_step_active_number_border_width: 0;
@@ -642,7 +644,7 @@
   --a_wizard_line_step_disabled_number_border_style: none;
   --a_wizard_line_step_disabled_number_border_color: transparent;
   // error
-  --a_wizard_line_step_error_text_color: var(--a_wizard_step_error_primary_color);
+  --a_wizard_line_step_error_text_color: var(--a_wizard_step_error_text_color);
   --a_wizard_line_step_error_number_color: var(--a_wizard_step_error_secondary_color);
   --a_wizard_line_step_error_number_bg: var(--a_wizard_step_error_primary_color);
   --a_wizard_line_step_error_number_border_width: 0;

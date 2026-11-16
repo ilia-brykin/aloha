@@ -265,7 +265,7 @@ input[type="text"]::-ms-clear {
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_form_element__parent) {
-  --a_form_element_error_color: var(--a_color_danger);
+  --a_form_element_error_color: var(--a_color_danger_text);
   --a_form_element_label_float_top: 1.125rem;
   --a_form_element_label_float_color: var(--a_color_text_muted);
   --a_form_element_label_float_active_color: var(--a_color_label);
@@ -273,7 +273,7 @@ input[type="text"]::-ms-clear {
   --a_form_element_help_text_color: var(--a_color_text_muted);
 }
 :where(.a_fieldset__content) {
-  --a_form_element_error_color: var(--a_color_danger);
+  --a_form_element_error_color: var(--a_color_danger_text);
 }
 :where(.a_form_control) {
   --a_form_control_height: var(--a_control_height);

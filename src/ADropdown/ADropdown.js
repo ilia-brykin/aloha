@@ -482,7 +482,10 @@ export default {
         tag: this.buttonTagLocal,
         class: this.buttonClassLocal,
         text: this.buttonText,
-        textScreenReader: this.buttonTextScreenReader,
+        textScreenReader: this.buttonTextScreenReader ??
+          (this.buttonText || this.buttonTitle || this.$attrs.ariaLabel || this.$attrs["aria-label"] ?
+            undefined :
+            "_A_DROPDOWN_BUTTON_SCREEN_READER_"),
         textAriaHidden: this.buttonTextAriaHidden,
         textClass: this.buttonTextClass,
         title: this.buttonTitle,

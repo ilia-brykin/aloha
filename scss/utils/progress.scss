@@ -1,3 +1,5 @@
+@use "../tokens/settings";
+
 .a_progress {
   display: flex;
   height: var(--a_progress_height);
@@ -54,6 +56,18 @@
 @keyframes a_progress_bar_flow {
   from {
     background-position-x: var(--a_progress_height);
+  }
+}
+
+// The text on the bar follows the background utility class
+@each $name in settings.$variant-colors {
+  .a_progress__bar.a_bg_#{$name} {
+    --a_progress_bar_color: var(--a_color_#{$name}_contrast);
+  }
+}
+@each $step, $l in settings.$gray-steps {
+  .a_progress__bar.a_bg_gray_#{$step} {
+    --a_progress_bar_color: var(--a_color_gray_#{if($step <= 500, 900, 50)});
   }
 }
 

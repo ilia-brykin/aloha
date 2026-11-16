@@ -426,7 +426,6 @@ export default {
       }),
       h("ul", {
         class: "a_wizard__steps",
-        role: "navigation",
         ...this.ariaLabelStepsAttributes,
       }, [
         this.steps.map((step, stepIndex) => {

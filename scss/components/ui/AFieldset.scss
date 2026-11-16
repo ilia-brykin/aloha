@@ -73,13 +73,13 @@
   --a_fieldset_border_radius: var(--a_border_radius_large);
   --a_fieldset_border_color: var(--a_border_color_strong);
   --a_fieldset_border_width: var(--a_border_width);
-  --a_fieldset_invalid_color: var(--a_color_danger);
+  --a_fieldset_invalid_color: var(--a_color_danger_text);
   --a_fieldset_legend_bg: var(--a_color_surface);
 }
 :where(.a_legend) {
   --a_legend_padding_x: .5rem;
   --a_legend_color: var(--a_color_label);
   --a_legend_font_size: inherit;
-  --a_flegend_invalid_color: var(--a_color_danger);
+  --a_flegend_invalid_color: var(--a_color_danger_text);
   --a_legend_font_weight: var(--a_font_weight_semibold);
 }

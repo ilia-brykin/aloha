@@ -22,6 +22,8 @@
   --a_tone_bg_subtle_l: 95%;
   --a_tone_border_subtle_l: 82%;
   --a_tone_text_emphasis_l: 28%;
+  --a_tone_text_min_l: 0%;
+  --a_tone_text_max_l: 30%;
   --a_tone_subtle_saturation: 1;
   --a_tone_border_strong_l: 56%;
   --a_tone_emphasis_l: 0%;
@@ -40,6 +42,8 @@
   --a_tone_bg_subtle_l: 18%;
   --a_tone_border_subtle_l: 36%;
   --a_tone_text_emphasis_l: 82%;
+  --a_tone_text_min_l: 68%;
+  --a_tone_text_max_l: 100%;
   --a_tone_subtle_saturation: .6;
   --a_tone_border_strong_l: 52%;
   --a_tone_emphasis_l: 100%;
@@ -169,6 +173,8 @@
     --a_color_#{$name}_bg_subtle: hsl(var(--a_#{$name}_h) calc(var(--a_#{$name}_s) * var(--a_tone_subtle_saturation)) var(--a_tone_bg_subtle_l));
     --a_color_#{$name}_border_subtle: hsl(var(--a_#{$name}_h) calc(var(--a_#{$name}_s) * var(--a_tone_subtle_saturation)) var(--a_tone_border_subtle_l));
     --a_color_#{$name}_text_emphasis: #{hsl-of($name, var(--a_tone_text_emphasis_l))};
+    // the color itself, but with enough contrast for text on the surface (WCAG AA)
+    --a_color_#{$name}_text: #{hsl-of($name, clamp(var(--a_tone_text_min_l), #{$l}, var(--a_tone_text_max_l)))};
   }
 
   // Gray scale

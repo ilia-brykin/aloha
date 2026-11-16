@@ -132,6 +132,7 @@ export default {
           prevent: true,
           stop: true,
           tabindex: -1,
+          textScreenReader: "_A_SELECT_REMOVE_",
           type: "button",
           onClick: this.closeModel,
         }) :
