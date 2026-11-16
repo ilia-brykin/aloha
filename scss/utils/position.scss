@@ -1,27 +1,26 @@
-@use "aloha_prefix" as aloha;
 
-.#{aloha.$aloha-prefix}position_static {
+.a_position_static {
   position: static !important;
 }
 
-.#{aloha.$aloha-prefix}position_relative {
+.a_position_relative {
   position: relative !important;
 }
 
-.#{aloha.$aloha-prefix}position_absolute {
+.a_position_absolute {
   position: absolute !important;
 }
 
-.#{aloha.$aloha-prefix}position_fixed {
+.a_position_fixed {
   position: fixed !important;
 }
 
-.#{aloha.$aloha-prefix}position_sticky {
+.a_position_sticky {
   position: -webkit-sticky !important;
   position: sticky !important;
 }
 
-.#{aloha.$aloha-prefix}position_absolute_all {
+.a_position_absolute_all {
   position: absolute !important;
   top: 0 !important;
   right: 0 !important;
@@ -29,62 +28,62 @@
   left: 0 !important;
 }
 
-.#{aloha.$aloha-prefix}top_0 {
+.a_top_0 {
   top: 0 !important;
 }
 
-.#{aloha.$aloha-prefix}top_50 {
+.a_top_50 {
   top: 50% !important;
 }
 
-.#{aloha.$aloha-prefix}top_100 {
+.a_top_100 {
   top: 100% !important;
 }
 
-.#{aloha.$aloha-prefix}bottom_0 {
+.a_bottom_0 {
   bottom: 0 !important;
 }
 
-.#{aloha.$aloha-prefix}bottom_50 {
+.a_bottom_50 {
   bottom: 50% !important;
 }
 
-.#{aloha.$aloha-prefix}bottom_100 {
+.a_bottom_100 {
   bottom: 100% !important;
 }
 
-.#{aloha.$aloha-prefix}start_0 {
+.a_start_0 {
   left: 0 !important;
 }
 
-.#{aloha.$aloha-prefix}start_50 {
+.a_start_50 {
   left: 50% !important;
 }
 
-.#{aloha.$aloha-prefix}start_100 {
+.a_start_100 {
   left: 100% !important;
 }
 
-.#{aloha.$aloha-prefix}end_0 {
+.a_end_0 {
   right: 0 !important;
 }
 
-.#{aloha.$aloha-prefix}end_50 {
+.a_end_50 {
   right: 50% !important;
 }
 
-.#{aloha.$aloha-prefix}end_100 {
+.a_end_100 {
   right: 100% !important;
 }
 
-.#{aloha.$aloha-prefix}translate_middle {
+.a_translate_middle {
   transform: translate(-50%, -50%) !important;
 }
 
-.#{aloha.$aloha-prefix}translate_middle_x {
+.a_translate_middle_x {
   transform: translateX(-50%) !important;
 }
 
-.#{aloha.$aloha-prefix}translate_middle_y {
+.a_translate_middle_y {
   transform: translateY(-50%) !important;
 }

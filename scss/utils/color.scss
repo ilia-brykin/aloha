@@ -1,46 +1,37 @@
-@use "aloha_prefix" as aloha;
-@use "color_utils";
+@use "../tokens/settings";
 
-:root {
-  @each $color-key, $color-value in color_utils.$a_colors_global {
-      #{ color_utils.getColorVar($color-key) }: #{ $color-value };
-  }
-  @each $color-key, $color-value in color_utils.$a_theme_colors_text {
-    #{ color_utils.getColorVar($color-key, "_text_emphasis") }: #{$color-value};
-  }
-  @each $color-key, $color-value in color_utils.$a_theme_colors_bg_subtle {
-    #{ color_utils.getColorVar($color-key, "_bg_subtle") }: #{$color-value};
-  }
-  @each $color-key, $color-value in color_utils.$a_theme_colors_border_subtle {
-    #{ color_utils.getColorVar($color-key, "_border_subtle") }: #{$color-value};
-  }
-  --a_color_emphasis_color: #000;
+// Text and background color utilities.
+$colors: (
+  "primary", "secondary", "tertiary", "text", "text_muted", "info", "success", "warning", "danger", "light", "dark", "link", "white", "black", "surface", "surface_subtle", "gray_100", "gray_200", "gray_300", "gray_400", "gray_500", "gray_600", "gray_700", "gray_800", "gray_900",
+);
 
-  --a_border_width: 1px;
-  --a_border_style: solid;
-  --a_border_color: var(--a_color_gray_300);
+@each $color in $colors {
+  .a_color_#{$color} {
+    color: var(--a_color_#{$color}) !important;
+  }
+  .a_bg_#{$color} {
+    background-color: var(--a_color_#{$color}) !important;
+  }
 }
 
-@each $color in color_utils.$a_colors {
-    .#{ aloha.$aloha-prefix }color_#{ "" + $color } {
-        color: var(#{ color_utils.getColorVar($color) }) !important;
-    }
+@each $name in settings.$variant-colors {
+  .a_color_#{$name}_text_emphasis {
+    color: var(--a_color_#{$name}_text_emphasis) !important;
+  }
+  .a_bg_#{$name}_subtle {
+    background-color: var(--a_color_#{$name}_bg_subtle) !important;
+  }
 }
+
 .a_color_transparent {
   color: transparent !important;
 }
 .a_color_inherit {
   color: inherit !important;
 }
-
-@each $bg_color in color_utils.$a_bg_colors {
-    .#{ aloha.$aloha-prefix }bg_#{ "" + $bg_color } {
-        background-color: var(#{ color_utils.getColorVar($bg_color) }) !important;
-    }
-}
 .a_bg_transparent {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 .a_bg_inherit {
-    background-color: inherit !important;
+  background-color: inherit !important;
 }

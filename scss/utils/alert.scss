@@ -1,49 +1,21 @@
-@use "sass:map";
-
-@use "aloha_prefix" as aloha;
-@use "vars_global";
-@use "color_utils";
-
-$a_alert_padding_y:               vars_global.$a_spacer !default;
-$a_alert_padding_x:               vars_global.$a_spacer !default;
-$a_alert_border_radius:           vars_global.$a_border_radius !default;
-$a_alert_link_font_weight:        vars_global.$a_font_weight_bold !default;
-$a_alert_border_width:            vars_global.$a_border_width !default;
-$a_alert_bg_scale:                -80% !default;
-$a_alert_border_scale:            -70% !default;
-$a_alert_color_scale:             40% !default;
-$a_alert_closable_padding_r:      $a_alert_padding_x * 3 !default;
-
+@use "../tokens/settings";
 
 .a_alert {
-  --#{aloha.$aloha-prefix}alert_bg: transparent;
-  --#{aloha.$aloha-prefix}alert_padding_x: 1rem;
-  --#{aloha.$aloha-prefix}alert_padding_y: 1rem;
-  --#{aloha.$aloha-prefix}alert_margin_bottom: 1rem;
-  --#{aloha.$aloha-prefix}alert_color: inherit;
-  --#{aloha.$aloha-prefix}alert_border_color: transparent;
-  --#{aloha.$aloha-prefix}alert_border: var(--#{aloha.$aloha-prefix}border_width) solid var(--#{aloha.$aloha-prefix}alert_border_color);
-  --#{aloha.$aloha-prefix}alert_border-radius: var(--#{aloha.$aloha-prefix}border_radius);
-  --#{aloha.$aloha-prefix}alert_icon_size: 1.5rem;
-  --#{aloha.$aloha-prefix}alert_icon_margin_right: .5rem;
-  --#{aloha.$aloha-prefix}alert_text_align: left;
-  --a_alert_link_color: inherit;
-
   position: relative;
-  padding: var(--#{aloha.$aloha-prefix}alert_padding_y) var(--#{aloha.$aloha-prefix}alert_padding_x);
-  margin-bottom: var(--#{aloha.$aloha-prefix}alert_margin_bottom);
-  color: var(--#{aloha.$aloha-prefix}alert_color);
-  background-color: var(--#{aloha.$aloha-prefix}alert_bg);
-  border: var(--#{aloha.$aloha-prefix}alert_border);
-  border-radius: var(--#{aloha.$aloha-prefix}alert_border-radius);
+  padding: var(--a_alert_padding_y) var(--a_alert_padding_x);
+  margin-bottom: var(--a_alert_margin_bottom);
+  color: var(--a_alert_color);
+  background-color: var(--a_alert_bg);
+  border: var(--a_alert_border);
+  border-radius: var(--a_alert_border_radius);
   display: flex;
   align-items: center;
-  text-align: var(--#{aloha.$aloha-prefix}alert_text_align);
+  text-align: var(--a_alert_text_align);
 
-  .#{aloha.$aloha-prefix}alert__icon {
-    width: var(--#{aloha.$aloha-prefix}alert_icon_size);
-    height: var(--#{aloha.$aloha-prefix}alert_icon_size);
-    margin-right: var(--#{aloha.$aloha-prefix}alert_icon_margin_right);
+  .a_alert__icon {
+    width: var(--a_alert_icon_size);
+    height: var(--a_alert_icon_size);
+    margin-right: var(--a_alert_icon_margin_right);
   }
 }
 
@@ -52,18 +24,17 @@ $a_alert_closable_padding_r:      $a_alert_padding_x * 3 !default;
   color: var(--a_alert_link_color);
 }
 
-.#{aloha.$aloha-prefix}alert__parent_closable {
+.a_alert__parent_closable {
   position: relative;
-  .#{aloha.$aloha-prefix}alert {
-    padding-right: $a_alert_closable_padding_r;
+  .a_alert {
+    padding-right: calc(var(--a_alert_padding_x) * 3);
   }
   .a_btn_close {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: vars_global.$a_stretched_link_z_index + 1;
-    padding: $a_alert_padding_y * 1.25 $a_alert_padding_x;
-    background: none;
+    z-index: 2;
+    padding: calc(var(--a_alert_padding_y) * 1.25) var(--a_alert_padding_x);
   }
 }
 
@@ -71,11 +42,29 @@ $a_alert_closable_padding_r:      $a_alert_padding_x * 3 !default;
   width: 100%;
 }
 
-@each $state in map.keys(color_utils.$a_theme_colors) {
+@each $state in settings.$variant-colors {
   .a_alert_#{$state} {
     --a_alert_color: var(--a_color_#{$state}_text_emphasis);
     --a_alert_bg: var(--a_color_#{$state}_bg_subtle);
     --a_alert_border_color: var(--a_color_#{$state}_border_subtle);
     --a_alert_link_color: var(--a_color_#{$state}_text_emphasis);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_alert) {
+  --a_alert_bg: transparent;
+  --a_alert_padding_x: var(--a_space_md);
+  --a_alert_padding_y: var(--a_space_md);
+  --a_alert_margin_bottom: var(--a_space_md);
+  --a_alert_color: inherit;
+  --a_alert_border_color: transparent;
+  --a_alert_border: var(--a_border_width) solid var(--a_alert_border_color);
+  --a_alert_border_radius: var(--a_border_radius);
+  --a_alert_icon_size: 1.5rem;
+  --a_alert_icon_margin_right: .5rem;
+  --a_alert_text_align: left;
+  --a_alert_link_color: inherit;
 }

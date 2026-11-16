@@ -1,12 +1,4 @@
 .a_progress {
-  --a_progress_height: 1rem;
-  --a_progress_font_size: 0.75rem;
-  --a_progress_bg: var(--a_color_gray_200);
-  --a_progress_border_radius: var(--a_border_radius);
-  --a_progress_box_shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-  --a_progress_bar_color: var(--a_color_white);
-  --a_progress_bar_bg: var(--a_color_primary);
-  --a_progress_bar_transition: width 0.6s ease;
   display: flex;
   height: var(--a_progress_height);
   overflow: hidden;
@@ -19,7 +11,7 @@
 }
 .a_progress_small {
   --a_progress_height: .75rem;
-  --a_progress_font_size: .6rem;
+  --a_progress_font_size: .625rem;
 }
 .a_progress_medium {
   --a_progress_height: 1.25rem;
@@ -46,25 +38,44 @@
 }
 
 .a_progress__bar_striped {
-  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+  background-image: linear-gradient(-45deg, var(--a_progress_stripe_color) 25%, transparent 0 50%, var(--a_progress_stripe_color) 0 75%, transparent 0);
   background-size: var(--a_progress_height) var(--a_progress_height);
   &.a_progress__bar_striped_flow {
     animation: 1s linear infinite a_progress_bar_flow;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .a_progress__bar_striped.a_progress__bar_striped_flow {
+    animation: none;
+  }
+}
+
 @keyframes a_progress_bar_flow {
-  0% {
-    background-position-x: 1rem
+  from {
+    background-position-x: var(--a_progress_height);
   }
 }
 
 @keyframes a_progress_bar_indeterminate {
-  0% {
-    left: -100%
+  from {
+    left: -100%;
   }
-
   to {
-    left: 100%
+    left: 100%;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_progress) {
+  --a_progress_height: 1rem;
+  --a_progress_font_size: .75rem;
+  --a_progress_bg: var(--a_color_gray_200);
+  --a_progress_border_radius: var(--a_border_radius_pill);
+  --a_progress_bar_color: var(--a_color_primary_contrast);
+  --a_progress_bar_bg: var(--a_color_primary);
+  --a_progress_bar_transition: width var(--a_duration_slow) var(--a_easing);
+  --a_progress_stripe_color: hsl(0 0% 100% / .2);
 }

@@ -1,23 +1,22 @@
 @use "sass:map";
 
-@use "../utils/aloha_prefix" as aloha;
 @use "../utils/breakpoint";
 @use "../utils/mixins";
 
-.#{aloha.$aloha-prefix}text_left {
+.a_text_left {
   text-align: left !important;
 }
-.#{aloha.$aloha-prefix}text_center {
+.a_text_center {
   text-align: center !important;
 }
-.#{aloha.$aloha-prefix}text_right {
+.a_text_right {
   text-align: right !important;
 }
-.#{aloha.$aloha-prefix}text_justify {
+.a_text_justify {
   text-align: justify !important;
 }
 
-@each $breakpoint in breakpoint.$a_breakpoints {
+@each $breakpoint in breakpoint.$all {
   $breakpoint-class: map.get($breakpoint, "class");
   $breakpoint-min: map.get($breakpoint, "min");
   $breakpoint-max: map.get($breakpoint, "max");

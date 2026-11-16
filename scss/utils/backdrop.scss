@@ -1,25 +1,28 @@
-@use "aloha_prefix" as aloha;
-
-.#{aloha.$aloha-prefix}backdrop {
-  --#{aloha.$aloha-prefix}_backdrop_zindex: var(--a_z_index_backdrop);
-  --#{aloha.$aloha-prefix}_backdrop_bg: #000;
-  --#{aloha.$aloha-prefix}_backdrop_opacity: 0.5;
-
+.a_backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: var(--#{aloha.$aloha-prefix}_backdrop_zindex);
+  z-index: var(--a_backdrop_z_index);
   width: 100vw;
   height: 100vh;
-  background-color: var(--#{aloha.$aloha-prefix}_backdrop_bg);
+  background-color: var(--a_backdrop_bg);
 }
-.#{aloha.$aloha-prefix}backdrop_confirm {
-  --#{aloha.$aloha-prefix}_backdrop_zindex: var(--a_z_index_backdrop_confirm);
+.a_backdrop_confirm {
+  --a_backdrop_z_index: var(--a_z_index_backdrop_confirm);
 }
-.#{aloha.$aloha-prefix}backdrop_fade {
-  transition: opacity .15s linear;
+.a_backdrop_fade {
+  transition: opacity var(--a_duration_normal) linear;
   opacity: 0;
 }
-.#{aloha.$aloha-prefix}backdrop_show {
-  opacity: var(--#{aloha.$aloha-prefix}_backdrop_opacity);
+.a_backdrop_show {
+  opacity: var(--a_backdrop_opacity);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_backdrop) {
+  --a_backdrop_z_index: var(--a_z_index_backdrop);
+  --a_backdrop_bg: hsl(var(--a_gray_h) 30% 8%);
+  --a_backdrop_opacity: .55;
 }

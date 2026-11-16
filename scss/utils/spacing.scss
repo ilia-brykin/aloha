@@ -1,12 +1,11 @@
 @use "sass:string";
 
-@use "aloha_prefix" as aloha;
 
-$a_spacing_shortcuts: ("margin": "m", "padding": "p") !default;
-$a_spacing_directions: ("top": "t", "right": "r", "bottom": "b", "left": "l") !default;
-$a_spacing_horizontal: "x" !default;
-$a_spacing_vertical: "y" !default;
-$a_spacing_values: (
+$spacing_shortcuts: ("margin": "m", "padding": "p");
+$spacing_directions: ("top": "t", "right": "r", "bottom": "b", "left": "l");
+$spacing_horizontal: "x";
+$spacing_vertical: "y";
+$spacing_values: (
     "1": "0.25rem !important",
     "2": "0.5rem !important",
     "3": "0.75rem !important",
@@ -15,31 +14,31 @@ $a_spacing_values: (
     "6": "3rem !important",
     "auto": "auto !important",
     "0": "0 !important",
-) !default;
+);
 
-@each $property, $shortcut in $a_spacing_shortcuts {
-    @each $name, $value in $a_spacing_values {
+@each $property, $shortcut in $spacing_shortcuts {
+    @each $name, $value in $spacing_values {
         @if $property != "padding" or string.index($value, "auto") == null {
             // All directions
-            .#{aloha.$aloha-prefix}#{$shortcut}_#{$name} {
+            .a_#{$shortcut}_#{$name} {
                 #{$property}: #{$value};
             }
             // Cardinal directions
-            @each $direction, $suffix in $a_spacing_directions {
-                .#{aloha.$aloha-prefix}#{$shortcut}#{$suffix}_#{$name} {
+            @each $direction, $suffix in $spacing_directions {
+                .a_#{$shortcut}#{$suffix}_#{$name} {
                     #{$property}-#{$direction}: #{$value};
                 }
             }
             // Horizontal axis
-            @if $a_spacing_horizontal != null {
-                .#{aloha.$aloha-prefix}#{$shortcut}#{$a_spacing_horizontal}_#{$name} {
+            @if $spacing_horizontal != null {
+                .a_#{$shortcut}#{$spacing_horizontal}_#{$name} {
                     #{$property}-left: #{$value};
                     #{$property}-right: #{$value};
                 }
             }
             // Vertical axis
-            @if $a_spacing_vertical != null {
-                .#{aloha.$aloha-prefix}#{$shortcut}#{$a_spacing_vertical}_#{$name} {
+            @if $spacing_vertical != null {
+                .a_#{$shortcut}#{$spacing_vertical}_#{$name} {
                     #{$property}-top: #{$value};
                     #{$property}-bottom: #{$value};
                 }
@@ -48,7 +47,7 @@ $a_spacing_values: (
     }
 }
 
-@each $name, $value in $a_spacing_values {
+@each $name, $value in $spacing_values {
   @if $name != "auto" {
     .a_gap_#{$name} {
       gap: #{$value};

@@ -2,9 +2,9 @@
 
 @use "breakpoint";
 @use "mixins";
-@use "funktions";
+@use "list_helpers";
 
-$a_breakpoints_list: funktions.prepend(breakpoint.$a_breakpoints, (class: null));
+$breakpoints_list: list_helpers.prepend(breakpoint.$all, (class: null));
 
 .a_list_columns > * {
   page-break-inside: avoid;
@@ -18,7 +18,7 @@ $a_breakpoints_list: funktions.prepend(breakpoint.$a_breakpoints, (class: null))
   }
 }
 
-@each $breakpoint in $a_breakpoints_list {
+@each $breakpoint in $breakpoints_list {
   $breakpoint-class: map.get($breakpoint, "class");
   $breakpoint-min: map.get($breakpoint, "min");
   $breakpoint-max: map.get($breakpoint, "max");

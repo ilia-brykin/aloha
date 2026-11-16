@@ -1,46 +1,39 @@
-@use "sass:map";
+@use "../tokens/settings";
 
-@use "aloha_prefix" as aloha;
-@use "vars_global";
-@use "color_utils";
-
-$a_badge_font_size:                   .75em;
-$a_badge_font_weight:                 700;
-$a_badge_color:                       var(--#{aloha.$aloha-prefix}color_white);
-$a_badge_bg:                          var(--#{aloha.$aloha-prefix}color_black);
-$a_badge_padding_y:                   .35em;
-$a_badge_padding_x:                   .65em;
-$a_badge_border_radius:               var(--#{aloha.$aloha-prefix}border_radius);
-
-.#{aloha.$aloha-prefix}badge {
-  --#{aloha.$aloha-prefix}badge_padding_x: #{$a_badge_padding_x};
-  --#{aloha.$aloha-prefix}badge_padding_y: #{$a_badge_padding_y};
-  --#{aloha.$aloha-prefix}badge_font_size: #{$a_badge_font_size};
-  --#{aloha.$aloha-prefix}badge_font_weight: #{$a_badge_font_weight};
-  --#{aloha.$aloha-prefix}badge_color: #{$a_badge_color};
-  --#{aloha.$aloha-prefix}badge_bg: #{$a_badge_bg};
-  --#{aloha.$aloha-prefix}badge_border_radius: #{$a_badge_border_radius};
-
+.a_badge {
   display: inline-block;
-  padding: var(--#{aloha.$aloha-prefix}badge_padding_y) var(--#{aloha.$aloha-prefix}badge_padding_x);
-  font-size: var(--#{aloha.$aloha-prefix}badge_font_size);
-  font-weight: var(--#{aloha.$aloha-prefix}badge_font_weight);
+  padding: var(--a_badge_padding_y) var(--a_badge_padding_x);
+  font-size: var(--a_badge_font_size);
+  font-weight: var(--a_badge_font_weight);
   line-height: 1;
-  color: var(--#{aloha.$aloha-prefix}badge_color);
-  background-color: var(--#{aloha.$aloha-prefix}badge_bg);
+  color: var(--a_badge_color);
+  background-color: var(--a_badge_bg);
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: var(--#{aloha.$aloha-prefix}badge_border_radius);
+  border-radius: var(--a_badge_border_radius);
 }
 
-.#{aloha.$aloha-prefix}pill_rounded {
-  border-radius: var(--#{aloha.$aloha-prefix}border_radius_pill) !important;
+.a_pill_rounded {
+  border-radius: var(--a_border_radius_pill) !important;
 }
 
-@each $state in map.keys(color_utils.$a_theme_colors) {
-  .#{aloha.$aloha-prefix}badge_#{$state} {
-    --#{aloha.$aloha-prefix}badge_color: var(--a_color_#{$state}_text_emphasis);
-    --#{aloha.$aloha-prefix}badge_bg: var(--a_color_#{$state}_bg_subtle);
+@each $state in settings.$variant-colors {
+  .a_badge_#{$state} {
+    --a_badge_color: var(--a_color_#{$state}_text_emphasis);
+    --a_badge_bg: var(--a_color_#{$state}_bg_subtle);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_badge) {
+  --a_badge_padding_x: .65em;
+  --a_badge_padding_y: .35em;
+  --a_badge_font_size: .75em;
+  --a_badge_font_weight: var(--a_font_weight_bold);
+  --a_badge_color: var(--a_color_white);
+  --a_badge_bg: var(--a_color_black);
+  --a_badge_border_radius: var(--a_border_radius);
 }
