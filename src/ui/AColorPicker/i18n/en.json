@@ -6,7 +6,7 @@
   "_A_COLOR_PICKER_EMPTY_": "No color selected",
   "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_": "Color format {{format}}, switch to {{next}}",
   "_A_COLOR_PICKER_HUE_": "Hue",
-  "_A_COLOR_PICKER_INPUT_": "Color value",
+  "_A_COLOR_PICKER_INPUT_{{format}}_": "Color value ({{format}})",
   "_A_COLOR_PICKER_INVALID_": "Invalid color value. Allowed: #rrggbb, rgb(), hsl(), hsv().",
   "_A_COLOR_PICKER_PREDEFINE_": "Predefined colors",
   "_A_COLOR_PICKER_SATURATION_": "Saturation and brightness",

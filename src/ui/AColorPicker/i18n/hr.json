@@ -6,7 +6,7 @@
   "_A_COLOR_PICKER_EMPTY_": "Nije odabrana boja",
   "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_": "Format boje {{format}}, prebaci na {{next}}",
   "_A_COLOR_PICKER_HUE_": "Nijansa",
-  "_A_COLOR_PICKER_INPUT_": "Vrijednost boje",
+  "_A_COLOR_PICKER_INPUT_{{format}}_": "Vrijednost boje ({{format}})",
   "_A_COLOR_PICKER_INVALID_": "Nevaljana vrijednost boje. Dopušteno: #rrggbb, rgb(), hsl(), hsv().",
   "_A_COLOR_PICKER_PREDEFINE_": "Unaprijed definirane boje",
   "_A_COLOR_PICKER_SATURATION_": "Zasićenost i svjetlina",

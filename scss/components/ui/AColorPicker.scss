@@ -86,6 +86,11 @@
   box-shadow: var(--a_color_picker_popup_shadow);
 }
 
+// the float label of the text field lies on the popup background
+.a_color_picker__popup .a_form_element__parent {
+  --a_form_element_label_float_bg: var(--a_color_picker_popup_bg);
+}
+
 .a_color_picker__popup_positioning {
   visibility: hidden;
 }

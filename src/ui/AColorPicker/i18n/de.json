@@ -6,7 +6,7 @@
   "_A_COLOR_PICKER_EMPTY_": "Keine Farbe ausgewählt",
   "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_": "Farbformat {{format}}, wechseln zu {{next}}",
   "_A_COLOR_PICKER_HUE_": "Farbton",
-  "_A_COLOR_PICKER_INPUT_": "Farbwert",
+  "_A_COLOR_PICKER_INPUT_{{format}}_": "Farbwert ({{format}})",
   "_A_COLOR_PICKER_INVALID_": "Ungültiger Farbwert. Erlaubt: #rrggbb, rgb(), hsl(), hsv().",
   "_A_COLOR_PICKER_PREDEFINE_": "Vordefinierte Farben",
   "_A_COLOR_PICKER_SATURATION_": "Sättigung und Helligkeit",

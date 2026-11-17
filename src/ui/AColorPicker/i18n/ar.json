@@ -6,7 +6,7 @@
   "_A_COLOR_PICKER_EMPTY_": "لم يتم اختيار لون",
   "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_": "تنسيق اللون {{format}}، التبديل إلى {{next}}",
   "_A_COLOR_PICKER_HUE_": "درجة اللون",
-  "_A_COLOR_PICKER_INPUT_": "قيمة اللون",
+  "_A_COLOR_PICKER_INPUT_{{format}}_": "قيمة اللون ({{format}})",
   "_A_COLOR_PICKER_INVALID_": "قيمة لون غير صالحة. المسموح: #rrggbb و rgb() و hsl() و hsv().",
   "_A_COLOR_PICKER_PREDEFINE_": "ألوان محددة مسبقًا",
   "_A_COLOR_PICKER_SATURATION_": "التشبع والسطوع",
