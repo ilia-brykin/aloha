@@ -6,6 +6,7 @@ import {
 
 import {
   contrastRatio,
+  detectColorFormat,
   formatColor,
   getContrastTextColor,
   hslToHsv,
@@ -39,6 +40,17 @@ describe("colorUtils parseColor", () => {
     expect(parseColor("#12345")).toBeUndefined();
     expect(parseColor("rgb(1, 2)")).toBeUndefined();
     expect(parseColor(undefined)).toBeUndefined();
+  });
+});
+
+describe("colorUtils detectColorFormat", () => {
+  it("detects the format of a value", () => {
+    expect(detectColorFormat("#0775b0")).toBe("hex");
+    expect(detectColorFormat("RGBA(7, 117, 176, .5)")).toBe("rgb");
+    expect(detectColorFormat("hsl(0, 100%, 50%)")).toBe("hsl");
+    expect(detectColorFormat("hsva(0, 100%, 100%, 1)")).toBe("hsv");
+    expect(detectColorFormat("red")).toBeUndefined();
+    expect(detectColorFormat(undefined)).toBeUndefined();
   });
 });
 

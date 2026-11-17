@@ -22,9 +22,9 @@ export default function PropsAPI() {
       required: false,
     },
     {
-      name: "color-format",
-      description: "_A_COLOR_PICKER_PROPS_COLOR_FORMAT_DESCRIPTION_",
-      type: "\"hex\" / \"rgb\" / \"hsl\" / \"hsv\"",
+      name: "color-formats",
+      description: "_A_COLOR_PICKER_PROPS_COLOR_FORMATS_DESCRIPTION_",
+      type: "String / Array",
       default: "\"hex\"",
       required: false,
     },

@@ -5,6 +5,7 @@ import {
 } from "vue";
 
 import {
+  detectColorFormat,
   formatColor,
   getContrastTextColor,
   hsvToRgb,
@@ -12,19 +13,30 @@ import {
   rgbToHsv,
   toCssColor,
 } from "../utils/colorUtils";
+import {
+  isEqual,
+} from "lodash-es";
 
 const COLOR_FALLBACK = { r: 255, g: 0, b: 0, a: 1 };
 
 /**
  * State of the panel (hsva) and the colors derived from it and from the model.
  */
-export default function ColorStateAPI(props) {
-  const colorFormat = toRef(props, "colorFormat");
+export default function ColorStateAPI(props, {
+  currentFormat = ref("hex"),
+} = {}) {
   const modelValue = toRef(props, "modelValue");
   const panelDefaultColor = toRef(props, "panelDefaultColor");
   const showAlpha = toRef(props, "showAlpha");
 
   const hsva = ref({ h: 0, s: 100, v: 100, a: 1 });
+
+  /*
+   * The model value as it was when the dialog was opened. As long as the color
+   * and the format are not changed, this text is shown and written back,
+   * so e.g. "hsl(145, 63%, 29%)" does not become "hsl(145, 64%, 29%)" by rounding.
+   */
+  const modelSnapshot = ref(undefined);
 
   const modelColor = computed(() => parseColor(modelValue.value));
 
@@ -44,7 +56,12 @@ export default function ColorStateAPI(props) {
   });
 
   const valueLocal = computed(() => {
-    return formatColor(rgbaLocal.value, colorFormat.value, showAlpha.value);
+    if (modelSnapshot.value &&
+      modelSnapshot.value.format === currentFormat.value &&
+      isEqual(modelSnapshot.value.hsva, hsva.value)) {
+      return modelSnapshot.value.text;
+    }
+    return formatColor(rgbaLocal.value, currentFormat.value, showAlpha.value);
   });
 
   const cssColorLocal = computed(() => toCssColor(rgbaLocal.value));
@@ -73,6 +90,14 @@ export default function ColorStateAPI(props) {
 
   const setColorFromModel = () => {
     setColor(modelColor.value || parseColor(panelDefaultColor.value) || COLOR_FALLBACK);
+    const IS_SNAPSHOT = !!modelColor.value && (showAlpha.value || modelColor.value.a === 1);
+    modelSnapshot.value = IS_SNAPSHOT ?
+      {
+        format: detectColorFormat(modelValue.value),
+        hsva: { ...hsva.value },
+        text: modelValue.value.trim(),
+      } :
+      undefined;
   };
 
   const setHue = h => {

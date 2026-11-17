@@ -5,6 +5,7 @@ export default function TranslateAPI() {
     "_A_COLOR_PICKER_CONFIRM_",
     "_A_COLOR_PICKER_DIALOG_",
     "_A_COLOR_PICKER_EMPTY_",
+    "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_",
     "_A_COLOR_PICKER_HUE_",
     "_A_COLOR_PICKER_INPUT_",
     "_A_COLOR_PICKER_INVALID_",

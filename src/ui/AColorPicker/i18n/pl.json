@@ -4,6 +4,7 @@
   "_A_COLOR_PICKER_CONFIRM_": "OK",
   "_A_COLOR_PICKER_DIALOG_": "Wybierz kolor",
   "_A_COLOR_PICKER_EMPTY_": "Nie wybrano koloru",
+  "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_": "Format koloru {{format}}, przełącz na {{next}}",
   "_A_COLOR_PICKER_HUE_": "Odcień",
   "_A_COLOR_PICKER_INPUT_": "Wartość koloru",
   "_A_COLOR_PICKER_INVALID_": "Nieprawidłowa wartość koloru. Dozwolone: #rrggbb, rgb(), hsl(), hsv().",

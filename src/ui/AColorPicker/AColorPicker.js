@@ -26,6 +26,7 @@ import AColorPickerSlider from "./AColorPickerSlider/AColorPickerSlider";
 
 import ColorStateAPI from "./compositionAPI/ColorStateAPI";
 import ConfirmAPI from "./compositionAPI/ConfirmAPI";
+import FormatAPI from "./compositionAPI/FormatAPI";
 import InputAPI from "./compositionAPI/InputAPI";
 import PopoverAPI from "./compositionAPI/PopoverAPI";
 import PredefineAPI from "./compositionAPI/PredefineAPI";
@@ -36,6 +37,7 @@ import {
   COLOR_FORMATS,
 } from "./utils/colorUtils";
 import {
+  isArray,
   uniqueId,
 } from "lodash-es";
 
@@ -59,11 +61,11 @@ export default {
       required: false,
       default: undefined,
     },
-    colorFormat: {
-      type: String,
+    colorFormats: {
+      type: [String, Array],
       required: false,
       default: "hex",
-      validator: value => COLOR_FORMATS.indexOf(value) !== -1,
+      validator: value => (isArray(value) ? value : [value]).every(format => COLOR_FORMATS.indexOf(format) !== -1),
     },
     dependencies: {
       type: [Array, Object],
@@ -239,6 +241,14 @@ export default {
     } = UiStyleHideAPI(props);
 
     const {
+      currentFormat,
+      isFormatSwitch,
+      nextFormat,
+      setFormatFromModel,
+      switchFormat,
+    } = FormatAPI(props);
+
+    const {
       alphaBackground,
       alphaPercent,
       cssColorLocal,
@@ -254,7 +264,9 @@ export default {
       setHue,
       setSaturationBrightness,
       valueLocal,
-    } = ColorStateAPI(props);
+    } = ColorStateAPI(props, {
+      currentFormat,
+    });
 
     const {
       ariaDescribedbyLocal,
@@ -281,7 +293,10 @@ export default {
       togglePopover,
     } = PopoverAPI(props, context, {
       htmlIdLocal,
-      setColorFromModel,
+      setColorFromModel: () => {
+        setFormatFromModel();
+        setColorFromModel();
+      },
     });
 
     const {
@@ -350,6 +365,7 @@ export default {
       confirmColor,
       cssColorLocal,
       cssColorOpaqueLocal,
+      currentFormat,
       disabledAttribut,
       errorsId,
       hasErrorIcon,
@@ -361,6 +377,7 @@ export default {
       inputText,
       isClearButtonLocal,
       isErrors,
+      isFormatSwitch,
       isModel,
       isOpen,
       isPositioned,
@@ -368,6 +385,7 @@ export default {
       labelId,
       modelCssColor,
       modelTextColor,
+      nextFormat,
       onBlur,
       onFocus,
       onInputChange,
@@ -381,6 +399,7 @@ export default {
       setAlphaPercent,
       setHue,
       setSaturationBrightness,
+      switchFormat,
       toggleClassBtns,
       togglePopover,
       toggleRef,
@@ -625,24 +644,42 @@ export default {
                 ariaHidden: true,
               }),
             ]),
-            h(AInput, {
-              id: `${ this.htmlIdLocal }_input`,
-              alwaysTranslate: this.alwaysTranslate,
-              class: "a_color_picker__input",
-              errors: this.inputErrors,
-              inputAttributes: {
-                autocomplete: "off",
-                spellcheck: "false",
-                onKeydown: this.onInputKeydown,
-              },
-              isClearButton: false,
-              isLabelFloat: false,
-              label: "_A_COLOR_PICKER_INPUT_",
-              labelClass: "a_sr_only",
-              modelValue: this.inputText,
-              change: this.onInputChange,
-              onBlur: this.applyInput,
-            }),
+            h("div", {
+              class: "a_color_picker__value",
+            }, [
+              h(AInput, {
+                id: `${ this.htmlIdLocal }_input`,
+                alwaysTranslate: this.alwaysTranslate,
+                class: "a_color_picker__input",
+                errors: this.inputErrors,
+                inputAttributes: {
+                  autocomplete: "off",
+                  spellcheck: "false",
+                  onKeydown: this.onInputKeydown,
+                },
+                isClearButton: false,
+                isLabelFloat: false,
+                label: "_A_COLOR_PICKER_INPUT_",
+                labelClass: "a_sr_only",
+                modelValue: this.inputText,
+                change: this.onInputChange,
+                onBlur: this.applyInput,
+              }),
+              this.isFormatSwitch ?
+                h(AButton, {
+                  alwaysTranslate: this.alwaysTranslate,
+                  ariaLabel: "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_",
+                  extra: {
+                    format: this.currentFormat.toUpperCase(),
+                    next: this.nextFormat.toUpperCase(),
+                  },
+                  class: "a_btn a_btn_outline_secondary a_btn_small a_color_picker__format",
+                  text: this.currentFormat.toUpperCase(),
+                  type: "button",
+                  onClick: this.switchFormat,
+                }) :
+                "",
+            ]),
             this.predefineLocal.length ?
               h("div", {
                 class: "a_color_picker__predefine",

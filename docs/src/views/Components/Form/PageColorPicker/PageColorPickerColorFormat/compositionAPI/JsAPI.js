@@ -13,13 +13,11 @@ export default {
     AColorPicker,
   },
   setup() {
-    const modelRgb = ref("rgba(7, 117, 176, 0.8)");
-    const modelHsl = ref("hsl(145, 63%, 29%)");
-    const modelHsv = ref("hsv(276, 68%, 70%)");
+    const model = ref("hsl(145, 63%, 29%)");
+    const modelRgb = ref("rgb(7, 117, 176)");
 
     return {
-      modelHsl,
-      modelHsv,
+      model,
       modelRgb,
     };
   },
