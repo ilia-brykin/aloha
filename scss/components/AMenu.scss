@@ -554,12 +554,6 @@
   --a_menu_width_expanded: 21.875rem; // Width of the open menu. The page next to it is shifted by this width.
   --a_menu_width_collapsed: 3.75rem; // Width of the closed menu (icons only). The page next to it is shifted by this width.
   --a_menu_transition: var(--a_duration_slow); // Duration of the animation of the toggle button bars.
-  --a_menu_btn_toggle_top: .3125rem; // Not used by the library styles.
-  --a_menu_btn_toggle_margin_left: .5rem; // Not used by the library styles.
-  --a_menu_mobile_btn_toggle_margin_left: .5rem; // Not used by the library styles.
-  --a_menu_mobile_btn_toggle_margin_top: .5rem; // Not used by the library styles.
-  --a_menu_mobile_z_index: var(--a_z_index_menu_mobile); // Not used by the library styles.
-  --a_menu_close_opacity: .3; // Not used by the library styles.
   // page
   --a_menu_page_bg: var(--a_color_body_bg); // Background of the page area next to the menu (.a_menu__page).
 }
@@ -577,7 +571,6 @@
   --a_menu_box_shadow_size: 2px 0 12px -4px; // Offsets, blur and spread of the menu shadow.
   // panels
   --a_menu_panel_child_offset: 100%; // Start position of a submenu panel before it slides in (translateX).
-  --a_menu_panel_parent_offset: -30%; // Not used by the library styles.
   --a_menu_panel_iconpanel_size: var(--a_menu_width_collapsed); // Width of the icon column: indent of the list header and left position of submenu panels.
   --a_menu_panel_color: var(--a_color_text_muted); // Text color of the panels.
   --a_menu_panel_secondary_bg: var(--a_color_surface); // Background of a submenu panel.

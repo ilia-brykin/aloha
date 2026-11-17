@@ -60,7 +60,7 @@
   font-size: var(--a_legend_font_size);
 }
 .a_legend_invalid {
-  --a_legend_color: var(--a_flegend_invalid_color);
+  --a_legend_color: var(--a_legend_invalid_color);
 }
 
 // ---------------------------------------------------------------------------
@@ -81,6 +81,6 @@
   --a_legend_padding_x: .5rem; // Horizontal padding of the legend.
   --a_legend_color: var(--a_color_label); // Text color of the legend.
   --a_legend_font_size: inherit; // Font size of the legend.
-  --a_flegend_invalid_color: var(--a_color_danger_text); // Text color of the legend when the fieldset has errors.
+  --a_legend_invalid_color: var(--a_color_danger_text); // Text color of the legend when the fieldset has errors.
   --a_legend_font_weight: var(--a_font_weight_semibold); // Font weight of the legend.
 }

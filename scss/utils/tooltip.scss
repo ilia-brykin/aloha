@@ -65,7 +65,6 @@
   --a_tooltip_arrow_height: .5rem; // Height of the arrow.
   --a_tooltip_arrow_shift: -.25rem; // Offset of the arrow from the tooltip edge.
   --a_tooltip_max_height: 25rem; // Maximum height of the tooltip. Longer content scrolls.
-  --a_tooltip_box_shadow_color: var(--a_shadow_color); // Not used by the library styles.
   --a_tooltip_box_shadow: var(--a_shadow_md); // Shadow of the tooltip.
   --a_tooltip_arrow_box_shadow: none; // Shadow of the arrow.
 }

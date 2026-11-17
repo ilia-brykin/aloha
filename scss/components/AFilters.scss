@@ -223,9 +223,6 @@
 }
 
 @media screen and (max-width: 1407px) {
-  .a_filters_top {
-    --a_filters_top_form_width: 100%;
-  }
   .a_filters_top__save {
     margin-top: 1rem;
     width: 100%;
@@ -283,9 +280,7 @@
 :where(.a_filters_top) {
   // filters on top
   --a_filters_top_padding: var(--a_space_sm); // Padding of the filter panel above the table.
-  --a_filters_top_form_width: 50%; // Width of the filter form. Set to 100% below 1408px. Not used by any rule at the moment.
   --a_filters_top_form_max_width: 31.25rem; // Maximum width of the filter form.
-  --a_filters_top_label_padding_left: 2rem; // Left padding of a filter label. Not used by any rule at the moment.
   --a_filters_top_label_width: 34%; // Width of the label column of a filter row.
   --a_filters_top_subgroup_width: 66%; // Width of the field column of a filter row.
   --a_filters_top_always_visible_padding: var(--a_space_md) var(--a_space_md) var(--a_space_md) var(--a_space_xl); // Padding of the box with the always visible filters. Smaller below 769px.

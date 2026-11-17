@@ -469,16 +469,6 @@
   align-items: center;
   position: relative;
 }
-//.a_table__row_has_children {
-//  .a_table_mobile__dl {
-//    dt {
-//      width: calc((100% + var(--a_table_mobile_row_level_icon_width)) * var(--a_table_mobile_dt_width) - var(--a_table_mobile_row_level_icon_width));
-//    }
-//    dd {
-//      width: calc((100% + var(--a_table_mobile_row_level_icon_width)) * var(--a_table_mobile_dd_width));
-//    }
-//  }
-//}
 
 .a_table_mobile__dl {
   width: 100%;
@@ -562,7 +552,7 @@
 .a_table__preview_down {
   background-color: var(--a_table_preview_down_bg);
   border: var(--a_table_preview_down_border_width) solid var(--a_table_preview_down_border_color);
-  padding: var(--a_table_preview_down_padding_y) var(--a_table_preview_down_padding_left) var(--a_table_preview_down_padding_y) var(--a_table_preview_down_padding_left);
+  padding: var(--a_table_preview_down_padding_y) var(--a_table_preview_down_padding_right) var(--a_table_preview_down_padding_y) var(--a_table_preview_down_padding_left);
   position: relative;
   min-height: 3.125rem;
   border-radius: var(--a_table_preview_down_border_radius);
@@ -813,19 +803,17 @@
   --a_table_preview_down_border_width: var(--a_border_width); // Border width of the preview below a row.
   --a_table_preview_down_border_color: var(--a_border_color_strong); // Border color of the preview below a row.
   --a_table_preview_down_padding_y: var(--a_space_lg); // Top and bottom padding of the preview below a row.
-  --a_table_preview_down_padding_left: var(--a_space_lg); // Left and right padding of the preview below a row.
-  --a_table_preview_down_padding_right: var(--a_space_lg); // Not used by the library styles.
+  --a_table_preview_down_padding_left: var(--a_space_lg); // Left padding of the preview below a row.
+  --a_table_preview_down_padding_right: var(--a_space_lg); // Right padding of the preview below a row.
   --a_table_preview_down_border_radius: var(--a_border_radius_large); // Corner radius of the preview below a row.
   // footer
   --a_table_footer_border_top: var(--a_border_width) solid var(--a_border_color_strong); // Border above the table footer (shorthand: width, style, color).
-  --a_table_draggable_color: var(--a_color_primary); // Not used by the library styles.
   // mobile
   --a_table_mobile_dt_dd_border_bottom: var(--a_border_width) solid var(--a_border_color); // Border under a label/value pair in the mobile view (shorthand).
   --a_table_mobile_dt_width: .4; // Share of the row width for the label in the mobile view (0–1).
   --a_table_mobile_dd_width: .6; // Share of the row width for the value in the mobile view (0–1).
   --a_table_mobile_dt_padding_left: var(--a_space_sm); // Left padding of a label in the mobile view.
   --a_table_mobile_dd_padding_right: var(--a_space_sm); // Right padding of a value in the mobile view.
-  --a_table_mobile_row_level_icon_width: 1.25rem; // Not used by the library styles.
   --a_table_mobile_row_level_icon_bg: var(--a_color_gray_200); // Background of the tree level icon of a row in the mobile view.
   // multiple actions
   --a_table_multiple_border_radius: var(--a_border_radius_large); // Corner radius of the multiple actions panel and of its selected items.
@@ -846,7 +834,6 @@
 
 :where(.a_table__th__dropdown__ul) {
   // column dropdown
-  --a_table_draggable_color: var(--a_color_primary); // Not used by the library styles.
   --a_table_dnd_dropdown_li_bg: var(--a_color_primary_bg_subtle); // Color of the drop indicator when a column is dragged in the column dropdown.
   --a_table_draggable_li_height: 1.875rem; // Height of the drop indicator in the column dropdown.
 }

@@ -223,8 +223,6 @@
 // ---------------------------------------------------------------------------
 :where(.a_select) {
   --a_select_border_radius: var(--a_border_radius); // Corner radius of the selected items with a remove button (closeable items).
-  --a_select_close_hover_color: var(--a_color_primary); // Not used by the library styles.
-  --a_select_placeholder_color: var(--a_color_text_muted); // Not used by the library styles.
   --a_select_min_width: 12.5rem; // Minimum width of the select field.
   --a_select_closeable_item_bg: var(--a_color_gray_200); // Background of a selected item with a remove button (closeable items).
   --a_select_toggle_padding_right: 1.875rem; // Right padding of the select field, room for the arrow and the clear button.
