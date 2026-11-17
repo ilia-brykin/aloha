@@ -1,10 +1,7 @@
+// Controls are drawn on top of media (images), therefore they use fixed
+// light-on-dark colors (--a_carousel_on_media_*) instead of the theme surface.
 .a_carousel {
-  --a_carousel_tab_primary_color: #005a9c;
-  --a_carousel_tab_width: 2.125rem;
-  --a_carousel_tab_height: 2.125rem;
-  --a_carousel_tabs_height: 1.875rem;
-
-  background-color: var(--a_color_gray_200);
+  background-color: var(--a_carousel_bg);
 }
 .a_carousel__inner {
   position: relative;
@@ -66,18 +63,21 @@
     top: 0;
     bottom: 0;
     z-index: 1;
-    background-color: hsla(0, 0%, 8%, .5);
-    color: #fff;
-    outline: none;
+    background-color: var(--a_carousel_arrow_bg);
+    color: var(--a_carousel_on_media_color);
     border: none;
+    cursor: pointer;
+    transition: var(--a_transition_colors);
     &:hover {
-      background-color: hsla(0, 0%, 8%, .7);
+      background-color: var(--a_carousel_arrow_hover_bg);
     }
     &:focus {
-      outline: 2px solid #fff !important;
-      box-shadow: 0 0 0 2px black;
-      outline-offset: -2px;
-      background-color: hsla(0, 0%, 8%, .7);
+      outline: 0;
+    }
+    &:focus-visible {
+      outline: 2px solid transparent;
+      box-shadow: var(--a_carousel_focus_ring_inset);
+      background-color: var(--a_carousel_arrow_hover_bg);
     }
     .a_icon {
       width: 2rem;
@@ -184,14 +184,14 @@
 .a_carousel__tabs {
   box-sizing: border-box;
   border: 0 transparent solid;
-  border-radius: 0.8125rem;
+  border-radius: var(--a_border_radius_pill);
   display: flex;
   padding-top: 0.125rem;
   height: var(--a_carousel_tabs_height);
-  background-color: rgb(0 0 0 / 65%);
+  background-color: var(--a_carousel_tabs_bg);
   &:focus-within {
     border-width: 2px;
-    border-color: #fff;
+    border-color: var(--a_carousel_on_media_color);
     padding-top: 0;
     background-color: var(--a_carousel_tab_primary_color);
   }
@@ -230,12 +230,13 @@
     border: none;
     outline: none;
     width: var(--a_carousel_tab_width);
-    color: #fff;
-    &:focus {
+    color: var(--a_carousel_on_media_color);
+    cursor: pointer;
+    &:focus-visible {
       .border {
         display: block;
         fill: var(--a_carousel_tab_primary_color);
-        stroke: #fff;
+        stroke: var(--a_carousel_on_media_color);
       }
       .tab-background {
         stroke: var(--a_carousel_tab_primary_color);
@@ -244,8 +245,8 @@
     }
     &:hover {
       .tab-background {
-        fill: #fff;
-        stroke: #fff;
+        fill: var(--a_carousel_on_media_color);
+        stroke: var(--a_carousel_on_media_color);
         opacity: 1;
       }
       .tab,
@@ -259,11 +260,11 @@
   .a_carousel__tabs__btn_active {
     &:hover {
       .tab {
-        fill: #fff;
+        fill: var(--a_carousel_on_media_color);
       }
     }
     .tab {
-      fill: #fff;
+      fill: var(--a_carousel_on_media_color);
     }
   }
 
@@ -274,11 +275,11 @@
     &.a_carousel__tabs__btn_active {
       &:hover {
         .border {
-          stroke: #fff;
+          stroke: var(--a_carousel_on_media_color);
         }
       }
       .tab {
-        fill: #fff;
+        fill: var(--a_carousel_on_media_color);
       }
       .border {
         display: inline;
@@ -286,26 +287,26 @@
     }
     &:hover {
       .tab {
-        fill: #fff;
+        fill: var(--a_carousel_on_media_color);
       }
       .border {
         display: inline;
-        stroke: #fff;
+        stroke: var(--a_carousel_on_media_color);
       }
     }
     .tab {
       r: 0.125rem;
-      fill: #fff;
+      fill: var(--a_carousel_on_media_color);
       stroke-width: 0;
-      stroke: #fff;
+      stroke: var(--a_carousel_on_media_color);
       cx: 0.1875rem;
       cy: 0.1875rem;
     }
     .border {
       r: 0.125rem;
-      fill: #fff;
+      fill: var(--a_carousel_on_media_color);
       stroke-width: 0.125rem;
-      stroke: #fff;
+      stroke: var(--a_carousel_on_media_color);
       cx: 0.1875rem;
       cy: 0.1875rem;
     }
@@ -315,7 +316,7 @@
   }
   .tab,
   .border {
-    stroke: #fff;
+    stroke: var(--a_carousel_on_media_color);
     fill: transparent;
     stroke-width: 0.125rem;
   }
@@ -324,8 +325,8 @@
     z-index: 12;
   }
   .tab-background {
-    stroke: black;
-    fill: black;
+    stroke: var(--a_carousel_on_media_bg);
+    fill: var(--a_carousel_on_media_bg);
     stroke-width: 0.125rem;
     opacity: 0.6;
     z-index: 14;
@@ -335,3 +336,24 @@
   }
 }
 
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_carousel) {
+  // general
+  --a_carousel_bg: var(--a_color_gray_200); // Background of the carousel behind the slides.
+  // controls on the image
+  --a_carousel_on_media_color: var(--a_color_white); // Color of the arrows, tabs and focus ring drawn on top of the image. Fixed light color, independent of the theme.
+  --a_carousel_on_media_bg: hsl(var(--a_gray_h) 20% 8%); // Dark color behind the controls on the image (tab background, inner focus ring).
+  --a_carousel_arrow_bg: hsl(var(--a_gray_h) 20% 8% / .5); // Background of the side arrows (arrows-position sides-center).
+  --a_carousel_arrow_hover_bg: hsl(var(--a_gray_h) 20% 8% / .7); // Background of a hovered or focused side arrow.
+  --a_carousel_tabs_bg: hsl(var(--a_gray_h) 20% 8% / .65); // Background of the tab bar.
+  --a_carousel_tab_primary_color: hsl(var(--a_primary_h) var(--a_primary_s) 30%); // Color of the tab bar with focus and of a hovered or focused tab.
+  // tabs
+  --a_carousel_tab_width: 2.125rem; // Width of a tab (dot or square).
+  --a_carousel_tab_height: 2.125rem; // Height of a tab.
+  --a_carousel_tabs_height: 1.875rem; // Height of the tab bar.
+  --a_carousel_focus_ring_inset:
+    inset 0 0 0 var(--a_focus_width_outside) var(--a_carousel_on_media_color),
+    inset 0 0 0 calc(var(--a_focus_width_outside) + var(--a_focus_width_inside)) var(--a_carousel_on_media_bg); // Focus ring of a side arrow (inside the arrow, light and dark, so it is visible on any image).
+}

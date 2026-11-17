@@ -1,16 +1,12 @@
 .a_form_element_number_controls {
-  --a_input_number_width: 100%;
-  --a_input_number_max_width: 100%;
-  --a_input_number_min_width: 6.25rem;
-
   display: flex;
   align-items: stretch;
   .a_btn_group {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    background-color: #fff;
+    background-color: var(--a_input_number_controls_bg);
     > .a_btn {
-      --a_btn_border_color: #ced4da;
+      --a_btn_border_color: var(--a_input_number_controls_border_color);
       &:first-child {
         margin-left: calc(-1 * var(--a_btn_border_width, var(--a_border_width)));
       }
@@ -46,7 +42,7 @@
 }
 
 .a_form_element__parent_invalid {
-  .a_form_element_number_controls .a_btn_group > .aloha_btn {
+  .a_form_element_number_controls .a_btn_group > .a_button {
     --a_btn_border_color: var(--a_form_element_error_color);
   }
 }
@@ -59,4 +55,15 @@
     margin: 0;
     -webkit-appearance: none;
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_form_element_number_controls) {
+  --a_input_number_width: 100%; // Width of the number field.
+  --a_input_number_max_width: 100%; // Maximum width of the number field.
+  --a_input_number_min_width: 6.25rem; // Minimum width of the number field.
+  --a_input_number_controls_bg: var(--a_color_surface); // Background of the increase and decrease buttons.
+  --a_input_number_controls_border_color: var(--a_border_color_strong); // Border color of the increase and decrease buttons.
 }

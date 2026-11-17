@@ -7,10 +7,18 @@ import CircleSizesAPI from "./compositionAPI/CircleSizesAPI";
 import SvgAPI from "./compositionAPI/SvgAPI";
 import ValuePercentAPI from "../AProgress/compositionAPI/ValuePercentAPI";
 import WidthAPI from "../AProgress/compositionAPI/WidthAPI";
+import {
+  getTranslatedAttributes,
+} from "../ATranslation/compositionAPI/UtilsAPI";
 
 export default {
   name: "AProgressCircle",
   props: {
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: "_A_PROGRESS_ARIA_LABEL_",
+    },
     duration: {
       type: Number,
       required: false,
@@ -128,6 +136,7 @@ export default {
       class: "a_progress_circle",
       style: this.sizesLocal,
       role: "progressbar",
+      ...(this.ariaLabel ? getTranslatedAttributes({ attr: "aria-label", placeholder: this.ariaLabel }) : {}),
       "aria-valuenow": this.value,
       "aria-valuemin": this.min,
       "aria-valuemax": this.max,

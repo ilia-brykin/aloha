@@ -45,8 +45,6 @@
   "_A_UI_GROUP_IS_BUTTON_GROUP_HEADER_": "Grupa przycisków",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">is-data-simple-array</strong> do pracy z prostą tablicą ciągów znaków. Dane są przedstawione jako tablica ciągów znaków, w której każdy ciąg jest osobnym elementem listy. Upraszcza to wyświetlanie elementów i zarządzanie nimi bez potrzeby używania obiektów.",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_HEADER_": "Prosta tablica danych",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">is-label-float</strong> do sterowania zachowaniem etykiety w polu wprowadzania. Jeśli wartość właściwości to <strong lang=\"en\">false</strong>, etykieta pozostaje statyczna. Jeśli wartość to <strong lang=\"en\">true</strong>, etykieta przesuwa się nad pole wprowadzania, gdy użytkownik zaczyna pisać lub gdy pole otrzymuje fokus.",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_HEADER_": "Pływająca etykieta",
   "_A_UI_GROUP_IS_WIDTH_AUTO_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">is-width-auto</strong> do sterowania szerokością elementów. Dla wartości <strong lang=\"en\">true</strong> szerokość elementów automatycznie dostosowuje się do ich zawartości. Dla wartości <strong lang=\"en\">false</strong> szerokość jest stała i wynika ze stylów lub kontenera nadrzędnego.",
   "_A_UI_GROUP_IS_WIDTH_AUTO_HEADER_": "Automatyczna szerokość",
   "_A_UI_GROUP_KEY_DISABLED_DESCRIPTION_": "Ten przykład pokazuje, jak używać <strong lang=\"en\">key-disabled</strong> do wyłączania wybranych elementów w komponencie. Pozwala to elastycznie sterować dostępnością elementów na podstawie danych.",
@@ -103,7 +101,7 @@
   "_A_UI_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Określa, czy tablica danych jest prostą tablicą wartości. Jeśli ustawiono <strong lang=\"en\">true</strong>, każdy element tablicy będzie traktowany jako zwykła wartość bez kluczy.",
   "_A_UI_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Wyświetla przycisk. Kliknięcie go odznaczy wszystkie elementy na liście.",
   "_A_UI_PROPS_IS_HIDE_DESCRIPTION_": "Określa, czy komponent ma być ukryty. Jeśli ustawiono <strong lang=\"en\">true</strong>, komponent nie jest wyświetlany na stronie.",
-  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Określa, czy etykieta komponentu ma być umieszczona nad polem. Jeśli <strong lang=\"en\">true</strong>, etykieta przesunie się nad pole tekstowe, gdy otrzyma ono fokus lub zawiera treść.",
+  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Określa, czy etykieta komponentu ma być umieszczona nad polem. Jeśli <strong lang=\"en\">true</strong>, etykieta przesunie się nad pole tekstowe, gdy otrzyma ono fokus lub zawiera treść. Przestarzały, użyj label-position.",
   "_A_UI_PROPS_IS_RENDER_DESCRIPTION_": "Wskazuje, czy komponent ma być renderowany. Jeśli ustawiono <strong lang=\"en\">false</strong>, komponent nie zostanie utworzony w <strong lang=\"en\">DOM</strong>.",
   "_A_UI_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Wyświetla przycisk. Kliknięcie go automatycznie zaznaczy wszystkie elementy z listy.",
   "_A_UI_PROPS_KEY_DISABLED_CALLBACK_DESCRIPTION_": "Funkcja określająca, czy element ma być wyłączony. Zwraca <code>true</code>, aby wyłączyć dany element. Przyjmuje obiekt z danymi elementu: <code>{ item }</code>.",
@@ -162,5 +160,8 @@
   "_A_UI_URL_TEMPLATE_OPTIONS_": "Opcje załadowane z adresu URL",
   "_A_UI_URL_TEMPLATE_NOTE_": "Notatka (nieużywana w adresie URL)",
   "_A_UI_URL_TEMPLATE_ADD_": "Dodaj wartość",
-  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Obiekt z wartościami dla symboli zastępczych <code>{{ path }}</code> w <code>url</code>, w tym dla zagnieżdżonych ścieżek, takich jak <code>{{ source.file }}</code>. Używa tej samej składni symboli zastępczych co tłumaczenia. Zmiana tych wartości ponownie ładuje opcje i czyści wybór tylko wtedy, gdy zmieni się rozwiązany adres URL. Nie wpływa na adresy URL bez symboli zastępczych; parametry zapytania przekazuje się osobno przez <code>url-params</code>."
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Obiekt z wartościami dla symboli zastępczych <code>{{ path }}</code> w <code>url</code>, w tym dla zagnieżdżonych ścieżek, takich jak <code>{{ source.file }}</code>. Używa tej samej składni symboli zastępczych co tłumaczenia. Zmiana tych wartości ponownie ładuje opcje i czyści wybór tylko wtedy, gdy zmieni się rozwiązany adres URL. Nie wpływa na adresy URL bez symboli zastępczych; parametry zapytania przekazuje się osobno przez <code>url-params</code>.",
+  "_A_UI_LABEL_POSITION_HEADER_": "Położenie etykiety",
+  "_A_UI_LABEL_POSITION_DESCRIPTION_": "<strong lang=\"en\">label-position</strong> określa, gdzie wyświetlana jest etykieta: <code lang=\"en\">\"float\"</code> – wewnątrz pustego pola, przy fokusie lub z wartością przesuwa się na ramkę; <code lang=\"en\">\"inset\"</code> – zawsze wewnątrz pola, mała nad wartością; <code lang=\"en\">\"top\"</code> – nad polem. Wartość domyślną dla wszystkich elementów formularza ustawia się w <strong lang=\"en\">AFormPlugin</strong> (<code lang=\"en\">labelPosition</code>). <strong lang=\"en\">is-label-float</strong> nadal działa, ale jest przestarzały.",
+  "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_": "Położenie etykiety: \"float\", \"inset\" lub \"top\". Wartość domyślna pochodzi z pluginu komponentu lub z AFormPlugin (labelPosition)."
 }

@@ -1,30 +1,29 @@
-@use "../utils/aloha_prefix" as aloha;
 
-.#{aloha.$aloha-prefix}text_wrap {
+.a_text_wrap {
   white-space: normal !important;
 }
 
-.#{aloha.$aloha-prefix}text_nowrap {
+.a_text_nowrap {
   white-space: nowrap !important;
 }
 
-.#{aloha.$aloha-prefix}text_break {
+.a_text_break {
   word-wrap: break-word !important;
   word-break: break-word !important;
   hyphens: auto !important;
 }
 
-.#{aloha.$aloha-prefix}text_wrap_hyphens {
+.a_text_wrap_hyphens {
   hyphens: auto !important;
 }
 
-.#{aloha.$aloha-prefix}text_truncate {
+.a_text_truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.#{aloha.$aloha-prefix}text_clamp {
+.a_text_clamp {
   --a_text_clamp_lines: 1;
 
   display: -webkit-box;
@@ -34,7 +33,7 @@
 }
 
 @for $i from 2 through 5 {
-  .#{aloha.$aloha-prefix}text_clamp_#{$i} {
+  .a_text_clamp_#{$i} {
     --a_text_clamp_lines: #{$i};
   }
 }

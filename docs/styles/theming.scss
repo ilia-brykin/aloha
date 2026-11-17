@@ -1,0 +1,89 @@
+// Docs: PageTheming generator
+.docs_theming {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) 1fr;
+  gap: var(--a_space_lg);
+  align-items: start;
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr;
+  }
+}
+.docs_theming__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_space_md);
+}
+.docs_theming__fieldset {
+  margin: 0;
+  padding: var(--a_space_md);
+  border: var(--a_border_width) solid var(--a_border_color);
+  border-radius: var(--a_border_radius_large);
+}
+.docs_theming__legend {
+  padding: 0 var(--a_space_xs);
+  font-weight: var(--a_font_weight_semibold);
+}
+.docs_theming__color {
+  display: flex;
+  align-items: center;
+  gap: var(--a_space_sm);
+  & + & {
+    margin-top: var(--a_space_xs);
+  }
+}
+.docs_theming__color__input {
+  width: 2.5rem;
+  height: 2rem;
+  padding: 0;
+  border: var(--a_border_width) solid var(--a_border_color_strong);
+  border-radius: var(--a_border_radius_small);
+  background: none;
+  cursor: pointer;
+}
+.docs_theming__color__label {
+  flex-grow: 1;
+}
+.docs_theming__color__contrast {
+  font-size: var(--a_font_size_sm);
+  font-variant-numeric: tabular-nums;
+}
+.docs_theming__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_space_xs);
+  & + & {
+    margin-top: var(--a_space_sm);
+  }
+}
+.docs_theming__range {
+  width: 100%;
+  accent-color: var(--a_color_primary);
+}
+.docs_theming__preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_space_md);
+  padding: var(--a_space_lg);
+  color: var(--a_color_text);
+  background-color: var(--a_color_body_bg);
+  border: var(--a_border_width) solid var(--a_border_color);
+  border-radius: var(--a_border_radius_xl);
+  .a_alert {
+    margin-bottom: 0;
+  }
+}
+.docs_theming__preview__title {
+  margin: 0;
+  font-size: var(--a_font_size_lg);
+}
+.docs_theming__preview__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--a_space_sm);
+}
+.docs_theming__preview__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_space_sm);
+  max-width: 24rem;
+}

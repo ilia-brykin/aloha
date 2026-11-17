@@ -156,7 +156,13 @@ export default {
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: true,
+      default: undefined,
+    },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
     },
     isRender: {
       type: Boolean,

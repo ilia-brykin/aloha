@@ -143,7 +143,7 @@ export default {
     },
     inputClass: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      default: "pux_datepicker__input",
+      default: "a_datepicker__input",
     },
     inputName: {
       type: String,

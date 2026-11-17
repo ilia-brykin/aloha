@@ -49,5 +49,11 @@
   "_TXT_DANGER_": "Gevaar",
   "_TXT_LIGHT_": "Licht",
   "_TXT_DARK_": "Donker",
-  "_LBL_DISABLED_": "Uitgeschakeld"
+  "_LBL_DISABLED_": "Uitgeschakeld",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "Vertaalsleutels tonen",
+  "_A_DOCS_THEME_": "Thema",
+  "_A_DOCS_THEME_LIGHT_": "Licht",
+  "_A_DOCS_THEME_DARK_": "Donker",
+  "_A_DOCS_THEME_AUTO_": "Systeem",
+  "_A_DOCS_LANGUAGE_": "Taal"
 }

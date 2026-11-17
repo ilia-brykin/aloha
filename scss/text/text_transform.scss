@@ -1,49 +1,48 @@
-@use "../utils/aloha_prefix" as aloha;
 
-.#{aloha.$aloha-prefix}text_lowercase {
+.a_text_lowercase {
   text-transform: lowercase !important;
 }
-.#{aloha.$aloha-prefix}text_uppercase {
+.a_text_uppercase {
   text-transform: uppercase !important;
 }
-.#{aloha.$aloha-prefix}text_capitalize {
+.a_text_capitalize {
   text-transform: capitalize !important;
 }
-.#{aloha.$aloha-prefix}text_underline {
+.a_text_underline {
   text-decoration: underline !important;
 }
-.#{aloha.$aloha-prefix}text_line_through {
+.a_text_line_through {
   text-decoration: line-through !important;
 }
-.#{aloha.$aloha-prefix}text_decoration_none {
+.a_text_decoration_none {
   text-decoration: none !important;
 }
 
-.#{aloha.$aloha-prefix}text_italic {
+.a_text_italic {
   font-style: italic !important;
 }
 
-.#{aloha.$aloha-prefix}text_bold {
+.a_text_bold {
   font-weight: 700 !important;
 }
 
-.#{aloha.$aloha-prefix}text_bolder {
+.a_text_bolder {
   font-weight: bolder !important;
 }
 
-.#{aloha.$aloha-prefix}text_semibold {
+.a_text_semibold {
   font-weight: 600! important;
 }
 
-.#{aloha.$aloha-prefix}text_light {
+.a_text_light {
   font-weight: 300!important;
 }
 
-.#{aloha.$aloha-prefix}text_lighter {
+.a_text_lighter {
   font-weight: lighter!important;
 }
 
-.#{aloha.$aloha-prefix}text_normal {
+.a_text_normal {
   font-style: normal !important;
   text-decoration: none !important;
   text-transform: none !important;

@@ -14,10 +14,10 @@ import {
 
 export default function PlaceholderAPI(props, {
   isInputFocused = ref(false),
+  isLabelFloatLocal = computed(() => false),
   text = computed(() => ""),
 } = {}) {
   const extra = toRef(props, "extra");
-  const isLabelFloat = toRef(props, "isLabelFloat");
   const placeholder = toRef(props, "placeholder");
   const placeholdersDefault = toRef(props, "placeholdersDefault");
   const range = toRef(props, "range");
@@ -59,7 +59,7 @@ export default function PlaceholderAPI(props, {
   });
 
   const isShowPlaceholder = computed(() => {
-    if (!isLabelFloat.value) {
+    if (!isLabelFloatLocal.value) {
       return true;
     }
 

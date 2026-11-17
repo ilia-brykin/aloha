@@ -130,7 +130,7 @@ export default function PropsAPI() {
       name: "is-label-float",
       description: "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_",
       type: "Boolean",
-      default: true,
+      default: undefined,
       required: false,
     },
     {

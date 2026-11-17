@@ -40,5 +40,6 @@
   "_A_PROGRESS_PROPS_STRIPED_FLOW_": "Questa prop attiva la visualizzazione animata per le barre di progresso striate.",
   "_A_PROGRESS_PROPS_VALUE_": "L'avanzamento attuale della barra di progresso",
   "_A_PROGRESS_PROPS_VALUE_TEXT_INTEGER_": "Questa prop indica quale formato di testo deve essere utilizzato per il valore del progresso. Quando valueTextInteger è impostato su true, il valore viene mostrato come una percentuale intera. Quando valueTextInteger è impostato su false o non è impostato, il valore viene mostrato come una percentuale con due decimali.",
-  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Questo slot consente di personalizzare la visualizzazione del valore della barra di progresso. È possibile accedere alla variabile valuePercent nell'ambito dello slot per visualizzare l'avanzamento attuale in percentuale."
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Questo slot consente di personalizzare la visualizzazione del valore della barra di progresso. È possibile accedere alla variabile valuePercent nell'ambito dello slot per visualizzare l'avanzamento attuale in percentuale.",
+  "_A_PROGRESS_PROPS_ARIA_LABEL_": "Nome accessibile della barra di avanzamento per gli screen reader (aria-label). Può essere una chiave di traduzione."
 }

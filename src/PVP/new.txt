@@ -32,8 +32,8 @@ AGroupButtonDropdown
 2 useDropdownActionClass - ist nicht benutzt
 
 
-.aloha_btn__ml_0 -> .aloha_element__ml_0
-.aloha_link__ml_0 -> .aloha_element__ml_0
+.a_button__ml_0 -> .a_element__ml_0
+.aloha_link__ml_0 -> .a_element__ml_0
 
 
 ATable

@@ -1,7 +1,4 @@
 .a_resizer {
-  --a_resizer_width: 0.125rem;
-  --a_resizer_bg: #f4f5f7;
-  --a_resizer_hover_bg: #2684ff;
   position: absolute;
   &:hover {
     .a_resizer__line {
@@ -41,6 +38,7 @@
 }
 .a_resizer__line {
   background-color: var(--a_resizer_bg);
+  transition: background-color var(--a_duration_fast) var(--a_easing);
 }
 .a_resizer__icon {
   position: absolute;
@@ -60,4 +58,13 @@
       background-color: var(--a_resizer_bg);
     }
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_resizer) {
+  --a_resizer_width: .125rem; // Thickness of the resizer line.
+  --a_resizer_bg: var(--a_color_gray_200); // Color of the resizer line.
+  --a_resizer_hover_bg: var(--a_color_primary); // Color of the resizer line on hover.
 }

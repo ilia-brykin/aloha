@@ -31,6 +31,11 @@ const ROUTES = [
     name: "PageMigrationsVersion1To2",
     component: () => import("../views/Migrations/PageMigrationsVersion1To2/PageMigrationsVersion1To2.vue"),
   },
+  {
+    path: "/migration-2.x-3.0.x",
+    name: "PageMigrationsVersion2To3",
+    component: () => import("../views/Migrations/PageMigrationsVersion2To3/PageMigrationsVersion2To3.vue"),
+  },
   // Plugins
   {
     path: "/alert-plugin",
@@ -391,6 +396,16 @@ const ROUTES = [
     path: "/columns",
     name: "PageColumns",
     component: () => import("../views/CSS/PageColumns/PageColumns.vue"),
+  },
+  {
+    path: "/utilities",
+    name: "PageUtilities",
+    component: () => import("../views/CSS/PageUtilities/PageUtilities.vue"),
+  },
+  {
+    path: "/theming",
+    name: "PageTheming",
+    component: () => import("../views/CSS/PageTheming/PageTheming.vue"),
   },
   {
     path: "/colors",

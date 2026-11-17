@@ -25,14 +25,14 @@ export default function PropsAPI() {
       name: "class-default",
       description: "_A_LINK_PROPS_CLASS_DEFAULT_DESCRIPTION_",
       type: "String",
-      default: "aloha_element",
+      default: "a_element",
       required: false,
     },
     {
       name: "class-default-hidden",
       description: "_A_LINK_PROPS_CLASS_DEFAULT_HIDDEN_DESCRIPTION_",
       type: "String",
-      default: "aloha_element__hidden",
+      default: "a_element__hidden",
       required: false,
     },
     {

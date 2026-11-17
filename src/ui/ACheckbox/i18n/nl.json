@@ -1,5 +1,7 @@
 {
+  "_A_CHECKBOX_DESELECT_ALL_": "Alles deselecteren",
   "_A_CHECKBOX_GROUP_INVALID_ENTRIES_": "Ongeldige invoer",
   "_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Geen items beschikbaar voor selectie]",
-  "_A_CHECKBOX_SEARCH_": "Zoeken"
+  "_A_CHECKBOX_SEARCH_": "Zoeken",
+  "_A_CHECKBOX_SELECT_ALL_": "Alles selecteren"
 }

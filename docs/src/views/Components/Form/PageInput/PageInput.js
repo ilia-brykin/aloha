@@ -7,7 +7,7 @@ import PageInputErrorIcon from "./PageInputErrorIcon/PageInputErrorIcon.vue";
 import PageInputErrors from "./PageInputErrors/PageInputErrors.vue";
 import PageInputHelpText from "./PageInputHelpText/PageInputHelpText.vue";
 import PageInputLabelDescription from "./PageInputLabelDescription/PageInputLabelDescription.vue";
-import PageInputLabelFloat from "./PageInputLabelFloat/PageInputLabelFloat.vue";
+import PageInputLabelPosition from "./PageInputLabelPosition/PageInputLabelPosition.vue";
 import PageInputLabelScreenReader from "./PageInputLabelScreenReader/PageInputLabelScreenReader.vue";
 import PageInputPassword from "./PageInputPassword/PageInputPassword.vue";
 import PageInputReadonly from "./PageInputReadonly/PageInputReadonly.vue";
@@ -29,12 +29,12 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageInputBasic,
+    PageInputLabelPosition,
     PageInputChange,
     PageInputErrorIcon,
     PageInputErrors,
     PageInputHelpText,
     PageInputLabelDescription,
-    PageInputLabelFloat,
     PageInputLabelScreenReader,
     PageInputPassword,
     PageInputReadonly,

@@ -3,7 +3,7 @@ export default function HtmlAPI() {
   <div class="a_column a_column_6 a_columns_count_12_touch">
     <a-datepicker
       v-model="model"
-      :is-label-float="false"
+      label-position="top"
       label-description="_PAGE_DATEPICKER_TXT_ALOHA_"
       label="_PAGE_DATEPICKER_LBL_TYPE_DATE_"
     ></a-datepicker>

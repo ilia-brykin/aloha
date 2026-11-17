@@ -1,5 +1,7 @@
 {
+  "_A_CHECKBOX_DESELECT_ALL_": "Deselect all",
   "_A_CHECKBOX_GROUP_INVALID_ENTRIES_": "Invalid entries",
   "_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[No items available for selection]",
-  "_A_CHECKBOX_SEARCH_": "Search"
+  "_A_CHECKBOX_SEARCH_": "Search",
+  "_A_CHECKBOX_SELECT_ALL_": "Select all"
 }

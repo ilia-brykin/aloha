@@ -1,0 +1,50 @@
+.a_progress_circle {
+  color: var(--a_progress_circle_color);
+  position: relative;
+}
+
+.a_progress_circle__base {
+  fill: none;
+  stroke: var(--a_progress_circle_base_color);
+}
+
+.a_progress_circle__scale {
+  stroke-dashoffset: 0;
+  fill: none;
+  stroke: currentColor;
+  transition:
+    stroke-dasharray var(--a_duration_slow) var(--a_easing),
+    stroke var(--a_duration_slow) var(--a_easing),
+    opacity var(--a_duration_slow) var(--a_easing);
+}
+.a_progress_circle__scale_indeterminate {
+  animation: 3s linear infinite a_progress_circle_indeterminate;
+}
+
+.a_progress_circle__text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: translate(0, -50%);
+  color: var(--a_progress_circle_text_color);
+}
+
+@keyframes a_progress_circle_indeterminate {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -300%;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_progress_circle) {
+  --a_progress_circle_color: var(--a_color_primary); // Color of the progress arc.
+  --a_progress_circle_base_color: var(--a_color_gray_200); // Color of the full circle behind the arc.
+  --a_progress_circle_text_color: var(--a_color_text); // Color of the text in the middle.
+}

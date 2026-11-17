@@ -60,6 +60,7 @@ export default function LanguagesAPI() {
     setTimeout(() => {
       localStorage.setItem("language", modelLanguage.value);
       setLanguage(modelLanguage.value);
+      document.documentElement.lang = modelLanguage.value;
     });
   };
 
@@ -72,5 +73,6 @@ export default function LanguagesAPI() {
 
 export function setLanguageFromLocalStorage() {
   modelLanguage.value = localStorage.getItem("language") || "de";
+  document.documentElement.lang = modelLanguage.value;
 }
 

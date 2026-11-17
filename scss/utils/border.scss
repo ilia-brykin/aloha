@@ -1,14 +1,4 @@
-$a_border_colors: (
-        "primary":    var(--a_color_primary_rgb),
-        "secondary":  var(--a_color_secondary_rgb),
-        "tertiary":   var(--a_color_tertiary_rgb),
-        "success":    var(--a_color_success_rgb),
-        "info":       var(--a_color_info_rgb),
-        "warning":    var(--a_color_warning_rgb),
-        "danger":     var(--a_color_danger_rgb),
-        "light":      var(--a_color_light_rgb),
-        "dark":       var(--a_color_dark_rgb),
-) !default;
+@use "../tokens/settings";
 
 .a_border {
   border: var(--a_border_width) var(--a_border_style) var(--a_border_color) !important;
@@ -26,10 +16,10 @@ $a_border_colors: (
   border-left: var(--a_border_width) var(--a_border_style) var(--a_border_color) !important;
 }
 
-@each $state, $value in $a_border_colors {
+@each $state in settings.$variant-colors {
   .a_border_#{$state} {
     --a_border_opacity: 1;
-    border-color: rgba(#{ $value },var(--a_border_opacity)) !important;
+    border-color: hsl(var(--a_#{$state}_h) var(--a_#{$state}_s) var(--a_#{$state}_l) / var(--a_border_opacity)) !important;
   }
 }
 .a_border_1 {

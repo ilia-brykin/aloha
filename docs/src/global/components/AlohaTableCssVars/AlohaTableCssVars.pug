@@ -1,0 +1,36 @@
+.a_p_2(
+  v-if="cssVars.length"
+)
+  p.a_mb_2(lang="en")
+    | The variables are set on
+    |
+    code {{ selector }}
+    |
+    | with zero specificity, so a value set on the component, on a parent or on
+    |
+    code :root
+    |
+    | always wins.
+  aloha-highlightjs.a_mb_3(
+    :code="codeExample"
+    language="css"
+  )
+  a-table(
+    :label="tableLabel"
+    :columns="columns"
+    :data="cssVars"
+    :is-action-column-visible="false"
+    :is-columns-dnd="false"
+    :is-sorting-multi-column="false"
+    :show-first-sorting-sequence-number="false"
+    key-id="name"
+    lang="en"
+  )
+    template(
+      v-slot:name="{ row }"
+    )
+      code.aloha_table_css_vars__code(style="hyphens: none;" v-html="row.nameHtml")
+    template(
+      v-slot:defaultValue="{ row }"
+    )
+      code.aloha_table_css_vars__code(style="hyphens: none;" v-html="row.defaultHtml")

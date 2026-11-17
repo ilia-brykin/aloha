@@ -40,5 +40,6 @@
   "_A_PROGRESS_PROPS_STRIPED_FLOW_": "Włącza animowane wyświetlanie pasków postępu w paski.",
   "_A_PROGRESS_PROPS_VALUE_": "Bieżący postęp paska postępu.",
   "_A_PROGRESS_PROPS_VALUE_TEXT_INTEGER_": "Określa, którego formatu tekstu użyć dla wartości postępu. Jeśli valueTextInteger ma wartość true, wartość jest wyświetlana jako całkowity procent. Jeśli valueTextInteger ma wartość false lub jest nieobecna, wartość jest wyświetlana jako procent z dwoma miejscami po przecinku.",
-  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Pozwala dostosować sposób wyświetlania wartości paska postępu. Zmienna valuePercent jest dostępna w zakresie slotu, aby pokazać bieżący procent postępu."
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Pozwala dostosować sposób wyświetlania wartości paska postępu. Zmienna valuePercent jest dostępna w zakresie slotu, aby pokazać bieżący procent postępu.",
+  "_A_PROGRESS_PROPS_ARIA_LABEL_": "Dostępna nazwa paska postępu dla czytników ekranu (aria-label). Może być kluczem tłumaczenia."
 }

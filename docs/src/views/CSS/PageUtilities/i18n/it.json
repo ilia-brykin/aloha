@@ -1,0 +1,15 @@
+{
+  "_A_UTILITIES_FOCUS_DESCRIPTION_": "L'anello di focus bicolore dei componenti per i propri elementi focalizzabili, ad es. una card con <code>tabindex=\"0\"</code>. Viene mostrato solo con il focus da tastiera e si configura con i token di focus.",
+  "_A_UTILITIES_FOCUS_NAME_": "Anello di focus",
+  "_A_UTILITIES_OPACITY_DESCRIPTION_": "Le classi impostano <code>opacity</code> a 0, 25, 50, 75 o 100 %.",
+  "_A_UTILITIES_OPACITY_NAME_": "Opacità",
+  "_A_UTILITIES_ORDER_DESCRIPTION_": "Le classi impostano l'<code>order</code> degli elementi flex e grid: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). I suffissi <code>_mobile</code> … <code>_large</code> li attivano ai breakpoint.",
+  "_A_UTILITIES_ORDER_NAME_": "Ordine",
+  "_A_UTILITIES_PAGE_NAME_": "Classi di utilità",
+  "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> nasconde un elemento in stampa, <code>a_print_block</code> lo mostra solo in stampa (insieme a <code>a_d_none</code>).",
+  "_A_UTILITIES_PRINT_NAME_": "Stampa",
+  "_A_UTILITIES_TEXT_DESCRIPTION_": "Testo secondario ed enfatizzato che resta leggibile nel tema chiaro e in quello scuro.",
+  "_A_UTILITIES_TEXT_NAME_": "Colore del testo",
+  "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "I livelli globali usano i token <code>--a_z_index_*</code>, così i propri overlay restano nell'ordine corretto rispetto a modali, dropdown e popup.",
+  "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
+}

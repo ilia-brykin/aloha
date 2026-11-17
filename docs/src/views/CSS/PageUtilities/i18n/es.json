@@ -1,0 +1,15 @@
+{
+  "_A_UTILITIES_FOCUS_DESCRIPTION_": "El anillo de foco bicolor de los componentes para sus propios elementos enfocables, p. ej. una tarjeta con <code>tabindex=\"0\"</code>. Solo se muestra con el foco del teclado y se configura con los tokens de foco.",
+  "_A_UTILITIES_FOCUS_NAME_": "Anillo de foco",
+  "_A_UTILITIES_OPACITY_DESCRIPTION_": "Las clases establecen <code>opacity</code> en 0, 25, 50, 75 o 100 %.",
+  "_A_UTILITIES_OPACITY_NAME_": "Opacidad",
+  "_A_UTILITIES_ORDER_DESCRIPTION_": "Las clases establecen el <code>order</code> de los elementos flex y grid: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Los sufijos <code>_mobile</code> … <code>_large</code> los activan en los breakpoints.",
+  "_A_UTILITIES_ORDER_NAME_": "Orden",
+  "_A_UTILITIES_PAGE_NAME_": "Clases de utilidad",
+  "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> oculta un elemento al imprimir, <code>a_print_block</code> lo muestra solo al imprimir (junto con <code>a_d_none</code>).",
+  "_A_UTILITIES_PRINT_NAME_": "Impresión",
+  "_A_UTILITIES_TEXT_DESCRIPTION_": "Texto secundario y destacado que sigue siendo legible en el tema claro y en el oscuro.",
+  "_A_UTILITIES_TEXT_NAME_": "Color del texto",
+  "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Las capas globales usan los tokens <code>--a_z_index_*</code>, así sus propias superposiciones mantienen el orden correcto respecto a modales, menús desplegables y popups.",
+  "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
+}

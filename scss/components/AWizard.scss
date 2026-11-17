@@ -1,40 +1,6 @@
-$a-wizard-border_color:                      var(--a_color_gray_200, #eeeeee) !default;
-$a-wizard-border-width:                      var(--a_border_width, 1px) !default;
-$a-wizard-step-default-primary-color:        var(--a_color_gray_200, #f8f9fa) !default;
-$a-wizard-step-default-secondary-color:      var(--a_color_gray_500, #b0b0b1) !default;
-$a-wizard-step-active-primary-color:         var(--a_color_primary, #009EF7) !default;
-$a-wizard-step-active-secondary-color:       var(--a_color_white, #ffffff) !default;
-$a-wizard-step-active-font-weight:           700 !default;
-$a-wizard-step-done-primary-color:           var(--a_color_primary_50, #90d4fa) !default;
-$a-wizard-step-done-secondary-color:         var(--a_color_gray_100, #fefefe) !default;
-$a-wizard-step-disabled-primary-color:       var(--a_color_gray_500, #adb5bd) !default;
-$a-wizard-step-disabled-secondary-color:     var(--a_color_gray_100, #fefefe) !default;
-$a-wizard-step-error-primary-color:          var(--a_color_danger, #dc3545) !default;
-$a-wizard-step-error-secondary-color:        var(--a_color_white, #ffffff) !default;
-$a-wizard-step-warning-primary-color:        var(--a_color_warning, #ffc107) !default;
-$a-wizard-step-warning-secondary-color:      var(--a_color_white, #ffffff) !default;
-$a-wizard-step-focus-shadow:                 var(--a_color_primary_50, #90d4fa) !default;
-$a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_focus_shadow) !default;
+@use "../utils/focus";
 
 .a_wizard {
-  --a_wizard_border_color: #{$a-wizard-border_color};
-  --a_wizard_border_width: #{$a-wizard-border-width};
-  --a_wizard_step_default_primary_color: #{$a-wizard-step-default-primary-color};
-  --a_wizard_step_default_secondary_color: #{$a-wizard-step-default-secondary-color};
-  --a_wizard_step_active_primary_color: #{$a-wizard-step-active-primary-color};
-  --a_wizard_step_active_secondary_color: #{$a-wizard-step-active-secondary-color};
-  --a_wizard_step_active_font_weight: #{$a-wizard-step-active-font-weight};
-  --a_wizard_step_done_primary_color: #{$a-wizard-step-done-primary-color};
-  --a_wizard_step_done_secondary_color: #{$a-wizard-step-done-secondary-color};
-  --a_wizard_step_disabled_primary_color: #{$a-wizard-step-disabled-primary-color};
-  --a_wizard_step_disabled_secondary_color: #{$a-wizard-step-disabled-secondary-color};
-  --a_wizard_step_error_primary_color: #{$a-wizard-step-error-primary-color};
-  --a_wizard_step_error_secondary_color: #{$a-wizard-step-error-secondary-color};
-  --a_wizard_step_warning_primary_color: #{$a-wizard-step-warning-primary-color};
-  --a_wizard_step_warning_secondary_color: #{$a-wizard-step-warning-secondary-color};
-  --a_wizard_step_focus_shadow: #{$a-wizard-step-focus-shadow};
-  --a_wizard_step_focus_box_shadow: #{$a-wizard-step-focus-box-shadow};
-
   border: var(--a_wizard_border_width) solid var(--a_wizard_border_color);
   position: relative;
 
@@ -43,15 +9,12 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
   *::after {
     box-sizing: border-box;
   }
-  &:focus {
-    box-shadow: var(--a_wizard_step_focus_box_shadow);
-    outline: 0;
-  }
+  @include focus.focus-visible;
 }
 
 .a_wizard_basic {
   > .a_wizard__steps {
-    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .1);
+    box-shadow: var(--a_shadow_sm);
     .a_wizard__step__link {
       position: relative;
       height: 100%;
@@ -64,7 +27,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
         height: 0.125rem;
         left: 0;
         bottom: -0.0625rem;
-        transition: all .35s ease .15s;
+        transition: all var(--a_duration_slow) var(--a_easing) var(--a_duration_fast);
         width: 100%;
       }
       &.default {
@@ -82,7 +45,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
         }
       }
       &.active {
-        color: var(--a_wizard_step_active_primary_color);
+        color: var(--a_wizard_step_active_text_color);
         cursor: pointer;
         &::after {
           background: var(--a_wizard_step_active_primary_color);
@@ -98,7 +61,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       }
 
       &.error {
-        color: var(--a_wizard_step_error_primary_color) !important;
+        color: var(--a_wizard_step_error_text_color) !important;
 
         &::after {
           background: var(--a_wizard_step_error_primary_color) !important;
@@ -106,7 +69,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       }
 
       &.warning {
-        color: var(--a_wizard_step_warning_primary_color) !important;
+        color: var(--a_wizard_step_warning_text_color) !important;
 
         &::after {
           background: var(--a_wizard_step_warning_primary_color) !important;
@@ -134,7 +97,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       height: calc(100% + 0.375rem);
       clip-path: polygon(0 0, calc(100% - 2.0625rem) 0, 100% 50%, calc(100% - 2.0625rem) 100%, 0 100%, 2.0625rem 50%);
       z-index: 3;
-      background-color: rgba(var(--a_wizard_step_focus_shadow_rgb), .5);
+      background-color: var(--a_wizard_step_focus_shadow);
     }
     .a_wizard__step__link {
       position: relative;
@@ -144,7 +107,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       margin-left: -3.75rem;
       clip-path: polygon(0 0, calc(100% - 1.875rem) 0, 100% 50%, calc(100% - 1.875rem) 100%, 0 100%, 1.875rem 50%);
       z-index: 2;
-      &:focus {
+      &:focus-visible {
         box-shadow: none;
         z-index: 4;
         & + .a_wizard__step__divider {
@@ -233,50 +196,6 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
   }
 }
 .a_wizard_line {
-  // default
-  --a_wizard_line_step_default_text_color: var(--a_wizard_step_default_secondary_color);
-  --a_wizard_line_step_default_number_color: var(--a_wizard_step_default_secondary_color);
-  --a_wizard_line_step_default_number_bg: var(--a_wizard_step_default_primary_color);
-  --a_wizard_line_step_default_number_border_width: 0;
-  --a_wizard_line_step_default_number_border_style: none;
-  --a_wizard_line_step_default_number_border_color: transparent;
-  // active
-  --a_wizard_line_step_active_text_color: var(--a_wizard_step_active_primary_color);
-  --a_wizard_line_step_active_number_color: var(--a_wizard_step_active_secondary_color);
-  --a_wizard_line_step_active_number_bg: var(--a_wizard_step_active_primary_color);
-  --a_wizard_line_step_active_number_border_width: 0;
-  --a_wizard_line_step_active_number_border_style: none;
-  --a_wizard_line_step_active_number_border_color: transparent;
-  --a_wizard_line_step_active_number_box_shadow: 0 1px 7px 1px rgba(0, 0, 0, .3);
-  // done
-  --a_wizard_line_step_done_text_color: var(--a_wizard_step_done_primary_color);
-  --a_wizard_line_step_done_number_color: var(--a_wizard_step_done_secondary_color);
-  --a_wizard_line_step_done_number_bg: var(--a_wizard_step_done_primary_color);
-  --a_wizard_line_step_done_number_border_width: 0;
-  --a_wizard_line_step_done_number_border_style: none;
-  --a_wizard_line_step_done_number_border_color: transparent;
-  // disabled
-  --a_wizard_line_step_disabled_text_color: var(--a_wizard_step_disabled_primary_color);
-  --a_wizard_line_step_disabled_number_color: var(--a_wizard_step_disabled_secondary_color);
-  --a_wizard_line_step_disabled_number_bg: var(--a_wizard_step_disabled_primary_color);
-  --a_wizard_line_step_disabled_number_border_width: 0;
-  --a_wizard_line_step_disabled_number_border_style: none;
-  --a_wizard_line_step_disabled_number_border_color: transparent;
-  // error
-  --a_wizard_line_step_error_text_color: var(--a_wizard_step_error_primary_color);
-  --a_wizard_line_step_error_number_color: var(--a_wizard_step_error_secondary_color);
-  --a_wizard_line_step_error_number_bg: var(--a_wizard_step_error_primary_color);
-  --a_wizard_line_step_error_number_border_width: 0;
-  --a_wizard_line_step_error_number_border_style: none;
-  --a_wizard_line_step_error_number_border_color: transparent;
-  // warning
-  --a_wizard_line_step_warning_text_color: var(--a_wizard_step_warning_primary_color);
-  --a_wizard_line_step_warning_number_color: var(--a_wizard_step_warning_secondary_color);
-  --a_wizard_line_step_warning_number_bg: var(--a_wizard_step_warning_primary_color);
-  --a_wizard_line_step_warning_number_border_width: 0;
-  --a_wizard_line_step_warning_number_border_style: none;
-  --a_wizard_line_step_warning_number_border_color: transparent;
-
   .a_wizard__steps {
     position: relative;
     margin-bottom: 0.625rem;
@@ -288,7 +207,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       position: absolute;
       left: 0;
       width: 100%;
-      border-radius: 0.5rem;
+      border-radius: var(--a_border_radius_large);
       z-index: 0;
       border: 3px dashed var(--a_wizard_border_color);
       margin-top: 1.5625rem;
@@ -316,7 +235,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       margin-left: auto;
       margin-right: auto;
       margin-bottom: .5rem;
-      transition: all 0.5s ease-in-out;
+      transition: all var(--a_duration_slow) var(--a_easing);
       height: 2.5rem;
       min-width: 2.5rem;
       background: var(--a_wizard_border_color);
@@ -403,11 +322,11 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
 }
 .a_wizard_line_square,
 .a_wizard_line_square_bordered {
-  --a_wizard_border_radius: var(--a_border_radius, .5rem);
+  --a_wizard_border_radius: var(--a_border_radius_large);
 }
 .a_wizard_line_circle,
 .a_wizard_line_circle_bordered {
-  --a_wizard_border_radius: 2rem;
+  --a_wizard_border_radius: var(--a_border_radius_pill);
 }
 .a_wizard_line_square_bordered,
 .a_wizard_line_circle_bordered{
@@ -436,7 +355,6 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
 }
 
 .a_wizard_round {
-  --a_wizard_step_focus_shadow: #{$a-wizard-step-active-primary-color};
   .a_wizard__step {
     margin-top: .5rem;
   }
@@ -444,9 +362,9 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
     position: relative;
     height: 100%;
     min-height: 100%;
-    border-radius: 10em;
+    border-radius: var(--a_border_radius_pill);
     margin-right: 0.25rem;
-    transition: all 0.5s ease-in-out;
+    transition: all var(--a_duration_slow) var(--a_easing);
 
     &.default {
       background-color: var(--a_wizard_step_default_primary_color);
@@ -457,7 +375,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
     &.active {
       background-color: var(--a_wizard_step_active_primary_color);
       color: var(--a_wizard_step_active_secondary_color) !important;
-      box-shadow: 0 1px 7px 1px rgba(0, 0, 0, .3);
+      box-shadow: var(--a_shadow_md);
       cursor: pointer;
     }
 
@@ -496,16 +414,16 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
 
 .a_wizard__step__link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: calc(.5rem * var(--a_density)) calc(1rem * var(--a_density));
   text-decoration: none;
   &:hover,
   &:active,
   &:focus {
     text-decoration: none;
   }
-  &:focus {
+  @include focus.focus-visible;
+  &:focus-visible {
     box-shadow: var(--a_wizard_step_focus_box_shadow);
-    outline: 0;
   }
   &::-moz-focus-inner {
     border: 0;
@@ -532,7 +450,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
   height: 100%;
   padding-left: .5rem;
   padding-right: .5rem;
-  border-radius: 10em;
+  border-radius: var(--a_border_radius_pill);
   text-align: center;
   font-size: 2em;
   font-weight: 800;
@@ -553,11 +471,11 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
   overflow: hidden;
 }
 .a_wizard__tab_pane {
-  padding: .8rem;
+  padding: calc(.8rem * var(--a_density));
 }
 
 .a_wizard__toolbar {
-  padding: .8rem;
+  padding: calc(.8rem * var(--a_density));
   text-align: right;
   > button {
     margin-left: .2rem;
@@ -587,22 +505,22 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
         width: 100%;
       }
       &.default {
-        border-bottom: 1px solid var(--a_wizard_step_default_primary_color);
+        border-bottom: var(--a_border_width) solid var(--a_wizard_step_default_primary_color);
       }
       &.active {
-        border-bottom: 1px solid var(--a_wizard_step_active_secondary_color);
+        border-bottom: var(--a_border_width) solid var(--a_wizard_step_active_secondary_color);
       }
       &.done {
-        border-bottom: 1px solid var(--a_wizard_step_done_secondary_color);
+        border-bottom: var(--a_border_width) solid var(--a_wizard_step_done_secondary_color);
       }
       &.disabled {
-        border-bottom: 1px solid var(--a_wizard_step_disabled_secondary_color);
+        border-bottom: var(--a_border_width) solid var(--a_wizard_step_disabled_secondary_color);
       }
       &.error {
-        border-bottom: 1px solid var(--a_wizard_step_error_secondary_color);
+        border-bottom: var(--a_border_width) solid var(--a_wizard_step_error_secondary_color);
       }
       &.warning {
-        border-bottom: 1px solid var(--a_wizard_step_warning_secondary_color);
+        border-bottom: var(--a_border_width) solid var(--a_wizard_step_warning_secondary_color);
       }
     }
   }
@@ -615,7 +533,7 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
         left: 0;
         width: 0;
         height: 100%;
-        border-radius: 0.5rem;
+        border-radius: var(--a_border_radius_large);
         z-index: 0;
         border: 3px dashed var(--a_wizard_border_color);
         margin-left: 2.0625rem;
@@ -666,4 +584,80 @@ $a-wizard-step-focus-box-shadow:             0 0 0 0.25rem var(--a_wizard_step_f
       }
     }
   }
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_wizard) {
+  // general
+  --a_wizard_border_color: var(--a_border_color); // Border color of the wizard. In the line variant also the color of the dashed line and of the step number background.
+  --a_wizard_border_width: var(--a_border_width); // Border width of the wizard.
+  --a_wizard_border_radius: 0; // Corner radius of the step number in the line variant. Changed by the square and circle variants.
+  // step colors (basic, arrows, round)
+  --a_wizard_step_default_primary_color: var(--a_color_gray_100); // Main color of an upcoming step: fill in the arrows and round variants.
+  --a_wizard_step_default_secondary_color: var(--a_color_text_muted); // Second color of an upcoming step: text in the basic, arrows and round variants.
+  --a_wizard_step_active_primary_color: var(--a_color_primary); // Main color of the active step: fill in the arrows and round variants, marker in the basic variant.
+  --a_wizard_step_active_text_color: var(--a_color_primary_text); // Text color of the active step in the basic and line variants.
+  --a_wizard_step_active_secondary_color: var(--a_color_primary_contrast); // Second color of the active step: text on the fill in the arrows and round variants.
+  --a_wizard_step_active_font_weight: var(--a_font_weight_bold); // Font weight of the active step.
+  --a_wizard_step_done_primary_color: var(--a_color_primary_text_emphasis); // Main color of a completed step: fill in the arrows and round variants, text and marker in the basic variant.
+  --a_wizard_step_done_secondary_color: var(--a_color_primary_bg_subtle); // Second color of a completed step: text on the fill in the arrows and round variants.
+  --a_wizard_step_disabled_primary_color: var(--a_color_gray_500); // Main color of a disabled step: fill in the arrows and round variants, text and marker in the basic variant.
+  --a_wizard_step_disabled_secondary_color: var(--a_color_gray_100); // Second color of a disabled step: text on the fill in the arrows and round variants.
+  --a_wizard_step_error_primary_color: var(--a_color_danger); // Main color of a step with an error: fill in the arrows and round variants, marker in the basic variant.
+  --a_wizard_step_error_text_color: var(--a_color_danger_text); // Text color of a step with an error in the basic and line variants.
+  --a_wizard_step_error_secondary_color: var(--a_color_danger_contrast); // Second color of a step with an error: text on the fill in the arrows and round variants.
+  --a_wizard_step_warning_primary_color: var(--a_color_warning); // Main color of a step with a warning: fill in the arrows and round variants, marker in the basic variant.
+  --a_wizard_step_warning_secondary_color: var(--a_color_warning_contrast); // Second color of a step with a warning: text on the fill in the arrows and round variants.
+  --a_wizard_step_warning_text_color: var(--a_color_warning_text_emphasis); // Text color of a step with a warning in the basic and line variants.
+  // focus
+  --a_wizard_step_focus_shadow: var(--a_color_focus); // Color of the focus outline around a step in the arrows variant.
+  --a_wizard_step_focus_box_shadow: var(--a_focus_ring); // Focus ring of a step.
+}
+
+:where(.a_wizard_line) {
+  // default
+  --a_wizard_line_step_default_text_color: var(--a_wizard_step_default_secondary_color); // Line variant: label color of an upcoming step.
+  --a_wizard_line_step_default_number_color: var(--a_wizard_step_default_secondary_color); // Line variant: number color of an upcoming step.
+  --a_wizard_line_step_default_number_bg: var(--a_wizard_step_default_primary_color); // Line variant: number background of an upcoming step.
+  --a_wizard_line_step_default_number_border_width: 0; // Line variant: number border width of an upcoming step.
+  --a_wizard_line_step_default_number_border_style: none; // Line variant: number border style of an upcoming step.
+  --a_wizard_line_step_default_number_border_color: transparent; // Line variant: number border color of an upcoming step.
+  // active
+  --a_wizard_line_step_active_text_color: var(--a_wizard_step_active_text_color); // Line variant: label color of the active step.
+  --a_wizard_line_step_active_number_color: var(--a_wizard_step_active_secondary_color); // Line variant: number color of the active step.
+  --a_wizard_line_step_active_number_bg: var(--a_wizard_step_active_primary_color); // Line variant: number background of the active step.
+  --a_wizard_line_step_active_number_border_width: 0; // Line variant: number border width of the active step.
+  --a_wizard_line_step_active_number_border_style: none; // Line variant: number border style of the active step.
+  --a_wizard_line_step_active_number_border_color: transparent; // Line variant: number border color of the active step.
+  --a_wizard_line_step_active_number_box_shadow: var(--a_shadow_md); // Line variant: shadow of the number of the active step. None in the bordered variants.
+  // done
+  --a_wizard_line_step_done_text_color: var(--a_wizard_step_done_primary_color); // Line variant: label color of a completed step.
+  --a_wizard_line_step_done_number_color: var(--a_wizard_step_done_secondary_color); // Line variant: number color of a completed step.
+  --a_wizard_line_step_done_number_bg: var(--a_wizard_step_done_primary_color); // Line variant: number background of a completed step.
+  --a_wizard_line_step_done_number_border_width: 0; // Line variant: number border width of a completed step.
+  --a_wizard_line_step_done_number_border_style: none; // Line variant: number border style of a completed step.
+  --a_wizard_line_step_done_number_border_color: transparent; // Line variant: number border color of a completed step.
+  // disabled
+  --a_wizard_line_step_disabled_text_color: var(--a_wizard_step_disabled_primary_color); // Line variant: label color of a disabled step.
+  --a_wizard_line_step_disabled_number_color: var(--a_wizard_step_disabled_secondary_color); // Line variant: number color of a disabled step.
+  --a_wizard_line_step_disabled_number_bg: var(--a_wizard_step_disabled_primary_color); // Line variant: number background of a disabled step.
+  --a_wizard_line_step_disabled_number_border_width: 0; // Line variant: number border width of a disabled step.
+  --a_wizard_line_step_disabled_number_border_style: none; // Line variant: number border style of a disabled step.
+  --a_wizard_line_step_disabled_number_border_color: transparent; // Line variant: number border color of a disabled step.
+  // error
+  --a_wizard_line_step_error_text_color: var(--a_wizard_step_error_text_color); // Line variant: label color of a step with an error.
+  --a_wizard_line_step_error_number_color: var(--a_wizard_step_error_secondary_color); // Line variant: number color of a step with an error.
+  --a_wizard_line_step_error_number_bg: var(--a_wizard_step_error_primary_color); // Line variant: number background of a step with an error.
+  --a_wizard_line_step_error_number_border_width: 0; // Line variant: number border width of a step with an error.
+  --a_wizard_line_step_error_number_border_style: none; // Line variant: number border style of a step with an error.
+  --a_wizard_line_step_error_number_border_color: transparent; // Line variant: number border color of a step with an error.
+  // warning
+  --a_wizard_line_step_warning_text_color: var(--a_wizard_step_warning_text_color); // Line variant: label color of a step with a warning.
+  --a_wizard_line_step_warning_number_color: var(--a_wizard_step_warning_secondary_color); // Line variant: number color of a step with a warning.
+  --a_wizard_line_step_warning_number_bg: var(--a_wizard_step_warning_primary_color); // Line variant: number background of a step with a warning.
+  --a_wizard_line_step_warning_number_border_width: 0; // Line variant: number border width of a step with a warning.
+  --a_wizard_line_step_warning_number_border_style: none; // Line variant: number border style of a step with a warning.
+  --a_wizard_line_step_warning_number_border_color: transparent; // Line variant: number border color of a step with a warning.
 }

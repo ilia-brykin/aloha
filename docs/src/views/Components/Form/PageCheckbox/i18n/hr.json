@@ -3,11 +3,17 @@
   "_A_CHECKBOX_COMPONENT_NAME_": "Potvrdni okviri",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Kada je ova opcija omogućena, prikazat će se dodatni kontrolni potvrdni okvir. Ovaj kontrolni potvrdni okvir omogućuje korisniku da odabere ili poništi sve potvrdne okvire odjednom.",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Kontrolni potvrdni okvir",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_DESCRIPTION_": "Propsi <code lang=\"en\">is-select-all</code> i <code lang=\"en\">is-deselect-all</code> prikazuju iznad popisa gumbe koji odabiru sve stavke ili poništavaju njihov odabir. Onemogućene stavke (<code lang=\"en\">key-disabled</code>) se ne mijenjaju. Tijekom pretraživanja (<code lang=\"en\">search</code>) obuhvaćene su samo pronađene stavke. Tekstovi gumba mijenjaju se pomoću <code lang=\"en\">text-select-all</code> i <code lang=\"en\">text-deselect-all</code>.",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_HEADER_": "Odaberi sve / Poništi sve odabire",
   "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Određuje može li se grupa potvrdnih okvira sažeti i proširiti. Ako je postavljeno na <strong lang=\"en\">true</strong>, korisnik može prebaciti grupu.",
   "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Dodaje kontrolni potvrdni okvir koji omogućuje odabir ili poništavanje svih potvrdnih okvira u grupi odjednom.",
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Određuje treba li potvrdne okvire prikazati u redu. Ako je postavljeno na <strong lang=\"en\">true</strong>, potvrdni okviri će biti poravnati vodoravno.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Određuje treba li potvrdne okvire prikazati kao gumbe. Ako je postavljeno na <strong lang=\"en\">true</strong>, potvrdni okviri će se prikazati kao gumbi, što može pružiti vizualno privlačnije sučelje.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Određuje početno stanje sažetka grupe potvrdnih okvira. Ako je postavljeno na <strong lang=\"en\">true</strong>, grupa će biti sažeta pri učitavanju stranice.",
+  "_A_CHECKBOX_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Prikazuje gumb koji poništava odabir svih stavki koje se mogu mijenjati (nisu onemogućene; tijekom pretraživanja samo pronađene).",
+  "_A_CHECKBOX_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Prikazuje gumb koji odabire sve stavke koje se mogu mijenjati (nisu onemogućene; tijekom pretraživanja samo pronađene).",
   "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Određuje hoće li se širina grupe potvrdnih okvira automatski prilagoditi njenom sadržaju. Ako je postavljeno na <strong lang=\"en\">true</strong>, širina će se automatski prilagoditi.",
-  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Omogućuje izmjenu tekstualnih poruka za razne radnje u komponenti. Uključuje tekstove za sažimanje/proširivanje (<strong lang=\"en\">collapseClose</strong> i <strong lang=\"en\">collapseOpen</strong>), poruke kada nema elemenata tijekom pretraživanja (<strong lang=\"en\">notElementsWithSearch</strong>), i tekst za polje za pretraživanje (<strong lang=\"en\">search</strong>)."
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Omogućuje izmjenu tekstualnih poruka za razne radnje u komponenti. Uključuje tekstove za sažimanje/proširivanje (<strong lang=\"en\">collapseClose</strong> i <strong lang=\"en\">collapseOpen</strong>), poruke kada nema elemenata tijekom pretraživanja (<strong lang=\"en\">notElementsWithSearch</strong>), i tekst za polje za pretraživanje (<strong lang=\"en\">search</strong>).",
+  "_A_CHECKBOX_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_": "Tekst gumba „Poništi sve odabire”.",
+  "_A_CHECKBOX_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Tekst gumba „Odaberi sve”."
 }

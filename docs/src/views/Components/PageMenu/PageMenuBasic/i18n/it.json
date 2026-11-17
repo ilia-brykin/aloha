@@ -12,5 +12,7 @@
   "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Associa i campi con <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> e <code>key-children</code>. L’esempio usa code, title, symbol, section e items senza rinominarli. Le rotte usano ancora <code>to</code>. Apri Form controls o cerca Input.",
   "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Breadcrumb lunghi e contatori dei sottomenu",
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Apri Components → Form controls → Text fields. Con <code>is-breadcrumbs-truncated</code>, i collegamenti genitori che non entrano passano nel menu a discesa dei breadcrumb. L’interruttore controlla <code>show-count-children</code> per mostrare o nascondere il numero di voci dei sottomenu.",
-  "_A_PAGE_MENU_SHOW_COUNTS_": "Mostra il numero di voci dei sottomenu"
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Mostra il numero di voci dei sottomenu",
+  "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "Menu dietro un pulsante (only-mobile)",
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "Con <code>only-mobile</code> il menu si comporta come il menu mobile a qualsiasi larghezza dello schermo: è chiuso ed è visibile solo il pulsante. Il pulsante apre il menu; un clic su un link, <kbd>Esc</kbd> o lo sfondo (<code>use-backdrop-mobile</code>) lo chiude. La larghezza della finestra non conta. Date <code>:only-mobile=\"true\"</code> anche al pulsante, altrimenti è nascosto su desktop, e collegate entrambi con lo stesso <code>menu-id</code>."
 }

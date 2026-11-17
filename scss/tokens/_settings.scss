@@ -1,0 +1,45 @@
+// Internal build settings. NOT a configuration API:
+// everything a user can configure is a CSS custom property (see tokens.scss).
+
+// Theme colors with their default base values.
+// h, s, l      – default hue / saturation / lightness
+// threshold    – lightness from which the contrast color switches from white to black
+// All defaults reach WCAG AA (text 4.5:1) in the light and in the dark theme.
+$theme-colors: (
+  "primary":   (h: 201, s: 92%, l: 36%, threshold: 60%),   // #0775b0
+  "secondary": (h: 236, s: 42%, l: 32%, threshold: 60%),   // #2f3474
+  "tertiary":  (h: 276, s: 52%, l: 46%, threshold: 60%),   // #8138b2
+  "success":   (h: 145, s: 63%, l: 29%, threshold: 60%),   // #1b7942
+  "info":      (h: 190, s: 85%, l: 32%, threshold: 60%),   // #0c8097
+  "warning":   (h: 36,  s: 96%, l: 52%, threshold: 45%),   // #fa9c0f
+  "danger":    (h: 356, s: 74%, l: 45%, threshold: 60%),   // #c81e29
+);
+
+// "light" and "dark" are derived from the gray hue/saturation.
+$neutral-colors: (
+  "light": (l: 97.5%, threshold: 60%),
+  "dark":  (l: 15%,   threshold: 60%),
+);
+
+// Lightness of the gray scale (light theme, dark theme).
+$gray-steps: (
+  50:  (light: 98.5%, dark: 9%),
+  100: (light: 97.5%, dark: 12%),
+  200: (light: 93.5%, dark: 17%),
+  300: (light: 89.5%, dark: 23%),
+  400: (light: 83.5%, dark: 31%),
+  500: (light: 71%,   dark: 44%),
+  600: (light: 46%,   dark: 64%),
+  700: (light: 31%,   dark: 76%),
+  800: (light: 23%,   dark: 86%),
+  900: (light: 15%,   dark: 93%),
+);
+
+// All color names that get variants (buttons, alerts, badges, …).
+$variant-colors: (primary, secondary, tertiary, success, info, warning, danger, light, dark);
+
+// Selectors on which derived tokens are (re)calculated.
+// A custom property that references other custom properties is computed on the element
+// where it is declared. To re-theme only a part of the page, the derived tokens have to be
+// re-declared there, therefore they are emitted for all these selectors.
+$derived-selectors: ":root, .a_theme, [data-a-theme], [data-a-density]";

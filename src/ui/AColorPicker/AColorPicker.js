@@ -133,7 +133,13 @@ export default {
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: true,
+      default: undefined,
+    },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
     },
     isRender: {
       type: Boolean,
@@ -279,6 +285,8 @@ export default {
       labelDescriptionId,
       onBlur,
       onFocus,
+      isLabelFloatLocal,
+      isLabelInset,
     } = UiAPI(props, context);
 
     const {
@@ -354,6 +362,8 @@ export default {
     };
 
     return {
+      isLabelFloatLocal,
+      isLabelInset,
       alphaBackground,
       alphaPercent,
       applyInput,
@@ -456,7 +466,8 @@ export default {
     }, [
       h("div", {
         class: ["a_form_element__parent a_color_picker", {
-          a_form_element__parent_float: this.isLabelFloat,
+          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_inset: this.isLabelInset,
           a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
           a_form_element__parent_not_empty: this.isModel,
           a_color_picker_has_color: this.isModel,
@@ -474,7 +485,7 @@ export default {
             alwaysTranslate: this.alwaysTranslate,
             extra: this.extra,
             isError: this.isErrors,
-            isLabelFloat: this.isLabelFloat,
+            isLabelFloat: this.isLabelFloatLocal,
             label: this.label,
             labelClass: this.labelClass,
             labelScreenReader: this.labelScreenReader,
@@ -487,7 +498,7 @@ export default {
           alwaysTranslate: this.alwaysTranslate,
           html: this.labelDescription,
           extra: this.extra,
-          isLabelFloat: this.isLabelFloat,
+          isLabelFloat: this.isLabelFloatLocal,
         }),
         h("div", {
           class: "a_form_element",
@@ -534,7 +545,7 @@ export default {
                 class: [
                   "a_color_picker__toggle__empty",
                   {
-                    a_sr_only: this.isLabelFloat && hasLabel,
+                    a_sr_only: this.isLabelFloatLocal && hasLabel,
                   },
                 ],
                 tag: "span",

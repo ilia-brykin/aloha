@@ -6,6 +6,14 @@ export default function CssItemsAPI() {
     class: "test_menu_css",
     children: [
       {
+        id: "PageTheming",
+        label: "Theming",
+        class: "test_menu_theming",
+        to: {
+          name: "PageTheming",
+        },
+      },
+      {
         id: "PageBadge",
         label: "Badge",
         class: "test_menu_badge",
@@ -91,6 +99,14 @@ export default function CssItemsAPI() {
         class: "test_menu_text",
         to: {
           name: "PageText",
+        },
+      },
+      {
+        id: "PageUtilities",
+        label: "Utilities",
+        class: "test_menu_utilities",
+        to: {
+          name: "PageUtilities",
         },
       },
     ],

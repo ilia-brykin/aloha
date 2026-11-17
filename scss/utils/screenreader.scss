@@ -1,16 +1,15 @@
-@use "aloha_prefix" as aloha;
-
-.#{aloha.$aloha-prefix}sr_only,
-.#{aloha.$aloha-prefix}sr_only_focusable:not(:focus):not(:focus-within) {
-  border: none !important;
-  clip: rect(0, 0, 0, 0) !important;
-  height: 0.01em !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  white-space: nowrap !important;
-  width: 0.01em !important;
+// Visually hidden, but readable by screen readers.
+.a_sr_only,
+.a_sr_only_focusable:not(:focus):not(:focus-within) {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   z-index: -1 !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip-path: inset(50%) !important;
 }

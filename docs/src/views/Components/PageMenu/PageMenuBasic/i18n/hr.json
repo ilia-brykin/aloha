@@ -12,5 +12,7 @@
   "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Povežite polja putem <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> i <code>key-children</code>. Primjer koristi code, title, symbol, section i items bez preimenovanja. Rute i dalje koriste <code>to</code>. Otvorite Form controls ili potražite Input.",
   "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Duge navigacijske staze i brojači podizbornika",
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Otvorite Components → Form controls → Text fields. Uz <code>is-breadcrumbs-truncated</code>, nadređene poveznice koje ne stanu premještaju se u padajući izbornik navigacijske staze. Prekidač upravlja <code>show-count-children</code> za prikaz ili skrivanje broja stavki podizbornika.",
-  "_A_PAGE_MENU_SHOW_COUNTS_": "Prikaži broj stavki podizbornika"
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Prikaži broj stavki podizbornika",
+  "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "Izbornik iza gumba (only-mobile)",
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "S <code>only-mobile</code> izbornik se pri svakoj širini zaslona ponaša kao mobilni: zatvoren je i vidljiv je samo gumb. Gumb otvara izbornik; klik na poveznicu, <kbd>Esc</kbd> ili pozadina (<code>use-backdrop-mobile</code>) ga zatvaraju. Širina prozora nije važna. I gumbu dodajte <code>:only-mobile=\"true\"</code>, inače je na računalu skriven, i povežite oboje istim <code>menu-id</code>."
 }

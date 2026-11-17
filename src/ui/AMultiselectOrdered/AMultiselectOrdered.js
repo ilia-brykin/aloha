@@ -379,6 +379,12 @@ export default {
       required: false,
       default: () => AMultiselectOrderedPluginOptions.propsDefault.selectIsLabelFloat,
     },
+    selectLabelPosition: {
+      type: String,
+      required: false,
+      default: () => AMultiselectOrderedPluginOptions.propsDefault.selectLabelPosition,
+      validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
+    },
     selectIsSelectionCloseable: {
       type: Boolean,
       required: false,
@@ -918,6 +924,7 @@ export default {
               inBody: this.selectInBody,
               isCloseByClick: this.selectIsCloseByClick,
               isLabelFloat: this.selectIsLabelFloat,
+              labelPosition: this.selectLabelPosition,
               isSelectionCloseable: this.selectIsSelectionCloseable,
               keyDisabled: this.keyDisabled,
               keyDisabledCallback: this.keyDisabledCallback,

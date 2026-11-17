@@ -1,362 +1,240 @@
-@use "sass:color";
+@use "focus";
+@use "../tokens/settings";
 
-@use "aloha_prefix" as aloha;
-@use "color_utils";
-@use "funktions";
-
-$a_btn_hover_bg_shade_amount:       15% !default;
-$a_btn_hover_bg_tint_amount:        15% !default;
-$a_btn_hover_border_shade_amount:   20% !default;
-$a_btn_hover_border_tint_amount:    10% !default;
-$a_btn_active_bg_shade_amount:      20% !default;
-$a_btn_active_bg_tint_amount:       20% !default;
-$a_btn_active_border_shade_amount:  25% !default;
-$a_btn_active_border_tint_amount:   10% !default;
-
-$a_btn_active_box_shadow:           inset 0 3px 5px rgba(color_utils.$a_black, .125) !default;
-
-$a_btn_link_color:              var(--#{aloha.$aloha-prefix}color_link) !default;
-$a_btn_link_hover_color:        var(--#{aloha.$aloha-prefix}color_link_hover) !default;
-$a_btn_link_disabled_color:     var(--#{aloha.$aloha-prefix}color_gray_600) !default;
-
-$a_btn_switch_color:                #ffffff !default;
-$a_btn_switch_border_color:         color_utils.$a_gray_500 !default;
-$a_btn_switch_active_color:         #b8d476 !default;
-
-.#{aloha.$aloha-prefix}btn {
-  --#{aloha.$aloha-prefix}btn_padding_x: 0.75rem;
-  --#{aloha.$aloha-prefix}btn_padding_y: 0.375rem;
-  --#{aloha.$aloha-prefix}btn_font_size: 1rem;
-  --#{aloha.$aloha-prefix}btn_font_weight: 400;
-  --#{aloha.$aloha-prefix}btn_line_height: 1.5;
-  --#{aloha.$aloha-prefix}btn_color: #212529;
-  --#{aloha.$aloha-prefix}btn_bg: transparent;
-  --#{aloha.$aloha-prefix}btn_border_width: 1px;
-  --#{aloha.$aloha-prefix}btn_border_color: transparent;
-  --#{aloha.$aloha-prefix}btn_border_radius: var(--#{aloha.$aloha-prefix}border_radius);
-  --#{aloha.$aloha-prefix}btn_disabled_opacity: 0.65;
-  --#{aloha.$aloha-prefix}btn_focus_box_shadow: 0 0 0 0.25rem rgba(var(--#{aloha.$aloha-prefix}btn_focus_shadow_rgb), .5);
-
+.a_btn {
   display: inline-block;
-  padding: var(--#{aloha.$aloha-prefix}btn_padding_y) var(--#{aloha.$aloha-prefix}btn_padding_x);
-  font-family: var(--#{aloha.$aloha-prefix}btn_font_family);
-  font-size: var(--#{aloha.$aloha-prefix}btn_font_size);
-  font-weight: var(--#{aloha.$aloha-prefix}btn_font_weight);
-  line-height: var(--#{aloha.$aloha-prefix}btn_line_height);
-  color: var(--#{aloha.$aloha-prefix}btn_color);
+  padding: var(--a_btn_padding_y) var(--a_btn_padding_x);
+  font-family: var(--a_btn_font_family);
+  font-size: var(--a_btn_font_size);
+  font-weight: var(--a_btn_font_weight);
+  line-height: var(--a_btn_line_height);
+  color: var(--a_btn_color);
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  border: var(--#{aloha.$aloha-prefix}btn_border_width) solid var(--#{aloha.$aloha-prefix}btn_border_color);
-  border-radius: var(--#{aloha.$aloha-prefix}btn_border_radius);
-  background-color: var(--#{aloha.$aloha-prefix}btn_bg);
+  border: var(--a_btn_border_width) solid var(--a_btn_border_color);
+  border-radius: var(--a_btn_border_radius);
+  background-color: var(--a_btn_bg);
+  transition: var(--a_btn_transition);
 
   &.readonly {
     cursor: default;
     user-select: auto;
   }
 
+  @include focus.focus-visible;
+
+  .a_btn_check:focus-visible + & {
+    @include focus.focus-ring;
+  }
+
   &:not(.readonly) {
     &:hover {
-      color: var(--#{aloha.$aloha-prefix}btn_hover_color);
-      background-color: var(--#{aloha.$aloha-prefix}btn_hover_bg);
-      border-color: var(--#{aloha.$aloha-prefix}btn_hover_border_color);
+      color: var(--a_btn_hover_color);
+      background-color: var(--a_btn_hover_bg);
+      border-color: var(--a_btn_hover_border_color);
     }
     .a_btn_check + &:hover {
       // override for the checkbox/radio buttons
-      color: var(--#{aloha.$aloha-prefix}btn_color);
-      background-color: var(--#{aloha.$aloha-prefix}btn_bg);
-      border-color: var(--#{aloha.$aloha-prefix}btn_border_color);
+      color: var(--a_btn_color);
+      background-color: var(--a_btn_bg);
+      border-color: var(--a_btn_border_color);
     }
 
     &:not(.a_btn_link):hover {
       text-decoration: none;
     }
 
-    &:focus {
-      color: var(--#{aloha.$aloha-prefix}btn_focus_color, var(--#{aloha.$aloha-prefix}btn_hover_color));
-      background-color: var(--#{aloha.$aloha-prefix}btn_hover_bg);
-      border-color: var(--#{aloha.$aloha-prefix}btn_hover_border_color);
-      outline: 0;
-      box-shadow: var(--#{aloha.$aloha-prefix}btn_focus_box_shadow);
-    }
-
-    .a_btn_check:focus-visible + & {
-      border-color: var(--#{aloha.$aloha-prefix}btn_hover_border_color);
-      outline: 0;
-      box-shadow: var(--#{aloha.$aloha-prefix}btn_focus_box_shadow);
-    }
-
     .a_btn_check:checked + &,
     :not(.a_btn_check) + &:active,
     &:first-child:active,
     &.active {
-      color: var(--#{aloha.$aloha-prefix}btn_active_color);
-      background-color: var(--#{aloha.$aloha-prefix}btn_active_bg);
-      border-color: var(--#{aloha.$aloha-prefix}btn_active_border_color);
+      color: var(--a_btn_active_color);
+      background-color: var(--a_btn_active_bg);
+      border-color: var(--a_btn_active_border_color);
     }
 
     &.disabled,
     &:disabled,
     fieldset:disabled & {
-      color: var(--#{aloha.$aloha-prefix}btn_disabled_color);
-      background-color: var(--#{aloha.$aloha-prefix}btn_disabled_bg);
-      border-color: var(--#{aloha.$aloha-prefix}btn_disabled_border_color);
-      opacity: var(--#{aloha.$aloha-prefix}btn_disabled_opacity);
+      color: var(--a_btn_disabled_color);
+      background-color: var(--a_btn_disabled_bg);
+      border-color: var(--a_btn_disabled_border_color);
+      opacity: var(--a_btn_disabled_opacity);
       cursor: not-allowed;
     }
   }
 }
 
-.#{aloha.$aloha-prefix}btn_group_large > .#{aloha.$aloha-prefix}btn,
-.#{aloha.$aloha-prefix}btn_large {
-  --#{aloha.$aloha-prefix}btn_padding_y: 0.5rem;
-  --#{aloha.$aloha-prefix}btn_padding_x: 1rem;
-  --#{aloha.$aloha-prefix}btn_font_size: 1.25rem;
-  --#{aloha.$aloha-prefix}btn_border_radius: var(--#{aloha.$aloha-prefix}border_radius_large);
+.a_btn_group_large > .a_btn,
+.a_btn_large {
+  --a_btn_padding_y: calc(.5rem * var(--a_density));
+  --a_btn_padding_x: calc(1rem * var(--a_density));
+  --a_btn_font_size: var(--a_font_size_lg);
+  --a_btn_border_radius: var(--a_border_radius_large);
 }
 
-.#{aloha.$aloha-prefix}btn_group_small > .#{aloha.$aloha-prefix}btn,
-.#{aloha.$aloha-prefix}btn_small {
-  --#{aloha.$aloha-prefix}btn_padding_y: 0.25rem;
-  --#{aloha.$aloha-prefix}btn_padding_x: 0.5rem;
-  --#{aloha.$aloha-prefix}btn_font_size: 0.875rem;
-  --#{aloha.$aloha-prefix}btn_border_radius: var(--#{aloha.$aloha-prefix}border_radius_small);
+.a_btn_group_small > .a_btn,
+.a_btn_small {
+  --a_btn_padding_y: calc(.25rem * var(--a_density));
+  --a_btn_padding_x: calc(.5rem * var(--a_density));
+  --a_btn_font_size: var(--a_font_size_sm);
+  --a_btn_border_radius: var(--a_border_radius_small);
 }
 
-@mixin button-variant(
-  $background,
-  $border,
-  $color: funktions.color-contrast($background),
-  $hover-background: if(sass($color == color_utils.$a_color_contrast_light): funktions.shade-color($background, $a_btn_hover_bg_shade_amount); else: funktions.tint-color($background, $a_btn_hover_bg_tint_amount)),
-  $hover-border: if(sass($color == color_utils.$a_color_contrast_light): funktions.shade-color($border, $a_btn_hover_border_shade_amount); else: funktions.tint-color($border, $a_btn_hover_border_tint_amount)),
-  $hover-color: funktions.color-contrast($hover-background),
-  $active-background: if(sass($color == color_utils.$a_color_contrast_light): funktions.shade-color($background, $a_btn_active_bg_shade_amount); else: funktions.tint-color($background, $a_btn_active_bg_tint_amount)),
-  $active-border: if(sass($color == color_utils.$a_color_contrast_light): funktions.shade-color($border, $a_btn_active_border_shade_amount); else: funktions.tint-color($border, $a_btn_active_border_tint_amount)),
-  $active-color: funktions.color-contrast($active-background),
-  $disabled-background: $background,
-  $disabled-border: $border,
-  $disabled-color: funktions.color-contrast($disabled-background)
-) {
-  --#{aloha.$aloha-prefix}btn_color: #{$color};
-  --#{aloha.$aloha-prefix}btn_bg: #{$background};
-  --#{aloha.$aloha-prefix}btn_border_color: #{$border};
-  --#{aloha.$aloha-prefix}btn_hover_color: #{$hover-color};
-  --#{aloha.$aloha-prefix}btn_hover_bg: #{$hover-background};
-  --#{aloha.$aloha-prefix}btn_hover_border_color: #{$hover-border};
-  --#{aloha.$aloha-prefix}btn_focus_shadow_rgb: #{funktions.to-rgb(color.mix($color, $border, 15%))};
-  --#{aloha.$aloha-prefix}btn_active_color: #{$active-color};
-  --#{aloha.$aloha-prefix}btn_active_bg: #{$active-background};
-  --#{aloha.$aloha-prefix}btn_active_border_color: #{$active-border};
-  --#{aloha.$aloha-prefix}btn_active_shadow: #{$a_btn_active_box_shadow};
-  --#{aloha.$aloha-prefix}btn_disabled_color: #{$disabled-color};
-  --#{aloha.$aloha-prefix}btn_disabled_bg: #{$disabled-background};
-  --#{aloha.$aloha-prefix}btn_disabled_border_color: #{$disabled-border};
+// Variants. All of them only map color tokens, so a change of
+// --a_<color>_h / _s / _l at runtime changes every button.
+@each $name in settings.$variant-colors {
+  .a_btn_#{$name} {
+    --a_btn_color: var(--a_color_#{$name}_contrast);
+    --a_btn_bg: var(--a_color_#{$name});
+    --a_btn_border_color: var(--a_color_#{$name});
+    --a_btn_hover_color: var(--a_color_#{$name}_contrast);
+    --a_btn_hover_bg: var(--a_color_#{$name}_hover);
+    --a_btn_hover_border_color: var(--a_color_#{$name}_hover);
+    --a_btn_active_color: var(--a_color_#{$name}_contrast);
+    --a_btn_active_bg: var(--a_color_#{$name}_active);
+    --a_btn_active_border_color: var(--a_color_#{$name}_active);
+    --a_btn_disabled_color: var(--a_color_#{$name}_contrast);
+    --a_btn_disabled_bg: var(--a_color_#{$name});
+    --a_btn_disabled_border_color: var(--a_color_#{$name});
+  }
 }
 
-@mixin button-outline-variant(
-  $color,
-  $color-hover: funktions.color-contrast($color),
-  $active-background: $color,
-  $active-border: $color,
-  $active-color: funktions.color-contrast($active-background)
-) {
-  --#{aloha.$aloha-prefix}btn_color: #{$color};
-  --#{aloha.$aloha-prefix}btn_border_color: #{$color};
-  --#{aloha.$aloha-prefix}btn_hover_color: #{$color-hover};
-  --#{aloha.$aloha-prefix}btn_hover_bg: #{$active-background};
-  --#{aloha.$aloha-prefix}btn_hover_border_color: #{$active-border};
-  --#{aloha.$aloha-prefix}btn_focus_shadow_rgb: #{funktions.to-rgb($color)};
-  --#{aloha.$aloha-prefix}btn_active_color: #{$active-color};
-  --#{aloha.$aloha-prefix}btn_active_bg: #{$active-background};
-  --#{aloha.$aloha-prefix}btn_active_border_color: #{$active-border};
-  --#{aloha.$aloha-prefix}btn_active_shadow: #{$a_btn_active_box_shadow};
-  --#{aloha.$aloha-prefix}btn_disabled_color: #{$color};
-  --#{aloha.$aloha-prefix}btn_disabled_bg: transparent;
-  --#{aloha.$aloha-prefix}btn_disabled_border_color: #{$color};
-  --#{aloha.$aloha-prefix}gradient: none;
+@each $name in settings.$variant-colors {
+  .a_btn_outline_#{$name} {
+    --a_btn_color: var(--a_color_#{$name}_text_emphasis);
+    --a_btn_bg: transparent;
+    --a_btn_border_color: var(--a_color_#{$name});
+    --a_btn_hover_color: var(--a_color_#{$name}_contrast);
+    --a_btn_hover_bg: var(--a_color_#{$name});
+    --a_btn_hover_border_color: var(--a_color_#{$name});
+    --a_btn_active_color: var(--a_color_#{$name}_contrast);
+    --a_btn_active_bg: var(--a_color_#{$name}_active);
+    --a_btn_active_border_color: var(--a_color_#{$name}_active);
+    --a_btn_disabled_color: var(--a_color_#{$name}_text_emphasis);
+    --a_btn_disabled_bg: transparent;
+    --a_btn_disabled_border_color: var(--a_color_#{$name});
+  }
 }
 
-@mixin button-transparent-variant(
-  $color,
-  $background: color_utils.$a_gray_200,
-  $hover-background: if(sass($color == color_utils.$a_color_contrast_light): funktions.shade-color(color_utils.$a_gray_200, $a_btn_hover_bg_shade_amount); else: funktions.tint-color(color_utils.$a_gray_200, $a_btn_hover_bg_tint_amount)),
-  // $hover-color: funktions.color-contrast($hover-background),
-  $hover-color: $color,
-  $active-background: transparent,
-  // $active-color: funktions.color-contrast($active-background),
-  $active-color: $color,
-  $disabled-background: transparent,
-  $disabled-color: $color
-) {
-  --#{aloha.$aloha-prefix}btn_color: #{$color};
-  --#{aloha.$aloha-prefix}btn_border_color: transparent;
-  --#{aloha.$aloha-prefix}btn_bg: transparent;
-  --#{aloha.$aloha-prefix}btn_hover_color: #{$hover-color};
-  --#{aloha.$aloha-prefix}btn_hover_bg: #{$hover-background};
-  --#{aloha.$aloha-prefix}btn_hover_border_color: #{$hover-background};;
-  --#{aloha.$aloha-prefix}btn_focus_shadow_rgb: #{funktions.to-rgb(color.mix($color, $color, 15%))};
-  --#{aloha.$aloha-prefix}btn_active_color: #{$active-color};
-  --#{aloha.$aloha-prefix}btn_active_bg: #{$active-background};
-  --#{aloha.$aloha-prefix}btn_active_border_color: #{$active-background};
-  --#{aloha.$aloha-prefix}btn_active_shadow: #{$a_btn_active_box_shadow};
-  --#{aloha.$aloha-prefix}btn_disabled_color: #{$disabled-color};
-  --#{aloha.$aloha-prefix}btn_disabled_border_color: #{$disabled-background};
-  --#{aloha.$aloha-prefix}btn_disabled_bg: #{$disabled-background};
+@each $name in settings.$variant-colors {
+  .a_btn_transparent_#{$name} {
+    --a_btn_color: var(--a_color_#{$name}_text_emphasis);
+    --a_btn_bg: transparent;
+    --a_btn_border_color: transparent;
+    --a_btn_hover_color: var(--a_color_#{$name}_text_emphasis);
+    --a_btn_hover_bg: var(--a_color_#{$name}_bg_subtle);
+    --a_btn_hover_border_color: var(--a_color_#{$name}_bg_subtle);
+    --a_btn_active_color: var(--a_color_#{$name}_text_emphasis);
+    --a_btn_active_bg: var(--a_color_#{$name}_border_subtle);
+    --a_btn_active_border_color: var(--a_color_#{$name}_border_subtle);
+    --a_btn_disabled_color: var(--a_color_#{$name}_text_emphasis);
+    --a_btn_disabled_bg: transparent;
+    --a_btn_disabled_border_color: transparent;
+  }
 }
 
-.#{aloha.$aloha-prefix}btn_primary {
-  @include button-variant(color_utils.$a_primary, color_utils.$a_primary);
+// Neutral toggle button (e.g. icon choice). Selected state: .a_btn_switch_active
+.a_btn_switch {
+  --a_btn_color: var(--a_color_text);
+  --a_btn_bg: var(--a_color_surface);
+  --a_btn_border_color: var(--a_border_color_strong);
+  --a_btn_hover_color: var(--a_color_text);
+  --a_btn_hover_bg: var(--a_color_surface_subtle);
+  --a_btn_hover_border_color: var(--a_color_primary);
+  --a_btn_active_color: var(--a_color_primary_text_emphasis);
+  --a_btn_active_bg: var(--a_color_primary_bg_subtle);
+  --a_btn_active_border_color: var(--a_color_primary);
+  --a_btn_disabled_color: var(--a_color_text_muted);
+  --a_btn_disabled_bg: var(--a_color_surface);
+  --a_btn_disabled_border_color: var(--a_border_color);
 }
-.#{aloha.$aloha-prefix}btn_secondary {
-  @include button-variant(color_utils.$a_secondary, color_utils.$a_secondary);
-}
-.#{aloha.$aloha-prefix}btn_tertiary {
-  @include button-variant(color_utils.$a_tertiary, color_utils.$a_tertiary);
-}
-.#{aloha.$aloha-prefix}btn_success {
-  @include button-variant(color_utils.$a_success, color_utils.$a_success);
-}
-.#{aloha.$aloha-prefix}btn_info {
-  @include button-variant(color_utils.$a_info, color_utils.$a_info);
-}
-.#{aloha.$aloha-prefix}btn_warning {
-  @include button-variant(color_utils.$a_warning, color_utils.$a_warning);
-}
-.#{aloha.$aloha-prefix}btn_danger {
-  @include button-variant(color_utils.$a_danger, color_utils.$a_danger);
-}
-.#{aloha.$aloha-prefix}btn_light {
-  @include button-variant(
-    color_utils.$a_light,
-    color_utils.$a_light,
-    $hover-background: funktions.shade-color(color_utils.$a_light, $a_btn_hover_bg_shade_amount),
-    $hover-border: funktions.shade-color(color_utils.$a_light, $a_btn_hover_border_shade_amount),
-    $active-background: funktions.shade-color(color_utils.$a_light, $a_btn_active_bg_shade_amount),
-    $active-border: funktions.shade-color(color_utils.$a_light, $a_btn_active_border_shade_amount)
-  );
-}
-.#{aloha.$aloha-prefix}btn_dark {
-  @include button-variant(
-    color_utils.$a_dark,
-    color_utils.$a_dark,
-    $hover-background: funktions.tint-color(color_utils.$a_dark, $a_btn_hover_bg_tint_amount),
-    $hover-border: funktions.tint-color(color_utils.$a_dark, $a_btn_hover_border_tint_amount),
-    $active-background: funktions.tint-color(color_utils.$a_dark, $a_btn_active_bg_tint_amount),
-    $active-border: funktions.tint-color(color_utils.$a_dark, $a_btn_active_border_tint_amount)
-  );
-}
-.#{aloha.$aloha-prefix}btn_switch {
-  @include button-variant(
-    $a_btn_switch_color,
-    $a_btn_switch_border_color,
-    $hover-background: funktions.shade-color($a_btn_switch_color, $a_btn_hover_bg_shade_amount),
-    $hover-border: funktions.shade-color($a_btn_switch_color, $a_btn_hover_border_shade_amount),
-    $active-background: funktions.shade-color($a_btn_switch_color, $a_btn_active_bg_shade_amount),
-    $active-border: funktions.shade-color($a_btn_switch_color, $a_btn_active_border_shade_amount)
-  );
-}
-.#{aloha.$aloha-prefix}btn_switch_active {
-  @include button-variant($a_btn_switch_active_color, $a_btn_switch_active_color);
+.a_btn_switch_active {
+  --a_btn_color: var(--a_color_primary_text_emphasis);
+  --a_btn_bg: var(--a_color_primary_bg_subtle);
+  --a_btn_border_color: var(--a_color_primary);
+  --a_btn_hover_color: var(--a_color_primary_text_emphasis);
+  --a_btn_hover_bg: var(--a_color_primary_bg_subtle);
+  --a_btn_hover_border_color: var(--a_color_primary_hover);
+  --a_btn_active_color: var(--a_color_primary_text_emphasis);
+  --a_btn_active_bg: var(--a_color_primary_border_subtle);
+  --a_btn_active_border_color: var(--a_color_primary_active);
+  --a_btn_disabled_color: var(--a_color_primary_text_emphasis);
+  --a_btn_disabled_bg: var(--a_color_primary_bg_subtle);
+  --a_btn_disabled_border_color: var(--a_color_primary);
 }
 
-.#{aloha.$aloha-prefix}btn_outline_primary {
-  @include button-outline-variant(color_utils.$a_primary);
-}
-.#{aloha.$aloha-prefix}btn_outline_secondary {
-  @include button-outline-variant(color_utils.$a_secondary);
-}
-.#{aloha.$aloha-prefix}btn_outline_tertiary {
-  @include button-outline-variant(color_utils.$a_tertiary);
-}
-.#{aloha.$aloha-prefix}btn_outline_success {
-  @include button-outline-variant(color_utils.$a_success);
-}
-.#{aloha.$aloha-prefix}btn_outline_info {
-  @include button-outline-variant(color_utils.$a_info);
-}
-.#{aloha.$aloha-prefix}btn_outline_warning {
-  @include button-outline-variant(color_utils.$a_warning);
-}
-.#{aloha.$aloha-prefix}btn_outline_danger {
-  @include button-outline-variant(color_utils.$a_danger);
-}
-.#{aloha.$aloha-prefix}btn_outline_light {
-  @include button-outline-variant(color_utils.$a_light);
-}
-.#{aloha.$aloha-prefix}btn_outline_dark {
-  @include button-outline-variant(color_utils.$a_dark);
-}
+.a_btn_link {
+  --a_btn_font_weight: var(--a_font_weight_normal);
+  --a_btn_color: var(--a_color_link);
+  --a_btn_bg: transparent;
+  --a_btn_border_color: transparent;
+  --a_btn_hover_color: var(--a_color_link_hover);
+  --a_btn_hover_bg: transparent;
+  --a_btn_hover_border_color: transparent;
+  --a_btn_active_color: var(--a_color_link_hover);
+  --a_btn_active_bg: transparent;
+  --a_btn_active_border_color: transparent;
+  --a_btn_disabled_color: var(--a_color_text_muted);
+  --a_btn_disabled_bg: transparent;
+  --a_btn_disabled_border_color: transparent;
+  --a_btn_text_decoration: underline;
 
-.#{aloha.$aloha-prefix}btn_transparent_primary {
-  @include button-transparent-variant(color_utils.$a_primary);
-}
-.#{aloha.$aloha-prefix}btn_transparent_secondary {
-  @include button-transparent-variant(color_utils.$a_secondary);
-}
-.#{aloha.$aloha-prefix}btn_transparent_tertiary {
-  @include button-transparent-variant(color_utils.$a_tertiary);
-}
-.#{aloha.$aloha-prefix}btn_transparent_success {
-  @include button-transparent-variant(color_utils.$a_success);
-}
-.#{aloha.$aloha-prefix}btn_transparent_info {
-  @include button-transparent-variant(color_utils.$a_info);
-}
-.#{aloha.$aloha-prefix}btn_transparent_warning {
-  @include button-transparent-variant(color_utils.$a_warning);
-}
-.#{aloha.$aloha-prefix}btn_transparent_danger {
-  @include button-transparent-variant(color_utils.$a_danger);
-}
-.#{aloha.$aloha-prefix}btn_transparent_light {
-  @include button-transparent-variant(color_utils.$a_light);
-}
-.#{aloha.$aloha-prefix}btn_transparent_dark {
-  @include button-transparent-variant(color_utils.$a_dark);
-}
-
-
-.#{aloha.$aloha-prefix}btn_link {
-  --#{aloha.$aloha-prefix}btn_font_weight: 400;
-  --#{aloha.$aloha-prefix}btn_color: #{$a_btn_link_color};
-  --#{aloha.$aloha-prefix}btn_bg: transparent;
-  --#{aloha.$aloha-prefix}btn_border_color: transparent;
-  --#{aloha.$aloha-prefix}btn_hover_color: #{$a_btn_link_hover_color};
-  --#{aloha.$aloha-prefix}btn_hover_border_color: transparent;
-  --#{aloha.$aloha-prefix}btn_focus_color: #{$a_btn_link_color};
-  --#{aloha.$aloha-prefix}btn_active_color: #{$a_btn_link_hover_color};
-  --#{aloha.$aloha-prefix}btn_active_border_color: transparent;
-  --#{aloha.$aloha-prefix}btn_disabled_color:  #{$a_btn_link_disabled_color};
-  --#{aloha.$aloha-prefix}btn_disabled_border_color: transparent;
-  --#{aloha.$aloha-prefix}btn_box_shadow: none;
-  --#{aloha.$aloha-prefix}btn_focus_shadow_rgb: #{funktions.to-rgb(color.mix(funktions.color-contrast(color_utils.$a_primary), color_utils.$a_primary, 15%))};
-  --#{aloha.$aloha-prefix}btn_text_decoration: #{color_utils.$a_link_decoration};
-
-  text-decoration: var(--#{aloha.$aloha-prefix}btn_text_decoration);
+  text-decoration: var(--a_btn_text_decoration);
+  user-select: auto;
 
   &:hover,
-  &:focus {
-    --#{aloha.$aloha-prefix}btn_text_decoration: #{color_utils.$a_link_hover_decoration};
+  &:focus-visible {
+    --a_btn_text_decoration: underline;
   }
 }
 
 .a_btn_check {
   position: absolute;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   pointer-events: none;
 
   &[disabled],
   &:disabled {
-    + .btn {
+    + .a_btn {
       filter: none;
-      opacity: .65;
+      opacity: var(--a_btn_disabled_opacity);
     }
   }
 }
 
-.a_btn_link {
-  user-select: auto;
+// ---------------------------------------------------------------------------
+// Component tokens (specificity 0, every variant/modifier overrides them)
+// ---------------------------------------------------------------------------
+:where(.a_btn) {
+  // general
+  --a_btn_padding_x: var(--a_control_padding_x); // Horizontal padding. Changed by .a_btn_small and .a_btn_large.
+  --a_btn_padding_y: var(--a_control_padding_y); // Vertical padding. Changed by .a_btn_small and .a_btn_large.
+  --a_btn_font_family: inherit; // Font family.
+  --a_btn_font_size: var(--a_body_font_size); // Font size. Changed by .a_btn_small and .a_btn_large.
+  --a_btn_font_weight: var(--a_font_weight_medium); // Font weight. Link buttons use the normal weight.
+  --a_btn_line_height: var(--a_body_line_height); // Line height.
+  --a_btn_color: var(--a_color_text); // Text color. Set by the variant classes (e.g. .a_btn_primary, .a_btn_outline_primary).
+  --a_btn_bg: transparent; // Background. Set by the variant classes.
+  --a_btn_border_width: var(--a_border_width); // Border width.
+  --a_btn_border_color: transparent; // Border color. Set by the variant classes.
+  --a_btn_border_radius: var(--a_border_radius); // Corner radius. Changed by .a_btn_small and .a_btn_large.
+  // hover
+  --a_btn_hover_color: var(--a_btn_color); // Text color on hover.
+  --a_btn_hover_bg: var(--a_btn_bg); // Background on hover.
+  --a_btn_hover_border_color: var(--a_btn_border_color); // Border color on hover.
+  // active
+  --a_btn_active_color: var(--a_btn_color); // Text color while pressed, for .active and for a checked checkbox/radio button.
+  --a_btn_active_bg: var(--a_btn_bg); // Background while pressed, for .active and for a checked checkbox/radio button.
+  --a_btn_active_border_color: var(--a_btn_border_color); // Border color while pressed, for .active and for a checked checkbox/radio button.
+  // disabled
+  --a_btn_disabled_color: var(--a_btn_color); // Text color of a disabled button.
+  --a_btn_disabled_bg: var(--a_btn_bg); // Background of a disabled button.
+  --a_btn_disabled_border_color: var(--a_btn_border_color); // Border color of a disabled button.
+  --a_btn_disabled_opacity: .65; // Opacity of a disabled button.
+  // animation
+  --a_btn_transition: var(--a_transition_colors); // Transition of the colors on hover and press.
 }

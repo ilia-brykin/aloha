@@ -12,5 +12,7 @@
   "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Asocie los campos con <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> y <code>key-children</code>. Este ejemplo usa code, title, symbol, section e items sin renombrarlos. Las rutas siguen usando <code>to</code>. Abra Form controls o busque Input.",
   "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Rutas de navegación largas y contadores",
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Abra Components → Form controls → Text fields. Con <code>is-breadcrumbs-truncated</code>, los enlaces de los padres que no caben pasan al desplegable de navegación. El interruptor controla <code>show-count-children</code> para mostrar u ocultar el número de elementos del submenú.",
-  "_A_PAGE_MENU_SHOW_COUNTS_": "Mostrar el número de elementos del submenú"
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Mostrar el número de elementos del submenú",
+  "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "Menú detrás de un botón (only-mobile)",
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "Con <code>only-mobile</code>, el menú se comporta como el menú móvil en cualquier ancho de pantalla: está cerrado y solo se ve el botón. El botón abre el menú; un clic en un enlace, <kbd>Esc</kbd> o el fondo (<code>use-backdrop-mobile</code>) lo cierra. El ancho de la ventana no importa. Dé también <code>:only-mobile=\"true\"</code> al botón, de lo contrario se oculta en escritorio, y conecte ambos con el mismo <code>menu-id</code>."
 }

@@ -1,11 +1,10 @@
 @use "sass:map";
 
-@use "aloha_prefix" as aloha;
 @use "breakpoint";
 @use "mixins";
-@use "funktions";
+@use "list_helpers";
 
-$a_displays: (
+$displays: (
     (
         class: "d_inline",
         value: "inline !important",
@@ -46,20 +45,20 @@ $a_displays: (
         class: "d_none",
         value: "none !important",
     ),
-) !default;
+);
 
-$a_breakpoints_display: funktions.prepend(breakpoint.$a_breakpoints, (class: null));
+$breakpoints_display: list_helpers.prepend(breakpoint.$all, (class: null));
 
-@each $breakpoint in $a_breakpoints_display {
+@each $breakpoint in $breakpoints_display {
     $breakpoint-class: map.get($breakpoint, "class");
     $breakpoint-min: map.get($breakpoint, "min");
     $breakpoint-max: map.get($breakpoint, "max");
-    @each $display in $a_displays {
+    @each $display in $displays {
         $display-class: map.get($display, "class");
         $display-value: map.get($display, "value");
 
         @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
-            .#{aloha.$aloha-prefix}#{ $display-class }#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
+            .a_#{ $display-class }#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
                 display: #{ $display-value };
             }
         }

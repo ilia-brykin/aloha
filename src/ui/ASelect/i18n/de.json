@@ -7,5 +7,6 @@
   "_A_SELECT_SEARCH_": "Suche",
   "_A_SELECT_SELECTED_{{count}}_": "{{count}} ausgewählt",
   "_A_SELECT_DESELECT_ALL_": "Alle abwählen",
-  "_A_SELECT_SELECT_ALL_": "Alle auswählen"
+  "_A_SELECT_SELECT_ALL_": "Alle auswählen",
+  "_A_SELECT_REMOVE_": "Entfernen"
 }

@@ -33,6 +33,7 @@ import ACheckboxLegend from "./ACheckboxLegend/ACheckboxLegend";
 import AttributesAPI from "./compositionAPI/AttributesAPI";
 import ChangeAPI from "./compositionAPI/ChangeAPI";
 import ModelAPI from "./compositionAPI/ModelAPI";
+import SelectAllAPI from "./compositionAPI/SelectAllAPI";
 
 import {
   uniqueId,
@@ -180,6 +181,11 @@ export default {
       required: false,
       default: undefined,
     },
+    isDeselectAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isHide: {
       type: Boolean,
       required: false,
@@ -189,6 +195,11 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    isSelectAll: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     isWidthAuto: {
       type: Boolean,
@@ -350,6 +361,16 @@ export default {
       required: false,
       default: undefined,
       validator: value => ["asc", "desc"].indexOf(value) !== -1,
+    },
+    textDeselectAll: {
+      type: String,
+      required: false,
+      default: "_A_CHECKBOX_DESELECT_ALL_",
+    },
+    textSelectAll: {
+      type: String,
+      required: false,
+      default: "_A_CHECKBOX_SELECT_ALL_",
     },
     texts: {
       type: Object,
@@ -542,20 +563,38 @@ export default {
     });
 
     const {
-      iconCollapse,
-      initIsCollapsedLocal,
-      isCollapsedLocal,
-      titleCollapse,
-      toggleCollapse,
-    } = UiCollapseAPI(props, context);
-
-    const {
       isModelValue,
       modelValueFiltered,
       modelValueObj,
     } = ModelAPI(props, {
       dataKeyByKeyIdLocal,
     });
+
+    const {
+      hasSelectAllButtons,
+      isDeselectAllDisabled,
+      isDeselectAllVisible,
+      isSelectAllDisabled,
+      isSelectAllVisible,
+      onDeselectAll,
+      onSelectAll,
+    } = SelectAllAPI(props, {
+      dataExtra: dataExtraLocal,
+      dataValid: validDataSort,
+      modelValueObj,
+      onChangeModelValue,
+      searching,
+      searchingElements,
+      searchingElementsExtra,
+    });
+
+    const {
+      iconCollapse,
+      initIsCollapsedLocal,
+      isCollapsedLocal,
+      titleCollapse,
+      toggleCollapse,
+    } = UiCollapseAPI(props, context);
 
     const {
       groupId,
@@ -594,14 +633,19 @@ export default {
       hasKeyGroup,
       hasNotElementsExtraWithSearch,
       hasNotElementsWithSearch,
+      hasSelectAllButtons,
       helpTextId,
       htmlIdLocal,
       iconCollapse,
       idForButtonSearchOutside,
       invalidDataSort,
       isCollapsedLocal,
+      isDeselectAllDisabled,
+      isDeselectAllVisible,
       isErrors,
       isModelValue,
+      isSelectAllDisabled,
+      isSelectAllVisible,
       labelDescriptionId,
       loadingLocal,
       loadingSearchApi,
@@ -611,9 +655,11 @@ export default {
       modelValueFiltered,
       modelValueObj,
       onChangeModelValue,
+      onDeselectAll,
       onFocusin,
       onFocusout,
       onSearchOutside,
+      onSelectAll,
       rootRef,
       searching,
       searchingElements,
@@ -852,6 +898,34 @@ export default {
                   modelUndefined: "",
                   "onUpdate:modelValue": this.updateModelSearch,
                 }) :
+                "",
+              this.hasSelectAllButtons ?
+                h("div", {
+                  class: "a_checkbox__select_all",
+                }, [
+                  this.isSelectAllVisible ?
+                    h(AElement, {
+                      alwaysTranslate: this.alwaysTranslate,
+                      class: "a_btn a_btn_outline_primary a_btn_small",
+                      ariaDisabled: this.isSelectAllDisabled,
+                      extra: this.extra,
+                      text: this.textSelectAll,
+                      type: "button",
+                      onClick: this.onSelectAll,
+                    }) :
+                    "",
+                  this.isDeselectAllVisible ?
+                    h(AElement, {
+                      alwaysTranslate: this.alwaysTranslate,
+                      class: "a_btn a_btn_outline_primary a_btn_small",
+                      ariaDisabled: this.isDeselectAllDisabled,
+                      extra: this.extra,
+                      text: this.textDeselectAll,
+                      type: "button",
+                      onClick: this.onDeselectAll,
+                    }) :
+                    "",
+                ]) :
                 "",
               this.loadingLocal ?
                 h(ACloak) :

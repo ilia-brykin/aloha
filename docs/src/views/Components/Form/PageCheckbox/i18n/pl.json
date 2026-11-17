@@ -3,11 +3,17 @@
   "_A_CHECKBOX_COMPONENT_NAME_": "Pola wyboru",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Gdy ta opcja jest włączona, wyświetlane jest dodatkowe pole wyboru sterujące. Pozwala ono użytkownikowi jednocześnie zaznaczyć lub odznaczyć wszystkie podrzędne pola wyboru.",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Pole wyboru sterujące",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_DESCRIPTION_": "Propsy <code lang=\"en\">is-select-all</code> i <code lang=\"en\">is-deselect-all</code> wyświetlają nad listą przyciski, które zaznaczają lub odznaczają wszystkie elementy. Wyłączone elementy (<code lang=\"en\">key-disabled</code>) nie są zmieniane. Podczas wyszukiwania (<code lang=\"en\">search</code>) dotyczy to tylko znalezionych elementów. Teksty przycisków zmienia się przez <code lang=\"en\">text-select-all</code> i <code lang=\"en\">text-deselect-all</code>.",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_HEADER_": "Zaznacz wszystko / Odznacz wszystko",
   "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Określa, czy grupę pól wyboru można zwijać i rozwijać. Jeśli ustawiono <strong lang=\"en\">true</strong>, użytkownik może przełączać stan grupy.",
   "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Dodaje pole wyboru sterujące, które pozwala jednocześnie zaznaczyć lub odznaczyć wszystkie pola wyboru w grupie.",
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Określa, czy pola wyboru mają być wyświetlane w jednym wierszu. Jeśli ustawiono <strong lang=\"en\">true</strong>, pola wyboru zostaną wyrównane poziomo.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Określa, czy pola wyboru mają być wyświetlane jako przyciski. Jeśli ustawiono <strong lang=\"en\">true</strong>, pola wyboru zostaną wyświetlone jako przyciski, co może zapewnić bardziej atrakcyjny wizualnie interfejs.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Określa początkowy stan zwinięcia grupy pól wyboru. Jeśli ustawiono <strong lang=\"en\">true</strong>, grupa będzie zwinięta po załadowaniu strony.",
+  "_A_CHECKBOX_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Wyświetla przycisk, który odznacza wszystkie elementy możliwe do zmiany (niewyłączone; podczas wyszukiwania tylko znalezione).",
+  "_A_CHECKBOX_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Wyświetla przycisk, który zaznacza wszystkie elementy możliwe do zmiany (niewyłączone; podczas wyszukiwania tylko znalezione).",
   "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Określa, czy szerokość grupy pól wyboru ma być automatycznie dopasowywana do jej zawartości. Jeśli ustawiono <strong lang=\"en\">true</strong>, szerokość zostanie dopasowana automatycznie.",
-  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Pozwala zmodyfikować komunikaty tekstowe dla różnych akcji w komponencie. Obejmuje teksty zwijania/rozwijania (<strong lang=\"en\">collapseClose</strong> i <strong lang=\"en\">collapseOpen</strong>), komunikaty o braku wyników wyszukiwania (<strong lang=\"en\">notElementsWithSearch</strong>) oraz tekst pola wyszukiwania (<strong lang=\"en\">search</strong>)."
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Pozwala zmodyfikować komunikaty tekstowe dla różnych akcji w komponencie. Obejmuje teksty zwijania/rozwijania (<strong lang=\"en\">collapseClose</strong> i <strong lang=\"en\">collapseOpen</strong>), komunikaty o braku wyników wyszukiwania (<strong lang=\"en\">notElementsWithSearch</strong>) oraz tekst pola wyszukiwania (<strong lang=\"en\">search</strong>).",
+  "_A_CHECKBOX_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_": "Tekst przycisku „Odznacz wszystko”.",
+  "_A_CHECKBOX_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Tekst przycisku „Zaznacz wszystko”."
 }

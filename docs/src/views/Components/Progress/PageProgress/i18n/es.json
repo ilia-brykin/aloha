@@ -40,5 +40,6 @@
   "_A_PROGRESS_PROPS_STRIPED_FLOW_": "Esta prop activa la visualización animada para las barras de progreso rayadas.",
   "_A_PROGRESS_PROPS_VALUE_": "El progreso actual de la barra de progreso",
   "_A_PROGRESS_PROPS_VALUE_TEXT_INTEGER_": "Esta prop indica qué formato de texto se debe utilizar para el valor del progreso. Cuando valueTextInteger se establece en true, el valor se muestra como un porcentaje entero. Cuando valueTextInteger se establece en false o no se establece, el valor se muestra como un porcentaje con dos decimales.",
-  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Este slot le permite personalizar la visualización del valor de la barra de progreso. Puede acceder a la variable valuePercent en el scope del slot para mostrar el progreso actual en porcentaje."
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Este slot le permite personalizar la visualización del valor de la barra de progreso. Puede acceder a la variable valuePercent en el scope del slot para mostrar el progreso actual en porcentaje.",
+  "_A_PROGRESS_PROPS_ARIA_LABEL_": "Nombre accesible de la barra de progreso para lectores de pantalla (aria-label). Puede ser una clave de traducción."
 }

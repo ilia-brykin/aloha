@@ -1,13 +1,15 @@
-.switch_button__wrapper {
+@use "../../utils/focus";
+
+.a_switch__wrapper {
   display: flex;
   align-items: center;
 }
 
-.switch_button__wrapper_has_error_icon {
+.a_switch__wrapper_has_error_icon {
   gap: 0.375rem;
 }
 
-.switch_button__error_icon.a_input__icon_error {
+.a_switch__error_icon.a_input__icon_error {
   position: static;
   top: auto;
   left: auto;
@@ -26,49 +28,39 @@
   }
 }
 
-.switch_button {
-  --a_switch_button_border_radius: var(--a_border_radius);
-  --a_switch_button_bg: var(--a_color_gray_700);
-  --a_switch_button_inner_bg: var(--a_color_white);
-  --a_switch_button_active_bg: var(--a_color_primary);
-  --a_switch_button_inactive_bg: var(--a_color_gray_400);
-  --a_switch_hover_focus_bg: var(--a_color_focus);
-  --a_switch_button_border_color: var(--a_switch_button_bg);
-  --a_switch_button_invalid_color: var(--a_color_danger);
-  --a_switch_button_disabled_bg: var(--a_color_gray_500);
-  --a_switch_button_disabled_inner_bg: var(--a_color_gray_100);
-  --a_switch_button_disabled_border_color: var(--a_color_gray_500);
+.a_switch {
   margin-left: -0.3125rem;
   position: relative;
 }
 
-.switch_button__input {
+.a_switch__input {
   position: absolute;
   z-index: -1;
   opacity: 0;
   &:checked {
-    ~ .switch_button__label {
+    ~ .a_switch__label {
       &::before {
         --a_switch_button_bg: var(--a_switch_button_active_bg);
         --a_switch_button_border_color: var(--a_switch_button_active_bg);
       }
       &::after {
-        left: 1.4375rem;
+        left: calc(var(--a_switch_button_track_left) + var(--a_switch_button_track_width) - var(--a_switch_button_knob_size) - var(--a_switch_button_knob_gap));
       }
     }
   }
+  &:focus-visible ~ .a_switch__label::before {
+    @include focus.focus-ring;
+  }
   &:not(:disabled) {
-    &:focus ~ .switch_button__label {
-      background-color: var(--a_switch_hover_focus_bg);
-    }
-    ~ .switch_button__label {
+    ~ .a_switch__label {
       &:hover {
         background-color: var(--a_switch_hover_focus_bg);
       }
     }
   }
   &:disabled {
-    ~ .switch_button__label {
+    ~ .a_switch__label {
+      cursor: not-allowed;
       &::before {
         --a_switch_button_bg: var(--a_switch_button_disabled_bg);
         --a_switch_button_border_color: var(--a_switch_button_disabled_border_color);
@@ -80,43 +72,49 @@
   }
 }
 
-.switch_button__label {
-  padding: .5rem .5rem .5rem 3.4375rem;
+.a_switch__label {
+  padding: var(--a_space_sm) var(--a_space_sm) var(--a_space_sm) calc(var(--a_switch_button_track_left) + var(--a_switch_button_track_width) + var(--a_space_sm));
   margin-bottom: 0;
   display: inline-flex;
   align-items: center;
-  border-radius: var(--a_switch_button_border_radius);
+  border-radius: var(--a_switch_button_label_border_radius);
+  cursor: pointer;
+  transition: var(--a_transition_colors);
   &::before {
     content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 0.3125rem;
-    height: 1.5625rem;
-    width: 2.5rem;
+    left: var(--a_switch_button_track_left);
+    box-sizing: border-box;
+    height: var(--a_switch_button_track_height);
+    width: var(--a_switch_button_track_width);
     border-radius: var(--a_switch_button_border_radius);
     background-color: var(--a_switch_button_bg);
-    border: 1px solid var(--a_switch_button_border_color);
+    border: var(--a_border_width) solid var(--a_switch_button_border_color);
+    transition: var(--a_transition_colors);
   }
   &::after {
     content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 0.5rem;
-    height: 1.25rem;
-    width: 1.25rem;
+    left: calc(var(--a_switch_button_track_left) + var(--a_switch_button_knob_gap));
+    height: var(--a_switch_button_knob_size);
+    width: var(--a_switch_button_knob_size);
     background-color: var(--a_switch_button_inner_bg);
     border-radius: var(--a_switch_button_border_radius);
+    box-shadow: var(--a_shadow_sm);
+    transition: left var(--a_duration_normal) var(--a_easing), background-color var(--a_duration_fast) var(--a_easing);
   }
 }
-.switch_button__label_full {
+.a_switch__label_full {
   display: flex;
   width: 100%;
 }
 
-.switch_button_invalid {
-  .switch_button__label{
+.a_switch_invalid {
+  .a_switch__label {
     &::before {
       --a_switch_button_border_color: var(--a_switch_button_invalid_color);
     }
@@ -124,25 +122,52 @@
       --a_switch_button_inner_bg: var(--a_switch_button_invalid_color);
     }
   }
-  .switch_button__input:checked ~ .switch_button__label::before {
+  .a_switch__input:checked ~ .a_switch__label::before {
     --a_switch_button_border_color: var(--a_switch_button_invalid_color);
   }
-  &.switch_button_undefined .switch_button__label::before {
+  &.a_switch_undefined .a_switch__label::before {
     --a_switch_button_border_color: var(--a_switch_button_invalid_color);
   }
 }
 
-.switch_button_undefined {
-  .switch_button__label {
+.a_switch_undefined {
+  .a_switch__label {
     &::before {
       --a_switch_button_bg: var(--a_switch_button_inactive_bg);
       --a_switch_button_border_color: var(--a_switch_button_inactive_bg);
     }
     &::after {
-      left: 0.9375rem;
+      left: calc(var(--a_switch_button_track_left) + (var(--a_switch_button_track_width) - var(--a_switch_button_knob_size)) / 2);
     }
   }
 }
-.switch_button_auto {
+.a_switch_auto {
   display: inline-block;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_switch) {
+  // size
+  --a_switch_button_border_radius: var(--a_border_radius_pill); // Corner radius of the track and the knob.
+  --a_switch_button_label_border_radius: var(--a_border_radius); // Corner radius of the label area (visible on hover).
+  --a_switch_button_track_left: .3125rem; // Distance of the track from the left edge of the label.
+  --a_switch_button_track_width: 2.5rem; // Width of the track.
+  --a_switch_button_track_height: 1.5rem; // Height of the track.
+  --a_switch_button_knob_size: 1.125rem; // Size of the knob.
+  --a_switch_button_knob_gap: .1875rem; // Space between the knob and the edge of the track.
+  // colors
+  --a_switch_button_bg: var(--a_color_gray_600); // Background of the track when off.
+  --a_switch_button_inner_bg: var(--a_color_white); // Color of the knob.
+  --a_switch_button_active_bg: var(--a_color_primary); // Background and border color of the track when on.
+  --a_switch_button_inactive_bg: var(--a_color_gray_400); // Background and border color of the track when the value is neither on nor off (undefined).
+  --a_switch_hover_focus_bg: var(--a_color_gray_100); // Background of the label area on hover.
+  --a_switch_button_border_color: var(--a_switch_button_bg); // Border color of the track when off.
+  // error
+  --a_switch_button_invalid_color: var(--a_color_danger_text); // Border color of the track and color of the knob when the field has errors.
+  // disabled
+  --a_switch_button_disabled_bg: var(--a_color_gray_300); // Background of the track when disabled.
+  --a_switch_button_disabled_inner_bg: var(--a_color_gray_100); // Color of the knob when disabled.
+  --a_switch_button_disabled_border_color: var(--a_color_gray_300); // Border color of the track when disabled.
 }

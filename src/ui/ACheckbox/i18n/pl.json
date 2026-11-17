@@ -1,5 +1,7 @@
 {
+  "_A_CHECKBOX_DESELECT_ALL_": "Odznacz wszystko",
   "_A_CHECKBOX_GROUP_INVALID_ENTRIES_": "Nieprawidłowe wpisy",
   "_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Brak elementów do wyboru]",
-  "_A_CHECKBOX_SEARCH_": "Szukaj"
+  "_A_CHECKBOX_SEARCH_": "Szukaj",
+  "_A_CHECKBOX_SELECT_ALL_": "Zaznacz wszystko"
 }

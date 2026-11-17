@@ -1,24 +1,10 @@
-.a_table_form {
-  --a_table_form_bg: var(--a_color_white);
-  --a_table_form_border_color: var(--a_color_gray_300);
-  --a_table_form_drop_indicator_color: var(--a_color_primary);
-  --a_table_form_head_bg: var(--a_color_gray_200);
-  --a_table_form_head_color: inherit;
-  --a_table_form_row_dragging_bg: #e9eef5;
-  --a_table_form_row_dragging_opacity: .65;
-  --a_table_form_row_dragging_outline: 2px dashed var(--a_color_gray_700);
-  --a_table_form_focus_color: var(--a_color_primary);
-  --a_table_form_focus_box_shadow: inset 0 0 0 2px var(--a_table_form_focus_color);
-  --a_table_form_row_hover_bg: #eef6ff;
-  --a_table_form_row_drag_bg: #dfefff;
-  --a_table_form_footer_bg: var(--a_color_gray_100);
-  --a_table_form_cell_padding_y: .75rem;
-  --a_table_form_cell_padding_x: .75rem;
+@use "../utils/focus";
 
+.a_table_form {
   width: 100%;
 
   .a_alert {
-    --a_alert_border-radius: 0;
+    --a_alert_border_radius: 0;
 
     margin-bottom: 0;
   }
@@ -27,7 +13,7 @@
 .a_table_form__wrapper {
   overflow-x: auto;
 
-  &:has(> .a_table_form__table:focus) {
+  &:has(> .a_table_form__table:focus-visible) {
     position: relative;
     z-index: 3;
     box-shadow: var(--a_table_form_focus_box_shadow);
@@ -47,6 +33,7 @@
 }
 
 .a_table_form__table {
+  outline: 0;
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
@@ -68,8 +55,8 @@
 
 .a_table_form__cell {
   padding: var(--a_table_form_cell_padding_y) var(--a_table_form_cell_padding_x);
-  border-top: 1px solid var(--a_table_form_border_color);
-  border-bottom: 1px solid var(--a_table_form_border_color);
+  border-top: var(--a_border_width) solid var(--a_table_form_border_color);
+  border-bottom: var(--a_border_width) solid var(--a_table_form_border_color);
   border-left: 0;
   border-right: 0;
   vertical-align: top;
@@ -78,7 +65,7 @@
   .a_select_toggle {
     min-width: 100%;
   }
-  .pux_datepicker {
+  .a_datepicker {
     min-width: 100%;
     width: 100%;
     max-width: 100%;
@@ -86,11 +73,11 @@
 }
 
 .a_table_form__row > .a_table_form__cell:first-child {
-  border-left: 1px solid var(--a_table_form_border_color);
+  border-left: var(--a_border_width) solid var(--a_table_form_border_color);
 }
 
 .a_table_form__row > .a_table_form__cell:last-child:not(.a_table_form__cell_actions_sticky) {
-  border-right: 1px solid var(--a_table_form_border_color);
+  border-right: var(--a_border_width) solid var(--a_table_form_border_color);
 }
 
 .a_table_form__cell_info {
@@ -102,7 +89,7 @@
   .a_error__list__li {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: var(--a_space_sm);
     align-items: center;
   }
 }
@@ -110,7 +97,7 @@
 .a_table_form__cell_th {
   background-color: var(--a_table_form_head_bg);
   color: var(--a_table_form_head_color);
-  font-weight: 700;
+  font-weight: var(--a_table_form_head_font_weight);
 }
 
 .a_table_form__table:not(.a_table_form_drag_active) .a_table_form__row:hover .a_table_form__cell_td,
@@ -143,32 +130,33 @@
   position: relative;
 
   &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
     z-index: 3;
-    // Aloha
-    //box-shadow: var(--a_table_form_focus_box_shadow);
     > .a_table_form__cell {
       box-shadow:
-              inset 0 2px 0 var(--a_table_form_focus_color),
-              inset 0 -2px 0 var(--a_table_form_focus_color);
+        inset 0 var(--a_table_form_focus_width) 0 var(--a_table_form_focus_color),
+        inset 0 calc(var(--a_table_form_focus_width) * -1) 0 var(--a_table_form_focus_color);
       &:first-child {
         box-shadow:
-                inset 0 2px 0 var(--a_table_form_focus_color),
-                inset 0 -2px 0 var(--a_table_form_focus_color),
-                inset 2px 0 0 var(--a_table_form_focus_color);
+          inset 0 var(--a_table_form_focus_width) 0 var(--a_table_form_focus_color),
+          inset 0 calc(var(--a_table_form_focus_width) * -1) 0 var(--a_table_form_focus_color),
+          inset var(--a_table_form_focus_width) 0 0 var(--a_table_form_focus_color);
       }
       &:last-child {
         box-shadow:
-                inset 0 2px 0 var(--a_table_form_focus_color),
-                inset 0 -2px 0 var(--a_table_form_focus_color),
-                inset -2px 0 0 var(--a_table_form_focus_color);
+          inset 0 var(--a_table_form_focus_width) 0 var(--a_table_form_focus_color),
+          inset 0 calc(var(--a_table_form_focus_width) * -1) 0 var(--a_table_form_focus_color),
+          inset calc(var(--a_table_form_focus_width) * -1) 0 0 var(--a_table_form_focus_color);
         &.a_table_form__cell_actions_sticky {
           box-shadow:
-                  inset 1px 0 0 rgba(0, 0, 0, .12),
-                  inset 0 2px 0 var(--a_table_form_focus_color),
-                  inset 0 -2px 0 var(--a_table_form_focus_color),
-                  inset -2px 0 0 var(--a_table_form_focus_color);
+            inset var(--a_border_width) 0 0 var(--a_table_form_border_color),
+            inset 0 var(--a_table_form_focus_width) 0 var(--a_table_form_focus_color),
+            inset 0 calc(var(--a_table_form_focus_width) * -1) 0 var(--a_table_form_focus_color),
+            inset calc(var(--a_table_form_focus_width) * -1) 0 0 var(--a_table_form_focus_color);
         }
-
       }
     }
   }
@@ -208,21 +196,21 @@
   }
 
   .a_table_form__reorder_handle {
-    color: var(--a_color_black);
+    color: var(--a_color_text);
   }
 }
 
 .a_table_form__row_drag_before .a_table_form__cell_td {
-  border-top: 3px solid var(--a_table_form_drop_indicator_color);
+  border-top: var(--a_table_form_drop_indicator_width) solid var(--a_table_form_drop_indicator_color);
 }
 
 .a_table_form__row_drag_after .a_table_form__cell_td {
-  border-bottom: 3px solid var(--a_table_form_drop_indicator_color);
+  border-bottom: var(--a_table_form_drop_indicator_width) solid var(--a_table_form_drop_indicator_color);
 }
 
 .a_table_form__row_footer .a_table_form__cell {
   background-color: var(--a_table_form_footer_bg);
-  font-weight: 700;
+  font-weight: var(--a_table_form_head_font_weight);
 }
 
 .a_table_form__row_errors .a_table_form__cell_td {
@@ -240,7 +228,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .25rem;
+  gap: var(--a_space_xs);
 
   &:focus-within .a_table_form__reorder_handle {
     display: none;
@@ -251,7 +239,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--a_color_gray_700);
+  color: var(--a_color_text_muted);
   cursor: grab;
   user-select: none;
   -webkit-user-drag: element;
@@ -280,18 +268,14 @@
 }
 
 .a_table_form__cell_actions_sticky {
-  --a_table_form_cell_actions_edge_box_shadow:
-    inset -1px 0 0 var(--a_table_form_border_color);
-
   position: sticky;
   right: 0;
   z-index: 2;
   background: var(--a_table_form_bg);
   box-shadow:
     var(--a_table_form_cell_actions_edge_box_shadow),
-    inset 1px 0 0 rgba(0, 0, 0, .12),
-    -8px 0 14px -8px rgba(17, 24, 39, .34),
-    -18px 0 24px -20px rgba(17, 24, 39, .55);
+    inset var(--a_border_width) 0 0 var(--a_table_form_border_color),
+    var(--a_table_form_cell_actions_sticky_shadow);
   padding-left: 0;
   padding-right: 0;
 }
@@ -309,6 +293,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: var(--a_space_sm);
   width: 100%;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_table_form) {
+  // general
+  --a_table_form_bg: var(--a_color_surface); // Background of the table and of the sticky actions column.
+  --a_table_form_border_color: var(--a_border_color); // Color of the cell and table borders.
+  // drag and drop
+  --a_table_form_drop_indicator_color: var(--a_color_primary); // Color of the line that shows where a dragged row will be dropped.
+  --a_table_form_drop_indicator_width: 3px; // Thickness of the drop indicator line.
+  // header
+  --a_table_form_head_bg: var(--a_color_surface_subtle); // Background of the header row.
+  --a_table_form_head_color: inherit; // Text color of the header row.
+  --a_table_form_head_font_weight: var(--a_font_weight_semibold); // Font weight of the header and footer rows.
+  // drag and drop
+  --a_table_form_row_dragging_bg: var(--a_color_gray_200); // Background of the row that is being dragged.
+  --a_table_form_row_dragging_opacity: .65; // Opacity of the row that is being dragged and of the drag preview.
+  --a_table_form_row_dragging_outline: 2px dashed var(--a_border_color_strong); // Outline of the row that is being dragged (shorthand).
+  // focus
+  --a_table_form_focus_color: var(--a_color_focus); // Color of the focus frame of a focused row.
+  --a_table_form_focus_width: calc(var(--a_focus_width_inside) + var(--a_focus_width_outside)); // Thickness of the focus frame of a focused row.
+  --a_table_form_focus_box_shadow: var(--a_focus_ring_inset); // Focus ring around the table when the table itself has focus.
+  // rows
+  --a_table_form_row_hover_bg: var(--a_color_gray_100); // Background of a hovered row.
+  --a_table_form_row_drag_bg: var(--a_color_primary_bg_subtle); // Background of the row under the dragged row and of the dragged row while dragging.
+  // footer
+  --a_table_form_footer_bg: var(--a_color_surface_subtle); // Background of the footer row.
+  // cells
+  --a_table_form_cell_padding_y: calc(.75rem * var(--a_density)); // Vertical padding of a cell.
+  --a_table_form_cell_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of a cell.
+  --a_table_form_cell_actions_edge_box_shadow: inset calc(var(--a_border_width) * -1) 0 0 var(--a_table_form_border_color); // Line on the right edge of the sticky actions column.
+  --a_table_form_cell_actions_sticky_shadow: var(--a_shadow_edge_left); // Shadow on the left of the sticky actions column that separates it from the scrolled cells.
 }

@@ -49,5 +49,11 @@
   "_TXT_DANGER_": "Peligro",
   "_TXT_LIGHT_": "Claro",
   "_TXT_DARK_": "Oscuro",
-  "_LBL_DISABLED_": "Deshabilitado"
+  "_LBL_DISABLED_": "Deshabilitado",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "Mostrar claves de traducción",
+  "_A_DOCS_THEME_": "Tema",
+  "_A_DOCS_THEME_LIGHT_": "Claro",
+  "_A_DOCS_THEME_DARK_": "Oscuro",
+  "_A_DOCS_THEME_AUTO_": "Sistema",
+  "_A_DOCS_LANGUAGE_": "Idioma"
 }

@@ -7,6 +7,7 @@ import PageColorPickerDisabled from "./PageColorPickerDisabled/PageColorPickerDi
 import PageColorPickerErrors from "./PageColorPickerErrors/PageColorPickerErrors.vue";
 import PageColorPickerForm from "./PageColorPickerForm/PageColorPickerForm.vue";
 import PageColorPickerHelpText from "./PageColorPickerHelpText/PageColorPickerHelpText.vue";
+import PageColorPickerLabelPosition from "./PageColorPickerLabelPosition/PageColorPickerLabelPosition.vue";
 import PageColorPickerPredefine from "./PageColorPickerPredefine/PageColorPickerPredefine.vue";
 import PageColorPickerShowAlpha from "./PageColorPickerShowAlpha/PageColorPickerShowAlpha.vue";
 import {
@@ -26,6 +27,7 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageColorPickerBasic,
+    PageColorPickerLabelPosition,
     PageColorPickerShowAlpha,
     PageColorPickerColorFormat,
     PageColorPickerPredefine,

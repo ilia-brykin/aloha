@@ -11,6 +11,7 @@ aloha-page(
 
     page-menu-basic-example
     page-menu-groups
+    page-menu-only-mobile
     page-menu-search-in-dom
     page-menu-custom-keys
     page-menu-breadcrumbs
@@ -36,3 +37,7 @@ aloha-page(
     //  :data="dataExposes"
     //  :columns="['name', 'type', 'description']"
     //)
+
+    aloha-table-css-vars(
+      :files="['components/AMenu', 'components/AVerticalScroll']"
+    )

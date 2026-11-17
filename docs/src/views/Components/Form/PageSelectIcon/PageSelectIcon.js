@@ -5,6 +5,7 @@ import PageSelectIconChange from "./PageSelectIconChange/PageSelectIconChange.vu
 import PageSelectIconErrors from "./PageSelectIconErrors/PageSelectIconErrors.vue";
 import PageSelectIconHelpText from "./PageSelectIconHelpText/PageSelectIconHelpText.vue";
 import PageSelectIconLabelDescription from "./PageSelectIconLabelDescription/PageSelectIconLabelDescription.vue";
+import PageSelectIconLabelPosition from "./PageSelectIconLabelPosition/PageSelectIconLabelPosition.vue";
 import PageSelectIconReadonly from "./PageSelectIconReadonly/PageSelectIconReadonly.vue";
 import {
   ATranslation,
@@ -21,6 +22,7 @@ export default {
     AlohaTableProps,
     ATranslation,
     PageSelectIconBasic,
+    PageSelectIconLabelPosition,
     PageSelectIconChange,
     PageSelectIconErrors,
     PageSelectIconHelpText,

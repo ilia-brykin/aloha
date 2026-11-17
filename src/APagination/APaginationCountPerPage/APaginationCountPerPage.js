@@ -197,7 +197,7 @@ export default {
           labelClass: "a_sr_only",
           data: this.limitsPerPage,
           isDataSimpleArray: true,
-          isLabelFloat: false,
+          labelPosition: "top",
           deselectable: false,
           menuWidthType: "by_content",
           modelValue: this.limitString,

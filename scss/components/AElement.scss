@@ -1,6 +1,6 @@
-.aloha_element {
+.a_element {
   position: relative;
-  & > :not(.aloha_element__hidden) + :not(.aloha_element__ml_0) {
+  & > :not(.a_element__hidden) + :not(.a_element__ml_0) {
     margin-left: .5rem;
   }
 }

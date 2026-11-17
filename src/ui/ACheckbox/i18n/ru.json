@@ -1,5 +1,7 @@
 {
+  "_A_CHECKBOX_DESELECT_ALL_": "Снять выделение со всех",
   "_A_CHECKBOX_GROUP_INVALID_ENTRIES_": "Недопустимые записи",
   "_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Нет элементов для выбора]",
-  "_A_CHECKBOX_SEARCH_": "Поиск"
+  "_A_CHECKBOX_SEARCH_": "Поиск",
+  "_A_CHECKBOX_SELECT_ALL_": "Выбрать все"
 }

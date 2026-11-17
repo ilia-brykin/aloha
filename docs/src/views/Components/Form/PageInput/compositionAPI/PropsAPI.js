@@ -137,7 +137,7 @@ export default function PropsAPI() {
       name: "is-label-float",
       description: "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_",
       type: "Boolean",
-      default: true,
+      default: undefined,
       required: false,
     },
     {
@@ -166,6 +166,13 @@ export default function PropsAPI() {
       description: "_A_UI_PROPS_LABEL_DESCRIPTION_DESCRIPTION_",
       type: "String",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "label-position",
+      description: "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_",
+      type: "\"float\" / \"inset\" / \"top\"",
+      default: "\"float\"",
       required: false,
     },
     {

@@ -1,10 +1,15 @@
 .a_divider {
-  --a_divider_margin_y: 0.5rem;
-  --a_divider_bg: var(--a_color_gray_300);
-
   height: 0;
   margin: var(--a_divider_margin_y) 0;
   overflow: hidden;
-  border-top: 1px solid var(--a_divider_bg);
+  border-top: var(--a_border_width) solid var(--a_divider_bg);
   opacity: 1;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_divider) {
+  --a_divider_margin_y: var(--a_space_sm); // Space above and below the line.
+  --a_divider_bg: var(--a_border_color); // Color of the line.
 }

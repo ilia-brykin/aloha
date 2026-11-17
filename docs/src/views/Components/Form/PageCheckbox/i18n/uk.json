@@ -3,11 +3,17 @@
   "_A_CHECKBOX_COMPONENT_NAME_": "Прапорці",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Якщо цей параметр увімкнено, відображатиметься додатковий керувальний прапорець. Він дозволяє користувачу одночасно вибрати або скасувати вибір усіх дочірніх прапорців.",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Керувальний прапорець",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_DESCRIPTION_": "Пропси <code lang=\"en\">is-select-all</code> і <code lang=\"en\">is-deselect-all</code> показують над списком кнопки, які вибирають усі елементи або скасовують їх вибір. Вимкнені елементи (<code lang=\"en\">key-disabled</code>) не змінюються. Під час пошуку (<code lang=\"en\">search</code>) зачіпаються лише знайдені елементи. Тексти кнопок змінюються через <code lang=\"en\">text-select-all</code> і <code lang=\"en\">text-deselect-all</code>.",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_HEADER_": "Вибрати все / Скасувати вибір",
   "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Визначає, чи можна згортати та розгортати групу прапорців. Якщо встановлено <strong lang=\"en\">true</strong>, користувач може перемикати стан групи.",
   "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Додає керувальний прапорець, який дозволяє одночасно вибрати або скасувати вибір усіх прапорців у групі.",
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Визначає, чи відображатимуться прапорці в рядок. Якщо встановлено <strong lang=\"en\">true</strong>, прапорці буде вирівняно горизонтально.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Визначає, чи відображатимуться прапорці як кнопки. Якщо встановлено <strong lang=\"en\">true</strong>, прапорці відображатимуться як кнопки, що може зробити інтерфейс візуально привабливішим.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Визначає початковий згорнутий стан групи прапорців. Якщо встановлено <strong lang=\"en\">true</strong>, під час завантаження сторінки група буде згорнута.",
+  "_A_CHECKBOX_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Показує кнопку, яка скасовує вибір усіх доступних для зміни елементів (не вимкнених; під час пошуку — лише знайдених).",
+  "_A_CHECKBOX_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Показує кнопку, яка вибирає всі доступні для зміни елементи (не вимкнені; під час пошуку — лише знайдені).",
   "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Визначає, чи має ширина групи прапорців автоматично підлаштовуватися під вміст. Якщо встановлено <strong lang=\"en\">true</strong>, ширина підлаштовуватиметься автоматично.",
-  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Дозволяє змінювати текстові повідомлення для різних дій у компоненті. Містить тексти для згортання/розгортання (<strong lang=\"en\">collapseClose</strong> і <strong lang=\"en\">collapseOpen</strong>), повідомлення про відсутність елементів під час пошуку (<strong lang=\"en\">notElementsWithSearch</strong>) і текст для поля пошуку (<strong lang=\"en\">search</strong>)."
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Дозволяє змінювати текстові повідомлення для різних дій у компоненті. Містить тексти для згортання/розгортання (<strong lang=\"en\">collapseClose</strong> і <strong lang=\"en\">collapseOpen</strong>), повідомлення про відсутність елементів під час пошуку (<strong lang=\"en\">notElementsWithSearch</strong>) і текст для поля пошуку (<strong lang=\"en\">search</strong>).",
+  "_A_CHECKBOX_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_": "Текст кнопки «Скасувати вибір».",
+  "_A_CHECKBOX_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Текст кнопки «Вибрати все»."
 }

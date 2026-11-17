@@ -4,7 +4,8 @@ export const AInputNumberPluginOptions = {
     eAllowed: false,
     iconPrepend: undefined,
     inputWidth: 200,
-    isLabelFloat: false,
+    // undefined: the default of AFormPlugin ("float") is used
+    labelPosition: undefined,
     max: undefined,
     min: undefined,
     modelUndefined: undefined,

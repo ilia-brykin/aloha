@@ -1,0 +1,31 @@
+// Focus ring helpers. The ring itself is configured with tokens:
+// --a_focus_width_inside, --a_focus_width_outside,
+// --a_focus_color_inside, --a_focus_color_outside.
+
+// Draws the focus ring. The transparent outline becomes visible in
+// forced-colors mode (e.g. Windows high contrast), where box-shadow is removed.
+// The shadow is written out from the width/color tokens (not var(--a_focus_ring)),
+// so --a_focus_color_* / --a_focus_width_* can be overridden on any element.
+@mixin focus-ring($inset: false) {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  @if $inset {
+    box-shadow:
+      inset 0 0 0 var(--a_focus_width_outside) var(--a_focus_color_outside),
+      inset 0 0 0 calc(var(--a_focus_width_outside) + var(--a_focus_width_inside)) var(--a_focus_color_inside);
+  } @else {
+    box-shadow:
+      0 0 0 var(--a_focus_width_inside) var(--a_focus_color_inside),
+      0 0 0 calc(var(--a_focus_width_inside) + var(--a_focus_width_outside)) var(--a_focus_color_outside);
+  }
+}
+
+// Focus ring for keyboard focus only.
+@mixin focus-visible($inset: false) {
+  &:focus {
+    outline: 0;
+  }
+  &:focus-visible {
+    @include focus-ring($inset);
+  }
+}

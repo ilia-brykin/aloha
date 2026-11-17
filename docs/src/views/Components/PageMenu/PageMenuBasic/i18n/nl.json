@@ -12,5 +12,7 @@
   "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Koppel bestaande datavelden met <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> en <code>key-children</code>. Dit voorbeeld gebruikt code, title, symbol, section en items zonder de bronvelden te hernoemen. Routes gebruiken nog steeds <code>to</code>. Open Form controls of zoek naar Input.",
   "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Lange breadcrumbs en aantallen submenu-items",
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Open Components → Form controls → Text fields. Met <code>is-breadcrumbs-truncated</code> worden bovenliggende links die niet passen verplaatst naar de breadcrumb-dropdown. De schakelaar bestuurt <code>show-count-children</code>, zodat u het aantal submenu-items kunt tonen of verbergen.",
-  "_A_PAGE_MENU_SHOW_COUNTS_": "Aantal submenu-items tonen"
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Aantal submenu-items tonen",
+  "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "Menu achter een knop (only-mobile)",
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "Met <code>only-mobile</code> gedraagt het menu zich bij elke schermbreedte als het mobiele menu: het is gesloten en alleen de knop is zichtbaar. De knop opent het menu; een klik op een link, <kbd>Esc</kbd> of de achtergrond (<code>use-backdrop-mobile</code>) sluit het. De vensterbreedte maakt niet uit. Geef ook de knop <code>:only-mobile=\"true\"</code>, anders is hij op desktop verborgen, en koppel beide met dezelfde <code>menu-id</code>."
 }

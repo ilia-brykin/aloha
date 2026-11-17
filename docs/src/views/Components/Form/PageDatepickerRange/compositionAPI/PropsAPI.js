@@ -148,7 +148,7 @@ export default function PropsAPI() {
       name: "inputClass",
       description: "_A_DATEPICKER_RANGE_DESCRIPTION_PROP_INPUT_CLASS_",
       type: "[String, Number, Boolean, Array, Object, Date, Function, Symbol]",
-      default: "pux_datepicker__input",
+      default: "a_datepicker__input",
       required: false,
     },
     {

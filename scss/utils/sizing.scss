@@ -1,12 +1,11 @@
 @use "sass:map";
 
-@use "aloha_prefix" as aloha;
 @use "breakpoint";
-@use "funktions";
+@use "list_helpers";
 @use "mixins";
 
-$a_is_sizing_important: true !default;
-$a_sizing_width: (
+$is_sizing_important: true;
+$sizing_width: (
     property: width,
     class: width,
     values: (
@@ -33,29 +32,29 @@ $a_sizing_width: (
         3rem:   3rem,
         auto:   auto,
     ),
-) !default;
-$a_sizing_max_width: (
+);
+$sizing_max_width: (
     property: max-width,
     class: max_width,
     values: (
         100: 100%,
     ),
-) !default;
-$a_sizing_viewport_width: (
+);
+$sizing_viewport_width: (
     property: width,
     class: viewport_width,
     values: (
         100: 100vw,
     ),
-) !default;
-$a_sizing_min_viewport_width: (
+);
+$sizing_min_viewport_width: (
     property: min-width,
     class: min_viewport_width,
     values: (
         100: 100vw,
     ),
-) !default;
-$a_sizing_height: (
+);
+$sizing_height: (
     property: height,
     class: height,
     values: (
@@ -74,61 +73,61 @@ $a_sizing_height: (
         3rem:   3rem,
         auto: auto,
     ),
-) !default;
-$a_sizing_max_height: (
+);
+$sizing_max_height: (
     property: max-height,
     class: max_height,
     values: (
         100: 100%,
     ),
-) !default;
-$a_sizing_viewport_height: (
+);
+$sizing_viewport_height: (
     property: height,
     class: viewport_height,
     values: (
         100: 100vh,
     ),
-) !default;
-$a_sizing_min_viewport_height: (
+);
+$sizing_min_viewport_height: (
     property: min-height,
     class: min_viewport_height,
     values: (
         100: 100vh,
     ),
-) !default;
-
-$a_sizing: (
-        "width": $a_sizing_width,
-        "max-width": $a_sizing_max_width,
-        "viewport-width": $a_sizing_viewport_width,
-        "min-viewport-width": $a_sizing_min_viewport_width,
-        "height": $a_sizing_height,
-        "max-height": $a_sizing_max_height,
-        "viewport-height": $a_sizing_viewport_height,
-        "min-viewport-height": $a_sizing_min_viewport_height,
 );
 
-$a_sizing_important_suffix: "";
-@if $a_is_sizing_important {
-  $a_sizing_important_suffix: " !important";
+$sizing: (
+        "width": $sizing_width,
+        "max-width": $sizing_max_width,
+        "viewport-width": $sizing_viewport_width,
+        "min-viewport-width": $sizing_min_viewport_width,
+        "height": $sizing_height,
+        "max-height": $sizing_max_height,
+        "viewport-height": $sizing_viewport_height,
+        "min-viewport-height": $sizing_min_viewport_height,
+);
+
+$sizing_important_suffix: "";
+@if $is_sizing_important {
+  $sizing_important_suffix: " !important";
 }
 
-$a_breakpoints_display: funktions.prepend(breakpoint.$a_breakpoints, (class: null));
+$breakpoints_display: list_helpers.prepend(breakpoint.$all, (class: null));
 
-@each $breakpoint in $a_breakpoints_display {
+@each $breakpoint in $breakpoints_display {
   $breakpoint-class: map.get($breakpoint, "class");
   $breakpoint-min: map.get($breakpoint, "min");
   $breakpoint-max: map.get($breakpoint, "max");
 
-  @each $name, $sizing-value in $a_sizing {
+  @each $name, $sizing-value in $sizing {
     $property: map.get($sizing-value, "property");
     $class: map.get($sizing-value, "class");
     $values: map.get($sizing-value, "values");
 
     @each $value-key, $value in $values {
       @include mixins.media-width-all($breakpoint-min, $breakpoint-max) {
-        .#{aloha.$aloha-prefix}#{$class}_#{$value-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
-          #{$property}: #{ $value }#{$a_sizing_important_suffix};
+        .a_#{$class}_#{$value-key}#{ breakpoint.getBreakpointWithPrefix($breakpoint-class) } {
+          #{$property}: #{ $value }#{$sizing_important_suffix};
         }
       }
     }

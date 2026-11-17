@@ -1,6 +1,4 @@
 {
-  "_A_SPACING_CONFIG_DESCRIPTION_": "Możesz zmieniać skróty, kierunki i skalę wartości za pomocą zmiennych <strong lang=\"en\">SCSS</strong>.",
-  "_A_SPACING_CONFIG_NAME_": "Konfiguracja SCSS",
   "_A_SPACING_HTML_EXAMPLE_": "<!-- Dodaje 1rem marginesu na dole -->\n<p class=\"a_mb_4\">Margines dolny</p>\n\n<!-- Dodaje 0.25rem dopełnienia z lewej i z prawej strony -->\n<p class=\"a_px_1\">Dopełnienie poziome</p>\n\n<!-- Usuwa margines z prawej strony i dodaje 0.75rem dopełnienia u góry -->\n<p class=\"a_mr_0 a_pt_3\">Oba</p>",
   "_A_SPACING_NAME_": "Odstępy",
   "_A_SPACING_TABLE_DESCRIPTION_": "Ściągawka z głównymi wzorcami klas odstępów. Wartości <strong lang=\"en\">0-6</strong> odpowiadają: 0, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.5rem, 3rem.",

@@ -11,6 +11,9 @@ aloha-page(
 
     page-select-basic
 
+
+    page-select-label-position
+
     page-select-label-description
 
     page-select-error-icon
@@ -77,7 +80,7 @@ aloha-page(
         key-label="label"
         label="Test label multiselect"
         type="multiselect"
-        :is-label-float="false"
+        label-position="top"
         placeholder="placeholder"
         :search="true"
         :is-select-all="true"
@@ -130,3 +133,7 @@ aloha-page(
             v-html="label"
           )
       div modelArr2: {{ modelArr2 }}
+
+    aloha-table-css-vars(
+      files="components/ui/ASelect"
+    )

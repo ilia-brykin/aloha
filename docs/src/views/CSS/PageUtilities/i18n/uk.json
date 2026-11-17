@@ -1,0 +1,15 @@
+{
+  "_A_UTILITIES_FOCUS_DESCRIPTION_": "Двоколірне кільце фокуса компонентів для власних елементів, що отримують фокус, наприклад картки з <code>tabindex=\"0\"</code>. Показується лише при фокусі з клавіатури та налаштовується токенами фокуса.",
+  "_A_UTILITIES_FOCUS_NAME_": "Кільце фокуса",
+  "_A_UTILITIES_OPACITY_DESCRIPTION_": "Класи задають <code>opacity</code>: 0, 25, 50, 75 або 100 %.",
+  "_A_UTILITIES_OPACITY_NAME_": "Прозорість",
+  "_A_UTILITIES_ORDER_DESCRIPTION_": "Класи задають <code>order</code> елементів flex і grid: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Суфікси <code>_mobile</code> … <code>_large</code> вмикають їх на брейкпоінтах.",
+  "_A_UTILITIES_ORDER_NAME_": "Порядок",
+  "_A_UTILITIES_PAGE_NAME_": "Допоміжні класи",
+  "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> приховує елемент під час друку, <code>a_print_block</code> показує його лише під час друку (разом з <code>a_d_none</code>).",
+  "_A_UTILITIES_PRINT_NAME_": "Друк",
+  "_A_UTILITIES_TEXT_DESCRIPTION_": "Другорядний і виділений текст, що залишається читабельним у світлій і темній темі.",
+  "_A_UTILITIES_TEXT_NAME_": "Колір тексту",
+  "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Глобальні шари використовують токени <code>--a_z_index_*</code>, тому власні оверлеї залишаються в правильному порядку відносно модальних вікон, випадних меню та попапів.",
+  "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
+}

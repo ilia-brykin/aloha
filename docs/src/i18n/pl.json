@@ -49,5 +49,11 @@
   "_TXT_DANGER_": "Niebezpieczeństwo",
   "_TXT_LIGHT_": "Jasny",
   "_TXT_DARK_": "Ciemny",
-  "_LBL_DISABLED_": "Wyłączone"
+  "_LBL_DISABLED_": "Wyłączone",
+  "_A_DOCS_TOGGLE_TRANSLATE_": "Pokaż klucze tłumaczeń",
+  "_A_DOCS_THEME_": "Motyw",
+  "_A_DOCS_THEME_LIGHT_": "Jasny",
+  "_A_DOCS_THEME_DARK_": "Ciemny",
+  "_A_DOCS_THEME_AUTO_": "Systemowy",
+  "_A_DOCS_LANGUAGE_": "Język"
 }

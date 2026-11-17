@@ -2,7 +2,7 @@ export default function HtmlAPI() {
   const codeHtml = `<a-select
   v-model="model"
   :data="data"
-  :is-label-float="false"
+  label-position="top"
   key-id="id"
   key-label="label"
   label="Select"

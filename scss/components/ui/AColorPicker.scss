@@ -1,45 +1,30 @@
-.a_color_picker,
-.a_color_picker__readonly {
-  --a_color_picker_checker: repeating-conic-gradient(#d4d4d4 0% 25%, #fff 0% 50%) 50% / 0.75rem 0.75rem;
-  --a_color_picker_popup_width: 17.5rem;
-  --a_color_picker_popup_padding: 0.75rem;
-  --a_color_picker_popup_bg: var(--a_color_white, #fff);
-  --a_color_picker_popup_border_color: var(--a_color_gray_300, #dee2e6);
-  --a_color_picker_popup_border_radius: var(--a_border_radius, 0.375rem);
-  --a_color_picker_popup_shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --a_color_picker_popup_z_index: 1901;
-  --a_color_picker_saturation_height: 10rem;
-  --a_color_picker_slider_height: 0.75rem;
-  --a_color_picker_thumb_size: 1.125rem;
-  --a_color_picker_focus_color_inside: #fff;
-  --a_color_picker_focus_color_outside: #000;
-  --a_color_picker_predefine_size: 1.5rem;
-  --a_color_picker_predefine_selected_color: var(--a_color_primary, #0d6efd);
-}
+@use "../../utils/focus";
 
 // Toggle: looks like an input that is filled with the color
-// (double class: .a_form_control is defined later and must not win)
+// (double class: .a_form_control must not win)
 .a_form_control.a_color_picker__toggle {
-  min-height: calc(1.5em + 0.75rem + 2px);
-  text-align: left;
+  min-height: var(--a_form_control_height, var(--a_control_height));
+  text-align: start;
   cursor: pointer;
   &,
+  &:hover,
   &:focus {
-    color: var(--a_color_picker_text_color, inherit);
+    color: var(--a_color_picker_text_color, var(--a_color_text));
     background:
       linear-gradient(var(--a_color_picker_color), var(--a_color_picker_color)),
       var(--a_color_picker_checker);
   }
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.65;
+    opacity: .65;
   }
 }
 .a_form_control.a_color_picker__toggle_empty {
   &,
+  &:hover,
   &:focus {
-    color: #212529;
-    background: #fff;
+    color: var(--a_form_control_color, var(--a_color_text));
+    background: var(--a_form_control_bg, var(--a_color_surface));
   }
 }
 // The clear button and the error icon on the colored field use the contrast color
@@ -48,6 +33,13 @@
     --a_btn_color: var(--a_color_picker_text_color);
     --a_btn_hover_color: var(--a_color_picker_text_color);
     --a_btn_active_color: var(--a_color_picker_text_color);
+    color: var(--a_color_picker_text_color);
+  }
+}
+// labelPosition "inset": the label lies on the color
+.a_color_picker_has_color.a_form_element__parent_inset {
+  .a_form_element_label,
+  .a_form_element_label.a_form_element_label_float {
     color: var(--a_color_picker_text_color);
   }
 }
@@ -62,7 +54,7 @@
   overflow-wrap: anywhere;
 }
 .a_color_picker__toggle__empty {
-  color: var(--a_color_gray_600, #6c757d);
+  color: var(--a_color_text_muted);
 }
 
 .a_color_picker__swatch {
@@ -70,8 +62,8 @@
   flex-shrink: 0;
   width: 1rem;
   height: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: var(--a_border_radius_small, 0.25rem);
+  border: var(--a_border_width) solid var(--a_color_picker_swatch_border_color);
+  border-radius: var(--a_border_radius_small);
   background:
     linear-gradient(var(--a_color_picker_color), var(--a_color_picker_color)),
     var(--a_color_picker_checker);
@@ -79,28 +71,31 @@
 .a_color_picker__readonly {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--a_space_sm);
 }
 
 // Popup (teleported to the body)
 .a_color_picker__popup {
-  --a_color_picker_checker: repeating-conic-gradient(#d4d4d4 0% 25%, #fff 0% 50%) 50% / 0.75rem 0.75rem;
-  --a_color_picker_focus_color_inside: #fff;
-  --a_color_picker_focus_color_outside: #000;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: var(--a_color_picker_popup_z_index, 1901);
+  z-index: var(--a_color_picker_popup_z_index);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  width: var(--a_color_picker_popup_width, 17.5rem);
+  gap: var(--a_color_picker_popup_gap);
+  width: var(--a_color_picker_popup_width);
   max-width: calc(100vw - 1rem);
-  padding: var(--a_color_picker_popup_padding, 0.75rem);
-  background-color: var(--a_color_picker_popup_bg, #fff);
-  border: 1px solid var(--a_color_picker_popup_border_color, #dee2e6);
-  border-radius: var(--a_color_picker_popup_border_radius, 0.375rem);
-  box-shadow: var(--a_color_picker_popup_shadow, 0 0.5rem 1rem rgba(0, 0, 0, 0.15));
+  padding: var(--a_color_picker_popup_padding);
+  color: var(--a_color_text);
+  background-color: var(--a_color_picker_popup_bg);
+  border: var(--a_border_width) solid var(--a_color_picker_popup_border_color);
+  border-radius: var(--a_color_picker_popup_border_radius);
+  box-shadow: var(--a_color_picker_popup_shadow);
+}
+
+// the float label of the text field lies on the popup background
+.a_color_picker__popup .a_form_element__parent {
+  --a_form_element_label_float_bg: var(--a_color_picker_popup_bg);
 }
 
 .a_color_picker__popup_positioning {
@@ -111,29 +106,21 @@
 .a_color_picker_saturation__thumb,
 .a_color_picker_slider__thumb {
   position: absolute;
-  width: var(--a_color_picker_thumb_size, 1.125rem);
-  height: var(--a_color_picker_thumb_size, 1.125rem);
-  border: 2px solid #fff;
+  width: var(--a_color_picker_thumb_size);
+  height: var(--a_color_picker_thumb_size);
+  border: 2px solid var(--a_color_white);
   border-radius: 50%;
   background-color: var(--a_color_picker_thumb_color, transparent);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px hsl(0 0% 0% / .6), inset 0 0 0 1px hsl(0 0% 0% / .3);
   transform: translate(-50%, -50%);
   cursor: grab;
-  &:focus {
-    outline: 0;
-  }
-  &:focus-visible {
-    outline: 2px solid transparent;
-    box-shadow:
-      0 0 0 2px var(--a_color_picker_focus_color_inside),
-      0 0 0 5px var(--a_color_picker_focus_color_outside);
-  }
+  @include focus.focus-visible;
 }
 
 .a_color_picker_saturation {
   position: relative;
-  height: var(--a_color_picker_saturation_height, 10rem);
-  border-radius: var(--a_border_radius, 0.375rem);
+  height: var(--a_color_picker_saturation_height);
+  border-radius: var(--a_border_radius);
   background:
     linear-gradient(to top, #000, transparent),
     linear-gradient(to right, #fff, transparent),
@@ -145,9 +132,9 @@
 
 .a_color_picker_slider {
   position: relative;
-  height: var(--a_color_picker_slider_height, 0.75rem);
-  margin: 0 calc(var(--a_color_picker_thumb_size, 1.125rem) / 2);
-  border-radius: 50rem;
+  height: var(--a_color_picker_slider_height);
+  margin: 0 calc(var(--a_color_picker_thumb_size) / 2);
+  border-radius: var(--a_border_radius_pill);
   background: var(--a_color_picker_slider_bg);
   cursor: pointer;
   touch-action: none;
@@ -156,10 +143,10 @@
   &::before {
     content: "";
     position: absolute;
-    inset: 0 calc(var(--a_color_picker_thumb_size, 1.125rem) / -2);
+    inset: 0 calc(var(--a_color_picker_thumb_size) / -2);
+    z-index: -1;
     border-radius: inherit;
     background: inherit;
-    z-index: -1;
   }
   .a_color_picker_slider__thumb {
     top: 50%;
@@ -175,24 +162,24 @@
 .a_color_picker__controls {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--a_color_picker_popup_gap);
 }
 .a_color_picker__sliders {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--a_color_picker_popup_gap);
 }
 .a_color_picker__preview {
   width: 2rem;
   height: 2rem;
-  border-radius: var(--a_border_radius, 0.375rem);
+  border-radius: var(--a_border_radius);
 }
 
 .a_color_picker__value {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: var(--a_space_sm);
   > .a_color_picker__input {
     flex: 1;
     min-width: 0;
@@ -201,43 +188,59 @@
 .a_color_picker__format {
   flex-shrink: 0;
   min-width: 3.5rem;
-  min-height: calc(1.5em + 0.75rem + 2px);
+  min-height: var(--a_form_control_height, var(--a_control_height));
   font-variant-numeric: tabular-nums;
 }
 
 .a_color_picker__predefine {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.375rem;
+  gap: var(--a_space_sm);
 }
 .a_color_picker__predefine__item {
-  width: var(--a_color_picker_predefine_size, 1.5rem);
-  height: var(--a_color_picker_predefine_size, 1.5rem);
+  width: var(--a_color_picker_predefine_size);
+  height: var(--a_color_picker_predefine_size);
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: var(--a_border_radius_small, 0.25rem);
+  border: var(--a_border_width) solid var(--a_color_picker_swatch_border_color);
+  border-radius: var(--a_border_radius_small);
   background:
     linear-gradient(var(--a_color_picker_color), var(--a_color_picker_color)),
     var(--a_color_picker_checker);
   cursor: pointer;
-  &:focus {
-    outline: 0;
-  }
-  &:focus-visible {
-    outline: 2px solid transparent;
-    box-shadow:
-      0 0 0 2px var(--a_color_picker_focus_color_inside),
-      0 0 0 4px var(--a_color_picker_focus_color_outside);
-  }
+  @include focus.focus-visible;
 }
 .a_color_picker__predefine__item_selected {
   box-shadow:
-    0 0 0 2px var(--a_color_picker_focus_color_inside),
-    0 0 0 4px var(--a_color_picker_predefine_selected_color, #0d6efd);
+    0 0 0 2px var(--a_color_surface),
+    0 0 0 4px var(--a_color_picker_predefine_selected_color);
 }
 
 .a_color_picker__footer {
   display: flex;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: var(--a_space_sm);
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens (the popup is teleported to the body, so it gets them too)
+// ---------------------------------------------------------------------------
+:where(.a_color_picker, .a_color_picker__popup, .a_color_picker__readonly) {
+  // swatch
+  --a_color_picker_checker: repeating-conic-gradient(var(--a_color_gray_300) 0% 25%, var(--a_color_surface) 0% 50%) 50% / .75rem .75rem; // Checkerboard background shown behind transparent colors.
+  --a_color_picker_swatch_border_color: var(--a_border_color_translucent); // Border color of the color swatches.
+  // dialog
+  --a_color_picker_popup_width: 17.5rem; // Width of the picker dialog.
+  --a_color_picker_popup_padding: var(--a_space_md); // Padding of the picker dialog.
+  --a_color_picker_popup_gap: calc(.75rem * var(--a_density)); // Space between the parts of the picker dialog.
+  --a_color_picker_popup_bg: var(--a_color_surface_raised); // Background of the picker dialog. Also used behind float labels in the dialog.
+  --a_color_picker_popup_border_color: var(--a_border_color); // Border color of the picker dialog.
+  --a_color_picker_popup_border_radius: var(--a_border_radius_large); // Corner radius of the picker dialog.
+  --a_color_picker_popup_shadow: var(--a_shadow_lg); // Shadow of the picker dialog.
+  --a_color_picker_popup_z_index: calc(var(--a_z_index_popup) + 1); // Stack order of the picker dialog.
+  // controls
+  --a_color_picker_saturation_height: 10rem; // Height of the saturation and brightness area.
+  --a_color_picker_slider_height: .75rem; // Height of the hue and alpha sliders.
+  --a_color_picker_thumb_size: 1.125rem; // Size of the slider handles.
+  --a_color_picker_predefine_size: 1.5rem; // Size of a predefined color.
+  --a_color_picker_predefine_selected_color: var(--a_color_focus); // Ring color of the selected predefined color.
 }

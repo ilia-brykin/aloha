@@ -1,5 +1,6 @@
 import {
   createApp,
+  defineAsyncComponent,
 } from "vue";
 import router from "./router/index";
 
@@ -25,6 +26,9 @@ import {
   modelLanguage,
   setLanguageFromLocalStorage,
 } from "./components/TheNavbar/compositionAPI/LanguagesAPI";
+import {
+  setThemeFromLocalStorage,
+} from "./components/TheNavbar/compositionAPI/ThemeAPI";
 
 import "../styles/styles.scss";
 import mainIcons from "./mainIcons";
@@ -33,8 +37,10 @@ import {
 } from "./mainTranslation";
 
 setLanguageFromLocalStorage();
+setThemeFromLocalStorage();
 
 const APP = createApp(App);
+APP.component("AlohaTableCssVars", defineAsyncComponent(() => import("./global/components/AlohaTableCssVars/AlohaTableCssVars.vue")));
 
 APP.use(AI18nPlugin, mainTranslation, modelLanguage.value, {});
 APP.use(AHttpPlugin, {

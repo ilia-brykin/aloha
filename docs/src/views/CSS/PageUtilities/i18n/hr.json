@@ -1,0 +1,15 @@
+{
+  "_A_UTILITIES_FOCUS_DESCRIPTION_": "Dvobojni prsten fokusa komponenata za vlastite elemente koji primaju fokus, npr. karticu s <code>tabindex=\"0\"</code>. Prikazuje se samo pri fokusu tipkovnicom i konfigurira se tokenima fokusa.",
+  "_A_UTILITIES_FOCUS_NAME_": "Prsten fokusa",
+  "_A_UTILITIES_OPACITY_DESCRIPTION_": "Klase postavljaju <code>opacity</code> na 0, 25, 50, 75 ili 100 %.",
+  "_A_UTILITIES_OPACITY_NAME_": "Prozirnost",
+  "_A_UTILITIES_ORDER_DESCRIPTION_": "Klase postavljaju <code>order</code> flex i grid elemenata: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Sufiksi <code>_mobile</code> … <code>_large</code> uključuju ih na prijelomnim točkama.",
+  "_A_UTILITIES_ORDER_NAME_": "Redoslijed",
+  "_A_UTILITIES_PAGE_NAME_": "Pomoćne klase",
+  "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> skriva element pri ispisu, <code>a_print_block</code> ga prikazuje samo pri ispisu (zajedno s <code>a_d_none</code>).",
+  "_A_UTILITIES_PRINT_NAME_": "Ispis",
+  "_A_UTILITIES_TEXT_DESCRIPTION_": "Sporedni i istaknuti tekst koji ostaje čitljiv u svijetloj i tamnoj temi.",
+  "_A_UTILITIES_TEXT_NAME_": "Boja teksta",
+  "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Globalni slojevi koriste tokene <code>--a_z_index_*</code>, pa vlastiti slojevi ostaju u ispravnom redoslijedu u odnosu na modalne prozore, padajuće izbornike i skočne prozore.",
+  "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
+}

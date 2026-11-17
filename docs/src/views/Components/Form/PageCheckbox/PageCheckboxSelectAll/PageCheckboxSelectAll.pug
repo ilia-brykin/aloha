@@ -1,0 +1,33 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_CHECKBOX_GROUP_SELECT_ALL_HEADER_"
+  description="_A_CHECKBOX_GROUP_SELECT_ALL_DESCRIPTION_"
+  props="is-select-all"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_6.a_columns_count_12_touch
+      a-checkbox(
+        v-model="model"
+        :data="data"
+        :is-deselect-all="true"
+        :is-select-all="true"
+        key-disabled="isDisabled"
+        key-id="id"
+        key-label="label"
+        label="Aloha"
+      )
+      div model: {{ model }}
+      a-checkbox(
+        v-model="modelSearch"
+        :data="data"
+        :is-deselect-all="true"
+        :is-select-all="true"
+        :search="true"
+        class="a_mt_3"
+        key-disabled="isDisabled"
+        key-id="id"
+        key-label="label"
+        label="Aloha (search)"
+      )
+      div modelSearch: {{ modelSearch }}

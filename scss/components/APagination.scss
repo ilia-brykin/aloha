@@ -1,29 +1,6 @@
-.a_pagination_vars {
-  --a_pagination_link_padding_x: 0.75rem;
-  --a_pagination_link_padding_y: 0.375rem;
-  --a_pagination_link_color: var(--a_color_link);
-  --a_pagination_link_bg: #fff;
-  --a_pagination_link_border_width: var(--a_border_width);
-  --a_pagination_link_border_color:  var(--a_border_color);
-  --a_pagination_link_border_radius: var(--a_border_radius);
-  --a_pagination_link_hover_color: var(--a_color_link_hover);
-  --a_pagination_link_hover_bg: var(--a_color_gray_200);
-  --a_pagination_link_hover_border_color: var(--a_color_gray_300);
-  --a_pagination_link_focus_color: var(--a_color_link_hover);
-  --a_pagination_link_focus_bg: var(--a_color_gray_200);
-  --a_pagination_link_focus_box_shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-  --a_pagination_link_active_color: #fff;
-  --a_pagination_link_active_bg: var(--a_color_primary);
-  --a_pagination_link_active_border_color: var(--a_color_primary);
-  --a_pagination_link_disabled_color: var(--a_color_secondary);
-  --a_pagination_link_disabled_bg: #fff;
-  --a_pagination_link_disabled_border_color: var(--a_color_gray_300);
-}
-.a_pagination__parent {
-  --a_pagination_bg: var(--a_color_gray_200);
-  --a_pagination_font_size: 1rem;
-  --a_pagination_padding: .5rem .5rem 0 .5rem;
+@use "../utils/focus";
 
+.a_pagination__parent {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -32,17 +9,14 @@
   font-size: var(--a_pagination_font_size);
   padding: var(--a_pagination_padding);
   min-height: 2rem;
+  border-radius: var(--a_pagination_border_radius);
   > * {
-    margin-bottom: .5rem;
+    margin-bottom: var(--a_space_sm);
   }
   .a_pagination {
     justify-content: center;
   }
 }
-.a_pagination__nav {
-
-}
-
 .a_pagination {
   display: flex;
   width: 100%;
@@ -53,7 +27,7 @@
 .a_pagination_group {
   width: auto;
   justify-content: normal;
-  padding-left: 1rem;
+  padding-left: var(--a_space_md);
 }
 .a_pagination__item {
   white-space: nowrap;
@@ -76,7 +50,7 @@
   text-decoration: none;
   background-color: var(--a_pagination_link_bg);
   border: var(--a_pagination_link_border_width) solid var(--a_pagination_link_border_color);
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: var(--a_transition_colors);
   cursor: pointer;
   height: 100%;
   .a_pagination__item:first-child & {
@@ -93,11 +67,11 @@
     background-color: var(--a_pagination_link_hover_bg);
     border-color: var(--a_pagination_link_hover_border_color);
   }
-  &:focus {
-    z-index: 3;
+  @include focus.focus-visible;
+  &:focus-visible {
+    z-index: 4;
     color: var(--a_pagination_link_focus_color);
     background-color: var(--a_pagination_link_focus_bg);
-    outline: 0;
     box-shadow: var(--a_pagination_link_focus_box_shadow);
   }
   .disabled > &,
@@ -117,17 +91,22 @@
   }
 }
 
-.a_pagination__parent_lg {
-  --a_pagination_link_padding_x: 1.5rem;
-  --a_pagination_link_padding_y: 0.75rem;
-  --a_pagination_font_size: 1.25rem;
-  --a_pagination_link_border_radius: 0.5rem;
+// Sizes. Link tokens are declared on .a_pagination_vars and .a_pagination, so the sizes target them too.
+.a_pagination__parent_large,
+.a_pagination__parent_large .a_pagination_vars,
+.a_pagination__parent_large .a_pagination {
+  --a_pagination_link_padding_x: calc(1.5rem * var(--a_density));
+  --a_pagination_link_padding_y: calc(.75rem * var(--a_density));
+  --a_pagination_font_size: var(--a_font_size_lg);
+  --a_pagination_link_border_radius: var(--a_border_radius_large);
 }
-.a_pagination__parent_sm {
-  --a_pagination_link_padding_x: 0.5rem;
-  --a_pagination_link_padding_y: 0.25rem;
-  --a_pagination_font_size: 0.875rem;
-  --a_pagination_link_border_radius: 0.25rem;
+.a_pagination__parent_small,
+.a_pagination__parent_small .a_pagination_vars,
+.a_pagination__parent_small .a_pagination {
+  --a_pagination_link_padding_x: calc(.5rem * var(--a_density));
+  --a_pagination_link_padding_y: calc(.25rem * var(--a_density));
+  --a_pagination_font_size: var(--a_font_size_sm);
+  --a_pagination_link_border_radius: var(--a_border_radius_small);
 }
 
 .a_pagination__counts {
@@ -145,7 +124,7 @@
   }
 }
 .a_pagination__count_from_to {
-  margin-right: 1rem;
+  margin-right: var(--a_space_md);
   white-space: nowrap;
 }
 .a_pagination__count__text {
@@ -156,12 +135,49 @@
   white-space: nowrap;
 }
 .a_pagination__count__item {
-  border-right: 1px solid #000;
-  padding: 0 .25rem;
+  border-right: var(--a_border_width) solid var(--a_border_color_strong);
+  padding: 0 var(--a_space_xs);
   &:last-child {
     border-right: none;
   }
 }
 .a_pagination__count__button {
   padding: 0;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_pagination__parent) {
+  // panel
+  --a_pagination_bg: var(--a_color_surface_subtle); // Background of the panel around the pagination and the page size select.
+  --a_pagination_font_size: var(--a_body_font_size); // Font size of the panel and the page links. Changed by the size classes.
+  --a_pagination_padding: var(--a_space_sm) var(--a_space_sm) 0 var(--a_space_sm); // Padding of the panel.
+  --a_pagination_border_radius: var(--a_border_radius); // Corner radius of the panel.
+}
+:where(.a_pagination_vars) {
+  // page link
+  --a_pagination_link_padding_x: var(--a_control_padding_x); // Horizontal padding of a page link. Changed by the size classes.
+  --a_pagination_link_padding_y: var(--a_control_padding_y); // Vertical padding of a page link. Changed by the size classes.
+  --a_pagination_link_color: var(--a_color_link); // Text color of a page link.
+  --a_pagination_link_bg: var(--a_color_surface); // Background of a page link.
+  --a_pagination_link_border_width: var(--a_border_width); // Border width of a page link.
+  --a_pagination_link_border_color: var(--a_border_color); // Border color of a page link.
+  --a_pagination_link_border_radius: var(--a_border_radius); // Corner radius of the first and the last page link. Changed by the size classes.
+  // hover
+  --a_pagination_link_hover_color: var(--a_color_link_hover); // Text color of a hovered page link.
+  --a_pagination_link_hover_bg: var(--a_color_gray_100); // Background of a hovered page link.
+  --a_pagination_link_hover_border_color: var(--a_border_color); // Border color of a hovered page link.
+  // focus
+  --a_pagination_link_focus_color: var(--a_color_link_hover); // Text color of a page link with keyboard focus.
+  --a_pagination_link_focus_bg: var(--a_color_gray_100); // Background of a page link with keyboard focus.
+  --a_pagination_link_focus_box_shadow: var(--a_focus_ring); // Focus ring of a page link.
+  // active
+  --a_pagination_link_active_color: var(--a_color_primary_contrast); // Text color of the current page.
+  --a_pagination_link_active_bg: var(--a_color_primary); // Background of the current page.
+  --a_pagination_link_active_border_color: var(--a_color_primary); // Border color of the current page.
+  // disabled
+  --a_pagination_link_disabled_color: var(--a_color_text_muted); // Text color of a disabled link (e.g. "previous" on the first page).
+  --a_pagination_link_disabled_bg: var(--a_color_surface); // Background of a disabled link.
+  --a_pagination_link_disabled_border_color: var(--a_border_color); // Border color of a disabled link.
 }

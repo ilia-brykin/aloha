@@ -3,11 +3,17 @@
   "_A_CHECKBOX_COMPONENT_NAME_": "Флажки (чекбоксы)",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Когда эта опция включена, будет отображен дополнительный управляющий чекбокс. Этот управляющий чекбокс позволяет пользователю выбрать или снять выбор со всех дочерних чекбоксов одновременно.",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "Управляющий чекбокс",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_DESCRIPTION_": "Пропсы <code lang=\"en\">is-select-all</code> и <code lang=\"en\">is-deselect-all</code> показывают над списком кнопки, которые выбирают все элементы или снимают с них выбор. Отключённые элементы (<code lang=\"en\">key-disabled</code>) не меняются. Во время поиска (<code lang=\"en\">search</code>) затрагиваются только найденные элементы. Тексты кнопок меняются через <code lang=\"en\">text-select-all</code> и <code lang=\"en\">text-deselect-all</code>.",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_HEADER_": "Выбрать все / Снять выбор",
   "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "Определяет, можно ли сворачивать и разворачивать группу флажков. Если установлено значение <strong lang=\"en\">true</strong>, группа может быть свернута или развернута пользователем.",
   "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "Добавляет управляющий флажок, который позволяет выбрать или снять все флажки в группе одновременно.",
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "Задает, следует ли отображать флажки в строку. Если установлено значение <strong lang=\"en\">true</strong>, флажки будут выровнены по горизонтали.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "Определяет, следует ли отображать флажки как кнопки. Если установлено значение <strong lang=\"en\">true</strong>, флажки будут отображаться в виде кнопок, что может быть полезно для более визуально привлекательного интерфейса.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "Указывает начальное состояние сворачивания группы флажков. Если установлено значение <strong lang=\"en\">true</strong>, группа будет свернута при загрузке страницы.",
+  "_A_CHECKBOX_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Показывает кнопку, которая снимает выбор со всех доступных для изменения элементов (не отключённых; во время поиска — только найденных).",
+  "_A_CHECKBOX_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Показывает кнопку, которая выбирает все доступные для изменения элементы (не отключённые; во время поиска — только найденные).",
   "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "Определяет, будет ли ширина группы флажков автоматически подстраиваться под её содержимое. Если установлено значение <strong lang=\"en\">true</strong>, ширина будет изменяться автоматически.",
-  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Позволяет изменить текстовые сообщения для различных действий в компоненте. Включает тексты для сворачивания/разворачивания (<strong lang=\"en\">collapseClose</strong> и <strong lang=\"en\">collapseOpen</strong>), сообщения об отсутствии элементов при поиске (<strong lang=\"en\">notElementsWithSearch</strong>), а также текст для поля поиска (<strong lang=\"en\">search</strong>)."
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "Позволяет изменить текстовые сообщения для различных действий в компоненте. Включает тексты для сворачивания/разворачивания (<strong lang=\"en\">collapseClose</strong> и <strong lang=\"en\">collapseOpen</strong>), сообщения об отсутствии элементов при поиске (<strong lang=\"en\">notElementsWithSearch</strong>), а также текст для поля поиска (<strong lang=\"en\">search</strong>).",
+  "_A_CHECKBOX_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_": "Текст кнопки «Снять выбор».",
+  "_A_CHECKBOX_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "Текст кнопки «Выбрать все»."
 }

@@ -1,11 +1,11 @@
-.floating {
+.a_floating {
   max-width: fit-content;
   width: max-content;
   position: absolute;
   top: 0;
   left: 0;
 }
-.a_tooltip__container, .a_dropdown__menu, .a_select_menu, .pux_datepicker__popup, .ui_select_menu {
+.a_tooltip__container, .a_dropdown__menu, .a_select_menu, .a_datepicker__popup {
   /* Float on top of the UI */
   position: absolute;
 
@@ -20,8 +20,9 @@
 }
 
 .a_search_highlight {
-  color: red;
-  background-color: inherit;
+  color: var(--a_search_highlight_color, var(--a_color_danger_text_emphasis));
+  background-color: var(--a_search_highlight_bg, inherit);
+  font-weight: var(--a_search_highlight_font_weight, inherit);
   padding: 0;
 }
 .a_popup_container,
@@ -31,13 +32,12 @@
   top: 100%;
 }
 .a_popup_container {
-  z-index: 1900;
+  z-index: var(--a_z_index_popup);
 }
 .a_select_container {
-  z-index: 1901;
+  z-index: calc(var(--a_z_index_popup) + 1);
 }
 .a_dropdown__menu {
-  box-shadow: 0 0 7px 3px var(--a_color_gray_600);
   > ul {
     margin: 0;
     list-style: none;

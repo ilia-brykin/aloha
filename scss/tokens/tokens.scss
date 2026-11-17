@@ -1,0 +1,293 @@
+// Design tokens of aloha-vue.
+//
+// Level 1 – base tokens (:root): the few values a project usually changes.
+// Level 2 – derived tokens: calculated from the base tokens, never need to be defined,
+//           but can be overridden one by one.
+// Level 3 – component tokens (--a_btn_*, --a_table_*, …): defined in the component files.
+@use "sass:map";
+@use "sass:string";
+@use "settings";
+
+// Tones of the light and dark theme (used to derive colors)
+@mixin light-tones {
+  color-scheme: light;
+  @each $step, $l in settings.$gray-steps {
+    --a_gray_#{$step}_l: #{map.get($l, light)};
+  }
+  --a_tone_surface_l: 100%;
+  --a_tone_surface_subtle_l: 97.5%;
+  --a_tone_surface_raised_l: 100%;
+  --a_tone_hover: -8%;
+  --a_tone_active: -14%;
+  // share of black in hover / active, share of the color in subtle variants (color-mix)
+  --a_tone_hover_mix: 15%;
+  --a_tone_active_mix: 25%;
+  --a_tone_bg_subtle_mix: 12%;
+  --a_tone_border_subtle_mix: 35%;
+  --a_tone_bg_subtle_l: 95%;
+  --a_tone_border_subtle_l: 82%;
+  --a_tone_text_emphasis_l: 28%;
+  --a_tone_text_min_l: 0%;
+  --a_tone_text_max_l: 30%;
+  --a_tone_subtle_saturation: 1;
+  --a_tone_border_strong_l: 56%;
+  --a_tone_emphasis_l: 0%;
+  --a_tone_focus_l: 40%;
+  --a_tone_shadow_alpha: .12;
+  --a_tone_translucent_alpha: .8;
+}
+
+@mixin dark-tones {
+  color-scheme: dark;
+  @each $step, $l in settings.$gray-steps {
+    --a_gray_#{$step}_l: #{map.get($l, dark)};
+  }
+  --a_tone_surface_l: 11%;
+  --a_tone_surface_subtle_l: 14%;
+  --a_tone_surface_raised_l: 16%;
+  --a_tone_bg_subtle_l: 18%;
+  --a_tone_border_subtle_l: 36%;
+  --a_tone_bg_subtle_mix: 22%;
+  --a_tone_border_subtle_mix: 45%;
+  --a_tone_text_emphasis_l: 82%;
+  --a_tone_text_min_l: 68%;
+  --a_tone_text_max_l: 100%;
+  --a_tone_subtle_saturation: .6;
+  --a_tone_border_strong_l: 52%;
+  --a_tone_emphasis_l: 100%;
+  --a_tone_focus_l: 72%;
+  --a_tone_shadow_alpha: .5;
+  --a_tone_link_l: 72%;
+}
+
+// ---------------------------------------------------------------------------
+// Level 1: base tokens
+// ---------------------------------------------------------------------------
+:root {
+  // Colors as hue / saturation / lightness
+  @each $name, $c in settings.$theme-colors {
+    --a_#{$name}_h: #{map.get($c, h)};
+    --a_#{$name}_s: #{map.get($c, s)};
+    --a_#{$name}_l: #{map.get($c, l)};
+    --a_#{$name}_contrast_threshold: #{map.get($c, threshold)};
+  }
+  --a_gray_h: 228;
+  --a_gray_s: 14%;
+  @each $name, $c in settings.$neutral-colors {
+    --a_#{$name}_h: var(--a_gray_h);
+    --a_#{$name}_s: var(--a_gray_s);
+    --a_#{$name}_l: #{map.get($c, l)};
+    --a_#{$name}_contrast_threshold: #{map.get($c, threshold)};
+  }
+
+  // Shape
+  --a_radius: .375rem;
+  --a_border_width: 1px;
+  --a_border_style: solid;
+
+  // Focus
+  --a_focus_width_inside: 2px;
+  --a_focus_width_outside: 2px;
+
+  // Density: 1 = default, see [data-a-density] below
+  --a_density: 1;
+
+  // Typography
+  --a_font_sans_serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --a_font_monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --a_body_font_size: 1rem;
+  --a_body_font_weight: 400;
+  --a_body_line_height: 1.5;
+
+  // Motion
+  --a_duration_fast: 120ms;
+  --a_duration_normal: 200ms;
+  --a_duration_slow: 320ms;
+  --a_easing: cubic-bezier(.2, 0, 0, 1);
+
+  // z-index
+  --a_z_index_fixed: 1000;
+  --a_z_index_backdrop: 1050;
+  --a_z_index_menu_mobile: 1051;
+  --a_z_index_modal: 1055;
+  --a_z_index_backdrop_confirm: 1058;
+  --a_z_index_confirm: 1059;
+  --a_z_index_dropdown: 1060;
+  --a_z_index_notification: 1071;
+  --a_z_index_tooltip: 1080;
+  // popups (select, datepicker, dropdown containers) must stay above modals
+  --a_z_index_popup: 1900;
+
+  // Tones of the light theme (used to derive colors)
+  @include light-tones;
+}
+
+// ---------------------------------------------------------------------------
+// Dark theme: only tones and gray steps change, all colors follow.
+// <html data-a-theme="dark"> – always dark
+// <html data-a-theme="auto"> – follows the operating system
+// ---------------------------------------------------------------------------
+[data-a-theme="light"] {
+  @include light-tones;
+}
+
+[data-a-theme="dark"] {
+  @include dark-tones;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-a-theme="auto"] {
+    @include dark-tones;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Density
+// <html data-a-density="compact"> | "comfortable"
+// ---------------------------------------------------------------------------
+[data-a-density="compact"] {
+  --a_density: .75;
+}
+[data-a-density="comfortable"] {
+  --a_density: 1.25;
+}
+
+// ---------------------------------------------------------------------------
+// Reduced motion
+// ---------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --a_duration_fast: 0s;
+    --a_duration_normal: 0s;
+    --a_duration_slow: 0s;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Level 2: derived tokens
+// ---------------------------------------------------------------------------
+@function hsl-of($name, $l, $alpha: null) {
+  @if $alpha {
+    @return string.unquote("hsl(var(--a_#{$name}_h) var(--a_#{$name}_s) #{$l} / #{$alpha})");
+  }
+  @return string.unquote("hsl(var(--a_#{$name}_h) var(--a_#{$name}_s) #{$l})");
+}
+
+#{settings.$derived-selectors} {
+  // Theme colors and their variants
+  @each $name in settings.$variant-colors {
+    $l: var(--a_#{$name}_l);
+    --a_color_#{$name}: #{hsl-of($name, $l)};
+    --a_color_#{$name}_hover: #{hsl-of($name, calc(#{$l} + var(--a_tone_hover)))};
+    --a_color_#{$name}_active: #{hsl-of($name, calc(#{$l} + var(--a_tone_active)))};
+    // white or black, whichever is readable on the color
+    --a_color_#{$name}_contrast: hsl(0 0% calc((#{$l} - var(--a_#{$name}_contrast_threshold)) * -1000));
+    --a_color_#{$name}_50: #{hsl-of($name, calc((#{$l} + var(--a_tone_surface_l)) / 2))};
+    --a_color_#{$name}_bg_subtle: hsl(var(--a_#{$name}_h) calc(var(--a_#{$name}_s) * var(--a_tone_subtle_saturation)) var(--a_tone_bg_subtle_l));
+    --a_color_#{$name}_border_subtle: hsl(var(--a_#{$name}_h) calc(var(--a_#{$name}_s) * var(--a_tone_subtle_saturation)) var(--a_tone_border_subtle_l));
+    --a_color_#{$name}_text_emphasis: #{hsl-of($name, var(--a_tone_text_emphasis_l))};
+    // the color itself, but with enough contrast for text on the surface (WCAG AA)
+    --a_color_#{$name}_text: #{hsl-of($name, clamp(var(--a_tone_text_min_l), #{$l}, var(--a_tone_text_max_l)))};
+  }
+
+  // Gray scale
+  @each $step, $l in settings.$gray-steps {
+    --a_color_gray_#{$step}: #{hsl-of(gray, var(--a_gray_#{$step}_l))};
+  }
+  --a_color_white: #fff;
+  --a_color_black: #000;
+
+  // Semantic colors
+  --a_color_surface: #{hsl-of(gray, var(--a_tone_surface_l))};
+  --a_color_surface_subtle: #{hsl-of(gray, var(--a_tone_surface_subtle_l))};
+  --a_color_surface_raised: #{hsl-of(gray, var(--a_tone_surface_raised_l))};
+  // for sticky bars and overlays above content
+  --a_color_surface_translucent: #{hsl-of(gray, var(--a_tone_surface_l), var(--a_tone_translucent_alpha))};
+  --a_color_surface_raised_translucent: #{hsl-of(gray, var(--a_tone_surface_raised_l), var(--a_tone_translucent_alpha))};
+  --a_color_body_bg: var(--a_color_surface);
+  --a_color_text: var(--a_color_gray_900);
+  --a_color_text_muted: var(--a_color_gray_600);
+  --a_color_label: var(--a_color_text);
+  --a_color_emphasis_color: #{hsl-of(gray, var(--a_tone_emphasis_l))};
+  --a_color_link: #{hsl-of(primary, var(--a_tone_link_l, var(--a_primary_l)))};
+  --a_color_link_hover: #{hsl-of(primary, calc(var(--a_tone_link_l, var(--a_primary_l)) + var(--a_tone_hover)))};
+  --a_color_focus: #{hsl-of(primary, var(--a_tone_focus_l))};
+
+  // Borders
+  --a_border_color: var(--a_color_gray_300);
+  --a_border_color_strong: #{hsl-of(gray, var(--a_tone_border_strong_l))};
+  --a_border_color_translucent: #{hsl-of(gray, var(--a_tone_emphasis_l), .175)};
+
+  // Radius: everything derives from --a_radius
+  --a_border_radius: var(--a_radius);
+  --a_border_radius_small: calc(var(--a_radius) * .5);
+  --a_border_radius_large: calc(var(--a_radius) * 1.5);
+  --a_border_radius_xl: calc(var(--a_radius) * 2.5);
+  --a_border_radius_2xl: calc(var(--a_radius) * 4);
+  --a_border_radius_pill: 50rem;
+
+  // Focus ring: two colors, inside (gap) and outside
+  --a_focus_color_inside: var(--a_color_surface);
+  --a_focus_color_outside: var(--a_color_focus);
+  --a_focus_ring:
+    0 0 0 var(--a_focus_width_inside) var(--a_focus_color_inside),
+    0 0 0 calc(var(--a_focus_width_inside) + var(--a_focus_width_outside)) var(--a_focus_color_outside);
+  --a_focus_ring_inset:
+    inset 0 0 0 var(--a_focus_width_outside) var(--a_focus_color_outside),
+    inset 0 0 0 calc(var(--a_focus_width_outside) + var(--a_focus_width_inside)) var(--a_focus_color_inside);
+
+  // Spacing and control sizes (scaled by density)
+  --a_space_xs: calc(.25rem * var(--a_density));
+  --a_space_sm: calc(.5rem * var(--a_density));
+  --a_space_md: calc(1rem * var(--a_density));
+  --a_space_lg: calc(1.5rem * var(--a_density));
+  --a_space_xl: calc(2rem * var(--a_density));
+  --a_control_height_sm: calc(2rem * var(--a_density));
+  --a_control_height: calc(2.5rem * var(--a_density));
+  --a_control_height_lg: calc(3rem * var(--a_density));
+  --a_control_padding_x: calc(.75rem * var(--a_density));
+  --a_control_padding_y: calc(.375rem * var(--a_density));
+
+  // Typography
+  --a_body_font_family: var(--a_font_sans_serif);
+  --a_font_weight_normal: 400;
+  --a_font_weight_medium: 500;
+  --a_font_weight_semibold: 600;
+  --a_font_weight_bold: 700;
+  --a_font_size_sm: .875rem;
+  --a_font_size_lg: 1.25rem;
+
+  // Elevation
+  --a_shadow_color: hsl(var(--a_gray_h) 30% 10% / var(--a_tone_shadow_alpha));
+  --a_shadow_sm: 0 1px 2px var(--a_shadow_color);
+  --a_shadow_md: 0 4px 12px -2px var(--a_shadow_color), 0 2px 4px -2px var(--a_shadow_color);
+  --a_shadow_lg: 0 12px 32px -8px var(--a_shadow_color), 0 4px 8px -4px var(--a_shadow_color);
+  // side shadow of panels that stick to an edge (shadow on the left / right side)
+  --a_shadow_edge_left: -8px 0 16px -8px var(--a_shadow_color);
+  --a_shadow_edge_right: 8px 0 16px -8px var(--a_shadow_color);
+
+  // Motion
+  --a_transition_colors:
+    color var(--a_duration_fast) var(--a_easing),
+    background-color var(--a_duration_fast) var(--a_easing),
+    border-color var(--a_duration_fast) var(--a_easing),
+    box-shadow var(--a_duration_fast) var(--a_easing);
+}
+
+// Browsers with color-mix(): variants are mixed from --a_color_<name>, so overriding only
+// --a_color_<name> (e.g. with a hex value) on :root or .a_theme changes hover, active and
+// the subtle variants as well. Other browsers use the hsl() values above.
+// Contrast related tokens (_contrast, _text, _text_emphasis) stay on hsl() on purpose.
+@supports (color: color-mix(in oklab, red, blue)) {
+  #{settings.$derived-selectors} {
+    @each $name in settings.$variant-colors {
+      $color: var(--a_color_#{$name});
+      --a_color_#{$name}_hover: color-mix(in oklab, #{$color}, black var(--a_tone_hover_mix));
+      --a_color_#{$name}_active: color-mix(in oklab, #{$color}, black var(--a_tone_active_mix));
+      --a_color_#{$name}_50: color-mix(in oklab, #{$color}, var(--a_color_surface));
+      --a_color_#{$name}_bg_subtle: color-mix(in oklab, #{$color} var(--a_tone_bg_subtle_mix), var(--a_color_surface));
+      --a_color_#{$name}_border_subtle: color-mix(in oklab, #{$color} var(--a_tone_border_subtle_mix), var(--a_color_surface));
+    }
+    --a_color_link_hover: color-mix(in oklab, var(--a_color_link), var(--a_color_emphasis_color) var(--a_tone_hover_mix));
+  }
+}

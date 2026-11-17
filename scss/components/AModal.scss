@@ -1,18 +1,16 @@
 .a_modal_footer_sticky {
-  --a_modal_footer_sticky_gap: var(--a_modal_footer_gap) * 0.5;
-
   position: sticky;
   bottom: 0;
   margin-left: calc(-1*var(--a_modal_padding));
   margin-right: calc(-1*var(--a_modal_padding));
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(3px);
+  background-color: var(--a_modal_footer_sticky_bg);
+  backdrop-filter: blur(var(--a_modal_footer_sticky_blur));
   z-index: 4;
   padding-right: calc(var(--a_modal_padding) - var(--a_modal_footer_gap));
   padding-top: calc(var(--a_modal_padding) - var(--a_modal_footer_gap));
   padding-bottom: calc(var(--a_modal_padding) - var(--a_modal_footer_gap));
   .a_modal_footer_actions {
-    background-color: #fff;
+    background-color: var(--a_modal_footer_sticky_actions_bg);
     margin: 0;
     border-bottom-left-radius: var(--a_border_radius);
     border-top-left-radius: var(--a_border_radius);
@@ -42,4 +40,14 @@
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+}
+
+// ---------------------------------------------------------------------------
+// Component tokens
+// ---------------------------------------------------------------------------
+:where(.a_modal_footer_sticky) {
+  --a_modal_footer_sticky_gap: calc(var(--a_modal_footer_gap) * .5); // Space around the buttons in the sticky footer.
+  --a_modal_footer_sticky_bg: var(--a_color_surface_raised_translucent); // Background of the sticky footer. Translucent, so the content shows through.
+  --a_modal_footer_sticky_blur: 3px; // Blur of the content behind the sticky footer.
+  --a_modal_footer_sticky_actions_bg: var(--a_modal_bg); // Background of the button area in the sticky footer.
 }

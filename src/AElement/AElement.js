@@ -60,12 +60,12 @@ export default {
     classDefault: {
       type: String,
       required: false,
-      default: "aloha_element",
+      default: "a_element",
     },
     classDefaultHidden: {
       type: String,
       required: false,
-      default: "aloha_element__hidden",
+      default: "a_element__hidden",
     },
     classDisabled: {
       type: String,
@@ -313,10 +313,6 @@ export default {
     });
 
     const {
-      isTitleVisible,
-    } = TitleAPI(props);
-
-    const {
       isLoadingLeft,
       isLoadingRight,
     } = LoadingAPI(props);
@@ -325,6 +321,14 @@ export default {
       isTextOrHtmlVisible,
       isTextOrHtmlScreenReaderVisible,
     } = TextAPI(props);
+
+    const {
+      isTitleScreenReaderFallback,
+      isTitleVisible,
+    } = TitleAPI(props, {
+      isTextOrHtmlScreenReaderVisible,
+      isTextOrHtmlVisible,
+    });
 
     const {
       onClick,
@@ -369,6 +373,7 @@ export default {
       isSwitchActive,
       isTextOrHtmlScreenReaderVisible,
       isTextOrHtmlVisible,
+      isTitleScreenReaderFallback,
       isTitleVisible,
       onClick,
       onKeydown,
@@ -436,14 +441,26 @@ export default {
             safeHtml: this.safeHtmlScreenReader,
             extra: this.extra,
           }) :
-          "",
+          (this.isTitleScreenReaderFallback && !this.$slots.default) ?
+            h(ATranslation, {
+              alwaysTranslate: this.alwaysTranslate,
+              class: [
+                "a_sr_only",
+                this.classDefaultHidden,
+              ],
+              tag: "span",
+              text: this.isTitleHtml ? undefined : this.title,
+              safeHtml: this.isTitleHtml ? this.title : undefined,
+              extra: this.extra,
+            }) :
+            "",
         this.$slots.buttonPrepend ?
           this.$slots.buttonPrepend({ extraData: this.extraData }) :
           "",
         this.isLoadingLeft ?
           h(ASpinner, {
             class: [
-              "aloha_btn__spinner_left",
+              "a_button__spinner_left",
               this.loadingClass,
             ],
           }) :
@@ -452,7 +469,7 @@ export default {
           icon: this.iconLeft,
           iconTag: this.iconTag,
           class: [
-            "aloha_btn__icon_left",
+            "a_button__icon_left",
             this.iconClass,
           ],
           ...this.iconAttributes,
@@ -478,7 +495,7 @@ export default {
           icon: this.iconRight,
           iconTag: this.iconTag,
           class: [
-            "aloha_btn__icon_right",
+            "a_button__icon_right",
             this.iconClass,
           ],
           ...this.iconAttributes,
@@ -486,7 +503,7 @@ export default {
         this.isLoadingRight ?
           h(ASpinner, {
             class: [
-              "aloha_btn__spinner_right",
+              "a_button__spinner_right",
               this.loadingClass,
             ],
           }) :

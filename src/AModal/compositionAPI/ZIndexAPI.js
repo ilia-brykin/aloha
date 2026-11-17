@@ -14,9 +14,9 @@ export default function ZIndexAPI(props) {
     const STYLES = {};
 
     if (zIndex.value) {
-      STYLES["--a_modal_zindex"] = zIndex.value;
+      STYLES["--a_modal_z_index"] = zIndex.value;
     } else if (countOpenedModals.value > 1) {
-      STYLES["--a_modal_zindex"] = 1055 + countOpenedModals.value - 1;
+      STYLES["--a_modal_z_index"] = 1055 + countOpenedModals.value - 1;
     }
 
     return STYLES;
@@ -26,9 +26,9 @@ export default function ZIndexAPI(props) {
     const STYLES = {};
 
     if (backdropZIndex.value) {
-      STYLES["--a__backdrop_zindex"] = backdropZIndex.value;
+      STYLES["--a_backdrop_z_index"] = backdropZIndex.value;
     } else if (countOpenedModals.value > 1) {
-      STYLES["--a__backdrop_zindex"] = 1054 + countOpenedModals.value - 1;
+      STYLES["--a_backdrop_z_index"] = 1054 + countOpenedModals.value - 1;
     }
 
     return STYLES;

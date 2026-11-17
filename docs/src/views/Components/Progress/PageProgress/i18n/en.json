@@ -40,5 +40,6 @@
   "_A_PROGRESS_PROPS_STRIPED_FLOW_": "Enables the animated display for striped progress bars.",
   "_A_PROGRESS_PROPS_VALUE_": "The current progress of the progress bar.",
   "_A_PROGRESS_PROPS_VALUE_TEXT_INTEGER_": "Specifies which text format to use for the progress value. If valueTextInteger is true, the value is displayed as an integer percentage. If valueTextInteger is false or absent, then the value is displayed as a percentage with two decimal places.",
-  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Allows for customization of how the progress bar value is displayed. valuePercent variable can be accesed in the slot scope to show the current progress percentage."
+  "_A_PROGRESS_SLOT_PROGRESS_TEXT_": "Allows for customization of how the progress bar value is displayed. valuePercent variable can be accesed in the slot scope to show the current progress percentage.",
+  "_A_PROGRESS_PROPS_ARIA_LABEL_": "Accessible name of the progress bar for screen readers (aria-label). Can be a translation placeholder."
 }

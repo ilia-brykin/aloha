@@ -1,10 +1,10 @@
-$a_breakpoint_mobile: 768px;
-$a_breakpoint_tablet: 1023px;
-$a_breakpoint_desktop: 1215px;
+$mobile: 768px;
+$tablet: 1023px;
+$desktop: 1215px;
 
-$a_breakpoint_desktop_min: 1024px;
+$desktop_min: 1024px;
 
-$a_breakpoints: (
+$all: (
     (
         class: "mobile",
         max: "768px",
@@ -37,7 +37,7 @@ $a_breakpoints: (
         class: "large",
         min: "1600px",
     ),
-) !default;
+);
 
 @function getBreakpointWithPrefix($class) {
     @if $class {

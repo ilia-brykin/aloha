@@ -183,6 +183,13 @@ export default function PropsAPI() {
       required: false,
     },
     {
+      name: "is-deselect-all",
+      description: "_A_CHECKBOX_PROPS_IS_DESELECT_ALL_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
+      required: false,
+    },
+    {
       name: "is-hide",
       description: "_A_UI_PROPS_IS_HIDE_DESCRIPTION_",
       type: "Boolean",
@@ -194,6 +201,13 @@ export default function PropsAPI() {
       description: "_A_UI_PROPS_IS_RENDER_DESCRIPTION_",
       type: "Boolean",
       default: true,
+      required: false,
+    },
+    {
+      name: "is-select-all",
+      description: "_A_CHECKBOX_PROPS_IS_SELECT_ALL_DESCRIPTION_",
+      type: "Boolean",
+      default: false,
       required: false,
     },
     {
@@ -411,6 +425,20 @@ export default function PropsAPI() {
       description: "_A_UI_PROPS_SORT_ORDER_GROUP_DESCRIPTION_",
       type: "String",
       default: undefined,
+      required: false,
+    },
+    {
+      name: "text-deselect-all",
+      description: "_A_CHECKBOX_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_",
+      type: "String",
+      default: "_A_CHECKBOX_DESELECT_ALL_",
+      required: false,
+    },
+    {
+      name: "text-select-all",
+      description: "_A_CHECKBOX_PROPS_TEXT_SELECT_ALL_DESCRIPTION_",
+      type: "String",
+      default: "_A_CHECKBOX_SELECT_ALL_",
       required: false,
     },
     {

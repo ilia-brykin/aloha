@@ -39,12 +39,12 @@ export default {
     classDefault: {
       type: String,
       required: false,
-      default: "aloha_element",
+      default: "a_element",
     },
     classDefaultHidden: {
       type: String,
       required: false,
-      default: "aloha_element__hidden",
+      default: "a_element__hidden",
     },
     classDisabled: {
       type: String,
