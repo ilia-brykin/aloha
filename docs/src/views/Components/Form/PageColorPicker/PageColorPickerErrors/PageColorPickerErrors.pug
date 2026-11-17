@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_COLOR_PICKER_GROUP_ERRORS_HEADER_"
+  description="_A_COLOR_PICKER_GROUP_ERRORS_DESCRIPTION_"
+  :props="['errors', 'error-icon', 'required']"
+)
+  a-color-picker(
+    v-model="model"
+    label="_A_COLOR_PICKER_EXAMPLE_LABEL_"
+    :required="true"
+    errors="_A_COLOR_PICKER_EXAMPLE_ERROR_"
+    :error-icon="errorIcon"
+  )

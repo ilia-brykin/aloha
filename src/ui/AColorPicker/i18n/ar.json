@@ -1,0 +1,13 @@
+{
+  "_A_COLOR_PICKER_ALPHA_": "العتامة",
+  "_A_COLOR_PICKER_CLEAR_": "مسح",
+  "_A_COLOR_PICKER_CONFIRM_": "موافق",
+  "_A_COLOR_PICKER_DIALOG_": "اختيار اللون",
+  "_A_COLOR_PICKER_EMPTY_": "لم يتم اختيار لون",
+  "_A_COLOR_PICKER_HUE_": "درجة اللون",
+  "_A_COLOR_PICKER_INPUT_": "قيمة اللون",
+  "_A_COLOR_PICKER_INVALID_": "قيمة لون غير صالحة. المسموح: #rrggbb و rgb() و hsl() و hsv().",
+  "_A_COLOR_PICKER_PREDEFINE_": "ألوان محددة مسبقًا",
+  "_A_COLOR_PICKER_SATURATION_": "التشبع والسطوع",
+  "_A_COLOR_PICKER_SATURATION_VALUE_{{saturation}}_{{brightness}}_": "التشبع {{saturation}} %، السطوع {{brightness}} %"
+}

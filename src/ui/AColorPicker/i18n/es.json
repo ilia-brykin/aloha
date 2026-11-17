@@ -1,0 +1,13 @@
+{
+  "_A_COLOR_PICKER_ALPHA_": "Opacidad",
+  "_A_COLOR_PICKER_CLEAR_": "Borrar",
+  "_A_COLOR_PICKER_CONFIRM_": "Aceptar",
+  "_A_COLOR_PICKER_DIALOG_": "Elegir color",
+  "_A_COLOR_PICKER_EMPTY_": "Ningún color seleccionado",
+  "_A_COLOR_PICKER_HUE_": "Tono",
+  "_A_COLOR_PICKER_INPUT_": "Valor del color",
+  "_A_COLOR_PICKER_INVALID_": "Valor de color no válido. Permitido: #rrggbb, rgb(), hsl(), hsv().",
+  "_A_COLOR_PICKER_PREDEFINE_": "Colores predefinidos",
+  "_A_COLOR_PICKER_SATURATION_": "Saturación y brillo",
+  "_A_COLOR_PICKER_SATURATION_VALUE_{{saturation}}_{{brightness}}_": "Saturación {{saturation}} %, brillo {{brightness}} %"
+}

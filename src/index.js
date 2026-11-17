@@ -65,6 +65,7 @@ export { default as ASelect } from "./ui/ASelect/ASelect";
 export { default as ASelectIcon } from "./ui/ASelectIcon/ASelectIcon";
 export { default as ASelectStyle } from "./ui/ASelectStyle/ASelectStyle";
 export { default as ASlider } from "./ui/ASlider/ASlider";
+export { default as AColorPicker } from "./ui/AColorPicker/AColorPicker";
 export { default as AShowMore } from "./AShowMore/AShowMore";
 export { default as ATableForm } from "./ATableForm/ATableForm";
 export { default as ASpinner } from "./ASpinner/ASpinner";
@@ -387,6 +388,7 @@ export { default as AWizardI18n } from "./AWizard/i18n/AWizardI18n";
 export { default as Filters18n } from "./filters/i18n/Filters18n";
 export { default as AValidatedJsonI18n } from "./ui/AValidatedJson/i18n/AValidatedJsonI18n";
 export { default as ASliderI18n } from "./ui/ASlider/i18n/ASliderI18n";
+export { default as AColorPickerI18n } from "./ui/AColorPicker/i18n/AColorPickerI18n";
 export {
   getTranslatedAttributes,
   getTranslatedText,

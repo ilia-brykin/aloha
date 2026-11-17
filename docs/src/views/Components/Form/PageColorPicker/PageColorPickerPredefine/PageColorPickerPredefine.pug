@@ -1,0 +1,13 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_COLOR_PICKER_GROUP_PREDEFINE_HEADER_"
+  description="_A_COLOR_PICKER_GROUP_PREDEFINE_DESCRIPTION_"
+  :props="['predefine']"
+)
+  a-color-picker(
+    v-model="model"
+    label="_A_COLOR_PICKER_EXAMPLE_LABEL_"
+    :predefine="predefine"
+  )
+  div model: {{ model }}

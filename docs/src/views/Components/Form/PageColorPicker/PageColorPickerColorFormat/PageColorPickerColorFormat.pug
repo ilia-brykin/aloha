@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_COLOR_PICKER_GROUP_COLOR_FORMAT_HEADER_"
+  description="_A_COLOR_PICKER_GROUP_COLOR_FORMAT_DESCRIPTION_"
+  :props="['color-format']"
+)
+  a-color-picker(
+    v-model="modelRgb"
+    color-format="rgb"
+    label="rgb"
+    :show-alpha="true"
+  )
+  div.a_mb_3 model: {{ modelRgb }}
+  a-color-picker(
+    v-model="modelHsl"
+    color-format="hsl"
+    label="hsl"
+  )
+  div.a_mb_3 model: {{ modelHsl }}
+  a-color-picker(
+    v-model="modelHsv"
+    color-format="hsv"
+    label="hsv"
+  )
+  div model: {{ modelHsv }}

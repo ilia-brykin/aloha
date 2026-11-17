@@ -23,6 +23,7 @@ import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI
 import PageCheckboxI18n from "./views/Components/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
 import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
+import PageColorPickerI18n from "./views/Components/Form/PageColorPicker/i18n/PageColorPickerI18n";
 import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
 import PageConfirmI18n from "./views/Components/PageConfirm/i18n/PageConfirmI18n";
@@ -234,6 +235,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.ar,
     ...PageStartI18n.ar,
     ...PageSwitchI18n.ar,
+    ...PageColorPickerI18n.ar,
     ...PageTableI18n.ar,
     ...PageTablePaginationI18n.ar,
     ...PageTablePreviewDownI18n.ar,
@@ -352,6 +354,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.de,
     ...PageStartI18n.de,
     ...PageSwitchI18n.de,
+    ...PageColorPickerI18n.de,
     ...PageTableI18n.de,
     ...PageTablePaginationI18n.de,
     ...PageTablePreviewDownI18n.de,
@@ -470,6 +473,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.en,
     ...PageStartI18n.en,
     ...PageSwitchI18n.en,
+    ...PageColorPickerI18n.en,
     ...PageTableI18n.en,
     ...PageTablePaginationI18n.en,
     ...PageTablePreviewDownI18n.en,
@@ -588,6 +592,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.es,
     ...PageStartI18n.es,
     ...PageSwitchI18n.es,
+    ...PageColorPickerI18n.es,
     ...PageTableI18n.es,
     ...PageTablePaginationI18n.es,
     ...PageTablePreviewDownI18n.es,
@@ -706,6 +711,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.fr,
     ...PageStartI18n.fr,
     ...PageSwitchI18n.fr,
+    ...PageColorPickerI18n.fr,
     ...PageTableI18n.fr,
     ...PageTablePaginationI18n.fr,
     ...PageTablePreviewDownI18n.fr,
@@ -824,6 +830,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.hr,
     ...PageStartI18n.hr,
     ...PageSwitchI18n.hr,
+    ...PageColorPickerI18n.hr,
     ...PageTableI18n.hr,
     ...PageTablePaginationI18n.hr,
     ...PageTablePreviewDownI18n.hr,
@@ -942,6 +949,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.it,
     ...PageStartI18n.it,
     ...PageSwitchI18n.it,
+    ...PageColorPickerI18n.it,
     ...PageTableI18n.it,
     ...PageTablePaginationI18n.it,
     ...PageTablePreviewDownI18n.it,
@@ -1060,6 +1068,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.nl,
     ...PageStartI18n.nl,
     ...PageSwitchI18n.nl,
+    ...PageColorPickerI18n.nl,
     ...PageTableI18n.nl,
     ...PageTablePaginationI18n.nl,
     ...PageTablePreviewDownI18n.nl,
@@ -1178,6 +1187,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.pl,
     ...PageStartI18n.pl,
     ...PageSwitchI18n.pl,
+    ...PageColorPickerI18n.pl,
     ...PageTableI18n.pl,
     ...PageTablePaginationI18n.pl,
     ...PageTablePreviewDownI18n.pl,
@@ -1296,6 +1306,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.ru,
     ...PageStartI18n.ru,
     ...PageSwitchI18n.ru,
+    ...PageColorPickerI18n.ru,
     ...PageTableI18n.ru,
     ...PageTablePaginationI18n.ru,
     ...PageTablePreviewDownI18n.ru,
@@ -1414,6 +1425,7 @@ export const mainTranslation = {
     ...PageSpinnerPluginI18n.uk,
     ...PageStartI18n.uk,
     ...PageSwitchI18n.uk,
+    ...PageColorPickerI18n.uk,
     ...PageTableI18n.uk,
     ...PageTablePaginationI18n.uk,
     ...PageTablePreviewDownI18n.uk,

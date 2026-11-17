@@ -1,4 +1,5 @@
 import ACheckbox from "./ACheckbox/ACheckbox";
+import AColorPicker from "./AColorPicker/AColorPicker";
 import ADatepicker from "./ADatepicker/ADatepicker";
 import ADatepickerRange from "./ADatepickerRange/ADatepickerRange";
 import AInput from "./AInput/AInput";
@@ -22,6 +23,7 @@ import AValidatedJson from "./AValidatedJson/AValidatedJson";
 export default {
   checkbox: ACheckbox,
   color: AInput,
+  colorPicker: AColorPicker,
   currency: AInputCurrency,
   date: ADatepicker,
   dateRange: ADatepickerRange,

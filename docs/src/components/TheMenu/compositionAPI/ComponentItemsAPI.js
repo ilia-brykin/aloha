@@ -107,6 +107,14 @@ export default function ComponentItemsAPI() {
             },
           },
           {
+            id: "PageColorPicker",
+            label: "Color picker",
+            class: "test_menu_color_picker",
+            to: {
+              name: "PageColorPicker",
+            },
+          },
+          {
             id: "datepicker",
             label: "Datepicker",
             class: "test_menu_datepicker",
