@@ -7,6 +7,62 @@
 ---
 # Versions
 
+## 3.0.0-alpha.1
+
+Big style refactoring. The JavaScript API of the components stays compatible, only some defaults changed. Step-by-step guide: docs page **Migration 2.x → 3.0** (`PageMigrationsVersion2To3`). Includes all changes of 2.86.0 and 2.87.0.
+
+### Breaking
+
+- feat(scss)!: styles rebuilt on CSS design tokens (custom properties). The SCSS configuration is removed: `$aloha-prefix`, all `$a_*` / `$a-*` variables, `$dp-*` variables and the modules `utils/color_utils`, `utils/funktions`, `utils/vars_global`, `utils/global_variables`, `utils/aloha_prefix`, `utils/utils`.
+- feat(scss)!: colors are configured as hue / saturation / lightness (`--a_primary_h`, `--a_primary_s`, `--a_primary_l`, same for `secondary`, `tertiary`, `success`, `info`, `warning`, `danger`; gray scale with `--a_gray_h`, `--a_gray_s`). All variants are derived (`color-mix()` with `hsl()` fallback). New default palette, all colors reach WCAG AA.
+- feat(scss)!: one base radius token `--a_radius`; `--a_border_radius_small`, `_large`, `_xl`, `_2xl` are derived.
+- feat(scss)!: breakpoints `$a_breakpoint_*` / `$a_breakpoints` are now `$mobile`, `$tablet`, `$desktop`, `$desktop_min`, `$all` in `aloha-vue/scss/utils/breakpoint` (no longer `!default`).
+- feat(scss)!: all styles are in cascade layers `aloha.reset`, `aloha.tokens`, `aloha.base`, `aloha.components`, `aloha.utilities`. Application CSS without a layer always wins.
+- refactor!: CSS variables removed or renamed: `--a_color_*_rgb`, button / menu / table / tabs / wizard focus variables (replaced by `--a_focus_ring`, `--a_focus_ring_inset`, `--a_table_row_focus_shadow`, `--a_menu_link_focus_box_shadow`), `--a__backdrop_*` → `--a_backdrop_*`, `--a_modal_zindex` → `--a_modal_z_index`, `--a_alert_border-radius` → `--a_alert_border_radius`, `--a_flegend_invalid_color` → `--a_legend_invalid_color` and more (full list in the migration guide). `--a_color_focus` is now the outer color of the focus ring.
+- refactor!: unified class names: `.a_form_control_lg/_sm` → `_large/_small`, `.a_pagination__parent_lg/_sm` → `_large/_small`, `.switch_button*` → `.a_switch*`, `.aloha_btn*` → `.a_button*`, `.aloha_element*` → `.a_element*`, `.aloha_group_btn_dropdown` → `.a_group_btn_dropdown`, `.pux_datepicker*` → `.a_datepicker*`, `.floating` → `.a_floating`. Removed `.ui_select_menu` and `.a_menu__link_selected`.
+- refactor!: renamed SCSS files `scss/utils/acordion.scss` → `accordion.scss`, `scss/components/AProgressCirle.scss` → `AProgressCircle.scss`.
+- refactor!: remove the unused folder `src/PuxDatepicker` (it was not used by any component; breaking only for direct imports from it).
+- feat(icons)!: new icon `AIconClose`, used by all close buttons. `.a_btn_close` no longer draws the cross as background image. Default close icon of `AFormElementBtnClear` (`icon`) and `AAlertPlugin` (`btnCloseIcon`) changed from `x-lg` to `AIconClose`.
+- feat(ui)!: new prop `labelPosition` (`"float"` | `"inset"` | `"top"`) for `AInput`, `ATextarea`, `AInputNumber`, `AInputCurrency`, `ASelect`, `ASelectIcon`, `ASelectStyle`, `ADatepicker`, `AColorPicker` (`AMultiselectOrdered`: `selectLabelPosition`). Default is `"float"` for all form elements (in 2.x `AInputNumber`, `AInputCurrency`, `ADatepicker` had the label on top). Global default via `AFormPlugin` (`labelPosition`). `isLabelFloat` is deprecated and will be removed in 4.0.
+- fix(a11y)!: accessible names and valid ARIA by default (`AElement` / `AButton` / `ALink` icon-only title as `a_sr_only` text, `ADropdown` and `ASelect` screen reader texts, `aria-label` for `AProgress` / `AProgressCircle`, `ATabs` items `role="presentation"`, `AWizard` steps without `role="navigation"`, `ADatepicker` `aria-haspopup="dialog"` + `aria-controls`, `ASlider` `aria-labelledby`). Check tests that depend on the markup.
+
+### Features
+
+- feat(scss): dark theme `data-a-theme="dark | light | auto"`, density `data-a-density="compact | comfortable"`, theme for a part of the page with class `a_theme`.
+- feat(scss): two-colored focus ring for keyboard focus (`:focus-visible`), tokens `--a_focus_width_inside/_outside`, `--a_focus_color_inside/_outside`.
+- feat(scss): token `--a_color_<name>_text` (theme color with enough contrast for text), used for error texts and wizard steps.
+- feat(scss): global tokens `--a_color_surface_translucent`, `--a_z_index_popup`, `--a_shadow_edge_left/_right`.
+- feat(scss): utility classes `a_focus_ring`, `a_focus_ring_inset`, `a_text_muted`, `a_text_emphasis`, `a_opacity_*`, `a_order_*`, `a_z_index_*`, `a_print_none`, `a_print_block`.
+- feat(ACheckbox): select all / deselect all buttons (`isSelectAll`, `isDeselectAll`, `textSelectAll`, `textDeselectAll`).
+- feat(ui): `AColorPicker` (see 2.86.0, 2.87.0), now on design tokens.
+- style: modern look for all components: 40px form controls, stronger borders, buttons without shadow, dark tooltip, light table header, underline tabs, new shapes for checkbox, radio, switch, select, datepicker, dropdown and modal.
+
+### Fixes
+
+- fix(a11y): contrast fixes (wizard, form controls, progress bar text follows the background class).
+- fix(AMenu): remove the resize listener on destroy.
+- fix(AMenuButtonToggle): `aria-expanded` and `aria-controls`.
+- fix(scss): remove unused CSS variables, wire `preview_down` right padding and list group item radius.
+
+### Docs
+
+- docs: page Theming with theme generator, theme switch in the docs, migration guide 2.x → 3.0, CSS variables table for every component, `AMenu` example with only-mobile.
+
+## 2.87.0
+
+- feat(AColorPicker): prop `colorFormat` renamed to `colorFormats` (a format or an array of formats). With several formats the dialog has a switch that changes the format in the given order; on open the format of the model value is used if it is allowed, otherwise the first one. **Breaking:** replace `color-format` with `color-formats`.
+- feat(AColorPicker): the text field in the dialog has a visible float label with the format (e.g. "Color value (RGB)"); the format switch has a title.
+- fix(AColorPicker): no scroll jump to the top of the page when the dialog opens.
+- fix(AColorPicker): the model text is kept as long as color and format are not changed (no rounding of e.g. hsl values).
+
+## 2.86.0
+
+- feat(ui): add `AColorPicker` (form type `colorPicker`): field filled with the selected color, dialog with saturation/brightness area, hue and opacity sliders, text field for hex, rgb, hsl and hsv, predefined colors. Accessible with keyboard and screen readers. `type: "color"` stays the native color input.
+- fix(translation): computed values that use `getTranslatedText` before the translation is loaded are updated later (e.g. `ASelect` with `translateData`).
+- fix(ACheckbox): add missing prop `errorsClass`.
+- feat(translation): add Dutch (`nl`) and Polish (`pl`) translations for components and docs.
+- test: fix `AFieldset` classColumn and `UiStyleHideAPI` tests.
+
 ## 2.85.0
 
 - feat(translation): add hide-without-translation prop
