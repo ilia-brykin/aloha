@@ -71,6 +71,10 @@ export default {
         a_menu__btn_toggle_outside_menu: !this.insideMenu,
         a_menu__btn_toggle_only_mobile: this.onlyMobile,
       }],
+      attributes: {
+        "aria-controls": this.menuId,
+        "aria-expanded": this.isMenuOpen ? "true" : "false",
+      },
       type: "button",
       title: this.btnToggleTitle,
       textScreenReader: this.btnToggleTitle,
