@@ -164,6 +164,22 @@
   border-radius: var(--a_border_radius);
 }
 
+.a_color_picker__value {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--a_space_sm);
+  > .a_color_picker__input {
+    flex: 1;
+    min-width: 0;
+  }
+}
+.a_color_picker__format {
+  flex-shrink: 0;
+  min-width: 3.5rem;
+  min-height: var(--a_form_control_height, var(--a_control_height));
+  font-variant-numeric: tabular-nums;
+}
+
 .a_color_picker__predefine {
   display: flex;
   flex-wrap: wrap;

@@ -111,7 +111,7 @@ describe("AColorPicker", () => {
   });
 
   it("applies a typed value and shows an error for an invalid one", async() => {
-    const wrapper = mountPicker({ modelValue: "#ff0000", colorFormat: "rgb", showAlpha: true });
+    const wrapper = mountPicker({ modelValue: "#ff0000", colorFormats: "rgb", showAlpha: true });
     await wrapper.get("button.a_color_picker__toggle").trigger("click");
     await flush();
 
@@ -129,6 +129,56 @@ describe("AColorPicker", () => {
     expect(input.value).toBe("rgba(0, 255, 0, 0.5)");
     expect(getPopup().querySelector(".a_color_picker_slider_alpha [role='slider']").getAttribute("aria-valuenow")).toBe("50");
     wrapper.unmount();
+  });
+
+  it("opens with the format of the model and switches formats in the given order", async() => {
+    const wrapper = mountPicker({ modelValue: "hsl(0, 100%, 50%)", colorFormats: ["hex", "hsl", "rgb"] });
+    await wrapper.get("button.a_color_picker__toggle").trigger("click");
+    await flush();
+
+    const input = () => getPopup().querySelector(".a_color_picker__input input");
+    const switchButton = () => getPopup().querySelector(".a_color_picker__format");
+    expect(input().value).toBe("hsl(0, 100%, 50%)");
+    expect(switchButton().textContent).toBe("HSL");
+    expect(switchButton().getAttribute("aria-label")).toBe("_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_");
+
+    switchButton().click();
+    await flush();
+    expect(input().value).toBe("rgb(255, 0, 0)");
+    switchButton().click();
+    await flush();
+    expect(input().value).toBe("#ff0000");
+
+    [...getPopup().querySelectorAll("button")].find(button => button.textContent.includes("_A_COLOR_PICKER_CONFIRM_")).click();
+    await flush();
+    expect(wrapper.emitted("update:modelValue").at(-1)).toEqual(["#ff0000"]);
+    wrapper.unmount();
+  });
+
+  it("keeps the model text when nothing is changed", async() => {
+    const wrapper = mountPicker({ modelValue: "hsl(145, 63%, 29%)", colorFormats: ["hex", "hsl"] });
+    await wrapper.get("button.a_color_picker__toggle").trigger("click");
+    await flush();
+
+    expect(getPopup().querySelector(".a_color_picker__input input").value).toBe("hsl(145, 63%, 29%)");
+    [...getPopup().querySelectorAll("button")].find(button => button.textContent.includes("_A_COLOR_PICKER_CONFIRM_")).click();
+    await flush();
+    expect(wrapper.emitted("update:modelValue").at(-1)).toEqual(["hsl(145, 63%, 29%)"]);
+    wrapper.unmount();
+  });
+
+  it("uses the first format if the model format is not allowed and hides the switch for one format", async() => {
+    const wrapper = mountPicker({ modelValue: "#ff0000", colorFormats: ["rgb", "hsv"] });
+    await wrapper.get("button.a_color_picker__toggle").trigger("click");
+    await flush();
+    expect(getPopup().querySelector(".a_color_picker__input input").value).toBe("rgb(255, 0, 0)");
+    wrapper.unmount();
+
+    const single = mountPicker({ modelValue: "#ff0000", colorFormats: "hex" });
+    await single.get("button.a_color_picker__toggle").trigger("click");
+    await flush();
+    expect(getPopup().querySelector(".a_color_picker__format")).toBeNull();
+    single.unmount();
   });
 
   it("marks the selected predefined color", async() => {

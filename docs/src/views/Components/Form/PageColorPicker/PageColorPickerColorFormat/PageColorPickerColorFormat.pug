@@ -3,24 +3,18 @@ aloha-example(
   :code-js="codeJs"
   header="_A_COLOR_PICKER_GROUP_COLOR_FORMAT_HEADER_"
   description="_A_COLOR_PICKER_GROUP_COLOR_FORMAT_DESCRIPTION_"
-  :props="['color-format']"
+  :props="['color-formats']"
 )
   a-color-picker(
-    v-model="modelRgb"
-    color-format="rgb"
-    label="rgb"
+    v-model="model"
+    label="hex, rgb, hsl, hsv"
+    :color-formats="['hex', 'rgb', 'hsl', 'hsv']"
     :show-alpha="true"
   )
-  div.a_mb_3 model: {{ modelRgb }}
+  div.a_mb_3 model: {{ model }}
   a-color-picker(
-    v-model="modelHsl"
-    color-format="hsl"
-    label="hsl"
+    v-model="modelRgb"
+    color-formats="rgb"
+    label="rgb"
   )
-  div.a_mb_3 model: {{ modelHsl }}
-  a-color-picker(
-    v-model="modelHsv"
-    color-format="hsv"
-    label="hsv"
-  )
-  div model: {{ modelHsv }}
+  div model: {{ modelRgb }}

@@ -189,6 +189,21 @@ function parseFunction(text) {
 }
 
 /**
+ * Format of a color value: "hex", "rgb", "hsl", "hsv" or undefined.
+ */
+export function detectColorFormat(value) {
+  if (!isString(value)) {
+    return undefined;
+  }
+  const TEXT = value.trim().toLowerCase();
+  const MATCH = /^(rgb|hsl|hsv)a?\(/.exec(TEXT);
+  if (MATCH) {
+    return MATCH[1];
+  }
+  return parseHex(TEXT) ? "hex" : undefined;
+}
+
+/**
  * Parses hex (#rgb, #rgba, #rrggbb, #rrggbbaa), rgb(a), hsl(a) and hsv(a).
  * Returns { r, g, b, a } or undefined for an invalid value.
  */

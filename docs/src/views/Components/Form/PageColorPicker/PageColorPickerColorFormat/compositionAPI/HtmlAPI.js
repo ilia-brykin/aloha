@@ -1,23 +1,17 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-color-picker
-  v-model="modelRgb"
-  color-format="rgb"
-  label="rgb"
+  v-model="model"
+  label="hex, rgb, hsl, hsv"
+  :color-formats="['hex', 'rgb', 'hsl', 'hsv']"
   :show-alpha="true"
 ></a-color-picker>
-<div>model: {{ modelRgb }}</div>
+<div>model: {{ model }}</div>
 <a-color-picker
-  v-model="modelHsl"
-  color-format="hsl"
-  label="hsl"
+  v-model="modelRgb"
+  color-formats="rgb"
+  label="rgb"
 ></a-color-picker>
-<div>model: {{ modelHsl }}</div>
-<a-color-picker
-  v-model="modelHsv"
-  color-format="hsv"
-  label="hsv"
-></a-color-picker>
-<div>model: {{ modelHsv }}</div>`;
+<div>model: {{ modelRgb }}</div>`;
 
   return {
     codeHtml,

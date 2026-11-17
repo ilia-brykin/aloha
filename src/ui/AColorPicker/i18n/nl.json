@@ -4,6 +4,7 @@
   "_A_COLOR_PICKER_CONFIRM_": "OK",
   "_A_COLOR_PICKER_DIALOG_": "Kleur kiezen",
   "_A_COLOR_PICKER_EMPTY_": "Geen kleur geselecteerd",
+  "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_": "Kleurformaat {{format}}, wisselen naar {{next}}",
   "_A_COLOR_PICKER_HUE_": "Tint",
   "_A_COLOR_PICKER_INPUT_": "Kleurwaarde",
   "_A_COLOR_PICKER_INVALID_": "Ongeldige kleurwaarde. Toegestaan: #rrggbb, rgb(), hsl(), hsv().",

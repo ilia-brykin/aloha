@@ -4,6 +4,7 @@
   "_A_COLOR_PICKER_CONFIRM_": "OK",
   "_A_COLOR_PICKER_DIALOG_": "Вибір кольору",
   "_A_COLOR_PICKER_EMPTY_": "Колір не вибрано",
+  "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_": "Формат кольору {{format}}, перемкнути на {{next}}",
   "_A_COLOR_PICKER_HUE_": "Відтінок",
   "_A_COLOR_PICKER_INPUT_": "Значення кольору",
   "_A_COLOR_PICKER_INVALID_": "Неприпустиме значення кольору. Дозволено: #rrggbb, rgb(), hsl(), hsv().",
