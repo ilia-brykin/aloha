@@ -45,7 +45,7 @@ export default function ResizeAPI(props, {
     if (onlyMobile.value) {
       return;
     }
-    EventBus.$on("updateViewOnResize", resizeWindow);
+    EventBus.$off("updateViewOnResize", resizeWindow);
   };
 
   const initMenuOpenOrClose = () => {
