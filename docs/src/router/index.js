@@ -153,6 +153,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageJson/PageJson.vue"),
   },
   {
+    path: "/color-picker",
+    name: "PageColorPicker",
+    component: () => import("../views/Components/Form/PageColorPicker/PageColorPicker.vue"),
+  },
+  {
     path: "/switch",
     name: "PageSwitch",
     component: () => import("../views/Components/Form/PageSwitch/PageSwitch.vue"),

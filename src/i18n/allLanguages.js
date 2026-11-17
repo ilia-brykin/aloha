@@ -2,6 +2,7 @@ import AAlertI18n from "../AAlert/i18n/AAlertI18n";
 import ACarouselI18n from "../ACarousel/i18n/ACarouselI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
+import AColorPickerI18n from "../ui/AColorPicker/i18n/AColorPickerI18n";
 import ADatepickerI18n from "../ui/ADatepicker/i18n/ADatepickerI18n";
 import ADatepickerRangeI18n from "../ui/ADatepickerRange/i18n/ADatepickerRangeI18n";
 import ADisclosureI18n from "../ADisclosure/i18n/ADisclosureI18n";
@@ -55,6 +56,7 @@ export const ar = {
   ...ACarouselI18n.ar,
   ...ACheckboxI18n.ar,
   ...ACloakI18n.ar,
+  ...AColorPickerI18n.ar,
   ...ADatepickerI18n.ar,
   ...ADatepickerRangeI18n.ar,
   ...ADisclosureI18n.ar,
@@ -97,6 +99,7 @@ export const de = {
   ...ACarouselI18n.de,
   ...ACheckboxI18n.de,
   ...ACloakI18n.de,
+  ...AColorPickerI18n.de,
   ...ADatepickerI18n.de,
   ...ADatepickerRangeI18n.de,
   ...ADisclosureI18n.de,
@@ -139,6 +142,7 @@ export const en = {
   ...ACarouselI18n.en,
   ...ACheckboxI18n.en,
   ...ACloakI18n.en,
+  ...AColorPickerI18n.en,
   ...ADatepickerI18n.en,
   ...ADatepickerRangeI18n.en,
   ...ADisclosureI18n.en,
@@ -181,6 +185,7 @@ export const es = {
   ...ACarouselI18n.es,
   ...ACheckboxI18n.es,
   ...ACloakI18n.es,
+  ...AColorPickerI18n.es,
   ...ADatepickerI18n.es,
   ...ADatepickerRangeI18n.es,
   ...ADisclosureI18n.es,
@@ -223,6 +228,7 @@ export const fr = {
   ...ACarouselI18n.fr,
   ...ACheckboxI18n.fr,
   ...ACloakI18n.fr,
+  ...AColorPickerI18n.fr,
   ...ADatepickerI18n.fr,
   ...ADatepickerRangeI18n.fr,
   ...ADisclosureI18n.fr,
@@ -265,6 +271,7 @@ export const hr = {
   ...ACarouselI18n.hr,
   ...ACheckboxI18n.hr,
   ...ACloakI18n.hr,
+  ...AColorPickerI18n.hr,
   ...ADatepickerI18n.hr,
   ...ADatepickerRangeI18n.hr,
   ...ADisclosureI18n.hr,
@@ -307,6 +314,7 @@ export const it = {
   ...ACarouselI18n.it,
   ...ACheckboxI18n.it,
   ...ACloakI18n.it,
+  ...AColorPickerI18n.it,
   ...ADatepickerI18n.it,
   ...ADatepickerRangeI18n.it,
   ...ADisclosureI18n.it,
@@ -349,6 +357,7 @@ export const nl = {
   ...ACarouselI18n.nl,
   ...ACheckboxI18n.nl,
   ...ACloakI18n.nl,
+  ...AColorPickerI18n.nl,
   ...ADatepickerI18n.nl,
   ...ADatepickerRangeI18n.nl,
   ...ADisclosureI18n.nl,
@@ -391,6 +400,7 @@ export const pl = {
   ...ACarouselI18n.pl,
   ...ACheckboxI18n.pl,
   ...ACloakI18n.pl,
+  ...AColorPickerI18n.pl,
   ...ADatepickerI18n.pl,
   ...ADatepickerRangeI18n.pl,
   ...ADisclosureI18n.pl,
@@ -433,6 +443,7 @@ export const ru = {
   ...ACarouselI18n.ru,
   ...ACheckboxI18n.ru,
   ...ACloakI18n.ru,
+  ...AColorPickerI18n.ru,
   ...ADatepickerI18n.ru,
   ...ADatepickerRangeI18n.ru,
   ...ADisclosureI18n.ru,
@@ -475,6 +486,7 @@ export const uk = {
   ...ACarouselI18n.uk,
   ...ACheckboxI18n.uk,
   ...ACloakI18n.uk,
+  ...AColorPickerI18n.uk,
   ...ADatepickerI18n.uk,
   ...ADatepickerRangeI18n.uk,
   ...ADisclosureI18n.uk,

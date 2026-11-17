@@ -1,0 +1,13 @@
+{
+  "_A_COLOR_PICKER_ALPHA_": "Krycie",
+  "_A_COLOR_PICKER_CLEAR_": "Wyczyść",
+  "_A_COLOR_PICKER_CONFIRM_": "OK",
+  "_A_COLOR_PICKER_DIALOG_": "Wybierz kolor",
+  "_A_COLOR_PICKER_EMPTY_": "Nie wybrano koloru",
+  "_A_COLOR_PICKER_HUE_": "Odcień",
+  "_A_COLOR_PICKER_INPUT_": "Wartość koloru",
+  "_A_COLOR_PICKER_INVALID_": "Nieprawidłowa wartość koloru. Dozwolone: #rrggbb, rgb(), hsl(), hsv().",
+  "_A_COLOR_PICKER_PREDEFINE_": "Kolory predefiniowane",
+  "_A_COLOR_PICKER_SATURATION_": "Nasycenie i jasność",
+  "_A_COLOR_PICKER_SATURATION_VALUE_{{saturation}}_{{brightness}}_": "Nasycenie {{saturation}} %, jasność {{brightness}} %"
+}

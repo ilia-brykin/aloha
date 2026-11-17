@@ -1,0 +1,45 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_COLOR_PICKER_COMPONENT_DESCRIPTION_"
+    )
+
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_COLOR_PICKER_ACCESSIBILITY_DESCRIPTION_"
+    )
+
+    page-color-picker-basic
+
+    page-color-picker-show-alpha
+
+    page-color-picker-color-format
+
+    page-color-picker-predefine
+
+    page-color-picker-help-text
+
+    page-color-picker-errors
+
+    page-color-picker-disabled
+
+    page-color-picker-form
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )

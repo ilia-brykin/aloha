@@ -1,0 +1,13 @@
+{
+  "_A_COLOR_PICKER_ALPHA_": "Dekking",
+  "_A_COLOR_PICKER_CLEAR_": "Wissen",
+  "_A_COLOR_PICKER_CONFIRM_": "OK",
+  "_A_COLOR_PICKER_DIALOG_": "Kleur kiezen",
+  "_A_COLOR_PICKER_EMPTY_": "Geen kleur geselecteerd",
+  "_A_COLOR_PICKER_HUE_": "Tint",
+  "_A_COLOR_PICKER_INPUT_": "Kleurwaarde",
+  "_A_COLOR_PICKER_INVALID_": "Ongeldige kleurwaarde. Toegestaan: #rrggbb, rgb(), hsl(), hsv().",
+  "_A_COLOR_PICKER_PREDEFINE_": "Vooraf gedefinieerde kleuren",
+  "_A_COLOR_PICKER_SATURATION_": "Verzadiging en helderheid",
+  "_A_COLOR_PICKER_SATURATION_VALUE_{{saturation}}_{{brightness}}_": "Verzadiging {{saturation}} %, helderheid {{brightness}} %"
+}
