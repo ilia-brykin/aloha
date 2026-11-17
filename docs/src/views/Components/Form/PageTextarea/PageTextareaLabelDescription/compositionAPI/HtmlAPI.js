@@ -1,7 +1,7 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-textarea
   v-model="model"
-  :is-label-float="false"
+  label-position="top"
   label="Textarea"
   label-description="Aloha"
 ></a-textarea>`;

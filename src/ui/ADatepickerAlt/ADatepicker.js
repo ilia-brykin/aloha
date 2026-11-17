@@ -140,7 +140,13 @@ export default {
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: false,
+      default: undefined,
+    },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
     },
     formatSave: {
       type: String,
@@ -175,6 +181,8 @@ export default {
       isModel,
       onBlur,
       onFocus,
+      isLabelFloatLocal,
+      isLabelInset,
     } = UiAPI(props, context);
 
     const inputRef = ref(undefined);
@@ -187,6 +195,8 @@ export default {
     };
 
     return {
+      isLabelFloatLocal,
+      isLabelInset,
       componentStyleHide,
 
       ariaDescribedbyLocal,
@@ -733,7 +743,8 @@ export default {
     }, [
       h("div", {
         class: ["a_form_element__parent", {
-          a_form_element__parent_float: this.isLabelFloat,
+          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_inset: this.isLabelInset,
           a_form_element__parent_not_empty: this.isModel || this.isAutofill,
         }],
       }, [
@@ -744,7 +755,7 @@ export default {
           labelClass: this.labelClass,
           required: this.required,
           type: this.type,
-          isLabelFloat: this.isLabelFloat,
+          isLabelFloat: this.isLabelFloatLocal,
         }),
         h("div", {
           class: "a_form_element",

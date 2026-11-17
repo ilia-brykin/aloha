@@ -45,8 +45,6 @@
   "_A_UI_GROUP_IS_BUTTON_GROUP_HEADER_": "Knoppengroep",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">is-data-simple-array</strong> gebruikt om met een eenvoudige array van strings te werken. De gegevens worden aangeboden als een array van strings, waarbij elke string een afzonderlijk lijstitem is. Dit vereenvoudigt het weergeven en beheren van items zonder dat objecten nodig zijn.",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_HEADER_": "Eenvoudige gegevensarray",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">is-label-float</strong> gebruikt om het gedrag van het label in het invoerveld te beheren. Als de waarde van de prop op <strong lang=\"en\">false</strong> staat, blijft het label statisch. Als de waarde op <strong lang=\"en\">true</strong> staat, verplaatst het label zich boven het invoerveld wanneer de gebruiker begint te typen of wanneer het veld de focus krijgt.",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_HEADER_": "Zwevend label",
   "_A_UI_GROUP_IS_WIDTH_AUTO_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">is-width-auto</strong> gebruikt om de breedte van items te beheren. Bij <strong lang=\"en\">true</strong> past de breedte van de items zich automatisch aan hun inhoud aan. Bij <strong lang=\"en\">false</strong> is de breedte vast en wordt deze bepaald door stijlen of de bovenliggende container.",
   "_A_UI_GROUP_IS_WIDTH_AUTO_HEADER_": "Automatische breedte",
   "_A_UI_GROUP_KEY_DISABLED_DESCRIPTION_": "Dit voorbeeld laat zien hoe u <strong lang=\"en\">key-disabled</strong> gebruikt om specifieke items in de component uit te schakelen. Hiermee kunt u de beschikbaarheid van items flexibel beheren op basis van de gegevens.",
@@ -103,7 +101,7 @@
   "_A_UI_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Bepaalt of de gegevensarray een eenvoudige array van waarden is. Als de waarde op <strong lang=\"en\">true</strong> staat, wordt elk element van de array behandeld als een eenvoudige waarde zonder sleutels.",
   "_A_UI_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Toont de knop. Door erop te klikken worden alle items in de lijst gedeselecteerd.",
   "_A_UI_PROPS_IS_HIDE_DESCRIPTION_": "Bepaalt of de component moet worden verborgen. Als de waarde op <strong lang=\"en\">true</strong> staat, wordt de component niet op de pagina weergegeven.",
-  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Bepaalt of het label van de component boven het veld moet worden geplaatst. Bij <strong lang=\"en\">true</strong> verplaatst het label zich boven het tekstveld wanneer dit de focus heeft of inhoud bevat.",
+  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Bepaalt of het label van de component boven het veld moet worden geplaatst. Bij <strong lang=\"en\">true</strong> verplaatst het label zich boven het tekstveld wanneer dit de focus heeft of inhoud bevat. Verouderd, gebruik label-position.",
   "_A_UI_PROPS_IS_RENDER_DESCRIPTION_": "Geeft aan of de component moet worden gerenderd. Als de waarde op <strong lang=\"en\">false</strong> staat, wordt de component niet in de <strong lang=\"en\">DOM</strong> aangemaakt.",
   "_A_UI_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Toont de knop. Door erop te klikken worden automatisch alle items uit de lijst geselecteerd.",
   "_A_UI_PROPS_KEY_DISABLED_CALLBACK_DESCRIPTION_": "Een functie om te bepalen of een item moet worden uitgeschakeld. Retourneert <code>true</code> om een specifiek item uit te schakelen. Accepteert een object met itemgegevens: <code>{ item }</code>.",
@@ -162,5 +160,8 @@
   "_A_UI_URL_TEMPLATE_OPTIONS_": "Opties geladen vanaf de URL",
   "_A_UI_URL_TEMPLATE_NOTE_": "Notitie (niet gebruikt in de URL)",
   "_A_UI_URL_TEMPLATE_ADD_": "Waarde toevoegen",
-  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Object met waarden voor de <code>{{ path }}</code>-placeholders in <code>url</code>, inclusief geneste paden zoals <code>{{ source.file }}</code>. Gebruikt dezelfde placeholdersyntaxis als vertalingen. Het wijzigen van deze waarden laadt de opties opnieuw en wist de selectie alleen wanneer de opgeloste URL verandert. Heeft geen invloed op URL's zonder placeholders; queryparameters worden afzonderlijk doorgegeven via <code>url-params</code>."
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Object met waarden voor de <code>{{ path }}</code>-placeholders in <code>url</code>, inclusief geneste paden zoals <code>{{ source.file }}</code>. Gebruikt dezelfde placeholdersyntaxis als vertalingen. Het wijzigen van deze waarden laadt de opties opnieuw en wist de selectie alleen wanneer de opgeloste URL verandert. Heeft geen invloed op URL's zonder placeholders; queryparameters worden afzonderlijk doorgegeven via <code>url-params</code>.",
+  "_A_UI_LABEL_POSITION_HEADER_": "Positie van het label",
+  "_A_UI_LABEL_POSITION_DESCRIPTION_": "<strong lang=\"en\">label-position</strong> bepaalt waar het label wordt getoond: <code lang=\"en\">\"float\"</code> – in het lege veld, bij focus of met een waarde gaat het naar de rand; <code lang=\"en\">\"inset\"</code> – altijd in het veld, klein boven de waarde; <code lang=\"en\">\"top\"</code> – boven het veld. De standaard voor alle formulierelementen stelt u in met <strong lang=\"en\">AFormPlugin</strong> (<code lang=\"en\">labelPosition</code>). <strong lang=\"en\">is-label-float</strong> werkt nog, maar is verouderd.",
+  "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_": "Positie van het label: \"float\", \"inset\" of \"top\". De standaard komt uit de plugin van de component of uit AFormPlugin (labelPosition)."
 }

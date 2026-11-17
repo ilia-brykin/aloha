@@ -6,12 +6,14 @@ import {
 } from "vue";
 
 import UiErrorsAPI from "./UiErrorsAPI";
+import UiLabelPositionAPI from "./UiLabelPositionAPI";
 
 import {
   isUndefined,
 } from "lodash-es";
 
 export default function UiAPI(props, { emit }, {
+  pluginOptions,
   setFocus = () => {},
 } = {}) {
   const change = toRef(props, "change");
@@ -21,10 +23,17 @@ export default function UiAPI(props, { emit }, {
   const htmlId = toRef(props, "htmlId");
   const id = toRef(props, "id");
   const idPrefix = toRef(props, "idPrefix");
-  const isLabelFloat = toRef(props, "isLabelFloat");
   const labelDescription = toRef(props, "labelDescription");
   const modelUndefined = toRef(props, "modelUndefined");
   const modelValue = toRef(props, "modelValue");
+
+  const {
+    isLabelFloatLocal,
+    isLabelInset,
+    labelPositionLocal,
+  } = UiLabelPositionAPI(props, {
+    pluginOptions,
+  });
 
   const isFocus = ref(false);
   const isFocusIn = ref(false);
@@ -91,7 +100,7 @@ export default function UiAPI(props, { emit }, {
 
   const ariaDescribedbyLocal = computed(() => {
     const ariaDescribedby = [];
-    if (labelDescription.value && !isLabelFloat.value) {
+    if (labelDescription.value && !isLabelFloatLocal.value) {
       ariaDescribedby.push(labelDescriptionId.value);
     }
     if (helpText.value) {
@@ -167,8 +176,11 @@ export default function UiAPI(props, { emit }, {
     isErrors,
     isFocus,
     isFocusIn,
+    isLabelFloatLocal,
+    isLabelInset,
     isModel,
     labelDescriptionId,
+    labelPositionLocal,
     onBlur,
     onFocus,
     onFocusin,

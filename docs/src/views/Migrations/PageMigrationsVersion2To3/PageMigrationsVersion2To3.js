@@ -16,6 +16,7 @@ export default {
   setup() {
     const {
       codeBtnClose,
+      codeLabelPosition,
       codeConfigAfter,
       codeConfigBefore,
       codeRgb,
@@ -23,6 +24,7 @@ export default {
 
     return {
       codeBtnClose,
+      codeLabelPosition,
       codeConfigAfter,
       codeConfigBefore,
       codeRgb,

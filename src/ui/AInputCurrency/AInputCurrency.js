@@ -194,7 +194,13 @@ export default {
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: () => AInputCurrencyPluginOptions.propsDefault.isLabelFloat,
+      default: undefined,
+    },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
     },
     isRender: {
       type: Boolean,
@@ -342,7 +348,11 @@ export default {
       labelDescriptionId,
       onBlur,
       onFocus,
-    } = UiAPI(props, context);
+      isLabelFloatLocal,
+      isLabelInset,
+    } = UiAPI(props, context, {
+      pluginOptions: AInputCurrencyPluginOptions,
+    });
 
     const {
       isClearButtonLocal,
@@ -422,6 +432,8 @@ export default {
     const hasErrorIcon = computed(() => !!(isErrors.value && errorIcon.value));
 
     return {
+      isLabelFloatLocal,
+      isLabelInset,
       ariaDescribedbyLocal,
       attributesToExcludeFromRender,
       clearModel,
@@ -485,18 +497,19 @@ export default {
         h("div", {
           class: ["a_form_element__parent", {
             a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
-            a_form_element__parent_float: this.isLabelFloat,
+            a_form_element__parent_float: this.isLabelFloatLocal,
+            a_form_element__parent_inset: this.isLabelInset,
             a_form_element__parent_not_empty: this.isModel,
             a_form_element__parent_float_has_icon_prepend: this.iconPrepend,
             a_form_element__parent_float_has_two_icons_prepend: this.iconPrepend && this.hasErrorIcon,
             a_form_element__parent_invalid: this.isErrors,
           }],
         }, [
-          ((this.label || this.labelScreenReader) && !this.isLabelFloat) ?
+          ((this.label || this.labelScreenReader) && !this.isLabelFloatLocalLocal) ?
             h(ALabel, {
               id: this.htmlIdLocal,
               extra: this.extra,
-              isLabelFloat: this.isLabelFloat,
+              isLabelFloat: this.isLabelFloatLocal,
               isError: this.isErrors,
               label: this.label,
               labelClass: this.labelClass,
@@ -510,7 +523,7 @@ export default {
             alwaysTranslate: this.alwaysTranslate,
             html: this.labelDescription,
             extra: this.extra,
-            isLabelFloat: this.isLabelFloat,
+            isLabelFloat: this.isLabelFloatLocal,
           }),
           h("div", {
             class: [
@@ -529,11 +542,11 @@ export default {
                 ...this.inputWidthStyleValue,
               },
             }, [
-              ((this.label || this.labelScreenReader) && this.isLabelFloat) ?
+              ((this.label || this.labelScreenReader) && this.isLabelFloatLocal) ?
                 h(ALabel, {
                   id: this.htmlIdLocal,
                   extra: this.extra,
-                  isLabelFloat: this.isLabelFloat,
+                  isLabelFloat: this.isLabelFloatLocal,
                   isError: this.isErrors,
                   label: this.label,
                   labelClass: this.labelClass,

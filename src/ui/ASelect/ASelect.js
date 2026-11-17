@@ -259,7 +259,13 @@ export default {
     isLabelFloat: {
       type: Boolean,
       required: false,
-      default: true,
+      default: undefined,
+    },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: undefined,
+      validator: value => ["float", "inset", "top"].indexOf(value) !== -1,
     },
     isRender: {
       type: Boolean,
@@ -572,6 +578,8 @@ export default {
       labelDescriptionId,
       onBlur,
       onFocus,
+      isLabelFloatLocal,
+      isLabelInset,
     } = UiAPI(props, context);
 
     const hasErrorIcon = computed(() => !!(isErrors.value && errorIcon.value));
@@ -912,6 +920,8 @@ export default {
     });
 
     return {
+      isLabelFloatLocal,
+      isLabelInset,
       ariaDescribedbyLocal,
       ariaLabelledby,
       attributesToExcludeFromRender,
@@ -1119,7 +1129,8 @@ export default {
         class: ["a_form_element__parent", {
           a_form_element__parent_float_has_error_icon: this.hasErrorIcon,
           a_select__parent_has_error_icon: this.hasErrorIcon,
-          a_form_element__parent_float: this.isLabelFloat,
+          a_form_element__parent_float: this.isLabelFloatLocal,
+          a_form_element__parent_inset: this.isLabelInset,
           a_form_element__parent_not_empty: this.isModelValue || this.isOpen,
         }],
       }, [
@@ -1127,7 +1138,7 @@ export default {
           id: this.htmlIdLocal,
           alwaysTranslate: this.alwaysTranslate,
           extra: this.extra,
-          isLabelFloat: this.isLabelFloat,
+          isLabelFloat: this.isLabelFloatLocal,
           label: this.label,
           labelClass: this.labelClass,
           labelScreenReader: this.labelScreenReader,
@@ -1141,7 +1152,7 @@ export default {
           alwaysTranslate: this.alwaysTranslate,
           html: this.labelDescription,
           extra: this.extra,
-          isLabelFloat: this.isLabelFloat,
+          isLabelFloat: this.isLabelFloatLocal,
         }),
         h("div", {
           class: "a_form_element",

@@ -1,7 +1,7 @@
 export default function HtmlAPI() {
   const codeHtml = `<a-input-currency
   v-model="model"
-  :is-label-float="false"
+  label-position="top"
   label="Input"
   label-description="Aloha"
 ></a-input-currency>

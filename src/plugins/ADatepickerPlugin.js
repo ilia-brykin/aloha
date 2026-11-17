@@ -15,7 +15,8 @@ export const ADatepickerPluginOptions = {
     inputAttr: {},
     inputClass: "a_datepicker__input",
     inputName: "date",
-    isLabelFloat: false,
+    // undefined: the default of AFormPlugin ("float") is used
+    labelPosition: undefined,
     maxDate: undefined,
     minDate: undefined,
     minuteStep: 0,

@@ -8,6 +8,7 @@ import PageSelectGroup from "./PageSelectGroup/PageSelectGroup.vue";
 import PageSelectKeyDisabled from "./PageSelectKeyDisabled/PageSelectKeyDisabled.vue";
 import PageSelectLabelDescription from "./PageSelectLabelDescription/PageSelectLabelDescription.vue";
 import PageSelectLabelNotFound from "./PageSelectLabelNotFound/PageSelectLabelNotFound.vue";
+import PageSelectLabelPosition from "./PageSelectLabelPosition/PageSelectLabelPosition.vue";
 import PageSelectModeOnePerGroup from "./PageSelectModeOnePerGroup/PageSelectModeOnePerGroup.vue";
 import PageSelectReadonly from "./PageSelectReadonly/PageSelectReadonly.vue";
 import PageSelectRetrieve from "./PageSelectRetrieve/PageSelectRetrieve.vue";
@@ -37,6 +38,7 @@ export default {
     ASelect,
     ATranslation,
     PageSelectBasic,
+    PageSelectLabelPosition,
     PageSelectDataExtra,
     PageSelectErrorIcon,
     PageSelectExclusiveOption,

@@ -4,6 +4,7 @@ import AlohaTableTranslate from "../../../../global/components/AlohaTableTransla
 import PageInputNumberBasic from "./PageInputNumberBasic/PageInputNumberBasic.vue";
 import PageInputNumberErrorIcon from "./PageInputNumberErrorIcon/PageInputNumberErrorIcon.vue";
 import PageInputNumberLabelDescription from "./PageInputNumberLabelDescription/PageInputNumberLabelDescription.vue";
+import PageInputNumberLabelPosition from "./PageInputNumberLabelPosition/PageInputNumberLabelPosition.vue";
 import PageInputNumberReadonly from "./PageInputNumberReadonly/PageInputNumberReadonly.vue";
 import {
   AInputNumber,
@@ -24,6 +25,7 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageInputNumberBasic,
+    PageInputNumberLabelPosition,
     PageInputNumberErrorIcon,
     PageInputNumberLabelDescription,
     PageInputNumberReadonly,

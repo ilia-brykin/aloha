@@ -45,8 +45,6 @@
   "_A_UI_GROUP_IS_BUTTON_GROUP_HEADER_": "مجموعة الأزرار",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">is-data-simple-array</strong> للعمل مع مصفوفة بسيطة من السلاسل النصية. البيانات مقدمة كمصفوفة من السلاسل النصية، حيث أن كل سلسلة تمثل عنصرًا منفردًا في القائمة. يبسط هذا عملية عرض وإدارة العناصر دون الحاجة إلى استخدام الكائنات.",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_HEADER_": "مصفوفة بيانات بسيطة",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">is-label-float</strong> للتحكم في سلوك التسمية في حقل الإدخال. إذا تم تعيين قيمة الخاصية إلى <strong lang=\"en\">false</strong>، تظل التسمية ثابتة. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، تتحرك التسمية فوق حقل الإدخال عندما يبدأ المستخدم في الكتابة أو عندما يحصل الحقل على التركيز.",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_HEADER_": "التسمية العائمة",
   "_A_UI_GROUP_IS_WIDTH_AUTO_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">is-width-auto</strong> للتحكم في عرض العناصر. عند تعيينها إلى <strong lang=\"en\">true</strong>، يتم تعديل عرض العناصر تلقائيًا وفقًا لمحتواها. عند تعيينها إلى <strong lang=\"en\">false</strong>، يكون العرض ثابتًا ويتم تحديده بواسطة الأنماط أو حاوية الوالد.",
   "_A_UI_GROUP_IS_WIDTH_AUTO_HEADER_": "العرض التلقائي",
   "_A_UI_GROUP_KEY_DISABLED_DESCRIPTION_": "يوضح هذا المثال كيفية استخدام <strong lang=\"en\">key-disabled</strong> لتعطيل عناصر معينة في المكون. يتيح هذا التحكم المرن في توفر العناصر بناءً على البيانات.",
@@ -103,7 +101,7 @@
   "_A_UI_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "يحدد ما إذا كانت مصفوفة البيانات هي مصفوفة بسيطة من القيم. إذا تم تعيينه على <strong lang=\"en\">true</strong>، سيتم اعتبار كل عنصر من عناصر المصفوفة كقيمة بسيطة بدون مفاتيح.",
   "_A_UI_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "عرض الزر. عند النقر، يتم إلغاء تحديد جميع العناصر في القائمة.",
   "_A_UI_PROPS_IS_HIDE_DESCRIPTION_": "يحدد ما إذا كان يجب إخفاء المكون. إذا تم تعيينه على <strong lang=\"en\">true</strong>، فلن يتم عرض المكون على الصفحة.",
-  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "يحدد ما إذا كانت تسمية المكون يجب أن تكون فوق الحقل. إذا كان <strong lang=\"en\">true</strong>، فستتحرك التسمية فوق حقل النص عند التركيز أو عند وجود محتوى.",
+  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "يحدد ما إذا كانت تسمية المكون يجب أن تكون فوق الحقل. إذا كان <strong lang=\"en\">true</strong>، فستتحرك التسمية فوق حقل النص عند التركيز أو عند وجود محتوى. مهمل، استخدم label-position.",
   "_A_UI_PROPS_IS_RENDER_DESCRIPTION_": "يشير إلى ما إذا كان يجب عرض المكون. إذا تم تعيينه على <strong lang=\"en\">false</strong>، فلن يتم إنشاء المكون في <strong lang=\"en\">DOM</strong>.",
   "_A_UI_PROPS_IS_SELECT_ALL_DESCRIPTION_": "عرض الزر. عند النقر، يتم تحديد جميع العناصر تلقائيًا من القائمة.",
   "_A_UI_PROPS_KEY_DISABLED_CALLBACK_DESCRIPTION_": "دالة لتحديد ما إذا كان يجب تعطيل عنصر ما. تُرجع <code>true</code> لتعطيل عنصر معين. تقبل كائنًا يحتوي على بيانات العنصر: <code>{ item }</code>.",
@@ -162,5 +160,8 @@
   "_A_UI_URL_TEMPLATE_OPTIONS_": "الخيارات المُحمّلة من عنوان URL",
   "_A_UI_URL_TEMPLATE_NOTE_": "ملاحظة (لا تُستخدم في عنوان URL)",
   "_A_UI_URL_TEMPLATE_ADD_": "إضافة قيمة",
-  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "كائن يحتوي على قيم العناصر النائبة <code>{{ path }}</code> في <code>url</code>، بما في ذلك المسارات المتداخلة مثل <code>{{ source.file }}</code>. يستخدم الصيغة نفسها المستخدمة في الترجمات. يؤدي تغيير هذه القيم إلى إعادة تحميل الخيارات ومسح التحديد فقط عند تغيّر عنوان URL الناتج. لا يؤثر في العناوين التي لا تحتوي على عناصر نائبة؛ وتُمرّر معاملات الاستعلام بشكل منفصل عبر <code>url-params</code>."
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "كائن يحتوي على قيم العناصر النائبة <code>{{ path }}</code> في <code>url</code>، بما في ذلك المسارات المتداخلة مثل <code>{{ source.file }}</code>. يستخدم الصيغة نفسها المستخدمة في الترجمات. يؤدي تغيير هذه القيم إلى إعادة تحميل الخيارات ومسح التحديد فقط عند تغيّر عنوان URL الناتج. لا يؤثر في العناوين التي لا تحتوي على عناصر نائبة؛ وتُمرّر معاملات الاستعلام بشكل منفصل عبر <code>url-params</code>.",
+  "_A_UI_LABEL_POSITION_HEADER_": "موضع التسمية",
+  "_A_UI_LABEL_POSITION_DESCRIPTION_": "<strong lang=\"en\">label-position</strong> يحدد مكان عرض التسمية: <code lang=\"en\">\"float\"</code> – داخل الحقل الفارغ، وتنتقل إلى الإطار عند التركيز أو عند وجود قيمة؛ <code lang=\"en\">\"inset\"</code> – دائمًا داخل الحقل، بخط صغير فوق القيمة؛ <code lang=\"en\">\"top\"</code> – فوق الحقل. تُضبط القيمة الافتراضية لجميع عناصر النموذج عبر <strong lang=\"en\">AFormPlugin</strong> (<code lang=\"en\">labelPosition</code>). لا يزال <strong lang=\"en\">is-label-float</strong> يعمل لكنه مهمل.",
+  "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_": "موضع التسمية: \"float\" أو \"inset\" أو \"top\". تأتي القيمة الافتراضية من إضافة المكوّن أو من AFormPlugin (labelPosition)."
 }

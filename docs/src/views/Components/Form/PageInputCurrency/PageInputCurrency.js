@@ -10,7 +10,7 @@ import PageInputCurrencyErrorIcon from "./PageInputCurrencyErrorIcon/PageInputCu
 import PageInputCurrencyErrors from "./PageInputCurrencyErrors/PageInputCurrencyErrors.vue";
 import PageInputCurrencyHelpText from "./PageInputCurrencyHelpText/PageInputCurrencyHelpText.vue";
 import PageInputCurrencyLabelDescription from "./PageInputCurrencyLabelDescription/PageInputCurrencyLabelDescription.vue";
-import PageInputCurrencyLabelFloat from "./PageInputCurrencyLabelFloat/PageInputCurrencyLabelFloat.vue";
+import PageInputCurrencyLabelPosition from "./PageInputCurrencyLabelPosition/PageInputCurrencyLabelPosition.vue";
 import PageInputCurrencyLabelScreenReader from "./PageInputCurrencyLabelScreenReader/PageInputCurrencyLabelScreenReader.vue";
 import PageInputCurrencyMaxMin from "./PageInputCurrencyMaxMin/PageInputCurrencyMaxMin.vue";
 import PageInputCurrencyModelType from "./PageInputCurrencyModelType/PageInputCurrencyModelType.vue";
@@ -35,6 +35,7 @@ export default {
     AlohaTableTranslate,
     ATranslation,
     PageInputCurrencyBasic,
+    PageInputCurrencyLabelPosition,
     PageInputCurrencyChange,
     PageInputCurrencyControlsType,
     PageInputCurrencyDecimalDivider,
@@ -43,7 +44,6 @@ export default {
     PageInputCurrencyErrors,
     PageInputCurrencyHelpText,
     PageInputCurrencyLabelDescription,
-    PageInputCurrencyLabelFloat,
     PageInputCurrencyLabelScreenReader,
     PageInputCurrencyMaxMin,
     PageInputCurrencyModelType,

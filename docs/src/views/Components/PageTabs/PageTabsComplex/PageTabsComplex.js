@@ -126,7 +126,7 @@ export default {
           data: APlacements,
           isDataSimpleArray: true,
           deselectable: false,
-          isLabelFloat: false,
+          labelPosition: "top",
         },
         {
           id: "deleteTabs",
@@ -139,7 +139,7 @@ export default {
               label: "_A_TABS_TAB_",
               type: "select",
               data: data.value,
-              isLabelFloat: false,
+              labelPosition: "top",
               keyLabel: "label",
               keyId: "id",
               search: true,
@@ -160,7 +160,7 @@ export default {
               id: "addTab",
               label: "_A_TABS_TAB_",
               type: "text",
-              isLabelFloat: false,
+              labelPosition: "top",
             },
             {
               type: "template",

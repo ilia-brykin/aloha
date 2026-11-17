@@ -45,8 +45,6 @@
   "_A_UI_GROUP_IS_BUTTON_GROUP_HEADER_": "Button group",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">is-data-simple-array</strong> to work with a simple array of strings. The data is presented as an array of strings, where each string is a separate list item. This simplifies the process of displaying and managing items without the need for objects.",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_HEADER_": "Simple data array",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_DESCRIPTION_": "This example shows how to use <strong lang=\"en\">is-label-float</strong> to control the behavior of the label in the input field. If the prop value is set to <strong lang=\"en\">false</strong>, the label remains static. If the value is set to <strong lang=\"en\">true</strong>, the label moves above the input field when the user starts typing or when the field receives focus.",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_HEADER_": "Floating label",
   "_A_UI_GROUP_IS_WIDTH_AUTO_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">is-width-auto</strong> to control the width of items. When set to <strong lang=\"en\">true</strong>, the width of items automatically adjusts to their content. When set to <strong lang=\"en\">false</strong>, the width is fixed and determined by styles or the parent container.",
   "_A_UI_GROUP_IS_WIDTH_AUTO_HEADER_": "Auto width",
   "_A_UI_GROUP_KEY_DISABLED_DESCRIPTION_": "This example demonstrates how to use <strong lang=\"en\">key-disabled</strong> to disable specific items in the component. This allows flexible control over the availability of items based on the data.",
@@ -103,7 +101,7 @@
   "_A_UI_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Determines whether the data array is a simple array of values. If set to <strong lang=\"en\">true</strong>, each element of the array will be treated as a simple value without keys.",
   "_A_UI_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Display the button. Clicking it will deselect all items in the list.",
   "_A_UI_PROPS_IS_HIDE_DESCRIPTION_": "Determines whether the component should be hidden. If set to <strong lang=\"en\">true</strong>, the component is not displayed on the page.",
-  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Determines whether the label of the component should be positioned above the field. If <strong lang=\"en\">true</strong>, the label will move above the text field when focused or when content is present.",
+  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Determines whether the label of the component should be positioned above the field. If <strong lang=\"en\">true</strong>, the label will move above the text field when focused or when content is present. Deprecated, use label-position.",
   "_A_UI_PROPS_IS_RENDER_DESCRIPTION_": "Indicates whether the component should be rendered. If set to <strong lang=\"en\">false</strong>, the component will not be created in the <strong lang=\"en\">DOM</strong>.",
   "_A_UI_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Display the button. Clicking it will automatically select all items from the list.",
   "_A_UI_PROPS_KEY_DISABLED_CALLBACK_DESCRIPTION_": "A function to determine whether an item should be disabled. Returns <code>true</code> to disable a specific item. Accepts an object with item data: <code>{ item }</code>.",
@@ -162,5 +160,8 @@
   "_A_UI_URL_TEMPLATE_OPTIONS_": "Options loaded from the URL",
   "_A_UI_URL_TEMPLATE_NOTE_": "Note (not used in the URL)",
   "_A_UI_URL_TEMPLATE_ADD_": "Add value",
-  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Object with values for <code>{{ path }}</code> placeholders in <code>url</code>, including nested paths such as <code>{{ source.file }}</code>. Uses the same placeholder syntax as translations. Changing these values reloads the options and clears the selection only when the resolved URL changes. Does not affect URLs without placeholders; query parameters are passed separately via <code>url-params</code>."
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Object with values for <code>{{ path }}</code> placeholders in <code>url</code>, including nested paths such as <code>{{ source.file }}</code>. Uses the same placeholder syntax as translations. Changing these values reloads the options and clears the selection only when the resolved URL changes. Does not affect URLs without placeholders; query parameters are passed separately via <code>url-params</code>.",
+  "_A_UI_LABEL_POSITION_HEADER_": "Label position",
+  "_A_UI_LABEL_POSITION_DESCRIPTION_": "<strong lang=\"en\">label-position</strong> sets where the label is shown: <code lang=\"en\">\"float\"</code> – inside the empty field, it moves to the border on focus or with a value; <code lang=\"en\">\"inset\"</code> – always inside the field, small above the value; <code lang=\"en\">\"top\"</code> – above the field. The default for all form elements is set with <strong lang=\"en\">AFormPlugin</strong> (<code lang=\"en\">labelPosition</code>). <strong lang=\"en\">is-label-float</strong> still works, but is deprecated.",
+  "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_": "Position of the label: \"float\", \"inset\" or \"top\". The default comes from the component plugin or AFormPlugin (labelPosition)."
 }

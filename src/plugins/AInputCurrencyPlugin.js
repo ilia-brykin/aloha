@@ -8,7 +8,8 @@ export const AInputCurrencyPluginOptions = {
     iconPrepend: undefined,
     inputWidth: 200,
     integerPartMaxLength: 15,
-    isLabelFloat: false,
+    // undefined: the default of AFormPlugin ("float") is used
+    labelPosition: undefined,
     max: 999999999999999,
     min: undefined,
     modelUndefined: undefined,

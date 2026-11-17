@@ -319,7 +319,7 @@ export default {
                         data: this.filtersHidden,
                         hasCaret: false,
                         disabled: !this.filtersHidden.length,
-                        isLabelFloat: false,
+                        labelPosition: "top",
                         keyGroup: "group",
                         keyId: "id",
                         keyLabel: "label",

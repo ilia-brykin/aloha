@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_UI_LABEL_POSITION_HEADER_"
+  description="_A_UI_LABEL_POSITION_DESCRIPTION_"
+  :props="['label-position']"
+)
+  .a_columns.a_columns_count_12
+    .a_column.a_column_4.a_columns_count_12_touch(
+      v-for="position in labelPositions"
+      :key="position"
+    )
+      a-select-style(
+        v-model="model"
+        :label="`label-position: ${ position }`"
+        :label-position="position"
+        type="select"
+      )
+  div model: {{ model }}

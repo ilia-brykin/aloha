@@ -57,6 +57,7 @@ export const AMultiselectOrderedPluginOptions = {
     selectInBody: true,
     selectIsCloseByClick: false,
     selectIsLabelFloat: true,
+    selectLabelPosition: undefined,
     selectIsSelectionCloseable: true,
     selectLabel: "_A_MULTISELECT_ORDERED_LABEL_SELECT_",
     selectLabelClass: undefined,

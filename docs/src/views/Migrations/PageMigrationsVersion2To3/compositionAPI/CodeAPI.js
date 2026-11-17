@@ -30,8 +30,31 @@ h(AButton, {
   textScreenReader: "_CLOSE_",
 });`;
 
+  const codeLabelPosition = `<!-- 2.x -->
+<a-input label="Name" :is-label-float="true"></a-input>
+<a-input label="Name" :is-label-float="false"></a-input>
+
+<!-- 3.x -->
+<a-input label="Name" label-position="float"></a-input>
+<a-input label="Name" label-position="top"></a-input>
+<!-- new: the label stays inside the field, small above the value -->
+<a-input label="Name" label-position="inset"></a-input>
+
+// default for all form elements ("float" if not set)
+app.use(AFormPlugin, {
+  labelPosition: "inset",
+});
+
+// 2.x look of AInputNumber, AInputCurrency and ADatepicker (label above the field)
+app.use(AInputNumberPlugin, {
+  propsDefault: {
+    labelPosition: "top",
+  },
+});`;
+
   return {
     codeBtnClose,
+    codeLabelPosition,
     codeConfigAfter,
     codeConfigBefore,
     codeRgb,

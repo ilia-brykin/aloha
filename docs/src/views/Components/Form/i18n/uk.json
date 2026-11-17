@@ -45,8 +45,6 @@
   "_A_UI_GROUP_IS_BUTTON_GROUP_HEADER_": "Група кнопок",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Цей приклад демонструє, як використовувати <strong lang=\"en\">is-data-simple-array</strong> для роботи з простим масивом рядків. Дані подано як масив рядків, де кожен рядок є окремим елементом списку. Це спрощує відображення та керування елементами без потреби в об'єктах.",
   "_A_UI_GROUP_IS_DATA_SIMPLE_ARRAY_HEADER_": "Простий масив даних",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_DESCRIPTION_": "Цей приклад показує, як використовувати <strong lang=\"en\">is-label-float</strong> для керування поведінкою мітки в полі введення. Якщо значення пропса встановлено в <strong lang=\"en\">false</strong>, мітка залишається статичною. Якщо значення встановлено в <strong lang=\"en\">true</strong>, мітка переміщується над полем введення, коли користувач починає вводити текст або коли поле отримує фокус.",
-  "_A_UI_GROUP_IS_LABEL_FLOAT_HEADER_": "Плаваюча мітка",
   "_A_UI_GROUP_IS_WIDTH_AUTO_DESCRIPTION_": "Цей приклад демонструє, як використовувати <strong lang=\"en\">is-width-auto</strong> для керування шириною елементів. Якщо встановлено <strong lang=\"en\">true</strong>, ширина елементів автоматично підлаштовується під їхній вміст. Якщо встановлено <strong lang=\"en\">false</strong>, ширина фіксована й визначається стилями або батьківським контейнером.",
   "_A_UI_GROUP_IS_WIDTH_AUTO_HEADER_": "Автоматична ширина",
   "_A_UI_GROUP_KEY_DISABLED_DESCRIPTION_": "Цей приклад демонструє, як використовувати <strong lang=\"en\">key-disabled</strong> для вимкнення окремих елементів у компоненті. Це дає змогу гнучко керувати доступністю елементів на основі даних.",
@@ -103,7 +101,7 @@
   "_A_UI_PROPS_IS_DATA_SIMPLE_ARRAY_DESCRIPTION_": "Визначає, чи є масив даних простим масивом значень. Якщо встановлено <strong lang=\"en\">true</strong>, кожен елемент масиву розглядатиметься як просте значення без ключів.",
   "_A_UI_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "Відображати кнопку. Натискання на неї скасує вибір усіх елементів у списку.",
   "_A_UI_PROPS_IS_HIDE_DESCRIPTION_": "Визначає, чи слід приховати компонент. Якщо встановлено <strong lang=\"en\">true</strong>, компонент не відображається на сторінці.",
-  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Визначає, чи має мітка компонента розташовуватися над полем. Якщо <strong lang=\"en\">true</strong>, мітка переміщуватиметься над текстовим полем під час фокусування або за наявності вмісту.",
+  "_A_UI_PROPS_IS_LABEL_FLOAT_DESCRIPTION_": "Визначає, чи має мітка компонента розташовуватися над полем. Якщо <strong lang=\"en\">true</strong>, мітка переміщуватиметься над текстовим полем під час фокусування або за наявності вмісту. Застарів, використовуйте label-position.",
   "_A_UI_PROPS_IS_RENDER_DESCRIPTION_": "Вказує, чи слід рендерити компонент. Якщо встановлено <strong lang=\"en\">false</strong>, компонент не буде створено в <strong lang=\"en\">DOM</strong>.",
   "_A_UI_PROPS_IS_SELECT_ALL_DESCRIPTION_": "Відображати кнопку. Натискання на неї автоматично вибере всі елементи зі списку.",
   "_A_UI_PROPS_KEY_DISABLED_CALLBACK_DESCRIPTION_": "Функція для визначення, чи слід вимкнути елемент. Повертає <code>true</code>, щоб вимкнути конкретний елемент. Приймає об'єкт із даними елемента: <code>{ item }</code>.",
@@ -162,5 +160,8 @@
   "_A_UI_URL_TEMPLATE_OPTIONS_": "Варіанти, завантажені за URL",
   "_A_UI_URL_TEMPLATE_NOTE_": "Нотатка (не використовується в URL)",
   "_A_UI_URL_TEMPLATE_ADD_": "Додати значення",
-  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Об’єкт зі значеннями для заповнювачів <code>{{ path }}</code> у <code>url</code>, зокрема вкладених шляхів, наприклад <code>{{ source.file }}</code>. Використовується той самий синтаксис, що й у перекладах. Зміна цих значень перезавантажує варіанти та скидає вибір лише тоді, коли змінюється кінцевий URL. Не впливає на URL без заповнювачів; параметри запиту передаються окремо через <code>url-params</code>."
+  "_A_UI_PROPS_URL_TEMPLATE_DATA_DESCRIPTION_": "Об’єкт зі значеннями для заповнювачів <code>{{ path }}</code> у <code>url</code>, зокрема вкладених шляхів, наприклад <code>{{ source.file }}</code>. Використовується той самий синтаксис, що й у перекладах. Зміна цих значень перезавантажує варіанти та скидає вибір лише тоді, коли змінюється кінцевий URL. Не впливає на URL без заповнювачів; параметри запиту передаються окремо через <code>url-params</code>.",
+  "_A_UI_LABEL_POSITION_HEADER_": "Положення підпису",
+  "_A_UI_LABEL_POSITION_DESCRIPTION_": "<strong lang=\"en\">label-position</strong> визначає, де показується підпис: <code lang=\"en\">\"float\"</code> — усередині порожнього поля, під час фокусу або зі значенням піднімається на рамку; <code lang=\"en\">\"inset\"</code> — завжди всередині поля, дрібно над значенням; <code lang=\"en\">\"top\"</code> — над полем. Значення за замовчуванням для всіх елементів форми задається в <strong lang=\"en\">AFormPlugin</strong> (<code lang=\"en\">labelPosition</code>). <strong lang=\"en\">is-label-float</strong> і далі працює, але застарів.",
+  "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_": "Положення підпису: \"float\", \"inset\" або \"top\". Значення за замовчуванням береться з плагіна компонента або з AFormPlugin (labelPosition)."
 }

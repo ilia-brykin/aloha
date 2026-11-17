@@ -1,6 +1,13 @@
 export default function PropsAPI() {
   const dataProps = [
     {
+      name: "label-position",
+      description: "_A_UI_PROPS_LABEL_POSITION_DESCRIPTION_",
+      type: "\"float\" / \"inset\" / \"top\"",
+      default: "\"float\"",
+      required: false,
+    },
+    {
       name: "merge-data",
       description: "_A_UI_PROPS_MERGE_DATA_DESCRIPTION_",
       type: "Boolean",

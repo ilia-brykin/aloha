@@ -55,6 +55,29 @@
     }
   }
 }
+// labelPosition "inset": the label stays inside the field, small above the value
+// (the parent has a_form_element__parent_float as well, so icons and placeholders work the same)
+.a_form_element__parent_inset {
+  .a_form_control {
+    min-height: calc(var(--a_form_control_height) + var(--a_form_element_label_inset_space));
+    padding-top: calc(var(--a_form_control_padding_y) + var(--a_form_element_label_inset_space) * .75);
+    padding-bottom: calc(var(--a_form_control_padding_y) + var(--a_form_element_label_inset_space) * .25);
+  }
+  .a_form_element_label {
+    // --a_form_control_height is set on the control itself, the label uses the global token
+    top: calc((var(--a_control_height) + var(--a_form_element_label_inset_space)) / 2);
+    background: transparent;
+  }
+  &:focus-within,
+  &.a_form_element__parent_not_empty {
+    .a_form_element_label {
+      top: var(--a_form_element_label_inset_top);
+      transform: none;
+      font-size: var(--a_font_size_sm);
+      line-height: 1.25;
+    }
+  }
+}
 .a_form_element__parent_float_has_icon_prepend {
   .a_form_element_label {
     left: 1.5rem;
@@ -271,6 +294,8 @@ input[type="text"]::-ms-clear {
   --a_form_element_label_float_color: var(--a_color_text_muted);
   --a_form_element_label_float_active_color: var(--a_color_label);
   --a_form_element_label_float_bg: var(--a_color_surface);
+  --a_form_element_label_inset_space: calc(1rem * var(--a_density));
+  --a_form_element_label_inset_top: calc(.375rem * var(--a_density));
   --a_form_element_help_text_color: var(--a_color_text_muted);
 }
 :where(.a_fieldset__content) {

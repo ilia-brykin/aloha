@@ -3,7 +3,7 @@ export default function HtmlAPI() {
   v-model="model"
   label="Color"
   label-description="Brand color of the product"
-  :is-label-float="false"
+  label-position="top"
   help-text="Choose a color with enough contrast"
 ></a-color-picker>`;
 
