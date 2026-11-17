@@ -103,6 +103,10 @@
   box-shadow: var(--a_color_picker_popup_shadow, 0 0.5rem 1rem rgba(0, 0, 0, 0.15));
 }
 
+.a_color_picker__popup_positioning {
+  visibility: hidden;
+}
+
 // Thumbs of the saturation area and the sliders
 .a_color_picker_saturation__thumb,
 .a_color_picker_slider__thumb {

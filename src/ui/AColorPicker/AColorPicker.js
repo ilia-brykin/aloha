@@ -272,6 +272,7 @@ export default {
     const {
       closePopover,
       isOpen,
+      isPositioned,
       onPopupKeydown,
       onToggleKeydown,
       popupId,
@@ -362,6 +363,7 @@ export default {
       isErrors,
       isModel,
       isOpen,
+      isPositioned,
       labelDescriptionId,
       labelId,
       modelCssColor,
@@ -553,7 +555,12 @@ export default {
           h("div", {
             ref: "popupRef",
             id: this.popupId,
-            class: "a_color_picker__popup",
+            class: [
+              "a_color_picker__popup",
+              {
+                a_color_picker__popup_positioning: !this.isPositioned,
+              },
+            ],
             role: "dialog",
             "aria-modal": "true",
             "aria-labelledby": hasLabel ? this.labelId : undefined,
