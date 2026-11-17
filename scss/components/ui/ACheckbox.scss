@@ -16,3 +16,9 @@
     --a_fieldset_padding_top: 1.5rem;
   }
 }
+.a_checkbox__select_all {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--a_space_sm);
+  margin-bottom: var(--a_space_md);
+}

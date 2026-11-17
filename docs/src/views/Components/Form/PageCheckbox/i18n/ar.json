@@ -3,11 +3,17 @@
   "_A_CHECKBOX_COMPONENT_NAME_": "مربعات الاختيار",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "عند تمكين هذا الخيار، سيتم عرض مربع اختيار تحكم إضافي. يتيح هذا المربع التحكم في تحديد أو إلغاء تحديد جميع مربعات الاختيار الفرعية في نفس الوقت.",
   "_A_CHECKBOX_GROUP_HAS_CONTROL_CHECKBOX_HEADER_": "مربع تحكم",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_DESCRIPTION_": "تعرض الخاصيتان <code lang=\"en\">is-select-all</code> و<code lang=\"en\">is-deselect-all</code> فوق القائمة أزرارًا تحدد جميع العناصر أو تلغي تحديدها. لا تتغير العناصر المعطلة (<code lang=\"en\">key-disabled</code>). أثناء البحث (<code lang=\"en\">search</code>) تتأثر العناصر التي عُثر عليها فقط. يمكن تغيير نصوص الأزرار عبر <code lang=\"en\">text-select-all</code> و<code lang=\"en\">text-deselect-all</code>.",
+  "_A_CHECKBOX_GROUP_SELECT_ALL_HEADER_": "تحديد الكل / إلغاء تحديد الكل",
   "_A_CHECKBOX_PROPS_COLLAPSIBLE_DESCRIPTION_": "يحدد ما إذا كان يمكن طي مجموعة مربعات الاختيار وتوسيعها. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، يمكن للمستخدم التبديل بين الحالات.",
   "_A_CHECKBOX_PROPS_HAS_CONTROL_CHECKBOX_DESCRIPTION_": "يضيف مربع اختيار تحكم يسمح بتحديد أو إلغاء تحديد جميع مربعات الاختيار في المجموعة دفعة واحدة.",
   "_A_CHECKBOX_PROPS_INLINE_DESCRIPTION_": "يحدد ما إذا كان يجب عرض مربعات الاختيار في سطر واحد. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم محاذاة مربعات الاختيار أفقيًا.",
   "_A_CHECKBOX_PROPS_IS_BUTTON_GROUP_DESCRIPTION_": "يحدد ما إذا كان يجب عرض مربعات الاختيار كأزرار. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم عرض مربعات الاختيار كأزرار، مما يوفر واجهة أكثر جاذبية بصريًا.",
   "_A_CHECKBOX_PROPS_IS_COLLAPSED_DESCRIPTION_": "يحدد حالة الطي الأولية لمجموعة مربعات الاختيار. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم طي المجموعة عند تحميل الصفحة.",
+  "_A_CHECKBOX_PROPS_IS_DESELECT_ALL_DESCRIPTION_": "يعرض زرًا يلغي تحديد جميع العناصر القابلة للتغيير (غير المعطلة؛ وأثناء البحث التي عُثر عليها فقط).",
+  "_A_CHECKBOX_PROPS_IS_SELECT_ALL_DESCRIPTION_": "يعرض زرًا يحدد جميع العناصر القابلة للتغيير (غير المعطلة؛ وأثناء البحث التي عُثر عليها فقط).",
   "_A_CHECKBOX_PROPS_IS_WIDTH_AUTO_DESCRIPTION_": "يحدد ما إذا كان يجب أن تتكيف عرض مجموعة مربعات الاختيار تلقائيًا مع محتواها. إذا تم تعيين القيمة إلى <strong lang=\"en\">true</strong>، سيتم تعديل العرض تلقائيًا.",
-  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "يتيح تعديل الرسائل النصية للإجراءات المختلفة في المكون. يتضمن النصوص الخاصة بالطي/التوسيع (<strong lang=\"en\">collapseClose</strong> و <strong lang=\"en\">collapseOpen</strong>)، الرسائل الخاصة بعدم وجود عناصر أثناء البحث (<strong lang=\"en\">notElementsWithSearch</strong>)، والنص الخاص بحقل البحث (<strong lang=\"en\">search</strong>)."
+  "_A_CHECKBOX_PROPS_TEXTS_DESCRIPTION_": "يتيح تعديل الرسائل النصية للإجراءات المختلفة في المكون. يتضمن النصوص الخاصة بالطي/التوسيع (<strong lang=\"en\">collapseClose</strong> و <strong lang=\"en\">collapseOpen</strong>)، الرسائل الخاصة بعدم وجود عناصر أثناء البحث (<strong lang=\"en\">notElementsWithSearch</strong>)، والنص الخاص بحقل البحث (<strong lang=\"en\">search</strong>).",
+  "_A_CHECKBOX_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_": "نص زر «إلغاء تحديد الكل».",
+  "_A_CHECKBOX_PROPS_TEXT_SELECT_ALL_DESCRIPTION_": "نص زر «تحديد الكل»."
 }

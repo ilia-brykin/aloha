@@ -1,5 +1,7 @@
 {
+  "_A_CHECKBOX_DESELECT_ALL_": "Deseleziona tutto",
   "_A_CHECKBOX_GROUP_INVALID_ENTRIES_": "Voci non valide",
   "_A_CHECKBOX_HAS_NOT_ELEMENTS_WITH_SEARCH_": "[Nessun elemento disponibile per la selezione]",
-  "_A_CHECKBOX_SEARCH_": "Cerca"
+  "_A_CHECKBOX_SEARCH_": "Cerca",
+  "_A_CHECKBOX_SELECT_ALL_": "Seleziona tutto"
 }
