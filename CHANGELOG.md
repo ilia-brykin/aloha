@@ -7,6 +7,13 @@
 ---
 # Versions
 
+## 2.87.0
+
+- feat(AColorPicker): prop `colorFormat` renamed to `colorFormats` (a format or an array of formats). With several formats the dialog has a switch that changes the format in the given order; on open the format of the model value is used if it is allowed, otherwise the first one. **Breaking:** replace `color-format` with `color-formats`.
+- feat(AColorPicker): the text field in the dialog has a visible float label with the format (e.g. "Color value (RGB)"); the format switch has a title.
+- fix(AColorPicker): no scroll jump to the top of the page when the dialog opens.
+- fix(AColorPicker): the model text is kept as long as color and format are not changed (no rounding of e.g. hsl values).
+
 ## 2.86.0
 
 - feat(ui): add `AColorPicker` (form type `colorPicker`): field filled with the selected color, dialog with saturation/brightness area, hue and opacity sliders, text field for hex, rgb, hsl and hsv, predefined colors. Accessible with keyboard and screen readers. `type: "color"` stays the native color input.
