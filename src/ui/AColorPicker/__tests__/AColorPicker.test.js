@@ -77,6 +77,21 @@ describe("AColorPicker", () => {
     wrapper.unmount();
   });
 
+  it("focuses the dialog only after it is positioned", async() => {
+    const wrapper = mountPicker({ modelValue: "#ff0000" });
+    await wrapper.get("button.a_color_picker__toggle").trigger("click");
+    await nextTick();
+
+    expect(getPopup().classList.contains("a_color_picker__popup_positioning")).toBe(true);
+
+    await new Promise(resolve => setTimeout(resolve, 20));
+    await flush();
+
+    expect(getPopup().classList.contains("a_color_picker__popup_positioning")).toBe(false);
+    expect(document.activeElement.classList.contains("a_color_picker_saturation__thumb")).toBe(true);
+    wrapper.unmount();
+  });
+
   it("closes with Escape without changing the model and returns the focus", async() => {
     const wrapper = mountPicker({ modelValue: "#ff0000" });
     const toggle = wrapper.get("button.a_color_picker__toggle");

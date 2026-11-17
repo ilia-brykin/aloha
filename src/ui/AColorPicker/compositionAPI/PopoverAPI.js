@@ -32,6 +32,12 @@ export default function PopoverAPI(props, { emit }, {
 
   const cleanupPopper = ref(undefined);
   const isOpen = ref(false);
+
+  /*
+   * The popup is hidden until floating-ui has positioned it. Otherwise it stays
+   * at the top of the page for a moment and focusing it scrolls the page up.
+   */
+  const isPositioned = ref(false);
   const popupRef = ref(undefined);
   const toggleRef = ref(undefined);
 
@@ -39,7 +45,7 @@ export default function PopoverAPI(props, { emit }, {
 
   const elementsForClickOutside = computed(() => [toggleRef.value, popupRef.value]);
 
-  const startPosition = () => {
+  const startPosition = ({ onPositioned = () => {} } = {}) => {
     if (cleanupPopper.value || !toggleRef.value || !popupRef.value) {
       return;
     }
@@ -62,6 +68,10 @@ export default function PopoverAPI(props, { emit }, {
           left: `${ x }px`,
           top: `${ y }px`,
         });
+        if (!isPositioned.value) {
+          isPositioned.value = true;
+          nextTick(onPositioned);
+        }
       });
     });
   };
@@ -94,6 +104,7 @@ export default function PopoverAPI(props, { emit }, {
       return;
     }
     isOpen.value = false;
+    isPositioned.value = false;
     stopPosition();
     destroyEventClickOutside();
     closePopup({ id: popupId.value });
@@ -112,8 +123,13 @@ export default function PopoverAPI(props, { emit }, {
     openPopup({ id: popupId.value });
     emit("open");
     nextTick(() => {
-      startPosition();
-      getFocusableElements()[0]?.focus();
+      startPosition({
+        onPositioned: () => {
+          // only as much scrolling as needed to show the whole popup
+          popupRef.value?.scrollIntoView?.({ block: "nearest" });
+          getFocusableElements()[0]?.focus({ preventScroll: true });
+        },
+      });
       setTimeout(setEventClickOutside, 100);
     });
   };
@@ -169,6 +185,7 @@ export default function PopoverAPI(props, { emit }, {
   return {
     closePopover,
     isOpen,
+    isPositioned,
     onPopupKeydown,
     onToggleKeydown,
     popupId,
