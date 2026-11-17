@@ -137,10 +137,6 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.a_menu__link_selected {
-  background-color: var(--a_menu_link_selected_bg);
-  color: var(--a_menu_link_selected_color);
-}
 .a_menu__link__icon {
   width: 1.5625rem;
   height: 1.5625rem;
@@ -586,8 +582,6 @@
   --a_menu_listitem_panel_secondary_padding_y: calc(.3rem * var(--a_density)); // Vertical padding of a list item in a submenu panel and of the panel header.
   --a_menu_link_padding_x: calc(.7rem * var(--a_density)); // Horizontal padding of a link.
   --a_menu_link_padding_y: calc(.5rem * var(--a_density)); // Vertical padding of a link.
-  --a_menu_link_selected_bg: var(--a_color_primary_bg_subtle); // Background of a selected link (e.g. a search result chosen with the keyboard).
-  --a_menu_link_selected_color: var(--a_color_primary_text_emphasis); // Text color of a selected link.
   --a_menu_link_border_color: transparent; // Border color of a link.
   --a_menu_link_border_radius: var(--a_border_radius); // Corner radius of a link.
   --a_menu_link_focus_box_shadow: var(--a_focus_ring_inset); // Focus ring of a link.
