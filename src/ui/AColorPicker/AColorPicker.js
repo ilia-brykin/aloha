@@ -676,6 +676,7 @@ export default {
                   },
                   class: "a_btn a_btn_outline_secondary a_btn_small a_color_picker__format",
                   text: this.currentFormat.toUpperCase(),
+                  title: "_A_COLOR_PICKER_FORMAT_SWITCH_{{format}}_{{next}}_",
                   type: "button",
                   onClick: this.switchFormat,
                 }) :
