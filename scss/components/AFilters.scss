@@ -281,30 +281,33 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_filters_top) {
-  --a_filters_top_padding: var(--a_space_sm);
-  --a_filters_top_form_width: 50%;
-  --a_filters_top_form_max_width: 31.25rem;
-  --a_filters_top_label_padding_left: 2rem;
-  --a_filters_top_label_width: 34%;
-  --a_filters_top_subgroup_width: 66%;
-  --a_filters_top_always_visible_padding: var(--a_space_md) var(--a_space_md) var(--a_space_md) var(--a_space_xl);
+  // filters on top
+  --a_filters_top_padding: var(--a_space_sm); // Padding of the filter panel above the table.
+  --a_filters_top_form_width: 50%; // Width of the filter form. Set to 100% below 1408px. Not used by any rule at the moment.
+  --a_filters_top_form_max_width: 31.25rem; // Maximum width of the filter form.
+  --a_filters_top_label_padding_left: 2rem; // Left padding of a filter label. Not used by any rule at the moment.
+  --a_filters_top_label_width: 34%; // Width of the label column of a filter row.
+  --a_filters_top_subgroup_width: 66%; // Width of the field column of a filter row.
+  --a_filters_top_always_visible_padding: var(--a_space_md) var(--a_space_md) var(--a_space_md) var(--a_space_xl); // Padding of the box with the always visible filters. Smaller below 769px.
 }
 :where(.a_filter_horizontal__wrapper) {
-  --a_filter_hor_divider_border_width: var(--a_border_width);
-  --a_filter_hor_divider_border_color: var(--a_border_color);
-  --a_filter_hor_hr_border_width: 0 0 var(--a_border_width);
-  --a_filter_hor_hr_border_color: var(--a_border_color);
-  --a_filter_hor_hr_margin_y: var(--a_space_md);
-  --a_filter_hor_header_font_size: 1.5rem;
-  --a_filter_hor_width: 50rem;
-  --a_filter_hor_max_width: calc(100vw - 3rem);
-  --a_filter_max_height: calc(100vh - 3rem);
-  --a_filter_hor_padding_x: var(--a_space_md);
-  --a_filter_hor_padding_y: var(--a_space_md);
-  --a_filter_hor_body_max_height: calc(100vh - 1rem - 7.0625rem);
-  --a_filter_hor_footer_bg: var(--a_color_surface_translucent);
-  --a_filter_hor_footer_actions_bg: var(--a_color_surface);
+  // filter dropdown
+  --a_filter_hor_divider_border_width: var(--a_border_width); // Width of the line under the header and above the footer of the filter dropdown.
+  --a_filter_hor_divider_border_color: var(--a_border_color); // Color of the line under the header and above the footer of the filter dropdown.
+  --a_filter_hor_hr_border_width: 0 0 var(--a_border_width); // Border widths of the separator line in the filter dropdown (top, right, bottom, left).
+  --a_filter_hor_hr_border_color: var(--a_border_color); // Color of the separator line in the filter dropdown.
+  --a_filter_hor_hr_margin_y: var(--a_space_md); // Space above and below the separator line.
+  --a_filter_hor_header_font_size: 1.5rem; // Font size of the header of the filter dropdown.
+  --a_filter_hor_width: 50rem; // Width of the filter dropdown.
+  --a_filter_hor_max_width: calc(100vw - 3rem); // Maximum width of the filter dropdown.
+  --a_filter_max_height: calc(100vh - 3rem); // Maximum height of the filter dropdown.
+  --a_filter_hor_padding_x: var(--a_space_md); // Horizontal padding inside the filter dropdown.
+  --a_filter_hor_padding_y: var(--a_space_md); // Vertical padding inside the filter dropdown.
+  --a_filter_hor_body_max_height: calc(100vh - 1rem - 7.0625rem); // Maximum height of the scrollable body of the filter dropdown.
+  --a_filter_hor_footer_bg: var(--a_color_surface_translucent); // Background of the sticky footer of the filter dropdown (translucent).
+  --a_filter_hor_footer_actions_bg: var(--a_color_surface); // Background behind the footer buttons.
 }
 :where(.a_filters_center) {
-  --a_table_filters_center_padding: var(--a_space_md) var(--a_space_md) var(--a_space_md) var(--a_space_sm);
+  // selected filters
+  --a_table_filters_center_padding: var(--a_space_md) var(--a_space_md) var(--a_space_md) var(--a_space_sm); // Padding of the list of selected filters between the filter panel and the table.
 }

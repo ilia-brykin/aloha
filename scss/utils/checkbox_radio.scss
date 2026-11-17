@@ -136,29 +136,35 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_custom_control) {
-  --a_custom_control_border_radius: var(--a_border_radius);
-  --a_custom_control_label_padding: var(--a_space_sm);
-  --a_custom_control_label_width: 100%;
-  --a_custom_control_label_color: inherit;
-  --a_custom_control_label_disabled_color: var(--a_color_text_muted);
-  --a_custom_control_label_text_margin_left: var(--a_space_sm);
-  --a_custom_control_hover_bg: var(--a_color_gray_100);
-  --a_custom_control_input_width: 1.25rem;
-  --a_custom_control_input_bg: var(--a_color_surface);
-  --a_custom_control_input_border_color: var(--a_border_color_strong);
-  --a_custom_control_input_hover_border_color: var(--a_color_primary);
-  --a_custom_control_input_border_width: calc(var(--a_border_width) * 1.5);
-  --a_custom_control_input_border_radius: var(--a_border_radius_small);
-  --a_custom_control_input_checked_color: var(--a_color_primary_contrast);
-  --a_custom_control_input_checked_border_color: var(--a_color_primary);
-  --a_custom_control_input_checked_bg: var(--a_color_primary);
-  --a_custom_control_input_checked_disabled_bg: var(--a_color_primary_50);
-  --a_custom_control_input_disabled_bg: var(--a_color_gray_200);
-  --a_custom_control_input_disabled_border_color: var(--a_border_color);
-  --a_custom_control_error_color: var(--a_color_danger_text);
-  --a_custom_control_mark_size: 70%;
-  --a_custom_control_mark_checkbox: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
-  --a_custom_control_mark_indeterminate: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M4 8h8' stroke='%23000' stroke-width='2.25' stroke-linecap='round'/%3e%3c/svg%3e");
-  --a_custom_control_mark_radio: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3ccircle cx='8' cy='8' r='3.5'/%3e%3c/svg%3e");
-  --a_custom_control_mark: var(--a_custom_control_mark_checkbox);
+  // label
+  --a_custom_control_border_radius: var(--a_border_radius); // Corner radius of the label area (visible on hover).
+  --a_custom_control_label_padding: var(--a_space_sm); // Padding of the label area around the box and the text.
+  --a_custom_control_label_width: 100%; // Width of the label area. The class a_custom_control_label_width_auto sets it to auto.
+  --a_custom_control_label_color: inherit; // Text color of the label.
+  --a_custom_control_label_disabled_color: var(--a_color_text_muted); // Text color of the label of a disabled checkbox or radio.
+  --a_custom_control_label_text_margin_left: var(--a_space_sm); // Space between the box and the label text.
+  --a_custom_control_hover_bg: var(--a_color_gray_100); // Background of the label area on hover.
+  // box
+  --a_custom_control_input_width: 1.25rem; // Width and height of the box (checkbox) or circle (radio).
+  --a_custom_control_input_bg: var(--a_color_surface); // Background of an unchecked box.
+  --a_custom_control_input_border_color: var(--a_border_color_strong); // Border color of an unchecked box.
+  --a_custom_control_input_hover_border_color: var(--a_color_primary); // Border color of the box on hover.
+  --a_custom_control_input_border_width: calc(var(--a_border_width) * 1.5); // Border width of the box.
+  --a_custom_control_input_border_radius: var(--a_border_radius_small); // Corner radius of the checkbox box. Radio buttons are always round.
+  // checked
+  --a_custom_control_input_checked_color: var(--a_color_primary_contrast); // Color of the check mark, the indeterminate dash and the radio dot.
+  --a_custom_control_input_checked_border_color: var(--a_color_primary); // Border color of a checked or indeterminate box.
+  --a_custom_control_input_checked_bg: var(--a_color_primary); // Background of a checked or indeterminate box.
+  // disabled
+  --a_custom_control_input_checked_disabled_bg: var(--a_color_primary_50); // Background and border color of a checked box when disabled.
+  --a_custom_control_input_disabled_bg: var(--a_color_gray_200); // Background of an unchecked box when disabled.
+  --a_custom_control_input_disabled_border_color: var(--a_border_color); // Border color of an unchecked box when disabled.
+  // error
+  --a_custom_control_error_color: var(--a_color_danger_text); // Color of the box border, the checked background and the label when the field has errors.
+  // mark
+  --a_custom_control_mark_size: 70%; // Size of the mark inside the box, relative to the box.
+  --a_custom_control_mark_checkbox: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e"); // Mask image of the check mark.
+  --a_custom_control_mark_indeterminate: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M4 8h8' stroke='%23000' stroke-width='2.25' stroke-linecap='round'/%3e%3c/svg%3e"); // Mask image of the indeterminate dash.
+  --a_custom_control_mark_radio: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3ccircle cx='8' cy='8' r='3.5'/%3e%3c/svg%3e"); // Mask image of the radio dot.
+  --a_custom_control_mark: var(--a_custom_control_mark_checkbox); // Mask image used for the current control. Set from the three mark variables above.
 }

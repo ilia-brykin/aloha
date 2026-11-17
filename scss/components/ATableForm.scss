@@ -301,24 +301,32 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_table_form) {
-  --a_table_form_bg: var(--a_color_surface);
-  --a_table_form_border_color: var(--a_border_color);
-  --a_table_form_drop_indicator_color: var(--a_color_primary);
-  --a_table_form_drop_indicator_width: 3px;
-  --a_table_form_head_bg: var(--a_color_surface_subtle);
-  --a_table_form_head_color: inherit;
-  --a_table_form_head_font_weight: var(--a_font_weight_semibold);
-  --a_table_form_row_dragging_bg: var(--a_color_gray_200);
-  --a_table_form_row_dragging_opacity: .65;
-  --a_table_form_row_dragging_outline: 2px dashed var(--a_border_color_strong);
-  --a_table_form_focus_color: var(--a_color_focus);
-  --a_table_form_focus_width: calc(var(--a_focus_width_inside) + var(--a_focus_width_outside));
-  --a_table_form_focus_box_shadow: var(--a_focus_ring_inset);
-  --a_table_form_row_hover_bg: var(--a_color_gray_100);
-  --a_table_form_row_drag_bg: var(--a_color_primary_bg_subtle);
-  --a_table_form_footer_bg: var(--a_color_surface_subtle);
-  --a_table_form_cell_padding_y: calc(.75rem * var(--a_density));
-  --a_table_form_cell_padding_x: calc(.75rem * var(--a_density));
-  --a_table_form_cell_actions_edge_box_shadow: inset calc(var(--a_border_width) * -1) 0 0 var(--a_table_form_border_color);
-  --a_table_form_cell_actions_sticky_shadow: var(--a_shadow_edge_left);
+  // general
+  --a_table_form_bg: var(--a_color_surface); // Background of the table and of the sticky actions column.
+  --a_table_form_border_color: var(--a_border_color); // Color of the cell and table borders.
+  // drag and drop
+  --a_table_form_drop_indicator_color: var(--a_color_primary); // Color of the line that shows where a dragged row will be dropped.
+  --a_table_form_drop_indicator_width: 3px; // Thickness of the drop indicator line.
+  // header
+  --a_table_form_head_bg: var(--a_color_surface_subtle); // Background of the header row.
+  --a_table_form_head_color: inherit; // Text color of the header row.
+  --a_table_form_head_font_weight: var(--a_font_weight_semibold); // Font weight of the header and footer rows.
+  // drag and drop
+  --a_table_form_row_dragging_bg: var(--a_color_gray_200); // Background of the row that is being dragged.
+  --a_table_form_row_dragging_opacity: .65; // Opacity of the row that is being dragged and of the drag preview.
+  --a_table_form_row_dragging_outline: 2px dashed var(--a_border_color_strong); // Outline of the row that is being dragged (shorthand).
+  // focus
+  --a_table_form_focus_color: var(--a_color_focus); // Color of the focus frame of a focused row.
+  --a_table_form_focus_width: calc(var(--a_focus_width_inside) + var(--a_focus_width_outside)); // Thickness of the focus frame of a focused row.
+  --a_table_form_focus_box_shadow: var(--a_focus_ring_inset); // Focus ring around the table when the table itself has focus.
+  // rows
+  --a_table_form_row_hover_bg: var(--a_color_gray_100); // Background of a hovered row.
+  --a_table_form_row_drag_bg: var(--a_color_primary_bg_subtle); // Background of the row under the dragged row and of the dragged row while dragging.
+  // footer
+  --a_table_form_footer_bg: var(--a_color_surface_subtle); // Background of the footer row.
+  // cells
+  --a_table_form_cell_padding_y: calc(.75rem * var(--a_density)); // Vertical padding of a cell.
+  --a_table_form_cell_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of a cell.
+  --a_table_form_cell_actions_edge_box_shadow: inset calc(var(--a_border_width) * -1) 0 0 var(--a_table_form_border_color); // Line on the right edge of the sticky actions column.
+  --a_table_form_cell_actions_sticky_shadow: var(--a_shadow_edge_left); // Shadow on the left of the sticky actions column that separates it from the scrolled cells.
 }

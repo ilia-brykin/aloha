@@ -341,25 +341,28 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_datepicker, .a_datepicker__popup) {
-  --a_datepicker_width: 100%;
-  --a_datepicker_max_width: 100%;
-  --a_datepicker_min_width: 7.5rem;
-  --a_datepicker_color: var(--a_color_text);
-  --a_datepicker_icon_color: var(--a_color_text_muted);
-  --a_datepicker_hover_color: var(--a_color_link_hover);
-  --a_datepicker_divider_color: var(--a_border_color);
-  --a_datepicker_popup_bg: var(--a_color_surface_raised);
-  --a_datepicker_popup_border_color: var(--a_border_color);
-  --a_datepicker_popup_border_radius: var(--a_border_radius_large);
-  --a_datepicker_popup_box_shadow: var(--a_shadow_md);
-  --a_datepicker_cell_border_radius: var(--a_border_radius_small);
-  --a_datepicker_cell_hover_bg: var(--a_color_gray_100);
-  --a_datepicker_cell_active_color: var(--a_color_primary_contrast);
-  --a_datepicker_cell_active_bg: var(--a_color_primary);
-  --a_datepicker_cell_inrange_color: var(--a_color_primary_text_emphasis);
-  --a_datepicker_cell_inrange_bg: var(--a_color_primary_bg_subtle);
-  --a_datepicker_cell_disabled_color: var(--a_color_text_muted);
-  --a_datepicker_cell_disabled_bg: var(--a_color_gray_100);
-  --a_datepicker_today_color: var(--a_color_primary_text_emphasis);
-  --a_datepicker_other_month_color: var(--a_color_text_muted);
+  // field
+  --a_datepicker_width: 100%; // Width of the date field.
+  --a_datepicker_max_width: 100%; // Maximum width of the date field.
+  --a_datepicker_min_width: 7.5rem; // Minimum width of the date field.
+  --a_datepicker_color: var(--a_color_text); // Text color of the field and of the calendar popup.
+  --a_datepicker_icon_color: var(--a_color_text_muted); // Color of the calendar and clear icons.
+  --a_datepicker_hover_color: var(--a_color_link_hover); // Color of icons and header buttons on hover.
+  --a_datepicker_divider_color: var(--a_border_color); // Color of the lines between the parts of the popup (shortcuts, footer, time list).
+  // popup
+  --a_datepicker_popup_bg: var(--a_color_surface_raised); // Background of the calendar popup.
+  --a_datepicker_popup_border_color: var(--a_border_color); // Border color of the calendar popup.
+  --a_datepicker_popup_border_radius: var(--a_border_radius_large); // Corner radius of the calendar popup.
+  --a_datepicker_popup_box_shadow: var(--a_shadow_md); // Shadow of the calendar popup.
+  // cells
+  --a_datepicker_cell_border_radius: var(--a_border_radius_small); // Corner radius of a day, month or year cell.
+  --a_datepicker_cell_hover_bg: var(--a_color_gray_100); // Background of a cell on hover.
+  --a_datepicker_cell_active_color: var(--a_color_primary_contrast); // Text color of the selected cell.
+  --a_datepicker_cell_active_bg: var(--a_color_primary); // Background of the selected cell.
+  --a_datepicker_cell_inrange_color: var(--a_color_primary_text_emphasis); // Text color of cells inside a selected range.
+  --a_datepicker_cell_inrange_bg: var(--a_color_primary_bg_subtle); // Background of cells inside a selected range.
+  --a_datepicker_cell_disabled_color: var(--a_color_text_muted); // Text color of a disabled cell.
+  --a_datepicker_cell_disabled_bg: var(--a_color_gray_100); // Background of a disabled cell.
+  --a_datepicker_today_color: var(--a_color_primary_text_emphasis); // Text color of today's cell.
+  --a_datepicker_other_month_color: var(--a_color_text_muted); // Text color of days from the previous and the next month.
 }

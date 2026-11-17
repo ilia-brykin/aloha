@@ -55,16 +55,16 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_alert) {
-  --a_alert_bg: transparent;
-  --a_alert_padding_x: var(--a_space_md);
-  --a_alert_padding_y: var(--a_space_md);
-  --a_alert_margin_bottom: var(--a_space_md);
-  --a_alert_color: inherit;
-  --a_alert_border_color: transparent;
-  --a_alert_border: var(--a_border_width) solid var(--a_alert_border_color);
-  --a_alert_border_radius: var(--a_border_radius);
-  --a_alert_icon_size: 1.5rem;
-  --a_alert_icon_margin_right: .5rem;
-  --a_alert_text_align: left;
-  --a_alert_link_color: inherit;
+  --a_alert_bg: transparent; // Background. Set by the color classes (e.g. .a_alert_danger).
+  --a_alert_padding_x: var(--a_space_md); // Horizontal padding. A closable alert has three times this padding on the right for the close button.
+  --a_alert_padding_y: var(--a_space_md); // Vertical padding.
+  --a_alert_margin_bottom: var(--a_space_md); // Space below the alert.
+  --a_alert_color: inherit; // Text color. Set by the color classes.
+  --a_alert_border_color: transparent; // Border color. Set by the color classes.
+  --a_alert_border: var(--a_border_width) solid var(--a_alert_border_color); // Border shorthand (width, style, color).
+  --a_alert_border_radius: var(--a_border_radius); // Corner radius.
+  --a_alert_icon_size: 1.5rem; // Size of the icon.
+  --a_alert_icon_margin_right: .5rem; // Space between the icon and the text.
+  --a_alert_text_align: left; // Text alignment.
+  --a_alert_link_color: inherit; // Color of a link inside the alert (.a_alert__link). Set by the color classes.
 }

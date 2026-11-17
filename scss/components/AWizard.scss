@@ -590,71 +590,74 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_wizard) {
-  --a_wizard_border_color: var(--a_border_color);
-  --a_wizard_border_width: var(--a_border_width);
-  --a_wizard_border_radius: 0;
-  --a_wizard_step_default_primary_color: var(--a_color_gray_100);
-  --a_wizard_step_default_secondary_color: var(--a_color_text_muted);
-  --a_wizard_step_active_primary_color: var(--a_color_primary);
-  --a_wizard_step_active_text_color: var(--a_color_primary_text);
-  --a_wizard_step_active_secondary_color: var(--a_color_primary_contrast);
-  --a_wizard_step_active_font_weight: var(--a_font_weight_bold);
-  --a_wizard_step_done_primary_color: var(--a_color_primary_text_emphasis);
-  --a_wizard_step_done_secondary_color: var(--a_color_primary_bg_subtle);
-  --a_wizard_step_disabled_primary_color: var(--a_color_gray_500);
-  --a_wizard_step_disabled_secondary_color: var(--a_color_gray_100);
-  --a_wizard_step_error_primary_color: var(--a_color_danger);
-  --a_wizard_step_error_text_color: var(--a_color_danger_text);
-  --a_wizard_step_error_secondary_color: var(--a_color_danger_contrast);
-  --a_wizard_step_warning_primary_color: var(--a_color_warning);
-  --a_wizard_step_warning_secondary_color: var(--a_color_warning_contrast);
-  --a_wizard_step_warning_text_color: var(--a_color_warning_text_emphasis);
-  --a_wizard_step_focus_shadow: var(--a_color_focus);
-  --a_wizard_step_focus_box_shadow: var(--a_focus_ring);
+  // general
+  --a_wizard_border_color: var(--a_border_color); // Border color of the wizard. In the line variant also the color of the dashed line and of the step number background.
+  --a_wizard_border_width: var(--a_border_width); // Border width of the wizard.
+  --a_wizard_border_radius: 0; // Corner radius of the step number in the line variant. Changed by the square and circle variants.
+  // step colors (basic, arrows, round)
+  --a_wizard_step_default_primary_color: var(--a_color_gray_100); // Main color of an upcoming step: fill in the arrows and round variants.
+  --a_wizard_step_default_secondary_color: var(--a_color_text_muted); // Second color of an upcoming step: text in the basic, arrows and round variants.
+  --a_wizard_step_active_primary_color: var(--a_color_primary); // Main color of the active step: fill in the arrows and round variants, marker in the basic variant.
+  --a_wizard_step_active_text_color: var(--a_color_primary_text); // Text color of the active step in the basic and line variants.
+  --a_wizard_step_active_secondary_color: var(--a_color_primary_contrast); // Second color of the active step: text on the fill in the arrows and round variants.
+  --a_wizard_step_active_font_weight: var(--a_font_weight_bold); // Font weight of the active step.
+  --a_wizard_step_done_primary_color: var(--a_color_primary_text_emphasis); // Main color of a completed step: fill in the arrows and round variants, text and marker in the basic variant.
+  --a_wizard_step_done_secondary_color: var(--a_color_primary_bg_subtle); // Second color of a completed step: text on the fill in the arrows and round variants.
+  --a_wizard_step_disabled_primary_color: var(--a_color_gray_500); // Main color of a disabled step: fill in the arrows and round variants, text and marker in the basic variant.
+  --a_wizard_step_disabled_secondary_color: var(--a_color_gray_100); // Second color of a disabled step: text on the fill in the arrows and round variants.
+  --a_wizard_step_error_primary_color: var(--a_color_danger); // Main color of a step with an error: fill in the arrows and round variants, marker in the basic variant.
+  --a_wizard_step_error_text_color: var(--a_color_danger_text); // Text color of a step with an error in the basic and line variants.
+  --a_wizard_step_error_secondary_color: var(--a_color_danger_contrast); // Second color of a step with an error: text on the fill in the arrows and round variants.
+  --a_wizard_step_warning_primary_color: var(--a_color_warning); // Main color of a step with a warning: fill in the arrows and round variants, marker in the basic variant.
+  --a_wizard_step_warning_secondary_color: var(--a_color_warning_contrast); // Second color of a step with a warning: text on the fill in the arrows and round variants.
+  --a_wizard_step_warning_text_color: var(--a_color_warning_text_emphasis); // Text color of a step with a warning in the basic and line variants.
+  // focus
+  --a_wizard_step_focus_shadow: var(--a_color_focus); // Color of the focus outline around a step in the arrows variant.
+  --a_wizard_step_focus_box_shadow: var(--a_focus_ring); // Focus ring of a step.
 }
 
 :where(.a_wizard_line) {
   // default
-  --a_wizard_line_step_default_text_color: var(--a_wizard_step_default_secondary_color);
-  --a_wizard_line_step_default_number_color: var(--a_wizard_step_default_secondary_color);
-  --a_wizard_line_step_default_number_bg: var(--a_wizard_step_default_primary_color);
-  --a_wizard_line_step_default_number_border_width: 0;
-  --a_wizard_line_step_default_number_border_style: none;
-  --a_wizard_line_step_default_number_border_color: transparent;
+  --a_wizard_line_step_default_text_color: var(--a_wizard_step_default_secondary_color); // Line variant: label color of an upcoming step.
+  --a_wizard_line_step_default_number_color: var(--a_wizard_step_default_secondary_color); // Line variant: number color of an upcoming step.
+  --a_wizard_line_step_default_number_bg: var(--a_wizard_step_default_primary_color); // Line variant: number background of an upcoming step.
+  --a_wizard_line_step_default_number_border_width: 0; // Line variant: number border width of an upcoming step.
+  --a_wizard_line_step_default_number_border_style: none; // Line variant: number border style of an upcoming step.
+  --a_wizard_line_step_default_number_border_color: transparent; // Line variant: number border color of an upcoming step.
   // active
-  --a_wizard_line_step_active_text_color: var(--a_wizard_step_active_text_color);
-  --a_wizard_line_step_active_number_color: var(--a_wizard_step_active_secondary_color);
-  --a_wizard_line_step_active_number_bg: var(--a_wizard_step_active_primary_color);
-  --a_wizard_line_step_active_number_border_width: 0;
-  --a_wizard_line_step_active_number_border_style: none;
-  --a_wizard_line_step_active_number_border_color: transparent;
-  --a_wizard_line_step_active_number_box_shadow: var(--a_shadow_md);
+  --a_wizard_line_step_active_text_color: var(--a_wizard_step_active_text_color); // Line variant: label color of the active step.
+  --a_wizard_line_step_active_number_color: var(--a_wizard_step_active_secondary_color); // Line variant: number color of the active step.
+  --a_wizard_line_step_active_number_bg: var(--a_wizard_step_active_primary_color); // Line variant: number background of the active step.
+  --a_wizard_line_step_active_number_border_width: 0; // Line variant: number border width of the active step.
+  --a_wizard_line_step_active_number_border_style: none; // Line variant: number border style of the active step.
+  --a_wizard_line_step_active_number_border_color: transparent; // Line variant: number border color of the active step.
+  --a_wizard_line_step_active_number_box_shadow: var(--a_shadow_md); // Line variant: shadow of the number of the active step. None in the bordered variants.
   // done
-  --a_wizard_line_step_done_text_color: var(--a_wizard_step_done_primary_color);
-  --a_wizard_line_step_done_number_color: var(--a_wizard_step_done_secondary_color);
-  --a_wizard_line_step_done_number_bg: var(--a_wizard_step_done_primary_color);
-  --a_wizard_line_step_done_number_border_width: 0;
-  --a_wizard_line_step_done_number_border_style: none;
-  --a_wizard_line_step_done_number_border_color: transparent;
+  --a_wizard_line_step_done_text_color: var(--a_wizard_step_done_primary_color); // Line variant: label color of a completed step.
+  --a_wizard_line_step_done_number_color: var(--a_wizard_step_done_secondary_color); // Line variant: number color of a completed step.
+  --a_wizard_line_step_done_number_bg: var(--a_wizard_step_done_primary_color); // Line variant: number background of a completed step.
+  --a_wizard_line_step_done_number_border_width: 0; // Line variant: number border width of a completed step.
+  --a_wizard_line_step_done_number_border_style: none; // Line variant: number border style of a completed step.
+  --a_wizard_line_step_done_number_border_color: transparent; // Line variant: number border color of a completed step.
   // disabled
-  --a_wizard_line_step_disabled_text_color: var(--a_wizard_step_disabled_primary_color);
-  --a_wizard_line_step_disabled_number_color: var(--a_wizard_step_disabled_secondary_color);
-  --a_wizard_line_step_disabled_number_bg: var(--a_wizard_step_disabled_primary_color);
-  --a_wizard_line_step_disabled_number_border_width: 0;
-  --a_wizard_line_step_disabled_number_border_style: none;
-  --a_wizard_line_step_disabled_number_border_color: transparent;
+  --a_wizard_line_step_disabled_text_color: var(--a_wizard_step_disabled_primary_color); // Line variant: label color of a disabled step.
+  --a_wizard_line_step_disabled_number_color: var(--a_wizard_step_disabled_secondary_color); // Line variant: number color of a disabled step.
+  --a_wizard_line_step_disabled_number_bg: var(--a_wizard_step_disabled_primary_color); // Line variant: number background of a disabled step.
+  --a_wizard_line_step_disabled_number_border_width: 0; // Line variant: number border width of a disabled step.
+  --a_wizard_line_step_disabled_number_border_style: none; // Line variant: number border style of a disabled step.
+  --a_wizard_line_step_disabled_number_border_color: transparent; // Line variant: number border color of a disabled step.
   // error
-  --a_wizard_line_step_error_text_color: var(--a_wizard_step_error_text_color);
-  --a_wizard_line_step_error_number_color: var(--a_wizard_step_error_secondary_color);
-  --a_wizard_line_step_error_number_bg: var(--a_wizard_step_error_primary_color);
-  --a_wizard_line_step_error_number_border_width: 0;
-  --a_wizard_line_step_error_number_border_style: none;
-  --a_wizard_line_step_error_number_border_color: transparent;
+  --a_wizard_line_step_error_text_color: var(--a_wizard_step_error_text_color); // Line variant: label color of a step with an error.
+  --a_wizard_line_step_error_number_color: var(--a_wizard_step_error_secondary_color); // Line variant: number color of a step with an error.
+  --a_wizard_line_step_error_number_bg: var(--a_wizard_step_error_primary_color); // Line variant: number background of a step with an error.
+  --a_wizard_line_step_error_number_border_width: 0; // Line variant: number border width of a step with an error.
+  --a_wizard_line_step_error_number_border_style: none; // Line variant: number border style of a step with an error.
+  --a_wizard_line_step_error_number_border_color: transparent; // Line variant: number border color of a step with an error.
   // warning
-  --a_wizard_line_step_warning_text_color: var(--a_wizard_step_warning_text_color);
-  --a_wizard_line_step_warning_number_color: var(--a_wizard_step_warning_secondary_color);
-  --a_wizard_line_step_warning_number_bg: var(--a_wizard_step_warning_primary_color);
-  --a_wizard_line_step_warning_number_border_width: 0;
-  --a_wizard_line_step_warning_number_border_style: none;
-  --a_wizard_line_step_warning_number_border_color: transparent;
+  --a_wizard_line_step_warning_text_color: var(--a_wizard_step_warning_text_color); // Line variant: label color of a step with a warning.
+  --a_wizard_line_step_warning_number_color: var(--a_wizard_step_warning_secondary_color); // Line variant: number color of a step with a warning.
+  --a_wizard_line_step_warning_number_bg: var(--a_wizard_step_warning_primary_color); // Line variant: number background of a step with a warning.
+  --a_wizard_line_step_warning_number_border_width: 0; // Line variant: number border width of a step with a warning.
+  --a_wizard_line_step_warning_number_border_style: none; // Line variant: number border style of a step with a warning.
+  --a_wizard_line_step_warning_number_border_color: transparent; // Line variant: number border color of a step with a warning.
 }

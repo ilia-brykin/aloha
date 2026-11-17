@@ -225,19 +225,22 @@
 // Component tokens (the popup is teleported to the body, so it gets them too)
 // ---------------------------------------------------------------------------
 :where(.a_color_picker, .a_color_picker__popup, .a_color_picker__readonly) {
-  --a_color_picker_checker: repeating-conic-gradient(var(--a_color_gray_300) 0% 25%, var(--a_color_surface) 0% 50%) 50% / .75rem .75rem;
-  --a_color_picker_swatch_border_color: var(--a_border_color_translucent);
-  --a_color_picker_popup_width: 17.5rem;
-  --a_color_picker_popup_padding: var(--a_space_md);
-  --a_color_picker_popup_gap: calc(.75rem * var(--a_density));
-  --a_color_picker_popup_bg: var(--a_color_surface_raised);
-  --a_color_picker_popup_border_color: var(--a_border_color);
-  --a_color_picker_popup_border_radius: var(--a_border_radius_large);
-  --a_color_picker_popup_shadow: var(--a_shadow_lg);
-  --a_color_picker_popup_z_index: calc(var(--a_z_index_popup) + 1);
-  --a_color_picker_saturation_height: 10rem;
-  --a_color_picker_slider_height: .75rem;
-  --a_color_picker_thumb_size: 1.125rem;
-  --a_color_picker_predefine_size: 1.5rem;
-  --a_color_picker_predefine_selected_color: var(--a_color_focus);
+  // swatch
+  --a_color_picker_checker: repeating-conic-gradient(var(--a_color_gray_300) 0% 25%, var(--a_color_surface) 0% 50%) 50% / .75rem .75rem; // Checkerboard background shown behind transparent colors.
+  --a_color_picker_swatch_border_color: var(--a_border_color_translucent); // Border color of the color swatches.
+  // dialog
+  --a_color_picker_popup_width: 17.5rem; // Width of the picker dialog.
+  --a_color_picker_popup_padding: var(--a_space_md); // Padding of the picker dialog.
+  --a_color_picker_popup_gap: calc(.75rem * var(--a_density)); // Space between the parts of the picker dialog.
+  --a_color_picker_popup_bg: var(--a_color_surface_raised); // Background of the picker dialog. Also used behind float labels in the dialog.
+  --a_color_picker_popup_border_color: var(--a_border_color); // Border color of the picker dialog.
+  --a_color_picker_popup_border_radius: var(--a_border_radius_large); // Corner radius of the picker dialog.
+  --a_color_picker_popup_shadow: var(--a_shadow_lg); // Shadow of the picker dialog.
+  --a_color_picker_popup_z_index: calc(var(--a_z_index_popup) + 1); // Stack order of the picker dialog.
+  // controls
+  --a_color_picker_saturation_height: 10rem; // Height of the saturation and brightness area.
+  --a_color_picker_slider_height: .75rem; // Height of the hue and alpha sliders.
+  --a_color_picker_thumb_size: 1.125rem; // Size of the slider handles.
+  --a_color_picker_predefine_size: 1.5rem; // Size of a predefined color.
+  --a_color_picker_predefine_selected_color: var(--a_color_focus); // Ring color of the selected predefined color.
 }

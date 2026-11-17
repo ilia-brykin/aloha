@@ -61,9 +61,9 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_form_element_number_controls) {
-  --a_input_number_width: 100%;
-  --a_input_number_max_width: 100%;
-  --a_input_number_min_width: 6.25rem;
-  --a_input_number_controls_bg: var(--a_color_surface);
-  --a_input_number_controls_border_color: var(--a_border_color_strong);
+  --a_input_number_width: 100%; // Width of the number field.
+  --a_input_number_max_width: 100%; // Maximum width of the number field.
+  --a_input_number_min_width: 6.25rem; // Minimum width of the number field.
+  --a_input_number_controls_bg: var(--a_color_surface); // Background of the increase and decrease buttons.
+  --a_input_number_controls_border_color: var(--a_border_color_strong); // Border color of the increase and decrease buttons.
 }

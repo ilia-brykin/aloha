@@ -9,5 +9,5 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_show_more) {
-  --a_show_more_btn_margin_top: var(--a_space_sm);
+  --a_show_more_btn_margin_top: var(--a_space_sm); // Space between the content and the "show more" button.
 }

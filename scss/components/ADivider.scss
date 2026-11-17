@@ -10,6 +10,6 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_divider) {
-  --a_divider_margin_y: var(--a_space_sm);
-  --a_divider_bg: var(--a_border_color);
+  --a_divider_margin_y: var(--a_space_sm); // Space above and below the line.
+  --a_divider_bg: var(--a_border_color); // Color of the line.
 }

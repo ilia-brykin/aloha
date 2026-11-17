@@ -53,17 +53,19 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_tooltip__container) {
-  --a_tooltip_bg: var(--a_color_gray_900);
-  --a_tooltip_color: var(--a_color_surface);
-  --a_tooltip_border_radius: var(--a_border_radius);
-  --a_tooltip_padding_x: .625rem;
-  --a_tooltip_padding_y: .375rem;
-  --a_tooltip_font_size: var(--a_font_size_sm);
-  --a_tooltip_arrow_width: .5rem;
-  --a_tooltip_arrow_height: .5rem;
-  --a_tooltip_arrow_shift: -.25rem;
-  --a_tooltip_max_height: 25rem;
-  --a_tooltip_box_shadow_color: var(--a_shadow_color);
-  --a_tooltip_box_shadow: var(--a_shadow_md);
-  --a_tooltip_arrow_box_shadow: none;
+  // tooltip
+  --a_tooltip_bg: var(--a_color_gray_900); // Background of the tooltip and its arrow.
+  --a_tooltip_color: var(--a_color_surface); // Text color of the tooltip.
+  --a_tooltip_border_radius: var(--a_border_radius); // Corner radius of the tooltip.
+  --a_tooltip_padding_x: .625rem; // Horizontal padding of the tooltip.
+  --a_tooltip_padding_y: .375rem; // Vertical padding of the tooltip.
+  --a_tooltip_font_size: var(--a_font_size_sm); // Font size of the tooltip.
+  // arrow
+  --a_tooltip_arrow_width: .5rem; // Width of the arrow.
+  --a_tooltip_arrow_height: .5rem; // Height of the arrow.
+  --a_tooltip_arrow_shift: -.25rem; // Offset of the arrow from the tooltip edge.
+  --a_tooltip_max_height: 25rem; // Maximum height of the tooltip. Longer content scrolls.
+  --a_tooltip_box_shadow_color: var(--a_shadow_color); // Not used by the library styles.
+  --a_tooltip_box_shadow: var(--a_shadow_md); // Shadow of the tooltip.
+  --a_tooltip_arrow_box_shadow: none; // Shadow of the arrow.
 }

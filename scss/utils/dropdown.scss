@@ -165,31 +165,35 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_dropdown__menu) {
-  --a_dropdown_min_width: 10rem;
-  --a_dropdown_max_height: 31.25rem;
-  --a_dropdown_padding_x: var(--a_space_xs);
-  --a_dropdown_padding_y: var(--a_space_xs);
-  --a_dropdown_group_indent: .375rem;
-  --a_dropdown_spacer: .125rem;
-  --a_dropdown_font_size: var(--a_body_font_size);
-  --a_dropdown_color: var(--a_color_text);
-  --a_dropdown_bg: var(--a_color_surface_raised);
-  --a_dropdown_border_color: var(--a_border_color);
-  --a_dropdown_border_radius: var(--a_border_radius_large);
-  --a_dropdown_border_width: var(--a_border_width);
-  --a_dropdown_box_shadow: var(--a_shadow_md);
-  --a_dropdown_divider_color: var(--a_border_color);
-  --a_dropdown_divider_margin_y: var(--a_space_xs);
-  --a_dropdown_link_color: var(--a_color_text);
-  --a_dropdown_link_hover_color: var(--a_color_text);
-  --a_dropdown_link_hover_bg: var(--a_color_gray_100);
-  --a_dropdown_link_active_color: var(--a_color_primary_text_emphasis);
-  --a_dropdown_link_active_bg: var(--a_color_primary_bg_subtle);
-  --a_dropdown_link_disabled_color: var(--a_color_text_muted);
-  --a_dropdown_item_padding_x: calc(.75rem * var(--a_density));
-  --a_dropdown_item_padding_y: calc(.375rem * var(--a_density));
-  --a_dropdown_item_border_radius: var(--a_border_radius);
-  --a_dropdown_header_color: var(--a_color_text_muted);
-  --a_dropdown_header_padding_x: calc(.75rem * var(--a_density));
-  --a_dropdown_header_padding_y: .125rem;
+  // menu
+  --a_dropdown_min_width: 10rem; // Minimum width of the menu.
+  --a_dropdown_max_height: 31.25rem; // Maximum height of the menu. Longer menus scroll.
+  --a_dropdown_padding_x: var(--a_space_xs); // Horizontal padding inside the menu.
+  --a_dropdown_padding_y: var(--a_space_xs); // Vertical padding inside the menu.
+  --a_dropdown_group_indent: .375rem; // Indent of nested groups. Deeper levels use multiples of it.
+  --a_dropdown_spacer: .125rem; // Not used by the library styles.
+  --a_dropdown_font_size: var(--a_body_font_size); // Font size of the menu.
+  --a_dropdown_color: var(--a_color_text); // Text color of the menu.
+  --a_dropdown_bg: var(--a_color_surface_raised); // Background of the menu.
+  --a_dropdown_border_color: var(--a_border_color); // Border color of the menu.
+  --a_dropdown_border_radius: var(--a_border_radius_large); // Corner radius of the menu.
+  --a_dropdown_border_width: var(--a_border_width); // Border width of the menu.
+  --a_dropdown_box_shadow: var(--a_shadow_md); // Shadow of the menu.
+  // divider
+  --a_dropdown_divider_color: var(--a_border_color); // Color of a divider between items.
+  --a_dropdown_divider_margin_y: var(--a_space_xs); // Space above and below a divider.
+  // item
+  --a_dropdown_link_color: var(--a_color_text); // Text color of an item.
+  --a_dropdown_link_hover_color: var(--a_color_text); // Text color of a hovered item.
+  --a_dropdown_link_hover_bg: var(--a_color_gray_100); // Background of a hovered item.
+  --a_dropdown_link_active_color: var(--a_color_primary_text_emphasis); // Text color of the active (selected or pressed) item.
+  --a_dropdown_link_active_bg: var(--a_color_primary_bg_subtle); // Background of the active (selected or pressed) item.
+  --a_dropdown_link_disabled_color: var(--a_color_text_muted); // Text color of a disabled item.
+  --a_dropdown_item_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of an item.
+  --a_dropdown_item_padding_y: calc(.375rem * var(--a_density)); // Vertical padding of an item.
+  --a_dropdown_item_border_radius: var(--a_border_radius); // Corner radius of an item.
+  // header
+  --a_dropdown_header_color: var(--a_color_text_muted); // Text color of a header or group label.
+  --a_dropdown_header_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of a header or group label.
+  --a_dropdown_header_padding_y: .125rem; // Vertical padding of a header or group label.
 }

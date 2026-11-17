@@ -29,11 +29,11 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_badge) {
-  --a_badge_padding_x: .65em;
-  --a_badge_padding_y: .35em;
-  --a_badge_font_size: .75em;
-  --a_badge_font_weight: var(--a_font_weight_bold);
-  --a_badge_color: var(--a_color_white);
-  --a_badge_bg: var(--a_color_black);
-  --a_badge_border_radius: var(--a_border_radius);
+  --a_badge_padding_x: .65em; // Horizontal padding. Relative to the font size.
+  --a_badge_padding_y: .35em; // Vertical padding. Relative to the font size.
+  --a_badge_font_size: .75em; // Font size, relative to the surrounding text.
+  --a_badge_font_weight: var(--a_font_weight_bold); // Font weight.
+  --a_badge_color: var(--a_color_white); // Text color. Set by the color classes (e.g. .a_badge_success).
+  --a_badge_bg: var(--a_color_black); // Background. Set by the color classes.
+  --a_badge_border_radius: var(--a_border_radius); // Corner radius. .a_pill_rounded makes it fully round.
 }

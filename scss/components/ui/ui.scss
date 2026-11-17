@@ -289,32 +289,35 @@ input[type="text"]::-ms-clear {
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_form_element__parent) {
-  --a_form_element_error_color: var(--a_color_danger_text);
-  --a_form_element_label_float_top: 1.125rem;
-  --a_form_element_label_float_color: var(--a_color_text_muted);
-  --a_form_element_label_float_active_color: var(--a_color_label);
-  --a_form_element_label_float_bg: var(--a_color_surface);
-  --a_form_element_label_inset_space: calc(1rem * var(--a_density));
-  --a_form_element_label_inset_top: calc(.375rem * var(--a_density));
-  --a_form_element_help_text_color: var(--a_color_text_muted);
+  --a_form_element_error_color: var(--a_color_danger_text); // Color of error texts, error labels and the error icon of form elements.
+  // label
+  --a_form_element_label_float_top: 1.125rem; // Vertical position of a float label while the field is empty and not focused.
+  --a_form_element_label_float_color: var(--a_color_text_muted); // Color of a float label while it is inside the empty field.
+  --a_form_element_label_float_active_color: var(--a_color_label); // Color of a float label after it moved to the border (field focused or filled).
+  --a_form_element_label_float_bg: var(--a_color_surface); // Background behind a float label on the border. Set it to the background of the surrounding area.
+  --a_form_element_label_inset_space: calc(1rem * var(--a_density)); // Extra height of the field for an inset label (labelPosition "inset").
+  --a_form_element_label_inset_top: calc(.375rem * var(--a_density)); // Top position of an inset label when the field is focused or filled.
+  --a_form_element_help_text_color: var(--a_color_text_muted); // Color of the help text below the field.
 }
 :where(.a_fieldset__content) {
-  --a_form_element_error_color: var(--a_color_danger_text);
+  --a_form_element_error_color: var(--a_color_danger_text); // Color of error texts, error labels and the error icon of form elements.
 }
 :where(.a_form_control) {
-  --a_form_control_height: var(--a_control_height);
-  --a_form_control_padding_x: var(--a_control_padding_x);
-  --a_form_control_padding_y: var(--a_control_padding_y);
-  --a_form_control_font_size: var(--a_body_font_size);
-  --a_form_control_color: var(--a_color_text);
-  --a_form_control_bg: var(--a_color_surface);
-  --a_form_control_border_width: var(--a_border_width);
-  --a_form_control_border_color: var(--a_border_color_strong);
-  --a_form_control_border_radius: var(--a_border_radius);
-  --a_form_control_hover_border_color: var(--a_color_gray_600);
-  --a_form_control_focus_border_color: var(--a_color_focus);
-  --a_form_control_placeholder_color: var(--a_color_text_muted);
-  --a_form_control_disabled_color: var(--a_color_text_muted);
-  --a_form_control_disabled_bg: var(--a_color_gray_100);
-  --a_form_control_disabled_border_color: var(--a_border_color);
+  // field
+  --a_form_control_height: var(--a_control_height); // Minimum height of the field.
+  --a_form_control_padding_x: var(--a_control_padding_x); // Horizontal padding of the field.
+  --a_form_control_padding_y: var(--a_control_padding_y); // Vertical padding of the field.
+  --a_form_control_font_size: var(--a_body_font_size); // Font size of the field.
+  --a_form_control_color: var(--a_color_text); // Text color of the field.
+  --a_form_control_bg: var(--a_color_surface); // Background of the field.
+  --a_form_control_border_width: var(--a_border_width); // Border width of the field.
+  --a_form_control_border_color: var(--a_border_color_strong); // Border color of the field.
+  --a_form_control_border_radius: var(--a_border_radius); // Corner radius of the field.
+  // states
+  --a_form_control_hover_border_color: var(--a_color_gray_600); // Border color of the field on hover.
+  --a_form_control_focus_border_color: var(--a_color_focus); // Border color of the focused field. The focus ring is drawn in addition.
+  --a_form_control_placeholder_color: var(--a_color_text_muted); // Color of the placeholder text.
+  --a_form_control_disabled_color: var(--a_color_text_muted); // Text color of a disabled field.
+  --a_form_control_disabled_bg: var(--a_color_gray_100); // Background of a disabled field.
+  --a_form_control_disabled_border_color: var(--a_border_color); // Border color of a disabled field.
 }

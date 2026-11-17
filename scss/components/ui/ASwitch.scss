@@ -149,21 +149,25 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_switch) {
-  --a_switch_button_border_radius: var(--a_border_radius_pill);
-  --a_switch_button_label_border_radius: var(--a_border_radius);
-  --a_switch_button_track_left: .3125rem;
-  --a_switch_button_track_width: 2.5rem;
-  --a_switch_button_track_height: 1.5rem;
-  --a_switch_button_knob_size: 1.125rem;
-  --a_switch_button_knob_gap: .1875rem;
-  --a_switch_button_bg: var(--a_color_gray_600);
-  --a_switch_button_inner_bg: var(--a_color_white);
-  --a_switch_button_active_bg: var(--a_color_primary);
-  --a_switch_button_inactive_bg: var(--a_color_gray_400);
-  --a_switch_hover_focus_bg: var(--a_color_gray_100);
-  --a_switch_button_border_color: var(--a_switch_button_bg);
-  --a_switch_button_invalid_color: var(--a_color_danger_text);
-  --a_switch_button_disabled_bg: var(--a_color_gray_300);
-  --a_switch_button_disabled_inner_bg: var(--a_color_gray_100);
-  --a_switch_button_disabled_border_color: var(--a_color_gray_300);
+  // size
+  --a_switch_button_border_radius: var(--a_border_radius_pill); // Corner radius of the track and the knob.
+  --a_switch_button_label_border_radius: var(--a_border_radius); // Corner radius of the label area (visible on hover).
+  --a_switch_button_track_left: .3125rem; // Distance of the track from the left edge of the label.
+  --a_switch_button_track_width: 2.5rem; // Width of the track.
+  --a_switch_button_track_height: 1.5rem; // Height of the track.
+  --a_switch_button_knob_size: 1.125rem; // Size of the knob.
+  --a_switch_button_knob_gap: .1875rem; // Space between the knob and the edge of the track.
+  // colors
+  --a_switch_button_bg: var(--a_color_gray_600); // Background of the track when off.
+  --a_switch_button_inner_bg: var(--a_color_white); // Color of the knob.
+  --a_switch_button_active_bg: var(--a_color_primary); // Background and border color of the track when on.
+  --a_switch_button_inactive_bg: var(--a_color_gray_400); // Background and border color of the track when the value is neither on nor off (undefined).
+  --a_switch_hover_focus_bg: var(--a_color_gray_100); // Background of the label area on hover.
+  --a_switch_button_border_color: var(--a_switch_button_bg); // Border color of the track when off.
+  // error
+  --a_switch_button_invalid_color: var(--a_color_danger_text); // Border color of the track and color of the knob when the field has errors.
+  // disabled
+  --a_switch_button_disabled_bg: var(--a_color_gray_300); // Background of the track when disabled.
+  --a_switch_button_disabled_inner_bg: var(--a_color_gray_100); // Color of the knob when disabled.
+  --a_switch_button_disabled_border_color: var(--a_color_gray_300); // Border color of the track when disabled.
 }

@@ -550,76 +550,87 @@
 // ---------------------------------------------------------------------------
 // Global: also used by .a_menu__page, which is outside of .a_menu
 :where(:root) {
-  --a_menu_width_expanded: 21.875rem;
-  --a_menu_width_collapsed: 3.75rem;
-  --a_menu_transition: var(--a_duration_slow);
-  --a_menu_btn_toggle_top: .3125rem;
-  --a_menu_btn_toggle_margin_left: .5rem;
-  --a_menu_mobile_btn_toggle_margin_left: .5rem;
-  --a_menu_mobile_btn_toggle_margin_top: .5rem;
-  --a_menu_mobile_z_index: var(--a_z_index_menu_mobile);
-  --a_menu_close_opacity: .3;
-  --a_menu_page_bg: var(--a_color_body_bg);
+  // layout
+  --a_menu_width_expanded: 21.875rem; // Width of the open menu. The page next to it is shifted by this width.
+  --a_menu_width_collapsed: 3.75rem; // Width of the closed menu (icons only). The page next to it is shifted by this width.
+  --a_menu_transition: var(--a_duration_slow); // Duration of the animation of the toggle button bars.
+  --a_menu_btn_toggle_top: .3125rem; // Not used by the library styles.
+  --a_menu_btn_toggle_margin_left: .5rem; // Not used by the library styles.
+  --a_menu_mobile_btn_toggle_margin_left: .5rem; // Not used by the library styles.
+  --a_menu_mobile_btn_toggle_margin_top: .5rem; // Not used by the library styles.
+  --a_menu_mobile_z_index: var(--a_z_index_menu_mobile); // Not used by the library styles.
+  --a_menu_close_opacity: .3; // Not used by the library styles.
+  // page
+  --a_menu_page_bg: var(--a_color_body_bg); // Background of the page area next to the menu (.a_menu__page).
 }
 
 :where(.a_menu) {
-  --a_menu_width: var(--a_menu_width_expanded);
-  --a_menu_top: 0;
-  --a_menu_navbar_top_height: 3.125rem;
-  --a_menu_navbar_top_padding: .7rem .5rem .5rem .5rem;
-  --a_menu_navbar_top_margin_bottom: .5rem;
-  --a_menu_background: var(--a_color_surface);
-  --a_menu_border_color: var(--a_border_color);
-  --a_menu_box_shadow_color: var(--a_shadow_color);
-  --a_menu_box_shadow_size: 2px 0 12px -4px;
-  --a_menu_panel_child_offset: 100%;
-  --a_menu_panel_parent_offset: -30%;
-  --a_menu_panel_iconpanel_size: var(--a_menu_width_collapsed);
-  --a_menu_panel_color: var(--a_color_text_muted);
-  --a_menu_panel_secondary_bg: var(--a_color_surface);
-  --a_menu_panel_main_link_hover_color: var(--a_color_text);
-  --a_menu_panel_main_link_hover_bg: var(--a_color_gray_100);
-  --a_menu_panel_main_link_padding_left: 1.5625rem;
-  --a_menu_link_color: var(--a_color_text);
-  --a_menu_link_hover_color: var(--a_color_text);
-  --a_menu_link_hover_bg: var(--a_color_gray_100);
-  --a_menu_listitem_padding: calc(.3rem * var(--a_density));
-  --a_menu_listitem_panel_secondary_padding_x: calc(.6rem * var(--a_density));
-  --a_menu_listitem_panel_secondary_padding_y: calc(.3rem * var(--a_density));
-  --a_menu_link_padding_x: calc(.7rem * var(--a_density));
-  --a_menu_link_padding_y: calc(.5rem * var(--a_density));
-  --a_menu_link_selected_bg: var(--a_color_primary_bg_subtle);
-  --a_menu_link_selected_color: var(--a_color_primary_text_emphasis);
-  --a_menu_link_border_color: transparent;
-  --a_menu_link_border_radius: var(--a_border_radius);
-  --a_menu_link_focus_box_shadow: var(--a_focus_ring_inset);
-  --a_menu_icon_color: var(--a_menu_link_color);
-  --a_menu_list_header_bg: var(--a_color_gray_100);
-  --a_menu_breadcrumb_min_height: 4.0625rem;
-  --a_menu_breadcrumb_border_bottom_width: var(--a_border_width);
-  --a_menu_submenu_open_bg: var(--a_color_primary);
-  --a_menu_submenu_open_color: var(--a_color_primary_contrast);
-  --a_menu_submenu_border_radius: var(--a_border_radius_xl);
-  --a_menu_submenu_border_width: 2px;
-  --a_menu_search_height: 2.375rem;
-  --a_menu_close_panel_width: 18.75rem;
-  --a_menu_close_panel_max_height: 25rem;
-  --a_menu_close_panel_border_radius: var(--a_border_radius_large);
-  --a_menu_close_panel_box_shadow_color: var(--a_shadow_color);
-  --a_menu_close_panel_box_shadow_size: 0 12px 32px -8px;
-  --a_menu_close_panel_header_color: var(--a_color_text);
-  --a_menu_close_panel_header_border_bottom_color: var(--a_border_color);
-  --a_menu_close_panel_header_border_bottom_width: var(--a_border_width);
-  --a_menu_link_line_horizontal_display: none;
+  // menu
+  --a_menu_width: var(--a_menu_width_expanded); // Width of the menu element.
+  --a_menu_top: 0; // Top offset of the menu, e.g. the height of a fixed header above it.
+  --a_menu_navbar_top_height: 3.125rem; // Height of the top bar with the toggle button and the search.
+  --a_menu_navbar_top_padding: .7rem .5rem .5rem .5rem; // Padding of the top bar.
+  --a_menu_navbar_top_margin_bottom: .5rem; // Space below the top bar.
+  --a_menu_background: var(--a_color_surface); // Background of the menu and its panels.
+  --a_menu_border_color: var(--a_border_color); // Color of the right border of the menu and of the lines between panels and items.
+  --a_menu_box_shadow_color: var(--a_shadow_color); // Color of the menu shadow.
+  --a_menu_box_shadow_size: 2px 0 12px -4px; // Offsets, blur and spread of the menu shadow.
+  // panels
+  --a_menu_panel_child_offset: 100%; // Start position of a submenu panel before it slides in (translateX).
+  --a_menu_panel_parent_offset: -30%; // Not used by the library styles.
+  --a_menu_panel_iconpanel_size: var(--a_menu_width_collapsed); // Width of the icon column: indent of the list header and left position of submenu panels.
+  --a_menu_panel_color: var(--a_color_text_muted); // Text color of the panels.
+  --a_menu_panel_secondary_bg: var(--a_color_surface); // Background of a submenu panel.
+  --a_menu_panel_main_link_hover_color: var(--a_color_text); // Text color of a hovered link in the main panel.
+  --a_menu_panel_main_link_hover_bg: var(--a_color_gray_100); // Background of a hovered link in the main panel.
+  --a_menu_panel_main_link_padding_left: 1.5625rem; // Space between the icon and the text of a link in the main panel.
+  // links
+  --a_menu_link_color: var(--a_color_text); // Text color of a link.
+  --a_menu_link_hover_color: var(--a_color_text); // Text color of a hovered link.
+  --a_menu_link_hover_bg: var(--a_color_gray_100); // Background of a hovered link.
+  --a_menu_listitem_padding: calc(.3rem * var(--a_density)); // Padding of a list item in the main panel.
+  --a_menu_listitem_panel_secondary_padding_x: calc(.6rem * var(--a_density)); // Horizontal padding of a list item in a submenu panel and of the panel header.
+  --a_menu_listitem_panel_secondary_padding_y: calc(.3rem * var(--a_density)); // Vertical padding of a list item in a submenu panel and of the panel header.
+  --a_menu_link_padding_x: calc(.7rem * var(--a_density)); // Horizontal padding of a link.
+  --a_menu_link_padding_y: calc(.5rem * var(--a_density)); // Vertical padding of a link.
+  --a_menu_link_selected_bg: var(--a_color_primary_bg_subtle); // Background of a selected link (e.g. a search result chosen with the keyboard).
+  --a_menu_link_selected_color: var(--a_color_primary_text_emphasis); // Text color of a selected link.
+  --a_menu_link_border_color: transparent; // Border color of a link.
+  --a_menu_link_border_radius: var(--a_border_radius); // Corner radius of a link.
+  --a_menu_link_focus_box_shadow: var(--a_focus_ring_inset); // Focus ring of a link.
+  --a_menu_icon_color: var(--a_menu_link_color); // Color of a link icon.
+  // header and breadcrumbs
+  --a_menu_list_header_bg: var(--a_color_gray_100); // Background of the list header in a panel.
+  --a_menu_breadcrumb_min_height: 4.0625rem; // Height of the breadcrumb bar above a submenu panel.
+  --a_menu_breadcrumb_border_bottom_width: var(--a_border_width); // Thickness of the line under the breadcrumbs of a submenu panel.
+  // submenu
+  --a_menu_submenu_open_bg: var(--a_color_primary); // Background of the active link and of a link whose submenu is open. Also the color of the submenu panel border.
+  --a_menu_submenu_open_color: var(--a_color_primary_contrast); // Text and icon color of the active link and of a link whose submenu is open.
+  --a_menu_submenu_border_radius: var(--a_border_radius_xl); // Top left corner radius of an open submenu panel.
+  --a_menu_submenu_border_width: 2px; // Width of the left and top border of an open submenu panel.
+  // search
+  --a_menu_search_height: 2.375rem; // Height of the search field in the top bar.
+  // closed menu panel
+  --a_menu_close_panel_width: 18.75rem; // Width of a submenu panel shown next to the closed menu.
+  --a_menu_close_panel_max_height: 25rem; // Maximum height of a submenu panel next to the closed menu. Longer content scrolls.
+  --a_menu_close_panel_border_radius: var(--a_border_radius_large); // Corner radius of a submenu panel next to the closed menu.
+  --a_menu_close_panel_box_shadow_color: var(--a_shadow_color); // Shadow color of a submenu panel next to the closed menu.
+  --a_menu_close_panel_box_shadow_size: 0 12px 32px -8px; // Offsets, blur and spread of the shadow of a submenu panel next to the closed menu.
+  --a_menu_close_panel_header_color: var(--a_color_text); // Text color of the panel header.
+  --a_menu_close_panel_header_border_bottom_color: var(--a_border_color); // Color of the line under the panel header.
+  --a_menu_close_panel_header_border_bottom_width: var(--a_border_width); // Thickness of the line under the panel header.
+  // separator
+  --a_menu_link_line_horizontal_display: none; // Display of the separator line between list items. Set to block to show it.
 }
 
 :where(.a_menu__btn_toggle) {
-  --a_menu_btn_toggle_width: 2.625rem;
-  --a_menu_btn_toggle_height: 2.375rem;
-  --a_menu_btn_toggle_bar_width: 1.125rem;
-  --a_menu_btn_toggle_bar_height: 2px;
-  --a_menu_btn_toggle_bar_1_top: .75rem;
-  --a_menu_btn_toggle_bar_2_top: calc(var(--a_menu_btn_toggle_height) / 2 - var(--a_menu_btn_toggle_bar_height) / 2);
-  --a_menu_btn_toggle_bar_3_top: 1.5rem;
-  --a_menu_btn_toggle_bar_bg: currentColor;
+  // toggle button
+  --a_menu_btn_toggle_width: 2.625rem; // Width of the toggle button.
+  --a_menu_btn_toggle_height: 2.375rem; // Height of the toggle button.
+  --a_menu_btn_toggle_bar_width: 1.125rem; // Width of a bar of the toggle icon.
+  --a_menu_btn_toggle_bar_height: 2px; // Thickness of a bar of the toggle icon.
+  --a_menu_btn_toggle_bar_1_top: .75rem; // Top position of the first bar of the toggle icon.
+  --a_menu_btn_toggle_bar_2_top: calc(var(--a_menu_btn_toggle_height) / 2 - var(--a_menu_btn_toggle_bar_height) / 2); // Top position of the middle bar of the toggle icon. The bars of the close icon (×) meet here.
+  --a_menu_btn_toggle_bar_3_top: 1.5rem; // Top position of the last bar of the toggle icon.
+  --a_menu_btn_toggle_bar_bg: currentColor; // Color of the bars of the toggle icon.
 }

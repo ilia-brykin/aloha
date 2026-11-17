@@ -168,26 +168,32 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_slider) {
-  --a_slider_padding_x: .625rem;
-  --a_slider_bar_height: .375rem;
-  --a_slider_bar_bg: var(--a_color_primary);
-  --a_slider_bar_border_radius: var(--a_border_radius_pill);
-  --a_slider_runway_bg: var(--a_color_gray_300);
-  --a_slider_btn_wrapper_size: 2.25rem;
-  --a_slider_btn_size: 1.25rem;
-  --a_slider_btn_bg: var(--a_color_surface);
-  --a_slider_btn_border_width: 2px;
-  --a_slider_btn_border_color: var(--a_color_primary);
-  --a_slider_btn_focus_color_inside: var(--a_focus_color_inside);
-  --a_slider_btn_focus_width_inside: var(--a_focus_width_inside);
-  --a_slider_btn_focus_color_outside: var(--a_focus_color_outside);
-  --a_slider_btn_focus_width_outside: var(--a_focus_width_outside);
-  --a_slider_stop_bg: var(--a_color_surface);
-  --a_slider_stop_border_radius: 50%;
-  --a_slider_marks_color: var(--a_color_text_muted);
-  --a_slider_disabled_bar_bg: var(--a_color_gray_500);
-  --a_slider_disabled_runway_bg: var(--a_color_gray_300);
-  --a_slider_disabled_btn_border_color: var(--a_color_gray_500);
-  --a_slider_error_bar_bg: var(--a_form_element_error_color, var(--a_color_danger));
-  --a_slider_error_btn_border_color: var(--a_form_element_error_color, var(--a_color_danger));
+  // track
+  --a_slider_padding_x: .625rem; // Space at both ends of the slider, so the handle does not stick out.
+  --a_slider_bar_height: .375rem; // Thickness of the track (width in a vertical slider).
+  --a_slider_bar_bg: var(--a_color_primary); // Color of the filled part of the track.
+  --a_slider_bar_border_radius: var(--a_border_radius_pill); // Corner radius of the track.
+  --a_slider_runway_bg: var(--a_color_gray_300); // Color of the empty part of the track.
+  // handle
+  --a_slider_btn_wrapper_size: 2.25rem; // Size of the clickable area around the handle. Also the height of the slider.
+  --a_slider_btn_size: 1.25rem; // Size of the visible handle.
+  --a_slider_btn_bg: var(--a_color_surface); // Background of the handle.
+  --a_slider_btn_border_width: 2px; // Border width of the handle.
+  --a_slider_btn_border_color: var(--a_color_primary); // Border color of the handle.
+  // focus
+  --a_slider_btn_focus_color_inside: var(--a_focus_color_inside); // Inner (gap) color of the focus ring of the handle.
+  --a_slider_btn_focus_width_inside: var(--a_focus_width_inside); // Inner (gap) width of the focus ring of the handle.
+  --a_slider_btn_focus_color_outside: var(--a_focus_color_outside); // Outer color of the focus ring of the handle.
+  --a_slider_btn_focus_width_outside: var(--a_focus_width_outside); // Outer width of the focus ring of the handle.
+  // steps and marks
+  --a_slider_stop_bg: var(--a_color_surface); // Color of the step dots on the track.
+  --a_slider_stop_border_radius: 50%; // Corner radius of the step dots.
+  --a_slider_marks_color: var(--a_color_text_muted); // Text color of the marks below the track.
+  // disabled
+  --a_slider_disabled_bar_bg: var(--a_color_gray_500); // Color of the filled part of the track when disabled.
+  --a_slider_disabled_runway_bg: var(--a_color_gray_300); // Color of the empty part of the track when disabled.
+  --a_slider_disabled_btn_border_color: var(--a_color_gray_500); // Border color of the handle when disabled.
+  // error
+  --a_slider_error_bar_bg: var(--a_form_element_error_color, var(--a_color_danger)); // Color of the filled part of the track when the field has errors.
+  --a_slider_error_btn_border_color: var(--a_form_element_error_color, var(--a_color_danger)); // Border color of the handle when the field has errors.
 }

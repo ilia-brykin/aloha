@@ -111,23 +111,27 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_accordion) {
-  --a_accordion_color: var(--a_color_text);
-  --a_accordion_bg: var(--a_color_surface);
-  --a_accordion_font_size: inherit;
-  --a_accordion_transition: var(--a_transition_colors);
-  --a_accordion_border_color: var(--a_border_color);
-  --a_accordion_border_width: var(--a_border_width);
-  --a_accordion_border_radius: var(--a_border_radius);
-  --a_accordion_btn_padding_x: calc(1.25rem * var(--a_density));
-  --a_accordion_btn_padding_y: var(--a_space_md);
-  --a_accordion_btn_color: var(--a_color_text);
-  --a_accordion_btn_bg: var(--a_accordion_bg);
-  --a_accordion_btn_icon_width: 1.25rem;
-  --a_accordion_btn_focus_box_shadow: var(--a_focus_ring);
-  --a_accordion_btn_hover_bg: var(--a_color_surface_subtle);
-  --a_accordion_body_padding_x: calc(1.25rem * var(--a_density));
-  --a_accordion_body_padding_y: var(--a_space_md);
-  --a_accordion_active_color: var(--a_color_primary_text_emphasis);
-  --a_accordion_active_bg: var(--a_color_primary_bg_subtle);
-  --a_accordion_with_gap_margin_bottom: var(--a_space_md);
+  // item
+  --a_accordion_color: var(--a_color_text); // Text color of an item.
+  --a_accordion_bg: var(--a_color_surface); // Background of an item.
+  --a_accordion_font_size: inherit; // Font size of the accordion.
+  --a_accordion_transition: var(--a_transition_colors); // Not used by the library styles.
+  --a_accordion_border_color: var(--a_border_color); // Border color of the items.
+  --a_accordion_border_width: var(--a_border_width); // Border width of the items.
+  --a_accordion_border_radius: var(--a_border_radius); // Corner radius of the first and last item, or of every item with a gap.
+  // header button
+  --a_accordion_btn_padding_x: calc(1.25rem * var(--a_density)); // Horizontal padding of the header button.
+  --a_accordion_btn_padding_y: var(--a_space_md); // Vertical padding of the header button.
+  --a_accordion_btn_color: var(--a_color_text); // Text color of a closed header button.
+  --a_accordion_btn_bg: var(--a_accordion_bg); // Background of a closed header button.
+  --a_accordion_btn_icon_width: 1.25rem; // Size of the open/close icon.
+  --a_accordion_btn_focus_box_shadow: var(--a_focus_ring); // Focus ring of the header button.
+  --a_accordion_btn_hover_bg: var(--a_color_surface_subtle); // Background of a hovered header button.
+  // content
+  --a_accordion_body_padding_x: calc(1.25rem * var(--a_density)); // Horizontal padding of the content.
+  --a_accordion_body_padding_y: var(--a_space_md); // Vertical padding of the content.
+  // open item
+  --a_accordion_active_color: var(--a_color_primary_text_emphasis); // Text color of an open header button.
+  --a_accordion_active_bg: var(--a_color_primary_bg_subtle); // Background of an open header button.
+  --a_accordion_with_gap_margin_bottom: var(--a_space_md); // Space between items when they are separated by a gap.
 }

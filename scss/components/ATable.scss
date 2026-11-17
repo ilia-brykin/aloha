@@ -771,69 +771,82 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_table__parent) {
-  --a_table_bg: var(--a_color_surface);
-  --a_table_th_bg: var(--a_color_surface_subtle);
-  --a_table_th_border_vertical_width: var(--a_border_width);
-  --a_table_th_border_vertical_color: var(--a_border_color);
-  --a_table_th_border_horizontal_width: var(--a_border_width);
-  --a_table_th_border_horizontal_color: var(--a_border_color);
-  --a_table_th_border_bottom_width: var(--a_border_width);
-  --a_table_th_border_bottom_color: var(--a_border_color_strong);
-  --a_table_th_sorting_bg: var(--a_color_primary_bg_subtle);
-  --a_table_row_border_bottom_width: var(--a_border_width);
-  --a_table_row_border_bottom_color: var(--a_border_color);
-  --a_table_row_hover_bg: var(--a_color_gray_100);
-  --a_table_row_focus_shadow: var(--a_focus_ring_inset);
-  --a_table_row_preview_open_bg: var(--a_color_primary_border_subtle);
-  --a_table_row_preview_was_open_bg: var(--a_color_primary_bg_subtle);
-  --a_table_row_preview_focus_bg: var(--a_color_primary_border_subtle);
-  --a_table_td_border_vertical_width: var(--a_border_width);
-  --a_table_td_border_vertical_color: var(--a_border_color);
-  --a_table_cell_padding_x: calc(.5rem * var(--a_density));
-  --a_table_cell_padding_y: calc(.5rem * var(--a_density));
-  --a_table_quick_search_width: 15.625rem;
-  --a_table_between_actions_margin: var(--a_space_sm);
-  --a_table_preview_right_padding: var(--a_space_xs) var(--a_space_md);
-  --a_table_preview_right_width: 18.75rem;
-  --a_table_preview_right_bg: var(--a_color_surface_raised);
-  --a_table_preview_right_border_width: 0 0 0 var(--a_border_width);
-  --a_table_preview_right_border_color: var(--a_border_color);
-  --a_table_preview_right_header_bg: var(--a_color_surface_subtle);
-  --a_table_preview_right_header_font_size: 1.5rem;
-  --a_table_preview_right_shadow_size: -8px 0 24px -8px;
-  --a_table_preview_right_shadow_color: var(--a_shadow_color);
-  --a_table_preview_down_bg: var(--a_color_surface);
-  --a_table_preview_down_border_width: var(--a_border_width);
-  --a_table_preview_down_border_color: var(--a_border_color_strong);
-  --a_table_preview_down_padding_y: var(--a_space_lg);
-  --a_table_preview_down_padding_left: var(--a_space_lg);
-  --a_table_preview_down_padding_right: var(--a_space_lg);
-  --a_table_preview_down_border_radius: var(--a_border_radius_large);
-  --a_table_footer_border_top: var(--a_border_width) solid var(--a_border_color_strong);
-  --a_table_draggable_color: var(--a_color_primary);
-  --a_table_mobile_dt_dd_border_bottom: var(--a_border_width) solid var(--a_border_color);
-  --a_table_mobile_dt_width: .4;
-  --a_table_mobile_dd_width: .6;
-  --a_table_mobile_dt_padding_left: var(--a_space_sm);
-  --a_table_mobile_dd_padding_right: var(--a_space_sm);
-  --a_table_mobile_row_level_icon_width: 1.25rem;
-  --a_table_mobile_row_level_icon_bg: var(--a_color_gray_200);
-  --a_table_multiple_border_radius: var(--a_border_radius_large);
-  --a_table_multiple_border: var(--a_border_width) solid var(--a_border_color);
-  --a_table_multiple_bg: var(--a_color_surface_subtle);
-  --a_table_multiple_header_text_font_size: var(--a_body_font_size);
-  --a_table_multiple_items_selected_border: var(--a_border_width) solid var(--a_table_row_preview_focus_bg);
-  --a_table_multiple_items_selected_bg: var(--a_table_row_preview_was_open_bg);
-  --a_table_sort_sequence_num_bg: var(--a_color_primary);
-  --a_table_sort_sequence_num_color: var(--a_color_primary_contrast);
-  --a_table_dnd_th_bg: var(--a_color_primary_border_subtle);
-  --a_table_dnd_th_width: 3.125rem;
-  --a_table_tree_level_padding_left: 1.2rem;
+  // general
+  --a_table_bg: var(--a_color_surface); // Background of the table rows and cells.
+  // header
+  --a_table_th_bg: var(--a_color_surface_subtle); // Background of the table header.
+  --a_table_th_border_vertical_width: var(--a_border_width); // Width of the vertical lines between header cells in bordered tables.
+  --a_table_th_border_vertical_color: var(--a_border_color); // Color of the vertical lines between header cells in bordered tables.
+  --a_table_th_border_horizontal_width: var(--a_border_width); // Width of the line under a column group header in bordered tables.
+  --a_table_th_border_horizontal_color: var(--a_border_color); // Color of the line under a column group header in bordered tables.
+  --a_table_th_border_bottom_width: var(--a_border_width); // Width of the line under the table header.
+  --a_table_th_border_bottom_color: var(--a_border_color_strong); // Color of the line under the table header.
+  --a_table_th_sorting_bg: var(--a_color_primary_bg_subtle); // Background of the header cell of the sorted column.
+  // rows
+  --a_table_row_border_bottom_width: var(--a_border_width); // Width of the line between rows.
+  --a_table_row_border_bottom_color: var(--a_border_color); // Color of the line between rows.
+  --a_table_row_hover_bg: var(--a_color_gray_100); // Background of a hovered row or a row with focus inside.
+  --a_table_row_focus_shadow: var(--a_focus_ring_inset); // Focus ring of a focused row.
+  --a_table_row_preview_open_bg: var(--a_color_primary_border_subtle); // Background of the row whose preview is open.
+  --a_table_row_preview_was_open_bg: var(--a_color_primary_bg_subtle); // Background of the row whose preview was open last.
+  --a_table_row_preview_focus_bg: var(--a_color_primary_border_subtle); // Color used for the border of selected items in the multiple actions panel.
+  // cells
+  --a_table_td_border_vertical_width: var(--a_border_width); // Width of the vertical lines between body cells in bordered tables.
+  --a_table_td_border_vertical_color: var(--a_border_color); // Color of the vertical lines between body cells in bordered tables.
+  --a_table_cell_padding_x: calc(.5rem * var(--a_density)); // Horizontal padding of a cell.
+  --a_table_cell_padding_y: calc(.5rem * var(--a_density)); // Vertical padding of a cell.
+  // top panel
+  --a_table_quick_search_width: 15.625rem; // Width of the quick search field.
+  --a_table_between_actions_margin: var(--a_space_sm); // Space between the icon and the text in a header cell and between action elements.
+  // preview right
+  --a_table_preview_right_padding: var(--a_space_xs) var(--a_space_md); // Padding of the header and the body of the right preview.
+  --a_table_preview_right_width: 18.75rem; // Width of the right preview.
+  --a_table_preview_right_bg: var(--a_color_surface_raised); // Background of the right preview.
+  --a_table_preview_right_border_width: 0 0 0 var(--a_border_width); // Border width of the right preview (top, right, bottom, left).
+  --a_table_preview_right_border_color: var(--a_border_color); // Border color of the right preview.
+  --a_table_preview_right_header_bg: var(--a_color_surface_subtle); // Background of the header of the right preview.
+  --a_table_preview_right_header_font_size: 1.5rem; // Font size of the header of the right preview.
+  --a_table_preview_right_shadow_size: -8px 0 24px -8px; // Offsets, blur and spread of the shadow of the right preview.
+  --a_table_preview_right_shadow_color: var(--a_shadow_color); // Shadow color of the right preview.
+  // preview down
+  --a_table_preview_down_bg: var(--a_color_surface); // Background of the preview below a row.
+  --a_table_preview_down_border_width: var(--a_border_width); // Border width of the preview below a row.
+  --a_table_preview_down_border_color: var(--a_border_color_strong); // Border color of the preview below a row.
+  --a_table_preview_down_padding_y: var(--a_space_lg); // Top and bottom padding of the preview below a row.
+  --a_table_preview_down_padding_left: var(--a_space_lg); // Left and right padding of the preview below a row.
+  --a_table_preview_down_padding_right: var(--a_space_lg); // Not used by the library styles.
+  --a_table_preview_down_border_radius: var(--a_border_radius_large); // Corner radius of the preview below a row.
+  // footer
+  --a_table_footer_border_top: var(--a_border_width) solid var(--a_border_color_strong); // Border above the table footer (shorthand: width, style, color).
+  --a_table_draggable_color: var(--a_color_primary); // Not used by the library styles.
+  // mobile
+  --a_table_mobile_dt_dd_border_bottom: var(--a_border_width) solid var(--a_border_color); // Border under a label/value pair in the mobile view (shorthand).
+  --a_table_mobile_dt_width: .4; // Share of the row width for the label in the mobile view (0–1).
+  --a_table_mobile_dd_width: .6; // Share of the row width for the value in the mobile view (0–1).
+  --a_table_mobile_dt_padding_left: var(--a_space_sm); // Left padding of a label in the mobile view.
+  --a_table_mobile_dd_padding_right: var(--a_space_sm); // Right padding of a value in the mobile view.
+  --a_table_mobile_row_level_icon_width: 1.25rem; // Not used by the library styles.
+  --a_table_mobile_row_level_icon_bg: var(--a_color_gray_200); // Background of the tree level icon of a row in the mobile view.
+  // multiple actions
+  --a_table_multiple_border_radius: var(--a_border_radius_large); // Corner radius of the multiple actions panel and of its selected items.
+  --a_table_multiple_border: var(--a_border_width) solid var(--a_border_color); // Border of the multiple actions panel (shorthand).
+  --a_table_multiple_bg: var(--a_color_surface_subtle); // Background of the multiple actions panel.
+  --a_table_multiple_header_text_font_size: var(--a_body_font_size); // Font size of the header text of the multiple actions panel.
+  --a_table_multiple_items_selected_border: var(--a_border_width) solid var(--a_table_row_preview_focus_bg); // Border of a selected item in the multiple actions panel (shorthand).
+  --a_table_multiple_items_selected_bg: var(--a_table_row_preview_was_open_bg); // Background of a selected item in the multiple actions panel.
+  // sorting
+  --a_table_sort_sequence_num_bg: var(--a_color_primary); // Background of the sort order number in a header cell (multi-column sorting).
+  --a_table_sort_sequence_num_color: var(--a_color_primary_contrast); // Text color of the sort order number in a header cell.
+  // drag and drop
+  --a_table_dnd_th_bg: var(--a_color_primary_border_subtle); // Color of the drop indicator when a column is dragged onto a header cell.
+  --a_table_dnd_th_width: 3.125rem; // Width of the drop indicator when a column is dragged onto a header cell.
+  // tree
+  --a_table_tree_level_padding_left: 1.2rem; // Indent of a nested row per tree level.
 }
 
-// Column dropdown (may be rendered outside of .a_table__parent)
 :where(.a_table__th__dropdown__ul) {
-  --a_table_draggable_color: var(--a_color_primary);
-  --a_table_dnd_dropdown_li_bg: var(--a_color_primary_bg_subtle);
-  --a_table_draggable_li_height: 1.875rem;
+  // column dropdown
+  --a_table_draggable_color: var(--a_color_primary); // Not used by the library styles.
+  --a_table_dnd_dropdown_li_bg: var(--a_color_primary_bg_subtle); // Color of the drop indicator when a column is dragged in the column dropdown.
+  --a_table_draggable_li_height: 1.875rem; // Height of the drop indicator in the column dropdown.
 }

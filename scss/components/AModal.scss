@@ -46,8 +46,8 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_modal_footer_sticky) {
-  --a_modal_footer_sticky_gap: calc(var(--a_modal_footer_gap) * .5);
-  --a_modal_footer_sticky_bg: var(--a_color_surface_raised_translucent);
-  --a_modal_footer_sticky_blur: 3px;
-  --a_modal_footer_sticky_actions_bg: var(--a_modal_bg);
+  --a_modal_footer_sticky_gap: calc(var(--a_modal_footer_gap) * .5); // Space around the buttons in the sticky footer.
+  --a_modal_footer_sticky_bg: var(--a_color_surface_raised_translucent); // Background of the sticky footer. Translucent, so the content shows through.
+  --a_modal_footer_sticky_blur: 3px; // Blur of the content behind the sticky footer.
+  --a_modal_footer_sticky_actions_bg: var(--a_modal_bg); // Background of the button area in the sticky footer.
 }

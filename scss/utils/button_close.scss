@@ -41,12 +41,12 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_btn_close) {
-  --a_btn_close_size: 1em;
-  --a_btn_close_padding: .375em;
-  --a_btn_close_color: var(--a_color_text_muted);
-  --a_btn_close_bg: transparent;
-  --a_btn_close_hover_color: var(--a_color_text);
-  --a_btn_close_hover_bg: var(--a_color_gray_200);
-  --a_btn_close_border_radius: var(--a_border_radius);
-  --a_btn_close_disabled_opacity: .5;
+  --a_btn_close_size: 1em; // Size of the icon. Relative to the font size, so a font size class makes the button bigger.
+  --a_btn_close_padding: .375em; // Padding around the icon.
+  --a_btn_close_color: var(--a_color_text_muted); // Color of the icon.
+  --a_btn_close_bg: transparent; // Background.
+  --a_btn_close_hover_color: var(--a_color_text); // Color of the icon on hover.
+  --a_btn_close_hover_bg: var(--a_color_gray_200); // Background on hover.
+  --a_btn_close_border_radius: var(--a_border_radius); // Corner radius.
+  --a_btn_close_disabled_opacity: .5; // Opacity of a disabled button.
 }

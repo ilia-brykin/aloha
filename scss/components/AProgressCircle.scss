@@ -44,7 +44,7 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_progress_circle) {
-  --a_progress_circle_color: var(--a_color_primary);
-  --a_progress_circle_base_color: var(--a_color_gray_200);
-  --a_progress_circle_text_color: var(--a_color_text);
+  --a_progress_circle_color: var(--a_color_primary); // Color of the progress arc.
+  --a_progress_circle_base_color: var(--a_color_gray_200); // Color of the full circle behind the arc.
+  --a_progress_circle_text_color: var(--a_color_text); // Color of the text in the middle.
 }

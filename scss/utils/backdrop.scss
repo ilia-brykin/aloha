@@ -22,7 +22,7 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_backdrop) {
-  --a_backdrop_z_index: var(--a_z_index_backdrop);
-  --a_backdrop_bg: hsl(var(--a_gray_h) 30% 8%);
-  --a_backdrop_opacity: .55;
+  --a_backdrop_z_index: var(--a_z_index_backdrop); // Stacking order of the backdrop. Confirm dialogs use a higher value.
+  --a_backdrop_bg: hsl(var(--a_gray_h) 30% 8%); // Color of the backdrop.
+  --a_backdrop_opacity: .55; // Opacity of the visible backdrop.
 }

@@ -340,17 +340,20 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_carousel) {
-  --a_carousel_bg: var(--a_color_gray_200);
-  --a_carousel_on_media_color: var(--a_color_white);
-  --a_carousel_on_media_bg: hsl(var(--a_gray_h) 20% 8%);
-  --a_carousel_arrow_bg: hsl(var(--a_gray_h) 20% 8% / .5);
-  --a_carousel_arrow_hover_bg: hsl(var(--a_gray_h) 20% 8% / .7);
-  --a_carousel_tabs_bg: hsl(var(--a_gray_h) 20% 8% / .65);
-  --a_carousel_tab_primary_color: hsl(var(--a_primary_h) var(--a_primary_s) 30%);
-  --a_carousel_tab_width: 2.125rem;
-  --a_carousel_tab_height: 2.125rem;
-  --a_carousel_tabs_height: 1.875rem;
+  // general
+  --a_carousel_bg: var(--a_color_gray_200); // Background of the carousel behind the slides.
+  // controls on the image
+  --a_carousel_on_media_color: var(--a_color_white); // Color of the arrows, tabs and focus ring drawn on top of the image. Fixed light color, independent of the theme.
+  --a_carousel_on_media_bg: hsl(var(--a_gray_h) 20% 8%); // Dark color behind the controls on the image (tab background, inner focus ring).
+  --a_carousel_arrow_bg: hsl(var(--a_gray_h) 20% 8% / .5); // Background of the side arrows (arrows-position sides-center).
+  --a_carousel_arrow_hover_bg: hsl(var(--a_gray_h) 20% 8% / .7); // Background of a hovered or focused side arrow.
+  --a_carousel_tabs_bg: hsl(var(--a_gray_h) 20% 8% / .65); // Background of the tab bar.
+  --a_carousel_tab_primary_color: hsl(var(--a_primary_h) var(--a_primary_s) 30%); // Color of the tab bar with focus and of a hovered or focused tab.
+  // tabs
+  --a_carousel_tab_width: 2.125rem; // Width of a tab (dot or square).
+  --a_carousel_tab_height: 2.125rem; // Height of a tab.
+  --a_carousel_tabs_height: 1.875rem; // Height of the tab bar.
   --a_carousel_focus_ring_inset:
     inset 0 0 0 var(--a_focus_width_outside) var(--a_carousel_on_media_color),
-    inset 0 0 0 calc(var(--a_focus_width_outside) + var(--a_focus_width_inside)) var(--a_carousel_on_media_bg);
+    inset 0 0 0 calc(var(--a_focus_width_outside) + var(--a_focus_width_inside)) var(--a_carousel_on_media_bg); // Focus ring of a side arrow (inside the arrow, light and dark, so it is visible on any image).
 }

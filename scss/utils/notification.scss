@@ -31,10 +31,10 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_notification_parent) {
-  --a_notification_shadow: var(--a_shadow_lg);
-  --a_notification_width: calc(100% - 2rem);
-  --a_notification_left: 1rem;
-  --a_notification_top: 1rem;
-  --a_notification_z_index: var(--a_z_index_notification);
-  --a_notification_text_align: center;
+  --a_notification_shadow: var(--a_shadow_lg); // Shadow of a notification.
+  --a_notification_width: calc(100% - 2rem); // Width of the notification area. 60% from the tablet breakpoint, 40% from the desktop breakpoint.
+  --a_notification_left: 1rem; // Distance of the notification area from the left window edge. Changes with the breakpoints.
+  --a_notification_top: 1rem; // Distance of the notification area from the top window edge.
+  --a_notification_z_index: var(--a_z_index_notification); // Stacking order of the notification area.
+  --a_notification_text_align: center; // Text alignment in the notification area.
 }

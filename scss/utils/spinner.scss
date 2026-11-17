@@ -32,10 +32,10 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_spinner) {
-  --a_spinner_width: 2rem;
-  --a_spinner_height: 2rem;
-  --a_spinner_vertical_align: -.125em;
-  --a_spinner_border_width: .25em;
-  --a_spinner_animation_speed: 1s;
-  --a_spinner_animation_name: a_spinner;
+  --a_spinner_width: 2rem; // Width. Changed by .a_spinner_small and .a_spinner_large.
+  --a_spinner_height: 2rem; // Height. Changed by .a_spinner_small and .a_spinner_large.
+  --a_spinner_vertical_align: -.125em; // Vertical alignment next to text.
+  --a_spinner_border_width: .25em; // Thickness of the ring. Changed by .a_spinner_small and .a_spinner_large.
+  --a_spinner_animation_speed: 1s; // Duration of one turn.
+  --a_spinner_animation_name: a_spinner; // Name of the keyframes of the animation.
 }

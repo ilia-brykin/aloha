@@ -48,6 +48,6 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_vertical_scroll) {
-  --a_vertical_scroll_wrapper_bg: var(--a_color_surface);
-  --a_vertical_scroll_wrapper_height: 1.25rem;
+  --a_vertical_scroll_wrapper_bg: var(--a_color_surface); // Background of the areas with the scroll up and scroll down buttons.
+  --a_vertical_scroll_wrapper_height: 1.25rem; // Height of the areas with the scroll buttons. The content gets the same padding at the top and bottom.
 }

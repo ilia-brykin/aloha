@@ -210,26 +210,31 @@
 // Component tokens (specificity 0, every variant/modifier overrides them)
 // ---------------------------------------------------------------------------
 :where(.a_btn) {
-  --a_btn_padding_x: var(--a_control_padding_x);
-  --a_btn_padding_y: var(--a_control_padding_y);
-  --a_btn_font_family: inherit;
-  --a_btn_font_size: var(--a_body_font_size);
-  --a_btn_font_weight: var(--a_font_weight_medium);
-  --a_btn_line_height: var(--a_body_line_height);
-  --a_btn_color: var(--a_color_text);
-  --a_btn_bg: transparent;
-  --a_btn_border_width: var(--a_border_width);
-  --a_btn_border_color: transparent;
-  --a_btn_border_radius: var(--a_border_radius);
-  --a_btn_hover_color: var(--a_btn_color);
-  --a_btn_hover_bg: var(--a_btn_bg);
-  --a_btn_hover_border_color: var(--a_btn_border_color);
-  --a_btn_active_color: var(--a_btn_color);
-  --a_btn_active_bg: var(--a_btn_bg);
-  --a_btn_active_border_color: var(--a_btn_border_color);
-  --a_btn_disabled_color: var(--a_btn_color);
-  --a_btn_disabled_bg: var(--a_btn_bg);
-  --a_btn_disabled_border_color: var(--a_btn_border_color);
-  --a_btn_disabled_opacity: .65;
-  --a_btn_transition: var(--a_transition_colors);
+  // general
+  --a_btn_padding_x: var(--a_control_padding_x); // Horizontal padding. Changed by .a_btn_small and .a_btn_large.
+  --a_btn_padding_y: var(--a_control_padding_y); // Vertical padding. Changed by .a_btn_small and .a_btn_large.
+  --a_btn_font_family: inherit; // Font family.
+  --a_btn_font_size: var(--a_body_font_size); // Font size. Changed by .a_btn_small and .a_btn_large.
+  --a_btn_font_weight: var(--a_font_weight_medium); // Font weight. Link buttons use the normal weight.
+  --a_btn_line_height: var(--a_body_line_height); // Line height.
+  --a_btn_color: var(--a_color_text); // Text color. Set by the variant classes (e.g. .a_btn_primary, .a_btn_outline_primary).
+  --a_btn_bg: transparent; // Background. Set by the variant classes.
+  --a_btn_border_width: var(--a_border_width); // Border width.
+  --a_btn_border_color: transparent; // Border color. Set by the variant classes.
+  --a_btn_border_radius: var(--a_border_radius); // Corner radius. Changed by .a_btn_small and .a_btn_large.
+  // hover
+  --a_btn_hover_color: var(--a_btn_color); // Text color on hover.
+  --a_btn_hover_bg: var(--a_btn_bg); // Background on hover.
+  --a_btn_hover_border_color: var(--a_btn_border_color); // Border color on hover.
+  // active
+  --a_btn_active_color: var(--a_btn_color); // Text color while pressed, for .active and for a checked checkbox/radio button.
+  --a_btn_active_bg: var(--a_btn_bg); // Background while pressed, for .active and for a checked checkbox/radio button.
+  --a_btn_active_border_color: var(--a_btn_border_color); // Border color while pressed, for .active and for a checked checkbox/radio button.
+  // disabled
+  --a_btn_disabled_color: var(--a_btn_color); // Text color of a disabled button.
+  --a_btn_disabled_bg: var(--a_btn_bg); // Background of a disabled button.
+  --a_btn_disabled_border_color: var(--a_btn_border_color); // Border color of a disabled button.
+  --a_btn_disabled_opacity: .65; // Opacity of a disabled button.
+  // animation
+  --a_btn_transition: var(--a_transition_colors); // Transition of the colors on hover and press.
 }

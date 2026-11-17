@@ -153,25 +153,28 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_modal) {
-  --a_modal_z_index: var(--a_z_index_modal);
-  --a_modal_width: 31.25rem;
-  --a_modal_padding: var(--a_space_md);
-  --a_modal_margin: .5rem;
-  --a_modal_color: var(--a_color_text);
-  --a_modal_bg: var(--a_color_surface_raised);
-  --a_modal_border_color: var(--a_border_color_translucent);
-  --a_modal_border_width: var(--a_border_width);
-  --a_modal_border_radius: var(--a_border_radius_xl);
-  --a_modal_box_shadow: var(--a_shadow_lg);
-  --a_modal_inner_border_radius: calc(var(--a_modal_border_radius) - var(--a_modal_border_width));
-  --a_modal_header_padding_x: var(--a_space_md);
-  --a_modal_header_padding_y: var(--a_space_md);
-  --a_modal_header_padding: var(--a_modal_header_padding_y) var(--a_modal_header_padding_x);
-  --a_modal_header_border_color: var(--a_border_color);
-  --a_modal_header_border_width: var(--a_border_width);
-  --a_modal_title_line_height: 1.5;
-  --a_modal_footer_gap: var(--a_space_sm);
-  --a_modal_footer_bg: inherit;
-  --a_modal_footer_border_color: var(--a_border_color);
-  --a_modal_footer_border_width: var(--a_border_width);
+  // dialog
+  --a_modal_z_index: var(--a_z_index_modal); // Stacking order of the modal. Confirm dialogs use a higher value.
+  --a_modal_width: 31.25rem; // Width of the dialog. Changed by the size classes (small, large, xl, xxl).
+  --a_modal_padding: var(--a_space_md); // Padding of the body and the footer.
+  --a_modal_margin: .5rem; // Space between the dialog and the window edge. 1.75rem from the mobile breakpoint.
+  --a_modal_color: var(--a_color_text); // Text color of the dialog.
+  --a_modal_bg: var(--a_color_surface_raised); // Background of the dialog.
+  --a_modal_border_color: var(--a_border_color_translucent); // Border color of the dialog.
+  --a_modal_border_width: var(--a_border_width); // Border width of the dialog.
+  --a_modal_border_radius: var(--a_border_radius_xl); // Corner radius of the dialog.
+  --a_modal_box_shadow: var(--a_shadow_lg); // Shadow of the dialog.
+  --a_modal_inner_border_radius: calc(var(--a_modal_border_radius) - var(--a_modal_border_width)); // Corner radius of the header and the footer, so they fit inside the border.
+  // header
+  --a_modal_header_padding_x: var(--a_space_md); // Horizontal padding of the header.
+  --a_modal_header_padding_y: var(--a_space_md); // Vertical padding of the header.
+  --a_modal_header_padding: var(--a_modal_header_padding_y) var(--a_modal_header_padding_x); // Padding of the header. Built from the two values above.
+  --a_modal_header_border_color: var(--a_border_color); // Color of the line under the header.
+  --a_modal_header_border_width: var(--a_border_width); // Width of the line under the header.
+  --a_modal_title_line_height: 1.5; // Line height of the title.
+  // footer
+  --a_modal_footer_gap: var(--a_space_sm); // Space between the buttons in the footer.
+  --a_modal_footer_bg: inherit; // Background of the footer.
+  --a_modal_footer_border_color: var(--a_border_color); // Color of the line above the footer.
+  --a_modal_footer_border_width: var(--a_border_width); // Width of the line above the footer.
 }

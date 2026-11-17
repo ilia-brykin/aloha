@@ -81,5 +81,5 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_rate_container) {
-  --a_rate_empty_color: var(--a_border_color_strong);
+  --a_rate_empty_color: var(--a_border_color_strong); // Color of an empty (not rated) icon.
 }

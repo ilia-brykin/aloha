@@ -22,6 +22,6 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_loading) {
-  --a_loading_bg: var(--a_color_surface_translucent);
-  --a_loading_z_index: 80;
+  --a_loading_bg: var(--a_color_surface_translucent); // Background of the overlay over the loading content (translucent).
+  --a_loading_z_index: 80; // Stacking order of the overlay.
 }

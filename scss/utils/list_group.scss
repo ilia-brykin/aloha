@@ -113,24 +113,29 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_list_group) {
-  --a_list_group_color: var(--a_color_text);
-  --a_list_group_bg: var(--a_color_surface);
-  --a_list_group_border_color: var(--a_border_color);
-  --a_list_group_border_width: var(--a_border_width);
-  --a_list_group_border_radius: var(--a_border_radius_large);
-  --a_list_group_item_padding_x: var(--a_space_md);
-  --a_list_group_item_padding_y: var(--a_space_sm);
-  --a_list_group_item_not_first_margin_top: 0;
-  --a_list_group_item_not_first_border_top_width: 0;
-  --a_list_group_item_border_radius: 0;
-  --a_list_group_action_color: var(--a_color_text);
-  --a_list_group_action_hover_color: var(--a_color_text);
-  --a_list_group_action_hover_bg: var(--a_color_gray_100);
-  --a_list_group_action_active_color: var(--a_color_text);
-  --a_list_group_action_active_bg: var(--a_color_gray_200);
-  --a_list_group_disabled_color: var(--a_color_text_muted);
-  --a_list_group_disabled_bg: var(--a_color_surface);
-  --a_list_group_active_color: var(--a_color_primary_contrast);
-  --a_list_group_active_bg: var(--a_color_primary);
-  --a_list_group_active_border_color: var(--a_color_primary);
+  // general
+  --a_list_group_color: var(--a_color_text); // Text color of an item. Set by the color classes (e.g. .a_list_group__item_success).
+  --a_list_group_bg: var(--a_color_surface); // Background of an item. Set by the color classes.
+  --a_list_group_border_color: var(--a_border_color); // Border color of an item. Set by the color classes.
+  --a_list_group_border_width: var(--a_border_width); // Border width of an item.
+  --a_list_group_border_radius: var(--a_border_radius_large); // Corner radius of the list. 0 with .a_list_group_edge.
+  // item
+  --a_list_group_item_padding_x: var(--a_space_md); // Horizontal padding of an item.
+  --a_list_group_item_padding_y: var(--a_space_sm); // Vertical padding of an item.
+  --a_list_group_item_not_first_margin_top: 0; // Space above every item except the first. 1rem with .a_list_group_gap.
+  --a_list_group_item_not_first_border_top_width: 0; // Top border width of every item except the first, so borders do not double. 1px with .a_list_group_gap.
+  --a_list_group_item_border_radius: 0; // Corner radius of an item. Set by .a_list_group_gap, but not used by any rule at the moment.
+  // clickable item
+  --a_list_group_action_color: var(--a_color_text); // Text color of a clickable item (.a_list_group__item_action).
+  --a_list_group_action_hover_color: var(--a_color_text); // Text color of a hovered clickable item.
+  --a_list_group_action_hover_bg: var(--a_color_gray_100); // Background of a hovered clickable item.
+  --a_list_group_action_active_color: var(--a_color_text); // Text color of a pressed clickable item.
+  --a_list_group_action_active_bg: var(--a_color_gray_200); // Background of a pressed clickable item.
+  // disabled
+  --a_list_group_disabled_color: var(--a_color_text_muted); // Text color of a disabled item.
+  --a_list_group_disabled_bg: var(--a_color_surface); // Background of a disabled item.
+  // active
+  --a_list_group_active_color: var(--a_color_primary_contrast); // Text color of the active item (.active).
+  --a_list_group_active_bg: var(--a_color_primary); // Background of the active item.
+  --a_list_group_active_border_color: var(--a_color_primary); // Border color of the active item.
 }

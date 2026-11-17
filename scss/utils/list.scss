@@ -65,16 +65,18 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_list_dl) {
-  --a_list_dl_first_column_width: 18.75rem;
-  --a_list_dl_last_column_width: 18.75rem;
-  --a_list_dl_dt_text_align: left;
-  --a_list_dl_item_padding_x: var(--a_space_sm);
-  --a_list_dl_item_padding_y: var(--a_space_xs);
-  --a_list_dl_bg: var(--a_color_surface);
-  --a_list_dl_first_column_bg: var(--a_color_gray_100);
-  --a_list_dl_last_column_bg: transparent;
-  --a_list_dl_first_column_border_width: 2px;
-  --a_list_dl_last_column_border_width: 2px;
-  --a_list_dl_first_column_border_color: var(--a_color_surface);
-  --a_list_dl_last_column_border_color: transparent;
+  // columns
+  --a_list_dl_first_column_width: 18.75rem; // Width of the term column (dt). The list is as wide as both columns together.
+  --a_list_dl_last_column_width: 18.75rem; // Width of the value column (dd).
+  --a_list_dl_dt_text_align: left; // Text alignment of the terms. right with .a_list_dl_dt_right.
+  --a_list_dl_item_padding_x: var(--a_space_sm); // Horizontal padding of a term and of a value.
+  --a_list_dl_item_padding_y: var(--a_space_xs); // Vertical padding of a term and of a value.
+  // colors and borders
+  --a_list_dl_bg: var(--a_color_surface); // Background of the list.
+  --a_list_dl_first_column_bg: var(--a_color_gray_100); // Background of the terms.
+  --a_list_dl_last_column_bg: transparent; // Background of the values.
+  --a_list_dl_first_column_border_width: 2px; // Width of the line between the terms.
+  --a_list_dl_last_column_border_width: 2px; // Width of the line between the values.
+  --a_list_dl_first_column_border_color: var(--a_color_surface); // Color of the line between the terms.
+  --a_list_dl_last_column_border_color: transparent; // Color of the line between the values.
 }

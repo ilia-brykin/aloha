@@ -67,19 +67,20 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_fieldset) {
-  --a_fieldset_padding_x: var(--a_space_md);
-  --a_fieldset_padding_top: var(--a_space_md);
-  --a_fieldset_padding_bottom: var(--a_space_sm);
-  --a_fieldset_border_radius: var(--a_border_radius_large);
-  --a_fieldset_border_color: var(--a_border_color_strong);
-  --a_fieldset_border_width: var(--a_border_width);
-  --a_fieldset_invalid_color: var(--a_color_danger_text);
-  --a_fieldset_legend_bg: var(--a_color_surface);
+  --a_fieldset_padding_x: var(--a_space_md); // Horizontal padding of the fieldset. Also the position of the collapse button.
+  --a_fieldset_padding_top: var(--a_space_md); // Top padding of the fieldset.
+  --a_fieldset_padding_bottom: var(--a_space_sm); // Bottom padding of the fieldset.
+  --a_fieldset_border_radius: var(--a_border_radius_large); // Corner radius of the fieldset.
+  --a_fieldset_border_color: var(--a_border_color_strong); // Border color of the fieldset.
+  --a_fieldset_border_width: var(--a_border_width); // Border width of the fieldset.
+  --a_fieldset_invalid_color: var(--a_color_danger_text); // Border color of the fieldset when it has errors.
+  --a_fieldset_legend_bg: var(--a_color_surface); // Background behind the legend and the collapse button on the border.
 }
 :where(.a_legend) {
-  --a_legend_padding_x: .5rem;
-  --a_legend_color: var(--a_color_label);
-  --a_legend_font_size: inherit;
-  --a_flegend_invalid_color: var(--a_color_danger_text);
-  --a_legend_font_weight: var(--a_font_weight_semibold);
+  // legend
+  --a_legend_padding_x: .5rem; // Horizontal padding of the legend.
+  --a_legend_color: var(--a_color_label); // Text color of the legend.
+  --a_legend_font_size: inherit; // Font size of the legend.
+  --a_flegend_invalid_color: var(--a_color_danger_text); // Text color of the legend when the fieldset has errors.
+  --a_legend_font_weight: var(--a_font_weight_semibold); // Font weight of the legend.
 }

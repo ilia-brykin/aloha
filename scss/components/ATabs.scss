@@ -187,41 +187,43 @@
 // Component tokens
 // ---------------------------------------------------------------------------
 :where(.a_tabs) {
-  --a_tabs_display: block;
-  --a_tabs_padding: var(--a_space_sm);
-  --a_tabs_font_size: var(--a_body_font_size);
-  --a_tabs_border_width: var(--a_border_width);
-  --a_tabs_border_color: var(--a_border_color);
-  --a_tabs_border_radius: var(--a_border_radius);
-  --a_tabs_contents_border_radius: 0;
-  --a_tabs_content_padding: var(--a_space_md);
-  --a_tabs_link_border_width: var(--a_border_width);
-  --a_tabs_link_border_color: transparent;
-  --a_tabs_link_color: var(--a_color_text_muted);
-  --a_tabs_link_font_weight: var(--a_font_weight_medium);
-  --a_tabs_link_bg: transparent;
-  --a_tabs_link_padding_x: calc(1rem * var(--a_density));
-  --a_tabs_link_padding_y: calc(.5rem * var(--a_density));
-  --a_tabs_link_cursor: pointer;
-  --a_tabs_link_color_active: var(--a_color_primary_text_emphasis);
-  --a_tabs_link_active_font_weight: var(--a_font_weight_semibold);
+  // general
+  --a_tabs_display: block; // Display of the root element. Vertical tabs use flex.
+  --a_tabs_padding: var(--a_space_sm); // Padding of the root element.
+  --a_tabs_font_size: var(--a_body_font_size); // Font size of the tab list. Changed by the size classes (small, medium, large).
+  --a_tabs_border_width: var(--a_border_width); // Width of the line under the tab list and of the content border.
+  --a_tabs_border_color: var(--a_border_color); // Color of the line under the tab list and of the content border.
+  --a_tabs_border_radius: var(--a_border_radius); // Top corner radius of a tab (left corners in vertical tabs).
+  --a_tabs_contents_border_radius: 0; // Corner radius of the content box.
+  --a_tabs_content_padding: var(--a_space_md); // Padding of the content of a tab.
+  // tab
+  --a_tabs_link_border_width: var(--a_border_width); // Border width of a tab.
+  --a_tabs_link_border_color: transparent; // Border color of a tab.
+  --a_tabs_link_color: var(--a_color_text_muted); // Text color of an inactive tab.
+  --a_tabs_link_font_weight: var(--a_font_weight_medium); // Font weight of an inactive tab.
+  --a_tabs_link_bg: transparent; // Background of an inactive tab.
+  --a_tabs_link_padding_x: calc(1rem * var(--a_density)); // Horizontal padding of a tab. Changed by the size classes.
+  --a_tabs_link_padding_y: calc(.5rem * var(--a_density)); // Vertical padding of a tab. Changed by the size classes.
+  --a_tabs_link_cursor: pointer; // Cursor over a tab.
+  --a_tabs_link_color_active: var(--a_color_primary_text_emphasis); // Text color of the active tab.
+  --a_tabs_link_active_font_weight: var(--a_font_weight_semibold); // Font weight of the active tab.
   // indicator (underline of the active tab)
-  --a_tabs_indicator_width: 3px;
-  --a_tabs_indicator_inset: 0;
-  --a_tabs_indicator_color: transparent;
-  --a_tabs_indicator_hover_color: var(--a_border_color_strong);
-  --a_tabs_indicator_active_color: var(--a_color_primary);
+  --a_tabs_indicator_width: 3px; // Thickness of the indicator line.
+  --a_tabs_indicator_inset: 0; // Distance of the indicator from the tab edges.
+  --a_tabs_indicator_color: transparent; // Indicator color of an inactive tab.
+  --a_tabs_indicator_hover_color: var(--a_border_color_strong); // Indicator color of a hovered tab.
+  --a_tabs_indicator_active_color: var(--a_color_primary); // Indicator color of the active tab.
   // hover
-  --a_tabs_link_hover_color: var(--a_color_text);
-  --a_tabs_link_hover_bg: transparent;
+  --a_tabs_link_hover_color: var(--a_color_text); // Text color of a hovered tab.
+  --a_tabs_link_hover_bg: transparent; // Background of a hovered tab.
   // boxed
-  --a_tabs_boxed_link_active_border_color: var(--a_tabs_border_color) var(--a_tabs_border_color) var(--a_tabs_boxed_link_active_bg) var(--a_tabs_border_color);
-  --a_tabs_boxed_link_active_bg: var(--a_color_surface);
-  --a_tabs_boxed_link_active_color: var(--a_color_primary_text_emphasis);
-  --a_tabs_boxed_link_bg_hover: var(--a_color_surface_subtle);
+  --a_tabs_boxed_link_active_border_color: var(--a_tabs_border_color) var(--a_tabs_border_color) var(--a_tabs_boxed_link_active_bg) var(--a_tabs_border_color); // Border color of the active tab in boxed tabs (top, right, bottom, left). The bottom side has the tab background, so the tab joins the content.
+  --a_tabs_boxed_link_active_bg: var(--a_color_surface); // Background of the active tab in boxed tabs.
+  --a_tabs_boxed_link_active_color: var(--a_color_primary_text_emphasis); // Text color of the active tab in boxed tabs.
+  --a_tabs_boxed_link_bg_hover: var(--a_color_surface_subtle); // Background of a hovered tab in boxed tabs.
   // disabled
-  --a_tabs_link_disabled_cursor: not-allowed;
-  --a_tabs_link_disabled_border_color: transparent;
-  --a_tabs_link_disabled_color: var(--a_color_text_muted);
-  --a_tabs_link_disabled_bg: transparent;
+  --a_tabs_link_disabled_cursor: not-allowed; // Cursor over a disabled tab.
+  --a_tabs_link_disabled_border_color: transparent; // Border color of a disabled tab.
+  --a_tabs_link_disabled_color: var(--a_color_text_muted); // Text color of a disabled tab.
+  --a_tabs_link_disabled_bg: transparent; // Background of a disabled tab.
 }
