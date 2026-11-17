@@ -12,5 +12,7 @@
   "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Map existing data fields with <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> and <code>key-children</code>. This example uses code, title, symbol, section and items without renaming the source fields. Routes still use <code>to</code>. Open Form controls or search for Input.",
   "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Long breadcrumbs and submenu counts",
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Open Components → Form controls → Text fields. With <code>is-breadcrumbs-truncated</code>, parent links that do not fit move into the breadcrumb dropdown. The switch controls <code>show-count-children</code> so you can show or hide submenu item counts.",
-  "_A_PAGE_MENU_SHOW_COUNTS_": "Show submenu item counts"
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Show submenu item counts",
+  "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "Menu behind a button (only-mobile)",
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "With <code>only-mobile</code> the menu works like the mobile menu at every screen width: it is closed and only the button is visible. The button opens the menu; a click on a link, <kbd>Esc</kbd> or the backdrop (<code>use-backdrop-mobile</code>) closes it. The window width does not matter. Give the toggle button <code>:only-mobile=\"true\"</code> as well, otherwise it is hidden on the desktop, and connect both with the same <code>menu-id</code>."
 }

@@ -12,5 +12,7 @@
   "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "Зіставте поля через <code>key-id</code>, <code>key-label</code>, <code>key-icon</code>, <code>key-group</code> і <code>key-children</code>. Приклад використовує code, title, symbol, section та items без перейменування. Маршрути задаються через <code>to</code>. Відкрийте Form controls або знайдіть Input.",
   "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "Довгі навігаційні ланцюжки та лічильники підменю",
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "Відкрийте Components → Form controls → Text fields. За <code>is-breadcrumbs-truncated</code> батьківські посилання, які не вміщаються, переходять у випадний список. Перемикач керує <code>show-count-children</code>, показуючи або приховуючи кількість пунктів підменю.",
-  "_A_PAGE_MENU_SHOW_COUNTS_": "Показувати кількість пунктів підменю"
+  "_A_PAGE_MENU_SHOW_COUNTS_": "Показувати кількість пунктів підменю",
+  "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "Меню за кнопкою (only-mobile)",
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "З <code>only-mobile</code> меню за будь-якої ширини екрана поводиться як мобільне: воно закрите, видно лише кнопку. Кнопка відкриває меню; клік по посиланню, <kbd>Esc</kbd> або підкладка (<code>use-backdrop-mobile</code>) закривають його. Ширина вікна не важлива. Кнопці теж потрібен <code>:only-mobile=\"true\"</code>, інакше на десктопі вона прихована, і обидва треба зв'язати однаковим <code>menu-id</code>."
 }

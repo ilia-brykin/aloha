@@ -4,6 +4,7 @@ import PageMenuBasicExample from "./PageMenuBasicExample/PageMenuBasicExample.vu
 import PageMenuBreadcrumbs from "./PageMenuBreadcrumbs/PageMenuBreadcrumbs.vue";
 import PageMenuCustomKeys from "./PageMenuCustomKeys/PageMenuCustomKeys.vue";
 import PageMenuGroups from "./PageMenuGroups/PageMenuGroups.vue";
+import PageMenuOnlyMobile from "./PageMenuOnlyMobile/PageMenuOnlyMobile.vue";
 import PageMenuSearchInDom from "./PageMenuSearchInDom/PageMenuSearchInDom.vue";
 import {
   ATranslation,
@@ -25,6 +26,7 @@ export default {
     PageMenuBreadcrumbs,
     PageMenuCustomKeys,
     PageMenuGroups,
+    PageMenuOnlyMobile,
     PageMenuSearchInDom,
   },
   setup() {

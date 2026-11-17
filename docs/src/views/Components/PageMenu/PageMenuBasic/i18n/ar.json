@@ -12,5 +12,7 @@
   "_A_PAGE_MENU_CUSTOM_KEYS_DESCRIPTION_": "اربط الحقول عبر <code>key-id</code> و<code>key-label</code> و<code>key-icon</code> و<code>key-group</code> و<code>key-children</code>. يستخدم المثال code وtitle وsymbol وsection وitems دون إعادة تسميتها. تبقى المسارات في <code>to</code>. افتح Form controls أو ابحث عن Input.",
   "_A_PAGE_MENU_BREADCRUMBS_HEADER_": "مسارات تنقل طويلة وعدادات القوائم الفرعية",
   "_A_PAGE_MENU_BREADCRUMBS_DESCRIPTION_": "افتح Components → Form controls → Text fields. مع <code>is-breadcrumbs-truncated</code> تنتقل روابط الآباء التي لا تتسع إلى قائمة التنقل المنسدلة. يتحكم المفتاح في <code>show-count-children</code> لإظهار عدد عناصر القوائم الفرعية أو إخفائه.",
-  "_A_PAGE_MENU_SHOW_COUNTS_": "إظهار عدد عناصر القوائم الفرعية"
+  "_A_PAGE_MENU_SHOW_COUNTS_": "إظهار عدد عناصر القوائم الفرعية",
+  "_A_PAGE_MENU_ONLY_MOBILE_HEADER_": "قائمة خلف زر (only-mobile)",
+  "_A_PAGE_MENU_ONLY_MOBILE_DESCRIPTION_": "مع <code>only-mobile</code> تعمل القائمة مثل قائمة الجوال عند أي عرض للشاشة: تكون مغلقة ولا يظهر سوى الزر. يفتح الزر القائمة، ويغلقها النقر على رابط أو <kbd>Esc</kbd> أو الخلفية (<code>use-backdrop-mobile</code>). لا يهم عرض النافذة. أعطِ الزر أيضًا <code>:only-mobile=\"true\"</code> وإلا فسيُخفى على سطح المكتب، واربط بينهما بنفس <code>menu-id</code>."
 }
