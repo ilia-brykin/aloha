@@ -7,6 +7,14 @@
 ---
 # Versions
 
+## 2.86.0
+
+- feat(ui): add `AColorPicker` (form type `colorPicker`): field filled with the selected color, dialog with saturation/brightness area, hue and opacity sliders, text field for hex, rgb, hsl and hsv, predefined colors. Accessible with keyboard and screen readers. `type: "color"` stays the native color input.
+- fix(translation): computed values that use `getTranslatedText` before the translation is loaded are updated later (e.g. `ASelect` with `translateData`).
+- fix(ACheckbox): add missing prop `errorsClass`.
+- feat(translation): add Dutch (`nl`) and Polish (`pl`) translations for components and docs.
+- test: fix `AFieldset` classColumn and `UiStyleHideAPI` tests.
+
 ## 2.85.0
 
 - feat(translation): add hide-without-translation prop
