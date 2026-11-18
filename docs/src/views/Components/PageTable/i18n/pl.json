@@ -13,5 +13,8 @@
   "_A_TABLE_FILTER_SEARCH_": "Szukaj",
   "_A_TABLE_FILTER_TEXT_": "Tekst",
   "_A_TABLE_FILTER_DATE_": "Data",
-  "_A_TABLE_FILTER_EXTRA_": "Dodatkowy filtr"
+  "_A_TABLE_FILTER_EXTRA_": "Dodatkowy filtr",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Wiersze w paski",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Z <code>is-striped</code> co drugi wiersz dostaje tło <code>--a_table_row_striped_bg</code>. Hover, zaznaczone wiersze i otwarty podgląd zachowują własne kolory. Wartość domyślną dla wszystkich tabel ustawia się w <code>ATablePlugin</code> (<code>propsDefault.isStriped</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tabela w paski"
 }

@@ -5,6 +5,7 @@ import {
 export const tablePluginOptions = ref({
   propsDefault: {
     borderType: "bordered",
+    isStriped: false,
   },
   config: {
     isHtmlTitleSort: false,

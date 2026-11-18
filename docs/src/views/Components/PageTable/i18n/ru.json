@@ -8,5 +8,8 @@
   "_A_TABLE_COLUMN_7_": "Столбец 7",
   "_A_TABLE_COLUMN_8_": "Столбец 8",
   "_A_TABLE_COLUMN_9_": "Столбец 9",
-  "_A_TABLE_COLUMN_10_": "Столбец 10"
+  "_A_TABLE_COLUMN_10_": "Столбец 10",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Строки-зебра",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "С <code>is-striped</code> каждая вторая строка получает фон <code>--a_table_row_striped_bg</code>. Hover, выбранные строки и открытый preview сохраняют свои цвета. Значение по умолчанию для всех таблиц задаётся в <code>ATablePlugin</code> (<code>propsDefault.isStriped</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Таблица-зебра"
 }

@@ -233,6 +233,11 @@ export default {
       required: false,
       default: false,
     },
+    isStriped: {
+      type: Boolean,
+      required: false,
+      default: () => tablePluginOptions.value.propsDefault.isStriped,
+    },
     resizeDebounce: {
       type: Number,
       required: false,
@@ -986,6 +991,7 @@ export default {
               a_table_simple: this.isSimpleTable,
               a_table_bordered: this.borderType === "bordered",
               a_table_inner_bordered: this.borderType === "innerBordered",
+              a_table_striped: this.isStriped,
             },
           ],
           ...this.tableRoleAttributes,
