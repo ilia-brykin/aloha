@@ -64,3 +64,11 @@ $breakpoints_display: list_helpers.prepend(breakpoint.$all, (class: null));
         }
     }
 }
+
+// Hidden, but the element keeps its place (unlike .a_d_none)
+.a_visible {
+  visibility: visible !important;
+}
+.a_invisible {
+  visibility: hidden !important;
+}

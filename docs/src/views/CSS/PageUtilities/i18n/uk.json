@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "Класи задають курсор миші (<code>cursor</code>): <code>a_cursor_pointer</code>, <code>a_cursor_default</code>, <code>a_cursor_not_allowed</code>, <code>a_cursor_move</code>. Наведіть мишу на елементи.",
+  "_A_UTILITIES_CURSOR_NAME_": "Курсор",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "Двоколірне кільце фокуса компонентів для власних елементів, що отримують фокус, наприклад картки з <code>tabindex=\"0\"</code>. Показується лише при фокусі з клавіатури та налаштовується токенами фокуса.",
   "_A_UTILITIES_FOCUS_NAME_": "Кільце фокуса",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "Класи задають <code>opacity</code>: 0, 25, 50, 75 або 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "Класи задають <code>order</code> елементів flex і grid: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Суфікси <code>_mobile</code> … <code>_large</code> вмикають їх на брейкпоінтах.",
   "_A_UTILITIES_ORDER_NAME_": "Порядок",
   "_A_UTILITIES_PAGE_NAME_": "Допоміжні класи",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "<code>a_pointer_events_none</code> змушує елемент ігнорувати мишу та дотики, <code>a_pointer_events_auto</code> знову вмикає їх для дочірнього елемента. Клавіатура при цьому працює, тому для вимкненого посилання задайте ще <code>tabindex=\"-1\"</code> і <code>aria-disabled</code>.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "Події вказівника",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> приховує елемент під час друку, <code>a_print_block</code> показує його лише під час друку (разом з <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "Друк",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "<code>a_rounded_circle</code> робить квадратний елемент круглим, наприклад аватар або точку статусу.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "Коло",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "Класи задають тінь з токенів <code>--a_shadow_*</code>: <code>a_shadow_sm</code>, <code>a_shadow_md</code>, <code>a_shadow_lg</code>. <code>a_shadow_none</code> прибирає тінь. Тіні адаптовані для темної теми.",
+  "_A_UTILITIES_SHADOW_NAME_": "Тінь",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "Другорядний і виділений текст, що залишається читабельним у світлій і темній темі.",
   "_A_UTILITIES_TEXT_NAME_": "Колір тексту",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "З <code>a_text_select_all</code> один клік виділяє весь текст, наприклад ідентифікатор або токен для копіювання. <code>a_text_select_none</code> забороняє виділення тексту.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "Виділення тексту",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "<code>a_invisible</code> приховує елемент, але він зберігає своє місце в розмітці, на відміну від <code>a_d_none</code>. <code>a_visible</code> знову показує його. Прихований елемент прихований і для скрінрідерів.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "Видимість",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Глобальні шари використовують токени <code>--a_z_index_*</code>, тому власні оверлеї залишаються в правильному порядку відносно модальних вікон, випадних меню та попапів.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
 }

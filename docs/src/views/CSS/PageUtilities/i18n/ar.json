@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "تضبط الفئات مؤشر الفأرة (<code>cursor</code>): <code>a_cursor_pointer</code> و<code>a_cursor_default</code> و<code>a_cursor_not_allowed</code> و<code>a_cursor_move</code>. مرّر الفأرة فوق العناصر.",
+  "_A_UTILITIES_CURSOR_NAME_": "المؤشر",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "حلقة التركيز ثنائية اللون الخاصة بالمكونات لعناصرك القابلة للتركيز، مثل بطاقة مع <code>tabindex=\"0\"</code>. تظهر فقط عند التركيز بلوحة المفاتيح ويتم ضبطها برموز (tokens) التركيز.",
   "_A_UTILITIES_FOCUS_NAME_": "حلقة التركيز",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "تضبط الفئات <code>opacity</code> على 0 أو 25 أو 50 أو 75 أو 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "تضبط الفئات <code>order</code> لعناصر flex وgrid: <code>a_order_first</code> (−1)، <code>a_order_0</code> … <code>a_order_5</code>، <code>a_order_last</code> (6). اللواحق <code>_mobile</code> … <code>_large</code> تفعّلها عند نقاط التوقف.",
   "_A_UTILITIES_ORDER_NAME_": "الترتيب",
   "_A_UTILITIES_PAGE_NAME_": "فئات مساعدة",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "تجعل <code>a_pointer_events_none</code> العنصر يتجاهل الفأرة واللمس، وتعيد <code>a_pointer_events_auto</code> تفعيلهما لعنصر فرعي. تبقى لوحة المفاتيح تعمل، لذا اضبط أيضًا <code>tabindex=\"-1\"</code> و<code>aria-disabled</code> للرابط المعطّل.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "أحداث المؤشر",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> يخفي العنصر عند الطباعة، و<code>a_print_block</code> يعرضه في الطباعة فقط (مع <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "الطباعة",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "تجعل <code>a_rounded_circle</code> العنصر المربع دائريًا، مثل الصورة الرمزية أو نقطة الحالة.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "دائرة",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "تضبط الفئات الظل من رموز <code>--a_shadow_*</code>: <code>a_shadow_sm</code> و<code>a_shadow_md</code> و<code>a_shadow_lg</code>. تزيل <code>a_shadow_none</code> الظل. الظلال مهيأة للسمة الداكنة.",
+  "_A_UTILITIES_SHADOW_NAME_": "الظل",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "نص ثانوي ومميز يبقى مقروءًا في السمة الفاتحة والداكنة.",
   "_A_UTILITIES_TEXT_NAME_": "لون النص",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "مع <code>a_text_select_all</code> تحدّد نقرة واحدة النص كله، مثل معرّف أو رمز للنسخ. تمنع <code>a_text_select_none</code> تحديد النص.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "تحديد النص",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "تخفي <code>a_invisible</code> العنصر مع الاحتفاظ بمكانه في التخطيط، بخلاف <code>a_d_none</code>. وتعيد <code>a_visible</code> إظهاره. العنصر المخفي مخفي أيضًا عن قارئات الشاشة.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "الظهور",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "تستخدم الطبقات العامة رموز <code>--a_z_index_*</code>، لذا تبقى طبقاتك في الترتيب الصحيح بالنسبة للنوافذ المنبثقة والقوائم المنسدلة.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
 }

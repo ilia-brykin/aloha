@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "Le classi impostano il cursore del mouse (<code>cursor</code>): <code>a_cursor_pointer</code>, <code>a_cursor_default</code>, <code>a_cursor_not_allowed</code>, <code>a_cursor_move</code>. Passa il mouse sugli elementi.",
+  "_A_UTILITIES_CURSOR_NAME_": "Cursore",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "L'anello di focus bicolore dei componenti per i propri elementi focalizzabili, ad es. una card con <code>tabindex=\"0\"</code>. Viene mostrato solo con il focus da tastiera e si configura con i token di focus.",
   "_A_UTILITIES_FOCUS_NAME_": "Anello di focus",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "Le classi impostano <code>opacity</code> a 0, 25, 50, 75 o 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "Le classi impostano l'<code>order</code> degli elementi flex e grid: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). I suffissi <code>_mobile</code> … <code>_large</code> li attivano ai breakpoint.",
   "_A_UTILITIES_ORDER_NAME_": "Ordine",
   "_A_UTILITIES_PAGE_NAME_": "Classi di utilità",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "<code>a_pointer_events_none</code> fa ignorare a un elemento il mouse e il tocco, <code>a_pointer_events_auto</code> li riattiva per un elemento figlio. La tastiera funziona comunque, quindi per un link disattivato imposta anche <code>tabindex=\"-1\"</code> e <code>aria-disabled</code>.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "Eventi del puntatore",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> nasconde un elemento in stampa, <code>a_print_block</code> lo mostra solo in stampa (insieme a <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "Stampa",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "<code>a_rounded_circle</code> rende rotondo un elemento quadrato, ad es. un avatar o un punto di stato.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "Cerchio",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "Le classi applicano l'ombra dai token <code>--a_shadow_*</code>: <code>a_shadow_sm</code>, <code>a_shadow_md</code>, <code>a_shadow_lg</code>. <code>a_shadow_none</code> rimuove l'ombra. Le ombre sono adattate al tema scuro.",
+  "_A_UTILITIES_SHADOW_NAME_": "Ombra",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "Testo secondario ed enfatizzato che resta leggibile nel tema chiaro e in quello scuro.",
   "_A_UTILITIES_TEXT_NAME_": "Colore del testo",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "Con <code>a_text_select_all</code> un clic seleziona tutto il testo, ad es. un ID o un token da copiare. <code>a_text_select_none</code> impedisce la selezione del testo.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "Selezione del testo",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "<code>a_invisible</code> nasconde un elemento, che però mantiene il suo posto nel layout, a differenza di <code>a_d_none</code>. <code>a_visible</code> lo mostra di nuovo. Un elemento nascosto è nascosto anche agli screen reader.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "Visibilità",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "I livelli globali usano i token <code>--a_z_index_*</code>, così i propri overlay restano nell'ordine corretto rispetto a modali, dropdown e popup.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
 }

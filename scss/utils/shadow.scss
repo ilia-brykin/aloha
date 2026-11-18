@@ -1,0 +1,12 @@
+.a_shadow_none {
+  box-shadow: none !important;
+}
+.a_shadow_sm {
+  box-shadow: var(--a_shadow_sm) !important;
+}
+.a_shadow_md {
+  box-shadow: var(--a_shadow_md) !important;
+}
+.a_shadow_lg {
+  box-shadow: var(--a_shadow_lg) !important;
+}

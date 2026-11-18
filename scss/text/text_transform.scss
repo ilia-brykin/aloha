@@ -48,3 +48,23 @@
   text-transform: none !important;
   font-weight: normal !important;
 }
+
+// Underline with a little space under the text, like modern links
+.a_text_underline_offset {
+  text-decoration: underline !important;
+  text-underline-offset: var(--a_text_underline_offset) !important;
+}
+// Struck-through secondary text, e.g. an old price or a done item
+.a_text_line_through_muted {
+  color: var(--a_color_text_muted) !important;
+  text-decoration: line-through !important;
+}
+
+// Monospace font for IDs, hashes and code
+.a_text_monospace {
+  font-family: var(--a_font_monospace) !important;
+}
+// Digits of the same width, so numbers in columns line up
+.a_text_tabular_nums {
+  font-variant-numeric: tabular-nums !important;
+}
