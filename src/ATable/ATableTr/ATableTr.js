@@ -316,7 +316,13 @@ export default {
       h("div", {
         id: this.rowHtmlId,
         role: this.roleLocal,
-        class: this.rowClassComputed,
+        class: [
+          this.rowClassComputed,
+          {
+            a_table__row_selected: this.isMultipleActionsActive && this.isRowSelected && !this.isFooter,
+            a_table__row_preview_open: this.isPreviewDownOpen,
+          },
+        ],
         "aria-expanded": this.ariaExpanded,
         ...this.previewAttributes,
         ...this.ariaTreeAttributes,

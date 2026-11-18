@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_SIZE_HEADER_"
+  description="_A_RATE_GROUP_SIZE_DESCRIPTION_"
+  :props="['size']"
+)
+  a-rate.a_mb_3(
+    v-model="model"
+    size="small"
+    label="size: small"
+  )
+  a-rate.a_mb_3(
+    v-model="model"
+    label="size: default"
+  )
+  a-rate(
+    v-model="model"
+    size="large"
+    label="size: large"
+  )

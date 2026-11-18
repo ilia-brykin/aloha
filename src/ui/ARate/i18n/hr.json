@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "Ocjena",
+  "_A_RATE_NO_VALUE_": "Nije ocijenjeno",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} od {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "Vrlo loše",
+  "_A_RATE_TEXT_2_": "Loše",
+  "_A_RATE_TEXT_3_": "Osrednje",
+  "_A_RATE_TEXT_4_": "Dobro",
+  "_A_RATE_TEXT_5_": "Izvrsno"
+}

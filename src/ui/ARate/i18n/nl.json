@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "Beoordeling",
+  "_A_RATE_NO_VALUE_": "Niet beoordeeld",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} van {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "Zeer slecht",
+  "_A_RATE_TEXT_2_": "Slecht",
+  "_A_RATE_TEXT_3_": "Redelijk",
+  "_A_RATE_TEXT_4_": "Goed",
+  "_A_RATE_TEXT_5_": "Uitstekend"
+}

@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "Bewertung",
+  "_A_RATE_NO_VALUE_": "Nicht bewertet",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} von {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "Sehr schlecht",
+  "_A_RATE_TEXT_2_": "Schlecht",
+  "_A_RATE_TEXT_3_": "In Ordnung",
+  "_A_RATE_TEXT_4_": "Gut",
+  "_A_RATE_TEXT_5_": "Ausgezeichnet"
+}

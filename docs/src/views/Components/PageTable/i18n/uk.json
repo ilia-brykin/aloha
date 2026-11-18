@@ -12,5 +12,8 @@
   "_A_TABLE_FILTER_SEARCH_": "Пошук",
   "_A_TABLE_FILTER_TEXT_": "Текст",
   "_A_TABLE_FILTER_DATE_": "Дата",
-  "_A_TABLE_FILTER_EXTRA_": "Додатковий фільтр"
+  "_A_TABLE_FILTER_EXTRA_": "Додатковий фільтр",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Рядки-зебра",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "З <code>is-striped</code> кожен другий рядок отримує фон <code>--a_table_row_striped_bg</code>. Hover, вибрані рядки й відкритий preview зберігають свої кольори. Значення за замовчуванням для всіх таблиць задається в <code>ATablePlugin</code> (<code>propsDefault.isStriped</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Таблиця-зебра"
 }

@@ -1,0 +1,101 @@
+.a_input_otp {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--a_input_otp_gap);
+  max-width: 100%;
+}
+
+// The cells are .a_form_control; their tokens are set here, because :where(.a_form_control) defines them on the cell itself.
+.a_input_otp .a_input_otp__cell {
+  --a_form_control_height: var(--a_input_otp_cell_height);
+  --a_form_control_font_size: var(--a_input_otp_font_size);
+  --a_form_control_padding_x: 0;
+  --a_form_control_padding_y: 0;
+  flex: 0 1 var(--a_input_otp_cell_width);
+  width: var(--a_input_otp_cell_width);
+  min-width: var(--a_input_otp_cell_min_width);
+  height: var(--a_input_otp_cell_height);
+  font-weight: var(--a_input_otp_font_weight);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  caret-color: var(--a_input_otp_caret_color);
+  &::placeholder {
+    color: var(--a_input_otp_placeholder_color);
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.a_input_otp_small {
+  --a_input_otp_cell_width: var(--a_input_otp_cell_width_small);
+  --a_input_otp_cell_height: var(--a_input_otp_cell_height_small);
+  --a_input_otp_font_size: var(--a_input_otp_font_size_small);
+  --a_input_otp_gap: var(--a_input_otp_gap_small);
+}
+.a_input_otp_large {
+  --a_input_otp_cell_width: var(--a_input_otp_cell_width_large);
+  --a_input_otp_cell_height: var(--a_input_otp_cell_height_large);
+  --a_input_otp_font_size: var(--a_input_otp_font_size_large);
+  --a_input_otp_gap: var(--a_input_otp_gap_large);
+}
+
+.a_input_otp_filled .a_input_otp__cell {
+  --a_form_control_bg: var(--a_input_otp_filled_bg);
+  --a_form_control_border_color: var(--a_input_otp_filled_border_color);
+  border-bottom-color: var(--a_input_otp_filled_border_bottom_color);
+  &:focus {
+    --a_form_control_bg: var(--a_color_surface);
+  }
+}
+.a_input_otp_filled .a_input_otp__cell.a_form_control_invalid {
+  --a_input_otp_filled_border_bottom_color: var(--a_form_element_error_color);
+}
+
+.a_input_otp_underlined .a_input_otp__cell {
+  --a_form_control_bg: transparent;
+  --a_form_control_border_radius: 0;
+  border-width: 0 0 var(--a_input_otp_underline_width);
+}
+
+.a_input_otp__separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--a_input_otp_separator_color);
+  font-size: var(--a_input_otp_separator_font_size);
+  user-select: none;
+}
+
+:where(.a_input_otp) {
+  // cell
+  --a_input_otp_cell_width: calc(2.75rem * var(--a_density)); // Width of a cell.
+  --a_input_otp_cell_min_width: 2rem; // Minimum width of a cell when the space is narrow.
+  --a_input_otp_cell_height: var(--a_control_height); // Height of a cell.
+  --a_input_otp_font_size: var(--a_font_size_lg); // Font size of the characters.
+  --a_input_otp_font_weight: var(--a_font_weight_semibold); // Font weight of the characters.
+  --a_input_otp_gap: var(--a_space_sm); // Space between the cells and the separators.
+  --a_input_otp_caret_color: var(--a_color_primary); // Color of the text cursor in a cell.
+  --a_input_otp_placeholder_color: var(--a_color_text_muted); // Color of the placeholder character of an empty cell.
+  // small
+  --a_input_otp_cell_width_small: calc(2.25rem * var(--a_density)); // Width of a cell for size "small".
+  --a_input_otp_cell_height_small: var(--a_control_height_sm); // Height of a cell for size "small".
+  --a_input_otp_font_size_small: var(--a_body_font_size); // Font size of the characters for size "small".
+  --a_input_otp_gap_small: var(--a_space_xs); // Space between the cells for size "small".
+  // large
+  --a_input_otp_cell_width_large: calc(3.5rem * var(--a_density)); // Width of a cell for size "large".
+  --a_input_otp_cell_height_large: calc(3.5rem * var(--a_density)); // Height of a cell for size "large".
+  --a_input_otp_font_size_large: 1.75rem; // Font size of the characters for size "large".
+  --a_input_otp_gap_large: var(--a_space_md); // Space between the cells for size "large".
+  // filled
+  --a_input_otp_filled_bg: var(--a_color_gray_100); // Background of a cell for variant "filled".
+  --a_input_otp_filled_border_color: transparent; // Border color of a cell for variant "filled".
+  --a_input_otp_filled_border_bottom_color: var(--a_border_color_strong); // Color of the line under a cell for variant "filled" (contrast at least 3:1).
+  // underlined
+  --a_input_otp_underline_width: 2px; // Width of the line under a cell for variant "underlined".
+  // separator
+  --a_input_otp_separator_color: var(--a_color_text_muted); // Color of the separator between the cells.
+  --a_input_otp_separator_font_size: var(--a_font_size_lg); // Font size of the separator between the cells.
+}

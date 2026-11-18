@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "التقييم",
+  "_A_RATE_NO_VALUE_": "غير مُقيَّم",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} من {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "سيئ جدًا",
+  "_A_RATE_TEXT_2_": "سيئ",
+  "_A_RATE_TEXT_3_": "مقبول",
+  "_A_RATE_TEXT_4_": "جيد",
+  "_A_RATE_TEXT_5_": "ممتاز"
+}

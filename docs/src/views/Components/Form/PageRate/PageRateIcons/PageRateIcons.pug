@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_ICONS_HEADER_"
+  description="_A_RATE_GROUP_ICONS_DESCRIPTION_"
+  :props="['icons', 'void-icon']"
+)
+  a-rate.a_mb_3(
+    v-model="modelHeart"
+    :icons="HeartFill"
+    :void-icon="Heart"
+    colors="var(--a_color_danger)"
+    label="_A_RATE_EXAMPLE_LABEL_FOOD_"
+  )
+  a-rate(
+    v-model="modelEmoji"
+    :icons="iconsEmoji"
+    :void-icon="EmojiNeutral"
+    :colors="colorsEmoji"
+    :show-text="true"
+    label="_A_RATE_EXAMPLE_LABEL_SERVICE_"
+  )

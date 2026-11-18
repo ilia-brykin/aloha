@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_TEXT_HEADER_"
+  description="_A_RATE_GROUP_TEXT_DESCRIPTION_"
+  :props="['show-text', 'texts']"
+)
+  a-rate.a_mb_3(
+    v-model="modelDefault"
+    :show-text="true"
+    label="_A_RATE_EXAMPLE_LABEL_"
+  )
+  a-rate(
+    v-model="modelCustom"
+    :show-text="true"
+    :texts="texts"
+    label="_A_RATE_EXAMPLE_LABEL_SERVICE_"
+  )

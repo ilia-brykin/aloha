@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "Оценка",
+  "_A_RATE_NO_VALUE_": "Без оценки",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} из {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "Очень плохо",
+  "_A_RATE_TEXT_2_": "Плохо",
+  "_A_RATE_TEXT_3_": "Нормально",
+  "_A_RATE_TEXT_4_": "Хорошо",
+  "_A_RATE_TEXT_5_": "Отлично"
+}

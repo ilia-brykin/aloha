@@ -1,3 +1,5 @@
 {
-
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Filas alternas",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Con <code>is-striped</code> cada segunda fila recibe el fondo <code>--a_table_row_striped_bg</code>. El hover, las filas seleccionadas y la vista previa abierta mantienen sus propios colores. El valor por defecto para todas las tablas se define con <code>ATablePlugin</code> (<code>propsDefault.isStriped</code>).",
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tabla con filas alternas"
 }

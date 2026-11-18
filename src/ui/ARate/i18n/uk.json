@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "Оцінка",
+  "_A_RATE_NO_VALUE_": "Без оцінки",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} з {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "Дуже погано",
+  "_A_RATE_TEXT_2_": "Погано",
+  "_A_RATE_TEXT_3_": "Нормально",
+  "_A_RATE_TEXT_4_": "Добре",
+  "_A_RATE_TEXT_5_": "Чудово"
+}

@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_OTP_GROUP_LENGTH_HEADER_"
+  description="_A_INPUT_OTP_GROUP_LENGTH_DESCRIPTION_"
+  :props="['length']"
+)
+  a-input-otp.a_mb_3(
+    v-model="modelPin"
+    :length="4"
+    label="_A_INPUT_OTP_EXAMPLE_LABEL_PIN_"
+  )
+  a-input-otp(
+    v-model="modelLong"
+    :length="8"
+    label="_A_INPUT_OTP_EXAMPLE_LABEL_"
+  )
+  div modelPin: {{ modelPin }}
+  div modelLong: {{ modelLong }}

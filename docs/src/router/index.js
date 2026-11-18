@@ -190,7 +190,7 @@ const ROUTES = [
   {
     path: "/rate",
     name: "PageRate",
-    component: () => import("../views/Components/PageRate/PageRate.vue"),
+    component: () => import("../views/Components/Form/PageRate/PageRate.vue"),
   },
   {
     path: "/modal",
@@ -461,6 +461,11 @@ const ROUTES = [
     path: "/input-number-range",
     name: "PageInputNumberRange",
     component: () => import("../views/Components/Form/PageInputNumberRange/PageInputNumberRange.vue"),
+  },
+  {
+    path: "/input-otp",
+    name: "PageInputOtp",
+    component: () => import("../views/Components/Form/PageInputOtp/PageInputOtp.vue"),
   },
   {
     path: "/filters",

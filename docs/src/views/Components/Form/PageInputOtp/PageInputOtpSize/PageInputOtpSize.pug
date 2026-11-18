@@ -1,0 +1,21 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_OTP_GROUP_SIZE_HEADER_"
+  description="_A_INPUT_OTP_GROUP_SIZE_DESCRIPTION_"
+  :props="['size']"
+)
+  a-input-otp.a_mb_3(
+    v-model="model"
+    size="small"
+    label="size: small"
+  )
+  a-input-otp.a_mb_3(
+    v-model="model"
+    label="size: default"
+  )
+  a-input-otp(
+    v-model="model"
+    size="large"
+    label="size: large"
+  )

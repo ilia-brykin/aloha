@@ -15,6 +15,15 @@
   border-collapse: collapse;
   vertical-align: top;
   overflow-x: auto;
+  border: var(--a_table_border_width) solid var(--a_table_border_color);
+  border-radius: var(--a_table_border_radius);
+}
+.a_table_inner_bordered {
+  --a_table_border_width: 0;
+  --a_table_border_radius: 0;
+}
+.a_table:not(.a_table_inner_bordered) .a_table__body > .a_table__row:last-child {
+  border-bottom-color: transparent;
 }
 .a_table__body,
 .a_table__td,
@@ -31,6 +40,7 @@
 }
 .a_table__cell {
   padding: var(--a_table_cell_padding_y) var(--a_table_cell_padding_x);
+  font-variant-numeric: var(--a_table_font_variant_numeric);
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
@@ -44,9 +54,11 @@
 }
 
 .a_table__empty_text {
-  padding: var(--a_table_cell_padding_x) var(--a_table_cell_padding_y);
+  padding: var(--a_table_empty_padding_y) var(--a_table_cell_padding_x);
   background-color: var(--a_table_bg);
   border-bottom-width: var(--a_border_width);
+  color: var(--a_table_empty_color);
+  text-align: center;
 }
 .a_table__cell_click {
   cursor: pointer;
@@ -62,21 +74,27 @@
   display: flex;
   min-width: min-content;
   border-bottom: var(--a_table_row_border_bottom_width) solid var(--a_table_row_border_bottom_color);
-  background-color: var(--a_table_bg);
+  background-color: var(--a_table_row_bg_state, var(--a_table_bg));
   transition: background-color var(--a_duration_fast) var(--a_easing);
   @include focus.focus-visible($inset: true);
   &:focus-visible {
     box-shadow: var(--a_table_row_focus_shadow);
     .a_table__cell_action_sticky {
-      box-shadow: var(--a_table_row_focus_shadow);
+      box-shadow: var(--a_table_row_focus_shadow), var(--a_table_action_sticky_shadow);
     }
   }
+}
+.a_table_striped :where(.a_table__body > .a_table__body__row:nth-child(even of .a_table__body__row)) {
+  --a_table_row_bg_state: var(--a_table_row_striped_bg);
 }
 .a_table__row_hide {
   display: none;
 }
 .a_table__head__row {
   background-color: var(--a_table_th_bg);
+  color: var(--a_table_th_color);
+  font-size: var(--a_table_th_font_size);
+  font-weight: var(--a_table_th_font_weight);
   border-bottom: var(--a_table_th_border_bottom_width) solid var(--a_table_th_border_bottom_color);
 }
 
@@ -129,8 +147,21 @@
     justify-content: center;
   }
 }
-.a_table__th__btn_sort {
+.a_table__th__btn.a_table__th__btn_sort {
+  --a_btn_color: currentColor;
+  --a_btn_hover_color: var(--a_table_th_hover_color);
+  --a_btn_active_color: var(--a_table_th_hover_color);
+  --a_btn_font_size: var(--a_table_th_font_size);
+  --a_btn_font_weight: var(--a_table_th_font_weight);
+  --a_btn_text_decoration: none;
   padding-right: 0.9375rem;
+}
+.a_table__th:not(.a_table__th_sorting) .a_table__th__sort__icons {
+  opacity: var(--a_table_th_sort_icon_opacity);
+  transition: opacity var(--a_duration_fast) var(--a_easing);
+}
+.a_table__th:not(.a_table__th_sorting):is(:hover, :focus-within) .a_table__th__sort__icons {
+  opacity: 1;
 }
 .a_table__th__btn_sequence {
   padding-right: 2.8125rem;
@@ -193,25 +224,26 @@
 
 .a_table__th_sorting {
   background-color: var(--a_table_th_sorting_bg);
+  color: var(--a_table_th_sorting_color);
+}
+// Order of the row backgrounds: striped < hover < selected < preview.
+.a_table__grandparent:not(.a_table_mobile) :where(.a_table__row_hover:hover, .a_table__row_hover:focus-within) {
+  --a_table_row_bg_state: var(--a_table_row_hover_bg);
+}
+.a_table__grandparent {
+  .a_table__row.a_table__row_selected {
+    --a_table_row_bg_state: var(--a_table_row_selected_bg);
+  }
 }
 .a_table__grandparent:not(.a_table_mobile) {
-  .a_table__row_hover:hover,
-  .a_table__row_hover:focus-within {
-    background-color: var(--a_table_row_hover_bg);
-    .a_table__cell_action_sticky {
-      background-color: var(--a_table_row_hover_bg);
-    }
+  .a_table__row.a_table__row_preview_was_open {
+    --a_table_row_bg_state: var(--a_table_row_preview_was_open_bg);
   }
   .a_table__row.a_table__row_preview_open {
-    background-color: var(--a_table_row_preview_open_bg);
-    .a_table__cell_action_sticky {
-      background-color: var(--a_table_row_preview_open_bg);
-    }
-  }
-  .a_table__row.a_table__row_preview_was_open {
-    background-color: var(--a_table_row_preview_was_open_bg);
-    .a_table__cell_action_sticky {
-      background-color: var(--a_table_row_preview_was_open_bg);
+    --a_table_row_bg_state: var(--a_table_row_preview_open_bg);
+    box-shadow: inset var(--a_table_row_accent_width) 0 0 var(--a_table_row_accent_color);
+    &:focus-visible {
+      box-shadow: var(--a_table_row_focus_shadow), inset var(--a_table_row_accent_width) 0 0 var(--a_table_row_accent_color);
     }
   }
 }
@@ -299,7 +331,11 @@
 .a_table__cell_action_sticky {
   position: sticky;
   right: 0;
-  background-color: var(--a_table_bg);
+  background-color: var(--a_table_row_bg_state, var(--a_table_bg));
+  box-shadow: var(--a_table_action_sticky_shadow);
+}
+.a_table__head__row .a_table__cell_action_sticky {
+  background-color: var(--a_table_th_bg);
 }
 .a_table__th__dropdown_item {
   display: flex;
@@ -569,21 +605,6 @@
     top: .5rem;
   }
 }
-.a_table_bordered {
-  .a_table__body__row {
-    border-right: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color);
-  }
-  .a_table__head__row {
-    border-right: var(--a_table_th_border_vertical_width) solid var(--a_table_th_border_vertical_color);
-  }
-}
-.a_table_mobile {
-  .a_table_bordered {
-    .a_table__body__row {
-      border-left: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color);
-    }
-  }
-}
 .a_table_bordered,
 .a_table_inner_bordered {
   .a_table__td {
@@ -609,19 +630,8 @@
   .a_table__cell_group {
     border-bottom: var(--a_table_th_border_horizontal_width) solid var(--a_table_th_border_horizontal_color);
   }
-}
-.a_table__grandparent:not(.a_table_mobile) {
-  .a_table_simple.a_table_bordered {
-    .a_table__td:last-child {
-      border-right: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color);
-    }
-    .a_table__th:last-child {
-      border-right: var(--a_table_td_border_vertical_width) solid var(--a_table_td_border_vertical_color);
-    }
-    .a_table__body__row,
-    .a_table__head__row {
-      border-right: none;
-    }
+  .a_table__row > :first-child {
+    border-left: 0;
   }
 }
 
@@ -763,28 +773,46 @@
 :where(.a_table__parent) {
   // general
   --a_table_bg: var(--a_color_surface); // Background of the table rows and cells.
+  --a_table_border_width: var(--a_border_width); // Width of the frame around the table (0 for borderType "innerBordered").
+  --a_table_border_color: var(--a_border_color); // Color of the frame around the table.
+  --a_table_border_radius: var(--a_border_radius_large); // Corner radius of the frame around the table.
+  --a_table_font_variant_numeric: tabular-nums; // Digits of the same width, so numbers line up in columns.
   // header
   --a_table_th_bg: var(--a_color_surface_subtle); // Background of the table header.
+  --a_table_th_color: var(--a_color_text_muted); // Text color of the table header.
+  --a_table_th_hover_color: var(--a_color_text); // Text color of a sortable header cell on hover.
+  --a_table_th_font_size: var(--a_font_size_sm); // Font size of the table header.
+  --a_table_th_font_weight: var(--a_font_weight_semibold); // Font weight of the table header.
   --a_table_th_border_vertical_width: var(--a_border_width); // Width of the vertical lines between header cells in bordered tables.
   --a_table_th_border_vertical_color: var(--a_border_color); // Color of the vertical lines between header cells in bordered tables.
   --a_table_th_border_horizontal_width: var(--a_border_width); // Width of the line under a column group header in bordered tables.
   --a_table_th_border_horizontal_color: var(--a_border_color); // Color of the line under a column group header in bordered tables.
   --a_table_th_border_bottom_width: var(--a_border_width); // Width of the line under the table header.
-  --a_table_th_border_bottom_color: var(--a_border_color_strong); // Color of the line under the table header.
-  --a_table_th_sorting_bg: var(--a_color_primary_bg_subtle); // Background of the header cell of the sorted column.
+  --a_table_th_border_bottom_color: var(--a_border_color); // Color of the line under the table header.
+  --a_table_th_sorting_bg: transparent; // Background of the header cell of the sorted column.
+  --a_table_th_sorting_color: var(--a_color_primary_text); // Text and icon color of the header cell of the sorted column.
+  --a_table_th_sort_icon_opacity: .45; // Opacity of the sort icons of a column that is not sorted (1 on hover and focus).
   // rows
   --a_table_row_border_bottom_width: var(--a_border_width); // Width of the line between rows.
   --a_table_row_border_bottom_color: var(--a_border_color); // Color of the line between rows.
-  --a_table_row_hover_bg: var(--a_color_gray_100); // Background of a hovered row or a row with focus inside.
+  --a_table_row_hover_bg: var(--a_color_gray_200); // Background of a hovered row or a row with focus inside.
   --a_table_row_focus_shadow: var(--a_focus_ring_inset); // Focus ring of a focused row.
-  --a_table_row_preview_open_bg: var(--a_color_primary_border_subtle); // Background of the row whose preview is open.
+  --a_table_row_striped_bg: var(--a_color_surface_subtle); // Background of every second row in a striped table (isStriped).
+  --a_table_row_selected_bg: var(--a_color_primary_bg_subtle); // Background of a row selected with the checkbox (multiple actions).
+  --a_table_row_preview_open_bg: var(--a_color_primary_bg_subtle); // Background of the row whose preview is open.
+  --a_table_row_accent_width: 3px; // Width of the bar on the left of the row whose preview is open.
+  --a_table_row_accent_color: var(--a_color_primary); // Color of the bar on the left of the row whose preview is open.
   --a_table_row_preview_was_open_bg: var(--a_color_primary_bg_subtle); // Background of the row whose preview was open last.
   --a_table_row_preview_focus_bg: var(--a_color_primary_border_subtle); // Color used for the border of selected items in the multiple actions panel.
   // cells
   --a_table_td_border_vertical_width: var(--a_border_width); // Width of the vertical lines between body cells in bordered tables.
   --a_table_td_border_vertical_color: var(--a_border_color); // Color of the vertical lines between body cells in bordered tables.
-  --a_table_cell_padding_x: calc(.5rem * var(--a_density)); // Horizontal padding of a cell.
-  --a_table_cell_padding_y: calc(.5rem * var(--a_density)); // Vertical padding of a cell.
+  --a_table_cell_padding_x: calc(.75rem * var(--a_density)); // Horizontal padding of a cell.
+  --a_table_cell_padding_y: calc(.625rem * var(--a_density)); // Vertical padding of a cell.
+  --a_table_action_sticky_shadow: var(--a_shadow_edge_left); // Shadow on the left of the sticky actions column.
+  // empty table
+  --a_table_empty_padding_y: var(--a_space_xl); // Top and bottom padding of the text of an empty table.
+  --a_table_empty_color: var(--a_color_text_muted); // Text color of an empty table.
   // top panel
   --a_table_quick_search_width: 15.625rem; // Width of the quick search field.
   --a_table_between_actions_margin: var(--a_space_sm); // Space between the icon and the text in a header cell and between action elements.
