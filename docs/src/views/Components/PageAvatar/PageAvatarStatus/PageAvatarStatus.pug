@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_AVATAR_STATUS_HEADER_"
+  description="_A_AVATAR_STATUS_DESCRIPTION_"
+  :props="['status', 'statusText']"
+)
+  .a_d_flex.a_gap_3.a_flex_wrap.a_align_items_center
+    a-avatar(
+      v-for="status in ['online', 'away', 'busy', 'offline']"
+      :key="status"
+      name="Anna Becker"
+      :status="status"
+    )

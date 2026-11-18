@@ -1,0 +1,153 @@
+.a_avatar {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--a_avatar_size);
+  height: var(--a_avatar_size);
+  border-radius: var(--a_avatar_border_radius);
+  background: var(--a_avatar_bg);
+  color: var(--a_avatar_color);
+  font-size: calc(var(--a_avatar_size) * var(--a_avatar_font_scale));
+  font-weight: var(--a_avatar_font_weight);
+  line-height: 1;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.a_avatar_circle {
+  --a_avatar_border_radius: 50%;
+}
+.a_avatar_square {
+  --a_avatar_border_radius: var(--a_avatar_square_border_radius);
+}
+
+.a_avatar_small {
+  --a_avatar_size: var(--a_avatar_size_small);
+}
+.a_avatar_large {
+  --a_avatar_size: var(--a_avatar_size_large);
+}
+.a_avatar_xlarge {
+  --a_avatar_size: var(--a_avatar_size_xlarge);
+}
+
+.a_avatar__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+.a_avatar_with_image {
+  background: var(--a_avatar_image_bg);
+}
+
+.a_avatar__initials {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.a_avatar__icon {
+  display: inline-flex;
+  width: calc(var(--a_avatar_size) * var(--a_avatar_icon_scale));
+  height: calc(var(--a_avatar_size) * var(--a_avatar_icon_scale));
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Colors: a light background with a dark text of the same hue (contrast WCAG AA)
+@each $name in (primary, secondary, tertiary, success, info, warning, danger) {
+  .a_avatar_#{$name} {
+    --a_avatar_bg: var(--a_color_#{$name}_bg_subtle);
+    --a_avatar_color: var(--a_color_#{$name}_text_emphasis);
+  }
+}
+.a_avatar_gray {
+  --a_avatar_bg: var(--a_color_gray_200);
+  --a_avatar_color: var(--a_color_gray_700);
+}
+
+// Status dot with a ring in the color of the surface
+.a_avatar__status {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  width: var(--a_avatar_status_size);
+  height: var(--a_avatar_status_size);
+  border-radius: 50%;
+  background: var(--a_avatar_status_color);
+  box-shadow: 0 0 0 var(--a_avatar_status_ring_width) var(--a_avatar_ring_color);
+}
+.a_avatar_square .a_avatar__status {
+  transform: translate(25%, 25%);
+}
+.a_avatar__status_online {
+  --a_avatar_status_color: var(--a_avatar_status_online_color);
+}
+.a_avatar__status_away {
+  --a_avatar_status_color: var(--a_avatar_status_away_color);
+}
+.a_avatar__status_busy {
+  --a_avatar_status_color: var(--a_avatar_status_busy_color);
+}
+.a_avatar__status_offline {
+  --a_avatar_status_color: var(--a_avatar_status_offline_color);
+}
+
+// Group: the avatars overlap and get a ring, so they stay separated
+.a_avatar_group {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  .a_avatar {
+    box-shadow: 0 0 0 var(--a_avatar_group_ring_width) var(--a_avatar_ring_color);
+  }
+  .a_avatar + .a_avatar {
+    margin-inline-start: calc(var(--a_avatar_size) * var(--a_avatar_group_overlap) * -1);
+  }
+}
+.a_avatar_group__more {
+  font-size: calc(var(--a_avatar_size) * var(--a_avatar_group_more_font_scale));
+}
+
+@media (forced-colors: active) {
+  .a_avatar {
+    border: 1px solid CanvasText;
+  }
+  .a_avatar__status {
+    background: CanvasText;
+  }
+}
+
+:where(.a_avatar, .a_avatar_group) {
+  // size
+  --a_avatar_size: 2.5rem; // Size of an avatar (size "medium").
+  --a_avatar_size_small: 2rem; // Size of an avatar for size "small".
+  --a_avatar_size_large: 3.5rem; // Size of an avatar for size "large".
+  --a_avatar_size_xlarge: 5rem; // Size of an avatar for size "xlarge".
+  --a_avatar_square_border_radius: var(--a_border_radius); // Corner radius of an avatar with shape "square".
+  // content
+  --a_avatar_bg: var(--a_color_gray_200); // Background of an avatar (set by the prop color).
+  --a_avatar_color: var(--a_color_gray_700); // Color of the initials and of the icon (set by the prop color).
+  --a_avatar_image_bg: var(--a_color_gray_200); // Background behind an image (visible while it loads).
+  --a_avatar_font_scale: .4; // Font size of the initials relative to the size of the avatar.
+  --a_avatar_font_weight: var(--a_font_weight_semibold); // Font weight of the initials.
+  --a_avatar_icon_scale: .55; // Size of the icon relative to the size of the avatar.
+  // status
+  --a_avatar_status_size: calc(var(--a_avatar_size) * .3); // Size of the status dot.
+  --a_avatar_status_ring_width: 2px; // Width of the ring around the status dot.
+  --a_avatar_status_online_color: var(--a_color_success); // Color of the status "online".
+  --a_avatar_status_away_color: var(--a_color_warning); // Color of the status "away".
+  --a_avatar_status_busy_color: var(--a_color_danger); // Color of the status "busy".
+  --a_avatar_status_offline_color: var(--a_color_gray_500); // Color of the status "offline".
+  --a_avatar_ring_color: var(--a_color_surface); // Color of the rings of the status dot and of the avatars in a group.
+  // group
+  --a_avatar_group_overlap: .15; // How far the avatars of a group overlap, relative to their size.
+  --a_avatar_group_ring_width: 2px; // Width of the ring around the avatars of a group.
+  --a_avatar_group_more_font_scale: .34; // Font size of the "+N" avatar relative to its size.
+}

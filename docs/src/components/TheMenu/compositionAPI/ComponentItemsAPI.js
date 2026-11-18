@@ -22,6 +22,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "avatar",
+        label: "Avatar",
+        class: "test_menu_avatar",
+        to: {
+          name: "PageAvatar",
+        },
+      },
+      {
         id: "Button",
         label: "Button",
         class: "test_menu_button",

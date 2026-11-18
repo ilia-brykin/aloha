@@ -16,6 +16,7 @@ import FormI18n from "./views/Components/Form/i18n/FormI18n";
 import PageAAlertI18n from "./views/Components/PageAlert/i18n/PageAAlertI18n";
 import PageAOnHooksI18n from "./views/Directives/PageOnHooks/i18n/PageAOnHooksI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
+import PageAvatarI18n from "./views/Components/PageAvatar/i18n/PageAvatarI18n";
 import PageBadgeI18n from "./views/CSS/PageBadge/i18n/PageBadgeI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
 import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI18n";
@@ -155,6 +156,7 @@ export const mainTranslation = {
     ...FormI18n.ar,
     ...PageAAlertI18n.ar,
     ...PageAlertPluginI18n.ar,
+    ...PageAvatarI18n.ar,
     ...PageBadgeI18n.ar,
     ...PageColumnsI18n.ar,
     ...PageColorsI18n.ar,
@@ -283,6 +285,7 @@ export const mainTranslation = {
     ...FormI18n.de,
     ...PageAAlertI18n.de,
     ...PageAlertPluginI18n.de,
+    ...PageAvatarI18n.de,
     ...PageBadgeI18n.de,
     ...PageColumnsI18n.de,
     ...PageColorsI18n.de,
@@ -411,6 +414,7 @@ export const mainTranslation = {
     ...FormI18n.en,
     ...PageAAlertI18n.en,
     ...PageAlertPluginI18n.en,
+    ...PageAvatarI18n.en,
     ...PageBadgeI18n.en,
     ...PageColumnsI18n.en,
     ...PageColorsI18n.en,
@@ -539,6 +543,7 @@ export const mainTranslation = {
     ...FormI18n.es,
     ...PageAAlertI18n.es,
     ...PageAlertPluginI18n.es,
+    ...PageAvatarI18n.es,
     ...PageBadgeI18n.es,
     ...PageColumnsI18n.es,
     ...PageColorsI18n.es,
@@ -667,6 +672,7 @@ export const mainTranslation = {
     ...FormI18n.fr,
     ...PageAAlertI18n.fr,
     ...PageAlertPluginI18n.fr,
+    ...PageAvatarI18n.fr,
     ...PageBadgeI18n.fr,
     ...PageColumnsI18n.fr,
     ...PageColorsI18n.fr,
@@ -795,6 +801,7 @@ export const mainTranslation = {
     ...FormI18n.hr,
     ...PageAAlertI18n.hr,
     ...PageAlertPluginI18n.hr,
+    ...PageAvatarI18n.hr,
     ...PageBadgeI18n.hr,
     ...PageColumnsI18n.hr,
     ...PageColorsI18n.hr,
@@ -923,6 +930,7 @@ export const mainTranslation = {
     ...FormI18n.it,
     ...PageAAlertI18n.it,
     ...PageAlertPluginI18n.it,
+    ...PageAvatarI18n.it,
     ...PageBadgeI18n.it,
     ...PageColumnsI18n.it,
     ...PageColorsI18n.it,
@@ -1051,6 +1059,7 @@ export const mainTranslation = {
     ...FormI18n.nl,
     ...PageAAlertI18n.nl,
     ...PageAlertPluginI18n.nl,
+    ...PageAvatarI18n.nl,
     ...PageBadgeI18n.nl,
     ...PageColumnsI18n.nl,
     ...PageColorsI18n.nl,
@@ -1179,6 +1188,7 @@ export const mainTranslation = {
     ...FormI18n.pl,
     ...PageAAlertI18n.pl,
     ...PageAlertPluginI18n.pl,
+    ...PageAvatarI18n.pl,
     ...PageBadgeI18n.pl,
     ...PageColumnsI18n.pl,
     ...PageColorsI18n.pl,
@@ -1307,6 +1317,7 @@ export const mainTranslation = {
     ...FormI18n.ru,
     ...PageAAlertI18n.ru,
     ...PageAlertPluginI18n.ru,
+    ...PageAvatarI18n.ru,
     ...PageBadgeI18n.ru,
     ...PageColumnsI18n.ru,
     ...PageColorsI18n.ru,
@@ -1435,6 +1446,7 @@ export const mainTranslation = {
     ...FormI18n.uk,
     ...PageAAlertI18n.uk,
     ...PageAlertPluginI18n.uk,
+    ...PageAvatarI18n.uk,
     ...PageBadgeI18n.uk,
     ...PageColumnsI18n.uk,
     ...PageColorsI18n.uk,

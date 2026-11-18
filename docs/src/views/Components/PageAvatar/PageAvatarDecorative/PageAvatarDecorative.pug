@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_AVATAR_DECORATIVE_HEADER_"
+  description="_A_AVATAR_DECORATIVE_DESCRIPTION_"
+  :props="['decorative']"
+)
+  ul.a_list_without_styles.a_d_flex.a_flex_column.a_gap_2.a_mb_0
+    li.a_d_flex.a_gap_2.a_align_items_center(
+      v-for="name in ['Anna Becker', 'Ben Ott']"
+      :key="name"
+    )
+      a-avatar(
+        :name="name"
+        :decorative="true"
+        size="small"
+      )
+      span {{ name }}
