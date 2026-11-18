@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "Klassen zetten de muiscursor (<code>cursor</code>): <code>a_cursor_pointer</code>, <code>a_cursor_default</code>, <code>a_cursor_not_allowed</code>, <code>a_cursor_move</code>. Beweeg de muis over de elementen.",
+  "_A_UTILITIES_CURSOR_NAME_": "Cursor",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "De tweekleurige focusring van de componenten voor eigen focusbare elementen, bijv. een kaart met <code>tabindex=\"0\"</code>. Hij wordt alleen bij toetsenbordfocus getoond en via de focustokens geconfigureerd.",
   "_A_UTILITIES_FOCUS_NAME_": "Focusring",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "Klassen zetten <code>opacity</code> op 0, 25, 50, 75 of 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "Klassen zetten de <code>order</code> van flex- en grid-items: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). De suffixen <code>_mobile</code> … <code>_large</code> activeren ze op breakpoints.",
   "_A_UTILITIES_ORDER_NAME_": "Volgorde",
   "_A_UTILITIES_PAGE_NAME_": "Hulpklassen",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "<code>a_pointer_events_none</code> laat een element muis en aanraking negeren, <code>a_pointer_events_auto</code> zet ze weer aan voor een kindelement. Het toetsenbord werkt nog steeds, dus zet voor een uitgeschakelde link ook <code>tabindex=\"-1\"</code> en <code>aria-disabled</code>.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "Pointer-events",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> verbergt een element bij het afdrukken, <code>a_print_block</code> toont het alleen bij het afdrukken (samen met <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "Afdrukken",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "<code>a_rounded_circle</code> maakt een vierkant element rond, bijv. een avatar of een statusstip.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "Cirkel",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "Klassen zetten de schaduw uit de tokens <code>--a_shadow_*</code>: <code>a_shadow_sm</code>, <code>a_shadow_md</code>, <code>a_shadow_lg</code>. <code>a_shadow_none</code> verwijdert een schaduw. De schaduwen zijn aangepast aan het donkere thema.",
+  "_A_UTILITIES_SHADOW_NAME_": "Schaduw",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "Secundaire en benadrukte tekst die leesbaar blijft in het lichte en het donkere thema.",
   "_A_UTILITIES_TEXT_NAME_": "Tekstkleur",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "Met <code>a_text_select_all</code> selecteert één klik de hele tekst, bijv. een ID of een token om te kopiëren. <code>a_text_select_none</code> voorkomt het selecteren van tekst.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "Tekstselectie",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "<code>a_invisible</code> verbergt een element, maar het houdt zijn plaats in de lay-out, anders dan <code>a_d_none</code>. <code>a_visible</code> toont het weer. Een verborgen element is ook verborgen voor schermlezers.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "Zichtbaarheid",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Globale lagen gebruiken de <code>--a_z_index_*</code>-tokens, zodat eigen overlays in de juiste volgorde blijven ten opzichte van modals, dropdowns en popups.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
 }

@@ -29,6 +29,90 @@ aloha-page(
       p.a_text_emphasis a_text_emphasis
 
     aloha-example(
+      :code-html="codeShadow"
+      header="_A_UTILITIES_SHADOW_NAME_"
+      description="_A_UTILITIES_SHADOW_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_4.a_flex_wrap.a_p_2
+        .a_p_3.a_border(
+          v-for="value in shadows"
+          style="background: var(--a_color_surface); border-radius: var(--a_border_radius);"
+          :key="value"
+          :class="`a_shadow_${ value }`"
+        )
+          code a_shadow_{{ value }}
+
+    aloha-example(
+      :code-html="codeRoundedCircle"
+      header="_A_UTILITIES_ROUNDED_CIRCLE_NAME_"
+      description="_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap.a_align_items_center
+        .a_rounded_circle.a_bg_primary.a_color_white.a_d_flex.a_align_items_center.a_justify_content_center(
+          style="width: 3rem; height: 3rem;"
+        ) AB
+        .a_rounded_circle.a_bg_success(
+          style="width: .75rem; height: .75rem;"
+        )
+        code a_rounded_circle
+
+    aloha-example(
+      :code-html="codeVisibility"
+      header="_A_UTILITIES_VISIBILITY_NAME_"
+      description="_A_UTILITIES_VISIBILITY_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_2.a_flex_wrap
+        .a_p_2.a_border 1
+        .a_p_2.a_border.a_invisible 2: a_invisible
+        .a_p_2.a_border 3
+      .a_d_flex.a_gap_2.a_flex_wrap.a_mt_2
+        .a_p_2.a_border 1
+        .a_p_2.a_border.a_d_none 2: a_d_none
+        .a_p_2.a_border 3
+
+    aloha-example(
+      :code-html="codeCursor"
+      header="_A_UTILITIES_CURSOR_NAME_"
+      description="_A_UTILITIES_CURSOR_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_2.a_flex_wrap
+        .a_p_2.a_border(
+          v-for="value in cursors"
+          :key="value"
+          :class="`a_cursor_${ value }`"
+        )
+          code a_cursor_{{ value }}
+
+    aloha-example(
+      :code-html="codePointerEvents"
+      header="_A_UTILITIES_POINTER_EVENTS_NAME_"
+      description="_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_"
+    )
+      .a_d_flex.a_gap_3.a_flex_wrap.a_align_items_center
+        a.a_pointer_events_none(
+          href="#"
+          tabindex="-1"
+          aria-disabled="true"
+        ) a_pointer_events_none
+        .a_pointer_events_none
+          a.a_pointer_events_auto(
+            href="#"
+            @click.prevent
+          ) a_pointer_events_auto
+
+    aloha-example(
+      :code-html="codeTextSelect"
+      header="_A_UTILITIES_TEXT_SELECT_NAME_"
+      description="_A_UTILITIES_TEXT_SELECT_DESCRIPTION_"
+    )
+      div
+        code.a_color_danger.a_mr_2 .a_text_select_all
+        span.a_text_select_all.a_text_monospace 3f9a1c7e-42b0-4d1e-9c55
+      div
+        code.a_color_danger.a_mr_2 .a_text_select_none
+        span.a_text_select_none Text
+
+    aloha-example(
       :code-html="codeOpacity"
       header="_A_UTILITIES_OPACITY_NAME_"
       description="_A_UTILITIES_OPACITY_DESCRIPTION_"

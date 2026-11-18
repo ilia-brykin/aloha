@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "Classes set the mouse <code>cursor</code>: <code>a_cursor_pointer</code>, <code>a_cursor_default</code>, <code>a_cursor_not_allowed</code>, <code>a_cursor_move</code>. Hover over the elements.",
+  "_A_UTILITIES_CURSOR_NAME_": "Cursor",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "The two-colored focus ring of the components for own focusable elements, e.g. a card with <code>tabindex=\"0\"</code>. It is shown for keyboard focus only and is configured with the focus tokens.",
   "_A_UTILITIES_FOCUS_NAME_": "Focus ring",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "Classes set <code>opacity</code> to 0, 25, 50, 75 or 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "Classes set the <code>order</code> of flex and grid items: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Suffixes <code>_mobile</code> … <code>_large</code> enable them at breakpoints.",
   "_A_UTILITIES_ORDER_NAME_": "Order",
   "_A_UTILITIES_PAGE_NAME_": "Utilities",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "<code>a_pointer_events_none</code> makes an element ignore the mouse and touch, <code>a_pointer_events_auto</code> turns them on again for a child element. The keyboard still works, so also set <code>tabindex=\"-1\"</code> and <code>aria-disabled</code> for a disabled link.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "Pointer events",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> hides an element when printing, <code>a_print_block</code> shows it only in print (together with <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "Print",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "<code>a_rounded_circle</code> makes a square element round, e.g. an avatar or a status dot.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "Circle",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "Classes set the shadow from the <code>--a_shadow_*</code> tokens: <code>a_shadow_sm</code>, <code>a_shadow_md</code>, <code>a_shadow_lg</code>. <code>a_shadow_none</code> removes a shadow. The shadows are adapted for the dark theme.",
+  "_A_UTILITIES_SHADOW_NAME_": "Shadow",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "Secondary and emphasized text that stays readable in the light and the dark theme.",
   "_A_UTILITIES_TEXT_NAME_": "Text color",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "With <code>a_text_select_all</code> one click selects the whole text, e.g. an ID or a token to copy. <code>a_text_select_none</code> prevents selecting the text.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "Text selection",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "<code>a_invisible</code> hides an element, but it keeps its place in the layout, unlike <code>a_d_none</code>. <code>a_visible</code> shows it again. A hidden element is also hidden for screen readers.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "Visibility",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Global layers use the <code>--a_z_index_*</code> tokens, so own overlays stay in the right order with modals, dropdowns and popups.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
 }

@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "Klassen setzen den Mauszeiger (<code>cursor</code>): <code>a_cursor_pointer</code>, <code>a_cursor_default</code>, <code>a_cursor_not_allowed</code>, <code>a_cursor_move</code>. Fahren Sie mit der Maus über die Elemente.",
+  "_A_UTILITIES_CURSOR_NAME_": "Mauszeiger",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "Der zweifarbige Fokusring der Komponenten für eigene fokussierbare Elemente, z. B. eine Karte mit <code>tabindex=\"0\"</code>. Er wird nur beim Tastaturfokus angezeigt und über die Fokus-Tokens konfiguriert.",
   "_A_UTILITIES_FOCUS_NAME_": "Fokusring",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "Klassen setzen <code>opacity</code> auf 0, 25, 50, 75 oder 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "Klassen setzen die <code>order</code> von Flex- und Grid-Elementen: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Die Suffixe <code>_mobile</code> … <code>_large</code> aktivieren sie an Breakpoints.",
   "_A_UTILITIES_ORDER_NAME_": "Reihenfolge",
   "_A_UTILITIES_PAGE_NAME_": "Hilfsklassen",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "<code>a_pointer_events_none</code> lässt ein Element Maus und Touch ignorieren, <code>a_pointer_events_auto</code> schaltet sie für ein Kindelement wieder ein. Die Tastatur funktioniert weiterhin, setzen Sie für einen deaktivierten Link also auch <code>tabindex=\"-1\"</code> und <code>aria-disabled</code>.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "Zeigerereignisse",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> blendet ein Element beim Drucken aus, <code>a_print_block</code> zeigt es nur im Druck (zusammen mit <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "Drucken",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "<code>a_rounded_circle</code> macht ein quadratisches Element rund, z. B. einen Avatar oder einen Statuspunkt.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "Kreis",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "Klassen setzen den Schatten aus den Tokens <code>--a_shadow_*</code>: <code>a_shadow_sm</code>, <code>a_shadow_md</code>, <code>a_shadow_lg</code>. <code>a_shadow_none</code> entfernt einen Schatten. Die Schatten sind an das dunkle Theme angepasst.",
+  "_A_UTILITIES_SHADOW_NAME_": "Schatten",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "Sekundärer und hervorgehobener Text, der im hellen und im dunklen Theme lesbar bleibt.",
   "_A_UTILITIES_TEXT_NAME_": "Textfarbe",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "Mit <code>a_text_select_all</code> wählt ein Klick den ganzen Text aus, z. B. eine ID oder ein Token zum Kopieren. <code>a_text_select_none</code> verhindert die Textauswahl.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "Textauswahl",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "<code>a_invisible</code> blendet ein Element aus, es behält aber seinen Platz im Layout, anders als <code>a_d_none</code>. <code>a_visible</code> zeigt es wieder. Ein ausgeblendetes Element ist auch für Screenreader verborgen.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "Sichtbarkeit",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Globale Ebenen verwenden die <code>--a_z_index_*</code>-Tokens, damit eigene Overlays in der richtigen Reihenfolge zu Modals, Dropdowns und Popups bleiben.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-Index"
 }

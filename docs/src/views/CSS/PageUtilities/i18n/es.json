@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "Las clases definen el cursor del ratón (<code>cursor</code>): <code>a_cursor_pointer</code>, <code>a_cursor_default</code>, <code>a_cursor_not_allowed</code>, <code>a_cursor_move</code>. Pase el ratón sobre los elementos.",
+  "_A_UTILITIES_CURSOR_NAME_": "Cursor",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "El anillo de foco bicolor de los componentes para sus propios elementos enfocables, p. ej. una tarjeta con <code>tabindex=\"0\"</code>. Solo se muestra con el foco del teclado y se configura con los tokens de foco.",
   "_A_UTILITIES_FOCUS_NAME_": "Anillo de foco",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "Las clases establecen <code>opacity</code> en 0, 25, 50, 75 o 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "Las clases establecen el <code>order</code> de los elementos flex y grid: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Los sufijos <code>_mobile</code> … <code>_large</code> los activan en los breakpoints.",
   "_A_UTILITIES_ORDER_NAME_": "Orden",
   "_A_UTILITIES_PAGE_NAME_": "Clases de utilidad",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "<code>a_pointer_events_none</code> hace que un elemento ignore el ratón y el tacto, <code>a_pointer_events_auto</code> los vuelve a activar para un elemento hijo. El teclado sigue funcionando, así que para un enlace deshabilitado añada también <code>tabindex=\"-1\"</code> y <code>aria-disabled</code>.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "Eventos del puntero",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> oculta un elemento al imprimir, <code>a_print_block</code> lo muestra solo al imprimir (junto con <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "Impresión",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "<code>a_rounded_circle</code> hace redondo un elemento cuadrado, p. ej. un avatar o un punto de estado.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "Círculo",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "Las clases aplican la sombra de los tokens <code>--a_shadow_*</code>: <code>a_shadow_sm</code>, <code>a_shadow_md</code>, <code>a_shadow_lg</code>. <code>a_shadow_none</code> elimina la sombra. Las sombras están adaptadas al tema oscuro.",
+  "_A_UTILITIES_SHADOW_NAME_": "Sombra",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "Texto secundario y destacado que sigue siendo legible en el tema claro y en el oscuro.",
   "_A_UTILITIES_TEXT_NAME_": "Color del texto",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "Con <code>a_text_select_all</code> un clic selecciona todo el texto, p. ej. un ID o un token para copiar. <code>a_text_select_none</code> impide seleccionar el texto.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "Selección de texto",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "<code>a_invisible</code> oculta un elemento, pero conserva su lugar en el diseño, a diferencia de <code>a_d_none</code>. <code>a_visible</code> lo vuelve a mostrar. Un elemento oculto también se oculta a los lectores de pantalla.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "Visibilidad",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Las capas globales usan los tokens <code>--a_z_index_*</code>, así sus propias superposiciones mantienen el orden correcto respecto a modales, menús desplegables y popups.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
 }

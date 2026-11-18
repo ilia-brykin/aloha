@@ -2,6 +2,7 @@ import AlohaPage from "../../../global/components/AlohaPage/AlohaPage.vue";
 import AlohaTableProps from "../../../global/components/AlohaTableProps/AlohaTableProps.vue";
 import PageTextAlignment from "./PageTextAlignment/PageTextAlignment.vue";
 import PageTextClamp from "./PageTextClamp/PageTextClamp.vue";
+import PageTextFont from "./PageTextFont/PageTextFont.vue";
 import PageTextFontSize from "./PageTextFontSize/PageTextFontSize.vue";
 import PageTextFontWeight from "./PageTextFontWeight/PageTextFontWeight.vue";
 import PageTextTransformation from "./PageTextTransformation/PageTextTransformation.vue";
@@ -18,6 +19,7 @@ export default {
     ATranslation,
     PageTextAlignment,
     PageTextClamp,
+    PageTextFont,
     PageTextFontSize,
     PageTextFontWeight,
     PageTextTransformation,

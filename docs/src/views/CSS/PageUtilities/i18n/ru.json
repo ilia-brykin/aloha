@@ -1,4 +1,6 @@
 {
+  "_A_UTILITIES_CURSOR_DESCRIPTION_": "Классы задают курсор мыши (<code>cursor</code>): <code>a_cursor_pointer</code>, <code>a_cursor_default</code>, <code>a_cursor_not_allowed</code>, <code>a_cursor_move</code>. Наведите мышь на элементы.",
+  "_A_UTILITIES_CURSOR_NAME_": "Курсор",
   "_A_UTILITIES_FOCUS_DESCRIPTION_": "Двухцветное кольцо фокуса компонентов для собственных фокусируемых элементов, например карточки с <code>tabindex=\"0\"</code>. Показывается только при фокусе с клавиатуры и настраивается токенами фокуса.",
   "_A_UTILITIES_FOCUS_NAME_": "Кольцо фокуса",
   "_A_UTILITIES_OPACITY_DESCRIPTION_": "Классы задают <code>opacity</code>: 0, 25, 50, 75 или 100 %.",
@@ -6,10 +8,20 @@
   "_A_UTILITIES_ORDER_DESCRIPTION_": "Классы задают <code>order</code> элементов flex и grid: <code>a_order_first</code> (−1), <code>a_order_0</code> … <code>a_order_5</code>, <code>a_order_last</code> (6). Суффиксы <code>_mobile</code> … <code>_large</code> включают их на брейкпоинтах.",
   "_A_UTILITIES_ORDER_NAME_": "Порядок",
   "_A_UTILITIES_PAGE_NAME_": "Вспомогательные классы",
+  "_A_UTILITIES_POINTER_EVENTS_DESCRIPTION_": "<code>a_pointer_events_none</code> заставляет элемент игнорировать мышь и касания, <code>a_pointer_events_auto</code> снова включает их для дочернего элемента. Клавиатура при этом работает, поэтому для отключённой ссылки задайте ещё <code>tabindex=\"-1\"</code> и <code>aria-disabled</code>.",
+  "_A_UTILITIES_POINTER_EVENTS_NAME_": "События указателя",
   "_A_UTILITIES_PRINT_DESCRIPTION_": "<code>a_print_none</code> скрывает элемент при печати, <code>a_print_block</code> показывает его только при печати (вместе с <code>a_d_none</code>).",
   "_A_UTILITIES_PRINT_NAME_": "Печать",
+  "_A_UTILITIES_ROUNDED_CIRCLE_DESCRIPTION_": "<code>a_rounded_circle</code> делает квадратный элемент круглым, например аватар или точку статуса.",
+  "_A_UTILITIES_ROUNDED_CIRCLE_NAME_": "Круг",
+  "_A_UTILITIES_SHADOW_DESCRIPTION_": "Классы задают тень из токенов <code>--a_shadow_*</code>: <code>a_shadow_sm</code>, <code>a_shadow_md</code>, <code>a_shadow_lg</code>. <code>a_shadow_none</code> убирает тень. Тени адаптированы для тёмной темы.",
+  "_A_UTILITIES_SHADOW_NAME_": "Тень",
   "_A_UTILITIES_TEXT_DESCRIPTION_": "Второстепенный и выделенный текст, который остаётся читаемым в светлой и тёмной теме.",
   "_A_UTILITIES_TEXT_NAME_": "Цвет текста",
+  "_A_UTILITIES_TEXT_SELECT_DESCRIPTION_": "С <code>a_text_select_all</code> один клик выделяет весь текст, например идентификатор или токен для копирования. <code>a_text_select_none</code> запрещает выделение текста.",
+  "_A_UTILITIES_TEXT_SELECT_NAME_": "Выделение текста",
+  "_A_UTILITIES_VISIBILITY_DESCRIPTION_": "<code>a_invisible</code> скрывает элемент, но он сохраняет своё место в разметке, в отличие от <code>a_d_none</code>. <code>a_visible</code> снова показывает его. Скрытый элемент скрыт и для скринридеров.",
+  "_A_UTILITIES_VISIBILITY_NAME_": "Видимость",
   "_A_UTILITIES_Z_INDEX_DESCRIPTION_": "Глобальные слои используют токены <code>--a_z_index_*</code>, поэтому собственные оверлеи остаются в правильном порядке относительно модальных окон, выпадающих меню и попапов.",
   "_A_UTILITIES_Z_INDEX_NAME_": "Z-index"
 }

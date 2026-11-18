@@ -82,6 +82,8 @@
   @include meta.load-css("utils/border");
   @include meta.load-css("utils/vertical_align");
   @include meta.load-css("utils/opacity");
+  @include meta.load-css("utils/shadow");
+  @include meta.load-css("utils/interaction");
   @include meta.load-css("utils/order");
   @include meta.load-css("utils/z_index");
   @include meta.load-css("utils/focus_ring");

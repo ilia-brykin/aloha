@@ -4,7 +4,9 @@ export default function HtmlAPI() {
 <div><code class="a_color_danger a_mr_2">.a_text_capitalize</code><span class="a_text_capitalize">text</span></div>
 <div><code class="a_color_danger a_mr_2">.a_text_underline</code><span class="a_text_underline">Text</span></div>
 <div><code class="a_color_danger a_mr_2">.a_text_line_through</code><span class="a_text_line_through">Text</span></div>
-<div><code class="a_color_danger a_mr_2">.a_text_decoration_none</code><span class="a_text_decoration_none">Text</span></div>`;
+<div><code class="a_color_danger a_mr_2">.a_text_decoration_none</code><span class="a_text_decoration_none">Text</span></div>
+<div><code class="a_color_danger a_mr_2">.a_text_underline_offset</code><span class="a_text_underline_offset">Text</span></div>
+<div><code class="a_color_danger a_mr_2">.a_text_line_through_muted</code><span class="a_text_line_through_muted">49,99 €</span><strong class="a_ml_2">39,99 €</strong></div>`;
 
   return {
     codeHtml,
