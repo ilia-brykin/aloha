@@ -11,7 +11,7 @@ import {
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
-import filterKeyValueTest from "../../../../../../src/filters/__tests__/filterLowerCase.test.js?raw";
+import filterLowerCaseTest from "../../../../../../src/filters/__tests__/filterLowerCase.test.js?raw";
 
 export default {
   name: "PageFilterLowerCase",
@@ -33,7 +33,7 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
-    const test = filterKeyValueTest;
+    const test = filterLowerCaseTest;
 
     return {
       argumentsText,
