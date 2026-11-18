@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SKELETON_VARIANTS_HEADER_"
+  description="_A_SKELETON_VARIANTS_DESCRIPTION_"
+  :props="['variant', 'width', 'height']"
+)
+  a-skeleton
+    template(
+      v-slot:template
+    )
+      .a_d_grid.a_gap_3(
+        style="grid-template-columns: max-content 1fr; align-items: center;"
+      )
+        template(
+          v-for="variant in ['text', 'heading', 'circle', 'rect', 'button', 'input', 'image']"
+          :key="variant"
+        )
+          code {{ variant }}
+          a-skeleton-item(
+            :variant="variant"
+            :width="variant === 'image' ? '12rem' : undefined"
+          )

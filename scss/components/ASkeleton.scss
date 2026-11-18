@@ -1,0 +1,119 @@
+.a_skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_skeleton_group_gap);
+  width: 100%;
+}
+
+.a_skeleton__default {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--a_skeleton_gap);
+}
+
+.a_skeleton__paragraph {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--a_skeleton_gap);
+  min-width: 0;
+}
+
+.a_skeleton__avatar {
+  flex: 0 0 auto;
+  width: var(--a_skeleton_avatar_size);
+  height: var(--a_skeleton_avatar_size);
+}
+
+
+.a_skeleton__item {
+  display: block;
+  width: 100%;
+  height: var(--a_skeleton_text_height);
+  border-radius: var(--a_skeleton_border_radius);
+  background: var(--a_skeleton_bg);
+}
+.a_skeleton__item_heading {
+  height: var(--a_skeleton_heading_height);
+}
+.a_skeleton__item_circle {
+  width: var(--a_skeleton_avatar_size);
+  height: var(--a_skeleton_avatar_size);
+  border-radius: 50%;
+}
+.a_skeleton__item_rect {
+  height: var(--a_skeleton_rect_height);
+}
+.a_skeleton__item_button {
+  width: var(--a_skeleton_button_width);
+  height: var(--a_skeleton_control_height);
+  border-radius: var(--a_skeleton_control_border_radius);
+}
+.a_skeleton__item_input {
+  height: var(--a_skeleton_control_height);
+  border-radius: var(--a_skeleton_control_border_radius);
+}
+.a_skeleton__item_image {
+  height: auto;
+  aspect-ratio: var(--a_skeleton_image_aspect_ratio);
+}
+
+.a_skeleton__item.a_skeleton__title {
+  width: var(--a_skeleton_title_width);
+}
+.a_skeleton__item.a_skeleton__row:last-child:not(:first-child) {
+  width: var(--a_skeleton_last_row_width);
+}
+
+// Shimmer: a lighter band moves over the shapes
+.a_skeleton_animated .a_skeleton__item,
+.a_skeleton__item.a_skeleton_animated {
+  background: linear-gradient(90deg, var(--a_skeleton_bg) 25%, var(--a_skeleton_highlight) 37%, var(--a_skeleton_bg) 63%);
+  background-size: 400% 100%;
+  animation: a_skeleton_shimmer var(--a_skeleton_duration) ease infinite;
+}
+
+@keyframes a_skeleton_shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a_skeleton_animated .a_skeleton__item,
+  .a_skeleton__item.a_skeleton_animated {
+    animation: none;
+    background: var(--a_skeleton_bg);
+  }
+}
+
+// Backgrounds are removed in forced colors mode, so the shapes get a border
+@media (forced-colors: active) {
+  .a_skeleton__item {
+    border: 1px solid CanvasText;
+  }
+}
+
+:where(.a_skeleton, .a_skeleton__item) {
+  // colors
+  --a_skeleton_bg: var(--a_color_gray_200); // Color of the shapes.
+  --a_skeleton_highlight: var(--a_color_gray_100); // Color of the moving band of the animation.
+  --a_skeleton_duration: 1.4s; // Duration of one pass of the animation.
+  // sizes
+  --a_skeleton_border_radius: var(--a_border_radius_small); // Corner radius of the shapes.
+  --a_skeleton_gap: .75rem; // Space between the rows.
+  --a_skeleton_group_gap: 1.5rem; // Space between the repeated skeletons (prop count).
+  --a_skeleton_text_height: 1rem; // Height of a text row (variant "text").
+  --a_skeleton_heading_height: 1.5rem; // Height of a heading (variant "heading").
+  --a_skeleton_title_width: 40%; // Width of the title of the default skeleton.
+  --a_skeleton_last_row_width: 60%; // Width of the last row of the default skeleton.
+  --a_skeleton_avatar_size: 3rem; // Size of the avatar (variant "circle").
+  --a_skeleton_rect_height: 6rem; // Height of a block (variant "rect").
+  --a_skeleton_control_height: var(--a_control_height); // Height of a button and of an input (variants "button" and "input").
+  --a_skeleton_control_border_radius: var(--a_border_radius); // Corner radius of a button and of an input.
+  --a_skeleton_button_width: 6rem; // Width of a button (variant "button").
+  --a_skeleton_image_aspect_ratio: 16 / 9; // Aspect ratio of an image (variant "image").
+}

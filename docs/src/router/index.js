@@ -353,6 +353,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageShowMore/PageShowMore.vue"),
   },
   {
+    path: "/skeleton",
+    name: "PageSkeleton",
+    component: () => import("../views/Components/PageSkeleton/PageSkeleton.vue"),
+  },
+  {
     path: "/api",
     name: "PageApi",
     component: () => import("../views/PageApi/PageApi.vue"),

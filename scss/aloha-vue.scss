@@ -51,6 +51,7 @@
   @include meta.load-css("components/AWizard");
   @include meta.load-css("components/AGroupButtonDropdown");
   @include meta.load-css("components/AShowMore");
+  @include meta.load-css("components/ASkeleton");
   @include meta.load-css("components/AProgressCircle");
   @include meta.load-css("components/AFormElement/ATextarea");
   @include meta.load-css("components/AFormElement/AValidatedJson");

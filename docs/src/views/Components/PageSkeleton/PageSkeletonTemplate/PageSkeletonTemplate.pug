@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SKELETON_TEMPLATE_HEADER_"
+  description="_A_SKELETON_TEMPLATE_DESCRIPTION_"
+)
+  a-skeleton(
+    style="max-width: 20rem;"
+  )
+    template(
+      v-slot:template
+    )
+      a-skeleton-item(
+        variant="image"
+      )
+      a-skeleton-item.a_mt_3(
+        variant="heading"
+        width="70%"
+      )
+      a-skeleton-item.a_mt_2
+      a-skeleton-item.a_mt_2(
+        width="80%"
+      )
+      a-skeleton-item.a_mt_3(
+        variant="button"
+      )

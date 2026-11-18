@@ -31,6 +31,7 @@ import ARouterLinkConfigI18n from "../ui/ARouterLinkConfig/i18n/ARouterLinkConfi
 import ASelectI18n from "../ui/ASelect/i18n/ASelectI18n";
 import ASelectStyleI18n from "../ui/ASelectStyle/i18n/ASelectStyleI18n";
 import AShowMoreI18n from "../AShowMore/i18n/AShowMoreI18n";
+import ASkeletonI18n from "../ASkeleton/i18n/ASkeletonI18n";
 import ASliderI18n from "../ui/ASlider/i18n/ASliderI18n";
 import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 import ASwitchI18n from "../ui/ASwitch/i18n/ASwitchI18n";
@@ -87,6 +88,7 @@ export const ar = {
   ...ASelectI18n.ar,
   ...ASelectStyleI18n.ar,
   ...AShowMoreI18n.ar,
+  ...ASkeletonI18n.ar,
   ...ATableFormI18n.ar,
   ...ASliderI18n.ar,
   ...ASpinnerI18n.ar,
@@ -132,6 +134,7 @@ export const de = {
   ...ASelectI18n.de,
   ...ASelectStyleI18n.de,
   ...AShowMoreI18n.de,
+  ...ASkeletonI18n.de,
   ...ATableFormI18n.de,
   ...ASliderI18n.de,
   ...ASpinnerI18n.de,
@@ -177,6 +180,7 @@ export const en = {
   ...ASelectI18n.en,
   ...ASelectStyleI18n.en,
   ...AShowMoreI18n.en,
+  ...ASkeletonI18n.en,
   ...ATableFormI18n.en,
   ...ASliderI18n.en,
   ...ASpinnerI18n.en,
@@ -222,6 +226,7 @@ export const es = {
   ...ASelectI18n.es,
   ...ASelectStyleI18n.es,
   ...AShowMoreI18n.es,
+  ...ASkeletonI18n.es,
   ...ATableFormI18n.es,
   ...ASliderI18n.es,
   ...ASpinnerI18n.es,
@@ -267,6 +272,7 @@ export const fr = {
   ...ASelectI18n.fr,
   ...ASelectStyleI18n.fr,
   ...AShowMoreI18n.fr,
+  ...ASkeletonI18n.fr,
   ...ATableFormI18n.fr,
   ...ASliderI18n.fr,
   ...ASpinnerI18n.fr,
@@ -312,6 +318,7 @@ export const hr = {
   ...ASelectI18n.hr,
   ...ASelectStyleI18n.hr,
   ...AShowMoreI18n.hr,
+  ...ASkeletonI18n.hr,
   ...ATableFormI18n.hr,
   ...ASliderI18n.hr,
   ...ASpinnerI18n.hr,
@@ -357,6 +364,7 @@ export const it = {
   ...ASelectI18n.it,
   ...ASelectStyleI18n.it,
   ...AShowMoreI18n.it,
+  ...ASkeletonI18n.it,
   ...ATableFormI18n.it,
   ...ASliderI18n.it,
   ...ASpinnerI18n.it,
@@ -402,6 +410,7 @@ export const nl = {
   ...ASelectI18n.nl,
   ...ASelectStyleI18n.nl,
   ...AShowMoreI18n.nl,
+  ...ASkeletonI18n.nl,
   ...ATableFormI18n.nl,
   ...ASliderI18n.nl,
   ...ASpinnerI18n.nl,
@@ -447,6 +456,7 @@ export const pl = {
   ...ASelectI18n.pl,
   ...ASelectStyleI18n.pl,
   ...AShowMoreI18n.pl,
+  ...ASkeletonI18n.pl,
   ...ATableFormI18n.pl,
   ...ASliderI18n.pl,
   ...ASpinnerI18n.pl,
@@ -492,6 +502,7 @@ export const ru = {
   ...ASelectI18n.ru,
   ...ASelectStyleI18n.ru,
   ...AShowMoreI18n.ru,
+  ...ASkeletonI18n.ru,
   ...ATableFormI18n.ru,
   ...ASliderI18n.ru,
   ...ASpinnerI18n.ru,
@@ -537,6 +548,7 @@ export const uk = {
   ...ASelectI18n.uk,
   ...ASelectStyleI18n.uk,
   ...AShowMoreI18n.uk,
+  ...ASkeletonI18n.uk,
   ...ATableFormI18n.uk,
   ...ASliderI18n.uk,
   ...ASpinnerI18n.uk,
