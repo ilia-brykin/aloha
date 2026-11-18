@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TREE_GROUP_KEYS_HEADER_"
+  description="_A_TREE_GROUP_KEYS_DESCRIPTION_"
+  :props="['key-id', 'key-label', 'key-children', 'key-disabled']"
+)
+  a-tree(
+    v-model:selected="selected"
+    :data="data"
+    key-id="uuid"
+    key-label="meta.title"
+    key-children="subordinates"
+    :key-disabled="({ item }) => !item.active"
+    :is-expand-all="true"
+    aria-label="_A_TREE_EXAMPLE_LABEL_EMPLOYEES_"
+  )
+  div.a_mt_2 selected: {{ selected }}

@@ -318,6 +318,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageTooltip/PageTooltip.vue"),
   },
   {
+    path: "/tree",
+    name: "PageTree",
+    component: () => import("../views/Components/PageTree/PageTree.vue"),
+  },
+  {
     path: "/svg",
     name: "PageSvg",
     component: () => import("../views/PageSvg/PageSvg.vue"),

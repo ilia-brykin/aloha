@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TREE_GROUP_CHECK_STRICTLY_HEADER_"
+  description="_A_TREE_GROUP_CHECK_STRICTLY_DESCRIPTION_"
+  :props="['is-check-strictly']"
+)
+  a-tree(
+    v-model="checked"
+    :data="data"
+    :is-checkbox="true"
+    :is-check-strictly="true"
+    :is-expand-all="true"
+    aria-label="_A_TREE_EXAMPLE_LABEL_"
+  )
+  div.a_mt_2 model-value: {{ checked }}

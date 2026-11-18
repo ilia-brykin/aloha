@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TREE_GROUP_JSON_HEADER_"
+  description="_A_TREE_GROUP_JSON_DESCRIPTION_"
+  :props="['json', 'default-expand-level']"
+)
+  a-input.a_mb_3(
+    v-model="searchModel"
+    label="_A_TREE_EXAMPLE_SEARCH_"
+    type="search"
+  )
+  a-tree(
+    v-model:selected="selected"
+    :json="json"
+    :search-model="searchModel"
+    :default-expand-level="1"
+    aria-label="JSON"
+  )
+  div.a_mt_2 selected: {{ selected }}

@@ -1,0 +1,38 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TREE_GROUP_EXPAND_HEADER_"
+  description="_A_TREE_GROUP_EXPAND_DESCRIPTION_"
+  :props="['default-expand-level', 'is-expand-all', 'is-accordion', 'is-expand-on-click-node', 'expanded']"
+)
+  .a_d_flex.a_gap_2.a_mb_3
+    a-button(
+      class="a_btn a_btn_secondary a_btn_small"
+      text="_A_TREE_EXAMPLE_EXPAND_ALL_"
+      @click="treeRef.expandAll()"
+    )
+    a-button(
+      class="a_btn a_btn_secondary a_btn_small"
+      text="_A_TREE_EXAMPLE_COLLAPSE_ALL_"
+      @click="treeRef.collapseAll()"
+    )
+  a-tree(
+    ref="treeRef"
+    v-model:expanded="expanded"
+    :data="data"
+    :default-expand-level="1"
+    aria-label="_A_TREE_EXAMPLE_LABEL_"
+  )
+  div.a_mt_2 expanded: {{ expanded }}
+  h3.a_mt_4 is-accordion
+  a-tree(
+    :data="data"
+    :is-accordion="true"
+    aria-label="_A_TREE_EXAMPLE_LABEL_"
+  )
+  h3.a_mt_4 is-expand-on-click-node: false
+  a-tree(
+    :data="data"
+    :is-expand-on-click-node="false"
+    aria-label="_A_TREE_EXAMPLE_LABEL_"
+  )
