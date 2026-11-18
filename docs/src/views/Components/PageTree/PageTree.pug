@@ -1,0 +1,63 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_TREE_COMPONENT_DESCRIPTION_"
+    )
+
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_TREE_ACCESSIBILITY_DESCRIPTION_"
+    )
+
+    page-tree-basic
+
+    page-tree-expand
+
+    page-tree-checkbox
+
+    page-tree-check-strictly
+
+    page-tree-search
+
+    page-tree-lazy
+
+    page-tree-keys
+
+    page-tree-slot
+
+    page-tree-json
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Methods"
+      :data="dataMethods"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ATree"
+    )

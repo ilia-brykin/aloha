@@ -1,0 +1,12 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TREE_GROUP_LAZY_HEADER_"
+  description="_A_TREE_GROUP_LAZY_DESCRIPTION_"
+  :props="['load', 'key-is-leaf']"
+)
+  a-tree(
+    :data="data"
+    :load="load"
+    aria-label="_A_TREE_EXAMPLE_LABEL_FOLDERS_"
+  )

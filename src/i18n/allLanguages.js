@@ -39,6 +39,7 @@ import ASpinnerI18n from "../ASpinner/i18n/ASpinnerI18n";
 import ASwitchI18n from "../ui/ASwitch/i18n/ASwitchI18n";
 import ATableFormI18n from "../ATableForm/i18n/ATableFormI18n";
 import ATableI18n from "../ATable/i18n/ATableI18n";
+import ATreeI18n from "../ATree/i18n/ATreeI18n";
 import AValidatedJsonI18n from "../ui/AValidatedJson/i18n/AValidatedJsonI18n";
 import AVerticalScrollI18n from "../AVerticalScroll/i18n/AVerticalScrollI18n";
 import AWizardI18n from "../AWizard/i18n/AWizardI18n";
@@ -98,6 +99,7 @@ export const ar = {
   ...ASpinnerI18n.ar,
   ...ASwitchI18n.ar,
   ...ATableI18n.ar,
+  ...ATreeI18n.ar,
   ...AValidatedJsonI18n.ar,
   ...AVerticalScrollI18n.ar,
   ...AWizardI18n.ar,
@@ -146,6 +148,7 @@ export const de = {
   ...ASpinnerI18n.de,
   ...ASwitchI18n.de,
   ...ATableI18n.de,
+  ...ATreeI18n.de,
   ...AValidatedJsonI18n.de,
   ...AVerticalScrollI18n.de,
   ...AWizardI18n.de,
@@ -194,6 +197,7 @@ export const en = {
   ...ASpinnerI18n.en,
   ...ASwitchI18n.en,
   ...ATableI18n.en,
+  ...ATreeI18n.en,
   ...AValidatedJsonI18n.en,
   ...AVerticalScrollI18n.en,
   ...AWizardI18n.en,
@@ -242,6 +246,7 @@ export const es = {
   ...ASpinnerI18n.es,
   ...ASwitchI18n.es,
   ...ATableI18n.es,
+  ...ATreeI18n.es,
   ...AValidatedJsonI18n.es,
   ...AVerticalScrollI18n.es,
   ...AWizardI18n.es,
@@ -290,6 +295,7 @@ export const fr = {
   ...ASpinnerI18n.fr,
   ...ASwitchI18n.fr,
   ...ATableI18n.fr,
+  ...ATreeI18n.fr,
   ...AValidatedJsonI18n.fr,
   ...AVerticalScrollI18n.fr,
   ...AWizardI18n.fr,
@@ -338,6 +344,7 @@ export const hr = {
   ...ASpinnerI18n.hr,
   ...ASwitchI18n.hr,
   ...ATableI18n.hr,
+  ...ATreeI18n.hr,
   ...AValidatedJsonI18n.hr,
   ...AVerticalScrollI18n.hr,
   ...AWizardI18n.hr,
@@ -386,6 +393,7 @@ export const it = {
   ...ASpinnerI18n.it,
   ...ASwitchI18n.it,
   ...ATableI18n.it,
+  ...ATreeI18n.it,
   ...AValidatedJsonI18n.it,
   ...AVerticalScrollI18n.it,
   ...AWizardI18n.it,
@@ -434,6 +442,7 @@ export const nl = {
   ...ASpinnerI18n.nl,
   ...ASwitchI18n.nl,
   ...ATableI18n.nl,
+  ...ATreeI18n.nl,
   ...AValidatedJsonI18n.nl,
   ...AVerticalScrollI18n.nl,
   ...AWizardI18n.nl,
@@ -482,6 +491,7 @@ export const pl = {
   ...ASpinnerI18n.pl,
   ...ASwitchI18n.pl,
   ...ATableI18n.pl,
+  ...ATreeI18n.pl,
   ...AValidatedJsonI18n.pl,
   ...AVerticalScrollI18n.pl,
   ...AWizardI18n.pl,
@@ -530,6 +540,7 @@ export const ru = {
   ...ASpinnerI18n.ru,
   ...ASwitchI18n.ru,
   ...ATableI18n.ru,
+  ...ATreeI18n.ru,
   ...AValidatedJsonI18n.ru,
   ...AVerticalScrollI18n.ru,
   ...AWizardI18n.ru,
@@ -578,6 +589,7 @@ export const uk = {
   ...ASpinnerI18n.uk,
   ...ASwitchI18n.uk,
   ...ATableI18n.uk,
+  ...ATreeI18n.uk,
   ...AValidatedJsonI18n.uk,
   ...AVerticalScrollI18n.uk,
   ...AWizardI18n.uk,

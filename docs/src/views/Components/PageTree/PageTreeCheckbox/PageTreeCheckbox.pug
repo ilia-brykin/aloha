@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TREE_GROUP_CHECKBOX_HEADER_"
+  description="_A_TREE_GROUP_CHECKBOX_DESCRIPTION_"
+  :props="['is-checkbox', 'model-value', 'is-check-on-click-node']"
+)
+  a-tree(
+    ref="treeRef"
+    v-model="checked"
+    :data="data"
+    :is-checkbox="true"
+    :default-expand-level="2"
+    aria-label="_A_TREE_EXAMPLE_LABEL_"
+  )
+  div.a_mt_2 model-value: {{ checked }}
+  div getCheckedItems({ isLeafOnly: true }): {{ leafLabels }}

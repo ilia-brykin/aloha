@@ -1,0 +1,20 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_TREE_GROUP_SLOT_HEADER_"
+  description="_A_TREE_GROUP_SLOT_DESCRIPTION_"
+  :props="['node']"
+)
+  a-tree(
+    :data="data"
+    :is-expand-all="true"
+    aria-label="_A_TREE_EXAMPLE_LABEL_"
+  )
+    template(
+      v-slot:node="{ item, label, isLeaf }"
+    )
+      span.a_d_flex.a_align_items_center.a_gap_2
+        span {{ label }}
+        span.a_badge.a_badge_secondary.a_pill_rounded(
+          v-if="!isLeaf"
+        ) {{ item.children.length }}

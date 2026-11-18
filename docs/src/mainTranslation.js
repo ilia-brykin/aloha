@@ -127,6 +127,7 @@ import PageTextareaI18n from "./views/Components/Form/PageTextarea/i18n/PageText
 import PageThemingI18n from "./views/CSS/PageTheming/i18n/PageThemingI18n";
 import PageTooltipI18n from "./views/Components/PageTooltip/i18n/PageTooltipI18n";
 import PageTranslationI18n from "./views/Components/PageTranslation/i18n/PageTranslationI18n";
+import PageTreeI18n from "./views/Components/PageTree/i18n/PageTreeI18n";
 import PageUtilitiesI18n from "./views/CSS/PageUtilities/i18n/PageUtilitiesI18n";
 import PageUtilsAOrderByI18n from "./views/Functions/Utils/PageUtilsAOrderBy/i18n/PageUtilsAOrderByI18n";
 import PageUtilsASortByI18n from "./views/Functions/Utils/PageUtilsASortBy/i18n/PageUtilsASortByI18n";
@@ -270,6 +271,7 @@ export const mainTranslation = {
     ...PageTextI18n.ar,
     ...PageTextareaI18n.ar,
     ...PageTooltipI18n.ar,
+    ...PageTreeI18n.ar,
     ...PageTranslationI18n.ar,
     ...PageUtilsAOrderByI18n.ar,
     ...PageUtilsASortByI18n.ar,
@@ -400,6 +402,7 @@ export const mainTranslation = {
     ...PageTextI18n.de,
     ...PageTextareaI18n.de,
     ...PageTooltipI18n.de,
+    ...PageTreeI18n.de,
     ...PageTranslationI18n.de,
     ...PageUtilsAOrderByI18n.de,
     ...PageUtilsASortByI18n.de,
@@ -530,6 +533,7 @@ export const mainTranslation = {
     ...PageTextI18n.en,
     ...PageTextareaI18n.en,
     ...PageTooltipI18n.en,
+    ...PageTreeI18n.en,
     ...PageTranslationI18n.en,
     ...PageUtilsAOrderByI18n.en,
     ...PageUtilsASortByI18n.en,
@@ -660,6 +664,7 @@ export const mainTranslation = {
     ...PageTextI18n.es,
     ...PageTextareaI18n.es,
     ...PageTooltipI18n.es,
+    ...PageTreeI18n.es,
     ...PageTranslationI18n.es,
     ...PageUtilsAOrderByI18n.es,
     ...PageUtilsASortByI18n.es,
@@ -790,6 +795,7 @@ export const mainTranslation = {
     ...PageTextI18n.fr,
     ...PageTextareaI18n.fr,
     ...PageTooltipI18n.fr,
+    ...PageTreeI18n.fr,
     ...PageTranslationI18n.fr,
     ...PageUtilsAOrderByI18n.fr,
     ...PageUtilsASortByI18n.fr,
@@ -920,6 +926,7 @@ export const mainTranslation = {
     ...PageTextI18n.hr,
     ...PageTextareaI18n.hr,
     ...PageTooltipI18n.hr,
+    ...PageTreeI18n.hr,
     ...PageTranslationI18n.hr,
     ...PageUtilsAOrderByI18n.hr,
     ...PageUtilsASortByI18n.hr,
@@ -1050,6 +1057,7 @@ export const mainTranslation = {
     ...PageTextI18n.it,
     ...PageTextareaI18n.it,
     ...PageTooltipI18n.it,
+    ...PageTreeI18n.it,
     ...PageTranslationI18n.it,
     ...PageUtilsAOrderByI18n.it,
     ...PageUtilsASortByI18n.it,
@@ -1180,6 +1188,7 @@ export const mainTranslation = {
     ...PageTextI18n.nl,
     ...PageTextareaI18n.nl,
     ...PageTooltipI18n.nl,
+    ...PageTreeI18n.nl,
     ...PageTranslationI18n.nl,
     ...PageUtilsAOrderByI18n.nl,
     ...PageUtilsASortByI18n.nl,
@@ -1310,6 +1319,7 @@ export const mainTranslation = {
     ...PageTextI18n.pl,
     ...PageTextareaI18n.pl,
     ...PageTooltipI18n.pl,
+    ...PageTreeI18n.pl,
     ...PageTranslationI18n.pl,
     ...PageUtilsAOrderByI18n.pl,
     ...PageUtilsASortByI18n.pl,
@@ -1440,6 +1450,7 @@ export const mainTranslation = {
     ...PageTextI18n.ru,
     ...PageTextareaI18n.ru,
     ...PageTooltipI18n.ru,
+    ...PageTreeI18n.ru,
     ...PageTranslationI18n.ru,
     ...PageUtilsAOrderByI18n.ru,
     ...PageUtilsASortByI18n.ru,
@@ -1570,6 +1581,7 @@ export const mainTranslation = {
     ...PageTextI18n.uk,
     ...PageTextareaI18n.uk,
     ...PageTooltipI18n.uk,
+    ...PageTreeI18n.uk,
     ...PageTranslationI18n.uk,
     ...PageUtilsAOrderByI18n.uk,
     ...PageUtilsASortByI18n.uk,

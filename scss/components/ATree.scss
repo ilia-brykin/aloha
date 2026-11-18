@@ -1,0 +1,209 @@
+@use "../utils/focus";
+
+.a_tree,
+.a_tree__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.a_tree__item {
+  outline: 0;
+  // The row shows the focus of the item
+  &:focus-visible > .a_tree__node {
+    @include focus.focus-ring(true);
+  }
+}
+
+.a_tree__node {
+  display: flex;
+  align-items: center;
+  gap: var(--a_tree_gap);
+  min-height: var(--a_tree_node_height);
+  padding-block: var(--a_tree_node_padding_y);
+  padding-inline: calc(var(--a_tree_indent) * var(--a_tree_level, 0) + var(--a_tree_node_padding_x)) var(--a_tree_node_padding_x);
+  border-radius: var(--a_tree_node_border_radius);
+  color: var(--a_tree_color);
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background: var(--a_tree_hover_bg);
+  }
+}
+.a_tree__item_selected > .a_tree__node {
+  background: var(--a_tree_selected_bg);
+  color: var(--a_tree_selected_color);
+  font-weight: var(--a_tree_selected_font_weight);
+}
+.a_tree__item_disabled > .a_tree__node {
+  color: var(--a_tree_disabled_color);
+  cursor: not-allowed;
+}
+
+.a_tree__toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--a_tree_toggle_size);
+  height: var(--a_tree_toggle_size);
+  border-radius: var(--a_border_radius_small);
+  color: var(--a_tree_toggle_color);
+  &:not(.a_tree__toggle_empty):hover {
+    background: var(--a_tree_toggle_hover_bg);
+  }
+}
+.a_tree__toggle_icon {
+  display: inline-flex;
+  width: .75rem;
+  height: .75rem;
+  transition: transform var(--a_duration_fast) var(--a_easing);
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.a_tree__toggle_expanded .a_tree__toggle_icon {
+  transform: rotate(90deg);
+}
+[dir="rtl"] .a_tree__toggle:not(.a_tree__toggle_expanded) .a_tree__toggle_icon {
+  transform: rotate(180deg);
+}
+.a_tree__spinner {
+  width: .75rem;
+  height: .75rem;
+}
+
+// Checkbox: the state comes from aria-checked of the item
+.a_tree__checkbox {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--a_tree_checkbox_size);
+  height: var(--a_tree_checkbox_size);
+  border: var(--a_border_width) solid var(--a_tree_checkbox_border_color);
+  border-radius: var(--a_border_radius_small);
+  background: var(--a_tree_checkbox_bg);
+}
+.a_tree__checkbox_true,
+.a_tree__checkbox_mixed {
+  border-color: var(--a_tree_checkbox_checked_bg);
+  background: var(--a_tree_checkbox_checked_bg);
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-color: var(--a_tree_checkbox_checked_color);
+    border-style: solid;
+  }
+}
+.a_tree__checkbox_true::after {
+  width: 35%;
+  height: 65%;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-10%) rotate(45deg);
+}
+.a_tree__checkbox_mixed::after {
+  width: 60%;
+  height: 0;
+  border-width: 2px 0 0;
+}
+.a_tree__item_disabled > .a_tree__node .a_tree__checkbox {
+  opacity: var(--a_tree_disabled_opacity);
+}
+
+.a_tree__label {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.a_tree__mark {
+  padding: 0;
+  border-radius: 2px;
+  background: var(--a_tree_mark_bg);
+  color: inherit;
+}
+
+// JSON
+.a_tree_json .a_tree__label {
+  font-family: var(--a_font_monospace);
+  font-size: var(--a_tree_json_font_size);
+}
+.a_tree__json_key {
+  color: var(--a_tree_json_key_color);
+}
+.a_tree__json_colon {
+  color: var(--a_tree_json_punctuation_color);
+}
+.a_tree__json_value_string {
+  color: var(--a_tree_json_string_color);
+}
+.a_tree__json_value_number {
+  color: var(--a_tree_json_number_color);
+}
+.a_tree__json_value_boolean,
+.a_tree__json_value_null {
+  color: var(--a_tree_json_boolean_color);
+}
+.a_tree__json_value_object,
+.a_tree__json_value_array {
+  color: var(--a_tree_json_punctuation_color);
+}
+
+.a_tree__empty {
+  padding: var(--a_tree_node_padding_x);
+  color: var(--a_color_text_muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a_tree__toggle_icon {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .a_tree__item_selected > .a_tree__node {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+  .a_tree__checkbox_true,
+  .a_tree__checkbox_mixed {
+    background: Highlight;
+  }
+}
+
+:where(.a_tree_wrapper) {
+  // node
+  --a_tree_indent: 1.25rem; // Indent of every level.
+  --a_tree_gap: .25rem; // Space between the toggle, the checkbox and the label.
+  --a_tree_node_height: calc(2rem * var(--a_density)); // Minimal height of a node.
+  --a_tree_node_padding_x: .25rem; // Horizontal padding of a node.
+  --a_tree_node_padding_y: .125rem; // Vertical padding of a node.
+  --a_tree_node_border_radius: var(--a_border_radius_small); // Corner radius of a node.
+  --a_tree_color: var(--a_color_text); // Text color of a node.
+  --a_tree_hover_bg: var(--a_color_gray_100); // Background of a node on hover.
+  --a_tree_selected_bg: var(--a_color_primary_bg_subtle); // Background of the selected node.
+  --a_tree_selected_color: var(--a_color_primary_text_emphasis); // Text color of the selected node.
+  --a_tree_selected_font_weight: var(--a_font_weight_semibold); // Font weight of the selected node.
+  --a_tree_disabled_color: var(--a_color_text_muted); // Text color of a disabled node.
+  --a_tree_disabled_opacity: .6; // Opacity of the checkbox of a disabled node.
+  --a_tree_mark_bg: var(--a_color_warning_bg_subtle); // Background of the found text.
+  // toggle
+  --a_tree_toggle_size: 1.5rem; // Size of the toggle button.
+  --a_tree_toggle_color: var(--a_color_text_muted); // Color of the arrow of the toggle.
+  --a_tree_toggle_hover_bg: var(--a_color_gray_200); // Background of the toggle on hover.
+  // checkbox
+  --a_tree_checkbox_size: 1rem; // Size of the checkbox.
+  --a_tree_checkbox_bg: var(--a_color_surface); // Background of an unchecked checkbox.
+  --a_tree_checkbox_border_color: var(--a_border_color_strong); // Border color of an unchecked checkbox (contrast at least 3:1).
+  --a_tree_checkbox_checked_bg: var(--a_color_primary); // Background of a checked checkbox.
+  --a_tree_checkbox_checked_color: var(--a_color_primary_contrast); // Color of the check mark.
+  // json
+  --a_tree_json_font_size: var(--a_font_size_sm); // Font size in the json mode.
+  --a_tree_json_key_color: var(--a_color_secondary_text); // Color of the keys in the json mode.
+  --a_tree_json_string_color: var(--a_color_success_text); // Color of strings in the json mode.
+  --a_tree_json_number_color: var(--a_color_info_text); // Color of numbers in the json mode.
+  --a_tree_json_boolean_color: var(--a_color_tertiary_text); // Color of booleans and null in the json mode.
+  --a_tree_json_punctuation_color: var(--a_color_text_muted); // Color of the colon and of the size of objects and arrays.
+}

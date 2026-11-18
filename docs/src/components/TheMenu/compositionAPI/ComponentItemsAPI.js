@@ -560,6 +560,14 @@ export default function ComponentItemsAPI() {
         titleHtml: "PageTitle PageTitle PageTitle PageTitle PageTitle PageTitle",
       },
       {
+        id: "tree",
+        label: "Tree",
+        class: "test_menu_tree",
+        to: {
+          name: "PageTree",
+        },
+      },
+      {
         id: "Translation",
         label: "Translation",
         to: {
