@@ -513,6 +513,11 @@ const ROUTES = [
     component: () => import("../views/Functions/Filters/PageFilterDefaultForEmpty/PageFilterDefaultForEmpty.vue"),
   },
   {
+    path: "/filter-duration",
+    name: "PageFilterDuration",
+    component: () => import("../views/Functions/Filters/PageFilterDuration/PageFilterDuration.vue"),
+  },
+  {
     path: "/filter-email",
     name: "PageFilterEmail",
     component: () => import("../views/Functions/Filters/PageFilterEmail/PageFilterEmail.vue"),
@@ -538,6 +543,11 @@ const ROUTES = [
     component: () => import("../views/Functions/Filters/PageFilterSearchHighlight/PageFilterSearchHighlight.vue"),
   },
   {
+    path: "/filter-truncate-middle",
+    name: "PageFilterTruncateMiddle",
+    component: () => import("../views/Functions/Filters/PageFilterTruncateMiddle/PageFilterTruncateMiddle.vue"),
+  },
+  {
     path: "/filter-upper-case",
     name: "PageFilterUpperCase",
     component: () => import("../views/Functions/Filters/PageFilterUpperCase/PageFilterUpperCase.vue"),
@@ -546,6 +556,11 @@ const ROUTES = [
     path: "/filter-mask",
     name: "PageFilterMask",
     component: () => import("../views/Functions/Filters/PageFilterMask/PageFilterMask.vue"),
+  },
+  {
+    path: "/filter-number-compact",
+    name: "PageFilterNumberCompact",
+    component: () => import("../views/Functions/Filters/PageFilterNumberCompact/PageFilterNumberCompact.vue"),
   },
   {
     path: "/filter-capitalize",
@@ -586,6 +601,11 @@ const ROUTES = [
     path: "/filter-float",
     name: "PageFilterFloat",
     component: () => import("../views/Functions/Filters/PageFilterFloat/PageFilterFloat.vue"),
+  },
+  {
+    path: "/filter-initials",
+    name: "PageFilterInitials",
+    component: () => import("../views/Functions/Filters/PageFilterInitials/PageFilterInitials.vue"),
   },
   {
     path: "/filter-currency",

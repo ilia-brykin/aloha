@@ -1,0 +1,40 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterNumberCompact"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterNumberCompact"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterNumberCompact(value, { [digits=1], [minValue=1000], [isTrailingZeros=false] })"
+    )
+
+    page-filter-number-compact-example
+
+    page-filter-number-compact-digits
+
+    page-filter-number-compact-min-value
+
+    page-filter-number-compact-is-trailing-zeros
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    page-filter-test(
+      :test="test"
+    )

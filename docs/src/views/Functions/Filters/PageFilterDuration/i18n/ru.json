@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_DURATION_DESCRIPTION_": "Функция <strong>filterDuration</strong> форматирует длительность, например процесса или видео: текстом с единицами (<strong>1 ч 2 мин 5 с</strong>) или в виде часов (<strong>01:02:05</strong>). Значение округляется до целых секунд.",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_VALUE_": "Длительность",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SOURCE_UNITS_": "Единица измерения значения: <strong>ms</strong>, <strong>s</strong>, <strong>m</strong>, <strong>h</strong> или <strong>d</strong>",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_FORMAT_": "<strong>long</strong> (текст с единицами) или <strong>clock</strong> (часы:минуты:секунды)",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_MAX_UNITS_": "Только для <strong>long</strong>: максимальное количество показываемых единиц, начиная с самой крупной. <strong>0</strong> показывает все единицы",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SHOW_DAYS_": "Только для <strong>long</strong>: показывать ли дни. Иначе они считаются часами"
+}

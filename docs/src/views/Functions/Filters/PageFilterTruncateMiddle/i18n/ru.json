@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "Функция <strong>filterTruncateMiddle</strong> сокращает строку посередине и сохраняет её начало и конец, например для идентификаторов, хэшей, IBAN или путей к файлам. Чтобы сократить текст в конце, используйте <strong>filterLimitTo</strong>.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "Значение, которое нужно сократить",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "Количество символов, которые остаются в начале",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "Количество символов, которые остаются в конце",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "Текст, который ставится вместо удалённых символов"
+}

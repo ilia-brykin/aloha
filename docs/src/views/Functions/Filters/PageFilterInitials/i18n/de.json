@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_INITIALS_DESCRIPTION_": "Die Funktion <strong>filterInitials</strong> gibt die Initialen eines Namens zurück, z. B. für einen Avatar. Hat ein Name mehr Wörter als das Limit, werden die Initialen der ersten Wörter und des letzten Wortes verwendet.",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_VALUE_": "Der Name",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_LIMIT_": "Die maximale Anzahl der Initialen",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_IS_UPPERCASE_": "Ob die Initialen in Großbuchstaben umgewandelt werden",
+  "_PAGE_FILTER_INITIALS_AVATAR_HEADER_": "Avatar",
+  "_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_": "Zusammen mit der Klasse <code>a_rounded_circle</code>. Die Initialen sind mit <code>aria-hidden</code> für Screenreader verborgen, weil der Name daneben steht."
+}

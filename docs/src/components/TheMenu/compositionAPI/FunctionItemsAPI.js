@@ -51,6 +51,14 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterDuration",
+            label: "filterDuration",
+            class: "test_menu_filter_duration",
+            to: {
+              name: "PageFilterDuration",
+            },
+          },
+          {
             id: "PageFilterEmail",
             label: "filterEmail",
             class: "test_menu_filter_email",
@@ -80,6 +88,14 @@ export default function FunctionItemsAPI() {
             class: "test_menu_filter_float",
             to: {
               name: "PageFilterFloat",
+            },
+          },
+          {
+            id: "PageFilterInitials",
+            label: "filterInitials",
+            class: "test_menu_filter_initials",
+            to: {
+              name: "PageFilterInitials",
             },
           },
           {
@@ -139,6 +155,14 @@ export default function FunctionItemsAPI() {
             },
           },
           {
+            id: "PageFilterNumberCompact",
+            label: "filterNumberCompact",
+            class: "test_menu_filter_numbercompact",
+            to: {
+              name: "PageFilterNumberCompact",
+            },
+          },
+          {
             id: "PageFilterPropertyByValue",
             label: "filterPropertyByValue",
             class: "test_menu_filter_property_by_value",
@@ -152,6 +176,14 @@ export default function FunctionItemsAPI() {
             class: "test_menu_filter_search_highlight",
             to: {
               name: "PageFilterSearchHighlight",
+            },
+          },
+          {
+            id: "PageFilterTruncateMiddle",
+            label: "filterTruncateMiddle",
+            class: "test_menu_filter_truncatemiddle",
+            to: {
+              name: "PageFilterTruncateMiddle",
             },
           },
           {

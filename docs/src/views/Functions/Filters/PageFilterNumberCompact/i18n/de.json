@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "Die Funktion <strong>filterNumberCompact</strong> kürzt eine große Zahl mit einer Einheit (Tausend, Million, Milliarde, Billion), z. B. für Zähler, Badges und Dashboards. Die Zahl wird wie bei <strong>filterFloat</strong> formatiert.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Die Zahl",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Die Anzahl der Nachkommastellen einer gekürzten Zahl",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Zahlen unter diesem Wert (dem Betrag nach) werden nicht gekürzt",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Ob <strong>1,0</strong> statt <strong>1</strong> angezeigt wird"
+}

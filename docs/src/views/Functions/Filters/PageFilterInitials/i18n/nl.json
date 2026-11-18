@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_INITIALS_DESCRIPTION_": "De functie <strong>filterInitials</strong> geeft de initialen van een naam terug, bijv. voor een avatar. Heeft een naam meer woorden dan de limiet, dan worden de initialen van de eerste woorden en van het laatste woord gebruikt.",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_VALUE_": "De naam",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_LIMIT_": "Het maximale aantal initialen",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_IS_UPPERCASE_": "Of de initialen naar hoofdletters worden omgezet",
+  "_PAGE_FILTER_INITIALS_AVATAR_HEADER_": "Avatar",
+  "_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_": "Samen met de klasse <code>a_rounded_circle</code>. De initialen zijn met <code>aria-hidden</code> verborgen voor schermlezers, omdat de naam ernaast staat."
+}

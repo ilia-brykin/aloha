@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "Функция <strong>filterNumberCompact</strong> сокращает большое число с единицей (тысяча, миллион, миллиард, триллион), например для счётчиков, бейджей и дашбордов. Число форматируется как в <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Число",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Количество знаков после запятой у сокращённого числа",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Числа меньше этого значения (по модулю) не сокращаются",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Показывать ли <strong>1,0</strong> вместо <strong>1</strong>"
+}

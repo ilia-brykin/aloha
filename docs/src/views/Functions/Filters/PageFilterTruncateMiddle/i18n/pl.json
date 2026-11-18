@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "Funkcja <strong>filterTruncateMiddle</strong> skraca ciąg znaków w środku i zachowuje jego początek i koniec, np. dla identyfikatorów, skrótów, numerów IBAN lub ścieżek plików. Aby skrócić tekst na końcu, użyj <strong>filterLimitTo</strong>.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "Wartość do skrócenia",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "Liczba znaków zachowanych na początku",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "Liczba znaków zachowanych na końcu",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "Tekst wstawiany w miejsce usuniętych znaków"
+}

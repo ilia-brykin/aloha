@@ -1,0 +1,42 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_DURATION_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterDuration"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterDuration"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterDuration(value, { [sourceUnits=\"s\"], [format=\"long\"], [maxUnits=0], [showDays=true] })"
+    )
+
+    page-filter-duration-example
+
+    page-filter-duration-source-units
+
+    page-filter-duration-format
+
+    page-filter-duration-max-units
+
+    page-filter-duration-show-days
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    page-filter-test(
+      :test="test"
+    )

@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "Funkcija <strong>filterNumberCompact</strong> skraćuje velik broj s jedinicom (tisuća, milijun, milijarda, bilijun), npr. za brojače, oznake i nadzorne ploče. Broj se oblikuje kao u <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Broj",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Broj decimalnih mjesta skraćenog broja",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Brojevi manji od ove vrijednosti (po apsolutnoj vrijednosti) ne skraćuju se",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Prikazuje li se <strong>1,0</strong> umjesto <strong>1</strong>"
+}

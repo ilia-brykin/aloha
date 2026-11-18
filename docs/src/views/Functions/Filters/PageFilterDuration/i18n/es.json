@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_DURATION_DESCRIPTION_": "La función <strong>filterDuration</strong> formatea una duración, p. ej. de un proceso o un vídeo: como texto con unidades (<strong>1 h 2 min 5 s</strong>) o como reloj (<strong>01:02:05</strong>). El valor se redondea a segundos enteros.",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_VALUE_": "La duración",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SOURCE_UNITS_": "La unidad del valor: <strong>ms</strong>, <strong>s</strong>, <strong>m</strong>, <strong>h</strong> o <strong>d</strong>",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_FORMAT_": "<strong>long</strong> (texto con unidades) o <strong>clock</strong> (horas:minutos:segundos)",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_MAX_UNITS_": "Solo para <strong>long</strong>: el número máximo de unidades mostradas, empezando por la mayor. <strong>0</strong> muestra todas",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SHOW_DAYS_": "Solo para <strong>long</strong>: si se muestran los días. Si no, se cuentan como horas"
+}

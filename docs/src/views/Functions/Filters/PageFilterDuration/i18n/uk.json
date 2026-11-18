@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_DURATION_DESCRIPTION_": "Функція <strong>filterDuration</strong> форматує тривалість, наприклад процесу або відео: текстом з одиницями (<strong>1 год 2 хв 5 с</strong>) або у вигляді годинника (<strong>01:02:05</strong>). Значення округлюється до цілих секунд.",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_VALUE_": "Тривалість",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SOURCE_UNITS_": "Одиниця вимірювання значення: <strong>ms</strong>, <strong>s</strong>, <strong>m</strong>, <strong>h</strong> або <strong>d</strong>",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_FORMAT_": "<strong>long</strong> (текст з одиницями) або <strong>clock</strong> (години:хвилини:секунди)",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_MAX_UNITS_": "Лише для <strong>long</strong>: максимальна кількість показаних одиниць, починаючи з найбільшої. <strong>0</strong> показує всі одиниці",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SHOW_DAYS_": "Лише для <strong>long</strong>: чи показувати дні. Інакше вони рахуються годинами"
+}

@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "The function <strong>filterTruncateMiddle</strong> shortens a string in the middle and keeps its start and its end, e.g. for IDs, hashes, IBANs or file paths. Use <strong>filterLimitTo</strong> to shorten a text at the end.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "The value to shorten",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "The number of characters kept at the start",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "The number of characters kept at the end",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "The text put in place of the removed characters"
+}

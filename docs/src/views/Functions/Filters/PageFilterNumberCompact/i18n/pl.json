@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "Funkcja <strong>filterNumberCompact</strong> skraca dużą liczbę z jednostką (tysiąc, milion, miliard, bilion), np. dla liczników, plakietek i pulpitów. Liczba jest formatowana jak w <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Liczba",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Liczba miejsc po przecinku skróconej liczby",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Liczby mniejsze od tej wartości (co do modułu) nie są skracane",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Czy wyświetlać <strong>1,0</strong> zamiast <strong>1</strong>"
+}

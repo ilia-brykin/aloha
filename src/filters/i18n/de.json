@@ -7,5 +7,13 @@
   "_A_FILE_SIZE_PB_": "PB",
   "_A_FILE_SIZE_EB_": "EB",
   "_A_FILE_SIZE_ZB_": "ZB",
-  "_A_FILE_SIZE_YB_": "YB"
+  "_A_FILE_SIZE_YB_": "YB",
+  "_A_DURATION_DAYS_": "Tg.",
+  "_A_DURATION_HOURS_": "Std.",
+  "_A_DURATION_MINUTES_": "Min.",
+  "_A_DURATION_SECONDS_": "Sek.",
+  "_A_NUMBER_COMPACT_THOUSAND_": "Tsd.",
+  "_A_NUMBER_COMPACT_MILLION_": "Mio.",
+  "_A_NUMBER_COMPACT_BILLION_": "Mrd.",
+  "_A_NUMBER_COMPACT_TRILLION_": "Bio."
 }

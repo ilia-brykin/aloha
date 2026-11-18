@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_INITIALS_DESCRIPTION_": "Funkcja <strong>filterInitials</strong> zwraca inicjały imienia i nazwiska, np. dla awatara. Jeśli nazwa ma więcej słów niż limit, używane są inicjały pierwszych słów i ostatniego słowa.",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_VALUE_": "Imię i nazwisko",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_LIMIT_": "Maksymalna liczba inicjałów",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_IS_UPPERCASE_": "Czy inicjały są zamieniane na wielkie litery",
+  "_PAGE_FILTER_INITIALS_AVATAR_HEADER_": "Awatar",
+  "_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_": "Razem z klasą <code>a_rounded_circle</code>. Inicjały są ukryte przed czytnikami ekranu przez <code>aria-hidden</code>, ponieważ obok wyświetlane jest imię."
+}

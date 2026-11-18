@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "Функція <strong>filterNumberCompact</strong> скорочує велике число з одиницею (тисяча, мільйон, мільярд, трильйон), наприклад для лічильників, бейджів і дашбордів. Число форматується як у <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Число",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Кількість знаків після коми у скороченого числа",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Числа, менші за це значення (за модулем), не скорочуються",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Чи показувати <strong>1,0</strong> замість <strong>1</strong>"
+}

@@ -7,5 +7,13 @@
   "_A_FILE_SIZE_PB_": "ПБ",
   "_A_FILE_SIZE_EB_": "ЭБ",
   "_A_FILE_SIZE_ZB_": "ЗБ",
-  "_A_FILE_SIZE_YB_": "ИБ"
+  "_A_FILE_SIZE_YB_": "ИБ",
+  "_A_DURATION_DAYS_": "д.",
+  "_A_DURATION_HOURS_": "ч",
+  "_A_DURATION_MINUTES_": "мин",
+  "_A_DURATION_SECONDS_": "с",
+  "_A_NUMBER_COMPACT_THOUSAND_": "тыс.",
+  "_A_NUMBER_COMPACT_MILLION_": "млн",
+  "_A_NUMBER_COMPACT_BILLION_": "млрд",
+  "_A_NUMBER_COMPACT_TRILLION_": "трлн"
 }
