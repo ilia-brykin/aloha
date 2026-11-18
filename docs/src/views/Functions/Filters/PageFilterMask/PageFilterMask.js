@@ -11,7 +11,7 @@ import {
 import ArgumentsAPI from "./compositionAPI/ArgumentsAPI";
 import PageTitleAPI from "./compositionAPI/PageTitleAPI";
 
-import filterKeyValueTest from "../../../../../../src/filters/__tests__/filterMask.test.js?raw";
+import filterMaskTest from "../../../../../../src/filters/__tests__/filterMask.test.js?raw";
 
 export default {
   name: "PageFilterMask",
@@ -33,7 +33,7 @@ export default {
       argumentsText,
     } = ArgumentsAPI();
 
-    const test = filterKeyValueTest;
+    const test = filterMaskTest;
 
     return {
       argumentsText,
