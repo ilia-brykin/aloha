@@ -1,0 +1,50 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_SKELETON_COMPONENT_DESCRIPTION_"
+    )
+
+    page-skeleton-basic
+
+    page-skeleton-rows
+
+    page-skeleton-animated
+
+    page-skeleton-loading
+
+    page-skeleton-template
+
+    page-skeleton-count
+
+    page-skeleton-variants
+
+    page-skeleton-throttle
+
+    aloha-table-props(
+      table-label="ASkeleton"
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="ASkeletonItem"
+      :data="dataPropsItem"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ASkeleton"
+    )

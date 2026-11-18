@@ -103,6 +103,7 @@ import PageSelectI18n from "./views/Components/Form/PageSelect/i18n/PageSelectI1
 import PageSelectIconI18n from "./views/Components/Form/PageSelectIcon/i18n/PageSelectIconI18n";
 import PageSelectStyleI18n from "./views/Components/Form/PageSelectStyle/i18n/PageSelectStyleI18n";
 import PageShowMoreI18n from "./views/Components/PageShowMore/i18n/PageShowMoreI18n";
+import PageSkeletonI18n from "./views/Components/PageSkeleton/i18n/PageSkeletonI18n";
 import PageSliderI18n from "./views/Components/Form/PageSlider/i18n/PageSliderI18n";
 import PageSpacingI18n from "./views/CSS/PageSpacing/i18n/PageSpacingI18n";
 import PageSpinnerI18n from "./views/Components/PageSpinner/i18n/PageSpinnerI18n";
@@ -245,6 +246,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.ar,
     ...PageSelectStyleI18n.ar,
     ...PageShowMoreI18n.ar,
+    ...PageSkeletonI18n.ar,
     ...PageTableFormI18n.ar,
     ...PageSliderI18n.ar,
     ...PageSpinnerI18n.ar,
@@ -372,6 +374,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.de,
     ...PageSelectStyleI18n.de,
     ...PageShowMoreI18n.de,
+    ...PageSkeletonI18n.de,
     ...PageTableFormI18n.de,
     ...PageSliderI18n.de,
     ...PageSpinnerI18n.de,
@@ -499,6 +502,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.en,
     ...PageSelectStyleI18n.en,
     ...PageShowMoreI18n.en,
+    ...PageSkeletonI18n.en,
     ...PageTableFormI18n.en,
     ...PageSliderI18n.en,
     ...PageSpinnerI18n.en,
@@ -626,6 +630,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.es,
     ...PageSelectStyleI18n.es,
     ...PageShowMoreI18n.es,
+    ...PageSkeletonI18n.es,
     ...PageTableFormI18n.es,
     ...PageSliderI18n.es,
     ...PageSpinnerI18n.es,
@@ -753,6 +758,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.fr,
     ...PageSelectStyleI18n.fr,
     ...PageShowMoreI18n.fr,
+    ...PageSkeletonI18n.fr,
     ...PageTableFormI18n.fr,
     ...PageSliderI18n.fr,
     ...PageSpinnerI18n.fr,
@@ -880,6 +886,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.hr,
     ...PageSelectStyleI18n.hr,
     ...PageShowMoreI18n.hr,
+    ...PageSkeletonI18n.hr,
     ...PageTableFormI18n.hr,
     ...PageSliderI18n.hr,
     ...PageSpinnerI18n.hr,
@@ -1007,6 +1014,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.it,
     ...PageSelectStyleI18n.it,
     ...PageShowMoreI18n.it,
+    ...PageSkeletonI18n.it,
     ...PageTableFormI18n.it,
     ...PageSliderI18n.it,
     ...PageSpinnerI18n.it,
@@ -1134,6 +1142,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.nl,
     ...PageSelectStyleI18n.nl,
     ...PageShowMoreI18n.nl,
+    ...PageSkeletonI18n.nl,
     ...PageTableFormI18n.nl,
     ...PageSliderI18n.nl,
     ...PageSpinnerI18n.nl,
@@ -1261,6 +1270,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.pl,
     ...PageSelectStyleI18n.pl,
     ...PageShowMoreI18n.pl,
+    ...PageSkeletonI18n.pl,
     ...PageTableFormI18n.pl,
     ...PageSliderI18n.pl,
     ...PageSpinnerI18n.pl,
@@ -1388,6 +1398,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.ru,
     ...PageSelectStyleI18n.ru,
     ...PageShowMoreI18n.ru,
+    ...PageSkeletonI18n.ru,
     ...PageTableFormI18n.ru,
     ...PageSliderI18n.ru,
     ...PageSpinnerI18n.ru,
@@ -1515,6 +1526,7 @@ export const mainTranslation = {
     ...PageSelectIconI18n.uk,
     ...PageSelectStyleI18n.uk,
     ...PageShowMoreI18n.uk,
+    ...PageSkeletonI18n.uk,
     ...PageTableFormI18n.uk,
     ...PageSliderI18n.uk,
     ...PageSpinnerI18n.uk,

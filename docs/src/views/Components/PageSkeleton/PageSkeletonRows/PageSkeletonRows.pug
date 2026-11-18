@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SKELETON_ROWS_HEADER_"
+  description="_A_SKELETON_ROWS_DESCRIPTION_"
+  :props="['avatar', 'rows', 'title']"
+)
+  a-skeleton(
+    :avatar="true"
+    :rows="2"
+  )
+  a-skeleton.a_mt_5(
+    :title="false"
+    :rows="5"
+  )

@@ -1,0 +1,31 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SKELETON_COUNT_HEADER_"
+  description="_A_SKELETON_COUNT_DESCRIPTION_"
+  :props="['count']"
+)
+  a-skeleton(
+    :count="4"
+    style="--a_skeleton_group_gap: .75rem;"
+  )
+    template(
+      v-slot:template="{ index }"
+    )
+      .a_d_flex.a_gap_3.a_align_items_center
+        a-skeleton-item(
+          variant="text"
+          width="25%"
+        )
+        a-skeleton-item(
+          variant="text"
+          :width="`${ 50 - index * 8 }%`"
+        )
+        a-skeleton-item(
+          variant="text"
+          width="15%"
+        )
+        a-skeleton-item.a_ml_auto(
+          variant="button"
+          width="4rem"
+        )

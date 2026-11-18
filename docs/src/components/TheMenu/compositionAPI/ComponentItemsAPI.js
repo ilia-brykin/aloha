@@ -434,6 +434,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "skeleton",
+        label: "Skeleton",
+        class: "test_menu_skeleton",
+        to: {
+          name: "PageSkeleton",
+        },
+      },
+      {
         id: "spinner",
         label: "Spinner",
         class: "test_menu_spinner",

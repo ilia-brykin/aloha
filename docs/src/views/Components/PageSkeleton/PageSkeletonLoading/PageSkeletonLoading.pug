@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SKELETON_LOADING_HEADER_"
+  description="_A_SKELETON_LOADING_DESCRIPTION_"
+  :props="['loading']"
+)
+  a-button(
+    class="a_btn a_btn_secondary a_mb_3"
+    text="_A_SKELETON_RELOAD_"
+    :disabled="loading"
+    @click="load"
+  )
+  a-skeleton(
+    :loading="loading"
+    :avatar="true"
+    :rows="2"
+  )
+    .a_d_flex.a_gap_3.a_align_items_start
+      span.a_rounded_circle.a_bg_primary.a_color_white.a_d_inline_flex.a_align_items_center.a_justify_content_center.a_flex_shrink_0(
+        style="width: 3rem; height: 3rem;"
+        aria-hidden="true"
+      ) AB
+      div
+        h3.a_mt_0.a_mb_2 Anna Becker
+        p.a_mb_0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.

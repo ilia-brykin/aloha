@@ -1,0 +1,25 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_SKELETON_THROTTLE_HEADER_"
+  description="_A_SKELETON_THROTTLE_DESCRIPTION_"
+  :props="['throttle']"
+)
+  .a_d_flex.a_gap_2.a_flex_wrap.a_mb_3
+    a-button(
+      class="a_btn a_btn_secondary"
+      text="_A_SKELETON_FAST_REQUEST_"
+      :disabled="loading"
+      @click="load({ duration: 200 })"
+    )
+    a-button(
+      class="a_btn a_btn_secondary"
+      text="_A_SKELETON_SLOW_REQUEST_"
+      :disabled="loading"
+      @click="load({ duration: 2000 })"
+    )
+  a-skeleton(
+    :loading="loading"
+    :throttle="500"
+  )
+    p.a_mb_0 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
