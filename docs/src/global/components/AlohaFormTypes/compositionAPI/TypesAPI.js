@@ -50,6 +50,9 @@ export default function TypesAPI() {
     ASelect: {
       name: "PageSelect",
     },
+    ASlider: {
+      name: "PageSlider",
+    },
     ASwitch: {
       name: "PageSwitch",
     },
