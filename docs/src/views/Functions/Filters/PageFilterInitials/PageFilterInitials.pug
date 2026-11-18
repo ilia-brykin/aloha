@@ -1,0 +1,36 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_PAGE_FILTER_INITIALS_DESCRIPTION_"
+    )
+
+    page-filter-import-function(
+      function-name="filterInitials"
+      type-import="filters"
+    )
+
+    page-filter-import-composition-api(
+      function-name="filterInitials"
+    )
+
+    page-filter-arguments(
+      :arguments-text="argumentsText"
+      function-description="filterInitials(value, { [limit=2], [isUppercase=true] })"
+    )
+
+    page-filter-initials-example
+
+    page-filter-initials-limit
+
+    page-filter-initials-is-uppercase
+
+    page-filter-initials-avatar
+
+    page-filter-test(
+      :test="test"
+    )

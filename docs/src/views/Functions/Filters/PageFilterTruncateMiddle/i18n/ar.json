@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "تختصر الدالة <strong>filterTruncateMiddle</strong> السلسلة من المنتصف مع الإبقاء على بدايتها ونهايتها، مثلًا للمعرّفات والتجزئات وأرقام IBAN ومسارات الملفات. لاختصار النص من النهاية استخدم <strong>filterLimitTo</strong>.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "القيمة المراد اختصارها",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "عدد الأحرف التي تبقى في البداية",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "عدد الأحرف التي تبقى في النهاية",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "النص الذي يوضع مكان الأحرف المحذوفة"
+}

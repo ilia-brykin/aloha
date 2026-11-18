@@ -7,5 +7,13 @@
   "_A_FILE_SIZE_PB_": "PB",
   "_A_FILE_SIZE_EB_": "EB",
   "_A_FILE_SIZE_ZB_": "ZB",
-  "_A_FILE_SIZE_YB_": "YB"
+  "_A_FILE_SIZE_YB_": "YB",
+  "_A_DURATION_DAYS_": "ي",
+  "_A_DURATION_HOURS_": "س",
+  "_A_DURATION_MINUTES_": "د",
+  "_A_DURATION_SECONDS_": "ث",
+  "_A_NUMBER_COMPACT_THOUSAND_": "ألف",
+  "_A_NUMBER_COMPACT_MILLION_": "مليون",
+  "_A_NUMBER_COMPACT_BILLION_": "مليار",
+  "_A_NUMBER_COMPACT_TRILLION_": "تريليون"
 }

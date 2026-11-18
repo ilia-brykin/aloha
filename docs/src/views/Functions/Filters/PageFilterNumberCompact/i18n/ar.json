@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "تختصر الدالة <strong>filterNumberCompact</strong> الرقم الكبير بوحدة (ألف، مليون، مليار، تريليون)، مثلًا للعدّادات والشارات ولوحات المعلومات. يُنسَّق الرقم كما في <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "الرقم",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "عدد المنازل العشرية للرقم المختصر",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "لا تُختصر الأرقام الأصغر من هذه القيمة (بالقيمة المطلقة)",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "ما إذا كان يُعرض <strong>1,0</strong> بدلًا من <strong>1</strong>"
+}

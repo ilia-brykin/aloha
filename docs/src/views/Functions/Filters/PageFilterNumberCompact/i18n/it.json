@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "La funzione <strong>filterNumberCompact</strong> abbrevia un numero grande con un'unità (mila, milioni, miliardi, bilioni), ad es. per contatori, badge e dashboard. Il numero è formattato come in <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Il numero",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Il numero di decimali di un numero abbreviato",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "I numeri inferiori a questo valore (in valore assoluto) non vengono abbreviati",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Se viene mostrato <strong>1,0</strong> invece di <strong>1</strong>"
+}

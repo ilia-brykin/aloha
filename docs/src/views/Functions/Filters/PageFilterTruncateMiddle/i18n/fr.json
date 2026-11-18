@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "La fonction <strong>filterTruncateMiddle</strong> raccourcit une chaîne au milieu en conservant son début et sa fin, p. ex. pour des ID, des hachages, des IBAN ou des chemins de fichiers. Pour raccourcir un texte à la fin, utilisez <strong>filterLimitTo</strong>.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "La valeur à raccourcir",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "Le nombre de caractères conservés au début",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "Le nombre de caractères conservés à la fin",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "Le texte placé à la place des caractères supprimés"
+}

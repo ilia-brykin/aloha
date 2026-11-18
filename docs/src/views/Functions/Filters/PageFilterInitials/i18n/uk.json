@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_INITIALS_DESCRIPTION_": "Функція <strong>filterInitials</strong> повертає ініціали імені, наприклад для аватара. Якщо в імені більше слів, ніж ліміт, беруться ініціали перших слів і останнього слова.",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_VALUE_": "Ім'я",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_LIMIT_": "Максимальна кількість ініціалів",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_IS_UPPERCASE_": "Чи перетворювати ініціали на великі літери",
+  "_PAGE_FILTER_INITIALS_AVATAR_HEADER_": "Аватар",
+  "_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_": "Разом із класом <code>a_rounded_circle</code>. Ініціали приховані від скрінрідерів через <code>aria-hidden</code>, бо поруч показано ім'я."
+}

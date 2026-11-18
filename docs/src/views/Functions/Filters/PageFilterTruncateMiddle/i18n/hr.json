@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "Funkcija <strong>filterTruncateMiddle</strong> skraćuje niz u sredini i zadržava njegov početak i kraj, npr. za ID-ove, hasheve, IBAN-ove ili putanje datoteka. Za skraćivanje teksta na kraju koristite <strong>filterLimitTo</strong>.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "Vrijednost koju treba skratiti",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "Broj znakova koji ostaju na početku",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "Broj znakova koji ostaju na kraju",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "Tekst koji se umeće umjesto uklonjenih znakova"
+}

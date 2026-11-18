@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_INITIALS_DESCRIPTION_": "Funkcija <strong>filterInitials</strong> vraća inicijale imena, npr. za avatar. Ako ime ima više riječi od ograničenja, koriste se inicijali prvih riječi i posljednje riječi.",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_VALUE_": "Ime",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_LIMIT_": "Najveći broj inicijala",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_IS_UPPERCASE_": "Pretvaraju li se inicijali u velika slova",
+  "_PAGE_FILTER_INITIALS_AVATAR_HEADER_": "Avatar",
+  "_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_": "Zajedno s klasom <code>a_rounded_circle</code>. Inicijali su skriveni od čitača zaslona s <code>aria-hidden</code>, jer je ime prikazano pokraj njih."
+}

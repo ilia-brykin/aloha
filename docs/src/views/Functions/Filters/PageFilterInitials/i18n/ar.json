@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_INITIALS_DESCRIPTION_": "تعيد الدالة <strong>filterInitials</strong> الأحرف الأولى من الاسم، مثلًا للصورة الرمزية. إذا كان في الاسم كلمات أكثر من الحد، تُستخدم الأحرف الأولى من الكلمات الأولى ومن الكلمة الأخيرة.",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_VALUE_": "الاسم",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_LIMIT_": "الحد الأقصى لعدد الأحرف الأولى",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_IS_UPPERCASE_": "ما إذا كانت الأحرف الأولى تُحوَّل إلى أحرف كبيرة",
+  "_PAGE_FILTER_INITIALS_AVATAR_HEADER_": "الصورة الرمزية",
+  "_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_": "مع الفئة <code>a_rounded_circle</code>. الأحرف الأولى مخفية عن قارئات الشاشة باستخدام <code>aria-hidden</code> لأن الاسم معروض بجانبها."
+}

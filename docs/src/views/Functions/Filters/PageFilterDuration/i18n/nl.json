@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_DURATION_DESCRIPTION_": "De functie <strong>filterDuration</strong> formatteert een duur, bijv. van een proces of een video: als tekst met eenheden (<strong>1 u 2 min 5 s</strong>) of als klok (<strong>01:02:05</strong>). De waarde wordt afgerond op hele seconden.",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_VALUE_": "De duur",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SOURCE_UNITS_": "De eenheid van de waarde: <strong>ms</strong>, <strong>s</strong>, <strong>m</strong>, <strong>h</strong> of <strong>d</strong>",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_FORMAT_": "<strong>long</strong> (tekst met eenheden) of <strong>clock</strong> (uren:minuten:seconden)",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_MAX_UNITS_": "Alleen voor <strong>long</strong>: het maximale aantal getoonde eenheden, te beginnen met de grootste. <strong>0</strong> toont alle eenheden",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SHOW_DAYS_": "Alleen voor <strong>long</strong>: of dagen worden getoond. Anders worden ze als uren geteld"
+}

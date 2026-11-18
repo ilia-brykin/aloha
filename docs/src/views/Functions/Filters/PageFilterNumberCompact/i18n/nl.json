@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "De functie <strong>filterNumberCompact</strong> kort een groot getal in met een eenheid (duizend, miljoen, miljard, biljoen), bijv. voor tellers, badges en dashboards. Het getal wordt geformatteerd zoals bij <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Het getal",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Het aantal decimalen van een ingekort getal",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Getallen onder deze waarde (in absolute waarde) worden niet ingekort",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Of <strong>1,0</strong> wordt getoond in plaats van <strong>1</strong>"
+}

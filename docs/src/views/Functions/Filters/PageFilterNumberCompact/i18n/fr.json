@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "La fonction <strong>filterNumberCompact</strong> raccourcit un grand nombre avec une unité (millier, million, milliard, billion), p. ex. pour des compteurs, des badges et des tableaux de bord. Le nombre est formaté comme avec <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "Le nombre",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "Le nombre de décimales d'un nombre raccourci",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Les nombres inférieurs à cette valeur (en valeur absolue) ne sont pas raccourcis",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Si <strong>1,0</strong> est affiché au lieu de <strong>1</strong>"
+}

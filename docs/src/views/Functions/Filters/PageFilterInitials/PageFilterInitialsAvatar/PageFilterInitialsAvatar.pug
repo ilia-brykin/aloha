@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_PAGE_FILTER_INITIALS_AVATAR_HEADER_"
+  description="_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_"
+  :is-code-visible-default="true"
+)
+  .a_d_flex.a_flex_column.a_gap_2
+    .a_d_flex.a_align_items_center.a_gap_2(
+      v-for="user in users"
+      :key="user.name"
+    )
+      span.a_rounded_circle.a_bg_primary.a_color_white.a_d_inline_flex.a_align_items_center.a_justify_content_center(
+        style="width: 2.5rem; height: 2.5rem;"
+        aria-hidden="true"
+      ) {{ user.initials }}
+      span {{ user.name }}

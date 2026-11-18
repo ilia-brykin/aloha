@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "The function <strong>filterNumberCompact</strong> shortens a large number with a unit (thousand, million, billion, trillion), e.g. for counters, badges and dashboards. The number is formatted like <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "The number",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "The number of decimal places of a shortened number",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Numbers below this value (by amount) are not shortened",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Whether <strong>1,0</strong> is shown instead of <strong>1</strong>"
+}

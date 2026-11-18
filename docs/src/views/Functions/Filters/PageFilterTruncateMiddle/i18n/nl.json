@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "De functie <strong>filterTruncateMiddle</strong> kort een string in het midden in en behoudt het begin en het einde, bijv. voor ID's, hashes, IBAN's of bestandspaden. Gebruik <strong>filterLimitTo</strong> om een tekst aan het einde in te korten.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "De in te korten waarde",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "Het aantal tekens dat aan het begin blijft",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "Het aantal tekens dat aan het einde blijft",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "De tekst die in plaats van de verwijderde tekens komt"
+}

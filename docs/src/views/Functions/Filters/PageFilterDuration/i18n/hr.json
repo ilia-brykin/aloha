@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_DURATION_DESCRIPTION_": "Funkcija <strong>filterDuration</strong> oblikuje trajanje, npr. procesa ili videa: kao tekst s jedinicama (<strong>1 h 2 min 5 s</strong>) ili kao sat (<strong>01:02:05</strong>). Vrijednost se zaokružuje na cijele sekunde.",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_VALUE_": "Trajanje",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SOURCE_UNITS_": "Jedinica vrijednosti: <strong>ms</strong>, <strong>s</strong>, <strong>m</strong>, <strong>h</strong> ili <strong>d</strong>",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_FORMAT_": "<strong>long</strong> (tekst s jedinicama) ili <strong>clock</strong> (sati:minute:sekunde)",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_MAX_UNITS_": "Samo za <strong>long</strong>: najveći broj prikazanih jedinica, počevši od najveće. <strong>0</strong> prikazuje sve jedinice",
+  "_PAGE_FILTER_DURATION_ARGUMENTS_SHOW_DAYS_": "Samo za <strong>long</strong>: prikazuju li se dani. Inače se računaju kao sati"
+}

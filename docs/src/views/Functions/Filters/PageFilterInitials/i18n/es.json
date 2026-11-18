@@ -1,0 +1,8 @@
+{
+  "_PAGE_FILTER_INITIALS_DESCRIPTION_": "La función <strong>filterInitials</strong> devuelve las iniciales de un nombre, p. ej. para un avatar. Si un nombre tiene más palabras que el límite, se usan las iniciales de las primeras palabras y de la última.",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_VALUE_": "El nombre",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_LIMIT_": "El número máximo de iniciales",
+  "_PAGE_FILTER_INITIALS_ARGUMENTS_IS_UPPERCASE_": "Si las iniciales se convierten a mayúsculas",
+  "_PAGE_FILTER_INITIALS_AVATAR_HEADER_": "Avatar",
+  "_PAGE_FILTER_INITIALS_AVATAR_DESCRIPTION_": "Junto con la clase <code>a_rounded_circle</code>. Las iniciales se ocultan a los lectores de pantalla con <code>aria-hidden</code>, porque el nombre se muestra al lado."
+}

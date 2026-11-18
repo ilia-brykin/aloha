@@ -7,10 +7,12 @@ import _filterCapitalize from "../filters/filterCapitalize";
 import _filterCurrency from "../filters/filterCurrency";
 import _filterDate from "../filters/filterDate";
 import _filterDefaultForEmpty from "../filters/filterDefaultForEmpty";
+import _filterDuration from "../filters/filterDuration";
 import _filterEmail from "../filters/filterEmail";
 import _filterEscapeHtml from "../filters/filterEscapeHtml";
 import _filterFileSize from "../filters/filterFileSize";
 import _filterFloat from "../filters/filterFloat";
+import _filterInitials from "../filters/filterInitials";
 import _filterJson from "../filters/filterJson";
 import _filterKeyValue from "../filters/filterKeyValue";
 import _filterLimitTo from "../filters/filterLimitTo";
@@ -18,8 +20,10 @@ import _filterLink from "../filters/filterLink";
 import _filterList from "../filters/filterList";
 import _filterLowerCase from "../filters/filterLowerCase";
 import _filterMask from "../filters/filterMask";
+import _filterNumberCompact from "../filters/filterNumberCompact";
 import _filterPropertyByValue from "../filters/filterPropertyByValue";
 import _filterSearchHighlight from "../filters/filterSearchHighlight";
+import _filterTruncateMiddle from "../filters/filterTruncateMiddle";
 import _filterUpperCase from "../filters/filterUpperCase";
 import _filterValueByCondition from "../filters/filterValueByCondition";
 
@@ -56,6 +60,10 @@ export default function AFiltersAPI() {
     });
   };
 
+  const filterDuration = (value, { sourceUnits = "s", format = "long", maxUnits = 0, showDays = true } = {}) => {
+    return _filterDuration(value, { sourceUnits, format, maxUnits, showDays });
+  };
+
   const filterEmail = (value, { linkClass } = {}) => {
     return _filterEmail(value, { linkClass });
   };
@@ -66,6 +74,10 @@ export default function AFiltersAPI() {
 
   const filterFileSize = (value, { units = "kb", sourceUnits = "b", digits = 2 } = {}) => {
     return _filterFileSize(value, { units, sourceUnits, digits });
+  };
+
+  const filterInitials = (value, { limit = 2, isUppercase = true } = {}) => {
+    return _filterInitials(value, { limit, isUppercase });
   };
 
   const filterJson = (value, {
@@ -114,6 +126,10 @@ export default function AFiltersAPI() {
     return _filterMask(value, { chars, mask });
   };
 
+  const filterNumberCompact = (value, { digits = 1, minValue = 1000, isTrailingZeros = false } = {}) => {
+    return _filterNumberCompact(value, { digits, minValue, isTrailingZeros });
+  };
+
   const filterPropertyByValue = (value, { mapping = {}, defaultValue = "" } = {}) => {
     return _filterPropertyByValue(value, { mapping, defaultValue });
   };
@@ -134,6 +150,10 @@ export default function AFiltersAPI() {
       caseSensitive,
       isHtml,
     });
+  };
+
+  const filterTruncateMiddle = (value, { start = 6, end = 4, separator = "…" } = {}) => {
+    return _filterTruncateMiddle(value, { start, end, separator });
   };
 
   const filterUpperCase = value => {
@@ -158,10 +178,12 @@ export default function AFiltersAPI() {
     filterCurrency,
     filterDate,
     filterDefaultForEmpty,
+    filterDuration,
     filterEmail,
     filterEscapeHtml,
     filterFileSize,
     filterFloat,
+    filterInitials,
     filterJson,
     filterKeyValue,
     filterLimitTo,
@@ -169,8 +191,10 @@ export default function AFiltersAPI() {
     filterList,
     filterLowerCase,
     filterMask,
+    filterNumberCompact,
     filterPropertyByValue,
     filterSearchHighlight,
+    filterTruncateMiddle,
     filterUpperCase,
     filterValueByCondition,
     ...additionFilters.value,

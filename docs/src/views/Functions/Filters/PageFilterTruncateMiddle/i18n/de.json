@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_DESCRIPTION_": "Die Funktion <strong>filterTruncateMiddle</strong> kürzt einen String in der Mitte und behält Anfang und Ende, z. B. für IDs, Hashes, IBANs oder Dateipfade. Um einen Text am Ende zu kürzen, verwenden Sie <strong>filterLimitTo</strong>.",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_VALUE_": "Der zu kürzende Wert",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_START_": "Die Anzahl der Zeichen, die am Anfang bleiben",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_END_": "Die Anzahl der Zeichen, die am Ende bleiben",
+  "_PAGE_FILTER_TRUNCATE_MIDDLE_ARGUMENTS_SEPARATOR_": "Der Text, der anstelle der entfernten Zeichen eingefügt wird"
+}

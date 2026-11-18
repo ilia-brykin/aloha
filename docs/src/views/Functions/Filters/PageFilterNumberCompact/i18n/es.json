@@ -1,0 +1,7 @@
+{
+  "_PAGE_FILTER_NUMBER_COMPACT_DESCRIPTION_": "La función <strong>filterNumberCompact</strong> acorta un número grande con una unidad (mil, millón, mil millones, billón), p. ej. para contadores, insignias y paneles. El número se formatea como en <strong>filterFloat</strong>.",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_VALUE_": "El número",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_DIGITS_": "El número de decimales de un número acortado",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_MIN_VALUE_": "Los números por debajo de este valor (en valor absoluto) no se acortan",
+  "_PAGE_FILTER_NUMBER_COMPACT_ARGUMENTS_IS_TRAILING_ZEROS_": "Si se muestra <strong>1,0</strong> en lugar de <strong>1</strong>"
+}
