@@ -7,6 +7,7 @@ import AInputCurrency from "./AInputCurrency/AInputCurrency";
 import AInputFile from "./AInputFile/AInputFile";
 import AInputNumber from "./AInputNumber/AInputNumber";
 import AInputNumberRange from "./AInputNumberRange/AInputNumberRange";
+import AInputOtp from "./AInputOtp/AInputOtp";
 import AJson from "./AJson/AJson";
 import AMultiselectOrdered from "./AMultiselectOrdered/AMultiselectOrdered";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
@@ -46,6 +47,7 @@ export default {
   number: AInputNumber,
   numberRange: AInputNumberRange,
   oneCheckbox: AOneCheckbox,
+  otp: AInputOtp,
   password: AInput,
   radio: ARadio,
   routerLinkConfig: ARouterLinkConfig,

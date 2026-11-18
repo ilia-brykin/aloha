@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_OTP_GROUP_VARIANT_HEADER_"
+  description="_A_INPUT_OTP_GROUP_VARIANT_DESCRIPTION_"
+  :props="['variant']"
+)
+  a-input-otp.a_mb_3(
+    v-for="variant in variants"
+    :key="variant"
+    v-model="model"
+    :variant="variant"
+    :label="`variant: ${ variant }`"
+  )

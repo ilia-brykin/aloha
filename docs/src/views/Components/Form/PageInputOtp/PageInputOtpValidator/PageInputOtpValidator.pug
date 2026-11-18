@@ -1,0 +1,23 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_OTP_GROUP_VALIDATOR_HEADER_"
+  description="_A_INPUT_OTP_GROUP_VALIDATOR_DESCRIPTION_"
+  :props="['validator', 'inputmode']"
+)
+  a-input-otp.a_mb_3(
+    v-model="modelHex"
+    :validator="validatorHex"
+    :is-uppercase="true"
+    inputmode="text"
+    label="_A_INPUT_OTP_EXAMPLE_LABEL_HEX_"
+  )
+  a-input-otp(
+    v-model="modelLetters"
+    :validator="validatorLetters"
+    :length="4"
+    inputmode="text"
+    label="_A_INPUT_OTP_EXAMPLE_LABEL_LETTERS_"
+  )
+  div modelHex: {{ modelHex }}
+  div modelLetters: {{ modelLetters }}

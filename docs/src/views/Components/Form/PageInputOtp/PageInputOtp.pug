@@ -1,0 +1,71 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_INPUT_OTP_COMPONENT_DESCRIPTION_"
+    )
+
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_INPUT_OTP_ACCESSIBILITY_DESCRIPTION_"
+    )
+
+    page-input-otp-basic
+
+    page-input-otp-length
+
+    page-input-otp-char-type
+
+    page-input-otp-validator
+
+    page-input-otp-variant
+
+    page-input-otp-size
+
+    page-input-otp-mask
+
+    page-input-otp-separator
+
+    page-input-otp-finish
+
+    page-input-otp-help-text
+
+    page-input-otp-errors
+
+    page-input-otp-disabled
+
+    page-input-otp-form
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Methods"
+      :data="dataMethods"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ui/AInputOtp"
+    )

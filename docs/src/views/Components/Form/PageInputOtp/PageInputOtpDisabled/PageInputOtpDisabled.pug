@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_OTP_GROUP_DISABLED_HEADER_"
+  description="_A_INPUT_OTP_GROUP_DISABLED_DESCRIPTION_"
+  :props="['disabled', 'readonly', 'readonly-mask-symbol']"
+)
+  a-input-otp.a_mb_3(
+    v-for="variant in variants"
+    :key="variant"
+    v-model="model"
+    :disabled="true"
+    :variant="variant"
+    :label="`disabled, variant: ${ variant }`"
+  )
+  a-input-otp.a_mb_3(
+    v-model="model"
+    :readonly="true"
+    label="readonly"
+  )
+  a-input-otp(
+    v-model="model"
+    :readonly="true"
+    :mask="true"
+    label="readonly, mask"
+  )

@@ -463,6 +463,11 @@ const ROUTES = [
     component: () => import("../views/Components/Form/PageInputNumberRange/PageInputNumberRange.vue"),
   },
   {
+    path: "/input-otp",
+    name: "PageInputOtp",
+    component: () => import("../views/Components/Form/PageInputOtp/PageInputOtp.vue"),
+  },
+  {
     path: "/filters",
     name: "PageFilters",
     component: () => import("../views/Components/PageFilters/PageFilters.vue"),

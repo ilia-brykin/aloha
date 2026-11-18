@@ -1,0 +1,26 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_OTP_GROUP_CHAR_TYPE_HEADER_"
+  description="_A_INPUT_OTP_GROUP_CHAR_TYPE_DESCRIPTION_"
+  :props="['char-type', 'is-uppercase']"
+)
+  a-input-otp.a_mb_3(
+    v-model="modelNumeric"
+    label="char-type: numeric"
+  )
+  a-input-otp.a_mb_3(
+    v-model="modelAlphanumeric"
+    char-type="alphanumeric"
+    :is-uppercase="true"
+    label="_A_INPUT_OTP_EXAMPLE_LABEL_VOUCHER_"
+  )
+  a-input-otp(
+    v-model="modelAny"
+    char-type="any"
+    :length="4"
+    label="char-type: any"
+  )
+  div modelNumeric: {{ modelNumeric }}
+  div modelAlphanumeric: {{ modelAlphanumeric }}
+  div modelAny: {{ modelAny }}

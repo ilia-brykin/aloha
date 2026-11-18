@@ -210,6 +210,14 @@ export default function ComponentItemsAPI() {
             label: "Input number range",
           },
           {
+            id: "input-otp",
+            to: {
+              name: "PageInputOtp",
+            },
+            class: "test_menu_input_otp",
+            label: "Input OTP",
+          },
+          {
             id: "json",
             label: "JSON",
             class: "test_menu_json",
