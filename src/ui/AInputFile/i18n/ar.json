@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "اختر ملفًا",
+  "_A_INPUT_FILE_SELECT_FILES_": "اختر ملفات",
+  "_A_INPUT_FILE_DROP_TEXT_": "اسحب الملفات وأفلتها هنا أو",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "اسحب ملفًا وأفلته هنا أو",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "المسموح: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "الحد الأقصى {{size}} لكل ملف",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "الحد الأقصى {{count}} ملفات",
+  "_A_INPUT_FILE_ERROR_TYPE_": "نوع الملف هذا غير مسموح",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "الملف أكبر من {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "عدد الملفات كبير جدًا (الحد الأقصى {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "الملفات المضافة: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "الملفات غير المضافة: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "تمت إزالة {{name}}.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "إزالة {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "لم تتم إضافة هذه الملفات",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "إغلاق الرسالة",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "جارٍ رفع {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "تم الرفع",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "فشل الرفع"
+}

@@ -218,6 +218,14 @@ export default function ComponentItemsAPI() {
             label: "Input number range",
           },
           {
+            id: "input-file",
+            label: "Input file",
+            class: "test_menu_input_file",
+            to: {
+              name: "PageInputFile",
+            },
+          },
+          {
             id: "input-otp",
             to: {
               name: "PageInputOtp",

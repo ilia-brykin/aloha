@@ -1,16 +1,239 @@
-.a_file__label {
-  display: inline-block;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  width: auto;
-  line-height: 1;
+@use "../../utils/focus";
+
+.a_input_file__control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--a_input_file_gap);
 }
-.a_file__input {
+
+// The real input is visually hidden; the label around it is the visible button
+.a_input_file__button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+  cursor: pointer;
+  &:focus-within {
+    @include focus.focus-ring;
+  }
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+.a_input_file__button_icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+}
+.a_input_file__button_link {
+  border-radius: var(--a_border_radius_small);
+  color: var(--a_input_file_link_color);
+  font-weight: var(--a_font_weight_semibold);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  &:hover:not(.disabled) {
+    color: var(--a_input_file_link_hover_color);
+  }
+  &.disabled {
+    color: var(--a_input_file_disabled_color);
+  }
+}
+
+.a_input_file__input {
+  position: absolute;
   overflow: hidden;
-  position: fixed;
   width: 1px;
   height: 1px;
-  z-index: -1;
-  opacity: 0;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.a_input_file__hint {
+  color: var(--a_input_file_hint_color);
+  font-size: var(--a_font_size_sm);
+}
+
+// Dropzone
+.a_input_file__dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--a_space_xs);
+  padding: var(--a_input_file_dropzone_padding);
+  border: var(--a_input_file_dropzone_border_width) dashed var(--a_input_file_dropzone_border_color);
+  border-radius: var(--a_input_file_dropzone_border_radius);
+  background: var(--a_input_file_dropzone_bg);
+  text-align: center;
+  transition: var(--a_transition_colors);
+}
+.a_input_file__dropzone_icon {
+  display: inline-flex;
+  width: var(--a_input_file_dropzone_icon_size);
+  height: var(--a_input_file_dropzone_icon_size);
+  color: var(--a_input_file_dropzone_icon_color);
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.a_input_file__dropzone_active {
+  border-style: solid;
+  border-color: var(--a_input_file_dropzone_active_border_color);
+  background: var(--a_input_file_dropzone_active_bg);
+}
+.a_input_file__dropzone_invalid {
+  border-color: var(--a_form_element_error_color, var(--a_color_danger_text));
+}
+.a_input_file__dropzone_disabled {
+  background: var(--a_input_file_disabled_bg);
+  .a_input_file__dropzone_icon {
+    color: var(--a_input_file_disabled_color);
+  }
+}
+
+// File list
+.a_input_file__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--a_space_xs);
+  margin: var(--a_input_file_gap) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.a_input_file__item {
+  display: flex;
+  align-items: center;
+  gap: var(--a_input_file_gap);
+  padding: var(--a_input_file_item_padding);
+  border: var(--a_border_width) solid var(--a_input_file_item_border_color);
+  border-radius: var(--a_input_file_item_border_radius);
+  background: var(--a_input_file_item_bg);
+}
+.a_input_file__item_error {
+  border-color: var(--a_form_element_error_color, var(--a_color_danger_text));
+}
+.a_input_file__file_icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--a_input_file_hint_color);
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.a_input_file__preview {
+  flex: 0 0 auto;
+  width: var(--a_input_file_preview_size);
+  height: var(--a_input_file_preview_size);
+  border-radius: var(--a_border_radius_small);
+  object-fit: cover;
+}
+.a_input_file__info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--a_input_file_gap);
+  row-gap: var(--a_space_xs);
+  min-width: 0;
+}
+.a_input_file__name {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.a_input_file__size {
+  color: var(--a_input_file_hint_color);
+  font-size: var(--a_font_size_sm);
+  font-variant-numeric: tabular-nums;
+}
+.a_input_file__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+  font-size: var(--a_font_size_sm);
+}
+.a_input_file__status_icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+}
+.a_input_file__status_success {
+  color: var(--a_color_success_text);
+}
+.a_input_file__status_error {
+  color: var(--a_form_element_error_color, var(--a_color_danger_text));
+}
+.a_input_file__progress {
+  flex: 1 0 100%;
+  height: var(--a_input_file_progress_height);
+}
+.a_input_file__remove {
+  flex: 0 0 auto;
+  margin-inline-start: auto;
+}
+
+// Rejected files
+.a_input_file__rejected {
+  margin-top: var(--a_input_file_gap);
+  padding: var(--a_input_file_item_padding);
+  border: var(--a_border_width) solid var(--a_color_danger_border_subtle);
+  border-radius: var(--a_input_file_item_border_radius);
+  background: var(--a_color_danger_bg_subtle);
+  color: var(--a_color_danger_text_emphasis);
+}
+.a_input_file__rejected_header {
+  display: flex;
+  align-items: center;
+  gap: var(--a_space_xs);
+}
+.a_input_file__rejected_close {
+  margin-inline-start: auto;
+}
+.a_input_file__rejected_list {
+  margin: var(--a_space_xs) 0 0;
+  padding-inline-start: 1.5rem;
+  .a_input_file__name {
+    font-weight: var(--a_font_weight_semibold);
+  }
+}
+
+@media (forced-colors: active) {
+  .a_input_file__dropzone_active {
+    border-color: Highlight;
+  }
+}
+
+// The list has the tokens too, because it is shown without .a_input_file when readonly
+:where(.a_input_file, .a_input_file__list) {
+  --a_input_file_gap: var(--a_space_sm); // Space between the elements.
+  --a_input_file_hint_color: var(--a_color_text_muted); // Color of the hint, of the file size and of the file icon.
+  --a_input_file_link_color: var(--a_color_primary_text); // Color of the "choose" link in the dropzone.
+  --a_input_file_link_hover_color: var(--a_color_primary_hover); // Color of the "choose" link in the dropzone on hover.
+  --a_input_file_disabled_color: var(--a_color_text_muted); // Text and icon color of a disabled component.
+  --a_input_file_disabled_bg: var(--a_color_gray_100); // Background of a disabled dropzone.
+  // dropzone
+  --a_input_file_dropzone_padding: 1.5rem 1rem; // Padding of the dropzone.
+  --a_input_file_dropzone_bg: var(--a_color_surface_subtle); // Background of the dropzone.
+  --a_input_file_dropzone_border_width: 2px; // Width of the dashed border of the dropzone.
+  --a_input_file_dropzone_border_color: var(--a_border_color_strong); // Color of the dashed border of the dropzone (contrast at least 3:1).
+  --a_input_file_dropzone_border_radius: var(--a_border_radius_large); // Corner radius of the dropzone.
+  --a_input_file_dropzone_icon_size: 2rem; // Size of the icon in the dropzone.
+  --a_input_file_dropzone_icon_color: var(--a_color_text_muted); // Color of the icon in the dropzone.
+  --a_input_file_dropzone_active_bg: var(--a_color_primary_bg_subtle); // Background of the dropzone while files are dragged over it.
+  --a_input_file_dropzone_active_border_color: var(--a_color_primary); // Border color of the dropzone while files are dragged over it.
+  // file list
+  --a_input_file_item_padding: .5rem .75rem; // Padding of a file in the list.
+  --a_input_file_item_bg: var(--a_color_surface); // Background of a file in the list.
+  --a_input_file_item_border_color: var(--a_border_color); // Border color of a file in the list.
+  --a_input_file_item_border_radius: var(--a_border_radius); // Corner radius of a file in the list.
+  --a_input_file_preview_size: 2.5rem; // Size of the image preview.
+  --a_input_file_progress_height: .375rem; // Height of the upload progress bar.
 }

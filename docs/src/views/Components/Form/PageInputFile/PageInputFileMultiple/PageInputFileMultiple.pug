@@ -1,0 +1,19 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_FILE_GROUP_MULTIPLE_HEADER_"
+  description="_A_INPUT_FILE_GROUP_MULTIPLE_DESCRIPTION_"
+  :props="['is-multiple', 'is-append']"
+)
+  a-input-file.a_mb_4(
+    v-model="modelReplace"
+    :is-multiple="true"
+    label="is-multiple"
+  )
+  a-input-file(
+    v-model="modelAppend"
+    :is-multiple="true"
+    :is-append="true"
+    label="is-multiple, is-append"
+  )
+  div.a_mt_2 modelAppend: {{ modelAppend.map(file => file.name) }}

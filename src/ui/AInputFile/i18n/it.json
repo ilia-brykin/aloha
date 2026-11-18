@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Scegli file",
+  "_A_INPUT_FILE_SELECT_FILES_": "Scegli file",
+  "_A_INPUT_FILE_DROP_TEXT_": "Trascina qui i file oppure",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Trascina qui un file oppure",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Consentiti: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Max. {{size}} per file",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Max. {{count}} file",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Questo tipo di file non è consentito",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Il file supera {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Troppi file (max. {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "File aggiunti: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "File non aggiunti: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "{{name}} rimosso.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "Rimuovi {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Questi file non sono stati aggiunti",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Chiudi messaggio",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "Caricamento di {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "Caricato",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Caricamento non riuscito"
+}

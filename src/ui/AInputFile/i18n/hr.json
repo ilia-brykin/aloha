@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Odaberi datoteku",
+  "_A_INPUT_FILE_SELECT_FILES_": "Odaberi datoteke",
+  "_A_INPUT_FILE_DROP_TEXT_": "Povucite datoteke ovamo ili",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Povucite datoteku ovamo ili",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Dopušteno: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Najviše {{size}} po datoteci",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Najviše {{count}} datoteka",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Ova vrsta datoteke nije dopuštena",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Datoteka je veća od {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Previše datoteka (najviše {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Dodane datoteke: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Nedodane datoteke: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "{{name}} uklonjeno.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "Ukloni {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Ove datoteke nisu dodane",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Zatvori poruku",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "Prijenos {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "Preneseno",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Prijenos nije uspio"
+}

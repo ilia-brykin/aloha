@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_FILE_GROUP_DROPZONE_HEADER_"
+  description="_A_INPUT_FILE_GROUP_DROPZONE_DESCRIPTION_"
+  :props="['is-dropzone', 'drop-text']"
+)
+  a-input-file(
+    v-model="model"
+    :is-dropzone="true"
+    :is-multiple="true"
+    :is-append="true"
+    label="_A_INPUT_FILE_EXAMPLE_LABEL_"
+  )

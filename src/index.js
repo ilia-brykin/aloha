@@ -376,6 +376,7 @@ export { default as AErrorsI18n } from "./ui/AErrors/i18n/AErrorsI18n";
 export { default as AFormElementBtnClearI18n } from "./ui/AFormElementBtnClear/i18n/AFormElementBtnClearI18n";
 export { default as AFiltersI18n } from "./AFilters/i18n/AFiltersI18n";
 export { default as AInputCurrencyI18n } from "./ui/AInputCurrency/i18n/AInputCurrencyI18n";
+export { default as AInputFileI18n } from "./ui/AInputFile/i18n/AInputFileI18n";
 export { default as AInputI18n } from "./ui/AInput/i18n/AInputI18n";
 export { default as AInputNumberI18n } from "./ui/AInputNumber/i18n/AInputNumberI18n";
 export { default as AInputNumberRangeI18n } from "./ui/AInputNumberRange/i18n/AInputNumberRangeI18n";

@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Wybierz plik",
+  "_A_INPUT_FILE_SELECT_FILES_": "Wybierz pliki",
+  "_A_INPUT_FILE_DROP_TEXT_": "Przeciągnij pliki tutaj lub",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Przeciągnij plik tutaj lub",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Dozwolone: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Maks. {{size}} na plik",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Maks. {{count}} plików",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Ten typ pliku jest niedozwolony",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Plik jest większy niż {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Za dużo plików (maks. {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Dodane pliki: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Niedodane pliki: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "Usunięto {{name}}.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "Usuń {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Te pliki nie zostały dodane",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Zamknij komunikat",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "Przesyłanie {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "Przesłano",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Przesyłanie nie powiodło się"
+}

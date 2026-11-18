@@ -1,0 +1,16 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_FILE_GROUP_PREVIEW_HEADER_"
+  description="_A_INPUT_FILE_GROUP_PREVIEW_DESCRIPTION_"
+  :props="['is-preview', 'is-file-size']"
+)
+  a-input-file(
+    v-model="model"
+    :is-dropzone="true"
+    :is-multiple="true"
+    :is-append="true"
+    :is-preview="true"
+    accept="image/*"
+    label="_A_INPUT_FILE_EXAMPLE_LABEL_PHOTOS_"
+  )
