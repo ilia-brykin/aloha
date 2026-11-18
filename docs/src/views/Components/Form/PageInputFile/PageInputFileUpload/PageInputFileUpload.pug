@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_FILE_GROUP_UPLOAD_HEADER_"
+  description="_A_INPUT_FILE_GROUP_UPLOAD_DESCRIPTION_"
+  :props="['model-value']"
+)
+  a-input-file(
+    :model-value="model"
+    :is-dropzone="true"
+    :is-multiple="true"
+    :is-append="true"
+    label="_A_INPUT_FILE_EXAMPLE_LABEL_"
+    @update:model-value="onUpdateModel"
+  )

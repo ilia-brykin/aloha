@@ -13,6 +13,7 @@ import AFieldsetI18n from "../ui/AFieldset/i18n/AFieldsetI18n";
 import AFiltersI18n from "../AFilters/i18n/AFiltersI18n";
 import AFormElementBtnClearI18n from "../ui/AFormElementBtnClear/i18n/AFormElementBtnClearI18n";
 import AInputCurrencyI18n from "../ui/AInputCurrency/i18n/AInputCurrencyI18n";
+import AInputFileI18n from "../ui/AInputFile/i18n/AInputFileI18n";
 import AInputI18n from "../ui/AInput/i18n/AInputI18n";
 import AInputNumberI18n from "../ui/AInputNumber/i18n/AInputNumberI18n";
 import AInputNumberRangeI18n from "../ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
@@ -71,6 +72,7 @@ export const ar = {
   ...AFiltersI18n.ar,
   ...AFormElementBtnClearI18n.ar,
   ...AInputCurrencyI18n.ar,
+  ...AInputFileI18n.ar,
   ...AInputI18n.ar,
   ...AInputNumberI18n.ar,
   ...AInputNumberRangeI18n.ar,
@@ -118,6 +120,7 @@ export const de = {
   ...AFiltersI18n.de,
   ...AFormElementBtnClearI18n.de,
   ...AInputCurrencyI18n.de,
+  ...AInputFileI18n.de,
   ...AInputI18n.de,
   ...AInputNumberI18n.de,
   ...AInputNumberRangeI18n.de,
@@ -165,6 +168,7 @@ export const en = {
   ...AFiltersI18n.en,
   ...AFormElementBtnClearI18n.en,
   ...AInputCurrencyI18n.en,
+  ...AInputFileI18n.en,
   ...AInputI18n.en,
   ...AInputNumberI18n.en,
   ...AInputNumberRangeI18n.en,
@@ -212,6 +216,7 @@ export const es = {
   ...AFiltersI18n.es,
   ...AFormElementBtnClearI18n.es,
   ...AInputCurrencyI18n.es,
+  ...AInputFileI18n.es,
   ...AInputI18n.es,
   ...AInputNumberI18n.es,
   ...AInputNumberRangeI18n.es,
@@ -259,6 +264,7 @@ export const fr = {
   ...AFiltersI18n.fr,
   ...AFormElementBtnClearI18n.fr,
   ...AInputCurrencyI18n.fr,
+  ...AInputFileI18n.fr,
   ...AInputI18n.fr,
   ...AInputNumberI18n.fr,
   ...AInputNumberRangeI18n.fr,
@@ -306,6 +312,7 @@ export const hr = {
   ...AFiltersI18n.hr,
   ...AFormElementBtnClearI18n.hr,
   ...AInputCurrencyI18n.hr,
+  ...AInputFileI18n.hr,
   ...AInputI18n.hr,
   ...AInputNumberI18n.hr,
   ...AInputNumberRangeI18n.hr,
@@ -353,6 +360,7 @@ export const it = {
   ...AFiltersI18n.it,
   ...AFormElementBtnClearI18n.it,
   ...AInputCurrencyI18n.it,
+  ...AInputFileI18n.it,
   ...AInputI18n.it,
   ...AInputNumberI18n.it,
   ...AInputNumberRangeI18n.it,
@@ -400,6 +408,7 @@ export const nl = {
   ...AFiltersI18n.nl,
   ...AFormElementBtnClearI18n.nl,
   ...AInputCurrencyI18n.nl,
+  ...AInputFileI18n.nl,
   ...AInputI18n.nl,
   ...AInputNumberI18n.nl,
   ...AInputNumberRangeI18n.nl,
@@ -447,6 +456,7 @@ export const pl = {
   ...AFiltersI18n.pl,
   ...AFormElementBtnClearI18n.pl,
   ...AInputCurrencyI18n.pl,
+  ...AInputFileI18n.pl,
   ...AInputI18n.pl,
   ...AInputNumberI18n.pl,
   ...AInputNumberRangeI18n.pl,
@@ -494,6 +504,7 @@ export const ru = {
   ...AFiltersI18n.ru,
   ...AFormElementBtnClearI18n.ru,
   ...AInputCurrencyI18n.ru,
+  ...AInputFileI18n.ru,
   ...AInputI18n.ru,
   ...AInputNumberI18n.ru,
   ...AInputNumberRangeI18n.ru,
@@ -541,6 +552,7 @@ export const uk = {
   ...AFiltersI18n.uk,
   ...AFormElementBtnClearI18n.uk,
   ...AInputCurrencyI18n.uk,
+  ...AInputFileI18n.uk,
   ...AInputI18n.uk,
   ...AInputNumberI18n.uk,
   ...AInputNumberRangeI18n.uk,

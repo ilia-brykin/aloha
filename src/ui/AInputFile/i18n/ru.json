@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Выбрать файл",
+  "_A_INPUT_FILE_SELECT_FILES_": "Выбрать файлы",
+  "_A_INPUT_FILE_DROP_TEXT_": "Перетащите файлы сюда или",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Перетащите файл сюда или",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Разрешено: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Не больше {{size}} на файл",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Не больше {{count}} файлов",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Этот тип файла не разрешён",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Файл больше {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Слишком много файлов (максимум {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Добавлено файлов: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Не добавлено файлов: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "Файл {{name}} удалён.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "Удалить {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Эти файлы не добавлены",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Закрыть сообщение",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "Загрузка {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "Загружено",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Ошибка загрузки"
+}

@@ -1,0 +1,17 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_FILE_GROUP_DISABLED_HEADER_"
+  :props="['disabled']"
+)
+  a-input-file.a_mb_4(
+    v-model="model"
+    :disabled="true"
+    label="_A_INPUT_FILE_EXAMPLE_LABEL_"
+  )
+  a-input-file(
+    v-model="model"
+    :disabled="true"
+    :is-dropzone="true"
+    label="_A_INPUT_FILE_EXAMPLE_LABEL_"
+  )

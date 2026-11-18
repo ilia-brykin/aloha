@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Datei auswählen",
+  "_A_INPUT_FILE_SELECT_FILES_": "Dateien auswählen",
+  "_A_INPUT_FILE_DROP_TEXT_": "Dateien hierher ziehen oder",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Datei hierher ziehen oder",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Erlaubt: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Max. {{size}} pro Datei",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Max. {{count}} Dateien",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Dieser Dateityp ist nicht erlaubt",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Die Datei ist größer als {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Zu viele Dateien (max. {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Hinzugefügte Dateien: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Nicht hinzugefügte Dateien: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "{{name}} entfernt.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "{{name}} entfernen",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Diese Dateien wurden nicht hinzugefügt",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Meldung schließen",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "{{name}} wird hochgeladen",
+  "_A_INPUT_FILE_UPLOADED_": "Hochgeladen",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Hochladen fehlgeschlagen"
+}

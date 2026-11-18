@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Bestand kiezen",
+  "_A_INPUT_FILE_SELECT_FILES_": "Bestanden kiezen",
+  "_A_INPUT_FILE_DROP_TEXT_": "Sleep bestanden hierheen of",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Sleep een bestand hierheen of",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Toegestaan: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Max. {{size}} per bestand",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Max. {{count}} bestanden",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Dit bestandstype is niet toegestaan",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Het bestand is groter dan {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Te veel bestanden (max. {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Toegevoegde bestanden: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Niet toegevoegde bestanden: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "{{name}} verwijderd.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "{{name}} verwijderen",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Deze bestanden zijn niet toegevoegd",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Melding sluiten",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "{{name}} wordt geüpload",
+  "_A_INPUT_FILE_UPLOADED_": "Geüpload",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Uploaden mislukt"
+}

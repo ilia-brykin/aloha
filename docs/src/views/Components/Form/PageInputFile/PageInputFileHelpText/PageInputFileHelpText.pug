@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_INPUT_FILE_GROUP_HELP_TEXT_HEADER_"
+  description="_A_INPUT_FILE_GROUP_HELP_TEXT_DESCRIPTION_"
+  :props="['help-text', 'label-description', 'errors', 'required', 'text']"
+)
+  a-input-file.a_mb_4(
+    v-model="model"
+    :required="true"
+    label="_A_INPUT_FILE_EXAMPLE_LABEL_"
+    label-description="_A_INPUT_FILE_EXAMPLE_LABEL_DESCRIPTION_"
+    help-text="_A_INPUT_FILE_EXAMPLE_HELP_TEXT_"
+    text="_A_INPUT_FILE_EXAMPLE_TEXT_"
+  )
+  a-input-file(
+    v-model="model"
+    :is-dropzone="true"
+    :required="true"
+    errors="_A_INPUT_FILE_EXAMPLE_ERROR_"
+    label="_A_INPUT_FILE_EXAMPLE_LABEL_"
+  )

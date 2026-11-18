@@ -148,8 +148,7 @@
   &:hover:not(:disabled):not(.disabled) {
     border-color: var(--a_form_control_hover_border_color);
   }
-  &:focus,
-  &.a_file__label:focus-within {
+  &:focus {
     color: var(--a_form_control_color);
     background-color: var(--a_form_control_bg);
     border-color: var(--a_form_control_focus_border_color);

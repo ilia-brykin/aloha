@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Elegir archivo",
+  "_A_INPUT_FILE_SELECT_FILES_": "Elegir archivos",
+  "_A_INPUT_FILE_DROP_TEXT_": "Arrastre los archivos aquí o",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Arrastre un archivo aquí o",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Permitido: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Máx. {{size}} por archivo",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Máx. {{count}} archivos",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Este tipo de archivo no está permitido",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "El archivo es mayor que {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Demasiados archivos (máx. {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Archivos añadidos: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Archivos no añadidos: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "{{name}} eliminado.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "Eliminar {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Estos archivos no se añadieron",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Cerrar mensaje",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "Subiendo {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "Subido",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Error al subir"
+}

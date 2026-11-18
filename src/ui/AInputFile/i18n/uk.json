@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Вибрати файл",
+  "_A_INPUT_FILE_SELECT_FILES_": "Вибрати файли",
+  "_A_INPUT_FILE_DROP_TEXT_": "Перетягніть файли сюди або",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Перетягніть файл сюди або",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Дозволено: {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Не більше {{size}} на файл",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Не більше {{count}} файлів",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Цей тип файлу не дозволено",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Файл більший за {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Забагато файлів (максимум {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Додано файлів: {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Не додано файлів: {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "Файл {{name}} видалено.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "Видалити {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Ці файли не додано",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Закрити повідомлення",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "Завантаження {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "Завантажено",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Помилка завантаження"
+}

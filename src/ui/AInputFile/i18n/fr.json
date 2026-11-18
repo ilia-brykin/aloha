@@ -1,0 +1,21 @@
+{
+  "_A_INPUT_FILE_SELECT_FILE_": "Choisir un fichier",
+  "_A_INPUT_FILE_SELECT_FILES_": "Choisir des fichiers",
+  "_A_INPUT_FILE_DROP_TEXT_": "Glissez-déposez les fichiers ici ou",
+  "_A_INPUT_FILE_DROP_TEXT_FILE_": "Glissez-déposez un fichier ici ou",
+  "_A_INPUT_FILE_HINT_ACCEPT_{{accept}}_": "Autorisé : {{accept}}",
+  "_A_INPUT_FILE_HINT_MAX_SIZE_{{size}}_": "Max. {{size}} par fichier",
+  "_A_INPUT_FILE_HINT_MAX_FILES_{{count}}_": "Max. {{count}} fichiers",
+  "_A_INPUT_FILE_ERROR_TYPE_": "Ce type de fichier n'est pas autorisé",
+  "_A_INPUT_FILE_ERROR_SIZE_{{size}}_": "Le fichier dépasse {{size}}",
+  "_A_INPUT_FILE_ERROR_MAX_FILES_{{count}}_": "Trop de fichiers (max. {{count}})",
+  "_A_INPUT_FILE_ADDED_{{count}}_": "Fichiers ajoutés : {{count}}.",
+  "_A_INPUT_FILE_REJECTED_{{count}}_": "Fichiers non ajoutés : {{count}}.",
+  "_A_INPUT_FILE_REMOVED_{{name}}_": "{{name}} supprimé.",
+  "_A_INPUT_FILE_REMOVE_{{name}}_": "Supprimer {{name}}",
+  "_A_INPUT_FILE_REJECTED_HEADER_": "Ces fichiers n'ont pas été ajoutés",
+  "_A_INPUT_FILE_REJECTED_CLOSE_": "Fermer le message",
+  "_A_INPUT_FILE_UPLOADING_{{name}}_": "Envoi de {{name}}",
+  "_A_INPUT_FILE_UPLOADED_": "Envoyé",
+  "_A_INPUT_FILE_UPLOAD_ERROR_": "Échec de l'envoi"
+}
