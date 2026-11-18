@@ -25,12 +25,17 @@ export default function TypesAPI() {
     ADatepickerRange: {
       name: "PageDatepickerRange",
     },
-    AInputFile: undefined,
+    AInputFile: {
+      name: "PageInputFile",
+    },
     AInputNumber: {
       name: "PageInputNumber",
     },
     AInputNumberRange: {
       name: "PageInputNumberRange",
+    },
+    AInputOtp: {
+      name: "PageInputOtp",
     },
     AJson: {
       name: "PageJson",
@@ -44,11 +49,17 @@ export default function TypesAPI() {
     ARadio: {
       name: "PageRadio",
     },
+    ARate: {
+      name: "PageRate",
+    },
     ARouterLinkConfig: {
       name: "PageRouterLinkConfig",
     },
     ASelect: {
       name: "PageSelect",
+    },
+    ASlider: {
+      name: "PageSlider",
     },
     ASwitch: {
       name: "PageSwitch",
