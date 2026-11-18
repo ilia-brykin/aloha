@@ -15,6 +15,7 @@ import ARouterLinkConfig from "./ARouterLinkConfig/ARouterLinkConfig";
 import ASelect from "./ASelect/ASelect";
 import ASelectIcon from "./ASelectIcon/ASelectIcon";
 import ASelectStyle from "./ASelectStyle/ASelectStyle";
+import ASlider from "./ASlider/ASlider";
 import ASwitch from "./ASwitch/ASwitch";
 import ATemplate from "./ATemplate/ATemplate";
 import ATextarea from "./ATextarea/ATextarea";
@@ -53,6 +54,7 @@ export default {
   selectIcon: ASelectIcon,
   selectStyle: ASelectStyle,
   selectRoute: ARouterLinkConfig,
+  slider: ASlider,
   switch: ASwitch,
   template: ATemplate,
   text: AInput,
