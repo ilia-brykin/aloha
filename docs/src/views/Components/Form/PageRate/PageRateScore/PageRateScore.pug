@@ -1,0 +1,18 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_SCORE_HEADER_"
+  description="_A_RATE_GROUP_SCORE_DESCRIPTION_"
+  :props="['show-score', 'score-template']"
+)
+  a-rate.a_mb_3(
+    v-model="model"
+    :show-score="true"
+    label="show-score"
+  )
+  a-rate(
+    v-model="model"
+    :show-score="true"
+    score-template="_A_RATE_EXAMPLE_SCORE_{{value}}_"
+    label="score-template"
+  )

@@ -1,0 +1,61 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_RATE_COMPONENT_DESCRIPTION_"
+    )
+
+    a-translation.a_mb_4(
+      tag="div"
+      html="_A_RATE_ACCESSIBILITY_DESCRIPTION_"
+    )
+
+    page-rate-basic
+
+    page-rate-max
+
+    page-rate-allow-half
+
+    page-rate-size
+
+    page-rate-colors
+
+    page-rate-icons
+
+    page-rate-text
+
+    page-rate-score
+
+    page-rate-clearable
+
+    page-rate-disabled
+
+    page-rate-help-text
+
+    page-rate-errors
+
+    page-rate-form
+
+    page-rate-css
+
+    aloha-table-props(
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'type', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/ui/ARate"
+    )

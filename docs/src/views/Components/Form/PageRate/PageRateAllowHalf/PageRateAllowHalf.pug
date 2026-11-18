@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_ALLOW_HALF_HEADER_"
+  description="_A_RATE_GROUP_ALLOW_HALF_DESCRIPTION_"
+  :props="['allow-half']"
+)
+  a-rate(
+    v-model="model"
+    :allow-half="true"
+    :show-score="true"
+    label="_A_RATE_EXAMPLE_LABEL_"
+  )
+  div model: {{ model }}

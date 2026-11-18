@@ -15,7 +15,6 @@ import {
 import FormI18n from "./views/Components/Form/i18n/FormI18n";
 import PageAAlertI18n from "./views/Components/PageAlert/i18n/PageAAlertI18n";
 import PageAOnHooksI18n from "./views/Directives/PageOnHooks/i18n/PageAOnHooksI18n";
-import PageARateI18n from "./views/Components/PageRate/i18n/PageARateI18n";
 import PageAlertPluginI18n from "./views/Plugins/PageAlertPlugin/i18n/PageAlertPluginI18n";
 import PageBadgeI18n from "./views/CSS/PageBadge/i18n/PageBadgeI18n";
 import PageButtonI18n from "./views/Components/PageButton/i18n/PageButtonI18n";
@@ -93,6 +92,7 @@ import PageProgressCircleI18n from "./views/Components/Progress/PageProgressCirc
 import PageProgressI18n from "./views/Components/Progress/PageProgress/i18n/PageProgressI18n";
 import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQuickStartI18n";
 import PageRadioI18n from "./views/Components/Form/PageRadio/i18n/PageRadioI18n";
+import PageRateI18n from "./views/Components/Form/PageRate/i18n/PageRateI18n";
 import PageRouterLinkConfigI18n from "./views/Components/Form/PageRouterLinkConfig/i18n/PageRouterLinkConfigI18n";
 import PageScreenreaderI18n from "./views/CSS/PageScreenreader/i18n/PageScreenreaderI18n";
 import PageSelectI18n from "./views/Components/Form/PageSelect/i18n/PageSelectI18n";
@@ -163,7 +163,7 @@ export const mainTranslation = {
     ...PagePositionI18n.ar,
     ...PageSpacingI18n.ar,
     ...PageAOnHooksI18n.ar,
-    ...PageARateI18n.ar,
+    ...PageRateI18n.ar,
     ...PageButtonI18n.ar,
     ...PageCarouselI18n.ar,
     ...PageCheckboxI18n.ar,
@@ -286,7 +286,7 @@ export const mainTranslation = {
     ...PagePositionI18n.de,
     ...PageSpacingI18n.de,
     ...PageAOnHooksI18n.de,
-    ...PageARateI18n.de,
+    ...PageRateI18n.de,
     ...PageButtonI18n.de,
     ...PageCarouselI18n.de,
     ...PageCheckboxI18n.de,
@@ -409,7 +409,7 @@ export const mainTranslation = {
     ...PagePositionI18n.en,
     ...PageSpacingI18n.en,
     ...PageAOnHooksI18n.en,
-    ...PageARateI18n.en,
+    ...PageRateI18n.en,
     ...PageButtonI18n.en,
     ...PageCarouselI18n.en,
     ...PageCheckboxI18n.en,
@@ -532,7 +532,7 @@ export const mainTranslation = {
     ...PagePositionI18n.es,
     ...PageSpacingI18n.es,
     ...PageAOnHooksI18n.es,
-    ...PageARateI18n.es,
+    ...PageRateI18n.es,
     ...PageButtonI18n.es,
     ...PageCarouselI18n.es,
     ...PageCheckboxI18n.es,
@@ -655,7 +655,7 @@ export const mainTranslation = {
     ...PagePositionI18n.fr,
     ...PageSpacingI18n.fr,
     ...PageAOnHooksI18n.fr,
-    ...PageARateI18n.fr,
+    ...PageRateI18n.fr,
     ...PageButtonI18n.fr,
     ...PageCarouselI18n.fr,
     ...PageCheckboxI18n.fr,
@@ -778,7 +778,7 @@ export const mainTranslation = {
     ...PagePositionI18n.hr,
     ...PageSpacingI18n.hr,
     ...PageAOnHooksI18n.hr,
-    ...PageARateI18n.hr,
+    ...PageRateI18n.hr,
     ...PageButtonI18n.hr,
     ...PageCarouselI18n.hr,
     ...PageCheckboxI18n.hr,
@@ -901,7 +901,7 @@ export const mainTranslation = {
     ...PagePositionI18n.it,
     ...PageSpacingI18n.it,
     ...PageAOnHooksI18n.it,
-    ...PageARateI18n.it,
+    ...PageRateI18n.it,
     ...PageButtonI18n.it,
     ...PageCarouselI18n.it,
     ...PageCheckboxI18n.it,
@@ -1024,7 +1024,7 @@ export const mainTranslation = {
     ...PagePositionI18n.nl,
     ...PageSpacingI18n.nl,
     ...PageAOnHooksI18n.nl,
-    ...PageARateI18n.nl,
+    ...PageRateI18n.nl,
     ...PageButtonI18n.nl,
     ...PageCarouselI18n.nl,
     ...PageCheckboxI18n.nl,
@@ -1147,7 +1147,7 @@ export const mainTranslation = {
     ...PagePositionI18n.pl,
     ...PageSpacingI18n.pl,
     ...PageAOnHooksI18n.pl,
-    ...PageARateI18n.pl,
+    ...PageRateI18n.pl,
     ...PageButtonI18n.pl,
     ...PageCarouselI18n.pl,
     ...PageCheckboxI18n.pl,
@@ -1270,7 +1270,7 @@ export const mainTranslation = {
     ...PagePositionI18n.ru,
     ...PageSpacingI18n.ru,
     ...PageAOnHooksI18n.ru,
-    ...PageARateI18n.ru,
+    ...PageRateI18n.ru,
     ...PageButtonI18n.ru,
     ...PageCarouselI18n.ru,
     ...PageCheckboxI18n.ru,
@@ -1393,7 +1393,7 @@ export const mainTranslation = {
     ...PagePositionI18n.uk,
     ...PageSpacingI18n.uk,
     ...PageAOnHooksI18n.uk,
-    ...PageARateI18n.uk,
+    ...PageRateI18n.uk,
     ...PageButtonI18n.uk,
     ...PageCarouselI18n.uk,
     ...PageCheckboxI18n.uk,

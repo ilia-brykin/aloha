@@ -1,0 +1,15 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_CLEARABLE_HEADER_"
+  description="_A_RATE_GROUP_CLEARABLE_DESCRIPTION_"
+  :props="['clearable', 'model-undefined']"
+)
+  a-rate(
+    v-model="model"
+    :clearable="true"
+    :show-text="true"
+    label="_A_RATE_EXAMPLE_LABEL_"
+    help-text="_A_RATE_EXAMPLE_HELP_TEXT_"
+  )
+  div model: {{ model }}

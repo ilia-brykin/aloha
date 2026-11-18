@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "Valutazione",
+  "_A_RATE_NO_VALUE_": "Non valutato",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} su {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "Pessimo",
+  "_A_RATE_TEXT_2_": "Scarso",
+  "_A_RATE_TEXT_3_": "Discreto",
+  "_A_RATE_TEXT_4_": "Buono",
+  "_A_RATE_TEXT_5_": "Eccellente"
+}

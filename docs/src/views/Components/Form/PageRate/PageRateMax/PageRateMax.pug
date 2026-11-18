@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_MAX_HEADER_"
+  description="_A_RATE_GROUP_MAX_DESCRIPTION_"
+  :props="['max']"
+)
+  a-rate(
+    v-model="model"
+    :max="10"
+    :show-score="true"
+    score-template="{{value}} / {{max}}"
+    label="_A_RATE_EXAMPLE_LABEL_"
+  )

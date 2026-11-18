@@ -190,7 +190,7 @@ const ROUTES = [
   {
     path: "/rate",
     name: "PageRate",
-    component: () => import("../views/Components/PageRate/PageRate.vue"),
+    component: () => import("../views/Components/Form/PageRate/PageRate.vue"),
   },
   {
     path: "/modal",

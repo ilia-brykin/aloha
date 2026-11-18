@@ -1,0 +1,150 @@
+@use "../../utils/focus";
+
+.a_rate {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--a_rate_text_gap);
+  max-width: 100%;
+  border-radius: var(--a_border_radius_small);
+  vertical-align: middle;
+  @include focus.focus-visible;
+}
+
+.a_rate__items {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--a_rate_gap);
+}
+
+.a_rate__item {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: var(--a_rate_icon_size);
+  height: var(--a_rate_icon_size);
+  cursor: pointer;
+  transition: transform var(--a_duration_fast) var(--a_easing);
+}
+
+.a_rate__icon {
+  display: block;
+  width: var(--a_rate_icon_size);
+  height: var(--a_rate_icon_size);
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+.a_rate__icon_void {
+  color: var(--a_rate_void_color);
+}
+
+// The filled icon is cut to the value (half or decimal values)
+.a_rate__item__fill {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  overflow: hidden;
+  color: var(--a_rate_fill_color_current);
+  .a_rate__icon {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+}
+
+// Color of the level of the shown value (lowThreshold / highThreshold)
+.a_rate_level_low {
+  --a_rate_fill_color_current: var(--a_rate_fill_color_low);
+}
+.a_rate_level_medium {
+  --a_rate_fill_color_current: var(--a_rate_fill_color_medium);
+}
+.a_rate_level_high {
+  --a_rate_fill_color_current: var(--a_rate_fill_color_high);
+}
+// colors prop and the deprecated hoveredColor are set inline, so they win
+.a_rate_hovering .a_rate__item__fill {
+  color: var(--a_rate_hover_fill_color, var(--a_rate_fill_color_current));
+}
+
+.a_rate:not(.a_rate_disabled):not(.a_rate_readonly) .a_rate__item:hover {
+  transform: scale(var(--a_rate_hover_scale));
+}
+
+.a_rate__score,
+.a_rate__text {
+  color: var(--a_rate_text_color);
+  font-size: var(--a_rate_text_font_size);
+  font-variant-numeric: tabular-nums;
+}
+
+.a_rate_small {
+  --a_rate_icon_size: var(--a_rate_icon_size_small);
+  --a_rate_gap: var(--a_rate_gap_small);
+  --a_rate_text_font_size: var(--a_font_size_sm);
+}
+.a_rate_large {
+  --a_rate_icon_size: var(--a_rate_icon_size_large);
+  --a_rate_gap: var(--a_rate_gap_large);
+}
+
+.a_rate_disabled {
+  cursor: not-allowed;
+  .a_rate__item {
+    cursor: not-allowed;
+  }
+  .a_rate__icon_void {
+    color: var(--a_rate_disabled_void_color);
+  }
+  .a_rate__item__fill {
+    opacity: var(--a_rate_disabled_opacity);
+  }
+}
+.a_rate_readonly .a_rate__item {
+  cursor: default;
+}
+
+.a_rate_invalid .a_rate__icon_void {
+  color: var(--a_form_element_error_color, var(--a_color_danger_text));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a_rate__item {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .a_rate__icon_void {
+    color: CanvasText;
+  }
+  .a_rate__item__fill {
+    color: Highlight;
+  }
+}
+
+:where(.a_rate) {
+  // icons
+  --a_rate_icon_size: 1.5rem; // Size of an icon.
+  --a_rate_icon_size_small: 1.125rem; // Size of an icon for size "small".
+  --a_rate_icon_size_large: 2.25rem; // Size of an icon for size "large".
+  --a_rate_gap: .25rem; // Space between the icons.
+  --a_rate_gap_small: .125rem; // Space between the icons for size "small".
+  --a_rate_gap_large: .375rem; // Space between the icons for size "large".
+  --a_rate_hover_scale: 1.15; // Scale of the icon under the mouse pointer.
+  // colors
+  --a_rate_void_color: var(--a_border_color_strong); // Color of an empty icon (contrast at least 3:1).
+  --a_rate_fill_color: var(--a_color_warning); // Color of a filled icon.
+  --a_rate_fill_color_low: var(--a_rate_fill_color); // Color of the filled icons if the value is at most lowThreshold.
+  --a_rate_fill_color_medium: var(--a_rate_fill_color); // Color of the filled icons between lowThreshold and highThreshold.
+  --a_rate_fill_color_high: var(--a_rate_fill_color); // Color of the filled icons if the value is at least highThreshold.
+  --a_rate_disabled_void_color: var(--a_border_color); // Color of an empty icon of a disabled component.
+  --a_rate_disabled_opacity: .6; // Opacity of the filled icons of a disabled component.
+  // text
+  --a_rate_text_gap: var(--a_space_sm); // Space between the icons and the score or the text.
+  --a_rate_text_color: var(--a_color_text); // Color of the score and of the text.
+  --a_rate_text_font_size: var(--a_body_font_size); // Font size of the score and of the text.
+}

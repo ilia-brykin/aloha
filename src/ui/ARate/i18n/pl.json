@@ -1,0 +1,11 @@
+{
+  "_A_RATE_ARIA_LABEL_": "Ocena",
+  "_A_RATE_NO_VALUE_": "Bez oceny",
+  "_A_RATE_VALUE_{{value}}_{{max}}_": "{{value}} z {{max}}",
+  "_A_RATE_SCORE_{{value}}_{{max}}_": "{{value}}",
+  "_A_RATE_TEXT_1_": "Bardzo źle",
+  "_A_RATE_TEXT_2_": "Źle",
+  "_A_RATE_TEXT_3_": "Przeciętnie",
+  "_A_RATE_TEXT_4_": "Dobrze",
+  "_A_RATE_TEXT_5_": "Doskonale"
+}

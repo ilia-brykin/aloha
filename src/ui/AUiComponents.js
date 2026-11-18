@@ -12,6 +12,7 @@ import AJson from "./AJson/AJson";
 import AMultiselectOrdered from "./AMultiselectOrdered/AMultiselectOrdered";
 import AOneCheckbox from "./AOneCheckbox/AOneCheckbox";
 import ARadio from "./ARadio/ARadio";
+import ARate from "./ARate/ARate";
 import ARouterLinkConfig from "./ARouterLinkConfig/ARouterLinkConfig";
 import ASelect from "./ASelect/ASelect";
 import ASelectIcon from "./ASelectIcon/ASelectIcon";
@@ -50,6 +51,7 @@ export default {
   otp: AInputOtp,
   password: AInput,
   radio: ARadio,
+  rate: ARate,
   routerLinkConfig: ARouterLinkConfig,
   select: ASelect,
   selectIcon: ASelectIcon,

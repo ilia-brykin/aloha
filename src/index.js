@@ -58,7 +58,7 @@ export { default as APaginationPages } from "./APagination/APaginationPages/APag
 export { default as AProgress } from "./AProgress/AProgress";
 export { default as AProgressCircle } from "./AProgressCircle/AProgressCircle";
 export { default as ARadio } from "./ui/ARadio/ARadio";
-export { default as ARate } from "./ARate/ARate";
+export { default as ARate } from "./ui/ARate/ARate";
 export { default as ARequired } from "./ui/ARequired/ARequired";
 export { default as AResizer } from "./AResizer/AResizer";
 export { default as ARouterLinkConfig } from "./ui/ARouterLinkConfig/ARouterLinkConfig";
@@ -369,6 +369,7 @@ export { default as AInputI18n } from "./ui/AInput/i18n/AInputI18n";
 export { default as AInputNumberI18n } from "./ui/AInputNumber/i18n/AInputNumberI18n";
 export { default as AInputNumberRangeI18n } from "./ui/AInputNumberRange/i18n/AInputNumberRangeI18n";
 export { default as AInputOtpI18n } from "./ui/AInputOtp/i18n/AInputOtpI18n";
+export { default as ARateI18n } from "./ui/ARate/i18n/ARateI18n";
 export { default as AJsonI18n } from "./ui/AJson/i18n/AJsonI18n";
 export { default as ALinkCopyI18n } from "./ALinkCopy/i18n/ALinkCopyI18n";
 export { default as ALoadingI18n } from "./ALoading/i18n/ALoadingI18n";

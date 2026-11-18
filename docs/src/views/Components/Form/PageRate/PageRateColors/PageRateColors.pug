@@ -1,0 +1,22 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_RATE_GROUP_COLORS_HEADER_"
+  description="_A_RATE_GROUP_COLORS_DESCRIPTION_"
+  :props="['colors', 'low-threshold', 'high-threshold']"
+)
+  a-rate.a_mb_3(
+    v-model="modelArray"
+    :colors="colorsArray"
+    :show-text="true"
+    label="colors: Array"
+  )
+  a-rate(
+    v-model="modelObject"
+    :colors="colorsObject"
+    :max="10"
+    :low-threshold="3"
+    :high-threshold="8"
+    :show-score="true"
+    label="colors: Object"
+  )
