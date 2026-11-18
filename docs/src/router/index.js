@@ -188,6 +188,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageAlert/PageAlert.vue"),
   },
   {
+    path: "/avatar",
+    name: "PageAvatar",
+    component: () => import("../views/Components/PageAvatar/PageAvatar.vue"),
+  },
+  {
     path: "/rate",
     name: "PageRate",
     component: () => import("../views/Components/Form/PageRate/PageRate.vue"),

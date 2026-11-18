@@ -1,0 +1,30 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_AVATAR_GROUP_HEADER_"
+  description="_A_AVATAR_GROUP_DESCRIPTION_"
+  :props="['max', 'label', 'size', 'shape']"
+)
+  .a_d_flex.a_flex_column.a_gap_3
+    a-avatar-group(
+      label="Team"
+      :max="4"
+    )
+      a-avatar(
+        v-for="name in ['Anna Becker', 'Ben Ott', 'Clara Lenz', 'David Roth', 'Eva Klein', 'Felix Wolf', 'Greta Sommer']"
+        :key="name"
+        :name="name"
+      )
+    a-avatar-group(
+      label="Team"
+      size="small"
+    )
+      a-avatar(
+        v-for="name in ['Anna Becker', 'Ben Ott', 'Clara Lenz']"
+        :key="name"
+        :name="name"
+      )
+      a-avatar(
+        name="Tennis Club"
+        src="./assets/Tennis_ball_purple_background.png"
+      )

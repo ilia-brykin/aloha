@@ -1,0 +1,58 @@
+aloha-page(
+  :page-title="pageTitle"
+)
+  template(
+    v-slot:body
+  )
+    a-translation(
+      tag="p"
+      html="_A_AVATAR_COMPONENT_DESCRIPTION_"
+    )
+
+    page-avatar-basic
+
+    page-avatar-image
+
+    page-avatar-sizes
+
+    page-avatar-shape
+
+    page-avatar-colors
+
+    page-avatar-status
+
+    page-avatar-decorative
+
+    page-avatar-content
+
+    page-avatar-group
+
+    aloha-table-props(
+      table-label="AAvatar"
+      :data="dataProps"
+    )
+
+    aloha-table-props(
+      table-label="AAvatarGroup"
+      :data="dataPropsGroup"
+    )
+
+    aloha-table-props(
+      table-label="Events"
+      :data="dataEvents"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-props(
+      table-label="Slots"
+      :data="dataSlots"
+      :columns="['name', 'description']"
+    )
+
+    aloha-table-translate(
+      :data="dataTranslate"
+    )
+
+    aloha-table-css-vars(
+      files="components/AAvatar"
+    )

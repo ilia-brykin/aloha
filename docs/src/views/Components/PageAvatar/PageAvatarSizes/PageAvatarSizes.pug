@@ -1,0 +1,14 @@
+aloha-example(
+  :code-html="codeHtml"
+  :code-js="codeJs"
+  header="_A_AVATAR_SIZES_HEADER_"
+  description="_A_AVATAR_SIZES_DESCRIPTION_"
+  :props="['size']"
+)
+  .a_d_flex.a_gap_3.a_flex_wrap.a_align_items_center
+    a-avatar(
+      v-for="size in ['small', 'medium', 'large', 'xlarge', 96]"
+      :key="size"
+      name="Anna Becker"
+      :size="size"
+    )

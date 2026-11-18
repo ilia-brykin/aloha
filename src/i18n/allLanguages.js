@@ -1,4 +1,5 @@
 import AAlertI18n from "../AAlert/i18n/AAlertI18n";
+import AAvatarI18n from "../AAvatar/i18n/AAvatarI18n";
 import ACarouselI18n from "../ACarousel/i18n/ACarouselI18n";
 import ACheckboxI18n from "../ui/ACheckbox/i18n/ACheckboxI18n";
 import ACloakI18n from "../ACloak/i18n/ACloakI18n";
@@ -56,6 +57,7 @@ import ukJson from "./uk.json";
 export const ar = {
   ...arJson,
   ...AAlertI18n.ar,
+  ...AAvatarI18n.ar,
   ...ACarouselI18n.ar,
   ...ACheckboxI18n.ar,
   ...ACloakI18n.ar,
@@ -102,6 +104,7 @@ export const ar = {
 export const de = {
   ...deJson,
   ...AAlertI18n.de,
+  ...AAvatarI18n.de,
   ...ACarouselI18n.de,
   ...ACheckboxI18n.de,
   ...ACloakI18n.de,
@@ -148,6 +151,7 @@ export const de = {
 export const en = {
   ...enJson,
   ...AAlertI18n.en,
+  ...AAvatarI18n.en,
   ...ACarouselI18n.en,
   ...ACheckboxI18n.en,
   ...ACloakI18n.en,
@@ -194,6 +198,7 @@ export const en = {
 export const es = {
   ...esJson,
   ...AAlertI18n.es,
+  ...AAvatarI18n.es,
   ...ACarouselI18n.es,
   ...ACheckboxI18n.es,
   ...ACloakI18n.es,
@@ -240,6 +245,7 @@ export const es = {
 export const fr = {
   ...frJson,
   ...AAlertI18n.fr,
+  ...AAvatarI18n.fr,
   ...ACarouselI18n.fr,
   ...ACheckboxI18n.fr,
   ...ACloakI18n.fr,
@@ -286,6 +292,7 @@ export const fr = {
 export const hr = {
   ...hrJson,
   ...AAlertI18n.hr,
+  ...AAvatarI18n.hr,
   ...ACarouselI18n.hr,
   ...ACheckboxI18n.hr,
   ...ACloakI18n.hr,
@@ -332,6 +339,7 @@ export const hr = {
 export const it = {
   ...itJson,
   ...AAlertI18n.it,
+  ...AAvatarI18n.it,
   ...ACarouselI18n.it,
   ...ACheckboxI18n.it,
   ...ACloakI18n.it,
@@ -378,6 +386,7 @@ export const it = {
 export const nl = {
   ...nlJson,
   ...AAlertI18n.nl,
+  ...AAvatarI18n.nl,
   ...ACarouselI18n.nl,
   ...ACheckboxI18n.nl,
   ...ACloakI18n.nl,
@@ -424,6 +433,7 @@ export const nl = {
 export const pl = {
   ...plJson,
   ...AAlertI18n.pl,
+  ...AAvatarI18n.pl,
   ...ACarouselI18n.pl,
   ...ACheckboxI18n.pl,
   ...ACloakI18n.pl,
@@ -470,6 +480,7 @@ export const pl = {
 export const ru = {
   ...ruJson,
   ...AAlertI18n.ru,
+  ...AAvatarI18n.ru,
   ...ACarouselI18n.ru,
   ...ACheckboxI18n.ru,
   ...ACloakI18n.ru,
@@ -516,6 +527,7 @@ export const ru = {
 export const uk = {
   ...ukJson,
   ...AAlertI18n.uk,
+  ...AAvatarI18n.uk,
   ...ACarouselI18n.uk,
   ...ACheckboxI18n.uk,
   ...ACloakI18n.uk,
