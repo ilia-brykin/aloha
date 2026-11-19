@@ -3,6 +3,8 @@ docs/dist/*
 !docs/dist/.nojekyll
 !docs/dist/assets/*
 docs/public/*
+!docs/public/ai/
+!docs/public/llms.txt
 /.idea/*
 **/node_modules/*
 package-lock.json

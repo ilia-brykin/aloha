@@ -1,0 +1,104 @@
+# Aloha Vue
+
+> Accessible Vue 3 UI components with localized labels, keyboard interactions and configurable styling.
+
+The component reference covers the repository build of aloha-vue@3.0.0-alpha.1. Check the quick start for differences from the published package.
+
+## Guides
+
+- [Quick start](https://ilia-brykin.github.io/aloha/ai/v3/quick-start.md): Installation, CSS, app setup and examples.
+- [Theming](https://ilia-brykin.github.io/aloha/ai/v3/theming.md): Design tokens, density, dark mode and cascade layers.
+- [Migration from 2.x](https://ilia-brykin.github.io/aloha/ai/v3/migration-2-to-3.md): Version 3 CSS and behavior changes.
+
+## Components
+
+- [AAccordion](https://ilia-brykin.github.io/aloha/ai/v3/components/AAccordion.md): Expandable sections with independent or coordinated open state.
+- [AAlert](https://ilia-brykin.github.io/aloha/ai/v3/components/AAlert.md): Inline status or error message with optional dismissal.
+- [AAvatar](https://ilia-brykin.github.io/aloha/ai/v3/components/AAvatar.md): Image, initials or icon representing a person or group.
+- [AAvatarGroup](https://ilia-brykin.github.io/aloha/ai/v3/components/AAvatarGroup.md): Group avatars with a configurable visible count.
+- [AButton](https://ilia-brykin.github.io/aloha/ai/v3/components/AButton.md): Action button with optional icons, loading state and switch styling.
+- [ACarousel](https://ilia-brykin.github.io/aloha/ai/v3/components/ACarousel.md): Slide carousel with controls, indicators and optional autoplay.
+- [ACheckbox](https://ilia-brykin.github.io/aloha/ai/v3/components/ACheckbox.md): Multiple selection over a list or nested groups of options.
+- [ACheckboxRadioGroups](https://ilia-brykin.github.io/aloha/ai/v3/components/ACheckboxRadioGroups.md): Low-level renderer for grouped checkbox or radio options.
+- [ACloak](https://ilia-brykin.github.io/aloha/ai/v3/components/ACloak.md): Loading placeholder with a spinner and status text.
+- [AColorPicker](https://ilia-brykin.github.io/aloha/ai/v3/components/AColorPicker.md): Form control for editing a color value.
+- [ADatepicker](https://ilia-brykin.github.io/aloha/ai/v3/components/ADatepicker.md): Single date, time or date-time input with a calendar or time popup.
+- [ADatepickerRange](https://ilia-brykin.github.io/aloha/ai/v3/components/ADatepickerRange.md): Two linked date inputs representing a start and end date.
+- [ADisclosure](https://ilia-brykin.github.io/aloha/ai/v3/components/ADisclosure.md): Toggle between collapsed and expanded content.
+- [ADropdown](https://ilia-brykin.github.io/aloha/ai/v3/components/ADropdown.md): An action or content popup attached to a trigger.
+- [AElement](https://ilia-brykin.github.io/aloha/ai/v3/components/AElement.md): Shared primitive for buttons, links and text.
+- [AErrors](https://ilia-brykin.github.io/aloha/ai/v3/components/AErrors.md): Validation summary with optional navigation to invalid fields.
+- [AErrorsText](https://ilia-brykin.github.io/aloha/ai/v3/components/AErrorsText.md): Validation text for an individual input.
+- [AFieldset](https://ilia-brykin.github.io/aloha/ai/v3/components/AFieldset.md): Form fields grouped under a fieldset legend.
+- [AFilterCenter](https://ilia-brykin.github.io/aloha/ai/v3/components/AFilterCenter.md): Displays the applied filter values and removal controls.
+- [AFilters](https://ilia-brykin.github.io/aloha/ai/v3/components/AFilters.md): Filter toolbar with separate draft and applied state.
+- [AFiltersHorizontal](https://ilia-brykin.github.io/aloha/ai/v3/components/AFiltersHorizontal.md): Inline part of the AFilters interface.
+- [AFiltersRight](https://ilia-brykin.github.io/aloha/ai/v3/components/AFiltersRight.md): Side-panel part of the AFilters interface.
+- [AForm](https://ilia-brykin.github.io/aloha/ai/v3/components/AForm.md): Schema-driven layout and model binding for form fields.
+- [AFormElement](https://ilia-brykin.github.io/aloha/ai/v3/components/AFormElement.md): Renders a single schema-driven form control.
+- [AFormElementBtnClear](https://ilia-brykin.github.io/aloha/ai/v3/components/AFormElementBtnClear.md): Reusable icon button for clearing a field.
+- [AFormHelpText](https://ilia-brykin.github.io/aloha/ai/v3/components/AFormHelpText.md): Displays descriptive help text for a form field.
+- [AFormLabelDescription](https://ilia-brykin.github.io/aloha/ai/v3/components/AFormLabelDescription.md): Renders additional description beside a form label.
+- [AFormReadonly](https://ilia-brykin.github.io/aloha/ai/v3/components/AFormReadonly.md): Renders a labeled, non-editable representation of a field.
+- [AGet](https://ilia-brykin.github.io/aloha/ai/v3/components/AGet.md): Displays a value from a nested object or array.
+- [AGroup](https://ilia-brykin.github.io/aloha/ai/v3/components/AGroup.md): Renders a logical group of form definitions.
+- [AGroupButtonDropdown](https://ilia-brykin.github.io/aloha/ai/v3/components/AGroupButtonDropdown.md): Shows primary actions as buttons and secondary actions in a dropdown.
+- [AIcon](https://ilia-brykin.github.io/aloha/ai/v3/components/AIcon.md): Renders an icon from a registered name or inline SVG.
+- [AInfiniteScroll](https://ilia-brykin.github.io/aloha/ai/v3/components/AInfiniteScroll.md): Calls a loader when a scroll sentinel becomes visible.
+- [AInput](https://ilia-brykin.github.io/aloha/ai/v3/components/AInput.md): Text input with labels, help, validation and optional clear or icon controls.
+- [AInputCurrency](https://ilia-brykin.github.io/aloha/ai/v3/components/AInputCurrency.md): Currency input with locale-independent model and configurable formatting.
+- [AInputFile](https://ilia-brykin.github.io/aloha/ai/v3/components/AInputFile.md): File chooser with optional multiple selection, dropzone and previews.
+- [AInputNumber](https://ilia-brykin.github.io/aloha/ai/v3/components/AInputNumber.md): Numeric input with optional increment and decrement controls.
+- [AInputNumberRange](https://ilia-brykin.github.io/aloha/ai/v3/components/AInputNumberRange.md): Paired numeric inputs for lower and upper bounds.
+- [AInputOtp](https://ilia-brykin.github.io/aloha/ai/v3/components/AInputOtp.md): Segmented entry for a verification code.
+- [AJson](https://ilia-brykin.github.io/aloha/ai/v3/components/AJson.md): Editable JSON value rendered as a form control.
+- [ALabel](https://ilia-brykin.github.io/aloha/ai/v3/components/ALabel.md): Form label with required, loading and error presentation.
+- [ALink](https://ilia-brykin.github.io/aloha/ai/v3/components/ALink.md): Navigation link with optional icons and router integration.
+- [ALinkCopy](https://ilia-brykin.github.io/aloha/ai/v3/components/ALinkCopy.md): Link paired with a clipboard-copy action.
+- [AList](https://ilia-brykin.github.io/aloha/ai/v3/components/AList.md): Renders simple values or structured nested data as a list.
+- [ALoading](https://ilia-brykin.github.io/aloha/ai/v3/components/ALoading.md): Wraps content with a loading indicator controlled by isLoading.
+- [AMenu](https://ilia-brykin.github.io/aloha/ai/v3/components/AMenu.md): Responsive navigation with nested menu items.
+- [AMenuButtonToggle](https://ilia-brykin.github.io/aloha/ai/v3/components/AMenuButtonToggle.md): Button that opens and closes an AMenu instance.
+- [AModal](https://ilia-brykin.github.io/aloha/ai/v3/components/AModal.md): Dialog with header, body and configurable footer actions.
+- [AModalConfirm](https://ilia-brykin.github.io/aloha/ai/v3/components/AModalConfirm.md): Application-level host for a confirmation dialog.
+- [AModalForm](https://ilia-brykin.github.io/aloha/ai/v3/components/AModalForm.md): Dialog containing a schema-driven AForm.
+- [AModalWizard](https://ilia-brykin.github.io/aloha/ai/v3/components/AModalWizard.md): Dialog containing a multi-step AWizard.
+- [AMultiselectOrdered](https://ilia-brykin.github.io/aloha/ai/v3/components/AMultiselectOrdered.md): Multi-selection input with an explicitly ordered selection.
+- [ANotification](https://ilia-brykin.github.io/aloha/ai/v3/components/ANotification.md): Application-level host for dismissible notifications.
+- [AOneCheckbox](https://ilia-brykin.github.io/aloha/ai/v3/components/AOneCheckbox.md): Single checkbox for boolean or configured true and false values.
+- [APageTabTitle](https://ilia-brykin.github.io/aloha/ai/v3/components/APageTabTitle.md): Sets the browser document title from a translated string.
+- [APagination](https://ilia-brykin.github.io/aloha/ai/v3/components/APagination.md): Pagination controls with configurable page size and offset.
+- [APaginationPages](https://ilia-brykin.github.io/aloha/ai/v3/components/APaginationPages.md): Page navigation for a fixed page size.
+- [AProgress](https://ilia-brykin.github.io/aloha/ai/v3/components/AProgress.md): Horizontal progress indicator for determinate or indeterminate work.
+- [AProgressCircle](https://ilia-brykin.github.io/aloha/ai/v3/components/AProgressCircle.md): Circular progress indicator.
+- [ARadio](https://ilia-brykin.github.io/aloha/ai/v3/components/ARadio.md): Single selection over a list or grouped options.
+- [ARate](https://ilia-brykin.github.io/aloha/ai/v3/components/ARate.md): Star rating control with configurable increments and levels.
+- [ARequired](https://ilia-brykin.github.io/aloha/ai/v3/components/ARequired.md): Text explaining the required-field marker used by form controls.
+- [AResizer](https://ilia-brykin.github.io/aloha/ai/v3/components/AResizer.md): Pointer drag handle for resizing a pane along the x or y axis.
+- [ARouterLinkConfig](https://ilia-brykin.github.io/aloha/ai/v3/components/ARouterLinkConfig.md): Form for choosing a route and editing its params, query and target.
+- [AScale](https://ilia-brykin.github.io/aloha/ai/v3/components/AScale.md): Visual balance scale driven by a signed numeric value.
+- [ASelect](https://ilia-brykin.github.io/aloha/ai/v3/components/ASelect.md): Single- or multi-select with local or retrieved options.
+- [ASelectIcon](https://ilia-brykin.github.io/aloha/ai/v3/components/ASelectIcon.md): Select control for an icon value.
+- [ASelectStyle](https://ilia-brykin.github.io/aloha/ai/v3/components/ASelectStyle.md): Select control for an Aloha style or class preset.
+- [AShowMore](https://ilia-brykin.github.io/aloha/ai/v3/components/AShowMore.md): Collapses long HTML or slotted content to a fixed preview height.
+- [ASkeleton](https://ilia-brykin.github.io/aloha/ai/v3/components/ASkeleton.md): Skeleton placeholder that swaps for content when loading finishes.
+- [ASkeletonItem](https://ilia-brykin.github.io/aloha/ai/v3/components/ASkeletonItem.md): Single line, shape or block used in a custom skeleton.
+- [ASlider](https://ilia-brykin.github.io/aloha/ai/v3/components/ASlider.md): Range slider supporting numeric and discrete values.
+- [ASpinner](https://ilia-brykin.github.io/aloha/ai/v3/components/ASpinner.md): Loading indicator with an optional accessible name.
+- [ASwitch](https://ilia-brykin.github.io/aloha/ai/v3/components/ASwitch.md): Switch for toggling between two configured values.
+- [ATable](https://ilia-brykin.github.io/aloha/ai/v3/components/ATable.md): Data table with optional sorting, filtering, pagination and row actions.
+- [ATableForm](https://ilia-brykin.github.io/aloha/ai/v3/components/ATableForm.md): Editable table with rows backed by schema-driven controls.
+- [ATabs](https://ilia-brykin.github.io/aloha/ai/v3/components/ATabs.md): Tab list and associated content panels.
+- [ATemplate](https://ilia-brykin.github.io/aloha/ai/v3/components/ATemplate.md): Schema-driven form element that renders configured HTML content.
+- [ATextarea](https://ilia-brykin.github.io/aloha/ai/v3/components/ATextarea.md): Multiline text input with form label and validation support.
+- [ATooltip](https://ilia-brykin.github.io/aloha/ai/v3/components/ATooltip.md): Tooltip positioned relative to a slotted trigger.
+- [ATranslation](https://ilia-brykin.github.io/aloha/ai/v3/components/ATranslation.md): Renders translated text and optional accessible text or HTML.
+- [ATree](https://ilia-brykin.github.io/aloha/ai/v3/components/ATree.md): Hierarchical widget with optional selection, checkboxes and lazy loading.
+- [AValidatedJson](https://ilia-brykin.github.io/aloha/ai/v3/components/AValidatedJson.md): Schema-driven editor for repeated structured values.
+- [AVerticalScroll](https://ilia-brykin.github.io/aloha/ai/v3/components/AVerticalScroll.md): Scrollable region with scroll-up and scroll-down controls.
+- [AWizard](https://ilia-brykin.github.io/aloha/ai/v3/components/AWizard.md): Multi-step navigation and content panels for a guided flow.
+
+## Optional
+
+- [Interactive documentation](https://ilia-brykin.github.io/aloha/)
+- [2.x package](https://www.npmjs.com/package/aloha-vue/v/2.87.0)

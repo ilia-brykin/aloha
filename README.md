@@ -37,7 +37,7 @@ The styles for aloha-vue are provided in two formats:
 ```javascript
 import { createApp } from "vue";
 import App from "./App.vue";
-import "aloha-vue/dist/aloha-vue.css";
+import "aloha-vue/aloha-vue.css";
 
 const app = createApp(App);
 app.mount("#app");
@@ -51,7 +51,7 @@ app.mount("#app");
 import { createApp } from "vue";
 import App from "./App.vue";
 import { AButton } from "aloha-vue";
-import "aloha-vue/dist/aloha-vue.css";
+import "aloha-vue/aloha-vue.css";
 
 const app = createApp(App);
 
@@ -97,6 +97,18 @@ $ npm run dev
 The documentation can be found in [DOCS](https://ilia-brykin.github.io/aloha/). Each component has a dedicated demo page outlining both basic and advanced usage, along with an overview table.
 
 [Aloha documentation](https://ilia-brykin.github.io/aloha/) is available in English, German, Spanish, French, Arabic, Italian, Russian, Croatian, Ukrainian, Dutch, and Polish.
+
+## AI assistants
+
+The [Aloha Vue 3 documentation index](https://ilia-brykin.github.io/aloha/llms.txt) links to a versioned API reference and Vue example for each public UI component. In this repository you can open [the source index](docs/public/llms.txt).
+
+Copy the [Aloha Vue skill](.agents/skills/aloha-vue/) to `.agents/skills/aloha-vue/` in your consuming project for Codex, or to `.claude/skills/aloha-vue/` for Claude Code.
+
+Example prompt:
+
+> Use the Aloha Vue skill to build a keyboard-accessible form with ASelect and ADatepicker. Check the installed version and use the matching examples.
+
+Run `node docs/scripts/check-ai-docs.mjs` from the repository root to check component coverage and links.
 
 ## Tests
 
