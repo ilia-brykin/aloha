@@ -3,6 +3,7 @@ export { default as AAccordion } from "./AAccordion/AAccordion";
 export { default as AAlert } from "./AAlert/AAlert";
 export { default as AAvatar } from "./AAvatar/AAvatar";
 export { default as AAvatarGroup } from "./AAvatarGroup/AAvatarGroup";
+export { default as ABreadcrumb } from "./ABreadcrumb/ABreadcrumb";
 export { default as AButton } from "./AButton/AButton";
 export { default as ACheckbox } from "./ui/ACheckbox/ACheckbox";
 export { default as ACheckboxRadioGroups } from "./ui/ACheckboxRadioGroups/ACheckboxRadioGroups";
