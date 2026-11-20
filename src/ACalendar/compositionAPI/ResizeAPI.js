@@ -5,19 +5,15 @@ import {
   toRef,
 } from "vue";
 
-import {
-  getMinutesOfDay,
-} from "../utils/utils";
-
 import moment from "moment";
 import {
   isFunction,
 } from "lodash-es";
 
 /**
- * Changes the end of an event by pulling its edge (pointer events, also on touch screens):
- * in the time grid the bottom edge (the time), in the month and in the all-day row the end edge (the last day).
- * The calendar does not change the events: it emits "event-resize" with the new end, the parent saves it.
+ * Changes the start or the end of an event by pulling its edge (pointer events, also on touch screens):
+ * in the time grid the top and the bottom edge (the time), in the month and in the all-day row the start and the end edge (the day).
+ * The calendar does not change the events: it emits "event-resize" with the new start and end, the parent saves them.
  */
 export default function ResizeAPI(props, {
   emit,
@@ -29,7 +25,7 @@ export default function ResizeAPI(props, {
   const isResizable = toRef(props, "isResizable");
 
   let resizeState = null;
-  // The event while it is resized: its new end and (month, all-day row) the day under the pointer
+  // The event while it is resized: its new start and end and (month, all-day row) the day under the pointer
   const resizePreview = ref(undefined);
 
   const isEventResizable = event => {
@@ -38,34 +34,58 @@ export default function ResizeAPI(props, {
 
   const isResizing = () => !!resizeState;
 
-  const getEndForTime = $event => {
+  // Minutes from the start of the day of the event: 24:00 is 1440, not 0 of the next day
+  const getMinutesFromDay = date => moment(date).diff(moment(resizeState.event.startDay), "minutes");
+
+  // The time grid: the time at the pointer, rounded to timeStep. Start and end stay at least one step apart.
+  const getPreviewForTime = $event => {
     const RECT = resizeState.column.getBoundingClientRect();
     const RATIO = RECT.height ? ($event.clientY - RECT.top) / RECT.height : 0;
     const STEP = timeStepLocal.value;
-    const START_MINUTES = getMinutesOfDay(resizeState.event.start);
+    const EVENT = resizeState.event;
     const MINUTES = Math.round((minuteStart.value + RATIO * minutesCount.value) / STEP) * STEP;
-    const END_MINUTES = Math.min(Math.max(MINUTES, START_MINUTES + STEP), minuteEnd.value);
+    const toDate = minutes => moment(EVENT.startDay).add(minutes, "minutes").toDate();
+    if (resizeState.edge === "start") {
+      return {
+        start: toDate(Math.max(Math.min(MINUTES, getMinutesFromDay(EVENT.end) - STEP), minuteStart.value)),
+        end: EVENT.end,
+      };
+    }
     return {
-      end: moment(resizeState.event.startDay).add(END_MINUTES, "minutes").toDate(),
+      start: EVENT.start,
+      end: toDate(Math.min(Math.max(MINUTES, getMinutesFromDay(EVENT.start) + STEP), minuteEnd.value)),
     };
   };
 
-  // The day under the pointer (the events let it through while resizing), not before the first day of the event
-  const getEndForDay = $event => {
+  /*
+   * The month and the all-day row: the day under the pointer (the events let it through while resizing).
+   * The start is not after the last day, the end is not before the first day. The time stays.
+   */
+  const getPreviewForDay = $event => {
     const ELEMENT = document.elementFromPoint($event.clientX, $event.clientY)?.closest("[data-calendar-day]");
     if (!ELEMENT) {
       return undefined;
     }
     const EVENT = resizeState.event;
-    const DAY_KEY = ELEMENT.dataset.calendarDay < EVENT.startDay ? EVENT.startDay : ELEMENT.dataset.calendarDay;
+    const KEY = ELEMENT.dataset.calendarDay;
+    if (resizeState.edge === "start") {
+      const DAY_KEY = KEY > EVENT.endDay ? EVENT.endDay : KEY;
+      return {
+        start: moment(EVENT.start).add(moment(DAY_KEY).diff(moment(EVENT.startDay), "days"), "days").toDate(),
+        end: EVENT.end,
+        dayKey: DAY_KEY,
+      };
+    }
+    const DAY_KEY = KEY < EVENT.startDay ? EVENT.startDay : KEY;
     return {
+      start: EVENT.start,
       end: moment(EVENT.end).add(moment(DAY_KEY).diff(moment(EVENT.endDay), "days"), "days").toDate(),
       dayKey: DAY_KEY,
     };
   };
 
   const onPointermove = $event => {
-    const PREVIEW = resizeState.mode === "time" ? getEndForTime($event) : getEndForDay($event);
+    const PREVIEW = resizeState.mode === "time" ? getPreviewForTime($event) : getPreviewForDay($event);
     if (PREVIEW) {
       resizePreview.value = {
         key: resizeState.event.key,
@@ -98,12 +118,12 @@ export default function ResizeAPI(props, {
 
   function onPointerup($event) {
     const EVENT = resizeState.event;
-    const END = resizePreview.value?.end;
-    if (END && END.getTime() !== EVENT.end.getTime()) {
+    const PREVIEW = resizePreview.value;
+    if (PREVIEW && (PREVIEW.start.getTime() !== EVENT.start.getTime() || PREVIEW.end.getTime() !== EVENT.end.getTime())) {
       emit("event-resize", {
         event: EVENT.item,
-        start: EVENT.start,
-        end: END,
+        start: PREVIEW.start,
+        end: PREVIEW.end,
         $event,
       });
     }
@@ -117,9 +137,10 @@ export default function ResizeAPI(props, {
 
   /**
    * @param {Object} event - The normalized event
-   * @param {string} mode - "time" (bottom edge in the time grid) or "day" (end edge of a bar)
+   * @param {string} mode - "time" (time grid) or "day" (a bar in the month or in the all-day row)
+   * @param {string} edge - "start" or "end"
    */
-  const startResize = ({ event, mode, $event }) => {
+  const startResize = ({ event, mode, edge, $event }) => {
     if ($event.button > 0) {
       return;
     }
@@ -129,10 +150,12 @@ export default function ResizeAPI(props, {
     resizeState = {
       event,
       mode,
+      edge,
       column: mode === "time" ? $event.currentTarget.closest(".a_calendar__time_column") : null,
     };
     resizePreview.value = {
       key: event.key,
+      start: event.start,
       end: event.end,
     };
     window.addEventListener("pointermove", onPointermove);
@@ -140,19 +163,22 @@ export default function ResizeAPI(props, {
     window.addEventListener("pointercancel", onPointercancel);
   };
 
-  // Time grid: the event with the new end while it is resized
+  // Time grid: the event with the new start and end while it is resized
   const getTimedItemWithPreview = item => {
     if (resizePreview.value?.key !== item.event.key) {
       return item;
     }
-    const END = resizePreview.value.end;
+    const { start, end } = resizePreview.value;
+    const START_OF_DAY = moment(item.event.startDay);
+    const START = Math.max(moment(start).diff(START_OF_DAY, "minutes"), minuteStart.value);
     return {
       ...item,
-      // 24:00 is the next day: the minutes are counted from the start of the day of the event
-      end: Math.max(item.start, Math.min(moment(END).diff(moment(item.event.startDay), "minutes"), minuteEnd.value)),
+      start: START,
+      end: Math.max(START, Math.min(moment(end).diff(START_OF_DAY, "minutes"), minuteEnd.value)),
       event: {
         ...item.event,
-        end: END,
+        start,
+        end,
       },
     };
   };

@@ -402,15 +402,15 @@ export default {
       };
     },
 
-    // The edge that changes the end: the bottom in the time grid, the end of a bar in the month and the all-day row
-    renderResizeHandle(event, mode) {
+    // The edges that change the start and the end: top and bottom in the time grid, start and end of a bar in the month and the all-day row
+    renderResizeHandle(event, mode, edge) {
       if (!this.isEventResizable(event)) {
         return null;
       }
       return h("span", {
-        class: ["a_calendar__resize_handle", `a_calendar__resize_handle_${ mode }`],
+        class: ["a_calendar__resize_handle", `a_calendar__resize_handle_${ mode }`, `a_calendar__resize_handle_${ edge }`],
         "aria-hidden": "true",
-        onPointerdown: $event => this.startResize({ event, mode, $event }),
+        onPointerdown: $event => this.startResize({ event, mode, edge, $event }),
       });
     },
 
@@ -509,7 +509,9 @@ export default {
           isEnd: segment.isEnd,
           time: segment.isStart ? this.getEventTimeText(EVENT) : "",
         }),
-        segment.isEnd && this.renderResizeHandle(EVENT, "day"),
+        // Only the first and the last bar of an event over several weeks have the edges
+        segment.isStart && this.renderResizeHandle(EVENT, "day", "start"),
+        segment.isEnd && this.renderResizeHandle(EVENT, "day", "end"),
       ]);
     },
 
@@ -583,7 +585,8 @@ export default {
           event: EVENT,
           time: IS_SHORT ? this.getEventTimeText(EVENT) : this.getEventTimeRangeText(EVENT),
         }),
-        this.renderResizeHandle(itemOriginal.event, "time"),
+        this.renderResizeHandle(itemOriginal.event, "time", "start"),
+        this.renderResizeHandle(itemOriginal.event, "time", "end"),
       ]);
     },
 
