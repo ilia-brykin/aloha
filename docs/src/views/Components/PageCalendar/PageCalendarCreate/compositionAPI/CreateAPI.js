@@ -47,8 +47,10 @@ export default function CreateAPI() {
     },
   ];
 
+  const isEditing = computed(() => editedId.value !== undefined);
+
   const headerText = computed(() => {
-    return editedId.value === undefined ? "_A_CALENDAR_CREATE_MODAL_NEW_" : "_A_CALENDAR_CREATE_MODAL_EDIT_";
+    return isEditing.value ? "_A_CALENDAR_CREATE_MODAL_EDIT_" : "_A_CALENDAR_CREATE_MODAL_NEW_";
   });
 
   const isSaveDisabled = computed(() => !model.value.label || !model.value.start);
@@ -85,7 +87,7 @@ export default function CreateAPI() {
   };
 
   const save = () => {
-    if (editedId.value === undefined) {
+    if (!isEditing.value) {
       events.value = [...events.value, { ...model.value, id: Date.now() }];
     } else {
       events.value = events.value.map(event => event.id === editedId.value ? { ...model.value, id: editedId.value } : event);
@@ -93,11 +95,18 @@ export default function CreateAPI() {
     closeModal();
   };
 
+  const deleteEvent = () => {
+    events.value = events.value.filter(event => event.id !== editedId.value);
+    closeModal();
+  };
+
   return {
     closeModal,
     dataForm,
+    deleteEvent,
     events,
     headerText,
+    isEditing,
     isModalVisible,
     isSaveDisabled,
     model,
