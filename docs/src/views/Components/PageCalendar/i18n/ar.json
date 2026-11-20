@@ -20,7 +20,7 @@
   "_A_CALENDAR_EXPORT_DOWNLOAD_": "تنزيل كـ iCal",
   "_A_CALENDAR_EXPORT_PREVIEW_": "معاينة",
   "_A_CALENDAR_IMPORT_HEADER_": "استيراد (iCal)",
-  "_A_CALENDAR_IMPORT_DESCRIPTION_": "تقرأ <code>parseCalendarIcs(text)</code> ملف .ics إلى مواعيد التقويم: <code>{ events, skipped, warnings }</code>. لا يحفظها التقويم: اعرضها، ودع المستخدم يؤكد، واحفظها على الخادم. تتحول الأوقات بتوقيت UTC ومع <code>TZID</code> إلى التوقيت المحلي، ويصبح <code>RRULE</code> و<code>EXDATE</code> قيمة <code>recurrence</code>، ويصبح التكرار المعدّل (<code>RECURRENCE-ID</code>) موعدًا مفردًا واستثناءً من سلسلته، ويُحتفظ بـ<code>DESCRIPTION</code> و<code>LOCATION</code>. يُبلَّغ عمّا لا يستطيع التقويم عرضه: قاعدة مثل \"الثلاثاء الثاني\" (يُستورد الموعد مرة واحدة) أو منطقة زمنية غير معروفة (يُستخدم التوقيت المحلي). تُتخطى المواعيد الملغاة.",
+  "_A_CALENDAR_IMPORT_DESCRIPTION_": "تقرأ <code>parseCalendarIcs(text)</code> ملف .ics إلى مواعيد التقويم: <code>{ events, skipped, warnings }</code>. لا يحفظها التقويم: اعرضها، ودع المستخدم يؤكد، واحفظها على الخادم. تتحول الأوقات بتوقيت UTC ومع <code>TZID</code> (وكذلك أسماء Windows من Outlook مثل \"W. Europe Standard Time\") إلى التوقيت المحلي، ويصبح <code>RRULE</code> و<code>EXDATE</code> قيمة <code>recurrence</code>، ويصبح التكرار المعدّل (<code>RECURRENCE-ID</code>) موعدًا مفردًا واستثناءً من سلسلته، ويُحتفظ بـ<code>DESCRIPTION</code> و<code>LOCATION</code>. يُبلَّغ عمّا لا يستطيع التقويم عرضه: قاعدة مثل \"الثلاثاء الثاني\" (يُستورد الموعد مرة واحدة) أو منطقة زمنية غير معروفة (يُستخدم التوقيت المحلي). تُتخطى المواعيد الملغاة.",
   "_A_CALENDAR_IMPORT_FILE_": "ملف iCal (.ics)",
   "_A_CALENDAR_IMPORT_SAMPLE_": "استخدام ملف المثال",
   "_A_CALENDAR_IMPORT_READ_{{count}}_": "تمت قراءة {{count}} موعدًا",

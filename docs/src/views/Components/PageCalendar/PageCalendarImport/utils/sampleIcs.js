@@ -5,7 +5,7 @@ import {
 const day = number => getDemoDay(number).replace(/-/g, "");
 
 /**
- * An iCalendar file with the cases of the import: a time zone, a series with a changed occurrence,
+ * An iCalendar file with the cases of the import: time zones (IANA and Windows), a series with a changed occurrence,
  * an event over several days, a rule the calendar cannot show and a cancelled event.
  */
 export function getSampleIcs() {
@@ -19,6 +19,13 @@ export function getSampleIcs() {
     `DTSTART;TZID=America/New_York:${ day(4) }T100000`,
     `DTEND;TZID=America/New_York:${ day(4) }T110000`,
     "LOCATION:Zoom",
+    "END:VEVENT",
+    "BEGIN:VEVENT",
+    "UID:london@example.com",
+    "SUMMARY:Call London (Outlook)",
+    // Outlook writes the Windows name of the time zone
+    `DTSTART;TZID=GMT Standard Time:${ day(6) }T120000`,
+    `DTEND;TZID=GMT Standard Time:${ day(6) }T123000`,
     "END:VEVENT",
     "BEGIN:VEVENT",
     "UID:yoga@example.com",

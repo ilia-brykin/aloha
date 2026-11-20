@@ -6,6 +6,9 @@ import {
 
 import moment from "moment";
 import {
+  WINDOWS_TIME_ZONES,
+} from "../utils/windowsTimeZones";
+import {
   getCalendarIcs,
 } from "../utils/ics";
 import {
@@ -63,10 +66,27 @@ describe("parseCalendarIcs", () => {
     expect(events[2].start).toBe("2026-03-10T09:00:00");
   });
 
-  it("an unknown time zone (Windows name of Outlook): the local time and a warning", () => {
-    const { events, warnings } = parseCalendarIcs(calendar(["UID:w", "SUMMARY:Outlook", "DTSTART;TZID=W. Europe Standard Time:20260310T090000"]));
+  it("the Windows names of Outlook are converted with their IANA names", () => {
+    const { events, warnings } = parseCalendarIcs(calendar(
+      // Berlin: UTC+1 in winter, UTC+2 after the 29th of March 2026
+      ["UID:berlin", "DTSTART;TZID=W. Europe Standard Time:20260310T090000", "DTEND;TZID=W. Europe Standard Time:20260310T100000"],
+      ["UID:berlin-summer", "DTSTART;TZID=\"W. Europe Standard Time\":20260701T090000"],
+      // New York: UTC-4 after the 8th of March 2026
+      ["UID:new-york", "DTSTART;TZID=Eastern Standard Time:20260310T090000"],
+      ["UID:tokyo", "DTSTART;TZID=Tokyo Standard Time:20260310T090000"],
+    ));
+    expect(warnings).toEqual([]);
+    expect(events[0].start).toBe(localFromUtc(2026, 2, 10, 8, 0));
+    expect(events[0].end).toBe(localFromUtc(2026, 2, 10, 9, 0));
+    expect(events[1].start).toBe(localFromUtc(2026, 6, 1, 7, 0));
+    expect(events[2].start).toBe(localFromUtc(2026, 2, 10, 13, 0));
+    expect(events[3].start).toBe(localFromUtc(2026, 2, 10, 0, 0));
+  });
+
+  it("an unknown time zone: the local time and a warning", () => {
+    const { events, warnings } = parseCalendarIcs(calendar(["UID:w", "SUMMARY:Mars", "DTSTART;TZID=Mars Standard Time:20260310T090000"]));
     expect(events[0].start).toBe("2026-03-10T09:00:00");
-    expect(warnings).toEqual([{ uid: "w", label: "Outlook", code: "timeZoneUnknown", value: "W. Europe Standard Time" }]);
+    expect(warnings).toEqual([{ uid: "w", label: "Mars", code: "timeZoneUnknown", value: "Mars Standard Time" }]);
   });
 
   it("folded lines, escaped text, DURATION, DESCRIPTION and LOCATION, alarms are ignored", () => {
@@ -167,6 +187,14 @@ describe("parseCalendarIcs", () => {
       { ...EVENTS[2], id: "standup@aloha-vue" },
       { ...EVENTS[3], id: "4@aloha-vue" },
     ]);
+  });
+
+  it("the table: every Windows name has an IANA name that Intl knows", () => {
+    const NAMES = Object.keys(WINDOWS_TIME_ZONES);
+    expect(NAMES.length).toBeGreaterThan(130);
+    NAMES.forEach(name => {
+      expect(() => new Intl.DateTimeFormat("en-US", { timeZone: WINDOWS_TIME_ZONES[name] })).not.toThrow();
+    });
   });
 
   it("an empty or broken text has no events", () => {
