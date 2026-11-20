@@ -9,6 +9,7 @@ import DragAPI from "./compositionAPI/DragAPI";
 import EventsAPI from "./compositionAPI/EventsAPI";
 import FocusAPI from "./compositionAPI/FocusAPI";
 import PeriodAPI from "./compositionAPI/PeriodAPI";
+import ResizeAPI from "./compositionAPI/ResizeAPI";
 import TextsAPI from "./compositionAPI/TextsAPI";
 import WeekViewAPI from "./compositionAPI/WeekViewAPI";
 
@@ -63,6 +64,11 @@ export default {
       default: () => uniqueId("a_calendar_"),
     },
     isDraggable: {
+      type: [Boolean, Function],
+      required: false,
+      default: false,
+    },
+    isResizable: {
       type: [Boolean, Function],
       required: false,
       default: false,
@@ -134,6 +140,7 @@ export default {
     "day-click",
     "event-click",
     "event-drop",
+    "event-resize",
     "more-click",
     "range-change",
     "time-click",
@@ -170,17 +177,33 @@ export default {
       getMinutesAtY,
       getTimedStyle,
       hours,
+      minuteEnd,
       minuteStart,
       minutesCount,
       nowStyle,
       onClickTime,
       setTimeScrollElement,
+      timeStepLocal,
       weekView,
     } = WeekViewAPI(props, {
       emit,
       eventsNormalized,
       isTimeGridView,
       timeGridDays,
+    });
+
+    const {
+      getTimedItemWithPreview,
+      isEventResizable,
+      isResizing,
+      resizePreview,
+      startResize,
+    } = ResizeAPI(props, {
+      emit,
+      minuteEnd,
+      minuteStart,
+      minutesCount,
+      timeStepLocal,
     });
 
     const {
@@ -197,6 +220,7 @@ export default {
     } = DragAPI(props, {
       emit,
       getMinutesAtY,
+      isResizing,
       minuteStart,
       minutesCount,
     });
@@ -260,12 +284,14 @@ export default {
       getHourText,
       getMoreText,
       getText,
+      getTimedItemWithPreview,
       getTimedStyle,
       goToNext,
       goToPrevious,
       goToToday,
       hours,
       isEventDraggable,
+      isEventResizable,
       isTimeGridView,
       modelValueKey,
       nowStyle,
@@ -282,8 +308,10 @@ export default {
       onKeydownDay,
       range,
       resetDrag,
+      resizePreview,
       setDayElement,
       setTimeScrollElement,
+      startResize,
       tabbableKey,
       timeGridWeekdays,
       title,
@@ -374,9 +402,26 @@ export default {
       };
     },
 
-    // A day where an event can be dropped: it keeps its time
+    // The edge that changes the end: the bottom in the time grid, the end of a bar in the month and the all-day row
+    renderResizeHandle(event, mode) {
+      if (!this.isEventResizable(event)) {
+        return null;
+      }
+      return h("span", {
+        class: ["a_calendar__resize_handle", `a_calendar__resize_handle_${ mode }`],
+        "aria-hidden": "true",
+        onPointerdown: $event => this.startResize({ event, mode, $event }),
+      });
+    },
+
+    isDayTarget(day) {
+      return this.dropTargetKey === day.key || this.resizePreview?.dayKey === day.key;
+    },
+
+    // A day where an event can be dropped: it keeps its time. data-calendar-day: the day under the pointer while resizing
     getDropDayAttributes(day) {
       return {
+        "data-calendar-day": day.key,
         onDragover: $event => this.onDragoverDay({ day, $event }),
         onDrop: $event => this.onDropDay({ day, $event }),
       };
@@ -394,7 +439,7 @@ export default {
           a_calendar__day_selected: IS_SELECTED,
           a_calendar__day_today: day.isToday,
           a_calendar__day_weekend: day.isWeekend,
-          a_calendar__drop_target: this.dropTargetKey === day.key,
+          a_calendar__drop_target: this.isDayTarget(day),
         }],
         style: {
           gridColumn,
@@ -457,12 +502,15 @@ export default {
           dayKeys: days.slice(segment.start, segment.start + segment.span).map(day => day.key),
         }),
         onClick: $event => this.onClickEvent({ event: EVENT, $event }),
-      }, this.renderEventContent({
-        event: EVENT,
-        isStart: segment.isStart,
-        isEnd: segment.isEnd,
-        time: segment.isStart ? this.getEventTimeText(EVENT) : "",
-      }));
+      }, [
+        this.renderEventContent({
+          event: EVENT,
+          isStart: segment.isStart,
+          isEnd: segment.isEnd,
+          time: segment.isStart ? this.getEventTimeText(EVENT) : "",
+        }),
+        segment.isEnd && this.renderResizeHandle(EVENT, "day"),
+      ]);
     },
 
     renderMore(day, index, lanesCount) {
@@ -508,7 +556,9 @@ export default {
       ]);
     },
 
-    renderTimedEvent(item) {
+    renderTimedEvent(itemOriginal) {
+      // While the end is pulled, the event shows its new end
+      const item = this.getTimedItemWithPreview(itemOriginal);
       const EVENT = item.event;
       const COLOR = this.getEventColorAttributes(EVENT);
       // A short event shows only the start, so the title fits in the line
@@ -526,12 +576,15 @@ export default {
         },
         title: this.getEventAriaLabel(EVENT),
         "aria-label": this.getEventAriaLabel(EVENT),
-        ...this.getDragAttributes(EVENT, { dayKeys: [EVENT.startDay], isTimed: true }),
-        onClick: $event => this.onClickEvent({ event: EVENT, $event }),
-      }, this.renderEventContent({
-        event: EVENT,
-        time: IS_SHORT ? this.getEventTimeText(EVENT) : this.getEventTimeRangeText(EVENT),
-      }));
+        ...this.getDragAttributes(itemOriginal.event, { dayKeys: [EVENT.startDay], isTimed: true }),
+        onClick: $event => this.onClickEvent({ event: itemOriginal.event, $event }),
+      }, [
+        this.renderEventContent({
+          event: EVENT,
+          time: IS_SHORT ? this.getEventTimeText(EVENT) : this.getEventTimeRangeText(EVENT),
+        }),
+        this.renderResizeHandle(itemOriginal.event, "time"),
+      ]);
     },
 
     // The week and the day: a column for every day under the hours
@@ -579,7 +632,7 @@ export default {
             key: day.key,
             class: ["a_calendar__all_day_cell", {
               a_calendar__day_weekend: day.isWeekend,
-              a_calendar__drop_target: this.dropTargetKey === day.key,
+              a_calendar__drop_target: this.isDayTarget(day),
             }],
             style: {
               gridColumn: index + 2,
@@ -640,6 +693,7 @@ export default {
       id: this.id,
       class: ["a_calendar", `a_calendar_${ this.viewLocal }`, {
         a_calendar_dragging: this.draggingKey !== undefined,
+        a_calendar_resizing: this.resizePreview !== undefined,
       }],
     }, [
       this.renderHeader(),

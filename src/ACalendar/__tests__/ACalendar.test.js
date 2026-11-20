@@ -437,6 +437,90 @@ describe("ACalendar", () => {
     });
   });
 
+  describe("resize", () => {
+    const pointer = (type, init) => window.dispatchEvent(new MouseEvent(type, { bubbles: true, ...init }));
+    const findTimed = (wrapper, label) => wrapper.findAll(".a_calendar__event_timed").find(event => event.text().includes(label));
+
+    it("is off by default, the handle is only at the end of a bar", () => {
+      expect(mountCalendar({ view: "week" }).find(".a_calendar__resize_handle").exists()).toBe(false);
+      const wrapper = mountCalendar({ isResizable: true });
+      const TRIP = wrapper.findAll(".a_calendar__event").filter(event => event.text().includes("Trip"));
+      expect(TRIP[0].find(".a_calendar__resize_handle").exists()).toBe(false);
+      expect(TRIP[1].find(".a_calendar__resize_handle_day").exists()).toBe(true);
+      wrapper.unmount();
+    });
+
+    it("time grid: the bottom edge changes the end in steps of timeStep, with a preview", async() => {
+      const wrapper = mountCalendar({ view: "week", isResizable: true });
+      wrapper.findAll(".a_calendar__time_column")[1].element.getBoundingClientRect = () => ({ top: 0, height: 1440 });
+      await findTimed(wrapper, "Meeting").get(".a_calendar__resize_handle_time").trigger("pointerdown");
+      expect(wrapper.get(".a_calendar").classes()).toContain("a_calendar_resizing");
+
+      // 11:50 is rounded to 12:00
+      pointer("pointermove", { clientY: 710 });
+      await nextTick();
+      const MEETING = findTimed(wrapper, "Meeting");
+      expect(MEETING.get(".a_calendar__event_time").text()).toBe("09:00 – 12:00");
+      expect(MEETING.attributes("style")).toContain("height: 12.5%");
+
+      pointer("pointerup", { clientY: 710 });
+      await nextTick();
+      const RESIZE = wrapper.emitted("event-resize")[0][0];
+      expect(RESIZE.event).toEqual(EVENTS[1]);
+      expect(RESIZE.start).toEqual(new Date(2026, 2, 10, 9, 0));
+      expect(RESIZE.end).toEqual(new Date(2026, 2, 10, 12, 0));
+      expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_resizing");
+
+      // The click after pulling is not a click on the event
+      await findTimed(wrapper, "Meeting").trigger("click");
+      expect(wrapper.emitted("event-click")).toBeUndefined();
+      wrapper.unmount();
+    });
+
+    it("time grid: the end is at least one timeStep after the start", async() => {
+      const wrapper = mountCalendar({ view: "week", isResizable: true });
+      wrapper.findAll(".a_calendar__time_column")[1].element.getBoundingClientRect = () => ({ top: 0, height: 1440 });
+      await findTimed(wrapper, "Meeting").get(".a_calendar__resize_handle_time").trigger("pointerdown");
+      pointer("pointermove", { clientY: 100 });
+      pointer("pointerup", { clientY: 100 });
+      expect(wrapper.emitted("event-resize")[0][0].end).toEqual(new Date(2026, 2, 10, 9, 30));
+      wrapper.unmount();
+    });
+
+    it("month: the end edge changes the last day, the time stays", async() => {
+      const wrapper = mountCalendar({ isResizable: true });
+      const DAY_14 = wrapper.findAll(".a_calendar__day:not(.a_calendar__day_other_month)").find(day => day.text() === "14");
+      const ELEMENT_FROM_POINT = document.elementFromPoint;
+      document.elementFromPoint = () => DAY_14.element;
+
+      const MEETING = wrapper.findAll(".a_calendar__event").find(event => event.text().includes("Meeting"));
+      await MEETING.get(".a_calendar__resize_handle_day").trigger("pointerdown");
+      pointer("pointermove", { clientX: 1, clientY: 1 });
+      await nextTick();
+      expect(DAY_14.classes()).toContain("a_calendar__drop_target");
+      pointer("pointerup", { clientX: 1, clientY: 1 });
+
+      const RESIZE = wrapper.emitted("event-resize")[0][0];
+      expect(RESIZE.start).toEqual(new Date(2026, 2, 10, 9, 0));
+      expect(RESIZE.end).toEqual(new Date(2026, 2, 14, 10, 30));
+      document.elementFromPoint = ELEMENT_FROM_POINT;
+      wrapper.unmount();
+    });
+
+    it("no event-resize without a change, pointercancel stops", async() => {
+      const wrapper = mountCalendar({ view: "week", isResizable: true });
+      await findTimed(wrapper, "Meeting").get(".a_calendar__resize_handle_time").trigger("pointerdown");
+      pointer("pointerup", {});
+      expect(wrapper.emitted("event-resize")).toBeUndefined();
+
+      await findTimed(wrapper, "Meeting").get(".a_calendar__resize_handle_time").trigger("pointerdown");
+      pointer("pointercancel", {});
+      await nextTick();
+      expect(wrapper.get(".a_calendar").classes()).not.toContain("a_calendar_resizing");
+      wrapper.unmount();
+    });
+  });
+
   it("ignores events without a valid start", () => {
     const wrapper = mountCalendar({ events: [{ id: 1, label: "No start" }, { id: 2, label: "Invalid", start: "Aloha" }] });
     expect(wrapper.findAll(".a_calendar__event")).toHaveLength(0);

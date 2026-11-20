@@ -4,7 +4,9 @@ export default function HtmlAPI() {
   v-model:view="view"
   :events="events"
   :is-draggable="isDraggable"
-  @event-drop="onEventDrop"
+  :is-resizable="isDraggable"
+  @event-drop="onEventChange"
+  @event-resize="onEventChange"
 />
 <p v-if="lastDrop">
   <a-translation
