@@ -288,3 +288,34 @@ export function getOccurrenceInfo(event) {
     end: event.end,
   };
 }
+
+/**
+ * Reads an event with the keys of the calendar. Returns undefined for an event without a valid start.
+ *
+ * @param {Object} keys - keyId, keyLabel, keyStart, keyEnd, keyColor, keyIsAllDay, keyRecurrence
+ *
+ * @returns {Object} - the event with start and end (Date), the days ("YYYY-MM-DD") and the rule of a series (recurrence)
+ */
+export function normalizeEventItem({ item, index, keys, colorDefault }) {
+  const START = toMoment(getItemValue(item, keys.keyStart));
+  if (!START) {
+    return undefined;
+  }
+  let end = toMoment(getItemValue(item, keys.keyEnd));
+  if (!end || end.isBefore(START)) {
+    end = START;
+  }
+  return {
+    key: getItemValue(item, keys.keyId) ?? index,
+    label: getItemValue(item, keys.keyLabel),
+    color: getItemValue(item, keys.keyColor) || colorDefault,
+    isAllDay: !!getItemValue(item, keys.keyIsAllDay),
+    start: START.toDate(),
+    end: end.toDate(),
+    startDay: toDayKey(START),
+    endDay: toDayKey(end),
+    startTime: START.valueOf(),
+    recurrence: normalizeRecurrence(getItemValue(item, keys.keyRecurrence)),
+    item,
+  };
+}

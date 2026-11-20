@@ -4,12 +4,10 @@ import {
 } from "vue";
 
 import {
-  getItemValue,
   getOccurrences,
   getWeekSegments,
-  normalizeRecurrence,
+  normalizeEventItem,
   toDayKey,
-  toMoment,
 } from "../utils/utils";
 
 import {
@@ -31,30 +29,24 @@ export default function EventsAPI(props, {
   const keyStart = toRef(props, "keyStart");
   const maxEventsPerDay = toRef(props, "maxEventsPerDay");
 
+  const keys = computed(() => ({
+    keyColor: keyColor.value,
+    keyEnd: keyEnd.value,
+    keyId: keyId.value,
+    keyIsAllDay: keyIsAllDay.value,
+    keyLabel: keyLabel.value,
+    keyRecurrence: keyRecurrence.value,
+    keyStart: keyStart.value,
+  }));
+
   const eventsNormalized = computed(() => {
     const EVENTS = [];
     (events.value || []).forEach((item, index) => {
-      const START = toMoment(getItemValue(item, keyStart.value));
-      if (!START) {
+      const EVENT = normalizeEventItem({ item, index, keys: keys.value, colorDefault: colorDefault.value });
+      if (!EVENT) {
         return;
       }
-      let end = toMoment(getItemValue(item, keyEnd.value));
-      if (!end || end.isBefore(START)) {
-        end = START;
-      }
-      const EVENT = {
-        key: getItemValue(item, keyId.value) ?? index,
-        label: getItemValue(item, keyLabel.value),
-        color: getItemValue(item, keyColor.value) || colorDefault.value,
-        isAllDay: !!getItemValue(item, keyIsAllDay.value),
-        start: START.toDate(),
-        end: end.toDate(),
-        startDay: toDayKey(START),
-        endDay: toDayKey(end),
-        startTime: START.valueOf(),
-        item,
-      };
-      const RECURRENCE = normalizeRecurrence(getItemValue(item, keyRecurrence.value));
+      const RECURRENCE = EVENT.recurrence;
       if (!RECURRENCE) {
         EVENTS.push(EVENT);
         return;
@@ -136,6 +128,7 @@ export default function EventsAPI(props, {
 
   return {
     eventsNormalized,
+    keys,
     getEventColorAttributes,
     getEventsForDay,
     weeksWithEvents,
