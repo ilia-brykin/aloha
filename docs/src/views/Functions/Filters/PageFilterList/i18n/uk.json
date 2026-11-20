@@ -10,5 +10,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "HTML-тег для всього списку",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "CSS-клас, наприклад: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "Функція створює список із масиву.",
-  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Деревоподібна структура isSimpleArray=true"
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Деревоподібна структура isSimpleArray=true",
+  "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_": "Значення, яке повертається, якщо масив порожній або це не масив",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_": "HTML між елементами, наприклад перенесення рядка (лише якщо <strong>isHtml=true</strong>)"
 }

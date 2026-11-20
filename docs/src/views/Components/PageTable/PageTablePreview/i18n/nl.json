@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Voorbeeld rechts",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "De slot <code>preview</code> toont details van de aangeklikte rij naast de tabel. <code>disabled-preview-row-callback</code> schakelt het voorbeeld uit voor afzonderlijke rijen.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Voorbeeld met paginering",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "Het voorbeeld werkt ook met <code>pagination.use</code>: de knoppen van het voorbeeld gaan naar de vorige en volgende rij."
 }

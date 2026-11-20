@@ -18,5 +18,21 @@
   "_A_TOOLTIP_GROUP_ARROW_PADDING_HEADER_": "Отступ стрелки",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_DESCRIPTION_": "Задаёт отступ, который ограничивает, насколько близко стрелка может подходить к краям подсказки.",
   "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_HEADER_": "Callback для отступа стрелки",
-  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Отступ стрелки также можно вычислять динамически с помощью callback-функции."
+  "_A_TOOLTIP_GROUP_ARROW_PADDING_FUNCTION_DESCRIPTION_": "Отступ стрелки также можно вычислять динамически с помощью callback-функции.",
+  "_A_TOOLTIP_PROPS_ARROW_PADDING_DESCRIPTION_": "Минимальное расстояние в px между стрелкой и краями тултипа. Функция получает размеры и возвращает число.",
+  "_A_TOOLTIP_PROPS_ID_DESCRIPTION_": "ID тултипа. Элемент получает aria-describedby с этим ID.",
+  "_A_TOOLTIP_PROPS_IS_HIDE_DESCRIPTION_": "Тултип не показывается, только содержимое слота по умолчанию.",
+  "_A_TOOLTIP_PROPS_MAX_WIDTH_DESCRIPTION_": "Максимальная ширина тултипа в px.",
+  "_A_TOOLTIP_PROPS_MIN_WIDTH_DESCRIPTION_": "Минимальная ширина тултипа в px.",
+  "_A_TOOLTIP_PROPS_OFFSET_DISTANCE_DESCRIPTION_": "Расстояние в px между тултипом и элементом.",
+  "_A_TOOLTIP_PROPS_OFFSET_SKIDDING_DESCRIPTION_": "Сдвиг тултипа в px вдоль элемента.",
+  "_A_TOOLTIP_PROPS_PLACEMENT_DESCRIPTION_": "Положение тултипа относительно элемента, например top, bottom, left, right, top-start.",
+  "_A_TOOLTIP_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_": "ID контейнера в конце body, в котором рендерится тултип.",
+  "_A_TOOLTIP_PROPS_SHOW_ARROW_DESCRIPTION_": "Показывает стрелку тултипа.",
+  "_A_TOOLTIP_PROPS_TAG_DESCRIPTION_": "HTML-тег элемента вокруг слота по умолчанию.",
+  "_A_TOOLTIP_PROPS_TIME_CLOSE_DESCRIPTION_": "Время в мс до закрытия тултипа после того, как указатель покинул элемент или тултип.",
+  "_A_TOOLTIP_PROPS_WIDTH_DESCRIPTION_": "Фиксированная ширина тултипа в px.",
+  "_A_TOOLTIP_PROPS_WITHOUT_ARIA_DESCRIBEDBY_DESCRIPTION_": "Элемент не получает aria-describedby, например если текст тултипа уже зачитывается иначе.",
+  "_A_TOOLTIP_SLOT_DEFAULT_DESCRIPTION_": "Элемент, который показывает тултип при наведении и фокусе.",
+  "_A_TOOLTIP_SLOT_TITLE_DESCRIPTION_": "Содержимое тултипа."
 }

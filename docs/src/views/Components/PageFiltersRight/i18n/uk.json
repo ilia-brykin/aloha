@@ -1,3 +1,4 @@
 {
-
+  "_A_FILTERS_RIGHT_COMPONENT_NAME_": "Фільтри праворуч",
+  "_A_FILTERS_RIGHT_COMPONENT_DESCRIPTION_": "З <code>view=\"right\"</code> компонент <strong>AFilters</strong> показує фільтри в колонці праворуч від вмісту, а не над ним."
 }

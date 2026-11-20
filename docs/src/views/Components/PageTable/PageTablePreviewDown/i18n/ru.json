@@ -1,3 +1,5 @@
 {
-
+  "_A_TABLE_PREVIEW_DOWN_PAGE_TITLE_": "(Превью под строкой)",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_": "Превью под строкой",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_": "С <code>preview=\"down\"</code> слот <code>preview</code> открывается прямо под нажатой строкой."
 }

@@ -1,5 +1,10 @@
 {
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_HEADER_": "Lignes alternées",
   "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_DESCRIPTION_": "Avec <code>is-striped</code>, une ligne sur deux reçoit le fond <code>--a_table_row_striped_bg</code>. Le survol, les lignes sélectionnées et l'aperçu ouvert gardent leurs propres couleurs. La valeur par défaut de tous les tableaux se règle avec <code>AComponentsPlugin</code> (<code>ATable: { props: { isStriped: true } }</code>).",
-  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tableau à lignes alternées"
+  "_A_TABLE_GROUP_SIMPLE_IS_STRIPED_LABEL_": "Tableau à lignes alternées",
+  "_A_TABLE_COMPONENT_NAME_": "Tableau",
+  "_A_TABLE_COMPONENT_DESCRIPTION_": "Le composant <strong>ATable</strong> affiche des données dans un tableau avec tri, pagination, filtres, recherche rapide, actions de ligne et de tableau, sélection de lignes, aperçu, masquage et déplacement de colonnes, vues enregistrées et vue mobile.",
+  "_A_TABLE_GROUP_COMPLEX_HEADER_": "Tableau avec toutes les fonctions",
+  "_A_TABLE_GROUP_COMPLEX_DESCRIPTION_": "Actions de ligne, de tableau et multiples, recherche rapide, déplacement des colonnes, pagination, lignes de pied, tri sur plusieurs colonnes et vues enregistrées dans un seul tableau.",
+  "_A_TABLE_COLUMN_MULTI_ROWS_": "Colonne Colonne Colonne Colonne Colonne Colonne Colonne Colonne"
 }

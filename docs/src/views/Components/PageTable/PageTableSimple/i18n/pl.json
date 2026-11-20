@@ -2,5 +2,14 @@
   "_A_TABLE_GROUP_SIMPLE_DESCRIPTION_": "Komponent służący do prostej prezentacji danych w formie tabeli, bez zaawansowanych funkcji, takich jak sortowanie, filtrowanie czy dodatkowe akcje.",
   "_A_TABLE_GROUP_SIMPLE_HEADER_": "Prosta tabela",
   "_A_TABLE_GROUP_SIMPLE_LABEL_": "Prosta tabela",
-  "_A_TABLE_SIMPLE_": "Tabela"
+  "_A_TABLE_SIMPLE_": "Tabela",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Zgrupowane kolumny",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Kolumny z <code>children</code> otrzymują wspólny nagłówek nad podkolumnami. <code>:has-mobile=\"false\"</code> zachowuje widok tabeli na małych ekranach.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Tabela ze zgrupowanymi kolumnami",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Prosta tabela HTML",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> renderuje natywną <code>&lt;table&gt;</code> bez paska narzędzi i dodatkowych funkcji <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Prosta tabela HTML",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Sloty widoku mobilnego",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "Na małych ekranach każdy wiersz jest pokazywany jako karta. Sloty <code>rowMobilePrepend</code> i <code>rowMobileAppend</code> dodają treść na początku i na końcu każdej karty.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Tabela ze slotami widoku mobilnego"
 }

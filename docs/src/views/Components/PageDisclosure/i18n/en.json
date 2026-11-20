@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "This slot allows you to customize the longer text content displayed when the user clicks \"Show More.\" You have access to the values <strong>isButtonVisible</strong> and <strong>isOpen</strong>, which provide information about the button's visibility and current state.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Toggle component state (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Toggle component state (button)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "This event is triggered when the user clicks the \"Show More/Show Less\" button. It returns an object containing information about the current state of the component, including <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "This event is triggered when the user clicks the \"Show More/Show Less\" button. It returns an object containing information about the current state of the component, including <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Show shortened text"
 }

@@ -1,3 +1,12 @@
 {
-
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_NAME_": "نطاق الأرقام",
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_DESCRIPTION_": "يتكوّن المكوّن <strong>AInputNumberRange</strong> من حقلين رقميين «من» و«إلى». النموذج كائن بالمفتاحين <code>min</code> و<code>max</code>.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_HEADER_": "أعداد صحيحة",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_DESCRIPTION_": "<code>type=\"integerRange\"</code> يسمح بالأعداد الصحيحة فقط في الحقلين.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_HEADER_": "أعداد صحيحة غير سالبة",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_DESCRIPTION_": "<code>type=\"integerNonNegativeRange\"</code> يسمح بالأعداد الصحيحة بدءًا من 0.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_HEADER_": "أعداد صحيحة موجبة",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_DESCRIPTION_": "<code>type=\"integerPositiveRange\"</code> يسمح بالأعداد الصحيحة بدءًا من 1.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_HEADER_": "نصوص توضيحية",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_DESCRIPTION_": "يحدد <code>placeholder-min</code> و<code>placeholder-max</code> النص التوضيحي لكل حقل."
 }

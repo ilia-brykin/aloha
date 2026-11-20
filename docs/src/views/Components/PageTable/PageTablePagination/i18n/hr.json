@@ -1,3 +1,7 @@
 {
-
+  "_A_TABLE_GROUP_PAGINATION_POSITION_HEADER_": "Položaj paginacije",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_DESCRIPTION_": "<code>pagination.position</code>: <code>\"top\"</code> iznad tablice, <code>\"bottom\"</code> ispod nje, <code>\"y\"</code> iznad i ispod.",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_TOP_LABEL_": "Paginacija gore",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_BOTTOM_LABEL_": "Paginacija dolje",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_Y_LABEL_": "Paginacija gore i dolje"
 }

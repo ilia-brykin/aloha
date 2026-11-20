@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "Dieser Slot ermöglicht die Anpassung des längeren Textinhalts, der angezeigt wird, wenn der Benutzer auf \"Mehr anzeigen\" klickt. Sie haben Zugriff auf die Werte <strong>isButtonVisible</strong> und <strong>isOpen</strong>, die Informationen über die Sichtbarkeit des Buttons und den aktuellen Zustand bereitstellen.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Komponentenstatus ändern (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Komponentenstatus ändern (Schaltfläche)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": " Dieses Ereignis wird ausgelöst, wenn der Benutzer auf den \"Mehr anzeigen/Weniger anzeigen\"-Button klickt. Es gibt ein Objekt zurück, das Informationen über den aktuellen Zustand der Komponente enthält, einschließlich <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": " Dieses Ereignis wird ausgelöst, wenn der Benutzer auf den \"Mehr anzeigen/Weniger anzeigen\"-Button klickt. Es gibt ein Objekt zurück, das Informationen über den aktuellen Zustand der Komponente enthält, einschließlich <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Gekürzten Text anzeigen"
 }

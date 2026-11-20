@@ -2,5 +2,13 @@
   "_A_TABLE_FILTERS_": "_A_TABLE_FILTERS_",
   "_A_TABLE_GROUP_FILTERS_DESCRIPTION_": "_A_TABLE_GROUP_FILTERS_DESCRIPTION_",
   "_A_TABLE_GROUP_FILTERS_LABEL_": "_A_TABLE_GROUP_FILTERS_LABEL_",
-  "_A_TABLE_GROUP_FILTERS_HEADER_": "_A_TABLE_GROUP_FILTERS_HEADER_"
+  "_A_TABLE_GROUP_FILTERS_HEADER_": "_A_TABLE_GROUP_FILTERS_HEADER_",
+  "_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_HEADER_": "فلاتر ظاهرة ومخفية",
+  "_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_DESCRIPTION_": "تُعرض الفلاتر ذات <code>main: true</code> أو <code>alwaysVisible: true</code> دائمًا. أما الباقية فتبقى مخفية حتى يفتحها المستخدم.",
+  "_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_HEADER_": "القيم الأولية للفلاتر",
+  "_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_DESCRIPTION_": "يحدد <code>model-filters</code> قيم الفلاتر عند عرض الجدول.",
+  "_A_TABLE_GROUP_FILTERS_INIT_SAVED_HEADER_": "الفلاتر المحفوظة عند البدء",
+  "_A_TABLE_GROUP_FILTERS_INIT_SAVED_DESCRIPTION_": "يمرّر <code>filter.filtersSaved</code> مجموعات فلاتر محفوظة مسبقًا، ويمكن للمستخدم تطبيقها فورًا.",
+  "_A_TABLE_GROUP_FILTERS_SAVE_HEADER_": "حفظ الفلاتر",
+  "_A_TABLE_GROUP_FILTERS_SAVE_DESCRIPTION_": "مع <code>filter.canSave: true</code> يمكن للمستخدم حفظ قيم الفلاتر الحالية باسم وتطبيقها لاحقًا."
 }

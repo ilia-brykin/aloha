@@ -30,7 +30,7 @@ export default function PropsAPI() {
     },
     {
       name: "show-icon",
-      description: "_A_ALERT_PROPS_HAS_ICON_DESCRIPTION_",
+      description: "_A_ALERT_PROPS_SHOW_ICON_DESCRIPTION_",
       type: "Boolean",
       default: false,
       required: false,
@@ -88,7 +88,7 @@ export default function PropsAPI() {
       name: "text-close",
       description: "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_",
       type: "String",
-      default: "_ALERT_CLOSE_",
+      default: "_A_ALERT_CLOSE_",
       required: false,
     },
     {

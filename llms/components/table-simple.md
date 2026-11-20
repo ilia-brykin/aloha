@@ -78,9 +78,11 @@ export default {
 };
 ```
 
-## _A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_
+## Simple HTML table
 
-_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_
+`is-simple-table` renders a native `
+
+` without the toolbar and the extra features of **ATable**.
 
 *props: `is-simple-table`*
 
@@ -239,9 +241,9 @@ export default {
 };
 ```
 
-## _A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_
+## Grouped columns
 
-_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_
+Columns with `children` get a common header above their sub-columns. `:has-mobile="false"` keeps the table view on small screens.
 
 *props: `is-simple-table`, `has-mobile`*
 
@@ -346,9 +348,9 @@ export default {
 };
 ```
 
-## _A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_
+## Slots of the mobile view
 
-_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_
+On small screens each row is shown as a card. The slots `rowMobilePrepend` and `rowMobileAppend` add content at the start and the end of each card.
 
 *props: `is-simple-table`; slots: `rowMobilePrepend`, `rowMobileAppend`*
 

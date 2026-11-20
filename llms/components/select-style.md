@@ -454,35 +454,35 @@ export default {
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
 | always-translate | Boolean |  |  | Forces translation regardless of the `is-translate` flag. |
-| button-class | String |  |  | _A_SELECT_PROPS_BUTTON_CLASS_DESCRIPTION_ |
-| button-class-default | String / Object | a_form_control a_select_toggle |  | _A_SELECT_PROPS_BUTTON_CLASS_DEFAULT_DESCRIPTION_ |
-| caret-icon | String / Object | ChevronDown |  | _A_SELECT_PROPS_CARET_ICON_DESCRIPTION_ |
+| button-class | String |  |  | Additional CSS class of the button that opens the list. |
+| button-class-default | String / Object | a_form_control a_select_toggle |  | Default CSS classes of the button that opens the list. Replace them to change the look completely. |
+| caret-icon | String / Object | ChevronDown |  | Icon next to the button that opens the list. The default is a downward arrow. |
 | change | Function | () => {} |  | Function called when the model changes. It accepts the new model value and additional parameters for processing the change. |
-| class | String / Object |  |  | _A_SELECT_PROPS_CLASS_DESCRIPTION_ |
-| count-multiselect | Number | 4 |  | _A_SELECT_PROPS_COUNT_MULTISELECT_DESCRIPTION_ |
+| class | String / Object |  |  | CSS class or class object of the outer container of the component. |
+| count-multiselect | Number | 4 |  | Multiselect: how many selected items are shown in the button. The others are summarized as "+N more". |
 | data | Array |  |  | An array of data used to generate the items. |
 | data-extended | Array | () => [] |  | Array of objects with additional styles for the component |
 | dependencies | Array / Object |  |  | Specifies dependencies that may affect the visibility or behavior of the component based on the values of other elements. |
-| deselectable | Boolean | true |  | _A_SELECT_PROPS_DESELECTABLE_DESCRIPTION_ |
+| deselectable | Boolean | true |  | Select: the selected item can be deselected by clicking it again. |
 | disabled | Boolean |  |  | Determines whether the component is disabled. If set to **true**, the component becomes inactive and the user cannot interact with it. |
 | errors | String / Array |  |  | Contains text or an array of errors that should be displayed to the user. If there are errors, they are displayed below the component. |
-| exceeded-items-deletable | Boolean | true |  | _A_SELECT_PROPS_EXCEEDED_ITEMS_DELETABLE_DESCRIPTION_ |
+| exceeded-items-deletable | Boolean | true |  | Multiselect: shows a button that removes the selected items beyond count-multiselect. |
 | exclude-render-attributes | Array | () => [] |  | Array of attributes that should not be rendered for this component. Useful for excluding unnecessary attributes from the final **DOM**. |
 | extra | Object |  |  | An object that contains variables for substitution in the translation template. It is used for dynamically replacing values in translation strings. For example, if the translation string has placeholders like **"_WELCOME_{{foo}}_{{bar}}_"**, which is translated as **"Welcome {{ foo }}: {{ bar }}"**, you can pass an object like **{ foo: "abc", bar: "123" }**, and the result will be the translation **"Welcome abc: 123"**. |
 | filter-groups | Array / Object |  |  | Array or object for filtering style groups |
-| has-caret | Boolean | true |  | _A_SELECT_PROPS_HAS_CARET_DESCRIPTION_ |
+| has-caret | Boolean | true |  | Shows the icon next to the button that opens the list. |
 | help-text | String |  |  | Help text displayed below the component. Provides the user with additional information or instruction. |
 | html-id | String |  |  | Sets the **HTML ID** of the element. Can be used to uniquely identify the component on the page. |
 | id | String / Number | () => uniqueId("a_select_styles_") |  | The identifier of the component, which can be used to track or refer to the component in the code. |
 | id-prefix | String |  |  | Prefix for the component's **ID**. Used to create a unique identifier based on the specified prefix. |
-| in-body | Boolean | true |  | _A_SELECT_PROPS_IN_BODY_DESCRIPTION_ |
-| is-close-by-click | Boolean |  |  | _A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_ |
-| is-deselect-all | Boolean | false |  | _A_SELECT_PROPS_IS_DESELECT_ALL_DESCRIPTION_ |
+| in-body | Boolean | true |  | The list is rendered in the container popper-container-id at the end of the body, otherwise directly after the button. |
+| is-close-by-click | Boolean |  |  | Closes the list after an item is chosen. By default: yes for select, no for multiselect. |
+| is-deselect-all | Boolean | false |  | Display the button. Clicking it will deselect all items in the list. |
 | is-hide | Boolean |  |  | Determines whether the component should be hidden. If set to **true**, the component is not displayed on the page. |
 | is-label-float | Boolean |  |  | Determines whether the label of the component should be positioned above the field. If **true**, the label will move above the text field when focused or when content is present. Deprecated, use label-position. |
 | is-render | Boolean | true |  | Indicates whether the component should be rendered. If set to **false**, the component will not be created in the **DOM**. |
-| is-select-all | Boolean | false |  | _A_SELECT_PROPS_IS_SELECT_ALL_DESCRIPTION_ |
-| is-selection-closeable | Boolean | true |  | _A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_ |
+| is-select-all | Boolean | false |  | Display the button. Clicking it will automatically select all items from the list. |
+| is-selection-closeable | Boolean | true |  | Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect. |
 | key-disabled | String |  |  | Specifies the key in the data object that determines whether the item will be disabled (unselectable). |
 | key-disabled-callback | Function |  |  | A function to determine whether an item should be disabled. Returns `true` to disable a specific item. Accepts an object with item data: `{ item }`. |
 | key-group | String / Number / Array | () => ["groupName", "subGroupName"] |  | A key or array of keys used to group data by specific categories. This property allows grouping items into groups. |
@@ -496,25 +496,25 @@ export default {
 | label-description | String |  |  | Additional description displayed next to the component label. Helps the user better understand the purpose of the field. |
 | label-position | "float" / "inset" / "top" | "float" |  | Position of the label: "float", "inset" or "top". The default comes from the component plugin or AFormPlugin (labelPosition). |
 | label-screen-reader | String / Number |  |  | Label intended for screen readers. Useful for improving accessibility. |
-| max-count-multiselect | Number |  |  | _A_SELECT_PROPS_MAX_COUNT_MULTISELECT_DESCRIPTION_ |
-| menu-width-type | String | as_button |  | _A_SELECT_PROPS_MENU_WIDTH_TYPE_DESCRIPTION_ |
+| max-count-multiselect | Number |  |  | Multiselect: maximum number of items that can be selected. |
+| menu-width-type | String | as_button |  | Width of the list: "as_button" (as wide as the button) or "by_content" (as wide as its content). |
 | model-dependencies | Object | () => ({}) |  | Determines model dependencies that may affect the visibility or behavior of the component. |
 | model-value | String / Array |  |  | The current model value associated with the component. Used to manage the data displayed in the component. |
 | options | Object | () => ({}) |  | Additional data object available within the component, in slots, or custom logic. |
 | placeholder | String |  |  | Specifies the placeholder text that will be displayed in the input field until the user enters data. The placeholder helps the user understand what data is expected in the field. |
-| placement | String | bottom-end |  | _A_UI_PROPS_PLACEMENT_DESCRIPTION_ |
-| popper-container-id | String | a_select_container |  | _A_UI_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_ |
+| placement | String | bottom-end |  | Position of the list relative to the button. |
+| popper-container-id | String | a_select_container |  | ID of the container at the end of the body in which the list is rendered (with in-body). |
 | readonly | Boolean |  |  | Enables read-only mode, where the value is displayed as text without the possibility of editing. |
 | readonly-default | String |  |  | The default text that is shown if the value is missing in read-only mode. |
 | required | Boolean |  |  | Indicates whether the component is required. If set to **true**, the component requires user input. |
 | search | Boolean |  |  | Determines whether the search feature is supported. If set to **true**, users will be able to search within the group. |
 | search-timeout | Number | 0 |  | Specifies the delay time in milliseconds before performing the search. Useful for preventing excessive requests during fast text input by the user. |
-| select-menu-class | String / Object |  |  | _A_SELECT_PROPS_SELECT_MENU_CLASS_DESCRIPTION_ |
+| select-menu-class | String / Object |  |  | Additional CSS class of the list. |
 | slot-name | String |  |  | The name of the main slot used to insert custom content into the component. |
 | sort-order | String | asc |  | Specifies the sort order of items. Possible values: **asc** (ascending) or **desc** (descending). |
 | sort-order-group | String | asc |  | Specifies the sort order of groups if the items are grouped. Possible values: **asc** (ascending) or **desc** (descending). |
-| text-deselect-all | String | _A_SELECT_DESELECT_ALL_ |  | _A_SELECT_PROPS_TEXT_DESELECT_ALL_DESCRIPTION_ |
-| text-select-all | String | _A_SELECT_SELECT_ALL_ |  | _A_SELECT_PROPS_TEXT_SELECT_ALL_DESCRIPTION_ |
+| text-deselect-all | String | _A_SELECT_DESELECT_ALL_ |  | Text of the “Deselect all” button. |
+| text-select-all | String | _A_SELECT_SELECT_ALL_ |  | Text of the “Select all” button. |
 | type | String | select |  | Component type: **select**, **selectStyle**, **multiselect**, **multiselectStyle** |
 
 ## Events
@@ -524,7 +524,7 @@ export default {
 | update:model-value | Function | Event triggered when the component's model value is updated. Used to synchronize data between the component and the parent component. |
 | focus | Function | Event triggered when the component gains focus. Useful for tracking user interaction with the element. |
 | blur | Function | Event triggered when the component loses focus. Used to validate or save data when the user leaves the field. |
-| open | Function | _A_SELECT_EVENTS_OPEN_DESCRIPTION_ |
+| open | Function | Emitted when the list is opened. |
 
 ## Translations
 

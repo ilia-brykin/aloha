@@ -17,5 +17,10 @@
   "_A_TABLE_GROUP_PAGINATION_OUTSIDE_DESCRIPTION_": "The server-side pagination can be specified by using <strong>:pagination=\"{ use: true, isOutside: true }\"</strong>. The parameter <strong>:count-all-rows=\"999\"</strong> specifies the total number of items in a table. Emit <strong>change-limit</strong> is called when changing the number of items per page. Emit <strong>change-offset</strong> is called when changing the pagination.",
   "_A_TABLE_GROUP_PAGINATION_OUTSIDE_HEADER_": "Pagination outside of the component (server-side pagination)",
   "_A_TABLE_GROUP_PAGINATION_OUTSIDE_LABEL_": "Table with pagination",
-  "_A_TABLE_PAGINATION_": "(Table with pagination)"
+  "_A_TABLE_PAGINATION_": "(Table with pagination)",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_HEADER_": "Position of the pagination",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_DESCRIPTION_": "<code>pagination.position</code>: <code>\"top\"</code> above the table, <code>\"bottom\"</code> below it, <code>\"y\"</code> above and below.",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_TOP_LABEL_": "Pagination above",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_BOTTOM_LABEL_": "Pagination below",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_Y_LABEL_": "Pagination above and below"
 }

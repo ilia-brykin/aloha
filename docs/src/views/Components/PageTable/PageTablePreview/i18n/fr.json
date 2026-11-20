@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Aperçu à droite",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "Le slot <code>preview</code> affiche les détails de la ligne cliquée à côté du tableau. <code>disabled-preview-row-callback</code> désactive l'aperçu pour certaines lignes.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Aperçu avec pagination",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "L'aperçu fonctionne aussi avec <code>pagination.use</code> : les boutons de l'aperçu passent à la ligne précédente et suivante."
 }

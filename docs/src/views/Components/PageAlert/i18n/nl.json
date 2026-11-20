@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "De tekst voor de sluitknop die door de schermlezer wordt voorgelezen",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Platte tekst die in de component wordt getoond",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Type waarschuwing",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Inhoud van de waarschuwing"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Inhoud van de waarschuwing",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Pictogram van de sluitknop."
 }

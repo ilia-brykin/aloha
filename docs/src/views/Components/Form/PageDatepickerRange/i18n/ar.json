@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "استخدام خصائص 'format' و 'formatSave' لتنسيق العرض وتنسيق الحفظ المخصصين في مكون اختيار تواريخ النطاق.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "نص المساعدة في اختيار تواريخ النطاق",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "تضمين خاصية 'helpText' لتوفير سياق أو تعليمات إضافية لمكون اختيار تواريخ النطاق.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "اليوم الأول كيوم الخميس"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "اليوم الأول كيوم الخميس",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "نطاق التاريخ"
 }

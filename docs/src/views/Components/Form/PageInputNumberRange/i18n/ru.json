@@ -1,3 +1,12 @@
 {
-
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_NAME_": "Диапазон чисел",
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_DESCRIPTION_": "Компонент <strong>AInputNumberRange</strong> состоит из двух числовых полей «от» и «до». Модель — объект с ключами <code>min</code> и <code>max</code>.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_HEADER_": "Целые числа",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_DESCRIPTION_": "<code>type=\"integerRange\"</code> разрешает в обоих полях только целые числа.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_HEADER_": "Неотрицательные целые числа",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_DESCRIPTION_": "<code>type=\"integerNonNegativeRange\"</code> разрешает целые числа от 0.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_HEADER_": "Положительные целые числа",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_DESCRIPTION_": "<code>type=\"integerPositiveRange\"</code> разрешает целые числа от 1.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_HEADER_": "Плейсхолдеры",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_DESCRIPTION_": "<code>placeholder-min</code> и <code>placeholder-max</code> задают плейсхолдер каждого поля."
 }

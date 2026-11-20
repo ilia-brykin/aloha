@@ -1,6 +1,6 @@
 # ARouterLinkConfig (Router link config)
 
-_A_INPUT_NUMBER_COMPONENT_DESCRIPTION_
+The **AInputNumber** component is a field for numbers: integers or decimals with a fixed number of digits, a minimum and a maximum and buttons to increase and decrease the value.
 
 ## Basic usage
 

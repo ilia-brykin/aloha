@@ -498,8 +498,8 @@ export default {
 | required | Boolean |  |  | Indicates whether the component is required. If set to **true**, the component requires user input. |
 | slot-name | String |  |  | The name of the main slot used to insert custom content into the component. |
 | texts | Object | () => ({         collapseClose: "_A_FIELDSET_COLLAPSE_CLOSE_",         collapseOpen: "_A_FIELDSET_COLLAPSE_OPEN_",       }) |  | Allows you to customize the text for the collapse and expand actions of the component. By default, **_A_FIELDSET_COLLAPSE_CLOSE_** is used for closing and **_A_FIELDSET_COLLAPSE_OPEN_** for opening. |
-| use-flat-errors | Boolean | true |  | _A_PROPS_USE_FLAT_ERRORS_DESCRIPTION_ |
-| use-flat-model | Boolean | true |  | _A_PROPS_USE_FLAT_MODEL_DESCRIPTION_ |
+| use-flat-errors | Boolean | true |  | When enabled, errors are resolved directly by field ID. Disable it when nested container errors follow the nested model structure. |
+| use-flat-model | Boolean | true |  | When enabled, container fields work with the shared flat model. Disable it to store container values in nested objects. |
 | use-html-id-as-key | Boolean | false |  | Use **htmlId** instead of the index as the key for form elements |
 
 ## Events

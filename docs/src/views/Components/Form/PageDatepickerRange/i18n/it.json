@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "Utilizzo delle proprietà 'format' e 'formatSave' per formati di visualizzazione e salvataggio personalizzati nel componente Selettore Data per Intervallo.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Testo di Aiuto nel Selettore Data per Intervallo",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Incorporazione della proprietà 'helpText' per fornire contesto aggiuntivo o istruzioni per il componente Selettore Data per Intervallo.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Primo Giorno come Giovedì"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Primo Giorno come Giovedì",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Intervallo di date"
 }

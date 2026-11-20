@@ -1,3 +1,11 @@
 {
-
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_HEADER_": "Сгруппированные колонки",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_DESCRIPTION_": "Колонки с <code>children</code> получают общий заголовок над подколонками. <code>:has-mobile=\"false\"</code> сохраняет вид таблицы на маленьких экранах.",
+  "_A_TABLE_GROUP_SIMPLE_COLUMNS_GROUPED_LABEL_": "Таблица со сгруппированными колонками",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_HEADER_": "Простая HTML-таблица",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_DESCRIPTION_": "<code>is-simple-table</code> рендерит нативную <code>&lt;table&gt;</code> без панели инструментов и дополнительных возможностей <strong>ATable</strong>.",
+  "_A_TABLE_GROUP_SIMPLE_IS_SIMPLE_TABLE_LABEL_": "Простая HTML-таблица",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_HEADER_": "Слоты мобильного вида",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_DESCRIPTION_": "На маленьких экранах каждая строка показывается карточкой. Слоты <code>rowMobilePrepend</code> и <code>rowMobileAppend</code> добавляют содержимое в начало и конец каждой карточки.",
+  "_A_TABLE_GROUP_SIMPLE_MOBILE_SLOTS_LABEL_": "Таблица со слотами мобильного вида"
 }

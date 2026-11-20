@@ -407,47 +407,27 @@ pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus.`
 
 | name | type | default | required | description |
 | --- | --- | --- | --- | --- |
-| btn-attributes | Object | {} |  | Props or HTML attributes for the "Show More/Show Less" button **(AButton)** |
-| btn-class | String / Object | a_btn a_btn_link a_p_0 |  | The CSS classes for the "Show More/Show Less" button. |
-| btn-icon-left-less | String |  |  | The icon displayed on the left side of the "Show Less" button. |
-| btn-icon-left-more | String |  |  | The icon displayed on the left side of the "Show More" button. |
-| btn-icon-right-less | String |  |  | The icon displayed on the right side of the "Show Less" button. |
-| btn-icon-right-more | String |  |  | The icon displayed on the right side of the "Show More" button. |
-| btn-id | String |  |  | ID for the "Show More/Show Less" button. |
-| btn-parent-class | String | a_text_center |  | The CSS class for the parent element of the button. |
-| btn-text-less | String | _SHOW_LESS_ |  | The text for the "Show Less" button. |
-| btn-text-more | String | _SHOW_MORE_ |  | The text for the "Show More" button. |
-| btn-title-less | String |  |  | The title text for the "Show Less" button. |
-| btn-title-more | String |  |  | The title text for the "Show More" button. |
-| btn-title-placement | String |  |  | The placement of the HTML title. |
-| disabled | Boolean | false |  | A boolean value indicating whether the "Show More/Show Less" button should be disabled. |
-| html-less | String |  |  | A string containing the shorter HTML-formatted text content to be displayed when the user clicks "Show Less." This content is secured using DOMPurify.sanitize() to prevent malicious code. |
-| html-more | String |  |  | A string containing the longer HTML-formatted text content to be displayed when the user clicks "Show More." This content is secured using DOMPurify.sanitize() to prevent malicious code. |
-| id | String |  |  | ID for the component. |
-| is-btn-title-html | Boolean |  |  | A boolean value indicating whether the provided button titles should be interpreted and rendered as HTML. |
-| is-open-default | Boolean | false |  | A boolean value indicating whether the extended text content **(text-more)** should be displayed by default. |
-| safe-html-less | String |  |  | A string containing the shorter HTML-formatted text content to be displayed when the user clicks "Show Less." Note that this content is rendered directly and should only be used when you are confident that the HTML code is trustworthy and poses no security risks. |
-| safe-html-more | String |  |  | A string containing the longer HTML-formatted text content to be displayed when the user clicks "Show More." Note that this content is rendered directly and should only be used when you are confident that the HTML code is trustworthy and poses no security risks. |
-| show-less | Boolean | true |  | A boolean value indicating whether the "Show Less" button should be displayed. |
-| text-less | String |  |  | The shorter text content to be displayed when the user clicks "Show Less." |
-| text-more | String |  |  | The longer text content to be displayed when the user clicks "Show More." |
+| arrow-padding | Number / Function |  |  | Minimum distance in px between the arrow and the edges of the tooltip. A function receives the sizes and returns the number. |
+| id | String | a_tooltip_{n} |  | ID of the tooltip. The element gets aria-describedby with this ID. |
+| is-hide | Boolean |  |  | The tooltip is not shown, only the content of the default slot. |
+| max-width | Number |  |  | Maximum width of the tooltip in px. |
+| min-width | Number |  |  | Minimum width of the tooltip in px. |
+| offset-distance | Number | 6 |  | Distance in px between the tooltip and the element. |
+| offset-skidding | Number | 0 |  | Shift in px of the tooltip along the element. |
+| placement | String | top |  | Position of the tooltip relative to the element, e.g. top, bottom, left, right, top-start. |
+| popper-container-id | String | a_tooltip_container |  | ID of the container at the end of the body in which the tooltip is rendered. |
+| show-arrow | Boolean | true |  | Shows the arrow of the tooltip. |
+| tag | String | span |  | HTML tag of the element around the default slot. |
+| time-close | Number | 100 |  | Time in ms before the tooltip closes after the pointer leaves the element or the tooltip. |
+| width | Number |  |  | Fixed width of the tooltip in px. |
+| without-aria-describedby | Boolean |  |  | The element does not get aria-describedby, e.g. if the text of the tooltip is already read otherwise. |
 
 ## Slots
 
 | name | description |
 | --- | --- |
-| button | Here, you can customize the content of the "Show More/Show Less" button. You have access to the values **isButtonVisible** and **isOpen**, which provide information about the button's visibility and current state. |
-| less | This slot allows you to customize the shorter text content displayed when the user clicks "Show Less." You have access to the values **isButtonVisible** and **isOpen**, which provide information about the button's visibility and current state. |
-| more | This slot allows you to customize the longer text content displayed when the user clicks "Show More." You have access to the values **isButtonVisible** and **isOpen**, which provide information about the button's visibility and current state. |
-
-## Exposes
-
-| name | type | description |
-| --- | --- | --- |
-| buttonRef | Object | A Ref object pointing to the DOM element of the "Show More/Show Less" button in the component. This allows you to manipulate the button element directly or access events such as clicks. |
-| containerRef | Object | A Ref object pointing to the DOM element of the container element of the component. This can be useful for controlling the container element or accessing its properties. |
-| isOpen | Boolean | A boolean value indicating whether the extended text content is currently displayed (true) or not (false). You can use this value to monitor the state of the component and respond accordingly. |
-| toggleButton | Function | A function that can be called to toggle the state of the component, thereby showing or hiding the extended text content. |
+| default | The element that shows the tooltip on hover and focus. |
+| title | Content of the tooltip. |
 
 ## CSS variables (`scss/utils/tooltip.scss`)
 

@@ -130,7 +130,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Confirm](llms/components/confirm.md) — AConfirm is a confirmation dialog API built on top of the modal system.
 - [Disclosure](llms/components/disclosure.md) — The component allows users to show or hide text content by clicking on a button.
 - [filters](llms/components/filters.md) — Allows filtering data by various criteria.
-- [filtersRight](llms/components/filters-right.md)
+- [filtersRight](llms/components/filters-right.md) — With `view="right"` the component **AFilters** shows the filters in a column on the right of the content instead of above it.
 - [Dropdown](llms/components/dropdown.md) — The ADropdown component is a dropdown component for Vue.js that allows you to display a list of actions in a dropdown menu.
 - [Element](llms/components/element.md) — The **AElement** component is a universal element with advanced configuration through props, allowing customization of accessibility, classes, IDs, loading state, and other parameters.
 - **Form**
@@ -147,8 +147,8 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
   - [Group](llms/components/group.md) — AGroup is a component for displaying and managing grouped form elements or options.
   - [Input](llms/components/input.md) — The **AInput** component provides data input functionality with support for various data types such as **text**, **password**, **number**, **email**, and others.
   - [Input currency](llms/components/input-currency.md) — The **AInputCurrency** component provides the ability to input and format currency values.
-  - [Input number](llms/components/input-number.md)
-  - [Input number range](llms/components/input-number-range.md)
+  - [Input number](llms/components/input-number.md) — The **AInputNumber** component is a field for numbers: integers or decimals with a fixed number of digits, a minimum and a maximum and buttons to increase and decrease the value.
+  - [Input number range](llms/components/input-number-range.md) — The **AInputNumberRange** component consists of two number fields "from" and "to".
   - [Input file](llms/components/input-file.md) — The **AInputFile** component chooses files with a button or a dropzone, checks the type, the size and the number of the files, shows them in a list and shows the upload status of every file.
   - [Input OTP](llms/components/input-otp.md) — The **AInputOtp** component enters a one-time code (OTP), for example a confirmation code from an SMS or an authenticator app.
   - [JSON](llms/components/json.md) — **AJson** is a Vue.js component designed for displaying and editing **JSON** data.
@@ -183,7 +183,7 @@ In `setup()` they are also available with `const { filterCurrency } = AFiltersAP
 - [Pagination](llms/components/pagination.md) — The **APagination** component renders navigation for large data sets.
 - [Pagination pages](llms/components/pagination-pages.md) — The **APaginationPages** component renders page navigation only.
 - **Tables**
-  - [Table complex](llms/components/table-complex.md)
+  - [Table complex](llms/components/table-complex.md) — The **ATable** component shows data in a table with sorting, pagination, filters, quick search, row and table actions, selection of rows, a preview, hiding and moving of columns, saved views and a mobile view.
   - [Table pagination](llms/components/table-pagination.md)
   - [Table simple](llms/components/table-simple.md)
   - [Table sort](llms/components/table-sort.md)

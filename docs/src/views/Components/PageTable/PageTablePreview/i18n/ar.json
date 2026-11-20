@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "معاينة على اليمين",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "يعرض الـ slot <code>preview</code> تفاصيل الصف الذي تم النقر عليه بجانب الجدول. يعطّل <code>disabled-preview-row-callback</code> المعاينة لصفوف معيّنة.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "معاينة مع الترقيم",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "تعمل المعاينة أيضًا مع <code>pagination.use</code>: تنتقل أزرار المعاينة إلى الصف السابق والتالي."
 }

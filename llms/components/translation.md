@@ -8,7 +8,7 @@
 
 ```html
 <a-translation
-  text="_SHOW_MORE_"
+  text="_A_TRANSLATION_SHOW_MORE_"
 ></a-translation>
 ```
 
@@ -41,7 +41,7 @@ This demonstrates how additional text, such as **" *(Aloha)"**, is displayed aft
 
 ```html
 <a-translation
-  text="_SHOW_MORE_"
+  text="_A_TRANSLATION_SHOW_MORE_"
   text-after=" *(Aloha)"
 ></a-translation>
 ```
@@ -132,7 +132,7 @@ This example demonstrates the use of the `tag` prop to create an input field in 
 ```html
 <a-translation
   tag="input"
-  placeholder="_SHOW_MORE_"
+  placeholder="_A_TRANSLATION_SHOW_MORE_"
 ></a-translation>
 ```
 
@@ -146,7 +146,7 @@ Demonstrates the use of `aria-label` for translating the text content of a butto
 <a-translation
   tag="button"
   class="a_btn a_btn_secondary"
-  aria-label="_SHOW_MORE_"
+  aria-label="_A_TRANSLATION_SHOW_MORE_"
 >+</a-translation>
 ```
 
@@ -158,7 +158,7 @@ Demonstrates the use of `title` for translating a tooltip text.
 
 ```html
 <a-translation
-  title="_SHOW_MORE_"
+  title="_A_TRANSLATION_SHOW_MORE_"
 >Aloha</a-translation>
 ```
 

@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "Questo slot consente di personalizzare il contenuto di testo più lungo che verrà visualizzato quando l'utente fa clic su \"Mostra di più\". Hai accesso ai valori <strong>isButtonVisible</strong> e <strong>isOpen</strong>, che forniscono informazioni sulla visibilità del pulsante e sullo stato attuale.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Cambia lo stato del componente (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Cambia lo stato del componente (pulsante)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Questo evento viene scatenato quando l'utente fa clic sul pulsante \"Mostra di più/Mostra di meno\". Restituisce un oggetto che contiene informazioni sullo stato attuale del componente, inclusa <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "Questo evento viene scatenato quando l'utente fa clic sul pulsante \"Mostra di più/Mostra di meno\". Restituisce un oggetto che contiene informazioni sullo stato attuale del componente, inclusa <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Mostra testo abbreviato"
 }

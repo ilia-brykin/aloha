@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "Tekst dugmeta za zatvaranje upozorenja kojeg će pročitati čitač zaslona.",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Običan tekst za prikazivanje unutar upozorenja.",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Tip upozorenja.",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Proslijeđeni sadržaj upozorenja."
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Proslijeđeni sadržaj upozorenja.",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Ikona gumba za zatvaranje."
 }

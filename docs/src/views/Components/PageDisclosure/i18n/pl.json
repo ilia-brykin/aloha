@@ -61,5 +61,6 @@
   "_A_DISCLOSURE_SLOT_MORE_DESCRIPTION_": "Ten slot pozwala dostosować dłuższą treść tekstową wyświetlaną po kliknięciu „Pokaż więcej”. Masz dostęp do wartości <strong>isButtonVisible</strong> i <strong>isOpen</strong>, które informują o widoczności przycisku i jego bieżącym stanie.",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_IS_OPEN_": "Przełącz stan komponentu (isOpen)",
   "_A_DISCLOSURE_TEXT_TOGGLE_WITH_TOGGLE_BUTTON_": "Przełącz stan komponentu (przycisk)",
-  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "To zdarzenie jest wywoływane, gdy użytkownik kliknie przycisk „Pokaż więcej/Pokaż mniej”. Zwraca obiekt zawierający informacje o bieżącym stanie komponentu, w tym <strong>isOpen</strong>."
+  "_A_DISCLOSURE_TOGGLE_DESCRIPTION_": "To zdarzenie jest wywoływane, gdy użytkownik kliknie przycisk „Pokaż więcej/Pokaż mniej”. Zwraca obiekt zawierający informacje o bieżącym stanie komponentu, w tym <strong>isOpen</strong>.",
+  "_A_DISCLOSURE_GROUP_TITLE_LESS_": "Pokaż skrócony tekst"
 }

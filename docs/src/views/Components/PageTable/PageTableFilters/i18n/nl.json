@@ -2,5 +2,13 @@
   "_A_TABLE_FILTERS_": "Tabel met filters",
   "_A_TABLE_GROUP_FILTERS_DESCRIPTION_": "_A_TABLE_GROUP_FILTERS_DESCRIPTION_",
   "_A_TABLE_GROUP_FILTERS_LABEL_": "Tabel met filters",
-  "_A_TABLE_GROUP_FILTERS_HEADER_": "_A_TABLE_GROUP_FILTERS_HEADER_"
+  "_A_TABLE_GROUP_FILTERS_HEADER_": "_A_TABLE_GROUP_FILTERS_HEADER_",
+  "_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_HEADER_": "Zichtbare en verborgen filters",
+  "_A_TABLE_GROUP_FILTERS_DEFAULT_HIDE_DESCRIPTION_": "Filters met <code>main: true</code> of <code>alwaysVisible: true</code> worden altijd getoond. De andere zijn verborgen tot de gebruiker ze opent.",
+  "_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_HEADER_": "Beginwaarden van de filters",
+  "_A_TABLE_GROUP_FILTERS_INITIAL_MODEL_DESCRIPTION_": "<code>model-filters</code> stelt de waarden van de filters in wanneer de tabel wordt getoond.",
+  "_A_TABLE_GROUP_FILTERS_INIT_SAVED_HEADER_": "Opgeslagen filters bij het starten",
+  "_A_TABLE_GROUP_FILTERS_INIT_SAVED_DESCRIPTION_": "<code>filter.filtersSaved</code> geeft eerder opgeslagen filtersets door, de gebruiker kan ze direct toepassen.",
+  "_A_TABLE_GROUP_FILTERS_SAVE_HEADER_": "Filters opslaan",
+  "_A_TABLE_GROUP_FILTERS_SAVE_DESCRIPTION_": "Met <code>filter.canSave: true</code> kan de gebruiker de huidige filterwaarden onder een naam opslaan en later toepassen."
 }

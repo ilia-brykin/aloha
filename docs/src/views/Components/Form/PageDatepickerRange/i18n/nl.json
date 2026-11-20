@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "Gebruik van de props 'format' en 'formatSave' voor aangepaste weergave- en opslagformaten in de datepicker-bereikcomponent.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Hulptekst in de datepicker-bereikcomponent",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Gebruik van de prop 'helpText' om extra context of instructies bij de datepicker-bereikcomponent te geven.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Eerste dag als donderdag"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Eerste dag als donderdag",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Datumbereik"
 }

@@ -1,3 +1,12 @@
 {
-
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_NAME_": "Getallenbereik",
+  "_A_INPUT_NUMBER_RANGE_COMPONENT_DESCRIPTION_": "De component <strong>AInputNumberRange</strong> bestaat uit twee getalvelden „van” en „tot”. Het model is een object met de sleutels <code>min</code> en <code>max</code>.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_HEADER_": "Gehele getallen",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_DESCRIPTION_": "<code>type=\"integerRange\"</code> staat in beide velden alleen gehele getallen toe.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_HEADER_": "Niet-negatieve gehele getallen",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_NON_NEGATIVE_DESCRIPTION_": "<code>type=\"integerNonNegativeRange\"</code> staat gehele getallen vanaf 0 toe.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_HEADER_": "Positieve gehele getallen",
+  "_A_INPUT_NUMBER_RANGE_GROUP_TYPE_INTEGER_POSITIVE_DESCRIPTION_": "<code>type=\"integerPositiveRange\"</code> staat gehele getallen vanaf 1 toe.",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_HEADER_": "Plaatshouders",
+  "_A_INPUT_NUMBER_RANGE_GROUP_PLACEHOLDER_DESCRIPTION_": "<code>placeholder-min</code> en <code>placeholder-max</code> bepalen de plaatshouder van elk veld."
 }

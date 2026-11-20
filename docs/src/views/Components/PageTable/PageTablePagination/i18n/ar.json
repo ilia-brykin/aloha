@@ -1,3 +1,7 @@
 {
-
+  "_A_TABLE_GROUP_PAGINATION_POSITION_HEADER_": "موضع الترقيم",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_DESCRIPTION_": "<code>pagination.position</code>: <code>\"top\"</code> أعلى الجدول، <code>\"bottom\"</code> أسفله، <code>\"y\"</code> أعلاه وأسفله.",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_TOP_LABEL_": "الترقيم في الأعلى",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_BOTTOM_LABEL_": "الترقيم في الأسفل",
+  "_A_TABLE_GROUP_PAGINATION_POSITION_Y_LABEL_": "الترقيم في الأعلى والأسفل"
 }

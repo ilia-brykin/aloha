@@ -10,5 +10,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "Znacznik HTML dla całej listy",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "Klasa CSS, np.: (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "Funkcja tworzy listę na podstawie tablicy.",
-  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Struktura drzewa isSimpleArray=true"
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Struktura drzewa isSimpleArray=true",
+  "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_": "Wartość zwracana, gdy tablica jest pusta lub nie jest tablicą",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_": "HTML między elementami, np. podział wiersza (tylko gdy <strong>isHtml=true</strong>)"
 }

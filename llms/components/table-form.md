@@ -234,14 +234,14 @@ The example shows row editing, adding a new row, and deleting rows with confirma
 *props: `is-addable`, `is-deletable`, `is-deletable-confirm`, `is-editable`, `save-row`, `texts`*
 
 ```html
-<a-checkbox>
+<a-checkbox
   v-model="modelCheckbox"
   :data="dataCheckbox"
   :translate-data="true"
   class="a_mb_4"
   key-id="value"
   key-label="label"
-</a-checkbox>
+></a-checkbox>
 <a-simple-table
   :add-row="addRow"
   :columns="columns"

@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "Uso de las propiedades 'format' y 'formatSave' para formatos de visualización y almacenamiento personalizados en el componente de selector de fecha de rango.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Texto de Ayuda en el Selector de Fecha de Rango",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Incorporación de la propiedad 'helpText' para proporcionar contexto adicional o instrucciones para el componente de selector de fecha de rango.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Primer Día como Jueves"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Primer Día como Jueves",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Rango de fechas"
 }

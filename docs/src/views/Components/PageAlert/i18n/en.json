@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "The text for the close button to be read by the screen reader",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Plain Text to be shown inside the component",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Alert type",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Content of the alert"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Content of the alert",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Icon of the close button."
 }

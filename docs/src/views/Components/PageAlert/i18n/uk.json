@@ -46,5 +46,6 @@
   "_A_ALERT_PROPS_TEXT_CLOSE_DESCRIPTION_": "Текст кнопки закриття, який зачитує програма зчитування з екрана",
   "_A_ALERT_PROPS_TEXT_DESCRIPTION_": "Звичайний текст, що відображається всередині компонента",
   "_A_ALERT_PROPS_TYPE_DESCRIPTION_": "Тип сповіщення",
-  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Вміст сповіщення"
+  "_A_ALERT_SLOTS_DEFAULT_DESCRIPTION_": "Вміст сповіщення",
+  "_A_ALERT_PROPS_BTN_CLOSE_ICON_DESCRIPTION_": "Іконка кнопки закриття."
 }

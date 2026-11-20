@@ -486,9 +486,9 @@ export default {
 };
 ```
 
-## _A_TABLE_GROUP_PAGINATION_POSITION_HEADER_
+## Position of the pagination
 
-_A_TABLE_GROUP_PAGINATION_POSITION_DESCRIPTION_
+`pagination.position`: `"top"` above the table, `"bottom"` below it, `"y"` above and below.
 
 *props: `pagination.position`*
 

@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "Verwendung der Eigenschaften 'format' und 'formatSave' für benutzerdefinierte Anzeige- und Speicherformate in der Datumsauswahlaufgabenbereichskomponente.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Hilfetext im Datumsauswahlbereich",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Integration der 'helpText'-Eigenschaft, um zusätzlichen Kontext oder Anweisungen für die Datumsauswahlaufgabenbereichskomponente bereitzustellen.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Erster Tag als Donnerstag"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "Erster Tag als Donnerstag",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Datumsbereich"
 }

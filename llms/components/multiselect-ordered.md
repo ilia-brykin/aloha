@@ -910,22 +910,22 @@ export default {
 | search-outside | Boolean |  |  | Determines whether the search will be performed outside the component, for example, via **API** or another external data source. |
 | search-text-in-html | Boolean |  |  | If set to `true`, the search will be performed on the text extracted from the rendered **HTML**. This allows searching only visible text shown to the user, ignoring tags and attributes. |
 | search-timeout | Number | 0 |  | Specifies the delay time in milliseconds before performing the search. Useful for preventing excessive requests during fast text input by the user. |
-| select-button-class | String |  |  | _A_SELECT_PROPS_BUTTON_CLASS_DESCRIPTION_ |
-| select-button-class-default | String / Object | a_form_control a_select_toggle |  | _A_SELECT_PROPS_BUTTON_CLASS_DEFAULT_DESCRIPTION_ |
-| select-caret-icon | String / Object | ChevronDown |  | _A_SELECT_PROPS_CARET_ICON_DESCRIPTION_ |
-| select-has-caret | Boolean | true |  | _A_SELECT_PROPS_HAS_CARET_DESCRIPTION_ |
-| select-in-body | Boolean | true |  | _A_SELECT_PROPS_IN_BODY_DESCRIPTION_ |
-| select-is-close-by-click | Boolean | false |  | _A_SELECT_PROPS_IS_CLOSE_BY_CLICK_DESCRIPTION_ |
-| select-is-label-float | Boolean | true |  | _A_SELECT_PROPS_IS_LABEL_FLOAT_DESCRIPTION_ |
-| select-is-selection-closeable | Boolean | true |  | _A_SELECT_PROPS_IS_SELECTION_CLOSEABLE_DESCRIPTION_ |
-| select-label | String / Number | _A_MULTISELECT_ORDERED_LABEL_SELECT_ |  | _A_SELECT_PROPS_LABEL_DESCRIPTION_ |
-| select-label-class | String / Object |  |  | _A_SELECT_PROPS_LABEL_CLASS_DESCRIPTION_ |
-| select-label-screenreader | String |  |  | _A_SELECT_PROPS_LABEL_SCREENREADER_DESCRIPTION_ |
-| select-menu-class | String / Object |  |  | _A_SELECT_PROPS_MENU_CLASS_DESCRIPTION_ |
-| select-menu-width-type | String | as_button |  | _A_SELECT_PROPS_MENU_WIDTH_TYPE_DESCRIPTION_ |
-| select-placeholder | String |  |  | _A_SELECT_PROPS_PLACEHOLDER_DESCRIPTION_ |
-| select-placement | String | bottom-end |  | _A_SELECT_PROPS_PLACEMENT_DESCRIPTION_ |
-| select-popper-container-id | String | a_select_container |  | _A_SELECT_PROPS_POPPER_CONTAINER_ID_DESCRIPTION_ |
+| select-button-class | String |  |  | Additional CSS class of the button that opens the list. |
+| select-button-class-default | String / Object | a_form_control a_select_toggle |  | Default CSS classes of the button that opens the list. Replace them to change the look completely. |
+| select-caret-icon | String / Object | ChevronDown |  | Icon next to the button that opens the list. The default is a downward arrow. |
+| select-has-caret | Boolean | true |  | Shows the icon next to the button that opens the list. |
+| select-in-body | Boolean | true |  | The list is rendered in the container popper-container-id at the end of the body, otherwise directly after the button. |
+| select-is-close-by-click | Boolean | false |  | Closes the list after an item is chosen. By default: yes for select, no for multiselect. |
+| select-is-label-float | Boolean | true |  | Deprecated, use label-position. true → "float", false → "top". |
+| select-is-selection-closeable | Boolean | true |  | Multiselect: all selected items are shown in the button. If false, only the count is shown when there are more than count-multiselect. |
+| select-label | String / Number | _A_MULTISELECT_ORDERED_LABEL_SELECT_ |  | Label of the field (text or translation key). |
+| select-label-class | String / Object |  |  | Additional CSS class of the label. |
+| select-label-screenreader | String |  |  | Label that is read only by screen readers. |
+| select-menu-class | String / Object |  |  | Additional CSS class of the list. |
+| select-menu-width-type | String | as_button |  | Width of the list: "as_button" (as wide as the button) or "by_content" (as wide as its content). |
+| select-placeholder | String |  |  | Text in the button when nothing is selected. |
+| select-placement | String | bottom-end |  | Position of the list relative to the button. |
+| select-popper-container-id | String | a_select_container |  | ID of the container at the end of the body in which the list is rendered (with in-body). |
 | slot-name | String |  |  | The name of the main slot used to insert custom content into the component. |
 | sort-order | String | asc |  | Specifies the sort order of items. Possible values: **asc** (ascending) or **desc** (descending). |
 | sort-order-group | String | asc |  | Specifies the sort order of groups if the items are grouped. Possible values: **asc** (ascending) or **desc** (descending). |

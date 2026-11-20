@@ -10,5 +10,7 @@
   "_PAGE_FILTER_LIST_ARGUMENTS_TAG_": "Balise HTML pour la liste entière",
   "_PAGE_FILTER_LIST_ARGUMENTS_LIST_CLASS_": "Classe CSS par exemple : (a_list_without_styles)",
   "_PAGE_FILTER_LIST_DESCRIPTION_": "La fonction crée une liste à partir d'un tableau.",
-  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Structure d'arbre isSimpleArray=true"
+  "_PAGE_FILTER_LIST_IS_SIMPLE_ARRAY_TREE_HEADER_": "Structure d'arbre isSimpleArray=true",
+  "_PAGE_FILTER_LIST_ARGUMENTS_DEFAULT_VALUE_": "Valeur renvoyée si le tableau est vide ou n'est pas un tableau",
+  "_PAGE_FILTER_LIST_ARGUMENTS_SEPARATOR_HTML_": "HTML entre les éléments, par ex. un saut de ligne (uniquement si <strong>isHtml=true</strong>)"
 }

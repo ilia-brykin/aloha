@@ -1,3 +1,5 @@
 {
-
+  "_A_TABLE_PREVIEW_DOWN_PAGE_TITLE_": "(Vorschau unter der Zeile)",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_": "Vorschau unter der Zeile",
+  "_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_": "Mit <code>preview=\"down\"</code> öffnet sich der Slot <code>preview</code> direkt unter der angeklickten Zeile."
 }

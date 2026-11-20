@@ -1,3 +1,6 @@
 {
-
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_HEADER_": "Превʼю праворуч",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_DESCRIPTION_": "Слот <code>preview</code> показує деталі натиснутого рядка поруч із таблицею. <code>disabled-preview-row-callback</code> вимикає превʼю для окремих рядків.",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_HEADER_": "Превʼю з пагінацією",
+  "_A_TABLE_GROUP_PREVIEW_RIGHT_PAGINATION_DESCRIPTION_": "Превʼю працює і з <code>pagination.use</code>: кнопки превʼю перемикають на попередній і наступний рядок."
 }

@@ -1,8 +1,8 @@
-# ATable _A_TABLE_PREVIEW_DOWN_PAGE_TITLE_
+# ATable (Preview below the row)
 
-## _A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_HEADER_
+## Preview below the row
 
-_A_TABLE_GROUP_PREVIEW_DOWN_EXAMPLE_DESCRIPTION_
+With `preview="down"` the slot `preview` opens directly below the clicked row.
 
 ```html
 <a-table

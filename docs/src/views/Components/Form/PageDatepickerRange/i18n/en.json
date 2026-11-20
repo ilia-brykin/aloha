@@ -53,5 +53,6 @@
   "_PAGE_DATEPICKER_RANGE_FORMAT_CUSTOMIZATION_DESCRIPTION_": "use of 'format' and 'formatSave' props for custom display and save formats in the Datepicker range component.",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_HEADER_": "Help Text in Datepicker Range",
   "_PAGE_DATEPICKER_RANGE_HELP_TEXT_DESCRIPTION_": "Incorporating the 'helpText' prop to provide additional context or instructions for the Datepicker range component.",
-  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "First Day as Thursday"
+  "_PAGE_DATEPICKER_RANGE_CUSTOM_FIRST_DAY_EXAMPLE_": "First Day as Thursday",
+  "_A_DATEPICKER_RANGE_COMPONENT_NAME_": "Date range"
 }
