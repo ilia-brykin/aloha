@@ -193,6 +193,11 @@ const ROUTES = [
     component: () => import("../views/Components/PageAvatar/PageAvatar.vue"),
   },
   {
+    path: "/calendar",
+    name: "PageCalendar",
+    component: () => import("../views/Components/PageCalendar/PageCalendar.vue"),
+  },
+  {
     path: "/rate",
     name: "PageRate",
     component: () => import("../views/Components/Form/PageRate/PageRate.vue"),

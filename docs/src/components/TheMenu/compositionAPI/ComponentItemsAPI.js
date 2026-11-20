@@ -38,6 +38,14 @@ export default function ComponentItemsAPI() {
         },
       },
       {
+        id: "calendar",
+        label: "Calendar",
+        class: "test_menu_calendar",
+        to: {
+          name: "PageCalendar",
+        },
+      },
+      {
         id: "PageCarousel",
         label: "Carousel",
         class: "test_menu_carousel",
