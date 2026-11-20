@@ -370,15 +370,25 @@
 }
 .a_calendar__resize_handle_time {
   inset-inline: 0;
-  inset-block-end: 0;
   height: var(--a_calendar_resize_handle_size);
   cursor: ns-resize;
+  &.a_calendar__resize_handle_start {
+    inset-block-start: 0;
+  }
+  &.a_calendar__resize_handle_end {
+    inset-block-end: 0;
+  }
 }
 .a_calendar__resize_handle_day {
   inset-block: 0;
-  inset-inline-end: 0;
   width: var(--a_calendar_resize_handle_size);
   cursor: ew-resize;
+  &.a_calendar__resize_handle_start {
+    inset-inline-start: 0;
+  }
+  &.a_calendar__resize_handle_end {
+    inset-inline-end: 0;
+  }
 }
 .a_calendar_resizing {
   user-select: none;
@@ -466,5 +476,5 @@
   // drag and drop
   --a_calendar_drop_color: var(--a_color_primary); // Border of the day and of the place where a dragged event lands.
   --a_calendar_drop_bg: var(--a_color_primary_bg_subtle); // Background of the day and of the place where a dragged event lands.
-  --a_calendar_resize_handle_size: 6px; // Size of the edge that changes the end of an event.
+  --a_calendar_resize_handle_size: 6px; // Size of the edges that change the start and the end of an event.
 }
