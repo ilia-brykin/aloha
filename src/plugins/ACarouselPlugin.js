@@ -1,7 +1,4 @@
 export const ACarouselPluginOptions = {
-  propsDefault: {
-
-  },
   icons: {
     dots: `<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
   <circle class="border" cx="1rem" cy="0.9375rem" r="0.625rem"></circle>
@@ -16,16 +13,10 @@ export const ACarouselPluginOptions = {
   },
 };
 
-
 export default {
   install: (app, {
-    propsDefault = {},
     icons = {},
   } = {}) => {
-    ACarouselPluginOptions.propsDefault = {
-      ...ACarouselPluginOptions.propsDefault,
-      ...propsDefault,
-    };
     ACarouselPluginOptions.icons = {
       ...ACarouselPluginOptions.icons,
       ...icons,

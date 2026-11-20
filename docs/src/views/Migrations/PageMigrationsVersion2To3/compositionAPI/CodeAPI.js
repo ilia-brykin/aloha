@@ -46,15 +46,51 @@ app.use(AFormPlugin, {
 });
 
 // 2.x look of AInputNumber, AInputCurrency and ADatepicker (label above the field)
-app.use(AInputNumberPlugin, {
+app.use(APropsDefaultPlugin, {
+  AInputNumber: { labelPosition: "top" },
+  AInputCurrency: { labelPosition: "top" },
+  ADatepicker: { labelPosition: "top" },
+});`;
+
+  const codePropsDefault = `// 2.x
+app.use(AModalPlugin, {
   propsDefault: {
-    labelPosition: "top",
+    closeButtonClass: "a_btn a_btn_link",
   },
+});
+app.use(ASelectPlugin, {
+  propsDefault: {
+    keyId: "id",
+  },
+});
+app.use(ARouterLinkConfigPlugin, {
+  propsDefault: {
+    routes: router.getRoutes(),
+  },
+  excludedPathRoutes: ["/:catchAll(.*)"],
+});
+
+// 3.x
+app.use(APropsDefaultPlugin, {
+  AModal: {
+    closeButtonClass: "a_btn a_btn_link",
+  },
+  AModalForm: {
+    closeButtonClass: "a_btn a_btn_link",
+  },
+  ASelect: {
+    keyId: "id",
+  },
+});
+app.use(ARouterLinkConfigPlugin, {
+  routes: router.getRoutes(),
+  excludedPathRoutes: ["/:catchAll(.*)"],
 });`;
 
   return {
     codeBtnClose,
     codeLabelPosition,
+    codePropsDefault,
     codeConfigAfter,
     codeConfigBefore,
     codeRgb,

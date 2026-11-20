@@ -12,9 +12,10 @@ import EventsAPI from "./compositionAPI/EventsAPI";
 import KeyLabelCallbackAPI from "./compositionAPI/KeyLabelCallbackAPI";
 import TypeAPI from "./compositionAPI/TypeAPI";
 
+import ChevronDown from "../../AIcon/Icons/ChevronDown";
 import {
-  ASelectPluginOptions,
-} from "../../plugins/ASelectPlugin";
+  getPropDefault,
+} from "../../plugins/APropsDefaultPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -30,7 +31,7 @@ export default {
     buttonClass: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.buttonClass,
+      default: () => getPropDefault("ASelectStyle", "buttonClass"),
     },
     buttonClassDefault: {
       type: [String, Object],
@@ -40,7 +41,7 @@ export default {
     caretIcon: {
       type: [String, Object],
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.caretIcon,
+      default: () => getPropDefault("ASelectStyle", "caretIcon", ChevronDown),
     },
     change: {
       type: Function,
@@ -54,7 +55,7 @@ export default {
     countMultiselect: {
       type: Number,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.countMultiselect,
+      default: () => getPropDefault("ASelectStyle", "countMultiselect", 4),
     },
     data: {
       type: Array,
@@ -74,7 +75,7 @@ export default {
     deselectable: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.deselectable,
+      default: () => getPropDefault("ASelectStyle", "deselectable", true),
     },
     disabled: {
       type: Boolean,
@@ -93,7 +94,7 @@ export default {
     exceededItemsDeletable: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.exceededItemsDeletable,
+      default: () => getPropDefault("ASelectStyle", "exceededItemsDeletable", true),
     },
     excludeRenderAttributes: {
       type: Array,
@@ -137,17 +138,17 @@ export default {
     inBody: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.inBody,
+      default: () => getPropDefault("ASelectStyle", "inBody", true),
     },
     isCloseByClick: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isCloseByClick,
+      default: () => getPropDefault("ASelectStyle", "isCloseByClick"),
     },
     isDeselectAll: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isDeselectAll,
+      default: () => getPropDefault("ASelectStyle", "isDeselectAll", false),
     },
     isHide: {
       type: Boolean,
@@ -172,17 +173,17 @@ export default {
     isSelectAll: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isSelectAll,
+      default: () => getPropDefault("ASelectStyle", "isSelectAll", false),
     },
     isSelectionCloseable: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.isSelectionCloseable,
+      default: () => getPropDefault("ASelectStyle", "isSelectionCloseable", true),
     },
     keyDisabled: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.keyDisabled,
+      default: () => getPropDefault("ASelectStyle", "keyDisabled"),
     },
     keyDisabledCallback: {
       type: Function,
@@ -244,13 +245,13 @@ export default {
     maxCountMultiselect: {
       type: Number,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.maxCountMultiselect,
+      default: () => getPropDefault("ASelectStyle", "maxCountMultiselect"),
       validator: value => value > 0,
     },
     menuWidthType: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.menuWidthType,
+      default: () => getPropDefault("ASelectStyle", "menuWidthType", "as_button"),
       validator: value => ["as_button", "by_content"].indexOf(value) !== -1,
     },
     modelDependencies: {
@@ -261,7 +262,7 @@ export default {
     modelValue: {
       type: [String, Array],
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.modelValue,
+      default: () => getPropDefault("ASelectStyle", "modelValue"),
     },
     options: {
       type: Object,
@@ -276,13 +277,13 @@ export default {
     placement: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.placement,
+      default: () => getPropDefault("ASelectStyle", "placement", "bottom-end"),
       validator: placement => APlacements.indexOf(placement) !== -1,
     },
     popperContainerId: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.popperContainerId,
+      default: () => getPropDefault("ASelectStyle", "popperContainerId", "a_select_container"),
     },
     readonly: {
       type: Boolean,
@@ -296,7 +297,7 @@ export default {
     readonlyDefault: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.readonlyDefault,
+      default: () => getPropDefault("ASelectStyle", "readonlyDefault", ""),
     },
     required: {
       type: Boolean,
@@ -311,7 +312,7 @@ export default {
     searchTimeout: {
       type: Number,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.searchTimeout,
+      default: () => getPropDefault("ASelectStyle", "searchTimeout", 0),
     },
     selectMenuClass: {
       type: [String, Object],
@@ -338,22 +339,22 @@ export default {
     textDeselectAll: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.textDeselectAll,
+      default: () => getPropDefault("ASelectStyle", "textDeselectAll", "_A_SELECT_DESELECT_ALL_"),
     },
     textSelectAll: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.textSelectAll,
+      default: () => getPropDefault("ASelectStyle", "textSelectAll", "_A_SELECT_SELECT_ALL_"),
     },
     translateGroup: {
       type: Boolean,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.translateGroup,
+      default: () => getPropDefault("ASelectStyle", "translateGroup", false),
     },
     type: {
       type: String,
       required: false,
-      default: () => ASelectPluginOptions.propsDefault.type,
+      default: () => getPropDefault("ASelectStyle", "type", "select"),
       validator: value => ["select", "selectStyle", "multiselect", "multiselectStyle"].indexOf(value) !== -1,
     },
   },

@@ -46,8 +46,8 @@ import {
 } from "./compositionAPI/PaginationModesAPI";
 
 import {
-  tablePluginOptions,
-} from "../plugins/ATablePlugin";
+  getPropDefault,
+} from "../plugins/APropsDefaultPlugin";
 import {
   isInteger,
   uniqueId,
@@ -133,7 +133,7 @@ export default {
     borderType: {
       type: String,
       required: false,
-      default: () => tablePluginOptions.value.propsDefault.borderType,
+      default: () => getPropDefault("ATable", "borderType", "bordered"),
       validator: value => ["bordered", "innerBordered"].indexOf(value) !== -1,
     },
     data: {
@@ -236,7 +236,7 @@ export default {
     isStriped: {
       type: Boolean,
       required: false,
-      default: () => tablePluginOptions.value.propsDefault.isStriped,
+      default: () => getPropDefault("ATable", "isStriped", false),
     },
     resizeDebounce: {
       type: Number,

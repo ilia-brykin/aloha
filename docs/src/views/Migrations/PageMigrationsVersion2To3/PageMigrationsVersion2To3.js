@@ -17,6 +17,7 @@ export default {
     const {
       codeBtnClose,
       codeLabelPosition,
+      codePropsDefault,
       codeConfigAfter,
       codeConfigBefore,
       codeRgb,
@@ -25,6 +26,7 @@ export default {
     return {
       codeBtnClose,
       codeLabelPosition,
+      codePropsDefault,
       codeConfigAfter,
       codeConfigBefore,
       codeRgb,

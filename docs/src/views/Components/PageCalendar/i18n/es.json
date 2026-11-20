@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "El color de las citas sin color.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "Días que no se pueden elegir: un array de fechas o una función que recibe el día (\"YYYY-MM-DD\") y devuelve true.",
   "_A_CALENDAR_PROPS_EVENTS_": "Las citas. Una cita sin inicio válido se ignora.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "El primer día de la semana: 0 es domingo, 1 es lunes. El valor por defecto viene de ADatepickerPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "El primer día de la semana: 0 es domingo, 1 es lunes. El valor por defecto se define con APropsDefaultPlugin.",
   "_A_CALENDAR_PROPS_HOUR_END_": "Vistas semanal y diaria: la hora en la que termina la cuadrícula (de 1 a 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "Vistas semanal y diaria: la hora en la que empieza la cuadrícula (de 0 a 23).",
   "_A_CALENDAR_PROPS_ID_": "El id del componente. El título tiene el id <code>{id}_title</code>.",

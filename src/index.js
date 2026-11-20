@@ -184,13 +184,11 @@ export { default as ASafeHtml } from "./directives/ASafeHtml";
 
 // plugins
 export { default as AAlertPlugin } from "./plugins/AAlertPlugin";
-export { default as AAvatarPlugin } from "./plugins/AAvatarPlugin";
 export {
   default as ADataRetrievePlugin,
   ADataRetrievePluginOptions,
   defaultRetrieve as ADataRetrievePlugin_defaultRetrieve,
 } from "./plugins/ADataRetrievePlugin";
-export { default as ACloakPlugin } from "./plugins/ACloakPlugin";
 export {
   default as AFiltersPlugin,
 } from "./plugins/AFiltersPlugin";
@@ -199,27 +197,17 @@ export {
   default as AFormPlugin,
   AFormPluginOptions,
 } from "./plugins/AFormPlugin";
-export { default as AGroupButtonDropdownPlugin } from "./plugins/AGroupButtonDropdownPlugin";
 export { default as AHttpPlugin } from "./plugins/AHttpPlugin";
 export { default as AI18nPlugin } from "./plugins/AI18nPlugin";
 export { default as AIconPlugin } from "./plugins/AIconPlugin";
-export {
-  default as AInputCurrencyPlugin,
-  AInputCurrencyPluginOptions,
-} from "./plugins/AInputCurrencyPlugin";
-export {
-  default as AInputNumberPlugin,
-  AInputNumberPluginOptions,
-} from "./plugins/AInputNumberPlugin";
-export {
-  default as AMultiselectOrderedPlugin,
-  AMultiselectOrderedPluginOptions,
-} from "./plugins/AMultiselectOrderedPlugin";
-export { default as ALoadingPlugin } from "./plugins/ALoadingPlugin";
 export { default as AlohaPlugin } from "./plugins/alohaPlugin";
 export { default as AMobilePlugin } from "./plugins/AMobilePlugin";
-export { default as AModalPlugin } from "./plugins/AModalPlugin";
 export { default as APageTabTitlePlugin } from "./plugins/APageTabTitlePlugin";
+export {
+  default as APropsDefaultPlugin,
+  getPropDefault,
+  propsDefaultPluginOptions,
+} from "./plugins/APropsDefaultPlugin";
 export {
   default as ARouterLinkConfigPlugin,
   ARouterLinkConfigPluginOptions,
@@ -228,9 +216,6 @@ export {
   default as ASelectStylesPlugin,
   ASelectStylePluginOptions,
 } from "./plugins/ASelectStylesPlugin";
-export { default as ASelectPlugin } from "./plugins/ASelectPlugin";
-export { default as ASkeletonPlugin } from "./plugins/ASkeletonPlugin";
-export { default as ASpinnerPlugin } from "./plugins/ASpinnerPlugin";
 export { default as ATablePlugin } from "./plugins/ATablePlugin";
 
 // filters

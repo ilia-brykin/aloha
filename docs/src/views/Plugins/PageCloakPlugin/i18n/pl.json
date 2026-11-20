@@ -1,8 +1,0 @@
-{
-  "_PAGE_PLUGIN_CLOAK_PAGE_TITLE_": "Wtyczka ACloakPlugin",
-  "_PAGE_PLUGIN_CLOAK_H1_": "Wtyczka <span lang=\"en\">ACloakPlugin</span>",
-  "_PAGE_PLUGIN_CLOAK_INTRODUCTION_": "<h2 class=\"a_mb_3\">Wprowadzenie</h2><p><strong lang=\"en\">ACloakPlugin</strong> służy do ustawiania wartości domyślnych właściwości komponentu <strong lang=\"en\">ACloak</strong>. Pozwala to na centralne dostosowanie wyglądu i zachowania elementu, w tym wyrównania, rozmiaru, tekstu i innych właściwości.</p>",
-  "_PAGE_PLUGIN_CLOAK_CONNECTION_": "<h2 class=\"a_mb_3\">Podłączenie</h2><p>Aby podłączyć wtyczkę, dodaj ją do swojego projektu i skonfiguruj domyślne wartości właściwości:</p>",
-  "_PAGE_PLUGIN_CLOAK_CONNECTION_NOTES_": "<h3 class=\"a_mb_3\">Uwagi</h3><p>Możesz nadpisać następujące właściwości:</p><ul><li><strong lang=\"en\">align</strong>: wyrównanie zawartości (domyślnie: <strong lang=\"en\">\"center\"</strong>).</li><li><strong lang=\"en\">extra</strong>: obiekt z parametrami tłumaczeń.</li><li><strong lang=\"en\">size</strong>: rozmiar elementu (domyślnie: 6).</li><li><strong lang=\"en\">tag</strong>: znacznik <strong lang=\"en\">HTML</strong> do opakowania (domyślnie: <strong lang=\"en\">\"div\"</strong>).</li><li><strong lang=\"en\">text</strong>: tekst wyświetlany w elemencie (domyślnie: <strong lang=\"en\">\"_A_CLOAK_LOADING_\"</strong>).</li><li><strong lang=\"en\">textAlign</strong>: wyrównanie tekstu (domyślnie: <strong lang=\"en\">\"right\"</strong>).</li></ul>",
-  "_PAGE_PLUGIN_CLOAK_EXAMPLES_": "<h2 class=\"a_mb_3\">Przykład użycia</h2><p>Po podłączeniu wtyczki komponent <strong lang=\"en\">ACloak</strong> będzie używać podanych wartości domyślnych:</p>"
-}

@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "Цвет встреч без цвета.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "Дни, которые нельзя выбрать: массив дат или функция, которая получает день (\"YYYY-MM-DD\") и возвращает true.",
   "_A_CALENDAR_PROPS_EVENTS_": "Встречи. Встреча без корректного начала пропускается.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Первый день недели: 0 — воскресенье, 1 — понедельник. Значение по умолчанию берётся из ADatepickerPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Первый день недели: 0 — воскресенье, 1 — понедельник. Значение по умолчанию задаётся через APropsDefaultPlugin.",
   "_A_CALENDAR_PROPS_HOUR_END_": "Виды «Неделя» и «День»: час, на котором заканчивается сетка (от 1 до 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "Виды «Неделя» и «День»: час, с которого начинается сетка (от 0 до 23).",
   "_A_CALENDAR_PROPS_ID_": "ID компонента. У заголовка ID <code>{id}_title</code>.",

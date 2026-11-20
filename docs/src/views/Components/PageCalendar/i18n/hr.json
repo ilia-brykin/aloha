@@ -79,7 +79,7 @@
   "_A_CALENDAR_PROPS_COLOR_DEFAULT_": "Boja termina bez boje.",
   "_A_CALENDAR_PROPS_DISABLED_DATES_": "Dani koji se ne mogu odabrati: niz datuma ili funkcija koja dobiva dan (\"YYYY-MM-DD\") i vraća true.",
   "_A_CALENDAR_PROPS_EVENTS_": "Termini. Termin bez valjanog početka se zanemaruje.",
-  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Prvi dan u tjednu: 0 je nedjelja, 1 je ponedjeljak. Zadana vrijednost dolazi iz ADatepickerPlugin.",
+  "_A_CALENDAR_PROPS_FIRST_DAY_OF_WEEK_": "Prvi dan u tjednu: 0 je nedjelja, 1 je ponedjeljak. Zadana vrijednost postavlja se pomoću APropsDefaultPlugin.",
   "_A_CALENDAR_PROPS_HOUR_END_": "Tjedni i dnevni prikaz: sat na kojem mreža završava (od 1 do 24).",
   "_A_CALENDAR_PROPS_HOUR_START_": "Tjedni i dnevni prikaz: sat na kojem mreža počinje (od 0 do 23).",
   "_A_CALENDAR_PROPS_ID_": "Id komponente. Naslov ima id <code>{id}_title</code>.",

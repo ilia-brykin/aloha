@@ -4,42 +4,42 @@ import {
 } from "vue";
 
 import {
-  AMultiselectOrderedPluginTexts,
-} from "../../../plugins/AMultiselectOrderedPlugin";
+  AMultiselectOrderedTexts,
+} from "../utils/texts";
 
 export default function TextsAPI(props) {
   const texts = toRef(props, "texts");
 
   const textBtnDeleteTitle = computed(() => {
-    return texts.value.btnDeleteTitle || AMultiselectOrderedPluginTexts.btnDeleteTitle;
+    return texts.value.btnDeleteTitle || AMultiselectOrderedTexts.btnDeleteTitle;
   });
 
   const textBtnDownTitle = computed(() => {
-    return texts.value.btnDownTitle || AMultiselectOrderedPluginTexts.btnDownTitle;
+    return texts.value.btnDownTitle || AMultiselectOrderedTexts.btnDownTitle;
   });
 
   const textBtnGroupAriaLabel = computed(() => {
-    return texts.value.btnGroupAriaLabel || AMultiselectOrderedPluginTexts.btnGroupAriaLabel;
+    return texts.value.btnGroupAriaLabel || AMultiselectOrderedTexts.btnGroupAriaLabel;
   });
 
   const textBtnUpTitle = computed(() => {
-    return texts.value.btnUpTitle || AMultiselectOrderedPluginTexts.btnUpTitle;
+    return texts.value.btnUpTitle || AMultiselectOrderedTexts.btnUpTitle;
   });
 
   const textDeselectAll = computed(() => {
-    return texts.value.deselectAll || AMultiselectOrderedPluginTexts.deselectAll;
+    return texts.value.deselectAll || AMultiselectOrderedTexts.deselectAll;
   });
 
   const textModelEmpty = computed(() => {
-    return texts.value.modelEmpty || AMultiselectOrderedPluginTexts.modelEmpty;
+    return texts.value.modelEmpty || AMultiselectOrderedTexts.modelEmpty;
   });
 
   const textSelectAll = computed(() => {
-    return texts.value.selectAll || AMultiselectOrderedPluginTexts.selectAll;
+    return texts.value.selectAll || AMultiselectOrderedTexts.selectAll;
   });
 
   const textGroupAllAriaLabel = computed(() => {
-    return texts.value.groupAllAriaLabel || AMultiselectOrderedPluginTexts.groupAllAriaLabel;
+    return texts.value.groupAllAriaLabel || AMultiselectOrderedTexts.groupAllAriaLabel;
   });
 
   return {

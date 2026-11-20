@@ -19,8 +19,8 @@ import {
   AFormPluginOptions,
 } from "../../../plugins/AFormPlugin";
 
-const getPosition = (props, options) => {
-  return UiLabelPositionAPI(reactive(props), options).labelPositionLocal.value;
+const getPosition = props => {
+  return UiLabelPositionAPI(reactive(props)).labelPositionLocal.value;
 };
 
 afterEach(() => {
@@ -34,9 +34,7 @@ describe("UiLabelPositionAPI", () => {
     expect(getPosition({ labelPosition: undefined, isLabelFloat: true })).toBe("float");
   });
 
-  it("falls back to the component plugin, then to AFormPlugin", () => {
-    expect(getPosition({}, { pluginOptions: { propsDefault: { labelPosition: "top" } } })).toBe("top");
-    expect(getPosition({}, { pluginOptions: { propsDefault: { isLabelFloat: false } } })).toBe("top");
+  it("falls back to AFormPlugin", () => {
     expect(getPosition({})).toBe("float");
     AFormPluginOptions.labelPosition = "inset";
     expect(getPosition({})).toBe("inset");

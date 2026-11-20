@@ -26,9 +26,6 @@ import TextsAPI from "./compositionAPI/TextsAPI";
 import WeekViewAPI from "./compositionAPI/WeekViewAPI";
 
 import {
-  ADatepickerPluginOptions,
-} from "../plugins/ADatepickerPlugin";
-import {
   ArrowRepeat,
   ChevronLeft,
   ChevronRight,
@@ -37,6 +34,9 @@ import {
   CALENDAR_VIEWS,
   CALENDAR_VIEWS_DEFAULT,
 } from "./const";
+import {
+  getPropDefault,
+} from "../plugins/APropsDefaultPlugin";
 import {
   uniqueId,
 } from "lodash-es";
@@ -62,7 +62,7 @@ export default {
     firstDayOfWeek: {
       type: Number,
       required: false,
-      default: () => ADatepickerPluginOptions.propsDefault.firstDayOfWeek,
+      default: () => getPropDefault("ACalendar", "firstDayOfWeek", 1),
       validator: value => value >= 0 && value <= 6,
     },
     hourEnd: {

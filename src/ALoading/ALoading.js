@@ -8,11 +8,8 @@ import ClassAPI from "../ACloak/compositionAPI/ClassAPI";
 
 import ASpinner from "../ASpinner/ASpinner.js";
 import {
-  loadingPluginOptions,
-} from "../plugins/ALoadingPlugin";
-import {
-  spinnerPluginOptions,
-} from "../plugins/ASpinnerPlugin";
+  getPropDefault,
+} from "../plugins/APropsDefaultPlugin";
 
 export default {
   name: "ALoading",
@@ -21,7 +18,7 @@ export default {
     align: {
       type: String,
       required: false,
-      default: () => loadingPluginOptions.value.propsDefault.align,
+      default: () => getPropDefault("ALoading", "align", "center"),
       validator: value => ["left", "center", "right"].indexOf(value) !== -1,
     },
     alwaysTranslate: {
@@ -31,7 +28,7 @@ export default {
     extra: {
       type: Object,
       required: false,
-      default: () => loadingPluginOptions.value.propsDefault.extra,
+      default: () => getPropDefault("ALoading", "extra"),
     },
     isLoading: {
       type: Boolean,
@@ -41,7 +38,7 @@ export default {
     size: {
       type: [String, Number],
       required: false,
-      default: () => loadingPluginOptions.value.propsDefault.size,
+      default: () => getPropDefault("ALoading", "size", 6),
       validator: size => ["1", "2", "3", "4", "5", "6", "7"].indexOf(`${ size }`) !== -1,
     },
     spinnerClass: {
@@ -52,27 +49,27 @@ export default {
     spinnerSafeHtml: {
       type: String,
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.safeHtml,
+      default: () => getPropDefault("ALoading", "spinnerSafeHtml", ""),
     },
     spinnerTag: {
       type: String,
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.tag,
+      default: () => getPropDefault("ALoading", "spinnerTag", "span"),
     },
     tag: {
       type: String,
       required: false,
-      default: () => loadingPluginOptions.value.propsDefault.tag,
+      default: () => getPropDefault("ALoading", "tag", "div"),
     },
     text: {
       type: String,
       required: false,
-      default: () => loadingPluginOptions.value.propsDefault.text,
+      default: () => getPropDefault("ALoading", "text", "_A_LOADING_LOADING_"),
     },
     textAlign: {
       type: String,
       required: false,
-      default: () => loadingPluginOptions.value.propsDefault.textAlign,
+      default: () => getPropDefault("ALoading", "textAlign", "right"),
       validator: value => ["left", "right"].indexOf(value) !== -1,
     },
   },
