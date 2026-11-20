@@ -9,5 +9,8 @@
   "_A_CALENDAR_VIEW_": "Vista",
   "_A_CALENDAR_VIEW_MONTH_": "Mese",
   "_A_CALENDAR_VIEW_WEEK_": "Settimana",
-  "_A_CALENDAR_ALL_DAY_": "Tutto il giorno"
+  "_A_CALENDAR_ALL_DAY_": "Tutto il giorno",
+  "_A_CALENDAR_PREVIOUS_DAY_": "Giorno precedente",
+  "_A_CALENDAR_NEXT_DAY_": "Giorno successivo",
+  "_A_CALENDAR_VIEW_DAY_": "Giorno"
 }

@@ -210,7 +210,8 @@
 .a_calendar__all_day,
 .a_calendar__time_grid {
   display: grid;
-  grid-template-columns: var(--a_calendar_gutter_width) repeat(7, minmax(0, 1fr));
+  // 7 columns in the week, 1 in the day (--a_calendar_days is set by the component)
+  grid-template-columns: var(--a_calendar_gutter_width) repeat(var(--a_calendar_days, 7), minmax(0, 1fr));
 }
 .a_calendar__week_head,
 .a_calendar__all_day {

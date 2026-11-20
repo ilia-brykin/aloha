@@ -19,8 +19,8 @@ import moment from "moment";
 export default function WeekViewAPI(props, {
   emit,
   eventsNormalized = computed(() => []),
-  isWeekView = computed(() => false),
-  weekDays = computed(() => []),
+  isTimeGridView = computed(() => false),
+  timeGridDays = computed(() => []),
 }) {
   const hourEnd = toRef(props, "hourEnd");
   const hourStart = toRef(props, "hourStart");
@@ -43,7 +43,7 @@ export default function WeekViewAPI(props, {
   const isEventInAllDayRow = event => event.isAllDay || event.startDay !== event.endDay;
 
   const weekView = computed(() => {
-    const DAYS = weekDays.value;
+    const DAYS = timeGridDays.value;
     const { segments, countsByDay } = getWeekSegments({
       week: DAYS,
       events: eventsNormalized.value.filter(isEventInAllDayRow),
@@ -132,12 +132,12 @@ export default function WeekViewAPI(props, {
   };
 
   onMounted(() => {
-    if (isWeekView.value) {
+    if (isTimeGridView.value) {
       scrollToStartHour();
     }
   });
-  watch(isWeekView, () => {
-    if (isWeekView.value) {
+  watch(isTimeGridView, () => {
+    if (isTimeGridView.value) {
       scrollToStartHour();
     }
   });

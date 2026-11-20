@@ -123,7 +123,7 @@ export default function PropsAPI() {
       name: "views",
       description: "_A_CALENDAR_PROPS_VIEWS_",
       type: "Array",
-      default: "[\"month\", \"week\"]",
+      default: "[\"month\", \"week\", \"day\"]",
       required: false,
     },
   ];

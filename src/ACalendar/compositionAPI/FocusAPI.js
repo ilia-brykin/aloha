@@ -13,7 +13,7 @@ import {
 export default function FocusAPI(props, {
   goToDate = () => {},
   focusableDayKeys = computed(() => []),
-  isWeekView = computed(() => false),
+  isTimeGridView = computed(() => false),
   modelValueKey = computed(() => undefined),
 }) {
   const firstDayOfWeek = toRef(props, "firstDayOfWeek");
@@ -64,11 +64,11 @@ export default function FocusAPI(props, {
         return DATE.subtract(WEEKDAY_INDEX, "days");
       case "End":
         return DATE.add(6 - WEEKDAY_INDEX, "days");
-      // The previous or the next period: a month or a week
+      // A month in the month view, a week in the week and the day view
       case "PageUp":
-        return DATE.subtract(1, isWeekView.value ? "week" : "month");
+        return DATE.subtract(1, isTimeGridView.value ? "week" : "month");
       case "PageDown":
-        return DATE.add(1, isWeekView.value ? "week" : "month");
+        return DATE.add(1, isTimeGridView.value ? "week" : "month");
       default:
         return undefined;
     }
