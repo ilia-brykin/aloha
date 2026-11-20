@@ -15,8 +15,8 @@ import {
   AI18nPlugin,
   AIconPlugin,
   AMobilePlugin,
-  AModalPlugin,
   APageTabTitlePlugin,
+  APropsDefaultPlugin,
   ARemPxPlugin,
   ARouterLinkConfigPlugin,
   ASafeHtml,
@@ -75,8 +75,8 @@ APP.use(AMobilePlugin, {
   breakpoint: 1023,
 });
 APP.use(ARemPxPlugin);
-APP.use(AModalPlugin, {
-  propsDefault: {
+APP.use(APropsDefaultPlugin, {
+  AModal: {
     closeButtonClass: "a_btn a_btn_link",
   },
 });
@@ -103,9 +103,7 @@ APP.use(AFiltersPlugin, {
 });
 
 APP.use(ARouterLinkConfigPlugin, {
-  propsDefault: {
-    routes: router.getRoutes(),
-  },
+  routes: router.getRoutes(),
   // excludedPathRoutes: ["/:catchAll(.*)"],
 });
 
@@ -116,14 +114,5 @@ APP.use(AFormPlugin, {
   },
 }),
 
-/*
- * APP.use(AGroupButtonDropdownPlugin, {
- *   propsDefault: {
- *     dropdownAttributes: {
- *       buttonText: "Weitere Aktionen",
- *     },
- *   },
- * });
- */
 APP.directive("SafeHtml", ASafeHtml);
 APP.use(router).mount("#app");

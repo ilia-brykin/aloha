@@ -13,7 +13,6 @@ import {
 } from "lodash-es";
 
 export default function UiAPI(props, { emit }, {
-  pluginOptions,
   setFocus = () => {},
 } = {}) {
   const change = toRef(props, "change");
@@ -31,9 +30,7 @@ export default function UiAPI(props, { emit }, {
     isLabelFloatLocal,
     isLabelInset,
     labelPositionLocal,
-  } = UiLabelPositionAPI(props, {
-    pluginOptions,
-  });
+  } = UiLabelPositionAPI(props);
 
   const isFocus = ref(false);
   const isFocusIn = ref(false);

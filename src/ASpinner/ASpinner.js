@@ -6,8 +6,8 @@ import AriaLabelAPI from "../ATranslation/compositionAPI/AriaLabelAPI";
 import ClassAPI from "./compositionAPI/ClassAPI";
 
 import {
-  spinnerPluginOptions,
-} from "../plugins/ASpinnerPlugin";
+  getPropDefault,
+} from "../plugins/APropsDefaultPlugin";
 
 export default {
   name: "ASpinner",
@@ -19,28 +19,28 @@ export default {
     ariaLabel: {
       type: [String, Number, Object],
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.ariaLabel,
+      default: () => getPropDefault("ASpinner", "ariaLabel", "_A_SPINNER_LOADING_"),
     },
     extra: {
       type: Object,
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.extra,
+      default: () => getPropDefault("ASpinner", "extra"),
     },
     safeHtml: {
       type: String,
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.safeHtml,
+      default: () => getPropDefault("ASpinner", "safeHtml", ""),
     },
     size: {
       type: [String, Number],
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.size,
+      default: () => getPropDefault("ASpinner", "size"),
       validator: size => ["1", "2", "3", "4", "5", "6", "7"].indexOf(`${ size }`) !== -1,
     },
     tag: {
       type: String,
       required: false,
-      default: () => spinnerPluginOptions.value.propsDefault.tag,
+      default: () => getPropDefault("ASpinner", "tag", "span"),
     },
   },
   setup(props) {
@@ -60,7 +60,7 @@ export default {
   render() {
     return h(this.tag, {
       class: [
-        spinnerPluginOptions.value.propsDefault.class,
+        "a_spinner",
         this.classSize,
       ],
       role: "status",

@@ -23,14 +23,6 @@ export default function PluginsItemsAPI() {
         },
       },
       {
-        id: "PageLoadingPlugin",
-        label: "Loading plugin",
-        class: "test_menu_loading_plugin",
-        to: {
-          name: "PageLoadingPlugin",
-        },
-      },
-      {
         id: "PageMobilePlugin",
         label: "Mobile plugin",
         class: "test_menu_mobile_plugin",
@@ -39,11 +31,11 @@ export default function PluginsItemsAPI() {
         },
       },
       {
-        id: "PageSpinnerPlugin",
-        label: "Spinner plugin",
-        class: "test_menu_spinner_plugin",
+        id: "PagePropsDefaultPlugin",
+        label: "Props default plugin",
+        class: "test_menu_props_default_plugin",
         to: {
-          name: "PageSpinnerPlugin",
+          name: "PagePropsDefaultPlugin",
         },
       },
       {

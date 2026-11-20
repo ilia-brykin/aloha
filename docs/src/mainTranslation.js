@@ -23,7 +23,6 @@ import PageCalendarI18n from "./views/Components/PageCalendar/i18n/PageCalendarI
 import PageCarouselI18n from "./views/Components/PageCarousel/i18n/PageCarouselI18n";
 import PageCheckboxI18n from "./views/Components/Form/PageCheckbox/i18n/PageCheckboxI18n";
 import PageCloakI18n from "./views/Components/PageCloak/i18n/PageCloakI18n";
-import PageCloakPluginI18n from "./views/Plugins/PageCloakPlugin/i18n/PageCloakPluginI18n";
 import PageColorPickerI18n from "./views/Components/Form/PageColorPicker/i18n/PageColorPickerI18n";
 import PageColorsI18n from "./views/CSS/PageColors/i18n/PageColorsI18n";
 import PageColumnsI18n from "./views/CSS/PageColumns/i18n/PageColumnsI18n";
@@ -84,7 +83,6 @@ import PageLinkCopyI18n from "./views/Components/PageLinkCopy/i18n/PageLinkCopyI
 import PageLinkI18n from "./views/Components/PageLink/i18n/PageLinkI18n";
 import PageListI18n from "./views/Components/PageList/i18n/PageListI18n";
 import PageLoadingI18n from "./views/Components/PageLoading/i18n/PageLoadingI18n";
-import PageLoadingPluginI18n from "./views/Plugins/PageLoadingPlugin/i18n/PageLoadingPluginI18n";
 import PageMenuBasicI18n from "./views/Components/PageMenu/PageMenuBasic/i18n/PageMenuBasicI18n";
 import PageMigrationsVersion1To2I18n from "./views/Migrations/PageMigrationsVersion1To2/i18n/PageMigrationsVersion1To2I18n";
 import PageMigrationsVersion2To3I18n from "./views/Migrations/PageMigrationsVersion2To3/i18n/PageMigrationsVersion2To3I18n";
@@ -101,6 +99,7 @@ import PagePaginationPagesI18n from "./views/Components/PagePaginationPages/i18n
 import PagePositionI18n from "./views/CSS/PagePosition/i18n/PagePositionI18n";
 import PageProgressCircleI18n from "./views/Components/Progress/PageProgressCircle/i18n/PageProgressCircleI18n";
 import PageProgressI18n from "./views/Components/Progress/PageProgress/i18n/PageProgressI18n";
+import PagePropsDefaultPluginI18n from "./views/Plugins/PagePropsDefaultPlugin/i18n/PagePropsDefaultPluginI18n";
 import PageQuickStartI18n from "./views/Installation/PageQuickStart/i18n/PageQuickStartI18n";
 import PageRadioI18n from "./views/Components/Form/PageRadio/i18n/PageRadioI18n";
 import PageRateI18n from "./views/Components/Form/PageRate/i18n/PageRateI18n";
@@ -114,7 +113,6 @@ import PageSkeletonI18n from "./views/Components/PageSkeleton/i18n/PageSkeletonI
 import PageSliderI18n from "./views/Components/Form/PageSlider/i18n/PageSliderI18n";
 import PageSpacingI18n from "./views/CSS/PageSpacing/i18n/PageSpacingI18n";
 import PageSpinnerI18n from "./views/Components/PageSpinner/i18n/PageSpinnerI18n";
-import PageSpinnerPluginI18n from "./views/Plugins/PageSpinnerPlugin/i18n/PageSpinnerPluginI18n";
 import PageStartI18n from "./views/PageStart/i18n/PageStartI18n";
 import PageSwitchI18n from "./views/Components/Form/PageSwitch/i18n/PageSwitchI18n";
 import PageTableFormI18n from "./views/Components/PageTableForm/i18n/PageTableFormI18n";
@@ -184,7 +182,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.ar,
     ...PageCloakI18n.ar,
     ...PageConfirmI18n.ar,
-    ...PageCloakPluginI18n.ar,
     ...PageDatepickerI18n.ar,
     ...PageDatepickerRangeI18n.ar,
     ...PageDisclosureI18n.ar,
@@ -239,7 +236,6 @@ export const mainTranslation = {
     ...PageLinkI18n.ar,
     ...PageListI18n.ar,
     ...PageLoadingI18n.ar,
-    ...PageLoadingPluginI18n.ar,
     ...PageMenuBasicI18n.ar,
     ...PageMigrationsVersion1To2I18n.ar,
     ...PageMigrationsVersion2To3I18n.ar,
@@ -265,7 +261,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.ar,
     ...PageSliderI18n.ar,
     ...PageSpinnerI18n.ar,
-    ...PageSpinnerPluginI18n.ar,
+    ...PagePropsDefaultPluginI18n.ar,
     ...PageStartI18n.ar,
     ...PageSwitchI18n.ar,
     ...PageColorPickerI18n.ar,
@@ -320,7 +316,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.de,
     ...PageCloakI18n.de,
     ...PageConfirmI18n.de,
-    ...PageCloakPluginI18n.de,
     ...PageDatepickerI18n.de,
     ...PageDatepickerRangeI18n.de,
     ...PageDisclosureI18n.de,
@@ -375,7 +370,6 @@ export const mainTranslation = {
     ...PageLinkI18n.de,
     ...PageListI18n.de,
     ...PageLoadingI18n.de,
-    ...PageLoadingPluginI18n.de,
     ...PageMenuBasicI18n.de,
     ...PageMigrationsVersion1To2I18n.de,
     ...PageMigrationsVersion2To3I18n.de,
@@ -401,7 +395,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.de,
     ...PageSliderI18n.de,
     ...PageSpinnerI18n.de,
-    ...PageSpinnerPluginI18n.de,
+    ...PagePropsDefaultPluginI18n.de,
     ...PageStartI18n.de,
     ...PageSwitchI18n.de,
     ...PageColorPickerI18n.de,
@@ -456,7 +450,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.en,
     ...PageCloakI18n.en,
     ...PageConfirmI18n.en,
-    ...PageCloakPluginI18n.en,
     ...PageDatepickerI18n.en,
     ...PageDatepickerRangeI18n.en,
     ...PageDisclosureI18n.en,
@@ -511,7 +504,6 @@ export const mainTranslation = {
     ...PageLinkI18n.en,
     ...PageListI18n.en,
     ...PageLoadingI18n.en,
-    ...PageLoadingPluginI18n.en,
     ...PageMenuBasicI18n.en,
     ...PageMigrationsVersion1To2I18n.en,
     ...PageMigrationsVersion2To3I18n.en,
@@ -537,7 +529,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.en,
     ...PageSliderI18n.en,
     ...PageSpinnerI18n.en,
-    ...PageSpinnerPluginI18n.en,
+    ...PagePropsDefaultPluginI18n.en,
     ...PageStartI18n.en,
     ...PageSwitchI18n.en,
     ...PageColorPickerI18n.en,
@@ -592,7 +584,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.es,
     ...PageCloakI18n.es,
     ...PageConfirmI18n.es,
-    ...PageCloakPluginI18n.es,
     ...PageDatepickerI18n.es,
     ...PageDatepickerRangeI18n.es,
     ...PageDisclosureI18n.es,
@@ -647,7 +638,6 @@ export const mainTranslation = {
     ...PageLinkI18n.es,
     ...PageListI18n.es,
     ...PageLoadingI18n.es,
-    ...PageLoadingPluginI18n.es,
     ...PageMenuBasicI18n.es,
     ...PageMigrationsVersion1To2I18n.es,
     ...PageMigrationsVersion2To3I18n.es,
@@ -673,7 +663,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.es,
     ...PageSliderI18n.es,
     ...PageSpinnerI18n.es,
-    ...PageSpinnerPluginI18n.es,
+    ...PagePropsDefaultPluginI18n.es,
     ...PageStartI18n.es,
     ...PageSwitchI18n.es,
     ...PageColorPickerI18n.es,
@@ -728,7 +718,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.fr,
     ...PageCloakI18n.fr,
     ...PageConfirmI18n.fr,
-    ...PageCloakPluginI18n.fr,
     ...PageDatepickerI18n.fr,
     ...PageDatepickerRangeI18n.fr,
     ...PageDisclosureI18n.fr,
@@ -783,7 +772,6 @@ export const mainTranslation = {
     ...PageLinkI18n.fr,
     ...PageListI18n.fr,
     ...PageLoadingI18n.fr,
-    ...PageLoadingPluginI18n.fr,
     ...PageMenuBasicI18n.fr,
     ...PageMigrationsVersion1To2I18n.fr,
     ...PageMigrationsVersion2To3I18n.fr,
@@ -809,7 +797,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.fr,
     ...PageSliderI18n.fr,
     ...PageSpinnerI18n.fr,
-    ...PageSpinnerPluginI18n.fr,
+    ...PagePropsDefaultPluginI18n.fr,
     ...PageStartI18n.fr,
     ...PageSwitchI18n.fr,
     ...PageColorPickerI18n.fr,
@@ -864,7 +852,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.hr,
     ...PageCloakI18n.hr,
     ...PageConfirmI18n.hr,
-    ...PageCloakPluginI18n.hr,
     ...PageDatepickerI18n.hr,
     ...PageDatepickerRangeI18n.hr,
     ...PageDisclosureI18n.hr,
@@ -919,7 +906,6 @@ export const mainTranslation = {
     ...PageLinkI18n.hr,
     ...PageListI18n.hr,
     ...PageLoadingI18n.hr,
-    ...PageLoadingPluginI18n.hr,
     ...PageMenuBasicI18n.hr,
     ...PageMigrationsVersion1To2I18n.hr,
     ...PageMigrationsVersion2To3I18n.hr,
@@ -945,7 +931,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.hr,
     ...PageSliderI18n.hr,
     ...PageSpinnerI18n.hr,
-    ...PageSpinnerPluginI18n.hr,
+    ...PagePropsDefaultPluginI18n.hr,
     ...PageStartI18n.hr,
     ...PageSwitchI18n.hr,
     ...PageColorPickerI18n.hr,
@@ -1000,7 +986,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.it,
     ...PageCloakI18n.it,
     ...PageConfirmI18n.it,
-    ...PageCloakPluginI18n.it,
     ...PageDatepickerI18n.it,
     ...PageDatepickerRangeI18n.it,
     ...PageDisclosureI18n.it,
@@ -1055,7 +1040,6 @@ export const mainTranslation = {
     ...PageLinkI18n.it,
     ...PageListI18n.it,
     ...PageLoadingI18n.it,
-    ...PageLoadingPluginI18n.it,
     ...PageMenuBasicI18n.it,
     ...PageMigrationsVersion1To2I18n.it,
     ...PageMigrationsVersion2To3I18n.it,
@@ -1081,7 +1065,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.it,
     ...PageSliderI18n.it,
     ...PageSpinnerI18n.it,
-    ...PageSpinnerPluginI18n.it,
+    ...PagePropsDefaultPluginI18n.it,
     ...PageStartI18n.it,
     ...PageSwitchI18n.it,
     ...PageColorPickerI18n.it,
@@ -1136,7 +1120,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.nl,
     ...PageCloakI18n.nl,
     ...PageConfirmI18n.nl,
-    ...PageCloakPluginI18n.nl,
     ...PageDatepickerI18n.nl,
     ...PageDatepickerRangeI18n.nl,
     ...PageDisclosureI18n.nl,
@@ -1191,7 +1174,6 @@ export const mainTranslation = {
     ...PageLinkI18n.nl,
     ...PageListI18n.nl,
     ...PageLoadingI18n.nl,
-    ...PageLoadingPluginI18n.nl,
     ...PageMenuBasicI18n.nl,
     ...PageMigrationsVersion1To2I18n.nl,
     ...PageMigrationsVersion2To3I18n.nl,
@@ -1217,7 +1199,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.nl,
     ...PageSliderI18n.nl,
     ...PageSpinnerI18n.nl,
-    ...PageSpinnerPluginI18n.nl,
+    ...PagePropsDefaultPluginI18n.nl,
     ...PageStartI18n.nl,
     ...PageSwitchI18n.nl,
     ...PageColorPickerI18n.nl,
@@ -1272,7 +1254,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.pl,
     ...PageCloakI18n.pl,
     ...PageConfirmI18n.pl,
-    ...PageCloakPluginI18n.pl,
     ...PageDatepickerI18n.pl,
     ...PageDatepickerRangeI18n.pl,
     ...PageDisclosureI18n.pl,
@@ -1327,7 +1308,6 @@ export const mainTranslation = {
     ...PageLinkI18n.pl,
     ...PageListI18n.pl,
     ...PageLoadingI18n.pl,
-    ...PageLoadingPluginI18n.pl,
     ...PageMenuBasicI18n.pl,
     ...PageMigrationsVersion1To2I18n.pl,
     ...PageMigrationsVersion2To3I18n.pl,
@@ -1353,7 +1333,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.pl,
     ...PageSliderI18n.pl,
     ...PageSpinnerI18n.pl,
-    ...PageSpinnerPluginI18n.pl,
+    ...PagePropsDefaultPluginI18n.pl,
     ...PageStartI18n.pl,
     ...PageSwitchI18n.pl,
     ...PageColorPickerI18n.pl,
@@ -1408,7 +1388,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.ru,
     ...PageCloakI18n.ru,
     ...PageConfirmI18n.ru,
-    ...PageCloakPluginI18n.ru,
     ...PageDatepickerI18n.ru,
     ...PageDatepickerRangeI18n.ru,
     ...PageDisclosureI18n.ru,
@@ -1463,7 +1442,6 @@ export const mainTranslation = {
     ...PageLinkI18n.ru,
     ...PageListI18n.ru,
     ...PageLoadingI18n.ru,
-    ...PageLoadingPluginI18n.ru,
     ...PageMenuBasicI18n.ru,
     ...PageMigrationsVersion1To2I18n.ru,
     ...PageMigrationsVersion2To3I18n.ru,
@@ -1489,7 +1467,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.ru,
     ...PageSliderI18n.ru,
     ...PageSpinnerI18n.ru,
-    ...PageSpinnerPluginI18n.ru,
+    ...PagePropsDefaultPluginI18n.ru,
     ...PageStartI18n.ru,
     ...PageSwitchI18n.ru,
     ...PageColorPickerI18n.ru,
@@ -1544,7 +1522,6 @@ export const mainTranslation = {
     ...PageCheckboxI18n.uk,
     ...PageCloakI18n.uk,
     ...PageConfirmI18n.uk,
-    ...PageCloakPluginI18n.uk,
     ...PageDatepickerI18n.uk,
     ...PageDatepickerRangeI18n.uk,
     ...PageDisclosureI18n.uk,
@@ -1599,7 +1576,6 @@ export const mainTranslation = {
     ...PageLinkI18n.uk,
     ...PageListI18n.uk,
     ...PageLoadingI18n.uk,
-    ...PageLoadingPluginI18n.uk,
     ...PageMenuBasicI18n.uk,
     ...PageMigrationsVersion1To2I18n.uk,
     ...PageMigrationsVersion2To3I18n.uk,
@@ -1625,7 +1601,7 @@ export const mainTranslation = {
     ...PageTableFormI18n.uk,
     ...PageSliderI18n.uk,
     ...PageSpinnerI18n.uk,
-    ...PageSpinnerPluginI18n.uk,
+    ...PagePropsDefaultPluginI18n.uk,
     ...PageStartI18n.uk,
     ...PageSwitchI18n.uk,
     ...PageColorPickerI18n.uk,

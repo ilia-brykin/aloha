@@ -11,8 +11,8 @@ import ScrollAPI from "./compositionAPI/ScrollAPI";
 import VisibleAPI from "./compositionAPI/VisibleAPI";
 
 import {
-  modalPluginOptions,
-} from "../plugins/AModalPlugin";
+  getPropDefault,
+} from "../plugins/APropsDefaultPlugin";
 import {
   isNil,
   uniqueId,
@@ -61,7 +61,7 @@ export default {
     closeButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonClass,
+      default: () => getPropDefault("AModalWizard", "closeButtonClass", "a_btn a_btn_secondary"),
     },
     closeButtonId: {
       type: String,
@@ -71,17 +71,17 @@ export default {
     closeButtonText: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonText,
+      default: () => getPropDefault("AModalWizard", "closeButtonText", "_A_MODAL_BTN_CANCEL_"),
     },
     closeButtonTextScreenReaderFooter: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderFooter,
+      default: () => getPropDefault("AModalWizard", "closeButtonTextScreenReaderFooter", "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_FOOTER_"),
     },
     closeButtonTextScreenReaderHeader: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.closeButtonTextScreenReaderHeader,
+      default: () => getPropDefault("AModalWizard", "closeButtonTextScreenReaderHeader", "_A_MODAL_BTN_TEXT_SCREEN_READER_CLOSE_HEADER_"),
     },
     disabled: {
       type: Boolean,
@@ -106,7 +106,7 @@ export default {
     headerTag: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.headerTag,
+      default: () => getPropDefault("AModalWizard", "headerTag", "h2"),
     },
     headerText: {
       type: String,
@@ -120,17 +120,17 @@ export default {
     isCloseButtonHide: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isCloseButtonHide,
+      default: () => getPropDefault("AModalWizard", "isCloseButtonHide", false),
     },
     isFooterSticky: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isFooterSticky,
+      default: () => getPropDefault("AModalWizard", "isFooterSticky", false),
     },
     isSaveButtonHide: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.isSaveButtonHide,
+      default: () => getPropDefault("AModalWizard", "isSaveButtonHide", false),
     },
     loading: {
       type: Boolean,
@@ -139,12 +139,12 @@ export default {
     modalClass: {
       type: [String, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.modalClass,
+      default: () => getPropDefault("AModalWizard", "modalClass"),
     },
     modalStyle: {
       type: [String, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.modalStyle,
+      default: () => getPropDefault("AModalWizard", "modalStyle"),
     },
     save: {
       type: Function,
@@ -159,7 +159,7 @@ export default {
     saveButtonClass: {
       type: [String, Array, Object],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.saveButtonClass,
+      default: () => getPropDefault("AModalWizard", "saveButtonClass", "a_btn a_btn_primary"),
     },
     saveButtonId: {
       type: String,
@@ -169,22 +169,22 @@ export default {
     saveButtonText: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.saveButtonText,
+      default: () => getPropDefault("AModalWizard", "saveButtonText", "_A_MODAL_BTN_SAVE_"),
     },
     saveButtonTextScreenReader: {
       type: String,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.saveButtonTextScreenReader,
+      default: () => getPropDefault("AModalWizard", "saveButtonTextScreenReader", "_A_MODAL_BTN_TEXT_SCREEN_READER_SAVE_"),
     },
     selectorClose: {
       type: [String, Array],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.selectorClose,
+      default: () => getPropDefault("AModalWizard", "selectorClose"),
     },
     selectorCloseIds: {
       type: [String, Array],
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.selectorCloseIds,
+      default: () => getPropDefault("AModalWizard", "selectorCloseIds"),
     },
     showCloseButtonHeader: {
       type: Boolean,
@@ -194,7 +194,7 @@ export default {
     size: {
       type: String,
       validator: value => ["small", "large", "xl", "xxl", "fullscreen"].indexOf(value) !== -1,
-      default: () => modalPluginOptions.value.propsDefault.size,
+      default: () => getPropDefault("AModalWizard", "size"),
     },
     stop: {
       type: Boolean,
@@ -203,7 +203,7 @@ export default {
     useEscape: {
       type: Boolean,
       required: false,
-      default: () => modalPluginOptions.value.propsDefault.useEscape,
+      default: () => getPropDefault("AModalWizard", "useEscape", true),
     },
     useFocusOnStart: {
       type: Boolean,

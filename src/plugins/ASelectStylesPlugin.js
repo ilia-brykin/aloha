@@ -1,7 +1,4 @@
 export const ASelectStylePluginOptions = {
-  propsDefault: {
-
-  },
   cssClasses: [
     {
       label: "_A_SELECT_STYLES_VALUE_D_INLINE_",
@@ -1013,7 +1010,6 @@ export const ASelectStylePluginOptions = {
       groupName: "_A_SELECT_STYLES_GROUP_TEXT_TRANSFORM_",
     },
 
-
     {
       label: "_A_SELECT_STYLES_VALUE_TEXT_BOLD_",
       value: "a_text_bold",
@@ -1056,7 +1052,6 @@ export const ASelectStylePluginOptions = {
       group: "font_weight",
       groupName: "_A_SELECT_STYLES_GROUP_FONT_WEIGHT_",
     },
-
 
     {
       label: "_A_SELECT_STYLES_VALUE_LINE_HEIGHT_1_",
@@ -2358,16 +2353,10 @@ export const ASelectStylePluginOptions = {
   ],
 };
 
-
 export default {
   install: (app, {
-    propsDefault = {},
     cssClasses = [],
   } = {}) => {
-    ASelectStylePluginOptions.propsDefault = {
-      ...ASelectStylePluginOptions.propsDefault,
-      ...propsDefault,
-    };
     ASelectStylePluginOptions.cssClasses = [
       ...ASelectStylePluginOptions.cssClasses,
       ...cssClasses,

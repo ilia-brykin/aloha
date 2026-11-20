@@ -8,12 +8,6 @@ import {
 } from "lodash-es";
 
 export const filtersPluginOptions = ref({
-  propsDefault: {
-    filterCenterBtnCloseAllClass: "a_btn a_btn_link a_btn_small",
-    filterCenterBtnCloseClass: "a_btn a_btn_secondary",
-    filterCenterBtnGoToClass: "a_btn a_btn_secondary",
-    filterCenterBtnNotCloseClass: "a_btn a_btn_secondary",
-  },
   config: {
     isHtmlTitleSort: false,
     headerTopGroups: [
@@ -87,13 +81,8 @@ export const filtersPluginComponentsProps = computed(() => {
 
 export default {
   install: (app, {
-    propsDefault = {},
     config = {},
   } = {}) => {
-    filtersPluginOptions.value.propsDefault = {
-      ...filtersPluginOptions.value.propsDefault,
-      ...propsDefault,
-    };
     filtersPluginOptions.value.config = {
       ...filtersPluginOptions.value.config,
       ...config,

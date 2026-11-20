@@ -43,19 +43,9 @@ const ROUTES = [
     component: () => import("../views/Plugins/PageAlertPlugin/PageAlertPlugin.vue"),
   },
   {
-    path: "/cloak-plugin",
-    name: "PageCloakPlugin",
-    component: () => import("../views/Plugins/PageCloakPlugin/PageCloakPlugin.vue"),
-  },
-  {
     path: "/icon-plugin",
     name: "PageIconsPlugin",
     component: () => import("../views/Plugins/PageIconsPlugin/PageIconsPlugin.vue"),
-  },
-  {
-    path: "/loading-plugin",
-    name: "PageLoadingPlugin",
-    component: () => import("../views/Plugins/PageLoadingPlugin/PageLoadingPlugin.vue"),
   },
   {
     path: "/mobile-plugin",
@@ -63,9 +53,9 @@ const ROUTES = [
     component: () => import("../views/Plugins/PageMobilePlugin/PageMobilePlugin.vue"),
   },
   {
-    path: "/spinner-plugin",
-    name: "PageSpinnerPlugin",
-    component: () => import("../views/Plugins/PageSpinnerPlugin/PageSpinnerPlugin.vue"),
+    path: "/props-default-plugin",
+    name: "PagePropsDefaultPlugin",
+    component: () => import("../views/Plugins/PagePropsDefaultPlugin/PagePropsDefaultPlugin.vue"),
   },
   {
     path: "/page-tab-title-plugin",

@@ -3,10 +3,6 @@ import {
 } from "vue";
 
 export const tablePluginOptions = ref({
-  propsDefault: {
-    borderType: "bordered",
-    isStriped: false,
-  },
   config: {
     isHtmlTitleSort: false,
   },
@@ -14,13 +10,8 @@ export const tablePluginOptions = ref({
 
 export default {
   install: (app, {
-    propsDefault = {},
     config = {},
   } = {}) => {
-    tablePluginOptions.value.propsDefault = {
-      ...tablePluginOptions.value.propsDefault,
-      ...propsDefault,
-    };
     tablePluginOptions.value.config = {
       ...tablePluginOptions.value.config,
       ...config,
